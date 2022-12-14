@@ -12,7 +12,7 @@ import '../../video-player/video-player-container';
 import '../../link-list/index';
 import '../../cta/index';
 import { html } from 'lit-element';
-import ifNonNull from '@carbon/carbon-web-components/es/globals/directives/if-non-null.js';
+import ifNonNull from '@carbon/web-components/es/globals/directives/if-non-null.js';
 import { select } from '@storybook/addon-knobs';
 // eslint-disable-next-line sort-imports
 import { CTA_STYLE, CTA_TYPE } from '../../cta/defs';
@@ -50,8 +50,7 @@ const image = html`
     slot="media"
     alt="Image alt text"
     default-src="${imgLg16x9}"
-    heading="Mauris iaculis eget dolor nec hendrerit."
-  >
+    heading="Mauris iaculis eget dolor nec hendrerit.">
     <dds-image-item media="(min-width: 672px)" srcset="${imgLg16x9}">
     </dds-image-item>
     <dds-image-item media="(min-width: 400px)" srcset="${imgMd16x9}">
@@ -75,8 +74,7 @@ const contentItemCopy =
 const video = html`
   <dds-video-player-container
     slot="media"
-    video-id="0_uka1msg4"
-  ></dds-video-player-container>
+    video-id="0_uka1msg4"></dds-video-player-container>
 `;
 
 const linkListItems = [
@@ -97,8 +95,7 @@ export const Default = (args) => {
 
   return html`
     <dds-content-block-segmented
-      complementary-style-scheme="${ifNonNull(complementaryStyleScheme)}"
-    >
+      complementary-style-scheme="${ifNonNull(complementaryStyleScheme)}">
       <dds-content-block-heading>${heading}</dds-content-block-heading>
       <dds-content-block-copy>${copy}</dds-content-block-copy>
       ${image}
@@ -143,8 +140,7 @@ export const Default = (args) => {
             <dds-card-link-cta
               slot="footer"
               cta-type=${ctaType}
-              href=${hrefsForType[ctaType]}
-            >
+              href=${hrefsForType[ctaType]}>
               <dds-card-link-heading>Lorem ipsum dolor</dds-card-link-heading>
               <dds-card-cta-footer></dds-card-cta-footer>
             </dds-card-link-cta>
@@ -171,8 +167,7 @@ export const withLinkList = (args) => {
 
   return html`
     <dds-content-block-segmented
-      complementary-style-scheme="${ifNonNull(complementaryStyleScheme)}"
-    >
+      complementary-style-scheme="${ifNonNull(complementaryStyleScheme)}">
       <dds-content-block-heading>${blockHeading}</dds-content-block-heading>
       <dds-content-block-copy>${copy}</dds-content-block-copy>
       ${image}
@@ -209,8 +204,7 @@ export const withLinkList = (args) => {
           (linkListCopy) => html`
             <dds-link-list-item-card-cta
               href="https://example.com"
-              cta-type="local"
-            >
+              cta-type="local">
               <p>${linkListCopy}</p>
               <dds-card-cta-footer></dds-card-cta-footer>
             </dds-link-list-item-card-cta>
@@ -231,8 +225,7 @@ export const withLinkList = (args) => {
             <dds-card-link-cta
               slot="footer"
               cta-type=${ctaType}
-              href=${hrefsForType[ctaType]}
-            >
+              href=${hrefsForType[ctaType]}>
               <dds-card-link-heading>Lorem ipsum dolor</dds-card-link-heading>
               <dds-card-cta-footer></dds-card-cta-footer>
             </dds-card-link-cta>

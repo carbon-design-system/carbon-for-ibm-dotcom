@@ -8,7 +8,7 @@
  */
 
 import { html, render } from 'lit-html';
-import ifNonNull from '@carbon/carbon-web-components/es/globals/directives/if-non-null.js';
+import ifNonNull from '@carbon/web-components/es/globals/directives/if-non-null.js';
 import { LocaleList } from '../../../internal/vendor/@carbon/ibmdotcom-services-store/types/localeAPI.d';
 // Above import is interface-only ref and thus code won't be brought into the build
 import '../locale-modal-container';
@@ -70,8 +70,7 @@ const template = (props?) => {
       lang-display="${ifNonNull(langDisplay)}"
       language="${ifNonNull(language)}"
       ?open="${open}"
-      .localeList="${ifNonNull(localeList)}"
-    >
+      .localeList="${ifNonNull(localeList)}">
     </dds-locale-modal-composite>
   `;
 };

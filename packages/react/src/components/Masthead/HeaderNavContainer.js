@@ -284,15 +284,13 @@ const HeaderNavContainer = ({ children }) => {
         <div
           ref={caretLeftRef}
           className={`${prefix}--header__nav-caret-left-container`}
-          hidden
-        >
+          hidden>
           <button
             className={`${prefix}--header__nav-caret-left`}
             aria-label="Masthead left caret"
             onClick={paginateLeft}
             tabIndex="-1"
-            aria-hidden="true"
-          >
+            aria-hidden="true">
             {pageIsRTL ? <CaretRight20 /> : <CaretLeft20 />}
           </button>
           <div className={`${prefix}--header__nav-caret-left-gradient`} />
@@ -300,16 +298,14 @@ const HeaderNavContainer = ({ children }) => {
         <div
           ref={caretRightRef}
           className={`${prefix}--header__nav-caret-right-container`}
-          hidden
-        >
+          hidden>
           <div className={`${prefix}--header__nav-caret-right-gradient`} />
           <button
             className={`${prefix}--header__nav-caret-right`}
             aria-label="Masthead right caret"
             onClick={paginateRight}
             tabIndex="-1"
-            aria-hidden="true"
-          >
+            aria-hidden="true">
             {pageIsRTL ? <CaretLeft20 /> : <CaretRight20 />}
           </button>
         </div>

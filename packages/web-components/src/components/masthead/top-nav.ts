@@ -10,12 +10,12 @@
 import { classMap } from 'lit-html/directives/class-map.js';
 import { html, property, state, query, customElement } from 'lit-element';
 import settings from 'carbon-components/es/globals/js/settings.js';
-import CaretLeft20 from '@carbon/carbon-web-components/es/icons/caret--left/20.js';
-import CaretRight20 from '@carbon/carbon-web-components/es/icons/caret--right/20.js';
-import BXHeaderNav from '@carbon/carbon-web-components/es/components/ui-shell/header-nav.js';
-import ifNonNull from '@carbon/carbon-web-components/es/globals/directives/if-non-null.js';
-import HostListener from '@carbon/carbon-web-components/es/globals/decorators/host-listener.js';
-import HostListenerMixin from '@carbon/carbon-web-components/es/globals/mixins/host-listener.js';
+import CaretLeft20 from '@carbon/web-components/es/icons/caret--left/20.js';
+import CaretRight20 from '@carbon/web-components/es/icons/caret--right/20.js';
+import BXHeaderNav from '@carbon/web-components/es/components/ui-shell/header-nav.js';
+import ifNonNull from '@carbon/web-components/es/globals/directives/if-non-null.js';
+import HostListener from '@carbon/web-components/es/globals/decorators/host-listener.js';
+import HostListenerMixin from '@carbon/web-components/es/globals/mixins/host-listener.js';
 import ddsSettings from '../../internal/vendor/@carbon/ibmdotcom-utilities/utilities/settings/settings';
 import StableSelectorMixin from '../../globals/mixins/stable-selector';
 import styles from './masthead.scss';
@@ -534,15 +534,13 @@ class DDSTopNav extends StableSelectorMixin(HostListenerMixin(BXHeaderNav)) {
             ? html`
                 <div class="${caretRightContainerClasses}">
                   <div
-                    class="${prefix}--header__nav-caret-right-gradient"
-                  ></div>
+                    class="${prefix}--header__nav-caret-right-gradient"></div>
                   <button
                     part="next-button"
                     tabindex="-1"
                     aria-hidden="true"
                     class="${prefix}--header__nav-caret-right"
-                    @click="${paginateRight}"
-                  >
+                    @click="${paginateRight}">
                     ${CaretLeft20()}
                   </button>
                 </div>
@@ -553,12 +551,10 @@ class DDSTopNav extends StableSelectorMixin(HostListenerMixin(BXHeaderNav)) {
                       <div
                         part="menubar"
                         class="${prefix}--header__menu-bar"
-                        aria-label="${ifNonNull(this.menuBarLabel)}"
-                      >
+                        aria-label="${ifNonNull(this.menuBarLabel)}">
                         <slot
                           @slotchange=${handleSlotChange}
-                          @keydown="${handleOnKeyDown}"
-                        ></slot>
+                          @keydown="${handleOnKeyDown}"></slot>
                       </div>
                       <div class="${prefix}--sub-content-left"></div>
                     </nav>
@@ -570,8 +566,7 @@ class DDSTopNav extends StableSelectorMixin(HostListenerMixin(BXHeaderNav)) {
                     tabindex="-1"
                     aria-hidden="true"
                     class="${prefix}--header__nav-caret-left"
-                    @click="${paginateLeft}"
-                  >
+                    @click="${paginateLeft}">
                     ${CaretRight20()}
                   </button>
                   <div class="${prefix}--header__nav-caret-left-gradient"></div>
@@ -584,8 +579,7 @@ class DDSTopNav extends StableSelectorMixin(HostListenerMixin(BXHeaderNav)) {
                     tabindex="-1"
                     aria-hidden="true"
                     class="${prefix}--header__nav-caret-left"
-                    @click="${paginateLeft}"
-                  >
+                    @click="${paginateLeft}">
                     ${CaretLeft20()}
                   </button>
                   <div class="${prefix}--header__nav-caret-left-gradient"></div>
@@ -597,12 +591,10 @@ class DDSTopNav extends StableSelectorMixin(HostListenerMixin(BXHeaderNav)) {
                       <div
                         part="menubar"
                         class="${prefix}--header__menu-bar"
-                        aria-label="${ifNonNull(this.menuBarLabel)}"
-                      >
+                        aria-label="${ifNonNull(this.menuBarLabel)}">
                         <slot
                           @slotchange=${handleSlotChange}
-                          @keydown="${handleOnKeyDown}"
-                        ></slot>
+                          @keydown="${handleOnKeyDown}"></slot>
                       </div>
                       <div class="${prefix}--sub-content-right"></div>
                     </nav>
@@ -610,15 +602,13 @@ class DDSTopNav extends StableSelectorMixin(HostListenerMixin(BXHeaderNav)) {
                 </div>
                 <div class="${caretRightContainerClasses}">
                   <div
-                    class="${prefix}--header__nav-caret-right-gradient"
-                  ></div>
+                    class="${prefix}--header__nav-caret-right-gradient"></div>
                   <button
                     part="next-button"
                     tabindex="-1"
                     aria-hidden="true"
                     class="${prefix}--header__nav-caret-right"
-                    @click="${paginateRight}"
-                  >
+                    @click="${paginateRight}">
                     ${CaretRight20()}
                   </button>
                 </div>

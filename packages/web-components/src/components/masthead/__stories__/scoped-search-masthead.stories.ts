@@ -10,7 +10,7 @@
 import { html } from 'lit-element';
 import { boolean, select } from '@storybook/addon-knobs';
 import on from 'carbon-components/es/globals/js/misc/on.js';
-import ifNonNull from '@carbon/carbon-web-components/es/globals/directives/if-non-null.js';
+import ifNonNull from '@carbon/web-components/es/globals/directives/if-non-null.js';
 import inPercy from '@percy-io/in-percy';
 import textNullable from '../../../../.storybook/knob-text-nullable';
 import DDSLeftNav from '../left-nav';
@@ -90,8 +90,7 @@ export const Default = (args) => {
               unauthenticatedProfileItems
             )}"
             custom-profile-login="${customProfileLogin}"
-            .scopeParameters=${scopeParameters}
-          ></dds-masthead-composite>
+            .scopeParameters=${scopeParameters}></dds-masthead-composite>
         `
       : html`
           <dds-masthead-container
@@ -104,8 +103,7 @@ export const Default = (args) => {
             ?has-profile="${hasProfile}"
             ?has-search="${hasSearch}"
             custom-profile-login="${customProfileLogin}"
-            .scopeParameters=${scopeParameters}
-          ></dds-masthead-container>
+            .scopeParameters=${scopeParameters}></dds-masthead-container>
         `}
   `;
 };

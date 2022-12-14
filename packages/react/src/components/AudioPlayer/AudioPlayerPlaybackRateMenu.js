@@ -50,8 +50,7 @@ const AudioPlayerPlaybackRateMenu = ({
               .toString()
               .split('.')
               .join('-')}x`}
-            onOpen={() => setDisplayVolumeControl(false)}
-          >
+            onOpen={() => setDisplayVolumeControl(false)}>
             {availablePlaybackRates
               .sort((a, b) => {
                 return a - b;

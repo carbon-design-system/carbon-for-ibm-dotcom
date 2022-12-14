@@ -81,8 +81,7 @@ class DDSCTABlockItem extends StableSelectorMixin(DDSContentItem) {
     return html`
       <div
         ?hidden="${!hasStatistic}"
-        class="${prefix}--cta-block-item__statitics"
-      >
+        class="${prefix}--cta-block-item__statitics">
         <slot name="statistics" @slotchange="${handleSlotChange}"></slot>
       </div>
     `;

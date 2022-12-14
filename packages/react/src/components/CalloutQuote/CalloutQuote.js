@@ -21,8 +21,7 @@ const CalloutQuote = ({ quote }) => {
   return (
     <div
       className={`${prefix}--callout-quote`}
-      data-autoid={`${stablePrefix}--callout-quote`}
-    >
+      data-autoid={`${stablePrefix}--callout-quote`}>
       <Callout>
         <Quote {...quote} />
       </Callout>

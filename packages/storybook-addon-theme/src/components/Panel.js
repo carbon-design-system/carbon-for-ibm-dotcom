@@ -31,8 +31,7 @@ const Panel = ({ api, active }) => {
             name="carbon-theme"
             value={currentTheme}
             onChange={handleChange}
-            size="flex"
-          >
+            size="flex">
             <option key="white" value="white">
               White
             </option>

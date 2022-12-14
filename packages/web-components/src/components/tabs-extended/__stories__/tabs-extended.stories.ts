@@ -11,9 +11,9 @@ import { html } from 'lit-element';
 import '../index';
 import '../../content-block-media/index';
 import '../../card-group/index';
-import ifNonNull from '@carbon/carbon-web-components/es/globals/directives/if-non-null.js';
+import ifNonNull from '@carbon/web-components/es/globals/directives/if-non-null.js';
 import { select } from '@storybook/addon-knobs';
-import ArrowRight20 from '@carbon/carbon-web-components/es/icons/arrow--right/20';
+import ArrowRight20 from '@carbon/web-components/es/icons/arrow--right/20';
 import { ORIENTATION } from '../defs';
 import readme from './README.stories.mdx';
 
@@ -35,8 +35,7 @@ export const Default = (args) => {
     <dds-tabs-extended orientation="${ifNonNull(orientation)}">
       <dds-tab
         label="First tab with long text that wraps multiple lines. Lorem ipsum dolor sit amet consectetur adipiscing elit"
-        selected
-      >
+        selected>
         <dds-content-block-media-content>
           <dds-content-item>
             <dds-content-item-heading

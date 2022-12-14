@@ -32,14 +32,6 @@ class BXTab extends BXContentSwitcherItem {
   highlighted = false;
 
   /**
-   * `true` if this tab is in a focused `<bx-tabs>`.
-   *
-   * @private
-   */
-  @property({ type: Boolean, reflect: true, attribute: 'in-focus' })
-  inFocus = false;
-
-  /**
    * Tab type.
    */
   @property({ reflect: true })
@@ -59,9 +51,9 @@ class BXTab extends BXContentSwitcherItem {
       <a
         class="${prefix}--tabs__nav-link"
         role="tab"
+        tabindex="${disabled ? -1 : 0}"
         ?disabled="${disabled}"
-        aria-selected="${Boolean(selected)}"
-      >
+        aria-selected="${Boolean(selected)}">
         <slot></slot>
       </a>
     `;

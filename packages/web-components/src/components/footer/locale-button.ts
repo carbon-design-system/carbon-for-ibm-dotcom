@@ -8,9 +8,9 @@
  */
 
 import { html, property, customElement, LitElement } from 'lit-element';
-import EarthFilled16 from '@carbon/carbon-web-components/es/icons/earth--filled/16.js';
-import FocusMixin from '@carbon/carbon-web-components/es/globals/mixins/focus.js';
-import ifNonNull from '@carbon/carbon-web-components/es/globals/directives/if-non-null.js';
+import EarthFilled16 from '@carbon/web-components/es/icons/earth--filled/16.js';
+import FocusMixin from '@carbon/web-components/es/globals/mixins/focus.js';
+import ifNonNull from '@carbon/web-components/es/globals/directives/if-non-null.js';
 import settings from 'carbon-components/es/globals/js/settings.js';
 import ddsSettings from '../../internal/vendor/@carbon/ibmdotcom-utilities/utilities/settings/settings';
 import { FOOTER_SIZE } from './footer';
@@ -60,8 +60,7 @@ class DDSLocaleButton extends StableSelectorMixin(FocusMixin(LitElement)) {
       <button
         id="button"
         class="${prefix}--btn ${prefix}--btn--tertiary ${prefix}--locale-btn"
-        aria-label="${ifNonNull(buttonLabel)}"
-      >
+        aria-label="${ifNonNull(buttonLabel)}">
         <slot></slot>
         ${EarthFilled16()}
       </button>

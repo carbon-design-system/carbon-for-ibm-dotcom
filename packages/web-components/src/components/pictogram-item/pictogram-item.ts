@@ -42,8 +42,7 @@ class DDSPictogramItem extends StableSelectorMixin(DDSContentItem) {
         <div class="${prefix}--pictogram-item__wrapper">
           <slot
             class="${prefix}--pictogram-item__pictogram"
-            name="pictogram"
-          ></slot>
+            name="pictogram"></slot>
         </div>
         <div class="${prefix}--pictogram-item__content">
           <div class="${prefix}--content-item">${super.render()}</div>

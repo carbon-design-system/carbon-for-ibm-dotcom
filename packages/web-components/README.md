@@ -262,8 +262,7 @@ page:
   <head>
     <link
       rel="stylesheet"
-      href="https://1.www.s81c.com/common/carbon-for-ibm-dotcom/tag/v1/latest/plex.css"
-    />
+      href="https://1.www.s81c.com/common/carbon-for-ibm-dotcom/tag/v1/latest/plex.css" />
     ...
   </head>
 </html>
@@ -290,8 +289,7 @@ would be:
 ```html
 <script
   type="module"
-  src="https://1.www.s81c.com/common/carbon-for-ibm-dotcom/version/[VERSION]/dotcom-shell.min.js"
-></script>
+  src="https://1.www.s81c.com/common/carbon-for-ibm-dotcom/version/[VERSION]/dotcom-shell.min.js"></script>
 ```
 
 or
@@ -308,14 +306,12 @@ A tag release would be called as:
 <!-- LATEST -->
 <script
   type="module"
-  src="https://1.www.s81c.com/common/carbon-for-ibm-dotcom/tag/v1/latest/dotcom-shell.min.js"
-></script>
+  src="https://1.www.s81c.com/common/carbon-for-ibm-dotcom/tag/v1/latest/dotcom-shell.min.js"></script>
 
 <!-- NEXT -->
 <script
   type="module"
-  src="https://1.www.s81c.com/common/carbon-for-ibm-dotcom/tag/v1/next/dotcom-shell.min.js"
-></script>
+  src="https://1.www.s81c.com/common/carbon-for-ibm-dotcom/tag/v1/next/dotcom-shell.min.js"></script>
 ```
 
 A specific release would be called as:
@@ -324,8 +320,7 @@ A specific release would be called as:
 <!-- SPECIFIC VERSION (available starting v1.6.0) -->
 <script
   type="module"
-  src="https://1.www.s81c.com/common/carbon-for-ibm-dotcom/version/v1.x.y/dotcom-shell.min.js"
-></script>
+  src="https://1.www.s81c.com/common/carbon-for-ibm-dotcom/version/v1.x.y/dotcom-shell.min.js"></script>
 ```
 
 > NOTE: The latest/next tags are moving versions. While beneficial to always
@@ -363,8 +358,7 @@ IBM.com Northstar footer:
 <!-- Loads Carbon for IBM.com Web Components masthead -->
 <script
   type="module"
-  src="https://1.www.s81c.com/common/carbon-for-ibm-dotcom/tag/v1/latest/masthead.min.js"
-></script>
+  src="https://1.www.s81c.com/common/carbon-for-ibm-dotcom/tag/v1/latest/masthead.min.js"></script>
 
 ...
 
@@ -475,11 +469,9 @@ The color of the link in the code below changes to the one in the `g100` theme:
     aria-hidden="true"
     width="20"
     height="20"
-    viewBox="0 0 20 20"
-  >
+    viewBox="0 0 20 20">
     <path
-      d="M11.8 2.8L10.8 3.8 16.2 9.3 1 9.3 1 10.7 16.2 10.7 10.8 16.2 11.8 17.2 19 10z"
-    ></path>
+      d="M11.8 2.8L10.8 3.8 16.2 9.3 1 9.3 1 10.7 16.2 10.7 10.8 16.2 11.8 17.2 19 10z"></path>
   </svg>
 </dds-link-with-icon>
 ```

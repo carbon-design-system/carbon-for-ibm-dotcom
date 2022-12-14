@@ -9,10 +9,10 @@
 
 import { text, select, number } from '@storybook/addon-knobs';
 import { html } from 'lit-element';
-import ArrowRight20 from '@carbon/carbon-web-components/es/icons/arrow--right/20.js';
-import ArrowDown20 from '@carbon/carbon-web-components/es/icons/arrow--down/20.js';
-import Pdf20 from '@carbon/carbon-web-components/es/icons/PDF/20.js';
-import ifNonNull from '@carbon/carbon-web-components/es/globals/directives/if-non-null.js';
+import ArrowRight20 from '@carbon/web-components/es/icons/arrow--right/20.js';
+import ArrowDown20 from '@carbon/web-components/es/icons/arrow--down/20.js';
+import Pdf20 from '@carbon/web-components/es/icons/PDF/20.js';
+import ifNonNull from '@carbon/web-components/es/globals/directives/if-non-null.js';
 
 // Above import is interface-only ref and thus code won't be brought into the build
 import '../index';
@@ -92,8 +92,7 @@ export const SuperWithImage = (args) => {
       size="${LEADSPACE_SIZE.SUPER}"
       gradient-style-scheme="${ifNonNull(gradientStyleScheme)}"
       alt="${ifNonNull(alt)}"
-      default-src="${ifNonNull(defaultSrc)}"
-    >
+      default-src="${ifNonNull(defaultSrc)}">
       ${navElements === navigationOptions[0] ? navigationWithTagGroup : ``}
       ${navElements === navigationOptions[1] ? navigationWithBreadcrumbs : ``}
       <dds-leadspace-heading>${ifNonNull(title)}</dds-leadspace-heading>
@@ -113,8 +112,7 @@ export const SuperWithImage = (args) => {
         mobile-position="bottom"
         alt="${ifNonNull(alt)}"
         default-src="${defaultSrc}"
-        opacity="100"
-      >
+        opacity="100">
         <dds-image-item media="(min-width: 1312px)" srcset="${image}">
         </dds-image-item>
         <dds-image-item media="(min-width: 672px)" srcset="${image}">
@@ -147,8 +145,7 @@ export const SuperWithVideo = (args) => {
       size="${LEADSPACE_SIZE.SUPER}"
       gradient-style-scheme="${ifNonNull(gradientStyleScheme)}"
       alt="${ifNonNull(alt)}"
-      default-src="${ifNonNull(defaultSrc)}"
-    >
+      default-src="${ifNonNull(defaultSrc)}">
       ${navElements === navigationOptions[0] ? navigationWithTagGroup : ``}
       ${navElements === navigationOptions[1] ? navigationWithBreadcrumbs : ``}
       <dds-leadspace-heading>${ifNonNull(title)}</dds-leadspace-heading>
@@ -167,8 +164,7 @@ export const SuperWithVideo = (args) => {
       <dds-background-media mobile-position="bottom" opacity="100">
         <dds-video-player-container
           video-id="1_9h94wo6b"
-          background-mode="true"
-        ></dds-video-player-container>
+          background-mode="true"></dds-video-player-container>
       </dds-background-media>
     </dds-leadspace>
   `;
@@ -217,8 +213,7 @@ export const TallWithImage = (args) => {
       size="${LEADSPACE_SIZE.TALL}"
       gradient-style-scheme="${ifNonNull(gradientStyleScheme)}"
       alt="${ifNonNull(alt)}"
-      default-src="${ifNonNull(defaultSrc)}"
-    >
+      default-src="${ifNonNull(defaultSrc)}">
       ${navElements === navigationOptions[0] ? navigationWithTagGroup : ``}
       ${navElements === navigationOptions[1] ? navigationWithBreadcrumbs : ``}
       <dds-leadspace-heading>${ifNonNull(title)}</dds-leadspace-heading>
@@ -238,8 +233,7 @@ export const TallWithImage = (args) => {
         mobile-position="bottom"
         alt="${ifNonNull(alt)}"
         default-src="${defaultSrc}"
-        opacity="100"
-      >
+        opacity="100">
         <dds-image-item media="(min-width: 1312px)" srcset="${image}">
         </dds-image-item>
         <dds-image-item media="(min-width: 672px)" srcset="${image}">
@@ -272,8 +266,7 @@ export const TallWithVideo = (args) => {
       size="${LEADSPACE_SIZE.TALL}"
       gradient-style-scheme="${ifNonNull(gradientStyleScheme)}"
       alt="${ifNonNull(alt)}"
-      default-src="${ifNonNull(defaultSrc)}"
-    >
+      default-src="${ifNonNull(defaultSrc)}">
       ${navElements === navigationOptions[0] ? navigationWithTagGroup : ``}
       ${navElements === navigationOptions[1] ? navigationWithBreadcrumbs : ``}
       <dds-leadspace-heading>${ifNonNull(title)}</dds-leadspace-heading>
@@ -292,8 +285,7 @@ export const TallWithVideo = (args) => {
       <dds-background-media mobile-position="bottom" opacity="100">
         <dds-video-player-container
           video-id="1_9h94wo6b"
-          background-mode="true"
-        ></dds-video-player-container>
+          background-mode="true"></dds-video-player-container>
       </dds-background-media>
     </dds-leadspace>
   `;
@@ -342,8 +334,7 @@ export const MediumWithImage = (args) => {
       size="${LEADSPACE_SIZE.MEDIUM}"
       gradient-style-scheme="${ifNonNull(gradientStyleScheme)}"
       alt="${ifNonNull(alt)}"
-      default-src="${ifNonNull(defaultSrc)}"
-    >
+      default-src="${ifNonNull(defaultSrc)}">
       ${navElements === navigationOptions[0] ? navigationWithTagGroup : ``}
       ${navElements === navigationOptions[1] ? navigationWithBreadcrumbs : ``}
       <dds-leadspace-heading>${ifNonNull(title)}</dds-leadspace-heading>
@@ -363,8 +354,7 @@ export const MediumWithImage = (args) => {
         mobile-position="bottom"
         alt="${ifNonNull(alt)}"
         default-src="${defaultSrc}"
-        opacity="100"
-      >
+        opacity="100">
         <dds-image-item media="(min-width: 1312px)" srcset="${image}">
         </dds-image-item>
         <dds-image-item media="(min-width: 672px)" srcset="${image}">
@@ -397,8 +387,7 @@ export const MediumWithVideo = (args) => {
       size="${LEADSPACE_SIZE.MEDIUM}"
       gradient-style-scheme="${ifNonNull(gradientStyleScheme)}"
       alt="${ifNonNull(alt)}"
-      default-src="${ifNonNull(defaultSrc)}"
-    >
+      default-src="${ifNonNull(defaultSrc)}">
       ${navElements === navigationOptions[0] ? navigationWithTagGroup : ``}
       ${navElements === navigationOptions[1] ? navigationWithBreadcrumbs : ``}
       <dds-leadspace-heading>${ifNonNull(title)}</dds-leadspace-heading>
@@ -417,8 +406,7 @@ export const MediumWithVideo = (args) => {
       <dds-background-media mobile-position="bottom" opacity="100">
         <dds-video-player-container
           video-id="1_9h94wo6b"
-          background-mode="true"
-        ></dds-video-player-container>
+          background-mode="true"></dds-video-player-container>
       </dds-background-media>
     </dds-leadspace>
   `;
@@ -474,8 +462,7 @@ export const ShortWithImage = (args) => {
       size="${LEADSPACE_SIZE.SHORT}"
       gradient-style-scheme="${ifNonNull(gradientStyleScheme)}"
       alt="${ifNonNull(alt)}"
-      default-src="${ifNonNull(defaultSrc)}"
-    >
+      default-src="${ifNonNull(defaultSrc)}">
       ${navElements === navigationOptions[0] ? navigationWithTagGroup : ``}
       ${navElements === navigationOptions[1] ? navigationWithBreadcrumbs : ``}
       <dds-leadspace-heading>${ifNonNull(title)}</dds-leadspace-heading>
@@ -483,8 +470,7 @@ export const ShortWithImage = (args) => {
         mobile-position="bottom"
         alt="${ifNonNull(alt)}"
         default-src="${defaultSrc}"
-        opacity="100"
-      >
+        opacity="100">
         <dds-image-item media="(min-width: 1312px)" srcset="${image}">
         </dds-image-item>
         <dds-image-item media="(min-width: 672px)" srcset="${image}">
@@ -537,16 +523,14 @@ export const ShortWithVideo = (args) => {
       size="${LEADSPACE_SIZE.SHORT}"
       gradient-style-scheme="${ifNonNull(gradientStyleScheme)}"
       alt="${ifNonNull(alt)}"
-      default-src="${ifNonNull(defaultSrc)}"
-    >
+      default-src="${ifNonNull(defaultSrc)}">
       ${navElements === navigationOptions[0] ? navigationWithTagGroup : ``}
       ${navElements === navigationOptions[1] ? navigationWithBreadcrumbs : ``}
       <dds-leadspace-heading>${ifNonNull(title)}</dds-leadspace-heading>
       <dds-background-media mobile-position="bottom" opacity="100">
         <dds-video-player-container
           video-id="1_9h94wo6b"
-          background-mode="true"
-        ></dds-video-player-container>
+          background-mode="true"></dds-video-player-container>
       </dds-background-media>
     </dds-leadspace>
   `;
@@ -589,8 +573,7 @@ export const CenteredWithImage = (args) => {
       ?gradient="${ifNonNull(gradient)}"
       alt="${ifNonNull(alt)}"
       default-src="${ifNonNull(defaultSrc)}"
-      type="centered"
-    >
+      type="centered">
       ${navElements === navigationOptions[0] ? navigationWithTagGroup : ``}
       ${navElements === navigationOptions[1] ? navigationWithBreadcrumbs : ``}
       <dds-leadspace-heading>${ifNonNull(title)}</dds-leadspace-heading>
@@ -610,8 +593,7 @@ export const CenteredWithImage = (args) => {
         mobile-position="bottom"
         alt="${ifNonNull(alt)}"
         default-src="${defaultSrc}"
-        opacity="100"
-      >
+        opacity="100">
         <dds-image-item media="(min-width: 1312px)" srcset="${image}">
         </dds-image-item>
         <dds-image-item media="(min-width: 672px)" srcset="${image}">
@@ -638,8 +620,7 @@ export const CenteredWithVideo = (args) => {
       ?gradient="${ifNonNull(gradient)}"
       alt="${ifNonNull(alt)}"
       default-src="${ifNonNull(defaultSrc)}"
-      type="centered"
-    >
+      type="centered">
       ${navElements === navigationOptions[0] ? navigationWithTagGroup : ``}
       ${navElements === navigationOptions[1] ? navigationWithBreadcrumbs : ``}
       <dds-leadspace-heading>${ifNonNull(title)}</dds-leadspace-heading>
@@ -658,8 +639,7 @@ export const CenteredWithVideo = (args) => {
       <dds-background-media mobile-position="bottom" opacity="100">
         <dds-video-player-container
           video-id="1_9h94wo6b"
-          background-mode="true"
-        ></dds-video-player-container>
+          background-mode="true"></dds-video-player-container>
       </dds-background-media>
     </dds-leadspace>
   `;

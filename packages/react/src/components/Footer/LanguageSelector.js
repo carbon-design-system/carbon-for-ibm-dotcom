@@ -97,8 +97,7 @@ const LanguageSelector = ({
         onChange={(evt) => _setSelectedItem(evt)}
         text={selectedItem.text}
         labelText={labelText}
-        aria-label={labelText}
-      >
+        aria-label={labelText}>
         {renderSelectItems(items)}
       </Select>
     </div>

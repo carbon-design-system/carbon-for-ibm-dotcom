@@ -15,8 +15,7 @@ describe('dds-cloud-masthead-composite', function () {
       render(
         html`
           <dds-cloud-masthead-composite
-            user-status="anonymous"
-          ></dds-cloud-masthead-composite>
+            user-status="anonymous"></dds-cloud-masthead-composite>
         `,
         document.body
       );
@@ -33,8 +32,7 @@ describe('dds-cloud-masthead-composite', function () {
       render(
         html`
           <dds-cloud-masthead-composite
-            user-status="authenticated"
-          ></dds-cloud-masthead-composite>
+            user-status="authenticated"></dds-cloud-masthead-composite>
         `,
         document.body
       );

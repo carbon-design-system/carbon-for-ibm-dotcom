@@ -12,7 +12,6 @@
  * @type {object} Settings object
  * @property {string} [prefix=dds]
  * Carbon for IBM.com v1.41.0',
- *
  */
 const settings = {
   version: 'Carbon for IBM.com v1.41.0',

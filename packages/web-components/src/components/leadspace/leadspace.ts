@@ -82,8 +82,7 @@ class DDSLeadSpace extends StableSelectorMixin(LitElement) {
       <div class="${prefix}--leadspace__row">
         <p
           data-autoid="${ddsPrefix}--leadspace__desc"
-          class="${prefix}--leadspace__desc"
-        >
+          class="${prefix}--leadspace__desc">
           <slot>${copy}</slot>
         </p>
       </div>
@@ -196,8 +195,7 @@ class DDSLeadSpace extends StableSelectorMixin(LitElement) {
               <div class="${prefix}--leadspace__row">
                 <slot
                   name="navigation"
-                  @slotchange="${this._handleSlotChange}"
-                ></slot>
+                  @slotchange="${this._handleSlotChange}"></slot>
                 ${this._renderHeading()}
               </div>
               ${size !== LEADSPACE_SIZE.SHORT

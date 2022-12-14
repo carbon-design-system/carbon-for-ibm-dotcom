@@ -36,8 +36,7 @@ const LinkWithIcon = ({
           [`${prefix}--link-with-icon__container__inverse`]: inverse,
         }
       )}
-      data-autoid={`${stablePrefix}--link-with-icon`}
-    >
+      data-autoid={`${stablePrefix}--link-with-icon`}>
       <Link
         size="lg"
         href={href}
@@ -46,8 +45,7 @@ const LinkWithIcon = ({
           [`${prefix}--link-with-icon--inline-icon`]:
             iconInline && iconPlacement === 'right',
         })}
-        {...props}
-      >
+        {...props}>
         {children}
       </Link>
     </div>

@@ -10,11 +10,11 @@
 import findLast from 'lodash-es/findLast.js';
 import { html, query, property, customElement } from 'lit-element';
 import settings from 'carbon-components/es/globals/js/settings.js';
-import { selectorTabbable } from '@carbon/carbon-web-components/es/globals/settings.js';
-import HostListener from '@carbon/carbon-web-components/es/globals/decorators/host-listener.js';
+import { selectorTabbable } from '@carbon/web-components/es/globals/settings.js';
+import HostListener from '@carbon/web-components/es/globals/decorators/host-listener.js';
 import BXSideNav, {
   SIDE_NAV_USAGE_MODE,
-} from '@carbon/carbon-web-components/es/components/ui-shell/side-nav.js';
+} from '@carbon/web-components/es/components/ui-shell/side-nav.js';
 import ddsSettings from '../../internal/vendor/@carbon/ibmdotcom-utilities/utilities/settings/settings';
 import focuswrap from '../../internal/vendor/@carbon/ibmdotcom-utilities/utilities/focuswrap/focuswrap';
 import { find, forEach } from '../../globals/internal/collection-helpers';
@@ -296,8 +296,7 @@ class DDSLeftNav extends StableSelectorMixin(BXSideNav) {
       <button
         id="${side}-sentinel"
         type="button"
-        class="${prefix}--visually-hidden"
-      ></button>
+        class="${prefix}--visually-hidden"></button>
     `;
   };
 

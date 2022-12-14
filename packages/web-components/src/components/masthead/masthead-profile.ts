@@ -10,11 +10,11 @@
 import { ifDefined } from 'lit-html/directives/if-defined.js';
 import { html, property, query, customElement, LitElement } from 'lit-element';
 import settings from 'carbon-components/es/globals/js/settings.js';
-import User20 from '@carbon/carbon-web-components/es/icons/user/20.js';
-import UserOnline20 from '@carbon/carbon-web-components/es/icons/user--online/20.js';
-import FocusMixin from '@carbon/carbon-web-components/es/globals/mixins/focus.js';
-import HostListenerMixin from '@carbon/carbon-web-components/es/globals/mixins/host-listener.js';
-import HostListener from '@carbon/carbon-web-components/es/globals/decorators/host-listener.js';
+import User20 from '@carbon/web-components/es/icons/user/20.js';
+import UserOnline20 from '@carbon/web-components/es/icons/user--online/20.js';
+import FocusMixin from '@carbon/web-components/es/globals/mixins/focus.js';
+import HostListenerMixin from '@carbon/web-components/es/globals/mixins/host-listener.js';
+import HostListener from '@carbon/web-components/es/globals/decorators/host-listener.js';
 import ddsSettings from '../../internal/vendor/@carbon/ibmdotcom-utilities/utilities/settings/settings';
 import styles from './masthead.scss';
 import StableSelectorMixin from '../../globals/mixins/stable-selector';
@@ -127,8 +127,7 @@ class DDSMastheadProfile extends HostListenerMixin(
         href="javascript:void 0"
         aria-expanded="${String(Boolean(expanded))}"
         aria-label="${ifDefined(triggerLabel)}"
-        @click=${handleClick}
-      >
+        @click=${handleClick}>
         ${authenticated ? UserOnline20() : User20()}
       </a>
       <ul class="${prefix}--header__menu" aria-label="${ifDefined(menuLabel)}">

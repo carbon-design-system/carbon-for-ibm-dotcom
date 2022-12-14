@@ -105,8 +105,7 @@ const _renderCards = (cards, cardsPerRow, containerRef, cta, border) => (
       [`${prefix}--row--condensed`]: !border,
     })}
     style={{ '--dds--card-group--cards-in-row': cardsPerRow }}
-    ref={containerRef}
-  >
+    ref={containerRef}>
     {cards.map((card, index) => {
       return (
         <div key={index} className={`${prefix}--card-group__cards__col`}>

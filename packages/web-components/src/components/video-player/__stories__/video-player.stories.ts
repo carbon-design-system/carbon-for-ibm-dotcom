@@ -9,7 +9,7 @@
 
 import { html } from 'lit-element';
 import { boolean, text } from '@storybook/addon-knobs';
-import ifNonNull from '@carbon/carbon-web-components/es/globals/directives/if-non-null.js';
+import ifNonNull from '@carbon/web-components/es/globals/directives/if-non-null.js';
 import readme from './README.stories.mdx';
 import '../video-player-container';
 import '../../lightbox-media-viewer/lightbox-video-player-container';
@@ -22,8 +22,7 @@ export const Default = (args) => {
       video-id=${videoId}
       caption=${caption}
       ?hide-caption=${hideCaption}
-      thumbnail=${thumbnail}
-    ></dds-video-player-container>
+      thumbnail=${thumbnail}></dds-video-player-container>
   `;
 };
 
@@ -37,8 +36,7 @@ export const aspectRatio1x1 = (args) => {
       aspect-ratio=${aspectRatio}
       caption=${caption}
       ?hide-caption=${hideCaption}
-      thumbnail=${thumbnail}
-    ></dds-video-player-container>
+      thumbnail=${thumbnail}></dds-video-player-container>
   `;
 };
 
@@ -52,8 +50,7 @@ export const aspectRatio4x3 = (args) => {
       aspect-ratio=${aspectRatio}
       caption=${caption}
       ?hide-caption=${hideCaption}
-      thumbnail=${thumbnail}
-    ></dds-video-player-container>
+      thumbnail=${thumbnail}></dds-video-player-container>
   `;
 };
 
@@ -74,8 +71,7 @@ export const withLightboxMediaViewer = (args) => {
       video-description="${ifNonNull(customVideoDescription)}"
       ?hide-caption=${hideCaption}
       thumbnail=${thumbnail}
-      playing-mode="lightbox"
-    >
+      playing-mode="lightbox">
     </dds-video-player-container>
     <dds-lightbox-video-player-container></dds-lightbox-video-player-container>
   `;
