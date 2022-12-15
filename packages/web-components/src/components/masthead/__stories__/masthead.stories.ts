@@ -74,10 +74,9 @@ export const Default = args => {
     selectedMenuItem,
     searchPlaceholder,
     userStatus,
-    navLinks,
     authMethod,
+    useMock,
   } = args?.MastheadComposite ?? {};
-  const { useMock } = args?.Other ?? {};
   return html`
     <style>
       ${styles}
@@ -93,7 +92,7 @@ export const Default = args => {
             .authenticatedProfileItems="${ifNonNull(authenticatedProfileItems)}"
             has-profile="${hasProfile}"
             ?has-search="${hasSearch}"
-            .navLinks="${navLinks}"
+            .navLinks="${links}"
             .unauthenticatedProfileItems="${ifNonNull(unauthenticatedProfileItems)}"
             custom-profile-login="${customProfileLogin}"
             auth-method="${MASTHEAD_AUTH_METHOD.DEFAULT}"
@@ -106,8 +105,8 @@ export const Default = args => {
             selected-menu-item="${ifNonNull(selectedMenuItem)}"
             user-status="${ifNonNull(userStatus)}"
             searchPlaceholder="${ifNonNull(searchPlaceholder)}"
-            .navLinks="${navLinks}"
             has-profile="${hasProfile}"
+            .navLinks="${links}"
             ?has-search="${hasSearch}"
             custom-profile-login="${customProfileLogin}"
             auth-method="${authMethod}"
@@ -116,10 +115,18 @@ export const Default = args => {
   `;
 };
 
-export const withV2Data = ({ parameters }) => {
-  const { customProfileLogin, hasProfile, hasSearch, searchPlaceholder, userStatus, navLinks, hasContact, platform } =
-    parameters?.props?.MastheadComposite ?? {};
-  const { useMock } = parameters?.props?.Other ?? {};
+export const withV2Data = args => {
+  const {
+    customProfileLogin,
+    hasProfile,
+    hasSearch,
+    selectedMenuItem,
+    searchPlaceholder,
+    userStatus,
+    hasContact,
+    platform,
+    useMock,
+  } = args?.MastheadComposite ?? {};
   return html`
     <style>
       ${styles}
@@ -127,12 +134,13 @@ export const withV2Data = ({ parameters }) => {
     ${useMock
       ? html`
           <dds-masthead-composite
+            selected-menu-item="${ifNonNull(selectedMenuItem)}"
             user-status="${ifNonNull(userStatus)}"
             searchPlaceholder="${ifNonNull(searchPlaceholder)}"
             .authenticatedProfileItems="${ifNonNull(authenticatedProfileItems)}"
             has-profile="${hasProfile}"
             ?has-search="${hasSearch}"
-            .navLinks="${navLinks}"
+            .navLinks="${links}"
             .unauthenticatedProfileItems="${ifNonNull(unauthenticatedProfileItems)}"
             custom-profile-login="${customProfileLogin}"
             auth-method="${MASTHEAD_AUTH_METHOD.DEFAULT}"
@@ -142,10 +150,10 @@ export const withV2Data = ({ parameters }) => {
       : html`
           <dds-masthead-container
             data-endpoint="/common/carbon-for-ibm-dotcom/translations/masthead-footer/v2"
+            selected-menu-item="${ifNonNull(selectedMenuItem)}"
             platform="${ifNonNull(platform)}"
             user-status="${ifNonNull(userStatus)}"
             searchPlaceholder="${ifNonNull(searchPlaceholder)}"
-            .navLinks="${navLinks}"
             has-profile="${hasProfile}"
             ?has-search="${hasSearch}"
             custom-profile-login="${customProfileLogin}"
@@ -161,9 +169,8 @@ withV2Data.story = {
 };
 
 export const withCloudData = ({ parameters }) => {
-  const { customProfileLogin, hasSearch, selectedMenuItem, searchPlaceholder, navLinks, platform } =
+  const { customProfileLogin, hasSearch, selectedMenuItem, searchPlaceholder, platform, useMock } =
     parameters?.props?.MastheadComposite ?? {};
-  const { useMock } = parameters?.props?.Other ?? {};
   return html`
     <style>
       ${styles}
@@ -177,7 +184,7 @@ export const withCloudData = ({ parameters }) => {
             searchPlaceholder="${ifNonNull(searchPlaceholder)}"
             .authenticatedProfileItems="${ifNonNull(authenticatedProfileItems)}"
             ?has-search="${hasSearch}"
-            .navLinks="${navLinks}"
+            .navLinks="${links}"
             .unauthenticatedProfileItems="${ifNonNull(unauthenticatedProfileItems)}"
             custom-profile-login="${customProfileLogin}"
             auth-method="${MASTHEAD_AUTH_METHOD.COOKIE}"
@@ -190,7 +197,6 @@ export const withCloudData = ({ parameters }) => {
             .platformUrl="${ifNonNull(platformData.url)}"
             selected-menu-item="${ifNonNull(selectedMenuItem)}"
             searchPlaceholder="${ifNonNull(searchPlaceholder)}"
-            .navLinks="${navLinks}"
             ?has-search="${hasSearch}"
             custom-profile-login="${customProfileLogin}"
             auth-method="${MASTHEAD_AUTH_METHOD.COOKIE}"
@@ -203,15 +209,14 @@ export const WithCustomTypeahead = args => {
   const {
     endpoint,
     customProfileLogin,
-    navLinks,
     platform,
     selectedMenuItem,
     userStatus,
     searchPlaceholder,
     hasProfile,
     hasSearch,
+    useMock,
   } = args?.MastheadComposite ?? {};
-  const { useMock } = args?.Other ?? {};
 
   document.documentElement.addEventListener('dds-search-with-typeahead-input', async e => {
     const results = await customTypeaheadApiFunction((e as CustomEvent).detail.value);
@@ -233,7 +238,7 @@ export const WithCustomTypeahead = args => {
             .authenticatedProfileItems="${ifNonNull(authenticatedProfileItems)}"
             has-profile="${hasProfile}"
             ?has-search="${hasSearch}"
-            .navLinks="${navLinks}"
+            .navLinks="${links}"
             .unauthenticatedProfileItems="${ifNonNull(unauthenticatedProfileItems)}"
             custom-profile-login="${customProfileLogin}"
             ?custom-typeahead-api=${true}
@@ -247,7 +252,7 @@ export const WithCustomTypeahead = args => {
             selected-menu-item="${ifNonNull(selectedMenuItem)}"
             user-status="${ifNonNull(userStatus)}"
             searchPlaceholder="${ifNonNull(searchPlaceholder)}"
-            .navLinks="${navLinks}"
+            .navLinks="${links}"
             has-profile="${hasProfile}"
             ?has-search="${hasSearch}"
             custom-profile-login="${customProfileLogin}"
@@ -271,9 +276,8 @@ export const searchOpenOnload = args => {
     searchPlaceholder,
     hasProfile,
     hasSearch,
-    navLinks,
+    useMock,
   } = args?.MastheadComposite ?? {};
-  const { useMock } = args?.Other ?? {};
   return html`
     <style>
       ${styles}
@@ -288,7 +292,7 @@ export const searchOpenOnload = args => {
             user-status="${ifNonNull(userStatus)}"
             searchPlaceholder="${ifNonNull(searchPlaceholder)}"
             .authenticatedProfileItems="${ifNonNull(authenticatedProfileItems)}"
-            .navLinks="${navLinks}"
+            .navLinks="${links}"
             has-profile="${hasProfile}"
             ?has-search="${hasSearch}"
             .unauthenticatedProfileItems="${ifNonNull(unauthenticatedProfileItems)}"
@@ -304,7 +308,7 @@ export const searchOpenOnload = args => {
             selected-menu-item="${ifNonNull(selectedMenuItem)}"
             user-status="${ifNonNull(userStatus)}"
             searchPlaceholder="${ifNonNull(searchPlaceholder)}"
-            .navLinks="${navLinks}"
+            .navLinks="${links}"
             has-profile="${hasProfile}"
             ?has-search="${hasSearch}"
             custom-profile-login="${customProfileLogin}"
@@ -318,9 +322,8 @@ searchOpenOnload.story = {
 };
 
 export const withPlatform = args => {
-  const { endpoint, selectedMenuItem, userStatus, navLinks, hasProfile, hasSearch, searchPlaceholder, platform } =
+  const { endpoint, selectedMenuItem, userStatus, hasProfile, hasSearch, searchPlaceholder, platform, useMock } =
     args?.MastheadComposite ?? {};
-  const { useMock } = args?.Other ?? {};
   return html`
     <style>
       ${styles}
@@ -334,7 +337,7 @@ export const withPlatform = args => {
             user-status="${ifNonNull(userStatus)}"
             searchPlaceholder="${ifNonNull(searchPlaceholder)}"
             .authenticatedProfileItems="${ifNonNull(authenticatedProfileItems)}"
-            .navLinks="${navLinks}"
+            .navLinks="${links}"
             has-profile="${hasProfile}"
             ?has-search="${hasSearch}"
             .unauthenticatedProfileItems="${ifNonNull(unauthenticatedProfileItems)}"
@@ -345,6 +348,7 @@ export const withPlatform = args => {
             data-endpoint="${ifNonNull(endpoint)}"
             platform="${ifNonNull(platform)}"
             .platformUrl="${ifNonNull(platformData.url)}"
+            .navLinks="${links}"
             user-status="${ifNonNull(userStatus)}"
             searchPlaceholder="${ifNonNull(searchPlaceholder)}"
             has-profile="${hasProfile}"
@@ -383,9 +387,8 @@ withPlatform.story = {
 };
 
 export const withL1 = args => {
-  const { endpoint, selectedMenuItem, userStatus, navLinks, hasProfile, hasSearch, searchPlaceholder, platform } =
+  const { endpoint, selectedMenuItem, userStatus, hasProfile, hasSearch, searchPlaceholder, platform, useMock } =
     args?.MastheadComposite ?? {};
-  const { useMock } = args?.Other ?? {};
   return html`
     <style>
       ${styles}
@@ -400,7 +403,7 @@ export const withL1 = args => {
             has-profile="${hasProfile}"
             ?has-search="${hasSearch}"
             .l1Data="${mastheadL1Data}"
-            .navLinks="${navLinks}"
+            .navLinks="${links}"
             .unauthenticatedProfileItems="${ifNonNull(unauthenticatedProfileItems)}"
           ></dds-masthead-composite>
         `
@@ -414,7 +417,7 @@ export const withL1 = args => {
             has-profile="${hasProfile}"
             ?has-search="${hasSearch}"
             .l1Data="${mastheadL1Data}"
-            .navLinks="${navLinks}"
+            .navLinks="${links}"
           ></dds-masthead-container>
         `}
   `;
@@ -449,9 +452,8 @@ withL1.story = {
 };
 
 export const withAlternateLogoAndTooltip = args => {
-  const { endpoint, selectedMenuItem, userStatus, navLinks, hasProfile, hasSearch, searchPlaceholder, mastheadLogo, platform } =
+  const { endpoint, selectedMenuItem, userStatus, hasProfile, hasSearch, searchPlaceholder, mastheadLogo, platform, useMock } =
     args?.MastheadComposite ?? {};
-  const { useMock } = args?.Other ?? {};
   return html`
     <style>
       ${styles}
@@ -465,7 +467,7 @@ export const withAlternateLogoAndTooltip = args => {
             .authenticatedProfileItems="${ifNonNull(authenticatedProfileItems)}"
             has-profile="${hasProfile}"
             ?has-search="${hasSearch}"
-            .navLinks="${navLinks}"
+            .navLinks="${links}"
             .logoData="${mastheadLogo === 'alternateWithTooltip' ? logoData : undefined}"
             .unauthenticatedProfileItems="${ifNonNull(unauthenticatedProfileItems)}"
           ></dds-masthead-composite>
@@ -478,7 +480,7 @@ export const withAlternateLogoAndTooltip = args => {
             selected-menu-item="${ifNonNull(selectedMenuItem)}"
             user-status="${ifNonNull(userStatus)}"
             searchPlaceholder="${ifNonNull(searchPlaceholder)}"
-            .navLinks="${navLinks}"
+            .navLinks="${links}"
             .logoData="${mastheadLogo === 'alternateWithTooltip' ? logoData : undefined}"
             has-profile="${hasProfile}"
             ?has-search="${hasSearch}"
@@ -548,20 +550,9 @@ export default {
         userStatus: select('The user authenticated status (user-status)', userStatuses, userStatuses.unauthenticated),
         customProfileLogin:
           DDS_CUSTOM_PROFILE_LOGIN && textNullable('custom profile login url (customProfileLogin)', 'https://www.example.com/'),
+        useMock: boolean('use mock nav data (use-mock)', false),
       }),
     },
-    props: (() => {
-      // Lets `<dds-masthead-container>` load the nav links
-      const useMock = inPercy() || new URLSearchParams(window.location.search).has('mock');
-      return {
-        MastheadComposite: {
-          navLinks: !useMock ? undefined : links,
-        },
-        Other: {
-          useMock,
-        },
-      };
-    })(),
     propsSet: {
       default: {
         MastheadComposite: {
@@ -572,7 +563,7 @@ export default {
           selectedMenuItem: 'Services & Consulting',
           userStatus: userStatuses.unauthenticated,
           customProfileLogin: 'https://www.example.com/',
-          navLinks: links,
+          useMockData: false,
         },
       },
     },

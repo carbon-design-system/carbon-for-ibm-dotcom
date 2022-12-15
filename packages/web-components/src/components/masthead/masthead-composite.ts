@@ -45,6 +45,7 @@ import './masthead-global-bar';
 import './masthead-profile';
 import './masthead-profile-item';
 import './megamenu';
+import './megamenu-heading';
 import './megamenu-top-nav-menu';
 import './skip-to-content';
 import './top-nav';
@@ -140,10 +141,10 @@ class DDSMastheadComposite extends HostListenerMixin(LitElement) {
    * @param sections menu section data object
    */
   // eslint-disable-next-line class-methods-use-this
-  protected _getHighlightedMenuItems(sections) {
+  protected _getMenuItems(sections) {
     const highlightedItems: MastheadMenuItem[] = [];
-    let viewAllLink;
     const menu: MastheadMenuItem[] = [];
+    let viewAllLink;
 
     sections[0]?.menuItems?.forEach((item: MastheadMenuItem) => {
       if (item.highlighted) return highlightedItems.push(item);
@@ -219,18 +220,20 @@ class DDSMastheadComposite extends HostListenerMixin(LitElement) {
                   >${item.megapanelContent?.description}</dds-megamenu-category-heading
                 >
                 <dds-megamenu-category-link-group>
-                  ${item?.megapanelContent?.quickLinks?.links.map(
-                    link =>
-                      html`
-                        <dds-megamenu-category-link
-                          href="${ifDefined(link.url)}"
-                          title="${link.title}"
-                          target="${ifDefined(link?.target)}"
-                        >
+                  ${item?.megapanelContent?.quickLinks?.links.map(link => {
+                    if (link.description) {
+                      return html`
+                        <dds-megamenu-category-link title="${link.title}" href="${ifDefined(link.url)}">
                           ${link.description}
                         </dds-megamenu-category-link>
-                      `
-                  )}
+                      `;
+                    }
+                    return html`
+                      <dds-megamenu-category-link href="${ifDefined(link.url)}">
+                        ${link.title}
+                      </dds-megamenu-category-link>
+                    `;
+                  })}
                 </dds-megamenu-category-link-group>
               </div>
             `;
@@ -248,43 +251,59 @@ class DDSMastheadComposite extends HostListenerMixin(LitElement) {
    */
   // eslint-disable-next-line
   protected _renderMegaMenuListing(sections, _parentKey) {
-    const { viewAllLink, highlightedItems, menu } = this._getHighlightedMenuItems(sections);
+    const {
+      headingTitle: headingTitleNew,
+      heading: headingTitleDeprecated,
+      description: headingDescription,
+      headingUrl,
+    } = sections[0];
+    const { viewAllLink, highlightedItems, menu } = this._getMenuItems(sections);
     const hasHighlights = highlightedItems.length !== 0;
+    const headingTitle = headingTitleNew || headingTitleDeprecated;
+
+    if (headingTitleDeprecated) {
+      // Deprecation notice
+      // eslint-disable-next-line
+      console.warn('DDSMasthead: "heading" menu section key is deprecated, use "headingTitle" instead');
+    }
     return html`
       <dds-megamenu layout="${MEGAMENU_LAYOUT_SCHEME.LIST}">
         ${hasHighlights
           ? html`
               <dds-megamenu-left-navigation>
-                ${sections[0]?.heading &&
-                  html`
-                    <dds-megamenu-category-group-copy>${sections[0]?.heading}</dds-megamenu-category-group-copy>
-                  `}
                 ${highlightedItems.map((item, i) => {
                   const autoid = `${ddsPrefix}--masthead__l0-nav-list${i}`;
                   return html`
                     <dds-megamenu-category-group data-autoid="${autoid}" href="${ifDefined(item.url)}" title="${item.title}">
                       <dds-megamenu-category-group-copy>${item.megapanelContent?.description}</dds-megamenu-category-group-copy>
-                      ${item.megapanelContent?.quickLinks?.links.map(({ title, url, highlightedLink }, key) => {
+                      ${item.megapanelContent?.quickLinks?.links.map(({ title, url, description, highlightedLink }, key) => {
+                        if (highlightedLink) {
+                          return html`
+                            <dds-megamenu-link-with-icon
+                              data-autoid="${autoid}-item${key}"
+                              href="${ifDefined(url)}"
+                              style-scheme="category-sublink"
+                              title="${title}"
+                            >
+                              <span>${title}</span>${ArrowRight16({ slot: 'icon' })}
+                            </dds-megamenu-link-with-icon>
+                          `;
+                        }
+                        if (description) {
+                          return html`
+                            <dds-megamenu-category-link
+                              data-autoid="${autoid}-item${key}"
+                              title="${title}"
+                              href="${ifDefined(url)}"
+                            >
+                              ${description}
+                            </dds-megamenu-category-link>
+                          `;
+                        }
                         return html`
-                          ${highlightedLink
-                            ? html`
-                                <dds-megamenu-link-with-icon
-                                  data-autoid="${autoid}-item${key}"
-                                  href="${ifDefined(url)}"
-                                  style-scheme="category-sublink"
-                                  title="${title}"
-                                >
-                                  <span>${title}</span>${ArrowRight16({ slot: 'icon' })}
-                                </dds-megamenu-link-with-icon>
-                              `
-                            : html`
-                                <dds-megamenu-category-link
-                                  data-autoid="${autoid}-item${key}"
-                                  title="${title}"
-                                  href="${ifDefined(url)}"
-                                >
-                                </dds-megamenu-category-link>
-                              `}
+                          <dds-megamenu-category-link data-autoid="${autoid}-item${key}" href="${ifDefined(url)}">
+                            ${title}
+                          </dds-megamenu-category-link>
                         `;
                       })}
                     </dds-megamenu-category-group>
@@ -300,13 +319,28 @@ class DDSMastheadComposite extends HostListenerMixin(LitElement) {
           view-all-href="${ifNonNull(viewAllLink?.url)}"
           view-all-title="${ifNonNull(viewAllLink?.title)}"
         >
+          ${headingTitle
+            ? html`
+                <dds-megamenu-heading href="${headingUrl}" title="${headingTitle}" slot="heading">
+                  ${headingDescription}
+                </dds-megamenu-heading>
+              `
+            : null}
           ${menu.map((item, j) => {
             const autoid = `${ddsPrefix}--masthead__l0-nav-list${j + highlightedItems.length}`;
             return html`
               <dds-megamenu-category-group data-autoid="${autoid}" href="${ifDefined(item.url)}" title="${item.title}">
-                ${item.megapanelContent?.quickLinks?.links.map(({ title, url }, key) => {
+                ${item.megapanelContent?.quickLinks?.links.map(({ title, url, description }, key) => {
+                  if (description) {
+                    return html`
+                      <dds-megamenu-category-link data-autoid="${autoid}-item${key}" title="${title}" href="${ifDefined(url)}">
+                        ${description}
+                      </dds-megamenu-category-link>
+                    `;
+                  }
                   return html`
-                    <dds-megamenu-category-link data-autoid="${autoid}-item${key}" title="${title}" href="${ifDefined(url)}">
+                    <dds-megamenu-category-link data-autoid="${autoid}-item${key}" href="${ifDefined(url)}">
+                      ${title}
                     </dds-megamenu-category-link>
                   `;
                 })}
@@ -476,7 +510,7 @@ class DDSMastheadComposite extends HostListenerMixin(LitElement) {
         let highlightedItems: MastheadMenuItem[] = [];
 
         if (elem.hasMegapanel) {
-          const { viewAllLink, highlightedItems: hightlighted, menu: nonHighlightedMenuItems } = this._getHighlightedMenuItems(
+          const { viewAllLink, highlightedItems: hightlighted, menu: nonHighlightedMenuItems } = this._getMenuItems(
             elem.menuSections
           );
           highlightedItems = hightlighted;

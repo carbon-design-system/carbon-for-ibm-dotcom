@@ -53,11 +53,17 @@ class DDSMegaMenuCategoryLink extends BXLink {
   protected _renderInner() {
     const { title } = this;
     return html`
-      <div>
-        <span>${title}${this._renderIcon()}</span>
-        <slot name="icon" @slotchange="${this._handleSlotChange}"></slot>
-      </div>
-      <span><slot></slot></span>
+      ${title
+        ? html`
+            <div part="link-heading">
+              <span>${title}${this._renderIcon()}</span>
+              <slot name="icon" @slotchange="${this._handleSlotChange}"></slot>
+            </div>
+          `
+        : ''}
+      <span part="link-description">
+        <slot></slot>
+      </span>
     `;
   }
 

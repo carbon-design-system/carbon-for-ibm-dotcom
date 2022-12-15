@@ -53,6 +53,14 @@ class DDSMegaMenuRightNavigation extends LitElement {
     return classMap({
       [`${prefix}--masthead__megamenu--hasHighlights`]: this.styleScheme === MEGAMENU_RIGHT_NAVIGATION_STYLE_SCHEME.LEFT_SECTION,
       [`${prefix}--masthead__megamenu--hasViewAllLink`]: this.viewAllHref,
+    });
+  }
+
+  /**
+   * Returns a class-name(s) for categories container
+   */
+  protected _getCategoriesClassNames() {
+    return classMap({
       [`${prefix}--masthead__megamenu__categories`]: this.styleScheme !== MEGAMENU_RIGHT_NAVIGATION_STYLE_SCHEME.TAB,
     });
   }
@@ -60,14 +68,19 @@ class DDSMegaMenuRightNavigation extends LitElement {
   render() {
     return html`
       <div class="${this._getClassNames()}">
-        <slot></slot>
+        <div class="${prefix}--masthead__megamenu__heading">
+          <slot name="heading"></slot>
+        </div>
+        <div class="${this._getCategoriesClassNames()}">
+          <slot></slot>
+        </div>
+        ${this.viewAllHref &&
+          html`
+            <dds-megamenu-link-with-icon href="${this.viewAllHref}" style-scheme="view-all" part="view-all">
+              <span>${this.viewAllTitle}</span>${ArrowRight16({ slot: 'icon' })}
+            </dds-megamenu-link-with-icon>
+          `}
       </div>
-      ${this.viewAllHref &&
-        html`
-          <dds-megamenu-link-with-icon href="${this.viewAllHref}" style-scheme="view-all" part="view-all">
-            <span>${this.viewAllTitle}</span>${ArrowRight16({ slot: 'icon' })}
-          </dds-megamenu-link-with-icon>
-        `}
     `;
   }
 

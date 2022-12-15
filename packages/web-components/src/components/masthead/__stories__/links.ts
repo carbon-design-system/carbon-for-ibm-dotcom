@@ -61,7 +61,7 @@ const l1Data: MastheadL1 = {
       hasMegapanel: false,
       menuSections: [
         {
-          heading: 'Explore',
+          headingTitle: 'Explore',
           menuItems: [
             {
               title: 'Link 1',
@@ -114,7 +114,7 @@ const l1Data: MastheadL1 = {
       hasMenu: true,
       menuSections: [
         {
-          heading: '',
+          headingTitle: '',
           menuItems: [
             {
               title: 'Link 2',
@@ -208,7 +208,7 @@ const l1Data: MastheadL1 = {
       hasMegapanel: false,
       menuSections: [
         {
-          heading: '',
+          headingTitle: '',
           menuItems: [
             {
               title: 'IBM Developer',
@@ -438,7 +438,7 @@ const mastheadL1Data: MastheadL1 = {
  */
 const mastheadLinks: MastheadLink[] = [
   {
-    title: 'Products',
+    title: 'Mock Products',
     titleEnglish: 'Products',
     url: '',
     hasMenu: true,
@@ -446,7 +446,7 @@ const mastheadLinks: MastheadLink[] = [
     megamenuLayout: 'tab',
     menuSections: [
       {
-        heading: '',
+        headingTitle: '',
         menuItems: [
           {
             title: 'Featured',
@@ -1484,7 +1484,7 @@ const mastheadLinks: MastheadLink[] = [
     megamenuLayout: 'tab',
     menuSections: [
       {
-        heading: '',
+        headingTitle: '',
         menuItems: [
           {
             title: 'Automation',
@@ -2222,7 +2222,7 @@ const mastheadLinks: MastheadLink[] = [
     megamenuLayout: 'tab',
     menuSections: [
       {
-        heading: '',
+        headingTitle: '',
         menuItems: [
           {
             title: 'Overview',
@@ -2852,7 +2852,9 @@ const mastheadLinks: MastheadLink[] = [
     megamenuLayout: 'list',
     menuSections: [
       {
-        heading: '',
+        headingTitle: 'Heading',
+        headingUrl: 'https://www.example.com',
+        description: 'Description text lorem ipsum dolor sit amet commondo ligua eaget',
         menuItems: [
           {
             title: 'What is...',
@@ -2861,7 +2863,7 @@ const mastheadLinks: MastheadLink[] = [
             megapanelContent: {
               headingTitle: 'What is...',
               headingUrl: 'https://www.ibm.com/cloud/learn?lnk=hpmls_buwi',
-              description: '',
+              description: 'Lorem ipsum dolor sit amet',
               quickLinks: {
                 title: '',
                 links: [
@@ -2869,6 +2871,7 @@ const mastheadLinks: MastheadLink[] = [
                     title: 'Artificial intelligence',
                     titleEnglish: 'Artificial intelligence',
                     url: 'https://www.ibm.com/cloud/learn/what-is-artificial-intelligence?lnk=hpmls_buwi',
+                    description: 'Description text lorem ipsum dolor sit amet commondo ligua eaget',
                   },
                   {
                     title: 'Automation',
@@ -2948,11 +2951,12 @@ const mastheadLinks: MastheadLink[] = [
           {
             title: 'Training',
             titleEnglish: 'Training',
+            highlighted: true,
             url: 'https://www.ibm.com/training/?lnk=hpmls_butr',
             megapanelContent: {
               headingTitle: 'Training',
               headingUrl: 'https://www.ibm.com/training/?lnk=hpmls_butr',
-              description: '',
+              description: 'Description text lorem ipsum dolor sit amet commondo ligua eaget',
               quickLinks: {
                 title: '',
                 links: [
@@ -2965,6 +2969,7 @@ const mastheadLinks: MastheadLink[] = [
                     title: 'Learning journeys',
                     titleEnglish: 'Learning journeys',
                     url: 'https://www.ibm.com/training/journeys?lnk=hpmls_butr',
+                    description: 'Description text lorem ipsum dolor sit amet commondo ligua eaget',
                   },
                   {
                     title: 'Professional certifications',
@@ -3087,6 +3092,7 @@ const mastheadLinks: MastheadLink[] = [
             title: 'Community',
             titleEnglish: 'Community',
             url: '',
+            highlighted: true,
             megapanelContent: {
               headingTitle: 'Community',
               headingUrl: '',
@@ -3123,6 +3129,7 @@ const mastheadLinks: MastheadLink[] = [
             title: 'Resources',
             titleEnglish: 'Resources',
             url: 'https://www.ibm.com/blogs/?lnk=hpmls_bure',
+            highlighted: true,
             megapanelContent: {
               headingTitle: 'Resources',
               headingUrl: 'https://www.ibm.com/blogs/?lnk=hpmls_bure',
@@ -3226,6 +3233,12 @@ const mastheadLinks: MastheadLink[] = [
             titleEnglish: 'Newsletter subscriptions',
             url: 'https://www.ibm.com/subscribe/',
           },
+          {
+            title: 'View all (demo)',
+            titleEnglish: 'View all (demo)',
+            url: 'https://www.example.com',
+            megaPanelViewAll: true,
+          },
         ],
       },
     ],
@@ -3239,7 +3252,7 @@ const mastheadLinks: MastheadLink[] = [
     megamenuLayout: 'list',
     menuSections: [
       {
-        heading: '',
+        headingTitle: '',
         menuItems: [
           {
             title: 'Partner with us',
@@ -3439,7 +3452,7 @@ const customLinks: MastheadLink[] = [
     hasMegapanel: true,
     menuSections: [
       {
-        heading: 'The essentials',
+        headingTitle: 'The essentials',
         menuItems: [
           {
             title: 'Hybrid Cloud',
@@ -3760,7 +3773,7 @@ const customLinks: MastheadLink[] = [
     hasMegapanel: true,
     menuSections: [
       {
-        heading: 'Explore',
+        headingTitle: 'Explore',
         menuItems: [
           {
             title: 'Link 1',
@@ -3809,7 +3822,7 @@ const customLinks: MastheadLink[] = [
     hasMenu: true,
     menuSections: [
       {
-        heading: '',
+        headingTitle: '',
         menuItems: [
           {
             title: 'Link 1',
@@ -3877,7 +3890,7 @@ const customLinks: MastheadLink[] = [
     hasMegapanel: true,
     menuSections: [
       {
-        heading: '',
+        headingTitle: '',
         menuItems: [
           {
             title: 'IBM Developer',
