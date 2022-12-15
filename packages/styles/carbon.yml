@@ -4,7 +4,7 @@ library:
   name: IBM.com Styles
   description: Apply framework-agnostic styles to any IBM.com component.
   noIndex: true
-  externalDocsUrl: www.ibm.com/standards/web/carbon-for-ibm-dotcom
+  externalDocsUrl: https://www.ibm.com/standards/web/carbon-for-ibm-dotcom
   designKits:
     ibm-dotcom-white-figma:
       $ref: https://unpkg.com/@carbon-platform/resources/carbon.yml#/designKits/ibm-dotcom-white-figma

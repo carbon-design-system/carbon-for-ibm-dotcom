@@ -17,6 +17,10 @@ import PlayOutline20 from 'carbon-web-components/es/icons/play--outline/20.js';
 import Blog20 from 'carbon-web-components/es/icons/blog/20.js';
 import DocumentPDF20 from 'carbon-web-components/es/icons/document--pdf/20.js';
 import NewTab20 from 'carbon-web-components/es/icons/new-tab/20.js';
+import Phone20 from 'carbon-web-components/es/icons/phone/20.js';
+import Calendar20 from 'carbon-web-components/es/icons/calendar/20.js';
+import Email20 from 'carbon-web-components/es/icons/email/20.js';
+import Chat20 from 'carbon-web-components/es/icons/chat/20.js';
 import ddsSettings from '../../internal/vendor/@carbon/ibmdotcom-utilities/utilities/settings/settings';
 import { Constructor } from '../../globals/defs';
 import { CTA_TYPE } from '../../components/cta/defs';
@@ -36,6 +40,10 @@ export const icons = {
   [CTA_TYPE.VIDEO]: PlayOutline20,
   [CTA_TYPE.PDF]: DocumentPDF20,
   [CTA_TYPE.BLOG]: Blog20,
+  [CTA_TYPE.EMAIL]: Email20,
+  [CTA_TYPE.SCHEDULE]: Calendar20,
+  [CTA_TYPE.CHAT]: Chat20,
+  [CTA_TYPE.CALL]: Phone20,
 };
 
 /**
@@ -111,7 +119,10 @@ const CTAMixin = <T extends Constructor<HTMLElement>>(Base: T) => {
     _renderIcon() {
       const { ctaType } = this;
       return html`
-        <slot name="icon">${icons[ctaType]?.({ class: `${prefix}--card__cta ${ddsPrefix}-ce--cta__icon` })}</slot>
+        <slot name="icon">
+          <span class="bx--visually-hidden">${ariaLabels[ctaType]}</span>
+          ${icons[ctaType]?.({ class: `${prefix}--card__cta ${ddsPrefix}-ce--cta__icon` })}
+        </slot>
       `;
     }
 
@@ -131,6 +142,17 @@ const CTAMixin = <T extends Constructor<HTMLElement>>(Base: T) => {
         if (!downloadTypes.includes(ctaType) && download) {
           // eslint-disable-next-line no-console
           console.warn(`\`download\` property used with a CTA data item besides \`type: download|pdf\` (\`type: ${ctaType}\`).`);
+        }
+
+        const contactMethods = {
+          [CTA_TYPE.EMAIL]: 'email-link',
+          [CTA_TYPE.SCHEDULE]: 'scheduler-link',
+          [CTA_TYPE.CHAT]: 'chat-link',
+          [CTA_TYPE.CALL]: 'phone-link',
+        };
+
+        if (Object.keys(contactMethods).includes(ctaType)) {
+          linkNode.dataset.ibmContact = contactMethods[ctaType];
         }
       }
       // TODO: See why `linkNode` can possibly be `null`

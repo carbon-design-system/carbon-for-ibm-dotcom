@@ -39,7 +39,7 @@ describe('Test a11y compliance', () => {
             keys.forEach(itemTitle => {
               const combinedTitle = itemTitle === 'default' ? `${groupTitle}|${title}` : `${groupTitle}|${title}|${itemTitle}`;
               it(`Should have a11y-compliant ${combinedTitle}`, async () => {
-                render(Story({ parameters: { props: propsSet?.default } }), container);
+                render(Story(propsSet?.default), container);
                 await expectAsync(container).toBeACheckerCompliant();
               }, 30000);
             });

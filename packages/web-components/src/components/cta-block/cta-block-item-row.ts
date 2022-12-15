@@ -12,7 +12,7 @@ import settings from 'carbon-components/es/globals/js/settings.js';
 import ddsSettings from '../../internal/vendor/@carbon/ibmdotcom-utilities/utilities/settings/settings';
 import sameHeight from '../../internal/vendor/@carbon/ibmdotcom-utilities/utilities/sameHeight/sameHeight';
 import StableSelectorMixin from '../../globals/mixins/stable-selector';
-import DDSTab from '../tabs-extended/tab';
+import ParentVisibilityMixin from '../../component-mixins/parent-visibility/parent-visibility';
 
 import styles from './cta-block.scss';
 
@@ -26,7 +26,7 @@ const { stablePrefix: ddsPrefix } = ddsSettings;
  * @slot .
  */
 @customElement(`${ddsPrefix}-cta-block-item-row`)
-class DDSCTABlockItemRow extends StableSelectorMixin(LitElement) {
+class DDSCTABlockItemRow extends ParentVisibilityMixin(StableSelectorMixin(LitElement)) {
   /** Defines if the bottom border is rendered */
   @property({ type: Boolean, reflect: true, attribute: 'no-border' })
   _noBorder = false;
@@ -46,14 +46,9 @@ class DDSCTABlockItemRow extends StableSelectorMixin(LitElement) {
    */
   private _observerResizeRoot: any | null = null; // TODO: Wait for `.d.ts` update to support `ResizeObserver`
 
-  /**
-   * A list of potential parent components that may be hide their content on
-   * first render. Lists event names that indicate the parent element
-   * visibility has changed keyed by component selector strings.
-   */
-  private _parentsThatHide = {
-    [`${ddsPrefix}-tab`]: DDSTab.eventTabSelected,
-  };
+  public _onParentVisible() {
+    this._setSameHeight();
+  }
 
   /**
    * Cleans-up and creats the resize observer for the scrolling container.
@@ -131,16 +126,6 @@ class DDSCTABlockItemRow extends StableSelectorMixin(LitElement) {
   connectedCallback() {
     super.connectedCallback();
     this._cleanAndCreateObserverResize({ create: true });
-
-    // Reset heights when parents that can be hidden transition to a visible
-    // state.
-    Object.entries(this._parentsThatHide).forEach(([component, event]) => {
-      let target: Element | null | undefined = this.closest(component);
-      while (target) {
-        target.addEventListener(event, this._setSameHeight.bind(this));
-        target = target?.parentElement?.closest(component);
-      }
-    });
   }
 
   disconnectedCallback() {

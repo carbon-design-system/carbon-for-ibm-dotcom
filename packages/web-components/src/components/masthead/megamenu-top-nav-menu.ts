@@ -7,10 +7,12 @@
  * LICENSE file in the root directory of this source tree.
  */
 
-import { customElement, query, state } from 'lit-element';
+import { customElement, property, query, state } from 'lit-element';
 import settings from 'carbon-components/es/globals/js/settings.js';
 import ddsSettings from '../../internal/vendor/@carbon/ibmdotcom-utilities/utilities/settings/settings';
 import { forEach } from '../../globals/internal/collection-helpers';
+import DDSMegaMenu from './megamenu';
+import DDSTopNav from './top-nav';
 import DDSTopNavMenu from './top-nav-menu';
 import DDSMegaMenuOverlay from './megamenu-overlay';
 import styles from './masthead.scss';
@@ -25,6 +27,12 @@ const { stablePrefix: ddsPrefix } = ddsSettings;
  */
 @customElement(`${ddsPrefix}-megamenu-top-nav-menu`)
 class DDSMegaMenuTopNavMenu extends DDSTopNavMenu {
+  /**
+   * The megamenu component
+   */
+  @property()
+  megaMenu!: DDSMegaMenu;
+
   /**
    * The menu ul node.
    */
@@ -88,6 +96,34 @@ class DDSMegaMenuTopNavMenu extends DDSTopNavMenu {
     this.style.setProperty(customPropertyViewportWidth, `${contentRect.width}px`);
   };
 
+  private _setAnalyticsAttributes() {
+    const { _triggerNode: trigger } = this;
+
+    trigger!.setAttribute('data-attribute1', 'headerNav');
+    trigger!.setAttribute('data-attribute2', 'L0');
+    trigger!.setAttribute('data-attribute3', this.menuLabel);
+  }
+
+  private async _requestMegaMenuRenderUpdate() {
+    return new Promise((resolve: Function): void => {
+      this.dispatchEvent(
+        new CustomEvent('dds-megamenu-top-nav-menu-toggle', {
+          bubbles: true,
+          cancelable: true,
+          composed: true,
+          detail: {
+            active: this.expanded,
+            resolveFn: resolve,
+          },
+        })
+      );
+
+      setTimeout(() => {
+        resolve();
+      }, 5000);
+    });
+  }
+
   connectedCallback() {
     super.connectedCallback();
     this._cleanAndCreateObserverResize({ create: true });
@@ -102,15 +138,31 @@ class DDSMegaMenuTopNavMenu extends DDSTopNavMenu {
   firstUpdated() {
     this._menuNode.removeAttribute('role');
     this._cleanAndCreateObserverResize({ create: true });
+    this._setAnalyticsAttributes();
 
     if (this.hasAttribute('role') && this.getAttribute('role') === 'listitem') {
       this.removeAttribute('role');
     }
   }
 
-  updated(changedProperties) {
+  async updated(changedProperties) {
     super.updated(changedProperties);
     if (changedProperties.has('expanded')) {
+      // Import needed subcomponents on first expansion
+      if (!(this.parentElement as DDSTopNav).importedMegamenu) {
+        await import('./megamenu-left-navigation');
+        await import('./megamenu-category-link');
+        await import('./megamenu-category-link-group');
+        await import('./megamenu-category-group');
+        await import('./megamenu-category-group-copy');
+        await import('./megamenu-category-heading');
+        await import('./megamenu-link-with-icon');
+        await import('./megamenu-overlay');
+        await import('./megamenu-tab');
+        await import('./megamenu-tabs');
+        (this.parentElement as DDSTopNav).importedMegamenu = true;
+      }
+
       const doc = this.getRootNode() as Document;
       forEach(doc.querySelectorAll((this.constructor as typeof DDSMegaMenuTopNavMenu).selectorOverlay), item => {
         (item as DDSMegaMenuOverlay).active = this.expanded;
@@ -129,11 +181,16 @@ class DDSMegaMenuTopNavMenu extends DDSTopNavMenu {
         ?.shadowRoot?.querySelector('.bx--masthead__l0');
 
       if (this.expanded) {
+        // Ask masthead-composite to render megamenu.
+        // Pause further execution until the render is complete.
+        await this._requestMegaMenuRenderUpdate();
+
         doc.body.style.marginRight = `${this._scrollBarWidth}px`;
         doc.body.style.overflow = `hidden`;
         forEach(doc.querySelectorAll((this.constructor as typeof DDSMegaMenuTopNavMenu).selectorOverlay), item => {
           (item as DDSMegaMenuOverlay).active = this.expanded;
         });
+
         if (cloudMasthead) {
           if (doc.body.classList.contains('ibm-masthead-sticky') && doc.body.classList.contains('ibm-masthead-sticky-showing')) {
             cloudMasthead.style.marginRight = `${this._scrollBarWidth}px`;
@@ -166,7 +223,17 @@ class DDSMegaMenuTopNavMenu extends DDSTopNavMenu {
             }
           }, 0);
         }
+
+        // Ask masthead-composite to un-render megamenu.
+        // Wait long enough for the transition to end.
+        setTimeout(() => {
+          this._requestMegaMenuRenderUpdate();
+        }, 500);
       }
+    }
+
+    if (changedProperties.has('menuLabel')) {
+      this._setAnalyticsAttributes();
     }
   }
 

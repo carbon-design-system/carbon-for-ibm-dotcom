@@ -45,26 +45,128 @@ const simpleItems = ContentGroupSimpleKnobs.items;
 const simpleCta = ContentGroupSimpleKnobs.cta;
 
 export default {
-  title: 'Components|Content block media',
+  title: 'Components/Content block media',
   parameters: {
     ...readme.parameters,
   },
 };
 
-export const Default = ({ parameters }) => {
-  const { copy, headingKnob, items, cta, border } =
-    parameters?.props?.ContentBlockMedia ?? {};
+const props = {
+  default: () => {
+    const heading = text(
+      'Heading (required)',
+      'Curabitur malesuada varius mi eu posuere'
+    );
+
+    const item = {
+      heading: text('Simple Group Heading (heading)', simpleHeading),
+      mediaType: simpleMediaType,
+      mediaData: simpleMediaData,
+      items: simpleItems,
+      cta: simpleCta,
+    };
+
+    const items = [item, item];
+
+    const ctaKnob = select(
+      'Feature Link (optional)',
+      ctaChoices,
+      ctaChoices.CTA
+    );
+    const cta = ctaKnob === null ? '' : ctaProps;
+
+    return {
+      copy,
+      heading,
+      items,
+      cta,
+      border: boolean('Border (border)', false),
+    };
+  },
+  withLinkList: () => {
+    const heading = text(
+      'Heading (required)',
+      'Curabitur malesuada varius mi eu posuere'
+    );
+
+    const item = {
+      heading: text('Simple Group Heading (heading)', simpleHeading),
+      mediaType: simpleMediaType,
+      mediaData: simpleMediaData,
+      items: simpleItems,
+      cta: simpleCta,
+    };
+
+    const items = [item, item];
+
+    const ctaKnob = select(
+      'Feature Link (optional)',
+      ctaChoices,
+      ctaChoices.CTA
+    );
+    const cta = ctaKnob === null ? '' : ctaProps;
+
+    const linkListProps = {
+      heading: text('Link List (heading)', 'Tutorials'),
+      items: [
+        {
+          type: 'local',
+          copy: 'Containerization A Complete Guide',
+          cta: {
+            href: 'https://ibm.com',
+          },
+        },
+        {
+          type: 'external',
+          copy: 'Why should you use microservices and containers',
+          cta: {
+            href: 'https://ibm.com',
+          },
+        },
+        {
+          type: 'local',
+          copy: 'Learn more about Kubernetes',
+          cta: {
+            href: 'https://ibm.com',
+          },
+        },
+        {
+          type: 'local',
+          copy: 'Explore AI use cases in all industries',
+          cta: {
+            href: 'https://ibm.com',
+          },
+        },
+      ],
+      totalLinks: select('Number of links', [2, 3, 4], 2),
+    };
+
+    linkListProps.items = linkListProps.items.slice(
+      0,
+      linkListProps.totalLinks
+    );
+
+    const aside = {
+      items: <LinkList style="card" {...linkListProps} />,
+    };
+
+    return {
+      copy,
+      heading,
+      items,
+      cta,
+      aside,
+      border: boolean('Border (border)', false),
+    };
+  },
+};
+
+export const Default = () => {
   return (
     <div className="bx--grid">
       <div className="bx--row">
         <div className="bx--col-sm-4 bx--col-lg-8 bx--offset-lg-4">
-          <ContentBlockMedia
-            copy={copy}
-            heading={headingKnob.heading}
-            items={items}
-            cta={cta}
-            border={border}
-          />
+          <ContentBlockMedia {...props.default()} />
         </div>
       </div>
     </div>
@@ -73,43 +175,8 @@ export const Default = ({ parameters }) => {
 
 Default.story = {
   parameters: {
-    knobs: {
-      ContentBlockMedia: ({ groupId }) => {
-        const headingKnob = {
-          heading: text(
-            'Heading (required)',
-            'Curabitur malesuada varius mi eu posuere',
-            groupId
-          ),
-        };
-
-        const item = {
-          heading: text(
-            'Simple Group Heading (heading)',
-            simpleHeading,
-            groupId
-          ),
-          mediaType: simpleMediaType,
-          mediaData: simpleMediaData,
-          items: simpleItems,
-          cta: simpleCta,
-        };
-
-        const items = [item, item];
-
-        return {
-          copy,
-          headingKnob,
-          items,
-          cta: select(
-            'Feature Link (optional)',
-            ctaChoices,
-            ctaChoices.CTA,
-            groupId
-          ),
-          border: boolean('Border (border)', false, groupId),
-        };
-      },
+    percy: {
+      name: 'Components|Content block media: Default',
     },
     propsSet: {
       default: {
@@ -121,21 +188,12 @@ Default.story = {
   },
 };
 
-export const WithLinkList = ({ parameters }) => {
-  const { copy, headingKnob, items, ctaKnob, aside, border } =
-    parameters?.props?.ContentBlockMedia ?? {};
+export const WithLinkList = () => {
   return (
     <div className="bx--grid">
       <div className="bx--row">
         <div className="bx--col-sm-4 bx--col-lg-12 bx--offset-lg-4">
-          <ContentBlockMedia
-            copy={copy}
-            heading={headingKnob.heading}
-            items={items}
-            cta={ctaKnob.cta}
-            aside={aside}
-            border={border}
-          />
+          <ContentBlockMedia {...props.withLinkList()} />
         </div>
       </div>
     </div>
@@ -145,92 +203,8 @@ export const WithLinkList = ({ parameters }) => {
 WithLinkList.story = {
   name: 'With link list',
   parameters: {
-    knobs: {
-      ContentBlockMedia: ({ groupId }) => {
-        const headingKnob = {
-          heading: text(
-            'Heading (required)',
-            'Curabitur malesuada varius mi eu posuere',
-            groupId
-          ),
-        };
-
-        const item = {
-          heading: text(
-            'Simple Group Heading (heading)',
-            simpleHeading,
-            groupId
-          ),
-          mediaType: simpleMediaType,
-          mediaData: simpleMediaData,
-          items: simpleItems,
-          cta: simpleCta,
-        };
-
-        const items = [item, item];
-
-        const ctaKnob = {
-          cta: select(
-            'Feature Link (optional)',
-            ctaChoices,
-            ctaChoices.CTA,
-            groupId
-          ),
-        };
-
-        const linkListProps = {
-          heading: text('Link List (heading)', 'Tutorials', groupId),
-          items: [
-            {
-              type: 'local',
-              copy: 'Containerization A Complete Guide',
-              cta: {
-                href: 'https://ibm.com',
-              },
-            },
-            {
-              type: 'external',
-              copy: 'Why should you use microservices and containers',
-              cta: {
-                href: 'https://ibm.com',
-              },
-            },
-            {
-              type: 'local',
-              copy: 'Learn more about Kubernetes',
-              cta: {
-                href: 'https://ibm.com',
-              },
-            },
-            {
-              type: 'local',
-              copy: 'Explore AI use cases in all industries',
-              cta: {
-                href: 'https://ibm.com',
-              },
-            },
-          ],
-          totalLinks: select('Number of links', [2, 3, 4], 2, groupId),
-        };
-
-        linkListProps.items = linkListProps.items.slice(
-          0,
-          linkListProps.totalLinks
-        );
-
-        const aside = {
-          items: <LinkList style="card" {...linkListProps} />,
-        };
-
-        return {
-          copy,
-          headingKnob,
-          items,
-          ctaKnob,
-          aside,
-          border: boolean('Border (border)', false, groupId),
-        };
-      },
+    percy: {
+      name: 'Components|Content block media: With link list',
     },
     propsSet: {
       default: {

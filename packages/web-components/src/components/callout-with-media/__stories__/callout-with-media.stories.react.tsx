@@ -34,8 +34,8 @@ const image = (
 
 const video = <DDSCalloutWithMediaVideo video-id="1_9h94wo6b"></DDSCalloutWithMediaVideo>;
 
-export const Default = ({ parameters }) => {
-  const { copy, heading, mediaType } = parameters?.props?.CalloutWithMedia ?? {};
+export const Default = args => {
+  const { copy, heading, mediaType } = args?.CalloutWithMedia ?? {};
   const headingComponent = document.querySelector('dds-content-block-heading');
 
   if (headingComponent) {
@@ -66,9 +66,9 @@ export default {
     ...readme.parameters,
     hasStoryPadding: true,
     knobs: {
-      CalloutWithMedia: ({ groupId }) => ({
-        mediaType: select('mediaType (optional)', ['image', 'video', 'none'], 'image', groupId),
-        heading: textNullable('Heading', 'Curabitur malesuada varius mi eu posuere', groupId),
+      CalloutWithMedia: () => ({
+        mediaType: select('mediaType (optional)', ['image', 'video', 'none'], 'image'),
+        heading: textNullable('Heading', 'Curabitur malesuada varius mi eu posuere'),
         copy: `Lorem ipsum *dolor* sit amet, consectetur adipiscing elit. Aenean et ultricies est.
           Mauris iaculis eget dolor nec hendrerit. Phasellus at elit sollicitudin, sodales
           nulla quis, *consequat* libero. Here are

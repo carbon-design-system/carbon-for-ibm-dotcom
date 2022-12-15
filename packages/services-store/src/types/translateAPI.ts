@@ -129,6 +129,7 @@ export interface MastheadLogoData {
   allowlist: [];
   end: string;
   path: string;
+  href: string;
 }
 
 /**
@@ -184,9 +185,10 @@ export interface Translation {
   };
 
   /**
-   * Cloud masthead profile items
+   * Cloud masthead items
    */
   masthead: {
+    logo: MastheadLogoData;
     contact: MastheadProfileContent;
     profileMenu: {
       signedout: MastheadProfileContent;
