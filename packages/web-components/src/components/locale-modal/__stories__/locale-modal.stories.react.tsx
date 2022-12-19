@@ -12,15 +12,16 @@ import React from 'react';
 // In our dev env, we auto-generate the file and re-map below path to to point to the generated file.
 // @ts-ignore
 import DDSLocaleModalContainer from '@carbon/ibmdotcom-web-components/es/components-react/locale-modal/locale-modal-container.js';
+// @ts-ignore
+import { PropTypesRef } from '@carbon/ibmdotcom-web-components/es/components-react/locale-modal/locale-modal.js';
 import ifNonNull from '@carbon/web-components/es/globals/directives/if-non-null.js';
 import localeData from './locale-data.json';
 
 import readme from './README.stories.react.mdx';
-import textNullable from '../../../../.storybook/knob-text-nullable';
 import styles from './locale-modal.stories.scss';
 
 export const Default = (args) => {
-  const { langDisplay } = args?.LocaleModalComposite;
+  const { langDisplay } = args ?? {};
   return (
     <DDSLocaleModalContainer
       lang-display={ifNonNull(langDisplay)}
@@ -31,6 +32,23 @@ export const Default = (args) => {
 
 export default {
   title: 'Components/Locale modal',
+  component: PropTypesRef,
+  argTypes: {
+    langDisplay: {
+      control: 'text',
+      defaultValue: 'United States — English',
+    },
+    headerTitle: {
+      table: {
+        disable: true,
+      },
+    },
+    closeButtonAssistiveText: {
+      table: {
+        disable: true,
+      },
+    },
+  },
   decorators: [
     (story) => {
       return (
@@ -44,14 +62,14 @@ export default {
   parameters: {
     ...readme.parameters,
     hasStoryPadding: true,
-    knobs: {
-      LocaleModalComposite: () => ({
-        langDisplay: textNullable(
-          'Display language (lang-display)',
-          'United States — English'
-        ),
-      }),
-    },
+    // knobs: {
+    //   LocaleModalComposite: () => ({
+    //     langDisplay: textNullable(
+    //       'Display language (lang-display)',
+    //       'United States — English'
+    //     ),
+    //   }),
+    // },
     propsSet: {
       default: {
         LocaleModalComposite: {

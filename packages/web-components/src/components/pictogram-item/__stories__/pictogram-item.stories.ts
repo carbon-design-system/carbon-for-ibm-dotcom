@@ -10,11 +10,9 @@
 import { html } from 'lit-element';
 import '../index';
 import ArrowRight20 from '@carbon/web-components/es/icons/arrow--right/20';
-import { select } from '@storybook/addon-knobs';
 import styles from './pictogram-item.stories.scss';
 import { COLOR_OPTIONS } from '../defs';
 import readme from './README.stories.mdx';
-import textNullable from '../../../../.storybook/knob-text-nullable';
 
 /* eslint-disable max-len */
 const Desktop = html`
@@ -124,29 +122,10 @@ const Touch = html`
 `;
 /* eslint-enable max-len */
 
-/**
- * Returns the pictogram based on the storybook knob value
- *
- * @param {string} sel string that defines the returning pictogram
- * @returns {*} Pictogram SVG markup
- */
-const selectPictogram = (sel) => {
-  switch (sel) {
-    case 'Desktop':
-      return Desktop;
-    case 'Pattern':
-      return Pattern;
-    case 'Touch':
-      return Touch;
-    default:
-      return '';
-  }
-};
-
 const pictograms = {
-  Desktop: 'Desktop',
-  Touch: 'Touch',
-  Pattern: 'Pattern',
+  Desktop,
+  Touch,
+  Pattern,
 };
 
 const pictogramColors = {
@@ -155,11 +134,17 @@ const pictogramColors = {
 };
 
 export const Default = (args) => {
-  const { heading, copy, href, linkCopy, pictogram, pictogramColor } =
-    args?.PictogramItem ?? {};
+  const { heading, copy, href, linkCopy, pictogram, color } = args ?? {};
+
+  const pictogramItemCopy = document.querySelector('dds-content-item-copy');
+
+  if (pictogramItemCopy) {
+    pictogramItemCopy!.shadowRoot!.textContent = copy;
+  }
+
   return html`
-    <dds-pictogram-item color="${pictogramColor}">
-      ${pictogram?.src}
+    <dds-pictogram-item color="${color}">
+      ${pictogram}
       <dds-content-item-heading>${heading}</dds-content-item-heading>
       <dds-content-item-copy>${copy}</dds-content-item-copy>
       <dds-link-with-icon href="${href}" slot="footer">
@@ -171,6 +156,7 @@ export const Default = (args) => {
 
 export default {
   title: 'Components/Pictogram item',
+  component: 'dds-pictogram-item',
   decorators: [
     (story) => html`
       <style>
@@ -183,31 +169,83 @@ export default {
       </div>
     `,
   ],
+  argTypes: {
+    heading: {
+      control: 'text',
+      defaultValue: 'Lorem ipsum dolor sit',
+    },
+    copy: {
+      control: 'text',
+      defaultValue:
+        'Lorem ipsum dolor sit amet, ' +
+        'consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. ' +
+        'Ut enim ad minim veniam\n',
+    },
+    href: {
+      control: 'text',
+      defaultValue: 'https://example.com',
+    },
+    linkCopy: {
+      control: 'text',
+      defaultValue: 'Lorem ipsum dolor',
+    },
+    color: {
+      control: { type: 'select' },
+      options: pictogramColors,
+      defaultValue: COLOR_OPTIONS.DEFAULT,
+    },
+    pictogram: {
+      control: { type: 'select' },
+      options: ['Desktop', 'Touch', 'Pattern'],
+      mapping: pictograms,
+      defaultValue: Desktop,
+    },
+    colorOption: {
+      table: {
+        disable: true,
+      },
+    },
+    footer: {
+      table: {
+        disable: true,
+      },
+    },
+    media: {
+      table: {
+        disable: true,
+      },
+    },
+    styles: {
+      table: {
+        disable: true,
+      },
+    },
+  },
   parameters: {
     ...readme.parameters,
     hasStoryPadding: true,
-    knobs: {
-      PictogramItem: () => ({
-        heading: textNullable('Heading (heading):', 'Lorem ipsum dolor sit'),
-        copy:
-          'Lorem ipsum dolor sit amet, ' +
-          'consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. ' +
-          'Ut enim ad minim veniam\n',
-        href: textNullable('Link with Icon href:', 'https://example.com'),
-        linkCopy: textNullable('Link with Icon copy:', 'Lorem ipsum dolor'),
-        pictogram: {
-          src: selectPictogram(
-            select('Pictogram (required)', pictograms, pictograms.Desktop)
-          ),
-          'aria-label': textNullable('Aria-label:', 'Pictogram description'),
-        },
-        pictogramColor: select(
-          'Pictogram color:',
-          pictogramColors,
-          COLOR_OPTIONS.DEFAULT
-        ),
-      }),
-    },
+    // knobs: {
+    //   PictogramItem: () => ({
+    //     heading: textNullable('Heading (heading):', 'Lorem ipsum dolor sit'),
+    //     copy:
+    //       'Lorem ipsum dolor sit amet, ' +
+    //       'consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. ' +
+    //       'Ut enim ad minim veniam\n',
+    //     href: textNullable('Link with Icon href:', 'https://example.com'),
+    //     linkCopy: textNullable('Link with Icon copy:', 'Lorem ipsum dolor'),
+    //     pictogram: {
+    //       src: selectPictogram(
+    //         select('Pictogram (required)', pictograms, pictograms.Desktop)
+    //       ),
+    //       'aria-label': textNullable('Aria-label:', 'Pictogram description'),
+    //     },
+    //     pictogramColor: select(
+    //       'Pictogram color:',
+    //       pictogramColors,
+    //       COLOR_OPTIONS.DEFAULT
+    //     ),
+    //   }),
+    // },
     propsSet: {
       default: {
         PictogramItem: {

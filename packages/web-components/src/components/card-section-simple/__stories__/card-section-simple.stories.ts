@@ -8,11 +8,9 @@
  */
 
 import { html } from 'lit-element';
-import { boolean } from '@storybook/addon-knobs';
 import ifNonNull from '@carbon/web-components/es/globals/directives/if-non-null.js';
 import readme from './README.stories.mdx';
 import imgLg4x3 from '../../../../../storybook-images/assets/720/fpo--4x3--720x540--005.jpg';
-import textNullable from '../../../../.storybook/knob-text-nullable';
 import '../index';
 
 const cardGroupItems = (withImages) => {
@@ -40,7 +38,7 @@ const cardGroupItems = (withImages) => {
 };
 
 export const Default = (args) => {
-  const { heading, withImages, withCTA } = args?.CardSectionSimple ?? {};
+  const { heading, withImages, withCTA } = args ?? {};
   const cards: object[] = [];
   for (let i = 0; i < 5; i++) {
     cards.push(cardGroupItems(withImages));
@@ -72,6 +70,7 @@ export const Default = (args) => {
 
 export default {
   title: 'Components/Card section simple',
+  component: 'dds-card-section-simple',
   decorators: [
     (story) => html`
       <div class="bx--grid">
@@ -79,19 +78,38 @@ export default {
       </div>
     `,
   ],
+  argTypes: {
+    heading: {
+      control: 'text',
+      defaultValue: 'Aliquam condimentim interdum',
+    },
+    withImages: {
+      control: 'boolean',
+      defaultValue: false,
+    },
+    withCTA: {
+      control: 'boolean',
+      defaultValue: false,
+    },
+    'children-custom-class': {
+      table: {
+        disable: true,
+      },
+    },
+    childrenCustomClass: {
+      table: {
+        disable: true,
+      },
+    },
+    styles: {
+      table: {
+        disable: true,
+      },
+    },
+  },
   parameters: {
     ...readme.parameters,
     hasStoryPadding: true,
-    knobs: {
-      CardSectionSimple: () => ({
-        heading: textNullable(
-          'Heading (required):',
-          'Aliquam condimentum interdum'
-        ),
-        withImages: boolean('With images:', false),
-        withCTA: boolean('With CTA:', false),
-      }),
-    },
     propsSet: {
       default: {
         CardSectionSimple: {

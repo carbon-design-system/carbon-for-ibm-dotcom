@@ -8,24 +8,19 @@
  */
 
 import { html } from 'lit-element';
-import { action } from '@storybook/addon-actions';
-import { boolean, select } from '@storybook/addon-knobs';
 import ArrowRight20 from '@carbon/web-components/es/icons/arrow--right/20.js';
 import ifNonNull from '@carbon/web-components/es/globals/directives/if-non-null.js';
-import textNullable from '../../../../.storybook/knob-text-nullable';
 import readme from './README.stories.mdx';
 import { ICON_PLACEMENT } from '../link-with-icon';
 
 export const Default = (args) => {
-  const { children, disabled, href, onClick, iconPlacement } =
-    args?.LinkWithIcon ?? {};
+  const { disabled, href } = args ?? {};
   return html`
     <dds-link-with-icon
-      icon-placement="${iconPlacement}"
+      icon-placement="${args['icon-placement']}"
       ?disabled="${disabled}"
-      href="${ifNonNull(href)}"
-      @click="${onClick}">
-      ${children}${ArrowRight20({ slot: 'icon' })}
+      href="${ifNonNull(href)}">
+      ${args['link-text']}${ArrowRight20({ slot: 'icon' })}
     </dds-link-with-icon>
   `;
 };
@@ -37,33 +32,107 @@ const placementTypes = {
 
 export default {
   title: 'Components/Link with icon',
+  component: 'dds-link-with-icon',
   decorators: [(story) => html` <div class="bx--grid">${story()}</div> `],
+  argTypes: {
+    'link-text': {
+      control: 'text',
+      defaultValue: 'Link text',
+    },
+    disabled: {
+      control: 'boolean',
+      defaultValue: false,
+    },
+    href: {
+      control: 'text',
+      defaultValue:
+        'https://github.com/carbon-design-system/carbon-for-ibm-dotcom',
+    },
+    'icon-placement': {
+      control: { type: 'select' },
+      options: placementTypes,
+      defaultValue: placementTypes[`${ICON_PLACEMENT.RIGHT}`],
+    },
+    iconPlacement: {
+      table: {
+        disable: true,
+      },
+    },
+    hreflang: {
+      table: {
+        disable: true,
+      },
+    },
+    role: {
+      table: {
+        disable: true,
+      },
+    },
+    rel: {
+      table: {
+        disable: true,
+      },
+    },
+    target: {
+      table: {
+        disable: true,
+      },
+    },
+    type: {
+      table: {
+        disable: true,
+      },
+    },
+    iconInline: {
+      table: {
+        disable: true,
+      },
+    },
+    size: {
+      table: {
+        disable: true,
+      },
+    },
+    download: {
+      table: {
+        disable: true,
+      },
+    },
+    linkRole: {
+      table: {
+        disable: true,
+      },
+    },
+    ping: {
+      table: {
+        disable: true,
+      },
+    },
+    styles: {
+      table: {
+        disable: true,
+      },
+    },
+    icon: {
+      table: {
+        disable: true,
+      },
+    },
+    'icon-left': {
+      table: {
+        disable: true,
+      },
+    },
+  },
   parameters: {
     ...readme.parameters,
     hasStoryPadding: true,
-    knobs: {
-      LinkWithIcon: () => ({
-        children: textNullable('Link text (unnamed slot)', 'Link text'),
-        disabled: boolean('Disabled (disabled)', false),
-        href: textNullable(
-          'Link href (href)',
-          'https://github.com/carbon-design-system/carbon-web-components'
-        ),
-        onClick: action('click'),
-        iconPlacement: select(
-          'Icon Position (icon-placement):',
-          placementTypes,
-          placementTypes[`${ICON_PLACEMENT.RIGHT}`]
-        ),
-      }),
-    },
     propsSet: {
       default: {
         LinkWithIcon: {
           children: 'Link text',
           disabled: false,
           href: 'https://github.com/carbon-design-system/carbon-web-components',
-          onClick: 'click',
           iconPlacement: 'right',
         },
       },

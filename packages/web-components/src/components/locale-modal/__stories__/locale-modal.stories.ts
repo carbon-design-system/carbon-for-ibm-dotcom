@@ -42,6 +42,123 @@ export const Default = (args) => {
 
 export default {
   title: 'Components/Locale modal',
+  component: 'dds-locale-modal',
+  argTypes: {
+    'lang-display': {
+      control: 'text',
+      defaultValue: 'United States — English',
+    },
+    'close-button-assistive-text': {
+      table: {
+        disable: true,
+      },
+    },
+    'dds-expressive-modal-beingclosed': {
+      table: {
+        disable: true,
+      },
+    },
+    'dds-expressive-modal-closed': {
+      table: {
+        disable: true,
+      },
+    },
+    'header-title': {
+      table: {
+        disable: true,
+      },
+    },
+    'container-class': {
+      table: {
+        disable: true,
+      },
+    },
+    'expressive-size': {
+      table: {
+        disable: true,
+      },
+    },
+    open: {
+      table: {
+        disable: true,
+      },
+    },
+    mode: {
+      table: {
+        disable: true,
+      },
+    },
+    closeButtonAssistiveText: {
+      table: {
+        disable: true,
+      },
+    },
+    headerTitle: {
+      table: {
+        disable: true,
+      },
+    },
+    langDisplay: {
+      table: {
+        disable: true,
+      },
+    },
+    hasFocusableElements: {
+      table: {
+        disable: true,
+      },
+    },
+    focusableElements: {
+      table: {
+        disable: true,
+      },
+    },
+    modalContent: {
+      table: {
+        disable: true,
+      },
+    },
+    modalBody: {
+      table: {
+        disable: true,
+      },
+    },
+    containerClass: {
+      table: {
+        disable: true,
+      },
+    },
+    styles: {
+      table: {
+        disable: true,
+      },
+    },
+    size: {
+      table: {
+        disable: true,
+      },
+    },
+    'regions-selector': {
+      table: {
+        disable: true,
+      },
+    },
+    'locales-selector': {
+      table: {
+        disable: true,
+      },
+    },
+    header: {
+      table: {
+        disable: true,
+      },
+    },
+    footer: {
+      table: {
+        disable: true,
+      },
+    },
+  },
   parameters: {
     ...readme.parameters,
     ...(() => {

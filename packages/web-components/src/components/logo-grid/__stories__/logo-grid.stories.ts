@@ -13,43 +13,40 @@ import '../logo-grid-item';
 import '../logo-grid-link';
 import '../../card-link/card-link-heading';
 import '../../card/card-footer';
-import { boolean, text, select } from '@storybook/addon-knobs';
 import { html } from 'lit-element';
 import ArrowRight20 from '@carbon/web-components/es/icons/arrow--right/20.js';
 import logos from './data/logos.js';
 import readme from './README.stories.mdx';
-import textNullable from '../../../../.storybook/knob-text-nullable';
 
 export const Default = (args) => {
-  const {
-    heading,
-    logoCount,
-    logoRatio,
-    logosGroup,
-    hideBorder,
-    showCta,
-    ctaCopy,
-    ctaHref,
-  } = args?.LogoGrid ?? {};
+  const { heading, footer } = args ?? {};
+
+  const logoGridHeading = document.querySelector('dds-content-block-heading');
+
+  if (logoGridHeading) {
+    logoGridHeading!.shadowRoot!.textContent = heading;
+  }
 
   return html`
     <dds-logo-grid
-      ?hide-border="${hideBorder}"
-      logo-count="${logoCount}"
-      logo-ratio="${logoRatio}">
+      ?hide-border="${args['hide-border']}"
+      logo-count="${args['logo-count']}"
+      logo-ratio="${args['logo-ratio']}">
       <dds-content-block-heading> ${heading} </dds-content-block-heading>
-      ${logosGroup &&
-      logosGroup.map(
+      ${logos &&
+      logos.map(
         (elem) => html`
           <dds-logo-grid-item
             default-src="${elem.imgSrc}"
             alt="${elem.altText}"></dds-logo-grid-item>
         `
       )}
-      ${showCta
+      ${footer
         ? html`
-            <dds-logo-grid-link href="${ctaHref}">
-              <dds-card-link-heading>${ctaCopy}</dds-card-link-heading>
+            <dds-logo-grid-link href="http://local.url.com/">
+              <dds-card-link-heading
+                >Lorem ipsum dolor sit amet</dds-card-link-heading
+              >
               <dds-card-footer>
                 ${ArrowRight20({ slot: 'icon' })}
               </dds-card-footer>
@@ -62,6 +59,7 @@ export const Default = (args) => {
 
 export default {
   title: 'Components/Logo grid',
+  component: 'dds-logo-grid',
   decorators: [
     (story) => html`
       <div class="bx--grid">
@@ -71,32 +69,78 @@ export default {
       </div>
     `,
   ],
+  argTypes: {
+    heading: {
+      control: 'text',
+      defaultValue: 'Our customers',
+    },
+    'logo-count': {
+      control: { type: 'select' },
+      options: ['3', '4'],
+      defaultValue: '3',
+    },
+    'logo-ratio': {
+      control: { type: 'select' },
+      options: ['4:3', '16:9', '2:1'],
+      defaultValue: '4:3',
+    },
+    'hide-border': {
+      control: 'boolean',
+      defaultValue: false,
+    },
+    footer: {
+      control: 'boolean',
+      defaultValue: false,
+    },
+    'complementary-style-scheme': {
+      table: {
+        disable: true,
+      },
+    },
+    logoCount: {
+      table: {
+        disable: true,
+      },
+    },
+    logoRatio: {
+      table: {
+        disable: true,
+      },
+    },
+    hideBorder: {
+      table: {
+        disable: true,
+      },
+    },
+    complementaryStyleScheme: {
+      table: {
+        disable: true,
+      },
+    },
+    styles: {
+      table: {
+        disable: true,
+      },
+    },
+    copy: {
+      table: {
+        disable: true,
+      },
+    },
+    media: {
+      table: {
+        disable: true,
+      },
+    },
+    complementary: {
+      table: {
+        disable: true,
+      },
+    },
+  },
   parameters: {
     ...readme.parameters,
     hasStoryPadding: true,
-    knobs: {
-      LogoGrid: () => ({
-        heading: textNullable('Heading (heading)', 'Our customers'),
-        logoCount: select(
-          'Column count (logoCount)',
-          { 'Default (3)': '3', '4': '4' },
-          '3'
-        ),
-        logoRatio: select(
-          'Logo aspect ratio (logoRatio)',
-          { 'Default (4:3)': '4:3', '16:9': '16:9', '2:1': '2:1' },
-          '4:3'
-        ),
-        logosGroup: logos,
-        hideBorder: boolean(
-          'Hide border (hideBorder): Hide the bottom border',
-          false
-        ),
-        showCta: boolean('Display CTA:', false),
-        ctaCopy: text('CTA Copy (ctaCopy)', 'Lorem ipsum dolor sit amet'),
-        ctaHref: text('CTA Href (ctaHref):', 'http://local.url.com/'),
-      }),
-    },
     propsSet: {
       default: {
         LogoGrid: {

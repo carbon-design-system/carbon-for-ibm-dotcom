@@ -31,7 +31,18 @@ const video = html`
 `;
 
 export const Default = (args) => {
-  const { copy, heading, mediaType } = args?.CalloutWithMedia ?? {};
+  const { copy, heading, mediaType } = args ?? {};
+
+  const calloutHeading = document.querySelector('dds-content-block-heading');
+  const calloutCopy = document.querySelector('dds-callout-with-media-copy');
+
+  if (calloutHeading) {
+    calloutHeading!.shadowRoot!.textContent = heading;
+  }
+
+  if (calloutCopy) {
+    calloutCopy!.shadowRoot!.textContent = copy;
+  }
   return html`
     <dds-callout-with-media>
       <dds-content-block-heading>${heading}</dds-content-block-heading>
@@ -46,6 +57,7 @@ export const Default = (args) => {
 
 export default {
   title: 'Components/Callout with media',
+  component: 'dds-callout-with-media',
   decorators: [
     (story) => html`
       <div class="bx--grid">
@@ -55,26 +67,27 @@ export default {
       </div>
     `,
   ],
+  argTypes: {
+    mediaType: {
+      control: { type: 'select' },
+      options: ['image', 'video', 'none'],
+      defaultValue: 'image',
+    },
+    heading: {
+      control: 'text',
+      defaultValue: 'Curabitur malesuada varius mi eu posuere',
+    },
+    copy: {
+      control: 'text',
+      defaultValue: `Lorem ipsum *dolor* sit amet, consectetur adipiscing elit. Aenean et ultricies est.
+      Mauris iaculis eget dolor nec hendrerit. Phasellus at elit sollicitudin, sodales
+      nulla quis, *consequat* libero. Here are
+      some common categories:`,
+    },
+  },
   parameters: {
     ...readme.parameters,
     hasStoryPadding: true,
-    knobs: {
-      CalloutWithMedia: () => ({
-        mediaType: select(
-          'mediaType (optional)',
-          ['image', 'video', 'none'],
-          'image'
-        ),
-        heading: textNullable(
-          'Heading',
-          'Curabitur malesuada varius mi eu posuere'
-        ),
-        copy: `Lorem ipsum *dolor* sit amet, consectetur adipiscing elit. Aenean et ultricies est.
-  Mauris iaculis eget dolor nec hendrerit. Phasellus at elit sollicitudin, sodales
-  nulla quis, *consequat* libero. Here are
-  some common categories:`,
-      }),
-    },
     propsSet: {
       default: {
         CalloutWithMedia: {

@@ -7,35 +7,30 @@
  * LICENSE file in the root directory of this source tree.
  */
 
-import { select } from '@storybook/addon-knobs';
 import { html } from 'lit-element';
 import ArrowRight20 from '@carbon/web-components/es/icons/arrow--right/20.js';
 import { QUOTE_TYPES, QUOTE_COLOR_SCHEMES } from '../quote';
 import '../index';
 import '../quote-link-with-icon';
-import textNullable from '../../../../.storybook/knob-text-nullable';
 
 import readme from './README.stories.mdx';
 
 export const Default = (args) => {
-  const {
-    copy,
-    quoteMark,
-    sourceHeading,
-    sourceCopy,
-    sourceBottomCopy,
-    colorScheme,
-  } = args?.Quote ?? {};
+  const { copy, footer } = args ?? {};
   return html`
-    <dds-quote color-scheme="${colorScheme}" mark-type="${quoteMark}">
+    <dds-quote
+      color-scheme="${args['color-scheme']}"
+      mark-type="${args['mark-type']}">
       ${copy}
-      <dds-quote-source-heading> ${sourceHeading} </dds-quote-source-heading>
-      <dds-quote-source-copy> ${sourceCopy} </dds-quote-source-copy>
+      <dds-quote-source-heading>
+        ${args['source-heading']}
+      </dds-quote-source-heading>
+      <dds-quote-source-copy> ${args['source-copy']} </dds-quote-source-copy>
       <dds-quote-source-bottom-copy>
-        ${sourceBottomCopy}
+        ${args['source-bottom-copy']}
       </dds-quote-source-bottom-copy>
       <dds-quote-link-with-icon slot="footer" href="https://example.com">
-        Link with Icon ${ArrowRight20({ slot: 'icon' })}
+        ${footer} ${ArrowRight20({ slot: 'icon' })}
       </dds-quote-link-with-icon>
     </dds-quote>
   `;
@@ -58,6 +53,7 @@ const colorSchemes = {
 
 export default {
   title: 'Components/Quote',
+  component: 'dds-quote',
   decorators: [
     (story) => html`
       <div class="bx--grid">
@@ -67,36 +63,85 @@ export default {
       </div>
     `,
   ],
+  argTypes: {
+    copy: {
+      control: 'text',
+      defaultValue:
+        'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus est purus, posuere at est vitae, ' +
+        'ornare rhoncus sem. Suspendisse vitae tellus fermentum, hendrerit augue eu, placerat magna.',
+    },
+    'mark-type': {
+      control: { type: 'select' },
+      options: types,
+      defaultValue: types.doubleCurved,
+    },
+    'source-heading': {
+      control: 'text',
+      defaultValue: 'Lorem ipsum dolor sit amet',
+    },
+    'source-copy': {
+      control: 'text',
+      defaultValue: 'consectetur adipiscing elit',
+    },
+    'source-bottom-copy': {
+      control: 'text',
+      defaultValue: 'IBM Cloud',
+    },
+    footer: {
+      control: 'text',
+      defaultValue: 'Link with icon',
+    },
+    'color-scheme': {
+      control: { type: 'select' },
+      options: colorSchemes,
+      defaultValue: colorSchemes.regular,
+    },
+    colorScheme: {
+      table: {
+        disable: true,
+      },
+    },
+    markType: {
+      table: {
+        disable: true,
+      },
+    },
+    styles: {
+      table: {
+        disable: true,
+      },
+    },
+  },
   parameters: {
     ...readme.parameters,
     hasStoryPadding: true,
-    knobs: {
-      Quote: () => ({
-        copy: textNullable(
-          'Quote (copy):',
-          'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus est purus, posuere at est vitae, ' +
-            'ornare rhoncus sem. Suspendisse vitae tellus fermentum, hendrerit augue eu, placerat magna.'
-        ),
-        quoteMark: select('Quote Mark (markType):', types, types.doubleCurved),
-        sourceHeading: textNullable(
-          'Source heading (source-heading slot)',
-          'Lorem ipsum dolor sit amet'
-        ),
-        sourceCopy: textNullable(
-          'Source copy (source-copy slot)',
-          'consectetur adipiscing elit'
-        ),
-        sourceBottomCopy: textNullable(
-          'Source bottom copy (source-bottom-copy slot)',
-          'IBM Cloud'
-        ),
-        colorScheme: select(
-          'Color Scheme (color-scheme)',
-          colorSchemes,
-          colorSchemes.regular
-        ),
-      }),
-    },
+    // knobs: {
+    //   Quote: () => ({
+    //     copy: textNullable(
+    //       'Quote (copy):',
+    //       'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus est purus, posuere at est vitae, ' +
+    //         'ornare rhoncus sem. Suspendisse vitae tellus fermentum, hendrerit augue eu, placerat magna.'
+    //     ),
+    //     quoteMark: select('Quote Mark (markType):', types, types.doubleCurved),
+    //     sourceHeading: textNullable(
+    //       'Source heading (source-heading slot)',
+    //       'Lorem ipsum dolor sit amet'
+    //     ),
+    //     sourceCopy: textNullable(
+    //       'Source copy (source-copy slot)',
+    //       'consectetur adipiscing elit'
+    //     ),
+    //     sourceBottomCopy: textNullable(
+    //       'Source bottom copy (source-bottom-copy slot)',
+    //       'IBM Cloud'
+    //     ),
+    //     colorScheme: select(
+    //       'Color Scheme (color-scheme)',
+    //       colorSchemes,
+    //       colorSchemes.regular
+    //     ),
+    //   }),
+    // },
     propsSet: {
       default: {
         Quote: {
