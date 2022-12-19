@@ -13,6 +13,8 @@ import React from 'react';
 // In our dev env, we auto-generate the file and re-map below path to to point to the generated file.
 // @ts-ignore
 import DDSContentBlockMixed from '@carbon/ibmdotcom-web-components/es/components-react/content-block-mixed/content-block-mixed';
+// @ts-ignore
+import { PropTypesRef } from '@carbon/ibmdotcom-web-components/es/components-react/content-block-mixed/content-block-mixed';
 import DDSContentBlockHeading from '@carbon/ibmdotcom-web-components/es/components-react/content-block/content-block-heading';
 import DDSContentBlockCopy from '@carbon/ibmdotcom-web-components/es/components-react/content-block/content-block-copy';
 import DDSContentGroupCards from '@carbon/ibmdotcom-web-components/es/components-react/content-group-cards/content-group-cards';
@@ -84,19 +86,28 @@ const ctaTypes = {
 const complementaryStyleSchemes = {
   'Regular style scheme': null,
   // eslint-disable-next-line max-len
-  [`With border (${CONTENT_BLOCK_COMPLEMENTARY_STYLE_SCHEME.WITH_BORDER})`]: CONTENT_BLOCK_COMPLEMENTARY_STYLE_SCHEME.WITH_BORDER,
+  [`With border (${CONTENT_BLOCK_COMPLEMENTARY_STYLE_SCHEME.WITH_BORDER})`]:
+    CONTENT_BLOCK_COMPLEMENTARY_STYLE_SCHEME.WITH_BORDER,
 };
 
 const image = ({ heading: imageHeading } = { heading: undefined }) => (
-  <DDSImage slot="media" alt="Image alt text" defaultSrc={imgLg16x9} heading={imageHeading}>
+  <DDSImage
+    slot="media"
+    alt="Image alt text"
+    defaultSrc={imgLg16x9}
+    heading={imageHeading}>
     <DDSImageItem media="(min-width: 672px)" srcset={imgLg16x9} />
     <DDSImageItem media="(min-width: 400px)" srcset={imgMd16x9} />
     <DDSImageItem media="(min-width: 320px)" srcset={imgSm16x9} />
   </DDSImage>
 );
 
-export const Default = args => {
-  const { heading, copy: groupCopy, cardsGroupHeading, ctaType } = args?.ContentBlockMixed ?? {};
+export const Default = ({
+  heading,
+  copy: groupCopy,
+  cardsGroupHeading,
+  ctaType,
+}) => {
   const headingComponent = document.querySelector('dds-content-block-heading');
 
   if (headingComponent) {
@@ -111,11 +122,12 @@ export const Default = args => {
         <DDSContentGroupHeading>{cardsGroupHeading}</DDSContentGroupHeading>
         <DDSContentGroupCardsItem href="www.ibm.com">
           <DDSCardHeading>
-            Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt
+            Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do
+            eiusmod tempor incididunt
           </DDSCardHeading>
           <p>
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna
-            aliqua.
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
+            eiusmod tempor incididunt ut labore et dolore magna aliqua.
           </p>
           <DDSCardFooter>
             <ArrowRight20 slot="icon" />
@@ -123,11 +135,12 @@ export const Default = args => {
         </DDSContentGroupCardsItem>
         <DDSContentGroupCardsItem href="www.ibm.com">
           <DDSCardHeading>
-            Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt
+            Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do
+            eiusmod tempor incididunt
           </DDSCardHeading>
           <p>
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna
-            aliqua.
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
+            eiusmod tempor incididunt ut labore et dolore magna aliqua.
           </p>
           <DDSCardFooter>
             <ArrowRight20 slot="icon" />
@@ -137,22 +150,27 @@ export const Default = args => {
       <DDSContentGroupPictograms>
         <DDSContentGroupHeading>{heading}</DDSContentGroupHeading>
         <DDSContentGroupCopy>{groupCopy}</DDSContentGroupCopy>
-        {pictogramsItems.map(({ heading: itemHeading, copy: itemCopy, linkWithIcon }) => (
-          <DDSPictogramItem>
-            <TouchScreen slot="pictogram" />
-            <DDSContentItemHeading>{itemHeading}</DDSContentItemHeading>
-            <DDSContentItemCopy>{itemCopy}</DDSContentItemCopy>
-            <DDSLinkWithIcon href={linkWithIcon.href} slot="footer">
-              {linkWithIcon.copy} <ArrowRight20 slot="icon" />
-            </DDSLinkWithIcon>
-          </DDSPictogramItem>
-        ))}
+        {pictogramsItems.map(
+          ({ heading: itemHeading, copy: itemCopy, linkWithIcon }) => (
+            <DDSPictogramItem>
+              <TouchScreen slot="pictogram" />
+              <DDSContentItemHeading>{itemHeading}</DDSContentItemHeading>
+              <DDSContentItemCopy>{itemCopy}</DDSContentItemCopy>
+              <DDSLinkWithIcon href={linkWithIcon.href} slot="footer">
+                {linkWithIcon.copy} <ArrowRight20 slot="icon" />
+              </DDSLinkWithIcon>
+            </DDSPictogramItem>
+          )
+        )}
       </DDSContentGroupPictograms>
       <DDSContentGroupSimple>
         <DDSContentGroupHeading>{heading}</DDSContentGroupHeading>
         <DDSContentGroupCopy>{groupCopy}</DDSContentGroupCopy>
         {image({ heading })}
-        <DDSCardLinkCTA slot="footer" ctaType={ctaType} href="https://example.com">
+        <DDSCardLinkCTA
+          slot="footer"
+          ctaType={ctaType}
+          href="https://example.com">
           <DDSCardLinkHeading>Lorem ipsum dolor sit amet</DDSCardLinkHeading>
           <DDSCardCTAFooter></DDSCardCTAFooter>
         </DDSCardLinkCTA>
@@ -161,9 +179,14 @@ export const Default = args => {
   );
 };
 
-export const withLinkList = args => {
-  const { heading, copy: groupCopy, cardsGroupHeading, complementaryStyleScheme, ctaType, linkListHeading } =
-    args?.ContentBlockMixed ?? {};
+export const withLinkList = ({
+  heading,
+  copy: groupCopy,
+  cardsGroupHeading,
+  complementaryStyleScheme,
+  ctaType,
+  linkListHeading,
+}) => {
   const headingComponent = document.querySelector('dds-content-block-heading');
 
   if (headingComponent) {
@@ -171,18 +194,20 @@ export const withLinkList = args => {
   }
 
   return (
-    <DDSContentBlockMixed complementary-style-scheme={complementaryStyleScheme || undefined}>
+    <DDSContentBlockMixed
+      complementary-style-scheme={complementaryStyleScheme || undefined}>
       <DDSContentBlockHeading>{heading}</DDSContentBlockHeading>
       <DDSContentBlockCopy>{groupCopy}</DDSContentBlockCopy>
       <DDSContentGroupCards>
         <DDSContentGroupHeading>{cardsGroupHeading}</DDSContentGroupHeading>
         <DDSContentGroupCardsItem href="www.ibm.com">
           <DDSCardHeading>
-            Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt
+            Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do
+            eiusmod tempor incididunt
           </DDSCardHeading>
           <p>
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna
-            aliqua.
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
+            eiusmod tempor incididunt ut labore et dolore magna aliqua.
           </p>
           <DDSCardFooter>
             <ArrowRight20 slot="icon" />
@@ -190,11 +215,12 @@ export const withLinkList = args => {
         </DDSContentGroupCardsItem>
         <DDSContentGroupCardsItem href="www.ibm.com">
           <DDSCardHeading>
-            Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt
+            Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do
+            eiusmod tempor incididunt
           </DDSCardHeading>
           <p>
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna
-            aliqua.
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
+            eiusmod tempor incididunt ut labore et dolore magna aliqua.
           </p>
           <DDSCardFooter>
             <ArrowRight20 slot="icon" />
@@ -204,22 +230,27 @@ export const withLinkList = args => {
       <DDSContentGroupPictograms>
         <DDSContentGroupHeading>{heading}</DDSContentGroupHeading>
         <DDSContentGroupCopy>{groupCopy}</DDSContentGroupCopy>
-        {pictogramsItems.map(({ heading: itemHeading, copy: itemCopy, linkWithIcon }) => (
-          <DDSPictogramItem>
-            <TouchScreen slot="pictogram" />
-            <DDSContentItemHeading>{itemHeading}</DDSContentItemHeading>
-            <DDSContentItemCopy>{itemCopy}</DDSContentItemCopy>
-            <DDSLinkWithIcon href={linkWithIcon.href} slot="footer">
-              {linkWithIcon.copy} <ArrowRight20 slot="icon" />
-            </DDSLinkWithIcon>
-          </DDSPictogramItem>
-        ))}
+        {pictogramsItems.map(
+          ({ heading: itemHeading, copy: itemCopy, linkWithIcon }) => (
+            <DDSPictogramItem>
+              <TouchScreen slot="pictogram" />
+              <DDSContentItemHeading>{itemHeading}</DDSContentItemHeading>
+              <DDSContentItemCopy>{itemCopy}</DDSContentItemCopy>
+              <DDSLinkWithIcon href={linkWithIcon.href} slot="footer">
+                {linkWithIcon.copy} <ArrowRight20 slot="icon" />
+              </DDSLinkWithIcon>
+            </DDSPictogramItem>
+          )
+        )}
       </DDSContentGroupPictograms>
       <DDSContentGroupSimple>
         <DDSContentGroupHeading>{heading}</DDSContentGroupHeading>
         <DDSContentGroupCopy>{groupCopy}</DDSContentGroupCopy>
         {image({ heading })}
-        <DDSCardLinkCTA slot="footer" ctaType={ctaType} href="https://example.com">
+        <DDSCardLinkCTA
+          slot="footer"
+          ctaType={ctaType}
+          href="https://example.com">
           <DDSCardLinkHeading>Lorem ipsum dolor sit amet</DDSCardLinkHeading>
           <DDSCardCTAFooter></DDSCardCTAFooter>
         </DDSCardLinkCTA>
@@ -241,61 +272,65 @@ export const withLinkList = args => {
 
 withLinkList.story = {
   name: 'With link list',
+  argTypes: {
+    linkListHeading: {
+      control: { type: 'text' },
+      name: 'Link list heading (heading)',
+      description: 'The link list heading content',
+      defaultValue: 'Tutorials',
+    },
+    complementaryStyleScheme: {
+      control: { type: 'select' },
+      name: 'Complementary style scheme (complementary-style-scheme)',
+      description: 'Option to include border below Content Block Mixed',
+      options: complementaryStyleSchemes,
+      defaultValue: null,
+    },
+  },
   parameters: {
     gridContentClasses: 'bx--col-lg-12',
-    knobs: {
-      ContentBlockMixed: () => ({
-        heading: text('Heading (heading)', 'Lorem ipsum dolor sit amet'),
-        copy: `Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-          Aenean et ultricies est. Mauris iaculis eget dolor nec hendrerit.
-          Phasellus at elit sollicitudin, sodales nulla quis, consequat
-          libero. Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-          Aenean et ultricies est. Mauris iaculis eget dolor nec hendrerit.
-          Phasellus at elit sollicitudin, sodales nulla quis, consequat libero.
-          `,
-        cardsGroupHeading: text('Cards group heading (heading)', 'Lorem ipsum dolor sit amet, consectetur adipiscing elit.'),
-        ctaType: select('CTA type (cta-type)', ctaTypes, CTA_TYPE.LOCAL),
-        linkListHeading: text('Link list heading (heading)', 'Tutorials'),
-        complementaryStyleScheme: select(
-          'Complementary style scheme (complementary-style-scheme)',
-          complementaryStyleSchemes,
-          null
-        ),
-      }),
-    },
   },
 };
 
 export default {
   title: 'Components/Content block mixed',
+  component: PropTypesRef,
   decorators: [
     (story, { parameters }) => {
       return (
         <div className="bx--grid">
           <div className="bx--row">
-            <div className={`${parameters.gridContentClasses} bx--no-gutter`}>{story()}</div>
+            <div className={`${parameters.gridContentClasses} bx--no-gutter`}>
+              {story()}
+            </div>
           </div>
         </div>
       );
     },
   ],
+  argTypes: {
+    heading: {
+      control: { type: 'text' },
+      name: 'Heading (heading)',
+      defaultValue: 'Lorem ipsum dolor sit amet',
+    },
+    cardsGroupHeading: {
+      control: { type: 'text' },
+      name: 'Card group heading (heading)',
+      description: 'The card group heading content',
+      defaultValue: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit',
+    },
+    ctaType: {
+      control: { type: 'select' },
+      name: 'CTA type (cta-type)',
+      description: 'The CTA type (local, jump, or external)',
+      options: ctaTypes,
+      defaultValue: CTA_TYPE.LOCAL,
+    },
+  },
   parameters: {
     ...readme.parameters,
     gridContentClasses: 'bx--col-lg-8',
     hasStoryPadding: true,
-    knobs: {
-      ContentBlockMixed: () => ({
-        heading: text('Heading (heading)', 'Lorem ipsum dolor sit amet'),
-        copy: `Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-          Aenean et ultricies est. Mauris iaculis eget dolor nec hendrerit.
-          Phasellus at elit sollicitudin, sodales nulla quis, consequat
-          libero. Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-          Aenean et ultricies est. Mauris iaculis eget dolor nec hendrerit.
-          Phasellus at elit sollicitudin, sodales nulla quis, consequat libero.
-          `,
-        cardsGroupHeading: text('Cards group heading (heading)', 'Lorem ipsum dolor sit amet, consectetur adipiscing elit'),
-        ctaType: select('CTA type (cta-type)', ctaTypes, CTA_TYPE.LOCAL),
-      }),
-    },
   },
 };
