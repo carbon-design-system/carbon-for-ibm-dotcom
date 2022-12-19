@@ -1501,11 +1501,6 @@
   resolved "https://registry.yarnpkg.com/@carbon/import-once/-/import-once-10.7.0.tgz#3e66e1308cad78272e2d9d9ea3741dd073860263"
   integrity sha512-KoqbfzGKjO89iUPabN6zNpXpcjxgQYgpHmesZ/DXc/zeV0PyHrnAOC8Q3J0cRPf1zYpGRHN2Tbw1ttTjonzbjg==
 
-"@carbon/layout@10.37.0":
-  version "10.37.0"
-  resolved "https://registry.yarnpkg.com/@carbon/layout/-/layout-10.37.0.tgz#be647c207186d56813fb024372525278febb4496"
-  integrity sha512-6Oyinqc72MQsV9OKT5SYPHHkQh1WrQU+lyV7dSHucMKrHJ9RAQLbno7pBD9oOcwoLfq4u9D9KSdXf8SntChphw==
-
 "@carbon/layout@10.37.1", "@carbon/layout@^10.37.0", "@carbon/layout@^10.37.1":
   version "10.37.1"
   resolved "https://registry.yarnpkg.com/@carbon/layout/-/layout-10.37.1.tgz#697ac4ba0500f55163cd84e0dc200d637fd41beb"
