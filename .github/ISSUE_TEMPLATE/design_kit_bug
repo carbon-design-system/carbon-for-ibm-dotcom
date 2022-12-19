@@ -1,0 +1,68 @@
+name: Design kit 🐛
+description:
+  Something isn't working as expected in the Carbon for IBM.com design kit? Here is the right place to report.
+title: '[YOUR TITLE]: Brief description'
+assignees:
+  - oliviaflory,RichKummer
+labels: ['bug','design kit', 'design']
+body:
+  - type: markdown
+    attributes:
+      value: '## Design kit 🐛'
+  - type: markdown
+    attributes:
+      value: 'Use the form below to report any bugs you find in the Carbon for IBM.com design kit. Feel free to leave blank any sections that aren’t relevant but try to include as much detail as possible. The more details we have, the faster we can respond.'
+  - type: textarea
+    id: components
+    attributes:
+      label: Component(s) impacted
+      description: "Is this issue related to a specific component? If so please give the component name, breakpoint, and variables."
+    validations:
+      required: true
+  - type: textarea
+    id: description
+    attributes:
+      label: Description
+      description: "What did you expect to happen? What happened instead? Is this issue being filed based on a discrepancy between the website and/or code and the kit? If so what is the inconsistency?"
+    validations:
+      required: true
+  - type: textarea
+    id: kit
+    attributes:
+      label: Design kit
+      description: "What version of the Carbon for IBM.com design kit are you using"
+    validations:
+      required: true
+  - type: textarea
+    id: reproduce
+    attributes:
+      label: "Steps to reproduce the issue (if applicable)"
+    validations: 
+      required: true
+  - type: input
+    id: application
+    attributes:
+      label: Application/website
+      description: "What application/website do you work on?"
+    validations:
+      required: true
+  - type: textarea
+    id: release-date
+    attributes:
+      label: "Any pressing ship or release date we should be aware of (if applicable)?"
+    validations:
+      required: false
+  - type: checkboxes
+    id: terms
+    attributes:
+      label: Code of Conduct
+      description: Please confirm the following
+      options:
+        - label:
+            I agree to follow this project's [Code of
+            Conduct](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/blob/main/.github/CODE_OF_CONDUCT.md)
+          required: true
+        - label:
+            I checked the [current
+            issues](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/issues) for
+            duplicate issues
