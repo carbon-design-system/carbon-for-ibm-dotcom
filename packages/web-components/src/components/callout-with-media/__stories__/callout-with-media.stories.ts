@@ -11,11 +11,9 @@ import '../index';
 import '../callout-with-media-image';
 import '../callout-with-media-video';
 import { html } from 'lit-element';
-import { select } from '@storybook/addon-knobs';
 import { CONTENT_BLOCK_COPY_SIZE } from '../../content-block/content-block-copy';
 import imgLg16x9 from '../../../../../storybook-images/assets/720/fpo--16x9--720x405--005.jpg';
 import readme from './README.stories.mdx';
-import textNullable from '../../../../.storybook/knob-text-nullable';
 
 const image = html`
   <dds-callout-with-media-image

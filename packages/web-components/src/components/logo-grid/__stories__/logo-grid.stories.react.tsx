@@ -28,7 +28,6 @@ export const Default = (args) => {
     heading,
     logoCount,
     logoRatio,
-    logosGroup,
     hideBorder,
     showCta,
     ctaCopy,
