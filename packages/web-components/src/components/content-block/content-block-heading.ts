@@ -44,7 +44,7 @@ class DDSContentBlockHeading extends StableSelectorMixin(LitElement) {
 
   firstUpdated() {
     this.content = stripHTML(this.innerHTML);
-    render(html`<h2 style="all:unset">${this.content}</h2>`, this);
+    render(html`<h2>${this.content}</h2>`, this);
   }
 
   render() {
