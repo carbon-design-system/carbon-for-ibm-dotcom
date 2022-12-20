@@ -11,9 +11,9 @@ import { render } from 'lit-html';
 import '../link-with-icon';
 import { Default } from '../__stories__/link-with-icon.stories';
 
-const template = (props?) =>
+const template = (args?) =>
   Default({
-    LinkWithIcon: props,
+    ...args,
   });
 
 describe('dds-link-with-icon', function () {

@@ -12,9 +12,10 @@ import '../logo-grid';
 import '../logo-grid-item';
 import { Default } from '../__stories__/logo-grid.stories';
 
-const template = (props?) =>
+const template = (args?) =>
   Default({
-    LogoGrid: { hideBorder: true, ...props },
+    'hide-border': true,
+    ...args,
   });
 
 describe('dds-logo-grid', function () {
