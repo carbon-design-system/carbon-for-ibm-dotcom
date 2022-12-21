@@ -249,26 +249,25 @@ class DDSLeftNav extends StableSelectorMixin(BXSideNav) {
       const masthead: DDSMasthead | null | undefined = doc
         ?.querySelector('dds-cloud-masthead-container')
         ?.querySelector('dds-masthead');
-      if (expanded && masthead && masthead.dynamicStylesNode) {
+      if (expanded && masthead) {
         this._hFocusWrap = focuswrap(this.shadowRoot!, [
           startSentinelNode,
           endSentinelNode,
         ]);
-        masthead!.setStyleBySelector('body', 'overflow', 'hidden', true);
+        document.body.style.overflow = 'hidden';
 
         // TODO: remove this logic once masthead can account for banners.
         // set masthead position to `fixed` when left-nav is open for cloud-mastead
-        masthead!.setStyleBySelector(':host', 'position', 'fixed');
+        masthead.style.position = 'fixed';
       } else {
         const { selectorMenuSections, selectorFirstMenuSection } = this
           .constructor as typeof DDSLeftNav;
 
         // TODO: remove this logic once masthead can account for banners.
         // remove set position from mastead when left-nav is closed for cloud-mastead
-        if (masthead && masthead.dynamicStylesNode) {
-          masthead!.setStyleBySelector('body', 'overflow', 'auto', true);
-
-          masthead!.setStyleBySelector(':host', 'position', '');
+        if (masthead) {
+          document.body.style.overflow = 'auto';
+          masthead.style.position = '';
         }
 
         this.querySelectorAll(selectorMenuSections).forEach(
