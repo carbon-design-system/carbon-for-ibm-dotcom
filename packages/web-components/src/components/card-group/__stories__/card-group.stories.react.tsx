@@ -392,6 +392,11 @@ withCardInCard.argTypes = {
     control: 'boolean',
     defaultValue: false,
   },
+  gridMode: {
+    control: { type: 'select' },
+    options: gridModes,
+    defaultValue: gridModes['Narrow (16px)'],
+  },
   cardType: {
     table: {
       disable: true,
