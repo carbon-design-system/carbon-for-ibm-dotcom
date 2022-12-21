@@ -9,8 +9,8 @@
 
 import { html, property, customElement, LitElement } from 'lit-element';
 import { nothing } from 'lit-html';
-import ArrowRight16 from '@carbon/carbon-web-components/es/icons/arrow--right/16.js';
-import ifNonNull from '@carbon/carbon-web-components/es/globals/directives/if-non-null.js';
+import ArrowRight16 from '@carbon/web-components/es/icons/arrow--right/16.js';
+import ifNonNull from '@carbon/web-components/es/globals/directives/if-non-null.js';
 import { unsafeSVG } from 'lit-html/directives/unsafe-svg.js';
 import root from 'window-or-global';
 import ddsSettings from '../../internal/vendor/@carbon/ibmdotcom-utilities/utilities/settings/settings';
@@ -60,7 +60,6 @@ import './left-nav-overlay';
 import '../search-with-typeahead/search-with-typeahead';
 import '../search-with-typeahead/search-with-typeahead-item';
 import styles from './masthead.scss';
-import CspComplianceMixin from '../../globals/mixins/csp-compliance';
 
 const { stablePrefix: ddsPrefix } = ddsSettings;
 
@@ -85,7 +84,7 @@ export enum NAV_ITEMS_RENDER_TARGET {
  * @element dds-masthead-composite
  */
 @customElement(`${ddsPrefix}-masthead-composite`)
-class DDSMastheadComposite extends CspComplianceMixin(LitElement) {
+class DDSMastheadComposite extends LitElement {
   /**
    * Renders L1 menu based on l1Data
    *
@@ -107,8 +106,7 @@ class DDSMastheadComposite extends CspComplianceMixin(LitElement) {
               <dds-masthead-l1-name
                 title="${title}"
                 aria-selected="${isSelected}"
-                url="${url}"
-              ></dds-masthead-l1-name>
+                url="${url}"></dds-masthead-l1-name>
             `}
         <dds-top-nav-l1 selected-menu-item=${selectedMenuItem}
           >${this._renderNavItems({
@@ -129,8 +127,7 @@ class DDSMastheadComposite extends CspComplianceMixin(LitElement) {
     if (!this.logoData) {
       return html`
         <dds-masthead-logo
-          ?hide-logo="${this.activateSearch}"
-        ></dds-masthead-logo>
+          ?hide-logo="${this.activateSearch}"></dds-masthead-logo>
       `;
     }
     const useAlternateLogo = MastheadLogoAPI.setMastheadLogo(this.logoData);
@@ -198,8 +195,7 @@ class DDSMastheadComposite extends CspComplianceMixin(LitElement) {
                     <dds-megamenu-category-group
                       data-autoid="${autoid}"
                       href="${item.url}"
-                      title="${item.title}"
-                    >
+                      title="${item.title}">
                       <dds-megamenu-category-group-copy
                         >${item.megapanelContent
                           ?.description}</dds-megamenu-category-group-copy
@@ -213,8 +209,7 @@ class DDSMastheadComposite extends CspComplianceMixin(LitElement) {
                                     data-autoid="${autoid}-item${key}"
                                     href="${url}"
                                     style-scheme="category-sublink"
-                                    title="${title}"
-                                  >
+                                    title="${title}">
                                     <span>${title}</span>${ArrowRight16({
                                       slot: 'icon',
                                     })}
@@ -224,8 +219,7 @@ class DDSMastheadComposite extends CspComplianceMixin(LitElement) {
                                   <dds-megamenu-category-link
                                     data-autoid="${autoid}-item${key}"
                                     title="${title}"
-                                    href="${url}"
-                                  >
+                                    href="${url}">
                                   </dds-megamenu-category-link>
                                 `}
                           `;
@@ -242,8 +236,7 @@ class DDSMastheadComposite extends CspComplianceMixin(LitElement) {
             ? MEGAMENU_RIGHT_NAVIGATION_STYLE_SCHEME.LEFT_SECTION
             : MEGAMENU_RIGHT_NAVIGATION_STYLE_SCHEME.REGULAR}"
           view-all-href="${ifNonNull(viewAllLink?.url)}"
-          view-all-title="${ifNonNull(viewAllLink?.title)}"
-        >
+          view-all-title="${ifNonNull(viewAllLink?.title)}">
           ${menu.map((item, j) => {
             const autoid = `${ddsPrefix}--masthead__l0-nav-list${
               j + highlightedItems.length
@@ -252,16 +245,14 @@ class DDSMastheadComposite extends CspComplianceMixin(LitElement) {
               <dds-megamenu-category-group
                 data-autoid="${autoid}"
                 href="${item.url}"
-                title="${item.title}"
-              >
+                title="${item.title}">
                 ${item.megapanelContent?.quickLinks?.links.map(
                   ({ title, url }, key) => {
                     return html`
                       <dds-megamenu-category-link
                         data-autoid="${autoid}-item${key}"
                         title="${title}"
-                        href="${url}"
-                      >
+                        href="${url}">
                       </dds-megamenu-category-link>
                     `;
                   }
@@ -304,8 +295,7 @@ class DDSMastheadComposite extends CspComplianceMixin(LitElement) {
             panel-id=${elem.panelId}
             ?active="${elem.selected}"
             title="${elem.title}"
-            data-autoid="${elem.autoid}"
-          >
+            data-autoid="${elem.autoid}">
           </dds-left-nav-menu>
         `;
       }
@@ -316,8 +306,7 @@ class DDSMastheadComposite extends CspComplianceMixin(LitElement) {
           ?active="${elem.selected}"
           href="${elem.url}"
           title="${elem.title}"
-          data-autoid="${elem.autoid}"
-        ></dds-left-nav-menu-item>
+          data-autoid="${elem.autoid}"></dds-left-nav-menu-item>
       `;
     });
 
@@ -337,8 +326,7 @@ class DDSMastheadComposite extends CspComplianceMixin(LitElement) {
         ?is-submenu=${ifNonNull(isSubmenu)}
         title=${ifNonNull(sectionTitle)}
         titleUrl=${ifNonNull(sectionUrl)}
-        ?show-back-button=${ifNonNull(showBackButton)}
-      >
+        ?show-back-button=${ifNonNull(showBackButton)}>
         ${items}
       </dds-left-nav-menu-section>
     `;
@@ -632,8 +620,7 @@ class DDSMastheadComposite extends CspComplianceMixin(LitElement) {
                           : menuItemUrl === currentUrlPath}"
                         href="${menuItemUrl}"
                         title="${menuItemTitle}"
-                        data-autoid="${autoid}-nav--subnav-col${i}-item${j}"
-                      ></dds-top-nav-menu-item>
+                        data-autoid="${autoid}-nav--subnav-col${i}-item${j}"></dds-top-nav-menu-item>
                     `
                 );
             }
@@ -645,8 +632,7 @@ class DDSMastheadComposite extends CspComplianceMixin(LitElement) {
                     : url === currentUrlPath}"
                   href="${url}"
                   title="${title}"
-                  data-autoid="${autoid}-nav--nav${i}"
-                ></dds-top-nav-item>
+                  data-autoid="${autoid}-nav--nav${i}"></dds-top-nav-item>
               `;
             }
             if (link.hasMegapanel) {
@@ -655,8 +641,7 @@ class DDSMastheadComposite extends CspComplianceMixin(LitElement) {
                   ?active="${selected}"
                   menu-label="${title}"
                   trigger-content="${title}"
-                  data-autoid="${autoid}-nav--nav${i}"
-                >
+                  data-autoid="${autoid}-nav--nav${i}">
                   ${sections}
                 </dds-megamenu-top-nav-menu>
               `;
@@ -666,8 +651,7 @@ class DDSMastheadComposite extends CspComplianceMixin(LitElement) {
                 ?active="${selected}"
                 menu-label="${title}"
                 trigger-content="${title}"
-                data-autoid="${autoid}-nav--nav${i}"
-              >
+                data-autoid="${autoid}-nav--nav${i}">
                 ${sections}
               </dds-top-nav-menu>
             `;
@@ -900,12 +884,7 @@ class DDSMastheadComposite extends CspComplianceMixin(LitElement) {
     this._loadTranslation?.(language, dataEndpoint).catch(() => {}); // The error is logged in the Redux store
     this._loadUserStatus?.();
 
-    this.setStyleBySelector(
-      `${ddsPrefix}-masthead-container`,
-      'z-index',
-      '900',
-      true
-    );
+    this.style.zIndex = '900';
   }
 
   updated(changedProperties) {
@@ -1007,13 +986,11 @@ class DDSMastheadComposite extends CspComplianceMixin(LitElement) {
       <dds-masthead aria-label="${ifNonNull(mastheadAssistiveText)}">
         <dds-skip-to-content
           href="${skipToContentHref}"
-          link-assistive-text="${skipToContentText}"
-        ></dds-skip-to-content>
+          link-assistive-text="${skipToContentText}"></dds-skip-to-content>
         <dds-masthead-menu-button
           button-label-active="${ifNonNull(menuButtonAssistiveTextActive)}"
           button-label-inactive="${ifNonNull(menuButtonAssistiveTextInactive)}"
-          ?hide-menu-button="${activateSearch}"
-        >
+          ?hide-menu-button="${activateSearch}">
         </dds-masthead-menu-button>
 
         ${this._renderLogo()}
@@ -1030,8 +1007,7 @@ class DDSMastheadComposite extends CspComplianceMixin(LitElement) {
             <dds-top-nav
               selected-menu-item=${selectedMenuItem}
               menu-bar-label="${ifNonNull(menuBarAssistiveText)}"
-              ?hideNav="${activateSearch}"
-            >
+              ?hideNav="${activateSearch}">
               ${this._renderNavItems({
                 selectedMenuItem,
                 target: NAV_ITEMS_RENDER_TARGET.TOP_NAV,
@@ -1052,8 +1028,9 @@ class DDSMastheadComposite extends CspComplianceMixin(LitElement) {
                 placeholder="${ifNonNull(searchPlaceholder)}"
                 .currentSearchResults="${ifNonNull(currentSearchResults)}"
                 ?custom-typeahead-api="${ifNonNull(customTypeaheadAPI)}"
-                .scopeParameters="${ifNonNull(scopeParameters)}"
-              ></dds-search-with-typeahead>
+                .scopeParameters="${ifNonNull(
+                  scopeParameters
+                )}"></dds-search-with-typeahead>
             `}
         <dds-masthead-global-bar ?has-search-active=${activateSearch}>
           ${hasProfile === 'false'

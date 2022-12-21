@@ -35,8 +35,7 @@ class DDSContentBlockSegmentedItem extends StableSelectorMixin(
     return html`
       <div
         ?hidden="${!hasMedia}"
-        class="${prefix}--content-block-segmented__media"
-      >
+        class="${prefix}--content-block-segmented__media">
         <slot name="media" @slotchange="${handleSlotChange}"></slot>
       </div>
     `;

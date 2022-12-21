@@ -134,7 +134,6 @@ class CTALogic {
    *
    * @param {*} e event
    * @param {Function} openLightBox function to toggle lightbox
-   *
    * @returns {*} set lightbox state
    */
   static setLightBox(e, openLightBox) {

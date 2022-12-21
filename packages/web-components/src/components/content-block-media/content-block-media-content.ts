@@ -31,8 +31,7 @@ class DDSContentBlockMediaContent extends StableSelectorMixin(DDSContentGroup) {
       ${this._renderMedia()}
       <div
         ?hidden="${!hasContent && !hasMedia}"
-        class="${prefix}--content-block__children"
-      >
+        class="${prefix}--content-block__children">
         ${this._renderContent()}
       </div>
     `;

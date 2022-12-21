@@ -30,8 +30,7 @@ const ExpressiveModalCloseBtn = ({
       className={classNames(`${prefix}--modal-close`, btnClassName)}
       title={iconDescription}
       type="button"
-      {...props}
-    >
+      {...props}>
       <Close20
         aria-label={iconDescription}
         className={classNames(`${prefix}--modal-close__icon`, iconClassName)}

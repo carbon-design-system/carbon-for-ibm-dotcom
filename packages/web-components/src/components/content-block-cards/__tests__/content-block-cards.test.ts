@@ -8,8 +8,8 @@
  */
 
 import { html, render } from 'lit-html';
-import ArrowRight20 from '@carbon/carbon-web-components/es/icons/arrow--right/20';
-import ifNonNull from '@carbon/carbon-web-components/es/globals/directives/if-non-null.js';
+import ArrowRight20 from '@carbon/web-components/es/icons/arrow--right/20';
+import ifNonNull from '@carbon/web-components/es/globals/directives/if-non-null.js';
 import '../../card/card-heading';
 import '../content-block-cards';
 
@@ -22,8 +22,7 @@ const template = (props?) => {
       <dds-card-cta
         slot="footer"
         cta-type="${ifNonNull(ctaType)}"
-        href="${ifNonNull(href)}"
-      >
+        href="${ifNonNull(href)}">
         <p>ctaCopy-foo</p>
         ${ArrowRight20({ slot: 'footer' })}
       </dds-card-cta>

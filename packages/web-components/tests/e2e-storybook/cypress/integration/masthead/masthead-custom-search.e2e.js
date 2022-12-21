@@ -11,7 +11,7 @@
  * @type {string}
  * @private
  */
-const _pathCustomSearch = '/iframe.html?id=components-masthead--with-custom-typeahead';
+ const _pathCustomSearch = '/iframe.html?id=components-masthead--with-custom-typeahead';
 
 describe('dds-masthead | custom search (desktop)', () => {
   beforeEach(() => {

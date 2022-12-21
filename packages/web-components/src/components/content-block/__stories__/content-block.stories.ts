@@ -12,7 +12,7 @@ import '../../cta/index';
 import '../../card-link/index';
 import { html } from 'lit-element';
 import { boolean, optionsKnob } from '@storybook/addon-knobs';
-import ArrowRight20 from '@carbon/carbon-web-components/es/icons/arrow--right/20.js';
+import ArrowRight20 from '@carbon/web-components/es/icons/arrow--right/20.js';
 import { CONTENT_BLOCK_COMPLEMENTARY_STYLE_SCHEME } from '../content-block';
 import imgLg16x9 from '../../../../../storybook-images/assets/720/fpo--16x9--720x405--002.jpg';
 import imgMd16x9 from '../../../../../storybook-images/assets/480/fpo--16x9--480x270--002.jpg';
@@ -66,8 +66,7 @@ const image = html`
     slot="media"
     alt="Image alt text"
     default-src="${imgLg16x9}"
-    heading="Lorem ipsum dolor sit amet."
-  >
+    heading="Lorem ipsum dolor sit amet.">
     <dds-image-item media="(min-width: 672px)" srcset="${imgLg16x9}">
     </dds-image-item>
     <dds-image-item media="(min-width: 400px)" srcset="${imgMd16x9}">
@@ -84,8 +83,7 @@ export const Default = (args) => {
     <dds-content-block
       complementary-style-scheme="${border
         ? CONTENT_BLOCK_COMPLEMENTARY_STYLE_SCHEME.WITH_BORDER
-        : ''}"
-    >
+        : ''}">
       ${heading
         ? html`
             <dds-content-block-heading
@@ -127,8 +125,7 @@ export const Default = (args) => {
             <dds-card-link-cta
               slot="footer"
               cta-type="local"
-              href="https://www.example.com"
-            >
+              href="https://www.example.com">
               <dds-card-link-heading
                 >Learn more about natual language
                 processing</dds-card-link-heading

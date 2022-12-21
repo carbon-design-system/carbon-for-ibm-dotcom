@@ -9,7 +9,7 @@
 
 import { html, property, customElement } from 'lit-element';
 import settings from 'carbon-components/es/globals/js/settings.js';
-import ifNonNull from '@carbon/carbon-web-components/es/globals/directives/if-non-null.js';
+import ifNonNull from '@carbon/web-components/es/globals/directives/if-non-null.js';
 import ddsSettings from '../../internal/vendor/@carbon/ibmdotcom-utilities/utilities/settings/settings';
 import DDSLightboxMediaViewerBody from './lightbox-media-viewer-body';
 import '../expressive-modal/expressive-modal';
@@ -40,8 +40,7 @@ class DDSLightboxImageViewer extends DDSLightboxMediaViewerBody {
         class="${prefix}--image__img"
         alt="${ifNonNull(alt)}"
         src="${ifNonNull(defaultSrc)}"
-        loading="lazy"
-      />
+        loading="lazy" />
     `;
   }
 

@@ -61,8 +61,7 @@ export const Default = (args) => {
         ? html`
             <dds-universal-banner-image
               slot="image"
-              default-src="${images[imageWidth]}"
-            >
+              default-src="${images[imageWidth]}">
               <dds-image-item media="(min-width: 1584px)" srcset="${srcset[2]}">
               </dds-image-item>
               <dds-image-item media="(min-width: 1056px)" srcset="${srcset[1]}">
@@ -80,8 +79,7 @@ export const Default = (args) => {
         slot="cta"
         cta-type="local"
         kind="tertiary"
-        href="https://www.example.com"
-      >
+        href="https://www.example.com">
         ${ctaCopy}
       </dds-button-cta>
     </dds-universal-banner>

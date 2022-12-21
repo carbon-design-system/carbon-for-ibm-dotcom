@@ -18,7 +18,7 @@ import {
 } from 'lit-element';
 import { unsafeHTML } from 'lit-html/directives/unsafe-html.js';
 import { classMap } from 'lit-html/directives/class-map.js';
-import ChevronRight20 from '@carbon/carbon-web-components/es/icons/chevron--right/20.js';
+import ChevronRight20 from '@carbon/web-components/es/icons/chevron--right/20.js';
 import ddsSettings from '../../internal/vendor/@carbon/ibmdotcom-utilities/utilities/settings/settings';
 import StableSelectorMixin from '../../globals/mixins/stable-selector';
 import DDSTab from './tab';
@@ -211,8 +211,7 @@ class DDSTabsExtended extends StableSelectorMixin(LitElement) {
                 aria-controls="pane-${index}"
                 @click="${(e) => this._handleClick(index, e)}"
                 tabindex="${index + 1}"
-                ?disabled="${disabled}"
-              >
+                ?disabled="${disabled}">
                 ${ChevronRight20({
                   part: 'expando-icon',
                   class: `${prefix}--accordion__arrow`,
@@ -236,8 +235,7 @@ class DDSTabsExtended extends StableSelectorMixin(LitElement) {
         <ul
           class="${prefix}--tabs__nav ${prefix}--tabs__nav--hidden"
           role="tablist"
-          @keydown="${this._handleTabListKeyDown}"
-        >
+          @keydown="${this._handleTabListKeyDown}">
           ${tabs.map((tab, index) => {
             const { disabled } = tab as DDSTab;
             const active = index === this._activeTabIndex;
@@ -253,16 +251,14 @@ class DDSTabsExtended extends StableSelectorMixin(LitElement) {
                 aria-selected="${active}"
                 data-target=".tab-${index}-default"
                 role="tab"
-                ?disabled="${disabled}"
-              >
+                ?disabled="${disabled}">
                 <button
                   tabindex="${active ? '0' : '-1'}"
                   id="tab-link-${index}-default"
                   class="${prefix}--tabs__nav-link"
                   type="button"
                   aria-controls="tab-panel-${index}-default"
-                  @click="${(e) => this._handleClick(index, e)}"
-                >
+                  @click="${(e) => this._handleClick(index, e)}">
                   <div><p>${label}</p></div>
                 </button>
               </li>

@@ -61,8 +61,7 @@ class DDSLeadSpaceBlock extends StableSelectorMixin(LitElement) {
       <slot
         ?hidden="${!hasTitle}"
         name="heading"
-        @slotchange="${this._handleSlotChange}"
-      ></slot>
+        @slotchange="${this._handleSlotChange}"></slot>
     `;
   }
 

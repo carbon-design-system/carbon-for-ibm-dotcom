@@ -10,13 +10,13 @@
 import { classMap } from 'lit-html/directives/class-map.js';
 import { html, property, state, customElement, LitElement } from 'lit-element';
 import settings from 'carbon-components/es/globals/js/settings.js';
-import ifNonNull from '@carbon/carbon-web-components/es/globals/directives/if-non-null.js';
-import FocusMixin from '@carbon/carbon-web-components/es/globals/mixins/focus.js';
+import ifNonNull from '@carbon/web-components/es/globals/directives/if-non-null.js';
+import FocusMixin from '@carbon/web-components/es/globals/mixins/focus.js';
 import {
   BUTTON_ICON_LAYOUT,
   BUTTON_KIND,
   BUTTON_SIZE,
-} from '@carbon/carbon-web-components/es/components/button/button.js';
+} from '@carbon/web-components/es/components/button/button.js';
 import ddsSettings from '../../internal/vendor/@carbon/ibmdotcom-utilities/utilities/settings/settings';
 import styles from './button.scss';
 import StableSelectorMixin from '../../globals/mixins/stable-selector';
@@ -229,8 +229,7 @@ class DDSButtonExpressive extends FocusMixin(StableSelectorMixin(LitElement)) {
               rel="${ifNonNull(rel)}"
               target="${ifNonNull(target)}"
               type="${ifNonNull(type)}"
-              @click="${handleClick}"
-            >
+              @click="${handleClick}">
               ${this._renderInner()}
             </a>
           `;
@@ -243,8 +242,7 @@ class DDSButtonExpressive extends FocusMixin(StableSelectorMixin(LitElement)) {
         ?autofocus="${autofocus}"
         ?disabled="${disabled}"
         type="${ifNonNull(type)}"
-        @click="${handleClick}"
-      >
+        @click="${handleClick}">
         ${this._renderInner()}
       </button>
     `;

@@ -47,8 +47,7 @@ const MastheadProfile = ({
   return (
     <OverflowMenu
       className={`${prefix}--header__action`}
-      {...overflowMenuProps}
-    >
+      {...overflowMenuProps}>
       {profileNav}
     </OverflowMenu>
   );

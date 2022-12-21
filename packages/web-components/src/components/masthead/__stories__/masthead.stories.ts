@@ -10,7 +10,7 @@
 import { html } from 'lit-element';
 import { boolean, select } from '@storybook/addon-knobs';
 import on from 'carbon-components/es/globals/js/misc/on.js';
-import ifNonNull from '@carbon/carbon-web-components/es/globals/directives/if-non-null.js';
+import ifNonNull from '@carbon/web-components/es/globals/directives/if-non-null.js';
 import inPercy from '@percy-io/in-percy';
 import textNullable from '../../../../.storybook/knob-text-nullable';
 import DDSLeftNav from '../left-nav';
@@ -127,8 +127,7 @@ export const Default = (args) => {
             .unauthenticatedProfileItems="${ifNonNull(
               unauthenticatedProfileItems
             )}"
-            custom-profile-login="${customProfileLogin}"
-          ></dds-masthead-composite>
+            custom-profile-login="${customProfileLogin}"></dds-masthead-composite>
         `
       : html`
           <dds-masthead-container
@@ -140,8 +139,7 @@ export const Default = (args) => {
             .navLinks="${navLinks}"
             has-profile="${hasProfile}"
             ?has-search="${hasSearch}"
-            custom-profile-login="${customProfileLogin}"
-          ></dds-masthead-container>
+            custom-profile-login="${customProfileLogin}"></dds-masthead-container>
         `}
   `;
 };
@@ -191,8 +189,7 @@ export const WithCustomTypeahead = (args) => {
               unauthenticatedProfileItems
             )}"
             custom-profile-login="${customProfileLogin}"
-            ?custom-typeahead-api=${true}
-          ></dds-masthead-composite>
+            ?custom-typeahead-api=${true}></dds-masthead-composite>
         `
       : html`
           <dds-masthead-container
@@ -205,8 +202,7 @@ export const WithCustomTypeahead = (args) => {
             has-profile="${hasProfile}"
             ?has-search="${hasSearch}"
             custom-profile-login="${customProfileLogin}"
-            ?custom-typeahead-api=${true}
-          ></dds-masthead-container>
+            ?custom-typeahead-api=${true}></dds-masthead-container>
         `}
   `;
 };
@@ -247,8 +243,7 @@ export const searchOpenOnload = (args) => {
             .unauthenticatedProfileItems="${ifNonNull(
               unauthenticatedProfileItems
             )}"
-            custom-profile-login="${customProfileLogin}"
-          ></dds-masthead-composite>
+            custom-profile-login="${customProfileLogin}"></dds-masthead-composite>
         `
       : html`
           <dds-masthead-container
@@ -261,8 +256,7 @@ export const searchOpenOnload = (args) => {
             .navLinks="${navLinks}"
             has-profile="${hasProfile}"
             ?has-search="${hasSearch}"
-            custom-profile-login="${customProfileLogin}"
-          ></dds-masthead-container>
+            custom-profile-login="${customProfileLogin}"></dds-masthead-container>
         `}
   `;
 };
@@ -299,8 +293,7 @@ export const withPlatform = (args) => {
             ?has-search="${hasSearch}"
             .unauthenticatedProfileItems="${ifNonNull(
               unauthenticatedProfileItems
-            )}"
-          ></dds-masthead-composite>
+            )}"></dds-masthead-composite>
         `
       : html`
           <dds-masthead-container
@@ -309,8 +302,7 @@ export const withPlatform = (args) => {
             user-status="${ifNonNull(userStatus)}"
             searchPlaceholder="${ifNonNull(searchPlaceholder)}"
             has-profile="${hasProfile}"
-            ?has-search="${hasSearch}"
-          ></dds-masthead-container>
+            ?has-search="${hasSearch}"></dds-masthead-container>
         `}
   `;
 };
@@ -382,8 +374,7 @@ export const withL1 = (args) => {
             .navLinks="${navLinks}"
             .unauthenticatedProfileItems="${ifNonNull(
               unauthenticatedProfileItems
-            )}"
-          ></dds-masthead-composite>
+            )}"></dds-masthead-composite>
         `
       : html`
           <dds-masthead-container
@@ -392,8 +383,7 @@ export const withL1 = (args) => {
             has-profile="${hasProfile}"
             ?has-search="${hasSearch}"
             .l1Data="${mastheadL1Data}"
-            .navLinks="${navLinks}"
-          ></dds-masthead-container>
+            .navLinks="${navLinks}"></dds-masthead-container>
         `}
   `;
 };
@@ -468,8 +458,7 @@ export const withAlternateLogoAndTooltip = (args) => {
               : null}"
             .unauthenticatedProfileItems="${ifNonNull(
               unauthenticatedProfileItems
-            )}"
-          ></dds-masthead-composite>
+            )}"></dds-masthead-composite>
         `
       : html`
           <dds-masthead-container
@@ -481,8 +470,7 @@ export const withAlternateLogoAndTooltip = (args) => {
               ? logoData
               : null}"
             has-profile="${hasProfile}"
-            ?has-search="${hasSearch}"
-          ></dds-masthead-container>
+            ?has-search="${hasSearch}"></dds-masthead-container>
         `}
   `;
 };
@@ -569,8 +557,7 @@ export const WithScopedSearch = ({ parameters }) => {
               unauthenticatedProfileItems
             )}"
             custom-profile-login="${customProfileLogin}"
-            .scopeParameters=${scopeParameters}
-          ></dds-masthead-composite>
+            .scopeParameters=${scopeParameters}></dds-masthead-composite>
         `
       : html`
           <dds-masthead-container
@@ -583,8 +570,7 @@ export const WithScopedSearch = ({ parameters }) => {
             ?has-profile="${hasProfile}"
             ?has-search="${hasSearch}"
             custom-profile-login="${customProfileLogin}"
-            .scopeParameters=${scopeParameters}
-          ></dds-masthead-container>
+            .scopeParameters=${scopeParameters}></dds-masthead-container>
         `}
   `;
 };

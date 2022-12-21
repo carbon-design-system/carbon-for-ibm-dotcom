@@ -103,7 +103,6 @@ class TranslationAPI {
    *
    * @param {object} codes object containing lc and cc
    * @param {string} endpoint endpoint to fetch data from (optional)
-   *
    * @returns {Promise<any>} Translation data
    * @example
    * import { TranslationAPI } from '@carbon/ibmdotcom-services';
@@ -251,8 +250,7 @@ class TranslationAPI {
   /**
    * Retrieves session cache and checks if cache needs to be refreshed
    *
-   * @param   {string} key session storage key
-   * @returns {object} session storage object
+   * @param {string} key session storage key
    * @private
    */
   static getSessionCache(key) {

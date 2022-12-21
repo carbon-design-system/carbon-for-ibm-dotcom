@@ -31,8 +31,7 @@ const ContentBlockSimple = ({
 }) => (
   <div
     data-autoid={`${stablePrefix}--content-block-simple`}
-    className={`${prefix}--content-block-simple`}
-  >
+    className={`${prefix}--content-block-simple`}>
     <ContentBlock heading={heading} cta={cta} aside={aside}>
       <div className={`${prefix}--content-block-simple__content`}>
         <ContentItem copy={copy} />
@@ -48,7 +47,6 @@ const ContentBlockSimple = ({
  * @param {string} type cta type ( external | jump | local)
  * @param {object} data cta type ( external | jump | local)
  * @private
- * @returns {*} media component
  */
 const _renderMedia = (type, data) => {
   if (data) {
@@ -58,8 +56,7 @@ const _renderMedia = (type, data) => {
         className={cx({
           [`${prefix}--content-block-simple__media-video`]: type === 'video',
           [`${prefix}--content-block-simple__media-image`]: type === 'image',
-        })}
-      >
+        })}>
         {type === 'image' && <ImageWithCaption {...data} />}
         {type === 'video' && <VideoPlayer {...data} />}
       </div>
@@ -88,8 +85,8 @@ ContentBlockSimple.propTypes = {
    * Media Data for either image or video.
    * See the following components' README for more details:
    *
-   * * `mediaType="image"`: [`<ImageWithCaption>`](http://www.ibm.com/standards/carbon/react/?path=/docs/components-imagewithcaption--default#props)
-   * * `mediaType="video"`: [`<VideoPlayer>`](http://www.ibm.com/standards/carbon/react/?path=/docs/components-videoplayer--default#props)
+   * `mediaType="image"`: [`<ImageWithCaption>`](http://www.ibm.com/standards/carbon/react/?path=/docs/components-imagewithcaption--default#props)
+   * `mediaType="video"`: [`<VideoPlayer>`](http://www.ibm.com/standards/carbon/react/?path=/docs/components-videoplayer--default#props)
    */
   mediaData: PropTypes.oneOfType([
     PropTypes.shape({

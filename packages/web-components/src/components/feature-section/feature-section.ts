@@ -39,18 +39,15 @@ class DDSFeatureSection extends StableSelectorMixin(DDSFeatureCard) {
             <div class="${prefix}--grid ${prefix}--feature-section">
               <div class="${prefix}--row ${prefix}--feature-section__container">
                 <div
-                  class="${prefix}--col-sm-4 ${prefix}--col-md-8 ${prefix}--col-lg-8 ${prefix}--feature-section__image"
-                >
+                  class="${prefix}--col-sm-4 ${prefix}--col-md-8 ${prefix}--col-lg-8 ${prefix}--feature-section__image">
                   <slot name="image"></slot>
                 </div>
                 <div
-                  class="${prefix}--col-sm-4 ${prefix}--col-md-8 ${prefix}--col-lg-8 ${prefix}--feature-section__body"
-                >
+                  class="${prefix}--col-sm-4 ${prefix}--col-md-8 ${prefix}--col-lg-8 ${prefix}--feature-section__body">
                   <div class="${prefix}--grid">
                     <div class="${prefix}--row">
                       <div
-                        class="${prefix}--col-sm-4 ${prefix}--col-md-6 ${prefix}--col-lg-12"
-                      >
+                        class="${prefix}--col-sm-4 ${prefix}--col-md-6 ${prefix}--col-lg-12">
                         <slot name="eyebrow"></slot>
                         <slot name="heading"></slot>
                         <slot name="copy"></slot>
@@ -66,13 +63,11 @@ class DDSFeatureSection extends StableSelectorMixin(DDSFeatureCard) {
             <div class="${prefix}--grid ${prefix}--feature-section">
               <div class="${prefix}--row ${prefix}--feature-section__container">
                 <div
-                  class="${prefix}--col-sm-4 ${prefix}--col-md-8 ${prefix}--col-lg-8 ${prefix}--feature-section__body"
-                >
+                  class="${prefix}--col-sm-4 ${prefix}--col-md-8 ${prefix}--col-lg-8 ${prefix}--feature-section__body">
                   <div class="${prefix}--grid">
                     <div class="${prefix}--row">
                       <div
-                        class="${prefix}--col-sm-4 ${prefix}--col-md-6 ${prefix}--col-lg-12"
-                      >
+                        class="${prefix}--col-sm-4 ${prefix}--col-md-6 ${prefix}--col-lg-12">
                         <slot name="eyebrow"></slot>
                         <slot name="heading"></slot>
                         <slot name="copy"></slot>
@@ -81,8 +76,7 @@ class DDSFeatureSection extends StableSelectorMixin(DDSFeatureCard) {
                   </div>
                 </div>
                 <div
-                  class="${prefix}--col-sm-4 ${prefix}--col-md-8 ${prefix}--col-lg-8 ${prefix}--feature-section__image"
-                >
+                  class="${prefix}--col-sm-4 ${prefix}--col-md-8 ${prefix}--col-lg-8 ${prefix}--feature-section__image">
                   <slot name="image"></slot>
                   <slot name="footer"></slot>
                 </div>

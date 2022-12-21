@@ -9,17 +9,16 @@
 
 import { html, property, customElement, LitElement } from 'lit-element';
 import settings from 'carbon-components/es/globals/js/settings.js';
-import HostListener from '@carbon/carbon-web-components/es/globals/decorators/host-listener.js';
-import HostListenerMixin from '@carbon/carbon-web-components/es/globals/mixins/host-listener.js';
-import ChevronLeft20 from '@carbon/carbon-web-components/es/icons/chevron--left/20.js';
-import ArrowRight20 from '@carbon/carbon-web-components/es/icons/arrow--right/20.js';
-import FocusMixin from '@carbon/carbon-web-components/es/globals/mixins/focus.js';
-import { selectorTabbable } from '@carbon/carbon-web-components/es/globals/settings.js';
+import HostListener from '@carbon/web-components/es/globals/decorators/host-listener.js';
+import HostListenerMixin from '@carbon/web-components/es/globals/mixins/host-listener.js';
+import ChevronLeft20 from '@carbon/web-components/es/icons/chevron--left/20.js';
+import ArrowRight20 from '@carbon/web-components/es/icons/arrow--right/20.js';
+import FocusMixin from '@carbon/web-components/es/globals/mixins/focus.js';
+import { selectorTabbable } from '@carbon/web-components/es/globals/settings.js';
 import ddsSettings from '../../internal/vendor/@carbon/ibmdotcom-utilities/utilities/settings/settings';
 import { forEach } from '../../globals/internal/collection-helpers';
 import styles from './masthead.scss';
 import DDSLeftNav from './left-nav';
-import CspComplianceMixin from '../../globals/mixins/csp-compliance';
 
 const { prefix } = settings;
 const { stablePrefix: ddsPrefix } = ddsSettings;
@@ -34,9 +33,7 @@ const { stablePrefix: ddsPrefix } = ddsSettings;
  * @fires dds-left-nav-menu-toggled The custom event fired after this side nav menu is toggled upon a user gesture.
  */
 @customElement(`${ddsPrefix}-left-nav-menu-section`)
-class DDSLeftNavMenuSection extends CspComplianceMixin(
-  HostListenerMixin(FocusMixin(LitElement))
-) {
+class DDSLeftNavMenuSection extends HostListenerMixin(FocusMixin(LitElement)) {
   /**
    * Set aria-hidden property.
    */
@@ -124,12 +121,12 @@ class DDSLeftNavMenuSection extends CspComplianceMixin(
     setTimeout(() => {
       if (this.expanded) {
         // Allow active section to scroll
-        this.setStyleBySelector(':host', 'overflow', '');
+        this.style.overflow = '';
       } else {
         // Hide previous section & restrict size
-        this.setStyleBySelector(':host', 'visibility', 'hidden');
-        this.setStyleBySelector(':host', 'height', '0');
-        this.setStyleBySelector(':host', 'overflow', 'hidden');
+        this.style.visibility = 'hidden';
+        this.style.height = '0';
+        this.style.overflow = 'hidden';
       }
     }, 0);
   }
@@ -142,18 +139,18 @@ class DDSLeftNavMenuSection extends CspComplianceMixin(
       this.expanded = false;
       this.ariaHidden = 'true';
       // Hide all submenus, and restrict their height/overflow.
-      this.setStyleBySelector(':host', 'visibility', 'hidden');
-      this.setStyleBySelector(':host', 'height', '0');
-      this.setStyleBySelector(':host', 'overflow', 'hidden');
+      this.style.visibility = 'hidden';
+      this.style.height = '0';
+      this.style.overflow = 'hidden';
     }
   }
 
   shouldUpdate(changedProperties) {
     if (changedProperties.has('expanded')) {
       // Allow incoming menu section to show before transition.
-      if (this.expanded && this.dynamicStylesNode) {
-        this.setStyleBySelector(':host', 'visibility', '');
-        this.setStyleBySelector(':host', 'height', '');
+      if (this.expanded) {
+        this.style.visibility = '';
+        this.style.height = '';
       }
     }
     return true;
@@ -242,19 +239,16 @@ class DDSLeftNavMenuSection extends CspComplianceMixin(
       showBackBtn,
     } = this;
     return html`
-      ${this._renderDynamicStyles()}
       <ul>
         ${showBackBtn
           ? html`
               <li
                 class="${prefix}--side-nav__menu-item ${prefix}--masthead__side-nav--submemu-back"
-                role="none"
-              >
+                role="none">
                 <button
                   class="${prefix}--side-nav__link"
                   tabindex="-1"
-                  @click="${handleClickBack}"
-                >
+                  @click="${handleClickBack}">
                   <span class="${prefix}--side-nav__link-text"
                     >${ChevronLeft20()}${backButtonText}</span
                   >
@@ -273,12 +267,10 @@ class DDSLeftNavMenuSection extends CspComplianceMixin(
           ? html`
               <a
                 class="${prefix}--masthead__side-nav--submemu-title"
-                href=${titleUrl}
-              >
+                href=${titleUrl}>
                 <span>${title}</span>
                 <div
-                  class="${prefix}--masthead__side-nav--submemu-section-title__icon"
-                >
+                  class="${prefix}--masthead__side-nav--submemu-section-title__icon">
                   ${ArrowRight20()}
                 </div>
               </a>

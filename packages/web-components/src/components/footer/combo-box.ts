@@ -10,8 +10,8 @@
 import settings from 'carbon-components/es/globals/js/settings.js';
 import { TemplateResult } from 'lit-html';
 import { html, property, query, customElement } from 'lit-element';
-import BXComboBoxItem from '@carbon/carbon-web-components/es/components/combo-box/combo-box-item.js';
-import Close16 from '@carbon/carbon-web-components/es/icons/close/16.js';
+import BXComboBoxItem from '@carbon/web-components/es/components/combo-box/combo-box-item.js';
+import Close16 from '@carbon/web-components/es/icons/close/16.js';
 import ddsSettings from '@carbon/ibmdotcom-utilities/es/utilities/settings/settings.js';
 import { findIndex, forEach } from '../../globals/internal/collection-helpers';
 import DDSDropdown, { DROPDOWN_KEYBOARD_ACTION } from './dropdown';
@@ -184,8 +184,7 @@ class DDSComboBox extends DDSDropdown {
         aria-labelledby="assistiveStatus"
         aria-controls="menu-body"
         aria-autocomplete="list"
-        @input=${handleInput}
-      />
+        @input=${handleInput} />
     `;
   }
 
@@ -199,8 +198,7 @@ class DDSComboBox extends DDSDropdown {
             role="button"
             class="${prefix}--list-box__selection"
             tabindex="0"
-            title="${clearSelectionLabel}"
-          >
+            title="${clearSelectionLabel}">
             ${Close16({ 'aria-label': clearSelectionLabel })}
           </div>
         `;

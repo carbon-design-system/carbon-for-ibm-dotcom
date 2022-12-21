@@ -10,8 +10,8 @@
 import { html, property, customElement, LitElement } from 'lit-element';
 import { classMap } from 'lit-html/directives/class-map.js';
 import settings from 'carbon-components/es/globals/js/settings.js';
-import ifNonNull from '@carbon/carbon-web-components/es/globals/directives/if-non-null.js';
-import FocusMixin from '@carbon/carbon-web-components/es/globals/mixins/focus.js';
+import ifNonNull from '@carbon/web-components/es/globals/directives/if-non-null.js';
+import FocusMixin from '@carbon/web-components/es/globals/mixins/focus.js';
 import PlayVideo from '@carbon/ibmdotcom-styles/icons/svg/play-video.svg';
 import {
   formatVideoCaption,
@@ -83,8 +83,7 @@ class DDSVideoPlayer extends FocusMixin(
           <div class="${prefix}--video-player__video">
             <button
               class="${prefix}--video-player__image-overlay"
-              @click="${this._handleClickOverlay}"
-            >
+              @click="${this._handleClickOverlay}">
               <dds-image default-src="${thumbnailUrl}" alt="${ifNonNull(name)}">
                 ${PlayVideo({ slot: 'icon' })}
               </dds-image>

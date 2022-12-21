@@ -78,15 +78,13 @@ describe('dds-content-item-horizontal', function () {
               <dds-link-list-item-cta
                 icon-placement="${ICON_PLACEMENT.RIGHT}"
                 href="https://www.ibm.com"
-                cta-type="${CTA_TYPE.LOCAL}"
-              >
+                cta-type="${CTA_TYPE.LOCAL}">
                 cta-copy-foo
               </dds-link-list-item-cta>
               <dds-link-list-item-cta
                 icon-placement="${ICON_PLACEMENT.RIGHT}"
                 href="https://www.ibm.com"
-                cta-type="${CTA_TYPE.EXTERNAL}"
-              >
+                cta-type="${CTA_TYPE.EXTERNAL}">
                 cta-copy-foo
               </dds-link-list-item-cta>
             </dds-link-list>
@@ -123,8 +121,7 @@ describe('dds-content-item-horizontal', function () {
               <dds-link-list-item-cta
                 icon-placement="right"
                 href="www.ibm.com"
-                cta-type="local"
-              >
+                cta-type="local">
                 cta-copy
               </dds-link-list-item-cta>
             </dds-link-list>
@@ -165,8 +162,7 @@ describe('dds-content-item-horizontal', function () {
               <dds-link-list-item-cta
                 icon-placement="right"
                 href="www.ibm.com"
-                cta-type="local"
-              >
+                cta-type="local">
                 cta-copy
               </dds-link-list-item-cta>
             </dds-link-list>
@@ -205,16 +201,14 @@ describe('dds-content-item-horizontal', function () {
               <dds-link-list-item-cta
                 icon-placement="${ICON_PLACEMENT.RIGHT}"
                 href="www.ibm.com"
-                cta-type="local"
-              >
+                cta-type="local">
                 cta-copy
               </dds-link-list-item-cta>
             </dds-link-list>
             <dds-image
               slot="thumbnail"
               alt="thumbnail-image"
-              default-src=""
-            ></dds-image>
+              default-src=""></dds-image>
           `,
         }),
         document.body

@@ -55,8 +55,7 @@ const VideoImageOverlay = ({
     <button
       className={`${prefix}--video-player__image-overlay`}
       data-autoid={`${stablePrefix}--video-player__image-overlay`}
-      onClick={handleClick}
-    >
+      onClick={handleClick}>
       <Image
         refImage={refImage}
         defaultSrc={imageSrc}

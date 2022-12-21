@@ -15,7 +15,7 @@ import '../../card-link/card-link-heading';
 import '../../card/card-footer';
 import { boolean, text, select } from '@storybook/addon-knobs';
 import { html } from 'lit-element';
-import ArrowRight20 from '@carbon/carbon-web-components/es/icons/arrow--right/20.js';
+import ArrowRight20 from '@carbon/web-components/es/icons/arrow--right/20.js';
 import logos from './data/logos.js';
 import readme from './README.stories.mdx';
 import textNullable from '../../../../.storybook/knob-text-nullable';
@@ -36,16 +36,14 @@ export const Default = (args) => {
     <dds-logo-grid
       ?hide-border="${hideBorder}"
       logo-count="${logoCount}"
-      logo-ratio="${logoRatio}"
-    >
+      logo-ratio="${logoRatio}">
       <dds-content-block-heading> ${heading} </dds-content-block-heading>
       ${logosGroup &&
       logosGroup.map(
         (elem) => html`
           <dds-logo-grid-item
             default-src="${elem.imgSrc}"
-            alt="${elem.altText}"
-          ></dds-logo-grid-item>
+            alt="${elem.altText}"></dds-logo-grid-item>
         `
       )}
       ${showCta

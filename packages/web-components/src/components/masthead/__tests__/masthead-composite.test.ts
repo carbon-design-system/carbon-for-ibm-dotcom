@@ -8,7 +8,7 @@
  */
 
 import { html, render } from 'lit-html';
-import ifNonNull from '@carbon/carbon-web-components/es/globals/directives/if-non-null.js';
+import ifNonNull from '@carbon/web-components/es/globals/directives/if-non-null.js';
 import EventManager from '../../../../tests/utils/event-manager';
 import { MastheadLink } from '../../../internal/vendor/@carbon/ibmdotcom-services-store/types/translateAPI.d';
 import DDSMastheadComposite from '../masthead-composite';
@@ -25,8 +25,7 @@ const template = (props?) => {
       user-status="${ifNonNull(userStatus)}"
       .authenticatedProfileItems="${ifNonNull(authenticatedProfileItems)}"
       .navLinks="${navLinks}"
-      .unauthenticatedProfileItems="${ifNonNull(unauthenticatedProfileItems)}"
-    >
+      .unauthenticatedProfileItems="${ifNonNull(unauthenticatedProfileItems)}">
     </dds-masthead-composite>
   `;
 };

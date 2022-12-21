@@ -23,7 +23,6 @@ class CloudAccountAuthAPI {
    * import { cloudAccountAuthentication } from '@carbon/ibmdotcom-utilities';
    *
    * const status = cloudAccountAuthentication.checkCookie();
-   *
    * @returns {string} string determining login status
    */
   static checkCookie() {
@@ -39,7 +38,6 @@ class CloudAccountAuthAPI {
    * import { cloudAccountAuthentication } from '@carbon/ibmdotcom-utilities';
    *
    * const status = cloudAccountAuthentication.checkAPI();
-   *
    * @returns {string} string determining login status
    */
   static async checkAPI() {

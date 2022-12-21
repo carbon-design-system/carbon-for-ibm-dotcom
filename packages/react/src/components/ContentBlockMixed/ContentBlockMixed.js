@@ -34,15 +34,13 @@ const ContentBlockMixed = ({ heading, copy, cta, items, aside, border }) => {
   return (
     <div
       data-autoid={`${stablePrefix}--content-block-mixed`}
-      className={`${prefix}--content-block-mixed`}
-    >
+      className={`${prefix}--content-block-mixed`}>
       <ContentBlock
         heading={heading}
         copy={copy}
         cta={cta}
         aside={aside}
-        border={border}
-      >
+        border={border}>
         {groups}
       </ContentBlock>
     </div>
@@ -64,9 +62,9 @@ ContentBlockMixed.propTypes = {
   /**
    * The data of the content groups to render. See the following for full usage details:
    *
-   * * [`<ContentGroupCards>`](http://www.ibm.com/standards/carbon/react/?path=/docs/patterns-blocks-contentgroupcards--default#props)
-   * * [`<ContentGroupSimple>`](http://www.ibm.com/standards/carbon/react/?path=/docs/patterns-blocks-contentgroupsimple--default#props)
-   * * [`<ContentGroupPictograms>`](http://www.ibm.com/standards/carbon/react/?path=/docs/patterns-blocks-contentgrouppictograms--default#props)
+   * [`<ContentGroupCards>`](http://www.ibm.com/standards/carbon/react/?path=/docs/patterns-blocks-contentgroupcards--default#props)
+   * [`<ContentGroupSimple>`](http://www.ibm.com/standards/carbon/react/?path=/docs/patterns-blocks-contentgroupsimple--default#props)
+   * [`<ContentGroupPictograms>`](http://www.ibm.com/standards/carbon/react/?path=/docs/patterns-blocks-contentgrouppictograms--default#props)
    */
   items: PropTypes.arrayOf(
     PropTypes.oneOfType([

@@ -61,7 +61,6 @@ const FeatureCTA = ({
  *
  * @param {object} param param object
  * @param {object} param.card card object
- *
  * @private
  * @returns {*} object
  */

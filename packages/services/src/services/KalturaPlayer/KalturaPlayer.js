@@ -150,9 +150,7 @@ class KalturaPlayerAPI {
    * @param {string} params.mediaId media id
    * @param {string} params.height specify height in pixels
    * @param {string} params.width specify width in pixels
-   *
    * @returns {string} url of thumbnail image
-   *
    * @example
    * import { KalturaPlayerAPI } from '@carbon/ibmdotcom-services';
    *
@@ -182,7 +180,6 @@ class KalturaPlayerAPI {
    * @param {Function} customReadyCallback Determine any extra functions that should be executed
    *  on player readyCallback.
    * @returns {object}  object
-   *
    * @example
    * import { KalturaPlayerAPI } from '@carbon/ibmdotcom-services';
    *
@@ -303,7 +300,6 @@ class KalturaPlayerAPI {
    * @param {object} param.kdp media object
    * @param {string} param.mediaId id of the media
    * @param {object} param.customMetricsData any extra parameter for custom events
-   *
    */
   static fireEvent({ playerState, kdp, mediaId, customMetricsData = {} }) {
     // If media was played and timestamp is 0, it should be "launched" state.
@@ -331,7 +327,6 @@ class KalturaPlayerAPI {
    *
    * @param {string} mediaId  The mediaId we're embedding the placeholder for.
    * @returns {object}  object
-   *
    * @example
    * import { KalturaPlayerAPI } from '@carbon/ibmdotcom-services';
    *

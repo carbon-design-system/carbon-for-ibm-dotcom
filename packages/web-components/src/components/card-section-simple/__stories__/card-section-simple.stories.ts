@@ -9,7 +9,7 @@
 
 import { html } from 'lit-element';
 import { boolean } from '@storybook/addon-knobs';
-import ifNonNull from '@carbon/carbon-web-components/es/globals/directives/if-non-null.js';
+import ifNonNull from '@carbon/web-components/es/globals/directives/if-non-null.js';
 import readme from './README.stories.mdx';
 import imgLg4x3 from '../../../../../storybook-images/assets/720/fpo--4x3--720x540--005.jpg';
 import textNullable from '../../../../.storybook/knob-text-nullable';
@@ -23,8 +23,7 @@ const cardGroupItems = (withImages) => {
             <dds-image
               slot="image"
               alt="Image alt text"
-              default-src="${imgLg4x3}"
-            >
+              default-src="${imgLg4x3}">
             </dds-image>
           `
         : ''}
@@ -58,13 +57,11 @@ export const Default = (args) => {
               <dds-card-group-item
                 href="https://example.com"
                 color-scheme="inverse"
-                cta-type="local"
-              >
+                cta-type="local">
                 <dds-card-heading>Top level card link</dds-card-heading>
                 <dds-card-cta-footer
                   slot="footer"
-                  color-scheme="inverse"
-                ></dds-card-cta-footer>
+                  color-scheme="inverse"></dds-card-cta-footer>
               </dds-card-group-item>
             `
           : ``}

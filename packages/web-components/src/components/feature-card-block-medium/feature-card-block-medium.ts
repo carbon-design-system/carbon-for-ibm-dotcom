@@ -41,8 +41,7 @@ class DDSFeatureCardBlockMedium extends DDSFeatureCard {
       <slot name="block-heading"></slot>
       <div
         class="${prefix}--feature-card"
-        data-autoid="${ddsPrefix}--feature-card"
-      >
+        data-autoid="${ddsPrefix}--feature-card">
         ${super.render()}
       </div>
     `;

@@ -138,8 +138,7 @@ class DDSContentBlock extends StableSelectorMixin(LitElement) {
     return html`
       <div
         ?hidden="${!this._hasBodyContent()}"
-        class="${prefix}--content-layout__body"
-      >
+        class="${prefix}--content-layout__body">
         ${this._renderCopy()}${this._renderInnerBody()}${this._renderFooter()}
       </div>
     `;

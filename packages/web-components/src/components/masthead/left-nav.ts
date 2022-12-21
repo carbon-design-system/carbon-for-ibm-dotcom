@@ -10,11 +10,11 @@
 import findLast from 'lodash-es/findLast.js';
 import { html, query, property, customElement } from 'lit-element';
 import settings from 'carbon-components/es/globals/js/settings.js';
-import { selectorTabbable } from '@carbon/carbon-web-components/es/globals/settings.js';
-import HostListener from '@carbon/carbon-web-components/es/globals/decorators/host-listener.js';
+import { selectorTabbable } from '@carbon/web-components/es/globals/settings.js';
+import HostListener from '@carbon/web-components/es/globals/decorators/host-listener.js';
 import BXSideNav, {
   SIDE_NAV_USAGE_MODE,
-} from '@carbon/carbon-web-components/es/components/ui-shell/side-nav.js';
+} from '@carbon/web-components/es/components/ui-shell/side-nav.js';
 import ddsSettings from '../../internal/vendor/@carbon/ibmdotcom-utilities/utilities/settings/settings';
 import focuswrap from '../../internal/vendor/@carbon/ibmdotcom-utilities/utilities/focuswrap/focuswrap';
 import { find, forEach } from '../../globals/internal/collection-helpers';
@@ -249,26 +249,25 @@ class DDSLeftNav extends StableSelectorMixin(BXSideNav) {
       const masthead: DDSMasthead | null | undefined = doc
         ?.querySelector('dds-cloud-masthead-container')
         ?.querySelector('dds-masthead');
-      if (expanded && masthead && masthead.dynamicStylesNode) {
+      if (expanded && masthead) {
         this._hFocusWrap = focuswrap(this.shadowRoot!, [
           startSentinelNode,
           endSentinelNode,
         ]);
-        masthead!.setStyleBySelector('body', 'overflow', 'hidden', true);
+        document.body.style.overflow = 'hidden';
 
         // TODO: remove this logic once masthead can account for banners.
         // set masthead position to `fixed` when left-nav is open for cloud-mastead
-        masthead!.setStyleBySelector(':host', 'position', 'fixed');
+        masthead.style.position = 'fixed';
       } else {
         const { selectorMenuSections, selectorFirstMenuSection } = this
           .constructor as typeof DDSLeftNav;
 
         // TODO: remove this logic once masthead can account for banners.
         // remove set position from mastead when left-nav is closed for cloud-mastead
-        if (masthead && masthead.dynamicStylesNode) {
-          masthead!.setStyleBySelector('body', 'overflow', 'auto', true);
-
-          masthead!.setStyleBySelector(':host', 'position', '');
+        if (masthead) {
+          document.body.style.overflow = 'auto';
+          masthead.style.position = '';
         }
 
         this.querySelectorAll(selectorMenuSections).forEach(
@@ -297,8 +296,7 @@ class DDSLeftNav extends StableSelectorMixin(BXSideNav) {
       <button
         id="${side}-sentinel"
         type="button"
-        class="${prefix}--visually-hidden"
-      ></button>
+        class="${prefix}--visually-hidden"></button>
     `;
   };
 

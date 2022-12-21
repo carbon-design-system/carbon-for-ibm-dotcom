@@ -10,7 +10,7 @@
 import '../index';
 import '../../cta/index';
 import { html } from 'lit-element';
-import ifNonNull from '@carbon/carbon-web-components/es/globals/directives/if-non-null.js';
+import ifNonNull from '@carbon/web-components/es/globals/directives/if-non-null.js';
 import { select } from '@storybook/addon-knobs';
 // eslint-disable-next-line sort-imports
 import { CTA_TYPE } from '../../cta/defs';
@@ -101,8 +101,7 @@ const image = ({ heading: imageHeading } = { heading: undefined }) => html`
     slot="media"
     alt="Image alt text"
     default-src="${imgLg16x9}"
-    heading="${ifNonNull(imageHeading)}"
-  >
+    heading="${ifNonNull(imageHeading)}">
     <dds-image-item media="(min-width: 672px)" srcset="${imgLg16x9}">
     </dds-image-item>
     <dds-image-item media="(min-width: 400px)" srcset="${imgMd16x9}">
@@ -128,8 +127,7 @@ export const Default = (args) => {
         ? html`
             <dds-video-player-container
               slot="media"
-              video-id="1_9h94wo6b"
-            ></dds-video-player-container>
+              video-id="1_9h94wo6b"></dds-video-player-container>
           `
         : ``}
       ${items.map(
@@ -143,8 +141,7 @@ export const Default = (args) => {
       <dds-card-link-cta
         slot="footer"
         cta-type="${ifNonNull(ctaType)}"
-        href="${ifNonNull(href)}"
-      >
+        href="${ifNonNull(href)}">
         <dds-card-link-heading>${ctaCopy}</dds-card-link-heading>
         <dds-card-cta-footer></dds-card-cta-footer>
       </dds-card-link-cta>

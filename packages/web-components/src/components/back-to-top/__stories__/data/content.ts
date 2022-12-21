@@ -15,7 +15,7 @@ import '../../../cta-section/index';
 import '../../../link-list/index';
 import '../../../cta/index';
 
-import ArrowRight20 from '@carbon/carbon-web-components/es/icons/arrow--right/20';
+import ArrowRight20 from '@carbon/web-components/es/icons/arrow--right/20';
 import imgLg1x1 from '../../../../../../storybook-images/assets/960/fpo--1x1--960x960--006.jpg';
 import leadspaceImg from '../../../../../../storybook-images/assets/leadspace/leadspaceMax2.jpg';
 
@@ -31,8 +31,7 @@ const StoryContent = () =>
       gradient-style-scheme=""
       alt="Image alt text"
       default-src="${leadspaceImg}"
-      data-autoid="dds--leadspace"
-    >
+      data-autoid="dds--leadspace">
       <dds-leadspace-heading role="heading" aria-level="1" slot="heading"
         >Linux servers and operating systems</dds-leadspace-heading
       >
@@ -41,8 +40,7 @@ const StoryContent = () =>
       <dds-button-group
         slot="action"
         role="list"
-        style="--dds--button-group--item-count:2;"
-      >
+        style="--dds--button-group--item-count:2;">
         <dds-button-group-item
           aria-label=""
           href="https://example.com"
@@ -59,11 +57,9 @@ const StoryContent = () =>
             width="20"
             height="20"
             viewBox="0 0 20 20"
-            slot="icon"
-          >
+            slot="icon">
             <path
-              d="M11.8 2.8L10.8 3.8 16.2 9.3 1 9.3 1 10.7 16.2 10.7 10.8 16.2 11.8 17.2 19 10z"
-            ></path></svg
+              d="M11.8 2.8L10.8 3.8 16.2 9.3 1 9.3 1 10.7 16.2 10.7 10.8 16.2 11.8 17.2 19 10z"></path></svg
         ></dds-button-group-item>
         <dds-button-group-item
           aria-label=""
@@ -81,27 +77,22 @@ const StoryContent = () =>
             width="20"
             height="20"
             viewBox="0 0 20 20"
-            slot="icon"
-          >
+            slot="icon">
             <path
-              d="M11.8 2.8L10.8 3.8 16.2 9.3 1 9.3 1 10.7 16.2 10.7 10.8 16.2 11.8 17.2 19 10z"
-            ></path></svg
+              d="M11.8 2.8L10.8 3.8 16.2 9.3 1 9.3 1 10.7 16.2 10.7 10.8 16.2 11.8 17.2 19 10z"></path></svg
         ></dds-button-group-item>
       </dds-button-group>
       <dds-leadspace-image
         slot="image"
         alt="Image alt text"
         default-src="${leadspaceImg}"
-        data-autoid="dds--image"
-      >
+        data-autoid="dds--image">
         <dds-image-item
           media="(min-width: 672px)"
-          srcset="${leadspaceImg}"
-        ></dds-image-item>
+          srcset="${leadspaceImg}"></dds-image-item>
         <dds-image-item
           media="(min-width: 0)"
-          srcset="${leadspaceImg}"
-        ></dds-image-item>
+          srcset="${leadspaceImg}"></dds-image-item>
       </dds-leadspace-image>
     </dds-leadspace>
     <main>
@@ -119,8 +110,7 @@ const StoryContent = () =>
               <dds-text-cta
                 slot="footer"
                 cta-type="local"
-                href="https://example.com"
-              >
+                href="https://example.com">
                 Explore supply chain consulting services
               </dds-text-cta>
             </dds-content-block-simple>
@@ -136,15 +126,13 @@ const StoryContent = () =>
                 <dds-link-list-heading>Resources</dds-link-list-heading>
                 <dds-link-list-item-card-cta
                   href="https://example.com"
-                  cta-type="local"
-                >
+                  cta-type="local">
                   <p>Read the solution brief</p>
                   <dds-card-cta-footer></dds-card-cta-footer>
                 </dds-link-list-item-card-cta>
                 <dds-link-list-item-card-cta
                   href="https://example.com"
-                  cta-type="external"
-                >
+                  cta-type="external">
                   <p>What is LinuxOne?</p>
                   <dds-card-cta-footer></dds-card-cta-footer>
                 </dds-link-list-item-card-cta>
@@ -225,8 +213,7 @@ const StoryContent = () =>
                 <dds-image
                   slot="image"
                   alt="Feature card image"
-                  default-src="${imgLg1x1}"
-                ></dds-image>
+                  default-src="${imgLg1x1}"></dds-image>
                 <dds-card-heading
                   >Discover how innovative companies are using open source
                   technology to ignite collaboration</dds-card-heading
@@ -299,8 +286,7 @@ const StoryContent = () =>
                 <dds-button-group
                   slot="action"
                   role="list"
-                  style="--dds--button-group--item-count:2;"
-                >
+                  style="--dds--button-group--item-count:2;">
                   <dds-button-group-item
                     aria-label=""
                     href="https://example.com"
@@ -317,11 +303,9 @@ const StoryContent = () =>
                       width="20"
                       height="20"
                       viewBox="0 0 20 20"
-                      slot="icon"
-                    >
+                      slot="icon">
                       <path
-                        d="M11.8 2.8L10.8 3.8 16.2 9.3 1 9.3 1 10.7 16.2 10.7 10.8 16.2 11.8 17.2 19 10z"
-                      ></path></svg
+                        d="M11.8 2.8L10.8 3.8 16.2 9.3 1 9.3 1 10.7 16.2 10.7 10.8 16.2 11.8 17.2 19 10z"></path></svg
                   ></dds-button-group-item>
                   <dds-button-group-item
                     aria-label=""
@@ -339,11 +323,9 @@ const StoryContent = () =>
                       width="20"
                       height="20"
                       viewBox="0 0 20 20"
-                      slot="icon"
-                    >
+                      slot="icon">
                       <path
-                        d="M11.8 2.8L10.8 3.8 16.2 9.3 1 9.3 1 10.7 16.2 10.7 10.8 16.2 11.8 17.2 19 10z"
-                      ></path></svg
+                        d="M11.8 2.8L10.8 3.8 16.2 9.3 1 9.3 1 10.7 16.2 10.7 10.8 16.2 11.8 17.2 19 10z"></path></svg
                   ></dds-button-group-item>
                 </dds-button-group>
                 <dds-link-list slot="link-list" type="end">
