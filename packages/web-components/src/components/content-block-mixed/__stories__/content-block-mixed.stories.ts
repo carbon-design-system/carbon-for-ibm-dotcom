@@ -16,12 +16,10 @@ import '../../content-group-simple/index';
 import ArrowRight20 from '@carbon/web-components/es/icons/arrow--right/20';
 import { html } from 'lit-element';
 import ifNonNull from '@carbon/web-components/es/globals/directives/if-non-null.js';
-import { select } from '@storybook/addon-knobs';
 import imgLg16x9 from '../../../../../storybook-images/assets/720/fpo--16x9--720x405--001.jpg';
 import imgMd16x9 from '../../../../../storybook-images/assets/480/fpo--16x9--480x270--001.jpg';
 import imgSm16x9 from '../../../../../storybook-images/assets/320/fpo--16x9--320x180--001.jpg';
 import readme from './README.stories.mdx';
-import textNullable from '../../../../.storybook/knob-text-nullable';
 import styles from './content-block-mixed.stories.scss';
 import { CTA_TYPE } from '../../cta/defs';
 import { CONTENT_BLOCK_COMPLEMENTARY_STYLE_SCHEME } from '../../content-block/defs';
@@ -81,177 +79,122 @@ const image = ({ heading: imageHeading } = { heading: undefined }) => html`
   </dds-image>
 `;
 
-export default {
-  title: 'Components/Content block mixed',
-  decorators: [
-    (story, { parameters }) => html`
-      <style>
-        ${styles}
-      </style>
-      <div class="bx--grid">
-        <div class="bx--row">
-          <div class="${parameters.gridContentClasses} bx--no-gutter">
-            ${story()}
-          </div>
-        </div>
-      </div>
-    `,
-  ],
-  parameters: {
-    ...readme.parameters,
-    gridContentClasses: 'bx--col-lg-8',
-    hasStoryPadding: true,
-    knobs: {
-      ContentBlockMixed: () => ({
-        heading: textNullable(
-          'Heading (heading)',
-          'Lorem ipsum dolor sit amet'
-        ),
-        copy: `Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-          Aenean et ultricies est. Mauris iaculis eget dolor nec hendrerit.
-          Phasellus at elit sollicitudin, sodales nulla quis, consequat
-          libero. Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-          Aenean et ultricies est. Mauris iaculis eget dolor nec hendrerit.
-          Phasellus at elit sollicitudin, sodales nulla quis, consequat libero.
-          `,
-        cardsGroupHeading: textNullable(
-          'Cards group heading (heading)',
-          'Lorem ipsum dolor sit amet, consectetur adipiscing elit'
-        ),
-        ctaType: select('CTA type (cta-type)', ctaTypes, CTA_TYPE.LOCAL),
-      }),
-    },
-    propsSet: {
-      default: {
-        ContentBlockMixed: {
-          heading: 'Lorem ipsum dolor sit amet',
-          copy: `Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-          Aenean et ultricies est. Mauris iaculis eget dolor nec hendrerit.
-          Phasellus at elit sollicitudin, sodales nulla quis, consequat
-          libero. Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-          Aenean et ultricies est. Mauris iaculis eget dolor nec hendrerit.
-          Phasellus at elit sollicitudin, sodales nulla quis, consequat libero.
-          `,
-          cardsGroupHeading:
-            'Lorem ipsum dolor sit amet, consectetur adipiscing elit',
-          ctaType: 'local',
-        },
+export const Default = ({
+  heading,
+  cardsGroupHeading,
+  ctaType,
+  groupCopy,
+}) => html`
+  <dds-content-block-mixed>
+    <dds-content-block-heading>${heading}</dds-content-block-heading>
+    <dds-content-block-copy>${groupCopy}</dds-content-block-copy>
+    <dds-content-group-cards>
+      <dds-content-group-heading
+        >${cardsGroupHeading}</dds-content-group-heading
+      >
+      <dds-content-group-cards-item href="www.ibm.com">
+        <dds-card-heading>
+          Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do
+          eiusmod tempor incididunt
+        </dds-card-heading>
+        <p>
+          Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
+          eiusmod tempor incididunt ut labore et dolore magna aliqua.
+        </p>
+        <dds-card-footer icon-placement="left">
+          ${ArrowRight20({ slot: 'icon' })}
+        </dds-card-footer>
+      </dds-content-group-cards-item>
+      <dds-content-group-cards-item href="www.ibm.com">
+        <dds-card-heading>
+          Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do
+          eiusmod tempor incididunt
+        </dds-card-heading>
+        <p>
+          Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
+          eiusmod tempor incididunt ut labore et dolore magna aliqua.
+        </p>
+        <dds-card-footer icon-placement="left">
+          ${ArrowRight20({ slot: 'icon' })}
+        </dds-card-footer>
+      </dds-content-group-cards-item>
+    </dds-content-group-cards>
+    <dds-content-group-pictograms>
+      <dds-content-group-heading>${heading}</dds-content-group-heading>
+      <dds-content-group-copy>${groupCopy}</dds-content-group-copy>
+      ${pictogramsItems.map(
+        ({ heading: itemHeading, copy: itemCopy, linkWithIcon }) => html`
+          <dds-pictogram-item>
+            <svg
+              version="1.1"
+              slot="pictogram"
+              xmlns="http://www.w3.org/2000/svg"
+              xmlns:xlink="http://www.w3.org/1999/xlink"
+              x="0px"
+              y="0px"
+              width="64"
+              height="64"
+              viewBox="8 8 32 32"
+              xml:space="preserve">
+              <g>
+                <g>
+                  <path
+                    style="fill:none;stroke-width:0.72;stroke-linejoin:round;stroke-miterlimit:10;"
+                    d="M15,29H9V10h25v19h-7
+                       M34,26h-7 M15,26H9 M30,29v8h9V21h-5 M30,34h9 M20.998,27.621c0-0.573-0.447-1.037-0.998-1.037s-0.998,0.464-0.998,1.037v2.378
+                       l-0.005-6.962c0-0.573-0.447-1.037-0.998-1.037S17,22.464,17,23.037v5.882v4.924C17,36.139,18.792,38,21.002,38
+                       S25,36.121,25,33.842v-5.04c0-0.573-0.447-1.037-0.998-1.037s-0.998,0.464-0.998,1.037v1.196l-0.005-1.935
+                       c0-0.573-0.447-1.037-0.998-1.037s-1.002,0.464-1.002,1.037l0.004,1.935L20.998,27.621z" />
+                </g>
+              </g>
+              <g></g>
+            </svg>
+            <dds-content-item-heading>${itemHeading}</dds-content-item-heading>
+            <dds-content-item-copy>${itemCopy}</dds-content-item-copy>
+            <dds-link-with-icon href="${linkWithIcon.href}" slot="footer">
+              ${linkWithIcon.copy} ${ArrowRight20({ slot: 'icon' })}
+            </dds-link-with-icon>
+          </dds-pictogram-item>
+        `
+      )}
+    </dds-content-group-pictograms>
+    <dds-content-group-simple>
+      <dds-content-group-heading>${heading}</dds-content-group-heading>
+      <dds-content-group-copy>${groupCopy}</dds-content-group-copy>
+      ${image({ heading })}
+      <dds-card-link-cta
+        slot="footer"
+        cta-type=${ctaType}
+        href="https://example.com">
+        <dds-card-link-heading
+          >Lorem ipsum dolor sit amet</dds-card-link-heading
+        >
+        <dds-card-cta-footer></dds-card-cta-footer>
+      </dds-card-link-cta>
+    </dds-content-group-simple>
+  </dds-content-block-mixed>
+`;
+
+Default.story = {
+  name: 'Default',
+  argTypes: {
+    complementaryStyleScheme: {
+      table: {
+        disable: true,
       },
     },
   },
 };
 
-export const Default = (args) => {
-  const {
-    heading,
-    copy: groupCopy,
-    cardsGroupHeading,
-    ctaType,
-  } = args?.ContentBlockMixed ?? {};
-  return html`
-    <dds-content-block-mixed>
-      <dds-content-block-heading>${heading}</dds-content-block-heading>
-      <dds-content-block-copy>${groupCopy}</dds-content-block-copy>
-      <dds-content-group-cards>
-        <dds-content-group-heading
-          >${cardsGroupHeading}</dds-content-group-heading
-        >
-        <dds-content-group-cards-item href="www.ibm.com">
-          <dds-card-heading>
-            Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do
-            eiusmod tempor incididunt
-          </dds-card-heading>
-          <p>
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-            eiusmod tempor incididunt ut labore et dolore magna aliqua.
-          </p>
-          <dds-card-footer icon-placement="left">
-            ${ArrowRight20({ slot: 'icon' })}
-          </dds-card-footer>
-        </dds-content-group-cards-item>
-        <dds-content-group-cards-item href="www.ibm.com">
-          <dds-card-heading>
-            Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do
-            eiusmod tempor incididunt
-          </dds-card-heading>
-          <p>
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-            eiusmod tempor incididunt ut labore et dolore magna aliqua.
-          </p>
-          <dds-card-footer icon-placement="left">
-            ${ArrowRight20({ slot: 'icon' })}
-          </dds-card-footer>
-        </dds-content-group-cards-item>
-      </dds-content-group-cards>
-      <dds-content-group-pictograms>
-        <dds-content-group-heading>${heading}</dds-content-group-heading>
-        <dds-content-group-copy>${groupCopy}</dds-content-group-copy>
-        ${pictogramsItems.map(
-          ({ heading: itemHeading, copy: itemCopy, linkWithIcon }) => html`
-            <dds-pictogram-item>
-              <svg
-                version="1.1"
-                slot="pictogram"
-                xmlns="http://www.w3.org/2000/svg"
-                xmlns:xlink="http://www.w3.org/1999/xlink"
-                x="0px"
-                y="0px"
-                width="64"
-                height="64"
-                viewBox="8 8 32 32"
-                xml:space="preserve">
-                <g>
-                  <g>
-                    <path
-                      style="fill:none;stroke-width:0.72;stroke-linejoin:round;stroke-miterlimit:10;"
-                      d="M15,29H9V10h25v19h-7
-                      M34,26h-7 M15,26H9 M30,29v8h9V21h-5 M30,34h9 M20.998,27.621c0-0.573-0.447-1.037-0.998-1.037s-0.998,0.464-0.998,1.037v2.378
-                      l-0.005-6.962c0-0.573-0.447-1.037-0.998-1.037S17,22.464,17,23.037v5.882v4.924C17,36.139,18.792,38,21.002,38
-                      S25,36.121,25,33.842v-5.04c0-0.573-0.447-1.037-0.998-1.037s-0.998,0.464-0.998,1.037v1.196l-0.005-1.935
-                      c0-0.573-0.447-1.037-0.998-1.037s-1.002,0.464-1.002,1.037l0.004,1.935L20.998,27.621z" />
-                  </g>
-                </g>
-                <g></g>
-              </svg>
-              <dds-content-item-heading
-                >${itemHeading}</dds-content-item-heading
-              >
-              <dds-content-item-copy>${itemCopy}</dds-content-item-copy>
-              <dds-link-with-icon href="${linkWithIcon.href}" slot="footer">
-                ${linkWithIcon.copy} ${ArrowRight20({ slot: 'icon' })}
-              </dds-link-with-icon>
-            </dds-pictogram-item>
-          `
-        )}
-      </dds-content-group-pictograms>
-      <dds-content-group-simple>
-        <dds-content-group-heading>${heading}</dds-content-group-heading>
-        <dds-content-group-copy>${groupCopy}</dds-content-group-copy>
-        ${image({ heading })}
-        <dds-card-link-cta
-          slot="footer"
-          cta-type=${ctaType}
-          href="https://example.com">
-          <dds-card-link-heading
-            >Lorem ipsum dolor sit amet</dds-card-link-heading
-          >
-          <dds-card-cta-footer></dds-card-cta-footer>
-        </dds-card-link-cta>
-      </dds-content-group-simple>
-    </dds-content-block-mixed>
-  `;
-};
-
-export const WithLinkList = (args) => {
-  const {
-    heading,
-    copy: groupCopy,
-    cardsGroupHeading,
-    complementaryStyleScheme,
-    ctaType,
-    linkListHeading,
-  } = args?.ContentBlockMixed ?? {};
-  return html`
+export const WithLinkList = ({
+  heading,
+  groupCopy,
+  cardsGroupHeading,
+  complementaryStyleScheme,
+  ctaType,
+  linkListHeading,
+}) =>
+  html`
     <dds-content-block-mixed
       complementary-style-scheme="${ifNonNull(complementaryStyleScheme)}">
       <dds-content-block-heading>${heading}</dds-content-block-heading>
@@ -292,40 +235,40 @@ export const WithLinkList = (args) => {
         <dds-content-group-copy>${groupCopy}</dds-content-group-copy>
         ${pictogramsItems.map(
           ({ heading: itemHeading, copy: itemCopy, linkWithIcon }) => html`
-            <dds-pictogram-item>
-              <svg
-                version="1.1"
-                slot="pictogram"
-                xmlns="http://www.w3.org/2000/svg"
-                xmlns:xlink="http://www.w3.org/1999/xlink"
-                x="0px"
-                y="0px"
-                width="64"
-                height="64"
-                viewBox="8 8 32 32"
-                xml:space="preserve"
-              >
-                <g>
-                  <g>
-                    <path
-                      style="fill:none;stroke-width:0.72;stroke-linejoin:round;stroke-miterlimit:10;"
-                      d="M15,29H9V10h25v19h-7
-                      M34,26h-7 M15,26H9 M30,29v8h9V21h-5 M30,34h9 M20.998,27.621c0-0.573-0.447-1.037-0.998-1.037s-0.998,0.464-0.998,1.037v2.378
-                      l-0.005-6.962c0-0.573-0.447-1.037-0.998-1.037S17,22.464,17,23.037v5.882v4.924C17,36.139,18.792,38,21.002,38
-                      S25,36.121,25,33.842v-5.04c0-0.573-0.447-1.037-0.998-1.037s-0.998,0.464-0.998,1.037v1.196l-0.005-1.935
-                      c0-0.573-0.447-1.037-0.998-1.037s-1.002,0.464-1.002,1.037l0.004,1.935L20.998,27.621z"
-                    />
-                  </g>
-                </g>
-                <g"></g>
-              </svg>
-              <dds-content-item-heading>${itemHeading}</dds-content-item-heading>
-              <dds-content-item-copy>${itemCopy}</dds-content-item-copy>
-              <dds-link-with-icon href="${linkWithIcon.href}" slot="footer">
-                ${linkWithIcon.copy} ${ArrowRight20({ slot: 'icon' })}
-              </dds-link-with-icon>
-            </dds-pictogram-item>
-          `
+             <dds-pictogram-item>
+               <svg
+                 version="1.1"
+                 slot="pictogram"
+                 xmlns="http://www.w3.org/2000/svg"
+                 xmlns:xlink="http://www.w3.org/1999/xlink"
+                 x="0px"
+                 y="0px"
+                 width="64"
+                 height="64"
+                 viewBox="8 8 32 32"
+                 xml:space="preserve"
+               >
+                 <g>
+                   <g>
+                     <path
+                       style="fill:none;stroke-width:0.72;stroke-linejoin:round;stroke-miterlimit:10;"
+                       d="M15,29H9V10h25v19h-7
+                       M34,26h-7 M15,26H9 M30,29v8h9V21h-5 M30,34h9 M20.998,27.621c0-0.573-0.447-1.037-0.998-1.037s-0.998,0.464-0.998,1.037v2.378
+                       l-0.005-6.962c0-0.573-0.447-1.037-0.998-1.037S17,22.464,17,23.037v5.882v4.924C17,36.139,18.792,38,21.002,38
+                       S25,36.121,25,33.842v-5.04c0-0.573-0.447-1.037-0.998-1.037s-0.998,0.464-0.998,1.037v1.196l-0.005-1.935
+                       c0-0.573-0.447-1.037-0.998-1.037s-1.002,0.464-1.002,1.037l0.004,1.935L20.998,27.621z"
+                     />
+                   </g>
+                 </g>
+                 <g"></g>
+               </svg>
+               <dds-content-item-heading>${itemHeading}</dds-content-item-heading>
+               <dds-content-item-copy>${itemCopy}</dds-content-item-copy>
+               <dds-link-with-icon href="${linkWithIcon.href}" slot="footer">
+                 ${linkWithIcon.copy} ${ArrowRight20({ slot: 'icon' })}
+               </dds-link-with-icon>
+             </dds-pictogram-item>
+           `
         )}
       </dds-content-group-pictograms>
       <dds-content-group-simple>
@@ -359,59 +302,110 @@ export const WithLinkList = (args) => {
       </dds-link-list>
     </dds-content-block-mixed>
   `;
-};
 
 WithLinkList.story = {
   name: 'With link list',
+  argTypes: {
+    linkListHeading: {
+      control: { type: 'text' },
+      name: 'Link list heading (heading)',
+      description: 'The link list heading content',
+      defaultValue: 'Tutorials',
+    },
+    complementaryStyleScheme: {
+      control: { type: 'select' },
+      name: 'Complementary style scheme (complementary-style-scheme)',
+      description: 'Option to include border below Content Block Mixed',
+      options: complementaryStyleSchemes,
+      defaultValue: null,
+    },
+  },
   parameters: {
     gridContentClasses: 'bx--col-lg-12',
-    knobs: {
-      ContentBlockMixed: () => ({
-        heading: textNullable(
-          'Heading (heading)',
-          'Lorem ipsum dolor sit amet'
-        ),
-        copy: `Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-          Aenean et ultricies est. Mauris iaculis eget dolor nec hendrerit.
-          Phasellus at elit sollicitudin, sodales nulla quis, consequat
-          libero. Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-          Aenean et ultricies est. Mauris iaculis eget dolor nec hendrerit.
-          Phasellus at elit sollicitudin, sodales nulla quis, consequat libero.
-          `,
-        cardsGroupHeading: textNullable(
-          'Cards group heading (heading)',
-          'Lorem ipsum dolor sit amet, consectetur adipiscing elit.'
-        ),
-        ctaType: select('CTA type (cta-type)', ctaTypes, CTA_TYPE.LOCAL),
-        linkListHeading: textNullable(
-          'Link list heading (heading)',
-          'Tutorials'
-        ),
-        complementaryStyleScheme: select(
-          'Complementary style scheme (complementary-style-scheme)',
-          complementaryStyleSchemes,
-          null
-        ),
-      }),
+  },
+};
+
+export default {
+  title: 'Components/Content block mixed',
+  component: 'dds-content-block-mixed',
+  decorators: [
+    (story, { parameters }) => html`
+      <style>
+        ${styles}
+      </style>
+      <div class="bx--grid">
+        <div class="bx--row">
+          <div class="${parameters.gridContentClasses} bx--no-gutter">
+            ${story()}
+          </div>
+        </div>
+      </div>
+    `,
+  ],
+  argTypes: {
+    heading: {
+      control: { type: 'text' },
+      name: 'Heading (heading)',
+      defaultValue: 'Lorem ipsum dolor sit amet',
     },
-    propsSet: {
-      default: {
-        ContentBlockMixed: {
-          heading: 'Lorem ipsum dolor sit amet',
-          copy: `Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-          Aenean et ultricies est. Mauris iaculis eget dolor nec hendrerit.
-          Phasellus at elit sollicitudin, sodales nulla quis, consequat
-          libero. Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-          Aenean et ultricies est. Mauris iaculis eget dolor nec hendrerit.
-          Phasellus at elit sollicitudin, sodales nulla quis, consequat libero.
-          `,
-          cardsGroupHeading:
-            'Lorem ipsum dolor sit amet, consectetur adipiscing elit.',
-          ctaType: 'local',
-          linkListHeading: 'Tutorials',
-          complementaryStyleScheme: null,
-        },
+    cardsGroupHeading: {
+      control: { type: 'text' },
+      name: 'Card group heading (heading)',
+      description: 'The card group heading content',
+      defaultValue: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit',
+    },
+    ctaType: {
+      control: { type: 'select' },
+      name: 'CTA type (cta-type)',
+      description: 'The CTA type (local, jump, or external)',
+      options: ctaTypes,
+      defaultValue: CTA_TYPE.LOCAL,
+    },
+    groupCopy: {
+      defaultValue: `Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+       Aenean et ultricies est. Mauris iaculis eget dolor nec hendrerit.
+       Phasellus at elit sollicitudin, sodales nulla quis, consequat
+       libero. Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+       Aenean et ultricies est. Mauris iaculis eget dolor nec hendrerit.
+       Phasellus at elit sollicitudin, sodales nulla quis, consequat libero.`,
+      table: {
+        disable: true,
       },
     },
+    'complementary-style-scheme': {
+      table: {
+        disable: true,
+      },
+    },
+    copy: {
+      table: {
+        disable: true,
+      },
+    },
+    media: {
+      table: {
+        disable: true,
+      },
+    },
+    footer: {
+      table: {
+        disable: true,
+      },
+    },
+    complementary: {
+      table: {
+        disable: true,
+      },
+    },
+    styles: {
+      table: {
+        disable: true,
+      },
+    },
+  },
+  parameters: {
+    ...readme.parameters,
+    gridContentClasses: 'bx--col-lg-8',
+    hasStoryPadding: true,
   },
 };
