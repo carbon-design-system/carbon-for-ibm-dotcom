@@ -153,6 +153,10 @@
     margin-bottom: $carbon--spacing-07;
   }
 
+  .#{$prefix}--content-layout__body {
+    display: block;
+  }
+
   .#{$prefix}--logo-grid__wrapper,
   .#{$prefix}--content-layout--logo-grid {
     width: 100%;
