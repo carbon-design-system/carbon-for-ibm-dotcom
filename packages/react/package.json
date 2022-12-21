@@ -153,7 +153,7 @@
     "karma-jasmine": "^2.0.0",
     "karma-safari-launcher": "^1.0.0",
     "karma-sourcemap-loader": "^0.3.0",
-    "karma-spec-reporter": "0.0.34",
+    "karma-spec-reporter": "0.0.35",
     "karma-webpack": "^4.0.0",
     "lodash-es": "^4.17.0",
     "magic-string": "^0.27.0",
@@ -186,7 +186,7 @@
     "whatwg-fetch": "^2.0.3"
   },
   "resolutions": {
-    "@carbon/icons-react": "10.48.0"
+    "@carbon/icons-react": "10.49.0"
   },
   "sideEffects": false,
   "bundleSizeThreshold": 300000,
