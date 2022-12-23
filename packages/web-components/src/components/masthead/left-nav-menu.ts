@@ -86,6 +86,14 @@ class DDSLeftNavMenu extends FocusMixin(LitElement) {
   @property()
   title = '';
 
+  connectedCallback() {
+    super.connectedCallback();
+
+    if (document.dir) {
+      this.dir = document.dir;
+    }
+  }
+
   render() {
     const {
       active,
