@@ -230,6 +230,14 @@ class DDSLeftNavMenuSection extends HostListenerMixin(FocusMixin(LitElement)) {
     }
   }
 
+  connectedCallback() {
+    super.connectedCallback();
+
+    if (document.dir) {
+      this.dir = document.dir;
+    }
+  }
+
   render() {
     const {
       backButtonText,
