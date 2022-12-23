@@ -8,8 +8,6 @@
  */
 
 import '../index';
-import '../callout-with-media-image';
-import '../callout-with-media-video';
 import { html } from 'lit-element';
 import { CONTENT_BLOCK_COPY_SIZE } from '../../content-block/content-block-copy';
 import imgLg16x9 from '../../../../../storybook-images/assets/720/fpo--16x9--720x405--005.jpg';
@@ -30,17 +28,6 @@ const video = html`
 
 export const Default = (args) => {
   const { copy, heading, mediaType } = args ?? {};
-
-  const calloutHeading = document.querySelector('dds-content-block-heading');
-  const calloutCopy = document.querySelector('dds-callout-with-media-copy');
-
-  if (calloutHeading) {
-    calloutHeading!.shadowRoot!.textContent = heading;
-  }
-
-  if (calloutCopy) {
-    calloutCopy!.shadowRoot!.textContent = copy;
-  }
   return html`
     <dds-callout-with-media>
       <dds-content-block-heading>${heading}</dds-content-block-heading>

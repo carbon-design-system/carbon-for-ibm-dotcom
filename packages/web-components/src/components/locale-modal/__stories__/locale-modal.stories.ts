@@ -16,7 +16,6 @@ import styles from './locale-modal.stories.scss';
 import readme from './README.stories.mdx';
 
 export const Default = (args) => {
-  const { langDisplay, localeList } = args?.LocaleModalComposite;
   const { useMock } = args?.Other ?? {};
   return html`
     <style>
@@ -25,16 +24,16 @@ export const Default = (args) => {
     ${useMock
       ? html`
           <dds-locale-modal-composite
-            lang-display="${ifNonNull(langDisplay)}"
+            lang-display="${ifNonNull(args['lang-display'])}"
             open
-            .localeList="${ifNonNull(localeList)}">
+            .localeList="${ifNonNull(localeData)}">
           </dds-locale-modal-composite>
         `
       : html`
           <dds-locale-modal-container
-            lang-display="${ifNonNull(langDisplay)}"
+            lang-display="${ifNonNull(args['lang-display'])}"
             open
-            .localeList="${ifNonNull(localeList)}">
+            .localeList="${ifNonNull(localeData)}">
           </dds-locale-modal-container>
         `}
   `;
@@ -42,38 +41,28 @@ export const Default = (args) => {
 
 export default {
   title: 'Components/Locale modal',
-  component: 'dds-locale-modal',
+  component: 'dds-locale-modal-composite',
   argTypes: {
     'lang-display': {
       control: 'text',
       defaultValue: 'United States — English',
     },
-    'close-button-assistive-text': {
+    langDisplay: {
       table: {
         disable: true,
       },
     },
-    'dds-expressive-modal-beingclosed': {
+    collatorCountryName: {
       table: {
         disable: true,
       },
     },
-    'dds-expressive-modal-closed': {
+    localeList: {
       table: {
         disable: true,
       },
     },
-    'header-title': {
-      table: {
-        disable: true,
-      },
-    },
-    'container-class': {
-      table: {
-        disable: true,
-      },
-    },
-    'expressive-size': {
+    language: {
       table: {
         disable: true,
       },
@@ -83,77 +72,7 @@ export default {
         disable: true,
       },
     },
-    mode: {
-      table: {
-        disable: true,
-      },
-    },
-    closeButtonAssistiveText: {
-      table: {
-        disable: true,
-      },
-    },
-    headerTitle: {
-      table: {
-        disable: true,
-      },
-    },
-    langDisplay: {
-      table: {
-        disable: true,
-      },
-    },
-    hasFocusableElements: {
-      table: {
-        disable: true,
-      },
-    },
-    focusableElements: {
-      table: {
-        disable: true,
-      },
-    },
-    modalContent: {
-      table: {
-        disable: true,
-      },
-    },
-    modalBody: {
-      table: {
-        disable: true,
-      },
-    },
-    containerClass: {
-      table: {
-        disable: true,
-      },
-    },
     styles: {
-      table: {
-        disable: true,
-      },
-    },
-    size: {
-      table: {
-        disable: true,
-      },
-    },
-    'regions-selector': {
-      table: {
-        disable: true,
-      },
-    },
-    'locales-selector': {
-      table: {
-        disable: true,
-      },
-    },
-    header: {
-      table: {
-        disable: true,
-      },
-    },
-    footer: {
       table: {
         disable: true,
       },
@@ -166,14 +85,6 @@ export default {
       const useMock =
         inPercy() || new URLSearchParams(window.location.search).has('mock');
       return {
-        knobs: {
-          LocaleModalComposite: () => ({
-            langDisplay: textNullable(
-              'Display language (lang-display)',
-              !useMock ? '' : 'United States — English'
-            ),
-          }),
-        },
         props: {
           LocaleModalComposite: {
             localeList: !useMock ? undefined : localeData,

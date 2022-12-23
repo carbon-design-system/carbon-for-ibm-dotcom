@@ -10,12 +10,10 @@ import React from 'react';
 // Below path will be there when an application installs `@carbon/ibmdotcom-web-components` package.
 // In our dev env, we auto-generate the file and re-map below path to to point to the generated file.
 /* eslint-disable max-len */
-/* eslint-disable import/no-duplicates */
 // @ts-ignore
 import DDSUniversalBanner from '@carbon/ibmdotcom-web-components/es/components-react/universal-banner/universal-banner';
 // @ts-ignore
 import { PropTypesRef } from '@carbon/ibmdotcom-web-components/es/components-react/universal-banner/universal-banner';
-/* eslint-enable import/no-duplicates */
 import DDSUniversalBannerHeading from '@carbon/ibmdotcom-web-components/es/components-react/universal-banner/universal-banner-heading';
 import DDSUniversalBannerCopy from '@carbon/ibmdotcom-web-components/es/components-react/universal-banner/universal-banner-copy';
 import DDSUniversalBannerImage from '@carbon/ibmdotcom-web-components/es/components-react/universal-banner/universal-banner-image';
@@ -32,11 +30,7 @@ import img8ColLg from '../../../../../storybook-images/assets/universal-banner/u
 import img4ColXlg from '../../../../../storybook-images/assets/universal-banner/universal-banner-4-col-xlg.jpg';
 import img8ColXlg from '../../../../../storybook-images/assets/universal-banner/universal-banner-8-col-xlg.jpg';
 
-const imageWidthOptions = {
-  [`4 Columns`]: `4-col`,
-  [`8 Columns`]: `8-col`,
-  [`None`]: '',
-};
+const imageWidthOptions = [`4-col`, `8-col`, 'none'];
 
 const images = {
   '4-col': img4Col,
@@ -48,7 +42,7 @@ const srcsets = {
   '8-col': [img8ColLg, img8ColXlg, img8Col],
 };
 
-export const Default = args => {
+export const Default = (args) => {
   const { heading, copy, ctaCopy, imageWidth } = args ?? {};
 
   const bannerHeading = document.querySelector('dds-universal-banner-heading');
@@ -61,18 +55,30 @@ export const Default = args => {
 
   return (
     <DDSUniversalBanner image-width={imageWidth}>
-      {imageWidth ? (
+      {imageWidth !== 'none' ? (
         <DDSUniversalBannerImage slot="image" default-src={images[imageWidth]}>
-          <DDSImageItem media="(min-width:1584px)" srcset={srcset[2]}></DDSImageItem>
-          <DDSImageItem media="(min-width:1056px)" srcset={srcset[1]}></DDSImageItem>
-          <DDSImageItem media="(min-width:1312px)" srcset={srcset[0]}></DDSImageItem>
+          <DDSImageItem
+            media="(min-width:1584px)"
+            srcset={srcset[2]}></DDSImageItem>
+          <DDSImageItem
+            media="(min-width:1056px)"
+            srcset={srcset[1]}></DDSImageItem>
+          <DDSImageItem
+            media="(min-width:1312px)"
+            srcset={srcset[0]}></DDSImageItem>
         </DDSUniversalBannerImage>
       ) : (
         ''
       )}
-      <DDSUniversalBannerHeading slot="heading">{heading}</DDSUniversalBannerHeading>
+      <DDSUniversalBannerHeading slot="heading">
+        {heading}
+      </DDSUniversalBannerHeading>
       <DDSUniversalBannerCopy slot="copy">{copy}</DDSUniversalBannerCopy>
-      <DDSButtonCTA slot="cta" cta-type="local" kind="tertiary" href="https://www.example.com">
+      <DDSButtonCTA
+        slot="cta"
+        cta-type="local"
+        kind="tertiary"
+        href="https://www.example.com">
         {ctaCopy}
       </DDSButtonCTA>
     </DDSUniversalBanner>
@@ -83,7 +89,7 @@ export default {
   title: 'Components/Universal banner',
   component: PropTypesRef,
   decorators: [
-    story => {
+    (story) => {
       return story();
     },
   ],
@@ -103,6 +109,7 @@ export default {
     imageWidth: {
       control: { type: 'select' },
       options: imageWidthOptions,
+      mapping: ['4-col', '8-col', ''],
       defaultValue: '4-col',
     },
     buttonHref: {

@@ -150,7 +150,7 @@ module.exports = {
     );
     massagedConfig.module.rules.unshift({
       test: /components-react/i,
-      exclude: [/node_modules/i, /-(composite|container)/i],
+      exclude: [/node_modules/i, /-(container)/i],
       use: [
         {
           loader: 'babel-loader',

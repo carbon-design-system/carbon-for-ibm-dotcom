@@ -115,33 +115,6 @@ export default {
   parameters: {
     ...readme.parameters,
     hasStoryPadding: true,
-    // knobs: {
-    //   Quote: () => ({
-    //     copy: textNullable(
-    //       'Quote (copy):',
-    //       'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus est purus, posuere at est vitae, ' +
-    //         'ornare rhoncus sem. Suspendisse vitae tellus fermentum, hendrerit augue eu, placerat magna.'
-    //     ),
-    //     quoteMark: select('Quote Mark (markType):', types, types.doubleCurved),
-    //     sourceHeading: textNullable(
-    //       'Source heading (source-heading slot)',
-    //       'Lorem ipsum dolor sit amet'
-    //     ),
-    //     sourceCopy: textNullable(
-    //       'Source copy (source-copy slot)',
-    //       'consectetur adipiscing elit'
-    //     ),
-    //     sourceBottomCopy: textNullable(
-    //       'Source bottom copy (source-bottom-copy slot)',
-    //       'IBM Cloud'
-    //     ),
-    //     colorScheme: select(
-    //       'Color Scheme (color-scheme)',
-    //       colorSchemes,
-    //       colorSchemes.regular
-    //     ),
-    //   }),
-    // },
     propsSet: {
       default: {
         Quote: {

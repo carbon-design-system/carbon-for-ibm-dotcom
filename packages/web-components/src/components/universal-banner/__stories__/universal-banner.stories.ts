@@ -19,11 +19,7 @@ import img8ColLg from '../../../../../storybook-images/assets/universal-banner/u
 import img4ColXlg from '../../../../../storybook-images/assets/universal-banner/universal-banner-4-col-xlg.jpg';
 import img8ColXlg from '../../../../../storybook-images/assets/universal-banner/universal-banner-8-col-xlg.jpg';
 
-const imageWidthOptions = {
-  [`4 Columns`]: `4-col`,
-  [`8 Columns`]: `8-col`,
-  [`None`]: '',
-};
+const imageWidthOptions = [`4-col`, `8-col`, 'none'];
 
 const images = {
   '4-col': img4Col,
@@ -53,7 +49,7 @@ export const Default = (args) => {
 
   return html`
     <dds-universal-banner image-width="${args['image-width']}">
-      ${args['image-width']
+      ${args['image-width'] !== 'none'
         ? html`
             <dds-universal-banner-image
               slot="image"
@@ -106,6 +102,7 @@ export default {
     'image-width': {
       control: { type: 'select' },
       options: imageWidthOptions,
+      mapping: ['4-col', '8-col', ''],
       defaultValue: '4-col',
     },
     buttonHref: {

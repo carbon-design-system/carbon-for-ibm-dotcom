@@ -15,7 +15,6 @@ import ArrowRight20 from '@carbon/icons-react/es/arrow--right/20.js';
 import DDSLinkWithIcon from '@carbon/ibmdotcom-web-components/es/components-react/link-with-icon/link-with-icon';
 // @ts-ignore
 import { PropTypesRef } from '@carbon/ibmdotcom-web-components/es/components-react/link-with-icon/link-with-icon';
-import { ICON_PLACEMENT } from '../link-with-icon';
 
 import readme from './README.stories.react.mdx';
 
@@ -32,10 +31,7 @@ export const Default = (args) => {
   );
 };
 
-const placementTypes = {
-  [`${ICON_PLACEMENT.LEFT}`]: ICON_PLACEMENT.LEFT,
-  [`${ICON_PLACEMENT.RIGHT}`]: ICON_PLACEMENT.RIGHT,
-};
+const placementTypes = ['left', 'right'];
 
 export default {
   title: 'Components/Link with icon',
@@ -58,7 +54,7 @@ export default {
     iconPlacement: {
       control: { type: 'select' },
       options: placementTypes,
-      defaultValue: placementTypes[`${ICON_PLACEMENT.RIGHT}`],
+      defaultValue: placementTypes[1],
     },
     iconInline: {
       table: {

@@ -13,7 +13,7 @@ import React from 'react';
 // @ts-ignore
 import DDSLocaleModalContainer from '@carbon/ibmdotcom-web-components/es/components-react/locale-modal/locale-modal-container.js';
 // @ts-ignore
-import { PropTypesRef } from '@carbon/ibmdotcom-web-components/es/components-react/locale-modal/locale-modal.js';
+import { PropTypesRef } from '@carbon/ibmdotcom-web-components/es/components-react/locale-modal/locale-modal-composite';
 import ifNonNull from '@carbon/web-components/es/globals/directives/if-non-null.js';
 import localeData from './locale-data.json';
 
@@ -38,12 +38,22 @@ export default {
       control: 'text',
       defaultValue: 'United States — English',
     },
-    headerTitle: {
+    collatorCountryName: {
       table: {
         disable: true,
       },
     },
-    closeButtonAssistiveText: {
+    localeList: {
+      table: {
+        disable: true,
+      },
+    },
+    language: {
+      table: {
+        disable: true,
+      },
+    },
+    open: {
       table: {
         disable: true,
       },
@@ -62,14 +72,6 @@ export default {
   parameters: {
     ...readme.parameters,
     hasStoryPadding: true,
-    // knobs: {
-    //   LocaleModalComposite: () => ({
-    //     langDisplay: textNullable(
-    //       'Display language (lang-display)',
-    //       'United States — English'
-    //     ),
-    //   }),
-    // },
     propsSet: {
       default: {
         LocaleModalComposite: {

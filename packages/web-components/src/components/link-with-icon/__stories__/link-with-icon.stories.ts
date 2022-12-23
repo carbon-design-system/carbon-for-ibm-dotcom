@@ -9,9 +9,7 @@
 
 import { html } from 'lit-element';
 import ArrowRight20 from '@carbon/web-components/es/icons/arrow--right/20.js';
-import ifNonNull from '@carbon/web-components/es/globals/directives/if-non-null.js';
 import readme from './README.stories.mdx';
-import { ICON_PLACEMENT } from '../link-with-icon';
 
 export const Default = (args) => {
   const { disabled, href } = args ?? {};
@@ -19,16 +17,13 @@ export const Default = (args) => {
     <dds-link-with-icon
       icon-placement="${args['icon-placement']}"
       ?disabled="${disabled}"
-      href="${ifNonNull(href)}">
+      href="${href}">
       ${args['link-text']}${ArrowRight20({ slot: 'icon' })}
     </dds-link-with-icon>
   `;
 };
 
-const placementTypes = {
-  [`${ICON_PLACEMENT.LEFT}`]: ICON_PLACEMENT.LEFT,
-  [`${ICON_PLACEMENT.RIGHT}`]: ICON_PLACEMENT.RIGHT,
-};
+const placementTypes = ['left', 'right'];
 
 export default {
   title: 'Components/Link with icon',
@@ -51,7 +46,7 @@ export default {
     'icon-placement': {
       control: { type: 'select' },
       options: placementTypes,
-      defaultValue: placementTypes[`${ICON_PLACEMENT.RIGHT}`],
+      defaultValue: placementTypes[1],
     },
     iconPlacement: {
       table: {
@@ -133,7 +128,7 @@ export default {
           children: 'Link text',
           disabled: false,
           href: 'https://github.com/carbon-design-system/carbon-web-components',
-          iconPlacement: 'right',
+          'icon-placement': 'right',
         },
       },
     },

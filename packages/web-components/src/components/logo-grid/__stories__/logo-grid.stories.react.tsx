@@ -24,26 +24,19 @@ import logos from './data/logos.js';
 import readme from './README.stories.react.mdx';
 
 export const Default = (args) => {
-  const {
-    heading,
-    logoCount,
-    logoRatio,
-    hideBorder,
-    showCta,
-    ctaCopy,
-    ctaHref,
-  } = args ?? {};
+  const { heading, logoCount, logoRatio, hideBorder, footer } = args ?? {};
 
-  const logoGrid = document.querySelector('dds-logo-grid');
+  const logoGridHeading = document.querySelector('dds-content-block-heading');
 
-  if (logoGrid && hideBorder) {
-    logoGrid.setAttribute('hide-border', hideBorder);
-  } else {
-    logoGrid?.removeAttribute('hide-border');
+  if (logoGridHeading) {
+    logoGridHeading!.shadowRoot!.textContent = heading;
   }
 
   return (
-    <DDSLogoGrid logo-count={logoCount} logo-ratio={logoRatio}>
+    <DDSLogoGrid
+      logo-count={logoCount}
+      logo-ratio={logoRatio}
+      hide-border={hideBorder || undefined}>
       <DDSContentBlockHeading>{heading}</DDSContentBlockHeading>
       {logos &&
         logos.map((elem) => (
@@ -51,9 +44,9 @@ export const Default = (args) => {
             default-src={elem.imgSrc}
             alt={elem.altText}></DDSLogoGridItem>
         ))}
-      {showCta ? (
-        <DDSLogoGridLink href={ctaHref}>
-          <DDSCardLinkHeading>{ctaCopy}</DDSCardLinkHeading>
+      {footer ? (
+        <DDSLogoGridLink href="http://local.url.com/">
+          <DDSCardLinkHeading>Lorem ipsum dolor sit amet</DDSCardLinkHeading>
           <DDSCardFooter>
             <ArrowRight20 slot="icon" />
           </DDSCardFooter>
