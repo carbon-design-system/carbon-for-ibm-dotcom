@@ -8,8 +8,8 @@
  */
 
 import { property, customElement } from 'lit-element';
-import BXSelect from '@carbon/carbon-web-components/es/components/select/select.js';
-import { INPUT_SIZE } from '@carbon/carbon-web-components/es/components/input/input.js';
+import BXSelect from '@carbon/web-components/es/components/select/select.js';
+import { INPUT_SIZE } from '@carbon/web-components/es/components/input/input.js';
 import ddsSettings from '../../internal/vendor/@carbon/ibmdotcom-utilities/utilities/settings/settings';
 import styles from './footer.scss';
 
