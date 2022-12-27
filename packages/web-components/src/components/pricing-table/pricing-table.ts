@@ -509,17 +509,15 @@ class DDSPricingTable extends HostListenerMixin(
     super.disconnectedCallback();
   }
 
-  render() {
-    const sentinelClass = `${ddsPrefix}-pricing-table-sentinel`;
+  renderInner() {
+    const { sentinelClass } = this.constructor as typeof DDSPricingTable;
 
     return html`
-      <div class="overflow-indicator left"></div>
       <section id="section" class="${`${prefix}--structured-list`}">
         <span class="${sentinelClass}" id="start-sentinel"></span>
         <slot></slot>
         <span class="${sentinelClass}" id="end-sentinel"></span>
       </section>
-      <div class="overflow-indicator right"></div>
     `;
   }
 
@@ -540,6 +538,10 @@ class DDSPricingTable extends HostListenerMixin(
    */
   static get eventHeaderRowSlotchange() {
     return DDSPricingTableHeaderRow.eventSlotChange;
+  }
+
+  static get sentinelClass() {
+    return `${ddsPrefix}-pricing-table-sentinel`;
   }
 
   static get cellSelector() {

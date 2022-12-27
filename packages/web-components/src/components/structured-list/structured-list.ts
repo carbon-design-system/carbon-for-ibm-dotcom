@@ -107,10 +107,17 @@ class DDSStructuredList extends StableSelectorMixin(LitElement) {
     const { wrapperId } = this.constructor as typeof DDSStructuredList;
     return html`
       <div class="overflow-indicator left"></div>
+      ${this.renderInner()}
+      <div class="overflow-indicator right"></div>
+    `;
+  }
+
+  protected renderInner() {
+    const { wrapperId } = this.constructor as typeof DDSStructuredList;
+    return html`
       <section id="${wrapperId}" class="${prefix}--structured-list">
         <slot></slot>
       </section>
-      <div class="overflow-indicator right"></div>
     `;
   }
 
