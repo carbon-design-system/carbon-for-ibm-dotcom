@@ -42,12 +42,8 @@ class DDSStructuredList extends StableSelectorMixin(LitElement) {
 
   protected _resetIntersectionObserver() {
     this._scrollObserver.disconnect();
-    this.querySelectorAll(
-      `${ddsPrefix}-structured-list-cell,
-      ${ddsPrefix}-structured-list-header-cell,
-      ${ddsPrefix}-pricing-table-header-cell,
-      ${ddsPrefix}-pricing-table-cell`
-    ).forEach((cell) => {
+    const { cellSelector } = this.constructor as typeof DDSStructuredList;
+    this.querySelectorAll(cellSelector).forEach((cell) => {
       this._scrollObserver.observe(cell);
     });
   }
@@ -120,6 +116,10 @@ class DDSStructuredList extends StableSelectorMixin(LitElement) {
 
   static get wrapperId() {
     return 'section';
+  }
+
+  static get cellSelector() {
+    return `${ddsPrefix}-structured-list-cell, ${ddsPrefix}-structured-list-header-cell`;
   }
 
   static styles = styles;

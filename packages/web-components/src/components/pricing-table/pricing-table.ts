@@ -542,6 +542,10 @@ class DDSPricingTable extends HostListenerMixin(
     return DDSPricingTableHeaderRow.eventSlotChange;
   }
 
+  static get cellSelector() {
+    return `${ddsPrefix}-pricing-table-cell, ${ddsPrefix}-pricing-table-header-cell`;
+  }
+
   static styles = styles;
 }
 
