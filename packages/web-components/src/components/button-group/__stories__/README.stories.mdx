@@ -1,11 +1,13 @@
-import { Preview, Props, Description, Story } from '@storybook/addon-docs/blocks';
+import {
+  Preview,
+  Props,
+  Description,
+  Story,
+} from '@storybook/addon-docs/blocks';
 import '../button-group';
 import '../button-group-item';
 import contributing from '../../../../../../docs/contributing-license.md';
 import { cdnJs, cdnCss } from '../../../globals/internal/storybook-cdn';
-
-
-
 
 # Button Group
 
@@ -23,7 +25,7 @@ Here's a quick example to get you started.
 
 ```javascript
 import '@carbon/ibmdotcom-web-components/es/components/button-group/index.js';
-import 'carbon-web-components/es/icons/arrow--right/20.js';
+import '@carbon/web-components/es/icons/arrow--right/20.js';
 ```
 
 <Description markdown={`${cdnJs({ components: ['button-group'] })}`} />
@@ -36,14 +38,38 @@ import 'carbon-web-components/es/icons/arrow--right/20.js';
 <dds-button-group>
   <dds-button-group-item href="https://example.com">
     Lorem ipsum
-    <svg slot="icon" focusable="false" preserveAspectRatio="xMidYMid meet" xmlns="http://www.w3.org/2000/svg" fill="currentColor" aria-hidden="true" width="20" height="20" viewBox="0 0 20 20">
-      <path d="M11.8 2.8L10.8 3.8 16.2 9.3 1 9.3 1 10.7 16.2 10.7 10.8 16.2 11.8 17.2 19 10z"></path>
+    <svg
+      slot="icon"
+      focusable="false"
+      preserveAspectRatio="xMidYMid meet"
+      xmlns="http://www.w3.org/2000/svg"
+      fill="currentColor"
+      aria-hidden="true"
+      width="20"
+      height="20"
+      viewBox="0 0 20 20"
+    >
+      <path
+        d="M11.8 2.8L10.8 3.8 16.2 9.3 1 9.3 1 10.7 16.2 10.7 10.8 16.2 11.8 17.2 19 10z"
+      ></path>
     </svg>
   </dds-button-group-item>
   <dds-button-group-item href="https://example.com">
     Dolor sit amet
-    <svg slot="icon" focusable="false" preserveAspectRatio="xMidYMid meet" xmlns="http://www.w3.org/2000/svg" fill="currentColor" aria-hidden="true" width="20" height="20" viewBox="0 0 20 20">
-      <path d="M11.8 2.8L10.8 3.8 16.2 9.3 1 9.3 1 10.7 16.2 10.7 10.8 16.2 11.8 17.2 19 10z"></path>
+    <svg
+      slot="icon"
+      focusable="false"
+      preserveAspectRatio="xMidYMid meet"
+      xmlns="http://www.w3.org/2000/svg"
+      fill="currentColor"
+      aria-hidden="true"
+      width="20"
+      height="20"
+      viewBox="0 0 20 20"
+    >
+      <path
+        d="M11.8 2.8L10.8 3.8 16.2 9.3 1 9.3 1 10.7 16.2 10.7 10.8 16.2 11.8 17.2 19 10z"
+      ></path>
     </svg>
   </dds-button-group-item>
 </dds-button-group>
@@ -53,7 +79,7 @@ import 'carbon-web-components/es/icons/arrow--right/20.js';
 
 ```html
 <dds-button-group>
-  <dds-button-group-item @click=${this._handleClick}></dds-button-group-item>
+  <dds-button-group-item @click="${this._handleClick}"></dds-button-group-item>
 </dds-button-group>
 ```
 
@@ -64,6 +90,7 @@ import 'carbon-web-components/es/icons/arrow--right/20.js';
   <dds-button-group-item onclick="handleClick()"></dds-button-group-item>
 </dds-button-group>
 ```
+
 ## Props
 
 <Props of="dds-button-group" />
@@ -74,7 +101,9 @@ import 'carbon-web-components/es/icons/arrow--right/20.js';
 
 ## Stable selectors
 
-See [our README](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/tree/main/packages/web-components#stable-selectors-for-analytics-and-integratione2e-testing-in-web-components) to see how Web Components selector and `data-autoid` should be used.
+See
+[our README](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/tree/main/packages/web-components#stable-selectors-for-analytics-and-integratione2e-testing-in-web-components)
+to see how Web Components selector and `data-autoid` should be used.
 
 | Web Components selector   | Compatibility selector                 | Description |
 | ------------------------- | -------------------------------------- | ----------- |

@@ -1,5 +1,5 @@
 /**
- * Copyright IBM Corp. 2020, 2021
+ * Copyright IBM Corp. 2020, 2022
  *
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
@@ -87,7 +87,7 @@ class TranslationAPI {
     const sessionKey = this.getSessionKey(endpoint);
     if (typeof sessionStorage !== 'undefined') {
       Object.keys(_requestsTranslation).forEach(
-        key => delete _requestsTranslation[key]
+        (key) => delete _requestsTranslation[key]
       );
       for (let i = 0; i < sessionStorage.length; ++i) {
         const key = sessionStorage.key(i);
@@ -103,7 +103,6 @@ class TranslationAPI {
    *
    * @param {object} codes object containing lc and cc
    * @param {string} endpoint endpoint to fetch data from (optional)
-   *
    * @returns {Promise<any>} Translation data
    * @example
    * import { TranslationAPI } from '@carbon/ibmdotcom-services';
@@ -172,8 +171,8 @@ class TranslationAPI {
               origin: _host,
             },
           })
-          .then(response => this.transformData(response.data))
-          .then(data => {
+          .then((response) => this.transformData(response.data))
+          .then((data) => {
             data['timestamp'] = Date.now();
             if (typeof sessionStorage !== 'undefined') {
               sessionStorage.setItem(
@@ -185,7 +184,7 @@ class TranslationAPI {
           });
       }
 
-      _requestsTranslation[key].then(resolve, error => {
+      _requestsTranslation[key].then(resolve, (error) => {
         if (country === _localeDefault.cc && lang === _localeDefault.lc) {
           reject(error);
         } else {
@@ -234,7 +233,7 @@ class TranslationAPI {
     if (signedout) {
       const strReplace = 'state=https%3A%2F%2Fwww.ibm.com';
       const loginIdx = signedout.findIndex(
-        elem => elem.url?.indexOf(strReplace) !== -1
+        (elem) => elem.url?.indexOf(strReplace) !== -1
       );
       if (loginIdx !== -1 && root.location) {
         const location = encodeURIComponent(root.location.href);
@@ -251,8 +250,7 @@ class TranslationAPI {
   /**
    * Retrieves session cache and checks if cache needs to be refreshed
    *
-   * @param   {string} key session storage key
-   * @returns {object} session storage object
+   * @param {string} key session storage key
    * @private
    */
   static getSessionCache(key) {

@@ -9,11 +9,11 @@
 
 import { html, property, state, customElement } from 'lit-element';
 import settings from 'carbon-components/es/globals/js/settings.js';
-import ArrowLeft20 from 'carbon-web-components/es/icons/arrow--left/20.js';
-import EarthFilled16 from 'carbon-web-components/es/icons/earth--filled/16.js';
-import HostListener from 'carbon-web-components/es/globals/decorators/host-listener.js';
-import ifNonNull from 'carbon-web-components/es/globals/directives/if-non-null.js';
-import { selectorTabbable } from 'carbon-web-components/es/globals/settings.js';
+import ArrowLeft20 from '@carbon/web-components/es/icons/arrow--left/20.js';
+import EarthFilled16 from '@carbon/web-components/es/icons/earth--filled/16.js';
+import HostListener from '@carbon/web-components/es/globals/decorators/host-listener.js';
+import ifNonNull from '@carbon/web-components/es/globals/directives/if-non-null.js';
+import { selectorTabbable } from '@carbon/web-components/es/globals/settings.js';
 import ddsSettings from '../../internal/vendor/@carbon/ibmdotcom-utilities/utilities/settings/settings';
 import DDSExpressiveModal from '../expressive-modal/expressive-modal';
 import '../expressive-modal/expressive-modal-header';
@@ -77,18 +77,18 @@ class DDSLocaleModal extends DDSExpressiveModal {
     const { headerTitle, langDisplay } = this;
     return html`
       ${langDisplay &&
-        html`
-          <p class="${prefix}--modal-header__label ${prefix}--type-delta">
-            ${langDisplay}${EarthFilled16({ class: `${prefix}--locale-modal__label-globe` })}
-          </p>
-        `}
+      html`
+        <p class="${prefix}--modal-header__label ${prefix}--type-delta">
+          ${langDisplay}${EarthFilled16({
+            class: `${prefix}--locale-modal__label-globe`,
+          })}
+        </p>
+      `}
       ${langDisplay &&
-        headerTitle &&
-        html`
-          <p class="bx--modal-header__heading bx--type-beta">
-            ${headerTitle}
-          </p>
-        `}
+      headerTitle &&
+      html`
+        <p class="bx--modal-header__heading bx--type-beta">${headerTitle}</p>
+      `}
     `;
   }
 
@@ -96,12 +96,24 @@ class DDSLocaleModal extends DDSExpressiveModal {
    * @returns The heading content for the locale selector page.
    */
   private _renderLocaleSelectorHeading() {
-    const { headerTitle, _currentRegion: currentRegion, _handleClickBackButton: handleClickBackButton } = this;
+    const {
+      headerTitle,
+      _currentRegion: currentRegion,
+      _handleClickBackButton: handleClickBackButton,
+    } = this;
     return html`
-      <dds-link-with-icon icon-placement="${ICON_PLACEMENT.LEFT}" href="#" @click="${handleClickBackButton}">
-        ${headerTitle}${ArrowLeft20({ slot: 'icon', class: `${prefix}--locale-modal__label-arrow` })}
+      <dds-link-with-icon
+        icon-placement="${ICON_PLACEMENT.LEFT}"
+        href="#"
+        @click="${handleClickBackButton}">
+        ${headerTitle}${ArrowLeft20({
+          slot: 'icon',
+          class: `${prefix}--locale-modal__label-arrow`,
+        })}
       </dds-link-with-icon>
-      <p class="bx--modal-header__heading bx--type-beta" tabindex="0">${currentRegion}</p>
+      <p class="bx--modal-header__heading bx--type-beta" tabindex="0">
+        ${currentRegion}
+      </p>
     `;
   }
 
@@ -110,7 +122,9 @@ class DDSLocaleModal extends DDSExpressiveModal {
    */
   private _renderHeading() {
     const { _currentRegion: currentRegion } = this;
-    return !currentRegion ? this._renderRegionSelectorHeading() : this._renderLocaleSelectorHeading();
+    return !currentRegion
+      ? this._renderRegionSelectorHeading()
+      : this._renderLocaleSelectorHeading();
   }
 
   /**
@@ -119,7 +133,9 @@ class DDSLocaleModal extends DDSExpressiveModal {
   private _renderRegionSelectorBody() {
     const { _handleClickRegionSelector: handleClickRegionSelector } = this;
     return html`
-      <div class="${prefix}--modal-content ${prefix}--locale-modal" @click="${handleClickRegionSelector}">
+      <div
+        class="${prefix}--modal-content ${prefix}--locale-modal"
+        @click="${handleClickRegionSelector}">
         <slot name="regions-selector"></slot>
       </div>
     `;
@@ -130,9 +146,7 @@ class DDSLocaleModal extends DDSExpressiveModal {
    */
   // eslint-disable-next-line class-methods-use-this
   private _renderLocaleSelectorBody() {
-    return html`
-      <slot name="locales-selector"></slot>
-    `;
+    return html` <slot name="locales-selector"></slot> `;
   }
 
   protected _renderHeader() {
@@ -140,9 +154,12 @@ class DDSLocaleModal extends DDSExpressiveModal {
     return html`
       <div id="${ddsPrefix}--modal-header">
         <dds-expressive-modal-header>
-          <dds-expressive-modal-close-button assistive-text="${ifNonNull(closeButtonAssistiveText)}">
+          <dds-expressive-modal-close-button
+            assistive-text="${ifNonNull(closeButtonAssistiveText)}">
           </dds-expressive-modal-close-button>
-          <dds-expressive-modal-heading>${this._renderHeading()}</dds-expressive-modal-heading>
+          <dds-expressive-modal-heading
+            >${this._renderHeading()}</dds-expressive-modal-heading
+          >
         </dds-expressive-modal-header>
       </div>
     `;
@@ -150,7 +167,9 @@ class DDSLocaleModal extends DDSExpressiveModal {
 
   protected _renderBody() {
     const { _currentRegion: currentRegion } = this;
-    return !currentRegion ? this._renderRegionSelectorBody() : this._renderLocaleSelectorBody();
+    return !currentRegion
+      ? this._renderRegionSelectorBody()
+      : this._renderLocaleSelectorBody();
   }
 
   /**
@@ -178,7 +197,8 @@ class DDSLocaleModal extends DDSExpressiveModal {
   async updated(changedProperties) {
     super.updated(changedProperties);
     if (changedProperties.has('_currentRegion')) {
-      const { selectorLocaleSearch } = this.constructor as typeof DDSLocaleModal;
+      const { selectorLocaleSearch } = this
+        .constructor as typeof DDSLocaleModal;
       const localeSearch = this.querySelector(selectorLocaleSearch);
       (localeSearch as DDSLocaleSearch).region = this._currentRegion ?? '';
       if (localeSearch && this.open) {
@@ -187,7 +207,8 @@ class DDSLocaleModal extends DDSExpressiveModal {
       }
 
       // re-focus on first region-item when navigating back to the first modal pane
-      const { selectorPrimaryFocus } = this.constructor as typeof DDSLocaleModal;
+      const { selectorPrimaryFocus } = this
+        .constructor as typeof DDSLocaleModal;
       const activeRegion = this.querySelector(selectorPrimaryFocus);
       if (activeRegion && this.open) {
         (activeRegion as HTMLElement).tabIndex = 0;

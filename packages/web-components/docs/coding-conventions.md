@@ -87,8 +87,8 @@ Here's an example seen in `<bx-modal>` code:
 
 ```typescript
 ...
-import HostListener from 'carbon-web-components/es/globals/decorators/HostListener.js';
-import HostListenerMixin from 'carbon-web-components/es/globals/mixins/HostListener.js';
+import HostListener from '@carbon/web-components/es/globals/decorators/HostListener.js';
+import HostListenerMixin from '@carbon/web-components/es/globals/mixins/HostListener.js';
 ...
 
 @customElement(`${prefix}-modal` as any)

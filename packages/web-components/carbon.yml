@@ -3,7 +3,7 @@ library:
   id: ibmdotcom-web-components
   name: IBM.com Web Components
   description: Create web experiences that adhere to IBM’s web standards using this primary component library.
-  externalDocsUrl: www.ibm.com/standards/web/carbon-for-ibm-dotcom
+  externalDocsUrl: https://www.ibm.com/standards/web/carbon-for-ibm-dotcom
   inherits: ibmdotcom-styles
   demoLinks:
     - type: storybook

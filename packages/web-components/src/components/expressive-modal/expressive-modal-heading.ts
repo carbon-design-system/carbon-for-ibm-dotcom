@@ -8,7 +8,7 @@
  */
 
 import { customElement } from 'lit-element';
-import BXModalHeading from 'carbon-web-components/es/components/modal/modal-heading.js';
+import BXModalHeading from '@carbon/web-components/es/components/modal/modal-heading.js';
 import ddsSettings from '../../internal/vendor/@carbon/ibmdotcom-utilities/utilities/settings/settings';
 import styles from './expressive-modal.scss';
 import StableSelectorMixin from '../../globals/mixins/stable-selector';
@@ -22,6 +22,16 @@ const { stablePrefix: ddsPrefix } = ddsSettings;
  */
 @customElement(`${ddsPrefix}-expressive-modal-heading`)
 class DDSExpressiveModalHeading extends StableSelectorMixin(BXModalHeading) {
+  connectedCallback() {
+    if (!this.hasAttribute('role')) {
+      this.setAttribute('role', 'heading');
+    }
+    if (!this.hasAttribute('aria-level')) {
+      this.setAttribute('aria-level', '2');
+    }
+    super.connectedCallback();
+  }
+
   static get stableSelector() {
     return `${ddsPrefix}--expressive-modal-heading`;
   }

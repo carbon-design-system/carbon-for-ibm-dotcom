@@ -1,5 +1,5 @@
 /**
- * Copyright IBM Corp. 2020
+ * Copyright IBM Corp. 2020, 2022
  *
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
@@ -17,9 +17,7 @@ const _endpoint =
  * import { geolocation } from '@carbon/ibmdotcom-utilities';
  *
  * const locationInfo = await geolocation();
- *
  * @returns {string} country cc (cc)
- *
  */
 async function geolocation() {
   const location = await axios
@@ -28,7 +26,7 @@ async function geolocation() {
         'Content-Type': 'application/json; charset=utf-8',
       },
     })
-    .then(response => response.data);
+    .then((response) => response.data);
 
   const cc = location && location.country;
 

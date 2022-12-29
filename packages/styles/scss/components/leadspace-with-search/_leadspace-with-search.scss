@@ -328,6 +328,12 @@
   :host(#{$dds-prefix}-leadspace-with-search-content) {
     display: block;
     padding: 0;
+
+    /* stylelint-disable declaration-no-important */
+    ::slotted(h1) {
+      all: unset !important; /* stylelint-disable-line declaration-property-value-blacklist */
+    }
+    /* stylelint-enable declaration-no-important */
   }
 
   :host(#{$dds-prefix}-leadspace-with-search-content-heading) {

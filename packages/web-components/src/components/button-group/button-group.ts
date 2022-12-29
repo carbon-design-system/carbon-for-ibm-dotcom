@@ -7,7 +7,7 @@
  * LICENSE file in the root directory of this source tree.
  */
 import { customElement, html, LitElement } from 'lit-element';
-import { BUTTON_KIND } from 'carbon-web-components/es/components/button/defs.js';
+import { BUTTON_KIND } from '@carbon/web-components/es/components/button/defs.js';
 import ddsSettings from '@carbon/ibmdotcom-utilities/es/utilities/settings/settings.js';
 import styles from './button-group.scss';
 import StableSelectorMixin from '../../globals/mixins/stable-selector';
@@ -29,25 +29,44 @@ class DDSButtonGroup extends StableSelectorMixin(LitElement) {
   private _handleSlotChange(event: Event) {
     const childItems = (event.target as HTMLSlotElement)
       .assignedNodes()
-      .filter(elem =>
+      .filter((elem) =>
         (elem as HTMLElement).matches !== undefined
-          ? (elem as HTMLElement).matches((this.constructor as typeof DDSButtonGroup).selectorItem) ||
-            (elem as HTMLElement).matches((this.constructor as typeof DDSButtonGroup).selectorItemCTA)
+          ? (elem as HTMLElement).matches(
+              (this.constructor as typeof DDSButtonGroup).selectorItem
+            ) ||
+            (elem as HTMLElement).matches(
+              (this.constructor as typeof DDSButtonGroup).selectorItemCTA
+            ) ||
+            (elem as HTMLElement).matches(
+              (this.constructor as typeof DDSButtonGroup).selectorItemDefaultCTA
+            )
           : false
       );
 
     childItems.forEach((elem, index) => {
-      (elem as HTMLElement).setAttribute('kind', index !== childItems.length - 1 ? BUTTON_KIND.TERTIARY : BUTTON_KIND.PRIMARY);
+      (elem as HTMLElement).setAttribute(
+        'kind',
+        index !== childItems.length - 1
+          ? BUTTON_KIND.TERTIARY
+          : BUTTON_KIND.PRIMARY
+      );
     });
 
-    const { customPropertyItemCount } = this.constructor as typeof DDSButtonGroup;
+    const { customPropertyItemCount } = this
+      .constructor as typeof DDSButtonGroup;
     this.style.setProperty(customPropertyItemCount, String(childItems.length));
+
+    const update = new CustomEvent(`${ddsPrefix}-button-group-update`, {
+      bubbles: true,
+      cancelable: true,
+      composed: true,
+    });
+
+    this.dispatchEvent(update);
   }
 
   render() {
-    return html`
-      <slot @slotchange="${this._handleSlotChange}"></slot>
-    `;
+    return html` <slot @slotchange="${this._handleSlotChange}"></slot> `;
   }
 
   connectedCallback() {
@@ -67,6 +86,13 @@ class DDSButtonGroup extends StableSelectorMixin(LitElement) {
    */
   static get selectorItem() {
     return `${ddsPrefix}-button-group-item`;
+  }
+
+  /**
+   * A selector that will return the child items.
+   */
+  static get selectorItemDefaultCTA() {
+    return `${ddsPrefix}-cta`;
   }
 
   /**

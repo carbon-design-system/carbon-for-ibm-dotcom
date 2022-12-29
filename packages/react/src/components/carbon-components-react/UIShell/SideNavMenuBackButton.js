@@ -22,12 +22,12 @@ const SideNavMenuBackButton = React.forwardRef(function SideNavMenuBackButton(
 ) {
   const { onBackClick, backButtonText, ...rest } = props;
 
-  const handleBackButtonClick = event => {
+  const handleBackButtonClick = (event) => {
     event.preventDefault();
     onBackClick();
   };
 
-  const handleBackButtonKeyPress = event => {
+  const handleBackButtonKeyPress = (event) => {
     if (event.key === 'Enter' || event.charCode === ' ') {
       event.preventDefault();
       onBackClick();

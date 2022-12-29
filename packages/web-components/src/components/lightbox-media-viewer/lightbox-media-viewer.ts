@@ -29,9 +29,7 @@ const { stablePrefix: ddsPrefix } = ddsSettings;
 class DDSLightboxMediaViewer extends DDSLightboxMediaViewerBody {
   _renderDescription() {
     const { description } = this;
-    return html`
-      <slot name="description">${description}</slot>
-    `;
+    return html` <slot name="description">${description}</slot> `;
   }
 
   _renderMedia() {
@@ -69,12 +67,18 @@ class DDSLightboxMediaViewer extends DDSLightboxMediaViewerBody {
 
     // Remove modal closed listeners from the containing modal
     if (containingModal && this._boundModalClosedHandler) {
-      containingModal.removeEventListener(DDSExpressiveModal.eventBeforeClose, this._boundModalClosedHandler);
+      containingModal.removeEventListener(
+        DDSExpressiveModal.eventBeforeClose,
+        this._boundModalClosedHandler
+      );
       this._boundModalClosedHandler = undefined;
     }
 
     if (media instanceof DDSVideoPlayerContainer) {
-      const { _mediaWindow: mediaWindow, _containingCarousel: containingCarousel } = this;
+      const {
+        _mediaWindow: mediaWindow,
+        _containingCarousel: containingCarousel,
+      } = this;
 
       // Watch for out-of-view if we're in a carousel
       if (mediaWindow && containingCarousel) {
@@ -92,7 +96,10 @@ class DDSLightboxMediaViewer extends DDSLightboxMediaViewerBody {
       if (containingModal) {
         this._boundModalClosedHandler = this._handleModalClosed.bind(this);
 
-        containingModal.addEventListener(DDSExpressiveModal.eventBeforeClose, this._boundModalClosedHandler);
+        containingModal.addEventListener(
+          DDSExpressiveModal.eventBeforeClose,
+          this._boundModalClosedHandler
+        );
       }
     }
   }
@@ -100,7 +107,7 @@ class DDSLightboxMediaViewer extends DDSLightboxMediaViewerBody {
   private _intersectionObserver?: IntersectionObserver;
 
   private _handleOutOfCarouselView(entries) {
-    entries.forEach(entry => {
+    entries.forEach((entry) => {
       if (entry.intersectionRatio < 1) {
         this._pauseVideo();
       }
@@ -124,8 +131,11 @@ class DDSLightboxMediaViewer extends DDSLightboxMediaViewerBody {
   connectedCallback() {
     super.connectedCallback();
 
-    this._containingCarousel = (this.closest(`${ddsPrefix}-carousel`) as DDSCarousel) || undefined;
-    this._containingModal = (this.closest(`${ddsPrefix}-expressive-modal`) as DDSExpressiveModal) || undefined;
+    this._containingCarousel =
+      (this.closest(`${ddsPrefix}-carousel`) as DDSCarousel) || undefined;
+    this._containingModal =
+      (this.closest(`${ddsPrefix}-expressive-modal`) as DDSExpressiveModal) ||
+      undefined;
   }
 
   update(changedProperties) {

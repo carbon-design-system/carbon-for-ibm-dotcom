@@ -14,18 +14,20 @@ import React from 'react';
 /* eslint-disable max-len */
 // @ts-ignore
 import ArrowRight20 from '@carbon/icons-react/es/arrow--right/20.js';
-import DDSContentGroupHeading from '@carbon/ibmdotcom-web-components/es/components-react/content-group/content-group-heading';
-import DDSContentGroupCopy from '@carbon/ibmdotcom-web-components/es/components-react/content-group/content-group-copy';
-import DDSContentGroupCards from '@carbon/ibmdotcom-web-components/es/components-react/content-group-cards/content-group-cards';
 import DDSContentGroupCardsItem from '@carbon/ibmdotcom-web-components/es/components-react/content-group-cards/content-group-cards-item';
+import DDSCard from '@carbon/ibmdotcom-web-components/es/components-react/card/card';
+import DDSCardGroup from '@carbon/ibmdotcom-web-components/es/components-react/card-group/card-group';
 import DDSCardHeading from '@carbon/ibmdotcom-web-components/es/components-react/card/card-heading';
 import DDSCardFooter from '@carbon/ibmdotcom-web-components/es/components-react/card/card-footer';
+import DDSCarousel from '@carbon/ibmdotcom-web-components/es/components-react/carousel/carousel';
 import DDSContentBlockHeading from '@carbon/ibmdotcom-web-components/es/components-react/content-block/content-block-heading';
 import DDSContentBlockCopy from '@carbon/ibmdotcom-web-components/es/components-react/content-block/content-block-copy';
 import DDSContentBlockSimple from '@carbon/ibmdotcom-web-components/es/components-react/content-block-simple/content-block-simple';
 import DDSContentSection from '@carbon/ibmdotcom-web-components/es/components-react/content-section/content-section';
 import DDSContentSectionHeading from '@carbon/ibmdotcom-web-components/es/components-react/content-section/content-section-heading';
 import DDSContentSectionCopy from '@carbon/ibmdotcom-web-components/es/components-react/content-section/content-section-copy';
+import DDSLinkList from '@carbon/ibmdotcom-web-components/es/components-react/link-list/link-list';
+import DDSLinkListItem from '@carbon/ibmdotcom-web-components/es/components-react/link-list/link-list-item';
 import DDSVideoPlayerContainer from '@carbon/ibmdotcom-web-components/es/components-react/video-player/video-player-container';
 import DDSTextCTA from '@carbon/ibmdotcom-web-components/es/components-react/cta/text-cta';
 import DDSVideoCTAContainer from '@carbon/ibmdotcom-web-components/es/components-react/cta/video-cta-container';
@@ -64,6 +66,24 @@ const card2 = (
   </DDSContentGroupCardsItem>
 );
 
+const hrefDefault = 'https://www.ibm.com/standards/carbon';
+const headingDefault = 'Lorem ipsum dolor sit amet';
+const copyDefault = 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean et ultricies est.';
+const copyOdd = `
+  {copyDefault}
+  Mauris iaculis eget dolor nec hendrerit. Phasellus at elit sollicitudin, sodales nulla quis, consequat libero.
+`;
+
+const Card = ({ copy = copyDefault, heading = headingDefault, href = hrefDefault } = {}) => (
+  <DDSCard href={href}>
+    <DDSCardHeading>{heading}</DDSCardHeading>
+    {copy}
+    <DDSCardFooter>
+      <ArrowRight20 slot="icon" />
+    </DDSCardFooter>
+  </DDSCard>
+);
+
 export const Default = args => {
   const { heading, copy, addChildren } = args?.ContentSection ?? {};
   return (
@@ -82,18 +102,59 @@ export const Default = args => {
       ) : (
         ''
       )}
-      {addChildren.includes('Content group cards') ? (
-        <DDSContentGroupCards>
-          <DDSContentGroupHeading>Lorem ipssum dolor sit amet.</DDSContentGroupHeading>
-          <DDSContentGroupCopy>Lorem ipsum dolo sit amet.</DDSContentGroupCopy>
+      {addChildren.includes('Card group') ? (
+        <DDSCardGroup>
           {card1}
           {card2}
           {card1}
           {card2}
-        </DDSContentGroupCards>
+        </DDSCardGroup>
       ) : (
         ''
       )}
+      {addChildren.includes('Card group') ? (
+        <DDSLinkList>
+          <DDSLinkListItem href="https://example.com">
+            Learn more about Kubernetes and automating deployment
+            <ArrowRight20 slot="icon" />
+          </DDSLinkListItem>
+          <DDSLinkListItem href="https://example.com">
+            Containerization A Complete Guide
+            <ArrowRight20 slot="icon" />
+          </DDSLinkListItem>
+          <DDSLinkListItem href="https://example.com">
+            Microservices and container
+            <ArrowRight20 slot="icon" />
+          </DDSLinkListItem>
+          <DDSLinkListItem href="https://example.com">
+            Learn more about Kubernetes and automating deployment
+            <ArrowRight20 slot="icon" />
+          </DDSLinkListItem>
+          <DDSLinkListItem href="https://example.com">
+            Containerization A Complete Guide
+            <ArrowRight20 slot="icon" />
+          </DDSLinkListItem>
+          <DDSLinkListItem href="https://example.com">
+            Microservices and container
+            <ArrowRight20 slot="icon" />
+          </DDSLinkListItem>
+        </DDSLinkList>
+      ) : (
+        ''
+      )}
+
+      {addChildren.includes('Carousel') ? (
+        <DDSCarousel>
+          {Card()}
+          {Card({ copy: copyOdd })}
+          {Card()}
+          {Card({ copy: copyOdd })}
+          {Card()}
+        </DDSCarousel>
+      ) : (
+        ''
+      )}
+
       <DDSTextCTA slot="footer" cta-type="local" href="https://www.example.com">
         Link action
       </DDSTextCTA>
@@ -130,10 +191,12 @@ export default {
           'Add children:',
           {
             'Content block simple': 'Content block simple',
-            'Content group cards': 'Content group cards',
+            'Card group': 'Card group',
+            'Link list': 'Link list',
+            Carousel: 'Carousel',
           },
           '',
-          { display: 'multi-select' }
+          { display: 'select' }
         ),
       }),
     },

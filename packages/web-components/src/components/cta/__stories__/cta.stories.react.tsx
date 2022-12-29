@@ -6,21 +6,18 @@
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
  */
+/* eslint-disable babel/no-unused-expressions */
 
 import { boolean, select, text } from '@storybook/addon-knobs';
 import React from 'react';
 // Below path will be there when an application installs `@carbon/ibmdotcom-web-components` package.
 // In our dev env, we auto-generate the file and re-map below path to to point to the generated file.
 // @ts-ignore
-import DDSTextCTA from '@carbon/ibmdotcom-web-components/es/components-react/cta/text-cta';
-import DDSButtonCTA from '@carbon/ibmdotcom-web-components/es/components-react/cta/button-cta';
 import DDSButtonGroup from '@carbon/ibmdotcom-web-components/es/components-react/button-group/button-group';
-import DDSCardCTA from '@carbon/ibmdotcom-web-components/es/components-react/cta/card-cta';
 import DDSCardHeading from '@carbon/ibmdotcom-web-components/es/components-react/card/card-heading';
 import DDSCardCTAFooter from '@carbon/ibmdotcom-web-components/es/components-react/cta/card-cta-footer';
-import DDSCardLinkCTA from '@carbon/ibmdotcom-web-components/es/components-react/cta/card-link-cta';
 import DDSCardLinkHeading from '@carbon/ibmdotcom-web-components/es/components-react/card-link/card-link-heading';
-import DDSFeatureCTA from '@carbon/ibmdotcom-web-components/es/components-react/cta/feature-cta';
+import DDSCTAHead from '@carbon/ibmdotcom-web-components/es/components-react/cta/cta';
 import DDSFeatureCTAFooter from '@carbon/ibmdotcom-web-components/es/components-react/cta/feature-cta-footer';
 import DDSImage from '@carbon/ibmdotcom-web-components/es/components-react/image/image';
 import DDSVideoCTAContainer from '@carbon/ibmdotcom-web-components/es/components-react/cta/video-cta-container';
@@ -30,17 +27,38 @@ import { hrefsForType, knobNamesForType, footerKnobNamesForType, typeOptions, ty
 import { CTA_TYPE } from '../defs';
 import imgLg1x1 from '../../../../../storybook-images/assets/720/fpo--1x1--720x720--001.jpg';
 
+let duration;
+
 export const Text = args => {
   const { copy, ctaType, download, href, customVideoTitle, customVideoDescription } = args?.TextCTA ?? {};
+
+  const childCta = document.querySelector('dds-cta')?.shadowRoot!.children[0];
+  childCta?.setAttribute('href', href);
+
+  if (ctaType === 'video' && childCta) {
+    duration
+      ? null
+      : (duration = childCta!
+          .shadowRoot!.querySelector('span')!
+          .textContent!.match(/\((.*)\)/)
+          ?.pop());
+
+    const spanComponent = childCta!.shadowRoot!.querySelector('span');
+    spanComponent && duration
+      ? (spanComponent.textContent = `${customVideoTitle} (${duration})`)
+      : (spanComponent!.textContent = customVideoTitle);
+  }
+
   return (
-    <DDSTextCTA
+    <DDSCTAHead
+      cta-style="text"
       cta-type={ctaType || undefined}
       video-name={customVideoTitle || undefined}
       video-description={customVideoDescription || undefined}
       download={download || undefined}
       href={href || undefined}>
-      {copy}
-    </DDSTextCTA>
+      {copy || customVideoTitle}
+    </DDSCTAHead>
   );
 };
 
@@ -73,19 +91,31 @@ Text.story = {
 
 export const Button = args => {
   const { copy, ctaType, download, href, customVideoTitle, customVideoDescription } = args?.ButtonCTA ?? {};
+
+  const childCta = document.querySelector('dds-cta')?.shadowRoot!.children[0];
+  childCta?.setAttribute('href', href);
+
+  if (ctaType === 'video' && childCta) {
+    duration ? null : (duration = childCta.textContent!.match(/\((.*)\)/)?.pop());
+    childCta && duration
+      ? (childCta.textContent = `${customVideoTitle} (${duration})`)
+      : ((childCta as HTMLElement).innerText = customVideoTitle);
+  }
+
   return (
     <DDSButtonGroup>
-      <DDSButtonCTA
+      <DDSCTAHead
+        cta-style="button"
         cta-type={ctaType || undefined}
         video-name={customVideoTitle || undefined}
         video-description={customVideoDescription || undefined}
         download={download || undefined}
         href={href || undefined}>
         {copy}
-      </DDSButtonCTA>
-      <DDSButtonCTA cta-type={ctaType || undefined} download={download || undefined} href={href || undefined}>
+      </DDSCTAHead>
+      <DDSCTAHead cta-style="button" cta-type={ctaType || undefined} download={download || undefined} href={href || undefined}>
         {copy}
-      </DDSButtonCTA>
+      </DDSCTAHead>
     </DDSButtonGroup>
   );
 };
@@ -131,8 +161,26 @@ export const Card = args => {
     noPoster,
     thumbnail,
   } = args?.CardCTA ?? {};
+
+  const childCta = document.querySelector('dds-cta')?.shadowRoot!.children[0];
+  childCta?.setAttribute('href', href);
+
+  if (ctaType === 'video') {
+    const headingComponent =
+      childCta?.shadowRoot?.querySelector('dds-card-heading') || childCta?.querySelector('dds-card-heading');
+    headingComponent && !duration ? (duration = headingComponent?.textContent!.match(/\((.*)\)/)?.pop()) : null;
+
+    if (headingComponent?.textContent) {
+      duration
+        ? (headingComponent!.textContent = `${customVideoTitle} (${duration})`)
+        : (headingComponent!.textContent = customVideoTitle);
+    }
+    childCta && noPoster ? childCta?.setAttribute('no-poster', '') : childCta?.removeAttribute('no-poster');
+  }
+
   return (
-    <DDSCardCTA
+    <DDSCTAHead
+      cta-style="card"
       cta-type={ctaType || undefined}
       video-name={customVideoTitle || undefined}
       video-description={customVideoDescription || undefined}
@@ -140,7 +188,7 @@ export const Card = args => {
       href={href || undefined}
       noPoster={noPoster}
       thumbnail={thumbnail || undefined}>
-      <DDSCardHeading> {ctaType !== 'video' ? heading : ''}</DDSCardHeading>
+      <DDSCardHeading>{heading || customVideoTitle}</DDSCardHeading>
       {ctaType !== 'video' ? copy : ''}
       <DDSCardCTAFooter
         cta-type={ctaType || undefined}
@@ -148,7 +196,7 @@ export const Card = args => {
         video-description={customVideoDescription || undefined}
         download={footerDownload || undefined}
         href={footerHref || undefined}></DDSCardCTAFooter>
-    </DDSCardCTA>
+    </DDSCTAHead>
   );
 };
 
@@ -178,8 +226,25 @@ Card.story = {
 export const CardLink = args => {
   const { heading, copy, ctaType, download, footerDownload, href, footerHref, customVideoTitle, customVideoDescription } =
     args?.CardCTA ?? {};
+
+  const childCta = document.querySelector('dds-cta')?.shadowRoot!.children[0];
+  childCta?.setAttribute('href', href);
+
+  if (ctaType === 'video') {
+    const headingComponent =
+      childCta?.shadowRoot?.querySelector('dds-card-link-heading') || childCta?.querySelector('dds-card-link-heading');
+    headingComponent && !duration ? (duration = headingComponent?.textContent!.match(/\((.*)\)/)?.pop()) : null;
+
+    if (headingComponent?.textContent) {
+      duration
+        ? (headingComponent!.textContent = `${customVideoTitle} (${duration})`)
+        : (headingComponent!.textContent = customVideoTitle);
+    }
+  }
+
   return (
-    <DDSCardLinkCTA
+    <DDSCTAHead
+      cta-style="card-link"
       cta-type={ctaType || undefined}
       video-name={customVideoTitle || undefined}
       video-description={customVideoDescription || undefined}
@@ -193,7 +258,7 @@ export const CardLink = args => {
         video-description={customVideoDescription || undefined}
         download={footerDownload || undefined}
         href={footerHref || undefined}></DDSCardCTAFooter>
-    </DDSCardLinkCTA>
+    </DDSCTAHead>
   );
 };
 
@@ -231,8 +296,25 @@ CardLink.story = {
 export const Feature = args => {
   const { heading, ctaType, download, href, customVideoTitle, customVideoDescription } = args?.FeatureCTA ?? {};
   const { download: footerDownload, href: footerHref } = args?.FeatureCTAFooter ?? {};
+
+  const childCta = document.querySelector('dds-cta')?.shadowRoot!.children[0];
+  childCta?.setAttribute('href', href);
+
+  if (ctaType === 'video') {
+    const headingComponent =
+      childCta?.shadowRoot?.querySelector('dds-card-heading') || childCta?.querySelector('dds-card-heading');
+    headingComponent && !duration ? (duration = headingComponent?.textContent!.match(/\((.*)\)/)?.pop()) : null;
+
+    if (headingComponent?.textContent) {
+      duration
+        ? (headingComponent!.textContent = `${customVideoTitle} (${duration})`)
+        : (headingComponent!.textContent = customVideoTitle);
+    }
+  }
+
   return (
-    <DDSFeatureCTA
+    <DDSCTAHead
+      cta-style="feature"
       cta-type={ctaType || undefined}
       video-name={customVideoTitle || undefined}
       video-description={customVideoDescription || undefined}
@@ -247,7 +329,7 @@ export const Feature = args => {
         download={footerDownload || undefined}
         href={footerHref || undefined}
       />
-    </DDSFeatureCTA>
+    </DDSCTAHead>
   );
 };
 

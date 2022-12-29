@@ -24,7 +24,6 @@ const { prefix } = settings;
  *
  * @param {string} type media type
  * @param {object} data media data
- * @returns {*} Image or Video
  */
 const _renderMedia = (type, data) => {
   if (data) {
@@ -131,8 +130,8 @@ LeadSpaceBlock.propTypes = {
    * Media Data for either image or video.
    * See the following components' README for more details:
    *
-   * * `mediaType="image"`: [`<ImageWithCaption>`](http://www.ibm.com/standards/carbon/react/?path=/docs/components-imagewithcaption--default#props)
-   * * `mediaType="video"`: [`<VideoPlayer>`](http://www.ibm.com/standards/carbon/react/?path=/docs/components-videoplayer--default#props)
+   * `mediaType="image"`: [`<ImageWithCaption>`](http://www.ibm.com/standards/carbon/react/?path=/docs/components-imagewithcaption--default#props)
+   * `mediaType="video"`: [`<VideoPlayer>`](http://www.ibm.com/standards/carbon/react/?path=/docs/components-videoplayer--default#props)
    */
   mediaData: PropTypes.oneOfType([
     PropTypes.shape({

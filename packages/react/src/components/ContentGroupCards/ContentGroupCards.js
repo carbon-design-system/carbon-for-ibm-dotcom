@@ -42,7 +42,7 @@ const ContentGroupCards = ({ heading, items, copy }) => {
  * @param {Array} items Content object array
  * @returns {*} CardArrayItem JSX objects
  */
-const _renderCards = items =>
+const _renderCards = (items) =>
   items.map((elem, index) => (
     <div
       data-autoid={`${stablePrefix}--content-group-cards-item`}

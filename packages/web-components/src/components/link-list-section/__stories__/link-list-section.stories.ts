@@ -8,19 +8,20 @@
  */
 
 import { html } from 'lit-element';
-import ArrowRight20 from 'carbon-web-components/es/icons/arrow--right/20.js';
+import ArrowRight20 from '@carbon/web-components/es/icons/arrow--right/20.js';
 import '../index';
 import textNullable from '../../../../.storybook/knob-text-nullable';
 import readme from './README.stories.mdx';
 
-export const Default = args => {
+export const Default = (args) => {
   const { heading } = args?.LinkListSection ?? {};
   return html`
     <dds-link-list-section>
       <dds-link-list-heading>${heading}</dds-link-list-heading>
       <dds-link-list>
         <dds-link-list-item href="https://example.com">
-          Learn more about Kubernetes and automating deployment ${ArrowRight20({ slot: 'icon' })}
+          Learn more about Kubernetes and automating deployment
+          ${ArrowRight20({ slot: 'icon' })}
         </dds-link-list-item>
         <dds-link-list-item href="https://example.com">
           Containerization A Complete Guide ${ArrowRight20({ slot: 'icon' })}
@@ -45,12 +46,8 @@ export const Default = args => {
 export default {
   title: 'Components/Link list section',
   decorators: [
-    story => {
-      return html`
-        <div>
-          ${story()}
-        </div>
-      `;
+    (story) => {
+      return html` <div>${story()}</div> `;
     },
   ],
   parameters: {
@@ -58,7 +55,10 @@ export default {
     hasStoryPadding: true,
     knobs: {
       LinkListSection: () => {
-        const heading = textNullable('Link list section heading:', 'Lorem ipsum dolor sit amet');
+        const heading = textNullable(
+          'Link list section heading:',
+          'Lorem ipsum dolor sit amet'
+        );
         return {
           heading,
         };

@@ -84,7 +84,9 @@ class DDSQuote extends StableSelectorMixin(LitElement) {
     const { name } = target as HTMLSlotElement;
     const hasContent = (target as HTMLSlotElement)
       .assignedNodes()
-      .some(node => node.nodeType !== Node.TEXT_NODE || node!.textContent!.trim());
+      .some(
+        (node) => node.nodeType !== Node.TEXT_NODE || node!.textContent!.trim()
+      );
     this[slotExistencePropertyNames[name]] = hasContent;
     this.requestUpdate();
   }
@@ -121,7 +123,10 @@ class DDSQuote extends StableSelectorMixin(LitElement) {
         `;
       case QUOTE_TYPES.CORNER_BRACKET:
         return html`
-          <span class="${prefix}--quote__mark ${prefix}--quote__mark-corner-bracket">「</span>
+          <span
+            class="${prefix}--quote__mark ${prefix}--quote__mark-corner-bracket"
+            >「</span
+          >
           <blockquote class="${prefix}--quote__copy">
             <slot></slot><span class="${prefix}--quote__mark-closing">」</span>
           </blockquote>
@@ -137,12 +142,20 @@ class DDSQuote extends StableSelectorMixin(LitElement) {
   }
 
   protected _renderSource() {
-    const { _hasSourceHeading: hasSourceHeading, _hasSourceCopy: hasSourceCopy, _handleSlotChange: handleSlotChange } = this;
+    const {
+      _hasSourceHeading: hasSourceHeading,
+      _hasSourceCopy: hasSourceCopy,
+      _handleSlotChange: handleSlotChange,
+    } = this;
     return html`
-      <div ?hidden="${!hasSourceHeading || !hasSourceCopy}" class="${prefix}--quote__source">
+      <div
+        ?hidden="${!hasSourceHeading || !hasSourceCopy}"
+        class="${prefix}--quote__source">
         <slot @slotchange="${handleSlotChange}" name="source-heading"></slot>
         <slot @slotchange="${handleSlotChange}" name="source-copy"></slot>
-        <slot @slotchange="${handleSlotChange}" name="source-bottom-copy"></slot>
+        <slot
+          @slotchange="${handleSlotChange}"
+          name="source-bottom-copy"></slot>
       </div>
     `;
   }
