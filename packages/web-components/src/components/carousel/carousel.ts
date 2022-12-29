@@ -349,6 +349,8 @@ class DDSCarousel extends HostListenerMixin(StableSelectorMixin(LitElement)) {
             )
           );
         });
+      this._observeResizeRoot();
+      this.markHiddenAsInert();
     }
   }
 
@@ -530,6 +532,19 @@ class DDSCarousel extends HostListenerMixin(StableSelectorMixin(LitElement)) {
     }
   }
 
+  markHiddenAsInert() {
+    const { _childItems: childItems, start, pageSize } = this;
+
+    childItems.forEach((item) => {
+      const index = childItems.indexOf(item);
+      if (index < start || index > start + pageSize - 1) {
+        item.inert = true;
+      } else {
+        item.inert = false;
+      }
+    });
+  }
+
   disconnectedCallback() {
     this._cleanAndCreateObserverResize();
     super.disconnectedCallback();
@@ -541,16 +556,7 @@ class DDSCarousel extends HostListenerMixin(StableSelectorMixin(LitElement)) {
 
   protected updated(changedProperties) {
     if (changedProperties.has('start')) {
-      const { _childItems: childItems, start, pageSize } = this;
-
-      childItems.forEach((item) => {
-        const index = childItems.indexOf(item);
-        if (index < start || index > start + pageSize - 1) {
-          item.inert = true;
-        } else {
-          item.inert = false;
-        }
-      });
+      this.markHiddenAsInert();
     }
   }
 

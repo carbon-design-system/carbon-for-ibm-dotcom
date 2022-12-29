@@ -316,7 +316,7 @@
 
   &[usage-mode='header-nav'],
   &[collapse-mode][usage-mode='header-nav'] {
-    left: -100vw;
+    inset-inline-start: -100vw;
     visibility: hidden;
     /* stylelint-disable-next-line  time-min-milliseconds */
     transition: visibility 1ms motion(exit, productive) $duration--fast-02,
@@ -326,11 +326,11 @@
   &[expanded][usage-mode='header-nav'],
   &[collapse-mode][expanded][usage-mode='header-nav'] {
     overflow: hidden auto;
-    left: 0;
+    inset-inline-start: 0;
     visibility: visible;
     /* stylelint-disable-next-line time-min-milliseconds */
     transition: visibility 1ms motion(exit, productive) 0ms,
-      left $duration--fast-02 motion(exit, productive) 1ms;
+      inset-inline-start $duration--fast-02 motion(exit, productive) 1ms;
   }
 
   .#{$prefix}--side-nav__wrapper {
@@ -497,6 +497,17 @@
       @include left-nav-overlay;
     }
   }
+}
+
+:host(#{$dds-prefix}-left-nav-overlay[dir='rtl']) {
+  clip-path: polygon(
+    0 0,
+    calc(100% - #{mini-units(6)}) 0,
+    calc(100% - #{mini-units(6)}) calc(#{mini-units(6)} + 1px),
+    100% calc(#{mini-units(6)} + 1px),
+    100% 100%,
+    0 100%
+  );
 }
 
 :host(#{$dds-prefix}-megamenu-link-with-icon):focus,
