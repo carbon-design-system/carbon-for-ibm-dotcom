@@ -112,7 +112,8 @@ export interface L1MenuItem extends BasicLink {
 
 export interface L1Submenu {
   announcement?: string; // From AEM rich text editor
-  menuSections: L1SubmenuSection[]; // maximum of 3 in outer array | renamed to be agnostic to the design
+  menuSections: L1SubmenuSection[]; // maximum of 3 in outer array
+  columns: 1 | 2 | 3;
   footer?: {
     title: string;
     url: string;
@@ -120,8 +121,9 @@ export interface L1Submenu {
 }
 
 export interface L1SubmenuSection {
-  span: 1 | 2 | 3;
-  items: BasicLink | L1SubmenuSectionHeading[];
+  span: 1 | 2; // Only used if containing L1Submenu.columns === 3.
+  heading?: L1SubmenuSectionHeading;
+  items?: BasicLink[];
 }
 
 export interface L1SubmenuSectionHeading {
