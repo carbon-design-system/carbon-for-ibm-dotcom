@@ -20,11 +20,10 @@ const { prefix } = settings;
  * browser returns the proper sources and the specified widths
  *
  * @param {Array} sources image sources and min-widths
- *
  * @returns {Array} sorted array of sources
  */
-const sortSources = sources => {
-  const images = sources.map(elem => {
+const sortSources = (sources) => {
+  const images = sources.map((elem) => {
     if (typeof elem.breakpoint == 'number') {
       return elem;
     }

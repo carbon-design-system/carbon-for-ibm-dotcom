@@ -101,7 +101,7 @@ class HeaderMenu extends React.Component {
   /**
    * Toggle the expanded state of the menu on click.
    */
-  handleOnClick = event => {
+  handleOnClick = (event) => {
     event.preventDefault();
     this.menuLinkRef.current.focus();
 
@@ -110,17 +110,17 @@ class HeaderMenu extends React.Component {
       `.${prefix}--masthead__l0, body`
     );
 
-    this.setState(prevState => {
+    this.setState((prevState) => {
       if (this.props.disableScroll) {
         if (prevState.expanded) {
           this.props.setOverlay(false);
           root.document?.body?.classList.remove(`${prefix}--body__lock-scroll`);
-          elems.forEach(elem => (elem.style.marginRight = '0px'));
+          elems.forEach((elem) => (elem.style.marginRight = '0px'));
         } else {
           this.props.setOverlay(true);
           root.document?.body?.classList.add(`${prefix}--body__lock-scroll`);
           elems.forEach(
-            elem => (elem.style.marginRight = `${this.scrollBarWidth}px`)
+            (elem) => (elem.style.marginRight = `${this.scrollBarWidth}px`)
           );
         }
       }
@@ -140,7 +140,7 @@ class HeaderMenu extends React.Component {
   /**
    * Keyboard event handler for the entire menu.
    */
-  handleOnKeyDown = event => {
+  handleOnKeyDown = (event) => {
     // Handle enter or space key for toggling the expanded state of the menu.
     if (matches(event, [keys.Enter, keys.Space])) {
       event.stopPropagation();
@@ -156,7 +156,7 @@ class HeaderMenu extends React.Component {
    * Checks if user has tabbed to menu items within the megamenu,
    * if so do not set overlay to false
    */
-  checkMenuItems = event => {
+  checkMenuItems = (event) => {
     const megamenuItems = [
       `${prefix}--masthead__megamenu__category-headline`,
       `${prefix}--masthead__megamenu__category-group`,
@@ -166,7 +166,7 @@ class HeaderMenu extends React.Component {
       `${prefix}--header__menu`,
     ];
 
-    return megamenuItems.filter(item =>
+    return megamenuItems.filter((item) =>
       event.relatedTarget.parentElement.className?.includes(item)
     );
   };
@@ -176,7 +176,7 @@ class HeaderMenu extends React.Component {
    * for toggling the expansion status of our menu in response to a user
    * clicking off of the menu or menubar.
    */
-  handleOnBlur = event => {
+  handleOnBlur = (event) => {
     const elems = root.document?.querySelectorAll(
       `.${prefix}--masthead__l0, body`
     );
@@ -184,7 +184,7 @@ class HeaderMenu extends React.Component {
       this.setState({ expanded: false, selectedIndex: null });
       if (this.props.disableScroll) {
         root.document?.body?.classList.remove(`${prefix}--body__lock-scroll`);
-        elems.forEach(elem => (elem.style.marginRight = '0px'));
+        elems.forEach((elem) => (elem.style.marginRight = '0px'));
       }
     }
 
@@ -202,7 +202,7 @@ class HeaderMenu extends React.Component {
    * menu or menubar as it will allow the parent to explicitly focus the menu
    * button node when that child should receive focus.
    */
-  handleMenuButtonRef = node => {
+  handleMenuButtonRef = (node) => {
     if (this.props.focusRef) {
       this.props.focusRef(node);
     }
@@ -213,11 +213,11 @@ class HeaderMenu extends React.Component {
    * Handles individual menuitem refs. We assign them to a class instance
    * property so that we can properly manage focus of our children.
    */
-  handleItemRef = index => node => {
+  handleItemRef = (index) => (node) => {
     this.items[index] = node;
   };
 
-  handleMenuClose = event => {
+  handleMenuClose = (event) => {
     // Handle ESC keydown for closing the expanded menu.
     if (matches(event, [keys.Escape]) && this.state.expanded) {
       event.stopPropagation();

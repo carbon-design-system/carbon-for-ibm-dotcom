@@ -8,7 +8,13 @@
  */
 
 import { classMap } from 'lit-html/directives/class-map.js';
-import { html, property, customElement, LitElement, TemplateResult } from 'lit-element';
+import {
+  html,
+  property,
+  customElement,
+  LitElement,
+  TemplateResult,
+} from 'lit-element';
 import settings from 'carbon-components/es/globals/js/settings.js';
 import ddsSettings from '../../internal/vendor/@carbon/ibmdotcom-utilities/utilities/settings/settings';
 import styles from './search-with-typeahead.scss';
@@ -70,17 +76,24 @@ class DDSSearchWithTypeaheadItem extends LitElement {
         const lowerCaseText = text.toLowerCase();
         if (lowerCaseText.includes(searchQueryString)) {
           const startingIndex = lowerCaseText.indexOf(searchQueryString);
-          searchQueryString = text.substring(startingIndex, startingIndex + searchQueryString.length);
+          searchQueryString = text.substring(
+            startingIndex,
+            startingIndex + searchQueryString.length
+          );
         }
 
         const highlightedResult = html`
-          <span class="${ddsPrefix}-ce--search-with-typeahead-item__highlighted">${searchQueryString}</span>
+          <span class="${ddsPrefix}-ce--search-with-typeahead-item__highlighted"
+            >${searchQueryString}</span
+          >
         `;
-        const content = text.split(new RegExp(searchQueryString, 'i')).reduce((acc, item) => {
-          acc.push(item.replace(/^\s/, '\xa0').replace(/\s$/, '\xa0'));
-          acc.push(highlightedResult);
-          return acc;
-        }, [] as (TemplateResult | string)[]);
+        const content = text
+          .split(new RegExp(searchQueryString, 'i'))
+          .reduce((acc, item) => {
+            acc.push(item.replace(/^\s/, '\xa0').replace(/\s$/, '\xa0'));
+            acc.push(highlightedResult);
+            return acc;
+          }, [] as (TemplateResult | string)[]);
         content.pop();
         this._content = content;
       }

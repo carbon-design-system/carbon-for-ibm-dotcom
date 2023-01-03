@@ -26,10 +26,15 @@ class DDSLeftNavOverlay extends LitElement {
   @property({ type: Boolean, reflect: true })
   active = false;
 
+  connectedCallback() {
+    super.connectedCallback();
+    if (this.closest('[dir]')) {
+      this.dir = (this.closest('[dir]') as HTMLElement)!.dir;
+    }
+  }
+
   render() {
-    return html`
-      <slot></slot>
-    `;
+    return html` <slot></slot> `;
   }
 
   static styles = styles;

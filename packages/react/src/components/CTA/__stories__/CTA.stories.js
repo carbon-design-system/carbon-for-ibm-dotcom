@@ -194,7 +194,7 @@ const props = {
     ];
 
     const customVideoTitles = type
-      .filter(ctaType => ctaType === 'video')
+      .filter((ctaType) => ctaType === 'video')
       .map((_ctaType, index) =>
         text(
           `Button ${index + 1} custom video title`,
@@ -202,7 +202,7 @@ const props = {
         )
       );
     const customVideoDescriptions = type
-      .filter(ctaType => ctaType === 'video')
+      .filter((ctaType) => ctaType === 'video')
       .map((_ctaType, index) =>
         text(
           `Button ${index + 1}`,

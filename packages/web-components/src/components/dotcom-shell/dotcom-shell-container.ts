@@ -37,17 +37,23 @@ const { stablePrefix: ddsPrefix } = ddsSettings;
 /**
  * The Redux state used for `<dds-dotcom-shell-container>`.
  */
-export interface DotcomShellContainerState extends MastheadContainerState, FooterContainerState {}
+export interface DotcomShellContainerState
+  extends MastheadContainerState,
+    FooterContainerState {}
 
 /**
  * The properties for `<dds-dotcom-shell-container>` from Redux state.
  */
-export interface DotcomShellContainerStateProps extends MastheadContainerStateProps, FooterContainerStateProps {}
+export interface DotcomShellContainerStateProps
+  extends MastheadContainerStateProps,
+    FooterContainerStateProps {}
 
 /**
  * The Redux actions used for `<dds-dotcom-shell-container>`.
  */
-export type DotcomShellContainerActions = MastheadContainerActions | FooterContainerActions;
+export type DotcomShellContainerActions =
+  | MastheadContainerActions
+  | FooterContainerActions;
 
 /**
  * @param state The Redux state for dotcom shell.
@@ -70,7 +76,9 @@ export function mapStateToProps(
  * @param dispatch The Redux `dispatch()` API.
  * @returns The methods in `<dds-dotcomshell-container>` to dispatch Redux actions.
  */
-export function mapDispatchToProps(dispatch: Dispatch<LocaleAPIActions | TranslateAPIActions | ProfileAPIActions>) {
+export function mapDispatchToProps(
+  dispatch: Dispatch<LocaleAPIActions | TranslateAPIActions | ProfileAPIActions>
+) {
   return {
     ...mapDispatchToPropsMasthead(dispatch),
     ...mapDispatchToPropsFooter(dispatch),
@@ -89,7 +97,13 @@ class DDSDotcomShellContainer extends ConnectMixin<
   DotcomShellContainerStateProps,
   ActionCreatorsMapObject<DotcomShellContainerActions>
 >(
-  store as Store<MastheadContainerState, LocaleAPIActions | TranslateAPIActions | ProfileAPIActions | SearchAPIActions>,
+  store as Store<
+    MastheadContainerState,
+    | LocaleAPIActions
+    | TranslateAPIActions
+    | ProfileAPIActions
+    | SearchAPIActions
+  >,
   mapStateToProps,
   mapDispatchToProps
 )(DDSDotcomShellComposite) {}

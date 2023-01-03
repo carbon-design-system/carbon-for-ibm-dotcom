@@ -7,7 +7,7 @@
 
 @import '@carbon/ibmdotcom-styles/scss/globals/vars';
 @import '@carbon/ibmdotcom-styles/scss/components/background-media/background-media';
-@import 'carbon-web-components/scss/components/tooltip/tooltip';
+@import '@carbon/web-components/scss/components/tooltip/tooltip';
 
 .#{$prefix}--background-media--video {
   aspect-ratio: 16 / 9; /* stylelint-disable-line property-no-unknown */

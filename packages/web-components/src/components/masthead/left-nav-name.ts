@@ -9,8 +9,8 @@
 
 import { html, property, customElement } from 'lit-element';
 import settings from 'carbon-components/es/globals/js/settings.js';
-import ifNonNull from 'carbon-web-components/es/globals/directives/if-non-null.js';
-import BXHeaderName from 'carbon-web-components/es/components/ui-shell/header-name.js';
+import ifNonNull from '@carbon/web-components/es/globals/directives/if-non-null.js';
+import BXHeaderName from '@carbon/web-components/es/components/ui-shell/header-name.js';
 import ddsSettings from '../../internal/vendor/@carbon/ibmdotcom-utilities/utilities/settings/settings';
 import styles from './masthead.scss';
 import DDSLeftNav from './left-nav';
@@ -43,10 +43,13 @@ class DDSLeftNavName extends BXHeaderName {
     const namePrefixPart = !namePrefix
       ? undefined
       : html`
-          <span class="${prefix}--header__name--prefix">${namePrefix}</span>&nbsp;
+          <span class="${prefix}--header__name--prefix">${namePrefix}</span
+          >&nbsp;
         `;
     return html`
-      <a class="${prefix}--side-nav__submenu ${prefix}--side-nav__submenu-platform" href="${ifNonNull(href)}">
+      <a
+        class="${prefix}--side-nav__submenu ${prefix}--side-nav__submenu-platform"
+        href="${ifNonNull(href)}">
         ${namePrefixPart}
         <slot></slot>
       </a>

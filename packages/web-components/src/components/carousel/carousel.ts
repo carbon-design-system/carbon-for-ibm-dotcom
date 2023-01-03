@@ -8,15 +8,22 @@
  */
 
 import { ifDefined } from 'lit-html/directives/if-defined.js';
-import { html, property, state, query, customElement, LitElement } from 'lit-element';
+import {
+  html,
+  property,
+  state,
+  query,
+  customElement,
+  LitElement,
+} from 'lit-element';
 import 'wicg-inert';
 import settings from 'carbon-components/es/globals/js/settings.js';
-import ifNonNull from 'carbon-web-components/es/globals/directives/if-non-null.js';
-import CaretLeft20 from 'carbon-web-components/es/icons/caret--left/20.js';
-import CaretRight20 from 'carbon-web-components/es/icons/caret--right/20.js';
-import HostListener from 'carbon-web-components/es/globals/decorators/host-listener.js';
-import HostListenerMixin from 'carbon-web-components/es/globals/mixins/host-listener.js';
-import { selectorTabbable } from 'carbon-web-components/es/globals/settings.js';
+import ifNonNull from '@carbon/web-components/es/globals/directives/if-non-null.js';
+import CaretLeft20 from '@carbon/web-components/es/icons/caret--left/20.js';
+import CaretRight20 from '@carbon/web-components/es/icons/caret--right/20.js';
+import HostListener from '@carbon/web-components/es/globals/decorators/host-listener.js';
+import HostListenerMixin from '@carbon/web-components/es/globals/mixins/host-listener.js';
+import { selectorTabbable } from '@carbon/web-components/es/globals/settings.js';
 import ddsSettings from '../../internal/vendor/@carbon/ibmdotcom-utilities/utilities/settings/settings';
 import sameHeight from '../../internal/vendor/@carbon/ibmdotcom-utilities/utilities/sameHeight/sameHeight';
 import styles from './carousel.scss';
@@ -159,7 +166,9 @@ class DDSCarousel extends HostListenerMixin(StableSelectorMixin(LitElement)) {
         this._observerResizeRoot.observe(this.ownerDocument!.documentElement);
         // TODO: Wait for `.d.ts` update to support `ResizeObserver`
         // @ts-ignore
-        this._observerResizeContainer = new ResizeObserver(this._observeResizeContainer);
+        this._observerResizeContainer = new ResizeObserver(
+          this._observeResizeContainer
+        );
         this._observerResizeContainer.observe(contentsNode);
       }
     }
@@ -183,7 +192,8 @@ class DDSCarousel extends HostListenerMixin(StableSelectorMixin(LitElement)) {
   @HostListener('shadowRoot:focusin')
   // @ts-ignore: The decorator refers to this method but TS thinks this method is not referred to
   private _handleFocus = async ({ target }: FocusEvent) => {
-    const containsCurrent = target !== this && this.contains(target as HTMLElement);
+    const containsCurrent =
+      target !== this && this.contains(target as HTMLElement);
     let currentItemIndex = 0;
     Array.from(this.children).forEach((carouselItem, index) => {
       if (carouselItem.contains(target as HTMLElement)) {
@@ -192,9 +202,14 @@ class DDSCarousel extends HostListenerMixin(StableSelectorMixin(LitElement)) {
     });
 
     // Calculates proper page to display if focus is outside the current page
-    if (containsCurrent && (currentItemIndex < this.start || currentItemIndex >= this.start + this.pageSize)) {
+    if (
+      containsCurrent &&
+      (currentItemIndex < this.start ||
+        currentItemIndex >= this.start + this.pageSize)
+    ) {
       // The `currentIndex` floored by `pageSize`
-      const nextStart = Math.floor(currentItemIndex / this.pageSize) * this.pageSize;
+      const nextStart =
+        Math.floor(currentItemIndex / this.pageSize) * this.pageSize;
       const pageOffset = this.start % this.pageSize;
 
       // Ensures the page moves by `this.pageSize` in either direction
@@ -249,7 +264,10 @@ class DDSCarousel extends HostListenerMixin(StableSelectorMixin(LitElement)) {
     const distTravelled = event.changedTouches[0].clientX - _startPos; // distance travelled
     const elapsedTime = new Date().getTime() - _startTime; // elapsed time
 
-    if (elapsedTime <= MAX_GESTURE_DURATION && Math.abs(distTravelled) >= MIN_DISTANCE_TRAVELLED) {
+    if (
+      elapsedTime <= MAX_GESTURE_DURATION &&
+      Math.abs(distTravelled) >= MIN_DISTANCE_TRAVELLED
+    ) {
       if (distTravelled < 0) {
         this.start = Math.min(start + pageSize, total - 1);
       } else {
@@ -265,54 +283,81 @@ class DDSCarousel extends HostListenerMixin(StableSelectorMixin(LitElement)) {
     const slot = event.target as HTMLSlotElement;
     const { name } = slot;
     if (!name) {
-      this._total = slot.assignedNodes().filter(node => node.nodeType === Node.ELEMENT_NODE).length;
+      this._total = slot
+        .assignedNodes()
+        .filter((node) => node.nodeType === Node.ELEMENT_NODE).length;
     }
     this._updateGap();
 
-    this._childItems = (event.target as HTMLSlotElement).assignedNodes().filter(node => node instanceof HTMLElement);
+    this._childItems = (event.target as HTMLSlotElement)
+      .assignedNodes()
+      .filter((node) => node instanceof HTMLElement);
 
     // retrieve item heading, eyebrows, and footers to set same height
     if (this._childItems) {
       this._childItems
-        .filter(elem =>
+        .filter((elem) =>
           (elem as HTMLElement).matches !== undefined
-            ? (elem as HTMLElement).matches((this.constructor as typeof DDSCarousel).selectorItem) ||
-              (elem as HTMLElement).matches((this.constructor as typeof DDSCarousel).selectorItemVideoCTAContainer)
+            ? (elem as HTMLElement).matches(
+                (this.constructor as typeof DDSCarousel).selectorItem
+              ) ||
+              (elem as HTMLElement).matches(
+                (this.constructor as typeof DDSCarousel)
+                  .selectorItemVideoCTAContainer
+              )
             : false
         )
-        .forEach(e => {
+        .forEach((e) => {
           this._childItemEyebrows.push(
-            (e as HTMLElement).querySelector((this.constructor as typeof DDSCarousel).selectorItemEyebrow)
+            (e as HTMLElement).querySelector(
+              (this.constructor as typeof DDSCarousel).selectorItemEyebrow
+            )
           );
           this._childItemParagraphs.push(
-            (e as HTMLElement).querySelector((this.constructor as typeof DDSCarousel).selectorItemParagraph)
+            (e as HTMLElement).querySelector(
+              (this.constructor as typeof DDSCarousel).selectorItemParagraph
+            )
           );
           this._childItemTagGroup.push(
-            (e as HTMLElement).querySelector((this.constructor as typeof DDSCarousel).selectorItemTagGroup)
+            (e as HTMLElement).querySelector(
+              (this.constructor as typeof DDSCarousel).selectorItemTagGroup
+            )
           );
           this._childItemHeadings.push(
-            (e as HTMLElement).querySelector((this.constructor as typeof DDSCarousel).selectorItemHeading)
+            (e as HTMLElement).querySelector(
+              (this.constructor as typeof DDSCarousel).selectorItemHeading
+            )
           );
 
           this._childItemHeadings.push(
             (e as HTMLElement)
-              .querySelector((this.constructor as typeof DDSCarousel).selectorItemCardCTA)
-              ?.shadowRoot?.querySelector((this.constructor as typeof DDSCarousel).selectorItemHeading)
+              .querySelector(
+                (this.constructor as typeof DDSCarousel).selectorItemCardCTA
+              )
+              ?.shadowRoot?.querySelector(
+                (this.constructor as typeof DDSCarousel).selectorItemHeading
+              )
           );
 
-          this._childItemHeadings = this._childItemHeadings.filter(heading => heading);
+          this._childItemHeadings = this._childItemHeadings.filter(
+            (heading) => heading
+          );
 
           this._childItemFooters.push(
-            (e as HTMLElement).querySelector((this.constructor as typeof DDSCarousel).selectorItemFooter)
+            (e as HTMLElement).querySelector(
+              (this.constructor as typeof DDSCarousel).selectorItemFooter
+            )
           );
         });
+      this._observeResizeRoot();
+      this.markHiddenAsInert();
     }
   }
 
   /**
    * The observer for the resize of the scroll container.
    */
-  private _observeResizeContainer = records => {
+  private _observeResizeContainer = (records) => {
     const { contentRect } = records[records.length - 1];
     const { width: contentsBaseWidth } = contentRect;
     this._contentsBaseWidth = contentsBaseWidth;
@@ -326,7 +371,11 @@ class DDSCarousel extends HostListenerMixin(StableSelectorMixin(LitElement)) {
     const { customPropertyPageSize } = this.constructor as typeof DDSCarousel;
     const { _contentsNode: contentsNode } = this;
     const { defaultView: w } = this.ownerDocument!;
-    this._pageSizeAuto = Number(w!.getComputedStyle(contentsNode!).getPropertyValue(customPropertyPageSize));
+    this._pageSizeAuto = Number(
+      w!
+        .getComputedStyle(contentsNode!)
+        .getPropertyValue(customPropertyPageSize)
+    );
     this._setSameHeight();
   };
 
@@ -338,33 +387,36 @@ class DDSCarousel extends HostListenerMixin(StableSelectorMixin(LitElement)) {
     // Copes with the condition where `start % pageSize` is non-zero
     const pagesBefore = Math.ceil(start / pageSize);
     const pagesSince = Math.ceil((total - start) / pageSize);
-    return formatStatus({ currentPage: Math.ceil(start / pageSize) + 1, pages: pagesBefore + pagesSince });
+    return formatStatus({
+      currentPage: Math.ceil(start / pageSize) + 1,
+      pages: pagesBefore + pagesSince,
+    });
   }
 
   private _setSameHeight = () => {
     // check if items are not null before using sameHeight
 
     sameHeight(
-      this._childItemEyebrows.filter(item => item !== null),
+      this._childItemEyebrows.filter((item) => item !== null),
       'sm'
     );
     sameHeight(
-      this._childItemHeadings.filter(item => item !== null),
+      this._childItemHeadings.filter((item) => item !== null),
       'sm'
     );
     sameHeight(
-      this._childItemParagraphs.filter(item => item !== null),
+      this._childItemParagraphs.filter((item) => item !== null),
       'sm'
     );
     sameHeight(
-      this._childItemFooters.filter(item => item !== null),
+      this._childItemFooters.filter((item) => item !== null),
       'sm'
     );
 
     let tagGroupHeight: number = 0;
 
     // get tallest height of tag groups
-    this._childItemTagGroup.forEach(item => {
+    this._childItemTagGroup.forEach((item) => {
       if (item) {
         const groupHeight = (item as HTMLElement).offsetHeight;
         if (groupHeight > tagGroupHeight) {
@@ -373,9 +425,14 @@ class DDSCarousel extends HostListenerMixin(StableSelectorMixin(LitElement)) {
       }
     });
 
-    this._childItemHeadings.forEach(e => {
+    this._childItemHeadings.forEach((e) => {
       // add tag group height to heading to the cards lacking tag group
-      if (e && !e.nextElementSibling?.matches((this.constructor as typeof DDSCarousel).selectorItemTagGroup)) {
+      if (
+        e &&
+        !e.nextElementSibling?.matches(
+          (this.constructor as typeof DDSCarousel).selectorItemTagGroup
+        )
+      ) {
         e.style.marginBottom = `${tagGroupHeight + headingBottomMargin}px`;
       }
     });
@@ -386,19 +443,34 @@ class DDSCarousel extends HostListenerMixin(StableSelectorMixin(LitElement)) {
    */
   private _updateGap() {
     const { _contentsNode: contentsNode, _slotNode: slotNode } = this;
-    const elems = slotNode!.assignedNodes().filter(node => node.nodeType === Node.ELEMENT_NODE);
+    const elems = slotNode!
+      .assignedNodes()
+      .filter((node) => node.nodeType === Node.ELEMENT_NODE);
     this._gap =
       elems.length <= 1
         ? 0
-        : (contentsNode!.scrollWidth - elems.reduce((acc, elem) => acc + ((elem as HTMLElement).offsetWidth ?? 0), 0)) /
+        : (contentsNode!.scrollWidth -
+            elems.reduce(
+              (acc, elem) => acc + ((elem as HTMLElement).offsetWidth ?? 0),
+              0
+            )) /
           (elems.length - 1);
   }
 
   get focusableElements() {
-    const { selectorTabbable: selectorTabbableForCarousel } = this.constructor as typeof DDSExpressiveModal;
+    const { selectorTabbable: selectorTabbableForCarousel } = this
+      .constructor as typeof DDSExpressiveModal;
     return [
-      ...Array.from((this.shadowRoot?.querySelectorAll(selectorTabbableForCarousel) as NodeListOf<HTMLElement>) || []),
-      ...Array.from(this.querySelectorAll(selectorTabbableForCarousel) as NodeListOf<HTMLElement>),
+      ...Array.from(
+        (this.shadowRoot?.querySelectorAll(
+          selectorTabbableForCarousel
+        ) as NodeListOf<HTMLElement>) || []
+      ),
+      ...Array.from(
+        this.querySelectorAll(
+          selectorTabbableForCarousel
+        ) as NodeListOf<HTMLElement>
+      ),
     ];
   }
 
@@ -446,7 +518,9 @@ class DDSCarousel extends HostListenerMixin(StableSelectorMixin(LitElement)) {
     super.connectedCallback();
     this._cleanAndCreateObserverResize({ create: true });
 
-    const containingModal = this.closest(`${ddsPrefix}-expressive-modal`) as DDSExpressiveModal;
+    const containingModal = this.closest(
+      `${ddsPrefix}-expressive-modal`
+    ) as DDSExpressiveModal;
     if (containingModal) {
       containingModal.hasFocusableElements.push(this);
       this.setAttribute('in-modal', '');
@@ -456,6 +530,19 @@ class DDSCarousel extends HostListenerMixin(StableSelectorMixin(LitElement)) {
         containingModal.modalBody!.style.width = 'var(--modal-vw)';
       }, 0);
     }
+  }
+
+  markHiddenAsInert() {
+    const { _childItems: childItems, start, pageSize } = this;
+
+    childItems.forEach((item) => {
+      const index = childItems.indexOf(item);
+      if (index < start || index > start + pageSize - 1) {
+        item.inert = true;
+      } else {
+        item.inert = false;
+      }
+    });
   }
 
   disconnectedCallback() {
@@ -469,16 +556,7 @@ class DDSCarousel extends HostListenerMixin(StableSelectorMixin(LitElement)) {
 
   protected updated(changedProperties) {
     if (changedProperties.has('start')) {
-      const { _childItems: childItems, start, pageSize } = this;
-
-      childItems.forEach(item => {
-        const index = childItems.indexOf(item);
-        if (index < start || index > start + pageSize - 1) {
-          item.inert = true;
-        } else {
-          item.inert = false;
-        }
-      });
+      this.markHiddenAsInert();
     }
   }
 
@@ -510,9 +588,14 @@ class DDSCarousel extends HostListenerMixin(StableSelectorMixin(LitElement)) {
         @scroll="${handleScrollFocus}"
         @touchstart="${handleTouchStartEvent}"
         @touchend="${handleTouchEndEvent}"
-        style="${ifNonNull(pageSizeExplicit == null ? null : `${customPropertyPageSize}: ${pageSizeExplicit}`)}"
-      >
-        <div class="${prefix}--carousel__scroll-contents" style="left:${(-start * (contentsBaseWidth + gap)) / pageSize}px">
+        style="${ifNonNull(
+          pageSizeExplicit == null
+            ? null
+            : `${customPropertyPageSize}: ${pageSizeExplicit}`
+        )}">
+        <div
+          class="${prefix}--carousel__scroll-contents"
+          style="left:${(-start * (contentsBaseWidth + gap)) / pageSize}px">
           <slot @slotchange="${handleSlotChange}"></slot>
         </div>
       </div>
@@ -523,8 +606,7 @@ class DDSCarousel extends HostListenerMixin(StableSelectorMixin(LitElement)) {
           ?disabled="${pagesBefore === 0}"
           @click="${handleClickPrevButton}"
           aria-label="${ifDefined(prevButtonText)}"
-          title="${ifDefined(prevButtonText)}"
-        >
+          title="${ifDefined(prevButtonText)}">
           ${CaretLeft20()}
         </button>
         ${this._renderStatus()}
@@ -534,8 +616,7 @@ class DDSCarousel extends HostListenerMixin(StableSelectorMixin(LitElement)) {
           ?disabled="${pagesSince <= 1}"
           @click="${handleClickNextButton}"
           aria-label="${ifDefined(nextButtonText)}"
-          title="${ifDefined(nextButtonText)}"
-        >
+          title="${ifDefined(nextButtonText)}">
           ${CaretRight20()}
         </button>
       </div>

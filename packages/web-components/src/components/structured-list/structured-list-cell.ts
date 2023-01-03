@@ -7,11 +7,11 @@
  * LICENSE file in the root directory of this source tree.
  */
 
-import BXStructuredListCell from 'carbon-web-components/es/components/structured-list/structured-list-cell.js';
+import BXStructuredListCell from '@carbon/web-components/es/components/structured-list/structured-list-cell.js';
 import { customElement, property, html } from 'lit-element';
-import Info16 from 'carbon-web-components/es/icons/information/16.js';
-import Checkmark20 from 'carbon-web-components/es/icons/checkmark/20.js';
-import Error20 from 'carbon-web-components/es/icons/error/20.js';
+import Info16 from '@carbon/web-components/es/icons/information/16.js';
+import Checkmark20 from '@carbon/web-components/es/icons/checkmark/20.js';
+import Error20 from '@carbon/web-components/es/icons/error/20.js';
 import ddsSettings from '../../internal/vendor/@carbon/ibmdotcom-utilities/utilities/settings/settings';
 import DDSStructuredListGroup from './structured-list-group';
 import styles from './structured-list.scss';
@@ -25,7 +25,9 @@ const { stablePrefix: ddsPrefix } = ddsSettings;
  */
 @customElement(`${ddsPrefix}-structured-list-cell`)
 class DDSStructuredListCell extends BXStructuredListCell {
-  parentGroup: DDSStructuredListGroup | null = this.closest(`${ddsPrefix}-structured-list-group`);
+  parentGroup: DDSStructuredListGroup | null = this.closest(
+    `${ddsPrefix}-structured-list-group`
+  );
 
   @property({ attribute: 'aria-label', reflect: true })
   groupLabel?: string;
@@ -52,21 +54,18 @@ class DDSStructuredListCell extends BXStructuredListCell {
   private _renderIcon() {
     const { icon, _iconsAllowed: iconMap } = this;
 
-    return html`
-      ${iconMap[icon!.toLowerCase()].call()}
-    `;
+    return html` ${iconMap[icon!.toLowerCase()].call()} `;
   }
 
   private _renderTags() {
     const { tags } = this;
 
     return html`
-      ${tags!.split(',').map(
-        tag =>
-          html`
-            <bx-tag size="sm" type="green">${tag.trim()}</bx-tag>
-          `
-      )}
+      ${tags!
+        .split(',')
+        .map(
+          (tag) => html` <bx-tag size="sm" type="green">${tag.trim()}</bx-tag> `
+        )}
     `;
   }
 
@@ -74,23 +73,30 @@ class DDSStructuredListCell extends BXStructuredListCell {
     const { tooltipText: tooltip } = this;
 
     return html`
-      <bx-tooltip-icon alignment="start" body-text="${tooltip}" direction="right">
+      <bx-tooltip-icon
+        alignment="start"
+        body-text="${tooltip}"
+        direction="right">
         ${Info16()}
       </bx-tooltip-icon>
     `;
   }
 
   render() {
-    const { tooltipText: tooltip, icon, _iconsAllowed: iconsAllowed, tags } = this;
+    const {
+      tooltipText: tooltip,
+      icon,
+      _iconsAllowed: iconsAllowed,
+      tags,
+    } = this;
 
     if (icon && Object.keys(iconsAllowed).includes(icon.toLowerCase())) {
-      return html`
-        ${this._renderIcon()}
-      `;
+      return html` ${this._renderIcon()} `;
     }
 
     return html`
-      ${super.render()} ${tags ? this._renderTags() : ''} ${tooltip ? this._renderTooltip() : ''}
+      ${super.render()} ${tags ? this._renderTags() : ''}
+      ${tooltip ? this._renderTooltip() : ''}
     `;
   }
 

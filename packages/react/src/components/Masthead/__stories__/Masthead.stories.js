@@ -27,7 +27,7 @@ const props = {
     TranslationAPI.getTranslation = !useMockData
       ? origGetTranslation
       : () =>
-          new Promise(resolve => {
+          new Promise((resolve) => {
             setTimeout(resolve, 300000);
           });
 
@@ -159,7 +159,7 @@ export default {
   },
 };
 
-export const Default = args => (
+export const Default = (args) => (
   <Masthead {...(Object.keys(args).length > 0 ? args : props.default())} />
 );
 

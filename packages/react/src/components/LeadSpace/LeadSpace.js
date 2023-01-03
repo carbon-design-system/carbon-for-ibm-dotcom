@@ -77,9 +77,7 @@ const LeadSpace = ({
             className={classnames(`${prefix}--leadspace__overlay`, {
               [`${prefix}--leadspace--gradient`]: image && image.defaultSrc,
             })}>
-            {image && image.defaultSrc === true ? (
-              undefined
-            ) : (
+            {image && image.defaultSrc === true ? undefined : (
               <svg
                 className={`${prefix}--leadspace__gradient`}
                 viewBox="0 0 100 100"

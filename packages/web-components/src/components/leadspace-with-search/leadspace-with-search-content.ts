@@ -21,7 +21,9 @@ const { stablePrefix: ddsPrefix } = ddsSettings;
  * @element dds-leadspace-block-content
  */
 @customElement(`${ddsPrefix}-leadspace-with-search-content`)
-class DDSLeadspaceWithSearchContent extends StableSelectorMixin(DDSLeadspaceBlockContent) {
+class DDSLeadspaceWithSearchContent extends StableSelectorMixin(
+  DDSLeadspaceBlockContent
+) {
   /**
    * The shadow slot the content should be in.
    */

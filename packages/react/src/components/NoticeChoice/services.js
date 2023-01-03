@@ -16,10 +16,10 @@ export function checkPreferencesv3(emailAddress) {
         .get(endpoint, {
           params: { emailAddress },
         })
-        .then(response => {
+        .then((response) => {
           resolve(response.data ? response.data.email : 'N');
         })
-        .catch(error => {
+        .catch((error) => {
           console.error(error); // eslint-disable-line no-console
           reject('N');
         });

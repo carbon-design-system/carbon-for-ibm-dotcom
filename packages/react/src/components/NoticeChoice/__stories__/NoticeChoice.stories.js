@@ -7,7 +7,6 @@
 
 import { boolean, select, text } from '@storybook/addon-knobs';
 import { action } from '@storybook/addon-actions';
-import { DDS_NOTICE_CHOICE } from '../../../internal/FeatureFlags';
 import NoticeChoice from '../NoticeChoice';
 import React from 'react';
 import readme from '../README.stories.mdx';
@@ -37,11 +36,18 @@ const countryList = {
   'Unites States': 'US',
   Germany: 'DE',
   India: 'IN',
+  'Mainland China': 'CN',
+};
+const stateList = {
+  Unknown: '',
+  Alabama: 'AL',
+  California: 'CA',
 };
 
 const props = () => ({
   locale: select('Locale', locales, 'in-en'),
   country: select('Country', countryList, 'IN'),
+  state: select('State', stateList, ''),
   onChange: action('onChange'),
   questionChoices: select('Question Choices', questionChoices, [1, 2]),
   email: text('Email', ''),
@@ -51,33 +57,29 @@ const props = () => ({
   bpidLegalText: text('bpidLegalText', ''),
 });
 
-export default !DDS_NOTICE_CHOICE
-  ? undefined
-  : {
-      title: 'Components/Notice Choice',
-      parameters: {
-        ...readme.parameters,
-        percy: {
-          name: 'Components|Notice choice rule: Default',
-        },
-        propsSet: {
-          default: {
-            NoticeChoice: {},
-          },
-        },
+export default {
+  title: 'Components/Notice Choice',
+  parameters: {
+    ...readme.parameters,
+    percy: {
+      skip: true,
+    },
+    propsSet: {
+      default: {
+        NoticeChoice: {},
       },
-    };
+    },
+  },
+};
 
-export const Default = !DDS_NOTICE_CHOICE
-  ? undefined
-  : () => {
-      return (
-        <div className="bx--grid" style={{ marginTop: '2rem' }}>
-          <div className="bx--row">
-            <div className="bx--col-sm-4 bx--col-md-8 bx--col-lg-12 bx--offset-lg-2">
-              <NoticeChoice {...props()} />
-            </div>
-          </div>
+export const Default = () => {
+  return (
+    <div className="bx--grid" style={{ marginTop: '2rem' }}>
+      <div className="bx--row">
+        <div className="bx--col-sm-4 bx--col-md-8 bx--col-lg-12 bx--offset-lg-2">
+          <NoticeChoice {...props()} />
         </div>
-      );
-    };
+      </div>
+    </div>
+  );
+};

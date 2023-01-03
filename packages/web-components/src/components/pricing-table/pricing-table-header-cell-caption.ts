@@ -20,9 +20,7 @@ class DDSPricingTableHeaderCellCaption extends StableSelectorMixin(LitElement) {
   slot = 'caption';
 
   render() {
-    return html`
-      <slot></slot>
-    `;
+    return html` <slot></slot> `;
   }
 
   static get stableSelector() {

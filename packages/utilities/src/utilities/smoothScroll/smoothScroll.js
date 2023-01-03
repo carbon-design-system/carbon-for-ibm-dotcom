@@ -1,5 +1,5 @@
 /**
- * Copyright IBM Corp. 2016, 2020
+ * Copyright IBM Corp. 2016, 2022
  *
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
@@ -14,13 +14,11 @@
  * Here e is event param and seletor is param where you want to apply smoothscroll
  * <a href="#anchorlinkname" onClick={smoothScroll({ e, selector })}>lorem ipsum</a>
  *
- * You can use this for jump to target element by providing event object.
  * it will scroll into view of target by selecting attribute and assigning to id.
- *
+ * Returns null if no scroll is needed
  * @param {*} e event object
  * @param {*} selector menu item selector id
  * @param {number} offset top offset for the scroll
- * @returns {null} Returns null if no scroll is needed
  */
 const smoothScroll = (e, selector, offset = 0) => {
   let getSelector;

@@ -1,5 +1,5 @@
 /**
- * Copyright IBM Corp. 2016, 2021
+ * Copyright IBM Corp. 2016, 2022
  *
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
@@ -106,8 +106,7 @@ const Content = ({ withL1 }) => (
         items={[
           {
             heading: 'A scelerisque purus semper eget duis at tellus.',
-            copy:
-              'Elementum nibh tellus molestie nunc non. Habitant morbi tristique senectus et netus et malesuada fames.',
+            copy: 'Elementum nibh tellus molestie nunc non. Habitant morbi tristique senectus et netus et malesuada fames.',
             cta: {
               type: 'local',
               copy: 'Lorem Ipsum dolor sit',
@@ -116,13 +115,11 @@ const Content = ({ withL1 }) => (
           },
           {
             heading: 'A scelerisque purus semper eget duis at tellus.',
-            copy:
-              'Elementum nibh tellus molestie nunc non. Habitant morbi tristique senectus et netus et malesuada fames.',
+            copy: 'Elementum nibh tellus molestie nunc non. Habitant morbi tristique senectus et netus et malesuada fames.',
           },
           {
             heading: 'A scelerisque purus semper eget duis at tellus.',
-            copy:
-              'Elementum nibh tellus molestie nunc non. Habitant morbi tristique senectus et netus et malesuada fames.',
+            copy: 'Elementum nibh tellus molestie nunc non. Habitant morbi tristique senectus et netus et malesuada fames.',
             cta: {
               type: 'local',
               copy: 'Lorem Ipsum dolor sit',
@@ -131,8 +128,7 @@ const Content = ({ withL1 }) => (
           },
           {
             heading: 'A scelerisque purus semper eget duis at tellus.',
-            copy:
-              'Elementum nibh tellus molestie nunc non. Habitant morbi tristique senectus et netus et malesuada fames.',
+            copy: 'Elementum nibh tellus molestie nunc non. Habitant morbi tristique senectus et netus et malesuada fames.',
           },
         ]}
       />
@@ -140,8 +136,7 @@ const Content = ({ withL1 }) => (
         card={{
           eyebrow: 'scelerisque purus',
           heading: 'Elementum nibh tellus molestie nunc?',
-          copy:
-            'Habitant morbi tristique senectus et netus et malesuada fames. Habitant morbi tristique.',
+          copy: 'Habitant morbi tristique senectus et netus et malesuada fames. Habitant morbi tristique.',
           cta: {
             href: 'https://example.com',
             icon: {
@@ -165,8 +160,7 @@ const Content = ({ withL1 }) => (
         items={[
           {
             heading: 'A scelerisque purus semper eget duis at tellus.',
-            copy:
-              'Elementum nibh tellus molestie nunc non. Habitant morbi tristique senectus et netus et malesuada fames.',
+            copy: 'Elementum nibh tellus molestie nunc non. Habitant morbi tristique senectus et netus et malesuada fames.',
             image: {
               heading: 'Mauris iaculis eget dolor nec hendrerit.',
               image: {
@@ -196,8 +190,7 @@ const Content = ({ withL1 }) => (
           },
           {
             heading: 'A scelerisque purus semper eget duis at tellus.',
-            copy:
-              'Elementum nibh tellus molestie nunc non. Habitant morbi tristique senectus et netus et malesuada fames.',
+            copy: 'Elementum nibh tellus molestie nunc non. Habitant morbi tristique senectus et netus et malesuada fames.',
             image: {
               heading: 'Mauris iaculis eget dolor nec hendrerit.',
               image: {
@@ -249,8 +242,7 @@ const Content = ({ withL1 }) => (
           {
             eyebrow: 'Lorem ipsum',
             heading: 'Aliquam condimentum',
-            copy:
-              'Lorem ipsum dolor sit amet, _consectetur_ adipiscing elit. Aenean et ultricies est. Mauris iaculis eget dolor nec hendrerit. Phasellus at elit sollicitudin.',
+            copy: 'Lorem ipsum dolor sit amet, _consectetur_ adipiscing elit. Aenean et ultricies est. Mauris iaculis eget dolor nec hendrerit. Phasellus at elit sollicitudin.',
             cta: {
               heading: 'Aliquam condimentum',
               items: [
@@ -270,8 +262,7 @@ const Content = ({ withL1 }) => (
           {
             eyebrow: 'Lorem ipsum',
             heading: 'Aliquam condimentum',
-            copy:
-              'Lorem ipsum dolor sit amet, _consectetur_ adipiscing elit. Aenean et ultricies est. Mauris iaculis eget dolor nec hendrerit. Phasellus at elit sollicitudin.',
+            copy: 'Lorem ipsum dolor sit amet, _consectetur_ adipiscing elit. Aenean et ultricies est. Mauris iaculis eget dolor nec hendrerit. Phasellus at elit sollicitudin.',
             cta: {
               heading: 'Aliquam condimentum',
               items: [
@@ -402,8 +393,7 @@ const Content = ({ withL1 }) => (
             items={[
               {
                 heading: 'Get connected',
-                copy:
-                  'IBM DevOps partners have a wide range of expertise. Find one to build the right solution for you.',
+                copy: 'IBM DevOps partners have a wide range of expertise. Find one to build the right solution for you.',
                 cta: {
                   copy: 'Find a partner',
                   type: 'local',
@@ -412,8 +402,7 @@ const Content = ({ withL1 }) => (
               },
               {
                 heading: 'Learn how',
-                copy:
-                  'Dig into more self-directed learning about DevOps methodologies.',
+                copy: 'Dig into more self-directed learning about DevOps methodologies.',
                 cta: {
                   copy: 'Browse tutorials',
                   type: 'local',

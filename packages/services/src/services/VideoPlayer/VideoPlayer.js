@@ -27,7 +27,6 @@ class VideoPlayerAPI extends KalturaPlayerAPI {
    * @param {string} targetId The targetId the ID where we're putting the placeholder.
    * @param {boolean} autoPlay Determine whether to autoplay on load of video.
    * @returns {object}  object
-   *
    * @example
    * import { VideoPlayerAPI } from '@carbon/ibmdotcom-services';
    *

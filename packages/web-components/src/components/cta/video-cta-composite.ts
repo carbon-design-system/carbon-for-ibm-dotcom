@@ -9,19 +9,17 @@
 
 import { html, property, state, customElement, LitElement } from 'lit-element';
 import on from 'carbon-components/es/globals/js/misc/on.js';
-import ifNonNull from 'carbon-web-components/es/globals/directives/if-non-null.js';
-import HostListener from 'carbon-web-components/es/globals/decorators/host-listener.js';
-import HostListenerMixin from 'carbon-web-components/es/globals/mixins/host-listener.js';
+import ifNonNull from '@carbon/web-components/es/globals/directives/if-non-null.js';
+import HostListener from '@carbon/web-components/es/globals/decorators/host-listener.js';
+import HostListenerMixin from '@carbon/web-components/es/globals/mixins/host-listener.js';
 import ddsSettings from '../../internal/vendor/@carbon/ibmdotcom-utilities/utilities/settings/settings';
 import KalturaPlayerAPI from '../../internal/vendor/@carbon/ibmdotcom-services/services/KalturaPlayer/KalturaPlayer';
 import ModalRenderMixin from '../../globals/mixins/modal-render';
 import { MediaData } from '../../internal/vendor/@carbon/ibmdotcom-services-store/types/kalturaPlayerAPI.d';
 import Handle from '../../globals/internal/handle';
-/* eslint-disable import/no-duplicates */
 import DDSLightboxVideoPlayerComposite from '../lightbox-media-viewer/lightbox-video-player-composite';
 // Above import is interface-only ref and thus code won't be brought into the build
 import '../lightbox-media-viewer/lightbox-video-player-composite';
-/* eslint-enable import/no-duplicates */
 import { CTA_TYPE } from './defs';
 import { VideoCTAMixinImpl } from '../../component-mixins/cta/video';
 import styles from './video-cta-composite.scss';
@@ -34,7 +32,9 @@ const { stablePrefix: ddsPrefix } = ddsSettings;
  * @element dds-video-cta-composite
  */
 @customElement(`${ddsPrefix}-video-cta-composite`)
-class DDSVideoCTAComposite extends ModalRenderMixin(HostListenerMixin(LitElement)) {
+class DDSVideoCTAComposite extends ModalRenderMixin(
+  HostListenerMixin(LitElement)
+) {
   /**
    * The placeholder for `_embedMedia()` action that may be mixed in.
    *
@@ -89,18 +89,38 @@ class DDSVideoCTAComposite extends ModalRenderMixin(HostListenerMixin(LitElement
   // @ts-ignore: The decorator refers to this method but TS thinks this method is not referred to
   private async _handleRequestVideoData(event: CustomEvent) {
     const { href, videoName: customVideoName, videoDescription } = event.detail;
-    (event.target as VideoCTAMixinImpl).videoThumbnailUrl = KalturaPlayerAPI.getThumbnailUrl({
+    const videoThumbnailUrl = KalturaPlayerAPI.getThumbnailUrl({
       mediaId: href,
       width: (event?.target as HTMLElement)?.offsetWidth,
     });
+    (event.target as VideoCTAMixinImpl).videoThumbnailUrl = videoThumbnailUrl;
     const videoData = await this._loadVideoData?.(href);
     if (videoData) {
       const { duration, name } = videoData;
       const videoName = customVideoName || name;
 
-      (event.target as VideoCTAMixinImpl).videoName = videoName;
-      (event.target as VideoCTAMixinImpl).videoDescription = videoDescription;
-      (event.target as VideoCTAMixinImpl).videoDuration = duration;
+      if (event.target as VideoCTAMixinImpl) {
+        (event.target as VideoCTAMixinImpl).videoName =
+          videoName || customVideoName;
+        (event.target as VideoCTAMixinImpl).videoDescription = videoDescription;
+        (event.target as VideoCTAMixinImpl).videoDuration = duration;
+      }
+
+      const videoInfo = new CustomEvent(
+        `${ddsPrefix}-cta-request-additional-video-data`,
+        {
+          bubbles: true,
+          cancelable: true,
+          composed: true,
+          detail: {
+            videoName,
+            videoDuration: duration,
+            videoThumbnailUrl,
+          },
+        }
+      );
+
+      this.dispatchEvent(videoInfo);
     }
   }
 
@@ -124,9 +144,14 @@ class DDSVideoCTAComposite extends ModalRenderMixin(HostListenerMixin(LitElement
    * The video player.
    */
   protected get _videoPlayer() {
-    const { selectorVideoPlayer, selectorLightboxVideoPlayerComposite } = this.constructor as typeof DDSVideoCTAComposite;
-    const lightbox = (this.modalRenderRoot as Element)?.querySelector(selectorLightboxVideoPlayerComposite);
-    return ((lightbox as DDSLightboxVideoPlayerComposite)?.modalRenderRoot as Element)?.querySelector(selectorVideoPlayer);
+    const { selectorVideoPlayer, selectorLightboxVideoPlayerComposite } = this
+      .constructor as typeof DDSVideoCTAComposite;
+    const lightbox = (this.modalRenderRoot as Element)?.querySelector(
+      selectorLightboxVideoPlayerComposite
+    );
+    return (
+      (lightbox as DDSLightboxVideoPlayerComposite)?.modalRenderRoot as Element
+    )?.querySelector(selectorVideoPlayer);
   }
 
   /**
@@ -151,8 +176,11 @@ class DDSVideoCTAComposite extends ModalRenderMixin(HostListenerMixin(LitElement
   updated(changedProperties) {
     super.updated(changedProperties);
     if (!this._hCloseModal) {
-      const { selectorLightboxVideoPlayerComposite } = this.constructor as typeof DDSVideoCTAComposite;
-      const videoPlayerComposite = (this.modalRenderRoot as Element).querySelector(
+      const { selectorLightboxVideoPlayerComposite } = this
+        .constructor as typeof DDSVideoCTAComposite;
+      const videoPlayerComposite = (
+        this.modalRenderRoot as Element
+      ).querySelector(
         selectorLightboxVideoPlayerComposite
       ) as DDSLightboxVideoPlayerComposite;
       // Manually hooks the event listeners on the modal render root to make the event names configurable
@@ -185,16 +213,13 @@ class DDSVideoCTAComposite extends ModalRenderMixin(HostListenerMixin(LitElement
         video-id="${ifNonNull(activeVideoId)}"
         .embeddedVideos="${ifNonNull(embeddedVideos)}"
         .mediaData="${ifNonNull(mediaData)}"
-        ._embedMedia="${ifNonNull(embedMedia)}"
-      >
+        ._embedMedia="${ifNonNull(embedMedia)}">
       </dds-lightbox-video-player-composite>
     `;
   }
 
   render() {
-    return html`
-      <slot></slot>
-    `;
+    return html` <slot></slot> `;
   }
 
   /**
@@ -216,6 +241,13 @@ class DDSVideoCTAComposite extends ModalRenderMixin(HostListenerMixin(LitElement
    */
   static get eventCloseLightbox() {
     return `${ddsPrefix}-expressive-modal-closed`;
+  }
+
+  /**
+   * The name of the custom event fired when there is a user gesture to run the action.
+   */
+  static get eventRequestAdditionalVideoData() {
+    return `${ddsPrefix}-cta-request-additional-video-data`;
   }
 
   /**
