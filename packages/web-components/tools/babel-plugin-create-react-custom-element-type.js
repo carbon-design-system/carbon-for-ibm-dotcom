@@ -60,7 +60,7 @@ function createMetadataVisitor(api) {
       return parentPath
         .get('source')
         .node.value.replace(
-          /^@carbon\/carbon-web-components[\\/]es[\\/]components[\\/]/,
+          /^@carbon\/web-components[\\/]es[\\/]components[\\/]/,
           '@carbon/web-components/es/components-react/'
         );
     }
