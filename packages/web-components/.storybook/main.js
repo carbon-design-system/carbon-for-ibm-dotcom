@@ -1,7 +1,7 @@
 /**
  * @license
  *
- * Copyright IBM Corp. 2020, 2022
+ * Copyright IBM Corp. 2020, 2023
  *
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
@@ -12,7 +12,6 @@
 const path = require('path');
 const sass = require('node-sass');
 const webpack = require('webpack');
-const TerserPlugin = require('terser-webpack-plugin');
 const rtlcss = require('rtlcss');
 const deepReplace = require('../../../tasks/deep-replace');
 const { getPaths } = deepReplace;
@@ -21,6 +20,9 @@ const useStyleSourceMap = process.env.STORYBOOK_USE_STYLE_SOURCEMAP === 'true';
 const useRtl = process.env.STORYBOOK_USE_RTL === 'true';
 
 module.exports = {
+  core: {
+    builder: 'webpack5',
+  },
   stories: ['../docs/*.mdx', '../src/**/*.stories.ts'],
   addons: [
     '@storybook/addon-storysource',
@@ -50,9 +52,7 @@ module.exports = {
     );
     return config;
   },
-  webpackFinal(config, mode) {
-    config.devtool = useStyleSourceMap ? 'source-map' : '';
-
+  webpackFinal(config, { configType }) {
     config.optimization = {
       ...config.optimization,
       splitChunks: {
@@ -60,15 +60,6 @@ module.exports = {
         minSize: 30 * 1024,
         maxSize: 1024 * 1024,
       },
-      minimizer: [
-        new TerserPlugin({
-          minify: TerserPlugin.esbuildMinify,
-          sourceMap: useStyleSourceMap,
-          terserOptions: {
-            minify: true,
-          },
-        }),
-      ],
     };
 
     // Uses our own option for `@babel/preset-env`
@@ -226,13 +217,13 @@ module.exports = {
                 const hostPseudo =
                   require('../tools/postcss-fix-host-pseudo')();
                 const autoPrefixer = require('autoprefixer')({
-                  overrideBrowserslist: ['last 1 version', 'ie >= 11'],
+                  overrideBrowserslist: ['last 1 version'],
                 });
                 return !useRtl
                   ? [hostPseudo, autoPrefixer]
                   : [rtlcss, hostPseudo, autoPrefixer];
               },
-              sourceMap: useStyleSourceMap,
+              sourceMap: true,
             },
           },
           {

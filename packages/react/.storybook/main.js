@@ -1,5 +1,5 @@
 /**
- * Copyright IBM Corp. 2020, 2022
+ * Copyright IBM Corp. 2020, 2023
  *
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
@@ -10,7 +10,6 @@
 const path = require('path');
 const webpack = require('webpack');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
-const TerserPlugin = require('terser-webpack-plugin');
 const rtlcss = require('rtlcss');
 
 const NODE_ENV = 'development';
@@ -49,16 +48,19 @@ const styleLoaders = [
     options: {
       plugins: () => {
         const autoPrefixer = require('autoprefixer')({
-          overrideBrowserslist: ['last 1 version', 'ie >= 11'],
+          overrideBrowserslist: ['last 1 version'],
         });
         return !useRtl ? [autoPrefixer] : [autoPrefixer, rtlcss];
       },
-      sourceMap: useStyleSourceMap,
+      sourceMap: true,
     },
   },
 ];
 
 module.exports = {
+  core: {
+    builder: 'webpack5',
+  },
   stories: [
     '../docs/*.mdx',
     '../src/**/*.stories.js',
@@ -73,7 +75,6 @@ module.exports = {
   ],
   framework: '@storybook/react',
   webpack: async (config, { configType }) => {
-    config.devtool = configType === 'DEVELOPMENT' ? 'source-map' : '';
     config.optimization = {
       ...config.optimization,
       splitChunks: {
@@ -81,15 +82,6 @@ module.exports = {
         minSize: 30 * 1024,
         maxSize: 1024 * 1024,
       },
-      minimizer: [
-        new TerserPlugin({
-          minify: TerserPlugin.esbuildMinify,
-          sourceMap: useStyleSourceMap,
-          terserOptions: {
-            minify: true,
-          },
-        }),
-      ],
     };
 
     config.module.rules.push({
