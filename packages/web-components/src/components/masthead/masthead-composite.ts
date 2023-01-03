@@ -1,7 +1,7 @@
 /**
  * @license
  *
- * Copyright IBM Corp. 2020, 2022
+ * Copyright IBM Corp. 2020, 2023
  *
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
@@ -25,6 +25,7 @@ import {
   MastheadLogoData,
   MastheadMenuItem,
   MastheadProfileItem,
+  MegapanelContent,
   Translation,
 } from '../../internal/vendor/@carbon/ibmdotcom-services-store/types/translateAPI.d';
 import {
@@ -193,6 +194,9 @@ class DDSMastheadComposite extends HostListenerMixin(LitElement) {
       return sortedMenuItems.push({ ...section, itemKey: `${parentKey}-${i}` });
     });
 
+    // Filter out items without megapanelContent.
+    sortedMenuItems.filter(item => item.megapanelContent);
+
     return html`
       <dds-megamenu layout="${MEGAMENU_LAYOUT_SCHEME.TAB}">
         <dds-megamenu-left-navigation
@@ -211,46 +215,53 @@ class DDSMastheadComposite extends HostListenerMixin(LitElement) {
         </dds-megamenu-left-navigation>
         ${sortedMenuItems.map(item => {
           const { itemKey } = item;
-          const { headingTitle, headingUrl, description: headingDescription, megapanelGroups } = item.megapanelContent;
+          const {
+            headingTitle,
+            headingUrl,
+            description: headingDescription,
+            megapanelGroups,
+          } = item.megapanelContent as MegapanelContent;
           return html`
             <div id="panel-${itemKey}" role="tabpanel" aria-labelledby="tab-${itemKey}" hidden>
               <dds-megamenu-right-navigation style-scheme="${MEGAMENU_RIGHT_NAVIGATION_STYLE_SCHEME.TAB}">
                 <dds-megamenu-heading href="${ifDefined(headingUrl)}" title="${ifDefined(headingTitle)}" slot="heading">
                   ${headingDescription}
                 </dds-megamenu-heading>
-                ${megapanelGroups.map(group => {
-                  const {
-                    headingTitle: groupTitle,
-                    headingUrl: groupUrl,
-                    description: groupDescription,
-                    links: groupLinks,
-                  } = group;
-                  return html`
-                    <dds-megamenu-category-group>
-                      ${groupTitle
-                        ? html`
-                            <dds-megamenu-category-heading title="${groupTitle}" href="${groupUrl}" slot="heading">
-                              ${groupDescription}
-                            </dds-megamenu-category-heading>
-                          `
-                        : ''}
-                      ${groupLinks.map(link => {
-                        if (link.description) {
-                          return html`
-                            <dds-megamenu-category-link title="${link.title}" href="${ifDefined(link.url)}">
-                              ${link.description}
-                            </dds-megamenu-category-link>
-                          `;
-                        }
-                        return html`
-                          <dds-megamenu-category-link href="${ifDefined(link.url)}">
-                            ${link.title}
-                          </dds-megamenu-category-link>
-                        `;
-                      })}
-                    </dds-megamenu-category-group>
-                  `;
-                })}
+                ${megapanelGroups
+                  ? megapanelGroups.map(group => {
+                      const {
+                        headingTitle: groupTitle,
+                        headingUrl: groupUrl,
+                        description: groupDescription,
+                        links: groupLinks,
+                      } = group;
+                      return html`
+                        <dds-megamenu-category-group>
+                          ${groupTitle
+                            ? html`
+                                <dds-megamenu-category-heading title="${groupTitle}" href="${groupUrl}" slot="heading">
+                                  ${groupDescription}
+                                </dds-megamenu-category-heading>
+                              `
+                            : ''}
+                          ${groupLinks.map(link => {
+                            if (link.description) {
+                              return html`
+                                <dds-megamenu-category-link title="${link.title}" href="${ifDefined(link.url)}">
+                                  ${link.description}
+                                </dds-megamenu-category-link>
+                              `;
+                            }
+                            return html`
+                              <dds-megamenu-category-link href="${ifDefined(link.url)}">
+                                ${link.title}
+                              </dds-megamenu-category-link>
+                            `;
+                          })}
+                        </dds-megamenu-category-group>
+                      `;
+                    })
+                  : ''}
               </dds-megamenu-right-navigation>
             </div>
           `;
@@ -291,7 +302,9 @@ class DDSMastheadComposite extends HostListenerMixin(LitElement) {
                   const autoid = `${ddsPrefix}--masthead__l0-nav-list${i}`;
                   return html`
                     <dds-megamenu-category-group data-autoid="${autoid}" href="${ifDefined(item.url)}" title="${item.title}">
-                      <dds-megamenu-category-group-copy>${item.megapanelContent?.description}</dds-megamenu-category-group-copy>
+                      <dds-megamenu-category-group-copy>
+                        ${item.megapanelContent?.description}
+                      </dds-megamenu-category-group-copy>
                       ${item.megapanelContent?.quickLinks?.links.map(({ title, url, description, highlightedLink }, key) => {
                         if (highlightedLink) {
                           return html`
@@ -650,8 +663,8 @@ class DDSMastheadComposite extends HostListenerMixin(LitElement) {
             if (megapanelGroups) {
               const match = megapanelGroups
                 .reduce((acc, group) => {
-                  if (group?.quickLinks) {
-                    return [...acc, ...group?.quickLinks?.links];
+                  if (group?.links) {
+                    return [...acc, ...group?.links];
                   }
                   return acc;
                 }, [])

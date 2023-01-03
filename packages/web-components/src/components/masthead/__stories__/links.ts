@@ -1,7 +1,7 @@
 /**
  * @license
  *
- * Copyright IBM Corp. 2020, 2022
+ * Copyright IBM Corp. 2020, 2023
  *
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
@@ -91,12 +91,6 @@ const l1Data: MastheadL1 = {
                     },
                   ],
                 },
-                feature: {
-                  heading: '',
-                  imageUrl: '',
-                  linkTitle: '',
-                  linkUrl: '',
-                },
               },
             },
             {
@@ -144,12 +138,6 @@ const l1Data: MastheadL1 = {
                     },
                   ],
                 },
-                feature: {
-                  heading: 'IBM Services, your Digital Reinvention â„¢ partner',
-                  imageUrl: 'https://www.ibm.com/images/portal/U609055Q90660U49/windmills.jpg',
-                  linkTitle: 'Explore all our business consulting and technology services',
-                  linkUrl: 'https://www.ibm.com/services?lnk=hpmse_ts&lnk2=learn',
-                },
               },
             },
             {
@@ -179,12 +167,6 @@ const l1Data: MastheadL1 = {
                       url: '',
                     },
                   ],
-                },
-                feature: {
-                  heading: 'Cloud financing strategies that work for your business',
-                  imageUrl: 'https://www.ibm.com/images/portal/F774737R30303N19/Skyline-Card-cloud-feature380x160.jpg?1=1',
-                  linkTitle: 'Committed to cloud? Make the most of your cash flow.',
-                  linkUrl: 'https://www.ibm.com/financing/solutions/cloud-financing?lnk=hpmse_fin&lnk2=learn',
                 },
               },
             },
@@ -238,12 +220,6 @@ const l1Data: MastheadL1 = {
                     },
                   ],
                 },
-                feature: {
-                  heading: 'IBM Developer newsletters',
-                  imageUrl: 'https://1.dam.s81c.com/m/5908c17b26b9dd19/original/news-ibmdevnewsletters-600x245.jpg',
-                  linkTitle: 'Technical info on popular software development topics, including AI, Blockchain, Java and more',
-                  linkUrl: 'https://developer.ibm.com/newsletters/?lnk=hpmdev_dw&lnk2=learn',
-                },
               },
             },
             {
@@ -274,14 +250,6 @@ const l1Data: MastheadL1 = {
                     },
                   ],
                 },
-                feature: {
-                  heading: 'Blockchain 101',
-                  imageUrl: 'https://www.ibm.com/images/portal/E174255N41814O86/Blockchain2_600x245.jpg?1=3',
-                  linkTitle:
-                    'Build a kick-starter blockchain network and start coding with the IBM Blockchain Platform Starter Plan',
-                  linkUrl:
-                    'https://developer.ibm.com/tutorials/cl-ibm-blockchain-101-quick-start-guide-for-developers-bluemix-trs/?lnk=hpmdev_dw&lnk2=learn',
-                },
               },
             },
             {
@@ -307,12 +275,6 @@ const l1Data: MastheadL1 = {
                       url: 'https://developer.ibm.com/events/category/containers/?lnk=hpmdev_dw&lnk2=learn',
                     },
                   ],
-                },
-                feature: {
-                  heading: 'Make sense of Kubernetes',
-                  imageUrl: 'https://www.ibm.com/images/portal/E693054G76296P64/Kubernetes-Pythomn_600x245.jpg?1=2',
-                  linkTitle: 'Deploy a simple Python application with Kubernetes',
-                  linkUrl: 'https://developer.ibm.com/tutorials/scalable-python-app-with-kubernetes/?lnk=hpmdev_dw&lnk2=learn',
                 },
               },
             },
@@ -343,13 +305,6 @@ const l1Data: MastheadL1 = {
                       url: 'https://developer.ibm.com/watson/?lnk=hpmdev_dw&lnk2=learn',
                     },
                   ],
-                },
-                feature: {
-                  heading: 'Train your data no matter where it lives',
-                  imageUrl: 'https://1.dam.s81c.com/m/76c0ed6f3e6386c1/original/Train-data_600x245.jpg',
-                  linkTitle: 'Easily and securely connect to your data source for initial model training and continuous learning',
-                  linkUrl:
-                    'https://developer.ibm.com/announcements/training-machine-learning-models-in-watson-studio?lnk=hpmdev_dw&lnk2=learn',
                 },
               },
             },
@@ -453,7 +408,7 @@ const mastheadLinks: MastheadLink[] = [
         megapanelContent: {
           headingTitle: 'Featured',
           headingUrl: 'https://www.ibm.com/placeholder',
-          description: 'Description text Lorem ipsum dolor sit amet, consectetuer adipiscing elit. ',
+          description: 'Description text Lorem ipsum dolor sit amet, consectetuer adipiscing elit.',
           megapanelGroups: [
             {
               headingTitle: 'Demo Heading Level 2',
@@ -525,7 +480,6 @@ const mastheadLinks: MastheadLink[] = [
         title: 'Analytics',
         titleEnglish: 'Analytics',
         url: 'https://www.ibm.com/placeholder',
-        highlighted: true,
         megapanelContent: {
           headingTitle: 'Analytics',
           headingUrl: 'https://www.ibm.com/placeholder',
@@ -608,7 +562,6 @@ const mastheadLinks: MastheadLink[] = [
         title: 'Business Automation',
         titleEnglish: 'Business Automation',
         url: 'https://www.ibm.com/placeholder',
-        highlighted: true,
         megapanelContent: {
           headingTitle: 'Business Automation',
           headingUrl: 'https://www.ibm.com/placeholder',
@@ -663,7 +616,6 @@ const mastheadLinks: MastheadLink[] = [
         title: 'AI & ML',
         titleEnglish: 'AI & ML',
         url: 'https://www.ibm.com/placeholder',
-        highlighted: true,
         megapanelContent: {
           headingTitle: 'AI & ML',
           headingUrl: 'https://www.ibm.com/placeholder',
@@ -753,7 +705,6 @@ const mastheadLinks: MastheadLink[] = [
         title: 'Compute & Servers',
         titleEnglish: 'Compute & Servers',
         url: 'https://www.ibm.com/placeholder',
-        highlighted: true,
         megapanelContent: {
           headingTitle: 'Compute & Servers',
           headingUrl: 'https://www.ibm.com/placeholder',
@@ -815,7 +766,6 @@ const mastheadLinks: MastheadLink[] = [
         title: 'Database',
         titleEnglish: 'Database',
         url: 'https://www.ibm.com/placeholder',
-        highlighted: true,
         megapanelContent: {
           headingTitle: 'Database',
           headingUrl: 'https://www.ibm.com/placeholder',
@@ -884,7 +834,6 @@ const mastheadLinks: MastheadLink[] = [
         title: 'DevOps',
         titleEnglish: 'DevOps',
         url: 'https://www.ibm.com/placeholder',
-        highlighted: true,
         megapanelContent: {
           headingTitle: 'DevOps',
           headingUrl: 'https://www.ibm.com/placeholder',
@@ -932,7 +881,6 @@ const mastheadLinks: MastheadLink[] = [
         title: 'IT Automation',
         titleEnglish: 'IT Automation',
         url: 'https://www.ibm.com/placeholder',
-        highlighted: true,
         megapanelContent: {
           headingTitle: 'IT Automation',
           headingUrl: 'https://www.ibm.com/placeholder',
@@ -973,7 +921,6 @@ const mastheadLinks: MastheadLink[] = [
         title: 'Middleware',
         titleEnglish: 'Middleware',
         url: 'https://www.ibm.com/placeholder',
-        highlighted: true,
         megapanelContent: {
           headingTitle: 'Middleware',
           headingUrl: 'https://www.ibm.com/placeholder',
@@ -1049,7 +996,6 @@ const mastheadLinks: MastheadLink[] = [
         title: 'Networking',
         titleEnglish: 'Networking',
         url: 'https://www.ibm.com/placeholder',
-        highlighted: true,
         megapanelContent: {
           headingTitle: 'Networking',
           headingUrl: 'https://www.ibm.com/placeholder',
@@ -1076,7 +1022,6 @@ const mastheadLinks: MastheadLink[] = [
         title: 'Operating Systems',
         titleEnglish: 'Operating Systems',
         url: 'https://www.ibm.com/placeholder',
-        highlighted: true,
         megapanelContent: {
           headingTitle: 'Operating Systems',
           headingUrl: 'https://www.ibm.com/placeholder',
@@ -1124,7 +1069,6 @@ const mastheadLinks: MastheadLink[] = [
         title: 'Operations',
         titleEnglish: 'Operations',
         url: 'https://www.ibm.com/placeholder',
-        highlighted: true,
         megapanelContent: {
           headingTitle: 'Operations',
           headingUrl: 'https://www.ibm.com/placeholder',
@@ -1186,7 +1130,6 @@ const mastheadLinks: MastheadLink[] = [
         title: 'Quantum',
         titleEnglish: 'Quantum',
         url: 'https://www.ibm.com/placeholder',
-        highlighted: true,
         megapanelContent: {
           headingTitle: 'Quantum',
           headingUrl: 'https://www.ibm.com/placeholder',
@@ -1227,7 +1170,6 @@ const mastheadLinks: MastheadLink[] = [
         title: 'Storage',
         titleEnglish: 'Storage',
         url: 'https://www.ibm.com/placeholder',
-        highlighted: true,
         megapanelContent: {
           headingTitle: 'Storage',
           headingUrl: 'https://www.ibm.com/placeholder',
@@ -1331,7 +1273,6 @@ const mastheadLinks: MastheadLink[] = [
         title: 'Security & Identity',
         titleEnglish: 'Security & Identity',
         url: 'https://www.ibm.com/placeholder',
-        highlighted: true,
         megapanelContent: {
           headingTitle: 'Security & Identity',
           headingUrl: 'https://www.ibm.com/placeholder',
@@ -1459,7 +1400,6 @@ const mastheadLinks: MastheadLink[] = [
         title: 'Automation',
         titleEnglish: 'Automation',
         url: 'https://www.ibm.com/placeholder',
-        highlighted: true,
         megapanelContent: {
           headingTitle: 'Automation',
           headingUrl: 'https://www.ibm.com/placeholder',
@@ -1507,7 +1447,6 @@ const mastheadLinks: MastheadLink[] = [
         title: 'Data & AI',
         titleEnglish: 'Data & AI',
         url: 'https://www.ibm.com/placeholder',
-        highlighted: true,
         megapanelContent: {
           headingTitle: 'Data & AI',
           headingUrl: 'https://www.ibm.com/placeholder',
@@ -1597,7 +1536,6 @@ const mastheadLinks: MastheadLink[] = [
         title: 'Hybrid Cloud',
         titleEnglish: 'Hybrid Cloud',
         url: 'https://www.ibm.com/placeholder',
-        highlighted: true,
         megapanelContent: {
           headingTitle: 'Hybrid Cloud',
           headingUrl: 'https://www.ibm.com/placeholder',
@@ -1652,7 +1590,6 @@ const mastheadLinks: MastheadLink[] = [
         title: 'Infrastructure',
         titleEnglish: 'Infrastructure',
         url: 'https://www.ibm.com/placeholder',
-        highlighted: true,
         megapanelContent: {
           headingTitle: 'Infrastructure',
           headingUrl: 'https://www.ibm.com/placeholder',
@@ -1721,7 +1658,6 @@ const mastheadLinks: MastheadLink[] = [
         title: 'Industry',
         titleEnglish: 'Industry',
         url: 'https://www.ibm.com/placeholder',
-        highlighted: true,
         megapanelContent: {
           headingTitle: 'Industry',
           headingUrl: 'https://www.ibm.com/placeholder',
@@ -1867,7 +1803,6 @@ const mastheadLinks: MastheadLink[] = [
         title: 'Partners & Applications',
         titleEnglish: 'Partners & Applications',
         url: 'https://www.ibm.com/placeholder',
-        highlighted: true,
         megapanelContent: {
           headingTitle: 'Partners & Applications',
           headingUrl: 'https://www.ibm.com/placeholder',
@@ -1943,7 +1878,6 @@ const mastheadLinks: MastheadLink[] = [
         title: 'Security',
         titleEnglish: 'Security',
         url: 'https://www.ibm.com/placeholder',
-        highlighted: true,
         megapanelContent: {
           headingTitle: 'Security',
           headingUrl: 'https://www.ibm.com/placeholder',
@@ -2019,7 +1953,6 @@ const mastheadLinks: MastheadLink[] = [
         title: 'Supply Chain',
         titleEnglish: 'Supply Chain',
         url: 'https://www.ibm.com/placeholder',
-        highlighted: true,
         megapanelContent: {
           headingTitle: 'Supply Chain',
           headingUrl: 'https://www.ibm.com/placeholder',
@@ -2081,7 +2014,6 @@ const mastheadLinks: MastheadLink[] = [
         title: 'Sustainability',
         titleEnglish: 'Sustainability',
         url: 'https://www.ibm.com/placeholder',
-        highlighted: true,
         megapanelContent: {
           headingTitle: 'Sustainability',
           headingUrl: 'https://www.ibm.com/placeholder',
@@ -2778,8 +2710,9 @@ const mastheadLinks: MastheadLink[] = [
     megamenuLayout: 'list',
     menuSections: [
       {
-        headingTitle: 'Heading',
-        headingUrl: 'https://www.example.com',
+        title: 'Heading',
+        titleEnglish: 'Heading',
+        url: 'https://www.example.com',
         description: 'Description text lorem ipsum dolor sit amet commondo ligua eaget',
         menuItems: [
           {
@@ -2866,12 +2799,6 @@ const mastheadLinks: MastheadLink[] = [
                   },
                 ],
               },
-              feature: {
-                heading: '',
-                imageUrl: 'https://1.dam.s81c.com/m/581adf40f2b008ec/original/megamenu-pictogram-what-is-_.png',
-                linkTitle: '',
-                linkUrl: '',
-              },
             },
           },
           {
@@ -2908,12 +2835,6 @@ const mastheadLinks: MastheadLink[] = [
                     url: 'https://www.ibm.com/training/subscriptions?lnk=hpmls_butr',
                   },
                 ],
-              },
-              feature: {
-                heading: '',
-                imageUrl: 'https://1.dam.s81c.com/m/5540e5627aeb2568/original/megamenu-pictogram-training.png',
-                linkTitle: '',
-                linkUrl: '',
               },
             },
           },
@@ -2970,12 +2891,6 @@ const mastheadLinks: MastheadLink[] = [
                   },
                 ],
               },
-              feature: {
-                heading: '',
-                imageUrl: 'https://1.dam.s81c.com/m/1e651d0f7b539774/original/megamenu-pictogram-developer-education.png',
-                linkTitle: '',
-                linkUrl: '',
-              },
             },
           },
           {
@@ -3005,12 +2920,6 @@ const mastheadLinks: MastheadLink[] = [
                     url: 'https://www.redbooks.ibm.com/?lnk=hpmls_budc',
                   },
                 ],
-              },
-              feature: {
-                heading: '',
-                imageUrl: 'https://1.dam.s81c.com/m/49d529fab45bb565/original/megamenu-pictogram-documentation.png',
-                linkTitle: '',
-                linkUrl: '',
               },
             },
           },
@@ -3084,12 +2993,6 @@ const mastheadLinks: MastheadLink[] = [
                   },
                 ],
               },
-              feature: {
-                heading: '',
-                imageUrl: 'https://1.dam.s81c.com/m/164ef3660bad78a8/original/megamenu-pictogram-resources.png',
-                linkTitle: '',
-                linkUrl: '',
-              },
             },
           },
           {
@@ -3135,12 +3038,6 @@ const mastheadLinks: MastheadLink[] = [
                   },
                 ],
               },
-              feature: {
-                heading: '',
-                imageUrl: 'https://1.dam.s81c.com/m/5b1abed637b01b55/original/megamenu-pictogram-support.png',
-                linkTitle: '',
-                linkUrl: '',
-              },
             },
           },
           {
@@ -3172,7 +3069,8 @@ const mastheadLinks: MastheadLink[] = [
     megamenuLayout: 'list',
     menuSections: [
       {
-        headingTitle: '',
+        title: '',
+        titleEnglish: '',
         menuItems: [
           {
             title: 'Partner with us',
@@ -3201,12 +3099,6 @@ const mastheadLinks: MastheadLink[] = [
                     url: 'https://www.ibm.com/partnerworld/financing?lnk=hpmex_bupa',
                   },
                 ],
-              },
-              feature: {
-                heading: '',
-                imageUrl: 'https://1.dam.s81c.com/m/4075a8633a1137d/original/megamenu-pictogram-partners.png',
-                linkTitle: '',
-                linkUrl: '',
               },
             },
           },
@@ -3242,12 +3134,6 @@ const mastheadLinks: MastheadLink[] = [
                     url: 'https://research.ibm.com/collaborate?lnk=hpmex_bure',
                   },
                 ],
-              },
-              feature: {
-                heading: '',
-                imageUrl: 'https://1.dam.s81c.com/m/5e05b0b234bc3846/original/megamenu-pictogram-ibm-research.png',
-                linkTitle: '',
-                linkUrl: '',
               },
             },
           },
@@ -3314,12 +3200,6 @@ const mastheadLinks: MastheadLink[] = [
                   },
                 ],
               },
-              feature: {
-                heading: '',
-                imageUrl: 'https://1.dam.s81c.com/m/220eb8ea8345a4d6/original/megamenu-pictogram-about-ibm.png',
-                linkTitle: '',
-                linkUrl: '',
-              },
             },
           },
           {
@@ -3366,7 +3246,8 @@ const customLinks: MastheadLink[] = [
     hasMegapanel: true,
     menuSections: [
       {
-        headingTitle: 'The essentials',
+        title: 'The essentials',
+        titleEnglish: 'The essentials',
         menuItems: [
           {
             title: 'Hybrid Cloud',
@@ -3657,7 +3538,8 @@ const customLinks: MastheadLink[] = [
     hasMegapanel: true,
     menuSections: [
       {
-        headingTitle: 'Explore',
+        title: 'Explore',
+        titleEnglish: 'Explore',
         menuItems: [
           {
             title: 'Link 1',
@@ -3700,7 +3582,8 @@ const customLinks: MastheadLink[] = [
     hasMenu: true,
     menuSections: [
       {
-        headingTitle: '',
+        title: '',
+        titleEnglish: '',
         menuItems: [
           {
             title: 'Link 1',
@@ -3740,12 +3623,6 @@ const customLinks: MastheadLink[] = [
                   },
                 ],
               },
-              feature: {
-                heading: 'Cloud financing strategies that work for your business',
-                imageUrl: 'https://www.ibm.com/images/portal/F774737R30303N19/Skyline-Card-cloud-feature380x160.jpg?1=1',
-                linkTitle: 'Committed to cloud? Make the most of your cash flow.',
-                linkUrl: 'https://www.ibm.com/financing/solutions/cloud-financing?lnk=hpmse_fin&lnk2=learn',
-              },
             },
           },
         ],
@@ -3768,7 +3645,8 @@ const customLinks: MastheadLink[] = [
     hasMegapanel: true,
     menuSections: [
       {
-        headingTitle: '',
+        title: '',
+        titleEnglish: '',
         menuItems: [
           {
             title: 'IBM Developer',
@@ -3797,12 +3675,6 @@ const customLinks: MastheadLink[] = [
                     url: '',
                   },
                 ],
-              },
-              feature: {
-                heading: 'IBM Developer newsletters',
-                imageUrl: 'https://1.dam.s81c.com/m/5908c17b26b9dd19/original/news-ibmdevnewsletters-600x245.jpg',
-                linkTitle: 'Technical info on popular software development topics, including AI, Blockchain, Java and more',
-                linkUrl: 'https://developer.ibm.com/newsletters/?lnk=hpmdev_dw&lnk2=learn',
               },
             },
           },
@@ -3834,14 +3706,6 @@ const customLinks: MastheadLink[] = [
                   },
                 ],
               },
-              feature: {
-                heading: 'Blockchain 101',
-                imageUrl: 'https://www.ibm.com/images/portal/E174255N41814O86/Blockchain2_600x245.jpg?1=3',
-                linkTitle:
-                  'Build a kick-starter blockchain network and start coding with the IBM Blockchain Platform Starter Plan',
-                linkUrl:
-                  'https://developer.ibm.com/tutorials/cl-ibm-blockchain-101-quick-start-guide-for-developers-bluemix-trs/?lnk=hpmdev_dw&lnk2=learn',
-              },
             },
           },
           {
@@ -3867,12 +3731,6 @@ const customLinks: MastheadLink[] = [
                     url: 'https://developer.ibm.com/events/category/containers/?lnk=hpmdev_dw&lnk2=learn',
                   },
                 ],
-              },
-              feature: {
-                heading: 'Make sense of Kubernetes',
-                imageUrl: 'https://www.ibm.com/images/portal/E693054G76296P64/Kubernetes-Pythomn_600x245.jpg?1=2',
-                linkTitle: 'Deploy a simple Python application with Kubernetes',
-                linkUrl: 'https://developer.ibm.com/tutorials/scalable-python-app-with-kubernetes/?lnk=hpmdev_dw&lnk2=learn',
               },
             },
           },
@@ -3903,13 +3761,6 @@ const customLinks: MastheadLink[] = [
                     url: 'https://developer.ibm.com/watson/?lnk=hpmdev_dw&lnk2=learn',
                   },
                 ],
-              },
-              feature: {
-                heading: 'Train your data no matter where it lives',
-                imageUrl: 'https://1.dam.s81c.com/m/76c0ed6f3e6386c1/original/Train-data_600x245.jpg',
-                linkTitle: 'Easily and securely connect to your data source for initial model training and continuous learning',
-                linkUrl:
-                  'https://developer.ibm.com/announcements/training-machine-learning-models-in-watson-studio?lnk=hpmdev_dw&lnk2=learn',
               },
             },
           },

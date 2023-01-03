@@ -1,5 +1,5 @@
 /**
- * Copyright IBM Corp. 2016, 2022
+ * Copyright IBM Corp. 2016, 2023
  *
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
@@ -162,7 +162,10 @@
     display: block;
     padding-inline-start: $layout-01;
     width: 100%;
-    height: 100%;
+
+    &[style-scheme='tab'] {
+      height: 100%;
+    }
 
     .#{$prefix}--masthead__megamenu__heading {
       @include carbon--make-col(4, 8);

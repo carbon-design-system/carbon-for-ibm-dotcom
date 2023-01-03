@@ -1,7 +1,7 @@
 /**
  * @license
  *
- * Copyright IBM Corp. 2020, 2022
+ * Copyright IBM Corp. 2020, 2023
  *
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
@@ -29,14 +29,11 @@ export interface BasicLinkSet {
   links: BasicLink[];
 }
 
-/**
- * A feature in mega panel.
- */
-export interface MegapanelFeature {
-  heading?: string;
-  imageUrl?: string;
-  linkTitle?: string;
-  linkUrl?: string;
+export interface MegapanelGroup {
+  headingTitle?: string;
+  headingUrl?: string;
+  description?: string;
+  links: BasicLink[];
 }
 
 /**
@@ -46,15 +43,8 @@ export interface MegapanelContent {
   headingTitle?: string;
   headingUrl?: string;
   description?: string;
-  megapanelGroups: MegapanelGroup[];
-}
-
-export interface MegapanelGroup {
-  headingTitle?: string;
-  headingUrl?: string;
-  description?: string;
-  links: BasicLink[];
-  feature: MegapanelFeature;
+  megapanelGroups?: MegapanelGroup[]; // used in Tabbed layout
+  quickLinks?: BasicLinkSet; // used in Listing layout
 }
 
 /**
@@ -66,17 +56,20 @@ export interface MastheadMenuItem {
   url?: string;
   highlighted?: boolean;
   megaPanelViewAll?: boolean;
-  megapanelContent?: MegapanelContent;
+  megapanelContent?: MegapanelContent; // Used if has megamenu
 }
 
 /**
  * A menu section in masthead.
  */
 export interface MastheadMenuSection {
-  headingTitle?: string;
-  headingUrl?: string;
+  title: string;
+  titleEnglish: string;
+  url?: string;
   description?: string;
-  menuItems: MastheadMenuItem[];
+  menuItems?: MastheadMenuItem[]; // for 'list' layouts use
+  megapanelContent?: MegapanelContent; // for 'tab' layouts use
+  megaPanelViewAll?: boolean;
 }
 
 /**
@@ -89,7 +82,7 @@ export interface MastheadLink {
   hasMenu?: boolean;
   hasMegapanel?: boolean;
   megamenuLayout?: 'tab' | 'list';
-  menuSections?: MastheadMenuSection[];
+  menuSections?: MastheadMenuSection[]; // 'list' layouts will only use first section
 }
 
 /**
