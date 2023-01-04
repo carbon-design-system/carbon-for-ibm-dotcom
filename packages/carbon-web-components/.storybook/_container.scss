@@ -1,16 +1,16 @@
 //
 // @license
 //
-// Copyright IBM Corp. 2019, 2022
+// Copyright IBM Corp. 2019, 2023
 //
 // This source code is licensed under the Apache-2.0 license found in the
 // LICENSE file in the root directory of this source tree.
 //
 
-@import 'carbon-components/scss/globals/scss/css--helpers';
-@import 'carbon-components/scss/globals/scss/css--font-face';
-@import 'carbon-components/scss/globals/scss/vendor/@carbon/elements/scss/themes/mixins';
-@import 'carbon-components/scss/globals/scss/component-tokens';
+@import '@carbon/styles/scss/utilities';
+@import '@carbon/styles/scss/fonts';
+@import '@carbon/styles/scss/vendor/@carbon/elements/scss/themes/mixins';
+@import '@carbon/styles/scss/component-tokens';
 @import 'carbon-components/src/components/tag/tag';
 @import 'carbon-components/src/components/notification/inline-notification';
 @import 'carbon-components/src/components/notification/toast-notification';

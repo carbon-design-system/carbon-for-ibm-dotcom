@@ -1,5 +1,5 @@
 //
-// Copyright IBM Corp. 2019, 2022
+// Copyright IBM Corp. 2019, 2023
 //
 // This source code is licensed under the Apache-2.0 license found in the
 // LICENSE file in the root directory of this source tree.
@@ -7,7 +7,7 @@
 
 $css--plex: true !default;
 
-@import 'carbon-components/scss/globals/scss/vendor/@carbon/elements/scss/type/font-family';
+@import '@carbon/styles/scss/vendor/@carbon/elements/scss/type/font-family';
 @import 'carbon-components/scss/components/checkbox/checkbox';
 
 @import 'carbon-components/scss/components/data-table/data-table-core';

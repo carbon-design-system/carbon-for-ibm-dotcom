@@ -13,8 +13,8 @@ $css--reset: true !default;
 $caret-size: 6.875px;
 $caret-horizontal-position: calc(#{$caret-size * (-1)} + 1px);
 
-@import 'carbon-components/scss/globals/scss/css--helpers';
-@import 'carbon-components/scss/globals/scss/layout';
+@import '@carbon/styles/scss/utilities';
+@import '@carbon/styles/scss/spacing';
 @import 'carbon-components/scss/components/tooltip/tooltip';
 
 :host(#{$prefix}-tooltip) {
