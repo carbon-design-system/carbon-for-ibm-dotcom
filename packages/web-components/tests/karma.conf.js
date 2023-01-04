@@ -1,7 +1,7 @@
 /**
  * @license
  *
- * Copyright IBM Corp. 2020, 2022
+ * Copyright IBM Corp. 2020, 2023
  *
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
@@ -212,7 +212,6 @@ module.exports = function setupKarma(config) {
       require('karma-chrome-launcher'),
       require('karma-firefox-launcher'),
       require('karma-safari-launcher'),
-      require('karma-ie-launcher'),
     ],
 
     reporters: ['spec', ...(!collectCoverage ? [] : ['coverage-istanbul'])],
