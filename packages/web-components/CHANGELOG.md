@@ -3,6 +3,29 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.27.0-rc.0](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/compare/@carbon/ibmdotcom-web-components@1.26.0...@carbon/ibmdotcom-web-components@1.27.0-rc.0) (2023-01-04)
+
+
+### Bug Fixes
+
+* **carousel:** mark hidden slides as inert on component init ([#9852](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/issues/9852)) ([11cb392](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/commit/11cb392b0591276d7d7fd0c1db3b70fe522d44b0)), closes [#9589](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/issues/9589)
+* **h1/h2:** reveal in lightdom for content-block and leadspace ([#9826](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/issues/9826)) ([8bac76e](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/commit/8bac76e21952a583ed7dc62c9099c4e692d0a28a)), closes [#9696](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/issues/9696)
+* **left-nav:** fix RTL menu attachment and movement ([#9820](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/issues/9820)) ([d1da33a](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/commit/d1da33af9952293ca0fae83744e8921c0eb33fef))
+* **react-wrappers:** correct import source path to react wrapper component ([#9870](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/issues/9870)) ([236f9fb](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/commit/236f9fbec5f4dda9ca2fe7e57dee94b83f4af959)), closes [#9816](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/issues/9816)
+* **react-wrapper:** show component props ([#9689](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/issues/9689)) ([349e276](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/commit/349e276199741e6b302eae45ca6ddc076d9dd7b9))
+* **search:** fired input event upon clicking suggestion ([#9632](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/issues/9632)) ([41788ce](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/commit/41788ce621fc4304a2a4f409ecea1b6ed4d49529)), closes [#9375](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/issues/9375)
+
+
+### Features
+
+* **content-section:** combining components ([#9348](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/issues/9348)) ([ebfb388](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/commit/ebfb388bb09a254ba1bcbb845be371eae4a871af)), closes [#8843](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/issues/8843)
+* **cta:** merging components into one ([#9569](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/issues/9569)) ([d3fd2a2](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/commit/d3fd2a22cc1f92fc787e9d13a9acaa9101d1bf74)), closes [#8841](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/issues/8841)
+* **leadspace:** add gradient knob to story ([#9872](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/issues/9872)) ([9b98c30](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/commit/9b98c30a686aa34fba4f675b549f2b6e16cb0b57)), closes [#9631](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/issues/9631)
+
+
+
+
+
 # [1.26.0](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/compare/@carbon/ibmdotcom-web-components@1.26.0-rc.3...@carbon/ibmdotcom-web-components@1.26.0) (2022-12-06)
 
 **Note:** Version bump only for package @carbon/ibmdotcom-web-components
