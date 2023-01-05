@@ -11,7 +11,7 @@ import { html } from 'lit';
 import { customElement, property } from 'lit/decorators.js';
 import settings from 'carbon-components/es/globals/js/settings.js';
 import ddsSettings from '@carbon/ibmdotcom-utilities/es/utilities/settings/settings.js';
-import ifNonNull from '@carbon/web-components/es/globals/directives/if-non-null.js';
+import { ifDefined } from 'lit/directives/if-defined.js';
 import PlayVideo from '@carbon/ibmdotcom-styles/icons/svg/play-video.svg';
 import {
   formatVideoCaption,
@@ -75,8 +75,8 @@ class DDSFeatureCTA extends VideoCTAMixin(CTAMixin(DDSFeatureCard)) {
         ? undefined
         : html`
             <dds-image
-              alt="${ifNonNull(videoName)}"
-              default-src="${ifNonNull(thumbnail || videoThumbnailUrl)}"
+              alt="${ifDefined(videoName)}"
+              default-src="${ifDefined(thumbnail || videoThumbnailUrl)}"
               slot="image">
               ${PlayVideo({ slot: 'icon' })}
             </dds-image>
@@ -169,13 +169,10 @@ class DDSFeatureCTA extends VideoCTAMixin(CTAMixin(DDSFeatureCard)) {
         (footer as DDSFeatureCTAFooter).videoDescription = videoDescription;
       }
     }
-
-    const heading = this.querySelector(
-      (this.constructor as typeof DDSFeatureCTA).selectorHeading
-    ) as HTMLElement;
-
-    if (changedProperties.has('captionHeading') && heading) {
-      heading!.innerText = this.captionHeading;
+    if (changedProperties.has('captionHeading')) {
+      (this.querySelector(
+        (this.constructor as typeof DDSFeatureCTA).selectorHeading
+      ) as HTMLElement)!.innerText = this.captionHeading;
     }
   }
 

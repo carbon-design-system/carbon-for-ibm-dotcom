@@ -9,14 +9,14 @@
 
 import { html, render } from 'lit/html.js';
 import ArrowRight20 from 'carbon-web-components/es/icons/arrow--right/20';
-import ifNonNull from 'carbon-web-components/es/globals/directives/if-non-null.js';
+import { ifDefined } from 'lit/directives/if-defined.js';
 import '../../card/card-heading';
 import '../card-section-simple';
 
 const template = (props?) => {
   const { heading, children } = props ?? {};
   return html`
-    <dds-card-section-simple heading=${ifNonNull(heading)}>
+    <dds-card-section-simple heading=${ifDefined(heading)}>
       <dds-card-group>${children}</dds-card-group>
     </dds-card-section-simple>
   `;

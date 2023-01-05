@@ -11,13 +11,13 @@ import { classMap } from 'lit/directives/class-map.js';
 import { LitElement, html } from 'lit';
 import { customElement, property, state } from 'lit/decorators.js';
 import settings from 'carbon-components/es/globals/js/settings.js';
-import ifNonNull from '@carbon/web-components/es/globals/directives/if-non-null.js';
-import FocusMixin from '@carbon/web-components/es/globals/mixins/focus.js';
+import { ifDefined } from 'lit/directives/if-defined.js';
+import FocusMixin from 'carbon-web-components/es/globals/mixins/focus.js';
 import {
   BUTTON_ICON_LAYOUT,
   BUTTON_KIND,
   BUTTON_SIZE,
-} from '@carbon/web-components/es/components/button/button.js';
+} from 'carbon-web-components/es/components/button/button.js';
 import ddsSettings from '../../internal/vendor/@carbon/ibmdotcom-utilities/utilities/settings/settings';
 import styles from './button.scss';
 import StableSelectorMixin from '../../globals/mixins/stable-selector';
@@ -212,15 +212,15 @@ class DDSButtonExpressive extends FocusMixin(StableSelectorMixin(LitElement)) {
             <a
               id="button"
               part="button"
-              role="${ifNonNull(linkRole)}"
+              role="${ifDefined(linkRole)}"
               class="${classes}"
-              download="${ifNonNull(download)}"
-              href="${ifNonNull(href)}"
-              hreflang="${ifNonNull(hreflang)}"
-              ping="${ifNonNull(ping)}"
-              rel="${ifNonNull(rel)}"
-              target="${ifNonNull(target)}"
-              type="${ifNonNull(type)}"
+              download="${ifDefined(download)}"
+              href="${ifDefined(href)}"
+              hreflang="${ifDefined(hreflang)}"
+              ping="${ifDefined(ping)}"
+              rel="${ifDefined(rel)}"
+              target="${ifDefined(target)}"
+              type="${ifDefined(type)}"
               @click="${handleClick}">
               ${this._renderInner()}
             </a>
@@ -233,7 +233,7 @@ class DDSButtonExpressive extends FocusMixin(StableSelectorMixin(LitElement)) {
         class="${classes}"
         ?autofocus="${autofocus}"
         ?disabled="${disabled}"
-        type="${ifNonNull(type)}"
+        type="${ifDefined(type)}"
         @click="${handleClick}">
         ${this._renderInner()}
       </button>

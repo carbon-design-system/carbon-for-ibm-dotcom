@@ -8,15 +8,15 @@
  */
 
 import { html, render } from 'lit/html.js';
-import ifNonNull from 'carbon-web-components/es/globals/directives/if-non-null.js';
+import { ifDefined } from 'lit/directives/if-defined.js';
 import '../locale-item';
 
 const template = (props?) => {
   const { country, language } = props ?? {};
   return html`
     <dds-locale-item
-      country="${ifNonNull(country)}"
-      language="${ifNonNull(language)}"></dds-locale-item>
+      country="${ifDefined(country)}"
+      language="${ifDefined(language)}"></dds-locale-item>
   `;
 };
 

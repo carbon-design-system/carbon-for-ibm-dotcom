@@ -7,7 +7,7 @@
  * LICENSE file in the root directory of this source tree.
  */
 
-import ifNonNull from 'carbon-web-components/es/globals/directives/if-non-null.js';
+import { ifDefined } from 'lit/directives/if-defined.js';
 import { classMap } from 'lit/directives/class-map.js';
 import { html } from 'lit';
 import { customElement, property, query } from 'lit/decorators.js';
@@ -562,7 +562,7 @@ class DDSSearchWithTypeahead extends HostListenerMixin(
         autocomplete="off"
         aria-controls="result-list"
         aria-autocomplete="list"
-        aria-label="${ifNonNull(searchLabel)}"
+        aria-label="${ifDefined(searchLabel)}"
         @input="${handleInput}"
         @keydown="${handleKeyInput}"
         @keypress="${handleKeyInput}" />
@@ -618,7 +618,7 @@ class DDSSearchWithTypeahead extends HostListenerMixin(
           aria-haspopup="listbox"
           aria-owns="result-list"
           aria-expanded="${Boolean(this.active)}"
-          aria-label="${ifNonNull(searchLabel)}"
+          aria-label="${ifDefined(searchLabel)}"
           @click=${handleClickInner}
           @keydown="${handleKeydownInner}"
           @keypress="${handleKeypressInner}">

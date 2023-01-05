@@ -8,7 +8,7 @@
  */
 
 import { html } from 'lit';
-import ifNonNull from 'carbon-web-components/es/globals/directives/if-non-null.js';
+import { ifDefined } from 'lit/directives/if-defined.js';
 import { select } from '@storybook/addon-knobs';
 import readme from './README.stories.mdx';
 import textNullable from '../../../../.storybook/knob-text-nullable';
@@ -93,7 +93,7 @@ export const WithThumbnail = (args) => {
       >
       <dds-image
         slot="thumbnail"
-        alt="${ifNonNull(alt)}"
+        alt="${ifDefined(alt)}"
         default-src="${imgMd4x3}"></dds-image>
     </dds-content-item-horizontal>
   `;
@@ -108,7 +108,7 @@ export const WithMedia = (args) => {
         ? html`
             <dds-image
               slot="media"
-              alt="${ifNonNull(alt)}"
+              alt="${ifDefined(alt)}"
               default-src="${imgLg16x9}"></dds-image>
           `
         : null}

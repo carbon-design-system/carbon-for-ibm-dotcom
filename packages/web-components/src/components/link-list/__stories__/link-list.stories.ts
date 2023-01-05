@@ -9,7 +9,7 @@
 
 import { html } from 'lit';
 import ArrowRight20 from 'carbon-web-components/es/icons/arrow--right/20';
-import ifNonNull from 'carbon-web-components/es/globals/directives/if-non-null.js';
+import { ifDefined } from 'lit/directives/if-defined.js';
 import { select } from '@storybook/addon-knobs';
 import textNullable from '../../../../.storybook/knob-text-nullable';
 import { CTA_TYPE } from '../../cta/defs';
@@ -73,18 +73,18 @@ export const Default = (args) => {
         <dds-link-list type="default">
           <dds-link-list-heading>Tutorial</dds-link-list-heading>
           <dds-link-list-item-card-cta
-            href="${ifNonNull(href)}"
-            cta-type="${ifNonNull(ctaType)}"
-            download="${ifNonNull(download)}">
+            href="${ifDefined(href)}"
+            cta-type="${ifDefined(ctaType)}"
+            download="${ifDefined(download)}">
             ${ctaType !== CTA_TYPE.VIDEO
               ? html` <p>Learn more about Kubernetes</p> `
               : null}
             <dds-card-cta-footer></dds-card-cta-footer>
           </dds-link-list-item-card-cta>
           <dds-link-list-item-card-cta
-            href="${ifNonNull(href)}"
-            cta-type="${ifNonNull(ctaType)}"
-            download="${ifNonNull(download)}">
+            href="${ifDefined(href)}"
+            cta-type="${ifDefined(ctaType)}"
+            download="${ifDefined(download)}">
             ${ctaType !== CTA_TYPE.VIDEO
               ? html` <p>Containerization A Complete Guide</p> `
               : null}
@@ -157,18 +157,18 @@ export const Horizontal = (args) => {
           <dds-link-list-heading>Tutorial</dds-link-list-heading>
           <dds-link-list-item-cta
             icon-placement="${iconPlacement}"
-            href="${ifNonNull(href)}"
-            cta-type="${ifNonNull(ctaType)}"
-            download="${ifNonNull(download)}">
+            href="${ifDefined(href)}"
+            cta-type="${ifDefined(ctaType)}"
+            download="${ifDefined(download)}">
             ${ctaType !== CTA_TYPE.VIDEO
               ? html` Learn more about Kubernetes `
               : null}
           </dds-link-list-item-cta>
           <dds-link-list-item-cta
             icon-placement="${iconPlacement}"
-            href="${ifNonNull(href)}"
-            cta-type="${ifNonNull(ctaType)}"
-            download="${ifNonNull(download)}">
+            href="${ifDefined(href)}"
+            cta-type="${ifDefined(ctaType)}"
+            download="${ifDefined(download)}">
             ${ctaType !== CTA_TYPE.VIDEO
               ? html` Containerization A Complete Guide `
               : null}
@@ -240,18 +240,18 @@ export const Vertical = (args) => {
           <dds-link-list-heading>Tutorial</dds-link-list-heading>
           <dds-link-list-item-cta
             icon-placement="${iconPlacement}"
-            href="${ifNonNull(href)}"
-            cta-type="${ifNonNull(ctaType)}"
-            download="${ifNonNull(download)}">
+            href="${ifDefined(href)}"
+            cta-type="${ifDefined(ctaType)}"
+            download="${ifDefined(download)}">
             ${ctaType !== CTA_TYPE.VIDEO
               ? html` Learn more about Kubernetes `
               : null}
           </dds-link-list-item-cta>
           <dds-link-list-item-cta
             icon-placement="${iconPlacement}"
-            href="${ifNonNull(href)}"
-            cta-type="${ifNonNull(ctaType)}"
-            download="${ifNonNull(download)}">
+            href="${ifDefined(href)}"
+            cta-type="${ifDefined(ctaType)}"
+            download="${ifDefined(download)}">
             ${ctaType !== CTA_TYPE.VIDEO
               ? html` Containerization A Complete Guide `
               : null}
@@ -297,25 +297,25 @@ export const EndOfSection = (args) => {
         <dds-link-list type="end">
           <dds-link-list-heading>Tutorial</dds-link-list-heading>
           <dds-link-list-item-cta
-            href="${ifNonNull(href)}"
-            cta-type="${ifNonNull(ctaType)}"
-            download="${ifNonNull(download)}">
+            href="${ifDefined(href)}"
+            cta-type="${ifDefined(ctaType)}"
+            download="${ifDefined(download)}">
             ${ctaType !== CTA_TYPE.VIDEO
               ? html` Learn more about Kubernetes `
               : null}
           </dds-link-list-item-cta>
           <dds-link-list-item-cta
-            href="${ifNonNull(href)}"
-            cta-type="${ifNonNull(ctaType)}"
-            download="${ifNonNull(download)}">
+            href="${ifDefined(href)}"
+            cta-type="${ifDefined(ctaType)}"
+            download="${ifDefined(download)}">
             ${ctaType !== CTA_TYPE.VIDEO
               ? html` Containerization A Complete Guide `
               : null}
           </dds-link-list-item-cta>
           <dds-link-list-item-cta
-            href="${ifNonNull(href)}"
-            cta-type="${ifNonNull(ctaType)}"
-            download="${ifNonNull(download)}">
+            href="${ifDefined(href)}"
+            cta-type="${ifDefined(ctaType)}"
+            download="${ifDefined(download)}">
             ${ctaType !== CTA_TYPE.VIDEO
               ? html` Microservices and containers `
               : null}

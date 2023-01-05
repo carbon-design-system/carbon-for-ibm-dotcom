@@ -12,12 +12,11 @@ import { LitElement, html } from 'lit';
 import { customElement, property, query, state } from 'lit/decorators.js';
 import 'wicg-inert';
 import settings from 'carbon-components/es/globals/js/settings.js';
-import ifNonNull from '@carbon/web-components/es/globals/directives/if-non-null.js';
-import CaretLeft20 from '@carbon/web-components/es/icons/caret--left/20.js';
-import CaretRight20 from '@carbon/web-components/es/icons/caret--right/20.js';
-import HostListener from '@carbon/web-components/es/globals/decorators/host-listener.js';
-import HostListenerMixin from '@carbon/web-components/es/globals/mixins/host-listener.js';
-import { selectorTabbable } from '@carbon/web-components/es/globals/settings.js';
+import CaretLeft20 from 'carbon-web-components/es/icons/caret--left/20.js';
+import CaretRight20 from 'carbon-web-components/es/icons/caret--right/20.js';
+import HostListener from 'carbon-web-components/es/globals/decorators/host-listener.js';
+import HostListenerMixin from 'carbon-web-components/es/globals/mixins/host-listener.js';
+import { selectorTabbable } from 'carbon-web-components/es/globals/settings.js';
 import ddsSettings from '../../internal/vendor/@carbon/ibmdotcom-utilities/utilities/settings/settings';
 import sameHeight from '../../internal/vendor/@carbon/ibmdotcom-utilities/utilities/sameHeight/sameHeight';
 import styles from './carousel.scss';
@@ -343,8 +342,6 @@ class DDSCarousel extends HostListenerMixin(StableSelectorMixin(LitElement)) {
             )
           );
         });
-      this._observeResizeRoot();
-      this.markHiddenAsInert();
     }
   }
 
@@ -526,19 +523,6 @@ class DDSCarousel extends HostListenerMixin(StableSelectorMixin(LitElement)) {
     }
   }
 
-  markHiddenAsInert() {
-    const { _childItems: childItems, start, pageSize } = this;
-
-    childItems.forEach((item) => {
-      const index = childItems.indexOf(item);
-      if (index < start || index > start + pageSize - 1) {
-        item.inert = true;
-      } else {
-        item.inert = false;
-      }
-    });
-  }
-
   disconnectedCallback() {
     this._cleanAndCreateObserverResize();
     super.disconnectedCallback();
@@ -550,7 +534,16 @@ class DDSCarousel extends HostListenerMixin(StableSelectorMixin(LitElement)) {
 
   protected updated(changedProperties) {
     if (changedProperties.has('start')) {
-      this.markHiddenAsInert();
+      const { _childItems: childItems, start, pageSize } = this;
+
+      childItems.forEach((item) => {
+        const index = childItems.indexOf(item);
+        if (index < start || index > start + pageSize - 1) {
+          item.inert = true;
+        } else {
+          item.inert = false;
+        }
+      });
     }
   }
 
@@ -582,7 +575,7 @@ class DDSCarousel extends HostListenerMixin(StableSelectorMixin(LitElement)) {
         @scroll="${handleScrollFocus}"
         @touchstart="${handleTouchStartEvent}"
         @touchend="${handleTouchEndEvent}"
-        style="${ifNonNull(
+        style="${ifDefined(
           pageSizeExplicit == null
             ? null
             : `${customPropertyPageSize}: ${pageSizeExplicit}`

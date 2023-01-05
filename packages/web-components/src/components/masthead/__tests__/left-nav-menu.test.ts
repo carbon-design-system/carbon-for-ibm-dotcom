@@ -8,16 +8,16 @@
  */
 
 import { html, render } from 'lit/html.js';
-import ifNonNull from 'carbon-web-components/es/globals/directives/if-non-null.js';
+import { ifDefined } from 'lit/directives/if-defined.js';
 import '../left-nav-menu';
 
 const template = (props?) => {
   const { backButtonText, expanded, title } = props ?? {};
   return html`
     <dds-left-nav-menu
-      back-button-text="${ifNonNull(backButtonText)}"
+      back-button-text="${ifDefined(backButtonText)}"
       ?expanded="${expanded}"
-      title="${ifNonNull(title)}">
+      title="${ifDefined(title)}">
     </dds-left-nav-menu>
   `;
 };

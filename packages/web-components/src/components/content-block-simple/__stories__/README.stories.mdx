@@ -3,6 +3,9 @@ import markdownContents from '../../../../docs/markdown-contents.md';
 import contributing from '../../../../../../docs/contributing-license.md';
 import { cdnJs, cdnCss } from '../../../globals/internal/storybook-cdn';
 
+
+
+
 # `<dds-content-block-simple>`
 
 > The Content Block - Simple pattern is a variant of `<dds-content-block>`, and
@@ -37,36 +40,21 @@ import '@carbon/ibmdotcom-web-components/es/components/cta/text-cta.js';
 
 ```html
 <dds-content-block-simple>
-  <dds-content-block-heading
-    >Curabitur malesuada varius mi eu posuere</dds-content-block-heading
-  >
-  <dds-content-block-copy size="sm"
-    >Lorem ipsum *dolor* sit amet</dds-content-block-copy
-  >
+  <dds-content-block-heading>Curabitur malesuada varius mi eu posuere</dds-content-block-heading>
+  <dds-content-block-copy size="sm">Lorem ipsum *dolor* sit amet</dds-content-block-copy>
   <dds-image
     slot="media"
     alt="Image alt text"
     default-src="http://fpoimg.com/672x378?text=16:9&bg_color=ee5396&text_color=161616"
   >
-    <dds-image-item
-      media="(min-width: 672px)"
-      srcset="http://fpoimg.com/672x378?text=16:9&bg_color=ee5396&text_color=161616"
-    >
+    <dds-image-item media="(min-width: 672px)" srcset="http://fpoimg.com/672x378?text=16:9&bg_color=ee5396&text_color=161616">
     </dds-image-item>
-    <dds-image-item
-      media="(min-width: 400px)"
-      srcset="http://fpoimg.com/400x225?text=16:9&bg_color=ee5396&text_color=161616"
-    >
+    <dds-image-item media="(min-width: 400px)" srcset="http://fpoimg.com/400x225?text=16:9&bg_color=ee5396&text_color=161616">
     </dds-image-item>
-    <dds-image-item
-      media="(min-width: 320px)"
-      srcset="http://fpoimg.com/672x672?text=16:9&bg_color=ee5396&text_color=161616"
-    >
+    <dds-image-item media="(min-width: 320px)" srcset="http://fpoimg.com/672x672?text=16:9&bg_color=ee5396&text_color=161616">
     </dds-image-item>
   </dds-image>
-  <dds-text-cta slot="footer" href="https://www.ibm.com/" cta-type="local"
-    >Lorem ipsum dolor sit amet</dds-text-cta
-  >
+  <dds-text-cta slot="footer" href="https://www.ibm.com/" cta-type="local">Lorem ipsum dolor sit amet</dds-text-cta>
 </dds-content-block-simple>
 ```
 
@@ -79,60 +67,45 @@ import '@carbon/ibmdotcom-web-components/es/components/content-block-simple/inde
 
 // with card link CTA
 import '@carbon/ibmdotcom-web-components/es/components/cta/card-link-cta.js';
-import ArrowRight20 from '@carbon/web-components/es/icons/arrow--right/20.js';
+import ArrowRight20 from 'carbon-web-components/es/icons/arrow--right/20.js';
 ```
 
 ### HTML
 
 ```html
 <dds-content-block-simple>
-  <dds-content-block-heading
-    >Curabitur malesuada varius mi eu posuere</dds-content-block-heading
-  >
-  <dds-content-block-copy size="sm"
-    >Lorem ipsum *dolor* sit amet</dds-content-block-copy
-  >
+  <dds-content-block-heading>Curabitur malesuada varius mi eu posuere</dds-content-block-heading>
+  <dds-content-block-copy size="sm">Lorem ipsum *dolor* sit amet</dds-content-block-copy>
   <dds-image
     slot="media"
     alt="Image alt text"
     default-src="http://fpoimg.com/672x378?text=16:9&bg_color=ee5396&text_color=161616"
   >
-    <dds-image-item
-      media="(min-width: 672px)"
-      srcset="http://fpoimg.com/672x378?text=16:9&bg_color=ee5396&text_color=161616"
-    >
+    <dds-image-item media="(min-width: 672px)" srcset="http://fpoimg.com/672x378?text=16:9&bg_color=ee5396&text_color=161616">
     </dds-image-item>
-    <dds-image-item
-      media="(min-width: 400px)"
-      srcset="http://fpoimg.com/400x225?text=16:9&bg_color=ee5396&text_color=161616"
-    >
+    <dds-image-item media="(min-width: 400px)" srcset="http://fpoimg.com/400x225?text=16:9&bg_color=ee5396&text_color=161616">
     </dds-image-item>
-    <dds-image-item
-      media="(min-width: 320px)"
-      srcset="http://fpoimg.com/672x672?text=16:9&bg_color=ee5396&text_color=161616"
-    >
+    <dds-image-item media="(min-width: 320px)" srcset="http://fpoimg.com/672x672?text=16:9&bg_color=ee5396&text_color=161616">
     </dds-image-item>
   </dds-image>
-  <dds-card-link-cta slot="footer" cta-type="local" href="https://www.ibm.com/">
-    <dds-card-link-heading>Lorem ipsum dolor sit amet</dds-card-link-heading>
-    <dds-card-cta-footer>
-      <svg
-        slot="icon"
-        focusable="false"
-        preserveAspectRatio="xMidYMid meet"
-        xmlns="http://www.w3.org/2000/svg"
-        fill="currentColor"
-        aria-hidden="true"
-        width="20"
-        height="20"
-        viewBox="0 0 20 20"
-      >
-        <path
-          d="M11.8 2.8L10.8 3.8 16.2 9.3 1 9.3 1 10.7 16.2 10.7 10.8 16.2 11.8 17.2 19 10z"
-        ></path>
-      </svg>
-    </dds-card-cta-footer>
-  </dds-card-link-cta>
+    <dds-card-link-cta slot="footer" cta-type="local" href="https://www.ibm.com/">
+      <dds-card-link-heading>Lorem ipsum dolor sit amet</dds-card-link-heading>
+      <dds-card-cta-footer>
+        <svg
+          slot="icon"
+          focusable="false"
+          preserveAspectRatio="xMidYMid meet"
+          xmlns="http://www.w3.org/2000/svg"
+          fill="currentColor"
+          aria-hidden="true"
+          width="20"
+          height="20"
+          viewBox="0 0 20 20"
+        >
+          <path d="M11.8 2.8L10.8 3.8 16.2 9.3 1 9.3 1 10.7 16.2 10.7 10.8 16.2 11.8 17.2 19 10z"></path>
+        </svg>
+      </dds-card-cta-footer>
+    </dds-card-link-cta>
 </dds-content-block-simple>
 ```
 
@@ -155,49 +128,34 @@ import '@carbon/ibmdotcom-web-components/es/components/link-list/index';
 
 ```html
 <dds-content-block-simple>
-  <dds-content-block-heading
-    >Curabitur malesuada varius mi eu posuere</dds-content-block-heading
-  >
-  <dds-content-block-copy size="sm"
-    >Lorem ipsum *dolor* sit amet</dds-content-block-copy
-  >
+  <dds-content-block-heading>Curabitur malesuada varius mi eu posuere</dds-content-block-heading>
+  <dds-content-block-copy size="sm">Lorem ipsum *dolor* sit amet</dds-content-block-copy>
   <dds-image
     slot="media"
     alt="Image alt text"
     default-src="http://fpoimg.com/672x378?text=16:9&bg_color=ee5396&text_color=161616"
   >
-    <dds-image-item
-      media="(min-width: 672px)"
-      srcset="http://fpoimg.com/672x378?text=16:9&bg_color=ee5396&text_color=161616"
-    >
+    <dds-image-item media="(min-width: 672px)" srcset="http://fpoimg.com/672x378?text=16:9&bg_color=ee5396&text_color=161616">
     </dds-image-item>
-    <dds-image-item
-      media="(min-width: 400px)"
-      srcset="http://fpoimg.com/400x225?text=16:9&bg_color=ee5396&text_color=161616"
-    >
+    <dds-image-item media="(min-width: 400px)" srcset="http://fpoimg.com/400x225?text=16:9&bg_color=ee5396&text_color=161616">
     </dds-image-item>
-    <dds-image-item
-      media="(min-width: 320px)"
-      srcset="http://fpoimg.com/672x672?text=16:9&bg_color=ee5396&text_color=161616"
-    >
+    <dds-image-item media="(min-width: 320px)" srcset="http://fpoimg.com/672x672?text=16:9&bg_color=ee5396&text_color=161616">
     </dds-image-item>
   </dds-image>
 
   <dds-link-list type="default" slot="complementary">
-    <dds-link-list-heading>Tutorial</dds-link-list-heading>
-    <dds-link-list-item-card-cta href="${ifNonNull(href)}" cta-type="local">
-      <p>Containerization A Complete Guide</p>
-      <dds-card-cta-footer></dds-card-cta-footer>
-    </dds-link-list-item-card-cta>
-    <dds-link-list-item-card-cta href="${ifNonNull(href)}" cta-type="external">
-      <p>Why should you use microservices and containers</p>
-      <dds-card-cta-footer></dds-card-cta-footer>
-    </dds-link-list-item-card-cta>
+      <dds-link-list-heading>Tutorial</dds-link-list-heading>
+      <dds-link-list-item-card-cta href="${ifDefined(href)}" cta-type="local">
+        <p>Containerization A Complete Guide</p>
+        <dds-card-cta-footer></dds-card-cta-footer>
+      </dds-link-list-item-card-cta>
+      <dds-link-list-item-card-cta href="${ifDefined(href)}" cta-type="external">
+        <p>Why should you use microservices and containers</p>
+        <dds-card-cta-footer></dds-card-cta-footer>
+      </dds-link-list-item-card-cta>
   </dds-link-list>
 
-  <dds-text-cta slot="footer" href="https://www.ibm.com/" cta-type="local"
-    >Lorem ipsum dolor sit amet</dds-text-cta
-  >
+  <dds-text-cta slot="footer" href="https://www.ibm.com/" cta-type="local">Lorem ipsum dolor sit amet</dds-text-cta>
 </dds-content-block-simple>
 ```
 
@@ -208,9 +166,7 @@ import '@carbon/ibmdotcom-web-components/es/components/link-list/index';
 
 ## Stable selectors
 
-See
-[our README](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/tree/main/packages/web-components#stable-selectors-for-analytics-and-integratione2e-testing-in-web-components)
-to see how Web Components selector and `data-autoid` should be used.
+See [our README](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/tree/main/packages/web-components#stable-selectors-for-analytics-and-integratione2e-testing-in-web-components) to see how Web Components selector and `data-autoid` should be used.
 
 | Web Components selector       | Compatibility selector                      | Description |
 | ----------------------------- | ------------------------------------------- | ----------- |

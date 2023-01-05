@@ -9,7 +9,7 @@
 
 import { html, render } from 'lit/html.js';
 import ArrowRight20 from 'carbon-web-components/es/icons/arrow--right/20';
-import ifNonNull from 'carbon-web-components/es/globals/directives/if-non-null.js';
+import { ifDefined } from 'lit/directives/if-defined.js';
 import '../../card/card-heading';
 import '../content-block-cards';
 
@@ -21,8 +21,8 @@ const template = (props?) => {
       <dds-card-group>${children}</dds-card-group>
       <dds-card-cta
         slot="footer"
-        cta-type="${ifNonNull(ctaType)}"
-        href="${ifNonNull(href)}">
+        cta-type="${ifDefined(ctaType)}"
+        href="${ifDefined(href)}">
         <p>ctaCopy-foo</p>
         ${ArrowRight20({ slot: 'footer' })}
       </dds-card-cta>

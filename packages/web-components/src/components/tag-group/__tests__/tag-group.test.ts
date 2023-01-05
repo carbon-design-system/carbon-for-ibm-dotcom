@@ -8,7 +8,7 @@
  */
 
 import { html, render } from 'lit/html.js';
-import ifNonNull from 'carbon-web-components/es/globals/directives/if-non-null.js';
+import { ifDefined } from 'lit/directives/if-defined.js';
 import '../tag-group';
 import '../../tag-link/tag-link';
 
@@ -16,8 +16,8 @@ const template = (props?) => {
   const { copy, href } = props ?? {};
   return html`
     <dds-tag-group>
-      <dds-tag-link href="${ifNonNull(href)}"> ${copy} </dds-tag-link>
-      <dds-tag-link href="${ifNonNull(href)}"> ${copy} </dds-tag-link>
+      <dds-tag-link href="${ifDefined(href)}"> ${copy} </dds-tag-link>
+      <dds-tag-link href="${ifDefined(href)}"> ${copy} </dds-tag-link>
     </dds-tag-group>
   `;
 };

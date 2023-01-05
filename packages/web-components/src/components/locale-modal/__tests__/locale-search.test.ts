@@ -8,7 +8,7 @@
  */
 
 import { html, render } from 'lit/html.js';
-import ifNonNull from 'carbon-web-components/es/globals/directives/if-non-null.js';
+import { ifDefined } from 'lit/directives/if-defined.js';
 import DDSSearch from '../../search/search';
 import DDSLocaleSearch from '../locale-search';
 import '../locale-item';
@@ -25,12 +25,12 @@ const template = (props?) => {
   } = props ?? {};
   return html`
     <dds-locale-search
-      availability-label-text="${ifNonNull(availabilityLabelText)}"
-      close-button-assistive-text="${ifNonNull(closeButtonAssistiveText)}"
-      input-timeout="${ifNonNull(inputTimeout)}"
-      label-text="${ifNonNull(labelText)}"
-      placeholder="${ifNonNull(placeholder)}"
-      region="${ifNonNull(region)}">
+      availability-label-text="${ifDefined(availabilityLabelText)}"
+      close-button-assistive-text="${ifDefined(closeButtonAssistiveText)}"
+      input-timeout="${ifDefined(inputTimeout)}"
+      label-text="${ifDefined(labelText)}"
+      placeholder="${ifDefined(placeholder)}"
+      region="${ifDefined(region)}">
       ${children}
     </dds-locale-search>
   `;

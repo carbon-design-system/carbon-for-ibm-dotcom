@@ -10,7 +10,7 @@
 import { css, html } from 'lit';
 import { customElement } from 'lit/decorators.js';
 import settings from 'carbon-components/es/globals/js/settings.js';
-import ifNonNull from '@carbon/web-components/es/globals/directives/if-non-null.js';
+import { ifDefined } from 'lit/directives/if-defined.js';
 import PlayVideo from '@carbon/ibmdotcom-styles/icons/svg/play-video.svg';
 import ddsSettings from '../../internal/vendor/@carbon/ibmdotcom-utilities/utilities/settings/settings';
 import DDSCardCTA, { CTA_TYPE } from '../cta/card-cta';
@@ -41,8 +41,8 @@ class DDSCardInCard extends StableSelectorMixin(DDSCardCTA) {
         ? undefined
         : html`
             <dds-card-in-card-image
-              alt="${ifNonNull(videoName)}"
-              default-src="${ifNonNull(thumbnail || videoThumbnailUrl)}">
+              alt="${ifDefined(videoName)}"
+              default-src="${ifDefined(thumbnail || videoThumbnailUrl)}">
               ${PlayVideo({ slot: 'icon' })}
             </dds-card-in-card-image>
           `;

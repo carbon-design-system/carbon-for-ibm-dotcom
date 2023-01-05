@@ -12,7 +12,7 @@ import { html } from 'lit';
 import ArrowRight20 from 'carbon-web-components/es/icons/arrow--right/20.js';
 import ArrowDown20 from 'carbon-web-components/es/icons/arrow--down/20.js';
 import Pdf20 from 'carbon-web-components/es/icons/PDF/20.js';
-import ifNonNull from 'carbon-web-components/es/globals/directives/if-non-null.js';
+import { ifDefined } from 'lit/directives/if-defined.js';
 
 // Above import is interface-only ref and thus code won't be brought into the build
 import '../index';
@@ -59,8 +59,8 @@ export const Super = (args) => {
     <dds-leadspace size="${LEADSPACE_SIZE.SUPER}">
       ${navElements === navigationOptions[0] ? navigationWithTagGroup : ``}
       ${navElements === navigationOptions[1] ? navigationWithBreadcrumbs : ``}
-      <dds-leadspace-heading>${ifNonNull(title)}</dds-leadspace-heading>
-      ${ifNonNull(copy)}
+      <dds-leadspace-heading>${ifDefined(title)}</dds-leadspace-heading>
+      ${ifDefined(copy)}
       <dds-button-group slot="action">
         ${buttons.map((elem) => {
           return html`
@@ -90,13 +90,13 @@ export const SuperWithImage = (args) => {
   return html`
     <dds-leadspace
       size="${LEADSPACE_SIZE.SUPER}"
-      gradient-style-scheme="${ifNonNull(gradientStyleScheme)}"
-      alt="${ifNonNull(alt)}"
-      default-src="${ifNonNull(defaultSrc)}">
+      gradient-style-scheme="${ifDefined(gradientStyleScheme)}"
+      alt="${ifDefined(alt)}"
+      default-src="${ifDefined(defaultSrc)}">
       ${navElements === navigationOptions[0] ? navigationWithTagGroup : ``}
       ${navElements === navigationOptions[1] ? navigationWithBreadcrumbs : ``}
-      <dds-leadspace-heading>${ifNonNull(title)}</dds-leadspace-heading>
-      ${ifNonNull(copy)}
+      <dds-leadspace-heading>${ifDefined(title)}</dds-leadspace-heading>
+      ${ifDefined(copy)}
       <dds-button-group slot="action">
         ${buttons.map((elem) => {
           return html`
@@ -110,7 +110,7 @@ export const SuperWithImage = (args) => {
       </dds-button-group>
       <dds-background-media
         mobile-position="bottom"
-        alt="${ifNonNull(alt)}"
+        alt="${ifDefined(alt)}"
         default-src="${defaultSrc}"
         opacity="100">
         <dds-image-item media="(min-width: 1312px)" srcset="${image}">
@@ -143,13 +143,13 @@ export const SuperWithVideo = (args) => {
   return html`
     <dds-leadspace
       size="${LEADSPACE_SIZE.SUPER}"
-      gradient-style-scheme="${ifNonNull(gradientStyleScheme)}"
-      alt="${ifNonNull(alt)}"
-      default-src="${ifNonNull(defaultSrc)}">
+      gradient-style-scheme="${ifDefined(gradientStyleScheme)}"
+      alt="${ifDefined(alt)}"
+      default-src="${ifDefined(defaultSrc)}">
       ${navElements === navigationOptions[0] ? navigationWithTagGroup : ``}
       ${navElements === navigationOptions[1] ? navigationWithBreadcrumbs : ``}
-      <dds-leadspace-heading>${ifNonNull(title)}</dds-leadspace-heading>
-      ${ifNonNull(copy)}
+      <dds-leadspace-heading>${ifDefined(title)}</dds-leadspace-heading>
+      ${ifDefined(copy)}
       <dds-button-group slot="action">
         ${buttons.map((elem) => {
           return html`
@@ -180,8 +180,8 @@ export const Tall = (args) => {
     <dds-leadspace size="${LEADSPACE_SIZE.TALL}">
       ${navElements === navigationOptions[0] ? navigationWithTagGroup : ``}
       ${navElements === navigationOptions[1] ? navigationWithBreadcrumbs : ``}
-      <dds-leadspace-heading>${ifNonNull(title)}</dds-leadspace-heading>
-      ${ifNonNull(copy)}
+      <dds-leadspace-heading>${ifDefined(title)}</dds-leadspace-heading>
+      ${ifDefined(copy)}
       <dds-button-group slot="action">
         ${buttons.map((elem) => {
           return html`
@@ -211,13 +211,13 @@ export const TallWithImage = (args) => {
   return html`
     <dds-leadspace
       size="${LEADSPACE_SIZE.TALL}"
-      gradient-style-scheme="${ifNonNull(gradientStyleScheme)}"
-      alt="${ifNonNull(alt)}"
-      default-src="${ifNonNull(defaultSrc)}">
+      gradient-style-scheme="${ifDefined(gradientStyleScheme)}"
+      alt="${ifDefined(alt)}"
+      default-src="${ifDefined(defaultSrc)}">
       ${navElements === navigationOptions[0] ? navigationWithTagGroup : ``}
       ${navElements === navigationOptions[1] ? navigationWithBreadcrumbs : ``}
-      <dds-leadspace-heading>${ifNonNull(title)}</dds-leadspace-heading>
-      ${ifNonNull(copy)}
+      <dds-leadspace-heading>${ifDefined(title)}</dds-leadspace-heading>
+      ${ifDefined(copy)}
       <dds-button-group slot="action">
         ${buttons.map((elem) => {
           return html`
@@ -231,7 +231,7 @@ export const TallWithImage = (args) => {
       </dds-button-group>
       <dds-background-media
         mobile-position="bottom"
-        alt="${ifNonNull(alt)}"
+        alt="${ifDefined(alt)}"
         default-src="${defaultSrc}"
         opacity="100">
         <dds-image-item media="(min-width: 1312px)" srcset="${image}">
@@ -264,13 +264,13 @@ export const TallWithVideo = (args) => {
   return html`
     <dds-leadspace
       size="${LEADSPACE_SIZE.TALL}"
-      gradient-style-scheme="${ifNonNull(gradientStyleScheme)}"
-      alt="${ifNonNull(alt)}"
-      default-src="${ifNonNull(defaultSrc)}">
+      gradient-style-scheme="${ifDefined(gradientStyleScheme)}"
+      alt="${ifDefined(alt)}"
+      default-src="${ifDefined(defaultSrc)}">
       ${navElements === navigationOptions[0] ? navigationWithTagGroup : ``}
       ${navElements === navigationOptions[1] ? navigationWithBreadcrumbs : ``}
-      <dds-leadspace-heading>${ifNonNull(title)}</dds-leadspace-heading>
-      ${ifNonNull(copy)}
+      <dds-leadspace-heading>${ifDefined(title)}</dds-leadspace-heading>
+      ${ifDefined(copy)}
       <dds-button-group slot="action">
         ${buttons.map((elem) => {
           return html`
@@ -301,8 +301,8 @@ export const Medium = (args) => {
     <dds-leadspace size="${LEADSPACE_SIZE.MEDIUM}">
       ${navElements === navigationOptions[0] ? navigationWithTagGroup : ``}
       ${navElements === navigationOptions[1] ? navigationWithBreadcrumbs : ``}
-      <dds-leadspace-heading>${ifNonNull(title)}</dds-leadspace-heading>
-      ${ifNonNull(copy)}
+      <dds-leadspace-heading>${ifDefined(title)}</dds-leadspace-heading>
+      ${ifDefined(copy)}
       <dds-button-group slot="action">
         ${buttons.map((elem) => {
           return html`
@@ -332,13 +332,13 @@ export const MediumWithImage = (args) => {
   return html`
     <dds-leadspace
       size="${LEADSPACE_SIZE.MEDIUM}"
-      gradient-style-scheme="${ifNonNull(gradientStyleScheme)}"
-      alt="${ifNonNull(alt)}"
-      default-src="${ifNonNull(defaultSrc)}">
+      gradient-style-scheme="${ifDefined(gradientStyleScheme)}"
+      alt="${ifDefined(alt)}"
+      default-src="${ifDefined(defaultSrc)}">
       ${navElements === navigationOptions[0] ? navigationWithTagGroup : ``}
       ${navElements === navigationOptions[1] ? navigationWithBreadcrumbs : ``}
-      <dds-leadspace-heading>${ifNonNull(title)}</dds-leadspace-heading>
-      ${ifNonNull(copy)}
+      <dds-leadspace-heading>${ifDefined(title)}</dds-leadspace-heading>
+      ${ifDefined(copy)}
       <dds-button-group slot="action">
         ${buttons.map((elem) => {
           return html`
@@ -352,7 +352,7 @@ export const MediumWithImage = (args) => {
       </dds-button-group>
       <dds-background-media
         mobile-position="bottom"
-        alt="${ifNonNull(alt)}"
+        alt="${ifDefined(alt)}"
         default-src="${defaultSrc}"
         opacity="100">
         <dds-image-item media="(min-width: 1312px)" srcset="${image}">
@@ -385,13 +385,13 @@ export const MediumWithVideo = (args) => {
   return html`
     <dds-leadspace
       size="${LEADSPACE_SIZE.MEDIUM}"
-      gradient-style-scheme="${ifNonNull(gradientStyleScheme)}"
-      alt="${ifNonNull(alt)}"
-      default-src="${ifNonNull(defaultSrc)}">
+      gradient-style-scheme="${ifDefined(gradientStyleScheme)}"
+      alt="${ifDefined(alt)}"
+      default-src="${ifDefined(defaultSrc)}">
       ${navElements === navigationOptions[0] ? navigationWithTagGroup : ``}
       ${navElements === navigationOptions[1] ? navigationWithBreadcrumbs : ``}
-      <dds-leadspace-heading>${ifNonNull(title)}</dds-leadspace-heading>
-      ${ifNonNull(copy)}
+      <dds-leadspace-heading>${ifDefined(title)}</dds-leadspace-heading>
+      ${ifDefined(copy)}
       <dds-button-group slot="action">
         ${buttons.map((elem) => {
           return html`
@@ -422,7 +422,7 @@ export const Short = (args) => {
     <dds-leadspace size="${LEADSPACE_SIZE.SHORT}">
       ${navElements === navigationOptions[0] ? navigationWithTagGroup : ``}
       ${navElements === navigationOptions[1] ? navigationWithBreadcrumbs : ``}
-      <dds-leadspace-heading>${ifNonNull(title)}</dds-leadspace-heading>
+      <dds-leadspace-heading>${ifDefined(title)}</dds-leadspace-heading>
     </dds-leadspace>
   `;
 };
@@ -460,15 +460,15 @@ export const ShortWithImage = (args) => {
   return html`
     <dds-leadspace
       size="${LEADSPACE_SIZE.SHORT}"
-      gradient-style-scheme="${ifNonNull(gradientStyleScheme)}"
-      alt="${ifNonNull(alt)}"
-      default-src="${ifNonNull(defaultSrc)}">
+      gradient-style-scheme="${ifDefined(gradientStyleScheme)}"
+      alt="${ifDefined(alt)}"
+      default-src="${ifDefined(defaultSrc)}">
       ${navElements === navigationOptions[0] ? navigationWithTagGroup : ``}
       ${navElements === navigationOptions[1] ? navigationWithBreadcrumbs : ``}
-      <dds-leadspace-heading>${ifNonNull(title)}</dds-leadspace-heading>
+      <dds-leadspace-heading>${ifDefined(title)}</dds-leadspace-heading>
       <dds-background-media
         mobile-position="bottom"
-        alt="${ifNonNull(alt)}"
+        alt="${ifDefined(alt)}"
         default-src="${defaultSrc}"
         opacity="100">
         <dds-image-item media="(min-width: 1312px)" srcset="${image}">
@@ -521,12 +521,12 @@ export const ShortWithVideo = (args) => {
   return html`
     <dds-leadspace
       size="${LEADSPACE_SIZE.SHORT}"
-      gradient-style-scheme="${ifNonNull(gradientStyleScheme)}"
-      alt="${ifNonNull(alt)}"
-      default-src="${ifNonNull(defaultSrc)}">
+      gradient-style-scheme="${ifDefined(gradientStyleScheme)}"
+      alt="${ifDefined(alt)}"
+      default-src="${ifDefined(defaultSrc)}">
       ${navElements === navigationOptions[0] ? navigationWithTagGroup : ``}
       ${navElements === navigationOptions[1] ? navigationWithBreadcrumbs : ``}
-      <dds-leadspace-heading>${ifNonNull(title)}</dds-leadspace-heading>
+      <dds-leadspace-heading>${ifDefined(title)}</dds-leadspace-heading>
       <dds-background-media mobile-position="bottom" opacity="100">
         <dds-video-player-container
           video-id="1_9h94wo6b"
@@ -546,8 +546,8 @@ export const Centered = (args) => {
     <dds-leadspace size="${LEADSPACE_SIZE.NONE}" type="centered">
       ${navElements === navigationOptions[0] ? navigationWithTagGroup : ``}
       ${navElements === navigationOptions[1] ? navigationWithBreadcrumbs : ``}
-      <dds-leadspace-heading>${ifNonNull(title)}</dds-leadspace-heading>
-      ${ifNonNull(copy)}
+      <dds-leadspace-heading>${ifDefined(title)}</dds-leadspace-heading>
+      ${ifDefined(copy)}
       <dds-button-group slot="action">
         ${buttons.map((elem) => {
           return html`
@@ -570,14 +570,14 @@ export const CenteredWithImage = (args) => {
   return html`
     <dds-leadspace
       size="${LEADSPACE_SIZE.NONE}"
-      ?gradient="${ifNonNull(gradient)}"
-      alt="${ifNonNull(alt)}"
-      default-src="${ifNonNull(defaultSrc)}"
+      ?gradient="${ifDefined(gradient)}"
+      alt="${ifDefined(alt)}"
+      default-src="${ifDefined(defaultSrc)}"
       type="centered">
       ${navElements === navigationOptions[0] ? navigationWithTagGroup : ``}
       ${navElements === navigationOptions[1] ? navigationWithBreadcrumbs : ``}
-      <dds-leadspace-heading>${ifNonNull(title)}</dds-leadspace-heading>
-      ${ifNonNull(copy)}
+      <dds-leadspace-heading>${ifDefined(title)}</dds-leadspace-heading>
+      ${ifDefined(copy)}
       <dds-button-group slot="action">
         ${buttons.map((elem) => {
           return html`
@@ -591,7 +591,7 @@ export const CenteredWithImage = (args) => {
       </dds-button-group>
       <dds-background-media
         mobile-position="bottom"
-        alt="${ifNonNull(alt)}"
+        alt="${ifDefined(alt)}"
         default-src="${defaultSrc}"
         opacity="100">
         <dds-image-item media="(min-width: 1312px)" srcset="${image}">
@@ -617,14 +617,14 @@ export const CenteredWithVideo = (args) => {
   return html`
     <dds-leadspace
       size="${LEADSPACE_SIZE.NONE}"
-      ?gradient="${ifNonNull(gradient)}"
-      alt="${ifNonNull(alt)}"
-      default-src="${ifNonNull(defaultSrc)}"
+      ?gradient="${ifDefined(gradient)}"
+      alt="${ifDefined(alt)}"
+      default-src="${ifDefined(defaultSrc)}"
       type="centered">
       ${navElements === navigationOptions[0] ? navigationWithTagGroup : ``}
       ${navElements === navigationOptions[1] ? navigationWithBreadcrumbs : ``}
-      <dds-leadspace-heading>${ifNonNull(title)}</dds-leadspace-heading>
-      ${ifNonNull(copy)}
+      <dds-leadspace-heading>${ifDefined(title)}</dds-leadspace-heading>
+      ${ifDefined(copy)}
       <dds-button-group slot="action">
         ${buttons.map((elem) => {
           return html`

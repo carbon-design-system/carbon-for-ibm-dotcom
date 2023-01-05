@@ -9,7 +9,7 @@
 
 import { html } from 'lit';
 import ArrowRight20 from 'carbon-web-components/es/icons/arrow--right/20';
-import ifNonNull from 'carbon-web-components/es/globals/directives/if-non-null.js';
+import { ifDefined } from 'lit/directives/if-defined.js';
 import { select } from '@storybook/addon-knobs';
 import textNullable from '../../../../.storybook/knob-text-nullable';
 import '../index';
@@ -75,16 +75,16 @@ export const Default = (args) => {
           <dds-link-list type="vertical" slot="complementary">
             <dds-link-list-item-cta
               icon-placement="${iconPlacement}"
-              href="${ifNonNull(href)}"
-              cta-type="${ifNonNull(ctaType)}"
-              download="${ifNonNull(download)}">
+              href="${ifDefined(href)}"
+              cta-type="${ifDefined(ctaType)}"
+              download="${ifDefined(download)}">
               Learn more about Kubernetes
             </dds-link-list-item-cta>
             <dds-link-list-item-cta
               icon-placement="${iconPlacement}"
-              href="${ifNonNull(href)}"
-              cta-type="${ifNonNull(ctaType)}"
-              download="${ifNonNull(download)}">
+              href="${ifDefined(href)}"
+              cta-type="${ifDefined(ctaType)}"
+              download="${ifDefined(download)}">
               Containerization A Complete Guide
             </dds-link-list-item-cta>
           </dds-link-list>

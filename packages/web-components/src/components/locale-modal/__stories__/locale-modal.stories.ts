@@ -9,7 +9,7 @@
 
 import { html } from 'lit';
 import inPercy from '@percy-io/in-percy';
-import ifNonNull from '@carbon/web-components/es/globals/directives/if-non-null.js';
+import { ifDefined } from 'lit/directives/if-defined.js';
 import textNullable from '../../../../.storybook/knob-text-nullable';
 import localeData from './locale-data.json';
 import styles from './locale-modal.stories.scss';
@@ -25,16 +25,16 @@ export const Default = (args) => {
     ${useMock
       ? html`
           <dds-locale-modal-composite
-            lang-display="${ifNonNull(langDisplay)}"
+            lang-display="${ifDefined(langDisplay)}"
             open
-            .localeList="${ifNonNull(localeList)}">
+            .localeList="${ifDefined(localeList)}">
           </dds-locale-modal-composite>
         `
       : html`
           <dds-locale-modal-container
-            lang-display="${ifNonNull(langDisplay)}"
+            lang-display="${ifDefined(langDisplay)}"
             open
-            .localeList="${ifNonNull(localeList)}">
+            .localeList="${ifDefined(localeList)}">
           </dds-locale-modal-container>
         `}
   `;

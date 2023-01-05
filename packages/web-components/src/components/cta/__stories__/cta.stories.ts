@@ -17,7 +17,7 @@ import '../feature-cta-footer';
 import '../text-cta';
 import '../../button-group/index';
 import { html } from 'lit';
-import ifNonNull from 'carbon-web-components/es/globals/directives/if-non-null.js';
+import { ifDefined } from 'lit/directives/if-defined.js';
 import { select, boolean } from '@storybook/addon-knobs';
 import { icons as ctaIcons } from '../../../component-mixins/cta/cta';
 // eslint-disable-next-line sort-imports
@@ -44,11 +44,11 @@ export const Text = (args) => {
   } = args?.TextCTA ?? {};
   return html`
     <dds-text-cta
-      cta-type="${ifNonNull(ctaType)}"
-      video-name="${ifNonNull(customVideoTitle)}"
-      video-description="${ifNonNull(customVideoDescription)}"
-      download="${ifNonNull(download)}"
-      href="${ifNonNull(href)}">
+      cta-type="${ifDefined(ctaType)}"
+      video-name="${ifDefined(customVideoTitle)}"
+      video-description="${ifDefined(customVideoDescription)}"
+      download="${ifDefined(download)}"
+      href="${ifDefined(href)}">
       ${copy}
     </dds-text-cta>
   `;
@@ -127,16 +127,16 @@ export const Button = (args) => {
   return html`
     <dds-button-group>
       <dds-button-cta
-        cta-type="${ifNonNull(ctaType)}"
-        video-name="${ifNonNull(customVideoTitle)}"
-        video-description="${ifNonNull(customVideoDescription)}"
-        download="${ifNonNull(download)}"
+        cta-type="${ifDefined(ctaType)}"
+        video-name="${ifDefined(customVideoTitle)}"
+        video-description="${ifDefined(customVideoDescription)}"
+        download="${ifDefined(download)}"
         href="${href}">
         ${copy}
       </dds-button-cta>
       <dds-button-cta
-        cta-type="${ifNonNull(ctaType)}"
-        download="${ifNonNull(download)}"
+        cta-type="${ifDefined(ctaType)}"
+        download="${ifDefined(download)}"
         href="${href}"
         >${copy}</dds-button-cta
       >
@@ -221,21 +221,21 @@ export const Card = (args) => {
   } = args?.CardCTA ?? {};
   return html`
     <dds-card-cta
-      cta-type="${ifNonNull(ctaType)}"
-      video-name="${ifNonNull(customVideoTitle)}"
-      video-description="${ifNonNull(customVideoDescription)}"
-      download="${ifNonNull(download)}"
-      href="${ifNonNull(href)}"
+      cta-type="${ifDefined(ctaType)}"
+      video-name="${ifDefined(customVideoTitle)}"
+      video-description="${ifDefined(customVideoDescription)}"
+      download="${ifDefined(download)}"
+      href="${ifDefined(href)}"
       ?no-poster=${noPoster}
-      thumbnail="${ifNonNull(thumbnail)}">
+      thumbnail="${ifDefined(thumbnail)}">
       <dds-card-heading>${ctaType !== 'video' ? heading : ''}</dds-card-heading>
       ${ctaType !== 'video' ? copy : ''}
       <dds-card-cta-footer
-        cta-type="${ifNonNull(ctaType)}"
-        download="${ifNonNull(footerDownload)}"
-        video-name="${ifNonNull(customVideoTitle)}"
-        video-description="${ifNonNull(customVideoDescription)}"
-        href="${ifNonNull(footerHref)}">
+        cta-type="${ifDefined(ctaType)}"
+        download="${ifDefined(footerDownload)}"
+        video-name="${ifDefined(customVideoTitle)}"
+        video-description="${ifDefined(customVideoDescription)}"
+        href="${ifDefined(footerHref)}">
         ${footerCopy || ctaIcons[ctaType]({ slot: 'icon' })}
       </dds-card-cta-footer>
     </dds-card-cta>
@@ -312,21 +312,21 @@ export const CardLink = (args) => {
   } = args?.CardCTA ?? {};
   return html`
     <dds-card-link-cta
-      cta-type="${ifNonNull(ctaType)}"
-      video-name="${ifNonNull(customVideoTitle)}"
-      video-description="${ifNonNull(customVideoDescription)}"
-      download="${ifNonNull(download)}"
-      href="${ifNonNull(href)}">
+      cta-type="${ifDefined(ctaType)}"
+      video-name="${ifDefined(customVideoTitle)}"
+      video-description="${ifDefined(customVideoDescription)}"
+      download="${ifDefined(download)}"
+      href="${ifDefined(href)}">
       <dds-card-link-heading
         >${ctaType !== 'video' ? heading : ''}</dds-card-link-heading
       >
       ${copy ? html` <p>${copy}</p> ` : ``}
       <dds-card-cta-footer
-        cta-type="${ifNonNull(ctaType)}"
-        download="${ifNonNull(footerDownload)}"
-        video-name="${ifNonNull(customVideoTitle)}"
-        video-description="${ifNonNull(customVideoDescription)}"
-        href="${ifNonNull(footerHref)}">
+        cta-type="${ifDefined(ctaType)}"
+        download="${ifDefined(footerDownload)}"
+        video-name="${ifDefined(customVideoTitle)}"
+        video-description="${ifDefined(customVideoDescription)}"
+        href="${ifDefined(footerHref)}">
         ${footerCopy || ctaIcons[ctaType]({ slot: 'icon' })}
       </dds-card-cta-footer>
     </dds-card-link-cta>
@@ -432,11 +432,11 @@ export const Feature = (args) => {
     args?.FeatureCTAFooter ?? {};
   return html`
     <dds-feature-cta
-      cta-type="${ifNonNull(ctaType)}"
-      video-name="${ifNonNull(customVideoTitle)}"
-      video-description="${ifNonNull(customVideoDescription)}"
-      download="${ifNonNull(download)}"
-      href="${ifNonNull(href)}"
+      cta-type="${ifDefined(ctaType)}"
+      video-name="${ifDefined(customVideoTitle)}"
+      video-description="${ifDefined(customVideoDescription)}"
+      download="${ifDefined(download)}"
+      href="${ifDefined(href)}"
       ?no-poster=${noPoster}>
       <dds-card-heading>${heading}</dds-card-heading>
       ${ctaType !== CTA_TYPE.VIDEO || customThumbnail
@@ -450,11 +450,11 @@ export const Feature = (args) => {
         : ''}
 
       <dds-feature-cta-footer
-        cta-type="${ifNonNull(ctaType)}"
-        download="${ifNonNull(footerDownload)}"
-        video-name="${ifNonNull(customVideoTitle)}"
-        video-description="${ifNonNull(customVideoDescription)}"
-        href="${ifNonNull(footerHref)}">
+        cta-type="${ifDefined(ctaType)}"
+        download="${ifDefined(footerDownload)}"
+        video-name="${ifDefined(customVideoTitle)}"
+        video-description="${ifDefined(customVideoDescription)}"
+        href="${ifDefined(footerHref)}">
       </dds-feature-cta-footer>
     </dds-feature-cta>
   `;

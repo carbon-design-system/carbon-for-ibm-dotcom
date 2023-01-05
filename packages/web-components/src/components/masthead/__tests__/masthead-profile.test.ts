@@ -8,7 +8,7 @@
  */
 
 import { html, render } from 'lit/html.js';
-import ifNonNull from 'carbon-web-components/es/globals/directives/if-non-null.js';
+import { ifDefined } from 'lit/directives/if-defined.js';
 import User20 from 'carbon-web-components/es/icons/user/20.js';
 import UserOnline20 from 'carbon-web-components/es/icons/user--online/20.js';
 import DDSMastheadProfile from '../masthead-profile';
@@ -19,7 +19,7 @@ const template = (props?) => {
     <dds-masthead-profile
       ?authenticated="${authenticated}"
       ?expanded="${expanded}"
-      menu-label="${ifNonNull(menuLabel)}"></dds-masthead-profile>
+      menu-label="${ifDefined(menuLabel)}"></dds-masthead-profile>
   `;
 };
 

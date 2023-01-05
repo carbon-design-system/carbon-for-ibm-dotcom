@@ -10,7 +10,7 @@
 import { html } from 'lit';
 import { select } from '@storybook/addon-knobs';
 import on from 'carbon-components/es/globals/js/misc/on.js';
-import ifNonNull from '@carbon/web-components/es/globals/directives/if-non-null.js';
+import { ifDefined } from 'lit/directives/if-defined.js';
 import inPercy from '@percy-io/in-percy';
 import DDSLeftNav from '../left-nav';
 import '../masthead-container';
@@ -68,31 +68,31 @@ export const Default = (args) => {
       ? html`
           <dds-cloud-masthead-composite
             platform="Cloud"
-            .platformUrl="${ifNonNull(platformData.url)}"
-            selected-menu-item="${ifNonNull(selectedMenuItem)}"
+            .platformUrl="${ifDefined(platformData.url)}"
+            selected-menu-item="${ifDefined(selectedMenuItem)}"
             has-contact="${hasContact}"
             auth-method="${authMethod}"
-            redirect-path="${ifNonNull(redirectPath)}"
-            user-status="${ifNonNull(userStatus)}"
-            searchPlaceholder="${ifNonNull(searchPlaceholder)}"
-            .authenticatedProfileItems="${ifNonNull(authenticatedProfileItems)}"
+            redirect-path="${ifDefined(redirectPath)}"
+            user-status="${ifDefined(userStatus)}"
+            searchPlaceholder="${ifDefined(searchPlaceholder)}"
+            .authenticatedProfileItems="${ifDefined(authenticatedProfileItems)}"
             has-profile="${hasProfile}"
             ?has-search="${hasSearch}"
             .navLinks="${navLinks}"
-            .unauthenticatedProfileItems="${ifNonNull(
+            .unauthenticatedProfileItems="${ifDefined(
               unauthenticatedProfileItems
             )}"></dds-cloud-masthead-composite>
         `
       : html`
           <dds-cloud-masthead-container
             platform="Cloud"
-            .platformUrl="${ifNonNull(urlObject)}"
-            selected-menu-item="${ifNonNull(selectedMenuItem)}"
+            .platformUrl="${ifDefined(urlObject)}"
+            selected-menu-item="${ifDefined(selectedMenuItem)}"
             has-contact="${hasContact}"
             auth-method="${authMethod}"
-            redirect-path="${ifNonNull(redirectPath)}"
-            user-status="${ifNonNull(userStatus)}"
-            searchPlaceholder="${ifNonNull(searchPlaceholder)}"
+            redirect-path="${ifDefined(redirectPath)}"
+            user-status="${ifDefined(userStatus)}"
+            searchPlaceholder="${ifDefined(searchPlaceholder)}"
             .navLinks="${navLinks}"
             has-profile="${hasProfile}"
             ?has-search="${hasSearch}"

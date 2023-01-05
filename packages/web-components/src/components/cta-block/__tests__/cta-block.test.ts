@@ -8,7 +8,7 @@
  */
 
 import { html, render } from 'lit/html.js';
-import ifNonNull from 'carbon-web-components/es/globals/directives/if-non-null.js';
+import { ifDefined } from 'lit/directives/if-defined.js';
 import '../cta-block';
 
 const template = (props?) => {
@@ -16,9 +16,9 @@ const template = (props?) => {
   return html`
     <dds-cta-block>
       <dds-content-block-heading
-        >${ifNonNull(heading)}</dds-content-block-heading
+        >${ifDefined(heading)}</dds-content-block-heading
       >
-      <dds-cta-block-copy>${ifNonNull(copy)}</dds-cta-block-copy>
+      <dds-cta-block-copy>${ifDefined(copy)}</dds-cta-block-copy>
       ${children}
     </dds-cta-block>
   `;

@@ -9,7 +9,7 @@
 
 import { html } from 'lit';
 import { customElement, property } from 'lit/decorators.js';
-import ifNonNull from 'carbon-web-components/es/globals/directives/if-non-null.js';
+import { ifDefined } from 'lit/directives/if-defined.js';
 import ddsSettings from '../../../internal/vendor/@carbon/ibmdotcom-utilities/utilities/settings/settings';
 import { globalInit } from '../../../internal/vendor/@carbon/ibmdotcom-services/services/global/global';
 import './cloud-button-cta';
@@ -117,8 +117,8 @@ class DDSCloudMastheadComposite extends DDSMastheadComposite {
     return html`
       <dds-cloud-megamenu>
         <dds-cloud-megamenu-left-navigation
-          view-all-href="${ifNonNull(viewAllLink?.url)}"
-          view-all-title="${ifNonNull(viewAllLink?.title)}">
+          view-all-href="${ifDefined(viewAllLink?.url)}"
+          view-all-title="${ifDefined(viewAllLink?.title)}">
           <dds-cloud-megamenu-tabs value="${sortedMenuItems[0]?.title}">
             ${sortedMenuItems.map((item) => {
               return html`
@@ -263,10 +263,10 @@ class DDSCloudMastheadComposite extends DDSMastheadComposite {
     return html`
       <dds-left-nav-menu-section
         section-id="${sectionId}"
-        ?is-submenu=${ifNonNull(isSubmenu)}
-        title=${ifNonNull(sectionTitle)}
-        titleUrl=${ifNonNull(sectionUrl)}
-        ?show-back-button=${ifNonNull(showBackButton)}>
+        ?is-submenu=${ifDefined(isSubmenu)}
+        title=${ifDefined(sectionTitle)}
+        titleUrl=${ifDefined(sectionUrl)}
+        ?show-back-button=${ifDefined(showBackButton)}>
         ${items}
       </dds-left-nav-menu-section>
     `;
@@ -334,7 +334,7 @@ class DDSCloudMastheadComposite extends DDSMastheadComposite {
         ${!platform
           ? undefined
           : html`
-              <dds-left-nav-name href="${ifNonNull(platformAltUrl)}"
+              <dds-left-nav-name href="${ifDefined(platformAltUrl)}"
                 >${platform}</dds-left-nav-name
               >
             `}
@@ -344,18 +344,18 @@ class DDSCloudMastheadComposite extends DDSMastheadComposite {
           hasL1: !!l1Data,
         })}
       </dds-left-nav>
-      <dds-masthead aria-label="${ifNonNull(mastheadAssistiveText)}">
+      <dds-masthead aria-label="${ifDefined(mastheadAssistiveText)}">
         <dds-masthead-menu-button
           cloud
-          button-label-active="${ifNonNull(menuButtonAssistiveTextActive)}"
-          button-label-inactive="${ifNonNull(menuButtonAssistiveTextInactive)}">
+          button-label-active="${ifDefined(menuButtonAssistiveTextActive)}"
+          button-label-inactive="${ifDefined(menuButtonAssistiveTextInactive)}">
         </dds-masthead-menu-button>
 
         ${this._renderLogo()}
         ${!platform
           ? undefined
           : html`
-              <dds-cloud-top-nav-name href="${ifNonNull(platformAltUrl)}"
+              <dds-cloud-top-nav-name href="${ifDefined(platformAltUrl)}"
                 >${platform}</dds-cloud-top-nav-name
               >
             `}
@@ -364,7 +364,7 @@ class DDSCloudMastheadComposite extends DDSMastheadComposite {
           : html`
               <dds-top-nav
                 cloud
-                menu-bar-label="${ifNonNull(menuBarAssistiveText)}">
+                menu-bar-label="${ifDefined(menuBarAssistiveText)}">
                 ${this._renderNavItems({
                   selectedMenuItem,
                   target: NAV_ITEMS_RENDER_TARGET.TOP_NAV,
@@ -375,9 +375,9 @@ class DDSCloudMastheadComposite extends DDSMastheadComposite {
         <dds-search-with-typeahead
           ?active="${activateSearch}"
           input-timeout="${inputTimeout}"
-          language="${ifNonNull(language)}"
+          language="${ifDefined(language)}"
           ?open="${openSearchDropdown}"
-          placeholder="${ifNonNull(
+          placeholder="${ifDefined(
             searchPlaceholder
           )}"></dds-search-with-typeahead>
         ${authenticated
@@ -388,7 +388,7 @@ class DDSCloudMastheadComposite extends DDSMastheadComposite {
                     ({ title, url }) =>
                       html`
                         <dds-cloud-button-cta
-                          href="${ifNonNull(url)}"
+                          href="${ifDefined(url)}"
                           kind="ghost"
                           >${title}</dds-cloud-button-cta
                         >
@@ -410,7 +410,7 @@ class DDSCloudMastheadComposite extends DDSMastheadComposite {
                   ({ title, url }) =>
                     html`
                       <dds-cloud-button-cta
-                        href="${ifNonNull(url)}"
+                        href="${ifDefined(url)}"
                         class="console"
                         kind="ghost"
                         >${title}</dds-cloud-button-cta
@@ -438,12 +438,12 @@ class DDSCloudMastheadComposite extends DDSMastheadComposite {
                       <dds-cloud-button-cta
                         href="${url === 'https://cloud.ibm.com/login' &&
                         this.redirectPath
-                          ? ifNonNull(
+                          ? ifDefined(
                               `${url}?redirect=${encodeURIComponent(
                                 this.redirectPath
                               )}`
                             )
-                          : ifNonNull(url)}"
+                          : ifDefined(url)}"
                         kind="ghost"
                         >${title}</dds-cloud-button-cta
                       >
@@ -453,7 +453,7 @@ class DDSCloudMastheadComposite extends DDSMastheadComposite {
                   ({ title, url }) =>
                     html`
                       <dds-cloud-button-cta
-                        href="${ifNonNull(url)}"
+                        href="${ifDefined(url)}"
                         kind="primary"
                         >${title}</dds-cloud-button-cta
                       >

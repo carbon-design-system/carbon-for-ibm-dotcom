@@ -9,7 +9,7 @@
 
 import { LitElement, html } from 'lit';
 import { customElement, property } from 'lit/decorators.js';
-import ifNonNull from 'carbon-web-components/es/globals/directives/if-non-null.js';
+import { ifDefined } from 'lit/directives/if-defined.js';
 import LocaleAPI from '@carbon/ibmdotcom-services/es/services/Locale/Locale.js';
 import ddsSettings from '../../internal/vendor/@carbon/ibmdotcom-utilities/utilities/settings/settings';
 import altlangs from '../../internal/vendor/@carbon/ibmdotcom-utilities/utilities/altlangs/altlangs.js';
@@ -170,11 +170,11 @@ class DDSLocaleModalComposite extends HybridRenderMixin(LitElement) {
 
     return html`
       <dds-locale-modal
-        close-button-assistive-text="${ifNonNull(modalClose)}"
-        header-title="${ifNonNull(headerTitle)}"
-        lang-display="${ifNonNull(langDisplay)}"
+        close-button-assistive-text="${ifDefined(modalClose)}"
+        header-title="${ifDefined(headerTitle)}"
+        lang-display="${ifDefined(langDisplay)}"
         ?open="${open}">
-        <dds-regions title="${ifNonNull(headerTitle)}">
+        <dds-regions title="${ifDefined(headerTitle)}">
           ${regionList?.map(({ countryList, name }) => {
             return html`
               <dds-region-item
@@ -186,11 +186,11 @@ class DDSLocaleModalComposite extends HybridRenderMixin(LitElement) {
           })}
         </dds-regions>
         <dds-locale-search
-          close-button-assistive-text="${ifNonNull(searchClearText)}"
-          label-text="${ifNonNull(searchLabel)}"
-          placeholder="${ifNonNull(searchPlaceholder)}"
-          availability-label-text="${ifNonNull(availabilityText)}"
-          unavailability-label-text="${ifNonNull(unavailabilityText)}">
+          close-button-assistive-text="${ifDefined(searchClearText)}"
+          label-text="${ifDefined(searchLabel)}"
+          placeholder="${ifDefined(searchPlaceholder)}"
+          availability-label-text="${ifDefined(availabilityText)}"
+          unavailability-label-text="${ifDefined(unavailabilityText)}">
           ${massagedCountryList?.map(
             ({ country, href, language, locale, region }) => html`
               <dds-locale-item

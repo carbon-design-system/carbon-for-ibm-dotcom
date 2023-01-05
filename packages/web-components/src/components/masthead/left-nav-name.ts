@@ -10,8 +10,8 @@
 import { html } from 'lit';
 import { customElement, property } from 'lit/decorators.js';
 import settings from 'carbon-components/es/globals/js/settings.js';
-import ifNonNull from '@carbon/web-components/es/globals/directives/if-non-null.js';
-import BXHeaderName from '@carbon/web-components/es/components/ui-shell/header-name.js';
+import { ifDefined } from 'lit/directives/if-defined.js';
+import BXHeaderName from 'carbon-web-components/es/components/ui-shell/header-name.js';
 import ddsSettings from '../../internal/vendor/@carbon/ibmdotcom-utilities/utilities/settings/settings';
 import styles from './masthead.scss';
 import DDSLeftNav from './left-nav';
@@ -50,7 +50,7 @@ class DDSLeftNavName extends BXHeaderName {
     return html`
       <a
         class="${prefix}--side-nav__submenu ${prefix}--side-nav__submenu-platform"
-        href="${ifNonNull(href)}">
+        href="${ifDefined(href)}">
         ${namePrefixPart}
         <slot></slot>
       </a>

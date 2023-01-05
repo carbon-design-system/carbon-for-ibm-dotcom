@@ -11,8 +11,8 @@ import { LitElement, html } from 'lit';
 import { customElement, property } from 'lit/decorators.js';
 import { classMap } from 'lit/directives/class-map.js';
 import settings from 'carbon-components/es/globals/js/settings.js';
-import ifNonNull from '@carbon/web-components/es/globals/directives/if-non-null.js';
-import FocusMixin from '@carbon/web-components/es/globals/mixins/focus.js';
+import { ifDefined } from 'lit/directives/if-defined.js';
+import FocusMixin from 'carbon-web-components/es/globals/mixins/focus.js';
 import PlayVideo from '@carbon/ibmdotcom-styles/icons/svg/play-video.svg';
 import {
   formatVideoCaption,
@@ -85,7 +85,7 @@ class DDSVideoPlayer extends FocusMixin(
             <button
               class="${prefix}--video-player__image-overlay"
               @click="${this._handleClickOverlay}">
-              <dds-image default-src="${thumbnailUrl}" alt="${ifNonNull(name)}">
+              <dds-image default-src="${thumbnailUrl}" alt="${ifDefined(name)}">
                 ${PlayVideo({ slot: 'icon' })}
               </dds-image>
             </button>

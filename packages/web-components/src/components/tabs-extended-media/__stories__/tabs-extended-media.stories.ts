@@ -8,7 +8,7 @@
  */
 
 import { html } from 'lit';
-import ifNonNull from 'carbon-web-components/es/globals/directives/if-non-null.js';
+import { ifDefined } from 'lit/directives/if-defined.js';
 import { boolean, select } from '@storybook/addon-knobs';
 import readme from './README.stories.mdx';
 import '../index';
@@ -79,7 +79,7 @@ export const Default = (args) => {
   return html`
     <dds-tabs-extended-media section-heading=${sectionHeading}>
       <dds-content-section-heading
-        >${ifNonNull(sectionHeadingText)}</dds-content-section-heading
+        >${ifDefined(sectionHeadingText)}</dds-content-section-heading
       >
       ${tabs}
     </dds-tabs-extended-media>

@@ -11,14 +11,14 @@ import { LitElement, html } from 'lit';
 import { customElement, property } from 'lit/decorators.js';
 import settings from 'carbon-components/es/globals/js/settings.js';
 import on from 'carbon-components/es/globals/js/misc/on.js';
-import ifNonNull from '@carbon/web-components/es/globals/directives/if-non-null.js';
-import FocusMixin from '@carbon/web-components/es/globals/mixins/focus.js';
+import { ifDefined } from 'lit/directives/if-defined.js';
+import FocusMixin from 'carbon-web-components/es/globals/mixins/focus.js';
 import '../expressive-modal/expressive-modal';
 import '../expressive-modal/expressive-modal-close-button';
 import '../image/image';
 import '../lightbox-media-viewer/lightbox-image-viewer';
 import '../button/button';
-import ZoomIn20 from '@carbon/web-components/es/icons/zoom--in/20.js';
+import ZoomIn20 from 'carbon-web-components/es/icons/zoom--in/20.js';
 import deprecate from '../../internal/vendor/@carbon/ibmdotcom-utilities/utilities/deprecate/deprecate';
 import ddsSettings from '../../internal/vendor/@carbon/ibmdotcom-utilities/utilities/settings/settings';
 import styles from './image-with-caption.scss';
@@ -140,11 +140,11 @@ class DDSImageWithCaption extends StableSelectorMixin(
         ? html`
             <button
               class="${prefix}--image-with-caption__image"
-              aria-label="${ifNonNull(launchLightboxButtonAssistiveText)}"
+              aria-label="${ifDefined(launchLightboxButtonAssistiveText)}"
               @click="${handleClick}">
               <dds-image
-                alt="${ifNonNull(alt)}"
-                default-src="${ifNonNull(defaultSrc)}"
+                alt="${ifDefined(alt)}"
+                default-src="${ifDefined(defaultSrc)}"
                 ><slot></slot
               ></dds-image>
               <div class="${prefix}--image-with-caption__zoom-button">
@@ -154,8 +154,8 @@ class DDSImageWithCaption extends StableSelectorMixin(
           `
         : html`
             <dds-image
-              alt="${ifNonNull(alt)}"
-              default-src="${ifNonNull(defaultSrc)}"
+              alt="${ifDefined(alt)}"
+              default-src="${ifDefined(defaultSrc)}"
               ><slot></slot
             ></dds-image>
           `}
@@ -171,10 +171,10 @@ class DDSImageWithCaption extends StableSelectorMixin(
           <dds-expressive-modal ?open="${open}" expressive-size="full-width">
             <dds-expressive-modal-close-button></dds-expressive-modal-close-button>
             <dds-lightbox-image-viewer
-              alt="${ifNonNull(alt)}"
-              default-src="${ifNonNull(defaultSrc)}"
-              description="${ifNonNull(copy)}"
-              title="${ifNonNull(heading)}">
+              alt="${ifDefined(alt)}"
+              default-src="${ifDefined(defaultSrc)}"
+              description="${ifDefined(copy)}"
+              title="${ifDefined(heading)}">
             </dds-lightbox-image-viewer>
           </dds-expressive-modal>
         `;

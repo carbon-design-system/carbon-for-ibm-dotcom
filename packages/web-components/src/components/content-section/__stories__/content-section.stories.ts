@@ -9,7 +9,7 @@
 
 import { html } from 'lit';
 import ArrowRight20 from 'carbon-web-components/es/icons/arrow--right/20';
-import ifNonNull from 'carbon-web-components/es/globals/directives/if-non-null.js';
+import { ifDefined } from 'lit/directives/if-defined.js';
 import { optionsKnob } from '@storybook/addon-knobs';
 import '../index';
 import '../../cta/text-cta';
@@ -60,9 +60,9 @@ export const Default = (args) => {
   return html`
     <dds-content-section children-custom-class="bx--col-lg-8 bx--no-gutter">
       <dds-content-section-heading
-        >${ifNonNull(heading)}</dds-content-section-heading
+        >${ifDefined(heading)}</dds-content-section-heading
       >
-      <dds-content-section-copy>${ifNonNull(copy)}</dds-content-section-copy>
+      <dds-content-section-copy>${ifDefined(copy)}</dds-content-section-copy>
       ${addChildren.includes('Content block simple')
         ? html`
             <dds-content-block-simple>

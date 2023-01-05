@@ -8,7 +8,7 @@
  */
 
 import { html, render } from 'lit/html.js';
-import ifNonNull from 'carbon-web-components/es/globals/directives/if-non-null.js';
+import { ifDefined } from 'lit/directives/if-defined.js';
 import { BASIC_COLOR_SCHEME } from '../../../globals/defs';
 import '../content-item';
 import '../content-item-copy';
@@ -16,7 +16,7 @@ import '../content-item-copy';
 const template = (props?) => {
   const { colorScheme, children } = props ?? {};
   return html`
-    <dds-content-item color-scheme="${ifNonNull(colorScheme)}">
+    <dds-content-item color-scheme="${ifDefined(colorScheme)}">
       ${children}
     </dds-content-item>
   `;

@@ -11,7 +11,7 @@ import { LitElement, html } from 'lit';
 import { customElement, property } from 'lit/decorators.js';
 import EarthFilled16 from 'carbon-web-components/es/icons/earth--filled/16.js';
 import FocusMixin from 'carbon-web-components/es/globals/mixins/focus.js';
-import ifNonNull from 'carbon-web-components/es/globals/directives/if-non-null.js';
+import { ifDefined } from 'lit/directives/if-defined.js';
 import settings from 'carbon-components/es/globals/js/settings.js';
 import ddsSettings from '../../internal/vendor/@carbon/ibmdotcom-utilities/utilities/settings/settings';
 import { FOOTER_SIZE } from './footer';
@@ -61,7 +61,7 @@ class DDSLocaleButton extends StableSelectorMixin(FocusMixin(LitElement)) {
       <button
         id="button"
         class="${prefix}--btn ${prefix}--btn--tertiary ${prefix}--locale-btn"
-        aria-label="${ifNonNull(buttonLabel)}">
+        aria-label="${ifDefined(buttonLabel)}">
         <slot></slot>
         ${EarthFilled16()}
       </button>

@@ -8,7 +8,7 @@
  */
 
 import { html, render } from 'lit/html.js';
-import ifNonNull from 'carbon-web-components/es/globals/directives/if-non-null.js';
+import { ifDefined } from 'lit/directives/if-defined.js';
 import DDSLightboxVideoPlayer from '../lightbox-video-player';
 import DDSLightboxVideoPlayerComposite from '../lightbox-video-player-composite';
 // Above import is interface-only ref and thus code won't be brought into the build
@@ -26,11 +26,11 @@ const template = (props?) => {
   return html`
     <dds-lightbox-video-player-composite
       ?hide-caption="${hideCaption}"
-      video-id="${ifNonNull(videoId)}"
-      .embeddedVideos="${ifNonNull(embeddedVideos)}"
-      .formatCaption="${ifNonNull(formatCaption)}"
-      .formatDuration="${ifNonNull(formatDuration)}"
-      .mediaData="${ifNonNull(mediaData)}">
+      video-id="${ifDefined(videoId)}"
+      .embeddedVideos="${ifDefined(embeddedVideos)}"
+      .formatCaption="${ifDefined(formatCaption)}"
+      .formatDuration="${ifDefined(formatDuration)}"
+      .mediaData="${ifDefined(mediaData)}">
     </dds-lightbox-video-player-composite>
   `;
 };

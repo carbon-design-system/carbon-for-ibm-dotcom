@@ -8,14 +8,14 @@
  */
 
 import { html, render } from 'lit/html.js';
-import ifNonNull from 'carbon-web-components/es/globals/directives/if-non-null.js';
+import { ifDefined } from 'lit/directives/if-defined.js';
 import '../footer-nav-item';
 
 const template = (props?) => {
   const { titleText } = props ?? {};
   return html`
     <dds-footer-nav-item
-      title-text="${ifNonNull(titleText)}"></dds-footer-nav-item>
+      title-text="${ifDefined(titleText)}"></dds-footer-nav-item>
   `;
 };
 

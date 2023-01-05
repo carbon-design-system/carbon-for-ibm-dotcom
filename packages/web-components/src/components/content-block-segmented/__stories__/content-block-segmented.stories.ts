@@ -12,7 +12,7 @@ import '../../video-player/video-player-container';
 import '../../link-list/index';
 import '../../cta/index';
 import { html } from 'lit';
-import ifNonNull from 'carbon-web-components/es/globals/directives/if-non-null.js';
+import { ifDefined } from 'lit/directives/if-defined.js';
 import { select } from '@storybook/addon-knobs';
 // eslint-disable-next-line sort-imports
 import { CTA_STYLE, CTA_TYPE } from '../../cta/defs';
@@ -95,7 +95,7 @@ export const Default = (args) => {
 
   return html`
     <dds-content-block-segmented
-      complementary-style-scheme="${ifNonNull(complementaryStyleScheme)}">
+      complementary-style-scheme="${ifDefined(complementaryStyleScheme)}">
       <dds-content-block-heading>${heading}</dds-content-block-heading>
       <dds-content-block-copy>${copy}</dds-content-block-copy>
       ${image}
@@ -167,7 +167,7 @@ export const withLinkList = (args) => {
 
   return html`
     <dds-content-block-segmented
-      complementary-style-scheme="${ifNonNull(complementaryStyleScheme)}">
+      complementary-style-scheme="${ifDefined(complementaryStyleScheme)}">
       <dds-content-block-heading>${blockHeading}</dds-content-block-heading>
       <dds-content-block-copy>${copy}</dds-content-block-copy>
       ${image}

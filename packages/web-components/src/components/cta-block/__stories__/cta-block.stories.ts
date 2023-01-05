@@ -11,7 +11,7 @@ import { boolean, number, select } from '@storybook/addon-knobs';
 import ArrowRight20 from 'carbon-web-components/es/icons/arrow--right/20';
 import Launch20 from 'carbon-web-components/es/icons/launch/20';
 import { html } from 'lit';
-import ifNonNull from 'carbon-web-components/es/globals/directives/if-non-null.js';
+import { ifDefined } from 'lit/directives/if-defined.js';
 import readme from './README.stories.mdx';
 import styles from './cta-block.stories.scss';
 import textNullable from '../../../../.storybook/knob-text-nullable';
@@ -106,7 +106,7 @@ export const Default = (args) => {
   return html`
     <dds-cta-block ?no-border=${!border}>
       <dds-content-block-heading
-        >${ifNonNull(heading)}</dds-content-block-heading
+        >${ifDefined(heading)}</dds-content-block-heading
       >
       <dds-content-block-copy>${copy}</dds-content-block-copy>
       ${renderCTA[cta](renderIcon, target)}
@@ -128,9 +128,9 @@ export const WithContentItems = (args) => {
   return html`
     <dds-cta-block ?no-border=${!border}>
       <dds-content-block-heading
-        >${ifNonNull(heading)}</dds-content-block-heading
+        >${ifDefined(heading)}</dds-content-block-heading
       >
-      <dds-content-block-copy>${ifNonNull(copy)}</dds-content-block-copy>
+      <dds-content-block-copy>${ifDefined(copy)}</dds-content-block-copy>
       ${renderCTA[cta](renderIcon, target)}
       ${renderItems(contentItemType, contentItemCount)}
     </dds-cta-block>
@@ -172,9 +172,9 @@ export const WithLinkList = (args) => {
   return html`
     <dds-cta-block ?no-border=${!border}>
       <dds-content-block-heading
-        >${ifNonNull(heading)}</dds-content-block-heading
+        >${ifDefined(heading)}</dds-content-block-heading
       >
-      <dds-content-block-copy>${ifNonNull(copy)}</dds-content-block-copy>
+      <dds-content-block-copy>${ifDefined(copy)}</dds-content-block-copy>
 
       ${renderCTA[cta](renderIcon, target)}
 

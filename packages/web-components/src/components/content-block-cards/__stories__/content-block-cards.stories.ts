@@ -9,7 +9,7 @@
 
 import '../index';
 import { html } from 'lit';
-import ifNonNull from 'carbon-web-components/es/globals/directives/if-non-null.js';
+import { ifDefined } from 'lit/directives/if-defined.js';
 import { select } from '@storybook/addon-knobs';
 // eslint-disable-next-line sort-imports
 import { CTA_TYPE } from '../../cta/defs';
@@ -67,8 +67,8 @@ export const Default = (args) => {
       </dds-card-group>
       <dds-card-link-cta
         slot="footer"
-        cta-type="${ifNonNull(ctaType)}"
-        href="${ifNonNull(href)}">
+        cta-type="${ifDefined(ctaType)}"
+        href="${ifDefined(href)}">
         <dds-card-link-heading>${ctaCopy}</dds-card-link-heading>
         <dds-card-cta-footer></dds-card-cta-footer>
       </dds-card-link-cta>
@@ -88,8 +88,8 @@ export const withImages = (args) => {
       </dds-card-group>
       <dds-card-link-cta
         slot="footer"
-        cta-type="${ifNonNull(ctaType)}"
-        href="${ifNonNull(href)}">
+        cta-type="${ifDefined(ctaType)}"
+        href="${ifDefined(href)}">
         <dds-card-link-heading>${ctaCopy}</dds-card-link-heading>
         <dds-card-cta-footer></dds-card-cta-footer>
       </dds-card-link-cta>
@@ -113,8 +113,8 @@ export const withVideos = (args) => {
       </dds-card-group>
       <dds-card-link-cta
         slot="footer"
-        cta-type="${ifNonNull(ctaType)}"
-        href="${ifNonNull(href)}">
+        cta-type="${ifDefined(ctaType)}"
+        href="${ifDefined(href)}">
         <dds-card-link-heading>${ctaCopy}</dds-card-link-heading>
         <dds-card-cta-footer></dds-card-cta-footer>
       </dds-card-link-cta>

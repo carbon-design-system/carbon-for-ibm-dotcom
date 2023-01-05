@@ -14,7 +14,7 @@ import '../index';
 import { boolean, select } from '@storybook/addon-knobs';
 import ArrowRight20 from 'carbon-web-components/es/icons/arrow--right/20';
 import { html } from 'lit';
-import ifNonNull from 'carbon-web-components/es/globals/directives/if-non-null.js';
+import { ifDefined } from 'lit/directives/if-defined.js';
 import imgXlg4x3 from '../../../../../storybook-images/assets/1312/fpo--4x3--1312x984--003.jpg';
 import logoMicrosoft2x1 from '../../../../../storybook-images/assets/logos/logo-microsoft--2x1.png';
 import { PICTOGRAM_PLACEMENT } from '../defs';
@@ -50,13 +50,13 @@ export const Default = (args) => {
         ? 'light'
         : ''}
       ?border=${cardStyles === 'Outlined card'}
-      href=${ifNonNull(href || undefined)}>
+      href=${ifDefined(href || undefined)}>
       ${image
         ? html`
             <dds-image
               slot="image"
-              alt="${ifNonNull(alt)}"
-              default-src="${ifNonNull(defaultSrc)}"></dds-image>
+              alt="${ifDefined(alt)}"
+              default-src="${ifDefined(defaultSrc)}"></dds-image>
           `
         : ``}
       <dds-card-eyebrow>${eyebrow}</dds-card-eyebrow>
@@ -122,7 +122,7 @@ export const Pictogram = (args) => {
   return html`
     <dds-card
       pictogram-placement="${pictogramPlacement}"
-      href=${ifNonNull(href || undefined)}
+      href=${ifDefined(href || undefined)}
       color-scheme=${cardStyles === 'Inverse card'
         ? 'inverse'
         : cardStyles === 'Outlined card'
@@ -226,8 +226,8 @@ export const Static = (args) => {
         ? html`
             <dds-image
               slot="image"
-              alt="${ifNonNull(alt)}"
-              default-src="${ifNonNull(defaultSrc)}"></dds-image>
+              alt="${ifDefined(alt)}"
+              default-src="${ifDefined(defaultSrc)}"></dds-image>
           `
         : ``}
       ${eyebrow ? html` <dds-card-eyebrow>${eyebrow}</dds-card-eyebrow> ` : ``}
@@ -302,11 +302,11 @@ export const Logo = (args) => {
   const { alt, defaultSrc, eyebrow, heading, href, copy, tagGroup } =
     args?.Card ?? {};
   return html`
-    <dds-card border logo href=${ifNonNull(href || undefined)}>
+    <dds-card border logo href=${ifDefined(href || undefined)}>
       <dds-image-logo
         slot="image"
-        alt="${ifNonNull(alt)}"
-        default-src="${ifNonNull(defaultSrc)}"></dds-image-logo>
+        alt="${ifDefined(alt)}"
+        default-src="${ifDefined(defaultSrc)}"></dds-image-logo>
       ${eyebrow ? html` <dds-card-eyebrow>${eyebrow}</dds-card-eyebrow> ` : ``}
       ${heading ? html` <dds-card-heading>${heading}</dds-card-heading> ` : ``}
       ${copy ? html` <p>${copy}</p> ` : ``}

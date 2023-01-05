@@ -10,7 +10,7 @@
 import { html } from 'lit';
 import { customElement } from 'lit/decorators.js';
 import settings from 'carbon-components/es/globals/js/settings.js';
-import ifNonNull from '@carbon/web-components/es/globals/directives/if-non-null.js';
+import { ifDefined } from 'lit/directives/if-defined.js';
 import ddsSettings from '../../internal/vendor/@carbon/ibmdotcom-utilities/utilities/settings/settings';
 import DDSMastheadTopNav from './top-nav';
 import DDSLeftNavName from './left-nav-name';
@@ -53,7 +53,7 @@ class DDSTopNavName extends DDSLeftNavName {
           >&nbsp;
         `;
     return html`
-      <a class="${prefix}--header__name" href="${ifNonNull(href)}"
+      <a class="${prefix}--header__name" href="${ifDefined(href)}"
         >${namePrefixPart}<slot></slot
       ></a>
     `;

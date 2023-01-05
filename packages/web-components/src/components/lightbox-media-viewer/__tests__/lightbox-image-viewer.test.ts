@@ -8,17 +8,17 @@
  */
 
 import { html, render } from 'lit/html.js';
-import ifNonNull from 'carbon-web-components/es/globals/directives/if-non-null.js';
+import { ifDefined } from 'lit/directives/if-defined.js';
 import '../lightbox-image-viewer';
 
 const template = (props?) => {
   const { alt, defaultSrc, description, title } = props ?? {};
   return html`
     <dds-lightbox-image-viewer
-      alt="${ifNonNull(alt)}"
-      default-src="${ifNonNull(defaultSrc)}"
-      description="${ifNonNull(description)}"
-      title="${ifNonNull(title)}">
+      alt="${ifDefined(alt)}"
+      default-src="${ifDefined(defaultSrc)}"
+      description="${ifDefined(description)}"
+      title="${ifDefined(title)}">
     </dds-lightbox-image-viewer>
   `;
 };

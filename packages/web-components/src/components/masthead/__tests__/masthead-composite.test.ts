@@ -8,7 +8,7 @@
  */
 
 import { html, render } from 'lit/html.js';
-import ifNonNull from 'carbon-web-components/es/globals/directives/if-non-null.js';
+import { ifDefined } from 'lit/directives/if-defined.js';
 import EventManager from '../../../../tests/utils/event-manager';
 import { MastheadLink } from '../../../internal/vendor/@carbon/ibmdotcom-services-store/types/translateAPI.d';
 import DDSMastheadComposite from '../masthead-composite';
@@ -21,11 +21,11 @@ const template = (props?) => {
   const { language, userStatus, navLinks } = props ?? {};
   return html`
     <dds-masthead-composite
-      language="${ifNonNull(language)}"
-      user-status="${ifNonNull(userStatus)}"
-      .authenticatedProfileItems="${ifNonNull(authenticatedProfileItems)}"
+      language="${ifDefined(language)}"
+      user-status="${ifDefined(userStatus)}"
+      .authenticatedProfileItems="${ifDefined(authenticatedProfileItems)}"
       .navLinks="${navLinks}"
-      .unauthenticatedProfileItems="${ifNonNull(unauthenticatedProfileItems)}">
+      .unauthenticatedProfileItems="${ifDefined(unauthenticatedProfileItems)}">
     </dds-masthead-composite>
   `;
 };

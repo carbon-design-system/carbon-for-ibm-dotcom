@@ -11,15 +11,16 @@ import { classMap } from 'lit/directives/class-map.js';
 import { html } from 'lit';
 import { customElement, property, query, state } from 'lit/decorators.js';
 import settings from 'carbon-components/es/globals/js/settings.js';
-import CaretLeft20 from '@carbon/web-components/es/icons/caret--left/20.js';
-import CaretRight20 from '@carbon/web-components/es/icons/caret--right/20.js';
-import BXHeaderNav from '@carbon/web-components/es/components/ui-shell/header-nav.js';
-import ifNonNull from '@carbon/web-components/es/globals/directives/if-non-null.js';
-import HostListener from '@carbon/web-components/es/globals/decorators/host-listener.js';
-import HostListenerMixin from '@carbon/web-components/es/globals/mixins/host-listener.js';
+import CaretLeft20 from 'carbon-web-components/es/icons/caret--left/20.js';
+import CaretRight20 from 'carbon-web-components/es/icons/caret--right/20.js';
+import BXHeaderNav from 'carbon-web-components/es/components/ui-shell/header-nav.js';
+import { ifDefined } from 'lit/directives/if-defined.js';
+import HostListener from 'carbon-web-components/es/globals/decorators/host-listener.js';
+import HostListenerMixin from 'carbon-web-components/es/globals/mixins/host-listener.js';
 import ddsSettings from '../../internal/vendor/@carbon/ibmdotcom-utilities/utilities/settings/settings';
 import StableSelectorMixin from '../../globals/mixins/stable-selector';
 import styles from './masthead.scss';
+import CspComplianceMixin from '../../globals/mixins/csp-compliance';
 
 const { prefix } = settings;
 const { stablePrefix: ddsPrefix } = ddsSettings;
@@ -56,7 +57,9 @@ function findLastIndex<T>(
  * @csspart next-button The button to go to the next page.
  */
 @customElement(`${ddsPrefix}-top-nav`)
-class DDSTopNav extends StableSelectorMixin(HostListenerMixin(BXHeaderNav)) {
+class DDSTopNav extends CspComplianceMixin(
+  StableSelectorMixin(HostListenerMixin(BXHeaderNav))
+) {
   /**
    * The left-hand paginator button.
    */
@@ -500,14 +503,17 @@ class DDSTopNav extends StableSelectorMixin(HostListenerMixin(BXHeaderNav)) {
       this._cleanAndCreateIntersectionObserverContainer({ create: true });
     }
 
+    // Update the values in the CSP-safe stylesheet.
     if (changedProperties.has('_currentScrollPosition')) {
-      if (this._contentNode) {
-        this._contentNode.style.insetInlineStart = `-${this._currentScrollPosition}px`;
-      }
+      this.setStyleBySelector(
+        '.bx--header__nav-content',
+        'inset-inline-start',
+        `-${this._currentScrollPosition}px`
+      );
     }
   }
 
-  render() {
+  renderContents() {
     const {
       _isIntersectionLeftTrackerInContent: isIntersectionLeftTrackerInContent,
       _isIntersectionRightTrackerInContent: isIntersectionRightTrackerInContent,
@@ -552,7 +558,7 @@ class DDSTopNav extends StableSelectorMixin(HostListenerMixin(BXHeaderNav)) {
                       <div
                         part="menubar"
                         class="${prefix}--header__menu-bar"
-                        aria-label="${ifNonNull(this.menuBarLabel)}">
+                        aria-label="${ifDefined(this.menuBarLabel)}">
                         <slot
                           @slotchange=${handleSlotChange}
                           @keydown="${handleOnKeyDown}"></slot>
@@ -592,7 +598,7 @@ class DDSTopNav extends StableSelectorMixin(HostListenerMixin(BXHeaderNav)) {
                       <div
                         part="menubar"
                         class="${prefix}--header__menu-bar"
-                        aria-label="${ifNonNull(this.menuBarLabel)}">
+                        aria-label="${ifDefined(this.menuBarLabel)}">
                         <slot
                           @slotchange=${handleSlotChange}
                           @keydown="${handleOnKeyDown}"></slot>

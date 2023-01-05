@@ -10,8 +10,8 @@
 import { html } from 'lit';
 import { action } from '@storybook/addon-actions';
 import { boolean, select } from '@storybook/addon-knobs';
-import ifNonNull from '@carbon/web-components/es/globals/directives/if-non-null.js';
-import '@carbon/web-components/es/components/modal/modal-close-button.js';
+import { ifDefined } from 'lit/directives/if-defined.js';
+import 'carbon-web-components/es/components/modal/modal-close-button.js';
 import textNullable from '../../../../.storybook/knob-text-nullable';
 import '../index';
 import '../../carousel/index';
@@ -59,12 +59,12 @@ export const Default = (args) => {
       @dds-expressive-modal-closed="${onClose}">
       <dds-expressive-modal-close-button></dds-expressive-modal-close-button>
       <dds-lightbox-media-viewer
-        alt="${ifNonNull(alt)}"
-        default-src="${ifNonNull(defaultSrc)}"
-        description="${ifNonNull(description)}"
-        title="${ifNonNull(title)}"
-        video-id="${ifNonNull(videoId)}"
-        ?hideCaption="${ifNonNull(hideCaption)}">
+        alt="${ifDefined(alt)}"
+        default-src="${ifDefined(defaultSrc)}"
+        description="${ifDefined(description)}"
+        title="${ifDefined(title)}"
+        video-id="${ifDefined(videoId)}"
+        ?hideCaption="${ifDefined(hideCaption)}">
       </dds-lightbox-media-viewer>
     </dds-expressive-modal>
   `;

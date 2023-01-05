@@ -8,7 +8,7 @@
  */
 
 import { html, render } from 'lit/html.js';
-import ifNonNull from 'carbon-web-components/es/globals/directives/if-non-null.js';
+import { ifDefined } from 'lit/directives/if-defined.js';
 import MockResizeObserver from '../../../../tests/utils/mock-resize-observer';
 import DDSCarousel from '../carousel';
 // Above import is interface-only ref and thus code won't be brought into the build
@@ -18,9 +18,9 @@ const template = (props?) => {
   const { formatStatus, pageSize, start, children } = props ?? {};
   return html`
     <dds-carousel
-      .formatStatus="${ifNonNull(formatStatus)}"
-      page-size="${ifNonNull(pageSize)}"
-      start="${ifNonNull(start)}">
+      .formatStatus="${ifDefined(formatStatus)}"
+      page-size="${ifDefined(pageSize)}"
+      start="${ifDefined(start)}">
       ${children}
     </dds-carousel>
   `;

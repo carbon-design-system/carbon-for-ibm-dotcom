@@ -8,17 +8,17 @@
  */
 
 import { html, render } from 'lit/html.js';
-import ifNonNull from 'carbon-web-components/es/globals/directives/if-non-null.js';
+import { ifDefined } from 'lit/directives/if-defined.js';
 import '../horizontal-rule';
 
 const template = (props?) => {
   const { type, size, weight, contrast } = props ?? {};
   return html`
     <dds-hr
-      size="${ifNonNull(size)}"
-      type="${ifNonNull(type)}"
-      weight="${ifNonNull(weight)}"
-      contrast="${ifNonNull(contrast)}"></dds-hr>
+      size="${ifDefined(size)}"
+      type="${ifDefined(type)}"
+      weight="${ifDefined(weight)}"
+      contrast="${ifDefined(contrast)}"></dds-hr>
   `;
 };
 

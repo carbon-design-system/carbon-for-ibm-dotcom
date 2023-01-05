@@ -8,13 +8,13 @@
  */
 
 import { html, render } from 'lit/html.js';
-import ifNonNull from 'carbon-web-components/es/globals/directives/if-non-null.js';
+import { ifDefined } from 'lit/directives/if-defined.js';
 import '../masthead-logo';
 
 const template = (props?) => {
   const { href } = props ?? {};
   return html`
-    <dds-masthead-logo href="${ifNonNull(href)}"></dds-masthead-logo>
+    <dds-masthead-logo href="${ifDefined(href)}"></dds-masthead-logo>
   `;
 };
 

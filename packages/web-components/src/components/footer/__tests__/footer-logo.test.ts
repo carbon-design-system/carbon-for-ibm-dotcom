@@ -8,12 +8,12 @@
  */
 
 import { html, render } from 'lit/html.js';
-import ifNonNull from 'carbon-web-components/es/globals/directives/if-non-null.js';
+import { ifDefined } from 'lit/directives/if-defined.js';
 import '../footer-logo';
 
 const template = (props?) => {
   const { href } = props ?? {};
-  return html` <dds-footer-logo href="${ifNonNull(href)}"></dds-footer-logo> `;
+  return html` <dds-footer-logo href="${ifDefined(href)}"></dds-footer-logo> `;
 };
 
 describe('dds-footer-logo', function () {

@@ -9,7 +9,7 @@
 
 import { html } from 'lit';
 import { boolean, text } from '@storybook/addon-knobs';
-import ifNonNull from '@carbon/web-components/es/globals/directives/if-non-null.js';
+import { ifDefined } from 'lit/directives/if-defined.js';
 import readme from './README.stories.mdx';
 import '../video-player-container';
 import '../../lightbox-media-viewer/lightbox-video-player-container';
@@ -68,7 +68,7 @@ export const withLightboxMediaViewer = (args) => {
       video-id=${videoId}
       aspect-ratio=${aspectRatio}
       caption=${caption}
-      video-description="${ifNonNull(customVideoDescription)}"
+      video-description="${ifDefined(customVideoDescription)}"
       ?hide-caption=${hideCaption}
       thumbnail=${thumbnail}
       playing-mode="lightbox">
