@@ -1,24 +1,18 @@
 /**
  * @license
  *
- * Copyright IBM Corp. 2019, 2022
+ * Copyright IBM Corp. 2019, 2023
  *
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
  */
 
 import settings from 'carbon-components/es/globals/js/settings';
-import { classMap } from 'lit-html/directives/class-map';
-import {
-  html,
-  svg,
-  property,
-  query,
-  customElement,
-  LitElement,
-} from 'lit-element';
+import { classMap } from 'lit/directives/class-map.js';
+import { LitElement, html, svg } from 'lit';
+import { property, customElement, query } from 'lit/decorators.js';
 import CheckmarkFilled16 from '@carbon/icons/lib/checkmark--filled/16';
-import ifNonNull from '../../globals/directives/if-non-null';
+import { ifDefined } from 'lit/directives/if-defined.js';
 import FocusMixin from '../../globals/mixins/focus';
 import { TILE_COLOR_SCHEME } from './defs';
 import styles from './tile.scss';
@@ -77,15 +71,6 @@ class BXSelectableTile extends FocusMixin(LitElement) {
   @property()
   value!: string;
 
-  createRenderRoot() {
-    return this.attachShadow({
-      mode: 'open',
-      delegatesFocus:
-        Number((/Safari\/(\d+)/.exec(navigator.userAgent) ?? ['', 0])[1]) <=
-        537,
-    });
-  }
-
   render() {
     const {
       checkmarkLabel,
@@ -107,8 +92,8 @@ class BXSelectableTile extends FocusMixin(LitElement) {
         id="input"
         class="${prefix}--tile-input"
         tabindex="-1"
-        name="${ifNonNull(name)}"
-        value="${ifNonNull(value)}"
+        name="${ifDefined(name)}"
+        value="${ifDefined(value)}"
         .checked=${selected}
         @change=${handleChange} />
       <label for="input" class="${classes}" tabindex="0">
@@ -124,6 +109,10 @@ class BXSelectableTile extends FocusMixin(LitElement) {
     `;
   }
 
+  static shadowRootOptions = {
+    ...LitElement.shadowRootOptions,
+    delegatesFocus: true,
+  };
   static styles = styles;
 }
 
