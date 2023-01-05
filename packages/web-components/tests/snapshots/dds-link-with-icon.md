@@ -7,6 +7,7 @@
 ```
 <a
   class="bx--link bx--link--lg bx--link-with-icon"
+  href="undefined"
   id="link"
   part="link"
 >

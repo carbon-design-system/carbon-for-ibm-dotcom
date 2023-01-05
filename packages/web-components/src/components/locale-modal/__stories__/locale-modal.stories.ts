@@ -1,7 +1,7 @@
 /**
  * @license
  *
- * Copyright IBM Corp. 2020, 2022
+ * Copyright IBM Corp. 2020, 2023
  *
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
@@ -10,7 +10,6 @@
 import { html } from 'lit-element';
 import inPercy from '@percy-io/in-percy';
 import ifNonNull from '@carbon/web-components/es/globals/directives/if-non-null.js';
-import textNullable from '../../../../.storybook/knob-text-nullable';
 import localeData from './locale-data.json';
 import styles from './locale-modal.stories.scss';
 import readme from './README.stories.mdx';
