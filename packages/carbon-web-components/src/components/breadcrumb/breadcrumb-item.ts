@@ -8,7 +8,7 @@
  */
 
 import { LitElement, html } from 'lit';
-import { property, customElement } from 'lit/decorators.js';
+import { customElement } from 'lit/decorators.js';
 import settings from 'carbon-components/es/globals/js/settings';
 import styles from './breadcrumb.scss';
 
