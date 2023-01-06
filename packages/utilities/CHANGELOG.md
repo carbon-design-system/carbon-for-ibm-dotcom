@@ -3,6 +3,14 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.42.0-rc.0](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/compare/@carbon/ibmdotcom-utilities@1.41.0...@carbon/ibmdotcom-utilities@1.42.0-rc.0) (2023-01-04)
+
+**Note:** Version bump only for package @carbon/ibmdotcom-utilities
+
+
+
+
+
 # [1.41.0](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/compare/@carbon/ibmdotcom-utilities@1.41.0-rc.1...@carbon/ibmdotcom-utilities@1.41.0) (2022-12-06)
 
 **Note:** Version bump only for package @carbon/ibmdotcom-utilities

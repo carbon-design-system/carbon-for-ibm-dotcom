@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.42.0-rc.0](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/compare/@carbon/ibmdotcom-react@1.41.0...@carbon/ibmdotcom-react@1.42.0-rc.0) (2023-01-04)
+
+
+### Features
+
+* **content-section:** combining components ([#9348](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/issues/9348)) ([ebfb388](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/commit/ebfb388bb09a254ba1bcbb845be371eae4a871af)), closes [#8843](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/issues/8843)
+
+
+
+
+
 # [1.41.0](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/compare/@carbon/ibmdotcom-react@1.41.0-rc.2...@carbon/ibmdotcom-react@1.41.0) (2022-12-06)
 
 **Note:** Version bump only for package @carbon/ibmdotcom-react
