@@ -229,37 +229,7 @@ class DDSMastheadComposite extends HostListenerMixin(LitElement) {
                 </dds-megamenu-heading>
                 ${megapanelGroups
                   ? megapanelGroups.map(group => {
-                      const {
-                        headingTitle: groupTitle,
-                        headingUrl: groupUrl,
-                        description: groupDescription,
-                        links: groupLinks,
-                      } = group;
-                      return html`
-                        <dds-megamenu-category-group>
-                          ${groupTitle
-                            ? html`
-                                <dds-megamenu-category-heading title="${groupTitle}" href="${groupUrl}" slot="heading">
-                                  ${groupDescription}
-                                </dds-megamenu-category-heading>
-                              `
-                            : ''}
-                          ${groupLinks.map(link => {
-                            if (link.description) {
-                              return html`
-                                <dds-megamenu-category-link title="${link.title}" href="${ifDefined(link.url)}">
-                                  ${link.description}
-                                </dds-megamenu-category-link>
-                              `;
-                            }
-                            return html`
-                              <dds-megamenu-category-link href="${ifDefined(link.url)}">
-                                ${link.title}
-                              </dds-megamenu-category-link>
-                            `;
-                          })}
-                        </dds-megamenu-category-group>
-                      `;
+                      return this._renderMegapanelGroup(group);
                     })
                   : ''}
               </dds-megamenu-right-navigation>
@@ -267,6 +237,36 @@ class DDSMastheadComposite extends HostListenerMixin(LitElement) {
           `;
         })}
       </dds-megamenu>
+    `;
+  }
+
+  // eslint-disable-next-line class-methods-use-this
+  protected _renderMegapanelGroup(group) {
+    const { headingTitle: groupTitle, headingUrl: groupUrl, description: groupDescription, links: groupLinks } = group;
+    return html`
+      <dds-megamenu-category-group>
+        ${groupTitle
+          ? html`
+              <dds-megamenu-category-heading title="${groupTitle}" href="${groupUrl}" slot="heading">
+                ${groupDescription}
+              </dds-megamenu-category-heading>
+            `
+          : ''}
+        ${groupLinks.map(link => {
+          if (link.description) {
+            return html`
+              <dds-megamenu-category-link title="${link.title}" href="${ifDefined(link.url)}">
+                ${link.description}
+              </dds-megamenu-category-link>
+            `;
+          }
+          return html`
+            <dds-megamenu-category-link href="${ifDefined(link.url)}">
+              ${link.title}
+            </dds-megamenu-category-link>
+          `;
+        })}
+      </dds-megamenu-category-group>
     `;
   }
 
@@ -279,10 +279,10 @@ class DDSMastheadComposite extends HostListenerMixin(LitElement) {
   // eslint-disable-next-line
   protected _renderMegaMenuListing(sections, _parentKey) {
     const {
-      headingTitle: headingTitleNew,
+      title: headingTitleNew,
       heading: headingTitleDeprecated,
       description: headingDescription,
-      headingUrl,
+      url: headingUrl,
     } = sections[0];
     const { viewAllLink, highlightedItems, menu } = this._getMenuItems(sections);
     const hasHighlights = highlightedItems.length !== 0;
