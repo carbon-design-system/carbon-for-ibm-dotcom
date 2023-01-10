@@ -13,7 +13,7 @@ import { html } from 'lit';
 // In our dev env, we auto-generate the file and re-map below path to to point to the generated file.
 // @ts-ignore
 import { ifDefined } from 'lit/directives/if-defined.js';
-import ArrowRight20 from 'carbon-web-components/es/icons/arrow--right/20.js';
+import ArrowRight20 from '@carbon/web-components/es/icons/arrow--right/20.js';
 import '../../card/index';
 import '../../cta/index';
 import '../../image/index';

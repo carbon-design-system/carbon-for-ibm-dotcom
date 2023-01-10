@@ -12,7 +12,7 @@ import { customElement, property } from 'lit/decorators.js';
 import { classMap } from 'lit/directives/class-map.js';
 import settings from 'carbon-components/es/globals/js/settings.js';
 import { ifDefined } from 'lit/directives/if-defined.js';
-import FocusMixin from 'carbon-web-components/es/globals/mixins/focus.js';
+import FocusMixin from '@carbon/web-components/es/globals/mixins/focus.js';
 import PlayVideo from '@carbon/ibmdotcom-styles/icons/svg/play-video.svg';
 import {
   formatVideoCaption,

@@ -15,7 +15,7 @@ import '../../../cta-section/index';
 import '../../../link-list/index';
 import '../../../cta/index';
 
-import ArrowRight20 from '@carbon/web-components/es/icons/arrow--right/20';
+import ArrowRight20 from '@carbon/web-components/es/icons/arrow--right/20.js';
 import imgLg1x1 from '../../../../../../storybook-images/assets/960/fpo--1x1--960x960--006.jpg';
 import leadspaceImg from '../../../../../../storybook-images/assets/leadspace/leadspaceMax2.jpg';
 

@@ -13,7 +13,7 @@ import '../../content-block-media/index';
 import '../../card-group/index';
 import { ifDefined } from 'lit/directives/if-defined.js';
 import { select } from '@storybook/addon-knobs';
-import ArrowRight20 from 'carbon-web-components/es/icons/arrow--right/20';
+import ArrowRight20 from '@carbon/web-components/es/icons/arrow--right/20.js';
 import { ORIENTATION } from '../defs';
 import readme from './README.stories.mdx';
 

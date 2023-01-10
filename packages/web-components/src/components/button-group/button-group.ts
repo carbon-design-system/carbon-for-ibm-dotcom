@@ -9,7 +9,7 @@
 
 import { LitElement, html } from 'lit';
 import { customElement } from 'lit/decorators.js';
-import { BUTTON_KIND } from 'carbon-web-components/es/components/button/defs.js';
+import { BUTTON_KIND } from '@carbon/web-components/es/components/button/defs.js';
 import ddsSettings from '@carbon/ibmdotcom-utilities/es/utilities/settings/settings.js';
 import styles from './button-group.scss';
 import StableSelectorMixin from '../../globals/mixins/stable-selector';

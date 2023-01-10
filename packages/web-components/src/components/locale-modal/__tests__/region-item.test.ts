@@ -8,8 +8,8 @@
  */
 
 import { html, render } from 'lit/html.js';
-import ArrowRight20 from 'carbon-web-components/es/icons/arrow--right/20.js';
-import Error20 from 'carbon-web-components/es/icons/error/20.js';
+import ArrowRight20 from '@carbon/web-components/es/icons/arrow--right/20.js';
+import Error20 from '@carbon/web-components/es/icons/error/20.js';
 import { ifDefined } from 'lit/directives/if-defined.js';
 import '../region-item';
 

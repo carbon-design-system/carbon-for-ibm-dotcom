@@ -9,7 +9,7 @@
 
 import { LitElement, html } from 'lit';
 import { customElement, property } from 'lit/decorators.js';
-import ArrowRight32 from 'carbon-web-components/es/icons/arrow--right/32.js';
+import ArrowRight32 from '@carbon/web-components/es/icons/arrow--right/32.js';
 import ddsSettings from '../../../internal/vendor/@carbon/ibmdotcom-utilities/utilities/settings/settings';
 import styles from './cloud-masthead.scss';
 

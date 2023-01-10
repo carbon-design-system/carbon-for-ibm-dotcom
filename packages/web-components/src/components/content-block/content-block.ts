@@ -8,7 +8,7 @@
  */
 
 import { classMap } from 'lit/directives/class-map.js';
-import { html, LitElement, Part, TemplateResult } from 'lit';
+import { html, LitElement, TemplateResult } from 'lit';
 import { customElement, property, state } from 'lit/decorators.js';
 import settings from 'carbon-components/es/globals/js/settings.js';
 import ddsSettings from '../../internal/vendor/@carbon/ibmdotcom-utilities/utilities/settings/settings';
@@ -84,7 +84,7 @@ class DDSContentBlock extends StableSelectorMixin(LitElement) {
   /**
    * The CSS class list for the container (grid) node.
    */
-  protected _getContainerClasses(): string | ((part: Part) => void) {
+  protected _getContainerClasses() {
     const { complementaryStyleScheme, _hasComplementary: hasComplementary } =
       this;
     return classMap({

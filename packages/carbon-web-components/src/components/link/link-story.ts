@@ -14,7 +14,7 @@ import { boolean, select } from '@storybook/addon-knobs';
 // Below path will be there when an application installs `carbon-web-components` package.
 // In our dev env, we auto-generate the file and re-map below path to to point to the generated file.
 // @ts-ignore
-import Download16 from 'carbon-web-components/es/icons/download/16';
+import Download16 from '@carbon/web-components/es/icons/download/16';
 import textNullable from '../../../.storybook/knob-text-nullable';
 import { LINK_SIZE } from './link';
 import storyDocs from './link-story.mdx';

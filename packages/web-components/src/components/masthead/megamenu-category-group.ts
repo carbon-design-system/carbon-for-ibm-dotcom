@@ -10,7 +10,7 @@
 import { LitElement, html } from 'lit';
 import { customElement, property } from 'lit/decorators.js';
 import { ifDefined } from 'lit/directives/if-defined.js';
-import ArrowRight16 from 'carbon-web-components/es/icons/arrow--right/16.js';
+import ArrowRight16 from '@carbon/web-components/es/icons/arrow--right/16.js';
 import settings from 'carbon-components/es/globals/js/settings.js';
 import ddsSettings from '../../internal/vendor/@carbon/ibmdotcom-utilities/utilities/settings/settings';
 import styles from './masthead.scss';

@@ -8,7 +8,7 @@
  */
 
 import { classMap } from 'lit/directives/class-map.js';
-import { css, html, Part } from 'lit';
+import { css, html } from 'lit';
 import { customElement } from 'lit/decorators.js';
 import settings from 'carbon-components/es/globals/js/settings.js';
 import ddsSettings from '../../internal/vendor/@carbon/ibmdotcom-utilities/utilities/settings/settings';
@@ -27,7 +27,7 @@ const { stablePrefix: ddsPrefix } = ddsSettings;
  */
 @customElement(`${ddsPrefix}-content-block-segmented`)
 class DDSContentBlockSegmented extends DDSContentBlock {
-  protected _getContainerClasses(): string | ((part: Part) => void) {
+  protected _getContainerClasses() {
     const {
       complementaryStyleScheme,
       _hasComplementary: hasComplementary,

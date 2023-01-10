@@ -8,7 +8,7 @@
  */
 
 import { html, render } from 'lit/html.js';
-import ArrowRight20 from 'carbon-web-components/es/icons/arrow--right/20';
+import ArrowRight20 from '@carbon/web-components/es/icons/arrow--right/20.js';
 
 import '../card-section-offset';
 

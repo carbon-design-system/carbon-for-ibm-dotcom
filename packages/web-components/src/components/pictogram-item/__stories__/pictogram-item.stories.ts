@@ -9,7 +9,7 @@
 
 import { html } from 'lit';
 import '../index';
-import ArrowRight20 from '@carbon/web-components/es/icons/arrow--right/20';
+import ArrowRight20 from '@carbon/web-components/es/icons/arrow--right/20.js';
 import { select } from '@storybook/addon-knobs';
 import styles from './pictogram-item.stories.scss';
 import { COLOR_OPTIONS } from '../defs';

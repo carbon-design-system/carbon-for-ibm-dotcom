@@ -9,7 +9,7 @@
 
 import { css } from 'lit';
 import { customElement, property } from 'lit/decorators.js';
-import BXLink from 'carbon-web-components/es/components/link/link.js';
+import BXLink from '@carbon/web-components/es/components/link/link.js';
 import ddsSettings from '../../internal/vendor/@carbon/ibmdotcom-utilities/utilities/settings/settings';
 import { MEGAMENU_LINK_WITH_ICON_STYLE_SCHEME } from './defs';
 import styles from './masthead.scss';

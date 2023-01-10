@@ -7,7 +7,7 @@
  * LICENSE file in the root directory of this source tree.
  */
 
-import { css, html, Part, TemplateResult } from 'lit';
+import { css, html, TemplateResult } from 'lit';
 import { customElement } from 'lit/decorators.js';
 import settings from 'carbon-components/es/globals/js/settings.js';
 import ddsSettings from '../../internal/vendor/@carbon/ibmdotcom-utilities/utilities/settings/settings';
@@ -29,7 +29,7 @@ class DDSContentBlockHeadlines extends StableSelectorMixin(DDSContentBlock) {
    * The CSS class list for the container (grid) node.
    */
   // eslint-disable-next-line class-methods-use-this
-  protected _getContainerClasses(): string | ((part: Part) => void) {
+  protected _getContainerClasses() {
     return `${prefix}--content-layout ${prefix}--content-layout--with-headlines ${prefix}--layout--border`;
   }
 

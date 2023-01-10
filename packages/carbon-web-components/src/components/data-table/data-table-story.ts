@@ -16,11 +16,11 @@ import { boolean, select } from '@storybook/addon-knobs';
 // Below path will be there when an application installs `carbon-web-components` package.
 // In our dev env, we auto-generate the file and re-map below path to to point to the generated file.
 // @ts-ignore
-import Delete16 from 'carbon-web-components/es/icons/delete/16';
+import Delete16 from '@carbon/web-components/es/icons/delete/16';
 // @ts-ignore
-import Download16 from 'carbon-web-components/es/icons/download/16';
+import Download16 from '@carbon/web-components/es/icons/download/16';
 // @ts-ignore
-import Settings16 from 'carbon-web-components/es/icons/settings/16';
+import Settings16 from '@carbon/web-components/es/icons/settings/16';
 import BXBtn from '../button/button';
 import { ifDefined } from 'lit/directives/if-defined.js';
 import '../overflow-menu/overflow-menu';

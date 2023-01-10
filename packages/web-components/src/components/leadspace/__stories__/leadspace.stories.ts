@@ -9,9 +9,9 @@
 
 import { text, select, number } from '@storybook/addon-knobs';
 import { html } from 'lit';
-import ArrowRight20 from 'carbon-web-components/es/icons/arrow--right/20.js';
-import ArrowDown20 from 'carbon-web-components/es/icons/arrow--down/20.js';
-import Pdf20 from 'carbon-web-components/es/icons/PDF/20.js';
+import ArrowRight20 from '@carbon/web-components/es/icons/arrow--right/20.js';
+import ArrowDown20 from '@carbon/web-components/es/icons/arrow--down/20.js';
+import Pdf20 from '@carbon/web-components/es/icons/PDF/20.js';
 import { ifDefined } from 'lit/directives/if-defined.js';
 
 // Above import is interface-only ref and thus code won't be brought into the build

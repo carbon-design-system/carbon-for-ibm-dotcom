@@ -9,7 +9,7 @@
 
 import { html, render } from 'lit/html.js';
 import { ifDefined } from 'lit/directives/if-defined.js';
-import { SIDE_NAV_USAGE_MODE } from 'carbon-web-components/es/components/ui-shell/side-nav.js';
+import { SIDE_NAV_USAGE_MODE } from '@carbon/web-components/es/components/ui-shell/side-nav.js';
 import '../left-nav';
 import DDSLeftNavOverlay from '../left-nav-overlay';
 

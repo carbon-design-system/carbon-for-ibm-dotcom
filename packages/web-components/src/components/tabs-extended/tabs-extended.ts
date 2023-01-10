@@ -12,7 +12,7 @@ import { html, LitElement, TemplateResult } from 'lit';
 import { customElement, property, state } from 'lit/decorators.js';
 import { unsafeHTML } from 'lit/directives/unsafe-html.js';
 import { classMap } from 'lit/directives/class-map.js';
-import ChevronRight20 from 'carbon-web-components/es/icons/chevron--right/20.js';
+import ChevronRight20 from '@carbon/web-components/es/icons/chevron--right/20.js';
 import ddsSettings from '../../internal/vendor/@carbon/ibmdotcom-utilities/utilities/settings/settings';
 import StableSelectorMixin from '../../globals/mixins/stable-selector';
 import DDSTab from './tab';

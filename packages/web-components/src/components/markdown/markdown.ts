@@ -7,9 +7,8 @@
  * LICENSE file in the root directory of this source tree.
  */
 
-import { render } from 'lit/html.js';
 import { unsafeHTML } from 'lit/directives/unsafe-html.js';
-import { LitElement, html } from 'lit';
+import { LitElement, html, render } from 'lit';
 import { customElement, property } from 'lit/decorators.js';
 import settings from 'carbon-components/es/globals/js/settings.js';
 import '@carbon/web-components/es/components/link/link.js';
@@ -94,7 +93,7 @@ class DDSMarkdown extends LitElement {
         )}
       `;
       this._hasRendered = true;
-      render(lightDOMTemplateResult, this, { eventContext: this });
+      render(lightDOMTemplateResult, this);
     }
     this.querySelectorAll('bx-ordered-list, bx-unordered-list').forEach((e) => {
       e.setAttribute('isExpressive', '');
