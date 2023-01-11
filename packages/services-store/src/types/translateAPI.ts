@@ -1,7 +1,7 @@
 /**
  * @license
  *
- * Copyright IBM Corp. 2020, 2022
+ * Copyright IBM Corp. 2020, 2023
  *
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
@@ -113,7 +113,7 @@ export interface L1MenuItem extends BasicLink {
 export interface L1Submenu {
   announcement?: string; // From AEM rich text editor
   menuSections: L1SubmenuSection[]; // maximum of 3 in outer array
-  columns: 1 | 2 | 3;
+  columns?: 1 | 2 | 3; // Should default to 1 if unspecified
   footer?: {
     title: string;
     url: string;
