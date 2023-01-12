@@ -1,7 +1,7 @@
 /**
  * @license
  *
- * Copyright IBM Corp. 2020, 2022
+ * Copyright IBM Corp. 2020, 2023
  *
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
@@ -85,11 +85,52 @@ export interface MastheadLink {
 
 /**
  * A menu section for masthead
+ * @deprecated
+ */
+export interface LegacyMastheadL1 {
+  title: string;
+  url?: string;
+  menuItems?: MastheadLink[];
+}
+
+/**
+ * A menu section for masthead
  */
 export interface MastheadL1 {
   title: string;
   url?: string;
-  menuItems?: MastheadLink[];
+  menuItems: L1MenuItem[];
+  actions?: {
+    cta?: BasicLink;
+    login?: BasicLink;
+  };
+}
+
+export interface L1MenuItem extends BasicLink {
+  submenu?: L1Submenu;
+}
+
+export interface L1Submenu {
+  announcement?: string; // From AEM rich text editor
+  menuSections: L1SubmenuSection[]; // maximum of 3 in outer array
+  columns?: 1 | 2 | 3; // Should default to 1 if unspecified
+  footer?: {
+    title: string;
+    url: string;
+  };
+}
+
+export interface L1SubmenuSection {
+  span: 1 | 2; // Only used if containing L1Submenu.columns === 3.
+  heading?: L1SubmenuSectionHeading;
+  items?: BasicLink[];
+}
+
+export interface L1SubmenuSectionHeading {
+  headingLevel?: 2 | 3 | 4 | 5 | 6;
+  title: string;
+  url?: string;
+  description?: string;
 }
 
 /**
