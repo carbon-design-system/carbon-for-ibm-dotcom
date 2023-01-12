@@ -1,7 +1,7 @@
 /**
  * @license
  *
- * Copyright IBM Corp. 2020, 2022
+ * Copyright IBM Corp. 2020, 2023
  *
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
@@ -723,6 +723,18 @@ class DDSMastheadComposite extends HostListenerMixin(LitElement) {
     render(active ? currentMenu : nothing, target as HTMLElement);
     resolveFn();
   };
+
+  /**
+   * Stores a reference of the globally-scoped CM_APP object within the masthead.
+   */
+  @HostListener('document:cm-app-ready')
+  // @ts-ignore: The decorator refers to this method but TS thinks this method is not referred to
+  protected _getContactModuleReference = () => {
+    // @ts-ignore: CM_APP will definitely exist if this event is fired
+    this.contactModuleApp = window.CM_APP;
+  };
+
+  contactModuleApp = null;
 
   /**
    * Whether or not a nav item has automatically been designated as "selected".
