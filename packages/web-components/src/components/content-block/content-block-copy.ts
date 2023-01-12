@@ -34,6 +34,12 @@ class DDSContentBlockCopy extends StableSelectorMixin(DDSMarkdown) {
   }
 
   protected get _renderer() {
+    this.childNodes.forEach((node) => {
+      if (node.nodeType === Node.TEXT_NODE) {
+        this.removeChild(node);
+      }
+    });
+
     return Object.assign(super._renderer, {
       paragraph(text) {
         return `<${ddsPrefix}-content-block-paragraph>${text}</${ddsPrefix}-content-block-paragraph>`;

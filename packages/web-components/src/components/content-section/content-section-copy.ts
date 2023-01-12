@@ -32,6 +32,12 @@ class DDSContentSectionCopy extends StableSelectorMixin(DDSMarkdown) {
 
   firstUpdated() {
     this.querySelector('p')?.setAttribute('style', 'all:unset;');
+
+    this.childNodes.forEach((node) => {
+      if (node.nodeType === Node.TEXT_NODE) {
+        this.removeChild(node);
+      }
+    });
   }
 
   static get stableSelector() {

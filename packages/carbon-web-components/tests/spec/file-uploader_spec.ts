@@ -8,7 +8,7 @@
  */
 
 import { html, render } from 'lit';
-import ifDefined from '../../src/globals/directives/if-non-null';
+import { ifDefined } from 'lit/directives/if-defined.js';
 import '../../src/components/file-uploader/file-uploader';
 import '../../src/components/file-uploader/drop-container';
 import { FILE_UPLOADER_ITEM_STATE } from '../../src/components/file-uploader/file-uploader-item';

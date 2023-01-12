@@ -99,15 +99,6 @@ class DDSImageWithCaption extends StableSelectorMixin(
   @property({ type: Boolean, reflect: true })
   open = false;
 
-  createRenderRoot() {
-    return this.attachShadow({
-      mode: 'open',
-      delegatesFocus:
-        Number((/Safari\/(\d+)/.exec(navigator.userAgent) ?? ['', 0])[1]) <=
-        537,
-    });
-  }
-
   connectedCallback() {
     super.connectedCallback();
     this.modalRenderRoot = this.createModalRenderRoot(); // Creates modal render root up-front to hook the event listener
@@ -191,6 +182,10 @@ class DDSImageWithCaption extends StableSelectorMixin(
     return `${ddsPrefix}--image-with-caption`;
   }
 
+  static shadowRootOptions = {
+    ...LitElement.shadowRootOptions,
+    delegatesFocus: true,
+  };
   static styles = styles;
 }
 

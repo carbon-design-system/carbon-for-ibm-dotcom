@@ -9,7 +9,7 @@
 
 import { html, render } from 'lit';
 import EventManager from '../utils/event-manager';
-import ifDefined from '../../src/globals/directives/if-non-null';
+import { ifDefined } from 'lit/directives/if-defined.js';
 import { INPUT_SIZE } from '../../src/components/input/input';
 import { TABLE_COLOR_SCHEME } from '../../src/components/data-table/table';
 import BXTableHeaderCell, {

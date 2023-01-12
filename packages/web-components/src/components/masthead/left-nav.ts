@@ -255,7 +255,10 @@ class DDSLeftNav extends StableSelectorMixin(BXSideNav) {
           startSentinelNode,
           endSentinelNode,
         ]);
-        document.body.style.overflow = 'hidden';
+
+        if (doc.body?.style) {
+          doc.body.style.overflow = `hidden`;
+        }
 
         // TODO: remove this logic once masthead can account for banners.
         // set masthead position to `fixed` when left-nav is open for cloud-mastead

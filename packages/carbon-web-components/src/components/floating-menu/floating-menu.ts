@@ -276,15 +276,6 @@ abstract class BXFloatingMenu extends HostListenerMixin(
     };
   }
 
-  createRenderRoot() {
-    return this.attachShadow({
-      mode: 'open',
-      delegatesFocus:
-        Number((/Safari\/(\d+)/.exec(navigator.userAgent) ?? ['', 0])[1]) <=
-        537,
-    });
-  }
-
   disconnectedCallback() {
     if (this._hObserveResizeContainer) {
       this._hObserveResizeContainer = this._hObserveResizeContainer.release();
@@ -347,6 +338,10 @@ abstract class BXFloatingMenu extends HostListenerMixin(
   static get selectorContainer() {
     return '[data-floating-menu-container],bx-modal';
   }
+  static shadowRootOptions = {
+    ...LitElement.shadowRootOptions,
+    delegatesFocus: true,
+  };
 }
 
 export default BXFloatingMenu;

@@ -14,7 +14,7 @@ import { html, render } from 'lit';
 // @ts-ignore
 import Fade16 from '@carbon/web-components/es/icons/fade/16';
 import EventManager from '../utils/event-manager';
-import ifDefined from '../../src/globals/directives/if-non-null';
+import { ifDefined } from 'lit/directives/if-defined.js';
 import BXHeaderMenu from '../../src/components/ui-shell/header-menu';
 // Above import does not seem to register the custom element
 import '../../src/components/ui-shell/header-menu';
