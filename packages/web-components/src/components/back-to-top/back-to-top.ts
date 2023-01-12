@@ -97,7 +97,7 @@ class DDSBackToTop extends HostListenerMixin(StableSelectorMixin(LitElement)) {
     if (create) {
       // TODO: Wait for `.d.ts` update to support `ResizeObserver`
       // @ts-ignore
-      this._observerResizeBody = new ResizeObserver(this._observeResizeBody);
+      this._observerResizeBody = new ResizeObserver(this._handleBodyResize);
       this._observerResizeBody.observe(this.ownerDocument!.body);
     }
   }
@@ -109,7 +109,7 @@ class DDSBackToTop extends HostListenerMixin(StableSelectorMixin(LitElement)) {
    * have a single item corresponding to changes in the size of the body
    * element.
    */
-  private _observeResizeBody = (entries: ResizeObserverEntry[]) => {
+  private _handleBodyResize = (entries: ResizeObserverEntry[]) => {
     this._bodyHeight = entries[entries.length - 1].target.scrollHeight;
     // Body height changes may require adjustment to the current visibility
     // of the back to top button.
