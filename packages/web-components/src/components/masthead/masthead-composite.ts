@@ -10,7 +10,6 @@
 import { html, property, customElement, LitElement, TemplateResult } from 'lit-element';
 import { nothing, render } from 'lit-html';
 import { ifDefined } from 'lit-html/directives/if-defined';
-import ArrowRight16 from 'carbon-web-components/es/icons/arrow--right/16.js';
 import ifNonNull from 'carbon-web-components/es/globals/directives/if-non-null.js';
 import { unsafeSVG } from 'lit-html/directives/unsafe-svg.js';
 import root from 'window-or-global';
@@ -21,12 +20,13 @@ import { globalInit } from '../../internal/vendor/@carbon/ibmdotcom-services/ser
 import MastheadLogoAPI from '../../internal/vendor/@carbon/ibmdotcom-services/services/MastheadLogo/MastheadLogo';
 import {
   MastheadL1,
-  MastheadLink,
   MastheadLogoData,
-  MastheadMenuItem,
   MastheadProfileItem,
-  MegapanelContent,
   Translation,
+  L0MenuItem,
+  L0Submenu,
+  Megapanel,
+  MegapanelLinkGroup,
 } from '../../internal/vendor/@carbon/ibmdotcom-services-store/types/translateAPI.d';
 import {
   UNAUTHENTICATED_STATUS,
@@ -136,101 +136,59 @@ class DDSMastheadComposite extends HostListenerMixin(LitElement) {
   }
 
   /**
-   * Sorts highlighted and regular menu items in separate arrays
-   * and returns view all link
-   *
-   * @param sections menu section data object
-   */
-  // eslint-disable-next-line class-methods-use-this
-  protected _getMenuItems(sections) {
-    const highlightedItems: MastheadMenuItem[] = [];
-    const menu: MastheadMenuItem[] = [];
-    let viewAllLink;
-
-    sections[0]?.menuItems?.forEach((item: MastheadMenuItem) => {
-      if (item.highlighted) return highlightedItems.push(item);
-      if (item.megaPanelViewAll) {
-        viewAllLink = item;
-        return viewAllLink;
-      }
-      return menu.push(item);
-    });
-
-    return { viewAllLink, highlightedItems, menu };
-  }
-
-  /**
    * Render MegaMenu content
    *
-   * @param sections menu section data object
+   * @param menu megamenu data object
    * @param _parentKey parent key
    * @param layout layout selection to render the megamenu with
    */
   // eslint-disable-next-line class-methods-use-this
-  protected _renderMegaMenu(sections, _parentKey, layout: MEGAMENU_LAYOUT_SCHEME = MEGAMENU_LAYOUT_SCHEME.LIST) {
+  protected _renderMegaMenu(menu: L0Submenu, _parentKey, layout: MEGAMENU_LAYOUT_SCHEME = MEGAMENU_LAYOUT_SCHEME.LIST) {
     const { _megamenuRenderMap } = this;
     if (_megamenuRenderMap.has(layout)) {
-      return (_megamenuRenderMap.get(layout) as Function)(sections, _parentKey);
+      return (_megamenuRenderMap.get(layout) as Function)(menu, _parentKey);
     }
-    return this._renderMegaMenuListing(sections, _parentKey);
+    return this._renderMegaMenuListing(menu, _parentKey);
   }
 
   /**
    *  Render MegaMenu content in tabbed layout.
    *
-   * @param sections menu section data object
-   * @param parentKey parent key
+   * @param menu megamenu data object
+   * @param _parentKey key that identifies parent nav item
    */
-  // eslint-disable-next-line class-methods-use-this
-  protected _renderMegaMenuTabbed(sections, parentKey) {
-    let viewAllLink;
-    type menuItem = MastheadMenuItem & { itemKey: String };
+  protected _renderMegaMenuTabbed(menu: L0Submenu, _parentKey) {
+    const { viewAll, sections } = menu;
+    type menuItem = Megapanel & { itemKey: String };
     const sortedMenuItems: menuItem[] = [];
     sections.forEach((section, i) => {
-      if (section?.megaPanelViewAll) {
-        viewAllLink = section;
-        return null;
-      }
-      return sortedMenuItems.push({ ...section, itemKey: `${parentKey}-${i}` });
+      return sortedMenuItems.push({ ...section, itemKey: `${_parentKey}-${i}` });
     });
-
-    // Filter out items without megapanelContent.
-    sortedMenuItems.filter(item => item.megapanelContent);
 
     return html`
       <dds-megamenu layout="${MEGAMENU_LAYOUT_SCHEME.TAB}">
-        <dds-megamenu-left-navigation
-          view-all-href="${ifNonNull(viewAllLink?.url)}"
-          view-all-title="${ifNonNull(viewAllLink?.title)}"
-        >
-          <dds-megamenu-tabs value="${sortedMenuItems[0]?.title}">
+        <dds-megamenu-left-navigation view-all-href="${ifNonNull(viewAll?.url)}" view-all-title="${ifNonNull(viewAll?.title)}">
+          <dds-megamenu-tabs value="${sortedMenuItems[0]?.heading.title}">
             ${sortedMenuItems.map(item => {
               return html`
-                <dds-megamenu-tab id="tab-${item.itemKey}" target="panel-${item.itemKey}" value="${item.title}">
-                  ${item.title}
+                <dds-megamenu-tab id="tab-${item.itemKey}" target="panel-${item.itemKey}" value="${item.heading.title}">
+                  ${item.heading.title}
                 </dds-megamenu-tab>
               `;
             })}
           </dds-megamenu-tabs>
         </dds-megamenu-left-navigation>
         ${sortedMenuItems.map(item => {
-          const { itemKey } = item;
-          const {
-            headingTitle,
-            headingUrl,
-            description: headingDescription,
-            megapanelGroups,
-          } = item.megapanelContent as MegapanelContent;
+          const { itemKey, groups } = item;
+          const { title, url, description } = item.heading;
           return html`
             <div id="panel-${itemKey}" role="tabpanel" aria-labelledby="tab-${itemKey}" hidden>
               <dds-megamenu-right-navigation style-scheme="${MEGAMENU_RIGHT_NAVIGATION_STYLE_SCHEME.TAB}">
-                <dds-megamenu-heading href="${ifDefined(headingUrl)}" title="${ifDefined(headingTitle)}" slot="heading">
-                  ${headingDescription}
+                <dds-megamenu-heading href="${ifDefined(url)}" title="${ifDefined(title)}" slot="heading">
+                  ${description}
                 </dds-megamenu-heading>
-                ${megapanelGroups
-                  ? megapanelGroups.map(group => {
-                      return this._renderMegapanelGroup(group);
-                    })
+                ${groups
+                  ? groups.map((group, i) => this._renderMegapanelLinkGroup(group, { autoid: `panel-${itemKey}-${i}` }))
                   : ''}
               </dds-megamenu-right-navigation>
             </div>
@@ -240,104 +198,27 @@ class DDSMastheadComposite extends HostListenerMixin(LitElement) {
     `;
   }
 
-  // eslint-disable-next-line class-methods-use-this
-  protected _renderMegapanelGroup(group) {
-    const { headingTitle: groupTitle, headingUrl: groupUrl, description: groupDescription, links: groupLinks } = group;
-    return html`
-      <dds-megamenu-category-group>
-        ${groupTitle
-          ? html`
-              <dds-megamenu-category-heading title="${groupTitle}" href="${groupUrl}" slot="heading">
-                ${groupDescription}
-              </dds-megamenu-category-heading>
-            `
-          : ''}
-        ${groupLinks.map(link => {
-          if (link.description) {
-            return html`
-              <dds-megamenu-category-link title="${link.title}" href="${ifDefined(link.url)}">
-                ${link.description}
-              </dds-megamenu-category-link>
-            `;
-          }
-          return html`
-            <dds-megamenu-category-link href="${ifDefined(link.url)}">
-              ${link.title}
-            </dds-megamenu-category-link>
-          `;
-        })}
-      </dds-megamenu-category-group>
-    `;
-  }
-
   /**
    * Render MegaMenu content in listing layout.
    *
-   * @param sections menu section data object
-   * @param _parentKey parent menu key (used for the cloud-masthead-composite component)
+   * @param menu megamenu data object
+   * @param _parentKey key that identifies parent nav item
    */
   // eslint-disable-next-line
-  protected _renderMegaMenuListing(sections, _parentKey) {
-    const {
-      title: headingTitleNew,
-      heading: headingTitleDeprecated,
-      description: headingDescription,
-      url: headingUrl,
-    } = sections[0];
-    const { viewAllLink, highlightedItems, menu } = this._getMenuItems(sections);
-    const hasHighlights = highlightedItems.length !== 0;
-    const headingTitle = headingTitleNew || headingTitleDeprecated;
+  protected _renderMegaMenuListing(menu: L0Submenu, _parentKey) {
+    const megapanel = menu.sections[0];
+    const { heading } = megapanel;
+    const { viewAll, highlights } = menu;
+    const hasHighlights = highlights instanceof Array && highlights.length !== 0;
 
-    if (headingTitleDeprecated) {
-      // Deprecation notice
-      // eslint-disable-next-line
-      console.warn('DDSMasthead: "heading" menu section key is deprecated, use "headingTitle" instead');
-    }
     return html`
       <dds-megamenu layout="${MEGAMENU_LAYOUT_SCHEME.LIST}">
         ${hasHighlights
           ? html`
               <dds-megamenu-left-navigation>
-                ${highlightedItems.map((item, i) => {
-                  const autoid = `${ddsPrefix}--masthead__l0-nav-list${i}`;
-                  return html`
-                    <dds-megamenu-category-group data-autoid="${autoid}" href="${ifDefined(item.url)}" title="${item.title}">
-                      <dds-megamenu-category-group-copy>
-                        ${item.megapanelContent?.description}
-                      </dds-megamenu-category-group-copy>
-                      ${item.megapanelContent?.quickLinks?.links.map(({ title, url, description, highlightedLink }, key) => {
-                        if (highlightedLink) {
-                          return html`
-                            <dds-megamenu-link-with-icon
-                              data-autoid="${autoid}-item${key}"
-                              href="${ifDefined(url)}"
-                              style-scheme="category-sublink"
-                              title="${title}"
-                            >
-                              <span>${title}</span>${ArrowRight16({ slot: 'icon' })}
-                            </dds-megamenu-link-with-icon>
-                          `;
-                        }
-                        if (description) {
-                          return html`
-                            <dds-megamenu-category-link
-                              data-autoid="${autoid}-item${key}"
-                              title="${title}"
-                              href="${ifDefined(url)}"
-                            >
-                              ${description}
-                            </dds-megamenu-category-link>
-                          `;
-                        }
-                        return html`
-                          <dds-megamenu-category-link data-autoid="${autoid}-item${key}" href="${ifDefined(url)}">
-                            ${title}
-                          </dds-megamenu-category-link>
-                        `;
-                      })}
-                    </dds-megamenu-category-group>
-                  `;
-                })}
+                ${highlights.map((group, i) =>
+                  this._renderMegapanelLinkGroup(group, { headingLevel: 2, autoid: `${ddsPrefix}--masthead__l0-nav-list${i}` })
+                )}
               </dds-megamenu-left-navigation>
             `
           : null}
@@ -345,39 +226,75 @@ class DDSMastheadComposite extends HostListenerMixin(LitElement) {
           style-scheme="${hasHighlights
             ? MEGAMENU_RIGHT_NAVIGATION_STYLE_SCHEME.LEFT_SECTION
             : MEGAMENU_RIGHT_NAVIGATION_STYLE_SCHEME.REGULAR}"
-          view-all-href="${ifNonNull(viewAllLink?.url)}"
-          view-all-title="${ifNonNull(viewAllLink?.title)}"
+          view-all-href="${ifNonNull(viewAll?.url)}"
+          view-all-title="${ifNonNull(viewAll?.title)}"
         >
-          ${headingTitle
+          ${heading
             ? html`
-                <dds-megamenu-heading href="${headingUrl}" title="${headingTitle}" slot="heading">
-                  ${headingDescription}
+                <dds-megamenu-heading href="${ifNonNull(heading.url)}" title="${ifNonNull(heading.title)}" slot="heading">
+                  ${heading.description}
                 </dds-megamenu-heading>
               `
             : null}
-          ${menu.map((item, j) => {
-            const autoid = `${ddsPrefix}--masthead__l0-nav-list${j + highlightedItems.length}`;
-            return html`
-              <dds-megamenu-category-group data-autoid="${autoid}" href="${ifDefined(item.url)}" title="${item.title}">
-                ${item.megapanelContent?.quickLinks?.links.map(({ title, url, description }, key) => {
-                  if (description) {
-                    return html`
-                      <dds-megamenu-category-link data-autoid="${autoid}-item${key}" title="${title}" href="${ifDefined(url)}">
-                        ${description}
-                      </dds-megamenu-category-link>
-                    `;
-                  }
-                  return html`
-                    <dds-megamenu-category-link data-autoid="${autoid}-item${key}" href="${ifDefined(url)}">
-                      ${title}
-                    </dds-megamenu-category-link>
-                  `;
-                })}
-              </dds-megamenu-category-group>
-            `;
-          })}
+          ${megapanel.groups.map((group, i) =>
+            this._renderMegapanelLinkGroup(group, {
+              headingLevel: heading ? 3 : 2,
+              autoid: `${ddsPrefix}--masthead__l0-nav-list${i + (hasHighlights ? highlights.length : 0)}`,
+            })
+          )}
         </dds-megamenu-right-navigation>
       </dds-megamenu>
+    `;
+  }
+
+  /**
+   *  Render a Megapanel link group.
+   *
+   * @param group megamenu link group
+   */
+  // eslint-disable-next-line class-methods-use-this
+  protected _renderMegapanelLinkGroup(
+    group: MegapanelLinkGroup,
+    options: { headingLevel?: Number; autoid?: String } = { headingLevel: 3 }
+  ) {
+    const { title, url, description } = group.heading;
+    const { links } = group;
+    const { headingLevel, autoid } = options;
+    return html`
+      <dds-megamenu-category-group data-autoid="${ifNonNull(autoid)}">
+        ${title
+          ? html`
+              <dds-megamenu-category-heading
+                title="${title}"
+                href="${url}"
+                slot="heading"
+                heading-level="${ifNonNull(headingLevel)}"
+              >
+                ${description}
+              </dds-megamenu-category-heading>
+            `
+          : ''}
+        ${links &&
+          links.map((link, i) => {
+            const linkAutoId = autoid ? `${autoid}-item${i}` : null;
+            if (link.description) {
+              return html`
+                <dds-megamenu-category-link
+                  title="${link.title}"
+                  href="${ifNonNull(link.url || null)}"
+                  data-autoid="${ifNonNull(linkAutoId)}"
+                >
+                  ${link.description}
+                </dds-megamenu-category-link>
+              `;
+            }
+            return html`
+              <dds-megamenu-category-link href="${ifNonNull(link.url || null)}" data-autoid="${ifNonNull(linkAutoId)}">
+                ${link.title}
+              </dds-megamenu-category-link>
+            `;
+          })}
+      </dds-megamenu-category-group>
     `;
   }
 
@@ -517,14 +434,13 @@ class DDSMastheadComposite extends HostListenerMixin(LitElement) {
    * @param menuItems The options.
    * @param autoid Base autoid to be applied to the menu items
    */
-  // eslint-disable-next-line class-methods-use-this
-  protected _renderLeftNav(menuItems, autoid) {
+  protected _renderLeftNav(menuItems: L0MenuItem[], autoid) {
     const { selectedMenuItem, ctaButtons } = this;
-
     const menu: any[] = [];
     const selectedItemUrl = this._selectedLeftNavItems();
-    const level0Items = menuItems.map((elem, i) => {
-      if (elem.menuSections) {
+    const level0Items = menuItems.map((elem: L0MenuItem, i) => {
+      if (elem?.submenu) {
+        // Instantiate bucket for first level submenus.
         const level1Items: {
           title: string;
           panelId: string;
@@ -535,76 +451,163 @@ class DDSMastheadComposite extends HostListenerMixin(LitElement) {
           selected: boolean;
         }[] = [];
 
-        let menuElems = elem.menuSections[0]?.menuItems;
-        let highlightedItems: MastheadMenuItem[] = [];
+        // Check if other types of links exist.
+        const highlightedItems = elem.submenu?.highlights || [];
+        const viewAll = elem.submenu?.viewAll;
 
-        if (elem.hasMegapanel) {
-          const { viewAllLink, highlightedItems: hightlighted, menu: nonHighlightedMenuItems } = this._getMenuItems(
-            elem.menuSections
-          );
-          highlightedItems = hightlighted;
-          menuElems = hightlighted.concat(nonHighlightedMenuItems);
-          if (viewAllLink) {
-            menuElems.push(viewAllLink);
-          }
+        const selectedItems = selectedItemUrl({ menu: elem.submenu.sections, key: String(i), parentItemUrl: elem.url });
+
+        // 1. Add highlighted items to top of menu.
+        if (highlightedItems.length !== 0) {
+          highlightedItems.forEach((highlight: MegapanelLinkGroup, j) => {
+            const { heading, links } = highlight;
+            const lastHighlighted = j + 1 === highlightedItems.length;
+
+            if (heading) {
+              level1Items.push({
+                title: heading.title,
+                url: heading.url,
+                autoid: `${autoid}--sidenav--nav${i}-list${j}`,
+                lastHighlightedItem: lastHighlighted,
+                panelId: `${i}, ${j}`,
+                menu: false,
+                selected: !selectedMenuItem ? selectedItems?.level2 === `${i}-${j}` : selectedMenuItem === heading.titleEnglish,
+              });
+            }
+            if (links) {
+              links.forEach((link, k) => {
+                level1Items.push({
+                  title: link.title,
+                  url: link.url,
+                  autoid: `${autoid}--sidenav--nav${i}-list${j}-item${k}`,
+                  lastHighlightedItem: lastHighlighted,
+                  panelId: `${i}, ${j}`,
+                  menu: false,
+                  selected: !selectedMenuItem
+                    ? selectedItems?.level2 === `${i}-${j}-${k}`
+                    : selectedMenuItem === link.titleEnglish,
+                });
+              });
+            }
+          });
         }
 
-        const selectedItems = selectedItemUrl({ menu: menuElems, key: i, parentItemUrl: elem.url });
+        // 2. Add standard links to menu.
+        if (elem.submenu.sections.length > 1) {
+          elem.submenu.sections.map((item: Megapanel, j) => {
+            const { heading, groups } = item;
+            const lastHighlighted = j + 1 === highlightedItems.length;
+            const level2Items: {
+              title: string;
+              url?: string;
+              autoid: string;
+              selected: boolean;
+            }[] = [];
 
-        // render level 1 menu sections
-        menuElems?.map((item, k) => {
-          const level2Items: {
-            title: string;
-            url?: string;
-            autoid: string;
-            selected: boolean;
-          }[] = [];
+            groups.forEach((linkGroup: MegapanelLinkGroup, k) => {
+              const { heading: groupHeading, links } = linkGroup;
 
-          const lastHighlighted = k + 1 === highlightedItems.length;
+              if (groupHeading) {
+                level2Items.push({
+                  title: groupHeading.title,
+                  url: groupHeading.url,
+                  autoid: `${autoid}--sidenav--nav${i}-list${j}-heading${k}`,
+                  selected: !selectedMenuItem
+                    ? selectedItems?.level2 === `${i}-${j}-${k}`
+                    : selectedMenuItem === groupHeading.titleEnglish,
+                });
+              }
+              if (links) {
+                links.forEach((link, l) => {
+                  level2Items.push({
+                    title: link.title,
+                    url: link.url,
+                    autoid: `${autoid}--sidenav--nav${i}-list${j}-heading${k}-item${l}`,
+                    selected: !selectedMenuItem
+                      ? selectedItems?.level2 === `${i}-${j}-${k}-${l}`
+                      : selectedMenuItem === link.titleEnglish,
+                  });
+                });
+              }
+            });
 
-          // render level 2 menu sections
-          item.megapanelContent?.quickLinks?.links.map((submenu, j) => {
-            return level2Items.push({
-              title: submenu.title,
-              url: submenu.url,
-              autoid: `${autoid}--sidenav--nav${i}-list${k}-item${j}`,
-              selected: !selectedMenuItem
-                ? selectedItems?.level2 === `${i}-${k}-${j}`
-                : selectedMenuItem === submenu.titleEnglish,
+            if (level2Items.length !== 0) {
+              menu.push(
+                this._renderLeftNavMenuSections({
+                  ctas: undefined,
+                  menuItems: level2Items,
+                  isSubmenu: true,
+                  showBackButton: true,
+                  sectionTitle: heading.title,
+                  sectionUrl: heading.url,
+                  sectionId: `${i}, ${j}`,
+                })
+              );
+            }
+
+            return level1Items.push({
+              title: heading.title,
+              url: heading.url,
+              autoid: `${autoid}--sidenav--nav${i}-list${j}`,
+              lastHighlightedItem: lastHighlighted,
+              panelId: `${i}, ${j}`,
+              selected: !selectedMenuItem ? selectedItems?.level1 === `${i}-${j}` : selectedMenuItem === item.titleEnglish,
+              menu: groups && groups.length !== 0,
             });
           });
+        } else {
+          elem.submenu.sections[0].groups.forEach((group: MegapanelLinkGroup, j) => {
+            const { heading, links } = group;
+            const lastHighlighted = j + 1 === highlightedItems.length;
 
-          if (level2Items.length !== 0) {
-            menu.push(
-              this._renderLeftNavMenuSections({
-                ctas: undefined,
-                menuItems: level2Items,
-                isSubmenu: true,
-                showBackButton: true,
-                sectionTitle: item.title,
-                sectionUrl: item.url,
-                sectionId: `${i}, ${k}`,
-              })
-            );
-          }
+            if (heading) {
+              level1Items.push({
+                title: heading.title,
+                url: heading.url,
+                lastHighlightedItem: lastHighlighted,
+                panelId: `${i}, ${j}`,
+                autoid: `${autoid}--sidenav--nav${i}-list${j}`,
+                menu: false,
+                selected: !selectedMenuItem ? selectedItems?.level2 === `${i}-${j}` : selectedMenuItem === heading.titleEnglish,
+              });
+            }
 
-          return level1Items.push({
-            title: item.title,
-            autoid: `${autoid}--sidenav--nav${i}-list${k}`,
-            lastHighlightedItem: lastHighlighted,
-            url: item.url,
-            panelId: `${i}, ${k}`,
-            selected: !selectedMenuItem ? selectedItems?.level1 === `${i}-${k}` : selectedMenuItem === item.titleEnglish,
-            menu: item.megapanelContent?.quickLinks?.links && item.megapanelContent?.quickLinks?.links.length !== 0,
+            if (links) {
+              links.forEach((link, k) => {
+                level1Items.push({
+                  title: link.title,
+                  url: link.url,
+                  lastHighlightedItem: lastHighlighted,
+                  panelId: `${i}, ${j}, ${k}`,
+                  autoid: `${autoid}--sidenav--nav${i}-list${j}-item${k}`,
+                  menu: false,
+                  selected: !selectedMenuItem
+                    ? selectedItems?.level2 === `${i}-${j}-${k}`
+                    : selectedMenuItem === link.titleEnglish,
+                });
+              });
+            }
           });
-        });
+        }
+
+        // 3. Add view all link to bottom of menu.
+        if (viewAll) {
+          level1Items.push({
+            title: viewAll.title,
+            url: viewAll.url,
+            lastHighlightedItem: false,
+            panelId: `${i}`,
+            autoid: `${autoid}--sidenav--nav${i}-list${level1Items.length}`,
+            menu: false,
+            selected: !selectedMenuItem ? selectedItems?.level1 === `${i}` : selectedMenuItem === viewAll.titleEnglish,
+          });
+        }
 
         if (level1Items.length !== 0) {
           menu.push(
             this._renderLeftNavMenuSections({
               ctas: undefined,
               menuItems: level1Items,
-              heading: elem.menuSections[0]?.heading,
               isSubmenu: true,
               showBackButton: true,
               sectionTitle: elem.title,
@@ -615,13 +618,13 @@ class DDSMastheadComposite extends HostListenerMixin(LitElement) {
         }
       }
 
-      const selectedItems = selectedItemUrl({ key: i, parentItemUrl: elem.url });
+      const selectedItems = selectedItemUrl({ key: String(i), parentItemUrl: elem.url });
 
       return {
         title: elem.title,
         titleEnglish: elem.titleEnglish,
-        menu: elem.menuSections && elem.menuSections.length !== 0,
         url: elem.url,
+        menu: elem.submenu && elem.submenu.length !== 0,
         panelId: `${i}, -1`,
         autoid: `${autoid}--sidenav--nav${i}`,
         selected: !selectedMenuItem ? selectedItems?.level0 === `${i}` : selectedMenuItem === elem.titleEnglish,
@@ -692,7 +695,7 @@ class DDSMastheadComposite extends HostListenerMixin(LitElement) {
    */
   protected _renderNavItems({ target, hasL1 }: { target: NAV_ITEMS_RENDER_TARGET; hasL1: boolean }) {
     const { navLinks, l1Data } = this;
-    let menu: MastheadLink[] | undefined = navLinks;
+    let menu: L0MenuItem[] | undefined = navLinks;
     if (hasL1) {
       menu = l1Data?.menuItems;
     }
@@ -712,72 +715,74 @@ class DDSMastheadComposite extends HostListenerMixin(LitElement) {
   /**
    * Renders a nav item.
    *
-   * @param link The link to render
-   * @param i The index of the link in a series
-   * @param autoid The unique id to assign to the link
+   * @param item The item to render
+   * @param i The index of the item in a series
+   * @param autoid The unique id to assign to the item
    * @returns A template fragment representing a nav item.
    */
-  protected _renderNavItem(link, i, autoid): TemplateResult {
+  protected _renderNavItem(item, i, autoid): TemplateResult {
     const { selectedMenuItem, currentUrlPath } = this;
-    const { menuSections = [], title, titleEnglish, url, megamenuLayout, hasMegapanel } = link;
+    const { submenu = { section: [] }, title, titleEnglish, url } = item;
     const hasChildLink = this._childLinkChecker();
     let selected;
 
     if (selectedMenuItem) {
       selected = selectedMenuItem && titleEnglish === selectedMenuItem;
     } else {
-      selected = hasChildLink(menuSections);
+      selected = hasChildLink(submenu); // @TODO look at
     }
 
-    if (menuSections.length === 0) {
-      return html`
-        <dds-top-nav-item
-          ?active="${selectedMenuItem ? selected : url === currentUrlPath}"
-          href="${url}"
-          title="${title}"
-          data-autoid="${autoid}-nav--nav${i}"
-        ></dds-top-nav-item>
-      `;
-    }
+    // Render any available submenus.
+    if (submenu.sections.length > 0) {
+      // Render as megamenu.
+      if (submenu.layout === 'megamenu') {
+        const layout = submenu.sections.length > 1 ? MEGAMENU_LAYOUT_SCHEME.TAB : MEGAMENU_LAYOUT_SCHEME.LIST;
 
-    if (hasMegapanel) {
-      if (menuSections) {
-        this.megamenuSet[i] = this._renderMegaMenu(menuSections, i, megamenuLayout as MEGAMENU_LAYOUT_SCHEME);
+        this.megamenuSet[i] = this._renderMegaMenu(submenu, i, layout);
+
+        return html`
+          <dds-megamenu-top-nav-menu
+            ?active="${selected}"
+            menu-label="${title}"
+            trigger-content="${title}"
+            data-autoid="${autoid}-nav--nav${i}"
+          >
+          </dds-megamenu-top-nav-menu>
+        `;
       }
-
+      // Render as simple dropdown.
       return html`
-        <dds-megamenu-top-nav-menu
+        <dds-top-nav-menu
           ?active="${selected}"
           menu-label="${title}"
           trigger-content="${title}"
           data-autoid="${autoid}-nav--nav${i}"
         >
-        </dds-megamenu-top-nav-menu>
+          ${submenu.sections
+            // eslint-disable-next-line no-use-before-define
+            .reduce((acc: typeof menuItems, { menuItems }) => acc.concat(menuItems), [])
+            .map(
+              ({ title: menuItemTitle, url: menuItemUrl }, j) =>
+                html`
+                  <dds-top-nav-menu-item
+                    ?active="${selectedMenuItem ? selected : menuItemUrl === currentUrlPath}"
+                    href="${menuItemUrl}"
+                    title="${menuItemTitle}"
+                    data-autoid="${autoid}-nav--subnav-col${i}-item${j}"
+                  ></dds-top-nav-menu-item>
+                `
+            )}
+        </dds-top-nav-menu>
       `;
     }
-
+    // Fallback render as simple link.
     return html`
-      <dds-top-nav-menu
-        ?active="${selected}"
-        menu-label="${title}"
-        trigger-content="${title}"
+      <dds-top-nav-item
+        ?active="${selectedMenuItem ? selected : url === currentUrlPath}"
+        href="${url}"
+        title="${title}"
         data-autoid="${autoid}-nav--nav${i}"
-      >
-        ${menuSections
-          // eslint-disable-next-line no-use-before-define
-          .reduce((acc: typeof menuItems, { menuItems }) => acc.concat(menuItems), [])
-          .map(
-            ({ title: menuItemTitle, url: menuItemUrl }, j) =>
-              html`
-                <dds-top-nav-menu-item
-                  ?active="${selectedMenuItem ? selected : menuItemUrl === currentUrlPath}"
-                  href="${menuItemUrl}"
-                  title="${menuItemTitle}"
-                  data-autoid="${autoid}-nav--subnav-col${i}-item${j}"
-                ></dds-top-nav-menu-item>
-              `
-          )}
-      </dds-top-nav-menu>
+      ></dds-top-nav-item>
     `;
   }
 
@@ -1006,7 +1011,7 @@ class DDSMastheadComposite extends HostListenerMixin(LitElement) {
    * The navigation links.
    */
   @property({ attribute: false })
-  navLinks?: MastheadLink[];
+  navLinks?: L0MenuItem[];
 
   /**
    * Logo data

@@ -1,7 +1,7 @@
 /**
  * @license
  *
- * Copyright IBM Corp. 2020, 2022
+ * Copyright IBM Corp. 2020, 2023
  *
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
@@ -16,7 +16,7 @@ import textNullable from '../../../../.storybook/knob-text-nullable';
 import DDSLeftNav from '../left-nav';
 import '../masthead-container';
 import styles from './masthead.stories.scss';
-import { mastheadLinks as links, mastheadL1Data, logoData } from './links';
+import { NEWmastheadLinks as links, mastheadL1Data, logoData } from './links';
 import {
   UNAUTHENTICATED_STATUS,
   MASTHEAD_AUTH_METHOD,

@@ -253,3 +253,29 @@ export interface TranslateAPIState {
    */
   errorsRequestTranslation?: { [language: string]: Error };
 }
+
+// New for v2.1.0
+export interface L0Menu {
+  items: L0MenuItem[];
+}
+
+export interface L0MenuItem extends BasicLink {
+  submenu?: L0Submenu;
+}
+
+export interface L0Submenu {
+  layout: 'simple' | 'megamenu';
+  sections: Megapanel[];
+  highlights?: MegapanelLinkGroup[];
+  viewAll?: BasicLink;
+}
+
+export interface Megapanel {
+  heading?: BasicLink;
+  groups: MegapanelLinkGroup[];
+}
+
+export interface MegapanelLinkGroup {
+  heading?: BasicLink;
+  links?: BasicLink[];
+}
