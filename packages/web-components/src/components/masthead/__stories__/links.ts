@@ -10,6 +10,7 @@
 import {
   MastheadLink,
   MastheadL1,
+  LegacyMastheadL1,
   MastheadLogoData,
 } from '../../../internal/vendor/@carbon/ibmdotcom-services-store/types/translateAPI.d';
 
@@ -49,7 +50,7 @@ const logoData: MastheadLogoData = {
 /**
  * Dotcom shell MastheadL1 Data
  */
-const l1Data: MastheadL1 = {
+const l1Data: LegacyMastheadL1 = {
   title: 'Stock Charts',
   url: 'https://example.com',
   menuItems: [
@@ -393,42 +394,50 @@ const mastheadL1Data: MastheadL1 = {
     {
       title: 'Learn',
       titleEnglish: 'Learn',
-      menuSections: [
-        {
-          menuItems: [
-            {
-              title: 'Blogs',
-              url: 'https://www.ibm.com/blogs/journey-to-ai/',
-            },
-            {
-              title: 'Client stories',
-              url: 'https://www.ibm.com/analytics/client-stories',
-            },
-            {
-              title: 'Communities',
-              url: 'https://www.ibm.com/analytics/communities',
-            },
-          ],
-        },
-      ],
+      submenu: {
+        announcement: '',
+        menuSections: [
+          {
+            span: 1,
+            items: [
+              {
+                title: 'Blogs',
+                url: 'https://www.ibm.com/blogs/journey-to-ai/',
+              },
+              {
+                title: 'Client stories',
+                url: 'https://www.ibm.com/analytics/client-stories',
+              },
+              {
+                title: 'Communities',
+                url: 'https://www.ibm.com/analytics/communities',
+              },
+            ],
+          },
+        ],
+      },
     },
     {
       title: 'Explore more',
       titleEnglish: 'Explore more',
-      menuSections: [
-        {
-          menuItems: [
-            {
-              title: 'Product support',
-              url: 'https://www.ibm.com/analytics/support',
-            },
-            {
-              title: 'Expert gallery',
-              url: 'https://developer.ibm.com/technologies/blockchain/?lnk=hpmdev_dw&lnk2=learn',
-            },
-          ],
-        },
-      ],
+      submenu: {
+        announcement: '',
+        menuSections: [
+          {
+            span: 1,
+            items: [
+              {
+                title: 'Product support',
+                url: 'https://www.ibm.com/analytics/support',
+              },
+              {
+                title: 'Expert gallery',
+                url: 'https://developer.ibm.com/technologies/blockchain/?lnk=hpmdev_dw&lnk2=learn',
+              },
+            ],
+          },
+        ],
+      },
     },
   ],
 };
