@@ -117,24 +117,8 @@ describe('Redux actions for `ProfileAPI`', () => {
 });
 
 describe('Redux actions for cloud implementation of `ProfileAPI`', () => {
-  it('dispatches the action to get user authentication status', async () => {
-    ProfileAPI.getUserStatus.mockResolvedValue({ user: CLOUD_UNAUTHENTICATED_STATUS });
-    const store = mockStore();
-    await store.dispatch(loadUserStatus(MASTHEAD_AUTH_METHOD.DEFAULT));
-    expect(convertValue(store.getActions())).toEqual([
-      {
-        type: PROFILE_API_ACTION.SET_REQUEST_USER_STATUS_IN_PROGRESS,
-        request: 'PROMISE',
-      },
-      {
-        type: PROFILE_API_ACTION.SET_USER_STATUS,
-        request: { user: CLOUD_UNAUTHENTICATED_STATUS },
-      },
-    ]);
-  });
-
   it('dispatches the action to get Cloud cookie user authentication status', async () => {
-    ProfileAPI.getUserStatus.mockResolvedValue({ user: CLOUD_UNAUTHENTICATED_STATUS });
+    ProfileAPI.checkCloudCookie.mockResolvedValue({ user: CLOUD_UNAUTHENTICATED_STATUS });
     const store = mockStore();
     await store.dispatch(loadUserStatus(MASTHEAD_AUTH_METHOD.COOKIE));
     expect(convertValue(store.getActions())).toEqual([
@@ -150,7 +134,7 @@ describe('Redux actions for cloud implementation of `ProfileAPI`', () => {
   });
 
   it('dispatches the action to get Docs API user authentication status', async () => {
-    ProfileAPI.getUserStatus.mockResolvedValue({ user: CLOUD_UNAUTHENTICATED_STATUS });
+    ProfileAPI.checkCloudDocsAPI.mockResolvedValue({ user: CLOUD_UNAUTHENTICATED_STATUS });
     const store = mockStore();
     await store.dispatch(loadUserStatus(MASTHEAD_AUTH_METHOD.DOCS_API));
     expect(convertValue(store.getActions())).toEqual([
