@@ -37,34 +37,34 @@ class NoticeChoice extends StableSelectorMixin(LitElement) {
   /**
    * properties for passed attributes.
    */
-  @property({ type: String, reflect: true, attribute: true })
+  @property({ type: String, reflect: true, attribute: 'question-choices' })
   questionchoices = '1';
 
-  @property({ type: String, attribute: true })
+  @property({ type: String, attribute: 'country' })
   country = 'US';
 
-  @property({ type: String, attribute: true })
+  @property({ type: String, attribute: 'state' })
   state = '';
 
-  @property({ type: String, attribute: true })
+  @property({ type: String, attribute: 'locale' })
   locale = 'us-en';
 
-  @property({ type: String, attribute: true })
+  @property({ type: String, attribute: 'terms-condition-link' })
   termsConditionLink = html``;
 
-  @property({ type: String, attribute: true })
+  @property({ type: String, attribute: 'bpid-legal-text' })
   bpidLegalText = html``;
 
-  @property({ type: Boolean, attribute: true })
+  @property({ type: Boolean, attribute: 'enable-all-opt-in' })
   enableAllOptIn;
 
-  @property({ attribute: true })
+  @property({ attribute: 'default-values' })
   defaultValues = {};
 
-  @property({ type: String, attribute: true })
+  @property({ type: String, attribute: 'email' })
   email = '';
 
-  @property({ type: Object, attribute: true })
+  @property({ type: Object, attribute: 'onchange' })
   onchange;
 
   @property({ type: Object, attribute: false })
@@ -218,16 +218,17 @@ class NoticeChoice extends StableSelectorMixin(LitElement) {
     const hasValue = newVal !== null && oldVal !== null;
     super.attributeChangedCallback(name, oldVal, newVal);
     switch (name) {
-      case 'questionchoices': {
+      case 'question-choices': {
         // Reload checkbox options when questionchoices changed
-        if (name === 'questionchoices' && oldVal !== newVal) {
+        if (oldVal !== newVal) {
           this.prepareCheckboxes();
+          this.setDefaultSelections();
         }
         break;
       }
       case 'locale': {
         // load content when locale changed.
-        if (hasValue && name === 'locale' && oldVal !== newVal) {
+        if (hasValue && oldVal !== newVal) {
           const { cc, lc } = getMappedValue(newVal);
           loadContent(
             cc,
@@ -249,7 +250,6 @@ class NoticeChoice extends StableSelectorMixin(LitElement) {
          */
         if (
           hasValue &&
-          name === 'country' &&
           oldVal !== newVal &&
           countrySettings[newVal.toLocaleLowerCase()]
         ) {
@@ -257,7 +257,7 @@ class NoticeChoice extends StableSelectorMixin(LitElement) {
         }
         break;
       }
-      case 'enableAllOptIn':
+      case 'enable-all-opt-in':
         this.setDefaultSelections();
         break;
       case 'email': {
@@ -280,87 +280,6 @@ class NoticeChoice extends StableSelectorMixin(LitElement) {
     }
   }
 
-  _attributeChangedCallback(name, oldVal, newVal) {
-    super.attributeChangedCallback(name, oldVal, newVal);
-    const hasValue = newVal !== null;
-    if (hasValue) {
-      // Reload checkbox options when questionchoices changed
-      if (name === 'questionchoices' && oldVal !== newVal) {
-        this.questionchoices = newVal;
-        this.prepareCheckboxes();
-      }
-      // load content when locale changed.
-      if (name === 'locale' && oldVal !== newVal) {
-        const { cc, lc } = getMappedValue(newVal);
-        loadContent(
-          cc,
-          lc,
-          (ncData) => {
-            this.ncData = ncData;
-            this.prepareCheckboxes();
-          },
-          (error) => {
-            console.error('error loading content', error);
-          }
-        );
-      }
-      /**
-       * load content when country value changed.
-       */
-      if (
-        name === 'country' &&
-        oldVal !== newVal &&
-        countrySettings[newVal.toLocaleLowerCase()]
-      ) {
-        const cc = newVal.toLocaleLowerCase();
-        const lc = countrySettings[newVal.toLocaleLowerCase()].lang;
-        resetToWorldWideContent();
-        loadContent(
-          cc,
-          lc,
-          (ncData) => {
-            /**
-             * @description Do not change content language.
-             * Change the checkbox according to the country rule.
-             */
-            this.optInContent = {
-              ...ncData.OptInContent,
-              cclc: `${worldWideContent.cc_name}-${worldWideContent.cc_lang}`,
-            };
-            this.countryChangeAction();
-          },
-          (error) => {
-            console.error('error loading content', error);
-          }
-        );
-      }
-      /**
-       * enableAllOptIn change effect
-       */
-      if (name === 'enableAllOptIn') {
-        this.setDefaultSelections();
-      }
-      /**
-       * email changed effect
-       */
-      if (name === 'email' && oldVal !== newVal) {
-        if (newVal) {
-          if (newVal !== this.fetchedPref) {
-            // Handle throttle using debounce approach.
-            if (emailRegExp.test(newVal)) {
-              setTimeout(() => {
-                this.emailChanged(newVal);
-              }, 1000);
-            }
-          }
-        } else {
-          if (this.fetchedPref) {
-            this.fetchedPref = newVal;
-          }
-        }
-      }
-    }
-  }
   private checkBoxChange($event: any) {
     const id = $event.target.id;
     const checked = $event.target.checked;

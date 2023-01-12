@@ -54,8 +54,11 @@ const props = () => ({
   state: select('State', stateList, ''),
   questionchoices: select('Question Choices', questionChoices, '1,2'),
   email: text('Email', ''),
-  termsConditionLink: text('termsConditionLink', 'https://www.ibm.com/legal'),
-  bpidLegalText: text('bpidLegalText', ''),
+  termsConditionLink: text(
+    'Terms & Condition Link',
+    'https://www.ibm.com/legal'
+  ),
+  bpidLegalText: text('BPID Legal Text', ''),
   onchange: (name, value) => {
     console.log('onchange Callback ', name, value);
   },
@@ -77,12 +80,12 @@ export const Default = (args) => {
     <dds-notice-choice
       locale="${locale}"
       country="${country}"
-      questionchoices="${questionchoices}"
+      question-choices="${questionchoices}"
       state="${state}"
       email=${email}
-      termsConditionLink="${termsConditionLink}"
-      ?enableAllOptIn=${enableAllOptIn}
-      bpidLegalText="${bpidLegalText}"
+      terms-condition-link="${termsConditionLink}"
+      ?enable-all-opt-in=${enableAllOptIn}
+      bpid-legal-text="${bpidLegalText}"
       .onchange=${onchange}></dds-notice-choice>
   `;
 };
@@ -110,7 +113,7 @@ export default {
     propsSet: {
       default: {
         NoticeChoice: {
-          questionchoices: [1, 2],
+          'question-choices': [1, 2],
         },
       },
     },
