@@ -260,7 +260,7 @@ export interface L0Menu {
 }
 
 export interface L0MenuItem extends BasicLink {
-  submenu?: L0Submenu;
+  submenu?: L0Submenu | BasicLink[];
 }
 
 export interface L0Submenu {

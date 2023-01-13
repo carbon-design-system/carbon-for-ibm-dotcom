@@ -5839,6 +5839,28 @@ const NEWmastheadLinks: L0MenuItem[] = [
       ],
     },
   },
+  {
+    title: 'Demo Simple Submenu',
+    titleEnglish: 'Demo Simple Submenu',
+    url: '',
+    submenu: [
+      {
+        title: 'Subitem 1',
+        titleEnglish: 'Subitem 1',
+        url: 'https://www.example.com',
+      },
+      {
+        title: 'Subitem 2',
+        titleEnglish: 'Subitem 2',
+        url: 'https://www.example.com',
+      },
+    ],
+  },
+  {
+    title: 'Demo Simple',
+    titleEnglish: 'Demo Simple',
+    url: 'https://www.example.com',
+  },
 ];
 
 /**
