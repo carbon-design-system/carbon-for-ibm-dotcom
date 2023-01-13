@@ -38,6 +38,9 @@ class DDSButtonGroup extends StableSelectorMixin(LitElement) {
             ) ||
             (elem as HTMLElement).matches(
               (this.constructor as typeof DDSButtonGroup).selectorItemCTA
+            ) ||
+            (elem as HTMLElement).matches(
+              (this.constructor as typeof DDSButtonGroup).selectorItemDefaultCTA
             )
           : false
       );
@@ -45,15 +48,21 @@ class DDSButtonGroup extends StableSelectorMixin(LitElement) {
     childItems.forEach((elem, index) => {
       (elem as HTMLElement).setAttribute(
         'kind',
-        index !== childItems.length - 1
-          ? BUTTON_KIND.TERTIARY
-          : BUTTON_KIND.PRIMARY
+        index === 0 ? BUTTON_KIND.PRIMARY : BUTTON_KIND.TERTIARY
       );
     });
 
     const { customPropertyItemCount } = this
       .constructor as typeof DDSButtonGroup;
     this.style.setProperty(customPropertyItemCount, String(childItems.length));
+
+    const update = new CustomEvent(`${ddsPrefix}-button-group-update`, {
+      bubbles: true,
+      cancelable: true,
+      composed: true,
+    });
+
+    this.dispatchEvent(update);
   }
 
   render() {
@@ -77,6 +86,13 @@ class DDSButtonGroup extends StableSelectorMixin(LitElement) {
    */
   static get selectorItem() {
     return `${ddsPrefix}-button-group-item`;
+  }
+
+  /**
+   * A selector that will return the child items.
+   */
+  static get selectorItemDefaultCTA() {
+    return `${ddsPrefix}-cta`;
   }
 
   /**

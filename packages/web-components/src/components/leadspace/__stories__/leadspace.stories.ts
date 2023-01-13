@@ -30,6 +30,11 @@ const navigationOptions = [
   'none',
 ];
 
+const gradientOptions = {
+  'With Gradient': 'with-gradient',
+  'No Gradient': '',
+};
+
 const navigationWithTagGroup = html`
   <dds-tag-group slot="navigation">
     <dds-tag-link href="https://example.com">Marketing Analytics</dds-tag-link>
@@ -707,6 +712,11 @@ export default {
             label: getAriaLabel(icon),
           };
         }),
+        gradientStyleScheme: select(
+          'Gradient (gradient-style-scheme)',
+          gradientOptions,
+          'with-gradient'
+        ),
         alt: text('Image alt text (alt):', 'Image alt text'),
         defaultSrc: text('Default image (defaultSrc):', leadspaceImg),
       }),

@@ -7,8 +7,9 @@
  * LICENSE file in the root directory of this source tree.
  */
 
-import { LitElement, html } from 'lit';
-import { customElement, property } from 'lit/decorators.js';
+import { LitElement, html, render } from 'lit';
+import { customElement, property, state } from 'lit/decorators.js';
+import { stripHTML } from '@carbon/ibmdotcom-utilities/es/utilities/stripHTML/index.js';
 import ddsSettings from '../../internal/vendor/@carbon/ibmdotcom-utilities/utilities/settings/settings';
 import styles from './leadspace.scss';
 import StableSelectorMixin from '../../globals/mixins/stable-selector';
@@ -28,6 +29,9 @@ class DDSLeadspaceHeading extends StableSelectorMixin(LitElement) {
   @property({ reflect: true })
   slot = 'heading';
 
+  @state()
+  content = '';
+
   connectedCallback() {
     if (!this.hasAttribute('role')) {
       this.setAttribute('role', 'heading');
@@ -40,6 +44,11 @@ class DDSLeadspaceHeading extends StableSelectorMixin(LitElement) {
 
   render() {
     return html` <slot></slot> `;
+  }
+
+  firstUpdated() {
+    this.content = stripHTML(this.innerHTML);
+    render(html`<h1>${this.content}</h1>`, this);
   }
 
   static get stableSelector() {

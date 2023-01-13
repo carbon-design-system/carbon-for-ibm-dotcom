@@ -12,6 +12,10 @@ import ArrowRight20 from '@carbon/web-components/es/icons/arrow--right/20.js';
 import { ifDefined } from 'lit/directives/if-defined.js';
 import { optionsKnob } from '@storybook/addon-knobs';
 import '../index';
+import '../../card-group/index';
+import '../../carousel/index';
+import '../../content-group-cards/index';
+import '../../content-block-simple/index';
 import '../../cta/text-cta';
 import readme from './README.stories.mdx';
 import textNullable from '../../../../.storybook/knob-text-nullable';
@@ -55,10 +59,34 @@ const card2 = html`
   </dds-content-group-cards-item>
 `;
 
+const hrefDefault = 'https://www.ibm.com/standards/carbon';
+const headingDefault = 'Lorem ipsum dolor sit amet';
+const copyDefault =
+  'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean et ultricies est.';
+const copyOdd = `
+  ${copyDefault}
+  Mauris iaculis eget dolor nec hendrerit. Phasellus at elit sollicitudin, sodales nulla quis, consequat libero.
+`;
+
+const Card = ({
+  copy = copyDefault,
+  heading = headingDefault,
+  href = hrefDefault,
+} = {}) => html`
+  <dds-card href="${ifDefined(href)}">
+    <dds-card-heading>${heading}</dds-card-heading>
+    ${copy}
+    <dds-card-footer> ${ArrowRight20({ slot: 'icon' })} </dds-card-footer>
+  </dds-card>
+`;
+
 export const Default = (args) => {
   const { heading, copy, addChildren } = args?.ContentSection ?? {};
+  const classes = addChildren.includes('Content block simple')
+    ? 'bx--col-lg-16 bx--no-gutter'
+    : '';
   return html`
-    <dds-content-section children-custom-class="bx--col-lg-8 bx--no-gutter">
+    <dds-content-section children-custom-class="${classes}">
       <dds-content-section-heading
         >${ifDefined(heading)}</dds-content-section-heading
       >
@@ -85,19 +113,47 @@ export const Default = (args) => {
             </dds-content-block-simple>
           `
         : ``}
-      ${addChildren.includes('Content group cards')
+      ${addChildren.includes('Card group')
         ? html`
-            <dds-content-group-cards>
-              <dds-content-group-heading
-                >Lorem ipsum dolor sit amet.</dds-content-group-heading
-              >
-              <dds-content-group-copy
-                >Lorem ipsum dolor sit amet.</dds-content-group-copy
-              >
-              ${card1}${card2}${card1}${card2}
-            </dds-content-group-cards>
+            <dds-card-group> ${card1}${card2}${card1}${card2} </dds-card-group>
           `
         : ``}
+      ${addChildren.includes('Link list')
+        ? html`
+            <dds-link-list>
+              <dds-link-list-item href="https://example.com">
+                Learn more about Kubernetes and automating deployment
+                ${ArrowRight20({ slot: 'icon' })}
+              </dds-link-list-item>
+              <dds-link-list-item href="https://example.com">
+                Containerization A Complete Guide
+                ${ArrowRight20({ slot: 'icon' })}
+              </dds-link-list-item>
+              <dds-link-list-item href="https://example.com">
+                Microservices and containers ${ArrowRight20({ slot: 'icon' })}
+              </dds-link-list-item>
+              <dds-link-list-item href="https://example.com">
+                Learn more about Kubernetes ${ArrowRight20({ slot: 'icon' })}
+              </dds-link-list-item>
+              <dds-link-list-item href="https://example.com">
+                Containerization A Complete Guide
+                ${ArrowRight20({ slot: 'icon' })}
+              </dds-link-list-item>
+              <dds-link-list-item href="https://example.com">
+                Microservices and containers ${ArrowRight20({ slot: 'icon' })}
+              </dds-link-list-item>
+            </dds-link-list>
+          `
+        : ``}
+      ${addChildren.includes('Carousel')
+        ? html`
+            <dds-carousel>
+              ${Card()}${Card({ copy: copyOdd })}${Card()}${Card({
+                copy: copyOdd,
+              })}${Card()}
+            </dds-carousel>
+          `
+        : ''}
       <dds-text-cta
         slot="footer"
         cta-type="local"
@@ -139,10 +195,12 @@ export default {
           'Add children:',
           {
             'Content block simple': 'Content block simple',
-            'Content group cards': 'Content group cards',
+            'Card group': 'Card group',
+            'Link list': 'Link list',
+            Carousel: 'Carousel',
           },
           '',
-          { display: 'multi-select' }
+          { display: 'select' }
         ),
       }),
     },
