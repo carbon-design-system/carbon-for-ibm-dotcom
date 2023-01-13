@@ -29,11 +29,14 @@ export interface BasicLinkSet {
   links: BasicLink[];
 }
 
-export interface MegapanelGroup {
-  headingTitle?: string;
-  headingUrl?: string;
-  description?: string;
-  links: BasicLink[];
+/**
+ * A feature in mega panel.
+ */
+export interface MegapanelFeature {
+  heading?: string;
+  imageUrl?: string;
+  linkTitle?: string;
+  linkUrl?: string;
 }
 
 /**
@@ -43,8 +46,8 @@ export interface MegapanelContent {
   headingTitle?: string;
   headingUrl?: string;
   description?: string;
-  megapanelGroups?: MegapanelGroup[]; // used in Tabbed layout
-  quickLinks?: BasicLinkSet; // used in Listing layout
+  quickLinks: BasicLinkSet;
+  feature: MegapanelFeature;
 }
 
 /**
@@ -56,20 +59,15 @@ export interface MastheadMenuItem {
   url?: string;
   highlighted?: boolean;
   megaPanelViewAll?: boolean;
-  megapanelContent?: MegapanelContent; // Used if has megamenu
+  megapanelContent?: MegapanelContent;
 }
 
 /**
  * A menu section in masthead.
  */
 export interface MastheadMenuSection {
-  title: string;
-  titleEnglish: string;
-  url?: string;
-  description?: string;
-  menuItems?: MastheadMenuItem[]; // for 'list' layouts use
-  megapanelContent?: MegapanelContent; // for 'tab' layouts use
-  megaPanelViewAll?: boolean;
+  heading?: string;
+  menuItems: MastheadMenuItem[];
 }
 
 /**
@@ -82,7 +80,7 @@ export interface MastheadLink {
   hasMenu?: boolean;
   hasMegapanel?: boolean;
   megamenuLayout?: 'tab' | 'list';
-  menuSections?: MastheadMenuSection[]; // 'list' layouts will only use first section
+  menuSections?: MastheadMenuSection[];
 }
 
 /**
