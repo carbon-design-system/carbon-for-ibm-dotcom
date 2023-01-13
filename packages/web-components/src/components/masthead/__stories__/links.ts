@@ -3434,7 +3434,6 @@ const NEWmastheadLinks: L0MenuItem[] = [
     titleEnglish: 'Products',
     url: '',
     submenu: {
-      layout: 'megamenu',
       sections: [
         {
           heading: {
@@ -4334,7 +4333,6 @@ const NEWmastheadLinks: L0MenuItem[] = [
     titleEnglish: 'Solutions',
     url: '',
     submenu: {
-      layout: 'megamenu',
       sections: [
         {
           heading: {
@@ -4965,7 +4963,6 @@ const NEWmastheadLinks: L0MenuItem[] = [
     titleEnglish: 'Consulting',
     url: '',
     submenu: {
-      layout: 'megamenu',
       sections: [
         {
           heading: {
@@ -5563,7 +5560,6 @@ const NEWmastheadLinks: L0MenuItem[] = [
     titleEnglish: 'Support',
     url: '',
     submenu: {
-      layout: 'megamenu',
       highlights: [
         {
           heading: {
@@ -5891,7 +5887,6 @@ const NEWmastheadLinks: L0MenuItem[] = [
     titleEnglish: 'More',
     url: '',
     submenu: {
-      layout: 'megamenu',
       sections: [
         {
           groups: [

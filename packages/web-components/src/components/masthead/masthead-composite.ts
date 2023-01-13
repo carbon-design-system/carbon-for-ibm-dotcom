@@ -26,7 +26,7 @@ import {
   MastheadProfileItem,
   Translation,
   L0MenuItem,
-  L0Submenu,
+  L0Megamenu,
   Megapanel,
   MegapanelLinkGroup,
 } from '../../internal/vendor/@carbon/ibmdotcom-services-store/types/translateAPI.d';
@@ -147,7 +147,7 @@ class DDSMastheadComposite extends HostListenerMixin(LitElement) {
    * @returns TemplateResult
    */
   // eslint-disable-next-line class-methods-use-this
-  protected _renderMegaMenu(menu: L0Submenu, _parentKey, layout: MEGAMENU_LAYOUT_SCHEME = MEGAMENU_LAYOUT_SCHEME.LIST) {
+  protected _renderMegaMenu(menu: L0Megamenu, _parentKey, layout: MEGAMENU_LAYOUT_SCHEME = MEGAMENU_LAYOUT_SCHEME.LIST) {
     const { _megamenuRenderMap } = this;
     if (_megamenuRenderMap.has(layout)) {
       return (_megamenuRenderMap.get(layout) as Function)(menu, _parentKey);
@@ -162,7 +162,7 @@ class DDSMastheadComposite extends HostListenerMixin(LitElement) {
    * @param _parentKey key that identifies parent nav item
    * @returns TemplateResult
    */
-  protected _renderMegaMenuTabbed(menu: L0Submenu, _parentKey) {
+  protected _renderMegaMenuTabbed(menu: L0Megamenu, _parentKey) {
     const { viewAll, sections } = menu;
     type menuItem = Megapanel & { itemKey: String };
     const sortedMenuItems: menuItem[] = [];
@@ -173,25 +173,30 @@ class DDSMastheadComposite extends HostListenerMixin(LitElement) {
     return html`
       <dds-megamenu layout="${MEGAMENU_LAYOUT_SCHEME.TAB}">
         <dds-megamenu-left-navigation view-all-href="${ifNonNull(viewAll?.url)}" view-all-title="${ifNonNull(viewAll?.title)}">
-          <dds-megamenu-tabs value="${sortedMenuItems[0]?.heading.title}">
+          <dds-megamenu-tabs value="${ifNonNull(sortedMenuItems[0]?.heading?.title)}">
             ${sortedMenuItems.map(item => {
-              return html`
-                <dds-megamenu-tab id="tab-${item.itemKey}" target="panel-${item.itemKey}" value="${item.heading.title}">
-                  ${item.heading.title}
-                </dds-megamenu-tab>
-              `;
+              return item?.heading?.title
+                ? html`
+                    <dds-megamenu-tab id="tab-${item.itemKey}" target="panel-${item.itemKey}" value="${item.heading.title}">
+                      ${item.heading.title}
+                    </dds-megamenu-tab>
+                  `
+                : '';
             })}
           </dds-megamenu-tabs>
         </dds-megamenu-left-navigation>
         ${sortedMenuItems.map(item => {
-          const { itemKey, groups } = item;
-          const { title, url, description } = item.heading;
+          const { itemKey, groups, heading } = item;
           return html`
             <div id="panel-${itemKey}" role="tabpanel" aria-labelledby="tab-${itemKey}" hidden>
               <dds-megamenu-right-navigation style-scheme="${MEGAMENU_RIGHT_NAVIGATION_STYLE_SCHEME.TAB}">
-                <dds-megamenu-heading href="${ifDefined(url)}" title="${ifDefined(title)}" slot="heading">
-                  ${description}
-                </dds-megamenu-heading>
+                ${heading?.title
+                  ? html`
+                      <dds-megamenu-heading href="${ifNonNull(heading?.url)}" title="${heading?.title}" slot="heading">
+                        ${heading?.description}
+                      </dds-megamenu-heading>
+                    `
+                  : ''}
                 ${groups
                   ? groups.map((group, i) => this._renderMegapanelLinkGroup(group, { autoid: `panel-${itemKey}-${i}` }))
                   : ''}
@@ -211,7 +216,7 @@ class DDSMastheadComposite extends HostListenerMixin(LitElement) {
    * @returns TemplateResult
    */
   // eslint-disable-next-line
-  protected _renderMegaMenuListing(menu: L0Submenu, _parentKey) {
+  protected _renderMegaMenuListing(menu: L0Megamenu, _parentKey) {
     const megapanel = menu.sections[0];
     const { heading } = megapanel;
     const { viewAll, highlights } = menu;
@@ -241,7 +246,7 @@ class DDSMastheadComposite extends HostListenerMixin(LitElement) {
                   ${heading.description}
                 </dds-megamenu-heading>
               `
-            : null}
+            : ''}
           ${megapanel.groups.map((group, i) =>
             this._renderMegapanelLinkGroup(group, {
               headingLevel: heading ? 3 : 2,
@@ -264,40 +269,39 @@ class DDSMastheadComposite extends HostListenerMixin(LitElement) {
     group: MegapanelLinkGroup,
     options: { headingLevel?: Number; autoid?: String } = { headingLevel: 3 }
   ) {
-    const { title, url, description } = group.heading;
-    const { links } = group;
+    const { links, heading } = group;
     const { headingLevel, autoid } = options;
     return html`
       <dds-megamenu-category-group data-autoid="${ifNonNull(autoid)}">
-        ${title
+        ${heading?.title
           ? html`
               <dds-megamenu-category-heading
-                title="${title}"
-                href="${url}"
+                title="${heading.title}"
+                href="${ifNonNull(heading?.url)}"
                 slot="heading"
                 heading-level="${ifNonNull(headingLevel)}"
               >
-                ${description}
+                ${heading?.description}
               </dds-megamenu-category-heading>
             `
           : ''}
         ${links &&
           links.map((link, i) => {
             const linkAutoId = autoid ? `${autoid}-item${i}` : null;
-            if (link.description) {
+            if (link?.description) {
               return html`
                 <dds-megamenu-category-link
-                  title="${link.title}"
-                  href="${ifNonNull(link.url || null)}"
+                  title="${link?.title}"
+                  href="${ifNonNull(link?.url)}"
                   data-autoid="${ifNonNull(linkAutoId)}"
                 >
-                  ${link.description}
+                  ${link?.description}
                 </dds-megamenu-category-link>
               `;
             }
             return html`
-              <dds-megamenu-category-link href="${ifNonNull(link.url || null)}" data-autoid="${ifNonNull(linkAutoId)}">
-                ${link.title}
+              <dds-megamenu-category-link href="${ifNonNull(link?.url)}" data-autoid="${ifNonNull(linkAutoId)}">
+                ${link?.title}
               </dds-megamenu-category-link>
             `;
           })}
@@ -446,23 +450,40 @@ class DDSMastheadComposite extends HostListenerMixin(LitElement) {
     const menu: any[] = [];
     const selectedItemUrl = this._selectedLeftNavItems();
     const level0Items = menuItems.map((elem: L0MenuItem, i) => {
-      if (elem?.submenu) {
-        // Instantiate bucket for first level submenus.
-        const level1Items: {
-          title: string;
-          panelId: string;
-          autoid: string;
-          lastHighlightedItem: boolean;
-          url?: string;
-          menu: boolean;
-          selected: boolean;
-        }[] = [];
+      // Instantiate bucket for first level submenus.
+      const level1Items: {
+        title: string;
+        panelId: string;
+        autoid: string;
+        lastHighlightedItem: boolean;
+        url?: string;
+        menu: boolean;
+        selected: boolean;
+      }[] = [];
 
+      if (elem?.submenu instanceof Array) {
+        elem.submenu.forEach((link, j) => {
+          const selectedItems = selectedItemUrl({ menu: elem.submenu, key: `${i}`, parentItemUrl: elem.url });
+
+          level1Items.push({
+            title: link.title,
+            url: link.url,
+            autoid: `${autoid}--sidenav--nav${i}-list${j}`,
+            lastHighlightedItem: false,
+            panelId: `${i}, ${j}`,
+            menu: false,
+            selected: !selectedMenuItem ? selectedItems?.level1 === `${i}-${j}` : selectedMenuItem === link.titleEnglish,
+          });
+        });
+      }
+
+      const submenu = elem.submenu as L0Megamenu;
+      if (submenu.sections) {
         // Check if other types of links exist.
-        const highlightedItems = elem.submenu?.highlights || [];
-        const viewAll = elem.submenu?.viewAll;
+        const highlightedItems = submenu?.highlights || [];
+        const viewAll = submenu?.viewAll;
 
-        const selectedItems = selectedItemUrl({ menu: elem.submenu.sections, key: String(i), parentItemUrl: elem.url });
+        const selectedItems = selectedItemUrl({ menu: submenu.sections, key: `${i}`, parentItemUrl: elem.url });
 
         // 1. Add highlighted items to top of menu.
         if (highlightedItems.length !== 0) {
@@ -499,9 +520,15 @@ class DDSMastheadComposite extends HostListenerMixin(LitElement) {
           });
         }
 
-        // 2. Add standard links to menu.
-        if (elem.submenu.sections.length > 1) {
-          elem.submenu.sections.map((item: Megapanel, j) => {
+        /**
+         * 2. Add megamenu links to menu.
+         *
+         * `sections`' length implies a tabbed or listing megamenu, which must
+         * be handled in different ways and have slightly different content
+         * requirements.
+         */
+        if (submenu.sections.length > 1) {
+          submenu.sections.map((item: Megapanel, j) => {
             const { heading, groups } = item;
             const lastHighlighted = j + 1 === highlightedItems.length;
             const level2Items: {
@@ -545,25 +572,25 @@ class DDSMastheadComposite extends HostListenerMixin(LitElement) {
                   menuItems: level2Items,
                   isSubmenu: true,
                   showBackButton: true,
-                  sectionTitle: heading.title,
-                  sectionUrl: heading.url,
+                  sectionTitle: heading?.title,
+                  sectionUrl: heading?.url,
                   sectionId: `${i}, ${j}`,
                 })
               );
             }
 
             return level1Items.push({
-              title: heading.title,
-              url: heading.url,
+              title: (heading as BasicLink).title, // headings are required in tabbed layout
+              url: heading?.url,
               autoid: `${autoid}--sidenav--nav${i}-list${j}`,
               lastHighlightedItem: lastHighlighted,
               panelId: `${i}, ${j}`,
-              selected: !selectedMenuItem ? selectedItems?.level1 === `${i}-${j}` : selectedMenuItem === item.titleEnglish,
+              selected: !selectedMenuItem ? selectedItems?.level1 === `${i}-${j}` : selectedMenuItem === heading?.titleEnglish,
               menu: groups && groups.length !== 0,
             });
           });
         } else {
-          elem.submenu.sections[0].groups.forEach((group: MegapanelLinkGroup, j) => {
+          submenu.sections[0].groups.forEach((group: MegapanelLinkGroup, j) => {
             const { heading, links } = group;
             const lastHighlighted = j + 1 === highlightedItems.length;
 
@@ -625,13 +652,13 @@ class DDSMastheadComposite extends HostListenerMixin(LitElement) {
         }
       }
 
-      const selectedItems = selectedItemUrl({ key: String(i), parentItemUrl: elem.url });
+      const selectedItems = selectedItemUrl({ key: `${i}`, parentItemUrl: elem.url });
 
       return {
         title: elem.title,
         titleEnglish: elem.titleEnglish,
-        url: elem.url,
-        menu: elem.submenu && elem.submenu.length !== 0,
+        url: elem?.url,
+        menu: Boolean(elem?.submenu),
         panelId: `${i}, -1`,
         autoid: `${autoid}--sidenav--nav${i}`,
         selected: !selectedMenuItem ? selectedItems?.level0 === `${i}` : selectedMenuItem === elem.titleEnglish,
@@ -663,8 +690,8 @@ class DDSMastheadComposite extends HostListenerMixin(LitElement) {
     if (!submenu) {
       matchFound = menuItem?.url === currentUrlPath;
     } else if (submenu instanceof Array) {
-      matchFound = submenu.find(link => link.url === currentUrlPath);
-    } else if (submenu.layout === 'megamenu') {
+      matchFound = Boolean((submenu as BasicLink[]).find(link => link.url === currentUrlPath));
+    } else if (submenu.sections) {
       const { highlights, viewAll, sections } = submenu;
       const flattenedLinks: BasicLink[] = [];
       const flattenLinkGroup = (group: MegapanelLinkGroup): BasicLink[] => {
@@ -743,7 +770,7 @@ class DDSMastheadComposite extends HostListenerMixin(LitElement) {
    */
   protected _renderNavItem(item: L0MenuItem, i, autoid): TemplateResult {
     const { selectedMenuItem, currentUrlPath } = this;
-    const { submenu = { section: [] }, title, titleEnglish, url } = item;
+    const { submenu, title, titleEnglish, url } = item;
     let selected;
 
     if (selectedMenuItem) {
@@ -775,11 +802,9 @@ class DDSMastheadComposite extends HostListenerMixin(LitElement) {
       `;
     }
 
-    if (submenu.layout === 'megamenu') {
+    if (submenu?.sections) {
       const layout = submenu.sections.length > 1 ? MEGAMENU_LAYOUT_SCHEME.TAB : MEGAMENU_LAYOUT_SCHEME.LIST;
-
       this.megamenuSet[i] = this._renderMegaMenu(submenu, i, layout);
-
       return html`
         <dds-megamenu-top-nav-menu
           ?active="${selected}"

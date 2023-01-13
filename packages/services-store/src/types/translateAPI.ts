@@ -258,11 +258,10 @@ export interface L0Menu {
 }
 
 export interface L0MenuItem extends BasicLink {
-  submenu?: L0Submenu | BasicLink[];
+  submenu?: L0Megamenu | BasicLink[];
 }
 
-export interface L0Submenu {
-  layout: 'simple' | 'megamenu';
+export interface L0Megamenu {
   sections: Megapanel[];
   highlights?: MegapanelLinkGroup[];
   viewAll?: BasicLink;
