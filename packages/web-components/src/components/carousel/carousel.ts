@@ -17,6 +17,7 @@ import {
 } from 'lit-element';
 import 'wicg-inert';
 import settings from 'carbon-components/es/globals/js/settings.js';
+import { slow01 } from '@carbon/motion';
 import ifNonNull from '@carbon/web-components/es/globals/directives/if-non-null.js';
 import CaretLeft20 from '@carbon/web-components/es/icons/caret--left/20.js';
 import CaretRight20 from '@carbon/web-components/es/icons/caret--right/20.js';
