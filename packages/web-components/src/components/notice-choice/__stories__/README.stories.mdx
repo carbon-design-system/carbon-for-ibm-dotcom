@@ -39,11 +39,19 @@ import '@carbon/ibmdotcom-web-components/es/components/notice-choice/index.js';
     termsConditionLink=""
     enableAllOptIn="false"
     bpidLegalText=""
-    .onchange="OnChangeFunction"
+    @dds-notice-choice-change="onChangeFunction"
     >
 </dds-notice-choice>
 ```
-
+## Custom Events
+@dds-notice-choice-change="onChange"
+```javascript
+functionon onChangeFunction(e){
+    console.log(e.detail);
+    // detail object will have two parameter. name and value.
+    // get the name and value and then send it to MRS.
+}"
+```
 ## Props
 
 <Props of="dds-notice-choice" />
@@ -54,6 +62,6 @@ See [our README](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/t
 
 | Web Components selector         | Compatibility selector                 | Description |
 | ------------------------------- | -------------------------------------- | ----------- |
-| `<dds-notice-choice>`               | `data-autoid="dds--notice-choice"`     | Component   |
+| `<dds-notice-choice>`           | `data-autoid="dds--notice-choice"`     | Component   |
 
 <Description markdown={contributing} />

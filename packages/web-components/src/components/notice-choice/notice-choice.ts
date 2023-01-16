@@ -8,11 +8,19 @@
  */
 
 import { checkPreferencesv3, loadContent } from './services';
-import { customElement, html, LitElement, property } from 'lit-element';
+import {
+  css,
+  customElement,
+  html,
+  LitElement,
+  property,
+  state,
+} from 'lit-element';
 import {
   emailRegExp,
   getMappedValue,
   getNcContentFromWindow,
+  pwsValueMap,
   resetToWorldWideContent,
 } from './utils';
 
@@ -31,6 +39,9 @@ const { prefix } = settings;
  * Notice Choice
  *
  * @element dds-notice-choice
+ * @fires dds-notice-choice-change
+ * The custom event fired when default choice loaded or user change some preferences.
+ * The field and value should be taken from the detail object and send it to MRS.
  */
 @customElement(`dds-notice-choice`)
 class NoticeChoice extends StableSelectorMixin(LitElement) {
@@ -64,9 +75,6 @@ class NoticeChoice extends StableSelectorMixin(LitElement) {
   @property({ type: String, attribute: 'email' })
   email = '';
 
-  @property({ type: Object, attribute: 'onchange' })
-  onchange;
-
   @property({ type: Object, attribute: false })
   checkboxes = {};
 
@@ -79,7 +87,7 @@ class NoticeChoice extends StableSelectorMixin(LitElement) {
   @property({ type: String, attribute: false })
   fetchedPref = '';
 
-  @property({ type: String, attribute: false })
+  @property({ type: Object, attribute: false })
   optInContent = {};
 
   /**
@@ -105,9 +113,6 @@ class NoticeChoice extends StableSelectorMixin(LitElement) {
     NC_HIDDEN_POSTAL: worldWideContent.cc_default_status,
   };
 
-  // constructor() {
-  //   super();
-  // }
   prepareCheckboxes() {
     if (this.ncData) {
       const OptInContent = this.ncData.OptInContent;
@@ -151,12 +156,8 @@ class NoticeChoice extends StableSelectorMixin(LitElement) {
         ) {
           newValues[key] = this.defaultValues[key];
         }
-        const fieldName = `NC_CHECK_${key}`;
         const hiddenFieldName = `NC_HIDDEN_${key}`;
-        if (typeof this.onchange === 'function') {
-          this.onchange(fieldName, newValues[key]);
-          this.onchange(hiddenFieldName, newValues[key] ? 'OPT_IN' : null);
-        }
+        this._onChange(hiddenFieldName, newValues[key] ? 'OPT_IN' : null);
       });
       if (JSON.stringify(this.values) !== JSON.stringify(newValues)) {
         this.values = newValues;
@@ -289,10 +290,8 @@ class NoticeChoice extends StableSelectorMixin(LitElement) {
     newValues[id] = !!checked;
     this.values = newValues;
     this.changed = true;
-    const fieldName = `NC_CHECK_${id}`;
     const hiddenFieldName = `NC_HIDDEN_${id}`;
-    this.onchange(fieldName, checked);
-    this.onchange(hiddenFieldName, checked ? 'PERMISSION' : 'SUPPRESSION');
+    this._onChange(hiddenFieldName, checked ? 'PERMISSION' : 'SUPPRESSION');
   }
   static get stableSelector() {
     return `${ddsPrefix}--notice-choice`;
@@ -405,7 +404,7 @@ class NoticeChoice extends StableSelectorMixin(LitElement) {
     }
   }
   render() {
-    return html`<section>
+    return html`<section class="${prefix}--nc">
       <p id="ncHeading" class="${ddsPrefix}--nc__pre-text">${unsafeHTML(
       this.preText
     )}</p>
@@ -442,8 +441,7 @@ class NoticeChoice extends StableSelectorMixin(LitElement) {
             ...this.values,
             EMAIL: false,
           };
-          this.onchange('NC_CHECK_EMAIL', false);
-          this.onchange('NC_HIDDEN_EMAIL', null);
+          this._onChange('NC_HIDDEN_EMAIL', null);
         }
       });
     }
@@ -508,6 +506,30 @@ class NoticeChoice extends StableSelectorMixin(LitElement) {
       }
     }
     return fieldElements;
+  }
+
+  static get eventOnChange() {
+    return `${ddsPrefix}-notice-choice-change`;
+  }
+
+  _onChange(field: string, value: string | null) {
+    const pwsFieldsMap = {
+      NC_HIDDEN_EMAIL: 'permission_email',
+      NC_HIDDEN_PHONE: 'permission_phone',
+      NC_HIDDEN_POSTAL: 'permission_postal',
+    };
+    if (Object.prototype.hasOwnProperty.call(pwsFieldsMap, field)) {
+      field = pwsFieldsMap[field];
+    }
+    const init = {
+      bubbles: true,
+      detail: {
+        field,
+        value: pwsValueMap(value),
+      },
+    };
+    const { eventOnChange } = this.constructor as typeof NoticeChoice;
+    this.dispatchEvent(new CustomEvent(eventOnChange, init));
   }
 }
 /* @__GENERATE_REACT_CUSTOM_ELEMENT_TYPE__ */

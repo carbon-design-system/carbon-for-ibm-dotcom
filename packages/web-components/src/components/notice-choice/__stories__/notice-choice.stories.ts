@@ -11,6 +11,7 @@ import '../index';
 
 import { select, text } from '@storybook/addon-knobs';
 
+import { action } from '@storybook/addon-actions';
 import { html } from 'lit-element';
 import readme from './README.stories.mdx';
 
@@ -47,7 +48,9 @@ const stateList = {
   Alabama: 'AL',
   California: 'CA',
 };
-
+const onChange = (event: CustomEvent) => {
+  console.log(event.detail);
+};
 const props = () => ({
   locale: select('Locale', locales, 'in-en'),
   country: select('Country', countryList, 'US'),
@@ -59,9 +62,7 @@ const props = () => ({
     'https://www.ibm.com/legal'
   ),
   bpidLegalText: text('BPID Legal Text', ''),
-  onchange: (name, value) => {
-    console.log('onchange Callback ', name, value);
-  },
+  onChange: action('dds-notice-choice-change'),
 });
 
 export const Default = (args) => {
@@ -69,7 +70,6 @@ export const Default = (args) => {
     locale,
     country,
     state,
-    onchange,
     email,
     termsConditionLink,
     questionchoices,
@@ -86,7 +86,7 @@ export const Default = (args) => {
       terms-condition-link="${termsConditionLink}"
       ?enable-all-opt-in=${enableAllOptIn}
       bpid-legal-text="${bpidLegalText}"
-      .onchange=${onchange}></dds-notice-choice>
+      @dds-notice-choice-change=${onChange}></dds-notice-choice>
   `;
 };
 
@@ -96,8 +96,7 @@ export default {
     (story) => html`
       <div class="bx--grid">
         <div class="bx--row">
-          <div
-            class="bx--col-sm-4 bx--col-md-3 bx--col-lg-6 bx--col-xlg-4 bx--no-gutter">
+          <div class="bx--col-sm-4 bx--col-md-8 bx--col-lg-12 bx--offset-lg-2">
             ${story()}
           </div>
         </div>
@@ -114,6 +113,7 @@ export default {
       default: {
         NoticeChoice: {
           'question-choices': [1, 2],
+          onChange: 'dds-notice-choice-change',
         },
       },
     },
