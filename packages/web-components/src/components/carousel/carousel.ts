@@ -38,7 +38,7 @@ const MIN_DISTANCE_TRAVELLED = 75; // min distance traveled to be considered swi
 const headingBottomMargin = 64; // tag constants used for same height calculations
 
 /**
- * Miniumum percentage of a slide being visible for it to be interactable.
+ * Minimum percentage of a slide being visible for it to be interactable.
  */
 const minIntersectionRatio = 0.75;
 
@@ -212,7 +212,7 @@ class DDSCarousel extends HostListenerMixin(StableSelectorMixin(LitElement)) {
   private _startTime = 0;
 
   /**
-   * Cleans-up and creats the resize observer for the scrolling container.
+   * Cleans-up and creates the resize observer for the scrolling container.
    *
    * @param [options] The options.
    * @param [options.create] `true` to create the new resize observer.
@@ -244,7 +244,7 @@ class DDSCarousel extends HostListenerMixin(StableSelectorMixin(LitElement)) {
   }
 
   /**
-   * Stops the container from scrolling when focusing on a card outside of the viewport.
+   * Stops the container from scrolling when focusing on a card outside the viewport.
    *
    * @param event The event.
    */
@@ -485,7 +485,7 @@ class DDSCarousel extends HostListenerMixin(StableSelectorMixin(LitElement)) {
 
     let tagGroupHeight: number = 0;
 
-    // get tallest height of tag groups
+    // Get the tallest height of tag groups.
     this._childItemTagGroup.forEach((item) => {
       if (item) {
         const groupHeight = (item as HTMLElement).offsetHeight;
@@ -621,11 +621,7 @@ class DDSCarousel extends HostListenerMixin(StableSelectorMixin(LitElement)) {
 
     childItems.forEach((item) => {
       const index = childItems.indexOf(item);
-      if (index < start || index > start + pageSize - 1) {
-        item.inert = true;
-      } else {
-        item.inert = false;
-      }
+      item.inert = index < start || index > start + pageSize - 1;
     });
   }
 
