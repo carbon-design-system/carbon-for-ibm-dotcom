@@ -29,7 +29,7 @@ class DDSButtonGroup extends StableSelectorMixin(LitElement) {
   private _handleSlotChange(event: Event) {
     const childItems = (event.target as HTMLSlotElement)
       .assignedNodes()
-      .filter(elem =>
+      .filter((elem) =>
         (elem as HTMLElement).matches !== undefined
           ? (elem as HTMLElement).matches(
               (this.constructor as typeof DDSButtonGroup).selectorItem
@@ -64,9 +64,7 @@ class DDSButtonGroup extends StableSelectorMixin(LitElement) {
   }
 
   render() {
-    return html`
-      <slot @slotchange="${this._handleSlotChange}"></slot>
-    `;
+    return html` <slot @slotchange="${this._handleSlotChange}"></slot> `;
   }
 
   connectedCallback() {
