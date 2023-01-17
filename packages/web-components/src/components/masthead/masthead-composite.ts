@@ -446,9 +446,8 @@ class DDSMastheadComposite extends HostListenerMixin(LitElement) {
    * @param autoid Base autoid to be applied to the menu items
    */
   protected _renderLeftNav(menuItems: L0MenuItem[], autoid) {
-    const { selectedMenuItem, ctaButtons } = this;
+    const { ctaButtons } = this;
     const menu: any[] = [];
-    const selectedItemUrl = this._selectedLeftNavItems();
     const level0Items = menuItems.map((elem: L0MenuItem, i) => {
       // Instantiate bucket for first level submenus.
       const level1Items: {
@@ -463,8 +462,6 @@ class DDSMastheadComposite extends HostListenerMixin(LitElement) {
 
       if (elem?.submenu instanceof Array) {
         elem.submenu.forEach((link, j) => {
-          const selectedItems = selectedItemUrl({ menu: elem.submenu, key: `${i}`, parentItemUrl: elem.url });
-
           level1Items.push({
             title: link.title,
             url: link.url,
@@ -472,7 +469,7 @@ class DDSMastheadComposite extends HostListenerMixin(LitElement) {
             lastHighlightedItem: false,
             panelId: `${i}, ${j}`,
             menu: false,
-            selected: !selectedMenuItem ? selectedItems?.level1 === `${i}-${j}` : selectedMenuItem === link.titleEnglish,
+            selected: false,
           });
         });
 
@@ -497,8 +494,6 @@ class DDSMastheadComposite extends HostListenerMixin(LitElement) {
         const highlightedItems = submenu?.highlights || [];
         const viewAll = submenu?.viewAll;
 
-        const selectedItems = selectedItemUrl({ menu: submenu.sections, key: `${i}`, parentItemUrl: elem.url });
-
         // 1. Add highlighted items to top of menu.
         if (highlightedItems.length !== 0) {
           highlightedItems.forEach((highlight: MegapanelLinkGroup, j) => {
@@ -513,7 +508,7 @@ class DDSMastheadComposite extends HostListenerMixin(LitElement) {
                 lastHighlightedItem: lastHighlighted,
                 panelId: `${i}, ${j}`,
                 menu: false,
-                selected: !selectedMenuItem ? selectedItems?.level1 === `${i}-${j}` : selectedMenuItem === heading.titleEnglish,
+                selected: false,
               });
             }
             if (links) {
@@ -525,9 +520,7 @@ class DDSMastheadComposite extends HostListenerMixin(LitElement) {
                   lastHighlightedItem: lastHighlighted,
                   panelId: `${i}, ${j}`,
                   menu: false,
-                  selected: !selectedMenuItem
-                    ? selectedItems?.level1 === `${i}-${j}-${k}`
-                    : selectedMenuItem === link.titleEnglish,
+                  selected: false,
                 });
               });
             }
@@ -560,9 +553,7 @@ class DDSMastheadComposite extends HostListenerMixin(LitElement) {
                   title: groupHeading.title,
                   url: groupHeading.url,
                   autoid: `${autoid}--sidenav--nav${i}-list${j}-heading${k}`,
-                  selected: !selectedMenuItem
-                    ? selectedItems?.level2 === `${i}-${j}-${k}`
-                    : selectedMenuItem === groupHeading.titleEnglish,
+                  selected: false,
                 });
               }
               if (links) {
@@ -571,9 +562,7 @@ class DDSMastheadComposite extends HostListenerMixin(LitElement) {
                     title: link.title,
                     url: link.url,
                     autoid: `${autoid}--sidenav--nav${i}-list${j}-heading${k}-item${l}`,
-                    selected: !selectedMenuItem
-                      ? selectedItems?.level2 === `${i}-${j}-${k}-${l}`
-                      : selectedMenuItem === link.titleEnglish,
+                    selected: false,
                   });
                 });
               }
@@ -599,7 +588,7 @@ class DDSMastheadComposite extends HostListenerMixin(LitElement) {
               autoid: `${autoid}--sidenav--nav${i}-list${j}`,
               lastHighlightedItem: lastHighlighted,
               panelId: `${i}, ${j}`,
-              selected: !selectedMenuItem ? selectedItems?.level1 === `${i}-${j}` : selectedMenuItem === heading?.titleEnglish,
+              selected: false,
               menu: groups && groups.length !== 0,
             });
           });
@@ -616,7 +605,7 @@ class DDSMastheadComposite extends HostListenerMixin(LitElement) {
                 panelId: `${i}, ${j}`,
                 autoid: `${autoid}--sidenav--nav${i}-list${j}`,
                 menu: false,
-                selected: !selectedMenuItem ? selectedItems?.level1 === `${i}-${j}` : selectedMenuItem === heading.titleEnglish,
+                selected: false,
               });
             }
 
@@ -629,9 +618,7 @@ class DDSMastheadComposite extends HostListenerMixin(LitElement) {
                   panelId: `${i}, ${j}, ${k}`,
                   autoid: `${autoid}--sidenav--nav${i}-list${j}-item${k}`,
                   menu: false,
-                  selected: !selectedMenuItem
-                    ? selectedItems?.level1 === `${i}-${j}-${k}`
-                    : selectedMenuItem === link.titleEnglish,
+                  selected: false,
                 });
               });
             }
@@ -647,7 +634,7 @@ class DDSMastheadComposite extends HostListenerMixin(LitElement) {
             panelId: `${i}`,
             autoid: `${autoid}--sidenav--nav${i}-list${level1Items.length}`,
             menu: false,
-            selected: !selectedMenuItem ? selectedItems?.level1 === `${i}` : selectedMenuItem === viewAll.titleEnglish,
+            selected: false,
           });
         }
 
@@ -666,8 +653,6 @@ class DDSMastheadComposite extends HostListenerMixin(LitElement) {
         }
       }
 
-      const selectedItems = selectedItemUrl({ key: `${i}`, parentItemUrl: elem.url });
-
       return {
         title: elem.title,
         titleEnglish: elem.titleEnglish,
@@ -675,7 +660,7 @@ class DDSMastheadComposite extends HostListenerMixin(LitElement) {
         menu: Boolean(elem?.submenu),
         panelId: `${i}, -1`,
         autoid: `${autoid}--sidenav--nav${i}`,
-        selected: !selectedMenuItem ? selectedItems?.level0 === `${i}` : selectedMenuItem === elem.titleEnglish,
+        selected: false,
       };
     });
 
