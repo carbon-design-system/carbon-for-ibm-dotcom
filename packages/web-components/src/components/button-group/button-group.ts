@@ -1,7 +1,7 @@
 /**
  * @license
  *
- * Copyright IBM Corp. 2020, 2022
+ * Copyright IBM Corp. 2020, 2023
  *
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
@@ -29,7 +29,7 @@ class DDSButtonGroup extends StableSelectorMixin(LitElement) {
   private _handleSlotChange(event: Event) {
     const childItems = (event.target as HTMLSlotElement)
       .assignedNodes()
-      .filter((elem) =>
+      .filter(elem =>
         (elem as HTMLElement).matches !== undefined
           ? (elem as HTMLElement).matches(
               (this.constructor as typeof DDSButtonGroup).selectorItem
@@ -46,9 +46,7 @@ class DDSButtonGroup extends StableSelectorMixin(LitElement) {
     childItems.forEach((elem, index) => {
       (elem as HTMLElement).setAttribute(
         'kind',
-        index !== childItems.length - 1
-          ? BUTTON_KIND.TERTIARY
-          : BUTTON_KIND.PRIMARY
+        index === 0 ? BUTTON_KIND.PRIMARY : BUTTON_KIND.TERTIARY
       );
     });
 
@@ -66,7 +64,9 @@ class DDSButtonGroup extends StableSelectorMixin(LitElement) {
   }
 
   render() {
-    return html` <slot @slotchange="${this._handleSlotChange}"></slot> `;
+    return html`
+      <slot @slotchange="${this._handleSlotChange}"></slot>
+    `;
   }
 
   connectedCallback() {
