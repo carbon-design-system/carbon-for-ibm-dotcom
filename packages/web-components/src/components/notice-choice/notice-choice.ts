@@ -8,14 +8,7 @@
  */
 
 import { checkPreferencesv3, loadContent } from './services';
-import {
-  css,
-  customElement,
-  html,
-  LitElement,
-  property,
-  state,
-} from 'lit-element';
+import { customElement, html, LitElement, property } from 'lit-element';
 import {
   emailRegExp,
   getMappedValue,
