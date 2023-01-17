@@ -32,7 +32,8 @@ const ButtonGroup = ({ buttons }) => {
     <ol
       className={`${prefix}--buttongroup`}
       data-autoid={`${stablePrefix}--button-group`}
-      ref={groupRef}>
+      ref={groupRef}
+    >
       {buttons.map((button, key) => {
         return (
           <li key={key} className={`${prefix}--buttongroup-item`}>
@@ -41,7 +42,8 @@ const ButtonGroup = ({ buttons }) => {
               isExpressive
               {...button}
               type="button"
-              kind={key === 0 ? 'primary' : 'tertiary'}>
+              kind={key === 0 ? 'primary' : 'tertiary'}
+            >
               {button.copy}
             </Button>
           </li>
