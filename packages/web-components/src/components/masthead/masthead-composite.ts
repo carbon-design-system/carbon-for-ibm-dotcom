@@ -21,7 +21,6 @@ import MastheadLogoAPI from '../../internal/vendor/@carbon/ibmdotcom-services/se
 import {
   BasicLink,
   MastheadL1,
-  MastheadLink,
   MastheadLogoData,
   MastheadProfileItem,
   Translation,
@@ -220,11 +219,10 @@ class DDSMastheadComposite extends HostListenerMixin(LitElement) {
     const megapanel = menu.sections[0];
     const { heading } = megapanel;
     const { viewAll, highlights } = menu;
-    const hasHighlights = highlights instanceof Array && highlights.length !== 0;
 
     return html`
       <dds-megamenu layout="${MEGAMENU_LAYOUT_SCHEME.LIST}">
-        ${hasHighlights
+        ${highlights
           ? html`
               <dds-megamenu-left-navigation>
                 ${highlights.map((group, i) =>
@@ -234,7 +232,7 @@ class DDSMastheadComposite extends HostListenerMixin(LitElement) {
             `
           : null}
         <dds-megamenu-right-navigation
-          style-scheme="${hasHighlights
+          style-scheme="${highlights
             ? MEGAMENU_RIGHT_NAVIGATION_STYLE_SCHEME.LEFT_SECTION
             : MEGAMENU_RIGHT_NAVIGATION_STYLE_SCHEME.REGULAR}"
           view-all-href="${ifNonNull(viewAll?.url)}"
@@ -250,7 +248,7 @@ class DDSMastheadComposite extends HostListenerMixin(LitElement) {
           ${megapanel.groups.map((group, i) =>
             this._renderMegapanelLinkGroup(group, {
               headingLevel: heading ? 3 : 2,
-              autoid: `${ddsPrefix}--masthead__l0-nav-list${i + (hasHighlights ? highlights.length : 0)}`,
+              autoid: `${ddsPrefix}--masthead__l0-nav-list${i + (highlights ? highlights.length : 0)}`,
             })
           )}
         </dds-megamenu-right-navigation>
@@ -742,21 +740,21 @@ class DDSMastheadComposite extends HostListenerMixin(LitElement) {
    */
   protected _renderNavItems({ target, hasL1 }: { target: NAV_ITEMS_RENDER_TARGET; hasL1: boolean }) {
     const { navLinks, l1Data } = this;
-    let menu: L0MenuItem[] | MastheadLink[] | undefined = navLinks;
-    if (hasL1) {
-      menu = l1Data?.menuItems;
-    }
     const autoid = `${ddsPrefix}--masthead__${l1Data?.menuItems ? 'l1' : 'l0'}`;
 
+    if (hasL1) {
+      // @TODO: add L1 items to menu.
+    }
+
     if (target === NAV_ITEMS_RENDER_TARGET.TOP_NAV) {
-      return !menu
+      return !navLinks
         ? undefined
-        : menu.map((link, i) => {
+        : navLinks.map((link, i) => {
             return this._renderNavItem(link, i, autoid);
           });
     }
 
-    return !menu ? undefined : this._renderLeftNav(menu, autoid);
+    return !navLinks ? undefined : this._renderLeftNav(navLinks, autoid);
   }
 
   /**
