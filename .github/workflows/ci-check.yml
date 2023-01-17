@@ -2,9 +2,9 @@ name: ci-check
 
 on:
   push:
-    branches: [ main, release/*, feat/cwc-v2, fix/content-updates, feat/masthead-v2 ]
+    branches: [ main, release/*, feat/cwc-v2, fix/content-updates, feat/masthead-v2, feat/masthead-v2-dev ]
   pull_request:
-    branches: [ main, release/*, feat/cwc-v2, fix/content-updates, feat/masthead-v2 ]
+    branches: [ main, release/*, feat/cwc-v2, fix/content-updates, feat/masthead-v2, feat/masthead-v2-dev ]
 
 concurrency:
   group: ci-check-${{ github.ref }}
