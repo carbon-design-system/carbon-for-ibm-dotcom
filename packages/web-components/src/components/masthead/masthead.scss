@@ -1,5 +1,5 @@
 //
-// Copyright IBM Corp. 2020, 2022
+// Copyright IBM Corp. 2020, 2023
 //
 // This source code is licensed under the Apache-2.0 license found in the
 // LICENSE file in the root directory of this source tree.
@@ -9,21 +9,16 @@
 @import 'carbon-components/scss/components/ui-shell/side-nav';
 @import '@carbon/ibmdotcom-styles/scss/globals/vars';
 
-// @import '@carbon/ibmdotcom-styles/scss/components/masthead/masthead';
-// @import '@carbon/ibmdotcom-styles/scss/components/masthead/masthead-leftnav';
-// @import '@carbon/ibmdotcom-styles/scss/components/masthead/masthead-megamenu';
-// @import '@carbon/ibmdotcom-styles/scss/components/masthead/masthead-top-nav-name';
-// @import '@carbon/ibmdotcom-styles/scss/components/search-with-typeahead/search-with-typeahead';
-@import '../../../../styles/scss/components/masthead/masthead';
-@import '../../../../styles/scss/components/masthead/masthead-leftnav';
-@import '../../../../styles/scss/components/masthead/masthead-megamenu';
-@import '../../../../styles/scss/components/masthead/masthead-top-nav-name';
-@import '../../../../styles/scss/components/search-with-typeahead/search-with-typeahead';
-
+@import '@carbon/ibmdotcom-styles/scss/components/masthead/masthead';
+@import '@carbon/ibmdotcom-styles/scss/components/masthead/masthead-leftnav';
+@import '@carbon/ibmdotcom-styles/scss/components/masthead/masthead-megamenu';
+@import '@carbon/ibmdotcom-styles/scss/components/masthead/masthead-top-nav-name';
+@import '@carbon/ibmdotcom-styles/scss/components/search-with-typeahead/search-with-typeahead';
 @import '@carbon/ibmdotcom-styles/scss/components/masthead/masthead-l1';
 @import 'carbon-web-components/scss/components/tooltip/tooltip';
 @import 'carbon-web-components/scss/components/ui-shell/header';
 @import 'carbon-web-components/scss/components/ui-shell/side-nav';
+
 @import '../../globals/scss/box-sizing';
 @import '../cta/cta.scss';
 

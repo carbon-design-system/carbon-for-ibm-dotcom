@@ -475,10 +475,24 @@ class DDSMastheadComposite extends HostListenerMixin(LitElement) {
             selected: !selectedMenuItem ? selectedItems?.level1 === `${i}-${j}` : selectedMenuItem === link.titleEnglish,
           });
         });
+
+        if (level1Items.length !== 0) {
+          menu.push(
+            this._renderLeftNavMenuSections({
+              ctas: undefined,
+              menuItems: level1Items,
+              isSubmenu: true,
+              showBackButton: true,
+              sectionTitle: elem.title,
+              sectionUrl: elem.url,
+              sectionId: `${i}, -1`,
+            })
+          );
+        }
       }
 
       const submenu = elem.submenu as L0Megamenu;
-      if (submenu.sections) {
+      if (submenu?.sections) {
         // Check if other types of links exist.
         const highlightedItems = submenu?.highlights || [];
         const viewAll = submenu?.viewAll;
