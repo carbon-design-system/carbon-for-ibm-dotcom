@@ -13,8 +13,8 @@ import readme from './README.stories.mdx';
 import '../tag-link';
 import textNullable from '../../../../.storybook/knob-text-nullable';
 
-export const Default = ({ parameters }) => {
-  const { copy, href } = parameters?.props?.TagLink ?? {};
+export const Default = args => {
+  const { copy, href } = args?.TagLink ?? {};
   return html`
     <dds-tag-link href=${ifNonNull(href || undefined)}>
       ${copy}

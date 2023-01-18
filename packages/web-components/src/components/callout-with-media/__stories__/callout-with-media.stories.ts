@@ -1,7 +1,7 @@
 /**
  * @license
  *
- * Copyright IBM Corp. 2020, 2021
+ * Copyright IBM Corp. 2020, 2022
  *
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
@@ -32,8 +32,8 @@ const video = html`
   <dds-callout-with-media-video video-id="0_uka1msg4"></dds-callout-with-media-video>
 `;
 
-export const Default = ({ parameters }) => {
-  const { copy, heading, mediaType } = parameters?.props?.CalloutWithMedia ?? {};
+export const Default = args => {
+  const { copy, heading, mediaType } = args?.CalloutWithMedia ?? {};
   return html`
     <dds-callout-with-media>
       <dds-content-block-heading>${heading}</dds-content-block-heading>
@@ -60,9 +60,9 @@ export default {
     ...readme.parameters,
     hasStoryPadding: true,
     knobs: {
-      CalloutWithMedia: ({ groupId }) => ({
-        mediaType: select('mediaType (optional)', ['image', 'video', 'none'], 'image', groupId),
-        heading: textNullable('Heading', 'Curabitur malesuada varius mi eu posuere', groupId),
+      CalloutWithMedia: () => ({
+        mediaType: select('mediaType (optional)', ['image', 'video', 'none'], 'image'),
+        heading: textNullable('Heading', 'Curabitur malesuada varius mi eu posuere'),
         copy: `Lorem ipsum *dolor* sit amet, consectetur adipiscing elit. Aenean et ultricies est.
   Mauris iaculis eget dolor nec hendrerit. Phasellus at elit sollicitudin, sodales
   nulla quis, *consequat* libero. Here are

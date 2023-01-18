@@ -12,6 +12,8 @@ import ifNonNull from 'carbon-web-components/es/globals/directives/if-non-null.j
 import { boolean, select } from '@storybook/addon-knobs';
 import readme from './README.stories.mdx';
 import '../index';
+import '../../content-item-horizontal/index';
+import '../../image/index';
 import { MEDIA_ALIGN, MEDIA_TYPE } from '../../content-item-horizontal/defs';
 import imgLg16x9 from '../../../../../storybook-images/assets/720/fpo--16x9--720x405--001.jpg';
 import textNullable from '../../../../.storybook/knob-text-nullable';
@@ -26,22 +28,24 @@ const mediaType = {
   [`Video`]: MEDIA_TYPE.VIDEO,
 };
 
-export const Default = ({ parameters }) => {
-  const { sectionHeading, sectionHeadingText, align, type } = parameters?.props?.TabsExtendedWithMedia ?? {};
+export const Default = args => {
+  const { sectionHeading, sectionHeadingText, align, type } = args?.TabsExtendedWithMedia ?? {};
   const tabs: any[] = [];
 
   for (let i = 1; i < 5; i++) {
     tabs.push(html`
       <dds-tab label="Tab ${i}">
         <dds-content-item-horizontal-media align="${align}">
-          ${type === MEDIA_TYPE.IMAGE &&
-            html`
-              <dds-image slot="media" alt="Image alt text" default-src="${imgLg16x9}"></dds-image>
-            `}
-          ${type === MEDIA_TYPE.VIDEO &&
-            html`
-              <dds-content-item-horizontal-media-video video-id="1_9h94wo6b"></dds-content-item-horizontal-media-video>
-            `}
+          ${type === MEDIA_TYPE.IMAGE
+            ? html`
+                <dds-image slot="media" alt="Image alt text" default-src="${imgLg16x9}"></dds-image>
+              `
+            : ''}
+          ${type === MEDIA_TYPE.VIDEO
+            ? html`
+                <dds-content-item-horizontal-media-video video-id="1_9h94wo6b"></dds-content-item-horizontal-media-video>
+              `
+            : ''}
           <dds-content-item-heading>Tab heading ${i}</dds-content-item-heading>
           <dds-content-item-horizontal-media-copy
             >Lorem ipsum dolor sit amet, _consectetur_ adipiscing elit. Aenean et ultricies est. Mauris iaculis eget dolor nec
@@ -97,12 +101,10 @@ Default.story = {
 export default {
   title: 'Components/Tabs extended - with media',
   decorators: [
-    (story, { parameters }) => html`
+    (story, { args }) => html`
       <div class="bx--grid">
         <div class="bx--row">
-          <div
-            class="${parameters?.props?.TabsExtendedWithMedia?.sectionHeading ? `bx--col-lg-16` : `bx--col-lg-12`} bx--no-gutter"
-          >
+          <div class="${args?.TabsExtendedWithMedia?.sectionHeading ? `bx--col-lg-16` : `bx--col-lg-12`} bx--no-gutter">
             ${story()}
           </div>
         </div>

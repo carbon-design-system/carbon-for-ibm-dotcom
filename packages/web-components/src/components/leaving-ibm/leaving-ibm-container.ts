@@ -42,4 +42,5 @@ class DDSLeavingIbmContainer extends ConnectMixin<
   mapDispatchToProps
 )(DDSLeavingIbmComposite) {}
 
+/* @__GENERATE_REACT_CUSTOM_ELEMENT_TYPE__ */
 export default DDSLeavingIbmContainer;

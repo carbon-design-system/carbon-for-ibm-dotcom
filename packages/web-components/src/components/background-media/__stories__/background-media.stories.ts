@@ -1,13 +1,14 @@
 /**
  * @license
  *
- * Copyright IBM Corp. 2020, 2021
+ * Copyright IBM Corp. 2020, 2022
  *
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
  */
 
 import '../index';
+import '../../video-player/video-player-container';
 import { html } from 'lit-element';
 import ifNonNull from 'carbon-web-components/es/globals/directives/if-non-null.js';
 import { text, select, number } from '@storybook/addon-knobs';
@@ -22,8 +23,8 @@ const gradientDirections = {
   [`Top to Bottom`]: GRADIENT_DIRECTION.TOP_TO_BOTTOM,
 };
 
-export const Default = ({ parameters }) => {
-  const { alt, gradientDirection, backgroundOpacity } = parameters?.props?.['dds-background-media'] ?? {};
+export const Default = args => {
+  const { alt, gradientDirection, backgroundOpacity } = args?.['dds-background-media'] ?? {};
   return html`
     <dds-background-media
       gradient-direction="${ifNonNull(gradientDirection)}"
@@ -41,8 +42,8 @@ export const Default = ({ parameters }) => {
   `;
 };
 
-export const WithVideo = ({ parameters }) => {
-  const { gradientDirection, backgroundOpacity } = parameters?.props?.['dds-background-media'] ?? {};
+export const WithVideo = args => {
+  const { gradientDirection, backgroundOpacity } = args?.['dds-background-media'] ?? {};
   return html`
     <div style="height: 70vh;">
       <dds-background-media
@@ -56,8 +57,8 @@ export const WithVideo = ({ parameters }) => {
   `;
 };
 
-export const WithDefaultSource = ({ parameters }) => {
-  const { alt, gradientDirection, backgroundOpacity } = parameters?.props?.['dds-background-media'] ?? {};
+export const WithDefaultSource = args => {
+  const { alt, gradientDirection, backgroundOpacity } = args?.['dds-background-media'] ?? {};
   return html`
     <dds-background-media
       gradient-direction="${ifNonNull(gradientDirection)}"
@@ -87,16 +88,15 @@ export default {
     ...readme.parameters,
     hasStoryPadding: true,
     knobs: {
-      'dds-background-media': ({ groupId }) => ({
+      'dds-background-media': () => ({
         gradientDirection: select(
           'Gradient Direction (gradient-direction):',
           gradientDirections,
-          GRADIENT_DIRECTION.LEFT_TO_RIGHT,
-          groupId
+          GRADIENT_DIRECTION.LEFT_TO_RIGHT
         ),
-        alt: text('Image alt text (alt):', 'Image alt text', groupId),
-        defaultSrc: text('Default image (default-src)', imgMax, groupId),
-        backgroundOpacity: number('Background Opacity', 100, { range: true, min: 0, max: 100 }, groupId),
+        alt: text('Image alt text (alt):', 'Image alt text'),
+        defaultSrc: text('Default image (default-src)', imgMax),
+        backgroundOpacity: number('Background Opacity', 100, { range: true, min: 0, max: 100 }),
       }),
     },
     propsSet: {

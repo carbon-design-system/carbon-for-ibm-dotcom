@@ -47,7 +47,7 @@ const _tests = [
         .then(([copy]) => {
           defaultCopy = copy.innerText.trim();
         })
-        .visit(`${_path}&knob-Link%20text%20(unnamed%20slot)_LinkWithIcon=${customCopyInput}`)
+        .visit(`${_path}&knob-Link%20text%20(unnamed%20slot)=${customCopyInput}`)
         .get(_selector)
         .should(([copy]) => {
           customCopyOutput = copy.innerText.trim();
@@ -71,7 +71,7 @@ const _tests = [
 
           expect($link.prop('href')).not.to.be.empty;
         })
-        .visit(`${_path}&knob-Link%20href%20(href)_LinkWithIcon=${customHrefInput}`)
+        .visit(`${_path}&knob-Link%20href%20(href)=${customHrefInput}`)
         .get(_selector)
         .shadow()
         .find('a')
@@ -85,7 +85,7 @@ const _tests = [
   },
   () => {
     it('should not be clickable when disabled', () => {
-      cy.visit(`${_path}&knob-Disabled%20(disabled)_LinkWithIcon=true`)
+      cy.visit(`${_path}&knob-Disabled%20(disabled)=true`)
         .get(_selector)
         .shadow()
         .find('a')
@@ -96,7 +96,7 @@ const _tests = [
     it('should check icon placements', () => {
       ['left', 'right'].forEach(placement => {
         let $svg;
-        cy.visit(`${_path}&knob-Icon%20Position%20(icon-placement):_LinkWithIcon=${placement}`)
+        cy.visit(`${_path}&knob-Icon%20Position%20(icon-placement):=${placement}`)
           .get(_selector)
           .then($elem => {
             $svg = $elem.find('svg');

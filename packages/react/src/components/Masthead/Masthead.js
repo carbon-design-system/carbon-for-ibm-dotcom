@@ -108,6 +108,7 @@ const Masthead = ({
   }, []);
 
   let [mastheadData, setMastheadData] = useState([]);
+  let [searchData, setSearchData] = useState([]);
   const [profileData, setProfileData] = useState({
     signedin: [],
     signedout: [],
@@ -121,6 +122,7 @@ const Masthead = ({
         if (!unmounted) {
           setMastheadData(pageData.mastheadNav.links);
           setProfileData(pageData.profileMenu);
+          setSearchData(pageData.masthead.search);
         }
       } catch (error) {
         console.error('Error populating masthead data:', error);
@@ -396,7 +398,9 @@ const Masthead = ({
                       {...(searchOpenOnload
                         ? { searchOpenOnload: searchOpenOnload }
                         : {})}
-                      placeHolderText={placeHolderText}
+                      placeHolderText={
+                        placeHolderText || searchData?.placeHolderText
+                      }
                       initialSearchTerm={initialSearchTerm}
                       navType={navType}
                       isSearchActive={isSearchActive}

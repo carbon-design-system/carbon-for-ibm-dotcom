@@ -1,5 +1,5 @@
 /**
- * Copyright IBM Corp. 2016, 2021
+ * Copyright IBM Corp. 2016, 2022
  *
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
@@ -11,22 +11,17 @@ import Error20 from '@carbon/icons-react/es/error/20';
 import React from 'react';
 import readme from '../README.stories.mdx';
 
-const getBaseKnobs = ({ groupId }) => {
-  const disabled = boolean('Disabled (disabled):', false, groupId);
+const props = () => {
+  const disabled = boolean('Disabled (disabled):', false);
   const iconStyle = disabled ? Error20 : ArrowRight20;
   return {
     card: {
       heading: text(
         'Card Heading (card.heading):',
-        'Explore AI use cases in all industries',
-        groupId
+        'Explore AI use cases in all industries'
       ),
       cta: {
-        href: text(
-          'Card href (card.cta.href):',
-          'https://www.example.com',
-          groupId
-        ),
+        href: text('Card href (card.cta.href):', 'https://www.example.com'),
         icon: {
           src: iconStyle,
         },
@@ -37,28 +32,21 @@ const getBaseKnobs = ({ groupId }) => {
 };
 
 export default {
-  title: 'Components|Card link',
+  title: 'Components/Card link',
   parameters: {
     ...readme.parameters,
-    knobs: {
-      CardLink: ({ groupId }) => {
-        const knobs = getBaseKnobs({ groupId });
-        return {
-          ...knobs,
-        };
-      },
+    percy: {
+      name: 'Components|Card link: Default',
     },
   },
 };
 
-export const Default = ({ parameters }) => {
-  const { card, disabled } = parameters?.props?.CardLink ?? {};
-
+export const Default = () => {
   return (
     <div className="bx--grid bx--grid--card bx--grid--condensed">
       <div className="bx--row">
         <div className="bx--col-sm-4 bx--col-md-3 bx--col-lg-6 bx--col-xlg-4 bx--no-gutter">
-          <CardLink card={card} disabled={disabled} />
+          <CardLink {...props()} />
         </div>
       </div>
     </div>

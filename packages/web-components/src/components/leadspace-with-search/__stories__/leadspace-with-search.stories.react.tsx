@@ -47,8 +47,8 @@ const observer = new MutationObserver(mutations => {
 });
 observer.observe(htmlElement, { attributes: true });
 
-export const Default = ({ parameters }) => {
-  const { theme } = parameters?.props?.LeadspaceWithSearch ?? {};
+export const Default = args => {
+  const { theme } = args?.LeadspaceWithSearch ?? {};
   const secondTheme = theme.split('-')[2];
   return (
     <DDSLeadspaceWithSearch adjacent-theme={theme}>
@@ -68,8 +68,8 @@ export const Default = ({ parameters }) => {
   );
 };
 
-export const WithImage = ({ parameters }) => {
-  const { theme } = parameters?.props?.LeadspaceWithSearch ?? {};
+export const WithImage = args => {
+  const { theme } = args?.LeadspaceWithSearch ?? {};
   const secondTheme = theme.split('-')[2];
   return (
     <DDSLeadspaceWithSearch adjacent-theme={theme}>
@@ -100,8 +100,8 @@ export default {
     ...readme.parameters,
     hasStoryPadding: true,
     knobs: {
-      LeadspaceWithSearch: ({ groupId }) => ({
-        theme: select(`Adjacent theme`, adjacentThemes, adjacentThemes.Monotheme, groupId),
+      LeadspaceWithSearch: () => ({
+        theme: select(`Adjacent theme`, adjacentThemes, adjacentThemes.Monotheme),
       }),
     },
   },
