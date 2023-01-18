@@ -16,7 +16,7 @@ import textNullable from '../../../../.storybook/knob-text-nullable';
 import DDSLeftNav from '../left-nav';
 import '../masthead-container';
 import styles from './masthead.stories.scss';
-import { NEWmastheadLinks as links, mastheadL1Data, logoData } from './links';
+import { mastheadLinksV2 as links, mastheadL1Data, logoData } from './links';
 import {
   UNAUTHENTICATED_STATUS,
   MASTHEAD_AUTH_METHOD,
