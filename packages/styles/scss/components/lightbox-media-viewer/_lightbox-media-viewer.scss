@@ -1,5 +1,5 @@
 /**
- * Copyright IBM Corp. 2016, 2022
+ * Copyright IBM Corp. 2016, 2023
  *
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
@@ -97,6 +97,7 @@
       display: flex;
       flex-direction: column;
       padding: $spacing-07 0 $spacing-05 0;
+      overflow-y: auto;
     }
 
     @include carbon--breakpoint-down('lg') {
@@ -111,7 +112,6 @@
 
       @include carbon--breakpoint('lg') {
         flex-direction: row;
-        height: 100%;
       }
     }
 
@@ -136,7 +136,7 @@
         @include carbon--make-col-ready;
         @include carbon--make-col(12, 16);
 
-        width: auto;
+        width: 100%;
         flex: none;
         /* stylelint-disable-next-line property-no-unknown */
         aspect-ratio: 16 / 9;
