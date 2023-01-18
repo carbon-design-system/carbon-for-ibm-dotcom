@@ -38,7 +38,7 @@
     <dds-button-group-item
       data-autoid="dds--button-group-item"
       icon-layout=""
-      kind="tertiary"
+      kind="primary"
       role="listitem"
       size=""
     >
@@ -47,7 +47,7 @@
     <dds-button-group-item
       data-autoid="dds--button-group-item"
       icon-layout=""
-      kind="primary"
+      kind="tertiary"
       role="listitem"
       size=""
     >
@@ -133,7 +133,7 @@
     <dds-button-group-item
       data-autoid="dds--button-group-item"
       icon-layout=""
-      kind="tertiary"
+      kind="primary"
       role="listitem"
       size=""
     >
@@ -142,7 +142,7 @@
     <dds-button-group-item
       data-autoid="dds--button-group-item"
       icon-layout=""
-      kind="primary"
+      kind="tertiary"
       role="listitem"
       size=""
     >

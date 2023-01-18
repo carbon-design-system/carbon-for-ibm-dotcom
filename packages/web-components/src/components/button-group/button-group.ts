@@ -46,9 +46,7 @@ class DDSButtonGroup extends StableSelectorMixin(LitElement) {
     childItems.forEach((elem, index) => {
       (elem as HTMLElement).setAttribute(
         'kind',
-        index !== childItems.length - 1
-          ? BUTTON_KIND.TERTIARY
-          : BUTTON_KIND.PRIMARY
+        index === 0 ? BUTTON_KIND.PRIMARY : BUTTON_KIND.TERTIARY
       );
     });
 

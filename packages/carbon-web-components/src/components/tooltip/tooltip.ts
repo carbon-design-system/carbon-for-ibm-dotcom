@@ -1,7 +1,7 @@
 /**
  * @license
  *
- * Copyright IBM Corp. 2019, 2022
+ * Copyright IBM Corp. 2019, 2023
  *
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
@@ -42,11 +42,19 @@ class BXTooltip
 
   /**
    * Handles `click` event on this element.
+   *
+   * @param {undefined|boolean} forceState if set, will be cast to boolean and force tooltip to open or close.
    */
   @HostListener('click')
   // @ts-ignore: The decorator refers to this method but TS thinks this method is not referred to
-  private _handleClick = async () => {
-    this.open = !this.open;
+  private _handleClick = async (
+    forceState: undefined | boolean = undefined
+  ) => {
+    if (forceState === undefined) {
+      this.open = !this.open;
+    } else {
+      this.open = Boolean(forceState);
+    }
     const { open, updateComplete } = this;
     if (open) {
       await updateComplete;
@@ -57,13 +65,25 @@ class BXTooltip
 
   /**
    * Handles `keydown` event on this element.
+   * Space & enter will toggle state, Escape will only close.
    */
   @HostListener('keydown')
   // @ts-ignore: The decorator refers to this method but TS thinks this method is not referred to
   private _handleKeydown = async (event) => {
-    if (event.key === ' ' || event.key === 'Enter') {
+    if ([' ', 'Enter'].includes(event.key)) {
       this._handleClick();
+    } else if (event.key === 'Escape') {
+      this._handleClick(false);
     }
+  };
+
+  /**
+   * Closes tooltip on `focusout` event
+   */
+  @HostListener('focusout')
+  // @ts-ignore: The decorator refers to this method but TS thinks this method is not referred to
+  private _handleFocusout = async () => {
+    this._handleClick(false);
   };
 
   /**
