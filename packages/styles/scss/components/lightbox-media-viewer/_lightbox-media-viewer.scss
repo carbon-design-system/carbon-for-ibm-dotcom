@@ -54,17 +54,17 @@
 
   :host(#{$dds-prefix}-lightbox-media-viewer) {
     @include carbon--breakpoint-down('lg') {
+      padding-bottom: $spacing-07;
+
       &::before,
       &::after {
-        @include carbon--breakpoint('md') {
-          padding-top: 0;
-          content: '';
-          display: block;
-          position: sticky;
-          height: $spacing-07;
-          width: 100%;
-          z-index: 1;
-        }
+        padding-top: 0;
+        content: '';
+        display: block;
+        position: sticky;
+        height: $spacing-07;
+        width: 100%;
+        z-index: 1;
       }
 
       &::before {
