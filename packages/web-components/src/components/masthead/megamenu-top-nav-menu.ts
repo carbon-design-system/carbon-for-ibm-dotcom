@@ -17,6 +17,7 @@ import DDSTopNavMenu from './top-nav-menu';
 import DDSMegaMenuOverlay from './megamenu-overlay';
 import styles from './masthead.scss';
 import DDSMastheadContainer from './masthead-container';
+import { CMApp } from './masthead-contact';
 
 const { prefix } = settings;
 const { stablePrefix: ddsPrefix } = ddsSettings;
@@ -184,7 +185,9 @@ class DDSMegaMenuTopNavMenu extends DDSTopNavMenu {
         ?.shadowRoot?.querySelector('.bx--masthead__l0');
 
       if (this.expanded) {
-        mastheadContainer.contactModuleApp?.init();
+        if (mastheadContainer.contactModuleApp) {
+          (mastheadContainer.contactModuleApp as CMApp).init();
+        }
         // Ask masthead-composite to render megamenu.
         // Pause further execution until the render is complete.
         await this._requestMegaMenuRenderUpdate();

@@ -20,6 +20,27 @@ const { prefix } = settings;
 const { stablePrefix: ddsPrefix } = ddsSettings;
 
 /**
+ * Globally-scoped Contact Module variable.
+ *
+ * @see https://github.ibm.com/live-advisor/cm-app
+ */
+export interface CMApp {
+  version: string;
+  ready: boolean;
+  init: Function;
+  refresh: Function;
+  register: Function;
+  deregister: Function;
+  fireEvent: Function;
+  update: Function;
+  props: {
+    eventHandlers: any;
+    events: CustomEvent[];
+    getLoadedBundle: Function;
+  };
+}
+
+/**
  * The contact button UI in the masthead.
  *
  * @element dds-masthead-contact
@@ -52,7 +73,7 @@ class DDSMastheadContact extends DDSMastheadProfile {
         const mastheadContainer = this.closest(`${ddsPrefix}-masthead-container`) as DDSMastheadContainer;
 
         if (mastheadContainer.contactModuleApp) {
-          mastheadContainer.contactModuleApp.init();
+          (mastheadContainer.contactModuleApp as CMApp).init();
         }
       }
     }
