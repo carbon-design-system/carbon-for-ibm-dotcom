@@ -225,6 +225,10 @@
     &:hover {
       text-decoration: none;
       background-color: $hover-ui;
+
+      span {
+        color: $text-01;
+      }
     }
 
     &:focus {
