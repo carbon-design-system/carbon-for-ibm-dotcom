@@ -1,5 +1,5 @@
 /**
- * Copyright IBM Corp. 2021, 2022
+ * Copyright IBM Corp. 2021, 2023
  *
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
@@ -20,7 +20,7 @@ const _defaultPath = '/iframe.html?id=components-logo-grid--default';
  * @private
  */
 const _pathWithCTA =
-  '/iframe.html?args=footer:true&id=components-logo-grid--default';
+  '/iframe.html?args=cta:true&id=components-logo-grid--default';
 
 /* eslint-disable cypress/no-unnecessary-waiting */
 describe('dds-logo-grid | default', () => {

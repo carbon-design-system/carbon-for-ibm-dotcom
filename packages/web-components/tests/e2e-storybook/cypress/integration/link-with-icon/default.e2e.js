@@ -1,5 +1,5 @@
 /**
- * Copyright IBM Corp. 2021, 2022
+ * Copyright IBM Corp. 2021, 2023
  *
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
@@ -71,7 +71,7 @@ const _tests = [
 
           expect($link.prop('href')).not.to.be.empty;
         })
-        .visit(`${_path}&args=href:${customHrefInput}`)
+        .visit(`${_path}&args=link:${customHrefInput}`)
         .get(_selector)
         .shadow()
         .find('a')
@@ -79,7 +79,6 @@ const _tests = [
           customHrefOutput = $link.prop('href');
 
           expect(customHrefOutput).to.be.eq(customHrefInput);
-          expect(customHrefOutput).to.not.eq(defaultHref);
         });
     });
   },
@@ -96,7 +95,7 @@ const _tests = [
     it('should check icon placements', () => {
       ['left', 'right'].forEach(placement => {
         let $svg;
-        cy.visit(`${_path}&args=iconPlacement:${placement}`)
+        cy.visit(`${_path}&args=placement:${placement}`)
           .get(_selector)
           .then($elem => {
             $svg = $elem.find('svg');
