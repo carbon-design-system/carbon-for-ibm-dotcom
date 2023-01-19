@@ -17,7 +17,7 @@ import DDSTopNavMenu from './top-nav-menu';
 import DDSMegaMenuOverlay from './megamenu-overlay';
 import styles from './masthead.scss';
 import DDSMastheadContainer from './masthead-container';
-import { CMApp } from './masthead-contact';
+import { CMApp } from './masthead-composite';
 
 const { prefix } = settings;
 const { stablePrefix: ddsPrefix } = ddsSettings;

@@ -80,6 +80,27 @@ export enum NAV_ITEMS_RENDER_TARGET {
 }
 
 /**
+ * Globally-scoped Contact Module variable.
+ *
+ * @see https://github.ibm.com/live-advisor/cm-app
+ */
+export interface CMApp {
+  version: string;
+  ready: boolean;
+  init: Function;
+  refresh: Function;
+  register: Function;
+  deregister: Function;
+  fireEvent: Function;
+  update: Function;
+  props: {
+    eventHandlers: any;
+    events: CustomEvent[];
+    getLoadedBundle: Function;
+  };
+}
+
+/**
  * Component that renders masthead from links, etc. data.
  *
  * @element dds-masthead-composite
@@ -734,7 +755,7 @@ class DDSMastheadComposite extends HostListenerMixin(LitElement) {
     this.contactModuleApp = window.CM_APP;
   };
 
-  contactModuleApp = null;
+  contactModuleApp?: CMApp;
 
   /**
    * Whether or not a nav item has automatically been designated as "selected".

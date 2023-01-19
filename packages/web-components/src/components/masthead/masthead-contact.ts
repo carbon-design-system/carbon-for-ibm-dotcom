@@ -15,30 +15,10 @@ import ddsSettings from '../../internal/vendor/@carbon/ibmdotcom-utilities/utili
 import styles from './masthead.scss';
 import DDSMastheadProfile from './masthead-profile';
 import DDSMastheadContainer from './masthead-container';
+import { CMApp } from './masthead-composite';
 
 const { prefix } = settings;
 const { stablePrefix: ddsPrefix } = ddsSettings;
-
-/**
- * Globally-scoped Contact Module variable.
- *
- * @see https://github.ibm.com/live-advisor/cm-app
- */
-export interface CMApp {
-  version: string;
-  ready: boolean;
-  init: Function;
-  refresh: Function;
-  register: Function;
-  deregister: Function;
-  fireEvent: Function;
-  update: Function;
-  props: {
-    eventHandlers: any;
-    events: CustomEvent[];
-    getLoadedBundle: Function;
-  };
-}
 
 /**
  * The contact button UI in the masthead.
