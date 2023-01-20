@@ -243,6 +243,14 @@
     display: block;
 
     &.only-child {
+      .#{$prefix}--masthead__megamenu__category-group-heading {
+        @include carbon--make-col(1, 2);
+
+        @include carbon--breakpoint('lg') {
+          @include carbon--make-col(1, 3);
+        }
+      }
+
       .#{$prefix}--masthead__megamenu__category-group-content {
         column-count: 2;
 
