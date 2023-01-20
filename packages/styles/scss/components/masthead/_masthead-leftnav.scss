@@ -398,7 +398,6 @@
     display: block;
     color: $text-02;
 
-    /* stylelint-disable-next-line  selector-pseudo-class-no-unknown */
     &:is(.#{$prefix}--left-nav-menu-category__heading-large) {
       margin-bottom: $spacing-06;
 
@@ -417,7 +416,6 @@
       display: block;
       padding: 0 $spacing-05;
 
-      /* stylelint-disable-next-line  selector-pseudo-class-no-unknown */
       &:where(a) {
         color: inherit;
       }
