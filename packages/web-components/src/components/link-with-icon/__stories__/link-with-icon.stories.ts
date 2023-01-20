@@ -1,7 +1,7 @@
 /**
  * @license
  *
- * Copyright IBM Corp. 2020, 2023
+ * Copyright IBM Corp. 2020, 2022
  *
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
@@ -12,10 +12,10 @@ import ArrowRight20 from '@carbon/web-components/es/icons/arrow--right/20.js';
 import readme from './README.stories.mdx';
 
 export const Default = (args) => {
-  const { disabled, href, placement } = args ?? {};
+  const { disabled, href } = args ?? {};
   return html`
     <dds-link-with-icon
-      icon-placement="${placement}"
+      icon-placement="${args['icon-placement']}"
       ?disabled="${disabled}"
       href="${href}">
       ${args['link-text']}${ArrowRight20({ slot: 'icon' })}
@@ -43,16 +43,10 @@ export default {
       defaultValue:
         'https://github.com/carbon-design-system/carbon-for-ibm-dotcom',
     },
-    placement: {
+    'icon-placement': {
       control: { type: 'select' },
       options: placementTypes,
       defaultValue: placementTypes[1],
-      description: `Icon placement(right (default) | left) ICON_PLACEMENT`,
-    },
-    'icon-placement': {
-      table: {
-        disable: true,
-      },
     },
     iconPlacement: {
       table: {

@@ -1,7 +1,7 @@
 /**
  * @license
  *
- * Copyright IBM Corp. 2020, 2023
+ * Copyright IBM Corp. 2020, 2022
  *
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
@@ -19,7 +19,7 @@ import logos from './data/logos.js';
 import readme from './README.stories.mdx';
 
 export const Default = (args) => {
-  const { heading, cta } = args ?? {};
+  const { heading, footer } = args ?? {};
 
   const logoGridHeading = document.querySelector('dds-content-block-heading');
 
@@ -41,7 +41,7 @@ export const Default = (args) => {
             alt="${elem.altText}"></dds-logo-grid-item>
         `
       )}
-      ${cta
+      ${footer
         ? html`
             <dds-logo-grid-link href="http://local.url.com/">
               <dds-card-link-heading
@@ -88,15 +88,9 @@ export default {
       control: 'boolean',
       defaultValue: false,
     },
-    cta: {
+    footer: {
       control: 'boolean',
       defaultValue: false,
-      description: 'The footer (CTA) content.',
-    },
-    footer: {
-      table: {
-        disable: true,
-      },
     },
     'complementary-style-scheme': {
       table: {
