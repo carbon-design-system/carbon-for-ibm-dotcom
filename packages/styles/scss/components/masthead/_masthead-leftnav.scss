@@ -1,5 +1,5 @@
 /**
- * Copyright IBM Corp. 2016, 2022
+ * Copyright IBM Corp. 2016, 2023
  *
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
@@ -245,7 +245,6 @@
           color: $text-02;
           width: 100%;
           height: 100%;
-          border-bottom: 1px solid $ui-03;
           text-overflow: ellipsis;
         }
       }
@@ -354,7 +353,6 @@
       height: auto;
       min-height: rem(48px);
       display: flex;
-      border-bottom: 1px solid $ui-03;
     }
 
     .#{$prefix}--side-nav__submenu-title {
@@ -395,15 +393,54 @@
 
   .#{$prefix}--masthead__side-nav--submemu-heading,
   :host(#{$dds-prefix}-left-nav-menu-category-heading) {
-    @include type-style('body-long-01');
+    @include type-style('body-short-01');
 
-    font-size: 1rem;
-    line-height: 1.5rem;
-    letter-spacing: normal;
     display: block;
     color: $text-02;
-    padding: $spacing-02 0;
-    margin: 0 $spacing-05;
+
+    /* stylelint-disable-next-line  selector-pseudo-class-no-unknown */
+    &:is(.#{$prefix}--left-nav-menu-category__heading-large) {
+      margin-bottom: $spacing-06;
+
+      .#{$prefix}--side-nav__heading {
+        padding: 0;
+      }
+    }
+
+    .#{$prefix}--side-nav__heading {
+      height: auto;
+      min-height: carbon--mini-units(6);
+      padding: $spacing-04 0;
+    }
+
+    .#{$prefix}--side-nav__heading-title {
+      display: block;
+      padding: 0 $spacing-05;
+
+      /* stylelint-disable-next-line  selector-pseudo-class-no-unknown */
+      &:where(a) {
+        color: inherit;
+      }
+    }
+
+    .#{$prefix}--side-nav__heading-description {
+      padding: $spacing-03 $spacing-05 0;
+    }
+
+    h2 {
+      @include carbon--type-style(productive-heading-01);
+
+      color: $text-01;
+    }
+
+    h2.#{$prefix}--side-nav__menu-section-title {
+      @include carbon--type-style(productive-heading-03);
+    }
+  }
+
+  :host(#{$dds-prefix}-left-nav-menu-category-heading):not(.#{$prefix}--left-nav-menu-category__heading-large),
+  :host(#{$dds-prefix}-left-nav-menu),
+  :host(#{$dds-prefix}-left-nav-menu-item) {
     border-bottom: 1px solid $ui-03;
   }
 
