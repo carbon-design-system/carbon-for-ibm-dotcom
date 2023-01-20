@@ -499,9 +499,15 @@ class DDSTopNav extends StableSelectorMixin(HostListenerMixin(BXHeaderNav)) {
     if (changedProperties.has('hideNav')) {
       this._cleanAndCreateIntersectionObserverContainer({ create: true });
     }
+
+    if (changedProperties.has('_currentScrollPosition')) {
+      if (this._contentNode) {
+        this._contentNode.style.insetInlineStart = `-${this._currentScrollPosition}px`;
+      }
+    }
   }
 
-  renderContents() {
+  render() {
     const {
       _isIntersectionLeftTrackerInContent: isIntersectionLeftTrackerInContent,
       _isIntersectionRightTrackerInContent: isIntersectionRightTrackerInContent,
