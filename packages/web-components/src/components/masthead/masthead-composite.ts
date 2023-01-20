@@ -345,6 +345,19 @@ class DDSMastheadComposite extends HostListenerMixin(LitElement) {
         `;
       }
 
+      if (elem.isHeading) {
+        return html`
+          <dds-left-nav-menu-item
+            ?last-highlighted=${elem.lastHighlightedItem}
+            ?active="${elem.selected}"
+            href="${elem.url}"
+            title="${elem.title}"
+            data-autoid="${elem.autoid}"
+            .isHeading=${true}
+          ></dds-left-nav-menu-item>
+        `;
+      }
+
       return html`
         <dds-left-nav-menu-item
           ?last-highlighted=${elem.lastHighlightedItem}
@@ -456,6 +469,7 @@ class DDSMastheadComposite extends HostListenerMixin(LitElement) {
         url?: string;
         menu: boolean;
         selected: boolean;
+        isHeading?: boolean;
       }[] = [];
 
       if (elem?.submenu instanceof Array) {
@@ -507,6 +521,7 @@ class DDSMastheadComposite extends HostListenerMixin(LitElement) {
                 panelId: `${i}, ${j}`,
                 menu: false,
                 selected: false,
+                isHeading: true,
               });
             }
             if (links) {
@@ -541,6 +556,7 @@ class DDSMastheadComposite extends HostListenerMixin(LitElement) {
               url?: string;
               autoid: string;
               selected: boolean;
+              isHeading?: boolean;
             }[] = [];
 
             groups.forEach((linkGroup: MegapanelLinkGroup, k) => {
@@ -552,6 +568,7 @@ class DDSMastheadComposite extends HostListenerMixin(LitElement) {
                   url: groupHeading.url,
                   autoid: `${autoid}--sidenav--nav${i}-list${j}-heading${k}`,
                   selected: false,
+                  isHeading: true,
                 });
               }
               if (links) {
@@ -604,6 +621,7 @@ class DDSMastheadComposite extends HostListenerMixin(LitElement) {
                 autoid: `${autoid}--sidenav--nav${i}-list${j}`,
                 menu: false,
                 selected: false,
+                isHeading: true,
               });
             }
 
