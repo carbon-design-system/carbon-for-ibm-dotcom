@@ -712,16 +712,6 @@ $breakpoint--desktop-nav: 960px;
   }
 }
 
-:host(#{$dds-prefix}-megamenu-category-link[layout='tab']) {
-  width: 100%;
-  max-width: 50%;
-  outline: 0;
-
-  @include carbon--breakpoint('xlg') {
-    max-width: 33.33%;
-  }
-}
-
 :host(#{$dds-prefix}-megamenu-heading),
 :host(#{$dds-prefix}-megamenu-category-heading) {
   display: block;
