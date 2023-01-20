@@ -185,6 +185,11 @@ class DDSMegaMenuTopNavMenu extends DDSTopNavMenu {
         ?.shadowRoot?.querySelector('.bx--masthead__l0');
 
       if (this.expanded) {
+        /**
+         * This is a workaround to minimize the chat module. Currently no minimize methods exist.
+         *
+         * @see https://github.ibm.com/live-advisor/cm-app
+         */
         if (mastheadContainer.contactModuleApp) {
           (mastheadContainer.contactModuleApp as CMApp).init();
         }

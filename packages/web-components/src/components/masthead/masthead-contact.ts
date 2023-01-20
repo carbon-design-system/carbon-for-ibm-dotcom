@@ -52,6 +52,11 @@ class DDSMastheadContact extends DDSMastheadProfile {
       if (!this.expanded) {
         const mastheadContainer = this.closest(`${ddsPrefix}-masthead-container`) as DDSMastheadContainer;
 
+        /**
+         * This is a workaround to minimize the chat module. Currently no minimize methods exist.
+         *
+         * @see https://github.ibm.com/live-advisor/cm-app
+         */
         if (mastheadContainer.contactModuleApp) {
           (mastheadContainer.contactModuleApp as CMApp).init();
         }
