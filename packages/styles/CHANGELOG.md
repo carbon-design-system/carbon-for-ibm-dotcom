@@ -3,6 +3,32 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.42.0](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/compare/@carbon/ibmdotcom-styles@1.42.0-rc.0...@carbon/ibmdotcom-styles@1.42.0) (2023-01-17)
+
+**Note:** Version bump only for package @carbon/ibmdotcom-styles
+
+
+
+
+
+# [1.42.0-rc.0](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/compare/@carbon/ibmdotcom-styles@1.41.0...@carbon/ibmdotcom-styles@1.42.0-rc.0) (2023-01-04)
+
+
+### Bug Fixes
+
+* **content-group/block:** missing display grid styles ([#9604](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/issues/9604)) ([e1e8152](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/commit/e1e8152bee692ca5f95a7ebb4b8711a764abbc72)), closes [#9561](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/issues/9561)
+* **h1/h2:** reveal in lightdom for content-block and leadspace ([#9826](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/issues/9826)) ([8bac76e](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/commit/8bac76e21952a583ed7dc62c9099c4e692d0a28a)), closes [#9696](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/issues/9696)
+* **left-nav:** fix RTL menu attachment and movement ([#9820](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/issues/9820)) ([d1da33a](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/commit/d1da33af9952293ca0fae83744e8921c0eb33fef))
+
+
+### Features
+
+* **content-section:** combining components ([#9348](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/issues/9348)) ([ebfb388](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/commit/ebfb388bb09a254ba1bcbb845be371eae4a871af)), closes [#8843](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/issues/8843)
+
+
+
+
+
 # [1.41.0](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/compare/@carbon/ibmdotcom-styles@1.41.0-rc.2...@carbon/ibmdotcom-styles@1.41.0) (2022-12-06)
 
 **Note:** Version bump only for package @carbon/ibmdotcom-styles
