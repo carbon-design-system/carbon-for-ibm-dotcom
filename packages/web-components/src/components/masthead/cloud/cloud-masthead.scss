@@ -270,10 +270,6 @@
 
       &:hover {
         text-decoration: underline;
-
-        svg {
-          fill: $hover-primary-text;
-        }
       }
 
       &:focus {
