@@ -1,7 +1,7 @@
 /**
  * @license
  *
- * Copyright IBM Corp. 2019, 2022
+ * Copyright IBM Corp. 2019, 2023
  *
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
@@ -21,8 +21,7 @@ const noop = () => {};
 const sizes = {
   'Regular size': null,
   [`Small size (${CONTENT_SWITCHER_SIZE.SMALL})`]: CONTENT_SWITCHER_SIZE.SMALL,
-  [`XL size (${CONTENT_SWITCHER_SIZE.EXTRA_LARGE})`]:
-    CONTENT_SWITCHER_SIZE.EXTRA_LARGE,
+  [`Lg size (${CONTENT_SWITCHER_SIZE.LARGE})`]: CONTENT_SWITCHER_SIZE.LARGE,
 };
 
 export const Default = (args) => {

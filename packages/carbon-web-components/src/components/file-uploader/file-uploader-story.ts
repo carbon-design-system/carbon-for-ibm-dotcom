@@ -1,7 +1,7 @@
 /**
  * @license
  *
- * Copyright IBM Corp. 2019, 2022
+ * Copyright IBM Corp. 2019, 2023
  *
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
@@ -26,8 +26,13 @@ const sizes = {
   'Regular size': null,
   [`Small size (${FILE_UPLOADER_ITEM_SIZE.SMALL})`]:
     FILE_UPLOADER_ITEM_SIZE.SMALL,
-  [`Size for form field (${FILE_UPLOADER_ITEM_SIZE.FIELD})`]:
-    FILE_UPLOADER_ITEM_SIZE.FIELD,
+  [`Large size (${FILE_UPLOADER_ITEM_SIZE.LARGE})`]:
+    FILE_UPLOADER_ITEM_SIZE.LARGE,
+  // TODO: deprecate
+  // [`Small size (${FILE_UPLOADER_ITEM_SIZE.SMALL})`]:
+  //   FILE_UPLOADER_ITEM_SIZE.SMALL,
+  // [`Size for form field (${FILE_UPLOADER_ITEM_SIZE.FIELD})`]:
+  //   FILE_UPLOADER_ITEM_SIZE.FIELD,
 };
 
 /**

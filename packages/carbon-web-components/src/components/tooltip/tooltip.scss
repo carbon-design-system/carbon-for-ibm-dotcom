@@ -8,14 +8,20 @@
 $css--plex: true !default;
 // `@include reset` with `variable-exists(css--reset) == false or $css--reset == false` breaks the dotted underline
 // TODO: Determine how to deal with `$css--reset` across components
-$css--reset: true !default;
+// $css--reset: true !default;
 // Caret's original size was 13.75px square
 $caret-size: 6.875px;
 $caret-horizontal-position: calc(#{$caret-size * (-1)} + 1px);
 
-@import '@carbon/styles/scss/utilities';
-@import '@carbon/styles/scss/spacing';
-@import 'carbon-components/scss/components/tooltip/tooltip';
+@use '@carbon/styles/scss/config' as *;
+@use '@carbon/styles/scss/type' as *;
+@use '@carbon/styles/scss/utilities';
+@use '@carbon/styles/scss/spacing' as *;
+@use '@carbon/styles/scss/theme' as *;
+@use '@carbon/styles/scss/components/tooltip';
+
+// https://github.com/carbon-design-system/carbon/issues/11408
+// @include tooltip;
 
 :host(#{$prefix}-tooltip) {
   @extend .#{$prefix}--tooltip__trigger;
@@ -110,12 +116,14 @@ $caret-horizontal-position: calc(#{$caret-size * (-1)} + 1px);
 }
 
 :host(#{$prefix}-tooltip-body[open]) {
-  @extend .#{$prefix}--tooltip--shown;
+  // TODO: audit
+  //   @extend .#{$prefix}--tooltip--shown;
 }
 
 :host(#{$prefix}-tooltip-definition) {
-  @extend .#{$prefix}--tooltip--definition;
-  @extend .#{$prefix}--tooltip--a11y;
+  // TODO: audit
+  // @extend .#{$prefix}--tooltip--definition;
+  // @extend .#{$prefix}--tooltip--a11y;
 
   outline: none;
 }

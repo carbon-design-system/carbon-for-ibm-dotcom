@@ -1,11 +1,17 @@
 //
-// Copyright IBM Corp. 2019, 2022
+// Copyright IBM Corp. 2019, 2023
 //
 // This source code is licensed under the Apache-2.0 license found in the
 // LICENSE file in the root directory of this source tree.
 //
 
-@import 'carbon-components/scss/components/modal/modal';
+@use '@carbon/styles/scss/config' as *;
+@use '@carbon/styles/scss/theme' as *;
+@use '@carbon/styles/scss/motion' as *;
+@use '@carbon/styles/scss/spacing' as *;
+@use '@carbon/styles/scss/breakpoint' as *;
+@use '@carbon/styles/scss/components/modal';
+@use '@carbon/styles/scss/components/button' as *;
 
 :host(#{$prefix}-modal) {
   // `@extend .#{$prefix}--modal` seems to cause `&.is-visible` style to be brought into `:host(#{$prefix}-modal)` with ShadyCSS
@@ -22,10 +28,10 @@
   background-color: $overlay;
   opacity: 0;
   visibility: hidden;
-  transition: background-color $duration--slow-02 motion(exit, expressive),
-    opacity $duration--moderate-02 motion(exit, expressive),
-    z-index $duration--slow-02 motion(exit, expressive),
-    visibility $duration--moderate-02 motion(exit, expressive);
+  transition: background-color $duration-slow-02 motion(exit, expressive),
+    opacity $duration-moderate-02 motion(exit, expressive),
+    z-index $duration-slow-02 motion(exit, expressive),
+    visibility $duration-moderate-02 motion(exit, expressive);
 
   .#{$prefix}--text-input,
   .#{$prefix}--select-input {
@@ -33,7 +39,7 @@
   }
 
   .#{$prefix}--modal-container {
-    @include carbon--breakpoint(md) {
+    @include breakpoint(md) {
       ::slotted(#{$prefix}-modal-header),
       ::slotted(#{$prefix}-modal-body) {
         padding-right: 20%;
@@ -54,7 +60,7 @@
   }
 
   .#{$prefix}--modal-container--sm {
-    @include carbon--breakpoint(xlg) {
+    @include breakpoint(xlg) {
       ::slotted(#{$prefix}-modal-header),
       ::slotted(#{$prefix}-modal-body) {
         padding-right: 20%;
@@ -63,7 +69,7 @@
   }
 
   .#{$prefix}--modal-container--lg {
-    @include carbon--breakpoint(md) {
+    @include breakpoint(md) {
       ::slotted(#{$prefix}-modal-header),
       ::slotted(#{$prefix}-modal-body) {
         padding-right: 20%;
@@ -133,7 +139,7 @@
   &:first-of-type {
     .#{$prefix}--btn:focus {
       box-shadow: inset 0 0 0 $button-outline-width $focus,
-        inset 0 0 0 $button-border-width $ui-background;
+        inset 0 0 0 $button-border-width $background;
     }
   }
 }

@@ -1,7 +1,7 @@
 /**
  * @license
  *
- * Copyright IBM Corp. 2019, 2022
+ * Copyright IBM Corp. 2019, 2023
  *
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
@@ -34,8 +34,7 @@ const directions = {
 const sizes = {
   'Regular size': null,
   [`Small size (${OVERFLOW_MENU_SIZE.SMALL})`]: OVERFLOW_MENU_SIZE.SMALL,
-  [`XL size (${OVERFLOW_MENU_SIZE.EXTRA_LARGE})`]:
-    OVERFLOW_MENU_SIZE.EXTRA_LARGE,
+  [`Lg size (${OVERFLOW_MENU_SIZE.LARGE})`]: OVERFLOW_MENU_SIZE.LARGE,
 };
 
 export const Default = (args) => {

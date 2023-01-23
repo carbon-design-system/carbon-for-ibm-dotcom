@@ -49,8 +49,8 @@ With CSS Custom Properties approach, you can switch the entire theme under the
 specific element by:
 
 ```css
-@import '@carbon/styles/scss/utilities';
-@import '@carbon/styles/scss/vendor/@carbon/elements/scss/themes/mixins';
+@use '@carbon/styles/scss/utilities';
+@use '@carbon/styles/scss/vendor/@carbon/elements/scss/themes/mixins';
 
 footer {
   @include carbon--theme(
@@ -65,8 +65,8 @@ that need to emitted in the styles. You can do this for example by adding the
 following:
 
 ```css
-@import '@carbon/styles/scss/vendor/@carbon/elements/scss/themes/mixins';
-@import '@carbon/styles/scss/component-tokens';
+@use '@carbon/styles/scss/vendor/@carbon/elements/scss/themes/mixins';
+@use '@carbon/styles/scss/component-tokens';
 @import 'carbon-components/src/components/tag/tag';
 .dds-theme-zone-g90 {
   @include carbon--theme($carbon--theme--g90, true) {

@@ -1,5 +1,5 @@
 //
-// Copyright IBM Corp. 2019, 2022
+// Copyright IBM Corp. 2019, 2023
 //
 // This source code is licensed under the Apache-2.0 license found in the
 // LICENSE file in the root directory of this source tree.
@@ -7,8 +7,12 @@
 
 $css--plex: true !default;
 
-@import 'carbon-components/scss/components/tile/tile';
-@import 'carbon-components/scss/components/link/link';
+@use '@carbon/styles/scss/config' as *;
+@use '@carbon/styles/scss/spacing' as *;
+@use '@carbon/styles/scss/utilities/focus-outline' as *;
+@use '@carbon/styles/scss/motion' as *;
+@use '@carbon/styles/scss/components/tile';
+@use '@carbon/styles/scss/components/link';
 
 :host(#{$prefix}-tile) {
   @extend .#{$prefix}--tile;
@@ -24,13 +28,13 @@ $css--plex: true !default;
 
   .#{$prefix}--tile {
     // Overrides what `.#{$prefix}--link` defines
-    padding: $carbon--spacing-05;
+    padding: $spacing-05;
     outline: 2px solid transparent;
   }
 
   .#{$prefix}--tile--clickable {
     // Overrides what `.#{$prefix}--link` defines
-    transition: $duration--moderate-01 motion(standard, productive);
+    transition: $duration-moderate-01 motion(standard, productive);
 
     &:focus {
       @include focus-outline('outline');
@@ -73,7 +77,7 @@ $css--plex: true !default;
 
   .#{$prefix}-ce--expandable-tile--below-the-fold-content {
     max-height: 0;
-    transition: max-height $duration--fast-02 motion(standard, productive);
+    transition: max-height $duration-fast-02 motion(standard, productive);
   }
 }
 
@@ -82,7 +86,7 @@ $css--plex: true !default;
 
   ::slotted(#{$prefix}-tile-below-the-fold-content) {
     opacity: 1;
-    transition: $duration--fast-02 motion(standard, productive);
+    transition: $duration-fast-02 motion(standard, productive);
   }
 }
 

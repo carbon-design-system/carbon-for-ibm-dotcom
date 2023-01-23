@@ -1476,10 +1476,20 @@
   resolved "https://registry.yarnpkg.com/@carbon/colors/-/colors-11.10.0.tgz#e977c22bc833543254e12e0f73aeba0f9afd4dc8"
   integrity sha512-P/cMU7/sPY8a0sY0lS2dOy2VcXR56911BMPZWRF4mi6l/swFamELB0H6DHxywN5nqQMEBGBAw8ie4+bGdEhi6A==
 
+"@carbon/colors@^11.11.0":
+  version "11.11.0"
+  resolved "https://registry.yarnpkg.com/@carbon/colors/-/colors-11.11.0.tgz#564435be2bd64487c6b72187323f27c55bb043b4"
+  integrity sha512-dQyPt9zLN4DwkIWynEKl8t0EI7yEFD9ZbN3UQYRANL0htH7QsgFyStm3TQ91IsCMRAfP1BHF2vsIPXEggPcUqA==
+
 "@carbon/feature-flags@^0.11.0":
   version "0.11.0"
   resolved "https://registry.yarnpkg.com/@carbon/feature-flags/-/feature-flags-0.11.0.tgz#66a115dd76c1c75272d61665b8c85ec3ca4aea78"
   integrity sha512-5sQ/qrR5N7/uNI2Pj0PjN/tc93Dcy8cKV4p/jxXAmhGGaWgOYetjwKYUrHBX4RoFRqzM3gn0iAyrwC77hBX7rA==
+
+"@carbon/feature-flags@^0.12.0":
+  version "0.12.0"
+  resolved "https://registry.yarnpkg.com/@carbon/feature-flags/-/feature-flags-0.12.0.tgz#5833161a4449541113d416708967eae4e12ce6cf"
+  integrity sha512-7jspPbQNk//S787QDtDI/jAGEt2MKc0aHJEQ32UFXXNb8hIr/VpVQTTu7OZoUiSF23F3Dsnr4HcEXsj6Nq9Ikw==
 
 "@carbon/feature-flags@^0.7.0":
   version "0.7.0"

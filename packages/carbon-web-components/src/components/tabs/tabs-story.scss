@@ -5,12 +5,12 @@
 // LICENSE file in the root directory of this source tree.
 //
 
-@import '@carbon/styles/scss/spacing';
-@import '@carbon/styles/scss/themes';
+@use '@carbon/styles/scss/spacing' as *;
+@use '@carbon/styles/scss/theme';
 
 .bx-ce-demo-devenv--tab-panels {
   flex: 1;
-  padding: $carbon--spacing-05;
+  padding: $spacing-05;
   align-self: stretch;
-  background-color: $ui-01;
+  background-color: $layer-01;
 }

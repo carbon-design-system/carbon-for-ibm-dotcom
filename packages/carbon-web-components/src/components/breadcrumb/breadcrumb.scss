@@ -1,5 +1,5 @@
 //
-// Copyright IBM Corp. 2019, 2022
+// Copyright IBM Corp. 2019, 2023
 //
 // This source code is licensed under the Apache-2.0 license found in the
 // LICENSE file in the root directory of this source tree.
@@ -7,8 +7,11 @@
 
 $css--plex: true !default;
 
-@import 'carbon-components/scss/components/link/link';
-@import 'carbon-components/scss/components/breadcrumb/breadcrumb';
+@use '@carbon/styles/scss/config' as *;
+@use '@carbon/styles/scss/theme' as *;
+@use '@carbon/styles/scss/motion' as *;
+// @use '@carbon/styles/scss/components/link';
+@use '@carbon/styles/scss/components/breadcrumb';
 @import '../overflow-menu/overflow-menu';
 
 :host(#{$prefix}-breadcrumb) {
@@ -44,7 +47,7 @@ $css--plex: true !default;
     background: $link-primary-hover;
     content: '';
     opacity: 0;
-    transition: opacity $duration--fast-01 motion(standard, productive);
+    transition: opacity $duration-fast-01 motion(standard, productive);
   }
 }
 
@@ -55,7 +58,7 @@ $css--plex: true !default;
 
 :host(#{$prefix}-breadcrumb-overflow-menu) svg {
   position: relative;
-  fill: $link-01;
+  fill: $link-primary;
   transform: translateY(4px);
 }
 
@@ -72,7 +75,7 @@ $css--plex: true !default;
 
   // Re-define the ruleset so this wins over `.bx--link:visited`, etc.
   .#{$prefix}--link--disabled {
-    color: $disabled-02;
+    color: $text-disabled;
   }
 
   .#{$prefix}--link__icon[hidden] {
@@ -81,7 +84,7 @@ $css--plex: true !default;
 }
 
 :host(#{$prefix}-breadcrumb-link[aria-current='page']) .#{$prefix}--link {
-  color: $text-01;
+  color: $text-primary;
   cursor: auto;
 
   &:hover {

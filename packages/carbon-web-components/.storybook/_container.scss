@@ -7,10 +7,12 @@
 // LICENSE file in the root directory of this source tree.
 //
 
-@import '@carbon/styles/scss/utilities';
-@import '@carbon/styles/scss/fonts';
-@import '@carbon/styles/scss/vendor/@carbon/elements/scss/themes/mixins';
-@import '@carbon/styles/scss/component-tokens';
+@use '@carbon/styles/scss/utilities';
+@use '@carbon/styles/scss/fonts';
+@use '@carbon/styles/scss/vendor/@carbon/elements/scss/themes/mixins';
+@use '@carbon/styles/scss/component-tokens';
+@use '@carbon/styles/scss/theme' as *;
+
 @import 'carbon-components/src/components/tag/tag';
 @import 'carbon-components/src/components/notification/inline-notification';
 @import 'carbon-components/src/components/notification/toast-notification';
@@ -79,7 +81,7 @@ body,
 }
 
 .bx--content.bx-ce-demo-devenv--ui-shell-content {
-  background-color: $ui-01;
+  background-color: $layer-01;
   margin: 0;
   height: 100vh;
   width: 100%;
