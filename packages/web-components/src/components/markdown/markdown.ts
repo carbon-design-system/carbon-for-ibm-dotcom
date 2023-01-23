@@ -1,7 +1,7 @@
 /**
  * @license
  *
- * Copyright IBM Corp. 2020, 2023
+ * Copyright IBM Corp. 2020, 2022
  *
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
@@ -11,10 +11,10 @@ import { render } from 'lit-html';
 import { unsafeHTML } from 'lit-html/directives/unsafe-html.js';
 import { html, property, customElement, LitElement } from 'lit-element';
 import settings from 'carbon-components/es/globals/js/settings.js';
-import '../../internal/vendor/@carbon/web-components/components/link/link.js';
-import '../../internal/vendor/@carbon/web-components/components/list/ordered-list.js';
-import '../../internal/vendor/@carbon/web-components/components/list/unordered-list.js';
-import '../../internal/vendor/@carbon/web-components/components/list/list-item.js';
+import '@carbon/web-components/es/components/link/link.js';
+import '@carbon/web-components/es/components/list/ordered-list.js';
+import '@carbon/web-components/es/components/list/unordered-list.js';
+import '@carbon/web-components/es/components/list/list-item.js';
 import markdownToHtml from '@carbon/ibmdotcom-utilities/es/utilities/markdownToHtml/markdownToHtml.js';
 import ddsSettings from '../../internal/vendor/@carbon/ibmdotcom-utilities/utilities/settings/settings';
 import styles from './markdown.scss';
