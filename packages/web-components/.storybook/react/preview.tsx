@@ -1,7 +1,7 @@
 /**
  * @license
  *
- * Copyright IBM Corp. 2020, 2022
+ * Copyright IBM Corp. 2020, 2023
  *
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
@@ -12,7 +12,7 @@ import React, { StrictMode } from 'react';
 import coreEvents from '@storybook/core-events';
 import addons from '@storybook/addons';
 import { withKnobs } from '@storybook/addon-knobs';
-import BXSkipToContent from '@carbon/web-components/es/components-react/skip-to-content/skip-to-content';
+import BXSkipToContent from '../../src/internal/vendor/@carbon/web-components/components-react/skip-to-content/skip-to-content';
 import { CURRENT_THEME } from '@carbon/storybook-addon-theme/es/shared';
 import containerStyles from './container.scss'; // eslint-disable-line import/first
 
