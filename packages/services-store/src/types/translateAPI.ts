@@ -1,7 +1,7 @@
 /**
  * @license
  *
- * Copyright IBM Corp. 2020, 2022
+ * Copyright IBM Corp. 2020, 2023
  *
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
@@ -66,9 +66,7 @@ export interface MastheadMenuItem {
  * A menu section in masthead.
  */
 export interface MastheadMenuSection {
-  headingTitle?: string;
-  headingUrl?: string;
-  description?: string;
+  heading?: string;
   menuItems: MastheadMenuItem[];
 }
 
@@ -252,4 +250,29 @@ export interface TranslateAPIState {
    * The errors from the requests for the translation data, keyed by the language.
    */
   errorsRequestTranslation?: { [language: string]: Error };
+}
+
+// New for v2.1.0
+export interface L0Menu {
+  items: L0MenuItem[];
+}
+
+export interface L0MenuItem extends BasicLink {
+  submenu?: L0Megamenu | BasicLink[];
+}
+
+export interface L0Megamenu {
+  sections: Megapanel[];
+  highlights?: MegapanelLinkGroup[];
+  viewAll?: BasicLink;
+}
+
+export interface Megapanel {
+  heading?: BasicLink;
+  groups: MegapanelLinkGroup[];
+}
+
+export interface MegapanelLinkGroup {
+  heading?: BasicLink;
+  links?: BasicLink[];
 }

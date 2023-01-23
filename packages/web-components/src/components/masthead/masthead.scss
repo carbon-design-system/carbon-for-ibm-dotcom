@@ -1,5 +1,5 @@
 //
-// Copyright IBM Corp. 2020, 2022
+// Copyright IBM Corp. 2020, 2023
 //
 // This source code is licensed under the Apache-2.0 license found in the
 // LICENSE file in the root directory of this source tree.
@@ -8,15 +8,17 @@
 @import 'carbon-components/scss/components/ui-shell/header';
 @import 'carbon-components/scss/components/ui-shell/side-nav';
 @import '@carbon/ibmdotcom-styles/scss/globals/vars';
+
 @import '@carbon/ibmdotcom-styles/scss/components/masthead/masthead';
 @import '@carbon/ibmdotcom-styles/scss/components/masthead/masthead-leftnav';
+@import '@carbon/ibmdotcom-styles/scss/components/masthead/masthead-megamenu';
 @import '@carbon/ibmdotcom-styles/scss/components/masthead/masthead-top-nav-name';
 @import '@carbon/ibmdotcom-styles/scss/components/search-with-typeahead/search-with-typeahead';
 @import '@carbon/ibmdotcom-styles/scss/components/masthead/masthead-l1';
 @import 'carbon-web-components/scss/components/tooltip/tooltip';
 @import 'carbon-web-components/scss/components/ui-shell/header';
 @import 'carbon-web-components/scss/components/ui-shell/side-nav';
-@import '@carbon/ibmdotcom-styles/scss/components/masthead/masthead-megamenu';
+
 @import '../../globals/scss/box-sizing';
 @import '../cta/cta.scss';
 
@@ -365,9 +367,14 @@ $breakpoint--desktop-nav: 960px;
   .#{$prefix}--header__menu-title[aria-expanded='true'] + .#{$prefix}--header__menu {
     bottom: auto;
     height: auto;
-    max-height: calc(100vh - var(--cds-spacing-09, 3rem) - var(--cds-layout-05, 4rem));
     min-height: 0;
   }
+}
+
+:host(#{$dds-prefix}-megamenu-left-navigation),
+:host(#{$dds-prefix}-megamenu-right-navigation) {
+  max-height: calc(100vh - var(--cds-spacing-09, 3rem) - var(--cds-layout-05, 4rem));
+  overflow: auto;
 }
 
 :host(#{$dds-prefix}-left-nav) {
@@ -599,7 +606,7 @@ $breakpoint--desktop-nav: 960px;
 .#{$prefix}--masthead__megamenu {
   position: relative;
 
-  &::after {
+  &[overflowing]::after {
     content: '';
     position: fixed;
     bottom: 0;
@@ -618,45 +625,17 @@ $breakpoint--desktop-nav: 960px;
 }
 
 :host(#{$dds-prefix}-megamenu[layout='tab']) {
-  .#{$prefix}--masthead__megamenu__container--row {
-    @include carbon--breakpoint('md') {
-      flex-direction: inherit;
-    }
-  }
-
   ::slotted(#{$dds-prefix}-megamenu-left-navigation) {
-    @include carbon--make-col(4, 16);
-
     display: flex;
     flex-direction: column;
     justify-content: space-between;
-    border-right: carbon--rem(1px) solid $ui-03;
-    padding-block-start: 0;
-
-    @include carbon--breakpoint('md') {
-      min-height: carbon--rem(580px);
-    }
-
-    @include carbon--breakpoint('xlg') {
-      min-height: carbon--rem(475px);
-    }
   }
-}
-
-:host(#{$dds-prefix}-megamenu-right-navigation[style-scheme='tab']) {
-  @include carbon--make-col(12, 16);
-
-  display: flex;
-  flex-direction: column;
-  padding-top: $spacing-06;
-  margin-bottom: $spacing-07;
 }
 
 :host(#{$dds-prefix}-megamenu-tabs) {
   display: flex;
   flex-direction: column;
-  margin-top: carbon--rem(18px);
-  margin-bottom: carbon--rem(18px);
+  margin-bottom: $spacing-05;
 
   .#{$prefix}--tabs-trigger {
     display: none;
@@ -730,16 +709,6 @@ $breakpoint--desktop-nav: 960px;
       padding-block-start: $spacing-01;
       /* shrink SVG with padding to match font-size */
     }
-  }
-}
-
-:host(#{$dds-prefix}-megamenu-category-link[layout='tab']) {
-  width: 100%;
-  max-width: 50%;
-  outline: 0;
-
-  @include carbon--breakpoint('xlg') {
-    max-width: 33.33%;
   }
 }
 

@@ -1,7 +1,7 @@
 /**
  * @license
  *
- * Copyright IBM Corp. 2020, 2022
+ * Copyright IBM Corp. 2020, 2023
  *
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
@@ -12,7 +12,7 @@ import { ActionCreatorsMapObject, Dispatch, Store, bindActionCreators } from 're
 import { customElement } from 'lit-element';
 import ddsSettings from '../../internal/vendor/@carbon/ibmdotcom-utilities/utilities/settings/settings';
 import { LocaleAPIState } from '../../internal/vendor/@carbon/ibmdotcom-services-store/types/localeAPI.d';
-import { MastheadLink, TranslateAPIState } from '../../internal/vendor/@carbon/ibmdotcom-services-store/types/translateAPI.d';
+import { L0MenuItem, TranslateAPIState } from '../../internal/vendor/@carbon/ibmdotcom-services-store/types/translateAPI.d';
 import { ProfileAPIState } from '../../internal/vendor/@carbon/ibmdotcom-services-store/types/profileAPI.d';
 import store from '../../internal/vendor/@carbon/ibmdotcom-services-store/store';
 import { loadLanguage, setLanguage } from '../../internal/vendor/@carbon/ibmdotcom-services-store/actions/localeAPI';
@@ -54,7 +54,7 @@ export interface MastheadContainerStateProps {
   /**
    * The nav links.
    */
-  navLinks?: MastheadLink[];
+  navLinks?: L0MenuItem[];
 
   /**
    * The user authentication status.
