@@ -3437,11 +3437,10 @@ const mastheadLinksV2: L0MenuItem[] = [
       sections: [
         {
           heading: {
-            title: 'All Descriptions Long Title Text Holy Wow',
-            titleEnglish: 'Featured',
+            title: 'All Descriptions',
+            titleEnglish: 'All Descriptions',
             url: 'https://www.ibm.com/placeholder',
-            description:
-              'Descriptions for each heading and link with long description text that should span multiple rows if all goes according to plan.',
+            description: 'Descriptions for each heading and link.',
           },
           groups: [
             {
@@ -3511,14 +3510,14 @@ const mastheadLinksV2: L0MenuItem[] = [
         {
           heading: {
             title: 'No Heading 1 Description',
-            titleEnglish: 'AI & ML',
+            titleEnglish: 'No Heading 1 Description',
             url: 'https://www.ibm.com/placeholder',
           },
           groups: [
             {
               heading: {
-                title: 'Demo Heading Level 2',
-                titleEnglish: 'Demo Heading Level 2',
+                title: 'Heading Level 2',
+                titleEnglish: 'Heading Level 2',
                 url: '',
                 description: 'Description text lorem ipsum dolor sit amet commondo ligua eaget',
               },
@@ -3597,8 +3596,8 @@ const mastheadLinksV2: L0MenuItem[] = [
           groups: [
             {
               heading: {
-                title: 'Demo Heading Level 2',
-                titleEnglish: 'Demo Heading Level 2',
+                title: 'Heading Level 2',
+                titleEnglish: 'Heading Level 2',
                 url: '',
               },
               links: [
@@ -3669,8 +3668,8 @@ const mastheadLinksV2: L0MenuItem[] = [
           groups: [
             {
               heading: {
-                title: 'Demo Heading Level 2',
-                titleEnglish: 'Demo Heading Level 2',
+                title: 'Heading Level 2',
+                titleEnglish: 'Heading Level 2',
                 url: '',
               },
               links: [
@@ -3730,8 +3729,8 @@ const mastheadLinksV2: L0MenuItem[] = [
           groups: [
             {
               heading: {
-                title: 'Demo Heading Level 2',
-                titleEnglish: 'Demo Heading Level 2',
+                title: 'Heading Level 2',
+                titleEnglish: 'Heading Level 2',
                 url: '',
                 description: 'Description text lorem ipsum dolor sit amet commondo ligua eaget',
               },
@@ -3780,8 +3779,8 @@ const mastheadLinksV2: L0MenuItem[] = [
           groups: [
             {
               heading: {
-                title: 'Demo Heading Level 2',
-                titleEnglish: 'Demo Heading Level 2',
+                title: 'Heading Level 2',
+                titleEnglish: 'Heading Level 2',
                 url: '',
               },
               links: [
@@ -3818,8 +3817,8 @@ const mastheadLinksV2: L0MenuItem[] = [
           groups: [
             {
               heading: {
-                title: 'Demo Heading Level 2',
-                titleEnglish: 'Demo Heading Level 2',
+                title: 'Heading Level 2',
+                titleEnglish: 'Heading Level 2',
                 url: '',
                 description: 'Description text lorem ipsum dolor sit amet commondo ligua eaget',
               },
@@ -3852,8 +3851,8 @@ const mastheadLinksV2: L0MenuItem[] = [
           groups: [
             {
               heading: {
-                title: 'Demo Heading Level 2',
-                titleEnglish: 'Demo Heading Level 2',
+                title: 'Heading Level 2',
+                titleEnglish: 'Heading Level 2',
                 url: '',
               },
               links: [
@@ -3941,6 +3940,182 @@ const mastheadLinksV2: L0MenuItem[] = [
                   titleEnglish: 'IBM Z',
                   url: 'https://www.ibm.com/placeholder',
                   description: 'Description text Lorem ipsum dolor sit amet, consectetuer adipiscing elit.',
+                },
+              ],
+            },
+          ],
+        },
+        {
+          heading: {
+            title: 'Multiple Groups in Column',
+            titleEnglish: 'Multiple Groups in Column',
+            url: 'https://www.ibm.com/placeholder',
+            description: 'Description text lorem ipsum dolor sit amet commondo ligua eaget',
+          },
+          groups: [
+            {
+              heading: {
+                title: 'Heading Level 2',
+                titleEnglish: 'Heading Level 2',
+                url: '',
+              },
+              links: [
+                {
+                  title: 'IBM Cloud Pak for Data',
+                  titleEnglish: 'IBM Cloud Pak for Data',
+                  url: 'https://www.ibm.com/placeholder',
+                },
+                {
+                  title: 'IBM Cloud Pak for Security',
+                  titleEnglish: 'IBM Cloud Pak for Security',
+                  url: 'https://www.ibm.com/placeholder',
+                },
+                {
+                  title: 'IBM Cloud Pak for Business Automation',
+                  titleEnglish: 'IBM Cloud Pak for Business Automation',
+                  url: 'https://www.ibm.com/placeholder',
+                },
+              ],
+            },
+            {
+              heading: {
+                title: 'Heading Level 2',
+                titleEnglish: 'Heading Level 2',
+                url: '',
+              },
+              links: [
+                {
+                  title: 'IBM Cloud Pak for Integration',
+                  titleEnglish: 'IBM Cloud Pak for Integration',
+                  url: 'https://www.ibm.com/placeholder',
+                },
+                {
+                  title: 'IBM Cloud Pak for Network Automation',
+                  titleEnglish: 'IBM Cloud Pak for Network Automation',
+                  url: 'https://www.ibm.com/placeholder',
+                },
+                {
+                  title: 'IBM Cloud',
+                  titleEnglish: 'IBM Cloud',
+                  url: 'https://www.ibm.com/placeholder',
+                },
+                {
+                  title: 'IBM Z',
+                  titleEnglish: 'IBM Z',
+                  url: 'https://www.ibm.com/placeholder',
+                },
+              ],
+            },
+            {
+              heading: {
+                title: 'Heading Level 2',
+                titleEnglish: 'Heading Level 2',
+                url: '',
+              },
+              links: [
+                {
+                  title: 'IBM Cloud Pak for Data',
+                  titleEnglish: 'IBM Cloud Pak for Data',
+                  url: 'https://www.ibm.com/placeholder',
+                },
+                {
+                  title: 'Watson Discovery',
+                  titleEnglish: 'Watson Discovery',
+                  url: 'https://www.ibm.com/placeholder',
+                },
+                {
+                  title: 'Spech to Text',
+                  titleEnglish: 'Spech to Text',
+                  url: 'https://www.ibm.com/placeholder',
+                },
+                {
+                  title: 'Text to Speech',
+                  titleEnglish: 'Text to Speech',
+                  url: 'https://www.ibm.com/placeholder',
+                },
+                {
+                  title: 'IBM Cloud Pak for Data',
+                  titleEnglish: 'IBM Cloud Pak for Data',
+                  url: 'https://www.ibm.com/placeholder',
+                },
+                {
+                  title: 'IBM Cloud Pak for AIOps',
+                  titleEnglish: 'IBM Cloud Pak for AIOps',
+                  url: 'https://www.ibm.com/placeholder',
+                },
+                {
+                  title: 'IBM Watson Natural Language Understanding',
+                  titleEnglish: 'IBM Watson Natural Language Understanding',
+                  url: 'https://www.ibm.com/placeholder',
+                },
+                {
+                  title: 'Watson Studio',
+                  titleEnglish: 'Watson Studio',
+                  url: 'https://www.ibm.com/placeholder',
+                },
+                {
+                  title: 'IBM Watson Knowledge Catalog',
+                  titleEnglish: 'IBM Watson Knowledge Catalog',
+                  url: 'https://www.ibm.com/placeholder',
+                },
+                {
+                  title: 'Watson Assistant',
+                  titleEnglish: 'Watson Assistant',
+                  url: 'https://www.ibm.com/placeholder',
+                },
+              ],
+            },
+            {
+              heading: {
+                title: 'Heading Level 2',
+                titleEnglish: 'Heading Level 2',
+                url: '',
+              },
+              links: [
+                {
+                  title: 'IBM Cloud Pak for Data',
+                  titleEnglish: 'IBM Cloud Pak for Data',
+                  url: 'https://www.ibm.com/placeholder',
+                },
+                {
+                  title: 'Business Analytics Enterprise',
+                  titleEnglish: 'Business Analytics Enterprise',
+                  url: 'https://www.ibm.com/placeholder',
+                },
+                {
+                  title: 'Cognos',
+                  titleEnglish: 'Cognos',
+                  url: 'https://www.ibm.com/placeholder',
+                },
+                {
+                  title: 'SPSS',
+                  titleEnglish: 'SPSS',
+                  url: 'https://www.ibm.com/placeholder',
+                },
+                {
+                  title: 'cplex',
+                  titleEnglish: 'cplex',
+                  url: 'https://www.ibm.com/placeholder',
+                },
+                {
+                  title: 'Netezza',
+                  titleEnglish: 'Netezza',
+                  url: 'https://www.ibm.com/placeholder',
+                },
+                {
+                  title: 'Watson Studio',
+                  titleEnglish: 'Watson Studio',
+                  url: 'https://www.ibm.com/placeholder',
+                },
+                {
+                  title: 'Planning Analytics',
+                  titleEnglish: 'Planning Analytics',
+                  url: 'https://www.ibm.com/placeholder',
+                },
+                {
+                  title: 'Watson Discovery',
+                  titleEnglish: 'Watson Discovery',
+                  url: 'https://www.ibm.com/placeholder',
                 },
               ],
             },

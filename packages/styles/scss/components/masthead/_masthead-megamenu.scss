@@ -167,12 +167,9 @@
       height: 100%;
     }
 
-    .#{$prefix}--masthead__megamenu__heading {
-      @include carbon--make-col(4, 8);
-
-      @include carbon--breakpoint('lg') {
-        @include carbon--make-col(4, 16);
-      }
+    ::slotted(#{$dds-prefix}-megamenu-heading) {
+      --heading-description-column-count: 2;
+      --heading-description-column-count-lg: 4;
     }
 
     .#{$prefix}--masthead__megamenu__categories {
@@ -185,23 +182,48 @@
       }
     }
 
-    .#{$prefix}--masthead__megamenu--hasViewAllLink {
+    .#{$prefix}--masthead__megamenu--has-view-all-link {
       .#{$prefix}--masthead__megamenu__categories {
         padding-block-end: 0;
       }
     }
 
-    .#{$prefix}--masthead__megamenu--hasSidebar {
-      .#{$prefix}--masthead__megamenu__heading {
-        @include carbon--breakpoint('lg') {
-          @include carbon--make-col(1, 3);
-        }
+    .#{$prefix}--masthead__megamenu--has-sidebar {
+      ::slotted(#{$dds-prefix}-megamenu-heading) {
+        --heading-description-column-count: 2;
+        --heading-description-column-count-lg: 3;
       }
 
       .#{$prefix}--masthead__megamenu__categories {
         @include carbon--breakpoint('lg') {
           column-count: 3;
         }
+      }
+    }
+
+    // Disable columns here so child element can reapply them.
+    &[data-child-count='1'] {
+      .#{$prefix}--masthead__megamenu__categories,
+      .#{$prefix}--masthead__megamenu__categories.#{$prefix}--masthead__megamenu--has-sidebar {
+        column-count: initial;
+
+        @include carbon--breakpoint('lg') {
+          column-count: initial;
+        }
+      }
+    }
+  }
+
+  .#{$prefix}--masthead__megamenu__heading,
+  :host(#{$dds-prefix}-megamenu-heading) {
+    span {
+      display: block;
+      max-width: calc((1 / var(--heading-description-column-count, 2)) * 100%);
+
+      @include carbon--breakpoint('lg') {
+        max-width: calc(
+          (1 / var(--heading-description-column-count-lg, 4)) * 100%
+        );
       }
     }
   }
@@ -220,7 +242,30 @@
   .#{$prefix}--masthead__megamenu__category-group {
     display: block;
 
-    .#{$prefix}--masthead__megamenu__category-group-content {
+    &.only-child {
+      .#{$prefix}--masthead__megamenu__category-group-heading {
+        @include carbon--make-col(1, 2);
+
+        @include carbon--breakpoint('lg') {
+          @include carbon--make-col(1, 3);
+        }
+      }
+
+      .#{$prefix}--masthead__megamenu__category-group-content {
+        column-count: 2;
+
+        @include carbon--breakpoint('lg') {
+          column-count: 3;
+        }
+      }
+
+      ::slotted(#{$dds-prefix}-megamenu-category-link) {
+        display: block;
+        break-inside: avoid;
+      }
+    }
+
+    .#{$prefix}--masthead__megamenu__category-group-content-wrapper {
       width: 100%;
       display: inline-block;
       padding-block-end: $spacing-06;
