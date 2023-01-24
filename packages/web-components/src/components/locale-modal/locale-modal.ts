@@ -1,7 +1,7 @@
 /**
  * @license
  *
- * Copyright IBM Corp. 2020, 2023
+ * Copyright IBM Corp. 2020, 2022
  *
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
@@ -9,11 +9,11 @@
 
 import { html, property, state, customElement } from 'lit-element';
 import settings from 'carbon-components/es/globals/js/settings.js';
-import ArrowLeft20 from '../../internal/vendor/@carbon/web-components/icons/arrow--left/20.js';
-import EarthFilled16 from '../../internal/vendor/@carbon/web-components/icons/earth--filled/16.js';
-import HostListener from '../../internal/vendor/@carbon/web-components/globals/decorators/host-listener.js';
-import ifNonNull from '../../internal/vendor/@carbon/web-components/globals/directives/if-non-null.js';
-import { selectorTabbable } from '../../internal/vendor/@carbon/web-components/globals/settings.js';
+import ArrowLeft20 from '@carbon/web-components/es/icons/arrow--left/20.js';
+import EarthFilled16 from '@carbon/web-components/es/icons/earth--filled/16.js';
+import HostListener from '@carbon/web-components/es/globals/decorators/host-listener.js';
+import ifNonNull from '@carbon/web-components/es/globals/directives/if-non-null.js';
+import { selectorTabbable } from '@carbon/web-components/es/globals/settings.js';
 import ddsSettings from '../../internal/vendor/@carbon/ibmdotcom-utilities/utilities/settings/settings';
 import DDSExpressiveModal from '../expressive-modal/expressive-modal';
 import '../expressive-modal/expressive-modal-header';
