@@ -23,6 +23,7 @@ const { prefix } = settings;
  * Multi-selectable tile.
  *
  * @element bx-selectable-tile
+ * @fires bx-selectable-tile-changed - The custom event fired after this selectable tile changes its selected state.
  */
 @customElement(`${prefix}-selectable-tile`)
 class BXSelectableTile extends FocusMixin(LitElement) {
@@ -39,6 +40,18 @@ class BXSelectableTile extends FocusMixin(LitElement) {
    */
   protected _handleChange() {
     this.selected = this._inputNode.checked;
+
+    const selected = this.selected;
+    const { eventChange } = this.constructor as typeof BXSelectableTile;
+    this.dispatchEvent(
+      new CustomEvent(eventChange, {
+        bubbles: true,
+        composed: true,
+        detail: {
+          selected,
+        },
+      })
+    );
   }
 
   /**
@@ -109,10 +122,18 @@ class BXSelectableTile extends FocusMixin(LitElement) {
     `;
   }
 
+  /**
+   * The name of the custom event fired after this selectable tile changes its selected state.
+   */
+  static get eventChange() {
+    return `${prefix}-selectable-tile-changed`;
+  }
+
   static shadowRootOptions = {
     ...LitElement.shadowRootOptions,
     delegatesFocus: true,
   };
+
   static styles = styles;
 }
 
