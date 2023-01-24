@@ -2,9 +2,9 @@ name: ci-check
 
 on:
   push:
-    branches: [ main, release/*, feat/cwc-v2 ]
+    branches: [ main, release/*, feat/cwc-v2, fix/content-updates ]
   pull_request:
-    branches: [ main, release/*, feat/cwc-v2 ]
+    branches: [ main, release/*, feat/cwc-v2, fix/content-updates ]
 
 concurrency:
   group: ci-check-${{ github.ref }}
