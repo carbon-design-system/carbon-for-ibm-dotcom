@@ -16,7 +16,7 @@
     ]
   },
   "scripts": {
-    "build": "lerna run build --stream --prefix --npm-client yarn",
+    "build": "lerna run build --stream --prefix",
     "ci-check": "npm run format:diff && yarn lint:license && yarn lint && yarn lint:styles",
     "clean": "lerna run clean && lerna clean --yes && rimraf node_modules",
     "doctoc": "doctoc --title '## Table of Contents' docs",
@@ -67,7 +67,7 @@
     "jest": "25.5.4",
     "jest-circus": "25.5.4",
     "jest-junit": "^6.4.0",
-    "lerna": "^4.0.0",
+    "lerna": "^6.4.1",
     "lint-staged": "^13.0.3",
     "node-fetch": "^2.6.0",
     "prettier": "^2.7.1",
