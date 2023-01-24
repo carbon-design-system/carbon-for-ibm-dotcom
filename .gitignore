@@ -53,3 +53,12 @@ package-lock.json
 
 # auto-generated release notes
 TEMP_RELEASENOTES.md
+
+# Yarn
+.yarn/*
+!.yarn/cache
+!.yarn/patches
+!.yarn/plugins
+!.yarn/releases
+!.yarn/sdks
+!.yarn/versions
