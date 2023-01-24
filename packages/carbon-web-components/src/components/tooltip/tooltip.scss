@@ -117,13 +117,13 @@ $caret-horizontal-position: calc(#{$caret-size * (-1)} + 1px);
 
 :host(#{$prefix}-tooltip-body[open]) {
   // TODO: audit
-  //   @extend .#{$prefix}--tooltip--shown;
+  @extend .#{$prefix}--tooltip--shown !optional;
 }
 
 :host(#{$prefix}-tooltip-definition) {
   // TODO: audit
-  // @extend .#{$prefix}--tooltip--definition;
-  // @extend .#{$prefix}--tooltip--a11y;
+  @extend .#{$prefix}--tooltip--definition !optional;
+  @extend .#{$prefix}--tooltip--a11y !optional;
 
   outline: none;
 }

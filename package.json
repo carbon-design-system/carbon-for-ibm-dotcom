@@ -90,5 +90,6 @@
     "marked": "^4.0.10",
     "minimist": ">=1.2.2",
     "node-notifier": ">=8.0.1"
-  }
+  },
+  "packageManager": "yarn@3.3.1"
 }

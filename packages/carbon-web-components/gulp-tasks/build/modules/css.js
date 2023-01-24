@@ -49,10 +49,7 @@ const buildModulesCSS = ({ banner, dir }) =>
     )
     .pipe(
       sass({
-        includePaths: [
-          'node_modules',
-          path.resolve(__dirname, '../../../../../node_modules'),
-        ],
+        includePaths: ['node_modules', '../../node_modules'],
       })
     )
     .pipe(

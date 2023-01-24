@@ -13,7 +13,7 @@ import { boolean, select } from '@storybook/addon-knobs';
 // In our dev env, we auto-generate the file and re-map below path to to point to the generated file.
 // @ts-ignore
 import Fade16 from 'carbon-web-components/es/icons/fade/16';
-import contentStyles from '@carbon/styles/scss/components/ui-shell/_content.scss';
+import contentStyles from '@carbon/styles/scss/components/ui-shell/content/_content.scss';
 import textNullable from '../../../.storybook/knob-text-nullable';
 import ifNonNull from '../../globals/directives/if-non-null';
 import { SIDE_NAV_COLLAPSE_MODE, SIDE_NAV_USAGE_MODE } from './side-nav';
