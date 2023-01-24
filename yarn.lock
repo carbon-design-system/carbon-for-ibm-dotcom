@@ -1275,8 +1275,10 @@
     "@carbon/import-once" "^10.7.0"
     "@carbon/layout" "^10.37.1"
 
-"@carbon/ibmdotcom-styles@file:packages/web-components/.yalc/@carbon/ibmdotcom-styles":
-  version "1.40.0"
+"@carbon/ibmdotcom-styles@1.42.0-rc.0":
+  version "1.42.0-rc.0"
+  resolved "https://registry.yarnpkg.com/@carbon/ibmdotcom-styles/-/ibmdotcom-styles-1.42.0-rc.0.tgz#8e80f784ecea92c95cd34bc64bf8fa82f1d29d6b"
+  integrity sha512-zTfTdT7UQYQKgIMdykYw23LTiTYh8Jjcpt2wx18G4n8PJLvpZw12BLrShCuFGaNuHajdpY0vh7bozhtmp/0PHg==
   dependencies:
     "@carbon/grid" "10.43.1"
     "@carbon/icons-react" "10.49.0"
@@ -1363,15 +1365,6 @@
   dependencies:
     "@carbon/grid" "^10.43.0"
     "@carbon/import-once" "^10.7.0"
-
-"@carbon/web-components@file:packages/web-components/.yalc/@carbon/web-components":
-  version "1.23.0-rc.0"
-  dependencies:
-    "@babel/runtime" "^7.16.3"
-    carbon-components "10.58.3"
-    flatpickr "4.6.13"
-    lit "^2.5.0"
-    lodash-es "^4.17.21"
 
 "@choojs/findup@^0.2.1":
   version "0.2.1"
