@@ -144,6 +144,35 @@
   .#{$prefix}--masthead__megamenu__categories-section {
     background-color: $ui-background;
     padding-block-start: $layout-02;
+    display: block;
+    position: relative;
+
+    .#{$prefix}--masthead__megamenu-container {
+      transform: rotate(0deg);
+      position: relative;
+      height: 100%;
+      z-index: 1;
+    }
+
+    .#{$prefix}--masthead__megamenu--has-view-all-link {
+      height: 100%;
+      padding-bottom: $spacing-09;
+      overflow: auto;
+    }
+
+    .#{$prefix}--masthead__megamenu__view-all {
+      position: fixed;
+      inset-block-end: 0;
+      inset-inline: 0;
+      background-color: $ui-background;
+    }
+
+    .#{$prefix}--masthead__megamenu__view-all__border {
+      position: absolute;
+      top: 0;
+      height: carbon--rem(1px);
+      background: $ui-03;
+    }
   }
 
   :host(#{$dds-prefix}-megamenu-left-navigation),
@@ -155,12 +184,16 @@
     // Shift border left without breaking Carbon grid alignment.
     padding-inline-start: $layout-01;
     margin-inline-start: calc(#{$layout-01} * -1);
+
+    .#{$prefix}--masthead__megamenu__view-all__border {
+      inset-inline-start: -100vw;
+      inset-inline-end: 0;
+    }
   }
 
   :host(#{$dds-prefix}-megamenu-right-navigation),
   .#{$prefix}--masthead__megamenu__categories-section {
     display: block;
-    padding-inline-start: $layout-01;
     width: 100%;
 
     &[style-scheme='tab'] {
@@ -170,16 +203,6 @@
     ::slotted(#{$dds-prefix}-megamenu-heading) {
       --heading-description-column-count: 2;
       --heading-description-column-count-lg: 4;
-    }
-
-    .#{$prefix}--masthead__megamenu__categories {
-      padding: 0 0 $layout-03 0;
-      column-count: 2;
-      column-gap: 0;
-
-      @include carbon--breakpoint('lg') {
-        column-count: 4;
-      }
     }
 
     .#{$prefix}--masthead__megamenu--has-view-all-link {
@@ -199,6 +222,27 @@
           column-count: 3;
         }
       }
+    }
+
+    .#{$prefix}--masthead__megamenu__heading,
+    .#{$prefix}--masthead__megamenu__categories,
+    [part='view-all'] {
+      padding-inline-start: $layout-01;
+    }
+
+    .#{$prefix}--masthead__megamenu__categories {
+      padding-block-end: $layout-03;
+      column-count: 2;
+      column-gap: 0;
+
+      @include carbon--breakpoint('lg') {
+        column-count: 4;
+      }
+    }
+
+    .#{$prefix}--masthead__megamenu__view-all__border {
+      inset-inline-start: 0;
+      inset-inline-end: -100vw;
     }
 
     // Disable columns here so child element can reapply them.
@@ -370,28 +414,19 @@
   }
 
   :host(#{$dds-prefix}-megamenu-link-with-icon)[style-scheme='view-all'],
+  :host(#{$dds-prefix}-megamenu-link-with-icon)[part='view-all'],
   .#{$prefix}--masthead__megamenu__view-all-cta {
-    margin-block-start: auto;
     display: flex;
-    z-index: 1;
-    position: relative;
 
     a,
-    .#{$prefix}--link-with-icon {
+    .#{$prefix}--link-with-icon,
+    [part='link'] {
       text-decoration: none;
       width: 100%;
-      margin: 0 $spacing-05;
-      border-top: carbon--rem(1px) solid $ui-03;
+      padding-inline: $spacing-05;
       height: $spacing-09;
 
-      &:hover,
-      &:focus {
-        margin: 0;
-        padding: 0 $spacing-05;
-      }
-
       &:hover {
-        border-top: carbon--rem(1px) solid transparent;
         color: $hover-primary-text;
       }
     }

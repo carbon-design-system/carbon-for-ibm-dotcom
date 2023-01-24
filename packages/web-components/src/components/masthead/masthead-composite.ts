@@ -60,7 +60,7 @@ import './left-nav';
 import '../search-with-typeahead/search-with-typeahead';
 import '../search-with-typeahead/search-with-typeahead-item';
 import styles from './masthead.scss';
-import { MEGAMENU_LAYOUT_SCHEME } from './defs';
+import { MEGAMENU_LAYOUT_SCHEME, MEGAPANEL_VIEW_ALL_POSITION } from './defs';
 
 const { stablePrefix: ddsPrefix } = ddsSettings;
 
@@ -171,7 +171,10 @@ class DDSMastheadComposite extends HostListenerMixin(LitElement) {
 
     return html`
       <dds-megamenu layout="${MEGAMENU_LAYOUT_SCHEME.TAB}">
-        <dds-megamenu-left-navigation view-all-href="${ifNonNull(viewAll?.url)}" view-all-title="${ifNonNull(viewAll?.title)}">
+        <dds-megamenu-left-navigation
+          view-all-href="${viewAll?.position === MEGAPANEL_VIEW_ALL_POSITION.START ? ifNonNull(viewAll?.url) : ''}"
+          view-all-title="${viewAll?.position === MEGAPANEL_VIEW_ALL_POSITION.START ? ifNonNull(viewAll?.title) : ''}"
+        >
           <dds-megamenu-tabs value="${ifNonNull(sortedMenuItems[0]?.heading?.title)}">
             ${sortedMenuItems.map(item => {
               return item?.heading?.title
@@ -188,7 +191,11 @@ class DDSMastheadComposite extends HostListenerMixin(LitElement) {
           const { itemKey, groups, heading } = item;
           return html`
             <div id="panel-${itemKey}" role="tabpanel" aria-labelledby="tab-${itemKey}" hidden>
-              <dds-megamenu-right-navigation style-scheme="${MEGAMENU_RIGHT_NAVIGATION_STYLE_SCHEME.TAB}">
+              <dds-megamenu-right-navigation
+                style-scheme="${MEGAMENU_RIGHT_NAVIGATION_STYLE_SCHEME.TAB}"
+                view-all-href="${viewAll?.position !== MEGAPANEL_VIEW_ALL_POSITION.START ? ifNonNull(viewAll?.url) : ''}"
+                view-all-title="${viewAll?.position !== MEGAPANEL_VIEW_ALL_POSITION.START ? ifNonNull(viewAll?.title) : ''}"
+              >
                 ${heading?.title
                   ? html`
                       <dds-megamenu-heading href="${ifNonNull(heading?.url)}" title="${heading?.title}" slot="heading">
@@ -224,7 +231,10 @@ class DDSMastheadComposite extends HostListenerMixin(LitElement) {
       <dds-megamenu layout="${MEGAMENU_LAYOUT_SCHEME.LIST}">
         ${highlights
           ? html`
-              <dds-megamenu-left-navigation>
+              <dds-megamenu-left-navigation
+                view-all-href="${viewAll?.position === MEGAPANEL_VIEW_ALL_POSITION.START ? ifNonNull(viewAll?.url) : ''}"
+                view-all-title="${viewAll?.position === MEGAPANEL_VIEW_ALL_POSITION.START ? ifNonNull(viewAll?.title) : ''}"
+              >
                 ${highlights.map((group, i) =>
                   this._renderMegapanelLinkGroup(group, { headingLevel: 2, autoid: `${ddsPrefix}--masthead__l0-nav-list${i}` })
                 )}
@@ -235,8 +245,8 @@ class DDSMastheadComposite extends HostListenerMixin(LitElement) {
           style-scheme="${highlights
             ? MEGAMENU_RIGHT_NAVIGATION_STYLE_SCHEME.LEFT_SECTION
             : MEGAMENU_RIGHT_NAVIGATION_STYLE_SCHEME.REGULAR}"
-          view-all-href="${ifNonNull(viewAll?.url)}"
-          view-all-title="${ifNonNull(viewAll?.title)}"
+          view-all-href="${viewAll?.position !== MEGAPANEL_VIEW_ALL_POSITION.START ? ifNonNull(viewAll?.url) : ''}"
+          view-all-title="${viewAll?.position !== MEGAPANEL_VIEW_ALL_POSITION.START ? ifNonNull(viewAll?.title) : ''}"
         >
           ${heading
             ? html`
