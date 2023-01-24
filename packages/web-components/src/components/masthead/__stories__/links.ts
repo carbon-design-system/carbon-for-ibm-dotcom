@@ -3440,7 +3440,8 @@ const mastheadLinksV2: L0MenuItem[] = [
             title: 'All Descriptions Long Title Text Holy Wow',
             titleEnglish: 'Featured',
             url: 'https://www.ibm.com/placeholder',
-            description: 'Descriptions for each heading and link with long description text that should span multiple rows if all goes according to plan.',
+            description:
+              'Descriptions for each heading and link with long description text that should span multiple rows if all goes according to plan.',
           },
           groups: [
             {
@@ -4108,7 +4109,6 @@ const mastheadLinksV2: L0MenuItem[] = [
           heading: {
             title: 'Heading 1',
             titleEnglish: 'Heading 1',
-            url: 'https://www.example.com',
             description: 'Description text lorem ipsum dolor sit amet commondo ligua eaget',
           },
           groups: [

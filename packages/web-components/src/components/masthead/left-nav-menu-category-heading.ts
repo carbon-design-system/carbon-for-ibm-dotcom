@@ -9,6 +9,7 @@
 
 import { html, customElement, LitElement, property, state } from 'lit-element';
 import { classMap } from 'lit-html/directives/class-map';
+import ArrowRight20 from 'carbon-web-components/es/icons/arrow--right/20.js';
 import settings from 'carbon-components/es/globals/js/settings.js';
 import ddsSettings from '../../internal/vendor/@carbon/ibmdotcom-utilities/utilities/settings/settings';
 import styles from './masthead.scss';
@@ -49,7 +50,7 @@ class DDSLeftNavMenuCategoryHeading extends LitElement {
     return url
       ? html`
           <h2 class="${classMap(headingClasses)}">
-            <a href="${url}" class="${prefix}--side-nav__heading-title">${headingText}</a>
+            <a href="${url}" class="${prefix}--side-nav__heading-title">${headingText}${ArrowRight20()}</a>
           </h2>
         `
       : html`

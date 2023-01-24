@@ -399,7 +399,7 @@
     color: $text-02;
 
     &:is(.#{$prefix}--left-nav-menu-category__heading-large) {
-      margin-bottom: $spacing-06;
+      margin: $spacing-03 0 $spacing-06;
 
       .#{$prefix}--side-nav__heading {
         padding: 0;
@@ -418,6 +418,14 @@
 
       &:where(a) {
         color: inherit;
+        display: inline-flex;
+        gap: $spacing-03;
+        align-items: center;
+        text-decoration: none;
+
+        &:hover {
+          text-decoration: underline;
+        }
       }
     }
 
@@ -440,6 +448,40 @@
   :host(#{$dds-prefix}-left-nav-menu),
   :host(#{$dds-prefix}-left-nav-menu-item) {
     border-bottom: 1px solid $ui-03;
+  }
+
+  :host(#{$dds-prefix}-left-nav-menu-item) {
+    .#{$prefix}--side-nav__link {
+      display: flex;
+      align-items: center;
+      padding-left: $carbon--spacing-05;
+      height: auto;
+      min-height: carbon--mini-units(6);
+      width: 100%;
+
+      &:not(:is(a)):hover {
+        background-color: transparent;
+      }
+    }
+
+    &.#{$prefix}--side-nav__group-header {
+      &:not(:first-of-type) {
+        margin-top: $spacing-07;
+      }
+
+      .#{$prefix}--side-nav__link-text {
+        @include carbon--type-style(productive-heading-01);
+
+        color: $text-01;
+        display: inline-flex;
+        align-items: center;
+        gap: $spacing-03;
+
+        svg {
+          color: $icon-01;
+        }
+      }
+    }
   }
 
   .#{$prefix}--masthead__side-nav--submemu--selected {
@@ -466,8 +508,7 @@
   :host(#{$dds-prefix}-left-nav-item-highlighted) a.#{$prefix}--side-nav__link,
   :host(#{$dds-prefix}-left-nav-menu-item-highlighted)
     a.#{$prefix}--side-nav__link,
-  :host(#{$dds-prefix}-left-nav-item) a.#{$prefix}--side-nav__link,
-  :host(#{$dds-prefix}-left-nav-menu-item) a.#{$prefix}--side-nav__link {
+  :host(#{$dds-prefix}-left-nav-item) a.#{$prefix}--side-nav__link {
     display: flex;
     padding-left: $carbon--spacing-05;
     height: auto;
