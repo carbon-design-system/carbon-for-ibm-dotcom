@@ -33,7 +33,7 @@
       width: 100%;
       .#{$prefix}--video-player__video-container {
         /* stylelint-disable-next-line function-name-case */
-        padding-top: min(calc(100vh - #{$spacing-13}), 56.25%);
+        padding-top: Min(calc(100vh - #{$spacing-13}), 56.25%);
       }
     }
 

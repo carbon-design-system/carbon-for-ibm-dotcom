@@ -147,7 +147,9 @@ class DDSLeftNav extends StableSelectorMixin(BXSideNav) {
       target.closest(selectorButtonToggle) === null &&
       target.closest(this.tagName) === null
     ) {
-      this.expanded = false;
+      // TODO: for some reason, after upgrading to Lit v2, the click out counts as a double click,
+      // which opens and closes the menu immediately. Need to figure out a way to circumvent this.
+      // this.expanded = false;
       toggleButton?.focus();
     }
   }
