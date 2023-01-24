@@ -1,7 +1,7 @@
 /**
  * @license
  *
- * Copyright IBM Corp. 2020, 2023
+ * Copyright IBM Corp. 2020, 2022
  *
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
@@ -16,18 +16,18 @@ import {
   TemplateResult,
 } from 'lit-element';
 import settings from 'carbon-components/es/globals/js/settings.js';
-import Filter from '../../internal/vendor/@carbon/web-components/icons/filter/16.js';
-import HostListenerMixin from '../../internal/vendor/@carbon/web-components/globals/mixins/host-listener.js';
+import Filter from '@carbon/web-components/es/icons/filter/16.js';
+import HostListenerMixin from '@carbon/web-components/es/globals/mixins/host-listener.js';
 import { baseFontSize, breakpoints } from '@carbon/layout';
 import './filter-group';
 import './filter-panel';
 import './filter-panel-modal';
 import { unsafeHTML } from 'lit-html/directives/unsafe-html.js';
-import HostListener from '../../internal/vendor/@carbon/web-components/globals/decorators/host-listener.js';
+import HostListener from '@carbon/web-components/es/globals/decorators/host-listener.js';
 import ddsSettings from '../../internal/vendor/@carbon/ibmdotcom-utilities/utilities/settings/settings';
 import StableSelectorMixin from '../../globals/mixins/stable-selector';
 import styles from './filter-panel.scss';
-import '../../internal/vendor/@carbon/web-components/components/checkbox/checkbox.js';
+import '@carbon/web-components/es/components/checkbox/checkbox.js';
 import DDSFilterGroupItem from './filter-group-item';
 import DDSFilterPanelCheckbox from './filter-panel-checkbox';
 import DDSFilterPanelInputSelect from './filter-panel-input-select';
