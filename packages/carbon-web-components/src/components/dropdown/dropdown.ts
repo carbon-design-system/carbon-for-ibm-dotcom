@@ -44,26 +44,7 @@ export {
 
 const { prefix } = settings;
 
-/**
- * Dropdown.
- *
- * @element bx-dropdown
- * @csspart label-text The label text.
- * @csspart helper-text The helper text.
- * @csspart trigger-button The trigger button.
- * @csspart menu-body The menu body.
- * @csspart validity-message The validity message.
- * @fires bx-dropdown-beingselected
- *   The custom event fired before a dropdown item is selected upon a user gesture.
- *   Cancellation of this event stops changing the user-initiated selection.
- * @fires bx-dropdown-beingtoggled
- *   The custom event fired before the open state of this dropdown is toggled upon a user gesture.
- *   Cancellation of this event stops the user-initiated toggling.
- * @fires bx-dropdown-selected - The custom event fired after a dropdown item is selected upon a user gesture.
- * @fires bx-dropdown-toggled - The custom event fired after the open state of this dropdown is toggled upon a user gesture.
- */
-@customElement(`${prefix}-dropdown`)
-class BXDropdown extends ValidityMixin(
+export class BXDropdownBase extends ValidityMixin(
   HostListenerMixin(FormMixin(FocusMixin(LitElement)))
 ) {
   /**
@@ -799,5 +780,26 @@ class BXDropdown extends ValidityMixin(
     return DROPDOWN_KEYBOARD_ACTION.NONE;
   }
 }
+
+/**
+ * Dropdown.
+ *
+ * @element bx-dropdown
+ * @csspart label-text The label text.
+ * @csspart helper-text The helper text.
+ * @csspart trigger-button The trigger button.
+ * @csspart menu-body The menu body.
+ * @csspart validity-message The validity message.
+ * @fires bx-dropdown-beingselected
+ *   The custom event fired before a dropdown item is selected upon a user gesture.
+ *   Cancellation of this event stops changing the user-initiated selection.
+ * @fires bx-dropdown-beingtoggled
+ *   The custom event fired before the open state of this dropdown is toggled upon a user gesture.
+ *   Cancellation of this event stops the user-initiated toggling.
+ * @fires bx-dropdown-selected - The custom event fired after a dropdown item is selected upon a user gesture.
+ * @fires bx-dropdown-toggled - The custom event fired after the open state of this dropdown is toggled upon a user gesture.
+ */
+@customElement(`${prefix}-dropdown`)
+class BXDropdown extends BXDropdownBase {}
 
 export default BXDropdown;
