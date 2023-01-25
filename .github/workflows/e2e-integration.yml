@@ -34,7 +34,7 @@ jobs:
       - name: Run e2e codesandbox tests
         run: yarn test:e2e:build && yarn test:e2e:test:no-percy
         working-directory: packages/web-components
-      - uses: act10ns/slack@v1
+      - uses: act10ns/slack@v2
         if: failure()
         env:
           SLACK_WEBHOOK_URL: ${{ secrets.SLACK_WEBHOOK_URL }}
@@ -60,7 +60,7 @@ jobs:
       - name: Run e2e codesandbox tests
         run: yarn test:e2e:build && yarn test:e2e:test:no-percy
         working-directory: packages/react
-      - uses: act10ns/slack@v1
+      - uses: act10ns/slack@v2
         if: failure()
         env:
           SLACK_WEBHOOK_URL: ${{ secrets.SLACK_WEBHOOK_URL }}

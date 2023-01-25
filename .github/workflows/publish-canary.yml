@@ -42,7 +42,7 @@ jobs:
           repository: carbon-design-system/carbon-for-ibm-dotcom-web-components-test
           token: ${{ secrets.GH_DISPATCH_TOKEN }}
           event-type: deploy-canary
-      - uses: act10ns/slack@v1
+      - uses: act10ns/slack@v2
         with:
           status: ${{ job.status }}
         if: failure()
