@@ -1,7 +1,7 @@
 /**
  * @license
  *
- * Copyright IBM Corp. 2019, 2022
+ * Copyright IBM Corp. 2019, 2023
  *
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
@@ -19,7 +19,7 @@ import {
   NUMBER_INPUT_VALIDATION_STATUS,
 } from './defs';
 import styles from './number-input.scss';
-import BXInput, { INPUT_SIZE } from '../input/input';
+import { BXInputBase, INPUT_SIZE } from '../input/input';
 
 export { NUMBER_INPUT_COLOR_SCHEME, NUMBER_INPUT_VALIDATION_STATUS };
 
@@ -34,7 +34,7 @@ const { prefix } = settings;
  * @slot validity-message - The validity message. If present and non-empty, this input shows the UI of its invalid state.
  */
 @customElement(`${prefix}-number-input`)
-export default class BXNumberInput extends BXInput {
+export default class BXNumberInput extends BXInputBase {
   /**
    * Handles `input` event on the `<input>` in the shadow DOM.
    */
