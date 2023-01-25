@@ -1,7 +1,7 @@
 /**
  * @license
  *
- * Copyright IBM Corp. 2019, 2022
+ * Copyright IBM Corp. 2019, 2023
  *
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
@@ -13,13 +13,7 @@ import styles from './breadcrumb.scss';
 
 const { prefix } = settings;
 
-/**
- * Breadcrumb item.
- *
- * @element bx-breadcrumb-item
- */
-@customElement(`${prefix}-breadcrumb-item`)
-class BXBreadcrumbItem extends LitElement {
+export class BXBreadcrumbItemBase extends LitElement {
   connectedCallback() {
     if (!this.hasAttribute('role')) {
       this.setAttribute('role', 'listitem');
@@ -33,5 +27,13 @@ class BXBreadcrumbItem extends LitElement {
 
   static styles = styles;
 }
+
+/**
+ * Breadcrumb item.
+ *
+ * @element bx-breadcrumb-item
+ */
+@customElement(`${prefix}-breadcrumb-item`)
+class BXBreadcrumbItem extends BXBreadcrumbItemBase {}
 
 export default BXBreadcrumbItem;
