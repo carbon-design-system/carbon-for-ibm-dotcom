@@ -1,7 +1,7 @@
 /**
  * @license
  *
- * Copyright IBM Corp. 2020, 2022
+ * Copyright IBM Corp. 2020, 2023
  *
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
@@ -9,7 +9,7 @@
 
 import { customElement, property, query, state } from 'lit-element';
 import settings from 'carbon-components/es/globals/js/settings.js';
-import BXAccordionItem from '@carbon/web-components/es/components/accordion/accordion-item.js';
+import { BXAccordionItemBase } from '@carbon/web-components/es/components/accordion/accordion-item.js';
 import ddsSettings from '../../internal/vendor/@carbon/ibmdotcom-utilities/utilities/settings/settings';
 import styles from './filter-panel.scss';
 import StableSelectorMixin from '../../globals/mixins/stable-selector';
@@ -29,9 +29,9 @@ const viewAllClassName = `${ddsPrefix}-filter-group-item__view-all`;
  * @element dds-filter-group-item
  */
 @customElement(`${ddsPrefix}-filter-group-item`)
-class DDSFilterGroupItem extends StableSelectorMixin(BXAccordionItem) {
+class DDSFilterGroupItem extends StableSelectorMixin(BXAccordionItemBase) {
   /**
-   * Extends BXAccordionItem component
+   * Extends BXAccordionItemBase component
    */
   static get stableSelector() {
     return `${ddsPrefix}--filter-group-item`;

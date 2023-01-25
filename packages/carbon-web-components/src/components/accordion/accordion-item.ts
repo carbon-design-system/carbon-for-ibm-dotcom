@@ -1,7 +1,7 @@
 /**
  * @license
  *
- * Copyright IBM Corp. 2019, 2022
+ * Copyright IBM Corp. 2019, 2023
  *
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
@@ -39,21 +39,7 @@ const observeResize = (observer: ResizeObserver, elem: Element) => {
   } as Handle;
 };
 
-/**
- * Accordion item.
- *
- * @element bx-accordion-item
- * @fires bx-accordion-item-beingtoggled
- *   The custom event fired before this accordion item is being toggled upon a user gesture.
- *   Cancellation of this event stops the user-initiated action of toggling this accordion item.
- * @fires bx-accordion-item-toggled - The custom event fired after this accordion item is toggled upon a user gesture.
- * @csspart expando The expando button.
- * @csspart expando-icon The expando icon.
- * @csspart title The title.
- * @csspart content The content.
- */
-@customElement(`${prefix}-accordion-item`)
-class BXAccordionItem extends FocusMixin(LitElement) {
+export class BXAccordionItemBase extends FocusMixin(LitElement) {
   /**
    * The current breakpoint.
    */
@@ -247,5 +233,21 @@ class BXAccordionItem extends FocusMixin(LitElement) {
 
   static styles = styles;
 }
+
+/**
+ * Accordion item.
+ *
+ * @element bx-accordion-item
+ * @fires bx-accordion-item-beingtoggled
+ *   The custom event fired before this accordion item is being toggled upon a user gesture.
+ *   Cancellation of this event stops the user-initiated action of toggling this accordion item.
+ * @fires bx-accordion-item-toggled - The custom event fired after this accordion item is toggled upon a user gesture.
+ * @csspart expando The expando button.
+ * @csspart expando-icon The expando icon.
+ * @csspart title The title.
+ * @csspart content The content.
+ */
+@customElement(`${prefix}-accordion-item`)
+class BXAccordionItem extends BXAccordionItemBase {}
 
 export default BXAccordionItem;
