@@ -1,14 +1,15 @@
 /**
  * @license
  *
- * Copyright IBM Corp. 2020, 2022
+ * Copyright IBM Corp. 2020, 2023
  *
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
  */
 
 import { property, customElement } from 'lit-element';
-import BXModal, {
+import {
+  BXModalBase,
   MODAL_SIZE,
 } from '@carbon/web-components/es/components/modal/modal.js';
 import HostListener from '@carbon/web-components/es/globals/decorators/host-listener.js';
@@ -24,7 +25,7 @@ const { stablePrefix: ddsPrefix } = ddsSettings;
  * @element dds-leaving-ibm-modal
  */
 @customElement(`${ddsPrefix}-leaving-ibm-modal`)
-class DDSLeavingIbmModal extends StableSelectorMixin(BXModal) {
+class DDSLeavingIbmModal extends StableSelectorMixin(BXModalBase) {
   /**
    * The unique ID for ID ref.
    */
