@@ -1,7 +1,7 @@
 /**
  * @license
  *
- * Copyright IBM Corp. 2019, 2022
+ * Copyright IBM Corp. 2019, 2023
  *
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
@@ -10,7 +10,7 @@
 import settings from 'carbon-components/es/globals/js/settings';
 import { html, property, customElement } from 'lit-element';
 import { NOTIFICATION_TYPE } from './defs';
-import BXInlineNotification from './inline-notification';
+import { BXInlineNotification } from './inline-notification';
 import styles from './toast-notification.scss';
 
 const { prefix } = settings;
@@ -27,7 +27,7 @@ const { prefix } = settings;
  * @fires bx-notification-closed - The custom event fired after this notification is closed upon a user gesture.
  */
 @customElement(`${prefix}-toast-notification`)
-class BXToastNotification extends BXInlineNotification {
+class BXToastNotification extends BXInlineNotificationBase {
   protected _type = NOTIFICATION_TYPE.TOAST;
 
   protected _renderText() {
