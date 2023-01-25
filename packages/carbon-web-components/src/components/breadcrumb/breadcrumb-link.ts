@@ -9,12 +9,12 @@
 
 import { customElement } from 'lit-element';
 import settings from 'carbon-components/es/globals/js/settings';
-import BXLink from '../link/link';
+import { BXLinkBase } from '../link/link';
 import styles from './breadcrumb.scss';
 
 const { prefix } = settings;
 
-export class BXBreadcrumbLinkBase extends BXLink {
+export class BXBreadcrumbLinkBase extends BXLinkBase {
   static styles = styles;
 }
 
