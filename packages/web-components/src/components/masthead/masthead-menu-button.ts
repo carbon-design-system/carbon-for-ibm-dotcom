@@ -1,7 +1,7 @@
 /**
  * @license
  *
- * Copyright IBM Corp. 2020, 2022
+ * Copyright IBM Corp. 2020, 2023
  *
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
@@ -12,7 +12,7 @@ import { html, state, property, query, customElement } from 'lit-element';
 import HostListener from '@carbon/web-components/es/globals/decorators/host-listener.js';
 import HostListenerMixin from '@carbon/web-components/es/globals/mixins/host-listener.js';
 import settings from 'carbon-components/es/globals/js/settings.js';
-import BXHeaderMenuButton from '@carbon/web-components/es/components/ui-shell/header-menu-button.js';
+import { BXHeaderMenuButtonBase } from '@carbon/web-components/es/components/ui-shell/header-menu-button.js';
 import ddsSettings from '../../internal/vendor/@carbon/ibmdotcom-utilities/utilities/settings/settings';
 import focuswrap from '../../internal/vendor/@carbon/ibmdotcom-utilities/utilities/focuswrap/focuswrap';
 import Handle from '../../globals/internal/handle';
@@ -27,7 +27,7 @@ const { stablePrefix: ddsPrefix } = ddsSettings;
  * @element dds-masthead-menu-button
  */
 @customElement(`${ddsPrefix}-masthead-menu-button`)
-class DDSMastheadMenuButton extends HostListenerMixin(BXHeaderMenuButton) {
+class DDSMastheadMenuButton extends HostListenerMixin(BXHeaderMenuButtonBase) {
   /**
    * The handle for focus wrapping.
    */

@@ -1,14 +1,14 @@
 /**
  * @license
  *
- * Copyright IBM Corp. 2020, 2022
+ * Copyright IBM Corp. 2020, 2023
  *
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
  */
 
 import { property, query, customElement } from 'lit-element';
-import BXHeaderNavItem from '@carbon/web-components/es/components/ui-shell/header-nav-item.js';
+import { BXHeaderNavItemBase } from '@carbon/web-components/es/components/ui-shell/header-nav-item.js';
 import ddsSettings from '../../internal/vendor/@carbon/ibmdotcom-utilities/utilities/settings/settings';
 import styles from './masthead.scss';
 
@@ -20,7 +20,7 @@ const { stablePrefix: ddsPrefix } = ddsSettings;
  * @element dds-top-nav-item
  */
 @customElement(`${ddsPrefix}-top-nav-item`)
-class DDSTopNavItem extends BXHeaderNavItem {
+class DDSTopNavItem extends BXHeaderNavItemBase {
   /**
    * The `<a>`.
    */

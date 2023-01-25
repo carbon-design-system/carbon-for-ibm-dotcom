@@ -1,7 +1,7 @@
 /**
  * @license
  *
- * Copyright IBM Corp. 2019, 2022
+ * Copyright IBM Corp. 2019, 2023
  *
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
@@ -9,7 +9,7 @@
 
 import settings from 'carbon-components/es/globals/js/settings';
 import { customElement } from 'lit-element';
-import BXHeaderNavItem from './header-nav-item';
+import { BXHeaderNavItemBase } from './header-nav-item';
 
 const { prefix } = settings;
 
@@ -19,6 +19,6 @@ const { prefix } = settings;
  * @element bx-header-menu-item
  */
 @customElement(`${prefix}-header-menu-item`)
-class BXHeaderMenuItem extends BXHeaderNavItem {}
+class BXHeaderMenuItem extends BXHeaderNavItemBase {}
 
 export default BXHeaderMenuItem;
