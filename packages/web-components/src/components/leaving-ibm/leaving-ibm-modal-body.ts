@@ -1,14 +1,14 @@
 /**
  * @license
  *
- * Copyright IBM Corp. 2020, 2022
+ * Copyright IBM Corp. 2020, 2023
  *
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
  */
 
 import { customElement, html, property } from 'lit-element';
-import BXModalBody from '@carbon/web-components/es/components/modal/modal-body.js';
+import { BXModalBodyBase } from '@carbon/web-components/es/components/modal/modal-body.js';
 import ifNonNull from '@carbon/web-components/es/globals/directives/if-non-null.js';
 import ddsSettings from '../../internal/vendor/@carbon/ibmdotcom-utilities/utilities/settings/settings';
 import '@carbon/web-components/es/components/link/link.js';
@@ -23,7 +23,7 @@ const { stablePrefix: ddsPrefix } = ddsSettings;
  * @element dds-leaving-ibm-modal-body
  */
 @customElement(`${ddsPrefix}-leaving-ibm-modal-body`)
-class DDSLeavingIbmModalBody extends StableSelectorMixin(BXModalBody) {
+class DDSLeavingIbmModalBody extends StableSelectorMixin(BXModalBodyBase) {
   /**
    * external url triggering the leaving ibm modal.
    */
