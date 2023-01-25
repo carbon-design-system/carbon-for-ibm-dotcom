@@ -1,14 +1,14 @@
 /**
  * @license
  *
- * Copyright IBM Corp. 2020, 2022
+ * Copyright IBM Corp. 2020, 2023
  *
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
  */
 
 import { customElement } from 'lit-element';
-import BXSearch from '@carbon/web-components/es/components/search/search.js';
+import { BXSearchBase } from '@carbon/web-components/es/components/search/search.js';
 import ddsSettings from '../../internal/vendor/@carbon/ibmdotcom-utilities/utilities/settings/settings';
 import styles from './search.scss';
 
@@ -22,7 +22,7 @@ const { stablePrefix: ddsPrefix } = ddsSettings;
  * @element dds-search
  */
 @customElement(`${ddsPrefix}-search`)
-class DDSSearch extends BXSearch {
+class DDSSearch extends BXSearchBase {
   /**
    * The name of the custom event fired after the search content is changed upon a user gesture.
    */
