@@ -50,16 +50,12 @@ package-lock.json
 # auto-generated release notes
 TEMP_RELEASENOTES.md
 
-<<<<<<< HEAD
 # Yarn
+# https://yarnpkg.com/getting-started/qa/#which-files-should-be-gitignored
 .yarn/*
-!.yarn/cache
 !.yarn/patches
 !.yarn/plugins
 !.yarn/releases
 !.yarn/sdks
 !.yarn/versions
-=======
-# auto-getnerated Yarn files
 install-state.gz
->>>>>>> 747c5ad8b5 (chore(git): update ignore file)

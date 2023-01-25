@@ -31,6 +31,7 @@
   },
   "devDependencies": {
     "@babel/cli": "^7.10.0",
+    "npm-which": "^3.0.1",
     "rimraf": "^3.0.0"
   }
 }
