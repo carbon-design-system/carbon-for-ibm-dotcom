@@ -1,7 +1,7 @@
 /**
  * @license
  *
- * Copyright IBM Corp. 2019, 2022
+ * Copyright IBM Corp. 2019, 2023
  *
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
@@ -17,13 +17,7 @@ export { ACCORDION_SIZE };
 
 const { prefix } = settings;
 
-/**
- * Accordion container.
- *
- * @element bx-accordion
- */
-@customElement(`${prefix}-accordion`)
-class BXAccordion extends LitElement {
+class BXAccordionBase extends LitElement {
   /**
    * Accordion size.
    */
@@ -61,5 +55,13 @@ class BXAccordion extends LitElement {
 
   static styles = styles;
 }
+
+/**
+ * Accordion container.
+ *
+ * @element bx-accordion
+ */
+@customElement(`${prefix}-accordion`)
+class BXAccordion extends BXAccordionBase {}
 
 export default BXAccordion;
