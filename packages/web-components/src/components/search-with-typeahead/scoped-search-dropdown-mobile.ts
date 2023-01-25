@@ -1,7 +1,7 @@
 /**
  * @license
  *
- * Copyright IBM Corp. 2020, 2022
+ * Copyright IBM Corp. 2020, 2023
  *
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
@@ -11,7 +11,7 @@ import { ifDefined } from 'lit-html/directives/if-defined.js';
 import settings from 'carbon-components/es/globals/js/settings.js';
 import Filter20 from '@carbon/web-components/es/icons/filter/20.js';
 import { property, customElement, html } from 'lit-element';
-import BXSelect from '@carbon/web-components/es/components/select/select.js';
+import { BXSelectBase } from '@carbon/web-components/es/components/select/select.js';
 import { INPUT_SIZE } from '@carbon/web-components/es/components/input/input.js';
 import { classMap } from 'lit-html/directives/class-map.js';
 import ifNonNull from '@carbon/web-components/es/globals/directives/if-non-null.js';
@@ -30,7 +30,7 @@ const { prefix } = settings;
  * @internal
  */
 @customElement(`${ddsPrefix}-scoped-search-dropdown-mobile`)
-class DDSScopedSearchDropdownMobile extends BXSelect {
+class DDSScopedSearchDropdownMobile extends BXSelectBase {
   /**
    * The `value` for placeholder `<option>`.
    */

@@ -1,14 +1,14 @@
 /**
  * @license
  *
- * Copyright IBM Corp. 2020, 2022
+ * Copyright IBM Corp. 2020, 2023
  *
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
  */
 
 import { property, customElement } from 'lit-element';
-import BXSelect from '@carbon/web-components/es/components/select/select.js';
+import { BXSelectBase } from '@carbon/web-components/es/components/select/select.js';
 import { INPUT_SIZE } from '@carbon/web-components/es/components/input/input.js';
 import ddsSettings from '../../internal/vendor/@carbon/ibmdotcom-utilities/utilities/settings/settings';
 import styles from './footer.scss';
@@ -23,7 +23,7 @@ const { stablePrefix: ddsPrefix } = ddsSettings;
  * @internal
  */
 @customElement(`${ddsPrefix}-language-selector-mobile`)
-class DDSLanguageSelectorMobile extends BXSelect {
+class DDSLanguageSelectorMobile extends BXSelectBase {
   /**
    * Property that specifies the Select to have size xl
    *
