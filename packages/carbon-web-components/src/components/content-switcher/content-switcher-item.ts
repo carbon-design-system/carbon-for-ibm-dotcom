@@ -1,7 +1,7 @@
 /**
  * @license
  *
- * Copyright IBM Corp. 2019, 2022
+ * Copyright IBM Corp. 2019, 2023
  *
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
@@ -16,13 +16,7 @@ import styles from './content-switcher.scss';
 
 const { prefix } = settings;
 
-/**
- * Content switcher button.
- *
- * @element bx-content-switcher-item
- */
-@customElement(`${prefix}-content-switcher-item`)
-class BXContentSwitcherItem extends FocusMixin(LitElement) {
+export class BXContentSwitcherItemBase extends FocusMixin(LitElement) {
   /**
    * `true` if this content switcher item should be disabled.
    */
@@ -102,5 +96,13 @@ class BXContentSwitcherItem extends FocusMixin(LitElement) {
 
   static styles = styles;
 }
+
+/**
+ * Content switcher button.
+ *
+ * @element bx-content-switcher-item
+ */
+@customElement(`${prefix}-content-switcher-item`)
+class BXContentSwitcherItem extends BXContentSwitcherItemBase {}
 
 export default BXContentSwitcherItem;
