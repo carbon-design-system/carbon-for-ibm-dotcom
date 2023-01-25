@@ -8,9 +8,11 @@
 'use strict';
 
 const { execSync } = require('child_process');
-const which = require('npm-which')(__dirname);
+const path = require('path');
 
-const babelPath = which.sync('babel');
+const babelPath = path
+  .resolve(__dirname, '../../../node_modules/.bin/babel')
+  .replace(/ /g, '\\ ');
 
 /**
  * Executes the corresponding comment
