@@ -8,10 +8,14 @@
 'use strict';
 
 const { execSync } = require('child_process');
-const which = require('npm-which')(__dirname);
+const path = require('path');
 
-const babelPath = which.sync('babel');
-const rollupPath = which.sync('rollup');
+const babelPath = path
+  .resolve(__dirname, '../../../node_modules/.bin/babel')
+  .replace(/ /g, '\\ ');
+const rollupPath = path
+  .resolve(__dirname, '../../../node_modules/.bin/rollup')
+  .replace(/ /g, '\\ ');
 
 /**
  * Executes the corresponding comment
