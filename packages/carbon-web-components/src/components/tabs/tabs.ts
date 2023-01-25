@@ -1,7 +1,7 @@
 /**
  * @license
  *
- * Copyright IBM Corp. 2019, 2022
+ * Copyright IBM Corp. 2019, 2023
  *
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
@@ -14,7 +14,8 @@ import settings from 'carbon-components/es/globals/js/settings';
 import HostListenerMixin from '../../globals/mixins/host-listener';
 import HostListener from '../../globals/decorators/host-listener';
 import { find, forEach } from '../../globals/internal/collection-helpers';
-import BXContentSwitcher, {
+import {
+  BXContentSwitcherBase,
   NAVIGATION_DIRECTION,
 } from '../content-switcher/content-switcher';
 import {
@@ -46,7 +47,7 @@ export {
  * @fires bx-tabs-selected - The custom event fired after a a tab is selected upon a user gesture.
  */
 @customElement(`${prefix}-tabs`)
-class BXTabs extends HostListenerMixin(BXContentSwitcher) {
+class BXTabs extends HostListenerMixin(BXContentSwitcherBase) {
   /**
    * The latest status of this dropdown, for screen reader to accounce.
    */

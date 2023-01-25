@@ -1,7 +1,7 @@
 /**
  * @license
  *
- * Copyright IBM Corp. 2019, 2022
+ * Copyright IBM Corp. 2019, 2023
  *
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
@@ -33,17 +33,7 @@ const capIndex = (index: number, length: number) => {
   return index;
 };
 
-/**
- * Content switcher.
- *
- * @element bx-content-switcher
- * @fires bx-content-switcher-beingselected
- *   The custom event fired before a content switcher item is selected upon a user gesture.
- *   Cancellation of this event stops changing the user-initiated selection.
- * @fires bx-content-switcher-selected - The custom event fired after a a content switcher item is selected upon a user gesture.
- */
-@customElement(`${prefix}-content-switcher`)
-class BXContentSwitcher extends LitElement {
+export class BXContentSwitcherBase extends LitElement {
   /**
    * Handles `mouseover`/`mouseout` events on `<slot>`.
    *
@@ -236,5 +226,17 @@ class BXContentSwitcher extends LitElement {
 
   static styles = styles;
 }
+
+/**
+ * Content switcher.
+ *
+ * @element bx-content-switcher
+ * @fires bx-content-switcher-beingselected
+ *   The custom event fired before a content switcher item is selected upon a user gesture.
+ *   Cancellation of this event stops changing the user-initiated selection.
+ * @fires bx-content-switcher-selected - The custom event fired after a a content switcher item is selected upon a user gesture.
+ */
+@customElement(`${prefix}-content-switcher`)
+class BXContentSwitcher extends BXContentSwitcherBase {}
 
 export default BXContentSwitcher;
