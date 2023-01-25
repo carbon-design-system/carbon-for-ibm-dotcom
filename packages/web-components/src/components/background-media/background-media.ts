@@ -1,7 +1,7 @@
 /**
  * @license
  *
- * Copyright IBM Corp. 2021, 2022
+ * Copyright IBM Corp. 2021, 2023
  *
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
@@ -15,7 +15,7 @@ import playIcon from '@carbon/web-components/es/icons/play--filled/32.js';
 import ddsSettings from '../../internal/vendor/@carbon/ibmdotcom-utilities/utilities/settings/settings';
 import styles from './background-media.scss';
 import { GRADIENT_DIRECTION, MOBILE_POSITION } from './defs';
-import DDSImage from '../image/image';
+import { DDSImageBase } from '../image/image';
 import DDSVideoPlayer from '../video-player/video-player';
 import DDSVideoPlayerContainer from '../video-player/video-player-container';
 import DDSLeadSpace from '../leadspace/leadspace';
@@ -30,7 +30,7 @@ const { stablePrefix: ddsPrefix } = ddsSettings;
  */
 
 @customElement(`${ddsPrefix}-background-media`)
-class DDSBackgroundMedia extends DDSImage {
+class DDSBackgroundMedia extends DDSImageBase {
   /**
    * Returns a class-name based on the Gradient Direction type
    */
