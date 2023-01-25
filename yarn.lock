@@ -2193,6 +2193,7 @@ __metadata:
     lodash-es: ^4.17.0
     magic-string: ^0.27.0
     mini-css-extract-plugin: ^0.12.0
+    npm-which: ^3.0.1
     null-loader: ^4.0.0
     object-assign: ^4.1.1
     postcss-loader: ^3.0.0
@@ -2301,6 +2302,7 @@ __metadata:
     jest-circus: 25.5.4
     jsdoc: ^3.6.10
     marked: ^4.0.10
+    npm-which: ^3.0.1
     object-assign: ^4.1.1
     promise: ^8.0.1
     rimraf: ^2.6.3
@@ -2373,6 +2375,7 @@ __metadata:
     js-cookie: ^2.2.1
     jsdoc: ^3.6.10
     marked: ^4.0.10
+    npm-which: ^3.0.1
     object-assign: ^4.1.1
     promise: ^8.0.1
     rimraf: ^2.6.3
@@ -2635,6 +2638,7 @@ __metadata:
     "@babel/cli": ^7.10.0
     "@storybook/addons": ^5.3.0
     "@storybook/components": ^5.3.0
+    npm-which: ^3.0.1
     rimraf: ^3.0.0
   peerDependencies:
     react: 16.14.0
@@ -25403,6 +25407,17 @@ __metadata:
   languageName: node
   linkType: hard
 
+"npm-path@npm:^2.0.2":
+  version: 2.0.4
+  resolution: "npm-path@npm:2.0.4"
+  dependencies:
+    which: ^1.2.10
+  bin:
+    npm-path: bin/npm-path
+  checksum: 3dfe24d9bb69380f1544a5770550d7ad6a32c033a6f97dd707ac15d12aeefa794b7c802674a6935b98fe2f8ecb01964b2c7c41daeaa1ee1db525c46a82692003
+  languageName: node
+  linkType: hard
+
 "npm-pick-manifest@npm:^6.0.0, npm-pick-manifest@npm:^6.1.1":
   version: 6.1.1
   resolution: "npm-pick-manifest@npm:6.1.1"
@@ -25469,6 +25484,19 @@ __metadata:
   dependencies:
     path-key: ^4.0.0
   checksum: dc184eb5ec239d6a2b990b43236845332ef12f4e0beaa9701de724aa797fe40b6bbd0157fb7639d24d3ab13f5d5cf22d223a19c6300846b8126f335f788bee66
+  languageName: node
+  linkType: hard
+
+"npm-which@npm:^3.0.1":
+  version: 3.0.1
+  resolution: "npm-which@npm:3.0.1"
+  dependencies:
+    commander: ^2.9.0
+    npm-path: ^2.0.2
+    which: ^1.2.10
+  bin:
+    npm-which: bin/npm-which.js
+  checksum: fba486416171b0eed12db418fb71878de97aa3623da2f907ca9201dbb193f990690a75d15a80388aa769cfb0fa3e48e363237a2806e19223a423c34d4a3cc05a
   languageName: node
   linkType: hard
 
@@ -35246,7 +35274,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"which@npm:^1.2.1, which@npm:^1.2.12, which@npm:^1.2.14, which@npm:^1.2.9, which@npm:^1.3.1":
+"which@npm:^1.2.1, which@npm:^1.2.10, which@npm:^1.2.12, which@npm:^1.2.14, which@npm:^1.2.9, which@npm:^1.3.1":
   version: 1.3.1
   resolution: "which@npm:1.3.1"
   dependencies:
