@@ -1,7 +1,7 @@
 /**
  * @license
  *
- * Copyright IBM Corp. 2019, 2022
+ * Copyright IBM Corp. 2019, 2023
  *
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
@@ -15,14 +15,7 @@ import styles from './dropdown.scss';
 
 const { prefix } = settings;
 
-/**
- * Dropdown item.
- *
- * @element bx-dropdown-item
- * @csspart selected-icon The selected icon.
- */
-@customElement(`${prefix}-dropdown-item`)
-class BXDropdownItem extends LitElement {
+export class BXDropdownItemBase extends LitElement {
   /**
    * `true` if this dropdown item should be disabled.
    */
@@ -75,5 +68,14 @@ class BXDropdownItem extends LitElement {
 
   static styles = styles;
 }
+
+/**
+ * Dropdown item.
+ *
+ * @element bx-dropdown-item
+ * @csspart selected-icon The selected icon.
+ */
+@customElement(`${prefix}-dropdown-item`)
+class BXDropdownItem extends BXDropdownItemBase {}
 
 export default BXDropdownItem;
