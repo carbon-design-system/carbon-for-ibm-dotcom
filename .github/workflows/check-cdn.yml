@@ -22,7 +22,7 @@ jobs:
           node-version: '14.x'
           cache: 'yarn'
       - name: Install dependencies
-        run: yarn install --offline
+        run: yarn install --immutable --immutable-cache
       - name: Run Cypress tests over the CDN packages
         run: yarn test:cdn-build:test
         working-directory: packages/web-components
