@@ -15,7 +15,7 @@ jobs:
     env:
       SLACK_WEBHOOK_URL: ${{ secrets.SLACK_WEBHOOK_URL }}
     steps:
-      - uses: actions/checkout@v2
+      - uses: actions/checkout@v3
         with:
           ref: release/*
       - name: Use Node.js 14.x
@@ -28,7 +28,7 @@ jobs:
       - name: Run browserstack automate
         working-directory: packages/react
         run: yarn test:e2e-storybook:browserstack:next --username ${{ secrets.BROWSERSTACK_USER }} --key ${{ secrets.BROWSERSTACK_ACCESSKEY }}
-      - uses: act10ns/slack@v1
+      - uses: act10ns/slack@v2
         with:
           status: ${{ job.status }}
         if: failure()
@@ -38,7 +38,7 @@ jobs:
     env:
       SLACK_WEBHOOK_URL: ${{ secrets.SLACK_WEBHOOK_URL }}
     steps:
-      - uses: actions/checkout@v2
+      - uses: actions/checkout@v3
         with:
           ref: release/*
       - name: Use Node.js 14.x
@@ -51,7 +51,7 @@ jobs:
       - name: Run browserstack automate
         working-directory: packages/web-components
         run: yarn test:e2e-storybook:browserstack:next --username ${{ secrets.BROWSERSTACK_USER }} --key ${{ secrets.BROWSERSTACK_ACCESSKEY }}
-      - uses: act10ns/slack@v1
+      - uses: act10ns/slack@v2
         with:
           status: ${{ job.status }}
         if: failure()
