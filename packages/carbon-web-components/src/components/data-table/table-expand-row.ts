@@ -38,7 +38,8 @@ export class BXTableExpandRowBase extends HostListenerMixin(BXTableRowBase) {
   @HostListener('mouseout')
   // @ts-ignore: The decorator refers to this method but TS thinks this method is not referred to
   private _handleMouseOverOut(event: MouseEvent) {
-    const { selectorExpandedRow } = this.constructor as typeof BXTableExpandRow;
+    const { selectorExpandedRow } = this
+      .constructor as typeof BXTableExpandRowBase;
     const { nextElementSibling } = this;
     if (nextElementSibling?.matches(selectorExpandedRow)) {
       (nextElementSibling as BXTableExpandedRow).highlighted =
@@ -64,7 +65,7 @@ export class BXTableExpandRowBase extends HostListenerMixin(BXTableRowBase) {
       this.dispatchEvent(
         new CustomEvent(
           (
-            this.constructor as typeof BXTableExpandRow
+            this.constructor as typeof BXTableExpandRowBase
           ).eventBeforeExpandoToggle,
           init
         )
@@ -73,7 +74,7 @@ export class BXTableExpandRowBase extends HostListenerMixin(BXTableRowBase) {
       this.expanded = expanded;
       this.dispatchEvent(
         new CustomEvent(
-          (this.constructor as typeof BXTableExpandRow).eventExpandoToggle,
+          (this.constructor as typeof BXTableExpandRowBase).eventExpandoToggle,
           init
         )
       );
@@ -103,7 +104,7 @@ export class BXTableExpandRowBase extends HostListenerMixin(BXTableRowBase) {
   updated(changedProperties) {
     if (changedProperties.has('expanded')) {
       const { selectorExpandedRow } = this
-        .constructor as typeof BXTableExpandRow;
+        .constructor as typeof BXTableExpandRowBase;
       const { expanded, nextElementSibling } = this;
       if (nextElementSibling?.matches(selectorExpandedRow)) {
         (nextElementSibling as BXTableExpandedRow).expanded = expanded;
@@ -142,6 +143,6 @@ export class BXTableExpandRowBase extends HostListenerMixin(BXTableRowBase) {
  * @element bx-table-expand-row
  */
 @customElement(`${prefix}-table-expand-row`)
-class BXTableExpandRow extends BXTableExpandedRowBase {}
+class BXTableExpandRow extends BXTableExpandRowBase {}
 
 export default BXTableExpandRow;
