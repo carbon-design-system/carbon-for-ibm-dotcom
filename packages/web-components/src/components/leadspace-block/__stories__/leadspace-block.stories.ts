@@ -9,8 +9,13 @@
 
 import { html } from 'lit';
 import { text } from '@storybook/addon-knobs';
+<<<<<<< HEAD
 import ArrowRight20 from '../../../internal/vendor/@carbon/web-components/icons/arrow--right/20';
 import Download20 from '../../../internal/vendor/@carbon/web-components/icons/download/20';
+=======
+import ArrowRight20 from '@carbon/web-components/es/icons/arrow--right/20.js';
+import Download20 from '@carbon/web-components/es/icons/download/20';
+>>>>>>> 6a632acf00 (chore(lit): upgrading to v2 (#9905))
 
 import '../index';
 import '../../link-list/index';

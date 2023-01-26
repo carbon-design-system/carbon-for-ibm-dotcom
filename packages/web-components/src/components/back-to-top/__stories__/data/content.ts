@@ -5,7 +5,7 @@
  * LICENSE file in the root directory of this source tree.
  */
 
-import { html, render } from 'lit';
+import { html, render } from 'lit/html.js';
 import '../../../leadspace/index';
 import '../../../content-block-simple/index';
 import '../../../content-group-simple/index';

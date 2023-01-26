@@ -7,7 +7,7 @@
  */
 
 import { html } from 'lit';
-import ArrowRight20 from '../../../internal/vendor/@carbon/web-components/icons/arrow--right/20';
+import ArrowRight20 from '../../../../internal/vendor/@carbon/web-components/icons/arrow--right/20';
 import logosGroup from '../../../logo-grid/__stories__/data/logos.js';
 import { TOC_TYPES } from '../../../table-of-contents/defs';
 
