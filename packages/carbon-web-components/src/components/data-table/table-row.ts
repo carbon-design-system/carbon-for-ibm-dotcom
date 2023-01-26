@@ -1,7 +1,7 @@
 /**
  * @license
  *
- * Copyright IBM Corp. 2019, 2022
+ * Copyright IBM Corp. 2019, 2023
  *
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
@@ -15,17 +15,9 @@ import styles from './data-table.scss';
 const { prefix } = settings;
 
 /**
- * Data table row.
- *
- * @element bx-table-row
- * @csspart selection-container The container of the checkbox.
- * @csspart selection The checkbox.
- * @fires bx-table-row-change-selection
- *   The custom event fired before this row is selected/unselected upon a user gesture.
- *   Cancellation of this event stops the user-initiated change in selection.
+ * Data table row base class.
  */
-@customElement(`${prefix}-table-row`)
-class BXTableRow extends FocusMixin(LitElement) {
+export class BXTableRowBase extends FocusMixin(LitElement) {
   /**
    * Handles `click` event on the check box.
    *
@@ -166,5 +158,18 @@ class BXTableRow extends FocusMixin(LitElement) {
 
   static styles = styles;
 }
+
+/**
+ * Data table row.
+ *
+ * @element bx-table-row
+ * @csspart selection-container The container of the checkbox.
+ * @csspart selection The checkbox.
+ * @fires bx-table-row-change-selection
+ *   The custom event fired before this row is selected/unselected upon a user gesture.
+ *   Cancellation of this event stops the user-initiated change in selection.
+ */
+@customElement(`${prefix}-table-row`)
+class BXTableRow extends BXTableRowBase {}
 
 export default BXTableRow;

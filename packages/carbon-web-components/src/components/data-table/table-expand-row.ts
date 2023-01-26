@@ -12,7 +12,7 @@ import ChevronRight16 from '@carbon/icons/lib/chevron--right/16';
 import settings from 'carbon-components/es/globals/js/settings';
 import HostListenerMixin from '../../globals/mixins/host-listener';
 import HostListener from '../../globals/decorators/host-listener';
-import BXTableRow from './table-row';
+import { BXTableRowBase } from './table-row';
 import BXTableExpandedRow from './table-expanded-row';
 import styles from './data-table.scss';
 
@@ -21,7 +21,7 @@ const { prefix } = settings;
 /**
  * The expando row in table row base class.
  */
-export class BXTableExpandRowBase extends HostListenerMixin(BXTableRow) {
+export class BXTableExpandRowBase extends HostListenerMixin(BXTableRowBase) {
   /**
    * Handles `click` event on the expando button.
    */
