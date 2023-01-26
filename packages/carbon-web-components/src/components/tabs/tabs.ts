@@ -38,16 +38,9 @@ export {
 };
 
 /**
- * Tabs.
- *
- * @element bx-tabs
- * @fires bx-tabs-beingselected
- *   The custom event fired before a tab is selected upon a user gesture.
- *   Cancellation of this event stops changing the user-initiated selection.
- * @fires bx-tabs-selected - The custom event fired after a a tab is selected upon a user gesture.
+ * Tabs base class.
  */
-@customElement(`${prefix}-tabs`)
-class BXTabs extends HostListenerMixin(BXContentSwitcherBase) {
+export class BXTabsBase extends HostListenerMixin(BXContentSwitcherBase) {
   /**
    * The latest status of this dropdown, for screen reader to accounce.
    */
@@ -457,5 +450,17 @@ class BXTabs extends HostListenerMixin(BXContentSwitcherBase) {
     return TABS_KEYBOARD_ACTION.NONE;
   }
 }
+
+/**
+ * Tabs.
+ *
+ * @element bx-tabs
+ * @fires bx-tabs-beingselected
+ *   The custom event fired before a tab is selected upon a user gesture.
+ *   Cancellation of this event stops changing the user-initiated selection.
+ * @fires bx-tabs-selected - The custom event fired after a a tab is selected upon a user gesture.
+ */
+@customElement(`${prefix}-tabs`)
+class BXTabs extends BXTabsBase {}
 
 export default BXTabs;
