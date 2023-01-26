@@ -25,7 +25,22 @@ LICENSE file in the root directory of this source tree.
       padding-top: 1rem;
       padding-bottom: 2rem;
     }
+
+    caem-accordion {
+      display: block;
+      padding: 2rem 0;
+    }
+
+    dds-carousel {
+      --dds--carousel--overflow-hint-size: 0;
+      padding: 2rem 0;
+    }
   </style>
+  <!-- CDN artifact -->
+  <script
+    type="module"
+    src="https://1.www.s81c.com/common/carbon/carbon-for-aem/tag/canary/accordion.min.js"
+  ></script>
   <script src="src/index.js"></script>
 </head>
 <body>
@@ -54,6 +69,111 @@ LICENSE file in the root directory of this source tree.
             purus viverra. Hendrerit gravida rutrum quisque non tellus orci ac
             auctor augue.
           </p>
+
+          <dds-carousel>
+            <dds-card href="https://example.com">
+              <dds-card-heading>Lorem ipsum dolor sit amet</dds-card-heading>
+              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean et
+              ultricies est.
+              <dds-card-footer>
+                <svg
+                  slot="icon"
+                  focusable="false"
+                  preserveAspectRatio="xMidYMid meet"
+                  xmlns="http://www.w3.org/2000/svg"
+                  aria-hidden="true"
+                  width="20"
+                  height="20"
+                  viewBox="0 0 20 20"
+                >
+                  <path
+                    d="M11.8 2.8L10.8 3.8 16.2 9.3 1 9.3 1 10.7 16.2 10.7 10.8 16.2 11.8 17.2 19 10z"></path>
+                </svg>
+              </dds-card-footer>
+            </dds-card>
+            <dds-card href="https://example.com">
+              <dds-card-heading>Lorem ipsum dolor sit amet</dds-card-heading>
+              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean et
+              ultricies est. Mauris iaculis eget dolor nec hendrerit.
+              Phasellus at elit sollicitudin, sodales nulla quis, consequat libero.
+              <dds-card-footer>
+                <svg
+                  slot="icon"
+                  focusable="false"
+                  preserveAspectRatio="xMidYMid meet"
+                  xmlns="http://www.w3.org/2000/svg"
+                  aria-hidden="true"
+                  width="20"
+                  height="20"
+                  viewBox="0 0 20 20"
+                >
+                  <path
+                    d="M11.8 2.8L10.8 3.8 16.2 9.3 1 9.3 1 10.7 16.2 10.7 10.8 16.2 11.8 17.2 19 10z"></path>
+                </svg>
+              </dds-card-footer>
+            </dds-card>
+            <dds-card href="https://example.com">
+              <dds-card-heading>Lorem ipsum dolor sit amet</dds-card-heading>
+              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean et
+              ultricies est.
+              <dds-card-footer>
+                <svg
+                  slot="icon"
+                  focusable="false"
+                  preserveAspectRatio="xMidYMid meet"
+                  xmlns="http://www.w3.org/2000/svg"
+                  aria-hidden="true"
+                  width="20"
+                  height="20"
+                  viewBox="0 0 20 20"
+                >
+                  <path
+                    d="M11.8 2.8L10.8 3.8 16.2 9.3 1 9.3 1 10.7 16.2 10.7 10.8 16.2 11.8 17.2 19 10z"></path>
+                </svg>
+              </dds-card-footer>
+            </dds-card>
+            <dds-card href="https://example.com">
+              <dds-card-heading>Lorem ipsum dolor sit amet</dds-card-heading>
+              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean et
+              ultricies est. Mauris iaculis eget dolor nec hendrerit.
+              Phasellus at elit sollicitudin, sodales nulla quis, consequat libero.
+              <dds-card-footer>
+                <svg
+                  slot="icon"
+                  focusable="false"
+                  preserveAspectRatio="xMidYMid meet"
+                  xmlns="http://www.w3.org/2000/svg"
+                  aria-hidden="true"
+                  width="20"
+                  height="20"
+                  viewBox="0 0 20 20"
+                >
+                  <path
+                    d="M11.8 2.8L10.8 3.8 16.2 9.3 1 9.3 1 10.7 16.2 10.7 10.8 16.2 11.8 17.2 19 10z"></path>
+                </svg>
+              </dds-card-footer>
+            </dds-card>
+            <dds-card href="https://example.com">
+              <dds-card-heading>Lorem ipsum dolor sit amet</dds-card-heading>
+              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean et
+              ultricies est.
+              <dds-card-footer>
+                <svg
+                  slot="icon"
+                  focusable="false"
+                  preserveAspectRatio="xMidYMid meet"
+                  xmlns="http://www.w3.org/2000/svg"
+                  aria-hidden="true"
+                  width="20"
+                  height="20"
+                  viewBox="0 0 20 20"
+                >
+                  <path
+                    d="M11.8 2.8L10.8 3.8 16.2 9.3 1 9.3 1 10.7 16.2 10.7 10.8 16.2 11.8 17.2 19 10z"></path>
+                </svg>
+              </dds-card-footer>
+            </dds-card>
+          </dds-carousel>
 
           <a name="2" data-title="Section - 2"></a>
           <h3>Section - 2</h3>
@@ -100,6 +220,44 @@ LICENSE file in the root directory of this source tree.
             purus viverra. Hendrerit gravida rutrum quisque non tellus orci ac
             auctor augue.
           </p>
+
+          <caem-accordion>
+            <caem-accordion-item>
+              <span slot="title">
+                Accordion 1 - <strong>this text is important</strong>
+              </span>
+              <p>
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum luctus accumsan ante et faucibus. Aenean nec dui et sem blandit commodo. Quisque at ex eget lorem pellentesque consectetur. Mauris elementum massa placerat tortor placerat, nec aliquet arcu pulvinar. Maecenas in velit ut lectus condimentumsagittis. Donec in convallis metus. Vivamus eu sapien dapibus, hendrerit urna in, fermentum lacus.
+              </p>
+              <p>
+                Example with rich text: Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum luctus accumsan ante et
+                faucibus. Aenean nec dui et sem blandit commodo. Quisque at ex eget lorem pellentesque consectetur. Mauris elementum
+                massa placerat tortor placerat, nec aliquet arcu pulvinar.
+              </p>
+              <ul>
+                <li>Lorem ipsum dolor sit amet</li>
+                <li>
+                  Vestibulum luctus accumsan
+                  <ul>
+                    <li>Lorem ipsum 2.1</li>
+                    <li>Lorem ipsum 2.2</li>
+                  </ul>
+                </li>
+                <li>Mauris elementum massa</li>
+              </ul>
+              <dds-text-cta cta-type="local" href="#!" icon-placement="right">
+                Call To Action
+              </dds-text-cta>
+            </caem-accordion-item>
+            <caem-accordion-item title-text="Accordion 2">
+              <p>
+                Praesent faucibus nulla eu maximus fermentum. Donec arcu lectus, rutrum id urna sed, pharetra accumsan massa. Fusce sit amet nisl volutpat, consectetur ipsum sit amet, posuere nisi. Sed eget aliquam enim, nec tristique neque. Nunc id arcu nibh. Vestibulum enim dui, imperdiet non lectus sit amet, ullamcorper vulputate dolor. Donec dapibus, tortor vel rhoncus faucibus, ipsum libero cursus quam, euismod venenatis quam libero egestas tellus. Nam eget aliquet magna. Quisque a efficitur est. Aenean faucibus enim et fringilla eleifend. Sed semper tristique laoreet.
+              </p>
+            </caem-accordion-item>
+            <caem-accordion-item title-text="Accordion 3">
+              <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Distinctio rem labore est nemo eius? Beatae eos quisquam ad. Consequatur minus id quasi facilis reiciendis, repellat impedit repellendus atque, veritatis esse suscipit delectus exercitationem libero animi.</p>
+            </caem-accordion-item>
+          </caem-accordion>
 
           <a name="4" data-title="Section - 4"></a>
           <h3>Section - 4</h3>
