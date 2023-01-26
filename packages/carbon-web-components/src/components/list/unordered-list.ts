@@ -1,7 +1,7 @@
 /**
  * @license
  *
- * Copyright IBM Corp. 2019, 2022
+ * Copyright IBM Corp. 2019, 2023
  *
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
@@ -15,10 +15,10 @@ import styles from './list.scss';
 const { prefix } = settings;
 
 /**
- * Ordered list.
+ * Unordered list base class.
  */
 @customElement(`${prefix}-unordered-list`)
-class BXUnorderedList extends LitElement {
+export class BXUnorderedListBase extends LitElement {
   /**
    * `true` if expressive theme enabled.
    */
@@ -61,5 +61,11 @@ class BXUnorderedList extends LitElement {
 
   static styles = styles;
 }
+
+/**
+ * Unordered list.
+ */
+@customElement(`${prefix}-unordered-list`)
+class BXUnorderedList extends BXUnorderedListBase {}
 
 export default BXUnorderedList;
