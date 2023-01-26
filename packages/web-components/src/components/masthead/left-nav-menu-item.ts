@@ -1,7 +1,7 @@
 /**
  * @license
  *
- * Copyright IBM Corp. 2020, 2022
+ * Copyright IBM Corp. 2020, 2023
  *
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
@@ -10,7 +10,7 @@
 import { classMap } from 'lit-html/directives/class-map.js';
 import { html, customElement } from 'lit-element';
 import settings from 'carbon-components/es/globals/js/settings.js';
-import BXSideNavMenuItem from '@carbon/web-components/es/components/ui-shell/side-nav-menu-item.js';
+import { BXSideNavMenuItemBase } from '@carbon/web-components/es/components/ui-shell/side-nav-menu-item.js';
 import ddsSettings from '../../internal/vendor/@carbon/ibmdotcom-utilities/utilities/settings/settings';
 import styles from './masthead.scss';
 
@@ -23,7 +23,7 @@ const { stablePrefix: ddsPrefix } = ddsSettings;
  * @element dds-left-nav-menu-item
  */
 @customElement(`${ddsPrefix}-left-nav-menu-item`)
-class DDSLeftNavMenuItem extends BXSideNavMenuItem {
+class DDSLeftNavMenuItem extends BXSideNavMenuItemBase {
   render() {
     const { active, href, title } = this;
     const classes = classMap({
