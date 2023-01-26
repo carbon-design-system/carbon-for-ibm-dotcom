@@ -17,7 +17,7 @@ export { ACCORDION_SIZE };
 
 const { prefix } = settings;
 
-class BXAccordionBase extends LitElement {
+export class BXAccordionBase extends LitElement {
   /**
    * Accordion size.
    */
