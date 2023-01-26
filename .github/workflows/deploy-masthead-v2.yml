@@ -14,7 +14,7 @@ jobs:
     if: github.repository == 'carbon-design-system/carbon-for-ibm-dotcom'
     runs-on: ubuntu-20.04
     steps:
-      - uses: actions/checkout@v2
+      - uses: actions/checkout@v3
         with:
           token: ${{secrets.MERGE_ACTION}}
       - name: Use Node.js 14.x
@@ -110,7 +110,7 @@ jobs:
     if: github.repository == 'carbon-design-system/carbon-for-ibm-dotcom'
     runs-on: ubuntu-20.04
     steps:
-      - uses: actions/checkout@v2
+      - uses: actions/checkout@v3
         with:
           token: ${{secrets.MERGE_ACTION}}
       - name: Use Node.js 14.x
@@ -225,7 +225,7 @@ jobs:
     if: github.repository == 'carbon-design-system/carbon-for-ibm-dotcom'
     runs-on: ubuntu-20.04
     steps:
-      - uses: actions/checkout@v2
+      - uses: actions/checkout@v3
         with:
           token: ${{secrets.MERGE_ACTION}}
       - name: Use Node.js 14.x
@@ -277,7 +277,7 @@ jobs:
     if: github.repository == 'carbon-design-system/carbon-for-ibm-dotcom'
     runs-on: ubuntu-20.04
     steps:
-      - uses: actions/checkout@v2
+      - uses: actions/checkout@v3
         with:
           token: ${{secrets.MERGE_ACTION}}
       - name: Use Node.js 14.x
