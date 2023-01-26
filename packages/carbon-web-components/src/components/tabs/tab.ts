@@ -16,12 +16,9 @@ import styles from './tabs.scss';
 const { prefix } = settings;
 
 /**
- * Basic tab.
- *
- * @element bx-tab
+ * Basic tab base class.
  */
-@customElement(`${prefix}-tab`)
-class BXTab extends BXContentSwitcherItemBase {
+export class BXTabBase extends BXContentSwitcherItemBase {
   /**
    * `true` if this tab should be highlighted.
    * If `true`, parent `<bx-tabs>` selects/deselects this tab upon keyboard interaction.
@@ -61,5 +58,13 @@ class BXTab extends BXContentSwitcherItemBase {
 
   static styles = styles;
 }
+
+/**
+ * Basic tab.
+ *
+ * @element bx-tab
+ */
+@customElement(`${prefix}-tab`)
+class BXTab extends BXTabBase {}
 
 export default BXTab;
