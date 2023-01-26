@@ -1,7 +1,7 @@
 /**
  * @license
  *
- * Copyright IBM Corp. 2019, 2022
+ * Copyright IBM Corp. 2019, 2023
  *
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
@@ -19,13 +19,9 @@ export { TOOLTIP_ALIGNMENT, TOOLTIP_DIRECTION };
 const { prefix } = settings;
 
 /**
- * Definition tooltip.
- *
- * @element bx-tooltip-definition
- * @slot body - The tooltip body content.
+ * Definition tooltip base class.
  */
-@customElement(`${prefix}-tooltip-definition`)
-class BXTooltipDefinition extends FocusMixin(LitElement) {
+export class BXTooltipDefinitionBase extends FocusMixin(LitElement) {
   /**
    * How the tooltip is aligned to the trigger button.
    */
@@ -74,5 +70,14 @@ class BXTooltipDefinition extends FocusMixin(LitElement) {
 
   static styles = styles;
 }
+
+/**
+ * Definition tooltip.
+ *
+ * @element bx-tooltip-definition
+ * @slot body - The tooltip body content.
+ */
+@customElement(`${prefix}-tooltip-definition`)
+class BXTooltipDefinition extends BXTooltipDefinitionBase {}
 
 export default BXTooltipDefinition;
