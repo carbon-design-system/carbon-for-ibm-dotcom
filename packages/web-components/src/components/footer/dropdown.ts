@@ -77,7 +77,7 @@ class DDSDropdown extends BXDropdownBase {
    * @param direction `-1` to navigate backward, `1` to navigate forward.
    */
   protected _navigate(direction: number) {
-    const constructor = this.constructor as typeof BXDropdown;
+    const constructor = this.constructor as typeof BXDropdownBase;
     const items = this.querySelectorAll(constructor.selectorItem);
     const highlightedItem = this.querySelector(
       constructor.selectorItemHighlighted
