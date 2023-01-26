@@ -37,6 +37,14 @@ class DDSContentGroupCopy extends StableSelectorMixin(DDSMarkdown) {
     });
   }
 
+  firstUpdated() {
+    this.childNodes.forEach((node) => {
+      if (node.nodeType === Node.TEXT_NODE) {
+        this.removeChild(node);
+      }
+    });
+  }
+
   /**
    * The shadow slot this copy content should be in.
    */

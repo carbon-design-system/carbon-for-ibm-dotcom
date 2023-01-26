@@ -46,11 +46,6 @@ class DDSLeadspaceHeading extends StableSelectorMixin(LitElement) {
     return html` <slot></slot> `;
   }
 
-  firstUpdated() {
-    this.content = stripHTML(this.innerHTML);
-    render(html`<h1>${this.content}</h1>`, this);
-  }
-
   static get stableSelector() {
     return `${ddsPrefix}--leadspace-heading`;
   }
