@@ -1,7 +1,7 @@
 /**
  * @license
  *
- * Copyright IBM Corp. 2019, 2022
+ * Copyright IBM Corp. 2019, 2023
  *
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
@@ -18,6 +18,7 @@ import RadioGroupManager, {
   ManagedRadioButtonDelegate,
 } from '../../globals/internal/radio-group-manager';
 import styles from './structured-list.scss';
+import { check } from 'prettier';
 
 const { prefix } = settings;
 
@@ -77,12 +78,9 @@ class StructuredListRowRadioButtonDelegate
 }
 
 /**
- * Structured list row.
- *
- * @element bx-structured-list-row
+ * Structured list row base class.
  */
-@customElement(`${prefix}-structured-list-row`)
-class BXStructuredListRow extends HostListenerMixin(LitElement) {
+export class BXStructuredListRowBase extends HostListenerMixin(LitElement) {
   /**
    * The radio group manager associated with the radio button.
    */
@@ -210,6 +208,7 @@ class BXStructuredListRow extends HostListenerMixin(LitElement) {
     const { selected, selectionName, selectionValue, selectionIconTitle } =
       this;
     if (selectionName) {
+      const checkmarkClass = `${prefix}--structured-list-svg`;
       // "Selected" style with `.bx--structured-list-td` does not work somehow - Need investigation
       return html`
         <slot></slot>
@@ -223,7 +222,7 @@ class BXStructuredListRow extends HostListenerMixin(LitElement) {
         <div
           class="${prefix}--structured-list-td ${prefix}--structured-list-cell">
           ${CheckmarkFilled16({
-            class: `${prefix}--structured-list-svg`,
+            class: checkmarkClass,
             title: selectionIconTitle,
           })}
         </div>
@@ -234,5 +233,12 @@ class BXStructuredListRow extends HostListenerMixin(LitElement) {
 
   static styles = styles;
 }
+
+/**
+ * Structured list row.
+ *
+ * @element bx-structured-list-row
+ */
+class BXStructuredListRow extends BXStructuredListRowBase {}
 
 export default BXStructuredListRow;
