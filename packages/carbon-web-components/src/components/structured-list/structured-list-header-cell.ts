@@ -1,7 +1,7 @@
 /**
  * @license
  *
- * Copyright IBM Corp. 2020, 2022
+ * Copyright IBM Corp. 2020, 2023
  *
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
@@ -14,12 +14,9 @@ import styles from './structured-list.scss';
 const { prefix } = settings;
 
 /**
- * Structured list header cell.
- *
- * @element bx-structured-list-header-cell
+ * Structured list header cell base class.
  */
-@customElement(`${prefix}-structured-list-header-cell`)
-class BXStructuredListHeaderCell extends LitElement {
+export class BXStructuredListHeaderCellBase extends LitElement {
   connectedCallback() {
     if (!this.hasAttribute('role')) {
       this.setAttribute('role', 'columnheader');
@@ -33,5 +30,13 @@ class BXStructuredListHeaderCell extends LitElement {
 
   static styles = styles;
 }
+
+/**
+ * Structured list header cell.
+ *
+ * @element bx-structured-list-header-cell
+ */
+@customElement(`${prefix}-structured-list-header-cell`)
+class BXStructuredListHeaderCell extends BXStructuredListHeaderCellBase {}
 
 export default BXStructuredListHeaderCell;
