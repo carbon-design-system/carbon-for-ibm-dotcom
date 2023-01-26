@@ -1,11 +1,12 @@
 /**
- * Copyright IBM Corp. 2016, 2022
+ * Copyright IBM Corp. 2016, 2023
  *
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
  */
 
 import { html } from 'lit-element';
+import { render } from 'lit-html';
 import '../../../leadspace/index';
 import '../../../content-block-simple/index';
 import '../../../content-group-simple/index';
@@ -14,6 +15,7 @@ import '../../../card-section-simple/index';
 import '../../../cta-section/index';
 import '../../../link-list/index';
 import '../../../cta/index';
+import '../../../button/index';
 
 import ArrowRight20 from '@carbon/web-components/es/icons/arrow--right/20';
 import imgLg1x1 from '../../../../../../storybook-images/assets/960/fpo--1x1--960x960--006.jpg';
@@ -24,7 +26,35 @@ The ability to integrate open systems with traditional or hybrid cloud IT infras
 on driving innovation and a growing number of IT professionals are actively participating in open source
 communities as a way to stay at the forefront of development.`;
 
-const StoryContent = () =>
+// This is just for the purposes of faking a move from one page to another, for
+// the purposes of checking the behavior of the back to top button.
+const FauxNextPage = html`
+  <main>
+    <div class="bx--grid bx--grid--narrow">
+      <div class="bx--row">
+        <div class="bx--col-sm-4 bx--col-md-8 bx--col-lg-12 bx--offset-lg-4">
+          <dds-content-block-simple complementary-style-scheme="with-border">
+            <dds-content-block-heading
+              >Flexibility and control are the key to open source Linux
+              development</dds-content-block-heading
+            >
+            <dds-content-block-copy allowHTML="false" size="sm"
+              >${copy}</dds-content-block-copy
+            >
+            <dds-text-cta
+              slot="footer"
+              cta-type="local"
+              href="https://example.com">
+              Explore supply chain consulting services
+            </dds-text-cta>
+          </dds-content-block-simple>
+        </div>
+      </div>
+    </div>
+  </main>
+`;
+
+export const StoryContent = () =>
   html`
     <dds-leadspace
       size="medium"
@@ -365,6 +395,44 @@ const StoryContent = () =>
           </div>
         </div>
       </div>
+      <div class="bx--grid bx--grid--narrow">
+        <div class="bx--row">
+          <div class="bx--col-sm-4 bx--col-md-8 bx--col-lg-12 bx--offset-lg-4">
+            <dds-content-block-simple>
+              <dds-content-block-heading
+                >Learn more by going to the next
+                page?</dds-content-block-heading
+              >
+              <dds-content-block-copy>
+                <dds-button-expressive
+                  kind="primary"
+                  @click=${() => {
+                    // @ts-ignore
+                    const main: Element = document
+                      .querySelector('dds-dotcom-shell-container')
+                      .querySelector('main');
+                    render(FauxNextPage, main);
+                  }}>
+                  Next page
+                  <svg
+                    slot="icon"
+                    focusable="false"
+                    preserveAspectRatio="xMidYMid meet"
+                    xmlns="http://www.w3.org/2000/svg"
+                    aria-hidden="true"
+                    width="20"
+                    height="20"
+                    viewBox="0 0 20 20">
+                    <path
+                      d="M11.8 2.8L10.8 3.8 16.2 9.3 1 9.3 1 10.7 16.2 10.7 10.8 16.2 11.8 17.2 19 10z"></path>
+                  </svg>
+                </dds-button-expressive>
+              </dds-content-block-copy>
+            </dds-content-block-simple>
+          </div>
+        </div>
+      </div>
     </main>
   `;
+
 export default StoryContent;
