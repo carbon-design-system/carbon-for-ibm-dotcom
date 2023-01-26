@@ -28,7 +28,7 @@ jobs:
       - name: Run browserstack automate
         working-directory: packages/react
         run: yarn test:e2e-storybook:browserstack:canary --username ${{ secrets.BROWSERSTACK_USER }} --key ${{ secrets.BROWSERSTACK_ACCESSKEY }}
-      - uses: act10ns/slack@v1
+      - uses: act10ns/slack@v2
         with:
           status: ${{ job.status }}
         if: failure()
@@ -51,7 +51,7 @@ jobs:
       - name: Run browserstack automate
         working-directory: packages/web-components
         run: yarn test:e2e-storybook:browserstack:canary --username ${{ secrets.BROWSERSTACK_USER }} --key ${{ secrets.BROWSERSTACK_ACCESSKEY }}
-      - uses: act10ns/slack@v1
+      - uses: act10ns/slack@v2
         with:
           status: ${{ job.status }}
         if: failure()
