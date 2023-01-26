@@ -43,7 +43,7 @@ class DDSBackToTop extends HostListenerMixin(StableSelectorMixin(LitElement)) {
   /**
    * The viewport height
    */
-  private _windowHeight!: number;
+  private _viewportHeight!: number;
 
   /**
    * The handler for throttled scrolling
@@ -62,13 +62,25 @@ class DDSBackToTop extends HostListenerMixin(StableSelectorMixin(LitElement)) {
   }
 
   /**
-   * Button visible when one full page length is scrolled if _showBackToTop is true
+   * Manage the visibility of the back to top button taking into consideration
+   * whether it's needed at all for the page, as well as the current scroll
+   * position. We show the button when needed and when the one full page
+   * length is scrolled.
+   */
+  private _manageVisibility() {
+    if (this._isBackToTopNeededForPage()) {
+      this.hidden =
+        this.ownerDocument!.scrollingElement!.scrollTop <= this._viewportHeight;
+    } else {
+      this.hidden = true;
+    }
+  }
+
+  /**
+   * Scroll handler to manage visibility.
    */
   private _handleOnScroll() {
-    if (this._showBackToTop()) {
-      this.hidden =
-        this.ownerDocument!.scrollingElement!.scrollTop <= this._windowHeight;
-    }
+    this._manageVisibility();
   }
 
   /**
@@ -85,22 +97,33 @@ class DDSBackToTop extends HostListenerMixin(StableSelectorMixin(LitElement)) {
     if (create) {
       // TODO: Wait for `.d.ts` update to support `ResizeObserver`
       // @ts-ignore
-      this._observerResizeBody = new ResizeObserver(this._observeResizeBody);
+      this._observerResizeBody = new ResizeObserver(this._handleBodyResize);
       this._observerResizeBody.observe(this.ownerDocument!.body);
     }
   }
 
-  private _observeResizeBody = (entries) => {
+  /**
+   * ResizeObserver callback function.
+   *
+   * We only observe the body element, therefore entries will typically only
+   * have a single item corresponding to changes in the size of the body
+   * element.
+   */
+  private _handleBodyResize = (entries: ResizeObserverEntry[]) => {
     this._bodyHeight = entries[entries.length - 1].target.scrollHeight;
+    // Body height changes may require adjustment to the current visibility
+    // of the back to top button.
+    this._manageVisibility();
   };
 
   /**
-   * Show button only when document height is 3x greater than viewport
+   * The back to top button is only necessary when the document height
+   * is 3x greater than the viewport.
    */
-  private _showBackToTop() {
+  private _isBackToTopNeededForPage() {
     // @ts-ignore
-    this._windowHeight = this.ownerDocument.defaultView?.innerHeight;
-    return this._bodyHeight > this._windowHeight * 3;
+    this._viewportHeight = this.ownerDocument.defaultView?.innerHeight;
+    return this._bodyHeight > this._viewportHeight * 3;
   }
 
   /**

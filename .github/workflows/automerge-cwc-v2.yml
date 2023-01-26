@@ -23,7 +23,7 @@ jobs:
           target_branch: 'feat/cwc-v2'
         env:
           GITHUB_TOKEN: ${{secrets.MERGE_ACTION}}
-      - uses: act10ns/slack@v1
+      - uses: act10ns/slack@v2
         with:
           status: ${{ job.status }}
         if: failure()
