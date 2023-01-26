@@ -1,7 +1,7 @@
 /**
  * @license
  *
- * Copyright IBM Corp. 2019, 2022
+ * Copyright IBM Corp. 2019, 2023
  *
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
@@ -14,12 +14,10 @@ import styles from './structured-list.scss';
 const { prefix } = settings;
 
 /**
- * Structured list header row.
- *
- * @element bx-structured-list-header-row
+ * Structured list header row base class.
  */
 @customElement(`${prefix}-structured-list-header-row`)
-class BXStructuredListHeaderRow extends LitElement {
+export class BXStructuredListHeaderRowBase extends LitElement {
   /**
    * The `name` attribute for the `<input>` for selection.
    * If present, this structured list header row will show its selectable version of the UI.
@@ -48,5 +46,13 @@ class BXStructuredListHeaderRow extends LitElement {
 
   static styles = styles;
 }
+
+/**
+ * Structured list header row.
+ *
+ * @element bx-structured-list-header-row
+ */
+@customElement(`${prefix}-structured-list-header-row`)
+class BXStructuredListHeaderRow extends BXStructuredListHeaderRowBase {}
 
 export default BXStructuredListHeaderRow;
