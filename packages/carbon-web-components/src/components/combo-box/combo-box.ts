@@ -142,7 +142,7 @@ class BXComboBox extends BXDropdownBase {
 
   protected _handleKeypressInner(event: KeyboardEvent) {
     const { key } = event;
-    const action = (this.constructor as typeof BXDropdown).getAction(key);
+    const action = (this.constructor as typeof BXDropdownBase).getAction(key);
     const { TRIGGERING } = DROPDOWN_KEYBOARD_ACTION;
     if (
       this._selectionButtonNode?.contains(event.target as Node) &&
@@ -193,7 +193,7 @@ class BXComboBox extends BXDropdownBase {
     this.value = !itemToSelect ? '' : itemToSelect.value;
     forEach(
       this.querySelectorAll(
-        (this.constructor as typeof BXDropdown).selectorItemSelected
+        (this.constructor as typeof BXDropdownBase).selectorItemSelected
       ),
       (item) => {
         (item as BXComboBoxItem).selected = false;

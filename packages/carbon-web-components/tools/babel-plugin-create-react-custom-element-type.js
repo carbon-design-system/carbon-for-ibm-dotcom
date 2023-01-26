@@ -1,7 +1,7 @@
 /**
  * @license
  *
- * Copyright IBM Corp. 2019, 2022
+ * Copyright IBM Corp. 2019, 2023
  *
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
@@ -39,23 +39,30 @@ function createMetadataVisitor(api) {
    * @returns {boolean} `true` if such decorator is imported from `lit-element`.
    */
   const propertyIsFromLit = (path) => {
-    const { parentPath } = path;
-    return (
-      path.isImportSpecifier() &&
-      path.get('imported').isIdentifier({ name: 'property' }) &&
-      parentPath.isImportDeclaration &&
-      parentPath.get('source').isStringLiteral({ value: 'lit-element' })
-    );
+    if (path?.parentPath) {
+      const { parentPath } = path;
+      return (
+        path.isImportSpecifier() &&
+        path.get('imported').isIdentifier({ name: 'property' }) &&
+        parentPath.isImportDeclaration &&
+        parentPath.get('source').isStringLiteral({ value: 'lit-element' })
+      );
+    }
+
+    return false;
   };
 
   const getParentClassImportSource = (path) => {
-    const { parentPath } = path;
-    if (
-      path.isImportDefaultSpecifier() &&
-      parentPath.isImportDeclaration &&
-      parentPath.get('source').isStringLiteral()
-    ) {
-      return parentPath.get('source').node.value;
+    if (path?.parentPath) {
+      const { parentPath } = path;
+      if (
+        path.isImportDefaultSpecifier() &&
+        parentPath.isImportDeclaration &&
+        parentPath.get('source').isStringLiteral()
+      ) {
+        return parentPath.get('source').node.value;
+      }
+      return undefined;
     }
     return undefined;
   };
@@ -84,7 +91,7 @@ function createMetadataVisitor(api) {
     if (
       !expression.get('callee').isIdentifier() ||
       !propertyIsFromLit(
-        path.scope.getBinding(expression.get('callee.name').node).path
+        path.scope.getBinding(expression.get('callee.name').node)?.path
       )
     ) {
       return undefined;
@@ -110,7 +117,7 @@ function createMetadataVisitor(api) {
       }
     }
 
-    const leadingComments = path.parentPath.get('leadingComments');
+    const leadingComments = path?.parentPath?.get('leadingComments');
     if (leadingComments) {
       metadata.comments = (
         Array.isArray(leadingComments) ? leadingComments : [leadingComments]
@@ -149,7 +156,7 @@ function createMetadataVisitor(api) {
       const superClass = getTarget(path.get('superClass'));
       if (superClass) {
         const parentClassImportSource = getParentClassImportSource(
-          superClass.scope.getBinding(superClass.node.name).path
+          superClass.scope.getBinding(superClass.node.name)?.path
         );
         if (parentClassImportSource) {
           const relativeTarget = relative(
@@ -163,7 +170,9 @@ function createMetadataVisitor(api) {
       }
       const leadingComments = path.get('leadingComments');
       if (leadingComments) {
-        context.classComments = leadingComments.map((item) => item.node);
+        context.classComments = (
+          Array.isArray(leadingComments) ? leadingComments : [leadingComments]
+        ).map((item) => item.node);
       }
       context.className = path.get('id.name').node;
     },
@@ -218,7 +227,7 @@ function createMetadataVisitor(api) {
     },
 
     Decorator(path, context) {
-      const { parent, parentPath } = path;
+      const { parent, parentPath } = path || {};
       const { declaredProps } = context;
       const expression = path.get('expression');
       const customElementName = expression.get('arguments.0');
@@ -240,6 +249,7 @@ function createMetadataVisitor(api) {
       const metadata = getPropertyMetadata(path);
       if (metadata) {
         if (
+          parentPath &&
           !parentPath.isClassProperty() &&
           (!parentPath.isClassMethod() ||
             (parentPath.node.kind !== 'get' && parentPath.node.kind !== 'set'))
@@ -269,7 +279,7 @@ function createMetadataVisitor(api) {
           for (const { local, exported } of specifiers) {
             const { path: bindingPath } = path.scope.getBinding(local.name);
             const { value: bindingSourceValue } =
-              bindingPath.parentPath.node.source;
+              bindingPath?.parentPath?.node.source;
             namedExportsSources[bindingSourceValue] =
               namedExportsSources[bindingSourceValue] || {};
             namedExportsSources[bindingSourceValue][exported.name] =

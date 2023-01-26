@@ -10,7 +10,7 @@
 import settings from 'carbon-components/es/globals/js/settings';
 import { html, property, customElement } from 'lit-element';
 import { NOTIFICATION_TYPE } from './defs';
-import { BXInlineNotification } from './inline-notification';
+import { BXInlineNotificationBase } from './inline-notification';
 import styles from './toast-notification.scss';
 
 const { prefix } = settings;

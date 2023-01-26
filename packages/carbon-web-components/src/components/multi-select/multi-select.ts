@@ -143,7 +143,7 @@ class BXMultiSelect extends BXDropdownBase {
    */
   protected _handleKeypressInner(event: KeyboardEvent) {
     const { key } = event;
-    const action = (this.constructor as typeof BXDropdown).getAction(key);
+    const action = (this.constructor as typeof BXDropdownBase).getAction(key);
     const { TRIGGERING } = DROPDOWN_KEYBOARD_ACTION;
 
     if (
@@ -174,7 +174,7 @@ class BXMultiSelect extends BXDropdownBase {
 
   protected _handleKeypressInnerFlterable(event: KeyboardEvent) {
     const { key } = event;
-    const action = (this.constructor as typeof BXDropdown).getAction(key);
+    const action = (this.constructor as typeof BXDropdownBase).getAction(key);
     if (!this.open) {
       switch (action) {
         case DROPDOWN_KEYBOARD_ACTION.TRIGGERING:
@@ -187,7 +187,7 @@ class BXMultiSelect extends BXDropdownBase {
       switch (key) {
         case 'Enter':
           {
-            const constructor = this.constructor as typeof BXDropdown;
+            const constructor = this.constructor as typeof BXDropdownBase;
             const highlightedItem = this.querySelector(
               constructor.selectorItemHighlighted
             ) as BXMultiSelectItem;
