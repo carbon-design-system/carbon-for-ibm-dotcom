@@ -1,7 +1,7 @@
 /**
  * @license
  *
- * Copyright IBM Corp. 2020, 2022
+ * Copyright IBM Corp. 2020, 2023
  *
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
@@ -9,7 +9,7 @@
 
 import settings from 'carbon-components/es/globals/js/settings';
 import { customElement } from 'lit-element';
-import BXTableExpandRow from './table-expand-row';
+import { BXTableExpandRowBase } from './table-expand-row';
 
 const { prefix } = settings;
 
@@ -19,7 +19,7 @@ const { prefix } = settings;
  * @element bx-table-header-expand-row
  */
 @customElement(`${prefix}-table-header-expand-row`)
-class BXTableHeaderExpandRow extends BXTableExpandRow {
+class BXTableHeaderExpandRow extends BXTableExpandRowBase {
   /**
    * The name of the custom event fired before this row is selected/unselected upon a user gesture.
    * Cancellation of this event stops the user-initiated change in selection.
