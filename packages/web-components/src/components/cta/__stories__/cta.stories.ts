@@ -1,7 +1,7 @@
 /**
  * @license
  *
- * Copyright IBM Corp. 2020, 2022
+ * Copyright IBM Corp. 2020, 2023
  *
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
@@ -17,8 +17,8 @@ import '../feature-cta-footer';
 import '../text-cta';
 import '../cta';
 import '../../button-group/index';
-import { html } from 'lit-element';
-import ifNonNull from '@carbon/web-components/es/globals/directives/if-non-null.js';
+import { html } from 'lit';
+import { ifDefined } from 'lit/directives/if-defined.js';
 import { select, boolean } from '@storybook/addon-knobs';
 import { icons as ctaIcons } from '../../../component-mixins/cta/cta';
 // eslint-disable-next-line sort-imports
@@ -109,31 +109,31 @@ export const Default = (args) => {
           <dds-button-group>
             <dds-cta
               cta-style="button"
-              cta-type="${ifNonNull(ctaType)}"
-              video-name="${ifNonNull(customVideoTitle)}"
-              video-description="${ifNonNull(customVideoDescription)}"
-              download="${ifNonNull(download)}"
-              href="${ifNonNull(href)}">
+              cta-type="${ifDefined(ctaType)}"
+              video-name="${ifDefined(customVideoTitle)}"
+              video-description="${ifDefined(customVideoDescription)}"
+              download="${ifDefined(download)}"
+              href="${ifDefined(href)}">
               ${copy}
             </dds-cta>
             <dds-cta
               cta-style="button"
-              cta-type="${ifNonNull(ctaType)}"
-              href="${ifNonNull(href)}"
+              cta-type="${ifDefined(ctaType)}"
+              href="${ifDefined(href)}"
               >${copy}</dds-cta
             >
           </dds-button-group>
         `
       : html`
           <dds-cta
-            cta-style="${ifNonNull(ctaStyle)}"
-            cta-type="${ifNonNull(ctaType)}"
-            video-name="${ifNonNull(customVideoTitle)}"
-            video-description="${ifNonNull(customVideoDescription)}"
-            download="${ifNonNull(download)}"
+            cta-style="${ifDefined(ctaStyle)}"
+            cta-type="${ifDefined(ctaType)}"
+            video-name="${ifDefined(customVideoTitle)}"
+            video-description="${ifDefined(customVideoDescription)}"
+            download="${ifDefined(download)}"
             ?no-poster=${noPoster}
-            thumbnail="${ifNonNull(thumbnail)}"
-            href="${ifNonNull(href)}">
+            thumbnail="${ifDefined(thumbnail)}"
+            href="${ifDefined(href)}">
             ${ctaStyle !== 'card' ? copy : ''}
             ${ctaStyle === 'card'
               ? html`
@@ -142,11 +142,11 @@ export const Default = (args) => {
                     : ''}
                   ${ctaType !== 'video' ? copy : ''}
                   <dds-card-cta-footer
-                    cta-type="${ifNonNull(ctaType)}"
-                    download="${ifNonNull(footerDownload)}"
-                    video-name="${ifNonNull(customVideoTitle)}"
-                    video-description="${ifNonNull(customVideoDescription)}"
-                    href="${ifNonNull(footerHref)}">
+                    cta-type="${ifDefined(ctaType)}"
+                    download="${ifDefined(footerDownload)}"
+                    video-name="${ifDefined(customVideoTitle)}"
+                    video-description="${ifDefined(customVideoDescription)}"
+                    href="${ifDefined(footerHref)}">
                     ${footerCopy || ctaIcons[ctaType]({ slot: 'icon' })}
                   </dds-card-cta-footer>
                 `
@@ -166,11 +166,11 @@ export const Default = (args) => {
                       `
                     : ''}
                   <dds-feature-cta-footer
-                    cta-type="${ifNonNull(ctaType)}"
-                    download="${ifNonNull(footerDownload)}"
-                    video-name="${ifNonNull(customVideoTitle)}"
-                    video-description="${ifNonNull(customVideoDescription)}"
-                    href="${ifNonNull(footerHref)}">
+                    cta-type="${ifDefined(ctaType)}"
+                    download="${ifDefined(footerDownload)}"
+                    video-name="${ifDefined(customVideoTitle)}"
+                    video-description="${ifDefined(customVideoDescription)}"
+                    href="${ifDefined(footerHref)}">
                     ${footerCopy || ctaIcons[ctaType]({ slot: 'icon' })}
                   </dds-feature-cta-footer>
                 `
@@ -180,11 +180,11 @@ export const Default = (args) => {
                   <dds-card-link-heading>${heading}</dds-card-link-heading>
                   ${copy}
                   <dds-card-cta-footer
-                    cta-type="${ifNonNull(ctaType)}"
-                    download="${ifNonNull(footerDownload)}"
-                    video-name="${ifNonNull(customVideoTitle)}"
-                    video-description="${ifNonNull(customVideoDescription)}"
-                    href="${ifNonNull(footerHref)}">
+                    cta-type="${ifDefined(ctaType)}"
+                    download="${ifDefined(footerDownload)}"
+                    video-name="${ifDefined(customVideoTitle)}"
+                    video-description="${ifDefined(customVideoDescription)}"
+                    href="${ifDefined(footerHref)}">
                     ${footerCopy || ctaIcons[ctaType]({ slot: 'icon' })}
                   </dds-card-cta-footer>
                 `

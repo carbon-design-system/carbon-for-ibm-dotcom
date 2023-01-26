@@ -1,15 +1,15 @@
 /**
  * @license
  *
- * Copyright IBM Corp. 2020, 2022
+ * Copyright IBM Corp. 2020, 2023
  *
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
  */
 
-import { html } from 'lit-element';
+import { html } from 'lit';
 import { boolean } from '@storybook/addon-knobs';
-import ifNonNull from '@carbon/web-components/es/globals/directives/if-non-null.js';
+import { ifDefined } from 'lit/directives/if-defined.js';
 import readme from './README.stories.mdx';
 import imgLg4x3 from '../../../../../storybook-images/assets/720/fpo--4x3--720x540--005.jpg';
 import textNullable from '../../../../.storybook/knob-text-nullable';
@@ -48,7 +48,7 @@ export const Default = (args) => {
   return html`
     <dds-card-section-simple>
       <dds-content-section-heading
-        >${ifNonNull(heading)}</dds-content-section-heading
+        >${ifDefined(heading)}</dds-content-section-heading
       >
       <dds-card-group>
         ${cards}

@@ -1,16 +1,16 @@
 /**
  * @license
  *
- * Copyright IBM Corp. 2020, 2022
+ * Copyright IBM Corp. 2020, 2023
  *
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
  */
 
-import { html } from 'lit-element';
+import { html } from 'lit';
 import { boolean, select, object } from '@storybook/addon-knobs';
 import on from 'carbon-components/es/globals/js/misc/on.js';
-import ifNonNull from '@carbon/web-components/es/globals/directives/if-non-null.js';
+import { ifDefined } from 'lit/directives/if-defined.js';
 import inPercy from '@percy-io/in-percy';
 import textNullable from '../../../../.storybook/knob-text-nullable';
 import DDSLeftNav from '../../masthead/left-nav';
@@ -106,22 +106,22 @@ export const Default = (args) => {
     ${useMock
       ? html`
           <dds-dotcom-shell-composite
-            platform="${ifNonNull(platform)}"
-            platform-url="${ifNonNull(platformData.url)}"
-            language="${ifNonNull(language)}"
-            lang-display="${ifNonNull(langDisplay)}"
-            footer-size="${ifNonNull(footerSize)}"
-            user-status="${ifNonNull(userStatus)}"
-            searchPlaceholder="${ifNonNull(searchPlaceholder)}"
-            selected-menu-item="${ifNonNull(selectedMenuItem)}"
-            .authenticatedProfileItems="${ifNonNull(authenticatedProfileItems)}"
-            .legalLinks="${ifNonNull(legalLinks)}"
-            .localeList="${ifNonNull(localeList)}"
-            .footerLinks="${ifNonNull(footerLinks)}"
+            platform="${ifDefined(platform)}"
+            platform-url="${ifDefined(platformData.url)}"
+            language="${ifDefined(language)}"
+            lang-display="${ifDefined(langDisplay)}"
+            footer-size="${ifDefined(footerSize)}"
+            user-status="${ifDefined(userStatus)}"
+            searchPlaceholder="${ifDefined(searchPlaceholder)}"
+            selected-menu-item="${ifDefined(selectedMenuItem)}"
+            .authenticatedProfileItems="${ifDefined(authenticatedProfileItems)}"
+            .legalLinks="${ifDefined(legalLinks)}"
+            .localeList="${ifDefined(localeList)}"
+            .footerLinks="${ifDefined(footerLinks)}"
             .navLinks="${navLinks}"
             ?has-profile="${hasProfile}"
             ?has-search="${hasSearch}"
-            .unauthenticatedProfileItems="${ifNonNull(
+            .unauthenticatedProfileItems="${ifDefined(
               unauthenticatedProfileItems
             )}"
             ?disable-locale-button="${disableLocaleButton}">
@@ -130,17 +130,17 @@ export const Default = (args) => {
         `
       : html`
           <dds-dotcom-shell-container
-            platform="${ifNonNull(platform)}"
-            platform-url="${ifNonNull(platformData.url)}"
-            language="${ifNonNull(language)}"
-            lang-display="${ifNonNull(langDisplay)}"
-            footer-size="${ifNonNull(footerSize)}"
-            user-status="${ifNonNull(userStatus)}"
-            searchPlaceholder="${ifNonNull(searchPlaceholder)}"
-            selected-menu-item="${ifNonNull(selectedMenuItem)}"
-            .legalLinks="${ifNonNull(legalLinks)}"
-            .localeList="${ifNonNull(localeList)}"
-            .footerLinks="${ifNonNull(footerLinks)}"
+            platform="${ifDefined(platform)}"
+            platform-url="${ifDefined(platformData.url)}"
+            language="${ifDefined(language)}"
+            lang-display="${ifDefined(langDisplay)}"
+            footer-size="${ifDefined(footerSize)}"
+            user-status="${ifDefined(userStatus)}"
+            searchPlaceholder="${ifDefined(searchPlaceholder)}"
+            selected-menu-item="${ifDefined(selectedMenuItem)}"
+            .legalLinks="${ifDefined(legalLinks)}"
+            .localeList="${ifDefined(localeList)}"
+            .footerLinks="${ifDefined(footerLinks)}"
             .navLinks="${navLinks}"
             ?has-profile="${hasProfile}"
             ?has-search="${hasSearch}"
@@ -175,25 +175,25 @@ export const DefaultFooterLanguageOnly = (args) => {
     ${useMock
       ? html`
           <dds-dotcom-shell-composite
-            platform="${ifNonNull(platform)}"
-            platform-url="${ifNonNull(platformData.url)}"
-            language="${ifNonNull(language)}"
-            lang-display="${ifNonNull(langDisplay)}"
+            platform="${ifDefined(platform)}"
+            platform-url="${ifDefined(platformData.url)}"
+            language="${ifDefined(language)}"
+            lang-display="${ifDefined(langDisplay)}"
             language-selector-label="Choose a language"
             clear-selection-label="Clear language selection"
             selected-language="English"
-            searchPlaceholder="${ifNonNull(searchPlaceholder)}"
-            selected-menu-item="${ifNonNull(selectedMenuItem)}"
-            user-status="${ifNonNull(userStatus)}"
-            .authenticatedProfileItems="${ifNonNull(authenticatedProfileItems)}"
+            searchPlaceholder="${ifDefined(searchPlaceholder)}"
+            selected-menu-item="${ifDefined(selectedMenuItem)}"
+            user-status="${ifDefined(userStatus)}"
+            .authenticatedProfileItems="${ifDefined(authenticatedProfileItems)}"
             .langList="${langList}"
-            .legalLinks="${ifNonNull(legalLinks)}"
-            .localeList="${ifNonNull(localeList)}"
-            .footerLinks="${ifNonNull(footerLinks)}"
+            .legalLinks="${ifDefined(legalLinks)}"
+            .localeList="${ifDefined(localeList)}"
+            .footerLinks="${ifDefined(footerLinks)}"
             .navLinks="${navLinks}"
             ?has-profile="${hasProfile}"
             ?has-search="${hasSearch}"
-            .unauthenticatedProfileItems="${ifNonNull(
+            .unauthenticatedProfileItems="${ifDefined(
               unauthenticatedProfileItems
             )}"
             ?disable-locale-button="${disableLocaleButton}">
@@ -202,20 +202,20 @@ export const DefaultFooterLanguageOnly = (args) => {
         `
       : html`
           <dds-dotcom-shell-container
-            platform="${ifNonNull(platform)}"
-            platform-url="${ifNonNull(platformData.url)}"
-            language="${ifNonNull(language)}"
-            lang-display="${ifNonNull(langDisplay)}"
+            platform="${ifDefined(platform)}"
+            platform-url="${ifDefined(platformData.url)}"
+            language="${ifDefined(language)}"
+            lang-display="${ifDefined(langDisplay)}"
             language-selector-label="Choose a language"
             clear-selection-label="Clear language selection"
             selected-language="English"
-            searchPlaceholder="${ifNonNull(searchPlaceholder)}"
-            selected-menu-item="${ifNonNull(selectedMenuItem)}"
-            user-status="${ifNonNull(userStatus)}"
+            searchPlaceholder="${ifDefined(searchPlaceholder)}"
+            selected-menu-item="${ifDefined(selectedMenuItem)}"
+            user-status="${ifDefined(userStatus)}"
             .langList="${langList}"
-            .legalLinks="${ifNonNull(legalLinks)}"
-            .localeList="${ifNonNull(localeList)}"
-            .footerLinks="${ifNonNull(footerLinks)}"
+            .legalLinks="${ifDefined(legalLinks)}"
+            .localeList="${ifDefined(localeList)}"
+            .footerLinks="${ifDefined(footerLinks)}"
             .navLinks="${navLinks}"
             ?has-profile="${hasProfile}"
             ?has-search="${hasSearch}"
@@ -273,21 +273,21 @@ export const searchOpenOnload = (args) => {
       ? html`
           <dds-dotcom-shell-composite
             activate-search="true"
-            platform="${ifNonNull(platform)}"
-            platform-url="${ifNonNull(platformData.url)}"
-            language="${ifNonNull(language)}"
-            lang-display="${ifNonNull(langDisplay)}"
-            user-status="${ifNonNull(userStatus)}"
+            platform="${ifDefined(platform)}"
+            platform-url="${ifDefined(platformData.url)}"
+            language="${ifDefined(language)}"
+            lang-display="${ifDefined(langDisplay)}"
+            user-status="${ifDefined(userStatus)}"
             searchPlaceHolder="${searchPlaceholder}"
             selected-menu-item="${selectedMenuItem}"
-            .authenticatedProfileItems="${ifNonNull(authenticatedProfileItems)}"
-            .legalLinks="${ifNonNull(legalLinks)}"
-            .localeList="${ifNonNull(localeList)}"
-            .footerLinks="${ifNonNull(footerLinks)}"
+            .authenticatedProfileItems="${ifDefined(authenticatedProfileItems)}"
+            .legalLinks="${ifDefined(legalLinks)}"
+            .localeList="${ifDefined(localeList)}"
+            .footerLinks="${ifDefined(footerLinks)}"
             .navLinks="${navLinks}"
             ?has-profile="${hasProfile}"
             ?has-search="${hasSearch}"
-            .unauthenticatedProfileItems="${ifNonNull(
+            .unauthenticatedProfileItems="${ifDefined(
               unauthenticatedProfileItems
             )}"
             ?disable-locale-button="${disableLocaleButton}">
@@ -297,20 +297,20 @@ export const searchOpenOnload = (args) => {
       : html`
           <dds-dotcom-shell-container
             activate-search="true"
-            platform="${ifNonNull(platform)}"
-            platform-url="${ifNonNull(platformData.url)}"
-            language="${ifNonNull(language)}"
-            lang-display="${ifNonNull(langDisplay)}"
+            platform="${ifDefined(platform)}"
+            platform-url="${ifDefined(platformData.url)}"
+            language="${ifDefined(language)}"
+            lang-display="${ifDefined(langDisplay)}"
             language-selector-label="Choose a language"
             clear-selection-label="Clear language selection"
             selected-language="English"
-            user-status="${ifNonNull(userStatus)}"
+            user-status="${ifDefined(userStatus)}"
             searchPlaceHolder="${searchPlaceholder}"
             selected-menu-item="${selectedMenuItem}"
             .langList="${mockLangList}"
-            .legalLinks="${ifNonNull(legalLinks)}"
-            .localeList="${ifNonNull(localeList)}"
-            .footerLinks="${ifNonNull(footerLinks)}"
+            .legalLinks="${ifDefined(legalLinks)}"
+            .localeList="${ifDefined(localeList)}"
+            .footerLinks="${ifDefined(footerLinks)}"
             .navLinks="${navLinks}"
             ?has-profile="${hasProfile}"
             ?has-search="${hasSearch}"
@@ -349,20 +349,20 @@ export const withPlatform = (args) => {
       ? html`
           <dds-dotcom-shell-composite
             platform=${platformData.name}
-            platform-url="${ifNonNull(platformData.url)}"
-            language="${ifNonNull(language)}"
-            lang-display="${ifNonNull(langDisplay)}"
-            user-status="${ifNonNull(userStatus)}"
+            platform-url="${ifDefined(platformData.url)}"
+            language="${ifDefined(language)}"
+            lang-display="${ifDefined(langDisplay)}"
+            user-status="${ifDefined(userStatus)}"
             searchPlaceHolder="${searchPlaceholder}"
             selected-menu-item="${selectedMenuItem}"
-            .authenticatedProfileItems="${ifNonNull(authenticatedProfileItems)}"
-            .legalLinks="${ifNonNull(legalLinks)}"
-            .localeList="${ifNonNull(localeList)}"
-            .footerLinks="${ifNonNull(footerLinks)}"
+            .authenticatedProfileItems="${ifDefined(authenticatedProfileItems)}"
+            .legalLinks="${ifDefined(legalLinks)}"
+            .localeList="${ifDefined(localeList)}"
+            .footerLinks="${ifDefined(footerLinks)}"
             .navLinks="${navLinks}"
             ?has-profile="${hasProfile}"
             ?has-search="${hasSearch}"
-            .unauthenticatedProfileItems="${ifNonNull(
+            .unauthenticatedProfileItems="${ifDefined(
               unauthenticatedProfileItems
             )}"
             ?disable-locale-button="${disableLocaleButton}">
@@ -372,15 +372,15 @@ export const withPlatform = (args) => {
       : html`
           <dds-dotcom-shell-container
             platform=${platformData.name}
-            platform-url="${ifNonNull(platformData.url)}"
-            language="${ifNonNull(language)}"
-            lang-display="${ifNonNull(langDisplay)}"
-            user-status="${ifNonNull(userStatus)}"
+            platform-url="${ifDefined(platformData.url)}"
+            language="${ifDefined(language)}"
+            lang-display="${ifDefined(langDisplay)}"
+            user-status="${ifDefined(userStatus)}"
             searchPlaceHolder="${searchPlaceholder}"
             selected-menu-item="${selectedMenuItem}"
-            .legalLinks="${ifNonNull(legalLinks)}"
-            .localeList="${ifNonNull(localeList)}"
-            .footerLinks="${ifNonNull(footerLinks)}"
+            .legalLinks="${ifDefined(legalLinks)}"
+            .localeList="${ifDefined(localeList)}"
+            .footerLinks="${ifDefined(footerLinks)}"
             .navLinks="${navLinks}"
             ?has-profile="${hasProfile}"
             ?has-search="${hasSearch}"
@@ -451,22 +451,22 @@ export const withShortFooter = (args) => {
     ${useMock
       ? html`
           <dds-dotcom-shell-composite
-            platform="${ifNonNull(platform)}"
-            platform-url="${ifNonNull(platformData.url)}"
-            language="${ifNonNull(language)}"
-            lang-display="${ifNonNull(langDisplay)}"
+            platform="${ifDefined(platform)}"
+            platform-url="${ifDefined(platformData.url)}"
+            language="${ifDefined(language)}"
+            lang-display="${ifDefined(langDisplay)}"
             footer-size="short"
-            user-status="${ifNonNull(userStatus)}"
+            user-status="${ifDefined(userStatus)}"
             searchPlaceHolder="${searchPlaceholder}"
             selected-menu-item="${selectedMenuItem}"
-            .authenticatedProfileItems="${ifNonNull(authenticatedProfileItems)}"
-            .legalLinks="${ifNonNull(legalLinks)}"
-            .localeList="${ifNonNull(localeList)}"
-            .footerLinks="${ifNonNull(footerLinks)}"
+            .authenticatedProfileItems="${ifDefined(authenticatedProfileItems)}"
+            .legalLinks="${ifDefined(legalLinks)}"
+            .localeList="${ifDefined(localeList)}"
+            .footerLinks="${ifDefined(footerLinks)}"
             .navLinks="${navLinks}"
             ?has-profile="${hasProfile}"
             ?has-search="${hasSearch}"
-            .unauthenticatedProfileItems="${ifNonNull(
+            .unauthenticatedProfileItems="${ifDefined(
               unauthenticatedProfileItems
             )}"
             ?disable-locale-button="${disableLocaleButton}">
@@ -475,17 +475,17 @@ export const withShortFooter = (args) => {
         `
       : html`
           <dds-dotcom-shell-container
-            platform="${ifNonNull(platform)}"
-            platform-url="${ifNonNull(platformData.url)}"
-            language="${ifNonNull(language)}"
-            lang-display="${ifNonNull(langDisplay)}"
+            platform="${ifDefined(platform)}"
+            platform-url="${ifDefined(platformData.url)}"
+            language="${ifDefined(language)}"
+            lang-display="${ifDefined(langDisplay)}"
             footer-size="short"
-            user-status="${ifNonNull(userStatus)}"
+            user-status="${ifDefined(userStatus)}"
             searchPlaceHolder="${searchPlaceholder}"
             selected-menu-item="${selectedMenuItem}"
-            .legalLinks="${ifNonNull(legalLinks)}"
-            .localeList="${ifNonNull(localeList)}"
-            .footerLinks="${ifNonNull(footerLinks)}"
+            .legalLinks="${ifDefined(legalLinks)}"
+            .localeList="${ifDefined(localeList)}"
+            .footerLinks="${ifDefined(footerLinks)}"
             .navLinks="${navLinks}"
             ?has-profile="${hasProfile}"
             ?has-search="${hasSearch}"
@@ -526,26 +526,26 @@ export const withShortFooterLanguageOnly = (args) => {
     ${useMock
       ? html`
           <dds-dotcom-shell-composite
-            platform="${ifNonNull(platform)}"
-            platform-url="${ifNonNull(platformData.url)}"
-            language="${ifNonNull(language)}"
-            lang-display="${ifNonNull(langDisplay)}"
+            platform="${ifDefined(platform)}"
+            platform-url="${ifDefined(platformData.url)}"
+            language="${ifDefined(language)}"
+            lang-display="${ifDefined(langDisplay)}"
             footer-size="short"
             language-selector-label="Choose a language"
             clear-selection-label="Clear language selection"
             selected-language="English"
-            user-status="${ifNonNull(userStatus)}"
+            user-status="${ifDefined(userStatus)}"
             searchPlaceHolder="${searchPlaceholder}"
             selected-menu-item="${selectedMenuItem}"
-            .authenticatedProfileItems="${ifNonNull(authenticatedProfileItems)}"
+            .authenticatedProfileItems="${ifDefined(authenticatedProfileItems)}"
             .langList="${langList}"
-            .legalLinks="${ifNonNull(legalLinks)}"
-            .localeList="${ifNonNull(localeList)}"
-            .footerLinks="${ifNonNull(footerLinks)}"
+            .legalLinks="${ifDefined(legalLinks)}"
+            .localeList="${ifDefined(localeList)}"
+            .footerLinks="${ifDefined(footerLinks)}"
             .navLinks="${navLinks}"
             ?has-profile="${hasProfile}"
             ?has-search="${hasSearch}"
-            .unauthenticatedProfileItems="${ifNonNull(
+            .unauthenticatedProfileItems="${ifDefined(
               unauthenticatedProfileItems
             )}"
             ?disable-locale-button="${disableLocaleButton}">
@@ -554,21 +554,21 @@ export const withShortFooterLanguageOnly = (args) => {
         `
       : html`
           <dds-dotcom-shell-container
-            platform="${ifNonNull(platform)}"
-            platform-url="${ifNonNull(platformData.url)}"
-            language="${ifNonNull(language)}"
-            lang-display="${ifNonNull(langDisplay)}"
+            platform="${ifDefined(platform)}"
+            platform-url="${ifDefined(platformData.url)}"
+            language="${ifDefined(language)}"
+            lang-display="${ifDefined(langDisplay)}"
             footer-size="short"
             language-selector-label="Choose a language"
             clear-selection-label="Clear language selection"
             selected-language="English"
-            user-status="${ifNonNull(userStatus)}"
+            user-status="${ifDefined(userStatus)}"
             searchPlaceHolder="${searchPlaceholder}"
             selected-menu-item="${selectedMenuItem}"
             .langList="${langList}"
-            .legalLinks="${ifNonNull(legalLinks)}"
-            .localeList="${ifNonNull(localeList)}"
-            .footerLinks="${ifNonNull(footerLinks)}"
+            .legalLinks="${ifDefined(legalLinks)}"
+            .localeList="${ifDefined(localeList)}"
+            .footerLinks="${ifDefined(footerLinks)}"
             .navLinks="${navLinks}"
             ?has-profile="${hasProfile}"
             ?has-search="${hasSearch}"
@@ -625,22 +625,22 @@ export const withMicroFooter = (args) => {
     ${useMock
       ? html`
           <dds-dotcom-shell-composite
-            platform="${ifNonNull(platform)}"
-            platform-url="${ifNonNull(platformData.url)}"
-            language="${ifNonNull(language)}"
-            lang-display="${ifNonNull(langDisplay)}"
+            platform="${ifDefined(platform)}"
+            platform-url="${ifDefined(platformData.url)}"
+            language="${ifDefined(language)}"
+            lang-display="${ifDefined(langDisplay)}"
             footer-size="micro"
-            user-status="${ifNonNull(userStatus)}"
+            user-status="${ifDefined(userStatus)}"
             searchPlaceHolder="${searchPlaceholder}"
             selected-menu-item="${selectedMenuItem}"
-            .authenticatedProfileItems="${ifNonNull(authenticatedProfileItems)}"
-            .legalLinks="${ifNonNull(legalLinks)}"
-            .localeList="${ifNonNull(localeList)}"
-            .footerLinks="${ifNonNull(footerLinks)}"
+            .authenticatedProfileItems="${ifDefined(authenticatedProfileItems)}"
+            .legalLinks="${ifDefined(legalLinks)}"
+            .localeList="${ifDefined(localeList)}"
+            .footerLinks="${ifDefined(footerLinks)}"
             .navLinks="${navLinks}"
             ?has-profile="${hasProfile}"
             ?has-search="${hasSearch}"
-            .unauthenticatedProfileItems="${ifNonNull(
+            .unauthenticatedProfileItems="${ifDefined(
               unauthenticatedProfileItems
             )}"
             ?disable-locale-button="${disableLocaleButton}">
@@ -649,17 +649,17 @@ export const withMicroFooter = (args) => {
         `
       : html`
           <dds-dotcom-shell-container
-            platform="${ifNonNull(platform)}"
-            platform-url="${ifNonNull(platformData.url)}"
-            language="${ifNonNull(language)}"
-            lang-display="${ifNonNull(langDisplay)}"
+            platform="${ifDefined(platform)}"
+            platform-url="${ifDefined(platformData.url)}"
+            language="${ifDefined(language)}"
+            lang-display="${ifDefined(langDisplay)}"
             footer-size="micro"
-            user-status="${ifNonNull(userStatus)}"
+            user-status="${ifDefined(userStatus)}"
             searchPlaceHolder="${searchPlaceholder}"
             selected-menu-item="${selectedMenuItem}"
-            .legalLinks="${ifNonNull(legalLinks)}"
-            .localeList="${ifNonNull(localeList)}"
-            .footerLinks="${ifNonNull(footerLinks)}"
+            .legalLinks="${ifDefined(legalLinks)}"
+            .localeList="${ifDefined(localeList)}"
+            .footerLinks="${ifDefined(footerLinks)}"
             .navLinks="${navLinks}"
             ?has-profile="${hasProfile}"
             ?has-search="${hasSearch}"
@@ -697,26 +697,26 @@ export const withMicroFooterLanguageOnly = (args) => {
     ${useMock
       ? html`
           <dds-dotcom-shell-composite
-            platform="${ifNonNull(platform)}"
-            platform-url="${ifNonNull(platformData.url)}"
-            language="${ifNonNull(language)}"
-            lang-display="${ifNonNull(langDisplay)}"
+            platform="${ifDefined(platform)}"
+            platform-url="${ifDefined(platformData.url)}"
+            language="${ifDefined(language)}"
+            lang-display="${ifDefined(langDisplay)}"
             footer-size="micro"
             language-selector-label="Choose a language"
             clear-selection-label="Clear language selection"
             selected-language="English"
-            user-status="${ifNonNull(userStatus)}"
+            user-status="${ifDefined(userStatus)}"
             searchPlaceHolder="${searchPlaceholder}"
             selected-menu-item="${selectedMenuItem}"
-            .authenticatedProfileItems="${ifNonNull(authenticatedProfileItems)}"
+            .authenticatedProfileItems="${ifDefined(authenticatedProfileItems)}"
             .langList="${langList}"
-            .legalLinks="${ifNonNull(legalLinks)}"
-            .localeList="${ifNonNull(localeList)}"
-            .footerLinks="${ifNonNull(footerLinks)}"
+            .legalLinks="${ifDefined(legalLinks)}"
+            .localeList="${ifDefined(localeList)}"
+            .footerLinks="${ifDefined(footerLinks)}"
             .navLinks="${navLinks}"
             ?has-profile="${hasProfile}"
             ?has-search="${hasSearch}"
-            .unauthenticatedProfileItems="${ifNonNull(
+            .unauthenticatedProfileItems="${ifDefined(
               unauthenticatedProfileItems
             )}"
             ?disable-locale-button="${disableLocaleButton}">
@@ -725,21 +725,21 @@ export const withMicroFooterLanguageOnly = (args) => {
         `
       : html`
           <dds-dotcom-shell-container
-            platform="${ifNonNull(platform)}"
-            platform-url="${ifNonNull(platformData.url)}"
-            language="${ifNonNull(language)}"
-            lang-display="${ifNonNull(langDisplay)}"
+            platform="${ifDefined(platform)}"
+            platform-url="${ifDefined(platformData.url)}"
+            language="${ifDefined(language)}"
+            lang-display="${ifDefined(langDisplay)}"
             footer-size="micro"
             language-selector-label="Choose a language"
             clear-selection-label="Clear language selection"
             selected-language="English"
             searchPlaceHolder="${searchPlaceholder}"
             selected-menu-item="${selectedMenuItem}"
-            user-status="${ifNonNull(userStatus)}"
+            user-status="${ifDefined(userStatus)}"
             .langList="${langList}"
-            .legalLinks="${ifNonNull(legalLinks)}"
-            .localeList="${ifNonNull(localeList)}"
-            .footerLinks="${ifNonNull(footerLinks)}"
+            .legalLinks="${ifDefined(legalLinks)}"
+            .localeList="${ifDefined(localeList)}"
+            .footerLinks="${ifDefined(footerLinks)}"
             .navLinks="${navLinks}"
             ?has-profile="${hasProfile}"
             ?has-search="${hasSearch}"
@@ -801,20 +801,20 @@ export const withL1 = (args) => {
     ${useMock
       ? html`
           <dds-dotcom-shell-composite
-            language="${ifNonNull(language)}"
-            lang-display="${ifNonNull(langDisplay)}"
-            user-status="${ifNonNull(userStatus)}"
+            language="${ifDefined(language)}"
+            lang-display="${ifDefined(langDisplay)}"
+            user-status="${ifDefined(userStatus)}"
             searchPlaceHolder="${searchPlaceholder}"
             selected-menu-item="${selectedMenuItem}"
-            .authenticatedProfileItems="${ifNonNull(authenticatedProfileItems)}"
-            .legalLinks="${ifNonNull(legalLinks)}"
-            .localeList="${ifNonNull(localeList)}"
-            .footerLinks="${ifNonNull(footerLinks)}"
+            .authenticatedProfileItems="${ifDefined(authenticatedProfileItems)}"
+            .legalLinks="${ifDefined(legalLinks)}"
+            .localeList="${ifDefined(localeList)}"
+            .footerLinks="${ifDefined(footerLinks)}"
             .l1Data="${l1Data}"
             .navLinks="${navLinks}"
             ?has-profile="${hasProfile}"
             ?has-search="${hasSearch}"
-            .unauthenticatedProfileItems="${ifNonNull(
+            .unauthenticatedProfileItems="${ifDefined(
               unauthenticatedProfileItems
             )}"
             ?disable-locale-button="${disableLocaleButton}">
@@ -823,14 +823,14 @@ export const withL1 = (args) => {
         `
       : html`
           <dds-dotcom-shell-container
-            language="${ifNonNull(language)}"
-            lang-display="${ifNonNull(langDisplay)}"
-            user-status="${ifNonNull(userStatus)}"
+            language="${ifDefined(language)}"
+            lang-display="${ifDefined(langDisplay)}"
+            user-status="${ifDefined(userStatus)}"
             searchPlaceHolder="${searchPlaceholder}"
             selected-menu-item="${selectedMenuItem}"
-            .legalLinks="${ifNonNull(legalLinks)}"
-            .localeList="${ifNonNull(localeList)}"
-            .footerLinks="${ifNonNull(footerLinks)}"
+            .legalLinks="${ifDefined(legalLinks)}"
+            .localeList="${ifDefined(localeList)}"
+            .footerLinks="${ifDefined(footerLinks)}"
             .l1Data="${l1Data}"
             .navLinks="${navLinks}"
             ?has-profile="${hasProfile}"
@@ -911,22 +911,22 @@ export const WithHorizontalTOC = (args) => {
     ${useMock
       ? html`
           <dds-dotcom-shell-composite
-            platform="${ifNonNull(platform)}"
-            platform-url="${ifNonNull(platformData.url)}"
-            language="${ifNonNull(language)}"
-            lang-display="${ifNonNull(langDisplay)}"
-            footer-size="${ifNonNull(footerSize)}"
-            user-status="${ifNonNull(userStatus)}"
-            searchPlaceholder="${ifNonNull(searchPlaceholder)}"
-            selected-menu-item="${ifNonNull(selectedMenuItem)}"
-            .authenticatedProfileItems="${ifNonNull(authenticatedProfileItems)}"
-            .legalLinks="${ifNonNull(legalLinks)}"
-            .localeList="${ifNonNull(localeList)}"
-            .footerLinks="${ifNonNull(footerLinks)}"
+            platform="${ifDefined(platform)}"
+            platform-url="${ifDefined(platformData.url)}"
+            language="${ifDefined(language)}"
+            lang-display="${ifDefined(langDisplay)}"
+            footer-size="${ifDefined(footerSize)}"
+            user-status="${ifDefined(userStatus)}"
+            searchPlaceholder="${ifDefined(searchPlaceholder)}"
+            selected-menu-item="${ifDefined(selectedMenuItem)}"
+            .authenticatedProfileItems="${ifDefined(authenticatedProfileItems)}"
+            .legalLinks="${ifDefined(legalLinks)}"
+            .localeList="${ifDefined(localeList)}"
+            .footerLinks="${ifDefined(footerLinks)}"
             .navLinks="${navLinks}"
             ?has-profile="${hasProfile}"
             ?has-search="${hasSearch}"
-            .unauthenticatedProfileItems="${ifNonNull(
+            .unauthenticatedProfileItems="${ifDefined(
               unauthenticatedProfileItems
             )}"
             ?disable-locale-button="${disableLocaleButton}">
@@ -935,17 +935,17 @@ export const WithHorizontalTOC = (args) => {
         `
       : html`
           <dds-dotcom-shell-container
-            platform="${ifNonNull(platform)}"
-            platform-url="${ifNonNull(platformData.url)}"
-            language="${ifNonNull(language)}"
-            lang-display="${ifNonNull(langDisplay)}"
-            footer-size="${ifNonNull(footerSize)}"
-            user-status="${ifNonNull(userStatus)}"
-            searchPlaceholder="${ifNonNull(searchPlaceholder)}"
-            selected-menu-item="${ifNonNull(selectedMenuItem)}"
-            .legalLinks="${ifNonNull(legalLinks)}"
-            .localeList="${ifNonNull(localeList)}"
-            .footerLinks="${ifNonNull(footerLinks)}"
+            platform="${ifDefined(platform)}"
+            platform-url="${ifDefined(platformData.url)}"
+            language="${ifDefined(language)}"
+            lang-display="${ifDefined(langDisplay)}"
+            footer-size="${ifDefined(footerSize)}"
+            user-status="${ifDefined(userStatus)}"
+            searchPlaceholder="${ifDefined(searchPlaceholder)}"
+            selected-menu-item="${ifDefined(selectedMenuItem)}"
+            .legalLinks="${ifDefined(legalLinks)}"
+            .localeList="${ifDefined(localeList)}"
+            .footerLinks="${ifDefined(footerLinks)}"
             .navLinks="${navLinks}"
             ?has-profile="${hasProfile}"
             ?has-search="${hasSearch}"
@@ -988,22 +988,22 @@ export const WithLeadspaceSearch = (args) => {
     ${useMock
       ? html`
           <dds-dotcom-shell-composite
-            platform="${ifNonNull(platform)}"
-            platform-url="${ifNonNull(platformData.url)}"
-            language="${ifNonNull(language)}"
-            lang-display="${ifNonNull(langDisplay)}"
-            footer-size="${ifNonNull(footerSize)}"
-            user-status="${ifNonNull(userStatus)}"
-            searchPlaceholder="${ifNonNull(searchPlaceholder)}"
-            selected-menu-item="${ifNonNull(selectedMenuItem)}"
-            .authenticatedProfileItems="${ifNonNull(authenticatedProfileItems)}"
-            .legalLinks="${ifNonNull(legalLinks)}"
-            .localeList="${ifNonNull(localeList)}"
-            .footerLinks="${ifNonNull(footerLinks)}"
+            platform="${ifDefined(platform)}"
+            platform-url="${ifDefined(platformData.url)}"
+            language="${ifDefined(language)}"
+            lang-display="${ifDefined(langDisplay)}"
+            footer-size="${ifDefined(footerSize)}"
+            user-status="${ifDefined(userStatus)}"
+            searchPlaceholder="${ifDefined(searchPlaceholder)}"
+            selected-menu-item="${ifDefined(selectedMenuItem)}"
+            .authenticatedProfileItems="${ifDefined(authenticatedProfileItems)}"
+            .legalLinks="${ifDefined(legalLinks)}"
+            .localeList="${ifDefined(localeList)}"
+            .footerLinks="${ifDefined(footerLinks)}"
             .navLinks="${navLinks}"
             ?has-profile="${hasProfile}"
             ?has-search="${hasSearch}"
-            .unauthenticatedProfileItems="${ifNonNull(
+            .unauthenticatedProfileItems="${ifDefined(
               unauthenticatedProfileItems
             )}"
             ?disable-locale-button="${disableLocaleButton}">
@@ -1012,17 +1012,17 @@ export const WithLeadspaceSearch = (args) => {
         `
       : html`
           <dds-dotcom-shell-container
-            platform="${ifNonNull(platform)}"
-            platform-url="${ifNonNull(platformData.url)}"
-            language="${ifNonNull(language)}"
-            lang-display="${ifNonNull(langDisplay)}"
-            footer-size="${ifNonNull(footerSize)}"
-            user-status="${ifNonNull(userStatus)}"
-            searchPlaceholder="${ifNonNull(searchPlaceholder)}"
-            selected-menu-item="${ifNonNull(selectedMenuItem)}"
-            .legalLinks="${ifNonNull(legalLinks)}"
-            .localeList="${ifNonNull(localeList)}"
-            .footerLinks="${ifNonNull(footerLinks)}"
+            platform="${ifDefined(platform)}"
+            platform-url="${ifDefined(platformData.url)}"
+            language="${ifDefined(language)}"
+            lang-display="${ifDefined(langDisplay)}"
+            footer-size="${ifDefined(footerSize)}"
+            user-status="${ifDefined(userStatus)}"
+            searchPlaceholder="${ifDefined(searchPlaceholder)}"
+            selected-menu-item="${ifDefined(selectedMenuItem)}"
+            .legalLinks="${ifDefined(legalLinks)}"
+            .localeList="${ifDefined(localeList)}"
+            .footerLinks="${ifDefined(footerLinks)}"
             .navLinks="${navLinks}"
             ?has-profile="${hasProfile}"
             ?has-search="${hasSearch}"
@@ -1098,22 +1098,22 @@ export const WithUniversalBanner = (args) => {
     ${useMock
       ? html`
           <dds-dotcom-shell-composite
-            platform="${ifNonNull(platform)}"
-            platform-url="${ifNonNull(platformData.url)}"
-            language="${ifNonNull(language)}"
-            lang-display="${ifNonNull(langDisplay)}"
-            footer-size="${ifNonNull(footerSize)}"
-            user-status="${ifNonNull(userStatus)}"
-            searchPlaceholder="${ifNonNull(searchPlaceholder)}"
-            selected-menu-item="${ifNonNull(selectedMenuItem)}"
-            .authenticatedProfileItems="${ifNonNull(authenticatedProfileItems)}"
-            .legalLinks="${ifNonNull(legalLinks)}"
-            .localeList="${ifNonNull(localeList)}"
-            .footerLinks="${ifNonNull(footerLinks)}"
+            platform="${ifDefined(platform)}"
+            platform-url="${ifDefined(platformData.url)}"
+            language="${ifDefined(language)}"
+            lang-display="${ifDefined(langDisplay)}"
+            footer-size="${ifDefined(footerSize)}"
+            user-status="${ifDefined(userStatus)}"
+            searchPlaceholder="${ifDefined(searchPlaceholder)}"
+            selected-menu-item="${ifDefined(selectedMenuItem)}"
+            .authenticatedProfileItems="${ifDefined(authenticatedProfileItems)}"
+            .legalLinks="${ifDefined(legalLinks)}"
+            .localeList="${ifDefined(localeList)}"
+            .footerLinks="${ifDefined(footerLinks)}"
             .navLinks="${navLinks}"
             ?has-profile="${hasProfile}"
             ?has-search="${hasSearch}"
-            .unauthenticatedProfileItems="${ifNonNull(
+            .unauthenticatedProfileItems="${ifDefined(
               unauthenticatedProfileItems
             )}"
             ?disable-locale-button="${disableLocaleButton}">
@@ -1122,17 +1122,17 @@ export const WithUniversalBanner = (args) => {
         `
       : html`
           <dds-dotcom-shell-container
-            platform="${ifNonNull(platform)}"
-            platform-url="${ifNonNull(platformData.url)}"
-            language="${ifNonNull(language)}"
-            lang-display="${ifNonNull(langDisplay)}"
-            footer-size="${ifNonNull(footerSize)}"
-            user-status="${ifNonNull(userStatus)}"
-            searchPlaceholder="${ifNonNull(searchPlaceholder)}"
-            selected-menu-item="${ifNonNull(selectedMenuItem)}"
-            .legalLinks="${ifNonNull(legalLinks)}"
-            .localeList="${ifNonNull(localeList)}"
-            .footerLinks="${ifNonNull(footerLinks)}"
+            platform="${ifDefined(platform)}"
+            platform-url="${ifDefined(platformData.url)}"
+            language="${ifDefined(language)}"
+            lang-display="${ifDefined(langDisplay)}"
+            footer-size="${ifDefined(footerSize)}"
+            user-status="${ifDefined(userStatus)}"
+            searchPlaceholder="${ifDefined(searchPlaceholder)}"
+            selected-menu-item="${ifDefined(selectedMenuItem)}"
+            .legalLinks="${ifDefined(legalLinks)}"
+            .localeList="${ifDefined(localeList)}"
+            .footerLinks="${ifDefined(footerLinks)}"
             .navLinks="${navLinks}"
             ?has-profile="${hasProfile}"
             ?has-search="${hasSearch}"

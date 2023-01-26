@@ -1,15 +1,15 @@
 /**
  * @license
  *
- * Copyright IBM Corp. 2020, 2022
+ * Copyright IBM Corp. 2020, 2023
  *
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
  */
 
-import { Part } from 'lit-html';
-import { classMap } from 'lit-html/directives/class-map.js';
-import { html, css, customElement } from 'lit-element';
+import { classMap } from 'lit/directives/class-map.js';
+import { css, html } from 'lit';
+import { customElement } from 'lit/decorators.js';
 import settings from 'carbon-components/es/globals/js/settings.js';
 import ddsSettings from '../../internal/vendor/@carbon/ibmdotcom-utilities/utilities/settings/settings';
 import DDSContentBlock, {
@@ -27,7 +27,7 @@ const { stablePrefix: ddsPrefix } = ddsSettings;
  */
 @customElement(`${ddsPrefix}-content-block-segmented`)
 class DDSContentBlockSegmented extends DDSContentBlock {
-  protected _getContainerClasses(): string | ((part: Part) => void) {
+  protected _getContainerClasses() {
     const {
       complementaryStyleScheme,
       _hasComplementary: hasComplementary,

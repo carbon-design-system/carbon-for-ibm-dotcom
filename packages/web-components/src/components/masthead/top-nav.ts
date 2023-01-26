@@ -1,19 +1,20 @@
 /**
  * @license
  *
- * Copyright IBM Corp. 2020, 2022
+ * Copyright IBM Corp. 2020, 2023
  *
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
  */
 
-import { classMap } from 'lit-html/directives/class-map.js';
-import { html, property, state, query, customElement } from 'lit-element';
+import { classMap } from 'lit/directives/class-map.js';
+import { html } from 'lit';
+import { customElement, property, query, state } from 'lit/decorators.js';
 import settings from 'carbon-components/es/globals/js/settings.js';
 import CaretLeft20 from '@carbon/web-components/es/icons/caret--left/20.js';
 import CaretRight20 from '@carbon/web-components/es/icons/caret--right/20.js';
 import BXHeaderNav from '@carbon/web-components/es/components/ui-shell/header-nav.js';
-import ifNonNull from '@carbon/web-components/es/globals/directives/if-non-null.js';
+import { ifDefined } from 'lit/directives/if-defined.js';
 import HostListener from '@carbon/web-components/es/globals/decorators/host-listener.js';
 import HostListenerMixin from '@carbon/web-components/es/globals/mixins/host-listener.js';
 import ddsSettings from '../../internal/vendor/@carbon/ibmdotcom-utilities/utilities/settings/settings';
@@ -551,7 +552,7 @@ class DDSTopNav extends StableSelectorMixin(HostListenerMixin(BXHeaderNav)) {
                       <div
                         part="menubar"
                         class="${prefix}--header__menu-bar"
-                        aria-label="${ifNonNull(this.menuBarLabel)}">
+                        aria-label="${ifDefined(this.menuBarLabel)}">
                         <slot
                           @slotchange=${handleSlotChange}
                           @keydown="${handleOnKeyDown}"></slot>
@@ -591,7 +592,7 @@ class DDSTopNav extends StableSelectorMixin(HostListenerMixin(BXHeaderNav)) {
                       <div
                         part="menubar"
                         class="${prefix}--header__menu-bar"
-                        aria-label="${ifNonNull(this.menuBarLabel)}">
+                        aria-label="${ifDefined(this.menuBarLabel)}">
                         <slot
                           @slotchange=${handleSlotChange}
                           @keydown="${handleOnKeyDown}"></slot>

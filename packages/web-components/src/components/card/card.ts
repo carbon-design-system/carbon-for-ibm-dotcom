@@ -1,20 +1,14 @@
 /**
  * @license
  *
- * Copyright IBM Corp. 2019, 2022
+ * Copyright IBM Corp. 2019, 2023
  *
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
  */
 
-import {
-  html,
-  property,
-  state,
-  customElement,
-  TemplateResult,
-  query,
-} from 'lit-element';
+import { TemplateResult, html, LitElement } from 'lit';
+import { customElement, property, query, state } from 'lit/decorators.js';
 import settings from 'carbon-components/es/globals/js/settings.js';
 import BXLink from '@carbon/web-components/es/components/link/link.js';
 import markdownToHtml from '@carbon/ibmdotcom-utilities/es/utilities/markdownToHtml/markdownToHtml.js';
@@ -203,13 +197,6 @@ class DDSCard extends StableSelectorMixin(BXLink) {
   @property({ type: Boolean, reflect: true })
   logo = false;
 
-  createRenderRoot() {
-    return this.attachShadow({
-      mode: 'open',
-      delegatesFocus: false,
-    });
-  }
-
   @query('div')
   protected _linkNode?: HTMLDivElement | HTMLParagraphElement;
 
@@ -282,6 +269,10 @@ class DDSCard extends StableSelectorMixin(BXLink) {
     return `${ddsPrefix}-card-footer`;
   }
 
+  static shadowRootOptions = {
+    ...LitElement.shadowRootOptions,
+    delegatesFocus: true,
+  };
   static styles = styles;
 }
 

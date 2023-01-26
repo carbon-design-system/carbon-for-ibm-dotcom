@@ -5,8 +5,7 @@
  * LICENSE file in the root directory of this source tree.
  */
 
-import { html } from 'lit-element';
-import { render } from 'lit-html';
+import { html, render } from 'lit';
 import '../../../leadspace/index';
 import '../../../content-block-simple/index';
 import '../../../content-group-simple/index';
@@ -17,7 +16,7 @@ import '../../../link-list/index';
 import '../../../cta/index';
 import '../../../button/index';
 
-import ArrowRight20 from '@carbon/web-components/es/icons/arrow--right/20';
+import ArrowRight20 from '@carbon/web-components/es/icons/arrow--right/20.js';
 import imgLg1x1 from '../../../../../../storybook-images/assets/960/fpo--1x1--960x960--006.jpg';
 import leadspaceImg from '../../../../../../storybook-images/assets/leadspace/leadspaceMax2.jpg';
 
@@ -411,7 +410,7 @@ export const StoryContent = () =>
                     const main: Element = document
                       .querySelector('dds-dotcom-shell-container')
                       .querySelector('main');
-                    render(FauxNextPage, main);
+                    render(FauxNextPage, main as HTMLElement);
                   }}>
                   Next page
                   <svg

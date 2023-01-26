@@ -33,7 +33,6 @@
   <dds-button-group
     data-autoid="dds--button-group"
     role="list"
-    style="--dds--button-group--item-count:2;"
   >
     <dds-button-group-item
       data-autoid="dds--button-group-item"
@@ -47,7 +46,7 @@
     <dds-button-group-item
       data-autoid="dds--button-group-item"
       icon-layout=""
-      kind="tertiary"
+      kind="primary"
       role="listitem"
       size=""
     >
@@ -74,7 +73,6 @@
   <dds-card-group
     data-autoid="dds--card-group"
     grid-mode="collapsed"
-    style="--dds--card-group--cards-in-row:3;"
   >
     <dds-card-group-item
       color-scheme=""
@@ -128,7 +126,6 @@
   <dds-button-group
     data-autoid="dds--button-group"
     role="list"
-    style="--dds--button-group--item-count:2;"
   >
     <dds-button-group-item
       data-autoid="dds--button-group-item"
@@ -142,7 +139,7 @@
     <dds-button-group-item
       data-autoid="dds--button-group-item"
       icon-layout=""
-      kind="tertiary"
+      kind="primary"
       role="listitem"
       size=""
     >

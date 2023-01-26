@@ -1,15 +1,15 @@
 /**
  * @license
  *
- * Copyright IBM Corp. 2020, 2022
+ * Copyright IBM Corp. 2020, 2023
  *
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
  */
 
-import { html } from 'lit-element';
-import ArrowRight20 from '@carbon/web-components/es/icons/arrow--right/20';
-import ifNonNull from '@carbon/web-components/es/globals/directives/if-non-null.js';
+import { html } from 'lit';
+import ArrowRight20 from '@carbon/web-components/es/icons/arrow--right/20.js';
+import { ifDefined } from 'lit/directives/if-defined.js';
 import { select } from '@storybook/addon-knobs';
 import readme from './README.stories.mdx';
 import '../index';
@@ -63,8 +63,8 @@ export const Default = (args) => {
       <dds-background-media
         gradient-direction="left-to-right"
         mobile-position="top"
-        alt="${ifNonNull(alt)}"
-        default-src="${ifNonNull(defaultSrc)}">
+        alt="${ifDefined(alt)}"
+        default-src="${ifDefined(defaultSrc)}">
       </dds-background-media>
       <dds-content-block-heading slot="heading"
         >${heading}</dds-content-block-heading
@@ -72,9 +72,9 @@ export const Default = (args) => {
       <dds-text-cta
         slot="action"
         icon-placement="right"
-        cta-type="${ifNonNull(ctaType)}"
-        download="${ifNonNull(download)}"
-        href="${ifNonNull(href)}">
+        cta-type="${ifDefined(ctaType)}"
+        download="${ifDefined(download)}"
+        href="${ifDefined(href)}">
         ${ctaCopy}
       </dds-text-cta>
       <dds-card-group slot="card-group" cards-per-row="2">

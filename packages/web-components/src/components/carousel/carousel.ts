@@ -1,24 +1,17 @@
 /**
  * @license
  *
- * Copyright IBM Corp. 2020, 2022
+ * Copyright IBM Corp. 2020, 2023
  *
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
  */
 
-import { ifDefined } from 'lit-html/directives/if-defined.js';
-import {
-  html,
-  property,
-  state,
-  query,
-  customElement,
-  LitElement,
-} from 'lit-element';
+import { ifDefined } from 'lit/directives/if-defined.js';
+import { LitElement, html } from 'lit';
+import { customElement, property, query, state } from 'lit/decorators.js';
 import 'wicg-inert';
 import settings from 'carbon-components/es/globals/js/settings.js';
-import ifNonNull from '@carbon/web-components/es/globals/directives/if-non-null.js';
 import CaretLeft20 from '@carbon/web-components/es/icons/caret--left/20.js';
 import CaretRight20 from '@carbon/web-components/es/icons/caret--right/20.js';
 import HostListener from '@carbon/web-components/es/globals/decorators/host-listener.js';
@@ -349,8 +342,6 @@ class DDSCarousel extends HostListenerMixin(StableSelectorMixin(LitElement)) {
             )
           );
         });
-      this._observeResizeRoot();
-      this.markHiddenAsInert();
     }
   }
 
@@ -532,19 +523,6 @@ class DDSCarousel extends HostListenerMixin(StableSelectorMixin(LitElement)) {
     }
   }
 
-  markHiddenAsInert() {
-    const { _childItems: childItems, start, pageSize } = this;
-
-    childItems.forEach((item) => {
-      const index = childItems.indexOf(item);
-      if (index < start || index > start + pageSize - 1) {
-        item.inert = true;
-      } else {
-        item.inert = false;
-      }
-    });
-  }
-
   disconnectedCallback() {
     this._cleanAndCreateObserverResize();
     super.disconnectedCallback();
@@ -556,7 +534,16 @@ class DDSCarousel extends HostListenerMixin(StableSelectorMixin(LitElement)) {
 
   protected updated(changedProperties) {
     if (changedProperties.has('start')) {
-      this.markHiddenAsInert();
+      const { _childItems: childItems, start, pageSize } = this;
+
+      childItems.forEach((item) => {
+        const index = childItems.indexOf(item);
+        if (index < start || index > start + pageSize - 1) {
+          item.inert = true;
+        } else {
+          item.inert = false;
+        }
+      });
     }
   }
 
@@ -588,7 +575,7 @@ class DDSCarousel extends HostListenerMixin(StableSelectorMixin(LitElement)) {
         @scroll="${handleScrollFocus}"
         @touchstart="${handleTouchStartEvent}"
         @touchend="${handleTouchEndEvent}"
-        style="${ifNonNull(
+        style="${ifDefined(
           pageSizeExplicit == null
             ? null
             : `${customPropertyPageSize}: ${pageSizeExplicit}`

@@ -1,21 +1,21 @@
 /**
  * @license
  *
- * Copyright IBM Corp. 2020, 2022
+ * Copyright IBM Corp. 2020, 2023
  *
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
  */
 
-import { html } from 'lit-element';
-import ArrowRight20 from '@carbon/web-components/es/icons/arrow--right/20';
-import ifNonNull from '@carbon/web-components/es/globals/directives/if-non-null.js';
+import { html } from 'lit';
+import ArrowRight20 from '@carbon/web-components/es/icons/arrow--right/20.js';
+import { ifDefined } from 'lit/directives/if-defined.js';
 import { optionsKnob } from '@storybook/addon-knobs';
+import '../index';
 import '../../card-group/index';
 import '../../carousel/index';
 import '../../content-group-cards/index';
 import '../../content-block-simple/index';
-import '../index';
 import '../../cta/text-cta';
 import readme from './README.stories.mdx';
 import textNullable from '../../../../.storybook/knob-text-nullable';
@@ -73,7 +73,7 @@ const Card = ({
   heading = headingDefault,
   href = hrefDefault,
 } = {}) => html`
-  <dds-card href="${ifNonNull(href)}">
+  <dds-card href="${ifDefined(href)}">
     <dds-card-heading>${heading}</dds-card-heading>
     ${copy}
     <dds-card-footer> ${ArrowRight20({ slot: 'icon' })} </dds-card-footer>
@@ -88,9 +88,9 @@ export const Default = (args) => {
   return html`
     <dds-content-section children-custom-class="${classes}">
       <dds-content-section-heading
-        >${ifNonNull(heading)}</dds-content-section-heading
+        >${ifDefined(heading)}</dds-content-section-heading
       >
-      <dds-content-section-copy>${ifNonNull(copy)}</dds-content-section-copy>
+      <dds-content-section-copy>${ifDefined(copy)}</dds-content-section-copy>
       ${addChildren.includes('Content block simple')
         ? html`
             <dds-content-block-simple>

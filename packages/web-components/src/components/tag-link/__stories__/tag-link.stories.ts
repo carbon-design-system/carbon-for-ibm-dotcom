@@ -1,14 +1,14 @@
 /**
  * @license
  *
- * Copyright IBM Corp. 2020, 2022
+ * Copyright IBM Corp. 2020, 2023
  *
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
  */
 
-import { html } from 'lit-element';
-import ifNonNull from '@carbon/web-components/es/globals/directives/if-non-null.js';
+import { html } from 'lit';
+import { ifDefined } from 'lit/directives/if-defined.js';
 import readme from './README.stories.mdx';
 import '../tag-link';
 import textNullable from '../../../../.storybook/knob-text-nullable';
@@ -16,7 +16,7 @@ import textNullable from '../../../../.storybook/knob-text-nullable';
 export const Default = (args) => {
   const { copy, href } = args?.TagLink ?? {};
   return html`
-    <dds-tag-link href=${ifNonNull(href || undefined)}> ${copy} </dds-tag-link>
+    <dds-tag-link href=${ifDefined(href || undefined)}> ${copy} </dds-tag-link>
   `;
 };
 

@@ -1,14 +1,14 @@
 /**
  * @license
  *
- * Copyright IBM Corp. 2020, 2022
+ * Copyright IBM Corp. 2020, 2023
  *
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
  */
 
-import { html } from 'lit-element';
-import ifNonNull from '@carbon/web-components/es/globals/directives/if-non-null.js';
+import { html } from 'lit';
+import { ifDefined } from 'lit/directives/if-defined.js';
 import { boolean, object } from '@storybook/addon-knobs';
 import inPercy from '@percy-io/in-percy';
 import { FOOTER_SIZE } from '../footer';
@@ -46,33 +46,33 @@ export const base = (args) => {
     ${useMock
       ? html`
           <dds-footer-composite
-            language="${ifNonNull(language)}"
-            lang-display="${ifNonNull(langDisplay)}"
-            size="${ifNonNull(size)}"
-            .langList="${ifNonNull(langList)}"
-            .adjunctLinks="${ifNonNull(adjunctLinks)}"
-            .legalLinks="${ifNonNull(legalLinks)}"
-            .links="${ifNonNull(links)}"
-            .localeList="${ifNonNull(localeList)}"
-            language-selector-label="${ifNonNull(languageSelectorLabel)}"
-            clear-selection-label="${ifNonNull(clearSelectionLabel)}"
-            selected-language="${ifNonNull(selectedLanguage)}"
+            language="${ifDefined(language)}"
+            lang-display="${ifDefined(langDisplay)}"
+            size="${ifDefined(size)}"
+            .langList="${ifDefined(langList)}"
+            .adjunctLinks="${ifDefined(adjunctLinks)}"
+            .legalLinks="${ifDefined(legalLinks)}"
+            .links="${ifDefined(links)}"
+            .localeList="${ifDefined(localeList)}"
+            language-selector-label="${ifDefined(languageSelectorLabel)}"
+            clear-selection-label="${ifDefined(clearSelectionLabel)}"
+            selected-language="${ifDefined(selectedLanguage)}"
             ?disable-locale-button="${disableLocaleButton}">
           </dds-footer-composite>
         `
       : html`
           <dds-footer-container
-            language="${ifNonNull(language)}"
-            lang-display="${ifNonNull(langDisplay)}"
-            size="${ifNonNull(size)}"
-            .langList="${ifNonNull(langList)}"
-            .adjunctLinks="${ifNonNull(adjunctLinks)}"
-            .legalLinks="${ifNonNull(legalLinks)}"
-            .links="${ifNonNull(links)}"
-            .localeList="${ifNonNull(localeList)}"
-            language-selector-label="${ifNonNull(languageSelectorLabel)}"
-            clear-selection-label="${ifNonNull(clearSelectionLabel)}"
-            selected-language="${ifNonNull(selectedLanguage)}"
+            language="${ifDefined(language)}"
+            lang-display="${ifDefined(langDisplay)}"
+            size="${ifDefined(size)}"
+            .langList="${ifDefined(langList)}"
+            .adjunctLinks="${ifDefined(adjunctLinks)}"
+            .legalLinks="${ifDefined(legalLinks)}"
+            .links="${ifDefined(links)}"
+            .localeList="${ifDefined(localeList)}"
+            language-selector-label="${ifDefined(languageSelectorLabel)}"
+            clear-selection-label="${ifDefined(clearSelectionLabel)}"
+            selected-language="${ifDefined(selectedLanguage)}"
             ?disable-locale-button="${disableLocaleButton}">
           </dds-footer-container>
         `}

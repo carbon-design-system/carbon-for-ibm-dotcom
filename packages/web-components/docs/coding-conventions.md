@@ -461,7 +461,7 @@ class DDSFooterNavItem extends LitElement {
     // ❗️ Don't do this
     return html`
       <li class="bx--footer-nav-group__item">
-        <a class="bx--footer-nav-group__link bx--footer__link" href="${ifNonNull(href)}">
+        <a class="bx--footer-nav-group__link bx--footer__link" href="${ifDefined(href)}">
       </li>
     `;
   }
@@ -500,7 +500,7 @@ class DDSFooterNavItem extends LitElement {
     const { href } = this;
     // Don't render `<li>` here
     return html`
-      <a class="bx--footer-nav-group__link bx--footer__link" href="${ifNonNull(href)}">
+      <a class="bx--footer-nav-group__link bx--footer__link" href="${ifDefined(href)}">
     `;
   }
 

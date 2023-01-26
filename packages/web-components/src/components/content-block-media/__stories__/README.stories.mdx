@@ -103,7 +103,7 @@ import '@carbon/ibmdotcom-web-components/es/components/link-list/index.js';
 ### HTML
 
 ```html
-<dds-content-block-media complementary-style-scheme="${ifNonNull(complementaryStyleScheme)}">
+<dds-content-block-media complementary-style-scheme="${ifDefined(complementaryStyleScheme)}">
     <dds-content-block-heading>
       Curabitur malesuada varius mi eu posuere
     </dds-content-block-heading>

@@ -7,7 +7,7 @@
  * LICENSE file in the root directory of this source tree.
  */
 
-import { html } from 'lit-element';
+import { html } from 'lit';
 import '../index';
 import '../../dotcom-shell/dotcom-shell-container';
 import readme from './README.stories.mdx';

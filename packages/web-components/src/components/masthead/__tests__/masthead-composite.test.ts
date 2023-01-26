@@ -1,14 +1,14 @@
 /**
  * @license
  *
- * Copyright IBM Corp. 2020, 2022
+ * Copyright IBM Corp. 2020, 2023
  *
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
  */
 
-import { html, render } from 'lit-html';
-import ifNonNull from '@carbon/web-components/es/globals/directives/if-non-null.js';
+import { html, render } from 'lit/html.js';
+import { ifDefined } from 'lit/directives/if-defined.js';
 import EventManager from '../../../../tests/utils/event-manager';
 import { MastheadLink } from '../../../internal/vendor/@carbon/ibmdotcom-services-store/types/translateAPI.d';
 import DDSMastheadComposite from '../masthead-composite';
@@ -21,11 +21,11 @@ const template = (props?) => {
   const { language, userStatus, navLinks } = props ?? {};
   return html`
     <dds-masthead-composite
-      language="${ifNonNull(language)}"
-      user-status="${ifNonNull(userStatus)}"
-      .authenticatedProfileItems="${ifNonNull(authenticatedProfileItems)}"
+      language="${ifDefined(language)}"
+      user-status="${ifDefined(userStatus)}"
+      .authenticatedProfileItems="${ifDefined(authenticatedProfileItems)}"
       .navLinks="${navLinks}"
-      .unauthenticatedProfileItems="${ifNonNull(unauthenticatedProfileItems)}">
+      .unauthenticatedProfileItems="${ifDefined(unauthenticatedProfileItems)}">
     </dds-masthead-composite>
   `;
 };

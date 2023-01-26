@@ -1,24 +1,22 @@
 /**
  * @license
  *
- * Copyright IBM Corp. 2020, 2022
+ * Copyright IBM Corp. 2020, 2023
  *
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
  */
 
-import { nothing } from 'lit-html';
-import { classMap } from 'lit-html/directives/class-map.js';
-import { ifDefined } from 'lit-html/directives/if-defined.js';
+import { classMap } from 'lit/directives/class-map.js';
+import { ifDefined } from 'lit/directives/if-defined.js';
+import { html, LitElement, nothing } from 'lit';
 import {
-  html,
+  customElement,
   property,
-  state,
   query,
   queryAll,
-  customElement,
-  LitElement,
-} from 'lit-element';
+  state,
+} from 'lit/decorators.js';
 import CaretLeft20 from '@carbon/web-components/es/icons/caret--left/20.js';
 import CaretRight20 from '@carbon/web-components/es/icons/caret--right/20.js';
 import settings from 'carbon-components/es/globals/js/settings.js';

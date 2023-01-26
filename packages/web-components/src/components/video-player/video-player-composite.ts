@@ -1,14 +1,15 @@
 /**
  * @license
  *
- * Copyright IBM Corp. 2020, 2022
+ * Copyright IBM Corp. 2020, 2023
  *
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
  */
 
-import { html, property, customElement, LitElement } from 'lit-element';
-import ifNonNull from '@carbon/web-components/es/globals/directives/if-non-null.js';
+import { LitElement, html } from 'lit';
+import { customElement, property } from 'lit/decorators.js';
+import { ifDefined } from 'lit/directives/if-defined.js';
 import HostListener from '@carbon/web-components/es/globals/decorators/host-listener.js';
 import HostListenerMixin from '@carbon/web-components/es/globals/mixins/host-listener.js';
 import ddsSettings from '../../internal/vendor/@carbon/ibmdotcom-utilities/utilities/settings/settings';
@@ -287,16 +288,16 @@ class DDSVideoPlayerComposite extends HybridRenderMixin(
       });
     return html`
       <dds-video-player
-        duration="${ifNonNull(duration)}"
+        duration="${ifDefined(duration)}"
         ?hide-caption=${hideCaption}
-        name="${ifNonNull(caption || name)}"
-        video-description="${ifNonNull(customVideoDescription)}"
-        thumbnail-url="${ifNonNull(thumbnailUrl)}"
-        video-id="${ifNonNull(videoId)}"
-        aspect-ratio="${ifNonNull(aspectRatio)}"
-        .formatCaption="${ifNonNull(formatCaption)}"
-        .formatDuration="${ifNonNull(formatDuration)}"
-        playing-mode="${ifNonNull(playingMode)}">
+        name="${ifDefined(caption || name)}"
+        video-description="${ifDefined(customVideoDescription)}"
+        thumbnail-url="${ifDefined(thumbnailUrl)}"
+        video-id="${ifDefined(videoId)}"
+        aspect-ratio="${ifDefined(aspectRatio)}"
+        .formatCaption="${ifDefined(formatCaption)}"
+        .formatDuration="${ifDefined(formatDuration)}"
+        playing-mode="${ifDefined(playingMode)}">
       </dds-video-player>
     `;
   }

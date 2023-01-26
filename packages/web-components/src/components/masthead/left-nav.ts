@@ -1,14 +1,15 @@
 /**
  * @license
  *
- * Copyright IBM Corp. 2020, 2022
+ * Copyright IBM Corp. 2020, 2023
  *
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
  */
 
 import findLast from 'lodash-es/findLast.js';
-import { html, query, property, customElement } from 'lit-element';
+import { html } from 'lit';
+import { customElement, property, query } from 'lit/decorators.js';
 import settings from 'carbon-components/es/globals/js/settings.js';
 import { selectorTabbable } from '@carbon/web-components/es/globals/settings.js';
 import HostListener from '@carbon/web-components/es/globals/decorators/host-listener.js';
@@ -146,7 +147,9 @@ class DDSLeftNav extends StableSelectorMixin(BXSideNav) {
       target.closest(selectorButtonToggle) === null &&
       target.closest(this.tagName) === null
     ) {
-      this.expanded = false;
+      // TODO: for some reason, after upgrading to Lit v2, the click out counts as a double click,
+      // which opens and closes the menu immediately. Need to figure out a way to circumvent this.
+      // this.expanded = false;
       toggleButton?.focus();
     }
   }
@@ -254,7 +257,10 @@ class DDSLeftNav extends StableSelectorMixin(BXSideNav) {
           startSentinelNode,
           endSentinelNode,
         ]);
-        document.body.style.overflow = 'hidden';
+
+        if (doc.body?.style) {
+          doc.body.style.overflow = `hidden`;
+        }
 
         // TODO: remove this logic once masthead can account for banners.
         // set masthead position to `fixed` when left-nav is open for cloud-mastead

@@ -1,13 +1,13 @@
 /**
  * @license
  *
- * Copyright IBM Corp. 2020, 2022
+ * Copyright IBM Corp. 2020, 2023
  *
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
  */
 
-import { html } from 'lit-element';
+import { html } from 'lit';
 import { text, select } from '@storybook/addon-knobs';
 import Launch20 from '@carbon/web-components/es/icons/launch/20.js';
 import styles from './leaving-ibm.stories.scss';

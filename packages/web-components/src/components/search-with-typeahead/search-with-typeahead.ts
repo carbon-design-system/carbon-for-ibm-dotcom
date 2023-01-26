@@ -1,15 +1,16 @@
 /**
  * @license
  *
- * Copyright IBM Corp. 2019, 2022
+ * Copyright IBM Corp. 2019, 2023
  *
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
  */
 
-import ifNonNull from '@carbon/web-components/es/globals/directives/if-non-null.js';
-import { classMap } from 'lit-html/directives/class-map.js';
-import { html, property, query, customElement } from 'lit-element';
+import { ifDefined } from 'lit/directives/if-defined.js';
+import { classMap } from 'lit/directives/class-map.js';
+import { html } from 'lit';
+import { customElement, property, query } from 'lit/decorators.js';
 import settings from 'carbon-components/es/globals/js/settings.js';
 import Close20 from '@carbon/web-components/es/icons/close/20.js';
 import Search20 from '@carbon/web-components/es/icons/search/20.js';
@@ -590,7 +591,7 @@ class DDSSearchWithTypeahead extends HostListenerMixin(
         autocomplete="off"
         aria-controls="result-list"
         aria-autocomplete="list"
-        aria-label="${ifNonNull(searchLabel)}"
+        aria-label="${ifDefined(searchLabel)}"
         @input="${handleInput}"
         @keydown="${handleKeyInput}"
         @keypress="${handleKeyInput}" />
@@ -654,14 +655,13 @@ class DDSSearchWithTypeahead extends HostListenerMixin(
                 value="${this.scopeLabel}" />
             `
           : ''}
-
         <div
           role="combobox"
           class="${classes}"
           aria-haspopup="listbox"
           aria-owns="result-list"
           aria-expanded="${Boolean(this.active)}"
-          aria-label="${ifNonNull(searchLabel)}"
+          aria-label="${ifDefined(searchLabel)}"
           @click=${handleClickInner}
           @keydown="${handleKeydownInner}"
           @keypress="${handleKeypressInner}">
@@ -676,7 +676,6 @@ class DDSSearchWithTypeahead extends HostListenerMixin(
                     `
                   )}
                 </dds-scoped-search-dropdown>
-
                 <dds-scoped-search-dropdown-mobile value="${this.appId}">
                   ${this.scopeParameters.map(
                     (scope) => html`

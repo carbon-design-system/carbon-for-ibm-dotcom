@@ -1,5 +1,5 @@
 /**
- * Copyright IBM Corp. 2016, 2022
+ * Copyright IBM Corp. 2016, 2023
  *
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
@@ -190,13 +190,16 @@
     ::slotted([slot='icon']) {
       transform: none;
       /* stylelint-disable-next-line comment-whitespace-inside */
-      /*!rtl:raw:
+      /* !rtl:raw:
       transform: scaleX(-1);
       */
     }
   }
 
-  :host(#{$dds-prefix}-megamenu-link-with-icon)[style-scheme='category-headline'],
+  /* stylelint-disable selector-pseudo-class-parentheses-space-inside */
+  :host(
+      #{$dds-prefix}-megamenu-link-with-icon
+    )[style-scheme='category-headline'],
   .#{$prefix}--masthead__megamenu__category-headline {
     width: 100%;
 
@@ -209,6 +212,7 @@
 
       @include type-style('expressive-heading-01');
     }
+    /* stylelint-enable selector-pseudo-class-parentheses-space-inside */
 
     ::slotted(span),
     span {
@@ -243,8 +247,11 @@
     }
   }
 
+  /* stylelint-disable selector-pseudo-class-parentheses-space-inside */
   .#{$prefix}--masthead__megamenu__category-sublink--highlighted,
-  :host(#{$dds-prefix}-megamenu-link-with-icon)[style-scheme='category-sublink'] {
+  :host(
+      #{$dds-prefix}-megamenu-link-with-icon
+    )[style-scheme='category-sublink'] {
     @include type-style('body-short-01');
 
     width: 100%;
@@ -253,6 +260,7 @@
       flex: inherit;
     }
   }
+  /* stylelint-enable selector-pseudo-class-parentheses-space-inside */
 
   .#{$prefix}--masthead__megamenu__category-sublink--highlighted,
   :host(#{$dds-prefix}-megamenu-link-with-icon)[style-scheme='category-sublink']
@@ -323,7 +331,7 @@
     svg {
       transform: none;
       /* stylelint-disable-next-line comment-whitespace-inside */
-      /*!rtl:raw:
+      /* !rtl:raw:
       transform: scaleX(-1);
       */
     }

@@ -1,7 +1,7 @@
 /**
  * @license
  *
- * Copyright IBM Corp. 2020, 2022
+ * Copyright IBM Corp. 2020, 2023
  *
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
@@ -12,8 +12,8 @@ import '../../image/image';
 import '../index';
 
 import ArrowRight20 from '@carbon/web-components/es/icons/arrow--right/20.js';
-import { html } from 'lit-element';
-import ifNonNull from '@carbon/web-components/es/globals/directives/if-non-null.js';
+import { html } from 'lit';
+import { ifDefined } from 'lit/directives/if-defined.js';
 import mediumImgLg1x1 from '../../../../../storybook-images/assets/720/fpo--1x1--720x720--004.jpg';
 
 import imgLg1x1 from '../../../../../storybook-images/assets/720/fpo--1x1--720x720--002.jpg';
@@ -28,7 +28,7 @@ import textNullable from '../../../../.storybook/knob-text-nullable';
 export const Medium = (args) => {
   const { heading, href } = args?.['dds-feature-card'] ?? {};
   return html`
-    <dds-feature-card href=${ifNonNull(href || undefined)}>
+    <dds-feature-card href=${ifDefined(href || undefined)}>
       <dds-image
         slot="image"
         alt="Image alt text"
@@ -44,8 +44,8 @@ export const Medium = (args) => {
 export const Large = (args) => {
   const { eyebrow, heading, copy, href } = args?.['dds-feature-card'] ?? {};
   return html`
-    <dds-feature-card size="large" href=${ifNonNull(href || undefined)}>
-      <dds-image slot="image" default-src="${ifNonNull(imgLg1x1)}">
+    <dds-feature-card size="large" href=${ifDefined(href || undefined)}>
+      <dds-image slot="image" default-src="${ifDefined(imgLg1x1)}">
         <dds-image-item media="(min-width: 1312px)" srcset="${imgMax2x1}">
         </dds-image-item>
         <dds-image-item media="(min-width: 1056px)" srcset="${imgXlg2x1}">
