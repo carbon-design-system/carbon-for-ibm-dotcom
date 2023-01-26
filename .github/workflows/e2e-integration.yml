@@ -2,7 +2,7 @@ name: e2e-integration
 
 on:
   push:
-    branches: [ main, release/*, feat/masthead-v2 ]
+    branches: [ main, release/*, feat/masthead-v2, feat/masthead-v2-dev ]
   schedule:
     - cron: '0 20 * * 1-5'
 
