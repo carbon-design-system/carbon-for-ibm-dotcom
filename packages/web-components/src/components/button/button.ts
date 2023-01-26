@@ -16,7 +16,7 @@ import {
   BUTTON_ICON_LAYOUT,
   BUTTON_KIND,
   BUTTON_SIZE,
-} from '../../internal/vendor/@carbon/web-components/components/button/button.js';
+} from '@carbon/web-components/es/components/button/button';
 import ddsSettings from '../../internal/vendor/@carbon/ibmdotcom-utilities/utilities/settings/settings';
 import styles from './button.scss';
 import StableSelectorMixin from '../../globals/mixins/stable-selector';
