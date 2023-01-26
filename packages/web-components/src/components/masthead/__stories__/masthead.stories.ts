@@ -50,6 +50,35 @@ const urlObject = {
   },
 };
 
+const scopeParameters = [
+  {
+    name: 'All',
+    appId: 'all',
+    value: 'all',
+  },
+  {
+    name: 'Analyst',
+    appId: 'analyst',
+    value: 'analyst',
+  },
+  {
+    name: 'PartnerWorld',
+    appId: 'pw',
+    value: ['pw', 'pwp'],
+  },
+  {
+    name: 'Developer',
+    appId: 'dw',
+    value: ['dw', 'dwaspera'],
+  },
+  {
+    name: 'IBM Docs',
+    appId: 'ibmdocs',
+    label: 'Search Label',
+    value: ['ibmdocs', 'dw'],
+  },
+];
+
 async function customTypeaheadApiFunction(searchVal) {
   return fetch(
     `https://ibmdocs-dev.mybluemix.net/docs/api/v1/suggest?query=${searchVal}&lang=undefined&categories=&limit=6`
@@ -493,6 +522,61 @@ withAlternateLogoAndTooltip.story = {
       },
     },
   },
+};
+
+export const WithScopedSearch = ({ parameters }) => {
+  const {
+    customProfileLogin,
+    platform,
+    selectedMenuItem,
+    userStatus,
+    searchPlaceholder,
+    hasProfile,
+    hasSearch,
+    navLinks,
+  } = parameters?.props?.MastheadComposite ?? {};
+  const { useMock } = parameters?.props?.Other ?? {};
+
+  return html`
+    <style>
+      ${styles}
+    </style>
+    ${useMock
+      ? html`
+          <dds-masthead-composite
+            platform="${ifDefined(platform)}"
+            .platformUrl="${ifDefined(platformData.url)}"
+            selected-menu-item="${ifDefined(selectedMenuItem)}"
+            user-status="${ifDefined(userStatus)}"
+            searchPlaceholder="${ifDefined(searchPlaceholder)}"
+            .authenticatedProfileItems="${ifDefined(authenticatedProfileItems)}"
+            ?has-profile="${hasProfile}"
+            ?has-search="${hasSearch}"
+            .navLinks="${navLinks}"
+            .unauthenticatedProfileItems="${ifDefined(
+              unauthenticatedProfileItems
+            )}"
+            custom-profile-login="${customProfileLogin}"
+            .scopeParameters=${scopeParameters}></dds-masthead-composite>
+        `
+      : html`
+          <dds-masthead-container
+            platform="${ifDefined(platform)}"
+            .platformUrl="${ifDefined(platformData.url)}"
+            selected-menu-item="${ifDefined(selectedMenuItem)}"
+            user-status="${ifDefined(userStatus)}"
+            searchPlaceholder="${ifDefined(searchPlaceholder)}"
+            .navLinks="${navLinks}"
+            ?has-profile="${hasProfile}"
+            ?has-search="${hasSearch}"
+            custom-profile-login="${customProfileLogin}"
+            .scopeParameters=${scopeParameters}></dds-masthead-container>
+        `}
+  `;
+};
+
+WithScopedSearch.story = {
+  name: 'With scoped search',
 };
 
 export default {
