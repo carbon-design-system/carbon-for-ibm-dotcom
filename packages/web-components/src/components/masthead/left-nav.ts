@@ -1,7 +1,7 @@
 /**
  * @license
  *
- * Copyright IBM Corp. 2020, 2022
+ * Copyright IBM Corp. 2020, 2023
  *
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
@@ -12,7 +12,8 @@ import { html, query, property, customElement } from 'lit-element';
 import settings from 'carbon-components/es/globals/js/settings.js';
 import { selectorTabbable } from '@carbon/web-components/es/globals/settings.js';
 import HostListener from '@carbon/web-components/es/globals/decorators/host-listener.js';
-import BXSideNav, {
+import {
+  BXSideNavBase,
   SIDE_NAV_USAGE_MODE,
 } from '@carbon/web-components/es/components/ui-shell/side-nav.js';
 import ddsSettings from '../../internal/vendor/@carbon/ibmdotcom-utilities/utilities/settings/settings';
@@ -41,7 +42,7 @@ const FOLLOWING =
  * @element dds-left-nav
  */
 @customElement(`${ddsPrefix}-left-nav`)
-class DDSLeftNav extends StableSelectorMixin(BXSideNav) {
+class DDSLeftNav extends StableSelectorMixin(BXSideNavBase) {
   /**
    * The handle for focus wrapping.
    */
