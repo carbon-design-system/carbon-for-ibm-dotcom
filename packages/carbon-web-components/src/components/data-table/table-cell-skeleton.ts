@@ -1,7 +1,7 @@
 /**
  * @license
  *
- * Copyright IBM Corp. 2019, 2022
+ * Copyright IBM Corp. 2019, 2023
  *
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
@@ -9,7 +9,7 @@
 
 import { html, customElement } from 'lit-element';
 import settings from 'carbon-components/es/globals/js/settings';
-import BXTableCell from './table-cell';
+import { BXTableCellBase } from './table-cell';
 
 const { prefix } = settings;
 
@@ -19,7 +19,7 @@ const { prefix } = settings;
  * @element bx-table-cell-skeleton
  */
 @customElement(`${prefix}-table-cell-skeleton`)
-class BXTableCellSkeleton extends BXTableCell {
+class BXTableCellSkeleton extends BXTableCellBase {
   render() {
     return html` <span></span> `;
   }

@@ -1,7 +1,7 @@
 /**
  * @license
  *
- * Copyright IBM Corp. 2019, 2022
+ * Copyright IBM Corp. 2019, 2023
  *
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
@@ -14,12 +14,9 @@ import styles from './data-table.scss';
 const { prefix } = settings;
 
 /**
- * Data table cell.
- *
- * @element bx-table-cell
+ * Data table cell base class.
  */
-@customElement(`${prefix}-table-cell`)
-class BXTableCell extends LitElement {
+export class BXTableCellBase extends LitElement {
   connectedCallback() {
     if (!this.hasAttribute('role')) {
       this.setAttribute('role', 'cell');
@@ -33,5 +30,13 @@ class BXTableCell extends LitElement {
 
   static styles = styles;
 }
+
+/**
+ * Data table cell.
+ *
+ * @element bx-table-cell
+ */
+@customElement(`${prefix}-table-cell`)
+class BXTableCell extends BXTableCellBase {}
 
 export default BXTableCell;
