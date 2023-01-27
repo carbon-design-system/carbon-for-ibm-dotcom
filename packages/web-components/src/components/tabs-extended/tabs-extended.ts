@@ -1,7 +1,7 @@
 /**
  * @license
  *
- * Copyright IBM Corp. 2020, 2022
+ * Copyright IBM Corp. 2020, 2023
  *
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
@@ -29,12 +29,9 @@ const { prefix } = settings;
 const { stablePrefix: ddsPrefix } = ddsSettings;
 
 /**
- * A component to present content inside a tabbed layout.
- *
- * @element dds-tabs-extended
+ * A base class to present content inside a tabbed layout.
  */
-@customElement(`${ddsPrefix}-tabs-extended`)
-class DDSTabsExtended extends StableSelectorMixin(LitElement) {
+export class DDSTabsExtendedBase extends StableSelectorMixin(LitElement) {
   /**
    * Child tab components.
    */
@@ -302,6 +299,14 @@ class DDSTabsExtended extends StableSelectorMixin(LitElement) {
 
   static styles = styles;
 }
+
+/**
+ * A component to present content inside a tabbed layout.
+ *
+ * @element dds-tabs-extended
+ */
+@customElement(`${ddsPrefix}-tabs-extended`)
+class DDSTabsExtended extends DDSTabsExtendedBase {}
 
 /* @__GENERATE_REACT_CUSTOM_ELEMENT_TYPE__ */
 export default DDSTabsExtended;
