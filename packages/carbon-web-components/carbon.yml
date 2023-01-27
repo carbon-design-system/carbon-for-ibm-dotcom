@@ -105,7 +105,6 @@ assets:
         name: Storybook
         action: link
         url: https://www.ibm.com/standards/carbon/carbon-web-components/?path=/docs/components-copy-button
-    docs:
   data-table:
     status: stable
     externalDocsUrl: https://www.carbondesignsystem.com/components/data-table/usage
@@ -168,7 +167,6 @@ assets:
         name: Storybook
         action: link
         url: https://www.ibm.com/standards/carbon/carbon-web-components/?path=/docs/components-icon
-    docs:
     tags:
       - input-control
       - media
@@ -259,7 +257,6 @@ assets:
         name: Storybook
         action: link
         url: https://www.ibm.com/standards/carbon/carbon-web-components/?path=/docs/components-multi-select
-    docs:
   notifications:
     status: stable
     externalDocsUrl: https://www.carbondesignsystem.com/components/notification/usage
@@ -269,7 +266,6 @@ assets:
         name: Storybook
         action: link
         url: https://www.ibm.com/standards/carbon/carbon-web-components/?path=/docs/components-notifications
-    docs:
   number-input:
     status: stable
     externalDocsUrl: https://www.carbondesignsystem.com/components/number-input/usage
