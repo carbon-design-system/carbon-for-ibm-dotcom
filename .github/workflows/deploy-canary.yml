@@ -18,7 +18,7 @@ jobs:
         with:
           token: ${{secrets.MERGE_ACTION}}
       - name: Use Node.js 14.x
-        uses: actions/setup-node@v2
+        uses: actions/setup-node@v3
         with:
           node-version: '14.x'
           cache: 'yarn'
@@ -75,7 +75,7 @@ jobs:
         with:
           token: ${{secrets.MERGE_ACTION}}
       - name: Use Node.js 14.x
-        uses: actions/setup-node@v2
+        uses: actions/setup-node@v3
         with:
           node-version: '14.x'
           cache: 'yarn'
@@ -171,7 +171,7 @@ jobs:
         with:
           token: ${{secrets.MERGE_ACTION}}
       - name: Use Node.js 14.x
-        uses: actions/setup-node@v2
+        uses: actions/setup-node@v3
         with:
           node-version: '14.x'
           cache: 'yarn'
@@ -286,7 +286,7 @@ jobs:
         with:
           token: ${{secrets.MERGE_ACTION}}
       - name: Use Node.js 14.x
-        uses: actions/setup-node@v2
+        uses: actions/setup-node@v3
         with:
           node-version: '14.x'
           cache: 'yarn'
@@ -338,7 +338,7 @@ jobs:
         with:
           token: ${{secrets.MERGE_ACTION}}
       - name: Use Node.js 14.x
-        uses: actions/setup-node@v2
+        uses: actions/setup-node@v3
         with:
           node-version: '14.x'
           cache: 'yarn'
