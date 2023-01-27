@@ -1,7 +1,7 @@
 /**
  * @license
  *
- * Copyright IBM Corp. 2021, 2022
+ * Copyright IBM Corp. 2021, 2023
  *
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
@@ -13,7 +13,7 @@ import {
   formatVideoCaption,
   formatVideoDuration,
 } from '../../internal/vendor/@carbon/ibmdotcom-utilities/utilities/formatVideoCaption/formatVideoCaption.js';
-import DDSCardLink from '../card-link/card-link';
+import { DDSCardLinkBase } from '../card-link/card-link';
 import '../card-link/card-link-heading';
 import CTAMixin from '../../component-mixins/cta/cta';
 import VideoCTAMixin from '../../component-mixins/cta/video';
@@ -32,7 +32,7 @@ const { stablePrefix: ddsPrefix } = ddsSettings;
  * @element dds-card-cta
  */
 @customElement(`${ddsPrefix}-card-link-cta`)
-class DDSCardLinkCTA extends VideoCTAMixin(CTAMixin(DDSCardLink)) {
+class DDSCardLinkCTA extends VideoCTAMixin(CTAMixin(DDSCardLinkBase)) {
   protected _renderHeading() {
     const {
       ctaType,

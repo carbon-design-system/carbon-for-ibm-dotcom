@@ -17,12 +17,9 @@ const { prefix } = settings;
 const { stablePrefix: ddsPrefix } = ddsSettings;
 
 /**
- * Card Link.
- *
- * @element dds-card-link
+ * Card Link base class.
  */
-@customElement(`${ddsPrefix}-card-link`)
-class DDSCardLink extends DDSCardBase {
+export class DDSCardLinkBase extends DDSCardBase {
   /**
    * `true` to disable the card link.
    */
@@ -47,6 +44,14 @@ class DDSCardLink extends DDSCardBase {
 
   static styles = styles;
 }
+
+/**
+ * Card Link.
+ *
+ * @element dds-card-link
+ */
+@customElement(`${ddsPrefix}-card-link`)
+class DDSCardLink extends DDSCardLinkBase {}
 
 /* @__GENERATE_REACT_CUSTOM_ELEMENT_TYPE__ */
 export default DDSCardLink;

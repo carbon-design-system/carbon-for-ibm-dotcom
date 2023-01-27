@@ -1,7 +1,7 @@
 /**
  * @license
  *
- * Copyright IBM Corp. 2020, 2022
+ * Copyright IBM Corp. 2020, 2023
  *
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
@@ -9,7 +9,7 @@
 import { css, property, customElement } from 'lit-element';
 import ddsSettings from '@carbon/ibmdotcom-utilities/es/utilities/settings/settings.js';
 import styles from './logo-grid.scss';
-import DDSCardLink from '../card-link/card-link';
+import { DDSCardLinkBase } from '../card-link/card-link';
 import StableSelectorMixin from '../../globals/mixins/stable-selector';
 
 const { stablePrefix: ddsPrefix } = ddsSettings;
@@ -20,7 +20,7 @@ const { stablePrefix: ddsPrefix } = ddsSettings;
  * @element dds-logo-grid-link
  */
 @customElement(`${ddsPrefix}-logo-grid-link`)
-class DDSLogoGridLink extends StableSelectorMixin(DDSCardLink) {
+class DDSLogoGridLink extends StableSelectorMixin(DDSCardLinkBase) {
   /**
    * The shadow slot this link should be in.
    */
