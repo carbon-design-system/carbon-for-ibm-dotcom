@@ -1480,21 +1480,6 @@
     "@carbon/import-once" "^10.7.0"
     "@carbon/layout" "^10.37.1"
 
-"@carbon/ibmdotcom-styles@1.42.0":
-  version "1.42.0"
-  resolved "https://registry.yarnpkg.com/@carbon/ibmdotcom-styles/-/ibmdotcom-styles-1.42.0.tgz#3c127c57552bc0889bb36693d2fbcaa710985212"
-  integrity sha512-sljF9gHcP8+/BsWwUvxpA1ubzA3XBY+F/gNRNwNVFjhkGIYJyl2YB46WaBHZ7CQL62Nz6F8BzmrWYNAjVWfMgg==
-  dependencies:
-    "@carbon/grid" "10.43.1"
-    "@carbon/icons-react" "10.49.0"
-    "@carbon/import-once" "10.7.0"
-    "@carbon/layout" "10.37.1"
-    "@carbon/motion" "10.29.0"
-    "@carbon/telemetry" "0.1.0"
-    "@carbon/themes" "10.55.1"
-    "@carbon/type" "10.45.1"
-    carbon-components "10.58.5"
-
 "@carbon/icon-helpers@10.38.0", "@carbon/icon-helpers@^10.28.0", "@carbon/icon-helpers@^10.38.0":
   version "10.38.0"
   resolved "https://registry.yarnpkg.com/@carbon/icon-helpers/-/icon-helpers-10.38.0.tgz#9e4e8f79fdd20327c9f31a7a7e916f51c8c44617"
@@ -1565,6 +1550,17 @@
   dependencies:
     "@carbon/grid" "^10.43.0"
     "@carbon/import-once" "^10.7.0"
+
+"@carbon/web-components@2.0.0-lit-v2-alpha":
+  version "2.0.0-lit-v2-alpha"
+  resolved "https://registry.yarnpkg.com/@carbon/web-components/-/web-components-2.0.0-lit-v2-alpha.tgz#284524e07ad41e0acd1c51e2ead2f19b81f15c67"
+  integrity sha512-jcxK1kcXz7p/hrh7ggpxTjCaBcVWfDKBLPYb2qOX3OZyttOXsIs0/72bZ35Pg9T+LT2KSG+77QZC4+bMAhHvtQ==
+  dependencies:
+    "@babel/runtime" "^7.16.3"
+    carbon-components "10.58.3"
+    flatpickr "4.6.13"
+    lit "^2.5.0"
+    lodash-es "^4.17.21"
 
 "@choojs/findup@^0.2.1":
   version "0.2.1"
@@ -17088,7 +17084,7 @@ lit@2.6.0:
     lit-element "^3.2.0"
     lit-html "^2.6.0"
 
-lit@^2.6.0:
+lit@^2.5.0, lit@^2.6.0:
   version "2.6.1"
   resolved "https://registry.yarnpkg.com/lit/-/lit-2.6.1.tgz#5951a2098b9bde5b328c73b55c15fdc0eefd96d7"
   integrity sha512-DT87LD64f8acR7uVp7kZfhLRrHkfC/N4BVzAtnw9Yg8087mbBJ//qedwdwX0kzDbxgPccWRW6mFwGbRQIxy0pw==
