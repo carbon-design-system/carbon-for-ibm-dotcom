@@ -2,7 +2,6 @@
 library:
   id: carbon-web-components
   name: Carbon Web Components
-  description:
   description: Build user interfaces with web components based on Carbon's React library.
   externalDocsUrl: https://www.ibm.com/standards/web/carbon-for-ibm-dotcom
   inherits: carbon-styles
