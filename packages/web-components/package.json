@@ -89,7 +89,7 @@
   },
   "dependencies": {
     "@carbon/ibmdotcom-services": "1.42.0",
-    "@carbon/ibmdotcom-styles": "2.0.0-lit-v2-alpha",
+    "@carbon/ibmdotcom-styles": "1.42.0",
     "@carbon/ibmdotcom-utilities": "1.42.0",
     "@carbon/layout": "10.37.1",
     "@carbon/motion": "^11.0.0",

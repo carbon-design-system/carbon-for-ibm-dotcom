@@ -168,7 +168,7 @@ module.exports = {
         use: 'null-loader',
       },
       {
-        test: /[\\/]styles[\\/]icons[\\/]/i,
+        test: /[\\/]ibmdotcom-styles[\\/]icons[\\/]/i,
         use: [
           ...babelLoaderRule.use,
           require.resolve('../tools/svg-result-ibmdotcom-icon-loader'),
