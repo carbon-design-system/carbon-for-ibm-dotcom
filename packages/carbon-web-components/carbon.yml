@@ -85,7 +85,6 @@ assets:
         name: Storybook
         action: link
         url: https://www.ibm.com/standards/carbon/carbon-web-components/?path=/docs/components-combo-box
-    docs:
   content-switcher:
     status: stable
     externalDocsUrl: https://www.carbondesignsystem.com/components/content-switcher/usage
