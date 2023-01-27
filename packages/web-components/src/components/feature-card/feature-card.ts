@@ -1,7 +1,7 @@
 /**
  * @license
  *
- * Copyright IBM Corp. 2020, 2022
+ * Copyright IBM Corp. 2020, 2023
  *
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
@@ -11,7 +11,7 @@ import { customElement, property } from 'lit-element';
 import settings from 'carbon-components/es/globals/js/settings.js';
 import ddsSettings from '../../internal/vendor/@carbon/ibmdotcom-utilities/utilities/settings/settings';
 import StableSelectorMixin from '../../globals/mixins/stable-selector';
-import DDSCard from '../card/card';
+import { DDSCardBase } from '../card/card';
 import '../image/image';
 import styles from './feature-card.scss';
 
@@ -24,7 +24,7 @@ const { stablePrefix: ddsPrefix } = ddsSettings;
  * @element dds-feature-card
  */
 @customElement(`${ddsPrefix}-feature-card`)
-class DDSFeatureCard extends StableSelectorMixin(DDSCard) {
+class DDSFeatureCard extends StableSelectorMixin(DDSCardBase) {
   /**
    * The size property to render either Medium (default) or Large Feature Card variants.
    */

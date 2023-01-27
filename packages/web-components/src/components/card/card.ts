@@ -37,16 +37,9 @@ const slotExistencePropertyNames = {
 };
 
 /**
- * Card.
- *
- * @element dds-card
- * @slot eyebrow - The eyebrow content.
- * @slot heading - The heading content.
- * @slot image - The image content.
- * @slot footer - The footer content.
+ * Card base class.
  */
-@customElement(`${ddsPrefix}-card`)
-class DDSCard extends StableSelectorMixin(BXLinkBase) {
+export class DDSCardBase extends StableSelectorMixin(BXLinkBase) {
   /**
    * `true` if there is image content.
    */
@@ -284,6 +277,18 @@ class DDSCard extends StableSelectorMixin(BXLinkBase) {
 
   static styles = styles;
 }
+
+/**
+ * Card.
+ *
+ * @element dds-card
+ * @slot eyebrow - The eyebrow content.
+ * @slot heading - The heading content.
+ * @slot image - The image content.
+ * @slot footer - The footer content.
+ */
+@customElement(`${ddsPrefix}-card`)
+class DDSCard extends DDSCardBase {}
 
 /* @__GENERATE_REACT_CUSTOM_ELEMENT_TYPE__ */
 export default DDSCard;

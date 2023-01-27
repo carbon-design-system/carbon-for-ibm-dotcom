@@ -1,7 +1,7 @@
 /**
  * @license
  *
- * Copyright IBM Corp. 2020, 2022
+ * Copyright IBM Corp. 2020, 2023
  *
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
@@ -17,7 +17,7 @@ import {
   formatVideoDuration,
 } from '@carbon/ibmdotcom-utilities/es/utilities/formatVideoCaption/formatVideoCaption.js';
 import KalturaPlayerAPI from '@carbon/ibmdotcom-services/es/services/KalturaPlayer/KalturaPlayer';
-import DDSCard from '../card/card';
+import { DDSCardBase } from '../card/card';
 import '../card/card-heading';
 import './card-cta-image';
 import CTAMixin from '../../component-mixins/cta/cta';
@@ -38,7 +38,7 @@ const { stablePrefix: ddsPrefix } = ddsSettings;
  * @element dds-card-cta
  */
 @customElement(`${ddsPrefix}-card-cta`)
-class DDSCardCTA extends VideoCTAMixin(CTAMixin(DDSCard)) {
+class DDSCardCTA extends VideoCTAMixin(CTAMixin(DDSCardBase)) {
   protected _renderHeading() {
     const {
       ctaType,
