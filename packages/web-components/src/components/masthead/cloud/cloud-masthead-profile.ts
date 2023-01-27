@@ -1,7 +1,7 @@
 /**
  * @license
  *
- * Copyright IBM Corp. 2021, 2022
+ * Copyright IBM Corp. 2021, 2023
  *
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
@@ -13,7 +13,7 @@ import settings from 'carbon-components/es/globals/js/settings.js';
 import User20 from '@carbon/web-components/es/icons/user/20.js';
 import ddsSettings from '../../../internal/vendor/@carbon/ibmdotcom-utilities/utilities/settings/settings';
 import styles from './cloud-masthead.scss';
-import DDSMastheadProfile from '../masthead-profile';
+import { DDSMastheadProfileBase } from '../masthead-profile';
 
 const { prefix } = settings;
 const { stablePrefix: ddsPrefix } = ddsSettings;
@@ -24,7 +24,7 @@ const { stablePrefix: ddsPrefix } = ddsSettings;
  * @element dds-cloud-masthead-profile
  */
 @customElement(`${ddsPrefix}-cloud-masthead-profile`)
-class DDSCloudMastheadProfile extends DDSMastheadProfile {
+class DDSCloudMastheadProfile extends DDSMastheadProfileBase {
   render() {
     const {
       expanded,
