@@ -14,7 +14,7 @@ import BXComboBoxItem from '@carbon/web-components/es/components/combo-box/combo
 import Close16 from '@carbon/web-components/es/icons/close/16.js';
 import ddsSettings from '@carbon/ibmdotcom-utilities/es/utilities/settings/settings.js';
 import { findIndex, forEach } from '../../globals/internal/collection-helpers';
-import DDSDropdown, { DROPDOWN_KEYBOARD_ACTION } from './dropdown';
+import { DDSDropdownBase, DROPDOWN_KEYBOARD_ACTION } from './dropdown';
 
 export {
   DROPDOWN_COLOR_SCHEME,
@@ -28,7 +28,7 @@ const { prefix } = settings;
 /**
  * Combo box base class.
  */
-export class DDSComboBoxBase extends DDSDropdown {
+export class DDSComboBoxBase extends DDSDropdownBase {
   /**
    * The text content that should be set to the `<input>` for filtering.
    */
