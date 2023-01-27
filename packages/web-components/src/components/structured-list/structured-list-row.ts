@@ -16,12 +16,9 @@ import styles from './structured-list.scss';
 const { stablePrefix: ddsPrefix } = ddsSettings;
 
 /**
- * StructuredListRow
- *
- * @element dds-structured-list-row
+ * StructuredListRow base class.
  */
-@customElement(`${ddsPrefix}-structured-list-row`)
-class DDSStructuredListRow extends BXStructuredListRowBase {
+export class DDSStructuredListRowBase extends BXStructuredListRowBase {
   connectedCallback() {
     super.connectedCallback();
   }
@@ -37,6 +34,14 @@ class DDSStructuredListRow extends BXStructuredListRowBase {
 
   static styles = styles;
 }
+
+/**
+ * StructuredListRow
+ *
+ * @element dds-structured-list-row
+ */
+@customElement(`${ddsPrefix}-structured-list-row`)
+class DDSStructuredListRow extends DDSStructuredListRowBase {}
 
 /* @__GENERATE_REACT_CUSTOM_ELEMENT_TYPE__ */
 export default DDSStructuredListRow;
