@@ -1,7 +1,7 @@
 /**
  * @license
  *
- * Copyright IBM Corp. 2019, 2022
+ * Copyright IBM Corp. 2019, 2023
  *
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
@@ -26,20 +26,9 @@ const { stablePrefix: ddsPrefix } = ddsSettings;
 const { prefix } = settings;
 
 /**
- * Combo box.
- *
- * @element dds-combo-box
- * @fires bx-combo-box-beingselected
- *   The custom event fired before a combo box item is selected upon a user gesture.
- *   Cancellation of this event stops changing the user-initiated selection.
- * @fires bx-combo-box-beingtoggled
- *   The custom event fired before the open state of this combo box is toggled upon a user gesture.
- *   Cancellation of this event stops the user-initiated toggling.
- * @fires bx-combo-box-selected - The custom event fired after a combo box item is selected upon a user gesture.
- * @fires bx-combo-box-toggled - The custom event fired after the open state of this combo box is toggled upon a user gesture.
+ * Combo box base class.
  */
-@customElement(`${ddsPrefix}-combo-box`)
-class DDSComboBox extends DDSDropdown {
+export class DDSComboBoxBase extends DDSDropdown {
   /**
    * The text content that should be set to the `<input>` for filtering.
    */
@@ -286,5 +275,21 @@ class DDSComboBox extends DDSDropdown {
     return `${prefix}-combo-box-selected`;
   }
 }
+
+/**
+ * Combo box.
+ *
+ * @element dds-combo-box
+ * @fires bx-combo-box-beingselected
+ *   The custom event fired before a combo box item is selected upon a user gesture.
+ *   Cancellation of this event stops changing the user-initiated selection.
+ * @fires bx-combo-box-beingtoggled
+ *   The custom event fired before the open state of this combo box is toggled upon a user gesture.
+ *   Cancellation of this event stops the user-initiated toggling.
+ * @fires bx-combo-box-selected - The custom event fired after a combo box item is selected upon a user gesture.
+ * @fires bx-combo-box-toggled - The custom event fired after the open state of this combo box is toggled upon a user gesture.
+ */
+@customElement(`${ddsPrefix}-combo-box`)
+class DDSComboBox extends DDSComboBoxBase {}
 
 export default DDSComboBox;
