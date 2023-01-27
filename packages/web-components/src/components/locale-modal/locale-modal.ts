@@ -1,7 +1,7 @@
 /**
  * @license
  *
- * Copyright IBM Corp. 2020, 2022
+ * Copyright IBM Corp. 2020, 2023
  *
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
@@ -15,7 +15,7 @@ import HostListener from '@carbon/web-components/es/globals/decorators/host-list
 import ifNonNull from '@carbon/web-components/es/globals/directives/if-non-null.js';
 import { selectorTabbable } from '@carbon/web-components/es/globals/settings.js';
 import ddsSettings from '../../internal/vendor/@carbon/ibmdotcom-utilities/utilities/settings/settings';
-import DDSExpressiveModal from '../expressive-modal/expressive-modal';
+import { DDSExpressiveModalBase } from '../expressive-modal/expressive-modal';
 import '../expressive-modal/expressive-modal-header';
 import '../expressive-modal/expressive-modal-heading';
 import '../expressive-modal/expressive-modal-close-button';
@@ -37,7 +37,7 @@ const { stablePrefix: ddsPrefix } = ddsSettings;
  */
 @customElement(`${ddsPrefix}-locale-modal`)
 // `BXModal` extends `HostListenerMixin`
-class DDSLocaleModal extends DDSExpressiveModal {
+class DDSLocaleModal extends DDSExpressiveModalBase {
   /**
    * The current region.
    */
