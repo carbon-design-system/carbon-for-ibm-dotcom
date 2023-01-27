@@ -1,7 +1,7 @@
 /**
  * @license
  *
- * Copyright IBM Corp. 2020, 2022
+ * Copyright IBM Corp. 2020, 2023
  *
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
@@ -9,7 +9,7 @@
 
 import { customElement } from 'lit-element';
 import ddsSettings from '../../internal/vendor/@carbon/ibmdotcom-utilities/utilities/settings/settings';
-import DDSButtonGroup from '../button-group/button-group';
+import { DDSButtonGroupBase } from '../button-group/button-group';
 import StableSelectorMixin from '../../globals/mixins/stable-selector';
 import styles from './leadspace-block.scss';
 
@@ -21,7 +21,7 @@ const { stablePrefix: ddsPrefix } = ddsSettings;
  * @element dds-leadspace-block-cta
  */
 @customElement(`${ddsPrefix}-leadspace-block-cta`)
-class DDSLeadSpaceBlockCTA extends StableSelectorMixin(DDSButtonGroup) {
+class DDSLeadSpaceBlockCTA extends StableSelectorMixin(DDSButtonGroupBase) {
   static get stableSelector() {
     return `${ddsPrefix}--leadspace-block__cta`;
   }
