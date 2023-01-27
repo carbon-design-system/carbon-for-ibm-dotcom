@@ -1,7 +1,7 @@
 /**
  * @license
  *
- * Copyright IBM Corp. 2020, 2022
+ * Copyright IBM Corp. 2020, 2023
  *
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
@@ -9,7 +9,7 @@
 
 import { html, customElement, property } from 'lit-element';
 import ddsSettings from '../../internal/vendor/@carbon/ibmdotcom-utilities/utilities/settings/settings';
-import DDSVideoPlayerContainer from '../video-player/video-player-container';
+import { DDSVideoPlayerContainerBase } from '../video-player/video-player-container';
 import styles from './content-item-horizontal-media.scss';
 
 const { stablePrefix: ddsPrefix } = ddsSettings;
@@ -20,7 +20,7 @@ const { stablePrefix: ddsPrefix } = ddsSettings;
  * @element dds-content-item-horizontal-media-video
  */
 @customElement(`${ddsPrefix}-content-item-horizontal-media-video`)
-class DDSContentItemHorizontalMediaVideo extends DDSVideoPlayerContainer {
+class DDSContentItemHorizontalMediaVideo extends DDSVideoPlayerContainerBase {
   /**
    * The shadow slot this video should be in.
    */

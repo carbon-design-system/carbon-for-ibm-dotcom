@@ -1,7 +1,7 @@
 /**
  * @license
  *
- * Copyright IBM Corp. 2020, 2022
+ * Copyright IBM Corp. 2020, 2023
  *
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
@@ -288,12 +288,9 @@ export const DDSVideoPlayerContainerMixin = <
 };
 
 /**
- * Container component for video player.
- *
- * @element dds-video-player-container
+ * Container base class for video player.
  */
-@customElement(`${ddsPrefix}-video-player-container`)
-class DDSVideoPlayerContainer extends ConnectMixin<
+export class DDSVideoPlayerContainerBase extends ConnectMixin<
   VideoPlayerContainerState,
   MediaPlayerAPIActions,
   VideoPlayerContainerStateProps,
@@ -303,6 +300,14 @@ class DDSVideoPlayerContainer extends ConnectMixin<
   mapStateToProps,
   mapDispatchToProps
 )(DDSVideoPlayerContainerMixin(DDSVideoPlayerComposite)) {}
+
+/**
+ * Container component for video player.
+ *
+ * @element dds-video-player-container
+ */
+@customElement(`${ddsPrefix}-video-player-container`)
+class DDSVideoPlayerContainer extends DDSVideoPlayerContainerBase {}
 
 /* @__GENERATE_REACT_CUSTOM_ELEMENT_TYPE__ */
 export default DDSVideoPlayerContainer;
