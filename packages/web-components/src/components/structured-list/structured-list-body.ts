@@ -15,18 +15,23 @@ import styles from './structured-list.scss';
 const { stablePrefix: ddsPrefix } = ddsSettings;
 
 /**
- * StructuredListBody
- *
- * @element dds-structured-list-body
+ * StructuredListBody base class.
  */
-@customElement(`${ddsPrefix}-structured-list-body`)
-class DDSStructuredListBody extends BXStructuredListBodyBase {
+export class DDSStructuredListBodyBase extends BXStructuredListBodyBase {
   connectedCallback() {
     super.connectedCallback();
   }
 
   static styles = styles;
 }
+
+/**
+ * StructuredListBody
+ *
+ * @element dds-structured-list-body
+ */
+@customElement(`${ddsPrefix}-structured-list-body`)
+class DDSStructuredListBody extends DDSStructuredListBodyBase {}
 
 /* @__GENERATE_REACT_CUSTOM_ELEMENT_TYPE__ */
 export default DDSStructuredListBody;
