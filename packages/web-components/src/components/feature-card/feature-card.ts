@@ -24,7 +24,7 @@ const { stablePrefix: ddsPrefix } = ddsSettings;
  * @element dds-feature-card
  */
 @customElement(`${ddsPrefix}-feature-card`)
-class DDSFeatureCard extends StableSelectorMixin(DDSCardBase) {
+export class DDSFeatureCardBase extends StableSelectorMixin(DDSCardBase) {
   /**
    * The size property to render either Medium (default) or Large Feature Card variants.
    */
@@ -53,6 +53,14 @@ class DDSFeatureCard extends StableSelectorMixin(DDSCardBase) {
 
   static styles = styles;
 }
+
+/**
+ * Feature Card.
+ *
+ * @element dds-feature-card
+ */
+@customElement(`${ddsPrefix}-feature-card`)
+class DDSFeatureCard extends DDSFeatureCardBase {}
 
 /* @__GENERATE_REACT_CUSTOM_ELEMENT_TYPE__ */
 export default DDSFeatureCard;

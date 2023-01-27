@@ -1,7 +1,7 @@
 /**
  * @license
  *
- * Copyright IBM Corp. 2020, 2022
+ * Copyright IBM Corp. 2020, 2023
  *
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
@@ -11,7 +11,7 @@ import { customElement, html } from 'lit-element';
 import settings from 'carbon-components/es/globals/js/settings.js';
 import ddsSettings from '../../internal/vendor/@carbon/ibmdotcom-utilities/utilities/settings/settings';
 import deprecate from '../../internal/vendor/@carbon/ibmdotcom-utilities/utilities/deprecate/deprecate';
-import DDSFeatureCard from '../feature-card/feature-card';
+import { DDSFeatureCardBase } from '../feature-card/feature-card';
 import styles from './feature-card-block-medium.scss';
 
 const { prefix } = settings;
@@ -24,7 +24,7 @@ const { stablePrefix: ddsPrefix } = ddsSettings;
  * @slot block-heading - The block heading content.
  */
 @customElement(`${ddsPrefix}-feature-card-block-medium`)
-class DDSFeatureCardBlockMedium extends DDSFeatureCard {
+class DDSFeatureCardBlockMedium extends DDSFeatureCardBase {
   protected _renderInner() {
     return html` ${this._renderImage()}${super._renderInner()} `;
   }
