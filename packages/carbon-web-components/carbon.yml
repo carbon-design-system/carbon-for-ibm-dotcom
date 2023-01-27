@@ -1,0 +1,510 @@
+# yaml-language-server: $schema=https://unpkg.com/@carbon-platform/schemas@v1/carbon-resources.schema.json
+library:
+  id: carbon-web-components
+  name: Carbon Web Components
+  description:
+  description: Build user interfaces with web components based on Carbon's React library.
+  externalDocsUrl: https://www.ibm.com/standards/web/carbon-for-ibm-dotcom
+  inherits: carbon-styles
+  demoLinks:
+    - type: storybook
+      name: Storybook
+      action: link
+      url: https://www.ibm.com/standards/carbon/carbon-web-components
+assets:
+  accordion:
+    status: stable
+    externalDocsUrl: https://www.carbondesignsystem.com/components/accordion/usage
+    framework: web-component
+    demoLinks:
+      - type: storybook
+        name: Storybook
+        action: link
+        url: https://www.ibm.com/standards/carbon/carbon-web-components/?path=/docs/components-accordion
+    docs:
+      usagePath: https://github.com/carbon-design-system/carbon-website/blob/carbon-platform/src/pages/components/accordion/usage.mdx
+      stylePath: https://github.com/carbon-design-system/carbon-website/blob/carbon-platform/src/pages/components/accordion/style.mdx
+      accessibilityPath: https://github.com/carbon-design-system/carbon-website/blob/carbon-platform/src/pages/components/accordion/accessibility.mdx
+  breadcrumb:
+    status: stable
+    externalDocsUrl: https://www.carbondesignsystem.com/components/breadcrumb/usage
+    framework: web-component
+    demoLinks:
+      - type: storybook
+        name: Storybook
+        action: link
+        url: https://www.ibm.com/standards/carbon/carbon-web-components/?path=/docs/components-breadcrumb
+    docs:
+      usagePath: https://github.com/carbon-design-system/carbon-website/blob/carbon-platform/src/pages/components/breadcrumb/usage.mdx
+      stylePath: https://github.com/carbon-design-system/carbon-website/blob/carbon-platform/src/pages/components/breadcrumb/style.mdx
+      accessibilityPath: https://github.com/carbon-design-system/carbon-website/blob/carbon-platform/src/pages/components/breadcrumb/accessibility.mdx
+  button:
+    status: stable
+    externalDocsUrl: https://www.carbondesignsystem.com/components/button/usage
+    framework: web-component
+    demoLinks:
+      - type: storybook
+        name: Storybook
+        action: link
+        url: https://www.ibm.com/standards/carbon/carbon-web-components/?path=/docs/components-button
+    docs:
+      usagePath: https://github.com/carbon-design-system/carbon-website/blob/carbon-platform/src/pages/components/button/usage.mdx
+      stylePath: https://github.com/carbon-design-system/carbon-website/blob/carbon-platform/src/pages/components/button/style.mdx
+      accessibilityPath: https://github.com/carbon-design-system/carbon-website/blob/carbon-platform/src/pages/components/button/accessibility.mdx
+  checkbox:
+    status: stable
+    externalDocsUrl: https://www.carbondesignsystem.com/components/checkbox/usage
+    framework: web-component
+    demoLinks:
+      - type: storybook
+        name: Storybook
+        action: link
+        url: https://www.ibm.com/standards/carbon/carbon-web-components/?path=/docs/components-checkbox
+    docs:
+      usagePath: https://github.com/carbon-design-system/carbon-website/blob/carbon-platform/src/pages/components/checkbox/usage.mdx
+      stylePath: https://github.com/carbon-design-system/carbon-website/blob/carbon-platform/src/pages/components/checkbox/style.mdx
+      accessibilityPath: https://github.com/carbon-design-system/carbon-website/blob/carbon-platform/src/pages/components/checkbox/accessibility.mdx
+  code-snippet:
+    status: stable
+    externalDocsUrl: https://www.carbondesignsystem.com/components/code-snippet/usage
+    framework: web-component
+    demoLinks:
+      - type: storybook
+        name: Storybook
+        action: link
+        url: https://www.ibm.com/standards/carbon/carbon-web-components/?path=/docs/components-code-snippet
+    docs:
+      usagePath: https://github.com/carbon-design-system/carbon-website/blob/carbon-platform/src/pages/components/code-snippet/usage.mdx
+      stylePath: https://github.com/carbon-design-system/carbon-website/blob/carbon-platform/src/pages/components/code-snippet/style.mdx
+      accessibilityPath: https://github.com/carbon-design-system/carbon-website/blob/carbon-platform/src/pages/components/code-snippet/accessibility.mdx
+  combo-box:
+    status: stable
+    framework: web-component
+    demoLinks:
+      - type: storybook
+        name: Storybook
+        action: link
+        url: https://www.ibm.com/standards/carbon/carbon-web-components/?path=/docs/components-combo-box
+    docs:
+  content-switcher:
+    status: stable
+    externalDocsUrl: https://www.carbondesignsystem.com/components/content-switcher/usage
+    framework: web-component
+    demoLinks:
+      - type: storybook
+        name: Storybook
+        action: link
+        url: https://www.ibm.com/standards/carbon/carbon-web-components/?path=/docs/components-content-switcher
+    docs:
+      usagePath: https://github.com/carbon-design-system/carbon-website/blob/carbon-platform/src/pages/components/content-switcher/usage.mdx
+      stylePath: https://github.com/carbon-design-system/carbon-website/blob/carbon-platform/src/pages/components/content-switcher/style.mdx
+      accessibilityPath: https://github.com/carbon-design-system/carbon-website/blob/carbon-platform/src/pages/components/content-switcher/accessibility.mdx
+  copy-button:
+    status: stable
+    framework: web-component
+    demoLinks:
+      - type: storybook
+        name: Storybook
+        action: link
+        url: https://www.ibm.com/standards/carbon/carbon-web-components/?path=/docs/components-copy-button
+    docs:
+  data-table:
+    status: stable
+    externalDocsUrl: https://www.carbondesignsystem.com/components/data-table/usage
+    framework: web-component
+    demoLinks:
+      - type: storybook
+        name: Storybook
+        action: link
+        url: https://www.ibm.com/standards/carbon/carbon-web-components/?path=/docs/components-data-table
+    docs:
+      usagePath: https://github.com/carbon-design-system/carbon-website/blob/carbon-platform/src/pages/components/data-table/usage.mdx
+      stylePath: https://github.com/carbon-design-system/carbon-website/blob/carbon-platform/src/pages/components/data-table/style.mdx
+      accessibilityPath: https://github.com/carbon-design-system/carbon-website/blob/carbon-platform/src/pages/components/data-table/accessibility.mdx
+  date-picker:
+    status: stable
+    externalDocsUrl: https://www.carbondesignsystem.com/components/date-picker/usage
+    framework: web-component
+    demoLinks:
+      - type: storybook
+        name: Storybook
+        action: link
+        url: https://www.ibm.com/standards/carbon/carbon-web-components/?path=/docs/components-date-picker
+    docs:
+      usagePath: https://github.com/carbon-design-system/carbon-website/blob/carbon-platform/src/pages/components/date-picker/usage.mdx
+      stylePath: https://github.com/carbon-design-system/carbon-website/blob/carbon-platform/src/pages/components/date-picker/style.mdx
+      accessibilityPath: https://github.com/carbon-design-system/carbon-website/blob/carbon-platform/src/pages/components/date-picker/accessibility.mdx
+  dropdown:
+    status: stable
+    externalDocsUrl: https://www.carbondesignsystem.com/components/dropdown/usage
+    framework: web-component
+    demoLinks:
+      - type: storybook
+        name: Storybook
+        action: link
+        url: https://www.ibm.com/standards/carbon/carbon-web-components/?path=/docs/components-dropdown
+    docs:
+      usagePath: https://github.com/carbon-design-system/carbon-website/blob/carbon-platform/src/pages/components/dropdown/usage.mdx
+      stylePath: https://github.com/carbon-design-system/carbon-website/blob/carbon-platform/src/pages/components/dropdown/style.mdx
+      accessibilityPath: https://github.com/carbon-design-system/carbon-website/blob/carbon-platform/src/pages/components/dropdown/accessibility.mdx
+  file-uploader:
+    status: stable
+    externalDocsUrl: https://www.carbondesignsystem.com/components/file-uploader/usage
+    framework: web-component
+    demoLinks:
+      - type: storybook
+        name: Storybook
+        action: link
+        url: https://www.ibm.com/standards/carbon/carbon-web-components/?path=/docs/components-file-uploader
+    docs:
+      usagePath: https://github.com/carbon-design-system/carbon-website/blob/carbon-platform/src/pages/components/file-uploader/usage.mdx
+      stylePath: https://github.com/carbon-design-system/carbon-website/blob/carbon-platform/src/pages/components/file-uploader/style.mdx
+      accessibilityPath: https://github.com/carbon-design-system/carbon-website/blob/carbon-platform/src/pages/components/file-uploader/accessibility.mdx
+  icon:
+    name: Icon
+    framework: web-component
+    status: stable
+    type: component
+    demoLinks:
+      - type: storybook
+        name: Storybook
+        action: link
+        url: https://www.ibm.com/standards/carbon/carbon-web-components/?path=/docs/components-icon
+    docs:
+    tags:
+      - input-control
+      - media
+  inline-loading:
+    status: stable
+    externalDocsUrl: https://www.carbondesignsystem.com/components/inline-loading/usage
+    framework: web-component
+    demoLinks:
+      - type: storybook
+        name: Storybook
+        action: link
+        url: https://www.ibm.com/standards/carbon/carbon-web-components/?path=/docs/components-inline-loading
+    docs:
+      usagePath: https://github.com/carbon-design-system/carbon-website/blob/carbon-platform/src/pages/components/inline-loading/usage.mdx
+      stylePath: https://github.com/carbon-design-system/carbon-website/blob/carbon-platform/src/pages/components/inline-loading/style.mdx
+      accessibilityPath: https://github.com/carbon-design-system/carbon-website/blob/carbon-platform/src/pages/components/inline-loading/accessibility.mdx
+  input:
+    status: stable
+    externalDocsUrl: https://www.ibm.com/standards/carbon/carbon-web-components/?path=/docs/components-input
+    framework: web-component
+    demoLinks:
+      - type: storybook
+        name: Storybook
+        action: link
+        url: https://www.ibm.com/standards/carbon/carbon-web-components/?path=/docs/components-input
+    docs:
+      usagePath: https://github.com/carbon-design-system/carbon-website/blob/carbon-platform/src/pages/components/form/usage.mdx
+      stylePath: https://github.com/carbon-design-system/carbon-website/blob/carbon-platform/src/pages/components/form/style.mdx
+      accessibilityPath: https://github.com/carbon-design-system/carbon-website/blob/carbon-platform/src/pages/components/form/accessibility.mdx
+  link:
+    status: stable
+    externalDocsUrl: https://www.carbondesignsystem.com/components/link/usage
+    framework: web-component
+    demoLinks:
+      - type: storybook
+        name: Storybook
+        action: link
+        url: https://www.ibm.com/standards/carbon/carbon-web-components/?path=/docs/components-link
+    docs:
+      usagePath: https://github.com/carbon-design-system/carbon-website/blob/carbon-platform/src/pages/components/link/usage.mdx
+      stylePath: https://github.com/carbon-design-system/carbon-website/blob/carbon-platform/src/pages/components/link/style.mdx
+      accessibilityPath: https://github.com/carbon-design-system/carbon-website/blob/carbon-platform/src/pages/components/link/accessibility.mdx
+  list:
+    status: stable
+    externalDocsUrl: https://www.ibm.com/standards/carbon/carbon-web-components/?path=/docs/components-list
+    framework: web-component
+    demoLinks:
+      - type: storybook
+        name: Storybook
+        action: link
+        url: https://www.ibm.com/standards/carbon/carbon-web-components/?path=/docs/components-list
+    docs:
+      usagePath: https://github.com/carbon-design-system/carbon-website/blob/carbon-platform/src/pages/components/link/usage.mdx
+      stylePath: https://github.com/carbon-design-system/carbon-website/blob/carbon-platform/src/pages/components/link/style.mdx
+      accessibilityPath: https://github.com/carbon-design-system/carbon-website/blob/carbon-platform/src/pages/components/link/accessibility.mdx
+  loading:
+    status: stable
+    externalDocsUrl: https://www.carbondesignsystem.com/components/loading/usage
+    framework: web-component
+    demoLinks:
+      - type: storybook
+        name: Storybook
+        action: link
+        url: https://www.ibm.com/standards/carbon/carbon-web-components/?path=/docs/components-loading
+    docs:
+      usagePath: https://github.com/carbon-design-system/carbon-website/blob/carbon-platform/src/pages/components/loading/usage.mdx
+      stylePath: https://github.com/carbon-design-system/carbon-website/blob/carbon-platform/src/pages/components/loading/style.mdx
+      accessibilityPath: https://github.com/carbon-design-system/carbon-website/blob/carbon-platform/src/pages/components/loading/accessibility.mdx
+  modal:
+    status: stable
+    externalDocsUrl: https://www.carbondesignsystem.com/components/modal/usage
+    framework: web-component
+    demoLinks:
+      - type: storybook
+        name: Storybook
+        action: link
+        url: https://www.ibm.com/standards/carbon/carbon-web-components/?path=/docs/components-modal
+    docs:
+      usagePath: https://github.com/carbon-design-system/carbon-website/blob/carbon-platform/src/pages/components/modal/usage.mdx
+      stylePath: https://github.com/carbon-design-system/carbon-website/blob/carbon-platform/src/pages/components/modal/style.mdx
+      accessibilityPath: https://github.com/carbon-design-system/carbon-website/blob/carbon-platform/src/pages/components/modal/accessibility.mdx
+  multiselect:
+    status: stable
+    externalDocsUrl: https://www.carbondesignsystem.com/components/dropdown/usage/#multiselect
+    framework: web-component
+    demoLinks:
+      - type: storybook
+        name: Storybook
+        action: link
+        url: https://www.ibm.com/standards/carbon/carbon-web-components/?path=/docs/components-multi-select
+    docs:
+  notifications:
+    status: stable
+    externalDocsUrl: https://www.carbondesignsystem.com/components/notification/usage
+    framework: web-component
+    demoLinks:
+      - type: storybook
+        name: Storybook
+        action: link
+        url: https://www.ibm.com/standards/carbon/carbon-web-components/?path=/docs/components-notifications
+    docs:
+  number-input:
+    status: stable
+    externalDocsUrl: https://www.carbondesignsystem.com/components/number-input/usage
+    framework: web-component
+    demoLinks:
+      - type: storybook
+        name: Storybook
+        action: link
+        url: https://www.ibm.com/standards/carbon/carbon-web-components/?path=/docs/components-number-input
+    docs:
+      usagePath: https://github.com/carbon-design-system/carbon-website/blob/carbon-platform/src/pages/components/number-input/usage.mdx
+      stylePath: https://github.com/carbon-design-system/carbon-website/blob/carbon-platform/src/pages/components/number-input/style.mdx
+      accessibilityPath: https://github.com/carbon-design-system/carbon-website/blob/carbon-platform/src/pages/components/number-input/accessibility.mdx
+  overflow-menu:
+    status: stable
+    externalDocsUrl: https://www.carbondesignsystem.com/components/overflow-menu/usage
+    framework: web-component
+    demoLinks:
+      - type: storybook
+        name: Storybook
+        action: link
+        url: https://www.ibm.com/standards/carbon/carbon-web-components/?path=/docs/components-overflow-menu
+    docs:
+      usagePath: https://github.com/carbon-design-system/carbon-website/blob/carbon-platform/src/pages/components/overflow-menu/usage.mdx
+      stylePath: https://github.com/carbon-design-system/carbon-website/blob/carbon-platform/src/pages/components/overflow-menu/style.mdx
+      accessibilityPath: https://github.com/carbon-design-system/carbon-website/blob/carbon-platform/src/pages/components/overflow-menu/accessibility.mdx
+  pagination:
+    status: stable
+    externalDocsUrl: https://www.carbondesignsystem.com/components/pagination/usage
+    framework: web-component
+    demoLinks:
+      - type: storybook
+        name: Storybook
+        action: link
+        url: https://www.ibm.com/standards/carbon/carbon-web-components/?path=/docs/components-pagination
+    docs:
+      usagePath: https://github.com/carbon-design-system/carbon-website/blob/carbon-platform/src/pages/components/pagination/usage.mdx
+      stylePath: https://github.com/carbon-design-system/carbon-website/blob/carbon-platform/src/pages/components/pagination/style.mdx
+      accessibilityPath: https://github.com/carbon-design-system/carbon-website/blob/carbon-platform/src/pages/components/pagination/accessibility.mdx
+  progress-indicator:
+    status: stable
+    externalDocsUrl: https://www.carbondesignsystem.com/components/progress-indicator/usage
+    framework: web-component
+    demoLinks:
+      - type: storybook
+        name: Storybook
+        action: link
+        url: https://www.ibm.com/standards/carbon/carbon-web-components/?path=/docs/components-progress-indicator
+    docs:
+      usagePath: https://github.com/carbon-design-system/carbon-website/blob/carbon-platform/src/pages/components/progress-indicator/usage.mdx
+      stylePath: https://github.com/carbon-design-system/carbon-website/blob/carbon-platform/src/pages/components/progress-indicator/style.mdx
+      accessibilityPath: https://github.com/carbon-design-system/carbon-website/blob/carbon-platform/src/pages/components/progress-indicator/accessibility.mdx
+  radio-button:
+    status: stable
+    externalDocsUrl: https://www.carbondesignsystem.com/components/radio-button/usage
+    framework: web-component
+    demoLinks:
+      - type: storybook
+        name: Storybook
+        action: link
+        url: https://www.ibm.com/standards/carbon/carbon-web-components/?path=/docs/components-radio-button
+    docs:
+      usagePath: https://github.com/carbon-design-system/carbon-website/blob/carbon-platform/src/pages/components/radio-button/usage.mdx
+      stylePath: https://github.com/carbon-design-system/carbon-website/blob/carbon-platform/src/pages/components/radio-button/style.mdx
+      accessibilityPath: https://github.com/carbon-design-system/carbon-website/blob/carbon-platform/src/pages/components/radio-button/accessibility.mdx
+  search:
+    status: stable
+    externalDocsUrl: https://www.carbondesignsystem.com/components/search/usage
+    framework: web-component
+    demoLinks:
+      - type: storybook
+        name: Storybook
+        action: link
+        url: https://www.ibm.com/standards/carbon/carbon-web-components/?path=/docs/components-search
+    docs:
+      usagePath: https://github.com/carbon-design-system/carbon-website/blob/carbon-platform/src/pages/components/search/usage.mdx
+      stylePath: https://github.com/carbon-design-system/carbon-website/blob/carbon-platform/src/pages/components/search/style.mdx
+      accessibilityPath: https://github.com/carbon-design-system/carbon-website/blob/carbon-platform/src/pages/components/search/accessibility.mdx
+  select:
+    status: stable
+    externalDocsUrl: https://www.carbondesignsystem.com/components/select/usage
+    framework: web-component
+    demoLinks:
+      - type: storybook
+        name: Storybook
+        action: link
+        url: https://www.ibm.com/standards/carbon/carbon-web-components/?path=/docs/components-select
+    tags:
+      - shell
+  skeleton-placeholder:
+    status: stable
+    framework: web-component
+    demoLinks:
+      - type: storybook
+        name: Storybook
+        action: link
+        url: https://www.ibm.com/standards/carbon/carbon-web-components/?path=/docs/components-skeleton-placeholder
+    tags:
+      - shell
+  skeleton-text:
+    status: stable
+    framework: web-component
+    demoLinks:
+      - type: storybook
+        name: Storybook
+        action: link
+        url: https://www.ibm.com/standards/carbon/carbon-web-components/?path=/docs/components-skeleton-text
+    tags:
+      - shell
+  skip-to-content:
+    status: stable
+    framework: web-component
+    demoLinks:
+      - type: storybook
+        name: Storybook
+        action: link
+        url: https://www.ibm.com/standards/carbon/carbon-web-components/?path=/docs/components-skip-to-content
+    docs:
+      usagePath: https://github.com/carbon-design-system/carbon-website/blob/carbon-platform/src/pages/components/select/usage.mdx
+      stylePath: https://github.com/carbon-design-system/carbon-website/blob/carbon-platform/src/pages/components/select/style.mdx
+      accessibilityPath: https://github.com/carbon-design-system/carbon-website/blob/carbon-platform/src/pages/components/select/accessibility.mdx
+  slider:
+    status: stable
+    externalDocsUrl: https://www.carbondesignsystem.com/components/slider/usage
+    framework: web-component
+    demoLinks:
+      - type: storybook
+        name: Storybook
+        action: link
+        url: https://www.ibm.com/standards/carbon/carbon-web-components/?path=/docs/components-slider
+    docs:
+      usagePath: https://github.com/carbon-design-system/carbon-website/blob/carbon-platform/src/pages/components/slider/usage.mdx
+      stylePath: https://github.com/carbon-design-system/carbon-website/blob/carbon-platform/src/pages/components/slider/style.mdx
+      accessibilityPath: https://github.com/carbon-design-system/carbon-website/blob/carbon-platform/src/pages/components/slider/accessibility.mdx
+  structured-list:
+    status: stable
+    externalDocsUrl: https://www.carbondesignsystem.com/components/structured-list/usage
+    framework: web-component
+    demoLinks:
+      - type: storybook
+        name: Storybook
+        action: link
+        url: https://www.ibm.com/standards/carbon/carbon-web-components/?path=/docs/components-structured-list
+    docs:
+      usagePath: https://github.com/carbon-design-system/carbon-website/blob/carbon-platform/src/pages/components/structured-list/usage.mdx
+      stylePath: https://github.com/carbon-design-system/carbon-website/blob/carbon-platform/src/pages/components/structured-list/style.mdx
+      accessibilityPath: https://github.com/carbon-design-system/carbon-website/blob/carbon-platform/src/pages/components/structured-list/accessibility.mdx
+  tabs:
+    status: stable
+    externalDocsUrl: https://www.carbondesignsystem.com/components/tabs/usage
+    framework: web-component
+    demoLinks:
+      - type: storybook
+        name: Storybook
+        action: link
+        url: https://www.ibm.com/standards/carbon/carbon-web-components/?path=/docs/components-tabs
+    docs:
+      usagePath: https://github.com/carbon-design-system/carbon-website/blob/carbon-platform/src/pages/components/tabs/usage.mdx
+      stylePath: https://github.com/carbon-design-system/carbon-website/blob/carbon-platform/src/pages/components/tabs/style.mdx
+      accessibilityPath: https://github.com/carbon-design-system/carbon-website/blob/carbon-platform/src/pages/components/tabs/accessibility.mdx
+  tag:
+    status: stable
+    externalDocsUrl: https://www.carbondesignsystem.com/components/tag/usage
+    framework: web-component
+    demoLinks:
+      - type: storybook
+        name: Storybook
+        action: link
+        url: https://www.ibm.com/standards/carbon/carbon-web-components/?path=/docs/components-tag
+    docs:
+      usagePath: https://github.com/carbon-design-system/carbon-website/blob/carbon-platform/src/pages/components/tag/usage.mdx
+      stylePath: https://github.com/carbon-design-system/carbon-website/blob/carbon-platform/src/pages/components/tag/style.mdx
+      accessibilityPath: https://github.com/carbon-design-system/carbon-website/blob/carbon-platform/src/pages/components/tag/accessibility.mdx
+  textarea:
+    status: stable
+    externalDocsUrl: https://carbondesignsystem.com/components/form/usage
+    framework: web-component
+    demoLinks:
+      - type: storybook
+        name: Storybook
+        action: link
+        url: https://www.ibm.com/standards/carbon/carbon-web-components/?path=/docs/components-textarea
+    docs:
+      usagePath: https://github.com/carbon-design-system/carbon-website/blob/carbon-platform/src/pages/components/form/usage.mdx
+      stylePath: https://github.com/carbon-design-system/carbon-website/blob/carbon-platform/src/pages/components/form/style.mdx
+      accessibilityPath: https://github.com/carbon-design-system/carbon-website/blob/carbon-platform/src/pages/components/form/accessibility.mdx
+  tile:
+    status: stable
+    externalDocsUrl: https://www.carbondesignsystem.com/components/tile/usage
+    framework: web-component
+    demoLinks:
+      - type: storybook
+        name: Storybook
+        action: link
+        url: https://www.ibm.com/standards/carbon/carbon-web-components/?path=/docs/components-tile
+    docs:
+      usagePath: https://github.com/carbon-design-system/carbon-website/blob/carbon-platform/src/pages/components/tile/usage.mdx
+      stylePath: https://github.com/carbon-design-system/carbon-website/blob/carbon-platform/src/pages/components/tile/style.mdx
+      accessibilityPath: https://github.com/carbon-design-system/carbon-website/blob/carbon-platform/src/pages/components/tile/accessibility.mdx
+  toggle:
+    status: stable
+    externalDocsUrl: https://www.carbondesignsystem.com/components/toggle/usage
+    framework: web-component
+    demoLinks:
+      - type: storybook
+        name: Storybook
+        action: link
+        url: https://www.ibm.com/standards/carbon/carbon-web-components/?path=/docs/components-toggle
+    docs:
+      usagePath: https://github.com/carbon-design-system/carbon-website/blob/carbon-platform/src/pages/components/toggle/usage.mdx
+      stylePath: https://github.com/carbon-design-system/carbon-website/blob/carbon-platform/src/pages/components/toggle/style.mdx
+      accessibilityPath: https://github.com/carbon-design-system/carbon-website/blob/carbon-platform/src/pages/components/toggle/accessibility.mdx
+  tooltip:
+    status: stable
+    externalDocsUrl: https://www.carbondesignsystem.com/components/tooltip/usage
+    framework: web-component
+    demoLinks:
+      - type: storybook
+        name: Storybook
+        action: link
+        url: https://www.ibm.com/standards/carbon/carbon-web-components/?path=/docs/components-tooltip
+    docs:
+      usagePath: https://github.com/carbon-design-system/carbon-website/blob/carbon-platform/src/pages/components/tooltip/usage.mdx
+      stylePath: https://github.com/carbon-design-system/carbon-website/blob/carbon-platform/src/pages/components/tooltip/style.mdx
+      accessibilityPath: https://github.com/carbon-design-system/carbon-website/blob/carbon-platform/src/pages/components/tooltip/accessibility.mdx
+  ui-shell:
+    framework: web-component
+    externalDocsUrl: https://www.carbondesignsystem.com/components/UI-shell-header/usage
+    status: stable
+    demoLinks:
+      - type: storybook
+        name: Storybook
+        action: link
+        url: https://www.ibm.com/standards/carbon/carbon-web-components/?path=/docs/components-ui-shell
+    docs:
+      codePath: https://github.com/carbon-design-system/carbon-website/blob/carbon-platform/src/pages/components/UI-shell-header/code.mdx
