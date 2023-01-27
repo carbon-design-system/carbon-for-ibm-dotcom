@@ -1,7 +1,7 @@
 /**
  * @license
  *
- * Copyright IBM Corp. 2021, 2022
+ * Copyright IBM Corp. 2021, 2023
  *
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
@@ -30,7 +30,8 @@ import {
 } from '../../../internal/vendor/@carbon/ibmdotcom-services-store/types/translateAPI.d';
 import { UNAUTHENTICATED_STATUS } from '../../../internal/vendor/@carbon/ibmdotcom-services-store/types/cloudAccountAuthAPI';
 import styles from './cloud-masthead.scss';
-import DDSMastheadComposite, {
+import {
+  DDSMastheadCompositeBase,
   NAV_ITEMS_RENDER_TARGET,
 } from '../masthead-composite';
 
@@ -43,7 +44,7 @@ const { stablePrefix: ddsPrefix } = ddsSettings;
  */
 
 @customElement(`${ddsPrefix}-cloud-masthead-composite`)
-class DDSCloudMastheadComposite extends DDSMastheadComposite {
+class DDSCloudMastheadComposite extends DDSMastheadCompositeBase {
   /**
    * The placeholder for `loadUserStatus()` Redux action that will be mixed in.
    *
