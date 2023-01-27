@@ -1,7 +1,7 @@
 /**
  * @license
  *
- * Copyright IBM Corp. 2020, 2022
+ * Copyright IBM Corp. 2020, 2023
  *
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
@@ -11,7 +11,7 @@ import settings from 'carbon-components/es/globals/js/settings.js';
 import ddsSettings from '@carbon/ibmdotcom-utilities/es/utilities/settings/settings.js';
 import styles from './link-list-section.scss';
 import StableSelectorMixin from '../../globals/mixins/stable-selector';
-import DDSContentSection from '../content-section/content-section';
+import { DDSContentSectionBase } from '../content-section/content-section';
 
 const { prefix } = settings;
 const { stablePrefix: ddsPrefix } = ddsSettings;
@@ -23,7 +23,7 @@ const { stablePrefix: ddsPrefix } = ddsSettings;
  * @slot heading - The heading content.
  */
 @customElement(`${ddsPrefix}-link-list-section`)
-class DDSLinkListSection extends StableSelectorMixin(DDSContentSection) {
+class DDSLinkListSection extends StableSelectorMixin(DDSContentSectionBase) {
   _handleSlotChange = (event: Event) => {
     const slot = (event.target as HTMLSlotElement)
       .assignedElements()
