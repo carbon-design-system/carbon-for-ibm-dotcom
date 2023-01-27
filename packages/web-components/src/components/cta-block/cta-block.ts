@@ -1,7 +1,7 @@
 /**
  * @license
  *
- * Copyright IBM Corp. 2020, 2022
+ * Copyright IBM Corp. 2020, 2023
  *
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
@@ -20,7 +20,7 @@ import ddsSettings from '../../internal/vendor/@carbon/ibmdotcom-utilities/utili
 import StableSelectorMixin from '../../globals/mixins/stable-selector';
 
 import styles from './cta-block.scss';
-import DDSContentBlock from '../content-block/content-block';
+import { DDSContentBlockBase } from '../content-block/content-block';
 
 const { prefix } = settings;
 const { stablePrefix: ddsPrefix } = ddsSettings;
@@ -41,7 +41,7 @@ const slotExistencePropertyNames = {
  * @slot action - The CTA Buttons.
  */
 @customElement(`${ddsPrefix}-cta-block`)
-class DDSCTABlock extends StableSelectorMixin(DDSContentBlock) {
+class DDSCTABlock extends StableSelectorMixin(DDSContentBlockBase) {
   @property({ type: Boolean, attribute: 'no-border', reflect: true })
   _noBorder = false;
 
