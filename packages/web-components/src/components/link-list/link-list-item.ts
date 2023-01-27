@@ -1,7 +1,7 @@
 /**
  * @license
  *
- * Copyright IBM Corp. 2020, 2022
+ * Copyright IBM Corp. 2020, 2023
  *
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
@@ -9,7 +9,7 @@
 
 import { css, customElement, property } from 'lit-element';
 import ddsSettings from '../../internal/vendor/@carbon/ibmdotcom-utilities/utilities/settings/settings';
-import DDSLinkWithIcon from '../link-with-icon/link-with-icon';
+import { DDSLinkWithIconBase } from '../link-with-icon/link-with-icon';
 import styles from './link-list.scss';
 
 import { LINK_LIST_ITEM_TYPE } from './defs';
@@ -22,7 +22,7 @@ const { stablePrefix: ddsPrefix } = ddsSettings;
  * @element dds-link-list-item
  */
 @customElement(`${ddsPrefix}-link-list-item`)
-class DDSLinkListItem extends DDSLinkWithIcon {
+class DDSLinkListItem extends DDSLinkWithIconBase {
   /**
    * Defines the style of the link-list-item: `default` or `end`
    */

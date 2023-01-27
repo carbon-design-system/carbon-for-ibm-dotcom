@@ -17,7 +17,8 @@ import {
 } from 'lit-element';
 import settings from 'carbon-components/es/globals/js/settings.js';
 import ddsSettings from '@carbon/ibmdotcom-utilities/es/utilities/settings/settings.js';
-import DDSLinkWithIcon, {
+import {
+  DDSLinkWithIconBase,
   ICON_PLACEMENT,
 } from '../link-with-icon/link-with-icon';
 import { BASIC_COLOR_SCHEME } from '../../globals/defs';
@@ -29,7 +30,7 @@ const { stablePrefix: ddsPrefix } = ddsSettings;
 /**
  * Card footer base class.
  */
-export class DDSCardFooterBase extends DDSLinkWithIcon {
+export class DDSCardFooterBase extends DDSLinkWithIconBase {
   /**
    * The non-link container node, used when the link of parent `<dds-card>` should be used.
    */
