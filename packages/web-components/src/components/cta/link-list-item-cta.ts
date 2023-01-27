@@ -1,7 +1,7 @@
 /**
  * @license
  *
- * Copyright IBM Corp. 2020, 2022
+ * Copyright IBM Corp. 2020, 2023
  *
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
@@ -9,7 +9,7 @@
 
 import { css, customElement } from 'lit-element';
 import ddsSettings from '../../internal/vendor/@carbon/ibmdotcom-utilities/utilities/settings/settings';
-import DDSTextCTA from './text-cta';
+import { DDSTextCTABase } from './text-cta';
 import styles from '../link-list/link-list.scss';
 
 const { stablePrefix: ddsPrefix } = ddsSettings;
@@ -20,7 +20,7 @@ const { stablePrefix: ddsPrefix } = ddsSettings;
  * @element dds-link-list-item-cta
  */
 @customElement(`${ddsPrefix}-link-list-item-cta`)
-class DDSLinkListItemCTA extends DDSTextCTA {
+class DDSLinkListItemCTA extends DDSTextCTABase {
   connectedCallback() {
     if (!this.hasAttribute('role')) {
       this.setAttribute('role', 'listitem');
