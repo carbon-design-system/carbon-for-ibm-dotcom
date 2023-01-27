@@ -1,7 +1,7 @@
 /**
  * @license
  *
- * Copyright IBM Corp. 2020, 2022
+ * Copyright IBM Corp. 2020, 2023
  *
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
@@ -9,7 +9,7 @@
 
 import { customElement, property } from 'lit-element';
 import ddsSettings from '../../internal/vendor/@carbon/ibmdotcom-utilities/utilities/settings/settings';
-import DDSCardLinkCTA from '../cta/card-link-cta';
+import { DDSCardLinkCTABase } from '../cta/card-link-cta';
 import styles from './card-group.scss';
 
 const { stablePrefix: ddsPrefix } = ddsSettings;
@@ -20,7 +20,7 @@ const { stablePrefix: ddsPrefix } = ddsSettings;
  * @element dds-card-group-card-link-item
  */
 @customElement(`${ddsPrefix}-card-group-card-link-item`)
-class DDSCardGroupCardLinkItem extends DDSCardLinkCTA {
+class DDSCardGroupCardLinkItem extends DDSCardLinkCTABase {
   /**
    * `true` if the card group is using border.
    */
