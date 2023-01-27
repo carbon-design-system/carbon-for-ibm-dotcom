@@ -1,7 +1,7 @@
 /**
  * @license
  *
- * Copyright IBM Corp. 2020, 2022
+ * Copyright IBM Corp. 2020, 2023
  *
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
@@ -20,12 +20,9 @@ export { CONTENT_BLOCK_COPY_SIZE };
 const { stablePrefix: ddsPrefix } = ddsSettings;
 
 /**
- * The copy content of content block.
- *
- * @element dds-content-block-copy
+ * The copy content of content block base class.
  */
-@customElement(`${ddsPrefix}-content-block-copy`)
-class DDSContentBlockCopy extends StableSelectorMixin(DDSMarkdown) {
+export class DDSContentBlockCopyBase extends StableSelectorMixin(DDSMarkdown) {
   protected get _customTags() {
     const tags = new Set(super._customTags);
     tags.add(`${ddsPrefix}-content-block-paragraph`);
@@ -64,6 +61,14 @@ class DDSContentBlockCopy extends StableSelectorMixin(DDSMarkdown) {
     `;
   }
 }
+
+/**
+ * The copy content of content block.
+ *
+ * @element dds-content-block-copy
+ */
+@customElement(`${ddsPrefix}-content-block-copy`)
+class DDSContentBlockCopy extends DDSContentBlockCopyBase {}
 
 /* @__GENERATE_REACT_CUSTOM_ELEMENT_TYPE__ */
 export default DDSContentBlockCopy;
