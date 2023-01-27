@@ -1,15 +1,15 @@
 /**
  * @license
  *
- * Copyright IBM Corp. 2020, 2022
+ * Copyright IBM Corp. 2020, 2023
  *
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
  */
 
 import { html, render } from 'lit-html';
-import ifNonNull from '@carbon/web-components/es/globals/directives/if-non-null.js';
-import { SIDE_NAV_USAGE_MODE } from '@carbon/web-components/es/components/ui-shell/side-nav.js';
+import ifNonNull from '../../../internal/vendor/@carbon/web-components/globals/directives/if-non-null.js';
+import { SIDE_NAV_USAGE_MODE } from '../../../internal/vendor/@carbon/web-components/components/ui-shell/side-nav.js';
 import '../left-nav';
 import DDSLeftNavOverlay from '../left-nav-overlay';
 
