@@ -18,7 +18,6 @@ import RadioGroupManager, {
   ManagedRadioButtonDelegate,
 } from '../../globals/internal/radio-group-manager';
 import styles from './structured-list.scss';
-import { check } from 'prettier';
 
 const { prefix } = settings;
 
@@ -239,6 +238,7 @@ export class BXStructuredListRowBase extends HostListenerMixin(LitElement) {
  *
  * @element bx-structured-list-row
  */
+@customElement(`${prefix}-structured-list-row`)
 class BXStructuredListRow extends BXStructuredListRowBase {}
 
 export default BXStructuredListRow;
