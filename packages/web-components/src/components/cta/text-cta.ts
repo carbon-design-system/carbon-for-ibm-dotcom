@@ -26,7 +26,9 @@ const { stablePrefix: ddsPrefix } = ddsSettings;
 /**
  * Text CTA base class.
  */
-class DDSTextCTABase extends VideoCTAMixin(CTAMixin(DDSLinkWithIconBase)) {
+export class DDSTextCTABase extends VideoCTAMixin(
+  CTAMixin(DDSLinkWithIconBase)
+) {
   /**
    * `true` if there is a non-empty default slot content.
    */

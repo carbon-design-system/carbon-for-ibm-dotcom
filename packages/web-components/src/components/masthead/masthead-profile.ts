@@ -25,7 +25,7 @@ const { stablePrefix: ddsPrefix } = ddsSettings;
 /**
  * The profile menu UI in the masthead base class.
  */
-class DDSMastheadProfileBase extends HostListenerMixin(
+export class DDSMastheadProfileBase extends HostListenerMixin(
   FocusMixin(StableSelectorMixin(LitElement))
 ) {
   /**
