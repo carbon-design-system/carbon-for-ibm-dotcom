@@ -10,8 +10,8 @@
 import { LitElement, html } from 'lit';
 import { customElement, property } from 'lit/decorators.js';
 import { ifDefined } from 'lit/directives/if-defined.js';
-import HostListener from '@carbon/web-components/es/globals/decorators/host-listener.js';
-import HostListenerMixin from '@carbon/web-components/es/globals/mixins/host-listener.js';
+import HostListener from '../../internal/vendor/@carbon/web-components/globals/decorators/host-listener.js';
+import HostListenerMixin from '../../internal/vendor/@carbon/web-components/globals/mixins/host-listener.js';
 import LocaleAPI from '../../internal/vendor/@carbon/ibmdotcom-services/services/Locale/Locale';
 import ddsSettings from '../../internal/vendor/@carbon/ibmdotcom-utilities/utilities/settings/settings';
 import HybridRenderMixin from '../../globals/mixins/hybrid-render';
@@ -38,8 +38,8 @@ import './legal-nav-item';
 import './legal-nav-cookie-preferences-placeholder';
 import './language-selector-desktop';
 import './language-selector-mobile';
-import '@carbon/web-components/es/components/combo-box/combo-box-item.js';
-import '@carbon/web-components/es/components/select/select-item.js';
+import '../../internal/vendor/@carbon/web-components/components/combo-box/combo-box-item.js';
+import '../../internal/vendor/@carbon/web-components/components/select/select-item.js';
 
 const { stablePrefix: ddsPrefix } = ddsSettings;
 

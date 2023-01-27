@@ -10,7 +10,7 @@
 import { LitElement, html } from 'lit';
 import { customElement, property, state } from 'lit/decorators.js';
 import settings from 'carbon-components/es/globals/js/settings.js';
-import ChevronRight16 from '@carbon/web-components/es/icons/chevron--right/16.js';
+import ChevronRight16 from '../../internal/vendor/@carbon/web-components/icons/chevron--right/16.js';
 import ddsSettings from '../../internal/vendor/@carbon/ibmdotcom-utilities/utilities/settings/settings';
 import StableSelectorMixin from '../../globals/mixins/stable-selector';
 import Handle from '../../globals/internal/handle';

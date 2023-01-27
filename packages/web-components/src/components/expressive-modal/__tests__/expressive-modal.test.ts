@@ -10,6 +10,8 @@
 import { html, render } from 'lit/html.js';
 import EventManager from '../../../../tests/utils/event-manager';
 import DDSExpressiveModal from '../expressive-modal';
+import '../../../internal/vendor/@carbon/web-components/components/button/button';
+import BXModalCloseButton from '../../../internal/vendor/@carbon/web-components/components/modal/modal-close-button';
 import { EXPRESSIVE_MODAL_SIZE } from '../defs';
 import { Default } from '../__stories__/expressive-modal.stories';
 
@@ -204,7 +206,9 @@ describe('dds-expressive-modal', function () {
         document.body
       );
       await Promise.resolve();
-      (document.querySelector('bx-modal-close-button') as HTMLElement).click();
+      (
+        document.querySelector('bx-modal-close-button') as BXModalCloseButton
+      ).click();
       await Promise.resolve();
       expect(
         (document.querySelector('dds-expressive-modal') as DDSExpressiveModal)

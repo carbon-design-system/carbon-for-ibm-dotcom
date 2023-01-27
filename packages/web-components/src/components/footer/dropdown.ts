@@ -13,10 +13,10 @@ import { ifDefined } from 'lit/directives/if-defined.js';
 import { html } from 'lit';
 import { customElement, property, query } from 'lit/decorators.js';
 import ddsSettings from '@carbon/ibmdotcom-utilities/es/utilities/settings/settings.js';
-import BXDropdown from '@carbon/web-components/es/components/dropdown/dropdown.js';
-import BXDropdownItem from '@carbon/web-components/es/components/dropdown/dropdown-item.js';
-import ChevronDown16 from '@carbon/web-components/es/icons/chevron--down/16.js';
-import WarningFilled16 from '@carbon/web-components/es/icons/warning--filled/16.js';
+import BXDropdown from '../../internal/vendor/@carbon/web-components/components/dropdown/dropdown.js';
+import BXDropdownItem from '../../internal/vendor/@carbon/web-components/components/dropdown/dropdown-item.js';
+import ChevronDown16 from '../../internal/vendor/@carbon/web-components/icons/chevron--down/16.js';
+import WarningFilled16 from '../../internal/vendor/@carbon/web-components/icons/warning--filled/16.js';
 import {
   DROPDOWN_COLOR_SCHEME,
   DROPDOWN_KEYBOARD_ACTION,

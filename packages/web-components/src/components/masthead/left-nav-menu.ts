@@ -11,8 +11,8 @@ import { classMap } from 'lit/directives/class-map.js';
 import { LitElement, html } from 'lit';
 import { customElement, property } from 'lit/decorators.js';
 import settings from 'carbon-components/es/globals/js/settings.js';
-import ChevronDown20 from '@carbon/web-components/es/icons/chevron--down/20.js';
-import FocusMixin from '@carbon/web-components/es/globals/mixins/focus.js';
+import ChevronDown20 from '../../internal/vendor/@carbon/web-components/icons/chevron--down/20.js';
+import FocusMixin from '../../internal/vendor/@carbon/web-components/globals/mixins/focus.js';
 import ddsSettings from '../../internal/vendor/@carbon/ibmdotcom-utilities/utilities/settings/settings';
 import styles from './masthead.scss';
 

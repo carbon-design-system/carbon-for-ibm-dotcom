@@ -9,10 +9,10 @@
 
 import '../../image/image';
 import '../../tag-group/tag-group';
-import '@carbon/web-components/es/components/tag/tag.js';
+import '../../../internal/vendor/@carbon/web-components/components/tag/tag.js';
 import '../index';
 import { boolean, select } from '@storybook/addon-knobs';
-import ArrowRight20 from '@carbon/web-components/es/icons/arrow--right/20.js';
+import ArrowRight20 from '../../../internal/vendor/@carbon/web-components/icons/arrow--right/20';
 import { html } from 'lit';
 import { ifDefined } from 'lit/directives/if-defined.js';
 import imgXlg4x3 from '../../../../../storybook-images/assets/1312/fpo--4x3--1312x984--003.jpg';

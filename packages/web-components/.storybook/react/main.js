@@ -1,7 +1,7 @@
 /**
  * @license
  *
- * Copyright IBM Corp. 2020, 2022
+ * Copyright IBM Corp. 2020, 2023
  *
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
@@ -58,7 +58,7 @@ class CreateReactCustomElementTypeProxyPlugin {
   /**
    * A WebPack resolver plugin that proxies module request for:
    *
-   * * `carbon-web-components/es/components-react/**` to the corresponsing local path in this project
+   * * `@carbon/web-components/es/components-react/**` to the corresponsing local path in this project
    * * `es/components`/`es/globals` to the corresponding source code, given the former may not have been built yet
    * * `{es,src}/components-react/componentname/{defs,*-connect}` to `src/components/componentname/{defs,*-connect}`,
    *   given the former may not have been built yet

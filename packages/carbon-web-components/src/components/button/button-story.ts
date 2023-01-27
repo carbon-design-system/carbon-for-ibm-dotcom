@@ -14,7 +14,7 @@ import { ifDefined } from 'lit/directives/if-defined.js';
 // Below path will be there when an application installs `carbon-web-components` package.
 // In our dev env, we auto-generate the file and re-map below path to to point to the generated file.
 // @ts-ignore
-import Add16 from '@carbon/web-components/es/icons/add/16';
+import Add16 from '../../../../internal/vendor/@carbon/web-components/icons/add/16';
 import { BUTTON_KIND, BUTTON_SIZE, BUTTON_ICON_LAYOUT } from './button';
 import './button-skeleton';
 import textNullable from '../../../.storybook/knob-text-nullable';

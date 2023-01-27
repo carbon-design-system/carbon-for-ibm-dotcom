@@ -8,7 +8,7 @@
  */
 
 import { customElement, property } from 'lit/decorators.js';
-import BXSkipToContent from '@carbon/web-components/es/components/skip-to-content/skip-to-content.js';
+import BXSkipToContent from '../../internal/vendor/@carbon/web-components/components/skip-to-content/skip-to-content.js';
 import ddsSettings from '../../internal/vendor/@carbon/ibmdotcom-utilities/utilities/settings/settings';
 import styles from './masthead.scss';
 

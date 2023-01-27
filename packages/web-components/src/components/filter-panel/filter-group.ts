@@ -8,7 +8,7 @@
  */
 
 import { customElement } from 'lit/decorators.js';
-import BXAccordion from '@carbon/web-components/es/components/accordion/accordion.js';
+import BXAccordion from '../../internal/vendor/@carbon/web-components/components/accordion/accordion.js';
 import ddsSettings from '../../internal/vendor/@carbon/ibmdotcom-utilities/utilities/settings/settings';
 import StableSelectorMixin from '../../globals/mixins/stable-selector';
 import './filter-panel-input-select';

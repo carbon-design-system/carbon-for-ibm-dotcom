@@ -8,8 +8,13 @@
  */
 
 import '../index';
+<<<<<<< HEAD
 import { html } from 'lit';
 import { ifDefined } from 'lit/directives/if-defined.js';
+=======
+import { html } from 'lit-element';
+import ifNonNull from '../../../internal/vendor/@carbon/web-components/globals/directives/if-non-null.js';
+>>>>>>> 2de38eaa54 (chore(cwc): generate cwc internal vendor package (#9953))
 import { select } from '@storybook/addon-knobs';
 // eslint-disable-next-line sort-imports
 import { CTA_TYPE } from '../../cta/defs';

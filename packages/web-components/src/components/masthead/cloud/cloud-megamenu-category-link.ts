@@ -9,7 +9,7 @@
 
 import { html } from 'lit';
 import { customElement, property } from 'lit/decorators.js';
-import BXLink from '@carbon/web-components/es/components/link/link.js';
+import BXLink from '../../../internal/vendor/@carbon/web-components/components/link/link.js';
 import ddsSettings from '../../../internal/vendor/@carbon/ibmdotcom-utilities/utilities/settings/settings';
 import styles from './cloud-masthead.scss';
 

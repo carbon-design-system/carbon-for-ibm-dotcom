@@ -11,7 +11,7 @@ import { classMap } from 'lit/directives/class-map.js';
 import { html } from 'lit';
 import { customElement } from 'lit/decorators.js';
 import settings from 'carbon-components/es/globals/js/settings.js';
-import BXSideNavMenuItem from '@carbon/web-components/es/components/ui-shell/side-nav-menu-item.js';
+import BXSideNavMenuItem from '../../internal/vendor/@carbon/web-components/components/ui-shell/side-nav-menu-item.js';
 import ddsSettings from '../../internal/vendor/@carbon/ibmdotcom-utilities/utilities/settings/settings';
 import styles from './masthead.scss';
 
