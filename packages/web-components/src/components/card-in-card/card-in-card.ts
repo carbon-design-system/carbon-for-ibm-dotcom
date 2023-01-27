@@ -1,7 +1,7 @@
 /**
  * @license
  *
- * Copyright IBM Corp. 2021, 2022
+ * Copyright IBM Corp. 2021, 2023
  *
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
@@ -12,7 +12,7 @@ import settings from 'carbon-components/es/globals/js/settings.js';
 import ifNonNull from '@carbon/web-components/es/globals/directives/if-non-null.js';
 import PlayVideo from '@carbon/ibmdotcom-styles/icons/svg/play-video.svg';
 import ddsSettings from '../../internal/vendor/@carbon/ibmdotcom-utilities/utilities/settings/settings';
-import DDSCardCTA, { CTA_TYPE } from '../cta/card-cta';
+import { DDSCardCTABase, CTA_TYPE } from '../cta/card-cta';
 import './card-in-card-image';
 import styles from './card-in-card.scss';
 import StableSelectorMixin from '../../globals/mixins/stable-selector';
@@ -26,7 +26,7 @@ const { stablePrefix: ddsPrefix } = ddsSettings;
  * @element dds-card-in-card
  */
 @customElement(`${ddsPrefix}-card-in-card`)
-class DDSCardInCard extends StableSelectorMixin(DDSCardCTA) {
+class DDSCardInCard extends StableSelectorMixin(DDSCardCTABase) {
   protected _renderImage() {
     const {
       ctaType,

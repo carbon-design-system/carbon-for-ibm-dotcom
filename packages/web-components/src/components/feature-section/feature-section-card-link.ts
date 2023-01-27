@@ -1,7 +1,7 @@
 /**
  * @license
  *
- * Copyright IBM Corp. 2020, 2022
+ * Copyright IBM Corp. 2020, 2023
  *
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
@@ -9,7 +9,7 @@
 
 import { css, customElement } from 'lit-element';
 import ddsSettings from '../../internal/vendor/@carbon/ibmdotcom-utilities/utilities/settings/settings';
-import DDSCardCTA from '../cta/card-cta';
+import { DDSCardCTABase } from '../cta/card-cta';
 import styles from './feature-section.scss';
 
 const { stablePrefix: ddsPrefix } = ddsSettings;
@@ -20,7 +20,7 @@ const { stablePrefix: ddsPrefix } = ddsSettings;
  * @element dds-feature-section-card-link
  */
 @customElement(`${ddsPrefix}-feature-section-card-link`)
-class DDSFeatureSectionCardLink extends DDSCardCTA {
+class DDSFeatureSectionCardLink extends DDSCardCTABase {
   static get stableSelector() {
     return `${ddsPrefix}--feature-section-card-link`;
   }
