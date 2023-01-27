@@ -1,7 +1,7 @@
 /**
  * @license
  *
- * Copyright IBM Corp. 2020, 2022
+ * Copyright IBM Corp. 2020, 2023
  *
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
@@ -9,7 +9,7 @@
 import { customElement } from 'lit-element';
 import ddsSettings from '@carbon/ibmdotcom-utilities/es/utilities/settings/settings.js';
 import styles from './button-group.scss';
-import DDSButtonExpressive from '../button/button';
+import { DDSButtonExpressiveBase } from '../button/button';
 
 const { stablePrefix: ddsPrefix } = ddsSettings;
 
@@ -19,7 +19,7 @@ const { stablePrefix: ddsPrefix } = ddsSettings;
  * @element dds-button-group-item
  */
 @customElement(`${ddsPrefix}-button-group-item`)
-class DDSButtonGroupItem extends DDSButtonExpressive {
+class DDSButtonGroupItem extends DDSButtonExpressiveBase {
   static get stableSelector() {
     return `${ddsPrefix}--button-group-item`;
   }
