@@ -10,7 +10,7 @@
 import { css, property, customElement } from 'lit-element';
 import ddsSettings from '../../internal/vendor/@carbon/ibmdotcom-utilities/utilities/settings/settings';
 import StableSelectorMixin from '../../globals/mixins/stable-selector';
-import DDSMarkdown from '../markdown/markdown';
+import { DDSMarkdownBase } from '../markdown/markdown';
 import { CONTENT_BLOCK_COPY_SIZE } from './defs';
 import './content-block-paragraph';
 import styles from './content-block.scss';
@@ -22,7 +22,9 @@ const { stablePrefix: ddsPrefix } = ddsSettings;
 /**
  * The copy content of content block base class.
  */
-export class DDSContentBlockCopyBase extends StableSelectorMixin(DDSMarkdown) {
+export class DDSContentBlockCopyBase extends StableSelectorMixin(
+  DDSMarkdownBase
+) {
   protected get _customTags() {
     const tags = new Set(super._customTags);
     tags.add(`${ddsPrefix}-content-block-paragraph`);
