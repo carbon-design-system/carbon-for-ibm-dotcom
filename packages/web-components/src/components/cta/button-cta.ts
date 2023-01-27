@@ -13,7 +13,7 @@ import {
   formatVideoCaption,
   formatVideoDuration,
 } from '../../internal/vendor/@carbon/ibmdotcom-utilities/utilities/formatVideoCaption/formatVideoCaption.js';
-import DDSButtonGroupItem from '../button-group/button-group-item';
+import { DDSButtonGroupItemBase } from '../button-group/button-group-item';
 import CTAMixin from '../../component-mixins/cta/cta';
 import VideoCTAMixin from '../../component-mixins/cta/video';
 import { CTA_TYPE } from './defs';
@@ -27,7 +27,7 @@ const { stablePrefix: ddsPrefix } = ddsSettings;
  * Button CTA base class.
  */
 export class DDSButtonCTABase extends VideoCTAMixin(
-  CTAMixin(DDSButtonGroupItem)
+  CTAMixin(DDSButtonGroupItemBase)
 ) {
   /**
    * The button that may work as a link.
