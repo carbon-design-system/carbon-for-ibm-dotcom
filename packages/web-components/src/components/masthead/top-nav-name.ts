@@ -1,7 +1,7 @@
 /**
  * @license
  *
- * Copyright IBM Corp. 2020, 2022
+ * Copyright IBM Corp. 2020, 2023
  *
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
@@ -12,7 +12,7 @@ import settings from 'carbon-components/es/globals/js/settings.js';
 import ifNonNull from '@carbon/web-components/es/globals/directives/if-non-null.js';
 import ddsSettings from '../../internal/vendor/@carbon/ibmdotcom-utilities/utilities/settings/settings';
 import DDSMastheadTopNav from './top-nav';
-import DDSLeftNavName from './left-nav-name';
+import { DDSLeftNavNameBase } from './left-nav-name';
 import styles from './masthead.scss';
 
 const { prefix } = settings;
@@ -24,7 +24,7 @@ const { stablePrefix: ddsPrefix } = ddsSettings;
  * @element dds-top-nav-name
  */
 @customElement(`${ddsPrefix}-top-nav-name`)
-class DDSTopNavName extends DDSLeftNavName {
+class DDSTopNavName extends DDSLeftNavNameBase {
   connectedCallback() {
     super.connectedCallback();
     const { selectorTopNav } = this.constructor as typeof DDSTopNavName;
