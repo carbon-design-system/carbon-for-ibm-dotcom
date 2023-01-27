@@ -1,7 +1,7 @@
 /**
  * * @license
  *
- * Copyright IBM Corp. 2019, 2022
+ * Copyright IBM Corp. 2019, 2023
  *
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
@@ -16,12 +16,11 @@ import styles from './structured-list.scss';
 const { stablePrefix: ddsPrefix } = ddsSettings;
 
 /**
- * StructuredListGroup
- *
- * @element dds-structured-list-group
+ * StructuredListGroup base class.
  */
-@customElement(`${ddsPrefix}-structured-list-group`)
-class DDSStructuredListGroup extends StableSelectorMixin(LitElement) {
+export class DDSStructuredListGroupBase extends StableSelectorMixin(
+  LitElement
+) {
   _parentTable: DDSStructuredList | null = this.closest(
     `${ddsPrefix}-structured-list`
   );
@@ -51,6 +50,14 @@ class DDSStructuredListGroup extends StableSelectorMixin(LitElement) {
 
   static styles = styles;
 }
+
+/**
+ * StructuredListGroup
+ *
+ * @element dds-structured-list-group
+ */
+@customElement(`${ddsPrefix}-structured-list-group`)
+class DDSStructuredListGroup extends DDSStructuredListGroupBase {}
 
 /* @__GENERATE_REACT_CUSTOM_ELEMENT_TYPE__ */
 export default DDSStructuredListGroup;
