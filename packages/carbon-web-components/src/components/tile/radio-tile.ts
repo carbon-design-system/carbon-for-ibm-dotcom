@@ -1,7 +1,7 @@
 /**
  * @license
  *
- * Copyright IBM Corp. 2019, 2022
+ * Copyright IBM Corp. 2019, 2023
  *
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
@@ -14,7 +14,7 @@ import HostListenerMixin from '../../globals/mixins/host-listener';
 import RadioGroupManager, {
   NAVIGATION_DIRECTION,
 } from '../../globals/internal/radio-group-manager';
-import SelectableTile from './selectable-tile';
+import { BXSelectableTileBase } from './selectable-tile';
 
 const { prefix } = settings;
 
@@ -34,7 +34,7 @@ const navigationDirectionForKey = {
  * @element bx-radio-tile
  */
 @customElement(`${prefix}-radio-tile`)
-class BXRadioTile extends HostListenerMixin(SelectableTile) {
+class BXRadioTile extends HostListenerMixin(BXSelectableTileBase) {
   /**
    * The radio group manager associated with the radio button.
    */

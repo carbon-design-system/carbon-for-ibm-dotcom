@@ -32,7 +32,7 @@ const { prefix } = settings;
  * @fires bx-selectable-tile-changed - The custom event fired after this selectable tile changes its selected state.
  */
 @customElement(`${prefix}-selectable-tile`)
-class BXSelectableTile extends FocusMixin(LitElement) {
+export class BXSelectableTileBase extends FocusMixin(LitElement) {
   @query('input')
   protected _inputNode!: HTMLInputElement;
 
@@ -146,5 +146,14 @@ class BXSelectableTile extends FocusMixin(LitElement) {
 
   static styles = styles;
 }
+
+/**
+ * Multi-selectable tile.
+ *
+ * @element bx-selectable-tile
+ * @fires bx-selectable-tile-changed - The custom event fired after this selectable tile changes its selected state.
+ */
+@customElement(`${prefix}-selectable-tile`)
+class BXSelectableTile extends BXSelectableTileBase {}
 
 export default BXSelectableTile;
