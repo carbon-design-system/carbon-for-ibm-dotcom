@@ -1,7 +1,7 @@
 /**
  * @license
  *
- * Copyright IBM Corp. 2020, 2022
+ * Copyright IBM Corp. 2020, 2023
  *
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
@@ -12,7 +12,7 @@ import settings from 'carbon-components/es/globals/js/settings.js';
 import ddsSettings from '../../internal/vendor/@carbon/ibmdotcom-utilities/utilities/settings/settings';
 import StableSelectorMixin from '../../globals/mixins/stable-selector';
 import styles from './content-block-media.scss';
-import DDSContentGroup from '../content-group/content-group';
+import { DDSContentGroupBase } from '../content-group/content-group';
 
 const { prefix } = settings;
 const { stablePrefix: ddsPrefix } = ddsSettings;
@@ -23,7 +23,9 @@ const { stablePrefix: ddsPrefix } = ddsSettings;
  * @element dds-content-block-media-content
  */
 @customElement(`${ddsPrefix}-content-block-media-content`)
-class DDSContentBlockMediaContent extends StableSelectorMixin(DDSContentGroup) {
+class DDSContentBlockMediaContent extends StableSelectorMixin(
+  DDSContentGroupBase
+) {
   protected _renderInnerBody(): TemplateResult | string | void {
     const { _hasContent: hasContent, _hasMedia: hasMedia } = this;
     // Moves media content out of `<div class="bx--content-block__children">`

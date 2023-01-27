@@ -9,7 +9,7 @@
 
 import { css, customElement, html, property } from 'lit-element';
 import ddsSettings from '../../internal/vendor/@carbon/ibmdotcom-utilities/utilities/settings/settings';
-import DDSContentGroup from '../content-group/content-group';
+import { DDSContentGroupBase } from '../content-group/content-group';
 import '../horizontal-rule/horizontal-rule';
 import styles from './content-block-horizontal.scss';
 
@@ -18,7 +18,7 @@ const { stablePrefix: ddsPrefix } = ddsSettings;
 /**
  * Horizontal version of content group base class.
  */
-export class DDSContentBlockHorizontalBase extends DDSContentGroup {
+export class DDSContentBlockHorizontalBase extends DDSContentGroupBase {
   @property({ type: Boolean, reflect: true, attribute: 'border' })
   border = false;
 
