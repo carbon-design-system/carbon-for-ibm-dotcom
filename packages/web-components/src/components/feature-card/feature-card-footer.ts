@@ -1,7 +1,7 @@
 /**
  * @license
  *
- * Copyright IBM Corp. 2020, 2022
+ * Copyright IBM Corp. 2020, 2023
  *
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
@@ -10,7 +10,7 @@
 import { customElement } from 'lit-element';
 import settings from 'carbon-components/es/globals/js/settings.js';
 import ddsSettings from '../../internal/vendor/@carbon/ibmdotcom-utilities/utilities/settings/settings';
-import DDSCardFooter from '../card/card-footer';
+import { DDSCardFooterBase } from '../card/card-footer';
 import styles from './feature-card.scss';
 
 const { prefix } = settings;
@@ -22,7 +22,7 @@ const { stablePrefix: ddsPrefix } = ddsSettings;
  * @element dds-feature-card-footer
  */
 @customElement(`${ddsPrefix}-feature-card-footer`)
-class DDSFeatureCardFooter extends DDSCardFooter {
+class DDSFeatureCardFooter extends DDSCardFooterBase {
   updated() {
     super.updated();
     const { _linkNode: linkNode } = this;

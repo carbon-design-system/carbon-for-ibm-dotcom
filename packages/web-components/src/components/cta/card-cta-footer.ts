@@ -1,7 +1,7 @@
 /**
  * @license
  *
- * Copyright IBM Corp. 2020, 2022
+ * Copyright IBM Corp. 2020, 2023
  *
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
@@ -14,7 +14,7 @@ import {
   formatVideoCaption,
   formatVideoDuration,
 } from '../../internal/vendor/@carbon/ibmdotcom-utilities/utilities/formatVideoCaption/formatVideoCaption.js';
-import DDSCardFooter from '../card/card-footer';
+import { DDSCardFooterBase } from '../card/card-footer';
 import CTAMixin from '../../component-mixins/cta/cta';
 import VideoCTAMixin from '../../component-mixins/cta/video';
 import { CTA_TYPE } from './defs';
@@ -29,7 +29,7 @@ const { stablePrefix: ddsPrefix } = ddsSettings;
  * @element dds-card-cta-footer
  */
 @customElement(`${ddsPrefix}-card-cta-footer`)
-class DDSCardCTAFooter extends VideoCTAMixin(CTAMixin(DDSCardFooter)) {
+class DDSCardCTAFooter extends VideoCTAMixin(CTAMixin(DDSCardFooterBase)) {
   protected _renderContent() {
     const { ctaType, _hasCopy: hasCopy } = this;
     if (ctaType !== CTA_TYPE.VIDEO) {
