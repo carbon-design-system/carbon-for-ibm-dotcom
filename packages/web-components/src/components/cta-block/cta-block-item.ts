@@ -1,7 +1,7 @@
 /**
  * @license
  *
- * Copyright IBM Corp. 2020, 2022
+ * Copyright IBM Corp. 2020, 2023
  *
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
@@ -11,7 +11,7 @@ import { customElement, html, css, state, TemplateResult } from 'lit-element';
 import settings from 'carbon-components/es/globals/js/settings.js';
 import ddsSettings from '../../internal/vendor/@carbon/ibmdotcom-utilities/utilities/settings/settings';
 import StableSelectorMixin from '../../globals/mixins/stable-selector';
-import DDSContentItem from '../content-item/content-item';
+import { DDSContentItemBase } from '../content-item/content-item';
 
 import styles from './cta-block.scss';
 
@@ -38,7 +38,7 @@ const slotExistencePropertyNames = {
  * @slot footer
  */
 @customElement(`${ddsPrefix}-cta-block-item`)
-class DDSCTABlockItem extends StableSelectorMixin(DDSContentItem) {
+class DDSCTABlockItem extends StableSelectorMixin(DDSContentItemBase) {
   /**
    * `true` if there are CTA media in the content item area.
    */

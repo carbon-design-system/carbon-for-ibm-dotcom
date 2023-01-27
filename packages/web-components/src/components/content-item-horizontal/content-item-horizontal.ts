@@ -1,7 +1,7 @@
 /**
  * @license
  *
- * Copyright IBM Corp. 2020, 2022
+ * Copyright IBM Corp. 2020, 2023
  *
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
@@ -10,7 +10,7 @@
 import { customElement, html, property, TemplateResult } from 'lit-element';
 import settings from 'carbon-components/es/globals/js/settings.js';
 import ddsSettings from '../../internal/vendor/@carbon/ibmdotcom-utilities/utilities/settings/settings';
-import DDSContentItem from '../content-item/content-item';
+import { DDSContentItemBase } from '../content-item/content-item';
 import styles from './content-item-horizontal.scss';
 
 const { prefix } = settings;
@@ -22,7 +22,7 @@ const { stablePrefix: ddsPrefix } = ddsSettings;
  * @element dds-content-item-horizontal
  */
 @customElement(`${ddsPrefix}-content-item-horizontal`)
-class DDSContentItemHorizontal extends DDSContentItem {
+class DDSContentItemHorizontal extends DDSContentItemBase {
   /**
    * Determines whether to render the thumbnail variant
    */
