@@ -1,7 +1,7 @@
 /**
  * @license
  *
- * Copyright IBM Corp. 2019, 2022
+ * Copyright IBM Corp. 2019, 2023
  *
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
@@ -11,7 +11,7 @@ import { customElement } from 'lit-element';
 import ddsSettings from '../../internal/vendor/@carbon/ibmdotcom-utilities/utilities/settings/settings';
 import styles from './callout-quote.scss';
 import DDSCalloutMixin from '../../component-mixins/callout/callout';
-import DDSQuote from '../quote/quote';
+import { DDSQuoteBase } from '../quote/quote';
 
 const { stablePrefix: ddsPrefix } = ddsSettings;
 
@@ -21,7 +21,7 @@ const { stablePrefix: ddsPrefix } = ddsSettings;
  * @element dds-callout-data
  */
 @customElement(`${ddsPrefix}-callout-quote`)
-class DDSCalloutQuote extends DDSCalloutMixin(DDSQuote) {
+class DDSCalloutQuote extends DDSCalloutMixin(DDSQuoteBase) {
   static get stableSelector() {
     return `${ddsPrefix}--callout-quote`;
   }
