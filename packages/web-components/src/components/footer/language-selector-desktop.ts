@@ -61,7 +61,7 @@ class DDSLanguageSelectorDesktop extends HostListenerMixin(DDSComboBoxBase) {
    */
   protected _handleInput() {
     const items = this.querySelectorAll(
-      (this.constructor as typeof DDSComboBox).selectorItem
+      (this.constructor as typeof DDSComboBoxBase).selectorItem
     );
     const index = !this._filterInputNode.value
       ? -1
@@ -83,7 +83,7 @@ class DDSLanguageSelectorDesktop extends HostListenerMixin(DDSComboBoxBase) {
   protected _handleUserInitiatedClearInput() {
     forEach(
       this.querySelectorAll(
-        (this.constructor as typeof DDSComboBox).selectorItem
+        (this.constructor as typeof DDSComboBoxBase).selectorItem
       ),
       (item) => {
         (item as BXComboBoxItem).highlighted = false;

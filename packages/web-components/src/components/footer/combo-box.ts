@@ -106,7 +106,7 @@ export class DDSComboBoxBase extends DDSDropdownBase {
 
   protected _handleKeypressInner(event: KeyboardEvent) {
     const { key } = event;
-    const action = (this.constructor as typeof DDSDropdown).getAction(key);
+    const action = (this.constructor as typeof DDSDropdownBase).getAction(key);
     const { TRIGGERING } = DROPDOWN_KEYBOARD_ACTION;
     if (
       this._selectionButtonNode?.contains(event.target as Node) &&
