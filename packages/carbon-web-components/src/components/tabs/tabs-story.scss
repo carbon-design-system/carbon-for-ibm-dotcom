@@ -6,11 +6,11 @@
 //
 
 @use '@carbon/styles/scss/spacing' as *;
-@use '@carbon/styles/scss/theme';
+@use '@carbon/styles/scss/theme' as *;
 
 .bx-ce-demo-devenv--tab-panels {
   flex: 1;
   padding: $spacing-05;
   align-self: stretch;
-  // background-color: $layer-01;
+  background-color: $layer-01;
 }

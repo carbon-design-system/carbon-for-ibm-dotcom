@@ -19,7 +19,7 @@ bx-tooltip-body {
     color: $link-inverse;
 
     &:focus {
-      // outline-color: $inverse-focus-ui;
+      outline-color: $focus-inverse;
     }
   }
 }
