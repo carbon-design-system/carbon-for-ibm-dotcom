@@ -1,5 +1,5 @@
 /**
- * Copyright IBM Corp. 2016, 2022
+ * Copyright IBM Corp. 2016, 2023
  *
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
@@ -38,7 +38,10 @@
         }
       }
 
-      .#{$prefix}--tabs__nav-item--selected:not(.#{$prefix}--tabs__nav-item--disabled) {
+      /* stylelint-disable-next-line selector-pseudo-class-parentheses-space-inside */
+      .#{$prefix}--tabs__nav-item--selected:not(
+          .#{$prefix}--tabs__nav-item--disabled
+        ) {
         .#{$prefix}--tabs__nav-link,
         .#{$prefix}--tabs__nav-link:focus,
         .#{$prefix}--tabs__nav-link:active {
@@ -266,7 +269,9 @@ button.#{$prefix}--tabs__nav-link {
   outline: none;
 }
 
-.#{$prefix}--tabs__nav-item:not(.#{$prefix}--tabs__nav-item--selected):not(.#{$prefix}--tabs__nav-item--disabled):not(.#{$prefix}--tabs__nav-item--selected)
+.#{$prefix}--tabs__nav-item:not(.#{$prefix}--tabs__nav-item--selected):not(
+    .#{$prefix}--tabs__nav-item--disabled
+  ):not(.#{$prefix}--tabs__nav-item--selected)
   button.#{$prefix}--tabs__nav-link:active {
   color: $text-02;
 }
