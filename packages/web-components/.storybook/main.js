@@ -154,10 +154,7 @@ module.exports = {
     if (babelLoaderRule) {
       config.module.rules.unshift({
         use: babelLoaderRule.use,
-        include: [
-          path.dirname(require.resolve('lit-html')),
-          path.dirname(require.resolve('lit-element')),
-        ],
+        include: [path.dirname(require.resolve('lit'))],
       });
     }
 
