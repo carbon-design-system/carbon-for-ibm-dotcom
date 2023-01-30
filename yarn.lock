@@ -1484,10 +1484,10 @@
     "@carbon/import-once" "^10.7.0"
     "@carbon/layout" "^10.37.1"
 
-"@carbon/icon-helpers@10.37.0", "@carbon/icon-helpers@^10.37.0":
-  version "10.37.0"
-  resolved "https://registry.yarnpkg.com/@carbon/icon-helpers/-/icon-helpers-10.37.0.tgz#354f50f4269b1a455fb4d848508c5e7f7adc6ea8"
-  integrity sha512-YXed2JUSCGddp3UnY5OffR3W8Pl+dy9a+vfUtYhSLH9TbIEBR6EvYIfvruFMhA8JIVMCUClUqgyMQXM5oMFQ0g==
+"@carbon/icon-helpers@10.38.0", "@carbon/icon-helpers@^10.38.0":
+  version "10.38.0"
+  resolved "https://registry.yarnpkg.com/@carbon/icon-helpers/-/icon-helpers-10.38.0.tgz#9e4e8f79fdd20327c9f31a7a7e916f51c8c44617"
+  integrity sha512-m3v05nKXQvxDZLFEZPYDHt94WiBwOraIHk3dHmdoTpQbYPVd2zTggpJiUOYbm+4vot7nLcsUkClQfna85BlWKA==
 
 "@carbon/icon-helpers@^10.28.0":
   version "10.34.0"
@@ -1528,12 +1528,12 @@
   resolved "https://registry.yarnpkg.com/@carbon/motion/-/motion-11.5.0.tgz#f54c0eb3298e3ea88bda789f02b4c5ef22a0a8d4"
   integrity sha512-5QEALh+xZzICdgVLanSpiDfBTErzVgEze/xUKs7ZdSbd6p1FaDKDGvCmj9RCsaz/CMVHIWo65MshIglSWX5Xvw==
 
-"@carbon/pictograms-react@11.37.0":
-  version "11.37.0"
-  resolved "https://registry.yarnpkg.com/@carbon/pictograms-react/-/pictograms-react-11.37.0.tgz#84611fb74c58db0fdcb06b719bbf5dcff93be9cf"
-  integrity sha512-xpFAcKfdBoBuQlUu4F1F6vwepiscce0P3U10y3l+O0Wn/L3d5D6SFS4JubPU1AQ44mzEl4VXOMe6AZQ+a/Iqsg==
+"@carbon/pictograms-react@11.38.0":
+  version "11.38.0"
+  resolved "https://registry.yarnpkg.com/@carbon/pictograms-react/-/pictograms-react-11.38.0.tgz#78c8d7f51f5b9a102662f2f4a1d2dc3833830431"
+  integrity sha512-bd3yYMpHJiZDIAjN8T0dLOmd0S5Zetc642DQM1yXwNUxT39mbDC58XR9qbeEVPP1ylhQr0Gce086iEoLv7gA3w==
   dependencies:
-    "@carbon/icon-helpers" "^10.37.0"
+    "@carbon/icon-helpers" "^10.38.0"
     "@carbon/telemetry" "0.1.0"
     prop-types "^15.7.2"
 
@@ -24864,9 +24864,9 @@ typescript@^4.4.3, typescript@~4.8.0:
   integrity sha512-QCh+85mCy+h0IGff8r5XWzOVSbBO+KfeYrMQh7NJ58QujwcE22u+NUSmUxqF+un70P9GXKxa2HCNiTTMJknyjQ==
 
 ua-parser-js@^0.7.30:
-  version "0.7.32"
-  resolved "https://registry.yarnpkg.com/ua-parser-js/-/ua-parser-js-0.7.32.tgz#cd8c639cdca949e30fa68c44b7813ef13e36d211"
-  integrity sha512-f9BESNVhzlhEFf2CHMSj40NWOjYPl1YKYbrvIr/hFTDEmLq7SRbWvm7FcdcpCYT95zrOhC7gZSxjdnnTpBcwVw==
+  version "0.7.33"
+  resolved "https://registry.yarnpkg.com/ua-parser-js/-/ua-parser-js-0.7.33.tgz#1d04acb4ccef9293df6f70f2c3d22f3030d8b532"
+  integrity sha512-s8ax/CeZdK9R/56Sui0WM6y9OFREJarMRHqLB2EwkovemBxNQ+Bqu8GAsUnVcXKgphb++ghr/B2BZx4mahujPw==
 
 uc.micro@^1.0.1, uc.micro@^1.0.5:
   version "1.0.6"

@@ -1,7 +1,7 @@
 /**
  * @license
  *
- * Copyright IBM Corp. 2020, 2022
+ * Copyright IBM Corp. 2020, 2023
  *
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
@@ -19,13 +19,13 @@ import {
   customElement,
   LitElement,
 } from 'lit-element';
-import CaretLeft20 from '@carbon/web-components/es/icons/caret--left/20.js';
-import CaretRight20 from '@carbon/web-components/es/icons/caret--right/20.js';
+import CaretLeft20 from '../../internal/vendor/@carbon/web-components/icons/caret--left/20.js';
+import CaretRight20 from '../../internal/vendor/@carbon/web-components/icons/caret--right/20.js';
 import settings from 'carbon-components/es/globals/js/settings.js';
 import { baseFontSize, breakpoints } from '@carbon/layout';
-import HostListener from '@carbon/web-components/es/globals/decorators/host-listener.js';
-import HostListenerMixin from '@carbon/web-components/es/globals/mixins/host-listener.js';
-import TableOfContents20 from '@carbon/web-components/es/icons/table-of-contents/20.js';
+import HostListener from '../../internal/vendor/@carbon/web-components/globals/decorators/host-listener.js';
+import HostListenerMixin from '../../internal/vendor/@carbon/web-components/globals/mixins/host-listener.js';
+import TableOfContents20 from '../../internal/vendor/@carbon/web-components/icons/table-of-contents/20.js';
 import throttle from 'lodash-es/throttle.js';
 import StickyHeader from '../../internal/vendor/@carbon/ibmdotcom-utilities/utilities/StickyHeader/StickyHeader';
 import ddsSettings from '../../internal/vendor/@carbon/ibmdotcom-utilities/utilities/settings/settings';
