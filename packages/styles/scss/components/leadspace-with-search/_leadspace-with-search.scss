@@ -350,8 +350,12 @@
     /* stylelint-enable declaration-no-important */
   }
 
+  :host(#{$c4d-prefix}-leadspace-with-search-content) {
+    margin: 0;
+  }
+
   :host(#{$c4d-prefix}-leadspace-with-search-content-heading) {
-    @extend :host(#{$c4d-prefix}-content-block-heading);
+    @extend :host(#{$dds-prefix}-content-block-heading);
 
     @include breakpoint-down(lg) {
       display: block;

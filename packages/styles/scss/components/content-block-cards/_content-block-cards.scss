@@ -1,5 +1,5 @@
 /**
- * Copyright IBM Corp. 2016, 2021
+ * Copyright IBM Corp. 2016, 2022
  *
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
@@ -17,17 +17,17 @@
   :host(#{$c4d-prefix}-content-block-cards),
   .#{$prefix}--content-block-cards .#{$prefix}--content-block {
     display: block;
-    padding-top: $spacing-07;
-    padding-bottom: $spacing-10;
+    margin-top: $carbon--layout-03;
+    margin-bottom: $carbon--layout-05;
 
-    @include breakpoint(md) {
-      padding-top: $spacing-07;
-      padding-bottom: $spacing-12;
+    @include breakpoint('md') {
+      margin-top: $carbon--layout-03;
+      margin-bottom: $carbon--layout-06;
     }
 
-    @include breakpoint(lg) {
-      padding-top: $spacing-10;
-      padding-bottom: $spacing-13;
+    @include breakpoint('lg') {
+      margin-top: $carbon--layout-05;
+      margin-bottom: $carbon--layout-07;
     }
   }
 

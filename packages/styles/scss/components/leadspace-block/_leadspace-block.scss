@@ -18,27 +18,27 @@
 @use '../image';
 @use '../../internal/content-block';
 
-%leadspace-block-padding {
-  padding-top: 0;
-  padding-bottom: $spacing-05;
+%leadspace-block-margin {
+  margin-top: 0;
+  margin-bottom: $layout-01;
 
-  @include breakpoint(md) {
-    padding-bottom: $spacing-12;
+  @include breakpoint('md') {
+    margin-bottom: $layout-06;
   }
-  @include breakpoint(lg) {
-    padding-bottom: $spacing-13;
+  @include breakpoint('lg') {
+    margin-bottom: $layout-07;
   }
 }
 
 @mixin leadspace-block {
   :host(#{$c4d-prefix}-leadspace-block)
     ::slotted(#{$c4d-prefix}-leadspace-block-content) {
-    @extend %leadspace-block-padding;
+    @extend %leadspace-block-margin;
   }
 
   .#{$prefix}--leadspace-block {
     .#{$prefix}--content-block {
-      @extend %leadspace-block-padding;
+      @extend %leadspace-block-margin;
 
       .#{$prefix}--image-with-caption {
         margin-bottom: 0;
