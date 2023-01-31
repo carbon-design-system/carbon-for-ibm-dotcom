@@ -438,7 +438,6 @@ assets:
     platform: web
     status: stable
     framework: web-component
-    # TODO: Jeanie
     thumbnailPath: './thumbnails/skip-to-content.svg'
     demoLinks:
       - type: storybook
