@@ -24,6 +24,7 @@ assets:
       usagePath: https://github.com/carbon-design-system/carbon-website/blob/carbon-platform/src/pages/components/accordion/usage.mdx
       stylePath: https://github.com/carbon-design-system/carbon-website/blob/carbon-platform/src/pages/components/accordion/style.mdx
       accessibilityPath: https://github.com/carbon-design-system/carbon-website/blob/carbon-platform/src/pages/components/accordion/accessibility.mdx
+      overviewPath: ./src/components/accordion/docs/overview.mdx
   breadcrumb:
     status: stable
     externalDocsUrl: https://www.carbondesignsystem.com/components/breadcrumb/usage
@@ -37,6 +38,7 @@ assets:
       usagePath: https://github.com/carbon-design-system/carbon-website/blob/carbon-platform/src/pages/components/breadcrumb/usage.mdx
       stylePath: https://github.com/carbon-design-system/carbon-website/blob/carbon-platform/src/pages/components/breadcrumb/style.mdx
       accessibilityPath: https://github.com/carbon-design-system/carbon-website/blob/carbon-platform/src/pages/components/breadcrumb/accessibility.mdx
+      overviewPath: ./src/components/breadcrumb/docs/overview.mdx
   button:
     status: stable
     externalDocsUrl: https://www.carbondesignsystem.com/components/button/usage
@@ -50,6 +52,7 @@ assets:
       usagePath: https://github.com/carbon-design-system/carbon-website/blob/carbon-platform/src/pages/components/button/usage.mdx
       stylePath: https://github.com/carbon-design-system/carbon-website/blob/carbon-platform/src/pages/components/button/style.mdx
       accessibilityPath: https://github.com/carbon-design-system/carbon-website/blob/carbon-platform/src/pages/components/button/accessibility.mdx
+      overviewPath: ./src/components/button/docs/overview.mdx
   checkbox:
     status: stable
     externalDocsUrl: https://www.carbondesignsystem.com/components/checkbox/usage
@@ -63,6 +66,7 @@ assets:
       usagePath: https://github.com/carbon-design-system/carbon-website/blob/carbon-platform/src/pages/components/checkbox/usage.mdx
       stylePath: https://github.com/carbon-design-system/carbon-website/blob/carbon-platform/src/pages/components/checkbox/style.mdx
       accessibilityPath: https://github.com/carbon-design-system/carbon-website/blob/carbon-platform/src/pages/components/checkbox/accessibility.mdx
+      overviewPath: ./src/components/checkbox/docs/overview.mdx
   code-snippet:
     status: stable
     externalDocsUrl: https://www.carbondesignsystem.com/components/code-snippet/usage
@@ -76,6 +80,7 @@ assets:
       usagePath: https://github.com/carbon-design-system/carbon-website/blob/carbon-platform/src/pages/components/code-snippet/usage.mdx
       stylePath: https://github.com/carbon-design-system/carbon-website/blob/carbon-platform/src/pages/components/code-snippet/style.mdx
       accessibilityPath: https://github.com/carbon-design-system/carbon-website/blob/carbon-platform/src/pages/components/code-snippet/accessibility.mdx
+      overviewPath: ./src/components/code-snippet/docs/overview.mdx
   combo-box:
     status: stable
     framework: web-component
@@ -84,6 +89,8 @@ assets:
         name: Storybook
         action: link
         url: https://www.ibm.com/standards/carbon/carbon-web-components/?path=/docs/components-combo-box
+    docs:
+      overviewPath: ./src/components/combo-box/docs/overview.mdx
   content-switcher:
     status: stable
     externalDocsUrl: https://www.carbondesignsystem.com/components/content-switcher/usage
@@ -97,6 +104,7 @@ assets:
       usagePath: https://github.com/carbon-design-system/carbon-website/blob/carbon-platform/src/pages/components/content-switcher/usage.mdx
       stylePath: https://github.com/carbon-design-system/carbon-website/blob/carbon-platform/src/pages/components/content-switcher/style.mdx
       accessibilityPath: https://github.com/carbon-design-system/carbon-website/blob/carbon-platform/src/pages/components/content-switcher/accessibility.mdx
+      overviewPath: ./src/components/content-switcher/docs/overview.mdx
   copy-button:
     status: stable
     framework: web-component
@@ -105,6 +113,8 @@ assets:
         name: Storybook
         action: link
         url: https://www.ibm.com/standards/carbon/carbon-web-components/?path=/docs/components-copy-button
+    docs:
+      overviewPath: ./src/components/copy-button/docs/overview.mdx
   data-table:
     status: stable
     externalDocsUrl: https://www.carbondesignsystem.com/components/data-table/usage
@@ -118,6 +128,7 @@ assets:
       usagePath: https://github.com/carbon-design-system/carbon-website/blob/carbon-platform/src/pages/components/data-table/usage.mdx
       stylePath: https://github.com/carbon-design-system/carbon-website/blob/carbon-platform/src/pages/components/data-table/style.mdx
       accessibilityPath: https://github.com/carbon-design-system/carbon-website/blob/carbon-platform/src/pages/components/data-table/accessibility.mdx
+      overviewPath: ./src/components/data-table/docs/overview.mdx
   date-picker:
     status: stable
     externalDocsUrl: https://www.carbondesignsystem.com/components/date-picker/usage
@@ -131,6 +142,7 @@ assets:
       usagePath: https://github.com/carbon-design-system/carbon-website/blob/carbon-platform/src/pages/components/date-picker/usage.mdx
       stylePath: https://github.com/carbon-design-system/carbon-website/blob/carbon-platform/src/pages/components/date-picker/style.mdx
       accessibilityPath: https://github.com/carbon-design-system/carbon-website/blob/carbon-platform/src/pages/components/date-picker/accessibility.mdx
+      overviewPath: ./src/components/date-picker/docs/overview.mdx
   dropdown:
     status: stable
     externalDocsUrl: https://www.carbondesignsystem.com/components/dropdown/usage
@@ -144,6 +156,7 @@ assets:
       usagePath: https://github.com/carbon-design-system/carbon-website/blob/carbon-platform/src/pages/components/dropdown/usage.mdx
       stylePath: https://github.com/carbon-design-system/carbon-website/blob/carbon-platform/src/pages/components/dropdown/style.mdx
       accessibilityPath: https://github.com/carbon-design-system/carbon-website/blob/carbon-platform/src/pages/components/dropdown/accessibility.mdx
+      overviewPath: ./src/components/dropdown/docs/overview.mdx
   file-uploader:
     status: stable
     externalDocsUrl: https://www.carbondesignsystem.com/components/file-uploader/usage
@@ -157,19 +170,24 @@ assets:
       usagePath: https://github.com/carbon-design-system/carbon-website/blob/carbon-platform/src/pages/components/file-uploader/usage.mdx
       stylePath: https://github.com/carbon-design-system/carbon-website/blob/carbon-platform/src/pages/components/file-uploader/style.mdx
       accessibilityPath: https://github.com/carbon-design-system/carbon-website/blob/carbon-platform/src/pages/components/file-uploader/accessibility.mdx
+      overviewPath: ./src/components/file-uploader/docs/overview.mdx
   icon:
     name: Icon
     framework: web-component
     status: stable
     type: component
+    platform: web
     demoLinks:
       - type: storybook
         name: Storybook
         action: link
         url: https://www.ibm.com/standards/carbon/carbon-web-components/?path=/docs/components-icon
+    thumbnailPath: "./thumbnails/icon.svg"
     tags:
-      - input-control
       - media
+      - content-element
+    docs:
+      overviewPath: ./src/components/icon/docs/overview.mdx
   inline-loading:
     status: stable
     externalDocsUrl: https://www.carbondesignsystem.com/components/inline-loading/usage
@@ -183,19 +201,24 @@ assets:
       usagePath: https://github.com/carbon-design-system/carbon-website/blob/carbon-platform/src/pages/components/inline-loading/usage.mdx
       stylePath: https://github.com/carbon-design-system/carbon-website/blob/carbon-platform/src/pages/components/inline-loading/style.mdx
       accessibilityPath: https://github.com/carbon-design-system/carbon-website/blob/carbon-platform/src/pages/components/inline-loading/accessibility.mdx
+      overviewPath: ./src/components/inline-loading/docs/overview.mdx
   input:
+    name: Input
     status: stable
+    type: component
     externalDocsUrl: https://www.ibm.com/standards/carbon/carbon-web-components/?path=/docs/components-input
     framework: web-component
+    platform: web
+    thumbnailPath: "./thumbnails/input.svg"
     demoLinks:
       - type: storybook
         name: Storybook
         action: link
         url: https://www.ibm.com/standards/carbon/carbon-web-components/?path=/docs/components-input
+    tags:
+      - input-control
     docs:
-      usagePath: https://github.com/carbon-design-system/carbon-website/blob/carbon-platform/src/pages/components/form/usage.mdx
-      stylePath: https://github.com/carbon-design-system/carbon-website/blob/carbon-platform/src/pages/components/form/style.mdx
-      accessibilityPath: https://github.com/carbon-design-system/carbon-website/blob/carbon-platform/src/pages/components/form/accessibility.mdx
+      overviewPath: ./src/components/input/docs/overview.mdx
   link:
     status: stable
     externalDocsUrl: https://www.carbondesignsystem.com/components/link/usage
@@ -209,6 +232,7 @@ assets:
       usagePath: https://github.com/carbon-design-system/carbon-website/blob/carbon-platform/src/pages/components/link/usage.mdx
       stylePath: https://github.com/carbon-design-system/carbon-website/blob/carbon-platform/src/pages/components/link/style.mdx
       accessibilityPath: https://github.com/carbon-design-system/carbon-website/blob/carbon-platform/src/pages/components/link/accessibility.mdx
+      overviewPath: ./src/components/link/docs/overview.mdx
   list:
     status: stable
     externalDocsUrl: https://www.ibm.com/standards/carbon/carbon-web-components/?path=/docs/components-list
@@ -219,9 +243,10 @@ assets:
         action: link
         url: https://www.ibm.com/standards/carbon/carbon-web-components/?path=/docs/components-list
     docs:
-      usagePath: https://github.com/carbon-design-system/carbon-website/blob/carbon-platform/src/pages/components/link/usage.mdx
-      stylePath: https://github.com/carbon-design-system/carbon-website/blob/carbon-platform/src/pages/components/link/style.mdx
-      accessibilityPath: https://github.com/carbon-design-system/carbon-website/blob/carbon-platform/src/pages/components/link/accessibility.mdx
+      usagePath: https://github.com/carbon-design-system/carbon-website/blob/carbon-platform/src/pages/components/list/usage.mdx
+      stylePath: https://github.com/carbon-design-system/carbon-website/blob/carbon-platform/src/pages/components/list/style.mdx
+      accessibilityPath: https://github.com/carbon-design-system/carbon-website/blob/carbon-platform/src/pages/components/list/accessibility.mdx
+      overviewPath: ./src/components/list/docs/overview.mdx
   loading:
     status: stable
     externalDocsUrl: https://www.carbondesignsystem.com/components/loading/usage
@@ -235,6 +260,7 @@ assets:
       usagePath: https://github.com/carbon-design-system/carbon-website/blob/carbon-platform/src/pages/components/loading/usage.mdx
       stylePath: https://github.com/carbon-design-system/carbon-website/blob/carbon-platform/src/pages/components/loading/style.mdx
       accessibilityPath: https://github.com/carbon-design-system/carbon-website/blob/carbon-platform/src/pages/components/loading/accessibility.mdx
+      overviewPath: ./src/components/loading/docs/overview.mdx
   modal:
     status: stable
     externalDocsUrl: https://www.carbondesignsystem.com/components/modal/usage
@@ -248,6 +274,7 @@ assets:
       usagePath: https://github.com/carbon-design-system/carbon-website/blob/carbon-platform/src/pages/components/modal/usage.mdx
       stylePath: https://github.com/carbon-design-system/carbon-website/blob/carbon-platform/src/pages/components/modal/style.mdx
       accessibilityPath: https://github.com/carbon-design-system/carbon-website/blob/carbon-platform/src/pages/components/modal/accessibility.mdx
+      overviewPath: ./src/components/modal/docs/overview.mdx
   multiselect:
     status: stable
     externalDocsUrl: https://www.carbondesignsystem.com/components/dropdown/usage/#multiselect
@@ -257,7 +284,9 @@ assets:
         name: Storybook
         action: link
         url: https://www.ibm.com/standards/carbon/carbon-web-components/?path=/docs/components-multi-select
-  notifications:
+    docs:
+      overviewPath: ./src/components/multi-select/docs/overview.mdx
+  notification:
     status: stable
     externalDocsUrl: https://www.carbondesignsystem.com/components/notification/usage
     framework: web-component
@@ -266,6 +295,11 @@ assets:
         name: Storybook
         action: link
         url: https://www.ibm.com/standards/carbon/carbon-web-components/?path=/docs/components-notifications
+    docs:
+      usagePath: https://github.com/carbon-design-system/carbon-website/blob/carbon-platform/src/pages/components/notification/usage.mdx
+      stylePath: https://github.com/carbon-design-system/carbon-website/blob/carbon-platform/src/pages/components/notification/style.mdx
+      accessibilityPath: https://github.com/carbon-design-system/carbon-website/blob/carbon-platform/src/pages/components/notification/accessibility.mdx
+      overviewPath: ./src/components/notification/docs/overview.mdx
   number-input:
     status: stable
     externalDocsUrl: https://www.carbondesignsystem.com/components/number-input/usage
@@ -279,6 +313,7 @@ assets:
       usagePath: https://github.com/carbon-design-system/carbon-website/blob/carbon-platform/src/pages/components/number-input/usage.mdx
       stylePath: https://github.com/carbon-design-system/carbon-website/blob/carbon-platform/src/pages/components/number-input/style.mdx
       accessibilityPath: https://github.com/carbon-design-system/carbon-website/blob/carbon-platform/src/pages/components/number-input/accessibility.mdx
+      overviewPath: ./src/components/number-input/docs/overview.mdx
   overflow-menu:
     status: stable
     externalDocsUrl: https://www.carbondesignsystem.com/components/overflow-menu/usage
@@ -292,6 +327,7 @@ assets:
       usagePath: https://github.com/carbon-design-system/carbon-website/blob/carbon-platform/src/pages/components/overflow-menu/usage.mdx
       stylePath: https://github.com/carbon-design-system/carbon-website/blob/carbon-platform/src/pages/components/overflow-menu/style.mdx
       accessibilityPath: https://github.com/carbon-design-system/carbon-website/blob/carbon-platform/src/pages/components/overflow-menu/accessibility.mdx
+      overviewPath: ./src/components/overflow-menu/docs/overview.mdx
   pagination:
     status: stable
     externalDocsUrl: https://www.carbondesignsystem.com/components/pagination/usage
@@ -305,6 +341,7 @@ assets:
       usagePath: https://github.com/carbon-design-system/carbon-website/blob/carbon-platform/src/pages/components/pagination/usage.mdx
       stylePath: https://github.com/carbon-design-system/carbon-website/blob/carbon-platform/src/pages/components/pagination/style.mdx
       accessibilityPath: https://github.com/carbon-design-system/carbon-website/blob/carbon-platform/src/pages/components/pagination/accessibility.mdx
+      overviewPath: ./src/components/pagination/docs/overview.mdx
   progress-indicator:
     status: stable
     externalDocsUrl: https://www.carbondesignsystem.com/components/progress-indicator/usage
@@ -318,6 +355,7 @@ assets:
       usagePath: https://github.com/carbon-design-system/carbon-website/blob/carbon-platform/src/pages/components/progress-indicator/usage.mdx
       stylePath: https://github.com/carbon-design-system/carbon-website/blob/carbon-platform/src/pages/components/progress-indicator/style.mdx
       accessibilityPath: https://github.com/carbon-design-system/carbon-website/blob/carbon-platform/src/pages/components/progress-indicator/accessibility.mdx
+      overviewPath: ./src/components/progress-indicator/docs/overview.mdx
   radio-button:
     status: stable
     externalDocsUrl: https://www.carbondesignsystem.com/components/radio-button/usage
@@ -331,6 +369,7 @@ assets:
       usagePath: https://github.com/carbon-design-system/carbon-website/blob/carbon-platform/src/pages/components/radio-button/usage.mdx
       stylePath: https://github.com/carbon-design-system/carbon-website/blob/carbon-platform/src/pages/components/radio-button/style.mdx
       accessibilityPath: https://github.com/carbon-design-system/carbon-website/blob/carbon-platform/src/pages/components/radio-button/accessibility.mdx
+      overviewPath: ./src/components/radio-button/docs/overview.mdx
   search:
     status: stable
     externalDocsUrl: https://www.carbondesignsystem.com/components/search/usage
@@ -344,6 +383,7 @@ assets:
       usagePath: https://github.com/carbon-design-system/carbon-website/blob/carbon-platform/src/pages/components/search/usage.mdx
       stylePath: https://github.com/carbon-design-system/carbon-website/blob/carbon-platform/src/pages/components/search/style.mdx
       accessibilityPath: https://github.com/carbon-design-system/carbon-website/blob/carbon-platform/src/pages/components/search/accessibility.mdx
+      overviewPath: ./src/components/search/docs/overview.mdx
   select:
     status: stable
     externalDocsUrl: https://www.carbondesignsystem.com/components/select/usage
@@ -355,19 +395,34 @@ assets:
         url: https://www.ibm.com/standards/carbon/carbon-web-components/?path=/docs/components-select
     tags:
       - shell
+    docs:
+      usagePath: https://github.com/carbon-design-system/carbon-website/blob/carbon-platform/src/pages/components/select/usage.mdx
+      stylePath: https://github.com/carbon-design-system/carbon-website/blob/carbon-platform/src/pages/components/select/style.mdx
+      accessibilityPath: https://github.com/carbon-design-system/carbon-website/blob/carbon-platform/src/pages/components/select/accessibility.mdx
+      overviewPath: ./src/components/select/docs/overview.mdx
   skeleton-placeholder:
+    name: Skeleton placeholder
     status: stable
+    type: component
+    platform: web
     framework: web-component
+    thumbnailPath: './thumbnails/skeleton-placeholder.svg'
     demoLinks:
       - type: storybook
         name: Storybook
         action: link
         url: https://www.ibm.com/standards/carbon/carbon-web-components/?path=/docs/components-skeleton-placeholder
     tags:
-      - shell
+      - system-feedback
+    docs:
+      overviewPath: ./src/components/skeleton-placeholder/docs/overview.mdx
   skeleton-text:
+    name: Skeleton text
     status: stable
+    type: component
+    platform: web
     framework: web-component
+    thumbnailPath: './thumbnails/skeleton-text.svg'
     demoLinks:
       - type: storybook
         name: Storybook
@@ -375,18 +430,25 @@ assets:
         url: https://www.ibm.com/standards/carbon/carbon-web-components/?path=/docs/components-skeleton-text
     tags:
       - shell
+    docs:
+      overviewPath: ./src/components/skeleton-text/docs/overview.mdx
   skip-to-content:
+    name: Skip to content
+    type: component
+    platform: web
     status: stable
     framework: web-component
+    # TODO: Jeanie
+    thumbnailPath: './thumbnails/skip-to-content.svg'
     demoLinks:
       - type: storybook
         name: Storybook
         action: link
         url: https://www.ibm.com/standards/carbon/carbon-web-components/?path=/docs/components-skip-to-content
+    tags:
+      - contextual-navigation
     docs:
-      usagePath: https://github.com/carbon-design-system/carbon-website/blob/carbon-platform/src/pages/components/select/usage.mdx
-      stylePath: https://github.com/carbon-design-system/carbon-website/blob/carbon-platform/src/pages/components/select/style.mdx
-      accessibilityPath: https://github.com/carbon-design-system/carbon-website/blob/carbon-platform/src/pages/components/select/accessibility.mdx
+      overviewPath: ./src/components/skip-to-content/docs/overview.mdx
   slider:
     status: stable
     externalDocsUrl: https://www.carbondesignsystem.com/components/slider/usage
@@ -400,6 +462,7 @@ assets:
       usagePath: https://github.com/carbon-design-system/carbon-website/blob/carbon-platform/src/pages/components/slider/usage.mdx
       stylePath: https://github.com/carbon-design-system/carbon-website/blob/carbon-platform/src/pages/components/slider/style.mdx
       accessibilityPath: https://github.com/carbon-design-system/carbon-website/blob/carbon-platform/src/pages/components/slider/accessibility.mdx
+      overviewPath: ./src/components/slider/docs/overview.mdx
   structured-list:
     status: stable
     externalDocsUrl: https://www.carbondesignsystem.com/components/structured-list/usage
@@ -413,6 +476,7 @@ assets:
       usagePath: https://github.com/carbon-design-system/carbon-website/blob/carbon-platform/src/pages/components/structured-list/usage.mdx
       stylePath: https://github.com/carbon-design-system/carbon-website/blob/carbon-platform/src/pages/components/structured-list/style.mdx
       accessibilityPath: https://github.com/carbon-design-system/carbon-website/blob/carbon-platform/src/pages/components/structured-list/accessibility.mdx
+      overviewPath: ./src/components/structured-list/docs/overview.mdx
   tabs:
     status: stable
     externalDocsUrl: https://www.carbondesignsystem.com/components/tabs/usage
@@ -426,6 +490,7 @@ assets:
       usagePath: https://github.com/carbon-design-system/carbon-website/blob/carbon-platform/src/pages/components/tabs/usage.mdx
       stylePath: https://github.com/carbon-design-system/carbon-website/blob/carbon-platform/src/pages/components/tabs/style.mdx
       accessibilityPath: https://github.com/carbon-design-system/carbon-website/blob/carbon-platform/src/pages/components/tabs/accessibility.mdx
+      overviewPath: ./src/components/tabs/docs/overview.mdx
   tag:
     status: stable
     externalDocsUrl: https://www.carbondesignsystem.com/components/tag/usage
@@ -439,7 +504,8 @@ assets:
       usagePath: https://github.com/carbon-design-system/carbon-website/blob/carbon-platform/src/pages/components/tag/usage.mdx
       stylePath: https://github.com/carbon-design-system/carbon-website/blob/carbon-platform/src/pages/components/tag/style.mdx
       accessibilityPath: https://github.com/carbon-design-system/carbon-website/blob/carbon-platform/src/pages/components/tag/accessibility.mdx
-  textarea:
+      overviewPath: ./src/components/tag/docs/overview.mdx
+  text-area:
     status: stable
     externalDocsUrl: https://carbondesignsystem.com/components/form/usage
     framework: web-component
@@ -449,9 +515,7 @@ assets:
         action: link
         url: https://www.ibm.com/standards/carbon/carbon-web-components/?path=/docs/components-textarea
     docs:
-      usagePath: https://github.com/carbon-design-system/carbon-website/blob/carbon-platform/src/pages/components/form/usage.mdx
-      stylePath: https://github.com/carbon-design-system/carbon-website/blob/carbon-platform/src/pages/components/form/style.mdx
-      accessibilityPath: https://github.com/carbon-design-system/carbon-website/blob/carbon-platform/src/pages/components/form/accessibility.mdx
+      overviewPath: ./src/components/textarea/docs/overview.mdx
   tile:
     status: stable
     externalDocsUrl: https://www.carbondesignsystem.com/components/tile/usage
@@ -465,6 +529,7 @@ assets:
       usagePath: https://github.com/carbon-design-system/carbon-website/blob/carbon-platform/src/pages/components/tile/usage.mdx
       stylePath: https://github.com/carbon-design-system/carbon-website/blob/carbon-platform/src/pages/components/tile/style.mdx
       accessibilityPath: https://github.com/carbon-design-system/carbon-website/blob/carbon-platform/src/pages/components/tile/accessibility.mdx
+      overviewPath: ./src/components/tile/docs/overview.mdx
   toggle:
     status: stable
     externalDocsUrl: https://www.carbondesignsystem.com/components/toggle/usage
@@ -478,6 +543,7 @@ assets:
       usagePath: https://github.com/carbon-design-system/carbon-website/blob/carbon-platform/src/pages/components/toggle/usage.mdx
       stylePath: https://github.com/carbon-design-system/carbon-website/blob/carbon-platform/src/pages/components/toggle/style.mdx
       accessibilityPath: https://github.com/carbon-design-system/carbon-website/blob/carbon-platform/src/pages/components/toggle/accessibility.mdx
+      overviewPath: ./src/components/toggle/docs/overview.mdx
   tooltip:
     status: stable
     externalDocsUrl: https://www.carbondesignsystem.com/components/tooltip/usage
@@ -491,6 +557,7 @@ assets:
       usagePath: https://github.com/carbon-design-system/carbon-website/blob/carbon-platform/src/pages/components/tooltip/usage.mdx
       stylePath: https://github.com/carbon-design-system/carbon-website/blob/carbon-platform/src/pages/components/tooltip/style.mdx
       accessibilityPath: https://github.com/carbon-design-system/carbon-website/blob/carbon-platform/src/pages/components/tooltip/accessibility.mdx
+      overviewPath: ./src/components/tooltip/docs/overview.mdx
   ui-shell:
     framework: web-component
     externalDocsUrl: https://www.carbondesignsystem.com/components/UI-shell-header/usage
@@ -501,4 +568,8 @@ assets:
         action: link
         url: https://www.ibm.com/standards/carbon/carbon-web-components/?path=/docs/components-ui-shell
     docs:
+      usagePath: https://github.com/carbon-design-system/carbon-website/blob/carbon-platform/src/pages/components/UI-shell-header/usage.mdx
+      stylePath: https://github.com/carbon-design-system/carbon-website/blob/carbon-platform/src/pages/components/UI-shell-header/style.mdx
+      accessibilityPath: https://github.com/carbon-design-system/carbon-website/blob/carbon-platform/src/pages/components/UI-shell-header/accessibility.mdx
       codePath: https://github.com/carbon-design-system/carbon-website/blob/carbon-platform/src/pages/components/UI-shell-header/code.mdx
+      overviewPath: ./src/components/ui-shell/docs/overview.mdx
