@@ -13,27 +13,27 @@
 @import '../image-with-caption/image-with-caption';
 @import '../../internal/content-block/content-block';
 
-%leadspace-block-padding {
-  padding-top: 0;
-  padding-bottom: $layout-01;
+%leadspace-block-margin {
+  margin-top: 0;
+  margin-bottom: $layout-01;
 
   @include carbon--breakpoint('md') {
-    padding-bottom: $layout-06;
+    margin-bottom: $layout-06;
   }
   @include carbon--breakpoint('lg') {
-    padding-bottom: $layout-07;
+    margin-bottom: $layout-07;
   }
 }
 
 @mixin leadspace-block {
   :host(#{$dds-prefix}-leadspace-block)
     ::slotted(#{$dds-prefix}-leadspace-block-content) {
-    @extend %leadspace-block-padding;
+    @extend %leadspace-block-margin;
   }
 
   .#{$prefix}--leadspace-block {
     .#{$prefix}--content-block {
-      @extend %leadspace-block-padding;
+      @extend %leadspace-block-margin;
 
       .#{$prefix}--image-with-caption {
         margin-bottom: 0;

@@ -11,29 +11,23 @@
 @mixin content-block-horizontal {
   :host(#{$dds-prefix}-content-block-horizontal),
   :host(#{$dds-prefix}-content-group-horizontal) {
-    padding-top: $layout-03;
-    padding-bottom: $carbon--layout-03;
+    margin-top: $layout-03;
+    margin-bottom: $carbon--layout-03;
 
     @include carbon--breakpoint('md') {
-      padding-bottom: $layout-03;
+      margin-bottom: $layout-03;
     }
 
     @include carbon--breakpoint('lg') {
-      padding-top: $layout-05;
-      padding-bottom: $layout-05;
+      margin-top: $layout-05;
+      margin-bottom: $layout-05;
     }
   }
 
   .#{$prefix}--content-block-horizontal,
   .#{$prefix}--content-group-horizontal {
     .#{$prefix}--content-block {
-      padding-top: $layout-03;
-      padding-bottom: $layout-01;
-
-      @include carbon--breakpoint('lg') {
-        padding-top: $layout-05;
-        padding-bottom: $layout-04;
-      }
+      padding: 0;
     }
   }
   .#{$prefix}--content-group-horizontal {
