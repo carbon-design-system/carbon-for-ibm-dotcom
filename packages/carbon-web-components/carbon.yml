@@ -206,7 +206,6 @@ assets:
     name: Input
     status: stable
     type: component
-    externalDocsUrl: https://www.ibm.com/standards/carbon/carbon-web-components/?path=/docs/components-input
     framework: web-component
     platform: web
     thumbnailPath: "./thumbnails/input.svg"
@@ -235,7 +234,7 @@ assets:
       overviewPath: ./src/components/link/docs/overview.mdx
   list:
     status: stable
-    externalDocsUrl: https://www.ibm.com/standards/carbon/carbon-web-components/?path=/docs/components-list
+    externalDocsUrl: https://carbondesignsystem.com/components/list/usage
     framework: web-component
     demoLinks:
       - type: storybook
@@ -506,7 +505,6 @@ assets:
       overviewPath: ./src/components/tag/docs/overview.mdx
   text-area:
     status: stable
-    externalDocsUrl: https://carbondesignsystem.com/components/form/usage
     framework: web-component
     demoLinks:
       - type: storybook
