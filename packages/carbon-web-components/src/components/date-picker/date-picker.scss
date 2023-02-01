@@ -80,7 +80,9 @@ $css--plex: true !default;
 
 /* stylelint-disable selector-pseudo-class-parentheses-space-inside */
 :host(#{$prefix}-date-picker-input[kind='simple'][size-horizontal='short']),
-:host(#{$prefix}-date-picker-input-skeleton[kind='simple'][size-horizontal='short']) {
+:host(
+    #{$prefix}-date-picker-input-skeleton[kind='simple'][size-horizontal='short']
+  ) {
   .#{$prefix}--date-picker__input {
     width: rem(90px);
   }

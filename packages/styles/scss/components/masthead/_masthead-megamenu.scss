@@ -197,7 +197,9 @@
   }
 
   /* stylelint-disable selector-pseudo-class-parentheses-space-inside */
-  :host(#{$dds-prefix}-megamenu-link-with-icon)[style-scheme='category-headline'],
+  :host(
+      #{$dds-prefix}-megamenu-link-with-icon
+    )[style-scheme='category-headline'],
   .#{$prefix}--masthead__megamenu__category-headline {
     width: 100%;
 
@@ -247,7 +249,9 @@
 
   /* stylelint-disable selector-pseudo-class-parentheses-space-inside */
   .#{$prefix}--masthead__megamenu__category-sublink--highlighted,
-  :host(#{$dds-prefix}-megamenu-link-with-icon)[style-scheme='category-sublink'] {
+  :host(
+      #{$dds-prefix}-megamenu-link-with-icon
+    )[style-scheme='category-sublink'] {
     @include type-style('body-short-01');
 
     width: 100%;
