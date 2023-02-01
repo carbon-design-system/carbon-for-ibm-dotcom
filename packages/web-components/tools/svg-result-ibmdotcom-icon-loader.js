@@ -74,8 +74,8 @@ function svgResultIBMDotcomIconLoader(content) {
           import { svg } from 'lit';
           import spread from '${path.resolve(
             __dirname,
-            '../src/globals/directives/spread'
-          )}';          
+            '../src/internal/vendor/@carbon/web-components/globals/directives/spread'
+          )}';
           const svgResultCarbonIcon = ${createSVGResultFromIconDescriptor(
             convertAttrs(svgNode)
           )};
