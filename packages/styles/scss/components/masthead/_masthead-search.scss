@@ -100,9 +100,7 @@
   }
 
   /* stylelint-disable selector-pseudo-class-parentheses-space-inside */
-  .#{$prefix}--header__search:not(
-      .#{$prefix}--masthead__header--search-active
-    ) {
+  .#{$prefix}--header__search:not(.#{$prefix}--masthead__header--search-active) {
     @include carbon--breakpoint(md) {
       overflow-x: visible;
     }
