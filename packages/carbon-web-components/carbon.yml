@@ -206,7 +206,6 @@ assets:
     name: Input
     status: stable
     type: component
-    externalDocsUrl: https://www.ibm.com/standards/carbon/carbon-web-components/?path=/docs/components-input
     framework: web-component
     platform: web
     thumbnailPath: "./thumbnails/input.svg"
@@ -235,7 +234,7 @@ assets:
       overviewPath: ./src/components/link/docs/overview.mdx
   list:
     status: stable
-    externalDocsUrl: https://www.ibm.com/standards/carbon/carbon-web-components/?path=/docs/components-list
+    externalDocsUrl: https://carbondesignsystem.com/components/list/usage
     framework: web-component
     demoLinks:
       - type: storybook
@@ -506,7 +505,6 @@ assets:
       overviewPath: ./src/components/tag/docs/overview.mdx
   text-area:
     status: stable
-    externalDocsUrl: https://carbondesignsystem.com/components/form/usage
     framework: web-component
     demoLinks:
       - type: storybook
@@ -558,7 +556,11 @@ assets:
       accessibilityPath: https://github.com/carbon-design-system/carbon-website/blob/carbon-platform/src/pages/components/tooltip/accessibility.mdx
       overviewPath: ./src/components/tooltip/docs/overview.mdx
   ui-shell:
+    name: UI shell
+    type: component
+    platform: web
     framework: web-component
+    thumbnailPath: './thumbnails/ui-shell.svg'
     externalDocsUrl: https://www.carbondesignsystem.com/components/UI-shell-header/usage
     status: stable
     demoLinks:
@@ -566,6 +568,8 @@ assets:
         name: Storybook
         action: link
         url: https://www.ibm.com/standards/carbon/carbon-web-components/?path=/docs/components-ui-shell
+    tags:
+      - contextual-navigation
     docs:
       usagePath: https://github.com/carbon-design-system/carbon-website/blob/carbon-platform/src/pages/components/UI-shell-header/usage.mdx
       stylePath: https://github.com/carbon-design-system/carbon-website/blob/carbon-platform/src/pages/components/UI-shell-header/style.mdx
