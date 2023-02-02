@@ -135,21 +135,18 @@ class DDSLeftNav extends StableSelectorMixin(BXSideNav) {
   };
 
   private _handleClickOut(event: MouseEvent) {
-    const { target } = event;
     const { selectorButtonToggle } = this.constructor as typeof DDSLeftNav;
     const toggleButton: HTMLElement | null = (
       this.getRootNode() as Document
     ).querySelector(selectorButtonToggle);
 
+    // TODO: check why `target` returns `dds-masthead-container` (parent) in Lit v2
     if (
       this.expanded &&
-      target instanceof Element &&
-      target.closest(selectorButtonToggle) === null &&
-      target.closest(this.tagName) === null
+      (event.composedPath()[0] as HTMLElement).tagName ===
+        'DDS-LEFT-NAV-OVERLAY'
     ) {
-      // TODO: for some reason, after upgrading to Lit v2, the click out counts as a double click,
-      // which opens and closes the menu immediately. Need to figure out a way to circumvent this.
-      // this.expanded = false;
+      this.expanded = false;
       toggleButton?.focus();
     }
   }
