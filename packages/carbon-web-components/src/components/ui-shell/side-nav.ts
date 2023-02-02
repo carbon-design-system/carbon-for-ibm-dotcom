@@ -1,14 +1,14 @@
 /**
  * @license
  *
- * Copyright IBM Corp. 2019, 2022
+ * Copyright IBM Corp. 2019, 2023
  *
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
  */
 
 import { html, property, customElement, LitElement } from 'lit-element';
-import settings from 'carbon-components/es/globals/js/settings';
+import { prefix } from '../../globals/settings';
 import on from 'carbon-components/es/globals/js/misc/on';
 import HostListenerMixin from '../../globals/mixins/host-listener';
 import HostListener from '../../globals/decorators/host-listener';
@@ -20,8 +20,6 @@ import BXSideNavMenu from './side-nav-menu';
 import styles from './side-nav.scss';
 
 export { SIDE_NAV_COLLAPSE_MODE, SIDE_NAV_USAGE_MODE };
-
-const { prefix } = settings;
 
 /**
  * Side nav.

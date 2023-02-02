@@ -1,7 +1,7 @@
 /**
  * @license
  *
- * Copyright IBM Corp. 2019, 2022
+ * Copyright IBM Corp. 2019, 2023
  *
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
@@ -36,26 +36,26 @@ export const Default = (args) => {
     args?.['bx-radio-button-group'] ?? {};
   const { hideLabel, labelText } = args?.['bx-radio-button'] ?? {};
   return html`
-    <bx-radio-button-group
+    <cds-radio-button-group
       ?disabled="${disabled}"
       label-position="${ifNonNull(labelPosition)}"
       orientation="${ifNonNull(orientation)}"
       name="${ifNonNull(name)}"
       value="${ifNonNull(value)}"
       @bx-radio-button-group-changed="${onChange}">
-      <bx-radio-button
+      <cds-radio-button
         ?hide-label="${hideLabel}"
         label-text="${ifNonNull(labelText)}"
-        value="all"></bx-radio-button>
-      <bx-radio-button
+        value="all"></cds-radio-button>
+      <cds-radio-button
         ?hide-label="${hideLabel}"
         label-text="${ifNonNull(labelText)}"
-        value="cloudFoundry"></bx-radio-button>
-      <bx-radio-button
+        value="cloudFoundry"></cds-radio-button>
+      <cds-radio-button
         ?hide-label="${hideLabel}"
         label-text="${ifNonNull(labelText)}"
-        value="staging"></bx-radio-button>
-    </bx-radio-button-group>
+        value="staging"></cds-radio-button>
+    </cds-radio-button-group>
   `;
 };
 
@@ -87,7 +87,7 @@ Default.parameters = {
 };
 
 export const skeleton = () =>
-  html` <bx-radio-button-skeleton></bx-radio-button-skeleton> `;
+  html` <cds-radio-button-skeleton></cds-radio-button-skeleton> `;
 
 skeleton.parameters = {
   percy: {

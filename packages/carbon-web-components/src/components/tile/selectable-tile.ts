@@ -1,13 +1,13 @@
 /**
  * @license
  *
- * Copyright IBM Corp. 2019, 2022
+ * Copyright IBM Corp. 2019, 2023
  *
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
  */
 
-import settings from 'carbon-components/es/globals/js/settings';
+import { prefix } from '../../globals/settings';
 import { classMap } from 'lit-html/directives/class-map';
 import {
   html,
@@ -22,8 +22,6 @@ import ifNonNull from '../../globals/directives/if-non-null';
 import FocusMixin from '../../globals/mixins/focus';
 import { TILE_COLOR_SCHEME } from './defs';
 import styles from './tile.scss';
-
-const { prefix } = settings;
 
 /**
  * Multi-selectable tile.

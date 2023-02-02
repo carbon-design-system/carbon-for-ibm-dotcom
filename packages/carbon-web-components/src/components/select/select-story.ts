@@ -1,7 +1,7 @@
 /**
  * @license
  *
- * Copyright IBM Corp. 2020, 2022
+ * Copyright IBM Corp. 2020, 2023
  *
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
@@ -44,20 +44,20 @@ export const Default = (args) => {
     validityMessage,
     value,
     children = html`
-      <bx-select-item-group label="Category 1">
-        <bx-select-item value="all">Option 1</bx-select-item>
-        <bx-select-item value="cloudFoundry">Option 2</bx-select-item>
-      </bx-select-item-group>
-      <bx-select-item-group label="Category 2">
-        <bx-select-item value="staging">Option 3</bx-select-item>
-        <bx-select-item value="dea">Option 4</bx-select-item>
-        <bx-select-item value="router">Option 5</bx-select-item>
-      </bx-select-item-group>
+      <cds-select-item-group label="Category 1">
+        <cds-select-item value="all">Option 1</cds-select-item>
+        <cds-select-item value="cloudFoundry">Option 2</cds-select-item>
+      </cds-select-item-group>
+      <cds-select-item-group label="Category 2">
+        <cds-select-item value="staging">Option 3</cds-select-item>
+        <cds-select-item value="dea">Option 4</cds-select-item>
+        <cds-select-item value="router">Option 5</cds-select-item>
+      </cds-select-item-group>
     `,
     onInput,
   } = args?.['bx-select'] ?? {};
   return html`
-    <bx-select
+    <cds-select
       ?autofocus="${autofocus}"
       color-scheme="${ifNonNull(colorScheme)}"
       ?disabled="${disabled}"
@@ -71,7 +71,7 @@ export const Default = (args) => {
       value="${ifNonNull(value)}"
       @bx-select-selected="${ifNonNull(onInput)}">
       ${children}
-    </bx-select>
+    </cds-select>
   `;
 };
 

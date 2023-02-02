@@ -1,7 +1,7 @@
 /**
  * @license
  *
- * Copyright IBM Corp. 2019, 2022
+ * Copyright IBM Corp. 2019, 2023
  *
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
@@ -11,15 +11,13 @@ import { html, property, customElement, LitElement } from 'lit-element';
 import { classMap } from 'lit-html/directives/class-map';
 import CheckmarkFilled16 from '@carbon/icons/lib/checkmark--filled/16';
 import ErrorFilled16 from '@carbon/icons/lib/error--filled/16';
-import settings from 'carbon-components/es/globals/js/settings';
+import { prefix } from '../../globals/settings';
 import LOADING_TYPE from '../loading/types';
 import getLoadingIcon from '../loading/loading-icon';
 import { INLINE_LOADING_STATE } from './defs';
 import styles from './inline-loading.scss';
 
 export { INLINE_LOADING_STATE };
-
-const { prefix } = settings;
 
 /**
  * Lnline loading spinner.

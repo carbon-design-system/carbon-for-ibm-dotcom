@@ -1,7 +1,7 @@
 /**
  * @license
  *
- * Copyright IBM Corp. 2019, 2022
+ * Copyright IBM Corp. 2019, 2023
  *
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
@@ -40,11 +40,11 @@ export const Default = (args) => {
   };
 
   return html`
-    <bx-accordion
+    <cds-accordion
       @bx-accordion-item-beingtoggled="${handleBeforeToggle}"
       @bx-accordion-item-toggled="${onToggle}"
       size="${size}">
-      <bx-accordion-item
+      <cds-accordion-item
         ?disabled="${disabled}"
         ?open="${open}"
         title-text=${titleText}>
@@ -54,16 +54,16 @@ export const Default = (args) => {
           minim veniam, quis nostrud exercitation ullamco laboris nisi ut
           aliquip ex ea commodo consequat.
         </p>
-      </bx-accordion-item>
-      <bx-accordion-item ?open="${open}" title-text=${titleText}>
+      </cds-accordion-item>
+      <cds-accordion-item ?open="${open}" title-text=${titleText}>
         <p>
           Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
           eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad
           minim veniam, quis nostrud exercitation ullamco laboris nisi ut
           aliquip ex ea commodo consequat.
         </p>
-      </bx-accordion-item>
-      <bx-accordion-item ?open="${open}">
+      </cds-accordion-item>
+      <cds-accordion-item ?open="${open}">
         <p>
           Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
           eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad
@@ -71,8 +71,8 @@ export const Default = (args) => {
           aliquip ex ea commodo consequat.
         </p>
         <span slot="title">${titleText}</span>
-      </bx-accordion-item>
-    </bx-accordion>
+      </cds-accordion-item>
+    </cds-accordion>
   `;
 };
 

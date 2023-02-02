@@ -128,52 +128,52 @@ export const sideNav = (args) => {
     <style>
       ${styles}
     </style>
-    <bx-side-nav
+    <cds-side-nav
       aria-label="Side navigation"
       collapse-mode="${ifNonNull(collapseMode)}"
       ?expanded=${expanded}>
-      <bx-side-nav-items>
-        <bx-side-nav-menu title="L0 menu">
-          <bx-side-nav-menu-item href="${ifNonNull(href)}">
+      <cds-side-nav-items>
+        <cds-side-nav-menu title="L0 menu">
+          <cds-side-nav-menu-item href="${ifNonNull(href)}">
             L0 menu item
-          </bx-side-nav-menu-item>
-          <bx-side-nav-menu-item href="${ifNonNull(href)}">
+          </cds-side-nav-menu-item>
+          <cds-side-nav-menu-item href="${ifNonNull(href)}">
             L0 menu item
-          </bx-side-nav-menu-item>
-          <bx-side-nav-menu-item href="${ifNonNull(href)}">
+          </cds-side-nav-menu-item>
+          <cds-side-nav-menu-item href="${ifNonNull(href)}">
             L0 menu item
-          </bx-side-nav-menu-item>
-        </bx-side-nav-menu>
-        <bx-side-nav-menu title="L0 menu">
-          <bx-side-nav-menu-item href="${ifNonNull(href)}">
+          </cds-side-nav-menu-item>
+        </cds-side-nav-menu>
+        <cds-side-nav-menu title="L0 menu">
+          <cds-side-nav-menu-item href="${ifNonNull(href)}">
             L0 menu item
-          </bx-side-nav-menu-item>
-          <bx-side-nav-menu-item
+          </cds-side-nav-menu-item>
+          <cds-side-nav-menu-item
             active
             aria-current="page"
             href="${ifNonNull(href)}">
             L0 menu item
-          </bx-side-nav-menu-item>
-          <bx-side-nav-menu-item href="${ifNonNull(href)}">
+          </cds-side-nav-menu-item>
+          <cds-side-nav-menu-item href="${ifNonNull(href)}">
             L0 menu item
-          </bx-side-nav-menu-item>
-        </bx-side-nav-menu>
-        <bx-side-nav-menu title="L0 menu">
-          <bx-side-nav-menu-item href="${ifNonNull(href)}">
+          </cds-side-nav-menu-item>
+        </cds-side-nav-menu>
+        <cds-side-nav-menu title="L0 menu">
+          <cds-side-nav-menu-item href="${ifNonNull(href)}">
             L0 menu item
-          </bx-side-nav-menu-item>
-          <bx-side-nav-menu-item href="${ifNonNull(href)}">
+          </cds-side-nav-menu-item>
+          <cds-side-nav-menu-item href="${ifNonNull(href)}">
             L0 menu item
-          </bx-side-nav-menu-item>
-          <bx-side-nav-menu-item href="${ifNonNull(href)}">
+          </cds-side-nav-menu-item>
+          <cds-side-nav-menu-item href="${ifNonNull(href)}">
             L0 menu item
-          </bx-side-nav-menu-item>
-        </bx-side-nav-menu>
-        <bx-side-nav-divider></bx-side-nav-divider>
-        <bx-side-nav-link href="javascript:void(0)">L0 link</bx-side-nav-link>
-        <bx-side-nav-link href="javascript:void(0)">L0 link</bx-side-nav-link>
-      </bx-side-nav-items>
-    </bx-side-nav>
+          </cds-side-nav-menu-item>
+        </cds-side-nav-menu>
+        <cds-side-nav-divider></cds-side-nav-divider>
+        <cds-side-nav-link href="javascript:void(0)">L0 link</cds-side-nav-link>
+        <cds-side-nav-link href="javascript:void(0)">L0 link</cds-side-nav-link>
+      </cds-side-nav-items>
+    </cds-side-nav>
     ${StoryContent()}
   `;
   (result as any).hasMainTag = true;
@@ -206,59 +206,59 @@ export const sideNavWithIcons = (args) => {
     <style>
       ${styles}
     </style>
-    <bx-side-nav
+    <cds-side-nav
       aria-label="Side navigation"
       collapse-mode="${ifNonNull(collapseMode)}"
       ?expanded=${expanded}>
-      <bx-side-nav-items>
-        <bx-side-nav-menu title="L0 menu">
+      <cds-side-nav-items>
+        <cds-side-nav-menu title="L0 menu">
           ${Fade16({ slot: 'title-icon' })}
-          <bx-side-nav-menu-item href="${ifNonNull(href)}">
+          <cds-side-nav-menu-item href="${ifNonNull(href)}">
             L0 menu item
-          </bx-side-nav-menu-item>
-          <bx-side-nav-menu-item href="${ifNonNull(href)}">
+          </cds-side-nav-menu-item>
+          <cds-side-nav-menu-item href="${ifNonNull(href)}">
             L0 menu item
-          </bx-side-nav-menu-item>
-          <bx-side-nav-menu-item href="${ifNonNull(href)}">
+          </cds-side-nav-menu-item>
+          <cds-side-nav-menu-item href="${ifNonNull(href)}">
             L0 menu item
-          </bx-side-nav-menu-item>
-        </bx-side-nav-menu>
-        <bx-side-nav-menu title="L0 menu">
+          </cds-side-nav-menu-item>
+        </cds-side-nav-menu>
+        <cds-side-nav-menu title="L0 menu">
           ${Fade16({ slot: 'title-icon' })}
-          <bx-side-nav-menu-item href="${ifNonNull(href)}">
+          <cds-side-nav-menu-item href="${ifNonNull(href)}">
             L0 menu item
-          </bx-side-nav-menu-item>
-          <bx-side-nav-menu-item
+          </cds-side-nav-menu-item>
+          <cds-side-nav-menu-item
             active
             aria-current="page"
             href="${ifNonNull(href)}">
             L0 menu item
-          </bx-side-nav-menu-item>
-          <bx-side-nav-menu-item href="${ifNonNull(href)}">
+          </cds-side-nav-menu-item>
+          <cds-side-nav-menu-item href="${ifNonNull(href)}">
             L0 menu item
-          </bx-side-nav-menu-item>
-        </bx-side-nav-menu>
-        <bx-side-nav-menu title="L0 menu">
+          </cds-side-nav-menu-item>
+        </cds-side-nav-menu>
+        <cds-side-nav-menu title="L0 menu">
           ${Fade16({ slot: 'title-icon' })}
-          <bx-side-nav-menu-item href="${ifNonNull(href)}">
+          <cds-side-nav-menu-item href="${ifNonNull(href)}">
             L0 menu item
-          </bx-side-nav-menu-item>
-          <bx-side-nav-menu-item href="${ifNonNull(href)}">
+          </cds-side-nav-menu-item>
+          <cds-side-nav-menu-item href="${ifNonNull(href)}">
             L0 menu item
-          </bx-side-nav-menu-item>
-          <bx-side-nav-menu-item href="${ifNonNull(href)}">
+          </cds-side-nav-menu-item>
+          <cds-side-nav-menu-item href="${ifNonNull(href)}">
             L0 menu item
-          </bx-side-nav-menu-item>
-        </bx-side-nav-menu>
-        <bx-side-nav-divider></bx-side-nav-divider>
-        <bx-side-nav-link href="javascript:void(0)"
-          >${Fade16({ slot: 'title-icon' })}L0 link</bx-side-nav-link
+          </cds-side-nav-menu-item>
+        </cds-side-nav-menu>
+        <cds-side-nav-divider></cds-side-nav-divider>
+        <cds-side-nav-link href="javascript:void(0)"
+          >${Fade16({ slot: 'title-icon' })}L0 link</cds-side-nav-link
         >
-        <bx-side-nav-link href="javascript:void(0)"
-          >${Fade16({ slot: 'title-icon' })}L0 link</bx-side-nav-link
+        <cds-side-nav-link href="javascript:void(0)"
+          >${Fade16({ slot: 'title-icon' })}L0 link</cds-side-nav-link
         >
-      </bx-side-nav-items>
-    </bx-side-nav>
+      </cds-side-nav-items>
+    </cds-side-nav>
     ${StoryContent()}
   `;
   (result as any).hasMainTag = true;
@@ -286,85 +286,91 @@ export const header = (args) => {
     <style>
       ${styles}
     </style>
-    <bx-header aria-label="IBM Platform Name">
-      <bx-header-menu-button
+    <cds-header aria-label="IBM Platform Name">
+      <cds-header-menu-button
         button-label-active="Close menu"
         button-label-inactive="Open menu"
-        @bx-header-menu-button-toggled="${handleButtonToggle}"></bx-header-menu-button>
-      <bx-header-name href="javascript:void 0" prefix="IBM"
-        >[Platform]</bx-header-name
+        @bx-header-menu-button-toggled="${handleButtonToggle}"></cds-header-menu-button>
+      <cds-header-name href="javascript:void 0" prefix="IBM"
+        >[Platform]</cds-header-name
       >
-      <bx-header-nav menu-bar-label="IBM [Platform]">
-        <bx-header-nav-item href="javascript:void 0">Link 1</bx-header-nav-item>
-        <bx-header-nav-item href="javascript:void 0">Link 2</bx-header-nav-item>
-        <bx-header-nav-item href="javascript:void 0">Link 3</bx-header-nav-item>
-        <bx-header-menu menu-label="Link 4" trigger-content="Link 4">
-          <bx-header-menu-item href="javascript:void 0"
-            >Sub-link 1</bx-header-menu-item
+      <cds-header-nav menu-bar-label="IBM [Platform]">
+        <cds-header-nav-item href="javascript:void 0"
+          >Link 1</cds-header-nav-item
+        >
+        <cds-header-nav-item href="javascript:void 0"
+          >Link 2</cds-header-nav-item
+        >
+        <cds-header-nav-item href="javascript:void 0"
+          >Link 3</cds-header-nav-item
+        >
+        <cds-header-menu menu-label="Link 4" trigger-content="Link 4">
+          <cds-header-menu-item href="javascript:void 0"
+            >Sub-link 1</cds-header-menu-item
           >
-          <bx-header-menu-item href="javascript:void 0"
-            >Sub-link 2</bx-header-menu-item
+          <cds-header-menu-item href="javascript:void 0"
+            >Sub-link 2</cds-header-menu-item
           >
-          <bx-header-menu-item href="javascript:void 0"
-            >Sub-link 3</bx-header-menu-item
+          <cds-header-menu-item href="javascript:void 0"
+            >Sub-link 3</cds-header-menu-item
           >
-        </bx-header-menu>
-      </bx-header-nav>
-    </bx-header>
-    <bx-side-nav
+        </cds-header-menu>
+      </cds-header-nav>
+    </cds-header>
+    <cds-side-nav
       aria-label="Side navigation"
       collapse-mode="${ifNonNull(collapseMode)}"
       ?expanded=${expanded}
       usage-mode="${ifNonNull(usageMode)}">
-      <bx-side-nav-items>
-        <bx-side-nav-menu title="L0 menu">
+      <cds-side-nav-items>
+        <cds-side-nav-menu title="L0 menu">
           ${Fade16({ slot: 'title-icon' })}
-          <bx-side-nav-menu-item href="${ifNonNull(href)}">
+          <cds-side-nav-menu-item href="${ifNonNull(href)}">
             L0 menu item
-          </bx-side-nav-menu-item>
-          <bx-side-nav-menu-item href="${ifNonNull(href)}">
+          </cds-side-nav-menu-item>
+          <cds-side-nav-menu-item href="${ifNonNull(href)}">
             L0 menu item
-          </bx-side-nav-menu-item>
-          <bx-side-nav-menu-item href="${ifNonNull(href)}">
+          </cds-side-nav-menu-item>
+          <cds-side-nav-menu-item href="${ifNonNull(href)}">
             L0 menu item
-          </bx-side-nav-menu-item>
-        </bx-side-nav-menu>
-        <bx-side-nav-menu title="L0 menu">
+          </cds-side-nav-menu-item>
+        </cds-side-nav-menu>
+        <cds-side-nav-menu title="L0 menu">
           ${Fade16({ slot: 'title-icon' })}
-          <bx-side-nav-menu-item href="${ifNonNull(href)}">
+          <cds-side-nav-menu-item href="${ifNonNull(href)}">
             L0 menu item
-          </bx-side-nav-menu-item>
-          <bx-side-nav-menu-item
+          </cds-side-nav-menu-item>
+          <cds-side-nav-menu-item
             active
             aria-current="page"
             href="${ifNonNull(href)}">
             L0 menu item
-          </bx-side-nav-menu-item>
-          <bx-side-nav-menu-item href="${ifNonNull(href)}">
+          </cds-side-nav-menu-item>
+          <cds-side-nav-menu-item href="${ifNonNull(href)}">
             L0 menu item
-          </bx-side-nav-menu-item>
-        </bx-side-nav-menu>
-        <bx-side-nav-menu title="L0 menu">
+          </cds-side-nav-menu-item>
+        </cds-side-nav-menu>
+        <cds-side-nav-menu title="L0 menu">
           ${Fade16({ slot: 'title-icon' })}
-          <bx-side-nav-menu-item href="${ifNonNull(href)}">
+          <cds-side-nav-menu-item href="${ifNonNull(href)}">
             L0 menu item
-          </bx-side-nav-menu-item>
-          <bx-side-nav-menu-item href="${ifNonNull(href)}">
+          </cds-side-nav-menu-item>
+          <cds-side-nav-menu-item href="${ifNonNull(href)}">
             L0 menu item
-          </bx-side-nav-menu-item>
-          <bx-side-nav-menu-item href="${ifNonNull(href)}">
+          </cds-side-nav-menu-item>
+          <cds-side-nav-menu-item href="${ifNonNull(href)}">
             L0 menu item
-          </bx-side-nav-menu-item>
-        </bx-side-nav-menu>
-        <bx-side-nav-divider></bx-side-nav-divider>
-        <bx-side-nav-link href="javascript:void(0)"
-          >${Fade16({ slot: 'title-icon' })}L0 link</bx-side-nav-link
+          </cds-side-nav-menu-item>
+        </cds-side-nav-menu>
+        <cds-side-nav-divider></cds-side-nav-divider>
+        <cds-side-nav-link href="javascript:void(0)"
+          >${Fade16({ slot: 'title-icon' })}L0 link</cds-side-nav-link
         >
-        <bx-side-nav-link href="javascript:void(0)"
-          >${Fade16({ slot: 'title-icon' })}L0 link</bx-side-nav-link
+        <cds-side-nav-link href="javascript:void(0)"
+          >${Fade16({ slot: 'title-icon' })}L0 link</cds-side-nav-link
         >
-      </bx-side-nav-items>
-    </bx-side-nav>
+      </cds-side-nav-items>
+    </cds-side-nav>
     ${StoryContent()}
   `;
   (result as any).hasMainTag = true;

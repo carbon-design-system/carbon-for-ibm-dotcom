@@ -1,7 +1,7 @@
 /**
  * @license
  *
- * Copyright IBM Corp. 2019, 2022
+ * Copyright IBM Corp. 2019, 2023
  *
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
@@ -62,7 +62,7 @@ export const Default = (args) => {
     onClick,
   } = args?.['bx-btn'] ?? {};
   return html`
-    <bx-btn
+    <cds-btn
       ?autofocus="${autofocus}"
       ?disabled="${disabled}"
       download="${ifNonNull(download)}"
@@ -78,7 +78,7 @@ export const Default = (args) => {
       type="${ifNonNull(type)}"
       @click=${onClick}>
       Button
-    </bx-btn>
+    </cds-btn>
   `;
 };
 
@@ -99,7 +99,7 @@ export const icon = (args) => {
   const { kind, disabled, size, href, isExpressive, onClick } =
     args?.['bx-btn'] ?? {};
   return html`
-    <bx-btn
+    <cds-btn
       kind=${ifNonNull(kind)}
       ?disabled=${disabled}
       size=${ifNonNull(size)}
@@ -107,7 +107,7 @@ export const icon = (args) => {
       ?isExpressive="${isExpressive}"
       @click=${onClick}>
       ${Add16({ slot: 'icon' })}
-    </bx-btn>
+    </cds-btn>
   `;
 };
 
@@ -117,7 +117,7 @@ export const textAndIcon = (args) => {
   const { kind, disabled, size, href, iconLayout, isExpressive, onClick } =
     args?.['bx-btn'] ?? {};
   return html`
-    <bx-btn
+    <cds-btn
       kind=${ifNonNull(kind)}
       ?disabled=${disabled}
       icon-layout="${ifNonNull(iconLayout)}"
@@ -126,7 +126,7 @@ export const textAndIcon = (args) => {
       href=${ifNonNull(href || undefined)}
       @click=${onClick}>
       Button ${Add16({ slot: 'icon' })}
-    </bx-btn>
+    </cds-btn>
   `;
 };
 
@@ -150,13 +150,13 @@ export const skeleton = (args) => {
   const { disabled, size, href, isExpressive, onClick } =
     args?.['bx-btn-skeleton'];
   return html`
-    <bx-btn-skeleton
+    <cds-btn-skeleton
       ?disabled=${disabled}
       size=${ifNonNull(size)}
       href=${ifNonNull(href || undefined)}
       ?isExpressive="${isExpressive}"
       @click=${onClick}>
-    </bx-btn-skeleton>
+    </cds-btn-skeleton>
   `;
 };
 

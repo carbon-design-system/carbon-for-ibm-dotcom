@@ -1,7 +1,7 @@
 /**
  * @license
  *
- * Copyright IBM Corp. 2019, 2022
+ * Copyright IBM Corp. 2019, 2023
  *
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
@@ -10,7 +10,7 @@
 import { classMap } from 'lit-html/directives/class-map';
 import { html, property, query, customElement } from 'lit-element';
 import ChevronDown16 from '@carbon/icons/lib/chevron--down/16';
-import settings from 'carbon-components/es/globals/js/settings';
+import { prefix } from '../../globals/settings';
 import HostListenerMixin from '../../globals/mixins/host-listener';
 import HostListener from '../../globals/decorators/host-listener';
 import { find, forEach } from '../../globals/internal/collection-helpers';
@@ -25,8 +25,6 @@ import {
 } from './defs';
 import BXTab from './tab';
 import styles from './tabs.scss';
-
-const { prefix } = settings;
 
 export {
   NAVIGATION_DIRECTION,

@@ -42,7 +42,7 @@ export const Default = (args) => {
     onInput,
   } = args?.['bx-search'] ?? {};
   return html`
-    <bx-search
+    <cds-search
       close-button-assistive-text="${ifNonNull(closeButtonAssistiveText)}"
       color-scheme="${ifNonNull(colorScheme)}"
       ?disabled="${disabled}"
@@ -52,7 +52,7 @@ export const Default = (args) => {
       size="${ifNonNull(size)}"
       type="${ifNonNull(type)}"
       value="${ifNonNull(value)}"
-      @bx-search-input="${onInput}"></bx-search>
+      @bx-search-input="${onInput}"></cds-search>
   `;
 };
 
@@ -78,7 +78,8 @@ Default.parameters = {
   },
 };
 
-export const skeleton = () => html` <bx-search-skeleton></bx-search-skeleton> `;
+export const skeleton = () =>
+  html` <cds-search-skeleton></cds-search-skeleton> `;
 
 skeleton.parameters = {
   percy: {

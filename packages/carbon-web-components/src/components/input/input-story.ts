@@ -1,7 +1,7 @@
 /**
  * @license
  *
- * Copyright IBM Corp. 2019, 2022
+ * Copyright IBM Corp. 2019, 2023
  *
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
@@ -38,7 +38,7 @@ export const Default = (args) => {
     onInput,
   } = args?.['bx-input'] ?? {};
   return html`
-    <bx-input
+    <cds-input
       autocomplete="${ifNonNull(autocomplete)}"
       ?autofocus="${autofocus}"
       color-scheme="${ifNonNull(colorScheme)}"
@@ -56,7 +56,7 @@ export const Default = (args) => {
       type="${ifNonNull(type)}"
       validity-message="${ifNonNull(validityMessage)}"
       value="${ifNonNull(value)}"
-      @input="${onInput}"></bx-input>
+      @input="${onInput}"></cds-input>
   `;
 };
 
@@ -75,8 +75,8 @@ export const formItem = (args) => {
     onInput,
   } = args?.['bx-input'] ?? {};
   return html`
-    <bx-form-item>
-      <bx-input
+    <cds-form-item>
+      <cds-input
         value="${ifNonNull(value)}"
         color-scheme="${ifNonNull(colorScheme)}"
         placeholder="${ifNonNull(placeholder)}"
@@ -89,8 +89,8 @@ export const formItem = (args) => {
         <span slot="label-text">Label text</span>
         <span slot="helper-text">Optional helper text</span>
         <span slot="validity-message">Something isn't right</span>
-      </bx-input>
-    </bx-form-item>
+      </cds-input>
+    </cds-form-item>
   `;
 };
 
@@ -109,7 +109,7 @@ export const withoutFormItemWrapper = (args) => {
     onInput,
   } = args?.['bx-input'] ?? {};
   return html`
-    <bx-input
+    <cds-input
       value="${ifNonNull(value)}"
       color-scheme="${ifNonNull(colorScheme)}"
       placeholder="${ifNonNull(placeholder)}"
@@ -122,7 +122,7 @@ export const withoutFormItemWrapper = (args) => {
       <span slot="label-text">Label text</span>
       <span slot="helper-text">Optional helper text</span>
       <span slot="validity-message">Something isn't right</span>
-    </bx-input>
+    </cds-input>
   `;
 };
 

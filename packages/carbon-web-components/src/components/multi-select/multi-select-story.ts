@@ -1,7 +1,7 @@
 /**
  * @license
  *
- * Copyright IBM Corp. 2019, 2022
+ * Copyright IBM Corp. 2019, 2023
  *
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
@@ -77,7 +77,7 @@ export const Default = (args) => {
     }
   };
   return html`
-    <bx-multi-select
+    <cds-multi-select
       color-scheme="${ifNonNull(colorScheme)}"
       ?disabled=${disabled}
       ?invalid=${invalid}
@@ -96,12 +96,14 @@ export const Default = (args) => {
       @bx-multi-select-beingtoggled=${handleBeforeToggle}
       @bx-multi-select-selected=${onSelect}
       @bx-multi-select-toggled=${onToggle}>
-      <bx-multi-select-item value="all">Option 1</bx-multi-select-item>
-      <bx-multi-select-item value="cloudFoundry">Option 2</bx-multi-select-item>
-      <bx-multi-select-item value="staging">Option 3</bx-multi-select-item>
-      <bx-multi-select-item value="dea">Option 4</bx-multi-select-item>
-      <bx-multi-select-item value="router">Option 5</bx-multi-select-item>
-    </bx-multi-select>
+      <cds-multi-select-item value="all">Option 1</cds-multi-select-item>
+      <cds-multi-select-item value="cloudFoundry"
+        >Option 2</cds-multi-select-item
+      >
+      <cds-multi-select-item value="staging">Option 3</cds-multi-select-item>
+      <cds-multi-select-item value="dea">Option 4</cds-multi-select-item>
+      <cds-multi-select-item value="router">Option 5</cds-multi-select-item>
+    </cds-multi-select>
   `;
 };
 
@@ -147,7 +149,7 @@ export const Filterable = (args) => {
     }
   };
   return html`
-    <bx-multi-select
+    <cds-multi-select
       filterable="true"
       color-scheme="${ifNonNull(colorScheme)}"
       ?disabled=${disabled}
@@ -167,16 +169,18 @@ export const Filterable = (args) => {
       @bx-multi-select-beingtoggled=${handleBeforeToggle}
       @bx-multi-select-selected=${onSelect}
       @bx-multi-select-toggled=${onToggle}>
-      <bx-multi-select-item value="example"
+      <cds-multi-select-item value="example"
         >An example option that is really long to show what should be done to
-        handle long text</bx-multi-select-item
+        handle long text</cds-multi-select-item
       >
-      <bx-multi-select-item value="all">Option 1</bx-multi-select-item>
-      <bx-multi-select-item value="cloudFoundry">Option 2</bx-multi-select-item>
-      <bx-multi-select-item value="staging">Option 3</bx-multi-select-item>
-      <bx-multi-select-item value="dea">Option 4</bx-multi-select-item>
-      <bx-multi-select-item value="router">Option 5</bx-multi-select-item>
-    </bx-multi-select>
+      <cds-multi-select-item value="all">Option 1</cds-multi-select-item>
+      <cds-multi-select-item value="cloudFoundry"
+        >Option 2</cds-multi-select-item
+      >
+      <cds-multi-select-item value="staging">Option 3</cds-multi-select-item>
+      <cds-multi-select-item value="dea">Option 4</cds-multi-select-item>
+      <cds-multi-select-item value="router">Option 5</cds-multi-select-item>
+    </cds-multi-select>
   `;
 };
 

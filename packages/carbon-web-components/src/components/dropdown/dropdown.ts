@@ -7,7 +7,7 @@
  * LICENSE file in the root directory of this source tree.
  */
 
-import settings from 'carbon-components/es/globals/js/settings';
+import { prefix } from '../../globals/settings';
 import { classMap } from 'lit-html/directives/class-map';
 import { TemplateResult } from 'lit-html';
 import { ifDefined } from 'lit-html/directives/if-defined';
@@ -41,8 +41,6 @@ export {
   DROPDOWN_TYPE,
   NAVIGATION_DIRECTION,
 };
-
-const { prefix } = settings;
 
 /**
  * Dropdown.

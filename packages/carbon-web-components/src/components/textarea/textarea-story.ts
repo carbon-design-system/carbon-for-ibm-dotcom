@@ -1,7 +1,7 @@
 /**
  * @license
  *
- * Copyright IBM Corp. 2019, 2022
+ * Copyright IBM Corp. 2019, 2023
  *
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
@@ -38,7 +38,7 @@ export const Default = (args) => {
     cols,
   } = args?.['bx-textarea'] ?? {};
   return html`
-    <bx-textarea
+    <cds-textarea
       autocomplete="${ifNonNull(autocomplete)}"
       ?autofocus="${autofocus}"
       color-scheme="${ifNonNull(colorScheme)}"
@@ -56,7 +56,7 @@ export const Default = (args) => {
       @input="${onInput}"
       rows="${ifNonNull(rows)}"
       cols="${ifNonNull(cols)}">
-    </bx-textarea>
+    </cds-textarea>
   `;
 };
 
@@ -80,8 +80,8 @@ export const formItem = (args) => {
     cols,
   } = args?.['bx-textarea'] ?? {};
   return html`
-    <bx-form-item>
-      <bx-textarea
+    <cds-form-item>
+      <cds-textarea
         color-scheme="${ifNonNull(colorScheme)}"
         placeholder="${ifNonNull(placeholder)}"
         @input="${onInput}"
@@ -94,8 +94,8 @@ export const formItem = (args) => {
         <span slot="helper-text">Optional helper text</span>
         <span slot="validity-message">Something isn't right</span>
         ${value}
-      </bx-textarea>
-    </bx-form-item>
+      </cds-textarea>
+    </cds-form-item>
   `;
 };
 
@@ -119,7 +119,7 @@ export const withoutFormItemWrapper = (args) => {
     cols,
   } = args?.['bx-textarea'] ?? {};
   return html`
-    <bx-textarea
+    <cds-textarea
       color-scheme="${ifNonNull(colorScheme)}"
       placeholder="${ifNonNull(placeholder)}"
       @input="${onInput}"
@@ -132,7 +132,7 @@ export const withoutFormItemWrapper = (args) => {
       <span slot="helper-text">Optional helper text</span>
       <span slot="validity-message">Something isn't right</span>
       <span>${value}</span>
-    </bx-textarea>
+    </cds-textarea>
   `;
 };
 
@@ -145,7 +145,7 @@ withoutFormItemWrapper.parameters = {
 };
 
 export const skeleton = () =>
-  html` <bx-textarea-skeleton></bx-textarea-skeleton> `;
+  html` <cds-textarea-skeleton></cds-textarea-skeleton> `;
 
 skeleton.parameters = {
   percy: {

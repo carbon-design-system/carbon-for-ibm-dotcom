@@ -1,7 +1,7 @@
 /**
  * @license
  *
- * Copyright IBM Corp. 2020, 2022
+ * Copyright IBM Corp. 2020, 2023
  *
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
@@ -10,7 +10,7 @@
 import { ifDefined } from 'lit-html/directives/if-defined';
 import { html, property, query, customElement, LitElement } from 'lit-element';
 import { classMap } from 'lit-html/directives/class-map';
-import settings from 'carbon-components/es/globals/js/settings';
+import { prefix } from '../../globals/settings';
 import ChevronDown16 from '@carbon/icons/lib/chevron--down/16';
 import WarningFilled16 from '@carbon/icons/lib/warning--filled/16';
 import { FORM_ELEMENT_COLOR_SCHEME } from '../../globals/shared-enums';
@@ -22,8 +22,6 @@ import { INPUT_SIZE } from '../input/input';
 import styles from './select.scss';
 
 export { FORM_ELEMENT_COLOR_SCHEME as SELECT_COLOR_SCHEME } from '../../globals/shared-enums';
-
-const { prefix } = settings;
 
 /**
  * Select box.

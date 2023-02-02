@@ -1,7 +1,7 @@
 /**
  * @license
  *
- * Copyright IBM Corp. 2019, 2022
+ * Copyright IBM Corp. 2019, 2023
  *
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
@@ -27,7 +27,7 @@ const colorSchemes = {
 export const Default = (args) => {
   const { colorScheme } = args?.['bx-tile'] ?? {};
   return html`
-    <bx-tile color-scheme="${ifNonNull(colorScheme)}">Default tile</bx-tile>
+    <cds-tile color-scheme="${ifNonNull(colorScheme)}">Default tile</cds-tile>
   `;
 };
 
@@ -54,7 +54,7 @@ export const clickable = (args) => {
     type,
   } = args?.['bx-clickable-tile'] ?? {};
   return html`
-    <bx-clickable-tile
+    <cds-clickable-tile
       color-scheme="${ifNonNull(colorScheme)}"
       ?disabled="${disabled}"
       download="${ifNonNull(download)}"
@@ -65,7 +65,7 @@ export const clickable = (args) => {
       target="${ifNonNull(target)}"
       type="${ifNonNull(type)}">
       Clickable tile
-    </bx-clickable-tile>
+    </cds-clickable-tile>
   `;
 };
 
@@ -85,30 +85,30 @@ export const singleSelectable = (args) => {
   return html`
     <fieldset>
       <legend>Single-select tiles</legend>
-      <bx-radio-tile
+      <cds-radio-tile
         checkmark-label="${ifNonNull(checkmarkLabel)}"
         color-scheme="${ifNonNull(colorScheme)}"
         name="${ifNonNull(name)}"
         value="${ifNonNull(value)}"
         @input="${onInput}">
         Single-select Tile
-      </bx-radio-tile>
-      <bx-radio-tile
+      </cds-radio-tile>
+      <cds-radio-tile
         checkmark-label="${ifNonNull(checkmarkLabel)}"
         color-scheme="${ifNonNull(colorScheme)}"
         name="${ifNonNull(name)}"
         value="${ifNonNull(value)}"
         @input="${onInput}">
         Single-select Tile
-      </bx-radio-tile>
-      <bx-radio-tile
+      </cds-radio-tile>
+      <cds-radio-tile
         checkmark-label="${ifNonNull(checkmarkLabel)}"
         color-scheme="${ifNonNull(colorScheme)}"
         name="${ifNonNull(name)}"
         value="${ifNonNull(value)}"
         @input="${onInput}">
         Single-select Tile
-      </bx-radio-tile>
+      </cds-radio-tile>
     </fieldset>
   `;
 };
@@ -134,7 +134,7 @@ export const multiSelectable = (args) => {
   const { checkmarkLabel, colorScheme, name, selected, value, onInput } =
     args?.['bx-selectable-tile'] ?? {};
   return html`
-    <bx-selectable-tile
+    <cds-selectable-tile
       checkmark-label="${ifNonNull(checkmarkLabel)}"
       color-scheme="${ifNonNull(colorScheme)}"
       name="${ifNonNull(name)}"
@@ -142,7 +142,7 @@ export const multiSelectable = (args) => {
       value="${ifNonNull(value)}"
       @input="${onInput}">
       Multi-select Tile
-    </bx-selectable-tile>
+    </cds-selectable-tile>
   `;
 };
 
@@ -167,20 +167,20 @@ export const expandable = (args) => {
     }
   };
   return html`
-    <bx-expandable-tile
+    <cds-expandable-tile
       color-scheme="${ifNonNull(colorScheme)}"
       ?expanded="${expanded}"
       @bx-expandable-tile-beingchanged=${handleBeforeChanged}
       @bx-expandable-tile-changed=${onChange}>
-      <bx-tile-above-the-fold-content
+      <cds-tile-above-the-fold-content
         slot="above-the-fold-content"
         style="height: 200px">
         Above the fold content here
-      </bx-tile-above-the-fold-content>
-      <bx-tile-below-the-fold-content style="height: 300px">
+      </cds-tile-above-the-fold-content>
+      <cds-tile-below-the-fold-content style="height: 300px">
         Below the fold content here
-      </bx-tile-below-the-fold-content>
-    </bx-expandable-tile>
+      </cds-tile-below-the-fold-content>
+    </cds-expandable-tile>
   `;
 };
 

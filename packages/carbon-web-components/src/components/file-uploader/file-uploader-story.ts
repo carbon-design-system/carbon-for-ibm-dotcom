@@ -49,7 +49,7 @@ class BXCEDemoFileUploader extends LitElement {
   private _files: FileData[] = [];
 
   /**
-   * Handles `bx-drop-container-changed` on `<bx-file-drop-container>`.
+   * Handles `bx-drop-container-changed` on `<cds-file-drop-container>`.
    *
    * @param event The event.
    */
@@ -76,7 +76,7 @@ class BXCEDemoFileUploader extends LitElement {
   }
 
   /**
-   * Handles `bx-file-uploader-item-deleted` on `<bx-file-uploader-item>`.
+   * Handles `bx-file-uploader-item-deleted` on `<cds-file-uploader-item>`.
    *
    * @param event The event.
    */
@@ -184,16 +184,16 @@ class BXCEDemoFileUploader extends LitElement {
       _handleDelete: handleDelete,
     } = this;
     return html`
-      <bx-file-uploader
+      <cds-file-uploader
         helper-text="${ifNonNull(helperText)}"
         label-text="${ifNonNull(labelText)}">
-        <bx-file-drop-container
+        <cds-file-drop-container
           accept="${ifNonNull(accept)}"
           ?disabled="${disabled}"
           ?multiple="${multiple}"
           @bx-file-drop-container-changed="${handleChange}">
           Drag and drop files here or click to upload
-        </bx-file-drop-container>
+        </cds-file-drop-container>
         ${files.map(
           ({
             id,
@@ -203,7 +203,7 @@ class BXCEDemoFileUploader extends LitElement {
             supplementalValidityMessage,
             validityMessage,
           }) => html`
-            <bx-file-uploader-item
+            <cds-file-uploader-item
               data-file-id="${id}"
               ?invalid="${invalid}"
               size="${ifNonNull(size)}"
@@ -214,10 +214,10 @@ class BXCEDemoFileUploader extends LitElement {
               <span slot="validity-message-supplement"
                 >${supplementalValidityMessage}</span
               >
-            </bx-file-uploader-item>
+            </cds-file-uploader-item>
           `
         )}
-      </bx-file-uploader>
+      </cds-file-uploader>
     `;
   }
 }
@@ -228,7 +228,7 @@ const defineDemoFileUploader = (() => {
     if (!hasDemoFileUploaderDefined) {
       hasDemoFileUploaderDefined = true;
       const ce = customElements;
-      // Prevents `web-component-analyzer` from harvesting `<bx-ce-demo-data-table>`
+      // Prevents `web-component-analyzer` from harvesting `<cds-ce-demo-data-table>`
       ce.define('bx-ce-demo-file-uploader', BXCEDemoFileUploader);
     }
   };
@@ -247,7 +247,7 @@ export const Default = (args) => {
   };
   defineDemoFileUploader();
   return html`
-    <bx-ce-demo-file-uploader
+    <cds-ce-demo-file-uploader
       accept="${ifNonNull(accept)}"
       ?disabled="${disabled}"
       helper-text="${ifNonNull(helperText)}"
@@ -256,7 +256,7 @@ export const Default = (args) => {
       size="${ifNonNull(size)}"
       @bx-file-uploader-item-beingdeleted="${handleBeforeDelete}"
       @bx-file-uploader-item-deleted="${onDelete}">
-    </bx-ce-demo-file-uploader>
+    </cds-ce-demo-file-uploader>
   `;
 };
 

@@ -1,7 +1,7 @@
 /**
  * @license
  *
- * Copyright IBM Corp. 2019, 2022
+ * Copyright IBM Corp. 2019, 2023
  *
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
@@ -53,8 +53,8 @@ export const Default = (args) => {
     <style>
       ${styles}
     </style>
-    <bx-tooltip ?open="${open}">
-      <bx-tooltip-body
+    <cds-tooltip ?open="${open}">
+      <cds-tooltip-body
         direction="${ifNonNull(direction)}"
         alignment="${ifNonNull(alignment)}">
         <p>
@@ -62,8 +62,8 @@ export const Default = (args) => {
           that should appear inside. If more room is needed please use a modal
           instead.
         </p>
-      </bx-tooltip-body>
-    </bx-tooltip>
+      </cds-tooltip-body>
+    </cds-tooltip>
   `;
 };
 
@@ -81,7 +81,7 @@ Default.parameters = {
         TOOLTIP_ALIGNMENT.CENTER
       ),
       direction: select(
-        'Direction (direction in <bx-tooltip-body>)',
+        'Direction (direction in <cds-tooltip-body>)',
         tooltipBodyDirections,
         FLOATING_MENU_DIRECTION.BOTTOM
       ),
@@ -93,12 +93,12 @@ export const definition = (args) => {
   const { alignment, bodyText, direction } =
     args?.['bx-tooltip-definition'] ?? {};
   return html`
-    <bx-tooltip-definition
+    <cds-tooltip-definition
       alignment="${ifNonNull(alignment)}"
       body-text="${ifNonNull(bodyText)}"
       direction="${ifNonNull(direction)}">
       Definition Tooltip
-    </bx-tooltip-definition>
+    </cds-tooltip-definition>
   `;
 };
 
@@ -128,12 +128,12 @@ definition.parameters = {
 export const icon = (args) => {
   const { alignment, bodyText, direction } = args?.['bx-tooltip-icon'] ?? {};
   return html`
-    <bx-tooltip-icon
+    <cds-tooltip-icon
       alignment="${ifNonNull(alignment)}"
       body-text="${ifNonNull(bodyText)}"
       direction="${ifNonNull(direction)}">
       ${Filter16()}
-    </bx-tooltip-icon>
+    </cds-tooltip-icon>
   `;
 };
 

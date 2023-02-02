@@ -1,7 +1,7 @@
 /**
  * @license
  *
- * Copyright IBM Corp. 2019, 2022
+ * Copyright IBM Corp. 2019, 2023
  *
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
@@ -73,7 +73,7 @@ export const Default = (args) => {
     }
   };
   return html`
-    <bx-combo-box
+    <cds-combo-box
       ?open=${open}
       color-scheme="${ifNonNull(colorScheme)}"
       ?disabled=${disabled}
@@ -89,15 +89,15 @@ export const Default = (args) => {
       @bx-combo-box-beingtoggled=${handleBeforeToggle}
       @bx-combo-box-selected=${onSelect}
       @bx-combo-box-toggled=${onToggle}>
-      <bx-combo-box-item value="all">Option 1</bx-combo-box-item>
-      <bx-combo-box-item value="cloudFoundry">Option 2</bx-combo-box-item>
-      <bx-combo-box-item value="staging">Option 3</bx-combo-box-item>
-      <bx-combo-box-item value="dea">Option 4</bx-combo-box-item>
-      <bx-combo-box-item value="router">Option 5</bx-combo-box-item>
-      <bx-combo-box-item value="support">Option 6</bx-combo-box-item>
-      <bx-combo-box-item value="services">Option 7</bx-combo-box-item>
-      <bx-combo-box-item value="products">Option 8</bx-combo-box-item>
-    </bx-combo-box>
+      <cds-combo-box-item value="all">Option 1</cds-combo-box-item>
+      <cds-combo-box-item value="cloudFoundry">Option 2</cds-combo-box-item>
+      <cds-combo-box-item value="staging">Option 3</cds-combo-box-item>
+      <cds-combo-box-item value="dea">Option 4</cds-combo-box-item>
+      <cds-combo-box-item value="router">Option 5</cds-combo-box-item>
+      <cds-combo-box-item value="support">Option 6</cds-combo-box-item>
+      <cds-combo-box-item value="services">Option 7</cds-combo-box-item>
+      <cds-combo-box-item value="products">Option 8</cds-combo-box-item>
+    </cds-combo-box>
   `;
 };
 

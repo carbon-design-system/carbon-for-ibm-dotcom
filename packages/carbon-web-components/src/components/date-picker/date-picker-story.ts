@@ -1,5 +1,5 @@
 /**
- * Copyright IBM Corp. 2019, 2022
+ * Copyright IBM Corp. 2019, 2023
  *
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
@@ -34,7 +34,7 @@ const sizes = {
 const knobs = {
   'bx-date-picker': () => ({
     dateFormat: textNullable('The date format (date-format)', 'm/d/Y'),
-    disabled: boolean('Disabled (disabled in <bx-date-picker-input>)', false),
+    disabled: boolean('Disabled (disabled in <cds-date-picker-input>)', false),
     enabledRange: textNullable(
       'Minimum/maximum dates in ISO8601 date format, separated by `/` (enabled-range)',
       ''
@@ -49,21 +49,21 @@ const knobs = {
   }),
   'bx-date-picker-input': () => ({
     colorScheme: select(
-      'Color scheme (color-scheme in <bx-date-picker-input>)',
+      'Color scheme (color-scheme in <cds-date-picker-input>)',
       colorSchemes,
       null
     ),
     hideLabel: boolean(
-      'Hide label (hide-label in <bx-date-picker-input>)',
+      'Hide label (hide-label in <cds-date-picker-input>)',
       false
     ),
     invalid: boolean('Show invalid state  (invalid)', false),
     labelText: textNullable(
-      'Label text (label-text in <bx-date-picker-input>)',
+      'Label text (label-text in <cds-date-picker-input>)',
       'Date Picker label'
     ),
     placeholder: textNullable(
-      'Placeholder text (placeholder in <bx-date-picker-input>)',
+      'Placeholder text (placeholder in <cds-date-picker-input>)',
       'mm/dd/yyyy'
     ),
     size: select('Input size (size)', sizes, INPUT_SIZE.REGULAR),
@@ -94,11 +94,11 @@ export const Default = (args) => {
     validityMessage,
   } = args?.['bx-date-picker-input'] ?? {};
   return html`
-    <bx-date-picker
+    <cds-date-picker
       ?disabled="${disabled}"
       name="${ifNonNull(name)}"
       value="${ifNonNull(value)}">
-      <bx-date-picker-input
+      <cds-date-picker-input
         color-scheme="${ifNonNull(colorScheme)}"
         ?hide-label="${hideLabel}"
         ?invalid="${invalid}"
@@ -107,8 +107,8 @@ export const Default = (args) => {
         size="${ifNonNull(size)}"
         size-horizontal="${ifNonNull(sizeHorizontal)}"
         validity-message="${ifNonNull(validityMessage)}">
-      </bx-date-picker-input>
-    </bx-date-picker>
+      </cds-date-picker-input>
+    </cds-date-picker>
   `;
 };
 
@@ -149,7 +149,7 @@ export const singleWithCalendar = (args) => {
     onInput,
   } = args?.['bx-date-picker-input'] ?? {};
   return html`
-    <bx-date-picker
+    <cds-date-picker
       date-format="${ifNonNull(dateFormat)}"
       ?disabled="${disabled}"
       enabled-range="${ifNonNull(enabledRange)}"
@@ -158,7 +158,7 @@ export const singleWithCalendar = (args) => {
       value="${ifNonNull(value)}"
       @bx-date-picker-changed="${onChanged}"
       @bx-date-picker-flatpickr-error="${onFlatpickrError}">
-      <bx-date-picker-input
+      <cds-date-picker-input
         color-scheme="${ifNonNull(colorScheme)}"
         ?hide-label="${hideLabel}"
         ?invalid="${invalid}"
@@ -168,8 +168,8 @@ export const singleWithCalendar = (args) => {
         size="${ifNonNull(size)}"
         validity-message="${ifNonNull(validityMessage)}"
         @input="${onInput}">
-      </bx-date-picker-input>
-    </bx-date-picker>
+      </cds-date-picker-input>
+    </cds-date-picker>
   `;
 };
 
@@ -201,7 +201,7 @@ export const rangeWithCalendar = (args) => {
     onInput,
   } = args?.['bx-date-picker-input'] ?? {};
   return html`
-    <bx-date-picker
+    <cds-date-picker
       date-format="${ifNonNull(dateFormat)}"
       ?disabled="${disabled}"
       enabled-range="${ifNonNull(enabledRange)}"
@@ -210,7 +210,7 @@ export const rangeWithCalendar = (args) => {
       value="${ifNonNull(value)}"
       @bx-date-picker-changed="${onChanged}"
       @bx-date-picker-flatpickr-error="${onFlatpickrError}">
-      <bx-date-picker-input
+      <cds-date-picker-input
         color-scheme="${ifNonNull(colorScheme)}"
         ?hide-label="${hideLabel}"
         ?invalid="${invalid}"
@@ -220,8 +220,8 @@ export const rangeWithCalendar = (args) => {
         size="${ifNonNull(size)}"
         validity-message="${ifNonNull(validityMessage)}"
         @input="${onInput}">
-      </bx-date-picker-input>
-      <bx-date-picker-input
+      </cds-date-picker-input>
+      <cds-date-picker-input
         color-scheme="${ifNonNull(colorScheme)}"
         ?hide-label="${hideLabel}"
         ?invalid="${invalid}"
@@ -231,8 +231,8 @@ export const rangeWithCalendar = (args) => {
         size="${ifNonNull(size)}"
         validity-message="${ifNonNull(validityMessage)}"
         @input="${onInput}">
-      </bx-date-picker-input>
-    </bx-date-picker>
+      </cds-date-picker-input>
+    </cds-date-picker>
   `;
 };
 
@@ -243,7 +243,7 @@ rangeWithCalendar.parameters = {
 };
 
 export const skeletonSimple = () =>
-  html` <bx-date-picker-input-skeleton></bx-date-picker-input-skeleton> `;
+  html` <cds-date-picker-input-skeleton></cds-date-picker-input-skeleton> `;
 
 skeletonSimple.storyName = 'Skeleton simple';
 
@@ -255,8 +255,8 @@ skeletonSimple.parameters = {
 
 export const skeletonSingle = () =>
   html`
-    <bx-date-picker-input-skeleton
-      kind="single"></bx-date-picker-input-skeleton>
+    <cds-date-picker-input-skeleton
+      kind="single"></cds-date-picker-input-skeleton>
   `;
 
 skeletonSingle.storyName = 'Skeleton single';
@@ -269,8 +269,9 @@ skeletonSingle.parameters = {
 
 export const skeletonRange = () =>
   html`
-    <bx-date-picker-input-skeleton kind="from"></bx-date-picker-input-skeleton>
-    <bx-date-picker-input-skeleton kind="to"></bx-date-picker-input-skeleton>
+    <cds-date-picker-input-skeleton
+      kind="from"></cds-date-picker-input-skeleton>
+    <cds-date-picker-input-skeleton kind="to"></cds-date-picker-input-skeleton>
   `;
 
 skeletonRange.storyName = 'Skeleton range';

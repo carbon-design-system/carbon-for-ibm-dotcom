@@ -1,7 +1,7 @@
 /**
  * @license
  *
- * Copyright IBM Corp. 2019, 2022
+ * Copyright IBM Corp. 2019, 2023
  *
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
@@ -9,15 +9,13 @@
 
 import { classMap } from 'lit-html/directives/class-map';
 import { html, property, customElement, LitElement } from 'lit-element';
-import settings from 'carbon-components/es/globals/js/settings';
+import { prefix } from '../../globals/settings';
 import ifNonNull from '../../globals/directives/if-non-null';
 import FocusMixin from '../../globals/mixins/focus';
 import { SLIDER_INPUT_COLOR_SCHEME } from './defs';
 import styles from './slider.scss';
 
 export { SLIDER_INPUT_COLOR_SCHEME };
-
-const { prefix } = settings;
 
 /**
  * The `<input>` box for slider.

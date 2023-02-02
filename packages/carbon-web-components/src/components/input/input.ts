@@ -1,7 +1,7 @@
 /**
  * @license
  *
- * Copyright IBM Corp. 2019, 2022
+ * Copyright IBM Corp. 2019, 2023
  *
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
@@ -9,7 +9,7 @@
 
 import { html, property, query, customElement, LitElement } from 'lit-element';
 import { classMap } from 'lit-html/directives/class-map';
-import settings from 'carbon-components/es/globals/js/settings';
+import { prefix } from '../../globals/settings';
 import View16 from '@carbon/icons/lib/view/16';
 import ViewOff16 from '@carbon/icons/lib/view--off/16';
 import WarningFilled16 from '@carbon/icons/lib/warning--filled/16';
@@ -24,8 +24,6 @@ import { INPUT_COLOR_SCHEME, INPUT_SIZE, INPUT_TYPE } from './defs';
 import styles from './input.scss';
 
 export { INPUT_COLOR_SCHEME, INPUT_SIZE, INPUT_TYPE };
-
-const { prefix } = settings;
 
 /**
  * Input element. Supports all the usual attributes for textual input types

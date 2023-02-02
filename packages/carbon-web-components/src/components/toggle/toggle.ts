@@ -1,7 +1,7 @@
 /**
  * @license
  *
- * Copyright IBM Corp. 2019, 2022
+ * Copyright IBM Corp. 2019, 2023
  *
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
@@ -9,15 +9,13 @@
 
 import { classMap } from 'lit-html/directives/class-map';
 import { html, property, customElement } from 'lit-element';
-import settings from 'carbon-components/es/globals/js/settings';
+import { prefix } from '../../globals/settings';
 import ifNonNull from '../../globals/directives/if-non-null';
 import BXCheckbox from '../checkbox/checkbox';
 import { TOGGLE_SIZE } from './defs';
 import styles from './toggle.scss';
 
 export { TOGGLE_SIZE };
-
-const { prefix } = settings;
 
 /**
  * Basic toggle.

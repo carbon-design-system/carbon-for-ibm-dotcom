@@ -1,7 +1,7 @@
 /**
  * @license
  *
- * Copyright IBM Corp. 2019, 2022
+ * Copyright IBM Corp. 2019, 2023
  *
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
@@ -73,7 +73,7 @@ export const Default = (args) => {
     }
   };
   return html`
-    <bx-dropdown
+    <cds-dropdown
       ?open=${open}
       color-scheme="${ifNonNull(colorScheme)}"
       ?disabled=${disabled}
@@ -87,12 +87,12 @@ export const Default = (args) => {
       @bx-dropdown-beingtoggled=${handleBeforeToggle}
       @bx-dropdown-selected=${onSelect}
       @bx-dropdown-toggled=${onToggle}>
-      <bx-dropdown-item value="all">Option 1</bx-dropdown-item>
-      <bx-dropdown-item value="cloudFoundry">Option 2</bx-dropdown-item>
-      <bx-dropdown-item value="staging">Option 3</bx-dropdown-item>
-      <bx-dropdown-item value="dea">Option 4</bx-dropdown-item>
-      <bx-dropdown-item value="router">Option 5</bx-dropdown-item>
-    </bx-dropdown>
+      <cds-dropdown-item value="all">Option 1</cds-dropdown-item>
+      <cds-dropdown-item value="cloudFoundry">Option 2</cds-dropdown-item>
+      <cds-dropdown-item value="staging">Option 3</cds-dropdown-item>
+      <cds-dropdown-item value="dea">Option 4</cds-dropdown-item>
+      <cds-dropdown-item value="router">Option 5</cds-dropdown-item>
+    </cds-dropdown>
   `;
 };
 
@@ -133,7 +133,7 @@ Default.parameters = {
 };
 
 export const skeleton = () =>
-  html` <bx-dropdown-skeleton></bx-dropdown-skeleton> `;
+  html` <cds-dropdown-skeleton></cds-dropdown-skeleton> `;
 
 skeleton.parameters = {
   percy: {

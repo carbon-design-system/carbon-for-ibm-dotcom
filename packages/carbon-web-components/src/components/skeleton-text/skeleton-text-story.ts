@@ -1,7 +1,7 @@
 /**
  * @license
  *
- * Copyright IBM Corp. 2019, 2022
+ * Copyright IBM Corp. 2019, 2023
  *
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
@@ -21,7 +21,7 @@ const types = {
 export const Default = (args) => {
   const { type } = args?.['bx-skeleton-text'] ?? {};
   return html`
-    <bx-skeleton-text type="${ifNonNull(type)}"></bx-skeleton-text>
+    <cds-skeleton-text type="${ifNonNull(type)}"></cds-skeleton-text>
   `;
 };
 
@@ -36,9 +36,9 @@ Default.parameters = {
 };
 
 export const lines = () => html`
-  <bx-skeleton-text type="line"></bx-skeleton-text>
-  <bx-skeleton-text type="line"></bx-skeleton-text>
-  <bx-skeleton-text type="line"></bx-skeleton-text>
+  <cds-skeleton-text type="line"></cds-skeleton-text>
+  <cds-skeleton-text type="line"></cds-skeleton-text>
+  <cds-skeleton-text type="line"></cds-skeleton-text>
 `;
 
 lines.decorators = [

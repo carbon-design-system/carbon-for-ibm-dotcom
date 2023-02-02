@@ -1,13 +1,13 @@
 /**
  * @license
  *
- * Copyright IBM Corp. 2019, 2022
+ * Copyright IBM Corp. 2019, 2023
  *
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
  */
 
-import settings from 'carbon-components/es/globals/js/settings';
+import { prefix } from '../../globals/settings';
 import { classMap } from 'lit-html/directives/class-map';
 import { html, property, customElement, LitElement } from 'lit-element';
 import Close20 from '@carbon/icons/lib/close/20';
@@ -16,8 +16,6 @@ import ifNonNull from '../../globals/directives/if-non-null';
 import FocusMixin from '../../globals/mixins/focus';
 import { SIDE_NAV_COLLAPSE_MODE, SIDE_NAV_USAGE_MODE } from './side-nav';
 import styles from './header.scss';
-
-const { prefix } = settings;
 
 /**
  * The trigger button for side nav in header nav.

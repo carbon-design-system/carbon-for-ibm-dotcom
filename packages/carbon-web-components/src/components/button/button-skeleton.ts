@@ -1,20 +1,18 @@
 /**
  * @license
  *
- * Copyright IBM Corp. 2019, 2022
+ * Copyright IBM Corp. 2019, 2023
  *
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
  */
 
-import settings from 'carbon-components/es/globals/js/settings';
+import { prefix } from '../../globals/settings';
 import { classMap } from 'lit-html/directives/class-map';
 import { html, customElement } from 'lit-element';
 import ifNonNull from '../../globals/directives/if-non-null';
 import BXButton from './button';
 import styles from './button.scss';
-
-const { prefix } = settings;
 
 /**
  * Button skeleton.

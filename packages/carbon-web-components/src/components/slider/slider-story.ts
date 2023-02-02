@@ -1,7 +1,7 @@
 /**
  * @license
  *
- * Copyright IBM Corp. 2019, 2022
+ * Copyright IBM Corp. 2019, 2023
  *
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
@@ -20,7 +20,7 @@ export const Default = (args) => {
   const { disabled, labelText, max, min, name, step, value, onChange } =
     args?.['bx-slider'] || {};
   return html`
-    <bx-slider
+    <cds-slider
       ?disabled="${disabled}"
       label-text="${ifNonNull(labelText)}"
       max="${ifNonNull(max)}"
@@ -28,7 +28,7 @@ export const Default = (args) => {
       name="${ifNonNull(name)}"
       step="${ifNonNull(step)}"
       value="${ifNonNull(value)}"
-      @bx-slider-changed="${onChange}"></bx-slider>
+      @bx-slider-changed="${onChange}"></cds-slider>
   `;
 };
 
@@ -53,7 +53,7 @@ export const withInputBox = (args) => {
   const { disabled, labelText, max, min, name, step, value, onChange } =
     args?.['bx-slider'] || {};
   return html`
-    <bx-slider
+    <cds-slider
       ?disabled="${disabled}"
       label-text="${labelText}"
       max="${ifNonNull(max)}"
@@ -62,10 +62,10 @@ export const withInputBox = (args) => {
       step="${ifNonNull(step)}"
       value="${ifNonNull(value)}"
       @bx-slider-changed="${onChange}">
-      <bx-slider-input
+      <cds-slider-input
         aria-label="Slider value"
-        type="number"></bx-slider-input>
-    </bx-slider>
+        type="number"></cds-slider-input>
+    </cds-slider>
   `;
 };
 
@@ -75,7 +75,8 @@ withInputBox.parameters = {
   knobs: Default.parameters.knobs,
 };
 
-export const skeleton = () => html` <bx-slider-skeleton></bx-slider-skeleton> `;
+export const skeleton = () =>
+  html` <cds-slider-skeleton></cds-slider-skeleton> `;
 
 skeleton.parameters = {
   percy: {

@@ -1,7 +1,7 @@
 /**
  * @license
  *
- * Copyright IBM Corp. 2019, 2022
+ * Copyright IBM Corp. 2019, 2023
  *
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
@@ -60,14 +60,14 @@ export const singleLine = (args) => {
     laboriosam!
   `;
   return html`
-    <bx-code-snippet
+    <cds-code-snippet
       code-assistive-text="${ifNonNull(codeAssistiveText)}"
       copy-button-assistive-text="${ifNonNull(copyButtonAssistiveText)}"
       copy-button-feedback-text="${ifNonNull(copyButtonFeedbackText)}"
       copy-button-feedback-timeout="${copyButtonFeedbackTimeout}"
       color-scheme="${ifNonNull(colorScheme)}"
       @click="${onClick}"
-      >${children}</bx-code-snippet
+      >${children}</cds-code-snippet
     >
   `;
 };
@@ -114,7 +114,7 @@ $z-indexes: (
 `.trim();
   // prettier-ignore
   return html`
-  <bx-code-snippet
+  <cds-code-snippet
     type="multi"
     code-assistive-text="${ifNonNull(codeAssistiveText)}"
     copy-button-assistive-text="${ifNonNull(copyButtonAssistiveText)}"
@@ -124,7 +124,7 @@ $z-indexes: (
     expand-button-text="${ifNonNull(expandButtonText)}"
     color-scheme="${ifNonNull(colorScheme)}"
     @click="${onClick}"
-  >${children}</bx-code-snippet>
+  >${children}</cds-code-snippet>
 `;
 };
 
@@ -156,7 +156,7 @@ export const inline = (args) => {
     onClick,
   } = args?.['bx-code-snippet'] ?? {};
   return html`
-    <bx-code-snippet
+    <cds-code-snippet
       type="inline"
       code-assistive-text="${ifNonNull(codeAssistiveText)}"
       copy-button-assistive-text="${ifNonNull(copyButtonAssistiveText)}"
@@ -164,7 +164,7 @@ export const inline = (args) => {
       copy-button-feedback-timeout="${copyButtonFeedbackTimeout}"
       color-scheme="${ifNonNull(colorScheme)}"
       @click="${onClick}"
-      >node -v</bx-code-snippet
+      >node -v</cds-code-snippet
     >
   `;
 };
@@ -176,7 +176,7 @@ inline.parameters = {
 };
 
 export const skeletonSingleLine = () =>
-  html` <bx-code-snippet-skeleton type="single"></bx-code-snippet-skeleton> `;
+  html` <cds-code-snippet-skeleton type="single"></cds-code-snippet-skeleton> `;
 
 skeletonSingleLine.storyName = 'Skeleton single line';
 
@@ -187,7 +187,7 @@ skeletonSingleLine.parameters = {
 };
 
 export const skeletonMultiLine = () =>
-  html` <bx-code-snippet-skeleton type="multi"></bx-code-snippet-skeleton> `;
+  html` <cds-code-snippet-skeleton type="multi"></cds-code-snippet-skeleton> `;
 
 skeletonMultiLine.storyName = 'Skeleton multi line';
 

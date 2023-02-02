@@ -1,7 +1,7 @@
 /**
  * @license
  *
- * Copyright IBM Corp. 2019, 2022
+ * Copyright IBM Corp. 2019, 2023
  *
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
@@ -148,7 +148,7 @@ class BXCEDemoDataTable extends LitElement {
   }
 
   /**
-   * Handles an event to change in selection of rows, fired from `<bx-table-row>`.
+   * Handles an event to change in selection of rows, fired from `<cds-table-row>`.
    *
    * @param event The event.
    */
@@ -169,7 +169,7 @@ class BXCEDemoDataTable extends LitElement {
   }
 
   /**
-   * Handles an event to change in selection of all rows, fired from `<bx-table-header-row>`.
+   * Handles an event to change in selection of all rows, fired from `<cds-table-header-row>`.
    *
    * @param event The event.
    */
@@ -187,7 +187,7 @@ class BXCEDemoDataTable extends LitElement {
   }
 
   /**
-   * Handles an event to sort rows, fired from `<bx-table-header-cell>`.
+   * Handles an event to sort rows, fired from `<cds-table-header-cell>`.
    *
    * @param event The event.
    */
@@ -268,19 +268,19 @@ class BXCEDemoDataTable extends LitElement {
       return undefined;
     }
     return html`
-      <bx-pagination
+      <cds-pagination
         page-size="${pageSize}"
         start="${start}"
         total="${filteredRows!.length}"
         @bx-pagination-changed-current="${handleChangeStart}"
         @bx-page-sizes-select-changed="${handleChangePageSize}">
-        <bx-page-sizes-select slot="page-sizes-select">
+        <cds-page-sizes-select slot="page-sizes-select">
           <option value="5">5</option>
           <option value="10">10</option>
           <option value="15">15</option>
-        </bx-page-sizes-select>
-        <bx-pages-select></bx-pages-select>
-      </bx-pagination>
+        </cds-page-sizes-select>
+        <cds-pages-select></cds-pages-select>
+      </cds-pagination>
     `;
   }
 
@@ -427,44 +427,44 @@ class BXCEDemoDataTable extends LitElement {
                 ] * this._compare(lhs[sortColumnId!], rhs[sortColumnId!])
             );
     return html`
-      <bx-table-toolbar>
-        <bx-table-batch-actions
+      <cds-table-toolbar>
+        <cds-table-batch-actions
           ?active="${hasBatchActions}"
           selected-rows-count="${selectedRowsCountInFiltered}"
           @bx-table-batch-actions-cancel-clicked="${handleCancelSelection}">
-          <bx-btn icon-layout="condensed" @click="${handleDeleteRows}"
-            >Delete ${Delete16({ slot: 'icon' })}</bx-btn
+          <cds-btn icon-layout="condensed" @click="${handleDeleteRows}"
+            >Delete ${Delete16({ slot: 'icon' })}</cds-btn
           >
-          <bx-btn
+          <cds-btn
             icon-layout="condensed"
             @click="${handleDownloadRows}"
             href="javascript:void 0"
             download="table-data.json">
             Download ${Download16({ slot: 'icon' })}
-          </bx-btn>
-        </bx-table-batch-actions>
-        <bx-table-toolbar-content ?has-batch-actions="${hasBatchActions}">
-          <bx-table-toolbar-search
+          </cds-btn>
+        </cds-table-batch-actions>
+        <cds-table-toolbar-content ?has-batch-actions="${hasBatchActions}">
+          <cds-table-toolbar-search
             @bx-search-input="${this
-              ._handleChangeSearchString}"></bx-table-toolbar-search>
-          <bx-overflow-menu>
+              ._handleChangeSearchString}"></cds-table-toolbar-search>
+          <cds-overflow-menu>
             ${Settings16({ slot: 'icon' })}
-            <bx-overflow-menu-body>
-              <bx-overflow-menu-item> Action 1 </bx-overflow-menu-item>
-              <bx-overflow-menu-item> Action 2 </bx-overflow-menu-item>
-              <bx-overflow-menu-item> Action 3 </bx-overflow-menu-item>
-            </bx-overflow-menu-body>
-          </bx-overflow-menu>
-          <bx-btn>Primary Button</bx-btn>
-        </bx-table-toolbar-content>
-      </bx-table-toolbar>
-      <bx-table
+            <cds-overflow-menu-body>
+              <cds-overflow-menu-item> Action 1 </cds-overflow-menu-item>
+              <cds-overflow-menu-item> Action 2 </cds-overflow-menu-item>
+              <cds-overflow-menu-item> Action 3 </cds-overflow-menu-item>
+            </cds-overflow-menu-body>
+          </cds-overflow-menu>
+          <cds-btn>Primary Button</cds-btn>
+        </cds-table-toolbar-content>
+      </cds-table-toolbar>
+      <cds-table
         size="${size}"
         @bx-table-row-change-selection=${this._handleChangeSelection}
         @bx-table-change-selection-all=${this._handleChangeSelectionAll}
         @bx-table-header-cell-sort=${this._handleChangeSort}>
-        <bx-table-head>
-          <bx-table-header-row
+        <cds-table-head>
+          <cds-table-header-row
             ?selected=${selectedAllInFiltered}
             selection-name=${ifNonNull(selectionAllName)}
             selection-value=${ifNonNull(selectionAllName)}>
@@ -478,18 +478,18 @@ class BXCEDemoDataTable extends LitElement {
                     ? sortDirection
                     : TABLE_SORT_DIRECTION.NONE);
                 return html`
-                  <bx-table-header-cell
+                  <cds-table-header-cell
                     sort-cycle="${ifNonNull(sortCycle)}"
                     sort-direction="${ifNonNull(sortDirectionForThisCell)}"
                     data-column-id="${columnId}">
                     ${title}
-                  </bx-table-header-cell>
+                  </cds-table-header-cell>
                 `;
               }
             )}
-          </bx-table-header-row>
-        </bx-table-head>
-        <bx-table-body color-scheme="${colorScheme}">
+          </cds-table-header-row>
+        </cds-table-head>
+        <cds-table-body color-scheme="${colorScheme}">
           ${repeat(
             sortedRows.slice(start, start + pageSize),
             ({ id: rowId }) => rowId,
@@ -502,7 +502,7 @@ class BXCEDemoDataTable extends LitElement {
                   }_${rowId}`;
               const selectionValue = !hasSelection ? undefined : 'selected';
               return html`
-                <bx-table-row
+                <cds-table-row
                   ?selected=${hasSelection && selected}
                   selection-name="${ifNonNull(selectionName)}"
                   selection-value="${ifNonNull(selectionValue)}"
@@ -511,14 +511,14 @@ class BXCEDemoDataTable extends LitElement {
                     columns!,
                     ({ id: columnId }) => columnId,
                     ({ id: columnId }) =>
-                      html` <bx-table-cell>${row[columnId]}</bx-table-cell> `
+                      html` <cds-table-cell>${row[columnId]}</cds-table-cell> `
                   )}
-                </bx-table-row>
+                </cds-table-row>
               `;
             }
           )}
-        </bx-table-body>
-      </bx-table>
+        </cds-table-body>
+      </cds-table>
       ${this._renderPagination()}
     `;
   }
@@ -550,7 +550,7 @@ const defineDemoDataTable = (() => {
     if (!hasDemoDataTableDefined) {
       hasDemoDataTableDefined = true;
       const ce = customElements;
-      // Prevents `web-component-analyzer` from harvesting `<bx-ce-demo-data-table>`
+      // Prevents `web-component-analyzer` from harvesting `<cds-ce-demo-data-table>`
       ce.define('bx-ce-demo-data-table', BXCEDemoDataTable);
     }
   };
@@ -560,44 +560,44 @@ export const Default = (args) => {
   const { size } = args?.['bx-table'] ?? {};
   const { colorScheme } = args?.['bx-table-body'] ?? {};
   return html`
-    <bx-table size="${ifNonNull(size)}">
-      <bx-table-head>
-        <bx-table-header-row>
-          <bx-table-header-cell>Name</bx-table-header-cell>
-          <bx-table-header-cell>Protocol</bx-table-header-cell>
-          <bx-table-header-cell>Port</bx-table-header-cell>
-          <bx-table-header-cell>Rule</bx-table-header-cell>
-          <bx-table-header-cell>Attached Groups</bx-table-header-cell>
-          <bx-table-header-cell>Status</bx-table-header-cell>
-        </bx-table-header-row>
-      </bx-table-head>
-      <bx-table-body color-scheme="${colorScheme}">
-        <bx-table-row>
-          <bx-table-cell>Load Balancer 1</bx-table-cell>
-          <bx-table-cell>HTTP</bx-table-cell>
-          <bx-table-cell>80</bx-table-cell>
-          <bx-table-cell>Round Robin</bx-table-cell>
-          <bx-table-cell>Maureen's VM Groups</bx-table-cell>
-          <bx-table-cell>Active</bx-table-cell>
-        </bx-table-row>
-        <bx-table-row>
-          <bx-table-cell>Load Balancer 2</bx-table-cell>
-          <bx-table-cell>HTTP</bx-table-cell>
-          <bx-table-cell>80</bx-table-cell>
-          <bx-table-cell>Round Robin</bx-table-cell>
-          <bx-table-cell>Maureen's VM Groups</bx-table-cell>
-          <bx-table-cell>Active</bx-table-cell>
-        </bx-table-row>
-        <bx-table-row>
-          <bx-table-cell>Load Balancer 3</bx-table-cell>
-          <bx-table-cell>HTTP</bx-table-cell>
-          <bx-table-cell>80</bx-table-cell>
-          <bx-table-cell>Round Robin</bx-table-cell>
-          <bx-table-cell>Maureen's VM Groups</bx-table-cell>
-          <bx-table-cell>Active</bx-table-cell>
-        </bx-table-row>
-      </bx-table-body>
-    </bx-table>
+    <cds-table size="${ifNonNull(size)}">
+      <cds-table-head>
+        <cds-table-header-row>
+          <cds-table-header-cell>Name</cds-table-header-cell>
+          <cds-table-header-cell>Protocol</cds-table-header-cell>
+          <cds-table-header-cell>Port</cds-table-header-cell>
+          <cds-table-header-cell>Rule</cds-table-header-cell>
+          <cds-table-header-cell>Attached Groups</cds-table-header-cell>
+          <cds-table-header-cell>Status</cds-table-header-cell>
+        </cds-table-header-row>
+      </cds-table-head>
+      <cds-table-body color-scheme="${colorScheme}">
+        <cds-table-row>
+          <cds-table-cell>Load Balancer 1</cds-table-cell>
+          <cds-table-cell>HTTP</cds-table-cell>
+          <cds-table-cell>80</cds-table-cell>
+          <cds-table-cell>Round Robin</cds-table-cell>
+          <cds-table-cell>Maureen's VM Groups</cds-table-cell>
+          <cds-table-cell>Active</cds-table-cell>
+        </cds-table-row>
+        <cds-table-row>
+          <cds-table-cell>Load Balancer 2</cds-table-cell>
+          <cds-table-cell>HTTP</cds-table-cell>
+          <cds-table-cell>80</cds-table-cell>
+          <cds-table-cell>Round Robin</cds-table-cell>
+          <cds-table-cell>Maureen's VM Groups</cds-table-cell>
+          <cds-table-cell>Active</cds-table-cell>
+        </cds-table-row>
+        <cds-table-row>
+          <cds-table-cell>Load Balancer 3</cds-table-cell>
+          <cds-table-cell>HTTP</cds-table-cell>
+          <cds-table-cell>80</cds-table-cell>
+          <cds-table-cell>Round Robin</cds-table-cell>
+          <cds-table-cell>Maureen's VM Groups</cds-table-cell>
+          <cds-table-cell>Active</cds-table-cell>
+        </cds-table-row>
+      </cds-table-body>
+    </cds-table>
   `;
 };
 
@@ -610,7 +610,7 @@ Default.parameters = {
     }),
     'bx-table-body': () => ({
       colorScheme: select(
-        'Color scheme (color-scheme in `<bx-table-body>`)',
+        'Color scheme (color-scheme in `<cds-table-body>`)',
         colorSchemes,
         null
       ),
@@ -638,60 +638,60 @@ export const expandable = (args) => {
     );
   };
   return html`
-    <bx-table
+    <cds-table
       size="${ifNonNull(size)}"
       @bx-table-row-expando-toggled-all="${handleExpandRowAll}"
       @bx-table-row-expando-toggled="${handleExpandRow}"
     >
-      <bx-table-head>
-        <bx-table-header-expand-row>
-          <bx-table-header-cell>Name</bx-table-header-cell>
-          <bx-table-header-cell>Protocol</bx-table-header-cell>
-          <bx-table-header-cell>Port</bx-table-header-cell>
-          <bx-table-header-cell>Rule</bx-table-header-cell>
-          <bx-table-header-cell>Attached Groups</bx-table-header-cell>
-          <bx-table-header-cell>Status</bx-table-header-cell>
-        </bx-table-header-row>
-      </bx-table-head>
-      <bx-table-body ?zebra="${zebra}">
-        <bx-table-expand-row data-row-id="1">
-          <bx-table-cell>Load Balancer 1</bx-table-cell>
-          <bx-table-cell>HTTP</bx-table-cell>
-          <bx-table-cell>80</bx-table-cell>
-          <bx-table-cell>Round Robin</bx-table-cell>
-          <bx-table-cell>Maureen's VM Groups</bx-table-cell>
-          <bx-table-cell>Active</bx-table-cell>
-        </bx-table-expand-row>
-        <bx-table-expanded-row colspan="7">
+      <cds-table-head>
+        <cds-table-header-expand-row>
+          <cds-table-header-cell>Name</cds-table-header-cell>
+          <cds-table-header-cell>Protocol</cds-table-header-cell>
+          <cds-table-header-cell>Port</cds-table-header-cell>
+          <cds-table-header-cell>Rule</cds-table-header-cell>
+          <cds-table-header-cell>Attached Groups</cds-table-header-cell>
+          <cds-table-header-cell>Status</cds-table-header-cell>
+        </cds-table-header-row>
+      </cds-table-head>
+      <cds-table-body ?zebra="${zebra}">
+        <cds-table-expand-row data-row-id="1">
+          <cds-table-cell>Load Balancer 1</cds-table-cell>
+          <cds-table-cell>HTTP</cds-table-cell>
+          <cds-table-cell>80</cds-table-cell>
+          <cds-table-cell>Round Robin</cds-table-cell>
+          <cds-table-cell>Maureen's VM Groups</cds-table-cell>
+          <cds-table-cell>Active</cds-table-cell>
+        </cds-table-expand-row>
+        <cds-table-expanded-row colspan="7">
           <h1>Expandable row content</h1>
           <p>Description here</p>
-        </bx-table-expanded-row>
-        <bx-table-expand-row data-row-id="2">
-          <bx-table-cell>Load Balancer 2</bx-table-cell>
-          <bx-table-cell>HTTP</bx-table-cell>
-          <bx-table-cell>80</bx-table-cell>
-          <bx-table-cell>Round Robin</bx-table-cell>
-          <bx-table-cell>Maureen's VM Groups</bx-table-cell>
-          <bx-table-cell>Active</bx-table-cell>
-        </bx-table-expand-row>
-        <bx-table-expanded-row colspan="7">
+        </cds-table-expanded-row>
+        <cds-table-expand-row data-row-id="2">
+          <cds-table-cell>Load Balancer 2</cds-table-cell>
+          <cds-table-cell>HTTP</cds-table-cell>
+          <cds-table-cell>80</cds-table-cell>
+          <cds-table-cell>Round Robin</cds-table-cell>
+          <cds-table-cell>Maureen's VM Groups</cds-table-cell>
+          <cds-table-cell>Active</cds-table-cell>
+        </cds-table-expand-row>
+        <cds-table-expanded-row colspan="7">
           <h1>Expandable row content</h1>
           <p>Description here</p>
-        </bx-table-expanded-row>
-        <bx-table-expand-row data-row-id="3">
-          <bx-table-cell>Load Balancer 3</bx-table-cell>
-          <bx-table-cell>HTTP</bx-table-cell>
-          <bx-table-cell>80</bx-table-cell>
-          <bx-table-cell>Round Robin</bx-table-cell>
-          <bx-table-cell>Maureen's VM Groups</bx-table-cell>
-          <bx-table-cell>Active</bx-table-cell>
-        </bx-table-expand-row>
-        <bx-table-expanded-row colspan="7">
+        </cds-table-expanded-row>
+        <cds-table-expand-row data-row-id="3">
+          <cds-table-cell>Load Balancer 3</cds-table-cell>
+          <cds-table-cell>HTTP</cds-table-cell>
+          <cds-table-cell>80</cds-table-cell>
+          <cds-table-cell>Round Robin</cds-table-cell>
+          <cds-table-cell>Maureen's VM Groups</cds-table-cell>
+          <cds-table-cell>Active</cds-table-cell>
+        </cds-table-expand-row>
+        <cds-table-expanded-row colspan="7">
           <h1>Expandable row content</h1>
           <p>Description here</p>
-        </bx-table-expanded-row>
-      </bx-table-body>
-    </bx-table>
+        </cds-table-expanded-row>
+      </cds-table-body>
+    </cds-table>
   `;
 };
 
@@ -722,7 +722,7 @@ export const sortable = (args) => {
         event.preventDefault();
       }
     },
-    capture: true, // To prevent the default behavior before `<bx-ce-demo-data-table>` handles the event
+    capture: true, // To prevent the default behavior before `<cds-ce-demo-data-table>` handles the event
   };
   const beforeChangeSortHandler = {
     handleEvent(event: CustomEvent) {
@@ -731,15 +731,15 @@ export const sortable = (args) => {
         event.preventDefault();
       }
     },
-    capture: true, // To prevent the default behavior before `<bx-ce-demo-data-table>` handles the event
+    capture: true, // To prevent the default behavior before `<cds-ce-demo-data-table>` handles the event
   };
   defineDemoDataTable();
   return html`
     <style>
       ${styles}
     </style>
-    <!-- Refer to <bx-ce-demo-data-table> implementation at the top for details -->
-    <bx-ce-demo-data-table
+    <!-- Refer to <cds-ce-demo-data-table> implementation at the top for details -->
+    <cds-ce-demo-data-table
       color-scheme="${colorScheme}"
       .columns=${demoColumns}
       .rows=${demoRows}
@@ -749,7 +749,7 @@ export const sortable = (args) => {
       @bx-table-row-change-selection=${beforeChangeSelectionHandler}
       @bx-table-change-selection-all=${beforeChangeSelectionHandler}
       @bx-table-header-cell-sort=${beforeChangeSortHandler}>
-    </bx-ce-demo-data-table>
+    </cds-ce-demo-data-table>
   `;
 };
 
@@ -806,7 +806,7 @@ export const sortableWithPagination = (args) => {
         event.preventDefault();
       }
     },
-    capture: true, // To prevent the default behavior before `<bx-ce-demo-data-table>` handles the event
+    capture: true, // To prevent the default behavior before `<cds-ce-demo-data-table>` handles the event
   };
   const beforeChangeSortHandler = {
     handleEvent(event: CustomEvent) {
@@ -815,15 +815,15 @@ export const sortableWithPagination = (args) => {
         event.preventDefault();
       }
     },
-    capture: true, // To prevent the default behavior before `<bx-ce-demo-data-table>` handles the event
+    capture: true, // To prevent the default behavior before `<cds-ce-demo-data-table>` handles the event
   };
   defineDemoDataTable();
   return html`
     <style>
       ${styles}
     </style>
-    <!-- Refer to <bx-ce-demo-data-table> implementation at the top for details -->
-    <bx-ce-demo-data-table
+    <!-- Refer to <cds-ce-demo-data-table> implementation at the top for details -->
+    <cds-ce-demo-data-table
       color-scheme="${colorScheme}"
       .columns=${demoColumns}
       .rows=${demoRowsMany}
@@ -835,7 +835,7 @@ export const sortableWithPagination = (args) => {
       @bx-table-row-change-selection=${beforeChangeSelectionHandler}
       @bx-table-change-selection-all=${beforeChangeSelectionHandler}
       @bx-table-header-cell-sort=${beforeChangeSortHandler}>
-    </bx-ce-demo-data-table>
+    </cds-ce-demo-data-table>
   `;
 };
 
@@ -849,48 +849,50 @@ export const skeleton = (args) => {
   const { size } = args?.['bx-table'];
   const { colorScheme } = args?.['bx-table-body'];
   return html`
-    <bx-table size="${size}">
-      <bx-table-head>
-        <bx-table-header-row>
-          <bx-table-header-cell-skeleton>Name</bx-table-header-cell-skeleton>
-          <bx-table-header-cell-skeleton
-            >Protocol</bx-table-header-cell-skeleton
+    <cds-table size="${size}">
+      <cds-table-head>
+        <cds-table-header-row>
+          <cds-table-header-cell-skeleton>Name</cds-table-header-cell-skeleton>
+          <cds-table-header-cell-skeleton
+            >Protocol</cds-table-header-cell-skeleton
           >
-          <bx-table-header-cell-skeleton>Port</bx-table-header-cell-skeleton>
-          <bx-table-header-cell-skeleton>Rule</bx-table-header-cell-skeleton>
-          <bx-table-header-cell-skeleton
-            >Attached Groups</bx-table-header-cell-skeleton
+          <cds-table-header-cell-skeleton>Port</cds-table-header-cell-skeleton>
+          <cds-table-header-cell-skeleton>Rule</cds-table-header-cell-skeleton>
+          <cds-table-header-cell-skeleton
+            >Attached Groups</cds-table-header-cell-skeleton
           >
-          <bx-table-header-cell-skeleton>Status</bx-table-header-cell-skeleton>
-        </bx-table-header-row>
-      </bx-table-head>
-      <bx-table-body color-scheme="${colorScheme}">
-        <bx-table-row>
-          <bx-table-cell-skeleton></bx-table-cell-skeleton>
-          <bx-table-cell-skeleton></bx-table-cell-skeleton>
-          <bx-table-cell-skeleton></bx-table-cell-skeleton>
-          <bx-table-cell-skeleton></bx-table-cell-skeleton>
-          <bx-table-cell-skeleton></bx-table-cell-skeleton>
-          <bx-table-cell-skeleton></bx-table-cell-skeleton>
-        </bx-table-row>
-        <bx-table-row>
-          <bx-table-cell></bx-table-cell>
-          <bx-table-cell></bx-table-cell>
-          <bx-table-cell></bx-table-cell>
-          <bx-table-cell></bx-table-cell>
-          <bx-table-cell></bx-table-cell>
-          <bx-table-cell></bx-table-cell>
-        </bx-table-row>
-        <bx-table-row>
-          <bx-table-cell></bx-table-cell>
-          <bx-table-cell></bx-table-cell>
-          <bx-table-cell></bx-table-cell>
-          <bx-table-cell></bx-table-cell>
-          <bx-table-cell></bx-table-cell>
-          <bx-table-cell></bx-table-cell>
-        </bx-table-row>
-      </bx-table-body>
-    </bx-table>
+          <cds-table-header-cell-skeleton
+            >Status</cds-table-header-cell-skeleton
+          >
+        </cds-table-header-row>
+      </cds-table-head>
+      <cds-table-body color-scheme="${colorScheme}">
+        <cds-table-row>
+          <cds-table-cell-skeleton></cds-table-cell-skeleton>
+          <cds-table-cell-skeleton></cds-table-cell-skeleton>
+          <cds-table-cell-skeleton></cds-table-cell-skeleton>
+          <cds-table-cell-skeleton></cds-table-cell-skeleton>
+          <cds-table-cell-skeleton></cds-table-cell-skeleton>
+          <cds-table-cell-skeleton></cds-table-cell-skeleton>
+        </cds-table-row>
+        <cds-table-row>
+          <cds-table-cell></cds-table-cell>
+          <cds-table-cell></cds-table-cell>
+          <cds-table-cell></cds-table-cell>
+          <cds-table-cell></cds-table-cell>
+          <cds-table-cell></cds-table-cell>
+          <cds-table-cell></cds-table-cell>
+        </cds-table-row>
+        <cds-table-row>
+          <cds-table-cell></cds-table-cell>
+          <cds-table-cell></cds-table-cell>
+          <cds-table-cell></cds-table-cell>
+          <cds-table-cell></cds-table-cell>
+          <cds-table-cell></cds-table-cell>
+          <cds-table-cell></cds-table-cell>
+        </cds-table-row>
+      </cds-table-body>
+    </cds-table>
   `;
 };
 

@@ -1,13 +1,13 @@
 /**
  * @license
  *
- * Copyright IBM Corp. 2019, 2022
+ * Copyright IBM Corp. 2019, 2023
  *
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
  */
 
-import settings from 'carbon-components/es/globals/js/settings';
+import { prefix } from '../../globals/settings';
 import { html, property, query, customElement, LitElement } from 'lit-element';
 import Information16 from '@carbon/icons/lib/information/16';
 import HostListener from '../../globals/decorators/host-listener';
@@ -16,8 +16,6 @@ import { find } from '../../globals/internal/collection-helpers';
 import BXFloatingMenu from '../floating-menu/floating-menu';
 import BXFloatingMenuTrigger from '../floating-menu/floating-menu-trigger';
 import styles from './tooltip.scss';
-
-const { prefix } = settings;
 
 /**
  * Trigger button of tooltip.

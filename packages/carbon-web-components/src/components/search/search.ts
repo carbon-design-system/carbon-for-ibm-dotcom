@@ -1,7 +1,7 @@
 /**
  * @license
  *
- * Copyright IBM Corp. 2019, 2022
+ * Copyright IBM Corp. 2019, 2023
  *
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
@@ -12,7 +12,7 @@ import { html, property, customElement, LitElement } from 'lit-element';
 import Close16 from '@carbon/icons/lib/close/16';
 import Close20 from '@carbon/icons/lib/close/20';
 import Search16 from '@carbon/icons/lib/search/16';
-import settings from 'carbon-components/es/globals/js/settings';
+import { prefix } from '../../globals/settings';
 import ifNonEmpty from '../../globals/directives/if-non-empty';
 import FocusMixin from '../../globals/mixins/focus';
 import FormMixin from '../../globals/mixins/form';
@@ -21,8 +21,6 @@ import { SEARCH_COLOR_SCHEME } from './defs';
 import styles from './search.scss';
 
 export { SEARCH_COLOR_SCHEME };
-
-const { prefix } = settings;
 
 /**
  * Search box.

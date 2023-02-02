@@ -39,23 +39,27 @@ export const Default = (args) => {
     }
   };
   return html`
-    <bx-content-switcher
+    <cds-content-switcher
       value="${ifNonNull(value)}"
       @bx-content-switcher-beingselected="${handleBeforeSelected}"
       @bx-content-switcher-selected="${onSelect}"
       size="${size}">
-      <bx-content-switcher-item value="all">Option 1</bx-content-switcher-item>
-      <bx-content-switcher-item value="cloudFoundry" disabled
-        >Option 2</bx-content-switcher-item
+      <cds-content-switcher-item value="all"
+        >Option 1</cds-content-switcher-item
       >
-      <bx-content-switcher-item value="staging"
-        >Option 3</bx-content-switcher-item
+      <cds-content-switcher-item value="cloudFoundry" disabled
+        >Option 2</cds-content-switcher-item
       >
-      <bx-content-switcher-item value="dea">Option 4</bx-content-switcher-item>
-      <bx-content-switcher-item value="router"
-        >Option 5</bx-content-switcher-item
+      <cds-content-switcher-item value="staging"
+        >Option 3</cds-content-switcher-item
       >
-    </bx-content-switcher>
+      <cds-content-switcher-item value="dea"
+        >Option 4</cds-content-switcher-item
+      >
+      <cds-content-switcher-item value="router"
+        >Option 5</cds-content-switcher-item
+      >
+    </cds-content-switcher>
   `;
 };
 

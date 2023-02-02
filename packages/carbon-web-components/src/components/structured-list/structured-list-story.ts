@@ -1,7 +1,7 @@
 /**
  * @license
  *
- * Copyright IBM Corp. 2019, 2022
+ * Copyright IBM Corp. 2019, 2023
  *
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
@@ -32,53 +32,53 @@ export const Default = (args) => {
         'structured-list-selection-2',
       ];
   return html`
-    <bx-structured-list selection-name=${ifNonNull(selectionName)}>
-      <bx-structured-list-head>
-        <bx-structured-list-header-row>
-          <bx-structured-list-header-cell
-            >ColumnA</bx-structured-list-header-cell
+    <cds-structured-list selection-name=${ifNonNull(selectionName)}>
+      <cds-structured-list-head>
+        <cds-structured-list-header-row>
+          <cds-structured-list-header-cell
+            >ColumnA</cds-structured-list-header-cell
           >
-          <bx-structured-list-header-cell
-            >ColumnB</bx-structured-list-header-cell
+          <cds-structured-list-header-cell
+            >ColumnB</cds-structured-list-header-cell
           >
-          <bx-structured-list-header-cell
-            >ColumnC</bx-structured-list-header-cell
+          <cds-structured-list-header-cell
+            >ColumnC</cds-structured-list-header-cell
           >
-        </bx-structured-list-header-row>
-      </bx-structured-list-head>
-      <bx-structured-list-body>
-        <bx-structured-list-row
+        </cds-structured-list-header-row>
+      </cds-structured-list-head>
+      <cds-structured-list-body>
+        <cds-structured-list-row
           selection-value=${ifNonNull(selectionValues[0])}>
-          <bx-structured-list-cell>Row 1</bx-structured-list-cell>
-          <bx-structured-list-cell>Row 1</bx-structured-list-cell>
-          <bx-structured-list-cell
+          <cds-structured-list-cell>Row 1</cds-structured-list-cell>
+          <cds-structured-list-cell>Row 1</cds-structured-list-cell>
+          <cds-structured-list-cell
             >Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc dui
             magna, finibus id tortor sed, aliquet bibendum augue. Aenean posuere
-            sem vel euismod dignissim.</bx-structured-list-cell
+            sem vel euismod dignissim.</cds-structured-list-cell
           >
-        </bx-structured-list-row>
-        <bx-structured-list-row
+        </cds-structured-list-row>
+        <cds-structured-list-row
           selection-value=${ifNonNull(selectionValues[1])}>
-          <bx-structured-list-cell>Row 2</bx-structured-list-cell>
-          <bx-structured-list-cell>Row 2</bx-structured-list-cell>
-          <bx-structured-list-cell
+          <cds-structured-list-cell>Row 2</cds-structured-list-cell>
+          <cds-structured-list-cell>Row 2</cds-structured-list-cell>
+          <cds-structured-list-cell
             >Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc dui
             magna, finibus id tortor sed, aliquet bibendum augue. Aenean posuere
-            sem vel euismod dignissim.</bx-structured-list-cell
+            sem vel euismod dignissim.</cds-structured-list-cell
           >
-        </bx-structured-list-row>
-        <bx-structured-list-row
+        </cds-structured-list-row>
+        <cds-structured-list-row
           selection-value=${ifNonNull(selectionValues[2])}>
-          <bx-structured-list-cell>Row 3</bx-structured-list-cell>
-          <bx-structured-list-cell>Row 3</bx-structured-list-cell>
-          <bx-structured-list-cell
+          <cds-structured-list-cell>Row 3</cds-structured-list-cell>
+          <cds-structured-list-cell>Row 3</cds-structured-list-cell>
+          <cds-structured-list-cell
             >Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc dui
             magna, finibus id tortor sed, aliquet bibendum augue. Aenean posuere
-            sem vel euismod dignissim.</bx-structured-list-cell
+            sem vel euismod dignissim.</cds-structured-list-cell
           >
-        </bx-structured-list-row>
-      </bx-structured-list-body>
-    </bx-structured-list>
+        </cds-structured-list-row>
+      </cds-structured-list-body>
+    </cds-structured-list>
   `;
 };
 
@@ -99,32 +99,32 @@ export const skeleton = () => html`
   <style>
     ${styles}
   </style>
-  <bx-structured-list>
-    <bx-structured-list-head>
-      <bx-structured-list-header-row>
-        <bx-structured-list-header-cell-skeleton></bx-structured-list-header-cell-skeleton>
-        <bx-structured-list-header-cell-skeleton></bx-structured-list-header-cell-skeleton>
-        <bx-structured-list-header-cell-skeleton></bx-structured-list-header-cell-skeleton>
-      </bx-structured-list-header-row>
-    </bx-structured-list-head>
-    <bx-structured-list-body>
-      <bx-structured-list-row>
-        <bx-structured-list-cell></bx-structured-list-cell>
-        <bx-structured-list-cell></bx-structured-list-cell>
-        <bx-structured-list-cell></bx-structured-list-cell>
-      </bx-structured-list-row>
-      <bx-structured-list-row>
-        <bx-structured-list-cell></bx-structured-list-cell>
-        <bx-structured-list-cell></bx-structured-list-cell>
-        <bx-structured-list-cell></bx-structured-list-cell>
-      </bx-structured-list-row>
-      <bx-structured-list-row>
-        <bx-structured-list-cell></bx-structured-list-cell>
-        <bx-structured-list-cell></bx-structured-list-cell>
-        <bx-structured-list-cell></bx-structured-list-cell>
-      </bx-structured-list-row>
-    </bx-structured-list-body>
-  </bx-structured-list>
+  <cds-structured-list>
+    <cds-structured-list-head>
+      <cds-structured-list-header-row>
+        <cds-structured-list-header-cell-skeleton></cds-structured-list-header-cell-skeleton>
+        <cds-structured-list-header-cell-skeleton></cds-structured-list-header-cell-skeleton>
+        <cds-structured-list-header-cell-skeleton></cds-structured-list-header-cell-skeleton>
+      </cds-structured-list-header-row>
+    </cds-structured-list-head>
+    <cds-structured-list-body>
+      <cds-structured-list-row>
+        <cds-structured-list-cell></cds-structured-list-cell>
+        <cds-structured-list-cell></cds-structured-list-cell>
+        <cds-structured-list-cell></cds-structured-list-cell>
+      </cds-structured-list-row>
+      <cds-structured-list-row>
+        <cds-structured-list-cell></cds-structured-list-cell>
+        <cds-structured-list-cell></cds-structured-list-cell>
+        <cds-structured-list-cell></cds-structured-list-cell>
+      </cds-structured-list-row>
+      <cds-structured-list-row>
+        <cds-structured-list-cell></cds-structured-list-cell>
+        <cds-structured-list-cell></cds-structured-list-cell>
+        <cds-structured-list-cell></cds-structured-list-cell>
+      </cds-structured-list-row>
+    </cds-structured-list-body>
+  </cds-structured-list>
 `;
 
 skeleton.parameters = {

@@ -1,19 +1,17 @@
 /**
  * @license
  *
- * Copyright IBM Corp. 2021, 2022
+ * Copyright IBM Corp. 2021, 2023
  *
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
  */
 
 import { customElement } from 'lit-element';
-import settings from 'carbon-components/es/globals/js/settings';
+import { prefix } from '../../globals/settings';
 import BXButton from '../button/button';
 import buttonStyles from '../button/button.scss';
 import styles from './modal.scss';
-
-const { prefix } = settings;
 
 /**
  * Modal footer button.

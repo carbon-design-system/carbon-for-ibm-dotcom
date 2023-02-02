@@ -1,7 +1,7 @@
 /**
  * @license
  *
- * Copyright IBM Corp. 2019, 2022
+ * Copyright IBM Corp. 2019, 2023
  *
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
@@ -47,7 +47,7 @@ export const inline = (args) => {
     }
   };
   return html`
-    <bx-inline-notification
+    <cds-inline-notification
       style="min-width: 30rem; margin-bottom: .5rem"
       kind="${ifNonNull(kind)}"
       title="${ifNonNull(title)}"
@@ -60,7 +60,7 @@ export const inline = (args) => {
       timeout="${ifNonNull(timeout)}"
       @bx-notification-beingclosed="${handleBeforeClose}"
       @bx-notification-closed="${onClose}">
-    </bx-inline-notification>
+    </cds-inline-notification>
   `;
 };
 
@@ -119,7 +119,7 @@ export const toast = (args) => {
     }
   };
   return html`
-    <bx-toast-notification
+    <cds-toast-notification
       style="min-width: 30rem; margin-bottom: .5rem"
       kind="${ifNonNull(kind)}"
       title="${ifNonNull(title)}"
@@ -133,7 +133,7 @@ export const toast = (args) => {
       timeout="${ifNonNull(timeout)}"
       @bx-notification-beingclosed="${handleBeforeClose}"
       @bx-notification-closed="${onClose}">
-    </bx-toast-notification>
+    </cds-toast-notification>
   `;
 };
 

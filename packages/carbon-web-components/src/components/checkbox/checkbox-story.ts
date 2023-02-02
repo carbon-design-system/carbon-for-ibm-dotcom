@@ -1,7 +1,7 @@
 /**
  * @license
  *
- * Copyright IBM Corp. 2019, 2022
+ * Copyright IBM Corp. 2019, 2023
  *
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
@@ -27,7 +27,7 @@ export const Default = (args) => {
     onChange,
   } = args?.['bx-checkbox'] ?? {};
   return html`
-    <bx-checkbox
+    <cds-checkbox
       ?checked="${checked}"
       ?disabled="${disabled}"
       ?hide-label="${hideLabel}"
@@ -35,7 +35,7 @@ export const Default = (args) => {
       label-text="${ifNonNull(labelText)}"
       name="${ifNonNull(name)}"
       value="${ifNonNull(value)}"
-      @bx-checkbox-changed="${onChange}"></bx-checkbox>
+      @bx-checkbox-changed="${onChange}"></cds-checkbox>
   `;
 };
 

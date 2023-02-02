@@ -1,7 +1,7 @@
 /**
  * @license
  *
- * Copyright IBM Corp. 2019, 2022
+ * Copyright IBM Corp. 2019, 2023
  *
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
@@ -33,7 +33,7 @@ export const Default = (args) => {
     name,
   } = args?.['bx-number-input'] ?? {};
   return html`
-    <bx-number-input
+    <cds-number-input
       color-scheme="${ifNonNull(colorScheme)}"
       ?disabled="${disabled}"
       value="${ifNonNull(value)}"
@@ -45,7 +45,7 @@ export const Default = (args) => {
       max="${ifNonNull(max)}"
       size="${ifNonNull(size)}"
       step="${ifNonNull(step)}"
-      @input="${onInput}"></bx-number-input>
+      @input="${onInput}"></cds-number-input>
   `;
 };
 
@@ -72,8 +72,8 @@ export const formItem = (args) => {
     onInput,
   } = args?.['bx-number-input'] ?? {};
   return html`
-    <bx-form-item>
-      <bx-number-input
+    <cds-form-item>
+      <cds-number-input
         value="${ifNonNull(value)}"
         color-scheme="${ifNonNull(colorScheme)}"
         placeholder="${ifNonNull(placeholder)}"
@@ -94,8 +94,8 @@ export const formItem = (args) => {
         <span slot="validity-message-min"
           >Value must be larger than ${min}</span
         >
-      </bx-number-input>
-    </bx-form-item>
+      </cds-number-input>
+    </cds-form-item>
   `;
 };
 
@@ -122,7 +122,7 @@ export const withoutFormItemWrapper = (args) => {
     onInput,
   } = args?.['bx-number-input'] ?? {};
   return html`
-    <bx-number-input
+    <cds-number-input
       value="${ifNonNull(value)}"
       color-scheme="${ifNonNull(colorScheme)}"
       placeholder="${ifNonNull(placeholder)}"
@@ -137,7 +137,7 @@ export const withoutFormItemWrapper = (args) => {
       <span slot="label-text">Label text</span>
       <span slot="helper-text">Optional helper text</span>
       <span slot="validity-message">Something isn't right</span>
-    </bx-number-input>
+    </cds-number-input>
   `;
 };
 
@@ -150,7 +150,7 @@ withoutFormItemWrapper.parameters = {
 };
 
 export const skeleton = () =>
-  html` <bx-number-input-skeleton></bx-number-input-skeleton> `;
+  html` <cds-number-input-skeleton></cds-number-input-skeleton> `;
 
 skeleton.parameters = {
   percy: {

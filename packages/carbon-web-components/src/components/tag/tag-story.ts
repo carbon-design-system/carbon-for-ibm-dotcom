@@ -1,7 +1,7 @@
 /**
  * @license
  *
- * Copyright IBM Corp. 2019, 2022
+ * Copyright IBM Corp. 2019, 2023
  *
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
@@ -26,13 +26,13 @@ const sizes = {
 export const Default = (args) => {
   const { size, type, title, disabled } = args?.['bx-tag'] ?? {};
   return html`
-    <bx-tag
+    <cds-tag
       size="${ifNonNull(size)}"
       type="${ifNonNull(type)}"
       title="${ifNonNull(title)}"
       ?disabled="${disabled}">
       This is a tag
-    </bx-tag>
+    </cds-tag>
   `;
 };
 
@@ -78,7 +78,7 @@ export const filter = (args) => {
     }
   };
   return html`
-    <bx-filter-tag
+    <cds-filter-tag
       ?open="${open}"
       size="${ifNonNull(size)}"
       type="${ifNonNull(type)}"
@@ -88,7 +88,7 @@ export const filter = (args) => {
       @bx-filter-tag-beingclosed="${handleBeforeClose}"
       @bx-filter-tag-closed="${onClose}">
       This is a tag
-    </bx-filter-tag>
+    </cds-filter-tag>
   `;
 };
 

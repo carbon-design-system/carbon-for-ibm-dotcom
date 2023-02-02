@@ -1,7 +1,7 @@
 /**
  * @license
  *
- * Copyright IBM Corp. 2019, 2022
+ * Copyright IBM Corp. 2019, 2023
  *
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
@@ -40,24 +40,24 @@ export const Default = (args) => {
     }
   };
   return html`
-    <bx-modal
+    <cds-modal
       ?open="${open}"
       size="${ifNonNull(size)}"
       @bx-modal-beingclosed=${handleBeforeClose}
       @bx-modal-closed=${onClose}>
-      <bx-modal-header>
-        <bx-modal-close-button></bx-modal-close-button>
-        <bx-modal-label>Label (Optional)</bx-modal-label>
-        <bx-modal-heading>Modal Title</bx-modal-heading>
-      </bx-modal-header>
-      <bx-modal-body><p>Modal text description</p></bx-modal-body>
-      <bx-modal-footer>
-        <bx-modal-footer-button kind="secondary" data-modal-close
-          >Cancel</bx-modal-footer-button
+      <cds-modal-header>
+        <cds-modal-close-button></cds-modal-close-button>
+        <cds-modal-label>Label (Optional)</cds-modal-label>
+        <cds-modal-heading>Modal Title</cds-modal-heading>
+      </cds-modal-header>
+      <cds-modal-body><p>Modal text description</p></cds-modal-body>
+      <cds-modal-footer>
+        <cds-modal-footer-button kind="secondary" data-modal-close
+          >Cancel</cds-modal-footer-button
         >
-        <bx-modal-footer-button kind="primary">Save</bx-modal-footer-button>
-      </bx-modal-footer>
-    </bx-modal>
+        <cds-modal-footer-button kind="primary">Save</cds-modal-footer-button>
+      </cds-modal-footer>
+    </cds-modal>
   `;
 };
 
@@ -73,21 +73,21 @@ export const SingleButton = (args) => {
     }
   };
   return html`
-    <bx-modal
+    <cds-modal
       ?open="${open}"
       size="${ifNonNull(size)}"
       @bx-modal-beingclosed=${handleBeforeClose}
       @bx-modal-closed=${onClose}>
-      <bx-modal-header>
-        <bx-modal-close-button></bx-modal-close-button>
-        <bx-modal-label>Label (Optional)</bx-modal-label>
-        <bx-modal-heading>Modal Title</bx-modal-heading>
-      </bx-modal-header>
-      <bx-modal-body><p>Modal text description</p></bx-modal-body>
-      <bx-modal-footer>
-        <bx-modal-footer-button kind="primary">Save</bx-modal-footer-button>
-      </bx-modal-footer>
-    </bx-modal>
+      <cds-modal-header>
+        <cds-modal-close-button></cds-modal-close-button>
+        <cds-modal-label>Label (Optional)</cds-modal-label>
+        <cds-modal-heading>Modal Title</cds-modal-heading>
+      </cds-modal-header>
+      <cds-modal-body><p>Modal text description</p></cds-modal-body>
+      <cds-modal-footer>
+        <cds-modal-footer-button kind="primary">Save</cds-modal-footer-button>
+      </cds-modal-footer>
+    </cds-modal>
   `;
 };
 
@@ -103,25 +103,27 @@ export const ThreeButtons = (args) => {
     }
   };
   return html`
-    <bx-modal
+    <cds-modal
       ?open="${open}"
       size="${ifNonNull(size)}"
       @bx-modal-beingclosed=${handleBeforeClose}
       @bx-modal-closed=${onClose}>
-      <bx-modal-header>
-        <bx-modal-close-button></bx-modal-close-button>
-        <bx-modal-label>Label (Optional)</bx-modal-label>
-        <bx-modal-heading>Modal Title</bx-modal-heading>
-      </bx-modal-header>
-      <bx-modal-body><p>Modal text description</p></bx-modal-body>
-      <bx-modal-footer>
-        <bx-modal-footer-button kind="secondary">Apply</bx-modal-footer-button>
-        <bx-modal-footer-button kind="secondary" data-modal-close
-          >Cancel</bx-modal-footer-button
+      <cds-modal-header>
+        <cds-modal-close-button></cds-modal-close-button>
+        <cds-modal-label>Label (Optional)</cds-modal-label>
+        <cds-modal-heading>Modal Title</cds-modal-heading>
+      </cds-modal-header>
+      <cds-modal-body><p>Modal text description</p></cds-modal-body>
+      <cds-modal-footer>
+        <cds-modal-footer-button kind="secondary"
+          >Apply</cds-modal-footer-button
         >
-        <bx-modal-footer-button kind="primary">Save</bx-modal-footer-button>
-      </bx-modal-footer>
-    </bx-modal>
+        <cds-modal-footer-button kind="secondary" data-modal-close
+          >Cancel</cds-modal-footer-button
+        >
+        <cds-modal-footer-button kind="primary">Save</cds-modal-footer-button>
+      </cds-modal-footer>
+    </cds-modal>
   `;
 };
 

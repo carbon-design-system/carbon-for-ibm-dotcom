@@ -1,7 +1,7 @@
 /**
  * @license
  *
- * Copyright IBM Corp. 2019, 2022
+ * Copyright IBM Corp. 2019, 2023
  *
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
@@ -22,36 +22,36 @@ export const Default = (args) => {
   const { iconLabel, labelText, secondaryLabelText } =
     args?.['bx-progress-step'] ?? {};
   return html`
-    <bx-progress-indicator ?vertical="${vertical}">
-      <bx-progress-step
+    <cds-progress-indicator ?vertical="${vertical}">
+      <cds-progress-step
         icon-label="${ifNonNull(iconLabel)}"
         label-text="${ifNonNull(labelText)}"
         secondary-label-text="${ifNonNull(secondaryLabelText)}"
-        state="invalid"></bx-progress-step>
-      <bx-progress-step
+        state="invalid"></cds-progress-step>
+      <cds-progress-step
         icon-label="${ifNonNull(iconLabel)}"
         label-text="${ifNonNull(labelText)}"
         secondary-label-text="${ifNonNull(secondaryLabelText)}"
-        state="complete"></bx-progress-step>
-      <bx-progress-step
+        state="complete"></cds-progress-step>
+      <cds-progress-step
         icon-label="${ifNonNull(iconLabel)}"
         label-text="${ifNonNull(labelText)}"
         secondary-label-text="${ifNonNull(secondaryLabelText)}"
-        state="current"></bx-progress-step>
-      <bx-progress-step
+        state="current"></cds-progress-step>
+      <cds-progress-step
         disabled
         icon-label="${ifNonNull(iconLabel)}"
         label-text="${ifNonNull(labelText)}"
         secondary-label-text="${ifNonNull(
           secondaryLabelText
-        )}"></bx-progress-step>
-      <bx-progress-step
+        )}"></cds-progress-step>
+      <cds-progress-step
         icon-label="${ifNonNull(iconLabel)}"
         label-text="${ifNonNull(labelText)}"
         secondary-label-text="${ifNonNull(
           secondaryLabelText
-        )}"></bx-progress-step>
-    </bx-progress-indicator>
+        )}"></cds-progress-step>
+    </cds-progress-indicator>
   `;
 };
 
@@ -76,11 +76,11 @@ Default.parameters = {
 export const skeleton = (args) => {
   const { vertical } = args?.['bx-progress-indicator-skeleton'];
   return html`
-    <bx-progress-indicator-skeleton ?vertical="${vertical}">
-      <bx-progress-step-skeleton></bx-progress-step-skeleton>
-      <bx-progress-step-skeleton></bx-progress-step-skeleton>
-      <bx-progress-step-skeleton></bx-progress-step-skeleton>
-    </bx-progress-indicator-skeleton>
+    <cds-progress-indicator-skeleton ?vertical="${vertical}">
+      <cds-progress-step-skeleton></cds-progress-step-skeleton>
+      <cds-progress-step-skeleton></cds-progress-step-skeleton>
+      <cds-progress-step-skeleton></cds-progress-step-skeleton>
+    </cds-progress-indicator-skeleton>
   `;
 };
 

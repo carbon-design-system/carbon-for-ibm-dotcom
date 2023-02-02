@@ -1,7 +1,7 @@
 /**
  * @license
  *
- * Copyright IBM Corp. 2019, 2022
+ * Copyright IBM Corp. 2019, 2023
  *
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
@@ -10,7 +10,7 @@
 import { classMap } from 'lit-html/directives/class-map';
 import { html, property, query, customElement, LitElement } from 'lit-element';
 import Calendar16 from '@carbon/icons/lib/calendar/16';
-import settings from 'carbon-components/es/globals/js/settings';
+import { prefix } from '../../globals/settings';
 import ifNonNull from '../../globals/directives/if-non-null';
 import FocusMixin from '../../globals/mixins/focus';
 import ValidityMixin from '../../globals/mixins/validity';
@@ -27,8 +27,6 @@ export {
   DATE_PICKER_INPUT_KIND,
   DATE_PICKER_INPUT_SIZE_HORIZONTAL,
 };
-
-const { prefix } = settings;
 
 /**
  * The input box for date picker.

@@ -1,7 +1,7 @@
 /**
  * @license
  *
- * Copyright IBM Corp. 2019, 2022
+ * Copyright IBM Corp. 2019, 2023
  *
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
@@ -51,29 +51,29 @@ export const Default = (args) => {
     <style>
       ${styles}
     </style>
-    <bx-tabs
+    <cds-tabs
       color-scheme="${ifNonNull(colorScheme)}"
       trigger-content="${ifNonNull(triggerContent)}"
       type="${ifNonNull(type)}"
       value="${ifNonNull(value)}"
       @bx-tabs-beingselected="${handleBeforeSelected}"
       @bx-tabs-selected="${onSelect}">
-      <bx-tab id="tab-all" target="panel-all" value="all">Option 1</bx-tab>
-      <bx-tab
+      <cds-tab id="tab-all" target="panel-all" value="all">Option 1</cds-tab>
+      <cds-tab
         id="tab-cloudFoundry"
         target="panel-cloudFoundry"
         disabled
         value="cloudFoundry"
-        >Option 2</bx-tab
+        >Option 2</cds-tab
       >
-      <bx-tab id="tab-staging" target="panel-staging" value="staging"
-        >Option 3</bx-tab
+      <cds-tab id="tab-staging" target="panel-staging" value="staging"
+        >Option 3</cds-tab
       >
-      <bx-tab id="tab-dea" target="panel-dea" value="dea">Option 4</bx-tab>
-      <bx-tab id="tab-router" target="panel-router" value="router"
-        >Option 5</bx-tab
+      <cds-tab id="tab-dea" target="panel-dea" value="dea">Option 4</cds-tab>
+      <cds-tab id="tab-router" target="panel-router" value="router"
+        >Option 5</cds-tab
       >
-    </bx-tabs>
+    </cds-tabs>
     <div class="bx-ce-demo-devenv--tab-panels">
       <div id="panel-all" role="tabpanel" aria-labelledby="tab-all" hidden>
         <h1>Content for option 1</h1>
@@ -159,13 +159,13 @@ Default.parameters = {
 };
 
 export const skeleton = () => html`
-  <bx-tabs-skeleton>
-    <bx-tab-skeleton></bx-tab-skeleton>
-    <bx-tab-skeleton></bx-tab-skeleton>
-    <bx-tab-skeleton></bx-tab-skeleton>
-    <bx-tab-skeleton></bx-tab-skeleton>
-    <bx-tab-skeleton></bx-tab-skeleton>
-  </bx-tabs-skeleton>
+  <cds-tabs-skeleton>
+    <cds-tab-skeleton></cds-tab-skeleton>
+    <cds-tab-skeleton></cds-tab-skeleton>
+    <cds-tab-skeleton></cds-tab-skeleton>
+    <cds-tab-skeleton></cds-tab-skeleton>
+    <cds-tab-skeleton></cds-tab-skeleton>
+  </cds-tabs-skeleton>
 `;
 
 skeleton.parameters = {

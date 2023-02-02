@@ -1,7 +1,7 @@
 /**
  * @license
  *
- * Copyright IBM Corp. 2019, 2022
+ * Copyright IBM Corp. 2019, 2023
  *
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
@@ -40,7 +40,7 @@ export const Default = (args) => {
     onClick,
   } = args?.['bx-link'] ?? {};
   return html`
-    <bx-link
+    <cds-link
       ?disabled="${disabled}"
       download="${ifNonNull(download)}"
       href="${ifNonNull(href)}"
@@ -53,7 +53,7 @@ export const Default = (args) => {
       type="${ifNonNull(type)}"
       @click="${onClick}">
       Link
-    </bx-link>
+    </cds-link>
   `;
 };
 
@@ -74,7 +74,7 @@ export const pairedWithIcon = (args) => {
     onClick,
   } = args?.['bx-link'] ?? {};
   return html`
-    <bx-link
+    <cds-link
       ?disabled="${disabled}"
       download="${ifNonNull(download)}"
       href="${ifNonNull(href)}"
@@ -87,7 +87,7 @@ export const pairedWithIcon = (args) => {
       type="${ifNonNull(type)}"
       @click="${onClick}">
       Download ${Download16({ slot: 'icon' })}
-    </bx-link>
+    </cds-link>
   `;
 };
 
