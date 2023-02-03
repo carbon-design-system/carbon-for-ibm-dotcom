@@ -60,7 +60,7 @@
 
 :host(#{$prefix}-table-head) ::slotted(#{$prefix}-table-header-row),
 :host(#{$prefix}-table-head) ::slotted(#{$prefix}-table-header-expand-row) {
-  height: $spacing-04;
+  height: $spacing-09;
   display: table-row;
 }
 
@@ -112,7 +112,7 @@
   ::slotted(#{$prefix}-table-row),
   ::slotted(#{$prefix}-table-expand-row) {
     border: none;
-    height: $spacing-04;
+    height: $spacing-09;
     width: 100%;
     display: table-row;
     outline: none;
@@ -132,8 +132,8 @@
     color: $text-secondary;
     border-top: 1px solid $layer-01;
     border-bottom: 1px solid $border-subtle-01;
-    padding: rem(14px) $spacing-04;
-    padding-bottom: rem(13px);
+    padding: convert.rem(14px) $spacing-04;
+    padding-bottom: convert.rem(13px);
     vertical-align: middle;
   }
 }

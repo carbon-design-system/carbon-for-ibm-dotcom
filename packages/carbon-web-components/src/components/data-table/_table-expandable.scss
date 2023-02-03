@@ -32,13 +32,12 @@
     background-color $duration-fast-02 motion(standard);
 
   &[expanded] {
-    height: auto;
+    height: $spacing-09;
   }
 
   td {
-    padding: 0 $spacing-05;
+    padding-left: $spacing-10;
     vertical-align: middle;
-    height: 0;
     transition: all $duration-fast-02 motion(standard, productive);
 
     .#{$prefix}--child-row-inner-container {

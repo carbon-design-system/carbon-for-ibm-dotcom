@@ -324,7 +324,7 @@ class BXCEDemoDataTable extends LitElement {
    * The table size.
    */
   @property({ reflect: true })
-  size = TABLE_SIZE.REGULAR;
+  size = TABLE_SIZE.MD;
 
   /**
    * The table color scheme.
@@ -538,10 +538,11 @@ const colorSchemes = {
 };
 
 const sizes = {
-  [`Compact size (${TABLE_SIZE.COMPACT})`]: TABLE_SIZE.COMPACT,
-  [`Short size (${TABLE_SIZE.SHORT})`]: TABLE_SIZE.SHORT,
-  'Regular size': null,
-  [`Tall size (${TABLE_SIZE.TALL})`]: TABLE_SIZE.TALL,
+  [`xs (${TABLE_SIZE.XS})`]: TABLE_SIZE.XS,
+  [`sm (${TABLE_SIZE.SM})`]: TABLE_SIZE.SM,
+  [`md (${TABLE_SIZE.MD})`]: TABLE_SIZE.MD,
+  [`lg (${TABLE_SIZE.LG} - default)`]: TABLE_SIZE.LG,
+  [`xl (${TABLE_SIZE.XL})`]: TABLE_SIZE.XL,
 };
 
 const defineDemoDataTable = (() => {
@@ -663,8 +664,8 @@ export const expandable = (args) => {
           <cds-table-cell>Active</cds-table-cell>
         </cds-table-expand-row>
         <cds-table-expanded-row colspan="7">
-          <h1>Expandable row content</h1>
-          <p>Description here</p>
+          <h6>Expandable row content</h6>
+          <div>Description here</div>
         </cds-table-expanded-row>
         <cds-table-expand-row data-row-id="2">
           <cds-table-cell>Load Balancer 2</cds-table-cell>
@@ -675,8 +676,8 @@ export const expandable = (args) => {
           <cds-table-cell>Active</cds-table-cell>
         </cds-table-expand-row>
         <cds-table-expanded-row colspan="7">
-          <h1>Expandable row content</h1>
-          <p>Description here</p>
+          <h6>Expandable row content</h6>
+          <div>Description here</div>
         </cds-table-expanded-row>
         <cds-table-expand-row data-row-id="3">
           <cds-table-cell>Load Balancer 3</cds-table-cell>
@@ -687,8 +688,8 @@ export const expandable = (args) => {
           <cds-table-cell>Active</cds-table-cell>
         </cds-table-expand-row>
         <cds-table-expanded-row colspan="7">
-          <h1>Expandable row content</h1>
-          <p>Description here</p>
+          <h6>Expandable row content</h6>
+          <div>Description here</div>
         </cds-table-expanded-row>
       </cds-table-body>
     </cds-table>
