@@ -8,12 +8,13 @@
 $css--plex: true !default;
 
 @use '@carbon/styles/scss/config' as *;
+@use '@carbon/styles/scss/utilities/convert';
 @use '@carbon/styles/scss/components/button';
 
 :host(#{$prefix}-btn),
 :host(#{$prefix}-modal-footer-button) {
   display: inline-flex;
-  max-width: rem(320px);
+  max-width: convert.rem(320px);
   outline: none;
 
   .#{$prefix}--btn {
@@ -24,17 +25,17 @@ $css--plex: true !default;
   ::slotted([slot='icon']) {
     fill: currentColor;
     position: absolute;
-    right: rem(16px);
+    right: convert.rem(16px);
     flex-shrink: 0;
   }
 
   &[isExpressive] ::slotted([slot='icon']) {
-    width: rem(20px);
-    height: rem(20px);
+    width: convert.rem(20px);
+    height: convert.rem(20px);
   }
 
   &[icon-layout='condensed'] .#{$prefix}--btn {
-    padding-right: rem(39px);
+    padding-right: convert.rem(39px);
   }
 
   .#{$prefix}--btn--icon-only ::slotted([slot='icon']) {
@@ -45,11 +46,11 @@ $css--plex: true !default;
   &[kind='danger-ghost'] {
     ::slotted([slot='icon']) {
       position: static;
-      margin-left: rem(8px);
+      margin-left: convert.rem(8px);
     }
 
     &[icon-layout='condensed'] .#{$prefix}--btn {
-      padding-right: rem(16px);
+      padding-right: convert.rem(16px);
     }
   }
 }
