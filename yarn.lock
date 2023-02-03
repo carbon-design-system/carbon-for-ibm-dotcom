@@ -2888,7 +2888,7 @@ __metadata:
     rollup-plugin-multi-input: ^1.3.1
     rollup-plugin-terser: ^7.0.2
     rtlcss: ^3.0.0
-    sass: ~1.57.0
+    sass: ~1.40.0
     sass-loader: ^10.0.0
     strip-comments: ^1.0.0
     style-loader: ^2.0.0
@@ -30511,16 +30511,14 @@ __metadata:
   languageName: node
   linkType: hard
 
-"sass@npm:~1.57.0":
-  version: 1.57.0
-  resolution: "sass@npm:1.57.0"
+"sass@npm:~1.40.0":
+  version: 1.40.1
+  resolution: "sass@npm:1.40.1"
   dependencies:
     chokidar: ">=3.0.0 <4.0.0"
-    immutable: ^4.0.0
-    source-map-js: ">=0.6.2 <2.0.0"
   bin:
     sass: sass.js
-  checksum: fb6358b9541dc7a5bc23dbbae85223e99fbadc1f4ae911e7c32c6e22fd7b617e20a0e8cd1213f23c97c621b067bfb0b9ca45e65d6ce4ca5fea5949f41bd428ed
+  checksum: 09966a8f857f023ce059cfa4b925076626ded6f9ef47e70715ee06f5221a574cf120712a0bfa23b74e11707af3d6632f83f431375c71e4f43cadff300cf2a7f5
   languageName: node
   linkType: hard
 

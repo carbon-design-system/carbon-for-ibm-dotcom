@@ -32,9 +32,9 @@ class BXToastNotification extends BXInlineNotification {
     const { caption, subtitle, title, _type: type } = this;
     return html`
       <div class="${prefix}--${type}-notification__details">
-        <h3 class="${prefix}--${type}-notification__title">
+        <div class="${prefix}--${type}-notification__title">
           ${title}<slot name="title"></slot>
-        </h3>
+        </div>
         <div class="${prefix}--${type}-notification__subtitle">
           ${subtitle}<slot name="subtitle"></slot>
         </div>
