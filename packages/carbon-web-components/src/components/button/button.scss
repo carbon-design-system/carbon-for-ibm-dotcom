@@ -30,8 +30,8 @@ $css--plex: true !default;
   }
 
   &[isExpressive] ::slotted([slot='icon']) {
-    width: convert.rem(20px);
-    height: convert.rem(20px);
+    width: rem(20px);
+    height: rem(20px);
   }
 
   &[icon-layout='condensed'] .#{$prefix}--btn {
