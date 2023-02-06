@@ -46,7 +46,7 @@ $css--plex: true !default;
   &[kind='danger-ghost'] {
     ::slotted([slot='icon']) {
       position: static;
-      margin-left: convert.rem(8px);
+      margin-left: rem(8px);
     }
 
     &[icon-layout='condensed'] .#{$prefix}--btn {
