@@ -39,7 +39,7 @@ $css--plex: true !default;
 
   &[size='xl'] {
     .#{$prefix}--accordion__heading {
-      min-height: convert.rem(48px);
+      min-height: rem(48px);
     }
   }
 }
