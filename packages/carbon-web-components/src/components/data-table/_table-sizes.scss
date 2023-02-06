@@ -70,7 +70,7 @@
 :host(#{$prefix}-table-row[size='lg']) {
   ::slotted(#{$prefix}-table-cell),
   ::slotted(#{$prefix}-table-cell-skeleton) {
-    padding-top: convert.rem(16px);
+    padding-top: rem(16px);
   }
 }
 
