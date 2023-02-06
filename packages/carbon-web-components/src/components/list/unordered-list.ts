@@ -17,7 +17,6 @@ const { prefix } = settings;
 /**
  * Unordered list base class.
  */
-@customElement(`${prefix}-unordered-list`)
 export class BXUnorderedListBase extends LitElement {
   /**
    * `true` if expressive theme enabled.
