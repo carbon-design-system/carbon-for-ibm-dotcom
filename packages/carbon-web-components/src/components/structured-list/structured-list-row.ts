@@ -214,7 +214,7 @@ class BXStructuredListRow extends HostListenerMixin(LitElement) {
         <input
           id="input"
           type="radio"
-          class="${prefix}--structured-list-input"
+          class="${prefix}--structured-list-input ${prefix}--visually-hidden"
           .checked=${selected}
           name=${selectionName}
           value=${ifDefined(selectionValue)} />

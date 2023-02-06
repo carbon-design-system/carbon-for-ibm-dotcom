@@ -1,7 +1,7 @@
 /**
  * @license
  *
- * Copyright IBM Corp. 2020, 2022
+ * Copyright IBM Corp. 2020, 2023
  *
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
@@ -28,7 +28,7 @@ const container = ({
   <style>
     ${containerStyles}
   </style>
-  <bx-skip-to-content href="#main-content"></bx-skip-to-content>
+  <cds-skip-to-content href="#main-content"></cds-skip-to-content>
   <div
     id="main-content"
     name="main-content"
