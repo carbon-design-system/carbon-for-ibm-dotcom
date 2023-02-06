@@ -14,7 +14,7 @@ $css--plex: true !default;
 :host(#{$prefix}-btn),
 :host(#{$prefix}-modal-footer-button) {
   display: inline-flex;
-  max-width: convert.rem(320px);
+  max-width: rem(320px);
   outline: none;
 
   .#{$prefix}--btn {
