@@ -89,9 +89,9 @@ $css--plex: true !default;
 
 :host(#{$prefix}-content-switcher-item:last-of-type)
   .#{$prefix}--content-switcher-btn {
-  border-top-right-radius: convert.rem(4px);
-  border-bottom-right-radius: convert.rem(4px);
-  border-right: convert.rem(1px) solid $border-inverse;
+  border-top-right-radius: rem(4px);
+  border-bottom-right-radius: rem(4px);
+  border-right: rem(1px) solid $border-inverse;
 
   &.#{$prefix}--content-switcher--selected {
     border-right: none;
