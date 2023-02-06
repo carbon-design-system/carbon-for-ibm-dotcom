@@ -50,7 +50,7 @@ $css--plex: true !default;
     }
 
     &[icon-layout='condensed'] .#{$prefix}--btn {
-      padding-right: convert.rem(16px);
+      padding-right: rem(16px);
     }
   }
 }
