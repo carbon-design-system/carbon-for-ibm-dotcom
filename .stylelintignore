@@ -10,3 +10,4 @@
 **/carbon-stories/**
 **/carbon-tools/**
 packages/web-components/scss/**/*.scss
+packages/**/.storybook/*.scss
