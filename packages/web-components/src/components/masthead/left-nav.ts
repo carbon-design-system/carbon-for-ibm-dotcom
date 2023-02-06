@@ -15,7 +15,7 @@ import HostListener from '@carbon/web-components/es/globals/decorators/host-list
 import {
   BXSideNavBase,
   SIDE_NAV_USAGE_MODE,
-} from '@carbon/web-components/es/components/ui-shell/side-nav.js';
+} from '../../internal/vendor/@carbon/web-components/components/ui-shell/side-nav.js';
 import ddsSettings from '../../internal/vendor/@carbon/ibmdotcom-utilities/utilities/settings/settings';
 import focuswrap from '../../internal/vendor/@carbon/ibmdotcom-utilities/utilities/focuswrap/focuswrap';
 import { find, forEach } from '../../globals/internal/collection-helpers';

@@ -9,12 +9,12 @@
 
 import { ifDefined } from 'lit-html/directives/if-defined.js';
 import settings from 'carbon-components/es/globals/js/settings.js';
-import Filter20 from '@carbon/web-components/es/icons/filter/20.js';
+import Filter20 from '../../internal/vendor/@carbon/web-components/icons/filter/20.js';
 import { property, customElement, html } from 'lit-element';
 import { BXSelectBase } from '@carbon/web-components/es/components/select/select.js';
 import { INPUT_SIZE } from '@carbon/web-components/es/components/input/input.js';
 import { classMap } from 'lit-html/directives/class-map.js';
-import ifNonNull from '@carbon/web-components/es/globals/directives/if-non-null.js';
+import ifNonNull from '../../internal/vendor/@carbon/web-components/globals/directives/if-non-null.js';
 import ddsSettings from '../../internal/vendor/@carbon/ibmdotcom-utilities/utilities/settings/settings';
 import { filter } from '../../globals/internal/collection-helpers';
 import styles from './search-with-typeahead.scss';

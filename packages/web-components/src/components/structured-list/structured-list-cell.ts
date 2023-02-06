@@ -9,9 +9,9 @@
 
 import { BXStructuredListCellBase } from '@carbon/web-components/es/components/structured-list/structured-list-cell.js';
 import { customElement, property, html } from 'lit-element';
-import Info16 from '@carbon/web-components/es/icons/information/16.js';
-import Checkmark20 from '@carbon/web-components/es/icons/checkmark/20.js';
-import Error20 from '@carbon/web-components/es/icons/error/20.js';
+import Info16 from '../../internal/vendor/@carbon/web-components/icons/information/16.js';
+import Checkmark20 from '../../internal/vendor/@carbon/web-components/icons/checkmark/20.js';
+import Error20 from '../../internal/vendor/@carbon/web-components/icons/error/20.js';
 import ddsSettings from '../../internal/vendor/@carbon/ibmdotcom-utilities/utilities/settings/settings';
 import DDSStructuredListGroup from './structured-list-group';
 import styles from './structured-list.scss';

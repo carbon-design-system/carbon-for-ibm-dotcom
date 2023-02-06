@@ -12,7 +12,7 @@ import { BXSearchBase } from '@carbon/web-components/es/components/search/search
 import ddsSettings from '../../internal/vendor/@carbon/ibmdotcom-utilities/utilities/settings/settings';
 import styles from './search.scss';
 
-export { SEARCH_COLOR_SCHEME } from '@carbon/web-components/es/components/search/search.js';
+export { SEARCH_COLOR_SCHEME } from '../../internal/vendor/@carbon/web-components/components/search/search.js';
 
 const { stablePrefix: ddsPrefix } = ddsSettings;
 

@@ -11,7 +11,7 @@ import { html, customElement, TemplateResult, property } from 'lit-element';
 import {
   BXLinkBase,
   LINK_SIZE,
-} from '@carbon/web-components/es/components/link/link.js';
+} from '../../internal/vendor/@carbon/web-components/components/link/link.js';
 import settings from 'carbon-components/es/globals/js/settings.js';
 import ddsSettings from '../../internal/vendor/@carbon/ibmdotcom-utilities/utilities/settings/settings';
 import { ICON_PLACEMENT } from '../../globals/defs';

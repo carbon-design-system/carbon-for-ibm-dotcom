@@ -11,7 +11,7 @@ import { customElement, html, property } from 'lit-element';
 import { BXModalBodyBase } from '@carbon/web-components/es/components/modal/modal-body.js';
 import ifNonNull from '@carbon/web-components/es/globals/directives/if-non-null.js';
 import ddsSettings from '../../internal/vendor/@carbon/ibmdotcom-utilities/utilities/settings/settings';
-import '@carbon/web-components/es/components/link/link.js';
+import '../../internal/vendor/@carbon/web-components/components/link/link.js';
 import styles from './leaving-ibm.scss';
 import StableSelectorMixin from '../../globals/mixins/stable-selector';
 

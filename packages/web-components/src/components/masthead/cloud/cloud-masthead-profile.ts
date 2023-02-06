@@ -10,7 +10,7 @@
 import { ifDefined } from 'lit-html/directives/if-defined.js';
 import { html, customElement } from 'lit-element';
 import settings from 'carbon-components/es/globals/js/settings.js';
-import User20 from '@carbon/web-components/es/icons/user/20.js';
+import User20 from '../../../internal/vendor/@carbon/web-components/icons/user/20.js';
 import ddsSettings from '../../../internal/vendor/@carbon/ibmdotcom-utilities/utilities/settings/settings';
 import styles from './cloud-masthead.scss';
 import { DDSMastheadProfileBase } from '../masthead-profile';
