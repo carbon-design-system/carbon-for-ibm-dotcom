@@ -8,7 +8,7 @@
  */
 
 import { html, state, property, customElement } from 'lit-element';
-import BXLink from '../../internal/vendor/@carbon/web-components/components/link/link.js';
+import { BXLinkBase } from '../../internal/vendor/@carbon/web-components/components/link/link.js';
 import HostListener from '../../internal/vendor/@carbon/web-components/globals/decorators/host-listener.js';
 import HostListenerMixin from '../../internal/vendor/@carbon/web-components/globals/mixins/host-listener.js';
 import settings from 'carbon-components/es/globals/js/settings.js';
@@ -28,7 +28,7 @@ const { stablePrefix: ddsPrefix } = ddsSettings;
  */
 @customElement(`${ddsPrefix}-masthead-logo`)
 class DDSMastheadLogo extends FocusMixin(
-  HostListenerMixin(StableSelectorMixin(BXLink))
+  HostListenerMixin(StableSelectorMixin(BXLinkBase))
 ) {
   /**
    * Search bar opened flag.
