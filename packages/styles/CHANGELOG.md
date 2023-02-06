@@ -3,6 +3,25 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.43.0](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/compare/@carbon/ibmdotcom-styles@1.43.0-rc.0...@carbon/ibmdotcom-styles@1.43.0) (2023-01-31)
+
+**Note:** Version bump only for package @carbon/ibmdotcom-styles
+
+
+
+
+
+# [1.43.0-rc.0](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/compare/@carbon/ibmdotcom-styles@1.42.0...@carbon/ibmdotcom-styles@1.43.0-rc.0) (2023-01-25)
+
+
+### Bug Fixes
+
+* **styles:** update disabled card hover styles ([#9892](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/issues/9892)) ([9abfdb9](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/commit/9abfdb998f18600493c3dc21e131557a28d66ea7)), closes [#9815](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/issues/9815)
+
+
+
+
+
 # [1.42.0](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/compare/@carbon/ibmdotcom-styles@1.42.0-rc.0...@carbon/ibmdotcom-styles@1.42.0) (2023-01-17)
 
 **Note:** Version bump only for package @carbon/ibmdotcom-styles
