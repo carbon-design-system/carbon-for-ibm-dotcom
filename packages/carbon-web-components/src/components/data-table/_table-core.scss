@@ -132,8 +132,8 @@
     color: $text-secondary;
     border-top: 1px solid $layer-01;
     border-bottom: 1px solid $border-subtle-01;
-    padding: convert.rem(14px) $spacing-04;
-    padding-bottom: convert.rem(13px);
+    padding: rem(14px) $spacing-04;
+    padding-bottom: rem(13px);
     vertical-align: middle;
   }
 }
