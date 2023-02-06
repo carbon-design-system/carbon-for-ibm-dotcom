@@ -32,8 +32,8 @@ $css--plex: true !default;
 
   &[size='sm'] {
     .#{$prefix}--accordion__heading {
-      min-height: convert.rem(32px);
-      padding: convert.rem(5px) 0;
+      min-height: rem(32px);
+      padding: rem(5px) 0;
     }
   }
 
