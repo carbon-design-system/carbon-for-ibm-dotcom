@@ -74,9 +74,9 @@ $css--plex: true !default;
 
 :host(#{$prefix}-content-switcher-item:first-of-type)
   .#{$prefix}--content-switcher-btn {
-  border-top-left-radius: convert.rem(4px);
-  border-bottom-left-radius: convert.rem(4px);
-  border-left: convert.rem(1px) solid $border-inverse;
+  border-top-left-radius: rem(4px);
+  border-bottom-left-radius: rem(4px);
+  border-left: rem(1px) solid $border-inverse;
 
   &::before {
     content: none;
