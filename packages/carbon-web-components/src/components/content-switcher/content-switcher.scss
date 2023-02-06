@@ -44,8 +44,8 @@ $css--plex: true !default;
     &::before {
       content: '';
       display: block;
-      height: convert.rem(16px);
-      width: convert.rem(1px);
+      height: rem(16px);
+      width: rem(1px);
       background-color: $border-subtle;
       position: absolute;
       z-index: 2;
