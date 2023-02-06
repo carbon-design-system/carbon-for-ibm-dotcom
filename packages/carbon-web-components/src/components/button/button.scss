@@ -35,7 +35,7 @@ $css--plex: true !default;
   }
 
   &[icon-layout='condensed'] .#{$prefix}--btn {
-    padding-right: convert.rem(39px);
+    padding-right: rem(39px);
   }
 
   .#{$prefix}--btn--icon-only ::slotted([slot='icon']) {
