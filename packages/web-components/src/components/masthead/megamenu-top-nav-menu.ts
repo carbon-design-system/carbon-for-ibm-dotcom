@@ -170,7 +170,9 @@ class DDSMegaMenuTopNavMenu extends DDSTopNavMenu {
         (item as DDSMegaMenuOverlay).active = this.expanded;
       });
 
-      const mastheadContainer = this.closest(`${ddsPrefix}-masthead-container`) as DDSMastheadContainer;
+      const mastheadContainer = this.closest(`
+        ${ddsPrefix}-masthead-container,
+        ${ddsPrefix}-cloud-masthead-container`) as DDSMastheadContainer;
 
       // add the scrollbar width as right-margin to prevent content from shifting when
       // scrollbar disappears on megamenu expand
