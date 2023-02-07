@@ -26,7 +26,7 @@ export const Default = (args) => {
     name,
     value,
     onChange,
-  } = args?.['bx-checkbox'] ?? {};
+  } = args?.[`${prefix}-checkbox`] ?? {};
   return html`
     <fieldset class="${prefix}--fieldset">
       <legend class="${prefix}--label">Group label</legend>
@@ -59,7 +59,7 @@ export default {
   parameters: {
     ...storyDocs.parameters,
     knobs: {
-      'bx-checkbox': () => ({
+      [`${prefix}-checkbox`]: () => ({
         checked: boolean('Checked (checked)', false),
         disabled: boolean('Disabled (disabled)', false),
         hideLabel: boolean('Hide label (hide-label)', false),
