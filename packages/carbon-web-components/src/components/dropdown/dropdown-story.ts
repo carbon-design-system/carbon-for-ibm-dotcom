@@ -10,6 +10,7 @@
 import { html } from 'lit-element';
 import { action } from '@storybook/addon-actions';
 import { boolean, select } from '@storybook/addon-knobs';
+import { prefix } from '../../globals/settings';
 import textNullable from '../../../.storybook/knob-text-nullable';
 import ifNonNull from '../../globals/directives/if-non-null';
 import {
@@ -55,7 +56,7 @@ export const Default = (args) => {
     onBeforeToggle,
     onSelect,
     onToggle,
-  } = args?.['bx-dropdown'] ?? {};
+  } = args?.[`${prefix}-dropdown`] ?? {};
   const handleBeforeSelect = (event: CustomEvent) => {
     if (onBeforeSelect) {
       onBeforeSelect(event);
@@ -83,10 +84,10 @@ export const Default = (args) => {
       type="${ifNonNull(type)}"
       value=${ifNonNull(value)}
       trigger-content=${ifNonNull(triggerContent)}
-      @bx-dropdown-beingselected=${handleBeforeSelect}
-      @bx-dropdown-beingtoggled=${handleBeforeToggle}
-      @bx-dropdown-selected=${onSelect}
-      @bx-dropdown-toggled=${onToggle}>
+      @cds-dropdown-beingselected=${handleBeforeSelect}
+      @cds-dropdown-beingtoggled=${handleBeforeToggle}
+      @cds-dropdown-selected=${onSelect}
+      @cds-dropdown-toggled=${onToggle}>
       <cds-dropdown-item value="all">Option 1</cds-dropdown-item>
       <cds-dropdown-item value="cloudFoundry">Option 2</cds-dropdown-item>
       <cds-dropdown-item value="staging">Option 3</cds-dropdown-item>
@@ -100,7 +101,7 @@ Default.storyName = 'Default';
 
 Default.parameters = {
   knobs: {
-    'bx-dropdown': () => ({
+    [`${prefix}-dropdown`]: () => ({
       open: boolean('Open (open)', false),
       colorScheme: select('Color scheme (color-scheme)', colorSchemes, null),
       disabled: boolean('Disabled (disabled)', false),
@@ -117,17 +118,17 @@ Default.parameters = {
         'Select an item'
       ),
       disableSelection: boolean(
-        'Disable user-initiated selection change (Call event.preventDefault() in bx-dropdown-beingselected event)',
+        `Disable user-initiated selection change (Call event.preventDefault() in ${prefix}-dropdown-beingselected event)`,
         false
       ),
       disableToggle: boolean(
-        'Disable user-initiated toggle of open state (Call event.preventDefault() in bx-dropdown-beingtoggled event)',
+        `Disable user-initiated toggle of open state (Call event.preventDefault() in ${prefix}-dropdown-beingtoggled event)`,
         false
       ),
-      onBeforeSelect: action('bx-dropdown-beingselected'),
-      onBeforeToggle: action('bx-dropdown-beingtoggled'),
-      onSelect: action('bx-dropdown-selected'),
-      onToggle: action('bx-dropdown-toggled'),
+      onBeforeSelect: action(`${prefix}-dropdown-beingselected`),
+      onBeforeToggle: action(`${prefix}-dropdown-beingtoggled`),
+      onSelect: action(`${prefix}-dropdown-selected`),
+      onToggle: action(`${prefix}-dropdown-toggled`),
     }),
   },
 };
