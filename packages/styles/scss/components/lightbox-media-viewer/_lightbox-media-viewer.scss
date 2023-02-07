@@ -68,6 +68,7 @@
       height: $spacing-07;
       width: 100%;
       z-index: 1;
+      flex: 0 0 auto;
     }
 
     &::before {
@@ -88,7 +89,6 @@
     @include carbon--breakpoint('lg') {
       display: flex;
       flex-direction: column;
-      padding: $spacing-07 0 $spacing-05 0;
     }
 
     .#{$prefix}--lightbox-media-viewer__row {
@@ -100,6 +100,7 @@
       padding-top: calc(#{$spacing-09} - #{$spacing-07});
 
       @include carbon--breakpoint('lg') {
+        padding-top: 0;
         flex-direction: row;
       }
     }
@@ -145,31 +146,7 @@
         @include carbon--make-col-ready;
         @include carbon--make-col(4, 16);
 
-        overflow-y: auto;
         margin-left: auto;
-        margin-top: calc(#{$spacing-07} * -1);
-
-        &::before,
-        &::after {
-          @include carbon--breakpoint('md') {
-            content: '';
-            display: block;
-            position: sticky;
-            height: $spacing-07;
-            width: 100%;
-            z-index: 1;
-          }
-        }
-
-        &::before {
-          top: 0;
-          background: linear-gradient(to bottom, $ui-01, transparent);
-        }
-
-        &::after {
-          top: calc(100% - #{$spacing-07});
-          background: linear-gradient(to top, $ui-01, transparent);
-        }
       }
 
       @include carbon--breakpoint-down('lg') {
