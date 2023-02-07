@@ -17,7 +17,6 @@
     </dds-masthead-profile-item>
   </dds-masthead-profile>
 </dds-masthead-global-bar>
-
 ```
 
 ####   `should render authenticated state`
@@ -47,51 +46,5 @@
     </dds-masthead-profile-item>
   </dds-masthead-profile>
 </dds-masthead-global-bar>
-
-```
-
-## `Rendering nav items`
-
-####   `should render the given nav items to the left`
-
-```
-<dds-left-nav
-  data-autoid="dds--masthead__l0-sidenav"
-  role="navigation"
->
-  <dds-left-nav-menu-section
-    section-id="-1, -1"
-    title=""
-    titleurl=""
-  >
-    <dds-left-nav-menu-item
-      data-autoid="dds--masthead__l0--sidenav--nav0"
-      href="https://carbon-design-system.github.io/carbon-for-ibm-dotcom/canary/web-components/foo"
-      title="item-title-foo"
-    >
-    </dds-left-nav-menu-item>
-    <dds-left-nav-menu
-      data-autoid="dds--masthead__l0--sidenav--nav1"
-      panel-id="1, -1"
-      title="menu-title-foo"
-    >
-    </dds-left-nav-menu>
-  </dds-left-nav-menu-section>
-  <dds-left-nav-menu-section
-    is-submenu=""
-    section-id="1, -1"
-    show-back-button=""
-    title="menu-title-foo"
-    titleurl=""
-  >
-    <dds-left-nav-menu-item
-      data-autoid="dds--masthead__l0--sidenav--nav1-list0"
-      href="https://carbon-design-system.github.io/carbon-for-ibm-dotcom/canary/web-components/bar"
-      title="menu-item-title-bar"
-    >
-    </dds-left-nav-menu-item>
-  </dds-left-nav-menu-section>
-</dds-left-nav>
-
 ```
 
