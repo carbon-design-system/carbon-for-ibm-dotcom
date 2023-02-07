@@ -82,6 +82,27 @@ export enum NAV_ITEMS_RENDER_TARGET {
 }
 
 /**
+ * Globally-scoped Contact Module variable.
+ *
+ * @see https://github.ibm.com/live-advisor/cm-app
+ */
+export interface CMApp {
+  version: string;
+  ready: boolean;
+  init: Function;
+  refresh: Function;
+  register: Function;
+  deregister: Function;
+  fireEvent: Function;
+  update: Function;
+  props: {
+    eventHandlers: any;
+    events: CustomEvent[];
+    getLoadedBundle: Function;
+  };
+}
+
+/**
  * Component that renders masthead from links, etc. data.
  *
  * @element dds-masthead-composite
@@ -743,6 +764,18 @@ class DDSMastheadComposite extends HostListenerMixin(LitElement) {
     render(active ? currentMenu : nothing, target as HTMLElement);
     resolveFn();
   };
+
+  /**
+   * Stores a reference of the globally-scoped CM_APP object within the masthead.
+   */
+  @HostListener('document:cm-app-ready')
+  // @ts-ignore: The decorator refers to this method but TS thinks this method is not referred to
+  protected _getContactModuleReference = () => {
+    // @ts-ignore: CM_APP will definitely exist if this event is fired
+    this.contactModuleApp = window.CM_APP;
+  };
+
+  contactModuleApp?: CMApp;
 
   /**
    * Whether or not a nav item has automatically been designated as "selected".
