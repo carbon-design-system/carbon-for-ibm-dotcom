@@ -63,8 +63,8 @@ import { MEGAMENU_LAYOUT_SCHEME } from './defs';
 
 const { stablePrefix: ddsPrefix } = ddsSettings;
 
-// Magic Number: 960px matches masthead.scss's `$breakpoint--desktop-nav`.
-const layoutBreakpoint = window.matchMedia(`(max-width: 960px)`);
+// Magic Number: 799px matches masthead.scss's `$breakpoint--desktop-nav`.
+const layoutBreakpoint = window.matchMedia(`(max-width: 799px)`);
 
 /**
  * Rendering target for masthead navigation items.

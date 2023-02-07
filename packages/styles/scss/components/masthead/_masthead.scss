@@ -59,7 +59,7 @@ $search-transition-timing: 95ms;
     }
 
     &::after {
-      @include carbon--breakpoint-up(800px) {
+      @include carbon--breakpoint(800px) {
         content: '';
         display: block;
         position: absolute;

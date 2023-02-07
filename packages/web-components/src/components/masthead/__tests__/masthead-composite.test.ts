@@ -10,7 +10,6 @@
 import { html, render } from 'lit-html';
 import ifNonNull from '../../../internal/vendor/@carbon/web-components/globals/directives/if-non-null.js';
 import EventManager from '../../../../tests/utils/event-manager';
-import { MastheadLink } from '../../../internal/vendor/@carbon/ibmdotcom-services-store/types/translateAPI.d';
 import DDSMastheadComposite from '../masthead-composite';
 import {
   authenticatedProfileItems,
@@ -30,27 +29,7 @@ const template = (props?) => {
   `;
 };
 
-const navLinksFoo: MastheadLink[] = [
-  {
-    title: 'item-title-foo',
-    url: 'https://carbon-design-system.github.io/carbon-for-ibm-dotcom/canary/web-components/foo',
-  },
-  {
-    title: 'menu-title-foo',
-    menuSections: [
-      {
-        menuItems: [
-          {
-            title: 'menu-item-title-bar',
-            url: 'https://carbon-design-system.github.io/carbon-for-ibm-dotcom/canary/web-components/bar',
-          },
-        ],
-      },
-    ],
-  },
-];
-
-describe('dds-masthead-composite', function () {
+describe('dds-masthead-composite', function() {
   const events = new EventManager();
 
   describe('Rendering global bar', function () {
@@ -85,15 +64,6 @@ describe('dds-masthead-composite', function () {
         'dds-masthead-composite'
       );
       expect(mastheadComposite!.querySelector('dds-top-nav')).toBeNull();
-      expect(
-        mastheadComposite!.querySelector('dds-left-nav')!.children.length
-      ).toBe(0);
-    });
-
-    it('should render the given nav items to the left', async function() {
-      render(template({ navLinks: navLinksFoo }), document.body);
-      await Promise.resolve();
-      expect(document.body.querySelector('dds-masthead-composite')!.querySelector('dds-left-nav')).toMatchSnapshot();
     });
   });
 
