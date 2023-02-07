@@ -24,7 +24,9 @@ describe('dds-cloud-masthead-composite', function () {
         'dds-cloud-masthead-composite'
       );
       expect(
-        cloudMastheadComposite!.querySelector('dds-cloud-masthead-profile')
+        cloudMastheadComposite?.shadowRoot?.querySelector(
+          'dds-cloud-masthead-profile'
+        )
       ).toBeNull();
     });
 
@@ -41,7 +43,9 @@ describe('dds-cloud-masthead-composite', function () {
         'dds-cloud-masthead-composite'
       );
       expect(
-        cloudMastheadComposite!.querySelector('dds-cloud-masthead-profile')
+        cloudMastheadComposite?.shadowRoot?.querySelector(
+          'dds-cloud-masthead-profile'
+        )
       ).not.toBeNull();
     });
   });
