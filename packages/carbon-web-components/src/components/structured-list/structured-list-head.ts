@@ -16,7 +16,6 @@ const { prefix } = settings;
 /**
  * Structured list header base class.
  */
-@customElement(`${prefix}-structured-list-head`)
 export class BXStructuredListHeaderBase extends LitElement {
   connectedCallback() {
     if (!this.hasAttribute('role')) {

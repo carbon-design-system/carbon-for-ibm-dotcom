@@ -16,7 +16,6 @@ const { prefix } = settings;
 /**
  * Structured list header row base class.
  */
-@customElement(`${prefix}-structured-list-header-row`)
 export class BXStructuredListHeaderRowBase extends LitElement {
   /**
    * The `name` attribute for the `<input>` for selection.

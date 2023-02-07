@@ -31,7 +31,6 @@ const { prefix } = settings;
  * @element bx-selectable-tile
  * @fires bx-selectable-tile-changed - The custom event fired after this selectable tile changes its selected state.
  */
-@customElement(`${prefix}-selectable-tile`)
 export class BXSelectableTileBase extends FocusMixin(LitElement) {
   @query('input')
   protected _inputNode!: HTMLInputElement;
