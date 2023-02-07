@@ -1,7 +1,7 @@
 /**
  * @license
  *
- * Copyright IBM Corp. 2020, 2022
+ * Copyright IBM Corp. 2020, 2023
  *
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
@@ -12,7 +12,7 @@ import '../../cta/index';
 import '../../card-link/index';
 import { html } from 'lit-element';
 import { boolean, optionsKnob } from '@storybook/addon-knobs';
-import ArrowRight20 from '@carbon/web-components/es/icons/arrow--right/20.js';
+import ArrowRight20 from '../../../internal/vendor/@carbon/web-components/icons/arrow--right/20.js';
 import { CONTENT_BLOCK_COMPLEMENTARY_STYLE_SCHEME } from '../content-block';
 import imgLg16x9 from '../../../../../storybook-images/assets/720/fpo--16x9--720x405--002.jpg';
 import imgMd16x9 from '../../../../../storybook-images/assets/480/fpo--16x9--480x270--002.jpg';
