@@ -52,56 +52,43 @@
     }
   }
 
-  :host(#{$dds-prefix}-lightbox-media-viewer) {
-    @include carbon--breakpoint-down('lg') {
-      padding-bottom: $spacing-07;
-
-      &::before,
-      &::after {
-        padding-top: 0;
-        content: '';
-        display: block;
-        position: sticky;
-        height: $spacing-07;
-        width: 100%;
-        z-index: 1;
-      }
-
-      &::before {
-        top: 0;
-        background: linear-gradient(to bottom, $ui-01, transparent);
-      }
-
-      &::after {
-        bottom: 0;
-        background: linear-gradient(to top, $ui-01, transparent);
-      }
-    }
-  }
-
   :host(#{$dds-prefix}-lightbox-media-viewer-body),
   .#{$prefix}--lightbox-media-viewer__container {
     display: block;
     width: 100%;
     height: 100%;
-    padding-top: $spacing-09;
+    overflow-y: auto;
+
+    &::before,
+    &::after {
+      padding-top: 0;
+      content: '';
+      display: block;
+      position: sticky;
+      height: $spacing-07;
+      width: 100%;
+      z-index: 1;
+    }
+
+    &::before {
+      top: 0;
+      background: linear-gradient(to bottom, $ui-01, transparent);
+    }
+
+    &::after {
+      bottom: 0;
+      background: linear-gradient(to top, $ui-01, transparent);
+    }
 
     @include carbon--breakpoint('md') {
       padding-left: $spacing-05;
       padding-right: $spacing-05;
-      // Padding top needs to account for the scroll gradient overlay
-      padding-top: calc(#{$spacing-09} - #{$spacing-07});
     }
 
     @include carbon--breakpoint('lg') {
       display: flex;
       flex-direction: column;
       padding: $spacing-07 0 $spacing-05 0;
-      overflow-y: auto;
-    }
-
-    @include carbon--breakpoint-down('lg') {
-      overflow-y: auto;
     }
 
     .#{$prefix}--lightbox-media-viewer__row {
@@ -109,6 +96,8 @@
 
       flex-flow: column nowrap;
       width: 100%;
+      // Padding top needs to account for the scroll gradient overlay
+      padding-top: calc(#{$spacing-09} - #{$spacing-07});
 
       @include carbon--breakpoint('lg') {
         flex-direction: row;
