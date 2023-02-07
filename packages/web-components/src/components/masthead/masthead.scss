@@ -10,7 +10,8 @@
 @import '@carbon/ibmdotcom-styles/scss/globals/vars';
 
 @import '@carbon/ibmdotcom-styles/scss/components/masthead/masthead';
-@import '@carbon/ibmdotcom-styles/scss/components/masthead/masthead-leftnav';
+// @import '@carbon/ibmdotcom-styles/scss/components/masthead/masthead-leftnav';
+@import '../../../../styles/scss/components/masthead/masthead-leftnav';
 @import '@carbon/ibmdotcom-styles/scss/components/masthead/masthead-megamenu';
 @import '@carbon/ibmdotcom-styles/scss/components/masthead/masthead-top-nav-name';
 @import '@carbon/ibmdotcom-styles/scss/components/search-with-typeahead/search-with-typeahead';

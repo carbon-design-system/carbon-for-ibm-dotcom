@@ -234,11 +234,11 @@
   button {
     &.#{$prefix}--side-nav__link {
       height: carbon--mini-units(6);
-      @include carbon--type-style(body-short-02);
+      @include carbon--type-style(body-short-01);
 
       > {
         .#{$prefix}--side-nav__link-text {
-          @include carbon--type-style(body-short-02);
+          @include carbon--type-style(body-short-01);
 
           display: flex;
           align-items: center;
@@ -293,7 +293,7 @@
       }
 
       > .#{$prefix}--side-nav__link-text {
-        @include carbon--type-style(body-short-02);
+        @include carbon--type-style(body-short-01);
 
         color: $link-01;
         display: flex;
@@ -356,7 +356,7 @@
     }
 
     .#{$prefix}--side-nav__submenu-title {
-      @include carbon--type-style(body-short-02);
+      @include carbon--type-style(body-short-01);
 
       color: $text-02;
       align-self: center;
@@ -408,8 +408,7 @@
 
     .#{$prefix}--side-nav__heading {
       height: auto;
-      min-height: carbon--mini-units(6);
-      padding: $spacing-04 0;
+      padding: $spacing-05 0;
     }
 
     .#{$prefix}--side-nav__heading-title {
@@ -426,11 +425,21 @@
         &:hover {
           text-decoration: underline;
         }
+
+        &:focus {
+          outline: 2px solid $focus;
+          outline-offset: -2px;
+          color: $text-01;
+        }
       }
     }
 
     .#{$prefix}--side-nav__heading-description {
-      padding: $spacing-03 $spacing-05 0;
+      padding: 0 $spacing-05;
+    }
+
+    ::slotted(:first-child) {
+      padding-top: $spacing-03;
     }
 
     h2 {
@@ -470,11 +479,12 @@
       }
 
       .#{$prefix}--side-nav__link-text {
-        @include carbon--type-style(productive-heading-01);
+        @include carbon--type-style(body-short-01);
 
         color: $text-01;
         display: inline-flex;
         align-items: center;
+        justify-content: space-between;
         gap: $spacing-03;
 
         svg {
@@ -497,7 +507,7 @@
   .#{$prefix}--side-nav__submenu[aria-expanded='true']
     .#{$prefix}--side-nav__submenu-chevron {
     > svg {
-      transform: rotate(-90deg) scale(1.25);
+      transform: rotate(-90deg);
       fill: $text-01;
     }
   }

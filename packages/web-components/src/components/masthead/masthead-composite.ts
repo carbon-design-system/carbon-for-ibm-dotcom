@@ -345,19 +345,6 @@ class DDSMastheadComposite extends HostListenerMixin(LitElement) {
         `;
       }
 
-      if (elem.isHeading) {
-        return html`
-          <dds-left-nav-menu-item
-            ?last-highlighted=${elem.lastHighlightedItem}
-            ?active="${elem.selected}"
-            href="${elem.url}"
-            title="${elem.title}"
-            data-autoid="${elem.autoid}"
-            .isHeading=${true}
-          ></dds-left-nav-menu-item>
-        `;
-      }
-
       return html`
         <dds-left-nav-menu-item
           ?last-highlighted=${elem.lastHighlightedItem}
@@ -365,6 +352,7 @@ class DDSMastheadComposite extends HostListenerMixin(LitElement) {
           href="${elem.url}"
           title="${elem.title}"
           data-autoid="${elem.autoid}"
+          .isHeading=${elem.isHeading ?? false}
         ></dds-left-nav-menu-item>
       `;
     });
