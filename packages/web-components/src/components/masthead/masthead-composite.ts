@@ -1,7 +1,7 @@
 /**
  * @license
  *
- * Copyright IBM Corp. 2020, 2022
+ * Copyright IBM Corp. 2020, 2023
  *
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
@@ -61,8 +61,8 @@ import { MEGAMENU_LAYOUT_SCHEME } from './defs';
 
 const { stablePrefix: ddsPrefix } = ddsSettings;
 
-// Magic Number: 960px matches masthead.scss's `$breakpoint--desktop-nav`.
-const layoutBreakpoint = window.matchMedia(`(max-width: 960px)`);
+// Magic Number: 799px matches masthead.scss's `$breakpoint--desktop-nav`.
+const layoutBreakpoint = window.matchMedia(`(max-width: 799px)`);
 
 /**
  * Rendering target for masthead navigation items.
@@ -77,6 +77,27 @@ export enum NAV_ITEMS_RENDER_TARGET {
    * For left navigation.
    */
   LEFT_NAV = 'left-nav',
+}
+
+/**
+ * Globally-scoped Contact Module variable.
+ *
+ * @see https://github.ibm.com/live-advisor/cm-app
+ */
+export interface CMApp {
+  version: string;
+  ready: boolean;
+  init: Function;
+  refresh: Function;
+  register: Function;
+  deregister: Function;
+  fireEvent: Function;
+  update: Function;
+  props: {
+    eventHandlers: any;
+    events: CustomEvent[];
+    getLoadedBundle: Function;
+  };
 }
 
 /**
@@ -723,6 +744,18 @@ class DDSMastheadComposite extends HostListenerMixin(LitElement) {
     render(active ? currentMenu : nothing, target as HTMLElement);
     resolveFn();
   };
+
+  /**
+   * Stores a reference of the globally-scoped CM_APP object within the masthead.
+   */
+  @HostListener('document:cm-app-ready')
+  // @ts-ignore: The decorator refers to this method but TS thinks this method is not referred to
+  protected _getContactModuleReference = () => {
+    // @ts-ignore: CM_APP will definitely exist if this event is fired
+    this.contactModuleApp = window.CM_APP;
+  };
+
+  contactModuleApp?: CMApp;
 
   /**
    * Whether or not a nav item has automatically been designated as "selected".
