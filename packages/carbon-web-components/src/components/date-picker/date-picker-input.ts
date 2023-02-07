@@ -31,7 +31,7 @@ export {
 /**
  * The input box for date picker.
  *
- * @element bx-date-picker-input
+ * @element cds-date-picker-input
  */
 @customElement(`${prefix}-date-picker-input`)
 class BXDatePickerInput extends ValidityMixin(FocusMixin(LitElement)) {
