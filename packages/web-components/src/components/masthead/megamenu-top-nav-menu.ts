@@ -1,7 +1,7 @@
 /**
  * @license
  *
- * Copyright IBM Corp. 2020, 2022
+ * Copyright IBM Corp. 2020, 2023
  *
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
@@ -16,6 +16,8 @@ import DDSTopNav from './top-nav';
 import DDSTopNavMenu from './top-nav-menu';
 import DDSMegaMenuOverlay from './megamenu-overlay';
 import styles from './masthead.scss';
+import DDSMastheadContainer from './masthead-container';
+import { CMApp } from './masthead-composite';
 
 const { prefix } = settings;
 const { stablePrefix: ddsPrefix } = ddsSettings;
@@ -168,6 +170,10 @@ class DDSMegaMenuTopNavMenu extends DDSTopNavMenu {
         (item as DDSMegaMenuOverlay).active = this.expanded;
       });
 
+      const mastheadContainer = this.closest(`
+        ${ddsPrefix}-masthead-container,
+        ${ddsPrefix}-cloud-masthead-container`) as DDSMastheadContainer;
+
       // add the scrollbar width as right-margin to prevent content from shifting when
       // scrollbar disappears on megamenu expand
       const masthead: HTMLElement | null | undefined = doc
@@ -181,6 +187,14 @@ class DDSMegaMenuTopNavMenu extends DDSTopNavMenu {
         ?.shadowRoot?.querySelector('.bx--masthead__l0');
 
       if (this.expanded) {
+        /**
+         * This is a workaround to minimize the chat module. Currently no minimize methods exist.
+         *
+         * @see https://github.ibm.com/live-advisor/cm-app
+         */
+        if (mastheadContainer.contactModuleApp) {
+          (mastheadContainer.contactModuleApp as CMApp).init();
+        }
         // Ask masthead-composite to render megamenu.
         // Pause further execution until the render is complete.
         await this._requestMegaMenuRenderUpdate();
