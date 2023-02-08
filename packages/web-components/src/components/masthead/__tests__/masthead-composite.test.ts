@@ -101,7 +101,7 @@ describe('dds-masthead-composite', function () {
         'dds-masthead-composite'
       );
       expect(
-        mastheadComposite!.querySelector('dds-masthead-global-bar')
+        mastheadComposite?.shadowRoot?.querySelector('dds-masthead-global-bar')
       ).toMatchSnapshot();
     });
 
@@ -112,7 +112,7 @@ describe('dds-masthead-composite', function () {
         'dds-masthead-composite'
       );
       expect(
-        mastheadComposite!.querySelector('dds-masthead-global-bar')
+        mastheadComposite?.shadowRoot?.querySelector('dds-masthead-global-bar')
       ).toMatchSnapshot();
     });
   });
@@ -124,9 +124,12 @@ describe('dds-masthead-composite', function () {
       const mastheadComposite = document.body.querySelector(
         'dds-masthead-composite'
       );
-      expect(mastheadComposite!.querySelector('dds-top-nav')).toBeNull();
       expect(
-        mastheadComposite!.querySelector('dds-left-nav')!.children.length
+        mastheadComposite?.shadowRoot?.querySelector('dds-top-nav')
+      ).toBeNull();
+      expect(
+        mastheadComposite?.shadowRoot?.querySelector('dds-left-nav')!.children
+          .length
       ).toBe(0);
     });
 
@@ -135,8 +138,8 @@ describe('dds-masthead-composite', function () {
       await Promise.resolve();
       expect(
         document.body
-          .querySelector('dds-masthead-composite')!
-          .querySelector('dds-top-nav')
+          .querySelector('dds-masthead-composite')
+          ?.shadowRoot?.querySelector('dds-top-nav')
       ).toMatchSnapshot();
     });
 
@@ -145,8 +148,8 @@ describe('dds-masthead-composite', function () {
       await Promise.resolve();
       expect(
         document.body
-          .querySelector('dds-masthead-composite')!
-          .querySelector('dds-left-nav')
+          .querySelector('dds-masthead-composite')
+          ?.shadowRoot?.querySelector('dds-left-nav')
       ).toMatchSnapshot();
     });
 
@@ -155,8 +158,8 @@ describe('dds-masthead-composite', function () {
       await Promise.resolve();
       expect(
         document.body
-          .querySelector('dds-masthead-composite')!
-          .querySelector('dds-megamenu')
+          .querySelector('dds-masthead-composite')
+          ?.shadowRoot?.querySelector('dds-megamenu')
       ).toMatchSnapshot();
     });
   });

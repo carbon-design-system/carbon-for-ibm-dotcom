@@ -47,7 +47,7 @@
 ```
 <dds-top-nav
   data-autoid="dds--masthead__l0-nav"
-  selected-menu-item="undefined"
+  selected-menu-item=""
 >
   <dds-top-nav-item
     data-autoid="dds--masthead__l0-nav--nav0"
