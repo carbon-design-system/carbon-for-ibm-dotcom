@@ -148,10 +148,12 @@
     position: relative;
 
     .#{$prefix}--masthead__megamenu-container {
-      transform: rotate(0deg);
       position: relative;
       height: 100%;
       z-index: 1;
+
+      // Set containing block for fixed position view all CTA.
+      transform: rotate(0deg);
     }
 
     .#{$prefix}--masthead__megamenu--has-view-all-link {
@@ -172,6 +174,15 @@
       top: 0;
       height: carbon--rem(1px);
       background: $ui-03;
+    }
+
+    #{$dds-prefix}-megamenu-link-with-icon[part='view-all'],
+    .#{$prefix}--masthead__megamenu__view-all-cta {
+      margin-inline-start: calc(#{$layout-01} * -1);
+
+      &::part(link) {
+        padding-inline-start: calc(#{$layout-01} * 2);
+      }
     }
   }
 
@@ -413,13 +424,10 @@
     }
   }
 
-  :host(#{$dds-prefix}-megamenu-link-with-icon)[style-scheme='view-all'],
   :host(#{$dds-prefix}-megamenu-link-with-icon)[part='view-all'],
   .#{$prefix}--masthead__megamenu__view-all-cta {
     display: flex;
 
-    a,
-    .#{$prefix}--link-with-icon,
     [part='link'] {
       text-decoration: none;
       width: 100%;

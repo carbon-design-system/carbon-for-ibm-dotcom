@@ -94,7 +94,7 @@ class DDSMegaMenuRightNavigation extends StableSelectorMixin(LitElement) {
           html`
             <div class="${prefix}--masthead__megamenu__view-all">
               <span class="${prefix}--masthead__megamenu__view-all__border"></span>
-              <dds-megamenu-link-with-icon href="${viewAllHref}" style-scheme="view-all" part="view-all">
+              <dds-megamenu-link-with-icon href="${viewAllHref}" part="view-all">
                 <span>${viewAllTitle}</span>${ArrowRight16({ slot: 'icon' })}
               </dds-megamenu-link-with-icon>
             </div>
