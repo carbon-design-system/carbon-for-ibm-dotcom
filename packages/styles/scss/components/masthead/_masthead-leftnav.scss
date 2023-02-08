@@ -479,7 +479,7 @@
       }
 
       .#{$prefix}--side-nav__link-text {
-        @include carbon--type-style(body-short-01);
+        @include carbon--type-style(productive-heading-01);
 
         color: $text-01;
         display: inline-flex;
