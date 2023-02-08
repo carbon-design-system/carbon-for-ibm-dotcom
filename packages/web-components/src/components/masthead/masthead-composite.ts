@@ -353,6 +353,7 @@ class DDSMastheadComposite extends HostListenerMixin(LitElement) {
           title="${elem.title}"
           data-autoid="${elem.autoid}"
           .isHeading=${elem.isHeading ?? false}
+          .isViewAll=${elem.isViewAll ?? false}
         ></dds-left-nav-menu-item>
       `;
     });
@@ -469,6 +470,7 @@ class DDSMastheadComposite extends HostListenerMixin(LitElement) {
         menu: boolean;
         selected: boolean;
         isHeading?: boolean;
+        isViewAll?: boolean;
         heading?: string;
         description?: string;
       }[] = [];
@@ -656,6 +658,7 @@ class DDSMastheadComposite extends HostListenerMixin(LitElement) {
             autoid: `${autoid}--sidenav--nav${i}-list${level1Items.length}`,
             menu: false,
             selected: false,
+            isViewAll: true,
           });
         }
 

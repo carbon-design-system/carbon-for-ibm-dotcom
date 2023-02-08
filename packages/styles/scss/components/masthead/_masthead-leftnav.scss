@@ -492,6 +492,20 @@
         }
       }
     }
+
+    &.#{$prefix}--side-nav__group-view-all {
+      .#{$prefix}--side-nav__link-text {
+        color: $interactive-01;
+        display: inline-flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: $spacing-03;
+
+        svg {
+          color: $interactive-01;
+        }
+      }
+    }
   }
 
   .#{$prefix}--masthead__side-nav--submemu--selected {

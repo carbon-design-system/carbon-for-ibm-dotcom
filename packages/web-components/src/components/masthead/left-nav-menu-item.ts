@@ -28,16 +28,23 @@ class DDSLeftNavMenuItem extends BXSideNavMenuItem {
   @property({ attribute: 'is-heading' })
   isHeading?: boolean;
 
+  @property({ attribute: 'is-view-all' })
+  isViewAll?: boolean;
+
   updated(changedProperties) {
     super.updated(changedProperties);
 
     if (changedProperties.has('isHeading')) {
       this.classList.toggle(`${prefix}--side-nav__group-header`, this.isHeading);
     }
+
+    if (changedProperties.has('isViewAll')) {
+      this.classList.toggle(`${prefix}--side-nav__group-view-all`, this.isViewAll);
+    }
   }
 
   render() {
-    const { active, href, title, isHeading } = this;
+    const { active, href, title, isHeading, isViewAll } = this;
 
     const linkClasses = classMap({
       [`${prefix}--side-nav__link`]: true,
@@ -57,7 +64,7 @@ class DDSLeftNavMenuItem extends BXSideNavMenuItem {
           >
             <span part="title" class="${prefix}--side-nav__link-text">
               <slot>${title}</slot>
-              ${isHeading ? ArrowRight16() : ''}
+              ${isHeading || isViewAll ? ArrowRight16() : ''}
             </span>
           </a>
         `
