@@ -45,20 +45,20 @@ export {
 /**
  * Dropdown.
  *
- * @element bx-dropdown
+ * @element cds-dropdown
  * @csspart label-text The label text.
  * @csspart helper-text The helper text.
  * @csspart trigger-button The trigger button.
  * @csspart menu-body The menu body.
  * @csspart validity-message The validity message.
- * @fires bx-dropdown-beingselected
+ * @fires cds-dropdown-beingselected
  *   The custom event fired before a dropdown item is selected upon a user gesture.
  *   Cancellation of this event stops changing the user-initiated selection.
- * @fires bx-dropdown-beingtoggled
+ * @fires cds-dropdown-beingtoggled
  *   The custom event fired before the open state of this dropdown is toggled upon a user gesture.
  *   Cancellation of this event stops the user-initiated toggling.
- * @fires bx-dropdown-selected - The custom event fired after a dropdown item is selected upon a user gesture.
- * @fires bx-dropdown-toggled - The custom event fired after the open state of this dropdown is toggled upon a user gesture.
+ * @fires cds-dropdown-selected - The custom event fired after a dropdown item is selected upon a user gesture.
+ * @fires cds-dropdown-toggled - The custom event fired after the open state of this dropdown is toggled upon a user gesture.
  */
 @customElement(`${prefix}-dropdown`)
 class BXDropdown extends ValidityMixin(
@@ -540,8 +540,8 @@ class BXDropdown extends ValidityMixin(
       });
     }
     if (changedProperties.has('value')) {
-      // `<bx-multi-select>` updates selection beforehand
-      // because our rendering logic for `<bx-multi-select>` looks for selected items via `qSA()`
+      // `<cds-multi-select>` updates selection beforehand
+      // because our rendering logic for `<cds-multi-select>` looks for selected items via `qSA()`
       forEach(this.querySelectorAll(selectorItem), (elem) => {
         (elem as BXDropdownItem).selected =
           (elem as BXDropdownItem).value === this.value;
