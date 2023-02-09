@@ -19,9 +19,9 @@ import storyDocs from './content-switcher-story.mdx';
 const noop = () => {};
 
 const sizes = {
-  'Regular size': null,
-  [`Small size (${CONTENT_SWITCHER_SIZE.SMALL})`]: CONTENT_SWITCHER_SIZE.SMALL,
-  [`Lg size (${CONTENT_SWITCHER_SIZE.LARGE})`]: CONTENT_SWITCHER_SIZE.LARGE,
+  'Medium (md - default)': null,
+  [`Small (${CONTENT_SWITCHER_SIZE.SMALL})`]: CONTENT_SWITCHER_SIZE.SMALL,
+  [`Large (${CONTENT_SWITCHER_SIZE.LARGE})`]: CONTENT_SWITCHER_SIZE.LARGE,
 };
 
 export const Default = (args) => {
@@ -45,19 +45,13 @@ export const Default = (args) => {
       @bx-content-switcher-selected="${onSelect}"
       size="${size}">
       <cds-content-switcher-item value="all"
-        >Option 1</cds-content-switcher-item
+        >First section</cds-content-switcher-item
       >
-      <cds-content-switcher-item value="cloudFoundry" disabled
-        >Option 2</cds-content-switcher-item
+      <cds-content-switcher-item value="cloudFoundry"
+        >Second section</cds-content-switcher-item
       >
       <cds-content-switcher-item value="staging"
-        >Option 3</cds-content-switcher-item
-      >
-      <cds-content-switcher-item value="dea"
-        >Option 4</cds-content-switcher-item
-      >
-      <cds-content-switcher-item value="router"
-        >Option 5</cds-content-switcher-item
+        >Third section</cds-content-switcher-item
       >
     </cds-content-switcher>
   `;

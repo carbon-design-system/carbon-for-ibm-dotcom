@@ -15,24 +15,4 @@
 
 :host(#{$prefix}-inline-loading) {
   @extend .#{$prefix}--inline-loading;
-
-  min-height: 2rem;
-
-  // TODO: audit
-  // This rule should be covered by next release of Carbon
-  .#{$prefix}--inline-loading__checkmark-container {
-    fill: $interactive;
-    width: rem(16px);
-    height: rem(16px);
-    top: auto;
-    position: relative;
-  }
-
-  // TODO: audit
-  // This rule should be covered by next release of Carbon
-  .#{$prefix}--inline-loading--error {
-    fill: $support-error;
-    width: rem(16px);
-    height: rem(16px);
-  }
 }

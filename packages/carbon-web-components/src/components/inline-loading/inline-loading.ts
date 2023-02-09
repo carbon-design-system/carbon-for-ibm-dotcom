@@ -38,7 +38,7 @@ class BXInlineLoading extends LitElement {
     }
     if (status === INLINE_LOADING_STATE.FINISHED) {
       return CheckmarkFilled16({
-        class: `${prefix}--inline-loading__checkmark-container ${prefix}--inline-loading__svg`,
+        class: `${prefix}--inline-loading__checkmark-container`,
       });
     }
     if (

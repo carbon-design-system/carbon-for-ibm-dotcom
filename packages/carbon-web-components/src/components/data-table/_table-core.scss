@@ -60,7 +60,7 @@
 
 :host(#{$prefix}-table-head) ::slotted(#{$prefix}-table-header-row),
 :host(#{$prefix}-table-head) ::slotted(#{$prefix}-table-header-expand-row) {
-  height: $spacing-04;
+  height: $spacing-09;
   display: table-row;
 }
 
@@ -112,7 +112,7 @@
   ::slotted(#{$prefix}-table-row),
   ::slotted(#{$prefix}-table-expand-row) {
     border: none;
-    height: $spacing-04;
+    height: $spacing-09;
     width: 100%;
     display: table-row;
     outline: none;
