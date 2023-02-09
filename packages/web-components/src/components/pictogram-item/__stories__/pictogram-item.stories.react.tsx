@@ -1,7 +1,7 @@
 /**
  * @license
  *
- * Copyright IBM Corp. 2020, 2022
+ * Copyright IBM Corp. 2020, 2023
  *
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
@@ -20,7 +20,7 @@ import { COLOR_OPTIONS } from '../defs';
 import textNullable from '../../../../.storybook/knob-text-nullable';
 import readme from './README.stories.react.mdx';
 
-/* eslint-disable max-len */
+/* eslint-disable max-len, no-mixed-spaces-and-tabs */
 const Desktop = (
   <svg
     // @ts-ignore
@@ -88,7 +88,12 @@ const Pattern = (
       c0-0.75,0.61-1.36,1.36-1.36h1c0.75,0,1.36,0.61,1.36,1.36v1C10.36,9.75,9.75,10.36,9,10.36z M8,7.36C7.647,7.36,7.36,7.647,7.36,8
       v1c0,0.353,0.287,0.64,0.64,0.64h1c0.353,0,0.64-0.287,0.64-0.64V8c0-0.353-0.287-0.64-0.64-0.64H8z"
     />
-    <rect id="_Transparent_Rectangle" style={{ fill: 'none' }} width="32" height="32" />
+    <rect
+      id="_Transparent_Rectangle"
+      style={{ fill: 'none' }}
+      width="32"
+      height="32"
+    />
   </svg>
 );
 
@@ -123,7 +128,12 @@ const Touch = (
 	l-0.479-0.539c1.194-1.058,1.879-2.585,1.879-4.19c0-3.11-2.529-5.64-5.64-5.64c-3.11,0-5.64,2.53-5.64,5.64
 	c0,1.605,0.685,3.133,1.879,4.19L10.755,11.729z"
     />
-    <rect id="_Transparent_Rectangle" style={{ fill: 'none' }} width="32" height="32" />
+    <rect
+      id="_Transparent_Rectangle"
+      style={{ fill: 'none' }}
+      width="32"
+      height="32"
+    />
   </svg>
 );
 /* eslint-enable max-len */
@@ -134,7 +144,7 @@ const Touch = (
  * @param {string} sel string that defines the returning pictogram
  * @returns {*} Pictogram SVG markup
  */
-const selectPictogram = sel => {
+const selectPictogram = (sel) => {
   switch (sel) {
     case 'Desktop':
       return Desktop;
@@ -158,8 +168,9 @@ const pictogramColors = {
   Blue: COLOR_OPTIONS.BLUE,
 };
 
-export const Default = args => {
-  const { heading, copy, href, linkCopy, pictogram, pictogramColor } = args?.PictogramItem ?? {};
+export const Default = (args) => {
+  const { heading, copy, href, linkCopy, pictogram, pictogramColor } =
+    args?.PictogramItem ?? {};
   return (
     <DDSPictogramItem color={pictogramColor}>
       {pictogram?.src}
@@ -184,10 +195,16 @@ Default.story = {
         href: textNullable('Link with Icon href:', 'https://example.com'),
         linkCopy: textNullable('Link with Icon copy:', 'Lorem ipsum dolor'),
         pictogram: {
-          src: selectPictogram(select('Pictogram (required)', pictograms, pictograms.Desktop)),
+          src: selectPictogram(
+            select('Pictogram (required)', pictograms, pictograms.Desktop)
+          ),
           'aria-label': textNullable('Aria-label:', 'Pictogram description'),
         },
-        pictogramColor: select('Pictogram color:', pictogramColors, COLOR_OPTIONS.DEFAULT),
+        pictogramColor: select(
+          'Pictogram color:',
+          pictogramColors,
+          COLOR_OPTIONS.DEFAULT
+        ),
       }),
     },
   },
@@ -196,11 +213,13 @@ Default.story = {
 export default {
   title: 'Components/Pictogram item',
   decorators: [
-    story => {
+    (story) => {
       return (
         <div className="bx--grid">
           <div className="bx--row">
-            <div className="bx--col-sm-4 bx--col-lg-8 bx--no-gutter">{story()}</div>
+            <div className="bx--col-sm-4 bx--col-lg-8 bx--no-gutter">
+              {story()}
+            </div>
           </div>
         </div>
       );

@@ -1,5 +1,5 @@
 /**
- * Copyright IBM Corp. 2016, 2022
+ * Copyright IBM Corp. 2016, 2023
  *
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
@@ -293,7 +293,7 @@ const Masthead = ({
             if (
               menuItems[i]?.url === currentUrlPath ||
               menuItems[i]?.megapanelContent?.quickLinks?.links?.filter(
-                link => link.url === currentUrlPath
+                (link) => link.url === currentUrlPath
               ).length
             ) {
               matchFound = true;
@@ -329,7 +329,7 @@ const Masthead = ({
                     onClick={onClickSideNavExpand}
                     isActive={isSideNavExpanded}
                     className={headerSearchClasses}
-                    onBlur={e => {
+                    onBlur={(e) => {
                       const platform = e.target.parentElement.querySelector(
                         `nav .${prefix}--side-nav__submenu-platform`
                       );

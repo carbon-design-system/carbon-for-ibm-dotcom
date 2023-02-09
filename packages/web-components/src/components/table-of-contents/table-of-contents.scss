@@ -1,5 +1,5 @@
 //
-// Copyright IBM Corp. 2020, 2022
+// Copyright IBM Corp. 2020, 2023
 //
 // This source code is licensed under the Apache-2.0 license found in the
 // LICENSE file in the root directory of this source tree.
@@ -11,7 +11,8 @@
 @import '@carbon/ibmdotcom-styles/scss/components/tableofcontents/tableofcontents';
 @import '@carbon/ibmdotcom-styles/scss/components/layout/layout';
 
-:host(#{$dds-prefix}-table-of-contents[toc-layout='horizontal']) .#{$prefix}--tableofcontents__navbar {
+:host(#{$dds-prefix}-table-of-contents[toc-layout='horizontal'])
+  .#{$prefix}--tableofcontents__navbar {
   @include carbon--breakpoint('lg') {
     &::before {
       border-bottom: 1px solid $ui-04;
@@ -39,7 +40,8 @@
   }
 }
 
-:host(#{$dds-prefix}-table-of-contents[toc-layout='horizontal']) .#{$prefix}--tableofcontents__desktop-container {
+:host(#{$dds-prefix}-table-of-contents[toc-layout='horizontal'])
+  .#{$prefix}--tableofcontents__desktop-container {
   @include carbon--breakpoint('lg') {
     position: relative;
     overflow: hidden;
@@ -47,11 +49,13 @@
   }
 }
 
-:host(#{$dds-prefix}-table-of-contents[toc-layout='horizontal']) .#{$prefix}--tableofcontents__mobile {
+:host(#{$dds-prefix}-table-of-contents[toc-layout='horizontal'])
+  .#{$prefix}--tableofcontents__mobile {
   margin: 0;
 }
 
-:host(#{$dds-prefix}-table-of-contents[toc-layout='horizontal']) .#{$prefix}--tableofcontents__content {
+:host(#{$dds-prefix}-table-of-contents[toc-layout='horizontal'])
+  .#{$prefix}--tableofcontents__content {
   max-width: none;
   flex: 1;
 }

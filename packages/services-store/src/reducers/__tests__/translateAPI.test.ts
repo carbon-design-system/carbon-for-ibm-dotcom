@@ -1,13 +1,17 @@
 /**
  * @license
  *
- * Copyright IBM Corp. 2020, 2022
+ * Copyright IBM Corp. 2020, 2023
  *
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
  */
 
-import { TRANSLATE_API_ACTION, Translation, TranslateAPIState } from '../../types/translateAPI';
+import {
+  TRANSLATE_API_ACTION,
+  Translation,
+  TranslateAPIState,
+} from '../../types/translateAPI';
 import { TranslateAPIActions } from '../../actions/translateAPI';
 import convertValue from '../../../tests/utils/convert-value';
 import reducer from '../translateAPI';
@@ -15,7 +19,10 @@ import reducer from '../translateAPI';
 const mockTranslation: Partial<Translation> = {
   mastheadNav: {
     links: [
-      { title: 'item-title-foo', url: 'https://carbon-design-system.github.io/carbon-for-ibm-dotcom/canary/web-components/foo' },
+      {
+        title: 'item-title-foo',
+        url: 'https://carbon-design-system.github.io/carbon-for-ibm-dotcom/canary/web-components/foo',
+      },
       {
         title: 'menu-title-foo',
         menuSections: [
@@ -33,7 +40,8 @@ const mockTranslation: Partial<Translation> = {
   },
 };
 
-const endpoint = '/common/carbon-for-ibm-dotcom/translations/masthead-footer/v2';
+const endpoint =
+  '/common/carbon-for-ibm-dotcom/translations/masthead-footer/v2';
 
 describe('Redux reducers for `LocaleAPI`', () => {
   it('should return the state unmodified for unknown action', () => {

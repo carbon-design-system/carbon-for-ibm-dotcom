@@ -1,7 +1,7 @@
 /**
  * @license
  *
- * Copyright IBM Corp. 2020, 2022
+ * Copyright IBM Corp. 2020, 2023
  *
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
@@ -9,7 +9,7 @@
 
 import { html, property, customElement, LitElement } from 'lit-element';
 import { classMap } from 'lit-html/directives/class-map.js';
-import ArrowRight16 from 'carbon-web-components/es/icons/arrow--right/16.js';
+import ArrowRight16 from '../../internal/vendor/@carbon/web-components/icons/arrow--right/16.js';
 import settings from 'carbon-components/es/globals/js/settings.js';
 import ddsSettings from '../../internal/vendor/@carbon/ibmdotcom-utilities/utilities/settings/settings';
 import { MEGAMENU_RIGHT_NAVIGATION_STYLE_SCHEME } from './defs';
@@ -51,9 +51,12 @@ class DDSMegaMenuRightNavigation extends LitElement {
    */
   protected _getClassNames() {
     return classMap({
-      [`${prefix}--masthead__megamenu--hasHighlights`]: this.styleScheme === MEGAMENU_RIGHT_NAVIGATION_STYLE_SCHEME.LEFT_SECTION,
+      [`${prefix}--masthead__megamenu--hasHighlights`]:
+        this.styleScheme ===
+        MEGAMENU_RIGHT_NAVIGATION_STYLE_SCHEME.LEFT_SECTION,
       [`${prefix}--masthead__megamenu--hasViewAllLink`]: this.viewAllHref,
-      [`${prefix}--masthead__megamenu__categories`]: this.styleScheme !== MEGAMENU_RIGHT_NAVIGATION_STYLE_SCHEME.TAB,
+      [`${prefix}--masthead__megamenu__categories`]:
+        this.styleScheme !== MEGAMENU_RIGHT_NAVIGATION_STYLE_SCHEME.TAB,
     });
   }
 
@@ -63,11 +66,14 @@ class DDSMegaMenuRightNavigation extends LitElement {
         <slot></slot>
       </div>
       ${this.viewAllHref &&
-        html`
-          <dds-megamenu-link-with-icon href="${this.viewAllHref}" style-scheme="view-all" part="view-all">
-            <span>${this.viewAllTitle}</span>${ArrowRight16({ slot: 'icon' })}
-          </dds-megamenu-link-with-icon>
-        `}
+      html`
+        <dds-megamenu-link-with-icon
+          href="${this.viewAllHref}"
+          style-scheme="view-all"
+          part="view-all">
+          <span>${this.viewAllTitle}</span>${ArrowRight16({ slot: 'icon' })}
+        </dds-megamenu-link-with-icon>
+      `}
     `;
   }
 

@@ -7,15 +7,21 @@
  * LICENSE file in the root directory of this source tree.
  */
 
-import { html, property, customElement, LitElement, TemplateResult } from 'lit-element';
+import {
+  html,
+  property,
+  customElement,
+  LitElement,
+  TemplateResult,
+} from 'lit-element';
 import { nothing, render } from 'lit-html';
 import { ifDefined } from 'lit-html/directives/if-defined';
-import ArrowRight16 from 'carbon-web-components/es/icons/arrow--right/16.js';
-import ifNonNull from 'carbon-web-components/es/globals/directives/if-non-null.js';
+import ArrowRight16 from '../../internal/vendor/@carbon/web-components/icons/arrow--right/16.js';
+import ifNonNull from '../../internal/vendor/@carbon/web-components/globals/directives/if-non-null.js';
 import { unsafeSVG } from 'lit-html/directives/unsafe-svg.js';
 import root from 'window-or-global';
-import HostListener from 'carbon-web-components/es/globals/decorators/host-listener.js';
-import HostListenerMixin from 'carbon-web-components/es/globals/mixins/host-listener.js';
+import HostListener from '../../internal/vendor/@carbon/web-components/globals/decorators/host-listener.js';
+import HostListenerMixin from '../../internal/vendor/@carbon/web-components/globals/mixins/host-listener.js';
 import ddsSettings from '../../internal/vendor/@carbon/ibmdotcom-utilities/utilities/settings/settings';
 import { globalInit } from '../../internal/vendor/@carbon/ibmdotcom-services/services/global/global';
 import MastheadLogoAPI from '../../internal/vendor/@carbon/ibmdotcom-services/services/MastheadLogo/MastheadLogo';
@@ -122,10 +128,16 @@ class DDSMastheadComposite extends HostListenerMixin(LitElement) {
         ${!title
           ? undefined
           : html`
-              <dds-masthead-l1-name title="${title}" aria-selected="${isSelected}" url="${ifDefined(url)}"></dds-masthead-l1-name>
+              <dds-masthead-l1-name
+                title="${title}"
+                aria-selected="${isSelected}"
+                url="${ifDefined(url)}"></dds-masthead-l1-name>
             `}
         <dds-top-nav-l1 selected-menu-item=${selectedMenuItem}
-          >${this._renderNavItems({ target: NAV_ITEMS_RENDER_TARGET.TOP_NAV, hasL1: true })}</dds-top-nav-l1
+          >${this._renderNavItems({
+            target: NAV_ITEMS_RENDER_TARGET.TOP_NAV,
+            hasL1: true,
+          })}</dds-top-nav-l1
         >
       </dds-masthead-l1>
     `;
@@ -138,7 +150,8 @@ class DDSMastheadComposite extends HostListenerMixin(LitElement) {
   protected _renderLogo() {
     if (!this.logoData) {
       return html`
-        <dds-masthead-logo ?hide-logo="${this.activateSearch}"></dds-masthead-logo>
+        <dds-masthead-logo
+          ?hide-logo="${this.activateSearch}"></dds-masthead-logo>
       `;
     }
     const useAlternateLogo = MastheadLogoAPI.setMastheadLogo(this.logoData);
@@ -186,7 +199,11 @@ class DDSMastheadComposite extends HostListenerMixin(LitElement) {
    * @param layout layout selection to render the megamenu with
    */
   // eslint-disable-next-line class-methods-use-this
-  protected _renderMegaMenu(sections, _parentKey, layout: MEGAMENU_LAYOUT_SCHEME = MEGAMENU_LAYOUT_SCHEME.LIST) {
+  protected _renderMegaMenu(
+    sections,
+    _parentKey,
+    layout: MEGAMENU_LAYOUT_SCHEME = MEGAMENU_LAYOUT_SCHEME.LIST
+  ) {
     const { _megamenuRenderMap } = this;
     if (_megamenuRenderMap.has(layout)) {
       return (_megamenuRenderMap.get(layout) as Function)(sections, _parentKey);
@@ -218,36 +235,43 @@ class DDSMastheadComposite extends HostListenerMixin(LitElement) {
       <dds-megamenu layout="${MEGAMENU_LAYOUT_SCHEME.TAB}">
         <dds-megamenu-left-navigation
           view-all-href="${ifNonNull(viewAllLink?.url)}"
-          view-all-title="${ifNonNull(viewAllLink?.title)}"
-        >
+          view-all-title="${ifNonNull(viewAllLink?.title)}">
           <dds-megamenu-tabs value="${sortedMenuItems[0]?.title}">
-            ${sortedMenuItems.map(item => {
+            ${sortedMenuItems.map((item) => {
               return html`
-                <dds-megamenu-tab id="tab-${item.itemKey}" target="panel-${item.itemKey}" value="${item.title}"
+                <dds-megamenu-tab
+                  id="tab-${item.itemKey}"
+                  target="panel-${item.itemKey}"
+                  value="${item.title}"
                   >${item.title}</dds-megamenu-tab
                 >
               `;
             })}
           </dds-megamenu-tabs>
         </dds-megamenu-left-navigation>
-        <dds-megamenu-right-navigation style-scheme="${MEGAMENU_RIGHT_NAVIGATION_STYLE_SCHEME.TAB}">
-          ${sortedMenuItems.map(item => {
+        <dds-megamenu-right-navigation
+          style-scheme="${MEGAMENU_RIGHT_NAVIGATION_STYLE_SCHEME.TAB}">
+          ${sortedMenuItems.map((item) => {
             return html`
-              <div id="panel-${item.itemKey}" role="tabpanel" aria-labelledby="tab-${item.itemKey}" hidden>
+              <div
+                id="panel-${item.itemKey}"
+                role="tabpanel"
+                aria-labelledby="tab-${item.itemKey}"
+                hidden>
                 <dds-megamenu-category-heading
                   href="${ifDefined(item.megapanelContent?.headingUrl)}"
                   title="${ifDefined(item.megapanelContent?.headingTitle)}"
-                  >${item.megapanelContent?.description}</dds-megamenu-category-heading
+                  >${item.megapanelContent
+                    ?.description}</dds-megamenu-category-heading
                 >
                 <dds-megamenu-category-link-group>
                   ${item?.megapanelContent?.quickLinks?.links.map(
-                    link =>
+                    (link) =>
                       html`
                         <dds-megamenu-category-link
                           href="${ifDefined(link.url)}"
                           title="${link.title}"
-                          target="${ifDefined(link?.target)}"
-                        >
+                          target="${ifDefined(link?.target)}">
                           ${link.description}
                         </dds-megamenu-category-link>
                       `
@@ -269,7 +293,8 @@ class DDSMastheadComposite extends HostListenerMixin(LitElement) {
    */
   // eslint-disable-next-line
   protected _renderMegaMenuListing(sections, _parentKey) {
-    const { viewAllLink, highlightedItems, menu } = this._getHighlightedMenuItems(sections);
+    const { viewAllLink, highlightedItems, menu } =
+      this._getHighlightedMenuItems(sections);
     const hasHighlights = highlightedItems.length !== 0;
     return html`
       <dds-megamenu layout="${MEGAMENU_LAYOUT_SCHEME.LIST}">
@@ -277,37 +302,47 @@ class DDSMastheadComposite extends HostListenerMixin(LitElement) {
           ? html`
               <dds-megamenu-left-navigation>
                 ${sections[0]?.heading &&
-                  html`
-                    <dds-megamenu-category-group-copy>${sections[0]?.heading}</dds-megamenu-category-group-copy>
-                  `}
+                html`
+                  <dds-megamenu-category-group-copy
+                    >${sections[0]?.heading}</dds-megamenu-category-group-copy
+                  >
+                `}
                 ${highlightedItems.map((item, i) => {
                   const autoid = `${ddsPrefix}--masthead__l0-nav-list${i}`;
                   return html`
-                    <dds-megamenu-category-group data-autoid="${autoid}" href="${ifDefined(item.url)}" title="${item.title}">
-                      <dds-megamenu-category-group-copy>${item.megapanelContent?.description}</dds-megamenu-category-group-copy>
-                      ${item.megapanelContent?.quickLinks?.links.map(({ title, url, highlightedLink }, key) => {
-                        return html`
-                          ${highlightedLink
-                            ? html`
-                                <dds-megamenu-link-with-icon
-                                  data-autoid="${autoid}-item${key}"
-                                  href="${ifDefined(url)}"
-                                  style-scheme="category-sublink"
-                                  title="${title}"
-                                >
-                                  <span>${title}</span>${ArrowRight16({ slot: 'icon' })}
-                                </dds-megamenu-link-with-icon>
-                              `
-                            : html`
-                                <dds-megamenu-category-link
-                                  data-autoid="${autoid}-item${key}"
-                                  title="${title}"
-                                  href="${ifDefined(url)}"
-                                >
-                                </dds-megamenu-category-link>
-                              `}
-                        `;
-                      })}
+                    <dds-megamenu-category-group
+                      data-autoid="${autoid}"
+                      href="${ifDefined(item.url)}"
+                      title="${item.title}">
+                      <dds-megamenu-category-group-copy
+                        >${item.megapanelContent
+                          ?.description}</dds-megamenu-category-group-copy
+                      >
+                      ${item.megapanelContent?.quickLinks?.links.map(
+                        ({ title, url, highlightedLink }, key) => {
+                          return html`
+                            ${highlightedLink
+                              ? html`
+                                  <dds-megamenu-link-with-icon
+                                    data-autoid="${autoid}-item${key}"
+                                    href="${ifDefined(url)}"
+                                    style-scheme="category-sublink"
+                                    title="${title}">
+                                    <span>${title}</span>${ArrowRight16({
+                                      slot: 'icon',
+                                    })}
+                                  </dds-megamenu-link-with-icon>
+                                `
+                              : html`
+                                  <dds-megamenu-category-link
+                                    data-autoid="${autoid}-item${key}"
+                                    title="${title}"
+                                    href="${ifDefined(url)}">
+                                  </dds-megamenu-category-link>
+                                `}
+                          `;
+                        }
+                      )}
                     </dds-megamenu-category-group>
                   `;
                 })}
@@ -319,18 +354,27 @@ class DDSMastheadComposite extends HostListenerMixin(LitElement) {
             ? MEGAMENU_RIGHT_NAVIGATION_STYLE_SCHEME.LEFT_SECTION
             : MEGAMENU_RIGHT_NAVIGATION_STYLE_SCHEME.REGULAR}"
           view-all-href="${ifNonNull(viewAllLink?.url)}"
-          view-all-title="${ifNonNull(viewAllLink?.title)}"
-        >
+          view-all-title="${ifNonNull(viewAllLink?.title)}">
           ${menu.map((item, j) => {
-            const autoid = `${ddsPrefix}--masthead__l0-nav-list${j + highlightedItems.length}`;
+            const autoid = `${ddsPrefix}--masthead__l0-nav-list${
+              j + highlightedItems.length
+            }`;
             return html`
-              <dds-megamenu-category-group data-autoid="${autoid}" href="${ifDefined(item.url)}" title="${item.title}">
-                ${item.megapanelContent?.quickLinks?.links.map(({ title, url }, key) => {
-                  return html`
-                    <dds-megamenu-category-link data-autoid="${autoid}-item${key}" title="${title}" href="${ifDefined(url)}">
-                    </dds-megamenu-category-link>
-                  `;
-                })}
+              <dds-megamenu-category-group
+                data-autoid="${autoid}"
+                href="${ifDefined(item.url)}"
+                title="${item.title}">
+                ${item.megapanelContent?.quickLinks?.links.map(
+                  ({ title, url }, key) => {
+                    return html`
+                      <dds-megamenu-category-link
+                        data-autoid="${autoid}-item${key}"
+                        title="${title}"
+                        href="${ifDefined(url)}">
+                      </dds-megamenu-category-link>
+                    `;
+                  }
+                )}
               </dds-megamenu-category-group>
             `;
           })}
@@ -363,7 +407,7 @@ class DDSMastheadComposite extends HostListenerMixin(LitElement) {
     sectionUrl = '',
     sectionId = '',
   }) {
-    const items = menuItems.map(elem => {
+    const items = menuItems.map((elem) => {
       if (elem.menu) {
         return html`
           <dds-left-nav-menu
@@ -371,8 +415,7 @@ class DDSMastheadComposite extends HostListenerMixin(LitElement) {
             panel-id=${elem.panelId}
             ?active="${elem.selected}"
             title="${elem.title}"
-            data-autoid="${elem.autoid}"
-          >
+            data-autoid="${elem.autoid}">
           </dds-left-nav-menu>
         `;
       }
@@ -383,21 +426,22 @@ class DDSMastheadComposite extends HostListenerMixin(LitElement) {
           ?active="${elem.selected}"
           href="${elem.url}"
           title="${elem.title}"
-          data-autoid="${elem.autoid}"
-        ></dds-left-nav-menu-item>
+          data-autoid="${elem.autoid}"></dds-left-nav-menu-item>
       `;
     });
 
     if (heading) {
       items.unshift(
         html`
-          <dds-left-nav-menu-category-heading>${heading}</dds-left-nav-menu-category-heading>
+          <dds-left-nav-menu-category-heading
+            >${heading}</dds-left-nav-menu-category-heading
+          >
         `
       );
     }
 
     if (ctas) {
-      ctas.forEach(cta => {
+      ctas.forEach((cta) => {
         items.push(html`
           <dds-left-nav-cta-item href="${ifNonNull(cta.url)}">
             ${cta.title}
@@ -412,8 +456,7 @@ class DDSMastheadComposite extends HostListenerMixin(LitElement) {
         ?is-submenu=${ifNonNull(isSubmenu)}
         title=${ifNonNull(sectionTitle)}
         titleUrl=${ifNonNull(sectionUrl)}
-        ?show-back-button=${ifNonNull(showBackButton)}
-      >
+        ?show-back-button=${ifNonNull(showBackButton)}>
         ${items}
       </dds-left-nav-menu-section>
     `;
@@ -431,7 +474,9 @@ class DDSMastheadComposite extends HostListenerMixin(LitElement) {
     const selectedItems = { level0: '', level1: '', level2: '' };
 
     return ({
-      menu = [{ url: '', megapanelContent: { quickLinks: { links: [{ url: '' }] } } }],
+      menu = [
+        { url: '', megapanelContent: { quickLinks: { links: [{ url: '' }] } } },
+      ],
       key = '',
       parentItemUrl = '',
     }) => {
@@ -497,9 +542,11 @@ class DDSMastheadComposite extends HostListenerMixin(LitElement) {
         let highlightedItems: MastheadMenuItem[] = [];
 
         if (elem.hasMegapanel) {
-          const { viewAllLink, highlightedItems: hightlighted, menu: nonHighlightedMenuItems } = this._getHighlightedMenuItems(
-            elem.menuSections
-          );
+          const {
+            viewAllLink,
+            highlightedItems: hightlighted,
+            menu: nonHighlightedMenuItems,
+          } = this._getHighlightedMenuItems(elem.menuSections);
           highlightedItems = hightlighted;
           menuElems = hightlighted.concat(nonHighlightedMenuItems);
           if (viewAllLink) {
@@ -507,7 +554,11 @@ class DDSMastheadComposite extends HostListenerMixin(LitElement) {
           }
         }
 
-        const selectedItems = selectedItemUrl({ menu: menuElems, key: i, parentItemUrl: elem.url });
+        const selectedItems = selectedItemUrl({
+          menu: menuElems,
+          key: i,
+          parentItemUrl: elem.url,
+        });
 
         // render level 1 menu sections
         menuElems?.map((item, k) => {
@@ -552,8 +603,12 @@ class DDSMastheadComposite extends HostListenerMixin(LitElement) {
             lastHighlightedItem: lastHighlighted,
             url: item.url,
             panelId: `${i}, ${k}`,
-            selected: !selectedMenuItem ? selectedItems?.level1 === `${i}-${k}` : selectedMenuItem === item.titleEnglish,
-            menu: item.megapanelContent?.quickLinks?.links && item.megapanelContent?.quickLinks?.links.length !== 0,
+            selected: !selectedMenuItem
+              ? selectedItems?.level1 === `${i}-${k}`
+              : selectedMenuItem === item.titleEnglish,
+            menu:
+              item.megapanelContent?.quickLinks?.links &&
+              item.megapanelContent?.quickLinks?.links.length !== 0,
           });
         });
 
@@ -573,7 +628,10 @@ class DDSMastheadComposite extends HostListenerMixin(LitElement) {
         }
       }
 
-      const selectedItems = selectedItemUrl({ key: i, parentItemUrl: elem.url });
+      const selectedItems = selectedItemUrl({
+        key: i,
+        parentItemUrl: elem.url,
+      });
 
       return {
         title: elem.title,
@@ -582,7 +640,9 @@ class DDSMastheadComposite extends HostListenerMixin(LitElement) {
         url: elem.url,
         panelId: `${i}, -1`,
         autoid: `${autoid}--sidenav--nav${i}`,
-        selected: !selectedMenuItem ? selectedItems?.level0 === `${i}` : selectedMenuItem === elem.titleEnglish,
+        selected: !selectedMenuItem
+          ? selectedItems?.level0 === `${i}`
+          : selectedMenuItem === elem.titleEnglish,
       };
     });
 
@@ -606,7 +666,7 @@ class DDSMastheadComposite extends HostListenerMixin(LitElement) {
     const { currentUrlPath } = this;
     let matchFound = false;
 
-    return sections => {
+    return (sections) => {
       if (!matchFound) {
         if (sections.length) {
           const { menuItems } = sections[0];
@@ -614,7 +674,9 @@ class DDSMastheadComposite extends HostListenerMixin(LitElement) {
           for (let i = 0; i < menuItems.length; i++) {
             if (
               menuItems[i]?.url === currentUrlPath ||
-              menuItems[i]?.megapanelContent?.quickLinks?.links?.filter(link => link.url === currentUrlPath).length
+              menuItems[i]?.megapanelContent?.quickLinks?.links?.filter(
+                (link) => link.url === currentUrlPath
+              ).length
             ) {
               matchFound = true;
             }
@@ -635,7 +697,13 @@ class DDSMastheadComposite extends HostListenerMixin(LitElement) {
    * @param options.hasL1 If an L1 menu is present
    * @returns The nav items.
    */
-  protected _renderNavItems({ target, hasL1 }: { target: NAV_ITEMS_RENDER_TARGET; hasL1: boolean }) {
+  protected _renderNavItems({
+    target,
+    hasL1,
+  }: {
+    target: NAV_ITEMS_RENDER_TARGET;
+    hasL1: boolean;
+  }) {
     const { navLinks, l1Data } = this;
     let menu: MastheadLink[] | undefined = navLinks;
     if (hasL1) {
@@ -664,7 +732,14 @@ class DDSMastheadComposite extends HostListenerMixin(LitElement) {
    */
   protected _renderNavItem(link, i, autoid): TemplateResult {
     const { selectedMenuItem, currentUrlPath } = this;
-    const { menuSections = [], title, titleEnglish, url, megamenuLayout, hasMegapanel } = link;
+    const {
+      menuSections = [],
+      title,
+      titleEnglish,
+      url,
+      megamenuLayout,
+      hasMegapanel,
+    } = link;
     const hasChildLink = this._childLinkChecker();
     let selected;
 
@@ -680,14 +755,17 @@ class DDSMastheadComposite extends HostListenerMixin(LitElement) {
           ?active="${selectedMenuItem ? selected : url === currentUrlPath}"
           href="${url}"
           title="${title}"
-          data-autoid="${autoid}-nav--nav${i}"
-        ></dds-top-nav-item>
+          data-autoid="${autoid}-nav--nav${i}"></dds-top-nav-item>
       `;
     }
 
     if (hasMegapanel) {
       if (menuSections) {
-        this.megamenuSet[i] = this._renderMegaMenu(menuSections, i, megamenuLayout as MEGAMENU_LAYOUT_SCHEME);
+        this.megamenuSet[i] = this._renderMegaMenu(
+          menuSections,
+          i,
+          megamenuLayout as MEGAMENU_LAYOUT_SCHEME
+        );
       }
 
       return html`
@@ -695,8 +773,7 @@ class DDSMastheadComposite extends HostListenerMixin(LitElement) {
           ?active="${selected}"
           menu-label="${title}"
           trigger-content="${title}"
-          data-autoid="${autoid}-nav--nav${i}"
-        >
+          data-autoid="${autoid}-nav--nav${i}">
         </dds-megamenu-top-nav-menu>
       `;
     }
@@ -706,20 +783,23 @@ class DDSMastheadComposite extends HostListenerMixin(LitElement) {
         ?active="${selected}"
         menu-label="${title}"
         trigger-content="${title}"
-        data-autoid="${autoid}-nav--nav${i}"
-      >
+        data-autoid="${autoid}-nav--nav${i}">
         ${menuSections
           // eslint-disable-next-line no-use-before-define
-          .reduce((acc: typeof menuItems, { menuItems }) => acc.concat(menuItems), [])
+          .reduce(
+            (acc: typeof menuItems, { menuItems }) => acc.concat(menuItems),
+            []
+          )
           .map(
             ({ title: menuItemTitle, url: menuItemUrl }, j) =>
               html`
                 <dds-top-nav-menu-item
-                  ?active="${selectedMenuItem ? selected : menuItemUrl === currentUrlPath}"
+                  ?active="${selectedMenuItem
+                    ? selected
+                    : menuItemUrl === currentUrlPath}"
                   href="${menuItemUrl}"
                   title="${menuItemTitle}"
-                  data-autoid="${autoid}-nav--subnav-col${i}-item${j}"
-                ></dds-top-nav-menu-item>
+                  data-autoid="${autoid}-nav--subnav-col${i}-item${j}"></dds-top-nav-menu-item>
               `
           )}
       </dds-top-nav-menu>
@@ -774,7 +854,10 @@ class DDSMastheadComposite extends HostListenerMixin(LitElement) {
    *
    * @internal
    */
-  _loadTranslation?: (language?: string, dataEndpoint?: string) => Promise<Translation>;
+  _loadTranslation?: (
+    language?: string,
+    dataEndpoint?: string
+  ) => Promise<Translation>;
 
   /**
    * The placeholder for `loadUserStatus()` Redux action that will be mixed in.
@@ -1005,16 +1088,28 @@ class DDSMastheadComposite extends HostListenerMixin(LitElement) {
    * The user authentication status.
    */
   @property({ attribute: 'user-status' })
-  userStatus = this.authMethod === MASTHEAD_AUTH_METHOD.DEFAULT ? UNAUTHENTICATED_STATUS : CLOUD_UNAUTHENTICATED_STATUS;
+  userStatus =
+    this.authMethod === MASTHEAD_AUTH_METHOD.DEFAULT
+      ? UNAUTHENTICATED_STATUS
+      : CLOUD_UNAUTHENTICATED_STATUS;
 
   get userIsAuthenticated(): boolean {
     const { userStatus } = this;
-    return userStatus !== UNAUTHENTICATED_STATUS && userStatus !== CLOUD_UNAUTHENTICATED_STATUS;
+    return (
+      userStatus !== UNAUTHENTICATED_STATUS &&
+      userStatus !== CLOUD_UNAUTHENTICATED_STATUS
+    );
   }
 
   get ctaButtons(): MastheadProfileItem[] | undefined {
-    const { userIsAuthenticated, authenticatedCtaButtons, unauthenticatedCtaButtons } = this;
-    return userIsAuthenticated ? authenticatedCtaButtons : unauthenticatedCtaButtons;
+    const {
+      userIsAuthenticated,
+      authenticatedCtaButtons,
+      unauthenticatedCtaButtons,
+    } = this;
+    return userIsAuthenticated
+      ? authenticatedCtaButtons
+      : unauthenticatedCtaButtons;
   }
 
   createRenderRoot() {
@@ -1031,7 +1126,6 @@ class DDSMastheadComposite extends HostListenerMixin(LitElement) {
     this._loadTranslation?.(language, dataEndpoint).catch(() => {}); // The error is logged in the Redux store
     this._loadUserStatus?.(this.authMethod);
 
-    // This is a temp fix until we figure out why we can't set styles to the :host(dds-masthead-container) in stylesheets
     this.style.zIndex = '900';
 
     // Allows conditional rendering of left/top navs.
@@ -1042,7 +1136,10 @@ class DDSMastheadComposite extends HostListenerMixin(LitElement) {
   }
 
   updated(changedProperties) {
-    if (changedProperties.has('language') || changedProperties.has('dataEndpoint')) {
+    if (
+      changedProperties.has('language') ||
+      changedProperties.has('dataEndpoint')
+    ) {
       const { language, dataEndpoint } = this;
       if (language) {
         this._setLanguage?.(language);
@@ -1085,20 +1182,31 @@ class DDSMastheadComposite extends HostListenerMixin(LitElement) {
     } = this;
 
     let profileItems;
-    if (DDS_CUSTOM_PROFILE_LOGIN && customProfileLogin && !userIsAuthenticated) {
-      profileItems = unauthenticatedProfileItems?.map(item => {
+    if (
+      DDS_CUSTOM_PROFILE_LOGIN &&
+      customProfileLogin &&
+      !userIsAuthenticated
+    ) {
+      profileItems = unauthenticatedProfileItems?.map((item) => {
         if (item?.id === 'signin') {
           return { ...item, url: customProfileLogin };
         }
         return item;
       });
     } else {
-      profileItems = userIsAuthenticated ? authenticatedProfileItems : unauthenticatedProfileItems;
+      profileItems = userIsAuthenticated
+        ? authenticatedProfileItems
+        : unauthenticatedProfileItems;
     }
-    const formattedLang = language?.toLowerCase().replace(/-(.*)/, m => m.toUpperCase());
+    const formattedLang = language
+      ?.toLowerCase()
+      .replace(/-(.*)/, (m) => m.toUpperCase());
     let platformAltUrl = platformUrl;
     if (platformUrl && formattedLang) {
-      if (typeof platformUrl === 'object' && Object.prototype.hasOwnProperty.call(platformUrl, formattedLang)) {
+      if (
+        typeof platformUrl === 'object' &&
+        Object.prototype.hasOwnProperty.call(platformUrl, formattedLang)
+      ) {
         platformAltUrl = platformUrl[formattedLang].url || platformUrl;
       }
     }
@@ -1111,27 +1219,39 @@ class DDSMastheadComposite extends HostListenerMixin(LitElement) {
               ${!platform
                 ? undefined
                 : html`
-                    <dds-left-nav-name href="${ifNonNull(platformAltUrl)}">${platform}</dds-left-nav-name>
+                    <dds-left-nav-name href="${ifNonNull(platformAltUrl)}"
+                      >${platform}</dds-left-nav-name
+                    >
                   `}
               ${!l1Data?.title
                 ? undefined
                 : html`
-                    <dds-left-nav-name href="${ifNonNull(l1Data.url)}">${l1Data.title}</dds-left-nav-name>
+                    <dds-left-nav-name href="${ifNonNull(l1Data.url)}"
+                      >${l1Data.title}</dds-left-nav-name
+                    >
                   `}
-              ${this._renderNavItems({ target: NAV_ITEMS_RENDER_TARGET.LEFT_NAV, hasL1: !!l1Data })}
+              ${this._renderNavItems({
+                target: NAV_ITEMS_RENDER_TARGET.LEFT_NAV,
+                hasL1: !!l1Data,
+              })}
             </dds-left-nav>
           `
         : ''}
       <dds-masthead aria-label="${ifNonNull(mastheadAssistiveText)}">
-        <dds-skip-to-content href="${skipToContentHref}" link-assistive-text="${skipToContentText}"></dds-skip-to-content>
+        <dds-skip-to-content
+          href="${skipToContentHref}"
+          link-assistive-text="${skipToContentText}"></dds-skip-to-content>
 
         ${isMobileVersion
           ? html`
               <dds-masthead-menu-button
-                button-label-active="${ifNonNull(menuButtonAssistiveTextActive)}"
-                button-label-inactive="${ifNonNull(menuButtonAssistiveTextInactive)}"
-                ?hide-menu-button="${activateSearch}"
-              >
+                button-label-active="${ifNonNull(
+                  menuButtonAssistiveTextActive
+                )}"
+                button-label-inactive="${ifNonNull(
+                  menuButtonAssistiveTextInactive
+                )}"
+                ?hide-menu-button="${activateSearch}">
               </dds-masthead-menu-button>
             `
           : ''}
@@ -1139,16 +1259,20 @@ class DDSMastheadComposite extends HostListenerMixin(LitElement) {
         ${!platform || l1Data
           ? undefined
           : html`
-              <dds-top-nav-name href="${ifNonNull(platformAltUrl)}">${platform}</dds-top-nav-name>
+              <dds-top-nav-name href="${ifNonNull(platformAltUrl)}"
+                >${platform}</dds-top-nav-name
+              >
             `}
         ${navLinks && !isMobileVersion
           ? html`
               <dds-top-nav
                 selected-menu-item=${selectedMenuItem}
                 menu-bar-label="${ifNonNull(menuBarAssistiveText)}"
-                ?hideNav="${activateSearch}"
-              >
-                ${this._renderNavItems({ target: NAV_ITEMS_RENDER_TARGET.TOP_NAV, hasL1: false })}
+                ?hideNav="${activateSearch}">
+                ${this._renderNavItems({
+                  target: NAV_ITEMS_RENDER_TARGET.TOP_NAV,
+                  hasL1: false,
+                })}
               </dds-top-nav>
             `
           : ''}
@@ -1164,8 +1288,9 @@ class DDSMastheadComposite extends HostListenerMixin(LitElement) {
                 placeholder="${ifNonNull(searchPlaceholder)}"
                 .currentSearchResults="${ifNonNull(currentSearchResults)}"
                 ?custom-typeahead-api="${ifNonNull(customTypeaheadAPI)}"
-                .scopeParameters="${ifNonNull(scopeParameters)}"
-              ></dds-search-with-typeahead>
+                .scopeParameters="${ifNonNull(
+                  scopeParameters
+                )}"></dds-search-with-typeahead>
             `}
         <dds-masthead-global-bar ?has-search-active=${activateSearch}>
           ${hasContact === 'false'
@@ -1173,8 +1298,9 @@ class DDSMastheadComposite extends HostListenerMixin(LitElement) {
             : html`
                 <dds-masthead-contact
                   data-ibm-contact="contact-link"
-                  trigger-label="${ifDefined(contactUsButton?.title)}"
-                ></dds-masthead-contact>
+                  trigger-label="${ifDefined(
+                    contactUsButton?.title
+                  )}"></dds-masthead-contact>
               `}
           ${hasProfile === 'false'
             ? ''
@@ -1183,7 +1309,9 @@ class DDSMastheadComposite extends HostListenerMixin(LitElement) {
                   ${profileItems?.map(
                     ({ title, url }) =>
                       html`
-                        <dds-masthead-profile-item href="${ifNonNull(url)}">${title}</dds-masthead-profile-item>
+                        <dds-masthead-profile-item href="${ifNonNull(url)}"
+                          >${title}</dds-masthead-profile-item
+                        >
                       `
                   )}
                 </dds-masthead-profile>

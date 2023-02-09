@@ -1,7 +1,7 @@
 /**
  * @license
  *
- * Copyright IBM Corp. 2020, 2022
+ * Copyright IBM Corp. 2020, 2023
  *
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
@@ -44,18 +44,11 @@ class DDSContentBlockHeading extends StableSelectorMixin(LitElement) {
 
   firstUpdated() {
     this.content = stripHTML(this.innerHTML);
-    render(
-      html`
-        ${this.content}
-      `,
-      this
-    );
+    render(html` <h2>${this.content}</h2> `, this);
   }
 
   render() {
-    return html`
-      ${this.content}
-    `;
+    return html` ${this.content} `;
   }
 
   static get stableSelector() {

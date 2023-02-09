@@ -1,7 +1,7 @@
 /**
  * @license
  *
- * Copyright IBM Corp. 2020, 2022
+ * Copyright IBM Corp. 2020, 2023
  *
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
@@ -23,9 +23,7 @@ const { stablePrefix: ddsPrefix } = ddsSettings;
 @customElement(`${ddsPrefix}-content-group`)
 class DDSContentGroup extends StableSelectorMixin(DDSContentBlock) {
   protected _renderInnerBody(): TemplateResult | string | void {
-    return html`
-      ${this._renderMedia()}${this._renderContent()}
-    `;
+    return html` ${this._renderMedia()}${this._renderContent()} `;
   }
 
   static get stableSelector() {

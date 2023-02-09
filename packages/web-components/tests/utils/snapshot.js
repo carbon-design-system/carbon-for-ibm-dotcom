@@ -1,7 +1,7 @@
 /**
  * @license
  *
- * Copyright IBM Corp. 2020
+ * Copyright IBM Corp. 2020, 2023
  *
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
@@ -30,7 +30,7 @@ jasmine.getEnv().addReporter({
   },
 });
 
-beforeEach(function() {
+beforeEach(function () {
   jasmine.addMatchers({
     toMatchSnapshot() {
       return {
@@ -45,9 +45,13 @@ beforeEach(function() {
         compare(actualElem, options) {
           const { __snapshot__: snapshotState } = window;
           const { update } = snapshotState;
-          const snapshot = !update && snapshotState.get(currentSpec, currentSeq);
+          const snapshot =
+            !update && snapshotState.get(currentSpec, currentSeq);
           const { mode } = options || {};
-          const actual = mode === 'shadow' ? actualElem.shadowRoot.innerHTML : actualElem.outerHTML;
+          const actual =
+            mode === 'shadow'
+              ? actualElem.shadowRoot.innerHTML
+              : actualElem.outerHTML;
           const formattedActual = getDiffableHTML(actual);
           if (!snapshot) {
             snapshotState.set(currentSpec, currentSeq, formattedActual);
@@ -59,7 +63,10 @@ beforeEach(function() {
           if (!snapshotState.match(formattedActual, formattedExpected)) {
             return {
               pass: false,
-              message: `Unmatched snapshot:\n${diff(formattedExpected, formattedActual)}`,
+              message: `Unmatched snapshot:\n${diff(
+                formattedExpected,
+                formattedActual
+              )}`,
             };
           }
           return {

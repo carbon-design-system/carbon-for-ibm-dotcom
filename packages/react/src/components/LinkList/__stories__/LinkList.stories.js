@@ -1,5 +1,5 @@
 /**
- * Copyright IBM Corp. 2016, 2022
+ * Copyright IBM Corp. 2016, 2023
  *
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
@@ -29,8 +29,7 @@ const items = [
     type: types[0],
     copy: headlines[1],
     cta: {
-      href:
-        'https://www.ibm.com/annualreport/assets/downloads/IBM_Annual_Report_2019.pdf',
+      href: 'https://www.ibm.com/annualreport/assets/downloads/IBM_Annual_Report_2019.pdf',
     },
   },
   {

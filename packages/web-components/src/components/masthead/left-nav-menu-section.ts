@@ -1,7 +1,7 @@
 /**
  * @license
  *
- * Copyright IBM Corp. 2020, 2022
+ * Copyright IBM Corp. 2020, 2023
  *
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
@@ -9,12 +9,12 @@
 
 import { html, property, customElement, LitElement } from 'lit-element';
 import settings from 'carbon-components/es/globals/js/settings.js';
-import HostListener from 'carbon-web-components/es/globals/decorators/host-listener.js';
-import HostListenerMixin from 'carbon-web-components/es/globals/mixins/host-listener.js';
-import ChevronLeft20 from 'carbon-web-components/es/icons/chevron--left/20.js';
-import ArrowRight20 from 'carbon-web-components/es/icons/arrow--right/20.js';
-import FocusMixin from 'carbon-web-components/es/globals/mixins/focus.js';
-import { selectorTabbable } from 'carbon-web-components/es/globals/settings.js';
+import HostListener from '../../internal/vendor/@carbon/web-components/globals/decorators/host-listener.js';
+import HostListenerMixin from '../../internal/vendor/@carbon/web-components/globals/mixins/host-listener.js';
+import ChevronLeft20 from '../../internal/vendor/@carbon/web-components/icons/chevron--left/20.js';
+import ArrowRight20 from '../../internal/vendor/@carbon/web-components/icons/arrow--right/20.js';
+import FocusMixin from '../../internal/vendor/@carbon/web-components/globals/mixins/focus.js';
+import { selectorTabbable } from '../../internal/vendor/@carbon/web-components/globals/settings.js';
 import ddsSettings from '../../internal/vendor/@carbon/ibmdotcom-utilities/utilities/settings/settings';
 import { forEach } from '../../globals/internal/collection-helpers';
 import styles from './masthead.scss';
@@ -140,8 +140,8 @@ class DDSLeftNavMenuSection extends HostListenerMixin(FocusMixin(LitElement)) {
       this.ariaHidden = 'true';
       // Hide all submenus, and restrict their height/overflow.
       this.style.visibility = 'hidden';
-      this.style.overflow = 'hidden';
       this.style.height = '0';
+      this.style.overflow = 'hidden';
     }
   }
 
@@ -158,7 +158,8 @@ class DDSLeftNavMenuSection extends HostListenerMixin(FocusMixin(LitElement)) {
 
   updated(changedProperties) {
     if (changedProperties.has('expanded')) {
-      const { selectorNavMenu, selectorNavItem } = this.constructor as typeof DDSLeftNavMenuSection;
+      const { selectorNavMenu, selectorNavItem } = this
+        .constructor as typeof DDSLeftNavMenuSection;
       const { expanded, isSubmenu } = this;
 
       if (expanded) {
@@ -168,13 +169,15 @@ class DDSLeftNavMenuSection extends HostListenerMixin(FocusMixin(LitElement)) {
             backBtn.tabIndex = 0;
           }
         }
-        forEach(this.querySelectorAll(selectorNavMenu), elem => {
-          const item = (elem as HTMLElement).shadowRoot?.querySelector('button');
+        forEach(this.querySelectorAll(selectorNavMenu), (elem) => {
+          const item = (elem as HTMLElement).shadowRoot?.querySelector(
+            'button'
+          );
           if (item) {
             item.tabIndex = 0;
           }
         });
-        forEach(this.querySelectorAll(selectorNavItem), elem => {
+        forEach(this.querySelectorAll(selectorNavItem), (elem) => {
           const item = (elem as HTMLElement).shadowRoot?.querySelector('a');
           if (item) {
             item.tabIndex = 0;
@@ -188,7 +191,9 @@ class DDSLeftNavMenuSection extends HostListenerMixin(FocusMixin(LitElement)) {
           tabbable = this.shadowRoot?.querySelector('button');
         } else {
           // set focus to first menu item of section
-          tabbable = (this.getRootNode() as ShadowRoot).querySelector(DDSLeftNav.selectorNavItems);
+          tabbable = (this.getRootNode() as ShadowRoot).querySelector(
+            DDSLeftNav.selectorNavItems
+          );
         }
 
         if (tabbable) {
@@ -201,13 +206,15 @@ class DDSLeftNavMenuSection extends HostListenerMixin(FocusMixin(LitElement)) {
           );
         }
       } else {
-        forEach(this.querySelectorAll(selectorNavMenu), elem => {
-          const item = (elem as HTMLElement).shadowRoot?.querySelector('button');
+        forEach(this.querySelectorAll(selectorNavMenu), (elem) => {
+          const item = (elem as HTMLElement).shadowRoot?.querySelector(
+            'button'
+          );
           if (item) {
             item.tabIndex = -1;
           }
         });
-        forEach(this.querySelectorAll(selectorNavItem), elem => {
+        forEach(this.querySelectorAll(selectorNavItem), (elem) => {
           const item = (elem as HTMLElement).shadowRoot?.querySelector('a');
           if (item) {
             item.tabIndex = -1;
@@ -223,22 +230,45 @@ class DDSLeftNavMenuSection extends HostListenerMixin(FocusMixin(LitElement)) {
     }
   }
 
+  connectedCallback() {
+    super.connectedCallback();
+
+    if (document.dir) {
+      this.dir = document.dir;
+    }
+  }
+
   render() {
-    const { backButtonText, title, titleUrl, _handleClickBack: handleClickBack, showBackBtn } = this;
+    const {
+      backButtonText,
+      title,
+      titleUrl,
+      _handleClickBack: handleClickBack,
+      showBackBtn,
+    } = this;
     return html`
       <ul>
         ${showBackBtn
           ? html`
-              <li class="${prefix}--side-nav__menu-item ${prefix}--masthead__side-nav--submemu-back" role="none">
-                <button class="${prefix}--side-nav__link" tabindex="-1" @click="${handleClickBack}">
-                  <span class="${prefix}--side-nav__link-text">${ChevronLeft20()}${backButtonText}</span>
+              <li
+                class="${prefix}--side-nav__menu-item ${prefix}--masthead__side-nav--submemu-back"
+                role="none">
+                <button
+                  class="${prefix}--side-nav__link"
+                  tabindex="-1"
+                  @click="${handleClickBack}">
+                  <span class="${prefix}--side-nav__link-text"
+                    >${ChevronLeft20()}${backButtonText}</span
+                  >
                 </button>
               </li>
             `
           : undefined}
         ${title && !titleUrl
           ? html`
-              <li class="${prefix}--masthead__side-nav--submemu-title">${title}</li>
+              <li class="${prefix}--masthead__side-nav--submemu-title">
+                ${title}
+              </li>
             `
           : undefined}
         ${title && titleUrl
@@ -248,10 +278,10 @@ class DDSLeftNavMenuSection extends HostListenerMixin(FocusMixin(LitElement)) {
                 href=${titleUrl}
                 data-attribute1="headerNav"
                 data-attribute2="FlatHdline"
-                data-attribute3="${title}"
-              >
+                data-attribute3="${title}">
                 <span>${title}</span>
-                <div class="${prefix}--masthead__side-nav--submemu-section-title__icon">
+                <div
+                  class="${prefix}--masthead__side-nav--submemu-section-title__icon">
                   ${ArrowRight20()}
                 </div>
               </a>
@@ -287,9 +317,12 @@ class DDSLeftNavMenuSection extends HostListenerMixin(FocusMixin(LitElement)) {
    * A selector selecting tabbable nodes.
    */
   static get selectorTabbable() {
-    return [selectorTabbable, `${ddsPrefix}-left-nav-item`, `${ddsPrefix}-left-nav-menu`, `${ddsPrefix}-left-nav-menu-item`].join(
-      ','
-    );
+    return [
+      selectorTabbable,
+      `${ddsPrefix}-left-nav-item`,
+      `${ddsPrefix}-left-nav-menu`,
+      `${ddsPrefix}-left-nav-menu-item`,
+    ].join(',');
   }
 
   static styles = styles; // `styles` here is a `CSSResult` generated by custom WebPack loader

@@ -1,5 +1,5 @@
 /**
- * Copyright IBM Corp. 2020, 2022
+ * Copyright IBM Corp. 2020, 2023
  *
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
@@ -194,7 +194,7 @@ const props = {
     ];
 
     const customVideoTitles = type
-      .filter(ctaType => ctaType === 'video')
+      .filter((ctaType) => ctaType === 'video')
       .map((_ctaType, index) =>
         text(
           `Button ${index + 1} custom video title`,
@@ -202,7 +202,7 @@ const props = {
         )
       );
     const customVideoDescriptions = type
-      .filter(ctaType => ctaType === 'video')
+      .filter((ctaType) => ctaType === 'video')
       .map((_ctaType, index) =>
         text(
           `Button ${index + 1}`,

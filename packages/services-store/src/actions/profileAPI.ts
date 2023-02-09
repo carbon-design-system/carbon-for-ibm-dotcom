@@ -1,7 +1,7 @@
 /**
  * @license
  *
- * Copyright IBM Corp. 2020, 2022
+ * Copyright IBM Corp. 2020, 2023
  *
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
@@ -9,7 +9,12 @@
 
 import { ThunkAction } from 'redux-thunk';
 import ProfileAPI from '@carbon/ibmdotcom-services/es/services/Profile/Profile.js';
-import { UserStatus, PROFILE_API_ACTION, ProfileAPIState, MASTHEAD_AUTH_METHOD } from '../types/profileAPI';
+import {
+  UserStatus,
+  PROFILE_API_ACTION,
+  ProfileAPIState,
+  MASTHEAD_AUTH_METHOD,
+} from '../types/profileAPI';
 
 /**
  * @param error An error from the JSONP call for user authentication status.
@@ -56,8 +61,13 @@ export type ProfileAPIActions =
  */
 export function loadUserStatus(
   authMethod: MASTHEAD_AUTH_METHOD
-): ThunkAction<Promise<UserStatus>, { profileAPI: ProfileAPIState }, void, ProfileAPIActions> {
-  return async dispatch => {
+): ThunkAction<
+  Promise<UserStatus>,
+  { profileAPI: ProfileAPIState },
+  void,
+  ProfileAPIActions
+> {
+  return async (dispatch) => {
     let promiseStatus: Promise<UserStatus>;
     switch (authMethod) {
       case MASTHEAD_AUTH_METHOD.COOKIE:
@@ -74,7 +84,7 @@ export function loadUserStatus(
     try {
       dispatch(setUserStatus(await promiseStatus));
     } catch (error) {
-      dispatch(setErrorRequestUserStatus(error));
+      dispatch(setErrorRequestUserStatus(error as Error));
       throw error;
     }
     return promiseStatus;

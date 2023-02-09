@@ -1,5 +1,5 @@
 /**
- * Copyright IBM Corp. 2021, 2022
+ * Copyright IBM Corp. 2021, 2023
  *
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
@@ -23,7 +23,6 @@ class CloudAccountAuthAPI {
    * import { cloudAccountAuthentication } from '@carbon/ibmdotcom-utilities';
    *
    * const status = cloudAccountAuthentication.checkCookie();
-   *
    * @returns {string} string determining login status
    */
   static checkCookie() {
@@ -39,7 +38,6 @@ class CloudAccountAuthAPI {
    * import { cloudAccountAuthentication } from '@carbon/ibmdotcom-utilities';
    *
    * const status = cloudAccountAuthentication.checkAPI();
-   *
    * @returns {string} string determining login status
    */
   static async checkAPI() {
@@ -49,10 +47,10 @@ class CloudAccountAuthAPI {
           Accept: 'application/json',
         },
       })
-      .then(response => {
+      .then((response) => {
         return response.status === 200 ? 'authenticated' : 'anonymous';
       })
-      .catch(error => {
+      .catch((error) => {
         console.error(error);
         return 'anonymous';
       });

@@ -1,18 +1,18 @@
 /**
  * @license
  *
- * Copyright IBM Corp. 2020, 2022
+ * Copyright IBM Corp. 2020, 2023
  *
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
  */
 
 import { html, state, property, customElement } from 'lit-element';
-import BXLink from 'carbon-web-components/es/components/link/link.js';
-import HostListener from 'carbon-web-components/es/globals/decorators/host-listener.js';
-import HostListenerMixin from 'carbon-web-components/es/globals/mixins/host-listener.js';
+import BXLink from '../../internal/vendor/@carbon/web-components/components/link/link.js';
+import HostListener from '../../internal/vendor/@carbon/web-components/globals/decorators/host-listener.js';
+import HostListenerMixin from '../../internal/vendor/@carbon/web-components/globals/mixins/host-listener.js';
 import settings from 'carbon-components/es/globals/js/settings.js';
-import FocusMixin from 'carbon-web-components/es/globals/mixins/focus.js';
+import FocusMixin from '../../internal/vendor/@carbon/web-components/globals/mixins/focus.js';
 import IBM8BarLogoH23 from '@carbon/ibmdotcom-styles/icons/svg/IBM-8bar-logo--h23.svg';
 import ddsSettings from '../../internal/vendor/@carbon/ibmdotcom-utilities/utilities/settings/settings';
 import styles from './masthead.scss';
@@ -27,7 +27,9 @@ const { stablePrefix: ddsPrefix } = ddsSettings;
  * @element dds-masthead-logo
  */
 @customElement(`${ddsPrefix}-masthead-logo`)
-class DDSMastheadLogo extends FocusMixin(HostListenerMixin(StableSelectorMixin(BXLink))) {
+class DDSMastheadLogo extends FocusMixin(
+  HostListenerMixin(StableSelectorMixin(BXLink))
+) {
   /**
    * Search bar opened flag.
    */
@@ -67,9 +69,7 @@ class DDSMastheadLogo extends FocusMixin(HostListenerMixin(StableSelectorMixin(B
 
   // eslint-disable-next-line class-methods-use-this
   protected _renderInner() {
-    return html`
-      <slot>${IBM8BarLogoH23()}</slot>
-    `;
+    return html` <slot>${IBM8BarLogoH23()}</slot> `;
   }
 
   updated(changedProperties) {
@@ -81,7 +81,10 @@ class DDSMastheadLogo extends FocusMixin(HostListenerMixin(StableSelectorMixin(B
     if (linkNode) {
       linkNode.setAttribute('aria-label', 'IBM logo');
       linkNode.classList.remove(`${prefix}--link`);
-      linkNode.classList.toggle(`${ddsPrefix}-ce--header__logo--has-search-active`, this._hasSearchActive);
+      linkNode.classList.toggle(
+        `${ddsPrefix}-ce--header__logo--has-search-active`,
+        this._hasSearchActive
+      );
     }
   }
 

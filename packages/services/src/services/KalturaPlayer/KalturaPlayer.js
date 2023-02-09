@@ -1,5 +1,5 @@
 /**
- * Copyright IBM Corp. 2020, 2021
+ * Copyright IBM Corp. 2020, 2023
  *
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
@@ -150,9 +150,7 @@ class KalturaPlayerAPI {
    * @param {string} params.mediaId media id
    * @param {string} params.height specify height in pixels
    * @param {string} params.width specify width in pixels
-   *
    * @returns {string} url of thumbnail image
-   *
    * @example
    * import { KalturaPlayerAPI } from '@carbon/ibmdotcom-services';
    *
@@ -182,7 +180,6 @@ class KalturaPlayerAPI {
    * @param {Function} customReadyCallback Determine any extra functions that should be executed
    *  on player readyCallback.
    * @returns {object}  object
-   *
    * @example
    * import { KalturaPlayerAPI } from '@carbon/ibmdotcom-services';
    *
@@ -201,7 +198,7 @@ class KalturaPlayerAPI {
   ) {
     const fireEvent = this.fireEvent;
     return await this.checkScript().then(() => {
-      const promiseKWidget = new Promise(resolve => {
+      const promiseKWidget = new Promise((resolve) => {
         const defaultFlashVars = {
           autoPlay: true,
           closedCaptions: {
@@ -242,7 +239,7 @@ class KalturaPlayerAPI {
             wmode: 'transparent',
           },
           // Ready callback is issued for this player:
-          readyCallback: function(playerId) {
+          readyCallback: function (playerId) {
             const kdp = document.getElementById(playerId);
 
             if (useIbmMetrics) {
@@ -258,7 +255,7 @@ class KalturaPlayerAPI {
                 fireEvent({ playerState: 3, kdp, mediaId });
               });
 
-              kdp.addJsListener('IbmCtaEvent.ibm', ctaData => {
+              kdp.addJsListener('IbmCtaEvent.ibm', (ctaData) => {
                 const customMetricsData = ctaData?.customMetricsData || {};
                 fireEvent({
                   playerState: 101,
@@ -303,7 +300,6 @@ class KalturaPlayerAPI {
    * @param {object} param.kdp media object
    * @param {string} param.mediaId id of the media
    * @param {object} param.customMetricsData any extra parameter for custom events
-   *
    */
   static fireEvent({ playerState, kdp, mediaId, customMetricsData = {} }) {
     // If media was played and timestamp is 0, it should be "launched" state.
@@ -331,7 +327,6 @@ class KalturaPlayerAPI {
    *
    * @param {string} mediaId  The mediaId we're embedding the placeholder for.
    * @returns {object}  object
-   *
    * @example
    * import { KalturaPlayerAPI } from '@carbon/ibmdotcom-services';
    *
@@ -345,14 +340,14 @@ class KalturaPlayerAPI {
       if (mediaData && mediaData[mediaId]) {
         return mediaData[mediaId];
       } else {
-        return new Promise(resolve => {
+        return new Promise((resolve) => {
           return new root.kWidget.api({ wid: '_' + _partnerId }).doRequest(
             {
               service: 'media',
               action: 'get',
               entryId: mediaId,
             },
-            function(jsonObj) {
+            function (jsonObj) {
               mediaData[jsonObj.id] = jsonObj;
               resolve(jsonObj);
             }

@@ -1,14 +1,14 @@
 /**
  * @license
  *
- * Copyright IBM Corp. 2020
+ * Copyright IBM Corp. 2020, 2023
  *
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
  */
 
 import { html, render } from 'lit-html';
-import ifNonNull from 'carbon-web-components/es/globals/directives/if-non-null.js';
+import ifNonNull from '../../../internal/vendor/@carbon/web-components/globals/directives/if-non-null.js';
 import '../locale-modal';
 import '../regions';
 import '../region-item';
@@ -17,22 +17,24 @@ import DDSLocaleSearch from '../locale-search';
 const template = (props?) => {
   const { headerTitle, langDisplay, children } = props ?? {};
   return html`
-    <dds-locale-modal header-title="${ifNonNull(headerTitle)}" lang-display="${ifNonNull(langDisplay)}">
+    <dds-locale-modal
+      header-title="${ifNonNull(headerTitle)}"
+      lang-display="${ifNonNull(langDisplay)}">
       ${children}
     </dds-locale-modal>
   `;
 };
 
-describe('dds-locale-modal', function() {
-  describe('Misc attributes', function() {
-    it('should render with minimum attributes', async function() {
+describe('dds-locale-modal', function () {
+  describe('Misc attributes', function () {
+    it('should render with minimum attributes', async function () {
       render(template(), document.body);
       await Promise.resolve();
       const localeModal = document.body.querySelector('dds-locale-modal');
       expect(localeModal).toMatchSnapshot({ mode: 'shadow' });
     });
 
-    it('should render with various attributes', async function() {
+    it('should render with various attributes', async function () {
       render(
         template({
           headerTitle: 'header-title-foo',
@@ -45,7 +47,7 @@ describe('dds-locale-modal', function() {
       expect(localeModal).toMatchSnapshot({ mode: 'shadow' });
     });
 
-    it('should render locale selector', async function() {
+    it('should render locale selector', async function () {
       render(
         template({
           headerTitle: 'header-title-foo',
@@ -65,8 +67,8 @@ describe('dds-locale-modal', function() {
     });
   });
 
-  describe('Selecting region', function() {
-    it('should update region in search UI', async function() {
+  describe('Selecting region', function () {
+    it('should update region in search UI', async function () {
       render(
         template({
           headerTitle: 'header-title-foo',
@@ -86,7 +88,7 @@ describe('dds-locale-modal', function() {
       expect((localeSearch as DDSLocaleSearch).region).toBe('region-foo');
     });
 
-    it('should support going back to the region selector', async function() {
+    it('should support going back to the region selector', async function () {
       render(
         template({
           headerTitle: 'header-title-foo',
@@ -102,13 +104,19 @@ describe('dds-locale-modal', function() {
       (document.body.querySelector('dds-region-item') as HTMLElement).click();
       await Promise.resolve();
       const localeModal = document.body.querySelector('dds-locale-modal');
-      (localeModal!.shadowRoot!.querySelector('dds-link-with-icon') as HTMLElement).click();
+      (
+        localeModal!.shadowRoot!.querySelector(
+          'dds-link-with-icon'
+        ) as HTMLElement
+      ).click();
       await Promise.resolve();
-      expect(localeModal!.shadowRoot!.querySelector('dds-link-with-icon')).toBeNull();
+      expect(
+        localeModal!.shadowRoot!.querySelector('dds-link-with-icon')
+      ).toBeNull();
     });
   });
 
-  afterEach(async function() {
+  afterEach(async function () {
     await render(undefined!, document.body);
   });
 });

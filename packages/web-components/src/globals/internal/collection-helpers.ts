@@ -1,7 +1,7 @@
 /**
  * @license
  *
- * Copyright IBM Corp. 2020
+ * Copyright IBM Corp. 2020, 2023
  *
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
@@ -61,4 +61,7 @@ export const forEach = (
  * @param item An item in the DOM collection.
  * @returns The index of the first occurence of the given item in the given collection. `-1` if no such item is found.
  */
-export const indexOf = (a: NodeListOf<Node> | HTMLCollectionOf<Element>, item: Node) => Array.prototype.indexOf.call(a, item);
+export const indexOf = (
+  a: NodeListOf<Node> | HTMLCollectionOf<Element>,
+  item: Node
+) => Array.prototype.indexOf.call(a, item);

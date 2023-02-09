@@ -1,5 +1,5 @@
 /**
- * Copyright IBM Corp. 2016, 2022
+ * Copyright IBM Corp. 2016, 2023
  *
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
@@ -12,7 +12,6 @@
  * import {parseAspectRatio} from '@carbon/ibmdotcom-utilities';
  *
  * const [width, height] = parseAspectRatio('16x9');
- *
  * @param {string} aspectRatioString string in format <integer><separator><integer>
  * @returns {Array} [widthInt, heightInt]
  */
@@ -24,7 +23,7 @@ function parseAspectRatio(aspectRatioString) {
     );
   }
 
-  const parsed = aspectRatioString.split(/[^0-9]{1}/).filter(i => i);
+  const parsed = aspectRatioString.split(/[^0-9]{1}/).filter((i) => i);
 
   if (parsed.length !== 2) {
     throw new RangeError(

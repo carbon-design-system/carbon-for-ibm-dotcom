@@ -1,5 +1,5 @@
 /**
- * Copyright IBM Corp. 2016, 2022
+ * Copyright IBM Corp. 2016, 2023
  *
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
@@ -36,7 +36,7 @@ const SideNavMenuSection = ({
        *
        * @param {Node} focusElement node element to focus
        */
-      const setFocus = focusElement => {
+      const setFocus = (focusElement) => {
         menuSectionRef.current?.addEventListener(
           'transitionend',
           function focus(event) {
@@ -76,7 +76,7 @@ const SideNavMenuSection = ({
         <>
           <button
             className={`${prefix}--masthead__focus`}
-            onFocus={e => {
+            onFocus={(e) => {
               const lastMenuItem =
                 e.target.parentElement.querySelector(
                   'li:last-of-type button'
@@ -116,7 +116,7 @@ const SideNavMenuSection = ({
       {children}
       <button
         className={`${prefix}--masthead__focus`}
-        onFocus={e => {
+        onFocus={(e) => {
           if (rest.focusNode) {
             rest.focusNode.focus();
           } else {

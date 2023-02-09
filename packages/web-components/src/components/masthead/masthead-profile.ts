@@ -1,7 +1,7 @@
 /**
  * @license
  *
- * Copyright IBM Corp. 2020, 2022
+ * Copyright IBM Corp. 2020, 2023
  *
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
@@ -10,11 +10,11 @@
 import { ifDefined } from 'lit-html/directives/if-defined.js';
 import { html, property, query, customElement, LitElement } from 'lit-element';
 import settings from 'carbon-components/es/globals/js/settings.js';
-import User20 from 'carbon-web-components/es/icons/user/20.js';
-import UserOnline20 from 'carbon-web-components/es/icons/user--online/20.js';
-import FocusMixin from 'carbon-web-components/es/globals/mixins/focus.js';
-import HostListenerMixin from 'carbon-web-components/es/globals/mixins/host-listener.js';
-import HostListener from 'carbon-web-components/es/globals/decorators/host-listener.js';
+import User20 from '../../internal/vendor/@carbon/web-components/icons/user/20.js';
+import UserOnline20 from '../../internal/vendor/@carbon/web-components/icons/user--online/20.js';
+import FocusMixin from '../../internal/vendor/@carbon/web-components/globals/mixins/focus.js';
+import HostListenerMixin from '../../internal/vendor/@carbon/web-components/globals/mixins/host-listener.js';
+import HostListener from '../../internal/vendor/@carbon/web-components/globals/decorators/host-listener.js';
 import ddsSettings from '../../internal/vendor/@carbon/ibmdotcom-utilities/utilities/settings/settings';
 import styles from './masthead.scss';
 import StableSelectorMixin from '../../globals/mixins/stable-selector';
@@ -28,7 +28,9 @@ const { stablePrefix: ddsPrefix } = ddsSettings;
  * @element dds-masthead-profile
  */
 @customElement(`${ddsPrefix}-masthead-profile`)
-class DDSMastheadProfile extends HostListenerMixin(FocusMixin(StableSelectorMixin(LitElement))) {
+class DDSMastheadProfile extends HostListenerMixin(
+  FocusMixin(StableSelectorMixin(LitElement))
+) {
   /**
    * The trigger button.
    */
@@ -103,12 +105,20 @@ class DDSMastheadProfile extends HostListenerMixin(FocusMixin(StableSelectorMixi
   createRenderRoot() {
     return this.attachShadow({
       mode: 'open',
-      delegatesFocus: Number((/Safari\/(\d+)/.exec(navigator.userAgent) ?? ['', 0])[1]) <= 537,
+      delegatesFocus:
+        Number((/Safari\/(\d+)/.exec(navigator.userAgent) ?? ['', 0])[1]) <=
+        537,
     });
   }
 
   render() {
-    const { authenticated, expanded, menuLabel, triggerLabel, _handleClick: handleClick } = this;
+    const {
+      authenticated,
+      expanded,
+      menuLabel,
+      triggerLabel,
+      _handleClick: handleClick,
+    } = this;
     return html`
       <a
         role="button"
@@ -117,8 +127,7 @@ class DDSMastheadProfile extends HostListenerMixin(FocusMixin(StableSelectorMixi
         href="javascript:void 0"
         aria-expanded="${String(Boolean(expanded))}"
         aria-label="${ifDefined(triggerLabel)}"
-        @click=${handleClick}
-      >
+        @click=${handleClick}>
         ${authenticated ? UserOnline20() : User20()}
       </a>
       <ul class="${prefix}--header__menu" aria-label="${ifDefined(menuLabel)}">

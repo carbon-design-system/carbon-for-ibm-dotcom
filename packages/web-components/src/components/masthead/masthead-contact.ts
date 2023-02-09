@@ -10,7 +10,7 @@
 import { ifDefined } from 'lit-html/directives/if-defined.js';
 import { html, customElement, property } from 'lit-element';
 import settings from 'carbon-components/es/globals/js/settings.js';
-import Chat20 from 'carbon-web-components/es/icons/chat/20.js';
+import Chat20 from '../../internal/vendor/@carbon/web-components/icons/chat/20.js';
 import ddsSettings from '../../internal/vendor/@carbon/ibmdotcom-utilities/utilities/settings/settings';
 import styles from './masthead.scss';
 import DDSMastheadProfile from './masthead-profile';
@@ -40,8 +40,7 @@ class DDSMastheadContact extends DDSMastheadProfile {
         href="javascript:void 0"
         class="${prefix}--header__menu-item ${prefix}--header__menu-title"
         aria-label="${ifDefined(triggerLabel)}"
-        @click=${handleClick}
-      >
+        @click=${handleClick}>
         ${Chat20()}
       </a>
     `;
@@ -50,7 +49,9 @@ class DDSMastheadContact extends DDSMastheadProfile {
   updated(changedProperties) {
     if (changedProperties.has('expanded')) {
       if (!this.expanded) {
-        const mastheadContainer = this.closest(`${ddsPrefix}-masthead-container`) as DDSMastheadContainer;
+        const mastheadContainer = this.closest(
+          `${ddsPrefix}-masthead-container`
+        ) as DDSMastheadContainer;
 
         /**
          * This is a workaround to minimize the chat module. Currently no minimize methods exist.

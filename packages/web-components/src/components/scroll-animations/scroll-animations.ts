@@ -1,7 +1,7 @@
 /**
  * @license
  *
- * Copyright IBM Corp. 2020, 2022
+ * Copyright IBM Corp. 2020, 2023
  *
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
@@ -108,7 +108,7 @@ class DDSScrollAnimations extends StableSelectorMixin(LitElement) {
 
       const { selectorTargets } = this;
       if (selectorTargets) {
-        forEach(this.querySelectorAll(selectorTargets), item => {
+        forEach(this.querySelectorAll(selectorTargets), (item) => {
           this._rootObserver?.observe(item);
         });
       }
@@ -129,7 +129,9 @@ class DDSScrollAnimations extends StableSelectorMixin(LitElement) {
     }
 
     if (create) {
-      this._rootObserver = new IntersectionObserver(this._handleExit.bind(this));
+      this._rootObserver = new IntersectionObserver(
+        this._handleExit.bind(this)
+      );
     }
   }
 
@@ -140,17 +142,23 @@ class DDSScrollAnimations extends StableSelectorMixin(LitElement) {
    * @param [options.create] `true` to create the new intersection observer.
    * @param [options.viewportMargin] recalculated margin value for the observer
    */
-  private _cleanAndCreateInnerObserver({ create, viewportMargin }: { create?: boolean; viewportMargin?: string } = {}) {
+  private _cleanAndCreateInnerObserver({
+    create,
+    viewportMargin,
+  }: { create?: boolean; viewportMargin?: string } = {}) {
     if (this._innerObserver) {
       this._innerObserver.disconnect();
       this._innerObserver = null;
     }
 
     if (create) {
-      this._innerObserver = new IntersectionObserver(this._handleEntrance.bind(this), { rootMargin: viewportMargin });
+      this._innerObserver = new IntersectionObserver(
+        this._handleEntrance.bind(this),
+        { rootMargin: viewportMargin }
+      );
       const { selectorTargets } = this;
       if (selectorTargets) {
-        forEach(this.querySelectorAll(selectorTargets), item => {
+        forEach(this.querySelectorAll(selectorTargets), (item) => {
           this._innerObserver?.observe(item);
         });
       }
@@ -319,9 +327,7 @@ class DDSScrollAnimations extends StableSelectorMixin(LitElement) {
   }
 
   render() {
-    return html`
-      <slot></slot>
-    `;
+    return html` <slot></slot> `;
   }
 
   static get stableSelector() {

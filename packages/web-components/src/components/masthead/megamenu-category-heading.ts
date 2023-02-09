@@ -1,14 +1,14 @@
 /**
  * @license
  *
- * Copyright IBM Corp. 2022
+ * Copyright IBM Corp. 2022, 2023
  *
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
  */
 
 import { html, customElement, LitElement, property } from 'lit-element';
-import ArrowRight20 from 'carbon-web-components/es/icons/arrow--right/20.js';
+import ArrowRight20 from '../../internal/vendor/@carbon/web-components/icons/arrow--right/20.js';
 import ddsSettings from '../../internal/vendor/@carbon/ibmdotcom-utilities/utilities/settings/settings';
 import styles from './masthead.scss';
 
@@ -38,7 +38,11 @@ class DDSMegaMenuCategoryHeading extends LitElement {
    */
   protected renderLink() {
     return html`
-      <a href="${this.href}" data-attribute1="headerNav" data-attribute2="FlatHdline" data-attribute3="${this.title}">
+      <a
+        href="${this.href}"
+        data-attribute1="headerNav"
+        data-attribute2="FlatHdline"
+        data-attribute3="${this.title}">
         ${this.title} ${ArrowRight20()}
       </a>
     `;
@@ -48,9 +52,7 @@ class DDSMegaMenuCategoryHeading extends LitElement {
    * Render category heading as plain text.
    */
   protected renderPlain() {
-    return html`
-      ${this.title}
-    `;
+    return html` ${this.title} `;
   }
 
   render() {

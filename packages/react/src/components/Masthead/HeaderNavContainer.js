@@ -1,5 +1,5 @@
 /**
- * Copyright IBM Corp. 2016, 2021
+ * Copyright IBM Corp. 2016, 2023
  *
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
@@ -170,8 +170,8 @@ const HeaderNavContainer = ({ children }) => {
     if (window.IntersectionObserver) {
       setIO(
         new IntersectionObserver(
-          records => {
-            records.forEach(record => {
+          (records) => {
+            records.forEach((record) => {
               if (
                 contentLeftRef.current &&
                 record.target.classList.contains(
@@ -219,7 +219,7 @@ const HeaderNavContainer = ({ children }) => {
   /**
    * Keyboard event handler for menu items.
    */
-  const handleOnKeyDown = event => {
+  const handleOnKeyDown = (event) => {
     if (matches(event, [keys.Tab])) {
       if (pageIsRTL) {
         if (event.shiftKey) {

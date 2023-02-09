@@ -1,7 +1,7 @@
 /**
  * @license
  *
- * Copyright IBM Corp. 2020, 2022
+ * Copyright IBM Corp. 2020, 2023
  *
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
@@ -9,9 +9,9 @@
 
 import { html, property, customElement } from 'lit-element';
 import settings from 'carbon-components/es/globals/js/settings.js';
-import ArrowRight20 from 'carbon-web-components/es/icons/arrow--right/20.js';
-import BXLink from 'carbon-web-components/es/components/link/link.js';
-import Error20 from 'carbon-web-components/es/icons/error/20.js';
+import ArrowRight20 from '../../internal/vendor/@carbon/web-components/icons/arrow--right/20.js';
+import BXLink from '../../internal/vendor/@carbon/web-components/components/link/link.js';
+import Error20 from '../../internal/vendor/@carbon/web-components/icons/error/20.js';
 import ddsSettings from '../../internal/vendor/@carbon/ibmdotcom-utilities/utilities/settings/settings';
 import styles from './locale-modal.scss';
 
@@ -43,7 +43,9 @@ class DDSRegionItem extends BXLink {
   protected _renderDisabledLink() {
     const { _classes: classes } = this;
     return html`
-      <button id="link" class="${classes}" disabled type="button">${this._renderInner()}</button>
+      <button id="link" class="${classes}" disabled type="button">
+        ${this._renderInner()}
+      </button>
     `;
   }
 
@@ -71,7 +73,9 @@ class DDSRegionItem extends BXLink {
             <slot>${name}</slot>
           </h3>
           <div class="${prefix}--card__footer">
-            ${(invalid ? Error20 : ArrowRight20)({ class: `${prefix}--card__cta` })}
+            ${(invalid ? Error20 : ArrowRight20)({
+              class: `${prefix}--card__cta`,
+            })}
           </div>
         </div>
       </div>

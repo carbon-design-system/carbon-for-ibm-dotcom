@@ -1,5 +1,5 @@
 /**
- * Copyright IBM Corp. 2016, 2022
+ * Copyright IBM Corp. 2016, 2023
  *
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
@@ -39,7 +39,7 @@ const TOCDesktop = ({ menuItems, selectedId }) => {
             })}>
             <a
               {...(isActive ? { 'aria-current': 'location' } : {})}
-              onClick={e => handleOnClick(e, item.id)}
+              onClick={(e) => handleOnClick(e, item.id)}
               href={`#${item.id}`}>
               {item.title}
             </a>
@@ -73,7 +73,7 @@ const TOCDesktop = ({ menuItems, selectedId }) => {
   function triggerFocus(elem) {
     const element = document.querySelector(elem);
 
-    const handleFocusOut = event => {
+    const handleFocusOut = (event) => {
       const focusoutTarget = event.target;
       focusoutTarget.removeAttribute('tabindex');
     };

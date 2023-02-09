@@ -1,5 +1,5 @@
 //
-// Copyright IBM Corp. 2020, 2022
+// Copyright IBM Corp. 2020, 2023
 //
 // This source code is licensed under the Apache-2.0 license found in the
 // LICENSE file in the root directory of this source tree.
@@ -13,9 +13,9 @@
 @import '@carbon/ibmdotcom-styles/scss/components/masthead/masthead-top-nav-name';
 @import '@carbon/ibmdotcom-styles/scss/components/search-with-typeahead/search-with-typeahead';
 @import '@carbon/ibmdotcom-styles/scss/components/masthead/masthead-l1';
-@import 'carbon-web-components/scss/components/tooltip/tooltip';
-@import 'carbon-web-components/scss/components/ui-shell/header';
-@import 'carbon-web-components/scss/components/ui-shell/side-nav';
+@import '@carbon/web-components/scss/components/tooltip/tooltip';
+@import '@carbon/web-components/scss/components/ui-shell/header';
+@import '@carbon/web-components/scss/components/ui-shell/side-nav';
 @import '@carbon/ibmdotcom-styles/scss/components/masthead/masthead-megamenu';
 @import '../../globals/scss/box-sizing';
 @import '../cta/cta.scss';
@@ -94,7 +94,8 @@ $breakpoint--desktop-nav: 799px;
   }
 }
 
-:host(#{$dds-prefix}-masthead-global-bar) ::slotted(#{$dds-prefix}-masthead-button-cta) {
+:host(#{$dds-prefix}-masthead-global-bar)
+  ::slotted(#{$dds-prefix}-masthead-button-cta) {
   @include carbon--breakpoint-down('md') {
     display: none;
   }
@@ -317,7 +318,8 @@ $breakpoint--desktop-nav: 799px;
 :host(#{$dds-prefix}-masthead-profile),
 :host(#{$dds-prefix}-masthead-contact),
 :host(#{$dds-prefix}-cloud-masthead-profile) {
-  .#{$prefix}--header__menu-title[aria-expanded='true'] + .#{$prefix}--header__menu {
+  .#{$prefix}--header__menu-title[aria-expanded='true']
+    + .#{$prefix}--header__menu {
     background-color: $ui-background;
     box-shadow: 0 2px 6px 0 rgba(0, 0, 0, 0.3);
     bottom: -1px;
@@ -362,10 +364,13 @@ $breakpoint--desktop-nav: 799px;
 }
 
 :host(#{$dds-prefix}-megamenu-top-nav-menu) {
-  .#{$prefix}--header__menu-title[aria-expanded='true'] + .#{$prefix}--header__menu {
+  .#{$prefix}--header__menu-title[aria-expanded='true']
+    + .#{$prefix}--header__menu {
     bottom: auto;
     height: auto;
-    max-height: calc(100vh - var(--cds-spacing-09, 3rem) - var(--cds-layout-05, 4rem));
+    max-height: calc(
+      100vh - var(--cds-spacing-09, 3rem) - var(--cds-layout-05, 4rem)
+    );
     min-height: 0;
   }
 }
@@ -386,19 +391,21 @@ $breakpoint--desktop-nav: 799px;
 
   &[usage-mode='header-nav'],
   &[collapse-mode][usage-mode='header-nav'] {
-    left: -100vw;
+    inset-inline-start: -100vw;
     visibility: hidden;
     /* stylelint-disable-next-line  time-min-milliseconds */
-    transition: visibility 1ms motion(exit, productive) $duration--fast-02, left $duration--fast-02 motion(exit, productive) 1ms;
+    transition: visibility 1ms motion(exit, productive) $duration--fast-02,
+      left $duration--fast-02 motion(exit, productive) 1ms;
   }
 
   &[expanded][usage-mode='header-nav'],
   &[collapse-mode][expanded][usage-mode='header-nav'] {
     overflow: hidden auto;
-    left: 0;
+    inset-inline-start: 0;
     visibility: visible;
     /* stylelint-disable-next-line time-min-milliseconds */
-    transition: visibility 1ms motion(exit, productive) 0ms, left $duration--fast-02 motion(exit, productive) 1ms;
+    transition: visibility 1ms motion(exit, productive) 0ms,
+      inset-inline-start $duration--fast-02 motion(exit, productive) 1ms;
   }
 
   .#{$prefix}--side-nav__wrapper {
@@ -506,7 +513,8 @@ $breakpoint--desktop-nav: 799px;
 }
 
 :host(#{$dds-prefix}-left-nav-item-highlighted) a.#{$prefix}--side-nav__link,
-:host(#{$dds-prefix}-left-nav-menu-item-highlighted) a.#{$prefix}--side-nav__link,
+:host(#{$dds-prefix}-left-nav-menu-item-highlighted)
+  a.#{$prefix}--side-nav__link,
 :host(#{$dds-prefix}-left-nav-item) a.#{$prefix}--side-nav__link,
 :host(#{$dds-prefix}-left-nav-menu-item) a.#{$prefix}--side-nav__link {
   display: flex;
@@ -567,8 +575,9 @@ $breakpoint--desktop-nav: 799px;
       0 calc(#{mini-units(6)} + 1px),
       mini-units(6) calc(#{mini-units(6)} + 1px)
     )
-    #{'/*!rtl:polygon(0 0, calc(100% - ' + mini-units(6) + ') 0, calc(100% - ' + mini-units(6) + ') calc(' + mini-units(6) +
-    ' + 1px), 100% calc(' + mini-units(6) + ' + 1px), 100% 100%, 0 100%)*/'};
+    #{'/*!rtl:polygon(0 0, calc(100% - ' + mini-units(6) + ') 0, calc(100% - ' +
+    mini-units(6) + ') calc(' + mini-units(6) + ' + 1px), 100% calc(' +
+    mini-units(6) + ' + 1px), 100% 100%, 0 100%)*/'};
 }
 
 :host(#{$dds-prefix}-left-nav-overlay) {
@@ -579,6 +588,17 @@ $breakpoint--desktop-nav: 799px;
       @include left-nav-overlay;
     }
   }
+}
+
+:host(#{$dds-prefix}-left-nav-overlay[dir='rtl']) {
+  clip-path: polygon(
+    0 0,
+    calc(100% - #{mini-units(6)}) 0,
+    calc(100% - #{mini-units(6)}) calc(#{mini-units(6)} + 1px),
+    100% calc(#{mini-units(6)} + 1px),
+    100% 100%,
+    0 100%
+  );
 }
 
 :host(#{$dds-prefix}-megamenu-link-with-icon):focus,

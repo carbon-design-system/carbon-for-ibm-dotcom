@@ -1,7 +1,7 @@
 /**
  * @license
  *
- * Copyright IBM Corp. 2020, 2022
+ * Copyright IBM Corp. 2020, 2023
  *
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
@@ -65,16 +65,21 @@ class DDSLinkList extends StableSelectorMixin(LitElement) {
     const { selectorItem } = this.constructor as typeof DDSLinkList;
     this._childItems = (event.target as HTMLSlotElement)
       .assignedNodes({ flatten: true })
-      .filter(node => node.nodeType === Node.ELEMENT_NODE && (node as Element)?.matches(selectorItem)) as Element[];
+      .filter(
+        (node) =>
+          node.nodeType === Node.ELEMENT_NODE &&
+          (node as Element)?.matches(selectorItem)
+      ) as Element[];
 
     if (this._childItems.length > 3) {
-      if (this._childItems.length < 7) this._endTypeLayout = END_TYPE_LAYOUT.TWO_COLUMNS;
+      if (this._childItems.length < 7)
+        this._endTypeLayout = END_TYPE_LAYOUT.TWO_COLUMNS;
       else this._endTypeLayout = END_TYPE_LAYOUT.THREE_COLUMNS;
     } else {
       this._endTypeLayout = END_TYPE_LAYOUT.DEFAULT;
     }
     if (this.type === LINK_LIST_TYPE.END) {
-      this._childItems.forEach(elem => {
+      this._childItems.forEach((elem) => {
         (elem as DDSLinkListItem).type = LINK_LIST_ITEM_TYPE.END;
       });
     }
@@ -100,7 +105,8 @@ class DDSLinkList extends StableSelectorMixin(LitElement) {
     const headingClasses = classMap({
       [`${ddsPrefix}-ce--link-list__heading__wrapper`]: true,
       [`${ddsPrefix}-ce--link-list__heading--split`]:
-        type === LINK_LIST_TYPE.END && endTypeLayout === END_TYPE_LAYOUT.TWO_COLUMNS,
+        type === LINK_LIST_TYPE.END &&
+        endTypeLayout === END_TYPE_LAYOUT.TWO_COLUMNS,
     });
     const listTypeClasses =
       {
@@ -111,9 +117,12 @@ class DDSLinkList extends StableSelectorMixin(LitElement) {
     const listClasses = classMap({
       [`${prefix}--link-list__list`]: true,
       [listTypeClasses]: true,
-      [`${ddsPrefix}-ce--link-list__list--split`]: type === LINK_LIST_TYPE.END && endTypeLayout === END_TYPE_LAYOUT.TWO_COLUMNS,
+      [`${ddsPrefix}-ce--link-list__list--split`]:
+        type === LINK_LIST_TYPE.END &&
+        endTypeLayout === END_TYPE_LAYOUT.TWO_COLUMNS,
       [`${ddsPrefix}-ce--link-list__list--three-columns`]:
-        type === LINK_LIST_TYPE.END && endTypeLayout === END_TYPE_LAYOUT.THREE_COLUMNS,
+        type === LINK_LIST_TYPE.END &&
+        endTypeLayout === END_TYPE_LAYOUT.THREE_COLUMNS,
     });
     return html`
       <div class="${headingClasses}"><slot name="heading"></slot></div>
@@ -125,13 +134,16 @@ class DDSLinkList extends StableSelectorMixin(LitElement) {
 
   updated() {
     if (this.type === LINK_LIST_TYPE.END) {
-      this._childItems.forEach(elem => {
+      this._childItems.forEach((elem) => {
         (elem as DDSLinkListItem).type = LINK_LIST_ITEM_TYPE.END;
       });
     }
 
-    if (this.type === LINK_LIST_TYPE.HORIZONTAL || this.type === LINK_LIST_TYPE.VERTICAL) {
-      this._childItems.forEach(elem => {
+    if (
+      this.type === LINK_LIST_TYPE.HORIZONTAL ||
+      this.type === LINK_LIST_TYPE.VERTICAL
+    ) {
+      this._childItems.forEach((elem) => {
         (elem as DDSLinkListItem).iconInline = true;
       });
     }

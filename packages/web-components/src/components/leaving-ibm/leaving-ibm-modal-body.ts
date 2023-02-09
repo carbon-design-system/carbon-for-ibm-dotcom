@@ -1,17 +1,17 @@
 /**
  * @license
  *
- * Copyright IBM Corp. 2020, 2022
+ * Copyright IBM Corp. 2020, 2023
  *
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
  */
 
 import { customElement, html, property } from 'lit-element';
-import BXModalBody from 'carbon-web-components/es/components/modal/modal-body.js';
-import ifNonNull from 'carbon-web-components/es/globals/directives/if-non-null.js';
+import BXModalBody from '../../internal/vendor/@carbon/web-components/components/modal/modal-body.js';
+import ifNonNull from '../../internal/vendor/@carbon/web-components/globals/directives/if-non-null.js';
 import ddsSettings from '../../internal/vendor/@carbon/ibmdotcom-utilities/utilities/settings/settings';
-import 'carbon-web-components/es/components/link/link.js';
+import '../../internal/vendor/@carbon/web-components/components/link/link.js';
 import styles from './leaving-ibm.scss';
 import StableSelectorMixin from '../../globals/mixins/stable-selector';
 
@@ -35,7 +35,9 @@ class DDSLeavingIbmModalBody extends StableSelectorMixin(BXModalBody) {
     return html`
       <p><slot></slot></p>
       <slot name="supplemental"></slot>
-      <bx-link size="lg" href="${ifNonNull(href)}">${!href ? href : new URL(href).hostname}</bx-link>
+      <bx-link size="lg" href="${ifNonNull(href)}"
+        >${!href ? href : new URL(href).hostname}</bx-link
+      >
     `;
   }
 

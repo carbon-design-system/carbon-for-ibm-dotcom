@@ -1,5 +1,5 @@
 /**
- * Copyright IBM Corp. 2016, 2022
+ * Copyright IBM Corp. 2016, 2023
  *
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
@@ -80,12 +80,12 @@
 
   .#{$prefix}--masthead {
     .#{$prefix}--side-nav {
-      left: -100vw;
+      inset-inline-start: -100vw;
       visibility: hidden;
       transform: translateZ(0.0001px);
       /* stylelint-disable-next-line  time-min-milliseconds */
       transition: visibility 1ms motion(exit, productive) $duration--fast-02,
-        left $duration--fast-02 motion(exit, productive) 1ms;
+        inset-inline-start $duration--fast-02 motion(exit, productive) 1ms;
 
       &:not(.#{$prefix}--side-nav--fixed):hover {
         @include carbon--breakpoint-down(md) {
@@ -139,12 +139,12 @@
 
     .#{$prefix}--side-nav--expanded {
       overflow-y: auto;
-      left: 0;
+      inset-inline-start: 0;
       visibility: visible;
       transform: translateZ(0.0001px);
       /* stylelint-disable-next-line time-min-milliseconds */
       transition: visibility 1ms motion(exit, productive) 0ms,
-        left $duration--fast-02 motion(exit, productive) 1ms;
+        inset-inline-start $duration--fast-02 motion(exit, productive) 1ms;
     }
 
     .#{$prefix}--side-nav--ux,
@@ -167,11 +167,12 @@
     height: 100%;
     overflow-y: auto;
     z-index: 0;
-    left: -100%;
+    inset-inline-start: -100%;
     background-color: $ui-background;
     padding-bottom: $spacing-09;
     transform: translateZ(0.0001px);
-    transition: left $duration--moderate-01 motion(exit, productive);
+    transition: inset-inline-start $duration--moderate-01
+      motion(exit, productive);
 
     a {
       @include carbon--type-style(body-short-02);
@@ -307,6 +308,10 @@
         path {
           fill: currentColor;
         }
+
+        :host([dir='rtl']) & {
+          transform: rotate(180deg);
+        }
       }
     }
   }
@@ -320,22 +325,22 @@
   :host(#{$dds-prefix}-left-nav-menu-section)[expanded],
   .#{$prefix}--side-nav__menu-section--expanded {
     z-index: 1;
-    left: 0;
+    inset-inline-start: 0;
   }
 
   :host(#{$dds-prefix}-left-nav-menu-section)[is-submenu],
   .#{$prefix}--side-nav__menu-section-submenu {
-    left: 100%;
+    inset-inline-start: 100%;
   }
 
   :host(#{$dds-prefix}-left-nav-menu-section)[is-submenu][expanded],
   .#{$prefix}--side-nav__menu-section-submenu.#{$prefix}--side-nav__menu-section--expanded {
-    left: 0;
+    inset-inline-start: 0;
   }
 
   :host(#{$dds-prefix}-left-nav-menu-section)[is-submenu][transition],
   .#{$prefix}--side-nav__menu-section-submenu--expanded {
-    left: -100%;
+    inset-inline-start: -100%;
   }
 
   .#{$prefix}--side-nav__menu {
@@ -408,7 +413,7 @@
   }
 
   .#{$prefix}--masthead__side-nav--submemu--selected {
-    border-left: 3px solid $interactive-01;
+    border-inline-start: 3px solid $interactive-01;
 
     .#{$prefix}--side-nav__submenu-title,
     &.#{$prefix}--side-nav__link .#{$prefix}--side-nav__link-text {
@@ -422,6 +427,10 @@
     > svg {
       transform: rotate(-90deg) scale(1.25);
       fill: $text-01;
+
+      :host([dir='rtl']) & {
+        transform: rotate(90deg) scale(1.25);
+      }
     }
   }
 

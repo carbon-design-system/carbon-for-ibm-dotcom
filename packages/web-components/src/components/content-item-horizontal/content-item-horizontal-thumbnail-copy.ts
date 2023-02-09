@@ -1,7 +1,7 @@
 /**
  * @license
  *
- * Copyright IBM Corp. 2020, 2022
+ * Copyright IBM Corp. 2020, 2023
  *
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
@@ -21,11 +21,11 @@ const { stablePrefix: ddsPrefix } = ddsSettings;
  * @element dds-content-item-horizontal-thumbnail-copy
  */
 @customElement(`${ddsPrefix}-content-item-horizontal-thumbnail-copy`)
-class DDSContentItemHorizontalThumbnailCopy extends StableSelectorMixin(DDSContentItemCopy) {
+class DDSContentItemHorizontalThumbnailCopy extends StableSelectorMixin(
+  DDSContentItemCopy
+) {
   render() {
-    return html`
-      <slot></slot>
-    `;
+    return html` <slot></slot> `;
   }
 
   static get stableSelector() {

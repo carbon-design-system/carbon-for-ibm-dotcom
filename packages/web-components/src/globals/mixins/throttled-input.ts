@@ -1,7 +1,7 @@
 /**
  * @license
  *
- * Copyright IBM Corp. 2020, 2022
+ * Copyright IBM Corp. 2020, 2023
  *
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
@@ -39,7 +39,9 @@ const ThrottledInputMixin = <T extends Constructor<HTMLElement>>(Base: T) => {
      *
      * @private
      */
-    _throttledHandleInput: (((event: InputEvent) => void) & { cancel(): void }) | null = null;
+    _throttledHandleInput:
+      | (((event: InputEvent) => void) & { cancel(): void })
+      | null = null;
 
     /**
      * Handles `input` event on the search box.
@@ -61,7 +63,10 @@ const ThrottledInputMixin = <T extends Constructor<HTMLElement>>(Base: T) => {
         this._throttledHandleInput.cancel();
         this._throttledHandleInput = null;
       }
-      this._throttledHandleInput = throttle(this._handleThrottledInput, this.inputTimeout);
+      this._throttledHandleInput = throttle(
+        this._handleThrottledInput,
+        this.inputTimeout
+      );
     }
 
     /**
@@ -74,7 +79,11 @@ const ThrottledInputMixin = <T extends Constructor<HTMLElement>>(Base: T) => {
       // @ts-ignore
       super.connectedCallback();
       const { eventInput } = this.constructor as typeof ThrottledInputMixinImpl;
-      this._hInputToBeThrottled = on(this, eventInput, this._invokeHandleThrottledInput as EventListener);
+      this._hInputToBeThrottled = on(
+        this,
+        eventInput,
+        this._invokeHandleThrottledInput as EventListener
+      );
       this._updateThrottledHandleInput();
     }
 

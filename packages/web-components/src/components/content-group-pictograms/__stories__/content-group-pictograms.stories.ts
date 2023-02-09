@@ -2,7 +2,7 @@
 /**
  * @license
  *
- * Copyright IBM Corp. 2020, 2022
+ * Copyright IBM Corp. 2020, 2023
  *
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
@@ -10,7 +10,7 @@
 
 import '../index';
 import { html } from 'lit-element';
-import ArrowRight20 from 'carbon-web-components/es/icons/arrow--right/20';
+import ArrowRight20 from '../../../internal/vendor/@carbon/web-components/icons/arrow--right/20';
 import readme from './README.stories.mdx';
 import textNullable from '../../../../.storybook/knob-text-nullable';
 import styles from './content-group-pictograms.stories.scss';
@@ -45,15 +45,13 @@ const pictogramsItems = [
 export default {
   title: 'Components/Content group pictograms',
   decorators: [
-    story => html`
+    (story) => html`
       <style>
         ${styles}
       </style>
       <div class="bx--grid">
         <div class="bx--row">
-          <div class="bx--col-lg-8 bx--no-gutter">
-            ${story()}
-          </div>
+          <div class="bx--col-lg-8 bx--no-gutter">${story()}</div>
         </div>
       </div>
     `,
@@ -63,7 +61,10 @@ export default {
     hasStoryPadding: true,
     knobs: {
       ContentGroupPictograms: () => ({
-        heading: textNullable('Heading (heading)', 'Lorem ipsum dolor sit amet'),
+        heading: textNullable(
+          'Heading (heading)',
+          'Lorem ipsum dolor sit amet'
+        ),
         copy: `Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum non porttitor libero, in venenatis magna.
           Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum non porttitor libero, in venenatis magna.
           Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum non porttitor libero, in venenatis magna.`,
@@ -82,8 +83,9 @@ export default {
   },
 };
 
-export const Default = args => {
-  const { heading: groupHeading, copy: groupCopy } = args?.ContentGroupPictograms ?? {};
+export const Default = (args) => {
+  const { heading: groupHeading, copy: groupCopy } =
+    args?.ContentGroupPictograms ?? {};
   return html`
     <dds-content-group-pictograms>
       <dds-content-group-heading>${groupHeading}</dds-content-group-heading>
@@ -101,8 +103,7 @@ export const Default = args => {
               width="64"
               height="64"
               viewBox="8 8 32 32"
-              xml:space="preserve"
-            >
+              xml:space="preserve">
               <g>
                 <g>
                   <path
@@ -111,8 +112,7 @@ export const Default = args => {
                     M34,26h-7 M15,26H9 M30,29v8h9V21h-5 M30,34h9 M20.998,27.621c0-0.573-0.447-1.037-0.998-1.037s-0.998,0.464-0.998,1.037v2.378
                     l-0.005-6.962c0-0.573-0.447-1.037-0.998-1.037S17,22.464,17,23.037v5.882v4.924C17,36.139,18.792,38,21.002,38
                     S25,36.121,25,33.842v-5.04c0-0.573-0.447-1.037-0.998-1.037s-0.998,0.464-0.998,1.037v1.196l-0.005-1.935
-                    c0-0.573-0.447-1.037-0.998-1.037s-1.002,0.464-1.002,1.037l0.004,1.935L20.998,27.621z"
-                  />
+                    c0-0.573-0.447-1.037-0.998-1.037s-1.002,0.464-1.002,1.037l0.004,1.935L20.998,27.621z" />
                 </g>
               </g>
               <g></g>

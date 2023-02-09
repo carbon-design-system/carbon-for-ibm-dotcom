@@ -1,7 +1,7 @@
 /**
  * @license
  *
- * Copyright IBM Corp. 2020, 2022
+ * Copyright IBM Corp. 2020, 2023
  *
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
@@ -23,18 +23,23 @@ const { prefix } = settings;
  */
 @customElement(`${ddsPrefix}-structured-list`)
 class DDSStructuredList extends StableSelectorMixin(LitElement) {
-  private _listMutationObserver = new MutationObserver(this._setColumnSpans.bind(this));
+  private _listMutationObserver = new MutationObserver(
+    this._setColumnSpans.bind(this)
+  );
 
   /**
    * Handles attribute changes to attributes starting with `col-span`.
    */
   private _setColumnSpans(entries) {
-    entries.forEach(entry => {
+    entries.forEach((entry) => {
       const attr = entry.attributeName;
 
       if (attr?.startsWith('col-span')) {
         if (this.hasAttribute(attr) && parseInt(this.getAttribute(attr)!, 10)) {
-          this.style.setProperty(`--${attr}`, parseInt(this.getAttribute(attr)!, 10).toString());
+          this.style.setProperty(
+            `--${attr}`,
+            parseInt(this.getAttribute(attr)!, 10).toString()
+          );
         } else {
           this.style.removeProperty(`--${attr}`);
         }
@@ -47,11 +52,16 @@ class DDSStructuredList extends StableSelectorMixin(LitElement) {
       this.setAttribute('role', 'table');
     }
     super.connectedCallback();
-    this._listMutationObserver.observe(this, { attributes: true, attributeOldValue: true });
+    this._listMutationObserver.observe(this, {
+      attributes: true,
+      attributeOldValue: true,
+    });
 
-    const colSpanAttributes = Object.values(this.attributes).filter(attr => attr.name.startsWith('col-span'));
+    const colSpanAttributes = Object.values(this.attributes).filter((attr) =>
+      attr.name.startsWith('col-span')
+    );
 
-    colSpanAttributes.forEach(attr => {
+    colSpanAttributes.forEach((attr) => {
       this.style.setProperty(`--${attr.name}`, attr.value);
     });
   }

@@ -1,7 +1,7 @@
 /**
  * @license
  *
- * Copyright IBM Corp. 2020, 2022
+ * Copyright IBM Corp. 2020, 2023
  *
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
@@ -43,10 +43,14 @@ class DDSCardCTAFooter extends VideoCTAMixin(CTAMixin(DDSCardFooter)) {
     const caption = hasCopy
       ? undefined
       : formatVideoCaptionInEffect({
-          duration: formatVideoDurationInEffect({ duration: !videoDuration ? videoDuration : videoDuration * 1000 }),
+          duration: formatVideoDurationInEffect({
+            duration: !videoDuration ? videoDuration : videoDuration * 1000,
+          }),
         });
     return html`
-      <span class="${prefix}--card__cta__copy"><slot @slotchange="${this._handleSlotChange}"></slot>${caption}</span>
+      <span class="${prefix}--card__cta__copy"
+        ><slot @slotchange="${this._handleSlotChange}"></slot>${caption}</span
+      >
     `;
   }
 

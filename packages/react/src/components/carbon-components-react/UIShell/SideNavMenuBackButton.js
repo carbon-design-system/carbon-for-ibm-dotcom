@@ -1,5 +1,5 @@
 /**
- * Copyright IBM Corp. 2016, 2022
+ * Copyright IBM Corp. 2016, 2023
  *
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
@@ -22,12 +22,12 @@ const SideNavMenuBackButton = React.forwardRef(function SideNavMenuBackButton(
 ) {
   const { onBackClick, backButtonText, ...rest } = props;
 
-  const handleBackButtonClick = event => {
+  const handleBackButtonClick = (event) => {
     event.preventDefault();
     onBackClick();
   };
 
-  const handleBackButtonKeyPress = event => {
+  const handleBackButtonKeyPress = (event) => {
     if (event.key === 'Enter' || event.charCode === ' ') {
       event.preventDefault();
       onBackClick();
