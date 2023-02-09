@@ -18,7 +18,7 @@ $caret-horizontal-position: calc(#{$caret-size * (-1)} + 1px);
 @use '@carbon/styles/scss/utilities';
 @use '@carbon/styles/scss/spacing' as *;
 @use '@carbon/styles/scss/theme' as *;
-@use '@carbon/styles/scss/components/tooltip';
+@use '@carbon/styles/scss/components/tooltip/index' as *;
 
 // https://github.com/carbon-design-system/carbon/issues/11408
 // @include tooltip;
