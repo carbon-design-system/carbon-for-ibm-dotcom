@@ -31,7 +31,7 @@ export const Default = (args) => {
     uncheckedText,
     value,
     onChange,
-  } = args?.['bx-toggle'] ?? {};
+  } = args?.['cds-toggle'] ?? {};
   return html`
     <cds-toggle
       ?checked="${checked}"
@@ -42,7 +42,7 @@ export const Default = (args) => {
       size="${ifNonNull(size)}"
       unchecked-text="${ifNonNull(uncheckedText)}"
       value="${ifNonNull(value)}"
-      @bx-toggle-changed="${onChange}"></cds-toggle>
+      @cds-toggle-changed="${onChange}"></cds-toggle>
   `;
 };
 
@@ -53,7 +53,7 @@ export default {
   parameters: {
     ...storyDocs.parameters,
     knobs: {
-      'bx-toggle': () => ({
+      'cds-toggle': () => ({
         checked: boolean('Checked (checked)', false),
         checkedText: textNullable(
           'Text for checked state (checked-text)',

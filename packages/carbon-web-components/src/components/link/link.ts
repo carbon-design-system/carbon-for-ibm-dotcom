@@ -124,6 +124,7 @@ class BXLink extends FocusMixin(LitElement) {
     } = this;
     return html`
       <a
+        tabindex="0"
         id="link"
         role="${ifNonNull(linkRole)}"
         class="${classes}"
