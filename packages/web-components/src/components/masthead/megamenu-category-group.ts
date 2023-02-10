@@ -44,7 +44,7 @@ class DDSMegaMenuCategoryGroup extends LitElement {
           </div>
           <div class="${prefix}--masthead__megamenu__category-group-content">
             <slot></slot>
-          </div">
+          </div>
         </div>
       </div>
     `;

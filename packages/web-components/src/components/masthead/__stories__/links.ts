@@ -4284,7 +4284,6 @@ const mastheadLinksV2: L0MenuItem[] = [
           heading: {
             title: 'Heading 1',
             titleEnglish: 'Heading 1',
-            url: 'https://www.example.com',
             description: 'Description text lorem ipsum dolor sit amet commondo ligua eaget',
           },
           groups: [
