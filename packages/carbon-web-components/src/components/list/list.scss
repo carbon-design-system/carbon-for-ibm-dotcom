@@ -15,11 +15,12 @@ $css--plex: true !default;
 
 :host(#{$prefix}-ordered-list),
 :host(#{$prefix}-unordered-list) {
-  display: block;
-  padding-left: $spacing-06;
-
   .#{$prefix}--list--nested {
-    margin-left: 0;
+    margin-left: rem(32px);
+  }
+
+  .#{$prefix}--list--nested ::slotted(#{$prefix}-list-item) {
+    padding-left: $spacing-02;
   }
 }
 
@@ -62,7 +63,7 @@ $css--plex: true !default;
 
   &::before {
     position: absolute;
-    left: -$spacing-05;
+    left: calc(-1 * #{$spacing-05});
     // – en dash
     content: '\002013';
   }
@@ -71,7 +72,7 @@ $css--plex: true !default;
 :host(#{$prefix}-unordered-list[slot='nested'])
   ::slotted(#{$prefix}-list-item)::before {
   // offset to account for smaller ▪ vs –
-  left: -$spacing-04;
+  left: calc(-1 * #{$spacing-04});
   // ▪ square
   content: '\0025AA';
 }
