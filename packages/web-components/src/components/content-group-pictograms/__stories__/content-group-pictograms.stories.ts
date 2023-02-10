@@ -10,7 +10,7 @@
 
 import '../index';
 import { html } from 'lit';
-import ArrowRight20 from '@carbon/web-components/es/icons/arrow--right/20.js';
+import ArrowRight20 from '../../../internal/vendor/@carbon/web-components/icons/arrow--right/20';
 import readme from './README.stories.mdx';
 import textNullable from '../../../../.storybook/knob-text-nullable';
 import styles from './content-group-pictograms.stories.scss';

@@ -9,7 +9,7 @@
 
 import { html } from 'lit';
 import { ifDefined } from 'lit/directives/if-defined.js';
-import ArrowRight20 from '@carbon/web-components/es/icons/arrow--right/20.js';
+import ArrowRight20 from '../../../internal/vendor/@carbon/web-components/icons/arrow--right/20.js';
 import '../index';
 import styles from './card-section-carousel.stories.scss';
 import readme from './README.stories.mdx';

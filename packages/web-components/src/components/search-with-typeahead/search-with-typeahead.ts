@@ -12,14 +12,14 @@ import { classMap } from 'lit/directives/class-map.js';
 import { html } from 'lit';
 import { customElement, property, query } from 'lit/decorators.js';
 import settings from 'carbon-components/es/globals/js/settings.js';
-import Close20 from '@carbon/web-components/es/icons/close/20.js';
-import Search20 from '@carbon/web-components/es/icons/search/20.js';
+import Close20 from '../../internal/vendor/@carbon/web-components/icons/close/20.js';
+import Search20 from '../../internal/vendor/@carbon/web-components/icons/search/20.js';
 import BXDropdown, {
   DROPDOWN_KEYBOARD_ACTION,
-} from '@carbon/web-components/es/components/dropdown/dropdown.js';
-import BXDropdownItem from '@carbon/web-components/es/components/dropdown/dropdown-item.js';
-import HostListener from '@carbon/web-components/es/globals/decorators/host-listener.js';
-import HostListenerMixin from '@carbon/web-components/es/globals/mixins/host-listener.js';
+} from '../../internal/vendor/@carbon/web-components/components/dropdown/dropdown.js';
+import BXDropdownItem from '../../internal/vendor/@carbon/web-components/components/dropdown/dropdown-item.js';
+import HostListener from '../../internal/vendor/@carbon/web-components/globals/decorators/host-listener.js';
+import HostListenerMixin from '../../internal/vendor/@carbon/web-components/globals/mixins/host-listener.js';
 import { baseFontSize, breakpoints } from '@carbon/layout';
 import ddsSettings from '../../internal/vendor/@carbon/ibmdotcom-utilities/utilities/settings/settings';
 import SearchTypeaheadAPI from '../../internal/vendor/@carbon/ibmdotcom-services/services/SearchTypeahead/SearchTypeahead';

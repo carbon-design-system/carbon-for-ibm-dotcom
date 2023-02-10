@@ -8,7 +8,7 @@
  */
 
 import { html, render } from 'lit/html.js';
-import ArrowRight20 from '@carbon/web-components/es/icons/arrow--right/20.js';
+import ArrowRight20 from '../../../internal/vendor/@carbon/web-components/icons/arrow--right/20';
 import '../index';
 
 const template = (props?) => {

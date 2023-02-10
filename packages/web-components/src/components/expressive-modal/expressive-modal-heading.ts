@@ -8,7 +8,7 @@
  */
 
 import { customElement } from 'lit/decorators.js';
-import BXModalHeading from '@carbon/web-components/es/components/modal/modal-heading.js';
+import BXModalHeading from '../../internal/vendor/@carbon/web-components/components/modal/modal-heading.js';
 import ddsSettings from '../../internal/vendor/@carbon/ibmdotcom-utilities/utilities/settings/settings';
 import styles from './expressive-modal.scss';
 import StableSelectorMixin from '../../globals/mixins/stable-selector';

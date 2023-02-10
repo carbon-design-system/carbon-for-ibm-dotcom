@@ -11,7 +11,7 @@ import { html } from 'lit';
 import { customElement, property } from 'lit/decorators.js';
 import settings from 'carbon-components/es/globals/js/settings.js';
 import { ifDefined } from 'lit/directives/if-defined.js';
-import BXHeaderName from '@carbon/web-components/es/components/ui-shell/header-name.js';
+import BXHeaderName from '../../internal/vendor/@carbon/web-components/components/ui-shell/header-name.js';
 import ddsSettings from '../../internal/vendor/@carbon/ibmdotcom-utilities/utilities/settings/settings';
 import styles from './masthead.scss';
 import DDSLeftNav from './left-nav';

@@ -8,7 +8,7 @@
  */
 
 import { customElement, property } from 'lit/decorators.js';
-import BXModalCloseButton from '@carbon/web-components/es/components/modal/modal-close-button.js';
+import BXModalCloseButton from '../../internal/vendor/@carbon/web-components/components/modal/modal-close-button.js';
 import ddsSettings from '../../internal/vendor/@carbon/ibmdotcom-utilities/utilities/settings/settings';
 import { EXPRESSIVE_MODAL_SIZE } from './defs';
 import styles from './expressive-modal.scss';

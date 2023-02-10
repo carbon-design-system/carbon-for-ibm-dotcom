@@ -5,7 +5,7 @@
  * LICENSE file in the root directory of this source tree.
  */
 
-import { html, render } from 'lit';
+import { html, render } from 'lit/html.js';
 import '../../../leadspace/index';
 import '../../../content-block-simple/index';
 import '../../../content-group-simple/index';
@@ -16,7 +16,7 @@ import '../../../link-list/index';
 import '../../../cta/index';
 import '../../../button/index';
 
-import ArrowRight20 from '@carbon/web-components/es/icons/arrow--right/20.js';
+import ArrowRight20 from '../../../../internal/vendor/@carbon/web-components/icons/arrow--right/20';
 import imgLg1x1 from '../../../../../../storybook-images/assets/960/fpo--1x1--960x960--006.jpg';
 import leadspaceImg from '../../../../../../storybook-images/assets/leadspace/leadspaceMax2.jpg';
 

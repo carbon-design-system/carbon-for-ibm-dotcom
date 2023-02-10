@@ -7,7 +7,7 @@
  * LICENSE file in the root directory of this source tree.
  */
 
-import { render, TemplateResult } from 'lit-html';
+import { render, TemplateResult } from 'lit';
 import { Constructor } from '../defs';
 
 /**

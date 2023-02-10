@@ -13,7 +13,7 @@ import '../../content-block-cards/index';
 import '../../content-group-cards/index';
 import '../../content-group-pictograms/index';
 import '../../content-group-simple/index';
-import ArrowRight20 from '@carbon/web-components/es/icons/arrow--right/20.js';
+import ArrowRight20 from '../../../internal/vendor/@carbon/web-components/icons/arrow--right/20';
 import { html } from 'lit';
 import { ifDefined } from 'lit/directives/if-defined.js';
 import { select } from '@storybook/addon-knobs';

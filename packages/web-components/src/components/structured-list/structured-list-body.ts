@@ -7,7 +7,7 @@
  * LICENSE file in the root directory of this source tree.
  */
 
-import BXStructuredListBody from '@carbon/web-components/es/components/structured-list/structured-list-body.js';
+import BXStructuredListBody from '../../internal/vendor/@carbon/web-components/components/structured-list/structured-list-body.js';
 import { customElement } from 'lit/decorators.js';
 import ddsSettings from '../../internal/vendor/@carbon/ibmdotcom-utilities/utilities/settings/settings';
 import styles from './structured-list.scss';

@@ -11,7 +11,7 @@ import { html } from 'lit';
 import { action } from '@storybook/addon-actions';
 import { boolean, select } from '@storybook/addon-knobs';
 import { ifDefined } from 'lit/directives/if-defined.js';
-import '@carbon/web-components/es/components/modal/modal-close-button.js';
+import '../../../internal/vendor/@carbon/web-components/components/modal/modal-close-button.js';
 import textNullable from '../../../../.storybook/knob-text-nullable';
 import '../index';
 import '../../carousel/index';

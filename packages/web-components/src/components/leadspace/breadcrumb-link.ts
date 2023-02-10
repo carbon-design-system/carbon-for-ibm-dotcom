@@ -8,7 +8,7 @@
  */
 
 import { customElement } from 'lit/decorators.js';
-import BXBreadcrumbLink from '@carbon/web-components/es/components/breadcrumb/breadcrumb-link.js';
+import BXBreadcrumbLink from '../../internal/vendor/@carbon/web-components/components/breadcrumb/breadcrumb-link.js';
 import ddsSettings from '../../internal/vendor/@carbon/ibmdotcom-utilities/utilities/settings/settings';
 import StableSelectorMixin from '../../globals/mixins/stable-selector';
 import styles from './leadspace.scss';

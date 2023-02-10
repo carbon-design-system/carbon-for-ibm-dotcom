@@ -8,8 +8,8 @@
  */
 
 import { boolean, number, select } from '@storybook/addon-knobs';
-import ArrowRight20 from '@carbon/web-components/es/icons/arrow--right/20.js';
-import Launch20 from '@carbon/web-components/es/icons/launch/20';
+import ArrowRight20 from '../../../internal/vendor/@carbon/web-components/icons/arrow--right/20';
+import Launch20 from '../../../internal/vendor/@carbon/web-components/icons/launch/20';
 import { html } from 'lit';
 import { ifDefined } from 'lit/directives/if-defined.js';
 import readme from './README.stories.mdx';

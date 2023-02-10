@@ -8,7 +8,7 @@
  */
 
 import { customElement } from 'lit/decorators.js';
-import BXSideNavLink from '@carbon/web-components/es/components/ui-shell/side-nav-link.js';
+import BXSideNavLink from '../../internal/vendor/@carbon/web-components/components/ui-shell/side-nav-link.js';
 import ddsSettings from '../../internal/vendor/@carbon/ibmdotcom-utilities/utilities/settings/settings';
 import styles from './masthead.scss';
 

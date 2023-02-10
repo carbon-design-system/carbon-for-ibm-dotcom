@@ -11,7 +11,7 @@ import { html } from 'lit';
 import { customElement, property } from 'lit/decorators.js';
 import on from 'carbon-components/es/globals/js/misc/on.js';
 import { ifDefined } from 'lit/directives/if-defined.js';
-import HostListener from '@carbon/web-components/es/globals/decorators/host-listener.js';
+import HostListener from '../../internal/vendor/@carbon/web-components/globals/decorators/host-listener.js';
 import ddsSettings from '../../internal/vendor/@carbon/ibmdotcom-utilities/utilities/settings/settings';
 import { MediaData } from '../../internal/vendor/@carbon/ibmdotcom-services-store/types/kalturaPlayerAPI.d';
 import ModalRenderMixin from '../../globals/mixins/modal-render';

@@ -50,8 +50,11 @@ function rollupPluginIBMdotcomIcon({ include = /\.svg$/i, exclude } = {}) {
       }
 
       const code = [
-        `import { svg } from 'lit-html'`,
-        `import spread from '@carbon/web-components/es/globals/directives/spread'`,
+        `import { svg } from 'lit'`,
+        `import spread from '${path.resolve(
+          __dirname,
+          '../src/internal/vendor/@carbon/web-components/globals/directives/spread'
+        )}'`,
         `export default ${createSVGResultFromIconDescriptor(
           await descriptorFromSVG(contents)
         )}`,

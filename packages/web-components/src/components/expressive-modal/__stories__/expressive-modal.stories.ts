@@ -10,8 +10,8 @@
 import { html } from 'lit';
 import { action } from '@storybook/addon-actions';
 import { boolean, select } from '@storybook/addon-knobs';
-import ArrowRight20 from '@carbon/web-components/es/icons/arrow--right/20.js';
-import '@carbon/web-components/es/components/button/button.js';
+import ArrowRight20 from '../../../internal/vendor/@carbon/web-components/icons/arrow--right/20.js';
+import '../../../internal/vendor/@carbon/web-components/components/button/button.js';
 import { ifDefined } from 'lit/directives/if-defined.js';
 import textNullable from '../../../../.storybook/knob-text-nullable';
 import { EXPRESSIVE_MODAL_SIZE } from '../defs';

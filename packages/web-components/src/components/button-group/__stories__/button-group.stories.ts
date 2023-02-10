@@ -9,9 +9,9 @@
 
 import { number, select, text } from '@storybook/addon-knobs';
 import { html } from 'lit';
-import ArrowRight20 from '@carbon/web-components/es/icons/arrow--right/20.js';
-import ArrowDown20 from '@carbon/web-components/es/icons/arrow--down/20.js';
-import Pdf20 from '@carbon/web-components/es/icons/PDF/20.js';
+import ArrowRight20 from '../../../internal/vendor/@carbon/web-components/icons/arrow--right/20.js';
+import ArrowDown20 from '../../../internal/vendor/@carbon/web-components/icons/arrow--down/20.js';
+import Pdf20 from '../../../internal/vendor/@carbon/web-components/icons/PDF/20.js';
 import readme from './README.stories.mdx';
 import '../index';
 import textNullable from '../../../../.storybook/knob-text-nullable';

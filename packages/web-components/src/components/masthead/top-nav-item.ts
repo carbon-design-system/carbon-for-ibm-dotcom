@@ -8,7 +8,7 @@
  */
 
 import { customElement, property, query } from 'lit/decorators.js';
-import BXHeaderNavItem from '@carbon/web-components/es/components/ui-shell/header-nav-item.js';
+import BXHeaderNavItem from '../../internal/vendor/@carbon/web-components/components/ui-shell/header-nav-item.js';
 import ddsSettings from '../../internal/vendor/@carbon/ibmdotcom-utilities/utilities/settings/settings';
 import styles from './masthead.scss';
 
