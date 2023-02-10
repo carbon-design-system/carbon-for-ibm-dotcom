@@ -1,7 +1,7 @@
 /**
  * @license
  *
- * Copyright IBM Corp. 2020, 2022
+ * Copyright IBM Corp. 2020, 2023
  *
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
@@ -10,11 +10,11 @@
 import findLast from 'lodash-es/findLast.js';
 import { html, query, property, customElement } from 'lit-element';
 import settings from 'carbon-components/es/globals/js/settings.js';
-import { selectorTabbable } from '@carbon/web-components/es/globals/settings.js';
-import HostListener from '@carbon/web-components/es/globals/decorators/host-listener.js';
+import { selectorTabbable } from '../../internal/vendor/@carbon/web-components/globals/settings.js';
+import HostListener from '../../internal/vendor/@carbon/web-components/globals/decorators/host-listener.js';
 import BXSideNav, {
   SIDE_NAV_USAGE_MODE,
-} from '@carbon/web-components/es/components/ui-shell/side-nav.js';
+} from '../../internal/vendor/@carbon/web-components/components/ui-shell/side-nav.js';
 import ddsSettings from '../../internal/vendor/@carbon/ibmdotcom-utilities/utilities/settings/settings';
 import focuswrap from '../../internal/vendor/@carbon/ibmdotcom-utilities/utilities/focuswrap/focuswrap';
 import { find, forEach } from '../../globals/internal/collection-helpers';
