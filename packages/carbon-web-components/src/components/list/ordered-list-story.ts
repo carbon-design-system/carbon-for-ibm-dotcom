@@ -9,12 +9,11 @@
 
 import { html } from 'lit-element';
 import './ordered-list';
-import './unordered-list';
 import './list-item';
 import { boolean } from '@storybook/addon-knobs';
 import storyDocs from './list-story.mdx';
 
-export const ordered = (args) => {
+export const Default = (args) => {
   const { isExpressive, native } = args?.['cds-list'] ?? {};
   return html`
     <cds-ordered-list ?isExpressive="${isExpressive}" ?native="${native}">
@@ -48,31 +47,10 @@ export const ordered = (args) => {
   `;
 };
 
-export const unordered = (args) => {
-  const { isExpressive } = args?.['cds-list'] ?? {};
-  return html`
-    <cds-unordered-list ?isExpressive="${isExpressive}">
-      <cds-list-item>
-        Unordered List level 1
-        <cds-unordered-list ?isExpressive="${isExpressive}">
-          <cds-list-item>Unordered List level 2</cds-list-item>
-          <cds-list-item>
-            Unordered List level 2
-            <cds-unordered-list ?isExpressive="${isExpressive}">
-              <cds-list-item>Unordered List level 2</cds-list-item>
-              <cds-list-item>Unordered List level 2</cds-list-item>
-            </cds-unordered-list>
-          </cds-list-item>
-        </cds-unordered-list>
-      </cds-list-item>
-      <cds-list-item>Unordered List level 1</cds-list-item>
-      <cds-list-item>Unordered List level 1</cds-list-item>
-    </cds-unordered-list>
-  `;
-};
+Default.storyName = 'Default';
 
 export default {
-  title: 'Components/List',
+  title: 'Components/Ordered List',
   parameters: {
     ...storyDocs.parameters,
     knobs: {
