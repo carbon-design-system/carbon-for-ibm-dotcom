@@ -334,7 +334,7 @@ class DDSMastheadComposite extends HostListenerMixin(LitElement) {
   protected _renderLeftNavMenuSections({
     ctas,
     menuItems,
-    heading = '',
+    heading,
     isSubmenu = false,
     showBackButton = false,
     sectionTitle = '',
@@ -362,16 +362,29 @@ class DDSMastheadComposite extends HostListenerMixin(LitElement) {
           href="${elem.url}"
           title="${elem.title}"
           data-autoid="${elem.autoid}"
+          .isHeading=${elem.isHeading ?? false}
+          .isViewAll=${elem.isViewAll ?? false}
         ></dds-left-nav-menu-item>
       `;
     });
 
     if (heading) {
-      items.unshift(
-        html`
-          <dds-left-nav-menu-category-heading>${heading}</dds-left-nav-menu-category-heading>
-        `
-      );
+      if (typeof heading === 'string') {
+        items.unshift(
+          html`
+            <dds-left-nav-menu-category-heading title="${heading}"></dds-left-nav-menu-category-heading>
+          `
+        );
+      } else {
+        const { title, description, url } = heading;
+        items.unshift(
+          html`
+            <dds-left-nav-menu-category-heading .boostSize=${true} title="${title}" url="${ifDefined(url)}">
+              ${description ?? ''}
+            </dds-left-nav-menu-category-heading>
+          `
+        );
+      }
     }
 
     if (ctas) {
@@ -466,8 +479,13 @@ class DDSMastheadComposite extends HostListenerMixin(LitElement) {
         url?: string;
         menu: boolean;
         selected: boolean;
+        isHeading?: boolean;
+        isViewAll?: boolean;
+        heading?: string;
+        description?: string;
       }[] = [];
 
+      // If it's a "simple" menu, no megapanels.
       if (elem?.submenu instanceof Array) {
         elem.submenu.forEach((link, j) => {
           level1Items.push({
@@ -491,11 +509,13 @@ class DDSMastheadComposite extends HostListenerMixin(LitElement) {
               sectionTitle: elem.title,
               sectionUrl: elem.url,
               sectionId: `${i}, -1`,
+              heading: elem.title,
             })
           );
         }
       }
 
+      // If it's a megapanel.
       const submenu = elem.submenu as L0Megamenu;
       if (submenu?.sections) {
         // Check if other types of links exist.
@@ -517,6 +537,7 @@ class DDSMastheadComposite extends HostListenerMixin(LitElement) {
                 panelId: `${i}, ${j}`,
                 menu: false,
                 selected: false,
+                isHeading: true,
               });
             }
             if (links) {
@@ -551,6 +572,7 @@ class DDSMastheadComposite extends HostListenerMixin(LitElement) {
               url?: string;
               autoid: string;
               selected: boolean;
+              isHeading?: boolean;
             }[] = [];
 
             groups.forEach((linkGroup: MegapanelLinkGroup, k) => {
@@ -562,6 +584,7 @@ class DDSMastheadComposite extends HostListenerMixin(LitElement) {
                   url: groupHeading.url,
                   autoid: `${autoid}--sidenav--nav${i}-list${j}-heading${k}`,
                   selected: false,
+                  isHeading: true,
                 });
               }
               if (links) {
@@ -586,6 +609,7 @@ class DDSMastheadComposite extends HostListenerMixin(LitElement) {
                   sectionTitle: heading?.title,
                   sectionUrl: heading?.url,
                   sectionId: `${i}, ${j}`,
+                  heading,
                 })
               );
             }
@@ -614,6 +638,7 @@ class DDSMastheadComposite extends HostListenerMixin(LitElement) {
                 autoid: `${autoid}--sidenav--nav${i}-list${j}`,
                 menu: false,
                 selected: false,
+                isHeading: true,
               });
             }
 
@@ -643,10 +668,16 @@ class DDSMastheadComposite extends HostListenerMixin(LitElement) {
             autoid: `${autoid}--sidenav--nav${i}-list${level1Items.length}`,
             menu: false,
             selected: false,
+            isViewAll: true,
           });
         }
 
         if (level1Items.length !== 0) {
+          const isNotFaceted = submenu.sections.length === 1;
+          const megapanelHeading = submenu.sections[0].heading;
+
+          const heading = isNotFaceted && !!megapanelHeading ? megapanelHeading : elem.title;
+
           menu.push(
             this._renderLeftNavMenuSections({
               ctas: undefined,
@@ -656,6 +687,7 @@ class DDSMastheadComposite extends HostListenerMixin(LitElement) {
               sectionTitle: elem.title,
               sectionUrl: elem.url,
               sectionId: `${i}, -1`,
+              heading,
             })
           );
         }
@@ -677,6 +709,7 @@ class DDSMastheadComposite extends HostListenerMixin(LitElement) {
         ctas: ctaButtons,
         menuItems: level0Items,
         sectionId: '-1, -1',
+        heading: false,
       })}
       ${menu}
     `;

@@ -45,7 +45,13 @@ module.exports = {
     'selector-pseudo-class-no-unknown': [
       true,
       {
-        ignorePseudoClasses: ['part'],
+        ignorePseudoClasses: ['part', 'is', 'where'],
+      },
+    ],
+    'selector-pseudo-element-no-unknown': [
+      true,
+      {
+        ignorePseudoElements: ['part'],
       },
     ],
     'selector-type-no-unknown': true,

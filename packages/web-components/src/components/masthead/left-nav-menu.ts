@@ -1,7 +1,7 @@
 /**
  * @license
  *
- * Copyright IBM Corp. 2020, 2022
+ * Copyright IBM Corp. 2020, 2023
  *
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
@@ -10,7 +10,7 @@
 import { classMap } from 'lit-html/directives/class-map.js';
 import { html, property, customElement, LitElement } from 'lit-element';
 import settings from 'carbon-components/es/globals/js/settings.js';
-import ChevronDown20 from 'carbon-web-components/es/icons/chevron--down/20.js';
+import ChevronDown16 from 'carbon-web-components/es/icons/chevron--down/16.js';
 import FocusMixin from 'carbon-web-components/es/globals/mixins/focus.js';
 import ddsSettings from '../../internal/vendor/@carbon/ibmdotcom-utilities/utilities/settings/settings';
 import styles from './masthead.scss';
@@ -107,7 +107,7 @@ class DDSLeftNavMenu extends FocusMixin(LitElement) {
           <div class="${prefix}--side-nav__submenu-content">
             <span class="${prefix}--side-nav__submenu-title">${title}</span>
             <div class="${prefix}--side-nav__icon ${prefix}--side-nav__icon--small ${prefix}--side-nav__submenu-chevron">
-              ${ChevronDown20()}
+              ${ChevronDown16()}
             </div>
           </div>
         </button>
