@@ -13,9 +13,18 @@ $css--plex: true !default;
 @use '@carbon/styles/scss/motion' as *;
 @use '@carbon/styles/scss/components/tile/index' as *;
 @use '@carbon/styles/scss/components/link/index' as *;
+@use '@carbon/styles/scss/components/form/index' as *;
 
 :host(#{$prefix}-tile) {
   @extend .#{$prefix}--tile;
+
+  ::slotted(.#{$prefix}--link) {
+    @extend .#{$prefix}--link;
+  }
+}
+
+:host(#{$prefix}-tile-group) {
+  @extend .#{$prefix}--tile-group;
 }
 
 :host(#{$prefix}-clickable-tile) {
@@ -44,8 +53,10 @@ $css--plex: true !default;
 }
 
 :host(#{$prefix}-radio-tile) {
-  display: content;
+  display: block;
   outline: none;
+
+  margin-bottom: $spacing-03;
 }
 
 :host(#{$prefix}-selectable-tile) {

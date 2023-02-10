@@ -48,6 +48,25 @@ class BXSelectableTile extends FocusMixin(LitElement) {
   }
 
   /**
+   * Handles the rendering of the icon.
+   */
+  protected _renderIcon() {
+    const { selected, checkmarkLabel } = this;
+
+    return html` ${selected
+      ? CheckboxCheckedFilled16({
+          children: !checkmarkLabel
+            ? undefined
+            : svg`<title>${checkmarkLabel}</title>`,
+        })
+      : Checkbox16({
+          children: !checkmarkLabel
+            ? undefined
+            : svg`<title>${checkmarkLabel}</title>`,
+        })}`;
+  }
+
+  /**
    * The a11y text for the checkmark icon of the selected state.
    */
   @property({ attribute: 'checkmark-label' })
@@ -88,7 +107,6 @@ class BXSelectableTile extends FocusMixin(LitElement) {
 
   render() {
     const {
-      checkmarkLabel,
       colorScheme,
       name,
       selected,
@@ -115,17 +133,7 @@ class BXSelectableTile extends FocusMixin(LitElement) {
       <label for="input" class="${classes}" tabindex="0">
         <div
           class="${prefix}--tile__checkmark ${prefix}--tile__checkmark--persistent">
-          ${selected
-            ? CheckboxCheckedFilled16({
-                children: !checkmarkLabel
-                  ? undefined
-                  : svg`<title>${checkmarkLabel}</title>`,
-              })
-            : Checkbox16({
-                children: !checkmarkLabel
-                  ? undefined
-                  : svg`<title>${checkmarkLabel}</title>`,
-              })}
+          ${this._renderIcon()}
         </div>
         <div class="${prefix}--tile-content"><slot></slot></div>
       </label>
