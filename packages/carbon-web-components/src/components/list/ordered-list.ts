@@ -8,7 +8,7 @@
  */
 
 import { classMap } from 'lit-html/directives/class-map';
-import { html, customElement } from 'lit-element';
+import { html, customElement, property } from 'lit-element';
 import { prefix } from '../../globals/settings';
 import BXUnorderedList from './unordered-list';
 
@@ -17,9 +17,17 @@ import BXUnorderedList from './unordered-list';
  */
 @customElement(`${prefix}-ordered-list`)
 class BXOrderedList extends BXUnorderedList {
+  /**
+   * Specify whether the ordered list should use native list styles instead of
+   * custom counter
+   */
+  @property({ type: Boolean, reflect: true })
+  native = false;
+
   render() {
     const classes = classMap({
-      [`${prefix}--list--ordered`]: true,
+      [`${prefix}--list--ordered`]: !this.native,
+      [`${prefix}--list--ordered--native`]: this.native,
       [`${prefix}--list--nested`]: this.getAttribute('slot') === 'nested',
       [`${prefix}--list--expressive`]: this.isExpressive,
     });
