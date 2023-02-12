@@ -501,10 +501,6 @@ class NoticeChoice extends StableSelectorMixin(LitElement) {
     return fieldElements;
   }
 
-  static get eventOnChange() {
-    return `${ddsPrefix}-notice-choice-change`;
-  }
-
   _onChange(field: string, value: string | null) {
     const pwsFieldsMap = {
       NC_HIDDEN_EMAIL: 'permission_email',
@@ -521,8 +517,9 @@ class NoticeChoice extends StableSelectorMixin(LitElement) {
         value: pwsValueMap(value),
       },
     };
-    const { eventOnChange } = this.constructor as typeof NoticeChoice;
-    this.dispatchEvent(new CustomEvent(eventOnChange, init));
+    this.dispatchEvent(
+      new CustomEvent(`${ddsPrefix}-notice-choice-change`, init)
+    );
   }
 }
 /* @__GENERATE_REACT_CUSTOM_ELEMENT_TYPE__ */
