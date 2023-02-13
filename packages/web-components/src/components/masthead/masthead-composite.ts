@@ -232,8 +232,8 @@ class DDSMastheadComposite extends HostListenerMixin(LitElement) {
         ${highlights
           ? html`
               <dds-megamenu-left-navigation
-                view-all-href="${viewAll?.position === MEGAPANEL_VIEW_ALL_POSITION.LEFT ? ifNonNull(viewAll?.url) : ''}"
-                view-all-title="${viewAll?.position === MEGAPANEL_VIEW_ALL_POSITION.LEFT ? ifNonNull(viewAll?.title) : ''}"
+                view-all-href="${viewAll?.position !== MEGAPANEL_VIEW_ALL_POSITION.RIGHT ? ifNonNull(viewAll?.url) : ''}"
+                view-all-title="${viewAll?.position !== MEGAPANEL_VIEW_ALL_POSITION.RIGHT ? ifNonNull(viewAll?.title) : ''}"
               >
                 ${highlights.map((group, i) =>
                   this._renderMegapanelLinkGroup(group, { headingLevel: 2, autoid: `${ddsPrefix}--masthead__l0-nav-list${i}` })
@@ -245,8 +245,10 @@ class DDSMastheadComposite extends HostListenerMixin(LitElement) {
           style-scheme="${highlights
             ? MEGAMENU_RIGHT_NAVIGATION_STYLE_SCHEME.LEFT_SECTION
             : MEGAMENU_RIGHT_NAVIGATION_STYLE_SCHEME.REGULAR}"
-          view-all-href="${viewAll?.position !== MEGAPANEL_VIEW_ALL_POSITION.LEFT ? ifNonNull(viewAll?.url) : ''}"
-          view-all-title="${viewAll?.position !== MEGAPANEL_VIEW_ALL_POSITION.LEFT ? ifNonNull(viewAll?.title) : ''}"
+          view-all-href="${viewAll?.position === MEGAPANEL_VIEW_ALL_POSITION.RIGHT || !highlights ? ifNonNull(viewAll?.url) : ''}"
+          view-all-title="${viewAll?.position === MEGAPANEL_VIEW_ALL_POSITION.RIGHT || !highlights
+            ? ifNonNull(viewAll?.title)
+            : ''}"
         >
           ${heading
             ? html`
