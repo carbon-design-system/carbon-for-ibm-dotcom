@@ -268,7 +268,7 @@ export interface L0Megamenu {
 }
 
 export interface MegapanelViewAll extends BasicLink {
-  position?: 'start' | 'end';
+  position?: 'left' | 'right';
 }
 
 export interface Megapanel {

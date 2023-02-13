@@ -61,6 +61,6 @@ export enum MEGAMENU_LAYOUT_SCHEME {
 }
 
 export enum MEGAPANEL_VIEW_ALL_POSITION {
-  START = 'start',
-  END = 'end',
+  LEFT = 'left',
+  RIGHT = 'right',
 }

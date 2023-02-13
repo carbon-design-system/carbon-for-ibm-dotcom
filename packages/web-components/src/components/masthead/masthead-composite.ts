@@ -172,8 +172,8 @@ class DDSMastheadComposite extends HostListenerMixin(LitElement) {
     return html`
       <dds-megamenu layout="${MEGAMENU_LAYOUT_SCHEME.TAB}">
         <dds-megamenu-left-navigation
-          view-all-href="${viewAll?.position === MEGAPANEL_VIEW_ALL_POSITION.START ? ifNonNull(viewAll?.url) : ''}"
-          view-all-title="${viewAll?.position === MEGAPANEL_VIEW_ALL_POSITION.START ? ifNonNull(viewAll?.title) : ''}"
+          view-all-href="${viewAll?.position === MEGAPANEL_VIEW_ALL_POSITION.LEFT ? ifNonNull(viewAll?.url) : ''}"
+          view-all-title="${viewAll?.position === MEGAPANEL_VIEW_ALL_POSITION.LEFT ? ifNonNull(viewAll?.title) : ''}"
         >
           <dds-megamenu-tabs value="${ifNonNull(sortedMenuItems[0]?.heading?.title)}">
             ${sortedMenuItems.map(item => {
@@ -193,8 +193,8 @@ class DDSMastheadComposite extends HostListenerMixin(LitElement) {
             <div id="panel-${itemKey}" role="tabpanel" aria-labelledby="tab-${itemKey}" hidden>
               <dds-megamenu-right-navigation
                 style-scheme="${MEGAMENU_RIGHT_NAVIGATION_STYLE_SCHEME.TAB}"
-                view-all-href="${viewAll?.position !== MEGAPANEL_VIEW_ALL_POSITION.START ? ifNonNull(viewAll?.url) : ''}"
-                view-all-title="${viewAll?.position !== MEGAPANEL_VIEW_ALL_POSITION.START ? ifNonNull(viewAll?.title) : ''}"
+                view-all-href="${viewAll?.position !== MEGAPANEL_VIEW_ALL_POSITION.LEFT ? ifNonNull(viewAll?.url) : ''}"
+                view-all-title="${viewAll?.position !== MEGAPANEL_VIEW_ALL_POSITION.LEFT ? ifNonNull(viewAll?.title) : ''}"
               >
                 ${heading?.title
                   ? html`
@@ -232,8 +232,8 @@ class DDSMastheadComposite extends HostListenerMixin(LitElement) {
         ${highlights
           ? html`
               <dds-megamenu-left-navigation
-                view-all-href="${viewAll?.position === MEGAPANEL_VIEW_ALL_POSITION.START ? ifNonNull(viewAll?.url) : ''}"
-                view-all-title="${viewAll?.position === MEGAPANEL_VIEW_ALL_POSITION.START ? ifNonNull(viewAll?.title) : ''}"
+                view-all-href="${viewAll?.position === MEGAPANEL_VIEW_ALL_POSITION.LEFT ? ifNonNull(viewAll?.url) : ''}"
+                view-all-title="${viewAll?.position === MEGAPANEL_VIEW_ALL_POSITION.LEFT ? ifNonNull(viewAll?.title) : ''}"
               >
                 ${highlights.map((group, i) =>
                   this._renderMegapanelLinkGroup(group, { headingLevel: 2, autoid: `${ddsPrefix}--masthead__l0-nav-list${i}` })
@@ -245,8 +245,8 @@ class DDSMastheadComposite extends HostListenerMixin(LitElement) {
           style-scheme="${highlights
             ? MEGAMENU_RIGHT_NAVIGATION_STYLE_SCHEME.LEFT_SECTION
             : MEGAMENU_RIGHT_NAVIGATION_STYLE_SCHEME.REGULAR}"
-          view-all-href="${viewAll?.position !== MEGAPANEL_VIEW_ALL_POSITION.START ? ifNonNull(viewAll?.url) : ''}"
-          view-all-title="${viewAll?.position !== MEGAPANEL_VIEW_ALL_POSITION.START ? ifNonNull(viewAll?.title) : ''}"
+          view-all-href="${viewAll?.position !== MEGAPANEL_VIEW_ALL_POSITION.LEFT ? ifNonNull(viewAll?.url) : ''}"
+          view-all-title="${viewAll?.position !== MEGAPANEL_VIEW_ALL_POSITION.LEFT ? ifNonNull(viewAll?.title) : ''}"
         >
           ${heading
             ? html`
