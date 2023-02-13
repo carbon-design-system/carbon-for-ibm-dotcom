@@ -81,18 +81,23 @@ class DDSMegaMenuRightNavigation extends StableSelectorMixin(LitElement) {
   render() {
     const { viewAllHref, viewAllTitle } = this;
     return html`
-      <div class="${this._getClassNames()}">
-        <div class="${prefix}--masthead__megamenu__heading">
-          <slot name="heading"></slot>
-        </div>
-        <div class="${prefix}--masthead__megamenu__categories">
-          <slot @slotchange="${this._handleSlotChange}"></slot>
+      <div class="${prefix}--masthead__megamenu-container">
+        <div class="${this._getClassNames()}">
+          <div class="${prefix}--masthead__megamenu__heading">
+            <slot name="heading"></slot>
+          </div>
+          <div class="${prefix}--masthead__megamenu__categories">
+            <slot @slotchange="${this._handleSlotChange}"></slot>
+          </div>
         </div>
         ${viewAllHref &&
           html`
-            <dds-megamenu-link-with-icon href="${viewAllHref}" style-scheme="view-all" part="view-all">
-              <span>${viewAllTitle}</span>${ArrowRight16({ slot: 'icon' })}
-            </dds-megamenu-link-with-icon>
+            <div class="${prefix}--masthead__megamenu__view-all">
+              <span class="${prefix}--masthead__megamenu__view-all__border"></span>
+              <dds-megamenu-link-with-icon href="${viewAllHref}" part="view-all">
+                <span>${viewAllTitle}</span>${ArrowRight16({ slot: 'icon' })}
+              </dds-megamenu-link-with-icon>
+            </div>
           `}
       </div>
     `;

@@ -4126,6 +4126,7 @@ const mastheadLinksV2: L0MenuItem[] = [
         title: 'View all items',
         titleEnglish: 'View all items',
         url: 'https://www.ibm.com/products?lnk=hpmps_buall',
+        position: 'left',
       },
     },
   },
@@ -4272,6 +4273,11 @@ const mastheadLinksV2: L0MenuItem[] = [
           ],
         },
       ],
+      viewAll: {
+        title: 'View all items',
+        titleEnglish: 'View all items',
+        url: 'https://www.ibm.com/products?lnk=hpmps_buall',
+      },
     },
   },
   {
@@ -5046,6 +5052,7 @@ const mastheadLinksV2: L0MenuItem[] = [
         title: 'View all',
         titleEnglish: 'View all',
         url: 'https://www.example.com',
+        position: 'right',
       },
     },
   },

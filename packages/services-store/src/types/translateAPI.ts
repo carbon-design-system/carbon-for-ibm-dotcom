@@ -264,7 +264,11 @@ export interface L0MenuItem extends BasicLink {
 export interface L0Megamenu {
   sections: Megapanel[];
   highlights?: MegapanelLinkGroup[];
-  viewAll?: BasicLink;
+  viewAll?: MegapanelViewAll;
+}
+
+export interface MegapanelViewAll extends BasicLink {
+  position?: 'left' | 'right';
 }
 
 export interface Megapanel {

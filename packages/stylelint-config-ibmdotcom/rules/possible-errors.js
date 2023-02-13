@@ -45,10 +45,15 @@ module.exports = {
     'selector-pseudo-class-no-unknown': [
       true,
       {
-        ignorePseudoClasses: ['is', 'where'],
+        ignorePseudoClasses: ['part', 'is', 'where'],
       },
     ],
-    'selector-pseudo-element-no-unknown': true,
+    'selector-pseudo-element-no-unknown': [
+      true,
+      {
+        ignorePseudoElements: ['part'],
+      },
+    ],
     'selector-type-no-unknown': true,
 
     // Media feature
