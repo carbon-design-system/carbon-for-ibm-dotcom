@@ -8,7 +8,6 @@
  */
 
 import { html, customElement, LitElement, property } from 'lit-element';
-import ifNonNull from '../../internal/vendor/@carbon/web-components/globals/directives/if-non-null.js';
 import settings from 'carbon-components/es/globals/js/settings.js';
 import ddsSettings from '../../internal/vendor/@carbon/ibmdotcom-utilities/utilities/settings/settings';
 import styles from './masthead.scss';
@@ -37,24 +36,16 @@ class DDSMegaMenuCategoryGroup extends LitElement {
   title = '';
 
   render() {
-    const { href, title } = this;
     return html`
       <div class="${prefix}--masthead__megamenu__category-group-shield">
-        <div class="${prefix}--masthead__megamenu__category-group-content">
-          ${href
-            ? html`
-                <dds-megamenu-category-heading
-                  href="${ifNonNull(href)}"
-                  style-scheme="category-headline"
-                  title="${title}">
-                </dds-megamenu-category-heading>
-              `
-            : html`
-                <div class="${prefix}--masthead__megamenu__category-headline">
-                  <p>${title}</p>
-                </div>
-              `}
-          <slot></slot>
+        <div
+          class="${prefix}--masthead__megamenu__category-group-content-wrapper">
+          <div class="${prefix}--masthead__megamenu__category-group-heading">
+            <slot name="heading"></slot>
+          </div>
+          <div class="${prefix}--masthead__megamenu__category-group-content">
+            <slot></slot>
+          </div>
         </div>
       </div>
     `;
