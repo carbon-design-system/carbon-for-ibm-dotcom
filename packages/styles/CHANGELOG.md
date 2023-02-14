@@ -3,6 +3,20 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.44.0-rc.0](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/compare/@carbon/ibmdotcom-styles@1.43.0...@carbon/ibmdotcom-styles@1.44.0-rc.0) (2023-02-10)
+
+
+### Bug Fixes
+
+* **cloud-masthead:** address various visual bugs ([#9927](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/issues/9927)) ([974a9d5](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/commit/974a9d5a2f9b1964d74a75f979b9b64b4af534ae))
+* **leadspace:** adjust left position of leadspace to cover Safari gap ([#9903](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/issues/9903)) ([f08483c](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/commit/f08483cbfc7a5aa3722ee4fb726f07a0f570cd3b)), closes [#9896](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/issues/9896)
+* **table-of-contents:** adjustment to z-index on table of contents styles ([#9957](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/issues/9957)) ([67bd623](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/commit/67bd623d91c175f0bcc1ab57c74ec376812c8e11))
+* **tabs-extended-media:** safari hover ([#9974](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/issues/9974)) ([c5b798d](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/commit/c5b798d7581c124a4c63e7930d1a8e6a8accd67d)), closes [#9963](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/issues/9963)
+
+
+
+
+
 # [1.43.0](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/compare/@carbon/ibmdotcom-styles@1.43.0-rc.0...@carbon/ibmdotcom-styles@1.43.0) (2023-01-31)
 
 **Note:** Version bump only for package @carbon/ibmdotcom-styles
