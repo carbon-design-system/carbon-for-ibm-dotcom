@@ -9,8 +9,8 @@
 
 import { classMap } from 'lit-html/directives/class-map';
 import { html, property, customElement, LitElement } from 'lit-element';
-import CaretLeft24 from '@carbon/icons/lib/caret--left/24';
-import CaretRight24 from '@carbon/icons/lib/caret--right/24';
+import CaretLeft16 from '@carbon/icons/lib/caret--left/16';
+import CaretRight16 from '@carbon/icons/lib/caret--right/16';
 import { prefix } from '../../globals/settings';
 import FocusMixin from '../../globals/mixins/focus';
 import HostListenerMixin from '../../globals/mixins/host-listener';
@@ -259,14 +259,14 @@ class BXPagination extends FocusMixin(HostListenerMixin(LitElement)) {
             class="${prevButtonClasses}"
             title="${prevButtonText}"
             @click="${handleClickPrevButton}">
-            ${CaretLeft24()}
+            ${CaretLeft16()}
           </button>
           <button
             ?disabled="${nextButtonDisabled}"
             class="${nextButtonClasses}"
             title="${nextButtonText}"
             @click="${handleClickNextButton}">
-            ${CaretRight24()}
+            ${CaretRight16()}
           </button>
         </div>
       </div>

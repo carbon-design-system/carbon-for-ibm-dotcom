@@ -8,18 +8,17 @@
  */
 
 import { html } from 'lit-element';
-import { boolean, number, select } from '@storybook/addon-knobs';
+import { select } from '@storybook/addon-knobs';
 // Below path will be there when an application installs `carbon-web-components` package.
 // In our dev env, we auto-generate the file and re-map below path to to point to the generated file.
 // @ts-ignore
 import Filter16 from 'carbon-web-components/es/icons/filter/16';
-import '../button/button';
-import './tooltip';
-import './tooltip-body';
-import './tooltip-footer';
-import { TOOLTIP_ALIGNMENT } from './defs';
-import styles from './tooltip-story.scss';
-import storyDocs from './tooltip-story.mdx';
+import textNullable from '../../../.storybook/knob-text-nullable';
+import ifNonNull from '../../globals/directives/if-non-null';
+import './toggletip';
+import '../button';
+import { TOOLTIP_ALIGNMENT } from '../tooltip/defs';
+import storyDocs from './toggletip-story.mdx';
 
 const tooltipAlignments = {
   [`top`]: TOOLTIP_ALIGNMENT.TOP,
@@ -37,46 +36,37 @@ const tooltipAlignments = {
 };
 
 export const Default = (args) => {
-  const { open } = args?.['cds-tooltip'] ?? {};
-  const { alignment, direction, enterDelay, exitDelay } =
-    args?.['cds-tooltip-body'] ?? {};
+  const { alignment, bodyText } = args?.['cds-toggletip'] ?? {};
   return html`
-    <style>
-      ${styles}
-    </style>
-    <cds-tooltip
-      ?open="${open}"
-      align=${alignment}
-      direction=${direction}
-      enter-delay-ms=${enterDelay}
-      exit-delay-ms=${exitDelay}>
-      This is some tooltip text. This box shows the maximum amount of text that
-      should appear inside. If more room is needed please use a modal instead.
-    </cds-tooltip>
+    <cds-toggletip alignment="${ifNonNull(alignment)}">
+      Toggletip label
+
+      <p slot="body-text">${bodyText}</p>
+      <cds-link slot="actions">Test</cds-link>
+      <cds-btn slot="actions">Button</cds-btn>
+    </cds-toggletip>
   `;
 };
 
-Default.storyName = 'Default';
-
 Default.parameters = {
   knobs: {
-    'cds-tooltip': () => ({
-      open: boolean('Open (open)', false),
-    }),
-    'cds-tooltip-body': () => ({
+    'cds-toggletip': () => ({
       alignment: select(
-        'Tooltip alignment to trigger button (alignment)',
+        'Toggletip alignment to trigger button (alignment)',
         tooltipAlignments,
-        TOOLTIP_ALIGNMENT.TOP
+        TOOLTIP_ALIGNMENT.BOTTOM
       ),
-      enterDelay: number('Enter delay (in ms)', 100),
-      exitDelay: number('Exit delay (in ms)', 300),
+      bodyText: textNullable(
+        'Toggletip content (bodyText)',
+        `Lorem ipsum dolor sit amet, di os consectetur adipiscing elit, 
+        sed do eiusmod tempor incididunt ut fsil labore et dolore magna aliqua.`
+      ),
     }),
   },
 };
 
 export default {
-  title: 'Components/Tooltip',
+  title: 'Components/Toggletip',
   parameters: {
     ...storyDocs.parameters,
   },

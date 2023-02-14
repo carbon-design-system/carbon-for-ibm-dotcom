@@ -8,7 +8,7 @@
  */
 
 import { prefix } from '../../globals/settings';
-import { html, property, customElement, LitElement, query } from 'lit-element';
+import { html, property, customElement, LitElement } from 'lit-element';
 import { TILE_COLOR_SCHEME } from './defs';
 import styles from './tile.scss';
 
