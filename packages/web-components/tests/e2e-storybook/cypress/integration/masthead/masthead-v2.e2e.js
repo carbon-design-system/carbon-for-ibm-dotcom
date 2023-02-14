@@ -1,5 +1,5 @@
 /**
- * Copyright IBM Corp. 2021, 2022
+ * Copyright IBM Corp. 2021, 2023
  *
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
@@ -11,7 +11,7 @@
  * @type {string}
  * @private
  */
-const _pathDefault = '/iframe.html?id=components-masthead--with-v-2-data';
+const _pathDefault = '/iframe.html?id=components-masthead--with-v-2-data&&knob-use%20mock%20nav%20data%20(use-mock)=true';
 
 /**
  * Checks for the existence of specific attribute values for a given element.
