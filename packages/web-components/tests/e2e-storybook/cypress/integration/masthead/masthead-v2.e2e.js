@@ -55,6 +55,11 @@ describe('dds-masthead | default (desktop)', () => {
 
   it('should load the megamenus', () => {
     cy.get('dds-megamenu-top-nav-menu').each($topItem => {
+      if (!Cypress.dom.isVisible($topItem)) {
+        cy.get('dds-top-nav')
+          .find('[part="next-button"]')
+          .click();
+      }
       cy.get($topItem)
         .shadow()
         .find('a')
@@ -65,6 +70,12 @@ describe('dds-masthead | default (desktop)', () => {
 
   it('should have urls for link elements', () => {
     cy.get('dds-megamenu-top-nav-menu').each($topItem => {
+      if (!Cypress.dom.isVisible($topItem)) {
+        cy.get('dds-top-nav')
+          .find('[part="next-button"]')
+          .click();
+      }
+
       cy.get($topItem)
         .shadow()
         .find('a')
