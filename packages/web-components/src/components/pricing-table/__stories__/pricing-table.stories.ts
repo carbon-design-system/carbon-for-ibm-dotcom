@@ -221,6 +221,7 @@ export const Default = (args) => {
       html,
       body {
         overflow-x: hidden;
+        padding-bottom: 250px;
       }
     </style>
     <dds-pricing-table
