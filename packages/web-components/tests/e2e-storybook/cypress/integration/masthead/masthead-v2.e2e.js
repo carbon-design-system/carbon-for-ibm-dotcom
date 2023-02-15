@@ -11,7 +11,7 @@
  * @type {string}
  * @private
  */
-const _pathDefault = '/iframe.html?id=components-masthead--with-v-2-data&&knob-use%20mock%20nav%20data%20(use-mock)=true';
+const _pathDefault = '/iframe.html?id=components-masthead--with-v-2-data&knob-use%20mock%20nav%20data%20(use-mock)=true';
 
 /**
  * Checks for the existence of specific attribute values for a given element.
