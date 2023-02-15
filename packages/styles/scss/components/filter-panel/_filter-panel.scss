@@ -9,7 +9,7 @@
 @import '../../globals/imports';
 @import 'carbon-components/scss/components/accordion/keyframes';
 @import 'carbon-components/scss/components/accordion/accordion';
-@import '@carbon/web-components/scss/components/checkbox/checkbox';
+@import 'carbon-components/scss/components/checkbox/checkbox';
 
 @mixin filter-panel {
   .#{$prefix}--filter__heading {
