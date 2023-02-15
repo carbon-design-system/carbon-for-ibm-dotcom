@@ -434,6 +434,7 @@ withL1.story = {
         searchPlaceholder: textNullable('search placeholder (searchPlaceholder)', inPercy() ? '' : 'Search all of IBM'),
         selectedMenuItem: textNullable('selected menu item (selected-menu-item)', 'Products'),
         userStatus: select('The user authenticated status (user-status)', userStatuses, userStatuses.unauthenticated),
+        useMock: boolean('use mock nav data (use-mock)', false),
       }),
     },
     propsSet: {
