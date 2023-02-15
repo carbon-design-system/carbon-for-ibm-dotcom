@@ -8,6 +8,7 @@
 $css--plex: true !default;
 
 @use '@carbon/styles/scss/config' as *;
+@use '@carbon/styles/scss/spacing' as *;
 @use '@carbon/styles/scss/theme' as *;
 @use '@carbon/styles/scss/utilities/skeleton' as *;
 @use '@carbon/styles/scss/components/progress-indicator/progress-indicator' as *;
@@ -47,7 +48,7 @@ $css--plex: true !default;
 :host(#{$prefix}-progress-step[vertical]),
 :host(#{$prefix}-progress-step-skeleton[vertical]) {
   display: list-item;
-  min-height: 6rem;
+  min-height: $spacing-12;
   width: initial;
   min-width: initial;
 
@@ -89,6 +90,10 @@ $css--plex: true !default;
 
 :host(#{$prefix}-progress-step[state='current']) {
   @extend .#{$prefix}--progress-step--current;
+
+  svg {
+    fill: $interactive;
+  }
 }
 
 :host(#{$prefix}-progress-step[state='complete']) {
@@ -97,6 +102,10 @@ $css--plex: true !default;
   svg {
     fill: $interactive;
   }
+}
+
+:host(#{$prefix}-progress-step[state='incomplete']) {
+  @extend .#{$prefix}--progress-step--incomplete;
 }
 
 :host(#{$prefix}-progress-step-skeleton) .#{$prefix}--progress-label {
