@@ -18,6 +18,7 @@ import './tooltip';
 import './tooltip-body';
 import './tooltip-footer';
 import { TOOLTIP_ALIGNMENT } from './defs';
+import { prefix } from '../../globals/settings';
 import styles from './tooltip-story.scss';
 import storyDocs from './tooltip-story.mdx';
 
@@ -39,7 +40,7 @@ const tooltipAlignments = {
 export const Default = (args) => {
   const { open } = args?.['cds-tooltip'] ?? {};
   const { alignment, direction, enterDelay, exitDelay } =
-    args?.['cds-tooltip-body'] ?? {};
+    args?.[`${prefix}-tooltip`] ?? {};
   return html`
     <style>
       ${styles}
@@ -60,10 +61,8 @@ Default.storyName = 'Default';
 
 Default.parameters = {
   knobs: {
-    'cds-tooltip': () => ({
+    [`${prefix}-tooltip`]: () => ({
       open: boolean('Open (open)', false),
-    }),
-    'cds-tooltip-body': () => ({
       alignment: select(
         'Tooltip alignment to trigger button (alignment)',
         tooltipAlignments,

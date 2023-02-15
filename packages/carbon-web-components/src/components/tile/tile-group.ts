@@ -14,7 +14,7 @@ import styles from './tile.scss';
 /**
  * Tile group.
  *
- * @element bx-tile-group
+ * @element cds-tile-group
  */
 @customElement(`${prefix}-tile-group`)
 class BXTileGroup extends LitElement {

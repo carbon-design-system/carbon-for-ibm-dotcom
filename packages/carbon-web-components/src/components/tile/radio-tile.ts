@@ -32,7 +32,7 @@ const navigationDirectionForKey = {
 /**
  * Single-selectable tile.
  *
- * @element bx-radio-tile
+ * @element cds-radio-tile
  */
 @customElement(`${prefix}-radio-tile`)
 class BXRadioTile extends HostListenerMixin(SelectableTile) {

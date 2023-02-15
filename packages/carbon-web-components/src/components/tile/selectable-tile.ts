@@ -28,7 +28,7 @@ import styles from './tile.scss';
 /**
  * Multi-selectable tile.
  *
- * @element bx-selectable-tile
+ * @element cds-selectable-tile
  */
 @customElement(`${prefix}-selectable-tile`)
 class BXSelectableTile extends FocusMixin(LitElement) {

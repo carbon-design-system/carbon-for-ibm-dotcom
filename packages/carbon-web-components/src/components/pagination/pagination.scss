@@ -94,6 +94,11 @@ $css--plex: true !default;
   align-items: center;
   height: 100%;
   position: relative;
+
+  .#{$prefix}--visually-hidden {
+    visibility: hidden;
+    height: 0;
+  }
 }
 
 :host(#{$prefix}-pages-select) .#{$prefix}--pagination__text {

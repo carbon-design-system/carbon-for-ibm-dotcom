@@ -21,7 +21,7 @@ import { classMap } from 'lit-html/directives/class-map';
 /**
  * Trigger button of tooltip.
  *
- * @element bx-tooltip
+ * @element cds-tooltip
  */
 @customElement(`${prefix}-tooltip`)
 class BXTooltip

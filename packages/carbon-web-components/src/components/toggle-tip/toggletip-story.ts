@@ -15,6 +15,7 @@ import { select } from '@storybook/addon-knobs';
 import Filter16 from 'carbon-web-components/es/icons/filter/16';
 import textNullable from '../../../.storybook/knob-text-nullable';
 import ifNonNull from '../../globals/directives/if-non-null';
+import { prefix } from '../../globals/settings';
 import './toggletip';
 import '../button';
 import { TOOLTIP_ALIGNMENT } from '../tooltip/defs';
@@ -36,7 +37,7 @@ const tooltipAlignments = {
 };
 
 export const Default = (args) => {
-  const { alignment, bodyText } = args?.['cds-toggletip'] ?? {};
+  const { alignment, bodyText } = args?.[`${prefix}-toggletip`] ?? {};
   return html`
     <cds-toggletip alignment="${ifNonNull(alignment)}">
       Toggletip label
@@ -50,7 +51,7 @@ export const Default = (args) => {
 
 Default.parameters = {
   knobs: {
-    'cds-toggletip': () => ({
+    [`{prefix}-toggletip`]: () => ({
       alignment: select(
         'Toggletip alignment to trigger button (alignment)',
         tooltipAlignments,

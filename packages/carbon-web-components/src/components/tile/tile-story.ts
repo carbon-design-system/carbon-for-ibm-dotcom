@@ -13,6 +13,7 @@ import { boolean, select } from '@storybook/addon-knobs';
 import textNullable from '../../../.storybook/knob-text-nullable';
 import ifNonNull from '../../globals/directives/if-non-null';
 import { TILE_COLOR_SCHEME } from './tile';
+import { prefix } from '../../globals/settings';
 import './index';
 import storyDocs from './tile-story.mdx';
 
@@ -22,7 +23,7 @@ const colorSchemes = {
 };
 
 export const Default = (args) => {
-  const { colorScheme } = args?.['cds-tile'] ?? {};
+  const { colorScheme } = args?.[`${prefix}-tile`] ?? {};
   return html`
     <cds-tile color-scheme="${ifNonNull(colorScheme)}">
       Default tile
@@ -35,7 +36,7 @@ Default.storyName = 'Default';
 
 export const clickable = (args) => {
   const { download, href, hreflang, ping, rel, target, type } =
-    args?.['cds-clickable-tile'] ?? {};
+    args?.[`${prefix}-clickable-tile`] ?? {};
   return html`
     <cds-clickable-tile
       download="${ifNonNull(download)}"
@@ -52,7 +53,7 @@ export const clickable = (args) => {
 
 clickable.parameters = {
   knobs: {
-    'cds-clickable-tile': () => ({
+    [`${prefix}-clickable-tile`]: () => ({
       href: textNullable('Href for clickable UI (href)', ''),
     }),
   },
@@ -60,7 +61,7 @@ clickable.parameters = {
 
 export const Radio = (args) => {
   const { checkmarkLabel, colorScheme, name, value, onInput } =
-    args?.['cds-radio-tile'] ?? {};
+    args?.[`$[prefix}-radio-tile`] ?? {};
   return html`
     <cds-tile-group>
       <legend slot="legend">Single-select tiles</legend>
@@ -96,7 +97,7 @@ Radio.storyName = 'Radio';
 
 Radio.parameters = {
   knobs: {
-    'cds-radio-tile': () => ({
+    [`${prefix}-radio-tile`]: () => ({
       checkmarkLabel: textNullable(
         'Label text for the checkmark icon (checkmark-label)',
         ''
@@ -111,7 +112,7 @@ Radio.parameters = {
 
 export const multiSelectable = (args) => {
   const { checkmarkLabel, colorScheme, name, selected, value, onInput } =
-    args?.['cds-selectable-tile'] ?? {};
+    args?.[`${prefix}-selectable-tile`] ?? {};
   return html`
     <fieldset>
       <cds-selectable-tile
@@ -149,8 +150,8 @@ multiSelectable.storyName = 'Multi Select';
 
 multiSelectable.parameters = {
   knobs: {
-    'cds-selectable-tile': () => ({
-      ...Radio.parameters.knobs['cds-radio-tile'](),
+    [`${prefix}-selectable-tile`]: () => ({
+      ...Radio.parameters.knobs[`{${prefix}-radio-tile`](),
       selected: boolean('Selected (selected)', false),
     }),
   },
@@ -158,7 +159,7 @@ multiSelectable.parameters = {
 
 export const expandable = (args) => {
   const { colorScheme, expanded, disableChange, onBeforeChange, onChange } =
-    args?.['cds-expandable-tile'] ?? {};
+    args?.[`${prefix}-expandable-tile`] ?? {};
   const handleBeforeChanged = (event: CustomEvent) => {
     onBeforeChange(event);
     if (disableChange) {
@@ -185,7 +186,7 @@ export const expandable = (args) => {
 
 expandable.parameters = {
   knobs: {
-    'cds-expandable-tile': () => ({
+    [`${prefix}-expandable-tile`]: () => ({
       colorScheme: select('Color scheme (color-scheme)', colorSchemes, null),
       expanded: boolean('Expanded (expanded)', false),
       disableChange: boolean(

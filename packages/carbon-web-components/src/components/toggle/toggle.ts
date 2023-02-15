@@ -22,11 +22,11 @@ export { TOGGLE_SIZE };
 /**
  * Basic toggle.
  *
- * @element bx-toggle
+ * @element cds-toggle
  * @slot label-text - The label text.
  * @slot checked-text - The text for the checked state.
  * @slot unchecked-text - The text for the unchecked state.
- * @fires bx-toggle-changed - The custom event fired after this changebox changes its checked state.
+ * @fires cds-toggle-changed - The custom event fired after this changebox changes its checked state.
  */
 @customElement(`${prefix}-toggle`)
 class BXToggle extends HostListenerMixin(BXCheckbox) {

@@ -39,7 +39,6 @@ class BXToggletip extends FocusMixin(LitElement) {
 
   private _handleClick = () => {
     this.open = !this.open;
-    console.log('asdasd');
   };
 
   createRenderRoot() {

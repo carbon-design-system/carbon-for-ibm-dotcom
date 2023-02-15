@@ -20,11 +20,11 @@ import styles from './tile.scss';
 /**
  * Expandable tile.
  *
- * @element bx-expandable-tile
- * @fires bx-expandable-tile-beingtoggled
+ * @element cds-expandable-tile
+ * @fires cds-expandable-tile-beingtoggled
  *   The custom event fired before the expanded state is changed upon a user gesture.
  *   Cancellation of this event stops changing the user-initiated change in expanded state.
- * @fires bx-expandable-tile-toggled - The custom event fired after a the expanded state is changed upon a user gesture.
+ * @fires cds-expandable-tile-toggled - The custom event fired after a the expanded state is changed upon a user gesture.
  */
 @customElement(`${prefix}-expandable-tile`)
 class BXExpandableTile extends HostListenerMixin(FocusMixin(LitElement)) {
