@@ -8,6 +8,7 @@
 import { html } from 'lit-element';
 import { action } from '@storybook/addon-actions';
 import { boolean, select } from '@storybook/addon-knobs';
+import { prefix } from '../../globals/settings';
 import textNullable from '../../../.storybook/knob-text-nullable';
 import ifNonNull from '../../globals/directives/if-non-null';
 import { INPUT_SIZE } from '../input/input';
@@ -32,7 +33,7 @@ const sizes = {
 };
 
 const knobs = {
-  'bx-date-picker': () => ({
+  [`${prefix}-date-picker`]: () => ({
     dateFormat: textNullable('The date format (date-format)', 'm/d/Y'),
     disabled: boolean('Disabled (disabled in <cds-date-picker-input>)', false),
     enabledRange: textNullable(
@@ -44,10 +45,10 @@ const knobs = {
       'Value in ISO8601 date format, separated by `/` (value)',
       ''
     ),
-    onAfterChanged: action('bx-date-picker-changed'),
-    onFlatpickrError: action('bx-date-picker-flatpickr-error'),
+    onAfterChanged: action('cds-date-picker-changed'),
+    onFlatpickrError: action('cds-date-picker-flatpickr-error'),
   }),
-  'bx-date-picker-input': () => ({
+  [`${prefix}-date-picker-input`]: () => ({
     colorScheme: select(
       'Color scheme (color-scheme in <cds-date-picker-input>)',
       colorSchemes,
@@ -82,7 +83,7 @@ const sizesHorizontal = {
 };
 
 export const Default = (args) => {
-  const { disabled, name, value } = args?.['bx-date-picker'] ?? {};
+  const { disabled, name, value } = args?.[`${prefix}-date-picker`] ?? {};
   const {
     colorScheme,
     hideLabel,
@@ -92,7 +93,7 @@ export const Default = (args) => {
     size,
     sizeHorizontal,
     validityMessage,
-  } = args?.['bx-date-picker-input'] ?? {};
+  } = args?.[`${prefix}-date-picker-input`] ?? {};
   return html`
     <cds-date-picker
       ?disabled="${disabled}"
@@ -116,8 +117,8 @@ Default.storyName = 'Default';
 
 Default.parameters = {
   knobs: {
-    'bx-date-picker-input': () => ({
-      ...knobs['bx-date-picker-input'](),
+    [`${prefix}-date-picker-input`]: () => ({
+      ...knobs[`${prefix}-date-picker-input`](),
       sizeHorizontal: select(
         'Horizontal size (size-horizontal)',
         sizesHorizontal,
@@ -137,7 +138,7 @@ export const singleWithCalendar = (args) => {
     value,
     onChanged,
     onFlatpickrError,
-  } = args?.['bx-date-picker'] ?? {};
+  } = args?.[`${prefix}-date-picker`] ?? {};
   const {
     colorScheme,
     hideLabel,
@@ -147,7 +148,7 @@ export const singleWithCalendar = (args) => {
     size,
     validityMessage,
     onInput,
-  } = args?.['bx-date-picker-input'] ?? {};
+  } = args?.[`${prefix}-date-picker-input`] ?? {};
   return html`
     <cds-date-picker
       date-format="${ifNonNull(dateFormat)}"
@@ -156,8 +157,8 @@ export const singleWithCalendar = (args) => {
       name="${ifNonNull(name)}"
       ?open="${open}"
       value="${ifNonNull(value)}"
-      @bx-date-picker-changed="${onChanged}"
-      @bx-date-picker-flatpickr-error="${onFlatpickrError}">
+      @cds-date-picker-changed="${onChanged}"
+      @cds-date-picker-flatpickr-error="${onFlatpickrError}">
       <cds-date-picker-input
         color-scheme="${ifNonNull(colorScheme)}"
         ?hide-label="${hideLabel}"
@@ -189,7 +190,7 @@ export const rangeWithCalendar = (args) => {
     value,
     onChanged,
     onFlatpickrError,
-  } = args?.['bx-date-picker'] ?? {};
+  } = args?.[`${prefix}-date-picker`] ?? {};
   const {
     colorScheme,
     hideLabel,
@@ -199,7 +200,7 @@ export const rangeWithCalendar = (args) => {
     size,
     validityMessage,
     onInput,
-  } = args?.['bx-date-picker-input'] ?? {};
+  } = args?.[`${prefix}-date-picker-input`] ?? {};
   return html`
     <cds-date-picker
       date-format="${ifNonNull(dateFormat)}"
@@ -208,8 +209,8 @@ export const rangeWithCalendar = (args) => {
       name="${ifNonNull(name)}"
       ?open="${open}"
       value="${ifNonNull(value)}"
-      @bx-date-picker-changed="${onChanged}"
-      @bx-date-picker-flatpickr-error="${onFlatpickrError}">
+      @cds-date-picker-changed="${onChanged}"
+      @cds-date-picker-flatpickr-error="${onFlatpickrError}">
       <cds-date-picker-input
         color-scheme="${ifNonNull(colorScheme)}"
         ?hide-label="${hideLabel}"
