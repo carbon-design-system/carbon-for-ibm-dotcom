@@ -10,28 +10,44 @@ $css--plex: true !default;
 @use '@carbon/styles/scss/config' as *;
 @use '@carbon/styles/scss/spacing' as *;
 @use '@carbon/styles/scss/theme' as *;
+@use '@carbon/styles/scss/utilities/convert' as *;
 @use '@carbon/styles/scss/components/list';
 
 :host(#{$prefix}-ordered-list),
 :host(#{$prefix}-unordered-list) {
-  display: block;
-  padding-left: $spacing-06;
-
   .#{$prefix}--list--nested {
-    margin-left: 0;
+    margin-left: rem(32px);
+  }
+
+  .#{$prefix}--list--nested ::slotted(#{$prefix}-list-item) {
+    padding-left: $spacing-02;
   }
 }
 
+// ordered list
 :host(#{$prefix}-ordered-list) {
-  .#{$prefix}--list--ordered {
-    list-style-type: decimal;
-  }
-
   .#{$prefix}--list--ordered.#{$prefix}--list--nested {
     list-style-type: lower-latin;
   }
+
+  &:not(.#{$prefix}--list--nested) {
+    counter-reset: item;
+  }
+
+  &:not(.#{$prefix}--list--nested) ::slotted(#{$prefix}-list-item) {
+    position: relative;
+  }
+
+  .#{$prefix}--list--ordered:not(.#{$prefix}--list--nested)
+    ::slotted(#{$prefix}-list-item)::before {
+    position: absolute;
+    left: rem(-24px);
+    content: counter(item) '.';
+    counter-increment: item;
+  }
 }
 
+// unordered list
 :host(#{$prefix}-unordered-list) {
   // – en dash
   --#{$prefix}-ce--list-marker: '\002013';
@@ -47,7 +63,7 @@ $css--plex: true !default;
 
   &::before {
     position: absolute;
-    left: -$spacing-05;
+    left: calc(-1 * #{$spacing-05});
     // – en dash
     content: '\002013';
   }
@@ -56,7 +72,7 @@ $css--plex: true !default;
 :host(#{$prefix}-unordered-list[slot='nested'])
   ::slotted(#{$prefix}-list-item)::before {
   // offset to account for smaller ▪ vs –
-  left: -$spacing-04;
+  left: calc(-1 * #{$spacing-04});
   // ▪ square
   content: '\0025AA';
 }

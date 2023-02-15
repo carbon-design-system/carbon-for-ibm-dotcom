@@ -18,8 +18,8 @@ import styles from './checkbox.scss';
 /**
  * Check box.
  *
- * @element bx-checkbox
- * @fires bx-checkbox-changed - The custom event fired after this changebox changes its checked state.
+ * @element cds-checkbox
+ * @fires cds-checkbox-changed - The custom event fired after this changebox changes its checked state.
  * @csspart input The checkbox.
  * @csspart label The label.
  */

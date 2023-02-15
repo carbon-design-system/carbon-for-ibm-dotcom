@@ -8,37 +8,13 @@
  */
 
 import { html } from 'lit-element';
-import './ordered-list';
 import './unordered-list';
 import './list-item';
 import { boolean } from '@storybook/addon-knobs';
 import storyDocs from './list-story.mdx';
 
-export const ordered = (args) => {
-  const { isExpressive } = args?.['bx-list'] ?? {};
-  return html`
-    <cds-ordered-list ?isExpressive="${isExpressive}">
-      <cds-list-item>
-        Ordered List level 1
-        <cds-ordered-list ?isExpressive="${isExpressive}">
-          <cds-list-item>Ordered List level 2</cds-list-item>
-          <cds-list-item>
-            Ordered List level 2
-            <cds-ordered-list ?isExpressive="${isExpressive}">
-              <cds-list-item>Ordered List level 2</cds-list-item>
-              <cds-list-item>Ordered List level 2</cds-list-item>
-            </cds-ordered-list>
-          </cds-list-item>
-        </cds-ordered-list>
-      </cds-list-item>
-      <cds-list-item>Ordered List level 1</cds-list-item>
-      <cds-list-item>Ordered List level 1</cds-list-item>
-    </cds-ordered-list>
-  `;
-};
-
-export const unordered = (args) => {
-  const { isExpressive } = args?.['bx-list'] ?? {};
+export const Default = (args) => {
+  const { isExpressive } = args?.['cds-list'] ?? {};
   return html`
     <cds-unordered-list ?isExpressive="${isExpressive}">
       <cds-list-item>
@@ -60,12 +36,14 @@ export const unordered = (args) => {
   `;
 };
 
+Default.storyName = 'Default';
+
 export default {
-  title: 'Components/List',
+  title: 'Components/Unordered List',
   parameters: {
     ...storyDocs.parameters,
     knobs: {
-      'bx-list': () => ({
+      'cds-list': () => ({
         isExpressive: boolean('Expressive (isExpressive)', false),
       }),
     },

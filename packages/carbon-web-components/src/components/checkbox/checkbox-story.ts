@@ -14,6 +14,7 @@ import textNullable from '../../../.storybook/knob-text-nullable';
 import ifNonNull from '../../globals/directives/if-non-null';
 import './checkbox';
 import storyDocs from './checkbox-story.mdx';
+import { prefix } from '../../globals/settings';
 
 export const Default = (args) => {
   const {
@@ -25,17 +26,29 @@ export const Default = (args) => {
     name,
     value,
     onChange,
-  } = args?.['bx-checkbox'] ?? {};
+  } = args?.[`${prefix}-checkbox`] ?? {};
   return html`
-    <cds-checkbox
-      ?checked="${checked}"
-      ?disabled="${disabled}"
-      ?hide-label="${hideLabel}"
-      ?indeterminate="${indeterminate}"
-      label-text="${ifNonNull(labelText)}"
-      name="${ifNonNull(name)}"
-      value="${ifNonNull(value)}"
-      @bx-checkbox-changed="${onChange}"></cds-checkbox>
+    <fieldset class="${prefix}--fieldset">
+      <legend class="${prefix}--label">Group label</legend>
+      <cds-checkbox
+        ?checked="${checked}"
+        ?disabled="${disabled}"
+        ?hide-label="${hideLabel}"
+        ?indeterminate="${indeterminate}"
+        label-text="${ifNonNull(labelText)}"
+        name="${ifNonNull(name)}"
+        value="${ifNonNull(value)}"
+        @bx-checkbox-changed="${onChange}"></cds-checkbox>
+      <cds-checkbox
+        ?checked="${checked}"
+        ?disabled="${disabled}"
+        ?hide-label="${hideLabel}"
+        ?indeterminate="${indeterminate}"
+        label-text="${ifNonNull(labelText)}"
+        name="${ifNonNull(name)}"
+        value="${ifNonNull(value)}"
+        @bx-checkbox-changed="${onChange}"></cds-checkbox>
+    </fieldset>
   `;
 };
 
@@ -46,7 +59,7 @@ export default {
   parameters: {
     ...storyDocs.parameters,
     knobs: {
-      'bx-checkbox': () => ({
+      [`${prefix}-checkbox`]: () => ({
         checked: boolean('Checked (checked)', false),
         disabled: boolean('Disabled (disabled)', false),
         hideLabel: boolean('Hide label (hide-label)', false),
