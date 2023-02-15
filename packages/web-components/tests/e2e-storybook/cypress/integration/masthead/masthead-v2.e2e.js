@@ -217,7 +217,7 @@ describe('dds-masthead | default (mobile)', () => {
     cy.takeSnapshots('mobile');
   });
 
-  it('should load analyics attributes throughout menu', () => {
+  it('should load analytics attributes throughout menu', () => {
     cy.get('dds-masthead-menu-button')
       .shadow()
       .find('button')
@@ -250,30 +250,30 @@ describe('dds-masthead | default (mobile)', () => {
           });
       })
 
-      .get('dds-left-nav-menu-section[titleurl^="http"]')
-      .each($section => {
-        cy.get($section)
+      .get('dds-left-nav-menu-category-heading[url^="http"]')
+      .each($heading => {
+        cy.get($heading)
           .shadow()
           .find('a')
           .then(([link]) => {
             checkAnalyticsAttributes(link, {
               'data-attribute1': 'headerNav',
               'data-attribute2': 'FlatHdline',
-              'data-attribute3': $section.attr('title'),
+              'data-attribute3': $heading.attr('title'),
             });
           });
       })
 
-      .get('dds-left-nav-menu-item')
-      .each(item => {
-        cy.get(item)
+      .get('dds-left-nav-menu-item[href^="http"]')
+      .each($item => {
+        cy.get($item)
           .shadow()
           .find('a')
           .then(([link]) => {
             checkAnalyticsAttributes(link, {
               'data-attribute1': 'headerNav',
               'data-attribute2': 'FlatItem',
-              'data-attribute3': item.attr('title'),
+              'data-attribute3': $item.attr('title'),
             });
           });
       });
