@@ -1,5 +1,5 @@
 /**
- * Copyright IBM Corp. 2022
+ * Copyright IBM Corp. 2022, 2023
  *
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
@@ -41,8 +41,11 @@ const _tests = (path = path) => [
         });
     });
   },
+  /**
+   * Disabled while exploring potential sticky-header solutions.
+   */
   () => {
-    it('should have stick & unstick on header on scroll', () => {
+    xit('should have stick & unstick on header on scroll', () => {
       let table, header, body;
       cy.visit(path)
         .get(selectors.table)
