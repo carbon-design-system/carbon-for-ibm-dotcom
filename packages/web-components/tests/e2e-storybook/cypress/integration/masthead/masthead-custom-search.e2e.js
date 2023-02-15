@@ -1,5 +1,5 @@
 /**
- * Copyright IBM Corp. 2021, 2022
+ * Copyright IBM Corp. 2021, 2023
  *
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
@@ -11,7 +11,8 @@
  * @type {string}
  * @private
  */
-const _pathCustomSearch = '/iframe.html?id=components-masthead--with-custom-typeahead';
+const _pathCustomSearch =
+  '/iframe.html?id=components-masthead--with-custom-typeahead&knob-use%20mock%20nav%20data%20(use-mock)=true';
 
 describe('dds-masthead | custom search (desktop)', () => {
   beforeEach(() => {
