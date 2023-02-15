@@ -133,6 +133,12 @@ describe('dds-masthead | default (desktop)', () => {
 
   it('should load analyics attributes throughout menu', () => {
     cy.get('dds-megamenu-top-nav-menu').each(item => {
+      if (!Cypress.dom.isVisible(item)) {
+        cy.get('dds-top-nav')
+          .find('[part="next-button"]')
+          .click();
+      }
+
       cy.get(item)
         .shadow()
         .find('a')
@@ -215,19 +221,21 @@ describe('dds-masthead | default (mobile)', () => {
     cy.get('dds-masthead-menu-button')
       .shadow()
       .find('button')
-      .click()
-      .get('dds-left-nav-menu')
-      .each(menu => {
-        cy.get(menu)
+      .click();
+
+    // Excludes dds-left-nav-menu-item
+    cy.get('dds-left-nav-menu')
+      .each($menu => {
+        cy.get($menu)
           .shadow()
           .find('button')
           .then(([button]) => {
             // Top-level items
-            if (!menu.get(0).parentElement.hasAttribute('is-submenu')) {
+            if (!$menu.get(0).parentElement.hasAttribute('is-submenu')) {
               checkAnalyticsAttributes(button, {
                 'data-attribute1': 'headerNav',
                 'data-attribute2': 'L0',
-                'data-attribute3': menu.attr('title'),
+                'data-attribute3': $menu.attr('title'),
               });
             }
 
@@ -236,22 +244,22 @@ describe('dds-masthead | default (mobile)', () => {
               checkAnalyticsAttributes(button, {
                 'data-attribute1': 'headerNav',
                 'data-attribute2': 'TabHdline',
-                'data-attribute3': menu.attr('title'),
+                'data-attribute3': $menu.attr('title'),
               });
             }
           });
       })
 
       .get('dds-left-nav-menu-section[titleurl^="http"]')
-      .each(section => {
-        cy.get(section)
+      .each($section => {
+        cy.get($section)
           .shadow()
           .find('a')
           .then(([link]) => {
             checkAnalyticsAttributes(link, {
               'data-attribute1': 'headerNav',
               'data-attribute2': 'FlatHdline',
-              'data-attribute3': section.attr('title'),
+              'data-attribute3': $section.attr('title'),
             });
           });
       })
