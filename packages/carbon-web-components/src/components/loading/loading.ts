@@ -34,19 +34,26 @@ class BXLoading extends LitElement {
   type = LOADING_TYPE.REGULAR;
 
   /**
+   * `true` if overlay should be applied.
+   */
+  @property({ attribute: 'overlay' })
+  withOverlay = false;
+
+  /**
    * `true` if spinner should stop.
    */
   @property({ type: Boolean, reflect: true })
   inactive = false;
 
   render() {
-    const { inactive, assistiveText, type } = this;
+    const { inactive, assistiveText, type, withOverlay } = this;
     const innerClasses = classMap({
       [`${prefix}--loading`]: true,
       [`${prefix}--loading--stop`]: inactive,
+      [`${prefix}--loading--small`]: type === LOADING_TYPE.SMALL,
     });
     const icon = getLoadingIcon({ assistiveText, type });
-    return type !== LOADING_TYPE.OVERLAY
+    return !withOverlay
       ? icon
       : html` <div class="${innerClasses}">${icon}</div> `;
   }

@@ -15,7 +15,7 @@ $css--plex: true !default;
   @extend .#{$prefix}--loading;
 }
 
-:host(#{$prefix}-loading[type='overlay']) {
+:host(#{$prefix}-loading[overlay='true']) {
   @extend .#{$prefix}--loading-overlay;
 
   // Avoids duplicate animation of the host and the `.bx--loading` in the shadow DOM

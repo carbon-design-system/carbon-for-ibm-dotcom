@@ -16,13 +16,15 @@ import storyDocs from './loading-story.mdx';
 const types = {
   [`Regular (${LOADING_TYPE.REGULAR})`]: null,
   [`Small (${LOADING_TYPE.SMALL})`]: LOADING_TYPE.SMALL,
-  [`With overlay (${LOADING_TYPE.OVERLAY})`]: LOADING_TYPE.OVERLAY,
 };
 
 export const Default = (args) => {
-  const { inactive, type } = args?.['bx-loading'] ?? {};
+  const { inactive, type, withOverlay } = args?.['cds-loading'] ?? {};
   return html`
-    <cds-loading ?inactive=${inactive} type=${ifNonNull(type)}></cds-loading>
+    <cds-loading
+      ?inactive=${inactive}
+      type=${ifNonNull(type)}
+      overlay=${withOverlay}></cds-loading>
   `;
 };
 
@@ -33,9 +35,10 @@ export default {
   parameters: {
     ...storyDocs.parameters,
     knobs: {
-      'bx-loading': () => ({
+      'cds-loading': () => ({
         inactive: boolean('Inactive (inactive)', false),
         type: select('The spinner type (type)', types, null),
+        withOverlay: boolean('With overlay (withOverlay)', false),
       }),
     },
   },
