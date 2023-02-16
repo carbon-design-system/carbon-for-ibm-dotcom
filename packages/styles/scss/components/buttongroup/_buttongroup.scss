@@ -70,6 +70,24 @@
         width: auto;
         height: auto;
       }
+
+      .#{$prefix}--btn--hidden {
+        display: none;
+        visibility: hidden;
+
+        @media print {
+          display: inline-block;
+          visibility: visible;
+          font-weight: 200;
+          color: $gray-100;
+
+          span {
+            font-weight: 600;
+            margin-left: calc(-1 * #{$spacing-02});
+            margin-right: $spacing-02;
+          }
+        }
+      }
     }
 
     .#{$prefix}--btn--multiline {
