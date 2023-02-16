@@ -1,5 +1,5 @@
 /**
-* Copyright IBM Corp. 2016, 2021
+* Copyright IBM Corp. 2016, 2023
 *
 * This source code is licensed under the Apache-2.0 license found in the
 * LICENSE file in the root directory of this source tree.
@@ -69,24 +69,6 @@
       .#{$prefix}--btn__icon {
         width: auto;
         height: auto;
-      }
-
-      .#{$prefix}--btn--hidden {
-        display: none;
-        visibility: hidden;
-
-        @media print {
-          display: inline-block;
-          visibility: visible;
-          font-weight: 200;
-          color: $gray-100;
-
-          span {
-            font-weight: 600;
-            margin-left: calc(-1 * #{$spacing-02});
-            margin-right: $spacing-02;
-          }
-        }
       }
     }
 
