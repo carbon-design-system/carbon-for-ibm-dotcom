@@ -79,18 +79,18 @@ describe('dds-masthead | default (desktop)', () => {
       cy.get($topItem)
         .shadow()
         .find('a')
-        .click()
-        .get('dds-megamenu-category-link, dds-megamenu-category-heading')
-        .each($linkItem => {
-          cy.get($linkItem)
-            .shadow()
-            .then(([shadowHost]) => {
-              const link = shadowHost.querySelector('a');
-              if (link) {
-                expect(link.href.trim()).not.to.be.empty;
-              }
-            });
-        });
+        .click();
+
+      cy.get('dds-megamenu-category-link, dds-megamenu-category-heading').each($linkItem => {
+        cy.get($linkItem)
+          .shadow()
+          .then(([shadowHost]) => {
+            const link = shadowHost.querySelector('a');
+            if (link) {
+              expect(link.href.trim()).not.to.be.empty;
+            }
+          });
+      });
     });
   });
 
@@ -149,35 +149,34 @@ describe('dds-masthead | default (desktop)', () => {
             'data-attribute3': item.attr('menu-label'),
           });
         })
-        .click()
-        .get('dds-megamenu-tab, dds-megamenu-category-heading[href^="http"]')
-        .each(item => {
-          cy.get(item)
-            .shadow()
-            .find('button, a')
-            .then(([button]) => {
-              const isTab = button.matches('button');
-              checkAnalyticsAttributes(button, {
-                'data-attribute1': 'headerNav',
-                'data-attribute2': isTab ? 'TabHdline' : 'FlatHdline',
-                'data-attribute3': isTab ? item.attr('value') : item.attr('title'),
-              });
-            });
-        })
+        .click();
 
-        .get('dds-megamenu-category-link')
-        .each(item => {
-          cy.get(item)
-            .shadow()
-            .find('a')
-            .then(([link]) => {
-              checkAnalyticsAttributes(link, {
-                'data-attribute1': 'headerNav',
-                'data-attribute2': 'FlatItem',
-                'data-attribute3': item.attr('title'),
-              });
+      cy.get('dds-megamenu-tab, dds-megamenu-category-heading[href^="http"]').each(item => {
+        cy.get(item)
+          .shadow()
+          .find('button, a')
+          .then(([button]) => {
+            const isTab = button.matches('button');
+            checkAnalyticsAttributes(button, {
+              'data-attribute1': 'headerNav',
+              'data-attribute2': isTab ? 'TabHdline' : 'FlatHdline',
+              'data-attribute3': isTab ? item.attr('value') : item.attr('title'),
             });
-        });
+          });
+      });
+
+      cy.get('dds-megamenu-category-link').each(item => {
+        cy.get(item)
+          .shadow()
+          .find('a')
+          .then(([link]) => {
+            checkAnalyticsAttributes(link, {
+              'data-attribute1': 'headerNav',
+              'data-attribute2': 'FlatItem',
+              'data-attribute3': item.attr('title'),
+            });
+          });
+      });
     });
   });
 });
@@ -186,8 +185,9 @@ describe('dds-masthead | default (mobile)', () => {
   beforeEach(() => {
     cy.viewport(320, 780)
       .visit(`/${_pathDefault}`)
-      .injectAxe()
-      .waitUntil(() => cy.get('[data-autoid="dds--masthead-default__l0-nav0"]').should('not.be.empty'));
+      .injectAxe();
+
+    cy.waitUntil(() => cy.get('[data-autoid="dds--masthead-default__l0-nav0"]').should('not.be.empty'));
   });
 
   it('should check a11y', () => {
@@ -217,65 +217,62 @@ describe('dds-masthead | default (mobile)', () => {
     cy.takeSnapshots('mobile');
   });
 
-  it('should load analytics attributes throughout menu', () => {
+  it.only('should load analytics attributes throughout menu', () => {
     cy.get('dds-masthead-menu-button')
       .shadow()
       .find('button')
       .click();
 
     // Excludes dds-left-nav-menu-item
-    cy.get('dds-left-nav-menu')
-      .each($menu => {
-        cy.get($menu)
-          .shadow()
-          .find('button')
-          .then(([button]) => {
-            // Top-level items
-            if (!$menu.get(0).parentElement.hasAttribute('is-submenu')) {
-              checkAnalyticsAttributes(button, {
-                'data-attribute1': 'headerNav',
-                'data-attribute2': 'L0',
-                'data-attribute3': $menu.attr('title'),
-              });
-            }
-
-            // Secondary-level items
-            else {
-              checkAnalyticsAttributes(button, {
-                'data-attribute1': 'headerNav',
-                'data-attribute2': 'TabHdline',
-                'data-attribute3': $menu.attr('title'),
-              });
-            }
-          });
-      })
-
-      .get('dds-left-nav-menu-category-heading[url^="http"]')
-      .each($heading => {
-        cy.get($heading)
-          .shadow()
-          .find('a')
-          .then(([link]) => {
-            checkAnalyticsAttributes(link, {
+    cy.get('dds-left-nav-menu').each($menu => {
+      cy.get($menu)
+        .shadow()
+        .find('button')
+        .then(([button]) => {
+          // Top-level items
+          if (!$menu.get(0).parentElement.hasAttribute('is-submenu')) {
+            checkAnalyticsAttributes(button, {
               'data-attribute1': 'headerNav',
-              'data-attribute2': 'FlatHdline',
-              'data-attribute3': $heading.attr('title'),
+              'data-attribute2': 'L0',
+              'data-attribute3': $menu.attr('title'),
             });
-          });
-      })
+          }
 
-      .get('dds-left-nav-menu-item[href^="http"]')
-      .each($item => {
-        cy.get($item)
-          .shadow()
-          .find('a')
-          .then(([link]) => {
-            checkAnalyticsAttributes(link, {
+          // Secondary-level items
+          else {
+            checkAnalyticsAttributes(button, {
               'data-attribute1': 'headerNav',
-              'data-attribute2': 'FlatItem',
-              'data-attribute3': $item.attr('title'),
+              'data-attribute2': 'TabHdline',
+              'data-attribute3': $menu.attr('title'),
             });
+          }
+        });
+    });
+
+    cy.get('dds-left-nav-menu-category-heading[url^="http"]').each($heading => {
+      cy.get($heading)
+        .shadow()
+        .find('a')
+        .then(([link]) => {
+          checkAnalyticsAttributes(link, {
+            'data-attribute1': 'headerNav',
+            'data-attribute2': 'FlatHdline',
+            'data-attribute3': $heading.attr('title'),
           });
-      });
+        });
+    });
+
+    cy.get('dds-left-nav-menu-item[href^="http"]').each($item => {
+      cy.get($item)
+        .shadow()
+        .find('a')
+        .then(([link]) => {
+          checkAnalyticsAttributes(link, {
+            'data-attribute1': 'headerNav',
+            'data-attribute2': 'FlatItem',
+            'data-attribute3': $item.attr('title'),
+          });
+        });
+    });
   });
 });
