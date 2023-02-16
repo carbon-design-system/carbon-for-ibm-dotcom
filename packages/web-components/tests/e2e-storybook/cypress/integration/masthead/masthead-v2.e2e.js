@@ -213,7 +213,7 @@ describe('dds-masthead | default (mobile)', () => {
     cy.takeSnapshots('mobile');
   });
 
-  it.only('should load analytics attributes throughout menu', () => {
+  it('should load analytics attributes throughout menu', () => {
     cy.get('dds-masthead-menu-button')
       .shadow()
       .find('button')
