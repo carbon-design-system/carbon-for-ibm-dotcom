@@ -31,8 +31,8 @@ const sizes = {
 };
 
 export const Default = (args) => {
-  const { open, size, disableClose, onBeforeClose, onClose } =
-    args?.['bx-modal'] ?? {};
+  const { danger, open, size, disableClose, onBeforeClose, onClose } =
+    args?.['cds-modal'] ?? {};
   const handleBeforeClose = (event: CustomEvent) => {
     onBeforeClose(event);
     if (disableClose) {
@@ -43,8 +43,8 @@ export const Default = (args) => {
     <cds-modal
       ?open="${open}"
       size="${ifNonNull(size)}"
-      @bx-modal-beingclosed=${handleBeforeClose}
-      @bx-modal-closed=${onClose}>
+      @cds-modal-beingclosed=${handleBeforeClose}
+      @cds-modal-closed=${onClose}>
       <cds-modal-header>
         <cds-modal-close-button></cds-modal-close-button>
         <cds-modal-label>Label (Optional)</cds-modal-label>
@@ -55,7 +55,9 @@ export const Default = (args) => {
         <cds-modal-footer-button kind="secondary" data-modal-close
           >Cancel</cds-modal-footer-button
         >
-        <cds-modal-footer-button kind="primary">Save</cds-modal-footer-button>
+        <cds-modal-footer-button kind="${danger ? 'danger' : 'primary'}"
+          >Save</cds-modal-footer-button
+        >
       </cds-modal-footer>
     </cds-modal>
   `;
@@ -64,8 +66,8 @@ export const Default = (args) => {
 Default.storyName = 'Default';
 
 export const SingleButton = (args) => {
-  const { open, size, disableClose, onBeforeClose, onClose } =
-    args?.['bx-modal'] ?? {};
+  const { danger, open, size, disableClose, onBeforeClose, onClose } =
+    args?.['cds-modal'] ?? {};
   const handleBeforeClose = (event: CustomEvent) => {
     onBeforeClose(event);
     if (disableClose) {
@@ -76,8 +78,8 @@ export const SingleButton = (args) => {
     <cds-modal
       ?open="${open}"
       size="${ifNonNull(size)}"
-      @bx-modal-beingclosed=${handleBeforeClose}
-      @bx-modal-closed=${onClose}>
+      @cds-modal-beingclosed=${handleBeforeClose}
+      @cds-modal-closed=${onClose}>
       <cds-modal-header>
         <cds-modal-close-button></cds-modal-close-button>
         <cds-modal-label>Label (Optional)</cds-modal-label>
@@ -85,7 +87,9 @@ export const SingleButton = (args) => {
       </cds-modal-header>
       <cds-modal-body><p>Modal text description</p></cds-modal-body>
       <cds-modal-footer>
-        <cds-modal-footer-button kind="primary">Save</cds-modal-footer-button>
+        <cds-modal-footer-button kind="${danger ? 'danger' : 'primary'}"
+          >Save</cds-modal-footer-button
+        >
       </cds-modal-footer>
     </cds-modal>
   `;
@@ -94,8 +98,8 @@ export const SingleButton = (args) => {
 SingleButton.storyName = 'Single button';
 
 export const ThreeButtons = (args) => {
-  const { open, size, disableClose, onBeforeClose, onClose } =
-    args?.['bx-modal'] ?? {};
+  const { danger, open, size, disableClose, onBeforeClose, onClose } =
+    args?.['cds-modal'] ?? {};
   const handleBeforeClose = (event: CustomEvent) => {
     onBeforeClose(event);
     if (disableClose) {
@@ -106,8 +110,8 @@ export const ThreeButtons = (args) => {
     <cds-modal
       ?open="${open}"
       size="${ifNonNull(size)}"
-      @bx-modal-beingclosed=${handleBeforeClose}
-      @bx-modal-closed=${onClose}>
+      @cds-modal-beingclosed=${handleBeforeClose}
+      @cds-modal-closed=${onClose}>
       <cds-modal-header>
         <cds-modal-close-button></cds-modal-close-button>
         <cds-modal-label>Label (Optional)</cds-modal-label>
@@ -121,7 +125,9 @@ export const ThreeButtons = (args) => {
         <cds-modal-footer-button kind="secondary" data-modal-close
           >Cancel</cds-modal-footer-button
         >
-        <cds-modal-footer-button kind="primary">Save</cds-modal-footer-button>
+        <cds-modal-footer-button kind="${danger ? 'danger' : 'primary'}"
+          >Save</cds-modal-footer-button
+        >
       </cds-modal-footer>
     </cds-modal>
   `;
@@ -142,16 +148,16 @@ export default {
   parameters: {
     ...storyDocs.parameters,
     knobs: {
-      'bx-modal': () => ({
+      'cds-modal': () => ({
         open: boolean('Open (open)', true),
         danger: boolean('Danger mode (danger)', false),
         disableClose: boolean(
-          'Disable user-initiated close action (Call event.preventDefault() in bx-modal-beingclosed event)',
+          'Disable user-initiated close action (Call event.preventDefault() in cds-modal-beingclosed event)',
           false
         ),
         size: select('Modal size (size)', sizes, null),
-        onBeforeClose: action('bx-modal-beingclosed'),
-        onClose: action('bx-modal-closed'),
+        onBeforeClose: action('cds-modal-beingclosed'),
+        onClose: action('cds-modal-closed'),
       }),
     },
   },
