@@ -51,7 +51,7 @@ const urlObject = {
 };
 
 async function customTypeaheadApiFunction(searchVal) {
-  return fetch(`https://ibmdocs-dev.mybluemix.net/docs/api/v1/suggest?query=${searchVal}&lang=undefined&categories=&limit=6`)
+  return fetch(`https://ibmdocs-dev.dcs.ibm.com/docs/api/v1/suggest?query=${searchVal}&lang=undefined&categories=&limit=6`)
     .then(response => response.json())
     .then(data => {
       const searchResults = [
