@@ -8,7 +8,7 @@
  */
 
 @import '@carbon/ibmdotcom-styles/scss/components/filter-panel/filter-panel';
-@import 'carbon-components/scss/components/modal/modal';
+@import '@carbon/web-components/scss/components/modal/modal';
 
 :host(#{$dds-prefix}-filter-panel-modal) {
   @extend :host(#{$prefix}-modal);

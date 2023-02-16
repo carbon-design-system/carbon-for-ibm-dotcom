@@ -6,9 +6,9 @@
 //
 
 @import '@carbon/ibmdotcom-styles/scss/globals/vars';
-@import 'carbon-components/scss/components/button/button';
+@import '@carbon/web-components/scss/components/button/button';
 @import '../../globals/scss/box-sizing';
 
 :host(#{$dds-prefix}-button-expressive) {
-  @extend :host(#{$prefix}-btn) !optional;
+  @extend :host(#{$prefix}-btn);
 }
