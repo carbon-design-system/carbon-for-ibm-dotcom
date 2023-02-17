@@ -58,7 +58,7 @@ class DDSMastheadContact extends DDSMastheadProfile {
          *
          * @see https://github.ibm.com/live-advisor/cm-app
          */
-        if (mastheadContainer.contactModuleApp) {
+        if (mastheadContainer?.contactModuleApp) {
           (mastheadContainer.contactModuleApp as CMApp).init();
         }
       }
