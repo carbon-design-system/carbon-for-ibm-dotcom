@@ -51,7 +51,7 @@ const urlObject = {
 };
 
 async function customTypeaheadApiFunction(searchVal) {
-  return fetch(`https://ibmdocs-dev.mybluemix.net/docs/api/v1/suggest?query=${searchVal}&lang=undefined&categories=&limit=6`)
+  return fetch(`https://ibmdocs-dev.dcs.ibm.com/docs/api/v1/suggest?query=${searchVal}&lang=undefined&categories=&limit=6`)
     .then(response => response.json())
     .then(data => {
       const searchResults = [
@@ -369,6 +369,7 @@ withPlatform.story = {
         searchPlaceholder: textNullable('search placeholder (searchPlaceholder)', inPercy() ? '' : 'Search all of IBM'),
         selectedMenuItem: textNullable('selected menu item (selected-menu-item)', 'Consulting & Services'),
         userStatus: select('The user authenticated status (user-status)', userStatuses, userStatuses.unauthenticated),
+        useMock: boolean('use mock nav data (use-mock)', false),
       }),
     },
     propsSet: {
@@ -434,6 +435,7 @@ withL1.story = {
         searchPlaceholder: textNullable('search placeholder (searchPlaceholder)', inPercy() ? '' : 'Search all of IBM'),
         selectedMenuItem: textNullable('selected menu item (selected-menu-item)', 'Products'),
         userStatus: select('The user authenticated status (user-status)', userStatuses, userStatuses.unauthenticated),
+        useMock: boolean('use mock nav data (use-mock)', false),
       }),
     },
     propsSet: {

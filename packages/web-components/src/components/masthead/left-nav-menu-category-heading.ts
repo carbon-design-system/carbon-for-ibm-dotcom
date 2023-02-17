@@ -50,7 +50,15 @@ class DDSLeftNavMenuCategoryHeading extends LitElement {
     return url
       ? html`
           <h2 class="${classMap(headingClasses)}">
-            <a href="${url}" class="${prefix}--side-nav__heading-title">${headingText}${ArrowRight20()}</a>
+            <a
+              href="${url}"
+              class="${prefix}--side-nav__heading-title"
+              data-attribute1="headerNav"
+              data-attribute2="FlatHdline"
+              data-attribute3="${headingText}"
+            >
+              ${headingText}${ArrowRight20()}
+            </a>
           </h2>
         `
       : html`

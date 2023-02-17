@@ -1,7 +1,7 @@
 /**
  * @license
  *
- * Copyright IBM Corp. 2020, 2022
+ * Copyright IBM Corp. 2020, 2023
  *
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
@@ -18,7 +18,7 @@ program
   .option('-b, --browser [browser]', 'Browser to test with (ChromeHeadless or Chrome) for Karma testing', collect, new Set())
   .option(
     '-d, --debug',
-    'Disables collection of code coverage for Karma testing, useful for runinng debugger against specs or sources'
+    'Disables collection of code coverage for Karma testing, useful for running debugger against specs or sources'
   )
   .option('-k, --keepalive', 'Keeps browser open after first run of Karma test finishes')
   .option('-r, --random', 'Enable random execution order of tests')
@@ -28,7 +28,13 @@ program
   .option('--verbose', 'Enables verbose output')
   .parse(process.argv);
 
-const cloptions = { browsers: [], specs: [], ...program.opts() };
+const { browser: browsers, spec: specs, ...rest } = program.opts();
+
+const cloptions = {
+  browsers: (browsers && Array.from(browsers)) || [],
+  specs: (specs && Array.from(specs)) || [],
+  ...rest,
+};
 
 module.exports = {
   ENV_PRODUCTION: 'production',

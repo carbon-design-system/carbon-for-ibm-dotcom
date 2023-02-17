@@ -1,5 +1,5 @@
 /**
- * Copyright IBM Corp. 2021, 2022
+ * Copyright IBM Corp. 2021, 2023
  *
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
@@ -11,7 +11,8 @@
  * @type {string}
  * @private
  */
-const _pathCustomSearch = '/iframe.html?id=components-masthead--with-custom-typeahead';
+const _pathCustomSearch =
+  '/iframe.html?id=components-masthead--with-custom-typeahead&knob-use%20mock%20nav%20data%20(use-mock)=true';
 
 describe('dds-masthead | custom search (desktop)', () => {
   beforeEach(() => {
@@ -36,9 +37,13 @@ describe('dds-masthead | custom search (desktop)', () => {
   });
 
   it('should display grouped results with hrefs', () => {
-    // Mock grouped search typeahead API
-    cy.intercept('https://ibmdocs-dev.mybluemix.net/docs/api/v1/suggest?query=cloud&lang=undefined&categories=&limit=6', {
-      fixture: 'grouped-typeahead.json',
+    // Mock grouped search typeahead API. Below we user the "cloud" search
+    // string. Every keypress will trigger an API request, so here we mock each
+    // successive cumulative search query.
+    [('c', 'cl', 'clo', 'clou', 'cloud')].forEach(query => {
+      cy.intercept(`https://ibmdocs-dev.dcs.ibm.com/docs/api/v1/suggest?query=${query}&lang=undefined&categories=&limit=6`, {
+        fixture: `grouped-typeahead-${query}.json`,
+      }).as(`grouped-typeahead-${query}`);
     });
 
     cy.get('dds-masthead > dds-search-with-typeahead')
@@ -60,7 +65,7 @@ describe('dds-masthead | custom search (desktop)', () => {
     });
 
     cy.get('dds-search-with-typeahead-item').each(($item, $index) => {
-      if ($index == 6) {
+      if ($index === 6) {
         expect($item).to.have.attr('groupTitle');
       } else if ($index > 6) {
         expect($item).to.have.attr('href');
