@@ -26,6 +26,24 @@ function checkAnalyticsAttributes(element, attributes) {
   });
 }
 
+/**
+ * Verifies that the given customElementName is registered.
+ *
+ * @param {string} customElementName
+ *   The name of the custom element to check the registry for.
+ */
+function customElementIsRegistered(customElementName) {
+  cy.waitUntil(
+    () =>
+      cy.window().then(window => {
+        return window.customElements.get(customElementName) !== undefined;
+      }),
+    {
+      errorMsg: `${customElementName} is not registered`,
+    }
+  );
+}
+
 describe('dds-masthead | default (desktop)', () => {
   beforeEach(() => {
     cy.viewport(1280, 780)
@@ -270,5 +288,102 @@ describe('dds-masthead | default (mobile)', () => {
           });
         });
     });
+  });
+});
+
+describe('dds-masthead | performance optimizations', () => {
+  it('should only render either top nav or left nav (dom pruning)', () => {
+    cy.viewport(1280, 780).visit(`/${_pathDefault}`);
+
+    cy.get('dds-top-nav');
+    cy.get('dds-left-nav').should('not.exist');
+    cy.get('dds-left-nav-overlay').should('not.exist');
+    cy.get('dds-masthead-menu-button').should('not.exist');
+
+    cy.viewport(780, 1280);
+
+    cy.get('dds-top-nav').should('not.exist');
+    cy.get('dds-left-nav');
+    cy.get('dds-left-nav-overlay');
+    cy.get('dds-masthead-menu-button');
+  });
+
+  it('should lazy load the mega menu', () => {
+    cy.viewport(1280, 780).visit(`/${_pathDefault}`);
+
+    // Mega menu not opened yet, assert that none of the lazy loaded elements
+    // are registered.
+    [
+      'dds-megamenu-left-navigation',
+      'dds-megamenu-category-link',
+      'dds-megamenu-category-link-group',
+      'dds-megamenu-category-group',
+      'dds-megamenu-category-group-copy',
+      'dds-megamenu-category-heading',
+      'dds-megamenu-link-with-icon',
+      'dds-megamenu-overlay',
+      'dds-megamenu-tab',
+      'dds-megamenu-tabs',
+    ].forEach(elemName => {
+      const elem = window.customElements.get(elemName);
+      expect(elem).to.be.undefined;
+    });
+
+    // Open up the first mega menu.
+    cy.get('dds-megamenu-top-nav-menu')
+      .first()
+      .shadow()
+      .find('a')
+      .click();
+
+    // Mega menu opened! Assert that all the lazy loaded elements have been
+    // loaded and registered.
+    [
+      'dds-megamenu-left-navigation',
+      'dds-megamenu-category-link',
+      'dds-megamenu-category-group',
+      'dds-megamenu-category-heading',
+      'dds-megamenu-link-with-icon',
+      'dds-megamenu-overlay',
+      'dds-megamenu-tab',
+      'dds-megamenu-tabs',
+    ].forEach(customElementIsRegistered);
+  });
+
+  it('should lazy load the left nav menu', () => {
+    cy.viewport(320, 780).visit(`/${_pathDefault}`);
+
+    // Left nav not opened yet, assert that none of the lazy loaded elements
+    // are registered.
+    [
+      'dds-left-nav-cta-item',
+      'dds-left-nav-name',
+      'dds-left-nav-menu',
+      'dds-left-nav-menu-section',
+      'dds-left-nav-menu-item',
+      'dds-left-nav-menu-category-heading',
+      'dds-left-nav-overlay',
+    ].forEach(elemName => {
+      const elem = window.customElements.get(elemName);
+      expect(elem).to.be.undefined;
+    });
+
+    // Open up the left nav.
+    cy.get('dds-masthead-menu-button')
+      .shadow()
+      .find('button')
+      .click();
+
+    // Left nav opened! Assert that all the lazy loaded elements have been
+    // loaded and registered.
+    [
+      'dds-left-nav-cta-item',
+      'dds-left-nav-name',
+      'dds-left-nav-menu',
+      'dds-left-nav-menu-section',
+      'dds-left-nav-menu-item',
+      'dds-left-nav-menu-category-heading',
+      'dds-left-nav-overlay',
+    ].forEach(customElementIsRegistered);
   });
 });
