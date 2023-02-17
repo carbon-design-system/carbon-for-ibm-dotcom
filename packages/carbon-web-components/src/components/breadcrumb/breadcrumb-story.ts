@@ -12,6 +12,7 @@ import './breadcrumb';
 import './breadcrumb-item';
 import './breadcrumb-link';
 import './breadcrumb-overflow-menu';
+import '../overflow-menu/overflow-menu-body';
 import storyDocs from './breadcrumb-story.mdx';
 
 export const Default = () =>

@@ -59,23 +59,11 @@ $css--plex: true !default;
 
 :host(#{$prefix}-overflow-menu-body) {
   @extend .#{$prefix}--overflow-menu-options;
-
-  &::after {
-    @extend .#{$prefix}--overflow-menu-options,
-      [data-floating-menu-direction='bottom'],
-      ::after;
-  }
 }
 
 :host(#{$prefix}-overflow-menu-body[direction='top']) {
   margin-top: 0;
   margin-bottom: $spacing-02;
-
-  &::after {
-    @extend .#{$prefix}--overflow-menu-options,
-      [data-floating-menu-direction='top'],
-      ::after;
-  }
 }
 
 :host(#{$prefix}-overflow-menu-body[open]) {
