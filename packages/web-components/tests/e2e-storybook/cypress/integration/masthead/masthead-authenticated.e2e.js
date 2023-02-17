@@ -46,6 +46,6 @@ describe('dds-masthead | default (mobile)', () => {
       .find('a')
       .click();
     cy.get('dds-masthead-profile-item').should('have.length', 4);
-    cy.takeSnapshots();
+    cy.takeSnapshots('mobile');
   });
 });

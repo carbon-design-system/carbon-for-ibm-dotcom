@@ -231,6 +231,29 @@ describe('dds-masthead | default (mobile)', () => {
     cy.takeSnapshots('mobile');
   });
 
+  it('should load the mobile menu | level 3', () => {
+    cy.get('dds-masthead-menu-button')
+      .shadow()
+      .find('button')
+      .click();
+
+    cy.get('dds-left-nav-menu')
+      .filter(':visible')
+      .first()
+      .shadow()
+      .find('button')
+      .click();
+
+    cy.get('dds-left-nav-menu')
+      .filter(':visible')
+      .first()
+      .shadow()
+      .find('button')
+      .click();
+
+    cy.takeSnapshots('mobile');
+  });
+
   it('should load analytics attributes throughout menu', () => {
     cy.get('dds-masthead-menu-button')
       .shadow()
