@@ -33,15 +33,9 @@ function checkAnalyticsAttributes(element, attributes) {
  *   The name of the custom element to check the registry for.
  */
 function customElementIsRegistered(customElementName) {
-  cy.waitUntil(
-    () =>
-      cy.window().then(window => {
-        return window.customElements.get(customElementName) !== undefined;
-      }),
-    {
-      errorMsg: `${customElementName} is not registered`,
-    }
-  );
+  cy.waitUntil(() => cy.window().then(window => window.customElements.get(customElementName) !== undefined), {
+    errorMsg: `${customElementName} is not registered`,
+  });
 }
 
 describe('dds-masthead | default (desktop)', () => {
