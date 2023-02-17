@@ -57,6 +57,7 @@ module.exports = {
   sassDestDir: 'scss',
   tasksDir: 'gulp-tasks',
   testsDir: 'tests',
+  vendorSrcDirBase: path.resolve(__dirname, '../src/internal/vendor'),
   carbonWebComponentsCJSSrcDir: path.resolve(
     __dirname,
     '../../carbon-web-components/lib'

@@ -1,7 +1,7 @@
 /**
  * @license
  *
- * Copyright IBM Corp. 2019, 2022
+ * Copyright IBM Corp. 2019, 2023
  *
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
@@ -43,12 +43,9 @@ class DDSTagGroup extends StableSelectorMixin(LitElement) {
       )
     );
 
-    // Handle color setting differently depending on Carbon WC or Carbon React
+    // Handle default color setting differently depending on Carbon WC or Carbon React
     carbonTags.forEach((elem) => {
-      if (
-        !(elem as HTMLElement).hasAttribute('type') ||
-        (elem as HTMLElement).getAttribute('type') === 'gray'
-      ) {
+      if (!(elem as HTMLElement).hasAttribute('type')) {
         (elem as HTMLElement).setAttribute('type', 'green');
       }
     });
