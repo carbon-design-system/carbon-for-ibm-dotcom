@@ -59,7 +59,6 @@ $button-transition: background-color 110ms, border-color 110ms, color 110ms;
     }
   }
 
-  /* stylelint-disable-next-line selector-pseudo-class-parentheses-space-inside */
   .#{$prefix}--header__search:not(
       .#{$prefix}--masthead__header--search-active
     ) {
