@@ -14,11 +14,11 @@ jobs:
     if: github.repository == 'carbon-design-system/carbon-for-ibm-dotcom'
     runs-on: ubuntu-20.04
     steps:
-      - uses: actions/checkout@v2
+      - uses: actions/checkout@v3
         with:
           token: ${{secrets.MERGE_ACTION}}
       - name: Use Node.js 14.x
-        uses: actions/setup-node@v2
+        uses: actions/setup-node@v3
         with:
           node-version: '14.x'
           cache: 'yarn'
@@ -61,7 +61,7 @@ jobs:
           git add canary/carbon-web-components
           git commit -m "chore(deploy): deploy Carbon web components canary to GitHub Pages"
           git push origin gh-pages
-      - uses: act10ns/slack@v1
+      - uses: act10ns/slack@v2
         if: failure()
         env:
           SLACK_WEBHOOK_URL: ${{ secrets.SLACK_WEBHOOK_URL }}
@@ -71,11 +71,11 @@ jobs:
     if: github.repository == 'carbon-design-system/carbon-for-ibm-dotcom'
     runs-on: ubuntu-20.04
     steps:
-      - uses: actions/checkout@v2
+      - uses: actions/checkout@v3
         with:
           token: ${{secrets.MERGE_ACTION}}
       - name: Use Node.js 14.x
-        uses: actions/setup-node@v2
+        uses: actions/setup-node@v3
         with:
           node-version: '14.x'
           cache: 'yarn'
@@ -157,7 +157,7 @@ jobs:
           git add canary/react-experimental
           git commit -m "chore(deploy): deploy React canary to GitHub Pages"
           git push origin gh-pages
-      - uses: act10ns/slack@v1
+      - uses: act10ns/slack@v2
         if: failure()
         env:
           SLACK_WEBHOOK_URL: ${{ secrets.SLACK_WEBHOOK_URL }}
@@ -167,11 +167,11 @@ jobs:
     if: github.repository == 'carbon-design-system/carbon-for-ibm-dotcom'
     runs-on: ubuntu-20.04
     steps:
-      - uses: actions/checkout@v2
+      - uses: actions/checkout@v3
         with:
           token: ${{secrets.MERGE_ACTION}}
       - name: Use Node.js 14.x
-        uses: actions/setup-node@v2
+        uses: actions/setup-node@v3
         with:
           node-version: '14.x'
           cache: 'yarn'
@@ -272,7 +272,7 @@ jobs:
           git add canary/web-components-experimental
           git commit -m "chore(deploy): deploy Web Components canary to GitHub Pages"
           git push origin gh-pages
-      - uses: act10ns/slack@v1
+      - uses: act10ns/slack@v2
         if: failure()
         env:
           SLACK_WEBHOOK_URL: ${{ secrets.SLACK_WEBHOOK_URL }}
@@ -282,11 +282,11 @@ jobs:
     if: github.repository == 'carbon-design-system/carbon-for-ibm-dotcom'
     runs-on: ubuntu-20.04
     steps:
-      - uses: actions/checkout@v2
+      - uses: actions/checkout@v3
         with:
           token: ${{secrets.MERGE_ACTION}}
       - name: Use Node.js 14.x
-        uses: actions/setup-node@v2
+        uses: actions/setup-node@v3
         with:
           node-version: '14.x'
           cache: 'yarn'
@@ -324,7 +324,7 @@ jobs:
           git add services
           git commit -m "chore(deploy): deploy Services to GitHub Pages"
           git push origin gh-pages
-      - uses: act10ns/slack@v1
+      - uses: act10ns/slack@v2
         if: failure()
         env:
           SLACK_WEBHOOK_URL: ${{ secrets.SLACK_WEBHOOK_URL }}
@@ -334,11 +334,11 @@ jobs:
     if: github.repository == 'carbon-design-system/carbon-for-ibm-dotcom'
     runs-on: ubuntu-20.04
     steps:
-      - uses: actions/checkout@v2
+      - uses: actions/checkout@v3
         with:
           token: ${{secrets.MERGE_ACTION}}
       - name: Use Node.js 14.x
-        uses: actions/setup-node@v2
+        uses: actions/setup-node@v3
         with:
           node-version: '14.x'
           cache: 'yarn'
@@ -375,7 +375,7 @@ jobs:
           git add utilities
           git commit -m "chore(deploy): deploy Utilities to GitHub Pages"
           git push origin gh-pages
-      - uses: act10ns/slack@v1
+      - uses: act10ns/slack@v2
         if: failure()
         env:
           SLACK_WEBHOOK_URL: ${{ secrets.SLACK_WEBHOOK_URL }}
