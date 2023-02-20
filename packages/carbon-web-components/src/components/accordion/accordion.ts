@@ -40,12 +40,6 @@ class BXAccordion extends LitElement {
   @property({ type: Boolean, reflect: true })
   isFlush = false;
 
-  /**
-   * Specify an optional className to be applied to the container node
-   */
-  @property({ type: String, reflect: true })
-  className = '';
-
   connectedCallback() {
     if (!this.hasAttribute('role')) {
       this.setAttribute('role', 'list');
