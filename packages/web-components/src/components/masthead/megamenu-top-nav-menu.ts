@@ -201,7 +201,7 @@ class DDSMegaMenuTopNavMenu extends DDSTopNavMenu {
          *
          * @see https://github.ibm.com/live-advisor/cm-app
          */
-        if (mastheadContainer.contactModuleApp) {
+        if (mastheadContainer?.contactModuleApp) {
           (mastheadContainer.contactModuleApp as CMApp).init();
         }
         // Ask masthead-composite to render megamenu.
