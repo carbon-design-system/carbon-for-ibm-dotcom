@@ -1,5 +1,5 @@
 /**
- * Copyright IBM Corp. 2020, 2021
+ * Copyright IBM Corp. 2020, 2023
  *
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
@@ -27,10 +27,10 @@ function _kWidgetMock() {
         };
       }
     },
-    embed: obj => {
+    embed: (obj) => {
       obj.readyCallback(_kdpId);
     },
-    seconds2Measurements: timeInSeconds => {
+    seconds2Measurements: (timeInSeconds) => {
       const seconds = Math.floor(timeInSeconds % 60);
       const minutes = Math.floor((timeInSeconds / 60) % 60);
       const hours = Math.floor((timeInSeconds / (60 * 60)) % 24);
@@ -140,7 +140,7 @@ describe('KalturaPlayerAPI', () => {
 
   it('should execute the media metrics call', () => {
     const kdp = {
-      evaluate: query => {
+      evaluate: (query) => {
         switch (query) {
           case '{video.player.currentTime}':
             return 123;
@@ -160,7 +160,7 @@ describe('KalturaPlayerAPI', () => {
   });
   it('should execute the media metrics call with custom-metrics-data', () => {
     const kdp = {
-      evaluate: query => {
+      evaluate: (query) => {
         switch (query) {
           case '{video.player.currentTime}':
             return 0;
@@ -205,9 +205,9 @@ describe('KalturaPlayerAPI', () => {
     KalturaPlayerAPI.embedMedia(videoId, '12345', {});
     await Promise.resolve();
 
-    _jsEventListenerList.forEach(eventName => {
+    _jsEventListenerList.forEach((eventName) => {
       expect(
-        _jsListenerEvents.some(event => event.eventName === eventName)
+        _jsListenerEvents.some((event) => event.eventName === eventName)
       ).toBe(true);
     });
   });
@@ -218,15 +218,15 @@ describe('KalturaPlayerAPI', () => {
     _mockKdp();
     KalturaPlayerAPI.embedMedia(videoId, '12345', {}, false);
     await Promise.resolve();
-    _jsEventListenerList.forEach(eventName => {
+    _jsEventListenerList.forEach((eventName) => {
       expect(
-        _jsListenerEvents.some(event => event.eventName === eventName)
+        _jsListenerEvents.some((event) => event.eventName === eventName)
       ).toBe(false);
     });
   });
 
   it('should embed the media player with custom events', async () => {
-    const mockedCustomReadyCallback = jest.fn().mockImplementation(kdp => {
+    const mockedCustomReadyCallback = jest.fn().mockImplementation((kdp) => {
       kdp.addJsListener('customEvent.test', () => {});
     });
 
@@ -241,14 +241,14 @@ describe('KalturaPlayerAPI', () => {
       mockedCustomReadyCallback
     );
     await Promise.resolve();
-    _jsEventListenerList.forEach(eventName => {
+    _jsEventListenerList.forEach((eventName) => {
       expect(
-        _jsListenerEvents.some(event => event.eventName === eventName)
+        _jsListenerEvents.some((event) => event.eventName === eventName)
       ).toBe(false);
     });
     expect(mockedCustomReadyCallback).toHaveBeenCalled();
     expect(
-      _jsListenerEvents.some(event => event.eventName === 'customEvent.test')
+      _jsListenerEvents.some((event) => event.eventName === 'customEvent.test')
     ).toBe(true);
   });
 

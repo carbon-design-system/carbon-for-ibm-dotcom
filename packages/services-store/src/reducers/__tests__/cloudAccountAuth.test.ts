@@ -1,13 +1,16 @@
 /**
  * @license
  *
- * Copyright IBM Corp. 2021
+ * Copyright IBM Corp. 2021, 2023
  *
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
  */
 
-import { CLOUD_ACCOUNT_AUTH_API_ACTION, CloudAccountAuthAPIState } from '../../types/cloudAccountAuthAPI';
+import {
+  CLOUD_ACCOUNT_AUTH_API_ACTION,
+  CloudAccountAuthAPIState,
+} from '../../types/cloudAccountAuthAPI';
 import { CloudAccountAuthAPIActions } from '../../actions/cloudAccountAuthAPI';
 import convertValue from '../../../tests/utils/convert-value';
 import reducer from '../cloudAccountAuthAPI';

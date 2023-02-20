@@ -1,7 +1,7 @@
 {
   "name": "@carbon/eslint-config-ibmdotcom",
   "private": true,
-  "version": "1.29.0",
+  "version": "1.34.0",
   "description": "ESLint configuration for Carbon for IBM.com",
   "license": "Apache-2.0",
   "main": "index.js",
@@ -18,18 +18,22 @@
     "eslint": "^6.8.0"
   },
   "dependencies": {
-    "@carbon/eslint-plugin-react-prop-type-comments": "1.28.0",
+    "@carbon/eslint-plugin-react-prop-type-comments": "1.33.0",
+    "@typescript-eslint/eslint-plugin": "^5.43.0",
+    "@typescript-eslint/parser": "^5.43.0",
     "babel-eslint": "^10.1.0",
-    "eslint-config-airbnb": "^18.1.0",
-    "eslint-config-airbnb-base": "^14.1.0",
-    "eslint-config-prettier": "^6.11.0",
-    "eslint-plugin-import": "^2.20.2",
-    "eslint-plugin-jsdoc": "^24.0.0",
-    "eslint-plugin-jsx-a11y": "^6.2.3",
-    "eslint-plugin-prettier": "^3.1.3",
-    "eslint-plugin-react": "^7.19.0",
-    "eslint-plugin-react-hooks": "^3.0.0",
-    "eslint-plugin-tree-shaking": "^1.8.0",
+    "eslint-config-airbnb": "^19.0.4",
+    "eslint-config-airbnb-base": "^15.0.0",
+    "eslint-config-prettier": "^8.5.0",
+    "eslint-plugin-cypress": "^2.12.1",
+    "eslint-plugin-import": "^2.26.0",
+    "eslint-plugin-jsdoc": "^39.6.2",
+    "eslint-plugin-jsx-a11y": "^6.6.1",
+    "eslint-plugin-lit": "^1.6.1",
+    "eslint-plugin-prettier": "^4.2.1",
+    "eslint-plugin-react": "^7.31.10",
+    "eslint-plugin-react-hooks": "^4.6.0",
+    "eslint-plugin-tree-shaking": "^1.10.0",
     "eslint-restricted-globals": "^0.2.0"
   }
 }

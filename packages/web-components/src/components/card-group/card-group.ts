@@ -1,7 +1,7 @@
 /**
  * @license
  *
- * Copyright IBM Corp. 2020, 2022
+ * Copyright IBM Corp. 2020, 2023
  *
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
@@ -97,31 +97,49 @@ class DDSCardGroup extends StableSelectorMixin(LitElement) {
   private _handleSlotChange(event: Event) {
     this._childItems = (event.target as HTMLSlotElement)
       .assignedNodes()
-      .filter(elem => (elem as HTMLElement).matches?.((this.constructor as typeof DDSCardGroup).selectorItem));
+      .filter((elem) =>
+        (elem as HTMLElement).matches?.(
+          (this.constructor as typeof DDSCardGroup).selectorItem
+        )
+      );
 
     // retrieve item heading, eyebrows, and footers to set same height
     if (this._childItems) {
-      this._childItems.forEach(e => {
+      this._childItems.forEach((e) => {
         this._childItemEyebrows.push(
-          (e as HTMLElement).querySelector((this.constructor as typeof DDSCardGroup).selectorItemEyebrow)
+          (e as HTMLElement).querySelector(
+            (this.constructor as typeof DDSCardGroup).selectorItemEyebrow
+          )
         );
         this._childItemParagraphs.push(
-          (e as HTMLElement).querySelector((this.constructor as typeof DDSCardGroup).selectorItemParagraph)
+          (e as HTMLElement).querySelector(
+            (this.constructor as typeof DDSCardGroup).selectorItemParagraph
+          )
         );
         this._childItemTagGroup.push(
-          (e as HTMLElement).querySelector((this.constructor as typeof DDSCardGroup).selectorItemTagGroup)
+          (e as HTMLElement).querySelector(
+            (this.constructor as typeof DDSCardGroup).selectorItemTagGroup
+          )
         );
         this._childItemHeadings.push(
-          (e as HTMLElement).querySelector((this.constructor as typeof DDSCardGroup).selectorItemHeading)
+          (e as HTMLElement).querySelector(
+            (this.constructor as typeof DDSCardGroup).selectorItemHeading
+          )
         );
         this._childItemFooters.push(
-          (e as HTMLElement).querySelector((this.constructor as typeof DDSCardGroup).selectorItemFooter)
+          (e as HTMLElement).querySelector(
+            (this.constructor as typeof DDSCardGroup).selectorItemFooter
+          )
         );
         e.toggleAttribute('border', this.gridMode === 'border');
       });
 
-      const { customPropertyCardsPerRow } = this.constructor as typeof DDSCardGroup;
-      this.style.setProperty(customPropertyCardsPerRow, String(this.cardsPerRow));
+      const { customPropertyCardsPerRow } = this
+        .constructor as typeof DDSCardGroup;
+      this.style.setProperty(
+        customPropertyCardsPerRow,
+        String(this.cardsPerRow)
+      );
 
       if (this.gridMode !== GRID_MODE.NARROW) {
         this._resizeHandler();
@@ -163,26 +181,26 @@ class DDSCardGroup extends StableSelectorMixin(LitElement) {
     // check if items are not null before using sameHeight
 
     sameHeight(
-      this._childItemEyebrows.filter(item => item !== null),
+      this._childItemEyebrows.filter((item) => item !== null),
       'md'
     );
     sameHeight(
-      this._childItemHeadings.filter(item => item !== null),
+      this._childItemHeadings.filter((item) => item !== null),
       'md'
     );
     sameHeight(
-      this._childItemParagraphs.filter(item => item !== null),
+      this._childItemParagraphs.filter((item) => item !== null),
       'md'
     );
     sameHeight(
-      this._childItemFooters.filter(item => item !== null),
+      this._childItemFooters.filter((item) => item !== null),
       'md'
     );
 
     let tagGroupHeight: number = 0;
 
     // get tallest height of tag groups
-    this._childItemTagGroup.forEach(item => {
+    this._childItemTagGroup.forEach((item) => {
       if (item) {
         const groupHeight = (item as HTMLElement).offsetHeight;
         if (groupHeight > tagGroupHeight) {
@@ -191,20 +209,27 @@ class DDSCardGroup extends StableSelectorMixin(LitElement) {
       }
     });
 
-    this._childItemHeadings.forEach(e => {
+    this._childItemHeadings.forEach((e) => {
       // add tag group height to heading to the cards lacking tag group
-      if (e && !e.nextElementSibling?.matches((this.constructor as typeof DDSCardGroup).selectorItemTagGroup)) {
+      if (
+        e &&
+        !e.nextElementSibling?.matches(
+          (this.constructor as typeof DDSCardGroup).selectorItemTagGroup
+        )
+      ) {
         e.style.marginBottom = `${tagGroupHeight + headingBottomMargin}px`;
       }
     });
   };
 
-  private _borderAdjustments = columnCount => {
-    const isEmpty = element => element.hasAttribute('empty');
-    const inFirstColumn = index => (index + 1) % columnCount === 1;
-    const inLastColumn = index => (index + 1) % columnCount === 0;
-    const inFirstRow = index => index < columnCount;
-    const inLastRow = index => Math.floor(index / columnCount) === Math.floor((this._childItems.length - 1) / columnCount);
+  private _borderAdjustments = (columnCount) => {
+    const isEmpty = (element) => element.hasAttribute('empty');
+    const inFirstColumn = (index) => (index + 1) % columnCount === 1;
+    const inLastColumn = (index) => (index + 1) % columnCount === 0;
+    const inFirstRow = (index) => index < columnCount;
+    const inLastRow = (index) =>
+      Math.floor(index / columnCount) ===
+      Math.floor((this._childItems.length - 1) / columnCount);
 
     this._childItems.forEach((e, index) => {
       const { gridMode } = this;
@@ -265,7 +290,7 @@ class DDSCardGroup extends StableSelectorMixin(LitElement) {
   };
 
   private _resetBorders = () => {
-    this._childItems.forEach(elem => {
+    this._childItems.forEach((elem) => {
       elem.toggleAttribute('border', false);
       elem.style.paddingTop = '';
       elem.style.paddingRight = '';
@@ -274,13 +299,15 @@ class DDSCardGroup extends StableSelectorMixin(LitElement) {
     });
   };
 
-  private _fillLastRowWithEmptyCards = columnCount => {
+  private _fillLastRowWithEmptyCards = (columnCount) => {
     // remove all empty cards
     this._removeEmptyCards();
 
     // add empty cards
     const emptyNeeded =
-      this.childElementCount % columnCount > 0 && columnCount > 1 ? columnCount - (this.childElementCount % columnCount) : 0;
+      this.childElementCount % columnCount > 0 && columnCount > 1
+        ? columnCount - (this.childElementCount % columnCount)
+        : 0;
     for (let i = 0; i < emptyNeeded; i++) {
       const card = document.createElement('dds-card-group-item');
       card.setAttribute('empty', '');
@@ -289,7 +316,7 @@ class DDSCardGroup extends StableSelectorMixin(LitElement) {
   };
 
   private _removeEmptyCards = () => {
-    this.shadowRoot?.querySelectorAll('[empty]').forEach(e => e.remove());
+    this.shadowRoot?.querySelectorAll('[empty]').forEach((e) => e.remove());
   };
 
   /**
@@ -310,7 +337,8 @@ class DDSCardGroup extends StableSelectorMixin(LitElement) {
    */
   @property({ type: Number, attribute: 'cards-per-row' })
   get cardsPerRow() {
-    const { _cardsPerRow: cardsPerRow, _cardsPerRowAuto: cardsPerRowAuto } = this;
+    const { _cardsPerRow: cardsPerRow, _cardsPerRowAuto: cardsPerRowAuto } =
+      this;
     return cardsPerRow ?? cardsPerRowAuto;
   }
 
@@ -355,12 +383,15 @@ class DDSCardGroup extends StableSelectorMixin(LitElement) {
   render() {
     const slotClasses = classMap({
       [`${prefix}--card-group--narrow`]: this.gridMode === GRID_MODE.NARROW,
-      [`${prefix}--card-group--collapsed`]: this.gridMode === GRID_MODE.COLLAPSED,
+      [`${prefix}--card-group--collapsed`]:
+        this.gridMode === GRID_MODE.COLLAPSED,
       [`${prefix}--card-group--border`]: this.gridMode === GRID_MODE.BORDER,
     });
 
     return html`
-      <slot @slotchange="${this._handleSlotChange}" class="${slotClasses}"></slot>
+      <slot
+        @slotchange="${this._handleSlotChange}"
+        class="${slotClasses}"></slot>
     `;
   }
 

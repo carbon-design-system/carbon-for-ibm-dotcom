@@ -1,16 +1,18 @@
 /**
  * @license
  *
- * Copyright IBM Corp. 2020, 2022
+ * Copyright IBM Corp. 2020, 2023
  *
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
  */
 
 import '../index';
+import '../../cta/index';
+import '../../card-link/index';
 import { html } from 'lit-element';
 import { boolean, optionsKnob } from '@storybook/addon-knobs';
-import ArrowRight20 from 'carbon-web-components/es/icons/arrow--right/20.js';
+import ArrowRight20 from '../../../internal/vendor/@carbon/web-components/icons/arrow--right/20.js';
 import { CONTENT_BLOCK_COMPLEMENTARY_STYLE_SCHEME } from '../content-block';
 import imgLg16x9 from '../../../../../storybook-images/assets/720/fpo--16x9--720x405--002.jpg';
 import imgMd16x9 from '../../../../../storybook-images/assets/480/fpo--16x9--480x270--002.jpg';
@@ -60,40 +62,57 @@ const items = [
 ];
 
 const image = html`
-  <dds-image slot="media" alt="Image alt text" default-src="${imgLg16x9}" heading="Lorem ipsum dolor sit amet.">
-    <dds-image-item media="(min-width: 672px)" srcset="${imgLg16x9}"> </dds-image-item>
-    <dds-image-item media="(min-width: 400px)" srcset="${imgMd16x9}"> </dds-image-item>
-    <dds-image-item media="(min-width: 320px)" srcset="${imgSm16x9}"> </dds-image-item>
+  <dds-image
+    slot="media"
+    alt="Image alt text"
+    default-src="${imgLg16x9}"
+    heading="Lorem ipsum dolor sit amet.">
+    <dds-image-item media="(min-width: 672px)" srcset="${imgLg16x9}">
+    </dds-image-item>
+    <dds-image-item media="(min-width: 400px)" srcset="${imgMd16x9}">
+    </dds-image-item>
+    <dds-image-item media="(min-width: 320px)" srcset="${imgSm16x9}">
+    </dds-image-item>
   </dds-image>
 `;
 
-export const Default = ({ parameters }) => {
-  const { heading, copy, showCopy, addChildren, showCTA, border, aside } = parameters?.props?.ContentBlock ?? {};
+export const Default = (args) => {
+  const { heading, copy, showCopy, addChildren, showCTA, border, aside } =
+    args?.ContentBlock ?? {};
   return html`
-    <dds-content-block complementary-style-scheme="${border ? CONTENT_BLOCK_COMPLEMENTARY_STYLE_SCHEME.WITH_BORDER : ''}">
+    <dds-content-block
+      complementary-style-scheme="${border
+        ? CONTENT_BLOCK_COMPLEMENTARY_STYLE_SCHEME.WITH_BORDER
+        : ''}">
       ${heading
         ? html`
-            <dds-content-block-heading>What is the latest news in artificial intelligence?</dds-content-block-heading>
+            <dds-content-block-heading
+              >What is the latest news in artificial
+              intelligence?</dds-content-block-heading
+            >
           `
         : ''}
       ${showCopy
-        ? html`
-            <dds-content-block-copy>${copy}</dds-content-block-copy>
-          `
+        ? html` <dds-content-block-copy>${copy}</dds-content-block-copy> `
         : ``}
       ${addChildren.includes('Content group simple')
         ? html`
             <dds-content-group-simple>
-              <dds-content-group-heading>Natural language processing (NLP)</dds-content-group-heading>
+              <dds-content-group-heading
+                >Natural language processing (NLP)</dds-content-group-heading
+              >
               <dds-content-group-copy
-                >Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum non porttitor libero, in venenatis
+                >Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+                Vestibulum non porttitor libero, in venenatis
                 magna.</dds-content-group-copy
               >
               ${image}
               ${items.map(
                 ({ itemsHeading: itemHeading, itemsCopy: itemCopy }) => html`
                   <dds-content-item>
-                    <dds-content-item-heading>${itemHeading}</dds-content-item-heading>
+                    <dds-content-item-heading
+                      >${itemHeading}</dds-content-item-heading
+                    >
                     <dds-content-item-copy>${itemCopy}</dds-content-item-copy>
                   </dds-content-item>
                 `
@@ -103,8 +122,14 @@ export const Default = ({ parameters }) => {
         : ``}
       ${showCTA
         ? html`
-            <dds-card-link-cta slot="footer" cta-type="local" href="https://www.example.com">
-              <dds-card-link-heading>Learn more about natual language processing</dds-card-link-heading>
+            <dds-card-link-cta
+              slot="footer"
+              cta-type="local"
+              href="https://www.example.com">
+              <dds-card-link-heading
+                >Learn more about natual language
+                processing</dds-card-link-heading
+              >
               <dds-card-cta-footer></dds-card-cta-footer>
             </dds-card-link-cta>
           `
@@ -135,12 +160,10 @@ export const Default = ({ parameters }) => {
 export default {
   title: 'Components/Content block',
   decorators: [
-    story => html`
+    (story) => html`
       <div class="bx--grid">
         <div class="bx--row">
-          <div class="bx--col-lg-12 bx--no-gutter">
-            ${story()}
-          </div>
+          <div class="bx--col-lg-12 bx--no-gutter">${story()}</div>
         </div>
       </div>
     `,

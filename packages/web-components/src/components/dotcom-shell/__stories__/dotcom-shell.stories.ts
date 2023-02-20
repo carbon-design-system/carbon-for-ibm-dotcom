@@ -1,7 +1,7 @@
 /**
  * @license
  *
- * Copyright IBM Corp. 2020, 2022
+ * Copyright IBM Corp. 2020, 2023
  *
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
@@ -10,12 +10,15 @@
 import { html } from 'lit-element';
 import { boolean, select, object } from '@storybook/addon-knobs';
 import on from 'carbon-components/es/globals/js/misc/on.js';
-import ifNonNull from 'carbon-web-components/es/globals/directives/if-non-null.js';
+import ifNonNull from '../../../internal/vendor/@carbon/web-components/globals/directives/if-non-null.js';
 import inPercy from '@percy-io/in-percy';
 import textNullable from '../../../../.storybook/knob-text-nullable';
 import DDSLeftNav from '../../masthead/left-nav';
 import '../dotcom-shell-container';
-import { authenticatedProfileItems, unauthenticatedProfileItems } from '../../masthead/__stories__/profile-items';
+import {
+  authenticatedProfileItems,
+  unauthenticatedProfileItems,
+} from '../../masthead/__stories__/profile-items';
 import mastheadStyles from '../../masthead/__stories__/masthead.stories.scss';
 import { FOOTER_SIZE } from '../../footer/footer';
 import mastheadLinks, { l1Data } from '../../masthead/__stories__/links';
@@ -23,33 +26,6 @@ import mockLangList from '../../footer/__stories__/language-list';
 import mockFooterLinks from '../../footer/__stories__/links';
 import mockLegalLinks from '../../footer/__stories__/legal-links';
 import mockLocaleList from '../../locale-modal/__stories__/locale-data.json';
-import '../../card/card-eyebrow';
-import '../../card/card-heading';
-import '../../content-block/content-block-copy';
-import '../../content-item-horizontal/content-item-horizontal';
-import '../../content-item-horizontal/content-item-horizontal-copy';
-import '../../content-item-horizontal/content-item-horizontal-eyebrow';
-import '../../leadspace/leadspace';
-import '../../leadspace/leadspace-heading';
-import '../../image/image';
-import '../../leadspace-block/leadspace-block';
-import '../../leadspace-block/leadspace-block-content';
-import '../../leadspace-block/leadspace-block-cta';
-import '../../leadspace-block/leadspace-block-heading';
-import '../../leadspace-block/leadspace-block-media';
-import '../../link-list/link-list';
-import '../../link-list/link-list-heading';
-import '../../link-list/link-list-item';
-import '../../quote/quote';
-import '../../quote/quote-source-bottom-copy';
-import '../../quote/quote-source-copy';
-import '../../quote/quote-source-heading';
-import '../../cta-block/cta-block';
-import '../../cta-block/cta-block-item';
-import '../../cta-block/cta-block-item-row';
-import '../../callout-with-media/callout-with-media';
-import '../../callout-with-media/callout-with-media-copy';
-import '../../callout-with-media/callout-with-media-video';
 import readme from './README.stories.mdx';
 import {
   StoryContent,
@@ -98,9 +74,14 @@ const images = {
 /**
  * Menu items knob data
  */
-const menuItems = ['Products & Solutions', 'Services & Consulting', 'Learn & Support', 'Explore more'];
+const menuItems = [
+  'Products & Solutions',
+  'Services & Consulting',
+  'Learn & Support',
+  'Explore more',
+];
 
-export const Default = ({ parameters }) => {
+export const Default = (args) => {
   const {
     platform,
     hasProfile,
@@ -116,8 +97,8 @@ export const Default = ({ parameters }) => {
     links: footerLinks,
     localeList,
     disableLocaleButton,
-  } = parameters?.props?.DotcomShell ?? {};
-  const { useMock } = parameters?.props?.Other ?? {};
+  } = args?.DotcomShell ?? {};
+  const { useMock } = args?.Other ?? {};
   return html`
     <style>
       ${mastheadStyles}
@@ -140,9 +121,10 @@ export const Default = ({ parameters }) => {
             .navLinks="${navLinks}"
             ?has-profile="${hasProfile}"
             ?has-search="${hasSearch}"
-            .unauthenticatedProfileItems="${ifNonNull(unauthenticatedProfileItems)}"
-            ?disable-locale-button="${disableLocaleButton}"
-          >
+            .unauthenticatedProfileItems="${ifNonNull(
+              unauthenticatedProfileItems
+            )}"
+            ?disable-locale-button="${disableLocaleButton}">
             ${StoryContent()}
           </dds-dotcom-shell-composite>
         `
@@ -162,15 +144,14 @@ export const Default = ({ parameters }) => {
             .navLinks="${navLinks}"
             ?has-profile="${hasProfile}"
             ?has-search="${hasSearch}"
-            ?disable-locale-button="${disableLocaleButton}"
-          >
+            ?disable-locale-button="${disableLocaleButton}">
             ${StoryContent()}
           </dds-dotcom-shell-container>
         `}
   `;
 };
 
-export const DefaultFooterLanguageOnly = ({ parameters }) => {
+export const DefaultFooterLanguageOnly = (args) => {
   const {
     platform,
     hasProfile,
@@ -184,9 +165,9 @@ export const DefaultFooterLanguageOnly = ({ parameters }) => {
     legalLinks,
     links: footerLinks,
     localeList,
-  } = parameters?.props?.DotcomShell ?? {};
-  const { langList, disableLocaleButton } = parameters?.props?.FooterComposite ?? {};
-  const { useMock } = parameters?.props?.Other ?? {};
+  } = args?.DotcomShell ?? {};
+  const { langList, disableLocaleButton } = args?.FooterComposite ?? {};
+  const { useMock } = args?.Other ?? {};
   return html`
     <style>
       ${mastheadStyles}
@@ -212,9 +193,10 @@ export const DefaultFooterLanguageOnly = ({ parameters }) => {
             .navLinks="${navLinks}"
             ?has-profile="${hasProfile}"
             ?has-search="${hasSearch}"
-            .unauthenticatedProfileItems="${ifNonNull(unauthenticatedProfileItems)}"
-            ?disable-locale-button="${disableLocaleButton}"
-          >
+            .unauthenticatedProfileItems="${ifNonNull(
+              unauthenticatedProfileItems
+            )}"
+            ?disable-locale-button="${disableLocaleButton}">
             ${StoryContent()}
           </dds-dotcom-shell-composite>
         `
@@ -237,8 +219,7 @@ export const DefaultFooterLanguageOnly = ({ parameters }) => {
             .navLinks="${navLinks}"
             ?has-profile="${hasProfile}"
             ?has-search="${hasSearch}"
-            ?disable-locale-button="${disableLocaleButton}"
-          >
+            ?disable-locale-button="${disableLocaleButton}">
             ${StoryContent()}
           </dds-dotcom-shell-container>
         `}
@@ -248,9 +229,12 @@ DefaultFooterLanguageOnly.story = {
   name: 'Default footer language only',
   parameters: {
     knobs: {
-      FooterComposite: ({ groupId }) => ({
-        disableLocaleButton: boolean('hide the locale button (disable-locale-button)', false, groupId),
-        langList: object('langlist', mockLangList, groupId),
+      FooterComposite: () => ({
+        disableLocaleButton: boolean(
+          'hide the locale button (disable-locale-button)',
+          false
+        ),
+        langList: object('langlist', mockLangList),
       }),
     },
     propsSet: {
@@ -264,7 +248,7 @@ DefaultFooterLanguageOnly.story = {
   },
 };
 
-export const searchOpenOnload = ({ parameters }) => {
+export const searchOpenOnload = (args) => {
   const {
     platform,
     hasProfile,
@@ -279,8 +263,8 @@ export const searchOpenOnload = ({ parameters }) => {
     links: footerLinks,
     localeList,
     disableLocaleButton,
-  } = parameters?.props?.DotcomShell ?? {};
-  const { useMock } = parameters?.props?.Other ?? {};
+  } = args?.DotcomShell ?? {};
+  const { useMock } = args?.Other ?? {};
   return html`
     <style>
       ${mastheadStyles}
@@ -303,9 +287,10 @@ export const searchOpenOnload = ({ parameters }) => {
             .navLinks="${navLinks}"
             ?has-profile="${hasProfile}"
             ?has-search="${hasSearch}"
-            .unauthenticatedProfileItems="${ifNonNull(unauthenticatedProfileItems)}"
-            ?disable-locale-button="${disableLocaleButton}"
-          >
+            .unauthenticatedProfileItems="${ifNonNull(
+              unauthenticatedProfileItems
+            )}"
+            ?disable-locale-button="${disableLocaleButton}">
             ${StoryContent()}
           </dds-dotcom-shell-composite>
         `
@@ -329,8 +314,7 @@ export const searchOpenOnload = ({ parameters }) => {
             .navLinks="${navLinks}"
             ?has-profile="${hasProfile}"
             ?has-search="${hasSearch}"
-            ?disable-locale-button="${disableLocaleButton}"
-          >
+            ?disable-locale-button="${disableLocaleButton}">
             ${StoryContent()}
           </dds-dotcom-shell-container>
         `}
@@ -341,7 +325,7 @@ searchOpenOnload.story = {
   name: 'Search open onload',
 };
 
-export const withPlatform = ({ parameters }) => {
+export const withPlatform = (args) => {
   const {
     hasProfile,
     userStatus,
@@ -355,8 +339,8 @@ export const withPlatform = ({ parameters }) => {
     links: footerLinks,
     localeList,
     disableLocaleButton,
-  } = parameters?.props?.DotcomShell ?? {};
-  const { useMock } = parameters?.props?.Other ?? {};
+  } = args?.DotcomShell ?? {};
+  const { useMock } = args?.Other ?? {};
   return html`
     <style>
       ${mastheadStyles}
@@ -378,9 +362,10 @@ export const withPlatform = ({ parameters }) => {
             .navLinks="${navLinks}"
             ?has-profile="${hasProfile}"
             ?has-search="${hasSearch}"
-            .unauthenticatedProfileItems="${ifNonNull(unauthenticatedProfileItems)}"
-            ?disable-locale-button="${disableLocaleButton}"
-          >
+            .unauthenticatedProfileItems="${ifNonNull(
+              unauthenticatedProfileItems
+            )}"
+            ?disable-locale-button="${disableLocaleButton}">
             ${StoryContent()}
           </dds-dotcom-shell-composite>
         `
@@ -399,8 +384,7 @@ export const withPlatform = ({ parameters }) => {
             .navLinks="${navLinks}"
             ?has-profile="${hasProfile}"
             ?has-search="${hasSearch}"
-            ?disable-locale-button="${disableLocaleButton}"
-          >
+            ?disable-locale-button="${disableLocaleButton}">
             ${StoryContent()}
           </dds-dotcom-shell-container>
         `}
@@ -411,12 +395,22 @@ withPlatform.story = {
   name: 'With platform',
   parameters: {
     knobs: {
-      MastheadComposite: ({ groupId }) => ({
-        hasProfile: boolean('show the profile functionality (profile)', true, groupId),
-        hasSearch: boolean('show the search functionality (search)', true, groupId),
-        searchPlaceholder: textNullable('search placeholder (searchPlaceholder)', inPercy() ? ' ' : 'Search all of IBM', groupId),
-        selectedMenuItem: textNullable('selected menu item (selected-menu-item)', 'Services & Consulting', groupId),
-        userStatus: select('The user authenticated status (user-status)', userStatuses, userStatuses.unauthenticated, groupId),
+      MastheadComposite: () => ({
+        hasProfile: boolean('show the profile functionality (profile)', true),
+        hasSearch: boolean('show the search functionality (search)', true),
+        searchPlaceholder: textNullable(
+          'search placeholder (searchPlaceholder)',
+          inPercy() ? ' ' : 'Search all of IBM'
+        ),
+        selectedMenuItem: textNullable(
+          'selected menu item (selected-menu-item)',
+          'Services & Consulting'
+        ),
+        userStatus: select(
+          'The user authenticated status (user-status)',
+          userStatuses,
+          userStatuses.unauthenticated
+        ),
       }),
     },
     propsSet: {
@@ -433,7 +427,7 @@ withPlatform.story = {
   },
 };
 
-export const withShortFooter = ({ parameters }) => {
+export const withShortFooter = (args) => {
   const {
     platform,
     hasProfile,
@@ -448,8 +442,8 @@ export const withShortFooter = ({ parameters }) => {
     links: footerLinks,
     localeList,
     disableLocaleButton,
-  } = parameters?.props?.DotcomShell ?? {};
-  const { useMock } = parameters?.props?.Other ?? {};
+  } = args?.DotcomShell ?? {};
+  const { useMock } = args?.Other ?? {};
   return html`
     <style>
       ${mastheadStyles}
@@ -472,9 +466,10 @@ export const withShortFooter = ({ parameters }) => {
             .navLinks="${navLinks}"
             ?has-profile="${hasProfile}"
             ?has-search="${hasSearch}"
-            .unauthenticatedProfileItems="${ifNonNull(unauthenticatedProfileItems)}"
-            ?disable-locale-button="${disableLocaleButton}"
-          >
+            .unauthenticatedProfileItems="${ifNonNull(
+              unauthenticatedProfileItems
+            )}"
+            ?disable-locale-button="${disableLocaleButton}">
             ${StoryContent()}
           </dds-dotcom-shell-composite>
         `
@@ -494,8 +489,7 @@ export const withShortFooter = ({ parameters }) => {
             .navLinks="${navLinks}"
             ?has-profile="${hasProfile}"
             ?has-search="${hasSearch}"
-            ?disable-locale-button="${disableLocaleButton}"
-          >
+            ?disable-locale-button="${disableLocaleButton}">
             ${StoryContent()}
           </dds-dotcom-shell-container>
         `}
@@ -506,7 +500,7 @@ withShortFooter.story = {
   name: 'With short footer',
 };
 
-export const withShortFooterLanguageOnly = ({ parameters }) => {
+export const withShortFooterLanguageOnly = (args) => {
   const {
     platform,
     hasProfile,
@@ -520,11 +514,11 @@ export const withShortFooterLanguageOnly = ({ parameters }) => {
     legalLinks,
     links: footerLinks,
     localeList,
-  } = parameters?.props?.DotcomShell ?? {};
+  } = args?.DotcomShell ?? {};
 
-  const { langList, disableLocaleButton } = parameters?.props?.FooterComposite ?? {};
+  const { langList, disableLocaleButton } = args?.FooterComposite ?? {};
 
-  const { useMock } = parameters?.props?.Other ?? {};
+  const { useMock } = args?.Other ?? {};
   return html`
     <style>
       ${mastheadStyles}
@@ -551,9 +545,10 @@ export const withShortFooterLanguageOnly = ({ parameters }) => {
             .navLinks="${navLinks}"
             ?has-profile="${hasProfile}"
             ?has-search="${hasSearch}"
-            .unauthenticatedProfileItems="${ifNonNull(unauthenticatedProfileItems)}"
-            ?disable-locale-button="${disableLocaleButton}"
-          >
+            .unauthenticatedProfileItems="${ifNonNull(
+              unauthenticatedProfileItems
+            )}"
+            ?disable-locale-button="${disableLocaleButton}">
             ${StoryContent()}
           </dds-dotcom-shell-composite>
         `
@@ -577,8 +572,7 @@ export const withShortFooterLanguageOnly = ({ parameters }) => {
             .navLinks="${navLinks}"
             ?has-profile="${hasProfile}"
             ?has-search="${hasSearch}"
-            ?disable-locale-button="${disableLocaleButton}"
-          >
+            ?disable-locale-button="${disableLocaleButton}">
             ${StoryContent()}
           </dds-dotcom-shell-container>
         `}
@@ -588,9 +582,12 @@ withShortFooterLanguageOnly.story = {
   name: 'With short footer language only',
   parameters: {
     knobs: {
-      FooterComposite: ({ groupId }) => ({
-        disableLocaleButton: boolean('hide the locale button (disable-locale-button)', false, groupId),
-        langList: object('langlist', mockLangList, groupId),
+      FooterComposite: () => ({
+        disableLocaleButton: boolean(
+          'hide the locale button (disable-locale-button)',
+          false
+        ),
+        langList: object('langlist', mockLangList),
       }),
     },
     propsSet: {
@@ -604,7 +601,7 @@ withShortFooterLanguageOnly.story = {
   },
 };
 
-export const withMicroFooter = ({ parameters }) => {
+export const withMicroFooter = (args) => {
   const {
     platform,
     hasProfile,
@@ -619,8 +616,8 @@ export const withMicroFooter = ({ parameters }) => {
     links: footerLinks,
     localeList,
     disableLocaleButton,
-  } = parameters?.props?.DotcomShell ?? {};
-  const { useMock } = parameters?.props?.Other ?? {};
+  } = args?.DotcomShell ?? {};
+  const { useMock } = args?.Other ?? {};
   return html`
     <style>
       ${mastheadStyles}
@@ -643,9 +640,10 @@ export const withMicroFooter = ({ parameters }) => {
             .navLinks="${navLinks}"
             ?has-profile="${hasProfile}"
             ?has-search="${hasSearch}"
-            .unauthenticatedProfileItems="${ifNonNull(unauthenticatedProfileItems)}"
-            ?disable-locale-button="${disableLocaleButton}"
-          >
+            .unauthenticatedProfileItems="${ifNonNull(
+              unauthenticatedProfileItems
+            )}"
+            ?disable-locale-button="${disableLocaleButton}">
             ${StoryContent()}
           </dds-dotcom-shell-composite>
         `
@@ -665,8 +663,7 @@ export const withMicroFooter = ({ parameters }) => {
             .navLinks="${navLinks}"
             ?has-profile="${hasProfile}"
             ?has-search="${hasSearch}"
-            ?disable-locale-button="${disableLocaleButton}"
-          >
+            ?disable-locale-button="${disableLocaleButton}">
             ${StoryContent()}
           </dds-dotcom-shell-container>
         `}
@@ -675,7 +672,7 @@ export const withMicroFooter = ({ parameters }) => {
 
 withMicroFooter.story = { name: 'With micro footer' };
 
-export const withMicroFooterLanguageOnly = ({ parameters }) => {
+export const withMicroFooterLanguageOnly = (args) => {
   const {
     platform,
     hasProfile,
@@ -689,10 +686,10 @@ export const withMicroFooterLanguageOnly = ({ parameters }) => {
     legalLinks,
     links: footerLinks,
     localeList,
-  } = parameters?.props?.DotcomShell ?? {};
-  const { langList, disableLocaleButton } = parameters?.props?.FooterComposite ?? {};
+  } = args?.DotcomShell ?? {};
+  const { langList, disableLocaleButton } = args?.FooterComposite ?? {};
 
-  const { useMock } = parameters?.props?.Other ?? {};
+  const { useMock } = args?.Other ?? {};
   return html`
     <style>
       ${mastheadStyles}
@@ -719,9 +716,10 @@ export const withMicroFooterLanguageOnly = ({ parameters }) => {
             .navLinks="${navLinks}"
             ?has-profile="${hasProfile}"
             ?has-search="${hasSearch}"
-            .unauthenticatedProfileItems="${ifNonNull(unauthenticatedProfileItems)}"
-            ?disable-locale-button="${disableLocaleButton}"
-          >
+            .unauthenticatedProfileItems="${ifNonNull(
+              unauthenticatedProfileItems
+            )}"
+            ?disable-locale-button="${disableLocaleButton}">
             ${StoryContent()}
           </dds-dotcom-shell-composite>
         `
@@ -745,8 +743,7 @@ export const withMicroFooterLanguageOnly = ({ parameters }) => {
             .navLinks="${navLinks}"
             ?has-profile="${hasProfile}"
             ?has-search="${hasSearch}"
-            ?disable-locale-button="${disableLocaleButton}"
-          >
+            ?disable-locale-button="${disableLocaleButton}">
             ${StoryContent()}
           </dds-dotcom-shell-container>
         `}
@@ -757,9 +754,12 @@ withMicroFooterLanguageOnly.story = {
   name: 'With micro footer language only',
   parameters: {
     knobs: {
-      FooterComposite: ({ groupId }) => ({
-        disableLocaleButton: boolean('hide the locale button (disable-locale-button)', false, groupId),
-        langList: object('langlist', mockLangList, groupId),
+      FooterComposite: () => ({
+        disableLocaleButton: boolean(
+          'hide the locale button (disable-locale-button)',
+          false
+        ),
+        langList: object('langlist', mockLangList),
       }),
     },
     propsSet: {
@@ -773,7 +773,7 @@ withMicroFooterLanguageOnly.story = {
   },
 };
 
-export const withL1 = ({ parameters }) => {
+export const withL1 = (args) => {
   const {
     hasProfile,
     userStatus,
@@ -787,8 +787,8 @@ export const withL1 = ({ parameters }) => {
     links: footerLinks,
     localeList,
     disableLocaleButton,
-  } = parameters?.props?.DotcomShell ?? {};
-  const { useMock } = parameters?.props?.Other ?? {};
+  } = args?.DotcomShell ?? {};
+  const { useMock } = args?.Other ?? {};
   const contentConfig = {
     l1: true,
     leadspace: false,
@@ -814,9 +814,10 @@ export const withL1 = ({ parameters }) => {
             .navLinks="${navLinks}"
             ?has-profile="${hasProfile}"
             ?has-search="${hasSearch}"
-            .unauthenticatedProfileItems="${ifNonNull(unauthenticatedProfileItems)}"
-            ?disable-locale-button="${disableLocaleButton}"
-          >
+            .unauthenticatedProfileItems="${ifNonNull(
+              unauthenticatedProfileItems
+            )}"
+            ?disable-locale-button="${disableLocaleButton}">
             ${StoryContent(contentConfig)}
           </dds-dotcom-shell-composite>
         `
@@ -834,8 +835,7 @@ export const withL1 = ({ parameters }) => {
             .navLinks="${navLinks}"
             ?has-profile="${hasProfile}"
             ?has-search="${hasSearch}"
-            ?disable-locale-button="${disableLocaleButton}"
-          >
+            ?disable-locale-button="${disableLocaleButton}">
             ${StoryContent(contentConfig)}
           </dds-dotcom-shell-container>
         `}
@@ -846,12 +846,25 @@ withL1.story = {
   name: 'With L1',
   parameters: {
     knobs: {
-      DotcomShell: ({ groupId }) => ({
-        hasProfile: boolean('show the profile functionality (has-profile)', true, groupId),
-        hasSearch: boolean('show the search functionality (has-search)', true, groupId),
-        searchPlaceholder: textNullable('search placeholder (searchPlaceholder)', inPercy() ? ' ' : 'Search all of IBM', groupId),
-        selectedMenuItem: textNullable('selected menu item (selected-menu-item)', 'Services & Consulting', groupId),
-        userStatus: select('The user authenticated status (user-status)', userStatuses, userStatuses.unauthenticated, groupId),
+      DotcomShell: () => ({
+        hasProfile: boolean(
+          'show the profile functionality (has-profile)',
+          true
+        ),
+        hasSearch: boolean('show the search functionality (has-search)', true),
+        searchPlaceholder: textNullable(
+          'search placeholder (searchPlaceholder)',
+          inPercy() ? ' ' : 'Search all of IBM'
+        ),
+        selectedMenuItem: textNullable(
+          'selected menu item (selected-menu-item)',
+          'Services & Consulting'
+        ),
+        userStatus: select(
+          'The user authenticated status (user-status)',
+          userStatuses,
+          userStatuses.unauthenticated
+        ),
       }),
     },
     propsSet: {
@@ -868,7 +881,7 @@ withL1.story = {
   },
 };
 
-export const WithHorizontalTOC = ({ parameters }) => {
+export const WithHorizontalTOC = (args) => {
   const {
     platform,
     hasProfile,
@@ -884,8 +897,8 @@ export const WithHorizontalTOC = ({ parameters }) => {
     links: footerLinks,
     localeList,
     disableLocaleButton,
-  } = parameters?.props?.DotcomShell ?? {};
-  const { useMock } = parameters?.props?.Other ?? {};
+  } = args?.DotcomShell ?? {};
+  const { useMock } = args?.Other ?? {};
   const contentConfig = {
     l1: false,
     leadspace: true,
@@ -913,9 +926,10 @@ export const WithHorizontalTOC = ({ parameters }) => {
             .navLinks="${navLinks}"
             ?has-profile="${hasProfile}"
             ?has-search="${hasSearch}"
-            .unauthenticatedProfileItems="${ifNonNull(unauthenticatedProfileItems)}"
-            ?disable-locale-button="${disableLocaleButton}"
-          >
+            .unauthenticatedProfileItems="${ifNonNull(
+              unauthenticatedProfileItems
+            )}"
+            ?disable-locale-button="${disableLocaleButton}">
             ${StoryContent(contentConfig)}
           </dds-dotcom-shell-composite>
         `
@@ -935,8 +949,7 @@ export const WithHorizontalTOC = ({ parameters }) => {
             .navLinks="${navLinks}"
             ?has-profile="${hasProfile}"
             ?has-search="${hasSearch}"
-            ?disable-locale-button="${disableLocaleButton}"
-          >
+            ?disable-locale-button="${disableLocaleButton}">
             ${StoryContent(contentConfig)}
           </dds-dotcom-shell-container>
         `}
@@ -953,7 +966,7 @@ WithHorizontalTOC.story = {
   },
 };
 
-export const WithLeadspaceSearch = ({ parameters }) => {
+export const WithLeadspaceSearch = (args) => {
   const {
     platform,
     hasProfile,
@@ -969,8 +982,8 @@ export const WithLeadspaceSearch = ({ parameters }) => {
     links: footerLinks,
     localeList,
     disableLocaleButton,
-  } = parameters?.props?.DotcomShell ?? {};
-  const { useMock } = parameters?.props?.Other ?? {};
+  } = args?.DotcomShell ?? {};
+  const { useMock } = args?.Other ?? {};
   return html`
     ${useMock
       ? html`
@@ -990,9 +1003,10 @@ export const WithLeadspaceSearch = ({ parameters }) => {
             .navLinks="${navLinks}"
             ?has-profile="${hasProfile}"
             ?has-search="${hasSearch}"
-            .unauthenticatedProfileItems="${ifNonNull(unauthenticatedProfileItems)}"
-            ?disable-locale-button="${disableLocaleButton}"
-          >
+            .unauthenticatedProfileItems="${ifNonNull(
+              unauthenticatedProfileItems
+            )}"
+            ?disable-locale-button="${disableLocaleButton}">
             ${StoryContentNoToC()}
           </dds-dotcom-shell-composite>
         `
@@ -1012,8 +1026,7 @@ export const WithLeadspaceSearch = ({ parameters }) => {
             .navLinks="${navLinks}"
             ?has-profile="${hasProfile}"
             ?has-search="${hasSearch}"
-            ?disable-locale-button="${disableLocaleButton}"
-          >
+            ?disable-locale-button="${disableLocaleButton}">
             ${StoryContentNoToC()}
           </dds-dotcom-shell-container>
         `}
@@ -1028,7 +1041,7 @@ WithLeadspaceSearch.story = {
   },
 };
 
-export const WithUniversalBanner = ({ parameters }) => {
+export const WithUniversalBanner = (args) => {
   const {
     platform,
     hasProfile,
@@ -1048,8 +1061,8 @@ export const WithUniversalBanner = ({ parameters }) => {
     heading,
     copy,
     ctaCopy,
-  } = parameters?.props?.DotcomShell ?? {};
-  const { useMock } = parameters?.props?.Other ?? {};
+  } = args?.DotcomShell ?? {};
+  const { useMock } = args?.Other ?? {};
 
   const bannerHeading = document.querySelector('dds-universal-banner-heading');
   const bannerCopy = document.querySelector('dds-universal-banner-copy');
@@ -1067,10 +1080,18 @@ export const WithUniversalBanner = ({ parameters }) => {
       ${mastheadStyles}
     </style>
     <dds-universal-banner image-width="${imageWidth}">
-      <dds-universal-banner-image slot="image" default-src="${images[imageWidth]}"></dds-universal-banner-image>
-      <dds-universal-banner-heading slot="heading">${heading}</dds-universal-banner-heading>
+      <dds-universal-banner-image
+        slot="image"
+        default-src="${images[imageWidth]}"></dds-universal-banner-image>
+      <dds-universal-banner-heading slot="heading"
+        >${heading}</dds-universal-banner-heading
+      >
       <dds-universal-banner-copy slot="copy">${copy}</dds-universal-banner-copy>
-      <dds-button-cta slot="cta" cta-type="local" kind="tertiary" href="https://www.example.com">
+      <dds-button-cta
+        slot="cta"
+        cta-type="local"
+        kind="tertiary"
+        href="https://www.example.com">
         ${ctaCopy}
       </dds-button-cta>
     </dds-universal-banner>
@@ -1092,9 +1113,10 @@ export const WithUniversalBanner = ({ parameters }) => {
             .navLinks="${navLinks}"
             ?has-profile="${hasProfile}"
             ?has-search="${hasSearch}"
-            .unauthenticatedProfileItems="${ifNonNull(unauthenticatedProfileItems)}"
-            ?disable-locale-button="${disableLocaleButton}"
-          >
+            .unauthenticatedProfileItems="${ifNonNull(
+              unauthenticatedProfileItems
+            )}"
+            ?disable-locale-button="${disableLocaleButton}">
             ${StoryContent()}
           </dds-dotcom-shell-composite>
         `
@@ -1114,8 +1136,7 @@ export const WithUniversalBanner = ({ parameters }) => {
             .navLinks="${navLinks}"
             ?has-profile="${hasProfile}"
             ?has-search="${hasSearch}"
-            ?disable-locale-button="${disableLocaleButton}"
-          >
+            ?disable-locale-button="${disableLocaleButton}">
             ${StoryContent()}
           </dds-dotcom-shell-container>
         `}
@@ -1126,16 +1147,42 @@ WithUniversalBanner.story = {
   name: 'With Universal banner',
   parameters: {
     knobs: {
-      DotcomShell: ({ groupId }) => ({
-        hasProfile: boolean('show the profile functionality (has-profile)', true, groupId),
-        hasSearch: boolean('show the search functionality (has-search)', true, groupId),
-        searchPlaceholder: textNullable('search placeholder (searchPlaceholder)', inPercy() ? ' ' : 'Search all of IBM', groupId),
-        selectedMenuItem: textNullable('selected menu item (selected-menu-item)', 'Services & Consulting', groupId),
-        userStatus: select('The user authenticated status (user-status)', userStatuses, userStatuses.unauthenticated, groupId),
-        heading: textNullable('Universal banner heading:', 'Hybrid cloud and AI for smarter business', groupId),
-        copy: textNullable('Universal banner copy (optional):', 'Las Vegas, June 15-18, 2025', groupId),
-        ctaCopy: textNullable('Universal banner CTA copy:', 'Register for Think. Free', groupId),
-        imageWidth: select('Universal banner image width:', imageWidthOptions, '4-col', groupId),
+      DotcomShell: () => ({
+        hasProfile: boolean(
+          'show the profile functionality (has-profile)',
+          true
+        ),
+        hasSearch: boolean('show the search functionality (has-search)', true),
+        searchPlaceholder: textNullable(
+          'search placeholder (searchPlaceholder)',
+          inPercy() ? ' ' : 'Search all of IBM'
+        ),
+        selectedMenuItem: textNullable(
+          'selected menu item (selected-menu-item)',
+          'Services & Consulting'
+        ),
+        userStatus: select(
+          'The user authenticated status (user-status)',
+          userStatuses,
+          userStatuses.unauthenticated
+        ),
+        heading: textNullable(
+          'Universal banner heading:',
+          'Hybrid cloud and AI for smarter business'
+        ),
+        copy: textNullable(
+          'Universal banner copy (optional):',
+          'Las Vegas, June 15-18, 2025'
+        ),
+        ctaCopy: textNullable(
+          'Universal banner CTA copy:',
+          'Register for Think. Free'
+        ),
+        imageWidth: select(
+          'Universal banner image width:',
+          imageWidthOptions,
+          '4-col'
+        ),
       }),
     },
     propsSet: {
@@ -1159,8 +1206,9 @@ WithUniversalBanner.story = {
   },
 };
 
-export const WithoutShell = ({ parameters }) => {
-  const { masthead, universalBanner, leadspaceSearch, tocLayout } = parameters?.props?.DotcomShell ?? {};
+export const WithoutShell = (args) => {
+  const { masthead, universalBanner, leadspaceSearch, tocLayout } =
+    args?.DotcomShell ?? {};
 
   return html`
     <style>
@@ -1169,25 +1217,22 @@ export const WithoutShell = ({ parameters }) => {
     ${universalBanner ? StoryUniversalBanner(images['4-col']) : ''}
     ${masthead === 'L0'
       ? html`
-          <dds-masthead-container id="masthead-container"></dds-masthead-container>
+          <dds-masthead-container
+            id="masthead-container"></dds-masthead-container>
         `
       : html`
-          <dds-masthead-container id="masthead-container" .l1Data="${l1Data}"></dds-masthead-container>
+          <dds-masthead-container
+            id="masthead-container"
+            .l1Data="${l1Data}"></dds-masthead-container>
         `}
     <main class="bx--content dds-ce-demo--ui-shell-content">
       ${leadspaceSearch
         ? html`
-            <div class="bx--grid bx--col-lg-8">
-              ${contentLeadspaceSearch}
-            </div>
+            <div class="bx--grid bx--col-lg-8">${contentLeadspaceSearch}</div>
           `
         : ''}
       ${tocLayout === 'none'
-        ? html`
-            <div class="bx--grid bx--col-lg-8">
-              ${tocContent}
-            </div>
-          `
+        ? html` <div class="bx--grid bx--col-lg-8">${tocContent}</div> `
         : ''}
       ${tocLayout === null ? StoryContent() : ''}
       ${tocLayout === 'horizontal'
@@ -1205,11 +1250,15 @@ WithoutShell.story = {
   name: 'Without Shell (Fallback Utility)',
   parameters: {
     knobs: {
-      DotcomShell: ({ groupId }) => ({
-        masthead: select('Masthead Version', ['L0', 'L1'], 'L0', groupId),
-        universalBanner: boolean('Has Universal Banner', false, groupId),
-        leadspaceSearch: boolean('Has Leadspace With Search', false, groupId),
-        tocLayout: select('Table of Contents Layout', { Vertical: null, Horizontal: 'horizontal', None: 'none' }, null, groupId),
+      DotcomShell: () => ({
+        masthead: select('Masthead Version', ['L0', 'L1'], 'L0'),
+        universalBanner: boolean('Has Universal Banner', false),
+        leadspaceSearch: boolean('Has Leadspace With Search', false),
+        tocLayout: select(
+          'Table of Contents Layout',
+          { Vertical: null, Horizontal: 'horizontal' },
+          null
+        ),
       }),
     },
     propsSet: {
@@ -1226,7 +1275,7 @@ WithoutShell.story = {
 export default {
   title: 'Components/Dotcom shell',
   decorators: [
-    story => {
+    (story) => {
       if (!(window as any)._hPageShow) {
         (window as any)._hPageShow = on(window, 'pageshow', () => {
           const leftNav = document.querySelector('dds-left-nav');
@@ -1235,27 +1284,68 @@ export default {
           }
         });
       }
-      return story();
+      return html`
+        ${story()}
+        <script>
+          window.digitalData.page.pageInfo.ibm.contactModuleConfiguration = {
+            contactInformationBundleKey: {
+              focusArea: 'Cloud - Automation - All',
+              languageCode: 'en',
+              regionCode: 'US',
+            },
+            contactModuleTranslationKey: {
+              languageCode: 'en',
+              regionCode: 'US',
+            },
+          };
+        </script>
+        <script
+          src="//www.ibm.com/common/digitaladvisor/cm-app/latest/cm-app.min.js"
+          defer></script>
+      `;
     },
   ],
   parameters: {
     ...readme.parameters,
     knobs: {
       escapeHTML: false,
-      DotcomShell: ({ groupId }) => ({
-        platform: select('Platform (platform)', { none: null, platform: platformData.name }, null, groupId),
-        hasProfile: boolean('Show profile in masthead (profile)', true, groupId),
-        hasSearch: boolean('Show search in masthead (search)', true, groupId),
-        searchPlaceholder: textNullable('Search placeholder (searchPlaceholder)', inPercy() ? ' ' : 'Search all of IBM', groupId),
-        selectedMenuItem: select('Selected menu item (selected-menu-item)', menuItems, menuItems[1], groupId),
-        userStatus: select('User authentication (user-status)', userStatuses, userStatuses.unauthenticated, groupId),
-        disableLocaleButton: boolean('Locale button (disable-locale-button)', false, groupId),
-        footerSize: select('Footer size (footer-size)', footerSizes, FOOTER_SIZE.REGULAR, groupId),
+      DotcomShell: () => ({
+        platform: select(
+          'Platform (platform)',
+          { none: null, platform: platformData.name },
+          null
+        ),
+        hasProfile: boolean('Show profile in masthead (profile)', true),
+        hasSearch: boolean('Show search in masthead (search)', true),
+        searchPlaceholder: textNullable(
+          'Search placeholder (searchPlaceholder)',
+          inPercy() ? ' ' : 'Search all of IBM'
+        ),
+        selectedMenuItem: select(
+          'Selected menu item (selected-menu-item)',
+          menuItems,
+          menuItems[1]
+        ),
+        userStatus: select(
+          'User authentication (user-status)',
+          userStatuses,
+          userStatuses.unauthenticated
+        ),
+        disableLocaleButton: boolean(
+          'Locale button (disable-locale-button)',
+          false
+        ),
+        footerSize: select(
+          'Footer size (footer-size)',
+          footerSizes,
+          FOOTER_SIZE.REGULAR
+        ),
       }),
     },
     props: (() => {
       // Lets `<dds-masthead-container>` load the nav links and lets `<dds-footer-container>` load the footer links
-      const useMock = inPercy() || new URLSearchParams(window.location.search).has('mock');
+      const useMock =
+        inPercy() || new URLSearchParams(window.location.search).has('mock');
       return {
         DotcomShell: {
           navLinks: !useMock ? undefined : mastheadLinks,

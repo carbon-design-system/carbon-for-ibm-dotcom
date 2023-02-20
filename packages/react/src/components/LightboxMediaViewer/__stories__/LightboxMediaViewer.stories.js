@@ -1,5 +1,5 @@
 /**
- * Copyright IBM Corp. 2016, 2021
+ * Copyright IBM Corp. 2016, 2023
  *
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
@@ -21,8 +21,42 @@ const images = {
   '1584 x 738 (16:9)': imgMax16x9,
 };
 
+const props = {
+  default: () => ({
+    open: boolean('open', true),
+    media: {
+      src: select('Image', images, images['1312 x 738 (16:9)']),
+      alt: 'Image alt text',
+      title: text(
+        'title (required)',
+        'Curabitur malesuada varius mi eu posuere'
+      ),
+      description: text(
+        'description (required)',
+        `Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean et ultricies est.Mauris iaculis eget dolor nec hendrerit. Phasellus at elit sollicitudin, sodales nulla quis, consequat libero. Here are some common categories:`
+      ),
+      type: 'image',
+    },
+  }),
+  embeddedVideoPlayer: () => ({
+    open: boolean('open', true),
+    media: {
+      src: '1_9h94wo6b',
+      type: 'video',
+      title: text(
+        'title (optional)',
+        'Curabitur malesuada varius mi eu posuere'
+      ),
+      description: text(
+        'description (optional)',
+        `Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean et ultricies est.Mauris iaculis eget dolor nec hendrerit. Phasellus at elit sollicitudin, sodales nulla quis, consequat libero. Here are some common categories:`
+      ),
+    },
+  }),
+};
+
 export default {
-  title: 'Components|Lightbox media viewer',
+  title: 'Components/Lightbox media viewer',
   parameters: {
     ...readme.parameters,
     percy: {
@@ -31,33 +65,16 @@ export default {
   },
 };
 
-export const Default = ({ parameters }) => {
-  const { media, open } = parameters?.props?.LightboxMediaViewer ?? {};
-  return <LightboxMediaViewer media={media} open={open} />;
+export const Default = (args) => {
+  return (
+    <LightboxMediaViewer
+      {...(Object.keys(args).length > 0 ? args : props.default())}
+    />
+  );
 };
 
 Default.story = {
   parameters: {
-    knobs: {
-      LightboxMediaViewer: ({ groupId }) => ({
-        open: boolean('open', true, groupId),
-        media: {
-          src: select('Image', images, images['1312 x 738 (16:9)'], groupId),
-          alt: 'Image alt text',
-          title: text(
-            'title (required)',
-            'Curabitur malesuada varius mi eu posuere',
-            groupId
-          ),
-          description: text(
-            'description (required)',
-            `Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean et ultricies est.Mauris iaculis eget dolor nec hendrerit. Phasellus at elit sollicitudin, sodales nulla quis, consequat libero. Here are some common categories:`,
-            groupId
-          ),
-          type: 'image',
-        },
-      }),
-    },
     propsSet: {
       default: {
         LightboxMediaViewer: {
@@ -75,32 +92,13 @@ Default.story = {
   },
 };
 
-export const EmbeddedVideoPlayer = ({ parameters }) => (
-  <Default parameters={parameters} />
+export const EmbeddedVideoPlayer = () => (
+  <Default {...props.embeddedVideoPlayer()} />
 );
 
 EmbeddedVideoPlayer.story = {
   name: 'Embedded video player',
   parameters: {
-    knobs: {
-      LightboxMediaViewer: ({ groupId }) => ({
-        open: boolean('open', true, groupId),
-        media: {
-          src: '1_9h94wo6b',
-          type: 'video',
-          title: text(
-            'title (optional)',
-            'Curabitur malesuada varius mi eu posuere',
-            groupId
-          ),
-          description: text(
-            'description (optional)',
-            `Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean et ultricies est.Mauris iaculis eget dolor nec hendrerit. Phasellus at elit sollicitudin, sodales nulla quis, consequat libero. Here are some common categories:`,
-            groupId
-          ),
-        },
-      }),
-    },
     propsSet: {
       default: {
         LightboxMediaViewer: {

@@ -50,17 +50,19 @@ const mediaType = {
   [`Video`]: MEDIA_TYPE.VIDEO,
 };
 
-export const Default = ({ parameters }) => {
-  const { sectionHeading, sectionHeadingText, align, type } = parameters?.props?.TabsExtendedMedia ?? {};
+export const Default = args => {
+  const { sectionHeading, sectionHeadingText, align, type } = args?.TabsExtendedMedia ?? {};
   const tabs: any[] = [];
 
   for (let i = 1; i < 5; i++) {
     tabs.push(
       <DDSTab label={`Tab ${i}`}>
         <DDSContentItemHorizontalMedia align={align}>
-          {type === MEDIA_TYPE.IMAGE && <DDSImage slot="media" alt="Image alt text" default-src={imgLg16x9}></DDSImage>}
-          {type === MEDIA_TYPE.VIDEO && (
+          {type === MEDIA_TYPE.IMAGE ? <DDSImage slot="media" alt="Image alt text" default-src={imgLg16x9}></DDSImage> : ``}
+          {type === MEDIA_TYPE.VIDEO ? (
             <DDSContentItemHorizontalMediaVideo video-id="1_9h94wo6b"></DDSContentItemHorizontalMediaVideo>
+          ) : (
+            ``
           )}
           <DDSContentItemHeading>Tab heading {i}</DDSContentItemHeading>
           <DDSContentItemHorizontalMediaCopy>
@@ -107,14 +109,11 @@ Default.story = {
 export default {
   title: 'Components/Tabs extended media',
   decorators: [
-    (story, { parameters }) => {
+    (story, args) => {
       return (
         <div className="bx--grid">
           <div className="bx--row">
-            <div
-              className={`${
-                parameters?.props?.TabsExtendedMedia?.sectionHeading ? `bx--col-lg-16` : `bx--col-lg-12`
-              } bx--no-gutter`}>
+            <div className={`${args?.TabsExtendedMedia?.sectionHeading ? `bx--col-lg-16` : `bx--col-lg-12`} bx--no-gutter`}>
               {story()}
             </div>
           </div>

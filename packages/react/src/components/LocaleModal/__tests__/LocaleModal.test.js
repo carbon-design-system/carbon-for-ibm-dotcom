@@ -1,5 +1,5 @@
 /**
- * Copyright IBM Corp. 2016, 2021
+ * Copyright IBM Corp. 2016, 2023
  *
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
@@ -22,8 +22,8 @@ import React from 'react';
 
 const localeDisplay = 'Testing';
 
-const setupModal = props =>
-  new Promise(resolve => {
+const setupModal = (props) =>
+  new Promise((resolve) => {
     let wrapper;
     if (props) {
       wrapper = mount(
@@ -46,7 +46,7 @@ describe('LocaleModal', () => {
     const footerBtn = document.createElement('div');
     footerBtn.innerHTML = `<div class="bx--locale-btn__container"><div class="bx--btn--secondary">test</div></div>`;
     window.innerHtml += footerBtn;
-    _close(jest.fn());
+    _close(jest.fn(), jest.fn());
     wrapper.find('.bx--modal-close').simulate('click');
   });
 });
@@ -71,7 +71,7 @@ describe('LocaleModalCountries', () => {
     wrapper.find('input.bx--search-input').value = 'Brazi';
     wrapper.find('input.bx--search-input').simulate('keyup');
 
-    const setClearResults = jest.fn(val => val);
+    const setClearResults = jest.fn((val) => val);
     const localeFilter = document.createElement('input');
     localeFilter.value = 'Brazil';
     const localeText = document.createElement('div');
@@ -116,10 +116,7 @@ describe('Locale Modal Regions', () => {
         returnButtonLabel={`Return button`}
       />
     );
-    wrapper
-      .find('.bx--tile')
-      .at(0)
-      .simulate('click');
+    wrapper.find('.bx--tile').at(0).simulate('click');
     const testButton = document.createElement('button');
     testButton.innerText = 'testing';
     addLocaleBackBtnListeners(
@@ -131,9 +128,6 @@ describe('Locale Modal Regions', () => {
     testButton.dispatchEvent(new MouseEvent('click'));
     testButton.dispatchEvent(new KeyboardEvent('keyup', { keyCode: 32 }));
     testButton.dispatchEvent(new KeyboardEvent('keyup', { keyCode: 13 }));
-    wrapper
-      .find('.bx--card')
-      .at(0)
-      .simulate('click');
+    wrapper.find('.bx--card').at(0).simulate('click');
   });
 });

@@ -27,8 +27,8 @@ import imgXlg2x1 from '../../../../../storybook-images/assets/1312/fpo--2x1--131
 
 import readme from './README.stories.react.mdx';
 
-export const Medium = ({ parameters }) => {
-  const { heading, href } = parameters?.props?.FeatureCard ?? {};
+export const Medium = args => {
+  const { heading, href } = args?.FeatureCard ?? {};
   return (
     <DDSFeatureCard href={href}>
       <DDSImage alt="Image alt text" defaultSrc={mediumImgLg1x1} slot="image" />
@@ -40,8 +40,8 @@ export const Medium = ({ parameters }) => {
   );
 };
 
-export const Large = ({ parameters }) => {
-  const { copy, eyebrow, heading, href } = parameters?.props?.FeatureCard ?? {};
+export const Large = args => {
+  const { copy, eyebrow, heading, href } = args?.FeatureCard ?? {};
   return (
     <DDSFeatureCard href={href} size="large">
       <DDSImage alt="Image alt text" defaultSrc={imgLg1x1} slot="image">

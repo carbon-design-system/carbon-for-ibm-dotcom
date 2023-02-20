@@ -21,57 +21,42 @@ const layoutOptions = {
   'layout-07': 'layout-07',
 };
 
+const props = {
+  'Layout 1-3': () => ({
+    marginTop: select('Top Margin', layoutOptions, layoutOptions['layout-03']),
+    marginBottom: select(
+      'Bottom Margin',
+      layoutOptions,
+      layoutOptions['layout-06']
+    ),
+    stickyOffset: number('Sticky offset (in pixels)', 0, {}),
+  }),
+  'Layout 2-1': () => ({
+    border: boolean('Optional border:', false),
+  }),
+  'Story content 1-3': () => ({
+    'data-sticky': select('Sticky left column', [true, false], true),
+  }),
+  'Story content 2-2': () => ({
+    'data-sticky': select('Sticky right column', [true, false], true),
+  }),
+};
+
 export default {
-  title: 'Components|Layout',
+  title: 'Components/Layout',
   parameters: {
     ...readme.parameters,
-    knobs: {
-      'Layout 1-3': ({ groupId }) => ({
-        marginTop: select(
-          'Top Margin',
-          layoutOptions,
-          layoutOptions['layout-03'],
-          groupId
-        ),
-        marginBottom: select(
-          'Bottom Margin',
-          layoutOptions,
-          layoutOptions['layout-06'],
-          groupId
-        ),
-        stickyOffset: number('Sticky offset (in pixels)', 0, {}, groupId),
-      }),
-      'Layout 2-1': ({ groupId }) => ({
-        border: boolean('Optional border:', false, groupId),
-      }),
-      'Story content 1-3': ({ groupId }) => ({
-        'data-sticky': select(
-          'Sticky left column',
-          [true, false],
-          true,
-          groupId
-        ),
-      }),
-      'Story content 2-2': ({ groupId }) => ({
-        'data-sticky': select(
-          'Sticky right column',
-          [true, false],
-          true,
-          groupId
-        ),
-      }),
+    percy: {
+      name: 'Components|Layout: Default',
     },
   },
 };
 
-export const Default = ({ parameters }) => {
-  const { marginTop, marginBottom, stickyOffset } =
-    parameters?.props?.['Layout 1-3'] ?? {};
-  const { border } = parameters?.props?.['Layout 2-1'] ?? {};
-  const { 'data-sticky': stickyLeft } =
-    parameters?.props?.['Story content 1-3'] ?? {};
-  const { 'data-sticky': stickyRight } =
-    parameters?.props?.['Story content 2-2'] ?? {};
+export const Default = () => {
+  const { marginTop, marginBottom, stickyOffset } = props['Layout 1-3']() ?? {};
+  const { border } = props['Layout 2-1'] ?? {};
+  const { 'data-sticky': stickyLeft } = props['Story content 1-3']() ?? {};
+  const { 'data-sticky': stickyRight } = props['Story content 2-2']() ?? {};
 
   return (
     <>

@@ -1,7 +1,7 @@
 /**
  * @license
  *
- * Copyright IBM Corp. 2019, 2022
+ * Copyright IBM Corp. 2019, 2023
  *
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
@@ -13,7 +13,11 @@ import ddsSettings from '@carbon/ibmdotcom-utilities/es/utilities/settings/setti
 import DDSDropdown from '../footer/dropdown';
 import styles from './search-with-typeahead.scss';
 
-export { DROPDOWN_COLOR_SCHEME, DROPDOWN_SIZE, DROPDOWN_TYPE } from '../footer/dropdown';
+export {
+  DROPDOWN_COLOR_SCHEME,
+  DROPDOWN_SIZE,
+  DROPDOWN_TYPE,
+} from '../footer/dropdown';
 
 const { stablePrefix: ddsPrefix } = ddsSettings;
 const { prefix } = settings;
@@ -37,7 +41,7 @@ class DDSScopedSearchDropdown extends DDSDropdown {
         bubbles: true,
         composed: true,
         detail: {
-          value: item.value,
+          appId: item.value,
         },
       };
       const constructor = this.constructor as typeof DDSScopedSearchDropdown;

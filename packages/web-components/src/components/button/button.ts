@@ -1,7 +1,7 @@
 /**
  * @license
  *
- * Copyright IBM Corp. 2020, 2022
+ * Copyright IBM Corp. 2020, 2023
  *
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
@@ -10,9 +10,9 @@
 import { classMap } from 'lit-html/directives/class-map.js';
 import { html, property, state, customElement, LitElement } from 'lit-element';
 import settings from 'carbon-components/es/globals/js/settings.js';
-import ifNonNull from 'carbon-web-components/es/globals/directives/if-non-null.js';
-import FocusMixin from 'carbon-web-components/es/globals/mixins/focus.js';
-import { BUTTON_ICON_LAYOUT, BUTTON_KIND, BUTTON_SIZE } from 'carbon-web-components/es/components/button/button.js';
+import ifNonNull from '../../internal/vendor/@carbon/web-components/globals/directives/if-non-null.js';
+import FocusMixin from '../../internal/vendor/@carbon/web-components/globals/mixins/focus.js';
+import { BUTTON_ICON_LAYOUT, BUTTON_KIND, BUTTON_SIZE } from './defs';
 import ddsSettings from '../../internal/vendor/@carbon/ibmdotcom-utilities/utilities/settings/settings';
 import styles from './button.scss';
 import StableSelectorMixin from '../../globals/mixins/stable-selector';
@@ -46,7 +46,13 @@ class DDSButtonExpressive extends FocusMixin(StableSelectorMixin(LitElement)) {
    * The CSS class list for the button/link node.
    */
   protected get _classes() {
-    const { disabled, kind, size, _hasIcon: hasIcon, _hasMainContent: hasMainContent } = this;
+    const {
+      disabled,
+      kind,
+      size,
+      _hasIcon: hasIcon,
+      _hasMainContent: hasMainContent,
+    } = this;
     return classMap({
       [`${prefix}--btn`]: true,
       [`${prefix}--btn--${kind}`]: kind,
@@ -70,7 +76,9 @@ class DDSButtonExpressive extends FocusMixin(StableSelectorMixin(LitElement)) {
     const { name } = target as HTMLSlotElement;
     const hasContent = (target as HTMLSlotElement)
       .assignedNodes()
-      .some(node => node.nodeType !== Node.TEXT_NODE || node!.textContent!.trim());
+      .some(
+        (node) => node.nodeType !== Node.TEXT_NODE || node!.textContent!.trim()
+      );
     this[name === 'icon' ? '_hasIcon' : '_hasMainContent'] = hasContent;
     this.requestUpdate();
   }
@@ -81,9 +89,7 @@ class DDSButtonExpressive extends FocusMixin(StableSelectorMixin(LitElement)) {
   protected _renderDisabledLink() {
     const { _classes: classes } = this;
     return html`
-      <p id="button" part="button" class="${classes}">
-        ${this._renderInner()}
-      </p>
+      <p id="button" part="button" class="${classes}">${this._renderInner()}</p>
     `;
   }
 
@@ -94,7 +100,9 @@ class DDSButtonExpressive extends FocusMixin(StableSelectorMixin(LitElement)) {
     const { _handleSlotChange: handleSlotChange } = this;
     return html`
       <slot @slotchange="${handleSlotChange}"></slot>
-      <p class="${prefix}--btn--hidden" aria-hidden="true"><span>:</span> ${this.href}</p>
+      <p class="${prefix}--btn--hidden" aria-hidden="true">
+        <span>:</span> ${this.href}
+      </p>
       <slot name="icon" @slotchange="${handleSlotChange}"></slot>
     `;
   }
@@ -180,7 +188,9 @@ class DDSButtonExpressive extends FocusMixin(StableSelectorMixin(LitElement)) {
   createRenderRoot() {
     return this.attachShadow({
       mode: 'open',
-      delegatesFocus: Number((/Safari\/(\d+)/.exec(navigator.userAgent) ?? ['', 0])[1]) <= 537,
+      delegatesFocus:
+        Number((/Safari\/(\d+)/.exec(navigator.userAgent) ?? ['', 0])[1]) <=
+        537,
     });
   }
 
@@ -215,8 +225,7 @@ class DDSButtonExpressive extends FocusMixin(StableSelectorMixin(LitElement)) {
               rel="${ifNonNull(rel)}"
               target="${ifNonNull(target)}"
               type="${ifNonNull(type)}"
-              @click="${handleClick}"
-            >
+              @click="${handleClick}">
               ${this._renderInner()}
             </a>
           `;
@@ -229,8 +238,7 @@ class DDSButtonExpressive extends FocusMixin(StableSelectorMixin(LitElement)) {
         ?autofocus="${autofocus}"
         ?disabled="${disabled}"
         type="${ifNonNull(type)}"
-        @click="${handleClick}"
-      >
+        @click="${handleClick}">
         ${this._renderInner()}
       </button>
     `;

@@ -1,5 +1,5 @@
 /**
- * Copyright IBM Corp. 2016, 2022
+ * Copyright IBM Corp. 2016, 2023
  *
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
@@ -37,7 +37,7 @@ const SideNavMenuWithBackForward = ({
     if (sideNav) {
       Array.prototype.forEach.call(
         sideNav.querySelectorAll('.bx--side-nav__menu'),
-        elem => {
+        (elem) => {
           const hasExpandedSubmenu = elem.querySelector(
             '.bx--side-nav__submenu[aria-expanded="true"]'
           );
@@ -66,7 +66,7 @@ const SideNavMenuWithBackForward = ({
       ref={refSideNavMenu}
       dataTitle={rest.dataTitle}>
       <SideNavMenuItem
-        onClick={event => event.preventDefault()}
+        onClick={(event) => event.preventDefault()}
         className={`${prefix}--masthead__side-nav--submemu-back`}
         data-autoid={`${stablePrefix}--masthead-${rest.navType}-sidenav__l0-back`}
         isbackbutton="true"

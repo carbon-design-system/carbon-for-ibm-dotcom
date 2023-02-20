@@ -1,5 +1,5 @@
 /**
- * Copyright IBM Corp. 2016, 2021
+ * Copyright IBM Corp. 2016, 2023
  *
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
@@ -24,7 +24,7 @@ const pictograms = {
  * @param {string} sel string that defines the returning pictogram
  * @returns {*} JSX pictogram component
  */
-const selectPictogram = sel => {
+const selectPictogram = (sel) => {
   switch (sel) {
     case 'TouchScreen':
       return TouchScreen;
@@ -41,7 +41,7 @@ const selectPictogram = sel => {
  * @param {boolean} item defines if cta will be rendered
  * @returns {*} if true returns cta data, if false, returns null
  */
-const toggleCTA = item => {
+const toggleCTA = (item) => {
   if (item) {
     return {
       type: 'local',
@@ -53,62 +53,49 @@ const toggleCTA = item => {
   }
 };
 
+const props = () => {
+  const pictogramCount = number('Number of PictogramItems', 3, {});
+  const items = [];
+
+  for (let i = 0; i < pictogramCount; i++) {
+    items.push({
+      heading: text(
+        `Item ${i + 1} Heading (items.heading)`,
+        'Aliquam condimentum interdum'
+      ),
+      copy: text(
+        `Item ${i + 1} Copy (items.copy)`,
+        'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum non porttitor libero, in venenatis magna.'
+      ),
+      cta: toggleCTA(boolean(`Item ${i + 1} CTA (items.cta)`, true)),
+      pictogram: {
+        src: selectPictogram(
+          select(
+            `Item ${i + 1} Pictogram (pictogram)`,
+            pictograms,
+            pictograms.TouchScreen
+          )
+        ),
+        'aria-label': 'Pictogram',
+      },
+    });
+  }
+  return {
+    heading: text('Pattern title (heading)', 'Lorem ipsum dolor sit amet'),
+    copy: text(
+      'Copy (copy)',
+      'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum non porttitor libero, in venenatis magna. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum non porttitor libero, in venenatis magna. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum non porttitor libero, in venenatis magna.'
+    ),
+    items,
+  };
+};
+
 export default {
-  title: 'Components|Content group pictograms',
+  title: 'Components/Content group pictograms',
   parameters: {
     ...readme.parameters,
-    knobs: {
-      ContentGroupPictograms: ({ groupId }) => {
-        const pictogramCount = number(
-          'Number of PictogramItems',
-          3,
-          {},
-          groupId
-        );
-        const items = [];
-
-        for (let i = 0; i < pictogramCount; i++) {
-          items.push({
-            heading: text(
-              `Item ${i + 1} Heading (items.heading)`,
-              'Aliquam condimentum interdum',
-              groupId
-            ),
-            copy: text(
-              `Item ${i + 1} Copy (items.copy)`,
-              'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum non porttitor libero, in venenatis magna.',
-              groupId
-            ),
-            cta: toggleCTA(
-              boolean(`Item ${i + 1} CTA (items.cta)`, true, groupId)
-            ),
-            pictogram: {
-              src: selectPictogram(
-                select(
-                  `Item ${i + 1} Pictogram (pictogram)`,
-                  pictograms,
-                  pictograms.TouchScreen,
-                  groupId
-                )
-              ),
-              'aria-label': 'Pictogram',
-            },
-          });
-        }
-        return {
-          heading: text(
-            'Pattern title (heading)',
-            'Lorem ipsum dolor sit amet',
-            groupId
-          ),
-          copy: text(
-            'Copy (copy)',
-            'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum non porttitor libero, in venenatis magna. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum non porttitor libero, in venenatis magna. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum non porttitor libero, in venenatis magna.',
-            groupId
-          ),
-          items,
-        };
-      },
+    percy: {
+      name: 'Components|Content group pictograms: Default',
     },
     propsSet: {
       default: {
@@ -116,8 +103,7 @@ export default {
           items: [
             {
               heading: 'Aliquam condimentum interdum',
-              copy:
-                'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean et ultricies est. Mauris iaculis eget dolor nec hendrerit. Phasellus at elit sollicitudin, sodales nulla quis, consequat libero.',
+              copy: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean et ultricies est. Mauris iaculis eget dolor nec hendrerit. Phasellus at elit sollicitudin, sodales nulla quis, consequat libero.',
               pictogram: {
                 src: selectPictogram(pictograms.Desktop),
                 'aria-label': 'Pictogram',
@@ -130,9 +116,7 @@ export default {
   },
 };
 
-export const Default = ({ parameters }) => {
-  const { heading, copy, items } =
-    parameters?.props?.ContentGroupPictograms ?? {};
+export const Default = () => {
   return (
     <div className="bx--grid">
       <div className="bx--row">
@@ -142,9 +126,7 @@ export const Default = ({ parameters }) => {
             `bx--col-lg-8`,
             `bx--offset-lg-4`
           )}
-          heading={heading}
-          copy={copy}
-          items={items}
+          {...props()}
         />
       </div>
     </div>

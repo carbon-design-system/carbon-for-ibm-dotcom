@@ -1,7 +1,7 @@
 /**
  * @license
  *
- * Copyright IBM Corp. 2022
+ * Copyright IBM Corp. 2022, 2023
  *
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
@@ -9,8 +9,8 @@
 
 import { customElement, html, LitElement, property } from 'lit-element';
 import ddsSettings from '@carbon/ibmdotcom-utilities/es/utilities/settings/settings.js';
-import ChevronDown16 from 'carbon-web-components/es/icons/chevron--down/16.js';
-import Close16 from 'carbon-web-components/es/icons/close/16.js';
+import ChevronDown16 from '../../internal/vendor/@carbon/web-components/icons/chevron--down/16.js';
+import Close16 from '../../internal/vendor/@carbon/web-components/icons/close/16.js';
 import StableSelectorMixin from '../../globals/mixins/stable-selector';
 import styles from './pricing-table.scss';
 import DDSPricingTableRow from './pricing-table-row';
@@ -52,7 +52,11 @@ class DDSPricingTableAnnotationToggle extends StableSelectorMixin(LitElement) {
   render() {
     const { toggled } = this;
     return html`
-      <button @click="${this._handleClick}" type="button" aria-pressed="${toggled}" aria-label="cell annotations visibility">
+      <button
+        @click="${this._handleClick}"
+        type="button"
+        aria-pressed="${toggled}"
+        aria-label="cell annotations visibility">
         ${toggled ? Close16() : ChevronDown16()}
       </button>
     `;

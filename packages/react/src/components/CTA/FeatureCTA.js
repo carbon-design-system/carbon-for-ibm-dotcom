@@ -1,5 +1,5 @@
 /**
- * Copyright IBM Corp. 2016, 2022
+ * Copyright IBM Corp. 2016, 2023
  *
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
@@ -40,7 +40,7 @@ const FeatureCTA = ({
             },
           })}
           size={size}
-          onClick={e => CTALogic.setLightBox(e, openLightBox)}
+          onClick={(e) => CTALogic.setLightBox(e, openLightBox)}
         />
       )}
     </div>
@@ -61,7 +61,6 @@ const FeatureCTA = ({
  *
  * @param {object} param param object
  * @param {object} param.card card object
- *
  * @private
  * @returns {*} object
  */

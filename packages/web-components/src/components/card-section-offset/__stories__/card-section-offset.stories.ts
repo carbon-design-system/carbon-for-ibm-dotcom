@@ -1,15 +1,15 @@
 /**
  * @license
  *
- * Copyright IBM Corp. 2020, 2021
+ * Copyright IBM Corp. 2020, 2023
  *
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
  */
 
 import { html } from 'lit-element';
-import ArrowRight20 from 'carbon-web-components/es/icons/arrow--right/20';
-import ifNonNull from 'carbon-web-components/es/globals/directives/if-non-null.js';
+import ArrowRight20 from '../../../internal/vendor/@carbon/web-components/icons/arrow--right/20';
+import ifNonNull from '../../../internal/vendor/@carbon/web-components/globals/directives/if-non-null.js';
 import { select } from '@storybook/addon-knobs';
 import readme from './README.stories.mdx';
 import '../index';
@@ -27,7 +27,8 @@ const ctaTypes = {
 const hrefsForType = {
   [CTA_TYPE.LOCAL]: 'https://www.example.com',
   [CTA_TYPE.EXTERNAL]: 'https://www.example.com',
-  [CTA_TYPE.DOWNLOAD]: 'https://www.ibm.com/annualreport/assets/downloads/IBM_Annual_Report_2019.pdf',
+  [CTA_TYPE.DOWNLOAD]:
+    'https://www.ibm.com/annualreport/assets/downloads/IBM_Annual_Report_2019.pdf',
   [CTA_TYPE.VIDEO]: '1_9h94wo6b',
 };
 
@@ -41,9 +42,12 @@ const knobNamesForType = {
 const defaultCardGroupItem = html`
   <dds-card-group-item href="https://example.com">
     <dds-card-eyebrow>Label</dds-card-eyebrow>
-    <dds-card-heading>Lorem ipsum dolor sit amet, pro graeco tibique an</dds-card-heading>
+    <dds-card-heading
+      >Lorem ipsum dolor sit amet, pro graeco tibique an</dds-card-heading
+    >
     <p>
-      Lorem ipsum dolor sit amet, habeo iisque eum ex. Vel postea singulis democritum ex. Illud ullum graecis
+      Lorem ipsum dolor sit amet, habeo iisque eum ex. Vel postea singulis
+      democritum ex. Illud ullum graecis
     </p>
     <dds-card-cta-footer slot="footer">
       ${ArrowRight20({ slot: 'icon' })}
@@ -51,25 +55,26 @@ const defaultCardGroupItem = html`
   </dds-card-group-item>
 `;
 
-export const Default = ({ parameters }) => {
-  const { heading, cards, ctaType, ctaCopy, download, href, alt, defaultSrc } = parameters?.props?.CardSectionOffset ?? {};
+export const Default = (args) => {
+  const { heading, cards, ctaType, ctaCopy, download, href, alt, defaultSrc } =
+    args?.CardSectionOffset ?? {};
   return html`
     <dds-card-section-offset>
       <dds-background-media
         gradient-direction="left-to-right"
         mobile-position="top"
         alt="${ifNonNull(alt)}"
-        default-src="${ifNonNull(defaultSrc)}"
-      >
+        default-src="${ifNonNull(defaultSrc)}">
       </dds-background-media>
-      <dds-content-block-heading slot="heading">${heading}</dds-content-block-heading>
+      <dds-content-block-heading slot="heading"
+        >${heading}</dds-content-block-heading
+      >
       <dds-text-cta
         slot="action"
         icon-placement="right"
         cta-type="${ifNonNull(ctaType)}"
         download="${ifNonNull(download)}"
-        href="${ifNonNull(href)}"
-      >
+        href="${ifNonNull(href)}">
         ${ctaCopy}
       </dds-text-cta>
       <dds-card-group slot="card-group" cards-per-row="2">
@@ -82,12 +87,10 @@ export const Default = ({ parameters }) => {
 export default {
   title: 'Components/Card section offset',
   decorators: [
-    story => html`
+    (story) => html`
       <div class="bx--grid">
         <div class="bx--row">
-          <dds-video-cta-container>
-            ${story()}
-          </dds-video-cta-container>
+          <dds-video-cta-container> ${story()} </dds-video-cta-container>
         </div>
       </div>
     `,
@@ -96,24 +99,33 @@ export default {
     ...readme.parameters,
     hasStoryPadding: true,
     knobs: {
-      CardSectionOffset: ({ groupId }) => {
-        const ctaType = select('CTA type (cta-type)', ctaTypes, CTA_TYPE.LOCAL, groupId);
-        const ctaCopy = ctaType === CTA_TYPE.VIDEO ? undefined : textNullable('Copy text', 'Lorem ipsum dolor sit amet', groupId);
+      CardSectionOffset: () => {
+        const ctaType = select('CTA type (cta-type)', ctaTypes, CTA_TYPE.LOCAL);
+        const ctaCopy =
+          ctaType === CTA_TYPE.VIDEO
+            ? undefined
+            : textNullable('Copy text', 'Lorem ipsum dolor sit amet');
         const download =
           ctaType !== CTA_TYPE.DOWNLOAD
             ? undefined
-            : textNullable('Download target (download)', 'IBM_Annual_Report_2019.pdf', groupId);
+            : textNullable(
+                'Download target (download)',
+                'IBM_Annual_Report_2019.pdf'
+              );
         return {
           heading: 'Aliquam condimentum interdum',
           ctaCopy,
           ctaType,
           download,
-          href: textNullable(knobNamesForType[ctaType ?? CTA_TYPE.REGULAR], hrefsForType[ctaType ?? CTA_TYPE.REGULAR], groupId),
+          href: textNullable(
+            knobNamesForType[ctaType ?? CTA_TYPE.REGULAR],
+            hrefsForType[ctaType ?? CTA_TYPE.REGULAR]
+          ),
           cards: Array.from({
             length: 3,
           }).map(() => defaultCardGroupItem),
-          alt: textNullable('Alt text', 'Image alt text', groupId),
-          defaultSrc: textNullable('Default image (default-src)', image, groupId),
+          alt: textNullable('Alt text', 'Image alt text'),
+          defaultSrc: textNullable('Default image (default-src)', image),
         };
       },
     },
@@ -125,7 +137,11 @@ export default {
           ctaType: 'local',
           download: undefined,
           href: 'https://www.example.com',
-          cards: [defaultCardGroupItem, defaultCardGroupItem, defaultCardGroupItem],
+          cards: [
+            defaultCardGroupItem,
+            defaultCardGroupItem,
+            defaultCardGroupItem,
+          ],
           alt: 'Image alt text',
           defaultSrc: image,
         },

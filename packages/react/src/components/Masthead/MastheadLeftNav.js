@@ -1,5 +1,5 @@
 /**
- * Copyright IBM Corp. 2016, 2022
+ * Copyright IBM Corp. 2016, 2023
  *
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
@@ -227,7 +227,6 @@ const MastheadLeftNav = ({
           <a
             data-autoid={`${stablePrefix}--masthead-${rest.navType}-sidenav__l0-productname`}
             href={platform.url}
-            aria-haspopup="true"
             className={cx(
               `${prefix}--side-nav__submenu`,
               `${prefix}--side-nav__submenu-platform`
@@ -253,7 +252,6 @@ const MastheadLeftNav = ({
  * @param {string} navType navigation type
  * @param {string} selectedMenuItem inputted selected menu item
  * @param {object} selectedItems selected menu items based on url
- *
  * @returns {object} JSX object
  */
 function _renderLevel1Submenus(
@@ -273,7 +271,7 @@ function _renderLevel1Submenus(
     let highlightedItems = [];
     const items = [];
 
-    menu.sections?.[0].menuItems.forEach(item => {
+    menu.sections?.[0].menuItems.forEach((item) => {
       if (item.highlighted) return highlightedItems.push(item);
       return items.push(item);
     });
@@ -366,7 +364,6 @@ function _renderLevel1Submenus(
  * @param {string} navType navigation type
  * @param {string} selectedMenuItem inputted selected menu item
  * @param {object} selectedItems selected menu items based on url
- *
  * @returns {object} JSX object
  */
 function _renderLevel2Submenus(
@@ -378,7 +375,7 @@ function _renderLevel2Submenus(
   selectedMenuItem,
   selectedItems
 ) {
-  const sideNavMenuSections = menuItems.map(menu => {
+  const sideNavMenuSections = menuItems.map((menu) => {
     return (
       <SideNavMenuSection
         isSubmenu

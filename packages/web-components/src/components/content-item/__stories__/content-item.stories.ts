@@ -1,7 +1,7 @@
 /**
  * @license
  *
- * Copyright IBM Corp. 2020, 2022
+ * Copyright IBM Corp. 2020, 2023
  *
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
@@ -14,36 +14,50 @@ import readme from './README.stories.mdx';
 import textNullable from '../../../../.storybook/knob-text-nullable';
 import imgLg16x9 from '../../../../../storybook-images/assets/720/fpo--16x9--720x405--005.jpg';
 
-export const Default = ({ parameters }) => {
-  const { heading, media, copy, showCopy, ctaStyle, ctaCopy } = parameters?.props?.ContentItem ?? {};
+export const Default = (args) => {
+  const { heading, media, copy, showCopy, ctaStyle, ctaCopy } =
+    args?.ContentItem ?? {};
   return html`
     <dds-content-item>
       ${media === 'image'
         ? html`
-            <dds-image slot="media" alt="Alt image text" default-src="${imgLg16x9}" heading="Image caption text"></dds-image>
+            <dds-image
+              slot="media"
+              alt="Alt image text"
+              default-src="${imgLg16x9}"
+              heading="Image caption text"></dds-image>
           `
         : ``}
       ${media === 'video'
         ? html`
-            <dds-video-player-container slot="media" video-id="1_9h94wo6b"></dds-video-player-container>
+            <dds-video-player-container
+              slot="media"
+              video-id="1_9h94wo6b"></dds-video-player-container>
           `
         : ''}
       <dds-content-item-heading>${heading}</dds-content-item-heading>
       ${showCopy
-        ? html`
-            <dds-content-item-copy>${copy}</dds-content-item-copy>
-          `
+        ? html` <dds-content-item-copy>${copy}</dds-content-item-copy> `
         : ``}
       ${ctaStyle === 'text'
         ? html`
-            <dds-text-cta slot="footer" cta-type="local" icon-placement="right" href="https://www.example.com"
+            <dds-text-cta
+              slot="footer"
+              cta-type="local"
+              icon-placement="right"
+              href="https://www.example.com"
               >${ctaCopy}</dds-text-cta
             >
           `
         : ``}
       ${ctaStyle === 'button'
         ? html`
-            <dds-button-cta slot="footer" cta-type="local" href="https://www.example.com">${ctaCopy}</dds-button-cta>
+            <dds-button-cta
+              slot="footer"
+              cta-type="local"
+              href="https://www.example.com"
+              >${ctaCopy}</dds-button-cta
+            >
           `
         : ``}
     </dds-content-item>
@@ -53,13 +67,11 @@ export const Default = ({ parameters }) => {
 export default {
   title: 'Components/Content item',
   decorators: [
-    story => html`
+    (story) => html`
       <div class="bx--grid">
         <div class="bx--row">
           <div class="bx--col-sm-4 bx--col-lg-10">
-            <dds-video-container>
-              ${story()}
-            </dds-video-container>
+            <dds-video-container> ${story()} </dds-video-container>
           </div>
         </div>
       </div>

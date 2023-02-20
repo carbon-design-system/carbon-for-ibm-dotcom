@@ -1,7 +1,7 @@
 /**
  * @license
  *
- * Copyright IBM Corp. 2020, 2022
+ * Copyright IBM Corp. 2020, 2023
  *
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
@@ -16,6 +16,8 @@ import DDSTopNav from './top-nav';
 import DDSTopNavMenu from './top-nav-menu';
 import DDSMegaMenuOverlay from './megamenu-overlay';
 import styles from './masthead.scss';
+import DDSMastheadContainer from './masthead-container';
+import { CMApp } from './masthead-composite';
 
 const { prefix } = settings;
 const { stablePrefix: ddsPrefix } = ddsSettings;
@@ -49,7 +51,9 @@ class DDSMegaMenuTopNavMenu extends DDSTopNavMenu {
    * scrollbar width.
    */
   @state()
-  private _scrollBarWidth = this.ownerDocument!.defaultView!.innerWidth - this.ownerDocument!.body.offsetWidth;
+  private _scrollBarWidth =
+    this.ownerDocument!.defaultView!.innerWidth -
+    this.ownerDocument!.body.offsetWidth;
 
   /**
    * Removes inherited _handleBlur method from BXHeaderMenu
@@ -88,12 +92,17 @@ class DDSMegaMenuTopNavMenu extends DDSTopNavMenu {
   /**
    * The observer for the resize of the viewport.
    */
-  private _observeResizeRoot = records => {
+  private _observeResizeRoot = (records) => {
     const { contentRect } = records[records.length - 1];
     // A workaround for Safari bug where `100vw` in Shadow DOM causes delayed rendering
     // https://github.com/carbon-design-system/carbon-for-ibm-dotcom/issues/4493
-    const { customPropertyViewportWidth } = this.constructor as typeof DDSMegaMenuTopNavMenu;
-    this.style.setProperty(customPropertyViewportWidth, `${contentRect.width}px`);
+    const { customPropertyViewportWidth } = this
+      .constructor as typeof DDSMegaMenuTopNavMenu;
+
+    this.style.setProperty(
+      customPropertyViewportWidth,
+      `${contentRect.width}px`
+    );
   };
 
   private _setAnalyticsAttributes() {
@@ -164,49 +173,74 @@ class DDSMegaMenuTopNavMenu extends DDSTopNavMenu {
       }
 
       const doc = this.getRootNode() as Document;
-      forEach(doc.querySelectorAll((this.constructor as typeof DDSMegaMenuTopNavMenu).selectorOverlay), item => {
-        (item as DDSMegaMenuOverlay).active = this.expanded;
-      });
+      forEach(
+        doc.querySelectorAll(
+          (this.constructor as typeof DDSMegaMenuTopNavMenu).selectorOverlay
+        ),
+        (item) => {
+          (item as DDSMegaMenuOverlay).active = this.expanded;
+        }
+      );
+
+      const mastheadContainer = this.closest(`
+        ${ddsPrefix}-masthead-container,
+        ${ddsPrefix}-cloud-masthead-container`) as DDSMastheadContainer;
 
       // add the scrollbar width as right-margin to prevent content from shifting when
       // scrollbar disappears on megamenu expand
-      const masthead: HTMLElement | null | undefined = doc
-        .querySelector('dds-masthead')
-        ?.shadowRoot?.querySelector('.bx--masthead__l0');
+      const masthead: HTMLElement | null = doc.querySelector('dds-masthead');
 
       // determine whether to apply margin-right on expand as HC has extra masthead styling
       const cloudMasthead: HTMLElement | null | undefined = doc
         .querySelector('dds-cloud-masthead-container')
-        ?.querySelector('dds-masthead')
-        ?.shadowRoot?.querySelector('.bx--masthead__l0');
+        ?.querySelector('dds-masthead');
 
       if (this.expanded) {
+        /**
+         * This is a workaround to minimize the chat module. Currently no minimize methods exist.
+         *
+         * @see https://github.ibm.com/live-advisor/cm-app
+         */
+        if (mastheadContainer?.contactModuleApp) {
+          (mastheadContainer.contactModuleApp as CMApp).init();
+        }
         // Ask masthead-composite to render megamenu.
         // Pause further execution until the render is complete.
         await this._requestMegaMenuRenderUpdate();
 
         doc.body.style.marginRight = `${this._scrollBarWidth}px`;
         doc.body.style.overflow = `hidden`;
-        forEach(doc.querySelectorAll((this.constructor as typeof DDSMegaMenuTopNavMenu).selectorOverlay), item => {
-          (item as DDSMegaMenuOverlay).active = this.expanded;
-        });
+        forEach(
+          doc.querySelectorAll(
+            (this.constructor as typeof DDSMegaMenuTopNavMenu).selectorOverlay
+          ),
+          (item) => {
+            (item as DDSMegaMenuOverlay).active = this.expanded;
+          }
+        );
 
         if (cloudMasthead) {
-          if (doc.body.classList.contains('ibm-masthead-sticky') && doc.body.classList.contains('ibm-masthead-sticky-showing')) {
-            cloudMasthead.style.marginRight = `${this._scrollBarWidth}px`;
+          if (
+            doc.body.classList.contains('ibm-masthead-sticky') &&
+            doc.body.classList.contains('ibm-masthead-sticky-showing')
+          ) {
+            cloudMasthead.style.marginInlineEnd = `${this._scrollBarWidth}px`;
           }
         } else if (masthead) {
-          masthead.style.marginRight = `${this._scrollBarWidth}px`;
+          masthead.style.marginInlineEnd = `${this._scrollBarWidth}px`;
         }
       } else {
-        doc.body.style.marginRight = '0px';
-        doc.body.style.overflow = ``;
+        document.body.style.marginInlineStart = '0px';
+        document.body.style.overflow = '';
         if (cloudMasthead) {
-          if (doc.body.classList.contains('ibm-masthead-sticky') && doc.body.classList.contains('ibm-masthead-sticky-showing')) {
-            cloudMasthead.style.marginRight = '0px';
+          if (
+            doc.body.classList.contains('ibm-masthead-sticky') &&
+            doc.body.classList.contains('ibm-masthead-sticky-showing')
+          ) {
+            cloudMasthead.style.marginInlineEnd = '0px';
           }
         } else if (masthead) {
-          masthead.style.marginRight = '0px';
+          masthead.style.marginInlineEnd = '0px';
         }
 
         /**
@@ -218,7 +252,10 @@ class DDSMegaMenuTopNavMenu extends DDSTopNavMenu {
         if (changedProperties.get('expanded') === false) {
           setTimeout(() => {
             const { activeElement } = document;
-            if (activeElement === null || activeElement.tagName.toLowerCase() === 'body') {
+            if (
+              activeElement === null ||
+              activeElement.tagName.toLowerCase() === 'body'
+            ) {
               this._topMenuItem.focus();
             }
           }, 0);

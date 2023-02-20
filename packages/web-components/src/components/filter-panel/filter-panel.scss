@@ -1,14 +1,14 @@
 /**
  * @license
  *
- * Copyright IBM Corp. 2020, 2022
+ * Copyright IBM Corp. 2020, 2023
  *
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
  */
 
 @import '@carbon/ibmdotcom-styles/scss/components/filter-panel/filter-panel';
-@import 'carbon-web-components/scss/components/modal/modal';
+@import '@carbon/web-components/scss/components/modal/modal';
 
 :host(#{$dds-prefix}-filter-panel-modal) {
   @extend :host(#{$prefix}-modal);
@@ -60,7 +60,8 @@
     &:focus-visible {
       outline: none;
       border-color: $focus;
-      box-shadow: inset 0 0 0 $button-outline-width $focus, inset 0 0 0 $button-border-width $ui-background;
+      box-shadow: inset 0 0 0 $button-outline-width $focus,
+        inset 0 0 0 $button-border-width $ui-background;
     }
   }
 }
@@ -106,7 +107,8 @@
   }
 
   .#{$prefix}--btn.#{$prefix}--btn--primary:focus {
-    box-shadow: inset 0 0 0 $button-outline-width $focus, inset 0 0 0 $button-border-width $ui-background;
+    box-shadow: inset 0 0 0 $button-outline-width $focus,
+      inset 0 0 0 $button-border-width $ui-background;
     border: 1px solid $focus;
     inset: $text-04;
   }

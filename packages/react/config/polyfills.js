@@ -1,5 +1,5 @@
 /**
- * Copyright IBM Corp. 2020
+ * Copyright IBM Corp. 2020, 2023
  *
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
@@ -26,6 +26,6 @@ Object.assign = require('object-assign');
 
 // Starting with React 16, we'll have to polyfill this in test environments.
 // Defining this earlier than loading Enzyme to avoid "React depends on requestAnimationFrame" warning.
-global.requestAnimationFrame = function(callback) {
+global.requestAnimationFrame = function (callback) {
   callback();
 };

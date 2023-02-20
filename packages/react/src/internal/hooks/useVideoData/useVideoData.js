@@ -1,5 +1,5 @@
 /**
- * Copyright IBM Corp. 2016, 2022
+ * Copyright IBM Corp. 2016, 2023
  *
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
@@ -36,7 +36,7 @@ function useVideoData(type, videoId, customVideoTitle) {
   getVideoData = useCallback(async () => {
     if (type === 'video' || type.includes('video')) {
       const title = await Promise.all(
-        videoId.map(async vidId => {
+        videoId.map(async (vidId) => {
           const video = await KalturaPlayerAPI.api(vidId.src);
           const time = KalturaPlayerAPI.getMediaDuration(
             video.msDuration,

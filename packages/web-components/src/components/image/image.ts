@@ -1,7 +1,7 @@
 /**
  * @license
  *
- * Copyright IBM Corp. 2020, 2022
+ * Copyright IBM Corp. 2020, 2023
  *
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
@@ -11,13 +11,13 @@ import { html, property, customElement, LitElement, state } from 'lit-element';
 import { classMap } from 'lit-html/directives/class-map.js';
 import settings from 'carbon-components/es/globals/js/settings.js';
 import on from 'carbon-components/es/globals/js/misc/on.js';
-import ifNonNull from 'carbon-web-components/es/globals/directives/if-non-null.js';
-import FocusMixin from 'carbon-web-components/es/globals/mixins/focus.js';
+import ifNonNull from '../../internal/vendor/@carbon/web-components/globals/directives/if-non-null.js';
+import FocusMixin from '../../internal/vendor/@carbon/web-components/globals/mixins/focus.js';
 import '../expressive-modal/expressive-modal';
 import '../expressive-modal/expressive-modal-close-button';
 import '../lightbox-media-viewer/lightbox-image-viewer';
 import '../button/button';
-import ZoomIn20 from 'carbon-web-components/es/icons/zoom--in/20.js';
+import ZoomIn20 from '../../internal/vendor/@carbon/web-components/icons/zoom--in/20.js';
 import ddsSettings from '../../internal/vendor/@carbon/ibmdotcom-utilities/utilities/settings/settings';
 import styles from './image.scss';
 import ModalRenderMixin from '../../globals/mixins/modal-render';
@@ -35,7 +35,9 @@ const { stablePrefix: ddsPrefix } = ddsSettings;
  * @slot icon - The icon content.
  */
 @customElement(`${ddsPrefix}-image`)
-class DDSImage extends StableSelectorMixin(ModalRenderMixin(FocusMixin(LitElement))) {
+class DDSImage extends StableSelectorMixin(
+  ModalRenderMixin(FocusMixin(LitElement))
+) {
   /**
    * The image data, harvested from `<dds-image-item>`.
    */
@@ -58,7 +60,11 @@ class DDSImage extends StableSelectorMixin(ModalRenderMixin(FocusMixin(LitElemen
         }
         return acc;
       }, [] as Node[])
-      .filter(node => node.nodeType === Node.ELEMENT_NODE && (node as Element).matches(selectorItem)) as HTMLElement[];
+      .filter(
+        (node) =>
+          node.nodeType === Node.ELEMENT_NODE &&
+          (node as Element).matches(selectorItem)
+      ) as HTMLElement[];
   }
 
   /**
@@ -130,7 +136,9 @@ class DDSImage extends StableSelectorMixin(ModalRenderMixin(FocusMixin(LitElemen
   createRenderRoot() {
     return this.attachShadow({
       mode: 'open',
-      delegatesFocus: Number((/Safari\/(\d+)/.exec(navigator.userAgent) ?? ['', 0])[1]) <= 537,
+      delegatesFocus:
+        Number((/Safari\/(\d+)/.exec(navigator.userAgent) ?? ['', 0])[1]) <=
+        537,
     });
   }
 
@@ -153,7 +161,13 @@ class DDSImage extends StableSelectorMixin(ModalRenderMixin(FocusMixin(LitElemen
   }
 
   renderImage() {
-    const { alt, border, defaultSrc, _images: images, _handleSlotChange: handleSlotChange } = this;
+    const {
+      alt,
+      border,
+      defaultSrc,
+      _images: images,
+      _handleSlotChange: handleSlotChange,
+    } = this;
     const imgClasses = classMap({
       [`${prefix}--image__img`]: true,
       [`${prefix}--image__img--border`]: border,
@@ -163,9 +177,17 @@ class DDSImage extends StableSelectorMixin(ModalRenderMixin(FocusMixin(LitElemen
       <slot @slotchange="${handleSlotChange}"></slot>
       <picture>
         ${images.map(
-          image => html`<source media="${image.getAttribute('media')}" srcset="${image.getAttribute('srcset')}"></source>`
+          (image) =>
+            html`<source media="${image.getAttribute(
+              'media'
+            )}" srcset="${image.getAttribute('srcset')}"></source>`
         )}
-        <img class="${imgClasses}" src="${defaultSrc}" alt="${alt}" aria-describedby="long-description" loading="lazy" />
+        <img
+          class="${imgClasses}"
+          src="${defaultSrc}"
+          alt="${alt}"
+          aria-describedby="image-caption long-description"
+          loading="lazy" />
       </picture>
       <div id="long-description" class="${prefix}--image__longdescription">
         <slot name="long-description"></slot>
@@ -185,35 +207,36 @@ class DDSImage extends StableSelectorMixin(ModalRenderMixin(FocusMixin(LitElemen
               alt="${ifNonNull(alt)}"
               default-src="${ifNonNull(defaultSrc)}"
               description="${ifNonNull(copy)}"
-              title="${ifNonNull(heading)}"
-            >
+              title="${ifNonNull(heading)}">
             </dds-lightbox-image-viewer>
           </dds-expressive-modal>
         `;
   }
 
   render() {
-    const { heading, launchLightboxButtonAssistiveText, lightbox, _handleClick: handleClick } = this;
+    const {
+      heading,
+      launchLightboxButtonAssistiveText,
+      lightbox,
+      _handleClick: handleClick,
+    } = this;
     return html`
       ${lightbox
         ? html`
             <button
               class="${prefix}--image-with-caption__image"
               aria-label="${ifNonNull(launchLightboxButtonAssistiveText)}"
-              @click="${handleClick}"
-            >
+              @click="${handleClick}">
               ${this.renderImage()}
               <div class="${prefix}--image-with-caption__zoom-button">
                 ${ZoomIn20()}
               </div>
             </button>
           `
-        : html`
-            ${this.renderImage()}
-          `}
+        : html` ${this.renderImage()} `}
       ${heading
         ? html`
-            <p class="${prefix}--image__caption">
+            <p id="image-caption" class="${prefix}--image__caption">
               ${heading}
             </p>
           `

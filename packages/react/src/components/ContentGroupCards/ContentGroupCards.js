@@ -1,5 +1,5 @@
 /**
- * Copyright IBM Corp. 2016, 2022
+ * Copyright IBM Corp. 2016, 2023
  *
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
@@ -42,7 +42,7 @@ const ContentGroupCards = ({ heading, items, copy }) => {
  * @param {Array} items Content object array
  * @returns {*} CardArrayItem JSX objects
  */
-const _renderCards = items =>
+const _renderCards = (items) =>
   items.map((elem, index) => (
     <div
       data-autoid={`${stablePrefix}--content-group-cards-item`}

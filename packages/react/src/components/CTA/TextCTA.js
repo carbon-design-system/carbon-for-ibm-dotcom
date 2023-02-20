@@ -1,5 +1,5 @@
 /**
- * Copyright IBM Corp. 2016, 2022
+ * Copyright IBM Corp. 2016, 2023
  *
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
@@ -34,7 +34,7 @@ const TextCTA = ({
       {!renderLightBox && (
         <LinkWithIcon
           href="#"
-          onClick={e => CTALogic.setLightBox(e, openLightBox)}
+          onClick={(e) => CTALogic.setLightBox(e, openLightBox)}
           iconInline={otherProps.iconInline}
           {...(iconPlacement && { iconPlacement })}>
           <span>
@@ -42,6 +42,9 @@ const TextCTA = ({
               title: videoTitle[0].title,
               duration: videoTitle[0].duration,
             })}
+            <span className="bx--visually-hidden">
+              {CTALogic.getDefaultLabel(type)}
+            </span>
           </span>
           <Icon />
         </LinkWithIcon>
@@ -51,10 +54,13 @@ const TextCTA = ({
     <LinkWithIcon
       href={href}
       target={CTALogic.external(type)}
-      onClick={e => CTALogic.jump(e, type)}
+      onClick={(e) => CTALogic.jump(e, type)}
       iconInline={otherProps.iconInline}
       {...(iconPlacement && { iconPlacement })}>
       <span>{otherProps.copy}</span>
+      <span className="bx--visually-hidden">
+        {CTALogic.getDefaultLabel(type)}
+      </span>
       {type !== 'default' && <Icon />}
     </LinkWithIcon>
   );

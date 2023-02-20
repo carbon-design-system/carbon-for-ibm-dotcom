@@ -1,7 +1,7 @@
 /**
  * @license
  *
- * Copyright IBM Corp. 2020, 2022
+ * Copyright IBM Corp. 2020, 2023
  *
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
@@ -12,7 +12,7 @@ import settings from 'carbon-components/es/globals/js/settings.js';
 import ddsSettings from '../../internal/vendor/@carbon/ibmdotcom-utilities/utilities/settings/settings';
 import sameHeight from '../../internal/vendor/@carbon/ibmdotcom-utilities/utilities/sameHeight/sameHeight';
 import StableSelectorMixin from '../../globals/mixins/stable-selector';
-import DDSTab from '../tabs-extended/tab';
+import ParentVisibilityMixin from '../../component-mixins/parent-visibility/parent-visibility';
 
 import styles from './cta-block.scss';
 
@@ -26,7 +26,9 @@ const { stablePrefix: ddsPrefix } = ddsSettings;
  * @slot .
  */
 @customElement(`${ddsPrefix}-cta-block-item-row`)
-class DDSCTABlockItemRow extends StableSelectorMixin(LitElement) {
+class DDSCTABlockItemRow extends ParentVisibilityMixin(
+  StableSelectorMixin(LitElement)
+) {
   /** Defines if the bottom border is rendered */
   @property({ type: Boolean, reflect: true, attribute: 'no-border' })
   _noBorder = false;
@@ -46,14 +48,9 @@ class DDSCTABlockItemRow extends StableSelectorMixin(LitElement) {
    */
   private _observerResizeRoot: any | null = null; // TODO: Wait for `.d.ts` update to support `ResizeObserver`
 
-  /**
-   * A list of potential parent components that may be hide their content on
-   * first render. Lists event names that indicate the parent element
-   * visibility has changed keyed by component selector strings.
-   */
-  private _parentsThatHide = {
-    [`${ddsPrefix}-tab`]: DDSTab.eventTabSelected,
-  };
+  public _onParentVisible() {
+    this._setSameHeight();
+  }
 
   /**
    * Cleans-up and creats the resize observer for the scrolling container.
@@ -80,14 +77,14 @@ class DDSCTABlockItemRow extends StableSelectorMixin(LitElement) {
   private _setSameHeight = () => {
     window.requestAnimationFrame(() => {
       sameHeight(
-        this._childItemHeadings.filter(e => {
+        this._childItemHeadings.filter((e) => {
           return e;
         }),
         'md'
       );
 
       sameHeight(
-        this._childItemCopies.filter(e => {
+        this._childItemCopies.filter((e) => {
           return e;
         }),
         'md'
@@ -108,14 +105,21 @@ class DDSCTABlockItemRow extends StableSelectorMixin(LitElement) {
    */
   protected _handleSlotChange(event: Event) {
     const { target } = event;
-    const { selectorItem, selectorItemHeading, selectorItemCopy } = this.constructor as typeof DDSCTABlockItemRow;
+    const { selectorItem, selectorItemHeading, selectorItemCopy } = this
+      .constructor as typeof DDSCTABlockItemRow;
 
-    const childItems = (target as HTMLSlotElement).assignedNodes().filter(elem => (elem as HTMLElement).matches?.(selectorItem));
+    const childItems = (target as HTMLSlotElement)
+      .assignedNodes()
+      .filter((elem) => (elem as HTMLElement).matches?.(selectorItem));
 
     if (childItems) {
-      childItems.forEach(e => {
-        this._childItemHeadings.push((e as HTMLElement).querySelector(selectorItemHeading));
-        this._childItemCopies.push((e as HTMLElement).querySelector(selectorItemCopy));
+      childItems.forEach((e) => {
+        this._childItemHeadings.push(
+          (e as HTMLElement).querySelector(selectorItemHeading)
+        );
+        this._childItemCopies.push(
+          (e as HTMLElement).querySelector(selectorItemCopy)
+        );
       });
     }
 
@@ -123,24 +127,12 @@ class DDSCTABlockItemRow extends StableSelectorMixin(LitElement) {
   }
 
   render() {
-    return html`
-      <slot @slotchange="${this._handleSlotChange}"></slot>
-    `;
+    return html` <slot @slotchange="${this._handleSlotChange}"></slot> `;
   }
 
   connectedCallback() {
     super.connectedCallback();
     this._cleanAndCreateObserverResize({ create: true });
-
-    // Reset heights when parents that can be hidden transition to a visible
-    // state.
-    Object.entries(this._parentsThatHide).forEach(([component, event]) => {
-      let target: Element | null | undefined = this.closest(component);
-      while (target) {
-        target.addEventListener(event, this._setSameHeight.bind(this));
-        target = target?.parentElement?.closest(component);
-      }
-    });
   }
 
   disconnectedCallback() {
@@ -158,7 +150,10 @@ class DDSCTABlockItemRow extends StableSelectorMixin(LitElement) {
    */
   updated(changedProperties) {
     if (changedProperties.has('_noBorder')) {
-      this.classList.toggle(`${prefix}--cta-block-item-row__border`, !this._noBorder);
+      this.classList.toggle(
+        `${prefix}--cta-block-item-row__border`,
+        !this._noBorder
+      );
     }
   }
 

@@ -1,5 +1,5 @@
 /**
- * Copyright IBM Corp. 2016, 2021
+ * Copyright IBM Corp. 2016, 2023
  *
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
@@ -15,8 +15,7 @@ const cards = {
   Simple: [
     {
       heading: 'Nunc convallis lobortis Nunc convallis lobortis',
-      copy:
-        'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean et ultricies est. Mauris iaculis eget dolor nec hendrerit. Phasellus at elit sollicitudin, sodales nulla quis, consequat libero.',
+      copy: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean et ultricies est. Mauris iaculis eget dolor nec hendrerit. Phasellus at elit sollicitudin, sodales nulla quis, consequat libero.',
       cta: {
         href: 'https://www.example.com',
         copy: 'cta text here',
@@ -24,8 +23,7 @@ const cards = {
     },
     {
       heading: 'Fusce gravida eu arcu',
-      copy:
-        'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean et ultricies est. Mauris iaculis eget dolor nec hendrerit.',
+      copy: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean et ultricies est. Mauris iaculis eget dolor nec hendrerit.',
       cta: {
         href: 'https://www.example.com',
         copy: 'cta text here',
@@ -33,8 +31,7 @@ const cards = {
     },
     {
       heading: 'Interdum et malesuada',
-      copy:
-        'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean et ultricies est.',
+      copy: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean et ultricies est.',
       cta: {
         href: 'https://www.example.com',
         copy: 'cta text here',
@@ -50,8 +47,7 @@ const cards = {
     },
     {
       heading: 'Nunc convallis lbortis',
-      copy:
-        'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean et ultricies est. Mauris iaculis eget dolor nec hendrerit. Phasellus at elit sollicitudin.',
+      copy: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean et ultricies est. Mauris iaculis eget dolor nec hendrerit. Phasellus at elit sollicitudin.',
       cta: {
         href: 'https://www.example.com',
         copy: 'cta text here',

@@ -1,5 +1,5 @@
 /**
- * Copyright IBM Corp. 2020, 2022
+ * Copyright IBM Corp. 2020, 2023
  *
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
@@ -23,9 +23,9 @@ const sizes = require('rollup-plugin-sizes');
 const visualizer = require('rollup-plugin-visualizer');
 
 const packageJson = require('../package.json');
-const peerDependencies = Object.keys(
-  packageJson.peerDependencies || {}
-).concat(['classnames', 'prop-types']);
+const peerDependencies = Object.keys(packageJson.peerDependencies || {}).concat(
+  ['classnames', 'prop-types']
+);
 
 const env = process.env.NODE_ENV || 'development';
 const prodSettings =
@@ -44,8 +44,8 @@ const prodSettings =
               colAligns: ['left', 'right'],
             });
             details.totals
-              .map(item => [chalk.white.bold(item.name), item.size])
-              .forEach(item => {
+              .map((item) => [chalk.white.bold(item.name), item.size])
+              .forEach((item) => {
                 table.push(item);
               });
             console.log(`Sizes of app/dependencies:\n${table}`); // eslint-disable-line no-console

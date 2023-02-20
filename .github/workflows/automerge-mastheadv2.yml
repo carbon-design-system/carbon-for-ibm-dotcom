@@ -15,15 +15,15 @@ jobs:
     env:
       SLACK_WEBHOOK_URL: ${{ secrets.SLACK_WEBHOOK_URL }}
     steps:
-      - uses: actions/checkout@v2
-      - name: Merge to feat/masthead-v2
+      - uses: actions/checkout@v3
+      - name: Merge to feat/masthead-v2-dev
         uses: devmasx/merge-branch@1.4.0
         with:
           type: now
-          target_branch: 'feat/masthead-v2'
+          target_branch: 'feat/masthead-v2-dev'
         env:
           GITHUB_TOKEN: ${{secrets.MERGE_ACTION}}
-      - uses: act10ns/slack@v1
+      - uses: act10ns/slack@v2
         with:
           status: ${{ job.status }}
         if: failure()

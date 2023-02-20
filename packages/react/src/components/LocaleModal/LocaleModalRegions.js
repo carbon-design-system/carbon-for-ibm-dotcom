@@ -1,5 +1,5 @@
 /**
- * Copyright IBM Corp. 2016, 2022
+ * Copyright IBM Corp. 2016, 2023
  *
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
@@ -36,7 +36,7 @@ const LocaleModalRegions = ({
   returnButtonLabel,
   closeModalLabel,
 }) => {
-  const handleClick = e => {
+  const handleClick = (e) => {
     setCurrentRegion(e.currentTarget.getAttribute('aria-label'));
     setIsFiltering(true);
     e.preventDefault();
@@ -66,7 +66,7 @@ const LocaleModalRegions = ({
       className={`${prefix}--grid ${prefix}--no-gutter ${prefix}--locale-modal__regions`}>
       <div className={`${prefix}--row`}>
         {regionList &&
-          regionList.map(region => {
+          regionList.map((region) => {
             const hasCountries = region.countries.length !== 0;
 
             return (
@@ -86,7 +86,7 @@ const LocaleModalRegions = ({
                         src: hasCountries ? ArrowRight20 : Error20,
                       },
                       handleClick: hasCountries
-                        ? e => {
+                        ? (e) => {
                             handleClick(e);
                           }
                         : null,
@@ -135,7 +135,7 @@ export const addLocaleBackBtnListeners = (
   setClearResults,
   closeModalLabel
 ) => {
-  [...buttons].forEach(btn => {
+  [...buttons].forEach((btn) => {
     btn.setAttribute('tabindex', '0');
     btn.setAttribute('role', 'button');
     btn.setAttribute(

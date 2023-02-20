@@ -1,5 +1,5 @@
 /**
- * Copyright IBM Corp. 2016, 2022
+ * Copyright IBM Corp. 2016, 2023
  *
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
@@ -38,6 +38,8 @@
     }
 
     .#{$prefix}--tabs-extended-media {
+      width: 100%;
+
       @include carbon--breakpoint(lg) {
         display: flex;
       }
@@ -49,17 +51,10 @@
       }
     }
 
-    .#{$prefix}--tab-content {
-      padding-left: $carbon--spacing-05;
-      padding-right: $carbon--spacing-05;
-    }
-
     .#{$prefix}--accordion__content {
       margin-top: -$carbon--spacing-07;
       margin-bottom: $carbon--spacing-05;
-      padding-bottom: 0;
-      padding-left: $carbon--spacing-05;
-      padding-right: $carbon--spacing-05;
+      padding: $carbon--spacing-07 0 0;
 
       @include carbon--breakpoint(md) {
         margin-bottom: -$carbon--spacing-05;

@@ -1,0 +1,88 @@
+import { Props, Description } from '@storybook/addon-docs/blocks';
+import contributing from '../../../../../../docs/contributing-license.md';
+import { PropTypesRef } from '@carbon/ibmdotcom-web-components/es/components-react/content-group-cards/content-group-cards';
+
+# Content Group Cards
+
+> The Content Group – Cards pattern is a variant of `DDSContentGroup`, and
+> includes a heading, copy, and card items.
+>
+> 💡 Check our
+> [CodeSandbox](https://githubbox.com/carbon-design-system/carbon-for-ibm-dotcom/tree/main/packages/web-components/examples/codesandbox/components-react/content-group-cards)
+> example implementation.
+
+[![Edit @carbon/ibmdotcom-web-components](https://codesandbox.io/static/img/play-codesandbox.svg)](https://githubbox.com/carbon-design-system/carbon-for-ibm-dotcom/tree/main/packages/web-components/examples/codesandbox/components-react/content-group-cards)
+
+## Getting started
+
+Here's a quick example to get you started.
+
+### JS
+
+```js
+import ArrowRight20 from '@carbon/web-components/es/icons/arrow--right/20';
+import DDSContentGroupCardsItem from '@carbon/ibmdotcom-web-components/es/components-react/content-group-cards/content-group-cards-item';
+import DDSCardHeading from '@carbon/ibmdotcom-web-components/es/components-react/card/card-heading';
+import DDSCardFooter from '@carbon/ibmdotcom-web-components/es/components-react/card/card-footer';
+import DDSContentGroupCards from '@carbon/ibmdotcom-web-components/es/components-react/content-group-cards/content-group-cards';
+import DDSContentGroupHeading from '@carbon/ibmdotcom-web-components/es/components-react/content-group/content-group-heading';
+import DDSContentGroupCopy from '@carbon/ibmdotcom-web-components/es/components-react/content-group/content-group-copy';
+
+const card1 = (
+  <DDSContentGroupCardsItem href="https://www.example.com">
+    <DDSCardHeading>
+      Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+      tempor incididunt
+    </DDSCardHeading>
+    <p>
+      Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod
+      tempor incididunt ut labore et dolore magna aliqua.
+    </p>
+    <DDSCardFooter icon-placement="left">
+      <ArrowRight20 slot="icon" />
+    </DDSCardFooter>
+  </DDSContentGroupCardsItem>
+);
+const card2 = (
+  <DDSContentGroupCardsItem href="https://www.example.com">
+    <DDSCardHeading>
+      Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+      tempor incididunt
+    </DDSCardHeading>
+    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit</p>
+    <DDSCardFooter icon-placement="left">
+      <ArrowRight20 slot="icon" />
+    </DDSCardFooter>
+  </DDSContentGroupCardsItem>
+);
+const App = () => (
+  <DDSContentGroupCards>
+    <DDSContentGroupHeading>Lorem ipsum dolor sit amet.</DDSContentGroupHeading>
+    <DDSContentGroupCopy>
+      Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+    </DDSContentGroupCopy>
+    {card1}
+    {card2}
+    {card1}
+    {card2}
+  </DDSContentGroupCards>
+);
+```
+
+## Props
+
+<Props of={PropTypesRef} />
+
+## Stable selectors
+
+See
+[our README](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/tree/main/packages/web-components#stable-selectors-for-analytics-and-integratione2e-testing-in-web-components)
+to see how Web Components selector and `data-autoid` should be used.
+
+| Web Components selector          | Compatibility selector                        | Description |
+| -------------------------------- | --------------------------------------------- | ----------- |
+| `<dds-content-group-cards>`      | `data-autoid="dds--content-group-cards"`      | Component   |
+| `<dds-content-group-heading>`    | `data-autoid="dds--content-group__title"`     | Component   |
+| `<dds-content-group-cards-item>` | `data-autoid="dds--content-group-cards-item"` | Component   |
+
+<Description markdown={contributing} />

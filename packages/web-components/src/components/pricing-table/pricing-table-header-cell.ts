@@ -1,7 +1,7 @@
 /**
  * @license
  *
- * Copyright IBM Corp. 2022
+ * Copyright IBM Corp. 2022, 2023
  *
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
@@ -19,13 +19,17 @@ const { prefix } = settings;
 const { stablePrefix: ddsPrefix } = ddsSettings;
 
 @customElement(`${ddsPrefix}-pricing-table-header-cell`)
-class DDSPricingTableHeaderCell extends StableSelectorMixin(DDSStructuredListHeaderCell) {
+class DDSPricingTableHeaderCell extends StableSelectorMixin(
+  DDSStructuredListHeaderCell
+) {
   @property({ reflect: true })
-  type: PRICING_TABLE_HEADER_CELL_TYPES = PRICING_TABLE_HEADER_CELL_TYPES.COMPLEX;
+  type: PRICING_TABLE_HEADER_CELL_TYPES =
+    PRICING_TABLE_HEADER_CELL_TYPES.COMPLEX;
 
   render() {
     const { type } = this;
-    const { tagWrapperSelector } = this.constructor as typeof DDSPricingTableHeaderCell;
+    const { tagWrapperSelector } = this
+      .constructor as typeof DDSPricingTableHeaderCell;
 
     return type === PRICING_TABLE_HEADER_CELL_TYPES.COMPLEX
       ? html`

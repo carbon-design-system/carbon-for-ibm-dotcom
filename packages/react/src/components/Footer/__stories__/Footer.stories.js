@@ -1,5 +1,5 @@
 /**
- * Copyright IBM Corp. 2016, 2021
+ * Copyright IBM Corp. 2016, 2023
  *
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
@@ -15,15 +15,125 @@ import languageItems from '../__data__/language-items.json';
 import React from 'react';
 import readme from '../README.stories.mdx';
 
-export default {
-  title: 'Components|Footer',
-  parameters: {
-    ...readme.parameters,
-    'carbon-theme': { disabled: true },
+const props = {
+  default: () => ({
+    type: 'default',
+    languageInitialItem: { id: 'en', text: 'English' },
+    disableLocaleButton: boolean(
+      'hide the locale button (disableLocaleButton)',
+      false
+    ),
+  }),
+  defaultLanguageOnly: () => {
+    const languageOnly = true;
+    return {
+      type: 'default',
+      languageOnly,
+      items: !languageOnly
+        ? undefined
+        : object('language dropdown items (languageItems)', languageItems),
+      languageInitialItem: { id: 'en', text: 'English' },
+    };
+  },
+  short: () => {
+    const isCustom = boolean('show custom navigation (not a prop)', inPercy());
+    return {
+      type: 'short',
+      isCustom,
+      navigation: isCustom
+        ? object('custom navigation data (navigation)', {
+            footerMenu,
+            footerThin,
+          })
+        : null,
+      disableLocaleButton: boolean(
+        'hide the locale button (disableLocaleButton)',
+        false
+      ),
+    };
+  },
+  shortWithAdjunctLegalLinks: () => {
+    const isCustom = boolean('show custom navigation (not a prop)', inPercy());
+    return {
+      isCustom,
+      type: 'short',
+      adjunctLinks: [
+        {
+          title: 'Read the updated Terms of Use.',
+          url: 'https://www.example.com',
+        },
+        {
+          title: 'Read Learning Technologies Privacy',
+          url: 'https://www.example.com',
+        },
+      ],
+      navigation: isCustom
+        ? object('custom navigation data (navigation)', {
+            footerMenu,
+            footerThin,
+          })
+        : null,
+      disableLocaleButton: boolean(
+        'hide the locale button (disableLocaleButton)',
+        false
+      ),
+    };
+  },
+  shortLanguageOnly: () => {
+    const isCustom = boolean('show custom navigation (not a prop)', inPercy());
+    const languageOnly = true;
+
+    return {
+      type: 'short',
+      isCustom,
+      languageOnly,
+      items: !languageOnly
+        ? undefined
+        : object('language dropdown items (languageItems)', languageItems),
+      languageInitialItem: { id: 'en', text: 'English' },
+      navigation: isCustom
+        ? object('custom navigation data (navigation)', {
+            footerMenu,
+            footerThin,
+          })
+        : null,
+    };
+  },
+  micro: () => ({
+    type: 'micro',
+    disableLocaleButton: boolean(
+      'hide the locale button (disableLocaleButton)',
+      false
+    ),
+    languageInitialItem: { id: 'en', text: 'English' },
+    adjunctLinks: false,
+  }),
+  microLanugaugeOnly: () => {
+    const languageOnly = true;
+
+    return {
+      type: 'micro',
+      languageOnly,
+      items: !languageOnly
+        ? undefined
+        : object('language dropdown items (languageItems)', languageItems),
+      languageInitialItem: { id: 'en', text: 'English' },
+    };
   },
 };
 
-export const Default = ({ parameters }) => {
+export default {
+  title: 'Components/Footer',
+  parameters: {
+    ...readme.parameters,
+    'carbon-theme': { disabled: true },
+    percy: {
+      name: 'Components|Footer: Default',
+    },
+  },
+};
+
+export const Default = (args) => {
   const {
     type,
     isCustom,
@@ -34,7 +144,7 @@ export const Default = ({ parameters }) => {
     languageInitialItem,
     languageCallback,
     adjunctLinks,
-  } = parameters?.props?.Footer ?? {};
+  } = { ...(Object.keys(args).length > 0 ? args : props.default()) } ?? {};
 
   return (
     <Footer
@@ -51,24 +161,7 @@ export const Default = ({ parameters }) => {
   );
 };
 
-Default.story = {
-  parameters: {
-    knobs: {
-      Footer: ({ groupId }) => {
-        return {
-          languageInitialItem: { id: 'en', text: 'English' },
-          disableLocaleButton: boolean(
-            'hide the locale button (disableLocaleButton)',
-            false,
-            groupId
-          ),
-        };
-      },
-    },
-  },
-};
-
-export const DefaultWithAdjunctLegalLinks = ({ parameters }) => {
+export const DefaultWithAdjunctLegalLinks = () => {
   const {
     type,
     isCustom,
@@ -78,7 +171,7 @@ export const DefaultWithAdjunctLegalLinks = ({ parameters }) => {
     items,
     languageInitialItem,
     languageCallback,
-  } = parameters?.props?.Footer ?? {};
+  } = props.default() ?? {};
 
   return (
     <Footer
@@ -107,34 +200,16 @@ export const DefaultWithAdjunctLegalLinks = ({ parameters }) => {
 DefaultWithAdjunctLegalLinks.story = {
   name: 'Default with adjunct legal links',
   parameters: {
-    knobs: {
-      Footer: ({ groupId }) => {
-        return {
-          languageInitialItem: { id: 'en', text: 'English' },
-          disableLocaleButton: boolean(
-            'hide the locale button (disableLocaleButton)',
-            false,
-            groupId
-          ),
-        };
-      },
+    percy: {
+      name: 'Components|Footer: Default with adjunct legal links',
     },
   },
 };
 
-export const DefaultLanguageOnly = ({ parameters }) => {
-  const massagedParameters = {
-    ...parameters,
-    props: {
-      Footer: {
-        ...(parameters?.props?.Footer ?? {}),
-      },
-    },
-  };
-
+export const DefaultLanguageOnly = () => {
   return (
     <div className="default-language-only">
-      <Default parameters={massagedParameters} />
+      <Default {...props.defaultLanguageOnly()} />
     </div>
   );
 };
@@ -142,22 +217,8 @@ export const DefaultLanguageOnly = ({ parameters }) => {
 DefaultLanguageOnly.story = {
   name: 'Default language only',
   parameters: {
-    knobs: {
-      Footer: ({ groupId }) => {
-        const languageOnly = true;
-
-        return {
-          languageOnly,
-          items: !languageOnly
-            ? undefined
-            : object(
-                'language dropdown items (languageItems)',
-                languageItems,
-                groupId
-              ),
-          languageInitialItem: { id: 'en', text: 'English' },
-        };
-      },
+    percy: {
+      name: 'Components|Footer: Default language only',
     },
   },
 };
@@ -167,52 +228,18 @@ DefaultLanguageOnly.story = {
  *
  * @returns {*} CSF story
  */
-export const Short = ({ parameters }) => {
-  const massagedParameters = {
-    ...parameters,
-    props: {
-      Footer: {
-        ...(parameters?.props?.Footer ?? {}),
-        type: 'short',
-      },
-    },
-  };
-
+export const Short = () => {
   return (
     <div style={{ display: 'flex', alignItems: 'center', minHeight: '100%' }}>
-      <Default parameters={massagedParameters} />
+      <Default {...props.short()} />
     </div>
   );
 };
 
 Short.story = {
   parameters: {
-    knobs: {
-      Footer: ({ groupId }) => {
-        const isCustom = boolean(
-          'show custom navigation (not a prop)',
-          inPercy(),
-          groupId
-        );
-        return {
-          isCustom,
-          navigation: isCustom
-            ? object(
-                'custom navigation data (navigation)',
-                {
-                  footerMenu,
-                  footerThin,
-                },
-                groupId
-              )
-            : null,
-          disableLocaleButton: boolean(
-            'hide the locale button (disableLocaleButton)',
-            false,
-            groupId
-          ),
-        };
-      },
+    percy: {
+      name: 'Components|Footer: Short',
     },
   },
 };
@@ -222,30 +249,10 @@ Short.story = {
  *
  * @returns {*} CSF story
  */
-export const ShortWithAdjunctLegalLinks = ({ parameters }) => {
-  const massagedParameters = {
-    ...parameters,
-    props: {
-      Footer: {
-        ...(parameters?.props?.Footer ?? {}),
-        type: 'short',
-        adjunctLinks: [
-          {
-            title: 'Read the updated Terms of Use.',
-            url: 'https://www.example.com',
-          },
-          {
-            title: 'Read Learning Technologies Privacy',
-            url: 'https://www.example.com',
-          },
-        ],
-      },
-    },
-  };
-
+export const ShortWithAdjunctLegalLinks = () => {
   return (
     <div style={{ display: 'flex', alignItems: 'center', minHeight: '100%' }}>
-      <Default parameters={massagedParameters} />
+      <Default {...props.shortWithAdjunctLegalLinks()} />
     </div>
   );
 };
@@ -253,32 +260,8 @@ export const ShortWithAdjunctLegalLinks = ({ parameters }) => {
 ShortWithAdjunctLegalLinks.story = {
   name: 'Short with adjunct legal links',
   parameters: {
-    knobs: {
-      Footer: ({ groupId }) => {
-        const isCustom = boolean(
-          'show custom navigation (not a prop)',
-          inPercy(),
-          groupId
-        );
-        return {
-          isCustom,
-          navigation: isCustom
-            ? object(
-                'custom navigation data (navigation)',
-                {
-                  footerMenu,
-                  footerThin,
-                },
-                groupId
-              )
-            : null,
-          disableLocaleButton: boolean(
-            'hide the locale button (disableLocaleButton)',
-            false,
-            groupId
-          ),
-        };
-      },
+    percy: {
+      name: 'Components|Footer: Short with adjunct legal links',
     },
   },
 };
@@ -288,20 +271,10 @@ ShortWithAdjunctLegalLinks.story = {
  *
  * @returns {*} CSF story
  */
-export const ShortLanguageOnly = ({ parameters }) => {
-  const massagedParameters = {
-    ...parameters,
-    props: {
-      Footer: {
-        ...(parameters?.props?.Footer ?? {}),
-        type: 'short',
-      },
-    },
-  };
-
+export const ShortLanguageOnly = () => {
   return (
     <div style={{ display: 'flex', alignItems: 'center', minHeight: '100%' }}>
-      <Default parameters={massagedParameters} />
+      <Default {...props.shortLanguageOnly()} />
     </div>
   );
 };
@@ -309,38 +282,8 @@ export const ShortLanguageOnly = ({ parameters }) => {
 ShortLanguageOnly.story = {
   name: 'Short language only',
   parameters: {
-    knobs: {
-      Footer: ({ groupId }) => {
-        const isCustom = boolean(
-          'show custom navigation (not a prop)',
-          inPercy(),
-          groupId
-        );
-        const languageOnly = true;
-
-        return {
-          isCustom,
-          languageOnly,
-          items: !languageOnly
-            ? undefined
-            : object(
-                'language dropdown items (languageItems)',
-                languageItems,
-                groupId
-              ),
-          languageInitialItem: { id: 'en', text: 'English' },
-          navigation: isCustom
-            ? object(
-                'custom navigation data (navigation)',
-                {
-                  footerMenu,
-                  footerThin,
-                },
-                groupId
-              )
-            : null,
-        };
-      },
+    percy: {
+      name: 'Components|Footer: Short language only',
     },
   },
 };
@@ -350,38 +293,18 @@ ShortLanguageOnly.story = {
  *
  * @returns {*} CSF story
  */
-export const Micro = ({ parameters }) => {
-  const massagedParameters = {
-    ...parameters,
-    props: {
-      Footer: {
-        ...(parameters?.props?.Footer ?? {}),
-        type: 'micro',
-      },
-    },
-  };
-
+export const Micro = () => {
   return (
     <div style={{ display: 'flex', alignItems: 'center', minHeight: '100%' }}>
-      <Default parameters={massagedParameters} />
+      <Default {...props.micro()} />
     </div>
   );
 };
 
 Micro.story = {
   parameters: {
-    knobs: {
-      Footer: ({ groupId }) => {
-        return {
-          disableLocaleButton: boolean(
-            'hide the locale button (disableLocaleButton)',
-            false,
-            groupId
-          ),
-          languageInitialItem: { id: 'en', text: 'English' },
-          adjunctLinks: false,
-        };
-      },
+    percy: {
+      name: 'Components|Footer: Micro',
     },
   },
 };
@@ -391,20 +314,10 @@ Micro.story = {
  *
  * @returns {*} CSF story
  */
-export const MicroLanguageOnly = ({ parameters }) => {
-  const massagedParameters = {
-    ...parameters,
-    props: {
-      Footer: {
-        ...(parameters?.props?.Footer ?? {}),
-        type: 'micro',
-      },
-    },
-  };
-
+export const MicroLanguageOnly = () => {
   return (
     <div style={{ display: 'flex', alignItems: 'center', minHeight: '100%' }}>
-      <Default parameters={massagedParameters} />
+      <Default {...props.microLanugaugeOnly()} />
     </div>
   );
 };
@@ -412,22 +325,8 @@ export const MicroLanguageOnly = ({ parameters }) => {
 MicroLanguageOnly.story = {
   name: 'Micro language only',
   parameters: {
-    knobs: {
-      Footer: ({ groupId }) => {
-        const languageOnly = true;
-
-        return {
-          languageOnly,
-          items: !languageOnly
-            ? undefined
-            : object(
-                'language dropdown items (languageItems)',
-                languageItems,
-                groupId
-              ),
-          languageInitialItem: { id: 'en', text: 'English' },
-        };
-      },
+    percy: {
+      name: 'Components|Footer: Micro language only',
     },
   },
 };

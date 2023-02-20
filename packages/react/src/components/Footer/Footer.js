@@ -1,5 +1,5 @@
 /**
- * Copyright IBM Corp. 2016, 2022
+ * Copyright IBM Corp. 2016, 2023
  *
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
@@ -94,7 +94,8 @@ const Footer = ({
         <div className={`${prefix}--footer__main-container`}>
           <div
             className={classNames(`${prefix}--footer__logo-container`, {
-              [`${prefix}--footer__locale-button--disabled`]: disableLocaleButton,
+              [`${prefix}--footer__locale-button--disabled`]:
+                disableLocaleButton,
             })}>
             <div className={`${prefix}--footer__logo-row`}>
               {type !== 'micro' && <FooterLogo />}

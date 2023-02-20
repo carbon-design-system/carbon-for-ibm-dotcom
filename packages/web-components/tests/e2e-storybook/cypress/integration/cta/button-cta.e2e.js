@@ -1,5 +1,5 @@
 /**
- * Copyright IBM Corp. 2021, 2022
+ * Copyright IBM Corp. 2021, 2023
  *
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
@@ -15,7 +15,7 @@ import createTests from './_tests';
  * @type {string}
  * @private
  */
-const _path = '/iframe.html?id=components-cta--button';
+const _path = '/iframe.html?id=components-cta--default&knob-CTA%20style%20(cta-style)=button';
 
 /**
  * Path definitions for the test creation function.
@@ -24,9 +24,9 @@ const _path = '/iframe.html?id=components-cta--button';
  * @private
  */
 const _paths = {
-  copy: `${_path}&knob-Copy%20text_ButtonCTA=`,
-  href: `${_path}&knob-Content%20link%20href%20(href)_ButtonCTA=`,
-  ctaType: `${_path}&knob-CTA%20type%20(cta-type)_ButtonCTA=`,
+  copy: `${_path}&knob-Copy%20(copy):=`,
+  href: `${_path}&knob-Content%20link%20href%20(href)=`,
+  ctaType: `${_path}&knob-CTA%20type%20(cta-type)=`,
 };
 
 /**
@@ -35,7 +35,7 @@ const _paths = {
  * @type {string}
  * @private
  */
-const _selector = '[data-autoid="dds--button-cta"]';
+const _selector = 'dds-cta';
 
 /**
  * Collection of common test scenarios.

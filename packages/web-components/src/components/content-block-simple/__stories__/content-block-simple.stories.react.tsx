@@ -56,8 +56,8 @@ const ctaStyles = {
   [`Text (${CTA_STYLE.TEXT})`]: CTA_STYLE.TEXT,
 };
 
-export const Default = ({ parameters }) => {
-  const { heading, ctaStyle, ctaType } = parameters?.props?.ContentBlockSimple ?? {};
+export const Default = args => {
+  const { heading, ctaStyle, ctaType } = args?.ContentBlockSimple ?? {};
   return (
     <>
       <DDSContentBlockSimple>

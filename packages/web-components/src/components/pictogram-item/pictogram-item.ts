@@ -1,7 +1,7 @@
 /**
  * @license
  *
- * Copyright IBM Corp. 2020, 2022
+ * Copyright IBM Corp. 2020, 2023
  *
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
@@ -40,12 +40,12 @@ class DDSPictogramItem extends StableSelectorMixin(DDSContentItem) {
     return html`
       <div class="${prefix}--pictogram-item__row">
         <div class="${prefix}--pictogram-item__wrapper">
-          <slot class="${prefix}--pictogram-item__pictogram" name="pictogram"></slot>
+          <slot
+            class="${prefix}--pictogram-item__pictogram"
+            name="pictogram"></slot>
         </div>
         <div class="${prefix}--pictogram-item__content">
-          <div class="${prefix}--content-item">
-            ${super.render()}
-          </div>
+          <div class="${prefix}--content-item">${super.render()}</div>
         </div>
       </div>
     `;

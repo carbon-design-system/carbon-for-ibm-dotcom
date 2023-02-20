@@ -10,7 +10,7 @@
     color-scheme=""
     cta-type=""
     data-autoid="dds--card-group-item"
-    pictogram-placement="top"
+    pictogram-placement=""
     size=""
   >
   </dds-card-group-item>
@@ -38,7 +38,7 @@
     <dds-button-group-item
       data-autoid="dds--button-group-item"
       icon-layout=""
-      kind="tertiary"
+      kind="primary"
       role="listitem"
       size=""
     >
@@ -47,7 +47,7 @@
     <dds-button-group-item
       data-autoid="dds--button-group-item"
       icon-layout=""
-      kind="primary"
+      kind="tertiary"
       role="listitem"
       size=""
     >
@@ -66,7 +66,7 @@
     color-scheme=""
     cta-type=""
     data-autoid="dds--card-group-item"
-    pictogram-placement="top"
+    pictogram-placement=""
     size=""
   >
     heading-foo
@@ -81,7 +81,7 @@
       cta-type=""
       data-autoid="dds--card-group-item"
       href="https://example.com"
-      pictogram-placement="top"
+      pictogram-placement=""
       size=""
     >
       <dds-card-heading
@@ -93,8 +93,10 @@
         Nunc convallis lobortis
       </dds-card-heading>
       <p>
-        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean et ultricies est. Mauris iaculis eget dolor nec
-                hendrerit. Phasellus at elit sollicitudin, sodales nulla quis, consequat libero.
+        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean
+                et ultricies est. Mauris iaculis eget dolor nec hendrerit.
+                Phasellus at elit sollicitudin, sodales nulla quis, consequat
+                libero.
       </p>
       <dds-card-cta-footer
         color-scheme=""
@@ -131,7 +133,7 @@
     <dds-button-group-item
       data-autoid="dds--button-group-item"
       icon-layout=""
-      kind="tertiary"
+      kind="primary"
       role="listitem"
       size=""
     >
@@ -140,7 +142,7 @@
     <dds-button-group-item
       data-autoid="dds--button-group-item"
       icon-layout=""
-      kind="primary"
+      kind="tertiary"
       role="listitem"
       size=""
     >

@@ -1,7 +1,7 @@
 /**
  * @license
  *
- * Copyright IBM Corp. 2020, 2022
+ * Copyright IBM Corp. 2020, 2023
  *
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
@@ -26,49 +26,91 @@ const adjacentThemes = {
 const htmlElement = document.documentElement;
 let currentTheme = '';
 // eslint-disable-next-line func-names
-const observer = new MutationObserver(mutations => {
-  mutations.forEach(mutation => {
+const observer = new MutationObserver((mutations) => {
+  mutations.forEach((mutation) => {
     if (mutation.type === 'attributes') {
-      currentTheme = htmlElement.getAttribute(mutation.attributeName!) as string;
+      currentTheme = htmlElement.getAttribute(
+        mutation.attributeName!
+      ) as string;
     }
   });
 });
 observer.observe(htmlElement, { attributes: true });
 
-export const Default = ({ parameters }) => {
-  const { theme, heading, subheading, paragraph } = parameters?.props?.LeadspaceWithSearch ?? {};
+export const Default = (args) => {
+  const { theme, heading, subheading, paragraph } =
+    args?.LeadspaceWithSearch ?? {};
   const secondTheme = theme.split('-')[2];
+  const subheadingComponent = document.querySelector(
+    'dds-leadspace-with-search-content-heading'
+  );
+
+  if (subheadingComponent) {
+    subheadingComponent!.shadowRoot!.innerHTML = subheading;
+  }
   return html`
     <dds-leadspace-with-search adjacent-theme="${theme}">
-      <dds-leadspace-with-search-heading>${heading}</dds-leadspace-with-search-heading>
+      <dds-leadspace-with-search-heading
+        >${heading}</dds-leadspace-with-search-heading
+      >
       <dds-leadspace-with-search-content>
-        <dds-leadspace-with-search-content-heading>${subheading}</dds-leadspace-with-search-content-heading>
-        <dds-leadspace-with-search-content-copy style="${!paragraph ? 'display: none' : ''}"
+        <dds-leadspace-with-search-content-heading
+          >${subheading}</dds-leadspace-with-search-content-heading
+        >
+        <dds-leadspace-with-search-content-copy
+          style="${!paragraph ? 'display: none' : ''}"
           >${paragraph}
         </dds-leadspace-with-search-content-copy>
       </dds-leadspace-with-search-content>
-      <dds-search-with-typeahead slot="search" leadspace-search></dds-search-with-typeahead>
-      <dds-hr slot="hr" style="${currentTheme === secondTheme ? 'display: none' : ''}"></dds-hr>
+      <dds-search-with-typeahead
+        slot="search"
+        leadspace-search></dds-search-with-typeahead>
+      <dds-hr
+        slot="hr"
+        style="${currentTheme === secondTheme ? 'display: none' : ''}"></dds-hr>
     </dds-leadspace-with-search>
   `;
 };
 
-export const WithImage = ({ parameters }) => {
-  const { theme, heading, subheading, paragraph } = parameters?.props?.LeadspaceWithSearch ?? {};
+export const WithImage = (args) => {
+  const { theme, heading, subheading, paragraph } =
+    args?.LeadspaceWithSearch ?? {};
   const secondTheme = theme.split('-')[2];
+
+  const subheadingComponent = document.querySelector(
+    'dds-leadspace-with-search-content-heading'
+  );
+
+  if (subheadingComponent) {
+    subheadingComponent!.shadowRoot!.innerHTML = subheading;
+  }
+
   return html`
     <dds-leadspace-with-search adjacent-theme="${theme}">
-      <dds-background-media gradient-direction="left-to-right" mobile-position="bottom" default-src="${image}" slot="image">
+      <dds-background-media
+        gradient-direction="left-to-right"
+        mobile-position="bottom"
+        default-src="${image}"
+        slot="image">
       </dds-background-media>
-      <dds-leadspace-with-search-heading>${heading}</dds-leadspace-with-search-heading>
+      <dds-leadspace-with-search-heading
+        >${heading}</dds-leadspace-with-search-heading
+      >
       <dds-leadspace-with-search-content>
-        <dds-leadspace-with-search-content-heading>${subheading}</dds-leadspace-with-search-content-heading>
-        <dds-leadspace-with-search-content-copy style="${!paragraph ? 'display: none' : ''}"
+        <dds-leadspace-with-search-content-heading
+          >${subheading}</dds-leadspace-with-search-content-heading
+        >
+        <dds-leadspace-with-search-content-copy
+          style="${!paragraph ? 'display: none' : ''}"
           >${paragraph}
         </dds-leadspace-with-search-content-copy>
       </dds-leadspace-with-search-content>
-      <dds-search-with-typeahead slot="search" leadspace-search></dds-search-with-typeahead>
-      <dds-hr slot="hr" style="${currentTheme === secondTheme ? 'display: none' : ''}"></dds-hr>
+      <dds-search-with-typeahead
+        slot="search"
+        leadspace-search></dds-search-with-typeahead>
+      <dds-hr
+        slot="hr"
+        style="${currentTheme === secondTheme ? 'display: none' : ''}"></dds-hr>
     </dds-leadspace-with-search>
   `;
 };
@@ -92,7 +134,7 @@ WithImage.story = {
 export default {
   title: 'Components/Lead space search',
   decorators: [
-    story => html`
+    (story) => html`
       <div class="bx--grid">
         <div class="bx--row">
           <div class="bx--col-lg-8 bx--offset-lg-4 bx--no-gutter">
@@ -106,11 +148,16 @@ export default {
     ...readme.parameters,
     hasStoryPadding: true,
     knobs: {
-      LeadspaceWithSearch: ({ groupId }) => ({
-        heading: text('Heading:', 'Find a product', groupId),
-        subheading: 'Innovate like a startup, scale for the enterprise',
-        paragraph: text('Paragraph:', '', groupId),
-        theme: select(`Adjacent theme`, adjacentThemes, adjacentThemes.Monotheme, groupId) ?? 0,
+      LeadspaceWithSearch: () => ({
+        heading: text('Heading:', 'Find a product'),
+        subheading: text(
+          'Subheading',
+          'Innovate like a startup, scale for the enterprise'
+        ),
+        paragraph: text('Paragraph:', ''),
+        theme:
+          select(`Adjacent theme`, adjacentThemes, adjacentThemes.Monotheme) ??
+          0,
       }),
     },
     propsSet: {

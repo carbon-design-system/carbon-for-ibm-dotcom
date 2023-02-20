@@ -1,5 +1,5 @@
 /**
- * Copyright IBM Corp. 2016, 2021
+ * Copyright IBM Corp. 2016, 2023
  *
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
@@ -13,9 +13,20 @@ import readme from '../README.stories.mdx';
 import styles from './TableOfContents.stories.scss';
 import TableOfContents from '../TableOfContents';
 
-export const Default = ({ parameters }) => {
-  const { numberOfItems: menuItems, withHeadingContent } =
-    parameters?.props?.Other ?? {};
+const props = {
+  default: () => ({
+    withHeadingContent: boolean('With heading content', false),
+    numberOfItems: Array.from({
+      length: select('Number of items', [5, 6, 7, 8], 5),
+    }).map((_, i) => ({
+      heading: text(`Section ${i + 1} heading`, headings[i % headings.length]),
+      copy: text(`Section ${i + 1} copy`, `${LOREM}\n`.repeat(3).trim()),
+    })),
+  }),
+};
+
+export const Default = () => {
+  const { withHeadingContent, numberOfItems: menuItems } = props.default();
   const headingItems = [
     {
       type: 'local',
@@ -54,9 +65,9 @@ export const Default = ({ parameters }) => {
 };
 
 export default {
-  title: 'Components|Table of contents',
+  title: 'Components/Table of contents',
   decorators: [
-    story => (
+    (story) => (
       <>
         <style>{styles.cssText}</style>
         {story()}
@@ -65,24 +76,8 @@ export default {
   ],
   parameters: {
     ...readme.parameters,
-    knobs: {
-      Other: ({ groupId }) => ({
-        withHeadingContent: boolean('With heading content', false, groupId),
-        numberOfItems: Array.from({
-          length: select('Number of items', [5, 6, 7, 8], 5, groupId),
-        }).map((_, i) => ({
-          heading: text(
-            `Section ${i + 1} heading`,
-            headings[i % headings.length],
-            groupId
-          ),
-          copy: text(
-            `Section ${i + 1} copy`,
-            `${LOREM}\n`.repeat(3).trim(),
-            groupId
-          ),
-        })),
-      }),
+    percy: {
+      name: 'Components|Table of contents: Default',
     },
   },
 };

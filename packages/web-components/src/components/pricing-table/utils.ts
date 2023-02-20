@@ -1,7 +1,7 @@
 /**
  * @license
  *
- * Copyright IBM Corp. 2022
+ * Copyright IBM Corp. 2022, 2023
  *
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
@@ -14,7 +14,9 @@ import DDSPricingTableRow from './pricing-table-row';
  * Sets a CSS custom property on the given row that indicates the default
  * number of columns each of that row's cells row should span.
  */
-export const setColumnWidth = (row: DDSPricingTableHeaderRow | DDSPricingTableRow) => {
+export const setColumnWidth = (
+  row: DDSPricingTableHeaderRow | DDSPricingTableRow
+) => {
   const columnCount = row.children.length;
   let defaultColumnWidth: string;
   if (columnCount >= 6) {

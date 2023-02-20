@@ -1,7 +1,7 @@
 /**
  * @license
  *
- * Copyright IBM Corp. 2020, 2022
+ * Copyright IBM Corp. 2020, 2023
  *
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
@@ -9,7 +9,7 @@
 
 import '../image';
 import { html } from 'lit-element';
-import ifNonNull from 'carbon-web-components/es/globals/directives/if-non-null.js';
+import ifNonNull from '../../../internal/vendor/@carbon/web-components/globals/directives/if-non-null.js';
 import { select, boolean } from '@storybook/addon-knobs';
 // eslint-disable-next-line sort-imports
 import imgLg16x9 from '../../../../../storybook-images/assets/720/fpo--16x9--720x405--005.jpg';
@@ -31,8 +31,9 @@ const srcsets = {
   '16:9': [imgSm16x9, imgMd16x9, imgLg16x9],
 };
 
-export const Default = ({ parameters }) => {
-  const { alt, defaultSrc, heading, copy, border, lightbox } = parameters?.props?.['dds-image'] ?? {};
+export const Default = (args) => {
+  const { alt, defaultSrc, heading, copy, border, lightbox, longDescription } =
+    args?.['dds-image'] ?? {};
   // TODO: See if we can fix unwanted `&` to `&amp` conversion upon changing the select knob
   const srcset = srcsets[defaultSrc?.replace(/&amp;/, '&')];
   return html`
@@ -42,14 +43,19 @@ export const Default = ({ parameters }) => {
       default-src="${ifNonNull(defaultSrc)}"
       ?border=${border}
       ?lightbox="${lightbox}"
-      copy="${ifNonNull(copy)}"
-    >
+      copy="${ifNonNull(copy)}">
+      ${!longDescription
+        ? undefined
+        : html` <div slot="long-description">${longDescription}</div> `}
       ${!srcset
         ? undefined
         : html`
-            <dds-image-item media="(min-width: 672px)" srcset="${srcset[2]}"> </dds-image-item>
-            <dds-image-item media="(min-width: 400px)" srcset="${srcset[1]}"> </dds-image-item>
-            <dds-image-item media="(min-width: 320px)" srcset="${srcset[0]}"> </dds-image-item>
+            <dds-image-item media="(min-width: 672px)" srcset="${srcset[2]}">
+            </dds-image-item>
+            <dds-image-item media="(min-width: 400px)" srcset="${srcset[1]}">
+            </dds-image-item>
+            <dds-image-item media="(min-width: 320px)" srcset="${srcset[0]}">
+            </dds-image-item>
           `}
     </dds-image>
   `;
@@ -58,13 +64,11 @@ export const Default = ({ parameters }) => {
 export default {
   title: 'Components/Image',
   decorators: [
-    story =>
+    (story) =>
       html`
         <div class="bx--grid">
           <div class="bx--row">
-            <div class="bx--col-sm-4 bx--col-lg-8">
-              ${story()}
-            </div>
+            <div class="bx--col-sm-4 bx--col-lg-8">${story()}</div>
           </div>
         </div>
       `,
@@ -73,13 +77,17 @@ export default {
     ...readme.parameters,
     hasStoryPadding: true,
     knobs: {
-      'dds-image': ({ groupId }) => ({
-        alt: textNullable('Alt text', 'Image alt text', groupId),
-        defaultSrc: select('Default image (default-src)', images, imgLg2x1, groupId),
-        lightbox: boolean('Lightbox (lightbox)', false, groupId),
-        border: boolean('Border', false, groupId),
-        copy: textNullable('Copy (copy)', 'Lorem ipsum dolor sit amet', groupId),
-        heading: textNullable('Heading (heading)', 'This is a caption', groupId),
+      'dds-image': () => ({
+        alt: textNullable('Alt text', 'Image alt text'),
+        defaultSrc: select('Default image (default-src)', images, imgLg2x1),
+        lightbox: boolean('Lightbox (lightbox)', false),
+        border: boolean('Border', false),
+        copy: textNullable('Copy (copy)', 'Lorem ipsum dolor sit amet'),
+        heading: textNullable('Heading (heading)', 'This is a caption'),
+        longDescription: textNullable(
+          'Long Description',
+          'Optional long descriptive text that is visually hidden to help screen reader users.'
+        ),
       }),
     },
     propsSet: {
@@ -91,6 +99,8 @@ export default {
           lightbox: false,
           copy: 'Lorem ipsum dolor sit amet',
           heading: 'This is a caption',
+          longDescription:
+            'Optional long descriptive text that is visually hidden to help screen reader users.',
         },
       },
     },

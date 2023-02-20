@@ -1,5 +1,5 @@
 /**
- * Copyright IBM Corp. 2021, 2022
+ * Copyright IBM Corp. 2021, 2023
  *
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
@@ -14,8 +14,8 @@ import getCssPropertyForRule from '../../utils/get-css-property-for-rule';
  * @private
  */
 const _paths = {
-  default: 'iframe.html?id=components-cta--card',
-  types: 'iframe.html?id=components-cta--card&knob-CTA%20type%20(cta-type)_CardCTA=',
+  default: 'iframe.html?id=components-cta--default&knob-CTA%20style%20(cta-style)=card',
+  types: 'iframe.html?id=components-cta--default&knob-CTA%20style%20(cta-style)=card-link&knob-CTA%20type%20(cta-type)=',
 };
 
 /**
@@ -44,7 +44,9 @@ const _tests = {
     let box;
 
     cy.visit(`/${_paths.default}`)
-      .get('dds-card-cta')
+      .get('dds-cta')
+      .shadow()
+      .find('dds-card-cta')
       .then(card => {
         const bcr = card[0].getBoundingClientRect();
 
@@ -56,8 +58,10 @@ const _tests = {
           centerX: bcr.left + bcr.width / 2,
           centerY: bcr.top + bcr.height / 2,
         };
-      })
-      .get('dds-card-cta-footer')
+      });
+    cy.get('dds-cta')
+      .shadow()
+      .find('dds-card-cta-footer')
       .then(footer => {
         // Since the link is in the shadowroot, we need to look there
         const root = footer[0].shadowRoot;
@@ -88,18 +92,22 @@ const _tests = {
     });
   },
   checkHoverStyles: () => {
-    cy.get('dds-card-cta').then(([card]) => {
-      const sheets = card.shadowRoot.adoptedStylesheets;
+    cy.visit(`/${_paths.default}`)
+      .get('dds-cta')
+      .shadow()
+      .find('dds-card-cta')
+      .then(([card]) => {
+        const sheets = card.shadowRoot.adoptedStylesheets;
 
-      if (sheets) {
-        const hover = getCssPropertyForRule(
-          '.bx--card:hover .bx--card__wrapper, :host(dds-card:hover) .bx--card__wrapper, :host(dds-link-list-item-card:hover) .bx--card__wrapper, :host(dds-card-group-item:hover) .bx--card__wrapper, :host(dds-card-group-item) .bx--card:hover .bx--card__wrapper, :host(dds-card-cta:hover) .bx--card__wrapper, :host(dds-link-list-item-card-cta:hover) .bx--card__wrapper, :host(dds-card-in-card:hover) .bx--card__wrapper, :host(dds-content-group-cards-item:hover) .bx--card__wrapper, :host(dds-content-group-cards-item) .bx--card:hover .bx--card__wrapper',
-          'background-color',
-          sheets
-        );
-        expect(hover).to.be.eq('var(--cds-hover-ui, #e5e5e5)');
-      }
-    });
+        if (sheets) {
+          const hover = getCssPropertyForRule(
+            '.bx--card:hover .bx--card__wrapper, :host(dds-card:hover) .bx--card__wrapper, :host(dds-link-list-item-card:hover) .bx--card__wrapper, :host(dds-card-group-item:hover) .bx--card__wrapper, :host(dds-card-group-item) .bx--card:hover .bx--card__wrapper, :host(dds-card-cta:hover) .bx--card__wrapper, :host(dds-link-list-item-card-cta:hover) .bx--card__wrapper, :host(dds-card-in-card:hover) .bx--card__wrapper, :host(dds-content-group-cards-item:hover) .bx--card__wrapper, :host(dds-content-group-cards-item) .bx--card:hover .bx--card__wrapper',
+            'background-color',
+            sheets
+          );
+          expect(hover).to.be.eq('var(--cds-hover-ui, #e5e5e5)');
+        }
+      });
   },
 };
 

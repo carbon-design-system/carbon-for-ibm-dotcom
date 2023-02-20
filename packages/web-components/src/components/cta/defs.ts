@@ -1,7 +1,7 @@
 /**
  * @license
  *
- * Copyright IBM Corp. 2020, 2022
+ * Copyright IBM Corp. 2020, 2023
  *
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
@@ -15,6 +15,11 @@ export enum CTA_STYLE {
    * Text CTA that uses `<dds-link-with-icon>`.
    */
   TEXT = 'text',
+
+  /**
+   * Button CTA that uses `<dds-button>`.
+   */
+  BUTTON = 'button',
 
   /**
    * Card CTA that uses `<dds-card>`.
@@ -80,4 +85,24 @@ export enum CTA_TYPE {
    * CTA with a blog-content icon, whose action loads the blog post in self page.
    */
   BLOG = 'blog',
+
+  /**
+   * CTA with an email icon, whose action opens the default mail client.
+   */
+  EMAIL = 'email',
+
+  /**
+   * CTA with a schedule icon, whose action opens the default calendar application.
+   */
+  SCHEDULE = 'schedule',
+
+  /**
+   * CTA with a chat icon, whose action opens the chat widget.
+   */
+  CHAT = 'chat',
+
+  /**
+   * CTA with a phone icon, whose action opens default telephony app.
+   */
+  CALL = 'call',
 }

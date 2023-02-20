@@ -1,13 +1,19 @@
 /**
  * @license
  *
- * Copyright IBM Corp. 2020, 2022
+ * Copyright IBM Corp. 2020, 2023
  *
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
  */
 
-import { customElement, html, state, property, TemplateResult } from 'lit-element';
+import {
+  customElement,
+  html,
+  state,
+  property,
+  TemplateResult,
+} from 'lit-element';
 import { classMap } from 'lit-html/directives/class-map.js';
 import settings from 'carbon-components/es/globals/js/settings.js';
 import ddsSettings from '../../internal/vendor/@carbon/ibmdotcom-utilities/utilities/settings/settings';
@@ -56,8 +62,13 @@ class DDSCTABlock extends StableSelectorMixin(DDSContentBlock) {
    */
   updated(changedProperties) {
     if (changedProperties.has('_noBorder')) {
-      const layoutWrapper = (this.shadowRoot as ShadowRoot).querySelector(`.${prefix}--content-layout`);
-      layoutWrapper?.classList.toggle(`${prefix}--content-layout--border`, !this._noBorder);
+      const layoutWrapper = (this.shadowRoot as ShadowRoot).querySelector(
+        `.${prefix}--content-layout`
+      );
+      layoutWrapper?.classList.toggle(
+        `${prefix}--content-layout--border`,
+        !this._noBorder
+      );
     }
   }
 
@@ -81,7 +92,9 @@ class DDSCTABlock extends StableSelectorMixin(DDSContentBlock) {
     }
     const hasContent = (target as HTMLSlotElement)
       .assignedNodes()
-      .some(node => node.nodeType !== Node.TEXT_NODE || node!.textContent!.trim());
+      .some(
+        (node) => node.nodeType !== Node.TEXT_NODE || node!.textContent!.trim()
+      );
     this[slotExistencePropertyNames[name]] = hasContent;
   }
 
@@ -101,10 +114,17 @@ class DDSCTABlock extends StableSelectorMixin(DDSContentBlock) {
    * @returns The main content.
    */
   protected _renderContent(): TemplateResult | string | void {
-    const { _hasAction, _hasCopy, _hasLinkList, _hasContent, _handleSlotChange } = this;
+    const {
+      _hasAction,
+      _hasCopy,
+      _hasLinkList,
+      _hasContent,
+      _handleSlotChange,
+    } = this;
     const classes = classMap({
       [`${prefix}--helper-wrapper`]: true,
-      [`${prefix}--helper-wrapper--less-space`]: !_hasAction && !_hasCopy && !_hasLinkList,
+      [`${prefix}--helper-wrapper--less-space`]:
+        !_hasAction && !_hasCopy && !_hasLinkList,
     });
     return html`
       <div ?hidden="${!_hasContent}" class="${classes}">
@@ -122,7 +142,8 @@ class DDSCTABlock extends StableSelectorMixin(DDSContentBlock) {
     const { _hasCopy, _hasAction, _hasLinkList, _hasContent } = this;
     const classes = classMap({
       [`${prefix}--content-layout__body`]: true,
-      [`${prefix}--content-layout__body--tight`]: !_hasCopy && !_hasAction && (_hasLinkList || _hasContent),
+      [`${prefix}--content-layout__body--tight`]:
+        !_hasCopy && !_hasAction && (_hasLinkList || _hasContent),
     });
 
     return html`
@@ -158,9 +179,12 @@ class DDSCTABlock extends StableSelectorMixin(DDSContentBlock) {
    * @returns The link list content.
    */
   protected _renderLinkList(): TemplateResult | string | void {
-    const { _hasLinkList: hasLinkList, _handleSlotChange: handleSlotChange } = this;
+    const { _hasLinkList: hasLinkList, _handleSlotChange: handleSlotChange } =
+      this;
     return html`
-      <div ?hidden="${!hasLinkList}" class="${prefix}--content-layout__link-list">
+      <div
+        ?hidden="${!hasLinkList}"
+        class="${prefix}--content-layout__link-list">
         <slot name="link-list" @slotchange="${handleSlotChange}"></slot>
       </div>
     `;

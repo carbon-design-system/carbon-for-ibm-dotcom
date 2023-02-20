@@ -1,7 +1,7 @@
 /**
  * @license
  *
- * Copyright IBM Corp. 2020, 2022
+ * Copyright IBM Corp. 2020, 2023
  *
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
@@ -20,10 +20,15 @@ import {
  * @param action The action.
  * @returns The new state for translate API.
  */
-export default function reducer(state: TranslateAPIState = {}, action: TranslateAPIActions): TranslateAPIState {
+export default function reducer(
+  state: TranslateAPIState = {},
+  action: TranslateAPIActions
+): TranslateAPIState {
   switch (action.type) {
     case TRANSLATE_API_ACTION.SET_REQUEST_TRANSLATION_IN_PROGRESS: {
-      const { language, request, endpoint } = action as ReturnType<typeof setRequestTranslationInProgress>;
+      const { language, request, endpoint } = action as ReturnType<
+        typeof setRequestTranslationInProgress
+      >;
       return {
         ...state,
         requestsTranslationInProgress: {
@@ -38,7 +43,9 @@ export default function reducer(state: TranslateAPIState = {}, action: Translate
       };
     }
     case TRANSLATE_API_ACTION.SET_ERROR_REQUEST_TRANSLATION: {
-      const { language, error } = action as ReturnType<typeof setErrorRequestTranslation>;
+      const { language, error } = action as ReturnType<
+        typeof setErrorRequestTranslation
+      >;
       return {
         ...state,
         requestsTranslationInProgress: {
@@ -52,7 +59,9 @@ export default function reducer(state: TranslateAPIState = {}, action: Translate
       };
     }
     case TRANSLATE_API_ACTION.SET_TRANSLATION: {
-      const { language, translation, endpoint } = action as ReturnType<typeof setTranslation>;
+      const { language, translation, endpoint } = action as ReturnType<
+        typeof setTranslation
+      >;
       return {
         ...state,
         // If application sets language data without making a REST call, mark the request as resolved already

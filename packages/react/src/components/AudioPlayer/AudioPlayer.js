@@ -1,5 +1,5 @@
 /**
- * Copyright IBM Corp. 2016, 2022
+ * Copyright IBM Corp. 2016, 2023
  *
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
@@ -12,19 +12,14 @@ import AudioPlayerPlayButton from './AudioPlayerPlayButton';
 import AudioPlayerScrubber from './AudioPlayerScrubber';
 import AudioPlayerThumbnail from './AudioPlayerThumbnail';
 import AudioPlayerVolumeControl from './AudioPlayerVolumeControl';
-
 import cx from 'classnames';
 import { DDS_AUDIO_PLAYER } from '../../internal/FeatureFlags';
 import ddsSettings from '../../internal/vendor/@carbon/ibmdotcom-utilities/utilities/settings/settings';
-
+import featureFlag from '../../internal/vendor/@carbon/ibmdotcom-utilities/utilities/featureflag/featureflag';
 import { KalturaPlayer as KalturaPlayerAPI } from '@carbon/ibmdotcom-services/es/services';
-
 import PropTypes from 'prop-types';
-
 import root from 'window-or-global';
-
 import settings from 'carbon-components/es/globals/js/settings';
-
 import uniqueid from '../../internal/vendor/@carbon/ibmdotcom-utilities/utilities/uniqueid/uniqueid';
 
 const { stablePrefix } = ddsSettings;
@@ -33,23 +28,22 @@ const { prefix } = settings;
 /**
  * AudioPlayer component.
  */
-const AudioPlayer = ({
+export function AudioPlayer({
   audioId,
   customClassName,
   autoPlay,
   showCaptionMenu,
   showPlaybackRateMenu,
   availablePlaybackRates,
-}) => {
+  ...other
+}) {
   const [audioData, setAudioData] = useState({ duration: 0 });
-
   const [displayVolumeControl, setDisplayVolumeControl] = useState(false);
-
   const audioPlayerId = uniqueid(`audio-player__audio-${audioId}-`);
   const uniqueAudioPlayerId = `${prefix}--${audioPlayerId}`;
-
   const [kalturaDigitalPlayer, setKalturaDigitalPlayer] = useState(false); // The KDP Object
   const [availableCaptions, setAvailableCaptions] = useState({}); // All Available Captions
+
   /**
    * The current state of the player
    *
@@ -88,10 +82,10 @@ const AudioPlayer = ({
         setKalturaDigitalPlayer(kdp);
 
         const listeners = {
-          playerUpdatePlayhead: time => {
+          playerUpdatePlayhead: (time) => {
             setAudioTime(Math.floor(time));
           },
-          newClosedCaptionsData: captionData => {
+          newClosedCaptionsData: (captionData) => {
             const processedCaptions = availableCaptions;
             processedCaptions[captionData.label] = captionData.captions;
             setAvailableCaptions(processedCaptions);
@@ -113,7 +107,7 @@ const AudioPlayer = ({
         };
 
         // Loop and bind all the player listeners
-        root.Object.keys(listeners).map(listenerKey => {
+        root.Object.keys(listeners).map((listenerKey) => {
           kdp.addJsListener(listenerKey, listeners[listenerKey]);
         });
       }
@@ -149,7 +143,8 @@ const AudioPlayer = ({
 
   const classnames = cx(`${prefix}--audio-player`, customClassName);
 
-  return (
+  return featureFlag(
+    DDS_AUDIO_PLAYER,
     <div className={classnames}>
       <div
         className={`${prefix}--audio-player__embedded-player`}
@@ -172,6 +167,8 @@ const AudioPlayer = ({
         audioTime={audioTime}
         setAudioTime={setAudioTime}
         setDisplayVolumeControl={setDisplayVolumeControl}
+        rewindHelperText={other.rewindHelperText}
+        forwardHelperText={other.forwardHelperText}
       />
 
       <AudioPlayerVolumeControl
@@ -200,6 +197,7 @@ const AudioPlayer = ({
             availableCaptions={availableCaptions}
             audioCaption={audioCaption}
             setAudioCaption={setAudioCaption}
+            closedCaptionsHelperText={other.closedCaptionsHelperText}
           />
 
           {availableCaptions?.[audioCaption] && (
@@ -212,7 +210,7 @@ const AudioPlayer = ({
       )}
     </div>
   );
-};
+}
 
 AudioPlayer.propTypes = {
   /**
@@ -253,4 +251,4 @@ AudioPlayer.defaultProps = {
   availablePlaybackRates: [1, 1.5, 2],
 };
 
-export default !DDS_AUDIO_PLAYER ? undefined : AudioPlayer;
+export default AudioPlayer;
