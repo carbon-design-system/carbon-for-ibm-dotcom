@@ -118,34 +118,61 @@ export interface CMApp {
 @customElement(`${ddsPrefix}-masthead-composite`)
 class DDSMastheadComposite extends HostListenerMixin(LitElement) {
   /**
-   * Renders L1 menu based on l1Data
+   * Renders L1 menu based on l1Data & screen width.
    *
-   * @returns TemplateResult The L1 nav.
+   * @returns {TemplateResult | undefined} The L1 nav.
    */
   protected _renderL1() {
-    const { selectedMenuItem } = this;
     if (!this.l1Data) return undefined;
-    const { url, title } = this.l1Data;
+
+    const { _isMobileVersion: isMobileVersion } = this;
+    return html`
+      <dds-masthead-l1 slot="masthead-l1">
+        ${isMobileVersion
+          ? html` ${this._renderL1MobileNav()} `
+          : html` ${this._renderL1TopNav()} `}
+      </dds-masthead-l1>
+    `;
+  }
+
+  /**
+   * Renders L1 for desktop screensizes
+   *
+   * @returns {TemplateResult} L1 for desktop screensizes
+   */
+  protected _renderL1TopNav() {
+    const { selectedMenuItem, l1Data } = this;
+    const { url, title } = l1Data!;
     const isSelected = !this._hasAutoSelectedItems && !selectedMenuItem;
 
     return html`
-      <dds-masthead-l1 slot="masthead-l1">
-        ${!title
-          ? undefined
-          : html`
-              <dds-masthead-l1-name
-                title="${title}"
-                aria-selected="${isSelected}"
-                url="${ifDefined(url)}"></dds-masthead-l1-name>
-            `}
-        <dds-top-nav-l1 selected-menu-item=${selectedMenuItem}>
-          ${this._renderNavItems({
-            target: NAV_ITEMS_RENDER_TARGET.TOP_NAV,
-            hasL1: true,
-          })}</dds-top-nav-l1
-        >
-      </dds-masthead-l1>
+      ${!title
+        ? undefined
+        : html`
+            <dds-masthead-l1-name
+              title="${title}"
+              aria-selected="${isSelected}"
+              url="${ifDefined(url)}"></dds-masthead-l1-name>
+          `}
+      <dds-top-nav-l1 selected-menu-item=${selectedMenuItem}>
+        ${this._renderNavItems({
+          target: NAV_ITEMS_RENDER_TARGET.TOP_NAV,
+          hasL1: true,
+        })}
+      </dds-top-nav-l1>
     `;
+  }
+
+  /**
+   * Renders L1 for mobile screensizes.
+   *
+   * @returns {TemplateResult} L1 for mobile screensizes.
+   */
+  protected _renderL1MobileNav() {
+    const { l1Data } = this;
+    const { url, title } = l1Data!;
+
+    return html` <a href="${ifDefined(url)}">${title}</a> `;
   }
 
   /**
