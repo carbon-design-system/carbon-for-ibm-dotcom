@@ -49,8 +49,8 @@ export const _createHandleFeedbackTooltip = (
 export const _renderButton = ({
   assistiveText,
   feedbackText,
-  showFeedback = false,
-  className = `${prefix}--snippet-button`,
+  showFeedback = true,
+  className = `${prefix}--copy-btn`,
   children = html`
     <slot>${Copy16({ class: `${prefix}--snippet__icon` })}</slot>
   `,
@@ -65,7 +65,8 @@ export const _renderButton = ({
 }) => {
   const feedbackClasses = classMap({
     [`${prefix}--btn--copy__feedback`]: true,
-    [`${prefix}--btn--copy__feedback--displayed`]: showFeedback,
+    [`${prefix}--assistive-text`]: true,
+    [`${prefix}--copy-btn--animating`]: showFeedback,
   });
   return html`
     <button
@@ -74,9 +75,7 @@ export const _renderButton = ({
       title="${ifDefined(assistiveText)}"
       @click="${handleClickButton}">
       ${children}
-      <div
-        class="${feedbackClasses}"
-        data-feedback="${ifDefined(feedbackText)}"></div>
+      <span class="${feedbackClasses}">${feedbackText}</span>
     </button>
   `;
 };
