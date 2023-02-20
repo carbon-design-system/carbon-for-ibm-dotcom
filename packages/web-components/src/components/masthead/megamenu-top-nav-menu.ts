@@ -233,7 +233,7 @@ class DDSMegaMenuTopNavMenu extends DDSTopNavMenu {
          *
          * @see https://github.ibm.com/live-advisor/cm-app
          */
-        if (mastheadContainer.contactModuleApp) {
+        if (mastheadContainer?.contactModuleApp) {
           (mastheadContainer.contactModuleApp as CMApp).init();
         }
         // Ask masthead-composite to render megamenu.
@@ -242,9 +242,14 @@ class DDSMegaMenuTopNavMenu extends DDSTopNavMenu {
 
         doc.body.style.marginRight = `${this._scrollBarWidth}px`;
         doc.body.style.overflow = `hidden`;
-        forEach(doc.querySelectorAll((this.constructor as typeof DDSMegaMenuTopNavMenu).selectorOverlay), item => {
-          (item as DDSMegaMenuOverlay).active = this.expanded;
-        });
+        forEach(
+          doc.querySelectorAll(
+            (this.constructor as typeof DDSMegaMenuTopNavMenu).selectorOverlay
+          ),
+          (item) => {
+            (item as DDSMegaMenuOverlay).active = this.expanded;
+          }
+        );
 
         if (cloudMasthead) {
           if (

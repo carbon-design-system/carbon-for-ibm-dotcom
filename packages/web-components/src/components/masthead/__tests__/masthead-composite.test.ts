@@ -29,7 +29,7 @@ const template = (props?) => {
   `;
 };
 
-describe('dds-masthead-composite', function() {
+describe('dds-masthead-composite', function () {
   const events = new EventManager();
 
   describe('Rendering global bar', function () {

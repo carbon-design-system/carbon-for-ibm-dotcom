@@ -10,7 +10,7 @@
 import { classMap } from 'lit-html/directives/class-map.js';
 import { html, property, LitElement } from 'lit-element';
 import settings from 'carbon-components/es/globals/js/settings.js';
-import ChevronDown20 from '../../internal/vendor/@carbon/web-components/icons/chevron--down/20.js';
+import ChevronDown16 from '../../internal/vendor/@carbon/web-components/icons/chevron--down/16.js';
 import FocusMixin from '../../internal/vendor/@carbon/web-components/globals/mixins/focus.js';
 import ddsSettings from '../../internal/vendor/@carbon/ibmdotcom-utilities/utilities/settings/settings';
 import styles from './masthead.scss';
@@ -115,18 +115,17 @@ class DDSLeftNavMenu extends FocusMixin(LitElement) {
           type="button"
           aria-haspopup="true"
           tabindex="-1"
-          aria-expanded="${String(Boolean(expanded))}"
+          aria-expanded="${expanded}"
           class="${buttonClasses}"
           @click=${handleClickExpando}
           data-attribute1="headerNav"
           data-attribute2="${isSubitem ? 'TabHdline' : 'L0'}"
-          data-attribute3="${title}"
-        >
+          data-attribute3="${title}">
           <div class="${prefix}--side-nav__submenu-content">
             <span class="${prefix}--side-nav__submenu-title">${title}</span>
             <div
               class="${prefix}--side-nav__icon ${prefix}--side-nav__icon--small ${prefix}--side-nav__submenu-chevron">
-              ${ChevronDown20()}
+              ${ChevronDown16()}
             </div>
           </div>
         </button>

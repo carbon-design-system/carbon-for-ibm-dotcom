@@ -54,11 +54,17 @@ class DDSMegaMenuCategoryLink extends BXLink {
   protected _renderInner() {
     const { title } = this;
     return html`
-      <div>
-        <span>${title}${this._renderIcon()}</span>
-        <slot name="icon" @slotchange="${this._handleSlotChange}"></slot>
-      </div>
-      <span><slot></slot></span>
+      ${title
+        ? html`
+            <div part="link-heading">
+              <span>${title}${this._renderIcon()}</span>
+              <slot name="icon" @slotchange="${this._handleSlotChange}"></slot>
+            </div>
+          `
+        : ''}
+      <span part="link-description">
+        <slot></slot>
+      </span>
     `;
   }
 
@@ -92,15 +98,16 @@ class DDSMegaMenuCategoryLink extends BXLink {
         @click="${ifNonNull(handleClick)}"
         data-attribute1="headerNav"
         data-attribute2="FlatItem"
-        data-attribute3="${title}"
-      >
+        data-attribute3="${title}">
         ${this._renderInner()}
       </a>
     `;
   }
 
   connectedCallback(): void {
-    const megamenu = this.closest(`[data-autoid="${DDSMegaMenu.stableSelector}"`);
+    const megamenu = this.closest(
+      `[data-autoid="${DDSMegaMenu.stableSelector}"`
+    );
     this.layout = megamenu?.getAttribute('layout') as MEGAMENU_LAYOUT_SCHEME;
 
     super.connectedCallback();

@@ -38,7 +38,10 @@ class DDSMasthead extends StableSelectorMixin(LitElement) {
   handleL1Change({ target }) {
     const L1Navs = (target as HTMLSlotElement)
       .assignedElements()
-      .filter(element => element.tagName.toLowerCase() === `${ddsPrefix}-masthead-l1`);
+      .filter(
+        (element) =>
+          element.tagName.toLowerCase() === `${ddsPrefix}-masthead-l1`
+      );
 
     if (L1Navs.length) {
       StickyHeader.global.masthead = this;

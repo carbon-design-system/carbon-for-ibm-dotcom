@@ -38,7 +38,6 @@ export const Default = (args) => {
       event.preventDefault();
     }
   };
-
   return html`
     <bx-modal
       ?open="${open}"

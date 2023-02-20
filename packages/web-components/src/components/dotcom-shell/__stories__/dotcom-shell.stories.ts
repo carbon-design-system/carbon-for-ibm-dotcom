@@ -1299,7 +1299,9 @@ export default {
             },
           };
         </script>
-        <script src="//www.ibm.com/common/digitaladvisor/cm-app/latest/cm-app.min.js" defer></script>
+        <script
+          src="//www.ibm.com/common/digitaladvisor/cm-app/latest/cm-app.min.js"
+          defer></script>
       `;
     },
   ],

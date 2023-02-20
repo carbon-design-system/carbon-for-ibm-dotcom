@@ -280,7 +280,10 @@ export interface TranslateAPIState {
   /**
    * The requests for the translation data, keyed by the language.
    */
-  requestsTranslation?: { [language: string]: Promise<Translation> | string; endpoint: string };
+  requestsTranslation?: {
+    [language: string]: Promise<Translation> | string;
+    endpoint: string;
+  };
 
   /**
    * The status of whether requests for the translation data are in progress, keyed by the language.
@@ -291,4 +294,33 @@ export interface TranslateAPIState {
    * The errors from the requests for the translation data, keyed by the language.
    */
   errorsRequestTranslation?: { [language: string]: Error };
+}
+
+// New for v2.1.0
+export interface L0Menu {
+  items: L0MenuItem[];
+}
+
+export interface L0MenuItem extends BasicLink {
+  submenu?: L0Megamenu | BasicLink[];
+}
+
+export interface L0Megamenu {
+  sections: Megapanel[];
+  highlights?: MegapanelLinkGroup[];
+  viewAll?: MegapanelViewAll;
+}
+
+export interface MegapanelViewAll extends BasicLink {
+  position?: 'left' | 'right';
+}
+
+export interface Megapanel {
+  heading?: BasicLink;
+  groups: MegapanelLinkGroup[];
+}
+
+export interface MegapanelLinkGroup {
+  heading?: BasicLink;
+  links?: BasicLink[];
 }

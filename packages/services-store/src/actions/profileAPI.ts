@@ -1,7 +1,7 @@
 /**
  * @license
  *
- * Copyright IBM Corp. 2020, 2022
+ * Copyright IBM Corp. 2020, 2023
  *
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
@@ -61,8 +61,13 @@ export type ProfileAPIActions =
  */
 export function loadUserStatus(
   authMethod: MASTHEAD_AUTH_METHOD
-): ThunkAction<Promise<UserStatus>, { profileAPI: ProfileAPIState }, void, ProfileAPIActions> {
-  return async dispatch => {
+): ThunkAction<
+  Promise<UserStatus>,
+  { profileAPI: ProfileAPIState },
+  void,
+  ProfileAPIActions
+> {
+  return async (dispatch) => {
     let promiseStatus: Promise<UserStatus>;
     switch (authMethod) {
       case MASTHEAD_AUTH_METHOD.COOKIE:

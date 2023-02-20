@@ -1,7 +1,7 @@
 /**
  * @license
  *
- * Copyright IBM Corp. 2020, 2022
+ * Copyright IBM Corp. 2020, 2023
  *
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
@@ -54,7 +54,11 @@ export function setErrorRequestTranslation(language: string, error: Error) {
  * @param translation The translation data from the REST call.
  * @returns A Redux action to set the given translation data.
  */
-export function setTranslation(language: string, translation: Translation, endpoint) {
+export function setTranslation(
+  language: string,
+  translation: Translation,
+  endpoint
+) {
   return {
     type: TRANSLATE_API_ACTION.SET_TRANSLATION,
     language,
@@ -109,7 +113,13 @@ export function loadTranslation(
       setRequestTranslationInProgress(effectiveLanguage, promiseTranslation, dataEndpoint)
     );
     try {
-      dispatch(setTranslation(effectiveLanguage, await promiseTranslation, dataEndpoint));
+      dispatch(
+        setTranslation(
+          effectiveLanguage,
+          await promiseTranslation,
+          dataEndpoint
+        )
+      );
     } catch (error) {
       dispatch(setErrorRequestTranslation(effectiveLanguage, error as Error));
     }
