@@ -32,8 +32,7 @@ export const Default = (args) => {
     onToggle = noop,
     size,
     alignment,
-    isFlush,
-    className,
+    isFlush
   } = args?.['bx-accordion'] ?? {};
   const handleBeforeToggle = (event: CustomEvent) => {
     onBeforeToggle(event);
@@ -48,8 +47,7 @@ export const Default = (args) => {
       @bx-accordion-item-toggled="${onToggle}"
       size="${size}"
       alignment="${alignment}"
-      ?isFlush="${isFlush}"
-      className="${className}">
+      ?isFlush="${isFlush}">
       <cds-accordion-item
         ?disabled="${disabled}"
         ?open="${open}"
