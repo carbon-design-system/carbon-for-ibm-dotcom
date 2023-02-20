@@ -41,9 +41,9 @@ const videos = {
   'Speed of AI Test Video': '1_9h94wo6b',
 };
 
-export const Default = args => {
-  const { open, disableClose, onBeforeClose, onClose } = args?.Modal ?? {};
-  const { alt, defaultSrc, description, title, hideCaption, videoId } = args?.LightboxMedia ?? {};
+export const Default = ({ parameters }) => {
+  const { open, disableClose, onBeforeClose, onClose } = parameters?.props?.Modal ?? {};
+  const { alt, defaultSrc, description, title, hideCaption, videoId } = parameters?.props?.LightboxMedia ?? {};
   const handleBeforeClose = (event: CustomEvent) => {
     onBeforeClose?.(event);
     if (disableClose) {
@@ -75,19 +75,20 @@ export const Default = args => {
 Default.story = {
   parameters: {
     knobs: {
-      LightboxMedia: () => ({
-        defaultSrc: select('Image (default-src)', images, images['1312 x 656 (2:1)']),
-        alt: text('Image alt text (alt)', 'Image alt text'),
-        videoId: select('Video ID (video-id)', videos, videos.none),
-        hideCaption: boolean('hide caption (hide-caption)', false),
-        title: text('Title (title)', 'Curabitur malesuada varius mi eu posuere'),
+      LightboxMedia: ({ groupId }) => ({
+        defaultSrc: select('Image (default-src)', images, images['1312 x 656 (2:1)'], groupId),
+        alt: text('Image alt text (alt)', 'Image alt text', groupId),
+        videoId: select('Video ID (video-id)', videos, videos.none, groupId),
+        hideCaption: boolean('hide caption (hide-caption)', false, groupId),
+        title: text('Title (title)', 'Curabitur malesuada varius mi eu posuere', groupId),
         description: text(
           'Description (description)',
           `
             Lorem ipsum dolor sit amet, consectetur adipiscing elit.
             Aenean et ultricies est.Mauris iaculis eget dolor nec hendrerit.
             Phasellus at elit sollicitudin, sodales nulla quis, consequat libero.
-          `
+          `,
+          groupId
         ),
       }),
     },
@@ -100,11 +101,12 @@ export default {
     ...readme.parameters,
     hasStoryPadding: true,
     knobs: {
-      Modal: () => ({
-        open: boolean('Open (open)', true),
+      Modal: ({ groupId }) => ({
+        open: boolean('Open (open)', true, groupId),
         disableClose: boolean(
           'Disable user-initiated close action (Call event.preventDefault() in dds-expressive-modal-beingclosed event)',
-          false
+          false,
+          groupId
         ),
         onBeforeClose: action('dds-expressive-modal-beingclosed'),
         onClose: action('dds-expressive-modal-closed'),
@@ -113,8 +115,8 @@ export default {
   },
 };
 
-export const WithCarousel = args => {
-  const { open, disableClose, onBeforeClose, onClose } = args?.Modal ?? {};
+export const WithCarousel = ({ parameters }) => {
+  const { open, disableClose, onBeforeClose, onClose } = parameters?.props?.Modal ?? {};
   const handleBeforeClose = (event: CustomEvent) => {
     onBeforeClose?.(event);
     if (disableClose) {

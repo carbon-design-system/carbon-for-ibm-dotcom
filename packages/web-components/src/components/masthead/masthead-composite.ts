@@ -34,9 +34,9 @@ import {
 } from '../../internal/vendor/@carbon/ibmdotcom-services-store/types/profileAPI';
 import { MEGAMENU_RIGHT_NAVIGATION_STYLE_SCHEME } from './megamenu-right-navigation';
 import { DDS_CUSTOM_PROFILE_LOGIN } from '../../globals/internal/feature-flags';
-import DDSMastheadLogo from './masthead-logo';
 import './masthead';
 import './masthead-button-cta';
+import './masthead-logo';
 import './masthead-l1';
 import './masthead-l1-name';
 import './masthead-menu-button';
@@ -115,19 +115,18 @@ class DDSMastheadComposite extends HostListenerMixin(LitElement) {
    *
    */
   protected _renderLogo() {
-    if (!this.logoData) {
+    if (!this.logoData)
       return html`
         <dds-masthead-logo ?hide-logo="${this.activateSearch}"></dds-masthead-logo>
       `;
-    }
     const useAlternateLogo = MastheadLogoAPI.setMastheadLogo(this.logoData);
-    const { tooltip, svg, href } = this.logoData;
+    const { tooltip, svg } = this.logoData;
     return html`
       <dds-masthead-logo
         ?hide-logo="${this.activateSearch}"
         ?hasTooltip="${tooltip}"
         aria-label="${ifNonNull(tooltip)}"
-        href="${href || DDSMastheadLogo.hrefDefault}"
+        tabIndex="0"
         >${useAlternateLogo ? unsafeSVG(svg) : nothing}</dds-masthead-logo
       >
     `;

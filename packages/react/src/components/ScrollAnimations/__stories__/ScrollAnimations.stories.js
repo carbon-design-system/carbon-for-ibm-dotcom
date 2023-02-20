@@ -1,5 +1,5 @@
 /**
- * Copyright IBM Corp. 2016, 2022
+ * Copyright IBM Corp. 2016, 2021
  *
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
@@ -34,7 +34,7 @@ const selectorTargets = `
 `;
 
 export default {
-  title: 'Components/Scroll animations',
+  title: 'Components|Scroll animations',
   parameters: {
     ...readme.parameters,
     'carbon-theme': { disabled: true },

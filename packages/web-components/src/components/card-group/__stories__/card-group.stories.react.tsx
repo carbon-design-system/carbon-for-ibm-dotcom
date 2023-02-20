@@ -174,8 +174,8 @@ const cardInCardItems = (i, tagGroup, media, gridMode) => {
   );
 };
 
-export const Default = args => {
-  const { cards, cardType, media, tagGroup, cardsPerRow, gridMode, offset, cta, addCta } = args?.CardGroup ?? {};
+export const Default = ({ parameters }) => {
+  const { cards, cardType, media, tagGroup, cardsPerRow, gridMode, offset, cta, addCta } = parameters?.props?.CardGroup ?? {};
 
   const allCards: object[] = [];
 
@@ -242,23 +242,24 @@ Default.story = {
   parameters: {
     hasStoryPadding: true,
     knobs: {
-      CardGroup: () => {
+      CardGroup: ({ groupId }) => {
         const cardType = select(
           'Card type:',
           ['Card - default', 'Card - pictogram', 'Card static', 'Card link'],
-          'Card - default'
+          'Card - default',
+          groupId
         );
-        const media = cardType === 'Card - default' || cardType === 'Card static' ? boolean('Add media:', false) : '';
-        const tagGroup = cardType === 'Card - default' || cardType === 'Card static' ? boolean('Add tags:', false) : '';
-        const addCta = cardType === 'Card static' ? boolean('Add CTA Links:', false) : '';
-        const cards = number('Number of cards:', 5, { min: 2, max: 6 });
-        const cardsPerRow = select('Cards per row:', cardsCol, cardsCol['3 cards per row (default)']);
+        const media = cardType === 'Card - default' || cardType === 'Card static' ? boolean('Add media:', false, groupId) : '';
+        const tagGroup = cardType === 'Card - default' || cardType === 'Card static' ? boolean('Add tags:', false, groupId) : '';
+        const addCta = cardType === 'Card static' ? boolean('Add CTA Links:', false, groupId) : '';
+        const cards = number('Number of cards:', 5, { min: 2, max: 6 }, groupId);
+        const cardsPerRow = select('Cards per row:', cardsCol, cardsCol['3 cards per row (default)'], groupId);
         const gridMode =
           cardType === 'Card static' || cardType === 'Card link'
             ? ''
-            : select('Grid mode:', gridModes, gridModes['Collapsed (1px)']);
-        const offset = select('Offset:', ['0', '1'], '0');
-        const cta = media ? '' : boolean('Add CTA card:', false);
+            : select('Grid mode:', gridModes, gridModes['Collapsed (1px)'], groupId);
+        const offset = select('Offset:', ['0', '1'], '0', groupId);
+        const cta = media ? '' : boolean('Add CTA card:', false, groupId);
         return {
           cardType,
           media,
@@ -275,8 +276,8 @@ Default.story = {
   },
 };
 
-export const withCardInCard = args => {
-  const { cards, tagGroup, media, gridMode } = args?.CardGroup ?? {};
+export const withCardInCard = ({ parameters }) => {
+  const { cards, tagGroup, media, gridMode } = parameters?.props?.CardGroup ?? {};
   const allCards: object[] = [];
   for (let i = 0; i < cards; i++) {
     allCards.push(cardInCardItems(i, tagGroup, media, gridMode));
@@ -304,11 +305,11 @@ withCardInCard.story = {
     ...readme.parameters,
     hasStoryPadding: true,
     knobs: {
-      CardGroup: () => ({
-        media: boolean('Add media:', false),
-        tagGroup: boolean('Add tags:', false),
-        gridMode: select('Grid mode:', gridModes, GRID_MODE.NARROW),
-        cards: number('Number of cards', 5, { min: 2, max: 6 }),
+      CardGroup: ({ groupId }) => ({
+        media: boolean('Add media:', false, groupId),
+        tagGroup: boolean('Add tags:', false, groupId),
+        gridMode: select('Grid mode:', gridModes, GRID_MODE.NARROW, groupId),
+        cards: number('Number of cards', 5, { min: 2, max: 6 }, groupId),
       }),
     },
   },

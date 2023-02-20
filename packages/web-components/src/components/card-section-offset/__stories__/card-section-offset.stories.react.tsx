@@ -1,7 +1,7 @@
 /**
  * @license
  *
- * Copyright IBM Corp. 2020, 2022
+ * Copyright IBM Corp. 2020, 2021
  *
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
@@ -59,8 +59,8 @@ const defaultCardGroupItem = (
   </DDSCardGroupItem>
 );
 
-export const Default = args => {
-  const { heading, cards, ctaType, ctaCopy, download, href, alt, defaultSrc } = args?.CardSectionOffset ?? {};
+export const Default = ({ parameters }) => {
+  const { heading, cards, ctaType, ctaCopy, download, href, alt, defaultSrc } = parameters?.props?.CardSectionOffset ?? {};
   return (
     <DDSCardSectionOffset>
       <DDSBackgroundMedia
@@ -95,22 +95,24 @@ export default {
     ...readme.parameters,
     hasStoryPadding: true,
     knobs: {
-      CardSectionOffset: () => {
-        const ctaType = select('CTA type (cta-type)', ctaTypes, CTA_TYPE.LOCAL);
-        const ctaCopy = ctaType === CTA_TYPE.VIDEO ? undefined : textNullable('Copy text', 'Lorem ipsum dolor sit amet');
+      CardSectionOffset: ({ groupId }) => {
+        const ctaType = select('CTA type (cta-type)', ctaTypes, CTA_TYPE.LOCAL, groupId);
+        const ctaCopy = ctaType === CTA_TYPE.VIDEO ? undefined : textNullable('Copy text', 'Lorem ipsum dolor sit amet', groupId);
         const download =
-          ctaType !== CTA_TYPE.DOWNLOAD ? undefined : textNullable('Download target (download)', 'IBM_Annual_Report_2019.pdf');
+          ctaType !== CTA_TYPE.DOWNLOAD
+            ? undefined
+            : textNullable('Download target (download)', 'IBM_Annual_Report_2019.pdf', groupId);
         return {
           heading: 'Aliquam condimentum interdum',
           ctaCopy,
           ctaType,
           download,
-          href: textNullable(knobNamesForType[ctaType ?? CTA_TYPE.REGULAR], hrefsForType[ctaType ?? CTA_TYPE.REGULAR]),
+          href: textNullable(knobNamesForType[ctaType ?? CTA_TYPE.REGULAR], hrefsForType[ctaType ?? CTA_TYPE.REGULAR], groupId),
           cards: Array.from({
             length: 3,
           }).map(() => defaultCardGroupItem),
-          alt: textNullable('Alt text', 'Image alt text'),
-          defaultSrc: textNullable('Default image (default-src)', image),
+          alt: textNullable('Alt text', 'Image alt text', groupId),
+          defaultSrc: textNullable('Default image (default-src)', image, groupId),
         };
       },
     },

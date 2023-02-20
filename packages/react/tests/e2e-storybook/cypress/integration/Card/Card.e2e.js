@@ -130,7 +130,7 @@ const _tests = {
   },
   checkImageRenders: path => {
     it('should render with image', () => {
-      cy.visit(`${path}&knob-Add%20image:=true`);
+      cy.visit(`${path}&knob-Add%20image:_Card=true`);
       cy.get(_selectors.image).should('have.length', 1);
       cy.takeSnapshots();
     });
@@ -158,7 +158,7 @@ const _tests = {
   },
   checkInverseRenders: path => {
     it('should render with inverse', () => {
-      cy.visit(`${path}&knob-Card%20style:=Inverse%20card`);
+      cy.visit(`${path}&knob-Card%20style:_Card=Inverse%20card`);
       cy.get(_selectorBase).should('have.class', 'bx--card--inverse');
       // converted HEX var(--cds-inverse-02, #393939) to RGB
       cy.get(_selectorBase)
@@ -173,7 +173,7 @@ const _tests = {
 describe('Card | Default (desktop)', () => {
   beforeEach(() => {
     cy.viewport(1280, 780);
-    cy.visit(`${_path}&knob-Body%20copy:=copy`);
+    cy.visit(`${_path}&knob-Body%20copy:_Card=copy`);
     cy.injectAxe();
   });
 
@@ -181,7 +181,7 @@ describe('Card | Default (desktop)', () => {
   _tests.checkClickableCard();
   _tests.checkImageRenders(_path);
   _tests.checkOutlineRenders(
-    `${_path}&knob-Card%20style:=Outlined%20card`
+    `${_path}&knob-Card%20style:_Card=Outlined%20card`
   );
   _tests.checkInverseRenders(_path);
   it('should render correctly in all themes', _tests.screenshotThemes);
@@ -191,14 +191,14 @@ describe('Card | Default (desktop)', () => {
 describe('Card | Static (desktop)', () => {
   beforeEach(() => {
     cy.viewport(1280, 780);
-    cy.visit(`${_pathStatic}&knob-Add%20CTA:_staticID=true`);
+    cy.visit(`${_pathStatic}&knob-Add%20CTA:_Card=true`);
     cy.injectAxe();
   });
 
   _tests.checkTextRenders();
   _tests.checkNonClickableCard();
   _tests.checkImageRenders(_pathStatic);
-  _tests.checkOutlineRenders(`${_pathStatic}&knob-Outlined%20card=true`);
+  _tests.checkOutlineRenders(`${_pathStatic}&knob-Outlined%20card_Card=true`);
   it('should render correctly in all themes', _tests.screenshotThemes);
   it('should check a11y', _tests.checkA11y);
 });

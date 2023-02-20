@@ -21,10 +21,17 @@
 
     @include carbon--breakpoint(sm) {
       padding-top: $carbon--spacing-07;
+      padding-bottom: $carbon--spacing-07;
+    }
+
+    @include carbon--breakpoint(md) {
+      min-height: rem(320px);
+      padding-top: $carbon--spacing-07;
       padding-bottom: $carbon--spacing-10;
     }
 
     @include carbon--breakpoint(lg) {
+      min-height: rem(296px);
       padding-top: $carbon--spacing-07;
       padding-bottom: $carbon--layout-05;
     }
@@ -127,6 +134,11 @@
   // React
   .#{$prefix}--content-item-horizontal__col:first-of-type,
   .#{$prefix}--content-item-horizontal__col:last-of-type {
+    @include carbon--breakpoint(md) {
+      @include carbon--make-col-ready;
+      @include carbon--make-col(4, 8);
+    }
+
     :host(#{$dds-prefix}-content-item-horizontal)[thumbnail] & {
       @include carbon--make-col(4, 4);
 
@@ -140,11 +152,8 @@
   .#{$prefix}--content-item-horizontal__heading-wrapper,
   // React
   .#{$prefix}--content-item-horizontal__col:first-of-type {
-    @include carbon--breakpoint(md) {
-      @include carbon--make-col(6, 12);
-    }
     @include carbon--breakpoint(lg) {
-      @include carbon--make-col(4, 12);
+      @include carbon--make-col(4, 10);
     }
   }
 
@@ -154,10 +163,13 @@
   .#{$prefix}--content-item-horizontal__col:last-of-type {
     display: flex;
     flex-direction: column;
-    width: 100%;
+
+    @include carbon--breakpoint(md) {
+      display: flex;
+    }
 
     @include carbon--breakpoint(lg) {
-      @include carbon--make-col(8, 12);
+      @include carbon--make-col(6, 10);
 
       display: flex;
     }
@@ -169,20 +181,6 @@
       grid-column: 5 / span 4;
       padding-left: $spacing-04;
     }
-  }
-
-  .#{$prefix}--content-item-horizontal__content-wrapper_with-media {
-    width: 100%;
-    @include carbon--breakpoint(lg) {
-      @include carbon--make-col(8, 12);
-
-      padding-left: $spacing-04;
-    }
-  }
-
-  :host(#{$dds-prefix}-content-item-horizontal) ::slotted([slot='media']) {
-    display: block;
-    padding-top: $spacing-07;
   }
 
   :host(#{$dds-prefix}-content-item-horizontal) ::slotted([slot='heading']),
@@ -197,7 +195,7 @@
   }
 
   :host(#{$dds-prefix}-content-item-horizontal-copy) ::slotted(:not([slot])) {
-    max-width: rem(640px);
+    max-width: 100%;
   }
 
   :host(#{$dds-prefix}-content-item-horizontal-eyebrow),
@@ -211,9 +209,25 @@
   .#{$prefix}--content-item-horizontal__item--heading {
     display: block;
     color: $text-01;
-    margin-bottom: $carbon--spacing-07;
 
     @include carbon--type-style('expressive-heading-03', true);
+
+    @include carbon--breakpoint(sm) {
+      margin-bottom: $carbon--spacing-07;
+    }
+
+    @include carbon--breakpoint(md) {
+      margin-bottom: $carbon--layout-04;
+    }
+
+    @include carbon--breakpoint(lg) {
+      margin-bottom: $carbon--layout-04;
+    }
+  }
+
+  :host(#{$dds-prefix}-content-item-horizontal)[thumbnail]
+    .#{$prefix}--content-item__cta {
+    padding-top: $spacing-06;
   }
 
   ::slotted([slot='heading']) {
@@ -231,7 +245,7 @@
 
     @include carbon--breakpoint(md) {
       grid-template-columns: repeat(8, 1fr);
-      column-gap: $spacing-07;
+      gap: $spacing-07;
     }
     @include carbon--breakpoint(lg) {
       grid-template-columns: repeat(12, 1fr);
@@ -245,33 +259,19 @@
 
   :host(#{$dds-prefix}-content-item-horizontal[thumbnail])
     .#{$prefix}--content-item-horizontal__content-wrapper {
-    @include carbon--breakpoint-down(md) {
-      margin-bottom: $spacing-07;
-    }
-
     max-width: 100%;
     padding-left: 0;
   }
 
-  :host(#{$dds-prefix}-content-item-horizontal[thumbnail]) {
-    .#{$prefix}--content-item-horizontal__body-wrapper {
-      grid-column: 1 / span 4;
-      max-width: 100%;
-
-      @include carbon--breakpoint(lg) {
-        grid-column: 1 / span 8;
-        display: contents;
-      }
-    }
+  :host(#{$dds-prefix}-content-item-horizontal[thumbnail])
     .#{$prefix}--content-item-horizontal__col--2 {
-      max-width: 100%;
-      grid-column: 1 / span 4;
-      @include carbon--breakpoint(md) {
-        grid-column: 5 / span 4;
-      }
-      @include carbon--breakpoint(lg) {
-        grid-column: 9 / span 4;
-      }
+    max-width: 100%;
+    grid-column: 1 / span 4;
+    @include carbon--breakpoint(md) {
+      grid-column: 6 / span 3;
+    }
+    @include carbon--breakpoint(lg) {
+      grid-column: 10 / span 3;
     }
   }
 
@@ -283,7 +283,7 @@
 
   :host(#{$dds-prefix}-content-item-horizontal-copy) ::slotted(:not([slot])),
   .#{$prefix}--content-item-horizontal__item--copy {
-    margin-bottom: $carbon--spacing-07;
+    margin-bottom: $carbon--spacing-06;
   }
 
   :host(#{$dds-prefix}-content-item-horizontal-thumbnail-copy)
@@ -307,6 +307,8 @@
   }
 
   :host(#{$dds-prefix}-content-item-horizontal) ::slotted([slot='thumbnail']) {
+    margin-top: $carbon--spacing-05;
+
     @include carbon--breakpoint(md) {
       @include carbon--make-col(3, 3);
 

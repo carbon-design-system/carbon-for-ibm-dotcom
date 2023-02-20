@@ -13,7 +13,7 @@ jest.unmock('promise');
 jest.unmock('whatwg-fetch');
 jest.unmock('object-assign');
 
-global.process.env.NODE_ENV = true;
+global.__DEV__ = true;
 
 delete global.window.location;
 global.window = Object.create(window);

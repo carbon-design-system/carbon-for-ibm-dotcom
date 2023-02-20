@@ -108,8 +108,8 @@ const contentItemTypeOptions = {
   Media: 'media',
 };
 
-export const Simple = args => {
-  const { heading, copy, border } = args?.CTASection ?? {};
+export const Simple = ({ parameters }) => {
+  const { heading, copy, border } = parameters?.props?.CTASection ?? {};
 
   return (
     <>
@@ -130,18 +130,18 @@ export const Simple = args => {
 Simple.story = {
   parameters: {
     knobs: {
-      CTASection: () => ({
+      CTASection: ({ groupId }) => ({
         heading: 'Optional title heading-05 color text-01',
         copy: 'Optional text heading-03 color text-01, Lorem ipsum dolor sit amet, consecteture adipiscing elit sed dose.',
-        border: boolean('CTA Block border', false),
+        border: boolean('CTA Block border', false, groupId),
       }),
     },
   },
 };
 
-export const WithContentItems = args => {
-  const { heading, copy, border } = args?.CTASection ?? {};
-  const { contentItemType, contentItemCount } = args?.WithContentItems ?? {};
+export const WithContentItems = ({ parameters }) => {
+  const { heading, copy, border } = parameters?.props?.CTASection ?? {};
+  const { contentItemType, contentItemCount } = parameters?.props?.WithContentItems ?? {};
 
   return (
     <>
@@ -165,24 +165,24 @@ WithContentItems.story = {
   name: 'With content items',
   parameters: {
     knobs: {
-      CTASection: () => ({
+      CTASection: ({ groupId }) => ({
         heading: 'Optional title heading-05 color text-01',
         copy: 'Optional text heading-03 color text-01, Lorem ipsum dolor sit amet, consecteture adipiscing elit sed dose.',
-        border: boolean('CTA Block border', false),
+        border: boolean('CTA Block border', false, groupId),
       }),
-      WithContentItems: () => ({
+      WithContentItems: ({ groupId }) => ({
         contentItemType:
-          contentItemTypeMap[select(`Content item type`, contentItemTypeOptions, contentItemTypeOptions.Text) ?? 0],
+          contentItemTypeMap[select(`Content item type`, contentItemTypeOptions, contentItemTypeOptions.Text, groupId) ?? 0],
         contentItemCount: Array.from({
-          length: number('Number of content items', 3, { min: 2, max: 6 }),
+          length: number('Number of content items', 3, { min: 2, max: 6 }, groupId),
         }),
       }),
     },
   },
 };
 
-export const WithLinkList = args => {
-  const { heading, copy, border } = args?.CTASection ?? {};
+export const WithLinkList = ({ parameters }) => {
+  const { heading, copy, border } = parameters?.props?.CTASection ?? {};
 
   return (
     <DDSCTASection>
@@ -223,10 +223,10 @@ WithLinkList.story = {
   name: 'With link list',
   parameters: {
     knobs: {
-      CTASection: () => ({
+      CTASection: ({ groupId }) => ({
         heading: 'Optional title heading-05 color text-01',
         copy: 'Optional text heading-03 color text-01, Lorem ipsum dolor sit amet, consecteture adipiscing elit sed dose.',
-        border: boolean('CTA Block border', false),
+        border: boolean('CTA Block border', false, groupId),
       }),
     },
   },

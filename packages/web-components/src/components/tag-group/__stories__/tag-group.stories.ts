@@ -10,15 +10,15 @@
 import { html } from 'lit-element';
 import { select } from '@storybook/addon-knobs';
 import readme from './README.stories.mdx';
-import '../index';
+import '../tag-group';
 import 'carbon-web-components/es/components/tag/tag.js';
 
 const tagTitles = ['Cloud', 'Blockchain', 'Supply chain', 'Watson health', 'IT Infrastructure', 'WebSphere'];
 
 const tagTypeOptions = ['Tag Link', 'Carbon tag'];
 
-export const Default = args => {
-  const { tagType } = args?.TagGroup ?? {};
+export const Default = ({ parameters }) => {
+  const { tagType } = parameters?.props?.TagGroup ?? {};
   return html`
     <dds-tag-group>
       ${tagTitles.map(title =>
@@ -55,8 +55,8 @@ export default {
     ...readme.parameters,
     hasStoryPadding: true,
     knobs: {
-      TagGroup: () => ({
-        tagType: select('Tag Type:', tagTypeOptions, 'Tag Link'),
+      TagGroup: ({ groupId }) => ({
+        tagType: select('Tag Type:', tagTypeOptions, 'Tag Link', groupId),
       }),
     },
     propsSet: {

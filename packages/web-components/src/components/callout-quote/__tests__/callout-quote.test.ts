@@ -1,7 +1,7 @@
 /**
  * @license
  *
- * Copyright IBM Corp. 2020, 2022
+ * Copyright IBM Corp. 2020
  *
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
@@ -12,7 +12,11 @@ import { Default } from '../__stories__/callout-quote.stories';
 
 const template = (props?) =>
   Default({
-    'dds-callout-quote': props,
+    parameters: {
+      props: {
+        'dds-callout-quote': props,
+      },
+    },
   });
 
 describe('dds-callout-quote', function() {

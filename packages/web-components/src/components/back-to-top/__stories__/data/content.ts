@@ -1,20 +1,11 @@
 /**
- * Copyright IBM Corp. 2016, 2022
+ * Copyright IBM Corp. 2016, 2021
  *
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
  */
 
 import { html } from 'lit-element';
-import '../../../leadspace/index';
-import '../../../content-block-simple/index';
-import '../../../content-group-simple/index';
-import '../../../feature-card/index';
-import '../../../card-section-simple/index';
-import '../../../cta-section/index';
-import '../../../link-list/index';
-import '../../../cta/index';
-
 import ArrowRight20 from 'carbon-web-components/es/icons/arrow--right/20';
 import imgLg1x1 from '../../../../../../storybook-images/assets/960/fpo--1x1--960x960--006.jpg';
 import leadspaceImg from '../../../../../../storybook-images/assets/leadspace/leadspaceMax2.jpg';

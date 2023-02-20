@@ -62,12 +62,15 @@ class DDSCard extends StableSelectorMixin(BXLink) {
    * Handles `slotchange` event.
    */
   protected _handleSlotChange({ target }: Event) {
-    const { name } = target as HTMLSlotElement;
-    const hasContent = (target as HTMLSlotElement)
-      .assignedNodes()
-      .some(node => node.nodeType !== Node.TEXT_NODE || node!.textContent!.trim());
-    this[slotExistencePropertyNames[name]] = hasContent;
-    this._hasCopy = hasContent;
+    const { pictogramPlacement: currentPictogramPlacement } = this;
+    const { dataset, name } = target as HTMLSlotElement;
+    const { pictogramPlacement } = dataset;
+    if (!pictogramPlacement || pictogramPlacement === currentPictogramPlacement) {
+      const hasContent = (target as HTMLSlotElement)
+        .assignedNodes()
+        .some(node => node.nodeType !== Node.TEXT_NODE || node!.textContent!.trim());
+      this[slotExistencePropertyNames[name] || '_hasCopy'] = hasContent;
+    }
   }
 
   /**
@@ -81,13 +84,28 @@ class DDSCard extends StableSelectorMixin(BXLink) {
   }
 
   /**
+   * Handles copy `slotchange` event.
+   */
+  protected _handleCopySlotChange({ target }: Event) {
+    const { pictogramPlacement: currentPictogramPlacement } = this;
+    const { dataset, name } = target as HTMLSlotElement;
+    const { pictogramPlacement } = dataset;
+    if ((!this._hasCopy && !pictogramPlacement) || pictogramPlacement === currentPictogramPlacement) {
+      const hasContent = (target as HTMLSlotElement)
+        .assignedNodes()
+        .some(node => node.nodeType !== Node.TEXT_NODE || node!.textContent!.trim());
+      this[slotExistencePropertyNames[name] || '_hasCopy'] = hasContent;
+    }
+  }
+
+  /**
    * @returns The copy content.
    */
   protected _renderCopy(): TemplateResult | string | void {
     const { _hasCopy: hasCopy } = this;
     return html`
       <div ?hidden="${!hasCopy}" class="${prefix}--card__copy">
-        <slot @slotchange="${this._handleSlotChange}"></slot>
+        <slot @slotchange="${this._handleCopySlotChange}"></slot>
       </div>
     `;
   }
@@ -182,7 +200,7 @@ class DDSCard extends StableSelectorMixin(BXLink) {
    * Pictogram placement
    */
   @property({ attribute: 'pictogram-placement', reflect: true })
-  pictogramPlacement = '';
+  pictogramPlacement = PICTOGRAM_PLACEMENT.TOP;
 
   /**
    * Whether or not to apply the logo style.

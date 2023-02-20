@@ -1,7 +1,7 @@
 /**
  * @license
  *
- * Copyright IBM Corp. 2020, 2022
+ * Copyright IBM Corp. 2020, 2021
  *
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
@@ -13,8 +13,8 @@ import ifNonNull from 'carbon-web-components/es/globals/directives/if-non-null.j
 import '../horizontal-rule';
 import readme from './README.stories.mdx';
 
-export const Default = args => {
-  const { type, size, contrast, weight } = args?.HorizontalRule ?? {};
+export const Default = ({ parameters }) => {
+  const { type, size, contrast, weight } = parameters?.props?.HorizontalRule ?? {};
   return html`
     <dds-hr type="${ifNonNull(type)}" size="${ifNonNull(size)}" contrast="${ifNonNull(contrast)}" weight="${ifNonNull(weight)}">
     </dds-hr>
@@ -62,11 +62,11 @@ export default {
     ...readme.parameters,
     hasStoryPadding: true,
     knobs: {
-      HorizontalRule: () => ({
-        type: select('Type (type):', types, types.solid),
-        size: select('Size (size):', sizes, sizes.fluid),
-        contrast: select('Contrast (contrast):', contrasts, contrasts['medium-contrast']),
-        weight: select('Weight (weight):', weights, weights.thin),
+      HorizontalRule: ({ groupId }) => ({
+        type: select('Type (type):', types, types.solid, groupId),
+        size: select('Size (size):', sizes, sizes.fluid, groupId),
+        contrast: select('Contrast (contrast):', contrasts, contrasts['medium-contrast'], groupId),
+        weight: select('Weight (weight):', weights, weights.thin, groupId),
       }),
     },
     propsSet: {

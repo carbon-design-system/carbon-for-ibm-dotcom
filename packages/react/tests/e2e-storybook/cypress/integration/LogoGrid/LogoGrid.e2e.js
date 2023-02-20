@@ -20,7 +20,7 @@ const _defaultPath = '/iframe.html?id=components-logo-grid--default';
  * @private
  */
 const _pathWithCTA =
-  '/iframe.html?id=components-logo-grid--default&knob-Heading%20(heading)=Our%20customers&knob-Display%20CTA:=true&knob-CTA%20Copy%20(ctaCopy)=Lorem%20ipsum%20dolor%20sit%20amet&knob-CTA%20Href%20(ctaHref):=http://local.url.com/';
+  '/iframe.html?id=components-logo-grid--default&knob-Heading%20(heading)_LogoGrid=Our%20customers&knob-Display%20CTA:_LogoGrid=true&knob-CTA%20Copy%20(ctaCopy)_LogoGrid=Lorem%20ipsum%20dolor%20sit%20amet&knob-CTA%20Href%20(ctaHref):_LogoGrid=http://local.url.com/';
 
 /* eslint-disable cypress/no-unnecessary-waiting */
 describe('LogoGrid | default', () => {

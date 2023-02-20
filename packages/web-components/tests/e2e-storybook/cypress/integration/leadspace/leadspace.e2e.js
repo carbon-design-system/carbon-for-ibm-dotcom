@@ -108,7 +108,7 @@ describe('dds-leadspace | tall', () => {
 
   it('should render 3 buttons with different icons (arrow right, left, and PDF)', () => {
     cy.visit(
-      `/${_pathTall}&knob-Number%20of%20buttons=3&knob-Icon%201=ArrowRight20&knob-Button%201=Button%201&knob-Icon%202=ArrowDown20&knob-Icon%203=Pdf20`
+      `/${_pathTall}&knob-Number%20of%20buttons_LeadSpace=3&knob-Icon%201_LeadSpace=ArrowRight20&knob-Button%201_LeadSpace=Button%201&knob-Icon%202_LeadSpace=ArrowDown20&knob-Icon%203_LeadSpace=Pdf20`
     );
     cy.viewport(1280, 780);
 
@@ -138,7 +138,7 @@ describe('dds-leadspace | tall', () => {
   });
 
   it('should load more than 2 buttons when customized and should all have links', () => {
-    cy.visit(`/${_pathTall}&knob-Number%20of%20buttons=3`);
+    cy.visit(`/${_pathTall}&knob-Number%20of%20buttons_LeadSpace=3`);
     cy.viewport(1280, 780);
 
     cy.get('dds-button-group-item').should('have.length', 3);
@@ -233,7 +233,7 @@ describe('dds-leadspace | centered', () => {
 
   it('should render 3 buttons with different icons (arrow right, left, and PDF)', () => {
     cy.visit(
-      `/${_pathCentered}&knob-Number%20of%20buttons=3&knob-Icon%201=ArrowRight20&knob-Button%201=Button%201&knob-Icon%202=ArrowDown20&knob-Icon%203=Pdf20`
+      `/${_pathCentered}&knob-Number%20of%20buttons_LeadSpace=3&knob-Icon%201_LeadSpace=ArrowRight20&knob-Button%201_LeadSpace=Button%201&knob-Icon%202_LeadSpace=ArrowDown20&knob-Icon%203_LeadSpace=Pdf20`
     );
     cy.viewport(1280, 780);
 
@@ -374,7 +374,7 @@ describe('dds-leadspace | super', () => {
 
   it('should render 3 buttons with different icons (arrow right, left, and PDF)', () => {
     cy.visit(
-      `/${_pathSuper}&knob-Number%20of%20buttons=3&knob-Icon%201=ArrowRight20&knob-Button%201=Button%201&knob-Icon%202=ArrowDown20&knob-Icon%203=Pdf20`
+      `/${_pathSuper}&knob-Number%20of%20buttons_LeadSpace=3&knob-Icon%201_LeadSpace=ArrowRight20&knob-Button%201_LeadSpace=Button%201&knob-Icon%202_LeadSpace=ArrowDown20&knob-Icon%203_LeadSpace=Pdf20`
     );
     cy.viewport(1280, 780);
 
@@ -397,7 +397,7 @@ describe('dds-leadspace | super', () => {
   });
 
   it('should load more than 2 buttons when customized and should all have links', () => {
-    cy.visit(`/${_pathSuper}&knob-Number%20of%20buttons=3`);
+    cy.visit(`/${_pathSuper}&knob-Number%20of%20buttons_LeadSpace=3`);
     cy.viewport(1280, 780);
 
     cy.get('dds-button-group-item').should('have.length', 3);

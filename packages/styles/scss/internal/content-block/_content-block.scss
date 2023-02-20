@@ -233,12 +233,11 @@
   .#{$prefix}--content-block__cta-col {
     @include carbon--make-col-ready;
 
-    max-width: calc(320px + #{$carbon--layout-05});
+    max-width: calc(320px + 1rem);
 
     @include carbon--breakpoint('sm') {
-      .#{$prefix}--card__CTA {
-        margin-left: -($carbon--spacing-05);
-      }
+      padding-left: 0;
+      padding-right: 0;
     }
 
     @include carbon--breakpoint('md') {
@@ -246,7 +245,7 @@
 
       padding-left: $carbon--spacing-05;
       padding-right: $carbon--spacing-05;
-      max-width: calc(320px + #{$carbon--layout-05});
+      max-width: calc(320px + 1rem);
     }
   }
 }

@@ -24,9 +24,9 @@ const _path = '/iframe.html?id=components-cta--text';
  * @private
  */
 const _paths = {
-  copy: `${_path}&knob-Copy%20(copy):=`,
-  href: `${_path}&knob-Content%20link%20href%20(href)=`,
-  ctaType: `${_path}&knob-CTA%20type%20(cta-type)=`,
+  copy: `${_path}&knob-Copy%20(copy):_TextCTA=`,
+  href: `${_path}&knob-Content%20link%20href%20(href)_TextCTA=`,
+  ctaType: `${_path}&knob-CTA%20type%20(cta-type)_TextCTA=`,
 };
 
 /**

@@ -49,10 +49,17 @@
       }
     }
 
+    .#{$prefix}--tab-content {
+      padding-left: $carbon--spacing-05;
+      padding-right: $carbon--spacing-05;
+    }
+
     .#{$prefix}--accordion__content {
       margin-top: -$carbon--spacing-07;
       margin-bottom: $carbon--spacing-05;
-      padding: $carbon--spacing-07 0 0;
+      padding-bottom: 0;
+      padding-left: $carbon--spacing-05;
+      padding-right: $carbon--spacing-05;
 
       @include carbon--breakpoint(md) {
         margin-bottom: -$carbon--spacing-05;

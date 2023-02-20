@@ -45,7 +45,7 @@ describe('dds-pictogram-item | Pictogram item (desktop)', () => {
   });
 
   it('should support customizable pictogram SVGs', () => {
-    cy.visit(`/${_pathDefault}&knob-Pictogram%20(required)=Touch`);
+    cy.visit(`/${_pathDefault}&knob-Pictogram%20(required)_PictogramItem=Touch`);
     cy.viewport(1280, 780);
 
     cy.takeSnapshots();
@@ -84,7 +84,7 @@ describe('dds-pictogram-item | Pictogram item (mobile)', () => {
   });
 
   it('should support customizable pictogram SVGs', () => {
-    cy.visit(`/${_pathDefault}&knob-Pictogram%20(required)=Touch`);
+    cy.visit(`/${_pathDefault}&knob-Pictogram%20(required)_PictogramItem=Touch`);
     cy.viewport(320, 780);
 
     cy.takeSnapshots('mobile');

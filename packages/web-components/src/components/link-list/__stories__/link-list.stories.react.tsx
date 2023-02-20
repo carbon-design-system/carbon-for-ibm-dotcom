@@ -63,8 +63,8 @@ const types = {
   [`Video (${CTA_TYPE.VIDEO})`]: CTA_TYPE.VIDEO,
 };
 
-export const Default = args => {
-  const { ctaType, download, href } = args?.LinkListItem ?? {};
+export const Default = ({ parameters }) => {
+  const { ctaType, download, href } = parameters?.props?.LinkListItem ?? {};
   return !ctaType ? (
     <DDSLinkList type="default">
       <DDSLinkListHeading>Tutorial</DDSLinkListHeading>
@@ -100,14 +100,16 @@ Default.story = {
   parameters: {
     colLgClass: 'bx--col-lg-3',
     knobs: {
-      LinkListItem: () => {
-        const ctaType = select('CTA type (cta-type)', types, null);
+      LinkListItem: ({ groupId }) => {
+        const ctaType = select('CTA type (cta-type)', types, null, groupId);
         const download =
-          ctaType !== CTA_TYPE.DOWNLOAD ? undefined : textNullable('Download target (download)', 'IBM_Annual_Report_2019.pdf');
+          ctaType !== CTA_TYPE.DOWNLOAD
+            ? undefined
+            : textNullable('Download target (download)', 'IBM_Annual_Report_2019.pdf', groupId);
         return {
           ctaType,
           download,
-          href: textNullable(knobNamesForType[ctaType ?? CTA_TYPE.REGULAR], hrefsForType[ctaType ?? CTA_TYPE.REGULAR]),
+          href: textNullable(knobNamesForType[ctaType ?? CTA_TYPE.REGULAR], hrefsForType[ctaType ?? CTA_TYPE.REGULAR], groupId),
         };
       },
     },
@@ -123,8 +125,8 @@ Default.story = {
   },
 };
 
-export const Horizontal = args => {
-  const { ctaType, download, href, iconPlacement = ICON_PLACEMENT.RIGHT } = args?.LinkListItem ?? {};
+export const Horizontal = ({ parameters }) => {
+  const { ctaType, download, href, iconPlacement = ICON_PLACEMENT.RIGHT } = parameters?.props?.LinkListItem ?? {};
   return !ctaType ? (
     <DDSLinkList type="horizontal">
       <DDSLinkListHeading>Tutorial</DDSLinkListHeading>
@@ -152,14 +154,16 @@ Horizontal.story = {
   parameters: {
     colLgClass: 'bx--col-lg-10',
     knobs: {
-      LinkListItem: () => {
-        const ctaType = select('CTA type (cta-type)', types, null);
+      LinkListItem: ({ groupId }) => {
+        const ctaType = select('CTA type (cta-type)', types, null, groupId);
         const download =
-          ctaType !== CTA_TYPE.DOWNLOAD ? undefined : textNullable('Download target (download)', 'IBM_Annual_Report_2019.pdf');
+          ctaType !== CTA_TYPE.DOWNLOAD
+            ? undefined
+            : textNullable('Download target (download)', 'IBM_Annual_Report_2019.pdf', groupId);
         return {
           ctaType,
           download,
-          href: textNullable(knobNamesForType[ctaType ?? CTA_TYPE.REGULAR], hrefsForType[ctaType ?? CTA_TYPE.REGULAR]),
+          href: textNullable(knobNamesForType[ctaType ?? CTA_TYPE.REGULAR], hrefsForType[ctaType ?? CTA_TYPE.REGULAR], groupId),
         };
       },
     },
@@ -175,8 +179,8 @@ Horizontal.story = {
   },
 };
 
-export const Vertical = args => {
-  const { ctaType, download, href, iconPlacement = ICON_PLACEMENT.RIGHT } = args?.LinkListItem ?? {};
+export const Vertical = ({ parameters }) => {
+  const { ctaType, download, href, iconPlacement = ICON_PLACEMENT.RIGHT } = parameters?.props?.LinkListItem ?? {};
   return !ctaType ? (
     <DDSLinkList type="vertical">
       <DDSLinkListHeading>Tutorial</DDSLinkListHeading>
@@ -216,8 +220,8 @@ Vertical.story = {
   },
 };
 
-export const EndOfSection = args => {
-  const { ctaType, download, href } = args?.LinkListItem ?? {};
+export const EndOfSection = ({ parameters }) => {
+  const { ctaType, download, href } = parameters?.props?.LinkListItem ?? {};
   return !ctaType ? (
     <DDSLinkList type="end">
       <DDSLinkListHeading>Tutorial</DDSLinkListHeading>

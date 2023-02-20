@@ -19,9 +19,14 @@ import readme from './README.stories.react.mdx';
 import textNullable from '../../../../.storybook/knob-text-nullable';
 import styles from './locale-modal.stories.scss';
 
-export const Default = args => {
-  const { langDisplay } = args?.LocaleModalComposite;
-  return <DDSLocaleModalContainer lang-display={ifNonNull(langDisplay)} open localeList={localeData}></DDSLocaleModalContainer>;
+export const Default = ({ parameters }) => {
+  const { langDisplay, localeList } = parameters?.props?.LocaleModalComposite;
+  return (
+    <DDSLocaleModalContainer
+      lang-display={ifNonNull(langDisplay)}
+      open
+      localeList={ifNonNull(localeList)}></DDSLocaleModalContainer>
+  );
 };
 
 export default {
@@ -40,9 +45,14 @@ export default {
     ...readme.parameters,
     hasStoryPadding: true,
     knobs: {
-      LocaleModalComposite: () => ({
-        langDisplay: textNullable('Display language (lang-display)', 'United States — English'),
+      LocaleModalComposite: ({ groupId }) => ({
+        langDisplay: textNullable('Display language (lang-display)', 'United States — English', groupId),
       }),
+    },
+    props: {
+      LocaleModalComposite: {
+        localeList: localeData,
+      },
     },
     propsSet: {
       default: {

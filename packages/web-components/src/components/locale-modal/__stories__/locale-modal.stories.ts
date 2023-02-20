@@ -1,7 +1,7 @@
 /**
  * @license
  *
- * Copyright IBM Corp. 2020, 2022
+ * Copyright IBM Corp. 2020
  *
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
@@ -15,9 +15,9 @@ import localeData from './locale-data.json';
 import styles from './locale-modal.stories.scss';
 import readme from './README.stories.mdx';
 
-export const Default = args => {
-  const { langDisplay, localeList } = args?.LocaleModalComposite;
-  const { useMock } = args?.Other ?? {};
+export const Default = ({ parameters }) => {
+  const { langDisplay, localeList } = parameters?.props?.LocaleModalComposite;
+  const { useMock } = parameters?.props?.Other ?? {};
   return html`
     <style>
       ${styles}
@@ -43,8 +43,8 @@ export default {
       const useMock = inPercy() || new URLSearchParams(window.location.search).has('mock');
       return {
         knobs: {
-          LocaleModalComposite: () => ({
-            langDisplay: textNullable('Display language (lang-display)', !useMock ? '' : 'United States — English'),
+          LocaleModalComposite: ({ groupId }) => ({
+            langDisplay: textNullable('Display language (lang-display)', !useMock ? '' : 'United States — English', groupId),
           }),
         },
         props: {

@@ -1,5 +1,5 @@
 /**
- * Copyright IBM Corp. 2016, 2022
+ * Copyright IBM Corp. 2016, 2021
  *
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
@@ -18,54 +18,8 @@ const cardsCol = {
   '4 cards per row': '4',
 };
 
-const props = {
-  default: () => ({
-    cards: Array.from({
-      length: number('Number of cards', 5, {}),
-    }).map(_ => defaultCard),
-    border: boolean('Outlined cards:', false),
-    cardsPerRow: select(
-      'Number of cards per row (cardsPerRow):',
-      cardsCol,
-      cardsCol['3 cards per row (Default)']
-    ),
-  }),
-  withCTA: () => ({
-    cards: Array.from({
-      length: number('Number of cards', 5, {}),
-    }).map(_ => defaultCard),
-    cta: groupCTA,
-    cardsPerRow: select(
-      'Number of cards per row (cardsPerRow):',
-      cardsCol,
-      cardsCol['3 cards per row (Default)']
-    ),
-  }),
-  withImages: () => ({
-    cards: Array.from({
-      length: number('Number of cards', 5, {}),
-    }).map(_ => cardWithImages),
-    cardsPerRow: select(
-      'Number of cards per row (cardsPerRow):',
-      cardsCol,
-      cardsCol['3 cards per row (Default)']
-    ),
-  }),
-  withImagesAndCTA: () => ({
-    cards: Array.from({
-      length: number('Number of cards', 5, {}),
-    }).map(_ => cardWithImages),
-    cta: groupCTA,
-    cardsPerRow: select(
-      'Number of cards per row (cardsPerRow):',
-      cardsCol,
-      cardsCol['3 cards per row (Default)']
-    ),
-  }),
-};
-
 export default {
-  title: 'Components/Card group',
+  title: 'Components|Card group',
   parameters: {
     ...readme.parameters,
     propsSet: {
@@ -148,19 +102,26 @@ const groupCTA = {
   },
 };
 
-export const Default = () => {
+export const Default = ({ parameters }) => {
+  const { cards: data, cardsPerRow, cta, border } =
+    parameters?.props?.CardGroup ?? {};
   const classes = cx({
     [`bx--col-sm-4`]: true,
-    [`bx--col-lg-8`]: props.default().cardsPerRow == 2,
-    [`bx--col-lg-12`]: props.default().cardsPerRow == 3,
-    [`bx--col-lg-16`]: props.default().cardsPerRow == 4,
+    [`bx--col-lg-8`]: cardsPerRow == 2,
+    [`bx--col-lg-12`]: cardsPerRow == 3,
+    [`bx--col-lg-16`]: cardsPerRow == 4,
   });
 
   return (
     <div className="bx--grid bx--content-group-story">
       <div className="bx--row">
         <div className={classes}>
-          <CardGroup {...props.default()} />
+          <CardGroup
+            cards={data}
+            cardsPerRow={cardsPerRow}
+            cta={cta}
+            border={border}
+          />
         </div>
       </div>
     </div>
@@ -169,25 +130,40 @@ export const Default = () => {
 
 Default.story = {
   parameters: {
+    knobs: {
+      CardGroup: ({ groupId }) => ({
+        cards: Array.from({
+          length: number('Number of cards', 5, {}, groupId),
+        }).map(_ => defaultCard),
+        border: boolean('Outlined cards:', false, groupId),
+        cardsPerRow: select(
+          'Number of cards per row (cardsPerRow):',
+          cardsCol,
+          cardsCol['3 cards per row (Default)'],
+          groupId
+        ),
+      }),
+    },
     percy: {
       skip: true,
     },
   },
 };
 
-export const WithCTA = () => {
+export const WithCTA = ({ parameters }) => {
+  const { cards: data, cardsPerRow, cta } = parameters?.props?.CardGroup ?? {};
   const classes = cx({
     [`bx--col-sm-4`]: true,
-    [`bx--col-lg-8`]: props.withCTA().cardsPerRow == 2,
-    [`bx--col-lg-12`]: props.withCTA().cardsPerRow == 3,
-    [`bx--col-lg-16`]: props.withCTA().cardsPerRow == 4,
+    [`bx--col-lg-8`]: cardsPerRow == 2,
+    [`bx--col-lg-12`]: cardsPerRow == 3,
+    [`bx--col-lg-16`]: cardsPerRow == 4,
   });
 
   return (
     <div className="bx--grid bx--content-group-story">
       <div className="bx--row">
         <div className={classes}>
-          <CardGroup {...props.withCTA()} />
+          <CardGroup cards={data} cardsPerRow={cardsPerRow} cta={cta} />
         </div>
       </div>
     </div>
@@ -196,25 +172,40 @@ export const WithCTA = () => {
 
 WithCTA.story = {
   parameters: {
+    knobs: {
+      CardGroup: ({ groupId }) => ({
+        cards: Array.from({
+          length: number('Number of cards', 5, {}, groupId),
+        }).map(_ => defaultCard),
+        cta: groupCTA,
+        cardsPerRow: select(
+          'Number of cards per row (cardsPerRow):',
+          cardsCol,
+          cardsCol['3 cards per row (Default)'],
+          groupId
+        ),
+      }),
+    },
     percy: {
       skip: true,
     },
   },
 };
 
-export const WithImages = () => {
+export const WithImages = ({ parameters }) => {
+  const { cards: data, cardsPerRow, cta } = parameters?.props?.CardGroup ?? {};
   const classes = cx({
     [`bx--col-sm-4`]: true,
-    [`bx--col-lg-8`]: props.withImages().cardsPerRow == 2,
-    [`bx--col-lg-12`]: props.withImages().cardsPerRow == 3,
-    [`bx--col-lg-16`]: props.withImages().cardsPerRow == 4,
+    [`bx--col-lg-8`]: cardsPerRow == 2,
+    [`bx--col-lg-12`]: cardsPerRow == 3,
+    [`bx--col-lg-16`]: cardsPerRow == 4,
   });
 
   return (
     <div className="bx--grid bx--content-group-story">
       <div className="bx--row">
         <div className={classes}>
-          <CardGroup {...props.withImages()} />
+          <CardGroup cards={data} cardsPerRow={cardsPerRow} cta={cta} />
         </div>
       </div>
     </div>
@@ -224,25 +215,36 @@ export const WithImages = () => {
 WithImages.story = {
   name: 'With images',
   parameters: {
-    percy: {
-      name: 'Components|Card group: With images',
+    knobs: {
+      CardGroup: ({ groupId }) => ({
+        cards: Array.from({
+          length: number('Number of cards', 5, {}, groupId),
+        }).map(_ => cardWithImages),
+        cardsPerRow: select(
+          'Number of cards per row (cardsPerRow):',
+          cardsCol,
+          cardsCol['3 cards per row (Default)'],
+          groupId
+        ),
+      }),
     },
   },
 };
 
-export const WithImagesAndCTA = () => {
+export const WithImagesAndCTA = ({ parameters }) => {
+  const { cards: data, cardsPerRow, cta } = parameters?.props?.CardGroup ?? {};
   const classes = cx({
     [`bx--col-sm-4`]: true,
-    [`bx--col-lg-8`]: props.withImagesAndCTA().cardsPerRow == 2,
-    [`bx--col-lg-12`]: props.withImagesAndCTA().cardsPerRow == 3,
-    [`bx--col-lg-16`]: props.withImagesAndCTA().cardsPerRow == 4,
+    [`bx--col-lg-8`]: cardsPerRow == 2,
+    [`bx--col-lg-12`]: cardsPerRow == 3,
+    [`bx--col-lg-16`]: cardsPerRow == 4,
   });
 
   return (
     <div className="bx--grid bx--content-group-story">
       <div className="bx--row">
         <div className={classes}>
-          <CardGroup {...props.withImagesAndCTA()} />
+          <CardGroup cards={data} cardsPerRow={cardsPerRow} cta={cta} />
         </div>
       </div>
     </div>
@@ -252,8 +254,19 @@ export const WithImagesAndCTA = () => {
 WithImagesAndCTA.story = {
   name: 'With images and CTA',
   parameters: {
-    percy: {
-      name: 'Components|Card group: With images and CTA',
+    knobs: {
+      CardGroup: ({ groupId }) => ({
+        cards: Array.from({
+          length: number('Number of cards', 5, {}, groupId),
+        }).map(_ => cardWithImages),
+        cta: groupCTA,
+        cardsPerRow: select(
+          'Number of cards per row (cardsPerRow):',
+          cardsCol,
+          cardsCol['3 cards per row (Default)'],
+          groupId
+        ),
+      }),
     },
   },
 };

@@ -10,7 +10,6 @@
 import '../index';
 import '../../video-player/video-player-container';
 import '../../link-list/index';
-import '../../cta/index';
 import { html } from 'lit-element';
 import ifNonNull from 'carbon-web-components/es/globals/directives/if-non-null.js';
 import { select } from '@storybook/addon-knobs';
@@ -75,14 +74,8 @@ const linkListItems = [
   'Explore AI use cases in all industries',
 ];
 
-export const Default = args => {
-  const { heading, copy, ctaStyle, ctaType, complementaryStyleScheme } = args?.ContentBlockSegmented ?? {};
-  const headingComponent = document.querySelector('dds-content-block-heading');
-
-  if (headingComponent && headingComponent.shadowRoot) {
-    headingComponent.shadowRoot.textContent = heading;
-  }
-
+export const Default = ({ parameters }) => {
+  const { heading, copy, ctaStyle, ctaType, complementaryStyleScheme } = parameters?.props?.ContentBlockSegmented ?? {};
   return html`
     <dds-content-block-segmented complementary-style-scheme="${ifNonNull(complementaryStyleScheme)}">
       <dds-content-block-heading>${heading}</dds-content-block-heading>
@@ -119,15 +112,9 @@ export const Default = args => {
   `;
 };
 
-export const withLinkList = args => {
+export const withLinkList = ({ parameters }) => {
   const { blockHeading, heading, copy, ctaStyle, ctaType, complementaryStyleScheme, totalLinks } =
-    args?.ContentBlockSegmented ?? {};
-  const headingComponent = document.querySelector('dds-content-block-heading');
-
-  if (headingComponent && headingComponent.shadowRoot) {
-    headingComponent.shadowRoot.textContent = blockHeading;
-  }
-
+    parameters?.props?.ContentBlockSegmented ?? {};
   return html`
     <dds-content-block-segmented complementary-style-scheme="${ifNonNull(complementaryStyleScheme)}">
       <dds-content-block-heading>${blockHeading}</dds-content-block-heading>

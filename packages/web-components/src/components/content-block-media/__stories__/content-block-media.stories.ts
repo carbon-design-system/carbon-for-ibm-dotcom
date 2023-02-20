@@ -8,7 +8,8 @@
  */
 
 import '../index';
-import '../../cta/index';
+import '../../cta/card-link-cta';
+import '../../cta/feature-cta';
 import '../../link-list/link-list';
 import '../../link-list/link-list-heading';
 import { html } from 'lit-element';
@@ -78,8 +79,8 @@ const linkListItems = [
   'Explore AI use cases in all industries',
 ];
 
-export const Default = args => {
-  const { blockHeading, simpleGroupHeading, featureCard, complementaryStyleScheme } = args?.ContentBlockMedia ?? {};
+export const Default = ({ parameters }) => {
+  const { blockHeading, simpleGroupHeading, featureCard, complementaryStyleScheme } = parameters?.props?.ContentBlockMedia ?? {};
   return html`
     <dds-content-block-media complementary-style-scheme="${ifNonNull(complementaryStyleScheme)}">
       <dds-content-block-heading>
@@ -149,9 +150,9 @@ export const Default = args => {
   `;
 };
 
-export const withLinkList = args => {
+export const withLinkList = ({ parameters }) => {
   const { blockHeading, simpleGroupHeading, featureCard, linkListHeading, complementaryStyleScheme, totalLinks } =
-    args?.ContentBlockMedia ?? {};
+    parameters?.props?.ContentBlockMedia ?? {};
   return html`
     <dds-content-block-media complementary-style-scheme="${ifNonNull(complementaryStyleScheme)}">
       <dds-content-block-heading>

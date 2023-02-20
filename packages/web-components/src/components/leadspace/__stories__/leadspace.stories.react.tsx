@@ -92,8 +92,9 @@ const iconOptions = {
   PDF: 'Pdf20',
 };
 
-const Default = args => {
-  const { alt, buttons, copy, defaultSrc, hasImage, hasVideo, navElements, size, title, type } = args?.Leadspace ?? {};
+const Default = ({ parameters }) => {
+  const { alt, buttons, copy, defaultSrc, hasImage, hasVideo, navElements, size, title, type } =
+    parameters?.props?.Leadspace ?? {};
   return (
     <DDSLeadspace size={size} type={type} {...(hasImage ? { alt } : {})}>
       {navElements === navigationOptions[0] ? navigationWithTagGroup : ``}
@@ -297,8 +298,8 @@ MediumWithVideo.story = {
   },
 };
 
-export const Short = args => {
-  const { alt, defaultSrc, hasImage, hasVideo, navElements, size, title, type } = args?.Leadspace ?? {};
+export const Short = ({ parameters }) => {
+  const { alt, defaultSrc, hasImage, hasVideo, navElements, size, title, type } = parameters?.props?.Leadspace ?? {};
   return (
     <DDSLeadspace size={size} type={type} {...(hasImage ? { alt } : {})}>
       {navElements === navigationOptions[0] ? navigationWithTagGroup : ``}

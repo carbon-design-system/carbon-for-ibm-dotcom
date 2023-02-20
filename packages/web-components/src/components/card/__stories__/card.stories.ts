@@ -32,8 +32,8 @@ const tagGroupContent = html`
   </dds-tag-group>
 `;
 
-export const Default = args => {
-  const { image, href, alt, defaultSrc, heading, eyebrow, tagGroup, copy, footer, cardStyles } = args?.Card ?? {};
+export const Default = ({ parameters }) => {
+  const { image, href, alt, defaultSrc, heading, eyebrow, tagGroup, copy, footer, cardStyles } = parameters?.props?.Card ?? {};
   /* eslint-disable no-nested-ternary */
   return html`
     <dds-card
@@ -74,17 +74,17 @@ Default.story = {
   parameters: {
     ...readme.parameters,
     knobs: {
-      Card: () => ({
-        image: boolean('Add image:', false, 'Default'),
-        eyebrow: textNullable('Eyebrow:', 'Industry', 'Default'),
-        heading: textNullable('Heading:', 'Aerospace and defence', 'Default'),
-        copy: textNullable('Body copy:', '', 'Default'),
+      Card: ({ groupId }) => ({
+        image: boolean('Add image:', false, groupId),
+        eyebrow: textNullable('Eyebrow:', 'Industry', groupId),
+        heading: textNullable('Heading:', 'Aerospace and defence', groupId),
+        copy: textNullable('Body copy:', '', groupId),
         alt: 'Image alt text',
         defaultSrc: imgXlg4x3,
-        tagGroup: boolean('Add tags:', false, 'Default'),
+        tagGroup: boolean('Add tags:', false, groupId),
         href: 'https://example.com',
-        footer: textNullable('CTA:', 'Learn more', 'Default'),
-        cardStyles: select('Card style:', ['Outlined card', 'Inverse card', 'none'], 'none', 'Default'),
+        footer: textNullable('CTA:', 'Learn more', groupId),
+        cardStyles: select('Card style:', ['Outlined card', 'Inverse card', 'none'], 'none', groupId),
       }),
     },
     propsSet: {
@@ -106,8 +106,8 @@ Default.story = {
   },
 };
 
-export const Pictogram = args => {
-  const { href, heading, copy, tagGroup, pictogramPlacement, cardStyles } = args?.PictogramCard ?? {};
+export const Pictogram = ({ parameters }) => {
+  const { href, heading, copy, tagGroup, pictogramPlacement, cardStyles } = parameters?.props?.PictogramCard ?? {};
   return html`
     <dds-card
       pictogram-placement="${pictogramPlacement}"
@@ -155,20 +155,20 @@ Pictogram.story = {
   parameters: {
     ...readme.parameters,
     knobs: {
-      PictogramCard: () => {
-        const pictogramPlacement = select('Pictogram position:', pictogramPlacements, pictogramPlacements.top, 'pictogram');
+      PictogramCard: ({ groupId }) => {
+        const pictogramPlacement = select('Pictogram position:', pictogramPlacements, pictogramPlacements.top, groupId);
         const copy = textNullable(
           'Body copy:',
           `Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
            Ut enim ad minim veniam, quis nostrud exercitation.`,
-          'pictogram'
+          groupId
         );
         return {
           pictogramPlacement,
-          heading: textNullable('Heading:', 'Aerospace and defence', 'pictogram'),
+          heading: textNullable('Heading:', 'Aerospace and defence', groupId),
           copy,
           href: 'https://example.com',
-          cardStyles: select('Card style:', ['Outlined card', 'Inverse card', 'none'], 'none', 'pictogram'),
+          cardStyles: select('Card style:', ['Outlined card', 'Inverse card', 'none'], 'none', groupId),
         };
       },
     },
@@ -187,8 +187,8 @@ Pictogram.story = {
   },
 };
 
-export const Static = args => {
-  const { image, alt, defaultSrc, outlinedCard, eyebrow, heading, copy, tagGroup, cta, ctaCopy } = args?.Card ?? {};
+export const Static = ({ parameters }) => {
+  const { image, alt, defaultSrc, outlinedCard, eyebrow, heading, copy, tagGroup, cta, ctaCopy } = parameters?.props?.Card ?? {};
   return html`
     <dds-card color-scheme=${outlinedCard ? 'light' : ''} ?border=${outlinedCard}>
       ${image
@@ -227,20 +227,20 @@ Static.story = {
   parameters: {
     ...readme.parameters,
     knobs: {
-      Card: () => {
-        const image = boolean('Add image:', false, 'static');
-        const eyebrow = textNullable('Eyebrow:', 'SPSS Statistics', 'static');
-        const heading = textNullable('Heading:', 'Free trial', 'static');
+      Card: ({ groupId }) => {
+        const image = boolean('Add image:', false, groupId);
+        const eyebrow = textNullable('Eyebrow:', 'SPSS Statistics', groupId);
+        const heading = textNullable('Heading:', 'Free trial', groupId);
         const copy = textNullable(
           'Body copy:',
           'Enjoy full SPSS Statistics capabilities including all add-ons. ' +
             'All trial registrants are restricted to one free trial per computer per user.',
-          'static'
+          groupId
         );
-        const tagGroup = boolean('Add tags:', false, 'static');
-        const cta = boolean('Add CTA:', false, 'static');
-        const ctaCopy = cta ? textNullable('CTA copy:', 'Sign up for the trial', 'static') : '';
-        const outlinedCard = boolean('Outlined card:', true, 'static');
+        const tagGroup = boolean('Add tags:', false, groupId);
+        const cta = boolean('Add CTA:', false, groupId);
+        const ctaCopy = cta ? textNullable('CTA copy:', 'Sign up for the trial', groupId) : '';
+        const outlinedCard = boolean('Outlined card:', true, groupId);
         return {
           alt: 'Image alt text',
           defaultSrc: imgXlg4x3,
@@ -274,8 +274,8 @@ Static.story = {
   },
 };
 
-export const Logo = args => {
-  const { alt, defaultSrc, eyebrow, heading, href, copy, tagGroup } = args?.Card ?? {};
+export const Logo = ({ parameters }) => {
+  const { alt, defaultSrc, eyebrow, heading, href, copy, tagGroup } = parameters?.props?.Card ?? {};
   return html`
     <dds-card border logo href=${ifNonNull(href || undefined)}>
       <dds-image-logo slot="image" alt="${ifNonNull(alt)}" default-src="${ifNonNull(defaultSrc)}"></dds-image-logo>
@@ -309,16 +309,16 @@ Logo.story = {
   parameters: {
     ...readme.parameters,
     knobs: {
-      Card: () => ({
+      Card: ({ groupId }) => ({
         alt: 'Image alt text',
         defaultSrc: logoMicrosoft2x1,
-        tagGroup: boolean('Add tags', true, 'logo'),
-        eyebrow: textNullable('Card Eyebrow:', 'Microsoft', 'logo'),
-        heading: textNullable('Card Heading (optional):', '', 'logo'),
+        tagGroup: boolean('Add tags', true, groupId),
+        eyebrow: textNullable('Card Eyebrow:', 'Microsoft', groupId),
+        heading: textNullable('Card Heading (optional):', '', groupId),
         copy: textNullable(
           'Card body copy:',
           'Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.',
-          'logo'
+          groupId
         ),
         href: 'https://example.com',
       }),

@@ -22,16 +22,6 @@ const { stablePrefix: ddsPrefix } = ddsSettings;
  */
 @customElement(`${ddsPrefix}-expressive-modal-heading`)
 class DDSExpressiveModalHeading extends StableSelectorMixin(BXModalHeading) {
-  connectedCallback() {
-    if (!this.hasAttribute('role')) {
-      this.setAttribute('role', 'heading');
-    }
-    if (!this.hasAttribute('aria-level')) {
-      this.setAttribute('aria-level', '2');
-    }
-    super.connectedCallback();
-  }
-
   static get stableSelector() {
     return `${ddsPrefix}--expressive-modal-heading`;
   }

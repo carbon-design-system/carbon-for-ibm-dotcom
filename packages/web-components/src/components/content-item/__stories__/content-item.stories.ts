@@ -14,8 +14,8 @@ import readme from './README.stories.mdx';
 import textNullable from '../../../../.storybook/knob-text-nullable';
 import imgLg16x9 from '../../../../../storybook-images/assets/720/fpo--16x9--720x405--005.jpg';
 
-export const Default = args => {
-  const { heading, media, copy, showCopy, ctaStyle, ctaCopy } = args?.ContentItem ?? {};
+export const Default = ({ parameters }) => {
+  const { heading, media, copy, showCopy, ctaStyle, ctaCopy } = parameters?.props?.ContentItem ?? {};
   return html`
     <dds-content-item>
       ${media === 'image'

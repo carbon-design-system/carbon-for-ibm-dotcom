@@ -1,7 +1,7 @@
 /**
  * @license
  *
- * Copyright IBM Corp. 2020, 2022
+ * Copyright IBM Corp. 2020, 2021
  *
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
@@ -12,7 +12,6 @@ import ArrowRight20 from 'carbon-web-components/es/icons/arrow--right/20';
 import ifNonNull from 'carbon-web-components/es/globals/directives/if-non-null.js';
 import { optionsKnob } from '@storybook/addon-knobs';
 import '../index';
-import '../../cta/text-cta';
 import readme from './README.stories.mdx';
 import textNullable from '../../../../.storybook/knob-text-nullable';
 
@@ -52,8 +51,8 @@ const card2 = html`
   </dds-content-group-cards-item>
 `;
 
-export const Default = args => {
-  const { heading, copy, addChildren } = args?.ContentSection ?? {};
+export const Default = ({ parameters }) => {
+  const { heading, copy, addChildren } = parameters?.props?.ContentSection ?? {};
   return html`
     <dds-content-section children-custom-class="bx--col-lg-8 bx--no-gutter">
       <dds-content-section-heading>${ifNonNull(heading)}</dds-content-section-heading>

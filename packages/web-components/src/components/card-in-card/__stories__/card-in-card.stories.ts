@@ -1,7 +1,7 @@
 /**
  * @license
  *
- * Copyright IBM Corp. 2021, 2022
+ * Copyright IBM Corp. 2021
  *
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
@@ -24,8 +24,8 @@ import imgSm4x3 from '../../../../../storybook-images/assets/480/fpo--4x3--480x3
 import readme from './README.stories.mdx';
 import textNullable from '../../../../.storybook/knob-text-nullable';
 
-export const Default = args => {
-  const { video, eyebrow, heading, defaultSrc, alt, href } = args?.['dds-card-in-card'] ?? {};
+export const Default = ({ parameters }) => {
+  const { video, eyebrow, heading, defaultSrc, alt, href } = parameters?.props?.['dds-card-in-card'] ?? {};
   if (video) {
     return html`
       <dds-video-cta-container>

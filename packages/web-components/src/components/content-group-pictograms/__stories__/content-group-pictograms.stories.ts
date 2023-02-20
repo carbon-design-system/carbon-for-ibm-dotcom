@@ -62,8 +62,8 @@ export default {
     ...readme.parameters,
     hasStoryPadding: true,
     knobs: {
-      ContentGroupPictograms: () => ({
-        heading: textNullable('Heading (heading)', 'Lorem ipsum dolor sit amet'),
+      ContentGroupPictograms: ({ groupId }) => ({
+        heading: textNullable('Heading (heading)', 'Lorem ipsum dolor sit amet', groupId),
         copy: `Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum non porttitor libero, in venenatis magna.
           Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum non porttitor libero, in venenatis magna.
           Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum non porttitor libero, in venenatis magna.`,
@@ -82,8 +82,8 @@ export default {
   },
 };
 
-export const Default = args => {
-  const { heading: groupHeading, copy: groupCopy } = args?.ContentGroupPictograms ?? {};
+export const Default = ({ parameters }) => {
+  const { heading: groupHeading, copy: groupCopy } = parameters?.props?.ContentGroupPictograms ?? {};
   return html`
     <dds-content-group-pictograms>
       <dds-content-group-heading>${groupHeading}</dds-content-group-heading>

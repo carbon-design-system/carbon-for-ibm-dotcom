@@ -1,7 +1,7 @@
 /**
  * @license
  *
- * Copyright IBM Corp. 2020, 2022
+ * Copyright IBM Corp. 2020, 2021
  *
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
@@ -22,7 +22,7 @@ import mockLocaleList from '../../locale-modal/__stories__/locale-data.json';
 import readme from './README.stories.mdx';
 import styles from './footer.stories.scss';
 
-export const base = args => {
+export const base = ({ parameters }) => {
   const {
     langDisplay,
     language,
@@ -36,8 +36,8 @@ export const base = args => {
     languageSelectorLabel,
     selectedLanguage,
     adjunctLinks,
-  } = args?.FooterComposite ?? {};
-  const { useMock } = args?.Other ?? {};
+  } = parameters?.props?.FooterComposite ?? {};
+  const { useMock } = parameters?.props?.Other ?? {};
 
   return html`
     <style>
@@ -81,30 +81,32 @@ export const base = args => {
   `;
 };
 
-export const Default = args => {
-  args.FooterComposite = {
-    ...(args.FooterComposite || {}),
+export const Default = ({ parameters }) => {
+  const { props = {} } = parameters;
+  props.FooterComposite = {
+    ...(props.FooterComposite || {}),
     size: FOOTER_SIZE.REGULAR,
     langList: '',
     adjunctLinks: [],
   };
-  return base(args);
+  return base({ parameters });
 };
 
-export const defaultWithAdjunctLegalLinks = args => {
-  args.FooterComposite = {
-    ...(args.FooterComposite || {}),
+export const defaultWithAdjunctLegalLinks = ({ parameters }) => {
+  const { props = {} } = parameters;
+  props.FooterComposite = {
+    ...(props.FooterComposite || {}),
     size: FOOTER_SIZE.REGULAR,
   };
-  return base(args);
+  return base({ parameters });
 };
 
 defaultWithAdjunctLegalLinks.story = {
   name: 'Default with adjunct legal links',
   parameters: {
     knobs: {
-      FooterComposite: () => ({
-        adjunctLinks: object('adjunct links (adjunctLinks):', mockAdjunctLinks),
+      FooterComposite: ({ groupId }) => ({
+        adjunctLinks: object('adjunct links (adjunctLinks):', mockAdjunctLinks, groupId),
       }),
     },
     propsSet: {
@@ -117,9 +119,10 @@ defaultWithAdjunctLegalLinks.story = {
   },
 };
 
-export const defaultLanguageOnly = args => {
-  args.FooterComposite = {
-    ...(args.FooterComposite || {}),
+export const defaultLanguageOnly = ({ parameters }) => {
+  const { props = {} } = parameters;
+  props.FooterComposite = {
+    ...(props.FooterComposite || {}),
     size: FOOTER_SIZE.REGULAR,
     languageSelectorLabel: 'Choose a language',
     clearSelectionLabel: 'Clear language selection',
@@ -127,7 +130,7 @@ export const defaultLanguageOnly = args => {
     adjunctLinks: [],
   };
   return html`
-    <div class="default-language-only">${base(args)}</div>
+    <div class="default-language-only">${base({ parameters })}</div>
   `;
 };
 
@@ -135,9 +138,9 @@ defaultLanguageOnly.story = {
   name: 'Default language only',
   parameters: {
     knobs: {
-      FooterComposite: () => ({
-        disableLocaleButton: boolean('hide the locale button (disable-locale-button)', false),
-        langList: object('language dropdown items (langList)', mockLangList),
+      FooterComposite: ({ groupId }) => ({
+        disableLocaleButton: boolean('hide the locale button (disable-locale-button)', false, groupId),
+        langList: object('language dropdown items (langList)', mockLangList, groupId),
       }),
     },
     propsSet: {
@@ -151,30 +154,32 @@ defaultLanguageOnly.story = {
   },
 };
 
-export const short = args => {
-  args.FooterComposite = {
-    ...(args.FooterComposite || {}),
+export const short = ({ parameters }) => {
+  const { props = {} } = parameters;
+  props.FooterComposite = {
+    ...(props.FooterComposite || {}),
     size: FOOTER_SIZE.SHORT,
     langList: '',
     adjunctLinks: [],
   };
-  return base(args);
+  return base({ parameters });
 };
 
-export const shortWithAdjunctLegalLinks = args => {
-  args.FooterComposite = {
-    ...(args.FooterComposite || {}),
+export const shortWithAdjunctLegalLinks = ({ parameters }) => {
+  const { props = {} } = parameters;
+  props.FooterComposite = {
+    ...(props.FooterComposite || {}),
     size: FOOTER_SIZE.SHORT,
   };
-  return base(args);
+  return base({ parameters });
 };
 
 shortWithAdjunctLegalLinks.story = {
   name: 'Short with adjunct legal links',
   parameters: {
     knobs: {
-      FooterComposite: () => ({
-        adjunctLinks: object('adjunct links (adjunctLinks):', mockAdjunctLinks),
+      FooterComposite: ({ groupId }) => ({
+        adjunctLinks: object('adjunct links (adjunctLinks):', mockAdjunctLinks, groupId),
       }),
     },
     propsSet: {
@@ -187,25 +192,26 @@ shortWithAdjunctLegalLinks.story = {
   },
 };
 
-export const shortLanguageOnly = args => {
-  args.FooterComposite = {
-    ...(args.FooterComposite || {}),
+export const shortLanguageOnly = ({ parameters }) => {
+  const { props = {} } = parameters;
+  props.FooterComposite = {
+    ...(props.FooterComposite || {}),
     size: FOOTER_SIZE.SHORT,
     languageSelectorLabel: 'Choose a language',
     clearSelectionLabel: 'Clear language selection',
     selectedLanguage: 'English',
     adjunctLinks: [],
   };
-  return base(args);
+  return base({ parameters });
 };
 
 shortLanguageOnly.story = {
   name: 'Short language only',
   parameters: {
     knobs: {
-      FooterComposite: () => ({
-        disableLocaleButton: boolean('hide the locale button (disable-locale-button)', false),
-        langList: object('language dropdown items (langList)', mockLangList),
+      FooterComposite: ({ groupId }) => ({
+        disableLocaleButton: boolean('hide the locale button (disable-locale-button)', false, groupId),
+        langList: object('language dropdown items (langList)', mockLangList, groupId),
       }),
     },
     propsSet: {
@@ -219,27 +225,29 @@ shortLanguageOnly.story = {
   },
 };
 
-export const micro = args => {
-  args.FooterComposite = {
-    ...(args.FooterComposite || {}),
+export const micro = ({ parameters }) => {
+  const { props = {} } = parameters;
+  props.FooterComposite = {
+    ...(props.FooterComposite || {}),
     size: FOOTER_SIZE.MICRO,
     langList: '',
   };
   return html`
-    ${base(args)}
+    ${base({ parameters })}
   `;
 };
 
-export const microLanguageOnly = args => {
-  args.FooterComposite = {
-    ...(args.FooterComposite || {}),
+export const microLanguageOnly = ({ parameters }) => {
+  const { props = {} } = parameters;
+  props.FooterComposite = {
+    ...(props.FooterComposite || {}),
     size: FOOTER_SIZE.MICRO,
     languageSelectorLabel: 'Choose a language',
     clearSelectionLabel: 'Clear language selection',
     selectedLanguage: 'English',
   };
   return html`
-    ${base(args)}
+    ${base({ parameters })}
   `;
 };
 
@@ -247,9 +255,9 @@ microLanguageOnly.story = {
   name: 'Micro language only',
   parameters: {
     knobs: {
-      FooterComposite: () => ({
-        disableLocaleButton: boolean('hide the locale button (disable-locale-button)', false),
-        langList: object('language dropdown items (langList)', mockLangList),
+      FooterComposite: ({ groupId }) => ({
+        disableLocaleButton: boolean('hide the locale button (disable-locale-button)', false, groupId),
+        langList: object('language dropdown items (langList)', mockLangList, groupId),
       }),
     },
     propsSet: {
@@ -268,8 +276,8 @@ export default {
   parameters: {
     ...readme.parameters,
     knobs: {
-      FooterComposite: () => ({
-        disableLocaleButton: boolean('hide the locale button (disable-locale-button)', false),
+      FooterComposite: ({ groupId }) => ({
+        disableLocaleButton: boolean('hide the locale button (disable-locale-button)', false, groupId),
       }),
     },
     props: (() => {

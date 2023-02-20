@@ -1,5 +1,5 @@
 /**
- * Copyright IBM Corp. 2016, 2022
+ * Copyright IBM Corp. 2016, 2021
  *
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
@@ -100,170 +100,62 @@ Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus sed interdum to
 ];
 
 /**
+ * @param {object} options The options.
+ * @param {string} options.groupId The knob group ID.
  * @returns {object} The knobs data.
  */
-const getBaseKnobs = () => {
+const getBaseKnobs = ({ groupId }) => {
   return {
-    heading: text('Heading (heading):', 'Lorem ipsum dolor sit amet.'),
+    heading: text('Heading (heading):', 'Lorem ipsum dolor sit amet.', groupId),
     copy: text(
       'Copy (copy):',
-      'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean et ultricies est. Mauris iaculis eget dolor nec hendrerit. Phasellus at elit sollicitudin, sodales nulla quis, consequat libero. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean et ultricies est. Mauris iaculis eget dolor nec hendrerit.'
+      'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean et ultricies est. Mauris iaculis eget dolor nec hendrerit. Phasellus at elit sollicitudin, sodales nulla quis, consequat libero. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean et ultricies est. Mauris iaculis eget dolor nec hendrerit.',
+      groupId
     ),
   };
 };
 
 /**
+ * @param {object} options The options.
+ * @param {string} options.groupId The knob group ID.
  * @returns {object} The knobs data.
  */
-const getCTAKnobs = () => {
+const getCTAKnobs = ({ groupId }) => {
   return {
     cta: {
       cta: {
         href: 'https://www.example.com',
       },
-      style: select('CTA style (style):', ctaStyles, ctaStyles.card),
-      type: select('CTA type (type):', ctaTypes, ctaTypes.local),
+      style: select('CTA style (style):', ctaStyles, ctaStyles.card, groupId),
+      type: select('CTA type (type):', ctaTypes, ctaTypes.local, groupId),
       heading: 'Lorem ipsum dolor',
       copy: 'Lorem ipsum dolor',
     },
   };
 };
 
-const props = {
-  default: () => {
-    const knobs = getBaseKnobs();
-    const ctaKnobs = getCTAKnobs();
-    if (ctaKnobs.cta.style === 'card') {
-      delete ctaKnobs.cta.copy;
-    } else {
-      delete ctaKnobs.cta.heading;
-    }
-
-    return {
-      ...knobs,
-      ...ctaKnobs,
-      items: defaultItems,
-      border: select(
-        'Container bottom border',
-        borderOptions,
-        borderOptions['With border']
-      ),
-    };
-  },
-  WithLinkList: () => {
-    const knobs = getBaseKnobs();
-    const items = defaultItems;
-
-    const linkListProps = {
-      heading: text('Link list heading (heading):', 'Tutorials'),
-      items: [
-        {
-          type: 'local',
-          copy: 'Containerization A Complete Guide',
-          cta: {
-            href: 'https://ibm.com',
-          },
-        },
-        {
-          type: 'external',
-          copy: 'Why should you use microservices and containers',
-          cta: {
-            href: 'https://ibm.com',
-          },
-        },
-        {
-          type: 'local',
-          copy: 'Learn more about Kubernetes',
-          cta: {
-            href: 'https://ibm.com',
-          },
-        },
-        {
-          type: 'local',
-          copy: 'Explore AI use cases in all industries',
-          cta: {
-            href: 'https://ibm.com',
-          },
-        },
-      ],
-      totalLinks: select('Number of links', [2, 3, 4], 2),
-    };
-
-    linkListProps.items = linkListProps.items.slice(
-      0,
-      linkListProps.totalLinks
-    );
-
-    const ctaKnobs = getCTAKnobs();
-    if (ctaKnobs.cta.style === 'card') {
-      delete ctaKnobs.cta.copy;
-    } else {
-      delete ctaKnobs.cta.heading;
-    }
-
-    const aside = {
-      items: <LinkList style="card" {...linkListProps} />,
-      border: select(
-        'Container bottom border',
-        borderOptions,
-        borderOptions['With border']
-      ),
-    };
-
-    const result = {
-      ...knobs,
-      ...ctaKnobs,
-      heading: 'Lorem ipsum dolor sit amet.',
-      // The URL in the JSON from the knob gets `&amp`
-      items: items.map(item => {
-        return {
-          ...item,
-          image: !item.image
-            ? undefined
-            : {
-                ...item.image,
-                image: !item.image.image
-                  ? undefined
-                  : {
-                      ...item.image.image,
-                      sources: item.image.image.sources?.map(item => ({
-                        ...item,
-                        src: item.src?.replace(/&amp;/g, '&'),
-                      })),
-                      defaultSrc: item.image.image.defaultSrc?.replace(
-                        /&amp;/g,
-                        '&'
-                      ),
-                    },
-              },
-        };
-      }),
-      aside,
-    };
-
-    return result;
-  },
-};
-
 export default {
-  title: 'Components/Content block segmented',
+  title: 'Components|Content block segmented',
   parameters: {
     ...readme.parameters,
-    percy: {
-      name: 'Components|Content block segmented: Default',
-    },
   },
 };
 
-export const Default = () => {
+export const Default = ({ parameters }) => {
+  const { copy, cta, heading, items, border } =
+    parameters?.props?.ContentBlockSegmented ?? {};
   return (
     <div className={`${prefix}--grid`}>
       <div className="bx--row">
         <div className="bx--col-lg-8 bx--col-sm-4 bx--offset-lg-4">
           <ContentBlockSegmented
-            {...props.default()}
+            copy={copy}
+            cta={cta}
+            heading={heading}
             mediaType="image"
             mediaData={image}
+            items={items}
+            border={border}
           />
         </div>
       </div>
@@ -273,6 +165,29 @@ export const Default = () => {
 
 Default.story = {
   parameters: {
+    knobs: {
+      ContentBlockSegmented: ({ groupId }) => {
+        const knobs = getBaseKnobs({ groupId });
+        const ctaKnobs = getCTAKnobs({ groupId });
+        if (ctaKnobs.cta.style === 'card') {
+          delete ctaKnobs.cta.copy;
+        } else {
+          delete ctaKnobs.cta.heading;
+        }
+
+        return {
+          ...knobs,
+          ...ctaKnobs,
+          items: defaultItems,
+          border: select(
+            'Container bottom border',
+            borderOptions,
+            borderOptions['With border'],
+            groupId
+          ),
+        };
+      },
+    },
     propsSet: {
       default: {
         ContentBlockSegmented: {
@@ -283,15 +198,21 @@ Default.story = {
   },
 };
 
-export const WithLinkList = () => {
+export const WithLinkList = ({ parameters }) => {
+  const { copy, cta, heading, items, aside } =
+    parameters?.props?.ContentBlockSegmented ?? {};
   return (
     <div className={`${prefix}--grid`}>
       <div className="bx--row">
         <div className="bx--col-sm-4 bx--col-lg-12 bx--offset-lg-4">
           <ContentBlockSegmented
-            {...props.WithLinkList()}
+            copy={copy}
+            cta={cta}
+            heading={heading}
             mediaType="image"
             mediaData={image}
+            items={items}
+            aside={aside}
           />
         </div>
       </div>
@@ -302,8 +223,101 @@ export const WithLinkList = () => {
 WithLinkList.story = {
   name: 'With link list',
   parameters: {
-    percy: {
-      name: 'Components|Content block segmented: With link list',
+    knobs: {
+      ContentBlockSegmented: ({ groupId }) => {
+        const knobs = getBaseKnobs({ groupId });
+        const items = defaultItems;
+
+        const linkListProps = {
+          heading: text('Link list heading (heading):', 'Tutorials', groupId),
+          items: [
+            {
+              type: 'local',
+              copy: 'Containerization A Complete Guide',
+              cta: {
+                href: 'https://ibm.com',
+              },
+            },
+            {
+              type: 'external',
+              copy: 'Why should you use microservices and containers',
+              cta: {
+                href: 'https://ibm.com',
+              },
+            },
+            {
+              type: 'local',
+              copy: 'Learn more about Kubernetes',
+              cta: {
+                href: 'https://ibm.com',
+              },
+            },
+            {
+              type: 'local',
+              copy: 'Explore AI use cases in all industries',
+              cta: {
+                href: 'https://ibm.com',
+              },
+            },
+          ],
+          totalLinks: select('Number of links', [2, 3, 4], 2, groupId),
+        };
+
+        linkListProps.items = linkListProps.items.slice(
+          0,
+          linkListProps.totalLinks
+        );
+
+        const ctaKnobs = getCTAKnobs({ groupId });
+        if (ctaKnobs.cta.style === 'card') {
+          delete ctaKnobs.cta.copy;
+        } else {
+          delete ctaKnobs.cta.heading;
+        }
+
+        const aside = {
+          items: <LinkList style="card" {...linkListProps} />,
+          border: select(
+            'Container bottom border',
+            borderOptions,
+            borderOptions['With border'],
+            groupId
+          ),
+        };
+
+        const result = {
+          ...knobs,
+          ...ctaKnobs,
+          heading: 'Lorem ipsum dolor sit amet.',
+          // The URL in the JSON from the knob gets `&amp`
+          items: items.map(item => {
+            return {
+              ...item,
+              image: !item.image
+                ? undefined
+                : {
+                    ...item.image,
+                    image: !item.image.image
+                      ? undefined
+                      : {
+                          ...item.image.image,
+                          sources: item.image.image.sources?.map(item => ({
+                            ...item,
+                            src: item.src?.replace(/&amp;/g, '&'),
+                          })),
+                          defaultSrc: item.image.image.defaultSrc?.replace(
+                            /&amp;/g,
+                            '&'
+                          ),
+                        },
+                  },
+            };
+          }),
+          aside,
+        };
+
+        return result;
+      },
     },
     propsSet: {
       default: {

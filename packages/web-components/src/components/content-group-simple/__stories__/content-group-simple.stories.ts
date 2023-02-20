@@ -8,7 +8,6 @@
  */
 
 import '../index';
-import '../../cta/index';
 import { html } from 'lit-element';
 import ifNonNull from 'carbon-web-components/es/globals/directives/if-non-null.js';
 import { select } from '@storybook/addon-knobs';
@@ -103,9 +102,9 @@ const image = ({ heading: imageHeading } = { heading: undefined }) => html`
   </dds-image>
 `;
 
-export const Default = args => {
-  const { copy: groupCopy, heading: groupHeading, mediaType } = args?.ContentGroupSimple ?? {};
-  const { copy: ctaCopy, ctaType, href } = args?.CardCTA ?? {};
+export const Default = ({ parameters }) => {
+  const { copy: groupCopy, heading: groupHeading, mediaType } = parameters?.props?.ContentGroupSimple ?? {};
+  const { copy: ctaCopy, ctaType, href } = parameters?.props?.CardCTA ?? {};
   return html`
     <dds-content-group-simple>
       <dds-content-group-heading>${groupHeading}</dds-content-group-heading>
@@ -151,17 +150,17 @@ export default {
     ...readme.parameters,
     hasStoryPadding: true,
     knobs: {
-      ContentGroupSimple: () => ({
+      ContentGroupSimple: ({ groupId }) => ({
         copy: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum non porttitor libero, in venenatis magna.',
-        heading: textNullable('Heading (heading)', 'Curabitur malesuada varius mi eu posuere'),
-        mediaType: select('With media', mediaTypes, MEDIA_TYPE.IMAGE),
+        heading: textNullable('Heading (heading)', 'Curabitur malesuada varius mi eu posuere', groupId),
+        mediaType: select('With media', mediaTypes, MEDIA_TYPE.IMAGE, groupId),
       }),
-      CardCTA: () => {
-        const ctaType = select('CTA type (cta-type)', ctaTypes, CTA_TYPE.LOCAL);
+      CardCTA: ({ groupId }) => {
+        const ctaType = select('CTA type (cta-type)', ctaTypes, CTA_TYPE.LOCAL, groupId);
         return {
-          copy: textNullable('Copy text (copy)', 'Lorem ipsum dolor sit amet'),
+          copy: textNullable('Copy text (copy)', 'Lorem ipsum dolor sit amet', groupId),
           ctaType,
-          href: textNullable(knobNamesForType[ctaType ?? CTA_TYPE.LOCAL], hrefsForType[ctaType ?? CTA_TYPE.LOCAL]),
+          href: textNullable(knobNamesForType[ctaType ?? CTA_TYPE.LOCAL], hrefsForType[ctaType ?? CTA_TYPE.LOCAL], groupId),
         };
       },
     },

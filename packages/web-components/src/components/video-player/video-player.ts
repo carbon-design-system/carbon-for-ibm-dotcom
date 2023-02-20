@@ -24,7 +24,6 @@ import '../image/image';
 import styles from './video-player.scss';
 import StableSelectorMixin from '../../globals/mixins/stable-selector';
 import DDSVideoPlayerContainer from './video-player-container';
-import ParentVisibilityMixin from '../../component-mixins/parent-visibility/parent-visibility';
 
 export { VIDEO_PLAYER_CONTENT_STATE };
 export { VIDEO_PLAYER_PLAYING_MODE };
@@ -38,7 +37,7 @@ const { stablePrefix: ddsPrefix } = ddsSettings;
  * @element dds-video-player
  */
 @customElement(`${ddsPrefix}-video-player`)
-class DDSVideoPlayer extends FocusMixin(StableSelectorMixin(ParentVisibilityMixin(LitElement))) {
+class DDSVideoPlayer extends FocusMixin(StableSelectorMixin(LitElement)) {
   /**
    * The video player's mode showing Inline or Lightbox.
    */
@@ -102,10 +101,6 @@ class DDSVideoPlayer extends FocusMixin(StableSelectorMixin(ParentVisibilityMixi
         width: String(this.offsetWidth),
       });
     }
-  }
-
-  public _onParentVisible() {
-    this._updateThumbnailUrl();
   }
 
   /**

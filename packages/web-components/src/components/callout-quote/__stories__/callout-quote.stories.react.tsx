@@ -30,8 +30,8 @@ const types = {
   [`${QUOTE_TYPES.CORNER_BRACKET}`]: QUOTE_TYPES.CORNER_BRACKET,
 };
 
-export const Default = args => {
-  const { copy, quoteMark, sourceHeading, sourceCopy, sourceBottomCopy } = args?.CalloutQuote ?? {};
+export const Default = ({ parameters }) => {
+  const { copy, quoteMark, sourceHeading, sourceCopy, sourceBottomCopy } = parameters?.props?.CalloutQuote ?? {};
   return (
     <DDSCalloutQuote mark-type={quoteMark}>
       {copy}
@@ -48,12 +48,12 @@ export const Default = args => {
 Default.story = {
   parameters: {
     knobs: {
-      CalloutQuote: () => ({
-        copy: textNullable('Quote (copy):', 'Bringing together the technology and expertise for a new way to create'),
-        quoteMark: select('Quote Mark (markType):', types, types.doubleCurved),
-        sourceHeading: textNullable('Source heading (source-heading slot)', 'John Doe'),
-        sourceCopy: textNullable('Source copy (source-copy slot)', 'Senior Vice President'),
-        sourceBottomCopy: textNullable('Source bottom copy (source-bottom-copy slot)', 'IBM Cloud'),
+      CalloutQuote: ({ groupId }) => ({
+        copy: textNullable('Quote (copy):', 'Bringing together the technology and expertise for a new way to create', groupId),
+        quoteMark: select('Quote Mark (markType):', types, types.doubleCurved, groupId),
+        sourceHeading: textNullable('Source heading (source-heading slot)', 'John Doe', groupId),
+        sourceCopy: textNullable('Source copy (source-copy slot)', 'Senior Vice President', groupId),
+        sourceBottomCopy: textNullable('Source bottom copy (source-bottom-copy slot)', 'IBM Cloud', groupId),
       }),
     },
     propsSet: {

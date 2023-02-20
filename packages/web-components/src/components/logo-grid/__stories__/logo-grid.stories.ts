@@ -11,8 +11,7 @@ import '../logo-grid';
 import '../../content-block/content-block-heading';
 import '../logo-grid-item';
 import '../logo-grid-link';
-import '../../card-link/card-link-heading';
-import '../../card/card-footer';
+import '../../card/card-heading';
 import { boolean, text, select } from '@storybook/addon-knobs';
 import { html } from 'lit-element';
 import ArrowRight20 from 'carbon-web-components/es/icons/arrow--right/20.js';
@@ -20,8 +19,8 @@ import logos from './data/logos.js';
 import readme from './README.stories.mdx';
 import textNullable from '../../../../.storybook/knob-text-nullable';
 
-export const Default = args => {
-  const { heading, logoCount, logoRatio, logosGroup, hideBorder, showCta, ctaCopy, ctaHref } = args?.LogoGrid ?? {};
+export const Default = ({ parameters }) => {
+  const { heading, logoCount, logoRatio, logosGroup, hideBorder, showCta, ctaCopy, ctaHref } = parameters?.props?.LogoGrid ?? {};
 
   return html`
     <dds-logo-grid ?hide-border="${hideBorder}" logo-count="${logoCount}" logo-ratio="${logoRatio}">
@@ -65,15 +64,20 @@ export default {
     ...readme.parameters,
     hasStoryPadding: true,
     knobs: {
-      LogoGrid: () => ({
-        heading: textNullable('Heading (heading)', 'Our customers'),
-        logoCount: select('Column count (logoCount)', { 'Default (3)': '3', '4': '4' }, '3'),
-        logoRatio: select('Logo aspect ratio (logoRatio)', { 'Default (4:3)': '4:3', '16:9': '16:9', '2:1': '2:1' }, '4:3'),
+      LogoGrid: ({ groupId }) => ({
+        heading: textNullable('Heading (heading)', 'Our customers', groupId),
+        logoCount: select('Column count (logoCount)', { 'Default (3)': '3', '4': '4' }, '3', groupId),
+        logoRatio: select(
+          'Logo aspect ratio (logoRatio)',
+          { 'Default (4:3)': '4:3', '16:9': '16:9', '2:1': '2:1' },
+          '4:3',
+          groupId
+        ),
         logosGroup: logos,
-        hideBorder: boolean('Hide border (hideBorder): Hide the bottom border', false),
-        showCta: boolean('Display CTA:', false),
-        ctaCopy: text('CTA Copy (ctaCopy)', 'Lorem ipsum dolor sit amet'),
-        ctaHref: text('CTA Href (ctaHref):', 'http://local.url.com/'),
+        hideBorder: boolean('Hide border (hideBorder): Hide the bottom border', false, groupId),
+        showCta: boolean('Display CTA:', false, groupId),
+        ctaCopy: text('CTA Copy (ctaCopy)', 'Lorem ipsum dolor sit amet', groupId),
+        ctaHref: text('CTA Href (ctaHref):', 'http://local.url.com/', groupId),
       }),
     },
     propsSet: {

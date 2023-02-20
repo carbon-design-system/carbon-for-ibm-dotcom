@@ -70,8 +70,8 @@ const buttonCTA = (
   </DDSLeadspaceBlockCTA>
 );
 
-export const Default = args => {
-  const { title, heading, copy } = args?.LeadSpaceBlock ?? {};
+export const Default = ({ parameters }) => {
+  const { title, heading, copy } = parameters?.props?.LeadSpaceBlock ?? {};
   return (
     <DDSLeadspaceBlock>
       <DDSLeadspaceBlockHeading>{title}</DDSLeadspaceBlockHeading>
@@ -85,8 +85,8 @@ export const Default = args => {
   );
 };
 
-export const withVideo = args => {
-  const { title, heading, copy } = args?.LeadSpaceBlock ?? {};
+export const withVideo = ({ parameters }) => {
+  const { title, heading, copy } = parameters?.props?.LeadSpaceBlock ?? {};
   return (
     <DDSLeadspaceBlock>
       <DDSLeadspaceBlockHeading>{title}</DDSLeadspaceBlockHeading>

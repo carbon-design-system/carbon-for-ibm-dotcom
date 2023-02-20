@@ -22,8 +22,8 @@ const orientationType = {
   [`vertical`]: ORIENTATION.VERTICAL,
 };
 
-export const Default = args => {
-  const { orientation } = args?.TabsExtended ?? {};
+export const Default = ({ parameters }) => {
+  const { orientation } = parameters?.props?.TabsExtended ?? {};
   return (
     <DDSTabsExtended orientation={orientation || undefined}>
       <DDSTab

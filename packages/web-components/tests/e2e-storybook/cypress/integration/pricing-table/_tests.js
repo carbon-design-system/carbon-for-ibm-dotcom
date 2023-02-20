@@ -58,7 +58,7 @@ export const createTests = path => [
         .then(([copy]) => {
           defaultHeading = copy.innerText.trim();
         })
-        .visit(`${path}&knob-section%20heading=${customHeadingInput}`)
+        .visit(`${path}&knob-section%20heading_PricingTable=${customHeadingInput}`)
         .get(selectors.table)
         .find(headerCellSimple)
         .should(([copy]) => {
@@ -78,7 +78,7 @@ export const createTests = path => [
         expect(highlightedCell).to.have.class('highlighted');
       };
 
-      cy.visit(`${path}&knob-highlighted%20column=${highlightedCol}`)
+      cy.visit(`${path}&knob-highlighted%20column_PricingTable=${highlightedCol}`)
         .get(selectors.headerRow)
         .then($headerRow => {
           checkHighlight($headerRow[0]);
@@ -94,7 +94,7 @@ export const createTests = path => [
   () => {
     it('should support customizable label for highlighted column', () => {
       const customLabel = 'Lorem ipsum';
-      cy.visit(`${path}&knob-highlighted%20label=${customLabel}`)
+      cy.visit(`${path}&knob-highlighted%20label_PricingTable=${customLabel}`)
         .get(selectors.highlightLabel)
         .should('have.text', customLabel);
     });
@@ -103,7 +103,7 @@ export const createTests = path => [
     it('should render customizable number of columns', () => {
       const numberOfColumns = 5;
 
-      cy.visit(`${path}&knob-number%20of%20columns=${numberOfColumns}`)
+      cy.visit(`${path}&knob-number%20of%20columns_PricingTable=${numberOfColumns}`)
         .get(selectors.headerRow)
         .find(selectors.headerCell)
         .should('have.length', numberOfColumns)

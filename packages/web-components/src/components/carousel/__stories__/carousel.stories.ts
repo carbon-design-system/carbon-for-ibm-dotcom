@@ -15,9 +15,7 @@ import { html } from 'lit-element';
 import ifNonNull from 'carbon-web-components/es/globals/directives/if-non-null.js';
 import ArrowRight20 from 'carbon-web-components/es/icons/arrow--right/20.js';
 import '../../card/index';
-import '../../cta/index';
-import '../../image/index';
-import '../index';
+import '../carousel';
 import styles from './carousel.stories.scss';
 import readme from './README.stories.mdx';
 
@@ -78,8 +76,8 @@ const CardWithVideo = ({ copy = copyDefault, href = hrefDefault } = {}) => html`
   </dds-video-cta-container>
 `;
 
-export const Default = args => {
-  const { cardSize } = args?.Carousel ?? {};
+export const Default = ({ parameters }) => {
+  const { cardSize } = parameters?.props?.Carousel ?? {};
   const classes = classMap({
     [cardSize]: cardSize,
   });
@@ -90,8 +88,8 @@ export const Default = args => {
   `;
 };
 
-export const CardsWithImages = args => {
-  const { cardSize } = args?.Carousel ?? {};
+export const CardsWithImages = ({ parameters }) => {
+  const { cardSize } = parameters?.props?.Carousel ?? {};
   const classes = classMap({
     [cardSize]: cardSize,
   });
@@ -105,8 +103,8 @@ export const CardsWithImages = args => {
   `;
 };
 
-export const CardsWithVideos = args => {
-  const { cardSize } = args?.Carousel ?? {};
+export const CardsWithVideos = ({ parameters }) => {
+  const { cardSize } = parameters?.props?.Carousel ?? {};
   const classes = classMap({
     [cardSize]: cardSize,
   });
@@ -118,8 +116,8 @@ export const CardsWithVideos = args => {
   `;
 };
 
-export const CardsWithMedia = args => {
-  const { cardSize } = args?.Carousel ?? {};
+export const CardsWithMedia = ({ parameters }) => {
+  const { cardSize } = parameters?.props?.Carousel ?? {};
   const classes = classMap({
     [cardSize]: cardSize,
   });

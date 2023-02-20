@@ -96,8 +96,8 @@ const linkListItems = [
   'Explore AI use cases in all industries',
 ];
 
-export const Default = args => {
-  const { blockHeading, simpleGroupHeading, featureCard, complementaryStyleScheme } = args?.ContentBlockMedia ?? {};
+export const Default = ({ parameters }) => {
+  const { blockHeading, simpleGroupHeading, featureCard, complementaryStyleScheme } = parameters?.props?.ContentBlockMedia ?? {};
   const headingComponent = document.querySelector('dds-content-block-heading');
 
   if (headingComponent) {
@@ -163,9 +163,9 @@ export const Default = args => {
   );
 };
 
-export const withLinkList = args => {
+export const withLinkList = ({ parameters }) => {
   const { blockHeading, simpleGroupHeading, featureCard, linkListHeading, complementaryStyleScheme, totalLinks } =
-    args?.ContentBlockMedia ?? {};
+    parameters?.props?.ContentBlockMedia ?? {};
   const headingComponent = document.querySelector('dds-content-block-heading');
 
   if (headingComponent) {

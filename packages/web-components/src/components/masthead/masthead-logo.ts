@@ -57,7 +57,7 @@ class DDSMastheadLogo extends FocusMixin(HostListenerMixin(StableSelectorMixin(B
    * Link `href`.
    */
   @property()
-  href = (this.constructor as typeof DDSMastheadLogo).hrefDefault;
+  href = 'https://www.ibm.com/';
 
   /**
    * The shadow slot this logo UI should be in.
@@ -85,11 +85,8 @@ class DDSMastheadLogo extends FocusMixin(HostListenerMixin(StableSelectorMixin(B
     }
   }
 
-  /**
-   * The default value to use for hrefs.
-   */
-  static get hrefDefault() {
-    return 'https://www.ibm.com/';
+  firstUpdated() {
+    this.tabIndex = 0;
   }
 
   /**

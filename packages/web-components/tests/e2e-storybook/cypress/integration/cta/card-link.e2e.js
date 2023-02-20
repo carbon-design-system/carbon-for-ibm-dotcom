@@ -15,7 +15,7 @@ import getCssPropertyForRule from '../../utils/get-css-property-for-rule';
  */
 const _paths = {
   default: 'iframe.html?id=components-cta--card-link',
-  types: 'iframe.html?id=components-cta--card-link&knob-CTA%20type%20(cta-type)=',
+  types: 'iframe.html?id=components-cta--card-link&knob-CTA%20type%20(cta-type)_CardCTA=',
 };
 
 /**

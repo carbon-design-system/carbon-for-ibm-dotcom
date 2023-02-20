@@ -105,7 +105,7 @@ const _tests = {
 
     Object.keys(types).forEach(type => {
       it(`should render CTA type: ${type}`, () => {
-        cy.visit(`${_path}&knob-CTA%20type%20(cta-type)=${type}`);
+        cy.visit(`${_path}&knob-CTA%20type%20(cta-type)_LinkListItem=${type}`);
 
         cy.get('a.bx--link-with-icon path').then(path => {
           expect(path.attr('d')).to.be.eq(types[type]);

@@ -24,7 +24,7 @@ const _path = '/iframe.html?id=components-cta--text';
  * @private
  */
 const _paths = {
-  ctaType: `${_path}&knob-type=`,
+  ctaType: `${_path}&knob-type_CTA=`,
 };
 
 /**
@@ -48,7 +48,7 @@ const _textTests = [
     it('should check icon placements', () => {
       ['left', 'right'].forEach(placement => {
         cy.visit(
-          `${_path}&knob-Icon%20Placement%20(iconPlacement)=${placement}`
+          `${_path}&knob-Icon%20Placement%20(iconPlacement)_CTA=${placement}`
         )
           .get(_selector)
           .find('a')

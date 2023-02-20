@@ -2,17 +2,9 @@
   "version": 2,
   "snapshot": {
     "widths": [
-      320,
+      375,
       1280
-    ],
-    "min-height": 800,
-    "enable-javascript": true
+    ]
   },
-  "upload": {
-    "files": "**/*.{png,jpg,jpeg}",
-    "ignore": ""
-  },
-  "discovery": {
-    "network-idle-timeout": 500
-  }
+  "enable-javascript": true
 }

@@ -64,8 +64,8 @@ const card2 = (
   </DDSContentGroupCardsItem>
 );
 
-export const Default = args => {
-  const { heading, copy, addChildren } = args?.ContentSection ?? {};
+export const Default = ({ parameters }) => {
+  const { heading, copy, addChildren } = parameters?.props?.ContentSection ?? {};
   return (
     <DDSContentSection>
       <DDSContentSectionHeading>{heading}</DDSContentSectionHeading>

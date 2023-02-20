@@ -169,11 +169,6 @@ class DDSFilterPanelInputSelect extends FocusMixin(StableSelectorMixin(LitElemen
     if (changedProperties.has('selected')) {
       this.ariaLabel = `${this.title}, ${this.selected ? 'selected' : 'unselected'}`;
     }
-    if (this._items.length) {
-      this.shadowRoot
-        ?.querySelector(`.${prefix}--input-container__heading`)
-        ?.setAttribute('aria-expanded', String(Boolean(this.isOpen)));
-    }
   }
 
   render() {
@@ -186,6 +181,7 @@ class DDSFilterPanelInputSelect extends FocusMixin(StableSelectorMixin(LitElemen
           @click=${this._handleClickHeader}
           @keydown=${this._handleKeydown}
           aria-controls="content"
+          aria-expanded="${String(Boolean(this.isOpen))}"
           aria-label="${this.ariaLabel}"
           role="button"
         >

@@ -65,7 +65,7 @@ describe('dds-footer | Micro (desktop)', () => {
     cy.takeSnapshots();
   });
 
-  it('should load clickable legal links', () => {
+  it('should load all 4 interactable legal links', () => {
     cy.get('dds-legal-nav')
       .find('dds-legal-nav-item')
       .each($link => {
@@ -139,7 +139,7 @@ describe('dds-footer | Micro (mobile)', () => {
     cy.takeSnapshots('mobile');
   });
 
-  it('should load clickable legal links', () => {
+  it('should load all 4 interactable legal links', () => {
     cy.get('dds-legal-nav')
       .find('dds-legal-nav-item')
       .each($link => {

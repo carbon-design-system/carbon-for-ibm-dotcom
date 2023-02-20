@@ -1,7 +1,7 @@
 /**
  * @license
  *
- * Copyright IBM Corp. 2021, 2022
+ * Copyright IBM Corp. 2021
  *
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
@@ -13,7 +13,11 @@ import { Default } from '../__stories__/feature-section.stories';
 
 const template = (props?) =>
   Default({
-    'dds-feature-section': props,
+    parameters: {
+      props: {
+        'dds-feature-section': props,
+      },
+    },
   });
 
 describe('dds-feature-section', function() {

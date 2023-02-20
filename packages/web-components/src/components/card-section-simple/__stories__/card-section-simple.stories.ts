@@ -34,8 +34,8 @@ const cardGroupItems = withImages => {
   `;
 };
 
-export const Default = args => {
-  const { heading, withImages, withCTA } = args?.CardSectionSimple ?? {};
+export const Default = ({ parameters }) => {
+  const { heading, withImages, withCTA } = parameters?.props?.CardSectionSimple ?? {};
   const cards: object[] = [];
   for (let i = 0; i < 5; i++) {
     cards.push(cardGroupItems(withImages));
@@ -73,10 +73,10 @@ export default {
     ...readme.parameters,
     hasStoryPadding: true,
     knobs: {
-      CardSectionSimple: () => ({
-        heading: textNullable('Heading (required):', 'Aliquam condimentum interdum'),
-        withImages: boolean('With images:', false),
-        withCTA: boolean('With CTA:', false),
+      CardSectionSimple: ({ groupId }) => ({
+        heading: textNullable('Heading (required):', 'Aliquam condimentum interdum', groupId),
+        withImages: boolean('With images:', false, groupId),
+        withCTA: boolean('With CTA:', false, groupId),
       }),
     },
     propsSet: {

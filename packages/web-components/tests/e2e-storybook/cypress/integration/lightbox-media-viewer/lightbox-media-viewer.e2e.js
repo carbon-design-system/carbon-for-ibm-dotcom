@@ -14,9 +14,9 @@
 const _defaultPath = '/iframe.html?id=components-lightbox-media-viewer--default';
 
 const _args = {
-  video: '&knob-Video%20ID%20(video-id)=1_9h94wo6b',
-  img1x1: '&knob-Image%20(default-src)=23163c123ccb40d86a8b44fae716c453.jpg',
-  img16x9: '&knob-Image%20(default-src)=3a7714edad00ad8b4f6f19f94ab56dd1.jpg',
+  video: '&knob-Video%20ID%20(video-id)_LightboxMedia=1_9h94wo6b',
+  img1x1: '&knob-Image%20(default-src)_LightboxImageViewer=23163c123ccb40d86a8b44fae716c453.jpg',
+  img16x9: '&knob-Image%20(default-src)_LightboxMedia=3a7714edad00ad8b4f6f19f94ab56dd1.jpg',
 };
 
 describe('dds-lightbox-media-viewer | default', () => {

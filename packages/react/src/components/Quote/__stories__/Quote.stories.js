@@ -1,5 +1,5 @@
 /**
- * Copyright IBM Corp. 2016, 2022
+ * Copyright IBM Corp. 2016, 2021
  *
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
@@ -18,44 +18,59 @@ const types = {
   lowHighReversedDoubleCurved: 'lowHighReversedDoubleCurved',
   cornerBracket: 'cornerBracket',
 };
-
-const props = () => ({
-  copy: text(
-    'Quote (copy): ',
-    'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus est purus, posuere at est vitae, ornare rhoncus sem. Suspendisse vitae tellus fermentum, hendrerit augue eu, placerat magna.'
-  ),
-
-  markType: select('Quote Mark (markType):', types, types.doubleCurved),
-
-  source: {
-    heading: text(
-      'Quote Source Heading (source.heading): ',
-      'Lorem ipsum dolor sit amet'
-    ),
-    copy: text(
-      'Quote Source Copy (source.copy): ',
-      'consectetur adipiscing elit'
-    ),
-    copy2: text('Quote Source optional Copy (source.copy2)', 'IBM Cloud'),
-  },
-
-  cta: object('CTA Object:', {
-    copy: 'Link with Icon',
-    type: 'local',
-    href: 'https://example.com',
-  }),
-});
 export default {
-  title: 'Components/Quote',
+  title: 'Components|Quote',
   parameters: {
     ...readme.parameters,
-    percy: {
-      name: 'Components|Quote: Default',
+    knobs: {
+      Quote: ({ groupId }) => ({
+        copy: text(
+          'Quote (copy): ',
+          'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus est purus, posuere at est vitae, ornare rhoncus sem. Suspendisse vitae tellus fermentum, hendrerit augue eu, placerat magna.',
+          groupId
+        ),
+
+        markType: select(
+          'Quote Mark (markType):',
+          types,
+          types.doubleCurved,
+          groupId
+        ),
+
+        source: {
+          heading: text(
+            'Quote Source Heading (source.heading): ',
+            'Lorem ipsum dolor sit amet',
+            groupId
+          ),
+          copy: text(
+            'Quote Source Copy (source.copy): ',
+            'consectetur adipiscing elit',
+            groupId
+          ),
+          copy2: text(
+            'Quote Source optional Copy (source.copy2)',
+            'IBM Cloud',
+            groupId
+          ),
+        },
+
+        cta: object(
+          'CTA Object:',
+          {
+            copy: 'Link with Icon',
+            type: 'local',
+            href: 'https://example.com',
+          },
+          groupId
+        ),
+      }),
     },
   },
 };
 
-export const Default = () => {
+export const Default = ({ parameters }) => {
+  const { markType, copy, source, cta } = parameters?.props?.Quote ?? {};
   const inverse =
     ['g90', 'g100'].indexOf(
       document.documentElement.getAttribute('storybook-carbon-theme')
@@ -64,7 +79,13 @@ export const Default = () => {
     <div className="bx--grid">
       <div className="bx--row">
         <div className="bx--offset-lg-4 bx--col-lg-12">
-          <Quote {...props()} inverse={inverse} />
+          <Quote
+            markType={markType}
+            copy={copy}
+            source={source}
+            cta={cta}
+            inverse={inverse}
+          />
         </div>
       </div>
     </div>

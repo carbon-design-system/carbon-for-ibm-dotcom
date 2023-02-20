@@ -19,8 +19,6 @@
     </slot>
   </span>
   <slot name="icon">
-    <span class="bx--visually-hidden">
-    </span>
   </slot>
 </a>
 
@@ -42,9 +40,6 @@
     undefined-180000
   </span>
   <slot name="icon">
-    <span class="bx--visually-hidden">
-      - This link plays a video
-    </span>
   </slot>
 </a>
 

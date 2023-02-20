@@ -1,7 +1,7 @@
 /**
  * @license
  *
- * Copyright IBM Corp. 2020, 2022
+ * Copyright IBM Corp. 2020, 2021
  *
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
@@ -16,8 +16,8 @@ import readme from './README.stories.mdx';
 import textNullable from '../../../../.storybook/knob-text-nullable';
 import '../index';
 
-export const Default = args => {
-  const { disabled, href, heading, copy } = args?.CardLink ?? {};
+export const Default = ({ parameters }) => {
+  const { disabled, href, heading, copy } = parameters?.props?.CardLink ?? {};
   return html`
     <dds-card-link ?disabled=${disabled} href=${ifNonNull(href || undefined)}>
       <dds-card-link-heading>${heading}</dds-card-link-heading>
@@ -50,11 +50,11 @@ export default {
     ...readme.parameters,
     hasStoryPadding: true,
     knobs: {
-      CardLink: () => ({
-        disabled: boolean('Disabled (disabled):', false),
-        href: textNullable('Card href (href):', 'https://example.com'),
-        heading: textNullable('Card heading (heading):', 'Explore AI use cases in all industries'),
-        copy: textNullable('Card copy (copy):', ''),
+      CardLink: ({ groupId }) => ({
+        disabled: boolean('Disabled (disabled):', false, groupId),
+        href: textNullable('Card href (href):', 'https://example.com', groupId),
+        heading: textNullable('Card heading (heading):', 'Explore AI use cases in all industries', groupId),
+        copy: textNullable('Card copy (copy):', '', groupId),
       }),
     },
     propsSet: {

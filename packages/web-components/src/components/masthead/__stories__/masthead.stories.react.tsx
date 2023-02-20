@@ -48,9 +48,9 @@ async function customTypeaheadApiFunction(searchVal) {
     });
 }
 
-export const Default = args => {
+export const Default = ({ parameters }) => {
   const { customProfileLogin, platform, hasProfile, hasSearch, selectedMenuItem, searchPlaceholder, userStatus, navLinks } =
-    args?.MastheadComposite ?? {};
+    parameters?.props?.MastheadComposite ?? {};
 
   if (!hasSearch) {
     setTimeout(() => {
@@ -71,9 +71,9 @@ export const Default = args => {
   );
 };
 
-export const WithCustomTypeahead = args => {
+export const WithCustomTypeahead = ({ parameters }) => {
   const { customProfileLogin, navLinks, platform, selectedMenuItem, userStatus, searchPlaceholder, hasProfile, hasSearch } =
-    args?.MastheadComposite ?? {};
+    parameters?.props?.MastheadComposite ?? {};
 
   document.documentElement.addEventListener('dds-search-with-typeahead-input', async e => {
     const results = await customTypeaheadApiFunction((e as CustomEvent).detail.value);
@@ -99,9 +99,9 @@ WithCustomTypeahead.story = {
   name: 'With custom typeahead',
 };
 
-export const searchOpenOnload = args => {
+export const searchOpenOnload = ({ parameters }) => {
   const { customProfileLogin, platform, selectedMenuItem, userStatus, searchPlaceholder, hasProfile, hasSearch, navLinks } =
-    args?.MastheadComposite ?? {};
+    parameters?.props?.MastheadComposite ?? {};
 
   if (!hasSearch) {
     setTimeout(() => {
@@ -127,8 +127,8 @@ searchOpenOnload.story = {
   name: 'Search open onload',
 };
 
-export const withPlatform = args => {
-  const { userStatus, navLinks, hasProfile, hasSearch, searchPlaceholder } = args?.MastheadComposite ?? {};
+export const withPlatform = ({ parameters }) => {
+  const { userStatus, navLinks, hasProfile, hasSearch, searchPlaceholder } = parameters?.props?.MastheadComposite ?? {};
 
   if (!hasSearch) {
     setTimeout(() => {
@@ -152,18 +152,18 @@ withPlatform.story = {
   name: 'With platform',
   parameters: {
     knobs: {
-      MastheadComposite: () => ({
-        hasProfile: select('show the profile functionality (has-profile)', ['true', 'false'], 'true'),
-        hasSearch: boolean('show the search functionality (has-search)', true),
-        searchPlaceholder: textNullable('search placeholder (searchPlaceholder)', 'Search all of IBM'),
-        userStatus: select('The user authenticated status (user-status)', userStatuses, userStatuses.unauthenticated),
+      MastheadComposite: ({ groupId }) => ({
+        hasProfile: select('show the profile functionality (has-profile)', ['true', 'false'], 'true', groupId),
+        hasSearch: boolean('show the search functionality (has-search)', true, groupId),
+        searchPlaceholder: textNullable('search placeholder (searchPlaceholder)', 'Search all of IBM', groupId),
+        userStatus: select('The user authenticated status (user-status)', userStatuses, userStatuses.unauthenticated, groupId),
       }),
     },
   },
 };
 
-export const withL1 = args => {
-  const { selectedMenuItem, userStatus, navLinks, hasProfile, hasSearch } = args?.MastheadComposite ?? {};
+export const withL1 = ({ parameters }) => {
+  const { selectedMenuItem, userStatus, navLinks, hasProfile, hasSearch } = parameters?.props?.MastheadComposite ?? {};
 
   if (!hasSearch) {
     setTimeout(() => {
@@ -185,19 +185,19 @@ withL1.story = {
   name: 'With L1',
   parameters: {
     knobs: {
-      MastheadComposite: () => ({
-        hasProfile: select('show the profile functionality (has-profile)', ['true', 'false'], 'true'),
-        hasSearch: boolean('show the search functionality (has-search)', true),
-        selectedMenuItem: textNullable('selected menu item (selected-menu-item)', 'Products'),
-        userStatus: select('The user authenticated status (user-status)', userStatuses, userStatuses.unauthenticated),
+      MastheadComposite: ({ groupId }) => ({
+        hasProfile: select('show the profile functionality (has-profile)', ['true', 'false'], 'true', groupId),
+        hasSearch: boolean('show the search functionality (has-search)', true, groupId),
+        selectedMenuItem: textNullable('selected menu item (selected-menu-item)', 'Products', groupId),
+        userStatus: select('The user authenticated status (user-status)', userStatuses, userStatuses.unauthenticated, groupId),
       }),
     },
   },
 };
 
-export const withAlternateLogoAndTooltip = args => {
+export const withAlternateLogoAndTooltip = ({ parameters }) => {
   const { selectedMenuItem, userStatus, navLinks, hasProfile, hasSearch, searchPlaceholder, mastheadLogo } =
-    args?.MastheadComposite ?? {};
+    parameters?.props?.MastheadComposite ?? {};
 
   if (!hasSearch) {
     setTimeout(() => {
@@ -221,17 +221,18 @@ withAlternateLogoAndTooltip.story = {
   name: 'With alternate logo and tooltip',
   parameters: {
     knobs: {
-      MastheadComposite: () => ({
-        hasProfile: select('show the profile functionality (has-profile)', ['true', 'false'], 'true'),
-        hasSearch: boolean('show the search functionality (has-search)', true),
-        searchPlaceholder: textNullable('search placeholder (searchPlaceholder)', 'Search all of IBM'),
-        selectedMenuItem: textNullable('selected menu item (selected-menu-item)', 'Consulting & Services'),
+      MastheadComposite: ({ groupId }) => ({
+        hasProfile: select('show the profile functionality (has-profile)', ['true', 'false'], 'true', groupId),
+        hasSearch: boolean('show the search functionality (has-search)', true, groupId),
+        searchPlaceholder: textNullable('search placeholder (searchPlaceholder)', 'Search all of IBM', groupId),
+        selectedMenuItem: textNullable('selected menu item (selected-menu-item)', 'Consulting & Services', groupId),
         mastheadLogo: select(
           'masthead logo data (logoData)',
           { defaultWithNoTooltip: null, alternateWithTooltip: 'alternateWithTooltip' },
-          'alternateWithTooltip'
+          'alternateWithTooltip',
+          groupId
         ),
-        userStatus: select('The user authenticated status (user-status)', userStatuses, userStatuses.unauthenticated),
+        userStatus: select('The user authenticated status (user-status)', userStatuses, userStatuses.unauthenticated, groupId),
       }),
     },
   },
@@ -248,14 +249,15 @@ export default {
     ...readme.parameters,
     knobs: {
       escapeHTML: false,
-      MastheadComposite: () => ({
-        hasProfile: select('show the profile functionality (has-profile)', ['true', 'false'], 'true'),
-        hasSearch: boolean('show the search functionality (has-search)', true),
-        searchPlaceholder: textNullable('search placeholder (searchPlaceholder)', 'Search all of IBM'),
-        selectedMenuItem: textNullable('selected menu item (selected-menu-item)', 'Consulting & Services'),
-        userStatus: select('The user authenticated status (user-status)', userStatuses, userStatuses.unauthenticated),
+      MastheadComposite: ({ groupId }) => ({
+        hasProfile: select('show the profile functionality (has-profile)', ['true', 'false'], 'true', groupId),
+        hasSearch: boolean('show the search functionality (has-search)', true, groupId),
+        searchPlaceholder: textNullable('search placeholder (searchPlaceholder)', 'Search all of IBM', groupId),
+        selectedMenuItem: textNullable('selected menu item (selected-menu-item)', 'Consulting & Services', groupId),
+        userStatus: select('The user authenticated status (user-status)', userStatuses, userStatuses.unauthenticated, groupId),
         customProfileLogin:
-          DDS_CUSTOM_PROFILE_LOGIN && textNullable('custom profile login url (customProfileLogin)', 'https://www.example.com/'),
+          DDS_CUSTOM_PROFILE_LOGIN &&
+          textNullable('custom profile login url (customProfileLogin)', 'https://www.example.com/', groupId),
       }),
     },
   },

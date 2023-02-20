@@ -33,8 +33,8 @@ const iconOptions = {
   PDF: 'Pdf20',
 };
 
-export const Default = args => {
-  const { buttons } = args?.ButtonGroup ?? {};
+export const Default = ({ parameters }) => {
+  const { buttons } = parameters?.props?.ButtonGroup ?? {};
 
   return (
     <DDSButtonGroup>
@@ -50,13 +50,13 @@ export const Default = args => {
 Default.story = {
   parameters: {
     knobs: {
-      ButtonGroup: () => ({
+      ButtonGroup: ({ groupId }) => ({
         buttons: Array.from({
-          length: number('Number of buttons', 2, {}),
+          length: number('Number of buttons', 2, {}, groupId),
         }).map((_, i) => ({
-          href: textNullable(`Link ${i + 1}`, `https://example.com`),
-          copy: text(`Button ${i + 1}`, `Button ${i + 1}`),
-          renderIcon: iconMap[select(`Icon ${i + 1}`, iconOptions, iconOptions.Default) ?? 0],
+          href: textNullable(`Link ${i + 1}`, `https://example.com`, groupId),
+          copy: text(`Button ${i + 1}`, `Button ${i + 1}`, groupId),
+          renderIcon: iconMap[select(`Icon ${i + 1}`, iconOptions, iconOptions.Default, groupId) ?? 0],
         })),
       }),
     },

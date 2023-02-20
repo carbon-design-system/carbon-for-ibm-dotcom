@@ -14,10 +14,9 @@ import ifNonNull from 'carbon-web-components/es/globals/directives/if-non-null.j
 import readme from './README.stories.mdx';
 import textNullable from '../../../../.storybook/knob-text-nullable';
 import '../../link-list/index';
-import '../index';
+import '../cta-section';
 import '../../video-player/video-player-container';
 import '../../lightbox-media-viewer/lightbox-video-player-container';
-import '../../content-section/index';
 import logoMicrosoft2x1 from '../../../../../storybook-images/assets/logos/logo-microsoft--2x1.png';
 
 import content from './content';
@@ -130,8 +129,8 @@ const renderItems = (item, count) => {
   `;
 };
 
-export const Simple = args => {
-  const { heading, copy, showText, showCta, border } = args?.CTASection ?? {};
+export const Simple = ({ parameters }) => {
+  const { heading, copy, showText, showCta, border } = parameters?.props?.CTASection ?? {};
 
   return html`
     <dds-cta-section>
@@ -155,9 +154,9 @@ export const Simple = args => {
   `;
 };
 
-export const WithContentItems = args => {
-  const { heading, copy, showText, showCta, border } = args?.CTASection ?? {};
-  const { contentItemType, contentItemCount, logoAspectRatio } = args?.WithContentItems ?? {};
+export const WithContentItems = ({ parameters }) => {
+  const { heading, copy, showText, showCta, border } = parameters?.props?.CTASection ?? {};
+  const { contentItemType, contentItemCount, logoAspectRatio } = parameters?.props?.WithContentItems ?? {};
 
   const contentItem = contentItemTypeMap[contentItemType];
 
@@ -189,15 +188,17 @@ WithContentItems.story = {
   name: 'With content items',
   parameters: {
     knobs: {
-      WithContentItems: () => {
-        const contentItemType = select('Content item type', contentItemTypeOptions, contentItemTypeOptions.Text);
+      WithContentItems: ({ groupId }) => {
+        const contentItemType = select('Content item type', contentItemTypeOptions, contentItemTypeOptions.Text, groupId);
 
         const logoAspectRatio =
-          contentItemType !== contentItemTypeOptions.Logo ? undefined : select('Logo aspect ratio', ['2:1', '1:1'], '2:1');
+          contentItemType !== contentItemTypeOptions.Logo
+            ? undefined
+            : select('Logo aspect ratio', ['2:1', '1:1'], '2:1', groupId);
         return {
           contentItemType,
           contentItemCount: Array.from({
-            length: number('Number of content items', 3, { min: 2, max: 6 }),
+            length: number('Number of content items', 3, { min: 2, max: 6 }, groupId),
           }),
           logoAspectRatio,
         };
@@ -214,8 +215,8 @@ WithContentItems.story = {
   },
 };
 
-export const WithLinkList = args => {
-  const { heading, copy, showText, showCta, border } = args?.CTASection ?? {};
+export const WithLinkList = ({ parameters }) => {
+  const { heading, copy, showText, showCta, border } = parameters?.props?.CTASection ?? {};
 
   return html`
     <dds-cta-section>
@@ -284,15 +285,16 @@ export default {
   ],
   parameters: {
     knobs: {
-      CTASection: () => ({
-        heading: textNullable('Heading (required)', 'Optional title heading-05 color text-01'),
+      CTASection: ({ groupId }) => ({
+        heading: textNullable('Heading (required)', 'Optional title heading-05 color text-01', groupId),
         copy: textNullable(
           'Copy text (optional)',
-          'Optional text heading-03 color text-01, Lorem ipsum dolor sit amet, consecteture adipiscing elit sed dose.'
+          'Optional text heading-03 color text-01, Lorem ipsum dolor sit amet, consecteture adipiscing elit sed dose.',
+          groupId
         ),
-        showText: boolean('Add Copy', true),
-        showCta: boolean('Add CTA', true),
-        border: boolean('CTA Block border', false),
+        showText: boolean('Add Copy', true, groupId),
+        showCta: boolean('Add CTA', true, groupId),
+        border: boolean('CTA Block border', false, groupId),
       }),
     },
     propsSet: {

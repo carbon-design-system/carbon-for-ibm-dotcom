@@ -11,8 +11,7 @@
 
 @mixin content-item-horizontal-media {
   :host(#{$dds-prefix}-content-item-horizontal-media) {
-    padding: $carbon--spacing-07 $carbon--spacing-05 $carbon--spacing-10;
-    display: block;
+    padding: $carbon--spacing-05;
 
     @include carbon--breakpoint(md) {
       padding-bottom: $carbon--spacing-10;
@@ -57,8 +56,7 @@
 
   :host(#{$dds-prefix}-content-item-horizontal-media-copy)
     ::slotted(:not([slot])) {
-    margin-bottom: $carbon--spacing-07;
-    max-width: rem(640px);
+    margin-bottom: $carbon--spacing-06;
     p {
       color: $text-01;
     }
@@ -75,7 +73,6 @@
     .#{$prefix}--content-item__cta,
   .#{$prefix}--content-item-horizontal__item--cta {
     margin-top: auto;
-    margin-bottom: $carbon--spacing-07;
 
     .#{$prefix}--link-list {
       padding: 0;
@@ -99,7 +96,7 @@
     column-gap: $carbon--spacing-07;
 
     @include carbon--breakpoint(lg) {
-      grid-template-columns: repeat(12, 1fr);
+      grid-template-columns: repeat(10, 1fr);
     }
 
     .#{$prefix}--content-item-horizontal__col {
@@ -111,9 +108,11 @@
       }
 
       &:last-of-type {
+        margin-block-start: $carbon--spacing-05;
+
         @include carbon--breakpoint(lg) {
           margin-block-start: 0;
-          grid-column: 5 / span 8;
+          grid-column: 5 / span 6;
         }
       }
     }
@@ -123,14 +122,12 @@
         &:first-of-type {
           @include carbon--breakpoint(lg) {
             margin-inline-end: 0;
-            grid-column: 1 / span 8;
           }
         }
 
         &:last-of-type {
           @include carbon--breakpoint(lg) {
             margin-inline-end: $carbon--spacing-07;
-            grid-column: 9 / span 4;
           }
         }
       }
@@ -141,7 +138,11 @@
     display: block;
     position: relative;
     padding-block-start: $carbon--spacing-07;
-    margin-block-end: $carbon--spacing-10;
+    margin-block-end: $carbon--spacing-07;
+
+    @include carbon--breakpoint(md) {
+      margin-block-end: $carbon--spacing-10;
+    }
 
     &::before {
       content: '';
@@ -154,6 +155,14 @@
     }
 
     .#{$prefix}--content-item-horizontal__row {
+      + .#{$prefix}--content-item-horizontal__row {
+        margin-block-start: $carbon--spacing-05;
+
+        @include carbon--breakpoint(md) {
+          margin-block-start: $carbon--spacing-07;
+        }
+      }
+
       .#{$prefix}--content-item-horizontal__col {
         &:last-of-type {
           @include carbon--breakpoint-down(md) {
@@ -164,11 +173,11 @@
     }
 
     ::slotted([slot='media']) {
-      grid-column: 1 / span 12;
+      grid-column: 1 / span 10;
     }
     ::slotted(#{$dds-prefix}-image) {
       max-width: none;
-      margin-top: 0;
+      margin: 0;
     }
   }
 }

@@ -1,5 +1,5 @@
 /**
- * Copyright IBM Corp. 2016, 2022
+ * Copyright IBM Corp. 2016, 2021
  *
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
@@ -12,11 +12,17 @@ import React from 'react';
 import readme from '../README.stories.mdx';
 
 /**
+ * @param {object} options The options.
+ * @param {string} options.groupId The knob group ID.
  * @returns {object} The knobs data.
  */
-const getBaseKnobs = () => {
+const getBaseKnobs = ({ groupId }) => {
   return {
-    heading: text('Heading (heading):', 'Aliquam condimentum interdum'),
+    heading: text(
+      'Heading (heading):',
+      'Aliquam condimentum interdum',
+      groupId
+    ),
   };
 };
 
@@ -26,32 +32,21 @@ const ctaTypes = {
   external: 'external',
 };
 
-const props = () => ({
-  ...getBaseKnobs(),
-  cards: cards['Simple'],
-  cta: {
-    cta: {
-      href: 'https://www.ibm.com',
-    },
-    style: 'card',
-    type: select('CTA type', ctaTypes, ctaTypes.local),
-    heading: 'Lorem ipsum dolor sit ametttt',
-  },
-});
-
 export default {
-  title: 'Components/Content block cards',
+  title: 'Components|Content block cards',
   parameters: {
     ...readme.parameters,
   },
 };
 
-export const Default = () => {
+export const Default = ({ parameters }) => {
+  const { heading, cta, cards: data } =
+    parameters?.props?.ContentBlockCards ?? {};
   return (
     <div className="bx--grid">
       <div className="bx--row">
         <div className="bx--col-sm-4 bx--col-lg-12 bx--offset-lg-4 content-block-story">
-          <ContentBlockCards {...props()} />
+          <ContentBlockCards heading={heading} cta={cta} cards={data} />
         </div>
       </div>
     </div>
@@ -63,6 +58,24 @@ Default.story = {
     percy: {
       skip: true,
     },
+    knobs: {
+      ContentBlockCards: ({ groupId }) => {
+        const knobs = getBaseKnobs({ groupId });
+
+        return {
+          ...knobs,
+          cards: cards['Simple'],
+          cta: {
+            cta: {
+              href: 'https://www.ibm.com',
+            },
+            style: 'card',
+            type: select('CTA type', ctaTypes, ctaTypes.local, groupId),
+            heading: 'Lorem ipsum dolor sit ametttt',
+          },
+        };
+      },
+    },
     propsSet: {
       default: {
         ContentBlockCards: {
@@ -73,25 +86,14 @@ Default.story = {
   },
 };
 
-const propsWithImages = () => ({
-  ...getBaseKnobs(),
-  cards: cards['Images'],
-  cta: {
-    cta: {
-      href: 'https://www.ibm.com',
-    },
-    style: 'card',
-    type: select('CTA type', ctaTypes, ctaTypes.local),
-    heading: 'Lorem ipsum dolor sit ametttt',
-  },
-});
-
-export const WithImages = () => {
+export const WithImages = ({ parameters }) => {
+  const { heading, cta, cards: data } =
+    parameters?.props?.ContentBlockCards ?? {};
   return (
     <div className="bx--grid">
       <div className="bx--row">
         <div className="bx--col-sm-4 bx--col-lg-12 bx--offset-lg-4 content-block-story">
-          <ContentBlockCards {...propsWithImages()} />
+          <ContentBlockCards heading={heading} cta={cta} cards={data} />
         </div>
       </div>
     </div>
@@ -101,8 +103,23 @@ export const WithImages = () => {
 WithImages.story = {
   name: 'With images',
   parameters: {
-    percy: {
-      name: 'Components|Content block cards: With images',
+    knobs: {
+      ContentBlockCards: ({ groupId }) => {
+        const knobs = getBaseKnobs({ groupId });
+
+        return {
+          ...knobs,
+          cards: cards['Images'],
+          cta: {
+            cta: {
+              href: 'https://www.ibm.com',
+            },
+            style: 'card',
+            type: select('CTA type', ctaTypes, ctaTypes.local, groupId),
+            heading: 'Lorem ipsum dolor sit ametttt',
+          },
+        };
+      },
     },
     propsSet: {
       default: {
@@ -114,25 +131,14 @@ WithImages.story = {
   },
 };
 
-const propsWithVideos = () => ({
-  ...getBaseKnobs(),
-  cards: cards['Videos'],
-  cta: {
-    cta: {
-      href: 'https://www.ibm.com',
-    },
-    style: 'card',
-    type: select('CTA type', ctaTypes, ctaTypes.local),
-    heading: 'Lorem ipsum dolor sit ametttt',
-  },
-});
-
-export const WithVideos = () => {
+export const WithVideos = ({ parameters }) => {
+  const { heading, cta, cards: data } =
+    parameters?.props?.ContentBlockCards ?? {};
   return (
     <div className="bx--grid">
       <div className="bx--row">
         <div className="bx--col-sm-4 bx--col-lg-12 bx--offset-lg-4 content-block-story">
-          <ContentBlockCards {...propsWithVideos()} />
+          <ContentBlockCards heading={heading} cta={cta} cards={data} />
         </div>
       </div>
     </div>
@@ -144,6 +150,24 @@ WithVideos.story = {
   parameters: {
     percy: {
       skip: true,
+    },
+    knobs: {
+      ContentBlockCards: ({ groupId }) => {
+        const knobs = getBaseKnobs({ groupId });
+
+        return {
+          ...knobs,
+          cards: cards['Videos'],
+          cta: {
+            cta: {
+              href: 'https://www.ibm.com',
+            },
+            style: 'card',
+            type: select('CTA type', ctaTypes, ctaTypes.local, groupId),
+            heading: 'Lorem ipsum dolor sit ametttt',
+          },
+        };
+      },
     },
     propsSet: {
       default: {

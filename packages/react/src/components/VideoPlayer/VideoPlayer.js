@@ -89,7 +89,6 @@ const VideoPlayer = ({
         media={{
           type: 'video',
           src: videoId,
-          title: caption,
         }}
         onClose={() => setEmbedVideo(false)}
       />

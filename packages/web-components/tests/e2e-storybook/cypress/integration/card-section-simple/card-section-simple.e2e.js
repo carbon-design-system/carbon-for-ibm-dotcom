@@ -61,13 +61,13 @@ const _tests = {
     });
   },
   checkCTACard: () => {
-    cy.visit(`${_paths.default}&knob-With%20CTA:=true`);
+    cy.visit(`${_paths.default}&knob-With%20CTA:_CardSectionSimple=true`);
     cy.get('dds-card-group-item')
       .last()
       .should('have.attr', 'color-scheme', 'inverse');
   },
   checkCardWithImages: () => {
-    cy.visit(`${_paths.default}&knob-With%20images:=true`);
+    cy.visit(`${_paths.default}&knob-With%20images:_CardSectionSimple=true`);
     cy.get('dds-card-group-item > dds-image').each($img => {
       cy.wrap($img).should('be.visible');
     });

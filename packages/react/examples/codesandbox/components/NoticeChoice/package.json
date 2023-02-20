@@ -3,8 +3,7 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
-    "start": "webpack serve",
-    "build": "webpack"
+    "start": "webpack serve"
   },
   "dependencies": {
     "@carbon/ibmdotcom-react": "next",

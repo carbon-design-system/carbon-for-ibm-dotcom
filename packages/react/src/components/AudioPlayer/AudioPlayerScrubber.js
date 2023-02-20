@@ -1,17 +1,24 @@
 /**
- * Copyright IBM Corp. 2016, 2022
+ * Copyright IBM Corp. 2016, 2021
  *
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
  */
 import Button from '../../internal/vendor/carbon-components-react/components/Button/Button';
+
 import { DDS_AUDIO_PLAYER } from '../../internal/FeatureFlags';
+
 import Forward1032 from '@carbon/icons-react/es/forward--10/32';
+
 import { KalturaPlayer as KalturaPlayerAPI } from '@carbon/ibmdotcom-services/es/services';
+
 import PropTypes from 'prop-types';
 import React from 'react';
+
 import Rewind_1032 from '@carbon/icons-react/es/rewind--10/32';
+
 import settings from 'carbon-components/es/globals/js/settings';
+
 import Slider from '../../internal/vendor/carbon-components-react/components/Slider/Slider';
 
 const { prefix } = settings;
@@ -22,8 +29,6 @@ const AudioPlayerScrubber = ({
   setAudioTime,
   audioDuration,
   setDisplayVolumeControl,
-  rewindHelperText,
-  forwardHelperText,
 }) => {
   const audioDurationAsString = KalturaPlayerAPI.getMediaDuration(
     audioDuration
@@ -71,7 +76,7 @@ const AudioPlayerScrubber = ({
     <>
       <Button
         renderIcon={Rewind_1032}
-        iconDescription={rewindHelperText}
+        iconDescription="Rewind 10 seconds"
         hasIconOnly
         kind="ghost"
         tooltipPosition="top"
@@ -101,7 +106,7 @@ const AudioPlayerScrubber = ({
 
       <Button
         renderIcon={Forward1032}
-        iconDescription={forwardHelperText}
+        iconDescription="Forward 10 seconds"
         hasIconOnly
         kind="ghost"
         tooltipPosition="top"
@@ -139,22 +144,12 @@ AudioPlayerScrubber.propTypes = {
    * The state setter that show/hide the custom volume menu
    */
   setDisplayVolumeControl: PropTypes.func.isRequired,
-  /**
-   * The helper text label for the rewind button
-   */
-  rewindHelperText: PropTypes.string,
-  /**
-   * The helper text label for the rewind button
-   */
-  forwardHelperText: PropTypes.string,
 };
 
 AudioPlayerScrubber.defaultProps = {
   kalturaDigitalPlayer: false,
   audioTime: 0,
   audioDuration: 0,
-  rewindHelperText: 'Rewind 10 seconds',
-  forwardHelperText: 'Forward 10 seconds',
 };
 
 export default !DDS_AUDIO_PLAYER ? undefined : AudioPlayerScrubber;

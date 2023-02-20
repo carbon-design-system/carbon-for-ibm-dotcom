@@ -5,7 +5,7 @@
  * LICENSE file in the root directory of this source tree.
  */
 
-import React, { useState, useRef } from 'react';
+import React, { useState } from 'react';
 import Button from '../../internal/vendor/carbon-components-react/components/Button/Button';
 import ddsSettings from '../../internal/vendor/@carbon/ibmdotcom-utilities/utilities/settings/settings';
 import EarthFilled20 from '@carbon/icons-react/es/earth--filled/20';
@@ -21,14 +21,12 @@ const { prefix } = settings;
  */
 const LocaleButton = ({ displayLang, aria }) => {
   const [isOpen, setIsOpen] = useState(false);
-  const localeButton = useRef();
   return (
     <div className={`${prefix}--locale-btn__container`}>
       <Button
         data-autoid={`${stablePrefix}--locale-btn`}
         className={`${prefix}--locale-btn`}
         kind="tertiary"
-        ref={localeButton}
         onClick={open}
         renderIcon={EarthFilled20}
         iconDescription="Earth Filled Icon"
@@ -36,15 +34,7 @@ const LocaleButton = ({ displayLang, aria }) => {
         {displayLang}
       </Button>
 
-      <LocaleModal
-        isOpen={isOpen}
-        setIsOpen={setIsOpen}
-        closeFunc={() => {
-          setTimeout(() => {
-            localeButton.current.focus();
-          });
-        }}
-      />
+      <LocaleModal isOpen={isOpen} setIsOpen={setIsOpen} />
     </div>
   );
 

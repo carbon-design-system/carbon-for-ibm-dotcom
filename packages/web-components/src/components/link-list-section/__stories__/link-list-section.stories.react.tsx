@@ -23,8 +23,8 @@ import DDSLinkListItem from '@carbon/ibmdotcom-web-components/es/components-reac
 import readme from './README.stories.react.mdx';
 import textNullable from '../../../../.storybook/knob-text-nullable';
 
-export const Default = args => {
-  const { heading } = args?.LinkListSection ?? {};
+export const Default = ({ parameters }) => {
+  const { heading } = parameters?.props?.LinkListSection ?? {};
   return (
     <DDSLinkListSection>
       <DDSLinkListHeading>{heading}</DDSLinkListHeading>
@@ -58,8 +58,8 @@ export default {
     ...readme.parameters,
     hasStoryPadding: true,
     knobs: {
-      LinkListSection: () => {
-        const heading = textNullable('Link list section heading:', 'Lorem ipsum dolor sit amet');
+      LinkListSection: ({ groupId }) => {
+        const heading = textNullable('Link list section heading:', 'Lorem ipsum dolor sit amet', groupId);
         return {
           heading,
         };

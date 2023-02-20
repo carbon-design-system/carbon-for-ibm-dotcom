@@ -31,9 +31,9 @@ const sizes = {
   [`One that takes full width (${EXPRESSIVE_MODAL_SIZE.FULL_WIDTH})`]: EXPRESSIVE_MODAL_SIZE.FULL_WIDTH,
 };
 
-export const Default = args => {
-  const { open, disableClose, size, onBeforeClose, onClose } = args?.Modal ?? {};
-  const { buttonContent } = args.Other;
+export const Default = ({ parameters }) => {
+  const { open, disableClose, size, onBeforeClose, onClose } = parameters?.props?.Modal ?? {};
+  const { buttonContent } = parameters?.props?.Other ?? {};
   const handleBeforeClose = (event: CustomEvent) => {
     onBeforeClose?.(event);
     if (disableClose) {
@@ -67,18 +67,19 @@ export default {
   parameters: {
     ...readme.parameters,
     knobs: {
-      Modal: () => ({
-        open: boolean('Open (open)', true),
+      Modal: ({ groupId }) => ({
+        open: boolean('Open (open)', true, groupId),
         disableClose: boolean(
           'Disable user-initiated close action (Call event.preventDefault() in dds-expressive-modal-beingclosed event)',
-          false
+          false,
+          groupId
         ),
-        size: select('Modal size (size)', sizes, null),
+        size: select('Modal size (size)', sizes, null, groupId),
         onBeforeClose: action('dds-expressive-modal-beingclosed'),
         onClose: action('dds-expressive-modal-closed'),
       }),
-      Other: () => ({
-        buttonContent: textNullable('Button content', 'Lorem ipsum dolor'),
+      Other: ({ groupId }) => ({
+        buttonContent: textNullable('Button content', 'Lorem ipsum dolor', groupId),
       }),
     },
     propsSet: {

@@ -1,7 +1,7 @@
 /**
  * @license
  *
- * Copyright IBM Corp. 2020, 2022
+ * Copyright IBM Corp. 2020, 2021
  *
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
@@ -32,8 +32,8 @@ import imgMd16x9 from '../../../../../storybook-images/assets/960/fpo--16x9--960
 import imgSm4x3 from '../../../../../storybook-images/assets/480/fpo--4x3--480x360--005.jpg';
 import readme from './README.stories.react.mdx';
 
-export const Default = args => {
-  const { video, eyebrow, heading, defaultSrc, alt, href } = args?.CardInCard ?? {};
+export const Default = ({ parameters }) => {
+  const { video, eyebrow, heading, defaultSrc, alt, href } = parameters?.props?.CardInCard ?? {};
 
   if (video) {
     return (

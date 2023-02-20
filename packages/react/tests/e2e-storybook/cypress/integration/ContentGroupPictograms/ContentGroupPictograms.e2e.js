@@ -21,7 +21,7 @@ const _pathDefault =
  * @private
  */
 const _withCTA =
-  '&knob-Number%20of%20PictogramItems=3&knob-Item%202%20CTA%20(items.cta)=true&knob-Item%201%20CTA%20(items.cta)=true&knob-Item%203%20CTA%20(items.cta)=true';
+  '&knob-Number%20of%20PictogramItems_ContentGroupPictograms=3&knob-Item%202%20CTA%20(items.cta)_ContentGroupPictograms=true&knob-Item%201%20CTA%20(items.cta)_ContentGroupPictograms=true&knob-Item%203%20CTA%20(items.cta)_ContentGroupPictograms=true';
 
 /**
  * Sets parameters to render Pictogram Items with custom pictograms
@@ -30,7 +30,7 @@ const _withCTA =
  * @private
  */
 const _withCustomPictograms =
-  '&knob-Number%20of%20PictogramItems=3&knob-Item%201%20Pictogram%20(pictogram)=TouchScreen&knob-Item%202%20Pictogram%20(pictogram)=Touch&knob-Item%203%20Pictogram%20(pictogram)=Pattern';
+  '&knob-Number%20of%20PictogramItems_ContentGroupPictograms=3&knob-Item%201%20Pictogram%20(pictogram)_ContentGroupPictograms=TouchScreen&knob-Item%202%20Pictogram%20(pictogram)_ContentGroupPictograms=Touch&knob-Item%203%20Pictogram%20(pictogram)_ContentGroupPictograms=Pattern';
 
 describe('dds-content-group-pictograms | default (desktop)', () => {
   beforeEach(() => {

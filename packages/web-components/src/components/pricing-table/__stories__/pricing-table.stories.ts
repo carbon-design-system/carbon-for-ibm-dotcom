@@ -14,6 +14,7 @@ import '../index';
 import 'carbon-web-components/es/components/tooltip/index.js';
 import textNullable from '../../../../.storybook/knob-text-nullable';
 import { PRICING_TABLE_HEADER_CELL_TYPES } from '../defs';
+import { DDS_PRICING_TABLE } from '../../../globals/internal/feature-flags';
 import styles from './pricing-table.stories.scss';
 
 enum CELL_TYPES {
@@ -170,45 +171,51 @@ const renderBodyRow = (
   </dds-pricing-table-row>
 `;
 
-export const Default = args => {
-  const { colSpan1, colSpan2, colSpan3, colSpan4, highlightCol, highlightLabel, columnCount, heading } = args?.PricingTable ?? {};
-  return html`
-    <dds-pricing-table
-      col-span-1="${colSpan1 ?? ''}"
-      col-span-2="${colSpan2 ?? ''}"
-      col-span-3="${colSpan3 ?? ''}"
-      col-span-4="${colSpan4 ?? ''}"
-      highlight-column="${highlightCol}"
-      highlight-label="${highlightLabel}"
-    >
-      ${renderHead(columnCount, heading)}
-      <dds-pricing-table-body>
-        ${renderBodyRow(columnCount, 1, CELL_TYPES.ICON)} ${renderBodyRow(columnCount, 2, CELL_TYPES.EMPTY)}
-        ${renderBodyRow(columnCount, 3, CELL_TYPES.TEXT)}
-      </dds-pricing-table-body>
-    </dds-pricing-table>
-  `;
-};
+export const Default = !DDS_PRICING_TABLE
+  ? undefined
+  : ({ parameters }) => {
+      const { colSpan1, colSpan2, colSpan3, colSpan4, highlightCol, highlightLabel, columnCount, heading } =
+        parameters?.props?.PricingTable ?? {};
+      return html`
+        <dds-pricing-table
+          col-span-1="${colSpan1 ?? ''}"
+          col-span-2="${colSpan2 ?? ''}"
+          col-span-3="${colSpan3 ?? ''}"
+          col-span-4="${colSpan4 ?? ''}"
+          highlight-column="${highlightCol}"
+          highlight-label="${highlightLabel}"
+        >
+          ${renderHead(columnCount, heading)}
+          <dds-pricing-table-body>
+            ${renderBodyRow(columnCount, 1, CELL_TYPES.ICON)} ${renderBodyRow(columnCount, 2, CELL_TYPES.EMPTY)}
+            ${renderBodyRow(columnCount, 3, CELL_TYPES.TEXT)}
+          </dds-pricing-table-body>
+        </dds-pricing-table>
+      `;
+    };
 
-export const WithoutRowHeaders = args => {
-  const { colSpan1, colSpan2, colSpan3, colSpan4, highlightCol, highlightLabel, columnCount, heading } = args?.PricingTable ?? {};
-  return html`
-    <dds-pricing-table
-      col-span-1="${colSpan1 ?? ''}"
-      col-span-2="${colSpan2 ?? ''}"
-      col-span-3="${colSpan3 ?? ''}"
-      col-span-4="${colSpan4 ?? ''}"
-      highlight-column="${highlightCol}"
-      highlight-label="${highlightLabel}"
-    >
-      ${renderHead(columnCount, heading)}
-      <dds-pricing-table-body>
-        ${renderBodyRow(columnCount, 1, CELL_TYPES.ICON, false)} ${renderBodyRow(columnCount, 2, CELL_TYPES.EMPTY, false)}
-        ${renderBodyRow(columnCount, 3, CELL_TYPES.TEXT, false)}
-      </dds-pricing-table-body>
-    </dds-pricing-table>
-  `;
-};
+export const WithoutRowHeaders = !DDS_PRICING_TABLE
+  ? undefined
+  : ({ parameters }) => {
+      const { colSpan1, colSpan2, colSpan3, colSpan4, highlightCol, highlightLabel, columnCount, heading } =
+        parameters?.props?.PricingTable ?? {};
+      return html`
+        <dds-pricing-table
+          col-span-1="${colSpan1 ?? ''}"
+          col-span-2="${colSpan2 ?? ''}"
+          col-span-3="${colSpan3 ?? ''}"
+          col-span-4="${colSpan4 ?? ''}"
+          highlight-column="${highlightCol}"
+          highlight-label="${highlightLabel}"
+        >
+          ${renderHead(columnCount, heading)}
+          <dds-pricing-table-body>
+            ${renderBodyRow(columnCount, 1, CELL_TYPES.ICON, false)} ${renderBodyRow(columnCount, 2, CELL_TYPES.EMPTY, false)}
+            ${renderBodyRow(columnCount, 3, CELL_TYPES.TEXT, false)}
+          </dds-pricing-table-body>
+        </dds-pricing-table>
+      `;
+    };
 if (WithoutRowHeaders) {
   // @ts-ignore
   WithoutRowHeaders.story = {
@@ -216,35 +223,38 @@ if (WithoutRowHeaders) {
   };
 }
 
-export const WithSubheaders = args => {
-  const { colSpan1, colSpan2, colSpan3, colSpan4, columnCount, highlightCol, highlightLabel, heading } = args?.PricingTable ?? {};
-  return html`
-    <dds-pricing-table
-      col-span-1="${colSpan1 ?? ''}"
-      col-span-2="${colSpan2 ?? ''}"
-      col-span-3="${colSpan3 ?? ''}"
-      col-span-4="${colSpan4 ?? ''}"
-      highlight-column="${highlightCol}"
-      highlight-label="${highlightLabel}"
-    >
-      ${renderHead(columnCount, heading)}
-      <dds-pricing-table-body>
-        <dds-pricing-table-group title="Group 1">
-          ${renderBodyRow(columnCount, 1, CELL_TYPES.ICON)} ${renderBodyRow(columnCount, 2, CELL_TYPES.EMPTY)}
-          ${renderBodyRow(columnCount, 3, CELL_TYPES.TEXT)}
-        </dds-pricing-table-group>
-        <dds-pricing-table-group title="Group 2">
-          ${renderBodyRow(columnCount, 1, CELL_TYPES.ICON)} ${renderBodyRow(columnCount, 2, CELL_TYPES.EMPTY)}
-          ${renderBodyRow(columnCount, 3, CELL_TYPES.TEXT)}
-        </dds-pricing-table-group>
-        <dds-pricing-table-group title="Group 3">
-          ${renderBodyRow(columnCount, 1, CELL_TYPES.ICON)} ${renderBodyRow(columnCount, 2, CELL_TYPES.EMPTY)}
-          ${renderBodyRow(columnCount, 3, CELL_TYPES.TEXT)}
-        </dds-pricing-table-group>
-      </dds-pricing-table-body>
-    </dds-pricing-table>
-  `;
-};
+export const WithSubheaders = !DDS_PRICING_TABLE
+  ? undefined
+  : ({ parameters }) => {
+      const { colSpan1, colSpan2, colSpan3, colSpan4, columnCount, highlightCol, highlightLabel, heading } =
+        parameters?.props?.PricingTable ?? {};
+      return html`
+        <dds-pricing-table
+          col-span-1="${colSpan1 ?? ''}"
+          col-span-2="${colSpan2 ?? ''}"
+          col-span-3="${colSpan3 ?? ''}"
+          col-span-4="${colSpan4 ?? ''}"
+          highlight-column="${highlightCol}"
+          highlight-label="${highlightLabel}"
+        >
+          ${renderHead(columnCount, heading)}
+          <dds-pricing-table-body>
+            <dds-pricing-table-group title="Group 1">
+              ${renderBodyRow(columnCount, 1, CELL_TYPES.ICON)} ${renderBodyRow(columnCount, 2, CELL_TYPES.EMPTY)}
+              ${renderBodyRow(columnCount, 3, CELL_TYPES.TEXT)}
+            </dds-pricing-table-group>
+            <dds-pricing-table-group title="Group 2">
+              ${renderBodyRow(columnCount, 1, CELL_TYPES.ICON)} ${renderBodyRow(columnCount, 2, CELL_TYPES.EMPTY)}
+              ${renderBodyRow(columnCount, 3, CELL_TYPES.TEXT)}
+            </dds-pricing-table-group>
+            <dds-pricing-table-group title="Group 3">
+              ${renderBodyRow(columnCount, 1, CELL_TYPES.ICON)} ${renderBodyRow(columnCount, 2, CELL_TYPES.EMPTY)}
+              ${renderBodyRow(columnCount, 3, CELL_TYPES.TEXT)}
+            </dds-pricing-table-group>
+          </dds-pricing-table-body>
+        </dds-pricing-table>
+      `;
+    };
 if (WithSubheaders) {
   // @ts-ignore
   WithSubheaders.story = {
@@ -252,52 +262,51 @@ if (WithSubheaders) {
   };
 }
 
-export default {
-  title: 'Components/Pricing Table',
-  parameters: {
-    ...readme.parameters,
-    percy: {
-      skip: true,
-    },
-    knobs: {
-      PricingTable: () => ({
-        heading: text('section heading', 'Optional section heading'),
-        columnCount: number('number of columns', 3, { min: 1, max: 8 }),
-        highlightCol: number('highlighted column', 2, { min: 0, max: 8 }),
-        highlightLabel: text('highlighted label', 'Featured'),
-        colSpan1: textNullable('col-span-1', ''),
-        colSpan2: textNullable('col-span-2', ''),
-        colSpan3: textNullable('col-span-3', ''),
-        colSpan4: textNullable('col-span-4', ''),
-      }),
-    },
-  },
-  propsSet: {
-    default: {
-      PricingTable: {
-        heading: 'Optional section heading',
-        columnCount: 3,
-        highlightCol: 2,
-        highlightLabel: 'Featured',
-        colSpan1: '',
-        colSpan2: '',
-        colSpan3: '',
-        colSpan4: '',
+export default !DDS_PRICING_TABLE
+  ? undefined
+  : {
+      title: 'Components/Pricing Table',
+      parameters: {
+        ...readme.parameters,
+        knobs: {
+          PricingTable: ({ groupId }) => ({
+            heading: text('section heading', 'Optional section heading', groupId),
+            columnCount: number('number of columns', 3, { min: 1, max: 8 }, groupId),
+            highlightCol: number('highlighted column', 2, { min: 0, max: 8 }, groupId),
+            highlightLabel: text('highlighted label', 'Featured', groupId),
+            colSpan1: textNullable('col-span-1', '', groupId),
+            colSpan2: textNullable('col-span-2', '', groupId),
+            colSpan3: textNullable('col-span-3', '', groupId),
+            colSpan4: textNullable('col-span-4', '', groupId),
+          }),
+        },
       },
-    },
-  },
-  decorators: [
-    story => html`
-      <style>
-        ${styles}
-      </style>
-      <div class="bx--grid">
-        <div class="bx--row">
-          <div class="bx--col-lg-16">
-            ${story()}
+      propsSet: {
+        default: {
+          PricingTable: {
+            heading: 'Optional section heading',
+            columnCount: 3,
+            highlightCol: 2,
+            highlightLabel: 'Featured',
+            colSpan1: '',
+            colSpan2: '',
+            colSpan3: '',
+            colSpan4: '',
+          },
+        },
+      },
+      decorators: [
+        story => html`
+          <style>
+            ${styles}
+          </style>
+          <div class="bx--grid">
+            <div class="bx--row">
+              <div class="bx--col-lg-16">
+                ${story()}
+              </div>
+            </div>
           </div>
-        </div>
-      </div>
-    `,
-  ],
-};
+        `,
+      ],
+    };

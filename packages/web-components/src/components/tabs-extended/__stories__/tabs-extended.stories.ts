@@ -9,7 +9,6 @@
 
 import { html } from 'lit-element';
 import '../index';
-import '../../content-block-media/index';
 import '../../card-group/index';
 import ifNonNull from 'carbon-web-components/es/globals/directives/if-non-null.js';
 import { select } from '@storybook/addon-knobs';
@@ -29,8 +28,8 @@ const copy = `Lorem ipsum dolor sit amet, *consectetur* adipiscing elit.
   Curabitur pretium elit non blandit lobortis.
   Donec quis pretium odio, in dignissim sapien.`;
 
-export const Default = args => {
-  const { orientation } = args?.TabsExtended ?? {};
+export const Default = ({ parameters }) => {
+  const { orientation } = parameters?.props?.TabsExtended ?? {};
   return html`
     <dds-tabs-extended orientation="${ifNonNull(orientation)}">
       <dds-tab
@@ -89,8 +88,8 @@ export default {
     ...readme.parameters,
     hasStoryPadding: true,
     knobs: {
-      TabsExtended: () => ({
-        orientation: select('Orientation (orientation):', orientationType, ORIENTATION.HORIZONTAL),
+      TabsExtended: ({ groupId }) => ({
+        orientation: select('Orientation (orientation):', orientationType, ORIENTATION.HORIZONTAL, groupId),
       }),
     },
     propsSet: {

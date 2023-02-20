@@ -1,7 +1,7 @@
 /**
  * @license
  *
- * Copyright IBM Corp. 2020, 2022
+ * Copyright IBM Corp. 2020, 2021
  *
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
@@ -44,11 +44,11 @@ const types = {
   [`External (${CTA_TYPE.EXTERNAL})`]: CTA_TYPE.EXTERNAL,
 };
 
-export const Default = args => {
-  const { alt, eyebrow, heading, copy, href, ctaType, mediaAlign, defaultSrc } = args?.FeatureSection ?? {};
+export const Default = ({ parameters }) => {
+  const { eyebrow, heading, copy, href, ctaType, mediaAlign, defaultSrc } = parameters?.props?.FeatureSection ?? {};
   return (
     <DDSFeatureSection media-alignment={mediaAlign}>
-      <DDSImage slot="image" default-src={defaultSrc} alt={alt}>
+      <DDSImage slot="image" default-src={defaultSrc}>
         <DDSImageItem media="(min-width: 1584px)" srcset={imgXlg1x1}></DDSImageItem>
         <DDSImageItem media="(min-width: 1056px)" srcset={imgLg1x1}></DDSImageItem>
         <DDSImageItem media="(min-width: 672px)" srcset={imgMd4x3}></DDSImageItem>
@@ -70,19 +70,20 @@ export const Default = args => {
 Default.story = {
   parameters: {
     knobs: {
-      FeatureSection: () => ({
-        mediaAlign: select('Media Alignment', mediaAlignment, MEDIA_ALIGNMENT.RIGHT),
-        eyebrow: textNullable('Card Eyebrow (optional)(eyebrow):', '5 min activity'),
-        heading: textNullable('Card Heading (required)(heading):', 'Ready when you are'),
+      FeatureSection: ({ groupId }) => ({
+        mediaAlign: select('Media Alignment', mediaAlignment, MEDIA_ALIGNMENT.RIGHT, groupId),
+        eyebrow: textNullable('Card Eyebrow (optional)(eyebrow):', '5 min activity', groupId),
+        heading: textNullable('Card Heading (required)(heading):', 'Ready when you are', groupId),
         copy: textNullable(
           'Card copy (optional)(copy):',
           `Were flexible. We can work with you on a wide variety of engagements on a project
           or consulting basis. And were technology agnostic. Our experts work with any vendors technology, not just IBMs.
-          You decide how you want to work and where to focus our expertise.`
+          You decide how you want to work and where to focus our expertise.`,
+          groupId
         ),
-        alt: textNullable('Image Alt Text (alt):', 'Image alt text'),
-        ctaType: select('CTA type (cta-type)', types, CTA_TYPE.LOCAL),
-        href: textNullable('CTA Href (href):', 'https://example.com'),
+        alt: textNullable('Image Alt Text (alt):', 'Image alt text', groupId),
+        ctaType: select('CTA type (cta-type)', types, CTA_TYPE.LOCAL, groupId),
+        href: textNullable('CTA Href (href):', 'https://example.com', groupId),
       }),
     },
   },

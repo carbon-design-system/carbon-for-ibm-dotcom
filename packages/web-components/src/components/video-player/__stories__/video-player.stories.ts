@@ -1,7 +1,7 @@
 /**
  * @license
  *
- * Copyright IBM Corp. 2020, 2022
+ * Copyright IBM Corp. 2020, 2021
  *
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
@@ -14,8 +14,8 @@ import readme from './README.stories.mdx';
 import '../video-player-container';
 import '../../lightbox-media-viewer/lightbox-video-player-container';
 
-export const Default = args => {
-  const { caption, hideCaption, thumbnail, videoId } = args?.VideoPlayer ?? {};
+export const Default = ({ parameters }) => {
+  const { caption, hideCaption, thumbnail, videoId } = parameters?.props?.VideoPlayer ?? {};
   return html`
     <dds-video-player-container
       playing-mode="inline"
@@ -27,22 +27,8 @@ export const Default = args => {
   `;
 };
 
-export const aspectRatio1x1 = args => {
-  const { aspectRatio, caption, hideCaption, thumbnail, videoId } = args?.VideoPlayer ?? {};
-  return html`
-    <dds-video-player-container
-      playing-mode="inline"
-      video-id=${videoId}
-      aspect-ratio=${aspectRatio}
-      caption=${caption}
-      ?hide-caption=${hideCaption}
-      thumbnail=${thumbnail}
-    ></dds-video-player-container>
-  `;
-};
-
-export const aspectRatio4x3 = args => {
-  const { aspectRatio, caption, hideCaption, thumbnail, videoId } = args?.VideoPlayer ?? {};
+export const aspectRatio1x1 = ({ parameters }) => {
+  const { aspectRatio, caption, hideCaption, thumbnail, videoId } = parameters?.props?.VideoPlayer ?? {};
   return html`
     <dds-video-player-container
       playing-mode="inline"
@@ -55,8 +41,22 @@ export const aspectRatio4x3 = args => {
   `;
 };
 
-export const withLightboxMediaViewer = args => {
-  const { aspectRatio, caption, hideCaption, thumbnail, videoId, customVideoDescription } = args?.VideoPlayer ?? {};
+export const aspectRatio4x3 = ({ parameters }) => {
+  const { aspectRatio, caption, hideCaption, thumbnail, videoId } = parameters?.props?.VideoPlayer ?? {};
+  return html`
+    <dds-video-player-container
+      playing-mode="inline"
+      video-id=${videoId}
+      aspect-ratio=${aspectRatio}
+      caption=${caption}
+      ?hide-caption=${hideCaption}
+      thumbnail=${thumbnail}
+    ></dds-video-player-container>
+  `;
+};
+
+export const withLightboxMediaViewer = ({ parameters }) => {
+  const { aspectRatio, caption, hideCaption, thumbnail, videoId, customVideoDescription } = parameters?.props?.VideoPlayer ?? {};
   return html`
     <dds-video-player-container
       video-id=${videoId}
@@ -76,12 +76,12 @@ aspectRatio4x3.story = {
   name: 'Aspect ratio 4:3',
   parameters: {
     knobs: {
-      VideoPlayer: () => {
+      VideoPlayer: ({ groupId }) => {
         return {
           aspectRatio: '4x3',
-          caption: text('Custom caption (caption):', ''),
-          hideCaption: boolean('Hide caption (hideCaption):', false),
-          thumbnail: text('Custom thumbnail (thumbnail):', ''),
+          caption: text('Custom caption (caption):', '', groupId),
+          hideCaption: boolean('Hide caption (hideCaption):', false, groupId),
+          thumbnail: text('Custom thumbnail (thumbnail):', '', groupId),
           videoId: '1_9h94wo6b',
         };
       },
@@ -104,12 +104,12 @@ aspectRatio1x1.story = {
   name: 'Aspect ratio 1:1',
   parameters: {
     knobs: {
-      VideoPlayer: () => {
+      VideoPlayer: ({ groupId }) => {
         return {
           aspectRatio: '1x1',
-          caption: text('Custom caption (caption):', ''),
-          hideCaption: boolean('Hide caption (hideCaption):', false),
-          thumbnail: text('Custom thumbnail (thumbnail):', ''),
+          caption: text('Custom caption (caption):', '', groupId),
+          hideCaption: boolean('Hide caption (hideCaption):', false, groupId),
+          thumbnail: text('Custom thumbnail (thumbnail):', '', groupId),
           videoId: '1_9h94wo6b',
         };
       },
@@ -132,13 +132,13 @@ withLightboxMediaViewer.story = {
   name: 'With lightbox media viewer',
   parameters: {
     knobs: {
-      VideoPlayer: () => {
+      VideoPlayer: ({ groupId }) => {
         return {
           aspectRatio: '16x9',
-          customVideoDescription: text('Custom video description', 'This is a custom video description.'),
-          caption: text('Custom caption (caption):', ''),
-          hideCaption: boolean('Hide caption (hideCaption):', false),
-          thumbnail: text('Custom thumbnail (thumbnail):', ''),
+          customVideoDescription: text('Custom video description', 'This is a custom video description.', groupId),
+          caption: text('Custom caption (caption):', '', groupId),
+          hideCaption: boolean('Hide caption (hideCaption):', false, groupId),
+          thumbnail: text('Custom thumbnail (thumbnail):', '', groupId),
           videoId: '1_9h94wo6b',
         };
       },
@@ -175,10 +175,10 @@ export default {
     ...readme.parameters,
     hasStoryPadding: true,
     knobs: {
-      VideoPlayer: () => ({
-        caption: text('Custom caption (caption):', ''),
-        hideCaption: boolean('Hide caption (hideCaption):', false),
-        thumbnail: text('Custom thumbnail (thumbnail):', ''),
+      VideoPlayer: ({ groupId }) => ({
+        caption: text('Custom caption (caption):', '', groupId),
+        hideCaption: boolean('Hide caption (hideCaption):', false, groupId),
+        thumbnail: text('Custom thumbnail (thumbnail):', '', groupId),
         videoId: '1_9h94wo6b',
       }),
     },

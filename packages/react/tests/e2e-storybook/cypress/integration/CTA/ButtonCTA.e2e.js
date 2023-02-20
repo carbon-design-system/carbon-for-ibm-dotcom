@@ -24,7 +24,7 @@ const _path = '/iframe.html?id=components-cta--button';
  * @private
  */
 const _paths = {
-  ctaType: `${_path}&knob-Button%201%20type%20(buttons[0].type)=`,
+  ctaType: `${_path}&knob-Button%201%20type%20(buttons[0].type)_CTA=`,
 };
 
 /**

@@ -65,7 +65,7 @@ async function customTypeaheadApiFunction(searchVal) {
     });
 }
 
-export const Default = args => {
+export const Default = ({ parameters }) => {
   const {
     customProfileLogin,
     platform,
@@ -76,8 +76,8 @@ export const Default = args => {
     userStatus,
     navLinks,
     authMethod,
-  } = args?.MastheadComposite ?? {};
-  const { useMock } = args?.Other ?? {};
+  } = parameters?.props?.MastheadComposite ?? {};
+  const { useMock } = parameters?.props?.Other ?? {};
   return html`
     <style>
       ${styles}
@@ -199,7 +199,7 @@ export const withCloudData = ({ parameters }) => {
   `;
 };
 
-export const WithCustomTypeahead = args => {
+export const WithCustomTypeahead = ({ parameters }) => {
   const {
     endpoint,
     customProfileLogin,
@@ -210,8 +210,8 @@ export const WithCustomTypeahead = args => {
     searchPlaceholder,
     hasProfile,
     hasSearch,
-  } = args?.MastheadComposite ?? {};
-  const { useMock } = args?.Other ?? {};
+  } = parameters?.props?.MastheadComposite ?? {};
+  const { useMock } = parameters?.props?.Other ?? {};
 
   document.documentElement.addEventListener('dds-search-with-typeahead-input', async e => {
     const results = await customTypeaheadApiFunction((e as CustomEvent).detail.value);
@@ -261,7 +261,7 @@ WithCustomTypeahead.story = {
   name: 'With custom typeahead',
 };
 
-export const searchOpenOnload = args => {
+export const searchOpenOnload = ({ parameters }) => {
   const {
     endpoint,
     customProfileLogin,
@@ -272,8 +272,8 @@ export const searchOpenOnload = args => {
     hasProfile,
     hasSearch,
     navLinks,
-  } = args?.MastheadComposite ?? {};
-  const { useMock } = args?.Other ?? {};
+  } = parameters?.props?.MastheadComposite ?? {};
+  const { useMock } = parameters?.props?.Other ?? {};
   return html`
     <style>
       ${styles}
@@ -317,10 +317,10 @@ searchOpenOnload.story = {
   name: 'Search open onload',
 };
 
-export const withPlatform = args => {
+export const withPlatform = ({ parameters }) => {
   const { endpoint, selectedMenuItem, userStatus, navLinks, hasProfile, hasSearch, searchPlaceholder, platform } =
-    args?.MastheadComposite ?? {};
-  const { useMock } = args?.Other ?? {};
+    parameters?.props?.MastheadComposite ?? {};
+  const { useMock } = parameters?.props?.Other ?? {};
   return html`
     <style>
       ${styles}
@@ -358,13 +358,13 @@ withPlatform.story = {
   name: 'With platform',
   parameters: {
     knobs: {
-      MastheadComposite: () => ({
-        platform: textNullable('platform name (platform)', 'Platform'),
-        hasProfile: select('show the profile functionality (has-profile)', ['true', 'false'], 'true'),
-        hasSearch: boolean('show the search functionality (has-search)', true),
-        searchPlaceholder: textNullable('search placeholder (searchPlaceholder)', inPercy() ? '' : 'Search all of IBM'),
-        selectedMenuItem: textNullable('selected menu item (selected-menu-item)', 'Consulting & Services'),
-        userStatus: select('The user authenticated status (user-status)', userStatuses, userStatuses.unauthenticated),
+      MastheadComposite: ({ groupId }) => ({
+        platform: textNullable('platform name (platform)', 'Platform', groupId),
+        hasProfile: select('show the profile functionality (has-profile)', ['true', 'false'], 'true', groupId),
+        hasSearch: boolean('show the search functionality (has-search)', true, groupId),
+        searchPlaceholder: textNullable('search placeholder (searchPlaceholder)', inPercy() ? '' : 'Search all of IBM', groupId),
+        selectedMenuItem: textNullable('selected menu item (selected-menu-item)', 'Consulting & Services', groupId),
+        userStatus: select('The user authenticated status (user-status)', userStatuses, userStatuses.unauthenticated, groupId),
       }),
     },
     propsSet: {
@@ -382,10 +382,10 @@ withPlatform.story = {
   },
 };
 
-export const withL1 = args => {
+export const withL1 = ({ parameters }) => {
   const { endpoint, selectedMenuItem, userStatus, navLinks, hasProfile, hasSearch, searchPlaceholder, platform } =
-    args?.MastheadComposite ?? {};
-  const { useMock } = args?.Other ?? {};
+    parameters?.props?.MastheadComposite ?? {};
+  const { useMock } = parameters?.props?.Other ?? {};
   return html`
     <style>
       ${styles}
@@ -424,13 +424,13 @@ withL1.story = {
   name: 'With L1',
   parameters: {
     knobs: {
-      MastheadComposite: () => ({
-        platform: textNullable('platform name (platform)', ''),
-        hasProfile: select('show the profile functionality (has-profile)', ['true', 'false'], 'true'),
-        hasSearch: boolean('show the search functionality (has-search)', true),
-        searchPlaceholder: textNullable('search placeholder (searchPlaceholder)', inPercy() ? '' : 'Search all of IBM'),
-        selectedMenuItem: textNullable('selected menu item (selected-menu-item)', 'Products'),
-        userStatus: select('The user authenticated status (user-status)', userStatuses, userStatuses.unauthenticated),
+      MastheadComposite: ({ groupId }) => ({
+        platform: textNullable('platform name (platform)', '', groupId),
+        hasProfile: select('show the profile functionality (has-profile)', ['true', 'false'], 'true', groupId),
+        hasSearch: boolean('show the search functionality (has-search)', true, groupId),
+        searchPlaceholder: textNullable('search placeholder (searchPlaceholder)', inPercy() ? '' : 'Search all of IBM', groupId),
+        selectedMenuItem: textNullable('selected menu item (selected-menu-item)', 'Products', groupId),
+        userStatus: select('The user authenticated status (user-status)', userStatuses, userStatuses.unauthenticated, groupId),
       }),
     },
     propsSet: {
@@ -448,10 +448,10 @@ withL1.story = {
   },
 };
 
-export const withAlternateLogoAndTooltip = args => {
+export const withAlternateLogoAndTooltip = ({ parameters }) => {
   const { endpoint, selectedMenuItem, userStatus, navLinks, hasProfile, hasSearch, searchPlaceholder, mastheadLogo, platform } =
-    args?.MastheadComposite ?? {};
-  const { useMock } = args?.Other ?? {};
+    parameters?.props?.MastheadComposite ?? {};
+  const { useMock } = parameters?.props?.Other ?? {};
   return html`
     <style>
       ${styles}
@@ -491,18 +491,19 @@ withAlternateLogoAndTooltip.story = {
   name: 'With alternate logo and tooltip',
   parameters: {
     knobs: {
-      MastheadComposite: () => ({
-        platform: textNullable('platform name (platform)', ''),
-        hasProfile: select('show the profile functionality (has-profile)', ['true', 'false'], 'true'),
-        hasSearch: boolean('show the search functionality (has-search)', true),
-        searchPlaceholder: textNullable('search placeholder (searchPlaceholder)', 'Search all of IBM'),
-        selectedMenuItem: textNullable('selected menu item (selected-menu-item)', 'Consulting & Services'),
+      MastheadComposite: ({ groupId }) => ({
+        platform: textNullable('platform name (platform)', '', groupId),
+        hasProfile: select('show the profile functionality (has-profile)', ['true', 'false'], 'true', groupId),
+        hasSearch: boolean('show the search functionality (has-search)', true, groupId),
+        searchPlaceholder: textNullable('search placeholder (searchPlaceholder)', 'Search all of IBM', groupId),
+        selectedMenuItem: textNullable('selected menu item (selected-menu-item)', 'Consulting & Services', groupId),
         mastheadLogo: select(
           'masthead logo data (logoData)',
           { defaultWithNoTooltip: null, alternateWithTooltip: 'alternateWithTooltip' },
-          'alternateWithTooltip'
+          'alternateWithTooltip',
+          groupId
         ),
-        userStatus: select('The user authenticated status (user-status)', userStatuses, userStatuses.unauthenticated),
+        userStatus: select('The user authenticated status (user-status)', userStatuses, userStatuses.unauthenticated, groupId),
       }),
     },
     propsSet: {
@@ -539,15 +540,17 @@ export default {
     ...readme.parameters,
     knobs: {
       escapeHTML: false,
-      MastheadComposite: () => ({
-        platform: textNullable('platform name (platform)', ''),
-        hasProfile: select('show the profile functionality (has-profile)', ['true', 'false'], 'true'),
-        hasSearch: boolean('show the search functionality (has-search)', true),
-        searchPlaceholder: textNullable('search placeholder (searchPlaceholder)', 'Search all of IBM'),
-        selectedMenuItem: textNullable('selected menu item (selected-menu-item)', 'Consulting & Services'),
-        userStatus: select('The user authenticated status (user-status)', userStatuses, userStatuses.unauthenticated),
+      MastheadComposite: ({ groupId }) => ({
+        platform: textNullable('platform name (platform)', '', groupId),
+        hasProfile: select('show the profile functionality (has-profile)', ['true', 'false'], 'true', groupId),
+        hasSearch: boolean('show the search functionality (has-search)', true, groupId),
+        hasContact: select('Contact us button visibility (has-contact)', ['true', 'false'], 'true', groupId),
+        searchPlaceholder: textNullable('search placeholder (searchPlaceholder)', 'Search all of IBM', groupId),
+        selectedMenuItem: textNullable('selected menu item (selected-menu-item)', 'Consulting & Services', groupId),
+        userStatus: select('The user authenticated status (user-status)', userStatuses, userStatuses.unauthenticated, groupId),
         customProfileLogin:
-          DDS_CUSTOM_PROFILE_LOGIN && textNullable('custom profile login url (customProfileLogin)', 'https://www.example.com/'),
+          DDS_CUSTOM_PROFILE_LOGIN &&
+          textNullable('custom profile login url (customProfileLogin)', 'https://www.example.com/', groupId),
       }),
     },
     props: (() => {

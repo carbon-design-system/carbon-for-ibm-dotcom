@@ -1,5 +1,5 @@
 /**
- * Copyright IBM Corp. 2016, 2022
+ * Copyright IBM Corp. 2016, 2021
  *
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
@@ -37,252 +37,62 @@ const images = {
   alt: 'lead space image',
 };
 
-const props = {
-  tallWithNoImage: () => {
-    const buttonCount = number('Number of buttons', 2, {});
-    const buttons = [];
-
-    for (let i = 0; i < buttonCount; i++) {
-      buttons.push({
-        copy: text(`Button ${i + 1} (copy)`, `Button ${i + 1}`),
-        renderIcon:
-          iconMap[
-            select(
-              `Button Icon ${i + 1} (renderIcon)`,
-              iconOptions,
-              iconOptions.ArrowRight
-            )
-          ],
-        href: text(`Button link (href)`, 'https://www.example.com'),
-      });
-    }
-
-    return {
-      title: text('title (title)', 'Lead space title'),
-      copy: text(
-        'copy (copy)',
-        'Use this area for a short line of copy to support the title'
-      ),
-      buttons,
-    };
-  },
-  tallWithImage: () => {
-    const knobs = props.tallWithNoImage();
-    return {
-      ...knobs,
-      defaultSrc: text('Default image (defaultSrc):', leadspaceImg),
-      image: images,
-    };
-  },
-  centered: () => {
-    const buttonCount = number('Number of buttons', 2, {});
-    const buttons = [];
-
-    for (let i = 0; i < buttonCount; i++) {
-      buttons.push({
-        copy: text(`Button ${i + 1} (copy)`, `Button ${i + 1}`),
-        renderIcon:
-          iconMap[
-            select(
-              `Button Icon ${i + 1} (renderIcon)`,
-              iconOptions,
-              iconOptions.ArrowRight
-            )
-          ],
-        href: text(`Button link (href)`, 'https://www.example.com'),
-      });
-    }
-
-    return {
-      title: text('title (title)', 'Leadspace Title'),
-      copy: text(
-        'copy (copy)',
-        'Use this area for a short line of copy to support the title'
-      ),
-      buttons,
-    };
-  },
-  centeredWithImage: () => {
-    const buttonCount = number('Number of buttons', 2, {});
-    const buttons = [];
-
-    for (let i = 0; i < buttonCount; i++) {
-      buttons.push({
-        copy: text(`Button ${i + 1} (copy)`, `Button ${i + 1}`),
-        renderIcon:
-          iconMap[
-            select(
-              `Button Icon ${i + 1} (renderIcon)`,
-              iconOptions,
-              iconOptions.ArrowRight
-            )
-          ],
-        href: text(`Button link (href)`, 'https://www.example.com'),
-      });
-    }
-
-    return {
-      title: text('title (title)', 'Leadspace Title'),
-      copy: text(
-        'copy (copy)',
-        'Use this area for a short line of copy to support the title'
-      ),
-      defaultSrc: text('Default image (defaultSrc):', leadspaceImg3),
-      buttons,
-    };
-  },
-  medium: () => {
-    const buttonCount = number('Number of buttons', 2, {});
-    const buttons = [];
-
-    for (let i = 0; i < buttonCount; i++) {
-      buttons.push({
-        copy: text(`Button ${i + 1} (copy)`, `Button ${i + 1}`),
-        renderIcon:
-          iconMap[
-            select(
-              `Button Icon ${i + 1} (renderIcon)`,
-              iconOptions,
-              iconOptions.ArrowRight
-            )
-          ],
-        href: text(`Button link (href)`, 'https://www.example.com'),
-      });
-    }
-
-    return {
-      title: text('title (title)', 'Lead space title'),
-      copy: text(
-        'copy (copy)',
-        'Use this area for a short line of copy to support the title'
-      ),
-      buttons,
-      size: 'medium',
-    };
-  },
-  mediumWithImage: () => {
-    const buttonCount = number('Number of buttons', 2, {});
-    const buttons = [];
-
-    for (let i = 0; i < buttonCount; i++) {
-      buttons.push({
-        copy: text(`Button ${i + 1} (copy)`, `Button ${i + 1}`),
-        renderIcon:
-          iconMap[
-            select(
-              `Button Icon ${i + 1} (renderIcon)`,
-              iconOptions,
-              iconOptions.ArrowRight
-            )
-          ],
-        href: text(`Button link (href)`, 'https://www.example.com'),
-      });
-    }
-
-    return {
-      title: text('title (title)', 'Lead space title'),
-      copy: text(
-        'copy (copy)',
-        'Use this area for a short line of copy to support the title'
-      ),
-      buttons,
-      defaultSrc: text('Default image (defaultSrc):', leadspaceImg),
-      size: 'medium',
-      image: images,
-      gradient: true,
-    };
-  },
-  super: () => {
-    const buttonCount = number('Number of buttons', 2, {});
-    const buttons = [];
-
-    for (let i = 0; i < buttonCount; i++) {
-      buttons.push({
-        copy: text(`Button ${i + 1} (copy)`, `Button ${i + 1}`),
-        renderIcon:
-          iconMap[
-            select(
-              `Button Icon ${i + 1} (renderIcon)`,
-              iconOptions,
-              iconOptions.ArrowRight
-            )
-          ],
-        href: text(`Button link (href)`, 'https://www.example.com'),
-      });
-    }
-
-    return {
-      title: text('title (title)', 'Lead space title'),
-      copy: text(
-        'copy (copy)',
-        'Use this area for a short line of copy to support the title'
-      ),
-      buttons,
-      size: 'super',
-    };
-  },
-  superWithImage: () => {
-    const buttonCount = number('Number of buttons', 2, {});
-    const buttons = [];
-
-    for (let i = 0; i < buttonCount; i++) {
-      buttons.push({
-        copy: text(`Button ${i + 1} (copy)`, `Button ${i + 1}`),
-        renderIcon:
-          iconMap[
-            select(
-              `Button Icon ${i + 1} (renderIcon)`,
-              iconOptions,
-              iconOptions.ArrowRight
-            )
-          ],
-        href: text(`Button link (href)`, 'https://www.example.com'),
-      });
-    }
-
-    return {
-      title: text('title (title)', 'Lead space title'),
-      copy: text(
-        'copy (copy)',
-        'Use this area for a short line of copy to support the title'
-      ),
-      buttons,
-      defaultSrc: text('Default image (defaultSrc):', leadspaceImg),
-      size: 'super',
-      gradient: true,
-      image: images,
-    };
-  },
-};
-
 export default {
-  title: 'Components/Lead space',
+  title: 'Components|Lead space',
   parameters: {
     ...readme.parameters,
-    percy: {
-      name: 'Components|Lead space: Default',
-    },
   },
 };
 
-export const TallWithNoImage = args => (
-  <TallWithImage
-    {...(Object.keys(args).length > 0 ? args : props.tallWithNoImage())}
-  />
+export const TallWithNoImage = ({ parameters }) => (
+  <TallWithImage parameters={parameters} />
 );
 
 TallWithNoImage.story = {
   name: 'Tall',
   parameters: {
-    percy: {
-      name: 'Components|Lead space: Tall',
+    knobs: {
+      LeadSpace: ({ groupId }) => {
+        const buttonCount = number('Number of buttons', 2, {}, groupId);
+        const buttons = [];
+
+        for (let i = 0; i < buttonCount; i++) {
+          buttons.push({
+            copy: text(`Button ${i + 1} (copy)`, `Button ${i + 1}`, groupId),
+            renderIcon:
+              iconMap[
+                select(
+                  `Button Icon ${i + 1} (renderIcon)`,
+                  iconOptions,
+                  iconOptions.ArrowRight,
+                  groupId
+                )
+              ],
+            href: text(
+              `Button link (href)`,
+              'https://www.example.com',
+              groupId
+            ),
+          });
+        }
+
+        return {
+          title: text('title (title)', 'Lead space title', groupId),
+          copy: text(
+            'copy (copy)',
+            'Use this area for a short line of copy to support the title',
+            groupId
+          ),
+          buttons,
+        };
+      },
     },
   },
 };
 
-export const TallWithImage = args => {
-  const { defaultSrc, image } = props.tallWithImage();
-
+export const TallWithImage = ({ parameters }) => {
+  const { title, defaultSrc, copy, gradient, buttons, image, size } =
+    parameters?.props?.LeadSpace ?? {};
   if (defaultSrc) {
     image.defaultSrc = defaultSrc;
     image.sources[0].src = defaultSrc;
@@ -297,7 +107,12 @@ export const TallWithImage = args => {
   return (
     <LeadSpace
       theme={theme}
-      {...(Object.keys(args).length > 0 ? args : props.tallWithImage())}
+      title={title}
+      copy={copy}
+      gradient={gradient}
+      buttons={buttons}
+      image={image}
+      size={size}
     />
   );
 };
@@ -305,33 +120,92 @@ export const TallWithImage = args => {
 TallWithImage.story = {
   name: 'Tall with image',
   parameters: {
-    percy: {
-      name: 'Components|Lead space: Tall with image',
+    knobs: {
+      LeadSpace: ({ groupId }) => {
+        const knobs = TallWithNoImage.story.parameters.knobs.LeadSpace({
+          groupId,
+        });
+        return {
+          ...knobs,
+          defaultSrc: text(
+            'Default image (defaultSrc):',
+            leadspaceImg,
+            groupId
+          ),
+          image: images,
+        };
+      },
     },
   },
 };
 
-export const Centered = () => {
+export const Centered = ({ parameters }) => {
+  const { title, copy, gradient, buttons, image } =
+    parameters?.props?.Leadspace ?? {};
   const params = new URLSearchParams(window.location.search);
   const themeParam = params.has('theme') ? params.get('theme') : null;
   const theme =
     themeParam ||
     document.documentElement.getAttribute('storybook-carbon-theme') ||
     'white';
-  return <LeadSpace type="centered" theme={theme} {...props.centered()} />;
+  return (
+    <LeadSpace
+      type="centered"
+      theme={theme}
+      title={title}
+      copy={copy}
+      gradient={gradient}
+      buttons={buttons}
+      image={image}
+    />
+  );
 };
 
 Centered.story = {
   name: 'Centered',
   parameters: {
-    percy: {
-      name: 'Components|Lead space: Centered',
+    knobs: {
+      Leadspace: ({ groupId }) => {
+        const buttonCount = number('Number of buttons', 2, {}, groupId);
+        const buttons = [];
+
+        for (let i = 0; i < buttonCount; i++) {
+          buttons.push({
+            copy: text(`Button ${i + 1} (copy)`, `Button ${i + 1}`, groupId),
+            renderIcon:
+              iconMap[
+                select(
+                  `Button Icon ${i + 1} (renderIcon)`,
+                  iconOptions,
+                  iconOptions.ArrowRight,
+                  groupId
+                )
+              ],
+            href: text(
+              `Button link (href)`,
+              'https://www.example.com',
+              groupId
+            ),
+          });
+        }
+
+        return {
+          title: text('title (title)', 'Leadspace Title', groupId),
+          copy: text(
+            'copy (copy)',
+            'Use this area for a short line of copy to support the title',
+            groupId
+          ),
+          buttons,
+        };
+      },
     },
   },
 };
 
-export const CenteredWithImage = () => {
-  const { defaultSrc } = props.centeredWithImage();
+export const CenteredWithImage = ({ parameters }) => {
+  const { title, copy, gradient, buttons, defaultSrc } =
+    parameters?.props?.Leadspace ?? {};
   const params = new URLSearchParams(window.location.search);
   const themeParam = params.has('theme') ? params.get('theme') : null;
   const theme =
@@ -362,7 +236,10 @@ export const CenteredWithImage = () => {
     <LeadSpace
       type="centered"
       theme={theme}
-      {...props.centeredWithImage()}
+      title={title}
+      copy={copy}
+      gradient={gradient}
+      buttons={buttons}
       image={centeredImage}
     />
   );
@@ -371,56 +248,248 @@ export const CenteredWithImage = () => {
 CenteredWithImage.story = {
   name: 'Centered with image',
   parameters: {
-    percy: {
-      name: 'Components|Lead space: Centered with image',
+    knobs: {
+      Leadspace: ({ groupId }) => {
+        const buttonCount = number('Number of buttons', 2, {}, groupId);
+        const buttons = [];
+
+        for (let i = 0; i < buttonCount; i++) {
+          buttons.push({
+            copy: text(`Button ${i + 1} (copy)`, `Button ${i + 1}`, groupId),
+            renderIcon:
+              iconMap[
+                select(
+                  `Button Icon ${i + 1} (renderIcon)`,
+                  iconOptions,
+                  iconOptions.ArrowRight,
+                  groupId
+                )
+              ],
+            href: text(
+              `Button link (href)`,
+              'https://www.example.com',
+              groupId
+            ),
+          });
+        }
+
+        return {
+          title: text('title (title)', 'Leadspace Title', groupId),
+          copy: text(
+            'copy (copy)',
+            'Use this area for a short line of copy to support the title',
+            groupId
+          ),
+          defaultSrc: text(
+            'Default image (defaultSrc):',
+            leadspaceImg3,
+            groupId
+          ),
+          buttons,
+        };
+      },
     },
   },
 };
 
-export const Medium = () => <TallWithNoImage {...props.medium()} />;
+export const Medium = ({ parameters }) => (
+  <TallWithNoImage parameters={parameters} />
+);
 
 Medium.story = {
   name: 'Medium',
   parameters: {
-    percy: {
-      name: 'Components|Lead space: Medium',
+    knobs: {
+      LeadSpace: ({ groupId }) => {
+        const buttonCount = number('Number of buttons', 2, {}, groupId);
+        const buttons = [];
+
+        for (let i = 0; i < buttonCount; i++) {
+          buttons.push({
+            copy: text(`Button ${i + 1} (copy)`, `Button ${i + 1}`, groupId),
+            renderIcon:
+              iconMap[
+                select(
+                  `Button Icon ${i + 1} (renderIcon)`,
+                  iconOptions,
+                  iconOptions.ArrowRight,
+                  groupId
+                )
+              ],
+            href: text(
+              `Button link (href)`,
+              'https://www.example.com',
+              groupId
+            ),
+          });
+        }
+
+        return {
+          title: text('title (title)', 'Lead space title', groupId),
+          copy: text(
+            'copy (copy)',
+            'Use this area for a short line of copy to support the title',
+            groupId
+          ),
+          buttons,
+          size: 'medium',
+        };
+      },
     },
   },
 };
 
-export const MediumWithImage = () => (
-  <TallWithImage {...props.mediumWithImage()} />
+export const MediumWithImage = ({ parameters }) => (
+  <TallWithNoImage parameters={parameters} />
 );
 
 MediumWithImage.story = {
   name: 'Medium with image',
   parameters: {
-    percy: {
-      name: 'Components|Lead space: Medium with image',
+    knobs: {
+      LeadSpace: ({ groupId }) => {
+        const buttonCount = number('Number of buttons', 2, {}, groupId);
+        const buttons = [];
+
+        for (let i = 0; i < buttonCount; i++) {
+          buttons.push({
+            copy: text(`Button ${i + 1} (copy)`, `Button ${i + 1}`, groupId),
+            renderIcon:
+              iconMap[
+                select(
+                  `Button Icon ${i + 1} (renderIcon)`,
+                  iconOptions,
+                  iconOptions.ArrowRight,
+                  groupId
+                )
+              ],
+            href: text(
+              `Button link (href)`,
+              'https://www.example.com',
+              groupId
+            ),
+          });
+        }
+
+        return {
+          title: text('title (title)', 'Lead space title', groupId),
+          copy: text(
+            'copy (copy)',
+            'Use this area for a short line of copy to support the title',
+            groupId
+          ),
+          buttons,
+          defaultSrc: text(
+            'Default image (defaultSrc):',
+            leadspaceImg,
+            groupId
+          ),
+          size: 'medium',
+          image: images,
+          gradient: true,
+        };
+      },
     },
   },
 };
 
-export const Super = () => <TallWithNoImage {...props.super()} />;
+export const Super = ({ parameters }) => (
+  <TallWithNoImage parameters={parameters} />
+);
 
 Super.story = {
   name: 'Super',
   parameters: {
-    percy: {
-      name: 'Components|Lead space: Super',
+    knobs: {
+      LeadSpace: ({ groupId }) => {
+        const buttonCount = number('Number of buttons', 2, {}, groupId);
+        const buttons = [];
+
+        for (let i = 0; i < buttonCount; i++) {
+          buttons.push({
+            copy: text(`Button ${i + 1} (copy)`, `Button ${i + 1}`, groupId),
+            renderIcon:
+              iconMap[
+                select(
+                  `Button Icon ${i + 1} (renderIcon)`,
+                  iconOptions,
+                  iconOptions.ArrowRight,
+                  groupId
+                )
+              ],
+            href: text(
+              `Button link (href)`,
+              'https://www.example.com',
+              groupId
+            ),
+          });
+        }
+
+        return {
+          title: text('title (title)', 'Lead space title', groupId),
+          copy: text(
+            'copy (copy)',
+            'Use this area for a short line of copy to support the title',
+            groupId
+          ),
+          buttons,
+          size: 'super',
+        };
+      },
     },
   },
 };
 
-export const SuperWithImage = () => (
-  <TallWithImage {...props.superWithImage()} />
+export const SuperWithImage = ({ parameters }) => (
+  <TallWithNoImage parameters={parameters} />
 );
 
 SuperWithImage.story = {
   name: 'Super with image',
   parameters: {
-    percy: {
-      name: 'Components|Lead space: Super with image',
+    knobs: {
+      LeadSpace: ({ groupId }) => {
+        const buttonCount = number('Number of buttons', 2, {}, groupId);
+        const buttons = [];
+
+        for (let i = 0; i < buttonCount; i++) {
+          buttons.push({
+            copy: text(`Button ${i + 1} (copy)`, `Button ${i + 1}`, groupId),
+            renderIcon:
+              iconMap[
+                select(
+                  `Button Icon ${i + 1} (renderIcon)`,
+                  iconOptions,
+                  iconOptions.ArrowRight,
+                  groupId
+                )
+              ],
+            href: text(
+              `Button link (href)`,
+              'https://www.example.com',
+              groupId
+            ),
+          });
+        }
+
+        return {
+          title: text('title (title)', 'Lead space title', groupId),
+          copy: text(
+            'copy (copy)',
+            'Use this area for a short line of copy to support the title',
+            groupId
+          ),
+          buttons,
+          defaultSrc: text(
+            'Default image (defaultSrc):',
+            leadspaceImg,
+            groupId
+          ),
+          size: 'super',
+          gradient: true,
+          image: images,
+        };
+      },
     },
   },
 };

@@ -1,5 +1,5 @@
 /**
- * Copyright IBM Corp. 2016, 2022
+ * Copyright IBM Corp. 2016, 2021
  *
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
@@ -11,31 +11,30 @@ import imgLg16x9 from '../../../../../storybook-images/assets/720/fpo--16x9--720
 import React from 'react';
 import readme from '../README.stories.mdx';
 
-const props = () => ({
-  heading: text('Heading (heading):', 'Natural language understanding'),
-  media: select('Media type:', ['none', 'image', 'video'], 'none'),
-  copy: text(
-    'Copy (copy):',
-    'This area of NLP takes “real world” text and applies a symbolic ' +
-      'system for a machine to interpret its meaning, using formal logic; structures ' +
-      'that describe the various relationships between concepts (ontologies); and other semantic tools.'
-  ),
-  ctaStyle: select('CTA style', ['text', 'button'], 'text'),
-  ctaCopy: text('CTA copy', 'Learn more about NLP'),
-});
-
 export default {
-  title: 'Components/Content item',
+  title: 'Components|Content item',
   parameters: {
     ...readme.parameters,
-    percy: {
-      name: 'Components|Content item: Default',
+    knobs: {
+      ContentItem: () => ({
+        heading: text('Heading (heading):', 'Natural language understanding'),
+        media: select('Media type:', ['none', 'image', 'video'], 'none'),
+        copy: text(
+          'Copy (copy):',
+          'This area of NLP takes "real world" text and applies a symbolic ' +
+            'system for a machine to interpret its meaning, using formal logic; structures ' +
+            'that describe the various relationships between concepts (ontologies); and other semantic tools.'
+        ),
+        ctaStyle: select('CTA style', ['text', 'button'], 'text'),
+        ctaCopy: text('CTA copy', 'Learn more about NLP'),
+      }),
     },
   },
 };
 
-export const Default = () => {
-  const { heading, media, copy, ctaStyle, ctaCopy } = props() ?? {};
+export const Default = ({ parameters }) => {
+  const { heading, media, copy, ctaStyle, ctaCopy } =
+    parameters?.props?.ContentItem ?? {};
   return (
     <div className="bx--grid">
       <div className="bx--row">

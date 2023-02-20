@@ -1,5 +1,5 @@
 /**
- * Copyright IBM Corp. 2016, 2022
+ * Copyright IBM Corp. 2016, 2021
  *
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
@@ -18,95 +18,22 @@ import readme from '../README.stories.mdx';
 import { text } from '@storybook/addon-knobs';
 
 export default {
-  title: 'Components/Feature card',
+  title: 'Components|Feature card',
   parameters: {
     ...readme.parameters,
-    percy: {
-      name: 'Components|Feature card: Default',
-    },
   },
 };
 
-const props = {
-  default: () => {
-    const knobs = {
-      card: {
-        heading: text(
-          'Card heading:',
-          'Explore AI use cases in all industries'
-        ),
-        image: {
-          defaultSrc: mediumImgLg1x1,
-          alt: 'Image alt text',
-        },
-        cta: {
-          href: 'https://www.example.com',
-          icon: {
-            src: ArrowRight20,
-          },
-        },
-      },
-    };
-    return knobs;
-  },
-  large: () => {
-    const knobs = {
-      card: {
-        eyebrow: text('Card eyebrow:', 'This is an eyebrow'),
-        heading: text(
-          'Card heading:',
-          'Explore AI use cases in all industries'
-        ),
-        copy: text(
-          'Card copy:',
-          'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.'
-        ),
-        cta: {
-          href: 'https://www.example.com',
-          icon: {
-            src: ArrowRight20,
-          },
-        },
-        image: {
-          sources: [
-            {
-              src: imgSm2x1,
-              breakpoint: 'sm',
-            },
-            {
-              src: imgMd2x1,
-              breakpoint: 'md',
-            },
-            {
-              src: imgLg1x1,
-              breakpoint: 991,
-            },
-            {
-              src: imgXlg2x1,
-              breakpoint: 'lg',
-            },
-            {
-              src: imgMax1x1,
-              breakpoint: 'xlg',
-            },
-          ],
-          defaultSrc: imgXlg2x1,
-          alt: 'Image alt text',
-        },
-      },
-    };
-    return knobs;
-  },
-};
+export const Default = ({ parameters }) => {
+  const { card } = parameters?.props?.FeatureCard ?? {};
 
-export const Default = () => {
   return (
     <div className="bx--grid">
       <div className="bx--row">
         <div
           style={{ paddingTop: '20px' }}
           className="bx--col-sm-4 bx--col-lg-8 bx--offset-lg-4">
-          <FeatureCard size={'medium'} {...props.default()} />
+          <FeatureCard card={card} size={'medium'} />
         </div>
       </div>
     </div>
@@ -116,20 +43,41 @@ export const Default = () => {
 Default.story = {
   name: 'Medium',
   parameters: {
-    percy: {
-      name: 'Components|Feature card: Medium',
+    ...readme.parameters,
+    knobs: {
+      FeatureCard: ({ groupId }) => ({
+        card: {
+          heading: text(
+            'Card heading:',
+            'Explore AI use cases in all industries',
+            groupId
+          ),
+          image: {
+            defaultSrc: mediumImgLg1x1,
+            alt: 'Image alt text',
+          },
+          cta: {
+            href: 'https://www.example.com',
+            icon: {
+              src: ArrowRight20,
+            },
+          },
+        },
+      }),
     },
   },
 };
 
-export const Large = () => {
+export const Large = ({ parameters }) => {
+  const { card } = parameters?.props?.FeatureCard ?? {};
+
   return (
     <div className="bx--grid">
       <div className="bx--row">
         <div
           style={{ paddingTop: '20px' }}
           className="bx--col-sm-4 bx--col-lg-12 bx--offset-lg-2">
-          <FeatureCard size={'large'} {...props.large()} />
+          <FeatureCard card={card} size={'large'} />
         </div>
       </div>
     </div>
@@ -139,8 +87,54 @@ export const Large = () => {
 Large.story = {
   parameters: {
     ...readme.parameters,
-    percy: {
-      name: 'Components|Feature card: Large',
+    knobs: {
+      FeatureCard: ({ groupId }) => ({
+        card: {
+          eyebrow: text('Card eyebrow:', 'This is an eyebrow', groupId),
+          heading: text(
+            'Card heading:',
+            'Explore AI use cases in all industries',
+            groupId
+          ),
+          copy: text(
+            'Card copy:',
+            'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.',
+            groupId
+          ),
+          cta: {
+            href: 'https://www.example.com',
+            icon: {
+              src: ArrowRight20,
+            },
+          },
+          image: {
+            sources: [
+              {
+                src: imgSm2x1,
+                breakpoint: 'sm',
+              },
+              {
+                src: imgMd2x1,
+                breakpoint: 'md',
+              },
+              {
+                src: imgLg1x1,
+                breakpoint: 991,
+              },
+              {
+                src: imgXlg2x1,
+                breakpoint: 'lg',
+              },
+              {
+                src: imgMax1x1,
+                breakpoint: 'xlg',
+              },
+            ],
+            defaultSrc: imgXlg2x1,
+            alt: 'Image alt text',
+          },
+        },
+      }),
     },
   },
 };

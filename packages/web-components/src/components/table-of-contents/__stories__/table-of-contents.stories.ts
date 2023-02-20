@@ -1,7 +1,7 @@
 /**
  * @license
  *
- * Copyright IBM Corp. 2020, 2022
+ * Copyright IBM Corp. 2020, 2021
  *
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
@@ -21,8 +21,8 @@ import readme from './README.stories.mdx';
 import { TOC_TYPES } from '../defs';
 import { ICON_PLACEMENT } from '../../../globals/defs';
 
-export const Default = args => {
-  const { numberOfItems: items, withHeadingContent } = args?.Other ?? {};
+export const Default = ({ parameters }) => {
+  const { numberOfItems: items, withHeadingContent } = parameters?.props?.Other ?? {};
   return html`
     <dds-table-of-contents>
       ${withHeadingContent
@@ -55,8 +55,8 @@ export const Default = args => {
   `;
 };
 
-export const Horizontal = args => {
-  const { numberOfItems: items } = args?.Other ?? {};
+export const Horizontal = ({ parameters }) => {
+  const { numberOfItems: items } = parameters?.props?.Other ?? {};
   return html`
     <dds-table-of-contents toc-layout="${TOC_TYPES.HORIZONTAL}">
       <div class="bx--row">
@@ -72,12 +72,12 @@ Horizontal.story = {
   name: 'Horizontal',
   parameters: {
     knobs: {
-      Other: () => ({
+      Other: ({ groupId }) => ({
         numberOfItems: Array.from({
-          length: select('Number of items', [5, 6, 7, 8], 5),
+          length: select('Number of items', [5, 6, 7, 8], 5, groupId),
         }).map((_, i) => ({
-          heading: text(`Section ${i + 1} heading`, headings[i % headings.length]),
-          copy: text(`Section ${i + 1} copy`, `${LOREM}\n`.repeat(3).trim()),
+          heading: text(`Section ${i + 1} heading`, headings[i % headings.length], groupId),
+          copy: text(`Section ${i + 1} copy`, `${LOREM}\n`.repeat(3).trim(), groupId),
         })),
       }),
     },
@@ -113,13 +113,13 @@ export default {
     ...readme.parameters,
     hasStoryPadding: true,
     knobs: {
-      Other: () => ({
-        withHeadingContent: boolean('With heading content', false),
+      Other: ({ groupId }) => ({
+        withHeadingContent: boolean('With heading content', false, groupId),
         numberOfItems: Array.from({
-          length: select('Number of items', [5, 6, 7, 8], 5),
+          length: select('Number of items', [5, 6, 7, 8], 5, groupId),
         }).map((_, i) => ({
-          heading: text(`Section ${i + 1} heading`, headings[i % headings.length]),
-          copy: text(`Section ${i + 1} copy`, `${LOREM}\n`.repeat(3).trim()),
+          heading: text(`Section ${i + 1} heading`, headings[i % headings.length], groupId),
+          copy: text(`Section ${i + 1} copy`, `${LOREM}\n`.repeat(3).trim(), groupId),
         })),
       }),
     },

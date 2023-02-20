@@ -28,13 +28,7 @@ const { prefix } = settings;
 /**
  * LocaleModal component.
  */
-const LocaleModal = ({
-  closeFunc,
-  isOpen,
-  setIsOpen,
-  localeData,
-  localeDisplay,
-}) => {
+const LocaleModal = ({ isOpen, setIsOpen, localeData, localeDisplay }) => {
   const [list, setList] = useState({});
   const [langDisplay, setLangDisplay] = useState();
   const [modalLabels, setModalLabels] = useState({});
@@ -111,7 +105,7 @@ const LocaleModal = ({
     <ComposedModal
       open={isOpen}
       onClose={() => {
-        _close(setIsOpen, closeFunc);
+        _close(setIsOpen);
       }}
       className={`${prefix}--locale-modal-container`}
       data-autoid={`${stablePrefix}--locale-modal`}
@@ -178,11 +172,6 @@ LocaleModal.propTypes = {
   setIsOpen: PropTypes.func,
 
   /**
-   * Function triggered on close
-   */
-  closeFunc: PropTypes.func,
-
-  /**
    * Locale/Language data to bypass the service call.
    */
   localeData: PropTypes.shape({
@@ -216,7 +205,6 @@ LocaleModal.propTypes = {
 LocaleModal.defaultProps = {
   isOpen: false,
   setIsOpen: () => {},
-  closeFunc: () => {},
   localeData: null,
   localeDisplay: null,
 };
@@ -266,9 +254,14 @@ export const sortList = list => {
  *
  * @private
  */
-export const _close = (setIsOpen, closeFunc) => {
+export const _close = setIsOpen => {
   setIsOpen(false);
-  closeFunc();
+  const footerBtn = document.querySelector(
+    `.${prefix}--locale-btn__container .${prefix}--btn--secondary`
+  );
+  setTimeout(() => {
+    footerBtn?.focus();
+  }, 100);
 };
 
 export default LocaleModal;

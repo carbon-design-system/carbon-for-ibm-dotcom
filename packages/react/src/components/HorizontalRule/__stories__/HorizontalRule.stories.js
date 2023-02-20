@@ -1,5 +1,5 @@
 /**
- * Copyright IBM Corp. 2016, 2022
+ * Copyright IBM Corp. 2016, 2021
  *
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
@@ -33,36 +33,38 @@ const weights = {
   thick: 'thick',
 };
 
-const props = {
-  HorizontalRule: () => ({
-    type: select('type (type)', types, types.solid),
-    size: select('size (size)', sizes, sizes.fluid),
-    contrast: select(
-      'contrast (contrast)',
-      contrasts,
-      contrasts['medium-contrast']
-    ),
-    weight: select('weight (weight)', weights, weights.thin),
-  }),
-  Other: () => ({
-    words: text(
-      'text',
-      'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.'
-    ),
-  }),
-};
-
 export default {
-  title: 'Components/Horizontal rule',
+  title: 'Components|Horizontal rule',
   parameters: {
     ...readme.parameters,
-    percy: {
-      name: 'Components|Horizontal rule: Default',
+    knobs: {
+      HorizontalRule: ({ groupId }) => ({
+        type: select('type (type)', types, types.solid, groupId),
+        size: select('size (size)', sizes, sizes.fluid, groupId),
+        contrast: select(
+          'contrast (contrast)',
+          contrasts,
+          contrasts['medium-contrast'],
+          groupId
+        ),
+        weight: select('weight (weight)', weights, weights.thin, groupId),
+      }),
+      Other: ({ groupId }) => ({
+        words: text(
+          'text',
+          'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.',
+          groupId
+        ),
+      }),
     },
   },
 };
 
-export const Default = () => {
+export const Default = ({ parameters }) => {
+  const { type, size, contrast, weight } =
+    parameters?.props?.HorizontalRule ?? {};
+  const { words } = parameters?.props?.Other ?? {};
+
   return (
     <div>
       <h3>
@@ -71,9 +73,14 @@ export const Default = () => {
       <div className="bx--grid bx--no-gutter" style={{ marginBottom: '50px' }}>
         <div className="bx--row">
           <div className="bx--col">
-            {props.Other().words}
-            <HorizontalRule {...props.HorizontalRule()} />
-            {props.Other().words}
+            {words}
+            <HorizontalRule
+              type={type}
+              size={size}
+              contrast={contrast}
+              weight={weight}
+            />
+            {words}
           </div>
         </div>
       </div>
@@ -84,9 +91,14 @@ export const Default = () => {
             <h3>
               <b>Horizontal Rule in Grid with Gutter</b>
             </h3>
-            {props.Other().words}
-            <HorizontalRule {...props.HorizontalRule()} />
-            {props.Other().words}
+            {words}
+            <HorizontalRule
+              type={type}
+              size={size}
+              contrast={contrast}
+              weight={weight}
+            />
+            {words}
           </div>
         </div>
       </div>

@@ -19,8 +19,8 @@ import imgSm16x9 from '../../../../../storybook-images/assets/320/fpo--16x9--320
 import readme from './README.stories.mdx';
 import textNullable from '../../../../.storybook/knob-text-nullable';
 
-export const Default = args => {
-  const { heading, showCopy, copy, cta, addChildren } = args?.ContentGroup ?? {};
+export const Default = ({ parameters }) => {
+  const { heading, showCopy, copy, cta, addChildren } = parameters?.props?.ContentGroup ?? {};
   return html`
     <dds-content-group>
       <dds-content-group-heading>${heading}</dds-content-group-heading>

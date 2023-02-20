@@ -1,5 +1,5 @@
 /**
- * Copyright IBM Corp. 2016, 2022
+ * Copyright IBM Corp. 2016, 2021
  *
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
@@ -22,6 +22,10 @@
       padding-top: $layout-05;
       padding-bottom: $layout-05;
     }
+
+    ::slotted(#{$dds-prefix}-content-item-horizontal) {
+      padding-bottom: $layout-01;
+    }
   }
 
   .#{$prefix}--content-block-horizontal,
@@ -42,6 +46,18 @@
     }
   }
 
+  :host(#{$dds-prefix}-content-block-horizontal) > *,
+  :host(#{$dds-prefix}-content-group-horizontal) > *,
+  .#{$prefix}--content-block-horizontal
+    .#{$prefix}--content-block
+    > div:not(:first-child),
+  .#{$prefix}--content-group-horizontal
+    .#{$prefix}--content-block
+    > div:not(:first-child) {
+    @include carbon--breakpoint('lg') {
+      padding-right: 16.75%;
+    }
+  }
   :host(#{$dds-prefix}-content-block-horizontal) ::slotted([slot='heading']),
   :host(#{$dds-prefix}-content-group-horizontal) ::slotted([slot='heading']),
   .#{$prefix}--content-block-horizontal .#{$prefix}--content-block__heading,

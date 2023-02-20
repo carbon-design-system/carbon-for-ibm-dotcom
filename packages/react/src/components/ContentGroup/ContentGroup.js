@@ -56,7 +56,11 @@ const ContentGroup = ({ children, heading, customClassName, cta, copy }) => {
         <div
           data-autoid={`${stablePrefix}--content-group__cta`}
           className={`${prefix}--content-group__cta-row`}>
-          <CTA customClassName={`${prefix}--content-group__cta`} {...cta} />
+          <CTA
+            customClassName={`${prefix}--content-group__cta`}
+            style="card"
+            {...cta}
+          />
         </div>
       )}
     </div>

@@ -48,8 +48,8 @@ const image = (
   </DDSImage>
 );
 
-export const Default = args => {
-  const { heading, copy, showCopy, addChildren, cta } = args?.ContentGroup ?? {};
+export const Default = ({ parameters }) => {
+  const { heading, copy, showCopy, addChildren, cta } = parameters?.props?.ContentGroup ?? {};
   return (
     <DDSContentGroup>
       <DDSContentGroupHeading>{heading}</DDSContentGroupHeading>
