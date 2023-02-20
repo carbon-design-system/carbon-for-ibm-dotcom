@@ -34,6 +34,7 @@ import {
   L0Megamenu,
   Megapanel,
   MegapanelLinkGroup,
+  L1MenuItem,
 } from '../../internal/vendor/@carbon/ibmdotcom-services-store/types/translateAPI.d';
 import {
   UNAUTHENTICATED_STATUS,
@@ -126,6 +127,7 @@ class DDSMastheadComposite extends HostListenerMixin(LitElement) {
     if (!this.l1Data) return undefined;
     const { url, title } = this.l1Data;
     const isSelected = !this._hasAutoSelectedItems && !selectedMenuItem;
+
     return html`
       <dds-masthead-l1 slot="masthead-l1">
         ${!title
@@ -136,8 +138,8 @@ class DDSMastheadComposite extends HostListenerMixin(LitElement) {
                 aria-selected="${isSelected}"
                 url="${ifDefined(url)}"></dds-masthead-l1-name>
             `}
-        <dds-top-nav-l1 selected-menu-item=${selectedMenuItem}
-          >${this._renderNavItems({
+        <dds-top-nav-l1 selected-menu-item=${selectedMenuItem}>
+          ${this._renderNavItems({
             target: NAV_ITEMS_RENDER_TARGET.TOP_NAV,
             hasL1: true,
           })}</dds-top-nav-l1
@@ -881,16 +883,17 @@ class DDSMastheadComposite extends HostListenerMixin(LitElement) {
     hasL1: boolean;
   }) {
     const { navLinks, l1Data } = this;
+    let menu: L0MenuItem[] | L1MenuItem[] | undefined = navLinks;
     const autoid = `${ddsPrefix}--masthead__${l1Data?.menuItems ? 'l1' : 'l0'}`;
 
     if (hasL1) {
-      // @TODO: add L1 items to menu.
+      menu = l1Data?.menuItems;
     }
 
     if (target === NAV_ITEMS_RENDER_TARGET.TOP_NAV) {
       return !navLinks
         ? undefined
-        : navLinks.map((link, i) => {
+        : menu?.map((link, i) => {
             return this._renderNavItem(link, i, autoid);
           });
     }

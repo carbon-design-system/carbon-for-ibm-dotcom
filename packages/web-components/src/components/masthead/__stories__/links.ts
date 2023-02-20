@@ -397,44 +397,33 @@ const l1Data: LegacyMastheadL1 = {
  * MastheadL1 Data
  */
 const mastheadL1Data: MastheadL1 = {
-  title: 'Analytics',
+  title: 'L1 section name',
   url: 'https://www.ibm.com/analytics',
   menuItems: [
     {
-      title: 'Products',
-      titleEnglish: 'Products',
-      url: 'https://www.ibm.com/analytics/products',
-    },
-    {
-      title: 'Solutions',
-      titleEnglish: 'Solutions',
-      url: 'https://www.ibm.com/analytics/solutions',
-    },
-    {
-      title: 'Services',
-      titleEnglish: 'Services',
-      url: 'https://www.ibm.com/industries?lnk=min',
-    },
-    {
-      title: 'Learn',
-      titleEnglish: 'Learn',
+      title: 'Single Column',
+      titleEnglish: 'Single Column',
       submenu: {
-        announcement: '',
+        columns: 1,
         menuSections: [
           {
             span: 1,
             items: [
               {
-                title: 'Blogs',
-                url: 'https://www.ibm.com/blogs/journey-to-ai/',
+                title: 'Link item',
+                url: 'https://example.com',
               },
               {
-                title: 'Client stories',
-                url: 'https://www.ibm.com/analytics/client-stories',
+                title: 'Link item',
+                url: 'https://example.com',
               },
               {
-                title: 'Communities',
-                url: 'https://www.ibm.com/analytics/communities',
+                title: 'Link item',
+                url: 'https://example.com',
+              },
+              {
+                title: 'Link item',
+                url: 'https://example.com',
               },
             ],
           },
@@ -442,28 +431,167 @@ const mastheadL1Data: MastheadL1 = {
       },
     },
     {
-      title: 'Explore more',
-      titleEnglish: 'Explore more',
+      title: 'Two Column',
       submenu: {
-        announcement: '',
+        columns: 2,
+        announcement:
+          '<strong>Lorem ipsum:</strong> Full announcement may be linked or only a portion as an <a href="#">inline link</a>',
+        footer: {
+          title: 'View all lorem ipsum',
+          url: 'https://example.com',
+        },
         menuSections: [
           {
             span: 1,
+            heading: {
+              headingLevel: 2,
+              title: 'Heading level 2',
+            },
             items: [
               {
-                title: 'Product support',
-                url: 'https://www.ibm.com/analytics/support',
+                title: 'Link item',
+                url: 'https://example.com',
               },
               {
-                title: 'Expert gallery',
-                url: 'https://developer.ibm.com/technologies/blockchain/?lnk=hpmdev_dw&lnk2=learn',
+                title: 'Link item',
+                url: 'https://example.com',
+              },
+              {
+                title: 'Link item',
+                url: 'https://example.com',
+              },
+            ],
+          },
+          {
+            span: 1,
+            heading: {
+              headingLevel: 2,
+              title: 'Heading level 2',
+            },
+            items: [
+              {
+                title: 'Link item',
+                url: 'https://example.com',
+              },
+              {
+                title: 'Link item',
+                url: 'https://example.com',
+              },
+              {
+                title: 'Link item',
+                url: 'https://example.com',
               },
             ],
           },
         ],
       },
+    },
+    {
+      title: 'Three Column',
+      submenu: {
+        columns: 3,
+        announcement:
+          '<strong>Lorem ipsum:</strong> Full announcement may be linked or only a portion as an <a href="#">inline link</a>',
+        menuSections: [
+          {
+            span: 1,
+            heading: {
+              headingLevel: 2,
+              title: 'Heading level 2',
+              description:
+                'Description text lorem ipsum dolor sit amet commondo ligua eaget',
+            },
+            items: [
+              {
+                title: 'Link item',
+                url: 'https://example.com',
+              },
+              {
+                title: 'Link item',
+                url: 'https://example.com',
+              },
+            ],
+          },
+          {
+            span: 1,
+            heading: {
+              headingLevel: 2,
+              title: 'Heading level 2',
+            },
+            items: [
+              {
+                title: 'Link item',
+                url: 'https://example.com',
+                description:
+                  'Description text lorem ipsum dolor sit amet commondo ligua eaget',
+              },
+              {
+                title: 'Link item',
+                url: 'https://example.com',
+                description:
+                  'Description text lorem ipsum dolor sit amet commondo ligua eaget',
+              },
+              {
+                title: 'Link item',
+                url: 'https://example.com',
+                description:
+                  'Description text lorem ipsum dolor sit amet commondo ligua eaget',
+              },
+              {
+                title: 'Link item',
+                url: 'https://example.com',
+                description:
+                  'Description text lorem ipsum dolor sit amet commondo ligua eaget',
+              },
+            ],
+          },
+          {
+            span: 1,
+            heading: {
+              headingLevel: 2,
+              title: 'Heading level 2',
+            },
+            items: [
+              {
+                title: 'Link item',
+                url: 'https://example.com',
+              },
+              {
+                title: 'Link item',
+                url: 'https://example.com',
+              },
+              {
+                title: 'Link item',
+                url: 'https://example.com',
+              },
+              {
+                title: 'Link item',
+                url: 'https://example.com',
+              },
+              {
+                title: 'Link item',
+                url: 'https://example.com',
+              },
+            ],
+          },
+        ],
+      },
+    },
+    {
+      title: 'Plain Link',
+      url: 'https://example.com',
     },
   ],
+  actions: {
+    login: {
+      title: 'Log in',
+      url: 'https://example.com',
+    },
+    cta: {
+      title: 'Optional CTA',
+      url: 'https://example.com',
+    },
+  },
 };
 
 /**
