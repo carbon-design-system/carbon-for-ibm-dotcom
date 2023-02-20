@@ -7,12 +7,12 @@
  * LICENSE file in the root directory of this source tree.
  */
 
-import { SVGTemplateResult } from 'lit-html';
 import { html, svg, property, customElement, LitElement } from 'lit-element';
 import CheckmarkOutline16 from '@carbon/icons/lib/checkmark--outline/16';
+import CircleDash16 from '@carbon/icons/lib/circle-dash/16';
+import Incomplete16 from '@carbon/icons/lib/incomplete/16';
 import Warning16 from '@carbon/icons/lib/warning/16';
 import { prefix } from '../../globals/settings';
-import spread from '../../globals/directives/spread';
 import FocusMixin from '../../globals/mixins/focus';
 import { PROGRESS_STEP_STAT } from './defs';
 import styles from './progress-indicator.scss';
@@ -23,34 +23,10 @@ export { PROGRESS_STEP_STAT };
  * Icons, keyed by state.
  */
 const icons = {
-  [PROGRESS_STEP_STAT.QUEUED]: ({
-    children,
-    attrs = {},
-  }: {
-    children?: SVGTemplateResult;
-    attrs?: { [key: string]: string };
-  } = {}) =>
-    svg`
-      <svg ...="${spread(attrs)}">
-        ${children}
-        <path d="M8 1C4.1 1 1 4.1 1 8s3.1 7 7 7 7-3.1 7-7-3.1-7-7-7zm0 13c-3.3 0-6-2.7-6-6s2.7-6 6-6 6 2.7 6 6-2.7 6-6 6z" />
-      </svg>
-    `,
-  [PROGRESS_STEP_STAT.CURRENT]: ({
-    children,
-    attrs = {},
-  }: {
-    children?: SVGTemplateResult;
-    attrs?: { [key: string]: string };
-  } = {}) =>
-    svg`
-      <svg ...="${spread(attrs)}">
-        ${children}
-        <path d="M 7, 7 m -7, 0 a 7,7 0 1,0 14,0 a 7,7 0 1,0 -14,0" />
-      </svg>
-    `,
   [PROGRESS_STEP_STAT.COMPLETE]: CheckmarkOutline16,
+  [PROGRESS_STEP_STAT.INCOMPLETE]: CircleDash16,
   [PROGRESS_STEP_STAT.INVALID]: Warning16,
+  [PROGRESS_STEP_STAT.CURRENT]: Incomplete16,
 };
 
 /**

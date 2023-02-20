@@ -19,38 +19,32 @@ import storyDocs from './progress-indicator-story.mdx';
 
 export const Default = (args) => {
   const { vertical } = args?.['bx-progress-indicator'] ?? {};
-  const { iconLabel, labelText, secondaryLabelText } =
-    args?.['bx-progress-step'] ?? {};
+  const { iconLabel, secondaryLabelText } = args?.['bx-progress-step'] ?? {};
   return html`
     <cds-progress-indicator ?vertical="${vertical}">
       <cds-progress-step
         icon-label="${ifNonNull(iconLabel)}"
-        label-text="${ifNonNull(labelText)}"
-        secondary-label-text="${ifNonNull(secondaryLabelText)}"
-        state="invalid"></cds-progress-step>
-      <cds-progress-step
-        icon-label="${ifNonNull(iconLabel)}"
-        label-text="${ifNonNull(labelText)}"
+        label-text="First step"
         secondary-label-text="${ifNonNull(secondaryLabelText)}"
         state="complete"></cds-progress-step>
       <cds-progress-step
         icon-label="${ifNonNull(iconLabel)}"
-        label-text="${ifNonNull(labelText)}"
-        secondary-label-text="${ifNonNull(secondaryLabelText)}"
+        label-text="Second step with tooltip"
         state="current"></cds-progress-step>
+      <cds-progress-step
+        icon-label="${ifNonNull(iconLabel)}"
+        label-text="Third step with tooltip"
+        state="incomplete"></cds-progress-step>
+      <cds-progress-step
+        icon-label="${ifNonNull(iconLabel)}"
+        label-text="Fourth step"
+        secondary-label-text="Example invalid step"
+        state="invalid"></cds-progress-step>
       <cds-progress-step
         disabled
         icon-label="${ifNonNull(iconLabel)}"
-        label-text="${ifNonNull(labelText)}"
-        secondary-label-text="${ifNonNull(
-          secondaryLabelText
-        )}"></cds-progress-step>
-      <cds-progress-step
-        icon-label="${ifNonNull(iconLabel)}"
-        label-text="${ifNonNull(labelText)}"
-        secondary-label-text="${ifNonNull(
-          secondaryLabelText
-        )}"></cds-progress-step>
+        label-text="Fifth step"
+        state="incomplete"></cds-progress-step>
     </cds-progress-indicator>
   `;
 };
@@ -64,7 +58,6 @@ Default.parameters = {
     }),
     'bx-progress-step': () => ({
       iconLabel: textNullable('Icon label (icon-label)', ''),
-      labelText: textNullable('Primary label text (label-text)', 'Label'),
       secondaryLabelText: textNullable(
         'Secondary label text (secondary-label-text)',
         'Secondary label'
