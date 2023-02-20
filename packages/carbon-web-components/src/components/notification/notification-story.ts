@@ -48,7 +48,6 @@ export const inline = (args) => {
   };
   return html`
     <cds-inline-notification
-      style="min-width: 30rem; margin-bottom: .5rem"
       kind="${ifNonNull(kind)}"
       title="${ifNonNull(title)}"
       subtitle="${ifNonNull(subtitle)}"
@@ -120,7 +119,6 @@ export const toast = (args) => {
   };
   return html`
     <cds-toast-notification
-      style="min-width: 30rem; margin-bottom: .5rem"
       kind="${ifNonNull(kind)}"
       title="${ifNonNull(title)}"
       subtitle="${ifNonNull(subtitle)}"
