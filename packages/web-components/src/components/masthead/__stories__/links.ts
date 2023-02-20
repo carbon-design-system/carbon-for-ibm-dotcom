@@ -45,7 +45,7 @@ const logoData: MastheadLogoData = {
   allowlist: [],
   end: 'May 5, 2021 0:00:01',
   path: '/',
-  href: 'https://www.example.com/not-default-href',
+  href: 'https://www.example.com/custom-href',
 };
 
 /**

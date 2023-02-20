@@ -52,6 +52,10 @@ describe('dds-masthead | default (desktop)', () => {
       fixture: 'translation-custom-logo-v2.json',
     }).as('endpointInterceptor');
 
+    // Visit version of masthead that receives endpoint data.
+    cy.visit('/iframe.html?id=components-masthead--with-v-2-data')
+      .injectAxe();
+
     cy.get('dds-masthead-container')
       .then(([masthead]) => {
         // Clear session storage to ensure we make a fetch request.

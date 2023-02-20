@@ -250,7 +250,9 @@ class DDSLeftNav extends StableSelectorMixin(BXSideNav) {
       } = this;
 
       const masthead: DDSMasthead | null | undefined = doc
-        ?.querySelector('dds-masthead-container, dds-cloud-masthead-container')
+        ?.querySelector(
+          'dds-masthead-container, dds-cloud-masthead-container, dds-masthead-composite'
+        )
         ?.querySelector('dds-masthead');
       if (expanded) {
         if (!this._importedSideNav) {
@@ -272,7 +274,9 @@ class DDSLeftNav extends StableSelectorMixin(BXSideNav) {
 
         // TODO: remove this logic once masthead can account for banners.
         // set masthead position to `fixed` when left-nav is open for cloud-mastead
-        masthead!.style.position = 'fixed';
+        if (masthead) {
+          masthead!.style.position = 'fixed';
+        }
       } else {
         const { selectorMenuSections, selectorFirstMenuSection } = this
           .constructor as typeof DDSLeftNav;
