@@ -1,7 +1,7 @@
 /**
  * @license
  *
- * Copyright IBM Corp. 2021, 2022
+ * Copyright IBM Corp. 2021, 2023
  *
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
@@ -16,15 +16,17 @@ const template = (props?) =>
     'dds-feature-section': props,
   });
 
-describe('dds-feature-section', function() {
-  describe('Misc attributes', function() {
-    it('should render with minimum attributes', async function() {
+describe('dds-feature-section', function () {
+  describe('Misc attributes', function () {
+    it('should render with minimum attributes', async function () {
       render(template(), document.body);
       await Promise.resolve(); // Update cycle for `<dds-feature-section>`
-      expect(document.body.querySelector('dds-feature-section')).toMatchSnapshot({ mode: 'shadow' });
+      expect(
+        document.body.querySelector('dds-feature-section')
+      ).toMatchSnapshot({ mode: 'shadow' });
     });
 
-    it('should render with various attributes', async function() {
+    it('should render with various attributes', async function () {
       render(
         template({
           mediaAlign: 'right',
@@ -37,11 +39,13 @@ describe('dds-feature-section', function() {
         document.body
       );
       await Promise.resolve(); // Update cycle for `<dds-feature-section>`
-      expect(document.body.querySelector('dds-feature-section')).toMatchSnapshot({ mode: 'shadow' });
+      expect(
+        document.body.querySelector('dds-feature-section')
+      ).toMatchSnapshot({ mode: 'shadow' });
     });
   });
 
-  afterEach(async function() {
+  afterEach(async function () {
     await render(undefined!, document.body);
   });
 });

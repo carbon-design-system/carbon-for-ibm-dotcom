@@ -1,5 +1,5 @@
 /**
- * Copyright IBM Corp. 2020
+ * Copyright IBM Corp. 2020, 2023
  *
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
@@ -19,27 +19,27 @@ const specContext = require.context(
 
 const storyModules = specContext.keys().map(specContext);
 
-describe('Test a11y compliance', function() {
+describe('Test a11y compliance', function () {
   const container = document.getElementById('html-fragment-container');
 
   storyModules
     .filter(
-      storyModule =>
+      (storyModule) =>
         !storyModule.default?.parameters?.['karma-accessibility-checker']
           ?.disabled
     )
-    .forEach(storyModule => {
+    .forEach((storyModule) => {
       const { title: groupTitle } = storyModule.default ?? {};
 
       Object.keys(storyModule)
-        .filter(name => {
+        .filter((name) => {
           const Story = storyModule[name];
           return (
             typeof Story === 'function' &&
             !Story.story?.parameters?.['karma-accessibility-checker']?.disabled
           );
         })
-        .forEach(name => {
+        .forEach((name) => {
           const Story = storyModule[name];
           const { parameters, title = name } = Story.story ?? {};
           const propsSet = merge(
@@ -50,12 +50,12 @@ describe('Test a11y compliance', function() {
 
           const keys = Object.keys(propsSet);
           if (keys.length > 0) {
-            keys.forEach(itemTitle => {
+            keys.forEach((itemTitle) => {
               const combinedTitle =
                 itemTitle === 'default'
                   ? `${groupTitle}|${title}`
                   : `${groupTitle}|${title}|${itemTitle}`;
-              it(`Should have a11y-compliant ${combinedTitle}`, async function() {
+              it(`Should have a11y-compliant ${combinedTitle}`, async function () {
                 ReactDOM.render(
                   <Story parameters={{ props: propsSet[itemTitle] }} />,
                   container
@@ -64,7 +64,7 @@ describe('Test a11y compliance', function() {
               }, 30000);
             });
           } else {
-            it(`Should have a11y-compliant ${groupTitle}|${title}`, async function() {
+            it(`Should have a11y-compliant ${groupTitle}|${title}`, async function () {
               ReactDOM.render(<Story />, container);
               await expectAsync(container).toBeACheckerCompliant();
             }, 30000);
@@ -72,7 +72,7 @@ describe('Test a11y compliance', function() {
         });
     });
 
-  afterEach(function() {
+  afterEach(function () {
     ReactDOM.render(undefined, container);
   });
 });

@@ -1,7 +1,7 @@
 /**
  * @license
  *
- * Copyright IBM Corp. 2020, 2022
+ * Copyright IBM Corp. 2020, 2023
  *
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
@@ -38,13 +38,16 @@ class DDSFeatureSection extends StableSelectorMixin(DDSFeatureCard) {
         ? html`
             <div class="${prefix}--grid ${prefix}--feature-section">
               <div class="${prefix}--row ${prefix}--feature-section__container">
-                <div class="${prefix}--col-sm-4 ${prefix}--col-md-8 ${prefix}--col-lg-8 ${prefix}--feature-section__image">
+                <div
+                  class="${prefix}--col-sm-4 ${prefix}--col-md-8 ${prefix}--col-lg-8 ${prefix}--feature-section__image">
                   <slot name="image"></slot>
                 </div>
-                <div class="${prefix}--col-sm-4 ${prefix}--col-md-8 ${prefix}--col-lg-8 ${prefix}--feature-section__body">
+                <div
+                  class="${prefix}--col-sm-4 ${prefix}--col-md-8 ${prefix}--col-lg-8 ${prefix}--feature-section__body">
                   <div class="${prefix}--grid">
                     <div class="${prefix}--row">
-                      <div class="${prefix}--col-sm-4 ${prefix}--col-md-6 ${prefix}--col-lg-12">
+                      <div
+                        class="${prefix}--col-sm-4 ${prefix}--col-md-6 ${prefix}--col-lg-12">
                         <slot name="eyebrow"></slot>
                         <slot name="heading"></slot>
                         <slot name="copy"></slot>
@@ -59,10 +62,12 @@ class DDSFeatureSection extends StableSelectorMixin(DDSFeatureCard) {
         : html`
             <div class="${prefix}--grid ${prefix}--feature-section">
               <div class="${prefix}--row ${prefix}--feature-section__container">
-                <div class="${prefix}--col-sm-4 ${prefix}--col-md-8 ${prefix}--col-lg-8 ${prefix}--feature-section__body">
+                <div
+                  class="${prefix}--col-sm-4 ${prefix}--col-md-8 ${prefix}--col-lg-8 ${prefix}--feature-section__body">
                   <div class="${prefix}--grid">
                     <div class="${prefix}--row">
-                      <div class="${prefix}--col-sm-4 ${prefix}--col-md-6 ${prefix}--col-lg-12">
+                      <div
+                        class="${prefix}--col-sm-4 ${prefix}--col-md-6 ${prefix}--col-lg-12">
                         <slot name="eyebrow"></slot>
                         <slot name="heading"></slot>
                         <slot name="copy"></slot>
@@ -70,7 +75,8 @@ class DDSFeatureSection extends StableSelectorMixin(DDSFeatureCard) {
                     </div>
                   </div>
                 </div>
-                <div class="${prefix}--col-sm-4 ${prefix}--col-md-8 ${prefix}--col-lg-8 ${prefix}--feature-section__image">
+                <div
+                  class="${prefix}--col-sm-4 ${prefix}--col-md-8 ${prefix}--col-lg-8 ${prefix}--feature-section__image">
                   <slot name="image"></slot>
                   <slot name="footer"></slot>
                 </div>
@@ -85,7 +91,9 @@ class DDSFeatureSection extends StableSelectorMixin(DDSFeatureCard) {
   }
 
   static get styles() {
-    return css`${super.styles}${styles}`;
+    return css`
+      ${super.styles}${styles}
+    `;
   }
 }
 

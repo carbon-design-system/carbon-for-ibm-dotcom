@@ -2,7 +2,7 @@
 /**
  * @license
  *
- * Copyright IBM Corp. 2020, 2022
+ * Copyright IBM Corp. 2020, 2023
  *
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
@@ -18,8 +18,6 @@ import DDSContentBlockHeading from '@carbon/ibmdotcom-web-components/es/componen
 import DDSCalloutWithMediaCopy from '@carbon/ibmdotcom-web-components/es/components-react/callout-with-media/callout-with-media-copy';
 import DDSCalloutWithMediaImage from '@carbon/ibmdotcom-web-components/es/components-react/callout-with-media/callout-with-media-image';
 import DDSCalloutWithMediaVideo from '@carbon/ibmdotcom-web-components/es/components-react/callout-with-media/callout-with-media-video';
-
-// eslint-disable-next-line sort-imports,import/no-duplicates
 import { CONTENT_BLOCK_COPY_SIZE } from '../../content-block/content-block-copy';
 import imgLg16x9 from '../../../../../storybook-images/assets/720/fpo--16x9--720x405--005.jpg';
 import readme from './README.stories.react.mdx';
@@ -32,9 +30,11 @@ const image = (
     heading="Lorem ipsum dolor sit amet, consectetur adipiscing elit."></DDSCalloutWithMediaImage>
 );
 
-const video = <DDSCalloutWithMediaVideo video-id="1_9h94wo6b"></DDSCalloutWithMediaVideo>;
+const video = (
+  <DDSCalloutWithMediaVideo video-id="1_9h94wo6b"></DDSCalloutWithMediaVideo>
+);
 
-export const Default = args => {
+export const Default = (args) => {
   const { copy, heading, mediaType } = args?.CalloutWithMedia ?? {};
   const headingComponent = document.querySelector('dds-content-block-heading');
 
@@ -45,7 +45,9 @@ export const Default = args => {
   return (
     <DDSCalloutWithMedia>
       <DDSContentBlockHeading>{heading}</DDSContentBlockHeading>
-      <DDSCalloutWithMediaCopy size={CONTENT_BLOCK_COPY_SIZE.SMALL}>{copy}</DDSCalloutWithMediaCopy>
+      <DDSCalloutWithMediaCopy size={CONTENT_BLOCK_COPY_SIZE.SMALL}>
+        {copy}
+      </DDSCalloutWithMediaCopy>
       {mediaType === 'image' ? image : ``} {mediaType === 'video' ? video : ``}
     </DDSCalloutWithMedia>
   );
@@ -54,7 +56,7 @@ export const Default = args => {
 export default {
   title: 'Components/Callout with media',
   decorators: [
-    story => (
+    (story) => (
       <div className="bx--grid">
         <div className="bx--row">
           <div className="bx--col-lg-12 bx--no-gutter">{story()}</div>
@@ -67,8 +69,15 @@ export default {
     hasStoryPadding: true,
     knobs: {
       CalloutWithMedia: () => ({
-        mediaType: select('mediaType (optional)', ['image', 'video', 'none'], 'image'),
-        heading: textNullable('Heading', 'Curabitur malesuada varius mi eu posuere'),
+        mediaType: select(
+          'mediaType (optional)',
+          ['image', 'video', 'none'],
+          'image'
+        ),
+        heading: textNullable(
+          'Heading',
+          'Curabitur malesuada varius mi eu posuere'
+        ),
         copy: `Lorem ipsum *dolor* sit amet, consectetur adipiscing elit. Aenean et ultricies est.
           Mauris iaculis eget dolor nec hendrerit. Phasellus at elit sollicitudin, sodales
           nulla quis, *consequat* libero. Here are

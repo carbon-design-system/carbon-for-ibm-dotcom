@@ -1,7 +1,7 @@
 /**
  * @license
  *
- * Copyright IBM Corp. 2020, 2022
+ * Copyright IBM Corp. 2020, 2023
  *
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
@@ -29,7 +29,12 @@ class EventManager {
    * @param options An options object that specifies characteristics about the event listener.
    * @returns The handle to release the event listener. Its `release()` method removes the event listener.
    */
-  on(target: EventTarget, type: string, listener: CustomEventListener, options?: boolean | AddEventListenerOptions);
+  on(
+    target: EventTarget,
+    type: string,
+    listener: CustomEventListener,
+    options?: boolean | AddEventListenerOptions
+  );
 
   // eslint-disable-next-line no-dupe-class-members
   on<K extends keyof HTMLElementEventMap>(
@@ -47,7 +52,11 @@ class EventManager {
    * Releases all registered event listeners.
    */
   reset() {
-    for (let handle = this._handles.shift(); handle; handle = this._handles.shift()) {
+    for (
+      let handle = this._handles.shift();
+      handle;
+      handle = this._handles.shift()
+    ) {
       handle.release();
     }
     return null;

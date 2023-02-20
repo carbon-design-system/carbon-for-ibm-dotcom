@@ -1,5 +1,5 @@
 /**
- * Copyright IBM Corp. 2016, 2022
+ * Copyright IBM Corp. 2016, 2023
  *
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
@@ -178,10 +178,11 @@ $search-transition-timing: 95ms;
 /// @access private
 @mixin masthead {
   :host(#{$dds-prefix}-masthead-composite),
+  :host(#{$dds-prefix}-masthead-container),
   :host(#{$dds-prefix}-cloud-masthead-container) {
+    position: relative;
     z-index: 900;
     padding-top: $carbon--layout-04;
-    position: relative;
   }
 
   .#{$prefix}--masthead,

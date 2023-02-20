@@ -1,7 +1,7 @@
 /**
  * @license
  *
- * Copyright IBM Corp. 2022
+ * Copyright IBM Corp. 2022, 2023
  *
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
@@ -32,7 +32,8 @@ const ParentVisibilityMixin = <T extends Constructor<HTMLElement>>(Base: T) => {
       // @ts-ignore
       super.connectedCallback();
 
-      const { parentsThatHide } = this.constructor as typeof ParentVisibilityMixinImpl;
+      const { parentsThatHide } = this
+        .constructor as typeof ParentVisibilityMixinImpl;
 
       Object.entries(parentsThatHide).forEach(([component, event]) => {
         let target: Element | null | undefined = this.closest(component);
@@ -58,6 +59,8 @@ const ParentVisibilityMixin = <T extends Constructor<HTMLElement>>(Base: T) => {
   return ParentVisibilityMixinImpl;
 };
 
-export type ParentVisibilityMixinImpl = InstanceType<ReturnType<typeof ParentVisibilityMixin>>;
+export type ParentVisibilityMixinImpl = InstanceType<
+  ReturnType<typeof ParentVisibilityMixin>
+>;
 
 export default ParentVisibilityMixin;

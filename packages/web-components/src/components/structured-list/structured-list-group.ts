@@ -1,7 +1,7 @@
 /**
  * * @license
  *
- * Copyright IBM Corp. 2019, 2022
+ * Copyright IBM Corp. 2019, 2023
  *
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
@@ -22,7 +22,9 @@ const { stablePrefix: ddsPrefix } = ddsSettings;
  */
 @customElement(`${ddsPrefix}-structured-list-group`)
 class DDSStructuredListGroup extends StableSelectorMixin(LitElement) {
-  _parentTable: DDSStructuredList | null = this.closest(`${ddsPrefix}-structured-list`);
+  _parentTable: DDSStructuredList | null = this.closest(
+    `${ddsPrefix}-structured-list`
+  );
 
   @property({ attribute: 'title' })
   groupTitle?: string;
@@ -35,9 +37,7 @@ class DDSStructuredListGroup extends StableSelectorMixin(LitElement) {
     // set colspan to max value to ensure it spans all columns
     return html`
       <tr>
-        <th colspan="999">
-          ${this.groupTitle}
-        </th>
+        <th colspan="999">${this.groupTitle}</th>
       </tr>
     `;
   }

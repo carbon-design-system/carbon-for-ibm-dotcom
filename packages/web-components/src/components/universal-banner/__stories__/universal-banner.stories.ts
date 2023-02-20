@@ -1,7 +1,7 @@
 /**
  * @license
  *
- * Copyright IBM Corp. 2020, 2022
+ * Copyright IBM Corp. 2020, 2023
  *
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
@@ -39,7 +39,7 @@ const srcsets = {
   '8-col': [img8ColLg, img8ColXlg, img8Col],
 };
 
-export const Default = args => {
+export const Default = (args) => {
   const { heading, copy, ctaCopy, imageWidth } = args?.UniversalBanner ?? {};
 
   const bannerHeading = document.querySelector('dds-universal-banner-heading');
@@ -59,16 +59,27 @@ export const Default = args => {
     <dds-universal-banner image-width="${imageWidth}">
       ${imageWidth
         ? html`
-            <dds-universal-banner-image slot="image" default-src="${images[imageWidth]}">
-              <dds-image-item media="(min-width: 1584px)" srcset="${srcset[2]}"> </dds-image-item>
-              <dds-image-item media="(min-width: 1056px)" srcset="${srcset[1]}"> </dds-image-item>
-              <dds-image-item media="(min-width: 1312px)" srcset="${srcset[0]}"> </dds-image-item>
+            <dds-universal-banner-image
+              slot="image"
+              default-src="${images[imageWidth]}">
+              <dds-image-item media="(min-width: 1584px)" srcset="${srcset[2]}">
+              </dds-image-item>
+              <dds-image-item media="(min-width: 1056px)" srcset="${srcset[1]}">
+              </dds-image-item>
+              <dds-image-item media="(min-width: 1312px)" srcset="${srcset[0]}">
+              </dds-image-item>
             </dds-universal-banner-image>
           `
         : ``}
-      <dds-universal-banner-heading slot="heading">${heading}</dds-universal-banner-heading>
+      <dds-universal-banner-heading slot="heading"
+        >${heading}</dds-universal-banner-heading
+      >
       <dds-universal-banner-copy slot="copy">${copy}</dds-universal-banner-copy>
-      <dds-button-cta slot="cta" cta-type="local" kind="tertiary" href="https://www.example.com">
+      <dds-button-cta
+        slot="cta"
+        cta-type="local"
+        kind="tertiary"
+        href="https://www.example.com">
         ${ctaCopy}
       </dds-button-cta>
     </dds-universal-banner>
@@ -80,7 +91,10 @@ Default.story = {
     ...readme.parameters,
     knobs: {
       UniversalBanner: () => ({
-        heading: textNullable('Heading:', 'Hybrid cloud and AI for smarter business'),
+        heading: textNullable(
+          'Heading:',
+          'Hybrid cloud and AI for smarter business'
+        ),
         copy: text('Copy (optional):', 'Las Vegas, June 15-18, 2025'),
         ctaCopy: textNullable('CTA copy:', 'Register for Think. Free'),
         imageWidth: select('Image width:', imageWidthOptions, '4-col'),
@@ -92,10 +106,8 @@ Default.story = {
 export default {
   title: 'Components/Universal banner',
   decorators: [
-    story => {
-      return html`
-        ${story()}
-      `;
+    (story) => {
+      return html` ${story()} `;
     },
   ],
   parameters: {

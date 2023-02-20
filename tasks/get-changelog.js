@@ -1,7 +1,7 @@
 #!/usr/bin/env node
 
 /**
- * Copyright IBM Corp. 2020, 2022
+ * Copyright IBM Corp. 2020, 2023
  *
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
@@ -18,6 +18,10 @@ program
   .option(
     '-v, --wcVersion <web components release version>',
     'Web Components release version'
+  )
+  .option(
+    '-c, --cwcVersion <carbon web components release version>',
+    'Carbon Web Components release version'
   );
 
 /**
@@ -47,6 +51,13 @@ const { tagTo } = args;
  * @type {string}
  */
 const { wcVersion } = args;
+
+/**
+ * Web Components release version (-v)
+ *
+ * @type {string}
+ */
+const { cwcVersion } = args;
 
 /**
  * Uses a delimiter for splitting the comments into an array
@@ -119,6 +130,10 @@ function getChangelog(pkgName, folder) {
     changelog = `## ${pkgName} (${wcVersion})\n`;
   }
 
+  if (pkgName === 'Carbon Web Components') {
+    changelog = `## ${pkgName} (${cwcVersion})\n`;
+  }
+
   // Stores the list of features
   const features = {};
 
@@ -130,7 +145,7 @@ function getChangelog(pkgName, folder) {
 
   const commitsArray = getCommits(folder);
 
-  commitsArray.forEach(commit => {
+  commitsArray.forEach((commit) => {
     const commitParse = commit.replace(delimiter, '');
     if (commit.startsWith('feat(')) {
       const featName = _getCommitName(commitParse);
@@ -167,9 +182,9 @@ function getChangelog(pkgName, folder) {
 
   if (Object.keys(features).length) {
     changelog += `### Features\n`;
-    Object.keys(features).forEach(featureName => {
+    Object.keys(features).forEach((featureName) => {
       changelog += `- **${featureName}**\n`;
-      features[featureName].forEach(feature => {
+      features[featureName].forEach((feature) => {
         changelog += `  - ${feature}\n`;
       });
     });
@@ -178,9 +193,9 @@ function getChangelog(pkgName, folder) {
 
   if (Object.keys(fixes).length) {
     changelog += `### Fixes\n`;
-    Object.keys(fixes).forEach(fixName => {
+    Object.keys(fixes).forEach((fixName) => {
       changelog += `- **${fixName}**\n`;
-      fixes[fixName].forEach(fix => {
+      fixes[fixName].forEach((fix) => {
         changelog += `  - ${fix}\n`;
       });
     });
@@ -189,9 +204,9 @@ function getChangelog(pkgName, folder) {
 
   if (Object.keys(chores).length) {
     changelog += `### Housekeeping\n`;
-    Object.keys(chores).forEach(choreName => {
+    Object.keys(chores).forEach((choreName) => {
       changelog += `- **${choreName}**\n`;
-      chores[choreName].forEach(chore => {
+      chores[choreName].forEach((chore) => {
         changelog += `  - ${chore}\n`;
       });
     });
@@ -215,6 +230,10 @@ function getChangelog(pkgName, folder) {
 function generateLog() {
   let log = '';
 
+  log += getChangelog(
+    'Carbon Web Components',
+    './packages/carbon-web-components'
+  );
   log += getChangelog('Web Components', './packages/web-components');
   log += getChangelog('React', './packages/react');
   log += getChangelog('Styles', './packages/styles');

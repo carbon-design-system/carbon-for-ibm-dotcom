@@ -1,5 +1,5 @@
 /**
- * Copyright IBM Corp. 2018, 2020
+ * Copyright IBM Corp. 2018, 2023
  *
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
@@ -27,7 +27,7 @@ module.exports = {
       },
     ],
     'sort-imports': [
-      'error',
+      0, // disable for now
       {
         ignoreCase: true,
         ignoreMemberSort: true,
@@ -69,9 +69,9 @@ module.exports = {
     'jsdoc/require-param': 2,
     'jsdoc/require-param-type': 2,
     'jsdoc/valid-types': 2,
-    'jsdoc/check-param-names': 2,
-    'jsdoc/check-tag-names': 2,
-    'jsdoc/check-types': 2,
+    'jsdoc/check-param-names': 0,
+    'jsdoc/check-tag-names': 0,
+    'jsdoc/check-types': 0,
     'jsdoc/check-values': 0,
     'jsx-a11y/no-static-element-interactions': 1,
     'jsx-a11y/no-noninteractive-element-interactions': 1,

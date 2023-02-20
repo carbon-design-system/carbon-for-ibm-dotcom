@@ -1,7 +1,7 @@
 /**
  * @license
  *
- * Copyright IBM Corp. 2020, 2022
+ * Copyright IBM Corp. 2020, 2023
  *
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
@@ -10,8 +10,8 @@
 import { classMap } from 'lit-html/directives/class-map.js';
 import { html, property, customElement, LitElement } from 'lit-element';
 import settings from 'carbon-components/es/globals/js/settings.js';
-import ChevronDown20 from 'carbon-web-components/es/icons/chevron--down/20.js';
-import FocusMixin from 'carbon-web-components/es/globals/mixins/focus.js';
+import ChevronDown16 from '../../internal/vendor/@carbon/web-components/icons/chevron--down/16.js';
+import FocusMixin from '../../internal/vendor/@carbon/web-components/globals/mixins/focus.js';
 import ddsSettings from '../../internal/vendor/@carbon/ibmdotcom-utilities/utilities/settings/settings';
 import styles from './masthead.scss';
 
@@ -34,8 +34,12 @@ class DDSLeftNavMenu extends FocusMixin(LitElement) {
    *
    * @param expanded The new expanded state.
    */
-  private _handleUserInitiatedToggle(expanded = !this.expanded, panelId = this.panelId) {
-    const { eventBeforeToggle, eventToggle } = this.constructor as typeof DDSLeftNavMenu;
+  private _handleUserInitiatedToggle(
+    expanded = !this.expanded,
+    panelId = this.panelId
+  ) {
+    const { eventBeforeToggle, eventToggle } = this
+      .constructor as typeof DDSLeftNavMenu;
     const init = {
       bubbles: true,
       cancelable: true,
@@ -82,8 +86,21 @@ class DDSLeftNavMenu extends FocusMixin(LitElement) {
   @property()
   title = '';
 
+  connectedCallback() {
+    super.connectedCallback();
+
+    if (document.dir) {
+      this.dir = document.dir;
+    }
+  }
+
   render() {
-    const { active, expanded, title, _handleClickExpando: handleClickExpando } = this;
+    const {
+      active,
+      expanded,
+      title,
+      _handleClickExpando: handleClickExpando,
+    } = this;
     const buttonClasses = classMap({
       [`${prefix}--side-nav__submenu`]: true,
       [`${prefix}--masthead__side-nav--submemu--selected`]: active,
@@ -97,17 +114,17 @@ class DDSLeftNavMenu extends FocusMixin(LitElement) {
           type="button"
           aria-haspopup="true"
           tabindex="-1"
-          aria-expanded="${String(Boolean(expanded))}"
+          aria-expanded="${expanded}"
           class="${buttonClasses}"
           @click=${handleClickExpando}
           data-attribute1="headerNav"
           data-attribute2="${isSubitem ? 'TabHdline' : 'L0'}"
-          data-attribute3="${title}"
-        >
+          data-attribute3="${title}">
           <div class="${prefix}--side-nav__submenu-content">
             <span class="${prefix}--side-nav__submenu-title">${title}</span>
-            <div class="${prefix}--side-nav__icon ${prefix}--side-nav__icon--small ${prefix}--side-nav__submenu-chevron">
-              ${ChevronDown20()}
+            <div
+              class="${prefix}--side-nav__icon ${prefix}--side-nav__icon--small ${prefix}--side-nav__submenu-chevron">
+              ${ChevronDown16()}
             </div>
           </div>
         </button>

@@ -1,5 +1,5 @@
 /**
- * Copyright IBM Corp. 2016, 2022
+ * Copyright IBM Corp. 2016, 2023
  *
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
@@ -30,7 +30,7 @@ const CardCTA = ({
 
   const [thumbnailSize, setThumbnailSize] = useState(3);
 
-  const refImage = useCallback(node => {
+  const refImage = useCallback((node) => {
     if (node?.parentElement) {
       setThumbnailSize(node.parentElement.offsetWidth);
     }
@@ -71,7 +71,7 @@ const CardCTA = ({
                 },
                 iconPlacement: 'left',
                 copy: videoTitle[0].duration?.replace(/\(|\)/g, ''),
-                handleClick: e => CTALogic.setLightBox(e, openLightBox),
+                handleClick: (e) => CTALogic.setLightBox(e, openLightBox),
               },
               image: image,
               heading: videoTitle[0].title,

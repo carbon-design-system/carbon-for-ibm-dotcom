@@ -1,5 +1,5 @@
 /**
- * Copyright IBM Corp. 2016, 2022
+ * Copyright IBM Corp. 2016, 2023
  *
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
@@ -30,9 +30,9 @@ const TOCMobile = ({ menuItems, selectedId, menuLabel, updateState }) => {
    *
    * @param {*} e event object
    */
-  const handleChange = e => {
+  const handleChange = (e) => {
     const id = e.target.value;
-    const filteredItems = menuItems.filter(menu => {
+    const filteredItems = menuItems.filter((menu) => {
       return menu.id === id;
     });
     const title = filteredItems[0].title;
@@ -51,7 +51,7 @@ const TOCMobile = ({ menuItems, selectedId, menuLabel, updateState }) => {
     const element = document.querySelector(elem);
 
     if (element) {
-      const handleFocusOut = event => {
+      const handleFocusOut = (event) => {
         const focusoutTarget = event.target;
         focusoutTarget.removeAttribute('tabindex');
       };
@@ -83,7 +83,7 @@ const TOCMobile = ({ menuItems, selectedId, menuLabel, updateState }) => {
           className={`${prefix}--tableofcontents__mobile__select`}
           onBlur={handleOnBlur}
           value={selectedOption}
-          onChange={e => handleChange(e)}>
+          onChange={(e) => handleChange(e)}>
           {renderOptions(menuItems, menuLabel)}
         </select>
         <TableOfContents20
@@ -108,7 +108,7 @@ const renderOptions = (options, label) => {
     title: `${label} ...`,
     id: 'menuLabel',
   };
-  options.findIndex(x => x.id === labelObj.id) === -1
+  options.findIndex((x) => x.id === labelObj.id) === -1
     ? options.unshift(labelObj)
     : null;
   return options.map((option, index) => {

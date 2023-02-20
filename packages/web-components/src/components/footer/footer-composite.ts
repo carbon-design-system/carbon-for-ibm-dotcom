@@ -1,16 +1,16 @@
 /**
  * @license
  *
- * Copyright IBM Corp. 2020, 2022
+ * Copyright IBM Corp. 2020, 2023
  *
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
  */
 
 import { html, property, customElement, LitElement } from 'lit-element';
-import ifNonNull from 'carbon-web-components/es/globals/directives/if-non-null.js';
-import HostListener from 'carbon-web-components/es/globals/decorators/host-listener.js';
-import HostListenerMixin from 'carbon-web-components/es/globals/mixins/host-listener.js';
+import ifNonNull from '../../internal/vendor/@carbon/web-components/globals/directives/if-non-null.js';
+import HostListener from '../../internal/vendor/@carbon/web-components/globals/decorators/host-listener.js';
+import HostListenerMixin from '../../internal/vendor/@carbon/web-components/globals/mixins/host-listener.js';
 import LocaleAPI from '../../internal/vendor/@carbon/ibmdotcom-services/services/Locale/Locale';
 import ddsSettings from '../../internal/vendor/@carbon/ibmdotcom-utilities/utilities/settings/settings';
 import HybridRenderMixin from '../../globals/mixins/hybrid-render';
@@ -22,13 +22,11 @@ import {
   BasicLinkSet,
   Translation,
 } from '../../internal/vendor/@carbon/ibmdotcom-services-store/types/translateAPI.d';
-/* eslint-disable import/no-duplicates */
 import { FOOTER_SIZE } from './footer';
 // Above import is interface-only ref and thus code won't be brought into the build
 import './footer';
 // Above import is interface-only ref and thus code won't be brought into the build
 import '../locale-modal/locale-modal-composite';
-/* eslint-enable import/no-duplicates */
 import './footer-logo';
 import './footer-nav';
 import './footer-nav-group';
@@ -39,8 +37,8 @@ import './legal-nav-item';
 import './legal-nav-cookie-preferences-placeholder';
 import './language-selector-desktop';
 import './language-selector-mobile';
-import 'carbon-web-components/es/components/combo-box/combo-box-item.js';
-import 'carbon-web-components/es/components/select/select-item.js';
+import '../../internal/vendor/@carbon/web-components/components/combo-box/combo-box-item.js';
+import '../../internal/vendor/@carbon/web-components/components/select/select-item.js';
 
 const { stablePrefix: ddsPrefix } = ddsSettings;
 
@@ -50,7 +48,9 @@ const { stablePrefix: ddsPrefix } = ddsSettings;
  * @element dds-footer-composite
  */
 @customElement(`${ddsPrefix}-footer-composite`)
-class DDSFooterComposite extends ModalRenderMixin(HybridRenderMixin(HostListenerMixin(LitElement))) {
+class DDSFooterComposite extends ModalRenderMixin(
+  HybridRenderMixin(HostListenerMixin(LitElement))
+) {
   /**
    * Handles `click` event on the locale button.
    */
@@ -202,7 +202,7 @@ class DDSFooterComposite extends ModalRenderMixin(HybridRenderMixin(HostListener
     }
     this._loadTranslation?.(language);
 
-    this.getLangDisplay().then(res => {
+    this.getLangDisplay().then((res) => {
       this.langDisplay = res;
     });
   }
@@ -221,7 +221,14 @@ class DDSFooterComposite extends ModalRenderMixin(HybridRenderMixin(HostListener
    * @returns The locale modal.
    */
   renderModal() {
-    const { collatorCountryName, langDisplay, language, localeList, openLocaleModal, _loadLocaleList: loadLocaleList } = this;
+    const {
+      collatorCountryName,
+      langDisplay,
+      language,
+      localeList,
+      openLocaleModal,
+      _loadLocaleList: loadLocaleList,
+    } = this;
     return html`
       <dds-locale-modal-composite
         lang-display="${ifNonNull(langDisplay)}"
@@ -229,8 +236,7 @@ class DDSFooterComposite extends ModalRenderMixin(HybridRenderMixin(HostListener
         ?open="${openLocaleModal}"
         .collatorCountryName="${ifNonNull(collatorCountryName)}"
         .localeList="${ifNonNull(localeList)}"
-        ._loadLocaleList="${ifNonNull(loadLocaleList)}"
-      >
+        ._loadLocaleList="${ifNonNull(loadLocaleList)}">
       </dds-locale-modal-composite>
     `;
   }
@@ -251,15 +257,20 @@ class DDSFooterComposite extends ModalRenderMixin(HybridRenderMixin(HostListener
       _handleClickLocaleButton: handleClickLocaleButton,
     } = this;
     return html`
-      <dds-footer size="${ifNonNull(size)}" ?disable-locale-button="${ifNonNull(disableLocaleButton)}">
+      <dds-footer
+        size="${ifNonNull(size)}"
+        ?disable-locale-button="${ifNonNull(disableLocaleButton)}">
         <dds-footer-logo></dds-footer-logo>
-        <dds-footer-nav ?disable-locale-button="${ifNonNull(disableLocaleButton)}">
+        <dds-footer-nav
+          ?disable-locale-button="${ifNonNull(disableLocaleButton)}">
           ${links?.map(
             ({ title: groupTitle, links: groupLinks }) => html`
               <dds-footer-nav-group title-text="${ifNonNull(groupTitle)}">
                 ${groupLinks?.map(
                   ({ title, url }) => html`
-                    <dds-footer-nav-item href="${ifNonNull(url)}">${title}</dds-footer-nav-item>
+                    <dds-footer-nav-item href="${ifNonNull(url)}"
+                      >${title}</dds-footer-nav-item
+                    >
                   `
                 )}
               </dds-footer-nav-group>
@@ -268,7 +279,10 @@ class DDSFooterComposite extends ModalRenderMixin(HybridRenderMixin(HostListener
         </dds-footer-nav>
         ${size !== FOOTER_SIZE.MICRO && !langList && !disableLocaleButton
           ? html`
-              <dds-locale-button buttonLabel="${ifNonNull(buttonLabel)}" size="${size}" @click="${handleClickLocaleButton}"
+              <dds-locale-button
+                buttonLabel="${ifNonNull(buttonLabel)}"
+                size="${size}"
+                @click="${handleClickLocaleButton}"
                 >${langDisplay}</dds-locale-button
               >
             `
@@ -279,19 +293,22 @@ class DDSFooterComposite extends ModalRenderMixin(HybridRenderMixin(HostListener
                 trigger-content="${languageSelectorLabel}"
                 label-text="${languageSelectorLabel}"
                 value="${selectedLanguage}"
-                clear-selection-label="${clearSelectionLabel}"
-              >
+                clear-selection-label="${clearSelectionLabel}">
                 ${langList?.map(
-                  language => html`
-                    <bx-combo-box-item value="${ifNonNull(language.text)}" lang="${ifNonNull(language.id)}"
+                  (language) => html`
+                    <bx-combo-box-item
+                      value="${ifNonNull(language.text)}"
+                      lang="${ifNonNull(language.id)}"
                       >${ifNonNull(language.text)}</bx-combo-box-item
                     >
                   `
                 )}
               </dds-language-selector-desktop>
-              <dds-language-selector-mobile value="${selectedLanguage}" placeholder="${selectedLanguage}">
+              <dds-language-selector-mobile
+                value="${selectedLanguage}"
+                placeholder="${selectedLanguage}">
                 ${langList?.map(
-                  language => html`
+                  (language) => html`
                     <bx-select-item
                       label="${ifNonNull(language.text)}"
                       value="${ifNonNull(language.text)}"
@@ -306,13 +323,20 @@ class DDSFooterComposite extends ModalRenderMixin(HybridRenderMixin(HostListener
         <dds-legal-nav size="${ifNonNull(size)}">
           ${legalLinks?.map(
             ({ title, url, titleEnglish }) => html`
-              <dds-legal-nav-item autoid="${ifNonNull(titleEnglish)}" href="${ifNonNull(url)}">${title}</dds-legal-nav-item>
+              <dds-legal-nav-item
+                autoid="${ifNonNull(titleEnglish)}"
+                href="${ifNonNull(url)}"
+                >${title}</dds-legal-nav-item
+              >
             `
           )}
           ${size !== FOOTER_SIZE.MICRO
             ? adjunctLinks?.map(
                 ({ title, url, titleEnglish }) => html`
-                  <dds-legal-nav-item autoid="${ifNonNull(titleEnglish)}" href="${ifNonNull(url)}" slot="adjunct-links">
+                  <dds-legal-nav-item
+                    autoid="${ifNonNull(titleEnglish)}"
+                    href="${ifNonNull(url)}"
+                    slot="adjunct-links">
                     ${title}
                   </dds-legal-nav-item>
                 `
@@ -338,11 +362,12 @@ class DDSFooterComposite extends ModalRenderMixin(HybridRenderMixin(HostListener
                   trigger-content="${languageSelectorLabel}"
                   label-text="${languageSelectorLabel}"
                   value="${selectedLanguage}"
-                  clear-selection-label="${clearSelectionLabel}"
-                >
+                  clear-selection-label="${clearSelectionLabel}">
                   ${langList?.map(
-                    language => html`
-                      <bx-combo-box-item value="${ifNonNull(language.text)}" lang="${ifNonNull(language.id)}"
+                    (language) => html`
+                      <bx-combo-box-item
+                        value="${ifNonNull(language.text)}"
+                        lang="${ifNonNull(language.id)}"
                         >${ifNonNull(language.text)}</bx-combo-box-item
                       >
                     `
@@ -352,10 +377,9 @@ class DDSFooterComposite extends ModalRenderMixin(HybridRenderMixin(HostListener
                   size="${size}"
                   slot="locale"
                   value="${selectedLanguage}"
-                  placeholder="${selectedLanguage}"
-                >
+                  placeholder="${selectedLanguage}">
                   ${langList?.map(
-                    language => html`
+                    (language) => html`
                       <bx-select-item
                         label="${ifNonNull(language.text)}"
                         value="${ifNonNull(language.text)}"
@@ -373,9 +397,7 @@ class DDSFooterComposite extends ModalRenderMixin(HybridRenderMixin(HostListener
   }
 
   render() {
-    return html`
-      <slot></slot>
-    `;
+    return html` <slot></slot> `;
   }
 
   /**

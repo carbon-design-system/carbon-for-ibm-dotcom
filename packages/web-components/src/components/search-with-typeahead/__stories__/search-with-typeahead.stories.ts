@@ -1,7 +1,7 @@
 /**
  * @license
  *
- * Copyright IBM Corp. 2020, 2022
+ * Copyright IBM Corp. 2020, 2023
  *
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
@@ -23,15 +23,13 @@ export const Alternate = () => html`
 export default {
   title: 'Components/Search with typeahead',
   decorators: [
-    story => {
+    (story) => {
       return html`
         <style>
           ${styles}
         </style>
         <div class="bx--grid">
-          <div class="bx--row">
-            ${story()}
-          </div>
+          <div class="bx--row">${story()}</div>
         </div>
       `;
     },

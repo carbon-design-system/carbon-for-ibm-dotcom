@@ -1,5 +1,5 @@
 //
-// Copyright IBM Corp. 2021, 2022
+// Copyright IBM Corp. 2021, 2023
 //
 // This source code is licensed under the Apache-2.0 license found in the
 // LICENSE file in the root directory of this source tree.
@@ -7,7 +7,7 @@
 
 @import '@carbon/ibmdotcom-styles/scss/globals/vars';
 @import '@carbon/ibmdotcom-styles/scss/components/background-media/background-media';
-@import 'carbon-web-components/scss/components/tooltip/tooltip';
+@import '@carbon/web-components/scss/components/tooltip/tooltip';
 
 .#{$prefix}--background-media--video {
   aspect-ratio: 16 / 9; /* stylelint-disable-line property-no-unknown */

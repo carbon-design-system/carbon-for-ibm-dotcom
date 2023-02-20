@@ -1,5 +1,5 @@
 /**
- * Copyright IBM Corp. 2016, 2022
+ * Copyright IBM Corp. 2016, 2023
  *
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
@@ -20,11 +20,10 @@ const { prefix } = settings;
  * browser returns the proper sources and the specified widths
  *
  * @param {Array} sources image sources and min-widths
- *
  * @returns {Array} sorted array of sources
  */
-const sortSources = sources => {
-  const images = sources.map(elem => {
+const sortSources = (sources) => {
+  const images = sources.map((elem) => {
     if (typeof elem.breakpoint == 'number') {
       return elem;
     }

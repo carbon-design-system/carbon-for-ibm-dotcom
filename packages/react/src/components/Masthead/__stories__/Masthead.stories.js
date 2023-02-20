@@ -1,5 +1,5 @@
 /**
- * Copyright IBM Corp. 2016, 2022
+ * Copyright IBM Corp. 2016, 2023
  *
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
@@ -27,7 +27,7 @@ const props = {
     TranslationAPI.getTranslation = !useMockData
       ? origGetTranslation
       : () =>
-          new Promise(resolve => {
+          new Promise((resolve) => {
             setTimeout(resolve, 300000);
           });
 
@@ -159,7 +159,7 @@ export default {
   },
 };
 
-export const Default = args => (
+export const Default = (args) => (
   <Masthead {...(Object.keys(args).length > 0 ? args : props.default())} />
 );
 

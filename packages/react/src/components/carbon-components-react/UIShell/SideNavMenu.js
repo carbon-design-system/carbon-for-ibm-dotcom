@@ -2,7 +2,7 @@
 /* istanbul ignore file */
 
 /**
- * Copyright IBM Corp. 2016, 2021
+ * Copyright IBM Corp. 2016, 2023
  *
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
@@ -103,7 +103,7 @@ export class SideNavMenu extends React.Component {
     };
   }
 
-  handleToggleExpand = event => {
+  handleToggleExpand = (event) => {
     const { onToggle } = this.props;
     const onMegaMenuToggle = new CustomEvent('onMegaMenuToggle', {
       bubbles: true,
@@ -114,7 +114,7 @@ export class SideNavMenu extends React.Component {
 
     event.persist();
     this.setState(
-      state => ({ isExpanded: !state.isExpanded }),
+      (state) => ({ isExpanded: !state.isExpanded }),
       () => {
         if (onToggle) {
           onToggle(event, { isExpanded: this.state.isExpanded });
@@ -123,7 +123,7 @@ export class SideNavMenu extends React.Component {
     );
   };
 
-  handleKeyToggleExpand = event => {
+  handleKeyToggleExpand = (event) => {
     if (event.key === 'Enter' || event.charCode === ' ') {
       event.stopPropagation();
       event.preventDefault();
@@ -131,7 +131,7 @@ export class SideNavMenu extends React.Component {
 
       event.persist();
       this.setState(
-        state => ({ isExpanded: !state.isExpanded }),
+        (state) => ({ isExpanded: !state.isExpanded }),
         () => {
           if (onToggle) {
             onToggle(event, { isExpanded: this.state.isExpanded });
@@ -199,7 +199,7 @@ export class SideNavMenu extends React.Component {
     );
   }
 
-  _renderSideNavItem = item => {
+  _renderSideNavItem = (item) => {
     if (item) {
       return React.cloneElement(item, {
         onClick:

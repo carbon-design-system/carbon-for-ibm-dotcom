@@ -1,16 +1,16 @@
 /**
  * @license
  *
- * Copyright IBM Corp. 2020, 2022
+ * Copyright IBM Corp. 2020, 2023
  *
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
  */
 
 import { html, property, customElement } from 'lit-element';
-import ifNonNull from 'carbon-web-components/es/globals/directives/if-non-null.js';
-import BXLink from 'carbon-web-components/es/components/link/link.js';
-import Launch16 from 'carbon-web-components/es/icons/launch/16.js';
+import ifNonNull from '../../internal/vendor/@carbon/web-components/globals/directives/if-non-null.js';
+import BXLink from '../../internal/vendor/@carbon/web-components/components/link/link.js';
+import Launch16 from '../../internal/vendor/@carbon/web-components/icons/launch/16.js';
 import ddsSettings from '../../internal/vendor/@carbon/ibmdotcom-utilities/utilities/settings/settings';
 import DDSMegaMenu from './megamenu';
 import { MEGAMENU_LAYOUT_SCHEME } from './defs';
@@ -53,11 +53,17 @@ class DDSMegaMenuCategoryLink extends BXLink {
   protected _renderInner() {
     const { title } = this;
     return html`
-      <div>
-        <span>${title}${this._renderIcon()}</span>
-        <slot name="icon" @slotchange="${this._handleSlotChange}"></slot>
-      </div>
-      <span><slot></slot></span>
+      ${title
+        ? html`
+            <div part="link-heading">
+              <span>${title}${this._renderIcon()}</span>
+              <slot name="icon" @slotchange="${this._handleSlotChange}"></slot>
+            </div>
+          `
+        : ''}
+      <span part="link-description">
+        <slot></slot>
+      </span>
     `;
   }
 
@@ -91,15 +97,16 @@ class DDSMegaMenuCategoryLink extends BXLink {
         @click="${ifNonNull(handleClick)}"
         data-attribute1="headerNav"
         data-attribute2="FlatItem"
-        data-attribute3="${title}"
-      >
+        data-attribute3="${title}">
         ${this._renderInner()}
       </a>
     `;
   }
 
   connectedCallback(): void {
-    const megamenu = this.closest(`[data-autoid="${DDSMegaMenu.stableSelector}"`);
+    const megamenu = this.closest(
+      `[data-autoid="${DDSMegaMenu.stableSelector}"`
+    );
     this.layout = megamenu?.getAttribute('layout') as MEGAMENU_LAYOUT_SCHEME;
 
     super.connectedCallback();

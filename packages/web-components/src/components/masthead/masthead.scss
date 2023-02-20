@@ -1,5 +1,5 @@
 //
-// Copyright IBM Corp. 2020, 2022
+// Copyright IBM Corp. 2020, 2023
 //
 // This source code is licensed under the Apache-2.0 license found in the
 // LICENSE file in the root directory of this source tree.
@@ -8,15 +8,16 @@
 @import 'carbon-components/scss/components/ui-shell/header';
 @import 'carbon-components/scss/components/ui-shell/side-nav';
 @import '@carbon/ibmdotcom-styles/scss/globals/vars';
+
 @import '@carbon/ibmdotcom-styles/scss/components/masthead/masthead';
 @import '@carbon/ibmdotcom-styles/scss/components/masthead/masthead-leftnav';
+@import '@carbon/ibmdotcom-styles/scss/components/masthead/masthead-megamenu';
 @import '@carbon/ibmdotcom-styles/scss/components/masthead/masthead-top-nav-name';
 @import '@carbon/ibmdotcom-styles/scss/components/search-with-typeahead/search-with-typeahead';
 @import '@carbon/ibmdotcom-styles/scss/components/masthead/masthead-l1';
-@import 'carbon-web-components/scss/components/tooltip/tooltip';
-@import 'carbon-web-components/scss/components/ui-shell/header';
-@import 'carbon-web-components/scss/components/ui-shell/side-nav';
-@import '@carbon/ibmdotcom-styles/scss/components/masthead/masthead-megamenu';
+@import '@carbon/web-components/scss/components/tooltip/tooltip';
+@import '@carbon/web-components/scss/components/ui-shell/header';
+@import '@carbon/web-components/scss/components/ui-shell/side-nav';
 @import '../../globals/scss/box-sizing';
 @import '../cta/cta.scss';
 
@@ -94,7 +95,8 @@ $breakpoint--desktop-nav: 799px;
   }
 }
 
-:host(#{$dds-prefix}-masthead-global-bar) ::slotted(#{$dds-prefix}-masthead-button-cta) {
+:host(#{$dds-prefix}-masthead-global-bar)
+  ::slotted(#{$dds-prefix}-masthead-button-cta) {
   @include carbon--breakpoint-down('md') {
     display: none;
   }
@@ -317,7 +319,8 @@ $breakpoint--desktop-nav: 799px;
 :host(#{$dds-prefix}-masthead-profile),
 :host(#{$dds-prefix}-masthead-contact),
 :host(#{$dds-prefix}-cloud-masthead-profile) {
-  .#{$prefix}--header__menu-title[aria-expanded='true'] + .#{$prefix}--header__menu {
+  .#{$prefix}--header__menu-title[aria-expanded='true']
+    + .#{$prefix}--header__menu {
     background-color: $ui-background;
     box-shadow: 0 2px 6px 0 rgba(0, 0, 0, 0.3);
     bottom: -1px;
@@ -362,12 +365,20 @@ $breakpoint--desktop-nav: 799px;
 }
 
 :host(#{$dds-prefix}-megamenu-top-nav-menu) {
-  .#{$prefix}--header__menu-title[aria-expanded='true'] + .#{$prefix}--header__menu {
+  .#{$prefix}--header__menu-title[aria-expanded='true']
+    + .#{$prefix}--header__menu {
     bottom: auto;
     height: auto;
-    max-height: calc(100vh - var(--cds-spacing-09, 3rem) - var(--cds-layout-05, 4rem));
     min-height: 0;
   }
+}
+
+:host(#{$dds-prefix}-megamenu-left-navigation),
+:host(#{$dds-prefix}-megamenu-right-navigation) {
+  max-height: calc(
+    100vh - var(--cds-spacing-09, 3rem) - var(--cds-layout-05, 4rem)
+  );
+  overflow: auto;
 }
 
 :host(#{$dds-prefix}-left-nav) {
@@ -386,19 +397,21 @@ $breakpoint--desktop-nav: 799px;
 
   &[usage-mode='header-nav'],
   &[collapse-mode][usage-mode='header-nav'] {
-    left: -100vw;
+    inset-inline-start: -100vw;
     visibility: hidden;
     /* stylelint-disable-next-line  time-min-milliseconds */
-    transition: visibility 1ms motion(exit, productive) $duration--fast-02, left $duration--fast-02 motion(exit, productive) 1ms;
+    transition: visibility 1ms motion(exit, productive) $duration--fast-02,
+      left $duration--fast-02 motion(exit, productive) 1ms;
   }
 
   &[expanded][usage-mode='header-nav'],
   &[collapse-mode][expanded][usage-mode='header-nav'] {
     overflow: hidden auto;
-    left: 0;
+    inset-inline-start: 0;
     visibility: visible;
     /* stylelint-disable-next-line time-min-milliseconds */
-    transition: visibility 1ms motion(exit, productive) 0ms, left $duration--fast-02 motion(exit, productive) 1ms;
+    transition: visibility 1ms motion(exit, productive) 0ms,
+      inset-inline-start $duration--fast-02 motion(exit, productive) 1ms;
   }
 
   .#{$prefix}--side-nav__wrapper {
@@ -506,7 +519,8 @@ $breakpoint--desktop-nav: 799px;
 }
 
 :host(#{$dds-prefix}-left-nav-item-highlighted) a.#{$prefix}--side-nav__link,
-:host(#{$dds-prefix}-left-nav-menu-item-highlighted) a.#{$prefix}--side-nav__link,
+:host(#{$dds-prefix}-left-nav-menu-item-highlighted)
+  a.#{$prefix}--side-nav__link,
 :host(#{$dds-prefix}-left-nav-item) a.#{$prefix}--side-nav__link,
 :host(#{$dds-prefix}-left-nav-menu-item) a.#{$prefix}--side-nav__link {
   display: flex;
@@ -567,8 +581,9 @@ $breakpoint--desktop-nav: 799px;
       0 calc(#{mini-units(6)} + 1px),
       mini-units(6) calc(#{mini-units(6)} + 1px)
     )
-    #{'/*!rtl:polygon(0 0, calc(100% - ' + mini-units(6) + ') 0, calc(100% - ' + mini-units(6) + ') calc(' + mini-units(6) +
-    ' + 1px), 100% calc(' + mini-units(6) + ' + 1px), 100% 100%, 0 100%)*/'};
+    #{'/*!rtl:polygon(0 0, calc(100% - ' + mini-units(6) + ') 0, calc(100% - ' +
+    mini-units(6) + ') calc(' + mini-units(6) + ' + 1px), 100% calc(' +
+    mini-units(6) + ' + 1px), 100% 100%, 0 100%)*/'};
 }
 
 :host(#{$dds-prefix}-left-nav-overlay) {
@@ -579,6 +594,17 @@ $breakpoint--desktop-nav: 799px;
       @include left-nav-overlay;
     }
   }
+}
+
+:host(#{$dds-prefix}-left-nav-overlay[dir='rtl']) {
+  clip-path: polygon(
+    0 0,
+    calc(100% - #{mini-units(6)}) 0,
+    calc(100% - #{mini-units(6)}) calc(#{mini-units(6)} + 1px),
+    100% calc(#{mini-units(6)} + 1px),
+    100% 100%,
+    0 100%
+  );
 }
 
 :host(#{$dds-prefix}-megamenu-link-with-icon):focus,
@@ -595,7 +621,7 @@ $breakpoint--desktop-nav: 799px;
 .#{$prefix}--masthead__megamenu {
   position: relative;
 
-  &::after {
+  &[overflowing]::after {
     content: '';
     position: fixed;
     bottom: 0;
@@ -614,45 +640,17 @@ $breakpoint--desktop-nav: 799px;
 }
 
 :host(#{$dds-prefix}-megamenu[layout='tab']) {
-  .#{$prefix}--masthead__megamenu__container--row {
-    @include carbon--breakpoint('md') {
-      flex-direction: inherit;
-    }
-  }
-
   ::slotted(#{$dds-prefix}-megamenu-left-navigation) {
-    @include carbon--make-col(4, 16);
-
     display: flex;
     flex-direction: column;
     justify-content: space-between;
-    border-right: carbon--rem(1px) solid $ui-03;
-    padding-block-start: 0;
-
-    @include carbon--breakpoint('md') {
-      min-height: carbon--rem(580px);
-    }
-
-    @include carbon--breakpoint('xlg') {
-      min-height: carbon--rem(475px);
-    }
   }
-}
-
-:host(#{$dds-prefix}-megamenu-right-navigation[style-scheme='tab']) {
-  @include carbon--make-col(12, 16);
-
-  display: flex;
-  flex-direction: column;
-  padding-top: $spacing-06;
-  margin-bottom: $spacing-07;
 }
 
 :host(#{$dds-prefix}-megamenu-tabs) {
   display: flex;
   flex-direction: column;
-  margin-top: carbon--rem(18px);
-  margin-bottom: carbon--rem(18px);
+  margin-bottom: $spacing-05;
 
   .#{$prefix}--tabs-trigger {
     display: none;
@@ -700,74 +698,47 @@ $breakpoint--desktop-nav: 799px;
   justify-content: flex-start;
 }
 
-:host(#{$dds-prefix}-megamenu-category-link[layout='tab']) {
-  width: 100%;
-  max-width: 50%;
-  outline: 0;
-
-  @include carbon--breakpoint('xlg') {
-    max-width: 33.33%;
-  }
-
-  a {
-    display: block;
+:host(#{$dds-prefix}-megamenu-category-link) {
+  a:has([part='link-heading']) {
     padding: $spacing-04 $spacing-05;
     height: 100%;
-    color: $text-02;
-
-    div {
-      @include carbon--type-style('expressive-heading-01');
-
-      svg {
-        margin-inline-start: $spacing-03;
-        padding-block-start: $spacing-01; /* shrink SVG with padding to match font-size */
-      }
-    }
 
     > span {
-      @include carbon--type-style(body-short-01);
-
       display: block;
-      width: 90%;
-    }
-
-    &:hover {
-      text-decoration: none;
-      background-color: $hover-ui;
-    }
-
-    &:focus {
-      outline: carbon--rem(2px) solid $focus;
-      outline-offset: carbon--rem(-2px);
+      max-width: carbon--rem(272px);
     }
 
     &:active,
     &:hover {
-      color: $text-01;
-
       svg {
         fill: $icon-01;
       }
     }
   }
+
+  [part='link-heading'] {
+    @include carbon--type-style('expressive-heading-01');
+
+    svg {
+      margin-inline-start: $spacing-03;
+      padding-block-start: $spacing-01;
+      /* shrink SVG with padding to match font-size */
+    }
+  }
 }
 
+:host(#{$dds-prefix}-megamenu-heading),
 :host(#{$dds-prefix}-megamenu-category-heading) {
   display: block;
   padding: 0 $spacing-05;
-  margin-bottom: $spacing-06;
-  width: 66.66%;
 
-  @include carbon--breakpoint('lg') {
-    width: auto;
-  }
-
-  h2 {
-    @include carbon--type-style(heading-03, true);
-
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
     display: inline-block;
-    margin-bottom: $spacing-03;
-    color: $text-02;
+    color: $text-01;
 
     a {
       color: inherit;
@@ -787,9 +758,8 @@ $breakpoint--desktop-nav: 799px;
 
     svg {
       position: relative;
-      top: $spacing-02;
       margin: 0 $spacing-03;
-      fill: $icon-02;
+      fill: $icon-01;
       flex-shrink: 0;
 
       /* stylelint-disable-next-line comment-whitespace-inside */
@@ -815,10 +785,43 @@ $breakpoint--desktop-nav: 799px;
     @include carbon--type-style(body-short-01);
 
     display: block;
+    margin-top: $spacing-03;
     color: $text-02;
 
-    @include carbon--breakpoint('lg') {
-      width: 40%;
+    &[data-has-content] {
+      margin-bottom: $spacing-06;
+    }
+  }
+}
+
+:host(#{$dds-prefix}-megamenu-heading) {
+  margin-bottom: $spacing-06;
+
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    @include carbon--type-style(heading-05, true);
+
+    svg {
+      top: $spacing-03;
+    }
+  }
+}
+
+:host(#{$dds-prefix}-megamenu-category-heading) {
+  margin-bottom: $spacing-05;
+
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    @include carbon--type-style(heading-03, true);
+
+    svg {
+      top: $spacing-02;
     }
   }
 }

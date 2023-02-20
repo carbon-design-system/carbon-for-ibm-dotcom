@@ -1,5 +1,5 @@
 /**
- * Copyright IBM Corp. 2016, 2022
+ * Copyright IBM Corp. 2016, 2023
  *
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
@@ -26,7 +26,7 @@ const { prefix } = settings;
 const _findMenuItems = () => {
   const eles = document.querySelectorAll('a[name]');
   const menuItems = [];
-  eles.forEach(element => {
+  eles.forEach((element) => {
     if (element.getAttribute('name') !== 'menuLabel') {
       menuItems.push({
         id: element.getAttribute('name'),
@@ -89,7 +89,7 @@ const TableOfContents = ({
     const elems = getElemsInView();
     if (elems) {
       const id = elems || useMenuItems[0].id;
-      const filteredItems = useMenuItems.filter(menu => {
+      const filteredItems = useMenuItems.filter((menu) => {
         if (id !== 'undefined') {
           return menu.id === id;
         }
@@ -150,9 +150,9 @@ const TableOfContents = ({
    * @param {Array} menuItems array of Items
    * @returns {Array} filtered array of items
    */
-  const validateMenuItems = menuItems =>
+  const validateMenuItems = (menuItems) =>
     menuItems.filter(
-      item => item?.title?.trim().length && item?.id?.trim().length
+      (item) => item?.title?.trim().length && item?.id?.trim().length
     );
 
   /**

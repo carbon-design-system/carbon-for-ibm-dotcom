@@ -1,5 +1,5 @@
 /**
- * Copyright IBM Corp. 2016, 2022
+ * Copyright IBM Corp. 2016, 2023
  *
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
@@ -80,12 +80,12 @@
 
   .#{$prefix}--masthead {
     .#{$prefix}--side-nav {
-      left: -100vw;
+      inset-inline-start: -100vw;
       visibility: hidden;
       transform: translateZ(0.0001px);
       /* stylelint-disable-next-line  time-min-milliseconds */
       transition: visibility 1ms motion(exit, productive) $duration--fast-02,
-        left $duration--fast-02 motion(exit, productive) 1ms;
+        inset-inline-start $duration--fast-02 motion(exit, productive) 1ms;
 
       &:not(.#{$prefix}--side-nav--fixed):hover {
         @include carbon--breakpoint-down(md) {
@@ -139,12 +139,12 @@
 
     .#{$prefix}--side-nav--expanded {
       overflow-y: auto;
-      left: 0;
+      inset-inline-start: 0;
       visibility: visible;
       transform: translateZ(0.0001px);
       /* stylelint-disable-next-line time-min-milliseconds */
       transition: visibility 1ms motion(exit, productive) 0ms,
-        left $duration--fast-02 motion(exit, productive) 1ms;
+        inset-inline-start $duration--fast-02 motion(exit, productive) 1ms;
     }
 
     .#{$prefix}--side-nav--ux,
@@ -167,11 +167,12 @@
     height: 100%;
     overflow-y: auto;
     z-index: 0;
-    left: -100%;
+    inset-inline-start: -100%;
     background-color: $ui-background;
     padding-bottom: $spacing-09;
     transform: translateZ(0.0001px);
-    transition: left $duration--moderate-01 motion(exit, productive);
+    transition: inset-inline-start $duration--moderate-01
+      motion(exit, productive);
 
     a {
       @include carbon--type-style(body-short-02);
@@ -234,18 +235,17 @@
   button {
     &.#{$prefix}--side-nav__link {
       height: carbon--mini-units(6);
-      @include carbon--type-style(body-short-02);
+      @include carbon--type-style(body-short-01);
 
       > {
         .#{$prefix}--side-nav__link-text {
-          @include carbon--type-style(body-short-02);
+          @include carbon--type-style(body-short-01);
 
           display: flex;
           align-items: center;
           color: $text-02;
           width: 100%;
           height: 100%;
-          border-bottom: 1px solid $ui-03;
           text-overflow: ellipsis;
         }
       }
@@ -294,7 +294,7 @@
       }
 
       > .#{$prefix}--side-nav__link-text {
-        @include carbon--type-style(body-short-02);
+        @include carbon--type-style(body-short-01);
 
         color: $link-01;
         display: flex;
@@ -306,6 +306,10 @@
         margin-right: 5px;
         path {
           fill: currentColor;
+        }
+
+        :host([dir='rtl']) & {
+          transform: rotate(180deg);
         }
       }
     }
@@ -320,22 +324,22 @@
   :host(#{$dds-prefix}-left-nav-menu-section)[expanded],
   .#{$prefix}--side-nav__menu-section--expanded {
     z-index: 1;
-    left: 0;
+    inset-inline-start: 0;
   }
 
   :host(#{$dds-prefix}-left-nav-menu-section)[is-submenu],
   .#{$prefix}--side-nav__menu-section-submenu {
-    left: 100%;
+    inset-inline-start: 100%;
   }
 
   :host(#{$dds-prefix}-left-nav-menu-section)[is-submenu][expanded],
   .#{$prefix}--side-nav__menu-section-submenu.#{$prefix}--side-nav__menu-section--expanded {
-    left: 0;
+    inset-inline-start: 0;
   }
 
   :host(#{$dds-prefix}-left-nav-menu-section)[is-submenu][transition],
   .#{$prefix}--side-nav__menu-section-submenu--expanded {
-    left: -100%;
+    inset-inline-start: -100%;
   }
 
   .#{$prefix}--side-nav__menu {
@@ -354,11 +358,10 @@
       height: auto;
       min-height: rem(48px);
       display: flex;
-      border-bottom: 1px solid $ui-03;
     }
 
     .#{$prefix}--side-nav__submenu-title {
-      @include carbon--type-style(body-short-02);
+      @include carbon--type-style(body-short-01);
 
       color: $text-02;
       align-self: center;
@@ -395,20 +398,123 @@
 
   .#{$prefix}--masthead__side-nav--submemu-heading,
   :host(#{$dds-prefix}-left-nav-menu-category-heading) {
-    @include type-style('body-long-01');
+    @include type-style('body-short-01');
 
-    font-size: 1rem;
-    line-height: 1.5rem;
-    letter-spacing: normal;
     display: block;
     color: $text-02;
-    padding: $spacing-02 0;
-    margin: 0 $spacing-05;
+
+    &:is(.#{$prefix}--left-nav-menu-category__heading-large) {
+      margin: $spacing-03 0 $spacing-06;
+
+      .#{$prefix}--side-nav__heading {
+        padding: 0;
+      }
+    }
+
+    .#{$prefix}--side-nav__heading {
+      height: auto;
+      padding: $spacing-05 0;
+    }
+
+    .#{$prefix}--side-nav__heading-title {
+      display: block;
+      padding: 0 $spacing-05;
+
+      &:where(a) {
+        color: inherit;
+        display: inline-flex;
+        gap: $spacing-03;
+        align-items: center;
+        text-decoration: none;
+
+        &:hover {
+          text-decoration: underline;
+        }
+
+        &:focus {
+          outline: 2px solid $focus;
+          outline-offset: -2px;
+          color: $text-01;
+        }
+      }
+    }
+
+    .#{$prefix}--side-nav__heading-description {
+      padding: 0 $spacing-05;
+    }
+
+    ::slotted(:first-child) {
+      padding-top: $spacing-03;
+    }
+
+    h2 {
+      @include carbon--type-style(productive-heading-01);
+
+      color: $text-01;
+    }
+
+    h2.#{$prefix}--side-nav__menu-section-title {
+      @include carbon--type-style(productive-heading-03);
+    }
+  }
+
+  :host(#{$dds-prefix}-left-nav-menu-category-heading):not(.#{$prefix}--left-nav-menu-category__heading-large),
+  :host(#{$dds-prefix}-left-nav-menu),
+  :host(#{$dds-prefix}-left-nav-menu-item) {
     border-bottom: 1px solid $ui-03;
   }
 
+  :host(#{$dds-prefix}-left-nav-menu-item) {
+    .#{$prefix}--side-nav__link {
+      display: flex;
+      align-items: center;
+      padding-left: $carbon--spacing-05;
+      height: auto;
+      min-height: carbon--mini-units(6);
+      width: 100%;
+
+      &:not(:is(a)):hover {
+        background-color: transparent;
+      }
+    }
+
+    &.#{$prefix}--side-nav__group-header {
+      &:not(:first-of-type) {
+        margin-top: $spacing-07;
+      }
+
+      .#{$prefix}--side-nav__link-text {
+        @include carbon--type-style(productive-heading-01);
+
+        color: $text-01;
+        display: inline-flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: $spacing-03;
+
+        svg {
+          color: $icon-01;
+        }
+      }
+    }
+
+    &.#{$prefix}--side-nav__group-view-all {
+      .#{$prefix}--side-nav__link-text {
+        color: $interactive-01;
+        display: inline-flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: $spacing-03;
+
+        svg {
+          color: $interactive-01;
+        }
+      }
+    }
+  }
+
   .#{$prefix}--masthead__side-nav--submemu--selected {
-    border-left: 3px solid $interactive-01;
+    border-inline-start: 3px solid $interactive-01;
 
     .#{$prefix}--side-nav__submenu-title,
     &.#{$prefix}--side-nav__link .#{$prefix}--side-nav__link-text {
@@ -420,8 +526,12 @@
   .#{$prefix}--side-nav__submenu[aria-expanded='true']
     .#{$prefix}--side-nav__submenu-chevron {
     > svg {
-      transform: rotate(-90deg) scale(1.25);
+      transform: rotate(-90deg);
       fill: $text-01;
+
+      :host([dir='rtl']) & {
+        transform: rotate(90deg) scale(1.25);
+      }
     }
   }
 
@@ -431,8 +541,7 @@
   :host(#{$dds-prefix}-left-nav-item-highlighted) a.#{$prefix}--side-nav__link,
   :host(#{$dds-prefix}-left-nav-menu-item-highlighted)
     a.#{$prefix}--side-nav__link,
-  :host(#{$dds-prefix}-left-nav-item) a.#{$prefix}--side-nav__link,
-  :host(#{$dds-prefix}-left-nav-menu-item) a.#{$prefix}--side-nav__link {
+  :host(#{$dds-prefix}-left-nav-item) a.#{$prefix}--side-nav__link {
     display: flex;
     padding-left: $carbon--spacing-05;
     height: auto;

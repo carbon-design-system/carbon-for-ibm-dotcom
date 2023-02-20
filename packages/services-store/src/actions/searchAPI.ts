@@ -1,7 +1,7 @@
 /**
  * @license
  *
- * Copyright IBM Corp. 2020
+ * Copyright IBM Corp. 2020, 2023
  *
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
@@ -18,8 +18,9 @@ import { SEARCH_API_ACTION, SearchAPIState } from '../types/searchAPI';
  */
 function getSearchEndpoint(language: string, searchQueryString: string) {
   const [primary, country] = language!.split('-');
-  return `${(process && process.env.SEARCH_TYPEAHEAD_API) ||
-    'https://www-api.ibm.com'}/search/typeahead/v1?lang=${primary}&cc=${country}&query=${searchQueryString}`;
+  return `${
+    (process && process.env.SEARCH_TYPEAHEAD_API) || 'https://www-api.ibm.com'
+  }/search/typeahead/v1?lang=${primary}&cc=${country}&query=${searchQueryString}`;
 }
 
 /**
@@ -43,7 +44,11 @@ export function setCurrentSearchQueryString(searchQueryString: string) {
  *   for search results for the given language and search query that is in progress.
  * @private
  */
-export function setRequestSearchResultsInProgress(language: string, searchQueryString: string, request: Promise<string[]>) {
+export function setRequestSearchResultsInProgress(
+  language: string,
+  searchQueryString: string,
+  request: Promise<string[]>
+) {
   return {
     type: SEARCH_API_ACTION.SET_REQUEST_SEARCH_RESULTS_IN_PROGRESS,
     language,
@@ -59,7 +64,11 @@ export function setRequestSearchResultsInProgress(language: string, searchQueryS
  * @returns A Redux action to set the state that the REST call for search results for the given language and search query failed.
  * @private
  */
-export function setErrorRequestSearchResults(language: string, searchQueryString: string, error: Error) {
+export function setErrorRequestSearchResults(
+  language: string,
+  searchQueryString: string,
+  error: Error
+) {
   return {
     type: SEARCH_API_ACTION.SET_ERROR_REQUEST_SEARCH_RESULTS,
     language,
@@ -75,7 +84,11 @@ export function setErrorRequestSearchResults(language: string, searchQueryString
  * @returns A Redux action to set the given search results for the given language and search query string.
  * @private
  */
-export function setSearchResults(language: string, searchQueryString: string, results: string[]) {
+export function setSearchResults(
+  language: string,
+  searchQueryString: string,
+  results: string[]
+) {
   return {
     type: SEARCH_API_ACTION.SET_SEARCH_RESULTS,
     language,
@@ -95,24 +108,38 @@ export type SearchAPIActions =
  */
 export function loadSearchResults(
   searchQueryString: string
-): ThunkAction<Promise<string[]>, { searchAPI: SearchAPIState }, void, SearchAPIActions> {
+): ThunkAction<
+  Promise<string[]>,
+  { searchAPI: SearchAPIState },
+  void,
+  SearchAPIActions
+> {
   return async (dispatch, getState) => {
     dispatch(setCurrentSearchQueryString(searchQueryString));
     // TODO: Can we go without casts without making `LocaleAPI` types a hard-dependency?
     const language: string = await dispatch(loadLanguage() as any);
     const { requestsSearchResults = {} } = getState().searchAPI ?? {};
-    const requestSearchResults = requestsSearchResults?.[searchQueryString]?.[language];
+    const requestSearchResults =
+      requestsSearchResults?.[searchQueryString]?.[language];
     if (requestSearchResults) {
       return requestSearchResults;
     }
     const request = fetch(getSearchEndpoint(language, searchQueryString))
-      .then(response => response.json())
+      .then((response) => response.json())
       .then(({ response }) => response.map(([result]) => result));
-    dispatch(setRequestSearchResultsInProgress(language, searchQueryString, request));
+    dispatch(
+      setRequestSearchResultsInProgress(language, searchQueryString, request)
+    );
     try {
       dispatch(setSearchResults(language, searchQueryString, await request));
     } catch (error) {
-      dispatch(setErrorRequestSearchResults(language, searchQueryString, error));
+      dispatch(
+        setErrorRequestSearchResults(
+          language,
+          searchQueryString,
+          error as Error
+        )
+      );
       throw error;
     }
     return request;

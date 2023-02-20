@@ -1,7 +1,7 @@
 /**
  * @license
  *
- * Copyright IBM Corp. 2020, 2022
+ * Copyright IBM Corp. 2020, 2023
  *
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
@@ -22,7 +22,9 @@ const { stablePrefix: ddsPrefix } = ddsSettings;
  * @element dds-legal-nav-cookie-preferences-placeholder
  */
 @customElement(`${ddsPrefix}-legal-nav-cookie-preferences-placeholder`)
-class DDSLegalNavCookiePreferencesPlaceholder extends StableSelectorMixin(LitElement) {
+class DDSLegalNavCookiePreferencesPlaceholder extends StableSelectorMixin(
+  LitElement
+) {
   /**
    * Handles `slotchange` event.
    */
@@ -30,8 +32,8 @@ class DDSLegalNavCookiePreferencesPlaceholder extends StableSelectorMixin(LitEle
     // Finds new injected links
     const linkNodes = (event.target as HTMLSlotElement)
       .assignedNodes()
-      .filter(node => (node as Element).tagName === 'A') as HTMLLinkElement[];
-    linkNodes.forEach(node => {
+      .filter((node) => (node as Element).tagName === 'A') as HTMLLinkElement[];
+    linkNodes.forEach((node) => {
       // Adds Carbon CSS classes
       node.classList.add(`${prefix}--link`);
       node.classList.add(`${prefix}--footer__link`);
@@ -42,9 +44,7 @@ class DDSLegalNavCookiePreferencesPlaceholder extends StableSelectorMixin(LitEle
 
   render() {
     const { _handleSlotChange: handleSlotchange } = this;
-    return html`
-      <slot @slotchange="${handleSlotchange}"></slot>
-    `;
+    return html` <slot @slotchange="${handleSlotchange}"></slot> `;
   }
 
   static get stableSelector() {

@@ -1,5 +1,5 @@
 /**
- * Copyright IBM Corp. 2016, 2022
+ * Copyright IBM Corp. 2016, 2023
  *
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
@@ -41,7 +41,7 @@ const ButtonGroup = ({ buttons }) => {
               isExpressive
               {...button}
               type="button"
-              kind={key === buttons.length - 1 ? 'primary' : 'tertiary'}>
+              kind={key === 0 ? 'primary' : 'tertiary'}>
               {button.copy}
             </Button>
           </li>

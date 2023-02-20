@@ -1,7 +1,7 @@
 /**
  * @license
  *
- * Copyright IBM Corp. 2020, 2022
+ * Copyright IBM Corp. 2020, 2023
  *
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
@@ -34,9 +34,7 @@ class DDSContentItemHorizontal extends DDSContentItem {
    */
   // eslint-disable-next-line class-methods-use-this
   protected _renderMedia(): TemplateResult | string | void {
-    return html`
-      <slot name="media"></slot>
-    `;
+    return html` <slot name="media"></slot> `;
   }
 
   render() {
@@ -44,7 +42,9 @@ class DDSContentItemHorizontal extends DDSContentItem {
       ${!this.thumbnail
         ? html`
             <div class="${prefix}--content-item-horizontal__heading-wrapper">
-              <slot name="eyebrow" @slotchange="${this._handleSlotChange}"></slot>
+              <slot
+                name="eyebrow"
+                @slotchange="${this._handleSlotChange}"></slot>
               <slot name="heading"></slot>
             </div>
             <div class="${prefix}--content-item-horizontal__content-wrapper">
@@ -61,7 +61,8 @@ class DDSContentItemHorizontal extends DDSContentItem {
               </div>
             </div>
             <div class="${prefix}--content-item-horizontal__col--2">
-              <slot name="thumbnail" @slotchange="${this._handleSlotChange}"> </slot>
+              <slot name="thumbnail" @slotchange="${this._handleSlotChange}">
+              </slot>
             </div>
           `}
     `;

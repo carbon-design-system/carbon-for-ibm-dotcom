@@ -1,7 +1,7 @@
 /**
  * @license
  *
- * Copyright IBM Corp. 2020
+ * Copyright IBM Corp. 2020, 2023
  *
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
@@ -24,16 +24,16 @@ class MockResizeObserver extends MockLayoutObserver {
    * @param elem The element.
    */
   static run(elem: Element, contentRect: Partial<ClientRect>) {
-    this._instances.forEach(instance => {
+    this._instances.forEach((instance) => {
       if (instance._callback && instance._targets.has(elem)) {
         instance._callback(
           [
-            ({
+            {
               contentRect,
               target: elem,
-            } as unknown) as IntersectionObserverEntry,
+            } as unknown as IntersectionObserverEntry,
           ],
-          (instance as unknown) as IntersectionObserver
+          instance as unknown as IntersectionObserver
         );
       }
     });

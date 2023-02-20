@@ -1,14 +1,14 @@
 /**
  * @license
  *
- * Copyright IBM Corp. 2020, 2021
+ * Copyright IBM Corp. 2020, 2023
  *
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
  */
 
 import { html, render } from 'lit-html';
-import ArrowRight20 from 'carbon-web-components/es/icons/arrow--right/20';
+import ArrowRight20 from '../../../internal/vendor/@carbon/web-components/icons/arrow--right/20';
 import '../index';
 
 const template = (props?) => {
@@ -18,7 +18,9 @@ const template = (props?) => {
       <dds-card-group-item>${heading}</dds-card-group-item>
       <dds-card-group>${cards}</dds-card-group>
       <dds-content-item>
-        <dds-content-item-heading>${contentItemHeading}</dds-content-item-heading>
+        <dds-content-item-heading
+          >${contentItemHeading}</dds-content-item-heading
+        >
         <dds-content-item-copy>${contentItemCopy}</dds-content-item-copy>
       </dds-content-item>
       <dds-button-group>
@@ -29,15 +31,17 @@ const template = (props?) => {
   `;
 };
 
-describe('dds-content-block-card-static', function() {
-  describe('Misc attributes', function() {
-    it('should render with minimum attributes', async function() {
+describe('dds-content-block-card-static', function () {
+  describe('Misc attributes', function () {
+    it('should render with minimum attributes', async function () {
       render(template(), document.body);
       await Promise.resolve();
-      expect(document.body.querySelector('dds-content-block-card-static')).toMatchSnapshot();
+      expect(
+        document.body.querySelector('dds-content-block-card-static')
+      ).toMatchSnapshot();
     });
 
-    it('should render with various attributes', async function() {
+    it('should render with various attributes', async function () {
       render(
         template({
           heading: 'heading-foo',
@@ -45,8 +49,10 @@ describe('dds-content-block-card-static', function() {
             <dds-card-group-item href="https://example.com">
               <dds-card-heading>Nunc convallis lobortis</dds-card-heading>
               <p>
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean et ultricies est. Mauris iaculis eget dolor nec
-                hendrerit. Phasellus at elit sollicitudin, sodales nulla quis, consequat libero.
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean
+                et ultricies est. Mauris iaculis eget dolor nec hendrerit.
+                Phasellus at elit sollicitudin, sodales nulla quis, consequat
+                libero.
               </p>
               <dds-card-cta-footer slot="footer">
                 ${ArrowRight20({ slot: 'icon' })}
@@ -59,11 +65,13 @@ describe('dds-content-block-card-static', function() {
         document.body
       );
       await Promise.resolve();
-      expect(document.body.querySelector('dds-content-block-card-static')).toMatchSnapshot();
+      expect(
+        document.body.querySelector('dds-content-block-card-static')
+      ).toMatchSnapshot();
     });
   });
 
-  afterEach(async function() {
+  afterEach(async function () {
     await render(undefined!, document.body);
   });
 });

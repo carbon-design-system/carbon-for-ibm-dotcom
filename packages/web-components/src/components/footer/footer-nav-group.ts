@@ -1,7 +1,7 @@
 /**
  * @license
  *
- * Copyright IBM Corp. 2020, 2022
+ * Copyright IBM Corp. 2020, 2023
  *
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
@@ -9,7 +9,7 @@
 
 import { html, property, state, customElement, LitElement } from 'lit-element';
 import settings from 'carbon-components/es/globals/js/settings.js';
-import ChevronRight16 from 'carbon-web-components/es/icons/chevron--right/16.js';
+import ChevronRight16 from '../../internal/vendor/@carbon/web-components/icons/chevron--right/16.js';
 import ddsSettings from '../../internal/vendor/@carbon/ibmdotcom-utilities/utilities/settings/settings';
 import StableSelectorMixin from '../../globals/mixins/stable-selector';
 import Handle from '../../globals/internal/handle';
@@ -43,7 +43,8 @@ class DDSFooterNavGroup extends StableSelectorMixin(LitElement) {
    * @param open The new open state.
    */
   private _handleUserInitiatedToggle(open = !this.open) {
-    const { eventBeforeToggle, eventToggle } = this.constructor as typeof DDSFooterNavGroup;
+    const { eventBeforeToggle, eventToggle } = this
+      .constructor as typeof DDSFooterNavGroup;
     const init = {
       bubbles: true,
       cancelable: true,
@@ -106,7 +107,8 @@ class DDSFooterNavGroup extends StableSelectorMixin(LitElement) {
       this._hChangeMediaQuery = this._hChangeMediaQuery.release();
     }
     const { mediaStickExpanded } = this.constructor as typeof DDSFooterNavGroup;
-    const mediaQueryList = this.ownerDocument!.defaultView!.matchMedia(mediaStickExpanded);
+    const mediaQueryList =
+      this.ownerDocument!.defaultView!.matchMedia(mediaStickExpanded);
     this._shouldStickExpanded = mediaQueryList.matches;
     const { _handleChangeMediaQuery: handleChangeMediaQuery } = this;
     mediaQueryList.addListener(handleChangeMediaQuery);
@@ -133,7 +135,9 @@ class DDSFooterNavGroup extends StableSelectorMixin(LitElement) {
     } = this;
     const heading = shouldStickExpanded
       ? html`
-          <h2 class="${prefix}--footer-nav-group__title"><slot name="title">${titleText}</slot></h2>
+          <h2 class="${prefix}--footer-nav-group__title">
+            <slot name="title">${titleText}</slot>
+          </h2>
         `
       : html`
           <button
@@ -142,12 +146,13 @@ class DDSFooterNavGroup extends StableSelectorMixin(LitElement) {
             aria-controls="content"
             aria-expanded="${String(Boolean(open))}"
             @click="${handleClickExpando}"
-            @keydown="${handleKeydownExpando}"
-          >
+            @keydown="${handleKeydownExpando}">
             ${ChevronRight16({
               class: `${prefix}--accordion__arrow`,
             })}
-            <div class="${prefix}--accordion__title"><slot name="title">${titleText}</slot></div>
+            <div class="${prefix}--accordion__title">
+              <slot name="title">${titleText}</slot>
+            </div>
           </button>
         `;
     return html`

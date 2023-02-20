@@ -1,5 +1,5 @@
 //
-// Copyright IBM Corp. 2021, 2022
+// Copyright IBM Corp. 2021, 2023
 //
 // This source code is licensed under the Apache-2.0 license found in the
 // LICENSE file in the root directory of this source tree.
@@ -23,7 +23,8 @@
   z-index: 0;
 }
 
-:host(#{$dds-prefix}-cloud-masthead-global-bar) ::slotted(#{$dds-prefix}-cloud-button-cta) {
+:host(#{$dds-prefix}-cloud-masthead-global-bar)
+  ::slotted(#{$dds-prefix}-cloud-button-cta) {
   @include carbon--breakpoint-down('md') {
     display: none;
   }
@@ -95,13 +96,15 @@
     bottom: 0;
     width: 100%;
     height: carbon--rem(48px);
-    background: linear-gradient(transparent, $ui-background);
+    background: linear-gradient(
+      rgba(255, 255, 255, 0.001),
+      $ui-background
+    ); /* transparent keyword is broken in Safari */
   }
 
   .#{$prefix}--masthead__megamenu__container {
     width: 100%;
     height: 100%;
-    overflow-y: scroll;
     overflow-x: hidden;
   }
 
@@ -222,6 +225,10 @@
     &:hover {
       text-decoration: none;
       background-color: $hover-ui;
+
+      span {
+        color: $text-01;
+      }
     }
 
     &:focus {
@@ -253,7 +260,7 @@
       svg {
         margin: 0 $spacing-03;
         padding-top: $spacing-02;
-        fill: $link-01;
+        fill: $icon-01;
 
         /* stylelint-disable-next-line comment-whitespace-inside */
         /*!rtl:raw:
@@ -263,10 +270,6 @@
 
       &:hover {
         text-decoration: underline;
-
-        svg {
-          fill: $hover-primary-text;
-        }
       }
 
       &:focus {
@@ -312,7 +315,9 @@
   }
 }
 
-:host(#{$dds-prefix}-cloud-masthead-profile) .#{$prefix}--header__menu-title[aria-expanded='true'] + .#{$prefix}--header__menu {
+:host(#{$dds-prefix}-cloud-masthead-profile)
+  .#{$prefix}--header__menu-title[aria-expanded='true']
+  + .#{$prefix}--header__menu {
   @include carbon--breakpoint-down('md') {
     width: 100vw;
   }

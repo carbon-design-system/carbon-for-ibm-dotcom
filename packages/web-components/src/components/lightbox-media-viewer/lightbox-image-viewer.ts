@@ -1,7 +1,7 @@
 /**
  * @license
  *
- * Copyright IBM Corp. 2020, 2022
+ * Copyright IBM Corp. 2020, 2023
  *
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
@@ -9,7 +9,7 @@
 
 import { html, property, customElement } from 'lit-element';
 import settings from 'carbon-components/es/globals/js/settings.js';
-import ifNonNull from 'carbon-web-components/es/globals/directives/if-non-null.js';
+import ifNonNull from '../../internal/vendor/@carbon/web-components/globals/directives/if-non-null.js';
 import ddsSettings from '../../internal/vendor/@carbon/ibmdotcom-utilities/utilities/settings/settings';
 import DDSLightboxMediaViewerBody from './lightbox-media-viewer-body';
 import '../expressive-modal/expressive-modal';
@@ -29,24 +29,24 @@ const { stablePrefix: ddsPrefix } = ddsSettings;
 class DDSLightboxImageViewer extends DDSLightboxMediaViewerBody {
   _renderDescription() {
     const { description } = this;
-    return html`
-      <slot name="description">${description}</slot>
-    `;
+    return html` <slot name="description">${description}</slot> `;
   }
 
   // eslint-disable-next-line class-methods-use-this
   _renderMedia() {
     const { alt, defaultSrc } = this;
     return html`
-      <img class="${prefix}--image__img" alt="${ifNonNull(alt)}" src="${ifNonNull(defaultSrc)}" loading="lazy" />
+      <img
+        class="${prefix}--image__img"
+        alt="${ifNonNull(alt)}"
+        src="${ifNonNull(defaultSrc)}"
+        loading="lazy" />
     `;
   }
 
   _renderTitle() {
     const { title } = this;
-    return html`
-      <slot name="title">${title}</slot>
-    `;
+    return html` <slot name="title">${title}</slot> `;
   }
 
   /**

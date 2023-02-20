@@ -1,5 +1,5 @@
 /**
- * Copyright IBM Corp. 2016, 2021
+ * Copyright IBM Corp. 2016, 2023
  *
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
@@ -24,7 +24,7 @@ const MegaMenu = React.forwardRef(function MegaMenu(props, ref) {
   let viewAllLink;
   let menuItems = [];
 
-  data.menuSections[0].menuItems.forEach(item => {
+  data.menuSections[0].menuItems.forEach((item) => {
     if (item.highlighted) return highlightedItems.push(item);
     if (item.megaPanelViewAll) return (viewAllLink = item);
     else return menuItems.push(item);

@@ -1,5 +1,5 @@
 /**
- * Copyright IBM Corp. 2016, 2022
+ * Copyright IBM Corp. 2016, 2023
  *
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
@@ -40,7 +40,7 @@ export const Card = ({
   const refWrapper = useRef(null);
 
   const handleClick = useCallback(
-    e => {
+    (e) => {
       if (!onClick || onClick(e) !== false) {
         cta?.type === 'jump' ? CTALogic.jump(e, cta.type) : false;
       }

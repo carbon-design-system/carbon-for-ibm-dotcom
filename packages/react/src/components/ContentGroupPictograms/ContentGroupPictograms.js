@@ -1,5 +1,5 @@
 /**
- * Copyright IBM Corp. 2016, 2022
+ * Copyright IBM Corp. 2016, 2023
  *
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
@@ -35,7 +35,7 @@ const ContentGroupPictograms = ({ heading, items, className, copy }) => (
  * @param {Array} items Array of items for PictogramItem
  * @returns {*} PictogramItem JSX components
  */
-const _renderItems = items =>
+const _renderItems = (items) =>
   items.map((item, index) => (
     <PictogramItem
       className={`${prefix}--content-group-pictograms__item`}

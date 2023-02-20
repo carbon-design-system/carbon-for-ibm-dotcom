@@ -1,7 +1,7 @@
 /**
  * @license
  *
- * Copyright IBM Corp. 2020, 2022
+ * Copyright IBM Corp. 2020, 2023
  *
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
@@ -12,6 +12,7 @@ import {
   MastheadL1,
   LegacyMastheadL1,
   MastheadLogoData,
+  L0MenuItem,
 } from '../../../internal/vendor/@carbon/ibmdotcom-services-store/types/translateAPI.d';
 
 /* eslint-disable max-len */
@@ -44,7 +45,7 @@ const logoData: MastheadLogoData = {
   allowlist: [],
   end: 'May 5, 2021 0:00:01',
   path: '/',
-  href: 'https://www.example.com/not-default-href',
+  href: 'https://www.example.com/custom-href',
 };
 
 /**
@@ -122,8 +123,10 @@ const l1Data: LegacyMastheadL1 = {
               url: '',
               megapanelContent: {
                 headingTitle: 'Services',
-                headingUrl: 'https://www.ibm.com/services?lnk=hpmse_ts&lnk2=learn',
-                description: 'Reimagine your business, designing and building the platforms necessary for growth',
+                headingUrl:
+                  'https://www.ibm.com/services?lnk=hpmse_ts&lnk2=learn',
+                description:
+                  'Reimagine your business, designing and building the platforms necessary for growth',
                 quickLinks: {
                   title: 'Quicklinks',
                   links: [
@@ -147,9 +150,12 @@ const l1Data: LegacyMastheadL1 = {
                 },
                 feature: {
                   heading: 'IBM Services, your Digital Reinvention â„¢ partner',
-                  imageUrl: 'https://www.ibm.com/images/portal/U609055Q90660U49/windmills.jpg',
-                  linkTitle: 'Explore all our business consulting and technology services',
-                  linkUrl: 'https://www.ibm.com/services?lnk=hpmse_ts&lnk2=learn',
+                  imageUrl:
+                    'https://www.ibm.com/images/portal/U609055Q90660U49/windmills.jpg',
+                  linkTitle:
+                    'Explore all our business consulting and technology services',
+                  linkUrl:
+                    'https://www.ibm.com/services?lnk=hpmse_ts&lnk2=learn',
                 },
               },
             },
@@ -158,7 +164,8 @@ const l1Data: LegacyMastheadL1 = {
               url: 'https://www.ibm.com/financing?lnk=hpmse_fin&lnk2=learn',
               megapanelContent: {
                 headingTitle: 'Financing',
-                headingUrl: 'https://www.ibm.com/financing?lnk=hpmse_fin&lnk2=learn',
+                headingUrl:
+                  'https://www.ibm.com/financing?lnk=hpmse_fin&lnk2=learn',
                 description: 'Funding options that fit your business',
                 quickLinks: {
                   title: 'Quicklinks',
@@ -182,10 +189,14 @@ const l1Data: LegacyMastheadL1 = {
                   ],
                 },
                 feature: {
-                  heading: 'Cloud financing strategies that work for your business',
-                  imageUrl: 'https://www.ibm.com/images/portal/F774737R30303N19/Skyline-Card-cloud-feature380x160.jpg?1=1',
-                  linkTitle: 'Committed to cloud? Make the most of your cash flow.',
-                  linkUrl: 'https://www.ibm.com/financing/solutions/cloud-financing?lnk=hpmse_fin&lnk2=learn',
+                  heading:
+                    'Cloud financing strategies that work for your business',
+                  imageUrl:
+                    'https://www.ibm.com/images/portal/F774737R30303N19/Skyline-Card-cloud-feature380x160.jpg?1=1',
+                  linkTitle:
+                    'Committed to cloud? Make the most of your cash flow.',
+                  linkUrl:
+                    'https://www.ibm.com/financing/solutions/cloud-financing?lnk=hpmse_fin&lnk2=learn',
                 },
               },
             },
@@ -216,7 +227,8 @@ const l1Data: LegacyMastheadL1 = {
               url: 'https://developer.ibm.com/?lnk=hpmdev_dw&lnk2=learn',
               megapanelContent: {
                 headingTitle: 'IBM Developer',
-                headingUrl: 'https://developer.ibm.com/?lnk=hpmdev_dw&lnk2=learn',
+                headingUrl:
+                  'https://developer.ibm.com/?lnk=hpmdev_dw&lnk2=learn',
                 description: '',
                 quickLinks: {
                   title: 'Quicklinks',
@@ -241,9 +253,12 @@ const l1Data: LegacyMastheadL1 = {
                 },
                 feature: {
                   heading: 'IBM Developer newsletters',
-                  imageUrl: 'https://1.dam.s81c.com/m/5908c17b26b9dd19/original/news-ibmdevnewsletters-600x245.jpg',
-                  linkTitle: 'Technical info on popular software development topics, including AI, Blockchain, Java and more',
-                  linkUrl: 'https://developer.ibm.com/newsletters/?lnk=hpmdev_dw&lnk2=learn',
+                  imageUrl:
+                    'https://1.dam.s81c.com/m/5908c17b26b9dd19/original/news-ibmdevnewsletters-600x245.jpg',
+                  linkTitle:
+                    'Technical info on popular software development topics, including AI, Blockchain, Java and more',
+                  linkUrl:
+                    'https://developer.ibm.com/newsletters/?lnk=hpmdev_dw&lnk2=learn',
                 },
               },
             },
@@ -252,7 +267,8 @@ const l1Data: LegacyMastheadL1 = {
               url: 'https://developer.ibm.com/technologies/blockchain/?lnk=hpmdev_dw&lnk2=learn',
               megapanelContent: {
                 headingTitle: 'Blockchain',
-                headingUrl: 'https://developer.ibm.com/technologies/blockchain/?lnk=hpmdev_dw&lnk2=learn',
+                headingUrl:
+                  'https://developer.ibm.com/technologies/blockchain/?lnk=hpmdev_dw&lnk2=learn',
                 description: '',
                 quickLinks: {
                   title: 'Quicklinks',
@@ -277,7 +293,8 @@ const l1Data: LegacyMastheadL1 = {
                 },
                 feature: {
                   heading: 'Blockchain 101',
-                  imageUrl: 'https://www.ibm.com/images/portal/E174255N41814O86/Blockchain2_600x245.jpg?1=3',
+                  imageUrl:
+                    'https://www.ibm.com/images/portal/E174255N41814O86/Blockchain2_600x245.jpg?1=3',
                   linkTitle:
                     'Build a kick-starter blockchain network and start coding with the IBM Blockchain Platform Starter Plan',
                   linkUrl:
@@ -290,7 +307,8 @@ const l1Data: LegacyMastheadL1 = {
               url: 'https://developer.ibm.com/technologies/containers/?lnk=hpmdev_dw&lnk2=learn',
               megapanelContent: {
                 headingTitle: 'Containers',
-                headingUrl: 'https://developer.ibm.com/technologies/containers/?lnk=hpmdev_dw&lnk2=learn',
+                headingUrl:
+                  'https://developer.ibm.com/technologies/containers/?lnk=hpmdev_dw&lnk2=learn',
                 description: '',
                 quickLinks: {
                   title: 'Quicklinks',
@@ -311,9 +329,12 @@ const l1Data: LegacyMastheadL1 = {
                 },
                 feature: {
                   heading: 'Make sense of Kubernetes',
-                  imageUrl: 'https://www.ibm.com/images/portal/E693054G76296P64/Kubernetes-Pythomn_600x245.jpg?1=2',
-                  linkTitle: 'Deploy a simple Python application with Kubernetes',
-                  linkUrl: 'https://developer.ibm.com/tutorials/scalable-python-app-with-kubernetes/?lnk=hpmdev_dw&lnk2=learn',
+                  imageUrl:
+                    'https://www.ibm.com/images/portal/E693054G76296P64/Kubernetes-Pythomn_600x245.jpg?1=2',
+                  linkTitle:
+                    'Deploy a simple Python application with Kubernetes',
+                  linkUrl:
+                    'https://developer.ibm.com/tutorials/scalable-python-app-with-kubernetes/?lnk=hpmdev_dw&lnk2=learn',
                 },
               },
             },
@@ -322,7 +343,8 @@ const l1Data: LegacyMastheadL1 = {
               url: 'https://developer.ibm.com/technologies/analytics/?lnk=hpmdev_dw&lnk2=learn',
               megapanelContent: {
                 headingTitle: 'Analytics',
-                headingUrl: 'https://developer.ibm.com/technologies/analytics/?lnk=hpmdev_dw&lnk2=learn',
+                headingUrl:
+                  'https://developer.ibm.com/technologies/analytics/?lnk=hpmdev_dw&lnk2=learn',
                 description: '',
                 quickLinks: {
                   title: 'Quicklinks',
@@ -347,8 +369,10 @@ const l1Data: LegacyMastheadL1 = {
                 },
                 feature: {
                   heading: 'Train your data no matter where it lives',
-                  imageUrl: 'https://1.dam.s81c.com/m/76c0ed6f3e6386c1/original/Train-data_600x245.jpg',
-                  linkTitle: 'Easily and securely connect to your data source for initial model training and continuous learning',
+                  imageUrl:
+                    'https://1.dam.s81c.com/m/76c0ed6f3e6386c1/original/Train-data_600x245.jpg',
+                  linkTitle:
+                    'Easily and securely connect to your data source for initial model training and continuous learning',
                   linkUrl:
                     'https://developer.ibm.com/announcements/training-machine-learning-models-in-watson-studio?lnk=hpmdev_dw&lnk2=learn',
                 },
@@ -465,7 +489,8 @@ const mastheadLinks: MastheadLink[] = [
             megapanelContent: {
               headingTitle: 'Featured',
               headingUrl: 'https://www.ibm.com/placeholder',
-              description: 'Description text Lorem ipsum dolor sit amet, consectetuer adipiscing elit. ',
+              description:
+                'Description text Lorem ipsum dolor sit amet, consectetuer adipiscing elit. ',
               quickLinks: {
                 title: '',
                 links: [
@@ -474,49 +499,56 @@ const mastheadLinks: MastheadLink[] = [
                     titleEnglish: 'IBM Cloud Pak for Data',
                     highlightedLink: false,
                     url: 'https://www.ibm.com/placeholder',
-                    description: 'Tools for data analysis, organization and management',
+                    description:
+                      'Tools for data analysis, organization and management',
                   },
                   {
                     title: 'IBM Cloud Pak for Security',
                     titleEnglish: 'IBM Cloud Pak for Security',
                     highlightedLink: false,
                     url: 'https://www.ibm.com/placeholder',
-                    description: 'Security auditing, reporting, analysis and governance',
+                    description:
+                      'Security auditing, reporting, analysis and governance',
                   },
                   {
                     title: 'IBM Cloud Pak for Business Automation',
                     titleEnglish: 'IBM Cloud Pak for Business Automation',
                     highlightedLink: false,
                     url: 'https://www.ibm.com/placeholder',
-                    description: 'Operations management software with AI insights',
+                    description:
+                      'Operations management software with AI insights',
                   },
                   {
                     title: 'IBM Cloud Pak for Integration',
                     titleEnglish: 'IBM Cloud Pak for Integration',
                     highlightedLink: false,
                     url: 'https://www.ibm.com/placeholder',
-                    description: 'Tools to connect all of your apps, data and events',
+                    description:
+                      'Tools to connect all of your apps, data and events',
                   },
                   {
                     title: 'IBM Cloud Pak for Network Automation',
                     titleEnglish: 'IBM Cloud Pak for Network Automation',
                     highlightedLink: false,
                     url: 'https://www.ibm.com/placeholder',
-                    description: 'Management software for telco network operations',
+                    description:
+                      'Management software for telco network operations',
                   },
                   {
                     title: 'IBM Cloud',
                     titleEnglish: 'IBM Cloud',
                     highlightedLink: false,
                     url: 'https://www.ibm.com/placeholder',
-                    description: 'Description text Lorem ipsum dolor sit amet, consectetuer adipiscing elit.',
+                    description:
+                      'Description text Lorem ipsum dolor sit amet, consectetuer adipiscing elit.',
                   },
                   {
                     title: 'IBM Z',
                     titleEnglish: 'IBM Z',
                     highlightedLink: false,
                     url: 'https://www.ibm.com/placeholder',
-                    description: 'Description text Lorem ipsum dolor sit amet, consectetuer adipiscing elit.',
+                    description:
+                      'Description text Lorem ipsum dolor sit amet, consectetuer adipiscing elit.',
                   },
                 ],
               },
@@ -545,42 +577,48 @@ const mastheadLinks: MastheadLink[] = [
                     titleEnglish: 'IBM Cloud Pak for Data',
                     highlightedLink: false,
                     url: 'https://www.ibm.com/placeholder',
-                    description: 'Tools for data analysis, organization and management',
+                    description:
+                      'Tools for data analysis, organization and management',
                   },
                   {
                     title: 'Business Analytics Enterprise',
                     titleEnglish: 'Business Analytics Enterprise',
                     highlightedLink: false,
                     url: 'https://www.ibm.com/placeholder',
-                    description: 'Sed ut perspiciatis unde omnis iste natus error sit voluptatem ac',
+                    description:
+                      'Sed ut perspiciatis unde omnis iste natus error sit voluptatem ac',
                   },
                   {
                     title: 'Cognos',
                     titleEnglish: 'Cognos',
                     highlightedLink: false,
                     url: 'https://www.ibm.com/placeholder',
-                    description: 'Description text Lorem ipsum dolor sit amet, consectetuer adipiscing elit.',
+                    description:
+                      'Description text Lorem ipsum dolor sit amet, consectetuer adipiscing elit.',
                   },
                   {
                     title: 'SPSS',
                     titleEnglish: 'SPSS',
                     highlightedLink: false,
                     url: 'https://www.ibm.com/placeholder',
-                    description: 'Description text Lorem ipsum dolor sit amet, consectetuer adipiscing elit.',
+                    description:
+                      'Description text Lorem ipsum dolor sit amet, consectetuer adipiscing elit.',
                   },
                   {
                     title: 'cplex',
                     titleEnglish: 'cplex',
                     highlightedLink: false,
                     url: 'https://www.ibm.com/placeholder',
-                    description: 'Description text Lorem ipsum dolor sit amet, consectetuer adipiscing elit.',
+                    description:
+                      'Description text Lorem ipsum dolor sit amet, consectetuer adipiscing elit.',
                   },
                   {
                     title: 'Netezza',
                     titleEnglish: 'Netezza',
                     highlightedLink: false,
                     url: 'https://www.ibm.com/placeholder',
-                    description: 'Description text Lorem ipsum dolor sit amet, consectetuer adipiscing elit.',
+                    description:
+                      'Description text Lorem ipsum dolor sit amet, consectetuer adipiscing elit.',
                   },
                   {
                     title: 'Watson Studio',
@@ -594,14 +632,16 @@ const mastheadLinks: MastheadLink[] = [
                     titleEnglish: 'Planning Analytics',
                     highlightedLink: false,
                     url: 'https://www.ibm.com/placeholder',
-                    description: 'Description text Lorem ipsum dolor sit amet, consectetuer adipiscing elit.',
+                    description:
+                      'Description text Lorem ipsum dolor sit amet, consectetuer adipiscing elit.',
                   },
                   {
                     title: 'Watson Discovery',
                     titleEnglish: 'Watson Discovery',
                     highlightedLink: false,
                     url: 'https://www.ibm.com/placeholder',
-                    description: 'Search and analytics engine that adapts to custom domains',
+                    description:
+                      'Search and analytics engine that adapts to custom domains',
                   },
                 ],
               },
@@ -621,7 +661,8 @@ const mastheadLinks: MastheadLink[] = [
             megapanelContent: {
               headingTitle: 'Business Automation',
               headingUrl: 'https://www.ibm.com/placeholder',
-              description: 'Sed ut perspiciatis unde omnis iste natus error sit voluptatem ac',
+              description:
+                'Sed ut perspiciatis unde omnis iste natus error sit voluptatem ac',
               quickLinks: {
                 title: '',
                 links: [
@@ -630,35 +671,40 @@ const mastheadLinks: MastheadLink[] = [
                     titleEnglish: 'IBM Cloud Pak for Business Automation',
                     highlightedLink: false,
                     url: 'https://www.ibm.com/placeholder',
-                    description: 'Operations management software with AI insights',
+                    description:
+                      'Operations management software with AI insights',
                   },
                   {
                     title: 'Watson Orchestrate',
                     titleEnglish: 'Watson Orchestrate',
                     highlightedLink: false,
                     url: 'https://www.ibm.com/placeholder',
-                    description: 'Sed ut perspiciatis unde omnis iste natus error sit voluptatem ac',
+                    description:
+                      'Sed ut perspiciatis unde omnis iste natus error sit voluptatem ac',
                   },
                   {
                     title: 'IBM RPA',
                     titleEnglish: 'IBM RPA',
                     highlightedLink: false,
                     url: 'https://www.ibm.com/placeholder',
-                    description: 'Sed ut perspiciatis unde omnis iste natus error sit voluptatem ac',
+                    description:
+                      'Sed ut perspiciatis unde omnis iste natus error sit voluptatem ac',
                   },
                   {
                     title: 'BlueWorks Live',
                     titleEnglish: 'BlueWorks Live',
                     highlightedLink: false,
                     url: 'https://www.ibm.com/placeholder',
-                    description: 'Sed ut perspiciatis unde omnis iste natus error sit voluptatem ac',
+                    description:
+                      'Sed ut perspiciatis unde omnis iste natus error sit voluptatem ac',
                   },
                   {
                     title: 'IBM Operational Decision Manager',
                     titleEnglish: 'IBM Operational Decision Manager',
                     highlightedLink: false,
                     url: 'https://www.ibm.com/placeholder',
-                    description: 'Sed ut perspiciatis unde omnis iste natus error sit voluptatem ac',
+                    description:
+                      'Sed ut perspiciatis unde omnis iste natus error sit voluptatem ac',
                   },
                 ],
               },
@@ -678,7 +724,8 @@ const mastheadLinks: MastheadLink[] = [
             megapanelContent: {
               headingTitle: 'AI & ML',
               headingUrl: 'https://www.ibm.com/placeholder',
-              description: 'Use Watson’s AI or build your own machine learning models',
+              description:
+                'Use Watson’s AI or build your own machine learning models',
               quickLinks: {
                 title: '',
                 links: [
@@ -687,21 +734,24 @@ const mastheadLinks: MastheadLink[] = [
                     titleEnglish: 'IBM Cloud Pak for Data',
                     highlightedLink: false,
                     url: 'https://www.ibm.com/placeholder',
-                    description: 'Tools for data analysis, organization and management',
+                    description:
+                      'Tools for data analysis, organization and management',
                   },
                   {
                     title: 'Watson Discovery',
                     titleEnglish: 'Watson Discovery',
                     highlightedLink: false,
                     url: 'https://www.ibm.com/placeholder',
-                    description: 'Search and analytics engine that adapts to custom domains',
+                    description:
+                      'Search and analytics engine that adapts to custom domains',
                   },
                   {
                     title: 'Spech to Text',
                     titleEnglish: 'Spech to Text',
                     highlightedLink: false,
                     url: 'https://www.ibm.com/placeholder',
-                    description: 'API for real-time speech recognition and transcription',
+                    description:
+                      'API for real-time speech recognition and transcription',
                   },
                   {
                     title: 'Text to Speech',
@@ -715,21 +765,24 @@ const mastheadLinks: MastheadLink[] = [
                     titleEnglish: 'IBM Cloud Pak for Data',
                     highlightedLink: false,
                     url: 'https://www.ibm.com/placeholder',
-                    description: 'Tools for data analysis, organization and management',
+                    description:
+                      'Tools for data analysis, organization and management',
                   },
                   {
                     title: 'IBM Cloud Pak for AIOps',
                     titleEnglish: 'IBM Cloud Pak for AIOps',
                     highlightedLink: false,
                     url: 'https://www.ibm.com/placeholder',
-                    description: 'DevOps management tool with AI analysis and recommendations',
+                    description:
+                      'DevOps management tool with AI analysis and recommendations',
                   },
                   {
                     title: 'IBM Watson Natural Language Understanding',
                     titleEnglish: 'IBM Watson Natural Language Understanding',
                     highlightedLink: false,
                     url: 'https://www.ibm.com/placeholder',
-                    description: 'API for text analysis and metadata extraction',
+                    description:
+                      'API for text analysis and metadata extraction',
                   },
                   {
                     title: 'Watson Studio',
@@ -750,7 +803,8 @@ const mastheadLinks: MastheadLink[] = [
                     titleEnglish: 'Watson Assistant',
                     highlightedLink: false,
                     url: 'https://www.ibm.com/placeholder',
-                    description: 'Sed ut perspiciatis unde omnis iste natus error sit voluptatem ac',
+                    description:
+                      'Sed ut perspiciatis unde omnis iste natus error sit voluptatem ac',
                   },
                 ],
               },
@@ -779,42 +833,48 @@ const mastheadLinks: MastheadLink[] = [
                     titleEnglish: 'IBM Z',
                     highlightedLink: false,
                     url: 'https://www.ibm.com/placeholder',
-                    description: 'Description text Lorem ipsum dolor sit amet, consectetuer adipiscing elit.',
+                    description:
+                      'Description text Lorem ipsum dolor sit amet, consectetuer adipiscing elit.',
                   },
                   {
                     title: 'Power',
                     titleEnglish: 'Power',
                     highlightedLink: false,
                     url: 'https://www.ibm.com/placeholder',
-                    description: 'Description text Lorem ipsum dolor sit amet, consectetuer adipiscing elit.',
+                    description:
+                      'Description text Lorem ipsum dolor sit amet, consectetuer adipiscing elit.',
                   },
                   {
                     title: 'Spectrum Computing',
                     titleEnglish: 'Spectrum Computing',
                     highlightedLink: false,
                     url: 'https://www.ibm.com/placeholder',
-                    description: 'Description text Lorem ipsum dolor sit amet, consectetuer adipiscing elit.',
+                    description:
+                      'Description text Lorem ipsum dolor sit amet, consectetuer adipiscing elit.',
                   },
                   {
                     title: 'LinuxONE',
                     titleEnglish: 'LinuxONE',
                     highlightedLink: false,
                     url: 'https://www.ibm.com/placeholder',
-                    description: 'Sed ut perspiciatis unde omnis iste natus error sit voluptatem ac',
+                    description:
+                      'Sed ut perspiciatis unde omnis iste natus error sit voluptatem ac',
                   },
                   {
                     title: 'IBM Cloud Bare Metal Servers',
                     titleEnglish: 'IBM Cloud Bare Metal Servers',
                     highlightedLink: false,
                     url: 'https://www.ibm.com/placeholder',
-                    description: 'Sed ut perspiciatis unde omnis iste natus error sit voluptatem ac',
+                    description:
+                      'Sed ut perspiciatis unde omnis iste natus error sit voluptatem ac',
                   },
                   {
                     title: 'IBM Cloud Virtual Servers',
                     titleEnglish: 'IBM Cloud Virtual Servers',
                     highlightedLink: false,
                     url: 'https://www.ibm.com/placeholder',
-                    description: 'Sed ut perspiciatis unde omnis iste natus error sit voluptatem ac',
+                    description:
+                      'Sed ut perspiciatis unde omnis iste natus error sit voluptatem ac',
                   },
                 ],
               },
@@ -843,49 +903,56 @@ const mastheadLinks: MastheadLink[] = [
                     titleEnglish: 'IBM Cloud Pak for Data',
                     highlightedLink: false,
                     url: 'https://www.ibm.com/placeholder',
-                    description: 'Tools for data analysis, organization and management',
+                    description:
+                      'Tools for data analysis, organization and management',
                   },
                   {
                     title: 'IBM Informix on Cloud',
                     titleEnglish: 'IBM Informix on Cloud',
                     highlightedLink: false,
                     url: 'https://www.ibm.com/placeholder',
-                    description: 'Managed DB for time series, spatial, NoSQL and SQL data',
+                    description:
+                      'Managed DB for time series, spatial, NoSQL and SQL data',
                   },
                   {
                     title: 'IBM Cloudant',
                     titleEnglish: 'IBM Cloudant',
                     highlightedLink: false,
                     url: 'https://www.ibm.com/placeholder',
-                    description: 'Managed PCI-compliant JSON document store on CouchDB',
+                    description:
+                      'Managed PCI-compliant JSON document store on CouchDB',
                   },
                   {
                     title: 'IBM Cloud Database',
                     titleEnglish: 'IBM Cloud Database',
                     highlightedLink: false,
                     url: 'https://www.ibm.com/placeholder',
-                    description: 'Description text Lorem ipsum dolor sit amet, consectetuer adipiscing elit.',
+                    description:
+                      'Description text Lorem ipsum dolor sit amet, consectetuer adipiscing elit.',
                   },
                   {
                     title: 'IBM Cloud Hyper Protect DbaaS',
                     titleEnglish: 'IBM Cloud Hyper Protect DbaaS',
                     highlightedLink: false,
                     url: 'https://www.ibm.com/placeholder',
-                    description: 'Managed PostgreSQL and MongoDB for sensitive data',
+                    description:
+                      'Managed PostgreSQL and MongoDB for sensitive data',
                   },
                   {
                     title: 'IMS',
                     titleEnglish: 'IMS',
                     highlightedLink: false,
                     url: 'https://www.ibm.com/placeholder',
-                    description: 'Tools for data analysis, organization and management',
+                    description:
+                      'Tools for data analysis, organization and management',
                   },
                   {
                     title: 'Db2',
                     titleEnglish: 'Db2',
                     highlightedLink: false,
                     url: 'https://www.ibm.com/placeholder',
-                    description: 'Sed ut perspiciatis unde omnis iste natus error sit voluptatem ac',
+                    description:
+                      'Sed ut perspiciatis unde omnis iste natus error sit voluptatem ac',
                   },
                 ],
               },
@@ -905,7 +972,8 @@ const mastheadLinks: MastheadLink[] = [
             megapanelContent: {
               headingTitle: 'DevOps',
               headingUrl: 'https://www.ibm.com/placeholder',
-              description: 'Manage infrastructure, environments and deployments',
+              description:
+                'Manage infrastructure, environments and deployments',
               quickLinks: {
                 title: '',
                 links: [
@@ -914,28 +982,32 @@ const mastheadLinks: MastheadLink[] = [
                     titleEnglish: 'IBM Cloud Pak for AIOps',
                     highlightedLink: false,
                     url: 'https://www.ibm.com/placeholder',
-                    description: 'Sed ut perspiciatis unde omnis iste natus error sit voluptatem ac',
+                    description:
+                      'Sed ut perspiciatis unde omnis iste natus error sit voluptatem ac',
                   },
                   {
                     title: 'IBM Cloud Continuous Delivery',
                     titleEnglish: 'IBM Cloud Continuous Delivery',
                     highlightedLink: false,
                     url: 'https://www.ibm.com/placeholder',
-                    description: 'UI and CLI based DevOps workflows based on Tekton Pipelines',
+                    description:
+                      'UI and CLI based DevOps workflows based on Tekton Pipelines',
                   },
                   {
                     title: 'IBM Cloud Schematics',
                     titleEnglish: 'IBM Cloud Schematics',
                     highlightedLink: false,
                     url: 'https://www.ibm.com/placeholder',
-                    description: 'Managed service to provision resources with terraform templates',
+                    description:
+                      'Managed service to provision resources with terraform templates',
                   },
                   {
                     title: 'UrbanCode',
                     titleEnglish: 'UrbanCode',
                     highlightedLink: false,
                     url: 'https://www.ibm.com/placeholder',
-                    description: 'Sed ut perspiciatis unde omnis iste natus error sit voluptatem ac',
+                    description:
+                      'Sed ut perspiciatis unde omnis iste natus error sit voluptatem ac',
                   },
                 ],
               },
@@ -955,7 +1027,8 @@ const mastheadLinks: MastheadLink[] = [
             megapanelContent: {
               headingTitle: 'IT Automation',
               headingUrl: 'https://www.ibm.com/placeholder',
-              description: 'Sed ut perspiciatis unde omnis iste natus error sit voluptatem ac',
+              description:
+                'Sed ut perspiciatis unde omnis iste natus error sit voluptatem ac',
               quickLinks: {
                 title: '',
                 links: [
@@ -964,21 +1037,24 @@ const mastheadLinks: MastheadLink[] = [
                     titleEnglish: 'IBM Cloud Pak for AIOps',
                     highlightedLink: false,
                     url: 'https://www.ibm.com/placeholder',
-                    description: 'Sed ut perspiciatis unde omnis iste natus error sit voluptatem ac',
+                    description:
+                      'Sed ut perspiciatis unde omnis iste natus error sit voluptatem ac',
                   },
                   {
                     title: 'IBM Turbonomic',
                     titleEnglish: 'IBM Turbonomic',
                     highlightedLink: false,
                     url: 'https://www.ibm.com/placeholder',
-                    description: 'Software to automate application resource management and optimize costs',
+                    description:
+                      'Software to automate application resource management and optimize costs',
                   },
                   {
                     title: 'IBM Instana',
                     titleEnglish: 'IBM Instana',
                     highlightedLink: false,
                     url: 'https://www.ibm.com/placeholder',
-                    description: 'Sed ut perspiciatis unde omnis iste natus error sit voluptatem ac',
+                    description:
+                      'Sed ut perspiciatis unde omnis iste natus error sit voluptatem ac',
                   },
                 ],
               },
@@ -998,7 +1074,8 @@ const mastheadLinks: MastheadLink[] = [
             megapanelContent: {
               headingTitle: 'Middleware',
               headingUrl: 'https://www.ibm.com/placeholder',
-              description: 'Sed ut perspiciatis unde omnis iste natus error sit voluptatem ac',
+              description:
+                'Sed ut perspiciatis unde omnis iste natus error sit voluptatem ac',
               quickLinks: {
                 title: '',
                 links: [
@@ -1007,7 +1084,8 @@ const mastheadLinks: MastheadLink[] = [
                     titleEnglish: 'IBM Cloud Pak for Integration',
                     highlightedLink: false,
                     url: 'https://www.ibm.com/placeholder',
-                    description: 'Tools to connect all of your apps, data and events',
+                    description:
+                      'Tools to connect all of your apps, data and events',
                   },
                   {
                     title: 'MQ',
@@ -1021,35 +1099,40 @@ const mastheadLinks: MastheadLink[] = [
                     titleEnglish: 'DataPower',
                     highlightedLink: false,
                     url: 'https://www.ibm.com/placeholder',
-                    description: 'Sed ut perspiciatis unde omnis iste natus error sit voluptatem ac',
+                    description:
+                      'Sed ut perspiciatis unde omnis iste natus error sit voluptatem ac',
                   },
                   {
                     title: 'API Connect',
                     titleEnglish: 'API Connect',
                     highlightedLink: false,
                     url: 'https://www.ibm.com/placeholder',
-                    description: 'Sed ut perspiciatis unde omnis iste natus error sit voluptatem ac',
+                    description:
+                      'Sed ut perspiciatis unde omnis iste natus error sit voluptatem ac',
                   },
                   {
                     title: 'App Connect',
                     titleEnglish: 'App Connect',
                     highlightedLink: false,
                     url: 'https://www.ibm.com/placeholder',
-                    description: 'Sed ut perspiciatis unde omnis iste natus error sit voluptatem ac',
+                    description:
+                      'Sed ut perspiciatis unde omnis iste natus error sit voluptatem ac',
                   },
                   {
                     title: 'Event Streams',
                     titleEnglish: 'Event Streams',
                     highlightedLink: false,
                     url: 'https://www.ibm.com/placeholder',
-                    description: 'Sed ut perspiciatis unde omnis iste natus error sit voluptatem ac',
+                    description:
+                      'Sed ut perspiciatis unde omnis iste natus error sit voluptatem ac',
                   },
                   {
                     title: 'Aspera',
                     titleEnglish: 'Aspera',
                     highlightedLink: false,
                     url: 'https://www.ibm.com/placeholder',
-                    description: 'Sed ut perspiciatis unde omnis iste natus error sit voluptatem ac',
+                    description:
+                      'Sed ut perspiciatis unde omnis iste natus error sit voluptatem ac',
                   },
                   {
                     title: 'WebSphere Application Server',
@@ -1076,7 +1159,8 @@ const mastheadLinks: MastheadLink[] = [
             megapanelContent: {
               headingTitle: 'Networking',
               headingUrl: 'https://www.ibm.com/placeholder',
-              description: 'Description text Lorem ipsum dolor sit amet, consectetuer adipiscing elit.',
+              description:
+                'Description text Lorem ipsum dolor sit amet, consectetuer adipiscing elit.',
               quickLinks: {
                 title: '',
                 links: [
@@ -1085,7 +1169,8 @@ const mastheadLinks: MastheadLink[] = [
                     titleEnglish: 'Cloud Pak for Network Automation',
                     highlightedLink: false,
                     url: 'https://www.ibm.com/placeholder',
-                    description: 'Management software for telco network operations',
+                    description:
+                      'Management software for telco network operations',
                   },
                 ],
               },
@@ -1105,7 +1190,8 @@ const mastheadLinks: MastheadLink[] = [
             megapanelContent: {
               headingTitle: 'Operating Systems',
               headingUrl: 'https://www.ibm.com/placeholder',
-              description: 'Description text Lorem ipsum dolor sit amet, consectetuer adipiscing elit.',
+              description:
+                'Description text Lorem ipsum dolor sit amet, consectetuer adipiscing elit.',
               quickLinks: {
                 title: '',
                 links: [
@@ -1114,28 +1200,32 @@ const mastheadLinks: MastheadLink[] = [
                     titleEnglish: 'z/OS',
                     highlightedLink: false,
                     url: 'https://www.ibm.com/placeholder',
-                    description: 'Description text Lorem ipsum dolor sit amet, consectetuer adipiscing elit.',
+                    description:
+                      'Description text Lorem ipsum dolor sit amet, consectetuer adipiscing elit.',
                   },
                   {
                     title: 'z/VSE',
                     titleEnglish: 'z/VSE',
                     highlightedLink: false,
                     url: 'https://www.ibm.com/placeholder',
-                    description: 'Description text Lorem ipsum dolor sit amet, consectetuer adipiscing elit.',
+                    description:
+                      'Description text Lorem ipsum dolor sit amet, consectetuer adipiscing elit.',
                   },
                   {
                     title: 'z/TPF',
                     titleEnglish: 'z/TPF',
                     highlightedLink: false,
                     url: 'https://www.ibm.com/placeholder',
-                    description: 'Description text Lorem ipsum dolor sit amet, consectetuer adipiscing elit.',
+                    description:
+                      'Description text Lorem ipsum dolor sit amet, consectetuer adipiscing elit.',
                   },
                   {
                     title: 'IBM i',
                     titleEnglish: 'IBM i',
                     highlightedLink: false,
                     url: 'https://www.ibm.com/placeholder',
-                    description: 'Description text Lorem ipsum dolor sit amet, consectetuer adipiscing elit.',
+                    description:
+                      'Description text Lorem ipsum dolor sit amet, consectetuer adipiscing elit.',
                   },
                 ],
               },
@@ -1155,7 +1245,8 @@ const mastheadLinks: MastheadLink[] = [
             megapanelContent: {
               headingTitle: 'Operations',
               headingUrl: 'https://www.ibm.com/placeholder',
-              description: 'Sed ut perspiciatis unde omnis iste natus error sit voluptatem ac',
+              description:
+                'Sed ut perspiciatis unde omnis iste natus error sit voluptatem ac',
               quickLinks: {
                 title: '',
                 links: [
@@ -1164,42 +1255,48 @@ const mastheadLinks: MastheadLink[] = [
                     titleEnglish: 'Maximo',
                     highlightedLink: false,
                     url: 'https://www.ibm.com/placeholder',
-                    description: 'Sed ut perspiciatis unde omnis iste natus error sit voluptatem ac',
+                    description:
+                      'Sed ut perspiciatis unde omnis iste natus error sit voluptatem ac',
                   },
                   {
                     title: 'IBM Environmental Intelligence Suite',
                     titleEnglish: 'IBM Environmental Intelligence Suite',
                     highlightedLink: false,
                     url: 'https://www.ibm.com/placeholder',
-                    description: 'Sed ut perspiciatis unde omnis iste natus error sit voluptatem ac',
+                    description:
+                      'Sed ut perspiciatis unde omnis iste natus error sit voluptatem ac',
                   },
                   {
                     title: 'Tririga',
                     titleEnglish: 'Tririga',
                     highlightedLink: false,
                     url: 'https://www.ibm.com/placeholder',
-                    description: 'Sed ut perspiciatis unde omnis iste natus error sit voluptatem ac',
+                    description:
+                      'Sed ut perspiciatis unde omnis iste natus error sit voluptatem ac',
                   },
                   {
                     title: 'IBM Sterling',
                     titleEnglish: 'IBM Sterling',
                     highlightedLink: false,
                     url: 'https://www.ibm.com/placeholder',
-                    description: 'Sed ut perspiciatis unde omnis iste natus error sit voluptatem ac',
+                    description:
+                      'Sed ut perspiciatis unde omnis iste natus error sit voluptatem ac',
                   },
                   {
                     title: 'Supply Chain Intelligence Suite',
                     titleEnglish: 'Supply Chain Intelligence Suite',
                     highlightedLink: false,
                     url: 'https://www.ibm.com/placeholder',
-                    description: 'Sed ut perspiciatis unde omnis iste natus error sit voluptatem ac',
+                    description:
+                      'Sed ut perspiciatis unde omnis iste natus error sit voluptatem ac',
                   },
                   {
                     title: 'IBM Engineering Lifecycle Management',
                     titleEnglish: 'IBM Engineering Lifecycle Management',
                     highlightedLink: false,
                     url: 'https://www.ibm.com/placeholder',
-                    description: 'Sed ut perspiciatis unde omnis iste natus error sit voluptatem ac',
+                    description:
+                      'Sed ut perspiciatis unde omnis iste natus error sit voluptatem ac',
                   },
                 ],
               },
@@ -1219,7 +1316,8 @@ const mastheadLinks: MastheadLink[] = [
             megapanelContent: {
               headingTitle: 'Quantum',
               headingUrl: 'https://www.ibm.com/placeholder',
-              description: 'Sed ut perspiciatis unde omnis iste natus error sit voluptatem ac',
+              description:
+                'Sed ut perspiciatis unde omnis iste natus error sit voluptatem ac',
               quickLinks: {
                 title: '',
                 links: [
@@ -1228,21 +1326,24 @@ const mastheadLinks: MastheadLink[] = [
                     titleEnglish: 'IBM Quantum Systems',
                     highlightedLink: false,
                     url: 'https://www.ibm.com/placeholder',
-                    description: 'Sed ut perspiciatis unde omnis iste natus error sit voluptatem ac',
+                    description:
+                      'Sed ut perspiciatis unde omnis iste natus error sit voluptatem ac',
                   },
                   {
                     title: 'Qiskit runtime',
                     titleEnglish: 'Qiskit runtime',
                     highlightedLink: false,
                     url: 'https://www.ibm.com/placeholder',
-                    description: 'Sed ut perspiciatis unde omnis iste natus error sit voluptatem ac',
+                    description:
+                      'Sed ut perspiciatis unde omnis iste natus error sit voluptatem ac',
                   },
                   {
                     title: 'IBM Quantum Safe',
                     titleEnglish: 'IBM Quantum Safe',
                     highlightedLink: false,
                     url: 'https://www.ibm.com/placeholder',
-                    description: 'Sed ut perspiciatis unde omnis iste natus error sit voluptatem ac',
+                    description:
+                      'Sed ut perspiciatis unde omnis iste natus error sit voluptatem ac',
                   },
                 ],
               },
@@ -1262,7 +1363,8 @@ const mastheadLinks: MastheadLink[] = [
             megapanelContent: {
               headingTitle: 'Storage',
               headingUrl: 'https://www.ibm.com/placeholder',
-              description: 'Description text Lorem ipsum dolor sit amet, consectetuer adipiscing elit.',
+              description:
+                'Description text Lorem ipsum dolor sit amet, consectetuer adipiscing elit.',
               quickLinks: {
                 title: '',
                 links: [
@@ -1271,14 +1373,16 @@ const mastheadLinks: MastheadLink[] = [
                     titleEnglish: 'Spectrum',
                     highlightedLink: false,
                     url: 'https://www.ibm.com/placeholder',
-                    description: 'Software for backup & recovery, SDS and analytics.',
+                    description:
+                      'Software for backup & recovery, SDS and analytics.',
                   },
                   {
                     title: 'FlashSystem',
                     titleEnglish: 'FlashSystem',
                     highlightedLink: false,
                     url: 'https://www.ibm.com/placeholder',
-                    description: 'Hybrid and all flash arrays for Block (SAN) storage',
+                    description:
+                      'Hybrid and all flash arrays for Block (SAN) storage',
                   },
                   {
                     title: 'DS8900F',
@@ -1306,21 +1410,24 @@ const mastheadLinks: MastheadLink[] = [
                     titleEnglish: 'SAN Volume Controller',
                     highlightedLink: false,
                     url: 'https://www.ibm.com/placeholder',
-                    description: 'Storage virtualization for large scale workloads',
+                    description:
+                      'Storage virtualization for large scale workloads',
                   },
                   {
                     title: 'SAN B-Type Switches',
                     titleEnglish: 'SAN B-Type Switches',
                     highlightedLink: false,
                     url: 'https://www.ibm.com/placeholder',
-                    description: 'Support end-to-end NVMe with Gen 7 Fibre Channel',
+                    description:
+                      'Support end-to-end NVMe with Gen 7 Fibre Channel',
                   },
                   {
                     title: 'SAN C-Type Switches',
                     titleEnglish: 'SAN C-Type Switches',
                     highlightedLink: false,
                     url: 'https://www.ibm.com/placeholder',
-                    description: 'High-performance, multiprotocal storage networking',
+                    description:
+                      'High-performance, multiprotocal storage networking',
                   },
                   {
                     title: 'Tape System',
@@ -1334,21 +1441,24 @@ const mastheadLinks: MastheadLink[] = [
                     titleEnglish: 'Cloud File Storage',
                     highlightedLink: false,
                     url: 'https://www.ibm.com/placeholder',
-                    description: 'Flash-backed, durable, fast and flexible NFS-based file storage',
+                    description:
+                      'Flash-backed, durable, fast and flexible NFS-based file storage',
                   },
                   {
                     title: 'Cloud Block Storage',
                     titleEnglish: 'Cloud Block Storage',
                     highlightedLink: false,
                     url: 'https://www.ibm.com/placeholder',
-                    description: 'Flash-backed, local disk performance with SAN persistence and durability',
+                    description:
+                      'Flash-backed, local disk performance with SAN persistence and durability',
                   },
                   {
                     title: 'Cloud Object Storage',
                     titleEnglish: 'Cloud Object Storage',
                     highlightedLink: false,
                     url: 'https://www.ibm.com/placeholder',
-                    description: 'Flexible, cost-effective and scalable cloud storage for unstructured data',
+                    description:
+                      'Flexible, cost-effective and scalable cloud storage for unstructured data',
                   },
                 ],
               },
@@ -1368,7 +1478,8 @@ const mastheadLinks: MastheadLink[] = [
             megapanelContent: {
               headingTitle: 'Security & Identity',
               headingUrl: 'https://www.ibm.com/placeholder',
-              description: 'Description text Lorem ipsum dolor sit amet, consectetuer adipiscing elit.',
+              description:
+                'Description text Lorem ipsum dolor sit amet, consectetuer adipiscing elit.',
               quickLinks: {
                 title: '',
                 links: [
@@ -1377,7 +1488,8 @@ const mastheadLinks: MastheadLink[] = [
                     titleEnglish: 'Trusteer',
                     highlightedLink: false,
                     url: 'https://www.ibm.com/placeholder',
-                    description: 'Description text Lorem ipsum dolor sit amet, consectetuer adipiscing elit.',
+                    description:
+                      'Description text Lorem ipsum dolor sit amet, consectetuer adipiscing elit.',
                   },
                   {
                     title: 'Randori',
@@ -1385,84 +1497,96 @@ const mastheadLinks: MastheadLink[] = [
                     highlightedLink: false,
                     url: 'https://www.ibm.com/placeholder',
                     target: 'external',
-                    description: 'Description text Lorem ipsum dolor sit amet, consectetuer adipiscing elit.',
+                    description:
+                      'Description text Lorem ipsum dolor sit amet, consectetuer adipiscing elit.',
                   },
                   {
                     title: 'Verify',
                     titleEnglish: 'Verify',
                     highlightedLink: false,
                     url: 'https://www.ibm.com/placeholder',
-                    description: 'Description text Lorem ipsum dolor sit amet, consectetuer adipiscing elit.',
+                    description:
+                      'Description text Lorem ipsum dolor sit amet, consectetuer adipiscing elit.',
                   },
                   {
                     title: 'OpenPages with Watson',
                     titleEnglish: 'OpenPages with Watson',
                     highlightedLink: false,
                     url: 'https://www.ibm.com/placeholder',
-                    description: 'Description text Lorem ipsum dolor sit amet, consectetuer adipiscing elit.',
+                    description:
+                      'Description text Lorem ipsum dolor sit amet, consectetuer adipiscing elit.',
                   },
                   {
                     title: 'QRadar SIEM',
                     titleEnglish: 'QRadar SIEM',
                     highlightedLink: false,
                     url: 'https://www.ibm.com/placeholder',
-                    description: 'Description text Lorem ipsum dolor sit amet, consectetuer adipiscing elit.',
+                    description:
+                      'Description text Lorem ipsum dolor sit amet, consectetuer adipiscing elit.',
                   },
                   {
                     title: 'Verify Privilege',
                     titleEnglish: 'Verify Privilege',
                     highlightedLink: false,
                     url: 'https://www.ibm.com/placeholder',
-                    description: 'Description text Lorem ipsum dolor sit amet, consectetuer adipiscing elit.',
+                    description:
+                      'Description text Lorem ipsum dolor sit amet, consectetuer adipiscing elit.',
                   },
                   {
                     title: 'MaaS360',
                     titleEnglish: 'MaaS360',
                     highlightedLink: false,
                     url: 'https://www.ibm.com/placeholder',
-                    description: 'Description text Lorem ipsum dolor sit amet, consectetuer adipiscing elit.',
+                    description:
+                      'Description text Lorem ipsum dolor sit amet, consectetuer adipiscing elit.',
                   },
                   {
                     title: 'QRadar SOAR',
                     titleEnglish: 'QRadar SOAR',
                     highlightedLink: false,
                     url: 'https://www.ibm.com/placeholder',
-                    description: 'Description text Lorem ipsum dolor sit amet, consectetuer adipiscing elit.',
+                    description:
+                      'Description text Lorem ipsum dolor sit amet, consectetuer adipiscing elit.',
                   },
                   {
                     title: 'zSecure',
                     titleEnglish: 'zSecure',
                     highlightedLink: false,
                     url: 'https://www.ibm.com/placeholder',
-                    description: 'Description text Lorem ipsum dolor sit amet, consectetuer adipiscing elit.',
+                    description:
+                      'Description text Lorem ipsum dolor sit amet, consectetuer adipiscing elit.',
                   },
                   {
                     title: 'Guardium',
                     titleEnglish: 'Guardium',
                     highlightedLink: false,
                     url: 'https://www.ibm.com/placeholder',
-                    description: 'Description text Lorem ipsum dolor sit amet, consectetuer adipiscing elit.',
+                    description:
+                      'Description text Lorem ipsum dolor sit amet, consectetuer adipiscing elit.',
                   },
                   {
                     title: 'QRadar XDR Connect',
                     titleEnglish: 'QRadar XDR Connect',
                     highlightedLink: false,
                     url: 'https://www.ibm.com/placeholder',
-                    description: 'Description text Lorem ipsum dolor sit amet, consectetuer adipiscing elit.',
+                    description:
+                      'Description text Lorem ipsum dolor sit amet, consectetuer adipiscing elit.',
                   },
                   {
                     title: 'IBM Cloud Pak for Security',
                     titleEnglish: 'IBM Cloud Pak for Security',
                     highlightedLink: false,
                     url: 'https://www.ibm.com/placeholder',
-                    description: 'Security auditing, reporting, analysis and governance',
+                    description:
+                      'Security auditing, reporting, analysis and governance',
                   },
                   {
                     title: 'ReaQta',
                     titleEnglish: 'ReaQta',
                     highlightedLink: false,
                     url: 'https://www.ibm.com/placeholder',
-                    description: 'Description text Lorem ipsum dolor sit amet, consectetuer adipiscing elit.',
+                    description:
+                      'Description text Lorem ipsum dolor sit amet, consectetuer adipiscing elit.',
                   },
                 ],
               },
@@ -1503,7 +1627,8 @@ const mastheadLinks: MastheadLink[] = [
             megapanelContent: {
               headingTitle: 'Automation',
               headingUrl: 'https://www.ibm.com/placeholder',
-              description: 'Description text Lorem ipsum dolor sit amet, consectetuer adipiscing elit.',
+              description:
+                'Description text Lorem ipsum dolor sit amet, consectetuer adipiscing elit.',
               quickLinks: {
                 title: '',
                 links: [
@@ -1512,28 +1637,32 @@ const mastheadLinks: MastheadLink[] = [
                     titleEnglish: 'Workflow',
                     highlightedLink: false,
                     url: 'https://www.ibm.com/placeholder',
-                    description: 'Description text Lorem ipsum dolor sit amet, consectetuer adipiscing elit.',
+                    description:
+                      'Description text Lorem ipsum dolor sit amet, consectetuer adipiscing elit.',
                   },
                   {
                     title: 'Enterprise Content Management',
                     titleEnglish: 'Enterprise Content Management',
                     highlightedLink: false,
                     url: 'https://www.ibm.com/placeholder',
-                    description: 'Description text Lorem ipsum dolor sit amet, consectetuer adipiscing elit.',
+                    description:
+                      'Description text Lorem ipsum dolor sit amet, consectetuer adipiscing elit.',
                   },
                   {
                     title: 'Decision Management',
                     titleEnglish: 'Decision Management',
                     highlightedLink: false,
                     url: 'https://www.ibm.com/placeholder',
-                    description: 'Tools for data analysis, organization and management',
+                    description:
+                      'Tools for data analysis, organization and management',
                   },
                   {
                     title: 'Application Performance Management',
                     titleEnglish: 'Application Performance Management',
                     highlightedLink: false,
                     url: 'https://www.ibm.com/placeholder',
-                    description: 'Security auditing, reporting, analysis and governance',
+                    description:
+                      'Security auditing, reporting, analysis and governance',
                   },
                 ],
               },
@@ -1562,70 +1691,80 @@ const mastheadLinks: MastheadLink[] = [
                     titleEnglish: 'Data Fabric',
                     highlightedLink: false,
                     url: 'https://www.ibm.com/placeholder',
-                    description: 'Description text Lorem ipsum dolor sit amet, consectetuer adipiscing elit.',
+                    description:
+                      'Description text Lorem ipsum dolor sit amet, consectetuer adipiscing elit.',
                   },
                   {
                     title: 'AI',
                     titleEnglish: 'AI',
                     highlightedLink: false,
                     url: 'https://www.ibm.com/placeholder',
-                    description: 'Description text Lorem ipsum dolor sit amet, consectetuer adipiscing elit.',
+                    description:
+                      'Description text Lorem ipsum dolor sit amet, consectetuer adipiscing elit.',
                   },
                   {
                     title: 'Master Data Management',
                     titleEnglish: 'Master Data Management',
                     highlightedLink: false,
                     url: 'https://www.ibm.com/placeholder',
-                    description: 'Tools for data analysis, organization and management',
+                    description:
+                      'Tools for data analysis, organization and management',
                   },
                   {
                     title: 'Data Lake',
                     titleEnglish: 'Data Lake',
                     highlightedLink: false,
                     url: 'https://www.ibm.com/placeholder',
-                    description: 'Security auditing, reporting, analysis and governance',
+                    description:
+                      'Security auditing, reporting, analysis and governance',
                   },
                   {
                     title: 'Data Warehouse',
                     titleEnglish: 'Data Warehouse',
                     highlightedLink: false,
                     url: 'https://www.ibm.com/placeholder',
-                    description: 'Managed PostgreSQL and MongoDB for sensitive data',
+                    description:
+                      'Managed PostgreSQL and MongoDB for sensitive data',
                   },
                   {
                     title: 'Customer Care',
                     titleEnglish: 'Customer Care',
                     highlightedLink: false,
                     url: 'https://www.ibm.com/placeholder',
-                    description: 'Tools to connect all of your apps, data and events',
+                    description:
+                      'Tools to connect all of your apps, data and events',
                   },
                   {
                     title: 'Data Science',
                     titleEnglish: 'Data Science',
                     highlightedLink: false,
                     url: 'https://www.ibm.com/placeholder',
-                    description: 'Operations management software with AI insights',
+                    description:
+                      'Operations management software with AI insights',
                   },
                   {
                     title: 'Data Management',
                     titleEnglish: 'Data Management',
                     highlightedLink: false,
                     url: 'https://www.ibm.com/placeholder',
-                    description: 'Management software for telco network operations',
+                    description:
+                      'Management software for telco network operations',
                   },
                   {
                     title: 'Data Quality',
                     titleEnglish: 'Data Quality',
                     highlightedLink: false,
                     url: 'https://www.ibm.com/placeholder',
-                    description: 'Search and analytics engine that adapts to custom domains',
+                    description:
+                      'Search and analytics engine that adapts to custom domains',
                   },
                   {
                     title: 'Data Ops',
                     titleEnglish: 'Data Ops',
                     highlightedLink: false,
                     url: 'https://www.ibm.com/placeholder',
-                    description: 'Sed ut perspiciatis unde omnis iste natus error sit voluptatem ac',
+                    description:
+                      'Sed ut perspiciatis unde omnis iste natus error sit voluptatem ac',
                   },
                 ],
               },
@@ -1645,7 +1784,8 @@ const mastheadLinks: MastheadLink[] = [
             megapanelContent: {
               headingTitle: 'Hybrid Cloud',
               headingUrl: 'https://www.ibm.com/placeholder',
-              description: 'Description text Lorem ipsum dolor sit amet, consectetuer adipiscing elit.',
+              description:
+                'Description text Lorem ipsum dolor sit amet, consectetuer adipiscing elit.',
               quickLinks: {
                 title: '',
                 links: [
@@ -1654,35 +1794,40 @@ const mastheadLinks: MastheadLink[] = [
                     titleEnglish: 'Public Cloud',
                     highlightedLink: false,
                     url: 'https://www.ibm.com/placeholder',
-                    description: 'Description text Lorem ipsum dolor sit amet, consectetuer adipiscing elit.',
+                    description:
+                      'Description text Lorem ipsum dolor sit amet, consectetuer adipiscing elit.',
                   },
                   {
                     title: 'Private Cloud',
                     titleEnglish: 'Private Cloud',
                     highlightedLink: false,
                     url: 'https://www.ibm.com/placeholder',
-                    description: 'Sed ut perspiciatis unde omnis iste natus error sit voluptatem ac',
+                    description:
+                      'Sed ut perspiciatis unde omnis iste natus error sit voluptatem ac',
                   },
                   {
                     title: 'Edge Computing',
                     titleEnglish: 'Edge Computing',
                     highlightedLink: false,
                     url: 'https://www.ibm.com/placeholder',
-                    description: 'Sed ut perspiciatis unde omnis iste natus error sit voluptatem ac',
+                    description:
+                      'Sed ut perspiciatis unde omnis iste natus error sit voluptatem ac',
                   },
                   {
                     title: 'Hybrid Cloud Storage',
                     titleEnglish: 'Hybrid Cloud Storage',
                     highlightedLink: false,
                     url: 'https://www.ibm.com/placeholder',
-                    description: 'Sed ut perspiciatis unde omnis iste natus error sit voluptatem ac',
+                    description:
+                      'Sed ut perspiciatis unde omnis iste natus error sit voluptatem ac',
                   },
                   {
                     title: 'Hybrid Cloud Management',
                     titleEnglish: 'Hybrid Cloud Management',
                     highlightedLink: false,
                     url: 'https://www.ibm.com/placeholder',
-                    description: 'Sed ut perspiciatis unde omnis iste natus error sit voluptatem ac',
+                    description:
+                      'Sed ut perspiciatis unde omnis iste natus error sit voluptatem ac',
                   },
                 ],
               },
@@ -1702,7 +1847,8 @@ const mastheadLinks: MastheadLink[] = [
             megapanelContent: {
               headingTitle: 'Infrastructure',
               headingUrl: 'https://www.ibm.com/placeholder',
-              description: 'Description text Lorem ipsum dolor sit amet, consectetuer adipiscing elit.',
+              description:
+                'Description text Lorem ipsum dolor sit amet, consectetuer adipiscing elit.',
               quickLinks: {
                 title: '',
                 links: [
@@ -1711,49 +1857,56 @@ const mastheadLinks: MastheadLink[] = [
                     titleEnglish: 'HPC',
                     highlightedLink: false,
                     url: 'https://www.ibm.com/placeholder',
-                    description: 'Description text Lorem ipsum dolor sit amet, consectetuer adipiscing elit.',
+                    description:
+                      'Description text Lorem ipsum dolor sit amet, consectetuer adipiscing elit.',
                   },
                   {
                     title: 'Cloud Hosting',
                     titleEnglish: 'Cloud Hosting',
                     highlightedLink: false,
                     url: 'https://www.ibm.com/placeholder',
-                    description: 'Description text Lorem ipsum dolor sit amet, consectetuer adipiscing elit.',
+                    description:
+                      'Description text Lorem ipsum dolor sit amet, consectetuer adipiscing elit.',
                   },
                   {
                     title: 'IT Modernization',
                     titleEnglish: 'IT Modernization',
                     highlightedLink: false,
                     url: 'https://www.ibm.com/placeholder',
-                    description: 'Tools for data analysis, organization and management',
+                    description:
+                      'Tools for data analysis, organization and management',
                   },
                   {
                     title: 'Data protection',
                     titleEnglish: 'Data protection',
                     highlightedLink: false,
                     url: 'https://www.ibm.com/placeholder',
-                    description: 'Security auditing, reporting, analysis and governance',
+                    description:
+                      'Security auditing, reporting, analysis and governance',
                   },
                   {
                     title: 'Confidential Computing',
                     titleEnglish: 'Confidential Computing',
                     highlightedLink: false,
                     url: 'https://www.ibm.com/placeholder',
-                    description: 'Managed PostgreSQL and MongoDB for sensitive data',
+                    description:
+                      'Managed PostgreSQL and MongoDB for sensitive data',
                   },
                   {
                     title: 'Backup and Recovery',
                     titleEnglish: 'Backup and Recovery',
                     highlightedLink: false,
                     url: 'https://www.ibm.com/placeholder',
-                    description: 'Description text Lorem ipsum dolor sit amet, consectetuer adipiscing elit.',
+                    description:
+                      'Description text Lorem ipsum dolor sit amet, consectetuer adipiscing elit.',
                   },
                   {
                     title: 'Archivex',
                     titleEnglish: 'Archivex',
                     highlightedLink: false,
                     url: 'https://www.ibm.com/placeholder',
-                    description: 'Description text Lorem ipsum dolor sit amet, consectetuer adipiscing elit.',
+                    description:
+                      'Description text Lorem ipsum dolor sit amet, consectetuer adipiscing elit.',
                   },
                 ],
               },
@@ -1773,7 +1926,8 @@ const mastheadLinks: MastheadLink[] = [
             megapanelContent: {
               headingTitle: 'Industry',
               headingUrl: 'https://www.ibm.com/placeholder',
-              description: 'Description text Lorem ipsum dolor sit amet, consectetuer adipiscing elit.',
+              description:
+                'Description text Lorem ipsum dolor sit amet, consectetuer adipiscing elit.',
               quickLinks: {
                 title: '',
                 links: [
@@ -1782,126 +1936,144 @@ const mastheadLinks: MastheadLink[] = [
                     titleEnglish: 'Aerospace',
                     highlightedLink: false,
                     url: 'https://www.ibm.com/placeholder',
-                    description: 'Description text Lorem ipsum dolor sit amet, consectetuer adipiscing elit.',
+                    description:
+                      'Description text Lorem ipsum dolor sit amet, consectetuer adipiscing elit.',
                   },
                   {
                     title: 'Airline industry',
                     titleEnglish: 'Airline industry',
                     highlightedLink: false,
                     url: 'https://www.ibm.com/placeholder',
-                    description: 'Description text Lorem ipsum dolor sit amet, consectetuer adipiscing elit.',
+                    description:
+                      'Description text Lorem ipsum dolor sit amet, consectetuer adipiscing elit.',
                   },
                   {
                     title: 'Automotive',
                     titleEnglish: 'Automotive',
                     highlightedLink: false,
                     url: 'https://www.ibm.com/placeholder',
-                    description: 'Description text Lorem ipsum dolor sit amet, consectetuer adipiscing elit.',
+                    description:
+                      'Description text Lorem ipsum dolor sit amet, consectetuer adipiscing elit.',
                   },
                   {
                     title: 'Banking and finance',
                     titleEnglish: 'Banking and finance',
                     highlightedLink: false,
                     url: 'https://www.ibm.com/placeholder',
-                    description: 'Sed ut perspiciatis unde omnis iste natus error sit voluptatem ac',
+                    description:
+                      'Sed ut perspiciatis unde omnis iste natus error sit voluptatem ac',
                   },
                   {
                     title: 'Consumer goods',
                     titleEnglish: 'Consumer goods',
                     highlightedLink: false,
                     url: 'https://www.ibm.com/placeholder',
-                    description: 'Sed ut perspiciatis unde omnis iste natus error sit voluptatem ac',
+                    description:
+                      'Sed ut perspiciatis unde omnis iste natus error sit voluptatem ac',
                   },
                   {
                     title: 'Education',
                     titleEnglish: 'Education',
                     highlightedLink: false,
                     url: 'https://www.ibm.com/placeholder',
-                    description: 'Sed ut perspiciatis unde omnis iste natus error sit voluptatem ac',
+                    description:
+                      'Sed ut perspiciatis unde omnis iste natus error sit voluptatem ac',
                   },
                   {
                     title: 'Electronics industry',
                     titleEnglish: 'Electronics industry',
                     highlightedLink: false,
                     url: 'https://www.ibm.com/placeholder',
-                    description: 'Description text Lorem ipsum dolor sit amet, consectetuer adipiscing elit.',
+                    description:
+                      'Description text Lorem ipsum dolor sit amet, consectetuer adipiscing elit.',
                   },
                   {
                     title: 'Energy and utilities',
                     titleEnglish: 'Energy and utilities',
                     highlightedLink: false,
                     url: 'https://www.ibm.com/placeholder',
-                    description: 'Description text Lorem ipsum dolor sit amet, consectetuer adipiscing elit.',
+                    description:
+                      'Description text Lorem ipsum dolor sit amet, consectetuer adipiscing elit.',
                   },
                   {
                     title: 'Federal',
                     titleEnglish: 'Federal',
                     highlightedLink: false,
                     url: 'https://www.ibm.com/placeholder',
-                    description: 'Description text Lorem ipsum dolor sit amet, consectetuer adipiscing elit.',
+                    description:
+                      'Description text Lorem ipsum dolor sit amet, consectetuer adipiscing elit.',
                   },
                   {
                     title: 'Financial services',
                     titleEnglish: 'Financial services',
                     highlightedLink: false,
                     url: 'https://www.ibm.com/placeholder',
-                    description: 'Description text Lorem ipsum dolor sit amet, consectetuer adipiscing elit.',
+                    description:
+                      'Description text Lorem ipsum dolor sit amet, consectetuer adipiscing elit.',
                   },
                   {
                     title: 'Freight and logistics industry',
                     titleEnglish: 'Freight and logistics industry',
                     highlightedLink: false,
                     url: 'https://www.ibm.com/placeholder',
-                    description: 'Description text Lorem ipsum dolor sit amet, consectetuer adipiscing elit.',
+                    description:
+                      'Description text Lorem ipsum dolor sit amet, consectetuer adipiscing elit.',
                   },
                   {
                     title: 'Government',
                     titleEnglish: 'Government',
                     highlightedLink: false,
                     url: 'https://www.ibm.com/placeholder',
-                    description: 'Description text Lorem ipsum dolor sit amet, consectetuer adipiscing elit.',
+                    description:
+                      'Description text Lorem ipsum dolor sit amet, consectetuer adipiscing elit.',
                   },
                   {
                     title: 'Healthcare',
                     titleEnglish: 'Healthcare',
                     highlightedLink: false,
                     url: 'https://www.ibm.com/placeholder',
-                    description: 'Description text Lorem ipsum dolor sit amet, consectetuer adipiscing elit.',
+                    description:
+                      'Description text Lorem ipsum dolor sit amet, consectetuer adipiscing elit.',
                   },
                   {
                     title: 'Hotel industry',
                     titleEnglish: 'Hotel industry',
                     highlightedLink: false,
                     url: 'https://www.ibm.com/placeholder',
-                    description: 'Description text Lorem ipsum dolor sit amet, consectetuer adipiscing elit.',
+                    description:
+                      'Description text Lorem ipsum dolor sit amet, consectetuer adipiscing elit.',
                   },
                   {
                     title: 'Insurance',
                     titleEnglish: 'Insurance',
                     highlightedLink: false,
                     url: 'https://www.ibm.com/placeholder',
-                    description: 'Description text Lorem ipsum dolor sit amet, consectetuer adipiscing elit.',
+                    description:
+                      'Description text Lorem ipsum dolor sit amet, consectetuer adipiscing elit.',
                   },
                   {
                     title: 'Life sciences',
                     titleEnglish: 'Life sciences',
                     highlightedLink: false,
                     url: 'https://www.ibm.com/placeholder',
-                    description: 'Description text Lorem ipsum dolor sit amet, consectetuer adipiscing elit.',
+                    description:
+                      'Description text Lorem ipsum dolor sit amet, consectetuer adipiscing elit.',
                   },
                   {
                     title: 'Manufacturing',
                     titleEnglish: 'Manufacturing',
                     highlightedLink: false,
                     url: 'https://www.ibm.com/placeholder',
-                    description: 'Description text Lorem ipsum dolor sit amet, consectetuer adipiscing elit.',
+                    description:
+                      'Description text Lorem ipsum dolor sit amet, consectetuer adipiscing elit.',
                   },
                   {
                     title: 'Media and entertainment',
                     titleEnglish: 'Media and entertainment',
                     highlightedLink: false,
                     url: 'https://www.ibm.com/placeholder',
-                    description: 'Description text Lorem ipsum dolor sit amet, consectetuer adipiscing elit.',
+                    description:
+                      'Description text Lorem ipsum dolor sit amet, consectetuer adipiscing elit.',
                   },
                 ],
               },
@@ -1921,7 +2093,8 @@ const mastheadLinks: MastheadLink[] = [
             megapanelContent: {
               headingTitle: 'Partners & Applications',
               headingUrl: 'https://www.ibm.com/placeholder',
-              description: 'Description text Lorem ipsum dolor sit amet, consectetuer adipiscing elit.',
+              description:
+                'Description text Lorem ipsum dolor sit amet, consectetuer adipiscing elit.',
               quickLinks: {
                 title: '',
                 links: [
@@ -1930,56 +2103,64 @@ const mastheadLinks: MastheadLink[] = [
                     titleEnglish: 'SAP',
                     highlightedLink: false,
                     url: 'https://www.ibm.com/placeholder',
-                    description: 'Description text Lorem ipsum dolor sit amet, consectetuer adipiscing elit.',
+                    description:
+                      'Description text Lorem ipsum dolor sit amet, consectetuer adipiscing elit.',
                   },
                   {
                     title: 'VMware',
                     titleEnglish: 'VMware',
                     highlightedLink: false,
                     url: 'https://www.ibm.com/placeholder',
-                    description: 'Description text Lorem ipsum dolor sit amet, consectetuer adipiscing elit.',
+                    description:
+                      'Description text Lorem ipsum dolor sit amet, consectetuer adipiscing elit.',
                   },
                   {
                     title: 'AWS',
                     titleEnglish: 'AWS',
                     highlightedLink: false,
                     url: 'https://www.ibm.com/placeholder',
-                    description: 'Description text Lorem ipsum dolor sit amet, consectetuer adipiscing elit.',
+                    description:
+                      'Description text Lorem ipsum dolor sit amet, consectetuer adipiscing elit.',
                   },
                   {
                     title: 'GCP',
                     titleEnglish: 'GCP',
                     highlightedLink: false,
                     url: 'https://www.ibm.com/placeholder',
-                    description: 'Description text Lorem ipsum dolor sit amet, consectetuer adipiscing elit.',
+                    description:
+                      'Description text Lorem ipsum dolor sit amet, consectetuer adipiscing elit.',
                   },
                   {
                     title: 'Azure',
                     titleEnglish: 'Azure',
                     highlightedLink: false,
                     url: 'https://www.ibm.com/placeholder',
-                    description: 'Description text Lorem ipsum dolor sit amet, consectetuer adipiscing elit.',
+                    description:
+                      'Description text Lorem ipsum dolor sit amet, consectetuer adipiscing elit.',
                   },
                   {
                     title: 'Salesforce',
                     titleEnglish: 'Salesforce',
                     highlightedLink: false,
                     url: 'https://www.ibm.com/placeholder',
-                    description: 'Description text Lorem ipsum dolor sit amet, consectetuer adipiscing elit.',
+                    description:
+                      'Description text Lorem ipsum dolor sit amet, consectetuer adipiscing elit.',
                   },
                   {
                     title: 'Adobe',
                     titleEnglish: 'Adobe',
                     highlightedLink: false,
                     url: 'https://www.ibm.com/placeholder',
-                    description: 'Description text Lorem ipsum dolor sit amet, consectetuer adipiscing elit.',
+                    description:
+                      'Description text Lorem ipsum dolor sit amet, consectetuer adipiscing elit.',
                   },
                   {
                     title: 'Nvidia',
                     titleEnglish: 'Nvidia',
                     highlightedLink: false,
                     url: 'https://www.ibm.com/placeholder',
-                    description: 'Description text Lorem ipsum dolor sit amet, consectetuer adipiscing elit.',
+                    description:
+                      'Description text Lorem ipsum dolor sit amet, consectetuer adipiscing elit.',
                   },
                 ],
               },
@@ -1999,7 +2180,8 @@ const mastheadLinks: MastheadLink[] = [
             megapanelContent: {
               headingTitle: 'Security',
               headingUrl: 'https://www.ibm.com/placeholder',
-              description: 'Description text Lorem ipsum dolor sit amet, consectetuer adipiscing elit.',
+              description:
+                'Description text Lorem ipsum dolor sit amet, consectetuer adipiscing elit.',
               quickLinks: {
                 title: '',
                 links: [
@@ -2008,56 +2190,64 @@ const mastheadLinks: MastheadLink[] = [
                     titleEnglish: 'Zero Trust',
                     highlightedLink: false,
                     url: 'https://www.ibm.com/placeholder',
-                    description: 'Description text Lorem ipsum dolor sit amet, consectetuer adipiscing elit.',
+                    description:
+                      'Description text Lorem ipsum dolor sit amet, consectetuer adipiscing elit.',
                   },
                   {
                     title: 'Data Security',
                     titleEnglish: 'Data Security',
                     highlightedLink: false,
                     url: 'https://www.ibm.com/placeholder',
-                    description: 'Security auditing, reporting, analysis and governance',
+                    description:
+                      'Security auditing, reporting, analysis and governance',
                   },
                   {
                     title: 'XDR',
                     titleEnglish: 'XDR',
                     highlightedLink: false,
                     url: 'https://www.ibm.com/placeholder',
-                    description: 'Description text Lorem ipsum dolor sit amet, consectetuer adipiscing elit.',
+                    description:
+                      'Description text Lorem ipsum dolor sit amet, consectetuer adipiscing elit.',
                   },
                   {
                     title: 'Data Security',
                     titleEnglish: 'Data Security',
                     highlightedLink: false,
                     url: 'https://www.ibm.com/placeholder',
-                    description: 'Security auditing, reporting, analysis and governance',
+                    description:
+                      'Security auditing, reporting, analysis and governance',
                   },
                   {
                     title: 'Cloud Security',
                     titleEnglish: 'Cloud Security',
                     highlightedLink: false,
                     url: 'https://www.ibm.com/placeholder',
-                    description: 'Managed PostgreSQL and MongoDB for sensitive data',
+                    description:
+                      'Managed PostgreSQL and MongoDB for sensitive data',
                   },
                   {
                     title: 'Security Services',
                     titleEnglish: 'Security Services',
                     highlightedLink: false,
                     url: 'https://www.ibm.com/placeholder',
-                    description: 'Description text Lorem ipsum dolor sit amet, consectetuer adipiscing elit.',
+                    description:
+                      'Description text Lorem ipsum dolor sit amet, consectetuer adipiscing elit.',
                   },
                   {
                     title: 'Ransomware',
                     titleEnglish: 'Ransomware',
                     highlightedLink: false,
                     url: 'https://www.ibm.com/placeholder',
-                    description: 'Operations management software with AI insights',
+                    description:
+                      'Operations management software with AI insights',
                   },
                   {
                     title: 'Insider Threat',
                     titleEnglish: 'Insider Threat',
                     highlightedLink: false,
                     url: 'https://www.ibm.com/placeholder',
-                    description: 'Management software for telco network operations',
+                    description:
+                      'Management software for telco network operations',
                   },
                 ],
               },
@@ -2077,7 +2267,8 @@ const mastheadLinks: MastheadLink[] = [
             megapanelContent: {
               headingTitle: 'Supply Chain',
               headingUrl: 'https://www.ibm.com/placeholder',
-              description: 'Description text Lorem ipsum dolor sit amet, consectetuer adipiscing elit.',
+              description:
+                'Description text Lorem ipsum dolor sit amet, consectetuer adipiscing elit.',
               quickLinks: {
                 title: '',
                 links: [
@@ -2086,42 +2277,48 @@ const mastheadLinks: MastheadLink[] = [
                     titleEnglish: 'Visibility',
                     highlightedLink: false,
                     url: 'https://www.ibm.com/placeholder',
-                    description: 'Description text Lorem ipsum dolor sit amet, consectetuer adipiscing elit.',
+                    description:
+                      'Description text Lorem ipsum dolor sit amet, consectetuer adipiscing elit.',
                   },
                   {
                     title: 'EDI',
                     titleEnglish: 'EDI',
                     highlightedLink: false,
                     url: 'https://www.ibm.com/placeholder',
-                    description: 'Description text Lorem ipsum dolor sit amet, consectetuer adipiscing elit.',
+                    description:
+                      'Description text Lorem ipsum dolor sit amet, consectetuer adipiscing elit.',
                   },
                   {
                     title: 'Blockchain',
                     titleEnglish: 'Blockchain',
                     highlightedLink: false,
                     url: 'https://www.ibm.com/placeholder',
-                    description: 'Description text Lorem ipsum dolor sit amet, consectetuer adipiscing elit.',
+                    description:
+                      'Description text Lorem ipsum dolor sit amet, consectetuer adipiscing elit.',
                   },
                   {
                     title: 'Data Exchange',
                     titleEnglish: 'Data Exchange',
                     highlightedLink: false,
                     url: 'https://www.ibm.com/placeholder',
-                    description: 'Description text Lorem ipsum dolor sit amet, consectetuer adipiscing elit.',
+                    description:
+                      'Description text Lorem ipsum dolor sit amet, consectetuer adipiscing elit.',
                   },
                   {
                     title: 'Supply Chain Services',
                     titleEnglish: 'Supply Chain Services',
                     highlightedLink: false,
                     url: 'https://www.ibm.com/placeholder',
-                    description: 'Description text Lorem ipsum dolor sit amet, consectetuer adipiscing elit.',
+                    description:
+                      'Description text Lorem ipsum dolor sit amet, consectetuer adipiscing elit.',
                   },
                   {
                     title: 'Sustainable Supply Chains',
                     titleEnglish: 'Sustainable Supply Chains',
                     highlightedLink: false,
                     url: 'https://www.ibm.com/placeholder',
-                    description: 'Description text Lorem ipsum dolor sit amet, consectetuer adipiscing elit.',
+                    description:
+                      'Description text Lorem ipsum dolor sit amet, consectetuer adipiscing elit.',
                   },
                 ],
               },
@@ -2141,7 +2338,8 @@ const mastheadLinks: MastheadLink[] = [
             megapanelContent: {
               headingTitle: 'Sustainability',
               headingUrl: 'https://www.ibm.com/placeholder',
-              description: 'Description text Lorem ipsum dolor sit amet, consectetuer adipiscing elit.',
+              description:
+                'Description text Lorem ipsum dolor sit amet, consectetuer adipiscing elit.',
               quickLinks: {
                 title: '',
                 links: [
@@ -2150,63 +2348,72 @@ const mastheadLinks: MastheadLink[] = [
                     titleEnglish: 'Asset Management',
                     highlightedLink: false,
                     url: 'https://www.ibm.com/placeholder',
-                    description: 'Operations management software with AI insights',
+                    description:
+                      'Operations management software with AI insights',
                   },
                   {
                     title: 'Facilities Management',
                     titleEnglish: 'Facilities Management',
                     highlightedLink: false,
                     url: 'https://www.ibm.com/placeholder',
-                    description: 'Sed ut perspiciatis unde omnis iste natus error sit voluptatem ac',
+                    description:
+                      'Sed ut perspiciatis unde omnis iste natus error sit voluptatem ac',
                   },
                   {
                     title: 'Carbon Peformance Engine',
                     titleEnglish: 'Carbon Peformance Engine',
                     highlightedLink: false,
                     url: 'https://www.ibm.com/placeholder',
-                    description: 'Sed ut perspiciatis unde omnis iste natus error sit voluptatem ac',
+                    description:
+                      'Sed ut perspiciatis unde omnis iste natus error sit voluptatem ac',
                   },
                   {
                     title: 'Regenerative Agriculture',
                     titleEnglish: 'Regenerative Agriculture',
                     highlightedLink: false,
                     url: 'https://www.ibm.com/placeholder',
-                    description: 'Sed ut perspiciatis unde omnis iste natus error sit voluptatem ac',
+                    description:
+                      'Sed ut perspiciatis unde omnis iste natus error sit voluptatem ac',
                   },
                   {
                     title: 'Renewables Forecasting',
                     titleEnglish: 'Renewables Forecasting',
                     highlightedLink: false,
                     url: 'https://www.ibm.com/placeholder',
-                    description: 'Sed ut perspiciatis unde omnis iste natus error sit voluptatem ac',
+                    description:
+                      'Sed ut perspiciatis unde omnis iste natus error sit voluptatem ac',
                   },
                   {
                     title: 'Vegetation Management',
                     titleEnglish: 'Vegetation Management',
                     highlightedLink: false,
                     url: 'https://www.ibm.com/placeholder',
-                    description: 'Sed ut perspiciatis unde omnis iste natus error sit voluptatem ac',
+                    description:
+                      'Sed ut perspiciatis unde omnis iste natus error sit voluptatem ac',
                   },
                   {
                     title: 'IT Sustainability',
                     titleEnglish: 'IT Sustainability',
                     highlightedLink: false,
                     url: 'https://www.ibm.com/placeholder',
-                    description: 'Sed ut perspiciatis unde omnis iste natus error sit voluptatem ac',
+                    description:
+                      'Sed ut perspiciatis unde omnis iste natus error sit voluptatem ac',
                   },
                   {
                     title: 'Sustainable Supply Chains',
                     titleEnglish: 'Sustainable Supply Chains',
                     highlightedLink: false,
                     url: 'https://www.ibm.com/placeholder',
-                    description: 'Sed ut perspiciatis unde omnis iste natus error sit voluptatem ac',
+                    description:
+                      'Sed ut perspiciatis unde omnis iste natus error sit voluptatem ac',
                   },
                   {
                     title: 'ESG Reporting',
                     titleEnglish: 'ESG Reporting',
                     highlightedLink: false,
                     url: 'https://www.ibm.com/placeholder',
-                    description: 'Sed ut perspiciatis unde omnis iste natus error sit voluptatem ac',
+                    description:
+                      'Sed ut perspiciatis unde omnis iste natus error sit voluptatem ac',
                   },
                 ],
               },
@@ -2240,7 +2447,8 @@ const mastheadLinks: MastheadLink[] = [
             megapanelContent: {
               headingTitle: 'IBM Consulting',
               headingUrl: 'https://www.ibm.com/consulting?lnk=hpmco&lnk2=link',
-              description: 'Description text Lorem ipsum dolor sit amet, consectetuer adipiscing elit.',
+              description:
+                'Description text Lorem ipsum dolor sit amet, consectetuer adipiscing elit.',
               quickLinks: {
                 title: '',
                 links: [
@@ -2248,55 +2456,64 @@ const mastheadLinks: MastheadLink[] = [
                     title: 'IBM iX',
                     titleEnglish: 'IBM iX',
                     url: 'https://www.ibm.com/placeholder',
-                    description: 'Description text Lorem ipsum dolor sit amet, consectetuer adipiscing elit.',
+                    description:
+                      'Description text Lorem ipsum dolor sit amet, consectetuer adipiscing elit.',
                   },
                   {
                     title: 'Garage',
                     titleEnglish: 'Garage',
                     url: 'https://www.ibm.com/placeholder',
-                    description: 'Description text Lorem ipsum dolor sit amet, consectetuer adipiscing elit.',
+                    description:
+                      'Description text Lorem ipsum dolor sit amet, consectetuer adipiscing elit.',
                   },
                   {
                     title: 'X-Force',
                     titleEnglish: 'X-Force',
                     url: 'https://www.ibm.com/placeholder',
-                    description: 'Description text Lorem ipsum dolor sit amet, consectetuer adipiscing elit.',
+                    description:
+                      'Description text Lorem ipsum dolor sit amet, consectetuer adipiscing elit.',
                   },
                   {
                     title: 'TSS',
                     titleEnglish: 'TSS',
                     url: 'https://www.ibm.com/placeholder',
-                    description: 'Description text Lorem ipsum dolor sit amet, consectetuer adipiscing elit.',
+                    description:
+                      'Description text Lorem ipsum dolor sit amet, consectetuer adipiscing elit.',
                   },
                   {
                     title: 'Lab Services',
                     titleEnglish: 'Lab Services',
                     url: 'https://www.ibm.com/placeholder',
-                    description: 'Description text Lorem ipsum dolor sit amet, consectetuer adipiscing elit.',
+                    description:
+                      'Description text Lorem ipsum dolor sit amet, consectetuer adipiscing elit.',
                   },
                   {
                     title: 'Investments',
                     titleEnglish: 'Investments',
                     url: 'https://www.ibm.com/placeholder',
-                    description: 'Description text Lorem ipsum dolor sit amet, consectetuer adipiscing elit.',
+                    description:
+                      'Description text Lorem ipsum dolor sit amet, consectetuer adipiscing elit.',
                   },
                   {
                     title: 'Announcements',
                     titleEnglish: 'Announcements',
                     url: 'https://www.ibm.com/placeholder',
-                    description: 'Description text Lorem ipsum dolor sit amet, consectetuer adipiscing elit.',
+                    description:
+                      'Description text Lorem ipsum dolor sit amet, consectetuer adipiscing elit.',
                   },
                   {
                     title: 'Client Success',
                     titleEnglish: 'Client Success',
                     url: 'https://www.ibm.com/placeholder',
-                    description: 'Description text Lorem ipsum dolor sit amet, consectetuer adipiscing elit.',
+                    description:
+                      'Description text Lorem ipsum dolor sit amet, consectetuer adipiscing elit.',
                   },
                   {
                     title: 'Careers',
                     titleEnglish: 'Careers',
                     url: 'https://www.ibm.com/placeholder',
-                    description: 'Description text Lorem ipsum dolor sit amet, consectetuer adipiscing elit.',
+                    description:
+                      'Description text Lorem ipsum dolor sit amet, consectetuer adipiscing elit.',
                   },
                 ],
               },
@@ -2315,7 +2532,8 @@ const mastheadLinks: MastheadLink[] = [
             megapanelContent: {
               headingTitle: 'Cloud',
               headingUrl: 'https://www.ibm.com/placeholder',
-              description: 'Description text Lorem ipsum dolor sit amet, consectetuer adipiscing elit.',
+              description:
+                'Description text Lorem ipsum dolor sit amet, consectetuer adipiscing elit.',
               quickLinks: {
                 title: '',
                 links: [
@@ -2323,37 +2541,43 @@ const mastheadLinks: MastheadLink[] = [
                     title: 'Cloud Strategy',
                     titleEnglish: 'Cloud Strategy',
                     url: 'https://www.ibm.com/placeholder',
-                    description: 'Description text Lorem ipsum dolor sit amet, consectetuer adipiscing elit.',
+                    description:
+                      'Description text Lorem ipsum dolor sit amet, consectetuer adipiscing elit.',
                   },
                   {
                     title: 'Hybrid Cloud',
                     titleEnglish: 'Hybrid Cloud',
                     url: 'https://www.ibm.com/placeholder',
-                    description: 'Description text Lorem ipsum dolor sit amet, consectetuer adipiscing elit.',
+                    description:
+                      'Description text Lorem ipsum dolor sit amet, consectetuer adipiscing elit.',
                   },
                   {
                     title: 'Cloud Migration',
                     titleEnglish: 'Cloud Migration',
                     url: 'https://www.ibm.com/placeholder',
-                    description: 'Description text Lorem ipsum dolor sit amet, consectetuer adipiscing elit.',
+                    description:
+                      'Description text Lorem ipsum dolor sit amet, consectetuer adipiscing elit.',
                   },
                   {
                     title: 'Multicloud',
                     titleEnglish: 'Multicloud',
                     url: 'https://www.ibm.com/placeholder',
-                    description: 'Description text Lorem ipsum dolor sit amet, consectetuer adipiscing elit.',
+                    description:
+                      'Description text Lorem ipsum dolor sit amet, consectetuer adipiscing elit.',
                   },
                   {
                     title: 'Cloud Architecture',
                     titleEnglish: 'Cloud Architecture',
                     url: 'https://www.ibm.com/placeholder',
-                    description: 'Description text Lorem ipsum dolor sit amet, consectetuer adipiscing elit.',
+                    description:
+                      'Description text Lorem ipsum dolor sit amet, consectetuer adipiscing elit.',
                   },
                   {
                     title: 'Managed Cloud Services',
                     titleEnglish: 'Managed Cloud Services',
                     url: 'https://www.ibm.com/placeholder',
-                    description: 'Description text Lorem ipsum dolor sit amet, consectetuer adipiscing elit.',
+                    description:
+                      'Description text Lorem ipsum dolor sit amet, consectetuer adipiscing elit.',
                   },
                 ],
               },
@@ -2372,7 +2596,8 @@ const mastheadLinks: MastheadLink[] = [
             megapanelContent: {
               headingTitle: 'Data & Apps',
               headingUrl: 'https://www.ibm.com/placeholder',
-              description: 'Description text Lorem ipsum dolor sit amet, consectetuer adipiscing elit.',
+              description:
+                'Description text Lorem ipsum dolor sit amet, consectetuer adipiscing elit.',
               quickLinks: {
                 title: '',
                 links: [
@@ -2380,43 +2605,50 @@ const mastheadLinks: MastheadLink[] = [
                     title: 'Data and Analytics',
                     titleEnglish: 'Data and Analytics',
                     url: 'https://www.ibm.com/placeholder',
-                    description: 'Description text Lorem ipsum dolor sit amet, consectetuer adipiscing elit.',
+                    description:
+                      'Description text Lorem ipsum dolor sit amet, consectetuer adipiscing elit.',
                   },
                   {
                     title: 'AI',
                     titleEnglish: 'AI',
                     url: 'https://www.ibm.com/placeholder',
-                    description: 'Description text Lorem ipsum dolor sit amet, consectetuer adipiscing elit.',
+                    description:
+                      'Description text Lorem ipsum dolor sit amet, consectetuer adipiscing elit.',
                   },
                   {
                     title: 'Application Services',
                     titleEnglish: 'Application Services',
                     url: 'https://www.ibm.com/placeholder',
-                    description: 'Description text Lorem ipsum dolor sit amet, consectetuer adipiscing elit.',
+                    description:
+                      'Description text Lorem ipsum dolor sit amet, consectetuer adipiscing elit.',
                   },
                   {
                     title: 'Application Development',
                     titleEnglish: 'Application Development',
                     url: 'https://www.ibm.com/placeholder',
-                    description: 'Description text Lorem ipsum dolor sit amet, consectetuer adipiscing elit.',
+                    description:
+                      'Description text Lorem ipsum dolor sit amet, consectetuer adipiscing elit.',
                   },
                   {
                     title: 'Application Modernization',
                     titleEnglish: 'Application Modernization',
                     url: 'https://www.ibm.com/placeholder',
-                    description: 'Description text Lorem ipsum dolor sit amet, consectetuer adipiscing elit.',
+                    description:
+                      'Description text Lorem ipsum dolor sit amet, consectetuer adipiscing elit.',
                   },
                   {
                     title: 'Mobile',
                     titleEnglish: 'Mobile',
                     url: 'https://www.ibm.com/placeholder',
-                    description: 'Description text Lorem ipsum dolor sit amet, consectetuer adipiscing elit.',
+                    description:
+                      'Description text Lorem ipsum dolor sit amet, consectetuer adipiscing elit.',
                   },
                   {
                     title: 'Application Security',
                     titleEnglish: 'Application Security',
                     url: 'https://www.ibm.com/placeholder',
-                    description: 'Description text Lorem ipsum dolor sit amet, consectetuer adipiscing elit.',
+                    description:
+                      'Description text Lorem ipsum dolor sit amet, consectetuer adipiscing elit.',
                   },
                 ],
               },
@@ -2435,7 +2667,8 @@ const mastheadLinks: MastheadLink[] = [
             megapanelContent: {
               headingTitle: 'Experience',
               headingUrl: 'https://www.ibm.com/placeholder',
-              description: 'Description text Lorem ipsum dolor sit amet, consectetuer adipiscing elit.',
+              description:
+                'Description text Lorem ipsum dolor sit amet, consectetuer adipiscing elit.',
               quickLinks: {
                 title: '',
                 links: [
@@ -2443,19 +2676,22 @@ const mastheadLinks: MastheadLink[] = [
                     title: 'Customer Experience',
                     titleEnglish: 'Customer Experience',
                     url: 'https://www.ibm.com/placeholder',
-                    description: 'Description text Lorem ipsum dolor sit amet, consectetuer adipiscing elit.',
+                    description:
+                      'Description text Lorem ipsum dolor sit amet, consectetuer adipiscing elit.',
                   },
                   {
                     title: 'E-commerce',
                     titleEnglish: 'E-commerce',
                     url: 'https://www.ibm.com/placeholder',
-                    description: 'Description text Lorem ipsum dolor sit amet, consectetuer adipiscing elit.',
+                    description:
+                      'Description text Lorem ipsum dolor sit amet, consectetuer adipiscing elit.',
                   },
                   {
                     title: 'Payments',
                     titleEnglish: 'Payments',
                     url: 'https://www.ibm.com/placeholder',
-                    description: 'Description text Lorem ipsum dolor sit amet, consectetuer adipiscing elit.',
+                    description:
+                      'Description text Lorem ipsum dolor sit amet, consectetuer adipiscing elit.',
                   },
                 ],
               },
@@ -2474,7 +2710,8 @@ const mastheadLinks: MastheadLink[] = [
             megapanelContent: {
               headingTitle: 'Operations',
               headingUrl: 'https://www.ibm.com/placeholder',
-              description: 'Description text Lorem ipsum dolor sit amet, consectetuer adipiscing elit.',
+              description:
+                'Description text Lorem ipsum dolor sit amet, consectetuer adipiscing elit.',
               quickLinks: {
                 title: '',
                 links: [
@@ -2482,49 +2719,57 @@ const mastheadLinks: MastheadLink[] = [
                     title: 'Outsourcing',
                     titleEnglish: 'Outsourcing',
                     url: 'https://www.ibm.com/placeholder',
-                    description: 'Description text Lorem ipsum dolor sit amet, consectetuer adipiscing elit.',
+                    description:
+                      'Description text Lorem ipsum dolor sit amet, consectetuer adipiscing elit.',
                   },
                   {
                     title: 'Procurement & Strategic Sourcing',
                     titleEnglish: 'Procurement & Strategic Sourcing',
                     url: 'https://www.ibm.com/placeholder',
-                    description: 'Description text Lorem ipsum dolor sit amet, consectetuer adipiscing elit.',
+                    description:
+                      'Description text Lorem ipsum dolor sit amet, consectetuer adipiscing elit.',
                   },
                   {
                     title: 'Supply Chain',
                     titleEnglish: 'Supply Chain',
                     url: 'https://www.ibm.com/placeholder',
-                    description: 'Description text Lorem ipsum dolor sit amet, consectetuer adipiscing elit.',
+                    description:
+                      'Description text Lorem ipsum dolor sit amet, consectetuer adipiscing elit.',
                   },
                   {
                     title: 'Finance',
                     titleEnglish: 'Finance',
                     url: 'https://www.ibm.com/placeholder',
-                    description: 'Description text Lorem ipsum dolor sit amet, consectetuer adipiscing elit.',
+                    description:
+                      'Description text Lorem ipsum dolor sit amet, consectetuer adipiscing elit.',
                   },
                   {
                     title: 'Marketing',
                     titleEnglish: 'Marketing',
                     url: 'https://www.ibm.com/placeholder',
-                    description: 'Description text Lorem ipsum dolor sit amet, consectetuer adipiscing elit.',
+                    description:
+                      'Description text Lorem ipsum dolor sit amet, consectetuer adipiscing elit.',
                   },
                   {
                     title: 'Talent',
                     titleEnglish: 'Talent',
                     url: 'https://www.ibm.com/placeholder',
-                    description: 'Description text Lorem ipsum dolor sit amet, consectetuer adipiscing elit.',
+                    description:
+                      'Description text Lorem ipsum dolor sit amet, consectetuer adipiscing elit.',
                   },
                   {
                     title: 'Finance',
                     titleEnglish: 'Finance',
                     url: 'https://www.ibm.com/placeholder',
-                    description: 'Description text Lorem ipsum dolor sit amet, consectetuer adipiscing elit.',
+                    description:
+                      'Description text Lorem ipsum dolor sit amet, consectetuer adipiscing elit.',
                   },
                   {
                     title: 'Business Process Reengineering',
                     titleEnglish: 'Business Process Reengineering',
                     url: 'https://www.ibm.com/placeholder',
-                    description: 'Description text Lorem ipsum dolor sit amet, consectetuer adipiscing elit.',
+                    description:
+                      'Description text Lorem ipsum dolor sit amet, consectetuer adipiscing elit.',
                   },
                 ],
               },
@@ -2543,7 +2788,8 @@ const mastheadLinks: MastheadLink[] = [
             megapanelContent: {
               headingTitle: 'Security',
               headingUrl: 'https://www.ibm.com/placeholder',
-              description: 'Description text Lorem ipsum dolor sit amet, consectetuer adipiscing elit.',
+              description:
+                'Description text Lorem ipsum dolor sit amet, consectetuer adipiscing elit.',
               quickLinks: {
                 title: '',
                 links: [
@@ -2551,97 +2797,114 @@ const mastheadLinks: MastheadLink[] = [
                     title: 'Security Strategy',
                     titleEnglish: 'Security Strategy',
                     url: 'https://www.ibm.com/placeholder',
-                    description: 'Description text Lorem ipsum dolor sit amet, consectetuer adipiscing elit.',
+                    description:
+                      'Description text Lorem ipsum dolor sit amet, consectetuer adipiscing elit.',
                   },
                   {
                     title: 'Cloud',
                     titleEnglish: 'Cloud',
                     url: 'https://www.ibm.com/placeholder',
-                    description: 'Description text Lorem ipsum dolor sit amet, consectetuer adipiscing elit.',
+                    description:
+                      'Description text Lorem ipsum dolor sit amet, consectetuer adipiscing elit.',
                   },
                   {
                     title: 'Threat managment',
                     titleEnglish: 'Threat managment',
                     url: 'https://www.ibm.com/placeholder',
-                    description: 'Description text Lorem ipsum dolor sit amet, consectetuer adipiscing elit.',
+                    description:
+                      'Description text Lorem ipsum dolor sit amet, consectetuer adipiscing elit.',
                   },
                   {
                     title: 'GRC',
                     titleEnglish: 'GRC',
                     url: 'https://www.ibm.com/placeholder',
-                    description: 'Description text Lorem ipsum dolor sit amet, consectetuer adipiscing elit.',
+                    description:
+                      'Description text Lorem ipsum dolor sit amet, consectetuer adipiscing elit.',
                   },
                   {
                     title: 'Data',
                     titleEnglish: 'Data',
                     url: 'https://www.ibm.com/placeholder',
-                    description: 'Description text Lorem ipsum dolor sit amet, consectetuer adipiscing elit.',
+                    description:
+                      'Description text Lorem ipsum dolor sit amet, consectetuer adipiscing elit.',
                   },
                   {
                     title: 'Threat intelligence',
                     titleEnglish: 'Threat intelligence',
                     url: 'https://www.ibm.com/placeholder',
-                    description: 'Description text Lorem ipsum dolor sit amet, consectetuer adipiscing elit.',
+                    description:
+                      'Description text Lorem ipsum dolor sit amet, consectetuer adipiscing elit.',
                   },
                   {
                     title: 'Risk Management',
                     titleEnglish: 'Risk Management',
                     url: 'https://www.ibm.com/placeholder',
-                    description: 'Description text Lorem ipsum dolor sit amet, consectetuer adipiscing elit.',
+                    description:
+                      'Description text Lorem ipsum dolor sit amet, consectetuer adipiscing elit.',
                   },
                   {
                     title: 'Applications',
                     titleEnglish: 'Applications',
                     url: 'https://www.ibm.com/placeholder',
-                    description: 'Description text Lorem ipsum dolor sit amet, consectetuer adipiscing elit.',
+                    description:
+                      'Description text Lorem ipsum dolor sit amet, consectetuer adipiscing elit.',
                   },
                   {
                     title: 'Virtual SOC',
                     titleEnglish: 'Virtual SOC',
                     url: 'https://www.ibm.com/placeholder',
-                    description: 'Description text Lorem ipsum dolor sit amet, consectetuer adipiscing elit.',
+                    description:
+                      'Description text Lorem ipsum dolor sit amet, consectetuer adipiscing elit.',
                   },
                   {
                     title: 'Offensive Security Services',
                     titleEnglish: 'Offensive Security Services',
                     url: 'https://www.ibm.com/placeholder',
-                    description: 'Description text Lorem ipsum dolor sit amet, consectetuer adipiscing elit.',
+                    description:
+                      'Description text Lorem ipsum dolor sit amet, consectetuer adipiscing elit.',
                   },
                   {
                     title: 'Identity and Access',
                     titleEnglish: 'Identity and Access',
                     url: 'https://www.ibm.com/placeholder',
-                    description: 'Description text Lorem ipsum dolor sit amet, consectetuer adipiscing elit.',
+                    description:
+                      'Description text Lorem ipsum dolor sit amet, consectetuer adipiscing elit.',
                   },
                   {
                     title: 'Managed Detection and Response',
                     titleEnglish: 'Managed Detection and Response',
                     url: 'https://www.ibm.com/placeholder',
-                    description: 'Description text Lorem ipsum dolor sit amet, consectetuer adipiscing elit.',
+                    description:
+                      'Description text Lorem ipsum dolor sit amet, consectetuer adipiscing elit.',
                   },
                   {
                     title: 'Penetration Testing',
                     titleEnglish: 'Penetration Testing',
                     url: 'https://www.ibm.com/placeholder',
-                    description: 'Description text Lorem ipsum dolor sit amet, consectetuer adipiscing elit.',
+                    description:
+                      'Description text Lorem ipsum dolor sit amet, consectetuer adipiscing elit.',
                   },
                   {
                     title: 'Managed Security Services',
                     titleEnglish: 'Managed Security Services',
                     url: 'https://www.ibm.com/placeholder',
-                    description: 'Description text Lorem ipsum dolor sit amet, consectetuer adipiscing elit.',
+                    description:
+                      'Description text Lorem ipsum dolor sit amet, consectetuer adipiscing elit.',
                   },
                   {
                     title: 'Adversary Simulation',
                     titleEnglish: 'Adversary Simulation',
                     url: 'https://www.ibm.com/placeholder',
-                    description: 'Description text Lorem ipsum dolor sit amet, consectetuer adipiscing elit.',
+                    description:
+                      'Description text Lorem ipsum dolor sit amet, consectetuer adipiscing elit.',
                   },
                   {
                     title: 'Managed Infrastructure and Endpoint Security',
-                    titleEnglish: 'Managed Infrastructure and Endpoint Security',
+                    titleEnglish:
+                      'Managed Infrastructure and Endpoint Security',
                     url: 'https://www.ibm.com/placeholder',
-                    description: 'Description text Lorem ipsum dolor sit amet, consectetuer adipiscing elit.',
+                    description:
+                      'Description text Lorem ipsum dolor sit amet, consectetuer adipiscing elit.',
                   },
                 ],
               },
@@ -2660,7 +2923,8 @@ const mastheadLinks: MastheadLink[] = [
             megapanelContent: {
               headingTitle: 'Strategy',
               headingUrl: 'https://www.ibm.com/placeholder',
-              description: 'Description text Lorem ipsum dolor sit amet, consectetuer adipiscing elit.',
+              description:
+                'Description text Lorem ipsum dolor sit amet, consectetuer adipiscing elit.',
               quickLinks: {
                 title: '',
                 links: [
@@ -2668,25 +2932,29 @@ const mastheadLinks: MastheadLink[] = [
                     title: 'Business Strategy',
                     titleEnglish: 'Business Strategy',
                     url: 'https://www.ibm.com/placeholder',
-                    description: 'Description text Lorem ipsum dolor sit amet, consectetuer adipiscing elit.',
+                    description:
+                      'Description text Lorem ipsum dolor sit amet, consectetuer adipiscing elit.',
                   },
                   {
                     title: 'Sustainability',
                     titleEnglish: 'Sustainability',
                     url: 'https://www.ibm.com/placeholder',
-                    description: 'Description text Lorem ipsum dolor sit amet, consectetuer adipiscing elit.',
+                    description:
+                      'Description text Lorem ipsum dolor sit amet, consectetuer adipiscing elit.',
                   },
                   {
                     title: 'GRC',
                     titleEnglish: 'GRC',
                     url: 'https://www.ibm.com/placeholder',
-                    description: 'Description text Lorem ipsum dolor sit amet, consectetuer adipiscing elit.',
+                    description:
+                      'Description text Lorem ipsum dolor sit amet, consectetuer adipiscing elit.',
                   },
                   {
                     title: 'Risk Management',
                     titleEnglish: 'Risk Management',
                     url: 'https://www.ibm.com/placeholder',
-                    description: 'Description text Lorem ipsum dolor sit amet, consectetuer adipiscing elit.',
+                    description:
+                      'Description text Lorem ipsum dolor sit amet, consectetuer adipiscing elit.',
                   },
                 ],
               },
@@ -2705,7 +2973,8 @@ const mastheadLinks: MastheadLink[] = [
             megapanelContent: {
               headingTitle: 'Partners',
               headingUrl: 'https://www.ibm.com/placeholder',
-              description: 'Description text Lorem ipsum dolor sit amet, consectetuer adipiscing elit.',
+              description:
+                'Description text Lorem ipsum dolor sit amet, consectetuer adipiscing elit.',
               quickLinks: {
                 title: '',
                 links: [
@@ -2713,61 +2982,71 @@ const mastheadLinks: MastheadLink[] = [
                     title: 'SAP',
                     titleEnglish: 'SAP',
                     url: 'https://www.ibm.com/placeholder',
-                    description: 'Description text Lorem ipsum dolor sit amet, consectetuer adipiscing elit.',
+                    description:
+                      'Description text Lorem ipsum dolor sit amet, consectetuer adipiscing elit.',
                   },
                   {
                     title: 'Adobe',
                     titleEnglish: 'Adobe',
                     url: 'https://www.ibm.com/placeholder',
-                    description: 'Description text Lorem ipsum dolor sit amet, consectetuer adipiscing elit.',
+                    description:
+                      'Description text Lorem ipsum dolor sit amet, consectetuer adipiscing elit.',
                   },
                   {
                     title: 'AWS',
                     titleEnglish: 'AWS',
                     url: 'https://www.ibm.com/placeholder',
-                    description: 'Description text Lorem ipsum dolor sit amet, consectetuer adipiscing elit.',
+                    description:
+                      'Description text Lorem ipsum dolor sit amet, consectetuer adipiscing elit.',
                   },
                   {
                     title: 'Red Hat',
                     titleEnglish: 'Red Hat',
                     url: 'https://www.ibm.com/placeholder',
-                    description: 'Description text Lorem ipsum dolor sit amet, consectetuer adipiscing elit.',
+                    description:
+                      'Description text Lorem ipsum dolor sit amet, consectetuer adipiscing elit.',
                   },
                   {
                     title: 'SalesForce',
                     titleEnglish: 'SalesForce',
                     url: 'https://www.ibm.com/placeholder',
-                    description: 'Description text Lorem ipsum dolor sit amet, consectetuer adipiscing elit.',
+                    description:
+                      'Description text Lorem ipsum dolor sit amet, consectetuer adipiscing elit.',
                   },
                   {
                     title: 'ServiceNow',
                     titleEnglish: 'ServiceNow',
                     url: 'https://www.ibm.com/placeholder',
-                    description: 'Description text Lorem ipsum dolor sit amet, consectetuer adipiscing elit.',
+                    description:
+                      'Description text Lorem ipsum dolor sit amet, consectetuer adipiscing elit.',
                   },
                   {
                     title: 'Microsoft',
                     titleEnglish: 'Microsoft',
                     url: 'https://www.ibm.com/placeholder',
-                    description: 'Description text Lorem ipsum dolor sit amet, consectetuer adipiscing elit.',
+                    description:
+                      'Description text Lorem ipsum dolor sit amet, consectetuer adipiscing elit.',
                   },
                   {
                     title: 'Workday',
                     titleEnglish: 'Workday',
                     url: 'https://www.ibm.com/placeholder',
-                    description: 'Description text Lorem ipsum dolor sit amet, consectetuer adipiscing elit.',
+                    description:
+                      'Description text Lorem ipsum dolor sit amet, consectetuer adipiscing elit.',
                   },
                   {
                     title: 'Celonis',
                     titleEnglish: 'Celonis',
                     url: 'https://www.ibm.com/placeholder',
-                    description: 'Description text Lorem ipsum dolor sit amet, consectetuer adipiscing elit.',
+                    description:
+                      'Description text Lorem ipsum dolor sit amet, consectetuer adipiscing elit.',
                   },
                   {
                     title: 'Oracle',
                     titleEnglish: 'Oracle',
                     url: 'https://www.ibm.com/placeholder',
-                    description: 'Description text Lorem ipsum dolor sit amet, consectetuer adipiscing elit.',
+                    description:
+                      'Description text Lorem ipsum dolor sit amet, consectetuer adipiscing elit.',
                   },
                 ],
               },
@@ -2786,7 +3065,8 @@ const mastheadLinks: MastheadLink[] = [
             megapanelContent: {
               headingTitle: 'Insights',
               headingUrl: 'https://www.ibm.com/placeholder',
-              description: 'Description text Lorem ipsum dolor sit amet, consectetuer adipiscing elit.',
+              description:
+                'Description text Lorem ipsum dolor sit amet, consectetuer adipiscing elit.',
               quickLinks: {
                 title: '',
                 links: [
@@ -2794,49 +3074,57 @@ const mastheadLinks: MastheadLink[] = [
                     title: 'IBV',
                     titleEnglish: 'IBV',
                     url: 'https://www.ibm.com/placeholder',
-                    description: 'Description text Lorem ipsum dolor sit amet, consectetuer adipiscing elit.',
+                    description:
+                      'Description text Lorem ipsum dolor sit amet, consectetuer adipiscing elit.',
                   },
                   {
                     title: 'Cost of a Data Breach',
                     titleEnglish: 'Cost of a Data Breach',
                     url: 'https://www.ibm.com/placeholder',
-                    description: 'Description text Lorem ipsum dolor sit amet, consectetuer adipiscing elit.',
+                    description:
+                      'Description text Lorem ipsum dolor sit amet, consectetuer adipiscing elit.',
                   },
                   {
                     title: 'X-Force Threat Intelligence',
                     titleEnglish: 'X-Force Threat Intelligence',
                     url: 'https://www.ibm.com/placeholder',
-                    description: 'Description text Lorem ipsum dolor sit amet, consectetuer adipiscing elit.',
+                    description:
+                      'Description text Lorem ipsum dolor sit amet, consectetuer adipiscing elit.',
                   },
                   {
                     title: 'Hybrid Cloud Insight',
                     titleEnglish: 'Hybrid Cloud Insight',
                     url: 'https://www.ibm.com/placeholder',
-                    description: 'Description text Lorem ipsum dolor sit amet, consectetuer adipiscing elit.',
+                    description:
+                      'Description text Lorem ipsum dolor sit amet, consectetuer adipiscing elit.',
                   },
                   {
                     title: 'AI Insight',
                     titleEnglish: 'AI Insight',
                     url: 'https://www.ibm.com/placeholder',
-                    description: 'Description text Lorem ipsum dolor sit amet, consectetuer adipiscing elit.',
+                    description:
+                      'Description text Lorem ipsum dolor sit amet, consectetuer adipiscing elit.',
                   },
                   {
                     title: 'Sustainability Insight',
                     titleEnglish: 'Sustainability Insight',
                     url: 'https://www.ibm.com/placeholder',
-                    description: 'Description text Lorem ipsum dolor sit amet, consectetuer adipiscing elit.',
+                    description:
+                      'Description text Lorem ipsum dolor sit amet, consectetuer adipiscing elit.',
                   },
                   {
                     title: 'Customer Experience Insight',
                     titleEnglish: 'Customer Experience Insight',
                     url: 'https://www.ibm.com/placeholder',
-                    description: 'Description text Lorem ipsum dolor sit amet, consectetuer adipiscing elit.',
+                    description:
+                      'Description text Lorem ipsum dolor sit amet, consectetuer adipiscing elit.',
                   },
                   {
                     title: 'Supply Chain Insight',
                     titleEnglish: 'Supply Chain Insight',
                     url: 'https://www.ibm.com/placeholder',
-                    description: 'Description text Lorem ipsum dolor sit amet, consectetuer adipiscing elit.',
+                    description:
+                      'Description text Lorem ipsum dolor sit amet, consectetuer adipiscing elit.',
                   },
                 ],
               },
@@ -2948,7 +3236,8 @@ const mastheadLinks: MastheadLink[] = [
               },
               feature: {
                 heading: '',
-                imageUrl: 'https://1.dam.s81c.com/m/581adf40f2b008ec/original/megamenu-pictogram-what-is-_.png',
+                imageUrl:
+                  'https://1.dam.s81c.com/m/581adf40f2b008ec/original/megamenu-pictogram-what-is-_.png',
                 linkTitle: '',
                 linkUrl: '',
               },
@@ -2989,7 +3278,8 @@ const mastheadLinks: MastheadLink[] = [
               },
               feature: {
                 heading: '',
-                imageUrl: 'https://1.dam.s81c.com/m/5540e5627aeb2568/original/megamenu-pictogram-training.png',
+                imageUrl:
+                  'https://1.dam.s81c.com/m/5540e5627aeb2568/original/megamenu-pictogram-training.png',
                 linkTitle: '',
                 linkUrl: '',
               },
@@ -3050,7 +3340,8 @@ const mastheadLinks: MastheadLink[] = [
               },
               feature: {
                 heading: '',
-                imageUrl: 'https://1.dam.s81c.com/m/1e651d0f7b539774/original/megamenu-pictogram-developer-education.png',
+                imageUrl:
+                  'https://1.dam.s81c.com/m/1e651d0f7b539774/original/megamenu-pictogram-developer-education.png',
                 linkTitle: '',
                 linkUrl: '',
               },
@@ -3086,7 +3377,8 @@ const mastheadLinks: MastheadLink[] = [
               },
               feature: {
                 heading: '',
-                imageUrl: 'https://1.dam.s81c.com/m/49d529fab45bb565/original/megamenu-pictogram-documentation.png',
+                imageUrl:
+                  'https://1.dam.s81c.com/m/49d529fab45bb565/original/megamenu-pictogram-documentation.png',
                 linkTitle: '',
                 linkUrl: '',
               },
@@ -3168,7 +3460,8 @@ const mastheadLinks: MastheadLink[] = [
               },
               feature: {
                 heading: '',
-                imageUrl: 'https://1.dam.s81c.com/m/164ef3660bad78a8/original/megamenu-pictogram-resources.png',
+                imageUrl:
+                  'https://1.dam.s81c.com/m/164ef3660bad78a8/original/megamenu-pictogram-resources.png',
                 linkTitle: '',
                 linkUrl: '',
               },
@@ -3192,7 +3485,8 @@ const mastheadLinks: MastheadLink[] = [
                   },
                   {
                     title: 'Download licensed software - Passport Advantage',
-                    titleEnglish: 'Download licensed software - Passport Advantage',
+                    titleEnglish:
+                      'Download licensed software - Passport Advantage',
                     url: 'https://www.ibm.com/software/passportadvantage/pao_customer.html?lnk=hpmls_busu',
                   },
                   {
@@ -3219,7 +3513,8 @@ const mastheadLinks: MastheadLink[] = [
               },
               feature: {
                 heading: '',
-                imageUrl: 'https://1.dam.s81c.com/m/5b1abed637b01b55/original/megamenu-pictogram-support.png',
+                imageUrl:
+                  'https://1.dam.s81c.com/m/5b1abed637b01b55/original/megamenu-pictogram-support.png',
                 linkTitle: '',
                 linkUrl: '',
               },
@@ -3280,7 +3575,8 @@ const mastheadLinks: MastheadLink[] = [
               },
               feature: {
                 heading: '',
-                imageUrl: 'https://1.dam.s81c.com/m/4075a8633a1137d/original/megamenu-pictogram-partners.png',
+                imageUrl:
+                  'https://1.dam.s81c.com/m/4075a8633a1137d/original/megamenu-pictogram-partners.png',
                 linkTitle: '',
                 linkUrl: '',
               },
@@ -3321,7 +3617,8 @@ const mastheadLinks: MastheadLink[] = [
               },
               feature: {
                 heading: '',
-                imageUrl: 'https://1.dam.s81c.com/m/5e05b0b234bc3846/original/megamenu-pictogram-ibm-research.png',
+                imageUrl:
+                  'https://1.dam.s81c.com/m/5e05b0b234bc3846/original/megamenu-pictogram-ibm-research.png',
                 linkTitle: '',
                 linkUrl: '',
               },
@@ -3392,7 +3689,8 @@ const mastheadLinks: MastheadLink[] = [
               },
               feature: {
                 heading: '',
-                imageUrl: 'https://1.dam.s81c.com/m/220eb8ea8345a4d6/original/megamenu-pictogram-about-ibm.png',
+                imageUrl:
+                  'https://1.dam.s81c.com/m/220eb8ea8345a4d6/original/megamenu-pictogram-about-ibm.png',
                 linkTitle: '',
                 linkUrl: '',
               },
@@ -3417,8 +3715,7 @@ const mastheadLinks: MastheadLink[] = [
                   {
                     title: 'Action guide',
                     titleEnglish: 'Action guide',
-                    url:
-                      'https://www.ibm.com/thought-leadership/institute-business-value/report/covid-19-action-guide?lnk=hpmex_buco',
+                    url: 'https://www.ibm.com/thought-leadership/institute-business-value/report/covid-19-action-guide?lnk=hpmex_buco',
                   },
                 ],
               },
@@ -3433,6 +3730,1723 @@ const mastheadLinks: MastheadLink[] = [
         ],
       },
     ],
+  },
+];
+
+const mastheadLinksV2: L0MenuItem[] = [
+  {
+    title: 'Faceted Megamenu',
+    titleEnglish: 'Faceted Megamenu',
+    url: '',
+    submenu: {
+      sections: [
+        {
+          heading: {
+            title: 'All Descriptions',
+            titleEnglish: 'All Descriptions',
+            url: 'https://www.ibm.com/placeholder',
+            description: 'Descriptions for each heading and link.',
+          },
+          groups: [
+            {
+              heading: {
+                title: 'Heading Level 2',
+                titleEnglish: 'Heading Level 2',
+                url: '',
+                description:
+                  'Description text lorem ipsum dolor sit amet commondo ligua eaget',
+              },
+              links: [
+                {
+                  title: 'IBM Cloud Pak for Data',
+                  titleEnglish: 'IBM Cloud Pak for Data',
+                  url: 'https://www.ibm.com/placeholder',
+                  description:
+                    'Tools for data analysis, organization and management',
+                },
+                {
+                  title: 'IBM Cloud Pak for Security',
+                  titleEnglish: 'IBM Cloud Pak for Security',
+                  url: 'https://www.ibm.com/placeholder',
+                  description:
+                    'Security auditing, reporting, analysis and governance',
+                },
+                {
+                  title: 'IBM Cloud Pak for Business Automation',
+                  titleEnglish: 'IBM Cloud Pak for Business Automation',
+                  url: 'https://www.ibm.com/placeholder',
+                  description:
+                    'Operations management software with AI insights',
+                },
+              ],
+            },
+            {
+              heading: {
+                title: 'Heading Level 2',
+                titleEnglish: 'Heading Level 2',
+                url: '',
+                description:
+                  'Description text lorem ipsum dolor sit amet commondo ligua eaget',
+              },
+              links: [
+                {
+                  title: 'IBM Cloud Pak for Integration',
+                  titleEnglish: 'IBM Cloud Pak for Integration',
+                  url: 'https://www.ibm.com/placeholder',
+                  description:
+                    'Tools to connect all of your apps, data and events',
+                },
+                {
+                  title: 'IBM Cloud Pak for Network Automation',
+                  titleEnglish: 'IBM Cloud Pak for Network Automation',
+                  url: 'https://www.ibm.com/placeholder',
+                  description:
+                    'Management software for telco network operations',
+                },
+                {
+                  title: 'IBM Cloud',
+                  titleEnglish: 'IBM Cloud',
+                  url: 'https://www.ibm.com/placeholder',
+                  description:
+                    'Description text Lorem ipsum dolor sit amet, consectetuer adipiscing elit.',
+                },
+                {
+                  title: 'IBM Z',
+                  titleEnglish: 'IBM Z',
+                  url: 'https://www.ibm.com/placeholder',
+                  description:
+                    'Description text Lorem ipsum dolor sit amet, consectetuer adipiscing elit.',
+                },
+              ],
+            },
+          ],
+        },
+        {
+          heading: {
+            title: 'No Heading 1 Description',
+            titleEnglish: 'No Heading 1 Description',
+            url: 'https://www.ibm.com/placeholder',
+          },
+          groups: [
+            {
+              heading: {
+                title: 'Heading Level 2',
+                titleEnglish: 'Heading Level 2',
+                url: '',
+                description:
+                  'Description text lorem ipsum dolor sit amet commondo ligua eaget',
+              },
+              links: [
+                {
+                  title: 'IBM Cloud Pak for Data',
+                  titleEnglish: 'IBM Cloud Pak for Data',
+                  url: 'https://www.ibm.com/placeholder',
+                  description:
+                    'Tools for data analysis, organization and management',
+                },
+                {
+                  title: 'Watson Discovery',
+                  titleEnglish: 'Watson Discovery',
+                  url: 'https://www.ibm.com/placeholder',
+                  description:
+                    'Search and analytics engine that adapts to custom domains',
+                },
+                {
+                  title: 'Spech to Text',
+                  titleEnglish: 'Spech to Text',
+                  url: 'https://www.ibm.com/placeholder',
+                  description:
+                    'API for real-time speech recognition and transcription',
+                },
+                {
+                  title: 'Text to Speech',
+                  titleEnglish: 'Text to Speech',
+                  url: 'https://www.ibm.com/placeholder',
+                  description: 'API for real-time text to speech conversion',
+                },
+                {
+                  title: 'IBM Cloud Pak for Data',
+                  titleEnglish: 'IBM Cloud Pak for Data',
+                  url: 'https://www.ibm.com/placeholder',
+                  description:
+                    'Tools for data analysis, organization and management',
+                },
+                {
+                  title: 'IBM Cloud Pak for AIOps',
+                  titleEnglish: 'IBM Cloud Pak for AIOps',
+                  url: 'https://www.ibm.com/placeholder',
+                  description:
+                    'DevOps management tool with AI analysis and recommendations',
+                },
+                {
+                  title: 'IBM Watson Natural Language Understanding',
+                  titleEnglish: 'IBM Watson Natural Language Understanding',
+                  url: 'https://www.ibm.com/placeholder',
+                  description: 'API for text analysis and metadata extraction',
+                },
+                {
+                  title: 'Watson Studio',
+                  titleEnglish: 'Watson Studio',
+                  url: 'https://www.ibm.com/placeholder',
+                  description: 'IDE to build, run and manage AI models',
+                },
+                {
+                  title: 'IBM Watson Knowledge Catalog',
+                  titleEnglish: 'IBM Watson Knowledge Catalog',
+                  url: 'https://www.ibm.com/placeholder',
+                  description: 'SaaS for AI data management',
+                },
+                {
+                  title: 'Watson Assistant',
+                  titleEnglish: 'Watson Assistant',
+                  url: 'https://www.ibm.com/placeholder',
+                  description:
+                    'Sed ut perspiciatis unde omnis iste natus error sit voluptatem ac',
+                },
+              ],
+            },
+          ],
+        },
+        {
+          heading: {
+            title: 'No Heading 2 Descriptions',
+            titleEnglish: 'No Heading 2 Descriptions',
+            url: 'https://www.ibm.com/placeholder',
+            description:
+              'Description text lorem ipsum dolor sit amet commondo ligua eaget',
+          },
+          groups: [
+            {
+              heading: {
+                title: 'Heading Level 2',
+                titleEnglish: 'Heading Level 2',
+                url: '',
+              },
+              links: [
+                {
+                  title: 'IBM Cloud Pak for Data',
+                  titleEnglish: 'IBM Cloud Pak for Data',
+                  url: 'https://www.ibm.com/placeholder',
+                  description:
+                    'Tools for data analysis, organization and management',
+                },
+                {
+                  title: 'Business Analytics Enterprise',
+                  titleEnglish: 'Business Analytics Enterprise',
+                  url: 'https://www.ibm.com/placeholder',
+                  description:
+                    'Sed ut perspiciatis unde omnis iste natus error sit voluptatem ac',
+                },
+                {
+                  title: 'Cognos',
+                  titleEnglish: 'Cognos',
+                  url: 'https://www.ibm.com/placeholder',
+                  description:
+                    'Description text Lorem ipsum dolor sit amet, consectetuer adipiscing elit.',
+                },
+                {
+                  title: 'SPSS',
+                  titleEnglish: 'SPSS',
+                  url: 'https://www.ibm.com/placeholder',
+                  description:
+                    'Description text Lorem ipsum dolor sit amet, consectetuer adipiscing elit.',
+                },
+                {
+                  title: 'cplex',
+                  titleEnglish: 'cplex',
+                  url: 'https://www.ibm.com/placeholder',
+                  description:
+                    'Description text Lorem ipsum dolor sit amet, consectetuer adipiscing elit.',
+                },
+                {
+                  title: 'Netezza',
+                  titleEnglish: 'Netezza',
+                  url: 'https://www.ibm.com/placeholder',
+                  description:
+                    'Description text Lorem ipsum dolor sit amet, consectetuer adipiscing elit.',
+                },
+                {
+                  title: 'Watson Studio',
+                  titleEnglish: 'Watson Studio',
+                  url: 'https://www.ibm.com/placeholder',
+                  description: 'IDE to build, run and manage AI models',
+                },
+                {
+                  title: 'Planning Analytics',
+                  titleEnglish: 'Planning Analytics',
+                  url: 'https://www.ibm.com/placeholder',
+                  description:
+                    'Description text Lorem ipsum dolor sit amet, consectetuer adipiscing elit.',
+                },
+                {
+                  title: 'Watson Discovery',
+                  titleEnglish: 'Watson Discovery',
+                  url: 'https://www.ibm.com/placeholder',
+                  description:
+                    'Search and analytics engine that adapts to custom domains',
+                },
+              ],
+            },
+          ],
+        },
+        {
+          heading: {
+            title: 'No Heading Descriptions',
+            titleEnglish: 'No Heading Descriptions',
+            url: 'https://www.ibm.com/placeholder',
+          },
+          groups: [
+            {
+              heading: {
+                title: 'Heading Level 2',
+                titleEnglish: 'Heading Level 2',
+                url: '',
+              },
+              links: [
+                {
+                  title: 'IBM Cloud Pak for Data',
+                  titleEnglish: 'IBM Cloud Pak for Data',
+                  url: 'https://www.ibm.com/placeholder',
+                  description:
+                    'Tools for data analysis, organization and management',
+                },
+                {
+                  title: 'IBM Informix on Cloud',
+                  titleEnglish: 'IBM Informix on Cloud',
+                  url: 'https://www.ibm.com/placeholder',
+                  description:
+                    'Managed DB for time series, spatial, NoSQL and SQL data',
+                },
+                {
+                  title: 'IBM Cloudant',
+                  titleEnglish: 'IBM Cloudant',
+                  url: 'https://www.ibm.com/placeholder',
+                  description:
+                    'Managed PCI-compliant JSON document store on CouchDB',
+                },
+                {
+                  title: 'IBM Cloud Database',
+                  titleEnglish: 'IBM Cloud Database',
+                  url: 'https://www.ibm.com/placeholder',
+                  description:
+                    'Description text Lorem ipsum dolor sit amet, consectetuer adipiscing elit.',
+                },
+                {
+                  title: 'IBM Cloud Hyper Protect DbaaS',
+                  titleEnglish: 'IBM Cloud Hyper Protect DbaaS',
+                  url: 'https://www.ibm.com/placeholder',
+                  description:
+                    'Managed PostgreSQL and MongoDB for sensitive data',
+                },
+                {
+                  title: 'IMS',
+                  titleEnglish: 'IMS',
+                  url: 'https://www.ibm.com/placeholder',
+                  description:
+                    'Tools for data analysis, organization and management',
+                },
+                {
+                  title: 'Db2',
+                  titleEnglish: 'Db2',
+                  url: 'https://www.ibm.com/placeholder',
+                  description:
+                    'Sed ut perspiciatis unde omnis iste natus error sit voluptatem ac',
+                },
+              ],
+            },
+          ],
+        },
+        {
+          heading: {
+            title: 'No Link Descriptions',
+            titleEnglish: 'Compute & Servers',
+            url: 'https://www.ibm.com/placeholder',
+            description:
+              'Description text lorem ipsum dolor sit amet commondo ligua eaget',
+          },
+          groups: [
+            {
+              heading: {
+                title: 'Heading Level 2',
+                titleEnglish: 'Heading Level 2',
+                url: '',
+                description:
+                  'Description text lorem ipsum dolor sit amet commondo ligua eaget',
+              },
+              links: [
+                {
+                  title: 'IBM Z',
+                  titleEnglish: 'IBM Z',
+                  url: 'https://www.ibm.com/placeholder',
+                },
+                {
+                  title: 'Power',
+                  titleEnglish: 'Power',
+                  url: 'https://www.ibm.com/placeholder',
+                },
+                {
+                  title: 'Spectrum Computing',
+                  titleEnglish: 'Spectrum Computing',
+                  url: 'https://www.ibm.com/placeholder',
+                },
+                {
+                  title: 'LinuxONE',
+                  titleEnglish: 'LinuxONE',
+                  url: 'https://www.ibm.com/placeholder',
+                },
+                {
+                  title: 'IBM Cloud Bare Metal Servers',
+                  titleEnglish: 'IBM Cloud Bare Metal Servers',
+                  url: 'https://www.ibm.com/placeholder',
+                },
+                {
+                  title: 'IBM Cloud Virtual Servers',
+                  titleEnglish: 'IBM Cloud Virtual Servers',
+                  url: 'https://www.ibm.com/placeholder',
+                },
+              ],
+            },
+          ],
+        },
+        {
+          heading: {
+            title: 'Only Heading 1 Description',
+            titleEnglish: 'Only Heading 1 Description',
+            url: 'https://www.ibm.com/placeholder',
+            description:
+              'Description text lorem ipsum dolor sit amet commondo ligua eaget',
+          },
+          groups: [
+            {
+              heading: {
+                title: 'Heading Level 2',
+                titleEnglish: 'Heading Level 2',
+                url: '',
+              },
+              links: [
+                {
+                  title: 'IBM Cloud Pak for AIOps',
+                  titleEnglish: 'IBM Cloud Pak for AIOps',
+                  url: 'https://www.ibm.com/placeholder',
+                },
+                {
+                  title: 'IBM Cloud Continuous Delivery',
+                  titleEnglish: 'IBM Cloud Continuous Delivery',
+                  url: 'https://www.ibm.com/placeholder',
+                },
+                {
+                  title: 'IBM Cloud Schematics',
+                  titleEnglish: 'IBM Cloud Schematics',
+                  url: 'https://www.ibm.com/placeholder',
+                },
+                {
+                  title: 'UrbanCode',
+                  titleEnglish: 'UrbanCode',
+                  url: 'https://www.ibm.com/placeholder',
+                },
+              ],
+            },
+          ],
+        },
+        {
+          heading: {
+            title: 'Only Heading 2 Descriptions',
+            titleEnglish: 'Only Heading 2 Descriptions',
+            url: 'https://www.ibm.com/placeholder',
+          },
+          groups: [
+            {
+              heading: {
+                title: 'Heading Level 2',
+                titleEnglish: 'Heading Level 2',
+                url: '',
+                description:
+                  'Description text lorem ipsum dolor sit amet commondo ligua eaget',
+              },
+              links: [
+                {
+                  title: 'IBM Cloud Pak for AIOps',
+                  titleEnglish: 'IBM Cloud Pak for AIOps',
+                  url: 'https://www.ibm.com/placeholder',
+                },
+                {
+                  title: 'IBM Turbonomic',
+                  titleEnglish: 'IBM Turbonomic',
+                  url: 'https://www.ibm.com/placeholder',
+                },
+                {
+                  title: 'IBM Instana',
+                  titleEnglish: 'IBM Instana',
+                  url: 'https://www.ibm.com/placeholder',
+                },
+              ],
+            },
+          ],
+        },
+        {
+          heading: {
+            title: 'No Descriptions',
+            titleEnglish: 'No Descriptions',
+            url: 'https://www.ibm.com/placeholder',
+          },
+          groups: [
+            {
+              heading: {
+                title: 'Heading Level 2',
+                titleEnglish: 'Heading Level 2',
+                url: '',
+              },
+              links: [
+                {
+                  title: 'IBM Cloud Pak for Business Automation',
+                  titleEnglish: 'IBM Cloud Pak for Business Automation',
+                  url: 'https://www.ibm.com/placeholder',
+                },
+                {
+                  title: 'Watson Orchestrate',
+                  titleEnglish: 'Watson Orchestrate',
+                  url: 'https://www.ibm.com/placeholder',
+                },
+                {
+                  title: 'IBM RPA',
+                  titleEnglish: 'IBM RPA',
+                  url: 'https://www.ibm.com/placeholder',
+                },
+                {
+                  title: 'BlueWorks Live',
+                  titleEnglish: 'BlueWorks Live',
+                  url: 'https://www.ibm.com/placeholder',
+                },
+                {
+                  title: 'IBM Operational Decision Manager',
+                  titleEnglish: 'IBM Operational Decision Manager',
+                  url: 'https://www.ibm.com/placeholder',
+                },
+              ],
+            },
+          ],
+        },
+        {
+          heading: {
+            title: 'No Heading 2s',
+            titleEnglish: 'No Heading 2s',
+            url: 'https://www.ibm.com/placeholder',
+            description: 'Descriptions for each heading and link.',
+          },
+          groups: [
+            {
+              links: [
+                {
+                  title: 'IBM Cloud Pak for Data',
+                  titleEnglish: 'IBM Cloud Pak for Data',
+                  url: 'https://www.ibm.com/placeholder',
+                  description:
+                    'Tools for data analysis, organization and management',
+                },
+                {
+                  title: 'IBM Cloud Pak for Security',
+                  titleEnglish: 'IBM Cloud Pak for Security',
+                  url: 'https://www.ibm.com/placeholder',
+                  description:
+                    'Security auditing, reporting, analysis and governance',
+                },
+                {
+                  title: 'IBM Cloud Pak for Business Automation',
+                  titleEnglish: 'IBM Cloud Pak for Business Automation',
+                  url: 'https://www.ibm.com/placeholder',
+                  description:
+                    'Operations management software with AI insights',
+                },
+              ],
+            },
+            {
+              links: [
+                {
+                  title: 'IBM Cloud Pak for Integration',
+                  titleEnglish: 'IBM Cloud Pak for Integration',
+                  url: 'https://www.ibm.com/placeholder',
+                  description:
+                    'Tools to connect all of your apps, data and events',
+                },
+                {
+                  title: 'IBM Cloud Pak for Network Automation',
+                  titleEnglish: 'IBM Cloud Pak for Network Automation',
+                  url: 'https://www.ibm.com/placeholder',
+                  description:
+                    'Management software for telco network operations',
+                },
+                {
+                  title: 'IBM Cloud',
+                  titleEnglish: 'IBM Cloud',
+                  url: 'https://www.ibm.com/placeholder',
+                  description:
+                    'Description text Lorem ipsum dolor sit amet, consectetuer adipiscing elit.',
+                },
+                {
+                  title: 'IBM Z',
+                  titleEnglish: 'IBM Z',
+                  url: 'https://www.ibm.com/placeholder',
+                  description:
+                    'Description text Lorem ipsum dolor sit amet, consectetuer adipiscing elit.',
+                },
+              ],
+            },
+          ],
+        },
+        {
+          heading: {
+            title: 'Multiple Groups in Column',
+            titleEnglish: 'Multiple Groups in Column',
+            url: 'https://www.ibm.com/placeholder',
+            description:
+              'Description text lorem ipsum dolor sit amet commondo ligua eaget',
+          },
+          groups: [
+            {
+              heading: {
+                title: 'Heading Level 2',
+                titleEnglish: 'Heading Level 2',
+                url: '',
+              },
+              links: [
+                {
+                  title: 'IBM Cloud Pak for Data',
+                  titleEnglish: 'IBM Cloud Pak for Data',
+                  url: 'https://www.ibm.com/placeholder',
+                },
+                {
+                  title: 'IBM Cloud Pak for Security',
+                  titleEnglish: 'IBM Cloud Pak for Security',
+                  url: 'https://www.ibm.com/placeholder',
+                },
+                {
+                  title: 'IBM Cloud Pak for Business Automation',
+                  titleEnglish: 'IBM Cloud Pak for Business Automation',
+                  url: 'https://www.ibm.com/placeholder',
+                },
+              ],
+            },
+            {
+              heading: {
+                title: 'Heading Level 2',
+                titleEnglish: 'Heading Level 2',
+                url: '',
+              },
+              links: [
+                {
+                  title: 'IBM Cloud Pak for Integration',
+                  titleEnglish: 'IBM Cloud Pak for Integration',
+                  url: 'https://www.ibm.com/placeholder',
+                },
+                {
+                  title: 'IBM Cloud Pak for Network Automation',
+                  titleEnglish: 'IBM Cloud Pak for Network Automation',
+                  url: 'https://www.ibm.com/placeholder',
+                },
+                {
+                  title: 'IBM Cloud',
+                  titleEnglish: 'IBM Cloud',
+                  url: 'https://www.ibm.com/placeholder',
+                },
+                {
+                  title: 'IBM Z',
+                  titleEnglish: 'IBM Z',
+                  url: 'https://www.ibm.com/placeholder',
+                },
+              ],
+            },
+            {
+              heading: {
+                title: 'Heading Level 2',
+                titleEnglish: 'Heading Level 2',
+                url: '',
+              },
+              links: [
+                {
+                  title: 'IBM Cloud Pak for Data',
+                  titleEnglish: 'IBM Cloud Pak for Data',
+                  url: 'https://www.ibm.com/placeholder',
+                },
+                {
+                  title: 'Watson Discovery',
+                  titleEnglish: 'Watson Discovery',
+                  url: 'https://www.ibm.com/placeholder',
+                },
+                {
+                  title: 'Spech to Text',
+                  titleEnglish: 'Spech to Text',
+                  url: 'https://www.ibm.com/placeholder',
+                },
+                {
+                  title: 'Text to Speech',
+                  titleEnglish: 'Text to Speech',
+                  url: 'https://www.ibm.com/placeholder',
+                },
+                {
+                  title: 'IBM Cloud Pak for Data',
+                  titleEnglish: 'IBM Cloud Pak for Data',
+                  url: 'https://www.ibm.com/placeholder',
+                },
+                {
+                  title: 'IBM Cloud Pak for AIOps',
+                  titleEnglish: 'IBM Cloud Pak for AIOps',
+                  url: 'https://www.ibm.com/placeholder',
+                },
+                {
+                  title: 'IBM Watson Natural Language Understanding',
+                  titleEnglish: 'IBM Watson Natural Language Understanding',
+                  url: 'https://www.ibm.com/placeholder',
+                },
+                {
+                  title: 'Watson Studio',
+                  titleEnglish: 'Watson Studio',
+                  url: 'https://www.ibm.com/placeholder',
+                },
+                {
+                  title: 'IBM Watson Knowledge Catalog',
+                  titleEnglish: 'IBM Watson Knowledge Catalog',
+                  url: 'https://www.ibm.com/placeholder',
+                },
+                {
+                  title: 'Watson Assistant',
+                  titleEnglish: 'Watson Assistant',
+                  url: 'https://www.ibm.com/placeholder',
+                },
+              ],
+            },
+            {
+              heading: {
+                title: 'Heading Level 2',
+                titleEnglish: 'Heading Level 2',
+                url: '',
+              },
+              links: [
+                {
+                  title: 'IBM Cloud Pak for Data',
+                  titleEnglish: 'IBM Cloud Pak for Data',
+                  url: 'https://www.ibm.com/placeholder',
+                },
+                {
+                  title: 'Business Analytics Enterprise',
+                  titleEnglish: 'Business Analytics Enterprise',
+                  url: 'https://www.ibm.com/placeholder',
+                },
+                {
+                  title: 'Cognos',
+                  titleEnglish: 'Cognos',
+                  url: 'https://www.ibm.com/placeholder',
+                },
+                {
+                  title: 'SPSS',
+                  titleEnglish: 'SPSS',
+                  url: 'https://www.ibm.com/placeholder',
+                },
+                {
+                  title: 'cplex',
+                  titleEnglish: 'cplex',
+                  url: 'https://www.ibm.com/placeholder',
+                },
+                {
+                  title: 'Netezza',
+                  titleEnglish: 'Netezza',
+                  url: 'https://www.ibm.com/placeholder',
+                },
+                {
+                  title: 'Watson Studio',
+                  titleEnglish: 'Watson Studio',
+                  url: 'https://www.ibm.com/placeholder',
+                },
+                {
+                  title: 'Planning Analytics',
+                  titleEnglish: 'Planning Analytics',
+                  url: 'https://www.ibm.com/placeholder',
+                },
+                {
+                  title: 'Watson Discovery',
+                  titleEnglish: 'Watson Discovery',
+                  url: 'https://www.ibm.com/placeholder',
+                },
+              ],
+            },
+          ],
+        },
+      ],
+      viewAll: {
+        title: 'View all items',
+        titleEnglish: 'View all items',
+        url: 'https://www.ibm.com/products?lnk=hpmps_buall',
+        position: 'left',
+      },
+    },
+  },
+  {
+    title: 'Simple Megamenu',
+    titleEnglish: 'Simple Megamenu',
+    url: '',
+    submenu: {
+      sections: [
+        {
+          groups: [
+            {
+              heading: {
+                title: 'Partner with us',
+                titleEnglish: 'Partners',
+                url: 'https://www.ibm.com/partners?lnk=hpmex_bupa',
+              },
+              links: [
+                {
+                  title: 'PartnerWorld',
+                  titleEnglish: 'Partner with us — PartnerWorld',
+                  url: 'https://www.ibm.com/partnerworld/public?lnk=hpmex_bupa',
+                },
+                {
+                  title: 'Our strategic partnerships',
+                  titleEnglish: 'Our strategic partnerships',
+                  url: 'https://www.ibm.com/alliances?lnk=hpmex_bupa',
+                },
+                {
+                  title: 'Flexible payment plans',
+                  titleEnglish: 'Flexible payment plans',
+                  url: 'https://www.ibm.com/partnerworld/financing?lnk=hpmex_bupa',
+                },
+              ],
+            },
+            {
+              heading: {
+                title: 'IBM Research',
+                titleEnglish: 'IBM Research',
+                url: 'https://research.ibm.com?lnk=hpmex_bure',
+              },
+              links: [
+                {
+                  title: 'Blog',
+                  titleEnglish: 'Blog',
+                  url: 'https://research.ibm.com/blog?lnk=hpmex_bure',
+                },
+                {
+                  title: 'Publications',
+                  titleEnglish: 'Publications',
+                  url: 'https://research.ibm.com/publications?lnk=hpmex_bure',
+                },
+                {
+                  title: 'Teams',
+                  titleEnglish: 'Teams',
+                  url: 'https://research.ibm.com/teams?lnk=hpmex_bure',
+                },
+                {
+                  title: 'Collaborate with us',
+                  titleEnglish: 'Collaborate with us',
+                  url: 'https://research.ibm.com/collaborate?lnk=hpmex_bure',
+                },
+              ],
+            },
+            {
+              heading: {
+                title: 'About IBM',
+                titleEnglish: 'About IBM',
+                url: 'https://www.ibm.com/about?lnk=hpmex_buab',
+              },
+              links: [
+                {
+                  title: 'Annual report',
+                  titleEnglish: 'Annual report',
+                  url: 'https://www.ibm.com/annualreport/?lnk=hpmex_buab',
+                },
+                {
+                  title: 'Career opportunities',
+                  titleEnglish: 'Career opportunities',
+                  url: 'https://www.ibm.com/employment/?lnk=hpmex_buab',
+                },
+                {
+                  title: 'Corporate social responsibility',
+                  titleEnglish: 'Corporate social responsibility',
+                  url: 'https://www.ibm.org?lnk=hpmex_buab',
+                },
+                {
+                  title: 'Diversity & inclusion',
+                  titleEnglish: 'Diversity & inclusion',
+                  url: 'https://www.ibm.com/employment/inclusion/?lnk=hpmex_buab',
+                },
+                {
+                  title: 'Industry analyst reports',
+                  titleEnglish: 'Industry analyst reports',
+                  url: 'https://www.ibm.com/reports/analyst/?lnk=hpmex_buab',
+                },
+                {
+                  title: 'Investor relations',
+                  titleEnglish: 'Investor relations',
+                  url: 'https://www.ibm.com/investor/?lnk=hpmex_buab',
+                },
+                {
+                  title: 'Licensing & compliance',
+                  titleEnglish: 'Licensing & compliance',
+                  url: 'https://www.ibm.com/about/software-licensing/?lnk=hpmex_buab',
+                },
+                {
+                  title: 'News & announcements',
+                  titleEnglish: 'News & announcements',
+                  url: 'https://newsroom.ibm.com?lnk=hpmex_buab',
+                },
+                {
+                  title: 'Thought leadership',
+                  titleEnglish: 'Thought leadership',
+                  url: 'https://www.ibm.com/thought-leadership/?lnk=hpmex_buab',
+                },
+                {
+                  title: 'Security, privacy & trust',
+                  titleEnglish: 'Security, privacy & trust',
+                  url: 'https://www.ibm.com/trust?lnk=hpmex_buab',
+                },
+              ],
+            },
+            {
+              heading: {
+                title: 'COVID-19',
+                titleEnglish: 'COVID-19',
+                url: 'https://www.ibm.com/impact/covid-19?lnk=hpmex_buco',
+              },
+              links: [
+                {
+                  title: 'Business solutions',
+                  titleEnglish: 'Business solutions',
+                  url: 'https://www.ibm.com/impact/covid-19/business-solutions?lnk=hpmex_buco',
+                },
+                {
+                  title: 'Action guide',
+                  titleEnglish: 'Action guide',
+                  url: 'https://www.ibm.com/thought-leadership/institute-business-value/report/covid-19-action-guide?lnk=hpmex_buco',
+                },
+              ],
+            },
+          ],
+        },
+      ],
+      viewAll: {
+        title: 'View all items',
+        titleEnglish: 'View all items',
+        url: 'https://www.ibm.com/products?lnk=hpmps_buall',
+      },
+    },
+  },
+  {
+    title: 'Simple Megamenu (Heading 1)',
+    titleEnglish: 'Simple Megamenu (Heading 1)',
+    url: '',
+    submenu: {
+      sections: [
+        {
+          heading: {
+            title: 'Heading 1',
+            titleEnglish: 'Heading 1',
+            description:
+              'Description text lorem ipsum dolor sit amet commondo ligua eaget',
+          },
+          groups: [
+            {
+              heading: {
+                title: 'Partner with us',
+                titleEnglish: 'Partners',
+                url: 'https://www.ibm.com/partners?lnk=hpmex_bupa',
+              },
+              links: [
+                {
+                  title: 'PartnerWorld',
+                  titleEnglish: 'Partner with us — PartnerWorld',
+                  url: 'https://www.ibm.com/partnerworld/public?lnk=hpmex_bupa',
+                },
+                {
+                  title: 'Our strategic partnerships',
+                  titleEnglish: 'Our strategic partnerships',
+                  url: 'https://www.ibm.com/alliances?lnk=hpmex_bupa',
+                },
+                {
+                  title: 'Flexible payment plans',
+                  titleEnglish: 'Flexible payment plans',
+                  url: 'https://www.ibm.com/partnerworld/financing?lnk=hpmex_bupa',
+                },
+              ],
+            },
+            {
+              heading: {
+                title: 'IBM Research',
+                titleEnglish: 'IBM Research',
+                url: 'https://research.ibm.com?lnk=hpmex_bure',
+              },
+              links: [
+                {
+                  title: 'Blog',
+                  titleEnglish: 'Blog',
+                  url: 'https://research.ibm.com/blog?lnk=hpmex_bure',
+                },
+                {
+                  title: 'Publications',
+                  titleEnglish: 'Publications',
+                  url: 'https://research.ibm.com/publications?lnk=hpmex_bure',
+                },
+                {
+                  title: 'Teams',
+                  titleEnglish: 'Teams',
+                  url: 'https://research.ibm.com/teams?lnk=hpmex_bure',
+                },
+                {
+                  title: 'Collaborate with us',
+                  titleEnglish: 'Collaborate with us',
+                  url: 'https://research.ibm.com/collaborate?lnk=hpmex_bure',
+                },
+              ],
+            },
+            {
+              heading: {
+                title: 'About IBM',
+                titleEnglish: 'About IBM',
+                url: 'https://www.ibm.com/about?lnk=hpmex_buab',
+              },
+              links: [
+                {
+                  title: 'Annual report',
+                  titleEnglish: 'Annual report',
+                  url: 'https://www.ibm.com/annualreport/?lnk=hpmex_buab',
+                },
+                {
+                  title: 'Career opportunities',
+                  titleEnglish: 'Career opportunities',
+                  url: 'https://www.ibm.com/employment/?lnk=hpmex_buab',
+                },
+                {
+                  title: 'Corporate social responsibility',
+                  titleEnglish: 'Corporate social responsibility',
+                  url: 'https://www.ibm.org?lnk=hpmex_buab',
+                },
+                {
+                  title: 'Diversity & inclusion',
+                  titleEnglish: 'Diversity & inclusion',
+                  url: 'https://www.ibm.com/employment/inclusion/?lnk=hpmex_buab',
+                },
+                {
+                  title: 'Industry analyst reports',
+                  titleEnglish: 'Industry analyst reports',
+                  url: 'https://www.ibm.com/reports/analyst/?lnk=hpmex_buab',
+                },
+                {
+                  title: 'Investor relations',
+                  titleEnglish: 'Investor relations',
+                  url: 'https://www.ibm.com/investor/?lnk=hpmex_buab',
+                },
+                {
+                  title: 'Licensing & compliance',
+                  titleEnglish: 'Licensing & compliance',
+                  url: 'https://www.ibm.com/about/software-licensing/?lnk=hpmex_buab',
+                },
+                {
+                  title: 'News & announcements',
+                  titleEnglish: 'News & announcements',
+                  url: 'https://newsroom.ibm.com?lnk=hpmex_buab',
+                },
+                {
+                  title: 'Thought leadership',
+                  titleEnglish: 'Thought leadership',
+                  url: 'https://www.ibm.com/thought-leadership/?lnk=hpmex_buab',
+                },
+                {
+                  title: 'Security, privacy & trust',
+                  titleEnglish: 'Security, privacy & trust',
+                  url: 'https://www.ibm.com/trust?lnk=hpmex_buab',
+                },
+              ],
+            },
+            {
+              heading: {
+                title: 'COVID-19',
+                titleEnglish: 'COVID-19',
+                url: 'https://www.ibm.com/impact/covid-19?lnk=hpmex_buco',
+              },
+              links: [
+                {
+                  title: 'Business solutions',
+                  titleEnglish: 'Business solutions',
+                  url: 'https://www.ibm.com/impact/covid-19/business-solutions?lnk=hpmex_buco',
+                },
+                {
+                  title: 'Action guide',
+                  titleEnglish: 'Action guide',
+                  url: 'https://www.ibm.com/thought-leadership/institute-business-value/report/covid-19-action-guide?lnk=hpmex_buco',
+                },
+              ],
+            },
+          ],
+        },
+      ],
+    },
+  },
+  {
+    title: 'Simple Megamenu (Heading Descriptions)',
+    titleEnglish: 'Simple Megamenu (Heading Descriptions)',
+    url: '',
+    submenu: {
+      sections: [
+        {
+          groups: [
+            {
+              heading: {
+                title: 'Partner with us',
+                titleEnglish: 'Partners',
+                url: 'https://www.ibm.com/partners?lnk=hpmex_bupa',
+                description:
+                  'Description text lorem ipsum dolor sit amet commondo ligua eaget',
+              },
+              links: [
+                {
+                  title: 'PartnerWorld',
+                  titleEnglish: 'Partner with us — PartnerWorld',
+                  url: 'https://www.ibm.com/partnerworld/public?lnk=hpmex_bupa',
+                },
+                {
+                  title: 'Our strategic partnerships',
+                  titleEnglish: 'Our strategic partnerships',
+                  url: 'https://www.ibm.com/alliances?lnk=hpmex_bupa',
+                },
+                {
+                  title: 'Flexible payment plans',
+                  titleEnglish: 'Flexible payment plans',
+                  url: 'https://www.ibm.com/partnerworld/financing?lnk=hpmex_bupa',
+                },
+              ],
+            },
+            {
+              heading: {
+                title: 'IBM Research',
+                titleEnglish: 'IBM Research',
+                url: 'https://research.ibm.com?lnk=hpmex_bure',
+                description:
+                  'Description text lorem ipsum dolor sit amet commondo ligua eaget',
+              },
+              links: [
+                {
+                  title: 'Blog',
+                  titleEnglish: 'Blog',
+                  url: 'https://research.ibm.com/blog?lnk=hpmex_bure',
+                },
+                {
+                  title: 'Publications',
+                  titleEnglish: 'Publications',
+                  url: 'https://research.ibm.com/publications?lnk=hpmex_bure',
+                },
+                {
+                  title: 'Teams',
+                  titleEnglish: 'Teams',
+                  url: 'https://research.ibm.com/teams?lnk=hpmex_bure',
+                },
+                {
+                  title: 'Collaborate with us',
+                  titleEnglish: 'Collaborate with us',
+                  url: 'https://research.ibm.com/collaborate?lnk=hpmex_bure',
+                },
+              ],
+            },
+            {
+              heading: {
+                title: 'About IBM',
+                titleEnglish: 'About IBM',
+                url: 'https://www.ibm.com/about?lnk=hpmex_buab',
+                description:
+                  'Description text lorem ipsum dolor sit amet commondo ligua eaget',
+              },
+              links: [
+                {
+                  title: 'Annual report',
+                  titleEnglish: 'Annual report',
+                  url: 'https://www.ibm.com/annualreport/?lnk=hpmex_buab',
+                },
+                {
+                  title: 'Career opportunities',
+                  titleEnglish: 'Career opportunities',
+                  url: 'https://www.ibm.com/employment/?lnk=hpmex_buab',
+                },
+                {
+                  title: 'Corporate social responsibility',
+                  titleEnglish: 'Corporate social responsibility',
+                  url: 'https://www.ibm.org?lnk=hpmex_buab',
+                },
+                {
+                  title: 'Diversity & inclusion',
+                  titleEnglish: 'Diversity & inclusion',
+                  url: 'https://www.ibm.com/employment/inclusion/?lnk=hpmex_buab',
+                },
+                {
+                  title: 'Industry analyst reports',
+                  titleEnglish: 'Industry analyst reports',
+                  url: 'https://www.ibm.com/reports/analyst/?lnk=hpmex_buab',
+                },
+                {
+                  title: 'Investor relations',
+                  titleEnglish: 'Investor relations',
+                  url: 'https://www.ibm.com/investor/?lnk=hpmex_buab',
+                },
+                {
+                  title: 'Licensing & compliance',
+                  titleEnglish: 'Licensing & compliance',
+                  url: 'https://www.ibm.com/about/software-licensing/?lnk=hpmex_buab',
+                },
+                {
+                  title: 'News & announcements',
+                  titleEnglish: 'News & announcements',
+                  url: 'https://newsroom.ibm.com?lnk=hpmex_buab',
+                },
+                {
+                  title: 'Thought leadership',
+                  titleEnglish: 'Thought leadership',
+                  url: 'https://www.ibm.com/thought-leadership/?lnk=hpmex_buab',
+                },
+                {
+                  title: 'Security, privacy & trust',
+                  titleEnglish: 'Security, privacy & trust',
+                  url: 'https://www.ibm.com/trust?lnk=hpmex_buab',
+                },
+              ],
+            },
+            {
+              heading: {
+                title: 'COVID-19',
+                titleEnglish: 'COVID-19',
+                url: 'https://www.ibm.com/impact/covid-19?lnk=hpmex_buco',
+                description:
+                  'Description text lorem ipsum dolor sit amet commondo ligua eaget',
+              },
+              links: [
+                {
+                  title: 'Business solutions',
+                  titleEnglish: 'Business solutions',
+                  url: 'https://www.ibm.com/impact/covid-19/business-solutions?lnk=hpmex_buco',
+                },
+                {
+                  title: 'Action guide',
+                  titleEnglish: 'Action guide',
+                  url: 'https://www.ibm.com/thought-leadership/institute-business-value/report/covid-19-action-guide?lnk=hpmex_buco',
+                },
+              ],
+            },
+          ],
+        },
+      ],
+    },
+  },
+  {
+    title: 'Simple Megamenu (Link Descriptions)',
+    titleEnglish: 'Simple Megamenu (Link Descriptions)',
+    url: '',
+    submenu: {
+      sections: [
+        {
+          groups: [
+            {
+              heading: {
+                title: 'Partner with us',
+                titleEnglish: 'Partners',
+                url: 'https://www.ibm.com/partners?lnk=hpmex_bupa',
+              },
+              links: [
+                {
+                  title: 'PartnerWorld',
+                  titleEnglish: 'Partner with us — PartnerWorld',
+                  url: 'https://www.ibm.com/partnerworld/public?lnk=hpmex_bupa',
+                  description:
+                    'Description text lorem ipsum dolor sit amet commondo ligua eaget',
+                },
+                {
+                  title: 'Our strategic partnerships',
+                  titleEnglish: 'Our strategic partnerships',
+                  url: 'https://www.ibm.com/alliances?lnk=hpmex_bupa',
+                  description:
+                    'Description text lorem ipsum dolor sit amet commondo ligua eaget',
+                },
+                {
+                  title: 'Flexible payment plans',
+                  titleEnglish: 'Flexible payment plans',
+                  url: 'https://www.ibm.com/partnerworld/financing?lnk=hpmex_bupa',
+                  description:
+                    'Description text lorem ipsum dolor sit amet commondo ligua eaget',
+                },
+              ],
+            },
+            {
+              heading: {
+                title: 'IBM Research',
+                titleEnglish: 'IBM Research',
+                url: 'https://research.ibm.com?lnk=hpmex_bure',
+              },
+              links: [
+                {
+                  title: 'Blog',
+                  titleEnglish: 'Blog',
+                  url: 'https://research.ibm.com/blog?lnk=hpmex_bure',
+                  description:
+                    'Description text lorem ipsum dolor sit amet commondo ligua eaget',
+                },
+                {
+                  title: 'Publications',
+                  titleEnglish: 'Publications',
+                  url: 'https://research.ibm.com/publications?lnk=hpmex_bure',
+                  description:
+                    'Description text lorem ipsum dolor sit amet commondo ligua eaget',
+                },
+                {
+                  title: 'Teams',
+                  titleEnglish: 'Teams',
+                  url: 'https://research.ibm.com/teams?lnk=hpmex_bure',
+                  description:
+                    'Description text lorem ipsum dolor sit amet commondo ligua eaget',
+                },
+                {
+                  title: 'Collaborate with us',
+                  titleEnglish: 'Collaborate with us',
+                  url: 'https://research.ibm.com/collaborate?lnk=hpmex_bure',
+                  description:
+                    'Description text lorem ipsum dolor sit amet commondo ligua eaget',
+                },
+              ],
+            },
+            {
+              heading: {
+                title: 'About IBM',
+                titleEnglish: 'About IBM',
+                url: 'https://www.ibm.com/about?lnk=hpmex_buab',
+              },
+              links: [
+                {
+                  title: 'Annual report',
+                  titleEnglish: 'Annual report',
+                  url: 'https://www.ibm.com/annualreport/?lnk=hpmex_buab',
+                  description:
+                    'Description text lorem ipsum dolor sit amet commondo ligua eaget',
+                },
+                {
+                  title: 'Career opportunities',
+                  titleEnglish: 'Career opportunities',
+                  url: 'https://www.ibm.com/employment/?lnk=hpmex_buab',
+                  description:
+                    'Description text lorem ipsum dolor sit amet commondo ligua eaget',
+                },
+                {
+                  title: 'Corporate social responsibility',
+                  titleEnglish: 'Corporate social responsibility',
+                  url: 'https://www.ibm.org?lnk=hpmex_buab',
+                  description:
+                    'Description text lorem ipsum dolor sit amet commondo ligua eaget',
+                },
+                {
+                  title: 'Diversity & inclusion',
+                  titleEnglish: 'Diversity & inclusion',
+                  url: 'https://www.ibm.com/employment/inclusion/?lnk=hpmex_buab',
+                  description:
+                    'Description text lorem ipsum dolor sit amet commondo ligua eaget',
+                },
+                {
+                  title: 'Industry analyst reports',
+                  titleEnglish: 'Industry analyst reports',
+                  url: 'https://www.ibm.com/reports/analyst/?lnk=hpmex_buab',
+                  description:
+                    'Description text lorem ipsum dolor sit amet commondo ligua eaget',
+                },
+                {
+                  title: 'Investor relations',
+                  titleEnglish: 'Investor relations',
+                  url: 'https://www.ibm.com/investor/?lnk=hpmex_buab',
+                  description:
+                    'Description text lorem ipsum dolor sit amet commondo ligua eaget',
+                },
+                {
+                  title: 'Licensing & compliance',
+                  titleEnglish: 'Licensing & compliance',
+                  url: 'https://www.ibm.com/about/software-licensing/?lnk=hpmex_buab',
+                  description:
+                    'Description text lorem ipsum dolor sit amet commondo ligua eaget',
+                },
+                {
+                  title: 'News & announcements',
+                  titleEnglish: 'News & announcements',
+                  url: 'https://newsroom.ibm.com?lnk=hpmex_buab',
+                  description:
+                    'Description text lorem ipsum dolor sit amet commondo ligua eaget',
+                },
+              ],
+            },
+            {
+              heading: {
+                title: 'COVID-19',
+                titleEnglish: 'COVID-19',
+                url: 'https://www.ibm.com/impact/covid-19?lnk=hpmex_buco',
+              },
+              links: [
+                {
+                  title: 'Business solutions',
+                  titleEnglish: 'Business solutions',
+                  url: 'https://www.ibm.com/impact/covid-19/business-solutions?lnk=hpmex_buco',
+                  description:
+                    'Description text lorem ipsum dolor sit amet commondo ligua eaget',
+                },
+                {
+                  title: 'Action guide',
+                  titleEnglish: 'Action guide',
+                  url: 'https://www.ibm.com/thought-leadership/institute-business-value/report/covid-19-action-guide?lnk=hpmex_buco',
+                  description:
+                    'Description text lorem ipsum dolor sit amet commondo ligua eaget',
+                },
+              ],
+            },
+          ],
+        },
+      ],
+    },
+  },
+  {
+    title: 'Simple Megamenu (Featured)',
+    titleEnglish: 'Simple Megamenu (Featured)',
+    url: '',
+    submenu: {
+      highlights: [
+        {
+          heading: {
+            title: 'Training',
+            titleEnglish: 'Training',
+            url: 'https://www.ibm.com/training/?lnk=hpmls_butr',
+            description:
+              'Description text lorem ipsum dolor sit amet commondo ligua eaget',
+          },
+          links: [
+            {
+              title: 'Courses',
+              titleEnglish: 'Courses',
+              url: 'https://www.ibm.com/training/search?q=course&lnk=hpmls_butr',
+            },
+            {
+              title: 'Learning journeys',
+              titleEnglish: 'Learning journeys',
+              url: 'https://www.ibm.com/training/journeys?lnk=hpmls_butr',
+            },
+            {
+              title: 'Professional certifications',
+              titleEnglish: 'Professional certifications',
+              url: 'https://www.ibm.com/certify?lnk=hpmls_butr',
+            },
+            {
+              title: 'Digital learning subscriptions',
+              titleEnglish: 'Digital learning subscriptions',
+              url: 'https://www.ibm.com/training/subscriptions?lnk=hpmls_butr',
+            },
+          ],
+        },
+        {
+          heading: {
+            title: 'Community',
+            titleEnglish: 'Community',
+            url: '',
+            description: '',
+          },
+          links: [
+            {
+              title: 'IBM Developer',
+              titleEnglish: 'IBM Developer',
+              url: 'https://developer.ibm.com/?lnk=hpmls_buco',
+            },
+            {
+              title: 'IBM Community',
+              titleEnglish: 'IBM Community',
+              url: 'https://community.ibm.com/community/user/home?lnk=hpmls_buco',
+            },
+            {
+              title: 'Support forums',
+              titleEnglish: 'Support forums',
+              url: 'https://www.ibm.com/mysupport/s/forumshome?lnk=hpmls_buco',
+            },
+          ],
+        },
+        {
+          heading: {
+            title: 'Resources',
+            titleEnglish: 'Resources',
+            url: 'https://www.ibm.com/blogs/?lnk=hpmls_bure',
+            description: '',
+          },
+          links: [
+            {
+              title: 'Blogs & thought leadership',
+              titleEnglish: 'Blogs & thought leadership',
+              url: 'https://www.ibm.com/blogs/?lnk=hpmls_bure',
+            },
+            {
+              title: 'Case studies & client stories',
+              titleEnglish: 'Case studies & client stories',
+              url: 'https://www.ibm.com/case-studies?lnk=hpmls_bure',
+            },
+            {
+              title: 'Upcoming events & webinars',
+              titleEnglish: 'Upcoming events & webinars',
+              url: 'https://www.ibm.com/events?lnk=hpmls_bure',
+            },
+            {
+              title: 'IBM Institute for Business Value',
+              titleEnglish: 'IBM Institute for Business Value',
+              url: 'https://www.ibm.com/thought-leadership/institute-business-value?lnk=hpmls_bure',
+            },
+            {
+              title: 'Licensing & compliance',
+              titleEnglish: 'Licensing & compliance',
+              url: 'https://www.ibm.com/about/software-licensing/?lnk=hpmls_bure',
+            },
+          ],
+        },
+      ],
+      sections: [
+        {
+          heading: {
+            title: 'Heading',
+            titleEnglish: 'Heading',
+            url: 'https://www.example.com',
+            description:
+              'Description text lorem ipsum dolor sit amet commondo ligua eaget',
+          },
+          groups: [
+            {
+              heading: {
+                title: 'What is...',
+                titleEnglish: 'What is...',
+                url: 'https://www.ibm.com/cloud/learn?lnk=hpmls_buwi',
+              },
+              links: [
+                {
+                  title: 'Artificial intelligence',
+                  titleEnglish: 'Artificial intelligence',
+                  url: 'https://www.ibm.com/cloud/learn/what-is-artificial-intelligence?lnk=hpmls_buwi',
+                },
+                {
+                  title: 'Automation',
+                  titleEnglish: 'Automation',
+                  url: 'https://www.ibm.com/topics/automation?lnk=hpmls_buwi',
+                },
+                {
+                  title: 'Blockchain',
+                  titleEnglish: 'Blockchain',
+                  url: 'https://www.ibm.com/topics/what-is-blockchain?lnk=hpmls_buwi',
+                },
+                {
+                  title: 'Business intelligence',
+                  titleEnglish: 'Business intelligence',
+                  url: 'https://www.ibm.com/topics/business-intelligence?lnk=hpmls_buwi',
+                },
+                {
+                  title: 'Chatbots',
+                  titleEnglish: 'Chatbots',
+                  url: 'https://www.ibm.com/cloud/learn/chatbots-explained?lnk=hpmls_buwi',
+                },
+                {
+                  title: 'Cloud computing',
+                  titleEnglish: 'Cloud computing',
+                  url: 'https://www.ibm.com/cloud/learn/cloud-computing?lnk=hpmls_buwi',
+                },
+                {
+                  title: 'Containerization',
+                  titleEnglish: 'Containerization',
+                  url: 'https://www.ibm.com/cloud/container-service?lnk=hpmls_buwi',
+                },
+                {
+                  title: 'Cybersecurity',
+                  titleEnglish: 'Cybersecurity',
+                  url: 'https://www.ibm.com/topics/cybersecurity?lnk=hpmls_buwi',
+                },
+                {
+                  title: 'Databases',
+                  titleEnglish: 'Databases',
+                  url: 'https://www.ibm.com/cloud/learn/database?lnk=hpmls_buwi',
+                },
+                {
+                  title: 'DevOps',
+                  titleEnglish: 'DevOps',
+                  url: 'https://www.ibm.com/cloud/learn/devops-a-complete-guide?lnk=hpmls_buwi',
+                },
+                {
+                  title: 'Hybrid Cloud',
+                  titleEnglish: 'Hybrid Cloud',
+                  url: 'https://www.ibm.com/cloud/learn/hybrid-cloud?lnk=hpmls_buwi',
+                },
+                {
+                  title: 'Kubernetes',
+                  titleEnglish: 'Kubernetes',
+                  url: 'https://www.ibm.com/cloud/learn/kubernetes?lnk=hpmls_buwi',
+                },
+                {
+                  title: 'Quantum computing',
+                  titleEnglish: 'Quantum computing',
+                  url: 'https://www.ibm.com/quantum-computing/learn/what-is-quantum-computing?lnk=hpmls_buwi',
+                },
+                {
+                  title: 'Supply chain',
+                  titleEnglish: 'Supply chain',
+                  url: 'https://www.ibm.com/topics/supply-chain-management?lnk=hpmls_buwi',
+                },
+              ],
+            },
+            {
+              heading: {
+                title: 'Developer education',
+                titleEnglish: 'Developer education',
+                url: 'https://developer.ibm.com/?lnk=hpmls_bude',
+                description: '',
+              },
+              links: [
+                {
+                  title: 'Code patterns',
+                  titleEnglish: 'Code patterns',
+                  url: 'https://developer.ibm.com/patterns/?lnk=hpmls_bude',
+                },
+                {
+                  title: 'Developer community',
+                  titleEnglish: 'Developer community',
+                  url: 'https://developer.ibm.com/community/?lnk=hpmls_bude',
+                },
+                {
+                  title: 'Developer events',
+                  titleEnglish: 'Developer events',
+                  url: 'https://developer.ibm.com/events/?lnk=hpmls_bude',
+                },
+                {
+                  title: 'Open Source @ IBM',
+                  titleEnglish: 'Open Source @ IBM',
+                  url: 'https://ibm.com/opensource?lnk=hpmls_bude',
+                },
+                {
+                  title: 'Technical articles',
+                  titleEnglish: 'Technical articles',
+                  url: 'https://developer.ibm.com/articles?lnk=hpmls_bude',
+                },
+                {
+                  title: 'Tutorials',
+                  titleEnglish: 'Tutorials',
+                  url: 'https://developer.ibm.com/tutorials/?lnk=hpmls_bude',
+                },
+                {
+                  title: 'Videos',
+                  titleEnglish: 'Videos',
+                  url: 'https://developer.ibm.com/videos?lnk=hpmls_bude',
+                },
+                {
+                  title: 'View more Developer education',
+                  titleEnglish: 'View more Developer education',
+                  url: 'https://developer.ibm.com/?lnk=hpmls_bude',
+                },
+              ],
+            },
+            {
+              heading: {
+                title: 'Documentation',
+                titleEnglish: 'Documentation',
+                url: 'https://www.ibm.com/docs/en?lnk=hpmls_budc',
+                description: '',
+              },
+              links: [
+                {
+                  title: 'All product documentation',
+                  titleEnglish: 'All product documentation',
+                  url: 'https://www.ibm.com/docs/en?lnk=hpmls_budc',
+                },
+                {
+                  title: 'For products on IBM Cloud',
+                  titleEnglish: 'For products on IBM Cloud',
+                  url: 'https://cloud.ibm.com/docs?lnk=hpmls_budc',
+                },
+                {
+                  title: 'For use cases — IBM Redbooks',
+                  titleEnglish: 'For use cases — IBM Redbooks',
+                  url: 'https://www.redbooks.ibm.com/?lnk=hpmls_budc',
+                },
+              ],
+            },
+            {
+              heading: {
+                title: 'Support',
+                titleEnglish: 'Support',
+                url: 'https://www.ibm.com/mysupport?lnk=hpmls_busu',
+                description: '',
+              },
+              links: [
+                {
+                  title: 'Download fixes, updates & drivers',
+                  titleEnglish: 'Download fixes, updates & drivers',
+                  url: 'https://www.ibm.com/support/fixcentral/?lnk=hpmls_busu',
+                },
+                {
+                  title: 'Download licensed software - Passport Advantage',
+                  titleEnglish:
+                    'Download licensed software - Passport Advantage',
+                  url: 'https://www.ibm.com/software/passportadvantage/pao_customer.html?lnk=hpmls_busu',
+                },
+                {
+                  title: 'View your cases',
+                  titleEnglish: 'View your cases',
+                  url: 'https://www.ibm.com/mysupport/s/my-cases?lnk=hpmls_busu',
+                },
+                {
+                  title: 'Open a case',
+                  titleEnglish: 'Open a case',
+                  url: 'https://www.ibm.com/mysupport/s/redirecttoopencasepage?lnk=hpmls_busu',
+                },
+                {
+                  title: 'View available support plans',
+                  titleEnglish: 'View available support plans',
+                  url: 'https://www.ibm.com/support/offerings?lnk=hpmls_busu',
+                },
+                {
+                  title: 'View more on Support',
+                  titleEnglish: 'View more on Support',
+                  url: 'https://www.ibm.com/mysupport?lnk=hpmls_busu&lnk2=all',
+                },
+              ],
+            },
+            {
+              heading: {
+                title: 'Cloud platform support',
+                titleEnglish: 'Cloud platform support',
+                url: 'https://www.ibm.com/cloud/support?lnk=hpmls_bucl',
+              },
+            },
+            {
+              heading: {
+                title: 'Newsletter subscriptions',
+                titleEnglish: 'Newsletter subscriptions',
+                url: 'https://www.ibm.com/subscribe/',
+              },
+            },
+          ],
+        },
+      ],
+      viewAll: {
+        title: 'View all',
+        titleEnglish: 'View all',
+        url: 'https://www.example.com',
+        position: 'right',
+      },
+    },
+  },
+  {
+    title: 'Basic Submenu',
+    titleEnglish: 'Simple Submenu',
+    url: '',
+    submenu: [
+      {
+        title: 'Subitem 1',
+        titleEnglish: 'Subitem 1',
+        url: 'https://www.example.com',
+      },
+      {
+        title: 'Subitem 2',
+        titleEnglish: 'Subitem 2',
+        url: 'https://www.example.com',
+      },
+    ],
+  },
+  {
+    title: 'Basic Link',
+    titleEnglish: 'Demo Simple',
+    url: 'https://www.example.com',
   },
 ];
 
@@ -3458,7 +5472,8 @@ const customLinks: MastheadLink[] = [
             megapanelContent: {
               headingTitle: 'Hybrid Cloud',
               headingUrl: '',
-              description: 'Blend cloud and on-premises resources for flexibility and balance',
+              description:
+                'Blend cloud and on-premises resources for flexibility and balance',
               quickLinks: {
                 title: '',
                 links: [
@@ -3835,7 +5850,8 @@ const customLinks: MastheadLink[] = [
             url: 'https://www.ibm.com/financing?lnk=hpmse_fin&lnk2=learn',
             megapanelContent: {
               headingTitle: 'Financing',
-              headingUrl: 'https://www.ibm.com/financing?lnk=hpmse_fin&lnk2=learn',
+              headingUrl:
+                'https://www.ibm.com/financing?lnk=hpmse_fin&lnk2=learn',
               description: 'Funding options that fit your business',
               quickLinks: {
                 title: 'Quicklinks',
@@ -3859,10 +5875,14 @@ const customLinks: MastheadLink[] = [
                 ],
               },
               feature: {
-                heading: 'Cloud financing strategies that work for your business',
-                imageUrl: 'https://www.ibm.com/images/portal/F774737R30303N19/Skyline-Card-cloud-feature380x160.jpg?1=1',
-                linkTitle: 'Committed to cloud? Make the most of your cash flow.',
-                linkUrl: 'https://www.ibm.com/financing/solutions/cloud-financing?lnk=hpmse_fin&lnk2=learn',
+                heading:
+                  'Cloud financing strategies that work for your business',
+                imageUrl:
+                  'https://www.ibm.com/images/portal/F774737R30303N19/Skyline-Card-cloud-feature380x160.jpg?1=1',
+                linkTitle:
+                  'Committed to cloud? Make the most of your cash flow.',
+                linkUrl:
+                  'https://www.ibm.com/financing/solutions/cloud-financing?lnk=hpmse_fin&lnk2=learn',
               },
             },
           },
@@ -3918,9 +5938,12 @@ const customLinks: MastheadLink[] = [
               },
               feature: {
                 heading: 'IBM Developer newsletters',
-                imageUrl: 'https://1.dam.s81c.com/m/5908c17b26b9dd19/original/news-ibmdevnewsletters-600x245.jpg',
-                linkTitle: 'Technical info on popular software development topics, including AI, Blockchain, Java and more',
-                linkUrl: 'https://developer.ibm.com/newsletters/?lnk=hpmdev_dw&lnk2=learn',
+                imageUrl:
+                  'https://1.dam.s81c.com/m/5908c17b26b9dd19/original/news-ibmdevnewsletters-600x245.jpg',
+                linkTitle:
+                  'Technical info on popular software development topics, including AI, Blockchain, Java and more',
+                linkUrl:
+                  'https://developer.ibm.com/newsletters/?lnk=hpmdev_dw&lnk2=learn',
               },
             },
           },
@@ -3929,7 +5952,8 @@ const customLinks: MastheadLink[] = [
             url: 'https://developer.ibm.com/technologies/blockchain/?lnk=hpmdev_dw&lnk2=learn',
             megapanelContent: {
               headingTitle: 'Blockchain',
-              headingUrl: 'https://developer.ibm.com/technologies/blockchain/?lnk=hpmdev_dw&lnk2=learn',
+              headingUrl:
+                'https://developer.ibm.com/technologies/blockchain/?lnk=hpmdev_dw&lnk2=learn',
               description: '',
               quickLinks: {
                 title: 'Quicklinks',
@@ -3954,7 +5978,8 @@ const customLinks: MastheadLink[] = [
               },
               feature: {
                 heading: 'Blockchain 101',
-                imageUrl: 'https://www.ibm.com/images/portal/E174255N41814O86/Blockchain2_600x245.jpg?1=3',
+                imageUrl:
+                  'https://www.ibm.com/images/portal/E174255N41814O86/Blockchain2_600x245.jpg?1=3',
                 linkTitle:
                   'Build a kick-starter blockchain network and start coding with the IBM Blockchain Platform Starter Plan',
                 linkUrl:
@@ -3967,7 +5992,8 @@ const customLinks: MastheadLink[] = [
             url: 'https://developer.ibm.com/technologies/containers/?lnk=hpmdev_dw&lnk2=learn',
             megapanelContent: {
               headingTitle: 'Containers',
-              headingUrl: 'https://developer.ibm.com/technologies/containers/?lnk=hpmdev_dw&lnk2=learn',
+              headingUrl:
+                'https://developer.ibm.com/technologies/containers/?lnk=hpmdev_dw&lnk2=learn',
               description: '',
               quickLinks: {
                 title: 'Quicklinks',
@@ -3988,9 +6014,11 @@ const customLinks: MastheadLink[] = [
               },
               feature: {
                 heading: 'Make sense of Kubernetes',
-                imageUrl: 'https://www.ibm.com/images/portal/E693054G76296P64/Kubernetes-Pythomn_600x245.jpg?1=2',
+                imageUrl:
+                  'https://www.ibm.com/images/portal/E693054G76296P64/Kubernetes-Pythomn_600x245.jpg?1=2',
                 linkTitle: 'Deploy a simple Python application with Kubernetes',
-                linkUrl: 'https://developer.ibm.com/tutorials/scalable-python-app-with-kubernetes/?lnk=hpmdev_dw&lnk2=learn',
+                linkUrl:
+                  'https://developer.ibm.com/tutorials/scalable-python-app-with-kubernetes/?lnk=hpmdev_dw&lnk2=learn',
               },
             },
           },
@@ -3999,7 +6027,8 @@ const customLinks: MastheadLink[] = [
             url: 'https://developer.ibm.com/technologies/analytics/?lnk=hpmdev_dw&lnk2=learn',
             megapanelContent: {
               headingTitle: 'Analytics',
-              headingUrl: 'https://developer.ibm.com/technologies/analytics/?lnk=hpmdev_dw&lnk2=learn',
+              headingUrl:
+                'https://developer.ibm.com/technologies/analytics/?lnk=hpmdev_dw&lnk2=learn',
               description: '',
               quickLinks: {
                 title: 'Quicklinks',
@@ -4024,8 +6053,10 @@ const customLinks: MastheadLink[] = [
               },
               feature: {
                 heading: 'Train your data no matter where it lives',
-                imageUrl: 'https://1.dam.s81c.com/m/76c0ed6f3e6386c1/original/Train-data_600x245.jpg',
-                linkTitle: 'Easily and securely connect to your data source for initial model training and continuous learning',
+                imageUrl:
+                  'https://1.dam.s81c.com/m/76c0ed6f3e6386c1/original/Train-data_600x245.jpg',
+                linkTitle:
+                  'Easily and securely connect to your data source for initial model training and continuous learning',
                 linkUrl:
                   'https://developer.ibm.com/announcements/training-machine-learning-models-in-watson-studio?lnk=hpmdev_dw&lnk2=learn',
               },
@@ -4047,5 +6078,12 @@ const customLinks: MastheadLink[] = [
 
 /* eslint-enable max-len */
 
-export { mastheadLinks, customLinks, l1Data, logoData, mastheadL1Data };
+export {
+  mastheadLinks,
+  customLinks,
+  l1Data,
+  logoData,
+  mastheadL1Data,
+  mastheadLinksV2,
+};
 export default mastheadLinks;
