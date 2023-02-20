@@ -30,17 +30,28 @@ $css--plex: true !default;
     min-height: $spacing-08;
   }
 
-  &[size='sm'] {
-    .#{$prefix}--accordion__heading {
-      min-height: rem(32px);
-      padding: rem(5px) 0;
+  .#{$prefix}--accordion__content {
+    @extend .#{$prefix}--accordion__content;
+
+    ::slotted(p) {
+      @include type-style('body-01');
     }
   }
 
-  &[size='xl'] {
-    .#{$prefix}--accordion__heading {
-      min-height: rem(48px);
-    }
+  &[size='sm'] {
+    @extend .#{$prefix}--accordion--sm;
+  }
+
+  &[size='lg'] {
+    @extend .#{$prefix}--accordion--lg;
+  }
+
+  &[alignment='start'] {
+    @extend .#{$prefix}--accordion--start;
+  }
+
+  &[isFlush] {
+    @extend .#{$prefix}--accordion--flush;
   }
 }
 

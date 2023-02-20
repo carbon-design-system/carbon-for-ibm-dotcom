@@ -10,10 +10,10 @@
 import { html, property, customElement, LitElement } from 'lit-element';
 import { prefix } from '../../globals/settings';
 import { forEach } from '../../globals/internal/collection-helpers';
-import { ACCORDION_SIZE } from './defs';
+import { ACCORDION_SIZE, ACCORDION_ALIGNMENT } from './defs';
 import styles from './accordion.scss';
 
-export { ACCORDION_SIZE };
+export { ACCORDION_SIZE, ACCORDION_ALIGNMENT };
 
 /**
  * Accordion container.
@@ -23,10 +23,28 @@ export { ACCORDION_SIZE };
 @customElement(`${prefix}-accordion`)
 class BXAccordion extends LitElement {
   /**
-   * Accordion size.
+   * Accordion size should be sm, md, lg.
    */
   @property({ reflect: true })
-  size = ACCORDION_SIZE.REGULAR;
+  size = ACCORDION_SIZE.MEDIUM;
+
+  /**
+   * Specify the alignment of the accordion heading title and chevron
+   */
+  @property({ reflect: true })
+  alignment = ACCORDION_ALIGNMENT.END;
+
+  /**
+   * Specify whether Accordion text should be flush, default is false, does not work with align="start"
+   */
+  @property({ type: Boolean, reflect: true })
+  isFlush = false;
+
+  /**
+   * Specify an optional className to be applied to the container node
+   */
+  @property({ type: String, reflect: true })
+  className = '';
 
   connectedCallback() {
     if (!this.hasAttribute('role')) {
@@ -44,6 +62,33 @@ class BXAccordion extends LitElement {
         ),
         (elem) => {
           elem.setAttribute('size', this.size);
+        }
+      );
+    }
+    if (changedProperties.has('alignment')) {
+      // Propagate `alignment` attribute to descendants until `:host-context()` gets supported in all major browsers
+      forEach(
+        this.querySelectorAll(
+          (this.constructor as typeof BXAccordion).selectorAccordionItems
+        ),
+        (elem) => {
+          elem.setAttribute('alignment', this.alignment);
+        }
+      );
+    }
+    if (
+      changedProperties.has('isFlush') ||
+      changedProperties.has('alignment')
+    ) {
+      // Propagate `isFlush` attribute to descendants until `:host-context()` gets supported in all major browsers
+      forEach(
+        this.querySelectorAll(
+          (this.constructor as typeof BXAccordion).selectorAccordionItems
+        ),
+        (elem) => {
+          this.isFlush && this.alignment !== 'start'
+            ? elem.setAttribute('isFlush', '')
+            : elem.removeAttribute('isFlush');
         }
       );
     }
