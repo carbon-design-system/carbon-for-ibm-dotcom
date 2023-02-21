@@ -257,12 +257,6 @@ describe('dds-masthead | default (mobile)', () => {
       .find('button')
       .click();
 
-    cy.get('dds-left-nav-menu')
-      .filter(':visible')
-      .first()
-      .shadow()
-      .find('button')
-      .click();
 
     cy.get('dds-left-nav-menu')
       .filter(':visible')
