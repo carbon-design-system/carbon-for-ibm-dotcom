@@ -51,7 +51,7 @@ export const Default = (args) => {
 
 Default.parameters = {
   knobs: {
-    [`{prefix}-toggletip`]: () => ({
+    [`${prefix}-toggletip`]: () => ({
       alignment: select(
         'Toggletip alignment to trigger button (alignment)',
         tooltipAlignments,

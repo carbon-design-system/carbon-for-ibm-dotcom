@@ -12,7 +12,8 @@ $css--plex: true !default;
 @use '@carbon/styles/scss/theme' as *;
 @use '@carbon/styles/scss/type' as *;
 @use '@carbon/styles/scss/breakpoint' as *;
-@use '@carbon/styles/scss/components/pagination';
+@use '@carbon/styles/scss/components/pagination' as *;
+@use '@carbon/styles/scss/utilities/visually-hidden' as *;
 
 :host(#{$prefix}-pagination) {
   @extend .#{$prefix}--pagination;
@@ -94,11 +95,6 @@ $css--plex: true !default;
   align-items: center;
   height: 100%;
   position: relative;
-
-  .#{$prefix}--visually-hidden {
-    visibility: hidden;
-    height: 0;
-  }
 }
 
 :host(#{$prefix}-pages-select) .#{$prefix}--pagination__text {

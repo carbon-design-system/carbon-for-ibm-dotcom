@@ -54,14 +54,14 @@ export const clickable = (args) => {
 clickable.parameters = {
   knobs: {
     [`${prefix}-clickable-tile`]: () => ({
-      href: textNullable('Href for clickable UI (href)', ''),
+      href: textNullable('Href for clickable UI (href)', 'https://example.com'),
     }),
   },
 };
 
 export const Radio = (args) => {
   const { checkmarkLabel, colorScheme, name, value, onInput } =
-    args?.[`$[prefix}-radio-tile`] ?? {};
+    args?.[`${prefix}-radio-tile`] ?? {};
   return html`
     <cds-tile-group>
       <legend slot="legend">Single-select tiles</legend>

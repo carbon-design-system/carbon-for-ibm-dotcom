@@ -38,6 +38,7 @@ class BXToggle extends HostListenerMixin(BXCheckbox) {
    */
   protected _handleChange() {
     const { checked, indeterminate } = this._checkboxNode;
+    if (this.disabled) return;
     this.checked = !checked;
     this.indeterminate = indeterminate;
     const { eventChange } = this.constructor as typeof BXCheckbox;

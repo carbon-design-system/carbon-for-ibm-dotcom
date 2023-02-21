@@ -12,4 +12,12 @@ $css--plex: true !default;
 
 :host(#{$prefix}-toggle) {
   outline: none;
+
+  &[disabled] {
+    @extend .#{$prefix}--toggle--disabled !optional;
+
+    .#{$prefix}--toggle__appearance {
+      cursor: not-allowed;
+    }
+  }
 }
