@@ -65,7 +65,7 @@ class BXProgressStep extends FocusMixin(LitElement) {
    * The progress state.
    */
   @property()
-  state = PROGRESS_STEP_STAT.QUEUED;
+  state = PROGRESS_STEP_STAT.INCOMPLETE;
 
   /**
    * `true` if the progress step should be vertical.
