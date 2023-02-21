@@ -1,7 +1,7 @@
 /**
  * @license
  *
- * Copyright IBM Corp. 2019, 2022
+ * Copyright IBM Corp. 2019, 2023
  *
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
@@ -9,12 +9,13 @@
 
 import settings from 'carbon-components/es/globals/js/settings';
 import { classMap } from 'lit-html/directives/class-map';
-import { html, property, customElement, LitElement } from 'lit-element';
+import { html, property, LitElement } from 'lit-element';
 import ChevronRight16 from '@carbon/icons/lib/chevron--right/16';
 import FocusMixin from '../../globals/mixins/focus';
 import Handle from '../../globals/internal/handle';
 import { ACCORDION_ITEM_BREAKPOINT } from './defs';
 import styles from './accordion.scss';
+import { carbonElement } from '../../globals/decorators/carbon-element';
 
 export { ACCORDION_ITEM_BREAKPOINT };
 
@@ -52,7 +53,7 @@ const observeResize = (observer: ResizeObserver, elem: Element) => {
  * @csspart title The title.
  * @csspart content The content.
  */
-@customElement(`${prefix}-accordion-item`)
+@carbonElement(`${prefix}-accordion-item`)
 class BXAccordionItem extends FocusMixin(LitElement) {
   /**
    * The current breakpoint.
