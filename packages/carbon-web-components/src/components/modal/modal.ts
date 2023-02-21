@@ -59,12 +59,12 @@ function tryFocusElems(
 /**
  * Modal.
  *
- * @element bx-modal
+ * @element cds-modal
  * @csspart dialog The dialog.
- * @fires bx-modal-beingclosed
+ * @fires cds-modal-beingclosed
  *   The custom event fired before this modal is being closed upon a user gesture.
  *   Cancellation of this event stops the user-initiated action of closing this modal.
- * @fires bx-modal-closed - The custom event fired after this modal is closed upon a user gesture.
+ * @fires cds-modal-closed - The custom event fired after this modal is closed upon a user gesture.
  */
 @customElement(`${prefix}-modal`)
 class BXModal extends HostListenerMixin(LitElement) {
@@ -268,8 +268,8 @@ class BXModal extends HostListenerMixin(LitElement) {
         );
         await (this.constructor as typeof BXModal)._delay();
         if (primaryFocusNode) {
-          // For cases where a `carbon-web-components` component (e.g. `<bx-btn>`) being `primaryFocusNode`,
-          // where its first update/render cycle that makes it focusable happens after `<bx-modal>`'s first update/render cycle
+          // For cases where a `carbon-web-components` component (e.g. `<cds-btn>`) being `primaryFocusNode`,
+          // where its first update/render cycle that makes it focusable happens after `<cds-modal>`'s first update/render cycle
           (primaryFocusNode as HTMLElement).focus();
         } else if (
           !tryFocusElems(

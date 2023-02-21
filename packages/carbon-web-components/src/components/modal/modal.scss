@@ -10,6 +10,7 @@
 @use '@carbon/styles/scss/motion' as *;
 @use '@carbon/styles/scss/spacing' as *;
 @use '@carbon/styles/scss/breakpoint' as *;
+@use '@carbon/styles/scss/utilities/convert' as *;
 @use '@carbon/styles/scss/components/modal';
 @use '@carbon/styles/scss/components/button' as *;
 
@@ -118,10 +119,12 @@
 
 :host(#{$prefix}-modal-footer) ::slotted(#{$prefix}-btn),
 :host(#{$prefix}-modal-footer-button) {
+  flex: 0 1 50%;
   max-width: none;
   width: 50%;
   height: rem(64px);
   margin: 0;
+  padding-bottom: $spacing-07;
 }
 
 :host(#{$prefix}-modal-footer-button) .#{$prefix}--btn {
