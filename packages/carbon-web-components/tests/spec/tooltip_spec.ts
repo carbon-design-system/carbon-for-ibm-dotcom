@@ -1,7 +1,7 @@
 /**
  * @license
  *
- * Copyright IBM Corp. 2019, 2022
+ * Copyright IBM Corp. 2019, 2023
  *
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
@@ -14,7 +14,7 @@ import BXTooltipBody from '../../src/components/tooltip/tooltip-body';
 import {
   TOOLTIP_ALIGNMENT,
   TOOLTIP_DIRECTION,
-} from '../../src/components/tooltip/tooltip-definition';
+} from '../../src/components/toggle-tip/toggletip';
 import { definition, icon } from '../../src/components/tooltip/tooltip-story';
 
 const bodyTemplate = () => html` <bx-tooltip-body></bx-tooltip-body> `;

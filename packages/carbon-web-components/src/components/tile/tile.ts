@@ -27,6 +27,16 @@ class BXTile extends LitElement {
   @property({ attribute: 'color-scheme', reflect: true })
   colorScheme = TILE_COLOR_SCHEME.REGULAR;
 
+  updated() {
+    const anchorTag = this.querySelector('a');
+
+    if (anchorTag) {
+      anchorTag?.classList.add(`${prefix}--link`);
+      anchorTag.before(document.createElement('br'));
+      anchorTag.before(document.createElement('br'));
+    }
+  }
+
   render() {
     return html` <slot></slot> `;
   }

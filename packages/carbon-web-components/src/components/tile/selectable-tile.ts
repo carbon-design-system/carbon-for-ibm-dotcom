@@ -17,7 +17,9 @@ import {
   customElement,
   LitElement,
 } from 'lit-element';
-import CheckmarkFilled16 from '@carbon/icons/lib/checkmark--filled/16';
+import Checkbox16 from '@carbon/icons/lib/checkbox/16';
+import CheckboxCheckedFilled16 from '@carbon/icons/lib/checkbox--checked--filled/16';
+
 import ifNonNull from '../../globals/directives/if-non-null';
 import FocusMixin from '../../globals/mixins/focus';
 import { TILE_COLOR_SCHEME } from './defs';
@@ -26,7 +28,7 @@ import styles from './tile.scss';
 /**
  * Multi-selectable tile.
  *
- * @element bx-selectable-tile
+ * @element cds-selectable-tile
  */
 @customElement(`${prefix}-selectable-tile`)
 class BXSelectableTile extends FocusMixin(LitElement) {
@@ -43,6 +45,25 @@ class BXSelectableTile extends FocusMixin(LitElement) {
    */
   protected _handleChange() {
     this.selected = this._inputNode.checked;
+  }
+
+  /**
+   * Handles the rendering of the icon.
+   */
+  protected _renderIcon() {
+    const { selected, checkmarkLabel } = this;
+
+    return html` ${selected
+      ? CheckboxCheckedFilled16({
+          children: !checkmarkLabel
+            ? undefined
+            : svg`<title>${checkmarkLabel}</title>`,
+        })
+      : Checkbox16({
+          children: !checkmarkLabel
+            ? undefined
+            : svg`<title>${checkmarkLabel}</title>`,
+        })}`;
   }
 
   /**
@@ -86,7 +107,6 @@ class BXSelectableTile extends FocusMixin(LitElement) {
 
   render() {
     const {
-      checkmarkLabel,
       colorScheme,
       name,
       selected,
@@ -97,6 +117,7 @@ class BXSelectableTile extends FocusMixin(LitElement) {
     const classes = classMap({
       [`${prefix}--tile`]: true,
       [`${prefix}--tile--selectable`]: true,
+      [`${prefix}--tile--is-selected`]: selected,
       [`${prefix}--tile--${colorScheme}`]: colorScheme,
     });
     return html`
@@ -110,12 +131,9 @@ class BXSelectableTile extends FocusMixin(LitElement) {
         .checked=${selected}
         @change=${handleChange} />
       <label for="input" class="${classes}" tabindex="0">
-        <div class="${prefix}--tile__checkmark">
-          ${CheckmarkFilled16({
-            children: !checkmarkLabel
-              ? undefined
-              : svg`<title>${checkmarkLabel}</title>`,
-          })}
+        <div
+          class="${prefix}--tile__checkmark ${prefix}--tile__checkmark--persistent">
+          ${this._renderIcon()}
         </div>
         <div class="${prefix}--tile-content"><slot></slot></div>
       </label>

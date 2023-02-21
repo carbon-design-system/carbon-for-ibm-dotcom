@@ -17,7 +17,7 @@ import styles from './tile.scss';
 /**
  * Clickable tile.
  *
- * @element bx-clickable-tile
+ * @element cds-clickable-tile
  */
 @customElement(`${prefix}-clickable-tile`)
 class BXClickableTile extends BXLink {

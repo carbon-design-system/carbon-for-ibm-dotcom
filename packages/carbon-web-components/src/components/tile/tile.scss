@@ -11,11 +11,20 @@ $css--plex: true !default;
 @use '@carbon/styles/scss/spacing' as *;
 @use '@carbon/styles/scss/utilities/focus-outline' as *;
 @use '@carbon/styles/scss/motion' as *;
-@use '@carbon/styles/scss/components/tile';
-@use '@carbon/styles/scss/components/link';
+@use '@carbon/styles/scss/components/tile/index' as *;
+@use '@carbon/styles/scss/components/link/index' as *;
+@use '@carbon/styles/scss/components/form/index' as *;
 
 :host(#{$prefix}-tile) {
   @extend .#{$prefix}--tile;
+
+  ::slotted(.#{$prefix}--link) {
+    @extend .#{$prefix}--link;
+  }
+}
+
+:host(#{$prefix}-tile-group) {
+  @extend .#{$prefix}--tile-group;
 }
 
 :host(#{$prefix}-clickable-tile) {
@@ -33,6 +42,7 @@ $css--plex: true !default;
   }
 
   .#{$prefix}--tile--clickable {
+    @extend .#{$prefix}--tile--clickable;
     // Overrides what `.#{$prefix}--link` defines
     transition: $duration-moderate-01 motion(standard, productive);
 
@@ -43,13 +53,19 @@ $css--plex: true !default;
 }
 
 :host(#{$prefix}-radio-tile) {
-  display: content;
+  display: block;
   outline: none;
+
+  margin-bottom: $spacing-03;
 }
 
 :host(#{$prefix}-selectable-tile) {
   display: content;
   outline: none;
+
+  .#{$prefix}--tile__chevron {
+    @extend .#{$prefix}--tile__chevron;
+  }
 }
 
 :host(#{$prefix}-radio-tile),
@@ -66,6 +82,13 @@ $css--plex: true !default;
   @extend .#{$prefix}--tile--expandable;
 
   position: relative;
+
+  .#{$prefix}--tile__chevron {
+    background: none;
+    border: none;
+    outline: none;
+    cursor: pointer;
+  }
 
   ::slotted(#{$prefix}-tile-above-the-fold-content) {
     @extend .#{$prefix}--tile-content__above-the-fold;
