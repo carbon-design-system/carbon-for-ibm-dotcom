@@ -15,9 +15,9 @@ import './accordion-item';
 import storyDocs from './accordion-story.mdx';
 
 const sizes = {
-  'Regular size': null,
   [`Small size (${ACCORDION_SIZE.SMALL})`]: ACCORDION_SIZE.SMALL,
-  [`XL size (${ACCORDION_SIZE.EXTRA_LARGE})`]: ACCORDION_SIZE.EXTRA_LARGE,
+  [`Medium size (${ACCORDION_SIZE.MEDIUM})`]: ACCORDION_SIZE.MEDIUM,
+  [`Large size (${ACCORDION_SIZE.LARGE})`]: ACCORDION_SIZE.LARGE,
 };
 
 const noop = () => {};
@@ -31,6 +31,8 @@ export const Default = (args) => {
     onBeforeToggle = noop,
     onToggle = noop,
     size,
+    alignment,
+    isFlush
   } = args?.['bx-accordion'] ?? {};
   const handleBeforeToggle = (event: CustomEvent) => {
     onBeforeToggle(event);
@@ -43,7 +45,9 @@ export const Default = (args) => {
     <cds-accordion
       @bx-accordion-item-beingtoggled="${handleBeforeToggle}"
       @bx-accordion-item-toggled="${onToggle}"
-      size="${size}">
+      size="${size}"
+      alignment="${alignment}"
+      ?isFlush="${isFlush}">
       <cds-accordion-item
         ?disabled="${disabled}"
         ?open="${open}"
@@ -87,6 +91,12 @@ export default {
         open: boolean('Open the section (open)', false),
         titleText: text('The title (title-text)', 'Section title'),
         size: select('Accordion size (size)', sizes, null),
+        alignment: select(
+          'Accordion alignment (alignment)',
+          ['start', 'end'],
+          'end'
+        ),
+        isFlush: boolean('isFlush', false),
         disabled: boolean('Disable accordion item (disabled)', false),
         disableToggle: boolean(
           'Disable user-initiated toggle action (Call event.preventDefault() in bx-accordion-beingtoggled event)',
