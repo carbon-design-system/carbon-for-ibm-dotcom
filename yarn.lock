@@ -2141,7 +2141,7 @@ __metadata:
     browserstack-cypress-cli: ^1.11.1
     cache-loader: ^4.1.0
     carbon-components: 10.58.6
-    carbon-components-react: 7.59.5
+    carbon-components-react: 7.59.6
     carbon-icons: 7.0.7
     chalk: ^2.3.0
     classnames: 2.3.2
@@ -2308,7 +2308,7 @@ __metadata:
     "@carbon/themes": 10.55.1
     "@carbon/type": 10.45.1
     carbon-components: 10.58.6
-    carbon-components-react: 7.59.5
+    carbon-components-react: 7.59.6
     del: ^6.0.0
     gulp: ^4.0.2
     gulp-autoprefixer: ^6.1.0
@@ -10999,9 +10999,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"carbon-components-react@npm:7.59.5":
-  version: 7.59.5
-  resolution: "carbon-components-react@npm:7.59.5"
+"carbon-components-react@npm:7.59.6":
+  version: 7.59.6
+  resolution: "carbon-components-react@npm:7.59.6"
   dependencies:
     "@babel/runtime": ^7.16.7
     "@carbon/feature-flags": ^0.7.0
@@ -11028,7 +11028,7 @@ __metadata:
     carbon-icons: ^7.0.7
     react: ^16.8.6 || ^17.0.1
     react-dom: ^16.8.6 || ^17.0.1
-  checksum: 95799ebc3f57a514f4d8bfa4018ab9eb52c9abff5e02a2f4ca04362df9282f689e3f7f2f77152826dd9231174d3962c767720d00e89f428769a08b0dbfef89f2
+  checksum: 75991fb578bf34ce7687bd92602229af0afaf8b860183b70c922397755ab3a6660b46f6847a689c5c0afaa062d91ef84664d2f2774e8cef515002567d0f14a02
   languageName: node
   linkType: hard
 
