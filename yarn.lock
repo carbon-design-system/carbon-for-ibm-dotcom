@@ -8403,10 +8403,10 @@ carbon-components@10.58.3:
     lodash.debounce "^4.0.8"
     warning "^3.0.0"
 
-carbon-components@10.58.5:
-  version "10.58.5"
-  resolved "https://registry.yarnpkg.com/carbon-components/-/carbon-components-10.58.5.tgz#5d27740c745d7a5f1f786ca2210d833f079a3746"
-  integrity sha512-7NdteXZZ5lAR45FXwb7K2ZMlqBxS3TAt8uRs6U0ARaFE/WRJtgOeSQqkwRXczqSmXctElKNtoXgLXzubTMmPMQ==
+carbon-components@10.58.6:
+  version "10.58.6"
+  resolved "https://registry.yarnpkg.com/carbon-components/-/carbon-components-10.58.6.tgz#7d2f11ffc4c95f2fafb516f1b7c47779857d1e92"
+  integrity sha512-I/TSykx10bvqpoTwPUK7Ch5QowavKMcMQPicuVWctN56KlRXPtqiHmVi3sWGevC70GOPsPuxNKRIWd6ndeWqkg==
   dependencies:
     "@carbon/telemetry" "0.1.0"
     flatpickr "4.6.1"
