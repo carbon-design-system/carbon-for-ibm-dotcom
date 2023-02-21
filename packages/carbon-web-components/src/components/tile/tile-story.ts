@@ -151,7 +151,7 @@ multiSelectable.storyName = 'Multi Select';
 multiSelectable.parameters = {
   knobs: {
     [`${prefix}-selectable-tile`]: () => ({
-      ...Radio.parameters.knobs[`{${prefix}-radio-tile`](),
+      ...Radio.parameters.knobs[`${prefix}-radio-tile`](),
       selected: boolean('Selected (selected)', false),
     }),
   },
