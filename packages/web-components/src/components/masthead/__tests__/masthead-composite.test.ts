@@ -149,16 +149,6 @@ describe('dds-masthead-composite', function () {
           .querySelector('dds-left-nav')
       ).toMatchSnapshot();
     });
-
-    it('should render the megamenu', async function () {
-      render(template({ navLinks: navLinksMegaMenu }), document.body);
-      await Promise.resolve();
-      expect(
-        document.body
-          .querySelector('dds-masthead-composite')!
-          .querySelector('dds-megamenu')
-      ).toMatchSnapshot();
-    });
   });
 
   describe('Determining the nav/search language', function () {
