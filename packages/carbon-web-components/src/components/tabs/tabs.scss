@@ -44,13 +44,16 @@
 
 // copying styles from
 :host(#{$prefix}-tab) {
-  display: contents;
+  display: flex;
+  background: transparent;
+  width: 100%;
 
   .#{$prefix}--tabs__nav-link {
     @include button-reset.reset($width: false);
     @include focus-outline('reset');
     @include type-style('body-compact-01');
 
+    width: 100%;
     overflow: hidden;
     max-width: 10rem;
     padding: $spacing-04 $spacing-05 $spacing-03;
@@ -71,6 +74,8 @@
 
   &[selected] {
     .#{$prefix}--tabs__nav-link {
+      @include type-style('heading-01');
+
       border-bottom: 2px solid $border-interactive;
     }
   }
@@ -84,7 +89,7 @@
     box-shadow: none;
   }
 
-  background-color: $background-hover;
+  background-color: transparent;
   box-shadow: 0 -1px 0 $background-hover;
 }
 
@@ -101,12 +106,6 @@
     + .#{$prefix}--tabs__nav-item.#{$prefix}--tabs__nav-item--selected,
     &.#{$prefix}--tabs__nav-item--selected + .#{$prefix}--tabs__nav-item {
       box-shadow: none;
-    }
-  }
-
-  &:hover {
-    @include breakpoint(md) {
-      background-color: $background-selected-hover;
     }
   }
 
@@ -137,7 +136,7 @@
 // which puts specificity of "specific" scenario though the style is for "regular" scenario
 :host(#{$prefix}-tab[disabled][role]),
 :host(#{$prefix}-tab[disabled][role]:hover) {
-  background-color: $layer-01;
+  background-color: transparent;
   box-shadow: none;
   cursor: not-allowed;
   outline: none;
@@ -149,17 +148,11 @@
   .#{$prefix}--tabs__nav-link {
     color: $tab-text-disabled;
     pointer-events: none;
+    outline: none;
 
     @include breakpoint(md) {
       border-bottom: $tab-underline-disabled;
     }
-  }
-}
-
-:host(#{$prefix}-tab[type='container'][disabled][role]),
-:host(#{$prefix}-tab[type='container'][disabled][role]:hover) {
-  @include breakpoint(md) {
-    background-color: $text-disabled;
   }
 }
 
@@ -171,12 +164,9 @@
 }
 
 :host(#{$prefix}-tab[selected]) {
-  background-color: $background-hover;
   transition: color $duration-fast-01 motion(standard, productive);
 
   &:hover {
-    background-color: $background-selected;
-
     @include breakpoint(md) {
       background-color: transparent;
     }
@@ -230,7 +220,6 @@
 
 :host(#{$prefix}-tab[highlighted]),
 :host(#{$prefix}-tab[highlighted]:hover) {
-  background-color: $background-hover;
   box-shadow: 0 -1px 0 $background-hover;
 
   // `highlighted` is not used in wide mode,
@@ -258,7 +247,7 @@
 :host(#{$prefix}-tab[disabled][in-focus][selected]),
 :host(#{$prefix}-tab[disabled][in-focus][selected]:hover) {
   display: flex;
-  background-color: $layer-01;
+  background-color: transparent;
   box-shadow: none;
 
   @include breakpoint(md) {
