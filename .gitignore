@@ -50,9 +50,6 @@ package-lock.json
 # auto-generated release notes
 TEMP_RELEASENOTES.md
 
-<<<<<<< HEAD
-# auto-getnerated Yarn files
-=======
 # Yarn
 # https://yarnpkg.com/getting-started/qa/#which-files-should-be-gitignored
 .yarn/*
@@ -62,5 +59,4 @@ TEMP_RELEASENOTES.md
 !.yarn/releases
 !.yarn/sdks
 !.yarn/versions
->>>>>>> 30b2cc23375872c902cbf9c60e17dce4a98303ef
 install-state.gz
