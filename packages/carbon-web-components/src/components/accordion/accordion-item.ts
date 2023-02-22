@@ -190,7 +190,7 @@ class BXAccordionItem extends FocusMixin(LitElement) {
         part="expando"
         class="${prefix}--accordion__heading"
         aria-controls="content"
-        aria-expanded="${String(Boolean(open))}"
+        aria-expanded="${open}"
         @click="${handleClickExpando}"
         @keydown="${handleKeydownExpando}">
         ${ChevronRight16({

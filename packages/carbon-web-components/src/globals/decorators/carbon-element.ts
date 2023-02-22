@@ -108,6 +108,7 @@ const standardCustomElement = (
  *   }
  * }
  * ```
+ *
  * @category Decorator
  * @param tagName The name of the custom element to define.
  */
@@ -216,6 +217,7 @@ export interface InternalPropertyDeclaration<Type = unknown> {
  * Properties declared this way must not be used from HTML or HTML templating
  * systems, they're solely for properties internal to the element. These
  * properties may be renamed by optimization tools like the Closure Compiler.
+ *
  * @category Decorator
  * @deprecated `internalProperty` has been renamed to `state` in lit-element
  *     3.0. Please update to `state` now to be compatible with 3.0.
@@ -231,6 +233,7 @@ export function internalProperty(options?: InternalPropertyDeclaration) {
  * Properties declared this way must not be used from HTML or HTML templating
  * systems, they're solely for properties internal to the element. These
  * properties may be renamed by optimization tools like the Closure Compiler.
+ *
  * @category Decorator
  */
 export const state = (options?: InternalPropertyDeclaration) =>
@@ -243,9 +246,7 @@ export const state = (options?: InternalPropertyDeclaration) =>
  * @param selector A DOMString containing one or more selectors to match.
  * @param cache An optional boolean which when true performs the DOM query only
  * once and caches the result.
- *
- * See: https://developer.mozilla.org/en-US/docs/Web/API/Document/querySelector
- *
+ * @see: https://developer.mozilla.org/en-US/docs/Web/API/Document/querySelector
  * @example
  *
  * ```ts
@@ -315,9 +316,7 @@ export function query(selector: string, cache?: boolean) {
  * `updateComplete` before accessing the property.
  *
  * @param selector A DOMString containing one or more selectors to match.
- *
- * See: https://developer.mozilla.org/en-US/docs/Web/API/Document/querySelector
- *
+ * @see: https://developer.mozilla.org/en-US/docs/Web/API/Document/querySelector
  * @example
  * ```ts
  * class MyElement {
@@ -364,10 +363,8 @@ export function queryAsync(selector: string) {
  * that executes a querySelectorAll on the element's renderRoot.
  *
  * @param selector A DOMString containing one or more selectors to match.
- *
- * See:
+ * @see:
  * https://developer.mozilla.org/en-US/docs/Web/API/Document/querySelectorAll
- *
  * @example
  * ```ts
  * class MyElement {
@@ -429,6 +426,7 @@ const standardEventOptions = (
     ...element,
     finisher(clazz: typeof UpdatingElement) {
       Object.assign(
+        // @ts-ignore TS2769: No overload matches this call.
         clazz.prototype[element.key as keyof UpdatingElement],
         options
       );
@@ -448,10 +446,8 @@ const legacyEventOptions =
  *
  * @param options An object that specifies event listener options as accepted by
  * `EventTarget#addEventListener` and `EventTarget#removeEventListener`.
- *
+ * @see https://developer.mozilla.org/en-US/docs/Web/API/EventTarget/addEventListener#Parameters
  * Current browsers support the `capture`, `passive`, and `once` options. See:
- * https://developer.mozilla.org/en-US/docs/Web/API/EventTarget/addEventListener#Parameters
- *
  * @example
  * ```ts
  * class MyElement {
@@ -505,8 +501,7 @@ const legacyMatches =
  * assigned nodes.
  * @param selector A string which filters the results to elements that match
  * the given css selector.
- *
- * * @example
+ * @example
  * ```ts
  * class MyElement {
  *   @queryAssignedNodes('list', true, '.item')
