@@ -37,19 +37,14 @@ export enum MEGAMENU_LINK_WITH_ICON_STYLE_SCHEME {
  */
 export enum MEGAMENU_RIGHT_NAVIGATION_STYLE_SCHEME {
   /**
-   * Regular style.
+   * Right navigation spans full width of megamenu.
    */
-  REGULAR = 'regular',
+  FULL = 'full',
 
   /**
-   * For left (highlighted) section layout.
+   * Megamenu has a sidebar (e.g. tabbed layout).
    */
-  LEFT_SECTION = 'left-section',
-
-  /**
-   * For tabbed megamenus.
-   */
-  TAB = 'tab',
+  HAS_SIDEBAR = 'has-sidebar',
 }
 
 /**

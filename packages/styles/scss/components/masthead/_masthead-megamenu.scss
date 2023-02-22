@@ -207,8 +207,14 @@
     display: block;
     width: 100%;
 
-    &[style-scheme='tab'] {
+    &[style-scheme='has-sidebar'] {
       height: 100%;
+
+      .#{$prefix}--masthead__megamenu__heading,
+      .#{$prefix}--masthead__megamenu__categories,
+      [part='view-all'] {
+        padding-inline-start: $layout-01;
+      }
     }
 
     ::slotted(#{$dds-prefix}-megamenu-heading) {
@@ -233,12 +239,6 @@
           column-count: 3;
         }
       }
-    }
-
-    .#{$prefix}--masthead__megamenu__heading,
-    .#{$prefix}--masthead__megamenu__categories,
-    [part='view-all'] {
-      padding-inline-start: $layout-01;
     }
 
     .#{$prefix}--masthead__megamenu__categories {
@@ -308,6 +308,7 @@
 
       .#{$prefix}--masthead__megamenu__category-group-content {
         column-count: 2;
+        column-gap: 0;
 
         @include carbon--breakpoint('lg') {
           column-count: 3;

@@ -246,7 +246,7 @@ class DDSMastheadComposite extends HostListenerMixin(LitElement) {
               aria-labelledby="tab-${itemKey}"
               hidden>
               <dds-megamenu-right-navigation
-                style-scheme="${MEGAMENU_RIGHT_NAVIGATION_STYLE_SCHEME.TAB}"
+                style-scheme="${MEGAMENU_RIGHT_NAVIGATION_STYLE_SCHEME.HAS_SIDEBAR}"
                 view-all-href="${viewAll?.position ===
                 MEGAPANEL_VIEW_ALL_POSITION.RIGHT
                   ? ifNonNull(viewAll?.url)
@@ -317,8 +317,8 @@ class DDSMastheadComposite extends HostListenerMixin(LitElement) {
           : null}
         <dds-megamenu-right-navigation
           style-scheme="${highlights
-            ? MEGAMENU_RIGHT_NAVIGATION_STYLE_SCHEME.LEFT_SECTION
-            : MEGAMENU_RIGHT_NAVIGATION_STYLE_SCHEME.REGULAR}"
+            ? MEGAMENU_RIGHT_NAVIGATION_STYLE_SCHEME.HAS_SIDEBAR
+            : MEGAMENU_RIGHT_NAVIGATION_STYLE_SCHEME.FULL}"
           view-all-href="${viewAll?.position ===
             MEGAPANEL_VIEW_ALL_POSITION.RIGHT || !highlights
             ? ifNonNull(viewAll?.url)
