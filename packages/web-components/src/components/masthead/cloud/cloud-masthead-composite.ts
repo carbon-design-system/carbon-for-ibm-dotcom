@@ -37,7 +37,7 @@ import DDSMastheadComposite, {
 const { stablePrefix: ddsPrefix } = ddsSettings;
 
 // Magic Number: 960px matches masthead.scss's `$breakpoint--desktop-nav`.
-const layoutBreakpoint = window.matchMedia(`(max-width: 960px)`);
+const layoutBreakpoint = window.matchMedia(`(max-width: 959px)`);
 
 /**
  * Component that renders masthead from links, etc. data.
