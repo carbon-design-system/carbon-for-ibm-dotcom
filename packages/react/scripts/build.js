@@ -11,10 +11,10 @@ const { execSync } = require('child_process');
 const path = require('path');
 
 const babelPath = path
-  .resolve(__dirname, '../node_modules/.bin/babel')
+  .resolve(__dirname, '../../../node_modules/.bin/babel')
   .replace(/ /g, '\\ ');
 const rollupPath = path
-  .resolve(__dirname, '../node_modules/.bin/rollup')
+  .resolve(__dirname, '../../../node_modules/.bin/rollup')
   .replace(/ /g, '\\ ');
 
 /**
