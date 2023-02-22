@@ -11,10 +11,6 @@ dist
 umd
 css
 
-# Netlify deploy folder
-/demo/*
-!/demo/index.html
-
 # Config files
 .npmrc
 
@@ -53,3 +49,14 @@ package-lock.json
 
 # auto-generated release notes
 TEMP_RELEASENOTES.md
+
+# Yarn
+# https://yarnpkg.com/getting-started/qa/#which-files-should-be-gitignored
+.yarn/*
+!.yarn/cache
+!.yarn/patches
+!.yarn/plugins
+!.yarn/releases
+!.yarn/sdks
+!.yarn/versions
+install-state.gz
