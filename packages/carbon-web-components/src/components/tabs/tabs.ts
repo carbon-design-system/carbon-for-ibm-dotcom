@@ -338,32 +338,10 @@ class BXTabs extends HostListenerMixin(BXContentSwitcher) {
       _open: open,
       _selectedItemContent: selectedItemContent,
     } = this;
-    const triggerClasses = classMap({
-      [`${prefix}--tabs-trigger`]: true,
-      [`${prefix}--tabs-trigger--open`]: open,
-    });
-    const listClasses = classMap({
-      [`${prefix}--tabs__nav`]: true,
-      [`${prefix}--tabs__nav--hidden`]: !open,
-    });
     return html`
-      <div
-        id="trigger"
-        role="button"
-        class="${triggerClasses}"
-        aria-labelledby="trigger-label"
-        aria-expanded="${String(open)}"
-        aria-haspopup="listbox"
-        aria-owns="tablist"
-        aria-controls="tablist">
-        <span id="trigger-label" class="${prefix}--tabs-trigger-text">
-          ${selectedItemContent || triggerContent}
-        </span>
-        ${ChevronDown16({ 'aria-hidden': 'true' })}
-      </div>
-      <ul id="tablist" role="tablist" class="${listClasses}">
+      <div id="tablist" role="tablist" class="${prefix}--tab--list">
         <slot></slot>
-      </ul>
+      </div>
       <div
         class="${prefix}--assistive-text"
         role="status"
