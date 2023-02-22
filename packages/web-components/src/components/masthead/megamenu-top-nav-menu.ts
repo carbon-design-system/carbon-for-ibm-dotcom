@@ -168,7 +168,6 @@ class DDSMegaMenuTopNavMenu extends DDSTopNavMenu {
       if (this.expanded) {
         // Import needed subcomponents on first expansion
         if (!(this.parentElement as DDSTopNav).importedMegamenu) {
-          console.log('loading megamenu script');
           await import('./megamenu-left-navigation');
           await import('./megamenu-category-link');
           await import('./megamenu-category-group');
