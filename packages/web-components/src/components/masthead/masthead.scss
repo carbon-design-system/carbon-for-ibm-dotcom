@@ -825,3 +825,7 @@ $breakpoint--desktop-nav: 799px;
     }
   }
 }
+
+:host(#{$dds-prefix}-megamenu-category-heading.has-content) {
+  margin-bottom: $spacing-06;
+}
