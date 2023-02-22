@@ -1,5 +1,5 @@
 //
-// Copyright IBM Corp. 2020, 2022
+// Copyright IBM Corp. 2020, 2023
 //
 // This source code is licensed under the Apache-2.0 license found in the
 // LICENSE file in the root directory of this source tree.
@@ -176,7 +176,7 @@
   .#{$prefix}--header__nav-caret-right-container {
     right: 0;
     /* stylelint-disable-next-line comment-whitespace-inside */
-    /*!rtl:raw:
+    /* !rtl:raw:
     position: absolute !important;
     */
   }
@@ -184,7 +184,7 @@
   .#{$prefix}--header__nav-caret-left-container {
     left: 0;
     /* stylelint-disable-next-line comment-whitespace-inside */
-    /*!rtl:raw:
+    /* !rtl:raw:
     right: initial;
     position: absolute !important;
     */
