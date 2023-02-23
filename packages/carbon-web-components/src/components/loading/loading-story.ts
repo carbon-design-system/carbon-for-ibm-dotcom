@@ -12,6 +12,7 @@ import { boolean, select } from '@storybook/addon-knobs';
 import ifNonNull from '../../globals/directives/if-non-null';
 import { LOADING_TYPE } from './loading';
 import storyDocs from './loading-story.mdx';
+import { prefix } from '../../globals/settings';
 
 const types = {
   [`Regular (${LOADING_TYPE.REGULAR})`]: null,
@@ -19,7 +20,7 @@ const types = {
 };
 
 export const Default = (args) => {
-  const { inactive, type, withOverlay } = args?.['cds-loading'] ?? {};
+  const { inactive, type, withOverlay } = args?.[`${prefix}-loading`] ?? {};
   return html`
     <cds-loading
       ?inactive=${inactive}
@@ -35,7 +36,7 @@ export default {
   parameters: {
     ...storyDocs.parameters,
     knobs: {
-      'cds-loading': () => ({
+      [`${prefix}-loading`]: () => ({
         inactive: boolean('Inactive (inactive)', false),
         type: select('The spinner type (type)', types, null),
         withOverlay: boolean('With overlay (withOverlay)', false),
