@@ -332,12 +332,7 @@ class BXTabs extends HostListenerMixin(BXContentSwitcher) {
   }
 
   render() {
-    const {
-      triggerContent,
-      _assistiveStatusText: assistiveStatusText,
-      _open: open,
-      _selectedItemContent: selectedItemContent,
-    } = this;
+    const { _assistiveStatusText: assistiveStatusText } = this;
     return html`
       <div id="tablist" role="tablist" class="${prefix}--tab--list">
         <slot></slot>
