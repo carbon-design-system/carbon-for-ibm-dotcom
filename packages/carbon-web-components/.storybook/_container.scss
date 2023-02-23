@@ -7,6 +7,8 @@
 // LICENSE file in the root directory of this source tree.
 //
 
+@use '@carbon/styles/scss/config' as *;
+@use '@carbon/styles/scss/utilities/convert' as *;
 @use '@carbon/styles/scss/utilities';
 @use '@carbon/styles/scss/fonts';
 @use '@carbon/styles/scss/theme' as *;
@@ -93,4 +95,10 @@ body,
   p {
     line-height: 20px;
   }
+}
+
+#{$prefix}-combo-box,
+#{$prefix}-dropdown,
+#{$prefix}-multi-select {
+  width: rem(300px);
 }
