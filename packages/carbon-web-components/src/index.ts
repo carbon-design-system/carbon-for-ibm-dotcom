@@ -104,7 +104,6 @@ export { default as BXTooltip } from './components/tooltip/tooltip';
 export { default as BXTooltipBody } from './components/tooltip/tooltip-body';
 export { default as BXTooltipDefinition } from './components/toggle-tip/toggletip';
 export { default as BXTooltipFooter } from './components/tooltip/tooltip-footer';
-export { default as BXTooltipIcon } from './components/tooltip/tooltip-icon';
 export { default as BXHeader } from './components/ui-shell/header';
 export { default as BXHeaderMenu } from './components/ui-shell/header-menu';
 export { default as BXHeaderMenuButton } from './components/ui-shell/header-menu-button';

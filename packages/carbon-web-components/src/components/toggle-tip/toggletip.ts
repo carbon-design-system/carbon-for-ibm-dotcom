@@ -12,7 +12,7 @@ import { html, property, customElement, LitElement } from 'lit-element';
 import Information16 from '@carbon/icons/lib/information/16';
 import { prefix } from '../../globals/settings';
 import FocusMixin from '../../globals/mixins/focus';
-import { TOOLTIP_ALIGNMENT, TOOLTIP_DIRECTION } from '../tooltip/defs';
+import { TOOLTIP_ALIGNMENT } from '../tooltip/defs';
 import styles from './toggletip.scss';
 
 /**
@@ -27,12 +27,6 @@ class BXToggletip extends FocusMixin(LitElement) {
    */
   @property()
   alignment = TOOLTIP_ALIGNMENT.TOP;
-
-  /**
-   * The tooltip direction.
-   */
-  @property()
-  direction = TOOLTIP_DIRECTION.BOTTOM;
 
   @property({ type: Boolean, reflect: true })
   open = false;
@@ -51,7 +45,7 @@ class BXToggletip extends FocusMixin(LitElement) {
   }
 
   render() {
-    const { alignment, id, direction, open } = this;
+    const { alignment, id, open } = this;
     const classes = classMap({
       [`${prefix}--popover-container`]: true,
       [`${prefix}--popover--caret`]: true,
