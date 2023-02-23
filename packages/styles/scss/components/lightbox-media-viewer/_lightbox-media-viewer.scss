@@ -89,6 +89,7 @@
     @include carbon--breakpoint('lg') {
       display: flex;
       flex-direction: column;
+      padding: 0;
     }
 
     .#{$prefix}--lightbox-media-viewer__row {
