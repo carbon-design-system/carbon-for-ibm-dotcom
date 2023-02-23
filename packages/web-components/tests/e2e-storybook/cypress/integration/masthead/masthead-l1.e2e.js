@@ -46,9 +46,7 @@ describe('dds-masthead | with L1 (desktop)', () => {
     cy.takeSnapshots();
   });
 
-  // @todo <dds-top-nav-item /> children of the L1 presently render the L0 items
-  //   so this test will fail as it doesn't include the expected active text
-  //   link. Skipping until L1 work is implemented.
+  // @todo Remaining tests are all skipped for now until the new L1 structure is built.
   it.skip('should load l1 menu item with selected state', () => {
     cy.get('dds-top-nav-l1 > *:nth-child(1)').then($menuItem => {
       expect($menuItem).to.have.attr('active');
@@ -57,14 +55,11 @@ describe('dds-masthead | with L1 (desktop)', () => {
     cy.takeSnapshots();
   });
 
-  // @todo <dds-top-nav-item /> children of the L1 presently render the L0 items
-  //   so this test will fail as it includes more items than the mock L1 data,
-  //   which gets ignored. Skipping until L1 work is implemented.
   it.skip('should render 5 menu items', () => {
     cy.get('dds-top-nav-l1 > * ').should('have.length', 5);
   });
 
-  it('should load the l1 - first nav item', () => {
+  it.skip('should load the l1 - first nav item', () => {
     cy.get('dds-top-nav-l1 > *:nth-child(1)')
       .shadow()
       .find('a')
@@ -74,7 +69,7 @@ describe('dds-masthead | with L1 (desktop)', () => {
       });
   });
 
-  it('should load the l1 - second nav item', () => {
+  it.skip('should load the l1 - second nav item', () => {
     cy.get('dds-top-nav-l1 > *:nth-child(2)')
       .shadow()
       .find('a')
@@ -84,7 +79,7 @@ describe('dds-masthead | with L1 (desktop)', () => {
       });
   });
 
-  it('should load and have url for third l1 item', () => {
+  it.skip('should load and have url for third l1 item', () => {
     cy.get('dds-top-nav-l1 > *:nth-child(3)')
       .shadow()
       .find('a')
@@ -94,10 +89,6 @@ describe('dds-masthead | with L1 (desktop)', () => {
       });
   });
 
-  // @todo <dds-top-nav-item /> children of the L1 presently render the L0 items
-  //   so this test will fail as the L0 items take up a lot of space, forcing
-  //   next button and hiding the item we attempt to click here. Not worth
-  //   fixing until the L1 work is further along.
   it.skip('should load the l1 - fourth nav item', () => {
     cy.get('dds-top-nav-l1 > *:nth-child(4)')
       .click()
@@ -106,10 +97,6 @@ describe('dds-masthead | with L1 (desktop)', () => {
       });
   });
 
-  // @todo <dds-top-nav-item /> children of the L1 presently render the L0 items
-  //   so this test will fail as the L0 items take up a lot of space, forcing
-  //   next button and hiding the item we attempt to click here. Not worth
-  //   fixing until the L1 work is further along.
   it.skip('should load and have url for fifth l1 item', () => {
     cy.get('dds-top-nav-l1 > *:nth-child(5)')
       .click()

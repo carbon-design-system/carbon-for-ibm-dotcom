@@ -7,12 +7,7 @@
  * LICENSE file in the root directory of this source tree.
  */
 
-import {
-  html,
-  property,
-  LitElement,
-  TemplateResult,
-} from 'lit-element';
+import { html, property, LitElement, TemplateResult } from 'lit-element';
 import { nothing, render } from 'lit-html';
 import { ifDefined } from 'lit-html/directives/if-defined';
 import ArrowRight16 from '../../internal/vendor/@carbon/web-components/icons/arrow--right/16.js';
@@ -35,6 +30,7 @@ import {
   L0Megamenu,
   Megapanel,
   MegapanelLinkGroup,
+  L1MenuItem,
 } from '../../internal/vendor/@carbon/ibmdotcom-services-store/types/translateAPI.d';
 import {
   UNAUTHENTICATED_STATUS,
@@ -123,33 +119,61 @@ export interface CMApp {
 @customElement(`${ddsPrefix}-masthead-composite`)
 class DDSMastheadComposite extends HostListenerMixin(LitElement) {
   /**
-   * Renders L1 menu based on l1Data
+   * Renders L1 menu based on l1Data & screen width.
    *
-   * @returns TemplateResult The L1 nav.
+   * @returns {TemplateResult | undefined} The L1 nav.
    */
   protected _renderL1() {
-    const { selectedMenuItem } = this;
     if (!this.l1Data) return undefined;
-    const { url, title } = this.l1Data;
-    const isSelected = !this._hasAutoSelectedItems && !selectedMenuItem;
+
+    const { _isMobileVersion: isMobileVersion } = this;
     return html`
       <dds-masthead-l1 slot="masthead-l1">
-        ${!title
-          ? undefined
-          : html`
-              <dds-masthead-l1-name
-                title="${title}"
-                aria-selected="${isSelected}"
-                url="${ifDefined(url)}"></dds-masthead-l1-name>
-            `}
-        <dds-top-nav-l1 selected-menu-item=${selectedMenuItem}
-          >${this._renderNavItems({
-            target: NAV_ITEMS_RENDER_TARGET.TOP_NAV,
-            hasL1: true,
-          })}</dds-top-nav-l1
-        >
+        ${isMobileVersion
+          ? html` ${this._renderL1MobileNav()} `
+          : html` ${this._renderL1TopNav()} `}
       </dds-masthead-l1>
     `;
+  }
+
+  /**
+   * Renders L1 for desktop screensizes
+   *
+   * @returns {TemplateResult} L1 for desktop screensizes
+   */
+  protected _renderL1TopNav() {
+    const { selectedMenuItem, l1Data } = this;
+    const { url, title } = l1Data!;
+    const isSelected = !this._hasAutoSelectedItems && !selectedMenuItem;
+
+    return html`
+      ${!title
+        ? undefined
+        : html`
+            <dds-masthead-l1-name
+              title="${title}"
+              aria-selected="${isSelected}"
+              url="${ifDefined(url)}"></dds-masthead-l1-name>
+          `}
+      <dds-top-nav-l1 selected-menu-item=${selectedMenuItem}>
+        ${this._renderNavItems({
+          target: NAV_ITEMS_RENDER_TARGET.TOP_NAV,
+          hasL1: true,
+        })}
+      </dds-top-nav-l1>
+    `;
+  }
+
+  /**
+   * Renders L1 for mobile screensizes.
+   *
+   * @returns {TemplateResult} L1 for mobile screensizes.
+   */
+  protected _renderL1MobileNav() {
+    const { l1Data } = this;
+    const { url, title } = l1Data!;
+
+    return html` <a href="${ifDefined(url)}">${title}</a> `;
   }
 
   /**
@@ -900,18 +924,17 @@ class DDSMastheadComposite extends HostListenerMixin(LitElement) {
     hasL1: boolean;
   }) {
     const { navLinks, l1Data } = this;
+    let menu: L0MenuItem[] | L1MenuItem[] | undefined = navLinks;
     const autoid = `${ddsPrefix}--masthead__${l1Data?.menuItems ? 'l1' : 'l0'}`;
 
     if (hasL1) {
-      return l1Data?.menuItems.map((link, i) => {
-        return this._legacyRenderNavItem(link, i, autoid);
-      });
+      menu = l1Data?.menuItems;
     }
 
     if (target === NAV_ITEMS_RENDER_TARGET.TOP_NAV) {
       return !navLinks
         ? undefined
-        : navLinks.map((link, i) => {
+        : menu?.map((link, i) => {
             return this._renderNavItem(link, i, autoid);
           });
     }
