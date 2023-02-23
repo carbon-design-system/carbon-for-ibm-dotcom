@@ -96,9 +96,3 @@ body,
     line-height: 20px;
   }
 }
-
-#{$prefix}-combo-box,
-#{$prefix}-dropdown,
-#{$prefix}-multi-select {
-  width: rem(300px);
-}

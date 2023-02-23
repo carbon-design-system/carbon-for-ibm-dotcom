@@ -112,6 +112,10 @@ export const Default = (args) => {
   `;
 };
 
+Default.decorators = [
+  (story) => html` <div style="width:300px">${story()}</div> `,
+];
+
 Default.storyName = 'Default';
 
 export const Filterable = (args) => {
@@ -188,6 +192,10 @@ export const Filterable = (args) => {
     </cds-multi-select>
   `;
 };
+
+Filterable.decorators = [
+  (story) => html` <div style="width:300px">${story()}</div> `,
+];
 
 Filterable.storyName = 'Filterable';
 
