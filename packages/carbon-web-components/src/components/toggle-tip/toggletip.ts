@@ -51,7 +51,7 @@ class BXToggletip extends FocusMixin(LitElement) {
   }
 
   render() {
-    const { alignment, id, direction, open } = this;
+    const { alignment, id, open } = this;
     const classes = classMap({
       [`${prefix}--popover-container`]: true,
       [`${prefix}--popover--caret`]: true,

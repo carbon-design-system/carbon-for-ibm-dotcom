@@ -7,9 +7,7 @@
  * LICENSE file in the root directory of this source tree.
  */
 
-import { classMap } from 'lit-html/directives/class-map';
 import { html, property, query, customElement } from 'lit-element';
-import ChevronDown16 from '@carbon/icons/lib/chevron--down/16';
 import { prefix } from '../../globals/settings';
 import HostListenerMixin from '../../globals/mixins/host-listener';
 import HostListener from '../../globals/decorators/host-listener';
