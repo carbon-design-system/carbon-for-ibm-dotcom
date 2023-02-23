@@ -132,8 +132,9 @@ document.getElementById('masthead-container').navLinks = links;
 
 #### Using L1 nav
 
-To use L1 nav, set `l1Data` prop. `l1Data` prop should be an
-object that contains the navigation data of L1 nav:
+To use L1 nav, set `l1Data` prop. `l1Data` prop should be a MastheadL1
+object, as defined in packages/services-store/src/actions/translateAPI.ts
+that contains the navigation data of L1 nav:
 
 ```javascipt
 const l1Data = {
@@ -141,7 +142,8 @@ const l1Data = {
     name: 'Stock Charts',
     url: 'https://example.com/',
   },
-  menuItems: (The nav links),
+  menuItems: [...],
+  actions: {...},
 }
 ```
 
@@ -289,7 +291,7 @@ const scopeParameters = [
     name: 'Developer',
     appId: 'dw',
     value: ['dw', 'dwaspera'],
-  }, 
+  },
   {
     name: 'IBM Docs',
     appId: 'ibmdocs',
@@ -316,7 +318,7 @@ Alternatively, JavaScript can be used to insert it into the component.
 document.querySelector('dds-masthead-composite').scopeParameters = scopeParameters;
 ```
 
-If a different locale is used, it will be necessary to use a formatter function to localize the placeholder text that 
+If a different locale is used, it will be necessary to use a formatter function to localize the placeholder text that
 will be rendered depending on the selected scope.
 
 ```javascript
