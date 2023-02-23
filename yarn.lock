@@ -2021,7 +2021,7 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@carbon/eslint-config-ibmdotcom@workspace:packages/eslint-config-ibmdotcom"
   dependencies:
-    "@carbon/eslint-plugin-react-prop-type-comments": 1.34.0-rc.0
+    "@carbon/eslint-plugin-react-prop-type-comments": "workspace:1.34.0-rc.0"
     "@typescript-eslint/eslint-plugin": ^5.43.0
     "@typescript-eslint/parser": ^5.43.0
     babel-eslint: ^10.1.0
@@ -2053,7 +2053,7 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@carbon/eslint-plugin-react-prop-type-comments@1.34.0-rc.0, @carbon/eslint-plugin-react-prop-type-comments@workspace:packages/eslint-plugin-react-prop-type-comments":
+"@carbon/eslint-plugin-react-prop-type-comments@workspace:1.34.0-rc.0, @carbon/eslint-plugin-react-prop-type-comments@workspace:packages/eslint-plugin-react-prop-type-comments":
   version: 0.0.0-use.local
   resolution: "@carbon/eslint-plugin-react-prop-type-comments@workspace:packages/eslint-plugin-react-prop-type-comments"
   peerDependencies:
@@ -2096,7 +2096,7 @@ __metadata:
     "@carbon/ibmdotcom-utilities": 1.44.0-rc.0
     "@carbon/icons-react": 10.49.0
     "@carbon/pictograms-react": 11.39.0
-    "@carbon/storybook-addon-theme": 1.35.0-rc.0
+    "@carbon/storybook-addon-theme": "workspace:1.35.0-rc.0"
     "@carbon/telemetry": ^0.1.0
     "@percy-io/in-percy": ^0.1.11
     "@percy/cli": ^1.8.1
@@ -2211,7 +2211,7 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@carbon/ibmdotcom-services-store@1.44.0-rc.0, @carbon/ibmdotcom-services-store@workspace:packages/services-store":
+"@carbon/ibmdotcom-services-store@workspace:1.44.0-rc.0, @carbon/ibmdotcom-services-store@workspace:packages/services-store":
   version: 0.0.0-use.local
   resolution: "@carbon/ibmdotcom-services-store@workspace:packages/services-store"
   dependencies:
@@ -2388,7 +2388,7 @@ __metadata:
     "@babel/template": ~7.12.0
     "@babel/traverse": ~7.12.0
     "@carbon/ibmdotcom-services": 1.44.0-rc.0
-    "@carbon/ibmdotcom-services-store": 1.44.0-rc.0
+    "@carbon/ibmdotcom-services-store": "workspace:1.44.0-rc.0"
     "@carbon/ibmdotcom-styles": 1.44.0-rc.0
     "@carbon/ibmdotcom-utilities": 1.44.0-rc.0
     "@carbon/icon-helpers": 10.38.0
@@ -2603,7 +2603,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@carbon/storybook-addon-theme@1.35.0-rc.0, @carbon/storybook-addon-theme@workspace:packages/storybook-addon-theme":
+"@carbon/storybook-addon-theme@workspace:1.35.0-rc.0, @carbon/storybook-addon-theme@workspace:packages/storybook-addon-theme":
   version: 0.0.0-use.local
   resolution: "@carbon/storybook-addon-theme@workspace:packages/storybook-addon-theme"
   dependencies:
