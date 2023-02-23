@@ -2248,7 +2248,21 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@carbon/ibmdotcom-services@1.44.0-rc.0, @carbon/ibmdotcom-services@workspace:packages/services":
+"@carbon/ibmdotcom-services@npm:1.44.0-rc.0":
+  version: 1.44.0-rc.0
+  resolution: "@carbon/ibmdotcom-services@npm:1.44.0-rc.0"
+  dependencies:
+    "@babel/runtime": ^7.5.0
+    "@carbon/ibmdotcom-utilities": 1.44.0-rc.0
+    "@carbon/telemetry": 0.1.0
+    axios: ^0.27.2
+    marked: ^4.0.10
+    window-or-global: ^1.0.1
+  checksum: 49d5d256b9ff50b2254cb115d1f302475375ba47a653fae91a56dfb31a80671eb2af316e7353f301e8e52797082cecf78db2286104d50952449722579962a6af
+  languageName: node
+  linkType: hard
+
+"@carbon/ibmdotcom-services@workspace:packages/services":
   version: 0.0.0-use.local
   resolution: "@carbon/ibmdotcom-services@workspace:packages/services"
   dependencies:
@@ -2295,7 +2309,24 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@carbon/ibmdotcom-styles@1.44.0-rc.0, @carbon/ibmdotcom-styles@workspace:packages/styles":
+"@carbon/ibmdotcom-styles@npm:1.44.0-rc.0":
+  version: 1.44.0-rc.0
+  resolution: "@carbon/ibmdotcom-styles@npm:1.44.0-rc.0"
+  dependencies:
+    "@carbon/grid": 10.43.1
+    "@carbon/icons-react": 10.49.0
+    "@carbon/import-once": 10.7.0
+    "@carbon/layout": 10.37.1
+    "@carbon/motion": 10.29.0
+    "@carbon/telemetry": 0.1.0
+    "@carbon/themes": 10.55.1
+    "@carbon/type": 10.45.1
+    carbon-components: 10.58.5
+  checksum: 1e0f894239181b047c6cf0a295d81d9b8e49b123d3d5352cc3aa14c298db63255e6264fa872d1085b3f50884901acfd617f68dbd2489703ebb1a3ec6da0ee29c
+  languageName: node
+  linkType: hard
+
+"@carbon/ibmdotcom-styles@workspace:packages/styles":
   version: 0.0.0-use.local
   resolution: "@carbon/ibmdotcom-styles@workspace:packages/styles"
   dependencies:
@@ -2321,7 +2352,23 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@carbon/ibmdotcom-utilities@1.44.0-rc.0, @carbon/ibmdotcom-utilities@workspace:packages/utilities":
+"@carbon/ibmdotcom-utilities@npm:1.44.0-rc.0":
+  version: 1.44.0-rc.0
+  resolution: "@carbon/ibmdotcom-utilities@npm:1.44.0-rc.0"
+  dependencies:
+    "@carbon/telemetry": 0.1.0
+    axios: ^0.27.2
+    carbon-components: 10.58.5
+    isomorphic-dompurify: 0.26.0
+    js-cookie: ^2.2.1
+    marked: ^4.0.10
+    striptags: ^3.2.0
+    window-or-global: ^1.0.1
+  checksum: 12e27e2fee4e99e4e7edcb02686bf3b7f672d126847268f424e707e49957ed58b67f3c92b3c0886209d33fde563b53bc6d92ed392a3b9f3a3fcf0d8f1c04787c
+  languageName: node
+  linkType: hard
+
+"@carbon/ibmdotcom-utilities@workspace:packages/utilities":
   version: 0.0.0-use.local
   resolution: "@carbon/ibmdotcom-utilities@workspace:packages/utilities"
   dependencies:
@@ -2661,7 +2708,21 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@carbon/web-components@1.25.0-rc.0, @carbon/web-components@workspace:packages/carbon-web-components":
+"@carbon/web-components@npm:1.25.0-rc.0":
+  version: 1.25.0-rc.0
+  resolution: "@carbon/web-components@npm:1.25.0-rc.0"
+  dependencies:
+    "@babel/runtime": ^7.16.3
+    carbon-components: 10.58.3
+    flatpickr: 4.6.13
+    lit-element: ^2.5.1
+    lit-html: ^1.4.1
+    lodash-es: ^4.17.21
+  checksum: 13a74a0cfb94372aac30883eda5034d4d604bd937f04b5f662a0f29c65e9c8a1d643c34e757e35bce2960628382ec19358348f5667b2d4477de289c71690b86c
+  languageName: node
+  linkType: hard
+
+"@carbon/web-components@workspace:packages/carbon-web-components":
   version: 0.0.0-use.local
   resolution: "@carbon/web-components@workspace:packages/carbon-web-components"
   dependencies:
@@ -6796,7 +6857,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@types/dompurify@npm:^2.4.0":
+"@types/dompurify@npm:^2.3.4, @types/dompurify@npm:^2.4.0":
   version: 2.4.0
   resolution: "@types/dompurify@npm:2.4.0"
   dependencies:
@@ -11044,6 +11105,18 @@ __metadata:
   languageName: node
   linkType: hard
 
+"carbon-components@npm:10.58.5":
+  version: 10.58.5
+  resolution: "carbon-components@npm:10.58.5"
+  dependencies:
+    "@carbon/telemetry": 0.1.0
+    flatpickr: 4.6.1
+    lodash.debounce: ^4.0.8
+    warning: ^3.0.0
+  checksum: 120de6f43908a90310230dedde194ab2a8751da257c4258306aa35900df6c0e97cda2d73e7455be9a49ca529d4a579c3b721a41ed6665d0c4abc98efb38488ca
+  languageName: node
+  linkType: hard
+
 "carbon-components@npm:10.58.6":
   version: 10.58.6
   resolution: "carbon-components@npm:10.58.6"
@@ -14037,7 +14110,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"dompurify@npm:^2.0.0, dompurify@npm:^2.4.3":
+"dompurify@npm:^2.0.0, dompurify@npm:^2.4.1, dompurify@npm:^2.4.3":
   version: 2.4.4
   resolution: "dompurify@npm:2.4.4"
   checksum: 6a29c2a1b76c0723564d009a26b9123e23ea61ac5d6f30cdcdd01f4d48b257a99adb5952c7a08390a7323353dbb333ad7d650c7cf3f5b6b5bb81eab5826a7f7c
@@ -20111,6 +20184,17 @@ __metadata:
   languageName: node
   linkType: hard
 
+"isomorphic-dompurify@npm:0.26.0":
+  version: 0.26.0
+  resolution: "isomorphic-dompurify@npm:0.26.0"
+  dependencies:
+    "@types/dompurify": ^2.3.4
+    dompurify: ^2.4.1
+    jsdom: ^21.0.0
+  checksum: 56b1727701bc43888110378f32c3e633121e7a2525d77558f6e3cf648165592c151e33d1eb8fff700b85b1d5ca69bf7e940859f7984521d39a5409f8ec4ed4ed
+  languageName: node
+  linkType: hard
+
 "isomorphic-dompurify@npm:0.27.0":
   version: 0.27.0
   resolution: "isomorphic-dompurify@npm:0.27.0"
@@ -21757,7 +21841,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"jsdom@npm:^21.1.0":
+"jsdom@npm:^21.0.0, jsdom@npm:^21.1.0":
   version: 21.1.0
   resolution: "jsdom@npm:21.1.0"
   dependencies:
