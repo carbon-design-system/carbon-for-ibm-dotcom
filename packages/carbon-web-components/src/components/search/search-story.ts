@@ -70,7 +70,7 @@ Default.parameters = {
       labelText: textNullable('Label text (label-text)', 'Search'),
       name: textNullable('Name (name)', ''),
       placeholder: textNullable('Placeholder text (placeholder)', ''),
-      size: select('Searh size (size)', sizes, null),
+      size: select('Search size (size)', sizes, null),
       type: textNullable('The type of the <input> (type)', ''),
       value: textNullable('Value (value)', ''),
       onInput: action('bx-search-input'),
