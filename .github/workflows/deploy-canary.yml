@@ -23,7 +23,7 @@ jobs:
           node-version: '14.x'
           cache: 'yarn'
       - name: Install dependencies
-        run: yarn install --offline
+        run: yarn install --immutable --immutable-cache
       - name: Build project
         run: yarn lerna run --scope @carbon/web-components build
 
@@ -80,7 +80,7 @@ jobs:
           node-version: '14.x'
           cache: 'yarn'
       - name: Install dependencies
-        run: yarn install --offline
+        run: yarn install --immutable --immutable-cache
       - name: Build project
         run: yarn lerna run build
 
@@ -176,7 +176,7 @@ jobs:
           node-version: '14.x'
           cache: 'yarn'
       - name: Install dependencies
-        run: yarn install --offline
+        run: yarn install --immutable --immutable-cache
       - name: Build project
         run: yarn lerna run --ignore @carbon/ibmdotcom-react build
 
@@ -291,7 +291,7 @@ jobs:
           node-version: '14.x'
           cache: 'yarn'
       - name: Install dependencies
-        run: yarn install --offline
+        run: yarn install --immutable --immutable-cache
       - name: Build project
         run: yarn lerna run --ignore @carbon/ibmdotcom-react --ignore @carbon/ibmdotcom-web-components --ignore @carbon/web-components build
       - name: Set env vars
@@ -343,7 +343,7 @@ jobs:
           node-version: '14.x'
           cache: 'yarn'
       - name: Install dependencies
-        run: yarn install --offline
+        run: yarn install --immutable --immutable-cache
       - name: Build project
         run: yarn lerna run --scope @carbon/ibmdotcom-utilities build
       - name: Set env vars
