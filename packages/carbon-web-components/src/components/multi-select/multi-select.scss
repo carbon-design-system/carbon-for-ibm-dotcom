@@ -34,6 +34,7 @@ $css--plex: true !default;
 
   .#{$prefix}--text-input {
     border: none;
+    padding-left: 0;
 
     &:focus {
       outline: none;
