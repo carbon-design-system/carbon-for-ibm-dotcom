@@ -1,7 +1,7 @@
 /**
  * @license
  *
- * Copyright IBM Corp. 2020, 2022
+ * Copyright IBM Corp. 2020, 2023
  *
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
@@ -49,6 +49,18 @@ const StableSelectorMixin = <T extends Constructor<HTMLElement>>(Base: T) => {
       this._cleanAndCreateMutationObserver({ create: true });
       window.requestAnimationFrame(() => {
         if (!this.linkNode) this.transposeAttributes();
+        if (this.hasAttribute('get-shadow-dom')) {
+          window.dispatchEvent(
+            new CustomEvent(stableSelector, {
+              bubbles: true,
+              composed: true,
+              detail: {
+                shadowDOM: this.shadowRoot,
+                // maybe some other data can be dispatched through here?
+              },
+            })
+          );
+        }
       });
     }
 

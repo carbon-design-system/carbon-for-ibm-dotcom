@@ -41,9 +41,14 @@ export const Default = (args) => {
     footer,
     cardStyles,
   } = args?.Card ?? {};
+
+  window.addEventListener('dds--card', (e) =>
+    console.log((e as CustomEvent).detail.shadowDOM)
+  );
   /* eslint-disable no-nested-ternary */
   return html`
     <dds-card
+      get-shadow-dom
       color-scheme=${cardStyles === 'Inverse card'
         ? 'inverse'
         : cardStyles === 'Outlined card'
