@@ -34,14 +34,21 @@ class BXSkeletonText extends LitElement {
   type = SKELETON_TEXT_TYPE.REGULAR;
 
   /**
-   * width of line
+   * width (in px or %) of single line of text or max-width of paragraph lines
    */
   @property({ reflect: true })
   width = '100%';
 
+  /**
+   * will generate multiple lines of text
+   */
+
   @property({ type: Boolean, reflect: true })
   paragraph = false;
 
+  /**
+   * the number of lines in a paragraph
+   */
   @property({ type: Number, reflect: true })
   lineCount = 3;
 
