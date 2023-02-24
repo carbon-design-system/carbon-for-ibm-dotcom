@@ -93,6 +93,9 @@ export const Default = (args) => {
   });
   return html`
     <dds-carousel class="${classes}">
+      <span class="bx--visually-hidden" slot="title"
+        >Carousel (Storybook Sample)</span
+      >
       ${Card()}${Card({ copy: copyOdd })}${CardWithLongHeading()}${Card({
         copy: copyOdd,
       })}${Card()}
