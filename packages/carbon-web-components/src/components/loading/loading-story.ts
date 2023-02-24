@@ -12,17 +12,20 @@ import { boolean, select } from '@storybook/addon-knobs';
 import ifNonNull from '../../globals/directives/if-non-null';
 import { LOADING_TYPE } from './loading';
 import storyDocs from './loading-story.mdx';
+import { prefix } from '../../globals/settings';
 
 const types = {
   [`Regular (${LOADING_TYPE.REGULAR})`]: null,
   [`Small (${LOADING_TYPE.SMALL})`]: LOADING_TYPE.SMALL,
-  [`With overlay (${LOADING_TYPE.OVERLAY})`]: LOADING_TYPE.OVERLAY,
 };
 
 export const Default = (args) => {
-  const { inactive, type } = args?.['bx-loading'] ?? {};
+  const { inactive, type, withOverlay } = args?.[`${prefix}-loading`] ?? {};
   return html`
-    <cds-loading ?inactive=${inactive} type=${ifNonNull(type)}></cds-loading>
+    <cds-loading
+      ?inactive=${inactive}
+      type=${ifNonNull(type)}
+      ?overlay=${withOverlay}></cds-loading>
   `;
 };
 
@@ -33,9 +36,10 @@ export default {
   parameters: {
     ...storyDocs.parameters,
     knobs: {
-      'bx-loading': () => ({
+      [`${prefix}-loading`]: () => ({
         inactive: boolean('Inactive (inactive)', false),
         type: select('The spinner type (type)', types, null),
+        withOverlay: boolean('With overlay (withOverlay)', false),
       }),
     },
   },
