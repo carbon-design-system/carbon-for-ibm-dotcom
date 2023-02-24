@@ -46,10 +46,6 @@ export const Lines = (args) => {
   `;
 };
 
-Lines.decorators = [
-  (story) => html` <div style="width:300px">${story()}</div> `,
-];
-
 Lines.parameters = {
   knobs: {
     [`${prefix}-skeleton-text`]: () => ({
@@ -57,7 +53,7 @@ Lines.parameters = {
       lineCount: number('The number of lines in a paragraph (lineCount)', 3),
       width: text(
         'Width (in px or %) of single line of text or max-width of paragraph lines (width)',
-        '500px'
+        '100%'
       ),
     }),
   },
