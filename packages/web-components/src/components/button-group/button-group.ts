@@ -73,7 +73,7 @@ class DDSButtonGroup extends StableSelectorMixin(LitElement) {
   }
 
   /**
-   * The CSS custom property name for the live button group item cout.
+   * The CSS custom property name for the live button group item count.
    */
   static get customPropertyItemCount() {
     return `--${ddsPrefix}--button-group--item-count`;
