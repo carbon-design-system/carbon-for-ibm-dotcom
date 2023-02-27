@@ -48,6 +48,26 @@ export enum MEGAMENU_RIGHT_NAVIGATION_STYLE_SCHEME {
 }
 
 /**
+ * The style scheme for the right navigation.
+ */
+export enum LEGACY_MEGAMENU_RIGHT_NAVIGATION_STYLE_SCHEME {
+  /**
+   * Regular style.
+   */
+  REGULAR = 'regular',
+
+  /**
+   * For left (highlighted) section layout.
+   */
+  LEFT_SECTION = 'left-section',
+
+  /**
+   * For tabbed megamenus.
+   */
+  TAB = 'tab',
+}
+
+/**
  * The layout options for rendering a megamenu
  */
 export enum MEGAMENU_LAYOUT_SCHEME {
