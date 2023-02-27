@@ -25,7 +25,6 @@ import DDSLeftNavOverlay from './left-nav-overlay';
 import styles from './masthead.scss';
 import DDSLeftNavMenuSection from './left-nav-menu-section';
 import DDSMasthead from './masthead';
-import { lowerCase, upperCase } from 'lodash-es';
 
 const { prefix } = settings;
 const { stablePrefix: ddsPrefix } = ddsSettings;
