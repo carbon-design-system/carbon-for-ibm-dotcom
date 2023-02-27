@@ -28,8 +28,10 @@
               </slot>
             </p>
           </div>
-          <slot name="action">
-          </slot>
+          <div class="bx--leadspace__action">
+            <slot name="action">
+            </slot>
+          </div>
         </div>
       </div>
     </div>
@@ -66,8 +68,10 @@
               </slot>
             </p>
           </div>
-          <slot name="action">
-          </slot>
+          <div class="bx--leadspace__action">
+            <slot name="action">
+            </slot>
+          </div>
         </div>
       </div>
     </div>
@@ -106,8 +110,10 @@
               </slot>
             </p>
           </div>
-          <slot name="action">
-          </slot>
+          <div class="bx--leadspace__action">
+            <slot name="action">
+            </slot>
+          </div>
         </div>
       </div>
     </div>
@@ -144,8 +150,10 @@
               </slot>
             </p>
           </div>
-          <slot name="action">
-          </slot>
+          <div class="bx--leadspace__action">
+            <slot name="action">
+            </slot>
+          </div>
         </div>
       </div>
     </div>
@@ -184,8 +192,10 @@
               </slot>
             </p>
           </div>
-          <slot name="action">
-          </slot>
+          <div class="bx--leadspace__action">
+            <slot name="action">
+            </slot>
+          </div>
         </div>
       </div>
     </div>
@@ -222,8 +232,10 @@
               </slot>
             </p>
           </div>
-          <slot name="action">
-          </slot>
+          <div class="bx--leadspace__action">
+            <slot name="action">
+            </slot>
+          </div>
         </div>
       </div>
     </div>
@@ -262,8 +274,10 @@
               </slot>
             </p>
           </div>
-          <slot name="action">
-          </slot>
+          <div class="bx--leadspace__action">
+            <slot name="action">
+            </slot>
+          </div>
         </div>
       </div>
     </div>
@@ -300,8 +314,10 @@
               </slot>
             </p>
           </div>
-          <slot name="action">
-          </slot>
+          <div class="bx--leadspace__action">
+            <slot name="action">
+            </slot>
+          </div>
         </div>
       </div>
     </div>
@@ -340,8 +356,10 @@
               </slot>
             </p>
           </div>
-          <slot name="action">
-          </slot>
+          <div class="bx--leadspace__action">
+            <slot name="action">
+            </slot>
+          </div>
         </div>
       </div>
     </div>
@@ -378,8 +396,10 @@
               </slot>
             </p>
           </div>
-          <slot name="action">
-          </slot>
+          <div class="bx--leadspace__action">
+            <slot name="action">
+            </slot>
+          </div>
         </div>
       </div>
     </div>
@@ -418,8 +438,10 @@
               </slot>
             </p>
           </div>
-          <slot name="action">
-          </slot>
+          <div class="bx--leadspace__action">
+            <slot name="action">
+            </slot>
+          </div>
         </div>
       </div>
     </div>
@@ -456,8 +478,10 @@
               </slot>
             </p>
           </div>
-          <slot name="action">
-          </slot>
+          <div class="bx--leadspace__action">
+            <slot name="action">
+            </slot>
+          </div>
         </div>
       </div>
     </div>
