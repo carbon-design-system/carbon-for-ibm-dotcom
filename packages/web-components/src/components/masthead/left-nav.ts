@@ -25,6 +25,7 @@ import DDSLeftNavOverlay from './left-nav-overlay';
 import styles from './masthead.scss';
 import DDSLeftNavMenuSection from './left-nav-menu-section';
 import DDSMasthead from './masthead';
+import { lowerCase, upperCase } from 'lodash-es';
 
 const { prefix } = settings;
 const { stablePrefix: ddsPrefix } = ddsSettings;
@@ -80,7 +81,11 @@ class DDSLeftNav extends StableSelectorMixin(BXSideNav) {
       if (toggle) {
         (toggle as HTMLElement).focus();
       }
-    } else if ((event.target as HTMLElement).matches?.(selectorButtonToggle)) {
+    } else if (
+      (event.composedPath()[1] as HTMLElement).tagName ===
+      selectorButtonToggle.toUpperCase()
+    ) {
+      console.log('ELSE IF');
       const { comparisonResult } = event.detail;
       const {
         selectorExpandedMenuSection,
