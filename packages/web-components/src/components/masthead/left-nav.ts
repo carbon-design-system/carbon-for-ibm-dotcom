@@ -84,7 +84,6 @@ class DDSLeftNav extends StableSelectorMixin(BXSideNav) {
       (event.composedPath()[1] as HTMLElement).tagName ===
       selectorButtonToggle.toUpperCase()
     ) {
-      console.log('ELSE IF');
       const { comparisonResult } = event.detail;
       const {
         selectorExpandedMenuSection,
