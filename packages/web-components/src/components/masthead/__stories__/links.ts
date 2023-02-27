@@ -396,6 +396,71 @@ const l1Data: LegacyMastheadL1 = {
 /**
  * MastheadL1 Data
  */
+const legacyMastheadL1Data: MastheadL1 = {
+  title: 'Analytics',
+  url: 'https://www.ibm.com/analytics',
+  menuItems: [
+    {
+      title: 'Products',
+      titleEnglish: 'Products',
+      url: 'https://www.ibm.com/analytics/products',
+    },
+    {
+      title: 'Solutions',
+      titleEnglish: 'Solutions',
+      url: 'https://www.ibm.com/analytics/solutions',
+    },
+    {
+      title: 'Services',
+      titleEnglish: 'Services',
+      url: 'https://www.ibm.com/industries?lnk=min',
+    },
+    {
+      title: 'Learn',
+      titleEnglish: 'Learn',
+      menuSections: [
+        {
+          menuItems: [
+            {
+              title: 'Blogs',
+              url: 'https://www.ibm.com/blogs/journey-to-ai/',
+            },
+            {
+              title: 'Client stories',
+              url: 'https://www.ibm.com/analytics/client-stories',
+            },
+            {
+              title: 'Communities',
+              url: 'https://www.ibm.com/analytics/communities',
+            },
+          ],
+        },
+      ],
+    },
+    {
+      title: 'Explore more',
+      titleEnglish: 'Explore more',
+      menuSections: [
+        {
+          menuItems: [
+            {
+              title: 'Product support',
+              url: 'https://www.ibm.com/analytics/support',
+            },
+            {
+              title: 'Expert gallery',
+              url: 'https://developer.ibm.com/technologies/blockchain/?lnk=hpmdev_dw&lnk2=learn',
+            },
+          ],
+        },
+      ],
+    },
+  ],
+};
+
+/**
+ * MastheadL1 Data
+ */
 const mastheadL1Data: MastheadL1 = {
   title: 'Analytics',
   url: 'https://www.ibm.com/analytics',
@@ -6081,6 +6146,7 @@ const customLinks: MastheadLink[] = [
 export {
   mastheadLinks,
   customLinks,
+  legacyMastheadL1Data,
   l1Data,
   logoData,
   mastheadL1Data,
