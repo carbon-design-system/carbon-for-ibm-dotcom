@@ -24,6 +24,10 @@
     --#{$dds-prefix}--carousel--page-size: 3;
   }
 
+  [role='region'] {
+    display: contents;
+  }
+
   display: flex;
   flex-direction: column;
 

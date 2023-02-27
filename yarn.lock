@@ -2173,7 +2173,7 @@ __metadata:
     karma-spec-reporter: 0.0.36
     karma-webpack: ^4.0.0
     lodash-es: ^4.17.0
-    magic-string: ^0.29.0
+    magic-string: ^0.30.0
     mini-css-extract-plugin: ^0.12.0
     null-loader: ^4.0.0
     object-assign: ^4.1.1
@@ -2479,7 +2479,7 @@ __metadata:
     lit-html: 1.4.1
     lodash-es: ^4.17.0
     lodash.pickby: ^4.6.0
-    magic-string: ^0.29.0
+    magic-string: ^0.30.0
     marked: ^4.0.10
     mini-css-extract-plugin: ^0.12.0
     mkdirp: ^0.5.0
@@ -2770,7 +2770,7 @@ __metadata:
     lit-element: ^2.5.1
     lit-html: ^1.4.1
     lodash-es: ^4.17.21
-    magic-string: ^0.29.0
+    magic-string: ^0.30.0
     mini-css-extract-plugin: ~2.7.0
     mkdirp: ^0.5.0
     null-loader: ^4.0.0
@@ -23321,12 +23321,12 @@ __metadata:
   languageName: node
   linkType: hard
 
-"magic-string@npm:^0.29.0":
-  version: 0.29.0
-  resolution: "magic-string@npm:0.29.0"
+"magic-string@npm:^0.30.0":
+  version: 0.30.0
+  resolution: "magic-string@npm:0.30.0"
   dependencies:
     "@jridgewell/sourcemap-codec": ^1.4.13
-  checksum: 19e5398fcfc44804917127c72ad622c68a19a0a10cbdb8d4f9f9417584a087fe9e117140bfb2463d86743cf1ed9cf4182ae0b0ad1a7536f7fdda257ee4449ffb
+  checksum: 7bdf22e27334d8a393858a16f5f840af63a7c05848c000fd714da5aa5eefa09a1bc01d8469362f25cc5c4a14ec01b46557b7fff8751365522acddf21e57c488d
   languageName: node
   linkType: hard
 
@@ -33297,11 +33297,11 @@ __metadata:
 
 "typescript@patch:typescript@^3 || ^4#~builtin<compat/typescript>, typescript@patch:typescript@^4.4.3#~builtin<compat/typescript>":
   version: 4.9.5
-  resolution: "typescript@patch:typescript@npm%3A4.9.5#~builtin<compat/typescript>::version=4.9.5&hash=ad5954"
+  resolution: "typescript@patch:typescript@npm%3A4.9.5#~builtin<compat/typescript>::version=4.9.5&hash=23ec76"
   bin:
     tsc: bin/tsc
     tsserver: bin/tsserver
-  checksum: 8f6260acc86b56bfdda6004bc53f32ea548f543e8baef7071c8e34d29d292f3e375c8416556c8de10b24deef6933cd1c16a8233dc84a3dd43a13a13265d0faab
+  checksum: ab417a2f398380c90a6cf5a5f74badd17866adf57f1165617d6a551f059c3ba0a3e4da0d147b3ac5681db9ac76a303c5876394b13b3de75fdd5b1eaa06181c9d
   languageName: node
   linkType: hard
 
@@ -33317,11 +33317,11 @@ __metadata:
 
 "typescript@patch:typescript@~4.8.0#~builtin<compat/typescript>":
   version: 4.8.4
-  resolution: "typescript@patch:typescript@npm%3A4.8.4#~builtin<compat/typescript>::version=4.8.4&hash=0102e9"
+  resolution: "typescript@patch:typescript@npm%3A4.8.4#~builtin<compat/typescript>::version=4.8.4&hash=1a91c8"
   bin:
     tsc: bin/tsc
     tsserver: bin/tsserver
-  checksum: 301459fc3eb3b1a38fe91bf96d98eb55da88a9cb17b4ef80b4d105d620f4d547ba776cc27b44cc2ef58b66eda23fe0a74142feb5e79a6fb99f54fc018a696afa
+  checksum: c981e82b77a5acdcc4e69af9c56cdecf5b934a87a08e7b52120596701e389a878b8e3f860e73ffb287bf649cc47a8c741262ce058148f71de4cdd88bb9c75153
   languageName: node
   linkType: hard
 

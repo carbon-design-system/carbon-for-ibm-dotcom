@@ -40,7 +40,9 @@ class DDSLightboxMediaViewer extends DDSLightboxMediaViewerBody {
 
   _renderTitle() {
     const { title } = this;
-    return html` <slot name="title">${title}</slot> `;
+    return html`
+      <slot name="title"><h2 style="all: inherit;">${title}</h2></slot>
+    `;
   }
 
   private _mediaItem?: HTMLElement;
