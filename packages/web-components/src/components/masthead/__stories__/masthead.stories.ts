@@ -16,7 +16,11 @@ import textNullable from '../../../../.storybook/knob-text-nullable';
 import DDSLeftNav from '../left-nav';
 import '../masthead-container';
 import styles from './masthead.stories.scss';
-import { mastheadLinksV2 as links, mastheadL1Data, logoData } from './links';
+import {
+  mastheadLinksV2 as links,
+  legacyMastheadL1Data,
+  logoData,
+} from './links';
 import {
   UNAUTHENTICATED_STATUS,
   MASTHEAD_AUTH_METHOD,
@@ -480,7 +484,7 @@ export const withL1 = (args) => {
             .authenticatedProfileItems="${ifNonNull(authenticatedProfileItems)}"
             has-profile="${hasProfile}"
             ?has-search="${hasSearch}"
-            .l1Data="${mastheadL1Data}"
+            .l1Data="${legacyMastheadL1Data}"
             .navLinks="${links}"
             .unauthenticatedProfileItems="${ifNonNull(
               unauthenticatedProfileItems
@@ -495,7 +499,7 @@ export const withL1 = (args) => {
             user-status="${ifNonNull(userStatus)}"
             has-profile="${hasProfile}"
             ?has-search="${hasSearch}"
-            .l1Data="${mastheadL1Data}"
+            .l1Data="${legacyMastheadL1Data}"
             .navLinks="${links}"></dds-masthead-container>
         `}
   `;
