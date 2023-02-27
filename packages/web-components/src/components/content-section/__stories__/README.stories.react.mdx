@@ -1,4 +1,9 @@
-import { Preview, Props, Description, Story } from '@storybook/addon-docs/blocks';
+import {
+  Preview,
+  Props,
+  Description,
+  Story,
+} from '@storybook/addon-docs/blocks';
 import contributing from '../../../../../../docs/contributing-license.md';
 import { PropTypesRef } from '@carbon/ibmdotcom-web-components/es/components-react/content-section/content-section';
 
@@ -27,10 +32,196 @@ function App() {
     <DDSContentSection>
       <DDSContentSectionHeading>{heading}</DDSContentSectionHeading>
       <DDSContentSectionCopy>{copy}</DDSContentSectionCopy>
-      <DDSTextCTA slot="footer" cta-type="local" href="https://www.example.com">Link action</DDSTextCTA>
+      <DDSTextCTA slot="footer" cta-type="local" href="https://www.example.com">
+        Link action
+      </DDSTextCTA>
     </DDSContentSection>
   );
 }
+```
+
+As part of the ongoing upgrade to Carbon for IBM.com v2, we have consolidated
+some of the other `Content section` variants under a single one. Some of the
+components that are compatible with the `Content section` component are:
+`Content block simple`, `Card group`, `Carousel`, `Link list`.
+
+### Content block simple
+
+Note: With `Content block simple`, the `childrenCustomClass` attribute will need
+to be provided with proper grid class as shown below in order for the component
+to render correctly within the grid.
+
+```html
+<DDSContentSection childrenCustomClass="bx--col-lg-16 bx--no-gutter">
+  <DDSContentSectionHeading>{heading}</DDSContentSectionHeading>
+  <DDSContentSectionCopy>{copy}</DDSContentSectionCopy>
+  <DDSTextCTA slot="footer" cta-type="local" href="https://www.example.com">
+    Link action
+  </DDSTextCTA>
+  <DDSContentBlockSimple>
+    <DDSContentBlockHeading>
+      Content block simple heading
+    </DDSContentBlockHeading>
+    <DDSContentBlockCopy size="sm">
+      Content block simple copy
+    </DDSContentBlockCopy>
+    <DDSVideoPlayerContainer
+      slot="media"
+      video-id="1_9h94wo6b"></DDSVideoPlayerContainer>
+    <DDSTextCTA slot="footer" cta-type="jump" href="https://www.ibm.com">
+      Content block simple CTA
+    </DDSTextCTA>
+  </DDSContentBlockSimple>
+</DDSContentSection>
+```
+
+### Card group
+
+```html
+<DDSContentSection>
+  <DDSContentSectionHeading>{heading}</DDSContentSectionHeading>
+  <DDSContentSectionCopy>{copy}</DDSContentSectionCopy>
+  <DDSTextCTA slot="footer" cta-type="local" href="https://www.example.com">
+    Link action
+  </DDSTextCTA>
+  <DDSCardGroup>
+    <DDSContentGroupCardsItem href="https://www.example.com">
+      <DDSCardHeading>
+        Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+        tempor incididunt
+      </DDSCardHeading>
+      <p>
+        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod
+        tempor incididunt ut labore et dolore magna aliqua.
+      </p>
+      <DDSCardFooter icon-placemenet="left">
+        <ArrowRight20 slot="icon" />
+      </DDSCardFooter>
+    </DDSContentGroupCardsItem>
+    <DDSContentGroupCardsItem href="https://www.example.com">
+      <DDSCardHeading>
+        Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+        tempor incididunt
+      </DDSCardHeading>
+      <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit</p>
+      <DDSCardFooter icon-placemenet="left">
+        <ArrowRight20 slot="icon" />
+      </DDSCardFooter>
+    </DDSContentGroupCardsItem>
+    <DDSContentGroupCardsItem href="https://www.example.com">
+      <DDSCardHeading>
+        Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+        tempor incididunt
+      </DDSCardHeading>
+      <p>
+        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod
+        tempor incididunt ut labore et dolore magna aliqua.
+      </p>
+      <DDSCardFooter icon-placemenet="left">
+        <ArrowRight20 slot="icon" />
+      </DDSCardFooter>
+    </DDSContentGroupCardsItem>
+    <DDSContentGroupCardsItem href="https://www.example.com">
+      <DDSCardHeading>
+        Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+        tempor incididunt
+      </DDSCardHeading>
+      <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit</p>
+      <DDSCardFooter icon-placemenet="left">
+        <ArrowRight20 slot="icon" />
+      </DDSCardFooter>
+    </DDSContentGroupCardsItem>
+  </DDSCardGroup>
+</DDSContentSection>
+```
+
+### Carousel
+
+```html
+<DDSContentSection>
+  <DDSContentSectionHeading>{heading}</DDSContentSectionHeading>
+  <DDSContentSectionCopy>{copy}</DDSContentSectionCopy>
+  <DDSTextCTA slot="footer" cta-type="local" href="https://www.example.com">
+    Link action
+  </DDSTextCTA>
+  <DDSCarousel>
+    <DDSCard href="https://www.ibm.com/standards/carbon">
+      <DDSCardHeading>Lorem ipsum dolor sit amet</DDSCardHeading>
+      Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean et
+      ultricies est.Mauris iaculis eget dolor nec hendrerit. Phasellus at elit
+      sollicitudin, sodales nulla quis, consequat libero.
+      <DDSCardFooter>
+        <ArrowRight20 slot="icon" />
+      </DDSCardFooter>
+    </DDSCard>
+
+    <DDSCard href="https://www.ibm.com/standards/carbon">
+      <DDSCardHeading>Lorem ipsum dolor sit amet</DDSCardHeading>
+      Mauris iaculis eget dolor nec hendrerit. Phasellus at elit sollicitudin,
+      sodales nulla quis, consequat libero.
+      <DDSCardFooter>
+        <ArrowRight20 slot="icon" />
+      </DDSCardFooter>
+    </DDSCard>
+
+    <DDSCard href="https://www.ibm.com/standards/carbon">
+      <DDSCardHeading>Lorem ipsum dolor sit amet</DDSCardHeading>
+      Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean et
+      ultricies est.Mauris iaculis eget dolor nec hendrerit. Phasellus at elit
+      sollicitudin, sodales nulla quis, consequat libero.
+      <DDSCardFooter>
+        <ArrowRight20 slot="icon" />
+      </DDSCardFooter>
+    </DDSCard>
+
+    <DDSCard href="https://www.ibm.com/standards/carbon">
+      <DDSCardHeading>Lorem ipsum dolor sit amet</DDSCardHeading>
+      Mauris iaculis eget dolor nec hendrerit. Phasellus at elit sollicitudin,
+      sodales nulla quis, consequat libero.
+      <DDSCardFooter>
+        <ArrowRight20 slot="icon" />
+      </DDSCardFooter>
+    </DDSCard>
+  </DDSCarousel>
+</DDSContentSection>
+```
+
+### Link list
+
+```html
+<DDSContentSection>
+  <DDSContentSectionHeading>{heading}</DDSContentSectionHeading>
+  <DDSContentSectionCopy>{copy}</DDSContentSectionCopy>
+  <DDSTextCTA slot="footer" cta-type="local" href="https://www.example.com">
+    Link action
+  </DDSTextCTA>
+  <DDSLinkList>
+    <DDSLinkListItem href="https://example.com">
+      Learn more about Kubernetes and automating deployment
+      <ArrowRight20 slot="icon" />
+    </DDSLinkListItem>
+    <DDSLinkListItem href="https://example.com">
+      Containerization A Complete Guide
+      <ArrowRight20 slot="icon" />
+    </DDSLinkListItem>
+    <DDSLinkListItem href="https://example.com">
+      Microservices and container
+      <ArrowRight20 slot="icon" />
+    </DDSLinkListItem>
+    <DDSLinkListItem href="https://example.com">
+      Learn more about Kubernetes and automating deployment
+      <ArrowRight20 slot="icon" />
+    </DDSLinkListItem>
+    <DDSLinkListItem href="https://example.com">
+      Containerization A Complete Guide
+      <ArrowRight20 slot="icon" />
+    </DDSLinkListItem>
+    <DDSLinkListItem href="https://example.com">
+      Microservices and container
+      <ArrowRight20 slot="icon" />
+    </DDSLinkListItem>
+  </DDSLinkList>
+</DDSContentSection>
 ```
 
 ## Props
@@ -39,13 +230,14 @@ function App() {
 
 ## Stable selectors
 
-See [our README](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/tree/master/packages/web-components#stable-selectors-for-analytics-and-integratione2e-testing-in-web-components) to see how Web Components selector and `data-autoid` should be used.
+See
+[our README](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/tree/master/packages/web-components#stable-selectors-for-analytics-and-integratione2e-testing-in-web-components)
+to see how Web Components selector and `data-autoid` should be used.
 
 | Web Components selector         | Compatibility selector                        | Description |
 | ------------------------------- | --------------------------------------------- | ----------- |
 | `<dds-content-section>`         | `data-autoid="dds--content-section"`          | Component   |
 | `<dds-content-section-copy>`    | `data-autoid="dds--content-section__copy"`    | Component   |
 | `<dds-content-section-heading>` | `data-autoid="dds--content-section__heading"` | Component   |
-
 
 <Description markdown={contributing} />
