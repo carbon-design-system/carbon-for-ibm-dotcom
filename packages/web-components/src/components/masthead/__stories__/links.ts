@@ -396,7 +396,7 @@ const l1Data: LegacyMastheadL1 = {
 /**
  * MastheadL1 Data
  */
-const legacyMastheadL1Data: MastheadL1 = {
+const legacyMastheadL1Data: LegacyMastheadL1 = {
   title: 'Analytics',
   url: 'https://www.ibm.com/analytics',
   menuItems: [
