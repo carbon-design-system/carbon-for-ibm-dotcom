@@ -27,7 +27,7 @@ jobs:
           node-version: ${{ matrix.node-version }}
           cache: 'yarn'
       - name: Install dependencies
-        run: yarn install --offline
+        run: yarn install --immutable --immutable-cache
       - name: Build project
         run: yarn lerna run --stream --ignore @carbon/ibmdotcom-react build
       - name: Set Cloud Masthead env var
@@ -60,7 +60,7 @@ jobs:
           node-version: ${{ matrix.node-version }}
           cache: 'yarn'
       - name: Install dependencies
-        run: yarn install --offline
+        run: yarn install --immutable --immutable-cache
       - name: Build project
         run: yarn lerna run --stream --ignore @carbon/ibmdotcom-web-components --ignore @carbon/ibmdotcom-services-store build
       - name: Build storybook
