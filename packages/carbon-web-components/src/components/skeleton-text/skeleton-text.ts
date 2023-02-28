@@ -66,7 +66,7 @@ class BXSkeletonText extends LitElement {
       return html`${lines.map((_, i) => {
         const randomWidth =
           (widthPercent && `${getRandomInt(0, 75, i)}px`) ||
-          (widthPx && `${getRandomInt(widthNum - 75, widthNum, i)}px`);
+          (widthPx && `${getRandomInt(0, widthNum, i)}px`);
         const style =
           (widthPercent && `width: calc(${width} - ${randomWidth})`) ||
           (widthPx && `width: ${randomWidth}`) ||
