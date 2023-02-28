@@ -38,7 +38,9 @@ const image = html`
 
 const linkList = html`
   <dds-link-list type="end">
-    <dds-link-list-heading>Featured products</dds-link-list-heading>
+    <dds-link-list-heading aria-level="3"
+      >Featured products</dds-link-list-heading
+    >
     <dds-link-list-item href="https://example.com">
       IBM Cloud Continuous Delivery ${ArrowRight20({ slot: 'icon' })}
     </dds-link-list-item>
