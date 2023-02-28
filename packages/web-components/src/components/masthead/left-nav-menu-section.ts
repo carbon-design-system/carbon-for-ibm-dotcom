@@ -198,7 +198,7 @@ class DDSLeftNavMenuSection extends HostListenerMixin(FocusMixin(LitElement)) {
         }
 
         if (tabbable) {
-          document.addEventListener(
+          this.addEventListener(
             'transitionend',
             () => {
               (tabbable as HTMLElement).focus();
