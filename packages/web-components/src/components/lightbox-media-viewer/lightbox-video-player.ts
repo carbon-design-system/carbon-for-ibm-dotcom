@@ -1,7 +1,7 @@
 /**
  * @license
  *
- * Copyright IBM Corp. 2020, 2022
+ * Copyright IBM Corp. 2020, 2023
  *
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
@@ -51,12 +51,14 @@ class DDSLightboxVideoPlayer extends DDSLightboxMediaViewerBody {
     const { duration, formatCaption, formatDuration, name } = this;
     return html`
       <slot name="title">
-        ${formatCaption({
-          duration: formatDuration({
-            duration: !duration ? duration : duration * 1000,
-          }),
-          name,
-        })}
+        <h2 style="all: inherit;">
+          ${formatCaption({
+            duration: formatDuration({
+              duration: !duration ? duration : duration * 1000,
+            }),
+            name,
+          })}
+        </h2>
       </slot>
     `;
   }
