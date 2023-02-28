@@ -636,11 +636,7 @@ class DDSSearchWithTypeahead extends HostListenerMixin(
       'react-autosuggest__suggestions-container--open': open,
     });
     return html`
-      <form
-        role="search"
-        method="get"
-        action="${redirectUrl}"
-        @submit="${handleSubmit}">
+      <form method="get" action="${redirectUrl}" @submit="${handleSubmit}">
         <input type="hidden" name="lang" value="${primary}" />
         <input type="hidden" name="cc" value="${country}" />
         <input type="hidden" name="lnk" value="mhsrch" />
