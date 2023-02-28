@@ -52,6 +52,7 @@
 <form
   action="https://www.ibm.com/search"
   method="get"
+  role="search"
 >
   <input
     name="lang"
