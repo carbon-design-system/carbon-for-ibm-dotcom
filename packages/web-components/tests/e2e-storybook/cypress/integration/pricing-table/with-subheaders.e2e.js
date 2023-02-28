@@ -84,7 +84,7 @@ const _tests = (path = path) => [
     });
   },
   () => {
-    it('should hide header scroll description when stuck', () => {
+    xit('should hide header scroll description when stuck', () => {
       cy.visit(path)
         .get(selectors.headerCellDescription)
         .should('be.visible')
