@@ -22,8 +22,6 @@ const { stablePrefix: ddsPrefix } = ddsSettings;
  */
 @customElement(`${ddsPrefix}-megamenu-heading`)
 class DDSMegaMenuHeading extends HostListenerMixin(LitElement) {
-  protected _hasContent = false;
-
   /**
    * Megamenu heading href.
    */
@@ -105,16 +103,18 @@ class DDSMegaMenuHeading extends HostListenerMixin(LitElement) {
   }
 
   protected _handleSlotChange(event) {
-    this._hasContent =
+    const hasContent =
       (event.target as HTMLSlotElement)
         .assignedNodes()
         .filter((child) => child?.textContent?.trim()).length > 0;
+
+    this.classList.toggle('has-content', hasContent);
   }
 
   render() {
     return html`
       ${this.renderHeading()}
-      <span ?data-has-content="${this._hasContent}">
+      <span>
         <slot @slotchange=${this._handleSlotChange}></slot>
       </span>
     `;
