@@ -1,7 +1,7 @@
 /**
  * @license
  *
- * Copyright IBM Corp. 2020, 2021
+ * Copyright IBM Corp. 2020, 2023
  *
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
@@ -36,13 +36,26 @@ function scripts() {
       .pipe(sourcemaps.init())
       .pipe(
         babel({
-          presets: ['@babel/preset-modules'],
+          presets: ['@babel/preset-modules', '@babel/preset-env'],
           // `version: '7.3.0'` ensures `@babel/plugin-transform-runtime` is applied to decorator helper
-          plugins: [['@babel/plugin-transform-runtime', { useESModules: true, version: '7.3.0' }], babelPluginResourceJSPaths],
+          plugins: [
+            [
+              '@babel/plugin-transform-runtime',
+              { useESModules: true, version: '7.3.0' },
+            ],
+            '@babel/plugin-syntax-dynamic-import',
+            babelPluginResourceJSPaths,
+          ],
         })
       )
       // Avoids generating `.js` from interface-only `.ts` files
-      .pipe(filter(file => stripComments(file.contents.toString(), { sourceType: 'module' }).replace(/\s/g, '')))
+      .pipe(
+        filter(file =>
+          stripComments(file.contents.toString(), {
+            sourceType: 'module',
+          }).replace(/\s/g, '')
+        )
+      )
       .pipe(sourcemaps.write('.'))
       .pipe(gulp.dest(config.jsDestDir))
   );

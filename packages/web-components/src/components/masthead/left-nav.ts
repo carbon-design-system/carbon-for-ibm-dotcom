@@ -59,6 +59,9 @@ class DDSLeftNav extends StableSelectorMixin(BXSideNav) {
   @query('#end-sentinel')
   private _endSentinelNode!: HTMLAnchorElement;
 
+  @property({ type: Boolean })
+  private _importedSideNav = false;
+
   /**
    * Handles `dds-request-focus-wrap` event on the document.
    *
@@ -249,6 +252,15 @@ class DDSLeftNav extends StableSelectorMixin(BXSideNav) {
       const masthead: DDSMasthead | null | undefined = doc
         ?.querySelector('dds-cloud-masthead-container')
         ?.querySelector('dds-masthead');
+      if (expanded && !this._importedSideNav) {
+        import('./left-nav-name');
+        import('./left-nav-menu');
+        import('./left-nav-menu-section');
+        import('./left-nav-menu-item');
+        import('./left-nav-menu-category-heading');
+        import('./left-nav-overlay');
+        this._importedSideNav = true;
+      }
       if (expanded && masthead) {
         this._hFocusWrap = focuswrap(this.shadowRoot!, [
           startSentinelNode,
