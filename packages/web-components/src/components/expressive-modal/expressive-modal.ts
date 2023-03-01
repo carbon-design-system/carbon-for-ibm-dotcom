@@ -333,9 +333,19 @@ class DDSExpressiveModal extends StableSelectorMixin(
     const { name } = target as HTMLSlotElement;
     const hasContent = (target as HTMLSlotElement)
       .assignedNodes()
-      .some(
-        (node) => node.nodeType !== Node.TEXT_NODE || node!.textContent!.trim()
-      );
+      .some((node) => {
+        // Allow non-empty text nodes.
+        if (node.nodeType === Node.TEXT_NODE && node!.textContent!.trim()) {
+          return true;
+        }
+        // Allow only element nodes that don't have a .bx--visually-hidden
+        // class.
+        if (node instanceof Element) {
+          return !node.classList.contains('bx--visually-hidden');
+        }
+        // No opinion on other cases.
+        return true;
+      });
     this[slotExistencePropertyNames[name] || '_hasBody'] = hasContent;
   }
 
