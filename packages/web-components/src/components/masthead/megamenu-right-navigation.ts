@@ -33,7 +33,7 @@ class DDSMegaMenuRightNavigation extends StableSelectorMixin(LitElement) {
    * `true` to render left (highlighted) section layout.
    */
   @property({ reflect: true, attribute: 'style-scheme' })
-  styleScheme = MEGAMENU_RIGHT_NAVIGATION_STYLE_SCHEME.REGULAR;
+  styleScheme = MEGAMENU_RIGHT_NAVIGATION_STYLE_SCHEME.FULL;
 
   /**
    * view all link href.
@@ -55,10 +55,8 @@ class DDSMegaMenuRightNavigation extends StableSelectorMixin(LitElement) {
    */
   protected _getClassNames() {
     return classMap({
-      [`${prefix}--masthead__megamenu--has-sidebar`]: [
-        MEGAMENU_RIGHT_NAVIGATION_STYLE_SCHEME.LEFT_SECTION,
-        MEGAMENU_RIGHT_NAVIGATION_STYLE_SCHEME.TAB,
-      ].includes(this.styleScheme),
+      [`${prefix}--masthead__megamenu--has-sidebar`]:
+        this.styleScheme === MEGAMENU_RIGHT_NAVIGATION_STYLE_SCHEME.HAS_SIDEBAR,
       [`${prefix}--masthead__megamenu--has-view-all-link`]: this.viewAllHref,
     });
   }
