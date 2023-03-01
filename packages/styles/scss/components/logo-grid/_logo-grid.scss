@@ -1,5 +1,5 @@
 /**
- * Copyright IBM Corp. 2016, 2022
+ * Copyright IBM Corp. 2016, 2023
  *
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
@@ -151,6 +151,10 @@
     width: 90%;
     margin-top: $carbon--spacing-07;
     margin-bottom: $carbon--spacing-07;
+  }
+
+  .#{$prefix}--content-layout__body {
+    display: block;
   }
 
   .#{$prefix}--logo-grid__wrapper,
