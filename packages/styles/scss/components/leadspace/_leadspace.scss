@@ -103,13 +103,17 @@ $btn-min-width: 26;
       }
     }
 
+    .#{$prefix}--buttongroup,
     ::slotted(#{$dds-prefix}-button-group),
-    .#{$prefix}--buttongroup {
+    ::slotted(#{$dds-prefix}-leadspace-block-cta) {
       padding-bottom: $spacing-07;
 
       @include carbon--breakpoint(md) {
-        display: flex;
-
+        display: grid;
+        grid-template-columns: repeat(
+          var(--#{$dds-prefix}--button-group--item-count),
+          1fr
+        );
         @media print {
           display: block;
         }
@@ -151,6 +155,21 @@ $btn-min-width: 26;
       @include carbon--make-row;
 
       flex-flow: column nowrap;
+    }
+
+    .#{$prefix}--leadspace__action {
+      display: inline-block;
+
+      // Button requirements dictate buttons should be full width at 320px and
+      // down. The carbon--breakpoint-down(sm) mixin has logic that will use
+      // a value of 320px - 0.02, which is not quite what we want, so instead,
+      // we use carbon--breakpoint-down with a number argument, using the
+      // defined width for the sm breakpoint.
+      $breakpoint: map-get($carbon--grid-breakpoints, sm);
+      $width: map-get($breakpoint, width);
+      @include carbon--breakpoint-down($width) {
+        display: block;
+      }
     }
 
     .#{$prefix}--btn {
