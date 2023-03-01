@@ -1,5 +1,5 @@
 /**
- * Copyright IBM Corp. 2021, 2022
+ * Copyright IBM Corp. 2021, 2023
  *
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
@@ -61,6 +61,13 @@ describe('dds-masthead | default (desktop)', () => {
   });
 
   it('should have urls for the submenu items within the megamenu', () => {
+    // Click to open the megamenu that we're interested in inspecting, since
+    // due to lazy loading, it's not in the DOM by default.
+    cy.get('dds-megamenu-top-nav-menu:nth-child(2)')
+      .shadow()
+      .find('[part=trigger]')
+      .click();
+
     cy.get(
       'dds-megamenu-top-nav-menu:nth-child(2) > dds-megamenu >  dds-megamenu-right-navigation >  dds-megamenu-category-group > dds-megamenu-category-link:nth-child(1)'
     )
