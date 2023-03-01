@@ -378,7 +378,7 @@ $breakpoint--desktop-nav: 799px;
   max-height: calc(
     100vh - var(--cds-spacing-09, 3rem) - var(--cds-layout-05, 4rem)
   );
-  overflow: auto;
+  overflow: overlay;
 }
 
 :host(#{$dds-prefix}-left-nav) {
@@ -634,7 +634,6 @@ $breakpoint--desktop-nav: 799px;
   .#{$prefix}--masthead__megamenu__container {
     width: 100%;
     height: 100%;
-    overflow-y: scroll;
     overflow-x: hidden;
   }
 }
@@ -824,4 +823,8 @@ $breakpoint--desktop-nav: 799px;
       top: $spacing-02;
     }
   }
+}
+
+:host(#{$dds-prefix}-megamenu-category-heading.has-content) {
+  margin-bottom: $spacing-06;
 }

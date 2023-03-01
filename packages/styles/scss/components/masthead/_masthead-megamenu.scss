@@ -197,8 +197,7 @@
     margin-inline-start: calc(#{$layout-01} * -1);
 
     .#{$prefix}--masthead__megamenu__view-all__border {
-      inset-inline-start: -100vw;
-      inset-inline-end: 0;
+      inset-inline: 0;
     }
   }
 
@@ -207,8 +206,14 @@
     display: block;
     width: 100%;
 
-    &[style-scheme='tab'] {
+    &[style-scheme='has-sidebar'] {
       height: 100%;
+
+      .#{$prefix}--masthead__megamenu__heading,
+      .#{$prefix}--masthead__megamenu__categories,
+      [part='view-all'] {
+        padding-inline-start: $layout-01;
+      }
     }
 
     ::slotted(#{$dds-prefix}-megamenu-heading) {
@@ -235,12 +240,6 @@
       }
     }
 
-    .#{$prefix}--masthead__megamenu__heading,
-    .#{$prefix}--masthead__megamenu__categories,
-    [part='view-all'] {
-      padding-inline-start: $layout-01;
-    }
-
     .#{$prefix}--masthead__megamenu__categories {
       padding-block-end: $layout-03;
       column-count: 2;
@@ -252,8 +251,7 @@
     }
 
     .#{$prefix}--masthead__megamenu__view-all__border {
-      inset-inline-start: 0;
-      inset-inline-end: -100vw;
+      inset-inline: 0;
     }
 
     // Disable columns here so child element can reapply them.
@@ -308,6 +306,7 @@
 
       .#{$prefix}--masthead__megamenu__category-group-content {
         column-count: 2;
+        column-gap: 0;
 
         @include carbon--breakpoint('lg') {
           column-count: 3;
