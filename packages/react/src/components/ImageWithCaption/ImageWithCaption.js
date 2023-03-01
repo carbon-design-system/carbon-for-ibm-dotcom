@@ -1,5 +1,5 @@
 /**
- * Copyright IBM Corp. 2016, 2022
+ * Copyright IBM Corp. 2016, 2023
  *
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
@@ -50,7 +50,7 @@ const ImageWithCaption = ({
         <button
           aria-label="launch light box media viewer"
           className={`${prefix}--image-with-caption__image`}
-          onClick={e => CTALogic.setLightBox(e, openLightBox)}>
+          onClick={(e) => CTALogic.setLightBox(e, openLightBox)}>
           <Image {...image} />
           <div className={`${prefix}--image-with-caption__zoom-button`}>
             <ZoomIn20 aria-label="Zoom In Icon" />

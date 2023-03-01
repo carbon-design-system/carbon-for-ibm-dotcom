@@ -1,7 +1,7 @@
 /**
  * @license
  *
- * Copyright IBM Corp. 2020, 2022
+ * Copyright IBM Corp. 2020, 2023
  *
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
@@ -10,7 +10,7 @@
 import '../index';
 import '../../video-player/video-player-container';
 import { html } from 'lit-element';
-import ifNonNull from 'carbon-web-components/es/globals/directives/if-non-null.js';
+import ifNonNull from '../../../internal/vendor/@carbon/web-components/globals/directives/if-non-null.js';
 import { text, select, number } from '@storybook/addon-knobs';
 import imgMax from '../../../../../storybook-images/assets/leadspace/leadspaceMax.jpg';
 import imgLg16x9 from '../../../../../storybook-images/assets/leadspace/fpo--leadspace--16x9--1594x891--005.jpg';
@@ -23,50 +23,57 @@ const gradientDirections = {
   [`Top to Bottom`]: GRADIENT_DIRECTION.TOP_TO_BOTTOM,
 };
 
-export const Default = args => {
-  const { alt, gradientDirection, backgroundOpacity } = args?.['dds-background-media'] ?? {};
+export const Default = (args) => {
+  const { alt, gradientDirection, backgroundOpacity } =
+    args?.['dds-background-media'] ?? {};
   return html`
     <dds-background-media
       gradient-direction="${ifNonNull(gradientDirection)}"
       mobile-position="bottom"
       alt="${ifNonNull(alt)}"
       default-src="${imgMax}"
-      opacity="${ifNonNull(backgroundOpacity)}"
-    >
-      <dds-image-item media="(min-width: 1584px)" srcset="${imgMax}"> </dds-image-item>
-      <dds-image-item media="(min-width: 1312px)" srcset="${imgLg16x9}"> </dds-image-item>
-      <dds-image-item media="(min-width: 672px)" srcset="${imgLg16x9}"> </dds-image-item>
-      <dds-image-item media="(min-width: 320px)" srcset="${imgSm4x3}"> </dds-image-item>
-      <dds-image-item media="(min-width: 0px)" srcset="${imgSm4x3}"> </dds-image-item>
+      opacity="${ifNonNull(backgroundOpacity)}">
+      <dds-image-item media="(min-width: 1584px)" srcset="${imgMax}">
+      </dds-image-item>
+      <dds-image-item media="(min-width: 1312px)" srcset="${imgLg16x9}">
+      </dds-image-item>
+      <dds-image-item media="(min-width: 672px)" srcset="${imgLg16x9}">
+      </dds-image-item>
+      <dds-image-item media="(min-width: 320px)" srcset="${imgSm4x3}">
+      </dds-image-item>
+      <dds-image-item media="(min-width: 0px)" srcset="${imgSm4x3}">
+      </dds-image-item>
     </dds-background-media>
   `;
 };
 
-export const WithVideo = args => {
-  const { gradientDirection, backgroundOpacity } = args?.['dds-background-media'] ?? {};
+export const WithVideo = (args) => {
+  const { gradientDirection, backgroundOpacity } =
+    args?.['dds-background-media'] ?? {};
   return html`
     <div style="height: 70vh;">
       <dds-background-media
         gradient-direction="${ifNonNull(gradientDirection)}"
         mobile-position="bottom"
-        opacity="${ifNonNull(backgroundOpacity)}"
-      >
-        <dds-video-player-container video-id="1_9h94wo6b" background-mode="true"></dds-video-player-container>
+        opacity="${ifNonNull(backgroundOpacity)}">
+        <dds-video-player-container
+          video-id="1_9h94wo6b"
+          background-mode="true"></dds-video-player-container>
       </dds-background-media>
     </div>
   `;
 };
 
-export const WithDefaultSource = args => {
-  const { alt, gradientDirection, backgroundOpacity } = args?.['dds-background-media'] ?? {};
+export const WithDefaultSource = (args) => {
+  const { alt, gradientDirection, backgroundOpacity } =
+    args?.['dds-background-media'] ?? {};
   return html`
     <dds-background-media
       gradient-direction="${ifNonNull(gradientDirection)}"
       mobile-position="bottom"
       alt="${ifNonNull(alt)}"
       default-src="${imgMax}"
-      opacity="${ifNonNull(backgroundOpacity)}"
-    >
+      opacity="${ifNonNull(backgroundOpacity)}">
     </dds-background-media>
   `;
 };
@@ -74,12 +81,10 @@ export const WithDefaultSource = args => {
 export default {
   title: 'Components/Background media',
   decorators: [
-    story => html`
+    (story) => html`
       <div class="bx--grid">
         <div class="bx--row">
-          <div class="bx--col-sm-4 bx--no-gutter">
-            ${story()}
-          </div>
+          <div class="bx--col-sm-4 bx--no-gutter">${story()}</div>
         </div>
       </div>
     `,
@@ -96,7 +101,11 @@ export default {
         ),
         alt: text('Image alt text (alt):', 'Image alt text'),
         defaultSrc: text('Default image (default-src)', imgMax),
-        backgroundOpacity: number('Background Opacity', 100, { range: true, min: 0, max: 100 }),
+        backgroundOpacity: number('Background Opacity', 100, {
+          range: true,
+          min: 0,
+          max: 100,
+        }),
       }),
     },
     propsSet: {

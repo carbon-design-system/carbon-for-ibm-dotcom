@@ -1,7 +1,7 @@
 /**
  * @license
  *
- * Copyright IBM Corp. 2020, 2022
+ * Copyright IBM Corp. 2020, 2023
  *
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
@@ -9,8 +9,8 @@
 
 import { customElement, html, property, LitElement } from 'lit-element';
 import settings from 'carbon-components/es/globals/js/settings.js';
-import Close from 'carbon-web-components/es/icons/close/16.js';
-import FocusMixin from 'carbon-web-components/es/globals/mixins/focus.js';
+import Close from '../../internal/vendor/@carbon/web-components/icons/close/16.js';
+import FocusMixin from '../../internal/vendor/@carbon/web-components/globals/mixins/focus.js';
 import ddsSettings from '../../internal/vendor/@carbon/ibmdotcom-utilities/utilities/settings/settings';
 import StableSelectorMixin from '../../globals/mixins/stable-selector';
 import styles from './filter-panel.scss';
@@ -25,7 +25,9 @@ const { stablePrefix: ddsPrefix } = ddsSettings;
  * @element dds-filter-panel-input-select
  */
 @customElement(`${ddsPrefix}-filter-panel-input-select`)
-class DDSFilterPanelInputSelect extends FocusMixin(StableSelectorMixin(LitElement)) {
+class DDSFilterPanelInputSelect extends FocusMixin(
+  StableSelectorMixin(LitElement)
+) {
   @property()
   ariaLabel = '';
 
@@ -69,7 +71,8 @@ class DDSFilterPanelInputSelect extends FocusMixin(StableSelectorMixin(LitElemen
    * @private
    */
   protected _handleClickInner(event) {
-    const { eventContentStateChange } = this.constructor as typeof DDSFilterPanelInputSelect;
+    const { eventContentStateChange } = this
+      .constructor as typeof DDSFilterPanelInputSelect;
     const selected = (event.target as Element).closest(
       (this.constructor as typeof DDSFilterPanelInputSelect).selectorItem
     ) as DDSFilterPanelInputSelectItem;
@@ -140,7 +143,8 @@ class DDSFilterPanelInputSelect extends FocusMixin(StableSelectorMixin(LitElemen
    * @private
    */
   protected _handleClickHeader() {
-    const { eventInputSelect } = this.constructor as typeof DDSFilterPanelInputSelect;
+    const { eventInputSelect } = this
+      .constructor as typeof DDSFilterPanelInputSelect;
     this.isOpen = !this.isOpen;
     this.selected = !this.selected;
     this.dispatchEvent(
@@ -162,12 +166,16 @@ class DDSFilterPanelInputSelect extends FocusMixin(StableSelectorMixin(LitElemen
   protected _handleSlotChange({ target }: Event) {
     this._items = (target as HTMLSlotElement)
       .assignedNodes()
-      .filter(node => node.nodeType !== Node.TEXT_NODE || node!.textContent!.trim());
+      .filter(
+        (node) => node.nodeType !== Node.TEXT_NODE || node!.textContent!.trim()
+      );
   }
 
   updated(changedProperties) {
     if (changedProperties.has('selected')) {
-      this.ariaLabel = `${this.title}, ${this.selected ? 'selected' : 'unselected'}`;
+      this.ariaLabel = `${this.title}, ${
+        this.selected ? 'selected' : 'unselected'
+      }`;
     }
     if (this._items.length) {
       this.shadowRoot
@@ -187,8 +195,7 @@ class DDSFilterPanelInputSelect extends FocusMixin(StableSelectorMixin(LitElemen
           @keydown=${this._handleKeydown}
           aria-controls="content"
           aria-label="${this.ariaLabel}"
-          role="button"
-        >
+          role="button">
           ${title}
           <div class="${prefix}--close__icon">
             ${this.selected && this.isOpen ? Close() : null}
@@ -198,8 +205,9 @@ class DDSFilterPanelInputSelect extends FocusMixin(StableSelectorMixin(LitElemen
           id="content"
           @click=${this._handleClickInner}
           @keydown=${this._handleKeydownInner}
-          class="${this.isOpen ? '' : `${prefix}--selected-option-dropdown__hidden`} ${prefix}--selected-option-dropdown"
-        >
+          class="${this.isOpen
+            ? ''
+            : `${prefix}--selected-option-dropdown__hidden`} ${prefix}--selected-option-dropdown">
           <slot @slotchange="${this._handleSlotChange}"></slot>
         </ul>
       </div>

@@ -1,5 +1,5 @@
 /**
- * Copyright IBM Corp. 2020, 2022
+ * Copyright IBM Corp. 2020, 2023
  *
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
@@ -23,17 +23,28 @@ addons.setConfig({
  * @returns
  */
 const getCss = (envVar, cssId) => {
-  return envVar !== 'true' ? `button[id^="${cssId}"] { display: none !important; }\n` : '';
+  return envVar !== 'true'
+    ? `button[id^="${cssId}"] { display: none !important; }\n`
+    : '';
 };
 
 // Build string of CSS rules.
 let css = '';
 if (!process.env.DDS_FLAGS_ALL) {
   css += getCss(process.env.DDS_CLOUD_MASTHEAD, 'components-cloud-masthead');
-  css += getCss(process.env.DDS_CONTENT_BLOCK_HEADLINES, 'components-content-block-headlines');
-  css += getCss(process.env.DDS_CONTENT_BLOCK_CARD_STATIC, 'components-content-block-card-static');
+  css += getCss(
+    process.env.DDS_CONTENT_BLOCK_HEADLINES,
+    'components-content-block-headlines'
+  );
+  css += getCss(
+    process.env.DDS_CONTENT_BLOCK_CARD_STATIC,
+    'components-content-block-card-static'
+  );
   css += getCss(process.env.DDS_PRICING_TABLE, 'components-pricing-table');
-  css += getCss(process.env.DDS_SCOPED_SEARCH, 'components-masthead-with-scoped-search');
+  css += getCss(
+    process.env.DDS_SCOPED_SEARCH,
+    'components-masthead-with-scoped-search'
+  );
 }
 
 // Inject any CSS rules into the page.

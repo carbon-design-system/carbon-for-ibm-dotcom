@@ -1,7 +1,7 @@
 /**
  * @license
  *
- * Copyright IBM Corp. 2020, 2022
+ * Copyright IBM Corp. 2020, 2023
  *
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
@@ -46,7 +46,9 @@ class DDSLeadSpaceBlock extends StableSelectorMixin(LitElement) {
     const { name } = target as HTMLSlotElement;
     const hasTitle = (target as HTMLSlotElement)
       .assignedNodes()
-      .some(node => node.nodeType !== Node.TEXT_NODE || node!.textContent!.trim());
+      .some(
+        (node) => node.nodeType !== Node.TEXT_NODE || node!.textContent!.trim()
+      );
     this[slotExistencePropertyNames[name] || '_hasTitle'] = hasTitle;
   }
 
@@ -56,7 +58,10 @@ class DDSLeadSpaceBlock extends StableSelectorMixin(LitElement) {
   protected _renderHeading() {
     const { _hasTitle: hasTitle } = this;
     return html`
-      <slot ?hidden="${!hasTitle}" name="heading" @slotchange="${this._handleSlotChange}"></slot>
+      <slot
+        ?hidden="${!hasTitle}"
+        name="heading"
+        @slotchange="${this._handleSlotChange}"></slot>
     `;
   }
 

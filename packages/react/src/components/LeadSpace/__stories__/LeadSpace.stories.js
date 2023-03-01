@@ -1,5 +1,5 @@
 /**
- * Copyright IBM Corp. 2016, 2022
+ * Copyright IBM Corp. 2016, 2023
  *
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
@@ -265,7 +265,7 @@ export default {
   },
 };
 
-export const TallWithNoImage = args => (
+export const TallWithNoImage = (args) => (
   <TallWithImage
     {...(Object.keys(args).length > 0 ? args : props.tallWithNoImage())}
   />
@@ -280,7 +280,7 @@ TallWithNoImage.story = {
   },
 };
 
-export const TallWithImage = args => {
+export const TallWithImage = (args) => {
   const { defaultSrc, image } = props.tallWithImage();
 
   if (defaultSrc) {

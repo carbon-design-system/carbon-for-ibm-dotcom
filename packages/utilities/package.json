@@ -1,7 +1,7 @@
 {
   "name": "@carbon/ibmdotcom-utilities",
   "description": "Carbon for IBM.com Utilities",
-  "version": "1.40.0",
+  "version": "1.43.0",
   "license": "Apache-2.0",
   "main": "lib/index.js",
   "module": "es/index.js",
@@ -51,7 +51,7 @@
     "@carbon/telemetry": "0.1.0",
     "axios": "^0.27.2",
     "carbon-components": "10.58.5",
-    "isomorphic-dompurify": "0.24.0",
+    "isomorphic-dompurify": "0.26.0",
     "js-cookie": "^2.2.1",
     "marked": "^4.0.10",
     "striptags": "^3.2.0",

@@ -1,5 +1,5 @@
 /**
- * Copyright IBM Corp. 2016, 2022
+ * Copyright IBM Corp. 2016, 2023
  *
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
@@ -25,15 +25,14 @@ const AudioPlayerScrubber = ({
   rewindHelperText,
   forwardHelperText,
 }) => {
-  const audioDurationAsString = KalturaPlayerAPI.getMediaDuration(
-    audioDuration
-  ); // Audio Total Time
+  const audioDurationAsString =
+    KalturaPlayerAPI.getMediaDuration(audioDuration); // Audio Total Time
 
   const handleFormat = (minMax, minOrMaxLabel) => {
     return minOrMaxLabel;
   };
 
-  const handleRewindForwardAudio = addedValue => {
+  const handleRewindForwardAudio = (addedValue) => {
     if (kalturaDigitalPlayer) {
       let time = audioTime + addedValue;
       time = time < 0 ? 0 : time;
@@ -46,7 +45,7 @@ const AudioPlayerScrubber = ({
     }
   };
 
-  const handleScrubberChange = time => {
+  const handleScrubberChange = (time) => {
     /**
      * As this will trigger every time the updatePlayhead listener triggers
      *  and we floor the floating value returned, sometimes it will return like

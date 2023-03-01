@@ -1,7 +1,7 @@
 /**
  * @license
  *
- * Copyright IBM Corp. 2020, 2022
+ * Copyright IBM Corp. 2020, 2023
  *
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
@@ -33,10 +33,41 @@ const platformData = {
   url: 'https://www.ibm.com/cloud',
 };
 
+const scopeParameters = [
+  {
+    name: 'All',
+    appId: 'all',
+    value: 'all',
+  },
+  {
+    name: 'Analyst',
+    appId: 'analyst',
+    value: 'analyst',
+  },
+  {
+    name: 'PartnerWorld',
+    appId: 'pw',
+    value: ['pw', 'pwp'],
+  },
+  {
+    name: 'Developer',
+    appId: 'dw',
+    value: ['dw', 'dwaspera'],
+  },
+  {
+    name: 'IBM Docs',
+    appId: 'ibmdocs',
+    label: 'Search Label',
+    value: ['ibmdocs', 'dw'],
+  },
+];
+
 async function customTypeaheadApiFunction(searchVal) {
-  return fetch(`https://ibmdocs-dev.mybluemix.net/docs/api/v1/suggest?query=${searchVal}&lang=undefined&categories=&limit=6`)
-    .then(response => response.json())
-    .then(data => {
+  return fetch(
+    `https://ibmdocs-dev.mybluemix.net/docs/api/v1/suggest?query=${searchVal}&lang=undefined&categories=&limit=6`
+  )
+    .then((response) => response.json())
+    .then((data) => {
       const searchResults = [
         data.hints,
         {
@@ -48,13 +79,23 @@ async function customTypeaheadApiFunction(searchVal) {
     });
 }
 
-export const Default = args => {
-  const { customProfileLogin, platform, hasProfile, hasSearch, selectedMenuItem, searchPlaceholder, userStatus, navLinks } =
-    args?.MastheadComposite ?? {};
+export const Default = (args) => {
+  const {
+    customProfileLogin,
+    platform,
+    hasProfile,
+    hasSearch,
+    selectedMenuItem,
+    searchPlaceholder,
+    userStatus,
+    navLinks,
+  } = args?.MastheadComposite ?? {};
 
   if (!hasSearch) {
     setTimeout(() => {
-      document.querySelector('dds-masthead-container')?.removeAttribute('has-search');
+      document
+        .querySelector('dds-masthead-container')
+        ?.removeAttribute('has-search');
     }, 1000);
   }
   return (
@@ -71,14 +112,29 @@ export const Default = args => {
   );
 };
 
-export const WithCustomTypeahead = args => {
-  const { customProfileLogin, navLinks, platform, selectedMenuItem, userStatus, searchPlaceholder, hasProfile, hasSearch } =
-    args?.MastheadComposite ?? {};
+export const WithCustomTypeahead = (args) => {
+  const {
+    customProfileLogin,
+    navLinks,
+    platform,
+    selectedMenuItem,
+    userStatus,
+    searchPlaceholder,
+    hasProfile,
+    hasSearch,
+  } = args?.MastheadComposite ?? {};
 
-  document.documentElement.addEventListener('dds-search-with-typeahead-input', async e => {
-    const results = await customTypeaheadApiFunction((e as CustomEvent).detail.value);
-    document.dispatchEvent(new CustomEvent('dds-custom-typeahead-api-results', { detail: results }));
-  });
+  document.documentElement.addEventListener(
+    'dds-search-with-typeahead-input',
+    async (e) => {
+      const results = await customTypeaheadApiFunction(
+        (e as CustomEvent).detail.value
+      );
+      document.dispatchEvent(
+        new CustomEvent('dds-custom-typeahead-api-results', { detail: results })
+      );
+    }
+  );
 
   return (
     <DDSMastheadContainer
@@ -99,13 +155,23 @@ WithCustomTypeahead.story = {
   name: 'With custom typeahead',
 };
 
-export const searchOpenOnload = args => {
-  const { customProfileLogin, platform, selectedMenuItem, userStatus, searchPlaceholder, hasProfile, hasSearch, navLinks } =
-    args?.MastheadComposite ?? {};
+export const searchOpenOnload = (args) => {
+  const {
+    customProfileLogin,
+    platform,
+    selectedMenuItem,
+    userStatus,
+    searchPlaceholder,
+    hasProfile,
+    hasSearch,
+    navLinks,
+  } = args?.MastheadComposite ?? {};
 
   if (!hasSearch) {
     setTimeout(() => {
-      document.querySelector('dds-masthead-container')?.removeAttribute('has-search');
+      document
+        .querySelector('dds-masthead-container')
+        ?.removeAttribute('has-search');
     }, 1000);
   }
   return (
@@ -127,12 +193,15 @@ searchOpenOnload.story = {
   name: 'Search open onload',
 };
 
-export const withPlatform = args => {
-  const { userStatus, navLinks, hasProfile, hasSearch, searchPlaceholder } = args?.MastheadComposite ?? {};
+export const withPlatform = (args) => {
+  const { userStatus, navLinks, hasProfile, hasSearch, searchPlaceholder } =
+    args?.MastheadComposite ?? {};
 
   if (!hasSearch) {
     setTimeout(() => {
-      document.querySelector('dds-masthead-container')?.removeAttribute('has-search');
+      document
+        .querySelector('dds-masthead-container')
+        ?.removeAttribute('has-search');
     }, 1000);
   }
 
@@ -153,21 +222,35 @@ withPlatform.story = {
   parameters: {
     knobs: {
       MastheadComposite: () => ({
-        hasProfile: select('show the profile functionality (has-profile)', ['true', 'false'], 'true'),
+        hasProfile: select(
+          'show the profile functionality (has-profile)',
+          ['true', 'false'],
+          'true'
+        ),
         hasSearch: boolean('show the search functionality (has-search)', true),
-        searchPlaceholder: textNullable('search placeholder (searchPlaceholder)', 'Search all of IBM'),
-        userStatus: select('The user authenticated status (user-status)', userStatuses, userStatuses.unauthenticated),
+        searchPlaceholder: textNullable(
+          'search placeholder (searchPlaceholder)',
+          'Search all of IBM'
+        ),
+        userStatus: select(
+          'The user authenticated status (user-status)',
+          userStatuses,
+          userStatuses.unauthenticated
+        ),
       }),
     },
   },
 };
 
-export const withL1 = args => {
-  const { selectedMenuItem, userStatus, navLinks, hasProfile, hasSearch } = args?.MastheadComposite ?? {};
+export const withL1 = (args) => {
+  const { selectedMenuItem, userStatus, navLinks, hasProfile, hasSearch } =
+    args?.MastheadComposite ?? {};
 
   if (!hasSearch) {
     setTimeout(() => {
-      document.querySelector('dds-masthead-container')?.removeAttribute('has-search');
+      document
+        .querySelector('dds-masthead-container')
+        ?.removeAttribute('has-search');
     }, 1000);
   }
   return (
@@ -186,22 +269,42 @@ withL1.story = {
   parameters: {
     knobs: {
       MastheadComposite: () => ({
-        hasProfile: select('show the profile functionality (has-profile)', ['true', 'false'], 'true'),
+        hasProfile: select(
+          'show the profile functionality (has-profile)',
+          ['true', 'false'],
+          'true'
+        ),
         hasSearch: boolean('show the search functionality (has-search)', true),
-        selectedMenuItem: textNullable('selected menu item (selected-menu-item)', 'Products'),
-        userStatus: select('The user authenticated status (user-status)', userStatuses, userStatuses.unauthenticated),
+        selectedMenuItem: textNullable(
+          'selected menu item (selected-menu-item)',
+          'Products'
+        ),
+        userStatus: select(
+          'The user authenticated status (user-status)',
+          userStatuses,
+          userStatuses.unauthenticated
+        ),
       }),
     },
   },
 };
 
-export const withAlternateLogoAndTooltip = args => {
-  const { selectedMenuItem, userStatus, navLinks, hasProfile, hasSearch, searchPlaceholder, mastheadLogo } =
-    args?.MastheadComposite ?? {};
+export const withAlternateLogoAndTooltip = (args) => {
+  const {
+    selectedMenuItem,
+    userStatus,
+    navLinks,
+    hasProfile,
+    hasSearch,
+    searchPlaceholder,
+    mastheadLogo,
+  } = args?.MastheadComposite ?? {};
 
   if (!hasSearch) {
     setTimeout(() => {
-      document.querySelector('dds-masthead-container')?.removeAttribute('has-search');
+      document
+        .querySelector('dds-masthead-container')
+        ?.removeAttribute('has-search');
     }, 1000);
   }
 
@@ -222,25 +325,81 @@ withAlternateLogoAndTooltip.story = {
   parameters: {
     knobs: {
       MastheadComposite: () => ({
-        hasProfile: select('show the profile functionality (has-profile)', ['true', 'false'], 'true'),
+        hasProfile: select(
+          'show the profile functionality (has-profile)',
+          ['true', 'false'],
+          'true'
+        ),
         hasSearch: boolean('show the search functionality (has-search)', true),
-        searchPlaceholder: textNullable('search placeholder (searchPlaceholder)', 'Search all of IBM'),
-        selectedMenuItem: textNullable('selected menu item (selected-menu-item)', 'Consulting & Services'),
+        searchPlaceholder: textNullable(
+          'search placeholder (searchPlaceholder)',
+          'Search all of IBM'
+        ),
+        selectedMenuItem: textNullable(
+          'selected menu item (selected-menu-item)',
+          'Consulting & Services'
+        ),
         mastheadLogo: select(
           'masthead logo data (logoData)',
-          { defaultWithNoTooltip: null, alternateWithTooltip: 'alternateWithTooltip' },
+          {
+            defaultWithNoTooltip: null,
+            alternateWithTooltip: 'alternateWithTooltip',
+          },
           'alternateWithTooltip'
         ),
-        userStatus: select('The user authenticated status (user-status)', userStatuses, userStatuses.unauthenticated),
+        userStatus: select(
+          'The user authenticated status (user-status)',
+          userStatuses,
+          userStatuses.unauthenticated
+        ),
       }),
     },
   },
 };
 
+export const WithScopedSearch = (args) => {
+  const {
+    customProfileLogin,
+    platform,
+    hasProfile,
+    hasSearch,
+    selectedMenuItem,
+    searchPlaceholder,
+    userStatus,
+    navLinks,
+  } = args?.MastheadComposite ?? {};
+
+  if (!hasSearch) {
+    setTimeout(() => {
+      document
+        .querySelector('dds-masthead-container')
+        ?.removeAttribute('has-search');
+    }, 1000);
+  }
+
+  return (
+    <DDSMastheadContainer
+      platform={platform}
+      platformUrl={platformData.url}
+      selected-menu-item={selectedMenuItem}
+      user-status={userStatus}
+      searchPlaceholder={searchPlaceholder}
+      navLinks={navLinks}
+      has-profile={hasProfile}
+      has-search={hasSearch}
+      custom-profile-login={customProfileLogin}
+      scopeParameters={scopeParameters}></DDSMastheadContainer>
+  );
+};
+
+WithScopedSearch.story = {
+  name: 'With scoped search',
+};
+
 export default {
   title: 'Components/Masthead',
   decorators: [
-    story => {
+    (story) => {
       return story();
     },
   ],
@@ -249,13 +408,31 @@ export default {
     knobs: {
       escapeHTML: false,
       MastheadComposite: () => ({
-        hasProfile: select('show the profile functionality (has-profile)', ['true', 'false'], 'true'),
+        hasProfile: select(
+          'show the profile functionality (has-profile)',
+          ['true', 'false'],
+          'true'
+        ),
         hasSearch: boolean('show the search functionality (has-search)', true),
-        searchPlaceholder: textNullable('search placeholder (searchPlaceholder)', 'Search all of IBM'),
-        selectedMenuItem: textNullable('selected menu item (selected-menu-item)', 'Consulting & Services'),
-        userStatus: select('The user authenticated status (user-status)', userStatuses, userStatuses.unauthenticated),
+        searchPlaceholder: textNullable(
+          'search placeholder (searchPlaceholder)',
+          'Search all of IBM'
+        ),
+        selectedMenuItem: textNullable(
+          'selected menu item (selected-menu-item)',
+          'Consulting & Services'
+        ),
+        userStatus: select(
+          'The user authenticated status (user-status)',
+          userStatuses,
+          userStatuses.unauthenticated
+        ),
         customProfileLogin:
-          DDS_CUSTOM_PROFILE_LOGIN && textNullable('custom profile login url (customProfileLogin)', 'https://www.example.com/'),
+          DDS_CUSTOM_PROFILE_LOGIN &&
+          textNullable(
+            'custom profile login url (customProfileLogin)',
+            'https://www.example.com/'
+          ),
       }),
     },
   },

@@ -1,5 +1,5 @@
 /**
- * Copyright IBM Corp. 2021, 2022
+ * Copyright IBM Corp. 2021, 2023
  *
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
@@ -11,7 +11,7 @@
  * @type {string}
  * @private
  */
-const _pathPlatform = '/iframe.html?id=components-masthead--with-platform';
+const _pathPlatform = '/iframe.html?id=components-masthead--with-platform&knob-use%20mock%20nav%20data%20(use-mock)=true';
 
 describe('dds-masthead | with platform (desktop)', () => {
   beforeEach(() => {
@@ -45,7 +45,7 @@ describe('dds-masthead | with platform (desktop)', () => {
   it('should open the search bar with platform', () => {
     cy.get('dds-masthead > dds-search-with-typeahead')
       .shadow()
-      .find('.bx--header__search--search')
+      .find('[part="open-button"]')
       .click();
 
     cy.takeSnapshots();

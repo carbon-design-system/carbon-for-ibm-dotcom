@@ -1,5 +1,5 @@
 /**
- * Copyright IBM Corp. 2016, 2022
+ * Copyright IBM Corp. 2016, 2023
  *
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
@@ -30,7 +30,7 @@ const IbmLogo = ({ autoid, logoData, isSearchActive }) => {
     <div className={logoClasses}>
       <ConditionalWrapper
         condition={logoData && logoData.tooltip !== undefined}
-        wrapper={children => (
+        wrapper={(children) => (
           <TooltipDefinition tooltipText={logoData.tooltip}>
             {children}
           </TooltipDefinition>
@@ -43,7 +43,10 @@ const IbmLogo = ({ autoid, logoData, isSearchActive }) => {
             dangerouslySetInnerHTML={{ __html: logoData.svg }}
           />
         ) : (
-          <a aria-label="IBM®" data-autoid={autoid} href={`http://www.ibm.com`}>
+          <a
+            aria-label="IBM®"
+            data-autoid={autoid}
+            href={`https://www.ibm.com`}>
             {!useAlternateLogo && <MastheadLogo />}
           </a>
         )}

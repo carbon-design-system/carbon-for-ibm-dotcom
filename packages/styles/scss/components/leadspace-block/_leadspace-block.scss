@@ -1,5 +1,5 @@
 /**
- * Copyright IBM Corp. 2016, 2022
+ * Copyright IBM Corp. 2016, 2023
  *
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
@@ -70,6 +70,12 @@
     color: $text-01;
     padding-top: $layout-03;
     @include carbon--type-style('expressive-heading-06', true);
+
+    /* stylelint-disable declaration-no-important */
+    ::slotted(h1) {
+      all: unset !important; /* stylelint-disable-line declaration-property-value-blacklist */
+    }
+    /* stylelint-enable declaration-no-important */
 
     @include carbon--breakpoint('md') {
       padding-top: $layout-03;

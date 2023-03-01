@@ -1,5 +1,5 @@
 /**
- * Copyright IBM Corp. 2016, 2022
+ * Copyright IBM Corp. 2016, 2023
  *
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
@@ -65,8 +65,7 @@ const props = {
 const contentItemsProps = [
   {
     heading: 'Get connected',
-    copy:
-      'IBM DevOps partners have a wide range of expertise. Find one to build the right solution for you.',
+    copy: 'IBM DevOps partners have a wide range of expertise. Find one to build the right solution for you.',
     cta: {
       copy: 'Find a partner',
       type: types[0],

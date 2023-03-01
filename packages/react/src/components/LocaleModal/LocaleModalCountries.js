@@ -1,5 +1,5 @@
 /**
- * Copyright IBM Corp. 2016, 2022
+ * Copyright IBM Corp. 2016, 2023
  *
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
@@ -112,7 +112,7 @@ const LocaleModalCountries = ({
           role="status"
           aria-live="assertive"></p>
         {regionList?.map(
-          region =>
+          (region) =>
             currentRegion === region.name &&
             region.countries.map((country, index) => (
               <li key={index}>
@@ -168,7 +168,7 @@ LocaleModalCountries.defaultProps = {
  * @param {object} locale selected country/region
  * @private
  */
-export const _setCookie = locale => {
+export const _setCookie = (locale) => {
   const localeSplit = locale.split('-');
   const localeObj = {
     cc: localeSplit[1],
@@ -196,7 +196,7 @@ export const filterLocale = (
   setClearResults(false);
   const filterVal = localeFilter.value.toUpperCase();
 
-  [...localeItems].map(item => {
+  [...localeItems].map((item) => {
     const locale = item.getElementsByTagName('div');
 
     const country = locale[0].textContent || locale[0].innerText;

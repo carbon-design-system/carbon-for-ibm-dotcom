@@ -1,5 +1,5 @@
 /**
- * Copyright IBM Corp. 2020, 2022
+ * Copyright IBM Corp. 2020, 2023
  *
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
@@ -31,7 +31,7 @@ jasmine.getEnv().addReporter({
  * @returns {boolean} `true` if the aChecker issue report should be ignored.
  */
 
-beforeEach(function() {
+beforeEach(function () {
   jasmine.addAsyncMatchers({
     toBeACheckerCompliant() {
       return {
@@ -52,16 +52,22 @@ beforeEach(function() {
             filterFuncs.push(shouldIssueBeIgnored);
           }
           filterFuncs.push(shouldIssueBeIgnoredGlobal);
-          const results = await aChecker.getComplianceHelper(actualElem, currentSpec.join(' - '));
+          const results = await aChecker.getComplianceHelper(
+            actualElem,
+            currentSpec.join(' - ')
+          );
           if (!results?.report?.results) {
-            throw results?.details || new Error('a11y test result is not available for unknown reason.');
+            throw (
+              results?.details ||
+              new Error('a11y test result is not available for unknown reason.')
+            );
           }
           const code = aChecker.assertCompliance(results.report);
           if (code !== 0) {
             const issues = results.report.results.filter(
               filterFuncs.length === 0
                 ? () => true
-                : issue => {
+                : (issue) => {
                     const elem =
                       doc &&
                       doc
@@ -74,7 +80,9 @@ beforeEach(function() {
                           null
                         )
                         .iterateNext();
-                    return !filterFuncs.some(filterFunc => filterFunc(issue, elem));
+                    return !filterFuncs.some((filterFunc) =>
+                      filterFunc(issue, elem)
+                    );
                   }
             );
             if (issues.length > 0) {
@@ -82,7 +90,7 @@ beforeEach(function() {
                 /* eslint-disable no-console */
                 console.error(
                   'a11y compliance issues:',
-                  issues.map(issue => {
+                  issues.map((issue) => {
                     const elem =
                       doc &&
                       doc
@@ -102,14 +110,15 @@ beforeEach(function() {
                   })
                 );
               }
-              const messages = issues.map(({ ruleId, reasonId, message, path, snippet }) =>
-                [
-                  message,
-                  `  Rule ID: ${ruleId}`,
-                  `  Failure reason ID: ${reasonId}`,
-                  `  XPath: ${path.dom}`,
-                  `  Markup snippet: ${snippet}`,
-                ].join('\n')
+              const messages = issues.map(
+                ({ ruleId, reasonId, message, path, snippet }) =>
+                  [
+                    message,
+                    `  Rule ID: ${ruleId}`,
+                    `  Failure reason ID: ${reasonId}`,
+                    `  XPath: ${path.dom}`,
+                    `  Markup snippet: ${snippet}`,
+                  ].join('\n')
               );
               return {
                 pass: false,

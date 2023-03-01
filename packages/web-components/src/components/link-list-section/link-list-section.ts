@@ -1,7 +1,7 @@
 /**
  * @license
  *
- * Copyright IBM Corp. 2020, 2022
+ * Copyright IBM Corp. 2020, 2023
  *
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
@@ -27,8 +27,15 @@ class DDSLinkListSection extends StableSelectorMixin(DDSContentSection) {
   _handleSlotChange = (event: Event) => {
     const slot = (event.target as HTMLSlotElement)
       .assignedElements()
-      .filter(elem => elem.localName === (this.constructor as typeof DDSLinkListSection).linkListSelector)[0];
-    if (slot && (!slot.hasAttribute('type') || slot.getAttribute('type') !== 'end')) {
+      .filter(
+        (elem) =>
+          elem.localName ===
+          (this.constructor as typeof DDSLinkListSection).linkListSelector
+      )[0];
+    if (
+      slot &&
+      (!slot.hasAttribute('type') || slot.getAttribute('type') !== 'end')
+    ) {
       slot.setAttribute('type', 'end');
     }
   };

@@ -1,5 +1,5 @@
 /**
- * Copyright IBM Corp. 2016, 2022
+ * Copyright IBM Corp. 2016, 2023
  *
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
@@ -23,7 +23,6 @@ const { prefix } = settings;
  * @param {string} props.heading heading text
  * @param {string} props.copy copy text
  * @param {Array} props.cta cta array
- *
  * @returns {*} JSX ContentItemHorizontal pattern
  */
 const ContentItemHorizontal = ({ eyebrow, heading, copy, cta }) => (

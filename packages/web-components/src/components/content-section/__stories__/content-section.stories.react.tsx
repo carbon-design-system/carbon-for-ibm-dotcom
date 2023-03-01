@@ -1,7 +1,7 @@
 /**
  * @license
  *
- * Copyright IBM Corp. 2020, 2022
+ * Copyright IBM Corp. 2020, 2023
  *
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
@@ -14,18 +14,20 @@ import React from 'react';
 /* eslint-disable max-len */
 // @ts-ignore
 import ArrowRight20 from '@carbon/icons-react/es/arrow--right/20.js';
-import DDSContentGroupHeading from '@carbon/ibmdotcom-web-components/es/components-react/content-group/content-group-heading';
-import DDSContentGroupCopy from '@carbon/ibmdotcom-web-components/es/components-react/content-group/content-group-copy';
-import DDSContentGroupCards from '@carbon/ibmdotcom-web-components/es/components-react/content-group-cards/content-group-cards';
 import DDSContentGroupCardsItem from '@carbon/ibmdotcom-web-components/es/components-react/content-group-cards/content-group-cards-item';
+import DDSCard from '@carbon/ibmdotcom-web-components/es/components-react/card/card';
+import DDSCardGroup from '@carbon/ibmdotcom-web-components/es/components-react/card-group/card-group';
 import DDSCardHeading from '@carbon/ibmdotcom-web-components/es/components-react/card/card-heading';
 import DDSCardFooter from '@carbon/ibmdotcom-web-components/es/components-react/card/card-footer';
+import DDSCarousel from '@carbon/ibmdotcom-web-components/es/components-react/carousel/carousel';
 import DDSContentBlockHeading from '@carbon/ibmdotcom-web-components/es/components-react/content-block/content-block-heading';
 import DDSContentBlockCopy from '@carbon/ibmdotcom-web-components/es/components-react/content-block/content-block-copy';
 import DDSContentBlockSimple from '@carbon/ibmdotcom-web-components/es/components-react/content-block-simple/content-block-simple';
 import DDSContentSection from '@carbon/ibmdotcom-web-components/es/components-react/content-section/content-section';
 import DDSContentSectionHeading from '@carbon/ibmdotcom-web-components/es/components-react/content-section/content-section-heading';
 import DDSContentSectionCopy from '@carbon/ibmdotcom-web-components/es/components-react/content-section/content-section-copy';
+import DDSLinkList from '@carbon/ibmdotcom-web-components/es/components-react/link-list/link-list';
+import DDSLinkListItem from '@carbon/ibmdotcom-web-components/es/components-react/link-list/link-list-item';
 import DDSVideoPlayerContainer from '@carbon/ibmdotcom-web-components/es/components-react/video-player/video-player-container';
 import DDSTextCTA from '@carbon/ibmdotcom-web-components/es/components-react/cta/text-cta';
 import DDSVideoCTAContainer from '@carbon/ibmdotcom-web-components/es/components-react/cta/video-cta-container';
@@ -44,9 +46,13 @@ For example: optical scan of documents (to create a text file out of an image of
 
 const card1 = (
   <DDSContentGroupCardsItem href="https://www.example.com">
-    <DDSCardHeading>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt</DDSCardHeading>
+    <DDSCardHeading>
+      Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+      tempor incididunt
+    </DDSCardHeading>
     <p>
-      Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+      Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod
+      tempor incididunt ut labore et dolore magna aliqua.
     </p>
     <DDSCardFooter icon-placemenet="left">
       <ArrowRight20 slot="icon" />
@@ -56,7 +62,10 @@ const card1 = (
 
 const card2 = (
   <DDSContentGroupCardsItem href="https://www.example.com">
-    <DDSCardHeading>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt</DDSCardHeading>
+    <DDSCardHeading>
+      Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+      tempor incididunt
+    </DDSCardHeading>
     <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit</p>
     <DDSCardFooter icon-placemenet="left">
       <ArrowRight20 slot="icon" />
@@ -64,7 +73,30 @@ const card2 = (
   </DDSContentGroupCardsItem>
 );
 
-export const Default = args => {
+const hrefDefault = 'https://www.ibm.com/standards/carbon';
+const headingDefault = 'Lorem ipsum dolor sit amet';
+const copyDefault =
+  'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean et ultricies est.';
+const copyOdd = `
+  {copyDefault}
+  Mauris iaculis eget dolor nec hendrerit. Phasellus at elit sollicitudin, sodales nulla quis, consequat libero.
+`;
+
+const Card = ({
+  copy = copyDefault,
+  heading = headingDefault,
+  href = hrefDefault,
+} = {}) => (
+  <DDSCard href={href}>
+    <DDSCardHeading>{heading}</DDSCardHeading>
+    {copy}
+    <DDSCardFooter>
+      <ArrowRight20 slot="icon" />
+    </DDSCardFooter>
+  </DDSCard>
+);
+
+export const Default = (args) => {
   const { heading, copy, addChildren } = args?.ContentSection ?? {};
   return (
     <DDSContentSection>
@@ -72,9 +104,13 @@ export const Default = args => {
       <DDSContentSectionCopy>{copy}</DDSContentSectionCopy>
       {addChildren.includes('Content block simple') ? (
         <DDSContentBlockSimple>
-          <DDSContentBlockHeading>What's the latest news in artificial intelligence?</DDSContentBlockHeading>
+          <DDSContentBlockHeading>
+            What's the latest news in artificial intelligence?
+          </DDSContentBlockHeading>
           <DDSContentBlockCopy size="sm">{blockCopy}</DDSContentBlockCopy>
-          <DDSVideoPlayerContainer slot="media" video-id="1_9h94wo6b"></DDSVideoPlayerContainer>
+          <DDSVideoPlayerContainer
+            slot="media"
+            video-id="1_9h94wo6b"></DDSVideoPlayerContainer>
           <DDSTextCTA slot="footer" cta-type="jump" href="https://www.ibm.com">
             Jump to AI ethics and trust
           </DDSTextCTA>
@@ -82,18 +118,59 @@ export const Default = args => {
       ) : (
         ''
       )}
-      {addChildren.includes('Content group cards') ? (
-        <DDSContentGroupCards>
-          <DDSContentGroupHeading>Lorem ipssum dolor sit amet.</DDSContentGroupHeading>
-          <DDSContentGroupCopy>Lorem ipsum dolo sit amet.</DDSContentGroupCopy>
+      {addChildren.includes('Card group') ? (
+        <DDSCardGroup>
           {card1}
           {card2}
           {card1}
           {card2}
-        </DDSContentGroupCards>
+        </DDSCardGroup>
       ) : (
         ''
       )}
+      {addChildren.includes('Card group') ? (
+        <DDSLinkList>
+          <DDSLinkListItem href="https://example.com">
+            Learn more about Kubernetes and automating deployment
+            <ArrowRight20 slot="icon" />
+          </DDSLinkListItem>
+          <DDSLinkListItem href="https://example.com">
+            Containerization A Complete Guide
+            <ArrowRight20 slot="icon" />
+          </DDSLinkListItem>
+          <DDSLinkListItem href="https://example.com">
+            Microservices and container
+            <ArrowRight20 slot="icon" />
+          </DDSLinkListItem>
+          <DDSLinkListItem href="https://example.com">
+            Learn more about Kubernetes and automating deployment
+            <ArrowRight20 slot="icon" />
+          </DDSLinkListItem>
+          <DDSLinkListItem href="https://example.com">
+            Containerization A Complete Guide
+            <ArrowRight20 slot="icon" />
+          </DDSLinkListItem>
+          <DDSLinkListItem href="https://example.com">
+            Microservices and container
+            <ArrowRight20 slot="icon" />
+          </DDSLinkListItem>
+        </DDSLinkList>
+      ) : (
+        ''
+      )}
+
+      {addChildren.includes('Carousel') ? (
+        <DDSCarousel>
+          {Card()}
+          {Card({ copy: copyOdd })}
+          {Card()}
+          {Card({ copy: copyOdd })}
+          {Card()}
+        </DDSCarousel>
+      ) : (
+        ''
+      )}
+
       <DDSTextCTA slot="footer" cta-type="local" href="https://www.example.com">
         Link action
       </DDSTextCTA>
@@ -104,7 +181,7 @@ export const Default = args => {
 export default {
   title: 'Components/Content section',
   decorators: [
-    story => {
+    (story) => {
       return (
         <>
           <div className="bx--grid">
@@ -124,16 +201,24 @@ export default {
     knobs: {
       escapeHTML: false,
       ContentSection: () => ({
-        heading: textNullable('Heading:', 'Speech recognition (statistical Artificial Intelligence)'),
-        copy: textNullable('Copy:', "AI features for understanding speech can be trained for a specific speaker's voice."),
+        heading: textNullable(
+          'Heading:',
+          'Speech recognition (statistical Artificial Intelligence)'
+        ),
+        copy: textNullable(
+          'Copy:',
+          "AI features for understanding speech can be trained for a specific speaker's voice."
+        ),
         addChildren: optionsKnob(
           'Add children:',
           {
             'Content block simple': 'Content block simple',
-            'Content group cards': 'Content group cards',
+            'Card group': 'Card group',
+            'Link list': 'Link list',
+            Carousel: 'Carousel',
           },
           '',
-          { display: 'multi-select' }
+          { display: 'select' }
         ),
       }),
     },

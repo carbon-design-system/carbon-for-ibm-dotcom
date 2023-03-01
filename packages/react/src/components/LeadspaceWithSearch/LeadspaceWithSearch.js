@@ -1,5 +1,5 @@
 /**
- * Copyright IBM Corp. 2016, 2022
+ * Copyright IBM Corp. 2016, 2023
  *
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
@@ -19,7 +19,7 @@ const LeadspaceWithSearch = ({ heading, copy, searchProps }) => {
   const leadspaceContainer = useRef(null);
 
   useEffect(() => {
-    leadspaceContainer.current = new ResizeObserver(entries => {
+    leadspaceContainer.current = new ResizeObserver((entries) => {
       for (const entry of entries) {
         const CARBON_MD_BREAKPOINT = 672;
         const { inlineSize: leadspaceWidth } = entry.borderBoxSize[0];

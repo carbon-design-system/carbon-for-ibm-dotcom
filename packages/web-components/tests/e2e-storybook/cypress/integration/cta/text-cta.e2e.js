@@ -1,5 +1,5 @@
 /**
- * Copyright IBM Corp. 2021, 2022
+ * Copyright IBM Corp. 2021, 2023
  *
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
@@ -15,7 +15,7 @@ import createTests from './_tests';
  * @type {string}
  * @private
  */
-const _path = '/iframe.html?id=components-cta--text';
+const _path = '/iframe.html?id=components-cta--default&knob-CTA%20style%20(cta-style)=text';
 
 /**
  * Path definitions for the test creation function.
@@ -35,7 +35,7 @@ const _paths = {
  * @type {string}
  * @private
  */
-const _selector = '[data-autoid="dds--text-cta"]';
+const _selector = 'dds-cta';
 
 /**
  * An array of test scenarios.

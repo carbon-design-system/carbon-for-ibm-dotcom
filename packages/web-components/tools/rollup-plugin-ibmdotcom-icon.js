@@ -1,7 +1,7 @@
 /**
  * @license
  *
- * Copyright IBM Corp. 2020, 2022
+ * Copyright IBM Corp. 2020, 2023
  *
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
@@ -51,8 +51,10 @@ function rollupPluginIBMdotcomIcon({ include = /\.svg$/i, exclude } = {}) {
 
       const code = [
         `import { svg } from 'lit-html'`,
-        `import spread from 'carbon-web-components/es/globals/directives/spread'`,
-        `export default ${createSVGResultFromIconDescriptor(await descriptorFromSVG(contents))}`,
+        `import spread from '@carbon/web-components/es/globals/directives/spread'`,
+        `export default ${createSVGResultFromIconDescriptor(
+          await descriptorFromSVG(contents)
+        )}`,
       ].join(';');
 
       return {

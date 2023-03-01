@@ -1,7 +1,7 @@
 /**
  * @license
  *
- * Copyright IBM Corp. 2019, 2022
+ * Copyright IBM Corp. 2019, 2023
  *
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
@@ -9,7 +9,7 @@
 
 import { html, property, customElement, LitElement } from 'lit-element';
 import settings from 'carbon-components/es/globals/js/settings.js';
-import ifNonNull from 'carbon-web-components/es/globals/directives/if-non-null.js';
+import ifNonNull from '../../internal/vendor/@carbon/web-components/globals/directives/if-non-null.js';
 import ddsSettings from '../../internal/vendor/@carbon/ibmdotcom-utilities/utilities/settings/settings';
 import styles from './tag-link.scss';
 import StableSelectorMixin from '../../globals/mixins/stable-selector';
@@ -67,7 +67,15 @@ class DDSTagLink extends StableSelectorMixin(LitElement) {
   protected _handleClick(_: MouseEvent) {}
 
   render() {
-    const { href, hreflang, linkRole, ping, rel, target, _handleClick: handleClick } = this;
+    const {
+      href,
+      hreflang,
+      linkRole,
+      ping,
+      rel,
+      target,
+      _handleClick: handleClick,
+    } = this;
     return html`
       <a
         id="link"
@@ -79,8 +87,7 @@ class DDSTagLink extends StableSelectorMixin(LitElement) {
         ping="${ifNonNull(ping)}"
         rel="${ifNonNull(rel)}"
         target="${ifNonNull(target)}"
-        @click="${handleClick}"
-      >
+        @click="${handleClick}">
         <slot></slot>
       </a>
     `;

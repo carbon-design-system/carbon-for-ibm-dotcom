@@ -1,5 +1,5 @@
 /**
- * Copyright IBM Corp. 2020, 2022
+ * Copyright IBM Corp. 2020, 2023
  *
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
@@ -17,7 +17,7 @@ const _cleanStringRegex = /\n|\s{2,}|&([a-zA-Z]+);/g;
  * @returns {string} String with multiple spaces and single new lines removed
  * @private
  */
-const _cleanString = str => str.replace(_cleanStringRegex, ' ');
+const _cleanString = (str) => str.replace(_cleanStringRegex, ' ');
 
 /**
  *

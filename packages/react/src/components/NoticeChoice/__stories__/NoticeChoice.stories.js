@@ -1,5 +1,5 @@
 /**
- * Copyright IBM Corp. 2022
+ * Copyright IBM Corp. 2022, 2023
  *
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
@@ -36,11 +36,18 @@ const countryList = {
   'Unites States': 'US',
   Germany: 'DE',
   India: 'IN',
+  'Mainland China': 'CN',
+};
+const stateList = {
+  Unknown: '',
+  Alabama: 'AL',
+  California: 'CA',
 };
 
 const props = () => ({
   locale: select('Locale', locales, 'in-en'),
   country: select('Country', countryList, 'IN'),
+  state: select('State', stateList, ''),
   onChange: action('onChange'),
   questionChoices: select('Question Choices', questionChoices, [1, 2]),
   email: text('Email', ''),

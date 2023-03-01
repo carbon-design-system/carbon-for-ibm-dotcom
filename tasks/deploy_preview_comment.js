@@ -1,5 +1,5 @@
 /**
- * Copyright IBM Corp. 2020, 2021
+ * Copyright IBM Corp. 2020, 2023
  *
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
@@ -97,7 +97,7 @@ const data = JSON.stringify({
  *
  * @param {Array} results array of comment results for the PR
  */
-const prComment = results => {
+const prComment = (results) => {
   let path = commentUrl;
   let method = 'POST';
   if (results.length > 0) {
@@ -115,10 +115,10 @@ const prComment = results => {
     },
   };
 
-  const req = https.request(options, res => {
+  const req = https.request(options, (res) => {
     let response = '';
 
-    res.on('data', chunk => {
+    res.on('data', (chunk) => {
       response += chunk;
     });
 
@@ -127,7 +127,7 @@ const prComment = results => {
     });
   });
 
-  req.on('error', error => {
+  req.on('error', (error) => {
     console.error(error);
   });
 
@@ -148,10 +148,10 @@ const getComments = () => {
     },
   };
 
-  const req = https.request(options, res => {
+  const req = https.request(options, (res) => {
     let response = '';
 
-    res.on('data', chunk => {
+    res.on('data', (chunk) => {
       response += chunk;
     });
 
@@ -160,7 +160,7 @@ const getComments = () => {
 
       console.log(response);
 
-      const results = response.filter(comment => {
+      const results = response.filter((comment) => {
         return (
           comment.user.login === botUser &&
           comment.body.indexOf(`\`${packageName}\``) !== -1
@@ -171,7 +171,7 @@ const getComments = () => {
     });
   });
 
-  req.on('error', error => {
+  req.on('error', (error) => {
     console.error(error);
   });
 

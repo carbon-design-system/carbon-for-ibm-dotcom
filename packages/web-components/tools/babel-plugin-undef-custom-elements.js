@@ -1,7 +1,7 @@
 /**
  * @license
  *
- * Copyright IBM Corp. 2020, 2021
+ * Copyright IBM Corp. 2020, 2023
  *
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
@@ -17,7 +17,7 @@ module.exports = function undefCustomElements() {
    * @param {string} path The Babel path what a `@customElement()` decorator call refers to.
    * @returns {boolean} `true` if such decorator is imported from `lit-element`.
    */
-  const customElementIsFromLit = path => {
+  const customElementIsFromLit = (path) => {
     if (!path.isCallExpression() || !path.get('callee').isIdentifier) {
       return false;
     }
@@ -42,7 +42,9 @@ module.exports = function undefCustomElements() {
           const possiblyDecoratorCall = path.parentPath.parentPath;
           if (
             possiblyDecoratorCall.isCallExpression() &&
-            possiblyDecoratorCall.get('callee').isIdentifier({ name: '_decorate' })
+            possiblyDecoratorCall
+              .get('callee')
+              .isIdentifier({ name: '_decorate' })
           ) {
             path.remove();
           }

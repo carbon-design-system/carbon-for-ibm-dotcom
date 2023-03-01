@@ -1,7 +1,7 @@
 /**
  * @license
  *
- * Copyright IBM Corp. 2020, 2022
+ * Copyright IBM Corp. 2020, 2023
  *
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
@@ -12,7 +12,6 @@
 /* eslint-disable global-require */
 
 const path = require('path');
-/* eslint-disable import/no-extraneous-dependencies */
 const sass = require('node-sass');
 const webpack = require('webpack');
 
@@ -28,9 +27,14 @@ function normalizeBrowser(browser) {
 }
 
 const serviceMocks = {
-  '@carbon/ibmdotcom-services/es/services/Locale/Locale': path.resolve(__dirname, 'mocks/LocaleAPI'),
-  '@carbon/ibmdotcom-services/es/services/Translation/Translation': path.resolve(__dirname, 'mocks/TranslationAPI'),
-  '@carbon/ibmdotcom-services/es/services/KalturaPlayer/KalturaPlayer': path.resolve(__dirname, 'mocks/KalturaPlayerAPI'),
+  '@carbon/ibmdotcom-services/es/services/Locale/Locale': path.resolve(
+    __dirname,
+    'mocks/LocaleAPI'
+  ),
+  '@carbon/ibmdotcom-services/es/services/Translation/Translation':
+    path.resolve(__dirname, 'mocks/TranslationAPI'),
+  '@carbon/ibmdotcom-services/es/services/KalturaPlayer/KalturaPlayer':
+    path.resolve(__dirname, 'mocks/KalturaPlayerAPI'),
 };
 
 const reServices = /^@carbon\/ibmdotcom-services/i;
@@ -41,7 +45,9 @@ module.exports = function setupKarma(config) {
   config.set({
     basePath: '..',
 
-    browsers: (browsers.length > 0 ? browsers : ['ChromeHeadless']).map(normalizeBrowser),
+    browsers: (browsers.length > 0 ? browsers : ['ChromeHeadless']).map(
+      normalizeBrowser
+    ),
 
     frameworks: ['jasmine', 'aChecker'],
 
@@ -51,7 +57,11 @@ module.exports = function setupKarma(config) {
       },
     },
 
-    files: ['tests/utils/achecker-compliance.js', 'tests/a11y/karma-setup-context.js', 'tests/a11y/karma-test-shim.js'],
+    files: [
+      'tests/utils/achecker-compliance.js',
+      'tests/a11y/karma-setup-context.js',
+      'tests/a11y/karma-test-shim.js',
+    ],
 
     preprocessors: {
       'src/**/*.js': ['webpack', 'sourcemap'],
@@ -92,7 +102,11 @@ module.exports = function setupKarma(config) {
             ? {}
             : {
                 test: /\.[jt]s$/,
-                exclude: [__dirname, /__tests__/, path.resolve(__dirname, '../node_modules')],
+                exclude: [
+                  __dirname,
+                  /__tests__/,
+                  path.resolve(__dirname, '../node_modules'),
+                ],
                 enforce: 'post',
                 use: {
                   loader: 'istanbul-instrumenter-loader',
@@ -103,7 +117,11 @@ module.exports = function setupKarma(config) {
               },
           {
             test: /\.js$/,
-            include: [__dirname, path.dirname(require.resolve('lit-html')), path.dirname(require.resolve('lit-element'))],
+            include: [
+              __dirname,
+              path.dirname(require.resolve('lit-html')),
+              path.dirname(require.resolve('lit-element')),
+            ],
             use: {
               loader: 'babel-loader',
               options: {
@@ -161,7 +179,7 @@ module.exports = function setupKarma(config) {
           'process.env.NODE_ENV': JSON.stringify('test'),
           'process.env.DDS_CLOUD_MASTHEAD': JSON.stringify('true'),
         }),
-        new webpack.NormalModuleReplacementPlugin(reServices, resource => {
+        new webpack.NormalModuleReplacementPlugin(reServices, (resource) => {
           const { request } = resource;
           resource.request = serviceMocks[request] || request;
         }),
@@ -192,7 +210,11 @@ module.exports = function setupKarma(config) {
       require('karma-ie-launcher'),
     ],
 
-    reporters: ['spec', ...(!collectCoverage ? [] : ['coverage-istanbul']), 'aChecker'],
+    reporters: [
+      'spec',
+      ...(!collectCoverage ? [] : ['coverage-istanbul']),
+      'aChecker',
+    ],
 
     coverageIstanbulReporter: {
       reports: ['html', 'text'],

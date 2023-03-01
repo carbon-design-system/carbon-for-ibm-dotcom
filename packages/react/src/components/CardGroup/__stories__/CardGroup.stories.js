@@ -1,5 +1,5 @@
 /**
- * Copyright IBM Corp. 2016, 2022
+ * Copyright IBM Corp. 2016, 2023
  *
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
@@ -22,7 +22,7 @@ const props = {
   default: () => ({
     cards: Array.from({
       length: number('Number of cards', 5, {}),
-    }).map(_ => defaultCard),
+    }).map((_) => defaultCard),
     border: boolean('Outlined cards:', false),
     cardsPerRow: select(
       'Number of cards per row (cardsPerRow):',
@@ -33,7 +33,7 @@ const props = {
   withCTA: () => ({
     cards: Array.from({
       length: number('Number of cards', 5, {}),
-    }).map(_ => defaultCard),
+    }).map((_) => defaultCard),
     cta: groupCTA,
     cardsPerRow: select(
       'Number of cards per row (cardsPerRow):',
@@ -44,7 +44,7 @@ const props = {
   withImages: () => ({
     cards: Array.from({
       length: number('Number of cards', 5, {}),
-    }).map(_ => cardWithImages),
+    }).map((_) => cardWithImages),
     cardsPerRow: select(
       'Number of cards per row (cardsPerRow):',
       cardsCol,
@@ -54,7 +54,7 @@ const props = {
   withImagesAndCTA: () => ({
     cards: Array.from({
       length: number('Number of cards', 5, {}),
-    }).map(_ => cardWithImages),
+    }).map((_) => cardWithImages),
     cta: groupCTA,
     cardsPerRow: select(
       'Number of cards per row (cardsPerRow):',
@@ -81,32 +81,28 @@ export default {
             },
             {
               heading: 'Fusce gravida eu arcu',
-              copy:
-                'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean et ultricies est. Mauris iaculis eget dolor nec hendrerit.',
+              copy: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean et ultricies est. Mauris iaculis eget dolor nec hendrerit.',
               cta: {
                 href: 'https://www.example.com',
               },
             },
             {
               heading: 'Interdum et malesuada',
-              copy:
-                'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean et ultricies est. Mauris iaculis eget dolor nec hendrerit.',
+              copy: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean et ultricies est. Mauris iaculis eget dolor nec hendrerit.',
               cta: {
                 href: 'https://www.example.com',
               },
             },
             {
               heading: 'Nunc convallis loborti',
-              copy:
-                'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean et ultricies est. Mauris iaculis eget dolor nec hendrerit.',
+              copy: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean et ultricies est. Mauris iaculis eget dolor nec hendrerit.',
               cta: {
                 href: 'https://www.example.com',
               },
             },
             {
               heading: 'Nunc convallis lbortis',
-              copy:
-                'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean et ultricies est. Mauris iaculis eget dolor nec hendrerit.',
+              copy: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean et ultricies est. Mauris iaculis eget dolor nec hendrerit.',
               cta: {
                 href: 'https://www.example.com',
               },
@@ -121,8 +117,7 @@ export default {
 const defaultCard = {
   heading: 'Nunc convallis lobortis',
   type: 'local',
-  copy:
-    'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean et ultricies est. Mauris iaculis eget dolor nec hendrerit.',
+  copy: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean et ultricies est. Mauris iaculis eget dolor nec hendrerit.',
   cta: {
     href: 'https://www.example.com',
   },

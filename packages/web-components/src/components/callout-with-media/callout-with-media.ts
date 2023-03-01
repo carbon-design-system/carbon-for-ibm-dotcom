@@ -1,7 +1,7 @@
 /**
  * @license
  *
- * Copyright IBM Corp. 2019, 2022
+ * Copyright IBM Corp. 2019, 2023
  *
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
@@ -22,7 +22,9 @@ const { stablePrefix: ddsPrefix } = ddsSettings;
  * @element dds-callout-data
  */
 @customElement(`${ddsPrefix}-callout-with-media`)
-class DDSCalloutWithMedia extends DDSCalloutMixin(StableSelectorMixin(DDSContentBlock)) {
+class DDSCalloutWithMedia extends DDSCalloutMixin(
+  StableSelectorMixin(DDSContentBlock)
+) {
   static get stableSelector() {
     return `${ddsPrefix}--callout-with-media`;
   }

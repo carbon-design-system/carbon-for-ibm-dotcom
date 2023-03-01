@@ -1,5 +1,5 @@
 /**
- * Copyright IBM Corp. 2020, 2022
+ * Copyright IBM Corp. 2020, 2023
  *
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
@@ -33,7 +33,7 @@ jest.mock(
 describe('LocaleAPI', () => {
   const handles = [];
 
-  beforeEach(function() {
+  beforeEach(function () {
     mockAxios.get.mockImplementation(async () => ({
       data: response,
     }));
@@ -263,9 +263,7 @@ describe('LocaleAPI', () => {
     });
 
     expect(mockAxios.get).toHaveBeenCalledTimes(1);
-    expect(
-      mockAxios.get
-    ).toHaveBeenCalledWith(
+    expect(mockAxios.get).toHaveBeenCalledWith(
       'https://ibm.com/common/js/dynamicnav/www/countrylist/jsononly/testCCtestLC-utf8.json',
       { headers: { 'Content-Type': 'application/json; charset=utf-8' } }
     );
@@ -301,15 +299,11 @@ describe('LocaleAPI', () => {
     });
 
     expect(mockAxios.get).toHaveBeenCalledTimes(2);
-    expect(
-      mockAxios.get
-    ).toHaveBeenCalledWith(
+    expect(mockAxios.get).toHaveBeenCalledWith(
       'https://ibm.com/common/js/dynamicnav/www/countrylist/jsononly/testCCtestLC-utf8.json',
       { headers: { 'Content-Type': 'application/json; charset=utf-8' } }
     );
-    expect(
-      mockAxios.get
-    ).toHaveBeenCalledWith(
+    expect(mockAxios.get).toHaveBeenCalledWith(
       'https://ibm.com/common/js/dynamicnav/www/countrylist/jsononly/usen-utf8.json',
       { headers: { 'Content-Type': 'application/json; charset=utf-8' } }
     );

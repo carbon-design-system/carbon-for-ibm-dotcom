@@ -1,7 +1,7 @@
 /**
  * @license
  *
- * Copyright IBM Corp. 2020, 2022
+ * Copyright IBM Corp. 2020, 2023
  *
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
@@ -21,7 +21,9 @@ const { stablePrefix: ddsPrefix } = ddsSettings;
  * @element dds-leadspace-block-content
  */
 @customElement(`${ddsPrefix}-leadspace-with-search-content`)
-class DDSLeadspaceWithSearchContent extends StableSelectorMixin(DDSLeadspaceBlockContent) {
+class DDSLeadspaceWithSearchContent extends StableSelectorMixin(
+  DDSLeadspaceBlockContent
+) {
   /**
    * The shadow slot the content should be in.
    */

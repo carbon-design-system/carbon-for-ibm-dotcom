@@ -1,7 +1,7 @@
 /**
  * @license
  *
- * Copyright IBM Corp. 2020, 2021
+ * Copyright IBM Corp. 2020, 2023
  *
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
@@ -24,7 +24,11 @@ if (process.env.NODE_ENV === 'development') {
  * @returns The default Redux store for Carbon for IBM.com.
  */
 export function createStore(initialState = root.__PRELOADED_STATE__) {
-  return reduxCreateStore(reducers, initialState ?? {}, applyMiddleware(...middlewares));
+  return reduxCreateStore(
+    reducers,
+    initialState ?? {},
+    applyMiddleware(...middlewares)
+  );
 }
 
 const store = createStore();

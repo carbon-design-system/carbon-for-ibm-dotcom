@@ -1,7 +1,7 @@
 /**
  * @license
  *
- * Copyright IBM Corp. 2020, 2022
+ * Copyright IBM Corp. 2020, 2023
  *
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
@@ -52,7 +52,9 @@ class DDSTab extends StableSelectorMixin(LitElement) {
     this._index = index;
   }
 
-  protected updated(_changedProperties: Map<string | number | symbol, unknown>): void {
+  protected updated(
+    _changedProperties: Map<string | number | symbol, unknown>
+  ): void {
     if (_changedProperties.has('selected')) {
       const { eventTabSelected } = this.constructor as typeof DDSTab;
       this.dispatchEvent(
@@ -78,8 +80,7 @@ class DDSTab extends StableSelectorMixin(LitElement) {
         role="tabpanel"
         aria-labelledby="tab-link-${this._index}-default"
         aria-hidden="${!this.selected}"
-        ?hidden="${!this.selected}"
-      >
+        ?hidden="${!this.selected}">
         <slot></slot>
       </div>
     `;

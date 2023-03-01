@@ -3,14 +3,10 @@ import markdownContents from '../../../../docs/markdown-contents.md';
 import contributing from '../../../../../../docs/contributing-license.md';
 import { cdnJs, cdnCss } from '../../../globals/internal/storybook-cdn';
 
-
-
-
-
 # `<dds-content-block-card-static>`
 
-> The Content Block - Card Static pattern is a variant of `<dds-content-block>`, and
-> includes a card group, a single content item, and ends with a CTA.
+> The Content Block - Card Static pattern is a variant of `<dds-content-block>`,
+> and includes a card group, a single content item, and ends with a CTA.
 
 > 💡 Check our
 > [CodeSandbox](https://githubbox.com/carbon-design-system/carbon-for-ibm-dotcom/tree/main/packages/web-components/examples/codesandbox/components/content-block-card-static)
@@ -20,8 +16,8 @@ import { cdnJs, cdnCss } from '../../../globals/internal/storybook-cdn';
 
 ## Feature Flag
 
-This component is currently behind a feature flag, in order to use it you'll need
-to add the following into your `.env` file.
+This component is currently behind a feature flag, in order to use it you'll
+need to add the following into your `.env` file.
 
 ```
   DDS_CONTENT_BLOCK_CARD_STATIC=true
@@ -37,56 +33,63 @@ Here's a quick example to get you started.
 import '@carbon/ibmdotcom-web-components/es/components/content-block-card-static/index.js';
 
 // with tags
-import 'carbon-web-components/es/components/tag/tag.js';
+import '@carbon/web-components/es/components/tag/tag.js';
 
 // Optional icons for Button Group
-import ArrowRight20 from 'carbon-web-components/es/icons/arrow--right/20.js';
-import Chat20 from 'carbon-web-components/es/icons/chat/20.js';
+import ArrowRight20 from '@carbon/web-components/es/icons/arrow--right/20.js';
+import Chat20 from '@carbon/web-components/es/icons/chat/20.js';
 ```
 
-<Description markdown={`${cdnJs({ components: ['content-block-card-static', 'tag'] })}`} />
+<Description
+  markdown={`${cdnJs({ components: ['content-block-card-static', 'tag'] })}`}
+/>
 
 <Description markdown={`${cdnCss()}`} />
 
 ### HTML
 
 ```html
-  <dds-content-block-card-static>
-    <dds-content-block-heading>Ways to buy</dds-content-block-heading>
-    <dds-card-group>
-      <dds-card-group-item>
-        <dds-card-heading>Nunc convallis</dds-card-heading>
-        <dds-tag-group>
-          <bx-tag>Most popular</bx-tag>
-        </dds-tag-group>
-        <p>
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean et ultricies est. Mauris iaculis eget dolor nec hendrerit.
-          Phasellus at elit sollicitudin, sodales nulla quis, consequat libero.
-        </p>
-      </dds-card-group-item>
-      <dds-card-group-item>
-        <dds-card-heading>Nunc convallis</dds-card-heading>
-        <p>
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean et ultricies est. Mauris iaculis eget dolor nec hendrerit.
-          Phasellus at elit sollicitudin, sodales nulla quis, consequat libero.
-        </p>
-      </dds-card-group-item>
-    </dds-card-group>
-    <dds-content-item>
-      <dds-content-item-heading>Lorem ipsum dolor si amett</dds-content-item-heading>
-      <dds-content-item-copy
-        >Contact us for a customized quote, discounted pricing, and financing options - or get started with a free trial today
-      </dds-content-item-copy>
-    </dds-content-item>
-    <dds-button-group slot="footer">
-      <dds-button-group-item href="https://example.com">
-        Contact us ${Chat20({ slot: 'icon' })}
-      </dds-button-group-item>
-      <dds-button-group-item href="https://example.com">
-        Free trial ${ArrowRight20({ slot: 'icon' })}
-      </dds-button-group-item>
-    </dds-button-group>
-  </dds-content-block-card-static>
+<dds-content-block-card-static>
+  <dds-content-block-heading>Ways to buy</dds-content-block-heading>
+  <dds-card-group>
+    <dds-card-group-item>
+      <dds-card-heading>Nunc convallis</dds-card-heading>
+      <dds-tag-group>
+        <bx-tag>Most popular</bx-tag>
+      </dds-tag-group>
+      <p>
+        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean et
+        ultricies est. Mauris iaculis eget dolor nec hendrerit. Phasellus at
+        elit sollicitudin, sodales nulla quis, consequat libero.
+      </p>
+    </dds-card-group-item>
+    <dds-card-group-item>
+      <dds-card-heading>Nunc convallis</dds-card-heading>
+      <p>
+        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean et
+        ultricies est. Mauris iaculis eget dolor nec hendrerit. Phasellus at
+        elit sollicitudin, sodales nulla quis, consequat libero.
+      </p>
+    </dds-card-group-item>
+  </dds-card-group>
+  <dds-content-item>
+    <dds-content-item-heading
+      >Lorem ipsum dolor si amett</dds-content-item-heading
+    >
+    <dds-content-item-copy
+      >Contact us for a customized quote, discounted pricing, and financing
+      options - or get started with a free trial today
+    </dds-content-item-copy>
+  </dds-content-item>
+  <dds-button-group slot="footer">
+    <dds-button-group-item href="https://example.com">
+      Contact us ${Chat20({ slot: 'icon' })}
+    </dds-button-group-item>
+    <dds-button-group-item href="https://example.com">
+      Free trial ${ArrowRight20({ slot: 'icon' })}
+    </dds-button-group-item>
+  </dds-button-group>
+</dds-content-block-card-static>
 ```
 
 ## Props
@@ -96,10 +99,12 @@ import Chat20 from 'carbon-web-components/es/icons/chat/20.js';
 
 ## Stable selectors
 
-See [our README](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/tree/main/packages/web-components#stable-selectors-for-analytics-and-integratione2e-testing-in-web-components) to see how Web Components selector and `data-autoid` should be used.
+See
+[our README](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/tree/main/packages/web-components#stable-selectors-for-analytics-and-integratione2e-testing-in-web-components)
+to see how Web Components selector and `data-autoid` should be used.
 
-| Web Components selector            | Compatibility selector                         | Description |
-| ---------------------------------- | -----------------------------------------------| ----------- |
-| `<dds-content-block-card-static>`  | `data-autoid="dds--content-block-card-static"` | Component   |
+| Web Components selector           | Compatibility selector                         | Description |
+| --------------------------------- | ---------------------------------------------- | ----------- |
+| `<dds-content-block-card-static>` | `data-autoid="dds--content-block-card-static"` | Component   |
 
 <Description markdown={contributing} />

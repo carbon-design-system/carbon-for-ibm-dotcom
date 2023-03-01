@@ -1,5 +1,5 @@
 /**
- * Copyright IBM Corp. 2020
+ * Copyright IBM Corp. 2020, 2023
  *
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
@@ -27,9 +27,6 @@ class ipcinfoCookie {
    * import { ipcinfoCookie } from '@carbon/ibmdotcom-utilities';
    *
    * const info = ipcinfoCookie.get();
-   *
-   *
-   * @returns {object} object containing cc and lc
    */
   static get() {
     const ipcinfo = Cookies.get(_cookieName);
@@ -37,7 +34,7 @@ class ipcinfoCookie {
       let cc;
       let lc;
       const info = decodeURIComponent(ipcinfo).split(';');
-      info.map(code => {
+      info.map((code) => {
         const itemParts = code.split('=');
         if (itemParts[0] === 'cc') cc = itemParts[1];
         if (itemParts[0] === 'lc') lc = itemParts[1];
@@ -54,13 +51,11 @@ class ipcinfoCookie {
    * @param {object} params params object
    * @param {string} params.cc country code
    * @param {string} params.lc language code
-   *
    * @example
    * import { ipcinfoCookie } from '@carbon/ibmdotcom-utilities';
    *
    * const locale = {cc: 'us', lc: 'en'}
    * ipcinfoCookie.set(locale);
-   *
    */
   static set({ cc, lc }) {
     const info = `cc=${cc};lc=${lc}`;
