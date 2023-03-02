@@ -1,5 +1,5 @@
 /**
- * Copyright IBM Corp. 2016, 2022
+ * Copyright IBM Corp. 2016, 2023
  *
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
@@ -69,6 +69,10 @@
   :host(#{$dds-prefix}-text-cta) {
     .#{$prefix}--link-with-icon.#{$prefix}--link-with-icon--inline-icon {
       display: inline-block;
+
+      &:hover {
+        text-underline-position: under;
+      }
 
       svg,
       ::slotted(svg[slot='icon']) {
