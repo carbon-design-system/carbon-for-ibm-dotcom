@@ -1,7 +1,7 @@
 /**
  * @license
  *
- * Copyright IBM Corp. 2020, 2021
+ * Copyright IBM Corp. 2020, 2023
  *
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
@@ -28,17 +28,27 @@ import readme from './README.stories.react.mdx';
 
 const hrefDefault = 'https://www.ibm.com/standards/carbon';
 const headingDefault = 'Lorem ipsum dolor sit amet';
-const copyDefault = 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean et ultricies est.';
+const copyDefault =
+  'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean et ultricies est.';
 const copyOdd = `
   ${copyDefault}
   Mauris iaculis eget dolor nec hendrerit. Phasellus at elit sollicitudin, sodales nulla quis, consequat libero.
 `;
 
-const Card = ({ copy = copyDefault, heading = headingDefault, href = hrefDefault, image = undefined } = {}) => (
+const Card = ({
+  copy = copyDefault,
+  heading = headingDefault,
+  href = hrefDefault,
+  image = undefined,
+} = {}) => (
   <DDSCard href={href}>
     <DDSCardHeading>{heading}</DDSCardHeading>
-    {copy}
-    {image ? <DDSImage slot="image" alt="example image" defaultSrc={image} /> : ''}
+    <p>{copy}</p>
+    {image ? (
+      <DDSImage slot="image" alt="example image" defaultSrc={image} />
+    ) : (
+      ''
+    )}
     <DDSCardFooter>
       <ArrowRight20 slot="icon" />
     </DDSCardFooter>
@@ -72,7 +82,7 @@ export const CardsWithImages = () => {
 export default {
   title: 'Components/Carousel',
   decorators: [
-    story => {
+    (story) => {
       return (
         <div className="bx--grid">
           <div className="bx--row">{story()}</div>
