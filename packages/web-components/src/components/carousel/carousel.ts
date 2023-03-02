@@ -694,7 +694,7 @@ class DDSCarousel extends HostListenerMixin(StableSelectorMixin(LitElement)) {
           class="${prefix}--carousel__navigation">
           <button
             part="prev-button"
-            class="${prefix}--btn ${prefix}--btn--secondary ${prefix}--btn--icon-only ${prefix}--carousel__navigation__btn"
+            class="${prefix}--btn ${prefix}--btn--tertiary ${prefix}--btn--icon-only ${prefix}--carousel__navigation__btn"
             ?disabled="${pagesBefore === 0}"
             @click="${handleClickPrevButton}"
             aria-label="${prevButtonText || defaultPrevButtonText}"
@@ -705,7 +705,7 @@ class DDSCarousel extends HostListenerMixin(StableSelectorMixin(LitElement)) {
           <span class="${prefix}--visually-hidden" aria-live="polite"></span>
           <button
             part="next-button"
-            class="${prefix}--btn ${prefix}--btn--secondary ${prefix}--btn--icon-only ${prefix}--carousel__navigation__btn"
+            class="${prefix}--btn ${prefix}--btn--tertiary ${prefix}--btn--icon-only ${prefix}--carousel__navigation__btn"
             ?disabled="${pagesSince <= 1}"
             @click="${handleClickNextButton}"
             aria-label="${nextButtonText || defaultNextButtonText}"
