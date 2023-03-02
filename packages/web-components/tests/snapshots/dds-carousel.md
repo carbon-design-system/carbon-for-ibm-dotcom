@@ -31,7 +31,7 @@
   >
     <button
       aria-label="previous"
-      class="bx--btn bx--btn--icon-only bx--btn--secondary bx--carousel__navigation__btn"
+      class="bx--btn bx--btn--icon-only bx--btn--tertiary bx--carousel__navigation__btn"
       disabled=""
       part="prev-button"
       title="previous"
@@ -47,7 +47,7 @@
     </span>
     <button
       aria-label="next"
-      class="bx--btn bx--btn--icon-only bx--btn--secondary bx--carousel__navigation__btn"
+      class="bx--btn bx--btn--icon-only bx--btn--tertiary bx--carousel__navigation__btn"
       disabled=""
       part="next-button"
       title="next"
