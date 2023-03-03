@@ -249,7 +249,7 @@ class DDSLeftNav extends StableSelectorMixin(BXSideNav) {
         _endSentinelNode: endSentinelNode,
       } = this;
 
-      const masthead: DDSMasthead | null | undefined = document
+      const masthead: DDSMasthead | null | undefined = doc
         ?.querySelector(
           `${ddsPrefix}-cloud-masthead-container, ${ddsPrefix}-masthead-container`
         )
