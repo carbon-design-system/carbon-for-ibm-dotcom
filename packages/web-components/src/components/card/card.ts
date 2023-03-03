@@ -70,11 +70,7 @@ class DDSCard extends StableSelectorMixin(BXLink) {
    */
   protected _handleSlotChange({ target }: Event) {
     const { name } = target as HTMLSlotElement;
-    const hasContent = (target as HTMLSlotElement)
-      .assignedNodes()
-      .some(
-        (node) => node.nodeType !== Node.TEXT_NODE || node!.textContent!.trim()
-      );
+    const hasContent = Boolean(this.querySelector('p'));
     this[slotExistencePropertyNames[name]] = hasContent;
     this._hasCopy = hasContent;
   }
