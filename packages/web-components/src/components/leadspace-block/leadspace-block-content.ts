@@ -1,7 +1,7 @@
 /**
  * @license
  *
- * Copyright IBM Corp. 2020, 2022
+ * Copyright IBM Corp. 2020, 2023
  *
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
@@ -32,6 +32,18 @@ class DDSLeadSpaceBlockContent extends DDSContentBlock {
         ${this._renderMedia()}${this._renderContent()}
       </div>
     `;
+  }
+
+  connectedCallback() {
+    /**
+     * ensure link list heading is aria level 3 so that the headings in
+     * leadspace block are hierarchical for accessibility purposes
+     */
+    const linkListHeading = this.querySelector('dds-link-list-heading');
+    if (linkListHeading) {
+      linkListHeading.setAttribute('aria-level', '3');
+    }
+    super.connectedCallback();
   }
 
   render() {
