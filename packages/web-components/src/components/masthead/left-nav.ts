@@ -23,7 +23,7 @@ import StableSelectorMixin from '../../globals/mixins/stable-selector';
 import DDSLeftNavOverlay from './left-nav-overlay';
 import styles from './masthead.scss';
 import DDSLeftNavMenuSection from './left-nav-menu-section';
-// import DDSMasthead from './masthead';
+import DDSMasthead from './masthead';
 
 const { prefix } = settings;
 const { stablePrefix: ddsPrefix } = ddsSettings;
@@ -246,11 +246,11 @@ class DDSLeftNav extends StableSelectorMixin(BXSideNav) {
         _endSentinelNode: endSentinelNode,
       } = this;
 
-      const masthead: HTMLElement | null | undefined = document
+      const masthead: DDSMasthead | null | undefined = document
         ?.querySelector(
-          `${prefix}-cloud-masthead-container, ${prefix}-masthead-container`
+          `${ddsPrefix}-cloud-masthead-container, ${ddsPrefix}-masthead-container`
         )
-        ?.querySelector(`${prefix}-masthead`);
+        ?.querySelector(`${ddsPrefix}-masthead`);
       if (expanded && masthead) {
         this._hFocusWrap = focuswrap(this.shadowRoot!, [
           startSentinelNode,
