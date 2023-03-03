@@ -373,14 +373,6 @@ $breakpoint--desktop-nav: 799px;
   }
 }
 
-:host(#{$dds-prefix}-megamenu-left-navigation),
-:host(#{$dds-prefix}-megamenu-right-navigation) {
-  max-height: calc(
-    100vh - var(--cds-spacing-09, 3rem) - var(--cds-layout-05, 4rem)
-  );
-  overflow: overlay;
-}
-
 :host(#{$dds-prefix}-left-nav) {
   @extend :host(#{$prefix}-side-nav);
 
