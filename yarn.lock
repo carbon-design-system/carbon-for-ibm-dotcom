@@ -2021,7 +2021,7 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@carbon/eslint-config-ibmdotcom@workspace:packages/eslint-config-ibmdotcom"
   dependencies:
-    "@carbon/eslint-plugin-react-prop-type-comments": 1.34.0-rc.0
+    "@carbon/eslint-plugin-react-prop-type-comments": 1.34.0
     "@typescript-eslint/eslint-plugin": ^5.43.0
     "@typescript-eslint/parser": ^5.43.0
     babel-eslint: ^10.1.0
@@ -2053,7 +2053,7 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@carbon/eslint-plugin-react-prop-type-comments@1.34.0-rc.0, @carbon/eslint-plugin-react-prop-type-comments@workspace:packages/eslint-plugin-react-prop-type-comments":
+"@carbon/eslint-plugin-react-prop-type-comments@1.34.0, @carbon/eslint-plugin-react-prop-type-comments@workspace:packages/eslint-plugin-react-prop-type-comments":
   version: 0.0.0-use.local
   resolution: "@carbon/eslint-plugin-react-prop-type-comments@workspace:packages/eslint-plugin-react-prop-type-comments"
   peerDependencies:
@@ -2091,12 +2091,12 @@ __metadata:
     "@babel/preset-env": ~7.12.0
     "@babel/preset-react": ~7.12.1
     "@babel/runtime": ^7.5.5
-    "@carbon/ibmdotcom-services": 1.44.0-rc.0
-    "@carbon/ibmdotcom-styles": 1.44.0-rc.0
-    "@carbon/ibmdotcom-utilities": 1.44.0-rc.0
+    "@carbon/ibmdotcom-services": 1.44.0
+    "@carbon/ibmdotcom-styles": 1.44.0
+    "@carbon/ibmdotcom-utilities": 1.44.0
     "@carbon/icons-react": 10.49.0
     "@carbon/pictograms-react": 11.39.0
-    "@carbon/storybook-addon-theme": 1.35.0-rc.0
+    "@carbon/storybook-addon-theme": 1.35.0
     "@carbon/telemetry": ^0.1.0
     "@percy-io/in-percy": ^0.1.11
     "@percy/cli": ^1.8.1
@@ -2211,7 +2211,7 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@carbon/ibmdotcom-services-store@1.44.0-rc.0, @carbon/ibmdotcom-services-store@workspace:packages/services-store":
+"@carbon/ibmdotcom-services-store@1.44.0, @carbon/ibmdotcom-services-store@workspace:packages/services-store":
   version: 0.0.0-use.local
   resolution: "@carbon/ibmdotcom-services-store@workspace:packages/services-store"
   dependencies:
@@ -2222,8 +2222,8 @@ __metadata:
     "@babel/plugin-transform-modules-commonjs": ^7.10.0
     "@babel/plugin-transform-typescript": ^7.11.0
     "@babel/preset-modules": ^0.1.0
-    "@carbon/ibmdotcom-services": 1.44.0-rc.0
-    "@carbon/ibmdotcom-utilities": 1.44.0-rc.0
+    "@carbon/ibmdotcom-services": 1.44.0
+    "@carbon/ibmdotcom-utilities": 1.44.0
     async-done: ^1.3.0
     babel-eslint: ^10.0.3
     babel-jest: ^24.0.0
@@ -2248,7 +2248,7 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@carbon/ibmdotcom-services@1.44.0-rc.0, @carbon/ibmdotcom-services@workspace:packages/services":
+"@carbon/ibmdotcom-services@1.44.0, @carbon/ibmdotcom-services@workspace:packages/services":
   version: 0.0.0-use.local
   resolution: "@carbon/ibmdotcom-services@workspace:packages/services"
   dependencies:
@@ -2261,7 +2261,7 @@ __metadata:
     "@babel/plugin-transform-runtime": 7.18.5
     "@babel/preset-env": ^7.4.3
     "@babel/runtime": ^7.5.0
-    "@carbon/ibmdotcom-utilities": 1.44.0-rc.0
+    "@carbon/ibmdotcom-utilities": 1.44.0
     "@carbon/telemetry": 0.1.0
     "@rollup/plugin-babel": ^5.3.1
     "@rollup/plugin-commonjs": ^21.0.3
@@ -2295,7 +2295,7 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@carbon/ibmdotcom-styles@1.44.0-rc.0, @carbon/ibmdotcom-styles@workspace:packages/styles":
+"@carbon/ibmdotcom-styles@1.44.0, @carbon/ibmdotcom-styles@workspace:packages/styles":
   version: 0.0.0-use.local
   resolution: "@carbon/ibmdotcom-styles@workspace:packages/styles"
   dependencies:
@@ -2321,7 +2321,7 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@carbon/ibmdotcom-utilities@1.44.0-rc.0, @carbon/ibmdotcom-utilities@workspace:packages/utilities":
+"@carbon/ibmdotcom-utilities@1.44.0, @carbon/ibmdotcom-utilities@workspace:packages/utilities":
   version: 0.0.0-use.local
   resolution: "@carbon/ibmdotcom-utilities@workspace:packages/utilities"
   dependencies:
@@ -2387,10 +2387,10 @@ __metadata:
     "@babel/preset-react": ~7.12.0
     "@babel/template": ~7.12.0
     "@babel/traverse": ~7.12.0
-    "@carbon/ibmdotcom-services": 1.44.0-rc.0
-    "@carbon/ibmdotcom-services-store": 1.44.0-rc.0
-    "@carbon/ibmdotcom-styles": 1.44.0-rc.0
-    "@carbon/ibmdotcom-utilities": 1.44.0-rc.0
+    "@carbon/ibmdotcom-services": 1.44.0
+    "@carbon/ibmdotcom-services-store": 1.44.0
+    "@carbon/ibmdotcom-styles": 1.44.0
+    "@carbon/ibmdotcom-utilities": 1.44.0
     "@carbon/icon-helpers": 10.38.0
     "@carbon/icons": 10.48.0
     "@carbon/icons-react": 10.49.0
@@ -2398,7 +2398,7 @@ __metadata:
     "@carbon/motion": ^11.0.0
     "@carbon/telemetry": 0.1.0
     "@carbon/type": 10.45.1
-    "@carbon/web-components": 1.25.0-rc.0
+    "@carbon/web-components": 1.25.0
     "@open-wc/semantic-dom-diff": ^0.15.0
     "@percy-io/in-percy": ^0.1.11
     "@percy/cli": ^1.8.1
@@ -2603,7 +2603,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@carbon/storybook-addon-theme@1.35.0-rc.0, @carbon/storybook-addon-theme@workspace:packages/storybook-addon-theme":
+"@carbon/storybook-addon-theme@1.35.0, @carbon/storybook-addon-theme@workspace:packages/storybook-addon-theme":
   version: 0.0.0-use.local
   resolution: "@carbon/storybook-addon-theme@workspace:packages/storybook-addon-theme"
   dependencies:
@@ -2661,7 +2661,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@carbon/web-components@1.25.0-rc.0, @carbon/web-components@workspace:packages/carbon-web-components":
+"@carbon/web-components@1.25.0, @carbon/web-components@workspace:packages/carbon-web-components":
   version: 0.0.0-use.local
   resolution: "@carbon/web-components@workspace:packages/carbon-web-components"
   dependencies:
@@ -2732,7 +2732,7 @@ __metadata:
     expect-playwright: ~0.8.0
     expect-puppeteer: ^6.0.0
     file-loader: ^6.2.0
-    flatpickr: 4.6.13
+    flatpickr: 4.6.9
     fs-extra: ^10.0.0
     gulp: ^4.0.2
     gulp-babel: ^8.0.0
@@ -16307,13 +16307,6 @@ __metadata:
   version: 4.6.1
   resolution: "flatpickr@npm:4.6.1"
   checksum: 66ea82084a70570a0dcf5a46a3b7e6a6551ec06fd1238f544226540feae69d2c3fd7af69f77c73023059e1a0d50e2f6ed0a6c4d4c390794cc4c8dd3c50002338
-  languageName: node
-  linkType: hard
-
-"flatpickr@npm:4.6.13":
-  version: 4.6.13
-  resolution: "flatpickr@npm:4.6.13"
-  checksum: 2cca1b8dc974e7673b51174ee3f0679ae3a6b79525a0c53bf49b87455ef358354e64acfd60b312e44cef208aab9750a1a48df32a0914046a53de6d9403742304
   languageName: node
   linkType: hard
 
