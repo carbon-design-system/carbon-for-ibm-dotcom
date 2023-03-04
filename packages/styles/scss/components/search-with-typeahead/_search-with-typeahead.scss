@@ -132,7 +132,7 @@ $button-transition: background-color 110ms, border-color 110ms, color 110ms;
     border-color: $focus;
   }
 
-  button.#{$prefix}--header__search--close.#{$prefix}--header__action[aria-label='Close'] {
+  button.#{$prefix}--header__search--close.#{$prefix}--header__action[part='close-button'] {
     overflow: hidden;
     width: 0;
     border: none;
@@ -169,7 +169,7 @@ $button-transition: background-color 110ms, border-color 110ms, color 110ms;
       width: 100%;
       margin-left: 0;
 
-      button.#{$prefix}--header__search--close.#{$prefix}--header__action[aria-label='Close'] {
+      button.#{$prefix}--header__search--close.#{$prefix}--header__action[part='close-button'] {
         display: inline-flex;
       }
 
