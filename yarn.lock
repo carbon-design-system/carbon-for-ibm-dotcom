@@ -2391,7 +2391,7 @@ __metadata:
     "@carbon/ibmdotcom-services-store": 1.44.0
     "@carbon/ibmdotcom-styles": 1.44.0
     "@carbon/ibmdotcom-utilities": 1.44.0
-    "@carbon/icon-helpers": 10.38.0
+    "@carbon/icon-helpers": 10.39.0
     "@carbon/icons": 10.48.0
     "@carbon/icons-react": 10.49.0
     "@carbon/layout": 10.37.1
@@ -2535,17 +2535,17 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@carbon/icon-helpers@npm:10.38.0, @carbon/icon-helpers@npm:^10.28.0":
-  version: 10.38.0
-  resolution: "@carbon/icon-helpers@npm:10.38.0"
-  checksum: 04277dcb45891d09ec5bd8ba43fcaaa3bea72d2cb24e02017a712873cabc81cba6efaf3932198ef1496092f33a853b5c66aec737a59c2a6eb576a5628d28951d
-  languageName: node
-  linkType: hard
-
-"@carbon/icon-helpers@npm:^10.39.0":
+"@carbon/icon-helpers@npm:10.39.0, @carbon/icon-helpers@npm:^10.39.0":
   version: 10.39.0
   resolution: "@carbon/icon-helpers@npm:10.39.0"
   checksum: b99ed8f595045ca1d6cb41181dfc731e79aa8bc372af4613728d6edc15421ac8d692dc5947c2e56a6fc039c43ae5771e7228edefac6d157f22f99f354e650940
+  languageName: node
+  linkType: hard
+
+"@carbon/icon-helpers@npm:^10.28.0":
+  version: 10.38.0
+  resolution: "@carbon/icon-helpers@npm:10.38.0"
+  checksum: 04277dcb45891d09ec5bd8ba43fcaaa3bea72d2cb24e02017a712873cabc81cba6efaf3932198ef1496092f33a853b5c66aec737a59c2a6eb576a5628d28951d
   languageName: node
   linkType: hard
 
