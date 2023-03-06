@@ -23,7 +23,7 @@ jobs:
           node-version: ${{ matrix.node-version }}
           cache: 'yarn'
       - name: Install dependencies
-        run: yarn install
+        run: yarn install --immutable --immutable-cache
       - name: Install xvfb
         run: sudo apt-get install xvfb
       - name: Build
@@ -59,7 +59,7 @@ jobs:
           node-version: ${{ matrix.node-version }}
           cache: 'yarn'
       - name: Install dependencies
-        run: yarn install
+        run: yarn install --immutable --immutable-cache
       - name: Install xvfb
         run: sudo apt-get install xvfb
       - name: Build
@@ -93,7 +93,7 @@ jobs:
           node-version: ${{ matrix.node-version }}
           cache: 'yarn'
       - name: Install dependencies
-        run: yarn install
+        run: yarn install --immutable --immutable-cache
       - name: Install xvfb
         run: sudo apt-get install xvfb
       - name: Build
@@ -129,7 +129,7 @@ jobs:
           node-version: ${{ matrix.node-version }}
           cache: 'yarn'
       - name: Install dependencies
-        run: yarn install
+        run: yarn install --immutable --immutable-cache
       - name: Install xvfb
         run: sudo apt-get install xvfb
       - name: Build
