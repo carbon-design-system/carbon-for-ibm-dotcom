@@ -762,7 +762,7 @@ class DDSSearchWithTypeahead extends HostListenerMixin(
    * The assistive text for the button to close the search box.
    */
   @property({ attribute: 'close-search-button-assistive-text' })
-  closeSearchButtonAssistiveText = 'Close';
+  closeSearchButtonAssistiveText = 'Clear input';
 
   /**
    * The language embedded in the inner form.

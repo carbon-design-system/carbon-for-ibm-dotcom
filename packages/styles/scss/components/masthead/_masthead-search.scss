@@ -159,7 +159,7 @@
       width: 100%;
       margin-left: 0;
 
-      button.#{$prefix}--header__search--close.#{$prefix}--header__action[aria-label='Close'] {
+      button.#{$prefix}--header__search--close.#{$prefix}--header__action[part='close-button'] {
         display: inline-flex;
         width: $carbon--spacing-09;
       }

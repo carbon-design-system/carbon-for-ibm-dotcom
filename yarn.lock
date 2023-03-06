@@ -2095,7 +2095,7 @@ __metadata:
     "@carbon/ibmdotcom-styles": 1.44.0
     "@carbon/ibmdotcom-utilities": 1.44.0
     "@carbon/icons-react": 10.49.0
-    "@carbon/pictograms-react": 11.39.0
+    "@carbon/pictograms-react": 11.40.0
     "@carbon/storybook-addon-theme": 1.35.0
     "@carbon/telemetry": ^0.1.0
     "@percy-io/in-percy": ^0.1.11
@@ -2391,7 +2391,7 @@ __metadata:
     "@carbon/ibmdotcom-services-store": 1.44.0
     "@carbon/ibmdotcom-styles": 1.44.0
     "@carbon/ibmdotcom-utilities": 1.44.0
-    "@carbon/icon-helpers": 10.38.0
+    "@carbon/icon-helpers": 10.39.0
     "@carbon/icons": 10.48.0
     "@carbon/icons-react": 10.49.0
     "@carbon/layout": 10.37.1
@@ -2535,7 +2535,14 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@carbon/icon-helpers@npm:10.38.0, @carbon/icon-helpers@npm:^10.28.0, @carbon/icon-helpers@npm:^10.38.0":
+"@carbon/icon-helpers@npm:10.39.0, @carbon/icon-helpers@npm:^10.39.0":
+  version: 10.39.0
+  resolution: "@carbon/icon-helpers@npm:10.39.0"
+  checksum: b99ed8f595045ca1d6cb41181dfc731e79aa8bc372af4613728d6edc15421ac8d692dc5947c2e56a6fc039c43ae5771e7228edefac6d157f22f99f354e650940
+  languageName: node
+  linkType: hard
+
+"@carbon/icon-helpers@npm:^10.28.0":
   version: 10.38.0
   resolution: "@carbon/icon-helpers@npm:10.38.0"
   checksum: 04277dcb45891d09ec5bd8ba43fcaaa3bea72d2cb24e02017a712873cabc81cba6efaf3932198ef1496092f33a853b5c66aec737a59c2a6eb576a5628d28951d
@@ -2590,16 +2597,16 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@carbon/pictograms-react@npm:11.39.0":
-  version: 11.39.0
-  resolution: "@carbon/pictograms-react@npm:11.39.0"
+"@carbon/pictograms-react@npm:11.40.0":
+  version: 11.40.0
+  resolution: "@carbon/pictograms-react@npm:11.40.0"
   dependencies:
-    "@carbon/icon-helpers": ^10.38.0
+    "@carbon/icon-helpers": ^10.39.0
     "@carbon/telemetry": 0.1.0
     prop-types: ^15.7.2
   peerDependencies:
     react: ">=16"
-  checksum: cf331b7ce758aac7b0d249366eb4ac608650a358eca915248a6d4f43082adf46c6ff6654fbc3965b883580cd511e5c60c8e921aff49be0db623461b1611ab9ec
+  checksum: e27e4fb0e435f63334fa31b391991988cb1cc32432c9aeed3db8c37af708ac0d2761ada01c1745ba804cd92346aa210adbf4c1c31bd0f04aad95bb4b92217c40
   languageName: node
   linkType: hard
 
