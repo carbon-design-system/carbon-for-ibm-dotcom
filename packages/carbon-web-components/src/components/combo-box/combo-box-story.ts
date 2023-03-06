@@ -7,10 +7,10 @@
  * LICENSE file in the root directory of this source tree.
  */
 
-import { html } from 'lit-element';
+import { html } from 'lit';
+import { ifDefined } from 'lit/directives/if-defined.js';
 import { action } from '@storybook/addon-actions';
 import { boolean, select, text } from '@storybook/addon-knobs';
-import ifNonNull from '../../globals/directives/if-non-null';
 import {
   DROPDOWN_COLOR_SCHEME,
   DROPDOWN_SIZE,
@@ -75,16 +75,16 @@ export const Default = (args) => {
   return html`
     <cds-combo-box
       ?open=${open}
-      color-scheme="${ifNonNull(colorScheme)}"
+      color-scheme="${ifDefined(colorScheme)}"
       ?disabled=${disabled}
       ?invalid=${invalid}
       helper-text=${helperText}
       label-text=${labelText}
-      size="${ifNonNull(size)}"
+      size="${ifDefined(size)}"
       validity-message=${validityMessage}
       value=${value}
       trigger-content=${triggerContent}
-      type=${ifNonNull(type)}
+      type=${ifDefined(type)}
       @bx-combo-box-beingselected=${handleBeforeSelect}
       @bx-combo-box-beingtoggled=${handleBeforeToggle}
       @bx-combo-box-selected=${onSelect}

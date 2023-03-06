@@ -113,7 +113,7 @@ like:
 
 ```javascript
 import { css, customElement } from 'lit-element';
-import BXDropdown from 'carbon-web-components/es/components/dropdown/dropdown';
+import BXDropdown from '@carbon/web-components/es/components/dropdown/dropdown';
 
 @customElement('my-dropdown')
 class MyDropdown extends BXDropdown {

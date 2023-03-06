@@ -7,8 +7,9 @@
  * LICENSE file in the root directory of this source tree.
  */
 
+import { LitElement, html } from 'lit';
+import { property, customElement, query } from 'lit/decorators.js';
 import { prefix } from '../../globals/settings';
-import { html, property, query, customElement, LitElement } from 'lit-element';
 import { TABLE_COLOR_SCHEME } from './defs';
 import BXTableRow from './table-row';
 import styles from './data-table.scss';

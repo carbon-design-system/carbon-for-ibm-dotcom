@@ -1,15 +1,15 @@
 /**
  * @license
  *
- * Copyright IBM Corp. 2020, 2022
+ * Copyright IBM Corp. 2020, 2023
  *
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
  */
 
-import { html } from 'lit-element';
-import ArrowRight20 from '@carbon/web-components/es/icons/arrow--right/20';
-import ifNonNull from '@carbon/web-components/es/globals/directives/if-non-null.js';
+import { html } from 'lit';
+import ArrowRight20 from '../../../internal/vendor/@carbon/web-components/icons/arrow--right/20';
+import { ifDefined } from 'lit/directives/if-defined.js';
 import { select } from '@storybook/addon-knobs';
 import textNullable from '../../../../.storybook/knob-text-nullable';
 import '../index';
@@ -75,16 +75,16 @@ export const Default = (args) => {
           <dds-link-list type="vertical" slot="complementary">
             <dds-link-list-item-cta
               icon-placement="${iconPlacement}"
-              href="${ifNonNull(href)}"
-              cta-type="${ifNonNull(ctaType)}"
-              download="${ifNonNull(download)}">
+              href="${ifDefined(href)}"
+              cta-type="${ifDefined(ctaType)}"
+              download="${ifDefined(download)}">
               Learn more about Kubernetes
             </dds-link-list-item-cta>
             <dds-link-list-item-cta
               icon-placement="${iconPlacement}"
-              href="${ifNonNull(href)}"
-              cta-type="${ifNonNull(ctaType)}"
-              download="${ifNonNull(download)}">
+              href="${ifDefined(href)}"
+              cta-type="${ifDefined(ctaType)}"
+              download="${ifDefined(download)}">
               Containerization A Complete Guide
             </dds-link-list-item-cta>
           </dds-link-list>

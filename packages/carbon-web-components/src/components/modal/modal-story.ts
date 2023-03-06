@@ -7,10 +7,10 @@
  * LICENSE file in the root directory of this source tree.
  */
 
-import { html } from 'lit-element';
+import { html } from 'lit';
 import { action } from '@storybook/addon-actions';
 import { boolean, select } from '@storybook/addon-knobs';
-import ifNonNull from '../../globals/directives/if-non-null';
+import { ifDefined } from 'lit/directives/if-defined.js';
 import '../button/button';
 import { MODAL_SIZE } from './modal';
 import './modal-header';
@@ -42,7 +42,7 @@ export const Default = (args) => {
   return html`
     <cds-modal
       ?open="${open}"
-      size="${ifNonNull(size)}"
+      size="${ifDefined(size)}"
       @cds-modal-beingclosed=${handleBeforeClose}
       @cds-modal-closed=${onClose}>
       <cds-modal-header>
@@ -77,7 +77,7 @@ export const SingleButton = (args) => {
   return html`
     <cds-modal
       ?open="${open}"
-      size="${ifNonNull(size)}"
+      size="${ifDefined(size)}"
       @cds-modal-beingclosed=${handleBeforeClose}
       @cds-modal-closed=${onClose}>
       <cds-modal-header>
@@ -109,7 +109,7 @@ export const ThreeButtons = (args) => {
   return html`
     <cds-modal
       ?open="${open}"
-      size="${ifNonNull(size)}"
+      size="${ifDefined(size)}"
       @cds-modal-beingclosed=${handleBeforeClose}
       @cds-modal-closed=${onClose}>
       <cds-modal-header>

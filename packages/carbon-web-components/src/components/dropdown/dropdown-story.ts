@@ -7,12 +7,12 @@
  * LICENSE file in the root directory of this source tree.
  */
 
-import { html } from 'lit-element';
+import { html } from 'lit';
 import { action } from '@storybook/addon-actions';
 import { boolean, select } from '@storybook/addon-knobs';
 import { prefix } from '../../globals/settings';
 import textNullable from '../../../.storybook/knob-text-nullable';
-import ifNonNull from '../../globals/directives/if-non-null';
+import { ifDefined } from 'lit/directives/if-defined.js';
 import {
   DROPDOWN_COLOR_SCHEME,
   DROPDOWN_SIZE,
@@ -76,14 +76,14 @@ export const Default = (args) => {
   return html`
     <cds-dropdown
       ?open=${open}
-      color-scheme="${ifNonNull(colorScheme)}"
+      color-scheme="${ifDefined(colorScheme)}"
       ?disabled=${disabled}
-      helper-text=${ifNonNull(helperText)}
-      label-text=${ifNonNull(labelText)}
-      size="${ifNonNull(size)}"
-      type="${ifNonNull(type)}"
-      value=${ifNonNull(value)}
-      trigger-content=${ifNonNull(triggerContent)}
+      helper-text=${ifDefined(helperText)}
+      label-text=${ifDefined(labelText)}
+      size="${ifDefined(size)}"
+      type="${ifDefined(type)}"
+      value=${ifDefined(value)}
+      trigger-content=${ifDefined(triggerContent)}
       @cds-dropdown-beingselected=${handleBeforeSelect}
       @cds-dropdown-beingtoggled=${handleBeforeToggle}
       @cds-dropdown-selected=${onSelect}

@@ -7,14 +7,14 @@
  * LICENSE file in the root directory of this source tree.
  */
 
-import { html } from 'lit-element';
+import { html } from 'lit';
 import { action } from '@storybook/addon-actions';
 import { boolean } from '@storybook/addon-knobs';
+import { ifDefined } from 'lit/directives/if-defined.js';
+import { prefix } from '../../globals/settings';
 import textNullable from '../../../.storybook/knob-text-nullable';
-import ifNonNull from '../../globals/directives/if-non-null';
 import './checkbox';
 import storyDocs from './checkbox-story.mdx';
-import { prefix } from '../../globals/settings';
 
 export const Default = (args) => {
   const {
@@ -35,18 +35,18 @@ export const Default = (args) => {
         ?disabled="${disabled}"
         ?hide-label="${hideLabel}"
         ?indeterminate="${indeterminate}"
-        label-text="${ifNonNull(labelText)}"
-        name="${ifNonNull(name)}"
-        value="${ifNonNull(value)}"
+        label-text="${ifDefined(labelText)}"
+        name="${ifDefined(name)}"
+        value="${ifDefined(value)}"
         @bx-checkbox-changed="${onChange}"></cds-checkbox>
       <cds-checkbox
         ?checked="${checked}"
         ?disabled="${disabled}"
         ?hide-label="${hideLabel}"
         ?indeterminate="${indeterminate}"
-        label-text="${ifNonNull(labelText)}"
-        name="${ifNonNull(name)}"
-        value="${ifNonNull(value)}"
+        label-text="${ifDefined(labelText)}"
+        name="${ifDefined(name)}"
+        value="${ifDefined(value)}"
         @bx-checkbox-changed="${onChange}"></cds-checkbox>
     </fieldset>
   `;

@@ -7,8 +7,9 @@
  * LICENSE file in the root directory of this source tree.
  */
 
-import { classMap } from 'lit-html/directives/class-map';
-import { html, property, query, customElement } from 'lit-element';
+import { classMap } from 'lit/directives/class-map.js';
+import { LitElement, html } from 'lit';
+import { property, customElement, query } from 'lit/decorators.js';
 import { prefix } from '../../globals/settings';
 import HostListenerMixin from '../../globals/mixins/host-listener';
 import HostListener from '../../globals/decorators/host-listener';
@@ -78,15 +79,6 @@ class BXTableToolbarSearch extends HostListenerMixin(BXSearch) {
   @property({ reflect: true })
   size = INPUT_SIZE.SMALL;
 
-  createRenderRoot() {
-    return this.attachShadow({
-      mode: 'open',
-      delegatesFocus:
-        Number((/Safari\/(\d+)/.exec(navigator.userAgent) ?? ['', 0])[1]) <=
-        537,
-    });
-  }
-
   connectedCallback() {
     if (!this.hasAttribute('role')) {
       this.setAttribute('role', 'search');
@@ -119,6 +111,10 @@ class BXTableToolbarSearch extends HostListenerMixin(BXSearch) {
     return `${prefix}-search-input`;
   }
 
+  static shadowRootOptions = {
+    ...LitElement.shadowRootOptions,
+    delegatesFocus: true,
+  };
   static styles = styles;
 }
 

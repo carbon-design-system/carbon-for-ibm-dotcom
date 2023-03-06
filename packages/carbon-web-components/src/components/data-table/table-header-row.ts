@@ -7,8 +7,8 @@
  * LICENSE file in the root directory of this source tree.
  */
 
+import { customElement } from 'lit/decorators.js';
 import { prefix } from '../../globals/settings';
-import { customElement } from 'lit-element';
 import BXTableRow from './table-row';
 
 /**

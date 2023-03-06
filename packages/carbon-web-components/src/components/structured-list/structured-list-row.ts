@@ -7,10 +7,11 @@
  * LICENSE file in the root directory of this source tree.
  */
 
-import { prefix } from '../../globals/settings';
-import { ifDefined } from 'lit-html/directives/if-defined';
-import { html, property, query, customElement, LitElement } from 'lit-element';
+import { LitElement, html } from 'lit';
+import { property, customElement, query } from 'lit/decorators.js';
+import { ifDefined } from 'lit/directives/if-defined.js';
 import CheckmarkFilled16 from '@carbon/icons/lib/checkmark--filled/16';
+import { prefix } from '../../globals/settings';
 import HostListener from '../../globals/decorators/host-listener';
 import HostListenerMixin from '../../globals/mixins/host-listener';
 import RadioGroupManager, {

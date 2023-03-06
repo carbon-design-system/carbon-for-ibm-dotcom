@@ -7,9 +7,10 @@
  * LICENSE file in the root directory of this source tree.
  */
 
-import { classMap } from 'lit-html/directives/class-map';
+import { LitElement, html } from 'lit';
+import { property, customElement, query } from 'lit/decorators.js';
+import { classMap } from 'lit/directives/class-map.js';
 import throttle from 'lodash-es/throttle';
-import { html, property, query, customElement, LitElement } from 'lit-element';
 import { prefix } from '../../globals/settings';
 import FocusMixin from '../../globals/mixins/focus';
 import FormMixin from '../../globals/mixins/form';
@@ -390,15 +391,6 @@ class BXSlider extends HostListenerMixin(FormMixin(FocusMixin(LitElement))) {
   @property({ type: Number })
   value = 50;
 
-  createRenderRoot() {
-    return this.attachShadow({
-      mode: 'open',
-      delegatesFocus:
-        Number((/Safari\/(\d+)/.exec(navigator.userAgent) ?? ['', 0])[1]) <=
-        537,
-    });
-  }
-
   connectedCallback() {
     super.connectedCallback();
     if (!this._throttledHandlePointermoveImpl) {
@@ -532,6 +524,10 @@ class BXSlider extends HostListenerMixin(FormMixin(FocusMixin(LitElement))) {
     return `${prefix}-slider-input-changed`;
   }
 
+  static shadowRootOptions = {
+    ...LitElement.shadowRootOptions,
+    delegatesFocus: true,
+  };
   static styles = styles;
 }
 

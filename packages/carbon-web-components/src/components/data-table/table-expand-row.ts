@@ -7,7 +7,8 @@
  * LICENSE file in the root directory of this source tree.
  */
 
-import { html, property, customElement } from 'lit-element';
+import { html } from 'lit';
+import { property, customElement } from 'lit/decorators.js';
 import ChevronRight16 from '@carbon/icons/lib/chevron--right/16';
 import { prefix } from '../../globals/settings';
 import HostListenerMixin from '../../globals/mixins/host-listener';

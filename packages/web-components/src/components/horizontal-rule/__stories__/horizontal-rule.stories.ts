@@ -1,15 +1,15 @@
 /**
  * @license
  *
- * Copyright IBM Corp. 2020, 2022
+ * Copyright IBM Corp. 2020, 2023
  *
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
  */
 
 import { select } from '@storybook/addon-knobs';
-import { html } from 'lit-element';
-import ifNonNull from '@carbon/web-components/es/globals/directives/if-non-null.js';
+import { html } from 'lit';
+import { ifDefined } from 'lit/directives/if-defined.js';
 import '../horizontal-rule';
 import readme from './README.stories.mdx';
 
@@ -17,10 +17,10 @@ export const Default = (args) => {
   const { type, size, contrast, weight } = args?.HorizontalRule ?? {};
   return html`
     <dds-hr
-      type="${ifNonNull(type)}"
-      size="${ifNonNull(size)}"
-      contrast="${ifNonNull(contrast)}"
-      weight="${ifNonNull(weight)}">
+      type="${ifDefined(type)}"
+      size="${ifDefined(size)}"
+      contrast="${ifDefined(contrast)}"
+      weight="${ifDefined(weight)}">
     </dds-hr>
   `;
 };

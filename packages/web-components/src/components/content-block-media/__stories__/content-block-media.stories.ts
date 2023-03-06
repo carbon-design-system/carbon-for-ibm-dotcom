@@ -1,7 +1,7 @@
 /**
  * @license
  *
- * Copyright IBM Corp. 2020, 2022
+ * Copyright IBM Corp. 2020, 2023
  *
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
@@ -11,8 +11,8 @@ import '../index';
 import '../../cta/index';
 import '../../link-list/link-list';
 import '../../link-list/link-list-heading';
-import { html } from 'lit-element';
-import ifNonNull from '@carbon/web-components/es/globals/directives/if-non-null.js';
+import { html } from 'lit';
+import { ifDefined } from 'lit/directives/if-defined.js';
 import { select } from '@storybook/addon-knobs';
 import textNullable from '../../../../.storybook/knob-text-nullable';
 import imgLg16x9 from '../../../../../storybook-images/assets/720/fpo--16x9--720x405--002.jpg';
@@ -87,7 +87,7 @@ export const Default = (args) => {
   } = args?.ContentBlockMedia ?? {};
   return html`
     <dds-content-block-media
-      complementary-style-scheme="${ifNonNull(complementaryStyleScheme)}">
+      complementary-style-scheme="${ifDefined(complementaryStyleScheme)}">
       <dds-content-block-heading> ${blockHeading} </dds-content-block-heading>
       <dds-content-block-copy size="md"
         >Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean et
@@ -198,7 +198,7 @@ export const withLinkList = (args) => {
   } = args?.ContentBlockMedia ?? {};
   return html`
     <dds-content-block-media
-      complementary-style-scheme="${ifNonNull(complementaryStyleScheme)}">
+      complementary-style-scheme="${ifDefined(complementaryStyleScheme)}">
       <dds-content-block-heading> ${blockHeading} </dds-content-block-heading>
       <dds-content-block-copy size="md"
         >Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean et

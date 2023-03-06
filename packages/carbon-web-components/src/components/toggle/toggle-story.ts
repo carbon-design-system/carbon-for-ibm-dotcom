@@ -7,11 +7,11 @@
  * LICENSE file in the root directory of this source tree.
  */
 
-import { html } from 'lit-element';
+import { html } from 'lit';
+import { ifDefined } from 'lit/directives/if-defined.js';
 import { action } from '@storybook/addon-actions';
 import { boolean, select } from '@storybook/addon-knobs';
 import textNullable from '../../../.storybook/knob-text-nullable';
-import ifNonNull from '../../globals/directives/if-non-null';
 import { prefix } from '../../globals/settings';
 import { TOGGLE_SIZE } from './toggle';
 import storyDocs from './toggle-story.mdx';
@@ -36,13 +36,13 @@ export const Default = (args) => {
   return html`
     <cds-toggle
       ?checked="${checked}"
-      checked-text="${ifNonNull(checkedText)}"
+      checked-text="${ifDefined(checkedText)}"
       ?disabled="${disabled}"
-      label-text="${ifNonNull(labelText)}"
-      name="${ifNonNull(name)}"
-      size="${ifNonNull(size)}"
-      unchecked-text="${ifNonNull(uncheckedText)}"
-      value="${ifNonNull(value)}"
+      label-text="${ifDefined(labelText)}"
+      name="${ifDefined(name)}"
+      size="${ifDefined(size)}"
+      unchecked-text="${ifDefined(uncheckedText)}"
+      value="${ifDefined(value)}"
       @cds-toggle-changed="${onChange}"></cds-toggle>
   `;
 };

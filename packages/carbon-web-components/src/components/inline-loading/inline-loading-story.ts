@@ -7,9 +7,9 @@
  * LICENSE file in the root directory of this source tree.
  */
 
-import { html } from 'lit-element';
+import { html } from 'lit';
 import { select } from '@storybook/addon-knobs';
-import ifNonNull from '../../globals/directives/if-non-null';
+import { ifDefined } from 'lit/directives/if-defined.js';
 import { INLINE_LOADING_STATE } from './inline-loading';
 import storyDocs from './inline-loading-story.mdx';
 
@@ -25,7 +25,7 @@ const states = {
 export const Default = (args) => {
   const { status } = args?.['bx-inline-loading'] ?? {};
   return html`
-    <cds-inline-loading status="${ifNonNull(status)}"
+    <cds-inline-loading status="${ifDefined(status)}"
       >Loading data...</cds-inline-loading
     >
   `;

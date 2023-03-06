@@ -7,20 +7,13 @@
  * LICENSE file in the root directory of this source tree.
  */
 
-import { prefix } from '../../globals/settings';
-import { classMap } from 'lit-html/directives/class-map';
-import {
-  html,
-  svg,
-  property,
-  query,
-  customElement,
-  LitElement,
-} from 'lit-element';
+import { classMap } from 'lit/directives/class-map.js';
+import { LitElement, html, svg } from 'lit';
+import { property, customElement, query } from 'lit/decorators.js';
+import { ifDefined } from 'lit/directives/if-defined.js';
 import Checkbox16 from '@carbon/icons/lib/checkbox/16';
 import CheckboxCheckedFilled16 from '@carbon/icons/lib/checkbox--checked--filled/16';
-
-import ifNonNull from '../../globals/directives/if-non-null';
+import { prefix } from '../../globals/settings';
 import FocusMixin from '../../globals/mixins/focus';
 import { TILE_COLOR_SCHEME } from './defs';
 import styles from './tile.scss';
@@ -29,6 +22,7 @@ import styles from './tile.scss';
  * Multi-selectable tile.
  *
  * @element cds-selectable-tile
+ * @fires bx-selectable-tile-changed - The custom event fired after this selectable tile changes its selected state.
  */
 @customElement(`${prefix}-selectable-tile`)
 class BXSelectableTile extends FocusMixin(LitElement) {
@@ -45,6 +39,18 @@ class BXSelectableTile extends FocusMixin(LitElement) {
    */
   protected _handleChange() {
     this.selected = this._inputNode.checked;
+
+    const selected = this.selected;
+    const { eventChange } = this.constructor as typeof BXSelectableTile;
+    this.dispatchEvent(
+      new CustomEvent(eventChange, {
+        bubbles: true,
+        composed: true,
+        detail: {
+          selected,
+        },
+      })
+    );
   }
 
   /**
@@ -96,15 +102,6 @@ class BXSelectableTile extends FocusMixin(LitElement) {
   @property()
   value!: string;
 
-  createRenderRoot() {
-    return this.attachShadow({
-      mode: 'open',
-      delegatesFocus:
-        Number((/Safari\/(\d+)/.exec(navigator.userAgent) ?? ['', 0])[1]) <=
-        537,
-    });
-  }
-
   render() {
     const {
       colorScheme,
@@ -126,8 +123,8 @@ class BXSelectableTile extends FocusMixin(LitElement) {
         id="input"
         class="${prefix}--tile-input"
         tabindex="-1"
-        name="${ifNonNull(name)}"
-        value="${ifNonNull(value)}"
+        name="${ifDefined(name)}"
+        value="${ifDefined(value)}"
         .checked=${selected}
         @change=${handleChange} />
       <label for="input" class="${classes}" tabindex="0">
@@ -139,6 +136,18 @@ class BXSelectableTile extends FocusMixin(LitElement) {
       </label>
     `;
   }
+
+  /**
+   * The name of the custom event fired after this selectable tile changes its selected state.
+   */
+  static get eventChange() {
+    return `${prefix}-selectable-tile-changed`;
+  }
+
+  static shadowRootOptions = {
+    ...LitElement.shadowRootOptions,
+    delegatesFocus: true,
+  };
 
   static styles = styles;
 }

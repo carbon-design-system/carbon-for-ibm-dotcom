@@ -7,7 +7,8 @@
  * LICENSE file in the root directory of this source tree.
  */
 
-import { html, property, query, customElement, LitElement } from 'lit-element';
+import { LitElement, html } from 'lit';
+import { property, customElement, query } from 'lit/decorators.js';
 import flatpickr from 'flatpickr';
 import { Instance as FlatpickrInstance } from 'flatpickr/dist/types/instance';
 import { Locale as FlatpickrLocale } from 'flatpickr/dist/types/locale';

@@ -7,10 +7,11 @@
  * LICENSE file in the root directory of this source tree.
  */
 
-import { prefix } from '../../globals/settings';
-import { html, property, customElement, LitElement } from 'lit-element';
+import { LitElement, html } from 'lit';
+import { property, customElement } from 'lit/decorators.js';
 import Arrows16 from '@carbon/icons/lib/arrows/16';
 import ArrowDown16 from '@carbon/icons/lib/arrow--down/16';
+import { prefix } from '../../globals/settings';
 import FocusMixin from '../../globals/mixins/focus';
 import {
   TABLE_SORT_CYCLE,
@@ -111,15 +112,6 @@ class BXTableHeaderCell extends FocusMixin(LitElement) {
   @property({ reflect: true, attribute: 'sort-direction' })
   sortDirection?: TABLE_SORT_DIRECTION;
 
-  createRenderRoot() {
-    return this.attachShadow({
-      mode: 'open',
-      delegatesFocus:
-        Number((/Safari\/(\d+)/.exec(navigator.userAgent) ?? ['', 0])[1]) <=
-        537,
-    });
-  }
-
   connectedCallback() {
     if (!this.hasAttribute('role')) {
       this.setAttribute('role', 'columnheader');
@@ -164,6 +156,10 @@ class BXTableHeaderCell extends FocusMixin(LitElement) {
     return `${prefix}-table-header-cell-sort`;
   }
 
+  static shadowRootOptions = {
+    ...LitElement.shadowRootOptions,
+    delegatesFocus: true,
+  };
   static styles = styles;
 
   /**

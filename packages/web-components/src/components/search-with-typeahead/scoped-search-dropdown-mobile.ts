@@ -1,20 +1,20 @@
 /**
  * @license
  *
- * Copyright IBM Corp. 2020, 2022
+ * Copyright IBM Corp. 2020, 2023
  *
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
  */
 
-import { ifDefined } from 'lit-html/directives/if-defined.js';
 import settings from 'carbon-components/es/globals/js/settings.js';
-import Filter20 from '@carbon/web-components/es/icons/filter/20.js';
-import { property, customElement, html } from 'lit-element';
-import BXSelect from '@carbon/web-components/es/components/select/select.js';
-import { INPUT_SIZE } from '@carbon/web-components/es/components/input/input.js';
-import { classMap } from 'lit-html/directives/class-map.js';
-import ifNonNull from '@carbon/web-components/es/globals/directives/if-non-null.js';
+import Filter20 from '../../internal/vendor/@carbon/web-components/icons/filter/20.js';
+import { html } from 'lit';
+import { customElement, property } from 'lit/decorators.js';
+import BXSelect from '../../internal/vendor/@carbon/web-components/components/select/select.js';
+import { INPUT_SIZE } from '../../internal/vendor/@carbon/web-components/components/input/input.js';
+import { classMap } from 'lit/directives/class-map.js';
+import { ifDefined } from 'lit/directives/if-defined.js';
 import ddsSettings from '../../internal/vendor/@carbon/ibmdotcom-utilities/utilities/settings/settings';
 import { filter } from '../../globals/internal/collection-helpers';
 import styles from './search-with-typeahead.scss';
@@ -85,9 +85,9 @@ class DDSScopedSearchDropdownMobile extends BXSelect {
               <option
                 class="${prefix}--select-option"
                 ?disabled="${disabled}"
-                label="${ifNonNull(label ?? textContent)}"
+                label="${ifDefined(label ?? textContent)}"
                 ?selected="${selected}"
-                value="${ifNonNull(value)}">
+                value="${ifDefined(value)}">
                 ${textContent}
               </option>
             `
@@ -95,7 +95,7 @@ class DDSScopedSearchDropdownMobile extends BXSelect {
               <optgroup
                 class="${prefix}--select-optgroup"
                 ?disabled="${disabled}"
-                label="${ifNonNull(label)}">
+                label="${ifDefined(label)}">
                 ${this._renderItemsMobile(item)}
               </optgroup>
             `;

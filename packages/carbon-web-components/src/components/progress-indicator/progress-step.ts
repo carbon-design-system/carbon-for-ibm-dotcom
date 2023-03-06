@@ -7,7 +7,8 @@
  * LICENSE file in the root directory of this source tree.
  */
 
-import { html, svg, property, customElement, LitElement } from 'lit-element';
+import { LitElement, html, svg } from 'lit';
+import { property, customElement } from 'lit/decorators.js';
 import CheckmarkOutline16 from '@carbon/icons/lib/checkmark--outline/16';
 import CircleDash16 from '@carbon/icons/lib/circle-dash/16';
 import Incomplete16 from '@carbon/icons/lib/incomplete/16';
@@ -75,15 +76,6 @@ class BXProgressStep extends FocusMixin(LitElement) {
   @property({ type: Boolean, reflect: true })
   vertical = false;
 
-  createRenderRoot() {
-    return this.attachShadow({
-      mode: 'open',
-      delegatesFocus:
-        Number((/Safari\/(\d+)/.exec(navigator.userAgent) ?? ['', 0])[1]) <=
-        537,
-    });
-  }
-
   connectedCallback() {
     if (!this.hasAttribute('role')) {
       this.setAttribute('role', 'listitem');
@@ -126,6 +118,10 @@ class BXProgressStep extends FocusMixin(LitElement) {
     `;
   }
 
+  static shadowRootOptions = {
+    ...LitElement.shadowRootOptions,
+    delegatesFocus: true,
+  };
   static styles = styles;
 }
 

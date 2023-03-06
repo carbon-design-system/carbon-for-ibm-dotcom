@@ -5,12 +5,12 @@
  * LICENSE file in the root directory of this source tree.
  */
 
-import { html } from 'lit-element';
+import { html } from 'lit';
 import { action } from '@storybook/addon-actions';
 import { boolean, select } from '@storybook/addon-knobs';
 import { prefix } from '../../globals/settings';
 import textNullable from '../../../.storybook/knob-text-nullable';
-import ifNonNull from '../../globals/directives/if-non-null';
+import { ifDefined } from 'lit/directives/if-defined.js';
 import { INPUT_SIZE } from '../input/input';
 import './date-picker';
 import {
@@ -97,17 +97,17 @@ export const Default = (args) => {
   return html`
     <cds-date-picker
       ?disabled="${disabled}"
-      name="${ifNonNull(name)}"
-      value="${ifNonNull(value)}">
+      name="${ifDefined(name)}"
+      value="${ifDefined(value)}">
       <cds-date-picker-input
-        color-scheme="${ifNonNull(colorScheme)}"
+        color-scheme="${ifDefined(colorScheme)}"
         ?hide-label="${hideLabel}"
         ?invalid="${invalid}"
-        label-text="${ifNonNull(labelText)}"
-        placeholder="${ifNonNull(placeholder)}"
-        size="${ifNonNull(size)}"
-        size-horizontal="${ifNonNull(sizeHorizontal)}"
-        validity-message="${ifNonNull(validityMessage)}">
+        label-text="${ifDefined(labelText)}"
+        placeholder="${ifDefined(placeholder)}"
+        size="${ifDefined(size)}"
+        size-horizontal="${ifDefined(sizeHorizontal)}"
+        validity-message="${ifDefined(validityMessage)}">
       </cds-date-picker-input>
     </cds-date-picker>
   `;
@@ -151,23 +151,23 @@ export const singleWithCalendar = (args) => {
   } = args?.[`${prefix}-date-picker-input`] ?? {};
   return html`
     <cds-date-picker
-      date-format="${ifNonNull(dateFormat)}"
+      date-format="${ifDefined(dateFormat)}"
       ?disabled="${disabled}"
-      enabled-range="${ifNonNull(enabledRange)}"
-      name="${ifNonNull(name)}"
+      enabled-range="${ifDefined(enabledRange)}"
+      name="${ifDefined(name)}"
       ?open="${open}"
-      value="${ifNonNull(value)}"
+      value="${ifDefined(value)}"
       @cds-date-picker-changed="${onChanged}"
       @cds-date-picker-flatpickr-error="${onFlatpickrError}">
       <cds-date-picker-input
-        color-scheme="${ifNonNull(colorScheme)}"
+        color-scheme="${ifDefined(colorScheme)}"
         ?hide-label="${hideLabel}"
         ?invalid="${invalid}"
         kind="single"
-        label-text="${ifNonNull(labelText)}"
-        placeholder="${ifNonNull(placeholder)}"
-        size="${ifNonNull(size)}"
-        validity-message="${ifNonNull(validityMessage)}"
+        label-text="${ifDefined(labelText)}"
+        placeholder="${ifDefined(placeholder)}"
+        size="${ifDefined(size)}"
+        validity-message="${ifDefined(validityMessage)}"
         @input="${onInput}">
       </cds-date-picker-input>
     </cds-date-picker>
@@ -203,34 +203,34 @@ export const rangeWithCalendar = (args) => {
   } = args?.[`${prefix}-date-picker-input`] ?? {};
   return html`
     <cds-date-picker
-      date-format="${ifNonNull(dateFormat)}"
+      date-format="${ifDefined(dateFormat)}"
       ?disabled="${disabled}"
-      enabled-range="${ifNonNull(enabledRange)}"
-      name="${ifNonNull(name)}"
+      enabled-range="${ifDefined(enabledRange)}"
+      name="${ifDefined(name)}"
       ?open="${open}"
-      value="${ifNonNull(value)}"
+      value="${ifDefined(value)}"
       @cds-date-picker-changed="${onChanged}"
       @cds-date-picker-flatpickr-error="${onFlatpickrError}">
       <cds-date-picker-input
-        color-scheme="${ifNonNull(colorScheme)}"
+        color-scheme="${ifDefined(colorScheme)}"
         ?hide-label="${hideLabel}"
         ?invalid="${invalid}"
         kind="from"
-        label-text="${ifNonNull(labelText)}"
-        placeholder="${ifNonNull(placeholder)}"
-        size="${ifNonNull(size)}"
-        validity-message="${ifNonNull(validityMessage)}"
+        label-text="${ifDefined(labelText)}"
+        placeholder="${ifDefined(placeholder)}"
+        size="${ifDefined(size)}"
+        validity-message="${ifDefined(validityMessage)}"
         @input="${onInput}">
       </cds-date-picker-input>
       <cds-date-picker-input
-        color-scheme="${ifNonNull(colorScheme)}"
+        color-scheme="${ifDefined(colorScheme)}"
         ?hide-label="${hideLabel}"
         ?invalid="${invalid}"
         kind="to"
-        label-text="${ifNonNull(labelText)}"
-        placeholder="${ifNonNull(placeholder)}"
-        size="${ifNonNull(size)}"
-        validity-message="${ifNonNull(validityMessage)}"
+        label-text="${ifDefined(labelText)}"
+        placeholder="${ifDefined(placeholder)}"
+        size="${ifDefined(size)}"
+        validity-message="${ifDefined(validityMessage)}"
         @input="${onInput}">
       </cds-date-picker-input>
     </cds-date-picker>

@@ -7,7 +7,8 @@
  * LICENSE file in the root directory of this source tree.
  */
 
-import { html, property, customElement } from 'lit-element';
+import { html } from 'lit';
+import { property, customElement } from 'lit/decorators.js';
 import { prefix } from '../../globals/settings';
 import BXContentSwitcherItem from '../content-switcher/content-switcher-item';
 import { TABS_TYPE } from './tabs';

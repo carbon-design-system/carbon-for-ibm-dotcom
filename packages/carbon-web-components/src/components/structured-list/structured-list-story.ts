@@ -7,9 +7,9 @@
  * LICENSE file in the root directory of this source tree.
  */
 
-import { html } from 'lit-html';
+import { html } from 'lit';
 import { boolean } from '@storybook/addon-knobs';
-import ifNonNull from '../../globals/directives/if-non-null';
+import { ifDefined } from 'lit/directives/if-defined.js';
 import './structured-list';
 import './structured-list-head';
 import './structured-list-header-row';
@@ -32,7 +32,7 @@ export const Default = (args) => {
         'structured-list-selection-2',
       ];
   return html`
-    <cds-structured-list selection-name=${ifNonNull(selectionName)}>
+    <cds-structured-list selection-name=${ifDefined(selectionName)}>
       <cds-structured-list-head>
         <cds-structured-list-header-row>
           <cds-structured-list-header-cell
@@ -48,7 +48,7 @@ export const Default = (args) => {
       </cds-structured-list-head>
       <cds-structured-list-body>
         <cds-structured-list-row
-          selection-value=${ifNonNull(selectionValues[0])}>
+          selection-value=${ifDefined(selectionValues[0])}>
           <cds-structured-list-cell>Row 1</cds-structured-list-cell>
           <cds-structured-list-cell>Row 1</cds-structured-list-cell>
           <cds-structured-list-cell
@@ -58,7 +58,7 @@ export const Default = (args) => {
           >
         </cds-structured-list-row>
         <cds-structured-list-row
-          selection-value=${ifNonNull(selectionValues[1])}>
+          selection-value=${ifDefined(selectionValues[1])}>
           <cds-structured-list-cell>Row 2</cds-structured-list-cell>
           <cds-structured-list-cell>Row 2</cds-structured-list-cell>
           <cds-structured-list-cell
@@ -68,7 +68,7 @@ export const Default = (args) => {
           >
         </cds-structured-list-row>
         <cds-structured-list-row
-          selection-value=${ifNonNull(selectionValues[2])}>
+          selection-value=${ifDefined(selectionValues[2])}>
           <cds-structured-list-cell>Row 3</cds-structured-list-cell>
           <cds-structured-list-cell>Row 3</cds-structured-list-cell>
           <cds-structured-list-cell

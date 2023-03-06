@@ -1,15 +1,15 @@
 /**
  * @license
  *
- * Copyright IBM Corp. 2020, 2022
+ * Copyright IBM Corp. 2020, 2023
  *
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
  */
 
-import { html, render } from 'lit-html';
-import ArrowRight20 from '@carbon/web-components/es/icons/arrow--right/20';
-import ifNonNull from '@carbon/web-components/es/globals/directives/if-non-null.js';
+import { html, render } from 'lit/html.js';
+import ArrowRight20 from '../../../internal/vendor/@carbon/web-components/icons/arrow--right/20';
+import { ifDefined } from 'lit/directives/if-defined.js';
 import '../../card/card-heading';
 import '../content-block-cards';
 
@@ -21,8 +21,8 @@ const template = (props?) => {
       <dds-card-group>${children}</dds-card-group>
       <dds-card-cta
         slot="footer"
-        cta-type="${ifNonNull(ctaType)}"
-        href="${ifNonNull(href)}">
+        cta-type="${ifDefined(ctaType)}"
+        href="${ifDefined(href)}">
         <p>ctaCopy-foo</p>
         ${ArrowRight20({ slot: 'footer' })}
       </dds-card-cta>

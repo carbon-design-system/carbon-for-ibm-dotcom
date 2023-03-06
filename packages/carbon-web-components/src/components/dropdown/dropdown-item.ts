@@ -7,9 +7,10 @@
  * LICENSE file in the root directory of this source tree.
  */
 
-import { prefix } from '../../globals/settings';
-import { html, property, customElement, LitElement } from 'lit-element';
+import { LitElement, html } from 'lit';
+import { property, customElement } from 'lit/decorators.js';
 import Checkmark16 from '@carbon/icons/lib/checkmark/16';
+import { prefix } from '../../globals/settings';
 import { DROPDOWN_SIZE } from './dropdown';
 import styles from './dropdown.scss';
 

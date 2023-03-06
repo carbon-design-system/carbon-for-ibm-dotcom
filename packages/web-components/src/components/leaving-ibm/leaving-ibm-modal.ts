@@ -1,17 +1,17 @@
 /**
  * @license
  *
- * Copyright IBM Corp. 2020, 2022
+ * Copyright IBM Corp. 2020, 2023
  *
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
  */
 
-import { property, customElement } from 'lit-element';
+import { customElement, property } from 'lit/decorators.js';
 import BXModal, {
   MODAL_SIZE,
-} from '@carbon/web-components/es/components/modal/modal.js';
-import HostListener from '@carbon/web-components/es/globals/decorators/host-listener.js';
+} from '../../internal/vendor/@carbon/web-components/components/modal/modal.js';
+import HostListener from '../../internal/vendor/@carbon/web-components/globals/decorators/host-listener.js';
 import ddsSettings from '../../internal/vendor/@carbon/ibmdotcom-utilities/utilities/settings/settings';
 import StableSelectorMixin from '../../globals/mixins/stable-selector';
 import styles from './leaving-ibm.scss';

@@ -7,11 +7,11 @@
  * LICENSE file in the root directory of this source tree.
  */
 
-import { html } from 'lit-element';
+import { html } from 'lit';
 import { action } from '@storybook/addon-actions';
 import { boolean, select } from '@storybook/addon-knobs';
 import textNullable from '../../../.storybook/knob-text-nullable';
-import ifNonNull from '../../globals/directives/if-non-null';
+import { ifDefined } from 'lit/directives/if-defined.js';
 import { INPUT_SIZE } from '../input/input';
 import { SEARCH_COLOR_SCHEME } from './search';
 import './search-skeleton';
@@ -43,15 +43,15 @@ export const Default = (args) => {
   } = args?.['bx-search'] ?? {};
   return html`
     <cds-search
-      close-button-assistive-text="${ifNonNull(closeButtonAssistiveText)}"
-      color-scheme="${ifNonNull(colorScheme)}"
+      close-button-assistive-text="${ifDefined(closeButtonAssistiveText)}"
+      color-scheme="${ifDefined(colorScheme)}"
       ?disabled="${disabled}"
-      label-text="${ifNonNull(labelText)}"
-      name="${ifNonNull(name)}"
-      placeholder="${ifNonNull(placeholder)}"
-      size="${ifNonNull(size)}"
-      type="${ifNonNull(type)}"
-      value="${ifNonNull(value)}"
+      label-text="${ifDefined(labelText)}"
+      name="${ifDefined(name)}"
+      placeholder="${ifDefined(placeholder)}"
+      size="${ifDefined(size)}"
+      type="${ifDefined(type)}"
+      value="${ifDefined(value)}"
       @bx-search-input="${onInput}"></cds-search>
   `;
 };

@@ -1,15 +1,15 @@
 /**
  * @license
  *
- * Copyright IBM Corp. 2020, 2022
+ * Copyright IBM Corp. 2020, 2023
  *
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
  */
 
-import { html } from 'lit-element';
+import { html } from 'lit';
 import { boolean, text } from '@storybook/addon-knobs';
-import ifNonNull from '@carbon/web-components/es/globals/directives/if-non-null.js';
+import { ifDefined } from 'lit/directives/if-defined.js';
 import readme from './README.stories.mdx';
 import '../video-player-container';
 import '../../lightbox-media-viewer/lightbox-video-player-container';
@@ -68,7 +68,7 @@ export const withLightboxMediaViewer = (args) => {
       video-id=${videoId}
       aspect-ratio=${aspectRatio}
       caption=${caption}
-      video-description="${ifNonNull(customVideoDescription)}"
+      video-description="${ifDefined(customVideoDescription)}"
       ?hide-caption=${hideCaption}
       thumbnail=${thumbnail}
       playing-mode="lightbox">

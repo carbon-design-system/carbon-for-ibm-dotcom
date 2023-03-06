@@ -7,8 +7,9 @@
  * LICENSE file in the root directory of this source tree.
  */
 
+import { LitElement, html } from 'lit';
+import { property, customElement } from 'lit/decorators.js';
 import { prefix } from '../../globals/settings';
-import { html, property, customElement, LitElement } from 'lit-element';
 import { forEach } from '../../globals/internal/collection-helpers';
 import { TABLE_COLOR_SCHEME, TABLE_SIZE } from './defs';
 import styles from './data-table.scss';

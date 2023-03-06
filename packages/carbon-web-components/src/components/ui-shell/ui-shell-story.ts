@@ -7,15 +7,15 @@
  * LICENSE file in the root directory of this source tree.
  */
 
-import { html } from 'lit-element';
+import { html } from 'lit';
 import { boolean, select } from '@storybook/addon-knobs';
-// Below path will be there when an application installs `carbon-web-components` package.
+// Below path will be there when an application installs `@carbon/web-components` package.
 // In our dev env, we auto-generate the file and re-map below path to to point to the generated file.
 // @ts-ignore
-import Fade16 from 'carbon-web-components/es/icons/fade/16';
+import Fade16 from '@carbon/web-components/es/icons/fade/16';
 import contentStyles from '@carbon/styles/scss/components/ui-shell/content/_content.scss';
 import textNullable from '../../../.storybook/knob-text-nullable';
-import ifNonNull from '../../globals/directives/if-non-null';
+import { ifDefined } from 'lit/directives/if-defined.js';
 import { SIDE_NAV_COLLAPSE_MODE, SIDE_NAV_USAGE_MODE } from './side-nav';
 import './side-nav-items';
 import './side-nav-link';
@@ -130,42 +130,42 @@ export const sideNav = (args) => {
     </style>
     <cds-side-nav
       aria-label="Side navigation"
-      collapse-mode="${ifNonNull(collapseMode)}"
+      collapse-mode="${ifDefined(collapseMode)}"
       ?expanded=${expanded}>
       <cds-side-nav-items>
         <cds-side-nav-menu title="L0 menu">
-          <cds-side-nav-menu-item href="${ifNonNull(href)}">
+          <cds-side-nav-menu-item href="${ifDefined(href)}">
             L0 menu item
           </cds-side-nav-menu-item>
-          <cds-side-nav-menu-item href="${ifNonNull(href)}">
+          <cds-side-nav-menu-item href="${ifDefined(href)}">
             L0 menu item
           </cds-side-nav-menu-item>
-          <cds-side-nav-menu-item href="${ifNonNull(href)}">
+          <cds-side-nav-menu-item href="${ifDefined(href)}">
             L0 menu item
           </cds-side-nav-menu-item>
         </cds-side-nav-menu>
         <cds-side-nav-menu title="L0 menu">
-          <cds-side-nav-menu-item href="${ifNonNull(href)}">
+          <cds-side-nav-menu-item href="${ifDefined(href)}">
             L0 menu item
           </cds-side-nav-menu-item>
           <cds-side-nav-menu-item
             active
             aria-current="page"
-            href="${ifNonNull(href)}">
+            href="${ifDefined(href)}">
             L0 menu item
           </cds-side-nav-menu-item>
-          <cds-side-nav-menu-item href="${ifNonNull(href)}">
+          <cds-side-nav-menu-item href="${ifDefined(href)}">
             L0 menu item
           </cds-side-nav-menu-item>
         </cds-side-nav-menu>
         <cds-side-nav-menu title="L0 menu">
-          <cds-side-nav-menu-item href="${ifNonNull(href)}">
+          <cds-side-nav-menu-item href="${ifDefined(href)}">
             L0 menu item
           </cds-side-nav-menu-item>
-          <cds-side-nav-menu-item href="${ifNonNull(href)}">
+          <cds-side-nav-menu-item href="${ifDefined(href)}">
             L0 menu item
           </cds-side-nav-menu-item>
-          <cds-side-nav-menu-item href="${ifNonNull(href)}">
+          <cds-side-nav-menu-item href="${ifDefined(href)}">
             L0 menu item
           </cds-side-nav-menu-item>
         </cds-side-nav-menu>
@@ -208,45 +208,45 @@ export const sideNavWithIcons = (args) => {
     </style>
     <cds-side-nav
       aria-label="Side navigation"
-      collapse-mode="${ifNonNull(collapseMode)}"
+      collapse-mode="${ifDefined(collapseMode)}"
       ?expanded=${expanded}>
       <cds-side-nav-items>
         <cds-side-nav-menu title="L0 menu">
           ${Fade16({ slot: 'title-icon' })}
-          <cds-side-nav-menu-item href="${ifNonNull(href)}">
+          <cds-side-nav-menu-item href="${ifDefined(href)}">
             L0 menu item
           </cds-side-nav-menu-item>
-          <cds-side-nav-menu-item href="${ifNonNull(href)}">
+          <cds-side-nav-menu-item href="${ifDefined(href)}">
             L0 menu item
           </cds-side-nav-menu-item>
-          <cds-side-nav-menu-item href="${ifNonNull(href)}">
+          <cds-side-nav-menu-item href="${ifDefined(href)}">
             L0 menu item
           </cds-side-nav-menu-item>
         </cds-side-nav-menu>
         <cds-side-nav-menu title="L0 menu">
           ${Fade16({ slot: 'title-icon' })}
-          <cds-side-nav-menu-item href="${ifNonNull(href)}">
+          <cds-side-nav-menu-item href="${ifDefined(href)}">
             L0 menu item
           </cds-side-nav-menu-item>
           <cds-side-nav-menu-item
             active
             aria-current="page"
-            href="${ifNonNull(href)}">
+            href="${ifDefined(href)}">
             L0 menu item
           </cds-side-nav-menu-item>
-          <cds-side-nav-menu-item href="${ifNonNull(href)}">
+          <cds-side-nav-menu-item href="${ifDefined(href)}">
             L0 menu item
           </cds-side-nav-menu-item>
         </cds-side-nav-menu>
         <cds-side-nav-menu title="L0 menu">
           ${Fade16({ slot: 'title-icon' })}
-          <cds-side-nav-menu-item href="${ifNonNull(href)}">
+          <cds-side-nav-menu-item href="${ifDefined(href)}">
             L0 menu item
           </cds-side-nav-menu-item>
-          <cds-side-nav-menu-item href="${ifNonNull(href)}">
+          <cds-side-nav-menu-item href="${ifDefined(href)}">
             L0 menu item
           </cds-side-nav-menu-item>
-          <cds-side-nav-menu-item href="${ifNonNull(href)}">
+          <cds-side-nav-menu-item href="${ifDefined(href)}">
             L0 menu item
           </cds-side-nav-menu-item>
         </cds-side-nav-menu>
@@ -319,46 +319,46 @@ export const header = (args) => {
     </cds-header>
     <cds-side-nav
       aria-label="Side navigation"
-      collapse-mode="${ifNonNull(collapseMode)}"
+      collapse-mode="${ifDefined(collapseMode)}"
       ?expanded=${expanded}
-      usage-mode="${ifNonNull(usageMode)}">
+      usage-mode="${ifDefined(usageMode)}">
       <cds-side-nav-items>
         <cds-side-nav-menu title="L0 menu">
           ${Fade16({ slot: 'title-icon' })}
-          <cds-side-nav-menu-item href="${ifNonNull(href)}">
+          <cds-side-nav-menu-item href="${ifDefined(href)}">
             L0 menu item
           </cds-side-nav-menu-item>
-          <cds-side-nav-menu-item href="${ifNonNull(href)}">
+          <cds-side-nav-menu-item href="${ifDefined(href)}">
             L0 menu item
           </cds-side-nav-menu-item>
-          <cds-side-nav-menu-item href="${ifNonNull(href)}">
+          <cds-side-nav-menu-item href="${ifDefined(href)}">
             L0 menu item
           </cds-side-nav-menu-item>
         </cds-side-nav-menu>
         <cds-side-nav-menu title="L0 menu">
           ${Fade16({ slot: 'title-icon' })}
-          <cds-side-nav-menu-item href="${ifNonNull(href)}">
+          <cds-side-nav-menu-item href="${ifDefined(href)}">
             L0 menu item
           </cds-side-nav-menu-item>
           <cds-side-nav-menu-item
             active
             aria-current="page"
-            href="${ifNonNull(href)}">
+            href="${ifDefined(href)}">
             L0 menu item
           </cds-side-nav-menu-item>
-          <cds-side-nav-menu-item href="${ifNonNull(href)}">
+          <cds-side-nav-menu-item href="${ifDefined(href)}">
             L0 menu item
           </cds-side-nav-menu-item>
         </cds-side-nav-menu>
         <cds-side-nav-menu title="L0 menu">
           ${Fade16({ slot: 'title-icon' })}
-          <cds-side-nav-menu-item href="${ifNonNull(href)}">
+          <cds-side-nav-menu-item href="${ifDefined(href)}">
             L0 menu item
           </cds-side-nav-menu-item>
-          <cds-side-nav-menu-item href="${ifNonNull(href)}">
+          <cds-side-nav-menu-item href="${ifDefined(href)}">
             L0 menu item
           </cds-side-nav-menu-item>
-          <cds-side-nav-menu-item href="${ifNonNull(href)}">
+          <cds-side-nav-menu-item href="${ifDefined(href)}">
             L0 menu item
           </cds-side-nav-menu-item>
         </cds-side-nav-menu>

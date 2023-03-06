@@ -7,15 +7,10 @@
  * LICENSE file in the root directory of this source tree.
  */
 
-import { prefix } from '../../globals/settings';
-import {
-  html,
-  property,
-  query,
-  customElement,
-  TemplateResult,
-} from 'lit-element';
+import { html, TemplateResult } from 'lit';
+import { property, customElement, query } from 'lit/decorators.js';
 import Close16 from '@carbon/icons/lib/close/16';
+import { prefix } from '../../globals/settings';
 import {
   filter,
   forEach,

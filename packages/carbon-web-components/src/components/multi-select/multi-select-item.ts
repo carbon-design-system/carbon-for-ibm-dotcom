@@ -7,9 +7,9 @@
  * LICENSE file in the root directory of this source tree.
  */
 
+import { html } from 'lit';
+import { property, customElement } from 'lit/decorators.js';
 import { prefix } from '../../globals/settings';
-import { ifDefined } from 'lit-html/directives/if-defined';
-import { html, property, customElement } from 'lit-element';
 import BXDropdownItem from '../dropdown/dropdown-item';
 import styles from './multi-select.scss';
 

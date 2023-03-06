@@ -7,11 +7,11 @@
  * LICENSE file in the root directory of this source tree.
  */
 
-import { html } from 'lit-element';
+import { html } from 'lit';
 import { action } from '@storybook/addon-actions';
 import { boolean, select } from '@storybook/addon-knobs';
+import { ifDefined } from 'lit/directives/if-defined.js';
 import { prefix } from '../../globals/settings';
-import ifNonNull from '../../globals/directives/if-non-null';
 import './file-uploader';
 import './drop-container';
 import './demo-file-uploader';
@@ -46,12 +46,12 @@ export const Default = (args) => {
   };
   return html`
     <cds-ce-demo-file-uploader
-      accept="${ifNonNull(accept)}"
+      accept="${ifDefined(accept)}"
       ?disabled="${disabled}"
-      helper-text="${ifNonNull(helperText)}"
-      label-text="${ifNonNull(labelText)}"
+      helper-text="${ifDefined(helperText)}"
+      label-text="${ifDefined(labelText)}"
       ?multiple="${multiple}"
-      size="${ifNonNull(size)}"
+      size="${ifDefined(size)}"
       @bx-file-uploader-item-beingdeleted="${handleBeforeDelete}"
       @bx-file-uploader-item-deleted="${onDelete}">
     </cds-ce-demo-file-uploader>

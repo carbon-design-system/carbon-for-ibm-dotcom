@@ -1,16 +1,17 @@
 /**
  * @license
  *
- * Copyright IBM Corp. 2020, 2022
+ * Copyright IBM Corp. 2020, 2023
  *
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
  */
 
-import { html, property, customElement, LitElement } from 'lit-element';
-import ifNonNull from '@carbon/web-components/es/globals/directives/if-non-null.js';
-import HostListener from '@carbon/web-components/es/globals/decorators/host-listener.js';
-import HostListenerMixin from '@carbon/web-components/es/globals/mixins/host-listener.js';
+import { LitElement, html } from 'lit';
+import { customElement, property } from 'lit/decorators.js';
+import { ifDefined } from 'lit/directives/if-defined.js';
+import HostListener from '../../internal/vendor/@carbon/web-components/globals/decorators/host-listener.js';
+import HostListenerMixin from '../../internal/vendor/@carbon/web-components/globals/mixins/host-listener.js';
 import LocaleAPI from '../../internal/vendor/@carbon/ibmdotcom-services/services/Locale/Locale';
 import ddsSettings from '../../internal/vendor/@carbon/ibmdotcom-utilities/utilities/settings/settings';
 import HybridRenderMixin from '../../globals/mixins/hybrid-render';
@@ -37,8 +38,8 @@ import './legal-nav-item';
 import './legal-nav-cookie-preferences-placeholder';
 import './language-selector-desktop';
 import './language-selector-mobile';
-import '@carbon/web-components/es/components/combo-box/combo-box-item.js';
-import '@carbon/web-components/es/components/select/select-item.js';
+import '../../internal/vendor/@carbon/web-components/components/combo-box/combo-box-item.js';
+import '../../internal/vendor/@carbon/web-components/components/select/select-item.js';
 
 const { stablePrefix: ddsPrefix } = ddsSettings;
 
@@ -231,12 +232,12 @@ class DDSFooterComposite extends ModalRenderMixin(
     } = this;
     return html`
       <dds-locale-modal-composite
-        lang-display="${ifNonNull(langDisplay)}"
-        language="${ifNonNull(language)}"
+        lang-display="${ifDefined(langDisplay)}"
+        language="${ifDefined(language)}"
         ?open="${openLocaleModal}"
-        .collatorCountryName="${ifNonNull(collatorCountryName)}"
-        .localeList="${ifNonNull(localeList)}"
-        ._loadLocaleList="${ifNonNull(loadLocaleList)}">
+        .collatorCountryName="${ifDefined(collatorCountryName)}"
+        .localeList="${ifDefined(localeList)}"
+        ._loadLocaleList="${ifDefined(loadLocaleList)}">
       </dds-locale-modal-composite>
     `;
   }
@@ -258,17 +259,17 @@ class DDSFooterComposite extends ModalRenderMixin(
     } = this;
     return html`
       <dds-footer
-        size="${ifNonNull(size)}"
-        ?disable-locale-button="${ifNonNull(disableLocaleButton)}">
+        size="${ifDefined(size)}"
+        ?disable-locale-button="${ifDefined(disableLocaleButton)}">
         <dds-footer-logo></dds-footer-logo>
         <dds-footer-nav
-          ?disable-locale-button="${ifNonNull(disableLocaleButton)}">
+          ?disable-locale-button="${ifDefined(disableLocaleButton)}">
           ${links?.map(
             ({ title: groupTitle, links: groupLinks }) => html`
-              <dds-footer-nav-group title-text="${ifNonNull(groupTitle)}">
+              <dds-footer-nav-group title-text="${ifDefined(groupTitle)}">
                 ${groupLinks?.map(
                   ({ title, url }) => html`
-                    <dds-footer-nav-item href="${ifNonNull(url)}"
+                    <dds-footer-nav-item href="${ifDefined(url)}"
                       >${title}</dds-footer-nav-item
                     >
                   `
@@ -280,7 +281,7 @@ class DDSFooterComposite extends ModalRenderMixin(
         ${size !== FOOTER_SIZE.MICRO && !langList && !disableLocaleButton
           ? html`
               <dds-locale-button
-                buttonLabel="${ifNonNull(buttonLabel)}"
+                buttonLabel="${ifDefined(buttonLabel)}"
                 size="${size}"
                 @click="${handleClickLocaleButton}"
                 >${langDisplay}</dds-locale-button
@@ -297,9 +298,9 @@ class DDSFooterComposite extends ModalRenderMixin(
                 ${langList?.map(
                   (language) => html`
                     <bx-combo-box-item
-                      value="${ifNonNull(language.text)}"
-                      lang="${ifNonNull(language.id)}"
-                      >${ifNonNull(language.text)}</bx-combo-box-item
+                      value="${ifDefined(language.text)}"
+                      lang="${ifDefined(language.id)}"
+                      >${ifDefined(language.text)}</bx-combo-box-item
                     >
                   `
                 )}
@@ -310,22 +311,22 @@ class DDSFooterComposite extends ModalRenderMixin(
                 ${langList?.map(
                   (language) => html`
                     <bx-select-item
-                      label="${ifNonNull(language.text)}"
-                      value="${ifNonNull(language.text)}"
-                      lang="${ifNonNull(language.id)}"
-                      >${ifNonNull(language.text)}</bx-select-item
+                      label="${ifDefined(language.text)}"
+                      value="${ifDefined(language.text)}"
+                      lang="${ifDefined(language.id)}"
+                      >${ifDefined(language.text)}</bx-select-item
                     >
                   `
                 )}
               </dds-language-selector-mobile>
             `
           : ``}
-        <dds-legal-nav size="${ifNonNull(size)}">
+        <dds-legal-nav size="${ifDefined(size)}">
           ${legalLinks?.map(
             ({ title, url, titleEnglish }) => html`
               <dds-legal-nav-item
-                autoid="${ifNonNull(titleEnglish)}"
-                href="${ifNonNull(url)}"
+                autoid="${ifDefined(titleEnglish)}"
+                href="${ifDefined(url)}"
                 >${title}</dds-legal-nav-item
               >
             `
@@ -334,8 +335,8 @@ class DDSFooterComposite extends ModalRenderMixin(
             ? adjunctLinks?.map(
                 ({ title, url, titleEnglish }) => html`
                   <dds-legal-nav-item
-                    autoid="${ifNonNull(titleEnglish)}"
-                    href="${ifNonNull(url)}"
+                    autoid="${ifDefined(titleEnglish)}"
+                    href="${ifDefined(url)}"
                     slot="adjunct-links">
                     ${title}
                   </dds-legal-nav-item>
@@ -346,7 +347,7 @@ class DDSFooterComposite extends ModalRenderMixin(
           ${size === FOOTER_SIZE.MICRO && !langList && !disableLocaleButton
             ? html`
                 <dds-locale-button
-                  buttonLabel="${ifNonNull(buttonLabel)}"
+                  buttonLabel="${ifDefined(buttonLabel)}"
                   size="${size}"
                   slot="locale"
                   @click="${handleClickLocaleButton}"
@@ -366,9 +367,9 @@ class DDSFooterComposite extends ModalRenderMixin(
                   ${langList?.map(
                     (language) => html`
                       <bx-combo-box-item
-                        value="${ifNonNull(language.text)}"
-                        lang="${ifNonNull(language.id)}"
-                        >${ifNonNull(language.text)}</bx-combo-box-item
+                        value="${ifDefined(language.text)}"
+                        lang="${ifDefined(language.id)}"
+                        >${ifDefined(language.text)}</bx-combo-box-item
                       >
                     `
                   )}
@@ -381,10 +382,10 @@ class DDSFooterComposite extends ModalRenderMixin(
                   ${langList?.map(
                     (language) => html`
                       <bx-select-item
-                        label="${ifNonNull(language.text)}"
-                        value="${ifNonNull(language.text)}"
-                        lang="${ifNonNull(language.id)}"
-                        >${ifNonNull(language.text)}</bx-select-item
+                        label="${ifDefined(language.text)}"
+                        value="${ifDefined(language.text)}"
+                        lang="${ifDefined(language.id)}"
+                        >${ifDefined(language.text)}</bx-select-item
                       >
                     `
                   )}

@@ -7,10 +7,10 @@
  * LICENSE file in the root directory of this source tree.
  */
 
-import { prefix } from '../../globals/settings';
-import { TemplateResult } from 'lit-html';
-import { html, property, query, customElement } from 'lit-element';
+import { TemplateResult, html } from 'lit';
+import { property, customElement, query } from 'lit/decorators.js';
 import Close16 from '@carbon/icons/lib/close/16';
+import { prefix } from '../../globals/settings';
 import { findIndex, forEach } from '../../globals/internal/collection-helpers';
 import BXDropdown, { DROPDOWN_KEYBOARD_ACTION } from '../dropdown/dropdown';
 import BXComboBoxItem from './combo-box-item';

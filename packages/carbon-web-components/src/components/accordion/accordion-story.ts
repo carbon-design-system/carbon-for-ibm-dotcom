@@ -7,7 +7,7 @@
  * LICENSE file in the root directory of this source tree.
  */
 
-import { html } from 'lit-element';
+import { html } from 'lit';
 import { action } from '@storybook/addon-actions';
 import { boolean, select, text } from '@storybook/addon-knobs';
 import { ACCORDION_SIZE } from './accordion';
@@ -32,7 +32,7 @@ export const Default = (args) => {
     onToggle = noop,
     size,
     alignment,
-    isFlush
+    isFlush,
   } = args?.['bx-accordion'] ?? {};
   const handleBeforeToggle = (event: CustomEvent) => {
     onBeforeToggle(event);

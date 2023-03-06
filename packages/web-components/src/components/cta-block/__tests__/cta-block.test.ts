@@ -1,14 +1,14 @@
 /**
  * @license
  *
- * Copyright IBM Corp. 2020, 2022
+ * Copyright IBM Corp. 2020, 2023
  *
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
  */
 
-import { html, render } from 'lit-html';
-import ifNonNull from '@carbon/web-components/es/globals/directives/if-non-null.js';
+import { html, render } from 'lit/html.js';
+import { ifDefined } from 'lit/directives/if-defined.js';
 import '../cta-block';
 
 const template = (props?) => {
@@ -16,9 +16,9 @@ const template = (props?) => {
   return html`
     <dds-cta-block>
       <dds-content-block-heading
-        >${ifNonNull(heading)}</dds-content-block-heading
+        >${ifDefined(heading)}</dds-content-block-heading
       >
-      <dds-cta-block-copy>${ifNonNull(copy)}</dds-cta-block-copy>
+      <dds-cta-block-copy>${ifDefined(copy)}</dds-cta-block-copy>
       ${children}
     </dds-cta-block>
   `;

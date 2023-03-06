@@ -7,7 +7,7 @@
  * LICENSE file in the root directory of this source tree.
  */
 
-import { customElement } from 'lit-element';
+import { customElement } from 'lit/decorators.js';
 import { prefix } from '../../globals/settings';
 import BXLink from '../link/link';
 import styles from './breadcrumb.scss';

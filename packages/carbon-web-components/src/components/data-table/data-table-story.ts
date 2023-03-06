@@ -8,20 +8,21 @@
  */
 
 import debounce from 'lodash-es/debounce';
-import { html, property, LitElement } from 'lit-element';
-import { repeat } from 'lit-html/directives/repeat';
+import { LitElement, html } from 'lit';
+import { property } from 'lit/decorators.js';
+import { repeat } from 'lit/directives/repeat.js';
 import { action } from '@storybook/addon-actions';
 import { boolean, select } from '@storybook/addon-knobs';
-// Below path will be there when an application installs `carbon-web-components` package.
+// Below path will be there when an application installs `@carbon/web-components` package.
 // In our dev env, we auto-generate the file and re-map below path to to point to the generated file.
 // @ts-ignore
-import Delete16 from 'carbon-web-components/es/icons/delete/16';
+import Delete16 from '@carbon/web-components/es/icons/delete/16';
 // @ts-ignore
-import Download16 from 'carbon-web-components/es/icons/download/16';
+import Download16 from '@carbon/web-components/es/icons/download/16';
 // @ts-ignore
-import Settings16 from 'carbon-web-components/es/icons/settings/16';
+import Settings16 from '@carbon/web-components/es/icons/settings/16';
 import BXBtn from '../button/button';
-import ifNonNull from '../../globals/directives/if-non-null';
+import { ifDefined } from 'lit/directives/if-defined.js';
 import '../overflow-menu/overflow-menu';
 import '../overflow-menu/overflow-menu-body';
 import '../overflow-menu/overflow-menu-item';
@@ -114,9 +115,9 @@ class BXCEDemoDataTable extends LitElement {
    * @param lhs A value.
    * @param rhs Another value.
    * @returns
-   *   * `0` if the given two values are equal
-   *   * A negative value to sort `lhs` to an index lower than `rhs`
-   *   * A positive value to sort `rhs` to an index lower than `lhs`
+   *   `0` if the given two values are equal
+   *   A negative value to sort `lhs` to an index lower than `rhs`
+   *   A positive value to sort `rhs` to an index lower than `lhs`
    */
   private _compare(lhs, rhs) {
     if (typeof lhs === 'number' && typeof rhs === 'number') {
@@ -466,8 +467,8 @@ class BXCEDemoDataTable extends LitElement {
         <cds-table-head>
           <cds-table-header-row
             ?selected=${selectedAllInFiltered}
-            selection-name=${ifNonNull(selectionAllName)}
-            selection-value=${ifNonNull(selectionAllName)}>
+            selection-name=${ifDefined(selectionAllName)}
+            selection-value=${ifDefined(selectionAllName)}>
             ${repeat(
               columns!,
               ({ id: columnId }) => columnId,
@@ -479,8 +480,8 @@ class BXCEDemoDataTable extends LitElement {
                     : TABLE_SORT_DIRECTION.NONE);
                 return html`
                   <cds-table-header-cell
-                    sort-cycle="${ifNonNull(sortCycle)}"
-                    sort-direction="${ifNonNull(sortDirectionForThisCell)}"
+                    sort-cycle="${ifDefined(sortCycle)}"
+                    sort-direction="${ifDefined(sortDirectionForThisCell)}"
                     data-column-id="${columnId}">
                     ${title}
                   </cds-table-header-cell>
@@ -504,8 +505,8 @@ class BXCEDemoDataTable extends LitElement {
               return html`
                 <cds-table-row
                   ?selected=${hasSelection && selected}
-                  selection-name="${ifNonNull(selectionName)}"
-                  selection-value="${ifNonNull(selectionValue)}"
+                  selection-name="${ifDefined(selectionName)}"
+                  selection-value="${ifDefined(selectionValue)}"
                   data-row-id="${rowId}">
                   ${repeat(
                     columns!,
@@ -561,7 +562,7 @@ export const Default = (args) => {
   const { size } = args?.['bx-table'] ?? {};
   const { colorScheme } = args?.['bx-table-body'] ?? {};
   return html`
-    <cds-table size="${ifNonNull(size)}">
+    <cds-table size="${ifDefined(size)}">
       <cds-table-head>
         <cds-table-header-row>
           <cds-table-header-cell>Name</cds-table-header-cell>
@@ -640,7 +641,7 @@ export const expandable = (args) => {
   };
   return html`
     <cds-table
-      size="${ifNonNull(size)}"
+      size="${ifDefined(size)}"
       @bx-table-row-expando-toggled-all="${handleExpandRowAll}"
       @bx-table-row-expando-toggled="${handleExpandRow}"
     >
@@ -746,7 +747,7 @@ export const sortable = (args) => {
       .rows=${demoRows}
       .sortInfo=${demoSortInfo}
       ?has-selection=${hasSelection}
-      size="${ifNonNull(size)}"
+      size="${ifDefined(size)}"
       @bx-table-row-change-selection=${beforeChangeSelectionHandler}
       @bx-table-change-selection-all=${beforeChangeSelectionHandler}
       @bx-table-header-cell-sort=${beforeChangeSortHandler}>
@@ -831,7 +832,7 @@ export const sortableWithPagination = (args) => {
       .sortInfo=${demoSortInfo}
       ?has-selection=${hasSelection}
       page-size="5"
-      size="${ifNonNull(size)}"
+      size="${ifDefined(size)}"
       start="0"
       @bx-table-row-change-selection=${beforeChangeSelectionHandler}
       @bx-table-change-selection-all=${beforeChangeSelectionHandler}

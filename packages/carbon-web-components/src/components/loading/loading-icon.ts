@@ -7,7 +7,7 @@
  * LICENSE file in the root directory of this source tree.
  */
 
-import { html } from 'lit-html';
+import { html } from 'lit';
 import { prefix } from '../../globals/settings';
 import LOADING_TYPE from './types';
 

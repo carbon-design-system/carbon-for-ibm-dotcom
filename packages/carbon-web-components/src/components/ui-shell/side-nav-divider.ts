@@ -7,8 +7,9 @@
  * LICENSE file in the root directory of this source tree.
  */
 
+import { LitElement } from 'lit';
+import { customElement } from 'lit/decorators.js';
 import { prefix } from '../../globals/settings';
-import { customElement, LitElement } from 'lit-element';
 import styles from './side-nav.scss';
 
 /**

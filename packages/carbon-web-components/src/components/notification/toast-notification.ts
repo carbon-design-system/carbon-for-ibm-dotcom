@@ -7,8 +7,9 @@
  * LICENSE file in the root directory of this source tree.
  */
 
+import { html } from 'lit';
+import { property, customElement } from 'lit/decorators.js';
 import { prefix } from '../../globals/settings';
-import { html, property, customElement } from 'lit-element';
 import { NOTIFICATION_TYPE } from './defs';
 import BXInlineNotification from './inline-notification';
 import styles from './toast-notification.scss';

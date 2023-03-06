@@ -7,8 +7,11 @@
  * LICENSE file in the root directory of this source tree.
  */
 
+import { html, svg } from 'lit';
+import { classMap } from 'lit-html/directives/class-map';
+import { ifDefined } from 'lit/directives/if-defined';
+import { customElement } from 'lit/decorators.js';
 import { prefix } from '../../globals/settings';
-import { customElement, html, svg } from 'lit-element';
 import HostListener from '../../globals/decorators/host-listener';
 import HostListenerMixin from '../../globals/mixins/host-listener';
 import RadioGroupManager, {
@@ -16,8 +19,6 @@ import RadioGroupManager, {
 } from '../../globals/internal/radio-group-manager';
 import SelectableTile from './selectable-tile';
 import CheckmarkFilled16 from '@carbon/icons/lib/checkmark--filled/16';
-import { classMap } from 'lit-html/directives/class-map';
-import ifNonNull from '../../globals/directives/if-non-null';
 
 /**
  * Map of navigation direction by key.
@@ -146,8 +147,8 @@ class BXRadioTile extends HostListenerMixin(SelectableTile) {
         id="input"
         class="${prefix}--tile-input"
         tabindex="-1"
-        name="${ifNonNull(name)}"
-        value="${ifNonNull(value)}"
+        name="${ifDefined(name)}"
+        value="${ifDefined(value)}"
         .checked=${selected}
         @change=${handleChange} />
       <label for="input" class="${classes}" tabindex="0">

@@ -7,7 +7,7 @@
  * LICENSE file in the root directory of this source tree.
  */
 
-import { html } from 'lit-element';
+import { html } from 'lit';
 import './skeleton-placeholder';
 import storyDocs from './skeleton-placeholder-story.mdx';
 

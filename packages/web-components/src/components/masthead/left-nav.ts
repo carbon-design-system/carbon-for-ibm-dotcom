@@ -1,20 +1,21 @@
 /**
  * @license
  *
- * Copyright IBM Corp. 2020, 2022
+ * Copyright IBM Corp. 2020, 2023
  *
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
  */
 
 import findLast from 'lodash-es/findLast.js';
-import { html, query, property, customElement } from 'lit-element';
+import { html } from 'lit';
+import { customElement, property, query } from 'lit/decorators.js';
 import settings from 'carbon-components/es/globals/js/settings.js';
-import { selectorTabbable } from '@carbon/web-components/es/globals/settings.js';
-import HostListener from '@carbon/web-components/es/globals/decorators/host-listener.js';
+import { selectorTabbable } from '../../internal/vendor/@carbon/web-components/globals/settings.js';
+import HostListener from '../../internal/vendor/@carbon/web-components/globals/decorators/host-listener.js';
 import BXSideNav, {
   SIDE_NAV_USAGE_MODE,
-} from '@carbon/web-components/es/components/ui-shell/side-nav.js';
+} from '../../internal/vendor/@carbon/web-components/components/ui-shell/side-nav.js';
 import ddsSettings from '../../internal/vendor/@carbon/ibmdotcom-utilities/utilities/settings/settings';
 import focuswrap from '../../internal/vendor/@carbon/ibmdotcom-utilities/utilities/focuswrap/focuswrap';
 import { find, forEach } from '../../globals/internal/collection-helpers';
@@ -79,7 +80,10 @@ class DDSLeftNav extends StableSelectorMixin(BXSideNav) {
       if (toggle) {
         (toggle as HTMLElement).focus();
       }
-    } else if ((event.target as HTMLElement).matches?.(selectorButtonToggle)) {
+    } else if (
+      (event.composedPath()[1] as HTMLElement).tagName ===
+      selectorButtonToggle.toUpperCase()
+    ) {
       const { comparisonResult } = event.detail;
       const {
         selectorExpandedMenuSection,
@@ -134,17 +138,16 @@ class DDSLeftNav extends StableSelectorMixin(BXSideNav) {
   };
 
   private _handleClickOut(event: MouseEvent) {
-    const { target } = event;
     const { selectorButtonToggle } = this.constructor as typeof DDSLeftNav;
     const toggleButton: HTMLElement | null = (
       this.getRootNode() as Document
     ).querySelector(selectorButtonToggle);
 
+    // TODO: check why `target` returns `dds-masthead-container` (parent) in Lit v2
     if (
       this.expanded &&
-      target instanceof Element &&
-      target.closest(selectorButtonToggle) === null &&
-      target.closest(this.tagName) === null
+      (event.composedPath()[0] as HTMLElement).tagName ===
+        'DDS-LEFT-NAV-OVERLAY'
     ) {
       this.expanded = false;
       toggleButton?.focus();
@@ -254,7 +257,10 @@ class DDSLeftNav extends StableSelectorMixin(BXSideNav) {
           startSentinelNode,
           endSentinelNode,
         ]);
-        document.body.style.overflow = 'hidden';
+
+        if (doc.body?.style) {
+          doc.body.style.overflow = `hidden`;
+        }
 
         // TODO: remove this logic once masthead can account for banners.
         // set masthead position to `fixed` when left-nav is open for cloud-mastead

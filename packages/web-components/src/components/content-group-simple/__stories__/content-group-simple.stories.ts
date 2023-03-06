@@ -1,7 +1,7 @@
 /**
  * @license
  *
- * Copyright IBM Corp. 2020, 2022
+ * Copyright IBM Corp. 2020, 2023
  *
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
@@ -9,8 +9,8 @@
 
 import '../index';
 import '../../cta/index';
-import { html } from 'lit-element';
-import ifNonNull from '@carbon/web-components/es/globals/directives/if-non-null.js';
+import { html } from 'lit';
+import { ifDefined } from 'lit/directives/if-defined.js';
 import { select } from '@storybook/addon-knobs';
 // eslint-disable-next-line sort-imports
 import { CTA_TYPE } from '../../cta/defs';
@@ -101,7 +101,7 @@ const image = ({ heading: imageHeading } = { heading: undefined }) => html`
     slot="media"
     alt="Image alt text"
     default-src="${imgLg16x9}"
-    heading="${ifNonNull(imageHeading)}">
+    heading="${ifDefined(imageHeading)}">
     <dds-image-item media="(min-width: 672px)" srcset="${imgLg16x9}">
     </dds-image-item>
     <dds-image-item media="(min-width: 400px)" srcset="${imgMd16x9}">
@@ -140,8 +140,8 @@ export const Default = (args) => {
       )}
       <dds-card-link-cta
         slot="footer"
-        cta-type="${ifNonNull(ctaType)}"
-        href="${ifNonNull(href)}">
+        cta-type="${ifDefined(ctaType)}"
+        href="${ifDefined(href)}">
         <dds-card-link-heading>${ctaCopy}</dds-card-link-heading>
         <dds-card-cta-footer></dds-card-cta-footer>
       </dds-card-link-cta>

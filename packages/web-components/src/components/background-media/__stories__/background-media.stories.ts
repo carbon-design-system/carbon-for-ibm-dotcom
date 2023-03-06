@@ -1,7 +1,7 @@
 /**
  * @license
  *
- * Copyright IBM Corp. 2020, 2022
+ * Copyright IBM Corp. 2020, 2023
  *
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
@@ -9,8 +9,8 @@
 
 import '../index';
 import '../../video-player/video-player-container';
-import { html } from 'lit-element';
-import ifNonNull from '@carbon/web-components/es/globals/directives/if-non-null.js';
+import { html } from 'lit';
+import { ifDefined } from 'lit/directives/if-defined.js';
 import { text, select, number } from '@storybook/addon-knobs';
 import imgMax from '../../../../../storybook-images/assets/leadspace/leadspaceMax.jpg';
 import imgLg16x9 from '../../../../../storybook-images/assets/leadspace/fpo--leadspace--16x9--1594x891--005.jpg';
@@ -28,11 +28,11 @@ export const Default = (args) => {
     args?.['dds-background-media'] ?? {};
   return html`
     <dds-background-media
-      gradient-direction="${ifNonNull(gradientDirection)}"
+      gradient-direction="${ifDefined(gradientDirection)}"
       mobile-position="bottom"
-      alt="${ifNonNull(alt)}"
+      alt="${ifDefined(alt)}"
       default-src="${imgMax}"
-      opacity="${ifNonNull(backgroundOpacity)}">
+      opacity="${ifDefined(backgroundOpacity)}">
       <dds-image-item media="(min-width: 1584px)" srcset="${imgMax}">
       </dds-image-item>
       <dds-image-item media="(min-width: 1312px)" srcset="${imgLg16x9}">
@@ -53,9 +53,9 @@ export const WithVideo = (args) => {
   return html`
     <div style="height: 70vh;">
       <dds-background-media
-        gradient-direction="${ifNonNull(gradientDirection)}"
+        gradient-direction="${ifDefined(gradientDirection)}"
         mobile-position="bottom"
-        opacity="${ifNonNull(backgroundOpacity)}">
+        opacity="${ifDefined(backgroundOpacity)}">
         <dds-video-player-container
           video-id="1_9h94wo6b"
           background-mode="true"></dds-video-player-container>
@@ -69,11 +69,11 @@ export const WithDefaultSource = (args) => {
     args?.['dds-background-media'] ?? {};
   return html`
     <dds-background-media
-      gradient-direction="${ifNonNull(gradientDirection)}"
+      gradient-direction="${ifDefined(gradientDirection)}"
       mobile-position="bottom"
-      alt="${ifNonNull(alt)}"
+      alt="${ifDefined(alt)}"
       default-src="${imgMax}"
-      opacity="${ifNonNull(backgroundOpacity)}">
+      opacity="${ifDefined(backgroundOpacity)}">
     </dds-background-media>
   `;
 };

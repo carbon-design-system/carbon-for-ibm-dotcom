@@ -7,11 +7,11 @@
  * LICENSE file in the root directory of this source tree.
  */
 
-import { html } from 'lit-element';
+import { html } from 'lit';
 import { action } from '@storybook/addon-actions';
 import { boolean, select } from '@storybook/addon-knobs';
 import textNullable from '../../../.storybook/knob-text-nullable';
-import ifNonNull from '../../globals/directives/if-non-null';
+import { ifDefined } from 'lit/directives/if-defined.js';
 import { CONTENT_SWITCHER_SIZE } from './content-switcher';
 import './content-switcher-item';
 import storyDocs from './content-switcher-story.mdx';
@@ -40,7 +40,7 @@ export const Default = (args) => {
   };
   return html`
     <cds-content-switcher
-      value="${ifNonNull(value)}"
+      value="${ifDefined(value)}"
       @bx-content-switcher-beingselected="${handleBeforeSelected}"
       @bx-content-switcher-selected="${onSelect}"
       size="${size}">

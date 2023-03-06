@@ -7,9 +7,9 @@
  * LICENSE file in the root directory of this source tree.
  */
 
-import { html } from 'lit-element';
+import { html } from 'lit';
 import { boolean, select } from '@storybook/addon-knobs';
-import ifNonNull from '../../globals/directives/if-non-null';
+import { ifDefined } from 'lit/directives/if-defined.js';
 import { LOADING_TYPE } from './loading';
 import storyDocs from './loading-story.mdx';
 import { prefix } from '../../globals/settings';
@@ -24,7 +24,7 @@ export const Default = (args) => {
   return html`
     <cds-loading
       ?inactive=${inactive}
-      type=${ifNonNull(type)}
+      type=${ifDefined(type)}
       ?overlay=${withOverlay}></cds-loading>
   `;
 };

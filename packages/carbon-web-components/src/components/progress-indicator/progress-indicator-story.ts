@@ -7,10 +7,10 @@
  * LICENSE file in the root directory of this source tree.
  */
 
-import { html } from 'lit-element';
+import { html } from 'lit';
 import { boolean } from '@storybook/addon-knobs';
 import textNullable from '../../../.storybook/knob-text-nullable';
-import ifNonNull from '../../globals/directives/if-non-null';
+import { ifDefined } from 'lit/directives/if-defined.js';
 import './progress-indicator';
 import './progress-step';
 import './progress-indicator-skeleton';
@@ -23,26 +23,26 @@ export const Default = (args) => {
   return html`
     <cds-progress-indicator ?vertical="${vertical}">
       <cds-progress-step
-        icon-label="${ifNonNull(iconLabel)}"
+        icon-label="${ifDefined(iconLabel)}"
         label-text="First step"
-        secondary-label-text="${ifNonNull(secondaryLabelText)}"
+        secondary-label-text="${ifDefined(secondaryLabelText)}"
         state="complete"></cds-progress-step>
       <cds-progress-step
-        icon-label="${ifNonNull(iconLabel)}"
+        icon-label="${ifDefined(iconLabel)}"
         label-text="Second step with tooltip"
         state="current"></cds-progress-step>
       <cds-progress-step
-        icon-label="${ifNonNull(iconLabel)}"
+        icon-label="${ifDefined(iconLabel)}"
         label-text="Third step with tooltip"
         state="incomplete"></cds-progress-step>
       <cds-progress-step
-        icon-label="${ifNonNull(iconLabel)}"
+        icon-label="${ifDefined(iconLabel)}"
         label-text="Fourth step"
         secondary-label-text="Example invalid step"
         state="invalid"></cds-progress-step>
       <cds-progress-step
         disabled
-        icon-label="${ifNonNull(iconLabel)}"
+        icon-label="${ifDefined(iconLabel)}"
         label-text="Fifth step"
         state="incomplete"></cds-progress-step>
     </cds-progress-indicator>

@@ -7,10 +7,11 @@
  * LICENSE file in the root directory of this source tree.
  */
 
-import { classMap } from 'lit-html/directives/class-map';
-import { html, property, customElement, query } from 'lit-element';
+import { classMap } from 'lit/directives/class-map.js';
+import { html } from 'lit';
+import { property, customElement, query } from 'lit/decorators.js';
+import { ifDefined } from 'lit/directives/if-defined.js';
 import { prefix } from '../../globals/settings';
-import ifNonNull from '../../globals/directives/if-non-null';
 import BXCheckbox from '../checkbox/checkbox';
 import { TOGGLE_SIZE } from './defs';
 import styles from './toggle.scss';
@@ -129,8 +130,8 @@ class BXToggle extends HostListenerMixin(BXCheckbox) {
         aria-checked=${checked}
         aria-lable=${labelText}
         .checked="${checked}"
-        name="${ifNonNull(name)}"
-        value="${ifNonNull(value)}"
+        name="${ifDefined(name)}"
+        value="${ifDefined(value)}"
         ?disabled=${disabled}
         id="${id}"></button>
       <label for="${id}" class="${prefix}--toggle__label">

@@ -7,7 +7,8 @@
  * LICENSE file in the root directory of this source tree.
  */
 
-import { html, property, query, customElement } from 'lit-element';
+import { html } from 'lit';
+import { property, customElement, query } from 'lit/decorators.js';
 import { prefix } from '../../globals/settings';
 import HostListenerMixin from '../../globals/mixins/host-listener';
 import HostListener from '../../globals/decorators/host-listener';
@@ -136,8 +137,8 @@ class BXTabs extends HostListenerMixin(BXContentSwitcher) {
    * @param [options.immediate]
    *   `true` to make it "immediate selection change" mode, which does:
    *
-   *   * Starts with the selected item
-   *   * Going prev/next item immediately changes the selection
+   *   Starts with the selected item
+   *   Going prev/next item immediately changes the selection
    */
   protected _navigate(
     direction: number,

@@ -7,9 +7,9 @@
  * LICENSE file in the root directory of this source tree.
  */
 
-import { html } from 'lit-element';
+import { html } from 'lit';
 import { boolean, select } from '@storybook/addon-knobs';
-import ifNonNull from '../../globals/directives/if-non-null';
+import { ifDefined } from 'lit/directives/if-defined.js';
 import { FLOATING_MENU_DIRECTION } from '../floating-menu/floating-menu';
 import {
   OVERFLOW_MENU_COLOR_SCHEME,
@@ -43,8 +43,8 @@ export const Default = (args) => {
   return html`
     <cds-overflow-menu ?open="${open}" ?disabled="${disabled}" size="${size}">
       <cds-overflow-menu-body
-        color-scheme="${ifNonNull(colorScheme)}"
-        direction="${ifNonNull(direction)}">
+        color-scheme="${ifDefined(colorScheme)}"
+        direction="${ifDefined(direction)}">
         <cds-overflow-menu-item>Option 1</cds-overflow-menu-item>
         <cds-overflow-menu-item>Option 2</cds-overflow-menu-item>
         <cds-overflow-menu-item>Option 3</cds-overflow-menu-item>

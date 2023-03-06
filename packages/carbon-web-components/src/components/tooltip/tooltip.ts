@@ -7,16 +7,17 @@
  * LICENSE file in the root directory of this source tree.
  */
 
-import { prefix } from '../../globals/settings';
-import { html, property, query, customElement, LitElement } from 'lit-element';
+import { LitElement, html } from 'lit';
+import { property, customElement, query } from 'lit/decorators.js';
+import { classMap } from 'lit-html/directives/class-map';
 import Information16 from '@carbon/icons/lib/information/16';
+import { prefix } from '../../globals/settings';
 import HostListener from '../../globals/decorators/host-listener';
 import HostListenerMixin from '../../globals/mixins/host-listener';
 import { find } from '../../globals/internal/collection-helpers';
 import BXFloatingMenu from '../floating-menu/floating-menu';
 import BXFloatingMenuTrigger from '../floating-menu/floating-menu-trigger';
 import styles from './tooltip.scss';
-import { classMap } from 'lit-html/directives/class-map';
 
 /**
  * Trigger button of tooltip.
@@ -53,6 +54,8 @@ class BXTooltip
 
   /**
    * Handles `click` event on this element.
+   *
+   * @param {undefined|boolean} forceState if set, will be cast to boolean and force tooltip to open or close.
    */
   @HostListener('mouseover')
   // @ts-ignore: The decorator refers to this method but TS thinks this method is not referred to
@@ -84,6 +87,7 @@ class BXTooltip
 
   /**
    * Handles `keydown` event on this element.
+   * Space & enter will toggle state, Escape will only close.
    */
   @HostListener('keydown')
   // @ts-ignore: The decorator refers to this method but TS thinks this method is not referred to

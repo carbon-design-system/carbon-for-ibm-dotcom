@@ -1,15 +1,15 @@
 /**
  * @license
  *
- * Copyright IBM Corp. 2020, 2022
+ * Copyright IBM Corp. 2020, 2023
  *
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
  */
 
-import { html } from 'lit-element';
-import ifNonNull from '@carbon/web-components/es/globals/directives/if-non-null.js';
-import ArrowRight20 from '@carbon/web-components/es/icons/arrow--right/20.js';
+import { html } from 'lit';
+import { ifDefined } from 'lit/directives/if-defined.js';
+import ArrowRight20 from '../../../internal/vendor/@carbon/web-components/icons/arrow--right/20.js';
 import '../index';
 import styles from './card-section-carousel.stories.scss';
 import readme from './README.stories.mdx';
@@ -28,7 +28,7 @@ const Card = ({
   heading = headingDefault,
   href = hrefDefault,
 } = {}) => html`
-  <dds-card href="${ifNonNull(href)}">
+  <dds-card href="${ifDefined(href)}">
     <dds-card-heading>${heading}</dds-card-heading>
     ${copy}
     <dds-card-footer> ${ArrowRight20({ slot: 'icon' })} </dds-card-footer>
@@ -45,7 +45,7 @@ export const Default = () => {
         >Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean et
         ultricies est.
       </dds-content-section-copy>
-      <dds-link-with-icon slot="footer" href="${ifNonNull(hrefDefault)}">
+      <dds-link-with-icon slot="footer" href="${ifDefined(hrefDefault)}">
         Link text ${ArrowRight20({ slot: 'icon' })}
       </dds-link-with-icon>
       <dds-carousel>

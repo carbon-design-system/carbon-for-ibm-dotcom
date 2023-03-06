@@ -1,7 +1,7 @@
 /**
  * @license
  *
- * Copyright IBM Corp. 2020, 2022
+ * Copyright IBM Corp. 2020, 2023
  *
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
@@ -40,8 +40,11 @@ async function icons() {
         through2.obj(async (file, enc, done) => {
           const descriptor = await descriptorFromSVG(String(file.contents));
           file.contents = Buffer.from(`
-                import { svg } from 'lit-html';
-                import spread from '@carbon/web-components/es/globals/directives/spread.js';
+                import { svg } from 'lit';
+                import spread from '${path.resolve(
+                  __dirname,
+                  '../src/internal/vendor/@carbon/web-components/globals/directives/spread'
+                )}';          
                 const svgResultIBMdotcomIcon = ${createSVGResultFromIconDescriptor(descriptor)};
                 export default svgResultIBMdotcomIcon;
               `);

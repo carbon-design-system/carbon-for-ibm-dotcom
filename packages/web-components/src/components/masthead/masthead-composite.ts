@@ -1,17 +1,17 @@
 /**
  * @license
  *
- * Copyright IBM Corp. 2020, 2022
+ * Copyright IBM Corp. 2020, 2023
  *
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
  */
 
-import { html, property, customElement, LitElement } from 'lit-element';
-import { nothing } from 'lit-html';
-import ArrowRight16 from '@carbon/web-components/es/icons/arrow--right/16.js';
-import ifNonNull from '@carbon/web-components/es/globals/directives/if-non-null.js';
-import { unsafeSVG } from 'lit-html/directives/unsafe-svg.js';
+import { html, LitElement, nothing } from 'lit';
+import { customElement, property } from 'lit/decorators.js';
+import ArrowRight16 from '../../internal/vendor/@carbon/web-components/icons/arrow--right/16.js';
+import { ifDefined } from 'lit/directives/if-defined.js';
+import { unsafeSVG } from 'lit/directives/unsafe-svg.js';
 import root from 'window-or-global';
 import ddsSettings from '../../internal/vendor/@carbon/ibmdotcom-utilities/utilities/settings/settings';
 import { globalInit } from '../../internal/vendor/@carbon/ibmdotcom-services/services/global/global';
@@ -136,7 +136,7 @@ class DDSMastheadComposite extends LitElement {
       <dds-masthead-logo
         ?hide-logo="${this.activateSearch}"
         ?hasTooltip="${tooltip}"
-        aria-label="${ifNonNull(tooltip)}"
+        aria-label="${ifDefined(tooltip)}"
         href="${href || DDSMastheadLogo.hrefDefault}"
         >${useAlternateLogo ? unsafeSVG(svg) : nothing}</dds-masthead-logo
       >
@@ -235,8 +235,8 @@ class DDSMastheadComposite extends LitElement {
           style-scheme="${hasHighlights
             ? MEGAMENU_RIGHT_NAVIGATION_STYLE_SCHEME.LEFT_SECTION
             : MEGAMENU_RIGHT_NAVIGATION_STYLE_SCHEME.REGULAR}"
-          view-all-href="${ifNonNull(viewAllLink?.url)}"
-          view-all-title="${ifNonNull(viewAllLink?.title)}">
+          view-all-href="${ifDefined(viewAllLink?.url)}"
+          view-all-title="${ifDefined(viewAllLink?.title)}">
           ${menu.map((item, j) => {
             const autoid = `${ddsPrefix}--masthead__l0-nav-list${
               j + highlightedItems.length
@@ -323,10 +323,10 @@ class DDSMastheadComposite extends LitElement {
     return html`
       <dds-left-nav-menu-section
         section-id="${sectionId}"
-        ?is-submenu=${ifNonNull(isSubmenu)}
-        title=${ifNonNull(sectionTitle)}
-        titleUrl=${ifNonNull(sectionUrl)}
-        ?show-back-button=${ifNonNull(showBackButton)}>
+        ?is-submenu=${ifDefined(isSubmenu)}
+        title=${ifDefined(sectionTitle)}
+        titleUrl=${ifDefined(sectionUrl)}
+        ?show-back-button=${ifDefined(showBackButton)}>
         ${items}
       </dds-left-nav-menu-section>
     `;
@@ -870,11 +870,6 @@ class DDSMastheadComposite extends LitElement {
   @property({ attribute: 'user-status' })
   userStatus = UNAUTHENTICATED_STATUS;
 
-  createRenderRoot() {
-    // We render child elements of `<dds-masthead-container>` by ourselves
-    return this;
-  }
-
   firstUpdated() {
     const { language, dataEndpoint } = this;
     globalInit();
@@ -884,6 +879,7 @@ class DDSMastheadComposite extends LitElement {
     this._loadTranslation?.(language, dataEndpoint).catch(() => {}); // The error is logged in the Redux store
     this._loadUserStatus?.();
 
+    // This is a temp fix until we figure out why we can't set styles to the :host(dds-masthead-container) in stylesheets
     this.style.zIndex = '900';
   }
 
@@ -966,14 +962,14 @@ class DDSMastheadComposite extends LitElement {
         ${!platform
           ? undefined
           : html`
-              <dds-left-nav-name href="${ifNonNull(platformAltUrl)}"
+              <dds-left-nav-name href="${ifDefined(platformAltUrl)}"
                 >${platform}</dds-left-nav-name
               >
             `}
         ${!l1Data?.title
           ? undefined
           : html`
-              <dds-left-nav-name href="${ifNonNull(l1Data.url)}"
+              <dds-left-nav-name href="${ifDefined(l1Data.url)}"
                 >${l1Data.title}</dds-left-nav-name
               >
             `}
@@ -983,13 +979,13 @@ class DDSMastheadComposite extends LitElement {
           hasL1: !!l1Data,
         })}
       </dds-left-nav>
-      <dds-masthead aria-label="${ifNonNull(mastheadAssistiveText)}">
+      <dds-masthead aria-label="${ifDefined(mastheadAssistiveText)}">
         <dds-skip-to-content
           href="${skipToContentHref}"
           link-assistive-text="${skipToContentText}"></dds-skip-to-content>
         <dds-masthead-menu-button
-          button-label-active="${ifNonNull(menuButtonAssistiveTextActive)}"
-          button-label-inactive="${ifNonNull(menuButtonAssistiveTextInactive)}"
+          button-label-active="${ifDefined(menuButtonAssistiveTextActive)}"
+          button-label-inactive="${ifDefined(menuButtonAssistiveTextInactive)}"
           ?hide-menu-button="${activateSearch}">
         </dds-masthead-menu-button>
 
@@ -997,7 +993,7 @@ class DDSMastheadComposite extends LitElement {
         ${!platform || l1Data
           ? undefined
           : html`
-              <dds-top-nav-name href="${ifNonNull(platformAltUrl)}"
+              <dds-top-nav-name href="${ifDefined(platformAltUrl)}"
                 >${platform}</dds-top-nav-name
               >
             `}
@@ -1006,7 +1002,7 @@ class DDSMastheadComposite extends LitElement {
           html`
             <dds-top-nav
               selected-menu-item=${selectedMenuItem}
-              menu-bar-label="${ifNonNull(menuBarAssistiveText)}"
+              menu-bar-label="${ifDefined(menuBarAssistiveText)}"
               ?hideNav="${activateSearch}">
               ${this._renderNavItems({
                 selectedMenuItem,
@@ -1022,13 +1018,13 @@ class DDSMastheadComposite extends LitElement {
               <dds-search-with-typeahead
                 ?active="${activateSearch}"
                 input-timeout="${inputTimeout}"
-                language="${ifNonNull(language)}"
+                language="${ifDefined(language)}"
                 ?open="${openSearchDropdown}"
                 ?searchOpenOnload="${activateSearch}"
-                placeholder="${ifNonNull(searchPlaceholder)}"
-                .currentSearchResults="${ifNonNull(currentSearchResults)}"
-                ?custom-typeahead-api="${ifNonNull(customTypeaheadAPI)}"
-                .scopeParameters="${ifNonNull(
+                placeholder="${ifDefined(searchPlaceholder)}"
+                .currentSearchResults="${ifDefined(currentSearchResults)}"
+                ?custom-typeahead-api="${ifDefined(customTypeaheadAPI)}"
+                .scopeParameters="${ifDefined(
                   scopeParameters
                 )}"></dds-search-with-typeahead>
             `}
@@ -1040,7 +1036,7 @@ class DDSMastheadComposite extends LitElement {
                   ${profileItems?.map(
                     ({ title, url }) =>
                       html`
-                        <dds-masthead-profile-item href="${ifNonNull(url)}"
+                        <dds-masthead-profile-item href="${ifDefined(url)}"
                           >${title}</dds-masthead-profile-item
                         >
                       `
@@ -1054,6 +1050,10 @@ class DDSMastheadComposite extends LitElement {
     `;
   }
 
+  static shadowRootOptions = {
+    ...LitElement.shadowRootOptions,
+    delegatesFocus: true,
+  };
   static styles = styles; // `styles` here is a `CSSResult` generated by custom WebPack loader
 }
 

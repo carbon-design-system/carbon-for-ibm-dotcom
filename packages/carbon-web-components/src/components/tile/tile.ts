@@ -7,8 +7,9 @@
  * LICENSE file in the root directory of this source tree.
  */
 
+import { LitElement, html } from 'lit';
+import { property, customElement } from 'lit/decorators.js';
 import { prefix } from '../../globals/settings';
-import { html, property, customElement, LitElement } from 'lit-element';
 import { TILE_COLOR_SCHEME } from './defs';
 import styles from './tile.scss';
 

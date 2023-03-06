@@ -2,7 +2,7 @@
 /**
  * @license
  *
- * Copyright IBM Corp. 2020, 2022
+ * Copyright IBM Corp. 2020, 2023
  *
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
@@ -13,9 +13,9 @@ import '../../content-block-cards/index';
 import '../../content-group-cards/index';
 import '../../content-group-pictograms/index';
 import '../../content-group-simple/index';
-import ArrowRight20 from '@carbon/web-components/es/icons/arrow--right/20';
-import { html } from 'lit-element';
-import ifNonNull from '@carbon/web-components/es/globals/directives/if-non-null.js';
+import ArrowRight20 from '../../../internal/vendor/@carbon/web-components/icons/arrow--right/20';
+import { html } from 'lit';
+import { ifDefined } from 'lit/directives/if-defined.js';
 import { select } from '@storybook/addon-knobs';
 import imgLg16x9 from '../../../../../storybook-images/assets/720/fpo--16x9--720x405--001.jpg';
 import imgMd16x9 from '../../../../../storybook-images/assets/480/fpo--16x9--480x270--001.jpg';
@@ -71,7 +71,7 @@ const image = ({ heading: imageHeading } = { heading: undefined }) => html`
     slot="media"
     alt="Image alt text"
     default-src="${imgLg16x9}"
-    heading="${ifNonNull(imageHeading)}">
+    heading="${ifDefined(imageHeading)}">
     <dds-image-item media="(min-width: 672px)" srcset="${imgLg16x9}">
     </dds-image-item>
     <dds-image-item media="(min-width: 400px)" srcset="${imgMd16x9}">
@@ -253,7 +253,7 @@ export const WithLinkList = (args) => {
   } = args?.ContentBlockMixed ?? {};
   return html`
     <dds-content-block-mixed
-      complementary-style-scheme="${ifNonNull(complementaryStyleScheme)}">
+      complementary-style-scheme="${ifDefined(complementaryStyleScheme)}">
       <dds-content-block-heading>${heading}</dds-content-block-heading>
       <dds-content-block-copy>${groupCopy}</dds-content-block-copy>
       <dds-content-group-cards>

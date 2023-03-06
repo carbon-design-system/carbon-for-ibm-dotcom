@@ -14,11 +14,11 @@ jobs:
     if: github.repository == 'carbon-design-system/carbon-for-ibm-dotcom'
     runs-on: ubuntu-20.04
     steps:
-      - uses: actions/checkout@v2
+      - uses: actions/checkout@v3
         with:
           token: ${{secrets.MERGE_ACTION}}
       - name: Use Node.js 14.x
-        uses: actions/setup-node@v2
+        uses: actions/setup-node@v3
         with:
           node-version: '14.x'
           cache: 'yarn'
@@ -61,7 +61,7 @@ jobs:
           git add next/carbon-web-components
           git commit -m "chore(deploy): deploy Carbon web components next to GitHub Pages"
           git push origin gh-pages
-      - uses: act10ns/slack@v1
+      - uses: act10ns/slack@v2
         if: failure()
         env:
           SLACK_WEBHOOK_URL: ${{ secrets.SLACK_WEBHOOK_URL }}
@@ -71,11 +71,11 @@ jobs:
     if: github.repository == 'carbon-design-system/carbon-for-ibm-dotcom'
     runs-on: ubuntu-20.04
     steps:
-      - uses: actions/checkout@v2
+      - uses: actions/checkout@v3
         with:
           token: ${{secrets.MERGE_ACTION}}
       - name: Use Node.js 14.x
-        uses: actions/setup-node@v2
+        uses: actions/setup-node@v3
         with:
           node-version: '14.x'
           cache: 'yarn'
@@ -137,7 +137,7 @@ jobs:
           git add next/react-rtl
           git commit -m "chore(deploy): deploy React next to GitHub Pages"
           git push origin gh-pages
-      - uses: act10ns/slack@v1
+      - uses: act10ns/slack@v2
         if: failure()
         env:
           SLACK_WEBHOOK_URL: ${{ secrets.SLACK_WEBHOOK_URL }}
@@ -147,11 +147,11 @@ jobs:
     if: github.repository == 'carbon-design-system/carbon-for-ibm-dotcom'
     runs-on: ubuntu-20.04
     steps:
-      - uses: actions/checkout@v2
+      - uses: actions/checkout@v3
         with:
           token: ${{secrets.MERGE_ACTION}}
       - name: Use Node.js 14.x
-        uses: actions/setup-node@v2
+        uses: actions/setup-node@v3
         with:
           node-version: '14.x'
           cache: 'yarn'
@@ -233,7 +233,7 @@ jobs:
           git add next/web-components-react
           git commit -m "chore(deploy): deploy Web Components next to GitHub Pages"
           git push origin gh-pages
-      - uses: act10ns/slack@v1
+      - uses: act10ns/slack@v2
         if: failure()
         env:
           SLACK_WEBHOOK_URL: ${{ secrets.SLACK_WEBHOOK_URL }}

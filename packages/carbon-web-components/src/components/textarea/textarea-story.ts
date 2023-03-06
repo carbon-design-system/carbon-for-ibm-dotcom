@@ -7,10 +7,10 @@
  * LICENSE file in the root directory of this source tree.
  */
 
-import { html } from 'lit-element';
+import { html } from 'lit';
 import * as knobs from '@storybook/addon-knobs';
 import textNullable from '../../../.storybook/knob-text-nullable';
-import ifNonNull from '../../globals/directives/if-non-null';
+import { ifDefined } from 'lit/directives/if-defined.js';
 import './textarea';
 import './textarea-skeleton';
 import '../form/form-item';
@@ -39,23 +39,23 @@ export const Default = (args) => {
   } = args?.['bx-textarea'] ?? {};
   return html`
     <cds-textarea
-      autocomplete="${ifNonNull(autocomplete)}"
+      autocomplete="${ifDefined(autocomplete)}"
       ?autofocus="${autofocus}"
-      color-scheme="${ifNonNull(colorScheme)}"
+      color-scheme="${ifDefined(colorScheme)}"
       ?disabled="${disabled}"
-      helper-text="${ifNonNull(helperText)}"
-      label-text="${ifNonNull(labelText)}"
-      name="${ifNonNull(name)}"
-      value="${ifNonNull(value)}"
-      pattern="${ifNonNull(pattern)}"
-      placeholder="${ifNonNull(placeholder)}"
+      helper-text="${ifDefined(helperText)}"
+      label-text="${ifDefined(labelText)}"
+      name="${ifDefined(name)}"
+      value="${ifDefined(value)}"
+      pattern="${ifDefined(pattern)}"
+      placeholder="${ifDefined(placeholder)}"
       ?readonly="${readonly}"
       ?required="${required}"
       ?invalid="${invalid}"
-      validity-message="${ifNonNull(validityMessage)}"
+      validity-message="${ifDefined(validityMessage)}"
       @input="${onInput}"
-      rows="${ifNonNull(rows)}"
-      cols="${ifNonNull(cols)}">
+      rows="${ifDefined(rows)}"
+      cols="${ifDefined(cols)}">
     </cds-textarea>
   `;
 };
@@ -82,14 +82,14 @@ export const formItem = (args) => {
   return html`
     <cds-form-item>
       <cds-textarea
-        color-scheme="${ifNonNull(colorScheme)}"
-        placeholder="${ifNonNull(placeholder)}"
+        color-scheme="${ifDefined(colorScheme)}"
+        placeholder="${ifDefined(placeholder)}"
         @input="${onInput}"
         ?invalid="${invalid}"
         ?disabled="${disabled}"
-        value="${ifNonNull(value)}"
-        rows="${ifNonNull(rows)}"
-        cols="${ifNonNull(cols)}">
+        value="${ifDefined(value)}"
+        rows="${ifDefined(rows)}"
+        cols="${ifDefined(cols)}">
         <span slot="label-text">Label text</span>
         <span slot="helper-text">Optional helper text</span>
         <span slot="validity-message">Something isn't right</span>
@@ -120,14 +120,14 @@ export const withoutFormItemWrapper = (args) => {
   } = args?.['bx-textarea'] ?? {};
   return html`
     <cds-textarea
-      color-scheme="${ifNonNull(colorScheme)}"
-      placeholder="${ifNonNull(placeholder)}"
+      color-scheme="${ifDefined(colorScheme)}"
+      placeholder="${ifDefined(placeholder)}"
       @input="${onInput}"
       ?invalid="${invalid}"
       ?disabled="${disabled}"
-      value="${ifNonNull(value)}"
-      rows="${ifNonNull(rows)}"
-      cols="${ifNonNull(cols)}">
+      value="${ifDefined(value)}"
+      rows="${ifDefined(rows)}"
+      cols="${ifDefined(cols)}">
       <span slot="label-text">Label text</span>
       <span slot="helper-text">Optional helper text</span>
       <span slot="validity-message">Something isn't right</span>

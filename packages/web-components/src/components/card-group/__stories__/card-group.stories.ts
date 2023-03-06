@@ -1,20 +1,20 @@
 /**
  * @license
  *
- * Copyright IBM Corp. 2020, 2022
+ * Copyright IBM Corp. 2020, 2023
  *
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
  */
 
-import { classMap } from 'lit-html/directives/class-map.js';
+import { classMap } from 'lit/directives/class-map.js';
 import '../../card/index';
 import '../../card-in-card/index';
 import '../index';
 import '../../cta/video-cta-container';
-import { html } from 'lit-element';
+import { html } from 'lit';
 import { select, number, boolean } from '@storybook/addon-knobs';
-import ifNonNull from '@carbon/web-components/es/globals/directives/if-non-null.js';
+import { ifDefined } from 'lit/directives/if-defined.js';
 // eslint-disable-next-line sort-imports
 import imgXlg4x3 from '../../../../../storybook-images/assets/1312/fpo--4x3--1312x984--003.jpg';
 import imgXlg16x9 from '../../../../../storybook-images/assets/1312/fpo--16x9--1312x738--005.jpg';
@@ -357,7 +357,7 @@ export const withCardInCard = (args) => {
       <dds-card-in-card
         href="https://example.com"
         cta-type="local"
-        grid-mode="${ifNonNull(gridMode)}">
+        grid-mode="${ifDefined(gridMode)}">
         <dds-card-in-card-image
           slot="image"
           alt="Image alt text"
@@ -376,7 +376,7 @@ export const withCardInCard = (args) => {
         >
         <dds-card-cta-footer></dds-card-cta-footer>
       </dds-card-in-card>
-      <dds-card-group grid-mode="${ifNonNull(gridMode)}">
+      <dds-card-group grid-mode="${ifDefined(gridMode)}">
         ${allCards}
       </dds-card-group>
     </dds-video-cta-container>

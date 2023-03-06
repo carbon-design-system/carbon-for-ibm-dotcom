@@ -7,9 +7,9 @@
  * LICENSE file in the root directory of this source tree.
  */
 
-import { html } from 'lit-element';
+import { html } from 'lit';
 import { boolean, number, select, text } from '@storybook/addon-knobs';
-import ifNonNull from '../../globals/directives/if-non-null';
+import { ifDefined } from 'lit/directives/if-defined.js';
 import { prefix } from '../../globals/settings';
 import { SKELETON_TEXT_TYPE } from './skeleton-text';
 import storyDocs from './skeleton-text-story.mdx';
@@ -22,7 +22,7 @@ const types = {
 export const Default = (args) => {
   const { type } = args?.[`${prefix}-skeleton-text`] ?? {};
   return html`
-    <cds-skeleton-text type="${ifNonNull(type)}"></cds-skeleton-text>
+    <cds-skeleton-text type="${ifDefined(type)}"></cds-skeleton-text>
   `;
 };
 

@@ -7,13 +7,13 @@
  * LICENSE file in the root directory of this source tree.
  */
 
-import { html } from 'lit-element';
+import { html } from 'lit';
+import { ifDefined } from 'lit/directives/if-defined.js';
 import { action } from '@storybook/addon-actions';
 import { boolean, select } from '@storybook/addon-knobs';
-import textNullable from '../../../.storybook/knob-text-nullable';
-import ifNonNull from '../../globals/directives/if-non-null';
-import { TILE_COLOR_SCHEME } from './tile';
 import { prefix } from '../../globals/settings';
+import textNullable from '../../../.storybook/knob-text-nullable';
+import { TILE_COLOR_SCHEME } from './tile';
 import './index';
 import storyDocs from './tile-story.mdx';
 
@@ -25,7 +25,7 @@ const colorSchemes = {
 export const Default = (args) => {
   const { colorScheme } = args?.[`${prefix}-tile`] ?? {};
   return html`
-    <cds-tile color-scheme="${ifNonNull(colorScheme)}">
+    <cds-tile color-scheme="${ifDefined(colorScheme)}">
       Default tile
       <a href="https://example.com">Link</a>
     </cds-tile>
@@ -39,13 +39,13 @@ export const clickable = (args) => {
     args?.[`${prefix}-clickable-tile`] ?? {};
   return html`
     <cds-clickable-tile
-      download="${ifNonNull(download)}"
-      href="${ifNonNull(href)}"
-      hreflang="${ifNonNull(hreflang)}"
-      ping="${ifNonNull(ping)}"
-      rel="${ifNonNull(rel)}"
-      target="${ifNonNull(target)}"
-      type="${ifNonNull(type)}">
+      download="${ifDefined(download)}"
+      href="${ifDefined(href)}"
+      hreflang="${ifDefined(hreflang)}"
+      ping="${ifDefined(ping)}"
+      rel="${ifDefined(rel)}"
+      target="${ifDefined(target)}"
+      type="${ifDefined(type)}">
       Clickable tile
     </cds-clickable-tile>
   `;
@@ -66,26 +66,26 @@ export const Radio = (args) => {
     <cds-tile-group>
       <legend slot="legend">Single-select tiles</legend>
       <cds-radio-tile
-        checkmark-label="${ifNonNull(checkmarkLabel)}"
-        color-scheme="${ifNonNull(colorScheme)}"
-        name="${ifNonNull(name)}"
-        value="${ifNonNull(value)}"
+        checkmark-label="${ifDefined(checkmarkLabel)}"
+        color-scheme="${ifDefined(colorScheme)}"
+        name="${ifDefined(name)}"
+        value="${ifDefined(value)}"
         @input="${onInput}">
         Option 1
       </cds-radio-tile>
       <cds-radio-tile
-        checkmark-label="${ifNonNull(checkmarkLabel)}"
-        color-scheme="${ifNonNull(colorScheme)}"
-        name="${ifNonNull(name)}"
-        value="${ifNonNull(value)}"
+        checkmark-label="${ifDefined(checkmarkLabel)}"
+        color-scheme="${ifDefined(colorScheme)}"
+        name="${ifDefined(name)}"
+        value="${ifDefined(value)}"
         @input="${onInput}">
         Option 2
       </cds-radio-tile>
       <cds-radio-tile
-        checkmark-label="${ifNonNull(checkmarkLabel)}"
-        color-scheme="${ifNonNull(colorScheme)}"
-        name="${ifNonNull(name)}"
-        value="${ifNonNull(value)}"
+        checkmark-label="${ifDefined(checkmarkLabel)}"
+        color-scheme="${ifDefined(colorScheme)}"
+        name="${ifDefined(name)}"
+        value="${ifDefined(value)}"
         @input="${onInput}">
         Option 3
       </cds-radio-tile>
@@ -116,29 +116,29 @@ export const multiSelectable = (args) => {
   return html`
     <fieldset>
       <cds-selectable-tile
-        checkmark-label="${ifNonNull(checkmarkLabel)}"
-        color-scheme="${ifNonNull(colorScheme)}"
-        name="${ifNonNull(name)}"
+        checkmark-label="${ifDefined(checkmarkLabel)}"
+        color-scheme="${ifDefined(colorScheme)}"
+        name="${ifDefined(name)}"
         ?selected="${selected}"
-        value="${ifNonNull(value)}"
+        value="${ifDefined(value)}"
         @input="${onInput}">
         Option 1
       </cds-selectable-tile>
       <cds-selectable-tile
-        checkmark-label="${ifNonNull(checkmarkLabel)}"
-        color-scheme="${ifNonNull(colorScheme)}"
-        name="${ifNonNull(name)}"
+        checkmark-label="${ifDefined(checkmarkLabel)}"
+        color-scheme="${ifDefined(colorScheme)}"
+        name="${ifDefined(name)}"
         ?selected="${selected}"
-        value="${ifNonNull(value)}"
+        value="${ifDefined(value)}"
         @input="${onInput}">
         Option 2
       </cds-selectable-tile>
       <cds-selectable-tile
-        checkmark-label="${ifNonNull(checkmarkLabel)}"
-        color-scheme="${ifNonNull(colorScheme)}"
-        name="${ifNonNull(name)}"
+        checkmark-label="${ifDefined(checkmarkLabel)}"
+        color-scheme="${ifDefined(colorScheme)}"
+        name="${ifDefined(name)}"
         ?selected="${selected}"
-        value="${ifNonNull(value)}"
+        value="${ifDefined(value)}"
         @input="${onInput}">
         Option 3
       </cds-selectable-tile>
@@ -168,7 +168,7 @@ export const expandable = (args) => {
   };
   return html`
     <cds-expandable-tile
-      color-scheme="${ifNonNull(colorScheme)}"
+      color-scheme="${ifDefined(colorScheme)}"
       ?expanded="${expanded}"
       @cds-expandable-tile-beingchanged=${handleBeforeChanged}
       @cds-expandable-tile-changed=${onChange}>

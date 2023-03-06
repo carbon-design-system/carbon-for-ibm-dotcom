@@ -1,15 +1,15 @@
 /**
  * @license
  *
- * Copyright IBM Corp. 2020, 2022
+ * Copyright IBM Corp. 2020, 2023
  *
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
  */
 
 import '../image';
-import { html } from 'lit-element';
-import ifNonNull from '@carbon/web-components/es/globals/directives/if-non-null.js';
+import { html } from 'lit';
+import { ifDefined } from 'lit/directives/if-defined.js';
 import { select, boolean } from '@storybook/addon-knobs';
 // eslint-disable-next-line sort-imports
 import imgLg16x9 from '../../../../../storybook-images/assets/720/fpo--16x9--720x405--005.jpg';
@@ -38,12 +38,12 @@ export const Default = (args) => {
   const srcset = srcsets[defaultSrc?.replace(/&amp;/, '&')];
   return html`
     <dds-image
-      alt="${ifNonNull(alt)}"
-      heading="${ifNonNull(heading)}"
-      default-src="${ifNonNull(defaultSrc)}"
+      alt="${ifDefined(alt)}"
+      heading="${ifDefined(heading)}"
+      default-src="${ifDefined(defaultSrc)}"
       ?border=${border}
       ?lightbox="${lightbox}"
-      copy="${ifNonNull(copy)}">
+      copy="${ifDefined(copy)}">
       ${!longDescription
         ? undefined
         : html` <div slot="long-description">${longDescription}</div> `}

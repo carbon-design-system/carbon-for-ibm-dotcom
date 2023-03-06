@@ -7,9 +7,10 @@
  * LICENSE file in the root directory of this source tree.
  */
 
+import { classMap } from 'lit/directives/class-map.js';
+import { LitElement, html } from 'lit';
+import { property, customElement } from 'lit/decorators.js';
 import { prefix } from '../../globals/settings';
-import { classMap } from 'lit-html/directives/class-map';
-import { html, property, customElement, LitElement } from 'lit-element';
 import { forEach } from '../../globals/internal/collection-helpers';
 import FocusMixin from '../../globals/mixins/focus';
 import BXStructuredListRow from './structured-list-row';
@@ -28,15 +29,6 @@ class BXStructuredList extends FocusMixin(LitElement) {
    */
   @property({ attribute: 'selection-name' })
   selectionName = '';
-
-  createRenderRoot() {
-    return this.attachShadow({
-      mode: 'open',
-      delegatesFocus:
-        Number((/Safari\/(\d+)/.exec(navigator.userAgent) ?? ['', 0])[1]) <=
-        537,
-    });
-  }
 
   connectedCallback() {
     if (!this.hasAttribute('role')) {
@@ -75,7 +67,10 @@ class BXStructuredList extends FocusMixin(LitElement) {
    * The CSS selector to find the rows, including header rows.
    */
   static selectorRowsWithHeader = `${prefix}-structured-list-row,${prefix}-structured-list-header-row`;
-
+  static shadowRootOptions = {
+    ...LitElement.shadowRootOptions,
+    delegatesFocus: true,
+  };
   static styles = styles;
 }
 

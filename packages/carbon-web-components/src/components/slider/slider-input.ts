@@ -7,10 +7,11 @@
  * LICENSE file in the root directory of this source tree.
  */
 
-import { classMap } from 'lit-html/directives/class-map';
-import { html, property, customElement, LitElement } from 'lit-element';
+import { classMap } from 'lit/directives/class-map.js';
+import { LitElement, html } from 'lit';
+import { property, customElement } from 'lit/decorators.js';
+import { ifDefined } from 'lit/directives/if-defined.js';
 import { prefix } from '../../globals/settings';
-import ifNonNull from '../../globals/directives/if-non-null';
 import FocusMixin from '../../globals/mixins/focus';
 import { SLIDER_INPUT_COLOR_SCHEME } from './defs';
 import styles from './slider.scss';
@@ -137,15 +138,6 @@ class BXSliderInput extends FocusMixin(LitElement) {
   @property({ type: Number })
   value!: number;
 
-  createRenderRoot() {
-    return this.attachShadow({
-      mode: 'open',
-      delegatesFocus:
-        Number((/Safari\/(\d+)/.exec(navigator.userAgent) ?? ['', 0])[1]) <=
-        537,
-    });
-  }
-
   render() {
     const {
       colorScheme,
@@ -170,7 +162,7 @@ class BXSliderInput extends FocusMixin(LitElement) {
     return html`
       <input
         ?disabled="${disabled}"
-        type="${ifNonNull(type)}"
+        type="${ifDefined(type)}"
         class="${classes}"
         max="${max}"
         min="${min}"
@@ -195,6 +187,10 @@ class BXSliderInput extends FocusMixin(LitElement) {
     return `${prefix}-slider-input-changed`;
   }
 
+  static shadowRootOptions = {
+    ...LitElement.shadowRootOptions,
+    delegatesFocus: true,
+  };
   static styles = styles;
 }
 

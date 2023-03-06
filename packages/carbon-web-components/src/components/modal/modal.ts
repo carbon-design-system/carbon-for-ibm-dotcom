@@ -7,9 +7,10 @@
  * LICENSE file in the root directory of this source tree.
  */
 
+import { classMap } from 'lit/directives/class-map.js';
+import { LitElement, html } from 'lit';
+import { property, customElement, query } from 'lit/decorators.js';
 import { prefix } from '../../globals/settings';
-import { classMap } from 'lit-html/directives/class-map';
-import { html, property, query, customElement, LitElement } from 'lit-element';
 import HostListener from '../../globals/decorators/host-listener';
 import HostListenerMixin from '../../globals/mixins/host-listener';
 import { MODAL_SIZE } from './defs';
