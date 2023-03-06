@@ -636,7 +636,11 @@ class DDSSearchWithTypeahead extends HostListenerMixin(
       'react-autosuggest__suggestions-container--open': open,
     });
     return html`
-      <form method="get" action="${redirectUrl}" @submit="${handleSubmit}">
+      <form
+        role="search"
+        method="get"
+        action="${redirectUrl}"
+        @submit="${handleSubmit}">
         <input type="hidden" name="lang" value="${primary}" />
         <input type="hidden" name="cc" value="${country}" />
         <input type="hidden" name="lnk" value="mhsrch" />
@@ -758,7 +762,7 @@ class DDSSearchWithTypeahead extends HostListenerMixin(
    * The assistive text for the button to close the search box.
    */
   @property({ attribute: 'close-search-button-assistive-text' })
-  closeSearchButtonAssistiveText = 'Close';
+  closeSearchButtonAssistiveText = 'Clear input';
 
   /**
    * The language embedded in the inner form.
