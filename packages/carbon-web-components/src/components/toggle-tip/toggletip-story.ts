@@ -14,7 +14,7 @@ import { select } from '@storybook/addon-knobs';
 // @ts-ignore
 import Filter16 from 'carbon-web-components/es/icons/filter/16';
 import textNullable from '../../../.storybook/knob-text-nullable';
-import ifNonNull from '../../globals/directives/if-non-null';
+import { ifDefined } from 'lit/directives/if-defined';
 import { prefix } from '../../globals/settings';
 import './toggletip';
 import '../button';
@@ -39,7 +39,7 @@ const tooltipAlignments = {
 export const Default = (args) => {
   const { alignment, bodyText } = args?.[`${prefix}-toggletip`] ?? {};
   return html`
-    <cds-toggletip alignment="${ifNonNull(alignment)}">
+    <cds-toggletip alignment="${ifDefined(alignment)}">
       Toggletip label
 
       <p slot="body-text">${bodyText}</p>
@@ -59,7 +59,7 @@ Default.parameters = {
       ),
       bodyText: textNullable(
         'Toggletip content (bodyText)',
-        `Lorem ipsum dolor sit amet, di os consectetur adipiscing elit, 
+        `Lorem ipsum dolor sit amet, di os consectetur adipiscing elit,
         sed do eiusmod tempor incididunt ut fsil labore et dolore magna aliqua.`
       ),
     }),

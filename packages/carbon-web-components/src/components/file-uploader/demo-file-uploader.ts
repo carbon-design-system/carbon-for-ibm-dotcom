@@ -11,7 +11,7 @@ import { html, property, LitElement, customElement } from 'lit-element';
 
 import { delay } from 'bluebird';
 import { prefix } from '../../globals/settings';
-import ifNonNull from '../../globals/directives/if-non-null';
+import { ifDefined } from 'lit/directives/if-defined';
 import './file-uploader';
 import './drop-container';
 import {
@@ -171,10 +171,10 @@ export default class BXCEDemoFileUploader extends LitElement {
     } = this;
     return html`
       <cds-file-uploader
-        helper-text="${ifNonNull(helperText)}"
-        label-text="${ifNonNull(labelText)}">
+        helper-text="${ifDefined(helperText)}"
+        label-text="${ifDefined(labelText)}">
         <cds-file-drop-container
-          accept="${ifNonNull(accept)}"
+          accept="${ifDefined(accept)}"
           ?disabled="${disabled}"
           ?multiple="${multiple}"
           @bx-file-drop-container-changed="${handleChange}">
@@ -192,9 +192,9 @@ export default class BXCEDemoFileUploader extends LitElement {
             <cds-file-uploader-item
               data-file-id="${id}"
               ?invalid="${invalid}"
-              size="${ifNonNull(size)}"
-              state="${ifNonNull(state)}"
-              validity-message="${ifNonNull(validityMessage)}"
+              size="${ifDefined(size)}"
+              state="${ifDefined(state)}"
+              validity-message="${ifDefined(validityMessage)}"
               @bx-file-uploader-item-deleted="${handleDelete}">
               ${file.name}
               <span slot="validity-message-supplement"
