@@ -263,7 +263,6 @@ class DDSLeftNav extends StableSelectorMixin(BXSideNav) {
         this._importedSideNav = true;
       }
       if (expanded && masthead) {
-        console.log('HERE?');
         this._hFocusWrap = focuswrap(this.shadowRoot!, [
           startSentinelNode,
           endSentinelNode,
