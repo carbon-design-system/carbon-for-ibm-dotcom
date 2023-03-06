@@ -643,8 +643,7 @@ export const expandable = (args) => {
     <cds-table
       size="${ifDefined(size)}"
       @bx-table-row-expando-toggled-all="${handleExpandRowAll}"
-      @bx-table-row-expando-toggled="${handleExpandRow}"
-    >
+      @bx-table-row-expando-toggled="${handleExpandRow}">
       <cds-table-head>
         <cds-table-header-expand-row>
           <cds-table-header-cell>Name</cds-table-header-cell>
@@ -653,7 +652,7 @@ export const expandable = (args) => {
           <cds-table-header-cell>Rule</cds-table-header-cell>
           <cds-table-header-cell>Attached Groups</cds-table-header-cell>
           <cds-table-header-cell>Status</cds-table-header-cell>
-        </cds-table-header-row>
+        </cds-table-header-expand-row>
       </cds-table-head>
       <cds-table-body ?zebra="${zebra}">
         <cds-table-expand-row data-row-id="1">
