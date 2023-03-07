@@ -35,18 +35,6 @@ class DDSMegaMenuRightNavigation extends StableSelectorMixin(LitElement) {
   @property({ reflect: true, attribute: 'style-scheme' })
   styleScheme = MEGAMENU_RIGHT_NAVIGATION_STYLE_SCHEME.FULL;
 
-  /**
-   * view all link href.
-   */
-  @property({ attribute: 'view-all-href', reflect: true })
-  viewAllHref = '';
-
-  /**
-   * view all link title.
-   */
-  @property({ attribute: 'view-all-title', reflect: true })
-  viewAllTitle = 'View all';
-
   @property({ attribute: 'data-child-count', reflect: true })
   childCount: Number | undefined;
 
@@ -55,9 +43,9 @@ class DDSMegaMenuRightNavigation extends StableSelectorMixin(LitElement) {
    */
   protected _getClassNames() {
     return classMap({
-      [`${prefix}--masthead__megamenu--has-sidebar`]:
+      [`${prefix}--masthead__megamenu-container`]: true,
+      [`${prefix}--masthead__megamenu-container--has-sidebar`]:
         this.styleScheme === MEGAMENU_RIGHT_NAVIGATION_STYLE_SCHEME.HAS_SIDEBAR,
-      [`${prefix}--masthead__megamenu--has-view-all-link`]: this.viewAllHref,
     });
   }
 
@@ -76,11 +64,25 @@ class DDSMegaMenuRightNavigation extends StableSelectorMixin(LitElement) {
     }
   }
 
+  updated() {
+    const hasViewAll =
+      (
+        this.shadowRoot?.querySelector(
+          'slot[name="view-all"]'
+        ) as HTMLSlotElement
+      ).assignedElements().length > 0;
+    this.shadowRoot
+      ?.querySelector(`.${prefix}--masthead__megamenu-container`)
+      ?.classList.toggle(
+        `${prefix}--masthead__megamenu-container--has-view-all-link`,
+        hasViewAll
+      );
+  }
+
   render() {
-    const { viewAllHref, viewAllTitle } = this;
     return html`
-      <div class="${prefix}--masthead__megamenu-container">
-        <div class="${this._getClassNames()}">
+      <div class="${this._getClassNames()}">
+        <div class="${prefix}--masthead__megamenu-container-inner">
           <div class="${prefix}--masthead__megamenu__heading">
             <slot name="heading"></slot>
           </div>
@@ -88,16 +90,10 @@ class DDSMegaMenuRightNavigation extends StableSelectorMixin(LitElement) {
             <slot @slotchange="${this._handleSlotChange}"></slot>
           </div>
         </div>
-        ${viewAllHref &&
-        html`
-          <div class="${prefix}--masthead__megamenu__view-all">
-            <span
-              class="${prefix}--masthead__megamenu__view-all__border"></span>
-            <dds-megamenu-link-with-icon href="${viewAllHref}" part="view-all">
-              <span>${viewAllTitle}</span>${ArrowRight16({ slot: 'icon' })}
-            </dds-megamenu-link-with-icon>
-          </div>
-        `}
+        <div class="${prefix}--masthead__megamenu__view-all">
+          <span class="${prefix}--masthead__megamenu__view-all__border"></span>
+          <slot name="view-all"></slot>
+        </div>
       </div>
     `;
   }
