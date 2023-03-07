@@ -135,6 +135,9 @@ export const WithCarousel = (args) => {
       ?open="${open}"
       @dds-expressive-modal-beingclosed="${handleBeforeClose}"
       @dds-expressive-modal-closed="${onClose}">
+      <span slot="header" class="bx--visually-hidden"
+        >Lightbox modal with carousel</span
+      >
       <dds-expressive-modal-close-button></dds-expressive-modal-close-button>
       <dds-carousel page-size="1">
         <dds-lightbox-media-viewer
