@@ -105,7 +105,7 @@ class DDSLeftNavMenuSection extends HostListenerMixin(FocusMixin(LitElement)) {
 
       setTimeout(() => {
         resolve();
-      }, 0);
+      }, 100);
     });
   }
 
