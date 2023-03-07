@@ -99,7 +99,6 @@
     }
   }
 
-  /* stylelint-disable selector-pseudo-class-parentheses-space-inside */
   .#{$prefix}--header__search:not(
       .#{$prefix}--masthead__header--search-active
     ) {

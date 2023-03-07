@@ -23,7 +23,7 @@ jobs:
           node-version: '14.x'
           cache: 'yarn'
       - name: Install dependencies
-        run: yarn install --offline
+        run: yarn install --immutable --immutable-cache
       - name: Build project
         run: yarn lerna run --scope @carbon/web-components build
 
@@ -80,7 +80,7 @@ jobs:
           node-version: '14.x'
           cache: 'yarn'
       - name: Install dependencies
-        run: yarn install --offline
+        run: yarn install --immutable --immutable-cache
       - name: Build project
         run: yarn lerna run build
 
@@ -156,7 +156,7 @@ jobs:
           node-version: '14.x'
           cache: 'yarn'
       - name: Install dependencies
-        run: yarn install --offline
+        run: yarn install --immutable --immutable-cache
       - name: Build project
         run: yarn lerna run --ignore @carbon/ibmdotcom-react build
 

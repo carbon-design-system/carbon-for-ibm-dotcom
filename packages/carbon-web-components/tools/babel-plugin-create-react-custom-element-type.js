@@ -165,7 +165,9 @@ function createMetadataVisitor(api) {
       if (leadingComments) {
         context.classComments = (
           Array.isArray(leadingComments) ? leadingComments : [leadingComments]
-        ).map((item) => item.node);
+        )
+          .map((item) => item.node)
+          .filter(Boolean);
       }
       context.className = path.get('id.name').node;
     },
@@ -190,7 +192,9 @@ function createMetadataVisitor(api) {
         if (leadingComments) {
           metadata.comments = (
             Array.isArray(leadingComments) ? leadingComments : [leadingComments]
-          ).map((item) => item.node);
+          )
+            .map((item) => item.node)
+            .filter(Boolean);
         }
         customEvents[name] = metadata;
       }
@@ -213,7 +217,9 @@ function createMetadataVisitor(api) {
         if (leadingComments) {
           metadata.comments = (
             Array.isArray(leadingComments) ? leadingComments : [leadingComments]
-          ).map((item) => item.node);
+          )
+            .map((item) => item.node)
+            .filter(Boolean);
         }
         customEvents[name] = metadata;
       }

@@ -2235,6 +2235,8 @@ __metadata:
     temp: ^0.9.0
     terser-webpack-plugin: ^4.2.3
     through2: ^3.0.0
+    webpack: ^4.46.0
+    webpack-dev-server: ^4.0.0
     whatwg-fetch: ^2.0.3
     window-or-global: ^1.0.1
   peerDependencies:
@@ -2850,7 +2852,9 @@ __metadata:
     "@carbon/styles": ^1.19.0
     "@open-wc/semantic-dom-diff": ~0.18.0
     "@percy-io/in-percy": ^0.1.11
-    "@percy/storybook": ^4.3.4
+    "@percy/cli": ^1.8.1
+    "@percy/cypress": ^3.1.1
+    "@percy/dom": ^1.0.5
     "@rollup/plugin-babel": ^5.3.1
     "@rollup/plugin-commonjs": ^21.0.3
     "@rollup/plugin-node-resolve": ^8.4.0
@@ -11189,9 +11193,9 @@ __metadata:
   linkType: hard
 
 "caniuse-lite@npm:^1.0.0, caniuse-lite@npm:^1.0.30001109, caniuse-lite@npm:^1.0.30001449":
-  version: 1.0.30001460
-  resolution: "caniuse-lite@npm:1.0.30001460"
-  checksum: dad91eb82aa65aecf33ad6a04ad620b9df6f0152020dc6c1874224e8c6f4aa50695f585201b3dfcd2760b3c43326a86c9505cc03af856698fbef67b267ef786f
+  version: 1.0.30001462
+  resolution: "caniuse-lite@npm:1.0.30001462"
+  checksum: e4a57d7851eec65e7c9b6c11c4bbcecdc49d87b1b01bff3c15ea27efb05f959891b4c70ac169842067c134d6fa126d9ad5a91d0f85c7387c5bd912eaf41ea647
   languageName: node
   linkType: hard
 
@@ -14461,9 +14465,9 @@ __metadata:
   linkType: hard
 
 "electron-to-chromium@npm:^1.4.284":
-  version: 1.4.320
-  resolution: "electron-to-chromium@npm:1.4.320"
-  checksum: ea2c02bc286c0471ed7ad9b61225f6561921cf5f24a060cd1c46c2ea9932283ab924f66c370fbe5a229225dc1f747b395c943a0f5a9d058b72f561b1d8225787
+  version: 1.4.322
+  resolution: "electron-to-chromium@npm:1.4.322"
+  checksum: 195796a25f28b315d4e2ee17f8aac9d8f7a98c8aaad1b9633113cf6ea8394094b45132e2a7f4e191ec1492303e54fb23667c9ce7794a5a57c961a37aaccaa6cd
   languageName: node
   linkType: hard
 
@@ -23479,15 +23483,15 @@ __metadata:
   linkType: hard
 
 "log4js@npm:^6.4.1":
-  version: 6.8.0
-  resolution: "log4js@npm:6.8.0"
+  version: 6.9.0
+  resolution: "log4js@npm:6.9.0"
   dependencies:
     date-format: ^4.0.14
     debug: ^4.3.4
     flatted: ^3.2.7
     rfdc: ^1.3.0
     streamroller: ^3.1.5
-  checksum: bab8e0434ff8d314338542c3305da2ab4e1b581fad8fef356776053dba8bd210839abc06fe83d0d4facdc27e8e890f05fd25f8ae7dc6dcab5635d75dd5d6c66f
+  checksum: 2e8cd31c1df9f247d551ee89cd5346b0b6f3c680a0b3fadbbf5f17f4baf6b657b203c7e832d608fa433fa86f645e30ddefb9fcc447945178fa09b5418c52bbd5
   languageName: node
   linkType: hard
 
@@ -28294,12 +28298,21 @@ __metadata:
   languageName: node
   linkType: hard
 
-"qs@npm:6.11.0, qs@npm:^6.10.0, qs@npm:^6.11.0, qs@npm:^6.4.0, qs@npm:^6.6.0":
+"qs@npm:6.11.0":
   version: 6.11.0
   resolution: "qs@npm:6.11.0"
   dependencies:
     side-channel: ^1.0.4
   checksum: 6e1f29dd5385f7488ec74ac7b6c92f4d09a90408882d0c208414a34dd33badc1a621019d4c799a3df15ab9b1d0292f97c1dd71dc7c045e69f81a8064e5af7297
+  languageName: node
+  linkType: hard
+
+"qs@npm:^6.10.0, qs@npm:^6.11.0, qs@npm:^6.4.0, qs@npm:^6.6.0":
+  version: 6.11.1
+  resolution: "qs@npm:6.11.1"
+  dependencies:
+    side-channel: ^1.0.4
+  checksum: 82ee78ef12a16f3372fae5b64f76f8aedecb000feea882bbff1af146c147f6eb66b08f9c3f34d7e076f28563586956318b9b2ca41141846cdd6d5ad6f241d52f
   languageName: node
   linkType: hard
 
@@ -31449,12 +31462,12 @@ __metadata:
   linkType: hard
 
 "spdx-correct@npm:^3.0.0":
-  version: 3.1.1
-  resolution: "spdx-correct@npm:3.1.1"
+  version: 3.2.0
+  resolution: "spdx-correct@npm:3.2.0"
   dependencies:
     spdx-expression-parse: ^3.0.0
     spdx-license-ids: ^3.0.0
-  checksum: 77ce438344a34f9930feffa61be0eddcda5b55fc592906ef75621d4b52c07400a97084d8701557b13f7d2aae0cb64f808431f469e566ef3fe0a3a131dcb775a6
+  checksum: e9ae98d22f69c88e7aff5b8778dc01c361ef635580e82d29e5c60a6533cc8f4d820803e67d7432581af0cc4fb49973125076ee3b90df191d153e223c004193b2
   languageName: node
   linkType: hard
 

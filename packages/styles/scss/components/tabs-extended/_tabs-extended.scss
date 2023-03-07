@@ -38,7 +38,6 @@
         }
       }
 
-      /* stylelint-disable selector-pseudo-class-parentheses-space-inside */
       .#{$prefix}--tabs__nav-item--selected:not(
           .#{$prefix}--tabs__nav-item--disabled
         ) {
@@ -270,7 +269,6 @@ button.#{$prefix}--tabs__nav-link {
   outline: none;
 }
 
-/* stylelint-disable selector-pseudo-class-parentheses-space-inside */
 .#{$prefix}--tabs__nav-item:not(.#{$prefix}--tabs__nav-item--selected):not(
     .#{$prefix}--tabs__nav-item--disabled
   ):not(.#{$prefix}--tabs__nav-item--selected)
