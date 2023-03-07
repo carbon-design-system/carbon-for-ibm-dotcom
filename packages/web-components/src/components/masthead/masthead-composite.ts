@@ -16,7 +16,6 @@ import {
 } from 'lit-element';
 import { nothing, render } from 'lit-html';
 import { ifDefined } from 'lit-html/directives/if-defined';
-import settings from 'carbon-components/es/globals/js/settings.js';
 import ArrowRight16 from '../../internal/vendor/@carbon/web-components/icons/arrow--right/16.js';
 import ifNonNull from '../../internal/vendor/@carbon/web-components/globals/directives/if-non-null.js';
 import { unsafeSVG } from 'lit-html/directives/unsafe-svg.js';
@@ -75,7 +74,6 @@ import {
 } from './defs';
 
 const { stablePrefix: ddsPrefix } = ddsSettings;
-const { prefix } = settings;
 
 // Magic Number: 799px matches masthead.scss's `$breakpoint--desktop-nav`.
 const layoutBreakpoint = window.matchMedia(`(max-width: 799px)`);
