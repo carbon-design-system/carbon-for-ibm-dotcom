@@ -24,7 +24,7 @@ export { TEXTAREA_COLOR_SCHEME };
 /**
  * Text area.
  *
- * @element bx-textarea
+ * @element cds-textarea
  * @slot helper-text - The helper text.
  * @slot label-text - The label text.
  * @slot validity-message - The validity message. If present and non-empty, this input shows the UI of its invalid state.

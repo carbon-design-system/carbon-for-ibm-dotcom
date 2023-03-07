@@ -15,7 +15,7 @@ import styles from './modal.scss';
 /**
  * Modal heading.
  *
- * @element bx-modal-heading
+ * @element cds-modal-heading
  */
 @customElement(`${prefix}-modal-heading`)
 class BXModalHeading extends LitElement {

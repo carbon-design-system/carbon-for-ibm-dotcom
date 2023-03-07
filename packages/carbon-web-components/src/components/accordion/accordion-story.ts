@@ -10,6 +10,7 @@
 import { html } from 'lit';
 import { action } from '@storybook/addon-actions';
 import { boolean, select, text } from '@storybook/addon-knobs';
+import { prefix } from '../../globals/settings';
 import { ACCORDION_SIZE } from './accordion';
 import './accordion-item';
 import storyDocs from './accordion-story.mdx';
@@ -33,7 +34,7 @@ export const Default = (args) => {
     size,
     alignment,
     isFlush,
-  } = args?.['bx-accordion'] ?? {};
+  } = args?.[`${prefix}-accordion`] ?? {};
   const handleBeforeToggle = (event: CustomEvent) => {
     onBeforeToggle(event);
     if (disableToggle) {
@@ -43,8 +44,8 @@ export const Default = (args) => {
 
   return html`
     <cds-accordion
-      @bx-accordion-item-beingtoggled="${handleBeforeToggle}"
-      @bx-accordion-item-toggled="${onToggle}"
+      @cds-accordion-item-beingtoggled="${handleBeforeToggle}"
+      @cds-accordion-item-toggled="${onToggle}"
       size="${size}"
       alignment="${alignment}"
       ?isFlush="${isFlush}">
@@ -87,7 +88,7 @@ export default {
   parameters: {
     ...storyDocs.parameters,
     knobs: {
-      'bx-accordion': () => ({
+      [`${prefix}-accordion`]: () => ({
         open: boolean('Open the section (open)', false),
         titleText: text('The title (title-text)', 'Section title'),
         size: select('Accordion size (size)', sizes, null),
@@ -99,11 +100,11 @@ export default {
         isFlush: boolean('isFlush', false),
         disabled: boolean('Disable accordion item (disabled)', false),
         disableToggle: boolean(
-          'Disable user-initiated toggle action (Call event.preventDefault() in bx-accordion-beingtoggled event)',
+          `Disable user-initiated toggle action (Call event.preventDefault() in ${prefix}-accordion-beingtoggled event)`,
           false
         ),
-        onBeforeToggle: action('bx-accordion-item-beingtoggled'),
-        onToggle: action('bx-accordion-item-toggled'),
+        onBeforeToggle: action(`${prefix}-accordion-item-beingtoggled`),
+        onToggle: action(`${prefix}-accordion-item-toggled`),
       }),
     },
   },

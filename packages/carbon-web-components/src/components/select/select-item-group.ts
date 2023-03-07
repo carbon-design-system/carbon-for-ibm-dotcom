@@ -14,7 +14,7 @@ import { prefix } from '../../globals/settings';
 /**
  * An option group in select box.
  *
- * @element bx-select-item-group
+ * @element cds-select-item-group
  */
 @customElement(`${prefix}-select-item-group`)
 class BXSelectItemGroup extends LitElement {

@@ -15,7 +15,7 @@ import styles from './skeleton-placeholder.scss';
 /**
  * Skeleton placeholder.
  *
- * @element bx-skeleton-placeholder
+ * @element cds-skeleton-placeholder
  */
 @customElement(`${prefix}-skeleton-placeholder`)
 class BXSkeletonPlaceholder extends LitElement {

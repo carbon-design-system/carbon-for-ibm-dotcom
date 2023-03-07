@@ -17,7 +17,7 @@ import styles from './breadcrumb.scss';
 /**
  * Overflow menu in breadcrumb.
  *
- * @element bx-breadcrumb-overflow-menu
+ * @element cds-breadcrumb-overflow-menu
  */
 @customElement(`${prefix}-breadcrumb-overflow-menu`)
 class BXBreadcrumbOverflowMenu extends BXOverflowMenu {

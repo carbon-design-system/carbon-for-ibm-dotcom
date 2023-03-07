@@ -101,8 +101,8 @@ class RadioButtonDelegate implements ManagedRadioButtonDelegate {
 /**
  * Radio button.
  *
- * @element bx-radio-button
- * @fires bx-radio-button-changed - The custom event fired after this radio button changes its checked state.
+ * @element cds-radio-button
+ * @fires cds-radio-button-changed - The custom event fired after this radio button changes its checked state.
  */
 @customElement(`${prefix}-radio-button`)
 class BXRadioButton extends HostListenerMixin(FocusMixin(LitElement)) {

@@ -15,7 +15,7 @@ import styles from './structured-list.scss';
 /**
  * Structured list header row.
  *
- * @element bx-structured-list-header-row
+ * @element cds-structured-list-header-row
  */
 @customElement(`${prefix}-structured-list-header-row`)
 class BXStructuredListHeaderRow extends LitElement {
@@ -34,7 +34,7 @@ class BXStructuredListHeaderRow extends LitElement {
   }
 
   render() {
-    // We could look up in DOM for `bx-structured-list[hasSelection]`,
+    // We could look up in DOM for `${prefix}-structured-list[hasSelection]`,
     // but uses `hasSelection` prop to utilize attribute change callback
     if (this.selectionName) {
       return html`

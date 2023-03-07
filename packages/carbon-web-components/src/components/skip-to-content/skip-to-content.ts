@@ -17,7 +17,7 @@ import styles from './skip-to-content.scss';
 /**
  * Skip-to-content link.
  *
- * @element bx-skip-to-content
+ * @element cds-skip-to-content
  */
 @customElement(`${prefix}-skip-to-content`)
 class BXSkipToContent extends FocusMixin(LitElement) {

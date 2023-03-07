@@ -18,7 +18,7 @@ import styles from './toggletip.scss';
 /**
  * Definition tooltip.
  *
- * @element bx-toggletip
+ * @element cds-toggletip
  */
 @customElement(`${prefix}-toggletip`)
 class BXToggletip extends FocusMixin(LitElement) {
@@ -65,7 +65,7 @@ class BXToggletip extends FocusMixin(LitElement) {
     }>
           ${Information16({ id: 'trigger' })}
         </button>
-        
+
         <span class="${prefix}--popover">
           <span class="${prefix}--popover-content">
 
@@ -76,7 +76,7 @@ class BXToggletip extends FocusMixin(LitElement) {
               </div>
             </div>
           </span>
-        
+
         </span>
         <span class="${prefix}--popover-caret"></span>
       </span>

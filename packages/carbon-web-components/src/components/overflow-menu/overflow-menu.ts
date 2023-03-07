@@ -25,7 +25,7 @@ export { OVERFLOW_MENU_COLOR_SCHEME, OVERFLOW_MENU_SIZE };
 /**
  * Overflow menu.
  *
- * @element bx-overflow-menu
+ * @element cds-overflow-menu
  * @slot icon - The icon for the trigger button.
  */
 @customElement(`${prefix}-overflow-menu`)

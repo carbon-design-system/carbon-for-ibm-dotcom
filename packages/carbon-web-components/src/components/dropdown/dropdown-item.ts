@@ -17,7 +17,7 @@ import styles from './dropdown.scss';
 /**
  * Dropdown item.
  *
- * @element bx-dropdown-item
+ * @element cds-dropdown-item
  * @csspart selected-icon The selected icon.
  */
 @customElement(`${prefix}-dropdown-item`)
@@ -52,7 +52,7 @@ class BXDropdownItem extends LitElement {
   size = DROPDOWN_SIZE.REGULAR;
 
   /**
-   * The `value` attribute that is set to the parent `<bx-dropdown>` when this dropdown item is selected.
+   * The `value` attribute that is set to the parent `<cds-dropdown>` when this dropdown item is selected.
    */
   @property()
   value = '';

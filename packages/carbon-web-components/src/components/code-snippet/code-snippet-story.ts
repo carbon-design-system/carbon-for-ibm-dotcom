@@ -8,10 +8,11 @@
  */
 
 import { html } from 'lit';
+import { ifDefined } from 'lit/directives/if-defined.js';
 import { action } from '@storybook/addon-actions';
 import { number, select } from '@storybook/addon-knobs';
+import { prefix } from '../../globals/settings';
 import textNullable from '../../../.storybook/knob-text-nullable';
-import { ifDefined } from 'lit/directives/if-defined.js';
 import { CODE_SNIPPET_COLOR_SCHEME } from './code-snippet';
 import storyDocs from './code-snippet-story.mdx';
 import './code-snippet-skeleton';
@@ -23,7 +24,7 @@ const colorSchemes = {
 };
 
 const defaultKnobs = {
-  'bx-code-snippet': () => ({
+  [`${prefix}-code-snippet`]: () => ({
     codeAssistiveText: textNullable(
       'Assistive text for the code portion (code-assistive-text)',
       ''
@@ -53,7 +54,7 @@ export const singleLine = (args) => {
     copyButtonFeedbackTimeout,
     colorScheme,
     onClick,
-  } = args?.['bx-code-snippet'] ?? {};
+  } = args?.[`${prefix}-code-snippet`] ?? {};
   const children = `
     node -v Lorem ipsum dolor sit amet, consectetur adipisicing elit. Blanditiis, veritatis voluptate id incidunt molestiae
     officia possimus, quasi itaque alias, architecto hic, dicta fugit? Debitis delectus quidem explicabo vitae
@@ -88,7 +89,7 @@ export const multiLine = (args) => {
     expandButtonText,
     colorScheme,
     onClick,
-  } = args?.['bx-code-snippet'] ?? {};
+  } = args?.[`${prefix}-code-snippet`] ?? {};
   const children = `
 @mixin grid-container {
   width: 100%;
@@ -132,8 +133,8 @@ multiLine.storyName = 'Multi line';
 
 multiLine.parameters = {
   knobs: {
-    'bx-code-snippet': () => ({
-      ...defaultKnobs['bx-code-snippet'](),
+    [`${prefix}-code-snippet`]: () => ({
+      ...defaultKnobs[`${prefix}-code-snippet`](),
       collapseButtonText: textNullable(
         'The text for the collapse button (collapse-button-text)',
         ''
@@ -154,7 +155,7 @@ export const inline = (args) => {
     copyButtonFeedbackTimeout,
     colorScheme,
     onClick,
-  } = args?.['bx-code-snippet'] ?? {};
+  } = args?.[`${prefix}-code-snippet`] ?? {};
   return html`
     <cds-code-snippet
       type="inline"

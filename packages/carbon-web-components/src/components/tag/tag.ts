@@ -18,7 +18,7 @@ export { TAG_SIZE, TAG_TYPE };
 /**
  * Tag.
  *
- * @element bx-tag
+ * @element cds-tag
  */
 @customElement(`${prefix}-tag`)
 class BXTag extends LitElement {

@@ -15,7 +15,7 @@ import styles from './file-uploader.scss';
 /**
  * The shell UI for file uploader.
  *
- * @element bx-file-uploader
+ * @element cds-file-uploader
  * @slot helper-text The helper text.
  * @slot label-text The label text.
  */

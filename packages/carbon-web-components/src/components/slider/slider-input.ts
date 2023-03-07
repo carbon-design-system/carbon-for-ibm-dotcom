@@ -21,8 +21,8 @@ export { SLIDER_INPUT_COLOR_SCHEME };
 /**
  * The `<input>` box for slider.
  *
- * @element bx-slider-input
- * @fires bx-slider-input-changed - The custom event fired after the value is changed by user gesture.
+ * @element cds-slider-input
+ * @fires cds-slider-input-changed - The custom event fired after the value is changed by user gesture.
  */
 @customElement(`${prefix}-slider-input`)
 class BXSliderInput extends FocusMixin(LitElement) {

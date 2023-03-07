@@ -16,7 +16,7 @@ import styles from './modal.scss';
 /**
  * Modal footer.
  *
- * @element bx-modal-footer
+ * @element cds-modal-footer
  */
 @customElement(`${prefix}-modal-footer`)
 class BXModalFooter extends LitElement {

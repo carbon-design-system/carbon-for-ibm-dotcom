@@ -17,7 +17,7 @@ $css--plex: true !default;
   width: 100%;
   outline: none;
 
-  .bx--form-requirement[hidden] {
+  .#{$prefix}--form-requirement[hidden] {
     display: none;
   }
 }

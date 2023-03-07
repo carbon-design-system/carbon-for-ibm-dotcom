@@ -17,7 +17,7 @@ import styles from './progress-indicator.scss';
 /**
  * Progress indicator.
  *
- * @element bx-progress-indicator
+ * @element cds-progress-indicator
  */
 @customElement(`${prefix}-progress-indicator`)
 class BXProgressIndicator extends LitElement {

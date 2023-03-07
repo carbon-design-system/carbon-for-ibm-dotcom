@@ -8,10 +8,11 @@
  */
 
 import { html } from 'lit';
+import { ifDefined } from 'lit/directives/if-defined.js';
 import { action } from '@storybook/addon-actions';
 import { boolean, select } from '@storybook/addon-knobs';
 import textNullable from '../../../.storybook/knob-text-nullable';
-import { ifDefined } from 'lit/directives/if-defined.js';
+import { prefix } from '../../globals/settings';
 import { RADIO_BUTTON_ORIENTATION } from './radio-button-group';
 import { RADIO_BUTTON_LABEL_POSITION } from './radio-button';
 import './radio-button-skeleton';
@@ -33,8 +34,8 @@ const labelPositions = {
 
 export const Default = (args) => {
   const { disabled, labelPosition, orientation, name, value, onChange } =
-    args?.['bx-radio-button-group'] ?? {};
-  const { hideLabel, labelText } = args?.['bx-radio-button'] ?? {};
+    args?.[`${prefix}-radio-button-group`] ?? {};
+  const { hideLabel, labelText } = args?.[`${prefix}-radio-button`] ?? {};
   return html`
     <cds-radio-button-group
       ?disabled="${disabled}"
@@ -42,7 +43,7 @@ export const Default = (args) => {
       orientation="${ifDefined(orientation)}"
       name="${ifDefined(name)}"
       value="${ifDefined(value)}"
-      @bx-radio-button-group-changed="${onChange}">
+      @cds-radio-button-group-changed="${onChange}">
       <cds-radio-button
         ?hide-label="${hideLabel}"
         label-text="${ifDefined(labelText)}"
@@ -63,7 +64,7 @@ Default.storyName = 'Default';
 
 Default.parameters = {
   knobs: {
-    'bx-radio-button-group': () => ({
+    [`${prefix}-radio-button-group`]: () => ({
       disabled: boolean('Disabled (disabled)', false),
       labelPosition: select(
         'Label position (label-position)',
@@ -77,9 +78,9 @@ Default.parameters = {
       ),
       name: textNullable('Name (name)', 'radio-group'),
       value: textNullable('Value (value)', ''),
-      onChange: action('bx-radio-button-group-changed'),
+      onChange: action(`${prefix}-radio-button-group-changed`),
     }),
-    'bx-radio-button': () => ({
+    [`${prefix}-radio-button`]: () => ({
       hideLabel: boolean('Hide label (hide-label)', false),
       labelText: textNullable('Label text (label-text)', 'Radio button'),
     }),

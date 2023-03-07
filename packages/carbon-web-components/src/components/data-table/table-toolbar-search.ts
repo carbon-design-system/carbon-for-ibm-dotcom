@@ -20,8 +20,8 @@ import styles from './data-table.scss';
 /**
  * Table toolbar search.
  *
- * @element bx-table-toolbar-search
- * @fires bx-search-input - The custom event fired after the search content is changed upon a user gesture.
+ * @element cds-table-toolbar-search
+ * @fires cds-search-input - The custom event fired after the search content is changed upon a user gesture.
  */
 @customElement(`${prefix}-table-toolbar-search`)
 class BXTableToolbarSearch extends HostListenerMixin(BXSearch) {
@@ -107,7 +107,7 @@ class BXTableToolbarSearch extends HostListenerMixin(BXSearch) {
    * The name of the custom event fired after the search content is changed upon a user gesture.
    */
   static get eventInput() {
-    // The code uses on in `<bx-search>`, but definition is done also here for React event generation
+    // The code uses on in `<cds-search>`, but definition is done also here for React event generation
     return `${prefix}-search-input`;
   }
 

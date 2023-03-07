@@ -23,8 +23,8 @@ export { RADIO_BUTTON_ORIENTATION };
 /**
  * Radio button group.
  *
- * @element bx-radio-button-group
- * @fires bx-radio-button-group-changed - The custom event fired after this radio button group changes its selected item.
+ * @element cds-radio-button-group
+ * @fires cds-radio-button-group-changed - The custom event fired after this radio button group changes its selected item.
  */
 @customElement(`${prefix}-radio-button-group`)
 class BXRadioButtonGroup extends FormMixin(HostListenerMixin(LitElement)) {

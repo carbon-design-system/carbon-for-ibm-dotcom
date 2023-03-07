@@ -15,7 +15,7 @@ import styles from './structured-list.scss';
 /**
  * Structured list cell.
  *
- * @element bx-structured-list-cell
+ * @element cds-structured-list-cell
  */
 @customElement(`${prefix}-structured-list-cell`)
 class BXStructuredListCell extends LitElement {

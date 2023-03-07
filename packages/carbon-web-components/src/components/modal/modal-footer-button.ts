@@ -16,7 +16,7 @@ import styles from './modal.scss';
 /**
  * Modal footer button.
  *
- * @element bx-modal-footer-button
+ * @element cds-modal-footer-button
  */
 @customElement(`${prefix}-modal-footer-button`)
 class BXModalFooterButton extends BXButton {

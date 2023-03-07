@@ -8,13 +8,14 @@
  */
 
 import { html } from 'lit';
+import { ifDefined } from 'lit/directives/if-defined.js';
 import * as knobs from '@storybook/addon-knobs';
 import textNullable from '../../../.storybook/knob-text-nullable';
-import { ifDefined } from 'lit/directives/if-defined.js';
 import './input';
 import '../form/form-item';
 import createProps from './stories/helpers';
 import storyDocs from './input-story.mdx';
+import { prefix } from '../../globals/settings';
 
 export const Default = (args) => {
   const {
@@ -36,7 +37,7 @@ export const Default = (args) => {
     validityMessage,
     value,
     onInput,
-  } = args?.['bx-input'] ?? {};
+  } = args?.[`${prefix}-input`] ?? {};
   return html`
     <cds-input
       autocomplete="${ifDefined(autocomplete)}"
@@ -73,7 +74,7 @@ export const formItem = (args) => {
     type,
     value,
     onInput,
-  } = args?.['bx-input'] ?? {};
+  } = args?.[`${prefix}-input`] ?? {};
   return html`
     <cds-form-item>
       <cds-input
@@ -107,7 +108,7 @@ export const withoutFormItemWrapper = (args) => {
     type,
     value,
     onInput,
-  } = args?.['bx-input'] ?? {};
+  } = args?.[`${prefix}-input`] ?? {};
   return html`
     <cds-input
       value="${ifDefined(value)}"
@@ -133,7 +134,8 @@ export default {
   parameters: {
     ...storyDocs.parameters,
     knobs: {
-      'bx-input': () => createProps({ ...knobs, textNonEmpty: textNullable }),
+      [`${prefix}-input`]: () =>
+        createProps({ ...knobs, textNonEmpty: textNullable }),
     },
   },
 };

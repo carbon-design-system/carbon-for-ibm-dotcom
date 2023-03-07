@@ -35,7 +35,7 @@ export default class BXCEDemoFileUploader extends LitElement {
   private _files: FileData[] = [];
 
   /**
-   * Handles `bx-drop-container-changed` on `<cds-file-drop-container>`.
+   * Handles `cds-drop-container-changed` on `<cds-file-drop-container>`.
    *
    * @param event The event.
    */
@@ -62,7 +62,7 @@ export default class BXCEDemoFileUploader extends LitElement {
   }
 
   /**
-   * Handles `bx-file-uploader-item-deleted` on `<cds-file-uploader-item>`.
+   * Handles `cds-file-uploader-item-deleted` on `<cds-file-uploader-item>`.
    *
    * @param event The event.
    */
@@ -177,7 +177,7 @@ export default class BXCEDemoFileUploader extends LitElement {
           accept="${ifDefined(accept)}"
           ?disabled="${disabled}"
           ?multiple="${multiple}"
-          @bx-file-drop-container-changed="${handleChange}">
+          @cds-file-drop-container-changed="${handleChange}">
           Drag and drop files here or click to upload
         </cds-file-drop-container>
         ${files.map(
@@ -195,7 +195,7 @@ export default class BXCEDemoFileUploader extends LitElement {
               size="${ifDefined(size)}"
               state="${ifDefined(state)}"
               validity-message="${ifDefined(validityMessage)}"
-              @bx-file-uploader-item-deleted="${handleDelete}">
+              @cds-file-uploader-item-deleted="${handleDelete}">
               ${file.name}
               <span slot="validity-message-supplement"
                 >${supplementalValidityMessage}</span

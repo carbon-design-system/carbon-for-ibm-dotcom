@@ -53,19 +53,19 @@
 
 // Show sort icon of primary sorting column or one of hovered column
 :host(#{$prefix}-table-header-cell[sort-active])
-  .bx--table-sort
-  .bx--table-sort__icon,
+  .#{$prefix}--table-sort
+  .#{$prefix}--table-sort__icon,
 :host(#{$prefix}-table-header-cell)
-  .bx--table-sort:hover
-  .bx--table-sort__icon {
+  .#{$prefix}--table-sort:hover
+  .#{$prefix}--table-sort__icon {
   opacity: 1;
 }
 
 // `carbon-web-components` uses conditional rendering for choosing Arrows16 vs. ArrowDown16,
 // and thus `display:none` here is not needed
 :host(#{$prefix}-table-header-cell[sort-direction])
-  .bx--table-sort
-  .bx--table-sort__icon {
+  .#{$prefix}--table-sort
+  .#{$prefix}--table-sort__icon {
   display: block;
 }
 

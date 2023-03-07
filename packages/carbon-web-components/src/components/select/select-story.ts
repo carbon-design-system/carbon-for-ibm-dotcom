@@ -8,13 +8,14 @@
  */
 
 import { html } from 'lit';
+import { ifDefined } from 'lit/directives/if-defined.js';
 import { action } from '@storybook/addon-actions';
 import { boolean, select } from '@storybook/addon-knobs';
 import textNullable from '../../../.storybook/knob-text-nullable';
 // Below path will be there when an application installs `carbon-web-components` package.
 // In our dev env, we auto-generate the file and re-map below path to to point to the generated file.
 // @ts-ignore
-import { ifDefined } from 'lit/directives/if-defined.js';
+import { prefix } from '../../globals/settings';
 import { INPUT_COLOR_SCHEME, INPUT_SIZE } from '../input/input';
 import './select';
 import storyDocs from './select-story.mdx';
@@ -55,7 +56,7 @@ export const Default = (args) => {
       </cds-select-item-group>
     `,
     onInput,
-  } = args?.['bx-select'] ?? {};
+  } = args?.[`${prefix}-select`] ?? {};
   return html`
     <cds-select
       ?autofocus="${autofocus}"
@@ -69,7 +70,7 @@ export const Default = (args) => {
       size="${ifDefined(size)}"
       validity-message="${ifDefined(validityMessage)}"
       value="${ifDefined(value)}"
-      @bx-select-selected="${ifDefined(onInput)}">
+      @cds-select-selected="${ifDefined(onInput)}">
       ${children}
     </cds-select>
   `;
@@ -77,7 +78,7 @@ export const Default = (args) => {
 
 Default.parameters = {
   knobs: {
-    'bx-select': () => ({
+    [`${prefix}-select`]: () => ({
       colorScheme: select('Color scheme (color-scheme)', colorSchemes, null),
       disabled: boolean('Disabled (disabled)', false),
       helperText: textNullable(
@@ -96,7 +97,7 @@ Default.parameters = {
         ''
       ),
       value: textNullable('The value of the selected item (value)', ''),
-      onInput: action('bx-select-selected'),
+      onInput: action(`${prefix}-select-selected`),
     }),
   },
 };

@@ -8,7 +8,7 @@
  */
 
 /**
- * The state of `<bx-file-uploader-item>`.
+ * The state of `<cds-file-uploader-item>`.
  */
 export enum FILE_UPLOADER_ITEM_STATE {
   /**

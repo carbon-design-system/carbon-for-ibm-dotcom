@@ -26,13 +26,13 @@ export { SEARCH_COLOR_SCHEME };
 /**
  * Search box.
  *
- * @element bx-search
+ * @element cds-search
  * @csspart search-icon The search icon.
  * @csspart label-text The label text.
  * @csspart input The input box.
  * @csspart close-button The close button.
  * @csspart close-icon The close icon.
- * @fires bx-search-input - The custom event fired after the search content is changed upon a user gesture.
+ * @fires cds-search-input - The custom event fired after the search content is changed upon a user gesture.
  */
 @customElement(`${prefix}-search`)
 class BXSearch extends FocusMixin(FormMixin(LitElement)) {

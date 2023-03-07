@@ -33,7 +33,7 @@ const icons = {
 /**
  * Progress step.
  *
- * @element bx-progress-step
+ * @element cds-progress-step
  * @slot secondary-label-text - The secondary progress label.
  */
 @customElement(`${prefix}-progress-step`)

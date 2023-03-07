@@ -29,7 +29,7 @@ export { INPUT_COLOR_SCHEME, INPUT_SIZE, INPUT_TYPE };
 /**
  * Input element. Supports all the usual attributes for textual input types
  *
- * @element bx-input
+ * @element cds-input
  * @slot helper-text - The helper text.
  * @slot label-text - The label text.
  * @slot validity-message - The validity message. If present and non-empty, this input shows the UI of its invalid state.

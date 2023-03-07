@@ -18,6 +18,7 @@ import {
 } from './combo-box';
 import './combo-box-item';
 import storyDocs from './combo-box-story.mdx';
+import { prefix } from '../../globals/settings';
 
 const colorSchemes = {
   [`Regular`]: null,
@@ -55,7 +56,7 @@ export const Default = (args) => {
     onBeforeToggle,
     onSelect,
     onToggle,
-  } = args?.['bx-combo-box'] ?? {};
+  } = args?.[`${prefix}-combo-box`] ?? {};
   const handleBeforeSelect = (event: CustomEvent) => {
     if (onBeforeSelect) {
       onBeforeSelect(event);
@@ -85,10 +86,10 @@ export const Default = (args) => {
       value=${value}
       trigger-content=${triggerContent}
       type=${ifDefined(type)}
-      @bx-combo-box-beingselected=${handleBeforeSelect}
-      @bx-combo-box-beingtoggled=${handleBeforeToggle}
-      @bx-combo-box-selected=${onSelect}
-      @bx-combo-box-toggled=${onToggle}>
+      @cds-combo-box-beingselected=${handleBeforeSelect}
+      @cds-combo-box-beingtoggled=${handleBeforeToggle}
+      @cds-combo-box-selected=${onSelect}
+      @cds-combo-box-toggled=${onToggle}>
       <cds-combo-box-item value="all">Option 1</cds-combo-box-item>
       <cds-combo-box-item value="cloudFoundry">Option 2</cds-combo-box-item>
       <cds-combo-box-item value="staging">Option 3</cds-combo-box-item>
@@ -112,7 +113,7 @@ export default {
   parameters: {
     ...storyDocs.parameters,
     knobs: {
-      'bx-combo-box': () => ({
+      [`${prefix}-combo-box`]: () => ({
         open: boolean('Open (open)', false),
         colorScheme: select('Color scheme (color-scheme)', colorSchemes, null),
         disabled: boolean('Disabled (disabled)', false),
@@ -128,17 +129,17 @@ export default {
         validityMessage: text('The validity message (validity-message)', ''),
         value: text('The value of the selected item (value)', ''),
         disableSelection: boolean(
-          'Disable user-initiated selection change (Call event.preventDefault() in bx-combo-box-beingselected event)',
+          `Disable user-initiated selection change (Call event.preventDefault() in ${prefix}-combo-box-beingselected event)`,
           false
         ),
         disableToggle: boolean(
-          'Disable user-initiated toggle of open state (Call event.preventDefault() in bx-combo-box-beingtoggled event)',
+          `Disable user-initiated toggle of open state (Call event.preventDefault() in ${prefix}-combo-box-beingtoggled event)`,
           false
         ),
-        onBeforeSelect: action('bx-combo-box-beingselected'),
-        onBeforeToggle: action('bx-combo-box-beingtoggled'),
-        onSelect: action('bx-combo-box-selected'),
-        onToggle: action('bx-combo-box-toggled'),
+        onBeforeSelect: action(`${prefix}-combo-box-beingselected`),
+        onBeforeToggle: action(`${prefix}-combo-box-beingtoggled`),
+        onSelect: action(`${prefix}-combo-box-selected`),
+        onToggle: action(`${prefix}-combo-box-toggled`),
       }),
     },
   },

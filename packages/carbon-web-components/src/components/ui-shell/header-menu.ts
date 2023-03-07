@@ -21,7 +21,7 @@ import styles from './header.scss';
 /**
  * Header menu.
  *
- * @element bx-header-menu
+ * @element cds-header-menu
  * @csspart trigger The trigger button.
  * @csspart trigger-icon The trigger button icon.
  * @csspart menu-body The menu body.

@@ -18,7 +18,7 @@ $css--plex: true !default;
 :host(#{$prefix}-loading[overlay]) {
   @extend .#{$prefix}--loading-overlay;
 
-  // Avoids duplicate animation of the host and the `.bx--loading` in the shadow DOM
+  // Avoids duplicate animation of the host and the `.#{$prefix}--loading` in the shadow DOM
   animation: none;
 }
 
@@ -31,7 +31,7 @@ $css--plex: true !default;
 }
 
 .#{$prefix}--loading__background[hidden] {
-  // Conditional rendering of `circle.bx--loading__background` does not seem to render the `<circle>` well
+  // Conditional rendering of `circle.#{$prefix}--loading__background` does not seem to render the `<circle>` well
   // even though the DOM seems right
   display: none;
 }

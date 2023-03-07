@@ -15,7 +15,7 @@ import styles from './header.scss';
 /**
  * Header.
  *
- * @element bx-header-nav
+ * @element cds-header-nav
  * @csspart menu-body The menu body.
  * @csspart divider The divider.
  */

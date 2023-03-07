@@ -15,7 +15,7 @@ import styles from './side-nav.scss';
 /**
  * Side nav items.
  *
- * @element bx-side-nav-items
+ * @element cds-side-nav-items
  */
 @customElement(`${prefix}-side-nav-items`)
 class BXSideNavItems extends LitElement {

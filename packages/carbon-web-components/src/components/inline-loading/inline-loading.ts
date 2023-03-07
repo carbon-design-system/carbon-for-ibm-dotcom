@@ -23,7 +23,7 @@ export { INLINE_LOADING_STATE };
 /**
  * Lnline loading spinner.
  *
- * @element bx-inline-loading
+ * @element cds-inline-loading
  */
 @customElement(`${prefix}-inline-loading`)
 class BXInlineLoading extends LitElement {

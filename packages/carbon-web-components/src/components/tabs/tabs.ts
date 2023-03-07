@@ -36,11 +36,11 @@ export {
 /**
  * Tabs.
  *
- * @element bx-tabs
- * @fires bx-tabs-beingselected
+ * @element cds-tabs
+ * @fires cds-tabs-beingselected
  *   The custom event fired before a tab is selected upon a user gesture.
  *   Cancellation of this event stops changing the user-initiated selection.
- * @fires bx-tabs-selected - The custom event fired after a a tab is selected upon a user gesture.
+ * @fires cds-tabs-selected - The custom event fired after a a tab is selected upon a user gesture.
  */
 @customElement(`${prefix}-tabs`)
 class BXTabs extends HostListenerMixin(BXContentSwitcher) {

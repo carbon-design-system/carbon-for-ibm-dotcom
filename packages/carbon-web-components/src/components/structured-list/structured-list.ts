@@ -19,7 +19,7 @@ import styles from './structured-list.scss';
 /**
  * Structured list wrapper.
  *
- * @element bx-structured-list
+ * @element cds-structured-list
  */
 @customElement(`${prefix}-structured-list`)
 class BXStructuredList extends FocusMixin(LitElement) {

@@ -41,11 +41,11 @@ const observeResize = (observer: ResizeObserver, elem: Element) => {
 /**
  * Accordion item.
  *
- * @element bx-accordion-item
- * @fires bx-accordion-item-beingtoggled
+ * @element cds-accordion-item
+ * @fires cds-accordion-item-beingtoggled
  *   The custom event fired before this accordion item is being toggled upon a user gesture.
  *   Cancellation of this event stops the user-initiated action of toggling this accordion item.
- * @fires bx-accordion-item-toggled - The custom event fired after this accordion item is toggled upon a user gesture.
+ * @fires cds-accordion-item-toggled - The custom event fired after this accordion item is toggled upon a user gesture.
  * @csspart expando The expando button.
  * @csspart expando-icon The expando icon.
  * @csspart title The title.

@@ -14,7 +14,7 @@ import BXTableRow from './table-row';
 /**
  * Data table header row.
  *
- * @element bx-table-header-row
+ * @element cds-table-header-row
  */
 @customElement(`${prefix}-table-header-row`)
 class BXTableHeaderRow extends BXTableRow {

@@ -26,7 +26,7 @@ export { FORM_ELEMENT_COLOR_SCHEME as SELECT_COLOR_SCHEME } from '../../globals/
 /**
  * Select box.
  *
- * @element bx-select
+ * @element cds-select
  * @slot helper-text - The helper text.
  * @slot label-text - The label text.
  * @slot validity-message - The validity message. If present and non-empty, this input shows the UI of its invalid state.
@@ -72,10 +72,10 @@ class BXSelect extends ValidityMixin(FormMixin(LitElement)) {
   }
 
   /**
-   * Handles DOM mutation of `<bx-select-item>` or `<bx-select-item-group>` put in `<bx-select>`, or their changes.
-   * In such event, `<bx-select>` creates the corresponding `<option>` and `<optgroup>`, respectively, into shadow DOM,
+   * Handles DOM mutation of `<cds-select-item>` or `<cds-select-item-group>` put in `<cds-select>`, or their changes.
+   * In such event, `<cds-select>` creates the corresponding `<option>` and `<optgroup>`, respectively, into shadow DOM,
    * with `._renderItems()`.
-   * Doing so allows the shadow DOM style of `<bx-select>` to control the style of the `<option>` and `<optgroup>`,
+   * Doing so allows the shadow DOM style of `<cds-select>` to control the style of the `<option>` and `<optgroup>`,
    * notably the disabled ones.
    */
   private _handleMutation = () => {
@@ -89,7 +89,7 @@ class BXSelect extends ValidityMixin(FormMixin(LitElement)) {
   private _renderItems(element: BXSelect | HTMLOptGroupElement) {
     const { selectorItem, selectorLeafItem } = this
       .constructor as typeof BXSelect;
-    // Harvests attributes from `<bx-select-item>` and `<bx-select-item-group>`.
+    // Harvests attributes from `<cds-select-item>` and `<cds-select-item-group>`.
     // Does not use properties to avoid delay in attribute to property mapping, which runs in custom element reaction cycle:
     // https://html.spec.whatwg.org/multipage/custom-elements.html#custom-element-reactions
     return html`

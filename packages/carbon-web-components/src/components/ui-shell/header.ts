@@ -15,7 +15,7 @@ import styles from './header.scss';
 /**
  * Header.
  *
- * @element bx-header
+ * @element cds-header
  */
 @customElement(`${prefix}-header`)
 class BXHeader extends LitElement {

@@ -19,7 +19,7 @@ export { ACCORDION_SIZE, ACCORDION_ALIGNMENT };
 /**
  * Accordion container.
  *
- * @element bx-accordion
+ * @element cds-accordion
  */
 @customElement(`${prefix}-accordion`)
 class BXAccordion extends LitElement {

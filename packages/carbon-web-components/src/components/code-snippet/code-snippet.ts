@@ -80,7 +80,7 @@ const renderCode = ({
 /**
  * Basic code snippet.
  *
- * @element bx-code-snippet
+ * @element cds-code-snippet
  */
 @customElement(`${prefix}-code-snippet`)
 class BXCodeSnippet extends FocusMixin(LitElement) {

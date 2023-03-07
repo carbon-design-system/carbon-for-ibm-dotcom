@@ -17,9 +17,9 @@ import styles from './pagination.scss';
 /**
  * The select box for page sizes.
  *
- * @element bx-page-sizes-select
+ * @element cds-page-sizes-select
  * @slot label-text - The label text.
- * @fires bx-page-sizes-select-changed - The custom event fired after the page size is changed.
+ * @fires cds-page-sizes-select-changed - The custom event fired after the page size is changed.
  */
 @customElement(`${prefix}-page-sizes-select`)
 class BXPageSizesSelect extends FocusMixin(LitElement) {

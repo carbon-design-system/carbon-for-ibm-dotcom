@@ -14,7 +14,7 @@ import BXHeaderNavItem from './header-nav-item';
 /**
  * Header submenu item.
  *
- * @element bx-header-menu-item
+ * @element cds-header-menu-item
  */
 @customElement(`${prefix}-header-menu-item`)
 class BXHeaderMenuItem extends BXHeaderNavItem {}

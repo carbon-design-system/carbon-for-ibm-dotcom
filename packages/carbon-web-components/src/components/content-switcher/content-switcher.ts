@@ -35,11 +35,11 @@ const capIndex = (index: number, length: number) => {
 /**
  * Content switcher.
  *
- * @element bx-content-switcher
- * @fires bx-content-switcher-beingselected
+ * @element cds-content-switcher
+ * @fires cds-content-switcher-beingselected
  *   The custom event fired before a content switcher item is selected upon a user gesture.
  *   Cancellation of this event stops changing the user-initiated selection.
- * @fires bx-content-switcher-selected - The custom event fired after a a content switcher item is selected upon a user gesture.
+ * @fires cds-content-switcher-selected - The custom event fired after a a content switcher item is selected upon a user gesture.
  */
 @customElement(`${prefix}-content-switcher`)
 class BXContentSwitcher extends LitElement {
@@ -57,7 +57,7 @@ class BXContentSwitcher extends LitElement {
         : indexOf(items, (target as Element).closest(selectorItem)!);
     const nextIndex = index < 0 ? index : index + 1;
     forEach(this.querySelectorAll(selectorItem), (elem, i) => {
-      // Specifies child `<bx-content-switcher-item>` to hide its divider instead of using CSS,
+      // Specifies child `<cds-content-switcher-item>` to hide its divider instead of using CSS,
       // until `:host-context()` gets supported in all major browsers
       (elem as BXSwitch).hideDivider = i === nextIndex;
     });

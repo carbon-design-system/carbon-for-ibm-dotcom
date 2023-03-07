@@ -15,7 +15,7 @@ import styles from './modal.scss';
 /**
  * Modal label.
  *
- * @element bx-modal-label
+ * @element cds-modal-label
  */
 @customElement(`${prefix}-modal-label`)
 class BXModalLabel extends LitElement {

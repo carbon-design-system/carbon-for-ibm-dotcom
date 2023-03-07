@@ -62,7 +62,7 @@ $css--plex: true !default;
   @extend .#{$prefix}--structured-list-content--nowrap;
 }
 
-// "Selected" style with `.bx--structured-list-td` does not work somehow - Need investigation
+// "Selected" style with `.#{$prefix}--structured-list-td` does not work somehow - Need investigation
 .#{$prefix}--structured-list-input:checked
   + .#{$prefix}--structured-list-cell
   .#{$prefix}--structured-list-svg {

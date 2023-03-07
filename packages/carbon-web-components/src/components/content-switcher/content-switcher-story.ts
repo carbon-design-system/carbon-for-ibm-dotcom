@@ -15,6 +15,7 @@ import { ifDefined } from 'lit/directives/if-defined.js';
 import { CONTENT_SWITCHER_SIZE } from './content-switcher';
 import './content-switcher-item';
 import storyDocs from './content-switcher-story.mdx';
+import { prefix } from '../../globals/settings';
 
 const noop = () => {};
 
@@ -31,7 +32,7 @@ export const Default = (args) => {
     onBeforeSelect = noop,
     onSelect = noop,
     size,
-  } = args?.['bx-content-switcher'] ?? {};
+  } = args?.[`${prefix}-content-switcher`] ?? {};
   const handleBeforeSelected = (event: CustomEvent) => {
     onBeforeSelect(event);
     if (disableSelection) {
@@ -41,8 +42,8 @@ export const Default = (args) => {
   return html`
     <cds-content-switcher
       value="${ifDefined(value)}"
-      @bx-content-switcher-beingselected="${handleBeforeSelected}"
-      @bx-content-switcher-selected="${onSelect}"
+      @cds-content-switcher-beingselected="${handleBeforeSelected}"
+      @cds-content-switcher-selected="${onSelect}"
       size="${size}">
       <cds-content-switcher-item value="all"
         >First section</cds-content-switcher-item
@@ -64,15 +65,15 @@ export default {
   parameters: {
     ...storyDocs.parameters,
     knobs: {
-      'bx-content-switcher': () => ({
+      [`${prefix}-content-switcher`]: () => ({
         value: textNullable('The value of the selected item (value)', ''),
         size: select('Button size (size)', sizes, null),
         disableSelection: boolean(
-          'Disable user-initiated selection change (Call event.preventDefault() in bx-content-switcher-beingselected event)',
+          `Disable user-initiated selection change (Call event.preventDefault() in ${prefix}-content-switcher-beingselected event)`,
           false
         ),
-        onBeforeSelect: action('bx-content-switcher-beingselected'),
-        onSelect: action('bx-content-switcher-selected'),
+        onBeforeSelect: action(`${prefix}-content-switcher-beingselected`),
+        onSelect: action(`${prefix}-content-switcher-selected`),
       }),
     },
   },

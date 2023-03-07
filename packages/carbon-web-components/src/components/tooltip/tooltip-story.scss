@@ -5,18 +5,19 @@
 // LICENSE file in the root directory of this source tree.
 //
 
+@use '@carbon/styles/scss/config' as *;
 @use '@carbon/styles/scss/components/link';
 @use '@carbon/styles/scss/type' as *;
 @use '@carbon/styles/scss/theme' as *;
 @use '@carbon/styles/scss/utilities/button-reset';
 
 /* stylelint-disable selector-type-no-unknown */
-bx-tooltip-body {
+#{$prefix}-tooltip-body {
   p {
     @include type-style('body-short-01');
   }
 
-  .bx--link {
+  .#{$prefix}--link {
     color: $link-inverse;
 
     &:focus {
@@ -25,6 +26,6 @@ bx-tooltip-body {
   }
 }
 
-.bx-ce-demo-devenv--container {
+.#{$prefix}-ce-demo-devenv--container {
   justify-content: center;
 }

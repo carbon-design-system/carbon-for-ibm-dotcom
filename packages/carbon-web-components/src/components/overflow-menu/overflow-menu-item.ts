@@ -16,7 +16,7 @@ import styles from './overflow-menu.scss';
 /**
  * Overflow menu item.
  *
- * @element bx-overflow-menu-item
+ * @element cds-overflow-menu-item
  */
 @customElement(`${prefix}-overflow-menu-item`)
 class BXOverflowMenuItem extends FocusMixin(LitElement) {

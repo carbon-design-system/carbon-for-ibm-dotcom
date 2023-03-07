@@ -15,10 +15,11 @@ import './slider';
 import './slider-input';
 import './slider-skeleton';
 import storyDocs from './slider-story.mdx';
+import { prefix } from '../../globals/settings';
 
 export const Default = (args) => {
   const { disabled, labelText, max, min, name, step, value, onChange } =
-    args?.['bx-slider'] || {};
+    args?.[`${prefix}-slider`] || {};
   return html`
     <cds-slider
       ?disabled="${disabled}"
@@ -28,7 +29,7 @@ export const Default = (args) => {
       name="${ifDefined(name)}"
       step="${ifDefined(step)}"
       value="${ifDefined(value)}"
-      @bx-slider-changed="${onChange}"></cds-slider>
+      @cds-slider-changed="${onChange}"></cds-slider>
   `;
 };
 
@@ -36,7 +37,7 @@ Default.storyName = 'Default';
 
 Default.parameters = {
   knobs: {
-    'bx-slider': () => ({
+    [`${prefix}-slider`]: () => ({
       disabled: boolean('Disabled (disabled)', false),
       labelText: text('Label text (label-text)', 'Slider'),
       name: text('Name (name)', ''),
@@ -44,14 +45,14 @@ Default.parameters = {
       min: number('The minimum value (min)', 0),
       step: number('The step (step)', 1),
       value: number('Value (value)', 50),
-      onAfterChange: action('bx-slider-changed'),
+      onAfterChange: action(`${prefix}-slider-changed`),
     }),
   },
 };
 
 export const withInputBox = (args) => {
   const { disabled, labelText, max, min, name, step, value, onChange } =
-    args?.['bx-slider'] || {};
+    args?.[`${prefix}-slider`] || {};
   return html`
     <cds-slider
       ?disabled="${disabled}"
@@ -61,7 +62,7 @@ export const withInputBox = (args) => {
       name="${ifDefined(name)}"
       step="${ifDefined(step)}"
       value="${ifDefined(value)}"
-      @bx-slider-changed="${onChange}">
+      @cds-slider-changed="${onChange}">
       <cds-slider-input
         aria-label="Slider value"
         type="number"></cds-slider-input>

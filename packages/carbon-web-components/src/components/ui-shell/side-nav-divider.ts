@@ -15,7 +15,7 @@ import styles from './side-nav.scss';
 /**
  * A divider in side nav.
  *
- * @element bx-side-nav-divider
+ * @element cds-side-nav-divider
  */
 @customElement(`${prefix}-side-nav-divider`)
 class BXSideNavDivider extends LitElement {

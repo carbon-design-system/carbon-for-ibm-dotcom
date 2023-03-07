@@ -22,7 +22,7 @@ export { TAG_SIZE, TAG_TYPE };
 /**
  * Filter tag.
  *
- * @element bx-filter-tag
+ * @element cds-filter-tag
  */
 @customElement(`${prefix}-filter-tag`)
 class BXFilterTag extends HostListenerMixin(FocusMixin(LitElement)) {

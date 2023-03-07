@@ -15,7 +15,7 @@ import styles from './list.scss';
 /**
  * List item.
  *
- * @element bx-list-item
+ * @element cds-list-item
  * @slot nested - The nested child list.
  */
 @customElement(`${prefix}-list-item`)
@@ -38,7 +38,7 @@ class BXListItem extends LitElement {
 
   /**
    * `true` if this list item is a child of a nested list.
-   * `<bx-ordered-list>` or `<bx-unordered-list>` automatically sets this property.
+   * `<cds-ordered-list>` or `<cds-unordered-list>` automatically sets this property.
    */
   @property({ type: Boolean, reflect: true })
   nested = false;

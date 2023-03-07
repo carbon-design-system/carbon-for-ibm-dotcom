@@ -8,18 +8,20 @@
  */
 
 import { html } from 'lit';
+import { ifDefined } from 'lit/directives/if-defined.js';
 import { boolean } from '@storybook/addon-knobs';
 import textNullable from '../../../.storybook/knob-text-nullable';
-import { ifDefined } from 'lit/directives/if-defined.js';
 import './progress-indicator';
 import './progress-step';
 import './progress-indicator-skeleton';
 import './progress-step-skeleton';
 import storyDocs from './progress-indicator-story.mdx';
+import { prefix } from '../../globals/settings';
 
 export const Default = (args) => {
-  const { vertical } = args?.['bx-progress-indicator'] ?? {};
-  const { iconLabel, secondaryLabelText } = args?.['bx-progress-step'] ?? {};
+  const { vertical } = args?.[`${prefix}-progress-indicator`] ?? {};
+  const { iconLabel, secondaryLabelText } =
+    args?.[`${prefix}-progress-step`] ?? {};
   return html`
     <cds-progress-indicator ?vertical="${vertical}">
       <cds-progress-step
@@ -53,10 +55,10 @@ Default.storyName = 'Default';
 
 Default.parameters = {
   knobs: {
-    'bx-progress-indicator': () => ({
+    [`${prefix}-progress-indicator`]: () => ({
       vertical: boolean('Vertical (vertical)', false),
     }),
-    'bx-progress-step': () => ({
+    [`${prefix}-progress-step`]: () => ({
       iconLabel: textNullable('Icon label (icon-label)', ''),
       secondaryLabelText: textNullable(
         'Secondary label text (secondary-label-text)',
@@ -67,7 +69,7 @@ Default.parameters = {
 };
 
 export const skeleton = (args) => {
-  const { vertical } = args?.['bx-progress-indicator-skeleton'];
+  const { vertical } = args?.[`${prefix}-progress-indicator-skeleton`];
   return html`
     <cds-progress-indicator-skeleton ?vertical="${vertical}">
       <cds-progress-step-skeleton></cds-progress-step-skeleton>
@@ -82,7 +84,7 @@ skeleton.parameters = {
     skip: true,
   },
   knobs: {
-    'bx-progress-indicator-skeleton': () => ({
+    [`${prefix}-progress-indicator-skeleton`]: () => ({
       vertical: boolean('Vertical (vertical)', false),
     }),
   },

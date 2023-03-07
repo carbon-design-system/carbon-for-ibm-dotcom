@@ -73,7 +73,7 @@ $css--plex: true !default;
 :host(#{$prefix}-breadcrumb-link) {
   outline: none;
 
-  // Re-define the ruleset so this wins over `.bx--link:visited`, etc.
+  // Re-define the ruleset so this wins over `.#{$prefix}--link:visited`, etc.
   .#{$prefix}--link--disabled {
     color: $text-disabled;
   }

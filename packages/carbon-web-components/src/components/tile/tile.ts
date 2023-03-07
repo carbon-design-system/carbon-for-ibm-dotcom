@@ -18,7 +18,7 @@ export { TILE_COLOR_SCHEME };
 /**
  * Basic tile.
  *
- * @element bx-tile
+ * @element cds-tile
  */
 @customElement(`${prefix}-tile`)
 class BXTile extends LitElement {

@@ -17,7 +17,7 @@ import styles from './header.scss';
 /**
  * Header nav item.
  *
- * @element bx-header-nav-item
+ * @element cds-header-nav-item
  * @csspart link The link.
  * @csspart title The title.
  */

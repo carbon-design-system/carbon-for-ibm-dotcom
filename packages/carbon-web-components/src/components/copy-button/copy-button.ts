@@ -17,7 +17,7 @@ import FocusMixin from '../../globals/mixins/focus';
 import styles from './copy-button.scss';
 
 /**
- * Note: For `<bx-code-snippet>` only. The API is subject to change/removal.
+ * Note: For `<cds-code-snippet>` only. The API is subject to change/removal.
  *
  * @param update The callback function that dictates how to update the DOM with new feedback tooltip state.
  * @returns A function that shows the feedback tooltip for the given duration.
@@ -40,7 +40,7 @@ export const _createHandleFeedbackTooltip = (
 };
 
 /**
- * Note: For `<bx-code-snippet>` only. The API is subject to change/removal.
+ * Note: For `<cds-code-snippet>` only. The API is subject to change/removal.
  *
  * @param properties The properties to render.
  * @returns The template result for copy button from the given properties.
@@ -85,7 +85,7 @@ export const _renderButton = ({
 /**
  * Copy button.
  *
- * @element bx-copy-button
+ * @element cds-copy-button
  */
 @customElement(`${prefix}-copy-button`)
 class BXCopyButton extends FocusMixin(LitElement) {

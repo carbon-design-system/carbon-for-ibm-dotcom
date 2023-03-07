@@ -18,7 +18,7 @@ import styles from './side-nav.scss';
 /**
  * Side nav menu.
  *
- * @element bx-side-nav-menu
+ * @element cds-side-nav-menu
  * @slot title-icon - The icon.
  * @csspart expando The expando.
  * @csspart expando-icon-container The expando icon container.

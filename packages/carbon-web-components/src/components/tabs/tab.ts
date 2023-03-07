@@ -17,13 +17,13 @@ import styles from './tabs.scss';
 /**
  * Basic tab.
  *
- * @element bx-tab
+ * @element cds-tab
  */
 @customElement(`${prefix}-tab`)
 class BXTab extends BXContentSwitcherItem {
   /**
    * `true` if this tab should be highlighted.
-   * If `true`, parent `<bx-tabs>` selects/deselects this tab upon keyboard interaction.
+   * If `true`, parent `<cds-tabs>` selects/deselects this tab upon keyboard interaction.
    *
    * @private
    */

@@ -15,7 +15,7 @@ import styles from './data-table.scss';
 /**
  * Table toolbar content.
  *
- * @element bx-table-toolbar-content
+ * @element cds-table-toolbar-content
  */
 @customElement(`${prefix}-table-toolbar-content`)
 class BXTableToolbarContent extends LitElement {

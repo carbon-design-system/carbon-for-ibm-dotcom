@@ -15,7 +15,7 @@ import styles from './data-table.scss';
 /**
  * Data table header.
  *
- * @element bx-table-head
+ * @element cds-table-head
  */
 @customElement(`${prefix}-table-head`)
 class BXTableHead extends LitElement {

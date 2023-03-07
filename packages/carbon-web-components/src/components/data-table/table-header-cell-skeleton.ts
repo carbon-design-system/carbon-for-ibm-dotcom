@@ -14,7 +14,7 @@ import BXTableCell from './table-cell';
 /**
  * Data table header cell with skeleton content.
  *
- * @element bx-table-header-cell-skeleton
+ * @element cds-table-header-cell-skeleton
  */
 @customElement(`${prefix}-table-header-cell-skeleton`)
 class BXTableHeaderCellSkeleton extends BXTableCell {}

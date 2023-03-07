@@ -15,7 +15,7 @@ import styles from './data-table.scss';
 /**
  * Table row of collapsible details.
  *
- * @element bx-table-expanded-row
+ * @element cds-table-expanded-row
  */
 @customElement(`${prefix}-table-expanded-row`)
 class BXTableExpandedRow extends LitElement {

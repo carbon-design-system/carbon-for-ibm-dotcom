@@ -17,8 +17,8 @@ import styles from './pagination.scss';
 /**
  * The select box for the current page.
  *
- * @element bx-pages-select
- * @fires bx-pages-select-changed - The custom event fired after the page is changed.
+ * @element cds-pages-select
+ * @fires cds-pages-select-changed - The custom event fired after the page is changed.
  */
 @customElement(`${prefix}-pages-select`)
 class BXPagesSelect extends FocusMixin(LitElement) {

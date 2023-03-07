@@ -19,7 +19,7 @@ export { TABLE_COLOR_SCHEME, TABLE_SIZE };
 /**
  * Data table.
  *
- * @element bx-table
+ * @element cds-table
  */
 @customElement(`${prefix}-table`)
 class BXTable extends LitElement {

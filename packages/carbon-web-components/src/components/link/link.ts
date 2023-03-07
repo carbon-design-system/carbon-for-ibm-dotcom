@@ -38,7 +38,7 @@ export enum LINK_SIZE {
 /**
  * Link.
  *
- * @element bx-link
+ * @element cds-link
  * @csspart link The link.
  */
 @customElement(`${prefix}-link`)

@@ -31,6 +31,7 @@ import './header-menu-button';
 import './header-name';
 import styles from './ui-shell-story.scss';
 import storyDocs from './ui-shell-story.mdx';
+import { prefix } from '../../globals/settings';
 
 const collapseModes = {
   Responsive: null,
@@ -50,15 +51,15 @@ const updateRailExpanded = ({
   usageMode = SIDE_NAV_USAGE_MODE.REGULAR,
 }) => {
   document.body.classList.toggle(
-    'bx-ce-demo-devenv--with-rail',
+    `${prefix}-ce-demo-devenv--with-rail`,
     collapseMode === SIDE_NAV_COLLAPSE_MODE.RAIL
   );
   document.body.classList.toggle(
-    'bx-ce-demo-devenv--rail-expanded',
+    `${prefix}-ce-demo-devenv--rail-expanded`,
     collapseMode === SIDE_NAV_COLLAPSE_MODE.RAIL && expanded
   );
   document.body.classList.toggle(
-    'bx-ce-demo-devenv--with-side-nav-for-header',
+    `${prefix}-ce-demo-devenv--with-side-nav-for-header`,
     usageMode === SIDE_NAV_USAGE_MODE.HEADER_NAV
   );
 };
@@ -67,10 +68,10 @@ const StoryContent = () => html`
   <style type="text/css">
     ${contentStyles.cssText}
   </style>
-  <main class="bx--content bx-ce-demo-devenv--ui-shell-content">
-    <div class="bx--grid">
-      <div class="bx--row">
-        <div class="bx--offset-lg-3 bx--col-lg-13">
+  <main class="${prefix}--content ${prefix}-ce-demo-devenv--ui-shell-content">
+    <div class="${prefix}--grid">
+      <div class="${prefix}--row">
+        <div class="${prefix}--offset-lg-3 ${prefix}--col-lg-13">
           <h2>Purpose and function</h2>
           <p>
             The shell is perhaps the most crucial piece of any UI built with
@@ -121,8 +122,8 @@ const StoryContent = () => html`
 `;
 
 export const sideNav = (args) => {
-  const { collapseMode, expanded } = args?.['bx-side-nav'] ?? {};
-  const { href } = args?.['bx-side-nav-menu-item'] ?? {};
+  const { collapseMode, expanded } = args?.[`${prefix}-side-nav`] ?? {};
+  const { href } = args?.[`${prefix}-side-nav-menu-item`] ?? {};
   updateRailExpanded({ collapseMode, expanded });
   const result = html`
     <style>
@@ -184,7 +185,7 @@ sideNav.storyName = 'Side nav';
 
 sideNav.parameters = {
   knobs: {
-    'bx-side-nav': () => ({
+    [`${prefix}-side-nav`]: () => ({
       expanded: boolean('Expanded (expanded)', true),
       collapseMode: select(
         'Collapse mode (collapse-mode)',
@@ -192,15 +193,15 @@ sideNav.parameters = {
         null
       ),
     }),
-    'bx-side-nav-menu-item': () => ({
+    [`${prefix}-side-nav-menu-item`]: () => ({
       href: textNullable('Link href (href)', 'javascript:void 0'), // eslint-disable-line no-script-url
     }),
   },
 };
 
 export const sideNavWithIcons = (args) => {
-  const { collapseMode, expanded } = args?.['bx-side-nav'] ?? {};
-  const { href } = args?.['bx-side-nav-menu-item'] ?? {};
+  const { collapseMode, expanded } = args?.[`${prefix}-side-nav`] ?? {};
+  const { href } = args?.[`${prefix}-side-nav-menu-item`] ?? {};
   updateRailExpanded({ collapseMode, expanded });
   const result = html`
     <style>
@@ -272,8 +273,9 @@ sideNavWithIcons.parameters = {
 };
 
 export const header = (args) => {
-  const { collapseMode, expanded, usageMode } = args?.['bx-side-nav'] ?? {};
-  const { href } = args?.['bx-side-nav-menu-item'] ?? {};
+  const { collapseMode, expanded, usageMode } =
+    args?.[`${prefix}-side-nav`] ?? {};
+  const { href } = args?.[`${prefix}-side-nav-menu-item`] ?? {};
   updateRailExpanded({ collapseMode, expanded, usageMode });
   const handleButtonToggle = (event) => {
     updateRailExpanded({
@@ -290,7 +292,7 @@ export const header = (args) => {
       <cds-header-menu-button
         button-label-active="Close menu"
         button-label-inactive="Open menu"
-        @bx-header-menu-button-toggled="${handleButtonToggle}"></cds-header-menu-button>
+        @cds-header-menu-button-toggled="${handleButtonToggle}"></cds-header-menu-button>
       <cds-header-name href="javascript:void 0" prefix="IBM"
         >[Platform]</cds-header-name
       >
@@ -379,11 +381,12 @@ export const header = (args) => {
 
 header.parameters = {
   knobs: {
-    'bx-side-nav': () => ({
-      ...sideNav.parameters.knobs['bx-side-nav'](),
+    [`${prefix}-side-nav`]: () => ({
+      ...sideNav.parameters.knobs[`${prefix}-side-nav`](),
       usageMode: select('Usage mode (usage-mode)', usageModes, null),
     }),
-    'bx-side-nav-menu-item': sideNav.parameters.knobs['bx-side-nav-menu-item'],
+    [`${prefix}-side-nav-menu-item`]:
+      sideNav.parameters.knobs[`${prefix}-side-nav-menu-item`],
   },
 };
 

@@ -18,6 +18,7 @@ import './tabs-skeleton';
 import './tab-skeleton';
 import styles from './tabs-story.scss';
 import storyDocs from './tabs-story.mdx';
+import { prefix } from '../../globals/settings';
 
 const noop = () => {};
 
@@ -40,7 +41,7 @@ export const Default = (args) => {
     disableSelection,
     onBeforeSelect = noop,
     onSelect = noop,
-  } = args?.['bx-tabs'] || {};
+  } = args?.[`${prefix}-tabs`] || {};
   const handleBeforeSelected = (event: CustomEvent) => {
     onBeforeSelect(event);
     if (disableSelection) {
@@ -56,8 +57,8 @@ export const Default = (args) => {
       trigger-content="${ifDefined(triggerContent)}"
       type="${ifDefined(type)}"
       value="${ifDefined(value)}"
-      @bx-tabs-beingselected="${handleBeforeSelected}"
-      @bx-tabs-selected="${onSelect}">
+      @cds-tabs-beingselected="${handleBeforeSelected}"
+      @cds-tabs-selected="${onSelect}">
       <cds-tab id="tab-all" target="panel-all" value="all">Option 1</cds-tab>
       <cds-tab
         id="tab-cloudFoundry"
@@ -74,7 +75,7 @@ export const Default = (args) => {
         >Option 5</cds-tab
       >
     </cds-tabs>
-    <div class="bx-ce-demo-devenv--tab-panels">
+    <div class="${prefix}-ce-demo-devenv--tab-panels">
       <div id="panel-all" role="tabpanel" aria-labelledby="tab-all" hidden>
         <h1>Content for option 1</h1>
         <p>
@@ -140,7 +141,7 @@ Default.storyName = 'Default';
 
 Default.parameters = {
   knobs: {
-    'bx-tabs': () => ({
+    [`${prefix}-tabs`]: () => ({
       colorScheme: select('Color scheme (color-scheme)', colorSchemes, null),
       triggerContent: textNullable(
         'The default content of the trigger button for narrow screen (trigger-content)',
@@ -149,11 +150,11 @@ Default.parameters = {
       type: select('Tabs type (type)', types, null),
       value: textNullable('The value of the selected item (value)', 'staging'),
       disableSelection: boolean(
-        'Disable user-initiated selection change (Call event.preventDefault() in bx-content-switcher-beingselected event)',
+        `Disable user-initiated selection change (Call event.preventDefault() in ${prefix}-content-switcher-beingselected event)`,
         false
       ),
-      onBeforeSelect: action('bx-tabs-beingselected'),
-      onSelect: action('bx-tabs-selected'),
+      onBeforeSelect: action(`${prefix}-tabs-beingselected`),
+      onSelect: action(`${prefix}-tabs-selected`),
     }),
   },
 };

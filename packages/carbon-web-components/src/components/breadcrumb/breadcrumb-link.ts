@@ -15,7 +15,7 @@ import styles from './breadcrumb.scss';
 /**
  * Link in breadcrumb.
  *
- * @element bx-breadcrumb-link
+ * @element cds-breadcrumb-link
  */
 @customElement(`${prefix}-breadcrumb-link`)
 class BXBreadcrumbLink extends BXLink {

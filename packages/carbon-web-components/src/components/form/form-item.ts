@@ -15,7 +15,7 @@ import styles from './form-item.scss';
 /**
  * Presentational element for form items
  *
- * @element bx-form-item
+ * @element cds-form-item
  */
 @customElement(`${prefix}-form-item`)
 class BXFormItem extends LitElement {

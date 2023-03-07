@@ -15,7 +15,7 @@ import styles from './combo-box.scss';
 /**
  * Combo box item.
  *
- * @element bx-combo-box-item
+ * @element cds-combo-box-item
  */
 @customElement(`${prefix}-combo-box-item`)
 class BXComboBoxItem extends BXDropdownItem {

@@ -20,7 +20,7 @@ import styles from './data-table.scss';
 /**
  * The expando row in table row.
  *
- * @element bx-table-expand-row
+ * @element cds-table-expand-row
  */
 @customElement(`${prefix}-table-expand-row`)
 class BXTableExpandRow extends HostListenerMixin(BXTableRow) {

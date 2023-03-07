@@ -29,8 +29,8 @@ const dropEffects = {
 /**
  * File drop container.
  *
- * @element bx-file-drop-container
- * @fires bx-file-drop-container-changed The custom event fired when there is a user gesture to select files to upload.
+ * @element cds-file-drop-container
+ * @fires cds-file-drop-container-changed The custom event fired when there is a user gesture to select files to upload.
  */
 @customElement(`${prefix}-file-drop-container`)
 class BXFileDropContainer extends HostListenerMixin(LitElement) {

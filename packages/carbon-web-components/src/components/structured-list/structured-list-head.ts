@@ -15,7 +15,7 @@ import styles from './structured-list.scss';
 /**
  * Structured list header.
  *
- * @element bx-structured-list-head
+ * @element cds-structured-list-head
  */
 @customElement(`${prefix}-structured-list-head`)
 class BXStructuredListHeader extends LitElement {

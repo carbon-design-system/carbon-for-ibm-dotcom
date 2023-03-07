@@ -16,6 +16,7 @@ import './number-input-skeleton';
 import '../form/form-item';
 import createProps from './stories/helpers';
 import storyDocs from './number-input-story.mdx';
+import { prefix } from '../../globals/settings';
 
 export const Default = (args) => {
   const {
@@ -31,7 +32,7 @@ export const Default = (args) => {
     step,
     onInput,
     name,
-  } = args?.['bx-number-input'] ?? {};
+  } = args?.[`${prefix}-number-input`] ?? {};
   return html`
     <cds-number-input
       color-scheme="${ifDefined(colorScheme)}"
@@ -53,7 +54,7 @@ Default.storyName = 'Default';
 
 Default.parameters = {
   knobs: {
-    'bx-number-input': () => createProps({ ...knobs, textNullable }),
+    [`${prefix}-number-input`]: () => createProps({ ...knobs, textNullable }),
   },
 };
 
@@ -70,7 +71,7 @@ export const formItem = (args) => {
     size,
     step,
     onInput,
-  } = args?.['bx-number-input'] ?? {};
+  } = args?.[`${prefix}-number-input`] ?? {};
   return html`
     <cds-form-item>
       <cds-number-input
@@ -103,7 +104,7 @@ formItem.storyName = 'Form item';
 
 formItem.parameters = {
   knobs: {
-    'bx-number-input': () => createProps({ ...knobs, textNullable }),
+    [`${prefix}-number-input`]: () => createProps({ ...knobs, textNullable }),
   },
 };
 
@@ -120,7 +121,7 @@ export const withoutFormItemWrapper = (args) => {
     size,
     step,
     onInput,
-  } = args?.['bx-number-input'] ?? {};
+  } = args?.[`${prefix}-number-input`] ?? {};
   return html`
     <cds-number-input
       value="${ifDefined(value)}"
@@ -145,7 +146,7 @@ withoutFormItemWrapper.storyName = 'Without form item wrapper';
 
 withoutFormItemWrapper.parameters = {
   knobs: {
-    'bx-number-input': () => createProps({ ...knobs, textNullable }),
+    [`${prefix}-number-input`]: () => createProps({ ...knobs, textNullable }),
   },
 };
 

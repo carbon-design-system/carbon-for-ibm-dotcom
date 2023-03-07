@@ -15,6 +15,7 @@ import { ifDefined } from 'lit/directives/if-defined.js';
 import { TAG_SIZE, TAG_TYPE } from './tag';
 import './filter-tag';
 import storyDocs from './tag-story.mdx';
+import { prefix } from '../../globals/settings';
 
 const noop = () => {};
 
@@ -24,7 +25,7 @@ const sizes = {
 };
 
 export const Default = (args) => {
-  const { size, type, title, disabled } = args?.['bx-tag'] ?? {};
+  const { size, type, title, disabled } = args?.[`${prefix}-tag`] ?? {};
   return html`
     <cds-tag
       size="${ifDefined(size)}"
@@ -40,7 +41,7 @@ Default.storyName = 'Default';
 
 Default.parameters = {
   knobs: {
-    'bx-tag': () => ({
+    [`${prefix}-tag`]: () => ({
       disabled: boolean('Disabled (disabled)', false),
       title: textNullable('Title (title)', 'Clear Selection'),
       size: select('Tag size (size)', sizes, null),
@@ -70,7 +71,7 @@ export const filter = (args) => {
     onClick,
     onBeforeClose = noop,
     onClose = noop,
-  } = args?.['bx-filter-tag'] ?? {};
+  } = args?.[`${prefix}-filter-tag`] ?? {};
   const handleBeforeClose = (event: CustomEvent) => {
     onBeforeClose(event);
     if (disableClose) {
@@ -85,8 +86,8 @@ export const filter = (args) => {
       title="${ifDefined(title)}"
       ?disabled="${disabled}"
       @click="${onClick}"
-      @bx-filter-tag-beingclosed="${handleBeforeClose}"
-      @bx-filter-tag-closed="${onClose}">
+      @cds-filter-tag-beingclosed="${handleBeforeClose}"
+      @cds-filter-tag-closed="${onClose}">
       This is a tag
     </cds-filter-tag>
   `;
@@ -94,16 +95,16 @@ export const filter = (args) => {
 
 filter.parameters = {
   knobs: {
-    'bx-filter-tag': () => ({
-      ...Default.parameters.knobs['bx-tag'](),
+    [`${prefix}-filter-tag`]: () => ({
+      ...Default.parameters.knobs[`${prefix}-tag`](),
       open: boolean('Open (open)', true),
       disableClose: boolean(
-        'Disable user-initiated close action (Call event.preventDefault() in bx-filter-tag-beingclosed event)',
+        `Disable user-initiated close action (Call event.preventDefault() in ${prefix}-filter-tag-beingclosed event)`,
         false
       ),
       onClick: action('click'),
-      onBeforeClose: action('bx-filter-tag-beingclosed'),
-      onClose: action('bx-filter-tag-closed'),
+      onBeforeClose: action(`${prefix}-filter-tag-beingclosed`),
+      onClose: action(`${prefix}-filter-tag-closed`),
     }),
   },
 };

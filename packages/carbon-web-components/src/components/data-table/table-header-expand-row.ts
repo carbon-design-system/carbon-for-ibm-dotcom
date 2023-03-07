@@ -14,7 +14,7 @@ import BXTableExpandRow from './table-expand-row';
 /**
  * Data table header row.
  *
- * @element bx-table-header-expand-row
+ * @element cds-table-header-expand-row
  */
 @customElement(`${prefix}-table-header-expand-row`)
 class BXTableHeaderExpandRow extends BXTableExpandRow {

@@ -17,7 +17,7 @@ import styles from './data-table.scss';
 /**
  * Data table body.
  *
- * @element bx-table-body
+ * @element cds-table-body
  */
 @customElement(`${prefix}-table-body`)
 class BXTableBody extends LitElement {
@@ -28,7 +28,7 @@ class BXTableBody extends LitElement {
   private _slotNode!: HTMLSlotElement;
 
   /**
-   * Updates `even`/`odd` properties of the child `<bx-table-row>`s.
+   * Updates `even`/`odd` properties of the child `<cds-table-row>`s.
    */
   private _updateZebra() {
     const { colorScheme, _slotNode: slotNode } = this;

@@ -17,7 +17,7 @@ import styles from './side-nav.scss';
 /**
  * Side nav menu item.
  *
- * @element bx-side-nav-link
+ * @element cds-side-nav-link
  * @slot link - The link.
  * @slot title - The title.
  * @slot title-icon-container - The title icon container.

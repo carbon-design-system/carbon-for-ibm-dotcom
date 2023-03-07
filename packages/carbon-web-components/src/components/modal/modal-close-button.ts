@@ -18,7 +18,7 @@ import styles from './modal.scss';
 /**
  * Modal close button.
  *
- * @element bx-modal-close-button
+ * @element cds-modal-close-button
  * @csspart button The button.
  * @csspart close-icon The close icon.
  */

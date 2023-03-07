@@ -52,8 +52,8 @@ export const Default = (args) => {
       label-text="${ifDefined(labelText)}"
       ?multiple="${multiple}"
       size="${ifDefined(size)}"
-      @bx-file-uploader-item-beingdeleted="${handleBeforeDelete}"
-      @bx-file-uploader-item-deleted="${onDelete}">
+      @cds-file-uploader-item-beingdeleted="${handleBeforeDelete}"
+      @cds-file-uploader-item-deleted="${onDelete}">
     </cds-ce-demo-file-uploader>
   `;
 };
@@ -86,11 +86,11 @@ export default {
       [`${prefix}-file-uploader-item`]: () => ({
         size: select('Filename height (size)', sizes, null),
         disableDelete: boolean(
-          'Disable user-initiated delete action (Call event.preventDefault() in bx-file-uploader-item-beingdeleted event)',
+          `Disable user-initiated delete action (Call event.preventDefault() in ${prefix}-file-uploader-item-beingdeleted event)`,
           false
         ),
-        onBeforeDelete: action('bx-file-uploader-item-beingdeleted'),
-        onDelete: action('bx-file-uploader-item-deleted'),
+        onBeforeDelete: action(`${prefix}-file-uploader-item-beingdeleted`),
+        onDelete: action(`${prefix}-file-uploader-item-deleted`),
       }),
     },
   },

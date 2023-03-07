@@ -11,6 +11,7 @@ import debounce from 'lodash-es/debounce';
 import { LitElement, html } from 'lit';
 import { property } from 'lit/decorators.js';
 import { repeat } from 'lit/directives/repeat.js';
+import { ifDefined } from 'lit/directives/if-defined.js';
 import { action } from '@storybook/addon-actions';
 import { boolean, select } from '@storybook/addon-knobs';
 // Below path will be there when an application installs `@carbon/web-components` package.
@@ -21,8 +22,8 @@ import Delete16 from '@carbon/web-components/es/icons/delete/16';
 import Download16 from '@carbon/web-components/es/icons/download/16';
 // @ts-ignore
 import Settings16 from '@carbon/web-components/es/icons/settings/16';
+import { prefix } from '../../globals/settings';
 import BXBtn from '../button/button';
-import { ifDefined } from 'lit/directives/if-defined.js';
 import '../overflow-menu/overflow-menu';
 import '../overflow-menu/overflow-menu-body';
 import '../overflow-menu/overflow-menu-item';
@@ -212,7 +213,7 @@ class BXCEDemoDataTable extends LitElement {
   }
 
   /**
-   * Handles `bx-pagination-changed-current` event on the pagination UI.
+   * Handles `cds-pagination-changed-current` event on the pagination UI.
    *
    * @param event The event.
    */
@@ -221,7 +222,7 @@ class BXCEDemoDataTable extends LitElement {
   }
 
   /**
-   * Handles `bx-pages-select-changed` event on the pagination UI.
+   * Handles `cds-pages-select-changed` event on the pagination UI.
    *
    * @param event The event.
    */
@@ -273,8 +274,8 @@ class BXCEDemoDataTable extends LitElement {
         page-size="${pageSize}"
         start="${start}"
         total="${filteredRows!.length}"
-        @bx-pagination-changed-current="${handleChangeStart}"
-        @bx-page-sizes-select-changed="${handleChangePageSize}">
+        @cds-pagination-changed-current="${handleChangeStart}"
+        @cds-page-sizes-select-changed="${handleChangePageSize}">
         <cds-page-sizes-select slot="page-sizes-select">
           <option value="5">5</option>
           <option value="10">10</option>
@@ -406,7 +407,9 @@ class BXCEDemoDataTable extends LitElement {
     } = this;
     const selectionAllName = !hasSelection
       ? undefined
-      : `__bx-ce-demo-data-table_select-all_${elementId || this._uniqueId}`;
+      : `__${prefix}-ce-demo-data-table_select-all_${
+          elementId || this._uniqueId
+        }`;
     const selectedRowsCountInFiltered = filteredRows!.filter(
       ({ selected }) => selected!
     ).length;
@@ -432,7 +435,7 @@ class BXCEDemoDataTable extends LitElement {
         <cds-table-batch-actions
           ?active="${hasBatchActions}"
           selected-rows-count="${selectedRowsCountInFiltered}"
-          @bx-table-batch-actions-cancel-clicked="${handleCancelSelection}">
+          @cds-table-batch-actions-cancel-clicked="${handleCancelSelection}">
           <cds-btn icon-layout="condensed" @click="${handleDeleteRows}"
             >Delete ${Delete16({ slot: 'icon' })}</cds-btn
           >
@@ -446,7 +449,7 @@ class BXCEDemoDataTable extends LitElement {
         </cds-table-batch-actions>
         <cds-table-toolbar-content ?has-batch-actions="${hasBatchActions}">
           <cds-table-toolbar-search
-            @bx-search-input="${this
+            @cds-search-input="${this
               ._handleChangeSearchString}"></cds-table-toolbar-search>
           <cds-overflow-menu>
             ${Settings16({ slot: 'icon' })}
@@ -461,9 +464,9 @@ class BXCEDemoDataTable extends LitElement {
       </cds-table-toolbar>
       <cds-table
         size="${size}"
-        @bx-table-row-change-selection=${this._handleChangeSelection}
-        @bx-table-change-selection-all=${this._handleChangeSelectionAll}
-        @bx-table-header-cell-sort=${this._handleChangeSort}>
+        @cds-table-row-change-selection=${this._handleChangeSelection}
+        @cds-table-change-selection-all=${this._handleChangeSelectionAll}
+        @cds-table-header-cell-sort=${this._handleChangeSort}>
         <cds-table-head>
           <cds-table-header-row
             ?selected=${selectedAllInFiltered}
@@ -498,7 +501,7 @@ class BXCEDemoDataTable extends LitElement {
               const { id: rowId, selected } = row;
               const selectionName = !hasSelection
                 ? undefined
-                : `__bx-ce-demo-data-table_${
+                : `__${prefix}-ce-demo-data-table_${
                     elementId || this._uniqueId
                   }_${rowId}`;
               const selectionValue = !hasSelection ? undefined : 'selected';
@@ -553,14 +556,14 @@ const defineDemoDataTable = (() => {
       hasDemoDataTableDefined = true;
       const ce = customElements;
       // Prevents `web-component-analyzer` from harvesting `<cds-ce-demo-data-table>`
-      ce.define('bx-ce-demo-data-table', BXCEDemoDataTable);
+      ce.define(`${prefix}-ce-demo-data-table`, BXCEDemoDataTable);
     }
   };
 })();
 
 export const Default = (args) => {
-  const { size } = args?.['bx-table'] ?? {};
-  const { colorScheme } = args?.['bx-table-body'] ?? {};
+  const { size } = args?.[`${prefix}-table`] ?? {};
+  const { colorScheme } = args?.[`${prefix}-table-body`] ?? {};
   return html`
     <cds-table size="${ifDefined(size)}">
       <cds-table-head>
@@ -607,10 +610,10 @@ Default.storyName = 'Default';
 
 Default.parameters = {
   knobs: {
-    'bx-table': () => ({
+    [`${prefix}-table`]: () => ({
       size: select('Table size (size)', sizes, null),
     }),
-    'bx-table-body': () => ({
+    [`${prefix}-table-body`]: () => ({
       colorScheme: select(
         'Color scheme (color-scheme in `<cds-table-body>`)',
         colorSchemes,
@@ -621,19 +624,21 @@ Default.parameters = {
 };
 
 export const expandable = (args) => {
-  const { size } = args?.['bx-table'] ?? {};
-  const { zebra } = args?.['bx-table-body'] ?? {};
+  const { size } = args?.[`${prefix}-table`] ?? {};
+  const { zebra } = args?.[`${prefix}-table-body`] ?? {};
   const handleExpandRowAll = (event) => {
     const { currentTarget, detail } = event;
-    const rows = currentTarget.querySelectorAll('bx-table-expand-row');
+    const rows = currentTarget.querySelectorAll(`${prefix}-table-expand-row`);
     Array.prototype.forEach.call(rows, (row) => {
       row.expanded = detail.expanded;
     });
   };
   const handleExpandRow = (event) => {
     const { currentTarget } = event;
-    const headerRow = currentTarget.querySelector('bx-table-header-expand-row');
-    const rows = currentTarget.querySelectorAll('bx-table-expand-row');
+    const headerRow = currentTarget.querySelector(
+      `${prefix}-table-header-expand-row`
+    );
+    const rows = currentTarget.querySelectorAll(`${prefix}-table-expand-row`);
     headerRow.expanded = Array.prototype.every.call(
       rows,
       (row) => row.expanded
@@ -642,8 +647,8 @@ export const expandable = (args) => {
   return html`
     <cds-table
       size="${ifDefined(size)}"
-      @bx-table-row-expando-toggled-all="${handleExpandRowAll}"
-      @bx-table-row-expando-toggled="${handleExpandRow}">
+      @cds-table-row-expando-toggled-all="${handleExpandRowAll}"
+      @cds-table-row-expando-toggled="${handleExpandRow}">
       <cds-table-head>
         <cds-table-header-expand-row>
           <cds-table-header-cell>Name</cds-table-header-cell>
@@ -699,22 +704,22 @@ export const expandable = (args) => {
 expandable.parameters = {
   knobs: {
     ...Default.parameters.knobs,
-    'bx-table-body': () => ({}),
+    [`${prefix}-table-body`]: () => ({}),
   },
 };
 
 export const sortable = (args) => {
-  const { size } = args?.['bx-table'] ?? {};
+  const { size } = args?.[`${prefix}-table`] ?? {};
   const { onBeforeChangeSelection: onBeforeChangeSelectionAll } =
-    args?.['bx-table-header-row'] ?? {};
-  const { colorScheme } = args?.['bx-table-body'] ?? {};
+    args?.[`${prefix}-table-header-row`] ?? {};
+  const { colorScheme } = args?.[`${prefix}-table-body`] ?? {};
   const { hasSelection, disableChangeSelection, onBeforeChangeSelection } =
-    args?.['bx-table-row'] ?? {};
+    args?.[`${prefix}-table-row`] ?? {};
   const { disableChangeSort, onBeforeSort } =
-    args?.['bx-table-header-cell'] ?? {};
+    args?.[`${prefix}-table-header-cell`] ?? {};
   const beforeChangeSelectionHandler = {
     handleEvent(event: CustomEvent) {
-      if (event.type === 'bx-table-change-selection-all') {
+      if (event.type === `${prefix}-table-change-selection-all`) {
         onBeforeChangeSelectionAll(event);
       } else {
         onBeforeChangeSelection(event);
@@ -747,9 +752,9 @@ export const sortable = (args) => {
       .sortInfo=${demoSortInfo}
       ?has-selection=${hasSelection}
       size="${ifDefined(size)}"
-      @bx-table-row-change-selection=${beforeChangeSelectionHandler}
-      @bx-table-change-selection-all=${beforeChangeSelectionHandler}
-      @bx-table-header-cell-sort=${beforeChangeSortHandler}>
+      @cds-table-row-change-selection=${beforeChangeSelectionHandler}
+      @cds-table-change-selection-all=${beforeChangeSelectionHandler}
+      @cds-table-header-cell-sort=${beforeChangeSortHandler}>
     </cds-ce-demo-data-table>
   `;
 };
@@ -757,10 +762,10 @@ export const sortable = (args) => {
 sortable.parameters = {
   knobs: {
     ...Default.parameters.knobs,
-    'bx-table-header-row': () => ({
-      onBeforeChangeSelection: action('bx-table-change-selection-all'),
+    [`${prefix}-table-header-row`]: () => ({
+      onBeforeChangeSelection: action(`${prefix}-table-change-selection-all`),
     }),
-    'bx-table-row': () => {
+    [`${prefix}-table-row`]: () => {
       const hasSelection = boolean(
         'Supports selection feature (has-selection)',
         false
@@ -770,35 +775,34 @@ sortable.parameters = {
         disableChangeSelection:
           hasSelection &&
           boolean(
-            'Disable user-initiated change in selection ' +
-              '(Call event.preventDefault() in bx-table-row-change-selection/bx-table-change-selection-all events)',
+            `Disable user-initiated change in selection '(Call event.preventDefault() in ${prefix}-table-row-change-selection/${prefix}-table-change-selection-all events)`,
             false
           ),
-        onBeforeChangeSelection: action('bx-table-row-change-selection'),
+        onBeforeChangeSelection: action(`${prefix}-table-row-change-selection`),
       };
     },
-    'bx-table-header-cell': () => ({
+    [`${prefix}-table-header-cell`]: () => ({
       disableChangeSort: boolean(
-        'Disable user-initiated change in sorting (Call event.preventDefault() in bx-table-header-cell-sort event)',
+        `Disable user-initiated change in sorting (Call event.preventDefault() in ${prefix}-table-header-cell-sort event)`,
         false
       ),
-      onBeforeSort: action('bx-table-header-cell-sort'),
+      onBeforeSort: action(`${prefix}-table-header-cell-sort`),
     }),
   },
 };
 
 export const sortableWithPagination = (args) => {
-  const { size } = args?.['bx-table'] ?? {};
+  const { size } = args?.[`${prefix}-table`] ?? {};
   const { onBeforeChangeSelection: onBeforeChangeSelectionAll } =
-    args?.['bx-table-header-row'] ?? {};
-  const { colorScheme } = args?.['bx-table-body'] ?? {};
+    args?.[`${prefix}-table-header-row`] ?? {};
+  const { colorScheme } = args?.[`${prefix}-table-body`] ?? {};
   const { hasSelection, disableChangeSelection, onBeforeChangeSelection } =
-    args?.['bx-table-row'] ?? {};
+    args?.[`${prefix}-table-row`] ?? {};
   const { disableChangeSort, onBeforeSort } =
-    args?.['bx-table-header-cell'] ?? {};
+    args?.[`${prefix}-table-header-cell`] ?? {};
   const beforeChangeSelectionHandler = {
     handleEvent(event: CustomEvent) {
-      if (event.type === 'bx-table-change-selection-all') {
+      if (event.type === `${prefix}-table-change-selection-all`) {
         onBeforeChangeSelectionAll(event);
       } else {
         onBeforeChangeSelection(event);
@@ -833,9 +837,9 @@ export const sortableWithPagination = (args) => {
       page-size="5"
       size="${ifDefined(size)}"
       start="0"
-      @bx-table-row-change-selection=${beforeChangeSelectionHandler}
-      @bx-table-change-selection-all=${beforeChangeSelectionHandler}
-      @bx-table-header-cell-sort=${beforeChangeSortHandler}>
+      @cds-table-row-change-selection=${beforeChangeSelectionHandler}
+      @cds-table-change-selection-all=${beforeChangeSelectionHandler}
+      @cds-table-header-cell-sort=${beforeChangeSortHandler}>
     </cds-ce-demo-data-table>
   `;
 };
@@ -847,8 +851,8 @@ sortableWithPagination.parameters = {
 };
 
 export const skeleton = (args) => {
-  const { size } = args?.['bx-table'];
-  const { colorScheme } = args?.['bx-table-body'];
+  const { size } = args?.[`${prefix}-table`];
+  const { colorScheme } = args?.[`${prefix}-table-body`];
   return html`
     <cds-table size="${size}">
       <cds-table-head>

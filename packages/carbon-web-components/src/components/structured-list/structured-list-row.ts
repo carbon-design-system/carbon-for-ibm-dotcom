@@ -78,7 +78,7 @@ class StructuredListRowRadioButtonDelegate
 /**
  * Structured list row.
  *
- * @element bx-structured-list-row
+ * @element cds-structured-list-row
  */
 @customElement(`${prefix}-structured-list-row`)
 class BXStructuredListRow extends HostListenerMixin(LitElement) {
@@ -209,7 +209,7 @@ class BXStructuredListRow extends HostListenerMixin(LitElement) {
     const { selected, selectionName, selectionValue, selectionIconTitle } =
       this;
     if (selectionName) {
-      // "Selected" style with `.bx--structured-list-td` does not work somehow - Need investigation
+      // "Selected" style with `.${prefix}--structured-list-td` does not work somehow - Need investigation
       return html`
         <slot></slot>
         <input

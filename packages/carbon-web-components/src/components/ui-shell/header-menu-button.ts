@@ -21,10 +21,10 @@ import styles from './header.scss';
 /**
  * The trigger button for side nav in header nav.
  *
- * @element bx-header-menu-button
+ * @element cds-header-menu-button
  * @csspart button The button.
  * @csspart toggle-icon The toggle icon.
- * @fires bx-header-menu-button-toggled - The custom event fired after this header menu button is toggled upon a user gesture.
+ * @fires cds-header-menu-button-toggled - The custom event fired after this header menu button is toggled upon a user gesture.
  */
 @customElement(`${prefix}-header-menu-button`)
 class BXHeaderMenuButton extends FocusMixin(LitElement) {

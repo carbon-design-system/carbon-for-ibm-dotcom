@@ -17,7 +17,7 @@ import styles from './header.scss';
 /**
  * The product name UI in header nav.
  *
- * @element bx-header-name
+ * @element cds-header-name
  * @csspart link The link.
  * @csspart prefix The prefix content.
  */

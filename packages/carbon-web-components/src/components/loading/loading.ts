@@ -18,7 +18,7 @@ import styles from './loading.scss';
 /**
  * Spinner indicating loading state.
  *
- * @element bx-loading
+ * @element cds-loading
  */
 @customElement(`${prefix}-loading`)
 class BXLoading extends LitElement {

@@ -34,13 +34,13 @@ const iconsForKinds = {
 /**
  * Inline notification.
  *
- * @element bx-inline-notification
+ * @element cds-inline-notification
  * @slot subtitle - The subtitle.
  * @slot title - The title.
- * @fires bx-notification-beingclosed
+ * @fires cds-notification-beingclosed
  *   The custom event fired before this notification is being closed upon a user gesture.
  *   Cancellation of this event stops the user-initiated action of closing this notification.
- * @fires bx-notification-closed - The custom event fired after this notification is closed upon a user gesture.
+ * @fires cds-notification-closed - The custom event fired after this notification is closed upon a user gesture.
  */
 @customElement(`${prefix}-inline-notification`)
 class BXInlineNotification extends FocusMixin(LitElement) {

@@ -12,6 +12,7 @@ import { select } from '@storybook/addon-knobs';
 import { ifDefined } from 'lit/directives/if-defined.js';
 import { INLINE_LOADING_STATE } from './inline-loading';
 import storyDocs from './inline-loading-story.mdx';
+import { prefix } from '../../globals/settings';
 
 const states = {
   [`Inactive (${INLINE_LOADING_STATE.INACTIVE})`]:
@@ -23,7 +24,7 @@ const states = {
 };
 
 export const Default = (args) => {
-  const { status } = args?.['bx-inline-loading'] ?? {};
+  const { status } = args?.[`${prefix}-inline-loading`] ?? {};
   return html`
     <cds-inline-loading status="${ifDefined(status)}"
       >Loading data...</cds-inline-loading
@@ -41,7 +42,7 @@ export default {
       skip: true,
     },
     knobs: {
-      'bx-inline-loading': () => ({
+      [`${prefix}-inline-loading`]: () => ({
         status: select(
           'Loading status (status)',
           states,

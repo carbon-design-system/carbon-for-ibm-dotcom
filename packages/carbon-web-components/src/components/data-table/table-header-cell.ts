@@ -25,8 +25,8 @@ export { TABLE_SORT_CYCLE, TABLE_SORT_CYCLES, TABLE_SORT_DIRECTION };
 /**
  * Data table header cell.
  *
- * @element bx-table-header-cell
- * @fires bx-table-header-cell-sort
+ * @element cds-table-header-cell
+ * @fires cds-table-header-cell-sort
  *   The custom event fired before a new sort direction is set upon a user gesture.
  *   Cancellation of this event stops the user-initiated change in sort direction.
  */

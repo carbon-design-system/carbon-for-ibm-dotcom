@@ -15,7 +15,7 @@ import styles from './data-table.scss';
 /**
  * Data table cell.
  *
- * @element bx-table-cell
+ * @element cds-table-cell
  */
 @customElement(`${prefix}-table-cell`)
 class BXTableCell extends LitElement {

@@ -14,10 +14,11 @@ import textNullable from '../../../.storybook/knob-text-nullable';
 import { ifDefined } from 'lit/directives/if-defined.js';
 import './copy-button';
 import storyDocs from './copy-button-story.mdx';
+import { prefix } from '../../globals/settings';
 
 export const Default = (args) => {
   const { buttonAssistiveText, feedbackText, feedbackTimeout, onClick } =
-    args?.['bx-copy-button'] ?? {};
+    args?.[`${prefix}-copy-button`] ?? {};
   return html`
     <cds-copy-button
       button-assistive-text="${ifDefined(buttonAssistiveText)}"
@@ -34,7 +35,7 @@ export default {
   parameters: {
     ...storyDocs.parameters,
     knobs: {
-      'bx-copy-button': () => ({
+      [`${prefix}-copy-button`]: () => ({
         buttonAssistiveText: textNullable(
           'Assistive text for the button (button-assistive-text)',
           ''

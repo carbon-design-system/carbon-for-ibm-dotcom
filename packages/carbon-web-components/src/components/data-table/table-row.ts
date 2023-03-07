@@ -16,10 +16,10 @@ import styles from './data-table.scss';
 /**
  * Data table row.
  *
- * @element bx-table-row
+ * @element cds-table-row
  * @csspart selection-container The container of the checkbox.
  * @csspart selection The checkbox.
- * @fires bx-table-row-change-selection
+ * @fires cds-table-row-change-selection
  *   The custom event fired before this row is selected/unselected upon a user gesture.
  *   Cancellation of this event stops the user-initiated change in selection.
  */
@@ -95,8 +95,8 @@ class BXTableRow extends FocusMixin(LitElement) {
   disabled = false;
 
   /**
-   * `true` if this table row is placed at an even position in parent `<bx-table-body>`.
-   * `<bx-table-body>` sets this property, _only_ in zebra stripe mode.
+   * `true` if this table row is placed at an even position in parent `<cds-table-body>`.
+   * `<cds-table-body>` sets this property, _only_ in zebra stripe mode.
    *
    * @private
    */
@@ -104,8 +104,8 @@ class BXTableRow extends FocusMixin(LitElement) {
   even = false;
 
   /**
-   * `true` if this table row is placed at an odd position in parent `<bx-table-body>`.
-   * `<bx-table-body>` sets this property, _only_ in zebra stripe mode.
+   * `true` if this table row is placed at an odd position in parent `<cds-table-body>`.
+   * `<cds-table-body>` sets this property, _only_ in zebra stripe mode.
    *
    * @private
    */

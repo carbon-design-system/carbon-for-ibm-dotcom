@@ -18,7 +18,7 @@ import styles from './side-nav.scss';
 /**
  * Side nav menu item.
  *
- * @element bx-side-nav-menu-item
+ * @element cds-side-nav-menu-item
  * @csspart link The link.
  * @csspart title The title.
  */

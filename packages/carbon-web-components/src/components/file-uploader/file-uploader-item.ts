@@ -22,13 +22,13 @@ export { FILE_UPLOADER_ITEM_SIZE, FILE_UPLOADER_ITEM_STATE };
 /**
  * File uploader item.
  *
- * @element bx-file-uploader-item
+ * @element cds-file-uploader-item
  * @slot validity-message The validity message.
  * @slot validity-message-supplement The supplemental validity message.
- * @fires bx-file-uploader-item-beingdeleted
+ * @fires cds-file-uploader-item-beingdeleted
  *   The custom event fired before this file uploader item is being deleted upon a user gesture.
  *   Cancellation of this event stops the user-initiated action of deleting this file uploader item.
- * @fires bx-file-uploader-item-deleted - The custom event fired after this file uploader item is deleted upon a user gesture.
+ * @fires cds-file-uploader-item-deleted - The custom event fired after this file uploader item is deleted upon a user gesture.
  */
 @customElement(`${prefix}-file-uploader-item`)
 class BXFileUploaderItem extends LitElement {
@@ -77,9 +77,9 @@ class BXFileUploaderItem extends LitElement {
   private _renderUploading() {
     const { uploadingAssistiveText } = this;
     return html`
-      <bx-loading
+      <cds-loading
         assistive-text="${uploadingAssistiveText}"
-        type="${LOADING_TYPE.SMALL}"></bx-loading>
+        type="${LOADING_TYPE.SMALL}"></cds-loading>
     `;
   }
 

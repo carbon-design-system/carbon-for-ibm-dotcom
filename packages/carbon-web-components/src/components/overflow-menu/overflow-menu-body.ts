@@ -38,7 +38,7 @@ const capIndex = (index: number, length: number) => {
 /**
  * Overflow menu body.
  *
- * @element bx-overflow-menu-body
+ * @element cds-overflow-menu-body
  */
 @customElement(`${prefix}-overflow-menu-body`)
 class BXOverflowMenuBody extends BXFloatingMenu {

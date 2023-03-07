@@ -71,7 +71,7 @@ body,
   }
 }
 
-.bx-ce-demo-devenv--container {
+.#{$prefix}-ce-demo-devenv--container {
   padding: 3em;
   display: flex;
   flex-direction: column;
@@ -79,7 +79,7 @@ body,
   position: relative;
 }
 
-.bx--content.bx-ce-demo-devenv--ui-shell-content {
+.#{$prefix}--content.#{$prefix}-ce-demo-devenv--ui-shell-content {
   background-color: $layer-01;
   margin: 0;
   height: 100vh;

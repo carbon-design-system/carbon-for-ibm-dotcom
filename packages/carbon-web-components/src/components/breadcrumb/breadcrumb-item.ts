@@ -15,7 +15,7 @@ import styles from './breadcrumb.scss';
 /**
  * Breadcrumb item.
  *
- * @element bx-breadcrumb-item
+ * @element cds-breadcrumb-item
  */
 @customElement(`${prefix}-breadcrumb-item`)
 class BXBreadcrumbItem extends LitElement {

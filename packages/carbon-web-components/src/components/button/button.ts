@@ -23,7 +23,7 @@ export { BUTTON_KIND, BUTTON_SIZE, BUTTON_ICON_LAYOUT };
 /**
  * Button.
  *
- * @element bx-btn
+ * @element cds-btn
  * @csspart button The button.
  */
 @customElement(`${prefix}-btn`)
