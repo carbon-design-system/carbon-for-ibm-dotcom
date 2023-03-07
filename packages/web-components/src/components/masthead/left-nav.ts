@@ -105,7 +105,6 @@ class DDSLeftNav extends StableSelectorMixin(BXSideNav) {
       // wrap focus to last tabbable element focusing out of first tabbable element
       // eslint-disable-next-line no-bitwise
       else if (comparisonResult & PRECEDING) {
-        console.log('HERE?');
         const tabbable = findLast(
           expandedMenuSection?.querySelectorAll(selectorTabbableForLeftnav),
           (elem) => Boolean((elem as HTMLElement).offsetParent)
