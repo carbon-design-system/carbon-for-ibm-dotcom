@@ -43,16 +43,17 @@ we support!
 | [`@carbon/ibmdotcom-services`](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/blob/main/packages/services)             | IBM.com ES6 Service classes                              |
 | [`@carbon/ibmdotcom-styles`](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/blob/main/packages/styles)                 | Framework agnostic styles package for IBM.com components |
 | [`@carbon/ibmdotcom-utilities`](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/blob/main/packages/utilities)           | IBM.com ES6 Utility classes                              |
+| [`@carbon/web-components`](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/blob/main/packages/carbon-web-components)    | Carbon Web Components                                    |
 
 If you are building pages for IBM.com,
 [see what is needed on the page](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/blob/main/docs/building-for-ibm-dotcom.md).
 
 ## Storybook demos
 
-- `@carbon/ibmdotcom-react`:
-  https://carbon-design-system.github.io/carbon-for-ibm-dotcom/canary/react
+- `@carbon/ibmdotcom-react`: https://www.ibm.com/standards/carbon/react
 - `@carbon/ibmdotcom-web-components`:
-  https://carbon-design-system.github.io/carbon-for-ibm-dotcom/canary/web-components
+  https://www.ibm.com/standards/carbon/web-components
+- `@carbon/web-components`: https://web-components.carbondesignsystem.com
 
 ## Documentation
 
@@ -69,8 +70,8 @@ check out our guides:
 
 - [Contributing Guide](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/blob/main/.github/CONTRIBUTING.md)
 - [Developer Guide](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/blob/main/docs/developing.md)
-- [Contributing to the Web Components package](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/blob/main/packages/web-components/docs/contributing-to-web-components.md)
-- [Contributing to the React package](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/blob/main/packages/react/docs/contributing-to-react.md)
+- [Contributing to the Web Components package](https://www.ibm.com/standards/carbon/web-components/?path=/story/overview-contributing-to-the-web-components-package--page)
+- [Contributing to the React package](https://www.ibm.com/standards/carbon/react/?path=/story/overview-contributing-to-the-react-package--page)
 
 ## 📝 License
 
