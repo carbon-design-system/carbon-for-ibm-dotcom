@@ -50,10 +50,10 @@ class BXTooltip
   private _handleClick = async (
     forceState: undefined | boolean = undefined
   ) => {
-    if (forceState === undefined) {
-      this.open = !this.open;
+    if (forceState === false) {
+      this.open = false;
     } else {
-      this.open = Boolean(forceState);
+      this.open = !this.open;
     }
     const { open, updateComplete } = this;
     if (open) {
@@ -82,8 +82,10 @@ class BXTooltip
    */
   @HostListener('focusout')
   // @ts-ignore: The decorator refers to this method but TS thinks this method is not referred to
-  private _handleFocusout = async () => {
-    this._handleClick(false);
+  private _handleFocusout = async (event) => {
+    if (event.relatedTarget !== this._menuBody) {
+      this._handleClick(false);
+    }
   };
 
   /**
