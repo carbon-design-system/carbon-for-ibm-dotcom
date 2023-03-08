@@ -10,3 +10,10 @@
 **/carbon-stories/**
 **/carbon-tools/**
 packages/web-components/scss/**/*.scss
+
+# Ignore until linting packages upgraded to latest Carbon
+packages/carbon-web-components/**/*.scss
+packages/styles/scss/components/masthead/_masthead-megamenu.scss
+packages/styles/scss/components/masthead/_masthead-search.scss
+packages/styles/scss/components/search-with-typeahead/_search-with-typeahead.scss
+packages/styles/scss/components/tabs-extended/_tabs-extended.scss

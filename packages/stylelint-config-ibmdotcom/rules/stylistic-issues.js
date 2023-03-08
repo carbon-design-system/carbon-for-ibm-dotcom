@@ -1,5 +1,5 @@
 /**
- * Copyright IBM Corp. 2018, 2018
+ * Copyright IBM Corp. 2018, 2023
  *
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
@@ -194,7 +194,7 @@ module.exports = {
     'selector-pseudo-class-case': 'lower',
     // Require a single space or disallow whitespace on the inside of the
     // parentheses within pseudo-class selectors.
-    'selector-pseudo-class-parentheses-space-inside': 'never',
+    'selector-pseudo-class-parentheses-space-inside': false,
     // Specify lowercase or uppercase for pseudo-element selectors.
     'selector-pseudo-element-case': 'lower',
     // Specify single or double colon notation for applicable pseudo-elements.

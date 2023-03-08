@@ -85,7 +85,7 @@
     "@babel/preset-react": "~7.12.1",
     "@carbon/icons-react": "10.49.0",
     "@carbon/pictograms-react": "11.38.0",
-    "@carbon/storybook-addon-theme": "1.33.0",
+    "@carbon/storybook-addon-theme": "workspace:1.35.0",
     "@percy-io/in-percy": "^0.1.11",
     "@percy/cli": "^1.8.1",
     "@percy/cypress": "^3.1.1",
@@ -183,6 +183,8 @@
     "temp": "^0.9.0",
     "terser-webpack-plugin": "^4.2.3",
     "through2": "^3.0.0",
+    "webpack": "^4.46.0",
+    "webpack-dev-server": "^4.0.0",
     "whatwg-fetch": "^2.0.3"
   },
   "resolutions": {
