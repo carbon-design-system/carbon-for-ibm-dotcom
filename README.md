@@ -29,7 +29,7 @@
 ## Getting started
 
 If you're just getting started, check out
-[`react`](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/blob/main/packages/react).
+[`react`](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/blob/main/packages/react)
 or
 [`web components`](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/blob/main/packages/web-components)!
 
