@@ -104,9 +104,9 @@ function getRollupConfig({
   const inputs = {};
 
   // retaining old dotcom-shell for legacy support
-  // inputs[
-  //   `ibmdotcom-web-components-dotcom-shell${dirSuffixes[dir]}${modeSuffixes[mode]}`
-  // ] = 'src/components/dotcom-shell/index.ts';
+  inputs[
+    `ibmdotcom-web-components-dotcom-shell${dirSuffixes[dir]}${modeSuffixes[mode]}`
+  ] = 'src/components/dotcom-shell/index.ts';
 
   // adding the cloud masthead
   inputs[`cloud-masthead${dirSuffixes[dir]}${modeSuffixes[mode]}`] =
@@ -217,13 +217,6 @@ function getRollupConfig({
       babel.babel({
         babelHelpers: 'inline',
         include: [/internal\/vendor\/@carbon\/web-components\/components\//i],
-        // include: [/carbon-web-components\/es\/components\//i],
-        // include: [
-        //   path.resolve(
-        //     __dirname,
-        //     '../src/internal/vendor/@carbon/web-components/components'
-        //   ),
-        // ],
         plugins: [
           path.resolve(__dirname, 'babel-plugin-undef-custom-elements'),
         ],
