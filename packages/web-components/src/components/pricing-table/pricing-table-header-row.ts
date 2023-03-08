@@ -1,7 +1,7 @@
 /**
  * @license
  *
- * Copyright IBM Corp. 2022
+ * Copyright IBM Corp. 2022, 2023
  *
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
@@ -16,7 +16,6 @@ import DDSPricingTableHeaderCell from './pricing-table-header-cell';
 import styles from './pricing-table.scss';
 import { setColumnWidth } from './utils';
 import { PRICING_TABLE_HEADER_CELL_TYPES } from './defs';
-import DDSPricingTable from './pricing-table';
 
 const { stablePrefix: ddsPrefix } = ddsSettings;
 
@@ -28,42 +27,6 @@ class DDSPricingTableHeaderRow extends StableSelectorMixin(
    * Array full of tag wrapper elements within header cells.
    */
   private _tagWrappers: any[] = [];
-
-  /**
-   * Observer that watches for viewport resizes.
-   */
-  // TODO: Wait for `.d.ts` update to support `ResizeObserver`
-  // @ts-ignore
-  private _resizeObserver: ResizeObserver | null = null;
-
-  /**
-   * Takes actions whenever the viewport is resized.
-   */
-  private _createResizeObserver() {
-    // TODO: Wait for `.d.ts` update to support `ResizeObserver`
-    // @ts-ignore
-    this._resizeObserver = new ResizeObserver(() => {
-      if (
-        !(this.closest(`${ddsPrefix}-pricing-table`) as DDSPricingTable)
-          ?.isSticky
-      ) {
-        this._setSameHeight();
-      }
-    });
-    this._resizeObserver.observe(this.ownerDocument!.documentElement);
-  }
-
-  /**
-   * Safely disconnects and removes the resize observer.
-   */
-  private _cleanResizeObserver() {
-    // TODO: Wait for `.d.ts` update to support `ResizeObserver`
-    // @ts-ignore
-    if (this._resizeObserver instanceof ResizeObserver) {
-      this._resizeObserver.disconnect();
-    }
-    this._resizeObserver = null;
-  }
 
   private _setSameHeight() {
     window.requestAnimationFrame(() => {
@@ -109,11 +72,9 @@ class DDSPricingTableHeaderRow extends StableSelectorMixin(
 
   connectedCallback() {
     super.connectedCallback();
-    this._createResizeObserver();
   }
 
   disconnectedCallback() {
-    this._cleanResizeObserver();
     super.disconnectedCallback();
   }
 
