@@ -77,41 +77,41 @@ class DDSMastheadL1 extends StableSelectorMixin(LitElement) {
    * @returns {_TemplateResult} L1 for mobile screensizes.
    */
   protected _renderL1MobileNav() {
-    const { l1Data, overviewText } = this;
+    const { l1Data } = this;
     const { url, title, actions, menuItems } = l1Data ?? {};
     const { cta, login } = actions ?? {};
 
-    const { _toggleMobileSubsection: toggleMobileSubsection } = this
-      .constructor as typeof DDSMastheadL1;
+    setTimeout(() => {
+      console.clear();
+      console.log(l1Data);
+    }, 250);
 
     return html`
-      <button
-        class="${prefix}--masthead__l1-title"
-        @click=${toggleMobileSubsection}>
+      <button class="${prefix}--masthead__l1-title">
         ${title}${ChevronDown16()}
       </button>
-      <ul class="${prefix}--masthead__l1-dropdown" hidden>
+      <ul class="${prefix}--masthead__l1-dropdown">
         ${url
           ? html`<li>
               <a class="bx--masthead__l1-dropdown-item" href="${url}"
-                >${overviewText}</a
+                >Overview</a
               >
             </li>`
           : ''}
         ${menuItems?.map((menuItem) => this._renderL1MobileSubnav(menuItem))}
-        ${login && login.url && login.title
+        ${login
           ? html`<li>
               <a
-                class="bx--masthead__l1-dropdown-login"
+                class="bx--masthead__l1-dropdown-item bx--masthead__l1-dropdown-login"
                 href="${ifDefined(login.url)}"
                 >${login.title}${ArrowRight16()}</a
               >
             </li>`
           : ''}
-        ${cta && cta.url && cta.title
+        ${cta
           ? html`<li>
               <a
-                class="bx--masthead__l1-dropdown-cta"
+                class="bx--masthead__l1-dropdown-item bx--masthead__l1-dropdown-cta"
                 href="${ifDefined(cta.url)}"
                 >${cta.title}${ArrowRight16()}</a
               >
@@ -222,34 +222,34 @@ class DDSMastheadL1 extends StableSelectorMixin(LitElement) {
         >`
       : html`${heading.title}`;
 
-    const headingClasses = classMap({
+    const headingClasses = {
       [`${prefix}--masthead__l1-dropdown-heading`]: !!isMobileVersion,
-    });
+    };
 
     let renderedHeading = headingContent;
     switch (heading.headingLevel) {
       case 2:
-        renderedHeading = html`<h2 class=${headingClasses}>
+        renderedHeading = html`<h2 class=${classMap(headingClasses)}>
           ${headingContent}
         </h2>`;
         break;
       case 3:
-        renderedHeading = html`<h3 class=${headingClasses}>
+        renderedHeading = html`<h3 class=${classMap(headingClasses)}>
           ${headingContent}
         </h3>`;
         break;
       case 4:
-        renderedHeading = html`<h4 class=${headingClasses}>
+        renderedHeading = html`<h4 class=${classMap(headingClasses)}>
           ${headingContent}
         </h4>`;
         break;
       case 5:
-        renderedHeading = html`<h5 class=${headingClasses}>
+        renderedHeading = html`<h5 class=${classMap(headingClasses)}>
           ${headingContent}
         </h5>`;
         break;
       case 6:
-        renderedHeading = html`<h6 class=${headingClasses}>
+        renderedHeading = html`<h6 class=${classMap(headingClasses)}>
           ${headingContent}
         </h6>`;
         break;
