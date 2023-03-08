@@ -446,6 +446,7 @@ const mastheadL1Data: MastheadL1 = {
             heading: {
               headingLevel: 2,
               title: 'Heading level 2',
+              url: 'https://example.com',
             },
             items: [
               {

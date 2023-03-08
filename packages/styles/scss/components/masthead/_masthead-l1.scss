@@ -1,5 +1,5 @@
 /**
- * Copyright IBM Corp. 2016, 2021
+ * Copyright IBM Corp. 2016, 2023
  *
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
@@ -7,6 +7,7 @@
 
 @import 'carbon-components/scss/globals/scss/vendor/@carbon/elements/scss/themes/themes';
 @import '../../globals/vars';
+@import '../../globals/imports';
 
 /// @access private
 /// @group dotcom ui-shell Masthead L1
@@ -40,126 +41,311 @@ $search-transition-timing: 95ms;
     }
   }
 
-  .#{$prefix}--masthead__l1-inner-container {
-    width: 100%;
-    display: flex;
-
-    &::before {
-      content: '';
-      position: absolute;
-      background-color: $ui-background;
-      height: 48px;
-      left: calc(-50vw + 50%);
-      right: 100%;
-      z-index: 1;
+  // L1 Mobile Styles
+  @media screen and (max-width: 799px) {
+    .#{$prefix}--masthead__l1-inner-container {
+      width: 100%;
     }
 
-    &::after {
-      content: '';
-      position: absolute;
-      background-color: $ui-background;
-      height: 48px;
-      left: 100%;
-      right: calc(-50vw + 50%);
-    }
-  }
+    .#{$prefix}--masthead__l1-title {
+      @include carbon--type-style(productive-heading-01);
 
-  .#{$prefix}--masthead__l1-name,
-  :host(#{$dds-prefix}-masthead-l1-name) {
-    display: flex;
-    height: 100%;
-    z-index: 1;
-    background-color: $ui-02;
-    color: $text-04;
-    padding: 0 0 0 rem(12px);
-    align-items: stretch;
-    white-space: nowrap;
-
-    @include carbon--breakpoint-down(lg) {
-      padding-left: 0;
-    }
-
-    &[aria-selected='true'] span::after {
-      content: '';
-      display: block;
-      position: absolute;
-      box-sizing: border-box;
-      bottom: 0;
-      left: 0;
-      right: 0;
-      height: rem(3px);
-      background-color: $link-01;
-    }
-  }
-
-  .#{$prefix}--masthead__l1-name-title {
-    display: flex;
-    align-items: stretch;
-    min-width: rem(67px);
-    white-space: nowrap;
-    position: relative;
-
-    a {
-      @include type-style('productive-heading-02');
-
-      display: flex;
-      align-items: center;
+      background-color: transparent;
+      border: none;
+      border-bottom: 1px solid $ui-03;
       color: $text-01;
-      position: relative;
-      text-decoration: none;
-      padding: 0 $carbon--spacing-05;
+      display: flex;
+      justify-content: space-between;
+      padding: $carbon--spacing-05;
+      width: 100%;
+      gap: $carbon--spacing-06;
 
-      &:active,
-      &:focus {
-        outline: 2px solid $interactive-01;
-        outline-offset: -2px;
-      }
-    }
-
-    &:hover {
-      background-color: $hover-ui;
-    }
-  }
-
-  .#{$prefix}--masthead__l1-nav {
-    padding-left: 0;
-
-    li:not([role='none']) {
-      > a {
-        align-items: flex-end;
-      }
-    }
-
-    a.#{$prefix}--header__menu-item {
       &:hover {
         background-color: $hover-ui;
       }
 
+      &:active {
+        background-color: $active-ui;
+      }
+
+      &:active,
       &:focus {
-        border-color: $interactive-01;
+        outline: 2px solid $focus;
+        outline-offset: -2px;
+      }
+
+      &:disabled {
+        color: $disabled-02;
+        border-bottom-color: $disabled-02;
       }
 
       svg {
-        position: relative;
-        top: -2px;
-        fill: $text-01;
+        color: $icon-01;
       }
     }
 
-    a.#{$prefix}--header__menu-title[aria-expanded='true'] {
-      background-color: $ui-03;
-      + .#{$prefix}--header__menu {
-        li {
-          background-color: $ui-background;
+    .#{$prefix}--masthead__l1-dropdown {
+      // Height of viewport minus the L0/L1 combo.
+      max-height: calc(100vh - 98px);
+      overflow-y: scroll;
+    }
 
-          &:hover {
-            background-color: $hover-ui;
-          }
+    .#{$prefix}--masthead__l1-dropdown-item {
+      @include carbon--type-style(body-short-01);
 
-          a.#{$prefix}--header__menu-item {
+      background-color: transparent;
+      border: none;
+      border-bottom: 1px solid $ui-03;
+      text-decoration: none;
+      color: $text-01;
+      display: flex;
+      justify-content: space-between;
+      padding: $carbon--spacing-05;
+      width: 100%;
+      min-height: $spacing-07;
+      gap: $carbon--spacing-06;
+
+      &:hover {
+        background-color: $hover-ui;
+      }
+
+      &:active {
+        background-color: $active-ui;
+      }
+
+      &:active,
+      &:focus {
+        outline: 2px solid $focus;
+        outline-offset: -2px;
+      }
+
+      &:disabled {
+        color: $disabled-02;
+        border-bottom-color: $disabled-02;
+      }
+
+      &.is-open {
+        background-color: $selected-ui;
+      }
+
+      svg {
+        color: $icon-01;
+      }
+    }
+
+    .#{$prefix}--masthead__l1-dropdown-announcement {
+      @include carbon--type-style(body-short-01);
+
+      margin: 0 $carbon--spacing-05 $carbon--spacing-05;
+      padding: $carbon--spacing-05 0;
+      border-bottom: 1px solid $ui-03;
+    }
+
+    .#{$prefix}--masthead__l1-dropdown-heading {
+      @include carbon--type-style(productive-heading-01);
+
+      color: $text-01;
+
+      &:not(:has(> .#{$prefix}--masthead__l1-dropdown-item)) {
+        padding: $carbon--spacing-05;
+        padding-inline-end: $carbon--spacing-08;
+        width: 100%;
+        min-height: $spacing-07;
+      }
+
+      .#{$prefix}--masthead__l1-dropdown-item {
+        @include carbon--type-style(productive-heading-01);
+
+        color: $text-01;
+        justify-content: flex-start;
+        padding: $carbon--spacing-05;
+        width: 100%;
+        min-height: $spacing-07;
+        gap: $carbon--spacing-03;
+      }
+
+      &:not(:nth-of-type(1)) {
+        margin-top: $carbon--spacing-07;
+      }
+    }
+
+    .#{$prefix}--masthead__l1-dropdown-viewall {
+      @include carbon--type-style(body-short-01);
+
+      background-color: transparent;
+      text-decoration: none;
+      display: flex;
+      justify-content: flex-start;
+      padding: $carbon--spacing-05;
+      width: 100%;
+      min-height: $spacing-07;
+      gap: $carbon--spacing-03;
+
+      &:hover {
+        background-color: $hover-ui;
+      }
+
+      &:active {
+        background-color: $active-ui;
+      }
+
+      &:active,
+      &:focus {
+        outline: 2px solid $focus;
+        outline-offset: -2px;
+      }
+    }
+
+    .#{$prefix}--masthead__l1-dropdown-subsection {
+      padding-bottom: $carbon--spacing-07;
+
+      .#{$prefix}--masthead__l1-dropdown-item {
+        padding-inline-end: $carbon--spacing-08;
+        border-bottom: none;
+      }
+    }
+
+    .#{$prefix}--masthead__l1-dropdown-login {
+      color: $interactive-01;
+
+      svg {
+        color: inherit;
+      }
+    }
+
+    .#{$prefix}--masthead__l1-dropdown-cta {
+      background-color: $interactive-01;
+      color: $ui-02;
+
+      svg {
+        color: inherit;
+      }
+    }
+  }
+
+  // L1 Desktop Styles
+  @media screen and (min-width: 800px) {
+    .#{$prefix}--masthead__l1-inner-container {
+      width: 100%;
+      display: flex;
+
+      &::before {
+        content: '';
+        position: absolute;
+        background-color: $ui-background;
+        height: 48px;
+        left: calc(-50vw + 50%);
+        right: 100%;
+        z-index: 1;
+      }
+
+      &::after {
+        content: '';
+        position: absolute;
+        background-color: $ui-background;
+        height: 48px;
+        left: 100%;
+        right: calc(-50vw + 50%);
+      }
+    }
+
+    .#{$prefix}--masthead__l1-name,
+    :host(#{$dds-prefix}-masthead-l1-name) {
+      display: flex;
+      height: 100%;
+      z-index: 1;
+      background-color: $ui-02;
+      color: $text-04;
+      padding: 0 0 0 rem(12px);
+      align-items: stretch;
+      white-space: nowrap;
+
+      @include carbon--breakpoint-down(lg) {
+        padding-left: 0;
+      }
+
+      &[aria-selected='true'] span::after {
+        content: '';
+        display: block;
+        position: absolute;
+        box-sizing: border-box;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        height: rem(3px);
+        background-color: $link-01;
+      }
+    }
+
+    .#{$prefix}--masthead__l1-name-title {
+      display: flex;
+      align-items: stretch;
+      min-width: rem(67px);
+      white-space: nowrap;
+      position: relative;
+
+      a {
+        @include type-style('productive-heading-02');
+
+        display: flex;
+        align-items: center;
+        color: $text-01;
+        position: relative;
+        text-decoration: none;
+        padding: 0 $carbon--spacing-05;
+
+        &:active,
+        &:focus {
+          outline: 2px solid $interactive-01;
+          outline-offset: -2px;
+        }
+      }
+
+      &:hover {
+        background-color: $hover-ui;
+      }
+    }
+
+    .#{$prefix}--masthead__l1-nav {
+      padding-left: 0;
+
+      li:not([role='none']) {
+        > a {
+          align-items: flex-end;
+        }
+      }
+
+      a.#{$prefix}--header__menu-item {
+        &:hover {
+          background-color: $hover-ui;
+        }
+
+        &:focus {
+          border-color: $interactive-01;
+        }
+
+        svg {
+          position: relative;
+          top: -2px;
+          fill: $text-01;
+        }
+      }
+
+      a.#{$prefix}--header__menu-title[aria-expanded='true'] {
+        background-color: $ui-03;
+        + .#{$prefix}--header__menu {
+          li {
+            background-color: $ui-background;
+
             &:hover {
-              color: $text-01;
               background-color: $hover-ui;
+            }
+
+            a.#{$prefix}--header__menu-item {
+              &:hover {
+                color: $text-01;
+                background-color: $hover-ui;
+              }
             }
           }
         }

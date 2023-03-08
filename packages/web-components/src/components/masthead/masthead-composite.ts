@@ -16,12 +16,14 @@ import {
 } from 'lit-element';
 import { nothing, render } from 'lit-html';
 import { ifDefined } from 'lit-html/directives/if-defined';
+import { unsafeHTML } from 'lit-html/directives/unsafe-html';
 import ifNonNull from '../../internal/vendor/@carbon/web-components/globals/directives/if-non-null.js';
 import { unsafeSVG } from 'lit-html/directives/unsafe-svg.js';
 import root from 'window-or-global';
 import HostListener from '../../internal/vendor/@carbon/web-components/globals/decorators/host-listener.js';
 import HostListenerMixin from '../../internal/vendor/@carbon/web-components/globals/mixins/host-listener.js';
 import ddsSettings from '../../internal/vendor/@carbon/ibmdotcom-utilities/utilities/settings/settings';
+import settings from 'carbon-components/es/globals/js/settings.js';
 import { globalInit } from '../../internal/vendor/@carbon/ibmdotcom-services/services/global/global';
 import MastheadLogoAPI from '../../internal/vendor/@carbon/ibmdotcom-services/services/MastheadLogo/MastheadLogo';
 import {
@@ -69,6 +71,7 @@ import '../search-with-typeahead/search-with-typeahead-item';
 import styles from './masthead.scss';
 import { MEGAMENU_LAYOUT_SCHEME, MEGAPANEL_VIEW_ALL_POSITION } from './defs';
 
+const { prefix } = settings;
 const { stablePrefix: ddsPrefix } = ddsSettings;
 
 // Magic Number: 799px matches masthead.scss's `$breakpoint--desktop-nav`.
@@ -127,52 +130,11 @@ class DDSMastheadComposite extends HostListenerMixin(LitElement) {
 
     const { _isMobileVersion: isMobileVersion } = this;
     return html`
-      <dds-masthead-l1 slot="masthead-l1">
-        ${isMobileVersion
-          ? html` ${this._renderL1MobileNav()} `
-          : html` ${this._renderL1TopNav()} `}
-      </dds-masthead-l1>
+      <dds-masthead-l1
+        slot="masthead-l1"
+        .l1Data=${this.l1Data}
+        .isMobileVersion=${isMobileVersion}></dds-masthead-l1>
     `;
-  }
-
-  /**
-   * Renders L1 for desktop screensizes
-   *
-   * @returns {TemplateResult} L1 for desktop screensizes
-   */
-  protected _renderL1TopNav() {
-    const { selectedMenuItem, l1Data } = this;
-    const { url, title } = l1Data!;
-    const isSelected = !this._hasAutoSelectedItems && !selectedMenuItem;
-
-    return html`
-      ${!title
-        ? undefined
-        : html`
-            <dds-masthead-l1-name
-              title="${title}"
-              aria-selected="${isSelected}"
-              url="${ifDefined(url)}"></dds-masthead-l1-name>
-          `}
-      <dds-top-nav-l1 selected-menu-item=${selectedMenuItem}>
-        ${this._renderNavItems({
-          target: NAV_ITEMS_RENDER_TARGET.TOP_NAV,
-          hasL1: true,
-        })}
-      </dds-top-nav-l1>
-    `;
-  }
-
-  /**
-   * Renders L1 for mobile screensizes.
-   *
-   * @returns {TemplateResult} L1 for mobile screensizes.
-   */
-  protected _renderL1MobileNav() {
-    const { l1Data } = this;
-    const { url, title } = l1Data!;
-
-    return html` <a href="${ifDefined(url)}">${title}</a> `;
   }
 
   /**
