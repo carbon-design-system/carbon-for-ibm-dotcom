@@ -17,7 +17,6 @@ import root from 'window-or-global';
 import HostListener from '../../internal/vendor/@carbon/web-components/globals/decorators/host-listener.js';
 import HostListenerMixin from '../../internal/vendor/@carbon/web-components/globals/mixins/host-listener.js';
 import ddsSettings from '../../internal/vendor/@carbon/ibmdotcom-utilities/utilities/settings/settings';
-import settings from 'carbon-components/es/globals/js/settings.js';
 import { globalInit } from '../../internal/vendor/@carbon/ibmdotcom-services/services/global/global';
 import MastheadLogoAPI from '../../internal/vendor/@carbon/ibmdotcom-services/services/MastheadLogo/MastheadLogo';
 import {
@@ -71,7 +70,6 @@ import {
   LEGACY_MEGAMENU_RIGHT_NAVIGATION_STYLE_SCHEME,
 } from './defs';
 
-const { prefix } = settings;
 const { stablePrefix: ddsPrefix } = ddsSettings;
 
 // Magic Number: 799px matches masthead.scss's `$breakpoint--desktop-nav`.
