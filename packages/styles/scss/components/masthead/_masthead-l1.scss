@@ -29,16 +29,6 @@ $search-transition-timing: 95ms;
     background-color: $ui-02;
     transition-timing-function: $search-transition;
     overflow: visible;
-
-    &::after {
-      content: '';
-      position: absolute;
-      height: rem(1px);
-      bottom: rem(-1px);
-      left: calc(-50vw + 50%);
-      right: calc(-50vw + 50%);
-      background-color: $ui-03;
-    }
   }
 
   // L1 Mobile Styles
@@ -52,7 +42,7 @@ $search-transition-timing: 95ms;
 
       background-color: transparent;
       border: none;
-      border-bottom: 1px solid $ui-03;
+      border-bottom: 3px solid $focus;
       color: $text-01;
       display: flex;
       justify-content: space-between;
@@ -79,6 +69,12 @@ $search-transition-timing: 95ms;
         border-bottom-color: $disabled-02;
       }
 
+      &.is-open {
+        svg {
+          transform: rotateX(180deg);
+        }
+      }
+
       svg {
         color: $icon-01;
       }
@@ -87,7 +83,7 @@ $search-transition-timing: 95ms;
     .#{$prefix}--masthead__l1-dropdown {
       // Height of viewport minus the L0/L1 combo.
       max-height: calc(100vh - 98px);
-      overflow-y: scroll;
+      overflow-y: auto;
     }
 
     .#{$prefix}--masthead__l1-dropdown-item {
@@ -97,7 +93,7 @@ $search-transition-timing: 95ms;
       border: none;
       border-bottom: 1px solid $ui-03;
       text-decoration: none;
-      color: $text-01;
+      color: $text-02;
       display: flex;
       justify-content: space-between;
       padding: $carbon--spacing-05;
@@ -126,6 +122,10 @@ $search-transition-timing: 95ms;
 
       &.is-open {
         background-color: $selected-ui;
+
+        svg {
+          transform: rotateX(180deg);
+        }
       }
 
       svg {
@@ -147,7 +147,8 @@ $search-transition-timing: 95ms;
       color: $text-01;
 
       &:not(:has(> .#{$prefix}--masthead__l1-dropdown-item)) {
-        padding: $carbon--spacing-05;
+        padding-block: $carbon--spacing-04;
+        padding-inline-start: $carbon--spacing-05;
         padding-inline-end: $carbon--spacing-08;
         width: 100%;
         min-height: $spacing-07;
@@ -158,7 +159,9 @@ $search-transition-timing: 95ms;
 
         color: $text-01;
         justify-content: flex-start;
-        padding: $carbon--spacing-05;
+        padding-block: $carbon--spacing-04;
+        padding-inline-start: $carbon--spacing-05;
+        padding-inline-end: $carbon--spacing-08;
         width: 100%;
         min-height: $spacing-07;
         gap: $carbon--spacing-03;
@@ -200,8 +203,11 @@ $search-transition-timing: 95ms;
       padding-bottom: $carbon--spacing-07;
 
       .#{$prefix}--masthead__l1-dropdown-item {
+        padding-block: $carbon--spacing-04;
+        padding-inline-start: $carbon--spacing-05;
         padding-inline-end: $carbon--spacing-08;
         border-bottom: none;
+        color: $text-01;
       }
     }
 

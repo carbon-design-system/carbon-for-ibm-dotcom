@@ -78,16 +78,21 @@ class DDSMastheadL1 extends StableSelectorMixin(LitElement) {
     const { url, title, actions, menuItems } = l1Data ?? {};
     const { cta, login } = actions ?? {};
 
+    const { _toggleMobileSubsection: toggleMobileSubsection } = this
+      .constructor as typeof DDSMastheadL1;
+
     setTimeout(() => {
       console.clear();
       console.log(l1Data);
     }, 250);
 
     return html`
-      <button class="${prefix}--masthead__l1-title">
+      <button
+        class="${prefix}--masthead__l1-title"
+        @click=${toggleMobileSubsection}>
         ${title}${ChevronDown16()}
       </button>
-      <ul class="${prefix}--masthead__l1-dropdown">
+      <ul class="${prefix}--masthead__l1-dropdown" hidden>
         ${url
           ? html`<li>
               <a class="bx--masthead__l1-dropdown-item" href="${url}"
