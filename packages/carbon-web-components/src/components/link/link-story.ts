@@ -107,10 +107,7 @@ Playground.story = {
     knobs: {
       [`${prefix}-link`]: () => ({
         disabled: boolean('Disabled (disabled)', false),
-        href: textNullable(
-          'Link href (href)',
-          'https://example.com/'
-        ),
+        href: textNullable('Link href (href)', 'https://example.com/'),
         inline: boolean('Inline (inline)', false),
         size: select('Link size (size)', sizes, LINK_SIZE.MEDIUM),
         visited: boolean('Visited (visited)', false),
