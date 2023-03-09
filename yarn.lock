@@ -2860,13 +2860,12 @@ __metadata:
     "@rollup/plugin-node-resolve": ^8.4.0
     "@rollup/plugin-replace": ^4.0.0
     "@rollup/pluginutils": ^4.2.0
+    "@storybook/addon-a11y": ^6.5.15
     "@storybook/addon-actions": ^6.5.15
     "@storybook/addon-docs": ^6.5.15
     "@storybook/addon-essentials": ^6.5.15
     "@storybook/addon-knobs": ^6.4.0
-    "@storybook/addon-links": ^6.5.15
     "@storybook/addon-storysource": ^6.5.15
-    "@storybook/source-loader": ^6.5.15
     "@storybook/web-components": ^6.5.15
     "@types/bluebird": ^3.5.36
     "@types/jasmine": ^3.10.2
