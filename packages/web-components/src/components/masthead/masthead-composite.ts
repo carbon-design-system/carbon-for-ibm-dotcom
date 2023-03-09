@@ -322,7 +322,7 @@ class DDSMastheadComposite extends HostListenerMixin(LitElement) {
           style-scheme="${highlights
             ? MEGAMENU_RIGHT_NAVIGATION_STYLE_SCHEME.HAS_SIDEBAR
             : MEGAMENU_RIGHT_NAVIGATION_STYLE_SCHEME.FULL}">
-          ${heading
+          ${heading && !highlights
             ? html`
                 <dds-megamenu-heading
                   href="${ifNonNull(heading.url)}"
@@ -775,10 +775,13 @@ class DDSMastheadComposite extends HostListenerMixin(LitElement) {
 
         if (level1Items.length !== 0) {
           const isNotFaceted = submenu.sections.length === 1;
+          const hasHighlights = Boolean(submenu?.highlights?.length);
           const megapanelHeading = submenu.sections[0].heading;
 
           const heading =
-            isNotFaceted && !!megapanelHeading ? megapanelHeading : elem.title;
+            isNotFaceted && !hasHighlights && !!megapanelHeading
+              ? megapanelHeading
+              : elem.title;
 
           menu.push(
             this._renderLeftNavMenuSections({
