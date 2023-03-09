@@ -16,14 +16,12 @@ import {
 } from 'lit-element';
 import { nothing, render } from 'lit-html';
 import { ifDefined } from 'lit-html/directives/if-defined';
-import { unsafeHTML } from 'lit-html/directives/unsafe-html';
 import ifNonNull from '../../internal/vendor/@carbon/web-components/globals/directives/if-non-null.js';
 import { unsafeSVG } from 'lit-html/directives/unsafe-svg.js';
 import root from 'window-or-global';
 import HostListener from '../../internal/vendor/@carbon/web-components/globals/decorators/host-listener.js';
 import HostListenerMixin from '../../internal/vendor/@carbon/web-components/globals/mixins/host-listener.js';
 import ddsSettings from '../../internal/vendor/@carbon/ibmdotcom-utilities/utilities/settings/settings';
-import settings from 'carbon-components/es/globals/js/settings.js';
 import { globalInit } from '../../internal/vendor/@carbon/ibmdotcom-services/services/global/global';
 import MastheadLogoAPI from '../../internal/vendor/@carbon/ibmdotcom-services/services/MastheadLogo/MastheadLogo';
 import {
@@ -71,7 +69,6 @@ import '../search-with-typeahead/search-with-typeahead-item';
 import styles from './masthead.scss';
 import { MEGAMENU_LAYOUT_SCHEME, MEGAPANEL_VIEW_ALL_POSITION } from './defs';
 
-const { prefix } = settings;
 const { stablePrefix: ddsPrefix } = ddsSettings;
 
 // Magic Number: 799px matches masthead.scss's `$breakpoint--desktop-nav`.
