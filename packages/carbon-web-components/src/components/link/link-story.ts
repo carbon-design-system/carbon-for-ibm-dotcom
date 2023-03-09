@@ -109,7 +109,7 @@ Playground.story = {
         disabled: boolean('Disabled (disabled)', false),
         href: textNullable(
           'Link href (href)',
-          'https://github.com/carbon-design-system/carbon-for-ibm-dotcom/tree/main/packages/carbon-web-components'
+          'https://example.com/'
         ),
         inline: boolean('Inline (inline)', false),
         size: select('Link size (size)', sizes, LINK_SIZE.MEDIUM),
