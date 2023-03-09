@@ -317,8 +317,6 @@
     width: 100%;
 
     &[style-scheme='has-sidebar'] {
-      height: 100%;
-
       .#{$prefix}--masthead__megamenu__heading,
       .#{$prefix}--masthead__megamenu__categories {
         padding-inline-start: var(
