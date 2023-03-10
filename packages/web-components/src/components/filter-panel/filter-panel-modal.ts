@@ -19,6 +19,8 @@ import './filter-modal-footer';
 import StableSelectorMixin from '../../globals/mixins/stable-selector';
 import styles from './filter-panel.scss';
 import '../../internal/vendor/@carbon/web-components/components/checkbox/checkbox.js';
+import '../../internal/vendor/@carbon/web-components/components/modal/modal-close-button.js';
+import '../../internal/vendor/@carbon/web-components/components/modal/modal-header.js';
 
 const { prefix } = settings;
 const { stablePrefix: ddsPrefix } = ddsSettings;
