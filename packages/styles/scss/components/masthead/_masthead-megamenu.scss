@@ -316,6 +316,10 @@
     display: block;
     width: 100%;
 
+    &.#{$dds-prefix}--masthead__tabpanel-child {
+      height: 100%;
+    }
+
     &[style-scheme='has-sidebar'] {
       .#{$prefix}--masthead__megamenu__heading,
       .#{$prefix}--masthead__megamenu__categories {

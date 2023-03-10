@@ -253,6 +253,7 @@ class DDSMastheadComposite extends HostListenerMixin(LitElement) {
               aria-labelledby="tab-${itemKey}"
               hidden>
               <dds-megamenu-right-navigation
+                class="${ddsPrefix}--masthead__tabpanel-child"
                 style-scheme="${MEGAMENU_RIGHT_NAVIGATION_STYLE_SCHEME.HAS_SIDEBAR}">
                 ${heading?.title
                   ? html`
