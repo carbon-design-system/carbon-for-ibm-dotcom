@@ -1,5 +1,5 @@
 /**
- * Copyright IBM Corp. 2020, 2021
+ * Copyright IBM Corp. 2020, 2023
  *
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
@@ -85,7 +85,7 @@ describe('TranslationAPI', () => {
       href: 'https://www.loremipsum.com',
     };
     // Expected endpoint called
-    const endpoint = `${process.env.TRANSLATION_HOST}/common/carbon-for-ibm-dotcom/translations/masthead-footer`;
+    const endpoint = `${process.env.TRANSLATION_HOST}/common/carbon-for-ibm-dotcom/translations/masthead-footer/v2.1`;
     const fetchUrl = `${endpoint}/usen.json`;
 
     const response = await TranslationAPI.getTranslation({
