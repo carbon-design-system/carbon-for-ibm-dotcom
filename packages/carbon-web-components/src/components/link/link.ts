@@ -20,14 +20,14 @@ import styles from './link.scss';
  */
 export enum LINK_SIZE {
   /**
-   * Regular size
-   */
-  REGULAR = '',
-
-  /**
    * Small size.
    */
   SMALL = 'sm',
+
+  /**
+   * Medium size.
+   */
+  MEDIUM = 'md',
 
   /**
    * Large size.
@@ -69,11 +69,14 @@ class BXLink extends FocusMixin(LitElement) {
    * The CSS class list for the link node.
    */
   protected get _classes() {
-    const { disabled, size } = this;
+    const { disabled, size, inline, visited, _hasIcon } = this;
     return classMap({
       [`${prefix}--link`]: true,
       [`${prefix}--link--disabled`]: disabled,
+      [`${prefix}--link--icon`]: _hasIcon,
+      [`${prefix}--link--inline`]: inline,
       [`${prefix}--link--${size}`]: size,
+      [`${prefix}--link--visited`]: visited,
     });
   }
 
@@ -144,7 +147,7 @@ class BXLink extends FocusMixin(LitElement) {
   }
 
   /**
-   * `true` if the button should be disabled.
+   * `true` if the link should be disabled.
    */
   @property({ type: Boolean, reflect: true })
   disabled = false;
@@ -168,6 +171,12 @@ class BXLink extends FocusMixin(LitElement) {
   hreflang!: string;
 
   /**
+   * `true` if the link should be inline.
+   */
+  @property({ type: Boolean, reflect: true })
+  inline = false;
+
+  /**
    * The a11y role for `<a>`.
    */
   @property({ attribute: 'link-role' })
@@ -189,7 +198,7 @@ class BXLink extends FocusMixin(LitElement) {
    * Link size.
    */
   @property({ reflect: true })
-  size = LINK_SIZE.REGULAR;
+  size = LINK_SIZE.MEDIUM;
 
   /**
    * The link target.
@@ -202,6 +211,12 @@ class BXLink extends FocusMixin(LitElement) {
    */
   @property({ reflect: true })
   type!: string;
+
+  /**
+   * `true` if the link has been visited.
+   */
+  @property({ type: Boolean, reflect: true })
+  visited = false;
 
   render() {
     const { disabled } = this;
