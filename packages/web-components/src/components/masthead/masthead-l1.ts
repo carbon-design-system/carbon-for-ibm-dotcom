@@ -96,7 +96,7 @@ class DDSMastheadL1 extends StableSelectorMixin(LitElement) {
             </li>`
           : ''}
         ${menuItems?.map((menuItem) => this._renderL1MobileSubnav(menuItem))}
-        ${login
+        ${login && login.url && login.title
           ? html`<li>
               <a
                 class="bx--masthead__l1-dropdown-item bx--masthead__l1-dropdown-login"
@@ -105,7 +105,7 @@ class DDSMastheadL1 extends StableSelectorMixin(LitElement) {
               >
             </li>`
           : ''}
-        ${cta
+        ${cta && cta.url && cta.title
           ? html`<li>
               <a
                 class="bx--masthead__l1-dropdown-item bx--masthead__l1-dropdown-cta"
