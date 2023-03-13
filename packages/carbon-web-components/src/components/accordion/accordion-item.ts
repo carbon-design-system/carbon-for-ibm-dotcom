@@ -85,6 +85,19 @@ class BXAccordionItem extends FocusMixin(LitElement) {
         )
       )
     ) {
+      const { selectorAccordionContent } = this
+        .constructor as typeof BXAccordionItem;
+
+      !this.open
+        ? this.setAttribute('expanding', '')
+        : this.setAttribute('collapsing', '');
+      this.shadowRoot!.querySelector(
+        selectorAccordionContent
+      )!.addEventListener('animationend', () => {
+        this.removeAttribute('expanding');
+        this.removeAttribute('collapsing');
+      });
+
       this.open = open;
       this.dispatchEvent(
         new CustomEvent(
@@ -145,8 +158,8 @@ class BXAccordionItem extends FocusMixin(LitElement) {
   /**
    * The title text.
    */
-  @property({ attribute: 'title-text' })
-  titleText = '';
+  @property({ attribute: 'title' })
+  title = '';
 
   connectedCallback() {
     if (!this.hasAttribute('role')) {
@@ -168,7 +181,7 @@ class BXAccordionItem extends FocusMixin(LitElement) {
   render() {
     const {
       disabled,
-      titleText,
+      title,
       open,
       _currentBreakpoint: currentBreakpoint,
       _handleClickExpando: handleClickExpando,
@@ -196,7 +209,7 @@ class BXAccordionItem extends FocusMixin(LitElement) {
           class: `${prefix}--accordion__arrow`,
         })}
         <div part="title" class="${prefix}--accordion__title">
-          <slot name="title">${titleText}</slot>
+          <slot name="title">${title}</slot>
         </div>
       </button>
       <div id="content" part="content" class="${contentClasses}">
@@ -242,6 +255,10 @@ class BXAccordionItem extends FocusMixin(LitElement) {
    */
   static get eventToggle() {
     return `${prefix}-accordion-item-toggled`;
+  }
+
+  static get selectorAccordionContent() {
+    return `.${prefix}--accordion__content`;
   }
 
   static styles = styles;

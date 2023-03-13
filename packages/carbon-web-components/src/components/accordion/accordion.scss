@@ -13,28 +13,24 @@ $css--plex: true !default;
 @use '@carbon/styles/scss/utilities/convert' as *;
 @use '@carbon/styles/scss/components/accordion';
 
-:host(#{$prefix}-accordion) {
+:host(#{$prefix}-accordion),
+:host(#{$prefix}-accordion-skeleton) {
   @extend .#{$prefix}--accordion;
 }
 
-:host(#{$prefix}-accordion-item) {
+:host(#{$prefix}-accordion-item),
+:host(#{$prefix}-accordion-item-skeleton) {
   @extend .#{$prefix}--accordion__item;
 
   display: block;
   outline: none;
-
-  .#{$prefix}--accordion__heading {
-    padding-top: calc(
-      (#{$spacing-08} - #{map-get($body-long-01, 'line-height')}rem) / 2
-    );
-    min-height: $spacing-08;
-  }
-
   .#{$prefix}--accordion__content {
     @extend .#{$prefix}--accordion__content;
 
     ::slotted(p) {
       @include type-style('body-01');
+
+      margin: 0;
     }
   }
 
@@ -55,6 +51,14 @@ $css--plex: true !default;
   }
 }
 
+:host(#{$prefix}-accordion-item[expanding]) {
+  @extend .#{$prefix}--accordion__item--expanding;
+}
+
+:host(#{$prefix}-accordion-item[collapsing]) {
+  @extend .#{$prefix}--accordion__item--collapsing;
+}
+
 :host(#{$prefix}-accordion-item[open]:not([disabled])) {
   @extend .#{$prefix}--accordion__item--active;
 
@@ -68,5 +72,15 @@ $css--plex: true !default;
 
   .#{$prefix}-ce--accordion__content--md {
     padding-right: 25%;
+  }
+}
+
+:host(#{$prefix}-accordion-skeleton),
+:host(#{$prefix}-accordion-item-skeleton) {
+  .#{$prefix}--accordion__heading {
+    cursor: default;
+    &:hover::before {
+      background: transparent;
+    }
   }
 }

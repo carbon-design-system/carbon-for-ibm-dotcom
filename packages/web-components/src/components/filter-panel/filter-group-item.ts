@@ -167,7 +167,7 @@ class DDSFilterGroupItem extends StableSelectorMixin(BXAccordionItem) {
         cancelable: true,
         composed: true,
         detail: {
-          id: this.titleText,
+          id: this.title,
           value: removed,
         },
       })
@@ -179,7 +179,7 @@ class DDSFilterGroupItem extends StableSelectorMixin(BXAccordionItem) {
    * internal value if no cache is found.
    */
   protected _getCachedViewAllValue(): boolean {
-    const { allRevealed, titleText } = this;
+    const { allRevealed, title } = this;
     let result: boolean = allRevealed;
 
     const filterPanel = this.closest('dds-filter-panel');
@@ -192,7 +192,7 @@ class DDSFilterGroupItem extends StableSelectorMixin(BXAccordionItem) {
       }
       if (parentHost instanceof DDSFilterPanelComposite) {
         const match = parentHost._filterGroupsAllRevealed.find((entry) => {
-          return entry.id === titleText;
+          return entry.id === title;
         });
         if (match !== undefined) {
           result = match.value;
