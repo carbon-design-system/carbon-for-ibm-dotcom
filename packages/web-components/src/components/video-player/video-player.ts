@@ -272,10 +272,11 @@ class DDSVideoPlayer extends FocusMixin(
 
   firstUpdated() {
     this.tabIndex = 0;
+    const parentIsBackground = Boolean(
+      (this.parentElement as DDSVideoPlayerContainer)?.backgroundMode
+    );
 
-    this.backgroundMode = (
-      this.parentElement as DDSVideoPlayerContainer
-    ).backgroundMode;
+    this.backgroundMode = parentIsBackground;
   }
 
   /**
