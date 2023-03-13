@@ -201,6 +201,7 @@ $search-transition-timing: 95ms;
 
     .#{$prefix}--masthead__l1-dropdown-subsection {
       padding-bottom: $carbon--spacing-07;
+      border-bottom: 1px solid $ui-03;
 
       .#{$prefix}--masthead__l1-dropdown-item {
         padding-block: $carbon--spacing-04;
