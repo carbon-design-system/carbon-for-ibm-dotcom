@@ -222,34 +222,34 @@ class DDSMastheadL1 extends StableSelectorMixin(LitElement) {
         >`
       : html`${heading.title}`;
 
-    const headingClasses = {
+    const headingClasses = classMap({
       [`${prefix}--masthead__l1-dropdown-heading`]: !!isMobileVersion,
-    };
+    });
 
     let renderedHeading = headingContent;
     switch (heading.headingLevel) {
       case 2:
-        renderedHeading = html`<h2 class=${classMap(headingClasses)}>
+        renderedHeading = html`<h2 class=${headingClasses}>
           ${headingContent}
         </h2>`;
         break;
       case 3:
-        renderedHeading = html`<h3 class=${classMap(headingClasses)}>
+        renderedHeading = html`<h3 class=${headingClasses}>
           ${headingContent}
         </h3>`;
         break;
       case 4:
-        renderedHeading = html`<h4 class=${classMap(headingClasses)}>
+        renderedHeading = html`<h4 class=${headingClasses}>
           ${headingContent}
         </h4>`;
         break;
       case 5:
-        renderedHeading = html`<h5 class=${classMap(headingClasses)}>
+        renderedHeading = html`<h5 class=${headingClasses}>
           ${headingContent}
         </h5>`;
         break;
       case 6:
-        renderedHeading = html`<h6 class=${classMap(headingClasses)}>
+        renderedHeading = html`<h6 class=${headingClasses}>
           ${headingContent}
         </h6>`;
         break;
