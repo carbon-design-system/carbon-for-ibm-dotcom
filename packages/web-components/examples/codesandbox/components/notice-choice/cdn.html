@@ -1,0 +1,37 @@
+<!--
+@license
+
+Copyright IBM Corp. 2020
+
+This source code is licensed under the Apache-2.0 license found in the
+LICENSE file in the root directory of this source tree.
+-->
+
+<html>
+
+<head>
+  <title>@carbon/ibmdotcom-web-components example</title>
+  <meta charset="UTF-8" />
+  <link rel="stylesheet" href="https://1.www.s81c.com/common/carbon-for-ibm-dotcom/tag/v1/latest/plex.css" />
+  <script type="module"
+    src="https://1.www.s81c.com/common/carbon-for-ibm-dotcom/tag/v1/latest/notice-choice.min.js"></script>
+  <script>
+    function OnChangeFunction(field, value) {
+      console.log('callback with field name: ' + field + ' and value: ' + value)
+    }
+  </script>
+</head>
+
+<body>
+  <div class="bx--grid">
+    <div class="bx--row">
+      <div class="bx--col-sm-4 bx--col-lg-12">
+        <dds-notice-choice locale="us-en" country="US" questionchoices="1,2" state="CA" email="" termsConditionLink=""
+          enableAllOptIn="false" bpidLegalText="" .onchange="OnChangeFunction">
+        </dds-notice-choice>
+      </div>
+    </div>
+  </div>
+</body>
+
+</html>

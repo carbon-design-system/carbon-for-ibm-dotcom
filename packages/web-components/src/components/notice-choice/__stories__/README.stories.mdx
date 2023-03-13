@@ -1,0 +1,67 @@
+import { Preview, Props, Description, Story } from '@storybook/addon-docs/blocks';
+import contributing from '../../../../../../docs/contributing-license.md';
+import { cdnJs, cdnCss } from '../../../globals/internal/storybook-cdn';
+
+
+
+
+# Card Link
+
+> 💡 Check our
+> [CodeSandbox](https://githubbox.com/carbon-design-system/carbon-for-ibm-dotcom/tree/main/packages/web-components/examples/codesandbox/components/notice-choice)
+> example implementation.
+
+[![Edit @carbon/ibmdotcom-web-components](https://codesandbox.io/static/img/play-codesandbox.svg)](https://githubbox.com/carbon-design-system/carbon-for-ibm-dotcom/tree/main/packages/web-components/examples/codesandbox/components/notice-choice)
+
+## Getting started
+
+Here's a quick example to get you started.
+
+### JS (via import)
+
+```javascript
+import '@carbon/ibmdotcom-web-components/es/components/notice-choice/index.js';
+```
+
+<Description markdown={`${cdnJs({ components: ['notice-choice'] })}`} />
+
+<Description markdown={`${cdnCss()}`} />
+
+### HTML
+
+```html
+<dds-notice-choice
+    locale="us-en"
+    country="US"
+    questionchoices="1,2"
+    state="CA"
+    email=""
+    termsConditionLink=""
+    enableAllOptIn="false"
+    bpidLegalText=""
+    @dds-notice-choice-change="onChangeFunction"
+    >
+</dds-notice-choice>
+```
+## Custom Events
+@dds-notice-choice-change="onChange"
+```javascript
+functionon onChangeFunction(e){
+    console.log(e.detail);
+    // detail object will have two parameter. name and value.
+    // get the name and value and then send it to MRS.
+}"
+```
+## Props
+
+<Props of="dds-notice-choice" />
+
+## Stable selectors
+
+See [our README](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/tree/main/packages/web-components#stable-selectors-for-analytics-and-integratione2e-testing-in-web-components) to see how Web Components selector and `data-autoid` should be used.
+
+| Web Components selector         | Compatibility selector                 | Description |
+| ------------------------------- | -------------------------------------- | ----------- |
+| `<dds-notice-choice>`           | `data-autoid="dds--notice-choice"`     | Component   |
+
+<Description markdown={contributing} />
