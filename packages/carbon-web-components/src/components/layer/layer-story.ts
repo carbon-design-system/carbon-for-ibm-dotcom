@@ -56,15 +56,15 @@ export const UseLayer = () => {
   document.addEventListener(`${prefix}-use-layer`, (e) => {
     const { layer, level } = (e as any).detail;
     layer.querySelector(
-      '.example-layer-test-component'
+      '.example-layer-test-component.use-layer'
     ).innerText = `The current layer level is: ${level + 1}`;
   });
 
   return html`
     <cds-layer>
-      <div class="example-layer-test-component"></div>
+      <div class="example-layer-test-component use-layer"></div>
       <cds-layer>
-        <div class="example-layer-test-component"></div>
+        <div class="example-layer-test-component use-layer"></div>
       </cds-layer>
     </cds-layer>
     <style>
