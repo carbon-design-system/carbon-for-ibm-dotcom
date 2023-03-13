@@ -48,6 +48,9 @@ class DDSMastheadL1 extends StableSelectorMixin(LitElement) {
   @property()
   isMobileVersion?: boolean;
 
+  @property({ attribute: 'overview-text' })
+  overviewText = 'Overview';
+
   /**
    * Renders L1 for desktop screensizes
    *
@@ -74,7 +77,7 @@ class DDSMastheadL1 extends StableSelectorMixin(LitElement) {
    * @returns {_TemplateResult} L1 for mobile screensizes.
    */
   protected _renderL1MobileNav() {
-    const { l1Data } = this;
+    const { l1Data, overviewText } = this;
     const { url, title, actions, menuItems } = l1Data ?? {};
     const { cta, login } = actions ?? {};
 
@@ -91,7 +94,7 @@ class DDSMastheadL1 extends StableSelectorMixin(LitElement) {
         ${url
           ? html`<li>
               <a class="bx--masthead__l1-dropdown-item" href="${url}"
-                >Overview</a
+                >${overviewText}</a
               >
             </li>`
           : ''}
