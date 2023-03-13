@@ -81,11 +81,6 @@ class DDSMastheadL1 extends StableSelectorMixin(LitElement) {
     const { _toggleMobileSubsection: toggleMobileSubsection } = this
       .constructor as typeof DDSMastheadL1;
 
-    setTimeout(() => {
-      console.clear();
-      console.log(l1Data);
-    }, 250);
-
     return html`
       <button
         class="${prefix}--masthead__l1-title"
