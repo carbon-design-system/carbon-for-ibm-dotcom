@@ -25,7 +25,7 @@ const _host =
  * @private
  */
 const _ddsEndpointDefault =
-  '/common/carbon-for-ibm-dotcom/translations/masthead-footer/v2.1';
+  '/common/carbon-for-ibm-dotcom/translations/masthead-footer';
 
 /**
  * Translation API endpoint
