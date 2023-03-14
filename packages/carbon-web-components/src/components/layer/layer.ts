@@ -19,7 +19,7 @@ import styles from './layer.scss';
  * @slot children - The elements contained within the component.
  */
 @customElement(`${prefix}-layer`)
-class BXLayer extends LitElement {
+class CDSLayer extends LitElement {
   /**
    * Specify the layer level and override any existing levels based on hierarchy
    */
@@ -32,7 +32,7 @@ class BXLayer extends LitElement {
   updated() {
     if (!this.layers) {
       this.layers = this.querySelectorAll(
-        (this.constructor as typeof BXLayer).selectorLayer
+        (this.constructor as typeof CDSLayer).selectorLayer
       );
     }
 
@@ -44,7 +44,7 @@ class BXLayer extends LitElement {
     });
 
     this.dispatchEvent(
-      new CustomEvent((this.constructor as typeof BXLayer).eventUseLayer, {
+      new CustomEvent((this.constructor as typeof CDSLayer).eventUseLayer, {
         bubbles: true,
         cancelable: true,
         composed: true,
@@ -77,4 +77,4 @@ class BXLayer extends LitElement {
   static styles = styles;
 }
 
-export default BXLayer;
+export default CDSLayer;
