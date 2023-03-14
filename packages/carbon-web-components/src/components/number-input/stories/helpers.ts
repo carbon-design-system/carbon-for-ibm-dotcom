@@ -19,19 +19,18 @@ const sizes = {
 const createProps = ({ boolean, textNullable, number, select, text }) => ({
   disabled: boolean('Disabled (disabled)', false),
   hideLabel: boolean('Hide label (hide-label)', false),
-  hideSteppers: boolean('Hide steppers', false),
+  hideSteppers: boolean('Hide steppers (hide-steppers)', false),
   invalid: boolean('Invalid (invalid)', false),
   invalidText: text('Invalid text (invalid-text)', 'Number is not valid'),
-  label: text('Label (label', 'number-input label'),
+  label: text('Label (label)', 'number-input label'),
+  readonly: boolean('Read only (readonly)', false),
   value: number('Input value (value)', 50),
+  warn: boolean('Warn (warn)', false),
+  warnText: text('Warn text (warn-text)', 'Warning text'),
   min: number('Minimum value (min)', 0),
   max: number('Maximum value (max)', 100),
   step: number('Value to step the input by (step)', 1),
   size: select('Input size (size)', sizes, INPUT_SIZE.SMALL),
-  placeholder: textNullable(
-    'Placeholder text (placeholder)',
-    'Optional placeholder text'
-  ),
   onInput: action('input'),
   mobile: boolean('Mobile mode (mobile)', false),
 });

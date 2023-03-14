@@ -12,12 +12,13 @@ import { property, customElement, query } from 'lit/decorators.js';
 import { classMap } from 'lit/directives/class-map.js';
 import { prefix } from '../../globals/settings';
 import WarningFilled16 from '@carbon/icons/lib/warning--filled/16';
+import WarningAltFilled16 from '@carbon/icons/lib/warning--alt--filled/16';
 import Add16 from '@carbon/icons/lib/add/16';
 import Subtract16 from '@carbon/icons/lib/subtract/16';
 import ifNonEmpty from '../../globals/directives/if-non-empty';
 import { NUMBER_INPUT_VALIDATION_STATUS } from './defs';
 import styles from './number-input.scss';
-import BXInput, { INPUT_SIZE } from '../input/input';
+import CDSInput, { INPUT_SIZE } from '../input/input';
 
 export { NUMBER_INPUT_VALIDATION_STATUS };
 
@@ -30,7 +31,7 @@ export { NUMBER_INPUT_VALIDATION_STATUS };
  * @slot validity-message - The validity message. If present and non-empty, this input shows the UI of its invalid state.
  */
 @customElement(`${prefix}-number-input`)
-class CDSNumberInput extends BXInput {
+class CDSNumberInput extends CDSInput {
   /**
    * Handles `input` event on the `<input>` in the shadow DOM.
    */
@@ -175,22 +176,10 @@ class CDSNumberInput extends BXInput {
   decrementButtonAssistiveText = 'decrease number input';
 
   /**
-   * Message which is displayed if the value is invalid.
+   * Specify whether you want the steppers to be hidden
    */
-  @property({ attribute: 'invalid-text' })
-  invalidText = 'Number is not valid';
-
-  /**
-   * Specify whether you want the underlying label to be visually hidden
-   */
-  @property({ attribute: 'hide-label', type: Boolean, reflect: true })
-  hideLabel = false;
-
-  /**
-   * Message which is displayed if the value is invalid.
-   */
-  @property({ attribute: 'label' })
-  label = 'label text';
+  @property({ type: Boolean, attribute: 'hide-steppers', reflect: true })
+  hideSteppers = false;
 
   /**
    * The input box size.
@@ -223,6 +212,10 @@ class CDSNumberInput extends BXInput {
       class: `${prefix}--number__invalid`,
     });
 
+    const warnIcon = WarningAltFilled16({
+      class: `${prefix}--number__invalid ${prefix}--number__invalid--warning`,
+    });
+
     const validity = this._testValidity();
 
     const isGenericallyInvalid = () =>
@@ -232,9 +225,14 @@ class CDSNumberInput extends BXInput {
 
     const wrapperClasses = classMap({
       [`${prefix}--number`]: true,
-      [`${prefix}--number--${this.colorScheme}`]: this.colorScheme,
       [`${prefix}--number--mobile`]: this.mobile,
       [`${prefix}--number--${this.size}`]: this.size,
+      [`${prefix}--number--nosteppers`]: this.hideSteppers,
+    });
+
+    const inputWrapperClasses = classMap({
+      [`${prefix}--number__input-wrapper`]: true,
+      [`${prefix}--number__input-wrapper--warning`]: this.warn,
     });
 
     const labelClasses = classMap({
@@ -284,7 +282,6 @@ class CDSNumberInput extends BXInput {
         id="input"
         name="${ifNonEmpty(this.name)}"
         pattern="${ifNonEmpty(this.pattern)}"
-        placeholder="${ifNonEmpty(this.placeholder)}"
         ?readonly="${this.readonly}"
         ?required="${this.required}"
         type="number"
@@ -297,10 +294,22 @@ class CDSNumberInput extends BXInput {
         aria-atomic="true" />
     `;
 
+    const icon = () => {
+      if (this.invalid) {
+        return invalidIcon;
+      } else if (this.warn) {
+        return warnIcon;
+      } else {
+        return null;
+      }
+    };
+
     const defaultLayout = html`
-      ${this.invalid ? invalidIcon : null} ${input}
+      ${icon()} ${input}
       <div class="${prefix}--number__controls">
-        ${incrementButton} ${decrementButton}
+        ${!this.hideSteppers
+          ? html`${incrementButton} ${decrementButton}`
+          : null}
       </div>
     `;
 
@@ -311,16 +320,23 @@ class CDSNumberInput extends BXInput {
         <label class="${labelClasses}" for="input">
           <slot name="label-text"> ${this.label} </slot>
         </label>
-        <div class="${prefix}--number__input-wrapper">
+        <div class="${inputWrapperClasses}">
           ${this.mobile ? mobileLayout : defaultLayout}
         </div>
-        <div class="${helperTextClasses}" ?hidden="${isGenericallyInvalid()}">
+        <div
+          class="${helperTextClasses}"
+          ?hidden="${isGenericallyInvalid() || this.warn}">
           <slot name="helper-text"> ${this.helperText} </slot>
         </div>
         <div
           class="${prefix}--form-requirement"
           ?hidden="${!isGenericallyInvalid()}">
           <slot name="invalid-text"> ${this.invalidText} </slot>
+        </div>
+        <div
+          class="${prefix}--form-requirement"
+          ?hidden="${!this.warn || this.warnText === ''}">
+          <slot name="warn-text"> ${this.warnText} </slot>
         </div>
       </div>
     `;

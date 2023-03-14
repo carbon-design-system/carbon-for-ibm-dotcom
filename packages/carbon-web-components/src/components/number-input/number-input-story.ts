@@ -77,8 +77,10 @@ export const Playground = (args) => {
     invalid,
     invalidText,
     label,
+    readonly,
+    warn,
+    warnText,
     value,
-    placeholder,
     mobile,
     min,
     max,
@@ -94,8 +96,10 @@ export const Playground = (args) => {
         ?invalid="${invalid}"
         invalid-text="${ifDefined(invalidText)}"
         label="${ifDefined(label)}"
+        ?readonly="${readonly}"
         value="${ifDefined(value)}"
-        placeholder="${ifDefined(placeholder)}"
+        ?warn="${warn}"
+        warn-text="${ifDefined(warnText)}"
         ?disabled="${disabled}"
         ?mobile="${mobile}"
         min="${ifDefined(min)}"

@@ -39,7 +39,7 @@ export { default as BXDropdown } from './components/dropdown/dropdown';
 export { default as BXDropdownItem } from './components/dropdown/dropdown-item';
 export { default as BXDropdownSkeleton } from './components/dropdown/dropdown-skeleton';
 export { default as BXFormItem } from './components/form/form-item';
-export { default as BXInput } from './components/input/input';
+export { default as CDSInput } from './components/input/input';
 export { default as BXInlineLoading } from './components/inline-loading/inline-loading';
 export { default as BXLink } from './components/link/link';
 export { default as BXListItem } from './components/list/list-item';
