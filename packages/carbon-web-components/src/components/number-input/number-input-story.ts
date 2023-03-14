@@ -20,47 +20,6 @@ import { prefix } from '../../globals/settings';
 
 export const Default = (args) => {
   const {
-    colorScheme,
-    disabled,
-    value,
-    placeholder,
-    invalid,
-    mobile,
-    min,
-    max,
-    size,
-    step,
-    onInput,
-    name,
-  } = args?.[`${prefix}-number-input`] ?? {};
-  return html`
-    <cds-number-input
-      color-scheme="${ifDefined(colorScheme)}"
-      ?disabled="${disabled}"
-      value="${ifDefined(value)}"
-      placeholder="${ifDefined(placeholder)}"
-      ?invalid="${invalid}"
-      name="${name}"
-      ?mobile="${mobile}"
-      min="${ifDefined(min)}"
-      max="${ifDefined(max)}"
-      size="${ifDefined(size)}"
-      step="${ifDefined(step)}"
-      @input="${onInput}"></cds-number-input>
-  `;
-};
-
-Default.storyName = 'Default';
-
-Default.parameters = {
-  knobs: {
-    [`${prefix}-number-input`]: () => createProps({ ...knobs, textNullable }),
-  },
-};
-
-export const formItem = (args) => {
-  const {
-    colorScheme,
     disabled,
     value,
     placeholder,
@@ -76,7 +35,6 @@ export const formItem = (args) => {
     <cds-form-item>
       <cds-number-input
         value="${ifDefined(value)}"
-        color-scheme="${ifDefined(colorScheme)}"
         placeholder="${ifDefined(placeholder)}"
         ?invalid="${invalid}"
         ?disabled="${disabled}"
@@ -86,65 +44,17 @@ export const formItem = (args) => {
         size="${ifDefined(size)}"
         step="${ifDefined(step)}"
         @input="${onInput}">
-        <span slot="label-text">Label text</span>
+        <span slot="label-text">number-input label</span>
         <span slot="helper-text">Optional helper text</span>
-        <span slot="validity-message">Something isn't right</span>
-        <span slot="validity-message-max"
-          >Try a lower value, something less than ${max}</span
-        >
-        <span slot="validity-message-min"
-          >Value must be larger than ${min}</span
-        >
+        <span slot="validity-message">Number is not valid</span>
       </cds-number-input>
     </cds-form-item>
   `;
 };
 
-formItem.storyName = 'Form item';
+Default.storyName = 'Default';
 
-formItem.parameters = {
-  knobs: {
-    [`${prefix}-number-input`]: () => createProps({ ...knobs, textNullable }),
-  },
-};
-
-export const withoutFormItemWrapper = (args) => {
-  const {
-    colorScheme,
-    disabled,
-    value,
-    placeholder,
-    invalid,
-    mobile,
-    min,
-    max,
-    size,
-    step,
-    onInput,
-  } = args?.[`${prefix}-number-input`] ?? {};
-  return html`
-    <cds-number-input
-      value="${ifDefined(value)}"
-      color-scheme="${ifDefined(colorScheme)}"
-      placeholder="${ifDefined(placeholder)}"
-      ?invalid="${invalid}"
-      ?disabled="${disabled}"
-      ?mobile="${mobile}"
-      min="${ifDefined(min)}"
-      max="${ifDefined(max)}"
-      size="${ifDefined(size)}"
-      step="${ifDefined(step)}"
-      @input="${onInput}">
-      <span slot="label-text">Label text</span>
-      <span slot="helper-text">Optional helper text</span>
-      <span slot="validity-message">Something isn't right</span>
-    </cds-number-input>
-  `;
-};
-
-withoutFormItemWrapper.storyName = 'Without form item wrapper';
-
-withoutFormItemWrapper.parameters = {
+Default.parameters = {
   knobs: {
     [`${prefix}-number-input`]: () => createProps({ ...knobs, textNullable }),
   },
@@ -156,6 +66,54 @@ export const skeleton = () =>
 skeleton.parameters = {
   percy: {
     skip: true,
+  },
+};
+
+export const Playground = (args) => {
+  const {
+    disabled,
+    hideLabel,
+    hideSteppers,
+    invalid,
+    invalidText,
+    label,
+    value,
+    placeholder,
+    mobile,
+    min,
+    max,
+    size,
+    step,
+    onInput,
+  } = args?.[`${prefix}-number-input`] ?? {};
+  return html`
+    <cds-form-item>
+      <cds-number-input
+        ?hide-steppers="${hideSteppers}"
+        ?hide-label="${hideLabel}"
+        ?invalid="${invalid}"
+        invalid-text="${ifDefined(invalidText)}"
+        label="${ifDefined(label)}"
+        value="${ifDefined(value)}"
+        placeholder="${ifDefined(placeholder)}"
+        ?disabled="${disabled}"
+        ?mobile="${mobile}"
+        min="${ifDefined(min)}"
+        max="${ifDefined(max)}"
+        size="${ifDefined(size)}"
+        step="${ifDefined(step)}"
+        @input="${onInput}">
+        <span slot="helper-text">Optional helper text</span>
+      </cds-number-input>
+    </cds-form-item>
+  `;
+};
+
+Playground.storyName = 'Playground';
+
+Playground.parameters = {
+  knobs: {
+    [`${prefix}-number-input`]: () => createProps({ ...knobs, textNullable }),
   },
 };
 

@@ -12,17 +12,14 @@ import { property, customElement, query } from 'lit/decorators.js';
 import { classMap } from 'lit/directives/class-map.js';
 import { prefix } from '../../globals/settings';
 import WarningFilled16 from '@carbon/icons/lib/warning--filled/16';
-import CaretUp16 from '@carbon/icons/lib/caret--up/16';
-import CaretDown16 from '@carbon/icons/lib/caret--down/16';
+import Add16 from '@carbon/icons/lib/add/16';
+import Subtract16 from '@carbon/icons/lib/subtract/16';
 import ifNonEmpty from '../../globals/directives/if-non-empty';
-import {
-  NUMBER_INPUT_COLOR_SCHEME,
-  NUMBER_INPUT_VALIDATION_STATUS,
-} from './defs';
+import { NUMBER_INPUT_VALIDATION_STATUS } from './defs';
 import styles from './number-input.scss';
 import BXInput, { INPUT_SIZE } from '../input/input';
 
-export { NUMBER_INPUT_COLOR_SCHEME, NUMBER_INPUT_VALIDATION_STATUS };
+export { NUMBER_INPUT_VALIDATION_STATUS };
 
 /**
  * Number input.
@@ -33,7 +30,7 @@ export { NUMBER_INPUT_COLOR_SCHEME, NUMBER_INPUT_VALIDATION_STATUS };
  * @slot validity-message - The validity message. If present and non-empty, this input shows the UI of its invalid state.
  */
 @customElement(`${prefix}-number-input`)
-class BXNumberInput extends BXInput {
+class CDSNumberInput extends BXInput {
   /**
    * Handles `input` event on the `<input>` in the shadow DOM.
    */
@@ -41,7 +38,7 @@ class BXNumberInput extends BXInput {
     const { target } = event;
     const { value } = target as HTMLInputElement;
     this.dispatchEvent(
-      new CustomEvent((this.constructor as typeof BXNumberInput).eventInput, {
+      new CustomEvent((this.constructor as typeof CDSNumberInput).eventInput, {
         bubbles: true,
         composed: true,
         cancelable: false,
@@ -61,7 +58,7 @@ class BXNumberInput extends BXInput {
     const { _input: input } = this;
     this.stepDown();
     this.dispatchEvent(
-      new CustomEvent((this.constructor as typeof BXNumberInput).eventInput, {
+      new CustomEvent((this.constructor as typeof CDSNumberInput).eventInput, {
         bubbles: true,
         composed: true,
         cancelable: false,
@@ -80,7 +77,7 @@ class BXNumberInput extends BXInput {
     const { _input: input } = this;
     this.stepUp();
     this.dispatchEvent(
-      new CustomEvent((this.constructor as typeof BXNumberInput).eventInput, {
+      new CustomEvent((this.constructor as typeof CDSNumberInput).eventInput, {
         bubbles: true,
         composed: true,
         cancelable: false,
@@ -108,19 +105,6 @@ class BXNumberInput extends BXInput {
   }
 
   _getValidityMessage(state: string) {
-    if (
-      Object.values(NUMBER_INPUT_VALIDATION_STATUS).includes(
-        state as NUMBER_INPUT_VALIDATION_STATUS
-      )
-    ) {
-      const stateMessageMap = {
-        [NUMBER_INPUT_VALIDATION_STATUS.EXCEEDED_MAXIMUM]:
-          this.validityMessageMax,
-        [NUMBER_INPUT_VALIDATION_STATUS.EXCEEDED_MINIMUM]:
-          this.validityMessageMin,
-      };
-      return stateMessageMap[state];
-    }
     return super._getValidityMessage(state);
   }
 
@@ -129,12 +113,6 @@ class BXNumberInput extends BXInput {
   protected _max = '';
 
   protected _step = '1';
-
-  /**
-   * The color scheme.
-   */
-  @property({ attribute: 'color-scheme', reflect: true })
-  colorScheme = NUMBER_INPUT_COLOR_SCHEME.REGULAR;
 
   /**
    * The minimum value allowed in the input
@@ -197,26 +175,28 @@ class BXNumberInput extends BXInput {
   decrementButtonAssistiveText = 'decrease number input';
 
   /**
+   * Message which is displayed if the value is invalid.
+   */
+  @property({ attribute: 'invalid-text' })
+  invalidText = 'Number is not valid';
+
+  /**
+   * Specify whether you want the underlying label to be visually hidden
+   */
+  @property({ attribute: 'hide-label', type: Boolean, reflect: true })
+  hideLabel = false;
+
+  /**
+   * Message which is displayed if the value is invalid.
+   */
+  @property({ attribute: 'label' })
+  label = 'label text';
+
+  /**
    * The input box size.
    */
   @property({ reflect: true })
   size = INPUT_SIZE.REGULAR;
-
-  /**
-   * The validity message shown when the value is greater than the maximum
-   *
-   * Also available via the `validity-message-max` slot
-   */
-  @property({ attribute: 'validity-message-max' })
-  validityMessageMax = '';
-
-  /**
-   * The validity message shown when the value is less than the minimum
-   *
-   * Also available via the `validity-message-min` slot
-   */
-  @property({ attribute: 'validity-message-min' })
-  validityMessageMin = '';
 
   /**
    * Handles incrementing the value in the input
@@ -260,6 +240,7 @@ class BXNumberInput extends BXInput {
     const labelClasses = classMap({
       [`${prefix}--label`]: true,
       [`${prefix}--label--disabled`]: this.disabled,
+      [`${prefix}--visually-hidden`]: this.hideLabel,
     });
 
     const helperTextClasses = classMap({
@@ -276,8 +257,9 @@ class BXNumberInput extends BXInput {
         type="button"
         ?disabled=${this.disabled}
         @click=${handleUserInitiatedStepUp}>
-        ${CaretUp16()}
+        ${Add16()}
       </button>
+      <div class="${prefix}--number__rule-divider"></div>
     `;
     const decrementButton = html`
       <button
@@ -288,8 +270,9 @@ class BXNumberInput extends BXInput {
         type="button"
         ?disabled=${this.disabled}
         @click=${handleUserInitiatedStepDown}>
-        ${CaretDown16()}
+        ${Subtract16()}
       </button>
+      <div class="${prefix}--number__rule-divider"></div>
     `;
 
     const input = html`
@@ -326,30 +309,18 @@ class BXNumberInput extends BXInput {
     return html`
       <div class="${wrapperClasses}" ?data-invalid=${this.invalid}>
         <label class="${labelClasses}" for="input">
-          <slot name="label-text"> ${this.labelText} </slot>
+          <slot name="label-text"> ${this.label} </slot>
         </label>
         <div class="${prefix}--number__input-wrapper">
           ${this.mobile ? mobileLayout : defaultLayout}
         </div>
-        <div class="${helperTextClasses}">
+        <div class="${helperTextClasses}" ?hidden="${isGenericallyInvalid()}">
           <slot name="helper-text"> ${this.helperText} </slot>
         </div>
         <div
           class="${prefix}--form-requirement"
           ?hidden="${!isGenericallyInvalid()}">
-          <slot name="validity-message"> ${this.validityMessage} </slot>
-        </div>
-        <div
-          class="${prefix}--form-requirement"
-          ?hidden="${validity !==
-          NUMBER_INPUT_VALIDATION_STATUS.EXCEEDED_MAXIMUM}">
-          <slot name="validity-message-max"> ${this.validityMessageMax} </slot>
-        </div>
-        <div
-          class="${prefix}--form-requirement"
-          ?hidden="${validity !==
-          NUMBER_INPUT_VALIDATION_STATUS.EXCEEDED_MINIMUM}">
-          <slot name="validity-message-min"> ${this.validityMessageMin} </slot>
+          <slot name="invalid-text"> ${this.invalidText} </slot>
         </div>
       </div>
     `;
@@ -369,4 +340,4 @@ class BXNumberInput extends BXInput {
   static styles = styles; // `styles` here is a `CSSResult` generated by custom WebPack loader
 }
 
-export default BXNumberInput;
+export default CDSNumberInput;

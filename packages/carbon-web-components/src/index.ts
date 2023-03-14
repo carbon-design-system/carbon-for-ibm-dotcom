@@ -57,8 +57,8 @@ export { default as BXMultiSelect } from './components/multi-select/multi-select
 export { default as BXMultiSelectItem } from './components/multi-select/multi-select-item';
 export { default as BXInlineNotification } from './components/notification/inline-notification';
 export { default as BXToastNotification } from './components/notification/toast-notification';
-export { default as BXNumberInput } from './components/number-input/number-input';
-export { default as BXNumberInputSkeleton } from './components/number-input/number-input-skeleton';
+export { default as CDSNumberInput } from './components/number-input/number-input';
+export { default as CDSNumberInputSkeleton } from './components/number-input/number-input-skeleton';
 export { default as BXTextarea } from './components/textarea/textarea';
 export { default as BXTextareaSkeleton } from './components/textarea/textarea-skeleton';
 export { default as BXOverflowMenu } from './components/overflow-menu/overflow-menu';
