@@ -189,7 +189,7 @@
             max-width: initial;
             margin-inline: initial;
             padding-inline: $layout-03;
-            border-bottom: 1px solid $ui-03;
+            border-bottom: carbon--rem(1px) solid $ui-03;
             overflow: initial;
             max-height: initial;
 
@@ -229,7 +229,7 @@
           z-index: 1;
           inset-block-end: 0;
           background-color: $ui-background;
-          border-top: 1px solid $ui-03;
+          border-top: carbon--rem(1px) solid $ui-03;
 
           @include carbon--breakpoint(lg) {
             display: none;
