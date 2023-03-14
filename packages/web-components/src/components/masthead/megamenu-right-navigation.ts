@@ -54,12 +54,14 @@ class DDSMegaMenuRightNavigation extends StableSelectorMixin(LitElement) {
    * @param event Event
    */
   protected _handleSlotChange(event: Event) {
+    const { onlyChildClassName } = this
+      .constructor as typeof DDSMegaMenuRightNavigation;
     const children = (event.target as HTMLSlotElement).assignedElements();
     this.childCount = children.length;
 
     // Supports alternative layout for single items.
     if (children.length === 1) {
-      children[0].classList.add('only-child');
+      children[0].classList.add(onlyChildClassName);
     }
   }
 
@@ -95,6 +97,10 @@ class DDSMegaMenuRightNavigation extends StableSelectorMixin(LitElement) {
         </div>
       </div>
     `;
+  }
+
+  static get onlyChildClassName() {
+    return 'only-child';
   }
 
   static get stableSelector() {
