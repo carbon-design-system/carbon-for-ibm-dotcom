@@ -22,7 +22,7 @@ import storyDocs from './link-story.mdx';
 
 const sizes = {
   [`Small size (${LINK_SIZE.SMALL})`]: LINK_SIZE.SMALL,
-  [`Small size (${LINK_SIZE.MEDIUM})`]: LINK_SIZE.MEDIUM,
+  [`Medium size (${LINK_SIZE.MEDIUM})`]: LINK_SIZE.MEDIUM,
   [`Large size (${LINK_SIZE.LARGE})`]: LINK_SIZE.LARGE,
 };
 
