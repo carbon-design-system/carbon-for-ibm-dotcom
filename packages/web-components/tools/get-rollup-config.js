@@ -1,7 +1,7 @@
 /**
  * @license
  *
- * Copyright IBM Corp. 2020, 2022
+ * Copyright IBM Corp. 2020, 2023
  *
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
@@ -216,7 +216,7 @@ function getRollupConfig({
       // and we don't want to affect `carbon-web-components`' components application may define elsewhere
       babel.babel({
         babelHelpers: 'inline',
-        include: [/carbon-web-components\/es\/components\//i],
+        include: [/internal\/vendor\/@carbon\/web-components\/components\//i],
         plugins: [
           path.resolve(__dirname, 'babel-plugin-undef-custom-elements'),
         ],
