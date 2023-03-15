@@ -96,7 +96,7 @@ const LocaleModalCountries = ({
       <div className={`${prefix}--locale-modal__search`}>
         <Search
           data-autoid={`${stablePrefix}--locale-modal__filter`}
-          placeHolderText={modalLabels.searchPlaceholder}
+          placeholder={modalLabels.searchPlaceholder}
           labelText={modalLabels.searchLabel}
           closeButtonLabelText={modalLabels.searchClearText}
           id={`${prefix}--locale-modal__filter`}
@@ -139,7 +139,7 @@ const LocaleModalCountries = ({
 /**
  * @property {object} propTypes LocaleModalCountries propTypes
  * @description Defined property types for component
- * @type {{regionList: Array, availabilityText: string, unavailabilityText: string, placeHolderText: string, labelText: string}}
+ * @type {{regionList: Array, availabilityText: string, unavailabilityText: string, placeholder: string, labelText: string}}
  */
 LocaleModalCountries.propTypes = {
   /**

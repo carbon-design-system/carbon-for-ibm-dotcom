@@ -32,8 +32,8 @@ const mastheadKnobs = () => {
       true,
       'Masthead'
     ),
-    placeHolderText: text(
-      'search placeholder (placeHolderText)',
+    placeholder: text(
+      'search placeholder (placeholder)',
       'Search all of IBM',
       'Masthead'
     ),
@@ -218,8 +218,8 @@ const props = {
           true
         ),
         hasSearch: boolean('show the search functionality (hasSearch)', true),
-        placeHolderText: text(
-          'search placeholder (placeHolderText)',
+        placeholder: text(
+          'search placeholder (placeholder)',
           'Search all of IBM'
         ),
         mastheadL1Data: {

@@ -20,4 +20,38 @@ global.requestAnimationFrame = function requestAnimationFrame(callback) {
 const enzyme = require.requireActual('enzyme');
 const Adapter = require.requireActual('enzyme-adapter-react-16');
 
+class LocalStorageMock {
+  constructor() {
+    this.store = {};
+  }
+  clear() {
+    this.store = {};
+  }
+  getItem(key) {
+    return this.store[key] || null;
+  }
+  setItem(key, value) {
+    this.store[key] = value.toString();
+  }
+  removeItem(key) {
+    delete this.store[key];
+  }
+}
+
+// const localStorage = new LocalStorageMock();
+
+// jest test environment expects these to exist
+// window.localStorage = localStorage
+
+let storage;
+
+beforeEach(() => {
+  storage = window.localStorage();
+  window.localStorage = new LocalStorageMock();
+});
+
+afterEach(() => {
+  window.localStorage = storage;
+});
+
 enzyme.configure({ adapter: new Adapter() });
