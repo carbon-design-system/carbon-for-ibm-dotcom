@@ -50,6 +50,8 @@ skeleton.parameters = {
 export const Playground = (args) => {
   const {
     allowEmpty,
+    decrementButtonDescription,
+    incrementButtonDescription,
     disabled,
     hideLabel,
     hideSteppers,
@@ -71,6 +73,12 @@ export const Playground = (args) => {
     <cds-form-item>
       <cds-number-input
         ?allow-empty="${allowEmpty}"
+        decrement-button-assistive-text="${ifDefined(
+          decrementButtonDescription
+        )}"
+        increment-button-assistive-text="${ifDefined(
+          incrementButtonDescription
+        )}"
         ?hide-steppers="${hideSteppers}"
         ?hide-label="${hideLabel}"
         ?invalid="${invalid}"

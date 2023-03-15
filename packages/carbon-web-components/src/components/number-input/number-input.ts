@@ -312,7 +312,7 @@ class CDSNumberInput extends CDSInput {
       ${icon()} ${input}
       <div class="${prefix}--number__controls">
         ${!this.hideSteppers
-          ? html`${incrementButton} ${decrementButton}`
+          ? html`${decrementButton} ${incrementButton}`
           : null}
       </div>
     `;
@@ -330,13 +330,12 @@ class CDSNumberInput extends CDSInput {
         <div class="${helperTextClasses}" ?hidden="${!isValid || this.warn}">
           <slot name="helper-text"> ${this.helperText} </slot>
         </div>
-        <div class="${prefix}--form-requirement" ?hidden="${isValid}">
-          <slot name="invalid-text"> ${this.invalidText} </slot>
-        </div>
         <div
           class="${prefix}--form-requirement"
-          ?hidden="${!this.warn || this.warnText === ''}">
-          <slot name="warn-text"> ${this.warnText} </slot>
+          ?hidden="${isValid && !this.warn}">
+          ${!isValid
+            ? html`<slot name="invalid-text"> ${this.invalidText} </slot>`
+            : html`<slot name="warn-text"> ${this.warnText} </slot>`}
         </div>
       </div>
     `;

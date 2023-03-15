@@ -18,6 +18,14 @@ const sizes = {
 
 const createProps = ({ boolean, textNullable, number, select, text }) => ({
   allowEmpty: boolean('Allow empty (allow-empty)', false),
+  decrementButtonDescription: text(
+    'Decrement button assistive description (decrement-button-assistive-text)',
+    'decrease number input'
+  ),
+  incrementButtonDescription: text(
+    'Increment button assistive description (increment-button-assistive-text)',
+    'increase number input'
+  ),
   disabled: boolean('Disabled (disabled)', false),
   hideLabel: boolean('Hide label (hide-label)', false),
   hideSteppers: boolean('Hide steppers (hide-steppers)', false),
