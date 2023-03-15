@@ -107,10 +107,7 @@ const props = {
     platform: mastheadKnobs.l1Platform,
     hasProfile: boolean('show the profile functionality (hasProfile)', true),
     hasSearch: boolean('show the search functionality (hasSearch)', true),
-    placeholder: text(
-      'search placeholder (placeholder)',
-      'Search all of IBM'
-    ),
+    placeholder: text('search placeholder (placeholder)', 'Search all of IBM'),
     mastheadL1Data: {
       navigationL1: mastheadKnobs.navigation.custom,
     },

@@ -398,9 +398,7 @@ const Masthead = ({
                       {...(searchOpenOnload
                         ? { searchOpenOnload: searchOpenOnload }
                         : {})}
-                      placeholder={
-                        placeholder || searchData?.placeholder
-                      }
+                      placeholder={placeholder || searchData?.placeholder}
                       initialSearchTerm={initialSearchTerm}
                       navType={navType}
                       isSearchActive={isSearchActive}
