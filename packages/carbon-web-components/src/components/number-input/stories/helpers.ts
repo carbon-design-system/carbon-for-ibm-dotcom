@@ -11,12 +11,13 @@ import { action } from '@storybook/addon-actions';
 import { INPUT_SIZE } from '../../input/input';
 
 const sizes = {
-  Regular: null,
   [`Small size (${INPUT_SIZE.SMALL})`]: INPUT_SIZE.SMALL,
-  [`Extra large size (${INPUT_SIZE.EXTRA_LARGE})`]: INPUT_SIZE.EXTRA_LARGE,
+  [`Medium size (${INPUT_SIZE.MEDIUM})`]: INPUT_SIZE.MEDIUM,
+  [`Large size (${INPUT_SIZE.LARGE})`]: INPUT_SIZE.LARGE,
 };
 
 const createProps = ({ boolean, textNullable, number, select, text }) => ({
+  allowEmpty: boolean('Allow empty (allow-empty)', false),
   disabled: boolean('Disabled (disabled)', false),
   hideLabel: boolean('Hide label (hide-label)', false),
   hideSteppers: boolean('Hide steppers (hide-steppers)', false),
@@ -24,13 +25,13 @@ const createProps = ({ boolean, textNullable, number, select, text }) => ({
   invalidText: text('Invalid text (invalid-text)', 'Number is not valid'),
   label: text('Label (label)', 'number-input label'),
   readonly: boolean('Read only (readonly)', false),
-  value: number('Input value (value)', 50),
+  value: number('Value (value)', 50),
   warn: boolean('Warn (warn)', false),
   warnText: text('Warn text (warn-text)', 'Warning text'),
   min: number('Minimum value (min)', 0),
   max: number('Maximum value (max)', 100),
   step: number('Value to step the input by (step)', 1),
-  size: select('Input size (size)', sizes, INPUT_SIZE.SMALL),
+  size: select('Size (size)', sizes, INPUT_SIZE.MEDIUM),
   onInput: action('input'),
   mobile: boolean('Mobile mode (mobile)', false),
 });

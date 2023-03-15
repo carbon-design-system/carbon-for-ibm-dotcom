@@ -21,18 +21,12 @@ export enum INPUT_SIZE {
   /**
    * Regular size, same as medium size.
    */
-  REGULAR = 'md',
+  MEDIUM = 'md',
 
   /**
    * Large size.
    */
   LARGE = 'lg',
-
-  // TODO: deprecate
-  /**
-   * Extra large size.
-   */
-  EXTRA_LARGE = 'xl',
 }
 
 /**

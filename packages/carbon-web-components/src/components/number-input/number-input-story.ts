@@ -11,6 +11,7 @@ import { html } from 'lit';
 import * as knobs from '@storybook/addon-knobs';
 import textNullable from '../../../.storybook/knob-text-nullable';
 import { ifDefined } from 'lit/directives/if-defined.js';
+import { INPUT_SIZE } from '../input/input';
 import './number-input';
 import './number-input-skeleton';
 import '../form/form-item';
@@ -18,32 +19,15 @@ import createProps from './stories/helpers';
 import storyDocs from './number-input-story.mdx';
 import { prefix } from '../../globals/settings';
 
-export const Default = (args) => {
-  const {
-    disabled,
-    value,
-    placeholder,
-    invalid,
-    mobile,
-    min,
-    max,
-    size,
-    step,
-    onInput,
-  } = args?.[`${prefix}-number-input`] ?? {};
+export const Default = () => {
   return html`
     <cds-form-item>
       <cds-number-input
-        value="${ifDefined(value)}"
-        placeholder="${ifDefined(placeholder)}"
-        ?invalid="${invalid}"
-        ?disabled="${disabled}"
-        ?mobile="${mobile}"
-        min="${ifDefined(min)}"
-        max="${ifDefined(max)}"
-        size="${ifDefined(size)}"
-        step="${ifDefined(step)}"
-        @input="${onInput}">
+        value="50"
+        min="0"
+        max="100"
+        size="${ifDefined(INPUT_SIZE.MEDIUM)}"
+        step="1">
         <span slot="label-text">number-input label</span>
         <span slot="helper-text">Optional helper text</span>
         <span slot="validity-message">Number is not valid</span>
@@ -53,12 +37,6 @@ export const Default = (args) => {
 };
 
 Default.storyName = 'Default';
-
-Default.parameters = {
-  knobs: {
-    [`${prefix}-number-input`]: () => createProps({ ...knobs, textNullable }),
-  },
-};
 
 export const skeleton = () =>
   html` <cds-number-input-skeleton></cds-number-input-skeleton> `;
@@ -71,6 +49,7 @@ skeleton.parameters = {
 
 export const Playground = (args) => {
   const {
+    allowEmpty,
     disabled,
     hideLabel,
     hideSteppers,
@@ -91,6 +70,7 @@ export const Playground = (args) => {
   return html`
     <cds-form-item>
       <cds-number-input
+        ?allow-empty="${allowEmpty}"
         ?hide-steppers="${hideSteppers}"
         ?hide-label="${hideLabel}"
         ?invalid="${invalid}"

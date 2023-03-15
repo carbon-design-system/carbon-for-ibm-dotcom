@@ -95,18 +95,20 @@ class CDSNumberInput extends CDSInput {
   @query('input')
   protected _input!: HTMLInputElement;
 
-  _testValidity() {
-    if (this._input?.valueAsNumber > Number(this.max)) {
-      return NUMBER_INPUT_VALIDATION_STATUS.EXCEEDED_MAXIMUM;
+  _getInputValidity() {
+    if (this.invalid) {
+      return false;
     }
-    if (this._input?.valueAsNumber < Number(this.min)) {
-      return NUMBER_INPUT_VALIDATION_STATUS.EXCEEDED_MINIMUM;
+    if (
+      this._input?.valueAsNumber > Number(this.max) ||
+      this._input?.valueAsNumber < Number(this.min)
+    ) {
+      return false;
     }
-    return super._testValidity();
-  }
-
-  _getValidityMessage(state: string) {
-    return super._getValidityMessage(state);
+    if (this.value === '') {
+      return this.allowEmpty;
+    }
+    return true;
   }
 
   protected _min = '';
@@ -182,10 +184,16 @@ class CDSNumberInput extends CDSInput {
   hideSteppers = false;
 
   /**
+   * `true` to allow empty string.
+   */
+  @property({ type: Boolean, attribute: 'allow-empty', reflect: true })
+  allowEmpty = false;
+
+  /**
    * The input box size.
    */
   @property({ reflect: true })
-  size = INPUT_SIZE.REGULAR;
+  size = INPUT_SIZE.MEDIUM;
 
   /**
    * Handles incrementing the value in the input
@@ -208,6 +216,8 @@ class CDSNumberInput extends CDSInput {
       _handleUserInitiatedStepUp: handleUserInitiatedStepUp,
     } = this;
 
+    const isValid = this._getInputValidity();
+
     const invalidIcon = WarningFilled16({
       class: `${prefix}--number__invalid`,
     });
@@ -216,18 +226,12 @@ class CDSNumberInput extends CDSInput {
       class: `${prefix}--number__invalid ${prefix}--number__invalid--warning`,
     });
 
-    const validity = this._testValidity();
-
-    const isGenericallyInvalid = () =>
-      this.invalid &&
-      validity !== NUMBER_INPUT_VALIDATION_STATUS.EXCEEDED_MAXIMUM &&
-      validity !== NUMBER_INPUT_VALIDATION_STATUS.EXCEEDED_MINIMUM;
-
     const wrapperClasses = classMap({
       [`${prefix}--number`]: true,
       [`${prefix}--number--mobile`]: this.mobile,
       [`${prefix}--number--${this.size}`]: this.size,
       [`${prefix}--number--nosteppers`]: this.hideSteppers,
+      [`${prefix}--number--readonly`]: this.readonly,
     });
 
     const inputWrapperClasses = classMap({
@@ -277,7 +281,7 @@ class CDSNumberInput extends CDSInput {
       <input
         ?autocomplete="${this.autocomplete}"
         ?autofocus="${this.autofocus}"
-        ?data-invalid="${this.invalid}"
+        ?data-invalid="${!isValid}"
         ?disabled="${this.disabled}"
         id="input"
         name="${ifNonEmpty(this.name)}"
@@ -295,7 +299,7 @@ class CDSNumberInput extends CDSInput {
     `;
 
     const icon = () => {
-      if (this.invalid) {
+      if (!isValid) {
         return invalidIcon;
       } else if (this.warn) {
         return warnIcon;
@@ -316,21 +320,17 @@ class CDSNumberInput extends CDSInput {
     const mobileLayout = html` ${decrementButton} ${input} ${incrementButton} `;
 
     return html`
-      <div class="${wrapperClasses}" ?data-invalid=${this.invalid}>
+      <div class="${wrapperClasses}" ?data-invalid=${!isValid}>
         <label class="${labelClasses}" for="input">
           <slot name="label-text"> ${this.label} </slot>
         </label>
         <div class="${inputWrapperClasses}">
           ${this.mobile ? mobileLayout : defaultLayout}
         </div>
-        <div
-          class="${helperTextClasses}"
-          ?hidden="${isGenericallyInvalid() || this.warn}">
+        <div class="${helperTextClasses}" ?hidden="${!isValid || this.warn}">
           <slot name="helper-text"> ${this.helperText} </slot>
         </div>
-        <div
-          class="${prefix}--form-requirement"
-          ?hidden="${!isGenericallyInvalid()}">
+        <div class="${prefix}--form-requirement" ?hidden="${isValid}">
           <slot name="invalid-text"> ${this.invalidText} </slot>
         </div>
         <div

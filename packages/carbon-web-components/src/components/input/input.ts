@@ -192,7 +192,7 @@ class CDSInput extends ValidityMixin(FormMixin(LitElement)) {
    * The input box size.
    */
   @property({ reflect: true })
-  size = INPUT_SIZE.REGULAR;
+  size = INPUT_SIZE.MEDIUM;
 
   /**
    * Specify the alignment of the tooltip to the icon-only button.
