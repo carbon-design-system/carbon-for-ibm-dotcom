@@ -27,6 +27,12 @@ export enum INPUT_SIZE {
    * Large size.
    */
   LARGE = 'lg',
+
+  // TODO: deprecate
+  /**
+   * Extra large size.
+   */
+  EXTRA_LARGE = 'xl',
 }
 
 /**
