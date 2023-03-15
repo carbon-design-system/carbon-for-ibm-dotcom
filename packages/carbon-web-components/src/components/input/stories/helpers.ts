@@ -48,7 +48,7 @@ const createProps = ({ boolean, textNonEmpty, select }) => {
             false
           )
         : null,
-    size: select('Input size (size)', sizes, INPUT_SIZE.REGULAR),
+    size: select('Input size (size)', sizes, INPUT_SIZE.MEDIUM),
     type,
   };
 };
