@@ -16,7 +16,7 @@ const sizes = {
   [`Large size (${INPUT_SIZE.LARGE})`]: INPUT_SIZE.LARGE,
 };
 
-const createProps = ({ boolean, textNullable, number, select, text }) => ({
+const createProps = ({ boolean, number, select, text }) => ({
   allowEmpty: boolean('Allow empty (allow-empty)', false),
   decrementButtonDescription: text(
     'Decrement button assistive description (decrement-button-assistive-text)',
