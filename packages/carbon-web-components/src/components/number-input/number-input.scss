@@ -22,8 +22,3 @@ $css--plex: true !default;
     display: none;
   }
 }
-
-:host(#{$prefix}-number-input)[data-warning]
-  .#{$prefix}--number__input--warning[hidden] {
-  display: none;
-}

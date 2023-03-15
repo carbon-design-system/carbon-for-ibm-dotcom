@@ -27,10 +27,9 @@ export const Default = () => {
         min="0"
         max="100"
         size="${ifDefined(INPUT_SIZE.MEDIUM)}"
-        step="1">
-        <span slot="label-text">number-input label</span>
-        <span slot="helper-text">Optional helper text</span>
-        <span slot="validity-message">Number is not valid</span>
+        step="1"
+        label="number-input label"
+        helper-text="Optional helper text">
       </cds-number-input>
     </cds-form-item>
   `;
