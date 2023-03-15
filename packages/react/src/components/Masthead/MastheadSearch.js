@@ -107,7 +107,7 @@ let openOnLoadFocus = true;
 const MastheadSearch = forwardRef(
   (
     {
-      placeHolderText,
+      placeholder,
       initialSearchTerm,
       renderValue,
       searchOpenOnload,
@@ -321,12 +321,12 @@ const MastheadSearch = forwardRef(
      * @type {{placeholder: string, value: string, onChange: Function, className: string, 'aria-labelledby': string, role: string, 'aria-expanded': string}}
      */
     const inputProps = {
-      placeholder: placeHolderText,
+      placeholder: placeholder,
       value: state.val,
       onChange,
       onKeyDown,
       className: `${prefix}--header__search--input`,
-      'aria-label': placeHolderText,
+      'aria-label': placeholder,
       role: 'combobox',
       'aria-expanded': isSearchActive,
       id: `${prefix}--header__search--input`,
@@ -642,7 +642,7 @@ MastheadSearch.propTypes = {
   /**
    * Placeholder text for the search field.
    */
-  placeHolderText: PropTypes.string,
+  placeholder: PropTypes.string,
 
   /**
    * Initial value for the search field.
@@ -676,7 +676,7 @@ MastheadSearch.propTypes = {
 };
 
 MastheadSearch.defaultProps = {
-  placeHolderText: 'Search all of IBM',
+  placeholder: 'Search all of IBM',
   initialSearchTerm: '',
   renderValue: 3,
   searchOpenOnload: false,

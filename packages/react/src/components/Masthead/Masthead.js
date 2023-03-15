@@ -44,7 +44,7 @@ const gridBreakpoint = parseFloat(breakpoints.lg.width) * baseFontSize;
  * @param {boolean} props.hasProfile Determines whether to render Profile component
  * @param {boolean} props.hasSearch Determines whether to render Search Bar
  * @param {boolean} props.searchOpenOnload Determines if the search field is open on page load
- * @param {string} props.placeHolderText Placeholder value for search input
+ * @param {string} props.placeholder Placeholder value for search input
  * @param {string} props.initialSearchTerm Initial value for search input
  * @param {object} props.platform Platform name that appears on L0.
  * @param {string} props.title Title for the masthead L1
@@ -58,7 +58,7 @@ const Masthead = ({
   hasProfile,
   hasSearch,
   searchOpenOnload,
-  placeHolderText,
+  placeholder,
   initialSearchTerm,
   platform,
   mastheadL1Data,
@@ -398,9 +398,7 @@ const Masthead = ({
                       {...(searchOpenOnload
                         ? { searchOpenOnload: searchOpenOnload }
                         : {})}
-                      placeHolderText={
-                        placeHolderText || searchData?.placeHolderText
-                      }
+                      placeholder={placeholder || searchData?.placeholder}
                       initialSearchTerm={initialSearchTerm}
                       navType={navType}
                       isSearchActive={isSearchActive}
@@ -534,7 +532,7 @@ Masthead.propTypes = {
   /**
    * Placeholder value for search input.
    */
-  placeHolderText: PropTypes.string,
+  placeholder: PropTypes.string,
 
   /**
    * Initial value for search input.
@@ -616,7 +614,7 @@ Masthead.defaultProps = {
   searchOpenOnload: false,
   selectedMenuItem: '',
   platform: null,
-  placeHolderText: 'Search all of IBM',
+  placeholder: 'Search all of IBM',
   initialSearchTerm: '',
   mastheadL1Data: null,
 };
@@ -624,10 +622,10 @@ Masthead.defaultProps = {
 export default deprecate(
   Masthead,
   `
-  The React Masthead is now in feature freeze; any new features or enhancements will only be added to the Web Components Masthead. 
-  
+  The React Masthead is now in feature freeze; any new features or enhancements will only be added to the Web Components Masthead.
+
   We will continue to address any bugs specific to the React version for the rest of of Carbon for IBM.com v1.
-  
+
   Please refer to the Web Components Masthead documentation for further details.
   https://www.ibm.com/standards/carbon/web-components/?path=/docs/components-masthead--default
 `

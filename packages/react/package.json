@@ -50,7 +50,7 @@
     "test:e2e-storybook:test:no-percy:with-video": "start-server-and-test 'yarn test:e2e-storybook:run' 8082 'cypress run --config video=true,screenshotOnRunFailure=true --config-file tests/e2e-storybook/cypress.json'",
     "test:e2e-storybook:browserstack:canary": "browserstack-cypress run --cf tests/e2e-storybook/browserstack.json --ccf tests/e2e-storybook/cypress-canary.json --sync --build-name 'React Storybook Canary'",
     "test:e2e-storybook:browserstack:next": "browserstack-cypress run --cf tests/e2e-storybook/browserstack.json --ccf tests/e2e-storybook/cypress-next.json --sync --build-name 'React Storybook Next'",
-    "test:unit": "jest",
+    "test:unit": "jest --maxWorkers 2",
     "test:unit:updateSnapshot": "jest -u",
     "test:a11y": "gulp test:a11y || true",
     "test-ssr": "yarn build && node ssr-tests/*.js",

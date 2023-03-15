@@ -56,7 +56,7 @@ const LeadspaceWithSearch = ({ heading, copy, searchProps }) => {
           )}
           <Search
             className={`${prefix}--leadspace-with-search__search`}
-            placeHolderText={searchPlaceHolder}
+            placeholder={searchPlaceHolder}
             id={`${prefix}--leadspace-with-search__search-input`}
             {...searchProps}
           />

@@ -45,8 +45,8 @@ const props = {
       hasProfile: boolean('show the profile functionality (hasProfile)', true),
       customProfileLogin,
       hasSearch: boolean('show the search functionality (hasSearch)', true),
-      placeHolderText: text(
-        'search placeholder (placeHolderText)',
+      placeholder: text(
+        'search placeholder (placeholder)',
         'Search all of IBM'
       ),
       initialSearchTerm: text('initial search term (initialSearchTerm)', ''),
@@ -69,8 +69,8 @@ const props = {
       hasProfile: boolean('show the profile functionality (hasProfile)', true),
       customProfileLogin,
       hasSearch: boolean('show the search functionality (hasSearch)', true),
-      placeHolderText: text(
-        'search placeholder (placeHolderText)',
+      placeholder: text(
+        'search placeholder (placeholder)',
         inPercy() ? '' : 'Search all of IBM'
       ),
       selectedMenuItem: text(
@@ -93,8 +93,8 @@ const props = {
       platform: mastheadKnobs.platform.platform,
       hasProfile: boolean('show the profile functionality (hasProfile)', true),
       hasSearch: boolean('show the search functionality (hasSearch)', true),
-      placeHolderText: text(
-        'search placeholder (placeHolderText)',
+      placeholder: text(
+        'search placeholder (placeholder)',
         'Search all of IBM'
       ),
       selectedMenuItem: text(
@@ -107,10 +107,7 @@ const props = {
     platform: mastheadKnobs.l1Platform,
     hasProfile: boolean('show the profile functionality (hasProfile)', true),
     hasSearch: boolean('show the search functionality (hasSearch)', true),
-    placeHolderText: text(
-      'search placeholder (placeHolderText)',
-      'Search all of IBM'
-    ),
+    placeholder: text('search placeholder (placeholder)', 'Search all of IBM'),
     mastheadL1Data: {
       navigationL1: mastheadKnobs.navigation.custom,
     },
@@ -132,8 +129,8 @@ const props = {
       ),
       hasProfile: boolean('show the profile functionality (hasProfile)', true),
       hasSearch: boolean('show the search functionality (hasSearch)', true),
-      placeHolderText: text(
-        'search placeholder (placeHolderText)',
+      placeholder: text(
+        'search placeholder (placeholder)',
         'Search all of IBM'
       ),
       selectedMenuItem: text(
