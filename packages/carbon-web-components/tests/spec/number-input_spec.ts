@@ -11,7 +11,7 @@ import { html, render } from 'lit';
 import EventManager from '../utils/event-manager';
 
 import CDSNumberInput from '../../src/components/number-input/number-input';
-import { Default } from '../../src/components/number-input/number-input-story';
+import { Playground } from '../../src/components/number-input/number-input-story';
 
 /**
  * @param formData A `FormData` instance.
@@ -27,7 +27,7 @@ const getValues = (formData: FormData) => {
 };
 
 const template = (props?) =>
-  Default({
+  Playground({
     'cds-number-input': props,
   });
 
