@@ -46,15 +46,9 @@ jobs:
       matrix:
         node-version: [ '16.x' ]
     steps:
-<<<<<<< HEAD
-      - uses: actions/checkout@v3
-      - name: Use Node.js 14.x
-        uses: actions/setup-node@v3
-=======
       - uses: actions/checkout@v2
       - name: Use Node.js 16.x
         uses: actions/setup-node@v2
->>>>>>> a9064d28cd (chore(deps): upgrade to node 16)
         with:
           node-version: ${{ matrix.node-version }}
           cache: 'yarn'
@@ -80,15 +74,9 @@ jobs:
       matrix:
         node-version: ['16.x']
     steps:
-<<<<<<< HEAD
-      - uses: actions/checkout@v3
-      - name: Use Node.js 14.x
-        uses: actions/setup-node@v3
-=======
       - uses: actions/checkout@v2
       - name: Use Node.js 16.x
         uses: actions/setup-node@v2
->>>>>>> a9064d28cd (chore(deps): upgrade to node 16)
         with:
           node-version: ${{ matrix.node-version }}
           cache: 'yarn'
@@ -116,15 +104,9 @@ jobs:
       matrix:
         node-version: ['16.x']
     steps:
-<<<<<<< HEAD
-      - uses: actions/checkout@v3
-      - name: Use Node.js 14.x
-        uses: actions/setup-node@v3
-=======
       - uses: actions/checkout@v2
       - name: Use Node.js 16.x
         uses: actions/setup-node@v2
->>>>>>> a9064d28cd (chore(deps): upgrade to node 16)
         with:
           node-version: ${{ matrix.node-version }}
           cache: 'yarn'
