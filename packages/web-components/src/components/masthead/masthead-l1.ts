@@ -102,7 +102,7 @@ class DDSMastheadL1 extends StableSelectorMixin(LitElement) {
         ${login && login.url && login.title
           ? html`<li>
               <a
-                class="bx--masthead__l1-dropdown-item bx--masthead__l1-dropdown-login"
+                class="bx--masthead__l1-dropdown-login"
                 href="${ifDefined(login.url)}"
                 >${login.title}${ArrowRight16()}</a
               >
@@ -111,7 +111,7 @@ class DDSMastheadL1 extends StableSelectorMixin(LitElement) {
         ${cta && cta.url && cta.title
           ? html`<li>
               <a
-                class="bx--masthead__l1-dropdown-item bx--masthead__l1-dropdown-cta"
+                class="bx--masthead__l1-dropdown-cta"
                 href="${ifDefined(cta.url)}"
                 >${cta.title}${ArrowRight16()}</a
               >
