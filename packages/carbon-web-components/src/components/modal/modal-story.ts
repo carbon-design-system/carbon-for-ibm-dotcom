@@ -1,7 +1,7 @@
 /**
  * @license
  *
- * Copyright IBM Corp. 2019, 2022
+ * Copyright IBM Corp. 2019, 2023
  *
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
@@ -20,7 +20,6 @@ import './modal-label';
 import './modal-body';
 import './modal-footer';
 import './modal-footer-button';
-import styles from './modal-story.scss';
 import storyDocs from './modal-story.mdx';
 
 const sizes = {
@@ -39,7 +38,17 @@ export const Default = (args) => {
       event.preventDefault();
     }
   };
+
+  const handleButtonClick = (event: CustomEvent) => {
+    console.log('clicking button', document!.getElementsByTagName('bx-modal'));
+
+    document!.getElementsByTagName('bx-modal')[0]!.open = true;
+  };
+
   return html`
+    <bx-btn @click=${handleButtonClick} id="modal-example-button">
+      Open Modal
+    </bx-btn>
     <bx-modal
       ?open="${open}"
       size="${ifNonNull(size)}"
@@ -129,14 +138,7 @@ ThreeButtons.storyName = 'Three buttons';
 
 export default {
   title: 'Components/Modal',
-  decorators: [
-    (story) => html`
-      <style type="text/css">
-        ${styles.cssText}
-      </style>
-      ${story()}
-    `,
-  ],
+  decorators: [(story) => html` ${story()} `],
   parameters: {
     ...storyDocs.parameters,
     knobs: {
