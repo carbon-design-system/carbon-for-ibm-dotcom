@@ -38,26 +38,20 @@ import '@carbon/web-components/es/components/tag/index.js';
 
 ## Filter tag
 
+Use the `filter` attribute to turn the tag into a filterable element.
+
 ```html
-<cds-filter-tag open type="gray" title="Clear selection">
+<cds-tag filter type="gray" title="Clear selection">
   This is a tag
-</cds-filter-tag>
+</cds-tag>
 ```
 
-## Themeing
+You can use the events to catch the closing of the tag.
 
-In order to get the correct token value for the tag background, you will need to
-apply the following in you `scss` to your themed class. For example:
-
-```css
-@use '@carbon/styles/scss/vendor/@carbon/elements/scss/themes/mixins';
-@use '@carbon/styles/scss/component-tokens';
-@import 'carbon-components/src/components/tag/tag';
-.dds-theme-zone-g90 {
-  @include carbon--theme($carbon--theme--g90, true) {
-    @include emit-component-tokens($tag-colors);
-  }
-}
+```js
+document.addEventListener('dds-tag-closed', (event) => {
+  // use values here
+})
 ```
 
 ## `<cds-tag>` attributes and properties
