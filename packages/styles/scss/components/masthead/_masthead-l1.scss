@@ -15,6 +15,23 @@
 $search-transition: cubic-bezier(0.2, 0, 0.38, 0.9);
 $search-transition-timing: 95ms;
 
+@mixin button-sizing {
+  border: none;
+  border-bottom: 1px solid $ui-03;
+  text-decoration: none;
+  display: flex;
+  justify-content: space-between;
+  padding: $carbon--spacing-05;
+  width: 100%;
+  min-height: $spacing-07;
+  gap: $carbon--spacing-06;
+
+  &:focus {
+    outline: 2px solid $focus;
+    outline-offset: -2px;
+  }
+}
+
 @mixin masthead-l1 {
   .#{$prefix}--masthead__l1,
   :host(#{$dds-prefix}-masthead-l1) {
@@ -81,32 +98,26 @@ $search-transition-timing: 95ms;
     }
 
     .#{$prefix}--masthead__l1-dropdown {
-      // Height of viewport minus the L0/L1 combo.
-      max-height: calc(100vh - 98px);
+      // Height of viewport, minus the L0/L1 combo, minus additional space to match L0 megapanels
+      max-height: calc(100vh - 98px - #{$layout-05} - #{$spacing-09});
       overflow-y: auto;
     }
 
     .#{$prefix}--masthead__l1-dropdown-item {
       @include carbon--type-style(body-short-01);
+      @include button-sizing;
 
       background-color: transparent;
-      border: none;
-      border-bottom: 1px solid $ui-03;
-      text-decoration: none;
       color: $text-02;
-      display: flex;
-      justify-content: space-between;
-      padding: $carbon--spacing-05;
-      width: 100%;
-      min-height: $spacing-07;
-      gap: $carbon--spacing-06;
 
       &:hover {
         background-color: $hover-ui;
+        color: $text-01;
       }
 
       &:active {
         background-color: $active-ui;
+        color: $text-01;
       }
 
       &:active,
@@ -122,14 +133,29 @@ $search-transition-timing: 95ms;
 
       &.is-open {
         background-color: $selected-ui;
+        color: $text-01;
 
         svg {
           transform: rotateX(180deg);
+          color: $icon-01;
         }
       }
 
       svg {
-        color: $icon-01;
+        color: $icon-02;
+      }
+    }
+
+    .#{$prefix}--masthead__l1-dropdown-subsection {
+      padding-bottom: $carbon--spacing-07;
+      border-bottom: 1px solid $ui-03;
+
+      .#{$prefix}--masthead__l1-dropdown-item {
+        padding-block: $carbon--spacing-04;
+        padding-inline-start: $carbon--spacing-05;
+        padding-inline-end: $carbon--spacing-08;
+        border-bottom: none;
+        color: $text-02;
       }
     }
 
@@ -157,7 +183,7 @@ $search-transition-timing: 95ms;
       .#{$prefix}--masthead__l1-dropdown-item {
         @include carbon--type-style(productive-heading-01);
 
-        color: $text-01;
+        color: inherit;
         justify-content: flex-start;
         padding-block: $carbon--spacing-04;
         padding-inline-start: $carbon--spacing-05;
@@ -199,33 +225,56 @@ $search-transition-timing: 95ms;
       }
     }
 
-    .#{$prefix}--masthead__l1-dropdown-subsection {
-      padding-bottom: $carbon--spacing-07;
-      border-bottom: 1px solid $ui-03;
-
-      .#{$prefix}--masthead__l1-dropdown-item {
-        padding-block: $carbon--spacing-04;
-        padding-inline-start: $carbon--spacing-05;
-        padding-inline-end: $carbon--spacing-08;
-        border-bottom: none;
-        color: $text-01;
-      }
-    }
-
     .#{$prefix}--masthead__l1-dropdown-login {
+      @include button-sizing;
+
       color: $interactive-01;
 
       svg {
         color: inherit;
       }
+
+      &:hover {
+        color: $hover-primary-text;
+        background-color: $hover-ui;
+      }
+
+      &:focus {
+        color: $interactive-01;
+      }
+
+      &:active {
+        color: $active-primary;
+        background-color: $active-ui;
+      }
     }
 
     .#{$prefix}--masthead__l1-dropdown-cta {
+      @include button-sizing;
+
       background-color: $interactive-01;
       color: $ui-02;
 
       svg {
         color: inherit;
+      }
+
+      &:hover {
+        background-color: $hover-primary;
+      }
+
+      &:focus {
+        outline-color: $ui-02;
+        outline-offset: calc(-1 * #{$spacing-02});
+      }
+
+      &:active {
+        color: $ui-02;
+        background-color: $active-primary;
+      }
+
+      &:disabled {
+        background-color: $disabled-02;
       }
     }
   }
