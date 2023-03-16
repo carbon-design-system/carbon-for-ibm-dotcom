@@ -25,7 +25,7 @@
   },
   "scripts": {
     "build": "yarn clean && gulp vendor && node scripts/build.js",
-    "build-storybook": "cross-env BABEL_ENV=es build-storybook",
+    "build-storybook": "cross-env NODE_OPTIONS=--openssl-legacy-provider BABEL_ENV=es build-storybook",
     "build-storybook:experimental": "cross-env DDS_FLAGS_ALL=true build-storybook -o storybook-static-experimental",
     "build-storybook:rtl": "cross-env STORYBOOK_USE_RTL=true build-storybook -o storybook-static-rtl",
     "ci-check": "yarn test-ssr && yarn test:unit",
@@ -35,7 +35,7 @@
     "doctoc": "doctoc --title '## Table of Contents' docs",
     "preinstall": "echo \"⛔️⛔️⛔️ATTENTION: @carbon/ibmdotcom-react package will be deprecated in Carbon for IBM.com V2. This package will fall into maintaince-mode only; we will make updates only for potential security issues and high severity bugs. Head to https://www.ibm.com/standards/carbon/developing/frameworks/react for more details.⛔️⛔️⛔️\"",
     "postinstall": "carbon-telemetry collect --install",
-    "start": "yarn storybook",
+    "start": "cross-env NODE_OPTIONS=--openssl-legacy-provider yarn storybook",
     "storybook": "start-storybook -p 9000",
     "test:e2e:build": "node ./tests/e2e/build/build-examples.js",
     "test:e2e:run": "http-server -c-1 tests/e2e/dist --silent",
