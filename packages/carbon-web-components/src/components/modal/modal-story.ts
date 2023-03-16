@@ -39,16 +39,7 @@ export const Default = (args) => {
     }
   };
 
-  const handleButtonClick = (event: CustomEvent) => {
-    console.log('clicking button', document!.getElementsByTagName('bx-modal'));
-
-    document!.getElementsByTagName('bx-modal')[0]!.open = true;
-  };
-
   return html`
-    <bx-btn @click=${handleButtonClick} id="modal-example-button">
-      Open Modal
-    </bx-btn>
     <bx-modal
       ?open="${open}"
       size="${ifNonNull(size)}"
