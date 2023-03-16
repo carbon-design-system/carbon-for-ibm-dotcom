@@ -201,18 +201,40 @@ class BXButton extends HostListenerMixin(FocusMixin(LitElement)) {
             </a>
           `;
     }
-    return html`
-      <button
-        id="button"
-        part="button"
-        class="${classes}"
-        ?autofocus="${autofocus}"
-        ?disabled="${disabled}"
-        type="${ifDefined(type)}">
-        <slot @slotchange="${handleSlotChange}"></slot>
-        <slot name="icon" @slotchange="${handleSlotChange}"></slot>
-      </button>
-    `;
+    return hasIcon
+      ? html`
+          <span
+            class="cds--popover-container cds--popover--caret cds--popover--open cds--popover--high-contrast cds--popover--top cds--tooltip cds--icon-tooltip">
+            <button
+              id="button"
+              part="button"
+              class="${classes}"
+              ?autofocus="${autofocus}"
+              ?disabled="${disabled}"
+              type="${ifDefined(type)}">
+              <slot @slotchange="${handleSlotChange}"></slot>
+              <slot name="icon" @slotchange="${handleSlotChange}"></slot>
+            </button>
+            <span class="cds--popover">
+              <span class="cds--popover-content cds--tooltip-content">
+                TEST!!
+              </span>
+              <span class="cds--popover-caret"></span>
+            </span>
+          </span>
+        `
+      : html`
+          <button
+            id="button"
+            part="button"
+            class="${classes}"
+            ?autofocus="${autofocus}"
+            ?disabled="${disabled}"
+            type="${ifDefined(type)}">
+            <slot @slotchange="${handleSlotChange}"></slot>
+            <slot name="icon" @slotchange="${handleSlotChange}"></slot>
+          </button>
+        `;
   }
 
   static shadowRootOptions = {

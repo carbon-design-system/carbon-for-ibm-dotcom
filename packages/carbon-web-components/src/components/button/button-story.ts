@@ -46,41 +46,26 @@ const iconLayouts = {
 };
 
 export const Default = (args) => {
-  const {
-    autofocus,
-    disabled,
-    download,
-    href,
-    hreflang,
-    isExpressive,
-    kind,
-    linkRole,
-    ping,
-    rel,
-    size,
-    target,
-    type,
-    onClick,
-  } = args?.[`${prefix}-btn`] ?? {};
+  const { onClick } = args?.[`${prefix}-btn`] ?? {};
+  return html` <cds-btn @click=${onClick}> Button </cds-btn> `;
+};
+
+export const Danger = (args) => {
+  const { onClick } = args?.[`${prefix}-btn`] ?? {};
   return html`
-    <cds-btn
-      ?autofocus="${autofocus}"
-      ?disabled="${disabled}"
-      download="${ifDefined(download)}"
-      href="${ifDefined(href)}"
-      hreflang="${ifDefined(hreflang)}"
-      ?isExpressive="${isExpressive}"
-      kind="${ifDefined(kind)}"
-      link-role="${ifDefined(linkRole)}"
-      ping="${ifDefined(ping)}"
-      rel="${ifDefined(rel)}"
-      size="${ifDefined(size)}"
-      target="${ifDefined(target)}"
-      type="${ifDefined(type)}"
-      @click=${onClick}>
-      Button
+    <cds-btn kind="danger" @click=${onClick}> Button </cds-btn>
+    <cds-btn kind="danger--tertiary" @click=${onClick}>
+      Tertiary Danger Button
+    </cds-btn>
+    <cds-btn kind="danger--ghost" @click=${onClick}>
+      Ghost Danger Button
     </cds-btn>
   `;
+};
+
+export const Ghost = (args) => {
+  const { onClick } = args?.[`${prefix}-btn`] ?? {};
+  return html` <cds-btn kind="ghost" @click=${onClick}> Ghost </cds-btn> `;
 };
 
 Default.parameters = {
@@ -96,85 +81,35 @@ Default.parameters = {
   },
 };
 
-export const icon = (args) => {
-  const { kind, disabled, size, href, isExpressive, onClick } =
-    args?.[`${prefix}-btn`] ?? {};
+export const IconButton = (args) => {
+  const { onClick } = args?.[`${prefix}-btn`] ?? {};
   return html`
-    <cds-btn
-      kind=${ifDefined(kind)}
-      ?disabled=${disabled}
-      size=${ifDefined(size)}
-      href=${ifDefined(href || undefined)}
-      ?isExpressive="${isExpressive}"
-      @click=${onClick}>
-      ${Add16({ slot: 'icon' })}
-    </cds-btn>
+    <cds-btn @click=${onClick}> ${Add16({ slot: 'icon' })} </cds-btn>
   `;
 };
 
-icon.parameters = Default.parameters;
+export const Secondary = (args) => {
+  const { onClick } = args?.[`${prefix}-btn`] ?? {};
+  return html` <cds-btn kind="secondary" @click=${onClick}> Button </cds-btn> `;
+};
 
-export const textAndIcon = (args) => {
-  const { kind, disabled, size, href, iconLayout, isExpressive, onClick } =
-    args?.[`${prefix}-btn`] ?? {};
+export const SetOfButtons = (args) => {
+  const { onClick } = args?.[`${prefix}-btn`] ?? {};
+
+  // maybe just link to Carbon for IBM.com Button Group??
   return html`
-    <cds-btn
-      kind=${ifDefined(kind)}
-      ?disabled=${disabled}
-      icon-layout="${ifDefined(iconLayout)}"
-      ?isExpressive="${isExpressive}"
-      size=${ifDefined(size)}
-      href=${ifDefined(href || undefined)}
-      @click=${onClick}>
-      Button ${Add16({ slot: 'icon' })}
-    </cds-btn>
+    <cds-btn kind="secondary" @click=${onClick}> Secondary button </cds-btn>
+    <cds-btn kind="primary" @click=${onClick}> Secondary button </cds-btn>
   `;
 };
 
-textAndIcon.storyName = 'Text and icon';
-
-textAndIcon.parameters = {
-  knobs: {
-    [`${prefix}-btn`]: () => ({
-      iconLayout: select('Icon layout (icon-layout)', iconLayouts, null),
-      kind: select('Button kind (kind)', kinds, BUTTON_KIND.PRIMARY),
-      disabled: boolean('Disabled (disabled)', false),
-      size: select('Button size (size)', sizes, null),
-      href: textNullable('Link href (href)', ''),
-      onClick: action('click'),
-      isExpressive: boolean('expressive (isExpressive)', false),
-    }),
-  },
+export const skeleton = () => {
+  return html` <cds-btn-skeleton> </cds-btn-skeleton> `;
 };
 
-export const skeleton = (args) => {
-  const { disabled, size, href, isExpressive, onClick } =
-    args?.[`${prefix}-btn-skeleton`];
-  return html`
-    <cds-btn-skeleton
-      ?disabled=${disabled}
-      size=${ifDefined(size)}
-      href=${ifDefined(href || undefined)}
-      ?isExpressive="${isExpressive}"
-      @click=${onClick}>
-    </cds-btn-skeleton>
-  `;
-};
-
-skeleton.parameters = {
-  percy: {
-    skip: true,
-  },
-  knobs: {
-    [`${prefix}-btn-skeleton`]: () => ({
-      kind: select('Button kind (kind)', kinds, BUTTON_KIND.PRIMARY),
-      disabled: boolean('Disabled (disabled)', false),
-      size: select('Button size (size)', sizes, null),
-      href: textNullable('Link href (href)', ''),
-      onClick: action('click'),
-      isExpressive: boolean('expressive (isExpressive)', false),
-    }),
-  },
+export const Tertiary = (args) => {
+  const { onClick } = args?.[`${prefix}-btn`] ?? {};
+  return html` <cds-btn kind="tertiary" @click=${onClick}> Button </cds-btn> `;
 };
 
 export default {
