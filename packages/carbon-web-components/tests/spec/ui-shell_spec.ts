@@ -283,8 +283,6 @@ describe('ui-shell', function () {
             href: 'about:blank',
             prefix: 'prefix-foo',
           }),
-          // @ts-ignore
-          x`x`,
           document.body as any
         );
         await Promise.resolve();
