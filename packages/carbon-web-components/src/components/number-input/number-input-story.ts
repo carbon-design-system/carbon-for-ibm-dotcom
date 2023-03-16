@@ -9,7 +9,6 @@
 
 import { html } from 'lit';
 import * as knobs from '@storybook/addon-knobs';
-import textNullable from '../../../.storybook/knob-text-nullable';
 import { ifDefined } from 'lit/directives/if-defined.js';
 import { INPUT_SIZE } from '../input/input';
 import './number-input';
@@ -104,7 +103,7 @@ Playground.storyName = 'Playground';
 
 Playground.parameters = {
   knobs: {
-    [`${prefix}-number-input`]: () => createProps({ ...knobs, textNullable }),
+    [`${prefix}-number-input`]: () => createProps({ ...knobs }),
   },
 };
 
