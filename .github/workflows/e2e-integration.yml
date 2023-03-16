@@ -18,14 +18,14 @@ jobs:
       matrix:
         node-version: ['14.x']
     steps:
-      - uses: actions/checkout@v2
+      - uses: actions/checkout@v3
       - name: Use Node.js 14.x
-        uses: actions/setup-node@v2
+        uses: actions/setup-node@v3
         with:
           node-version: ${{ matrix.node-version }}
           cache: 'yarn'
       - name: Install dependencies
-        run: yarn install
+        run: yarn install --immutable --immutable-cache
       - name: Build
         run: yarn lerna run --stream --ignore @carbon/ibmdotcom-react build
       - name: Build CDN components
@@ -34,7 +34,7 @@ jobs:
       - name: Run e2e codesandbox tests
         run: yarn test:e2e:build && yarn test:e2e:test:no-percy
         working-directory: packages/web-components
-      - uses: act10ns/slack@v1
+      - uses: act10ns/slack@v2
         if: failure()
         env:
           SLACK_WEBHOOK_URL: ${{ secrets.SLACK_WEBHOOK_URL }}
@@ -47,20 +47,20 @@ jobs:
       matrix:
         node-version: [ '14.x' ]
     steps:
-      - uses: actions/checkout@v2
+      - uses: actions/checkout@v3
       - name: Use Node.js 14.x
-        uses: actions/setup-node@v2
+        uses: actions/setup-node@v3
         with:
           node-version: ${{ matrix.node-version }}
           cache: 'yarn'
       - name: Install dependencies
-        run: yarn install
+        run: yarn install --immutable --immutable-cache
       - name: Build
         run: yarn lerna run --stream --ignore @carbon/ibmdotcom-services-store --ignore @carbon/ibmdotcom-web-components build
       - name: Run e2e codesandbox tests
         run: yarn test:e2e:build && yarn test:e2e:test:no-percy
         working-directory: packages/react
-      - uses: act10ns/slack@v1
+      - uses: act10ns/slack@v2
         if: failure()
         env:
           SLACK_WEBHOOK_URL: ${{ secrets.SLACK_WEBHOOK_URL }}

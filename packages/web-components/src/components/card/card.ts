@@ -1,7 +1,7 @@
 /**
  * @license
  *
- * Copyright IBM Corp. 2019, 2022
+ * Copyright IBM Corp. 2019, 2023
  *
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
@@ -16,7 +16,7 @@ import {
   query,
 } from 'lit-element';
 import settings from 'carbon-components/es/globals/js/settings.js';
-import BXLink from '@carbon/web-components/es/components/link/link.js';
+import BXLink from '../../internal/vendor/@carbon/web-components/components/link/link.js';
 import markdownToHtml from '@carbon/ibmdotcom-utilities/es/utilities/markdownToHtml/markdownToHtml.js';
 import ddsSettings from '../../internal/vendor/@carbon/ibmdotcom-utilities/utilities/settings/settings';
 import { BASIC_COLOR_SCHEME } from '../../globals/defs';
@@ -70,11 +70,7 @@ class DDSCard extends StableSelectorMixin(BXLink) {
    */
   protected _handleSlotChange({ target }: Event) {
     const { name } = target as HTMLSlotElement;
-    const hasContent = (target as HTMLSlotElement)
-      .assignedNodes()
-      .some(
-        (node) => node.nodeType !== Node.TEXT_NODE || node!.textContent!.trim()
-      );
+    const hasContent = Boolean(this.querySelector('p'));
     this[slotExistencePropertyNames[name]] = hasContent;
     this._hasCopy = hasContent;
   }

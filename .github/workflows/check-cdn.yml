@@ -15,18 +15,18 @@ jobs:
     env:
       SLACK_WEBHOOK_URL: ${{ secrets.SLACK_WEBHOOK_URL }}
     steps:
-      - uses: actions/checkout@v2
+      - uses: actions/checkout@v3
       - name: Use Node.js 14.x
-        uses: actions/setup-node@v2
+        uses: actions/setup-node@v3
         with:
           node-version: '14.x'
           cache: 'yarn'
       - name: Install dependencies
-        run: yarn install --offline
+        run: yarn install --immutable --immutable-cache
       - name: Run Cypress tests over the CDN packages
         run: yarn test:cdn-build:test
         working-directory: packages/web-components
-      - uses: act10ns/slack@v1
+      - uses: act10ns/slack@v2
         with:
           status: ${{ job.status }}
         if: failure()

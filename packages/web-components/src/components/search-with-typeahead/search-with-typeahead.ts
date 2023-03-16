@@ -1,24 +1,24 @@
 /**
  * @license
  *
- * Copyright IBM Corp. 2019, 2022
+ * Copyright IBM Corp. 2019, 2023
  *
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
  */
 
-import ifNonNull from '@carbon/web-components/es/globals/directives/if-non-null.js';
+import ifNonNull from '../../internal/vendor/@carbon/web-components/globals/directives/if-non-null.js';
 import { classMap } from 'lit-html/directives/class-map.js';
 import { html, property, query, customElement } from 'lit-element';
 import settings from 'carbon-components/es/globals/js/settings.js';
-import Close20 from '@carbon/web-components/es/icons/close/20.js';
-import Search20 from '@carbon/web-components/es/icons/search/20.js';
+import Close20 from '../../internal/vendor/@carbon/web-components/icons/close/20.js';
+import Search20 from '../../internal/vendor/@carbon/web-components/icons/search/20.js';
 import BXDropdown, {
   DROPDOWN_KEYBOARD_ACTION,
-} from '@carbon/web-components/es/components/dropdown/dropdown.js';
-import BXDropdownItem from '@carbon/web-components/es/components/dropdown/dropdown-item.js';
-import HostListener from '@carbon/web-components/es/globals/decorators/host-listener.js';
-import HostListenerMixin from '@carbon/web-components/es/globals/mixins/host-listener.js';
+} from '../../internal/vendor/@carbon/web-components/components/dropdown/dropdown.js';
+import BXDropdownItem from '../../internal/vendor/@carbon/web-components/components/dropdown/dropdown-item.js';
+import HostListener from '../../internal/vendor/@carbon/web-components/globals/decorators/host-listener.js';
+import HostListenerMixin from '../../internal/vendor/@carbon/web-components/globals/mixins/host-listener.js';
 import { baseFontSize, breakpoints } from '@carbon/layout';
 import ddsSettings from '../../internal/vendor/@carbon/ibmdotcom-utilities/utilities/settings/settings';
 import SearchTypeaheadAPI from '../../internal/vendor/@carbon/ibmdotcom-services/services/SearchTypeahead/SearchTypeahead';
@@ -636,7 +636,11 @@ class DDSSearchWithTypeahead extends HostListenerMixin(
       'react-autosuggest__suggestions-container--open': open,
     });
     return html`
-      <form method="get" action="${redirectUrl}" @submit="${handleSubmit}">
+      <form
+        role="search"
+        method="get"
+        action="${redirectUrl}"
+        @submit="${handleSubmit}">
         <input type="hidden" name="lang" value="${primary}" />
         <input type="hidden" name="cc" value="${country}" />
         <input type="hidden" name="lnk" value="mhsrch" />
@@ -758,7 +762,7 @@ class DDSSearchWithTypeahead extends HostListenerMixin(
    * The assistive text for the button to close the search box.
    */
   @property({ attribute: 'close-search-button-assistive-text' })
-  closeSearchButtonAssistiveText = 'Close';
+  closeSearchButtonAssistiveText = 'Clear input';
 
   /**
    * The language embedded in the inner form.

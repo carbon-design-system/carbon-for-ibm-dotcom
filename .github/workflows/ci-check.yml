@@ -2,9 +2,9 @@ name: ci-check
 
 on:
   push:
-    branches: [ main, release/*, feat/cwc-v2 ]
+    branches: [ main, release/*, feat/cwc-v2, fix/content-updates ]
   pull_request:
-    branches: [ main, release/*, feat/cwc-v2 ]
+    branches: [ main, release/*, feat/cwc-v2, fix/content-updates ]
 
 concurrency:
   group: ci-check-${{ github.ref }}
@@ -17,14 +17,14 @@ jobs:
       matrix:
         node-version: ['14.x']
     steps:
-      - uses: actions/checkout@v2
+      - uses: actions/checkout@v3
       - name: Use Node.js
-        uses: actions/setup-node@v2
+        uses: actions/setup-node@v3
         with:
           node-version: ${{ matrix.node-version }}
           cache: 'yarn'
       - name: Install dependencies
-        run: yarn install --offline
+        run: yarn install --immutable --immutable-cache
       - name: Build project
         run: yarn lerna run --stream --ignore @carbon/ibmdotcom-web-components --ignore @carbon/ibmdotcom-services-store build
       - name: Run CI Checks
@@ -37,14 +37,14 @@ jobs:
       matrix:
         node-version: ['14.x']
     steps:
-      - uses: actions/checkout@v2
+      - uses: actions/checkout@v3
       - name: Use Node.js
-        uses: actions/setup-node@v2
+        uses: actions/setup-node@v3
         with:
           node-version: ${{ matrix.node-version }}
           cache: 'yarn'
       - name: Install dependencies
-        run: yarn install --offline
+        run: yarn install --immutable --immutable-cache
       - name: Build project
         run: yarn lerna run --stream --ignore @carbon/ibmdotcom-react build
       - name: Install xvfb
@@ -57,14 +57,14 @@ jobs:
       matrix:
         node-version: ['14.x']
     steps:
-      - uses: actions/checkout@v2
+      - uses: actions/checkout@v3
       - name: Use Node.js
-        uses: actions/setup-node@v2
+        uses: actions/setup-node@v3
         with:
           node-version: ${{ matrix.node-version }}
           cache: 'yarn'
       - name: Install dependencies
-        run: yarn install --offline
+        run: yarn install --immutable --immutable-cache
       - name: Build project
         run: yarn build
       - name: Install xvfb

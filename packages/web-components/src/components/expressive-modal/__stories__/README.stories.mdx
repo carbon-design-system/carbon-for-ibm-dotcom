@@ -67,6 +67,20 @@ import '@carbon/ibmdotcom-web-components/es/components/expressive-modal/index.js
 </dds-expressive-modal>
 ```
 
+## Accessibility Notes
+
+### Dialog labeling
+
+The expressive modal anticipates content within the `header` slot to be used as the accessible aria label for the dialog box. Even if a design does not call for the modal to have content in the title slot, it is _required_ for accessibility. The header can be visually hidden using the `.bx--visually-hidden` or `.bx--assistive-text` classes. This will prevent the text from rendering on the screen, but will still be announced to assistive technology users.
+
+```html
+<dds-expressive-modal id="my-lightbox" expressive-size="full-width">
+  <dds-expressive-modal-close-button></dds-expressive-modal-close-button>
+  <span class="bx--visually-hidden" slot="header">Dialog box label text</span>
+  ...
+</dds-expressive-modal>
+```
+
 ## Opening/closing modal from code
 
 Opening/closing modal from code can be done by changing `open` attribute/property. For example we have HTML like this:

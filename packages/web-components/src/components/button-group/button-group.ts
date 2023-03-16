@@ -7,7 +7,7 @@
  * LICENSE file in the root directory of this source tree.
  */
 import { customElement, html, LitElement } from 'lit-element';
-import { BUTTON_KIND } from '@carbon/web-components/es/components/button/defs.js';
+import { BUTTON_KIND } from '../../internal/vendor/@carbon/web-components/components/button/defs.js';
 import ddsSettings from '@carbon/ibmdotcom-utilities/es/utilities/settings/settings.js';
 import styles from './button-group.scss';
 import StableSelectorMixin from '../../globals/mixins/stable-selector';
@@ -73,7 +73,7 @@ class DDSButtonGroup extends StableSelectorMixin(LitElement) {
   }
 
   /**
-   * The CSS custom property name for the live button group item cout.
+   * The CSS custom property name for the live button group item count.
    */
   static get customPropertyItemCount() {
     return `--${ddsPrefix}--button-group--item-count`;

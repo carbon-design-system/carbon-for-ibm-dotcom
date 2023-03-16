@@ -1,7 +1,7 @@
 /**
  * @license
  *
- * Copyright IBM Corp. 2020, 2022
+ * Copyright IBM Corp. 2020, 2023
  *
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
@@ -10,11 +10,11 @@
 import findLast from 'lodash-es/findLast.js';
 import { html, query, property, customElement } from 'lit-element';
 import settings from 'carbon-components/es/globals/js/settings.js';
-import { selectorTabbable } from '@carbon/web-components/es/globals/settings.js';
-import HostListener from '@carbon/web-components/es/globals/decorators/host-listener.js';
+import { selectorTabbable } from '../../internal/vendor/@carbon/web-components/globals/settings.js';
+import HostListener from '../../internal/vendor/@carbon/web-components/globals/decorators/host-listener.js';
 import BXSideNav, {
   SIDE_NAV_USAGE_MODE,
-} from '@carbon/web-components/es/components/ui-shell/side-nav.js';
+} from '../../internal/vendor/@carbon/web-components/components/ui-shell/side-nav.js';
 import ddsSettings from '../../internal/vendor/@carbon/ibmdotcom-utilities/utilities/settings/settings';
 import focuswrap from '../../internal/vendor/@carbon/ibmdotcom-utilities/utilities/focuswrap/focuswrap';
 import { find, forEach } from '../../globals/internal/collection-helpers';
@@ -23,7 +23,6 @@ import StableSelectorMixin from '../../globals/mixins/stable-selector';
 import DDSLeftNavOverlay from './left-nav-overlay';
 import styles from './masthead.scss';
 import DDSLeftNavMenuSection from './left-nav-menu-section';
-import DDSMasthead from './masthead';
 
 const { prefix } = settings;
 const { stablePrefix: ddsPrefix } = ddsSettings;
@@ -58,6 +57,9 @@ class DDSLeftNav extends StableSelectorMixin(BXSideNav) {
    */
   @query('#end-sentinel')
   private _endSentinelNode!: HTMLAnchorElement;
+
+  @property({ type: Boolean })
+  private _importedSideNav = false;
 
   /**
    * Handles `dds-request-focus-wrap` event on the document.
@@ -246,9 +248,23 @@ class DDSLeftNav extends StableSelectorMixin(BXSideNav) {
         _endSentinelNode: endSentinelNode,
       } = this;
 
-      const masthead: DDSMasthead | null | undefined = doc
-        ?.querySelector('dds-cloud-masthead-container')
-        ?.querySelector('dds-masthead');
+      const masthead: HTMLElement | null | undefined = doc
+        ?.querySelector(
+          `${ddsPrefix}-cloud-masthead-container, 
+          ${ddsPrefix}-cloud-masthead-composite, 
+          ${ddsPrefix}-masthead-container, 
+          ${ddsPrefix}-masthead-composite`
+        )
+        ?.querySelector(`${ddsPrefix}-masthead`);
+      if (expanded && !this._importedSideNav) {
+        import('./left-nav-name');
+        import('./left-nav-menu');
+        import('./left-nav-menu-section');
+        import('./left-nav-menu-item');
+        import('./left-nav-menu-category-heading');
+        import('./left-nav-overlay');
+        this._importedSideNav = true;
+      }
       if (expanded && masthead) {
         this._hFocusWrap = focuswrap(this.shadowRoot!, [
           startSentinelNode,

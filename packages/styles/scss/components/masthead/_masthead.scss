@@ -1,5 +1,5 @@
 /**
- * Copyright IBM Corp. 2016, 2022
+ * Copyright IBM Corp. 2016, 2023
  *
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
@@ -157,10 +157,8 @@ $search-transition-timing: 95ms;
 
   &:active,
   &:focus {
-    background-color: $selected-ui;
     outline: 2px solid $interactive-01;
     outline-offset: -2px;
-    color: $text-01;
     > svg {
       fill: $text-01;
     }
@@ -643,7 +641,7 @@ $search-transition-timing: 95ms;
     }
   }
 
-  button.#{$prefix}--header__search--close.#{$prefix}--header__action[aria-label='Close'] {
+  button.#{$prefix}--header__search--close.#{$prefix}--header__action[part='close-button'] {
     overflow: hidden;
     width: 0;
     border: none;

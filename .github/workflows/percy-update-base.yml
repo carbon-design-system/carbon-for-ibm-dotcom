@@ -2,7 +2,7 @@ name: percy-update-base
 
 on:
   push:
-    branches: [ main, release/*, feat/cwc-v2 ]
+    branches: [ main, release/*, feat/cwc-v2, fix/content-updates ]
 
 concurrency:
   group: percy-update-base-${{ github.ref }}
@@ -16,14 +16,14 @@ jobs:
       matrix:
         node-version: ['14.x']
     steps:
-      - uses: actions/checkout@v2
+      - uses: actions/checkout@v3
       - name: Use Node.js 14.x
-        uses: actions/setup-node@v2
+        uses: actions/setup-node@v3
         with:
           node-version: ${{ matrix.node-version }}
           cache: 'yarn'
       - name: Install dependencies
-        run: yarn install
+        run: yarn install --immutable --immutable-cache
       - name: Install xvfb
         run: sudo apt-get install xvfb
       - name: Build
@@ -46,14 +46,14 @@ jobs:
       matrix:
         node-version: [ '14.x' ]
     steps:
-      - uses: actions/checkout@v2
+      - uses: actions/checkout@v3
       - name: Use Node.js 14.x
-        uses: actions/setup-node@v2
+        uses: actions/setup-node@v3
         with:
           node-version: ${{ matrix.node-version }}
           cache: 'yarn'
       - name: Install dependencies
-        run: yarn install
+        run: yarn install --immutable --immutable-cache
       - name: Install xvfb
         run: sudo apt-get install xvfb
       - name: Build
@@ -74,14 +74,14 @@ jobs:
       matrix:
         node-version: ['14.x']
     steps:
-      - uses: actions/checkout@v2
+      - uses: actions/checkout@v3
       - name: Use Node.js 14.x
-        uses: actions/setup-node@v2
+        uses: actions/setup-node@v3
         with:
           node-version: ${{ matrix.node-version }}
           cache: 'yarn'
       - name: Install dependencies
-        run: yarn install
+        run: yarn install --immutable --immutable-cache
       - name: Install xvfb
         run: sudo apt-get install xvfb
       - name: Build
@@ -104,14 +104,14 @@ jobs:
       matrix:
         node-version: ['14.x']
     steps:
-      - uses: actions/checkout@v2
+      - uses: actions/checkout@v3
       - name: Use Node.js 14.x
-        uses: actions/setup-node@v2
+        uses: actions/setup-node@v3
         with:
           node-version: ${{ matrix.node-version }}
           cache: 'yarn'
       - name: Install dependencies
-        run: yarn install
+        run: yarn install --immutable --immutable-cache
       - name: Install xvfb
         run: sudo apt-get install xvfb
       - name: Build

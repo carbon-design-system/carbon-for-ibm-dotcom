@@ -15,6 +15,12 @@ import textNullable from '../../../../.storybook/knob-text-nullable';
 export const Default = (args) => {
   const { colSpan1, colSpan2, colSpan3, colSpan4 } = args?.StructuredList ?? {};
   return html`
+    <style>
+      html,
+      body {
+        overflow-x: hidden;
+      }
+    </style>
     <dds-structured-list
       col-span-1="${colSpan1 ?? ''}"
       col-span-2="${colSpan2 ?? ''}"

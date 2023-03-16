@@ -1,5 +1,5 @@
 /**
- * Copyright IBM Corp. 2016, 2022
+ * Copyright IBM Corp. 2016, 2023
  *
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
@@ -59,7 +59,9 @@ $button-transition: background-color 110ms, border-color 110ms, color 110ms;
     }
   }
 
-  .#{$prefix}--header__search:not(.#{$prefix}--masthead__header--search-active) {
+  .#{$prefix}--header__search:not(
+      .#{$prefix}--masthead__header--search-active
+    ) {
     @include carbon--breakpoint(md) {
       overflow-x: visible;
     }
@@ -130,7 +132,7 @@ $button-transition: background-color 110ms, border-color 110ms, color 110ms;
     border-color: $focus;
   }
 
-  button.#{$prefix}--header__search--close.#{$prefix}--header__action[aria-label='Close'] {
+  button.#{$prefix}--header__search--close.#{$prefix}--header__action[part='close-button'] {
     overflow: hidden;
     width: 0;
     border: none;
@@ -167,7 +169,7 @@ $button-transition: background-color 110ms, border-color 110ms, color 110ms;
       width: 100%;
       margin-left: 0;
 
-      button.#{$prefix}--header__search--close.#{$prefix}--header__action[aria-label='Close'] {
+      button.#{$prefix}--header__search--close.#{$prefix}--header__action[part='close-button'] {
         display: inline-flex;
       }
 

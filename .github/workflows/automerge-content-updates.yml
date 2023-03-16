@@ -1,0 +1,29 @@
+name: automerge-content-updates
+on:
+  push:
+    branches:
+      - 'main'
+
+concurrency:
+  group: automerge-content-updates-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  automerge-content-updates:
+    if: github.repository == 'carbon-design-system/carbon-for-ibm-dotcom'
+    runs-on: ubuntu-20.04
+    env:
+      SLACK_WEBHOOK_URL: ${{ secrets.SLACK_WEBHOOK_URL }}
+    steps:
+      - uses: actions/checkout@v3
+      - name: Merge to fix/content-updates
+        uses: devmasx/merge-branch@1.4.0
+        with:
+          type: now
+          target_branch: 'fix/content-updates'
+        env:
+          GITHUB_TOKEN: ${{secrets.MERGE_ACTION}}
+      - uses: act10ns/slack@v2
+        with:
+          status: ${{ job.status }}
+        if: failure()

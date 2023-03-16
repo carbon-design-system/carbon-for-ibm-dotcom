@@ -1,14 +1,14 @@
 /**
  * @license
  *
- * Copyright IBM Corp. 2020, 2022
+ * Copyright IBM Corp. 2020, 2023
  *
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
  */
 
 import { html, render } from 'lit-html';
-import ifNonNull from '@carbon/web-components/es/globals/directives/if-non-null.js';
+import ifNonNull from '../../../internal/vendor/@carbon/web-components/globals/directives/if-non-null.js';
 import EventManager from '../../../../tests/utils/event-manager';
 import { MastheadLink } from '../../../internal/vendor/@carbon/ibmdotcom-services-store/types/translateAPI.d';
 import DDSMastheadComposite from '../masthead-composite';
@@ -43,46 +43,6 @@ const navLinksFoo: MastheadLink[] = [
           {
             title: 'menu-item-title-bar',
             url: 'https://carbon-design-system.github.io/carbon-for-ibm-dotcom/canary/web-components/bar',
-          },
-        ],
-      },
-    ],
-  },
-];
-
-const navLinksMegaMenu: MastheadLink[] = [
-  {
-    hasMegapanel: true,
-    title: 'menu-title',
-    menuSections: [
-      {
-        menuItems: [
-          {
-            highlighted: true,
-            title: 'menu-section-1-title',
-            url: 'https://www.ibm.com',
-            megapanelContent: {
-              feature: {},
-              quickLinks: {
-                title: '',
-                links: [
-                  { title: 'category-link-1', url: 'https://www.ibm.com' },
-                ],
-              },
-            },
-          },
-          {
-            title: 'menu-section-2-title',
-            url: 'https://www.ibm.com',
-            megapanelContent: {
-              feature: {},
-              quickLinks: {
-                title: '',
-                links: [
-                  { title: 'category-link-2', url: 'https://www.ibm.com' },
-                ],
-              },
-            },
           },
         ],
       },
@@ -147,16 +107,6 @@ describe('dds-masthead-composite', function () {
         document.body
           .querySelector('dds-masthead-composite')!
           .querySelector('dds-left-nav')
-      ).toMatchSnapshot();
-    });
-
-    it('should render the megamenu', async function () {
-      render(template({ navLinks: navLinksMegaMenu }), document.body);
-      await Promise.resolve();
-      expect(
-        document.body
-          .querySelector('dds-masthead-composite')!
-          .querySelector('dds-megamenu')
       ).toMatchSnapshot();
     });
   });

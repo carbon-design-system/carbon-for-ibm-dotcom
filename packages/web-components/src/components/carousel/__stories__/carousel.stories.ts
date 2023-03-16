@@ -1,7 +1,7 @@
 /**
  * @license
  *
- * Copyright IBM Corp. 2020, 2022
+ * Copyright IBM Corp. 2020, 2023
  *
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
@@ -12,8 +12,8 @@ import { html } from 'lit-element';
 // Below path will be there when an application installs `carbon-web-components` package.
 // In our dev env, we auto-generate the file and re-map below path to to point to the generated file.
 // @ts-ignore
-import ifNonNull from '@carbon/web-components/es/globals/directives/if-non-null.js';
-import ArrowRight20 from '@carbon/web-components/es/icons/arrow--right/20.js';
+import ifNonNull from '../../../internal/vendor/@carbon/web-components/globals/directives/if-non-null.js';
+import ArrowRight20 from '../../../internal/vendor/@carbon/web-components/icons/arrow--right/20.js';
 import '../../card/index';
 import '../../cta/index';
 import '../../image/index';
@@ -41,7 +41,7 @@ const Card = ({
 } = {}) => html`
   <dds-card href="${ifNonNull(href)}">
     <dds-card-heading>${heading}</dds-card-heading>
-    ${copy}
+    <p>${copy}</p>
     ${image
       ? html`
           <dds-image
@@ -62,7 +62,7 @@ const CardWithLongHeading = ({
 } = {}) => html`
   <dds-card href="${ifNonNull(href)}">
     <dds-card-heading>${heading} ${heading}</dds-card-heading>
-    ${copy}
+    <p>${copy}</p>
     ${image
       ? html`
           <dds-image
@@ -78,7 +78,7 @@ const CardWithLongHeading = ({
 const CardWithVideo = ({ copy = copyDefault, href = hrefDefault } = {}) => html`
   <dds-video-cta-container>
     <dds-card-cta cta-type="video" href="${href}">
-      ${copy}
+      <p>${copy}</p>
       <dds-card-cta-footer href="${href}">
         ${ArrowRight20({ slot: 'icon' })}
       </dds-card-cta-footer>
@@ -93,6 +93,9 @@ export const Default = (args) => {
   });
   return html`
     <dds-carousel class="${classes}">
+      <span class="bx--visually-hidden" slot="title"
+        >Carousel (Storybook Sample)</span
+      >
       ${Card()}${Card({ copy: copyOdd })}${CardWithLongHeading()}${Card({
         copy: copyOdd,
       })}${Card()}

@@ -1,15 +1,15 @@
 /**
  * @license
  *
- * Copyright IBM Corp. 2020, 2022
+ * Copyright IBM Corp. 2020, 2023
  *
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
  */
 
 import { html } from 'lit-element';
-import ifNonNull from '@carbon/web-components/es/globals/directives/if-non-null.js';
-import ArrowRight20 from '@carbon/web-components/es/icons/arrow--right/20.js';
+import ifNonNull from '../../../internal/vendor/@carbon/web-components/globals/directives/if-non-null.js';
+import ArrowRight20 from '../../../internal/vendor/@carbon/web-components/icons/arrow--right/20.js';
 import '../index';
 import styles from './card-section-carousel.stories.scss';
 import readme from './README.stories.mdx';
@@ -30,7 +30,7 @@ const Card = ({
 } = {}) => html`
   <dds-card href="${ifNonNull(href)}">
     <dds-card-heading>${heading}</dds-card-heading>
-    ${copy}
+    <p>${copy}</p>
     <dds-card-footer> ${ArrowRight20({ slot: 'icon' })} </dds-card-footer>
   </dds-card>
 `;
