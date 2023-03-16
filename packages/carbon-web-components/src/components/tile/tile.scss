@@ -25,10 +25,12 @@ $css--plex: true !default;
 
 :host(#{$prefix}-tile-group) {
   @extend .#{$prefix}--tile-group;
+
+  background: transparent;
 }
 
 :host(#{$prefix}-clickable-tile) {
-  display: content;
+  display: grid;
   outline: none;
 
   .#{$prefix}--link--disabled {
@@ -48,6 +50,12 @@ $css--plex: true !default;
 
     &:focus {
       @include focus-outline('outline');
+    }
+  }
+
+  &:hover {
+    .#{$prefix}--tile--clickable {
+      color: inherit;
     }
   }
 }

@@ -14,9 +14,7 @@ import { customElement } from 'lit/decorators.js';
 import { prefix } from '../../globals/settings';
 import HostListener from '../../globals/decorators/host-listener';
 import HostListenerMixin from '../../globals/mixins/host-listener';
-import RadioGroupManager, {
-  NAVIGATION_DIRECTION,
-} from '../../globals/internal/radio-group-manager';
+import { NAVIGATION_DIRECTION } from '../../globals/internal/radio-group-manager';
 import SelectableTile from './selectable-tile';
 import CheckmarkFilled16 from '@carbon/icons/lib/checkmark--filled/16';
 
@@ -36,41 +34,11 @@ const navigationDirectionForKey = {
  * @element cds-radio-tile
  */
 @customElement(`${prefix}-radio-tile`)
-class BXRadioTile extends HostListenerMixin(SelectableTile) {
-  /**
-   * The radio group manager associated with the radio button.
-   */
-  private _manager!: RadioGroupManager;
-
+class CDSRadioTile extends HostListenerMixin(SelectableTile) {
   /**
    * The `type` attribute of the `<input>`.
    */
   protected _inputType = 'radio';
-
-  /**
-   * Attaches the radio button to the radio group manager.
-   */
-  private _attachManager() {
-    if (!this._manager) {
-      this._manager = RadioGroupManager.get(
-        this.getRootNode({ composed: true }) as Document
-      );
-    }
-    const { name, _inputNode: inputNode, _manager: manager } = this;
-    if (inputNode && name) {
-      manager!.add(inputNode);
-    }
-  }
-
-  /**
-   * Detaches the radio button to the radio group manager.
-   */
-  private _detachManager() {
-    const { _inputNode: inputNode, _manager: manager } = this;
-    if (inputNode && manager) {
-      manager.delete(inputNode);
-    }
-  }
 
   /**
    * Handles `keydown` event on this element.
@@ -79,15 +47,23 @@ class BXRadioTile extends HostListenerMixin(SelectableTile) {
   // @ts-ignore: The decorator refers to this method but TS thinks this method is not referred to
   private _handleKeydown = (event: KeyboardEvent) => {
     const { _inputNode: inputNode } = this;
-    const manager = this._manager;
-    if (inputNode && manager) {
+    if (inputNode) {
       const navigationDirection = navigationDirectionForKey[event.key];
       if (navigationDirection) {
-        manager.select(manager.navigate(inputNode, navigationDirection));
+        const siblings = (this.parentElement as any).radioTiles;
+        const currentIndex = [...siblings].findIndex((e) => e == this);
+        const nextIndex = currentIndex + navigationDirection;
+        const nextSibling =
+          nextIndex !== -1
+            ? siblings[nextIndex % siblings.length]
+            : siblings[siblings.length - 1];
+
+        nextSibling.focus();
+        nextSibling._handleChange();
         event.preventDefault(); // Prevent default (scrolling) behavior
       }
       if (event.key === ' ' || event.key === 'Enter') {
-        manager.select(inputNode);
+        this._handleChange();
       }
     }
   };
@@ -96,33 +72,19 @@ class BXRadioTile extends HostListenerMixin(SelectableTile) {
    * Handles `change` event on the `<input>` in the shadow DOM.
    */
   protected _handleChange() {
-    super._handleChange();
-    if (this._manager) {
-      this._manager.select(this._inputNode);
-    }
-  }
-
-  connectedCallback() {
-    super.connectedCallback();
-    this._attachManager();
-  }
-
-  disconnectedCallback() {
-    this._detachManager();
-    super.disconnectedCallback();
-  }
-
-  shouldUpdate(changedProperties) {
-    if (changedProperties.has('name')) {
-      this._detachManager();
-    }
-    return true;
-  }
-
-  updated(changedProperties) {
-    if (changedProperties.has('name')) {
-      this._attachManager();
-    }
+    this.selected = true;
+    const { selected, name } = this;
+    const { eventRadioChange } = this.constructor as typeof CDSRadioTile;
+    this.dispatchEvent(
+      new CustomEvent(eventRadioChange, {
+        bubbles: true,
+        composed: true,
+        detail: {
+          selected,
+          name,
+        },
+      })
+    );
   }
 
   render() {
@@ -163,6 +125,13 @@ class BXRadioTile extends HostListenerMixin(SelectableTile) {
       </label>
     `;
   }
+
+  /**
+   * The name of the custom event fired after this selectable tile changes its selected state.
+   */
+  static get eventRadioChange() {
+    return `${prefix}-radio-tile-selected`;
+  }
 }
 
-export default BXRadioTile;
+export default CDSRadioTile;
