@@ -275,6 +275,7 @@
     top: 0;
     background-color: $ui-background;
     z-index: 1;
+
     button {
       width: 100%;
       border: none;
@@ -288,9 +289,21 @@
       padding: 0 1rem;
       background-color: $ui-background;
 
+      &:hover {
+        background-color: $hover-ui;
+
+        > .#{$prefix}--side-nav__link-text {
+          color: $hover-primary-text;
+        }
+      }
+
       &:focus {
         outline: 2px solid $focus;
         outline-offset: -2px;
+
+        > .#{$prefix}--side-nav__link-text {
+          color: $link-01;
+        }
       }
 
       > .#{$prefix}--side-nav__link-text {
@@ -313,12 +326,6 @@
         }
       }
     }
-  }
-
-  .#{$prefix}--masthead__side-nav--submemu-back
-    button:focus
-    > .#{$prefix}--side-nav__link-text {
-    color: $link-01;
   }
 
   :host(#{$dds-prefix}-left-nav-menu-section)[expanded],
@@ -503,6 +510,12 @@
     }
 
     &.#{$prefix}--side-nav__group-view-all {
+      &:hover {
+        .#{$prefix}--side-nav__link-text {
+          color: $hover-primary-text;
+        }
+      }
+
       .#{$prefix}--side-nav__link-text {
         color: $interactive-01;
         display: inline-flex;

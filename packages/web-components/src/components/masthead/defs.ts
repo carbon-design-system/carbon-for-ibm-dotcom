@@ -74,8 +74,3 @@ export enum MEGAMENU_LAYOUT_SCHEME {
   TAB = 'tab',
   LIST = 'list',
 }
-
-export enum MEGAPANEL_VIEW_ALL_POSITION {
-  LEFT = 'left',
-  RIGHT = 'right',
-}

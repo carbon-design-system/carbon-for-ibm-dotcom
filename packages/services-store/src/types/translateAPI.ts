@@ -308,16 +308,13 @@ export interface L0MenuItem extends BasicLink {
 export interface L0Megamenu {
   sections: Megapanel[];
   highlights?: MegapanelLinkGroup[];
-  viewAll?: MegapanelViewAll;
-}
-
-export interface MegapanelViewAll extends BasicLink {
-  position?: 'left' | 'right';
+  viewAll?: BasicLink;
 }
 
 export interface Megapanel {
   heading?: BasicLink;
   groups: MegapanelLinkGroup[];
+  viewAll?: BasicLink;
 }
 
 export interface MegapanelLinkGroup {
