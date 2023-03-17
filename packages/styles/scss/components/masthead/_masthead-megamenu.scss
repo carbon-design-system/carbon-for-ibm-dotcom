@@ -5,6 +5,11 @@
  * LICENSE file in the root directory of this source tree.
  */
 
+@mixin masthead-megamenu-limit-height {
+  max-height: var(--#{$dds-prefix}-masthead-max-height);
+  overflow: var(--#{$dds-prefix}-masthead-overflow);
+}
+
 @mixin masthead-megamenu {
   $l0-nav-height: $spacing-09;
   $l1-nav-height: rem(98px);
@@ -109,6 +114,10 @@
   :host(#{$dds-prefix}-cloud-megamenu),
   .#{$prefix}--masthead__megamenu {
     @include box-shadow;
+    --#{$dds-prefix}-masthead-max-height: calc(
+      100vh - var(--cds-spacing-09, 3rem) - var(--cds-layout-05, 4rem)
+    );
+    --#{$dds-prefix}-masthead-overflow: overlay;
 
     display: block;
     overflow-y: overlay;
@@ -123,13 +132,109 @@
       @include carbon--make-container;
 
       width: 100vw;
+    }
 
-      .#{$prefix}--masthead__megamenu__container--row {
+    .#{$prefix}--masthead__megamenu__container--row {
+      background-color: $ui-03;
+
+      /**
+       * Faceted (tab) and Simple (list) megamenus have different layouts between
+       * 'md' and 'lg' breakpoints. This requires us to apply identical styles at
+       * different breakpoints, and we must also leverage custom properties to assign
+       * values across shadow roots. The concept is that these upper shadow roots have
+       * the stateful information needed to dictate how elements in the lower shadow
+       * roots should appear, and we can pass that information down via custom props.
+       */
+      &.#{$prefix}--masthead__megamenu__container--row--tab {
         @include carbon--make-row;
 
-        background-color: $ui-03;
         flex-wrap: nowrap;
         gap: 1px;
+
+        ::slotted(#{$dds-prefix}-megamenu-right-navigation) {
+          --#{$dds-prefix}-right-nav-padding: #{$layout-01};
+        }
+      }
+
+      &.#{$prefix}--masthead__megamenu__container--row--list {
+        @include carbon--breakpoint-down(lg) {
+          @include masthead-megamenu-limit-height;
+          --#{$dds-prefix}-view-all-inset: calc(#{$layout-01} * -1);
+          --#{$dds-prefix}-view-all-container-position: initial;
+          --#{$dds-prefix}-view-all-container-transform: initial;
+
+          // Set containing block for fixed position view all CTA.
+          transform: rotate(0deg);
+          position: relative;
+          z-index: 1;
+
+          margin-inline: calc(#{$layout-04} * -1);
+        }
+
+        @include carbon--breakpoint(lg) {
+          @include carbon--make-row;
+
+          flex-wrap: nowrap;
+          gap: 1px;
+        }
+
+        ::slotted(#{$dds-prefix}-megamenu-left-navigation),
+        ::slotted(#{$dds-prefix}-megamenu-right-navigation) {
+          @include carbon--breakpoint-down(lg) {
+            --#{$dds-prefix}-view-all-padding: #{$layout-01};
+            --#{$dds-prefix}-masthead-max-height: initial;
+            --#{$dds-prefix}-masthead-overflow: initial;
+
+            width: 100%;
+            max-width: initial;
+            margin-inline: initial;
+            padding-inline: $layout-03;
+            border-bottom: carbon--rem(1px) solid $ui-03;
+            overflow: initial;
+            max-height: initial;
+
+            .#{$prefix}--masthead__megamenu-container {
+              max-height: initial;
+              overflow: initial;
+            }
+          }
+        }
+
+        ::slotted(#{$dds-prefix}-megamenu-left-navigation) {
+          --#{$dds-prefix}-left-nav-columns: 2;
+
+          @include carbon--breakpoint(lg) {
+            --#{$dds-prefix}-left-nav-columns: initial;
+          }
+        }
+
+        ::slotted(#{$dds-prefix}-megamenu-right-navigation) {
+          --#{$dds-prefix}-right-nav-padding: 0;
+
+          @include carbon--breakpoint-down(lg) {
+            --#{$dds-prefix}-view-all-display: none;
+
+            border-bottom: none;
+          }
+
+          @include carbon--breakpoint(lg) {
+            --#{$dds-prefix}-right-nav-padding: #{$layout-01};
+          }
+        }
+
+        ::slotted([part*='view-all']) {
+          --#{$dds-prefix}-view-all-padding: #{$layout-04};
+
+          position: sticky;
+          z-index: 1;
+          inset-block-end: 0;
+          background-color: $ui-background;
+          border-top: carbon--rem(1px) solid $ui-03;
+
+          @include carbon--breakpoint(lg) {
+            display: none;
+          }
+        }
       }
     }
 
@@ -148,40 +253,40 @@
     position: relative;
 
     .#{$prefix}--masthead__megamenu-container {
-      position: relative;
+      @include masthead-megamenu-limit-height;
+
+      position: var(--#{$dds-prefix}-view-all-container-position, relative);
       height: 100%;
       z-index: 1;
 
       // Set containing block for fixed position view all CTA.
-      transform: rotate(0deg);
-    }
+      transform: var(
+        --#{$dds-prefix}-view-all-container-transform,
+        rotate(0deg)
+      );
 
-    .#{$prefix}--masthead__megamenu--has-view-all-link {
-      height: 100%;
-      padding-bottom: $spacing-09;
-      overflow: auto;
-    }
+      &.#{$prefix}--masthead__megamenu-container--has-view-all-link {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
 
-    .#{$prefix}--masthead__megamenu__view-all {
-      position: fixed;
-      inset-block-end: 0;
-      inset-inline: 0;
-      background-color: $ui-background;
-    }
+        .#{$prefix}--masthead__megamenu-container-inner {
+          max-height: 100%;
+          overflow: overlay;
+        }
 
-    .#{$prefix}--masthead__megamenu__view-all__border {
-      position: absolute;
-      top: 0;
-      height: carbon--rem(1px);
-      background: $ui-03;
-    }
+        .#{$prefix}--masthead__megamenu__view-all {
+          display: var(--#{$dds-prefix}-view-all-display, inherit);
+          position: relative;
+          background-color: $ui-background;
+        }
 
-    #{$dds-prefix}-megamenu-link-with-icon[part='view-all'],
-    .#{$prefix}--masthead__megamenu__view-all-cta {
-      margin-inline-start: calc(#{$layout-01} * -1);
-
-      &::part(link) {
-        padding-inline-start: calc(#{$layout-01} * 2);
+        .#{$prefix}--masthead__megamenu__view-all__border {
+          position: absolute;
+          top: 0;
+          height: carbon--rem(1px);
+          background: $ui-03;
+        }
       }
     }
   }
@@ -196,6 +301,11 @@
     padding-inline-start: $layout-01;
     margin-inline-start: calc(#{$layout-01} * -1);
 
+    .#{$prefix}--masthead__megamenu__categories {
+      columns: var(--#{$dds-prefix}-left-nav-columns, 'initial');
+      gap: 0;
+    }
+
     .#{$prefix}--masthead__megamenu__view-all__border {
       inset-inline: 0;
     }
@@ -206,13 +316,17 @@
     display: block;
     width: 100%;
 
-    &[style-scheme='has-sidebar'] {
+    &.#{$dds-prefix}--masthead__tabpanel-child {
       height: 100%;
+    }
 
+    &[style-scheme='has-sidebar'] {
       .#{$prefix}--masthead__megamenu__heading,
-      .#{$prefix}--masthead__megamenu__categories,
-      [part='view-all'] {
-        padding-inline-start: $layout-01;
+      .#{$prefix}--masthead__megamenu__categories {
+        padding-inline-start: var(
+          --#{$dds-prefix}-right-nav-padding,
+          $layout-01
+        );
       }
     }
 
@@ -227,7 +341,7 @@
       }
     }
 
-    .#{$prefix}--masthead__megamenu--has-sidebar {
+    .#{$prefix}--masthead__megamenu-container--has-sidebar {
       ::slotted(#{$dds-prefix}-megamenu-heading) {
         --heading-description-column-count: 2;
         --heading-description-column-count-lg: 3;
@@ -256,8 +370,7 @@
 
     // Disable columns here so child element can reapply them.
     &[data-child-count='1'] {
-      .#{$prefix}--masthead__megamenu__categories,
-      .#{$prefix}--masthead__megamenu__categories.#{$prefix}--masthead__megamenu--has-sidebar {
+      .#{$prefix}--masthead__megamenu__categories {
         column-count: initial;
 
         @include carbon--breakpoint('lg') {
@@ -423,14 +536,22 @@
     }
   }
 
-  :host(#{$dds-prefix}-megamenu-link-with-icon)[part='view-all'],
+  :host(#{$dds-prefix}-megamenu-link-with-icon)[part*='view-all'],
   .#{$prefix}--masthead__megamenu__view-all-cta {
+    width: 100%;
     display: flex;
+
+    &[part*='view-all-left'] {
+      [part='link'] {
+        padding-inline-start: $layout-01;
+      }
+    }
 
     [part='link'] {
       text-decoration: none;
       width: 100%;
-      padding-inline: $spacing-05;
+      padding-inline: var(--#{$dds-prefix}-view-all-padding, #{$layout-03})
+        $spacing-05;
       height: $spacing-09;
 
       &:hover {

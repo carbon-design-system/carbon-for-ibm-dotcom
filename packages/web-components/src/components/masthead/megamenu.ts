@@ -80,7 +80,9 @@ class DDSMegaMenu extends StableSelectorMixin(LitElement) {
   render() {
     return html`
       <div class="${prefix}--masthead__megamenu__container">
-        <div class="${prefix}--masthead__megamenu__container--row">
+        <div
+          class="${prefix}--masthead__megamenu__container--row ${prefix}--masthead__megamenu__container--row--${this
+            .layout}">
           <slot></slot>
         </div>
       </div>

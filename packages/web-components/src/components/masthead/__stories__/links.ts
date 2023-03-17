@@ -3885,6 +3885,11 @@ const mastheadLinksV2: L0MenuItem[] = [
               ],
             },
           ],
+          viewAll: {
+            title: 'Demo Tab View All',
+            titleEnglish: 'Demo Tab View All',
+            url: 'https://www.example.com',
+          },
         },
         {
           heading: {
@@ -4540,7 +4545,6 @@ const mastheadLinksV2: L0MenuItem[] = [
         title: 'View all items',
         titleEnglish: 'View all items',
         url: 'https://www.ibm.com/products?lnk=hpmps_buall',
-        position: 'left',
       },
     },
   },
@@ -5487,7 +5491,6 @@ const mastheadLinksV2: L0MenuItem[] = [
         title: 'View all',
         titleEnglish: 'View all',
         url: 'https://www.example.com',
-        position: 'right',
       },
     },
   },

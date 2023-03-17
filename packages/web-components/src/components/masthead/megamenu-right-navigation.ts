@@ -9,7 +9,6 @@
 
 import { html, property, customElement, LitElement } from 'lit-element';
 import { classMap } from 'lit-html/directives/class-map.js';
-import ArrowRight16 from '../../internal/vendor/@carbon/web-components/icons/arrow--right/16.js';
 import settings from 'carbon-components/es/globals/js/settings.js';
 import ddsSettings from '../../internal/vendor/@carbon/ibmdotcom-utilities/utilities/settings/settings';
 import StableSelectorMixin from '../../globals/mixins/stable-selector';
@@ -35,18 +34,6 @@ class DDSMegaMenuRightNavigation extends StableSelectorMixin(LitElement) {
   @property({ reflect: true, attribute: 'style-scheme' })
   styleScheme = MEGAMENU_RIGHT_NAVIGATION_STYLE_SCHEME.FULL;
 
-  /**
-   * view all link href.
-   */
-  @property({ attribute: 'view-all-href', reflect: true })
-  viewAllHref = '';
-
-  /**
-   * view all link title.
-   */
-  @property({ attribute: 'view-all-title', reflect: true })
-  viewAllTitle = 'View all';
-
   @property({ attribute: 'data-child-count', reflect: true })
   childCount: Number | undefined;
 
@@ -55,9 +42,9 @@ class DDSMegaMenuRightNavigation extends StableSelectorMixin(LitElement) {
    */
   protected _getClassNames() {
     return classMap({
-      [`${prefix}--masthead__megamenu--has-sidebar`]:
+      [`${prefix}--masthead__megamenu-container`]: true,
+      [`${prefix}--masthead__megamenu-container--has-sidebar`]:
         this.styleScheme === MEGAMENU_RIGHT_NAVIGATION_STYLE_SCHEME.HAS_SIDEBAR,
-      [`${prefix}--masthead__megamenu--has-view-all-link`]: this.viewAllHref,
     });
   }
 
@@ -67,20 +54,36 @@ class DDSMegaMenuRightNavigation extends StableSelectorMixin(LitElement) {
    * @param event Event
    */
   protected _handleSlotChange(event: Event) {
+    const { onlyChildClassName } = this
+      .constructor as typeof DDSMegaMenuRightNavigation;
     const children = (event.target as HTMLSlotElement).assignedElements();
     this.childCount = children.length;
 
     // Supports alternative layout for single items.
-    if (children.length === 1) {
-      children[0].classList.add('only-child');
+    if (children.length === 1 && onlyChildClassName) {
+      children[0].classList.add(onlyChildClassName);
     }
   }
 
+  updated() {
+    const hasViewAll =
+      (
+        this.shadowRoot?.querySelector(
+          'slot[name="view-all"]'
+        ) as HTMLSlotElement
+      ).assignedElements().length > 0;
+    this.shadowRoot
+      ?.querySelector(`.${prefix}--masthead__megamenu-container`)
+      ?.classList.toggle(
+        `${prefix}--masthead__megamenu-container--has-view-all-link`,
+        hasViewAll
+      );
+  }
+
   render() {
-    const { viewAllHref, viewAllTitle } = this;
     return html`
-      <div class="${prefix}--masthead__megamenu-container">
-        <div class="${this._getClassNames()}">
+      <div class="${this._getClassNames()}">
+        <div class="${prefix}--masthead__megamenu-container-inner">
           <div class="${prefix}--masthead__megamenu__heading">
             <slot name="heading"></slot>
           </div>
@@ -88,18 +91,16 @@ class DDSMegaMenuRightNavigation extends StableSelectorMixin(LitElement) {
             <slot @slotchange="${this._handleSlotChange}"></slot>
           </div>
         </div>
-        ${viewAllHref &&
-        html`
-          <div class="${prefix}--masthead__megamenu__view-all">
-            <span
-              class="${prefix}--masthead__megamenu__view-all__border"></span>
-            <dds-megamenu-link-with-icon href="${viewAllHref}" part="view-all">
-              <span>${viewAllTitle}</span>${ArrowRight16({ slot: 'icon' })}
-            </dds-megamenu-link-with-icon>
-          </div>
-        `}
+        <div class="${prefix}--masthead__megamenu__view-all">
+          <span class="${prefix}--masthead__megamenu__view-all__border"></span>
+          <slot name="view-all"></slot>
+        </div>
       </div>
     `;
+  }
+
+  static get onlyChildClassName() {
+    return 'only-child';
   }
 
   static get stableSelector() {
