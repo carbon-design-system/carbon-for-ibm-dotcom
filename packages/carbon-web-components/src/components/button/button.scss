@@ -31,4 +31,8 @@ $css--plex: true !default;
     // 196px from design kit
     max-width: rem(196px);
   }
+
+  &[stacked] {
+    @extend .#{$prefix}--btn-set--stacked;
+  }
 }
