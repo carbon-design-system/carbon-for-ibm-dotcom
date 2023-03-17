@@ -1,16 +1,16 @@
 /**
  * @license
  *
- * Copyright IBM Corp. 2020
+ * Copyright IBM Corp. 2020, 2023
  *
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
  */
 
 /**
- * Button kinds.
+ * Button type.
  */
-export enum BUTTON_KIND {
+export enum BUTTON_TYPE {
   /**
    * Primary button.
    */
@@ -52,14 +52,19 @@ export enum BUTTON_KIND {
  */
 export enum BUTTON_SIZE {
   /**
-   * Regular size.
-   */
-  REGULAR = '',
-
-  /**
    * Small size.
    */
   SMALL = 'sm',
+
+  /**
+   * Medium size.
+   */
+  MEDIUM = 'md',
+
+  /**
+   * Large size.
+   */
+  LARGE = 'lg',
 
   /**
    * X-Large size.
@@ -67,22 +72,52 @@ export enum BUTTON_SIZE {
   EXTRA_LARGE = 'xl',
 
   /**
-   * Size for form field.
+   * 2X-Large size.
    */
-  FIELD = 'field',
+  EXTRA_EXTRA_LARGE = '2xl',
 }
 
 /**
- * Button icon layout.
+ * Button tooltip alignment.
  */
-export enum BUTTON_ICON_LAYOUT {
+export enum BUTTON_TOOLTIP_ALIGNMENT {
   /**
-   * Regular layout.
+   * Aligned to the start.
    */
-  REGULAR = '',
+  START = 'left',
 
   /**
-   * Condensed layout.
+   * Aligned to the center.
    */
-  CONDENSED = 'condensed',
+  CENTER = '',
+
+  /**
+   * Aligned to the end.
+   */
+  END = 'right',
+}
+
+/**
+ * Button tooltip position.
+ */
+export enum BUTTON_TOOLTIP_POSITION {
+  /**
+   * Positioned on the top.
+   */
+  TOP = 'top',
+
+  /**
+   * Positioned on the right.
+   */
+  RIGHT = 'right',
+
+  /**
+   * Positioned on the bottom.
+   */
+  BOTTOM = 'bottom',
+
+  /**
+   * Positined on the left.
+   */
+  LEFT = 'left',
 }

@@ -13,12 +13,22 @@ import { LitElement, html } from 'lit';
 import { property, customElement } from 'lit/decorators.js';
 import { prefix } from '../../globals/settings';
 import FocusMixin from '../../globals/mixins/focus';
-import { BUTTON_KIND, BUTTON_SIZE, BUTTON_ICON_LAYOUT } from './defs';
+import {
+  BUTTON_TYPE,
+  BUTTON_SIZE,
+  BUTTON_TOOLTIP_ALIGNMENT,
+  BUTTON_TOOLTIP_POSITION,
+} from './defs';
 import styles from './button.scss';
 import HostListener from '../../globals/decorators/host-listener';
 import HostListenerMixin from '../../globals/mixins/host-listener';
 
-export { BUTTON_KIND, BUTTON_SIZE, BUTTON_ICON_LAYOUT };
+export {
+  BUTTON_TYPE,
+  BUTTON_SIZE,
+  BUTTON_TOOLTIP_ALIGNMENT,
+  BUTTON_TOOLTIP_POSITION,
+};
 
 /**
  * Button.
@@ -61,6 +71,41 @@ class BXButton extends HostListenerMixin(FocusMixin(LitElement)) {
     }
   }
 
+  @HostListener('mouseover')
+  // @ts-ignore: The decorator refers to this method but TS thinks this method is not referred to
+  private _handleOver = () => {
+    this.openTooltip = !this.openTooltip;
+  };
+
+  /**
+   * Handles `keydown` event on this element.
+   */
+  @HostListener('mouseout')
+  // @ts-ignore: The decorator refers to this method but TS thinks this method is not referred to
+  private _handleHoverOut = async () => {
+    this.openTooltip = !this.openTooltip;
+  };
+
+  /**
+   * Handles `keydown` event on this element.
+   * Space & enter will toggle state, Escape will only close.
+   */
+  @HostListener('focus')
+  // @ts-ignore: The decorator refers to this method but TS thinks this method is not referred to
+  private _handleFocus = async (event) => {
+    this._handleOver();
+  };
+
+  /**
+   * Handles `keydown` event on this element.
+   * Space & enter will toggle state, Escape will only close.
+   */
+  @HostListener('focusout')
+  // @ts-ignore: The decorator refers to this method but TS thinks this method is not referred to
+  private _handleFocusout = async (event) => {
+    this._handleOver();
+  };
+
   /**
    * `true` if the button should have input focus when the page loads.
    */
@@ -92,28 +137,22 @@ class BXButton extends HostListenerMixin(FocusMixin(LitElement)) {
   hreflang!: string;
 
   /**
-   * Button icon layout.
-   */
-  @property({ reflect: true, attribute: 'icon-layout' })
-  iconLayout = BUTTON_ICON_LAYOUT.REGULAR;
-
-  /**
-   * `true` if expressive theme enabled.
-   */
-  @property({ type: Boolean, reflect: true })
-  isExpressive = false;
-
-  /**
-   * Button kind.
+   * Button type.
    */
   @property({ reflect: true })
-  kind = BUTTON_KIND.PRIMARY;
+  type = BUTTON_TYPE.PRIMARY;
 
   /**
    * The a11y role for `<a>`.
    */
   @property({ attribute: 'link-role' })
   linkRole = 'button';
+
+  /**
+   * Boolean to determine if tooltip is open.
+   */
+  @property({ type: Boolean })
+  openTooltip = false;
 
   /**
    * URLs to ping, if this button is rendered as `<a>`.
@@ -131,7 +170,7 @@ class BXButton extends HostListenerMixin(FocusMixin(LitElement)) {
    * Button size.
    */
   @property({ reflect: true })
-  size = BUTTON_SIZE.REGULAR;
+  size = BUTTON_SIZE.LARGE;
 
   /**
    * The link target, if this button is rendered as `<a>`.
@@ -140,10 +179,31 @@ class BXButton extends HostListenerMixin(FocusMixin(LitElement)) {
   target!: string;
 
   /**
+   * Specify the alignment of the tooltip to the icon-only button.
+   * Can be one of: start, center, or end.
+   */
+  @property({ reflect: true, attribute: 'tooltip-alignment' })
+  tooltipAlignment = BUTTON_TOOLTIP_ALIGNMENT.CENTER;
+
+  /**
+   * Specify the direction of the tooltip for icon-only buttons.
+   * Can be either top, right, bottom, or left.
+   */
+  @property({ reflect: true, attribute: 'tooltip-position' })
+  tooltipPosition = BUTTON_TOOLTIP_POSITION.TOP;
+
+  /**
+   * Specify the direction of the tooltip for icon-only buttons.
+   * Can be either top, right, bottom, or left.
+   */
+  @property({ reflect: true, attribute: 'tooltip-text' })
+  tooltipText!: string;
+
+  /**
    * The default behavior if the button is rendered as `<button>`. MIME type of the `target`if this button is rendered as `<a>`.
    */
   @property({ reflect: true })
-  type!: string;
+  as!: string;
 
   render() {
     const {
@@ -152,28 +212,28 @@ class BXButton extends HostListenerMixin(FocusMixin(LitElement)) {
       download,
       href,
       hreflang,
-      isExpressive,
       linkRole,
-      kind,
+      openTooltip,
       ping,
       rel,
       size,
       target,
+      tooltipAlignment,
+      tooltipPosition,
+      tooltipText,
       type,
+      as,
       _hasIcon: hasIcon,
       _hasMainContent: hasMainContent,
       _handleSlotChange: handleSlotChange,
     } = this;
     const classes = classMap({
       [`${prefix}--btn`]: true,
-      [`${prefix}--btn--${kind}`]: kind,
+      [`${prefix}--btn--${type}`]: type,
       [`${prefix}--btn--disabled`]: disabled,
       [`${prefix}--btn--icon-only`]: hasIcon && !hasMainContent,
-      [`${prefix}--btn--sm`]: size === 'sm' && !isExpressive,
-      [`${prefix}--btn--xl`]: size === 'xl',
-      [`${prefix}--btn--field`]: size === 'field' && !isExpressive,
+      [`${prefix}--btn--${size}`]: size,
       [`${prefix}-ce--btn--has-icon`]: hasIcon,
-      [`${prefix}--btn--expressive`]: isExpressive,
     });
     if (href) {
       return disabled
@@ -195,31 +255,49 @@ class BXButton extends HostListenerMixin(FocusMixin(LitElement)) {
               ping="${ifDefined(ping)}"
               rel="${ifDefined(rel)}"
               target="${ifDefined(target)}"
-              type="${ifDefined(type)}">
+              type="${ifDefined(as)}">
               <slot @slotchange="${handleSlotChange}"></slot>
               <slot name="icon" @slotchange="${handleSlotChange}"></slot>
             </a>
           `;
     }
-    return hasIcon
+
+    const alignmentClass =
+      tooltipAlignment &&
+      (tooltipPosition === BUTTON_TOOLTIP_POSITION.TOP ||
+        tooltipPosition === BUTTON_TOOLTIP_POSITION.BOTTOM)
+        ? `-${tooltipAlignment}`
+        : '';
+
+    const tooltipClasses = classMap({
+      [`${prefix}--popover-container`]: true,
+      [`${prefix}--popover--caret`]: true,
+      [`${prefix}--popover--high-contrast`]: true,
+      [`${prefix}--tooltip`]: true,
+      [`${prefix}--icon-tooltip`]: hasIcon,
+      [`${prefix}--popover--open`]: openTooltip,
+      [`${prefix}--popover--${tooltipPosition}${alignmentClass}`]: tooltipText,
+    });
+
+    return tooltipText
       ? html`
-          <span
-            class="cds--popover-container cds--popover--caret cds--popover--open cds--popover--high-contrast cds--popover--top cds--tooltip cds--icon-tooltip">
+          <span class="${tooltipClasses}">
             <button
               id="button"
               part="button"
               class="${classes}"
               ?autofocus="${autofocus}"
               ?disabled="${disabled}"
-              type="${ifDefined(type)}">
+              type="${ifDefined(as)}">
               <slot @slotchange="${handleSlotChange}"></slot>
               <slot name="icon" @slotchange="${handleSlotChange}"></slot>
             </button>
-            <span class="cds--popover">
-              <span class="cds--popover-content cds--tooltip-content">
-                TEST!!
+            <span class="${prefix}--popover">
+              <span
+                class="${prefix}--popover-content ${prefix}--tooltip-content">
+                ${tooltipText}
               </span>
-              <span class="cds--popover-caret"></span>
+              <span class="${prefix}--popover-caret"></span>
             </span>
           </span>
         `
@@ -230,7 +308,7 @@ class BXButton extends HostListenerMixin(FocusMixin(LitElement)) {
             class="${classes}"
             ?autofocus="${autofocus}"
             ?disabled="${disabled}"
-            type="${ifDefined(type)}">
+            type="${ifDefined(as)}">
             <slot @slotchange="${handleSlotChange}"></slot>
             <slot name="icon" @slotchange="${handleSlotChange}"></slot>
           </button>

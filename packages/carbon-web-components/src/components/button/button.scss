@@ -22,3 +22,13 @@ $css--plex: true !default;
 :host(#{$prefix}-btn[kind='ghost']) .#{$prefix}--btn--ghost:active {
   outline: none;
 }
+
+:host(#{$prefix}-btn-set) {
+  @extend .#{$prefix}--btn-set;
+
+  ::slotted(#{$prefix}-btn) {
+    width: 100%;
+    // 196px from design kit
+    max-width: rem(196px);
+  }
+}
