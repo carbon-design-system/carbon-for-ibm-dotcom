@@ -214,6 +214,20 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@babel/eslint-parser@npm:^7.11.0":
+  version: 7.21.3
+  resolution: "@babel/eslint-parser@npm:7.21.3"
+  dependencies:
+    "@nicolo-ribaudo/eslint-scope-5-internals": 5.1.1-v1
+    eslint-visitor-keys: ^2.1.0
+    semver: ^6.3.0
+  peerDependencies:
+    "@babel/core": ">=7.11.0"
+    eslint: ^7.5.0 || ^8.0.0
+  checksum: cc44a26a518c62ca93cdbee4ec4fa195c5a69b4f85d696c9df572b1ada99446ebdf3caef58a124f401a798279a765f858c88292bc7a8fc0485c34e178b1a9e82
+  languageName: node
+  linkType: hard
+
 "@babel/generator@npm:^7.12.11, @babel/generator@npm:^7.12.17, @babel/generator@npm:^7.12.5, @babel/generator@npm:^7.21.0, @babel/generator@npm:^7.4.0":
   version: 7.21.1
   resolution: "@babel/generator@npm:7.21.1"
@@ -526,7 +540,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@babel/parser@npm:^7.0.0, @babel/parser@npm:^7.1.0, @babel/parser@npm:^7.12.11, @babel/parser@npm:^7.12.13, @babel/parser@npm:^7.12.17, @babel/parser@npm:^7.12.7, @babel/parser@npm:^7.14.7, @babel/parser@npm:^7.20.7, @babel/parser@npm:^7.21.0, @babel/parser@npm:^7.4.3, @babel/parser@npm:^7.7.0, @babel/parser@npm:^7.9.4":
+"@babel/parser@npm:^7.0.0, @babel/parser@npm:^7.1.0, @babel/parser@npm:^7.12.11, @babel/parser@npm:^7.12.13, @babel/parser@npm:^7.12.17, @babel/parser@npm:^7.12.7, @babel/parser@npm:^7.14.7, @babel/parser@npm:^7.20.7, @babel/parser@npm:^7.21.0, @babel/parser@npm:^7.4.3, @babel/parser@npm:^7.9.4":
   version: 7.21.1
   resolution: "@babel/parser@npm:7.21.1"
   bin:
@@ -1950,7 +1964,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@babel/traverse@npm:^7.1.0, @babel/traverse@npm:^7.1.6, @babel/traverse@npm:^7.12.11, @babel/traverse@npm:^7.12.17, @babel/traverse@npm:^7.12.9, @babel/traverse@npm:^7.13.0, @babel/traverse@npm:^7.20.5, @babel/traverse@npm:^7.20.7, @babel/traverse@npm:^7.21.0, @babel/traverse@npm:^7.4.3, @babel/traverse@npm:^7.7.0":
+"@babel/traverse@npm:^7.1.0, @babel/traverse@npm:^7.1.6, @babel/traverse@npm:^7.12.11, @babel/traverse@npm:^7.12.17, @babel/traverse@npm:^7.12.9, @babel/traverse@npm:^7.13.0, @babel/traverse@npm:^7.20.5, @babel/traverse@npm:^7.20.7, @babel/traverse@npm:^7.21.0, @babel/traverse@npm:^7.4.3":
   version: 7.21.0
   resolution: "@babel/traverse@npm:7.21.0"
   dependencies:
@@ -1985,7 +1999,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@babel/types@npm:^7.0.0, @babel/types@npm:^7.12.11, @babel/types@npm:^7.12.13, @babel/types@npm:^7.12.17, @babel/types@npm:^7.12.7, @babel/types@npm:^7.18.6, @babel/types@npm:^7.18.9, @babel/types@npm:^7.2.0, @babel/types@npm:^7.20.0, @babel/types@npm:^7.20.2, @babel/types@npm:^7.20.5, @babel/types@npm:^7.20.7, @babel/types@npm:^7.21.0, @babel/types@npm:^7.3.0, @babel/types@npm:^7.3.3, @babel/types@npm:^7.4.0, @babel/types@npm:^7.4.4, @babel/types@npm:^7.7.0, @babel/types@npm:^7.8.3":
+"@babel/types@npm:^7.0.0, @babel/types@npm:^7.12.11, @babel/types@npm:^7.12.13, @babel/types@npm:^7.12.17, @babel/types@npm:^7.12.7, @babel/types@npm:^7.18.6, @babel/types@npm:^7.18.9, @babel/types@npm:^7.2.0, @babel/types@npm:^7.20.0, @babel/types@npm:^7.20.2, @babel/types@npm:^7.20.5, @babel/types@npm:^7.20.7, @babel/types@npm:^7.21.0, @babel/types@npm:^7.3.0, @babel/types@npm:^7.3.3, @babel/types@npm:^7.4.0, @babel/types@npm:^7.4.4, @babel/types@npm:^7.8.3":
   version: 7.21.0
   resolution: "@babel/types@npm:7.21.0"
   dependencies:
@@ -2021,10 +2035,10 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@carbon/eslint-config-ibmdotcom@workspace:packages/eslint-config-ibmdotcom"
   dependencies:
+    "@babel/eslint-parser": ^7.11.0
     "@carbon/eslint-plugin-react-prop-type-comments": 1.35.0-rc.1
     "@typescript-eslint/eslint-plugin": ^5.43.0
     "@typescript-eslint/parser": ^5.43.0
-    babel-eslint: ^10.1.0
     eslint-config-airbnb: ^19.0.4
     eslint-config-airbnb-base: ^15.0.0
     eslint-config-prettier: ^8.5.0
@@ -2216,6 +2230,7 @@ __metadata:
   resolution: "@carbon/ibmdotcom-services-store@workspace:packages/services-store"
   dependencies:
     "@babel/core": ^7.8.0
+    "@babel/eslint-parser": ^7.11.0
     "@babel/plugin-proposal-decorators": ^7.8.0
     "@babel/plugin-proposal-nullish-coalescing-operator": ^7.8.0
     "@babel/plugin-proposal-optional-chaining": ^7.8.0
@@ -2225,7 +2240,6 @@ __metadata:
     "@carbon/ibmdotcom-services": 1.45.0-rc.1
     "@carbon/ibmdotcom-utilities": 1.45.0-rc.1
     async-done: ^1.3.0
-    babel-eslint: ^10.0.3
     babel-jest: ^24.0.0
     carbon-components: 10.58.3
     del: ^6.0.0
@@ -2373,6 +2387,7 @@ __metadata:
   resolution: "@carbon/ibmdotcom-web-components@workspace:packages/web-components"
   dependencies:
     "@babel/core": ~7.12.0
+    "@babel/eslint-parser": ^7.11.0
     "@babel/plugin-proposal-class-properties": ~7.12.0
     "@babel/plugin-proposal-decorators": ~7.12.0
     "@babel/plugin-proposal-nullish-coalescing-operator": ~7.12.0
@@ -2427,7 +2442,6 @@ __metadata:
     async-done: ^1.3.0
     autoprefixer: ^9.8.0
     axe-core: ^4.4.1
-    babel-eslint: ^10.0.3
     babel-loader: ^8.0.0
     babel-plugin-template-html-minifier: ^4.1.0
     browserstack-cypress-cli: ^1.11.1
@@ -2673,6 +2687,7 @@ __metadata:
   resolution: "@carbon/web-components@workspace:packages/carbon-web-components"
   dependencies:
     "@babel/core": ~7.12.0
+    "@babel/eslint-parser": ^7.11.0
     "@babel/plugin-proposal-class-properties": ~7.12.0
     "@babel/plugin-proposal-decorators": ~7.12.0
     "@babel/plugin-proposal-nullish-coalescing-operator": ~7.12.0
@@ -2721,7 +2736,6 @@ __metadata:
     "@webcomponents/webcomponents-platform": ^1.0.1
     async-done: ^1.3.0
     autoprefixer: ^9.8.8
-    babel-eslint: ^10.0.3
     babel-loader: ^8.0.0
     babel-plugin-template-html-minifier: ^4.1.0
     cache-loader: ^4.1.0
@@ -4035,6 +4049,15 @@ __metadata:
   version: 2.1.8-no-fsevents.3
   resolution: "@nicolo-ribaudo/chokidar-2@npm:2.1.8-no-fsevents.3"
   checksum: ee55cc9241aeea7eb94b8a8551bfa4246c56c53bc71ecda0a2104018fcc328ba5723b33686bdf9cc65d4df4ae65e8016b89e0bbdeb94e0309fe91bb9ced42344
+  languageName: node
+  linkType: hard
+
+"@nicolo-ribaudo/eslint-scope-5-internals@npm:5.1.1-v1":
+  version: 5.1.1-v1
+  resolution: "@nicolo-ribaudo/eslint-scope-5-internals@npm:5.1.1-v1"
+  dependencies:
+    eslint-scope: 5.1.1
+  checksum: f2e3b2d6a6e2d9f163ca22105910c9f850dc4897af0aea3ef0a5886b63d8e1ba6505b71c99cb78a3bba24a09557d601eb21c8dede3f3213753fcfef364eb0e57
   languageName: node
   linkType: hard
 
@@ -9366,22 +9389,6 @@ __metadata:
   languageName: node
   linkType: hard
 
-"babel-eslint@npm:^10.0.3, babel-eslint@npm:^10.1.0":
-  version: 10.1.0
-  resolution: "babel-eslint@npm:10.1.0"
-  dependencies:
-    "@babel/code-frame": ^7.0.0
-    "@babel/parser": ^7.7.0
-    "@babel/traverse": ^7.7.0
-    "@babel/types": ^7.7.0
-    eslint-visitor-keys: ^1.0.0
-    resolve: ^1.12.0
-  peerDependencies:
-    eslint: ">= 4.12.1"
-  checksum: bdc1f62b6b0f9c4d5108c96d835dad0c0066bc45b7c020fcb2d6a08107cf69c9217a99d3438dbd701b2816896190c4283ba04270ed9a8349ee07bd8dafcdc050
-  languageName: node
-  linkType: hard
-
 "babel-extract-comments@npm:^1.0.0":
   version: 1.0.0
   resolution: "babel-extract-comments@npm:1.0.0"
@@ -11071,6 +11078,7 @@ __metadata:
     "@actions/exec": ^1.0.0
     "@actions/tool-cache": ^1.5.0
     "@babel/core": ^7.9.0
+    "@babel/eslint-parser": ^7.11.0
     "@babel/helper-annotate-as-pure": ^7.9.0
     "@babel/plugin-proposal-class-properties": ^7.5.0
     "@babel/plugin-proposal-export-default-from": ^7.2.0
@@ -11084,7 +11092,6 @@ __metadata:
     "@commitlint/cli": ^16.0.0
     "@commitlint/config-conventional": ^16.0.0
     async-done: ^1.3.0
-    babel-eslint: ^10.1.0
     browserslist-config-carbon: ^10.3.0
     chalk: ^4.1.0
     commander: ^4.1.0
@@ -15120,14 +15127,14 @@ __metadata:
   languageName: node
   linkType: hard
 
-"eslint-visitor-keys@npm:^1.0.0, eslint-visitor-keys@npm:^1.1.0":
+"eslint-visitor-keys@npm:^1.1.0":
   version: 1.3.0
   resolution: "eslint-visitor-keys@npm:1.3.0"
   checksum: 37a19b712f42f4c9027e8ba98c2b06031c17e0c0a4c696cd429bd9ee04eb43889c446f2cd545e1ff51bef9593fcec94ecd2c2ef89129fcbbf3adadbef520376a
   languageName: node
   linkType: hard
 
-"eslint-visitor-keys@npm:^2.0.0":
+"eslint-visitor-keys@npm:^2.0.0, eslint-visitor-keys@npm:^2.1.0":
   version: 2.1.0
   resolution: "eslint-visitor-keys@npm:2.1.0"
   checksum: e3081d7dd2611a35f0388bbdc2f5da60b3a3c5b8b6e928daffff7391146b434d691577aa95064c8b7faad0b8a680266bcda0a42439c18c717b80e6718d7e267d
