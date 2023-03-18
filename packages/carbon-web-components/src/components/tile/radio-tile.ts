@@ -12,21 +12,8 @@ import { classMap } from 'lit-html/directives/class-map';
 import { ifDefined } from 'lit/directives/if-defined';
 import { customElement } from 'lit/decorators.js';
 import { prefix } from '../../globals/settings';
-import HostListener from '../../globals/decorators/host-listener';
-import HostListenerMixin from '../../globals/mixins/host-listener';
-import { NAVIGATION_DIRECTION } from '../../globals/internal/radio-group-manager';
 import SelectableTile from './selectable-tile';
 import CheckmarkFilled16 from '@carbon/icons/lib/checkmark--filled/16';
-
-/**
- * Map of navigation direction by key.
- */
-const navigationDirectionForKey = {
-  ArrowUp: NAVIGATION_DIRECTION.BACKWARD,
-  Up: NAVIGATION_DIRECTION.BACKWARD, // IE
-  ArrowDown: NAVIGATION_DIRECTION.FORWARD,
-  Down: NAVIGATION_DIRECTION.FORWARD, // IE
-};
 
 /**
  * Single-selectable tile.
@@ -34,39 +21,11 @@ const navigationDirectionForKey = {
  * @element cds-radio-tile
  */
 @customElement(`${prefix}-radio-tile`)
-class CDSRadioTile extends HostListenerMixin(SelectableTile) {
+class CDSRadioTile extends SelectableTile {
   /**
    * The `type` attribute of the `<input>`.
    */
   protected _inputType = 'radio';
-
-  /**
-   * Handles `keydown` event on this element.
-   */
-  @HostListener('keydown')
-  // @ts-ignore: The decorator refers to this method but TS thinks this method is not referred to
-  private _handleKeydown = (event: KeyboardEvent) => {
-    const { _inputNode: inputNode } = this;
-    if (inputNode) {
-      const navigationDirection = navigationDirectionForKey[event.key];
-      if (navigationDirection) {
-        const siblings = (this.parentElement as any).radioTiles;
-        const currentIndex = [...siblings].findIndex((e) => e == this);
-        const nextIndex = currentIndex + navigationDirection;
-        const nextSibling =
-          nextIndex !== -1
-            ? siblings[nextIndex % siblings.length]
-            : siblings[siblings.length - 1];
-
-        nextSibling.focus();
-        nextSibling._handleChange();
-        event.preventDefault(); // Prevent default (scrolling) behavior
-      }
-      if (event.key === ' ' || event.key === 'Enter') {
-        this._handleChange();
-      }
-    }
-  };
 
   /**
    * Handles `change` event on the `<input>` in the shadow DOM.

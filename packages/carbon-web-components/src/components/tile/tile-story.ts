@@ -179,7 +179,7 @@ Radio.parameters = {
   },
 };
 
-export const RadioWithLayer = (args) => {
+export const RadioWithLayer = () => {
   return html`
     <cds-layer>
       <cds-tile-group>
@@ -211,7 +211,7 @@ export const multiSelectable = (args) => {
   const { checkmarkLabel, colorScheme, name, selected, value, onInput } =
     args?.[`${prefix}-selectable-tile`] ?? {};
   return html`
-    <fieldset>
+    <cds-tile-group>
       <cds-selectable-tile
         checkmark-label="${ifDefined(checkmarkLabel)}"
         color-scheme="${ifDefined(colorScheme)}"
@@ -239,7 +239,7 @@ export const multiSelectable = (args) => {
         @input="${onInput}">
         Option 3
       </cds-selectable-tile>
-    </fieldset>
+    </cds-tile-group>
   `;
 };
 
@@ -278,6 +278,105 @@ export const expandable = (args) => {
         Below the fold content here
       </cds-tile-below-the-fold-content>
     </cds-expandable-tile>
+  `;
+};
+
+export const ExpandableWithInteractive = (args) => {
+  const { colorScheme, expanded, disableChange, onBeforeChange, onChange } =
+    args?.[`${prefix}-expandable-tile`] ?? {};
+  const handleBeforeChanged = (event: CustomEvent) => {
+    onBeforeChange(event);
+    if (disableChange) {
+      event.preventDefault();
+    }
+  };
+  return html`
+    <cds-expandable-tile
+      with-interactive
+      color-scheme="${ifDefined(colorScheme)}"
+      ?expanded="${expanded}"
+      @cds-expandable-tile-beingchanged=${handleBeforeChanged}
+      @cds-expandable-tile-changed=${onChange}>
+      <cds-tile-above-the-fold-content
+        slot="above-the-fold-content"
+        style="height: 200px">
+        Above the fold content here
+        <div style="padding-top:1rem;">
+          <cds-btn>Example</cds-btn>
+        </div>
+      </cds-tile-above-the-fold-content>
+      <cds-tile-below-the-fold-content style="height: 300px">
+        Below the fold content here
+        <cds-input></cds-input>
+      </cds-tile-below-the-fold-content>
+    </cds-expandable-tile>
+  `;
+};
+
+export const ExpandableWithLayer = (args) => {
+  const { colorScheme, expanded, disableChange, onBeforeChange, onChange } =
+    args?.[`${prefix}-expandable-tile`] ?? {};
+  const handleBeforeChanged = (event: CustomEvent) => {
+    onBeforeChange(event);
+    if (disableChange) {
+      event.preventDefault();
+    }
+  };
+  return html`
+    <cds-layer>
+      <cds-expandable-tile
+        with-interactive
+        color-scheme="${ifDefined(colorScheme)}"
+        ?expanded="${expanded}"
+        @cds-expandable-tile-beingchanged=${handleBeforeChanged}
+        @cds-expandable-tile-changed=${onChange}>
+        <cds-tile-above-the-fold-content
+          slot="above-the-fold-content"
+          style="height: 132px">
+          Layer 1
+        </cds-tile-above-the-fold-content>
+        <cds-tile-below-the-fold-content style="height: 200px">
+          Below the fold content here
+          <cds-input></cds-input>
+        </cds-tile-below-the-fold-content>
+      </cds-expandable-tile>
+      <cds-layer>
+        <cds-expandable-tile
+          with-interactive
+          color-scheme="${ifDefined(colorScheme)}"
+          ?expanded="${expanded}"
+          @cds-expandable-tile-beingchanged=${handleBeforeChanged}
+          @cds-expandable-tile-changed=${onChange}>
+          <cds-tile-above-the-fold-content
+            slot="above-the-fold-content"
+            style="height: 132px">
+            Layer 2
+          </cds-tile-above-the-fold-content>
+          <cds-tile-below-the-fold-content style="height: 200px">
+            Below the fold content here
+            <cds-input></cds-input>
+          </cds-tile-below-the-fold-content>
+        </cds-expandable-tile>
+        <cds-layer>
+          <cds-expandable-tile
+            with-interactive
+            color-scheme="${ifDefined(colorScheme)}"
+            ?expanded="${expanded}"
+            @cds-expandable-tile-beingchanged=${handleBeforeChanged}
+            @cds-expandable-tile-changed=${onChange}>
+            <cds-tile-above-the-fold-content
+              slot="above-the-fold-content"
+              style="height: 132px">
+              Layer 3
+            </cds-tile-above-the-fold-content>
+            <cds-tile-below-the-fold-content style="height: 200px">
+              Below the fold content here
+              <cds-input></cds-input>
+            </cds-tile-below-the-fold-content>
+          </cds-expandable-tile>
+        </cds-layer>
+      </cds-layer>
+    </cds-layer>
   `;
 };
 
