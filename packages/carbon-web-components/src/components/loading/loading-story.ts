@@ -19,7 +19,14 @@ const types = {
   [`Small (${LOADING_TYPE.SMALL})`]: LOADING_TYPE.SMALL,
 };
 
-export const Default = (args) => {
+export const Default = () => html` <cds-loading></cds-loading> `;
+
+export default {
+  title: 'Components/Loading',
+  parameters: { ...storyDocs.parameters },
+};
+
+export const Playground = (args) => {
   const { inactive, type, withOverlay } = args?.[`${prefix}-loading`] ?? {};
   return html`
     <cds-loading
@@ -29,18 +36,13 @@ export const Default = (args) => {
   `;
 };
 
-Default.storyName = 'Default';
-
-export default {
-  title: 'Components/Loading',
-  parameters: {
-    ...storyDocs.parameters,
-    knobs: {
-      [`${prefix}-loading`]: () => ({
-        inactive: boolean('Inactive (inactive)', false),
-        type: select('The spinner type (type)', types, null),
-        withOverlay: boolean('With overlay (withOverlay)', false),
-      }),
-    },
+Playground.parameters = {
+  ...storyDocs.parameters,
+  knobs: {
+    [`${prefix}-loading`]: () => ({
+      inactive: boolean('Inactive (inactive)', false),
+      type: select('The spinner type (type)', types, null),
+      withOverlay: boolean('With overlay (withOverlay)', false),
+    }),
   },
 };
