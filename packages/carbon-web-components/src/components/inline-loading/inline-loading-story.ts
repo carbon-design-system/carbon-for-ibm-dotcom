@@ -23,7 +23,15 @@ const states = {
   [`Failed (${INLINE_LOADING_STATE.ERROR})`]: INLINE_LOADING_STATE.ERROR,
 };
 
-export const Default = (args) => {
+export const Default = () =>
+  html`<cds-inline-loading>Loading data...</cds-inline-loading>`;
+
+export default {
+  title: 'Components/Inline loading',
+  parameters: { ...storyDocs.parameters },
+};
+
+export const Playground = (args) => {
   const { status } = args?.[`${prefix}-inline-loading`] ?? {};
   return html`
     <cds-inline-loading status="${ifDefined(status)}"
@@ -32,23 +40,16 @@ export const Default = (args) => {
   `;
 };
 
-Default.storyName = 'Default';
-
-export default {
-  title: 'Components/Inline loading',
-  parameters: {
-    ...storyDocs.parameters,
-    percy: {
-      skip: true,
-    },
-    knobs: {
-      [`${prefix}-inline-loading`]: () => ({
-        status: select(
-          'Loading status (status)',
-          states,
-          INLINE_LOADING_STATE.ACTIVE
-        ),
-      }),
-    },
+Playground.parameters = {
+  ...storyDocs.parameters,
+  percy: { skip: true },
+  knobs: {
+    [`${prefix}-inline-loading`]: () => ({
+      status: select(
+        'Loading status (status)',
+        states,
+        INLINE_LOADING_STATE.ACTIVE
+      ),
+    }),
   },
 };

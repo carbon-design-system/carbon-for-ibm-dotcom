@@ -12,10 +12,10 @@ import { render } from 'lit';
 import BXInlineLoading, {
   INLINE_LOADING_STATE,
 } from '../../src/components/inline-loading/inline-loading';
-import { Default } from '../../src/components/inline-loading/inline-loading-story';
+import { Playground } from '../../src/components/inline-loading/inline-loading-story';
 
 const template = (props?) =>
-  Default({
+  Playground({
     'cds-inline-loading': props,
   });
 
