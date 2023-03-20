@@ -8,7 +8,7 @@
  */
 
 import { html } from 'lit';
-import { boolean, select } from '@storybook/addon-knobs';
+import { boolean, select, text } from '@storybook/addon-knobs';
 import { ifDefined } from 'lit/directives/if-defined.js';
 import { LOADING_TYPE } from './loading';
 import storyDocs from './loading-story.mdx';
@@ -27,10 +27,12 @@ export default {
 };
 
 export const Playground = (args) => {
-  const { inactive, type, withOverlay } = args?.[`${prefix}-loading`] ?? {};
+  const { inactive, assistiveText, type, withOverlay } =
+    args?.[`${prefix}-loading`] ?? {};
   return html`
     <cds-loading
       ?inactive=${inactive}
+      assistive-text=${assistiveText}
       type=${ifDefined(type)}
       ?overlay=${withOverlay}></cds-loading>
   `;
@@ -41,6 +43,10 @@ Playground.parameters = {
   knobs: {
     [`${prefix}-loading`]: () => ({
       inactive: boolean('Inactive (inactive)', false),
+      assistiveText: text(
+        'Assistive text (assistive-text) - Specify a description that would be used to best describe the loading state',
+        'Loading'
+      ),
       type: select('The spinner type (type)', types, null),
       withOverlay: boolean('With overlay (withOverlay)', false),
     }),
