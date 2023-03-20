@@ -45,7 +45,7 @@ export { default as BXLink } from './components/link/link';
 export { default as BXListItem } from './components/list/list-item';
 export { default as CDSOrderedList } from './components/list/ordered-list';
 export { default as CDSUnorderedList } from './components/list/unordered-list';
-export { default as BXLoading } from './components/loading/loading';
+export { default as CDSLoading } from './components/loading/loading';
 export { default as BXModal } from './components/modal/modal';
 export { default as BXModalBody } from './components/modal/modal-body';
 export { default as BXModalCloseButton } from './components/modal/modal-close-button';
