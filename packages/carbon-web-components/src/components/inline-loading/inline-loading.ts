@@ -28,10 +28,16 @@ export { INLINE_LOADING_STATE };
 @customElement(`${prefix}-inline-loading`)
 class BXInlineLoading extends LitElement {
   /**
+   * The assistive text for the spinner icon.
+   */
+  @property({ attribute: 'assistive-text' })
+  assistiveText = 'Loading';
+
+  /**
    * @returns The template for the status icon.
    */
   private _renderIcon() {
-    const { status } = this;
+    const { assistiveText, status } = this;
     if (status === INLINE_LOADING_STATE.ERROR) {
       return ErrorFilled16({
         class: `${prefix}--inline-loading--error`,
@@ -53,7 +59,7 @@ class BXInlineLoading extends LitElement {
       });
       return html`
         <div class="${classes}">
-          ${getLoadingIcon({ type: LOADING_TYPE.SMALL })}
+          ${getLoadingIcon({ assistiveText, type: LOADING_TYPE.SMALL })}
         </div>
       `;
     }

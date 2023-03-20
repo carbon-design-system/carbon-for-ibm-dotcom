@@ -8,7 +8,7 @@
  */
 
 import { html } from 'lit';
-import { select } from '@storybook/addon-knobs';
+import { select, text } from '@storybook/addon-knobs';
 import { ifDefined } from 'lit/directives/if-defined.js';
 import { INLINE_LOADING_STATE } from './inline-loading';
 import storyDocs from './inline-loading-story.mdx';
@@ -32,11 +32,14 @@ export default {
 };
 
 export const Playground = (args) => {
-  const { status } = args?.[`${prefix}-inline-loading`] ?? {};
+  const { assistiveText, description, status } =
+    args?.[`${prefix}-inline-loading`] ?? {};
   return html`
-    <cds-inline-loading status="${ifDefined(status)}"
-      >Loading data...</cds-inline-loading
-    >
+    <cds-inline-loading
+      status="${ifDefined(status)}"
+      assistive-text=${assistiveText}>
+      ${description}
+    </cds-inline-loading>
   `;
 };
 
@@ -45,6 +48,14 @@ Playground.parameters = {
   percy: { skip: true },
   knobs: {
     [`${prefix}-inline-loading`]: () => ({
+      description: text(
+        'Description (description) - Specify the description for the inline loading text',
+        'Loading data...'
+      ),
+      assistiveText: text(
+        'Assistive text (assistive-text) - Specify a description that would be used to best describe the loading state',
+        'Loading'
+      ),
       status: select(
         'Loading status (status)',
         states,
