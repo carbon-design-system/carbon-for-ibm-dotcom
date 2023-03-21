@@ -63,8 +63,8 @@ class RadioButtonDelegate implements ManagedRadioButtonDelegate {
 
   set checked(checked) {
     const { host } = this._radio.getRootNode() as ShadowRoot;
-    const { eventChange } = host.constructor as typeof BXRadioButton; // eslint-disable-line no-use-before-define
-    (host as BXRadioButton).checked = checked;
+    const { eventChange } = host.constructor as typeof CDSRadioButton; // eslint-disable-line no-use-before-define
+    (host as CDSRadioButton).checked = checked;
     this._radio.tabIndex = checked ? 0 : -1;
     host.dispatchEvent(
       new CustomEvent(eventChange, {
@@ -105,7 +105,7 @@ class RadioButtonDelegate implements ManagedRadioButtonDelegate {
  * @fires cds-radio-button-changed - The custom event fired after this radio button changes its checked state.
  */
 @customElement(`${prefix}-radio-button`)
-class BXRadioButton extends HostListenerMixin(FocusMixin(LitElement)) {
+class CDSRadioButton extends HostListenerMixin(FocusMixin(LitElement)) {
   /**
    * The radio group manager associated with the radio button.
    */
@@ -129,7 +129,7 @@ class BXRadioButton extends HostListenerMixin(FocusMixin(LitElement)) {
   // @ts-ignore: The decorator refers to this method but TS thinks this method is not referred to
   private _handleClick = () => {
     const { disabled, _radioButtonDelegate: radioButtonDelegate } = this;
-    if (radioButtonDelegate && !disabled) {
+    if (radioButtonDelegate && !disabled && !this.disabledItem) {
       this.checked = true;
       if (this._manager) {
         this._manager.select(radioButtonDelegate);
@@ -169,7 +169,13 @@ class BXRadioButton extends HostListenerMixin(FocusMixin(LitElement)) {
   checked = false;
 
   /**
-   * `true` if the check box should be disabled.
+   * `true` if the radio button item should be disabled.
+   */
+  @property({ type: Boolean, reflect: true })
+  disabledItem = false;
+
+  /**
+   * `true` if the radio button group should be disabled.
    */
   @property({ type: Boolean, reflect: true })
   disabled = false;
@@ -203,6 +209,12 @@ class BXRadioButton extends HostListenerMixin(FocusMixin(LitElement)) {
    */
   @property({ reflect: true })
   orientation = RADIO_BUTTON_ORIENTATION.HORIZONTAL;
+
+  /**
+   * `true` if the radio button group should be disabled.
+   */
+  @property({ type: Boolean, reflect: true })
+  readOnly = false;
 
   /**
    * The `value` attribute for the `<input>` for selection.
@@ -250,7 +262,15 @@ class BXRadioButton extends HostListenerMixin(FocusMixin(LitElement)) {
   }
 
   render() {
-    const { checked, hideLabel, labelText, name, value, disabled } = this;
+    const {
+      checked,
+      hideLabel,
+      labelText,
+      name,
+      value,
+      disabled,
+      disabledItem,
+    } = this;
     const innerLabelClasses = classMap({
       [`${prefix}--visually-hidden`]: hideLabel,
     });
@@ -260,7 +280,7 @@ class BXRadioButton extends HostListenerMixin(FocusMixin(LitElement)) {
         type="radio"
         class="${prefix}--radio-button"
         .checked=${checked}
-        ?disabled="${disabled}"
+        ?disabled="${disabledItem || disabled}"
         name=${ifDefined(name)}
         value=${ifDefined(value)} />
       <label for="input" class="${prefix}--radio-button__label">
@@ -284,4 +304,4 @@ class BXRadioButton extends HostListenerMixin(FocusMixin(LitElement)) {
   static styles = styles;
 }
 
-export default BXRadioButton;
+export default CDSRadioButton;
