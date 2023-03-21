@@ -14,6 +14,7 @@ import { property, customElement } from 'lit/decorators.js';
 import { prefix } from '../../globals/settings';
 import FocusMixin from '../../globals/mixins/focus';
 import {
+  BUTTON_KIND,
   BUTTON_TYPE,
   BUTTON_SIZE,
   BUTTON_TOOLTIP_ALIGNMENT,
@@ -24,6 +25,7 @@ import HostListener from '../../globals/decorators/host-listener';
 import HostListenerMixin from '../../globals/mixins/host-listener';
 
 export {
+  BUTTON_KIND,
   BUTTON_TYPE,
   BUTTON_SIZE,
   BUTTON_TOOLTIP_ALIGNMENT,
@@ -113,6 +115,12 @@ class BXButton extends HostListenerMixin(FocusMixin(LitElement)) {
   autofocus = false;
 
   /**
+   * Specify the message read by screen readers for the danger button variant
+   */
+  @property({ reflect: true, attribute: 'danger-descriptor' })
+  dangerDescriptor;
+
+  /**
    * `true` if the button should be disabled.
    */
   @property({ type: Boolean, reflect: true })
@@ -137,10 +145,10 @@ class BXButton extends HostListenerMixin(FocusMixin(LitElement)) {
   hreflang!: string;
 
   /**
-   * Button type.
+   * Button kind.
    */
   @property({ reflect: true })
-  type = BUTTON_TYPE.PRIMARY;
+  kind = BUTTON_KIND.PRIMARY;
 
   /**
    * The a11y role for `<a>`.
@@ -200,18 +208,20 @@ class BXButton extends HostListenerMixin(FocusMixin(LitElement)) {
   tooltipText!: string;
 
   /**
-   * The default behavior if the button is rendered as `<button>`. MIME type of the `target`if this button is rendered as `<a>`.
+   * Button type.
    */
   @property({ reflect: true })
-  as!: string;
+  type = BUTTON_TYPE.BUTTON;
 
   render() {
     const {
       autofocus,
+      dangerDescriptor,
       disabled,
       download,
       href,
       hreflang,
+      kind,
       linkRole,
       openTooltip,
       ping,
@@ -222,19 +232,21 @@ class BXButton extends HostListenerMixin(FocusMixin(LitElement)) {
       tooltipPosition,
       tooltipText,
       type,
-      as,
       _hasIcon: hasIcon,
       _hasMainContent: hasMainContent,
       _handleSlotChange: handleSlotChange,
     } = this;
     const classes = classMap({
       [`${prefix}--btn`]: true,
-      [`${prefix}--btn--${type}`]: type,
+      [`${prefix}--btn--${kind}`]: kind,
       [`${prefix}--btn--disabled`]: disabled,
       [`${prefix}--btn--icon-only`]: hasIcon && !hasMainContent,
       [`${prefix}--btn--${size}`]: size,
       [`${prefix}-ce--btn--has-icon`]: hasIcon,
     });
+
+    const isDanger = kind.includes('danger');
+
     if (href) {
       return disabled
         ? html`
@@ -255,7 +267,7 @@ class BXButton extends HostListenerMixin(FocusMixin(LitElement)) {
               ping="${ifDefined(ping)}"
               rel="${ifDefined(rel)}"
               target="${ifDefined(target)}"
-              type="${ifDefined(as)}">
+              type="${ifDefined(type)}">
               <slot @slotchange="${handleSlotChange}"></slot>
               <slot name="icon" @slotchange="${handleSlotChange}"></slot>
             </a>
@@ -288,7 +300,7 @@ class BXButton extends HostListenerMixin(FocusMixin(LitElement)) {
               class="${classes}"
               ?autofocus="${autofocus}"
               ?disabled="${disabled}"
-              type="${ifDefined(as)}">
+              type="${ifDefined(type)}">
               <slot @slotchange="${handleSlotChange}"></slot>
               <slot name="icon" @slotchange="${handleSlotChange}"></slot>
             </button>
@@ -308,7 +320,12 @@ class BXButton extends HostListenerMixin(FocusMixin(LitElement)) {
             class="${classes}"
             ?autofocus="${autofocus}"
             ?disabled="${disabled}"
-            type="${ifDefined(as)}">
+            type="${ifDefined(type)}">
+            ${isDanger
+              ? html`<span class="${prefix}--visually-hidden"
+                  >${dangerDescriptor}</span
+                >`
+              : ``}
             <slot @slotchange="${handleSlotChange}"></slot>
             <slot name="icon" @slotchange="${handleSlotChange}"></slot>
           </button>

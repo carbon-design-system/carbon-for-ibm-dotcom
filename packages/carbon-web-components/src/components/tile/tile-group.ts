@@ -217,6 +217,18 @@ class CDSTileGroup extends HostListenerMixin(LitElement) {
     }
   };
 
+  /**
+   * Provide an optional className to be applied to the component
+   */
+  @property({ reflect: true, attribute: 'class-name' })
+  className;
+
+  /**
+   * Specify whether the group is disabled
+   */
+  @property({ reflect: true, type: Boolean })
+  disabled;
+
   @property()
   currentRadioSelection;
 
@@ -245,12 +257,20 @@ class CDSTileGroup extends HostListenerMixin(LitElement) {
         (this.constructor as typeof CDSTileGroup).selectorSelectableTile
       );
     }
+
+    if (this.disabled) {
+      this.radioTiles.forEach((e) => e.toggleAttribute('disabled'));
+      this.selectableTiles.forEach((e) => e.toggleAttribute('disabled'));
+    }
   }
 
   render() {
+    const { className, disabled } = this;
     return html`
-      <slot name="legend" class="${prefix}--label"></slot>
-      <slot></slot>
+      <fieldset class="${className}" ?disabled=${disabled}>
+        <slot name="legend" class="${prefix}--label"></slot>
+        <slot></slot>
+      </fieldset>
     `;
   }
 

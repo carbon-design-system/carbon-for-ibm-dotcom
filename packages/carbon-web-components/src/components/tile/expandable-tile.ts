@@ -116,7 +116,7 @@ class BXExpandableTile extends HostListenerMixin(FocusMixin(LitElement)) {
         aria-labelledby="above-the-fold-content"
         aria-controls="below-the-fold-content"
         tabindex="0"
-        @click="${this._handleExpand}"
+        @click="${withInteractive ? this._handleExpand : ''}"
         aria-expanded="${String(Boolean(expanded))}">
         ${ChevronDown16({
           id: 'icon',

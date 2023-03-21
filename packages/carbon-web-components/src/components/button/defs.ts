@@ -8,9 +8,9 @@
  */
 
 /**
- * Button type.
+ * Button kind.
  */
-export enum BUTTON_TYPE {
+export enum BUTTON_KIND {
   /**
    * Primary button.
    */
@@ -45,6 +45,26 @@ export enum BUTTON_TYPE {
    * Danger ghost button,
    */
   DANGER_GHOST = 'danger-ghost',
+}
+
+/**
+ * Button type.
+ */
+export enum BUTTON_TYPE {
+  /**
+   * Default button type.
+   */
+  BUTTON = 'button',
+
+  /**
+   * Reset button type.
+   */
+  RESET = 'reset',
+
+  /**
+   * Submit button type.
+   */
+  SUBMIT = 'submit',
 }
 
 /**

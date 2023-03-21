@@ -16,6 +16,7 @@ import { boolean, select, text } from '@storybook/addon-knobs';
 import Add16 from '@carbon/web-components/es/icons/add/16';
 import { prefix } from '../../globals/settings';
 import {
+  BUTTON_KIND,
   BUTTON_TYPE,
   BUTTON_SIZE,
   BUTTON_TOOLTIP_ALIGNMENT,
@@ -26,16 +27,22 @@ import textNullable from '../../../.storybook/knob-text-nullable';
 import storyDocs from './button-story.mdx';
 import { ifDefined } from 'lit/directives/if-defined';
 
+const kind = {
+  [`Primary button (${BUTTON_KIND.PRIMARY})`]: BUTTON_KIND.PRIMARY,
+  [`Secondary button (${BUTTON_KIND.SECONDARY})`]: BUTTON_KIND.SECONDARY,
+  [`Tertiary button (${BUTTON_KIND.TERTIARY})`]: BUTTON_KIND.TERTIARY,
+  [`Danger button (${BUTTON_KIND.DANGER})`]: BUTTON_KIND.DANGER,
+  [`Danger tertiary button (${BUTTON_KIND.DANGER_TERTIARY})`]:
+    BUTTON_KIND.DANGER_TERTIARY,
+  [`Danger ghost button (${BUTTON_KIND.DANGER_GHOST})`]:
+    BUTTON_KIND.DANGER_GHOST,
+  [`Ghost button (${BUTTON_KIND.GHOST})`]: BUTTON_KIND.GHOST,
+};
+
 const types = {
-  [`Primary button (${BUTTON_TYPE.PRIMARY})`]: BUTTON_TYPE.PRIMARY,
-  [`Secondary button (${BUTTON_TYPE.SECONDARY})`]: BUTTON_TYPE.SECONDARY,
-  [`Tertiary button (${BUTTON_TYPE.TERTIARY})`]: BUTTON_TYPE.TERTIARY,
-  [`Danger button (${BUTTON_TYPE.DANGER})`]: BUTTON_TYPE.DANGER,
-  [`Danger tertiary button (${BUTTON_TYPE.DANGER_TERTIARY})`]:
-    BUTTON_TYPE.DANGER_TERTIARY,
-  [`Danger ghost button (${BUTTON_TYPE.DANGER_GHOST})`]:
-    BUTTON_TYPE.DANGER_GHOST,
-  [`Ghost button (${BUTTON_TYPE.GHOST})`]: BUTTON_TYPE.GHOST,
+  [`Button`]: BUTTON_TYPE.BUTTON,
+  [`Reset`]: BUTTON_TYPE.RESET,
+  [`Submit`]: BUTTON_TYPE.SUBMIT,
 };
 
 const alignmentOptions = {
@@ -65,6 +72,7 @@ export const Default = (args) => {
     disabled,
     href,
     size,
+    kind,
     tooltipAlignment,
     tooltipPosition,
     tooltipText,
@@ -74,6 +82,7 @@ export const Default = (args) => {
 
   return html`
     <cds-btn
+      kind="${ifDefined(kind)}"
       type="${ifDefined(type)}"
       ?disabled="${disabled}"
       href="${ifDefined(href)}"
@@ -95,11 +104,13 @@ export const Danger = (args) => {
     tooltipAlignment,
     tooltipPosition,
     tooltipText,
+    type,
     onClick,
   } = args?.[`${prefix}-btn`] ?? {};
   return html`
     <cds-btn
-      type="danger"
+      kind="danger"
+      type="${type}"
       ?disabled="${disabled}"
       href="${ifDefined(href)}"
       size="${ifDefined(size)}"
@@ -110,7 +121,8 @@ export const Danger = (args) => {
       Button
     </cds-btn>
     <cds-btn
-      type="danger--tertiary"
+      kind="danger--tertiary"
+      type="${type}"
       ?disabled="${disabled}"
       href="${ifDefined(href)}"
       size="${ifDefined(size)}"
@@ -121,7 +133,8 @@ export const Danger = (args) => {
       Tertiary Danger Button
     </cds-btn>
     <cds-btn
-      type="danger--ghost"
+      kind="danger--ghost"
+      type="${type}"
       ?disabled="${disabled}"
       href="${ifDefined(href)}"
       size="${ifDefined(size)}"
@@ -142,11 +155,13 @@ export const Ghost = (args) => {
     tooltipAlignment,
     tooltipPosition,
     tooltipText,
+    type,
     onClick,
   } = args?.[`${prefix}-btn`] ?? {};
   return html`
     <cds-btn
-      type="ghost"
+      kind="ghost"
+      type="${type}"
       ?disabled="${disabled}"
       href="${ifDefined(href)}"
       size="${ifDefined(size)}"
@@ -164,6 +179,7 @@ export const IconButton = (args) => {
     disabled,
     href,
     size,
+    kind,
     tooltipAlignment,
     tooltipPosition,
     tooltipText,
@@ -174,6 +190,7 @@ export const IconButton = (args) => {
     <cds-btn
       ?disabled="${disabled}"
       href="${ifDefined(href)}"
+      kind="${ifDefined(kind)}"
       type="${ifDefined(type)}"
       size="${ifDefined(size)}"
       @click=${onClick}
@@ -188,7 +205,8 @@ export const IconButton = (args) => {
 IconButton.parameters = {
   knobs: {
     [`${prefix}-btn`]: () => ({
-      type: select('Button type (type)', types, BUTTON_TYPE.PRIMARY),
+      kind: select('Button kind (kind)', kind, BUTTON_KIND.PRIMARY),
+      types: select('Button type (type)', types, BUTTON_TYPE.BUTTON),
       tooltipAlignment: select(
         'Tooltip alignment',
         alignmentOptions,
@@ -216,11 +234,13 @@ export const Secondary = (args) => {
     tooltipAlignment,
     tooltipPosition,
     tooltipText,
+    type,
     onClick,
   } = args?.[`${prefix}-btn`] ?? {};
   return html`
     <cds-btn
-      type="secondary"
+      kind="secondary"
+      type="${ifDefined(type)}"
       ?disabled="${disabled}"
       href="${ifDefined(href)}"
       size="${ifDefined(size)}"
@@ -241,12 +261,13 @@ export const SetOfButtons = (args) => {
     tooltipAlignment,
     tooltipPosition,
     tooltipText,
+    type,
     onClick,
   } = args?.[`${prefix}-btn`] ?? {};
   return html`
     <cds-btn-set>
       <cds-btn
-        type="secondary"
+        type="${ifDefined(type)}"
         ?disabled="${disabled}"
         href="${ifDefined(href)}"
         size="${ifDefined(size)}"
@@ -257,7 +278,7 @@ export const SetOfButtons = (args) => {
         Secondary button
       </cds-btn>
       <cds-btn
-        type="primary"
+        type="${ifDefined(type)}"
         ?disabled="${disabled}"
         href="${ifDefined(href)}"
         size="${ifDefined(size)}"
@@ -272,7 +293,10 @@ export const SetOfButtons = (args) => {
 };
 
 export const skeleton = () => {
-  return html` <cds-btn-skeleton> </cds-btn-skeleton> `;
+  return html`
+    <cds-btn-skeleton> </cds-btn-skeleton>
+    <cds-btn-skeleton size="sm"></cds-btn-skeleton>
+  `;
 };
 
 export const Tertiary = (args) => {
@@ -283,11 +307,13 @@ export const Tertiary = (args) => {
     tooltipAlignment,
     tooltipPosition,
     tooltipText,
+    type,
     onClick,
   } = args?.[`${prefix}-btn`] ?? {};
   return html`
     <cds-btn
-      type="tertiary"
+      kind="tertiary"
+      type="${ifDefined(type)}"
       ?disabled="${disabled}"
       href="${ifDefined(href)}"
       size="${ifDefined(size)}"
@@ -306,7 +332,8 @@ export default {
     ...storyDocs.parameters,
     knobs: {
       [`${prefix}-btn`]: () => ({
-        type: select('Button type (type)', types, BUTTON_TYPE.PRIMARY),
+        kind: select('Button kind (kind)', kind, BUTTON_KIND.PRIMARY),
+        types: select('Button type (type)', types, BUTTON_TYPE.BUTTON),
         tooltipAlignment: select(
           'Tooltip alignment',
           alignmentOptions,

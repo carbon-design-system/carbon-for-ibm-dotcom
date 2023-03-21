@@ -12,9 +12,9 @@
  */
 export enum TAG_SIZE {
   /**
-   * Default size.
+   * Medium size (default).
    */
-  DEFAULT = 'md',
+  MEDIUM = 'md',
 
   /**
    * Small size.

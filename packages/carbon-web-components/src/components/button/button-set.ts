@@ -9,7 +9,7 @@
 
 import { LitElement, html } from 'lit';
 import { customElement } from 'lit/decorators.js';
-import { BUTTON_TYPE } from './defs';
+import { BUTTON_KIND } from './defs';
 import styles from './button.scss';
 import { prefix } from '../../globals/settings';
 
@@ -39,7 +39,7 @@ class CDSButtonSet extends LitElement {
     childItems.forEach((elem, index) => {
       (elem as HTMLElement).setAttribute(
         'kind',
-        index === 0 ? BUTTON_TYPE.PRIMARY : BUTTON_TYPE.TERTIARY
+        index === 0 ? BUTTON_KIND.SECONDARY : BUTTON_KIND.PRIMARY
       );
     });
 

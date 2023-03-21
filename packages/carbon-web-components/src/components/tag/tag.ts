@@ -24,12 +24,20 @@ export { TAG_SIZE, TAG_TYPE };
  *
  * @fires cds-tag-beingclosed - The custom event fired as the element is being closed
  * @fires cds-tag-closed - The custom event fired after the element has been closed
- *
  */
 @customElement(`${prefix}-tag`)
 class CDSTag extends HostListenerMixin(FocusMixin(LitElement)) {
   @query('button')
   protected _buttonNode!: HTMLButtonElement;
+
+  /**
+   * Handler for @slotchange, will only be ran if user sets an element under the "icon" slot.
+   *
+   * @private
+   */
+  private _handleSlotChange() {
+    this.hasCustomIcon = true;
+  }
 
   /**
    * Handles `click` event on this element.
@@ -83,6 +91,9 @@ class CDSTag extends HostListenerMixin(FocusMixin(LitElement)) {
   @property({ type: Boolean, reflect: true })
   disabled = false;
 
+  @property({ type: Boolean })
+  hasCustomIcon = false;
+
   /**
    * Determine if is a filter/chip
    */
@@ -99,7 +110,7 @@ class CDSTag extends HostListenerMixin(FocusMixin(LitElement)) {
    * The size of the tag.
    */
   @property({ reflect: true })
-  size = TAG_SIZE.DEFAULT;
+  size = TAG_SIZE.MEDIUM;
 
   /**
    * The type of the tag.
@@ -108,14 +119,27 @@ class CDSTag extends HostListenerMixin(FocusMixin(LitElement)) {
   type = TAG_TYPE.GRAY;
 
   render() {
-    const { disabled, filter } = this;
+    const {
+      disabled,
+      _handleSlotChange: handleSlotChange,
+      hasCustomIcon,
+      filter,
+      title,
+    } = this;
     return html`
       <slot></slot>
 
       ${filter
         ? html`
             <button class="${prefix}--tag__close-icon" ?disabled=${disabled}>
-              ${Close16({ 'aria-label': this.title })}
+              <slot
+                name="icon"
+                aria-label="${title}"
+                @slotchange=${handleSlotChange}>
+                ${hasCustomIcon
+                  ? html``
+                  : html`${Close16({ 'aria-label': title })}`}
+              </slot>
             </button>
           `
         : ``}
