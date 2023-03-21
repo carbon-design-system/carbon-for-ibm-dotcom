@@ -132,7 +132,7 @@ class CDSRadioButton extends HostListenerMixin(FocusMixin(LitElement)) {
     if (radioButtonDelegate && !disabled && !this.disabledItem) {
       this.checked = true;
       if (this._manager) {
-        this._manager.select(radioButtonDelegate);
+        this._manager.select(radioButtonDelegate, this.readOnly);
       }
     }
   };
@@ -153,11 +153,12 @@ class CDSRadioButton extends HostListenerMixin(FocusMixin(LitElement)) {
       const navigationDirection = navigationDirectionForKey[event.key];
       if (navigationDirection) {
         manager.select(
-          manager.navigate(radioButtonDelegate, navigationDirection)
+          manager.navigate(radioButtonDelegate, navigationDirection),
+          this.readOnly
         );
       }
       if (event.key === ' ' || event.key === 'Enter') {
-        manager.select(radioButtonDelegate);
+        manager.select(radioButtonDelegate, this.readOnly);
       }
     }
   };
@@ -240,6 +241,9 @@ class CDSRadioButton extends HostListenerMixin(FocusMixin(LitElement)) {
       name,
     } = this;
     if (changedProperties.has('checked') || changedProperties.has('name')) {
+      if (this.readOnly) {
+        this.checked = false;
+      }
       if (!this._manager) {
         this._manager = RadioGroupManager.get(
           this.getRootNode({ composed: true }) as Document
