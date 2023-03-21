@@ -83,7 +83,8 @@ export const Playground = (args) => {
       label-position="${ifDefined(labelPosition)}"
       orientation="${ifDefined(orientation)}"
       name="${ifDefined(name)}"
-      value="${ifDefined(value)}">
+      value="${ifDefined(value)}"
+      @cds-radio-button-group-changed="${onChange}">
       <cds-radio-button
         ?checked="${checked}"
         ?hide-label="${hideLabel}"
