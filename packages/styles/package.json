@@ -1,7 +1,7 @@
 {
   "name": "@carbon/ibmdotcom-styles",
   "description": "Carbon for IBM.com Styles",
-  "version": "1.45.0-rc.0",
+  "version": "1.45.0-rc.1",
   "license": "Apache-2.0",
   "main": "dist/ibm-dotcom-styles.min.css",
   "module": "src/scss",
@@ -50,7 +50,7 @@
     "gulp-rename": "^1.4.0",
     "gulp-rtlcss": "^1.4.1",
     "gulp-sass": "^5.0.0",
-    "node-sass": "^7.0.0",
+    "node-sass": "^8.0.0",
     "require-dir": "^1.2.0"
   },
   "sideEffects": false,
