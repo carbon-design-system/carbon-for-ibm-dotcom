@@ -1,14 +1,14 @@
 /**
  * @license
  *
- * Copyright IBM Corp. 2020, 2022
+ * Copyright IBM Corp. 2020, 2023
  *
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
  */
 
 import pickBy from 'lodash-es/pickBy.js';
-import { html, property, customElement, LitElement } from 'lit-element';
+import { html, property, LitElement } from 'lit-element';
 import ddsSettings from '../../internal/vendor/@carbon/ibmdotcom-utilities/utilities/settings/settings';
 import { globalInit } from '../../internal/vendor/@carbon/ibmdotcom-services/services/global/global';
 import { LocaleList } from '../../internal/vendor/@carbon/ibmdotcom-services-store/types/localeAPI.d';
@@ -25,6 +25,7 @@ import { FOOTER_SIZE } from '../footer/footer';
 import '../footer/footer-composite';
 import './dotcom-shell';
 import styles from './dotcom-shell-composite.scss';
+import { carbonElement } from '../../internal/vendor/@carbon/web-components/globals/decorators/carbon-element';
 
 const { stablePrefix: ddsPrefix } = ddsSettings;
 
@@ -33,7 +34,7 @@ const { stablePrefix: ddsPrefix } = ddsSettings;
  *
  * @element dds-dotcom-shell-composite
  */
-@customElement(`${ddsPrefix}-dotcom-shell-composite`)
+@carbonElement(`${ddsPrefix}-dotcom-shell-composite`)
 class DDSDotcomShellComposite extends LitElement {
   /**
    * The render target of the footer contents.

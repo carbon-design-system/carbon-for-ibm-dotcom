@@ -1,17 +1,18 @@
 /**
  * @license
  *
- * Copyright IBM Corp. 2020, 2022
+ * Copyright IBM Corp. 2020, 2023
  *
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
  */
 
-import { html, property, customElement } from 'lit-element';
+import { html, property } from 'lit-element';
 import ddsSettings from '../../internal/vendor/@carbon/ibmdotcom-utilities/utilities/settings/settings';
 import StableSelectorMixin from '../../globals/mixins/stable-selector';
 import DDSContentItemHeading from '../content-item/content-item-heading';
 import styles from './content-block-headlines.scss';
+import { carbonElement } from '../../internal/vendor/@carbon/web-components/globals/decorators/carbon-element';
 
 const { stablePrefix: ddsPrefix } = ddsSettings;
 
@@ -20,7 +21,7 @@ const { stablePrefix: ddsPrefix } = ddsSettings;
  *
  * @element dds-content-block-headlines-heading
  */
-@customElement(`${ddsPrefix}-content-block-headlines-heading`)
+@carbonElement(`${ddsPrefix}-content-block-headlines-heading`)
 class DDSContentBlockHeadlinesHeading extends StableSelectorMixin(
   DDSContentItemHeading
 ) {

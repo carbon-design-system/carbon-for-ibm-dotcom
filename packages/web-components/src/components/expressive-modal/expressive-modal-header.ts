@@ -7,11 +7,12 @@
  * LICENSE file in the root directory of this source tree.
  */
 
-import { property, customElement } from 'lit-element';
+import { property } from 'lit-element';
 import BXModalHeader from '../../internal/vendor/@carbon/web-components/components/modal/modal-header.js';
 import ddsSettings from '../../internal/vendor/@carbon/ibmdotcom-utilities/utilities/settings/settings';
 import styles from './expressive-modal.scss';
 import StableSelectorMixin from '../../globals/mixins/stable-selector';
+import { carbonElement } from '../../internal/vendor/@carbon/web-components/globals/decorators/carbon-element.js';
 
 const { stablePrefix: ddsPrefix } = ddsSettings;
 
@@ -20,7 +21,7 @@ const { stablePrefix: ddsPrefix } = ddsSettings;
  *
  * @element dds-expressive-modal-header
  */
-@customElement(`${ddsPrefix}-expressive-modal-header`)
+@carbonElement(`${ddsPrefix}-expressive-modal-header`)
 class DDSExpressiveModalHeader extends StableSelectorMixin(BXModalHeader) {
   @property({ reflect: true })
   slot = 'header';

@@ -7,7 +7,7 @@
  * LICENSE file in the root directory of this source tree.
  */
 
-import { html, property, customElement, LitElement, state } from 'lit-element';
+import { html, property, LitElement, state } from 'lit-element';
 import { classMap } from 'lit-html/directives/class-map.js';
 import settings from 'carbon-components/es/globals/js/settings.js';
 import on from 'carbon-components/es/globals/js/misc/on.js';
@@ -23,6 +23,7 @@ import styles from './image.scss';
 import ModalRenderMixin from '../../globals/mixins/modal-render';
 import Handle from '../../globals/internal/handle';
 import StableSelectorMixin from '../../globals/mixins/stable-selector';
+import { carbonElement } from '../../internal/vendor/@carbon/web-components/globals/decorators/carbon-element.js';
 
 const { prefix } = settings;
 const { stablePrefix: ddsPrefix } = ddsSettings;
@@ -34,7 +35,7 @@ const { stablePrefix: ddsPrefix } = ddsSettings;
  * @slot long-description - The long description content.
  * @slot icon - The icon content.
  */
-@customElement(`${ddsPrefix}-image`)
+@carbonElement(`${ddsPrefix}-image`)
 class DDSImage extends StableSelectorMixin(
   ModalRenderMixin(FocusMixin(LitElement))
 ) {

@@ -1,7 +1,7 @@
 /**
  * @license
  *
- * Copyright IBM Corp. 2020, 2022
+ * Copyright IBM Corp. 2020, 2023
  *
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
@@ -12,11 +12,11 @@ import {
   property,
   state,
   query,
-  customElement,
   TemplateResult,
-} from 'lit-element';
+} from 'lit-element/lit-element';
+import { carbonElement } from '../../internal/vendor/@carbon/web-components/globals/decorators/carbon-element.js';
 import settings from 'carbon-components/es/globals/js/settings.js';
-import ddsSettings from '@carbon/ibmdotcom-utilities/es/utilities/settings/settings.js';
+import ddsSettings from '../../internal/vendor/@carbon/ibmdotcom-utilities/utilities/settings/settings.js';
 import DDSLinkWithIcon, {
   ICON_PLACEMENT,
 } from '../link-with-icon/link-with-icon';
@@ -31,7 +31,7 @@ const { stablePrefix: ddsPrefix } = ddsSettings;
  *
  * @element dds-card-footer
  */
-@customElement(`${ddsPrefix}-card-footer`)
+@carbonElement(`${ddsPrefix}-card-footer`)
 class DDSCardFooter extends DDSLinkWithIcon {
   /**
    * The non-link container node, used when the link of parent `<dds-card>` should be used.

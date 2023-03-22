@@ -1,24 +1,19 @@
 /**
  * @license
  *
- * Copyright IBM Corp. 2020, 2022
+ * Copyright IBM Corp. 2020, 2023
  *
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
  */
 
-import {
-  html,
-  property,
-  customElement,
-  LitElement,
-  internalProperty,
-} from 'lit-element';
+import { html, property, LitElement, internalProperty } from 'lit-element';
 import { stripHTML } from '@carbon/ibmdotcom-utilities/es/utilities/stripHTML/index.js';
 import { render } from 'lit-html';
 import ddsSettings from '../../internal/vendor/@carbon/ibmdotcom-utilities/utilities/settings/settings';
 import StableSelectorMixin from '../../globals/mixins/stable-selector';
 import styles from './universal-banner.scss';
+import { carbonElement } from '../../internal/vendor/@carbon/web-components/globals/decorators/carbon-element';
 
 const { stablePrefix: ddsPrefix } = ddsSettings;
 
@@ -27,7 +22,7 @@ const { stablePrefix: ddsPrefix } = ddsSettings;
  *
  * @element dds-universal-banner-heading
  */
-@customElement(`${ddsPrefix}-universal-banner-heading`)
+@carbonElement(`${ddsPrefix}-universal-banner-heading`)
 class DDSUniversalBannerHeading extends StableSelectorMixin(LitElement) {
   /**
    * The shadow slot this logo UI should be in.

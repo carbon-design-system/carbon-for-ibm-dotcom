@@ -1,22 +1,23 @@
 /**
  * @license
  *
- * Copyright IBM Corp. 2022
+ * Copyright IBM Corp. 2022, 2023
  *
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
  */
 
-import { customElement, html, property } from 'lit-element';
+import { html, property } from 'lit-element';
 import ddsSettings from '@carbon/ibmdotcom-utilities/es/utilities/settings/settings.js';
 import StableSelectorMixin from '../../globals/mixins/stable-selector';
 import DDSStructuredListRow from '../structured-list/structured-list-row';
 import styles from './pricing-table.scss';
 import { setColumnWidth } from './utils';
+import { carbonElement } from '../../internal/vendor/@carbon/web-components/globals/decorators/carbon-element';
 
 const { stablePrefix: ddsPrefix } = ddsSettings;
 
-@customElement(`${ddsPrefix}-pricing-table-row`)
+@carbonElement(`${ddsPrefix}-pricing-table-row`)
 class DDSPricingTableRow extends StableSelectorMixin(DDSStructuredListRow) {
   @property()
   hasAnnotations: boolean = false;

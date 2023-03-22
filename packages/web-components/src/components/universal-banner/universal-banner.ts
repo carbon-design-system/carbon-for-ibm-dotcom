@@ -7,7 +7,7 @@
  * LICENSE file in the root directory of this source tree.
  */
 
-import { html, property, customElement, LitElement, query } from 'lit-element';
+import { html, property, LitElement, query } from 'lit-element';
 import settings from 'carbon-components/es/globals/js/settings.js';
 import { baseFontSize, breakpoints } from '@carbon/layout';
 import ddsSettings from '../../internal/vendor/@carbon/ibmdotcom-utilities/utilities/settings/settings';
@@ -16,6 +16,7 @@ import styles from './universal-banner.scss';
 import StickyHeader from '../../internal/vendor/@carbon/ibmdotcom-utilities/utilities/StickyHeader/StickyHeader';
 import DDSButtonCTA from '../cta/button-cta';
 import { icons as ctaIcons } from '../../component-mixins/cta/cta';
+import { carbonElement } from '../../internal/vendor/@carbon/web-components/globals/decorators/carbon-element';
 
 const gridLgBreakpoint = parseFloat(breakpoints.lg.width) * baseFontSize;
 
@@ -27,7 +28,7 @@ const { prefix } = settings;
  *
  * @element dds-universal-banner
  */
-@customElement(`${ddsPrefix}-universal-banner`)
+@carbonElement(`${ddsPrefix}-universal-banner`)
 class DDSUniversalBanner extends StableSelectorMixin(LitElement) {
   /**
    * Saves the button CTA's href to use in link-with-icon for the small breakpoint

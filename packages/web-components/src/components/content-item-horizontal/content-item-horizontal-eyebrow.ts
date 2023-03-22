@@ -1,15 +1,16 @@
 /**
  * @license
  *
- * Copyright IBM Corp. 2020, 2022
+ * Copyright IBM Corp. 2020, 2023
  *
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
  */
-import { html, property, customElement, LitElement } from 'lit-element';
+import { html, property, LitElement } from 'lit-element';
 import ddsSettings from '../../internal/vendor/@carbon/ibmdotcom-utilities/utilities/settings/settings';
 import styles from './content-item-horizontal.scss';
 import StableSelectorMixin from '../../globals/mixins/stable-selector';
+import { carbonElement } from '../../internal/vendor/@carbon/web-components/globals/decorators/carbon-element';
 
 const { stablePrefix: ddsPrefix } = ddsSettings;
 
@@ -18,7 +19,7 @@ const { stablePrefix: ddsPrefix } = ddsSettings;
  *
  * @element dds-content-item-horizontal-eyebrow
  */
-@customElement(`${ddsPrefix}-content-item-horizontal-eyebrow`)
+@carbonElement(`${ddsPrefix}-content-item-horizontal-eyebrow`)
 class DDSContentItemHorizontalEyebrow extends StableSelectorMixin(LitElement) {
   /**
    * The shadow slot this eyebrow content should be in.

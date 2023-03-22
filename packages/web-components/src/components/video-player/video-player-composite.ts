@@ -7,7 +7,7 @@
  * LICENSE file in the root directory of this source tree.
  */
 
-import { html, property, customElement, LitElement } from 'lit-element';
+import { html, property, LitElement } from 'lit-element';
 import ifNonNull from '../../internal/vendor/@carbon/web-components/globals/directives/if-non-null.js';
 import HostListener from '../../internal/vendor/@carbon/web-components/globals/decorators/host-listener.js';
 import HostListenerMixin from '../../internal/vendor/@carbon/web-components/globals/mixins/host-listener.js';
@@ -21,6 +21,7 @@ import {
 } from './video-player';
 // Above import is interface-only ref and thus code won't be brought into the build
 import './video-player';
+import { carbonElement } from '../../internal/vendor/@carbon/web-components/globals/decorators/carbon-element.js';
 
 const { stablePrefix: ddsPrefix } = ddsSettings;
 
@@ -29,7 +30,7 @@ const { stablePrefix: ddsPrefix } = ddsSettings;
  *
  * @element dds-video-player-composite
  */
-@customElement(`${ddsPrefix}-video-player-composite`)
+@carbonElement(`${ddsPrefix}-video-player-composite`)
 class DDSVideoPlayerComposite extends HybridRenderMixin(
   HostListenerMixin(LitElement)
 ) {

@@ -1,7 +1,7 @@
 /**
  * @license
  *
- * Copyright IBM Corp. 2021, 2022
+ * Copyright IBM Corp. 2021, 2023
  *
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
@@ -13,7 +13,6 @@ import {
   Store,
   bindActionCreators,
 } from 'redux';
-import { customElement } from 'lit-element';
 import ddsSettings from '../../../internal/vendor/@carbon/ibmdotcom-utilities/utilities/settings/settings';
 import { CloudAccountAuthAPIState } from '../../../internal/vendor/@carbon/ibmdotcom-services-store/types/cloudAccountAuthAPI.d';
 import store from '../../../internal/vendor/@carbon/ibmdotcom-services-store/store';
@@ -33,6 +32,7 @@ import {
   MastheadContainerStateProps,
 } from '../masthead-container';
 import DDSCloudMastheadComposite from './cloud-masthead-composite';
+import { carbonElement } from '../../../internal/vendor/@carbon/web-components/globals/decorators/carbon-element';
 
 const { stablePrefix: ddsPrefix } = ddsSettings;
 
@@ -124,7 +124,7 @@ export function mapDispatchToProps(
  *
  * @element dds-cloud-masthead-container
  */
-@customElement(`${ddsPrefix}-cloud-masthead-container`)
+@carbonElement(`${ddsPrefix}-cloud-masthead-container`)
 class DDSCloudMastheadContainer extends ConnectMixin<
   CloudMastheadContainerState,
   LocaleAPIActions | TranslateAPIActions | CloudAccountAuthAPIActions,

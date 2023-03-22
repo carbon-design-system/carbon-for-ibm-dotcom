@@ -12,9 +12,9 @@ import {
   property,
   state,
   query,
-  customElement,
   LitElement,
-} from 'lit-element';
+} from 'lit-element/lit-element.js';
+import { carbonElement } from '../../internal/vendor/@carbon/web-components/globals/decorators/carbon-element.js';
 import 'wicg-inert';
 import settings from 'carbon-components/es/globals/js/settings.js';
 import { slow01 } from '@carbon/motion';
@@ -49,7 +49,7 @@ const minIntersectionRatio = 0.75;
  * @csspart prev-button The button to go to the previous page.
  * @csspart next-button The button to go to the next page.
  */
-@customElement(`${ddsPrefix}-carousel`)
+@carbonElement(`${ddsPrefix}-carousel`)
 class DDSCarousel extends HostListenerMixin(StableSelectorMixin(LitElement)) {
   /**
    * The scrolling contents node.
@@ -604,7 +604,7 @@ class DDSCarousel extends HostListenerMixin(StableSelectorMixin(LitElement)) {
 
     const containingModal = this.closest(
       `${ddsPrefix}-expressive-modal`
-    ) as DDSExpressiveModal;
+    ) as DDSExpressiveModal | null;
     if (containingModal) {
       containingModal.hasFocusableElements.push(this);
       this.setAttribute('in-modal', '');

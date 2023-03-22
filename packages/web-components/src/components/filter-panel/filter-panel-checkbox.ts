@@ -7,13 +7,13 @@
  * LICENSE file in the root directory of this source tree.
  */
 
-import { customElement } from 'lit-element';
 import BXCheckbox from '../../internal/vendor/@carbon/web-components/components/checkbox/checkbox';
 import FocusMixin from '../../internal/vendor/@carbon/web-components/globals/mixins/focus';
 import ddsSettings from '../../internal/vendor/@carbon/ibmdotcom-utilities/utilities/settings/settings';
 import '../../internal/vendor/@carbon/web-components/components/modal/modal';
 import styles from './filter-panel.scss';
 import StableSelectorMixin from '../../globals/mixins/stable-selector';
+import { carbonElement } from '../../internal/vendor/@carbon/web-components/globals/decorators/carbon-element';
 
 const { stablePrefix: ddsPrefix } = ddsSettings;
 
@@ -23,7 +23,7 @@ const { stablePrefix: ddsPrefix } = ddsSettings;
  * @element dds-filter-panel-checkbox
  * @fires dds-checkbox-select - The custom event fired after this changebox changes its checked state.
  */
-@customElement(`${ddsPrefix}-filter-panel-checkbox`)
+@carbonElement(`${ddsPrefix}-filter-panel-checkbox`)
 class DDSFilterPanelCheckbox extends FocusMixin(
   StableSelectorMixin(BXCheckbox)
 ) {

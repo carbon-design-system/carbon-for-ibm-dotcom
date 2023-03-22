@@ -1,14 +1,14 @@
 /**
  * @license
  *
- * Copyright IBM Corp. 2020, 2022
+ * Copyright IBM Corp. 2020, 2023
  *
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
  */
 
 import { classMap } from 'lit-html/directives/class-map.js';
-import { html, state, property, customElement, LitElement } from 'lit-element';
+import { html, state, property, LitElement } from 'lit-element';
 import settings from 'carbon-components/es/globals/js/settings.js';
 import { baseFontSize, breakpoints } from '@carbon/layout';
 import ddsSettings from '../../internal/vendor/@carbon/ibmdotcom-utilities/utilities/settings/settings';
@@ -16,6 +16,7 @@ import sameHeight from '../../internal/vendor/@carbon/ibmdotcom-utilities/utilit
 import { GRID_MODE } from './defs';
 import styles from './card-group.scss';
 import StableSelectorMixin from '../../globals/mixins/stable-selector';
+import { carbonElement } from '../../internal/vendor/@carbon/web-components/globals/decorators/carbon-element';
 
 export { GRID_MODE };
 
@@ -33,7 +34,7 @@ const headingBottomMargin = 64;
  *
  * @element dds-card-group
  */
-@customElement(`${ddsPrefix}-card-group`)
+@carbonElement(`${ddsPrefix}-card-group`)
 class DDSCardGroup extends StableSelectorMixin(LitElement) {
   /**
    * Array to hold the card-heading elements within child items.

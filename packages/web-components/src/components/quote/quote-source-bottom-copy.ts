@@ -1,14 +1,15 @@
 /**
  * @license
  *
- * Copyright IBM Corp. 2021, 2022
+ * Copyright IBM Corp. 2021, 2023
  *
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
  */
 
-import { html, property, customElement, LitElement } from 'lit-element';
+import { html, property, LitElement } from 'lit-element';
 import ddsSettings from '../../internal/vendor/@carbon/ibmdotcom-utilities/utilities/settings/settings';
+import { carbonElement } from '../../internal/vendor/@carbon/web-components/globals/decorators/carbon-element';
 import styles from './quote.scss';
 
 const { stablePrefix: ddsPrefix } = ddsSettings;
@@ -18,7 +19,7 @@ const { stablePrefix: ddsPrefix } = ddsSettings;
  *
  * @element dds-quote-source-bottom-copy
  */
-@customElement(`${ddsPrefix}-quote-source-bottom-copy`)
+@carbonElement(`${ddsPrefix}-quote-source-bottom-copy`)
 class DDSQuoteSourceBottomCopy extends LitElement {
   /**
    * The shadow slot this source bottom copy content should be in.

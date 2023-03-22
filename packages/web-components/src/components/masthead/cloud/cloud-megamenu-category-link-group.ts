@@ -1,14 +1,15 @@
 /**
  * @license
  *
- * Copyright IBM Corp. 2020, 2022
+ * Copyright IBM Corp. 2020, 2023
  *
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
  */
 
-import { html, customElement, LitElement } from 'lit-element';
+import { html, LitElement } from 'lit-element';
 import ddsSettings from '../../../internal/vendor/@carbon/ibmdotcom-utilities/utilities/settings/settings';
+import { carbonElement } from '../../../internal/vendor/@carbon/web-components/globals/decorators/carbon-element';
 import styles from './cloud-masthead.scss';
 
 const { stablePrefix: ddsPrefix } = ddsSettings;
@@ -18,7 +19,7 @@ const { stablePrefix: ddsPrefix } = ddsSettings;
  *
  * @element dds-cloud-megamenu-category-link-group
  */
-@customElement(`${ddsPrefix}-cloud-megamenu-category-link-group`)
+@carbonElement(`${ddsPrefix}-cloud-megamenu-category-link-group`)
 class DDSCloudMegaMenuCategoryLinkGroup extends LitElement {
   render() {
     return html` <slot></slot> `;

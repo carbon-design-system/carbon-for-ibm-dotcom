@@ -7,7 +7,7 @@
  * LICENSE file in the root directory of this source tree.
  */
 
-import { html, svg, property, customElement, LitElement } from 'lit-element';
+import { html, svg, property, LitElement } from 'lit-element';
 import settings from 'carbon-components/es/globals/js/settings.js';
 import FocusMixin from '../../internal/vendor/@carbon/web-components/globals/mixins/focus.js';
 import ifNonNull from '../../internal/vendor/@carbon/web-components/globals/directives/if-non-null.js';
@@ -15,6 +15,7 @@ import IBM8BarLogoH65White from '@carbon/ibmdotcom-styles/icons/svg/IBM-8bar-log
 import ddsSettings from '../../internal/vendor/@carbon/ibmdotcom-utilities/utilities/settings/settings';
 import StableSelectorMixin from '../../globals/mixins/stable-selector';
 import styles from './footer.scss';
+import { carbonElement } from '../../internal/vendor/@carbon/web-components/globals/decorators/carbon-element.js';
 
 const { prefix } = settings;
 const { stablePrefix: ddsPrefix } = ddsSettings;
@@ -24,7 +25,7 @@ const { stablePrefix: ddsPrefix } = ddsSettings;
  *
  * @element dds-footer-logo
  */
-@customElement(`${ddsPrefix}-footer-logo`)
+@carbonElement(`${ddsPrefix}-footer-logo`)
 class DDSFooterLogo extends StableSelectorMixin(FocusMixin(LitElement)) {
   /**
    * Link `href`.

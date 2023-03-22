@@ -7,7 +7,7 @@
  * LICENSE file in the root directory of this source tree.
  */
 
-import { customElement, html } from 'lit-element';
+import { html } from 'lit-element';
 import ddsSettings from '@carbon/ibmdotcom-utilities/es/utilities/settings/settings.js';
 import StableSelectorMixin from '../../globals/mixins/stable-selector';
 import sameHeight from '../../internal/vendor/@carbon/ibmdotcom-utilities/utilities/sameHeight/sameHeight';
@@ -16,10 +16,11 @@ import DDSPricingTableHeaderCell from './pricing-table-header-cell';
 import styles from './pricing-table.scss';
 import { setColumnWidth } from './utils';
 import { PRICING_TABLE_HEADER_CELL_TYPES } from './defs';
+import { carbonElement } from '../../internal/vendor/@carbon/web-components/globals/decorators/carbon-element';
 
 const { stablePrefix: ddsPrefix } = ddsSettings;
 
-@customElement(`${ddsPrefix}-pricing-table-header-row`)
+@carbonElement(`${ddsPrefix}-pricing-table-header-row`)
 class DDSPricingTableHeaderRow extends StableSelectorMixin(
   DDSStructuredListHeaderRow
 ) {

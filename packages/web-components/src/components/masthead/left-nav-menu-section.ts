@@ -7,7 +7,7 @@
  * LICENSE file in the root directory of this source tree.
  */
 
-import { html, property, customElement, LitElement } from 'lit-element';
+import { html, property, LitElement } from 'lit-element';
 import settings from 'carbon-components/es/globals/js/settings.js';
 import HostListener from '../../internal/vendor/@carbon/web-components/globals/decorators/host-listener.js';
 import HostListenerMixin from '../../internal/vendor/@carbon/web-components/globals/mixins/host-listener.js';
@@ -19,6 +19,7 @@ import ddsSettings from '../../internal/vendor/@carbon/ibmdotcom-utilities/utili
 import { forEach } from '../../globals/internal/collection-helpers';
 import styles from './masthead.scss';
 import DDSLeftNav from './left-nav';
+import { carbonElement } from '../../internal/vendor/@carbon/web-components/globals/decorators/carbon-element.js';
 
 const { prefix } = settings;
 const { stablePrefix: ddsPrefix } = ddsSettings;
@@ -32,7 +33,7 @@ const { stablePrefix: ddsPrefix } = ddsSettings;
  *   Cancellation of this event stops the user-initiated action of toggling this side nav menu.
  * @fires dds-left-nav-menu-toggled The custom event fired after this side nav menu is toggled upon a user gesture.
  */
-@customElement(`${ddsPrefix}-left-nav-menu-section`)
+@carbonElement(`${ddsPrefix}-left-nav-menu-section`)
 class DDSLeftNavMenuSection extends HostListenerMixin(FocusMixin(LitElement)) {
   /**
    * Set aria-hidden property.

@@ -1,19 +1,13 @@
 /**
  * @license
  *
- * Copyright IBM Corp. 2020, 2022
+ * Copyright IBM Corp. 2020, 2023
  *
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
  */
 
-import {
-  customElement,
-  html,
-  state,
-  property,
-  TemplateResult,
-} from 'lit-element';
+import { html, state, property, TemplateResult } from 'lit-element';
 import { classMap } from 'lit-html/directives/class-map.js';
 import settings from 'carbon-components/es/globals/js/settings.js';
 import ddsSettings from '../../internal/vendor/@carbon/ibmdotcom-utilities/utilities/settings/settings';
@@ -21,6 +15,7 @@ import StableSelectorMixin from '../../globals/mixins/stable-selector';
 
 import styles from './cta-block.scss';
 import DDSContentBlock from '../content-block/content-block';
+import { carbonElement } from '../../internal/vendor/@carbon/web-components/globals/decorators/carbon-element';
 
 const { prefix } = settings;
 const { stablePrefix: ddsPrefix } = ddsSettings;
@@ -40,7 +35,7 @@ const slotExistencePropertyNames = {
  * @slot heading - The text heading.
  * @slot action - The CTA Buttons.
  */
-@customElement(`${ddsPrefix}-cta-block`)
+@carbonElement(`${ddsPrefix}-cta-block`)
 class DDSCTABlock extends StableSelectorMixin(DDSContentBlock) {
   @property({ type: Boolean, attribute: 'no-border', reflect: true })
   _noBorder = false;

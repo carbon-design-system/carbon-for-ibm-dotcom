@@ -1,15 +1,15 @@
 /**
  * @license
  *
- * Copyright IBM Corp. 2020, 2022
+ * Copyright IBM Corp. 2020, 2023
  *
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
  */
 
-import { customElement } from 'lit-element';
 import ddsSettings from '@carbon/ibmdotcom-utilities/es/utilities/settings/settings.js';
 import StableSelectorMixin from '../../globals/mixins/stable-selector';
+import { carbonElement } from '../../internal/vendor/@carbon/web-components/globals/decorators/carbon-element';
 import DDSLeadspaceBlockHeading from '../leadspace-block/leadspace-block-heading';
 import styles from './leadspace-with-search.scss';
 
@@ -20,7 +20,7 @@ const { stablePrefix: ddsPrefix } = ddsSettings;
  *
  * @element dds-leadspace-with-search-heading
  */
-@customElement(`${ddsPrefix}-leadspace-with-search-heading`)
+@carbonElement(`${ddsPrefix}-leadspace-with-search-heading`)
 class DDSLeadspaceWithSearchHeading extends StableSelectorMixin(
   DDSLeadspaceBlockHeading
 ) {

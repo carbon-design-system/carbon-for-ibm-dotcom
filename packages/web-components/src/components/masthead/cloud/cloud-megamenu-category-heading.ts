@@ -7,10 +7,11 @@
  * LICENSE file in the root directory of this source tree.
  */
 
-import { html, customElement, LitElement, property } from 'lit-element';
+import { html, LitElement, property } from 'lit-element';
 import ArrowRight32 from '../../../internal/vendor/@carbon/web-components/icons/arrow--right/32.js';
 import ddsSettings from '../../../internal/vendor/@carbon/ibmdotcom-utilities/utilities/settings/settings';
 import styles from './cloud-masthead.scss';
+import { carbonElement } from '../../../internal/vendor/@carbon/web-components/globals/decorators/carbon-element.js';
 
 const { stablePrefix: ddsPrefix } = ddsSettings;
 
@@ -19,7 +20,7 @@ const { stablePrefix: ddsPrefix } = ddsSettings;
  *
  * @element dds-cloud-megamenu-category-heading
  */
-@customElement(`${ddsPrefix}-cloud-megamenu-category-heading`)
+@carbonElement(`${ddsPrefix}-cloud-megamenu-category-heading`)
 class DDSCloudMegaMenuCategoryHeading extends LitElement {
   /**
    * href.

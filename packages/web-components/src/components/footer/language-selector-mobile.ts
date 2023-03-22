@@ -7,11 +7,12 @@
  * LICENSE file in the root directory of this source tree.
  */
 
-import { property, customElement } from 'lit-element';
+import { property } from 'lit-element';
 import BXSelect from '../../internal/vendor/@carbon/web-components/components/select/select.js';
 import { INPUT_SIZE } from '../../internal/vendor/@carbon/web-components/components/input/input.js';
 import ddsSettings from '../../internal/vendor/@carbon/ibmdotcom-utilities/utilities/settings/settings';
 import styles from './footer.scss';
+import { carbonElement } from '../../internal/vendor/@carbon/web-components/globals/decorators/carbon-element.js';
 
 const { stablePrefix: ddsPrefix } = ddsSettings;
 
@@ -22,7 +23,7 @@ const { stablePrefix: ddsPrefix } = ddsSettings;
  * @element dds-language-selector-mobile
  * @internal
  */
-@customElement(`${ddsPrefix}-language-selector-mobile`)
+@carbonElement(`${ddsPrefix}-language-selector-mobile`)
 class DDSLanguageSelectorMobile extends BXSelect {
   /**
    * Property that specifies the Select to have size xl

@@ -1,14 +1,15 @@
 /**
  * @license
  *
- * Copyright IBM Corp. 2020, 2022
+ * Copyright IBM Corp. 2020, 2023
  *
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
  */
 
-import { html, property, customElement, LitElement } from 'lit-element';
+import { html, property, LitElement } from 'lit-element';
 import ddsSettings from '../../internal/vendor/@carbon/ibmdotcom-utilities/utilities/settings/settings';
+import { carbonElement } from '../../internal/vendor/@carbon/web-components/globals/decorators/carbon-element';
 import styles from './feature-card-block-medium.scss';
 
 const { stablePrefix: ddsPrefix } = ddsSettings;
@@ -18,7 +19,7 @@ const { stablePrefix: ddsPrefix } = ddsSettings;
  *
  * @element dds-feature-card-block-medium-block-heading
  */
-@customElement(`${ddsPrefix}-feature-card-block-medium-block-heading`)
+@carbonElement(`${ddsPrefix}-feature-card-block-medium-block-heading`)
 class DDSFeatureCardBlockMediumBlockHeading extends LitElement {
   /**
    * The shadow slot this block heading should be in.

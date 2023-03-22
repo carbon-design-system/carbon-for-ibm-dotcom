@@ -7,7 +7,7 @@
  * LICENSE file in the root directory of this source tree.
  */
 
-import { html, property, customElement } from 'lit-element';
+import { html, property } from 'lit-element';
 import { classMap } from 'lit-html/directives/class-map.js';
 import settings from 'carbon-components/es/globals/js/settings.js';
 import pauseIcon from '../../internal/vendor/@carbon/web-components/icons/pause--outline--filled/32.js';
@@ -19,6 +19,7 @@ import DDSImage from '../image/image';
 import DDSVideoPlayer from '../video-player/video-player';
 import DDSVideoPlayerContainer from '../video-player/video-player-container';
 import DDSLeadSpace from '../leadspace/leadspace';
+import { carbonElement } from '../../internal/vendor/@carbon/web-components/globals/decorators/carbon-element.js';
 
 const { prefix } = settings;
 const { stablePrefix: ddsPrefix } = ddsSettings;
@@ -29,7 +30,7 @@ const { stablePrefix: ddsPrefix } = ddsSettings;
  * @element dds-background-media
  */
 
-@customElement(`${ddsPrefix}-background-media`)
+@carbonElement(`${ddsPrefix}-background-media`)
 class DDSBackgroundMedia extends DDSImage {
   /**
    * Returns a class-name based on the Gradient Direction type

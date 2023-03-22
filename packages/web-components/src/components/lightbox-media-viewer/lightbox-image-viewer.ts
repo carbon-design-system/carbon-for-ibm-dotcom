@@ -7,13 +7,14 @@
  * LICENSE file in the root directory of this source tree.
  */
 
-import { html, property, customElement } from 'lit-element';
+import { html, property } from 'lit-element';
 import settings from 'carbon-components/es/globals/js/settings.js';
 import ifNonNull from '../../internal/vendor/@carbon/web-components/globals/directives/if-non-null.js';
 import ddsSettings from '../../internal/vendor/@carbon/ibmdotcom-utilities/utilities/settings/settings';
 import DDSLightboxMediaViewerBody from './lightbox-media-viewer-body';
 import '../expressive-modal/expressive-modal';
 import '../expressive-modal/expressive-modal-close-button';
+import { carbonElement } from '../../internal/vendor/@carbon/web-components/globals/decorators/carbon-element.js';
 
 const { prefix } = settings;
 const { stablePrefix: ddsPrefix } = ddsSettings;
@@ -25,7 +26,7 @@ const { stablePrefix: ddsPrefix } = ddsSettings;
  * @slot title - The title content.
  * @slot description - The description content.
  */
-@customElement(`${ddsPrefix}-lightbox-image-viewer`)
+@carbonElement(`${ddsPrefix}-lightbox-image-viewer`)
 class DDSLightboxImageViewer extends DDSLightboxMediaViewerBody {
   _renderDescription() {
     const { description } = this;

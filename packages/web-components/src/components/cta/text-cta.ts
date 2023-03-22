@@ -1,13 +1,13 @@
 /**
  * @license
  *
- * Copyright IBM Corp. 2020, 2022
+ * Copyright IBM Corp. 2020, 2023
  *
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
  */
 
-import { html, property, state, customElement } from 'lit-element';
+import { html, property, state } from 'lit-element';
 import ddsSettings from '../../internal/vendor/@carbon/ibmdotcom-utilities/utilities/settings/settings';
 import {
   formatVideoCaption,
@@ -18,6 +18,7 @@ import CTAMixin from '../../component-mixins/cta/cta';
 import VideoCTAMixin from '../../component-mixins/cta/video';
 import { CTA_TYPE } from './defs';
 import styles from './cta.scss';
+import { carbonElement } from '../../internal/vendor/@carbon/web-components/globals/decorators/carbon-element';
 
 export { CTA_TYPE };
 
@@ -28,7 +29,7 @@ const { stablePrefix: ddsPrefix } = ddsSettings;
  *
  * @element dds-text-cta
  */
-@customElement(`${ddsPrefix}-text-cta`)
+@carbonElement(`${ddsPrefix}-text-cta`)
 class DDSTextCTA extends VideoCTAMixin(CTAMixin(DDSLinkWithIcon)) {
   /**
    * `true` if there is a non-empty default slot content.

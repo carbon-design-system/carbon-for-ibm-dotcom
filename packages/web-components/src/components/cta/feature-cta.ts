@@ -7,7 +7,7 @@
  * LICENSE file in the root directory of this source tree.
  */
 
-import { property, customElement, html } from 'lit-element';
+import { property, html } from 'lit-element';
 import settings from 'carbon-components/es/globals/js/settings.js';
 import ddsSettings from '@carbon/ibmdotcom-utilities/es/utilities/settings/settings.js';
 import ifNonNull from '../../internal/vendor/@carbon/web-components/globals/directives/if-non-null.js';
@@ -27,6 +27,7 @@ import styles from './cta.scss';
 import '../card/card-eyebrow';
 import '../card/card-heading';
 import '../image/image';
+import { carbonElement } from '../../internal/vendor/@carbon/web-components/globals/decorators/carbon-element.js';
 
 export { CTA_TYPE };
 
@@ -38,7 +39,7 @@ const { stablePrefix: ddsPrefix } = ddsSettings;
  *
  * @element dds-feature-cta
  */
-@customElement(`${ddsPrefix}-feature-cta`)
+@carbonElement(`${ddsPrefix}-feature-cta`)
 class DDSFeatureCTA extends VideoCTAMixin(CTAMixin(DDSFeatureCard)) {
   protected _renderCopy() {
     const {

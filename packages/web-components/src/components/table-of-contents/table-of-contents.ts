@@ -16,7 +16,6 @@ import {
   state,
   query,
   queryAll,
-  customElement,
   LitElement,
 } from 'lit-element';
 import CaretLeft20 from '../../internal/vendor/@carbon/web-components/icons/caret--left/20.js';
@@ -32,6 +31,7 @@ import ddsSettings from '../../internal/vendor/@carbon/ibmdotcom-utilities/utili
 import styles from './table-of-contents.scss';
 import { TOC_TYPES } from './defs';
 import StableSelectorMixin from '../../globals/mixins/stable-selector';
+import { carbonElement } from '../../internal/vendor/@carbon/web-components/globals/decorators/carbon-element.js';
 
 const { prefix } = settings;
 const { stablePrefix: ddsPrefix } = ddsSettings;
@@ -72,7 +72,7 @@ function findLastIndex<T>(
  * @slot heading - The heading content.
  * @slot menu-rule - The menu rule.
  */
-@customElement(`${ddsPrefix}-table-of-contents`)
+@carbonElement(`${ddsPrefix}-table-of-contents`)
 class DDSTableOfContents extends HostListenerMixin(
   StableSelectorMixin(LitElement)
 ) {

@@ -9,7 +9,7 @@
 
 import ifNonNull from '../../internal/vendor/@carbon/web-components/globals/directives/if-non-null.js';
 import { classMap } from 'lit-html/directives/class-map.js';
-import { html, property, query, customElement } from 'lit-element';
+import { html, property, query } from 'lit-element';
 import settings from 'carbon-components/es/globals/js/settings.js';
 import Close20 from '../../internal/vendor/@carbon/web-components/icons/close/20.js';
 import Search20 from '../../internal/vendor/@carbon/web-components/icons/search/20.js';
@@ -26,6 +26,7 @@ import { forEach, indexOf } from '../../globals/internal/collection-helpers';
 import styles from './search-with-typeahead.scss';
 import StableSelectorMixin from '../../globals/mixins/stable-selector';
 import './search-with-typeahead-item';
+import { carbonElement } from '../../internal/vendor/@carbon/web-components/globals/decorators/carbon-element.js';
 
 const { stablePrefix: ddsPrefix } = ddsSettings;
 const { prefix } = settings;
@@ -46,7 +47,7 @@ const gridBreakpoint = parseFloat(breakpoints.lg.width) * baseFontSize;
  * @fires dds-search-with-typeahead-toggled
  *   The name of the custom event fired after this search box is toggled upon a user gesture.
  */
-@customElement(`${ddsPrefix}-search-with-typeahead`)
+@carbonElement(`${ddsPrefix}-search-with-typeahead`)
 class DDSSearchWithTypeahead extends HostListenerMixin(
   StableSelectorMixin(BXDropdown)
 ) {

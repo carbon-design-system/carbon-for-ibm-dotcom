@@ -1,17 +1,18 @@
 /**
  * @license
  *
- * Copyright IBM Corp. 2020, 2022
+ * Copyright IBM Corp. 2020, 2023
  *
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
  */
 
-import { customElement, html, TemplateResult } from 'lit-element';
+import { html, TemplateResult } from 'lit-element';
 import ddsSettings from '../../internal/vendor/@carbon/ibmdotcom-utilities/utilities/settings/settings';
 import DDSContentBlock from '../content-block/content-block';
 import StableSelectorMixin from '../../globals/mixins/stable-selector';
 import styles from './content-group.scss';
+import { carbonElement } from '../../internal/vendor/@carbon/web-components/globals/decorators/carbon-element';
 
 const { stablePrefix: ddsPrefix } = ddsSettings;
 
@@ -20,7 +21,7 @@ const { stablePrefix: ddsPrefix } = ddsSettings;
  *
  * @abstract
  */
-@customElement(`${ddsPrefix}-content-group`)
+@carbonElement(`${ddsPrefix}-content-group`)
 class DDSContentGroup extends StableSelectorMixin(DDSContentBlock) {
   protected _renderInnerBody(): TemplateResult | string | void {
     return html` ${this._renderMedia()}${this._renderContent()} `;

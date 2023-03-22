@@ -1,13 +1,14 @@
 /**
  * @license
  *
- * Copyright IBM Corp. 2020, 2022
+ * Copyright IBM Corp. 2020, 2023
  *
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
  */
-import { customElement, css } from 'lit-element';
+import { css } from 'lit-element';
 import ddsSettings from '../../internal/vendor/@carbon/ibmdotcom-utilities/utilities/settings/settings';
+import { carbonElement } from '../../internal/vendor/@carbon/web-components/globals/decorators/carbon-element';
 import DDSLinkWithIcon from '../link-with-icon/link-with-icon';
 import styles from './callout-quote.scss';
 
@@ -18,7 +19,7 @@ const { stablePrefix: ddsPrefix } = ddsSettings;
  *
  * @element dds-callout-link-with-icon
  */
-@customElement(`${ddsPrefix}-callout-link-with-icon`)
+@carbonElement(`${ddsPrefix}-callout-link-with-icon`)
 class DDSCalloutLinkWithIcon extends DDSLinkWithIcon {
   static get stableSelector() {
     return `${ddsPrefix}--callout-link-with-icon`;

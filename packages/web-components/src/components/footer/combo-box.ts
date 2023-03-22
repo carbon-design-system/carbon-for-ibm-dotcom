@@ -9,12 +9,13 @@
 
 import settings from 'carbon-components/es/globals/js/settings.js';
 import { TemplateResult } from 'lit-html';
-import { html, property, query, customElement } from 'lit-element';
+import { html, property, query } from 'lit-element';
 import BXComboBoxItem from '../../internal/vendor/@carbon/web-components/components/combo-box/combo-box-item.js';
 import Close16 from '../../internal/vendor/@carbon/web-components/icons/close/16.js';
 import ddsSettings from '@carbon/ibmdotcom-utilities/es/utilities/settings/settings.js';
 import { findIndex, forEach } from '../../globals/internal/collection-helpers';
 import DDSDropdown, { DROPDOWN_KEYBOARD_ACTION } from './dropdown';
+import { carbonElement } from '../../internal/vendor/@carbon/web-components/globals/decorators/carbon-element.js';
 
 export {
   DROPDOWN_COLOR_SCHEME,
@@ -38,7 +39,7 @@ const { prefix } = settings;
  * @fires bx-combo-box-selected - The custom event fired after a combo box item is selected upon a user gesture.
  * @fires bx-combo-box-toggled - The custom event fired after the open state of this combo box is toggled upon a user gesture.
  */
-@customElement(`${ddsPrefix}-combo-box`)
+@carbonElement(`${ddsPrefix}-combo-box`)
 class DDSComboBox extends DDSDropdown {
   /**
    * The text content that should be set to the `<input>` for filtering.

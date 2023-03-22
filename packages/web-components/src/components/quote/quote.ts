@@ -1,18 +1,19 @@
 /**
  * @license
  *
- * Copyright IBM Corp. 2020, 2022
+ * Copyright IBM Corp. 2020, 2023
  *
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
  */
-import { customElement, html, LitElement, property } from 'lit-element';
+import { html, LitElement, property } from 'lit-element';
 import settings from 'carbon-components/es/globals/js/settings.js';
 import ddsSettings from '@carbon/ibmdotcom-utilities/es/utilities/settings/settings.js';
 import styles from './quote.scss';
 import StableSelectorMixin from '../../globals/mixins/stable-selector';
 import { QUOTE_TYPES, QUOTE_COLOR_SCHEMES } from './defs';
 import '../horizontal-rule/horizontal-rule';
+import { carbonElement } from '../../internal/vendor/@carbon/web-components/globals/decorators/carbon-element';
 
 export { QUOTE_TYPES, QUOTE_COLOR_SCHEMES };
 
@@ -36,7 +37,7 @@ const slotExistencePropertyNames = {
  * @slot source-copy - The copy content of the quote source.
  * @slot source-bottom-copy - The copy content of the quote source placed at the bottom.
  */
-@customElement(`${ddsPrefix}-quote`)
+@carbonElement(`${ddsPrefix}-quote`)
 class DDSQuote extends StableSelectorMixin(LitElement) {
   /**
    * Defines rendered quote mark style

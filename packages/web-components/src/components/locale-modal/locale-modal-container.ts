@@ -1,7 +1,7 @@
 /**
  * @license
  *
- * Copyright IBM Corp. 2020, 2022
+ * Copyright IBM Corp. 2020, 2023
  *
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
@@ -14,7 +14,6 @@ import {
   Store,
   bindActionCreators,
 } from 'redux';
-import { customElement } from 'lit-element';
 import ddsSettings from '../../internal/vendor/@carbon/ibmdotcom-utilities/utilities/settings/settings';
 import ConnectMixin from '../../globals/mixins/connect';
 import store from '../../internal/vendor/@carbon/ibmdotcom-services-store/store';
@@ -29,6 +28,7 @@ import {
 } from '../../internal/vendor/@carbon/ibmdotcom-services-store/actions/localeAPI';
 import { LocaleAPIActions } from '../../internal/vendor/@carbon/ibmdotcom-services-store/actions/localeAPI.d';
 import DDSLocaleModalComposite from './locale-modal-composite';
+import { carbonElement } from '../../internal/vendor/@carbon/web-components/globals/decorators/carbon-element';
 
 const { stablePrefix: ddsPrefix } = ddsSettings;
 
@@ -105,7 +105,7 @@ export function mapDispatchToProps(dispatch: Dispatch<LocaleAPIActions>) {
  *
  * @element dds-locale-modal-container
  */
-@customElement(`${ddsPrefix}-locale-modal-container`)
+@carbonElement(`${ddsPrefix}-locale-modal-container`)
 class DDSLocaleModalContainer extends ConnectMixin<
   LocaleModalContainerState,
   LocaleAPIActions,

@@ -7,7 +7,7 @@
  * LICENSE file in the root directory of this source tree.
  */
 
-import { html, property, customElement, LitElement } from 'lit-element';
+import { html, property, LitElement } from 'lit-element';
 import settings from 'carbon-components/es/globals/js/settings.js';
 import on from 'carbon-components/es/globals/js/misc/on.js';
 import ifNonNull from '../../internal/vendor/@carbon/web-components/globals/directives/if-non-null.js';
@@ -24,6 +24,7 @@ import styles from './image-with-caption.scss';
 import ModalRenderMixin from '../../globals/mixins/modal-render';
 import Handle from '../../globals/internal/handle';
 import StableSelectorMixin from '../../globals/mixins/stable-selector';
+import { carbonElement } from '../../internal/vendor/@carbon/web-components/globals/decorators/carbon-element.js';
 
 const { prefix } = settings;
 const { stablePrefix: ddsPrefix } = ddsSettings;
@@ -34,7 +35,7 @@ const { stablePrefix: ddsPrefix } = ddsSettings;
  * @element dds-image-with-caption
  */
 
-@customElement(`${ddsPrefix}-image-with-caption`)
+@carbonElement(`${ddsPrefix}-image-with-caption`)
 class DDSImageWithCaption extends StableSelectorMixin(
   ModalRenderMixin(FocusMixin(LitElement))
 ) {

@@ -8,9 +8,10 @@
  */
 
 import BXStructuredListHeaderCell from '../../internal/vendor/@carbon/web-components/components/structured-list/structured-list-header-cell.js';
-import { customElement } from 'lit-element';
+import {} from 'lit-element';
 import ddsSettings from '../../internal/vendor/@carbon/ibmdotcom-utilities/utilities/settings/settings';
 import styles from './structured-list.scss';
+import { carbonElement } from '../../internal/vendor/@carbon/web-components/globals/decorators/carbon-element.js';
 
 const { stablePrefix: ddsPrefix } = ddsSettings;
 
@@ -19,7 +20,7 @@ const { stablePrefix: ddsPrefix } = ddsSettings;
  *
  * @element dds-structured-list-header-cell
  */
-@customElement(`${ddsPrefix}-structured-list-header-cell`)
+@carbonElement(`${ddsPrefix}-structured-list-header-cell`)
 class DDSStructuredListHeaderCell extends BXStructuredListHeaderCell {
   connectedCallback() {
     super.connectedCallback();

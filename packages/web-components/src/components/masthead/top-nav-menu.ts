@@ -7,10 +7,11 @@
  * LICENSE file in the root directory of this source tree.
  */
 
-import { property, query, customElement } from 'lit-element';
+import { property, query } from 'lit-element';
 import BXHeaderMenu from '../../internal/vendor/@carbon/web-components/components/ui-shell/header-menu.js';
 import ddsSettings from '../../internal/vendor/@carbon/ibmdotcom-utilities/utilities/settings/settings';
 import styles from './masthead.scss';
+import { carbonElement } from '../../internal/vendor/@carbon/web-components/globals/decorators/carbon-element.js';
 
 const { stablePrefix: ddsPrefix } = ddsSettings;
 
@@ -19,7 +20,7 @@ const { stablePrefix: ddsPrefix } = ddsSettings;
  *
  * @element dds-top-nav-menu
  */
-@customElement(`${ddsPrefix}-top-nav-menu`)
+@carbonElement(`${ddsPrefix}-top-nav-menu`)
 class DDSTopNavMenu extends BXHeaderMenu {
   /**
    * The trigger button.

@@ -1,18 +1,19 @@
 /**
  * @license
  *
- * Copyright IBM Corp. 2020, 2022
+ * Copyright IBM Corp. 2020, 2023
  *
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
  */
 
-import { html, customElement, LitElement } from 'lit-element';
+import { html, LitElement } from 'lit-element';
 import settings from 'carbon-components/es/globals/js/settings.js';
 import ddsSettings from '../../internal/vendor/@carbon/ibmdotcom-utilities/utilities/settings/settings';
 import StableSelectorMixin from '../../globals/mixins/stable-selector';
 import styles from './masthead.scss';
 import StickyHeader from '../../internal/vendor/@carbon/ibmdotcom-utilities/utilities/StickyHeader/StickyHeader';
+import { carbonElement } from '../../internal/vendor/@carbon/web-components/globals/decorators/carbon-element';
 
 const { prefix } = settings;
 const { stablePrefix: ddsPrefix } = ddsSettings;
@@ -25,7 +26,7 @@ const { stablePrefix: ddsPrefix } = ddsSettings;
  * @slot nav - The nav content.
  * @slot profile - The right hand area.
  */
-@customElement(`${ddsPrefix}-masthead`)
+@carbonElement(`${ddsPrefix}-masthead`)
 class DDSMasthead extends StableSelectorMixin(LitElement) {
   firstUpdated() {
     StickyHeader.global.masthead = this;

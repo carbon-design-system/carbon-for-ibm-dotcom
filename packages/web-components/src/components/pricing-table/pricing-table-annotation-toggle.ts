@@ -7,17 +7,18 @@
  * LICENSE file in the root directory of this source tree.
  */
 
-import { customElement, html, LitElement, property } from 'lit-element';
+import { html, LitElement, property } from 'lit-element';
 import ddsSettings from '@carbon/ibmdotcom-utilities/es/utilities/settings/settings.js';
 import ChevronDown16 from '../../internal/vendor/@carbon/web-components/icons/chevron--down/16.js';
 import Close16 from '../../internal/vendor/@carbon/web-components/icons/close/16.js';
 import StableSelectorMixin from '../../globals/mixins/stable-selector';
 import styles from './pricing-table.scss';
 import DDSPricingTableRow from './pricing-table-row';
+import { carbonElement } from '../../internal/vendor/@carbon/web-components/globals/decorators/carbon-element.js';
 
 const { stablePrefix: ddsPrefix } = ddsSettings;
 
-@customElement(`${ddsPrefix}-pricing-table-annotation-toggle`)
+@carbonElement(`${ddsPrefix}-pricing-table-annotation-toggle`)
 class DDSPricingTableAnnotationToggle extends StableSelectorMixin(LitElement) {
   @property({ reflect: true })
   slot = 'toggle';

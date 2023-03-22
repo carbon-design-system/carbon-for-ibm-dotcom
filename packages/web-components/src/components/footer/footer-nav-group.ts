@@ -7,13 +7,14 @@
  * LICENSE file in the root directory of this source tree.
  */
 
-import { html, property, state, customElement, LitElement } from 'lit-element';
+import { html, property, state, LitElement } from 'lit-element';
 import settings from 'carbon-components/es/globals/js/settings.js';
 import ChevronRight16 from '../../internal/vendor/@carbon/web-components/icons/chevron--right/16.js';
 import ddsSettings from '../../internal/vendor/@carbon/ibmdotcom-utilities/utilities/settings/settings';
 import StableSelectorMixin from '../../globals/mixins/stable-selector';
 import Handle from '../../globals/internal/handle';
 import styles from './footer.scss';
+import { carbonElement } from '../../internal/vendor/@carbon/web-components/globals/decorators/carbon-element.js';
 
 const { prefix } = settings;
 const { stablePrefix: ddsPrefix } = ddsSettings;
@@ -24,7 +25,7 @@ const { stablePrefix: ddsPrefix } = ddsSettings;
  * @element dds-footer-nav-group
  * @slot title - The title content.
  */
-@customElement(`${ddsPrefix}-footer-nav-group`)
+@carbonElement(`${ddsPrefix}-footer-nav-group`)
 class DDSFooterNavGroup extends StableSelectorMixin(LitElement) {
   /**
    * The handle for observing match of the media query for making the accordion item stick expanded.

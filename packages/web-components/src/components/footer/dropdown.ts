@@ -10,7 +10,7 @@
 import settings from 'carbon-components/es/globals/js/settings.js';
 import { classMap } from 'lit-html/directives/class-map.js';
 import { ifDefined } from 'lit-html/directives/if-defined.js';
-import { html, query, customElement, property } from 'lit-element';
+import { html, query, property } from 'lit-element';
 import ddsSettings from '@carbon/ibmdotcom-utilities/es/utilities/settings/settings.js';
 import BXDropdown from '../../internal/vendor/@carbon/web-components/components/dropdown/dropdown.js';
 import BXDropdownItem from '../../internal/vendor/@carbon/web-components/components/dropdown/dropdown-item.js';
@@ -24,6 +24,7 @@ import {
   NAVIGATION_DIRECTION,
 } from './defs';
 import { forEach, indexOf } from '../../globals/internal/collection-helpers';
+import { carbonElement } from '../../internal/vendor/@carbon/web-components/globals/decorators/carbon-element.js';
 
 export {
   DROPDOWN_COLOR_SCHEME,
@@ -54,7 +55,7 @@ const { prefix } = settings;
  * @fires bx-dropdown-selected - The custom event fired after a dropdown item is selected upon a user gesture.
  * @fires bx-dropdown-toggled - The custom event fired after the open state of this dropdown is toggled upon a user gesture.
  */
-@customElement(`${ddsPrefix}-dropdown`)
+@carbonElement(`${ddsPrefix}-dropdown`)
 class DDSDropdown extends BXDropdown {
   /**
    * The `<input` node in ComboBox, used to get value.

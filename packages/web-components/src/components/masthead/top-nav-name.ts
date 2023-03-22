@@ -7,13 +7,14 @@
  * LICENSE file in the root directory of this source tree.
  */
 
-import { html, customElement } from 'lit-element';
+import { html } from 'lit-element';
 import settings from 'carbon-components/es/globals/js/settings.js';
 import ifNonNull from '../../internal/vendor/@carbon/web-components/globals/directives/if-non-null.js';
 import ddsSettings from '../../internal/vendor/@carbon/ibmdotcom-utilities/utilities/settings/settings';
 import DDSMastheadTopNav from './top-nav';
 import DDSLeftNavName from './left-nav-name';
 import styles from './masthead.scss';
+import { carbonElement } from '../../internal/vendor/@carbon/web-components/globals/decorators/carbon-element.js';
 
 const { prefix } = settings;
 const { stablePrefix: ddsPrefix } = ddsSettings;
@@ -23,7 +24,7 @@ const { stablePrefix: ddsPrefix } = ddsSettings;
  *
  * @element dds-top-nav-name
  */
-@customElement(`${ddsPrefix}-top-nav-name`)
+@carbonElement(`${ddsPrefix}-top-nav-name`)
 class DDSTopNavName extends DDSLeftNavName {
   connectedCallback() {
     super.connectedCallback();

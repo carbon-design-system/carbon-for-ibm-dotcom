@@ -1,14 +1,15 @@
 /**
  * @license
  *
- * Copyright IBM Corp. 2020, 2022
+ * Copyright IBM Corp. 2020, 2023
  *
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
  */
 
-import { customElement, css } from 'lit-element';
+import { css } from 'lit-element';
 import ddsSettings from '../../internal/vendor/@carbon/ibmdotcom-utilities/utilities/settings/settings';
+import { carbonElement } from '../../internal/vendor/@carbon/web-components/globals/decorators/carbon-element';
 import DDSContentBlock from '../content-block/content-block';
 import styles from './content-block-mixed.scss';
 
@@ -19,7 +20,7 @@ const { stablePrefix: ddsPrefix } = ddsSettings;
  *
  * @element dds-content-block-mixed
  */
-@customElement(`${ddsPrefix}-content-block-mixed`)
+@carbonElement(`${ddsPrefix}-content-block-mixed`)
 class DDSContentBlockMixed extends DDSContentBlock {
   static get stableSelector() {
     return `${ddsPrefix}--content-block-mixed`;

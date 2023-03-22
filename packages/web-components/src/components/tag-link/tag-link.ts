@@ -7,12 +7,13 @@
  * LICENSE file in the root directory of this source tree.
  */
 
-import { html, property, customElement, LitElement } from 'lit-element';
+import { html, property, LitElement } from 'lit-element';
 import settings from 'carbon-components/es/globals/js/settings.js';
 import ifNonNull from '../../internal/vendor/@carbon/web-components/globals/directives/if-non-null.js';
 import ddsSettings from '../../internal/vendor/@carbon/ibmdotcom-utilities/utilities/settings/settings';
 import styles from './tag-link.scss';
 import StableSelectorMixin from '../../globals/mixins/stable-selector';
+import { carbonElement } from '../../internal/vendor/@carbon/web-components/globals/decorators/carbon-element.js';
 
 const { stablePrefix: ddsPrefix } = ddsSettings;
 const { prefix } = settings;
@@ -22,7 +23,7 @@ const { prefix } = settings;
  *
  * @element dds-tag-link
  */
-@customElement(`${ddsPrefix}-tag-link`)
+@carbonElement(`${ddsPrefix}-tag-link`)
 class DDSTagLink extends StableSelectorMixin(LitElement) {
   /**
    * Link `href`.

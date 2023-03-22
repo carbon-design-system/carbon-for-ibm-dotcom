@@ -7,10 +7,11 @@
  * LICENSE file in the root directory of this source tree.
  */
 
-import { html, property, customElement } from 'lit-element';
+import { html, property } from 'lit-element';
 import BXLink from '../../../internal/vendor/@carbon/web-components/components/link/link.js';
 import ddsSettings from '../../../internal/vendor/@carbon/ibmdotcom-utilities/utilities/settings/settings';
 import styles from './cloud-masthead.scss';
+import { carbonElement } from '../../../internal/vendor/@carbon/web-components/globals/decorators/carbon-element.js';
 
 const { stablePrefix: ddsPrefix } = ddsSettings;
 
@@ -19,7 +20,7 @@ const { stablePrefix: ddsPrefix } = ddsSettings;
  *
  * @element dds-cloud-megamenu-category-link
  */
-@customElement(`${ddsPrefix}-cloud-megamenu-category-link`)
+@carbonElement(`${ddsPrefix}-cloud-megamenu-category-link`)
 class DDSCloudMegaMenuCateoryLink extends BXLink {
   /**
    * link title.

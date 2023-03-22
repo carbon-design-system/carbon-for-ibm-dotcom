@@ -7,11 +7,11 @@
  * LICENSE file in the root directory of this source tree.
  */
 
-import { customElement } from 'lit-element';
 import BXModalHeading from '../../internal/vendor/@carbon/web-components/components/modal/modal-heading.js';
 import ddsSettings from '../../internal/vendor/@carbon/ibmdotcom-utilities/utilities/settings/settings';
 import StableSelectorMixin from '../../globals/mixins/stable-selector';
 import styles from './filter-panel.scss';
+import { carbonElement } from '../../internal/vendor/@carbon/web-components/globals/decorators/carbon-element.js';
 
 const { stablePrefix: ddsPrefix } = ddsSettings;
 
@@ -20,7 +20,7 @@ const { stablePrefix: ddsPrefix } = ddsSettings;
  *
  * @element dds-filter-modal-heading
  */
-@customElement(`${ddsPrefix}-filter-modal-heading`)
+@carbonElement(`${ddsPrefix}-filter-modal-heading`)
 class DDSFilterModalHeading extends StableSelectorMixin(BXModalHeading) {
   static get stableSelector() {
     return `${ddsPrefix}-filter-modal-heading`;

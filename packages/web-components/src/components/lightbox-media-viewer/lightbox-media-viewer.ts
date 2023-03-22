@@ -1,19 +1,20 @@
 /**
  * @license
  *
- * Copyright IBM Corp. 2020, 2022
+ * Copyright IBM Corp. 2020, 2023
  *
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
  */
 
-import { html, property, customElement, query } from 'lit-element';
+import { html, property, query } from 'lit-element';
 import settings from 'carbon-components/es/globals/js/settings.js';
 import ddsSettings from '../../internal/vendor/@carbon/ibmdotcom-utilities/utilities/settings/settings';
 import DDSLightboxMediaViewerBody from './lightbox-media-viewer-body';
 import DDSVideoPlayerContainer from '../video-player/video-player-container';
 import DDSCarousel from '../carousel/carousel';
 import DDSExpressiveModal from '../expressive-modal/expressive-modal';
+import { carbonElement } from '../../internal/vendor/@carbon/web-components/globals/decorators/carbon-element';
 
 const { prefix } = settings;
 const { stablePrefix: ddsPrefix } = ddsSettings;
@@ -25,7 +26,7 @@ const { stablePrefix: ddsPrefix } = ddsSettings;
  * @slot title - The title content.
  * @slot description - The description content.
  */
-@customElement(`${ddsPrefix}-lightbox-media-viewer`)
+@carbonElement(`${ddsPrefix}-lightbox-media-viewer`)
 class DDSLightboxMediaViewer extends DDSLightboxMediaViewerBody {
   _renderDescription() {
     const { description } = this;

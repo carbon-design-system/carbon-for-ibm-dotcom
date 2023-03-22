@@ -1,14 +1,15 @@
 /**
  * @license
  *
- * Copyright IBM Corp. 2020, 2022
+ * Copyright IBM Corp. 2020, 2023
  *
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
  */
 
-import { css, customElement, html, property } from 'lit-element';
+import { css, html, property } from 'lit-element';
 import ddsSettings from '../../internal/vendor/@carbon/ibmdotcom-utilities/utilities/settings/settings';
+import { carbonElement } from '../../internal/vendor/@carbon/web-components/globals/decorators/carbon-element';
 import DDSContentGroup from '../content-group/content-group';
 import '../horizontal-rule/horizontal-rule';
 import styles from './content-block-horizontal.scss';
@@ -20,7 +21,7 @@ const { stablePrefix: ddsPrefix } = ddsSettings;
  *
  * @element dds-content-block-horizontal
  */
-@customElement(`${ddsPrefix}-content-block-horizontal`)
+@carbonElement(`${ddsPrefix}-content-block-horizontal`)
 class DDSContentBlockHorizontal extends DDSContentGroup {
   @property({ type: Boolean, reflect: true, attribute: 'border' })
   border = false;

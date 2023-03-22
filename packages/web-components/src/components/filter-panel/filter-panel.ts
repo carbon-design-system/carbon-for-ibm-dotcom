@@ -7,13 +7,14 @@
  * LICENSE file in the root directory of this source tree.
  */
 
-import { customElement, html, LitElement, property } from 'lit-element';
+import { html, LitElement, property } from 'lit-element';
 import settings from 'carbon-components/es/globals/js/settings.js';
 import Reset from '../../internal/vendor/@carbon/web-components/icons/reset/16.js';
 import HostListenerMixin from '../../internal/vendor/@carbon/web-components/globals/mixins/host-listener.js';
 import ddsSettings from '../../internal/vendor/@carbon/ibmdotcom-utilities/utilities/settings/settings';
 import StableSelectorMixin from '../../globals/mixins/stable-selector';
 import styles from './filter-panel.scss';
+import { carbonElement } from '../../internal/vendor/@carbon/web-components/globals/decorators/carbon-element.js';
 
 const { prefix } = settings;
 const { stablePrefix: ddsPrefix } = ddsSettings;
@@ -23,7 +24,7 @@ const { stablePrefix: ddsPrefix } = ddsSettings;
  *
  * @element dds-filter-panel
  */
-@customElement(`${ddsPrefix}-filter-panel`)
+@carbonElement(`${ddsPrefix}-filter-panel`)
 class DDSFilterPanel extends HostListenerMixin(
   StableSelectorMixin(LitElement)
 ) {

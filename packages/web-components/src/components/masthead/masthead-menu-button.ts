@@ -8,7 +8,7 @@
  */
 
 import { classMap } from 'lit-html/directives/class-map.js';
-import { html, state, property, query, customElement } from 'lit-element';
+import { html, state, property, query } from 'lit-element';
 import HostListener from '../../internal/vendor/@carbon/web-components/globals/decorators/host-listener.js';
 import HostListenerMixin from '../../internal/vendor/@carbon/web-components/globals/mixins/host-listener.js';
 import settings from 'carbon-components/es/globals/js/settings.js';
@@ -17,6 +17,7 @@ import ddsSettings from '../../internal/vendor/@carbon/ibmdotcom-utilities/utili
 import focuswrap from '../../internal/vendor/@carbon/ibmdotcom-utilities/utilities/focuswrap/focuswrap';
 import Handle from '../../globals/internal/handle';
 import styles from './masthead.scss';
+import { carbonElement } from '../../internal/vendor/@carbon/web-components/globals/decorators/carbon-element.js';
 
 const { prefix } = settings;
 const { stablePrefix: ddsPrefix } = ddsSettings;
@@ -26,7 +27,7 @@ const { stablePrefix: ddsPrefix } = ddsSettings;
  *
  * @element dds-masthead-menu-button
  */
-@customElement(`${ddsPrefix}-masthead-menu-button`)
+@carbonElement(`${ddsPrefix}-masthead-menu-button`)
 class DDSMastheadMenuButton extends HostListenerMixin(BXHeaderMenuButton) {
   /**
    * The handle for focus wrapping.

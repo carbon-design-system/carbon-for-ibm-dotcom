@@ -8,7 +8,7 @@
  */
 
 import { ifDefined } from 'lit-html/directives/if-defined.js';
-import { html, property, query, customElement, LitElement } from 'lit-element';
+import { html, property, query, LitElement } from 'lit-element';
 import settings from 'carbon-components/es/globals/js/settings.js';
 import User20 from '../../internal/vendor/@carbon/web-components/icons/user/20.js';
 import UserOnline20 from '../../internal/vendor/@carbon/web-components/icons/user--online/20.js';
@@ -18,6 +18,7 @@ import HostListener from '../../internal/vendor/@carbon/web-components/globals/d
 import ddsSettings from '../../internal/vendor/@carbon/ibmdotcom-utilities/utilities/settings/settings';
 import styles from './masthead.scss';
 import StableSelectorMixin from '../../globals/mixins/stable-selector';
+import { carbonElement } from '../../internal/vendor/@carbon/web-components/globals/decorators/carbon-element.js';
 
 const { prefix } = settings;
 const { stablePrefix: ddsPrefix } = ddsSettings;
@@ -27,7 +28,7 @@ const { stablePrefix: ddsPrefix } = ddsSettings;
  *
  * @element dds-masthead-profile
  */
-@customElement(`${ddsPrefix}-masthead-profile`)
+@carbonElement(`${ddsPrefix}-masthead-profile`)
 class DDSMastheadProfile extends HostListenerMixin(
   FocusMixin(StableSelectorMixin(LitElement))
 ) {

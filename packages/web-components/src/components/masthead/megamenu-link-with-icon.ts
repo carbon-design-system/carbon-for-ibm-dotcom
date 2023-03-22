@@ -7,11 +7,12 @@
  * LICENSE file in the root directory of this source tree.
  */
 
-import { css, customElement, property } from 'lit-element';
+import { css, property } from 'lit-element';
 import BXLink from '../../internal/vendor/@carbon/web-components/components/link/link.js';
 import ddsSettings from '../../internal/vendor/@carbon/ibmdotcom-utilities/utilities/settings/settings';
 import { MEGAMENU_LINK_WITH_ICON_STYLE_SCHEME } from './defs';
 import styles from './masthead.scss';
+import { carbonElement } from '../../internal/vendor/@carbon/web-components/globals/decorators/carbon-element.js';
 
 export { MEGAMENU_LINK_WITH_ICON_STYLE_SCHEME };
 
@@ -22,7 +23,7 @@ const { stablePrefix: ddsPrefix } = ddsSettings;
  *
  * @element dds-megamenu-link-with-icon
  */
-@customElement(`${ddsPrefix}-megamenu-link-with-icon`)
+@carbonElement(`${ddsPrefix}-megamenu-link-with-icon`)
 class DDSMegaMenuLinkWithIcon extends BXLink {
   /**
    * link title.

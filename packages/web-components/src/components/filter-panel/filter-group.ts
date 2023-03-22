@@ -7,12 +7,12 @@
  * LICENSE file in the root directory of this source tree.
  */
 
-import { customElement } from 'lit-element';
 import BXAccordion from '../../internal/vendor/@carbon/web-components/components/accordion/accordion.js';
 import ddsSettings from '../../internal/vendor/@carbon/ibmdotcom-utilities/utilities/settings/settings';
 import StableSelectorMixin from '../../globals/mixins/stable-selector';
 import './filter-panel-input-select';
 import styles from './filter-panel.scss';
+import { carbonElement } from '../../internal/vendor/@carbon/web-components/globals/decorators/carbon-element.js';
 
 const { stablePrefix: ddsPrefix } = ddsSettings;
 
@@ -21,7 +21,7 @@ const { stablePrefix: ddsPrefix } = ddsSettings;
  *
  * @element dds-filter-group
  */
-@customElement(`${ddsPrefix}-filter-group`)
+@carbonElement(`${ddsPrefix}-filter-group`)
 class DDSFilterGroup extends StableSelectorMixin(BXAccordion) {
   /**
    * Extends BXAccordion component

@@ -7,13 +7,7 @@
  * LICENSE file in the root directory of this source tree.
  */
 
-import {
-  html,
-  property,
-  customElement,
-  LitElement,
-  TemplateResult,
-} from 'lit-element';
+import { html, property, LitElement, TemplateResult } from 'lit-element';
 import { nothing, render } from 'lit-html';
 import HostListener from '../../internal/vendor/@carbon/web-components/globals/decorators/host-listener.js';
 import HostListenerMixin from '../../internal/vendor/@carbon/web-components/globals/mixins/host-listener.js';
@@ -56,6 +50,7 @@ import './left-nav';
 import '../search-with-typeahead/search-with-typeahead';
 import '../search-with-typeahead/search-with-typeahead-item';
 import styles from './masthead.scss';
+import { carbonElement } from '../../internal/vendor/@carbon/web-components/globals/decorators/carbon-element.js';
 
 const { stablePrefix: ddsPrefix } = ddsSettings;
 
@@ -79,7 +74,7 @@ export enum NAV_ITEMS_RENDER_TARGET {
  *
  * @element dds-masthead-composite
  */
-@customElement(`${ddsPrefix}-masthead-composite`)
+@carbonElement(`${ddsPrefix}-masthead-composite`)
 class DDSMastheadComposite extends HostListenerMixin(LitElement) {
   /**
    * Renders L1 menu based on l1Data

@@ -8,12 +8,13 @@
  */
 
 import { ifDefined } from 'lit-html/directives/if-defined.js';
-import { html, customElement } from 'lit-element';
+import { html } from 'lit-element';
 import settings from 'carbon-components/es/globals/js/settings.js';
 import User20 from '../../../internal/vendor/@carbon/web-components/icons/user/20.js';
 import ddsSettings from '../../../internal/vendor/@carbon/ibmdotcom-utilities/utilities/settings/settings';
 import styles from './cloud-masthead.scss';
 import DDSMastheadProfile from '../masthead-profile';
+import { carbonElement } from '../../../internal/vendor/@carbon/web-components/globals/decorators/carbon-element.js';
 
 const { prefix } = settings;
 const { stablePrefix: ddsPrefix } = ddsSettings;
@@ -23,7 +24,7 @@ const { stablePrefix: ddsPrefix } = ddsSettings;
  *
  * @element dds-cloud-masthead-profile
  */
-@customElement(`${ddsPrefix}-cloud-masthead-profile`)
+@carbonElement(`${ddsPrefix}-cloud-masthead-profile`)
 class DDSCloudMastheadProfile extends DDSMastheadProfile {
   render() {
     const {

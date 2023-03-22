@@ -7,7 +7,7 @@
  * LICENSE file in the root directory of this source tree.
  */
 
-import { customElement, property, query, state } from 'lit-element';
+import { property, query, state } from 'lit-element';
 import settings from 'carbon-components/es/globals/js/settings.js';
 import ddsSettings from '../../internal/vendor/@carbon/ibmdotcom-utilities/utilities/settings/settings';
 import { forEach } from '../../globals/internal/collection-helpers';
@@ -25,7 +25,7 @@ const { stablePrefix: ddsPrefix } = ddsSettings;
  *
  * @element dds-megamenu-top-nav-menu
  */
-@customElement(`${ddsPrefix}-megamenu-top-nav-menu`)
+@carbonElement(`${ddsPrefix}-megamenu-top-nav-menu`)
 class DDSMegaMenuTopNavMenu extends DDSTopNavMenu {
   /**
    * The megamenu component

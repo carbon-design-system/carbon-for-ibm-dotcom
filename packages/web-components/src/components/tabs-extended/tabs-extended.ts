@@ -8,14 +8,7 @@
  */
 
 import settings from 'carbon-components/es/globals/js/settings.js';
-import {
-  customElement,
-  html,
-  state,
-  LitElement,
-  TemplateResult,
-  property,
-} from 'lit-element';
+import { html, state, LitElement, TemplateResult, property } from 'lit-element';
 import { unsafeHTML } from 'lit-html/directives/unsafe-html.js';
 import { classMap } from 'lit-html/directives/class-map.js';
 import ChevronRight20 from '../../internal/vendor/@carbon/web-components/icons/chevron--right/20.js';
@@ -24,6 +17,7 @@ import StableSelectorMixin from '../../globals/mixins/stable-selector';
 import DDSTab from './tab';
 import styles from './tabs-extended.scss';
 import { ORIENTATION } from './defs';
+import { carbonElement } from '../../internal/vendor/@carbon/web-components/globals/decorators/carbon-element.js';
 
 const { prefix } = settings;
 const { stablePrefix: ddsPrefix } = ddsSettings;
@@ -33,7 +27,7 @@ const { stablePrefix: ddsPrefix } = ddsSettings;
  *
  * @element dds-tabs-extended
  */
-@customElement(`${ddsPrefix}-tabs-extended`)
+@carbonElement(`${ddsPrefix}-tabs-extended`)
 class DDSTabsExtended extends StableSelectorMixin(LitElement) {
   /**
    * Child tab components.

@@ -7,7 +7,7 @@
  * LICENSE file in the root directory of this source tree.
  */
 
-import { html, property, customElement, LitElement } from 'lit-element';
+import { html, property, LitElement } from 'lit-element';
 import { classMap } from 'lit-html/directives/class-map.js';
 import settings from 'carbon-components/es/globals/js/settings.js';
 import ifNonNull from '../../internal/vendor/@carbon/web-components/globals/directives/if-non-null.js';
@@ -25,6 +25,7 @@ import styles from './video-player.scss';
 import StableSelectorMixin from '../../globals/mixins/stable-selector';
 import DDSVideoPlayerContainer from './video-player-container';
 import ParentVisibilityMixin from '../../component-mixins/parent-visibility/parent-visibility';
+import { carbonElement } from '../../internal/vendor/@carbon/web-components/globals/decorators/carbon-element.js';
 
 export { VIDEO_PLAYER_CONTENT_STATE };
 export { VIDEO_PLAYER_PLAYING_MODE };
@@ -37,7 +38,7 @@ const { stablePrefix: ddsPrefix } = ddsSettings;
  *
  * @element dds-video-player
  */
-@customElement(`${ddsPrefix}-video-player`)
+@carbonElement(`${ddsPrefix}-video-player`)
 class DDSVideoPlayer extends FocusMixin(
   StableSelectorMixin(ParentVisibilityMixin(LitElement))
 ) {

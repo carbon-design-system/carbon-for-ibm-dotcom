@@ -7,7 +7,7 @@
  * LICENSE file in the root directory of this source tree.
  */
 
-import { html, customElement, TemplateResult, property } from 'lit-element';
+import { html, TemplateResult, property } from 'lit-element';
 import BXLink, {
   LINK_SIZE,
 } from '../../internal/vendor/@carbon/web-components/components/link/link.js';
@@ -16,6 +16,7 @@ import ddsSettings from '../../internal/vendor/@carbon/ibmdotcom-utilities/utili
 import { ICON_PLACEMENT } from '../../globals/defs';
 import StableSelectorMixin from '../../globals/mixins/stable-selector';
 import styles from './link-with-icon.scss';
+import { carbonElement } from '../../internal/vendor/@carbon/web-components/globals/decorators/carbon-element.js';
 
 export { ICON_PLACEMENT };
 
@@ -29,7 +30,7 @@ const { stablePrefix: ddsPrefix } = ddsSettings;
  * @slot icon - The icon.
  * @slot icon-left - The CTA icon to place at the left.
  */
-@customElement(`${ddsPrefix}-link-with-icon`)
+@carbonElement(`${ddsPrefix}-link-with-icon`)
 class DDSLinkWithIcon extends StableSelectorMixin(BXLink) {
   /**
    * Icon placement(right (default) | left)

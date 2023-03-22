@@ -7,14 +7,7 @@
  * LICENSE file in the root directory of this source tree.
  */
 
-import {
-  customElement,
-  html,
-  LitElement,
-  property,
-  state,
-  TemplateResult,
-} from 'lit-element';
+import { html, LitElement, property, state, TemplateResult } from 'lit-element';
 import settings from 'carbon-components/es/globals/js/settings.js';
 import Filter from '../../internal/vendor/@carbon/web-components/icons/filter/16.js';
 import HostListenerMixin from '../../internal/vendor/@carbon/web-components/globals/mixins/host-listener.js';
@@ -32,6 +25,7 @@ import DDSFilterGroupItem from './filter-group-item';
 import DDSFilterPanelCheckbox from './filter-panel-checkbox';
 import DDSFilterPanelInputSelect from './filter-panel-input-select';
 import DDSFilterPanelInputSelectItem from './filter-panel-input-select-item';
+import { carbonElement } from '../../internal/vendor/@carbon/web-components/globals/decorators/carbon-element.js';
 
 const { prefix } = settings;
 const { stablePrefix: ddsPrefix } = ddsSettings;
@@ -43,7 +37,7 @@ const breakpoint = parseFloat(breakpoints.lg.width) * baseFontSize;
  *
  * @element dds-filter-panel-composite
  */
-@customElement(`${ddsPrefix}-filter-panel-composite`)
+@carbonElement(`${ddsPrefix}-filter-panel-composite`)
 class DDSFilterPanelComposite extends HostListenerMixin(
   StableSelectorMixin(LitElement)
 ) {

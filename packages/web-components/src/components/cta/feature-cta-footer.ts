@@ -1,13 +1,13 @@
 /**
  * @license
  *
- * Copyright IBM Corp. 2020, 2022
+ * Copyright IBM Corp. 2020, 2023
  *
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
  */
 
-import { property, customElement } from 'lit-element';
+import { property } from 'lit-element';
 import ddsSettings from '@carbon/ibmdotcom-utilities/es/utilities/settings/settings.js';
 import {
   formatVideoCaption,
@@ -18,6 +18,7 @@ import CTAMixin from '../../component-mixins/cta/cta';
 import VideoCTAMixin from '../../component-mixins/cta/video';
 import { CTA_TYPE } from './defs';
 import styles from './cta.scss';
+import { carbonElement } from '../../internal/vendor/@carbon/web-components/globals/decorators/carbon-element.js';
 
 const { stablePrefix: ddsPrefix } = ddsSettings;
 
@@ -26,7 +27,7 @@ const { stablePrefix: ddsPrefix } = ddsSettings;
  *
  * @element dds-feature-cta-footer
  */
-@customElement(`${ddsPrefix}-feature-cta-footer`)
+@carbonElement(`${ddsPrefix}-feature-cta-footer`)
 class DDSFeatureCTAFooter extends VideoCTAMixin(
   CTAMixin(DDSFeatureCardFooter)
 ) {
