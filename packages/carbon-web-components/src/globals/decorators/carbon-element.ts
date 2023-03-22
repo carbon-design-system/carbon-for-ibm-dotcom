@@ -63,10 +63,9 @@ const legacyCustomElement = (
   clazz: Constructor<HTMLElement>
 ) => {
   try {
-    console.log('legacyCustomElement');
     window.customElements.define(tagName, clazz);
   } catch (error) {
-    console.error(error);
+    console.warn(error);
   }
   // Cast as any because TS doesn't recognize the return type as being a
   // subtype of the decorated class when clazz is typed as
@@ -88,10 +87,9 @@ const standardCustomElement = (
     // This callback is called once the class is otherwise fully defined
     finisher(clazz: Constructor<HTMLElement>) {
       try {
-        console.log('standardCustomElement');
         window.customElements.define(tagName, clazz);
       } catch (error) {
-        console.error(error);
+        console.warn(error);
       }
     },
   };
