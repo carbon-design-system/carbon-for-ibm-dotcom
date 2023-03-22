@@ -1,16 +1,16 @@
 /**
- * Copyright IBM Corp. 2016, 2021
+ * Copyright IBM Corp. 2016, 2023
  *
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
  */
-import KalturaPlayerAPI from '@carbon/ibmdotcom-services/es/services/KalturaPlayer/KalturaPlayer';
+import KalturaPlayerAPI from '../../../../internal/vendor/@carbon/ibmdotcom-services/services/KalturaPlayer/KalturaPlayer';
 import { mount } from 'enzyme';
 import React from 'react';
 import useVideoData from '../useVideoData';
 
 jest.mock(
-  '@carbon/ibmdotcom-services/lib/services/KalturaPlayer/KalturaPlayer',
+  '../../../../internal/vendor/@carbon/ibmdotcom-services/services/KalturaPlayer/KalturaPlayer',
   () => ({
     api: jest.fn(() => Promise.resolve({ msDuration: 10000 })),
     getMediaDuration: jest.fn(() => '1:30'),

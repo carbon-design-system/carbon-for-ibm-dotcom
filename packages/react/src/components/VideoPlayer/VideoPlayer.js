@@ -1,5 +1,5 @@
 /**
- * Copyright IBM Corp. 2016, 2022
+ * Copyright IBM Corp. 2016, 2023
  *
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
@@ -8,7 +8,7 @@
 import React, { useEffect, useState } from 'react';
 import cx from 'classnames';
 import ddsSettings from '../../internal/vendor/@carbon/ibmdotcom-utilities/utilities/settings/settings';
-import { KalturaPlayer as KalturaPlayerAPI } from '@carbon/ibmdotcom-services/es/services';
+import KalturaPlayerAPI from '../../internal/vendor/@carbon/ibmdotcom-services/services/KalturaPlayer/KalturaPlayer';
 import LightboxMediaViewer from '../LightboxMediaViewer/LightboxMediaViewer';
 import PropTypes from 'prop-types';
 import settings from 'carbon-components/es/globals/js/settings';

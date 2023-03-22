@@ -1,11 +1,11 @@
 /**
- * Copyright IBM Corp. 2016, 2022
+ * Copyright IBM Corp. 2016, 2023
  *
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
  */
 
-import * as smoothScroll from '@carbon/ibmdotcom-utilities/es/utilities/smoothScroll/smoothScroll';
+import * as smoothScroll from '../../../internal/vendor/@carbon/ibmdotcom-utilities/utilities/smoothScroll/smoothScroll';
 import DataContent from '../__stories__/data/DataContent';
 import { mount } from 'enzyme';
 import React from 'react';

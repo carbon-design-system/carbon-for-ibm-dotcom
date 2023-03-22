@@ -1,5 +1,5 @@
 /**
- * Copyright IBM Corp. 2016, 2022
+ * Copyright IBM Corp. 2016, 2023
  *
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
@@ -9,7 +9,7 @@ import React, { useState, useEffect } from 'react';
 import ddsSettings from '../../internal/vendor/@carbon/ibmdotcom-utilities/utilities/settings/settings';
 import PropTypes from 'prop-types';
 import settings from 'carbon-components/es/globals/js/settings';
-import smoothScroll from '@carbon/ibmdotcom-utilities/es/utilities/smoothScroll/smoothScroll';
+import smoothScroll from '../../internal/vendor/@carbon/ibmdotcom-utilities/utilities/smoothScroll/smoothScroll';
 import TableOfContents20 from '@carbon/icons-react/es/table-of-contents/20';
 
 const { stablePrefix } = ddsSettings;

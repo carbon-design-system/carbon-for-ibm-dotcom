@@ -9,4 +9,6 @@
 **/jsdocs/**
 **/carbon-stories/**
 **/carbon-tools/**
+packages/styles/scss/**/*.scss
 packages/web-components/scss/**/*.scss
+packages/carbon-web-components/scss/**/*.scss

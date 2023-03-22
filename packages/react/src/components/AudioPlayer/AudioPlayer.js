@@ -1,5 +1,5 @@
 /**
- * Copyright IBM Corp. 2016, 2022
+ * Copyright IBM Corp. 2016, 2023
  *
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
@@ -16,7 +16,7 @@ import cx from 'classnames';
 import { DDS_AUDIO_PLAYER } from '../../internal/FeatureFlags';
 import ddsSettings from '../../internal/vendor/@carbon/ibmdotcom-utilities/utilities/settings/settings';
 import featureFlag from '../../internal/vendor/@carbon/ibmdotcom-utilities/utilities/featureflag/featureflag';
-import { KalturaPlayer as KalturaPlayerAPI } from '@carbon/ibmdotcom-services/es/services';
+import KalturaPlayerAPI from '../../internal/vendor/@carbon/ibmdotcom-services/services/KalturaPlayer/KalturaPlayer';
 import PropTypes from 'prop-types';
 import root from 'window-or-global';
 import settings from 'carbon-components/es/globals/js/settings';
