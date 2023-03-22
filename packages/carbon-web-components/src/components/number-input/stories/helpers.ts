@@ -27,6 +27,7 @@ const createProps = ({ boolean, number, select, text }) => ({
     'increase number input'
   ),
   disabled: boolean('Disabled (disabled)', false),
+  helperText: text('Helper text (helper-text)', 'Optional helper text'),
   hideLabel: boolean('Hide label (hide-label)', false),
   hideSteppers: boolean('Hide steppers (hide-steppers)', false),
   invalid: boolean('Invalid (invalid)', false),

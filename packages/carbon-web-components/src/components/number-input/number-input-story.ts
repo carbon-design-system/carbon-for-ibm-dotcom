@@ -51,6 +51,7 @@ export const Playground = (args) => {
     decrementButtonDescription,
     incrementButtonDescription,
     disabled,
+    helperText,
     hideLabel,
     hideSteppers,
     invalid,
@@ -77,6 +78,7 @@ export const Playground = (args) => {
         increment-button-assistive-text="${ifDefined(
           incrementButtonDescription
         )}"
+        helper-text="${ifDefined(helperText)}"
         ?hide-steppers="${hideSteppers}"
         ?hide-label="${hideLabel}"
         ?invalid="${invalid}"
@@ -93,7 +95,6 @@ export const Playground = (args) => {
         size="${ifDefined(size)}"
         step="${ifDefined(step)}"
         @input="${onInput}">
-        <span slot="helper-text">Optional helper text</span>
       </cds-number-input>
     </cds-form-item>
   `;

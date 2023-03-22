@@ -226,6 +226,15 @@ class CDSNumberInput extends CDSInput {
       class: `${prefix}--number__invalid ${prefix}--number__invalid--warning`,
     });
 
+    let normalizedProps = {
+      disabled: !this.readonly && this.disabled,
+      invalid: !this.readonly && !isValid,
+      warn: !this.readonly && isValid && this.warn,
+      'slot-name': '',
+      'slot-text': '',
+      icon: null,
+    };
+
     const wrapperClasses = classMap({
       [`${prefix}--number`]: true,
       [`${prefix}--number--mobile`]: this.mobile,
@@ -236,18 +245,18 @@ class CDSNumberInput extends CDSInput {
 
     const inputWrapperClasses = classMap({
       [`${prefix}--number__input-wrapper`]: true,
-      [`${prefix}--number__input-wrapper--warning`]: this.warn,
+      [`${prefix}--number__input-wrapper--warning`]: normalizedProps.warn,
     });
 
     const labelClasses = classMap({
       [`${prefix}--label`]: true,
-      [`${prefix}--label--disabled`]: this.disabled,
+      [`${prefix}--label--disabled`]: normalizedProps.disabled,
       [`${prefix}--visually-hidden`]: this.hideLabel,
     });
 
     const helperTextClasses = classMap({
       [`${prefix}--form__helper-text`]: true,
-      [`${prefix}--form__helper-text--disabled`]: this.disabled,
+      [`${prefix}--form__helper-text--disabled`]: normalizedProps.disabled,
     });
 
     const incrementButton = html`
@@ -257,7 +266,7 @@ class CDSNumberInput extends CDSInput {
         aria-live="polite"
         aria-atomic="true"
         type="button"
-        ?disabled=${this.disabled}
+        ?disabled=${normalizedProps.disabled}
         @click=${handleUserInitiatedStepUp}>
         ${Add16()}
       </button>
@@ -270,7 +279,7 @@ class CDSNumberInput extends CDSInput {
         aria-live="polite"
         aria-atomic="true"
         type="button"
-        ?disabled=${this.disabled}
+        ?disabled=${normalizedProps.disabled}
         @click=${handleUserInitiatedStepDown}>
         ${Subtract16()}
       </button>
@@ -281,8 +290,8 @@ class CDSNumberInput extends CDSInput {
       <input
         ?autocomplete="${this.autocomplete}"
         ?autofocus="${this.autofocus}"
-        ?data-invalid="${!isValid}"
-        ?disabled="${this.disabled}"
+        ?data-invalid="${normalizedProps.invalid}"
+        ?disabled="${normalizedProps.disabled}"
         id="input"
         name="${ifNonEmpty(this.name)}"
         pattern="${ifNonEmpty(this.pattern)}"
@@ -298,18 +307,20 @@ class CDSNumberInput extends CDSInput {
         aria-atomic="true" />
     `;
 
-    const icon = () => {
-      if (!isValid) {
-        return invalidIcon;
-      } else if (this.warn) {
-        return warnIcon;
-      } else {
-        return null;
-      }
-    };
+    if (normalizedProps.invalid) {
+      normalizedProps.icon = invalidIcon;
+      normalizedProps['slot-name'] = 'invalid-text';
+      normalizedProps['slot-text'] = this.invalidText;
+    } else if (normalizedProps.warn) {
+      normalizedProps.icon = warnIcon;
+      normalizedProps['slot-name'] = 'warn-text';
+      normalizedProps['slot-text'] = this.warnText;
+    }
+
+    console.log('normalizeProps', normalizedProps);
 
     const defaultLayout = html`
-      ${icon()} ${input}
+      ${normalizedProps.icon} ${input}
       <div class="${prefix}--number__controls">
         ${!this.hideSteppers
           ? html`${decrementButton} ${incrementButton}`
@@ -320,22 +331,24 @@ class CDSNumberInput extends CDSInput {
     const mobileLayout = html` ${decrementButton} ${input} ${incrementButton} `;
 
     return html`
-      <div class="${wrapperClasses}" ?data-invalid=${!isValid}>
+      <div class="${wrapperClasses}" ?data-invalid=${normalizedProps.invalid}>
         <label class="${labelClasses}" for="input">
           <slot name="label-text"> ${this.label} </slot>
         </label>
         <div class="${inputWrapperClasses}">
           ${this.mobile ? mobileLayout : defaultLayout}
         </div>
-        <div class="${helperTextClasses}" ?hidden="${!isValid || this.warn}">
+        <div
+          class="${helperTextClasses}"
+          ?hidden="${normalizedProps.invalid || normalizedProps.warn}">
           <slot name="helper-text"> ${this.helperText} </slot>
         </div>
         <div
           class="${prefix}--form-requirement"
-          ?hidden="${isValid && !this.warn}">
-          ${!isValid
-            ? html`<slot name="invalid-text"> ${this.invalidText} </slot>`
-            : html`<slot name="warn-text"> ${this.warnText} </slot>`}
+          ?hidden="${!normalizedProps.invalid && !normalizedProps.warn}">
+          <slot name="${normalizedProps['slot-name']}">
+            ${normalizedProps['slot-text']}
+          </slot>
         </div>
       </div>
     `;
