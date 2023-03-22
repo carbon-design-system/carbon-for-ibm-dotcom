@@ -3,6 +3,22 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.35.0-rc.1](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/compare/@carbon/stylelint-config-ibmdotcom@1.35.0-rc.0...@carbon/stylelint-config-ibmdotcom@1.35.0-rc.1) (2023-03-16)
+
+**Note:** Version bump only for package @carbon/stylelint-config-ibmdotcom
+
+
+
+
+
+# [1.35.0-rc.0](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/compare/@carbon/stylelint-config-ibmdotcom@1.34.0...@carbon/stylelint-config-ibmdotcom@1.35.0-rc.0) (2023-03-13)
+
+**Note:** Version bump only for package @carbon/stylelint-config-ibmdotcom
+
+
+
+
+
 # [1.34.0](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/compare/@carbon/stylelint-config-ibmdotcom@1.34.0-rc.0...@carbon/stylelint-config-ibmdotcom@1.34.0) (2023-02-28)
 
 **Note:** Version bump only for package @carbon/stylelint-config-ibmdotcom

@@ -3,6 +3,26 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.45.0-rc.1](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/compare/@carbon/ibmdotcom-utilities@1.45.0-rc.0...@carbon/ibmdotcom-utilities@1.45.0-rc.1) (2023-03-16)
+
+**Note:** Version bump only for package @carbon/ibmdotcom-utilities
+
+
+
+
+
+# [1.45.0-rc.0](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/compare/@carbon/ibmdotcom-utilities@1.44.0...@carbon/ibmdotcom-utilities@1.45.0-rc.0) (2023-03-13)
+
+
+### Bug Fixes
+
+* **deps:** update dependency carbon-components to v10.58.6 ([#10062](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/issues/10062)) ([0ebdc34](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/commit/0ebdc34b509c24e6acd7593ba3b7374ad7b44eb0))
+* **deps:** update dependency isomorphic-dompurify to v0.27.0 ([#10035](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/issues/10035)) ([9067301](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/commit/906730161fb21db3766adb403cece4b1a2020c94))
+
+
+
+
+
 # [1.44.0](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/compare/@carbon/ibmdotcom-utilities@1.44.0-rc.0...@carbon/ibmdotcom-utilities@1.44.0) (2023-02-28)
 
 **Note:** Version bump only for package @carbon/ibmdotcom-utilities
