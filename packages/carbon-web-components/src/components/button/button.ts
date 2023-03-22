@@ -145,6 +145,12 @@ class BXButton extends HostListenerMixin(FocusMixin(LitElement)) {
   hreflang!: string;
 
   /**
+   * `true` if expressive theme enabled.
+   */
+  @property({ type: Boolean, reflect: true })
+  isExpressive = false;
+
+  /**
    * Button kind.
    */
   @property({ reflect: true })
@@ -222,6 +228,7 @@ class BXButton extends HostListenerMixin(FocusMixin(LitElement)) {
       href,
       hreflang,
       kind,
+      isExpressive,
       linkRole,
       openTooltip,
       ping,
@@ -243,6 +250,7 @@ class BXButton extends HostListenerMixin(FocusMixin(LitElement)) {
       [`${prefix}--btn--icon-only`]: hasIcon && !hasMainContent,
       [`${prefix}--btn--${size}`]: size,
       [`${prefix}-ce--btn--has-icon`]: hasIcon,
+      [`${prefix}--btn--expressive`]: isExpressive,
     });
 
     const isDanger = kind.includes('danger');
