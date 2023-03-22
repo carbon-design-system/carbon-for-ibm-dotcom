@@ -42,7 +42,6 @@ const createProps = ({ boolean, number, select, text }) => ({
   step: number('Value to step the input by (step)', 1),
   size: select('Size (size)', sizes, INPUT_SIZE.MEDIUM),
   onInput: action('input'),
-  mobile: boolean('Mobile mode (mobile)', false),
 });
 
 export default createProps;

@@ -61,7 +61,6 @@ export const Playground = (args) => {
     warn,
     warnText,
     value,
-    mobile,
     min,
     max,
     size,
@@ -89,7 +88,6 @@ export const Playground = (args) => {
         ?warn="${warn}"
         warn-text="${ifDefined(warnText)}"
         ?disabled="${disabled}"
-        ?mobile="${mobile}"
         min="${ifDefined(min)}"
         max="${ifDefined(max)}"
         size="${ifDefined(size)}"

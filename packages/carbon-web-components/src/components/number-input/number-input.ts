@@ -160,12 +160,6 @@ class CDSNumberInput extends CDSInput {
   }
 
   /**
-   * Set to `true` to enable the mobile variant of the number input
-   */
-  @property({ type: Boolean, reflect: true })
-  mobile = false;
-
-  /**
    * Aria text for the button that increments the value
    */
   @property({ attribute: 'increment-button-assistive-text' })
@@ -237,7 +231,6 @@ class CDSNumberInput extends CDSInput {
 
     const wrapperClasses = classMap({
       [`${prefix}--number`]: true,
-      [`${prefix}--number--mobile`]: this.mobile,
       [`${prefix}--number--${this.size}`]: this.size,
       [`${prefix}--number--nosteppers`]: this.hideSteppers,
       [`${prefix}--number--readonly`]: this.readonly,
@@ -317,25 +310,18 @@ class CDSNumberInput extends CDSInput {
       normalizedProps['slot-text'] = this.warnText;
     }
 
-
-    const defaultLayout = html`
-      ${normalizedProps.icon} ${input}
-      <div class="${prefix}--number__controls">
-        ${!this.hideSteppers
-          ? html`${decrementButton} ${incrementButton}`
-          : null}
-      </div>
-    `;
-
-    const mobileLayout = html` ${decrementButton} ${input} ${incrementButton} `;
-
     return html`
       <div class="${wrapperClasses}" ?data-invalid=${normalizedProps.invalid}>
         <label class="${labelClasses}" for="input">
           <slot name="label-text"> ${this.label} </slot>
         </label>
         <div class="${inputWrapperClasses}">
-          ${this.mobile ? mobileLayout : defaultLayout}
+          ${normalizedProps.icon} ${input}
+          <div class="${prefix}--number__controls">
+            ${!this.hideSteppers
+              ? html`${decrementButton} ${incrementButton}`
+              : null}
+          </div>
         </div>
         <div
           class="${helperTextClasses}"
