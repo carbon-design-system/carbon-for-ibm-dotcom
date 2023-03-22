@@ -20,7 +20,7 @@ const { stablePrefix: ddsPrefix } = ddsSettings;
  *
  * @element dds-leadspace-image
  */
-@carbonElements(`${ddsPrefix}-leadspace-image`)
+@carbonElement(`${ddsPrefix}-leadspace-image`)
 class DDSLeadspaceImage extends StableSelectorMixin(DDSImage) {
   static get stableSelector() {
     return `${ddsPrefix}--image`;

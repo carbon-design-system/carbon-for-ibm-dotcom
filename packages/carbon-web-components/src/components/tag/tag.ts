@@ -11,6 +11,7 @@ import { html, property, LitElement } from 'lit-element';
 import settings from 'carbon-components/es/globals/js/settings';
 import { TAG_SIZE, TAG_TYPE } from './defs';
 import styles from './tag.scss';
+import { carbonElement } from '../../globals/decorators/carbon-element';
 
 export { TAG_SIZE, TAG_TYPE };
 

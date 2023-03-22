@@ -25,6 +25,7 @@ import {
 } from './defs';
 import BXTab from './tab';
 import styles from './tabs.scss';
+import { carbonElement } from '../../globals/decorators/carbon-element';
 
 const { prefix } = settings;
 

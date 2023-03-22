@@ -8,6 +8,7 @@
  */
 
 import ddsSettings from '../../internal/vendor/@carbon/ibmdotcom-utilities/utilities/settings/settings';
+import { carbonElement } from '../../internal/vendor/@carbon/web-components/globals/decorators/carbon-element';
 import DDSCardHeading from '../card/card-heading';
 import styles from './card-link.scss';
 
