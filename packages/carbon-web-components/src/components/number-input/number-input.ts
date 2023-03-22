@@ -317,7 +317,6 @@ class CDSNumberInput extends CDSInput {
       normalizedProps['slot-text'] = this.warnText;
     }
 
-    console.log('normalizeProps', normalizedProps);
 
     const defaultLayout = html`
       ${normalizedProps.icon} ${input}
