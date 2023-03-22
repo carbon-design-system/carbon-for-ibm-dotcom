@@ -1,5 +1,5 @@
 /**
- * Copyright IBM Corp. 2016, 2022
+ * Copyright IBM Corp. 2016, 2023
  *
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
@@ -10,7 +10,7 @@ import ddsSettings from '../../internal/vendor/@carbon/ibmdotcom-utilities/utili
 import PropTypes from 'prop-types';
 import React from 'react';
 import settings from 'carbon-components/es/globals/js/settings';
-import smoothScroll from '@carbon/ibmdotcom-utilities/es/utilities/smoothScroll/smoothScroll';
+import smoothScroll from '../../internal/vendor/@carbon/ibmdotcom-utilities/utilities/smoothScroll/smoothScroll';
 
 const { stablePrefix } = ddsSettings;
 const { prefix } = settings;
