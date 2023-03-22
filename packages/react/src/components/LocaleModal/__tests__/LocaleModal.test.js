@@ -1,5 +1,5 @@
 /**
- * Copyright IBM Corp. 2016, 2022
+ * Copyright IBM Corp. 2016, 2023
  *
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
@@ -15,8 +15,8 @@ import LocaleModalRegions, {
   addLocaleBackBtnListeners,
   localeBackActive,
 } from '../LocaleModalRegions';
-import ipcinfoCookie from '@carbon/ibmdotcom-utilities/es/utilities/ipcinfoCookie/ipcinfoCookie';
-import LocaleAPI from '@carbon/ibmdotcom-services/es/services/Locale/Locale';
+import ipcinfoCookie from '../../../internal/vendor/@carbon/ibmdotcom-utilities/utilities/ipcinfoCookie/ipcinfoCookie';
+import LocaleAPI from '../../../internal/vendor/@carbon/ibmdotcom-services/services/Locale/Locale';
 import { mount } from 'enzyme';
 import React from 'react';
 
