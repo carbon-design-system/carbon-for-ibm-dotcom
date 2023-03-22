@@ -15,7 +15,7 @@
 $search-transition: cubic-bezier(0.2, 0, 0.38, 0.9);
 $search-transition-timing: 95ms;
 
-@mixin button-sizing {
+@mixin mobile-button-sizing {
   border: none;
   border-bottom: 1px solid $ui-03;
   text-decoration: none;
@@ -26,10 +26,22 @@ $search-transition-timing: 95ms;
   min-height: $spacing-07;
   gap: $carbon--spacing-06;
 
-  &:focus {
+  &:focus-visible {
     outline: 2px solid $focus;
     outline-offset: -2px;
   }
+}
+
+@mixin desktop-button-sizing {
+  appearance: none;
+  background: transparent;
+  border: none;
+  text-decoration: none;
+  display: inline-flex;
+  white-space: nowrap;
+  height: 100%;
+  gap: $spacing-03;
+  padding: $spacing-05;
 }
 
 @mixin masthead-l1 {
@@ -76,7 +88,7 @@ $search-transition-timing: 95ms;
       }
 
       &:active,
-      &:focus {
+      &:focus-visible {
         outline: 2px solid $focus;
         outline-offset: -2px;
       }
@@ -105,7 +117,7 @@ $search-transition-timing: 95ms;
 
     .#{$prefix}--masthead__l1-dropdown-item {
       @include carbon--type-style(body-short-01);
-      @include button-sizing;
+      @include mobile-button-sizing;
 
       background-color: transparent;
       color: $text-02;
@@ -121,7 +133,7 @@ $search-transition-timing: 95ms;
       }
 
       &:active,
-      &:focus {
+      &:focus-visible {
         outline: 2px solid $focus;
         outline-offset: -2px;
       }
@@ -219,14 +231,14 @@ $search-transition-timing: 95ms;
       }
 
       &:active,
-      &:focus {
+      &:focus-visible {
         outline: 2px solid $focus;
         outline-offset: -2px;
       }
     }
 
     .#{$prefix}--masthead__l1-dropdown-login {
-      @include button-sizing;
+      @include mobile-button-sizing;
 
       color: $interactive-01;
 
@@ -239,7 +251,7 @@ $search-transition-timing: 95ms;
         background-color: $hover-ui;
       }
 
-      &:focus {
+      &:focus-visible {
         color: $interactive-01;
       }
 
@@ -250,7 +262,7 @@ $search-transition-timing: 95ms;
     }
 
     .#{$prefix}--masthead__l1-dropdown-cta {
-      @include button-sizing;
+      @include mobile-button-sizing;
 
       background-color: $interactive-01;
       color: $ui-02;
@@ -263,7 +275,7 @@ $search-transition-timing: 95ms;
         background-color: $hover-primary;
       }
 
-      &:focus {
+      &:focus-visible {
         outline-color: $ui-02;
         outline-offset: calc(-1 * #{$spacing-02});
       }
@@ -283,128 +295,317 @@ $search-transition-timing: 95ms;
   @media screen and (min-width: 800px) {
     .#{$prefix}--masthead__l1-inner-container {
       width: 100%;
-      display: flex;
+      height: $spacing-10;
+      display: grid;
+      grid-template-areas: 'padding platform menu spacer login cta';
+      grid-template-columns: $spacing-05 auto minmax(1px, 1fr) $spacing-08 auto auto;
+      border-bottom: 1px solid $ui-03;
+      position: relative;
+      z-index: 1;
 
-      &::before {
-        content: '';
-        position: absolute;
-        background-color: $ui-background;
-        height: 48px;
-        left: calc(-50vw + 50%);
-        right: 100%;
+      > * {
+        position: relative;
         z-index: 1;
       }
 
+      &::before,
       &::after {
         content: '';
-        position: absolute;
-        background-color: $ui-background;
-        height: 48px;
-        left: 100%;
-        right: calc(-50vw + 50%);
-      }
-    }
-
-    .#{$prefix}--masthead__l1-name,
-    :host(#{$dds-prefix}-masthead-l1-name) {
-      display: flex;
-      height: 100%;
-      z-index: 1;
-      background-color: $ui-02;
-      color: $text-04;
-      padding: 0 0 0 rem(12px);
-      align-items: stretch;
-      white-space: nowrap;
-
-      @include carbon--breakpoint-down(lg) {
-        padding-left: 0;
-      }
-
-      &[aria-selected='true'] span::after {
-        content: '';
         display: block;
-        position: absolute;
-        box-sizing: border-box;
-        bottom: 0;
-        left: 0;
-        right: 0;
-        height: rem(3px);
-        background-color: $link-01;
+        position: relative;
+        z-index: 1;
+        background-color: $ui-background;
+      }
+
+      &::before {
+        grid-area: padding;
+      }
+
+      &::after {
+        grid-area: spacer;
       }
     }
 
-    .#{$prefix}--masthead__l1-name-title {
-      display: flex;
-      align-items: stretch;
-      min-width: rem(67px);
-      white-space: nowrap;
-      position: relative;
+    .#{$prefix}--masthead__l1-title {
+      @include carbon--type-style(productive-heading-01);
+      @include desktop-button-sizing;
 
-      a {
-        @include type-style('productive-heading-02');
-
-        display: flex;
-        align-items: center;
-        color: $text-01;
-        position: relative;
-        text-decoration: none;
-        padding: 0 $carbon--spacing-05;
-
-        &:active,
-        &:focus {
-          outline: 2px solid $interactive-01;
-          outline-offset: -2px;
-        }
-      }
+      grid-area: platform;
+      height: 100%;
+      color: $text-01;
+      border-bottom: 3px solid transparent;
+      padding-bottom: calc(#{$spacing-05} - 2px);
+      align-items: flex-end;
+      background-color: $ui-background;
 
       &:hover {
         background-color: $hover-ui;
       }
+
+      &:active {
+        background-color: $active-ui;
+      }
+
+      &:active,
+      &:focus-visible {
+        outline: 2px solid $focus;
+        outline-offset: -2px;
+      }
     }
 
-    .#{$prefix}--masthead__l1-nav {
-      padding-left: 0;
+    .#{$prefix}--masthead__l1-menu-container-outer {
+      grid-area: menu;
+      display: flex;
+      z-index: 0;
+    }
 
-      li:not([role='none']) {
-        > a {
-          align-items: flex-end;
-        }
+    .#{$prefix}--masthead__l1-menu-container-scroller {
+      @include desktop-button-sizing;
+
+      background-color: $ui-background;
+      flex-shrink: 0;
+      padding-inline: $spacing-03;
+      align-items: flex-end;
+      z-index: 1;
+
+      &:hover {
+        color: $text-01;
+        background-color: $hover-ui;
       }
 
-      a.#{$prefix}--header__menu-item {
-        &:hover {
-          background-color: $hover-ui;
-        }
-
-        &:focus {
-          border-color: $interactive-01;
-        }
-
-        svg {
-          position: relative;
-          top: -2px;
-          fill: $text-01;
-        }
+      &:active {
+        color: $text-01;
+        background-color: $active-ui;
       }
 
-      a.#{$prefix}--header__menu-title[aria-expanded='true'] {
-        background-color: $ui-03;
-        + .#{$prefix}--header__menu {
-          li {
-            background-color: $ui-background;
+      &:active,
+      &:focus-visible {
+        outline: 2px solid $focus;
+        outline-offset: -2px;
+      }
 
-            &:hover {
-              background-color: $hover-ui;
-            }
+      &[hidden] {
+        /* stylelint-disable-next-line declaration-no-important */
+        display: none !important;
+      }
+    }
 
-            a.#{$prefix}--header__menu-item {
-              &:hover {
-                color: $text-01;
-                background-color: $hover-ui;
-              }
-            }
-          }
-        }
+    .#{$prefix}--masthead__l1-menu-container-inner {
+      height: 100%;
+      flex-shrink: 1;
+      flex-grow: 1;
+      z-index: 0;
+    }
+
+    .#{$prefix}--masthead__l1-menu {
+      position: absolute;
+      display: flex;
+      height: 100%;
+      transition: translate $search-transition-timing $search-transition;
+
+      > li {
+        position: relative;
+      }
+    }
+
+    .#{$prefix}--masthead__l1-item {
+      @include carbon--type-style(body-short-01);
+      @include desktop-button-sizing;
+
+      background-color: $ui-background;
+      color: $text-02;
+      border: 1px solid transparent;
+      align-items: flex-end;
+
+      &:hover {
+        color: $text-01;
+        background-color: $hover-ui;
+      }
+
+      &:active {
+        color: $text-01;
+        background-color: $active-ui;
+      }
+
+      &:active,
+      &:focus-visible {
+        outline: 2px solid $focus;
+        outline-offset: -2px;
+      }
+
+      &:is([disabled], .is-disabled) {
+        color: $disabled;
+      }
+
+      &.is-open {
+        height: calc(100% + 3px);
+        padding-bottom: calc(#{$spacing-05} + 3px);
+        border-color: #c6c6c6;
+        box-shadow: 0 0 6px #c6c6c6;
+        clip-path: polygon(
+          calc(0% - 6px) calc(0% - 6px),
+          calc(100% + 6px) calc(0% - 6px),
+          calc(100% + 6px) 100%,
+          calc(0% - 6px) 100%
+        );
+      }
+
+      svg {
+        color: inherit;
+      }
+    }
+
+    .#{$prefix}--masthead__l1-dropdown {
+      position: absolute;
+      inset-block-start: calc(100% + 1px);
+      inset-inline-start: 0;
+      width: 320px;
+      background-color: $ui-background;
+      border: 1px solid #c6c6c6;
+      border-top: none;
+      box-shadow: 0 0 6px #c6c6c6;
+      clip-path: polygon(
+        calc(0% - 6px) 0%,
+        calc(100% + 6px) 0%,
+        calc(100% + 6px) calc(100% + 6px),
+        calc(0% - 6px) calc(100% + 6px)
+      );
+      padding: $spacing-05 0 $spacing-08;
+      max-width: calc(100vw - (2 * #{$spacing-05}));
+      visibility: hidden;
+
+      &.is-open {
+        visibility: visible;
+      }
+
+      &.#{$prefix}--masthead__l1-dropdown__1-col {
+        width: 320px;
+      }
+
+      &.#{$prefix}--masthead__l1-dropdown__2-col {
+        width: 640px;
+      }
+
+      &.#{$prefix}--masthead__l1-dropdown__3-col {
+        width: 980px;
+      }
+    }
+
+    .#{$prefix}--masthead__l1-dropdown-announcement {
+      margin: 0 $spacing-05 $spacing-05;
+      padding-bottom: $spacing-05;
+      border-bottom: 1px solid $ui-03;
+    }
+
+    .#{$prefix}--masthead__l1-dropdown-menu-items {
+      padding-bottom: $spacing-06;
+    }
+
+    .#{$prefix}--masthead__l1-dropdown-heading {
+      @include carbon--type-style(productive-heading-03);
+
+      color: $text-01;
+
+      .#{$prefix}--masthead__l1-dropdown-item {
+        @include carbon--type-style(productive-heading-03);
+        @include desktop-button-sizing;
+
+        align-items: center;
+        padding: $spacing-03 $spacing-05;
+        margin-bottom: $spacing-03;
+      }
+
+      &:not(:has(.#{$prefix}--masthead__l1-dropdown-item)) {
+        padding: $spacing-03 $spacing-05;
+        margin-bottom: $spacing-03;
+      }
+    }
+
+    .#{$prefix}--masthead__l1-dropdown-item {
+      @include carbon--type-style(body-short-01);
+      @include desktop-button-sizing;
+
+      align-items: center;
+      padding: $spacing-03 $spacing-05;
+      color: $text-02;
+      width: 100%;
+
+      &:hover {
+        color: $text-01;
+        background-color: $hover-ui;
+      }
+
+      &:active {
+        color: $text-01;
+        background-color: $active-ui;
+      }
+
+      &:active,
+      &:focus-visible {
+        outline: 2px solid $focus;
+        outline-offset: -2px;
+      }
+
+      svg {
+        color: inherit;
+      }
+    }
+
+    .#{$prefix}--masthead__l1-cta {
+      @include desktop-button-sizing;
+
+      grid-area: cta;
+      background-color: $interactive-01;
+      color: $ui-02;
+      align-items: flex-end;
+
+      svg {
+        color: inherit;
+      }
+
+      &:hover {
+        background-color: $hover-primary;
+      }
+
+      &:focus-visible {
+        outline-color: $ui-02;
+        outline-offset: calc(-1 * #{$spacing-02});
+      }
+
+      &:active {
+        color: $ui-02;
+        background-color: $active-primary;
+      }
+
+      &:disabled {
+        background-color: $disabled-02;
+      }
+    }
+
+    .#{$prefix}--masthead__l1-login {
+      @include desktop-button-sizing;
+
+      grid-area: login;
+      color: $interactive-01;
+      background-color: $ui-background;
+      align-items: flex-end;
+
+      svg {
+        color: inherit;
+      }
+
+      &:hover {
+        color: $hover-primary-text;
+        background-color: $hover-ui;
+      }
+
+      &:focus-visible {
+        color: $interactive-01;
+      }
+
+      &:active {
+        color: $active-primary;
+        background-color: $active-ui;
       }
     }
   }

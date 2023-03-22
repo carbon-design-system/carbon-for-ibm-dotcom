@@ -125,12 +125,9 @@ class DDSMastheadComposite extends HostListenerMixin(LitElement) {
   protected _renderL1() {
     if (!this.l1Data) return undefined;
 
-    const { _isMobileVersion: isMobileVersion } = this;
     return html`
-      <dds-masthead-l1
-        slot="masthead-l1"
-        .l1Data=${this.l1Data}
-        .isMobileVersion=${isMobileVersion}></dds-masthead-l1>
+      <dds-masthead-l1 slot="masthead-l1" .l1Data=${this.l1Data}>
+      </dds-masthead-l1>
     `;
   }
 

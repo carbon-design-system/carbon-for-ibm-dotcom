@@ -582,6 +582,71 @@ const mastheadL1Data: MastheadL1 = {
       title: 'Plain Link',
       url: 'https://example.com',
     },
+    {
+      title: 'Plain Link',
+      url: 'https://example.com',
+    },
+    {
+      title: 'Plain Link',
+      url: 'https://example.com',
+    },
+    {
+      title: 'Two Column',
+      submenu: {
+        columns: 2,
+        announcement:
+          '<strong>Lorem ipsum:</strong> Full announcement may be linked or only a portion as an <a href="#">inline link</a>',
+        footer: {
+          title: 'View all lorem ipsum',
+          url: 'https://example.com',
+        },
+        menuSections: [
+          {
+            span: 1,
+            heading: {
+              headingLevel: 2,
+              title: 'Heading level 2',
+              url: 'https://example.com',
+            },
+            items: [
+              {
+                title: 'Link item',
+                url: 'https://example.com',
+              },
+              {
+                title: 'Link item',
+                url: 'https://example.com',
+              },
+              {
+                title: 'Link item',
+                url: 'https://example.com',
+              },
+            ],
+          },
+          {
+            span: 1,
+            heading: {
+              headingLevel: 2,
+              title: 'Heading level 2',
+            },
+            items: [
+              {
+                title: 'Link item',
+                url: 'https://example.com',
+              },
+              {
+                title: 'Link item',
+                url: 'https://example.com',
+              },
+              {
+                title: 'Link item',
+                url: 'https://example.com',
+              },
+            ],
+          },
+        ],
+      },
+    },
   ],
   actions: {
     login: {
