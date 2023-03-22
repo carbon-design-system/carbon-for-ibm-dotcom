@@ -1,7 +1,7 @@
 /**
  * @license
  *
- * Copyright IBM Corp. 2019, 2022
+ * Copyright IBM Corp. 2019, 2023
  *
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
@@ -10,11 +10,12 @@
 import { classMap } from 'lit-html/directives/class-map';
 import { TemplateResult } from 'lit-html';
 import { ifDefined } from 'lit-html/directives/if-defined';
-import { html, property, customElement, LitElement } from 'lit-element';
+import { html, property, LitElement } from 'lit-element';
 import Copy16 from '@carbon/icons/lib/copy/16';
 import settings from 'carbon-components/es/globals/js/settings';
 import FocusMixin from '../../globals/mixins/focus';
 import styles from './copy-button.scss';
+import { carbonElement } from '../../globals/decorators/carbon-element';
 
 const { prefix } = settings;
 
@@ -88,7 +89,7 @@ export const _renderButton = ({
  *
  * @element bx-copy-button
  */
-@customElement(`${prefix}-copy-button`)
+@carbonElement(`${prefix}-copy-button`)
 class BXCopyButton extends FocusMixin(LitElement) {
   /**
    * Handles showing/hiding the feedback tooltip.

@@ -1,22 +1,23 @@
 /**
  * @license
  *
- * Copyright IBM Corp. 2019, 2022
+ * Copyright IBM Corp. 2019, 2023
  *
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
  */
 
-import { html, property, customElement, LitElement } from 'lit-element';
+import { html, property, LitElement } from 'lit-element';
 import settings from 'carbon-components/es/globals/js/settings';
 import styles from './number-input.scss';
+import { carbonElement } from '../../globals/decorators/carbon-element';
 
 const { prefix } = settings;
 
 /**
  * Skeleton of number input.
  */
-@customElement(`${prefix}-number-input-skeleton`)
+@carbonElement(`${prefix}-number-input-skeleton`)
 class BXNumberInputSkeleton extends LitElement {
   /**
    * `true` if the label should be hidden. Corresponds to the attribute with the same name.

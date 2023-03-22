@@ -1,20 +1,21 @@
 /**
  * @license
  *
- * Copyright IBM Corp. 2019, 2022
+ * Copyright IBM Corp. 2019, 2023
  *
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
  */
 
 import { classMap } from 'lit-html/directives/class-map';
-import { html, property, query, customElement } from 'lit-element';
+import { html, property, query } from 'lit-element';
 import settings from 'carbon-components/es/globals/js/settings';
 import HostListenerMixin from '../../globals/mixins/host-listener';
 import HostListener from '../../globals/decorators/host-listener';
 import { INPUT_SIZE } from '../input/input';
 import BXSearch from '../search/search';
 import styles from './data-table.scss';
+import { carbonElement } from '../../globals/decorators/carbon-element';
 
 const { prefix } = settings;
 
@@ -24,7 +25,7 @@ const { prefix } = settings;
  * @element bx-table-toolbar-search
  * @fires bx-search-input - The custom event fired after the search content is changed upon a user gesture.
  */
-@customElement(`${prefix}-table-toolbar-search`)
+@carbonElement(`${prefix}-table-toolbar-search`)
 class BXTableToolbarSearch extends HostListenerMixin(BXSearch) {
   @query('input')
   private _inputNode!: HTMLInputElement;

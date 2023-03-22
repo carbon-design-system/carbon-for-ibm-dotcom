@@ -1,15 +1,16 @@
 /**
  * @license
  *
- * Copyright IBM Corp. 2020, 2022
+ * Copyright IBM Corp. 2020, 2023
  *
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
  */
 
-import { html, property, customElement, LitElement } from 'lit-element';
+import { html, property, LitElement } from 'lit-element';
 import settings from 'carbon-components/es/globals/js/settings';
 import styles from './data-table.scss';
+import { carbonElement } from '../../globals/decorators/carbon-element';
 
 const { prefix } = settings;
 
@@ -18,7 +19,7 @@ const { prefix } = settings;
  *
  * @element bx-table-expanded-row
  */
-@customElement(`${prefix}-table-expanded-row`)
+@carbonElement(`${prefix}-table-expanded-row`)
 class BXTableExpandedRow extends LitElement {
   /**
    * The colspan.

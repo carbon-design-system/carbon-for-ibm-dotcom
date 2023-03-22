@@ -1,14 +1,15 @@
 /**
  * @license
  *
- * Copyright IBM Corp. 2019, 2022
+ * Copyright IBM Corp. 2019, 2023
  *
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
  */
 
 import settings from 'carbon-components/es/globals/js/settings';
-import { customElement, LitElement, html } from 'lit-element';
+import { LitElement, html } from 'lit-element';
+import { carbonElement } from '../../globals/decorators/carbon-element';
 import styles from './form-item.scss';
 
 const { prefix } = settings;
@@ -18,7 +19,7 @@ const { prefix } = settings;
  *
  * @element bx-form-item
  */
-@customElement(`${prefix}-form-item`)
+@carbonElement(`${prefix}-form-item`)
 export default class BXFormItem extends LitElement {
   render() {
     return html` <slot></slot> `;

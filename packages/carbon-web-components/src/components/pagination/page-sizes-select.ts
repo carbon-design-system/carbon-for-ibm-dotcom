@@ -1,17 +1,18 @@
 /**
  * @license
  *
- * Copyright IBM Corp. 2019, 2022
+ * Copyright IBM Corp. 2019, 2023
  *
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
  */
 
-import { html, property, query, customElement, LitElement } from 'lit-element';
+import { html, property, query, LitElement } from 'lit-element';
 import ChevronDown16 from '@carbon/icons/lib/chevron--down/16';
 import settings from 'carbon-components/es/globals/js/settings';
 import FocusMixin from '../../globals/mixins/focus';
 import styles from './pagination.scss';
+import { carbonElement } from '../../globals/decorators/carbon-element';
 
 const { prefix } = settings;
 
@@ -22,7 +23,7 @@ const { prefix } = settings;
  * @slot label-text - The label text.
  * @fires bx-page-sizes-select-changed - The custom event fired after the page size is changed.
  */
-@customElement(`${prefix}-page-sizes-select`)
+@carbonElement(`${prefix}-page-sizes-select`)
 class BXPageSizesSelect extends FocusMixin(LitElement) {
   @query('select')
   private _selectNode!: HTMLSelectElement;

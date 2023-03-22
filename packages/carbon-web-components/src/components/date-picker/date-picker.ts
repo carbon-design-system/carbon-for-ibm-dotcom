@@ -1,13 +1,13 @@
 /**
  * @license
  *
- * Copyright IBM Corp. 2019, 2022
+ * Copyright IBM Corp. 2019, 2023
  *
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
  */
 
-import { html, property, query, customElement, LitElement } from 'lit-element';
+import { html, property, query, LitElement } from 'lit-element';
 import flatpickr from 'flatpickr';
 import { Instance as FlatpickrInstance } from 'flatpickr/dist/types/instance';
 import { Locale as FlatpickrLocale } from 'flatpickr/dist/types/locale';
@@ -31,6 +31,7 @@ import rangePlugin from './range-plugin';
 import shadowDOMEventPlugin from './shadow-dom-events-plugin';
 import stateHandshakePlugin from './state-handshake-plugin';
 import styles from './date-picker.scss';
+import { carbonElement } from '../../globals/decorators/carbon-element';
 
 const { prefix } = settings;
 
@@ -60,7 +61,7 @@ enum DATE_PICKER_MODE {
  * @element bx-date-picker
  * @fires bx-date-picker-changed - The custom event fired on this element when Flatpickr updates its value.
  */
-@customElement(`${prefix}-date-picker`)
+@carbonElement(`${prefix}-date-picker`)
 class BXDatePicker extends HostListenerMixin(FormMixin(LitElement)) {
   /**
    * The slotted `<bx-date-input kind="from">`.

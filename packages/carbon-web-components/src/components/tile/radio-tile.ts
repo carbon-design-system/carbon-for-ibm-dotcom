@@ -1,20 +1,20 @@
 /**
  * @license
  *
- * Copyright IBM Corp. 2019, 2022
+ * Copyright IBM Corp. 2019, 2023
  *
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
  */
 
 import settings from 'carbon-components/es/globals/js/settings';
-import { customElement } from 'lit-element';
 import HostListener from '../../globals/decorators/host-listener';
 import HostListenerMixin from '../../globals/mixins/host-listener';
 import RadioGroupManager, {
   NAVIGATION_DIRECTION,
 } from '../../globals/internal/radio-group-manager';
 import SelectableTile from './selectable-tile';
+import { carbonElement } from '../../globals/decorators/carbon-element';
 
 const { prefix } = settings;
 
@@ -33,7 +33,7 @@ const navigationDirectionForKey = {
  *
  * @element bx-radio-tile
  */
-@customElement(`${prefix}-radio-tile`)
+@carbonElement(`${prefix}-radio-tile`)
 class BXRadioTile extends HostListenerMixin(SelectableTile) {
   /**
    * The radio group manager associated with the radio button.

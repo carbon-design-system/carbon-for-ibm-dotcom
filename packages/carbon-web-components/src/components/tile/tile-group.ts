@@ -1,15 +1,16 @@
 /**
  * @license
  *
- * Copyright IBM Corp. 2019, 2022
+ * Copyright IBM Corp. 2019, 2023
  *
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
  */
 
-import { html, customElement, LitElement } from 'lit-element';
+import { html, LitElement } from 'lit-element';
 import settings from 'carbon-components/es/globals/js/settings';
 import styles from './tile.scss';
+import { carbonElement } from '../../globals/decorators/carbon-element';
 
 const { prefix } = settings;
 
@@ -18,7 +19,7 @@ const { prefix } = settings;
  *
  * @element bx-tile-group
  */
-@customElement(`${prefix}-tile-group`)
+@carbonElement(`${prefix}-tile-group`)
 class BXTileGroup extends LitElement {
   connectedCallback() {
     if (!this.hasAttribute('role')) {

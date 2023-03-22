@@ -1,15 +1,16 @@
 /**
  * @license
  *
- * Copyright IBM Corp. 2019, 2022
+ * Copyright IBM Corp. 2019, 2023
  *
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
  */
 
-import { html, property, customElement, LitElement } from 'lit-element';
+import { html, property, LitElement } from 'lit-element';
 import settings from 'carbon-components/es/globals/js/settings';
 import styles from './list.scss';
+import { carbonElement } from '../../globals/decorators/carbon-element';
 
 const { prefix } = settings;
 
@@ -19,7 +20,7 @@ const { prefix } = settings;
  * @element bx-list-item
  * @slot nested - The nested child list.
  */
-@customElement(`${prefix}-list-item`)
+@carbonElement(`${prefix}-list-item`)
 class BXListItem extends LitElement {
   /**
    * `true` if there is slotted nested child list.

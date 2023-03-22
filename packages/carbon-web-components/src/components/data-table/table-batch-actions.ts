@@ -1,15 +1,16 @@
 /**
  * @license
  *
- * Copyright IBM Corp. 2019, 2022
+ * Copyright IBM Corp. 2019, 2023
  *
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
  */
 
-import { html, property, customElement, LitElement } from 'lit-element';
+import { html, property, LitElement } from 'lit-element';
 import settings from 'carbon-components/es/globals/js/settings';
 import styles from './data-table.scss';
+import { carbonElement } from '../../globals/decorators/carbon-element';
 
 const { prefix } = settings;
 
@@ -19,7 +20,7 @@ const { prefix } = settings;
  * @element bx-table-batch-actions
  * @fires bx-table-batch-actions-cancel-clicked - The custom event fired after the Cancel button is clicked.
  */
-@customElement(`${prefix}-table-batch-actions`)
+@carbonElement(`${prefix}-table-batch-actions`)
 class BXTableBatchActions extends LitElement {
   /**
    * Handles `click` event on the Cancel button.

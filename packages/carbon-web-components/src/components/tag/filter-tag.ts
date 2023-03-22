@@ -1,13 +1,13 @@
 /**
  * @license
  *
- * Copyright IBM Corp. 2019, 2022
+ * Copyright IBM Corp. 2019, 2023
  *
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
  */
 
-import { html, property, query, customElement, LitElement } from 'lit-element';
+import { html, property, query, LitElement } from 'lit-element';
 import settings from 'carbon-components/es/globals/js/settings';
 import Close16 from '@carbon/icons/lib/close/16';
 import FocusMixin from '../../globals/mixins/focus';
@@ -25,7 +25,7 @@ const { prefix } = settings;
  *
  * @element bx-filter-tag
  */
-@customElement(`${prefix}-filter-tag`)
+@carbonElement(`${prefix}-filter-tag`)
 export default class BXFilterTag extends HostListenerMixin(
   FocusMixin(LitElement)
 ) {

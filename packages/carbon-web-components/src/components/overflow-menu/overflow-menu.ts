@@ -1,14 +1,14 @@
 /**
  * @license
  *
- * Copyright IBM Corp. 2019, 2022
+ * Copyright IBM Corp. 2019, 2023
  *
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
  */
 
 import settings from 'carbon-components/es/globals/js/settings';
-import { html, property, customElement, LitElement } from 'lit-element';
+import { html, property, LitElement } from 'lit-element';
 import OverflowMenuVertical16 from '@carbon/icons/lib/overflow-menu--vertical/16';
 import HostListener from '../../globals/decorators/host-listener';
 import FocusMixin from '../../globals/mixins/focus';
@@ -18,6 +18,7 @@ import BXFloatingMenuTrigger from '../floating-menu/floating-menu-trigger';
 import { OVERFLOW_MENU_COLOR_SCHEME, OVERFLOW_MENU_SIZE } from './defs';
 import BXOverflowMenuBody from './overflow-menu-body';
 import styles from './overflow-menu.scss';
+import { carbonElement } from '../../globals/decorators/carbon-element';
 
 export { OVERFLOW_MENU_COLOR_SCHEME, OVERFLOW_MENU_SIZE };
 
@@ -29,7 +30,7 @@ const { prefix } = settings;
  * @element bx-overflow-menu
  * @slot icon - The icon for the trigger button.
  */
-@customElement(`${prefix}-overflow-menu`)
+@carbonElement(`${prefix}-overflow-menu`)
 class BXOverflowMenu
   extends HostListenerMixin(FocusMixin(LitElement))
   implements BXFloatingMenuTrigger

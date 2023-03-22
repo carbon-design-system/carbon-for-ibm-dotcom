@@ -1,14 +1,15 @@
 /**
  * @license
  *
- * Copyright IBM Corp. 2019, 2022
+ * Copyright IBM Corp. 2019, 2023
  *
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
  */
 
 import settings from 'carbon-components/es/globals/js/settings';
-import { html, property, customElement, LitElement } from 'lit-element';
+import { html, property, LitElement } from 'lit-element';
+import { carbonElement } from '../../globals/decorators/carbon-element';
 import { TILE_COLOR_SCHEME } from './defs';
 import styles from './tile.scss';
 
@@ -21,7 +22,7 @@ const { prefix } = settings;
  *
  * @element bx-tile
  */
-@customElement(`${prefix}-tile`)
+@carbonElement(`${prefix}-tile`)
 class BXTile extends LitElement {
   /**
    * The color scheme.

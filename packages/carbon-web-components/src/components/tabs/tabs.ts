@@ -1,14 +1,14 @@
 /**
  * @license
  *
- * Copyright IBM Corp. 2019, 2022
+ * Copyright IBM Corp. 2019, 2023
  *
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
  */
 
 import { classMap } from 'lit-html/directives/class-map';
-import { html, property, query, customElement } from 'lit-element';
+import { html, property, query } from 'lit-element';
 import ChevronDown16 from '@carbon/icons/lib/chevron--down/16';
 import settings from 'carbon-components/es/globals/js/settings';
 import HostListenerMixin from '../../globals/mixins/host-listener';
@@ -45,7 +45,7 @@ export {
  *   Cancellation of this event stops changing the user-initiated selection.
  * @fires bx-tabs-selected - The custom event fired after a a tab is selected upon a user gesture.
  */
-@customElement(`${prefix}-tabs`)
+@carbonElement(`${prefix}-tabs`)
 class BXTabs extends HostListenerMixin(BXContentSwitcher) {
   /**
    * The latest status of this dropdown, for screen reader to accounce.
@@ -140,8 +140,8 @@ class BXTabs extends HostListenerMixin(BXContentSwitcher) {
    * @param [options.immediate]
    *   `true` to make it "immediate selection change" mode, which does:
    *
-   *   * Starts with the selected item
-   *   * Going prev/next item immediately changes the selection
+   *   Starts with the selected item
+   *   Going prev/next item immediately changes the selection
    */
   protected _navigate(
     direction: number,

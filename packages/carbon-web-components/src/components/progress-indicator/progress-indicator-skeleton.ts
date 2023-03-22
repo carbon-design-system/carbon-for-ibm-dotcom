@@ -1,24 +1,25 @@
 /**
  * @license
  *
- * Copyright IBM Corp. 2019, 2022
+ * Copyright IBM Corp. 2019, 2023
  *
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
  */
 
-import { html, property, customElement, LitElement } from 'lit-element';
+import { html, property, LitElement } from 'lit-element';
 import settings from 'carbon-components/es/globals/js/settings';
 import { forEach } from '../../globals/internal/collection-helpers';
 import BXProgressStepSkeleton from './progress-step-skeleton';
 import styles from './progress-indicator.scss';
+import { carbonElement } from '../../globals/decorators/carbon-element';
 
 const { prefix } = settings;
 
 /**
  * Skeleton of progress indicator.
  */
-@customElement(`${prefix}-progress-indicator-skeleton`)
+@carbonElement(`${prefix}-progress-indicator-skeleton`)
 class BXProgressIndicatorSkeleton extends LitElement {
   /**
    * `true` if the progress indicator should be vertical. Corresponds to the attribute with the same name.

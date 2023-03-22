@@ -1,14 +1,14 @@
 /**
  * @license
  *
- * Copyright IBM Corp. 2019, 2022
+ * Copyright IBM Corp. 2019, 2023
  *
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
  */
 
 import { classMap } from 'lit-html/directives/class-map';
-import { html, property, query, customElement, LitElement } from 'lit-element';
+import { html, property, query, LitElement } from 'lit-element';
 import settings from 'carbon-components/es/globals/js/settings';
 import ifNonNull from '../../globals/directives/if-non-null';
 import HostListener from '../../globals/decorators/host-listener';
@@ -20,6 +20,7 @@ import RadioGroupManager, {
 } from '../../globals/internal/radio-group-manager';
 import { RADIO_BUTTON_LABEL_POSITION, RADIO_BUTTON_ORIENTATION } from './defs';
 import styles from './radio-button.scss';
+import { carbonElement } from '../../globals/decorators/carbon-element';
 
 export { RADIO_BUTTON_LABEL_POSITION };
 
@@ -105,7 +106,7 @@ class RadioButtonDelegate implements ManagedRadioButtonDelegate {
  * @element bx-radio-button
  * @fires bx-radio-button-changed - The custom event fired after this radio button changes its checked state.
  */
-@customElement(`${prefix}-radio-button`)
+@carbonElement(`${prefix}-radio-button`)
 class BXRadioButton extends HostListenerMixin(FocusMixin(LitElement)) {
   /**
    * The radio group manager associated with the radio button.

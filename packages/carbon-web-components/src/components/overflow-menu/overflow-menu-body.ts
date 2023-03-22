@@ -1,14 +1,14 @@
 /**
  * @license
  *
- * Copyright IBM Corp. 2019, 2022
+ * Copyright IBM Corp. 2019, 2023
  *
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
  */
 
 import settings from 'carbon-components/es/globals/js/settings';
-import { html, property, customElement } from 'lit-element';
+import { html, property } from 'lit-element';
 import BXFloatingMenu, {
   FLOATING_MENU_ALIGNMENT,
   FLOATING_MENU_DIRECTION,
@@ -18,6 +18,7 @@ import styles from './overflow-menu.scss';
 import BXOverflowMenuItem from './overflow-menu-item';
 import HostListener from '../../globals/decorators/host-listener';
 import { indexOf } from '../../globals/internal/collection-helpers';
+import { carbonElement } from '../../globals/decorators/carbon-element';
 
 const { prefix } = settings;
 
@@ -41,7 +42,7 @@ const capIndex = (index: number, length: number) => {
  *
  * @element bx-overflow-menu-body
  */
-@customElement(`${prefix}-overflow-menu-body`)
+@carbonElement(`${prefix}-overflow-menu-body`)
 class BXOverflowMenuBody extends BXFloatingMenu {
   /**
    * How the menu is aligned to the trigger button.

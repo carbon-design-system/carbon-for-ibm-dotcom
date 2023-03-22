@@ -1,19 +1,20 @@
 /**
  * @license
  *
- * Copyright IBM Corp. 2019, 2022
+ * Copyright IBM Corp. 2019, 2023
  *
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
  */
 
 import { classMap } from 'lit-html/directives/class-map';
-import { html, property, customElement, LitElement } from 'lit-element';
+import { html, property, LitElement } from 'lit-element';
 import settings from 'carbon-components/es/globals/js/settings';
 import ifNonNull from '../../globals/directives/if-non-null';
 import FocusMixin from '../../globals/mixins/focus';
 import { SLIDER_INPUT_COLOR_SCHEME } from './defs';
 import styles from './slider.scss';
+import { carbonElement } from '../../globals/decorators/carbon-element';
 
 export { SLIDER_INPUT_COLOR_SCHEME };
 
@@ -25,7 +26,7 @@ const { prefix } = settings;
  * @element bx-slider-input
  * @fires bx-slider-input-changed - The custom event fired after the value is changed by user gesture.
  */
-@customElement(`${prefix}-slider-input`)
+@carbonElement(`${prefix}-slider-input`)
 class BXSliderInput extends FocusMixin(LitElement) {
   /**
    * The internal value of `max` property.
