@@ -269,12 +269,7 @@
 
 ```
 
-<<<<<<< HEAD
 ## `cds-file-uploader-shell`
-
-=======
->>>>>>> 753d090a6d (chore(deps): upgrade Node 18 (#10239))
-## `Misc attributes`
 
 ####   `should render with minimum attributes`
 

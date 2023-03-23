@@ -9,7 +9,7 @@
 ```
 <div class="cds--batch-summary">
   <p class="cds--batch-summary__para">
-    NaN items selected
+    0 item selected
   </p>
 </div>
 <div class="cds--action-list">
