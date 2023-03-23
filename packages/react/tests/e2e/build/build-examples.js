@@ -170,7 +170,7 @@ function _buildExamples() {
   log(chalk.yellow('Building all examples...'));
   _examples.forEach(example => {
     log(chalk.green(`Building ${example}...`));
-    execSync('yarn build', {
+    execSync('NODE_OPTIONS=--openssl-legacy-provider yarn build', {
       cwd: `${_exampleBuild}/components/${example}`,
       stdio: 'inherit',
     });
