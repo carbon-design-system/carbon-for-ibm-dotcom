@@ -16,6 +16,11 @@ $css--plex: true !default;
 :host(#{$prefix}-btn),
 :host(#{$prefix}-modal-footer-button) {
   display: inline-flex;
+
+  &[isExpressive] ::slotted([slot='icon']) {
+    width: rem(20px);
+    height: rem(20px);
+  }
 }
 
 :host(#{$prefix}-btn[kind='ghost']:hover) .#{$prefix}--btn--ghost,

@@ -151,6 +151,13 @@ class BXButton extends HostListenerMixin(FocusMixin(LitElement)) {
   isExpressive = false;
 
   /**
+   * Specify whether the Button is currently selected.
+   * Only applies to the Ghost variant.
+   */
+  @property({ type: Boolean, reflect: true })
+  isSelected = false;
+
+  /**
    * Button kind.
    */
   @property({ reflect: true })
@@ -229,6 +236,7 @@ class BXButton extends HostListenerMixin(FocusMixin(LitElement)) {
       hreflang,
       kind,
       isExpressive,
+      isSelected,
       linkRole,
       openTooltip,
       ping,
@@ -251,6 +259,7 @@ class BXButton extends HostListenerMixin(FocusMixin(LitElement)) {
       [`${prefix}--btn--${size}`]: size,
       [`${prefix}-ce--btn--has-icon`]: hasIcon,
       [`${prefix}--btn--expressive`]: isExpressive,
+      [`${prefix}--btn--selected`]: isSelected && kind === 'ghost',
     });
 
     const isDanger = kind.includes('danger');

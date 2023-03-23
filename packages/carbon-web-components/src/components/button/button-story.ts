@@ -73,6 +73,7 @@ export const Default = (args) => {
     href,
     size,
     kind,
+    isExpressive,
     tooltipAlignment,
     tooltipPosition,
     tooltipText,
@@ -86,6 +87,7 @@ export const Default = (args) => {
       type="${ifDefined(type)}"
       ?disabled="${disabled}"
       href="${ifDefined(href)}"
+      ?isExpressive="${isExpressive}"
       size="${ifDefined(size)}"
       @click=${onClick}
       tooltip-text="${tooltipText}"
@@ -102,6 +104,7 @@ export const Danger = (args) => {
     href,
     size,
     tooltipAlignment,
+    isExpressive,
     tooltipPosition,
     tooltipText,
     type,
@@ -110,6 +113,7 @@ export const Danger = (args) => {
   return html`
     <cds-btn
       kind="danger"
+      ?isExpressive="${isExpressive}"
       type="${type}"
       ?disabled="${disabled}"
       href="${ifDefined(href)}"
@@ -123,6 +127,7 @@ export const Danger = (args) => {
     <cds-btn
       kind="danger--tertiary"
       type="${type}"
+      ?isExpressive="${isExpressive}"
       ?disabled="${disabled}"
       href="${ifDefined(href)}"
       size="${ifDefined(size)}"
@@ -134,6 +139,7 @@ export const Danger = (args) => {
     </cds-btn>
     <cds-btn
       kind="danger--ghost"
+      ?isExpressive="${isExpressive}"
       type="${type}"
       ?disabled="${disabled}"
       href="${ifDefined(href)}"
@@ -152,6 +158,8 @@ export const Ghost = (args) => {
     disabled,
     href,
     size,
+    isExpressive,
+    isSelected,
     tooltipAlignment,
     tooltipPosition,
     tooltipText,
@@ -161,6 +169,8 @@ export const Ghost = (args) => {
   return html`
     <cds-btn
       kind="ghost"
+      ?isExpressive="${isExpressive}"
+      ?isSelected="${isSelected}"
       type="${type}"
       ?disabled="${disabled}"
       href="${ifDefined(href)}"
@@ -174,12 +184,40 @@ export const Ghost = (args) => {
   `;
 };
 
+Ghost.parameters = {
+  ...storyDocs.parameters,
+  knobs: {
+    [`${prefix}-btn`]: () => ({
+      kind: select('Button kind (kind)', kind, BUTTON_KIND.PRIMARY),
+      types: select('Button type (type)', types, BUTTON_TYPE.BUTTON),
+      tooltipAlignment: select(
+        'Tooltip alignment',
+        alignmentOptions,
+        BUTTON_TOOLTIP_ALIGNMENT.CENTER
+      ),
+      tooltipPosition: select(
+        'Tooltip position',
+        positionOptions,
+        BUTTON_TOOLTIP_POSITION.TOP
+      ),
+      tooltipText: text('Tooltip text', ''),
+      disabled: boolean('Disabled (disabled)', false),
+      isExpressive: boolean('Expressive (is-expressive)', false),
+      isSelected: boolean('Selected (is-selected)', false),
+      size: select('Button size (size)', sizes, null),
+      href: textNullable('Link href (href)', ''),
+      onClick: action('click'),
+    }),
+  },
+};
+
 export const IconButton = (args) => {
   const {
     disabled,
     href,
     size,
     kind,
+    isExpressive,
     tooltipAlignment,
     tooltipPosition,
     tooltipText,
@@ -188,6 +226,7 @@ export const IconButton = (args) => {
   } = args?.[`${prefix}-btn`] ?? {};
   return html`
     <cds-btn
+      ?isExpressive="${isExpressive}"
       ?disabled="${disabled}"
       href="${ifDefined(href)}"
       kind="${ifDefined(kind)}"
@@ -207,6 +246,7 @@ IconButton.parameters = {
     [`${prefix}-btn`]: () => ({
       kind: select('Button kind (kind)', kind, BUTTON_KIND.PRIMARY),
       types: select('Button type (type)', types, BUTTON_TYPE.BUTTON),
+      isExpressive: boolean('Expressive (is-expressive)', false),
       tooltipAlignment: select(
         'Tooltip alignment',
         alignmentOptions,
@@ -231,6 +271,7 @@ export const Secondary = (args) => {
     disabled,
     href,
     size,
+    isExpressive,
     tooltipAlignment,
     tooltipPosition,
     tooltipText,
@@ -240,6 +281,7 @@ export const Secondary = (args) => {
   return html`
     <cds-btn
       kind="secondary"
+      ?isExpressive="${isExpressive}"
       type="${ifDefined(type)}"
       ?disabled="${disabled}"
       href="${ifDefined(href)}"
@@ -258,6 +300,7 @@ export const SetOfButtons = (args) => {
     disabled,
     href,
     size,
+    isExpressive,
     tooltipAlignment,
     tooltipPosition,
     tooltipText,
@@ -267,6 +310,7 @@ export const SetOfButtons = (args) => {
   return html`
     <cds-btn-set>
       <cds-btn
+        ?isExpressive="${isExpressive}"
         type="${ifDefined(type)}"
         ?disabled="${disabled}"
         href="${ifDefined(href)}"
@@ -278,6 +322,7 @@ export const SetOfButtons = (args) => {
         Secondary button
       </cds-btn>
       <cds-btn
+        ?isExpressive="${isExpressive}"
         type="${ifDefined(type)}"
         ?disabled="${disabled}"
         href="${ifDefined(href)}"
@@ -305,6 +350,7 @@ export const Tertiary = (args) => {
     href,
     size,
     tooltipAlignment,
+    isExpressive,
     tooltipPosition,
     tooltipText,
     type,
@@ -312,6 +358,7 @@ export const Tertiary = (args) => {
   } = args?.[`${prefix}-btn`] ?? {};
   return html`
     <cds-btn
+      ?isExpressive="${isExpressive}"
       kind="tertiary"
       type="${ifDefined(type)}"
       ?disabled="${disabled}"
@@ -346,6 +393,7 @@ export default {
         ),
         tooltipText: text('Tooltip text', ''),
         disabled: boolean('Disabled (disabled)', false),
+        isExpressive: boolean('Expressive (is-expressive)', false),
         size: select('Button size (size)', sizes, null),
         href: textNullable('Link href (href)', ''),
         onClick: action('click'),
