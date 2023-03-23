@@ -17,10 +17,10 @@ jobs:
       SLACK_WEBHOOK_URL: ${{ secrets.SLACK_WEBHOOK_URL }}
     steps:
       - uses: actions/checkout@v3
-      - name: Use Node.js 14.x
+      - name: Use Node.js 18.x
         uses: actions/setup-node@v3
         with:
-          node-version: '14.x'
+          node-version: '18.x'
           cache: 'yarn'
       - name: Deploy NextJS Staging
         uses: peter-evans/repository-dispatch@v2
