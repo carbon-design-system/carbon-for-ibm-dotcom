@@ -14,76 +14,56 @@ import textNullable from '../../../.storybook/knob-text-nullable';
 import './textarea';
 import './textarea-skeleton';
 import '../form/form-item';
+import '../layer';
 import createProps from './stories/helpers';
 import storyDocs from './textarea-story.mdx';
 import { prefix } from '../../globals/settings';
 
-export const Default = (args) => {
-  const {
-    autocomplete,
-    autofocus,
-    colorScheme,
-    disabled,
-    helperText,
-    labelText,
-    name,
-    value,
-    pattern,
-    placeholder,
-    readonly,
-    required,
-    invalid,
-    validityMessage,
-    onInput,
-    rows,
-    cols,
-  } = args?.[`${prefix}-textarea`] ?? {};
+export const Default = () => {
   return html`
-    <cds-textarea
-      autocomplete="${ifDefined(autocomplete)}"
-      ?autofocus="${autofocus}"
-      color-scheme="${ifDefined(colorScheme)}"
-      ?disabled="${disabled}"
-      helper-text="${ifDefined(helperText)}"
-      label-text="${ifDefined(labelText)}"
-      name="${ifDefined(name)}"
-      value="${ifDefined(value)}"
-      pattern="${ifDefined(pattern)}"
-      placeholder="${ifDefined(placeholder)}"
-      ?readonly="${readonly}"
-      ?required="${required}"
-      ?invalid="${invalid}"
-      validity-message="${ifDefined(validityMessage)}"
-      @input="${onInput}"
-      rows="${ifDefined(rows)}"
-      cols="${ifDefined(cols)}">
-    </cds-textarea>
+    <cds-form-item>
+      <cds-textarea label="Textarea label" helper-text="Optional helper text">
+      </cds-textarea>
+    </cds-form-item>
   `;
 };
 
 Default.storyName = 'Default';
 
-Default.parameters = {
-  knobs: {
-    [`${prefix}-textarea`]: () => createProps({ ...knobs, textNullable }),
+export const skeleton = () =>
+  html` <cds-textarea-skeleton></cds-textarea-skeleton> `;
+
+skeleton.parameters = {
+  percy: {
+    skip: true,
   },
 };
 
-export const formItem = (args) => {
-  const {
-    colorScheme,
-    disabled,
-    value,
-    placeholder,
-    invalid,
-    onInput,
-    rows,
-    cols,
-  } = args?.[`${prefix}-textarea`] ?? {};
+export const WithLayer = () => {
+  return html`
+    <cds-layer>
+      <cds-textarea label="First layer" helper-text="Optional helper text">
+      </cds-textarea>
+      <cds-layer>
+        <cds-textarea label="Second layer" helper-text="Optional helper text">
+        </cds-textarea>
+        <cds-layer>
+          <cds-textarea label="Third layer" helper-text="Optional helper text">
+          </cds-textarea>
+        </cds-layer>
+      </cds-layer>
+    </cds-layer>
+  `;
+};
+
+WithLayer.storyName = 'With Layer';
+
+export const Playground = (args) => {
+  const { disabled, value, placeholder, invalid, onInput, rows, cols } =
+    args?.[`${prefix}-textarea`] ?? {};
   return html`
     <cds-form-item>
       <cds-textarea
-        color-scheme="${ifDefined(colorScheme)}"
         placeholder="${ifDefined(placeholder)}"
         @input="${onInput}"
         ?invalid="${invalid}"
@@ -100,62 +80,16 @@ export const formItem = (args) => {
   `;
 };
 
-formItem.storyName = 'Form item';
+Playground.storyName = 'Playground';
 
-formItem.parameters = {
+Playground.parameters = {
   knobs: {
     [`${prefix}-textarea`]: () => createProps({ ...knobs, textNullable }),
-  },
-};
-
-export const withoutFormItemWrapper = (args) => {
-  const {
-    colorScheme,
-    disabled,
-    value,
-    placeholder,
-    invalid,
-    onInput,
-    rows,
-    cols,
-  } = args?.[`${prefix}-textarea`] ?? {};
-  return html`
-    <cds-textarea
-      color-scheme="${ifDefined(colorScheme)}"
-      placeholder="${ifDefined(placeholder)}"
-      @input="${onInput}"
-      ?invalid="${invalid}"
-      ?disabled="${disabled}"
-      value="${ifDefined(value)}"
-      rows="${ifDefined(rows)}"
-      cols="${ifDefined(cols)}">
-      <span slot="label-text">Label text</span>
-      <span slot="helper-text">Optional helper text</span>
-      <span slot="validity-message">Something isn't right</span>
-      <span>${value}</span>
-    </cds-textarea>
-  `;
-};
-
-withoutFormItemWrapper.storyName = 'Without form item wrapper';
-
-withoutFormItemWrapper.parameters = {
-  knobs: {
-    [`${prefix}-textarea`]: () => createProps({ ...knobs, textNullable }),
-  },
-};
-
-export const skeleton = () =>
-  html` <cds-textarea-skeleton></cds-textarea-skeleton> `;
-
-skeleton.parameters = {
-  percy: {
-    skip: true,
   },
 };
 
 export default {
-  title: 'Components/Textarea',
+  title: 'Components/Text Area',
   parameters: {
     ...storyDocs.parameters,
   },
