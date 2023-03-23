@@ -271,6 +271,8 @@
 
 ## `cds-file-uploader-shell`
 
+## `Misc attributes`
+
 ####   `should render with minimum attributes`
 
 ```
