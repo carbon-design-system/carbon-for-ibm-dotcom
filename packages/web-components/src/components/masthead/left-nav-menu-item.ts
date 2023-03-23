@@ -13,7 +13,7 @@ import settings from 'carbon-components/es/globals/js/settings.js';
 import BXSideNavMenuItem from '../../internal/vendor/@carbon/web-components/components/ui-shell/side-nav-menu-item.js';
 import ddsSettings from '../../internal/vendor/@carbon/ibmdotcom-utilities/utilities/settings/settings';
 import styles from './masthead.scss';
-import { carbonElement } from '../../internal/vendor/@carbon/web-components/globals/decorators/carbon-element.js';
+import { carbonElement as customElement } from '../../internal/vendor/@carbon/web-components/globals/decorators/carbon-element.js';
 
 const { prefix } = settings;
 const { stablePrefix: ddsPrefix } = ddsSettings;
@@ -23,7 +23,7 @@ const { stablePrefix: ddsPrefix } = ddsSettings;
  *
  * @element dds-left-nav-menu-item
  */
-@carbonElement(`${ddsPrefix}-left-nav-menu-item`)
+@customElement(`${ddsPrefix}-left-nav-menu-item`)
 class DDSLeftNavMenuItem extends BXSideNavMenuItem {
   render() {
     const { active, href, title } = this;

@@ -17,7 +17,7 @@ import FormMixin from '../../globals/mixins/form';
 import ValidityMixin from '../../globals/mixins/validity';
 import { TEXTAREA_COLOR_SCHEME } from './defs';
 import styles from './textarea.scss';
-import { carbonElement } from '../../globals/decorators/carbon-element';
+import { carbonElement as customElement } from '../../globals/decorators/carbon-element';
 
 export { TEXTAREA_COLOR_SCHEME };
 
@@ -31,7 +31,7 @@ const { prefix } = settings;
  * @slot label-text - The label text.
  * @slot validity-message - The validity message. If present and non-empty, this input shows the UI of its invalid state.
  */
-@carbonElement(`${prefix}-textarea`)
+@customElement(`${prefix}-textarea`)
 export default class BXTextarea extends ValidityMixin(FormMixin(LitElement)) {
   /**
    * Handles `oninput` event on the `<input>`.

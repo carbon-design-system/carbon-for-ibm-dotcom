@@ -12,7 +12,7 @@ import settings from 'carbon-components/es/globals/js/settings.js';
 import ddsSettings from '../../internal/vendor/@carbon/ibmdotcom-utilities/utilities/settings/settings';
 import StableSelectorMixin from '../../globals/mixins/stable-selector';
 import styles from './footer.scss';
-import { carbonElement } from '../../internal/vendor/@carbon/web-components/globals/decorators/carbon-element';
+import { carbonElement as customElement } from '../../internal/vendor/@carbon/web-components/globals/decorators/carbon-element';
 
 const { prefix } = settings;
 const { stablePrefix: ddsPrefix } = ddsSettings;
@@ -22,7 +22,7 @@ const { stablePrefix: ddsPrefix } = ddsSettings;
  *
  * @element dds-legal-nav-cookie-preferences-placeholder
  */
-@carbonElement(`${ddsPrefix}-legal-nav-cookie-preferences-placeholder`)
+@customElement(`${ddsPrefix}-legal-nav-cookie-preferences-placeholder`)
 class DDSLegalNavCookiePreferencesPlaceholder extends StableSelectorMixin(
   LitElement
 ) {

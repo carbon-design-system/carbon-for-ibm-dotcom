@@ -10,14 +10,14 @@
 import { html, LitElement } from 'lit-element';
 import settings from 'carbon-components/es/globals/js/settings';
 import styles from './tabs.scss';
-import { carbonElement } from '../../globals/decorators/carbon-element';
+import { carbonElement as customElement } from '../../globals/decorators/carbon-element';
 
 const { prefix } = settings;
 
 /**
  * Skeleton of tabs.
  */
-@carbonElement(`${prefix}-tabs-skeleton`)
+@customElement(`${prefix}-tabs-skeleton`)
 class BXTabsSkeleton extends LitElement {
   render() {
     return html`

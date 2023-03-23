@@ -14,7 +14,7 @@ import RadioGroupManager, {
   NAVIGATION_DIRECTION,
 } from '../../globals/internal/radio-group-manager';
 import SelectableTile from './selectable-tile';
-import { carbonElement } from '../../globals/decorators/carbon-element';
+import { carbonElement as customElement } from '../../globals/decorators/carbon-element';
 
 const { prefix } = settings;
 
@@ -33,7 +33,7 @@ const navigationDirectionForKey = {
  *
  * @element bx-radio-tile
  */
-@carbonElement(`${prefix}-radio-tile`)
+@customElement(`${prefix}-radio-tile`)
 class BXRadioTile extends HostListenerMixin(SelectableTile) {
   /**
    * The radio group manager associated with the radio button.

@@ -17,7 +17,7 @@ import DDSFilterPanelComposite from './filter-panel-composite';
 import DDSFilterPanelCheckbox from './filter-panel-checkbox';
 import DDSFilterPanelInputSelectItem from './filter-panel-input-select-item';
 import DDSFilterPanelInputSelect from './filter-panel-input-select';
-import { carbonElement } from '../../internal/vendor/@carbon/web-components/globals/decorators/carbon-element.js';
+import { carbonElement as customElement } from '../../internal/vendor/@carbon/web-components/globals/decorators/carbon-element.js';
 
 const { stablePrefix: ddsPrefix } = ddsSettings;
 const { prefix } = settings;
@@ -29,7 +29,7 @@ const viewAllClassName = `${ddsPrefix}-filter-group-item__view-all`;
  *
  * @element dds-filter-group-item
  */
-@carbonElement(`${ddsPrefix}-filter-group-item`)
+@customElement(`${ddsPrefix}-filter-group-item`)
 class DDSFilterGroupItem extends StableSelectorMixin(BXAccordionItem) {
   /**
    * Extends BXAccordionItem component

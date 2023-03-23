@@ -12,7 +12,7 @@ import { classMap } from 'lit-html/directives/class-map';
 import { html, property, query, LitElement } from 'lit-element';
 import FocusMixin from '../../globals/mixins/focus';
 import styles from './side-nav.scss';
-import { carbonElement } from '../../globals/decorators/carbon-element';
+import { carbonElement as customElement } from '../../globals/decorators/carbon-element';
 
 const { prefix } = settings;
 
@@ -24,7 +24,7 @@ const { prefix } = settings;
  * @slot title - The title.
  * @slot title-icon-container - The title icon container.
  */
-@carbonElement(`${prefix}-side-nav-link`)
+@customElement(`${prefix}-side-nav-link`)
 class BXSideNavLink extends FocusMixin(LitElement) {
   /**
    * The container for the title icon.

@@ -20,7 +20,7 @@ import ValidityMixin from '../../globals/mixins/validity';
 import { filter } from '../../globals/internal/collection-helpers';
 import { INPUT_SIZE } from '../input/input';
 import styles from './select.scss';
-import { carbonElement } from '../../globals/decorators/carbon-element';
+import { carbonElement as customElement } from '../../globals/decorators/carbon-element';
 
 export { FORM_ELEMENT_COLOR_SCHEME as SELECT_COLOR_SCHEME } from '../../globals/shared-enums';
 
@@ -34,7 +34,7 @@ const { prefix } = settings;
  * @slot label-text - The label text.
  * @slot validity-message - The validity message. If present and non-empty, this input shows the UI of its invalid state.
  */
-@carbonElement(`${prefix}-select`)
+@customElement(`${prefix}-select`)
 class BXSelect extends ValidityMixin(FormMixin(LitElement)) {
   /**
    * The mutation observer DOM mutation.

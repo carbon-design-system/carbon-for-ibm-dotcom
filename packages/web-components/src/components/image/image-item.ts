@@ -10,7 +10,7 @@ import { LitElement } from 'lit-element';
 import ddsSettings from '@carbon/ibmdotcom-utilities/es/utilities/settings/settings.js';
 import StableSelectorMixin from '../../globals/mixins/stable-selector';
 import styles from './image.scss';
-import { carbonElement } from '../../internal/vendor/@carbon/web-components/globals/decorators/carbon-element';
+import { carbonElement as customElement } from '../../internal/vendor/@carbon/web-components/globals/decorators/carbon-element';
 
 const { stablePrefix: ddsPrefix } = ddsSettings;
 
@@ -20,7 +20,7 @@ const { stablePrefix: ddsPrefix } = ddsSettings;
  * @element dds-image-item
  */
 
-@carbonElement(`${ddsPrefix}-image-item`)
+@customElement(`${ddsPrefix}-image-item`)
 class DDSImageItem extends StableSelectorMixin(LitElement) {
   static get stableSelector() {
     return `${ddsPrefix}-image-item`;

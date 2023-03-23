@@ -11,7 +11,7 @@ import { classMap } from 'lit-html/directives/class-map';
 import { html, LitElement } from 'lit-element';
 import settings from 'carbon-components/es/globals/js/settings';
 import styles from './modal.scss';
-import { carbonElement } from '../../globals/decorators/carbon-element';
+import { carbonElement as customElement } from '../../globals/decorators/carbon-element';
 
 const { prefix } = settings;
 
@@ -20,7 +20,7 @@ const { prefix } = settings;
  *
  * @element bx-modal-footer
  */
-@carbonElement(`${prefix}-modal-footer`)
+@customElement(`${prefix}-modal-footer`)
 class BXModalFooter extends LitElement {
   /**
    * `true` if this modal footer has more than two buttons.

@@ -16,7 +16,7 @@ import {
   formatVideoDuration,
 } from '../../internal/vendor/@carbon/ibmdotcom-utilities/utilities/formatVideoCaption/formatVideoCaption.js';
 import DDSLightboxMediaViewerBody from './lightbox-media-viewer-body';
-import { carbonElement } from '../../internal/vendor/@carbon/web-components/globals/decorators/carbon-element';
+import { carbonElement as customElement } from '../../internal/vendor/@carbon/web-components/globals/decorators/carbon-element';
 
 const { prefix } = settings;
 const { stablePrefix: ddsPrefix } = ddsSettings;
@@ -28,7 +28,7 @@ const { stablePrefix: ddsPrefix } = ddsSettings;
  * @slot title - The title content.
  * @slot description - The description content.
  */
-@carbonElement(`${ddsPrefix}-lightbox-video-player`)
+@customElement(`${ddsPrefix}-lightbox-video-player`)
 class DDSLightboxVideoPlayer extends DDSLightboxMediaViewerBody {
   _renderDescription() {
     const { description } = this;

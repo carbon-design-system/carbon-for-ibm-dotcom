@@ -12,7 +12,7 @@ import BXSelect from '../../internal/vendor/@carbon/web-components/components/se
 import { INPUT_SIZE } from '../../internal/vendor/@carbon/web-components/components/input/input.js';
 import ddsSettings from '../../internal/vendor/@carbon/ibmdotcom-utilities/utilities/settings/settings';
 import styles from './footer.scss';
-import { carbonElement } from '../../internal/vendor/@carbon/web-components/globals/decorators/carbon-element.js';
+import { carbonElement as customElement } from '../../internal/vendor/@carbon/web-components/globals/decorators/carbon-element.js';
 
 const { stablePrefix: ddsPrefix } = ddsSettings;
 
@@ -23,7 +23,7 @@ const { stablePrefix: ddsPrefix } = ddsSettings;
  * @element dds-language-selector-mobile
  * @internal
  */
-@carbonElement(`${ddsPrefix}-language-selector-mobile`)
+@customElement(`${ddsPrefix}-language-selector-mobile`)
 class DDSLanguageSelectorMobile extends BXSelect {
   /**
    * Property that specifies the Select to have size xl

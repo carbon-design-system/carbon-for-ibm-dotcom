@@ -18,7 +18,7 @@ import {
 import BXDropdown, { DROPDOWN_KEYBOARD_ACTION } from '../dropdown/dropdown';
 import BXMultiSelectItem from './multi-select-item';
 import styles from './multi-select.scss';
-import { carbonElement } from '../../globals/decorators/carbon-element';
+import { carbonElement as customElement } from '../../globals/decorators/carbon-element';
 
 export {
   DROPDOWN_COLOR_SCHEME,
@@ -42,7 +42,7 @@ const { prefix } = settings;
  * @fires bx-multi-select-toggled
  *   The custom event fired after the open state of this multi select is toggled upon a user gesture.
  */
-@carbonElement(`${prefix}-multi-select`)
+@customElement(`${prefix}-multi-select`)
 class BXMultiSelect extends BXDropdown {
   @property({ type: Boolean })
   filterable;

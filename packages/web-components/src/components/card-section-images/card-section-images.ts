@@ -13,7 +13,7 @@ import StableSelectorMixin from '../../globals/mixins/stable-selector';
 
 import styles from './card-section-images.scss';
 import DDSContentSection from '../content-section/content-section';
-import { carbonElement } from '../../internal/vendor/@carbon/web-components/globals/decorators/carbon-element';
+import { carbonElement as customElement } from '../../internal/vendor/@carbon/web-components/globals/decorators/carbon-element';
 
 const { stablePrefix: ddsPrefix } = ddsSettings;
 
@@ -22,7 +22,7 @@ const { stablePrefix: ddsPrefix } = ddsSettings;
  *
  * @element dds-card-section-images
  */
-@carbonElement(`${ddsPrefix}-card-section-images`)
+@customElement(`${ddsPrefix}-card-section-images`)
 class DDSCardSectionImages extends StableSelectorMixin(DDSContentSection) {
   static get stableSelector() {
     return `${ddsPrefix}--card-section-images`;

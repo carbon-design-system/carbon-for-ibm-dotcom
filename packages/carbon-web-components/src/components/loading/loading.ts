@@ -13,7 +13,7 @@ import { html, property, LitElement } from 'lit-element';
 import { LOADING_TYPE } from './defs';
 import getLoadingIcon from './loading-icon';
 import styles from './loading.scss';
-import { carbonElement } from '../../globals/decorators/carbon-element';
+import { carbonElement as customElement } from '../../globals/decorators/carbon-element';
 
 const { prefix } = settings;
 
@@ -22,7 +22,7 @@ const { prefix } = settings;
  *
  * @element bx-loading
  */
-@carbonElement(`${prefix}-loading`)
+@customElement(`${prefix}-loading`)
 class BXLoading extends LitElement {
   /**
    * The assistive text for the spinner icon.

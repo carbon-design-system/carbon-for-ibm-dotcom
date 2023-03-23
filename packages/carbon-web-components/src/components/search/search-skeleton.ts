@@ -11,14 +11,14 @@ import { html, property, LitElement } from 'lit-element';
 import settings from 'carbon-components/es/globals/js/settings';
 import { INPUT_SIZE } from '../input/input';
 import styles from './search.scss';
-import { carbonElement } from '../../globals/decorators/carbon-element';
+import { carbonElement as customElement } from '../../globals/decorators/carbon-element';
 
 const { prefix } = settings;
 
 /**
  * Skeleton of search.
  */
-@carbonElement(`${prefix}-search-skeleton`)
+@customElement(`${prefix}-search-skeleton`)
 class BXSearchSkeleton extends LitElement {
   /**
    * The search box size. Corresponds to the attribute with the same name.

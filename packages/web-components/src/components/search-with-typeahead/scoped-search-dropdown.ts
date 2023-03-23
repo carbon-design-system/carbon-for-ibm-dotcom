@@ -12,7 +12,7 @@ import {} from 'lit-element';
 import ddsSettings from '@carbon/ibmdotcom-utilities/es/utilities/settings/settings.js';
 import DDSDropdown from '../footer/dropdown';
 import styles from './search-with-typeahead.scss';
-import { carbonElement } from '../../internal/vendor/@carbon/web-components/globals/decorators/carbon-element';
+import { carbonElement as customElement } from '../../internal/vendor/@carbon/web-components/globals/decorators/carbon-element';
 
 export {
   DROPDOWN_COLOR_SCHEME,
@@ -29,7 +29,7 @@ const { prefix } = settings;
  * @element dds-scoped-search-dropdown
  * @fires bx-select-selected - The custom event fired after the the dropdown value is changed upon a user gesture.
  */
-@carbonElement(`${ddsPrefix}-scoped-search-dropdown`)
+@customElement(`${ddsPrefix}-scoped-search-dropdown`)
 class DDSScopedSearchDropdown extends DDSDropdown {
   /**
    * Handles user-initiated selection of a dropdown item

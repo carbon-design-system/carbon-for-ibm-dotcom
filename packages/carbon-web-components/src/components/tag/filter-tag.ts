@@ -15,7 +15,7 @@ import HostListener from '../../globals/decorators/host-listener';
 import HostListenerMixin from '../../globals/mixins/host-listener';
 import { TAG_SIZE, TAG_TYPE } from './defs';
 import styles from './tag.scss';
-import { carbonElement } from '../../globals/decorators/carbon-element';
+import { carbonElement as customElement } from '../../globals/decorators/carbon-element';
 
 export { TAG_SIZE, TAG_TYPE };
 
@@ -26,7 +26,7 @@ const { prefix } = settings;
  *
  * @element bx-filter-tag
  */
-@carbonElement(`${prefix}-filter-tag`)
+@customElement(`${prefix}-filter-tag`)
 export default class BXFilterTag extends HostListenerMixin(
   FocusMixin(LitElement)
 ) {

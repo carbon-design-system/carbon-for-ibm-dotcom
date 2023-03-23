@@ -16,7 +16,7 @@ import sameHeight from '../../internal/vendor/@carbon/ibmdotcom-utilities/utilit
 import { GRID_MODE } from './defs';
 import styles from './card-group.scss';
 import StableSelectorMixin from '../../globals/mixins/stable-selector';
-import { carbonElement } from '../../internal/vendor/@carbon/web-components/globals/decorators/carbon-element';
+import { carbonElement as customElement } from '../../internal/vendor/@carbon/web-components/globals/decorators/carbon-element';
 
 export { GRID_MODE };
 
@@ -34,7 +34,7 @@ const headingBottomMargin = 64;
  *
  * @element dds-card-group
  */
-@carbonElement(`${ddsPrefix}-card-group`)
+@customElement(`${ddsPrefix}-card-group`)
 class DDSCardGroup extends StableSelectorMixin(LitElement) {
   /**
    * Array to hold the card-heading elements within child items.

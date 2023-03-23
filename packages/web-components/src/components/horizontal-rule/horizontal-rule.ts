@@ -12,7 +12,7 @@ import ddsSettings from '@carbon/ibmdotcom-utilities/es/utilities/settings/setti
 import StableSelectorMixin from '../../globals/mixins/stable-selector';
 import { HR_TYPE, HR_SIZE, HR_CONTRAST, HR_WEIGHT } from './defs';
 import styles from './horizontal-rule.scss';
-import { carbonElement } from '../../internal/vendor/@carbon/web-components/globals/decorators/carbon-element';
+import { carbonElement as customElement } from '../../internal/vendor/@carbon/web-components/globals/decorators/carbon-element';
 
 export { HR_TYPE, HR_SIZE, HR_CONTRAST, HR_WEIGHT };
 
@@ -23,7 +23,7 @@ const { stablePrefix: ddsPrefix } = ddsSettings;
  *
  * @element dds-hr
  */
-@carbonElement(`${ddsPrefix}-hr`)
+@customElement(`${ddsPrefix}-hr`)
 class DDSHorizontalRule extends StableSelectorMixin(LitElement) {
   /**
    * Style of the HR (solid (default) | dashed)

@@ -9,7 +9,7 @@
 
 import { property } from 'lit-element';
 import ddsSettings from '../../internal/vendor/@carbon/ibmdotcom-utilities/utilities/settings/settings';
-import { carbonElement } from '../../internal/vendor/@carbon/web-components/globals/decorators/carbon-element';
+import { carbonElement as customElement } from '../../internal/vendor/@carbon/web-components/globals/decorators/carbon-element';
 import DDSTopNav from './top-nav';
 
 const { stablePrefix: ddsPrefix } = ddsSettings;
@@ -19,7 +19,7 @@ const { stablePrefix: ddsPrefix } = ddsSettings;
  *
  * @element dds-top-nav-l1
  */
-@carbonElement(`${ddsPrefix}-top-nav-l1`)
+@customElement(`${ddsPrefix}-top-nav-l1`)
 class DDSTopNavL1 extends DDSTopNav {
   // eslint-disable-next-line class-methods-use-this
   protected _handleSearchToggle = () => {

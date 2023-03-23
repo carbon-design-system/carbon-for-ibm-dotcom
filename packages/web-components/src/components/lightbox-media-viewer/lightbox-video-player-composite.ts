@@ -24,7 +24,7 @@ import {
 } from '../video-player/video-player';
 import './lightbox-video-player';
 import styles from './lightbox-video-player-composite.scss';
-import { carbonElement } from '../../internal/vendor/@carbon/web-components/globals/decorators/carbon-element.js';
+import { carbonElement as customElement } from '../../internal/vendor/@carbon/web-components/globals/decorators/carbon-element.js';
 
 const { stablePrefix: ddsPrefix } = ddsSettings;
 
@@ -33,7 +33,7 @@ const { stablePrefix: ddsPrefix } = ddsSettings;
  *
  * @element dds-lightbox-video-player-composite
  */
-@carbonElement(`${ddsPrefix}-lightbox-video-player-composite`)
+@customElement(`${ddsPrefix}-lightbox-video-player-composite`)
 class DDSLightboxVideoPlayerComposite extends ModalRenderMixin(
   DDSVideoPlayerComposite
 ) {

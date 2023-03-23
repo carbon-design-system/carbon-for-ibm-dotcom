@@ -16,7 +16,7 @@ import HostListenerMixin from '../../globals/mixins/host-listener';
 import HostListener from '../../globals/decorators/host-listener';
 import { forEach } from '../../globals/internal/collection-helpers';
 import styles from './header.scss';
-import { carbonElement } from '../../globals/decorators/carbon-element';
+import { carbonElement as customElement } from '../../globals/decorators/carbon-element';
 
 const { prefix } = settings;
 
@@ -28,7 +28,7 @@ const { prefix } = settings;
  * @csspart trigger-icon The trigger button icon.
  * @csspart menu-body The menu body.
  */
-@carbonElement(`${prefix}-header-menu`)
+@customElement(`${prefix}-header-menu`)
 class BXHeaderMenu extends HostListenerMixin(FocusMixin(LitElement)) {
   /**
    * The trigger button.

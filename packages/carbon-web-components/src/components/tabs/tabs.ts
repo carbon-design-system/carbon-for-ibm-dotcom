@@ -25,7 +25,7 @@ import {
 } from './defs';
 import BXTab from './tab';
 import styles from './tabs.scss';
-import { carbonElement } from '../../globals/decorators/carbon-element';
+import { carbonElement as customElement } from '../../globals/decorators/carbon-element';
 
 const { prefix } = settings;
 
@@ -46,7 +46,7 @@ export {
  *   Cancellation of this event stops changing the user-initiated selection.
  * @fires bx-tabs-selected - The custom event fired after a a tab is selected upon a user gesture.
  */
-@carbonElement(`${prefix}-tabs`)
+@customElement(`${prefix}-tabs`)
 class BXTabs extends HostListenerMixin(BXContentSwitcher) {
   /**
    * The latest status of this dropdown, for screen reader to accounce.

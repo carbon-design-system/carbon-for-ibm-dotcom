@@ -21,7 +21,7 @@ import {
   LeavingIbmContainerActions,
 } from './leaving-ibm-connect';
 import DDSLeavingIbmComposite from './leaving-ibm-composite';
-import { carbonElement } from '../../internal/vendor/@carbon/web-components/globals/decorators/carbon-element';
+import { carbonElement as customElement } from '../../internal/vendor/@carbon/web-components/globals/decorators/carbon-element';
 
 const { stablePrefix: ddsPrefix } = ddsSettings;
 
@@ -30,7 +30,7 @@ const { stablePrefix: ddsPrefix } = ddsSettings;
  *
  * @element dds-leaving-ibm-container
  */
-@carbonElement(`${ddsPrefix}-leaving-ibm-container`)
+@customElement(`${ddsPrefix}-leaving-ibm-container`)
 class DDSLeavingIbmContainer extends ConnectMixin<
   LeavingIbmContainerState,
   LocaleAPIActions | TranslateAPIActions,

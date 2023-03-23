@@ -12,7 +12,7 @@ import settings from 'carbon-components/es/globals/js/settings.js';
 import ddsSettings from '../../internal/vendor/@carbon/ibmdotcom-utilities/utilities/settings/settings';
 import styles from './tag-group.scss';
 import StableSelectorMixin from '../../globals/mixins/stable-selector';
-import { carbonElement } from '../../internal/vendor/@carbon/web-components/globals/decorators/carbon-element';
+import { carbonElement as customElement } from '../../internal/vendor/@carbon/web-components/globals/decorators/carbon-element';
 
 const { stablePrefix: ddsPrefix } = ddsSettings;
 const { prefix } = settings;
@@ -22,7 +22,7 @@ const { prefix } = settings;
  *
  * @element dds-tag-group
  */
-@carbonElement(`${ddsPrefix}-tag-group`)
+@customElement(`${ddsPrefix}-tag-group`)
 class DDSTagGroup extends StableSelectorMixin(LitElement) {
   /**
    * Handler for @slotchange, ensure that the only elements being rendered are BXTag and DDSTagLink

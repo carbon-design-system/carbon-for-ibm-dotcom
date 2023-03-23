@@ -23,7 +23,7 @@ import styles from './image.scss';
 import ModalRenderMixin from '../../globals/mixins/modal-render';
 import Handle from '../../globals/internal/handle';
 import StableSelectorMixin from '../../globals/mixins/stable-selector';
-import { carbonElement } from '../../internal/vendor/@carbon/web-components/globals/decorators/carbon-element.js';
+import { carbonElement as customElement } from '../../internal/vendor/@carbon/web-components/globals/decorators/carbon-element.js';
 
 const { prefix } = settings;
 const { stablePrefix: ddsPrefix } = ddsSettings;
@@ -35,7 +35,7 @@ const { stablePrefix: ddsPrefix } = ddsSettings;
  * @slot long-description - The long description content.
  * @slot icon - The icon content.
  */
-@carbonElement(`${ddsPrefix}-image`)
+@customElement(`${ddsPrefix}-image`)
 class DDSImage extends StableSelectorMixin(
   ModalRenderMixin(FocusMixin(LitElement))
 ) {

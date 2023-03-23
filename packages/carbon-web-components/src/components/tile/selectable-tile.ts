@@ -15,7 +15,7 @@ import ifNonNull from '../../globals/directives/if-non-null';
 import FocusMixin from '../../globals/mixins/focus';
 import { TILE_COLOR_SCHEME } from './defs';
 import styles from './tile.scss';
-import { carbonElement } from '../../globals/decorators/carbon-element';
+import { carbonElement as customElement } from '../../globals/decorators/carbon-element';
 
 const { prefix } = settings;
 
@@ -25,7 +25,7 @@ const { prefix } = settings;
  * @element bx-selectable-tile
  * @fires bx-selectable-tile-changed - The custom event fired after this selectable tile changes its selected state.
  */
-@carbonElement(`${prefix}-selectable-tile`)
+@customElement(`${prefix}-selectable-tile`)
 class BXSelectableTile extends FocusMixin(LitElement) {
   @query('input')
   protected _inputNode!: HTMLInputElement;

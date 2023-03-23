@@ -14,7 +14,7 @@ import HostListenerMixin from '../../globals/mixins/host-listener';
 import HostListener from '../../globals/decorators/host-listener';
 import ifNonEmpty from '../../globals/directives/if-non-empty';
 import styles from './file-uploader.scss';
-import { carbonElement } from '../../globals/decorators/carbon-element';
+import { carbonElement as customElement } from '../../globals/decorators/carbon-element';
 
 export { FORM_ELEMENT_COLOR_SCHEME as TILE_COLOR_SCHEME } from '../../globals/shared-enums';
 
@@ -34,7 +34,7 @@ const dropEffects = {
  * @element bx-file-drop-container
  * @fires bx-file-drop-container-changed The custom event fired when there is a user gesture to select files to upload.
  */
-@carbonElement(`${prefix}-file-drop-container`)
+@customElement(`${prefix}-file-drop-container`)
 class BXFileDropContainer extends HostListenerMixin(LitElement) {
   /**
    * `true` to show the active state of this UI.

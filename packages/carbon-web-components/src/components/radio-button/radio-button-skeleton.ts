@@ -10,14 +10,14 @@
 import { html, LitElement } from 'lit-element';
 import settings from 'carbon-components/es/globals/js/settings';
 import styles from './radio-button.scss';
-import { carbonElement } from '../../globals/decorators/carbon-element';
+import { carbonElement as customElement } from '../../globals/decorators/carbon-element';
 
 const { prefix } = settings;
 
 /**
  * Skeleton of radio button.
  */
-@carbonElement(`${prefix}-radio-button-skeleton`)
+@customElement(`${prefix}-radio-button-skeleton`)
 class BXRadioButtonSkeleton extends LitElement {
   render() {
     return html`

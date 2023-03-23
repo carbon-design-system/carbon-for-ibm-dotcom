@@ -11,14 +11,14 @@ import { html, property, LitElement } from 'lit-element';
 import settings from 'carbon-components/es/globals/js/settings';
 import { DATE_PICKER_INPUT_KIND } from './date-picker-input';
 import styles from './date-picker.scss';
-import { carbonElement } from '../../globals/decorators/carbon-element';
+import { carbonElement as customElement } from '../../globals/decorators/carbon-element';
 
 const { prefix } = settings;
 
 /**
  * Skeleton version of the input box for date picker.
  */
-@carbonElement(`${prefix}-date-picker-input-skeleton`)
+@customElement(`${prefix}-date-picker-input-skeleton`)
 class BXDatePickerInputSkeleton extends LitElement {
   /**
    * Date picker input kind. Corresponds to the attribute with the same name.

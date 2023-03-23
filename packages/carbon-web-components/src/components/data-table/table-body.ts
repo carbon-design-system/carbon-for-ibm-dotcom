@@ -12,7 +12,7 @@ import { html, property, query, LitElement } from 'lit-element';
 import { TABLE_COLOR_SCHEME } from './defs';
 import BXTableRow from './table-row';
 import styles from './data-table.scss';
-import { carbonElement } from '../../globals/decorators/carbon-element';
+import { carbonElement as customElement } from '../../globals/decorators/carbon-element';
 
 const { prefix } = settings;
 
@@ -21,7 +21,7 @@ const { prefix } = settings;
  *
  * @element bx-table-body
  */
-@carbonElement(`${prefix}-table-body`)
+@customElement(`${prefix}-table-body`)
 class BXTableBody extends LitElement {
   /**
    * The `<slot>` element in the shadow DOM.

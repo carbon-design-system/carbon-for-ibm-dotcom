@@ -13,7 +13,7 @@ import ddsSettings from '../../internal/vendor/@carbon/ibmdotcom-utilities/utili
 import '../../internal/vendor/@carbon/web-components/components/search/search.js';
 import styles from './locale-modal.scss';
 import StableSelectorMixin from '../../globals/mixins/stable-selector';
-import { carbonElement } from '../../internal/vendor/@carbon/web-components/globals/decorators/carbon-element';
+import { carbonElement as customElement } from '../../internal/vendor/@carbon/web-components/globals/decorators/carbon-element';
 
 const { prefix } = settings;
 const { stablePrefix: ddsPrefix } = ddsSettings;
@@ -23,7 +23,7 @@ const { stablePrefix: ddsPrefix } = ddsSettings;
  *
  * @element dds-regions
  */
-@carbonElement(`${ddsPrefix}-regions`)
+@customElement(`${ddsPrefix}-regions`)
 class DDSRegions extends StableSelectorMixin(LitElement) {
   /**
    * The shadow slot this regions selector should be in.

@@ -17,7 +17,7 @@ import StableSelectorMixin from '../../globals/mixins/stable-selector';
 import DDSTab from './tab';
 import styles from './tabs-extended.scss';
 import { ORIENTATION } from './defs';
-import { carbonElement } from '../../internal/vendor/@carbon/web-components/globals/decorators/carbon-element.js';
+import { carbonElement as customElement } from '../../internal/vendor/@carbon/web-components/globals/decorators/carbon-element.js';
 
 const { prefix } = settings;
 const { stablePrefix: ddsPrefix } = ddsSettings;
@@ -27,7 +27,7 @@ const { stablePrefix: ddsPrefix } = ddsSettings;
  *
  * @element dds-tabs-extended
  */
-@carbonElement(`${ddsPrefix}-tabs-extended`)
+@customElement(`${ddsPrefix}-tabs-extended`)
 class DDSTabsExtended extends StableSelectorMixin(LitElement) {
   /**
    * Child tab components.

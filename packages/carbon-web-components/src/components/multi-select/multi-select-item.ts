@@ -12,7 +12,7 @@ import { ifDefined } from 'lit-html/directives/if-defined';
 import { html, property } from 'lit-element';
 import BXDropdownItem from '../dropdown/dropdown-item';
 import styles from './multi-select.scss';
-import { carbonElement } from '../../globals/decorators/carbon-element';
+import { carbonElement as customElement } from '../../globals/decorators/carbon-element';
 
 const { prefix } = settings;
 
@@ -21,7 +21,7 @@ const { prefix } = settings;
  *
  * @element bx-multi-select-item
  */
-@carbonElement(`${prefix}-multi-select-item`)
+@customElement(`${prefix}-multi-select-item`)
 class BXMultiSelectItem extends BXDropdownItem {
   /**
    * The property to hide when item is filtered from input

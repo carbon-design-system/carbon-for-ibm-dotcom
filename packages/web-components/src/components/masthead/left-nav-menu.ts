@@ -14,7 +14,7 @@ import ChevronDown20 from '../../internal/vendor/@carbon/web-components/icons/ch
 import FocusMixin from '../../internal/vendor/@carbon/web-components/globals/mixins/focus.js';
 import ddsSettings from '../../internal/vendor/@carbon/ibmdotcom-utilities/utilities/settings/settings';
 import styles from './masthead.scss';
-import { carbonElement } from '../../internal/vendor/@carbon/web-components/globals/decorators/carbon-element.js';
+import { carbonElement as customElement } from '../../internal/vendor/@carbon/web-components/globals/decorators/carbon-element.js';
 
 const { prefix } = settings;
 const { stablePrefix: ddsPrefix } = ddsSettings;
@@ -28,7 +28,7 @@ const { stablePrefix: ddsPrefix } = ddsSettings;
  *   Cancellation of this event stops the user-initiated action of toggling this side nav menu.
  * @fires dds-left-nav-menu-toggled The custom event fired after this side nav menu is toggled upon a user gesture.
  */
-@carbonElement(`${ddsPrefix}-left-nav-menu`)
+@customElement(`${ddsPrefix}-left-nav-menu`)
 class DDSLeftNavMenu extends FocusMixin(LitElement) {
   /**
    * Handles user-initiated toggle request of this side nav menu.

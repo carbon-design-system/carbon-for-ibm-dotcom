@@ -10,7 +10,7 @@
 import { html } from 'lit-element';
 import settings from 'carbon-components/es/globals/js/settings';
 import BXTableCell from './table-cell';
-import { carbonElement } from '../../globals/decorators/carbon-element';
+import { carbonElement as customElement } from '../../globals/decorators/carbon-element';
 
 const { prefix } = settings;
 
@@ -19,7 +19,7 @@ const { prefix } = settings;
  *
  * @element bx-table-cell-skeleton
  */
-@carbonElement(`${prefix}-table-cell-skeleton`)
+@customElement(`${prefix}-table-cell-skeleton`)
 class BXTableCellSkeleton extends BXTableCell {
   render() {
     return html` <span></span> `;

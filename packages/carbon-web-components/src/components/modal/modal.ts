@@ -15,7 +15,7 @@ import HostListenerMixin from '../../globals/mixins/host-listener';
 import { MODAL_SIZE } from './defs';
 import styles from './modal.scss';
 import { selectorTabbable } from '../../globals/settings';
-import { carbonElement } from '../../globals/decorators/carbon-element';
+import { carbonElement as customElement } from '../../globals/decorators/carbon-element';
 
 export { MODAL_SIZE };
 
@@ -69,7 +69,7 @@ function tryFocusElems(
  *   Cancellation of this event stops the user-initiated action of closing this modal.
  * @fires bx-modal-closed - The custom event fired after this modal is closed upon a user gesture.
  */
-@carbonElement(`${prefix}-modal`)
+@customElement(`${prefix}-modal`)
 class BXModal extends HostListenerMixin(LitElement) {
   /**
    * The element that had focus before this modal gets open.

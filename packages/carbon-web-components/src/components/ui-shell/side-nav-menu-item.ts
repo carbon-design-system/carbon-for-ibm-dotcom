@@ -13,7 +13,7 @@ import { html, property, LitElement } from 'lit-element';
 import FocusMixin from '../../globals/mixins/focus';
 import BXSideNavMenu from './side-nav-menu';
 import styles from './side-nav.scss';
-import { carbonElement } from '../../globals/decorators/carbon-element';
+import { carbonElement as customElement } from '../../globals/decorators/carbon-element';
 
 const { prefix } = settings;
 
@@ -24,7 +24,7 @@ const { prefix } = settings;
  * @csspart link The link.
  * @csspart title The title.
  */
-@carbonElement(`${prefix}-side-nav-menu-item`)
+@customElement(`${prefix}-side-nav-menu-item`)
 class BXSideNavMenuItem extends FocusMixin(LitElement) {
   /**
    * `true` if the menu item should be active.

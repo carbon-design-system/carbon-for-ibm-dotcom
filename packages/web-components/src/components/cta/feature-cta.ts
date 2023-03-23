@@ -27,7 +27,7 @@ import styles from './cta.scss';
 import '../card/card-eyebrow';
 import '../card/card-heading';
 import '../image/image';
-import { carbonElement } from '../../internal/vendor/@carbon/web-components/globals/decorators/carbon-element.js';
+import { carbonElement as customElement } from '../../internal/vendor/@carbon/web-components/globals/decorators/carbon-element.js';
 
 export { CTA_TYPE };
 
@@ -39,7 +39,7 @@ const { stablePrefix: ddsPrefix } = ddsSettings;
  *
  * @element dds-feature-cta
  */
-@carbonElement(`${ddsPrefix}-feature-cta`)
+@customElement(`${ddsPrefix}-feature-cta`)
 class DDSFeatureCTA extends VideoCTAMixin(CTAMixin(DDSFeatureCard)) {
   protected _renderCopy() {
     const {

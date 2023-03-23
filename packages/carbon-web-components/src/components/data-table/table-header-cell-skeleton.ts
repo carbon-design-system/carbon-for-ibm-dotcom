@@ -9,7 +9,7 @@
 
 import settings from 'carbon-components/es/globals/js/settings';
 import BXTableCell from './table-cell';
-import { carbonElement } from '../../globals/decorators/carbon-element';
+import { carbonElement as customElement } from '../../globals/decorators/carbon-element';
 
 const { prefix } = settings;
 
@@ -18,7 +18,7 @@ const { prefix } = settings;
  *
  * @element bx-table-header-cell-skeleton
  */
-@carbonElement(`${prefix}-table-header-cell-skeleton`)
+@customElement(`${prefix}-table-header-cell-skeleton`)
 class BXTableHeaderCellSkeleton extends BXTableCell {}
 
 export default BXTableHeaderCellSkeleton;

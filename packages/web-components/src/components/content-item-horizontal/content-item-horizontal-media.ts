@@ -17,7 +17,7 @@ import DDSContentItem from '../content-item/content-item';
 import styles from './content-item-horizontal-media.scss';
 
 import { MEDIA_ALIGN } from './defs';
-import { carbonElement } from '../../internal/vendor/@carbon/web-components/globals/decorators/carbon-element.js';
+import { carbonElement as customElement } from '../../internal/vendor/@carbon/web-components/globals/decorators/carbon-element.js';
 
 const { prefix } = settings;
 const { stablePrefix: ddsPrefix } = ddsSettings;
@@ -29,7 +29,7 @@ const breakpoint = parseFloat(breakpoints.lg.width) * baseFontSize;
  *
  * @element dds-content-item-horizontal-media
  */
-@carbonElement(`${ddsPrefix}-content-item-horizontal-media`)
+@customElement(`${ddsPrefix}-content-item-horizontal-media`)
 class DDSContentItemHorizontalMedia extends HostListenerMixin(DDSContentItem) {
   /**
    * Defines the alignment of the media: `left` or `right`

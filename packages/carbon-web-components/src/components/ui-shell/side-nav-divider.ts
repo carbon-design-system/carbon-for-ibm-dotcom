@@ -9,7 +9,7 @@
 
 import settings from 'carbon-components/es/globals/js/settings';
 import { LitElement } from 'lit-element';
-import { carbonElement } from '../../globals/decorators/carbon-element';
+import { carbonElement as customElement } from '../../globals/decorators/carbon-element';
 import styles from './side-nav.scss';
 
 const { prefix } = settings;
@@ -19,7 +19,7 @@ const { prefix } = settings;
  *
  * @element bx-side-nav-divider
  */
-@carbonElement(`${prefix}-side-nav-divider`)
+@customElement(`${prefix}-side-nav-divider`)
 class BXSideNavDivider extends LitElement {
   connectedCallback() {
     if (!this.hasAttribute('role')) {

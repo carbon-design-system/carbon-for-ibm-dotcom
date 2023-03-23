@@ -13,7 +13,7 @@ import settings from 'carbon-components/es/globals/js/settings';
 import ifNonNull from '../../globals/directives/if-non-null';
 import FocusMixin from '../../globals/mixins/focus';
 import styles from './content-switcher.scss';
-import { carbonElement } from '../../globals/decorators/carbon-element';
+import { carbonElement as customElement } from '../../globals/decorators/carbon-element';
 
 const { prefix } = settings;
 
@@ -22,7 +22,7 @@ const { prefix } = settings;
  *
  * @element bx-content-switcher-item
  */
-@carbonElement(`${prefix}-content-switcher-item`)
+@customElement(`${prefix}-content-switcher-item`)
 class BXContentSwitcherItem extends FocusMixin(LitElement) {
   /**
    * `true` if this content switcher item should be disabled.

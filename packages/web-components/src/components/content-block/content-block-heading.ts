@@ -13,7 +13,7 @@ import { render } from 'lit-html';
 import ddsSettings from '../../internal/vendor/@carbon/ibmdotcom-utilities/utilities/settings/settings';
 import StableSelectorMixin from '../../globals/mixins/stable-selector';
 import styles from './content-block.scss';
-import { carbonElement } from '../../internal/vendor/@carbon/web-components/globals/decorators/carbon-element';
+import { carbonElement as customElement } from '../../internal/vendor/@carbon/web-components/globals/decorators/carbon-element';
 
 const { stablePrefix: ddsPrefix } = ddsSettings;
 
@@ -22,7 +22,7 @@ const { stablePrefix: ddsPrefix } = ddsSettings;
  *
  * @element dds-content-block-heading
  */
-@carbonElement(`${ddsPrefix}-content-block-heading`)
+@customElement(`${ddsPrefix}-content-block-heading`)
 class DDSContentBlockHeading extends StableSelectorMixin(LitElement) {
   /**
    * The shadow slot this logo UI should be in.

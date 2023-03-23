@@ -11,7 +11,7 @@ import { BUTTON_KIND } from '../../internal/vendor/@carbon/web-components/compon
 import ddsSettings from '@carbon/ibmdotcom-utilities/es/utilities/settings/settings.js';
 import styles from './button-group.scss';
 import StableSelectorMixin from '../../globals/mixins/stable-selector';
-import { carbonElement } from '../../internal/vendor/@carbon/web-components/globals/decorators/carbon-element.js';
+import { carbonElement as customElement } from '../../internal/vendor/@carbon/web-components/globals/decorators/carbon-element.js';
 
 const { stablePrefix: ddsPrefix } = ddsSettings;
 
@@ -20,7 +20,7 @@ const { stablePrefix: ddsPrefix } = ddsSettings;
  *
  * @element dds-button-group
  */
-@carbonElement(`${ddsPrefix}-button-group`)
+@customElement(`${ddsPrefix}-button-group`)
 class DDSButtonGroup extends StableSelectorMixin(LitElement) {
   /**
    * Handler for @slotchange, set the first button-group-item to kind tertiary and primary for the remaining ones

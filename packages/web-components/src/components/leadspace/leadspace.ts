@@ -18,7 +18,7 @@ import {
 } from './defs';
 import styles from './leadspace.scss';
 import StableSelectorMixin from '../../globals/mixins/stable-selector';
-import { carbonElement } from '../../internal/vendor/@carbon/web-components/globals/decorators/carbon-element';
+import { carbonElement as customElement } from '../../internal/vendor/@carbon/web-components/globals/decorators/carbon-element';
 
 export { LEADSPACE_TYPE, LEADSPACE_GRADIENT_STYLE_SCHEME, LEADSPACE_SIZE };
 
@@ -33,7 +33,7 @@ const { stablePrefix: ddsPrefix } = ddsSettings;
  * @slot image The image content.
  * @csspart section The first DOM node inside the shadow-root
  */
-@carbonElement(`${ddsPrefix}-leadspace`)
+@customElement(`${ddsPrefix}-leadspace`)
 class DDSLeadSpace extends StableSelectorMixin(LitElement) {
   /**
    * Handler for @slotchange, ensure that the only element being rendered is DDSTagGroup

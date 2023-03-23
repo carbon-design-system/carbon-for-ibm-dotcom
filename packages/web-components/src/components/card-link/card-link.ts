@@ -12,7 +12,7 @@ import settings from 'carbon-components/es/globals/js/settings.js';
 import ddsSettings from '../../internal/vendor/@carbon/ibmdotcom-utilities/utilities/settings/settings';
 import DDSCard from '../card/card';
 import styles from './card-link.scss';
-import { carbonElement } from '../../internal/vendor/@carbon/web-components/globals/decorators/carbon-element';
+import { carbonElement as customElement } from '../../internal/vendor/@carbon/web-components/globals/decorators/carbon-element';
 
 const { prefix } = settings;
 const { stablePrefix: ddsPrefix } = ddsSettings;
@@ -22,7 +22,7 @@ const { stablePrefix: ddsPrefix } = ddsSettings;
  *
  * @element dds-card-link
  */
-@carbonElement(`${ddsPrefix}-card-link`)
+@customElement(`${ddsPrefix}-card-link`)
 class DDSCardLink extends DDSCard {
   /**
    * `true` to disable the card link.

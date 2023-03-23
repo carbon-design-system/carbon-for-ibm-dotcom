@@ -13,11 +13,11 @@ import StableSelectorMixin from '../../globals/mixins/stable-selector';
 import DDSStructuredListRow from '../structured-list/structured-list-row';
 import styles from './pricing-table.scss';
 import { setColumnWidth } from './utils';
-import { carbonElement } from '../../internal/vendor/@carbon/web-components/globals/decorators/carbon-element';
+import { carbonElement as customElement } from '../../internal/vendor/@carbon/web-components/globals/decorators/carbon-element';
 
 const { stablePrefix: ddsPrefix } = ddsSettings;
 
-@carbonElement(`${ddsPrefix}-pricing-table-row`)
+@customElement(`${ddsPrefix}-pricing-table-row`)
 class DDSPricingTableRow extends StableSelectorMixin(DDSStructuredListRow) {
   @property()
   hasAnnotations: boolean = false;

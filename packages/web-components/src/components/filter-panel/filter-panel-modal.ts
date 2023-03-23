@@ -21,7 +21,7 @@ import styles from './filter-panel.scss';
 import '../../internal/vendor/@carbon/web-components/components/checkbox/checkbox.js';
 import '../../internal/vendor/@carbon/web-components/components/modal/modal-close-button.js';
 import '../../internal/vendor/@carbon/web-components/components/modal/modal-header.js';
-import { carbonElement } from '../../internal/vendor/@carbon/web-components/globals/decorators/carbon-element.js';
+import { carbonElement as customElement } from '../../internal/vendor/@carbon/web-components/globals/decorators/carbon-element.js';
 
 const { prefix } = settings;
 const { stablePrefix: ddsPrefix } = ddsSettings;
@@ -31,7 +31,7 @@ const { stablePrefix: ddsPrefix } = ddsSettings;
  *
  * @element dds-filter-panel-modal
  */
-@carbonElement(`${ddsPrefix}-filter-panel-modal`)
+@customElement(`${ddsPrefix}-filter-panel-modal`)
 class DDSFilterPanelModal extends HostListenerMixin(
   StableSelectorMixin(BXModal)
 ) {

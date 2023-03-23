@@ -9,7 +9,7 @@
 
 import { html, LitElement } from 'lit-element';
 import ddsSettings from '../../internal/vendor/@carbon/ibmdotcom-utilities/utilities/settings/settings';
-import { carbonElement } from '../../internal/vendor/@carbon/web-components/globals/decorators/carbon-element';
+import { carbonElement as customElement } from '../../internal/vendor/@carbon/web-components/globals/decorators/carbon-element';
 import styles from './masthead.scss';
 
 const { stablePrefix: ddsPrefix } = ddsSettings;
@@ -19,7 +19,7 @@ const { stablePrefix: ddsPrefix } = ddsSettings;
  *
  * @element dds-megamenu-left-navigation
  */
-@carbonElement(`${ddsPrefix}-megamenu-left-navigation`)
+@customElement(`${ddsPrefix}-megamenu-left-navigation`)
 class DDSMegaMenuLeftNavigation extends LitElement {
   render() {
     return html` <slot></slot> `;

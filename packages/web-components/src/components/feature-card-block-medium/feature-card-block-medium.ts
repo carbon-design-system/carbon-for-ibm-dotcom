@@ -13,7 +13,7 @@ import ddsSettings from '../../internal/vendor/@carbon/ibmdotcom-utilities/utili
 import deprecate from '../../internal/vendor/@carbon/ibmdotcom-utilities/utilities/deprecate/deprecate';
 import DDSFeatureCard from '../feature-card/feature-card';
 import styles from './feature-card-block-medium.scss';
-import { carbonElement } from '../../internal/vendor/@carbon/web-components/globals/decorators/carbon-element';
+import { carbonElement as customElement } from '../../internal/vendor/@carbon/web-components/globals/decorators/carbon-element';
 
 const { prefix } = settings;
 const { stablePrefix: ddsPrefix } = ddsSettings;
@@ -24,7 +24,7 @@ const { stablePrefix: ddsPrefix } = ddsSettings;
  * @element dds-feature-card-block-medium
  * @slot block-heading - The block heading content.
  */
-@carbonElement(`${ddsPrefix}-feature-card-block-medium`)
+@customElement(`${ddsPrefix}-feature-card-block-medium`)
 class DDSFeatureCardBlockMedium extends DDSFeatureCard {
   protected _renderInner() {
     return html` ${this._renderImage()}${super._renderInner()} `;

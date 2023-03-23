@@ -12,7 +12,7 @@ import BXModalFooter from '../../internal/vendor/@carbon/web-components/componen
 import ddsSettings from '../../internal/vendor/@carbon/ibmdotcom-utilities/utilities/settings/settings';
 import styles from './expressive-modal.scss';
 import StableSelectorMixin from '../../globals/mixins/stable-selector';
-import { carbonElement } from '../../internal/vendor/@carbon/web-components/globals/decorators/carbon-element.js';
+import { carbonElement as customElement } from '../../internal/vendor/@carbon/web-components/globals/decorators/carbon-element.js';
 
 const { stablePrefix: ddsPrefix } = ddsSettings;
 
@@ -21,7 +21,7 @@ const { stablePrefix: ddsPrefix } = ddsSettings;
  *
  * @element dds-expressive-modal-footer
  */
-@carbonElement(`${ddsPrefix}-expressive-modal-footer`)
+@customElement(`${ddsPrefix}-expressive-modal-footer`)
 class DDSExpressiveModalFooter extends StableSelectorMixin(BXModalFooter) {
   /**
    * The slot in parent `<dds-modal>`.

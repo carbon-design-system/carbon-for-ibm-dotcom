@@ -8,7 +8,7 @@
  */
 
 import { html, property, state, query, TemplateResult } from 'lit-element';
-import { carbonElement } from '../../internal/vendor/@carbon/web-components/globals/decorators/carbon-element.js';
+import { carbonElement as customElement } from '../../internal/vendor/@carbon/web-components/globals/decorators/carbon-element.js';
 import settings from 'carbon-components/es/globals/js/settings.js';
 import ddsSettings from '../../internal/vendor/@carbon/ibmdotcom-utilities/utilities/settings/settings.js';
 import DDSLinkWithIcon, {
@@ -25,7 +25,7 @@ const { stablePrefix: ddsPrefix } = ddsSettings;
  *
  * @element dds-card-footer
  */
-@carbonElement(`${ddsPrefix}-card-footer`)
+@customElement(`${ddsPrefix}-card-footer`)
 class DDSCardFooter extends DDSLinkWithIcon {
   /**
    * The non-link container node, used when the link of parent `<dds-card>` should be used.

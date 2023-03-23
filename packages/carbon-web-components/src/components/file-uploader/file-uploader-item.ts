@@ -15,7 +15,7 @@ import settings from 'carbon-components/es/globals/js/settings';
 import { LOADING_TYPE } from '../loading/loading';
 import { FILE_UPLOADER_ITEM_SIZE, FILE_UPLOADER_ITEM_STATE } from './defs';
 import styles from './file-uploader.scss';
-import { carbonElement } from '../../globals/decorators/carbon-element';
+import { carbonElement as customElement } from '../../globals/decorators/carbon-element';
 
 export { FILE_UPLOADER_ITEM_SIZE, FILE_UPLOADER_ITEM_STATE };
 
@@ -32,7 +32,7 @@ const { prefix } = settings;
  *   Cancellation of this event stops the user-initiated action of deleting this file uploader item.
  * @fires bx-file-uploader-item-deleted - The custom event fired after this file uploader item is deleted upon a user gesture.
  */
-@carbonElement(`${prefix}-file-uploader-item`)
+@customElement(`${prefix}-file-uploader-item`)
 class BXFileUploaderItem extends LitElement {
   /**
    * Handles `click` event on the delete button.

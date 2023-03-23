@@ -11,14 +11,14 @@ import { html, property, LitElement } from 'lit-element';
 import settings from 'carbon-components/es/globals/js/settings';
 import { CODE_SNIPPET_TYPE } from './code-snippet';
 import styles from './code-snippet.scss';
-import { carbonElement } from '../../globals/decorators/carbon-element';
+import { carbonElement as customElement } from '../../globals/decorators/carbon-element';
 
 const { prefix } = settings;
 
 /**
  * Skeleton of code snippet.
  */
-@carbonElement(`${prefix}-code-snippet-skeleton`)
+@customElement(`${prefix}-code-snippet-skeleton`)
 class BXCodeSnippetSkeleton extends LitElement {
   /**
    * The type of code snippet. Corresponds to the attribute with the same name.

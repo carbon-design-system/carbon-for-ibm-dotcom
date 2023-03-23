@@ -10,7 +10,7 @@
 import { html, property, LitElement } from 'lit-element';
 import settings from 'carbon-components/es/globals/js/settings';
 import styles from './data-table.scss';
-import { carbonElement } from '../../globals/decorators/carbon-element';
+import { carbonElement as customElement } from '../../globals/decorators/carbon-element';
 
 const { prefix } = settings;
 
@@ -19,7 +19,7 @@ const { prefix } = settings;
  *
  * @element bx-table-expanded-row
  */
-@carbonElement(`${prefix}-table-expanded-row`)
+@customElement(`${prefix}-table-expanded-row`)
 class BXTableExpandedRow extends LitElement {
   /**
    * The colspan.

@@ -12,7 +12,7 @@ import {} from 'lit-element';
 import { html } from 'lit-html';
 import ddsSettings from '../../internal/vendor/@carbon/ibmdotcom-utilities/utilities/settings/settings';
 import styles from './structured-list.scss';
-import { carbonElement } from '../../internal/vendor/@carbon/web-components/globals/decorators/carbon-element.js';
+import { carbonElement as customElement } from '../../internal/vendor/@carbon/web-components/globals/decorators/carbon-element.js';
 
 const { stablePrefix: ddsPrefix } = ddsSettings;
 
@@ -21,7 +21,7 @@ const { stablePrefix: ddsPrefix } = ddsSettings;
  *
  * @element dds-structured-list-row
  */
-@carbonElement(`${ddsPrefix}-structured-list-row`)
+@customElement(`${ddsPrefix}-structured-list-row`)
 class DDSStructuredListRow extends BXStructuredListRow {
   connectedCallback() {
     super.connectedCallback();

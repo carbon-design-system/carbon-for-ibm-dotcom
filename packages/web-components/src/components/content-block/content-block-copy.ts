@@ -14,7 +14,7 @@ import DDSMarkdown from '../markdown/markdown';
 import { CONTENT_BLOCK_COPY_SIZE } from './defs';
 import './content-block-paragraph';
 import styles from './content-block.scss';
-import { carbonElement } from '../../internal/vendor/@carbon/web-components/globals/decorators/carbon-element';
+import { carbonElement as customElement } from '../../internal/vendor/@carbon/web-components/globals/decorators/carbon-element';
 
 export { CONTENT_BLOCK_COPY_SIZE };
 
@@ -25,7 +25,7 @@ const { stablePrefix: ddsPrefix } = ddsSettings;
  *
  * @element dds-content-block-copy
  */
-@carbonElement(`${ddsPrefix}-content-block-copy`)
+@customElement(`${ddsPrefix}-content-block-copy`)
 class DDSContentBlockCopy extends StableSelectorMixin(DDSMarkdown) {
   protected get _customTags() {
     const tags = new Set(super._customTags);

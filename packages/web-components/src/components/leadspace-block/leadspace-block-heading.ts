@@ -9,7 +9,7 @@
 
 import ddsSettings from '@carbon/ibmdotcom-utilities/es/utilities/settings/settings.js';
 import StableSelectorMixin from '../../globals/mixins/stable-selector';
-import { carbonElement } from '../../internal/vendor/@carbon/web-components/globals/decorators/carbon-element';
+import { carbonElement as customElement } from '../../internal/vendor/@carbon/web-components/globals/decorators/carbon-element';
 import DDSLeadspaceHeading from '../leadspace/leadspace-heading';
 import styles from './leadspace-block.scss';
 
@@ -20,7 +20,7 @@ const { stablePrefix: ddsPrefix } = ddsSettings;
  *
  * @element dds-leadspace-block-heading
  */
-@carbonElement(`${ddsPrefix}-leadspace-block-heading`)
+@customElement(`${ddsPrefix}-leadspace-block-heading`)
 class DDSLeadspaceBlockHeading extends StableSelectorMixin(
   DDSLeadspaceHeading
 ) {

@@ -11,7 +11,7 @@ import { property } from 'lit-element';
 import BXSkipToContent from '../../internal/vendor/@carbon/web-components/components/skip-to-content/skip-to-content.js';
 import ddsSettings from '../../internal/vendor/@carbon/ibmdotcom-utilities/utilities/settings/settings';
 import styles from './masthead.scss';
-import { carbonElement } from '../../internal/vendor/@carbon/web-components/globals/decorators/carbon-element.js';
+import { carbonElement as customElement } from '../../internal/vendor/@carbon/web-components/globals/decorators/carbon-element.js';
 
 const { stablePrefix: ddsPrefix } = ddsSettings;
 
@@ -20,7 +20,7 @@ const { stablePrefix: ddsPrefix } = ddsSettings;
  *
  * @element dds-masthead-skip-to-content
  */
-@carbonElement(`${ddsPrefix}-skip-to-content`)
+@customElement(`${ddsPrefix}-skip-to-content`)
 class DDSSkipToContent extends BXSkipToContent {
   /**
    * The shadow slot this logo UI should be in.

@@ -10,7 +10,7 @@ import { css } from 'lit-element';
 import ddsSettings from '@carbon/ibmdotcom-utilities/es/utilities/settings/settings.js';
 import DDSImage from '../image/image';
 import styles from './universal-banner.scss';
-import { carbonElement } from '../../internal/vendor/@carbon/web-components/globals/decorators/carbon-element';
+import { carbonElement as customElement } from '../../internal/vendor/@carbon/web-components/globals/decorators/carbon-element';
 
 const { stablePrefix: ddsPrefix } = ddsSettings;
 
@@ -20,7 +20,7 @@ const { stablePrefix: ddsPrefix } = ddsSettings;
  * @element dds-universal-banner-image
  */
 
-@carbonElement(`${ddsPrefix}-universal-banner-image`)
+@customElement(`${ddsPrefix}-universal-banner-image`)
 class DDSUniversalBannerImage extends DDSImage {
   static get stableSelector() {
     return `${ddsPrefix}-universal-banner-image`;

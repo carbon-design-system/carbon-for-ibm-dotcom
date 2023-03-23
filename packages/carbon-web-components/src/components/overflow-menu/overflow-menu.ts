@@ -18,7 +18,7 @@ import BXFloatingMenuTrigger from '../floating-menu/floating-menu-trigger';
 import { OVERFLOW_MENU_COLOR_SCHEME, OVERFLOW_MENU_SIZE } from './defs';
 import BXOverflowMenuBody from './overflow-menu-body';
 import styles from './overflow-menu.scss';
-import { carbonElement } from '../../globals/decorators/carbon-element';
+import { carbonElement as customElement } from '../../globals/decorators/carbon-element';
 
 export { OVERFLOW_MENU_COLOR_SCHEME, OVERFLOW_MENU_SIZE };
 
@@ -30,7 +30,7 @@ const { prefix } = settings;
  * @element bx-overflow-menu
  * @slot icon - The icon for the trigger button.
  */
-@carbonElement(`${prefix}-overflow-menu`)
+@customElement(`${prefix}-overflow-menu`)
 class BXOverflowMenu
   extends HostListenerMixin(FocusMixin(LitElement))
   implements BXFloatingMenuTrigger

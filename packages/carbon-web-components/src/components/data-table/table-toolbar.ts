@@ -10,7 +10,7 @@
 import { html, LitElement } from 'lit-element';
 import settings from 'carbon-components/es/globals/js/settings';
 import styles from './data-table.scss';
-import { carbonElement } from '../../globals/decorators/carbon-element';
+import { carbonElement as customElement } from '../../globals/decorators/carbon-element';
 
 const { prefix } = settings;
 
@@ -19,7 +19,7 @@ const { prefix } = settings;
  *
  * @element bx-table-toolbar
  */
-@carbonElement(`${prefix}-table-toolbar`)
+@customElement(`${prefix}-table-toolbar`)
 class BXTableToolbar extends LitElement {
   connectedCallback() {
     if (!this.hasAttribute('role')) {

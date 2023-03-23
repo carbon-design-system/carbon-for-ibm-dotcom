@@ -19,7 +19,7 @@ import {
 } from '../copy-button/copy-button';
 import { CODE_SNIPPET_COLOR_SCHEME, CODE_SNIPPET_TYPE } from './defs';
 import styles from './code-snippet.scss';
-import { carbonElement } from '../../globals/decorators/carbon-element';
+import { carbonElement as customElement } from '../../globals/decorators/carbon-element';
 
 export { CODE_SNIPPET_COLOR_SCHEME, CODE_SNIPPET_TYPE };
 
@@ -85,7 +85,7 @@ const renderCode = ({
  *
  * @element bx-code-snippet
  */
-@carbonElement(`${prefix}-code-snippet`)
+@customElement(`${prefix}-code-snippet`)
 class BXCodeSnippet extends FocusMixin(LitElement) {
   /**
    * `true` to expand multi-line variant of code snippet.

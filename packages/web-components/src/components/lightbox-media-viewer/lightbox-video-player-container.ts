@@ -21,7 +21,7 @@ import {
   mapDispatchToProps,
 } from '../video-player/video-player-container';
 import DDSLightboxVideoPlayerComposite from './lightbox-video-player-composite';
-import { carbonElement } from '../../internal/vendor/@carbon/web-components/globals/decorators/carbon-element';
+import { carbonElement as customElement } from '../../internal/vendor/@carbon/web-components/globals/decorators/carbon-element';
 
 const { stablePrefix: ddsPrefix } = ddsSettings;
 
@@ -30,7 +30,7 @@ const { stablePrefix: ddsPrefix } = ddsSettings;
  *
  * @element dds-lightbox-video-player-container
  */
-@carbonElement(`${ddsPrefix}-lightbox-video-player-container`)
+@customElement(`${ddsPrefix}-lightbox-video-player-container`)
 class DDSLightboxVideoPlayerContainer extends ConnectMixin<
   VideoPlayerContainerState,
   MediaPlayerAPIActions,

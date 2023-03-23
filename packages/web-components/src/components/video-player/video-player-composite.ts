@@ -21,7 +21,7 @@ import {
 } from './video-player';
 // Above import is interface-only ref and thus code won't be brought into the build
 import './video-player';
-import { carbonElement } from '../../internal/vendor/@carbon/web-components/globals/decorators/carbon-element.js';
+import { carbonElement as customElement } from '../../internal/vendor/@carbon/web-components/globals/decorators/carbon-element.js';
 
 const { stablePrefix: ddsPrefix } = ddsSettings;
 
@@ -30,7 +30,7 @@ const { stablePrefix: ddsPrefix } = ddsSettings;
  *
  * @element dds-video-player-composite
  */
-@carbonElement(`${ddsPrefix}-video-player-composite`)
+@customElement(`${ddsPrefix}-video-player-composite`)
 class DDSVideoPlayerComposite extends HybridRenderMixin(
   HostListenerMixin(LitElement)
 ) {

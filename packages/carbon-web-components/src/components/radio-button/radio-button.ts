@@ -20,7 +20,7 @@ import RadioGroupManager, {
 } from '../../globals/internal/radio-group-manager';
 import { RADIO_BUTTON_LABEL_POSITION, RADIO_BUTTON_ORIENTATION } from './defs';
 import styles from './radio-button.scss';
-import { carbonElement } from '../../globals/decorators/carbon-element';
+import { carbonElement as customElement } from '../../globals/decorators/carbon-element';
 
 export { RADIO_BUTTON_LABEL_POSITION };
 
@@ -106,7 +106,7 @@ class RadioButtonDelegate implements ManagedRadioButtonDelegate {
  * @element bx-radio-button
  * @fires bx-radio-button-changed - The custom event fired after this radio button changes its checked state.
  */
-@carbonElement(`${prefix}-radio-button`)
+@customElement(`${prefix}-radio-button`)
 class BXRadioButton extends HostListenerMixin(FocusMixin(LitElement)) {
   /**
    * The radio group manager associated with the radio button.

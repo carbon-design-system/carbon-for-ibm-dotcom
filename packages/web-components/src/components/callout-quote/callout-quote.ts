@@ -11,7 +11,7 @@ import ddsSettings from '../../internal/vendor/@carbon/ibmdotcom-utilities/utili
 import styles from './callout-quote.scss';
 import DDSCalloutMixin from '../../component-mixins/callout/callout';
 import DDSQuote from '../quote/quote';
-import { carbonElement } from '../../internal/vendor/@carbon/web-components/globals/decorators/carbon-element';
+import { carbonElement as customElement } from '../../internal/vendor/@carbon/web-components/globals/decorators/carbon-element';
 
 const { stablePrefix: ddsPrefix } = ddsSettings;
 
@@ -20,7 +20,7 @@ const { stablePrefix: ddsPrefix } = ddsSettings;
  *
  * @element dds-callout-data
  */
-@carbonElement(`${ddsPrefix}-callout-quote`)
+@customElement(`${ddsPrefix}-callout-quote`)
 class DDSCalloutQuote extends DDSCalloutMixin(DDSQuote) {
   static get stableSelector() {
     return `${ddsPrefix}--callout-quote`;

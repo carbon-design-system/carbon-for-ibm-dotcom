@@ -15,7 +15,7 @@ import '../image/image';
 import styles from './feature-section.scss';
 import StableSelectorMixin from '../../globals/mixins/stable-selector';
 import { MEDIA_ALIGNMENT } from './defs';
-import { carbonElement } from '../../internal/vendor/@carbon/web-components/globals/decorators/carbon-element';
+import { carbonElement as customElement } from '../../internal/vendor/@carbon/web-components/globals/decorators/carbon-element';
 
 const { prefix } = settings;
 const { stablePrefix: ddsPrefix } = ddsSettings;
@@ -25,7 +25,7 @@ const { stablePrefix: ddsPrefix } = ddsSettings;
  *
  * @element dds-feature-section
  */
-@carbonElement(`${ddsPrefix}-feature-section`)
+@customElement(`${ddsPrefix}-feature-section`)
 class DDSFeatureSection extends StableSelectorMixin(DDSFeatureCard) {
   /**
    * Media Alignment (right (default) | left)

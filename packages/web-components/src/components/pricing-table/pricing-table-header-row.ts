@@ -16,11 +16,11 @@ import DDSPricingTableHeaderCell from './pricing-table-header-cell';
 import styles from './pricing-table.scss';
 import { setColumnWidth } from './utils';
 import { PRICING_TABLE_HEADER_CELL_TYPES } from './defs';
-import { carbonElement } from '../../internal/vendor/@carbon/web-components/globals/decorators/carbon-element';
+import { carbonElement as customElement } from '../../internal/vendor/@carbon/web-components/globals/decorators/carbon-element';
 
 const { stablePrefix: ddsPrefix } = ddsSettings;
 
-@carbonElement(`${ddsPrefix}-pricing-table-header-row`)
+@customElement(`${ddsPrefix}-pricing-table-header-row`)
 class DDSPricingTableHeaderRow extends StableSelectorMixin(
   DDSStructuredListHeaderRow
 ) {

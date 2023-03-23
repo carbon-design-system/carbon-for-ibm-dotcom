@@ -12,7 +12,7 @@ import settings from 'carbon-components/es/globals/js/settings.js';
 import ddsSettings from '../../internal/vendor/@carbon/ibmdotcom-utilities/utilities/settings/settings';
 import DDSContentBlock from '../content-block/content-block';
 import styles from './leadspace-block.scss';
-import { carbonElement } from '../../internal/vendor/@carbon/web-components/globals/decorators/carbon-element';
+import { carbonElement as customElement } from '../../internal/vendor/@carbon/web-components/globals/decorators/carbon-element';
 
 const { prefix } = settings;
 const { stablePrefix: ddsPrefix } = ddsSettings;
@@ -22,7 +22,7 @@ const { stablePrefix: ddsPrefix } = ddsSettings;
  *
  * @element dds-leadspace-block-content
  */
-@carbonElement(`${ddsPrefix}-leadspace-block-content`)
+@customElement(`${ddsPrefix}-leadspace-block-content`)
 class DDSLeadSpaceBlockContent extends DDSContentBlock {
   protected _renderInnerBody(): TemplateResult | string | void {
     const { _hasContent: hasContent, _hasMedia: hasMedia } = this;

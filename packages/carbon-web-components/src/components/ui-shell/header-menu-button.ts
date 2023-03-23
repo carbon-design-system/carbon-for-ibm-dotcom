@@ -16,7 +16,7 @@ import ifNonNull from '../../globals/directives/if-non-null';
 import FocusMixin from '../../globals/mixins/focus';
 import { SIDE_NAV_COLLAPSE_MODE, SIDE_NAV_USAGE_MODE } from './side-nav';
 import styles from './header.scss';
-import { carbonElement } from '../../globals/decorators/carbon-element';
+import { carbonElement as customElement } from '../../globals/decorators/carbon-element';
 
 const { prefix } = settings;
 
@@ -28,7 +28,7 @@ const { prefix } = settings;
  * @csspart toggle-icon The toggle icon.
  * @fires bx-header-menu-button-toggled - The custom event fired after this header menu button is toggled upon a user gesture.
  */
-@carbonElement(`${prefix}-header-menu-button`)
+@customElement(`${prefix}-header-menu-button`)
 class BXHeaderMenuButton extends FocusMixin(LitElement) {
   private _handleClick() {
     const active = !this.active;

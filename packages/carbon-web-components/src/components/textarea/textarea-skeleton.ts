@@ -10,14 +10,14 @@
 import { html, LitElement } from 'lit-element';
 import settings from 'carbon-components/es/globals/js/settings';
 import styles from './textarea.scss';
-import { carbonElement } from '../../globals/decorators/carbon-element';
+import { carbonElement as customElement } from '../../globals/decorators/carbon-element';
 
 const { prefix } = settings;
 
 /**
  * Skeleton of text area.
  */
-@carbonElement(`${prefix}-textarea-skeleton`)
+@customElement(`${prefix}-textarea-skeleton`)
 class BXTextareaSkeleton extends LitElement {
   render() {
     return html`

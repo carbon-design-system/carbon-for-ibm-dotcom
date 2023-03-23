@@ -9,7 +9,7 @@
 
 import { property } from 'lit-element';
 import ddsSettings from '../../internal/vendor/@carbon/ibmdotcom-utilities/utilities/settings/settings';
-import { carbonElement } from '../../internal/vendor/@carbon/web-components/globals/decorators/carbon-element';
+import { carbonElement as customElement } from '../../internal/vendor/@carbon/web-components/globals/decorators/carbon-element';
 import DDSCardLinkCTA from '../cta/card-link-cta';
 import styles from './card-group.scss';
 
@@ -20,7 +20,7 @@ const { stablePrefix: ddsPrefix } = ddsSettings;
  *
  * @element dds-card-group-card-link-item
  */
-@carbonElement(`${ddsPrefix}-card-group-card-link-item`)
+@customElement(`${ddsPrefix}-card-group-card-link-item`)
 class DDSCardGroupCardLinkItem extends DDSCardLinkCTA {
   /**
    * `true` if the card group is using border.

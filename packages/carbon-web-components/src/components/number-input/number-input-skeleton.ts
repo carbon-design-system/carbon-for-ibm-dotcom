@@ -10,14 +10,14 @@
 import { html, property, LitElement } from 'lit-element';
 import settings from 'carbon-components/es/globals/js/settings';
 import styles from './number-input.scss';
-import { carbonElement } from '../../globals/decorators/carbon-element';
+import { carbonElement as customElement } from '../../globals/decorators/carbon-element';
 
 const { prefix } = settings;
 
 /**
  * Skeleton of number input.
  */
-@carbonElement(`${prefix}-number-input-skeleton`)
+@customElement(`${prefix}-number-input-skeleton`)
 class BXNumberInputSkeleton extends LitElement {
   /**
    * `true` if the label should be hidden. Corresponds to the attribute with the same name.

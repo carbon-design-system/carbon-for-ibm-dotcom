@@ -16,7 +16,7 @@ import DDSContentBlock, {
   CONTENT_BLOCK_COMPLEMENTARY_STYLE_SCHEME,
 } from '../content-block/content-block';
 import styles from './content-block-segmented.scss';
-import { carbonElement } from '../../internal/vendor/@carbon/web-components/globals/decorators/carbon-element';
+import { carbonElement as customElement } from '../../internal/vendor/@carbon/web-components/globals/decorators/carbon-element';
 
 const { prefix } = settings;
 const { stablePrefix: ddsPrefix } = ddsSettings;
@@ -26,7 +26,7 @@ const { stablePrefix: ddsPrefix } = ddsSettings;
  *
  * @element dds-content-block-segmented
  */
-@carbonElement(`${ddsPrefix}-content-block-segmented`)
+@customElement(`${ddsPrefix}-content-block-segmented`)
 class DDSContentBlockSegmented extends DDSContentBlock {
   protected _getContainerClasses(): string | ((part: Part) => void) {
     const {

@@ -8,7 +8,7 @@
  */
 
 import settings from 'carbon-components/es/globals/js/settings';
-import { carbonElement } from '../../globals/decorators/carbon-element';
+import { carbonElement as customElement } from '../../globals/decorators/carbon-element';
 import BXDropdownItem from '../dropdown/dropdown-item';
 import styles from './combo-box.scss';
 
@@ -19,7 +19,7 @@ const { prefix } = settings;
  *
  * @element bx-combo-box-item
  */
-@carbonElement(`${prefix}-combo-box-item`)
+@customElement(`${prefix}-combo-box-item`)
 class BXComboBoxItem extends BXDropdownItem {
   static styles = styles;
 }

@@ -9,7 +9,7 @@
 
 import settings from 'carbon-components/es/globals/js/settings';
 import { html, property, LitElement } from 'lit-element';
-import { carbonElement } from '../../globals/decorators/carbon-element';
+import { carbonElement as customElement } from '../../globals/decorators/carbon-element';
 import FocusMixin from '../../globals/mixins/focus';
 import styles from './data-table.scss';
 
@@ -25,7 +25,7 @@ const { prefix } = settings;
  *   The custom event fired before this row is selected/unselected upon a user gesture.
  *   Cancellation of this event stops the user-initiated change in selection.
  */
-@carbonElement(`${prefix}-table-row`)
+@customElement(`${prefix}-table-row`)
 class BXTableRow extends FocusMixin(LitElement) {
   /**
    * Handles `click` event on the check box.

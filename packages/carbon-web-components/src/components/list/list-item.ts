@@ -10,7 +10,7 @@
 import { html, property, LitElement } from 'lit-element';
 import settings from 'carbon-components/es/globals/js/settings';
 import styles from './list.scss';
-import { carbonElement } from '../../globals/decorators/carbon-element';
+import { carbonElement as customElement } from '../../globals/decorators/carbon-element';
 
 const { prefix } = settings;
 
@@ -20,7 +20,7 @@ const { prefix } = settings;
  * @element bx-list-item
  * @slot nested - The nested child list.
  */
-@carbonElement(`${prefix}-list-item`)
+@customElement(`${prefix}-list-item`)
 class BXListItem extends LitElement {
   /**
    * `true` if there is slotted nested child list.

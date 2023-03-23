@@ -28,7 +28,7 @@ import {
 } from '../../internal/vendor/@carbon/ibmdotcom-services-store/actions/localeAPI';
 import { LocaleAPIActions } from '../../internal/vendor/@carbon/ibmdotcom-services-store/actions/localeAPI.d';
 import DDSLocaleModalComposite from './locale-modal-composite';
-import { carbonElement } from '../../internal/vendor/@carbon/web-components/globals/decorators/carbon-element';
+import { carbonElement as customElement } from '../../internal/vendor/@carbon/web-components/globals/decorators/carbon-element';
 
 const { stablePrefix: ddsPrefix } = ddsSettings;
 
@@ -105,7 +105,7 @@ export function mapDispatchToProps(dispatch: Dispatch<LocaleAPIActions>) {
  *
  * @element dds-locale-modal-container
  */
-@carbonElement(`${ddsPrefix}-locale-modal-container`)
+@customElement(`${ddsPrefix}-locale-modal-container`)
 class DDSLocaleModalContainer extends ConnectMixin<
   LocaleModalContainerState,
   LocaleAPIActions,

@@ -9,7 +9,7 @@
 
 import settings from 'carbon-components/es/globals/js/settings';
 import { html, LitElement } from 'lit-element';
-import { carbonElement } from '../../globals/decorators/carbon-element';
+import { carbonElement as customElement } from '../../globals/decorators/carbon-element';
 import styles from './tooltip.scss';
 
 const { prefix } = settings;
@@ -17,7 +17,7 @@ const { prefix } = settings;
 /**
  * Tooltip footer.
  */
-@carbonElement(`${prefix}-tooltip-footer`)
+@customElement(`${prefix}-tooltip-footer`)
 class BXTooltipFooter extends LitElement {
   render() {
     return html` <slot></slot> `;

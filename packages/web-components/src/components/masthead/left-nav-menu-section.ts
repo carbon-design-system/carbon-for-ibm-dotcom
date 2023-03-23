@@ -19,7 +19,7 @@ import ddsSettings from '../../internal/vendor/@carbon/ibmdotcom-utilities/utili
 import { forEach } from '../../globals/internal/collection-helpers';
 import styles from './masthead.scss';
 import DDSLeftNav from './left-nav';
-import { carbonElement } from '../../internal/vendor/@carbon/web-components/globals/decorators/carbon-element.js';
+import { carbonElement as customElement } from '../../internal/vendor/@carbon/web-components/globals/decorators/carbon-element.js';
 
 const { prefix } = settings;
 const { stablePrefix: ddsPrefix } = ddsSettings;
@@ -33,7 +33,7 @@ const { stablePrefix: ddsPrefix } = ddsSettings;
  *   Cancellation of this event stops the user-initiated action of toggling this side nav menu.
  * @fires dds-left-nav-menu-toggled The custom event fired after this side nav menu is toggled upon a user gesture.
  */
-@carbonElement(`${ddsPrefix}-left-nav-menu-section`)
+@customElement(`${ddsPrefix}-left-nav-menu-section`)
 class DDSLeftNavMenuSection extends HostListenerMixin(FocusMixin(LitElement)) {
   /**
    * Set aria-hidden property.

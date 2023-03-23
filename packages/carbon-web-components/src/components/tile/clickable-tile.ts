@@ -13,7 +13,7 @@ import { property } from 'lit-element';
 import BXLink from '../link/link';
 import { TILE_COLOR_SCHEME } from './defs';
 import styles from './tile.scss';
-import { carbonElement } from '../../globals/decorators/carbon-element';
+import { carbonElement as customElement } from '../../globals/decorators/carbon-element';
 
 const { prefix } = settings;
 
@@ -22,7 +22,7 @@ const { prefix } = settings;
  *
  * @element bx-clickable-tile
  */
-@carbonElement(`${prefix}-clickable-tile`)
+@customElement(`${prefix}-clickable-tile`)
 class BXClickableTile extends BXLink {
   protected get _classes() {
     const { colorScheme, disabled } = this;

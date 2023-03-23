@@ -19,12 +19,12 @@ import DDSPricingTableHeaderCell from './pricing-table-header-cell';
 import DDSPricingTableHighlightLabel from './pricing-table-highlight-label';
 import DDSPricingTableHead from './pricing-table-head';
 import DDSPricingTableHeaderRow from './pricing-table-header-row';
-import { carbonElement } from '../../internal/vendor/@carbon/web-components/globals/decorators/carbon-element.js';
+import { carbonElement as customElement } from '../../internal/vendor/@carbon/web-components/globals/decorators/carbon-element.js';
 
 const { prefix } = settings;
 const { stablePrefix: ddsPrefix } = ddsSettings;
 
-@carbonElement(`${ddsPrefix}-pricing-table`)
+@customElement(`${ddsPrefix}-pricing-table`)
 class DDSPricingTable extends HostListenerMixin(
   StableSelectorMixin(DDSStructuredList)
 ) {

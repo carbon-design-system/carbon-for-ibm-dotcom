@@ -11,7 +11,7 @@ import ddsSettings from '@carbon/ibmdotcom-utilities/es/utilities/settings/setti
 import styles from './logo-grid.scss';
 import DDSCardLink from '../card-link/card-link';
 import StableSelectorMixin from '../../globals/mixins/stable-selector';
-import { carbonElement } from '../../internal/vendor/@carbon/web-components/globals/decorators/carbon-element';
+import { carbonElement as customElement } from '../../internal/vendor/@carbon/web-components/globals/decorators/carbon-element';
 
 const { stablePrefix: ddsPrefix } = ddsSettings;
 
@@ -20,7 +20,7 @@ const { stablePrefix: ddsPrefix } = ddsSettings;
  *
  * @element dds-logo-grid-link
  */
-@carbonElement(`${ddsPrefix}-logo-grid-link`)
+@customElement(`${ddsPrefix}-logo-grid-link`)
 class DDSLogoGridLink extends StableSelectorMixin(DDSCardLink) {
   /**
    * The shadow slot this link should be in.

@@ -18,7 +18,7 @@ import styles from './overflow-menu.scss';
 import BXOverflowMenuItem from './overflow-menu-item';
 import HostListener from '../../globals/decorators/host-listener';
 import { indexOf } from '../../globals/internal/collection-helpers';
-import { carbonElement } from '../../globals/decorators/carbon-element';
+import { carbonElement as customElement } from '../../globals/decorators/carbon-element';
 
 const { prefix } = settings;
 
@@ -42,7 +42,7 @@ const capIndex = (index: number, length: number) => {
  *
  * @element bx-overflow-menu-body
  */
-@carbonElement(`${prefix}-overflow-menu-body`)
+@customElement(`${prefix}-overflow-menu-body`)
 class BXOverflowMenuBody extends BXFloatingMenu {
   /**
    * How the menu is aligned to the trigger button.

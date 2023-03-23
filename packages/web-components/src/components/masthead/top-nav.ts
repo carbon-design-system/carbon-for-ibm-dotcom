@@ -19,7 +19,7 @@ import HostListenerMixin from '../../internal/vendor/@carbon/web-components/glob
 import ddsSettings from '../../internal/vendor/@carbon/ibmdotcom-utilities/utilities/settings/settings';
 import StableSelectorMixin from '../../globals/mixins/stable-selector';
 import styles from './masthead.scss';
-import { carbonElement } from '../../internal/vendor/@carbon/web-components/globals/decorators/carbon-element.js';
+import { carbonElement as customElement } from '../../internal/vendor/@carbon/web-components/globals/decorators/carbon-element.js';
 
 const { prefix } = settings;
 const { stablePrefix: ddsPrefix } = ddsSettings;
@@ -55,7 +55,7 @@ function findLastIndex<T>(
  * @csspart prev-button The button to go to the previous page.
  * @csspart next-button The button to go to the next page.
  */
-@carbonElement(`${ddsPrefix}-top-nav`)
+@customElement(`${ddsPrefix}-top-nav`)
 class DDSTopNav extends StableSelectorMixin(HostListenerMixin(BXHeaderNav)) {
   /**
    * The left-hand paginator button.

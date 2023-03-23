@@ -18,7 +18,7 @@ import '../../internal/vendor/@carbon/web-components/components/list/list-item.j
 import markdownToHtml from '@carbon/ibmdotcom-utilities/es/utilities/markdownToHtml/markdownToHtml.js';
 import ddsSettings from '../../internal/vendor/@carbon/ibmdotcom-utilities/utilities/settings/settings';
 import styles from './markdown.scss';
-import { carbonElement } from '../../internal/vendor/@carbon/web-components/globals/decorators/carbon-element.js';
+import { carbonElement as customElement } from '../../internal/vendor/@carbon/web-components/globals/decorators/carbon-element.js';
 
 const { prefix } = settings;
 const { stablePrefix: ddsPrefix } = ddsSettings;
@@ -28,7 +28,7 @@ const { stablePrefix: ddsPrefix } = ddsSettings;
  *
  * @element dds-markdown
  */
-@carbonElement(`${ddsPrefix}-markdown`)
+@customElement(`${ddsPrefix}-markdown`)
 class DDSMarkdown extends LitElement {
   /**
    * `true` if the first rendering has happened.

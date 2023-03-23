@@ -8,7 +8,7 @@
  */
 
 import { html, property, state, TemplateResult, query } from 'lit-element';
-import { carbonElement } from '../../internal/vendor/@carbon/web-components/globals/decorators/carbon-element.js';
+import { carbonElement as customElement } from '../../internal/vendor/@carbon/web-components/globals/decorators/carbon-element.js';
 import settings from 'carbon-components/es/globals/js/settings.js';
 import BXLink from '../../internal/vendor/@carbon/web-components/components/link/link.js';
 import markdownToHtml from '../../internal/vendor/@carbon/ibmdotcom-utilities/utilities/markdownToHtml/markdownToHtml.js';
@@ -39,7 +39,7 @@ const slotExistencePropertyNames = {
  * @slot image - The image content.
  * @slot footer - The footer content.
  */
-@carbonElement(`${ddsPrefix}-card`)
+@customElement(`${ddsPrefix}-card`)
 class DDSCard extends StableSelectorMixin(BXLink) {
   /**
    * `true` if there is image content.

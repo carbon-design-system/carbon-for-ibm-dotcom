@@ -11,7 +11,7 @@ import { html, property, LitElement, state } from 'lit-element';
 import ddsSettings from '../../internal/vendor/@carbon/ibmdotcom-utilities/utilities/settings/settings';
 import styles from './tabs-extended.scss';
 import StableSelectorMixin from '../../globals/mixins/stable-selector';
-import { carbonElement } from '../../internal/vendor/@carbon/web-components/globals/decorators/carbon-element';
+import { carbonElement as customElement } from '../../internal/vendor/@carbon/web-components/globals/decorators/carbon-element';
 
 const { stablePrefix: ddsPrefix } = ddsSettings;
 
@@ -20,7 +20,7 @@ const { stablePrefix: ddsPrefix } = ddsSettings;
  *
  * @element dds-tab
  */
-@carbonElement(`${ddsPrefix}-tab`)
+@customElement(`${ddsPrefix}-tab`)
 class DDSTab extends StableSelectorMixin(LitElement) {
   /**
    * Defines label of the tab.

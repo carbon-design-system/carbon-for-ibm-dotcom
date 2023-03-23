@@ -16,7 +16,7 @@ import '../horizontal-rule/horizontal-rule';
 import '../content-block/content-block-heading';
 import StableSelectorMixin from '../../globals/mixins/stable-selector';
 import styles from './logo-grid.scss';
-import { carbonElement } from '../../internal/vendor/@carbon/web-components/globals/decorators/carbon-element';
+import { carbonElement as customElement } from '../../internal/vendor/@carbon/web-components/globals/decorators/carbon-element';
 
 const { prefix } = settings;
 const { stablePrefix: ddsPrefix } = ddsSettings;
@@ -26,7 +26,7 @@ const { stablePrefix: ddsPrefix } = ddsSettings;
  *
  * @element dds-logo-grid
  */
-@carbonElement(`${ddsPrefix}-logo-grid`)
+@customElement(`${ddsPrefix}-logo-grid`)
 class DDSLogoGrid extends StableSelectorMixin(DDSContentBlock) {
   protected _renderInnerBody() {
     const { _hasContent: hasContent, _hasMedia: hasMedia, logoCount } = this;

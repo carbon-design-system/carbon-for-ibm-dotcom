@@ -16,7 +16,7 @@ import { LANGUAGE_SELECTOR_STYLE_SCHEME } from './defs';
 import DDSComboBox, { DROPDOWN_SIZE } from './combo-box';
 import styles from './footer.scss';
 import { findIndex, forEach } from '../../globals/internal/collection-helpers';
-import { carbonElement } from '../../internal/vendor/@carbon/web-components/globals/decorators/carbon-element.js';
+import { carbonElement as customElement } from '../../internal/vendor/@carbon/web-components/globals/decorators/carbon-element.js';
 
 const { stablePrefix: ddsPrefix } = ddsSettings;
 
@@ -27,7 +27,7 @@ const { stablePrefix: ddsPrefix } = ddsSettings;
  * @element dds-language-selector-desktop
  * @internal
  */
-@carbonElement(`${ddsPrefix}-language-selector-desktop`)
+@customElement(`${ddsPrefix}-language-selector-desktop`)
 class DDSLanguageSelectorDesktop extends HostListenerMixin(DDSComboBox) {
   /**
    * Property that saves the last valid language to use on reset cases.

@@ -12,7 +12,7 @@ import settings from 'carbon-components/es/globals/js/settings.js';
 import ddsSettings from '../../internal/vendor/@carbon/ibmdotcom-utilities/utilities/settings/settings';
 import StableSelectorMixin from '../../globals/mixins/stable-selector';
 import styles from './dotcom-shell.scss';
-import { carbonElement } from '../../internal/vendor/@carbon/web-components/globals/decorators/carbon-element';
+import { carbonElement as customElement } from '../../internal/vendor/@carbon/web-components/globals/decorators/carbon-element';
 
 const { prefix } = settings;
 const { stablePrefix: ddsPrefix } = ddsSettings;
@@ -22,7 +22,7 @@ const { stablePrefix: ddsPrefix } = ddsSettings;
  *
  * @element dds-dotcom-shell
  */
-@carbonElement(`${ddsPrefix}-dotcom-shell`)
+@customElement(`${ddsPrefix}-dotcom-shell`)
 class DDSDotcomShell extends StableSelectorMixin(LitElement) {
   render() {
     return html`

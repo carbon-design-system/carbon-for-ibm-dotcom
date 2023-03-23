@@ -12,7 +12,7 @@ import ddsSettings from '@carbon/ibmdotcom-utilities/es/utilities/settings/setti
 import StableSelectorMixin from '../../globals/mixins/stable-selector';
 import DDSStructuredList from './structured-list';
 import styles from './structured-list.scss';
-import { carbonElement } from '../../internal/vendor/@carbon/web-components/globals/decorators/carbon-element';
+import { carbonElement as customElement } from '../../internal/vendor/@carbon/web-components/globals/decorators/carbon-element';
 
 const { stablePrefix: ddsPrefix } = ddsSettings;
 
@@ -21,7 +21,7 @@ const { stablePrefix: ddsPrefix } = ddsSettings;
  *
  * @element dds-structured-list-group
  */
-@carbonElement(`${ddsPrefix}-structured-list-group`)
+@customElement(`${ddsPrefix}-structured-list-group`)
 class DDSStructuredListGroup extends StableSelectorMixin(LitElement) {
   _parentTable: DDSStructuredList | null = this.closest(
     `${ddsPrefix}-structured-list`

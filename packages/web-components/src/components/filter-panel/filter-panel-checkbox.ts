@@ -13,7 +13,7 @@ import ddsSettings from '../../internal/vendor/@carbon/ibmdotcom-utilities/utili
 import '../../internal/vendor/@carbon/web-components/components/modal/modal';
 import styles from './filter-panel.scss';
 import StableSelectorMixin from '../../globals/mixins/stable-selector';
-import { carbonElement } from '../../internal/vendor/@carbon/web-components/globals/decorators/carbon-element';
+import { carbonElement as customElement } from '../../internal/vendor/@carbon/web-components/globals/decorators/carbon-element';
 
 const { stablePrefix: ddsPrefix } = ddsSettings;
 
@@ -23,7 +23,7 @@ const { stablePrefix: ddsPrefix } = ddsSettings;
  * @element dds-filter-panel-checkbox
  * @fires dds-checkbox-select - The custom event fired after this changebox changes its checked state.
  */
-@carbonElement(`${ddsPrefix}-filter-panel-checkbox`)
+@customElement(`${ddsPrefix}-filter-panel-checkbox`)
 class DDSFilterPanelCheckbox extends FocusMixin(
   StableSelectorMixin(BXCheckbox)
 ) {

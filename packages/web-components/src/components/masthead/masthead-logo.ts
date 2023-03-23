@@ -17,7 +17,7 @@ import IBM8BarLogoH23 from '@carbon/ibmdotcom-styles/icons/svg/IBM-8bar-logo--h2
 import ddsSettings from '../../internal/vendor/@carbon/ibmdotcom-utilities/utilities/settings/settings';
 import styles from './masthead.scss';
 import StableSelectorMixin from '../../globals/mixins/stable-selector';
-import { carbonElement } from '../../internal/vendor/@carbon/web-components/globals/decorators/carbon-element.js';
+import { carbonElement as customElement } from '../../internal/vendor/@carbon/web-components/globals/decorators/carbon-element.js';
 
 const { prefix } = settings;
 const { stablePrefix: ddsPrefix } = ddsSettings;
@@ -27,7 +27,7 @@ const { stablePrefix: ddsPrefix } = ddsSettings;
  *
  * @element dds-masthead-logo
  */
-@carbonElement(`${ddsPrefix}-masthead-logo`)
+@customElement(`${ddsPrefix}-masthead-logo`)
 class DDSMastheadLogo extends FocusMixin(
   HostListenerMixin(StableSelectorMixin(BXLink))
 ) {

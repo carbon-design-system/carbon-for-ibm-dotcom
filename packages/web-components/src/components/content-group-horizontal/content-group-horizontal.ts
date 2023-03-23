@@ -12,7 +12,7 @@ import deprecate from '../../internal/vendor/@carbon/ibmdotcom-utilities/utiliti
 import DDSContentBlockHorizontal from '../content-block-horizontal/content-block-horizontal';
 
 import '../horizontal-rule/horizontal-rule';
-import { carbonElement } from '../../internal/vendor/@carbon/web-components/globals/decorators/carbon-element';
+import { carbonElement as customElement } from '../../internal/vendor/@carbon/web-components/globals/decorators/carbon-element';
 
 const { stablePrefix: ddsPrefix } = ddsSettings;
 
@@ -21,7 +21,7 @@ const { stablePrefix: ddsPrefix } = ddsSettings;
  *
  * @element dds-content-block-horizontal
  */
-@carbonElement(`${ddsPrefix}-content-group-horizontal`)
+@customElement(`${ddsPrefix}-content-group-horizontal`)
 class DDSContentGroupHorizontal extends DDSContentBlockHorizontal {
   static get stableSelector() {
     return `${ddsPrefix}--content-group-horizontal`;

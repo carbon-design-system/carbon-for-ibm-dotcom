@@ -10,7 +10,7 @@
 import settings from 'carbon-components/es/globals/js/settings.js';
 import { html, property } from 'lit-element';
 import ddsSettings from '../../internal/vendor/@carbon/ibmdotcom-utilities/utilities/settings/settings';
-import { carbonElement } from '../../internal/vendor/@carbon/web-components/globals/decorators/carbon-element';
+import { carbonElement as customElement } from '../../internal/vendor/@carbon/web-components/globals/decorators/carbon-element';
 import DDSTabsExtended from '../tabs-extended/tabs-extended';
 import styles from './tabs-extended-media.scss';
 
@@ -22,7 +22,7 @@ const { stablePrefix: ddsPrefix } = ddsSettings;
  *
  * @element dds-tabs-extended-media
  */
-@carbonElement(`${ddsPrefix}-tabs-extended-media`)
+@customElement(`${ddsPrefix}-tabs-extended-media`)
 class DDSTabsExtendedMedia extends DDSTabsExtended {
   /**
    * `true` if section heading should be shown.

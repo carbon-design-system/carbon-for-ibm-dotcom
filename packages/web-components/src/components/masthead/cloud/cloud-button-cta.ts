@@ -11,7 +11,7 @@ import ddsSettings from '../../../internal/vendor/@carbon/ibmdotcom-utilities/ut
 import { CTA_TYPE } from '../../cta/defs';
 import DDSButtonExpressive from '../../button/button';
 import styles from './cloud-masthead.scss';
-import { carbonElement } from '../../../internal/vendor/@carbon/web-components/globals/decorators/carbon-element';
+import { carbonElement as customElement } from '../../../internal/vendor/@carbon/web-components/globals/decorators/carbon-element';
 
 export { CTA_TYPE };
 
@@ -22,7 +22,7 @@ const { stablePrefix: ddsPrefix } = ddsSettings;
  *
  * @element dds-cloud-button-cta
  */
-@carbonElement(`${ddsPrefix}-cloud-button-cta`)
+@customElement(`${ddsPrefix}-cloud-button-cta`)
 class DDSCloudButtonCTA extends DDSButtonExpressive {
   static styles = styles;
 }

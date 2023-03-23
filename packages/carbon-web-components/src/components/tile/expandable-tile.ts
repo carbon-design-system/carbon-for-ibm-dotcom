@@ -16,7 +16,7 @@ import FocusMixin from '../../globals/mixins/focus';
 import HostListenerMixin from '../../globals/mixins/host-listener';
 import { TILE_COLOR_SCHEME } from './defs';
 import styles from './tile.scss';
-import { carbonElement } from '../../globals/decorators/carbon-element';
+import { carbonElement as customElement } from '../../globals/decorators/carbon-element';
 
 const { prefix } = settings;
 
@@ -29,7 +29,7 @@ const { prefix } = settings;
  *   Cancellation of this event stops changing the user-initiated change in expanded state.
  * @fires bx-expandable-tile-toggled - The custom event fired after a the expanded state is changed upon a user gesture.
  */
-@carbonElement(`${prefix}-expandable-tile`)
+@customElement(`${prefix}-expandable-tile`)
 class BXExpandableTile extends HostListenerMixin(FocusMixin(LitElement)) {
   /**
    * The computed height of the below-the-fold content.

@@ -10,7 +10,7 @@
 import { html, LitElement } from 'lit-element';
 import settings from 'carbon-components/es/globals/js/settings';
 import styles from './structured-list.scss';
-import { carbonElement } from '../../globals/decorators/carbon-element';
+import { carbonElement as customElement } from '../../globals/decorators/carbon-element';
 
 const { prefix } = settings;
 
@@ -19,7 +19,7 @@ const { prefix } = settings;
  *
  * @element bx-structured-list-header-cell
  */
-@carbonElement(`${prefix}-structured-list-header-cell`)
+@customElement(`${prefix}-structured-list-header-cell`)
 class BXStructuredListHeaderCell extends LitElement {
   connectedCallback() {
     if (!this.hasAttribute('role')) {

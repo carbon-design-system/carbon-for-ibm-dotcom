@@ -14,7 +14,7 @@ import ifNonNull from '../../globals/directives/if-non-null';
 import BXCheckbox from '../checkbox/checkbox';
 import { TOGGLE_SIZE } from './defs';
 import styles from './toggle.scss';
-import { carbonElement } from '../../globals/decorators/carbon-element';
+import { carbonElement as customElement } from '../../globals/decorators/carbon-element';
 
 export { TOGGLE_SIZE };
 
@@ -29,7 +29,7 @@ const { prefix } = settings;
  * @slot unchecked-text - The text for the unchecked state.
  * @fires bx-toggle-changed - The custom event fired after this changebox changes its checked state.
  */
-@carbonElement(`${prefix}-toggle`)
+@customElement(`${prefix}-toggle`)
 class BXToggle extends BXCheckbox {
   protected _renderCheckmark() {
     if (this.size !== TOGGLE_SIZE.SMALL) {

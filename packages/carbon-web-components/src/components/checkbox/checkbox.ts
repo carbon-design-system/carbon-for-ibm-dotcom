@@ -14,7 +14,7 @@ import ifNonNull from '../../globals/directives/if-non-null';
 import FocusMixin from '../../globals/mixins/focus';
 import FormMixin from '../../globals/mixins/form';
 import styles from './checkbox.scss';
-import { carbonElement } from '../../globals/decorators/carbon-element';
+import { carbonElement as customElement } from '../../globals/decorators/carbon-element';
 
 const { prefix } = settings;
 
@@ -26,7 +26,7 @@ const { prefix } = settings;
  * @csspart input The checkbox.
  * @csspart label The label.
  */
-@carbonElement(`${prefix}-checkbox`)
+@customElement(`${prefix}-checkbox`)
 class BXCheckbox extends FocusMixin(FormMixin(LitElement)) {
   @query('input')
   protected _checkboxNode!: HTMLInputElement;

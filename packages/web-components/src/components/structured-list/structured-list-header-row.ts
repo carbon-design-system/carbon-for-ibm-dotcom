@@ -11,7 +11,7 @@ import BXStructuredListHeaderRow from '../../internal/vendor/@carbon/web-compone
 import {} from 'lit-element';
 import ddsSettings from '../../internal/vendor/@carbon/ibmdotcom-utilities/utilities/settings/settings';
 import styles from './structured-list.scss';
-import { carbonElement } from '../../internal/vendor/@carbon/web-components/globals/decorators/carbon-element.js';
+import { carbonElement as customElement } from '../../internal/vendor/@carbon/web-components/globals/decorators/carbon-element.js';
 
 const { stablePrefix: ddsPrefix } = ddsSettings;
 
@@ -20,7 +20,7 @@ const { stablePrefix: ddsPrefix } = ddsSettings;
  *
  * @element dds-structured-list-header-row
  */
-@carbonElement(`${ddsPrefix}-structured-list-header-row`)
+@customElement(`${ddsPrefix}-structured-list-header-row`)
 class DDSStructuredListHeaderRow extends BXStructuredListHeaderRow {
   connectedCallback() {
     super.connectedCallback();

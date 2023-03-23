@@ -15,7 +15,7 @@ import HostListener from '../../globals/decorators/host-listener';
 import BXTableRow from './table-row';
 import BXTableExpandedRow from './table-expanded-row';
 import styles from './data-table.scss';
-import { carbonElement } from '../../globals/decorators/carbon-element';
+import { carbonElement as customElement } from '../../globals/decorators/carbon-element';
 
 const { prefix } = settings;
 
@@ -24,7 +24,7 @@ const { prefix } = settings;
  *
  * @element bx-table-expand-row
  */
-@carbonElement(`${prefix}-table-expand-row`)
+@customElement(`${prefix}-table-expand-row`)
 class BXTableExpandRow extends HostListenerMixin(BXTableRow) {
   /**
    * Handles `click` event on the expando button.

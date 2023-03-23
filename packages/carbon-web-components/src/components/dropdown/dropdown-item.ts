@@ -12,7 +12,7 @@ import { html, property, LitElement } from 'lit-element';
 import Checkmark16 from '@carbon/icons/lib/checkmark/16';
 import { DROPDOWN_SIZE } from './dropdown';
 import styles from './dropdown.scss';
-import { carbonElement } from '../../globals/decorators/carbon-element';
+import { carbonElement as customElement } from '../../globals/decorators/carbon-element';
 
 const { prefix } = settings;
 
@@ -22,7 +22,7 @@ const { prefix } = settings;
  * @element bx-dropdown-item
  * @csspart selected-icon The selected icon.
  */
-@carbonElement(`${prefix}-dropdown-item`)
+@customElement(`${prefix}-dropdown-item`)
 class BXDropdownItem extends LitElement {
   /**
    * `true` if this dropdown item should be disabled.

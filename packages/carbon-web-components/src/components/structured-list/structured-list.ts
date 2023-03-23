@@ -14,7 +14,7 @@ import { forEach } from '../../globals/internal/collection-helpers';
 import FocusMixin from '../../globals/mixins/focus';
 import BXStructuredListRow from './structured-list-row';
 import styles from './structured-list.scss';
-import { carbonElement } from '../../globals/decorators/carbon-element';
+import { carbonElement as customElement } from '../../globals/decorators/carbon-element';
 
 const { prefix } = settings;
 
@@ -23,7 +23,7 @@ const { prefix } = settings;
  *
  * @element bx-structured-list
  */
-@carbonElement(`${prefix}-structured-list`)
+@customElement(`${prefix}-structured-list`)
 class BXStructuredList extends FocusMixin(LitElement) {
   /**
    * The `name` attribute for the `<input>` for selection.

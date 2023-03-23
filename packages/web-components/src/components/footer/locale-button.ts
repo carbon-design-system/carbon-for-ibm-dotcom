@@ -16,7 +16,7 @@ import ddsSettings from '../../internal/vendor/@carbon/ibmdotcom-utilities/utili
 import { FOOTER_SIZE } from './footer';
 import StableSelectorMixin from '../../globals/mixins/stable-selector';
 import styles from './footer.scss';
-import { carbonElement } from '../../internal/vendor/@carbon/web-components/globals/decorators/carbon-element.js';
+import { carbonElement as customElement } from '../../internal/vendor/@carbon/web-components/globals/decorators/carbon-element.js';
 
 const { prefix } = settings;
 const { stablePrefix: ddsPrefix } = ddsSettings;
@@ -26,7 +26,7 @@ const { stablePrefix: ddsPrefix } = ddsSettings;
  *
  * @element dds-locale-button
  */
-@carbonElement(`${ddsPrefix}-locale-button`)
+@customElement(`${ddsPrefix}-locale-button`)
 class DDSLocaleButton extends StableSelectorMixin(FocusMixin(LitElement)) {
   /**
    * Button label for accessibility.

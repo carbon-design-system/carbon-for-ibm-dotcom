@@ -12,7 +12,7 @@ import ddsSettings from '@carbon/ibmdotcom-utilities/es/utilities/settings/setti
 import styles from './link-list-section.scss';
 import StableSelectorMixin from '../../globals/mixins/stable-selector';
 import DDSContentSection from '../content-section/content-section';
-import { carbonElement } from '../../internal/vendor/@carbon/web-components/globals/decorators/carbon-element';
+import { carbonElement as customElement } from '../../internal/vendor/@carbon/web-components/globals/decorators/carbon-element';
 
 const { prefix } = settings;
 const { stablePrefix: ddsPrefix } = ddsSettings;
@@ -23,7 +23,7 @@ const { stablePrefix: ddsPrefix } = ddsSettings;
  * @element dds-link-list
  * @slot heading - The heading content.
  */
-@carbonElement(`${ddsPrefix}-link-list-section`)
+@customElement(`${ddsPrefix}-link-list-section`)
 class DDSLinkListSection extends StableSelectorMixin(DDSContentSection) {
   _handleSlotChange = (event: Event) => {
     const slot = (event.target as HTMLSlotElement)

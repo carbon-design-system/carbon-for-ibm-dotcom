@@ -16,7 +16,7 @@ import { find } from '../../globals/internal/collection-helpers';
 import BXFloatingMenu from '../floating-menu/floating-menu';
 import BXFloatingMenuTrigger from '../floating-menu/floating-menu-trigger';
 import styles from './tooltip.scss';
-import { carbonElement } from '../../globals/decorators/carbon-element';
+import { carbonElement as customElement } from '../../globals/decorators/carbon-element';
 
 const { prefix } = settings;
 
@@ -25,7 +25,7 @@ const { prefix } = settings;
  *
  * @element bx-tooltip
  */
-@carbonElement(`${prefix}-tooltip`)
+@customElement(`${prefix}-tooltip`)
 class BXTooltip
   extends HostListenerMixin(LitElement)
   implements BXFloatingMenuTrigger

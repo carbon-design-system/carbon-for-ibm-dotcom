@@ -8,7 +8,7 @@
  */
 
 import ddsSettings from '../../../internal/vendor/@carbon/ibmdotcom-utilities/utilities/settings/settings';
-import { carbonElement } from '../../../internal/vendor/@carbon/web-components/globals/decorators/carbon-element';
+import { carbonElement as customElement } from '../../../internal/vendor/@carbon/web-components/globals/decorators/carbon-element';
 import DDSTopNavName from '../top-nav-name';
 import styles from './cloud-masthead.scss';
 
@@ -19,7 +19,7 @@ const { stablePrefix: ddsPrefix } = ddsSettings;
  *
  * @element dds-cloud-top-nav-name
  */
-@carbonElement(`${ddsPrefix}-cloud-top-nav-name`)
+@customElement(`${ddsPrefix}-cloud-top-nav-name`)
 class DDSCloudTopNavName extends DDSTopNavName {
   static styles = styles;
 }

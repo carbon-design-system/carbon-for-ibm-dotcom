@@ -16,7 +16,7 @@ import spread from '../../globals/directives/spread';
 import FocusMixin from '../../globals/mixins/focus';
 import { PROGRESS_STEP_STAT } from './defs';
 import styles from './progress-indicator.scss';
-import { carbonElement } from '../../globals/decorators/carbon-element';
+import { carbonElement as customElement } from '../../globals/decorators/carbon-element';
 
 export { PROGRESS_STEP_STAT };
 
@@ -62,7 +62,7 @@ const icons = {
  * @element bx-progress-step
  * @slot secondary-label-text - The secondary progress label.
  */
-@carbonElement(`${prefix}-progress-step`)
+@customElement(`${prefix}-progress-step`)
 class BXProgressStep extends FocusMixin(LitElement) {
   /**
    * `true` if the progress step should be disabled.

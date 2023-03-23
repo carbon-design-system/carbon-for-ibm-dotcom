@@ -12,7 +12,7 @@ import settings from 'carbon-components/es/globals/js/settings';
 import OverflowMenuHorizontal16 from '@carbon/icons/lib/overflow-menu--horizontal/16';
 import BXOverflowMenu from '../overflow-menu/overflow-menu';
 import styles from './breadcrumb.scss';
-import { carbonElement } from '../../globals/decorators/carbon-element';
+import { carbonElement as customElement } from '../../globals/decorators/carbon-element';
 
 const { prefix } = settings;
 
@@ -21,7 +21,7 @@ const { prefix } = settings;
  *
  * @element bx-breadcrumb-overflow-menu
  */
-@carbonElement(`${prefix}-breadcrumb-overflow-menu`)
+@customElement(`${prefix}-breadcrumb-overflow-menu`)
 class BXBreadcrumbOverflowMenu extends BXOverflowMenu {
   render() {
     return html`

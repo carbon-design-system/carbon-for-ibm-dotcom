@@ -9,7 +9,7 @@
 
 import { html, property } from 'lit-element';
 import ddsSettings from '../../internal/vendor/@carbon/ibmdotcom-utilities/utilities/settings/settings';
-import { carbonElement } from '../../internal/vendor/@carbon/web-components/globals/decorators/carbon-element';
+import { carbonElement as customElement } from '../../internal/vendor/@carbon/web-components/globals/decorators/carbon-element';
 import DDSVideoPlayerContainer from '../video-player/video-player-container';
 import styles from './content-item-horizontal-media.scss';
 
@@ -20,7 +20,7 @@ const { stablePrefix: ddsPrefix } = ddsSettings;
  *
  * @element dds-content-item-horizontal-media-video
  */
-@carbonElement(`${ddsPrefix}-content-item-horizontal-media-video`)
+@customElement(`${ddsPrefix}-content-item-horizontal-media-video`)
 class DDSContentItemHorizontalMediaVideo extends DDSVideoPlayerContainer {
   /**
    * The shadow slot this video should be in.

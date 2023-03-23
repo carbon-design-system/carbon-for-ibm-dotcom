@@ -16,7 +16,7 @@ import styles from './universal-banner.scss';
 import StickyHeader from '../../internal/vendor/@carbon/ibmdotcom-utilities/utilities/StickyHeader/StickyHeader';
 import DDSButtonCTA from '../cta/button-cta';
 import { icons as ctaIcons } from '../../component-mixins/cta/cta';
-import { carbonElement } from '../../internal/vendor/@carbon/web-components/globals/decorators/carbon-element';
+import { carbonElement as customElement } from '../../internal/vendor/@carbon/web-components/globals/decorators/carbon-element';
 
 const gridLgBreakpoint = parseFloat(breakpoints.lg.width) * baseFontSize;
 
@@ -28,7 +28,7 @@ const { prefix } = settings;
  *
  * @element dds-universal-banner
  */
-@carbonElement(`${ddsPrefix}-universal-banner`)
+@customElement(`${ddsPrefix}-universal-banner`)
 class DDSUniversalBanner extends StableSelectorMixin(LitElement) {
   /**
    * Saves the button CTA's href to use in link-with-icon for the small breakpoint

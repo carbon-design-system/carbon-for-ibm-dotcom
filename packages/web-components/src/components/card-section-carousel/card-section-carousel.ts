@@ -12,7 +12,7 @@ import ddsSettings from '../../internal/vendor/@carbon/ibmdotcom-utilities/utili
 
 import styles from './card-section-carousel.scss';
 import DDSContentSection from '../content-section/content-section';
-import { carbonElement } from '../../internal/vendor/@carbon/web-components/globals/decorators/carbon-element';
+import { carbonElement as customElement } from '../../internal/vendor/@carbon/web-components/globals/decorators/carbon-element';
 
 const { stablePrefix: ddsPrefix } = ddsSettings;
 
@@ -21,7 +21,7 @@ const { stablePrefix: ddsPrefix } = ddsSettings;
  *
  * @element dds-card-section-carousel
  */
-@carbonElement(`${ddsPrefix}-card-section-carousel`)
+@customElement(`${ddsPrefix}-card-section-carousel`)
 class DDSCardSectionCarousel extends DDSContentSection {
   static get stableSelector() {
     return `${ddsPrefix}--card-section-carousel`;

@@ -10,7 +10,7 @@
 import { html, LitElement } from 'lit-element';
 import settings from 'carbon-components/es/globals/js/settings';
 import styles from './breadcrumb.scss';
-import { carbonElement } from '../../globals/decorators/carbon-element';
+import { carbonElement as customElement } from '../../globals/decorators/carbon-element';
 
 const { prefix } = settings;
 
@@ -19,7 +19,7 @@ const { prefix } = settings;
  *
  * @element bx-breadcrumb
  */
-@carbonElement(`${prefix}-breadcrumb`)
+@customElement(`${prefix}-breadcrumb`)
 class BXBreadcrumb extends LitElement {
   connectedCallback() {
     if (!this.hasAttribute('role')) {

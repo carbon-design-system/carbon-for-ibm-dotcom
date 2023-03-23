@@ -12,7 +12,7 @@ import settings from 'carbon-components/es/globals/js/settings';
 import BXContentSwitcherItem from '../content-switcher/content-switcher-item';
 import { TABS_TYPE } from './tabs';
 import styles from './tabs.scss';
-import { carbonElement } from '../../globals/decorators/carbon-element';
+import { carbonElement as customElement } from '../../globals/decorators/carbon-element';
 
 const { prefix } = settings;
 
@@ -21,7 +21,7 @@ const { prefix } = settings;
  *
  * @element bx-tab
  */
-@carbonElement(`${prefix}-tab`)
+@customElement(`${prefix}-tab`)
 class BXTab extends BXContentSwitcherItem {
   /**
    * `true` if this tab should be highlighted.

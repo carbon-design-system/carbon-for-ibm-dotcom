@@ -12,7 +12,7 @@ import settings from 'carbon-components/es/globals/js/settings';
 import { forEach } from '../../globals/internal/collection-helpers';
 import { ACCORDION_SIZE } from './defs';
 import styles from './accordion.scss';
-import { carbonElement } from '../../globals/decorators/carbon-element';
+import { carbonElement as customElement } from '../../globals/decorators/carbon-element';
 
 export { ACCORDION_SIZE };
 
@@ -23,7 +23,7 @@ const { prefix } = settings;
  *
  * @element bx-accordion
  */
-@carbonElement(`${prefix}-accordion`)
+@customElement(`${prefix}-accordion`)
 class BXAccordion extends LitElement {
   /**
    * Accordion size.

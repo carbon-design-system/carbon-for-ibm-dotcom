@@ -16,7 +16,7 @@ import { BUTTON_KIND, BUTTON_SIZE, BUTTON_ICON_LAYOUT } from './defs';
 import styles from './button.scss';
 import HostListener from '../../globals/decorators/host-listener';
 import HostListenerMixin from '../../globals/mixins/host-listener';
-import { carbonElement } from '../../globals/decorators/carbon-element';
+import { carbonElement as customElement } from '../../globals/decorators/carbon-element';
 
 export { BUTTON_KIND, BUTTON_SIZE, BUTTON_ICON_LAYOUT };
 
@@ -28,7 +28,7 @@ const { prefix } = settings;
  * @element bx-btn
  * @csspart button The button.
  */
-@carbonElement(`${prefix}-btn`)
+@customElement(`${prefix}-btn`)
 class BXButton extends HostListenerMixin(FocusMixin(LitElement)) {
   /**
    * `true` if there is an icon.

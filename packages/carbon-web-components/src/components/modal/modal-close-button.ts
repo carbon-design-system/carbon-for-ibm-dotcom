@@ -13,7 +13,7 @@ import settings from 'carbon-components/es/globals/js/settings';
 import ifNonNull from '../../globals/directives/if-non-null';
 import FocusMixin from '../../globals/mixins/focus';
 import styles from './modal.scss';
-import { carbonElement } from '../../globals/decorators/carbon-element';
+import { carbonElement as customElement } from '../../globals/decorators/carbon-element';
 
 const { prefix } = settings;
 
@@ -24,7 +24,7 @@ const { prefix } = settings;
  * @csspart button The button.
  * @csspart close-icon The close icon.
  */
-@carbonElement(`${prefix}-modal-close-button`)
+@customElement(`${prefix}-modal-close-button`)
 class BXModalCloseButton extends FocusMixin(LitElement) {
   /**
    * The assistive text for the button.

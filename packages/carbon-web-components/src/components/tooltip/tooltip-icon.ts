@@ -11,7 +11,7 @@ import { classMap } from 'lit-html/directives/class-map';
 import { html } from 'lit-element';
 import settings from 'carbon-components/es/globals/js/settings';
 import BXTooltipDefintion from './tooltip-definition';
-import { carbonElement } from '../../globals/decorators/carbon-element';
+import { carbonElement as customElement } from '../../globals/decorators/carbon-element';
 
 const { prefix } = settings;
 
@@ -21,7 +21,7 @@ const { prefix } = settings;
  * @element bx-tooltip-icon
  * @slot body - The tooltip body content.
  */
-@carbonElement(`${prefix}-tooltip-icon`)
+@customElement(`${prefix}-tooltip-icon`)
 class BXTooltipIcon extends BXTooltipDefintion {
   render() {
     const { alignment, bodyText, direction } = this;

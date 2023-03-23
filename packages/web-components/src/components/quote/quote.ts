@@ -13,7 +13,7 @@ import styles from './quote.scss';
 import StableSelectorMixin from '../../globals/mixins/stable-selector';
 import { QUOTE_TYPES, QUOTE_COLOR_SCHEMES } from './defs';
 import '../horizontal-rule/horizontal-rule';
-import { carbonElement } from '../../internal/vendor/@carbon/web-components/globals/decorators/carbon-element';
+import { carbonElement as customElement } from '../../internal/vendor/@carbon/web-components/globals/decorators/carbon-element';
 
 export { QUOTE_TYPES, QUOTE_COLOR_SCHEMES };
 
@@ -37,7 +37,7 @@ const slotExistencePropertyNames = {
  * @slot source-copy - The copy content of the quote source.
  * @slot source-bottom-copy - The copy content of the quote source placed at the bottom.
  */
-@carbonElement(`${ddsPrefix}-quote`)
+@customElement(`${ddsPrefix}-quote`)
 class DDSQuote extends StableSelectorMixin(LitElement) {
   /**
    * Defines rendered quote mark style

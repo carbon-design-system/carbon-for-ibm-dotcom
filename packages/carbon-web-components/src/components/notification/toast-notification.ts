@@ -9,7 +9,7 @@
 
 import settings from 'carbon-components/es/globals/js/settings';
 import { html, property } from 'lit-element';
-import { carbonElement } from '../../globals/decorators/carbon-element';
+import { carbonElement as customElement } from '../../globals/decorators/carbon-element';
 import { NOTIFICATION_TYPE } from './defs';
 import BXInlineNotification from './inline-notification';
 import styles from './toast-notification.scss';
@@ -27,7 +27,7 @@ const { prefix } = settings;
  *   Cancellation of this event stops the user-initiated action of closing this notification.
  * @fires bx-notification-closed - The custom event fired after this notification is closed upon a user gesture.
  */
-@carbonElement(`${prefix}-toast-notification`)
+@customElement(`${prefix}-toast-notification`)
 class BXToastNotification extends BXInlineNotification {
   protected _type = NOTIFICATION_TYPE.TOAST;
 

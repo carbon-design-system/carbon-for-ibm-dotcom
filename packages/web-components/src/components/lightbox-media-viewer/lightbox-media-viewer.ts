@@ -14,7 +14,7 @@ import DDSLightboxMediaViewerBody from './lightbox-media-viewer-body';
 import DDSVideoPlayerContainer from '../video-player/video-player-container';
 import DDSCarousel from '../carousel/carousel';
 import DDSExpressiveModal from '../expressive-modal/expressive-modal';
-import { carbonElement } from '../../internal/vendor/@carbon/web-components/globals/decorators/carbon-element';
+import { carbonElement as customElement } from '../../internal/vendor/@carbon/web-components/globals/decorators/carbon-element';
 
 const { prefix } = settings;
 const { stablePrefix: ddsPrefix } = ddsSettings;
@@ -26,7 +26,7 @@ const { stablePrefix: ddsPrefix } = ddsSettings;
  * @slot title - The title content.
  * @slot description - The description content.
  */
-@carbonElement(`${ddsPrefix}-lightbox-media-viewer`)
+@customElement(`${ddsPrefix}-lightbox-media-viewer`)
 class DDSLightboxMediaViewer extends DDSLightboxMediaViewerBody {
   _renderDescription() {
     const { description } = this;

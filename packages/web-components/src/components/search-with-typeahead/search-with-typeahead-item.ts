@@ -12,7 +12,7 @@ import { html, property, LitElement, TemplateResult } from 'lit-element';
 import settings from 'carbon-components/es/globals/js/settings.js';
 import ddsSettings from '../../internal/vendor/@carbon/ibmdotcom-utilities/utilities/settings/settings';
 import styles from './search-with-typeahead.scss';
-import { carbonElement } from '../../internal/vendor/@carbon/web-components/globals/decorators/carbon-element';
+import { carbonElement as customElement } from '../../internal/vendor/@carbon/web-components/globals/decorators/carbon-element';
 
 const { prefix } = settings;
 const { stablePrefix: ddsPrefix } = ddsSettings;
@@ -22,7 +22,7 @@ const { stablePrefix: ddsPrefix } = ddsSettings;
  *
  * @element dds-search-with-typeahead-item
  */
-@carbonElement(`${ddsPrefix}-search-with-typeahead-item`)
+@customElement(`${ddsPrefix}-search-with-typeahead-item`)
 class DDSSearchWithTypeaheadItem extends LitElement {
   /**
    * The the search result to be shown.

@@ -33,7 +33,7 @@ import styles from './cloud-masthead.scss';
 import DDSMastheadComposite, {
   NAV_ITEMS_RENDER_TARGET,
 } from '../masthead-composite';
-import { carbonElement } from '../../../internal/vendor/@carbon/web-components/globals/decorators/carbon-element.js';
+import { carbonElement as customElement } from '../../../internal/vendor/@carbon/web-components/globals/decorators/carbon-element.js';
 
 const { stablePrefix: ddsPrefix } = ddsSettings;
 
@@ -46,7 +46,7 @@ const layoutBreakpoint = window.matchMedia(`(max-width: 959px)`);
  * @element dds-cloud-masthead-composite
  */
 
-@carbonElement(`${ddsPrefix}-cloud-masthead-composite`)
+@customElement(`${ddsPrefix}-cloud-masthead-composite`)
 class DDSCloudMastheadComposite extends DDSMastheadComposite {
   /**
    * The placeholder for `loadUserStatus()` Redux action that will be mixed in.

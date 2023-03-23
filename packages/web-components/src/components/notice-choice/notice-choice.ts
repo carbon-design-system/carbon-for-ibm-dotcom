@@ -24,7 +24,7 @@ import StableSelectorMixin from '../../globals/mixins/stable-selector';
 import styles from './notice-choice.scss';
 import { unsafeHTML } from 'lit-html/directives/unsafe-html';
 import { worldWideContent } from './world-wide-content';
-import { carbonElement } from '../../internal/vendor/@carbon/web-components/globals/decorators/carbon-element';
+import { carbonElement as customElement } from '../../internal/vendor/@carbon/web-components/globals/decorators/carbon-element';
 
 const { stablePrefix: ddsPrefix } = ddsSettings;
 const { prefix } = settings;
@@ -37,7 +37,7 @@ const { prefix } = settings;
  * The custom event fired when default choice loaded or user change some preferences.
  * The field and value should be taken from the detail object and send it to MRS.
  */
-@carbonElement(`dds-notice-choice`)
+@customElement(`dds-notice-choice`)
 class NoticeChoice extends StableSelectorMixin(LitElement) {
   /**
    * properties for passed attributes.

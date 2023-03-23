@@ -13,7 +13,7 @@ import ddsSettings from '../../internal/vendor/@carbon/ibmdotcom-utilities/utili
 import '../horizontal-rule/horizontal-rule';
 import StableSelectorMixin from '../../globals/mixins/stable-selector';
 import styles from './leadspace-block.scss';
-import { carbonElement } from '../../internal/vendor/@carbon/web-components/globals/decorators/carbon-element';
+import { carbonElement as customElement } from '../../internal/vendor/@carbon/web-components/globals/decorators/carbon-element';
 
 const { prefix } = settings;
 const { stablePrefix: ddsPrefix } = ddsSettings;
@@ -30,7 +30,7 @@ const slotExistencePropertyNames = {
  *
  * @element dds-leadspace-block
  */
-@carbonElement(`${ddsPrefix}-leadspace-block`)
+@customElement(`${ddsPrefix}-leadspace-block`)
 class DDSLeadSpaceBlock extends StableSelectorMixin(LitElement) {
   /**
    * `true` if there is a title.

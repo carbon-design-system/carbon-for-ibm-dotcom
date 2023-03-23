@@ -12,7 +12,7 @@ import { html, property, LitElement } from 'lit-element';
 import settings from 'carbon-components/es/globals/js/settings';
 import { SKELETON_TEXT_TYPE } from './defs';
 import styles from './skeleton-text.scss';
-import { carbonElement } from '../../globals/decorators/carbon-element';
+import { carbonElement as customElement } from '../../globals/decorators/carbon-element';
 
 export { SKELETON_TEXT_TYPE };
 
@@ -23,7 +23,7 @@ const { prefix } = settings;
  *
  * @element bx-skeleton-text
  */
-@carbonElement(`${prefix}-skeleton-text`)
+@customElement(`${prefix}-skeleton-text`)
 class BXSkeletonText extends LitElement {
   /**
    * The type of skeleton text.

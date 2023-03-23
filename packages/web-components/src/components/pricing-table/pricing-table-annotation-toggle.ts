@@ -14,11 +14,11 @@ import Close16 from '../../internal/vendor/@carbon/web-components/icons/close/16
 import StableSelectorMixin from '../../globals/mixins/stable-selector';
 import styles from './pricing-table.scss';
 import DDSPricingTableRow from './pricing-table-row';
-import { carbonElement } from '../../internal/vendor/@carbon/web-components/globals/decorators/carbon-element.js';
+import { carbonElement as customElement } from '../../internal/vendor/@carbon/web-components/globals/decorators/carbon-element.js';
 
 const { stablePrefix: ddsPrefix } = ddsSettings;
 
-@carbonElement(`${ddsPrefix}-pricing-table-annotation-toggle`)
+@customElement(`${ddsPrefix}-pricing-table-annotation-toggle`)
 class DDSPricingTableAnnotationToggle extends StableSelectorMixin(LitElement) {
   @property({ reflect: true })
   slot = 'toggle';

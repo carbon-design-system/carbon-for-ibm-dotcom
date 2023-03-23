@@ -50,7 +50,7 @@ import './left-nav';
 import '../search-with-typeahead/search-with-typeahead';
 import '../search-with-typeahead/search-with-typeahead-item';
 import styles from './masthead.scss';
-import { carbonElement } from '../../internal/vendor/@carbon/web-components/globals/decorators/carbon-element.js';
+import { carbonElement as customElement } from '../../internal/vendor/@carbon/web-components/globals/decorators/carbon-element.js';
 
 const { stablePrefix: ddsPrefix } = ddsSettings;
 
@@ -74,7 +74,7 @@ export enum NAV_ITEMS_RENDER_TARGET {
  *
  * @element dds-masthead-composite
  */
-@carbonElement(`${ddsPrefix}-masthead-composite`)
+@customElement(`${ddsPrefix}-masthead-composite`)
 class DDSMastheadComposite extends HostListenerMixin(LitElement) {
   /**
    * Renders L1 menu based on l1Data

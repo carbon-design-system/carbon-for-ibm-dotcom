@@ -14,7 +14,7 @@ import WarningFilled20 from '@carbon/icons/lib/warning--filled/20';
 import settings from 'carbon-components/es/globals/js/settings';
 import { html, LitElement, property, svg } from 'lit-element';
 import { ifDefined } from 'lit-html/directives/if-defined';
-import { carbonElement } from '../../globals/decorators/carbon-element';
+import { carbonElement as customElement } from '../../globals/decorators/carbon-element';
 import FocusMixin from '../../globals/mixins/focus';
 import { NOTIFICATION_KIND, NOTIFICATION_TYPE } from './defs';
 import styles from './inline-notification.scss';
@@ -44,7 +44,7 @@ const iconsForKinds = {
  *   Cancellation of this event stops the user-initiated action of closing this notification.
  * @fires bx-notification-closed - The custom event fired after this notification is closed upon a user gesture.
  */
-@carbonElement(`${prefix}-inline-notification`)
+@customElement(`${prefix}-inline-notification`)
 class BXInlineNotification extends FocusMixin(LitElement) {
   /**
    * Current timeout identifier

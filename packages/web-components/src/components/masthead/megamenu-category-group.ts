@@ -14,7 +14,7 @@ import settings from 'carbon-components/es/globals/js/settings.js';
 import ddsSettings from '../../internal/vendor/@carbon/ibmdotcom-utilities/utilities/settings/settings';
 import styles from './masthead.scss';
 import './megamenu-link-with-icon';
-import { carbonElement } from '../../internal/vendor/@carbon/web-components/globals/decorators/carbon-element.js';
+import { carbonElement as customElement } from '../../internal/vendor/@carbon/web-components/globals/decorators/carbon-element.js';
 
 const { prefix } = settings;
 const { stablePrefix: ddsPrefix } = ddsSettings;
@@ -24,7 +24,7 @@ const { stablePrefix: ddsPrefix } = ddsSettings;
  *
  * @element dds-megamenu-category-group
  */
-@carbonElement(`${ddsPrefix}-megamenu-category-group`)
+@customElement(`${ddsPrefix}-megamenu-category-group`)
 class DDSMegaMenuCategoryGroup extends LitElement {
   /**
    * href for the category group title

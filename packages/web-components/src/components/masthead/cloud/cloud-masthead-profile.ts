@@ -14,7 +14,7 @@ import User20 from '../../../internal/vendor/@carbon/web-components/icons/user/2
 import ddsSettings from '../../../internal/vendor/@carbon/ibmdotcom-utilities/utilities/settings/settings';
 import styles from './cloud-masthead.scss';
 import DDSMastheadProfile from '../masthead-profile';
-import { carbonElement } from '../../../internal/vendor/@carbon/web-components/globals/decorators/carbon-element.js';
+import { carbonElement as customElement } from '../../../internal/vendor/@carbon/web-components/globals/decorators/carbon-element.js';
 
 const { prefix } = settings;
 const { stablePrefix: ddsPrefix } = ddsSettings;
@@ -24,7 +24,7 @@ const { stablePrefix: ddsPrefix } = ddsSettings;
  *
  * @element dds-cloud-masthead-profile
  */
-@carbonElement(`${ddsPrefix}-cloud-masthead-profile`)
+@customElement(`${ddsPrefix}-cloud-masthead-profile`)
 class DDSCloudMastheadProfile extends DDSMastheadProfile {
   render() {
     const {

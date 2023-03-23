@@ -13,7 +13,7 @@ import ddsSettings from '../../internal/vendor/@carbon/ibmdotcom-utilities/utili
 import { EXPRESSIVE_MODAL_SIZE } from './defs';
 import styles from './expressive-modal.scss';
 import StableSelectorMixin from '../../globals/mixins/stable-selector';
-import { carbonElement } from '../../internal/vendor/@carbon/web-components/globals/decorators/carbon-element.js';
+import { carbonElement as customElement } from '../../internal/vendor/@carbon/web-components/globals/decorators/carbon-element.js';
 
 const { stablePrefix: ddsPrefix } = ddsSettings;
 
@@ -22,7 +22,7 @@ const { stablePrefix: ddsPrefix } = ddsSettings;
  *
  * @element dds-expressive-modal-close-button
  */
-@carbonElement(`${ddsPrefix}-expressive-modal-close-button`)
+@customElement(`${ddsPrefix}-expressive-modal-close-button`)
 class DDSExpressiveModalCloseButton extends StableSelectorMixin(
   BXModalCloseButton
 ) {

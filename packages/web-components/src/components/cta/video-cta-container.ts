@@ -23,7 +23,7 @@ import {
 } from '../video-player/video-player-container';
 import ConnectMixin from '../../globals/mixins/connect';
 import DDSVideoCTAComposite from './video-cta-composite';
-import { carbonElement } from '../../internal/vendor/@carbon/web-components/globals/decorators/carbon-element';
+import { carbonElement as customElement } from '../../internal/vendor/@carbon/web-components/globals/decorators/carbon-element';
 
 const { stablePrefix: ddsPrefix } = ddsSettings;
 
@@ -57,7 +57,7 @@ export type CTAContainerActions = ReturnType<typeof loadMediaData>;
  *
  * @element dds-cta-container
  */
-@carbonElement(`${ddsPrefix}-video-cta-container`)
+@customElement(`${ddsPrefix}-video-cta-container`)
 class DDSVideoCTAContainer extends ConnectMixin<
   VideoCTAContainerState,
   MediaPlayerAPIActions,

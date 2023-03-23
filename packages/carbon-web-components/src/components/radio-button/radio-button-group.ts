@@ -16,7 +16,7 @@ import { find, forEach } from '../../globals/internal/collection-helpers';
 import { RADIO_BUTTON_LABEL_POSITION, RADIO_BUTTON_ORIENTATION } from './defs';
 import BXRadioButton from './radio-button';
 import styles from './radio-button.scss';
-import { carbonElement } from '../../globals/decorators/carbon-element';
+import { carbonElement as customElement } from '../../globals/decorators/carbon-element';
 
 export { RADIO_BUTTON_ORIENTATION };
 
@@ -28,7 +28,7 @@ const { prefix } = settings;
  * @element bx-radio-button-group
  * @fires bx-radio-button-group-changed - The custom event fired after this radio button group changes its selected item.
  */
-@carbonElement(`${prefix}-radio-button-group`)
+@customElement(`${prefix}-radio-button-group`)
 class BXRadioButtonGroup extends FormMixin(HostListenerMixin(LitElement)) {
   /**
    * Handles user-initiated change in selected radio button.

@@ -9,7 +9,7 @@
 
 import settings from 'carbon-components/es/globals/js/settings';
 import { html, property, LitElement } from 'lit-element';
-import { carbonElement } from '../../globals/decorators/carbon-element';
+import { carbonElement as customElement } from '../../globals/decorators/carbon-element';
 import FocusMixin from '../../globals/mixins/focus';
 import styles from './overflow-menu.scss';
 
@@ -20,7 +20,7 @@ const { prefix } = settings;
  *
  * @element bx-overflow-menu-item
  */
-@carbonElement(`${prefix}-overflow-menu-item`)
+@customElement(`${prefix}-overflow-menu-item`)
 class BXOverflowMenuItem extends FocusMixin(LitElement) {
   /**
    * `true` if the action is danger.

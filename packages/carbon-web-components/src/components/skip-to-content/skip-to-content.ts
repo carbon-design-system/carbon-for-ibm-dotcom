@@ -12,7 +12,7 @@ import settings from 'carbon-components/es/globals/js/settings.js';
 import ifNonNull from '../../globals/directives/if-non-null';
 import FocusMixin from '../../globals/mixins/focus';
 import styles from './skip-to-content.scss';
-import { carbonElement } from '../../globals/decorators/carbon-element';
+import { carbonElement as customElement } from '../../globals/decorators/carbon-element';
 
 const { prefix } = settings;
 
@@ -21,7 +21,7 @@ const { prefix } = settings;
  *
  * @element bx-skip-to-content
  */
-@carbonElement(`${prefix}-skip-to-content`)
+@customElement(`${prefix}-skip-to-content`)
 class BXSkipToContent extends FocusMixin(LitElement) {
   /**
    * The assistive text for the link,

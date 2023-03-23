@@ -18,7 +18,7 @@ import CTAMixin from '../../component-mixins/cta/cta';
 import VideoCTAMixin from '../../component-mixins/cta/video';
 import { CTA_TYPE } from './defs';
 import styles from './cta.scss';
-import { carbonElement } from '../../internal/vendor/@carbon/web-components/globals/decorators/carbon-element';
+import { carbonElement as customElement } from '../../internal/vendor/@carbon/web-components/globals/decorators/carbon-element';
 
 export { CTA_TYPE };
 
@@ -29,7 +29,7 @@ const { stablePrefix: ddsPrefix } = ddsSettings;
  *
  * @element dds-button-cta
  */
-@carbonElement(`${ddsPrefix}-button-cta`)
+@customElement(`${ddsPrefix}-button-cta`)
 class DDSButtonCTA extends VideoCTAMixin(CTAMixin(DDSButtonGroupItem)) {
   /**
    * The button that may work as a link.

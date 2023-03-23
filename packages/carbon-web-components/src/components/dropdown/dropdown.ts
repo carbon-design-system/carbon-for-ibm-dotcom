@@ -33,7 +33,7 @@ import {
 } from './defs';
 import BXDropdownItem from './dropdown-item';
 import styles from './dropdown.scss';
-import { carbonElement } from '../../globals/decorators/carbon-element';
+import { carbonElement as customElement } from '../../globals/decorators/carbon-element';
 
 export {
   DROPDOWN_COLOR_SCHEME,
@@ -63,7 +63,7 @@ const { prefix } = settings;
  * @fires bx-dropdown-selected - The custom event fired after a dropdown item is selected upon a user gesture.
  * @fires bx-dropdown-toggled - The custom event fired after the open state of this dropdown is toggled upon a user gesture.
  */
-@carbonElement(`${prefix}-dropdown`)
+@customElement(`${prefix}-dropdown`)
 class BXDropdown extends ValidityMixin(
   HostListenerMixin(FormMixin(FocusMixin(LitElement)))
 ) {

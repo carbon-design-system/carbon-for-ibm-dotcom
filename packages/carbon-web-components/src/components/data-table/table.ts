@@ -12,7 +12,7 @@ import { html, property, LitElement } from 'lit-element';
 import { forEach } from '../../globals/internal/collection-helpers';
 import { TABLE_COLOR_SCHEME, TABLE_SIZE } from './defs';
 import styles from './data-table.scss';
-import { carbonElement } from '../../globals/decorators/carbon-element';
+import { carbonElement as customElement } from '../../globals/decorators/carbon-element';
 
 export { TABLE_COLOR_SCHEME, TABLE_SIZE };
 
@@ -23,7 +23,7 @@ const { prefix } = settings;
  *
  * @element bx-table
  */
-@carbonElement(`${prefix}-table`)
+@customElement(`${prefix}-table`)
 class BXTable extends LitElement {
   /**
    * The table size.

@@ -19,7 +19,7 @@ import { forEach } from '../../globals/internal/collection-helpers';
 import BXPagesSelect from './pages-select';
 import BXPageSizesSelect from './page-sizes-select';
 import styles from './pagination.scss';
-import { carbonElement } from '../../globals/decorators/carbon-element';
+import { carbonElement as customElement } from '../../globals/decorators/carbon-element';
 
 const { prefix } = settings;
 
@@ -32,7 +32,7 @@ const { prefix } = settings;
  * @fires bx-page-sizes-select-changed
  *   The custom event fired after the number of rows per page is changed from `<bx-page-sizes-select>`.
  */
-@carbonElement(`${prefix}-pagination`)
+@customElement(`${prefix}-pagination`)
 class BXPagination extends FocusMixin(HostListenerMixin(LitElement)) {
   /**
    * @returns Page status text.

@@ -31,7 +31,7 @@ import rangePlugin from './range-plugin';
 import shadowDOMEventPlugin from './shadow-dom-events-plugin';
 import stateHandshakePlugin from './state-handshake-plugin';
 import styles from './date-picker.scss';
-import { carbonElement } from '../../globals/decorators/carbon-element';
+import { carbonElement as customElement } from '../../globals/decorators/carbon-element';
 
 const { prefix } = settings;
 
@@ -61,7 +61,7 @@ enum DATE_PICKER_MODE {
  * @element bx-date-picker
  * @fires bx-date-picker-changed - The custom event fired on this element when Flatpickr updates its value.
  */
-@carbonElement(`${prefix}-date-picker`)
+@customElement(`${prefix}-date-picker`)
 class BXDatePicker extends HostListenerMixin(FormMixin(LitElement)) {
   /**
    * The slotted `<bx-date-input kind="from">`.

@@ -26,7 +26,7 @@ import DDSCardCTAFooter from './card-cta-footer';
 import './card-cta-footer';
 import { CTA_TYPE } from './defs';
 import styles from './cta.scss';
-import { carbonElement } from '../../internal/vendor/@carbon/web-components/globals/decorators/carbon-element.js';
+import { carbonElement as customElement } from '../../internal/vendor/@carbon/web-components/globals/decorators/carbon-element.js';
 
 export { CTA_TYPE };
 
@@ -38,7 +38,7 @@ const { stablePrefix: ddsPrefix } = ddsSettings;
  *
  * @element dds-card-cta
  */
-@carbonElement(`${ddsPrefix}-card-cta`)
+@customElement(`${ddsPrefix}-card-cta`)
 class DDSCardCTA extends VideoCTAMixin(CTAMixin(DDSCard)) {
   protected _renderHeading() {
     const {

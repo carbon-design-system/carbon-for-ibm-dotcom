@@ -15,7 +15,7 @@ import HostListener from '../../globals/decorators/host-listener';
 import { INPUT_SIZE } from '../input/input';
 import BXSearch from '../search/search';
 import styles from './data-table.scss';
-import { carbonElement } from '../../globals/decorators/carbon-element';
+import { carbonElement as customElement } from '../../globals/decorators/carbon-element';
 
 const { prefix } = settings;
 
@@ -25,7 +25,7 @@ const { prefix } = settings;
  * @element bx-table-toolbar-search
  * @fires bx-search-input - The custom event fired after the search content is changed upon a user gesture.
  */
-@carbonElement(`${prefix}-table-toolbar-search`)
+@customElement(`${prefix}-table-toolbar-search`)
 class BXTableToolbarSearch extends HostListenerMixin(BXSearch) {
   @query('input')
   private _inputNode!: HTMLInputElement;

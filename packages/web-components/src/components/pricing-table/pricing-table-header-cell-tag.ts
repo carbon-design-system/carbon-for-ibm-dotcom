@@ -12,11 +12,11 @@ import ddsSettings from '@carbon/ibmdotcom-utilities/es/utilities/settings/setti
 import StableSelectorMixin from '../../globals/mixins/stable-selector';
 import DDSTagLink from '../tag-link/tag-link';
 import styles from './pricing-table.scss';
-import { carbonElement } from '../../internal/vendor/@carbon/web-components/globals/decorators/carbon-element';
+import { carbonElement as customElement } from '../../internal/vendor/@carbon/web-components/globals/decorators/carbon-element';
 
 const { stablePrefix: ddsPrefix } = ddsSettings;
 
-@carbonElement(`${ddsPrefix}-pricing-table-header-cell-tag`)
+@customElement(`${ddsPrefix}-pricing-table-header-cell-tag`)
 class DDSPricingTableHeaderCellTag extends StableSelectorMixin(DDSTagLink) {
   @property({ reflect: true })
   slot = 'tag';

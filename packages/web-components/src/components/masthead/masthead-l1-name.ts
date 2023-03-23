@@ -12,7 +12,7 @@ import settings from 'carbon-components/es/globals/js/settings.js';
 import ddsSettings from '../../internal/vendor/@carbon/ibmdotcom-utilities/utilities/settings/settings';
 import StableSelectorMixin from '../../globals/mixins/stable-selector';
 import styles from './masthead.scss';
-import { carbonElement } from '../../internal/vendor/@carbon/web-components/globals/decorators/carbon-element';
+import { carbonElement as customElement } from '../../internal/vendor/@carbon/web-components/globals/decorators/carbon-element';
 
 const { stablePrefix: ddsPrefix } = ddsSettings;
 const { prefix } = settings;
@@ -22,7 +22,7 @@ const { prefix } = settings;
  *
  * @element dds-masthead-l1-name
  */
-@carbonElement(`${ddsPrefix}-masthead-l1-name`)
+@customElement(`${ddsPrefix}-masthead-l1-name`)
 class DDSMastheadL1Name extends StableSelectorMixin(LitElement) {
   /**
    * slot name for this component in the masthead l1

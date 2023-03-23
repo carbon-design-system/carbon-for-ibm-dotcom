@@ -10,7 +10,7 @@
 import { html, LitElement } from 'lit-element';
 import settings from 'carbon-components/es/globals/js/settings';
 import styles from './modal.scss';
-import { carbonElement } from '../../globals/decorators/carbon-element';
+import { carbonElement as customElement } from '../../globals/decorators/carbon-element';
 
 const { prefix } = settings;
 
@@ -19,7 +19,7 @@ const { prefix } = settings;
  *
  * @element bx-modal-body
  */
-@carbonElement(`${prefix}-modal-body`)
+@customElement(`${prefix}-modal-body`)
 class BXModalBody extends LitElement {
   render() {
     return html` <slot></slot> `;

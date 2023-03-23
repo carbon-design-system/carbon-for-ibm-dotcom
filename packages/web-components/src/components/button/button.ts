@@ -16,7 +16,7 @@ import { BUTTON_ICON_LAYOUT, BUTTON_KIND, BUTTON_SIZE } from './defs';
 import ddsSettings from '../../internal/vendor/@carbon/ibmdotcom-utilities/utilities/settings/settings';
 import styles from './button.scss';
 import StableSelectorMixin from '../../globals/mixins/stable-selector';
-import { carbonElement } from '../../internal/vendor/@carbon/web-components/globals/decorators/carbon-element.js';
+import { carbonElement as customElement } from '../../internal/vendor/@carbon/web-components/globals/decorators/carbon-element.js';
 
 export { BUTTON_KIND, BUTTON_SIZE };
 
@@ -29,7 +29,7 @@ const { stablePrefix: ddsPrefix } = ddsSettings;
  * @element dds-button-expressive
  * @csspart button The button.
  */
-@carbonElement(`${ddsPrefix}-button-expressive`)
+@customElement(`${ddsPrefix}-button-expressive`)
 class DDSButtonExpressive extends FocusMixin(StableSelectorMixin(LitElement)) {
   /**
    * `true` if there is an icon.

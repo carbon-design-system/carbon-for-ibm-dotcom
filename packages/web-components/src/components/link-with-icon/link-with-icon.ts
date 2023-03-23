@@ -16,7 +16,7 @@ import ddsSettings from '../../internal/vendor/@carbon/ibmdotcom-utilities/utili
 import { ICON_PLACEMENT } from '../../globals/defs';
 import StableSelectorMixin from '../../globals/mixins/stable-selector';
 import styles from './link-with-icon.scss';
-import { carbonElement } from '../../internal/vendor/@carbon/web-components/globals/decorators/carbon-element.js';
+import { carbonElement as customElement } from '../../internal/vendor/@carbon/web-components/globals/decorators/carbon-element.js';
 
 export { ICON_PLACEMENT };
 
@@ -30,7 +30,7 @@ const { stablePrefix: ddsPrefix } = ddsSettings;
  * @slot icon - The icon.
  * @slot icon-left - The CTA icon to place at the left.
  */
-@carbonElement(`${ddsPrefix}-link-with-icon`)
+@customElement(`${ddsPrefix}-link-with-icon`)
 class DDSLinkWithIcon extends StableSelectorMixin(BXLink) {
   /**
    * Icon placement(right (default) | left)

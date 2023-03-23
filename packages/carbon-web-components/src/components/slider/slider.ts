@@ -18,7 +18,7 @@ import HostListener from '../../globals/decorators/host-listener';
 import ifNonEmpty from '../../globals/directives/if-non-empty';
 import BXSliderInput from './slider-input';
 import styles from './slider.scss';
-import { carbonElement } from '../../globals/decorators/carbon-element';
+import { carbonElement as customElement } from '../../globals/decorators/carbon-element';
 
 const { prefix } = settings;
 
@@ -49,7 +49,7 @@ const THUMB_DIRECTION = {
  * @slot min-text - The text for minimum value.
  * @fires bx-slider-changed - The custom event fired after the value is changed by user gesture.
  */
-@carbonElement(`${prefix}-slider`)
+@customElement(`${prefix}-slider`)
 class BXSlider extends HostListenerMixin(FormMixin(FocusMixin(LitElement))) {
   /**
    * The internal value of `max` property.

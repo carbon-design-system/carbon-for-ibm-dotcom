@@ -9,7 +9,7 @@
 
 import { property, LitElement } from 'lit-element';
 import settings from 'carbon-components/es/globals/js/settings';
-import { carbonElement } from '../../globals/decorators/carbon-element';
+import { carbonElement as customElement } from '../../globals/decorators/carbon-element';
 
 const { prefix } = settings;
 
@@ -18,7 +18,7 @@ const { prefix } = settings;
  *
  * @element bx-select-item
  */
-@carbonElement(`${prefix}-select-item`)
+@customElement(`${prefix}-select-item`)
 class BXSelectItem extends LitElement {
   /**
    * `true` to disable this option.

@@ -14,7 +14,7 @@ import StableSelectorMixin from '../../globals/mixins/stable-selector';
 import DDSContentItem from '../content-item/content-item';
 
 import styles from './cta-block.scss';
-import { carbonElement } from '../../internal/vendor/@carbon/web-components/globals/decorators/carbon-element';
+import { carbonElement as customElement } from '../../internal/vendor/@carbon/web-components/globals/decorators/carbon-element';
 
 const { prefix } = settings;
 const { stablePrefix: ddsPrefix } = ddsSettings;
@@ -38,7 +38,7 @@ const slotExistencePropertyNames = {
  * @slot .
  * @slot footer
  */
-@carbonElement(`${ddsPrefix}-cta-block-item`)
+@customElement(`${ddsPrefix}-cta-block-item`)
 class DDSCTABlockItem extends StableSelectorMixin(DDSContentItem) {
   /**
    * `true` if there are CTA media in the content item area.

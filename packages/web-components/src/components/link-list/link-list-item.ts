@@ -13,7 +13,7 @@ import DDSLinkWithIcon from '../link-with-icon/link-with-icon';
 import styles from './link-list.scss';
 
 import { LINK_LIST_ITEM_TYPE } from './defs';
-import { carbonElement } from '../../internal/vendor/@carbon/web-components/globals/decorators/carbon-element';
+import { carbonElement as customElement } from '../../internal/vendor/@carbon/web-components/globals/decorators/carbon-element';
 
 const { stablePrefix: ddsPrefix } = ddsSettings;
 
@@ -22,7 +22,7 @@ const { stablePrefix: ddsPrefix } = ddsSettings;
  *
  * @element dds-link-list-item
  */
-@carbonElement(`${ddsPrefix}-link-list-item`)
+@customElement(`${ddsPrefix}-link-list-item`)
 class DDSLinkListItem extends DDSLinkWithIcon {
   /**
    * Defines the style of the link-list-item: `default` or `end`

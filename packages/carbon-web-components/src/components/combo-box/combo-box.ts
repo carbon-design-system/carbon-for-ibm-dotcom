@@ -15,7 +15,7 @@ import { findIndex, forEach } from '../../globals/internal/collection-helpers';
 import BXDropdown, { DROPDOWN_KEYBOARD_ACTION } from '../dropdown/dropdown';
 import BXComboBoxItem from './combo-box-item';
 import styles from './combo-box.scss';
-import { carbonElement } from '../../globals/decorators/carbon-element';
+import { carbonElement as customElement } from '../../globals/decorators/carbon-element';
 
 export {
   DROPDOWN_COLOR_SCHEME,
@@ -38,7 +38,7 @@ const { prefix } = settings;
  * @fires bx-combo-box-selected - The custom event fired after a combo box item is selected upon a user gesture.
  * @fires bx-combo-box-toggled - The custom event fired after the open state of this combo box is toggled upon a user gesture.
  */
-@carbonElement(`${prefix}-combo-box`)
+@customElement(`${prefix}-combo-box`)
 class BXComboBox extends BXDropdown {
   /**
    * The text content that should be set to the `<input>` for filtering.

@@ -12,7 +12,7 @@ import settings from 'carbon-components/es/globals/js/settings';
 import { forEach } from '../../globals/internal/collection-helpers';
 import BXProgressStep from './progress-step';
 import styles from './progress-indicator.scss';
-import { carbonElement } from '../../globals/decorators/carbon-element';
+import { carbonElement as customElement } from '../../globals/decorators/carbon-element';
 
 const { prefix } = settings;
 
@@ -21,7 +21,7 @@ const { prefix } = settings;
  *
  * @element bx-progress-indicator
  */
-@carbonElement(`${prefix}-progress-indicator`)
+@customElement(`${prefix}-progress-indicator`)
 class BXProgressIndicator extends LitElement {
   /**
    * `true` if the progress indicator should be vertical.

@@ -9,7 +9,7 @@
 
 import settings from 'carbon-components/es/globals/js/settings';
 import { html, property } from 'lit-element';
-import { carbonElement } from '../../globals/decorators/carbon-element';
+import { carbonElement as customElement } from '../../globals/decorators/carbon-element';
 import HostListener from '../../globals/decorators/host-listener';
 import BXFloatingMenu, {
   FLOATING_MENU_ALIGNMENT,
@@ -23,7 +23,7 @@ const { prefix } = settings;
 /**
  * Tooltip body.
  */
-@carbonElement(`${prefix}-tooltip-body`)
+@customElement(`${prefix}-tooltip-body`)
 class BXTooltipBody extends BXFloatingMenu {
   /**
    * How the menu is aligned to the trigger button.

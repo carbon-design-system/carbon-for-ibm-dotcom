@@ -14,7 +14,7 @@ import ifNonNull from '../../globals/directives/if-non-null';
 import FocusMixin from '../../globals/mixins/focus';
 import { SLIDER_INPUT_COLOR_SCHEME } from './defs';
 import styles from './slider.scss';
-import { carbonElement } from '../../globals/decorators/carbon-element';
+import { carbonElement as customElement } from '../../globals/decorators/carbon-element';
 
 export { SLIDER_INPUT_COLOR_SCHEME };
 
@@ -26,7 +26,7 @@ const { prefix } = settings;
  * @element bx-slider-input
  * @fires bx-slider-input-changed - The custom event fired after the value is changed by user gesture.
  */
-@carbonElement(`${prefix}-slider-input`)
+@customElement(`${prefix}-slider-input`)
 class BXSliderInput extends FocusMixin(LitElement) {
   /**
    * The internal value of `max` property.

@@ -23,7 +23,7 @@ import StableSelectorMixin from '../../globals/mixins/stable-selector';
 import DDSLeftNavOverlay from './left-nav-overlay';
 import styles from './masthead.scss';
 import DDSLeftNavMenuSection from './left-nav-menu-section';
-import { carbonElement } from '../../internal/vendor/@carbon/web-components/globals/decorators/carbon-element.js';
+import { carbonElement as customElement } from '../../internal/vendor/@carbon/web-components/globals/decorators/carbon-element.js';
 
 const { prefix } = settings;
 const { stablePrefix: ddsPrefix } = ddsSettings;
@@ -40,7 +40,7 @@ const FOLLOWING =
  *
  * @element dds-left-nav
  */
-@carbonElement(`${ddsPrefix}-left-nav`)
+@customElement(`${ddsPrefix}-left-nav`)
 class DDSLeftNav extends StableSelectorMixin(BXSideNav) {
   /**
    * The handle for focus wrapping.

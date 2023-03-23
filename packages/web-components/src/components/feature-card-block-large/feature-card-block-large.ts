@@ -15,7 +15,7 @@ import DDSFeatureCard from '../feature-card/feature-card';
 import '../image/image';
 import styles from './feature-card-block-large.scss';
 import StableSelectorMixin from '../../globals/mixins/stable-selector';
-import { carbonElement } from '../../internal/vendor/@carbon/web-components/globals/decorators/carbon-element';
+import { carbonElement as customElement } from '../../internal/vendor/@carbon/web-components/globals/decorators/carbon-element';
 
 const { prefix } = settings;
 const { stablePrefix: ddsPrefix } = ddsSettings;
@@ -25,7 +25,7 @@ const { stablePrefix: ddsPrefix } = ddsSettings;
  *
  * @element dds-feature-card-block-large
  */
-@carbonElement(`${ddsPrefix}-feature-card-block-large`)
+@customElement(`${ddsPrefix}-feature-card-block-large`)
 class DDSFeatureCardBlockLarge extends StableSelectorMixin(DDSFeatureCard) {
   render() {
     return html`

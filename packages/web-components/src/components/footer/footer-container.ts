@@ -41,7 +41,7 @@ import {
   LocaleModalContainerActions,
 } from '../locale-modal/locale-modal-container';
 import DDSFooterComposite from './footer-composite';
-import { carbonElement } from '../../internal/vendor/@carbon/web-components/globals/decorators/carbon-element';
+import { carbonElement as customElement } from '../../internal/vendor/@carbon/web-components/globals/decorators/carbon-element';
 
 const { stablePrefix: ddsPrefix } = ddsSettings;
 
@@ -134,7 +134,7 @@ export function mapDispatchToProps(
  *
  * @element dds-footer-container
  */
-@carbonElement(`${ddsPrefix}-footer-container`)
+@customElement(`${ddsPrefix}-footer-container`)
 class DDSFooterContainer extends ConnectMixin<
   FooterContainerState,
   LocaleAPIActions | TranslateAPIActions,

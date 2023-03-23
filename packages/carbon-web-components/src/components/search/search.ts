@@ -19,7 +19,7 @@ import FormMixin from '../../globals/mixins/form';
 import { INPUT_SIZE } from '../input/input';
 import { SEARCH_COLOR_SCHEME } from './defs';
 import styles from './search.scss';
-import { carbonElement } from '../../globals/decorators/carbon-element';
+import { carbonElement as customElement } from '../../globals/decorators/carbon-element';
 
 export { SEARCH_COLOR_SCHEME };
 
@@ -36,7 +36,7 @@ const { prefix } = settings;
  * @csspart close-icon The close icon.
  * @fires bx-search-input - The custom event fired after the search content is changed upon a user gesture.
  */
-@carbonElement(`${prefix}-search`)
+@customElement(`${prefix}-search`)
 class BXSearch extends FocusMixin(FormMixin(LitElement)) {
   /**
    * Handles `input` event on the `<input>` in the shadow DOM.

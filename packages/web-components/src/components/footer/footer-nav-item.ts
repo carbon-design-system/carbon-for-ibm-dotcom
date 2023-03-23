@@ -12,7 +12,7 @@ import BXLink from '../../internal/vendor/@carbon/web-components/components/link
 import settings from 'carbon-components/es/globals/js/settings.js';
 import ddsSettings from '../../internal/vendor/@carbon/ibmdotcom-utilities/utilities/settings/settings';
 import styles from './footer.scss';
-import { carbonElement } from '../../internal/vendor/@carbon/web-components/globals/decorators/carbon-element.js';
+import { carbonElement as customElement } from '../../internal/vendor/@carbon/web-components/globals/decorators/carbon-element.js';
 
 const { prefix } = settings;
 const { stablePrefix: ddsPrefix } = ddsSettings;
@@ -22,7 +22,7 @@ const { stablePrefix: ddsPrefix } = ddsSettings;
  *
  * @element dds-footer-nav-item
  */
-@carbonElement(`${ddsPrefix}-footer-nav-item`)
+@customElement(`${ddsPrefix}-footer-nav-item`)
 class DDSFooterNavItem extends BXLink {
   protected _renderInner() {
     const { titleText } = this;

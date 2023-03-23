@@ -8,7 +8,7 @@
  */
 import { css } from 'lit-element';
 import ddsSettings from '../../internal/vendor/@carbon/ibmdotcom-utilities/utilities/settings/settings';
-import { carbonElement } from '../../internal/vendor/@carbon/web-components/globals/decorators/carbon-element';
+import { carbonElement as customElement } from '../../internal/vendor/@carbon/web-components/globals/decorators/carbon-element';
 import DDSLinkWithIcon from '../link-with-icon/link-with-icon';
 import styles from './quote.scss';
 
@@ -19,7 +19,7 @@ const { stablePrefix: ddsPrefix } = ddsSettings;
  *
  * @element dds-quote-link-with-icon
  */
-@carbonElement(`${ddsPrefix}-quote-link-with-icon`)
+@customElement(`${ddsPrefix}-quote-link-with-icon`)
 class DDSQuoteLinkWithIcon extends DDSLinkWithIcon {
   static get stableSelector() {
     return `${ddsPrefix}--quote-link-with-icon`;

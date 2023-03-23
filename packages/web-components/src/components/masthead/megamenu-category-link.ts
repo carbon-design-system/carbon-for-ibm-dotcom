@@ -11,7 +11,7 @@ import { html, property } from 'lit-element';
 import BXLink from '../../internal/vendor/@carbon/web-components/components/link/link.js';
 import ddsSettings from '../../internal/vendor/@carbon/ibmdotcom-utilities/utilities/settings/settings';
 import styles from './masthead.scss';
-import { carbonElement } from '../../internal/vendor/@carbon/web-components/globals/decorators/carbon-element.js';
+import { carbonElement as customElement } from '../../internal/vendor/@carbon/web-components/globals/decorators/carbon-element.js';
 
 const { stablePrefix: ddsPrefix } = ddsSettings;
 
@@ -20,7 +20,7 @@ const { stablePrefix: ddsPrefix } = ddsSettings;
  *
  * @element dds-megamenu-category-link
  */
-@carbonElement(`${ddsPrefix}-megamenu-category-link`)
+@customElement(`${ddsPrefix}-megamenu-category-link`)
 class DDSMegaMenuCateoryLink extends BXLink {
   /**
    * link title.

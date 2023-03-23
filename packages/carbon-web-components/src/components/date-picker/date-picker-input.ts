@@ -21,7 +21,7 @@ import {
   DATE_PICKER_INPUT_SIZE_HORIZONTAL,
 } from './defs';
 import styles from './date-picker.scss';
-import { carbonElement } from '../../globals/decorators/carbon-element';
+import { carbonElement as customElement } from '../../globals/decorators/carbon-element';
 
 export {
   DATE_PICKER_INPUT_COLOR_SCHEME,
@@ -36,7 +36,7 @@ const { prefix } = settings;
  *
  * @element bx-date-picker-input
  */
-@carbonElement(`${prefix}-date-picker-input`)
+@customElement(`${prefix}-date-picker-input`)
 class BXDatePickerInput extends ValidityMixin(FocusMixin(LitElement)) {
   /**
    * The calendar icon.

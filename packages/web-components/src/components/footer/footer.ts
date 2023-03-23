@@ -14,7 +14,7 @@ import ddsSettings from '../../internal/vendor/@carbon/ibmdotcom-utilities/utili
 import StableSelectorMixin from '../../globals/mixins/stable-selector';
 import { FOOTER_SIZE } from './defs';
 import styles from './footer.scss';
-import { carbonElement } from '../../internal/vendor/@carbon/web-components/globals/decorators/carbon-element';
+import { carbonElement as customElement } from '../../internal/vendor/@carbon/web-components/globals/decorators/carbon-element';
 
 export { FOOTER_SIZE };
 
@@ -29,7 +29,7 @@ const { stablePrefix: ddsPrefix } = ddsSettings;
  * @slot legal-nav - The legal nav content.
  * @slot locale-button - The locale button content.
  */
-@carbonElement(`${ddsPrefix}-footer`)
+@customElement(`${ddsPrefix}-footer`)
 class DDSFooter extends StableSelectorMixin(LitElement) {
   /**
    * Footer size.

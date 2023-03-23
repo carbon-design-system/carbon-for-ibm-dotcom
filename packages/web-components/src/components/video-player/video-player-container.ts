@@ -28,7 +28,7 @@ import { Constructor } from '../../globals/defs';
 import ConnectMixin from '../../globals/mixins/connect';
 import StableSelectorMixin from '../../globals/mixins/stable-selector';
 import DDSVideoPlayerComposite from './video-player-composite';
-import { carbonElement } from '../../internal/vendor/@carbon/web-components/globals/decorators/carbon-element';
+import { carbonElement as customElement } from '../../internal/vendor/@carbon/web-components/globals/decorators/carbon-element';
 
 const { prefix } = settings;
 const { stablePrefix: ddsPrefix } = ddsSettings;
@@ -293,7 +293,7 @@ export const DDSVideoPlayerContainerMixin = <
  *
  * @element dds-video-player-container
  */
-@carbonElement(`${ddsPrefix}-video-player-container`)
+@customElement(`${ddsPrefix}-video-player-container`)
 class DDSVideoPlayerContainer extends ConnectMixin<
   VideoPlayerContainerState,
   MediaPlayerAPIActions,

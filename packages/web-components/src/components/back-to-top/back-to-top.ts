@@ -16,7 +16,7 @@ import UpToTop20 from '../../internal/vendor/@carbon/web-components/icons/up-to-
 import ddsSettings from '../../internal/vendor/@carbon/ibmdotcom-utilities/utilities/settings/settings';
 import styles from './back-to-top.scss';
 import StableSelectorMixin from '../../globals/mixins/stable-selector';
-import { carbonElement } from '../../internal/vendor/@carbon/web-components/globals/decorators/carbon-element.js';
+import { carbonElement as customElement } from '../../internal/vendor/@carbon/web-components/globals/decorators/carbon-element.js';
 
 const { prefix } = settings;
 const { stablePrefix: ddsPrefix } = ddsSettings;
@@ -29,7 +29,7 @@ interface Cancelable {
  *
  * @element dds-back-to-top
  */
-@carbonElement(`${ddsPrefix}-back-to-top`)
+@customElement(`${ddsPrefix}-back-to-top`)
 class DDSBackToTop extends HostListenerMixin(StableSelectorMixin(LitElement)) {
   /**
    * The observer for the resize of the document body.

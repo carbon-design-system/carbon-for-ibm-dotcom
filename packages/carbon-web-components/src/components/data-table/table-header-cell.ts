@@ -18,7 +18,7 @@ import {
   TABLE_SORT_DIRECTION,
 } from './defs';
 import styles from './data-table.scss';
-import { carbonElement } from '../../globals/decorators/carbon-element';
+import { carbonElement as customElement } from '../../globals/decorators/carbon-element';
 
 export { TABLE_SORT_CYCLE, TABLE_SORT_CYCLES, TABLE_SORT_DIRECTION };
 
@@ -32,7 +32,7 @@ const { prefix } = settings;
  *   The custom event fired before a new sort direction is set upon a user gesture.
  *   Cancellation of this event stops the user-initiated change in sort direction.
  */
-@carbonElement(`${prefix}-table-header-cell`)
+@customElement(`${prefix}-table-header-cell`)
 class BXTableHeaderCell extends FocusMixin(LitElement) {
   /**
    * Handles `click` event on the sort button.

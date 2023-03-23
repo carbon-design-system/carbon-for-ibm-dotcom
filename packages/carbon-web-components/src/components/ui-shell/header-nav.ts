@@ -9,7 +9,7 @@
 
 import settings from 'carbon-components/es/globals/js/settings';
 import { html, property, LitElement } from 'lit-element';
-import { carbonElement } from '../../globals/decorators/carbon-element';
+import { carbonElement as customElement } from '../../globals/decorators/carbon-element';
 import styles from './header.scss';
 
 const { prefix } = settings;
@@ -21,7 +21,7 @@ const { prefix } = settings;
  * @csspart menu-body The menu body.
  * @csspart divider The divider.
  */
-@carbonElement(`${prefix}-header-nav`)
+@customElement(`${prefix}-header-nav`)
 class BXHeaderNav extends LitElement {
   /**
    * The `aria-label` attribute for the menu bar UI.

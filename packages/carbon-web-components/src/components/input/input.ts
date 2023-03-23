@@ -22,7 +22,7 @@ import FormMixin from '../../globals/mixins/form';
 import ValidityMixin from '../../globals/mixins/validity';
 import { INPUT_COLOR_SCHEME, INPUT_SIZE, INPUT_TYPE } from './defs';
 import styles from './input.scss';
-import { carbonElement } from '../../globals/decorators/carbon-element';
+import { carbonElement as customElement } from '../../globals/decorators/carbon-element';
 
 export { INPUT_COLOR_SCHEME, INPUT_SIZE, INPUT_TYPE };
 
@@ -36,7 +36,7 @@ const { prefix } = settings;
  * @slot label-text - The label text.
  * @slot validity-message - The validity message. If present and non-empty, this input shows the UI of its invalid state.
  */
-@carbonElement(`${prefix}-input`)
+@customElement(`${prefix}-input`)
 export default class BXInput extends ValidityMixin(FormMixin(LitElement)) {
   /**
    * The underlying input element

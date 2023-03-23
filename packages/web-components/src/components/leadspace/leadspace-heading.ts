@@ -13,7 +13,7 @@ import { render } from 'lit-html';
 import ddsSettings from '../../internal/vendor/@carbon/ibmdotcom-utilities/utilities/settings/settings';
 import styles from './leadspace.scss';
 import StableSelectorMixin from '../../globals/mixins/stable-selector';
-import { carbonElement } from '../../internal/vendor/@carbon/web-components/globals/decorators/carbon-element';
+import { carbonElement as customElement } from '../../internal/vendor/@carbon/web-components/globals/decorators/carbon-element';
 
 const { stablePrefix: ddsPrefix } = ddsSettings;
 
@@ -22,7 +22,7 @@ const { stablePrefix: ddsPrefix } = ddsSettings;
  *
  * @element dds-leadspace-heading
  */
-@carbonElement(`${ddsPrefix}-leadspace-heading`)
+@customElement(`${ddsPrefix}-leadspace-heading`)
 class DDSLeadspaceHeading extends StableSelectorMixin(LitElement) {
   /**
    * The shadow slot this heading content should be in.

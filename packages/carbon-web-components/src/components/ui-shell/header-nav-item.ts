@@ -12,7 +12,7 @@ import { ifDefined } from 'lit-html/directives/if-defined';
 import { html, property, LitElement } from 'lit-element';
 import FocusMixin from '../../globals/mixins/focus';
 import styles from './header.scss';
-import { carbonElement } from '../../globals/decorators/carbon-element';
+import { carbonElement as customElement } from '../../globals/decorators/carbon-element';
 
 const { prefix } = settings;
 
@@ -23,7 +23,7 @@ const { prefix } = settings;
  * @csspart link The link.
  * @csspart title The title.
  */
-@carbonElement(`${prefix}-header-nav-item`)
+@customElement(`${prefix}-header-nav-item`)
 class BXHeaderNavItem extends FocusMixin(LitElement) {
   /**
    * Link `href`.

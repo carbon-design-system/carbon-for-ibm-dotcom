@@ -13,7 +13,7 @@ import ddsSettings from '../../internal/vendor/@carbon/ibmdotcom-utilities/utili
 import StableSelectorMixin from '../../globals/mixins/stable-selector';
 import styles from './cta-section.scss';
 import DDSContentSection from '../content-section/content-section';
-import { carbonElement } from '../../internal/vendor/@carbon/web-components/globals/decorators/carbon-element';
+import { carbonElement as customElement } from '../../internal/vendor/@carbon/web-components/globals/decorators/carbon-element';
 
 const { stablePrefix: ddsPrefix } = ddsSettings;
 
@@ -22,7 +22,7 @@ const { stablePrefix: ddsPrefix } = ddsSettings;
  *
  * @element dds-cta-section
  */
-@carbonElement(`${ddsPrefix}-cta-section`)
+@customElement(`${ddsPrefix}-cta-section`)
 class DDSCTASection extends StableSelectorMixin(DDSContentSection) {
   @property({ attribute: 'logo-ratio' })
   logoRatio?;

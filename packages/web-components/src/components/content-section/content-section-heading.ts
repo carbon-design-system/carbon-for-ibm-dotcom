@@ -11,7 +11,7 @@ import { html, property, LitElement } from 'lit-element';
 import ddsSettings from '../../internal/vendor/@carbon/ibmdotcom-utilities/utilities/settings/settings';
 import styles from './content-section.scss';
 import StableSelectorMixin from '../../globals/mixins/stable-selector';
-import { carbonElement } from '../../internal/vendor/@carbon/web-components/globals/decorators/carbon-element';
+import { carbonElement as customElement } from '../../internal/vendor/@carbon/web-components/globals/decorators/carbon-element';
 
 const { stablePrefix: ddsPrefix } = ddsSettings;
 
@@ -20,7 +20,7 @@ const { stablePrefix: ddsPrefix } = ddsSettings;
  *
  * @element dds-content-section-heading
  */
-@carbonElement(`${ddsPrefix}-content-section-heading`)
+@customElement(`${ddsPrefix}-content-section-heading`)
 class DDSContentSectionHeading extends StableSelectorMixin(LitElement) {
   @property({ reflect: true })
   slot = 'heading';

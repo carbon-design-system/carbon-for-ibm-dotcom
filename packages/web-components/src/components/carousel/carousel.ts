@@ -8,7 +8,7 @@
  */
 
 import { html, property, state, query, LitElement } from 'lit-element';
-import { carbonElement } from '../../internal/vendor/@carbon/web-components/globals/decorators/carbon-element.js';
+import { carbonElement as customElement } from '../../internal/vendor/@carbon/web-components/globals/decorators/carbon-element.js';
 import 'wicg-inert';
 import settings from 'carbon-components/es/globals/js/settings.js';
 import { slow01 } from '@carbon/motion';
@@ -43,7 +43,7 @@ const minIntersectionRatio = 0.75;
  * @csspart prev-button The button to go to the previous page.
  * @csspart next-button The button to go to the next page.
  */
-@carbonElement(`${ddsPrefix}-carousel`)
+@customElement(`${ddsPrefix}-carousel`)
 class DDSCarousel extends HostListenerMixin(StableSelectorMixin(LitElement)) {
   /**
    * The scrolling contents node.

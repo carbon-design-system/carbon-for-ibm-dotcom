@@ -9,7 +9,7 @@
 
 import settings from 'carbon-components/es/globals/js/settings';
 import { LitElement, html } from 'lit-element';
-import { carbonElement } from '../../globals/decorators/carbon-element';
+import { carbonElement as customElement } from '../../globals/decorators/carbon-element';
 import styles from './form-item.scss';
 
 const { prefix } = settings;
@@ -19,7 +19,7 @@ const { prefix } = settings;
  *
  * @element bx-form-item
  */
-@carbonElement(`${prefix}-form-item`)
+@customElement(`${prefix}-form-item`)
 export default class BXFormItem extends LitElement {
   render() {
     return html` <slot></slot> `;

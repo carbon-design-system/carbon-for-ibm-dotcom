@@ -9,7 +9,7 @@
 
 import settings from 'carbon-components/es/globals/js/settings';
 import { html, property, LitElement } from 'lit-element';
-import { carbonElement } from '../../globals/decorators/carbon-element';
+import { carbonElement as customElement } from '../../globals/decorators/carbon-element';
 import styles from './structured-list.scss';
 
 const { prefix } = settings;
@@ -19,7 +19,7 @@ const { prefix } = settings;
  *
  * @element bx-structured-list-header-row
  */
-@carbonElement(`${prefix}-structured-list-header-row`)
+@customElement(`${prefix}-structured-list-header-row`)
 class BXStructuredListHeaderRow extends LitElement {
   /**
    * The `name` attribute for the `<input>` for selection.

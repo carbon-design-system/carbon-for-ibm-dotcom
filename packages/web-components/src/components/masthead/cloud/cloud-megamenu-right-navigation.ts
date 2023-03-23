@@ -8,7 +8,7 @@
  */
 
 import ddsSettings from '../../../internal/vendor/@carbon/ibmdotcom-utilities/utilities/settings/settings';
-import { carbonElement } from '../../../internal/vendor/@carbon/web-components/globals/decorators/carbon-element';
+import { carbonElement as customElement } from '../../../internal/vendor/@carbon/web-components/globals/decorators/carbon-element';
 import DDSMegaMenuLeftNavigation from '../megamenu-left-navigation';
 import styles from './cloud-masthead.scss';
 
@@ -19,7 +19,7 @@ const { stablePrefix: ddsPrefix } = ddsSettings;
  *
  * @element dds-cloud-megamenu-right-navigation
  */
-@carbonElement(`${ddsPrefix}-cloud-megamenu-right-navigation`)
+@customElement(`${ddsPrefix}-cloud-megamenu-right-navigation`)
 class DDSCloudMegaMenuRightNavigation extends DDSMegaMenuLeftNavigation {
   static styles = styles;
 }

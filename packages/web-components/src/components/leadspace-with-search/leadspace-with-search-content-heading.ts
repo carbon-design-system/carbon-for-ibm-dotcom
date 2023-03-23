@@ -11,7 +11,7 @@ import ddsSettings from '@carbon/ibmdotcom-utilities/es/utilities/settings/setti
 import StableSelectorMixin from '../../globals/mixins/stable-selector';
 import styles from './leadspace-with-search.scss';
 import DDSContentBlockHeading from '../content-block/content-block-heading';
-import { carbonElement } from '../../internal/vendor/@carbon/web-components/globals/decorators/carbon-element';
+import { carbonElement as customElement } from '../../internal/vendor/@carbon/web-components/globals/decorators/carbon-element';
 
 const { stablePrefix: ddsPrefix } = ddsSettings;
 
@@ -20,7 +20,7 @@ const { stablePrefix: ddsPrefix } = ddsSettings;
  *
  * @element dds-leadspace-with-search-content-heading
  */
-@carbonElement(`${ddsPrefix}-leadspace-with-search-content-heading`)
+@customElement(`${ddsPrefix}-leadspace-with-search-content-heading`)
 class DDSLeadspaceWithSearchContentHeading extends StableSelectorMixin(
   DDSContentBlockHeading
 ) {

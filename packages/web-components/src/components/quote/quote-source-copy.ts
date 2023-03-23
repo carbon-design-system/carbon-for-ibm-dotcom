@@ -9,7 +9,7 @@
 
 import { html, property, LitElement } from 'lit-element';
 import ddsSettings from '../../internal/vendor/@carbon/ibmdotcom-utilities/utilities/settings/settings';
-import { carbonElement } from '../../internal/vendor/@carbon/web-components/globals/decorators/carbon-element';
+import { carbonElement as customElement } from '../../internal/vendor/@carbon/web-components/globals/decorators/carbon-element';
 import styles from './quote.scss';
 
 const { stablePrefix: ddsPrefix } = ddsSettings;
@@ -19,7 +19,7 @@ const { stablePrefix: ddsPrefix } = ddsSettings;
  *
  * @element dds-quote-source-copy
  */
-@carbonElement(`${ddsPrefix}-quote-source-copy`)
+@customElement(`${ddsPrefix}-quote-source-copy`)
 class DDSQuoteSourceCopy extends LitElement {
   /**
    * The shadow slot this source copy content should be in.

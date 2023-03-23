@@ -8,7 +8,7 @@
  */
 
 import settings from 'carbon-components/es/globals/js/settings';
-import { carbonElement } from '../../globals/decorators/carbon-element';
+import { carbonElement as customElement } from '../../globals/decorators/carbon-element';
 import BXHeaderNavItem from './header-nav-item';
 
 const { prefix } = settings;
@@ -18,7 +18,7 @@ const { prefix } = settings;
  *
  * @element bx-header-menu-item
  */
-@carbonElement(`${prefix}-header-menu-item`)
+@customElement(`${prefix}-header-menu-item`)
 class BXHeaderMenuItem extends BXHeaderNavItem {}
 
 export default BXHeaderMenuItem;

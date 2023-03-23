@@ -9,7 +9,7 @@
 
 import { css } from 'lit-element';
 import ddsSettings from '../../internal/vendor/@carbon/ibmdotcom-utilities/utilities/settings/settings';
-import { carbonElement } from '../../internal/vendor/@carbon/web-components/globals/decorators/carbon-element';
+import { carbonElement as customElement } from '../../internal/vendor/@carbon/web-components/globals/decorators/carbon-element';
 import DDSContentGroup from '../content-group/content-group';
 import styles from './content-group-pictograms.scss';
 
@@ -21,7 +21,7 @@ const { stablePrefix: ddsPrefix } = ddsSettings;
  * @element dds-content-group-pictogram
  */
 
-@carbonElement(`${ddsPrefix}-content-group-pictograms`)
+@customElement(`${ddsPrefix}-content-group-pictograms`)
 class DDSContentGroupPictograms extends DDSContentGroup {
   static get stableSelector() {
     return `${ddsPrefix}--content-group-pictograms`;

@@ -32,7 +32,7 @@ import {
   MastheadContainerStateProps,
 } from '../masthead-container';
 import DDSCloudMastheadComposite from './cloud-masthead-composite';
-import { carbonElement } from '../../../internal/vendor/@carbon/web-components/globals/decorators/carbon-element';
+import { carbonElement as customElement } from '../../../internal/vendor/@carbon/web-components/globals/decorators/carbon-element';
 
 const { stablePrefix: ddsPrefix } = ddsSettings;
 
@@ -124,7 +124,7 @@ export function mapDispatchToProps(
  *
  * @element dds-cloud-masthead-container
  */
-@carbonElement(`${ddsPrefix}-cloud-masthead-container`)
+@customElement(`${ddsPrefix}-cloud-masthead-container`)
 class DDSCloudMastheadContainer extends ConnectMixin<
   CloudMastheadContainerState,
   LocaleAPIActions | TranslateAPIActions | CloudAccountAuthAPIActions,

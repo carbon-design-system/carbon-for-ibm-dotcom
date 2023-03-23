@@ -11,7 +11,7 @@ import { property } from 'lit-element';
 import settings from 'carbon-components/es/globals/js/settings.js';
 import ddsSettings from '../../internal/vendor/@carbon/ibmdotcom-utilities/utilities/settings/settings';
 import DDSFooterNavItem from './footer-nav-item';
-import { carbonElement } from '../../internal/vendor/@carbon/web-components/globals/decorators/carbon-element';
+import { carbonElement as customElement } from '../../internal/vendor/@carbon/web-components/globals/decorators/carbon-element';
 
 const { prefix } = settings;
 const { stablePrefix: ddsPrefix } = ddsSettings;
@@ -21,7 +21,7 @@ const { stablePrefix: ddsPrefix } = ddsSettings;
  *
  * @element dds-legal-nav-item
  */
-@carbonElement(`${ddsPrefix}-legal-nav-item`)
+@customElement(`${ddsPrefix}-legal-nav-item`)
 class DDSLegalNavItem extends DDSFooterNavItem {
   /**
    * autoid text.

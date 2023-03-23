@@ -12,7 +12,7 @@ import settings from 'carbon-components/es/globals/js/settings.js';
 import ddsSettings from '../../internal/vendor/@carbon/ibmdotcom-utilities/utilities/settings/settings';
 import DDSContentItem from '../content-item/content-item';
 import styles from './content-item-horizontal-media.scss';
-import { carbonElement } from '../../internal/vendor/@carbon/web-components/globals/decorators/carbon-element';
+import { carbonElement as customElement } from '../../internal/vendor/@carbon/web-components/globals/decorators/carbon-element';
 
 const { prefix } = settings;
 const { stablePrefix: ddsPrefix } = ddsSettings;
@@ -23,7 +23,7 @@ const { stablePrefix: ddsPrefix } = ddsSettings;
  *
  * @element dds-content-item-horizontal-media-featured
  */
-@carbonElement(`${ddsPrefix}-content-item-horizontal-media-featured`)
+@customElement(`${ddsPrefix}-content-item-horizontal-media-featured`)
 class DDSContentItemHorizontalMediaFeatured extends DDSContentItem {
   render() {
     return html`

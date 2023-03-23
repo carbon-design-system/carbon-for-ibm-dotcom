@@ -13,7 +13,7 @@ import ChevronDown20 from '@carbon/icons/lib/chevron--down/20';
 import { forEach } from '../../globals/internal/collection-helpers';
 import FocusMixin from '../../globals/mixins/focus';
 import styles from './side-nav.scss';
-import { carbonElement } from '../../globals/decorators/carbon-element';
+import { carbonElement as customElement } from '../../globals/decorators/carbon-element';
 
 const { prefix } = settings;
 
@@ -29,7 +29,7 @@ const { prefix } = settings;
  * @csspart title-icon-container The title icon container.
  * @csspart menu-body The menu body.
  */
-@carbonElement(`${prefix}-side-nav-menu`)
+@customElement(`${prefix}-side-nav-menu`)
 class BXSideNavMenu extends FocusMixin(LitElement) {
   /**
    * `true` if this menu has an icon.

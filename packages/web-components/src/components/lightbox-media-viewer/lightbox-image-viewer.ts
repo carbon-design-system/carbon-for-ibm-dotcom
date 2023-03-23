@@ -14,7 +14,7 @@ import ddsSettings from '../../internal/vendor/@carbon/ibmdotcom-utilities/utili
 import DDSLightboxMediaViewerBody from './lightbox-media-viewer-body';
 import '../expressive-modal/expressive-modal';
 import '../expressive-modal/expressive-modal-close-button';
-import { carbonElement } from '../../internal/vendor/@carbon/web-components/globals/decorators/carbon-element.js';
+import { carbonElement as customElement } from '../../internal/vendor/@carbon/web-components/globals/decorators/carbon-element.js';
 
 const { prefix } = settings;
 const { stablePrefix: ddsPrefix } = ddsSettings;
@@ -26,7 +26,7 @@ const { stablePrefix: ddsPrefix } = ddsSettings;
  * @slot title - The title content.
  * @slot description - The description content.
  */
-@carbonElement(`${ddsPrefix}-lightbox-image-viewer`)
+@customElement(`${ddsPrefix}-lightbox-image-viewer`)
 class DDSLightboxImageViewer extends DDSLightboxMediaViewerBody {
   _renderDescription() {
     const { description } = this;

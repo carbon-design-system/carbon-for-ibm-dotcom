@@ -10,7 +10,7 @@
 import BXTabs from '../../../internal/vendor/@carbon/web-components/components/tabs/tabs.js';
 import ddsSettings from '../../../internal/vendor/@carbon/ibmdotcom-utilities/utilities/settings/settings';
 import styles from './cloud-masthead.scss';
-import { carbonElement } from '../../../internal/vendor/@carbon/web-components/globals/decorators/carbon-element.js';
+import { carbonElement as customElement } from '../../../internal/vendor/@carbon/web-components/globals/decorators/carbon-element.js';
 
 const { stablePrefix: ddsPrefix } = ddsSettings;
 
@@ -19,7 +19,7 @@ const { stablePrefix: ddsPrefix } = ddsSettings;
  *
  * @element dds-cloud-megamenu-tabs
  */
-@carbonElement(`${ddsPrefix}-cloud-megamenu-tabs`)
+@customElement(`${ddsPrefix}-cloud-megamenu-tabs`)
 class DDSCloudMegaMenuTabs extends BXTabs {
   /**
    * A selector that will return megamenu tabs.

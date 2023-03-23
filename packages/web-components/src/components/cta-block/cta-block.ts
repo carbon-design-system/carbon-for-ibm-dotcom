@@ -15,7 +15,7 @@ import StableSelectorMixin from '../../globals/mixins/stable-selector';
 
 import styles from './cta-block.scss';
 import DDSContentBlock from '../content-block/content-block';
-import { carbonElement } from '../../internal/vendor/@carbon/web-components/globals/decorators/carbon-element';
+import { carbonElement as customElement } from '../../internal/vendor/@carbon/web-components/globals/decorators/carbon-element';
 
 const { prefix } = settings;
 const { stablePrefix: ddsPrefix } = ddsSettings;
@@ -35,7 +35,7 @@ const slotExistencePropertyNames = {
  * @slot heading - The text heading.
  * @slot action - The CTA Buttons.
  */
-@carbonElement(`${ddsPrefix}-cta-block`)
+@customElement(`${ddsPrefix}-cta-block`)
 class DDSCTABlock extends StableSelectorMixin(DDSContentBlock) {
   @property({ type: Boolean, attribute: 'no-border', reflect: true })
   _noBorder = false;

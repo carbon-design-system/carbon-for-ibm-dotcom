@@ -12,7 +12,7 @@ import ddsSettings from '../../internal/vendor/@carbon/ibmdotcom-utilities/utili
 import StableSelectorMixin from '../../globals/mixins/stable-selector';
 import DDSContentGroup from '../content-group/content-group';
 import styles from './content-group-simple.scss';
-import { carbonElement } from '../../internal/vendor/@carbon/web-components/globals/decorators/carbon-element';
+import { carbonElement as customElement } from '../../internal/vendor/@carbon/web-components/globals/decorators/carbon-element';
 
 const { stablePrefix: ddsPrefix } = ddsSettings;
 
@@ -21,7 +21,7 @@ const { stablePrefix: ddsPrefix } = ddsSettings;
  *
  * @element dds-content-group-simple
  */
-@carbonElement(`${ddsPrefix}-content-group-simple`)
+@customElement(`${ddsPrefix}-content-group-simple`)
 class DDSContentGroupSimple extends StableSelectorMixin(DDSContentGroup) {
   static get stableSelector() {
     return `${ddsPrefix}--content-group-simple`;

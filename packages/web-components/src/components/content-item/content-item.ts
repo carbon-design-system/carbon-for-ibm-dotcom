@@ -12,7 +12,7 @@ import settings from 'carbon-components/es/globals/js/settings.js';
 import ddsSettings from '../../internal/vendor/@carbon/ibmdotcom-utilities/utilities/settings/settings';
 import StableSelectorMixin from '../../globals/mixins/stable-selector';
 import styles from './content-item.scss';
-import { carbonElement } from '../../internal/vendor/@carbon/web-components/globals/decorators/carbon-element';
+import { carbonElement as customElement } from '../../internal/vendor/@carbon/web-components/globals/decorators/carbon-element';
 
 const { prefix } = settings;
 const { stablePrefix: ddsPrefix } = ddsSettings;
@@ -32,7 +32,7 @@ const slotExistencePropertyNames = {
  * @slot heading - The heading content.
  * @slot footer - The footer (CTA) content.
  */
-@carbonElement(`${ddsPrefix}-content-item`)
+@customElement(`${ddsPrefix}-content-item`)
 class DDSContentItem extends StableSelectorMixin(LitElement) {
   /**
    * `true` if there is a footer content.

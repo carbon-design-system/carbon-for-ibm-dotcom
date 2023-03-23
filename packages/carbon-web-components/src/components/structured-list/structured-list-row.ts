@@ -18,7 +18,7 @@ import RadioGroupManager, {
   ManagedRadioButtonDelegate,
 } from '../../globals/internal/radio-group-manager';
 import styles from './structured-list.scss';
-import { carbonElement } from '../../globals/decorators/carbon-element';
+import { carbonElement as customElement } from '../../globals/decorators/carbon-element';
 
 const { prefix } = settings;
 
@@ -82,7 +82,7 @@ class StructuredListRowRadioButtonDelegate
  *
  * @element bx-structured-list-row
  */
-@carbonElement(`${prefix}-structured-list-row`)
+@customElement(`${prefix}-structured-list-row`)
 class BXStructuredListRow extends HostListenerMixin(LitElement) {
   /**
    * The radio group manager associated with the radio button.

@@ -12,7 +12,7 @@ import ddsSettings from '../../internal/vendor/@carbon/ibmdotcom-utilities/utili
 import styles from './content-section.scss';
 import StableSelectorMixin from '../../globals/mixins/stable-selector';
 import DDSMarkdown from '../markdown/markdown';
-import { carbonElement } from '../../internal/vendor/@carbon/web-components/globals/decorators/carbon-element';
+import { carbonElement as customElement } from '../../internal/vendor/@carbon/web-components/globals/decorators/carbon-element';
 
 const { stablePrefix: ddsPrefix } = ddsSettings;
 
@@ -21,7 +21,7 @@ const { stablePrefix: ddsPrefix } = ddsSettings;
  *
  * @element dds-content-section-copy
  */
-@carbonElement(`${ddsPrefix}-content-section-copy`)
+@customElement(`${ddsPrefix}-content-section-copy`)
 class DDSContentSectionCopy extends StableSelectorMixin(DDSMarkdown) {
   @property({ reflect: true })
   slot = 'copy';

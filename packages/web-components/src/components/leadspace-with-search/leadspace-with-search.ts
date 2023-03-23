@@ -17,7 +17,7 @@ import StableSelectorMixin from '../../globals/mixins/stable-selector';
 import styles from './leadspace-with-search.scss';
 import { ADJACENT_THEMES } from './defs';
 import StickyHeader from '../../internal/vendor/@carbon/ibmdotcom-utilities/utilities/StickyHeader/StickyHeader';
-import { carbonElement } from '../../internal/vendor/@carbon/web-components/globals/decorators/carbon-element';
+import { carbonElement as customElement } from '../../internal/vendor/@carbon/web-components/globals/decorators/carbon-element';
 
 const { prefix } = settings;
 const { stablePrefix: ddsPrefix } = ddsSettings;
@@ -27,7 +27,7 @@ const { stablePrefix: ddsPrefix } = ddsSettings;
  *
  * @element dds-leadspace-with-search
  */
-@carbonElement(`${ddsPrefix}-leadspace-with-search`)
+@customElement(`${ddsPrefix}-leadspace-with-search`)
 class DDSLeadspaceWithSearch extends StableSelectorMixin(LitElement) {
   /**
    *

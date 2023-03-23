@@ -12,7 +12,7 @@ import settings from 'carbon-components/es/globals/js/settings.js';
 import ddsSettings from '../../internal/vendor/@carbon/ibmdotcom-utilities/utilities/settings/settings';
 import DDSContentGroup from '../content-group/content-group';
 import styles from './content-group-cards.scss';
-import { carbonElement } from '../../internal/vendor/@carbon/web-components/globals/decorators/carbon-element';
+import { carbonElement as customElement } from '../../internal/vendor/@carbon/web-components/globals/decorators/carbon-element';
 
 const { prefix } = settings;
 const { stablePrefix: ddsPrefix } = ddsSettings;
@@ -22,7 +22,7 @@ const { stablePrefix: ddsPrefix } = ddsSettings;
  *
  * @element dds-content-group-cards
  */
-@carbonElement(`${ddsPrefix}-content-group-cards`)
+@customElement(`${ddsPrefix}-content-group-cards`)
 class DDSContentGroupCards extends DDSContentGroup {
   protected _renderInnerBody(): TemplateResult | string | void {
     const { _hasContent: hasContent, _hasMedia: hasMedia } = this;

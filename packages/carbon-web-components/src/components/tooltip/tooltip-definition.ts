@@ -13,7 +13,7 @@ import settings from 'carbon-components/es/globals/js/settings';
 import FocusMixin from '../../globals/mixins/focus';
 import { TOOLTIP_ALIGNMENT, TOOLTIP_DIRECTION } from './defs';
 import styles from './tooltip.scss';
-import { carbonElement } from '../../globals/decorators/carbon-element';
+import { carbonElement as customElement } from '../../globals/decorators/carbon-element';
 
 export { TOOLTIP_ALIGNMENT, TOOLTIP_DIRECTION };
 
@@ -25,7 +25,7 @@ const { prefix } = settings;
  * @element bx-tooltip-definition
  * @slot body - The tooltip body content.
  */
-@carbonElement(`${prefix}-tooltip-definition`)
+@customElement(`${prefix}-tooltip-definition`)
 class BXTooltipDefinition extends FocusMixin(LitElement) {
   /**
    * How the tooltip is aligned to the trigger button.

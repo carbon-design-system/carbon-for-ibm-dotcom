@@ -12,7 +12,7 @@ import ChevronDown16 from '@carbon/icons/lib/chevron--down/16';
 import settings from 'carbon-components/es/globals/js/settings';
 import FocusMixin from '../../globals/mixins/focus';
 import styles from './pagination.scss';
-import { carbonElement } from '../../globals/decorators/carbon-element';
+import { carbonElement as customElement } from '../../globals/decorators/carbon-element';
 
 const { prefix } = settings;
 
@@ -23,7 +23,7 @@ const { prefix } = settings;
  * @slot label-text - The label text.
  * @fires bx-page-sizes-select-changed - The custom event fired after the page size is changed.
  */
-@carbonElement(`${prefix}-page-sizes-select`)
+@customElement(`${prefix}-page-sizes-select`)
 class BXPageSizesSelect extends FocusMixin(LitElement) {
   @query('select')
   private _selectNode!: HTMLSelectElement;

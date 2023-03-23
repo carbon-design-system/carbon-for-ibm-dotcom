@@ -9,7 +9,7 @@
 
 import settings from 'carbon-components/es/globals/js/settings';
 import { html, property, LitElement } from 'lit-element';
-import { carbonElement } from '../../globals/decorators/carbon-element';
+import { carbonElement as customElement } from '../../globals/decorators/carbon-element';
 import { TILE_COLOR_SCHEME } from './defs';
 import styles from './tile.scss';
 
@@ -22,7 +22,7 @@ const { prefix } = settings;
  *
  * @element bx-tile
  */
-@carbonElement(`${prefix}-tile`)
+@customElement(`${prefix}-tile`)
 class BXTile extends LitElement {
   /**
    * The color scheme.

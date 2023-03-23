@@ -11,10 +11,10 @@ import ddsSettings from '@carbon/ibmdotcom-utilities/es/utilities/settings/setti
 import StableSelectorMixin from '../../globals/mixins/stable-selector';
 import DDSStructuredListGroup from '../structured-list/structured-list-group';
 import styles from './pricing-table.scss';
-import { carbonElement } from '../../internal/vendor/@carbon/web-components/globals/decorators/carbon-element';
+import { carbonElement as customElement } from '../../internal/vendor/@carbon/web-components/globals/decorators/carbon-element';
 const { stablePrefix: ddsPrefix } = ddsSettings;
 
-@carbonElement(`${ddsPrefix}-pricing-table-group`)
+@customElement(`${ddsPrefix}-pricing-table-group`)
 class DDSPricingTableGroup extends StableSelectorMixin(DDSStructuredListGroup) {
   static get stableSelector() {
     return `${ddsPrefix}--pricing-table-group`;

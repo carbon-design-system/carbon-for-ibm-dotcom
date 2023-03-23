@@ -15,7 +15,7 @@ import FocusMixin from '../../globals/mixins/focus';
 import Handle from '../../globals/internal/handle';
 import { ACCORDION_ITEM_BREAKPOINT } from './defs';
 import styles from './accordion.scss';
-import { carbonElement } from '../../globals/decorators/carbon-element';
+import { carbonElement as customElement } from '../../globals/decorators/carbon-element';
 
 export { ACCORDION_ITEM_BREAKPOINT };
 
@@ -53,7 +53,7 @@ const observeResize = (observer: ResizeObserver, elem: Element) => {
  * @csspart title The title.
  * @csspart content The content.
  */
-@carbonElement(`${prefix}-accordion-item`)
+@customElement(`${prefix}-accordion-item`)
 class BXAccordionItem extends FocusMixin(LitElement) {
   /**
    * The current breakpoint.

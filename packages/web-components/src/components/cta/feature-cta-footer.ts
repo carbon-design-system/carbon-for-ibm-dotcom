@@ -18,7 +18,7 @@ import CTAMixin from '../../component-mixins/cta/cta';
 import VideoCTAMixin from '../../component-mixins/cta/video';
 import { CTA_TYPE } from './defs';
 import styles from './cta.scss';
-import { carbonElement } from '../../internal/vendor/@carbon/web-components/globals/decorators/carbon-element.js';
+import { carbonElement as customElement } from '../../internal/vendor/@carbon/web-components/globals/decorators/carbon-element.js';
 
 const { stablePrefix: ddsPrefix } = ddsSettings;
 
@@ -27,7 +27,7 @@ const { stablePrefix: ddsPrefix } = ddsSettings;
  *
  * @element dds-feature-cta-footer
  */
-@carbonElement(`${ddsPrefix}-feature-cta-footer`)
+@customElement(`${ddsPrefix}-feature-cta-footer`)
 class DDSFeatureCTAFooter extends VideoCTAMixin(
   CTAMixin(DDSFeatureCardFooter)
 ) {

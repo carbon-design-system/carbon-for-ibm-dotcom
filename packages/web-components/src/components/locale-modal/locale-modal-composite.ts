@@ -23,7 +23,7 @@ import './region-item';
 import './locale-search';
 import './locale-item';
 import styles from './locale-modal-composite.scss';
-import { carbonElement } from '../../internal/vendor/@carbon/web-components/globals/decorators/carbon-element.js';
+import { carbonElement as customElement } from '../../internal/vendor/@carbon/web-components/globals/decorators/carbon-element.js';
 
 const { stablePrefix: ddsPrefix } = ddsSettings;
 
@@ -32,7 +32,7 @@ const { stablePrefix: ddsPrefix } = ddsSettings;
  *
  * @element dds-locale-modal-composite
  */
-@carbonElement(`${ddsPrefix}-locale-modal-composite`)
+@customElement(`${ddsPrefix}-locale-modal-composite`)
 class DDSLocaleModalComposite extends HybridRenderMixin(LitElement) {
   /**
    * @param countries A country list.

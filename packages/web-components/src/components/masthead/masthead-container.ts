@@ -34,7 +34,7 @@ import { ProfileAPIActions } from '../../internal/vendor/@carbon/ibmdotcom-servi
 import ConnectMixin from '../../globals/mixins/connect';
 
 import DDSMastheadComposite from './masthead-composite';
-import { carbonElement } from '../../internal/vendor/@carbon/web-components/globals/decorators/carbon-element';
+import { carbonElement as customElement } from '../../internal/vendor/@carbon/web-components/globals/decorators/carbon-element';
 
 const { stablePrefix: ddsPrefix } = ddsSettings;
 
@@ -140,7 +140,7 @@ export function mapDispatchToProps(
  *
  * @element dds-masthead-container
  */
-@carbonElement(`${ddsPrefix}-masthead-container`)
+@customElement(`${ddsPrefix}-masthead-container`)
 class DDSMastheadContainer extends ConnectMixin<
   MastheadContainerState,
   LocaleAPIActions | TranslateAPIActions | ProfileAPIActions,

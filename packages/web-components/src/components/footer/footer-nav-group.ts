@@ -14,7 +14,7 @@ import ddsSettings from '../../internal/vendor/@carbon/ibmdotcom-utilities/utili
 import StableSelectorMixin from '../../globals/mixins/stable-selector';
 import Handle from '../../globals/internal/handle';
 import styles from './footer.scss';
-import { carbonElement } from '../../internal/vendor/@carbon/web-components/globals/decorators/carbon-element.js';
+import { carbonElement as customElement } from '../../internal/vendor/@carbon/web-components/globals/decorators/carbon-element.js';
 
 const { prefix } = settings;
 const { stablePrefix: ddsPrefix } = ddsSettings;
@@ -25,7 +25,7 @@ const { stablePrefix: ddsPrefix } = ddsSettings;
  * @element dds-footer-nav-group
  * @slot title - The title content.
  */
-@carbonElement(`${ddsPrefix}-footer-nav-group`)
+@customElement(`${ddsPrefix}-footer-nav-group`)
 class DDSFooterNavGroup extends StableSelectorMixin(LitElement) {
   /**
    * The handle for observing match of the media query for making the accordion item stick expanded.

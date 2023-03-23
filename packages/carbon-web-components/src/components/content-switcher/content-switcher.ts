@@ -13,7 +13,7 @@ import { forEach, indexOf } from '../../globals/internal/collection-helpers';
 import { NAVIGATION_DIRECTION, CONTENT_SWITCHER_SIZE } from './defs';
 import BXSwitch from './content-switcher-item';
 import styles from './content-switcher.scss';
-import { carbonElement } from '../../globals/decorators/carbon-element';
+import { carbonElement as customElement } from '../../globals/decorators/carbon-element';
 
 export { NAVIGATION_DIRECTION, CONTENT_SWITCHER_SIZE };
 
@@ -43,7 +43,7 @@ const capIndex = (index: number, length: number) => {
  *   Cancellation of this event stops changing the user-initiated selection.
  * @fires bx-content-switcher-selected - The custom event fired after a a content switcher item is selected upon a user gesture.
  */
-@carbonElement(`${prefix}-content-switcher`)
+@customElement(`${prefix}-content-switcher`)
 class BXContentSwitcher extends LitElement {
   /**
    * Handles `mouseover`/`mouseout` events on `<slot>`.

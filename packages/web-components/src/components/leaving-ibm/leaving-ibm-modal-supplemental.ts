@@ -10,7 +10,7 @@ import { html, property, LitElement } from 'lit-element';
 import ddsSettings from '../../internal/vendor/@carbon/ibmdotcom-utilities/utilities/settings/settings';
 import styles from './leaving-ibm.scss';
 import StableSelectorMixin from '../../globals/mixins/stable-selector';
-import { carbonElement } from '../../internal/vendor/@carbon/web-components/globals/decorators/carbon-element';
+import { carbonElement as customElement } from '../../internal/vendor/@carbon/web-components/globals/decorators/carbon-element';
 
 const { stablePrefix: ddsPrefix } = ddsSettings;
 
@@ -19,7 +19,7 @@ const { stablePrefix: ddsPrefix } = ddsSettings;
  *
  * @element dds-leaving-ibm-modal-supplemental
  */
-@carbonElement(`${ddsPrefix}-leaving-ibm-modal-supplemental`)
+@customElement(`${ddsPrefix}-leaving-ibm-modal-supplemental`)
 class DDSLeavingIbmModalSupplemental extends StableSelectorMixin(LitElement) {
   /**
    * The shadow slot this supplemental content should be in.

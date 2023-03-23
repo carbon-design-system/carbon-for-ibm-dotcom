@@ -8,7 +8,7 @@
  */
 import { css } from 'lit-element';
 import ddsSettings from '../../internal/vendor/@carbon/ibmdotcom-utilities/utilities/settings/settings';
-import { carbonElement } from '../../internal/vendor/@carbon/web-components/globals/decorators/carbon-element';
+import { carbonElement as customElement } from '../../internal/vendor/@carbon/web-components/globals/decorators/carbon-element';
 import DDSContentBlockCopy from '../content-block/content-block-copy';
 import styles from './callout-with-media.scss';
 
@@ -19,7 +19,7 @@ const { stablePrefix: ddsPrefix } = ddsSettings;
  *
  * @element dds-callout-with-media-copy
  */
-@carbonElement(`${ddsPrefix}-callout-with-media-copy`)
+@customElement(`${ddsPrefix}-callout-with-media-copy`)
 class DDSCalloutWithMediaCopy extends DDSContentBlockCopy {
   static get stableSelector() {
     return `${ddsPrefix}--callout-with-media-copy`;

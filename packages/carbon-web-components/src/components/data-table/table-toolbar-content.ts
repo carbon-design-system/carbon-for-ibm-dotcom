@@ -10,7 +10,7 @@
 import { html, property, LitElement } from 'lit-element';
 import settings from 'carbon-components/es/globals/js/settings';
 import styles from './data-table.scss';
-import { carbonElement } from '../../globals/decorators/carbon-element';
+import { carbonElement as customElement } from '../../globals/decorators/carbon-element';
 
 const { prefix } = settings;
 
@@ -19,7 +19,7 @@ const { prefix } = settings;
  *
  * @element bx-table-toolbar-content
  */
-@carbonElement(`${prefix}-table-toolbar-content`)
+@customElement(`${prefix}-table-toolbar-content`)
 class BXTableToolbarContent extends LitElement {
   /**
    * `true` if this batch actions bar is active.

@@ -9,7 +9,7 @@
 
 import { css, html, property } from 'lit-element';
 import ddsSettings from '../../internal/vendor/@carbon/ibmdotcom-utilities/utilities/settings/settings';
-import { carbonElement } from '../../internal/vendor/@carbon/web-components/globals/decorators/carbon-element';
+import { carbonElement as customElement } from '../../internal/vendor/@carbon/web-components/globals/decorators/carbon-element';
 import DDSContentGroup from '../content-group/content-group';
 import '../horizontal-rule/horizontal-rule';
 import styles from './content-block-horizontal.scss';
@@ -21,7 +21,7 @@ const { stablePrefix: ddsPrefix } = ddsSettings;
  *
  * @element dds-content-block-horizontal
  */
-@carbonElement(`${ddsPrefix}-content-block-horizontal`)
+@customElement(`${ddsPrefix}-content-block-horizontal`)
 class DDSContentBlockHorizontal extends DDSContentGroup {
   @property({ type: Boolean, reflect: true, attribute: 'border' })
   border = false;

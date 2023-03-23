@@ -13,14 +13,14 @@ import { html } from 'lit-element';
 import ifNonNull from '../../globals/directives/if-non-null';
 import BXButton from './button';
 import styles from './button.scss';
-import { carbonElement } from '../../globals/decorators/carbon-element';
+import { carbonElement as customElement } from '../../globals/decorators/carbon-element';
 
 const { prefix } = settings;
 
 /**
  * Button skeleton.
  */
-@carbonElement(`${prefix}-btn-skeleton`)
+@customElement(`${prefix}-btn-skeleton`)
 class BXButtonSkeleton extends BXButton {
   /**
    * Handles `click` event on the `<a>.

@@ -23,7 +23,7 @@ import '../lightbox-media-viewer/lightbox-video-player-composite';
 import { CTA_TYPE } from './defs';
 import { VideoCTAMixinImpl } from '../../component-mixins/cta/video';
 import styles from './video-cta-composite.scss';
-import { carbonElement } from '../../internal/vendor/@carbon/web-components/globals/decorators/carbon-element.js';
+import { carbonElement as customElement } from '../../internal/vendor/@carbon/web-components/globals/decorators/carbon-element.js';
 
 const { stablePrefix: ddsPrefix } = ddsSettings;
 
@@ -32,7 +32,7 @@ const { stablePrefix: ddsPrefix } = ddsSettings;
  *
  * @element dds-video-cta-composite
  */
-@carbonElement(`${ddsPrefix}-video-cta-composite`)
+@customElement(`${ddsPrefix}-video-cta-composite`)
 class DDSVideoCTAComposite extends ModalRenderMixin(
   HostListenerMixin(LitElement)
 ) {

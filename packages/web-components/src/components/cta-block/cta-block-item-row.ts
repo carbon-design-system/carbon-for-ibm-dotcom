@@ -15,7 +15,7 @@ import StableSelectorMixin from '../../globals/mixins/stable-selector';
 import ParentVisibilityMixin from '../../component-mixins/parent-visibility/parent-visibility';
 
 import styles from './cta-block.scss';
-import { carbonElement } from '../../internal/vendor/@carbon/web-components/globals/decorators/carbon-element';
+import { carbonElement as customElement } from '../../internal/vendor/@carbon/web-components/globals/decorators/carbon-element';
 
 const { prefix } = settings;
 const { stablePrefix: ddsPrefix } = ddsSettings;
@@ -26,7 +26,7 @@ const { stablePrefix: ddsPrefix } = ddsSettings;
  * @element dds-cta-block-item-row
  * @slot .
  */
-@carbonElement(`${ddsPrefix}-cta-block-item-row`)
+@customElement(`${ddsPrefix}-cta-block-item-row`)
 class DDSCTABlockItemRow extends ParentVisibilityMixin(
   StableSelectorMixin(LitElement)
 ) {

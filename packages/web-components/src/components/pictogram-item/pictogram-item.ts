@@ -14,7 +14,7 @@ import { COLOR_OPTIONS } from './defs';
 import DDSContentItem from '../content-item/content-item';
 import styles from './pictogram-item.scss';
 import StableSelectorMixin from '../../globals/mixins/stable-selector';
-import { carbonElement } from '../../internal/vendor/@carbon/web-components/globals/decorators/carbon-element';
+import { carbonElement as customElement } from '../../internal/vendor/@carbon/web-components/globals/decorators/carbon-element';
 
 const { prefix } = settings;
 const { stablePrefix: ddsPrefix } = ddsSettings;
@@ -27,7 +27,7 @@ const { stablePrefix: ddsPrefix } = ddsSettings;
  * @slot heading - The heading content.
  * @slot footer - The footer (CTA) content.
  */
-@carbonElement(`${ddsPrefix}-pictogram-item`)
+@customElement(`${ddsPrefix}-pictogram-item`)
 class DDSPictogramItem extends StableSelectorMixin(DDSContentItem) {
   /**
    * The pictogram color.

@@ -15,7 +15,7 @@ import ddsSettings from '../../internal/vendor/@carbon/ibmdotcom-utilities/utili
 import { MEGAMENU_RIGHT_NAVIGATION_STYLE_SCHEME } from './defs';
 import styles from './masthead.scss';
 import './megamenu-link-with-icon';
-import { carbonElement } from '../../internal/vendor/@carbon/web-components/globals/decorators/carbon-element.js';
+import { carbonElement as customElement } from '../../internal/vendor/@carbon/web-components/globals/decorators/carbon-element.js';
 
 export { MEGAMENU_RIGHT_NAVIGATION_STYLE_SCHEME };
 
@@ -27,7 +27,7 @@ const { stablePrefix: ddsPrefix } = ddsSettings;
  *
  * @element dds-megamenu-right-navigation
  */
-@carbonElement(`${ddsPrefix}-megamenu-right-navigation`)
+@customElement(`${ddsPrefix}-megamenu-right-navigation`)
 class DDSMegaMenuRightNavigation extends LitElement {
   /**
    * `true` to render left (highlighted) section layout.

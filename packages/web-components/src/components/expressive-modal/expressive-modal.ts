@@ -29,7 +29,7 @@ import { selectorTabbable } from '../../internal/vendor/@carbon/web-components/g
 import settings from 'carbon-components/es/globals/js/settings.js';
 import StableSelectorMixin from '../../globals/mixins/stable-selector';
 import styles from './expressive-modal.scss';
-import { carbonElement } from '../../internal/vendor/@carbon/web-components/globals/decorators/carbon-element';
+import { carbonElement as customElement } from '../../internal/vendor/@carbon/web-components/globals/decorators/carbon-element';
 
 const { prefix } = settings;
 const { stablePrefix: ddsPrefix } = ddsSettings;
@@ -119,7 +119,7 @@ const slotExistencePropertyNames = {
  * @slot header - The header content.
  * @slot footer - The footer content.
  */
-@carbonElement(`${ddsPrefix}-expressive-modal`)
+@customElement(`${ddsPrefix}-expressive-modal`)
 class DDSExpressiveModal extends StableSelectorMixin(
   HostListenerMixin(LitElement)
 ) {

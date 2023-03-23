@@ -10,7 +10,7 @@
 import { html, property, LitElement } from 'lit-element';
 import settings from 'carbon-components/es/globals/js/settings';
 import styles from './file-uploader.scss';
-import { carbonElement } from '../../globals/decorators/carbon-element';
+import { carbonElement as customElement } from '../../globals/decorators/carbon-element';
 
 const { prefix } = settings;
 
@@ -21,7 +21,7 @@ const { prefix } = settings;
  * @slot helper-text The helper text.
  * @slot label-text The label text.
  */
-@carbonElement(`${prefix}-file-uploader`)
+@customElement(`${prefix}-file-uploader`)
 class BXFileUploader extends LitElement {
   /**
    * The helper text.

@@ -15,7 +15,7 @@ import StableSelectorMixin from '../../globals/mixins/stable-selector';
 import { LINK_LIST_TYPE, LINK_LIST_ITEM_TYPE } from './defs';
 import styles from './link-list.scss';
 import DDSLinkListItem from './link-list-item';
-import { carbonElement } from '../../internal/vendor/@carbon/web-components/globals/decorators/carbon-element';
+import { carbonElement as customElement } from '../../internal/vendor/@carbon/web-components/globals/decorators/carbon-element';
 
 const { prefix } = settings;
 const { stablePrefix: ddsPrefix } = ddsSettings;
@@ -43,7 +43,7 @@ export enum END_TYPE_LAYOUT {
  * @element dds-link-list
  * @slot heading - The heading content.
  */
-@carbonElement(`${ddsPrefix}-link-list`)
+@customElement(`${ddsPrefix}-link-list`)
 class DDSLinkList extends StableSelectorMixin(LitElement) {
   /**
    * Defines the layout for the end layout - based on END_TYPE_LAYOUT

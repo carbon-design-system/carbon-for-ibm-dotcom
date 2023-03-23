@@ -24,7 +24,7 @@ import DDSRegionItem from './region-item';
 import styles from './locale-modal.scss';
 import { ICON_PLACEMENT } from '../link-with-icon/link-with-icon';
 import StickyHeader from '../../internal/vendor/@carbon/ibmdotcom-utilities/utilities/StickyHeader/StickyHeader';
-import { carbonElement } from '../../internal/vendor/@carbon/web-components/globals/decorators/carbon-element.js';
+import { carbonElement as customElement } from '../../internal/vendor/@carbon/web-components/globals/decorators/carbon-element.js';
 
 const { prefix } = settings;
 const { stablePrefix: ddsPrefix } = ddsSettings;
@@ -36,7 +36,7 @@ const { stablePrefix: ddsPrefix } = ddsSettings;
  * @slot regions-selector - The area for the regions selector.
  * @slot locales-selector - The area for the locales selector.
  */
-@carbonElement(`${ddsPrefix}-locale-modal`)
+@customElement(`${ddsPrefix}-locale-modal`)
 // `BXModal` extends `HostListenerMixin`
 class DDSLocaleModal extends DDSExpressiveModal {
   /**

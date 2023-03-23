@@ -14,7 +14,7 @@ import ddsSettings from '../../internal/vendor/@carbon/ibmdotcom-utilities/utili
 import { FOOTER_SIZE } from './footer';
 import StableSelectorMixin from '../../globals/mixins/stable-selector';
 import styles from './footer.scss';
-import { carbonElement } from '../../internal/vendor/@carbon/web-components/globals/decorators/carbon-element';
+import { carbonElement as customElement } from '../../internal/vendor/@carbon/web-components/globals/decorators/carbon-element';
 
 const { prefix } = settings;
 const { stablePrefix: ddsPrefix } = ddsSettings;
@@ -24,7 +24,7 @@ const { stablePrefix: ddsPrefix } = ddsSettings;
  *
  * @element dds-legal-nav
  */
-@carbonElement(`${ddsPrefix}-legal-nav`)
+@customElement(`${ddsPrefix}-legal-nav`)
 class DDSLegalNav extends StableSelectorMixin(LitElement) {
   /**
    * Size property used for applying classes

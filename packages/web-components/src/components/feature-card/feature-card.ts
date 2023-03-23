@@ -14,7 +14,7 @@ import StableSelectorMixin from '../../globals/mixins/stable-selector';
 import DDSCard from '../card/card';
 import '../image/image';
 import styles from './feature-card.scss';
-import { carbonElement } from '../../internal/vendor/@carbon/web-components/globals/decorators/carbon-element';
+import { carbonElement as customElement } from '../../internal/vendor/@carbon/web-components/globals/decorators/carbon-element';
 
 const { prefix } = settings;
 const { stablePrefix: ddsPrefix } = ddsSettings;
@@ -24,7 +24,7 @@ const { stablePrefix: ddsPrefix } = ddsSettings;
  *
  * @element dds-feature-card
  */
-@carbonElement(`${ddsPrefix}-feature-card`)
+@customElement(`${ddsPrefix}-feature-card`)
 class DDSFeatureCard extends StableSelectorMixin(DDSCard) {
   /**
    * The size property to render either Medium (default) or Large Feature Card variants.

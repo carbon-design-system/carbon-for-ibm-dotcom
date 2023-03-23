@@ -15,7 +15,7 @@ import ddsSettings from '../../internal/vendor/@carbon/ibmdotcom-utilities/utili
 import StableSelectorMixin from '../../globals/mixins/stable-selector';
 import styles from './filter-panel.scss';
 import DDSFilterPanelInputSelectItem from './filter-panel-input-select-item';
-import { carbonElement } from '../../internal/vendor/@carbon/web-components/globals/decorators/carbon-element.js';
+import { carbonElement as customElement } from '../../internal/vendor/@carbon/web-components/globals/decorators/carbon-element.js';
 
 const { prefix } = settings;
 const { stablePrefix: ddsPrefix } = ddsSettings;
@@ -25,7 +25,7 @@ const { stablePrefix: ddsPrefix } = ddsSettings;
  *
  * @element dds-filter-panel-input-select
  */
-@carbonElement(`${ddsPrefix}-filter-panel-input-select`)
+@customElement(`${ddsPrefix}-filter-panel-input-select`)
 class DDSFilterPanelInputSelect extends FocusMixin(
   StableSelectorMixin(LitElement)
 ) {

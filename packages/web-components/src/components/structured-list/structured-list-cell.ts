@@ -15,7 +15,7 @@ import Error20 from '../../internal/vendor/@carbon/web-components/icons/error/20
 import ddsSettings from '../../internal/vendor/@carbon/ibmdotcom-utilities/utilities/settings/settings';
 import DDSStructuredListGroup from './structured-list-group';
 import styles from './structured-list.scss';
-import { carbonElement } from '../../internal/vendor/@carbon/web-components/globals/decorators/carbon-element.js';
+import { carbonElement as customElement } from '../../internal/vendor/@carbon/web-components/globals/decorators/carbon-element.js';
 
 const { stablePrefix: ddsPrefix } = ddsSettings;
 
@@ -24,7 +24,7 @@ const { stablePrefix: ddsPrefix } = ddsSettings;
  *
  * @element dds-structured-list-cell
  */
-@carbonElement(`${ddsPrefix}-structured-list-cell`)
+@customElement(`${ddsPrefix}-structured-list-cell`)
 class DDSStructuredListCell extends BXStructuredListCell {
   parentGroup: DDSStructuredListGroup | null = this.closest(
     `${ddsPrefix}-structured-list-group`

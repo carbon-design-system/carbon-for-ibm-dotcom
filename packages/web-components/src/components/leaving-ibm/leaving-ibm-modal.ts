@@ -15,7 +15,7 @@ import HostListener from '../../internal/vendor/@carbon/web-components/globals/d
 import ddsSettings from '../../internal/vendor/@carbon/ibmdotcom-utilities/utilities/settings/settings';
 import StableSelectorMixin from '../../globals/mixins/stable-selector';
 import styles from './leaving-ibm.scss';
-import { carbonElement } from '../../internal/vendor/@carbon/web-components/globals/decorators/carbon-element.js';
+import { carbonElement as customElement } from '../../internal/vendor/@carbon/web-components/globals/decorators/carbon-element.js';
 
 const { stablePrefix: ddsPrefix } = ddsSettings;
 
@@ -24,7 +24,7 @@ const { stablePrefix: ddsPrefix } = ddsSettings;
  *
  * @element dds-leaving-ibm-modal
  */
-@carbonElement(`${ddsPrefix}-leaving-ibm-modal`)
+@customElement(`${ddsPrefix}-leaving-ibm-modal`)
 class DDSLeavingIbmModal extends StableSelectorMixin(BXModal) {
   /**
    * The unique ID for ID ref.

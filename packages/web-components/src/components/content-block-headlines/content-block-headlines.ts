@@ -14,7 +14,7 @@ import ddsSettings from '../../internal/vendor/@carbon/ibmdotcom-utilities/utili
 import StableSelectorMixin from '../../globals/mixins/stable-selector';
 import DDSContentBlock from '../content-block/content-block';
 import styles from './content-block-headlines.scss';
-import { carbonElement } from '../../internal/vendor/@carbon/web-components/globals/decorators/carbon-element';
+import { carbonElement as customElement } from '../../internal/vendor/@carbon/web-components/globals/decorators/carbon-element';
 
 const { prefix } = settings;
 const { stablePrefix: ddsPrefix } = ddsSettings;
@@ -24,7 +24,7 @@ const { stablePrefix: ddsPrefix } = ddsSettings;
  *
  * @element dds-content-block-headlines
  */
-@carbonElement(`${ddsPrefix}-content-block-headlines`)
+@customElement(`${ddsPrefix}-content-block-headlines`)
 class DDSContentBlockHeadlines extends StableSelectorMixin(DDSContentBlock) {
   /**
    * The CSS class list for the container (grid) node.

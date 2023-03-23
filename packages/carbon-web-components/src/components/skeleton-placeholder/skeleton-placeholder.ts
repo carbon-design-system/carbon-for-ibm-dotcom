@@ -10,7 +10,7 @@
 import { html, LitElement } from 'lit-element';
 import settings from 'carbon-components/es/globals/js/settings';
 import styles from './skeleton-placeholder.scss';
-import { carbonElement } from '../../globals/decorators/carbon-element';
+import { carbonElement as customElement } from '../../globals/decorators/carbon-element';
 
 const { prefix } = settings;
 
@@ -19,7 +19,7 @@ const { prefix } = settings;
  *
  * @element bx-skeleton-placeholder
  */
-@carbonElement(`${prefix}-skeleton-placeholder`)
+@customElement(`${prefix}-skeleton-placeholder`)
 class BXSkeletonPlaceholder extends LitElement {
   render() {
     return html` <div class="${prefix}--skeleton__placeholder"></div> `;

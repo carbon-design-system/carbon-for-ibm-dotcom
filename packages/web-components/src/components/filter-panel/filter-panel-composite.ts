@@ -25,7 +25,7 @@ import DDSFilterGroupItem from './filter-group-item';
 import DDSFilterPanelCheckbox from './filter-panel-checkbox';
 import DDSFilterPanelInputSelect from './filter-panel-input-select';
 import DDSFilterPanelInputSelectItem from './filter-panel-input-select-item';
-import { carbonElement } from '../../internal/vendor/@carbon/web-components/globals/decorators/carbon-element.js';
+import { carbonElement as customElement } from '../../internal/vendor/@carbon/web-components/globals/decorators/carbon-element.js';
 
 const { prefix } = settings;
 const { stablePrefix: ddsPrefix } = ddsSettings;
@@ -37,7 +37,7 @@ const breakpoint = parseFloat(breakpoints.lg.width) * baseFontSize;
  *
  * @element dds-filter-panel-composite
  */
-@carbonElement(`${ddsPrefix}-filter-panel-composite`)
+@customElement(`${ddsPrefix}-filter-panel-composite`)
 class DDSFilterPanelComposite extends HostListenerMixin(
   StableSelectorMixin(LitElement)
 ) {

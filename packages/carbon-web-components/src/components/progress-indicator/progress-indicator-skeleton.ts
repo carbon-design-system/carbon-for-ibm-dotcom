@@ -12,14 +12,14 @@ import settings from 'carbon-components/es/globals/js/settings';
 import { forEach } from '../../globals/internal/collection-helpers';
 import BXProgressStepSkeleton from './progress-step-skeleton';
 import styles from './progress-indicator.scss';
-import { carbonElement } from '../../globals/decorators/carbon-element';
+import { carbonElement as customElement } from '../../globals/decorators/carbon-element';
 
 const { prefix } = settings;
 
 /**
  * Skeleton of progress indicator.
  */
-@carbonElement(`${prefix}-progress-indicator-skeleton`)
+@customElement(`${prefix}-progress-indicator-skeleton`)
 class BXProgressIndicatorSkeleton extends LitElement {
   /**
    * `true` if the progress indicator should be vertical. Corresponds to the attribute with the same name.

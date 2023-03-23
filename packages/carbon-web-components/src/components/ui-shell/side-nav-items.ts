@@ -9,7 +9,7 @@
 
 import settings from 'carbon-components/es/globals/js/settings';
 import { html, LitElement } from 'lit-element';
-import { carbonElement } from '../../globals/decorators/carbon-element';
+import { carbonElement as customElement } from '../../globals/decorators/carbon-element';
 import styles from './side-nav.scss';
 
 const { prefix } = settings;
@@ -19,7 +19,7 @@ const { prefix } = settings;
  *
  * @element bx-side-nav-items
  */
-@carbonElement(`${prefix}-side-nav-items`)
+@customElement(`${prefix}-side-nav-items`)
 class BXSideNavItems extends LitElement {
   connectedCallback() {
     if (!this.hasAttribute('role')) {

@@ -17,12 +17,12 @@ import DDSStructuredListCell from '../structured-list/structured-list-cell';
 import DDSPricingTableGroup from './pricing-table-group';
 import styles from './pricing-table.scss';
 import DDSPricingTableCellAnnotation from './pricing-table-cell-annotation';
-import { carbonElement } from '../../internal/vendor/@carbon/web-components/globals/decorators/carbon-element.js';
+import { carbonElement as customElement } from '../../internal/vendor/@carbon/web-components/globals/decorators/carbon-element.js';
 
 const { prefix } = settings;
 const { stablePrefix: ddsPrefix } = ddsSettings;
 
-@carbonElement(`${ddsPrefix}-pricing-table-cell`)
+@customElement(`${ddsPrefix}-pricing-table-cell`)
 class DDSPricingTableCell extends StableSelectorMixin(
   HostListenerMixin(DDSStructuredListCell)
 ) {

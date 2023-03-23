@@ -7,7 +7,7 @@
  * LICENSE file in the root directory of this source tree.
  */
 import { html, property, LitElement } from 'lit-element';
-import { carbonElement } from '../../internal/vendor/@carbon/web-components/globals/decorators/carbon-element';
+import { carbonElement as customElement } from '../../internal/vendor/@carbon/web-components/globals/decorators/carbon-element';
 import ddsSettings from '../../internal/vendor/@carbon/ibmdotcom-utilities/utilities/settings/settings';
 import styles from './card.scss';
 import StableSelectorMixin from '../../globals/mixins/stable-selector';
@@ -19,7 +19,7 @@ const { stablePrefix: ddsPrefix } = ddsSettings;
  *
  * @element dds-card-eyebrow
  */
-@carbonElement(`${ddsPrefix}-card-eyebrow`)
+@customElement(`${ddsPrefix}-card-eyebrow`)
 class DDSCardEyebrow extends StableSelectorMixin(LitElement) {
   /**
    * The shadow slot this card eyebrow should be in.

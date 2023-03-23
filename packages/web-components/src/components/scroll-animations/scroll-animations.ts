@@ -14,7 +14,7 @@ import ddsSettings from '../../internal/vendor/@carbon/ibmdotcom-utilities/utili
 import StableSelectorMixin from '../../globals/mixins/stable-selector';
 import { forEach } from '../../globals/internal/collection-helpers';
 import { ANIMATION_TYPE } from './defs';
-import { carbonElement } from '../../internal/vendor/@carbon/web-components/globals/decorators/carbon-element';
+import { carbonElement as customElement } from '../../internal/vendor/@carbon/web-components/globals/decorators/carbon-element';
 
 const { prefix } = settings;
 const { stablePrefix: ddsPrefix } = ddsSettings;
@@ -54,7 +54,7 @@ const colSpan = 3;
  * }
  * @element dds-scroll-animations
  */
-@carbonElement(`${ddsPrefix}-scroll-animations`)
+@customElement(`${ddsPrefix}-scroll-animations`)
 class DDSScrollAnimations extends StableSelectorMixin(LitElement) {
   /**
    * Intersection Observer that watches outer viewport.

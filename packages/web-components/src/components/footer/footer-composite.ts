@@ -39,7 +39,7 @@ import './language-selector-desktop';
 import './language-selector-mobile';
 import '../../internal/vendor/@carbon/web-components/components/combo-box/combo-box-item.js';
 import '../../internal/vendor/@carbon/web-components/components/select/select-item.js';
-import { carbonElement } from '../../internal/vendor/@carbon/web-components/globals/decorators/carbon-element.js';
+import { carbonElement as customElement } from '../../internal/vendor/@carbon/web-components/globals/decorators/carbon-element.js';
 
 const { stablePrefix: ddsPrefix } = ddsSettings;
 
@@ -48,7 +48,7 @@ const { stablePrefix: ddsPrefix } = ddsSettings;
  *
  * @element dds-footer-composite
  */
-@carbonElement(`${ddsPrefix}-footer-composite`)
+@customElement(`${ddsPrefix}-footer-composite`)
 class DDSFooterComposite extends ModalRenderMixin(
   HybridRenderMixin(HostListenerMixin(LitElement))
 ) {

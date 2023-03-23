@@ -17,7 +17,7 @@ import ddsSettings from '../../internal/vendor/@carbon/ibmdotcom-utilities/utili
 import focuswrap from '../../internal/vendor/@carbon/ibmdotcom-utilities/utilities/focuswrap/focuswrap';
 import Handle from '../../globals/internal/handle';
 import styles from './masthead.scss';
-import { carbonElement } from '../../internal/vendor/@carbon/web-components/globals/decorators/carbon-element.js';
+import { carbonElement as customElement } from '../../internal/vendor/@carbon/web-components/globals/decorators/carbon-element.js';
 
 const { prefix } = settings;
 const { stablePrefix: ddsPrefix } = ddsSettings;
@@ -27,7 +27,7 @@ const { stablePrefix: ddsPrefix } = ddsSettings;
  *
  * @element dds-masthead-menu-button
  */
-@carbonElement(`${ddsPrefix}-masthead-menu-button`)
+@customElement(`${ddsPrefix}-masthead-menu-button`)
 class DDSMastheadMenuButton extends HostListenerMixin(BXHeaderMenuButton) {
   /**
    * The handle for focus wrapping.

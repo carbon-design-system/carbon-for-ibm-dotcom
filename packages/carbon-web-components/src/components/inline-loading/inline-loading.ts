@@ -16,7 +16,7 @@ import LOADING_TYPE from '../loading/types';
 import getLoadingIcon from '../loading/loading-icon';
 import { INLINE_LOADING_STATE } from './defs';
 import styles from './inline-loading.scss';
-import { carbonElement } from '../../globals/decorators/carbon-element';
+import { carbonElement as customElement } from '../../globals/decorators/carbon-element';
 
 export { INLINE_LOADING_STATE };
 
@@ -27,7 +27,7 @@ const { prefix } = settings;
  *
  * @element bx-inline-loading
  */
-@carbonElement(`${prefix}-inline-loading`)
+@customElement(`${prefix}-inline-loading`)
 class BXInlineLoading extends LitElement {
   /**
    * @returns The template for the status icon.

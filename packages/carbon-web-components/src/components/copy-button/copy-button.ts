@@ -15,7 +15,7 @@ import Copy16 from '@carbon/icons/lib/copy/16';
 import settings from 'carbon-components/es/globals/js/settings';
 import FocusMixin from '../../globals/mixins/focus';
 import styles from './copy-button.scss';
-import { carbonElement } from '../../globals/decorators/carbon-element';
+import { carbonElement as customElement } from '../../globals/decorators/carbon-element';
 
 const { prefix } = settings;
 
@@ -89,7 +89,7 @@ export const _renderButton = ({
  *
  * @element bx-copy-button
  */
-@carbonElement(`${prefix}-copy-button`)
+@customElement(`${prefix}-copy-button`)
 class BXCopyButton extends FocusMixin(LitElement) {
   /**
    * Handles showing/hiding the feedback tooltip.

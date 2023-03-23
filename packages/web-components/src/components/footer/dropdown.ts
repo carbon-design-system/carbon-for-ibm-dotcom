@@ -24,7 +24,7 @@ import {
   NAVIGATION_DIRECTION,
 } from './defs';
 import { forEach, indexOf } from '../../globals/internal/collection-helpers';
-import { carbonElement } from '../../internal/vendor/@carbon/web-components/globals/decorators/carbon-element.js';
+import { carbonElement as customElement } from '../../internal/vendor/@carbon/web-components/globals/decorators/carbon-element.js';
 
 export {
   DROPDOWN_COLOR_SCHEME,
@@ -55,7 +55,7 @@ const { prefix } = settings;
  * @fires bx-dropdown-selected - The custom event fired after a dropdown item is selected upon a user gesture.
  * @fires bx-dropdown-toggled - The custom event fired after the open state of this dropdown is toggled upon a user gesture.
  */
-@carbonElement(`${ddsPrefix}-dropdown`)
+@customElement(`${ddsPrefix}-dropdown`)
 class DDSDropdown extends BXDropdown {
   /**
    * The `<input` node in ComboBox, used to get value.

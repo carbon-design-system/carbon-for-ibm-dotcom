@@ -10,14 +10,14 @@
 import { html, LitElement } from 'lit-element';
 import settings from 'carbon-components/es/globals/js/settings';
 import styles from './slider.scss';
-import { carbonElement } from '../../globals/decorators/carbon-element';
+import { carbonElement as customElement } from '../../globals/decorators/carbon-element';
 
 const { prefix } = settings;
 
 /**
  * Skeleton of slider.
  */
-@carbonElement(`${prefix}-slider-skeleton`)
+@customElement(`${prefix}-slider-skeleton`)
 class BXSliderSkeleton extends LitElement {
   render() {
     return html`

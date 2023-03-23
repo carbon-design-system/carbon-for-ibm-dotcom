@@ -14,12 +14,12 @@ import StableSelectorMixin from '../../globals/mixins/stable-selector';
 import DDSStructuredListHeaderCell from '../structured-list/structured-list-header-cell';
 import styles from './pricing-table.scss';
 import { PRICING_TABLE_HEADER_CELL_TYPES } from './defs';
-import { carbonElement } from '../../internal/vendor/@carbon/web-components/globals/decorators/carbon-element';
+import { carbonElement as customElement } from '../../internal/vendor/@carbon/web-components/globals/decorators/carbon-element';
 
 const { prefix } = settings;
 const { stablePrefix: ddsPrefix } = ddsSettings;
 
-@carbonElement(`${ddsPrefix}-pricing-table-header-cell`)
+@customElement(`${ddsPrefix}-pricing-table-header-cell`)
 class DDSPricingTableHeaderCell extends StableSelectorMixin(
   DDSStructuredListHeaderCell
 ) {

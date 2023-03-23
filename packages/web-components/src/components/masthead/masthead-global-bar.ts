@@ -15,7 +15,7 @@ import FocusMixin from '../../internal/vendor/@carbon/web-components/globals/mix
 import ddsSettings from '../../internal/vendor/@carbon/ibmdotcom-utilities/utilities/settings/settings';
 import styles from './masthead.scss';
 import StableSelectorMixin from '../../globals/mixins/stable-selector';
-import { carbonElement } from '../../internal/vendor/@carbon/web-components/globals/decorators/carbon-element.js';
+import { carbonElement as customElement } from '../../internal/vendor/@carbon/web-components/globals/decorators/carbon-element.js';
 
 const { stablePrefix: ddsPrefix } = ddsSettings;
 
@@ -24,7 +24,7 @@ const { stablePrefix: ddsPrefix } = ddsSettings;
  *
  * @element dds-masthead-global-bar
  */
-@carbonElement(`${ddsPrefix}-masthead-global-bar`)
+@customElement(`${ddsPrefix}-masthead-global-bar`)
 class DDSMastheadGlobalBar extends FocusMixin(
   HostListenerMixin(StableSelectorMixin(LitElement))
 ) {

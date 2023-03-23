@@ -16,7 +16,7 @@ import DDSCardCTA, { CTA_TYPE } from '../cta/card-cta';
 import './card-in-card-image';
 import styles from './card-in-card.scss';
 import StableSelectorMixin from '../../globals/mixins/stable-selector';
-import { carbonElement } from '../../internal/vendor/@carbon/web-components/globals/decorators/carbon-element.js';
+import { carbonElement as customElement } from '../../internal/vendor/@carbon/web-components/globals/decorators/carbon-element.js';
 
 const { prefix } = settings;
 const { stablePrefix: ddsPrefix } = ddsSettings;
@@ -26,7 +26,7 @@ const { stablePrefix: ddsPrefix } = ddsSettings;
  *
  * @element dds-card-in-card
  */
-@carbonElement(`${ddsPrefix}-card-in-card`)
+@customElement(`${ddsPrefix}-card-in-card`)
 class DDSCardInCard extends StableSelectorMixin(DDSCardCTA) {
   protected _renderImage() {
     const {

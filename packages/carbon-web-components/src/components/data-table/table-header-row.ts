@@ -8,7 +8,7 @@
  */
 
 import settings from 'carbon-components/es/globals/js/settings';
-import { carbonElement } from '../../globals/decorators/carbon-element';
+import { carbonElement as customElement } from '../../globals/decorators/carbon-element';
 import BXTableRow from './table-row';
 
 const { prefix } = settings;
@@ -18,7 +18,7 @@ const { prefix } = settings;
  *
  * @element bx-table-header-row
  */
-@carbonElement(`${prefix}-table-header-row`)
+@customElement(`${prefix}-table-header-row`)
 class BXTableHeaderRow extends BXTableRow {
   /**
    * The name of the custom event fired before this row is selected/unselected upon a user gesture.

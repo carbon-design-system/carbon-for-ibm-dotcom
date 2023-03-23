@@ -15,7 +15,7 @@ import ddsSettings from '../../internal/vendor/@carbon/ibmdotcom-utilities/utili
 import { CONTENT_BLOCK_COMPLEMENTARY_STYLE_SCHEME } from './defs';
 import styles from './content-block.scss';
 import StableSelectorMixin from '../../globals/mixins/stable-selector';
-import { carbonElement } from '../../internal/vendor/@carbon/web-components/globals/decorators/carbon-element';
+import { carbonElement as customElement } from '../../internal/vendor/@carbon/web-components/globals/decorators/carbon-element';
 
 export { CONTENT_BLOCK_COMPLEMENTARY_STYLE_SCHEME };
 
@@ -44,7 +44,7 @@ const slotExistencePropertyNames = {
  * @slot complementary - The complementary (aside) content.
  * @abstract
  */
-@carbonElement(`${ddsPrefix}-content-block`)
+@customElement(`${ddsPrefix}-content-block`)
 class DDSContentBlock extends StableSelectorMixin(LitElement) {
   /**
    * `true` if there is complementary content.

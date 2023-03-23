@@ -9,7 +9,7 @@
 
 import settings from 'carbon-components/es/globals/js/settings.js';
 import ddsSettings from '../../internal/vendor/@carbon/ibmdotcom-utilities/utilities/settings/settings';
-import { carbonElement } from '../../internal/vendor/@carbon/web-components/globals/decorators/carbon-element';
+import { carbonElement as customElement } from '../../internal/vendor/@carbon/web-components/globals/decorators/carbon-element';
 import DDSCardFooter from '../card/card-footer';
 import styles from './feature-card.scss';
 
@@ -21,7 +21,7 @@ const { stablePrefix: ddsPrefix } = ddsSettings;
  *
  * @element dds-feature-card-footer
  */
-@carbonElement(`${ddsPrefix}-feature-card-footer`)
+@customElement(`${ddsPrefix}-feature-card-footer`)
 class DDSFeatureCardFooter extends DDSCardFooter {
   updated() {
     super.updated();
