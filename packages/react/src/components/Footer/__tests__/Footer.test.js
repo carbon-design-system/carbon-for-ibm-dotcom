@@ -1,5 +1,5 @@
 /**
- * Copyright IBM Corp. 2016, 2020
+ * Copyright IBM Corp. 2016, 2023
  *
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
@@ -9,7 +9,7 @@ import { act } from 'react-dom/test-utils';
 import Footer from '../Footer';
 import React from 'react';
 import ReactDOM from 'react-dom';
-import TranslationAPI from '@carbon/ibmdotcom-services/es/services/Translation/Translation';
+import TranslationAPI from '../../../internal/vendor/@carbon/ibmdotcom-services/services/Translation/Translation';
 
 const FOOTER_MENU_MOCK_DATA = require('../__data__/footer-menu.json');
 const FOOTER_THIN_MOCK_DATA = require('../__data__/footer-thin.json');
