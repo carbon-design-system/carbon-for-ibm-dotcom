@@ -7,13 +7,7 @@
  * LICENSE file in the root directory of this source tree.
  */
 
-import {
-  html,
-  property,
-  state,
-  query,
-  LitElement,
-} from 'lit-element/lit-element.js';
+import { html, property, state, query, LitElement } from 'lit-element';
 import { carbonElement } from '../../internal/vendor/@carbon/web-components/globals/decorators/carbon-element.js';
 import 'wicg-inert';
 import settings from 'carbon-components/es/globals/js/settings.js';

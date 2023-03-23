@@ -8,7 +8,7 @@
  */
 
 import { classMap } from 'lit-html/directives/class-map';
-import { html, property, LitElement, query } from 'lit-element/lit-element';
+import { html, property, LitElement, query } from 'lit-element';
 import { carbonElement } from '../../globals/decorators/carbon-element';
 import settings from 'carbon-components/es/globals/js/settings';
 import ifNonNull from '../../globals/directives/if-non-null';

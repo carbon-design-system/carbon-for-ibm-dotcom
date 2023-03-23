@@ -7,13 +7,7 @@
  * LICENSE file in the root directory of this source tree.
  */
 
-import {
-  html,
-  property,
-  state,
-  TemplateResult,
-  query,
-} from 'lit-element/lit-element';
+import { html, property, state, TemplateResult, query } from 'lit-element';
 import { carbonElement } from '../../internal/vendor/@carbon/web-components/globals/decorators/carbon-element.js';
 import settings from 'carbon-components/es/globals/js/settings.js';
 import BXLink from '../../internal/vendor/@carbon/web-components/components/link/link.js';
