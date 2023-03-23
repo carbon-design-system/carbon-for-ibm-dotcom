@@ -14,7 +14,10 @@
   <div class="bx--content-layout__body">
     <slot>
     </slot>
-    <dds-hr data-autoid="dds--hr">
+    <dds-hr
+      data-autoid="dds--hr"
+      role="separator"
+    >
     </dds-hr>
   </div>
 </div>
@@ -33,7 +36,10 @@
   <div class="bx--content-layout__body">
     <slot>
     </slot>
-    <dds-hr data-autoid="dds--hr">
+    <dds-hr
+      data-autoid="dds--hr"
+      role="separator"
+    >
     </dds-hr>
   </div>
 </div>
@@ -54,7 +60,10 @@
   <div class="bx--content-layout__body">
     <slot>
     </slot>
-    <dds-hr data-autoid="dds--hr">
+    <dds-hr
+      data-autoid="dds--hr"
+      role="separator"
+    >
     </dds-hr>
   </div>
 </div>
@@ -73,7 +82,10 @@
   <div class="bx--content-layout__body">
     <slot>
     </slot>
-    <dds-hr data-autoid="dds--hr">
+    <dds-hr
+      data-autoid="dds--hr"
+      role="separator"
+    >
     </dds-hr>
   </div>
 </div>
