@@ -28,7 +28,8 @@ $css--plex: true !default;
   ~ .#{$prefix}--number__controls
   .#{$prefix}--number__rule-divider:first-of-type,
 .#{$prefix}--number
-  input[type='number']:disabled
+  .#{$prefix}--number__invalid
+  ~ input[type='number']:disabled
   + .#{$prefix}--number__controls
   .#{$prefix}--number__rule-divider:first-of-type {
   background-color: $border-subtle;
