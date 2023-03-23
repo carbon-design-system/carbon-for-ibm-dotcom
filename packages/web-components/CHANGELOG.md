@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.30.0-rc.2](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/compare/@carbon/ibmdotcom-web-components@1.30.0-rc.1...@carbon/ibmdotcom-web-components@1.30.0-rc.2) (2023-03-23)
+
+
+### Bug Fixes
+
+* **notice-choice:** change js files to ts for notice choice ([#10252](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/issues/10252)) ([deab7b7](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/commit/deab7b7330644fd3b678d5f033fe135e14b0aa14))
+
+
+
+
+
 # [1.30.0-rc.1](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/compare/@carbon/ibmdotcom-web-components@1.30.0-rc.0...@carbon/ibmdotcom-web-components@1.30.0-rc.1) (2023-03-16)
 
 **Note:** Version bump only for package @carbon/ibmdotcom-web-components
