@@ -63,6 +63,7 @@ const legacyCustomElement = (
   clazz: Constructor<HTMLElement>
 ) => {
   try {
+    console.info(`Attempting to define ${tagName}`);
     window.customElements.define(tagName, clazz);
   } catch (error) {
     console.warn(error);
@@ -87,6 +88,7 @@ const standardCustomElement = (
     // This callback is called once the class is otherwise fully defined
     finisher(clazz: Constructor<HTMLElement>) {
       try {
+        console.info(`Attempting to define ${tagName}`);
         window.customElements.define(tagName, clazz);
       } catch (error) {
         console.warn(error);
