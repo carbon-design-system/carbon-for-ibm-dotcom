@@ -7,14 +7,7 @@
  * LICENSE file in the root directory of this source tree.
  */
 
-import {
-  html,
-  property,
-  state,
-  query,
-  customElement,
-  LitElement,
-} from 'lit-element';
+import { html, property, state, query, LitElement } from 'lit-element';
 import settings from 'carbon-components/es/globals/js/settings.js';
 import { INPUT_SIZE } from '../../internal/vendor/@carbon/web-components/components/input/input.js';
 import ddsSettings from '../../internal/vendor/@carbon/ibmdotcom-utilities/utilities/settings/settings';
@@ -24,6 +17,7 @@ import DDSSearch, { SEARCH_COLOR_SCHEME } from '../search/search';
 import DDSLocaleItem from './locale-item';
 import styles from './locale-modal.scss';
 import StableSelectorMixin from '../../globals/mixins/stable-selector';
+import { carbonElement as customElement } from '../../internal/vendor/@carbon/web-components/globals/decorators/carbon-element.js';
 
 const { prefix } = settings;
 const { stablePrefix: ddsPrefix } = ddsSettings;

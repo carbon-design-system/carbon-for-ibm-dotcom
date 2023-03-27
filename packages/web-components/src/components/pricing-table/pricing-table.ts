@@ -7,7 +7,7 @@
  * LICENSE file in the root directory of this source tree.
  */
 
-import { customElement, property, html } from 'lit-element';
+import { property, html } from 'lit-element';
 import settings from 'carbon-components/es/globals/js/settings.js';
 import HostListenerMixin from '../../internal/vendor/@carbon/web-components/globals/mixins/host-listener.js';
 import HostListener from '../../internal/vendor/@carbon/web-components/globals/decorators/host-listener.js';
@@ -19,6 +19,7 @@ import DDSPricingTableHeaderCell from './pricing-table-header-cell';
 import DDSPricingTableHighlightLabel from './pricing-table-highlight-label';
 import DDSPricingTableHead from './pricing-table-head';
 import DDSPricingTableHeaderRow from './pricing-table-header-row';
+import { carbonElement as customElement } from '../../internal/vendor/@carbon/web-components/globals/decorators/carbon-element.js';
 
 const { prefix } = settings;
 const { stablePrefix: ddsPrefix } = ddsSettings;

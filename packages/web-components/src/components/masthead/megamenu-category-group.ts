@@ -7,13 +7,14 @@
  * LICENSE file in the root directory of this source tree.
  */
 
-import { html, customElement, LitElement, property } from 'lit-element';
+import { html, LitElement, property } from 'lit-element';
 import ifNonNull from '../../internal/vendor/@carbon/web-components/globals/directives/if-non-null.js';
 import ArrowRight16 from '../../internal/vendor/@carbon/web-components/icons/arrow--right/16.js';
 import settings from 'carbon-components/es/globals/js/settings.js';
 import ddsSettings from '../../internal/vendor/@carbon/ibmdotcom-utilities/utilities/settings/settings';
 import styles from './masthead.scss';
 import './megamenu-link-with-icon';
+import { carbonElement as customElement } from '../../internal/vendor/@carbon/web-components/globals/decorators/carbon-element.js';
 
 const { prefix } = settings;
 const { stablePrefix: ddsPrefix } = ddsSettings;

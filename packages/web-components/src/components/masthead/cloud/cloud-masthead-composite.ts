@@ -7,7 +7,7 @@
  * LICENSE file in the root directory of this source tree.
  */
 
-import { customElement, html, property } from 'lit-element';
+import { html, property } from 'lit-element';
 import ifNonNull from '../../../internal/vendor/@carbon/web-components/globals/directives/if-non-null.js';
 import ddsSettings from '../../../internal/vendor/@carbon/ibmdotcom-utilities/utilities/settings/settings';
 import { globalInit } from '../../../internal/vendor/@carbon/ibmdotcom-services/services/global/global';
@@ -33,6 +33,7 @@ import styles from './cloud-masthead.scss';
 import DDSMastheadComposite, {
   NAV_ITEMS_RENDER_TARGET,
 } from '../masthead-composite';
+import { carbonElement as customElement } from '../../../internal/vendor/@carbon/web-components/globals/decorators/carbon-element.js';
 
 const { stablePrefix: ddsPrefix } = ddsSettings;
 
