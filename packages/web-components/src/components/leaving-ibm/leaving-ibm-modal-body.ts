@@ -7,13 +7,14 @@
  * LICENSE file in the root directory of this source tree.
  */
 
-import { customElement, html, property } from 'lit-element';
+import { html, property } from 'lit-element';
 import BXModalBody from '../../internal/vendor/@carbon/web-components/components/modal/modal-body.js';
 import ifNonNull from '../../internal/vendor/@carbon/web-components/globals/directives/if-non-null.js';
 import ddsSettings from '../../internal/vendor/@carbon/ibmdotcom-utilities/utilities/settings/settings';
 import '../../internal/vendor/@carbon/web-components/components/link/link.js';
 import styles from './leaving-ibm.scss';
 import StableSelectorMixin from '../../globals/mixins/stable-selector';
+import { carbonElement as customElement } from '../../internal/vendor/@carbon/web-components/globals/decorators/carbon-element.js';
 
 const { stablePrefix: ddsPrefix } = ddsSettings;
 
