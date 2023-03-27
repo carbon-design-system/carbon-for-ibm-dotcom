@@ -122,13 +122,13 @@ class CDSInput extends ValidityMixin(FormMixin(LitElement)) {
    * Provide the text that is displayed when the control is in warning state
    */
   @property({ attribute: 'warn-text' })
-  warnText;
+  warnText = '';
 
   /**
    * Message which is displayed if the value is invalid.
    */
   @property({ attribute: 'invalid-text' })
-  invalidText;
+  invalidText = '';
 
   /**
    * Specify whether you want the underlying label to be visually hidden
