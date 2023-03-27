@@ -11,7 +11,7 @@ import { html, render } from 'lit';
 import EventManager from '../utils/event-manager';
 
 import CDSTextarea from '../../src/components/textarea/textarea';
-import { Default } from '../../src/components/textarea/textarea-story';
+import { Playground } from '../../src/components/textarea/textarea-story';
 
 /**
  * @param formData A `FormData` instance.
@@ -27,7 +27,7 @@ const getValues = (formData: FormData) => {
 };
 
 const template = (props?) =>
-  Default({
+  Playground({
     'cds-textarea': props,
   });
 
@@ -48,7 +48,7 @@ describe('cds-textarea', function () {
           placeholder: 'placeholder-foo',
           readonly: true,
           required: true,
-          validityMessage: 'validity-message-foo',
+          invalidText: 'validity-message-foo',
           value: 'value-foo',
         }),
         document.body
@@ -166,11 +166,11 @@ describe('cds-textarea', function () {
       expect(textarea.checkValidity()).toBe(false);
       expect(spyInvalid).toHaveBeenCalled();
       expect(textarea.invalid).toBe(true);
-      expect(textarea.validityMessage).toBe('Please fill out this field.');
+      expect(textarea.invalidText).toBe('Please fill out this field.');
       textarea.value = 'value-foo';
       expect(textarea.checkValidity()).toBe(true);
       expect(textarea.invalid).toBe(false);
-      expect(textarea.validityMessage).toBe('');
+      expect(textarea.invalidText).toBe('');
     });
 
     it('should support canceling required check', async function () {
@@ -181,21 +181,21 @@ describe('cds-textarea', function () {
       });
       expect(textarea.checkValidity()).toBe(false);
       expect(textarea.invalid).toBe(false);
-      expect(textarea.validityMessage).toBe('');
+      expect(textarea.invalidText).toBe('');
     });
 
     it('should treat empty custom validity message as not invalid', async function () {
       const textarea = elem as CDSTextarea;
       textarea.setCustomValidity('');
       expect(textarea.invalid).toBe(false);
-      expect(textarea.validityMessage).toBe('');
+      expect(textarea.invalidText).toBe('');
     });
 
     it('should treat non-empty custom validity message as invalid', async function () {
       const textarea = elem as CDSTextarea;
       textarea.setCustomValidity('validity-message-foo');
       expect(textarea.invalid).toBe(true);
-      expect(textarea.validityMessage).toBe('validity-message-foo');
+      expect(textarea.invalidText).toBe('validity-message-foo');
     });
   });
 
