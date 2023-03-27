@@ -110,7 +110,7 @@ class CDSInput extends ValidityMixin(FormMixin(LitElement)) {
    * Max character count allowed for input. This is needed in order for enableCounter to display
    */
   @property({ type: Number, attribute: 'max-count', reflect: true })
-  maxCount = 500;
+  maxCount;
 
   /**
    * Specify whether the control is currently in warning state
@@ -122,13 +122,13 @@ class CDSInput extends ValidityMixin(FormMixin(LitElement)) {
    * Provide the text that is displayed when the control is in warning state
    */
   @property({ attribute: 'warn-text' })
-  warnText = '';
+  warnText;
 
   /**
    * Message which is displayed if the value is invalid.
    */
   @property({ attribute: 'invalid-text' })
-  invalidText = 'Number is not valid';
+  invalidText;
 
   /**
    * Specify whether you want the underlying label to be visually hidden

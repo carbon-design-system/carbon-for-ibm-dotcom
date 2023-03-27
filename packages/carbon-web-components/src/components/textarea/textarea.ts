@@ -62,22 +62,10 @@ class CDSTextarea extends CDSInput {
   required = false;
 
   /**
-   * The special validity message for `required`.
-   */
-  @property({ attribute: 'required-validity-message' })
-  requiredValidityMessage = 'Please fill out this field.';
-
-  /**
    * The number of rows for the textarea to show by default
    */
   @property()
   rows = 4;
-
-  /**
-   * The validity message.
-   */
-  @property({ attribute: 'validity-message' })
-  validityMessage = '';
 
   /**
    * Get a reference to the underlying textarea so we can directly apply values.
@@ -96,17 +84,18 @@ class CDSTextarea extends CDSInput {
     });
 
     const warnIcon = WarningAltFilled16({
-      class: `${prefix}--text-area__invalid ${prefix}--text-area__invalid--warning`,
+      class: `${prefix}--text-area__invalid-icon ${prefix}--text-area__invalid-icon--warning`,
     });
 
     const textareaClasses = classMap({
       [`${prefix}--text-area`]: true,
-      [`${prefix}--text-area--v2`]: true,
+      [`${prefix}--text-area--warn`]: this.warn,
       [`${prefix}--text-area--invalid`]: this.invalid,
     });
 
     const textareaWrapperClasses = classMap({
       [`${prefix}--text-area__wrapper`]: true,
+      [`${prefix}--text-area__wrapper--warn`]: this.warn,
       [`${prefix}--text-area__wrapper--readonly`]: this.readonly,
     });
 
@@ -127,6 +116,15 @@ class CDSTextarea extends CDSInput {
           </label>`
         : null;
 
+    const icon = () => {
+      if (this.invalid) {
+        return invalidIcon;
+      } else if (this.warn && !this.invalid) {
+        return warnIcon;
+      }
+      return null;
+    };
+
     return html`
       <div class="${prefix}--text-area__label-wrapper">
         <label class="${labelClasses}" for="input">
@@ -135,7 +133,7 @@ class CDSTextarea extends CDSInput {
         ${counter}
       </div>
       <div class="${textareaWrapperClasses}" ?data-invalid="${this.invalid}">
-        ${this.invalid ? invalidIcon : null}
+        ${icon()}
         <textarea
           ?autocomplete="${this.autocomplete}"
           ?autofocus="${this.autofocus}"
@@ -151,13 +149,18 @@ class CDSTextarea extends CDSInput {
           ?required="${this.required}"
           rows="${ifDefined(this.rows)}"
           .value="${this.value}"
+          maxlength="${ifNonEmpty(this.maxCount)}"
           @input="${this._handleInput}"></textarea>
       </div>
-      <div class="${helperTextClasses}">
+      <div class="${helperTextClasses}" ?hidden="${this.invalid || this.warn}">
         <slot name="helper-text"> ${this.helperText} </slot>
       </div>
-      <div class="${prefix}--form-requirement">
-        <slot name="validity-message"> ${this.validityMessage} </slot>
+      <div
+        class="${prefix}--form-requirement"
+        ?hidden="${!this.invalid && !this.warn}">
+        <slot name="${this.invalid ? 'invalid-text' : 'warn-text'}">
+          ${this.invalid ? this.invalidText : this.warnText}
+        </slot>
       </div>
     `;
   }

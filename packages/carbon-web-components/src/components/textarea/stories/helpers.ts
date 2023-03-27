@@ -16,10 +16,7 @@ const createProps = ({ boolean, textNullable, number }) => ({
   helperText: textNullable('Helper text (helper-text)', 'Textarea helper text'),
   hideLabel: boolean('Hide label (hide-label)', false),
   invalid: boolean('Invalid (invalid)', false),
-  invalidText: textNullable(
-    'Invalid text (invalid-text)',
-    'Number is not valid'
-  ),
+  invalidText: textNullable('Invalid text (invalid-text)', 'Invalid text'),
   label: textNullable('Label (label)', 'Textarea label'),
   maxCount: number('Max character count (max-count', 500),
   onInput: action('input'),
