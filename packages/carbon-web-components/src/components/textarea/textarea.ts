@@ -11,6 +11,7 @@ import { LitElement, html } from 'lit';
 import { property, customElement, query } from 'lit/decorators.js';
 import { classMap } from 'lit/directives/class-map.js';
 import WarningFilled16 from '@carbon/icons/lib/warning--filled/16';
+import WarningAltFilled16 from '@carbon/icons/lib/warning--alt--filled/16';
 import { prefix } from '../../globals/settings';
 import ifNonEmpty from '../../globals/directives/if-non-empty';
 import { ifDefined } from 'lit/directives/if-defined.js';
@@ -86,14 +87,27 @@ class CDSTextarea extends CDSInput {
   protected _textarea!: HTMLTextAreaElement;
 
   render() {
+    const { enableCounter, maxCount } = this;
+
+    const textCount = this.value?.length;
+
     const invalidIcon = WarningFilled16({
       class: `${prefix}--text-area__invalid-icon`,
+    });
+
+    const warnIcon = WarningAltFilled16({
+      class: `${prefix}--text-area__invalid ${prefix}--text-area__invalid--warning`,
     });
 
     const textareaClasses = classMap({
       [`${prefix}--text-area`]: true,
       [`${prefix}--text-area--v2`]: true,
       [`${prefix}--text-area--invalid`]: this.invalid,
+    });
+
+    const textareaWrapperClasses = classMap({
+      [`${prefix}--text-area__wrapper`]: true,
+      [`${prefix}--text-area__wrapper--readonly`]: this.readonly,
     });
 
     const labelClasses = classMap({
@@ -106,13 +120,21 @@ class CDSTextarea extends CDSInput {
       [`${prefix}--form__helper-text--disabled`]: this.disabled,
     });
 
+    const counter =
+      enableCounter && maxCount
+        ? html` <label class="${labelClasses}">
+            <slot name="label-text">${textCount}/${maxCount}</slot>
+          </label>`
+        : null;
+
     return html`
-      <label class="${labelClasses}" for="input">
-        <slot name="label-text"> ${this.label} </slot>
-      </label>
-      <div
-        class="${prefix}--text-area__wrapper"
-        ?data-invalid="${this.invalid}">
+      <div class="${prefix}--text-area__label-wrapper">
+        <label class="${labelClasses}" for="input">
+          <slot name="label-text"> ${this.label} </slot>
+        </label>
+        ${counter}
+      </div>
+      <div class="${textareaWrapperClasses}" ?data-invalid="${this.invalid}">
         ${this.invalid ? invalidIcon : null}
         <textarea
           ?autocomplete="${this.autocomplete}"

@@ -59,21 +59,43 @@ export const WithLayer = () => {
 WithLayer.storyName = 'With Layer';
 
 export const Playground = (args) => {
-  const { disabled, value, placeholder, invalid, onInput, rows, cols } =
-    args?.[`${prefix}-textarea`] ?? {};
+  const {
+    cols,
+    disabled,
+    enableCounter,
+    helperText,
+    hideLabel,
+    invalid,
+    invalidText,
+    label,
+    maxCount,
+    onInput,
+    placeholder,
+    readonly,
+    rows,
+    value,
+    warn,
+    warnText,
+  } = args?.[`${prefix}-textarea`] ?? {};
   return html`
     <cds-form-item>
       <cds-textarea
+        ?enable-counter="${enableCounter}"
+        helper-text="${ifDefined(helperText)}"
+        ?hide-label="${hideLabel}"
+        ?invalid="${invalid}"
+        invalid-text="${ifDefined(invalidText)}"
+        label="${ifDefined(label)}"
+        ?readonly="${readonly}"
+        value="${ifDefined(value)}"
+        ?warn="${warn}"
+        warn-text="${ifDefined(warnText)}"
+        ?disabled="${disabled}"
+        max-count="${ifDefined(maxCount)}"
         placeholder="${ifDefined(placeholder)}"
         @input="${onInput}"
-        ?invalid="${invalid}"
-        ?disabled="${disabled}"
-        value="${ifDefined(value)}"
         rows="${ifDefined(rows)}"
         cols="${ifDefined(cols)}">
-        <span slot="label-text">Label text</span>
-        <span slot="helper-text">Optional helper text</span>
-        <span slot="validity-message">Something isn't right</span>
         ${value}
       </cds-textarea>
     </cds-form-item>
