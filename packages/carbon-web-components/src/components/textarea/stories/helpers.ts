@@ -25,7 +25,7 @@ const createProps = ({ boolean, textNullable, number }) => ({
   rows: number('Number of rows (rows)', 4),
   value: textNullable('Value (value)', ''),
   warn: boolean('Warn (warn)', false),
-  warnText: textNullable('Warn text (warn-text)', 'Warning text'),
+  warnText: textNullable('Warn text (warn-text)', 'This is a warning message.'),
 });
 
 export default createProps;
