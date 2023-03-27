@@ -29,7 +29,7 @@
     "lint:styles": "stylelint '**/*.{css,scss}' --config ./packages/stylelint-config-ibmdotcom",
     "reset": "yarn cache clean && yarn clean && yarn install && yarn build",
     "test": "yarn test:unit && yarn test:a11y && yarn test:integration:build",
-    "test:a11y": "NODE_OPTIONS=--openssl-legacy-provider yarn lerna run --stream --prefix test:a11y",
+    "test:a11y": "yarn lerna run --stream --prefix test:a11y",
     "test:unit": "cross-env BABEL_ENV=test jest",
     "test:integration:build": "yarn lerna run --stream --prefix --scope=@carbon/ibmdotcom-react test:integration:build",
     "prepare": "husky install"
