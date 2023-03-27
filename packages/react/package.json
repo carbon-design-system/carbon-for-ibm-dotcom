@@ -52,7 +52,7 @@
     "test:e2e-storybook:browserstack:next": "browserstack-cypress run --cf tests/e2e-storybook/browserstack.json --ccf tests/e2e-storybook/cypress-next.json --sync --build-name 'React Storybook Next'",
     "test:unit": "cross-env NODE_OPTIONS=--unhandled-rejections=none jest",
     "test:unit:updateSnapshot": "cross-env NODE_OPTIONS=--unhandled-rejections=none jest -u",
-    "test:a11y": "gulp test:a11y || true",
+    "test:a11y": "NODE_OPTIONS=--openssl-legacy-provider gulp test:a11y",
     "test-ssr": "yarn build && node ssr-tests/*.js",
     "visual-snapshot": "yarn build-storybook && percy storybook ./storybook-static"
   },
