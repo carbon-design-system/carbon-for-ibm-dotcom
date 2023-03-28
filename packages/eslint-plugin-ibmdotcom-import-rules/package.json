@@ -1,7 +1,7 @@
 {
   "name": "@carbon/eslint-plugin-ibmdotcom-import-rules",
   "private": true,
-  "version": "1.35.0-rc.2",
+  "version": "1.35.0-rc.3",
   "description": "ESLint plugin for Carbon for IBM.com checking imports",
   "license": "Apache-2.0",
   "main": "lib/index.js",

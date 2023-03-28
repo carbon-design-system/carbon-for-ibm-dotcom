@@ -7,7 +7,7 @@
  * LICENSE file in the root directory of this source tree.
  */
 
-import { property, customElement, query, state } from 'lit-element';
+import { property, query, state } from 'lit-element';
 import HostListener from '../../internal/vendor/@carbon/web-components/globals/decorators/host-listener.js';
 import HostListenerMixin from '../../internal/vendor/@carbon/web-components/globals/mixins/host-listener.js';
 import BXComboBoxItem from '../../internal/vendor/@carbon/web-components/components/combo-box/combo-box-item.js';
@@ -16,6 +16,7 @@ import { LANGUAGE_SELECTOR_STYLE_SCHEME } from './defs';
 import DDSComboBox, { DROPDOWN_SIZE } from './combo-box';
 import styles from './footer.scss';
 import { findIndex, forEach } from '../../globals/internal/collection-helpers';
+import { carbonElement as customElement } from '../../internal/vendor/@carbon/web-components/globals/decorators/carbon-element.js';
 
 const { stablePrefix: ddsPrefix } = ddsSettings;
 
