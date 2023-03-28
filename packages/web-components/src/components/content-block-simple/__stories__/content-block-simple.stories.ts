@@ -63,7 +63,6 @@ const copy = `Lorem ipsum *dolor* sit amet, consectetur adipiscing elit. Aenean 
         - list item 2a.a
 `;
 
-// TODO: Replace with <dds-image-with-caption>
 const image = html`
   <dds-image slot="media" alt="Image alt text" default-src="${imgLg16x9}">
     <dds-image-item media="(min-width: 672px)" srcset="${imgLg16x9}">
