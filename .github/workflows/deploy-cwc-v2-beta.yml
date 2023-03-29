@@ -1,4 +1,4 @@
-name: deploy-cwc-v2-beta (Deploy storybook environments to Github Pages)
+name: deploy-cwc-v2-beta (Deploy storybook environments to GitHub Pages)
 
 on:
   push:
