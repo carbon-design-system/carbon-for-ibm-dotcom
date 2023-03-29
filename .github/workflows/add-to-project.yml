@@ -1,0 +1,22 @@
+name: Add to Project
+on:
+  issues:
+    types: [opened, labeled]
+  workflow_call:
+    secrets:
+      ADD_TO_PROJECT:
+        required: true
+
+# add new project URLs here
+env:
+  DOTCOM_PROJECT_URL: https://github.com/orgs/carbon-design-system/projects/56
+
+jobs:
+  add-to-dotcom-project:
+    name: Add issue to Dotcom project
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/add-to-project@v0.4.1
+        with:
+          project-url: ${{ env.DOTCOM_PROJECT_URL }}
+          github-token: ${{ secrets.ADD_TO_PROJECT }}

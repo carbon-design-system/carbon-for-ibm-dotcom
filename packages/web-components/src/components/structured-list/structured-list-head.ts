@@ -8,9 +8,10 @@
  */
 
 import BXStructuredListHead from '../../internal/vendor/@carbon/web-components/components/structured-list/structured-list-head.js';
-import { customElement } from 'lit-element';
+import {} from 'lit-element';
 import ddsSettings from '../../internal/vendor/@carbon/ibmdotcom-utilities/utilities/settings/settings';
 import styles from './structured-list.scss';
+import { carbonElement as customElement } from '../../internal/vendor/@carbon/web-components/globals/decorators/carbon-element.js';
 
 const { stablePrefix: ddsPrefix } = ddsSettings;
 
