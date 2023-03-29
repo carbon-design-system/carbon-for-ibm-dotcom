@@ -246,7 +246,7 @@ function _clean() {
     // Delete the dist folder
     if (fsExtra.existsSync(_distFolder)) {
       log(chalk.yellow(`Deleting dist folder: ${_distFolder}`));
-      fsExtra.rm(_distFolder, { recursive: true });
+      fsExtra.rmdirSync(_distFolder, { recursive: true });
     }
     fsExtra.mkdirSync(_distFolder);
   }
