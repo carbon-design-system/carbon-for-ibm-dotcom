@@ -26,9 +26,9 @@ import '../layer';
 import storyDocs from './select-story.mdx';
 
 const sizes = {
-  'Regular size': null,
   [`Small size (${INPUT_SIZE.SMALL})`]: INPUT_SIZE.SMALL,
-  [`Extra large size (${INPUT_SIZE.EXTRA_LARGE})`]: INPUT_SIZE.EXTRA_LARGE,
+  [`Medium size (${INPUT_SIZE.MEDIUM})`]: INPUT_SIZE.MEDIUM,
+  [`Large size (${INPUT_SIZE.LARGE})`]: INPUT_SIZE.LARGE,
 };
 
 export const Default = () => {
@@ -130,15 +130,19 @@ export const WithLayer = () => {
 
 export const Playground = (args) => {
   const {
-    autofocus,
     disabled,
     helperText,
+    hideLabel,
+    inline,
     invalid,
+    invalidText,
     labelText,
     name,
     placeholder,
     size,
-    validityMessage,
+    readonly,
+    warn,
+    warnText,
     value,
     children = html`
       <cds-select-item-group label="Category 1">
@@ -156,16 +160,19 @@ export const Playground = (args) => {
   return html`
     <cds-form-item>
       <cds-select
-        Playground
-        ?autofocus="${autofocus}"
+        ?inline="${inline}"
         ?disabled="${disabled}"
         helper-text="${ifDefined(helperText)}"
+        ?hide-label="${hideLabel}"
         ?invalid="${invalid}"
-        label-text="Select an option"
+        invalid-text="${ifDefined(invalidText)}"
+        label-text="${ifDefined(labelText)}"
         name="${ifDefined(name)}"
-        placeholder="Choose an option"
+        placeholder="${ifDefined(placeholder)}"
         size="${ifDefined(size)}"
-        validity-message="${ifDefined(validityMessage)}"
+        ?readonly="${readonly}"
+        ?warn="${warn}"
+        warn-text="${ifDefined(warnText)}"
         value="${ifDefined(value)}"
         @cds-select-selected="${ifDefined(onInput)}">
         ${children}
@@ -182,17 +189,19 @@ Playground.parameters = {
         'Helper text (helper-text)',
         'Optional helper text'
       ),
+      hideLabel: boolean('Hide label (hide-label)', false),
+      inline: boolean('Inline (inline)', false),
       invalid: boolean('Invalid (invalid)', false),
-      labelText: textNullable('Label text (label-text)', 'Select'),
+      invalidText: textNullable('Invalid text (invalid-text)', 'Error message'),
+      labelText: textNullable('Label text (label-text)', 'Select an option'),
       placeholder: textNullable(
-        'Placeholder text (placeholder)',
-        'Optional placeholder text'
+        'Placeholder (placeholder)',
+        'Choose an option'
       ),
-      size: select('Dropdown size (size)', sizes, null),
-      validityMessage: textNullable(
-        'The validity message (validity-message)',
-        ''
-      ),
+      size: select('Dropdown size (size)', sizes, INPUT_SIZE.MEDIUM),
+      readonly: boolean('Read only (readonly)', false),
+      warn: boolean('Warn (warn)', false),
+      warnText: textNullable('Warn text (warn-text)', 'Warning message'),
       value: textNullable('The value of the selected item (value)', ''),
       onInput: action(`${prefix}-select-selected`),
     }),

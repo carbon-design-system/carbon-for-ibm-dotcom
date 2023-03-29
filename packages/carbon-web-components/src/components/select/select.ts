@@ -12,6 +12,7 @@ import { property, customElement, query } from 'lit/decorators.js';
 import { classMap } from 'lit/directives/class-map.js';
 import ChevronDown16 from '@carbon/icons/lib/chevron--down/16';
 import WarningFilled16 from '@carbon/icons/lib/warning--filled/16';
+import WarningAltFilled16 from '@carbon/icons/lib/warning--alt--filled/16';
 import { prefix } from '../../globals/settings';
 import { ifDefined } from 'lit/directives/if-defined.js';
 import FormMixin from '../../globals/mixins/form';
@@ -173,16 +174,40 @@ class CDSSelect extends ValidityMixin(FormMixin(LitElement)) {
   helperText = '';
 
   /**
+   * Specify whether the label should be hidden, or not
+   */
+  @property({ type: Boolean, attribute: 'hide-label' })
+  hideLabel = false;
+
+  /**
    * ID to link the `label` and `select`
    */
   @property()
   id = '';
 
   /**
-   * Controls the invalid state and visibility of the `validityMessage`
+   * Specify if the currently value is invalid.
    */
   @property({ type: Boolean, reflect: true })
   invalid = false;
+
+  /**
+   * Message which is displayed if the value is invalid.
+   */
+  @property({ attribute: 'invalid-text' })
+  invalidText = '';
+
+  /**
+   * Specify if the currently value is warn.
+   */
+  @property({ type: Boolean, reflect: true })
+  warn = false;
+
+  /**
+   * Message which is displayed if the value is warn.
+   */
+  @property({ attribute: 'warn-text' })
+  warnText = '';
 
   /**
    * The label text.
@@ -261,12 +286,6 @@ class CDSSelect extends ValidityMixin(FormMixin(LitElement)) {
   size = INPUT_SIZE.MEDIUM;
 
   /**
-   * The validity message.
-   */
-  @property({ attribute: 'validity-message' })
-  validityMessage = '';
-
-  /**
    * The value of the text area.
    */
   @property()
@@ -303,12 +322,16 @@ class CDSSelect extends ValidityMixin(FormMixin(LitElement)) {
     const {
       disabled,
       helperText,
+      hideLabel,
       inline,
       invalid,
+      invalidText,
       labelText,
       placeholder,
+      readonly,
       size,
-      validityMessage,
+      warn,
+      warnText,
       value,
       _placeholderItemValue: placeholderItemValue,
       _handleInput: handleInput,
@@ -317,6 +340,10 @@ class CDSSelect extends ValidityMixin(FormMixin(LitElement)) {
     const selectClasses = classMap({
       [`${prefix}--select`]: true,
       [`${prefix}--select--inline`]: inline,
+      [`${prefix}--select--invalid`]: invalid,
+      [`${prefix}--select--warning`]: warn,
+      [`${prefix}--select--disabled`]: disabled,
+      [`${prefix}--select--readonly`]: readonly,
     });
 
     const inputClasses = classMap({
@@ -334,55 +361,77 @@ class CDSSelect extends ValidityMixin(FormMixin(LitElement)) {
       [`${prefix}--form__helper-text--disabled`]: disabled,
     });
 
-    const supplementalText = !invalid
+    const supplementalText = helperText
       ? html`
           <div class="${helperTextClasses}">
             <slot name="helper-text"> ${helperText} </slot>
           </div>
         `
-      : html`
-          <div class="${prefix}--form-requirement" id="validity-message">
-            <slot name="validity-message"> ${validityMessage} </slot>
-          </div>
-        `;
+      : null;
+
+    const errorText =
+      invalid || warn
+        ? html` <div class="${prefix}--form-requirement">
+            ${invalid ? invalidText : warnText}
+          </div>`
+        : null;
+
+    const input = html`
+      <select
+        id="input"
+        class="${inputClasses}"
+        ?disabled="${disabled}"
+        aria-readonly="${String(Boolean(readonly))}"
+        aria-invalid="${String(Boolean(invalid))}"
+        aria-describedby="${ifDefined(!invalid ? undefined : 'invalid-text')}"
+        @input="${handleInput}">
+        ${!placeholder || value
+          ? undefined
+          : html`
+              <option
+                disabled
+                hidden
+                class="${prefix}--select-option"
+                value="${placeholderItemValue}"
+                selected>
+                ${placeholder}
+              </option>
+            `}
+        ${this._renderItems(this)}
+      </select>
+      ${ChevronDown16({ class: `${prefix}--select__arrow` })}
+      ${!invalid
+        ? undefined
+        : WarningFilled16({ class: `${prefix}--select__invalid-icon` })}
+      ${!invalid && warn
+        ? WarningAltFilled16({
+            class: `${prefix}--select__invalid-icon ${prefix}--select__invalid-icon--warning`,
+          })
+        : null}
+    `;
 
     return html`
       <div class="${selectClasses}">
-        <label class="${labelClasses}" for="input">
-          <slot name="label-text"> ${labelText} </slot>
-        </label>
-        <div
-          class="${prefix}--select-input__wrapper"
-          ?data-invalid="${invalid}">
-          <select
-            id="input"
-            class="${inputClasses}"
-            ?disabled="${disabled}"
-            aria-invalid="${String(Boolean(invalid))}"
-            aria-describedby="${ifDefined(
-              !invalid ? undefined : 'validity-message'
-            )}"
-            @input="${handleInput}">
-            ${!placeholder || value
-              ? undefined
-              : html`
-                  <option
-                    disabled
-                    hidden
-                    class="${prefix}--select-option"
-                    value="${placeholderItemValue}"
-                    selected>
-                    ${placeholder}
-                  </option>
-                `}
-            ${this._renderItems(this)}
-          </select>
-          ${ChevronDown16({ class: `${prefix}--select__arrow` })}
-          ${!invalid
-            ? undefined
-            : WarningFilled16({ class: `${prefix}--select__invalid-icon` })}
-        </div>
-        ${supplementalText}
+        ${!hideLabel
+          ? html`<label class="${labelClasses}" for="input">
+              <slot name="label-text"> ${labelText} </slot>
+            </label>`
+          : null}
+        ${inline
+          ? html`<div class="${prefix}--select-input--inline__wrapper">
+              <div
+                class="${prefix}--select-input__wrapper"
+                ?data-invalid="${invalid}">
+                ${input}
+              </div>
+              ${errorText}
+            </div>`
+          : html`<div
+              class="${prefix}--select-input__wrapper"
+              ?data-invalid="${invalid}">
+              ${input}
+            </div> `}
+        ${!inline && errorText ? errorText : supplementalText}
       </div>
     `;
   }
