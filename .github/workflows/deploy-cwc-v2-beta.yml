@@ -35,7 +35,7 @@ jobs:
           mkdir -p builds
           mv packages/carbon-web-components/storybook-static builds/carbon-web-components-v2-beta
 
-      - name: Deploying @carbon/web-components v2 beta storybook to Github Pages
+      - name: Deploying @carbon/web-components v2 beta storybook to GitHub Pages
         run: |
           git config --global user.email ${{ secrets.BOT_EMAIL }}
           git config --global user.name ${{ secrets.BOT_NAME }}
