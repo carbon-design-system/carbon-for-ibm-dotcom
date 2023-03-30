@@ -69,5 +69,5 @@ export enum POPOVER_ALIGNMENT {
   /**
    * Align the right top position for the popover content.
    */
-  RIGHT_TOP = 'right-top,',
+  RIGHT_TOP = 'right-top',
 }

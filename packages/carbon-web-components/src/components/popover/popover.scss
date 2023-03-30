@@ -21,17 +21,28 @@ $css--plex: true !default;
   }
 }
 
-:host(#{$prefix}-popover[tabTip]) {
+:host(#{$prefix}-popover[tabTip][open]) {
   ::slotted(.#{$prefix}--popover--tab-tip__button) {
-    @extend .#{$prefix}--popover--tab-tip__button;
+    background: theme.$layer !important; /* stylelint-disable-line declaration-no-important */
+    box-shadow: 0 2px 2px rgba(0, 0, 0, 0.2);
   }
-
-  // after styles missing
 }
 
 :host(#{$prefix}-popover-content[open]) {
   .#{$prefix}--popover-content {
     display: block;
+  }
+
+  &[tabTip] {
+    .#{$prefix}--popover-content {
+      border-radius: 0;
+      background: theme.$layer;
+    }
+  }
+  &[caret] {
+    .#{$prefix}--popover-caret {
+      display: block;
+    }
   }
 }
 
@@ -40,19 +51,6 @@ $css--plex: true !default;
     'popover-drop-shadow',
     drop-shadow(0 2px 2px rgba(0, 0, 0, 0.2))
   );
-}
-
-:host(#{$prefix}-popover-content[tabTip][open]) {
-  .#{$prefix}--popover-content {
-    border-radius: 0;
-    background: theme.$layer;
-  }
-}
-
-:host(#{$prefix}-popover-content[open][caret]) {
-  .#{$prefix}--popover-caret {
-    display: block;
-  }
 }
 
 :host(#{$prefix}-popover-content[align='bottom']) {

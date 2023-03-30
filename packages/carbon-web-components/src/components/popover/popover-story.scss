@@ -70,14 +70,8 @@
   padding-top: 4rem;
 }
 
-// cds-popover ::slotted(.cds--popover-container) {
-//   padding: 1rem;
-// }
-
-#{$prefix}-popover-content {
-  ::slotted(.p-3) {
-    color: purple;
-  }
+.p-3 {
+  padding: 1rem;
 }
 
 #{$prefix}-popover .playground-trigger {
@@ -109,7 +103,7 @@
   flex-direction: column;
 }
 
-.popover-tabtip-story #{$prefix}-popover .cds--popover-content {
+.popover-tabtip-story .p-3 {
   width: 16rem;
 }
 

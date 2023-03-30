@@ -49,11 +49,13 @@ export const Playground = (args) => {
       align=${align}
       ?dropShadow=${dropShadow}>
       <div class="playground-trigger">${Checkbox16()}</div>
-      <cds-popover-content contentClasses="p-3">
-        <p class="popover-title">Available storage</p>
-        <p class="popover-details">
-          This server has 150 GB of block storage remaining.
-        </p>
+      <cds-popover-content>
+        <div class="p-3">
+          <p class="popover-title">Available storage</p>
+          <p class="popover-details">
+            This server has 150 GB of block storage remaining.
+          </p>
+        </div>
       </cds-popover-content>
     </cds-popover>
   `;
@@ -81,38 +83,40 @@ export const TabTip = () => {
           ${Settings16()}
         </button>
         <cds-popover-content>
-          <cds-form-item>
-            <cds-radio-button-group
-              legend-text="Row height"
-              name="radio-button-group"
-              value="small"
-              style="align-items: flex-start; flex-direction: column">
-              <cds-radio-button
-                label-text="Small"
+          <div class="p-3">
+            <cds-form-item>
+              <cds-radio-button-group
+                legend-text="Row height"
+                name="radio-button-group"
                 value="small"
-                id="radio-small"></cds-radio-button>
-              <cds-radio-button
-                label-text="Large"
-                value="large"
-                id="radio-large"></cds-radio-button>
-            </cds-radio-button-group>
-          </cds-form-item>
-          <hr />
-          <fieldset class="${prefix}--fieldset">
-            <legend class="${prefix}--label">Edit columns</legend>
-            <cds-checkbox
-              checked
-              label-text="Name"
-              id="checkbox-label-1"></cds-checkbox>
-            <cds-checkbox
-              checked
-              label-text="Type"
-              id="checkbox-label-2"></cds-checkbox>
-            <cds-checkbox
-              checked
-              label-text="Location"
-              id="checkbox-label-3"></cds-checkbox>
-          </fieldset>
+                style="align-items: flex-start; flex-direction: column">
+                <cds-radio-button
+                  label-text="Small"
+                  value="small"
+                  id="radio-small"></cds-radio-button>
+                <cds-radio-button
+                  label-text="Large"
+                  value="large"
+                  id="radio-large"></cds-radio-button>
+              </cds-radio-button-group>
+            </cds-form-item>
+            <hr />
+            <fieldset class="${prefix}--fieldset">
+              <legend class="${prefix}--label">Edit columns</legend>
+              <cds-checkbox
+                checked
+                label-text="Name"
+                id="checkbox-label-1"></cds-checkbox>
+              <cds-checkbox
+                checked
+                label-text="Type"
+                id="checkbox-label-2"></cds-checkbox>
+              <cds-checkbox
+                checked
+                label-text="Location"
+                id="checkbox-label-3"></cds-checkbox>
+            </fieldset>
+          </div>
         </cds-popover-content>
       </cds-popover>
       <cds-popover tabTip id="popover-two" align="bottom-right">
@@ -123,38 +127,40 @@ export const TabTip = () => {
           ${Settings16()}
         </button>
         <cds-popover-content>
-          <cds-form-item>
-            <cds-radio-button-group
-              legend-text="Row height"
-              name="radio-button-group"
-              value="small"
-              style="align-items: flex-start; flex-direction: column">
-              <cds-radio-button
-                label-text="Small"
+          <div class="p-3">
+            <cds-form-item>
+              <cds-radio-button-group
+                legend-text="Row height"
+                name="radio-button-group"
                 value="small"
-                id="radio-small"></cds-radio-button>
-              <cds-radio-button
-                label-text="Large"
-                value="large"
-                id="radio-large"></cds-radio-button>
-            </cds-radio-button-group>
-          </cds-form-item>
-          <hr />
-          <fieldset class="${prefix}--fieldset">
-            <legend class="${prefix}--label">Edit columns</legend>
-            <cds-checkbox
-              checked
-              label-text="Name"
-              id="checkbox-label-1"></cds-checkbox>
-            <cds-checkbox
-              checked
-              label-text="Type"
-              id="checkbox-label-2"></cds-checkbox>
-            <cds-checkbox
-              checked
-              label-text="Location"
-              id="checkbox-label-3"></cds-checkbox>
-          </fieldset>
+                style="align-items: flex-start; flex-direction: column">
+                <cds-radio-button
+                  label-text="Small"
+                  value="small"
+                  id="radio-small"></cds-radio-button>
+                <cds-radio-button
+                  label-text="Large"
+                  value="large"
+                  id="radio-large"></cds-radio-button>
+              </cds-radio-button-group>
+            </cds-form-item>
+            <hr />
+            <fieldset class="${prefix}--fieldset">
+              <legend class="${prefix}--label">Edit columns</legend>
+              <cds-checkbox
+                checked
+                label-text="Name"
+                id="checkbox-label-1"></cds-checkbox>
+              <cds-checkbox
+                checked
+                label-text="Type"
+                id="checkbox-label-2"></cds-checkbox>
+              <cds-checkbox
+                checked
+                label-text="Location"
+                id="checkbox-label-3"></cds-checkbox>
+            </fieldset>
+          </div>
         </cds-popover-content>
       </cds-popover>
     </div>

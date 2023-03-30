@@ -18,6 +18,9 @@ LICENSE file in the root directory of this source tree.
     cds-pagination:not(:defined) {
       display: none;
     }
+    .p-3 {
+      padding: 1rem;
+    }
   </style>
   <script type="module" src="https://1.www.s81c.com/common/carbon/web-components/tag/latest/popover.min.js"></script>
 </head>
@@ -26,11 +29,13 @@ LICENSE file in the root directory of this source tree.
     <div class="playground-trigger">
       <svg id="icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32"><defs><style>.cls-1{fill:none;}</style></defs><title>checkbox</title><path d="M26,4H6A2,2,0,0,0,4,6V26a2,2,0,0,0,2,2H26a2,2,0,0,0,2-2V6A2,2,0,0,0,26,4ZM6,26V6H26V26Z"/><rect id="_Transparent_Rectangle_" data-name="&lt;Transparent Rectangle&gt;" class="cls-1" width="32" height="32"/></svg>
       </div>
-    <cds-popover-content contentClasses="p-3">
-      <p class="popover-title">Available storage</p>
-      <p class="popover-details">
-        This server has 150 GB of block storage remaining.
-      </p>
+    <cds-popover-content>
+      <div class="p-3">
+        <p class="popover-title">Available storage</p>
+        <p class="popover-details">
+          This server has 150 GB of block storage remaining.
+        </p>
+      </div>
     </cds-popover-content>
   </cds-popover>
 </body>
