@@ -11,7 +11,7 @@ import ddsSettings from '../../internal/vendor/@carbon/ibmdotcom-utilities/utili
 import { Image } from '../Image';
 import Link from '../../internal/vendor/carbon-components-react/components/Link/Link';
 import markdownToHtml from '../../internal/vendor/@carbon/ibmdotcom-utilities/utilities/markdownToHtml/markdownToHtml';
-import on from 'carbon-components/es/globals/js/misc/on';
+import on from 'carbon-components/es/globals/js/misc/on.js';
 import PropTypes from 'prop-types';
 import settings from 'carbon-components/es/globals/js/settings';
 import { Tile } from '../../internal/vendor/carbon-components-react/components/Tile/Tile';
