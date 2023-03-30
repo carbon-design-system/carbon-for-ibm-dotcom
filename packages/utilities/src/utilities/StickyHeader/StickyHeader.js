@@ -8,7 +8,7 @@
 import { baseFontSize, breakpoints } from '@carbon/layout';
 import ddsSettings from '../settings/settings.js';
 import root from 'window-or-global';
-import settings from 'carbon-components/es/globals/js/settings';
+import settings from 'carbon-components/es/globals/js/settings.js';
 
 const { prefix } = settings;
 const { stablePrefix: ddsPrefix } = ddsSettings;

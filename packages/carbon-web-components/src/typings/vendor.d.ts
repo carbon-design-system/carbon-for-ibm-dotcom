@@ -7,7 +7,7 @@
  * LICENSE file in the root directory of this source tree.
  */
 
-declare module 'carbon-components/es/globals/js/settings' {
+declare module 'carbon-components/es/globals/js/settings.js' {
   const settings: {
     /**
      * The brand prefix.
