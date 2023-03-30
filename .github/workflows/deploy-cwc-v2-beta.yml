@@ -1,0 +1,60 @@
+name: deploy-cwc-v2-beta (Deploy storybook environments to GitHub Pages)
+
+on:
+  push:
+    branches:
+      - feat/cwc-v2
+
+concurrency:
+  group: deploy-cwc-v2-beta${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  carbon-web-components:
+    if: github.repository == 'carbon-design-system/carbon-for-ibm-dotcom'
+    runs-on: ubuntu-20.04
+    steps:
+      - uses: actions/checkout@v3
+        with:
+          token: ${{secrets.MERGE_ACTION}}
+      - name: Use Node.js 18.x
+        uses: actions/setup-node@v3
+        with:
+          node-version: '18.x'
+          cache: 'yarn'
+      - name: Install dependencies
+        run: yarn install --immutable --immutable-cache
+      - name: Build project
+        run: yarn lerna run --scope @carbon/web-components build
+
+      - name: Building @carbon/web-components storybook
+        run: yarn build-storybook
+        working-directory: packages/carbon-web-components
+      - name: Move storybook to build folder
+        run: |
+          mkdir -p builds
+          mv packages/carbon-web-components/storybook-static builds/carbon-web-components-v2-beta
+
+      - name: Deploying @carbon/web-components v2 beta storybook to GitHub Pages
+        run: |
+          git config --global user.email ${{ secrets.BOT_EMAIL }}
+          git config --global user.name ${{ secrets.BOT_NAME }}
+
+          git fetch origin gh-pages
+          git checkout -b gh-pages origin/gh-pages
+          git update-ref -d refs/remotes/origin/gh-pages
+          git pull origin gh-pages
+
+          rm -rf beta/carbon-web-components-v2
+          mkdir -p beta
+          mv builds/carbon-web-components-v2 beta/carbon-web-components-v2
+
+          git add beta/carbon-web-components-v2
+          git commit -m "chore(deploy): deploy @carbon/web-components v2 beta to GitHub Pages"
+          git push origin gh-pages
+      - uses: act10ns/slack@v2
+        if: failure()
+        env:
+          SLACK_WEBHOOK_URL: ${{ secrets.SLACK_WEBHOOK_URL }}
+        with:
+          status: ${{ job.status }}
