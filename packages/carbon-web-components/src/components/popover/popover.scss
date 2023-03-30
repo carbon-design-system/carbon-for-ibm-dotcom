@@ -55,7 +55,7 @@ $css--plex: true !default;
   }
 }
 
-:host(c#{$prefix}ds-popover-content[align='bottom']) {
+:host(#{$prefix}-popover-content[align='bottom']) {
   @extend .#{$prefix}--popover--bottom;
 }
 
