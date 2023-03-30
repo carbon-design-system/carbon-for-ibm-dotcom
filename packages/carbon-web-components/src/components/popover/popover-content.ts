@@ -32,12 +32,6 @@ class CDSPopoverContent extends LitElement {
   caret;
 
   /**
-   * Specify classes within content
-   */
-  @property()
-  contentClasses = '';
-
-  /**
    * Specify whether a dropShadow should be rendered
    */
   @property({ type: Boolean, reflect: true })
