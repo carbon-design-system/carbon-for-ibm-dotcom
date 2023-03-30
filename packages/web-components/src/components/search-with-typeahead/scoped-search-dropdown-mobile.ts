@@ -119,7 +119,7 @@ class DDSScopedSearchDropdownMobile extends CDSSelect {
       labelText,
       placeholder,
       size,
-      validityMessage,
+      invalidText,
       value,
       _placeholderItemValueMobile: placeholderItemValue,
       _handleInputMobile: handleInput,
@@ -148,7 +148,7 @@ class DDSScopedSearchDropdownMobile extends CDSSelect {
         `
       : html`
           <div class="${prefix}--form-requirement" id="validity-message">
-            <slot name="validity-message"> ${validityMessage} </slot>
+            <slot name="validity-message"> ${invalidText} </slot>
           </div>
         `;
 
