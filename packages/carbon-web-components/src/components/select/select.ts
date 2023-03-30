@@ -16,7 +16,6 @@ import WarningAltFilled16 from '@carbon/icons/lib/warning--alt--filled/16';
 import { prefix } from '../../globals/settings';
 import { ifDefined } from 'lit/directives/if-defined.js';
 import FormMixin from '../../globals/mixins/form';
-import ValidityMixin from '../../globals/mixins/validity';
 import { filter } from '../../globals/internal/collection-helpers';
 import { INPUT_SIZE } from '../input/input';
 import styles from './select.scss';
@@ -30,7 +29,7 @@ import styles from './select.scss';
  * @slot validity-message - The validity message. If present and non-empty, this input shows the UI of its invalid state.
  */
 @customElement(`${prefix}-select`)
-class CDSSelect extends ValidityMixin(FormMixin(LitElement)) {
+class CDSSelect extends FormMixin(LitElement) {
   /**
    * The mutation observer DOM mutation.
    */
