@@ -57,7 +57,7 @@ class CDSPopoverContent extends LitElement {
 
   render() {
     return html`
-      <span class="${prefix}--popover-content ${this.contentClasses}">
+      <span class="${prefix}--popover-content">
         <slot> </slot>
       </span>
       <span class="${prefix}--popover-caret"></span>
