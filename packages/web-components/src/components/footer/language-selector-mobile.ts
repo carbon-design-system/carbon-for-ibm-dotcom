@@ -8,7 +8,7 @@
  */
 
 import { customElement, property } from 'lit/decorators.js';
-import BXSelect from '../../internal/vendor/@carbon/web-components/components/select/select.js';
+import CDSSelect from '../../internal/vendor/@carbon/web-components/components/select/select.js';
 import { INPUT_SIZE } from '../../internal/vendor/@carbon/web-components/components/input/input.js';
 import ddsSettings from '../../internal/vendor/@carbon/ibmdotcom-utilities/utilities/settings/settings';
 import styles from './footer.scss';
@@ -23,7 +23,7 @@ const { stablePrefix: ddsPrefix } = ddsSettings;
  * @internal
  */
 @customElement(`${ddsPrefix}-language-selector-mobile`)
-class DDSLanguageSelectorMobile extends BXSelect {
+class DDSLanguageSelectorMobile extends CDSSelect {
   /**
    * Property that specifies the Select to have size xl
    *
