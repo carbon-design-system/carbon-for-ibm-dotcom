@@ -136,6 +136,9 @@ class CDSCheckbox extends FocusMixin(FormMixin(LitElement)) {
     } = this;
     const labelClasses = classMap({
       [`${prefix}--checkbox-label`]: true,
+    });
+    const labelTextClasses = classMap({
+      [`${prefix}--checkbox-label-text`]: true,
       [`${prefix}--visually-hidden`]: hideLabel,
     });
     return html`
@@ -158,9 +161,7 @@ class CDSCheckbox extends FocusMixin(FormMixin(LitElement)) {
         part="label"
         class="${labelClasses}"
         title="${ifDefined(title)}">
-        <span class="${prefix}--checkbox-label-text"
-          ><slot>${labelText}</slot></span
-        >
+        <span class="${labelTextClasses}"><slot>${labelText}</slot></span>
       </label>
     `;
   }

@@ -20,3 +20,9 @@ $css--plex: true !default;
     @extend .#{$prefix}--checkbox-wrapper--readonly;
   }
 }
+
+:host(#{$prefix}-checkbox-skeleton) {
+  .#{$prefix}--checkbox-label {
+    cursor: default;
+  }
+}
