@@ -11,7 +11,7 @@ import settings from 'carbon-components/es/globals/js/settings.js';
 import Filter20 from '../../internal/vendor/@carbon/web-components/icons/filter/20.js';
 import { html } from 'lit';
 import { customElement, property } from 'lit/decorators.js';
-import BXSelect from '../../internal/vendor/@carbon/web-components/components/select/select.js';
+import CDSSelect from '../../internal/vendor/@carbon/web-components/components/select/select.js';
 import { INPUT_SIZE } from '../../internal/vendor/@carbon/web-components/components/input/input.js';
 import { classMap } from 'lit/directives/class-map.js';
 import { ifDefined } from 'lit/directives/if-defined.js';
@@ -30,7 +30,7 @@ const { prefix } = settings;
  * @internal
  */
 @customElement(`${ddsPrefix}-scoped-search-dropdown-mobile`)
-class DDSScopedSearchDropdownMobile extends BXSelect {
+class DDSScopedSearchDropdownMobile extends CDSSelect {
   /**
    * The `value` for placeholder `<option>`.
    */
@@ -46,7 +46,7 @@ class DDSScopedSearchDropdownMobile extends BXSelect {
   private _handleInputMobile({ target }: Event) {
     const { value } = target as HTMLSelectElement;
     this.value = value;
-    const { eventSelect } = this.constructor as typeof BXSelect;
+    const { eventSelect } = this.constructor as typeof CDSSelect;
     this.dispatchEvent(
       new CustomEvent(eventSelect, {
         bubbles: true,
@@ -64,7 +64,7 @@ class DDSScopedSearchDropdownMobile extends BXSelect {
    */
   private _renderItemsMobile(element) {
     const { selectorItem, selectorLeafItem } = this
-      .constructor as typeof BXSelect;
+      .constructor as typeof CDSSelect;
     // Harvests attributes from `<bx-select-item>` and `<bx-select-item-group>`.
     // Does not use properties to avoid delay in attribute to property mapping, which runs in custom element reaction cycle:
     // https://html.spec.whatwg.org/multipage/custom-elements.html#custom-element-reactions
@@ -119,7 +119,7 @@ class DDSScopedSearchDropdownMobile extends BXSelect {
       labelText,
       placeholder,
       size,
-      validityMessage,
+      invalidText,
       value,
       _placeholderItemValueMobile: placeholderItemValue,
       _handleInputMobile: handleInput,
@@ -148,7 +148,7 @@ class DDSScopedSearchDropdownMobile extends BXSelect {
         `
       : html`
           <div class="${prefix}--form-requirement" id="validity-message">
-            <slot name="validity-message"> ${validityMessage} </slot>
+            <slot name="validity-message"> ${invalidText} </slot>
           </div>
         `;
 
