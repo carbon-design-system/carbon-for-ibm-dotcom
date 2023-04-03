@@ -23,6 +23,7 @@ import StableSelectorMixin from '../../globals/mixins/stable-selector';
 import styles from './masthead-l1.scss';
 import {
   L1MenuItem as _L1MenuItem,
+  L1SubmenuSection,
   L1SubmenuSectionHeading,
   MastheadL1,
 } from '../../internal/vendor/@carbon/ibmdotcom-services-store/types/translateAPI';
@@ -34,6 +35,7 @@ import ArrowRight20 from '../../internal/vendor/@carbon/web-components/icons/arr
 import CaretLeft20 from '../../internal/vendor/@carbon/web-components/icons/caret--left/20.js';
 import CaretRight20 from '../../internal/vendor/@carbon/web-components/icons/caret--right/20.js';
 import { classMap } from 'lit-html/directives/class-map';
+import { nothing } from 'lit-html';
 
 const { prefix } = settings;
 const { stablePrefix: ddsPrefix } = ddsSettings;
@@ -112,8 +114,12 @@ class DDSMastheadL1 extends StableSelectorMixin(LitElement) {
   protected toggleScrollButtons() {
     // Resize events happen rapidly. We need to throttle this functionality.
     if (!this.scrollObserverThrottler) {
-      const { menuContainerInner, menuFirstLastItems, menuScrollerButtons } =
-        this;
+      const {
+        menu,
+        menuContainerInner,
+        menuFirstLastItems,
+        menuScrollerButtons,
+      } = this;
       const [menuFirstItem, menuLastItem] = Array.from(
         menuFirstLastItems ?? []
       );
@@ -139,12 +145,24 @@ class DDSMastheadL1 extends StableSelectorMixin(LitElement) {
           menuScrollerButtons.forEach((button) => {
             button.removeAttribute('hidden');
           });
+
+          if (menu?.style.translate) {
+            const currentScroll = parseInt(menu.style.translate);
+            const maxScroll = containerWidth - menuWidth;
+
+            menu.style.translate = `${Math.max(currentScroll, maxScroll)}px`;
+          }
         }
         // If we don't, hide the buttons.
         else {
           menuScrollerButtons.forEach((button) => {
             button.setAttribute('hidden', '');
           });
+
+          // Remove any translations we've used to mimic scrolling.
+          if (menu) {
+            menu.style.translate = '';
+          }
         }
       }
 
@@ -276,14 +294,16 @@ class DDSMastheadL1 extends StableSelectorMixin(LitElement) {
       </div>
       ${login && login.url && login.title
         ? html`
-            <a class="bx--masthead__l1-login" href="${ifDefined(login.url)}"
+            <a
+              class="${prefix}--masthead__l1-login"
+              href="${ifDefined(login.url)}"
               >${login.title}</a
             >
           `
         : ''}
       ${cta && cta.url && cta.title
         ? html`
-            <a class="bx--masthead__l1-cta" href="${ifDefined(cta.url)}"
+            <a class="${prefix}--masthead__l1-cta" href="${ifDefined(cta.url)}"
               >${cta.title}</a
             >
           `
@@ -329,7 +349,20 @@ class DDSMastheadL1 extends StableSelectorMixin(LitElement) {
     }
 
     const { announcement, menuSections, footer, columns } = submenu ?? {};
-    const total = menuSections.length;
+
+    // 3-column dropdown has option for 33/66 split.
+    const hasWideColumn =
+      columns === 3
+        ? menuSections.reduce((hasSpanTwo, section) => {
+            return hasSpanTwo || section.span > 1;
+          }, false)
+        : false;
+
+    // Split can be 33/66 or 66/33.
+    const wideColumnIndex = menuSections[0].span > 1 ? 1 : 2;
+
+    const wideColumns = menuSections.filter((section) => section.span > 1);
+    const normalColumns = menuSections.filter((section) => section.span === 1);
 
     return html`
       <li @focusout=${handleDropdownClose} @keydown=${handleDropdownClose}>
@@ -346,42 +379,22 @@ class DDSMastheadL1 extends StableSelectorMixin(LitElement) {
                 ${unsafeHTML(announcement)}
               </div>`
             : ''}
-          <div>
-            ${menuSections
-              ? menuSections.map((section) => {
-                  const index = menuSections.indexOf(section);
-
-                  const { heading, items } = section;
-
-                  return html`
-                    <div>
-                      ${heading
-                        ? html`${this._renderL1SubSectionHeading(heading)}`
-                        : ''}
-                      ${items
-                        ? html` <ul
-                            class="${prefix}--masthead__l1-dropdown-menu-items">
-                            ${items.map((item) => {
-                              const { title, url } = item;
-
-                              return html`<li>
-                                <a
-                                  class="${prefix}--masthead__l1-dropdown-item"
-                                  href="${url}"
-                                  >${title}</a
-                                >
-                              </li>`;
-                            })}
-                          </ul>`
-                        : ''}
-                    </div>
-                  `;
-                })
+          <div class="${prefix}--masthead__l1-dropdown-links">
+            ${hasWideColumn && wideColumnIndex === 1
+              ? this._renderL1DropdownSections(wideColumns, hasWideColumn, true)
+              : ''}
+            ${this._renderL1DropdownSections(
+              normalColumns,
+              hasWideColumn,
+              false
+            )}
+            ${hasWideColumn && wideColumnIndex === 2
+              ? this._renderL1DropdownSections(wideColumns, hasWideColumn, true)
               : ''}
           </div>
           ${footer
             ? html`<a
-                class="bx--masthead__l1-dropdown-viewall"
+                class="${prefix}--masthead__l1-dropdown-viewall"
                 href="${footer.url}"
                 >${footer.title}${ArrowRight16()}</a
               >`
@@ -389,6 +402,63 @@ class DDSMastheadL1 extends StableSelectorMixin(LitElement) {
         </div>
       </li>
     `;
+  }
+
+  /**
+   *
+   * @param {L1SubmenuSection[]} sections the sections to render.
+   * @param {boolean} hasWide if this column will be rendered as or next to a wide column.
+   * @param {boolean} isWide if this column will be rendered as a wide column.
+   * @returns rendered markup
+   */
+  protected _renderL1DropdownSections(sections, hasWide, isWide) {
+    const renderedSections = sections.map((section) => {
+      const { heading, items } = section;
+
+      return html`
+        <div class="${prefix}--masthead__l1-dropdown-section">
+          ${heading ? html`${this._renderL1SubSectionHeading(heading)}` : ''}
+          ${items
+            ? html` <ul class="${prefix}--masthead__l1-dropdown-menu-items">
+                ${items.map((item) => {
+                  const { title, url, description } = item;
+
+                  const linkContents = description
+                    ? html`
+                        <span
+                          class="${prefix}--masthead__l1-dropdown-item-title"
+                          >${title}</span
+                        >
+                        <span
+                          class="${prefix}--masthead__l1-dropdown-item-description"
+                          >${description}</span
+                        >
+                      `
+                    : html` ${title} `;
+
+                  return html`
+                    <li>
+                      <a
+                        class="${prefix}--masthead__l1-dropdown-item"
+                        href="${url}">
+                        ${linkContents}
+                      </a>
+                    </li>
+                  `;
+                })}
+              </ul>`
+            : ''}
+        </div>
+      `;
+    });
+
+    const classes = classMap({
+      [`${prefix}--masthead__l1-dropdown-column-narrow`]: hasWide && !isWide,
+      [`${prefix}--masthead__l1-dropdown-column-wide`]: hasWide && isWide,
+    });
+    return hasWide
+      ? html` <div class=${classes}>${renderedSections}</div> `
+      : html` ${renderedSections} `;
   }
 
   /**
@@ -409,10 +479,10 @@ class DDSMastheadL1 extends StableSelectorMixin(LitElement) {
         @click=${toggleMobileSubsection}>
         ${title}${ChevronDown16()}
       </button>
-      <ul class="${prefix}--masthead__l1-dropdown" hidden>
+      <ul class="${prefix}--masthead__l1-dropdown">
         ${url
           ? html`<li>
-              <a class="bx--masthead__l1-dropdown-item" href="${url}"
+              <a class="${prefix}--masthead__l1-dropdown-item" href="${url}"
                 >${overviewText}</a
               >
             </li>`
@@ -421,7 +491,7 @@ class DDSMastheadL1 extends StableSelectorMixin(LitElement) {
         ${login && login.url && login.title
           ? html`<li>
               <a
-                class="bx--masthead__l1-dropdown-login"
+                class="${prefix}--masthead__l1-dropdown-login"
                 href="${ifDefined(login.url)}"
                 >${login.title}${ArrowRight16()}</a
               >
@@ -430,7 +500,7 @@ class DDSMastheadL1 extends StableSelectorMixin(LitElement) {
         ${cta && cta.url && cta.title
           ? html`<li>
               <a
-                class="bx--masthead__l1-dropdown-cta"
+                class="${prefix}--masthead__l1-dropdown-cta"
                 href="${ifDefined(cta.url)}"
                 >${cta.title}${ArrowRight16()}</a
               >
@@ -453,12 +523,16 @@ class DDSMastheadL1 extends StableSelectorMixin(LitElement) {
     if (!submenu && url) {
       return html`
         <li>
-          <a class="bx--masthead__l1-dropdown-item" href="${url}">${title}</a>
+          <a class="${prefix}--masthead__l1-dropdown-item" href="${url}"
+            >${title}</a
+          >
         </li>
       `;
     } else if (!submenu) {
       return html`
-        <li><span class="bx--masthead__l1-dropdown-item">${title}</span></li>
+        <li>
+          <span class="${prefix}--masthead__l1-dropdown-item">${title}</span>
+        </li>
       `;
     }
 
@@ -467,13 +541,13 @@ class DDSMastheadL1 extends StableSelectorMixin(LitElement) {
     return html`
       <li>
         <button
-          class="bx--masthead__l1-dropdown-item"
+          class="${prefix}--masthead__l1-dropdown-item"
           @click=${toggleMobileSubsection}>
           ${title}${ChevronDown16()}
         </button>
-        <div class="bx--masthead__l1-dropdown-subsection" hidden>
+        <div class="${prefix}--masthead__l1-dropdown-subsection">
           ${announcement
-            ? html`<div class="bx--masthead__l1-dropdown-announcement">
+            ? html`<div class="${prefix}--masthead__l1-dropdown-announcement">
                 ${unsafeHTML(announcement)}
               </div>`
             : ''}
@@ -491,7 +565,7 @@ class DDSMastheadL1 extends StableSelectorMixin(LitElement) {
                           const { title, url } = item;
 
                           return html`<a
-                            class="bx--masthead__l1-dropdown-item"
+                            class="${prefix}--masthead__l1-dropdown-item"
                             href="${url}"
                             >${title}</a
                           >`;
@@ -503,7 +577,7 @@ class DDSMastheadL1 extends StableSelectorMixin(LitElement) {
             : ''}
           ${footer
             ? html`<a
-                class="bx--masthead__l1-dropdown-viewall"
+                class="${prefix}--masthead__l1-dropdown-viewall"
                 href="${footer.url}"
                 >${footer.title}${ArrowRight16()}</a
               >`
@@ -617,20 +691,20 @@ class DDSMastheadL1 extends StableSelectorMixin(LitElement) {
     console.log(this);
 
     const { currentTarget } = event;
+    const target = currentTarget as HTMLElement | null;
     const isOpen =
-      Array.from((currentTarget as HTMLElement)!.querySelectorAll('.is-open'))
-        .length > 0;
+      Array.from(target?.querySelectorAll('.is-open') ?? []).length > 0;
 
     if (isOpen) {
       switch (event.type) {
         case 'keydown': {
           const { code } = event as KeyboardEvent;
           if (code === 'Escape') {
-            currentTarget.querySelectorAll('.is-open').forEach((el) => {
+            (target?.querySelectorAll('.is-open') ?? []).forEach((el) => {
               el.classList.remove('is-open');
             });
 
-            currentTarget.firstElementChild.focus();
+            (target?.firstElementChild as HTMLElement)?.focus();
           }
           break;
         }
@@ -645,7 +719,7 @@ class DDSMastheadL1 extends StableSelectorMixin(LitElement) {
               ) & 8
             )
           ) {
-            currentTarget.querySelectorAll('.is-open').forEach((el) => {
+            target?.querySelectorAll('.is-open').forEach((el) => {
               el.classList.remove('is-open');
             });
           }
@@ -666,13 +740,21 @@ class DDSMastheadL1 extends StableSelectorMixin(LitElement) {
   protected _renderL1SubSectionHeading(heading: L1SubmenuSectionHeading) {
     const { isMobileVersion } = this;
 
-    const headingContent = heading.url
-      ? html`<a class="bx--masthead__l1-dropdown-item" href="${heading.url}"
-          >${heading.title}${isMobileVersion
-            ? ArrowRight16()
-            : ArrowRight20()}</a
+    const headingDesc = heading.description
+      ? html`<span class="${prefix}--masthead__l1-dropdown-heading-desc"
+          >${heading.description}</span
         >`
-      : html`${heading.title}`;
+      : '';
+
+    const headingContent = heading.url
+      ? html`
+          <a
+            class="${prefix}--masthead__l1-dropdown-item"
+            href="${heading.url}">
+            ${heading.title}${isMobileVersion ? ArrowRight16() : ArrowRight20()}
+          </a>
+        `
+      : html` ${heading.title} `;
 
     const headingClasses = classMap({
       [`${prefix}--masthead__l1-dropdown-heading`]: true,
@@ -681,29 +763,34 @@ class DDSMastheadL1 extends StableSelectorMixin(LitElement) {
     let renderedHeading = headingContent;
     switch (heading.headingLevel) {
       case 2:
-        renderedHeading = html`<h2 class=${headingClasses}>
-          ${headingContent}
-        </h2>`;
+        renderedHeading = html`
+          <h2 class=${headingClasses}>${headingContent}</h2>
+          ${headingDesc}
+        `;
         break;
       case 3:
-        renderedHeading = html`<h3 class=${headingClasses}>
-          ${headingContent}
-        </h3>`;
+        renderedHeading = html`
+          <h3 class=${headingClasses}>${headingContent}</h3>
+          ${headingDesc}
+        `;
         break;
       case 4:
-        renderedHeading = html`<h4 class=${headingClasses}>
-          ${headingContent}
-        </h4>`;
+        renderedHeading = html`
+          <h4 class=${headingClasses}>${headingContent}</h4>
+          ${headingDesc}
+        `;
         break;
       case 5:
-        renderedHeading = html`<h5 class=${headingClasses}>
-          ${headingContent}
-        </h5>`;
+        renderedHeading = html`
+          <h5 class=${headingClasses}>${headingContent}</h5>
+          ${headingDesc}
+        `;
         break;
       case 6:
-        renderedHeading = html`<h6 class=${headingClasses}>
-          ${headingContent}
-        </h6>`;
+        renderedHeading = html`
+          <h6 class=${headingClasses}>${headingContent}</h6>
+          ${headingDesc}
+        `;
         break;
       default:
         renderedHeading = headingContent;
@@ -713,11 +800,6 @@ class DDSMastheadL1 extends StableSelectorMixin(LitElement) {
   }
 
   protected firstUpdated() {
-    setTimeout(() => {
-      console.clear();
-      console.log(this.l1Data);
-    }, 500);
-
     // Allows component conditions on breakpoint change
     layoutBreakpoint.addEventListener('change', () => {
       this.isMobileVersion = layoutBreakpoint.matches;
@@ -728,6 +810,15 @@ class DDSMastheadL1 extends StableSelectorMixin(LitElement) {
     }
 
     this.direction = window.getComputedStyle(this).direction;
+
+    // this.l1Data?.menuItems.map(menuItem => {
+    //    const hasTwoSpan = menuItem.submenu?.menuSections.reduce((twoSpanExists, section) => {
+    //     if (twoSpanExists || section.span > 1) {
+    //       return true;
+    //     }
+    //    }, false);
+    //    menuItem.hasTwoSpan = hasTwoSpan
+    // })
   }
 
   protected updated(changedProperties) {

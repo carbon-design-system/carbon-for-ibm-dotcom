@@ -54,7 +54,6 @@ $search-transition-timing: 95ms;
     max-width: 98rem;
     margin-left: auto;
     margin-right: auto;
-    height: $layout-04;
     background-color: $ui-02;
     transition-timing-function: $search-transition;
     overflow: visible;
@@ -110,6 +109,10 @@ $search-transition-timing: 95ms;
     }
 
     .#{$prefix}--masthead__l1-dropdown {
+      &:not(.is-open) {
+        display: none;
+      }
+
       // Height of viewport, minus the L0/L1 combo, minus additional space to match L0 megapanels
       max-height: calc(100vh - 98px - #{$layout-05} - #{$spacing-09});
       overflow-y: auto;
@@ -159,6 +162,10 @@ $search-transition-timing: 95ms;
     }
 
     .#{$prefix}--masthead__l1-dropdown-subsection {
+      &:not(.is-open) {
+        display: none;
+      }
+
       padding-bottom: $carbon--spacing-07;
       border-bottom: 1px solid $ui-03;
 
@@ -459,7 +466,7 @@ $search-transition-timing: 95ms;
       position: absolute;
       inset-block-start: calc(100% + 1px);
       inset-inline-start: 0;
-      width: 320px;
+      width: 320;
       background-color: $ui-background;
       border: 1px solid #c6c6c6;
       border-top: none;
@@ -470,7 +477,7 @@ $search-transition-timing: 95ms;
         calc(100% + 6px) calc(100% + 6px),
         calc(0% - 6px) calc(100% + 6px)
       );
-      padding: $spacing-05 0 $spacing-08;
+      padding: $spacing-05 0 0;
       max-width: calc(100vw - (2 * #{$spacing-05}));
       visibility: hidden;
 
@@ -479,15 +486,54 @@ $search-transition-timing: 95ms;
       }
 
       &.#{$prefix}--masthead__l1-dropdown__1-col {
-        width: 320px;
+        width: 320;
       }
 
       &.#{$prefix}--masthead__l1-dropdown__2-col {
-        width: 640px;
+        width: 640;
       }
 
       &.#{$prefix}--masthead__l1-dropdown__3-col {
-        width: 980px;
+        width: 980;
+      }
+    }
+
+    .#{$prefix}--masthead__l1-dropdown-links {
+      column-rule: 1px solid $ui-03;
+      padding-bottom: $spacing-08;
+
+      .#{$prefix}--masthead__l1-dropdown__2-col & {
+        column-count: 2;
+        column-gap: 0;
+      }
+
+      .#{$prefix}--masthead__l1-dropdown__3-col
+        &:not(:has(.#{$prefix}--masthead__l1-dropdown-column-wide)) {
+        column-count: 3;
+        column-gap: 0;
+      }
+
+      > * {
+        break-inside: avoid;
+      }
+
+      .#{$prefix}--masthead__l1-dropdown__3-col
+        &:has(.#{$prefix}--masthead__l1-dropdown-column-wide) {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+
+        .#{$prefix}--masthead__l1-dropdown-column-wide {
+          grid-column: span 2;
+
+          .#{$prefix}--masthead__l1-dropdown-menu-items {
+            columns: 2;
+            column-gap: 0;
+          }
+        }
+
+        > *:nth-child(2) {
+          border-inline-start: 1px solid $ui-03;
+        }
       }
     }
 
@@ -521,6 +567,15 @@ $search-transition-timing: 95ms;
       }
     }
 
+    .#{$prefix}--masthead__l1-dropdown-heading-desc {
+      @include carbon--type-style(body-short-01);
+
+      display: block;
+      color: $text-02;
+      padding: 0 $spacing-05;
+      margin: calc(-1 * #{$spacing-03}) 0 $spacing-03;
+    }
+
     .#{$prefix}--masthead__l1-dropdown-item {
       @include carbon--type-style(body-short-01);
       @include desktop-button-sizing;
@@ -529,6 +584,7 @@ $search-transition-timing: 95ms;
       padding: $spacing-03 $spacing-05;
       color: $text-02;
       width: 100%;
+      flex-wrap: wrap;
 
       &:hover {
         color: $text-01;
@@ -549,6 +605,30 @@ $search-transition-timing: 95ms;
       svg {
         color: inherit;
       }
+
+      .#{$prefix}--masthead__l1-dropdown-item-title {
+        @include carbon--type-style(productive-heading-01);
+
+        display: block;
+        color: $text-02;
+      }
+
+      .#{$prefix}--masthead__l1-dropdown-item-description {
+        display: block;
+        white-space: break-spaces;
+      }
+    }
+
+    .#{$prefix}--masthead__l1-dropdown-viewall {
+      @include carbon--type-style(body-short-01);
+
+      display: flex;
+      gap: $spacing-03;
+      align-content: center;
+      padding: $spacing-05;
+      text-decoration: none;
+      color: $link-01;
+      border-top: 1px solid $ui-03;
     }
 
     .#{$prefix}--masthead__l1-cta {

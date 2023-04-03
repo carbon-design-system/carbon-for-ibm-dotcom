@@ -579,12 +579,166 @@ const mastheadL1Data: MastheadL1 = {
       },
     },
     {
-      title: 'Plain Link',
-      url: 'https://example.com',
-    },
-    {
-      title: 'Plain Link',
-      url: 'https://example.com',
+      title: 'Three Column',
+      submenu: {
+        columns: 3,
+        announcement:
+          '<strong>Lorem ipsum:</strong> Full announcement may be linked or only a portion as an <a href="#">inline link</a>',
+        menuSections: [
+          {
+            span: 1,
+            heading: {
+              headingLevel: 2,
+              title: 'Narrow 1',
+              description:
+                'Description text lorem ipsum dolor sit amet commondo ligua eaget',
+            },
+            items: [
+              {
+                title: 'Link item',
+                url: 'https://example.com',
+              },
+              {
+                title: 'Link item',
+                url: 'https://example.com',
+              },
+            ],
+          },
+          {
+            span: 2,
+            heading: {
+              headingLevel: 2,
+              title: 'Wide 1',
+            },
+            items: [
+              {
+                title: 'Link item',
+                url: 'https://example.com',
+                description:
+                  'Description text lorem ipsum dolor sit amet commondo ligua eaget',
+              },
+              {
+                title: 'Link item',
+                url: 'https://example.com',
+                description:
+                  'Description text lorem ipsum dolor sit amet commondo ligua eaget',
+              },
+              {
+                title: 'Link item',
+                url: 'https://example.com',
+                description:
+                  'Description text lorem ipsum dolor sit amet commondo ligua eaget',
+              },
+              {
+                title: 'Link item',
+                url: 'https://example.com',
+                description:
+                  'Description text lorem ipsum dolor sit amet commondo ligua eaget',
+              },
+              {
+                title: 'Link item',
+                url: 'https://example.com',
+                description:
+                  'Description text lorem ipsum dolor sit amet commondo ligua eaget',
+              },
+              {
+                title: 'Link item',
+                url: 'https://example.com',
+                description:
+                  'Description text lorem ipsum dolor sit amet commondo ligua eaget',
+              },
+              {
+                title: 'Link item',
+                url: 'https://example.com',
+                description:
+                  'Description text lorem ipsum dolor sit amet commondo ligua eaget',
+              },
+              {
+                title: 'Link item',
+                url: 'https://example.com',
+                description:
+                  'Description text lorem ipsum dolor sit amet commondo ligua eaget',
+              },
+            ],
+          },
+          {
+            span: 1,
+            heading: {
+              headingLevel: 2,
+              title: 'Narrow 2',
+              description:
+                'Description text lorem ipsum dolor sit amet commondo ligua eaget',
+            },
+            items: [
+              {
+                title: 'Link item',
+                url: 'https://example.com',
+              },
+              {
+                title: 'Link item',
+                url: 'https://example.com',
+              },
+            ],
+          },
+          {
+            span: 2,
+            heading: {
+              headingLevel: 2,
+              title: 'Wide 2',
+            },
+            items: [
+              {
+                title: 'Link item',
+                url: 'https://example.com',
+                description:
+                  'Description text lorem ipsum dolor sit amet commondo ligua eaget',
+              },
+              {
+                title: 'Link item',
+                url: 'https://example.com',
+                description:
+                  'Description text lorem ipsum dolor sit amet commondo ligua eaget',
+              },
+              {
+                title: 'Link item',
+                url: 'https://example.com',
+                description:
+                  'Description text lorem ipsum dolor sit amet commondo ligua eaget',
+              },
+              {
+                title: 'Link item',
+                url: 'https://example.com',
+                description:
+                  'Description text lorem ipsum dolor sit amet commondo ligua eaget',
+              },
+              {
+                title: 'Link item',
+                url: 'https://example.com',
+                description:
+                  'Description text lorem ipsum dolor sit amet commondo ligua eaget',
+              },
+              {
+                title: 'Link item',
+                url: 'https://example.com',
+                description:
+                  'Description text lorem ipsum dolor sit amet commondo ligua eaget',
+              },
+              {
+                title: 'Link item',
+                url: 'https://example.com',
+                description:
+                  'Description text lorem ipsum dolor sit amet commondo ligua eaget',
+              },
+              {
+                title: 'Link item',
+                url: 'https://example.com',
+                description:
+                  'Description text lorem ipsum dolor sit amet commondo ligua eaget',
+              },
+            ],
+          },
+        ],
+      },
     },
     {
       title: 'Plain Link',
