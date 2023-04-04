@@ -7,6 +7,7 @@
  * LICENSE file in the root directory of this source tree.
  */
 
+import { PropertyValueMap } from 'lit';
 import { customElement } from 'lit/decorators.js';
 import { prefix } from '../../globals/settings';
 import CDSPopoverContent from '../popover/popover-content';
@@ -17,10 +18,17 @@ import styles from './tooltip.scss';
  */
 @customElement(`${prefix}-tooltip-content`)
 class CDSTooltipContent extends CDSPopoverContent {
-  updated(changedProperties) {
-    super.updated(changedProperties);
-    this.setAttribute('role', 'tooltip');
-    this.setAttribute('aria-hidden', 'true');
+  connectedCallback() {
+    if (!this.hasAttribute('aria-hidden')) {
+      this.setAttribute('aria-hidden', 'true');
+    }
+    if (!this.hasAttribute('role')) {
+      this.setAttribute('role', 'tooltip');
+    }
+    super.connectedCallback();
+  }
+
+  updated() {
     this.shadowRoot
       ?.querySelector(`.${prefix}--popover-content`)
       ?.classList.add(`${prefix}--tooltip-content`);
