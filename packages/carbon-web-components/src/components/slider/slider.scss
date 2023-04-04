@@ -32,8 +32,14 @@ $css--plex: true !default;
     // TODO: audit
     background-color: $interactive;
   }
+
+  &[readonly]::slotted(#{$prefix}-slider-input) {
+    background-color: transparent;
+  }
 }
 
-:host(#{$prefix}-slider-input) {
-  outline: none;
+:host(#{$prefix}-slider-input)[readonly] {
+  input {
+    background-color: transparent;
+  }
 }

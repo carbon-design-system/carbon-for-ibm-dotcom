@@ -16,7 +16,6 @@ import FocusMixin from '../../globals/mixins/focus';
 import FormMixin from '../../globals/mixins/form';
 import HostListenerMixin from '../../globals/mixins/host-listener';
 import HostListener from '../../globals/decorators/host-listener';
-import ifNonEmpty from '../../globals/directives/if-non-empty';
 import BXSliderInput from './slider-input';
 import styles from './slider.scss';
 
@@ -65,9 +64,9 @@ class BXSlider extends HostListenerMixin(FormMixin(FocusMixin(LitElement))) {
   private _step = '1';
 
   /**
-   * The internal value of `stepRatio` property.
+   * The internal value of `stepMultiplier` property.
    */
-  private _stepRatio = '4';
+  private _stepMultiplier = '4';
 
   /**
    * The handle for the throttled listener of `pointermove` event.
@@ -142,15 +141,16 @@ class BXSlider extends HostListenerMixin(FormMixin(FocusMixin(LitElement))) {
           max: rawMax,
           min: rawMin,
           step: rawStep,
-          stepRatio: rawStepRatio,
+          stepMultiplier: rawstepMultiplier,
           value,
         } = this;
         const max = Number(rawMax);
         const min = Number(rawMin);
         const step = Number(rawStep);
-        const stepRatio = Number(rawStepRatio);
+        const stepMultiplier = Number(rawstepMultiplier);
         const diff =
-          (!shiftKey ? step : (max - min) / stepRatio) * THUMB_DIRECTION[key];
+          (!shiftKey ? step : (max - min) / stepMultiplier) *
+          THUMB_DIRECTION[key];
         const stepCount = (value + diff) / step;
         // Snaps to next
         this.value = Math.min(
@@ -303,24 +303,50 @@ class BXSlider extends HostListenerMixin(FormMixin(FocusMixin(LitElement))) {
   disabled = false;
 
   /**
-   * The formatter for the text for maximum value.
-   * Should be changed upon the locale the UI is rendered with.
+   * 	true to specify if the control is required.
    */
-  @property({ attribute: false })
-  formatMaxText = ({ max }: { max: string }) => max;
+  @property({ type: Boolean, reflect: true })
+  required = false;
 
   /**
-   * The formatter for the text for minimum value.
-   * Should be changed upon the locale the UI is rendered with.
+   * 	Whether the slider should be read-only
    */
-  @property({ attribute: false })
-  formatMinText = ({ min }: { min: string }) => min;
+  @property({ type: Boolean, reflect: true })
+  readonly = false;
 
   /**
    * The label text.
    */
   @property({ attribute: 'label-text' })
   labelText = '';
+
+  /**
+   * The label associated with the maximum value.
+   */
+  @property({ attribute: 'max-label', reflect: true })
+  maxLabel = '';
+
+  /**
+   * The label associated with the minimum value.
+   */
+  @property({ attribute: 'min-label', reflect: true })
+  minLabel = '';
+
+  /**
+   * The formatter for the text for maximum value.
+   * Should be changed upon the locale the UI is rendered with.
+   */
+  @property({ attribute: false })
+  formatMaxText = (max: string, maxLabel: string | undefined) =>
+    `${max}${maxLabel}`;
+
+  /**
+   * The formatter for the text for min/max value.
+   * Should be changed upon the locale the UI is rendered with.
+   */
+  @property({ attribute: false })
+  formatMinText = (min: string, minLabel: string | undefined) =>
+    `${min}${minLabel}`;
 
   /**
    * The maximum value.
@@ -357,6 +383,12 @@ class BXSlider extends HostListenerMixin(FormMixin(FocusMixin(LitElement))) {
   name!: string;
 
   /**
+   * true to specify if the control is invalid.
+   */
+  @property({ type: Boolean })
+  invalid = false;
+
+  /**
    * The snapping step of the value.
    */
   @property({ type: Number, reflect: true })
@@ -372,24 +404,24 @@ class BXSlider extends HostListenerMixin(FormMixin(FocusMixin(LitElement))) {
 
   /**
    * A value determining how much the value should increase/decrease by Shift+arrow keys,
-   * which will be `(max - min) / stepRatio`.
+   * which will be `(max - min) / stepMultiplier`.
    */
-  @property({ type: Number, reflect: true, attribute: 'step-ratio' })
-  get stepRatio() {
-    return this._stepRatio.toString();
+  @property({ type: Number, reflect: true, attribute: 'step-multiplier' })
+  get stepMultiplier() {
+    return this._stepMultiplier.toString();
   }
 
-  set stepRatio(value) {
-    const { stepRatio: oldStepRatio } = this;
-    this._stepRatio = value;
-    this.requestUpdate('stepRatio', oldStepRatio);
+  set stepMultiplier(value) {
+    const { stepMultiplier: oldstepMultiplier } = this;
+    this._stepMultiplier = value;
+    this.requestUpdate('stepMultiplier', oldstepMultiplier);
   }
 
   /**
    * The value.
    */
   @property({ type: Number })
-  value = 50;
+  value;
 
   connectedCallback() {
     super.connectedCallback();
@@ -421,12 +453,28 @@ class BXSlider extends HostListenerMixin(FormMixin(FocusMixin(LitElement))) {
         this._dragging = false;
       }
     }
+    if (changedProperties.has('readonly')) {
+      if (input) {
+        input.readonly = this.readonly;
+      }
+      if (this.readonly) {
+        this._dragging = false;
+      }
+    }
     if (input) {
       ['max', 'min', 'step', 'value'].forEach((name) => {
         if (changedProperties.has(name)) {
           input[name] = this[name];
         }
       });
+
+      if (changedProperties.has('value') || changedProperties.has('invalid')) {
+        if (this.value < this.min || this.value > this.max || this.invalid) {
+          input.invalid = true;
+        } else {
+          input.invalid = false;
+        }
+      }
     }
     return true;
   }
@@ -439,8 +487,10 @@ class BXSlider extends HostListenerMixin(FormMixin(FocusMixin(LitElement))) {
       labelText,
       max,
       min,
-      name,
+      maxLabel,
+      minLabel,
       value,
+      readonly,
       _rate: rate,
       _handleClickLabel: handleClickLabel,
       _handleKeydown: handleKeydown,
@@ -455,6 +505,7 @@ class BXSlider extends HostListenerMixin(FormMixin(FocusMixin(LitElement))) {
     const sliderClasses = classMap({
       [`${prefix}--slider`]: true,
       [`${prefix}--slider--disabled`]: disabled,
+      [`${prefix}--slider--readonly`]: readonly,
     });
     return html`
       <label class="${labelClasses}" @click="${handleClickLabel}">
@@ -462,7 +513,7 @@ class BXSlider extends HostListenerMixin(FormMixin(FocusMixin(LitElement))) {
       </label>
       <div class="${prefix}--slider-container">
         <span class="${prefix}--slider__range-label">
-          <slot name="min-text">${formatMinText({ min })}</slot>
+          <slot name="min-text">${formatMinText(min, minLabel)}</slot>
         </span>
         <div
           @keydown="${handleKeydown}"
@@ -470,6 +521,7 @@ class BXSlider extends HostListenerMixin(FormMixin(FocusMixin(LitElement))) {
           @pointerup="${endDrag}"
           @pointerleave="${endDrag}"
           class="${sliderClasses}"
+          tab-index="${!readonly ? 0 : -1}"
           role="presentation">
           <div
             id="thumb"
@@ -487,16 +539,9 @@ class BXSlider extends HostListenerMixin(FormMixin(FocusMixin(LitElement))) {
               class="${prefix}--slider__filled-track"
               style="transform: translate(0%, -50%) scaleX(${rate})"></div>
           </div>
-          <input
-            class="${prefix}--slider__input"
-            type="hidden"
-            name="${ifNonEmpty(name)}"
-            .value="${value}"
-            min="${ifNonEmpty(min)}"
-            max="${ifNonEmpty(max)}" />
         </div>
         <span class="${prefix}--slider__range-label">
-          <slot name="max-text">${formatMaxText({ max })}</slot>
+          <slot name="max-text">${formatMaxText(max, maxLabel)}</slot>
         </span>
         <slot></slot>
       </div>
