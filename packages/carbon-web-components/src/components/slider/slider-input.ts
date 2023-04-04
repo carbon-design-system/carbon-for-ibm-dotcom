@@ -22,7 +22,7 @@ import styles from './slider.scss';
  * @fires cds-slider-input-changed - The custom event fired after the value is changed by user gesture.
  */
 @customElement(`${prefix}-slider-input`)
-class BXSliderInput extends FocusMixin(LitElement) {
+class CDSSliderInput extends FocusMixin(LitElement) {
   /**
    * The internal value of `max` property.
    */
@@ -43,7 +43,7 @@ class BXSliderInput extends FocusMixin(LitElement) {
    */
   private _handleChange({ target }: Event) {
     this.dispatchEvent(
-      new CustomEvent((this.constructor as typeof BXSliderInput).eventChange, {
+      new CustomEvent((this.constructor as typeof CDSSliderInput).eventChange, {
         bubbles: true,
         composed: true,
         detail: {
@@ -58,7 +58,7 @@ class BXSliderInput extends FocusMixin(LitElement) {
    */
   private _handleInput({ target }: Event) {
     this.dispatchEvent(
-      new CustomEvent((this.constructor as typeof BXSliderInput).eventChange, {
+      new CustomEvent((this.constructor as typeof CDSSliderInput).eventChange, {
         bubbles: true,
         composed: true,
         detail: {
@@ -200,4 +200,4 @@ class BXSliderInput extends FocusMixin(LitElement) {
   static styles = styles;
 }
 
-export default BXSliderInput;
+export default CDSSliderInput;

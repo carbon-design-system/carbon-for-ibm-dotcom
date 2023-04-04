@@ -16,7 +16,7 @@ import FocusMixin from '../../globals/mixins/focus';
 import FormMixin from '../../globals/mixins/form';
 import HostListenerMixin from '../../globals/mixins/host-listener';
 import HostListener from '../../globals/decorators/host-listener';
-import BXSliderInput from './slider-input';
+import CDSSliderInput from './slider-input';
 import styles from './slider.scss';
 
 interface Cancelable {
@@ -47,7 +47,7 @@ const THUMB_DIRECTION = {
  * @fires cds-slider-changed - The custom event fired after the value is changed by user gesture.
  */
 @customElement(`${prefix}-slider`)
-class BXSlider extends HostListenerMixin(FormMixin(FocusMixin(LitElement))) {
+class CDSSlider extends HostListenerMixin(FormMixin(FocusMixin(LitElement))) {
   /**
    * The internal value of `max` property.
    */
@@ -161,7 +161,7 @@ class BXSlider extends HostListenerMixin(FormMixin(FocusMixin(LitElement))) {
           )
         );
         this.dispatchEvent(
-          new CustomEvent((this.constructor as typeof BXSlider).eventChange, {
+          new CustomEvent((this.constructor as typeof CDSSlider).eventChange, {
             bubbles: true,
             composed: true,
             detail: {
@@ -200,7 +200,7 @@ class BXSlider extends HostListenerMixin(FormMixin(FocusMixin(LitElement))) {
           ? trackLeft + trackWidth - thumbPosition
           : thumbPosition - trackLeft) / trackWidth;
       this.dispatchEvent(
-        new CustomEvent((this.constructor as typeof BXSlider).eventChange, {
+        new CustomEvent((this.constructor as typeof CDSSlider).eventChange, {
           bubbles: true,
           composed: true,
           detail: {
@@ -245,7 +245,7 @@ class BXSlider extends HostListenerMixin(FormMixin(FocusMixin(LitElement))) {
           ? trackLeft + trackWidth - thumbPosition
           : thumbPosition - trackLeft) / trackWidth;
       this.dispatchEvent(
-        new CustomEvent((this.constructor as typeof BXSlider).eventChange, {
+        new CustomEvent((this.constructor as typeof CDSSlider).eventChange, {
           bubbles: true,
           composed: true,
           detail: {
@@ -263,7 +263,7 @@ class BXSlider extends HostListenerMixin(FormMixin(FocusMixin(LitElement))) {
   private _endDrag = () => {
     if (this._dragging) {
       this.dispatchEvent(
-        new CustomEvent((this.constructor as typeof BXSlider).eventChange, {
+        new CustomEvent((this.constructor as typeof CDSSlider).eventChange, {
           bubbles: true,
           composed: true,
           detail: {
@@ -285,7 +285,7 @@ class BXSlider extends HostListenerMixin(FormMixin(FocusMixin(LitElement))) {
     const { intermediate, value } = detail;
     this.value = value;
     this.dispatchEvent(
-      new CustomEvent((this.constructor as typeof BXSlider).eventChange, {
+      new CustomEvent((this.constructor as typeof CDSSlider).eventChange, {
         bubbles: true,
         composed: true,
         detail: {
@@ -443,8 +443,8 @@ class BXSlider extends HostListenerMixin(FormMixin(FocusMixin(LitElement))) {
 
   shouldUpdate(changedProperties) {
     const input = this.querySelector(
-      (this.constructor as typeof BXSlider).selectorInput
-    ) as BXSliderInput;
+      (this.constructor as typeof CDSSlider).selectorInput
+    ) as CDSSliderInput;
     if (changedProperties.has('disabled')) {
       if (input) {
         input.disabled = this.disabled;
@@ -576,4 +576,4 @@ class BXSlider extends HostListenerMixin(FormMixin(FocusMixin(LitElement))) {
   static styles = styles;
 }
 
-export default BXSlider;
+export default CDSSlider;
