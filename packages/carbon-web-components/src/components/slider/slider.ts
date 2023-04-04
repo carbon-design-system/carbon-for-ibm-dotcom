@@ -521,13 +521,13 @@ class CDSSlider extends HostListenerMixin(FormMixin(FocusMixin(LitElement))) {
           @pointerup="${endDrag}"
           @pointerleave="${endDrag}"
           class="${sliderClasses}"
-          tab-index="${!readonly ? 0 : -1}"
+          tabindex="-1"
           role="presentation">
           <div
             id="thumb"
             class="${prefix}--slider__thumb"
             role="slider"
-            tabindex="0"
+            tabindex="${!readonly ? 0 : -1}"
             aria-valuemax="${max}"
             aria-valuemin="${min}"
             aria-valuenow="${value}"

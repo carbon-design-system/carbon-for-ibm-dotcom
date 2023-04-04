@@ -38,8 +38,14 @@ $css--plex: true !default;
   }
 }
 
-:host(#{$prefix}-slider-input)[readonly] {
+:host(#{$prefix}-slider-input) {
   input {
-    background-color: transparent;
+    box-sizing: border-box;
+  }
+
+  [readonly] {
+    input {
+      background-color: transparent;
+    }
   }
 }
