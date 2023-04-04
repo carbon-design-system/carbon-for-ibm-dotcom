@@ -53,7 +53,9 @@ class CDSTooltip extends HostListenerMixin(CDSPopover) {
       const { open, updateComplete } = this;
       if (open) {
         await updateComplete;
-        (this.querySelector('cds-tooltip-content') as HTMLElement)?.focus();
+        const { selectorTooltipContent } = this
+          .constructor as typeof CDSTooltip;
+        (this.querySelector(selectorTooltipContent) as HTMLElement)?.focus();
       }
     }, this.enterDelayMs);
   };
