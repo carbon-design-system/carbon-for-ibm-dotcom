@@ -8,10 +8,11 @@
  */
 
 import settings from 'carbon-components/es/globals/js/settings';
-import { html, property, customElement, LitElement } from 'lit-element';
+import { html, property, LitElement } from 'lit-element';
 import Checkmark16 from '@carbon/icons/lib/checkmark/16';
 import { DROPDOWN_SIZE } from './dropdown';
 import styles from './dropdown.scss';
+import { carbonElement as customElement } from '../../globals/decorators/carbon-element';
 
 const { prefix } = settings;
 

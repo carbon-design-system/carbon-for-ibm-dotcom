@@ -18,9 +18,7 @@ describe('dds-leaving-ibm-*', () => {
     await page.click('bx-modal-close-button button');
     await expect(page).toHaveSelector(
       'dds-leaving-ibm-modal .bx--modal-container',
-      {
-        state: 'hidden',
-      }
+      { state: 'hidden' }
     );
   });
 });

@@ -18,9 +18,7 @@ describe('dds-lightbox-media-viewer-*', () => {
     await page.click('dds-expressive-modal-close-button button');
     await expect(page).toHaveSelector(
       'dds-expressive-modal .bx--modal-container',
-      {
-        state: 'hidden',
-      }
+      { state: 'hidden' }
     );
   });
 });

@@ -9,9 +9,10 @@
 
 import settings from 'carbon-components/es/globals/js/settings';
 import { ifDefined } from 'lit-html/directives/if-defined';
-import { html, property, customElement } from 'lit-element';
+import { html, property } from 'lit-element';
 import BXDropdownItem from '../dropdown/dropdown-item';
 import styles from './multi-select.scss';
+import { carbonElement as customElement } from '../../globals/decorators/carbon-element';
 
 const { prefix } = settings;
 

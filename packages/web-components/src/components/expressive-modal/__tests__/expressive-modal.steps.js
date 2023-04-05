@@ -18,9 +18,7 @@ describe('dds-expressive-modal', () => {
     await page.click('dds-expressive-modal-close-button button');
     await expect(page).toHaveSelector(
       'dds-expressive-modal .bx--modal-container',
-      {
-        state: 'hidden',
-      }
+      { state: 'hidden' }
     );
   });
 });

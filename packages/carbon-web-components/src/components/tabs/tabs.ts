@@ -8,7 +8,7 @@
  */
 
 import { classMap } from 'lit-html/directives/class-map';
-import { html, property, query, customElement } from 'lit-element';
+import { html, property, query } from 'lit-element';
 import ChevronDown16 from '@carbon/icons/lib/chevron--down/16';
 import settings from 'carbon-components/es/globals/js/settings';
 import HostListenerMixin from '../../globals/mixins/host-listener';
@@ -25,6 +25,7 @@ import {
 } from './defs';
 import BXTab from './tab';
 import styles from './tabs.scss';
+import { carbonElement as customElement } from '../../globals/decorators/carbon-element';
 
 const { prefix } = settings;
 
@@ -140,8 +141,8 @@ class BXTabs extends HostListenerMixin(BXContentSwitcher) {
    * @param [options.immediate]
    *   `true` to make it "immediate selection change" mode, which does:
    *
-   *   * Starts with the selected item
-   *   * Going prev/next item immediately changes the selection
+   *   Starts with the selected item
+   *   Going prev/next item immediately changes the selection
    */
   protected _navigate(
     direction: number,

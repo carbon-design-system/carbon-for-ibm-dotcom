@@ -7,7 +7,7 @@
  * LICENSE file in the root directory of this source tree.
  */
 
-import { customElement, html, property } from 'lit-element';
+import { html, property } from 'lit-element';
 import ifNonNull from '../../../internal/vendor/@carbon/web-components/globals/directives/if-non-null.js';
 import ddsSettings from '../../../internal/vendor/@carbon/ibmdotcom-utilities/utilities/settings/settings';
 import { globalInit } from '../../../internal/vendor/@carbon/ibmdotcom-services/services/global/global';
@@ -34,15 +34,18 @@ import styles from './cloud-masthead.scss';
 import DDSMastheadComposite, {
   NAV_ITEMS_RENDER_TARGET,
 } from '../masthead-composite';
+import { carbonElement as customElement } from '../../../internal/vendor/@carbon/web-components/globals/decorators/carbon-element.js';
 
 const { stablePrefix: ddsPrefix } = ddsSettings;
+
+// Magic Number: 960px matches masthead.scss's `$breakpoint--desktop-nav`.
+const layoutBreakpoint = window.matchMedia(`(max-width: 959px)`);
 
 /**
  * Component that renders masthead from links, etc. data.
  *
  * @element dds-cloud-masthead-composite
  */
-
 @customElement(`${ddsPrefix}-cloud-masthead-composite`)
 class DDSCloudMastheadComposite extends DDSMastheadComposite {
   /**
@@ -93,6 +96,11 @@ class DDSCloudMastheadComposite extends DDSMastheadComposite {
    */
   @property({ type: String, reflect: false, attribute: 'redirect-path' })
   redirectPath? = '';
+
+  /**
+   * Whether the nav should load as `left-nav` or `top-nav`
+   */
+  _isMobileVersion = layoutBreakpoint.matches;
 
   /**
    *  Render MegaMenu content
@@ -282,10 +290,17 @@ class DDSCloudMastheadComposite extends DDSMastheadComposite {
     this._loadUserStatus?.(this.authMethod);
 
     this.style.zIndex = '900';
+
+    // Allows conditional rendering of left/top navs.
+    layoutBreakpoint.addEventListener('change', () => {
+      this._isMobileVersion = layoutBreakpoint.matches;
+      this.requestUpdate();
+    });
   }
 
   render() {
     const {
+      _isMobileVersion: isMobileVersion,
       activateSearch,
       authenticatedProfileItems,
       authenticatedCtaButtons,
@@ -327,27 +342,38 @@ class DDSCloudMastheadComposite extends DDSMastheadComposite {
     }
 
     return html`
-      <dds-left-nav-overlay cloud></dds-left-nav-overlay>
-      <dds-left-nav cloud>
-        ${!platform
-          ? undefined
-          : html`
-              <dds-left-nav-name href="${ifNonNull(platformAltUrl)}"
-                >${platform}</dds-left-nav-name
-              >
-            `}
-        ${this._renderNavItems({
-          target: NAV_ITEMS_RENDER_TARGET.LEFT_NAV,
-          hasL1: !!l1Data,
-        })}
-      </dds-left-nav>
+      ${isMobileVersion
+        ? html`
+            <dds-left-nav-overlay cloud></dds-left-nav-overlay>
+            <dds-left-nav cloud>
+              ${!platform
+                ? undefined
+                : html`
+                    <dds-left-nav-name href="${ifNonNull(platformAltUrl)}"
+                      >${platform}</dds-left-nav-name
+                    >
+                  `}
+              ${this._renderNavItems({
+                target: NAV_ITEMS_RENDER_TARGET.LEFT_NAV,
+                hasL1: !!l1Data,
+              })}
+            </dds-left-nav>
+          `
+        : ''}
       <dds-masthead aria-label="${ifNonNull(mastheadAssistiveText)}">
-        <dds-masthead-menu-button
-          cloud
-          button-label-active="${ifNonNull(menuButtonAssistiveTextActive)}"
-          button-label-inactive="${ifNonNull(menuButtonAssistiveTextInactive)}">
-        </dds-masthead-menu-button>
-
+        ${isMobileVersion
+          ? html`
+              <dds-masthead-menu-button
+                cloud
+                button-label-active="${ifNonNull(
+                  menuButtonAssistiveTextActive
+                )}"
+                button-label-inactive="${ifNonNull(
+                  menuButtonAssistiveTextInactive
+                )}">
+              </dds-masthead-menu-button>
+            `
+          : ''}
         ${this._renderLogo()}
         ${!platform
           ? undefined
@@ -358,7 +384,8 @@ class DDSCloudMastheadComposite extends DDSMastheadComposite {
             `}
         ${l1Data
           ? undefined
-          : html`
+          : !isMobileVersion
+          ? html`
               <dds-top-nav
                 cloud
                 menu-bar-label="${ifNonNull(menuBarAssistiveText)}">
@@ -367,7 +394,8 @@ class DDSCloudMastheadComposite extends DDSMastheadComposite {
                   hasL1: false,
                 })}
               </dds-top-nav>
-            `}
+            `
+          : undefined}
         <dds-search-with-typeahead
           ?active="${activateSearch}"
           input-timeout="${inputTimeout}"

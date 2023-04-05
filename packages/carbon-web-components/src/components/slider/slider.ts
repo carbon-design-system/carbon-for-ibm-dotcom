@@ -9,7 +9,7 @@
 
 import { classMap } from 'lit-html/directives/class-map';
 import throttle from 'lodash-es/throttle';
-import { html, property, query, customElement, LitElement } from 'lit-element';
+import { html, property, query, LitElement } from 'lit-element';
 import settings from 'carbon-components/es/globals/js/settings';
 import FocusMixin from '../../globals/mixins/focus';
 import FormMixin from '../../globals/mixins/form';
@@ -18,6 +18,7 @@ import HostListener from '../../globals/decorators/host-listener';
 import ifNonEmpty from '../../globals/directives/if-non-empty';
 import BXSliderInput from './slider-input';
 import styles from './slider.scss';
+import { carbonElement as customElement } from '../../globals/decorators/carbon-element';
 
 const { prefix } = settings;
 

@@ -8,12 +8,13 @@
  */
 
 import { classMap } from 'lit-html/directives/class-map';
-import { html, property, customElement } from 'lit-element';
+import { html, property } from 'lit-element';
 import settings from 'carbon-components/es/globals/js/settings';
 import ifNonNull from '../../globals/directives/if-non-null';
 import BXCheckbox from '../checkbox/checkbox';
 import { TOGGLE_SIZE } from './defs';
 import styles from './toggle.scss';
+import { carbonElement as customElement } from '../../globals/decorators/carbon-element';
 
 export { TOGGLE_SIZE };
 

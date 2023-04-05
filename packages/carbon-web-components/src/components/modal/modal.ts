@@ -9,12 +9,13 @@
 
 import settings from 'carbon-components/es/globals/js/settings';
 import { classMap } from 'lit-html/directives/class-map';
-import { html, property, query, customElement, LitElement } from 'lit-element';
+import { html, property, query, LitElement } from 'lit-element';
 import HostListener from '../../globals/decorators/host-listener';
 import HostListenerMixin from '../../globals/mixins/host-listener';
 import { MODAL_SIZE } from './defs';
 import styles from './modal.scss';
 import { selectorTabbable } from '../../globals/settings';
+import { carbonElement as customElement } from '../../globals/decorators/carbon-element';
 
 export { MODAL_SIZE };
 

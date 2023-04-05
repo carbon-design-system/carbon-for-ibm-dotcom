@@ -78,7 +78,7 @@ const headingDefault = 'Lorem ipsum dolor sit amet';
 const copyDefault =
   'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean et ultricies est.';
 const copyOdd = `
-  {copyDefault}
+  ${copyDefault}
   Mauris iaculis eget dolor nec hendrerit. Phasellus at elit sollicitudin, sodales nulla quis, consequat libero.
 `;
 
@@ -98,8 +98,11 @@ const Card = ({
 
 export const Default = (args) => {
   const { heading, copy, addChildren } = args?.ContentSection ?? {};
+  const classes = addChildren.includes('Content block simple')
+    ? 'bx--col-lg-16 bx--no-gutter'
+    : '';
   return (
-    <DDSContentSection>
+    <DDSContentSection childrenCustomClass={classes}>
       <DDSContentSectionHeading>{heading}</DDSContentSectionHeading>
       <DDSContentSectionCopy>{copy}</DDSContentSectionCopy>
       {addChildren.includes('Content block simple') ? (
@@ -128,7 +131,7 @@ export const Default = (args) => {
       ) : (
         ''
       )}
-      {addChildren.includes('Card group') ? (
+      {addChildren.includes('Link list') ? (
         <DDSLinkList>
           <DDSLinkListItem href="https://example.com">
             Learn more about Kubernetes and automating deployment

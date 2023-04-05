@@ -469,6 +469,8 @@
     }
   }
 
+  /* Ignore line that currently cannot resolve due to conflicting prettier and stylelint configs */
+  /* prettier-ignore */
   :host(#{$dds-prefix}-left-nav-menu-category-heading):not(.#{$prefix}--left-nav-menu-category__heading-large),
   :host(#{$dds-prefix}-left-nav-menu),
   :host(#{$dds-prefix}-left-nav-menu-item) {

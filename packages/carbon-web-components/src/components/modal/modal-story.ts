@@ -20,7 +20,6 @@ import './modal-label';
 import './modal-body';
 import './modal-footer';
 import './modal-footer-button';
-import styles from './modal-story.scss';
 import storyDocs from './modal-story.mdx';
 
 const sizes = {
@@ -129,14 +128,7 @@ ThreeButtons.storyName = 'Three buttons';
 
 export default {
   title: 'Components/Modal',
-  decorators: [
-    (story) => html`
-      <style type="text/css">
-        ${styles.cssText}
-      </style>
-      ${story()}
-    `,
-  ],
+  decorators: [(story) => html` ${story()} `],
   parameters: {
     ...storyDocs.parameters,
     knobs: {

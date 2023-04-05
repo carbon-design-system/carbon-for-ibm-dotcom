@@ -9,13 +9,14 @@
 
 import settings from 'carbon-components/es/globals/js/settings';
 import { classMap } from 'lit-html/directives/class-map';
-import { html, property, customElement, LitElement } from 'lit-element';
+import { html, property, LitElement } from 'lit-element';
 import ifNonNull from '../../globals/directives/if-non-null';
 import FocusMixin from '../../globals/mixins/focus';
 import { BUTTON_KIND, BUTTON_SIZE, BUTTON_ICON_LAYOUT } from './defs';
 import styles from './button.scss';
 import HostListener from '../../globals/decorators/host-listener';
 import HostListenerMixin from '../../globals/mixins/host-listener';
+import { carbonElement as customElement } from '../../globals/decorators/carbon-element';
 
 export { BUTTON_KIND, BUTTON_SIZE, BUTTON_ICON_LAYOUT };
 

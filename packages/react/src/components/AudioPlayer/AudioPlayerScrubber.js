@@ -7,7 +7,7 @@
 import Button from '../../internal/vendor/carbon-components-react/components/Button/Button';
 import { DDS_AUDIO_PLAYER } from '../../internal/FeatureFlags';
 import Forward1032 from '@carbon/icons-react/es/forward--10/32';
-import { KalturaPlayer as KalturaPlayerAPI } from '@carbon/ibmdotcom-services/es/services';
+import KalturaPlayerAPI from '../../internal/vendor/@carbon/ibmdotcom-services/services/KalturaPlayer/KalturaPlayer';
 import PropTypes from 'prop-types';
 import React from 'react';
 import Rewind_1032 from '@carbon/icons-react/es/rewind--10/32';

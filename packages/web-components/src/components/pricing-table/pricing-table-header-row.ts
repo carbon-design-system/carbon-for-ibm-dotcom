@@ -7,7 +7,7 @@
  * LICENSE file in the root directory of this source tree.
  */
 
-import { customElement, html } from 'lit-element';
+import { html } from 'lit-element';
 import ddsSettings from '@carbon/ibmdotcom-utilities/es/utilities/settings/settings.js';
 import StableSelectorMixin from '../../globals/mixins/stable-selector';
 import sameHeight from '../../internal/vendor/@carbon/ibmdotcom-utilities/utilities/sameHeight/sameHeight';
@@ -16,7 +16,7 @@ import DDSPricingTableHeaderCell from './pricing-table-header-cell';
 import styles from './pricing-table.scss';
 import { setColumnWidth } from './utils';
 import { PRICING_TABLE_HEADER_CELL_TYPES } from './defs';
-import DDSPricingTable from './pricing-table';
+import { carbonElement as customElement } from '../../internal/vendor/@carbon/web-components/globals/decorators/carbon-element';
 
 const { stablePrefix: ddsPrefix } = ddsSettings;
 
@@ -28,42 +28,6 @@ class DDSPricingTableHeaderRow extends StableSelectorMixin(
    * Array full of tag wrapper elements within header cells.
    */
   private _tagWrappers: any[] = [];
-
-  /**
-   * Observer that watches for viewport resizes.
-   */
-  // TODO: Wait for `.d.ts` update to support `ResizeObserver`
-  // @ts-ignore
-  private _resizeObserver: ResizeObserver | null = null;
-
-  /**
-   * Takes actions whenever the viewport is resized.
-   */
-  private _createResizeObserver() {
-    // TODO: Wait for `.d.ts` update to support `ResizeObserver`
-    // @ts-ignore
-    this._resizeObserver = new ResizeObserver(() => {
-      if (
-        !(this.closest(`${ddsPrefix}-pricing-table`) as DDSPricingTable)
-          ?.isSticky
-      ) {
-        this._setSameHeight();
-      }
-    });
-    this._resizeObserver.observe(this.ownerDocument!.documentElement);
-  }
-
-  /**
-   * Safely disconnects and removes the resize observer.
-   */
-  private _cleanResizeObserver() {
-    // TODO: Wait for `.d.ts` update to support `ResizeObserver`
-    // @ts-ignore
-    if (this._resizeObserver instanceof ResizeObserver) {
-      this._resizeObserver.disconnect();
-    }
-    this._resizeObserver = null;
-  }
 
   private _setSameHeight() {
     window.requestAnimationFrame(() => {
@@ -109,11 +73,9 @@ class DDSPricingTableHeaderRow extends StableSelectorMixin(
 
   connectedCallback() {
     super.connectedCallback();
-    this._createResizeObserver();
   }
 
   disconnectedCallback() {
-    this._cleanResizeObserver();
     super.disconnectedCallback();
   }
 

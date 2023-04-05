@@ -7,7 +7,7 @@
  * LICENSE file in the root directory of this source tree.
  */
 
-import { html, property, customElement, LitElement } from 'lit-element';
+import { html, property, LitElement } from 'lit-element';
 import CheckmarkFilled16 from '@carbon/icons/lib/checkmark--filled/16';
 import Close16 from '@carbon/icons/lib/close/16';
 import WarningFilled16 from '@carbon/icons/lib/warning--filled/16';
@@ -15,6 +15,7 @@ import settings from 'carbon-components/es/globals/js/settings';
 import { LOADING_TYPE } from '../loading/loading';
 import { FILE_UPLOADER_ITEM_SIZE, FILE_UPLOADER_ITEM_STATE } from './defs';
 import styles from './file-uploader.scss';
+import { carbonElement as customElement } from '../../globals/decorators/carbon-element';
 
 export { FILE_UPLOADER_ITEM_SIZE, FILE_UPLOADER_ITEM_STATE };
 

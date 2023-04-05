@@ -9,12 +9,13 @@
 
 import settings from 'carbon-components/es/globals/js/settings';
 import { TemplateResult } from 'lit-html';
-import { html, property, query, customElement } from 'lit-element';
+import { html, property, query } from 'lit-element';
 import Close16 from '@carbon/icons/lib/close/16';
 import { findIndex, forEach } from '../../globals/internal/collection-helpers';
 import BXDropdown, { DROPDOWN_KEYBOARD_ACTION } from '../dropdown/dropdown';
 import BXComboBoxItem from './combo-box-item';
 import styles from './combo-box.scss';
+import { carbonElement as customElement } from '../../globals/decorators/carbon-element';
 
 export {
   DROPDOWN_COLOR_SCHEME,

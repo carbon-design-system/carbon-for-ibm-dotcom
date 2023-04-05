@@ -626,7 +626,8 @@ const MastheadSearch = forwardRef(
           </HeaderGlobalAction>
           <HeaderGlobalAction
             onClick={closeBtnAction}
-            aria-label="Close"
+            part="close-button"
+            aria-label="Clear input"
             className={`${prefix}--header__search--close`}
             data-autoid={`${stablePrefix}--masthead-${navType}__l0-search--close`}>
             <Close20 />

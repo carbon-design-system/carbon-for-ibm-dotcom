@@ -8,7 +8,7 @@
  */
 
 import { classMap } from 'lit-html/directives/class-map';
-import { html, property, query, customElement, LitElement } from 'lit-element';
+import { html, property, query, LitElement } from 'lit-element';
 import Calendar16 from '@carbon/icons/lib/calendar/16';
 import settings from 'carbon-components/es/globals/js/settings';
 import ifNonNull from '../../globals/directives/if-non-null';
@@ -21,6 +21,7 @@ import {
   DATE_PICKER_INPUT_SIZE_HORIZONTAL,
 } from './defs';
 import styles from './date-picker.scss';
+import { carbonElement as customElement } from '../../globals/decorators/carbon-element';
 
 export {
   DATE_PICKER_INPUT_COLOR_SCHEME,

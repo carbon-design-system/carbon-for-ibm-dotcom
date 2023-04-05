@@ -10,7 +10,7 @@ import CTALogic from '../CTA/CTALogic';
 import ddsSettings from '../../internal/vendor/@carbon/ibmdotcom-utilities/utilities/settings/settings';
 import { Image } from '../Image';
 import Link from '../../internal/vendor/carbon-components-react/components/Link/Link';
-import markdownToHtml from '@carbon/ibmdotcom-utilities/es/utilities/markdownToHtml/markdownToHtml';
+import markdownToHtml from '../../internal/vendor/@carbon/ibmdotcom-utilities/utilities/markdownToHtml/markdownToHtml';
 import on from 'carbon-components/es/globals/js/misc/on';
 import PropTypes from 'prop-types';
 import settings from 'carbon-components/es/globals/js/settings';

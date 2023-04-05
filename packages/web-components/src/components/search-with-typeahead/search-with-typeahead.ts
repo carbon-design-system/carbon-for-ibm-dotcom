@@ -9,7 +9,7 @@
 
 import ifNonNull from '../../internal/vendor/@carbon/web-components/globals/directives/if-non-null.js';
 import { classMap } from 'lit-html/directives/class-map.js';
-import { html, property, query, customElement } from 'lit-element';
+import { html, property, query } from 'lit-element';
 import settings from 'carbon-components/es/globals/js/settings.js';
 import Close20 from '../../internal/vendor/@carbon/web-components/icons/close/20.js';
 import Search20 from '../../internal/vendor/@carbon/web-components/icons/search/20.js';
@@ -26,6 +26,7 @@ import { forEach, indexOf } from '../../globals/internal/collection-helpers';
 import styles from './search-with-typeahead.scss';
 import StableSelectorMixin from '../../globals/mixins/stable-selector';
 import './search-with-typeahead-item';
+import { carbonElement as customElement } from '../../internal/vendor/@carbon/web-components/globals/decorators/carbon-element.js';
 
 const { stablePrefix: ddsPrefix } = ddsSettings;
 const { prefix } = settings;
@@ -636,7 +637,11 @@ class DDSSearchWithTypeahead extends HostListenerMixin(
       'react-autosuggest__suggestions-container--open': open,
     });
     return html`
-      <form method="get" action="${redirectUrl}" @submit="${handleSubmit}">
+      <form
+        role="search"
+        method="get"
+        action="${redirectUrl}"
+        @submit="${handleSubmit}">
         <input type="hidden" name="lang" value="${primary}" />
         <input type="hidden" name="cc" value="${country}" />
         <input type="hidden" name="lnk" value="mhsrch" />
@@ -758,7 +763,7 @@ class DDSSearchWithTypeahead extends HostListenerMixin(
    * The assistive text for the button to close the search box.
    */
   @property({ attribute: 'close-search-button-assistive-text' })
-  closeSearchButtonAssistiveText = 'Close';
+  closeSearchButtonAssistiveText = 'Clear input';
 
   /**
    * The language embedded in the inner form.

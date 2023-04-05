@@ -8,7 +8,6 @@
  */
 
 import { ActionCreatorsMapObject, Store } from 'redux';
-import { customElement } from 'lit-element';
 import ddsSettings from '../../internal/vendor/@carbon/ibmdotcom-utilities/utilities/settings/settings';
 import {
   MediaData,
@@ -24,6 +23,7 @@ import {
 } from '../video-player/video-player-container';
 import ConnectMixin from '../../globals/mixins/connect';
 import DDSVideoCTAComposite from './video-cta-composite';
+import { carbonElement as customElement } from '../../internal/vendor/@carbon/web-components/globals/decorators/carbon-element';
 
 const { stablePrefix: ddsPrefix } = ddsSettings;
 

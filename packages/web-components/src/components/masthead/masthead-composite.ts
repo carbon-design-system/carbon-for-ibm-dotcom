@@ -7,21 +7,15 @@
  * LICENSE file in the root directory of this source tree.
  */
 
-import {
-  html,
-  property,
-  customElement,
-  LitElement,
-  TemplateResult,
-} from 'lit-element';
+import { html, property, LitElement, TemplateResult } from 'lit-element';
 import { nothing, render } from 'lit-html';
 import { ifDefined } from 'lit-html/directives/if-defined';
+import HostListener from '../../internal/vendor/@carbon/web-components/globals/decorators/host-listener.js';
+import HostListenerMixin from '../../internal/vendor/@carbon/web-components/globals/mixins/host-listener.js';
 import ArrowRight16 from '../../internal/vendor/@carbon/web-components/icons/arrow--right/16.js';
 import ifNonNull from '../../internal/vendor/@carbon/web-components/globals/directives/if-non-null.js';
 import { unsafeSVG } from 'lit-html/directives/unsafe-svg.js';
 import root from 'window-or-global';
-import HostListener from '../../internal/vendor/@carbon/web-components/globals/decorators/host-listener.js';
-import HostListenerMixin from '../../internal/vendor/@carbon/web-components/globals/mixins/host-listener.js';
 import ddsSettings from '../../internal/vendor/@carbon/ibmdotcom-utilities/utilities/settings/settings';
 import { globalInit } from '../../internal/vendor/@carbon/ibmdotcom-services/services/global/global';
 import MastheadLogoAPI from '../../internal/vendor/@carbon/ibmdotcom-services/services/MastheadLogo/MastheadLogo';
@@ -72,6 +66,7 @@ import {
   MEGAMENU_LAYOUT_SCHEME,
   LEGACY_MEGAMENU_RIGHT_NAVIGATION_STYLE_SCHEME,
 } from './defs';
+import { carbonElement as customElement } from '../../internal/vendor/@carbon/web-components/globals/decorators/carbon-element.js';
 
 const { stablePrefix: ddsPrefix } = ddsSettings;
 
@@ -902,7 +897,7 @@ class DDSMastheadComposite extends HostListenerMixin(LitElement) {
     const autoid = `${ddsPrefix}--masthead__${l1Data?.menuItems ? 'l1' : 'l0'}`;
 
     if (hasL1) {
-      return l1Data?.menuItems.map((link, i) => {
+      return l1Data?.menuItems?.map((link, i) => {
         return this._legacyRenderNavItem(link, i, autoid);
       });
     }

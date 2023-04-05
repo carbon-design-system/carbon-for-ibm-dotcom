@@ -37,7 +37,7 @@ describe('dds-masthead | custom search (desktop)', () => {
   });
 
   it('should display grouped results with hrefs', () => {
-    // Mock grouped search typeahead API. Below we user the "cloud" search
+    // Mock grouped search typeahead API. Below we use the "cloud" search
     // string. Every keypress will trigger an API request, so here we mock each
     // successive cumulative search query.
     [('c', 'cl', 'clo', 'clou', 'cloud')].forEach(query => {

@@ -267,7 +267,7 @@ $breakpoint--desktop-nav: 799px;
   .#{$prefix}--header__nav-caret-right-container {
     right: 0;
     /* stylelint-disable-next-line comment-whitespace-inside */
-    /*!rtl:raw:
+    /* !rtl:raw:
     position: absolute !important;
     */
   }
@@ -275,7 +275,7 @@ $breakpoint--desktop-nav: 799px;
   .#{$prefix}--header__nav-caret-left-container {
     left: 0;
     /* stylelint-disable-next-line comment-whitespace-inside */
-    /*!rtl:raw:
+    /* !rtl:raw:
     right: initial;
     position: absolute !important;
     */

@@ -9,10 +9,11 @@
 
 import settings from 'carbon-components/es/globals/js/settings';
 import { classMap } from 'lit-html/directives/class-map';
-import { property, customElement } from 'lit-element';
+import { property } from 'lit-element';
 import BXLink from '../link/link';
 import { TILE_COLOR_SCHEME } from './defs';
 import styles from './tile.scss';
+import { carbonElement as customElement } from '../../globals/decorators/carbon-element';
 
 const { prefix } = settings;
 

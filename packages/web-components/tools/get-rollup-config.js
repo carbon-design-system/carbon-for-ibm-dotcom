@@ -216,7 +216,7 @@ function getRollupConfig({
       // and we don't want to affect `carbon-web-components`' components application may define elsewhere
       babel.babel({
         babelHelpers: 'inline',
-        include: [/carbon-web-components\/es\/components\//i],
+        include: [/internal\/vendor\/@carbon\/web-components\/components\//i],
         plugins: [
           path.resolve(__dirname, 'babel-plugin-undef-custom-elements'),
         ],

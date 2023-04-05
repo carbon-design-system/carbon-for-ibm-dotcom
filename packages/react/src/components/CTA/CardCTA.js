@@ -7,7 +7,7 @@
 import React, { useCallback, useState } from 'react';
 import { CardLink } from '../CardLink';
 import CTALogic from './CTALogic';
-import KalturaPlayerAPI from '@carbon/ibmdotcom-services/es/services/KalturaPlayer/KalturaPlayer';
+import KalturaPlayerAPI from '../../internal/vendor/@carbon/ibmdotcom-services/services/KalturaPlayer/KalturaPlayer';
 import PlayIcon from '@carbon/ibmdotcom-styles/icons/svg/play-video.svg';
 import PropTypes from 'prop-types';
 import settings from 'carbon-components/es/globals/js/settings';

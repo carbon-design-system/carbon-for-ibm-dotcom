@@ -8,13 +8,14 @@
  */
 
 import { classMap } from 'lit-html/directives/class-map';
-import { html, property, query, customElement } from 'lit-element';
+import { html, property, query } from 'lit-element';
 import settings from 'carbon-components/es/globals/js/settings';
 import HostListenerMixin from '../../globals/mixins/host-listener';
 import HostListener from '../../globals/decorators/host-listener';
 import { INPUT_SIZE } from '../input/input';
 import BXSearch from '../search/search';
 import styles from './data-table.scss';
+import { carbonElement as customElement } from '../../globals/decorators/carbon-element';
 
 const { prefix } = settings;
 

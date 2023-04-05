@@ -8,7 +8,8 @@
  */
 
 import settings from 'carbon-components/es/globals/js/settings';
-import { html, property, customElement, LitElement } from 'lit-element';
+import { html, property, LitElement } from 'lit-element';
+import { carbonElement as customElement } from '../../globals/decorators/carbon-element';
 import styles from './structured-list.scss';
 
 const { prefix } = settings;

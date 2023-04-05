@@ -7,7 +7,7 @@
  * LICENSE file in the root directory of this source tree.
  */
 
-import { html, property, query, customElement, LitElement } from 'lit-element';
+import { html, property, query, LitElement } from 'lit-element';
 import { classMap } from 'lit-html/directives/class-map';
 import settings from 'carbon-components/es/globals/js/settings';
 import View16 from '@carbon/icons/lib/view/16';
@@ -22,6 +22,7 @@ import FormMixin from '../../globals/mixins/form';
 import ValidityMixin from '../../globals/mixins/validity';
 import { INPUT_COLOR_SCHEME, INPUT_SIZE, INPUT_TYPE } from './defs';
 import styles from './input.scss';
+import { carbonElement as customElement } from '../../globals/decorators/carbon-element';
 
 export { INPUT_COLOR_SCHEME, INPUT_SIZE, INPUT_TYPE };
 

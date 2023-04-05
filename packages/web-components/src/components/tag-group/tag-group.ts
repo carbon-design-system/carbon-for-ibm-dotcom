@@ -7,11 +7,12 @@
  * LICENSE file in the root directory of this source tree.
  */
 
-import { html, customElement, LitElement } from 'lit-element';
+import { html, LitElement } from 'lit-element';
 import settings from 'carbon-components/es/globals/js/settings.js';
 import ddsSettings from '../../internal/vendor/@carbon/ibmdotcom-utilities/utilities/settings/settings';
 import styles from './tag-group.scss';
 import StableSelectorMixin from '../../globals/mixins/stable-selector';
+import { carbonElement as customElement } from '../../internal/vendor/@carbon/web-components/globals/decorators/carbon-element';
 
 const { stablePrefix: ddsPrefix } = ddsSettings;
 const { prefix } = settings;
@@ -43,12 +44,9 @@ class DDSTagGroup extends StableSelectorMixin(LitElement) {
       )
     );
 
-    // Handle color setting differently depending on Carbon WC or Carbon React
+    // Handle default color setting differently depending on Carbon WC or Carbon React
     carbonTags.forEach((elem) => {
-      if (
-        !(elem as HTMLElement).hasAttribute('type') ||
-        (elem as HTMLElement).getAttribute('type') === 'gray'
-      ) {
+      if (!(elem as HTMLElement).hasAttribute('type')) {
         (elem as HTMLElement).setAttribute('type', 'green');
       }
     });

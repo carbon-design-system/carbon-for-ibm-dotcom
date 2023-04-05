@@ -6,8 +6,7 @@
  */
 import React, { useRef } from 'react';
 import { DDS_AUDIO_PLAYER } from '../../internal/FeatureFlags';
-
-import { KalturaPlayer as KalturaPlayerAPI } from '@carbon/ibmdotcom-services/es/services';
+import KalturaPlayerAPI from '../../internal/vendor/@carbon/ibmdotcom-services/services/KalturaPlayer/KalturaPlayer';
 import PropTypes from 'prop-types';
 import settings from 'carbon-components/es/globals/js/settings';
 

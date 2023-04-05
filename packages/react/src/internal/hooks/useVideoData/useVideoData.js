@@ -5,7 +5,7 @@
  * LICENSE file in the root directory of this source tree.
  */
 import { useState, useEffect, useCallback } from 'react';
-import KalturaPlayerAPI from '@carbon/ibmdotcom-services/es/services/KalturaPlayer/KalturaPlayer';
+import KalturaPlayerAPI from '../../../internal/vendor/@carbon/ibmdotcom-services/services/KalturaPlayer/KalturaPlayer';
 
 /**
  * utilizes the KalturaPlayerAPI to extract video data and

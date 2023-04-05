@@ -7,7 +7,7 @@
  * LICENSE file in the root directory of this source tree.
  */
 
-import { html, property, customElement, LitElement, query } from 'lit-element';
+import { html, property, LitElement, query } from 'lit-element';
 import settings from 'carbon-components/es/globals/js/settings.js';
 import { baseFontSize, breakpoints } from '@carbon/layout';
 import ddsSettings from '../../internal/vendor/@carbon/ibmdotcom-utilities/utilities/settings/settings';
@@ -16,6 +16,7 @@ import styles from './universal-banner.scss';
 import StickyHeader from '../../internal/vendor/@carbon/ibmdotcom-utilities/utilities/StickyHeader/StickyHeader';
 import DDSButtonCTA from '../cta/button-cta';
 import { icons as ctaIcons } from '../../component-mixins/cta/cta';
+import { carbonElement as customElement } from '../../internal/vendor/@carbon/web-components/globals/decorators/carbon-element';
 
 const gridLgBreakpoint = parseFloat(breakpoints.lg.width) * baseFontSize;
 
@@ -104,6 +105,13 @@ class DDSUniversalBanner extends StableSelectorMixin(LitElement) {
     this._breakpoint = window.matchMedia(`(min-width: ${gridLgBreakpoint}px)`);
     this._breakpoint.addEventListener('change', this._handleResize.bind(this));
     this._handleResize();
+  }
+
+  connectedCallback() {
+    if (!this.hasAttribute('role')) {
+      this.setAttribute('role', 'banner');
+    }
+    super.connectedCallback();
   }
 
   updated(changedProperties) {

@@ -7,13 +7,14 @@
  * LICENSE file in the root directory of this source tree.
  */
 
-import { css, property, customElement } from 'lit-element';
+import { css, property } from 'lit-element';
 import ddsSettings from '../../internal/vendor/@carbon/ibmdotcom-utilities/utilities/settings/settings';
 import StableSelectorMixin from '../../globals/mixins/stable-selector';
 import DDSMarkdown from '../markdown/markdown';
 import { CONTENT_BLOCK_COPY_SIZE } from './defs';
 import './content-block-paragraph';
 import styles from './content-block.scss';
+import { carbonElement as customElement } from '../../internal/vendor/@carbon/web-components/globals/decorators/carbon-element';
 
 export { CONTENT_BLOCK_COPY_SIZE };
 

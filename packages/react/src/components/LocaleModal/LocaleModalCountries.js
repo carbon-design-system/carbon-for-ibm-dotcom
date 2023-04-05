@@ -7,7 +7,7 @@
 
 import React, { useEffect, useRef } from 'react';
 import ddsSettings from '../../internal/vendor/@carbon/ibmdotcom-utilities/utilities/settings/settings';
-import ipcinfoCookie from '@carbon/ibmdotcom-utilities/es/utilities/ipcinfoCookie/ipcinfoCookie';
+import ipcinfoCookie from '../../internal/vendor/@carbon/ibmdotcom-utilities/utilities/ipcinfoCookie/ipcinfoCookie';
 import PropTypes from 'prop-types';
 import Search from '../../internal/vendor/carbon-components-react/components/Search/Search';
 import settings from 'carbon-components/es/globals/js/settings';

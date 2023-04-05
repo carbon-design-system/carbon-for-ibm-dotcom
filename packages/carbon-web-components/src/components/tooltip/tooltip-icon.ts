@@ -8,9 +8,10 @@
  */
 
 import { classMap } from 'lit-html/directives/class-map';
-import { html, customElement } from 'lit-element';
+import { html } from 'lit-element';
 import settings from 'carbon-components/es/globals/js/settings';
 import BXTooltipDefintion from './tooltip-definition';
+import { carbonElement as customElement } from '../../globals/decorators/carbon-element';
 
 const { prefix } = settings;
 

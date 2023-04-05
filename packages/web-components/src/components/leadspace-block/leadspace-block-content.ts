@@ -7,11 +7,12 @@
  * LICENSE file in the root directory of this source tree.
  */
 
-import { css, customElement, html, TemplateResult } from 'lit-element';
+import { css, html, TemplateResult } from 'lit-element';
 import settings from 'carbon-components/es/globals/js/settings.js';
 import ddsSettings from '../../internal/vendor/@carbon/ibmdotcom-utilities/utilities/settings/settings';
 import DDSContentBlock from '../content-block/content-block';
 import styles from './leadspace-block.scss';
+import { carbonElement as customElement } from '../../internal/vendor/@carbon/web-components/globals/decorators/carbon-element';
 
 const { prefix } = settings;
 const { stablePrefix: ddsPrefix } = ddsSettings;
@@ -32,6 +33,18 @@ class DDSLeadSpaceBlockContent extends DDSContentBlock {
         ${this._renderMedia()}${this._renderContent()}
       </div>
     `;
+  }
+
+  connectedCallback() {
+    /**
+     * ensure link list heading is aria level 3 so that the headings in
+     * leadspace block are hierarchical for accessibility purposes
+     */
+    const linkListHeading = this.querySelector('dds-link-list-heading');
+    if (linkListHeading) {
+      linkListHeading.setAttribute('aria-level', '3');
+    }
+    super.connectedCallback();
   }
 
   render() {

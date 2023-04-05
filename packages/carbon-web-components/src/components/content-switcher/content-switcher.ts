@@ -7,12 +7,13 @@
  * LICENSE file in the root directory of this source tree.
  */
 
-import { html, property, customElement, LitElement } from 'lit-element';
+import { html, property, LitElement } from 'lit-element';
 import settings from 'carbon-components/es/globals/js/settings';
 import { forEach, indexOf } from '../../globals/internal/collection-helpers';
 import { NAVIGATION_DIRECTION, CONTENT_SWITCHER_SIZE } from './defs';
 import BXSwitch from './content-switcher-item';
 import styles from './content-switcher.scss';
+import { carbonElement as customElement } from '../../globals/decorators/carbon-element';
 
 export { NAVIGATION_DIRECTION, CONTENT_SWITCHER_SIZE };
 

@@ -7,11 +7,11 @@
  * LICENSE file in the root directory of this source tree.
  */
 
-import { customElement } from 'lit-element';
 import settings from 'carbon-components/es/globals/js/settings';
 import BXButton from '../button/button';
 import buttonStyles from '../button/button.scss';
 import styles from './modal.scss';
+import { carbonElement as customElement } from '../../globals/decorators/carbon-element';
 
 const { prefix } = settings;
 

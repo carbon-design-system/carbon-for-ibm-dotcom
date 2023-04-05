@@ -8,7 +8,7 @@
  */
 
 import settings from 'carbon-components/es/globals/js/settings';
-import { customElement } from 'lit-element';
+import { carbonElement as customElement } from '../../globals/decorators/carbon-element';
 import BXTableRow from './table-row';
 
 const { prefix } = settings;

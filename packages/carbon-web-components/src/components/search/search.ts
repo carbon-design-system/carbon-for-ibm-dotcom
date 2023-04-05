@@ -8,7 +8,7 @@
  */
 
 import { classMap } from 'lit-html/directives/class-map';
-import { html, property, customElement, LitElement } from 'lit-element';
+import { html, property, LitElement } from 'lit-element';
 import Close16 from '@carbon/icons/lib/close/16';
 import Close20 from '@carbon/icons/lib/close/20';
 import Search16 from '@carbon/icons/lib/search/16';
@@ -19,6 +19,7 @@ import FormMixin from '../../globals/mixins/form';
 import { INPUT_SIZE } from '../input/input';
 import { SEARCH_COLOR_SCHEME } from './defs';
 import styles from './search.scss';
+import { carbonElement as customElement } from '../../globals/decorators/carbon-element';
 
 export { SEARCH_COLOR_SCHEME };
 

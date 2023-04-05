@@ -7,7 +7,7 @@
  * LICENSE file in the root directory of this source tree.
  */
 
-import { html, property, customElement } from 'lit-element';
+import { html, property } from 'lit-element';
 import ifNonNull from '../../internal/vendor/@carbon/web-components/globals/directives/if-non-null.js';
 import BXLink from '../../internal/vendor/@carbon/web-components/components/link/link.js';
 import Launch16 from '../../internal/vendor/@carbon/web-components/icons/launch/16.js';
@@ -15,6 +15,7 @@ import ddsSettings from '../../internal/vendor/@carbon/ibmdotcom-utilities/utili
 import DDSMegaMenu from './megamenu';
 import { MEGAMENU_LAYOUT_SCHEME } from './defs';
 import styles from './masthead.scss';
+import { carbonElement as customElement } from '../../internal/vendor/@carbon/web-components/globals/decorators/carbon-element.js';
 
 const { stablePrefix: ddsPrefix } = ddsSettings;
 

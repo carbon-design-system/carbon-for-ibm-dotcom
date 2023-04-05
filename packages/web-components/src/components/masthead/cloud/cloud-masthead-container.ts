@@ -13,7 +13,6 @@ import {
   Store,
   bindActionCreators,
 } from 'redux';
-import { customElement } from 'lit-element';
 import ddsSettings from '../../../internal/vendor/@carbon/ibmdotcom-utilities/utilities/settings/settings';
 import { CloudAccountAuthAPIState } from '../../../internal/vendor/@carbon/ibmdotcom-services-store/types/cloudAccountAuthAPI.d';
 import store from '../../../internal/vendor/@carbon/ibmdotcom-services-store/store';
@@ -33,6 +32,7 @@ import {
   MastheadContainerStateProps,
 } from '../masthead-container';
 import DDSCloudMastheadComposite from './cloud-masthead-composite';
+import { carbonElement as customElement } from '../../../internal/vendor/@carbon/web-components/globals/decorators/carbon-element';
 
 const { stablePrefix: ddsPrefix } = ddsSettings;
 

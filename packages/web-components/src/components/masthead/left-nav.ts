@@ -8,7 +8,7 @@
  */
 
 import findLast from 'lodash-es/findLast.js';
-import { html, query, property, customElement } from 'lit-element';
+import { html, query, property } from 'lit-element';
 import settings from 'carbon-components/es/globals/js/settings.js';
 import { selectorTabbable } from '../../internal/vendor/@carbon/web-components/globals/settings.js';
 import HostListener from '../../internal/vendor/@carbon/web-components/globals/decorators/host-listener.js';
@@ -23,7 +23,7 @@ import StableSelectorMixin from '../../globals/mixins/stable-selector';
 import DDSLeftNavOverlay from './left-nav-overlay';
 import styles from './masthead.scss';
 import DDSLeftNavMenuSection from './left-nav-menu-section';
-import DDSMasthead from './masthead';
+import { carbonElement as customElement } from '../../internal/vendor/@carbon/web-components/globals/decorators/carbon-element.js';
 
 const { prefix } = settings;
 const { stablePrefix: ddsPrefix } = ddsSettings;
@@ -249,23 +249,25 @@ class DDSLeftNav extends StableSelectorMixin(BXSideNav) {
         _endSentinelNode: endSentinelNode,
       } = this;
 
-      const masthead: DDSMasthead | null | undefined = doc
+      const masthead: HTMLElement | null | undefined = doc
         ?.querySelector(
-          'dds-masthead-container, dds-cloud-masthead-container, dds-masthead-composite'
+          `${ddsPrefix}-cloud-masthead-container,
+          ${ddsPrefix}-cloud-masthead-composite,
+          ${ddsPrefix}-masthead-container,
+          ${ddsPrefix}-masthead-composite`
         )
-        ?.querySelector('dds-masthead');
-      if (expanded) {
-        if (!this._importedSideNav) {
-          import('./left-nav-cta-item');
-          import('./left-nav-name');
-          import('./left-nav-menu');
-          import('./left-nav-menu-section');
-          import('./left-nav-menu-item');
-          import('./left-nav-menu-category-heading');
-          import('./left-nav-overlay');
-          this._importedSideNav = true;
-        }
-
+        ?.querySelector(`${ddsPrefix}-masthead`);
+      if (expanded && !this._importedSideNav) {
+        import('./left-nav-cta-item');
+        import('./left-nav-name');
+        import('./left-nav-menu');
+        import('./left-nav-menu-section');
+        import('./left-nav-menu-item');
+        import('./left-nav-menu-category-heading');
+        import('./left-nav-overlay');
+        this._importedSideNav = true;
+      }
+      if (expanded && masthead) {
         this._hFocusWrap = focuswrap(this.shadowRoot!, [
           startSentinelNode,
           endSentinelNode,

@@ -19,14 +19,17 @@
     <img src="https://img.shields.io/badge/PRs-welcome-brightgreen.svg" alt="PRs welcome" />
   </a>
   <a href="https://percy.io/538fc19a/Carbon-for-IBM.com-Web-Components">
-  <img src="https://percy.io/static/images/percy-badge.svg" alt="This project is using Percy.io for visual regression testing." />
-</a>
+    <img src="https://percy.io/static/images/percy-badge.svg" alt="This project is using Percy.io for visual regression testing." />
+  </a>
+  <a href="https://discord.gg/J7JEUEkTRX">
+    <img src="https://img.shields.io/discord/689212587170201628?color=5865F2" alt="Chat with us on Discord">
+  </a>
 </p>
 
 ## Getting started
 
 If you're just getting started, check out
-[`react`](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/blob/main/packages/react).
+[`react`](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/blob/main/packages/react)
 or
 [`web components`](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/blob/main/packages/web-components)!
 
@@ -40,9 +43,17 @@ we support!
 | [`@carbon/ibmdotcom-services`](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/blob/main/packages/services)             | IBM.com ES6 Service classes                              |
 | [`@carbon/ibmdotcom-styles`](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/blob/main/packages/styles)                 | Framework agnostic styles package for IBM.com components |
 | [`@carbon/ibmdotcom-utilities`](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/blob/main/packages/utilities)           | IBM.com ES6 Utility classes                              |
+| [`@carbon/web-components`](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/blob/main/packages/carbon-web-components)    | Carbon Web Components                                    |
 
 If you are building pages for IBM.com,
 [see what is needed on the page](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/blob/main/docs/building-for-ibm-dotcom.md).
+
+## Storybook demos
+
+- `@carbon/ibmdotcom-react`: https://www.ibm.com/standards/carbon/react
+- `@carbon/ibmdotcom-web-components`:
+  https://www.ibm.com/standards/carbon/web-components
+- `@carbon/web-components`: https://web-components.carbondesignsystem.com
 
 ## Documentation
 
@@ -59,8 +70,8 @@ check out our guides:
 
 - [Contributing Guide](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/blob/main/.github/CONTRIBUTING.md)
 - [Developer Guide](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/blob/main/docs/developing.md)
-- [Contributing to the Web Components package](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/blob/main/packages/web-components/docs/contributing-to-web-components.md)
-- [Contributing to the React package](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/blob/main/packages/react/docs/contributing-to-react.md)
+- [Contributing to the Web Components package](https://www.ibm.com/standards/carbon/web-components/?path=/story/overview-contributing-to-the-web-components-package--page)
+- [Contributing to the React package](https://www.ibm.com/standards/carbon/react/?path=/story/overview-contributing-to-the-react-package--page)
 
 ## 📝 License
 

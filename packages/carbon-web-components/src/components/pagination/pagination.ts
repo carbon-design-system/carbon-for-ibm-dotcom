@@ -8,7 +8,7 @@
  */
 
 import { classMap } from 'lit-html/directives/class-map';
-import { html, property, customElement, LitElement } from 'lit-element';
+import { html, property, LitElement } from 'lit-element';
 import CaretLeft24 from '@carbon/icons/lib/caret--left/24';
 import CaretRight24 from '@carbon/icons/lib/caret--right/24';
 import settings from 'carbon-components/es/globals/js/settings';
@@ -19,6 +19,7 @@ import { forEach } from '../../globals/internal/collection-helpers';
 import BXPagesSelect from './pages-select';
 import BXPageSizesSelect from './page-sizes-select';
 import styles from './pagination.scss';
+import { carbonElement as customElement } from '../../globals/decorators/carbon-element';
 
 const { prefix } = settings;
 

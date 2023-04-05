@@ -15,19 +15,19 @@ jobs:
     strategy:
       matrix:
         os: [ macos-latest ]
-        node-version: [ 14.x ]
+        node-version: [ 18.x ]
         browser: [ chromium ]
     runs-on: ${{ matrix.os }}
     timeout-minutes: 120
     steps:
       - uses: actions/checkout@v3
-      - name: Use Node.js
+      - name: Use Node.js 18.x
         uses: actions/setup-node@v3
         with:
           node-version: ${{ matrix.node-version }}
           cache: 'yarn'
       - name: Install dependencies
-        run: yarn install --offline
+        run: yarn install --immutable --immutable-cache
       - name: Build project
         run: yarn lerna run --stream --ignore @carbon/ibmdotcom-react build
       - name: Set Cloud Masthead env var
@@ -48,19 +48,19 @@ jobs:
     strategy:
       matrix:
         os: [ ubuntu-latest ]
-        node-version: [ 14.x ]
-        browser: [ chromium, firefox ]
+        node-version: [ 18.x ]
+        browser: [ chromium ]
     runs-on: ${{ matrix.os }}
     timeout-minutes: 60
     steps:
       - uses: actions/checkout@v3
-      - name: Use Node.js
+      - name: Use Node.js 18.x
         uses: actions/setup-node@v3
         with:
           node-version: ${{ matrix.node-version }}
           cache: 'yarn'
       - name: Install dependencies
-        run: yarn install --offline
+        run: yarn install --immutable --immutable-cache
       - name: Build project
         run: yarn lerna run --stream --ignore @carbon/ibmdotcom-web-components --ignore @carbon/ibmdotcom-services-store build
       - name: Build storybook

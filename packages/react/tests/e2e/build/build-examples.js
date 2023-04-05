@@ -1,5 +1,5 @@
 /**
- * Copyright IBM Corp. 2021
+ * Copyright IBM Corp. 2021, 2023
  *
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
@@ -93,6 +93,15 @@ const _packages = {
 };
 
 /**
+ * Use older version of Yarn for example builds.
+ * Later versions would require changes to every example's package.json file.
+ *
+ * @type {string}
+ * @private
+ */
+const _oldYarnVersion = '1.22.19';
+
+/**
  * Stores the list of examples
  *
  * @type {*[]}
@@ -155,14 +164,16 @@ function _setupPackages() {
  * @private
  */
 function _buildExamples() {
+  // Use older Yarn version for example builds.
+  // Setting the version earlier in the build chain will alter the root project.
   log(chalk.yellow('Installing all examples...'));
   // need to install twice for some reason, need to look into this
-  execSync('yarn install --network-timeout 100000', {
+  execSync(`yarn set version ${_oldYarnVersion} && yarn install --network-timeout 100000`, {
     cwd: _exampleBuild,
     stdio: 'inherit',
   });
 
-  execSync('yarn cache clean && yarn install --network-timeout 100000', {
+  execSync(`yarn set version ${_oldYarnVersion} && yarn cache clean && yarn install --network-timeout 100000`, {
     cwd: _exampleBuild,
     stdio: 'inherit',
   });
@@ -170,7 +181,7 @@ function _buildExamples() {
   log(chalk.yellow('Building all examples...'));
   _examples.forEach(example => {
     log(chalk.green(`Building ${example}...`));
-    execSync('yarn build', {
+    execSync('NODE_OPTIONS=--openssl-legacy-provider yarn build', {
       cwd: `${_exampleBuild}/components/${example}`,
       stdio: 'inherit',
     });

@@ -10,7 +10,7 @@ import ddsSettings from '../../internal/vendor/@carbon/ibmdotcom-utilities/utili
 import PropTypes from 'prop-types';
 import React from 'react';
 import settings from 'carbon-components/es/globals/js/settings';
-import smoothScroll from '@carbon/ibmdotcom-utilities/es/utilities/smoothScroll/smoothScroll';
+import smoothScroll from '../../internal/vendor/@carbon/ibmdotcom-utilities/utilities/smoothScroll/smoothScroll';
 
 const { stablePrefix } = ddsSettings;
 const { prefix } = settings;

@@ -8,7 +8,7 @@
  */
 
 import settings from 'carbon-components/es/globals/js/settings';
-import { html, property, customElement, LitElement } from 'lit-element';
+import { html, property, LitElement } from 'lit-element';
 import OverflowMenuVertical16 from '@carbon/icons/lib/overflow-menu--vertical/16';
 import HostListener from '../../globals/decorators/host-listener';
 import FocusMixin from '../../globals/mixins/focus';
@@ -18,8 +18,7 @@ import BXFloatingMenuTrigger from '../floating-menu/floating-menu-trigger';
 import { OVERFLOW_MENU_COLOR_SCHEME, OVERFLOW_MENU_SIZE } from './defs';
 import BXOverflowMenuBody from './overflow-menu-body';
 import styles from './overflow-menu.scss';
-
-export { OVERFLOW_MENU_COLOR_SCHEME, OVERFLOW_MENU_SIZE };
+import { carbonElement as customElement } from '../../globals/decorators/carbon-element';
 
 const { prefix } = settings;
 

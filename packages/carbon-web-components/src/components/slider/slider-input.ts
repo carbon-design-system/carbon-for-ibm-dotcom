@@ -8,12 +8,13 @@
  */
 
 import { classMap } from 'lit-html/directives/class-map';
-import { html, property, customElement, LitElement } from 'lit-element';
+import { html, property, LitElement } from 'lit-element';
 import settings from 'carbon-components/es/globals/js/settings';
 import ifNonNull from '../../globals/directives/if-non-null';
 import FocusMixin from '../../globals/mixins/focus';
 import { SLIDER_INPUT_COLOR_SCHEME } from './defs';
 import styles from './slider.scss';
+import { carbonElement as customElement } from '../../globals/decorators/carbon-element';
 
 export { SLIDER_INPUT_COLOR_SCHEME };
 

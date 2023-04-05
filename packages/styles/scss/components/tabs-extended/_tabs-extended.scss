@@ -38,7 +38,9 @@
         }
       }
 
-      .#{$prefix}--tabs__nav-item--selected:not(.#{$prefix}--tabs__nav-item--disabled) {
+      .#{$prefix}--tabs__nav-item--selected:not(
+          .#{$prefix}--tabs__nav-item--disabled
+        ) {
         .#{$prefix}--tabs__nav-link,
         .#{$prefix}--tabs__nav-link:focus,
         .#{$prefix}--tabs__nav-link:active {
@@ -266,7 +268,9 @@ button.#{$prefix}--tabs__nav-link {
   outline: none;
 }
 
-.#{$prefix}--tabs__nav-item:not(.#{$prefix}--tabs__nav-item--selected):not(.#{$prefix}--tabs__nav-item--disabled):not(.#{$prefix}--tabs__nav-item--selected)
+.#{$prefix}--tabs__nav-item:not(.#{$prefix}--tabs__nav-item--selected):not(
+    .#{$prefix}--tabs__nav-item--disabled
+  ):not(.#{$prefix}--tabs__nav-item--selected)
   button.#{$prefix}--tabs__nav-link:active {
   color: $text-02;
 }

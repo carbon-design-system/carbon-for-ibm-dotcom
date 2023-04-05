@@ -8,10 +8,11 @@
  */
 
 import settings from 'carbon-components/es/globals/js/settings';
-import { html, property, query, customElement, LitElement } from 'lit-element';
+import { html, property, query, LitElement } from 'lit-element';
 import { TABLE_COLOR_SCHEME } from './defs';
 import BXTableRow from './table-row';
 import styles from './data-table.scss';
+import { carbonElement as customElement } from '../../globals/decorators/carbon-element';
 
 const { prefix } = settings;
 

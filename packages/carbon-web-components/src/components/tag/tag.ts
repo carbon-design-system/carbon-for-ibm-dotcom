@@ -7,10 +7,11 @@
  * LICENSE file in the root directory of this source tree.
  */
 
-import { html, property, customElement, LitElement } from 'lit-element';
+import { html, property, LitElement } from 'lit-element';
 import settings from 'carbon-components/es/globals/js/settings';
 import { TAG_SIZE, TAG_TYPE } from './defs';
 import styles from './tag.scss';
+import { carbonElement as customElement } from '../../globals/decorators/carbon-element';
 
 export { TAG_SIZE, TAG_TYPE };
 

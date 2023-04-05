@@ -7,7 +7,7 @@
  * LICENSE file in the root directory of this source tree.
  */
 
-import { html, property, customElement, LitElement } from 'lit-element';
+import { html, property, LitElement } from 'lit-element';
 import { classMap } from 'lit-html/directives/class-map';
 import CheckmarkFilled16 from '@carbon/icons/lib/checkmark--filled/16';
 import ErrorFilled16 from '@carbon/icons/lib/error--filled/16';
@@ -16,6 +16,7 @@ import LOADING_TYPE from '../loading/types';
 import getLoadingIcon from '../loading/loading-icon';
 import { INLINE_LOADING_STATE } from './defs';
 import styles from './inline-loading.scss';
+import { carbonElement as customElement } from '../../globals/decorators/carbon-element';
 
 export { INLINE_LOADING_STATE };
 

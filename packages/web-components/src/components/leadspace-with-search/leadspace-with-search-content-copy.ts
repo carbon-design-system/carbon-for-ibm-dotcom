@@ -7,11 +7,12 @@
  * LICENSE file in the root directory of this source tree.
  */
 
-import { customElement, css, property } from 'lit-element';
+import { css, property } from 'lit-element';
 import ddsSettings from '../../internal/vendor/@carbon/ibmdotcom-utilities/utilities/settings/settings';
 import styles from './leadspace-with-search.scss';
 import StableSelectorMixin from '../../globals/mixins/stable-selector';
 import DDSContentBlockParagraph from '../content-block/content-block-paragraph';
+import { carbonElement as customElement } from '../../internal/vendor/@carbon/web-components/globals/decorators/carbon-element';
 
 const { stablePrefix: ddsPrefix } = ddsSettings;
 

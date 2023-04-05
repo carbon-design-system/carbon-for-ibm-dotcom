@@ -8,10 +8,11 @@
  */
 
 import settings from 'carbon-components/es/globals/js/settings.js';
-import { customElement } from 'lit-element';
+import {} from 'lit-element';
 import ddsSettings from '@carbon/ibmdotcom-utilities/es/utilities/settings/settings.js';
 import DDSDropdown from '../footer/dropdown';
 import styles from './search-with-typeahead.scss';
+import { carbonElement as customElement } from '../../internal/vendor/@carbon/web-components/globals/decorators/carbon-element';
 
 export {
   DROPDOWN_COLOR_SCHEME,

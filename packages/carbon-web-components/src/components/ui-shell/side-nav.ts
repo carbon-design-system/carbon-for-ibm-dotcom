@@ -7,7 +7,7 @@
  * LICENSE file in the root directory of this source tree.
  */
 
-import { html, property, customElement, LitElement } from 'lit-element';
+import { html, property, LitElement } from 'lit-element';
 import settings from 'carbon-components/es/globals/js/settings';
 import on from 'carbon-components/es/globals/js/misc/on';
 import HostListenerMixin from '../../globals/mixins/host-listener';
@@ -18,6 +18,7 @@ import { SIDE_NAV_COLLAPSE_MODE, SIDE_NAV_USAGE_MODE } from './defs';
 import BXHeaderMenuButton from './header-menu-button';
 import BXSideNavMenu from './side-nav-menu';
 import styles from './side-nav.scss';
+import { carbonElement as customElement } from '../../globals/decorators/carbon-element';
 
 export { SIDE_NAV_COLLAPSE_MODE, SIDE_NAV_USAGE_MODE };
 

@@ -7,7 +7,7 @@
  * LICENSE file in the root directory of this source tree.
  */
 
-import { customElement, property, query, state } from 'lit-element';
+import { property, query, state } from 'lit-element';
 import settings from 'carbon-components/es/globals/js/settings.js';
 import ddsSettings from '../../internal/vendor/@carbon/ibmdotcom-utilities/utilities/settings/settings';
 import { forEach } from '../../globals/internal/collection-helpers';
@@ -18,6 +18,7 @@ import DDSMegaMenuOverlay from './megamenu-overlay';
 import styles from './masthead.scss';
 import DDSMastheadContainer from './masthead-container';
 import { CMApp } from './masthead-composite';
+import { carbonElement as customElement } from '../../internal/vendor/@carbon/web-components/globals/decorators/carbon-element';
 
 const { prefix } = settings;
 const { stablePrefix: ddsPrefix } = ddsSettings;
@@ -208,8 +209,8 @@ class DDSMegaMenuTopNavMenu extends DDSTopNavMenu {
         // Pause further execution until the render is complete.
         await this._requestMegaMenuRenderUpdate();
 
-        doc.body.style.marginRight = `${this._scrollBarWidth}px`;
-        doc.body.style.overflow = `hidden`;
+        doc.body.style.marginInlineStart = `${this._scrollBarWidth}px`;
+        doc.body.style.overflow = 'hidden';
         forEach(
           doc.querySelectorAll(
             (this.constructor as typeof DDSMegaMenuTopNavMenu).selectorOverlay
