@@ -188,15 +188,7 @@ $btn-min-width: 26;
 
       ::slotted(#{$dds-prefix}-leadspace-heading),
       .#{$prefix}--leadspace__title {
-        @include content-width;
-
-        @include carbon--breakpoint(md) {
-          @include carbon--make-col(4, 6);
-        }
-
-        @include carbon--breakpoint(lg) {
-          @include carbon--make-col(7, 8);
-        }
+        width: percentage(4 / 8);
 
         flex-shrink: 1;
       }
@@ -228,8 +220,7 @@ $btn-min-width: 26;
 
       ::slotted(#{$dds-prefix}-leadspace-heading),
       .#{$prefix}--leadspace__title {
-        @include carbon--make-col(8, 16);
-        @include content-width;
+        width: percentage(8 / 16);
       }
 
       .#{$prefix}--leadspace__desc {
@@ -476,6 +467,7 @@ $btn-min-width: 26;
     padding-top: 0;
     margin-bottom: $spacing-09;
     padding-left: $spacing-05;
+    padding-right: $spacing-05;
     width: 95%;
     z-index: 1;
     @include carbon--type-style(expressive-heading-06, true);
