@@ -11,10 +11,6 @@
 @use '../popover/popover';
 @use '@carbon/styles/scss/components/tooltip';
 
-:host(#{$prefix}-tooltip) {
-  @extend .#{$prefix}--tooltip;
-}
-
 :host(#{prefix}-tooltip-content) {
   ::slotted(.#{$prefix}-tooltip-content) {
     @extend .#{$prefix}--tooltip-content;

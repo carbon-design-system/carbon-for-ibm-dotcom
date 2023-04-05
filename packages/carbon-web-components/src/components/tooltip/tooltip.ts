@@ -158,6 +158,10 @@ class CDSTooltip extends HostListenerMixin(CDSPopover) {
         (toolTipContent as CDSTooltipContent)[name] = value;
       }
     });
+
+    this.shadowRoot
+      ?.querySelector(`.${prefix}--popover-container`)
+      ?.classList.add(`${prefix}--tooltip`);
   }
 
   /**
