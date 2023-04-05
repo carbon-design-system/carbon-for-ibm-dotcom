@@ -7,7 +7,5 @@
  * LICENSE file in the root directory of this source tree.
  */
 
-import './select';
-import './select-item';
-import './select-item-group';
-import './select-skeleton';
+import './popover';
+import './popover-content';
