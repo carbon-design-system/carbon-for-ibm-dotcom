@@ -63,7 +63,7 @@
     "storybook": "start-storybook -p 9000",
     "storybook:react": "node --openssl-legacy-provider node_modules/@storybook/react/bin/index.js -p 9002 -c .storybook/react",
     "test": "yarn test:unit && yarn test:integration",
-    "test:a11y": "gulp test:a11y || true",
+    "test:a11y": "NODE_OPTIONS=--openssl-legacy-provider gulp test:a11y",
     "test:cdn-build:run": "npx -y http-server -c-1 tests/cdn-build/app --silent",
     "test:cdn-build:test": "npx -y start-server-and-test 'yarn test:cdn-build:run' 8080 'cypress run --config-file tests/cdn-build/cypress.json'",
     "test:e2e:build": "node ./tests/e2e/build/build-examples.js",
