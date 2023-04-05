@@ -8,7 +8,7 @@
  */
 
 import { css } from 'lit';
-import { property, customElement, query } from 'lit/decorators.js';
+import { property, customElement } from 'lit/decorators.js';
 import { prefix } from '../../globals/settings';
 import HostListener from '../../globals/decorators/host-listener';
 import HostListenerMixin from '../../globals/mixins/host-listener';

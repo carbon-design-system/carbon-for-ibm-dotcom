@@ -7,7 +7,6 @@
  * LICENSE file in the root directory of this source tree.
  */
 
-import { PropertyValueMap } from 'lit';
 import { customElement } from 'lit/decorators.js';
 import { prefix } from '../../globals/settings';
 import CDSPopoverContent from '../popover/popover-content';
