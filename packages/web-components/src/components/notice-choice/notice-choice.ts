@@ -8,7 +8,7 @@
  */
 
 import { checkPreferencesv3, loadContent } from './services';
-import { customElement, html, LitElement, property } from 'lit-element';
+import { html, LitElement, property } from 'lit-element';
 import {
   emailRegExp,
   getMappedValue,
@@ -24,6 +24,7 @@ import StableSelectorMixin from '../../globals/mixins/stable-selector';
 import styles from './notice-choice.scss';
 import { unsafeHTML } from 'lit-html/directives/unsafe-html';
 import { worldWideContent } from './world-wide-content';
+import { carbonElement as customElement } from '../../internal/vendor/@carbon/web-components/globals/decorators/carbon-element';
 
 const { stablePrefix: ddsPrefix } = ddsSettings;
 const { prefix } = settings;

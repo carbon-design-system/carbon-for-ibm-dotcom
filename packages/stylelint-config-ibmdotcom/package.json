@@ -1,7 +1,7 @@
 {
   "name": "@carbon/stylelint-config-ibmdotcom",
   "private": true,
-  "version": "1.35.0-rc.2",
+  "version": "1.35.0",
   "description": "Stylelint configuration for Carbon for IBM.com",
   "license": "Apache-2.0",
   "main": "index.js",

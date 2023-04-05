@@ -7,13 +7,7 @@
  * LICENSE file in the root directory of this source tree.
  */
 
-import {
-  customElement,
-  html,
-  state,
-  property,
-  TemplateResult,
-} from 'lit-element';
+import { html, state, property, TemplateResult } from 'lit-element';
 import settings from 'carbon-components/es/globals/js/settings.js';
 import { baseFontSize, breakpoints } from '@carbon/layout';
 import HostListener from '../../internal/vendor/@carbon/web-components/globals/decorators/host-listener.js';
@@ -23,6 +17,7 @@ import DDSContentItem from '../content-item/content-item';
 import styles from './content-item-horizontal-media.scss';
 
 import { MEDIA_ALIGN } from './defs';
+import { carbonElement as customElement } from '../../internal/vendor/@carbon/web-components/globals/decorators/carbon-element.js';
 
 const { prefix } = settings;
 const { stablePrefix: ddsPrefix } = ddsSettings;
