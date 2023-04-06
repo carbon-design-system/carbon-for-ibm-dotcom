@@ -67,7 +67,7 @@ Playground.parameters = {
       alignment: select(
         'Tooltip alignment to trigger button (alignment)',
         tooltipAlignments,
-        POPOVER_ALIGNMENT.TOP
+        POPOVER_ALIGNMENT.BOTTOM
       ),
       defaultOpen: boolean('Default open (defaultOpen)', false),
       disabled: boolean('Disabled (disabled)', false),
