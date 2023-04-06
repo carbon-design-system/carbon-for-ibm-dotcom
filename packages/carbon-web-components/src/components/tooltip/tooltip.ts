@@ -81,8 +81,9 @@ class CDSTooltip extends HostListenerMixin(CDSPopover) {
   /**
    * Handles `keydown` event on this element.
    * Space & enter will toggle state, Escape will only close.
+
    */
-  @HostListener('keydown')
+  @HostListener('click')
   // @ts-ignore: The decorator refers to this method but TS thinks this method is not referred to
   private _handleKeydown = async (event) => {
     if (event.key === ' ' || event.key === 'Enter' || event.key === 'Escape') {

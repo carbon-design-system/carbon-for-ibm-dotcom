@@ -22,6 +22,7 @@ declare global {
       'cds-breadcrumb-overflow-menu': any;
       'cds-breadcrumb-skeleton': any;
       'cds-checkbox': any;
+      'cds-checkbox-skeleton': any;
       'cds-code-snippet': any;
       'cds-combo-box': any;
       'cds-combo-box-item': any;
