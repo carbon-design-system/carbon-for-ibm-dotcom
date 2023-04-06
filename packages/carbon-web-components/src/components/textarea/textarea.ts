@@ -15,7 +15,7 @@ import WarningAltFilled16 from '@carbon/icons/lib/warning--alt--filled/16';
 import { prefix } from '../../globals/settings';
 import ifNonEmpty from '../../globals/directives/if-non-empty';
 import { ifDefined } from 'lit/directives/if-defined.js';
-import CDSInput from '../input/input';
+import CDSInput from '../text-input/text-input';
 import styles from './textarea.scss';
 
 /**

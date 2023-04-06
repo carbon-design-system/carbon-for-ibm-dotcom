@@ -15,8 +15,8 @@ import styles from './input.scss';
 /**
  * Skeleton of number input.
  */
-@customElement(`${prefix}-textinput-skeleton`)
-class CDSTextinputSkeleton extends LitElement {
+@customElement(`${prefix}-text-input-skeleton`)
+class CDSTextInputSkeleton extends LitElement {
   /**
    * `true` if the label should be hidden. Corresponds to the attribute with the same name.
    */
@@ -35,4 +35,4 @@ class CDSTextinputSkeleton extends LitElement {
   static styles = styles;
 }
 
-export default CDSTextinputSkeleton;
+export default CDSTextInputSkeleton;

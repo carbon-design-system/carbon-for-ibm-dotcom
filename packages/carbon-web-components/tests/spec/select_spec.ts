@@ -9,7 +9,7 @@
 
 import { html, render } from 'lit';
 import EventManager from '../utils/event-manager';
-import { INPUT_SIZE } from '../../src/components/input/input';
+import { INPUT_SIZE } from '../../src/components/text-input/text-input';
 import CDSSelect, {
   SELECT_COLOR_SCHEME,
 } from '../../src/components/select/select';

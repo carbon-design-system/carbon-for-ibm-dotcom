@@ -36,7 +36,7 @@ declare global {
       'cds-dropdown': any;
       'cds-dropdown-item': any;
       'cds-form-item': any;
-      'cds-input': any;
+      'cds-text-input': any;
       'cds-inline-loading': any;
       'cds-link': any;
       'cds-ordered-list': any;

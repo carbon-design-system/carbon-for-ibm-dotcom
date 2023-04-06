@@ -7,5 +7,5 @@
  * LICENSE file in the root directory of this source tree.
  */
 
-import './input';
-import './textinput-skeleton';
+import './text-input';
+import './text-input-skeleton';

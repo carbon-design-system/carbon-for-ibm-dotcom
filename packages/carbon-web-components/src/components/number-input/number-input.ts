@@ -18,7 +18,7 @@ import Subtract16 from '@carbon/icons/lib/subtract/16';
 import ifNonEmpty from '../../globals/directives/if-non-empty';
 import { NUMBER_INPUT_VALIDATION_STATUS } from './defs';
 import styles from './number-input.scss';
-import CDSInput, { INPUT_SIZE } from '../input/input';
+import CDSInput, { INPUT_SIZE } from '../text-input/text-input';
 
 export { NUMBER_INPUT_VALIDATION_STATUS };
 

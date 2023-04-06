@@ -13,8 +13,8 @@ import EventManager from '../utils/event-manager';
 import CDSInput, {
   INPUT_COLOR_SCHEME,
   INPUT_TYPE,
-} from '../../src/components/input/input';
-import { Default } from '../../src/components/input/input-story';
+} from '../../src/components/text-input/text-input';
+import { Playground } from '../../src/components/text-input/text-input-story';
 
 /**
  * @param formData A `FormData` instance.
@@ -30,11 +30,11 @@ const getValues = (formData: FormData) => {
 };
 
 const template = (props?) =>
-  Default({
-    'cds-input': props,
+  Playground({
+    'cds-text-input': props,
   });
 
-describe('cds-input', function () {
+describe('cds-text-input', function () {
   const events = new EventManager();
 
   describe('Rendering', function () {
@@ -63,7 +63,9 @@ describe('cds-input', function () {
         document.body
       );
       await Promise.resolve();
-      expect(document.body.querySelector('cds-input' as any)).toMatchSnapshot({
+      expect(
+        document.body.querySelector('cds-text-input' as any)
+      ).toMatchSnapshot({
         mode: 'shadow',
       });
     });
@@ -128,7 +130,7 @@ describe('cds-input', function () {
     beforeEach(async function () {
       render(template(), document.body);
       await Promise.resolve();
-      elem = document.body.querySelector('cds-input')!;
+      elem = document.body.querySelector('cds-text-input')!;
     });
 
     it('should support checking if required value exists', async function () {

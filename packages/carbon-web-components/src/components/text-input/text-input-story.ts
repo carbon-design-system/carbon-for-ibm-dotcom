@@ -13,13 +13,13 @@ import { boolean, select, number } from '@storybook/addon-knobs';
 import textNullable from '../../../.storybook/knob-text-nullable';
 import storyDocs from './input-story.mdx';
 import { prefix } from '../../globals/settings';
-import './input';
-import './textinput-skeleton';
+import './text-input';
+import './text-input-skeleton';
 import '../layer';
 import '../form/form-item';
 
 import { action } from '@storybook/addon-actions';
-import { INPUT_SIZE } from './input';
+import { INPUT_SIZE } from './text-input';
 
 const sizes = {
   [`Small size (${INPUT_SIZE.SMALL})`]: INPUT_SIZE.SMALL,
@@ -29,10 +29,10 @@ const sizes = {
 
 export const Default = () => {
   return html`
-    <cds-input>
+    <cds-text-input>
       <span slot="label-text">Text input label</span>
       <span slot="helper-text">Optional help text</span>
-    </cds-input>
+    </cds-text-input>
   `;
 };
 
@@ -40,43 +40,45 @@ Default.storyName = 'Default';
 
 export const ReadOnly = () => {
   return html`
-    <cds-input value="This is read only, you can't type more." readonly="true">
+    <cds-text-input
+      value="This is read only, you can't type more."
+      readonly="true">
       <span slot="label-text">Text input label</span>
       <span slot="helper-text">Optional help text</span>
-    </cds-input>
+    </cds-text-input>
   `;
 };
 
 export const Skeleton = () => {
-  return html` <cds-textinput-skeleton></cds-textinput-skeleton> `;
+  return html` <cds-text-input-skeleton></cds-text-input-skeleton> `;
 };
 
 export const TogglePasswordVisibility = () => {
   return html`
-    <cds-input type="password" show-password-visibility-toggle>
+    <cds-text-input type="password" show-password-visibility-toggle>
       <span slot="label-text">Text input label</span>
       <span slot="helper-text">Optional help text</span>
-    </cds-input>
+    </cds-text-input>
   `;
 };
 
 export const WithLayer = () => {
   return html`
     <cds-layer>
-      <cds-input>
+      <cds-text-input>
         <span slot="label-text">First layer</span>
         <span slot="helper-text">Optional help text</span>
-      </cds-input>
+      </cds-text-input>
       <cds-layer>
-        <cds-input>
+        <cds-text-input>
           <span slot="label-text">Second layer</span>
           <span slot="helper-text">Optional help text</span>
-        </cds-input>
+        </cds-text-input>
         <cds-layer>
-          <cds-input>
+          <cds-text-input>
             <span slot="label-text">Third layer</span>
             <span slot="helper-text">Optional help text</span>
-          </cds-input>
+          </cds-text-input>
         </cds-layer>
       </cds-layer>
     </cds-layer>
@@ -106,7 +108,7 @@ export const Playground = (args) => {
   } = args?.[`${prefix}-input`] ?? {};
   return html`
     <div style="width: ${playgroundWidth}px;">
-      <cds-input
+      <cds-text-input
         ?disabled="${disabled}"
         ?enable-counter="${ifDefined(enableCounter)}"
         helper-text="${ifDefined(helperText)}"
@@ -124,7 +126,7 @@ export const Playground = (args) => {
         ?warn="${ifDefined(warn)}"
         warn-text="${ifDefined(warnText)}"
         @input="${onInput}">
-      </cds-input>
+      </cds-text-input>
     </div>
   `;
 };
