@@ -8,9 +8,9 @@
  */
 
 import { html, property } from 'lit-element';
-import ifNonNull from '../../internal/vendor/@carbon/web-components/es/globals/directives/if-non-null.js';
+import ifNonNull from '../../internal/vendor/@carbon/web-components/globals/directives/if-non-null.js';
 import BXLink from '../../internal/vendor/@carbon/web-components/components/link/link.js';
-import Launch16 from '../../internal/vendor/@carbon/web-components/es/icons/launch/16.js';
+import Launch16 from '../../internal/vendor/@carbon/web-components/icons/launch/16.js';
 import ddsSettings from '../../internal/vendor/@carbon/ibmdotcom-utilities/utilities/settings/settings';
 import DDSMegaMenu from './megamenu';
 import { MEGAMENU_LAYOUT_SCHEME } from './defs';

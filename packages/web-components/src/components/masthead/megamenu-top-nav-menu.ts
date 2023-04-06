@@ -134,26 +134,6 @@ class DDSMegaMenuTopNavMenu extends DDSTopNavMenu {
     trigger!.setAttribute('data-attribute3', this.menuLabel);
   }
 
-  private async _requestMegaMenuRenderUpdate() {
-    return new Promise((resolve: Function): void => {
-      this.dispatchEvent(
-        new CustomEvent('dds-megamenu-top-nav-menu-toggle', {
-          bubbles: true,
-          cancelable: true,
-          composed: true,
-          detail: {
-            active: this.expanded,
-            resolveFn: resolve,
-          },
-        })
-      );
-
-      setTimeout(() => {
-        resolve();
-      }, 5000);
-    });
-  }
-
   connectedCallback() {
     super.connectedCallback();
     this._cleanAndCreateObserverResize({ create: true });
