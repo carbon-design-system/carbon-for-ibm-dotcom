@@ -33,9 +33,6 @@ class CDSTooltip extends HostListenerMixin(CDSPopover) {
   @property({ reflect: true, type: Boolean })
   defaultOpen = false;
 
-  @property({ reflect: true, type: String })
-  duration;
-
   @property({ attribute: 'enter-delay-ms', type: Number })
   enterDelayMs = 100;
 
@@ -45,9 +42,7 @@ class CDSTooltip extends HostListenerMixin(CDSPopover) {
   /**
    * Handles `mouseover` event on this element.
    */
-  @HostListener('mouseover')
-  // @ts-ignore: The decorator refers to this method but TS thinks this method is not referred to
-  private _handleOver = async () => {
+  private _handleHover = async () => {
     setTimeout(async () => {
       this.open = true;
       const { open, updateComplete } = this;
@@ -61,10 +56,8 @@ class CDSTooltip extends HostListenerMixin(CDSPopover) {
   };
 
   /**
-   * Handles `keydown` event on this element.
+   * Handles `mouseleave` event on this element.
    */
-  @HostListener('mouseleave')
-  // @ts-ignore: The decorator refers to this method but TS thinks this method is not referred to
   private _handleHoverOut = async () => {
     setTimeout(async () => {
       const { open } = this;
@@ -86,24 +79,6 @@ class CDSTooltip extends HostListenerMixin(CDSPopover) {
   };
 
   /**
-   * Handles `focus` event on this element.
-   */
-  @HostListener('focus')
-  // @ts-ignore: The decorator refers to this method but TS thinks this method is not referred to
-  private _handleFocus = async () => {
-    this._handleOver();
-  };
-
-  /**
-   * Handles `focusout` event on this element.
-   */
-  @HostListener('focusout')
-  // @ts-ignore: The decorator refers to this method but TS thinks this method is not referred to
-  private _handleFocusOut = async () => {
-    this._handleHoverOut();
-  };
-
-  /**
    * Handles `keydown` event on this element.
    * Space & enter will toggle state, Escape will only close.
    */
@@ -115,22 +90,34 @@ class CDSTooltip extends HostListenerMixin(CDSPopover) {
     }
   };
 
+  /**
+   * Handles `slotchange` event.
+   */
+  protected _handleSlotChange({ target }: Event) {
+    const component = (target as HTMLSlotElement)
+      .assignedNodes()
+      .filter(
+        (node) => node.nodeType !== Node.TEXT_NODE || node!.textContent!.trim()
+      );
+    (component[0] as HTMLElement).addEventListener('focus', this._handleHover);
+    (component[0] as HTMLElement).addEventListener(
+      'focusout',
+      this._handleHoverOut
+    );
+    (component[0] as HTMLElement).addEventListener(
+      'mouseover',
+      this._handleHover
+    );
+    (component[0] as HTMLElement).addEventListener(
+      'mouseleave',
+      this._handleHoverOut
+    );
+    this.requestUpdate();
+  }
+
   connectedCallback() {
     if (!this.hasAttribute('highContrast')) {
       this.setAttribute('highContrast', '');
-    }
-    if (!this.hasAttribute('role')) {
-      this.setAttribute('role', 'button');
-    }
-    if (!this.hasAttribute('tabindex')) {
-      // TODO: Should we use a property?
-      this.setAttribute('tabindex', '0');
-    }
-    if (!this.hasAttribute('aria-haspopup')) {
-      this.setAttribute('aria-haspopup', 'true');
-    }
-    if (!this.hasAttribute('aria-expanded')) {
-      this.setAttribute('aria-expanded', 'false');
     }
     if (!this.shadowRoot) {
       this.attachShadow({ mode: 'open' });
@@ -141,6 +128,7 @@ class CDSTooltip extends HostListenerMixin(CDSPopover) {
   updated(changedProperties) {
     const { selectorTooltipContent } = this.constructor as typeof CDSTooltip;
     const toolTipContent = this.querySelector(selectorTooltipContent);
+
     if (changedProperties.has('defaultOpen')) {
       this.open = this.defaultOpen;
     }
