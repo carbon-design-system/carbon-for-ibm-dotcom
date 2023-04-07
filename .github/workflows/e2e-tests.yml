@@ -101,24 +101,14 @@ jobs:
           key: ${{ runner.os }}-yarn-${{ hashFiles('**/yarn.lock') }}
           restore-keys: |
             ${{ runner.os }}-yarn
-        
+      
       - name: 'Run e2e tests (chromium)'
-        uses: cypress-io/github-action@v3
+        if: matrix.browser == 'chromium'
         continue-on-error: true
-        id: cypress-tests-wc
-        with:
-          working-directory: packages/web-components
-          wait-on: 'http://localhost:8081'
-          wait-on-timeout: 150
-          config-file: tests/e2e-storybook/cypress.json
-          start: yarn test:e2e-storybook:test:parallel
-          ci-build-id: '${{ github.sha }}-${{ github.workflow }}-wc'
-          install: false
-          browser: chrome
-          record: true
-          parallel: true
+        working-directory: packages/web-components
+        run: yarn test:e2e-storybook:test:parallel
         env:
-          CYPRESS_RECORD_KEY: carbon-for-ibm-dotcom-wc
+          CI_BUILD_ID: '${{ github.sha }}-${{ github.workflow }}-wc'
           CYPRESS_API_URL: "https://sorry-cypress-director.qfl95m0zv01.us-east.codeengine.appdomain.cloud"
           CYPRESS_CACHE_FOLDER: /Users/runner/Library/Caches/Cypress
 
@@ -246,23 +236,13 @@ jobs:
           restore-keys: |
             ${{ matrix.os }}-yarn
         
-      - name: Run e2e tests (chromium)
+      - name: 'Run e2e tests (chromium)'
         if: matrix.browser == 'chromium'
         continue-on-error: true
-        id: cypress-tests-react
-        uses: cypress-io/github-action@v3
-        with:
-          working-directory: packages/react
-          wait-on: 'http://localhost:8082'
-          config-file: tests/e2e-storybook/cypress.json
-          start: yarn test:e2e-storybook:test:parallel
-          ci-build-id: '${{ github.sha }}-${{ github.workflow }}-react'
-          install: false
-          browser: chrome
-          record: true
-          parallel: true
+        working-directory: packages/react
+        run: yarn test:e2e-storybook:test:parallel
         env:
-          CYPRESS_RECORD_KEY: carbon-for-ibm-dotcom-react
+          CI_BUILD_ID: '${{ github.sha }}-${{ github.workflow }}-wc'
           CYPRESS_API_URL: "https://sorry-cypress-director.qfl95m0zv01.us-east.codeengine.appdomain.cloud"
           CYPRESS_CACHE_FOLDER: /home/runner/.cache/Cypress
       
