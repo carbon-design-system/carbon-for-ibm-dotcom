@@ -12,7 +12,7 @@ import Filter20 from '../../internal/vendor/@carbon/web-components/icons/filter/
 import { html } from 'lit';
 import { customElement, property } from 'lit/decorators.js';
 import CDSSelect from '../../internal/vendor/@carbon/web-components/components/select/select.js';
-import { INPUT_SIZE } from '../../internal/vendor/@carbon/web-components/components/input/input.js';
+import { INPUT_SIZE } from '../../internal/vendor/@carbon/web-components/components/text-input/text-input.js';
 import { classMap } from 'lit/directives/class-map.js';
 import { ifDefined } from 'lit/directives/if-defined.js';
 import ddsSettings from '../../internal/vendor/@carbon/ibmdotcom-utilities/utilities/settings/settings';

@@ -10,7 +10,7 @@
 import { html, render } from 'lit';
 import EventManager from '../utils/event-manager';
 
-import CDSInput, {
+import CDSTextInput, {
   INPUT_COLOR_SCHEME,
   INPUT_TYPE,
 } from '../../src/components/text-input/text-input';
@@ -134,7 +134,7 @@ describe('cds-text-input', function () {
     });
 
     it('should support checking if required value exists', async function () {
-      const input = elem as CDSInput;
+      const input = elem as CDSTextInput;
       input.required = true;
       const spyInvalid = jasmine.createSpy('invalid');
       events.on(input, 'invalid', spyInvalid);
@@ -149,7 +149,7 @@ describe('cds-text-input', function () {
     });
 
     it('should support canceling required check', async function () {
-      const input = elem as CDSInput;
+      const input = elem as CDSTextInput;
       input.required = true;
       events.on(input, 'invalid', (event) => {
         event.preventDefault();
@@ -160,14 +160,14 @@ describe('cds-text-input', function () {
     });
 
     it('should treat empty custom validity message as not invalid', async function () {
-      const input = elem as CDSInput;
+      const input = elem as CDSTextInput;
       input.setCustomValidity('');
       expect(input.invalid).toBe(false);
       expect(input.validityMessage).toBe('');
     });
 
     it('should treat non-empty custom validity message as invalid', async function () {
-      const input = elem as CDSInput;
+      const input = elem as CDSTextInput;
       input.setCustomValidity('validity-message-foo');
       expect(input.invalid).toBe(true);
       expect(input.validityMessage).toBe('validity-message-foo');
