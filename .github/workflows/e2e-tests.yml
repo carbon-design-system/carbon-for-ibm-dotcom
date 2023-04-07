@@ -118,7 +118,7 @@ jobs:
           record: true
           parallel: true
         env:
-          CYPRESS_RECORD_KEY: carbon-for-ibm-dotcom
+          CYPRESS_RECORD_KEY: carbon-for-ibm-dotcom-wc
           CYPRESS_API_URL: "https://sorry-cypress-director.qfl95m0zv01.us-east.codeengine.appdomain.cloud"
           CYPRESS_CACHE_FOLDER: /Users/runner/Library/Caches/Cypress
 
@@ -262,7 +262,7 @@ jobs:
           record: true
           parallel: true
         env:
-          CYPRESS_RECORD_KEY: carbon-for-ibm-dotcom
+          CYPRESS_RECORD_KEY: carbon-for-ibm-dotcom-react
           CYPRESS_API_URL: "https://sorry-cypress-director.qfl95m0zv01.us-east.codeengine.appdomain.cloud"
           CYPRESS_CACHE_FOLDER: /home/runner/.cache/Cypress
       
