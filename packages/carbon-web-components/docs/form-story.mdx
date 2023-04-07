@@ -24,7 +24,7 @@ button.addEventListener('click', () => {
   });
   event.formData = formData;
   form.dispatchEvent(event);
-  // Now `formData` is populated with the data in components such as `<cds-text-input>` or `<cds-dropdown>`, etc. in the `<form>`.
+  // `formData` is populated with the data in components such as `<cds-text-input>` or `<cds-dropdown>`, etc. in the `<form>`.
   // You can use `formData` with `fetch()`/XHR instead of letting `<form>` submit the data
 });
 ```
