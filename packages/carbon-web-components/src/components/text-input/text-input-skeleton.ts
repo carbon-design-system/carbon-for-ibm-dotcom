@@ -18,7 +18,7 @@ import styles from './input.scss';
 @customElement(`${prefix}-text-input-skeleton`)
 class CDSTextInputSkeleton extends LitElement {
   /**
-   * `true` if the label should be hidden. Corresponds to the attribute with the same name.
+   * Specify whether the label should be hidden, or not
    */
   @property({ type: Boolean, reflect: true, attribute: 'hide-label' })
   hideLabel = false;

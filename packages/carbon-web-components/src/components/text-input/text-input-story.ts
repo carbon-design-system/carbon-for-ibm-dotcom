@@ -13,8 +13,7 @@ import { boolean, select, number } from '@storybook/addon-knobs';
 import textNullable from '../../../.storybook/knob-text-nullable';
 import storyDocs from './input-story.mdx';
 import { prefix } from '../../globals/settings';
-import './text-input';
-import './text-input-skeleton';
+import './index';
 import '../layer';
 import '../form/form-item';
 
