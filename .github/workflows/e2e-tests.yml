@@ -103,11 +103,13 @@ jobs:
             ${{ runner.os }}-yarn
         
       - name: 'Run e2e tests (chromium)'
-        uses: cypress-io/github-action@v4
+        uses: cypress-io/github-action@v3
         continue-on-error: true
         id: cypress-tests-wc
         with:
           working-directory: packages/web-components
+          wait-on: 'http://localhost:8081'
+          wait-on-timeout: 150
           config-file: tests/e2e-storybook/cypress.json
           start: yarn test:e2e-storybook:test:parallel
           ci-build-id: '${{ github.sha }}-${{ github.workflow }}-wc'
@@ -248,9 +250,10 @@ jobs:
         if: matrix.browser == 'chromium'
         continue-on-error: true
         id: cypress-tests-react
-        uses: cypress-io/github-action@v4
+        uses: cypress-io/github-action@v3
         with:
           working-directory: packages/react
+          wait-on: 'http://localhost:8082'
           config-file: tests/e2e-storybook/cypress.json
           start: yarn test:e2e-storybook:test:parallel
           ci-build-id: '${{ github.sha }}-${{ github.workflow }}-react'
