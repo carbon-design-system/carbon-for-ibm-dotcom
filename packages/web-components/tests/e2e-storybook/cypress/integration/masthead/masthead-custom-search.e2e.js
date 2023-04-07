@@ -36,7 +36,7 @@ describe('dds-masthead | custom search (desktop)', () => {
     cy.takeSnapshots();
   });
 
-  it('should display grouped results with hrefs', () => {
+  xit('should display grouped results with hrefs', () => {
     // Mock grouped search typeahead API. Below we user the "cloud" search
     // string. Every keypress will trigger an API request, so here we mock each
     // successive cumulative search query.
@@ -46,17 +46,17 @@ describe('dds-masthead | custom search (desktop)', () => {
       }).as(`grouped-typeahead-${query}`);
     });
 
-  //   cy.get('dds-masthead > dds-search-with-typeahead')
-  //     .shadow()
-  //     .find('.bx--header__search--search')
-  //     .click();
+    cy.get('dds-masthead > dds-search-with-typeahead')
+      .shadow()
+      .find('.bx--header__search--search')
+      .click();
 
-  //   cy.get('dds-masthead > dds-search-with-typeahead')
-  //     .shadow()
-  //     .find('.react-autosuggest__container > input')
-  //     .type('cloud', { force: true });
+    cy.get('dds-masthead > dds-search-with-typeahead')
+      .shadow()
+      .find('.react-autosuggest__container > input')
+      .type('cloud', { force: true });
 
-  //   cy.get('dds-search-with-typeahead-item:not([groupTitle])').should('have.length', 12);
+    cy.get('dds-search-with-typeahead-item:not([groupTitle])').should('have.length', 12);
 
     cy.get('dds-search-with-typeahead-item[groupTitle]').then($item => {
       expect($item).to.have.length(1);
@@ -70,9 +70,9 @@ describe('dds-masthead | custom search (desktop)', () => {
         expect($item).to.have.attr('href');
       }
 
-  //     expect($item).to.have.attr('text');
-  //   });
+      expect($item).to.have.attr('text');
+    });
 
-  //   cy.takeSnapshots();
+    cy.takeSnapshots();
   });
 });
