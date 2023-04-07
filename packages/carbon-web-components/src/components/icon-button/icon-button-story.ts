@@ -12,23 +12,19 @@ import { boolean, select, text, number } from '@storybook/addon-knobs';
 import './index';
 import '../button/index';
 import storyDocs from './icon-button-story.mdx';
-import { POPOVER_ALIGNMENT } from '../popover/defs';
+import { ICON_BUTTON_TOOLTIP_ALIGNMENT } from './defs';
 import Edit16 from '@carbon/icons/lib/edit/16';
 import { ICON_BUTTON_SIZE } from './defs';
 
 const tooltipAlignments = {
-  [`top`]: POPOVER_ALIGNMENT.TOP,
-  [`top-left`]: POPOVER_ALIGNMENT.TOP_LEFT,
-  [`top-right`]: POPOVER_ALIGNMENT.TOP_RIGHT,
-  [`bottom`]: POPOVER_ALIGNMENT.BOTTOM,
-  [`bottom-left`]: POPOVER_ALIGNMENT.BOTTOM_LEFT,
-  [`bottom-right`]: POPOVER_ALIGNMENT.BOTTOM_RIGHT,
-  [`left`]: POPOVER_ALIGNMENT.LEFT,
-  [`left-bottom`]: POPOVER_ALIGNMENT.LEFT_BOTTOM,
-  [`left-top`]: POPOVER_ALIGNMENT.LEFT_TOP,
-  [`right`]: POPOVER_ALIGNMENT.RIGHT,
-  [`right-bottom`]: POPOVER_ALIGNMENT.RIGHT_BOTTOM,
-  [`right-top`]: POPOVER_ALIGNMENT.RIGHT_TOP,
+  [`top`]: ICON_BUTTON_TOOLTIP_ALIGNMENT.TOP,
+  [`top-left`]: ICON_BUTTON_TOOLTIP_ALIGNMENT.TOP_LEFT,
+  [`top-right`]: ICON_BUTTON_TOOLTIP_ALIGNMENT.TOP_RIGHT,
+  [`bottom`]: ICON_BUTTON_TOOLTIP_ALIGNMENT.BOTTOM,
+  [`bottom-left`]: ICON_BUTTON_TOOLTIP_ALIGNMENT.BOTTOM_LEFT,
+  [`bottom-right`]: ICON_BUTTON_TOOLTIP_ALIGNMENT.BOTTOM_RIGHT,
+  [`left`]: ICON_BUTTON_TOOLTIP_ALIGNMENT.LEFT,
+  [`right`]: ICON_BUTTON_TOOLTIP_ALIGNMENT.RIGHT,
 };
 
 export const Default = () => {
@@ -44,7 +40,7 @@ export const Playground = (args) => {
     disabled,
     tooltipContent,
     enterDelay,
-    exitDelay,
+    leaveDelay,
     size,
   } = args?.['cds-icon-button'];
   return html`
@@ -52,8 +48,8 @@ export const Playground = (args) => {
       align=${alignment}
       ?defaultOpen=${defaultOpen}
       ?disabled=${disabled}
-      enterDelay=${enterDelay}
-      exitDelay=${exitDelay}
+      enter-delay-ms=${enterDelay}
+      leave-delay-ms=${leaveDelay}
       size=${size}>
       ${Edit16({ slot: 'icon' })}
       <slot slot="tooltip-content"> ${tooltipContent} </slot>
@@ -67,12 +63,12 @@ Playground.parameters = {
       alignment: select(
         'Tooltip alignment to trigger button (alignment)',
         tooltipAlignments,
-        POPOVER_ALIGNMENT.BOTTOM
+        ICON_BUTTON_TOOLTIP_ALIGNMENT.BOTTOM
       ),
       defaultOpen: boolean('Default open (defaultOpen)', false),
       disabled: boolean('Disabled (disabled)', false),
       enterDelay: number('Enter delay (in ms)', 100),
-      exitDelay: number('Exit delay (in ms)', 300),
+      leaveDelay: number('leave delay (in ms)', 300),
       tooltipContent: text('tooltip-content', 'Custom label'),
       size: select('size', ICON_BUTTON_SIZE, ICON_BUTTON_SIZE.MEDIUM),
     }),

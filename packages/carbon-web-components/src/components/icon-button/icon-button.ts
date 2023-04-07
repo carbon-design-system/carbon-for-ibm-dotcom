@@ -13,10 +13,10 @@ import { prefix } from '../../globals/settings';
 import '../tooltip/index';
 import '../button/index';
 import CDSButton from '../button/button';
-import { ICON_BUTTON_SIZE } from './defs';
+import { ICON_BUTTON_SIZE, ICON_BUTTON_TOOLTIP_ALIGNMENT } from './defs';
 import styles from './icon-button.scss';
 
-export { ICON_BUTTON_SIZE };
+export { ICON_BUTTON_SIZE, ICON_BUTTON_TOOLTIP_ALIGNMENT };
 
 /**
  * Icon Button
@@ -24,20 +24,32 @@ export { ICON_BUTTON_SIZE };
  */
 @customElement(`${prefix}-icon-button`)
 class CDSIconButton extends CDSButton {
+  /**
+   * Specify how the trigger should align with the tooltip
+   */
   @property({ reflect: true, type: String })
   align = 'top';
 
+  /**
+   * Specify whether the tooltip should be open when it first renders
+   */
   @property({ reflect: true, type: Boolean })
   defaultOpen = false;
 
+  /**
+   * Specify the duration in milliseconds to delay before displaying the tooltip
+   */
   @property({ attribute: 'enter-delay-ms', type: Number })
   enterDelayMs = 100;
 
-  @property({ attribute: 'exit-delay-ms', type: Number })
-  exitDelayMs = 300;
+  /**
+   * Specify the duration in milliseconds to delay before hiding the tooltip
+   */
+  @property({ attribute: 'leave-delay-ms', type: Number })
+  leaveDelayMs = 300;
 
   /**
-   * Button size.
+   * Specify the size of the Button. Defaults to `md`.
    */
   @property({ reflect: true })
   size = 'md';
@@ -50,14 +62,14 @@ class CDSIconButton extends CDSButton {
   }
 
   render() {
-    const { align, defaultOpen, enterDelayMs, exitDelayMs } = this;
+    const { align, defaultOpen, enterDelayMs, leaveDelayMs } = this;
     return html`
       <cds-tooltip
         align=${align}
         ?defaultOpen=${defaultOpen}
         closeOnActivation=${true}
-        enterDelayMs=${enterDelayMs}
-        exitDelayMs=${exitDelayMs}>
+        enter-delay-ms=${enterDelayMs}
+        leave-delay-ms=${leaveDelayMs}>
         ${super.render()}
         <cds-tooltip-content>
           <slot name="tooltip-content"></slot>

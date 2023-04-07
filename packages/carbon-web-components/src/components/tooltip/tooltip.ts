@@ -24,20 +24,35 @@ import CDSTooltipContent from './tooltip-content';
  */
 @customElement(`${prefix}-tooltip`)
 class CDSTooltip extends HostListenerMixin(CDSPopover) {
+  /**
+   * Specify how the trigger should align with the tooltip
+   */
   @property({ reflect: true, type: String })
   align = 'top';
 
+  /**
+   * Specify whether the tooltip should be closed when clicked
+   */
   @property({ reflect: true, type: Boolean })
   closeOnActivation = false;
 
+  /**
+   * Specify whether the tooltip should be open when it first renders
+   */
   @property({ reflect: true, type: Boolean })
   defaultOpen = false;
 
+  /**
+   * Specify the duration in milliseconds to delay before displaying the tooltip
+   */
   @property({ attribute: 'enter-delay-ms', type: Number })
   enterDelayMs = 100;
 
-  @property({ attribute: 'exit-delay-ms', type: Number })
-  exitDelayMs = 300;
+  /**
+   * Specify the duration in milliseconds to delay before hiding the tooltip
+   */
+  @property({ attribute: 'leave-delay-ms', type: Number })
+  leaveDelayMs = 300;
 
   /**
    * Handles `mouseover` event on this element.
@@ -64,7 +79,7 @@ class CDSTooltip extends HostListenerMixin(CDSPopover) {
       if (open) {
         this.open = false;
       }
-    }, this.exitDelayMs);
+    }, this.leaveDelayMs);
   };
 
   /**

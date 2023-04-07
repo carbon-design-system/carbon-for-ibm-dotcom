@@ -71,7 +71,7 @@ export const Duration = () => {
     <style>
       ${styles}
     </style>
-    <cds-tooltip enter-delay-ms=${0} exit-delay-ms=${300}>
+    <cds-tooltip enter-delay-ms=${0} leave-delay-ms=${300}>
       <button class="sb-tooltip-trigger" role="button">
         ${Information16()}
       </button>
@@ -86,7 +86,7 @@ export const Playground = (args) => {
     defaultOpen,
     label,
     enterDelay,
-    exitDelay,
+    leaveDelay,
     closeOnActivation,
   } = args?.['cds-tooltip'] ?? {};
   return html`
@@ -97,7 +97,7 @@ export const Playground = (args) => {
       ?defaultOpen=${defaultOpen}
       align=${alignment}
       enter-delay-ms=${enterDelay}
-      exit-delay-ms=${exitDelay}
+      leave-delay-ms=${leaveDelay}
       ?closeOnActivation=${closeOnActivation}>
       <button class="sb-tooltip-trigger" role="button">
         ${Information16()}
@@ -118,7 +118,7 @@ Playground.parameters = {
       ),
       label: text('Label (label)', 'Custom label'),
       enterDelay: number('Enter delay (in ms)', 100),
-      exitDelay: number('Exit delay (in ms)', 300),
+      leaveDelay: number('Leave delay (in ms)', 300),
       closeOnActivation: boolean(
         'Close on activation (closeOnActivation)',
         false
