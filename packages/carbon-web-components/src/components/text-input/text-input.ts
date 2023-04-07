@@ -23,7 +23,7 @@ import ifNonEmpty from '../../globals/directives/if-non-empty';
 import FormMixin from '../../globals/mixins/form';
 import ValidityMixin from '../../globals/mixins/validity';
 import { INPUT_COLOR_SCHEME, INPUT_SIZE, INPUT_TYPE } from './defs';
-import styles from './input.scss';
+import styles from './text-input.scss';
 
 export { INPUT_COLOR_SCHEME, INPUT_SIZE, INPUT_TYPE };
 
