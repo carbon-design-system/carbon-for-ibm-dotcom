@@ -104,6 +104,7 @@ jobs:
       
       - name: 'Run e2e tests (chromium)'
         if: matrix.browser == 'chromium'
+        id: cypress-tests-wc
         continue-on-error: true
         working-directory: packages/web-components
         run: yarn test:e2e-storybook:test:parallel
@@ -238,6 +239,7 @@ jobs:
         
       - name: 'Run e2e tests (chromium)'
         if: matrix.browser == 'chromium'
+        id: cypress-tests-react
         continue-on-error: true
         working-directory: packages/react
         run: yarn test:e2e-storybook:test:parallel
