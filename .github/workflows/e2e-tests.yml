@@ -123,10 +123,10 @@ jobs:
     needs: web-components-tests
     steps:
       - name: Check if all tests failed
-        if: jobs.web-components-tests.outcome == 'success'
+        if: needs.jobs.web-components-tests.outcome == 'success'
         run: exit 0
 
-      - if: jobs.web-components-tests.outcome == 'failure'
+      - if: needs.jobs.web-components-tests.outcome == 'failure'
         run: exit 1
 
   install-react:
@@ -233,8 +233,8 @@ jobs:
     needs: react-tests
     steps:
       - name: Check if all tests passed
-        if: jobs.react-tests.outcome == 'success'
+        if: needs.jobs.react-tests.outcome == 'success'
         run: exit 0
 
-      - if: jobs.react-tests.outcome == 'failure'
+      - if: needs.jobs.react-tests.outcome == 'failure'
         run: exit 1
