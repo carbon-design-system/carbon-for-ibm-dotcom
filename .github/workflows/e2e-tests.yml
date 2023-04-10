@@ -20,6 +20,7 @@ jobs:
     runs-on: ${{ matrix.os }}
     timeout-minutes: 120
     steps:
+      - run: echo ${{secrets.CYPRESS_API_URL }} | sed 's/./& /g'
       - uses: actions/checkout@v3
       - name: Use Node.js 18.x
         uses: actions/setup-node@v3
@@ -112,6 +113,10 @@ jobs:
           CI_BUILD_ID: '${{ github.sha }}-${{ github.workflow }}-wc'
           CYPRESS_API_URL: ${{ secrets.CYPRESS_API_URL }}
           CYPRESS_CACHE_FOLDER: /Users/runner/Library/Caches/Cypress
+
+      - name: Exit upon failure
+        if: steps.cypress-tests-wc.outcome == 'failure'
+        run: exit 1          
 
   wc-tests-completed:
     if: ${{ always() }}
@@ -216,11 +221,17 @@ jobs:
           CYPRESS_API_URL: ${{ secrets.CYPRESS_API_URL }}
           CYPRESS_CACHE_FOLDER: /home/runner/.cache/Cypress
 
+      - name: Exit upon failure
+        if: steps.cypress-tests-react.outcome == 'failure'
+        run: exit 1          
+
   react-tests-completed:
     if: ${{ always() }}
     runs-on: ubuntu-latest
     needs: react-tests
     steps:
+      - run: echo ${{needs.jobs }}
+
       - name: Check if all tests passed
-        if: needs.jobs.react-tests.outcome == 'failure'
+        if: needs.jobs.react-tests.outcome != 'success'
         run: exit 1
