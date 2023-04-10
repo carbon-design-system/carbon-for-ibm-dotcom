@@ -110,23 +110,16 @@ jobs:
         run: yarn test:e2e-storybook:test:parallel
         env:
           CI_BUILD_ID: '${{ github.sha }}-${{ github.workflow }}-wc'
-          CYPRESS_API_URL: "https://sorry-cypress-director.qfl95m0zv01.us-east.codeengine.appdomain.cloud"
+          CYPRESS_API_URL: ${{ secrets.CYPRESS_API_URL }}
           CYPRESS_CACHE_FOLDER: /Users/runner/Library/Caches/Cypress
-
-      - name: Exit upon failure
-        if: steps.cypress-tests-wc.outcome == 'failure'
-        run: exit 1
 
   wc-tests-completed:
     if: ${{ always() }}
     runs-on: ubuntu-latest
     needs: web-components-tests
     steps:
-      - name: Check if all tests failed
-        if: needs.jobs.web-components-tests.outcome == 'success'
-        run: exit 0
-
-      - if: needs.jobs.web-components-tests.outcome == 'failure'
+      - name: Check if tests failed
+        if: needs.jobs.web-components-tests.outcome == 'failure'
         run: exit 1
 
   install-react:
@@ -220,12 +213,8 @@ jobs:
         run: yarn test:e2e-storybook:test:parallel
         env:
           CI_BUILD_ID: '${{ github.sha }}-${{ github.workflow }}-wc'
-          CYPRESS_API_URL: "https://sorry-cypress-director.qfl95m0zv01.us-east.codeengine.appdomain.cloud"
+          CYPRESS_API_URL: ${{ secrets.CYPRESS_API_URL }}
           CYPRESS_CACHE_FOLDER: /home/runner/.cache/Cypress
-      
-      - name: Bypass failure if test didn't run
-        if: steps.cypress-tests-react.outcome == 'failure'
-        run: exit 1        
 
   react-tests-completed:
     if: ${{ always() }}
@@ -233,8 +222,5 @@ jobs:
     needs: react-tests
     steps:
       - name: Check if all tests passed
-        if: needs.jobs.react-tests.outcome == 'success'
-        run: exit 0
-
-      - if: needs.jobs.react-tests.outcome == 'failure'
+        if: needs.jobs.react-tests.outcome == 'failure'
         run: exit 1
