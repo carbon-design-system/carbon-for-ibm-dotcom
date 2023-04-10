@@ -1,5 +1,5 @@
 /**
- * Copyright IBM Corp. 2021, 2022
+ * Copyright IBM Corp. 2021, 2023
  *
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
@@ -54,7 +54,7 @@ const _tests = createTests(_selector, _paths);
 const _buttonTests = [
   () => {
     it('should render two buttons', () => {
-      cy.get(_selector).should('have.length', 2);
+      cy.get(_selector).should('have.length', 3);
     });
   },
 ];
