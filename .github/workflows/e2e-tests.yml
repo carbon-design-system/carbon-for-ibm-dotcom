@@ -246,7 +246,7 @@ jobs:
 
       - name: Create failure file if job failed
         id: react-no-tests-ran
-        if: steps.cypress-tests-react.outcome == 'failure')
+        if: steps.cypress-tests-react.outcome == 'failure'
         run: touch failure-react.txt
 
       - name: Save failure file
