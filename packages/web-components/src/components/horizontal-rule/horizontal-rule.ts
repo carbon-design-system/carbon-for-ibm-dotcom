@@ -52,6 +52,13 @@ class DDSHorizontalRule extends StableSelectorMixin(LitElement) {
   @property({ attribute: 'weight', reflect: true })
   weight = HR_WEIGHT.THIN;
 
+  connectedCallback() {
+    if (!this.hasAttribute('role')) {
+      this.setAttribute('role', 'separator');
+    }
+    super.connectedCallback();
+  }
+
   static get stableSelector() {
     return `${ddsPrefix}--hr`;
   }
