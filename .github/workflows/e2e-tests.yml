@@ -229,6 +229,7 @@ jobs:
     runs-on: ubuntu-latest
     needs: react-tests
     steps:
+      - run: echo ${{ needs }}
       - name: Check if all tests passed
         if: needs.jobs.react-tests.outcome != 'success'
         run: exit 1
