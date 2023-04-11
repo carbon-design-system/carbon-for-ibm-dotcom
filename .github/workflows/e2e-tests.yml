@@ -158,7 +158,7 @@ jobs:
         run: yarn install --immutable --immutable-cache
 
       - name: Build project
-        run: yarn lerna run --stream --ignore @carbon/ibmdotcom-web-components --ignore @carbon/ibmdotcom-services-store build
+        run: yarn lerna run --stream --ignore @carbon/ibmdotcom-web-components --ignore @carbon/web-components --ignore @carbon/ibmdotcom-services-store build
 
       - name: Build storybook
         working-directory: packages/react
@@ -229,7 +229,6 @@ jobs:
     runs-on: ubuntu-latest
     needs: react-tests
     steps:
-      - run: echo ${{ toJSON(needs) }}
       - name: Check if all tests passed
         if: needs.jobs.react-tests.result != 'success'
         run: exit 1
