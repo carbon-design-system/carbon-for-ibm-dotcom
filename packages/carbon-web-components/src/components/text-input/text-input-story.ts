@@ -170,7 +170,7 @@ Playground.parameters = {
 };
 
 export default {
-  title: 'Components/TextInput',
+  title: 'Components/Text Input',
   parameters: {
     ...storyDocs.parameters,
   },
