@@ -60,7 +60,7 @@ export const Default = (args) => {
         sapien eu nisl congue suscipit.
       </dds-expressive-modal-body>
       <dds-expressive-modal-footer>
-        <dds-button-expressive>
+        <dds-button-expressive href="https://www.example.com">
           ${buttonContent}${ArrowRight20({ slot: 'icon' })}
         </dds-button-expressive>
       </dds-expressive-modal-footer>
