@@ -29,10 +29,10 @@ import '@carbon/web-components/es/components/text-input/index.js';
 ### HTML
 
 ```html
-<cds-text-input>
-  <span slot="label-text">Label text</span>
-  <span slot="helper-text">Optional helper text</span>
-  <span slot="validity-message">Something isn't right</span>
+<cds-text-input
+  label="Text input label"
+  helper-text="Optional help text"
+  invalid-text="Error message">
 </cds-text-input>
 ```
 
@@ -49,10 +49,10 @@ import '@carbon/web-components/es/components/form/index.js';
 
 ```html
 <cds-form-item>
-  <cds-text-input>
-    <span slot="label-text">Label text</span>
-    <span slot="helper-text">Optional helper text</span>
-    <span slot="validity-message">Something isn't right</span>
+  <cds-text-input
+    label="Text input label"
+    helper-text="Optional help text"
+    invalid-text="Error message">
   </cds-text-input>
 </cds-form-item>
 ```
