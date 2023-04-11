@@ -11,7 +11,7 @@ import { html } from 'lit';
 import { ifDefined } from 'lit/directives/if-defined.js';
 import { boolean, select, number } from '@storybook/addon-knobs';
 import textNullable from '../../../.storybook/knob-text-nullable';
-import storyDocs from './input-story.mdx';
+import storyDocs from './text-input-story.mdx';
 import { prefix } from '../../globals/settings';
 import './index';
 import '../layer';
