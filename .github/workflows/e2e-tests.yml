@@ -113,6 +113,18 @@ jobs:
           CYPRESS_API_URL: "https://sorry-cypress-director.qfl95m0zv01.us-east.codeengine.appdomain.cloud"
           CYPRESS_CACHE_FOLDER: /Users/runner/Library/Caches/Cypress
 
+      - name: Create failure file if job failed
+        id: react-no-tests-ran
+        if: steps.cypress-tests-wc.outcome == 'failure'
+        run: touch failure-wc.txt
+
+      - name: Save failure file
+        if: steps.cypress-tests-wc.outcome == 'failure'
+        uses: actions/upload-artifact@v3
+        with:
+          name: failure-wc
+          path: failure-wc.txt
+
       - name: Exit upon failure
         if: steps.cypress-tests-wc.outcome == 'failure'
         run: exit 1          
@@ -122,8 +134,20 @@ jobs:
     runs-on: ubuntu-latest
     needs: web-components-tests
     steps:
-      - name: Fail if other runners failed
-        if: ${{ always() && needs.web-components-tests.result == 'failure' }}
+      - uses: actions/download-artifact@v3
+        continue-on-error: true
+        with:
+          name: failure-wc
+
+      - name: Check failure file existence
+        continue-on-error: true
+        id: check_files
+        uses: andstor/file-existence-action@v1
+        with:
+          files: "failure-wc.txt"
+
+      - name: Failure file exists, exit with error
+        if: steps.check_files.outputs.files_exists == 'true'
         run: exit 1
 
   install-react:
@@ -220,6 +244,18 @@ jobs:
           CYPRESS_API_URL: "https://sorry-cypress-director.qfl95m0zv01.us-east.codeengine.appdomain.cloud"
           CYPRESS_CACHE_FOLDER: /home/runner/.cache/Cypress
 
+      - name: Create failure file if job failed
+        id: react-no-tests-ran
+        if: steps.cypress-tests-react.outcome == 'failure')
+        run: touch failure-react.txt
+
+      - name: Save failure file
+        if: steps.cypress-tests-react.outcome == 'failure'
+        uses: actions/upload-artifact@v2
+        with:
+          name: failure-react
+          path: failure-react.txt
+
       - name: Exit upon failure
         if: steps.cypress-tests-react.outcome == 'failure'
         run: exit 1
@@ -229,7 +265,19 @@ jobs:
     runs-on: ubuntu-latest
     needs: react-tests
     steps:
-      - name: Fail if other runners failed
-        if: ${{ always() && needs.react-tests.result == 'failure' }}
+      - uses: actions/download-artifact@v3
+        continue-on-error: true
+        with:
+          name: failure-react
+
+      - name: Check failure file existence
+        continue-on-error: true
+        id: check_files
+        uses: andstor/file-existence-action@v1
+        with:
+          files: "failure-react.txt"
+
+      - name: Failure file exists, exit with error
+        if: steps.check_files.outputs.files_exists == 'true'
         run: exit 1
         
