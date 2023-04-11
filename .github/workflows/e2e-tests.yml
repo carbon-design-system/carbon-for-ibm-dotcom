@@ -235,7 +235,7 @@ jobs:
         node-version: [ 18.x ]
         browser: [ chromium ]
     steps:
-      - run: exit $((RANDOM % 2))
+      - run: exit 0
 
   jobB:
     if: always()
