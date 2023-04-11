@@ -158,7 +158,7 @@ jobs:
         run: yarn install --immutable --immutable-cache
 
       - name: Build project
-        run: yarn lerna run --stream --ignore @carbon/ibmdotcom-web-components --ignore @carbon/web-components --ignore @carbon/ibmdotcom-services-store build
+        run: yarn lerna run --stream --ignore @carbon/ibmdotcom-web-components --ignore @carbon/ibmdotcom-services-store build
 
       - name: Build storybook
         working-directory: packages/react
