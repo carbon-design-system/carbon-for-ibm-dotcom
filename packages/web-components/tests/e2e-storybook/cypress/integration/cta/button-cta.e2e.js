@@ -54,7 +54,7 @@ const _tests = createTests(_selector, _paths);
 const _buttonTests = [
   () => {
     it('should render two buttons', () => {
-      cy.get(_selector).should('have.length', 3);
+      cy.get(_selector).should('have.length', 2);
     });
   },
 ];
