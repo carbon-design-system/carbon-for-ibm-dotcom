@@ -7,14 +7,8 @@
  * LICENSE file in the root directory of this source tree.
  */
 
-import {
-  html,
-  property,
-  state,
-  query,
-  customElement,
-  LitElement,
-} from 'lit-element';
+import { html, property, state, query, LitElement } from 'lit-element';
+import { carbonElement as customElement } from '../../internal/vendor/@carbon/web-components/globals/decorators/carbon-element.js';
 import 'wicg-inert';
 import settings from 'carbon-components/es/globals/js/settings.js';
 import { slow01 } from '@carbon/motion';
@@ -604,7 +598,7 @@ class DDSCarousel extends HostListenerMixin(StableSelectorMixin(LitElement)) {
 
     const containingModal = this.closest(
       `${ddsPrefix}-expressive-modal`
-    ) as DDSExpressiveModal;
+    ) as DDSExpressiveModal | null;
     if (containingModal) {
       containingModal.hasFocusableElements.push(this);
       this.setAttribute('in-modal', '');

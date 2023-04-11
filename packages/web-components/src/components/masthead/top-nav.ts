@@ -8,7 +8,7 @@
  */
 
 import { classMap } from 'lit-html/directives/class-map.js';
-import { html, property, state, query, customElement } from 'lit-element';
+import { html, property, state, query } from 'lit-element';
 import settings from 'carbon-components/es/globals/js/settings.js';
 import CaretLeft20 from '../../internal/vendor/@carbon/web-components/icons/caret--left/20.js';
 import CaretRight20 from '../../internal/vendor/@carbon/web-components/icons/caret--right/20.js';
@@ -19,6 +19,7 @@ import HostListenerMixin from '../../internal/vendor/@carbon/web-components/glob
 import ddsSettings from '../../internal/vendor/@carbon/ibmdotcom-utilities/utilities/settings/settings';
 import StableSelectorMixin from '../../globals/mixins/stable-selector';
 import styles from './masthead.scss';
+import { carbonElement as customElement } from '../../internal/vendor/@carbon/web-components/globals/decorators/carbon-element.js';
 
 const { prefix } = settings;
 const { stablePrefix: ddsPrefix } = ddsSettings;

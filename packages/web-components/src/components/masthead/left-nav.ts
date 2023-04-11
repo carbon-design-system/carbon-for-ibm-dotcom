@@ -8,7 +8,7 @@
  */
 
 import findLast from 'lodash-es/findLast.js';
-import { html, query, property, customElement } from 'lit-element';
+import { html, query, property } from 'lit-element';
 import settings from 'carbon-components/es/globals/js/settings.js';
 import { selectorTabbable } from '../../internal/vendor/@carbon/web-components/globals/settings.js';
 import HostListener from '../../internal/vendor/@carbon/web-components/globals/decorators/host-listener.js';
@@ -23,6 +23,7 @@ import StableSelectorMixin from '../../globals/mixins/stable-selector';
 import DDSLeftNavOverlay from './left-nav-overlay';
 import styles from './masthead.scss';
 import DDSLeftNavMenuSection from './left-nav-menu-section';
+import { carbonElement as customElement } from '../../internal/vendor/@carbon/web-components/globals/decorators/carbon-element.js';
 
 const { prefix } = settings;
 const { stablePrefix: ddsPrefix } = ddsSettings;
@@ -250,9 +251,9 @@ class DDSLeftNav extends StableSelectorMixin(BXSideNav) {
 
       const masthead: HTMLElement | null | undefined = doc
         ?.querySelector(
-          `${ddsPrefix}-cloud-masthead-container, 
-          ${ddsPrefix}-cloud-masthead-composite, 
-          ${ddsPrefix}-masthead-container, 
+          `${ddsPrefix}-cloud-masthead-container,
+          ${ddsPrefix}-cloud-masthead-composite,
+          ${ddsPrefix}-masthead-container,
           ${ddsPrefix}-masthead-composite`
         )
         ?.querySelector(`${ddsPrefix}-masthead`);

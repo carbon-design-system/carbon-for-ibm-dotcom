@@ -10,7 +10,7 @@
 import settings from 'carbon-components/es/globals/js/settings.js';
 import { classMap } from 'lit-html/directives/class-map.js';
 import { ifDefined } from 'lit-html/directives/if-defined.js';
-import { html, query, customElement, property } from 'lit-element';
+import { html, query, property } from 'lit-element';
 import ddsSettings from '@carbon/ibmdotcom-utilities/es/utilities/settings/settings.js';
 import BXDropdown from '../../internal/vendor/@carbon/web-components/components/dropdown/dropdown.js';
 import BXDropdownItem from '../../internal/vendor/@carbon/web-components/components/dropdown/dropdown-item.js';
@@ -24,6 +24,7 @@ import {
   NAVIGATION_DIRECTION,
 } from './defs';
 import { forEach, indexOf } from '../../globals/internal/collection-helpers';
+import { carbonElement as customElement } from '../../internal/vendor/@carbon/web-components/globals/decorators/carbon-element.js';
 
 export {
   DROPDOWN_COLOR_SCHEME,
