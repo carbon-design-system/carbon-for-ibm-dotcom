@@ -238,6 +238,7 @@ jobs:
       - run: exit 1
 
   jobB:
+    if: always()
     runs-on: ubuntu-latest
     needs: jobA
     steps:
