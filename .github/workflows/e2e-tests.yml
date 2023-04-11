@@ -235,7 +235,7 @@ jobs:
         node-version: [ 18.x ]
         browser: [ chromium ]
     steps:
-      - run: exit 0
+      - run: exit 1
 
   jobB:
     if: ${{ always() }}
