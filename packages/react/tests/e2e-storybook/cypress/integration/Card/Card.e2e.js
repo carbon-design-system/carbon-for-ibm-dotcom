@@ -95,7 +95,7 @@ const _tests = {
     it('should check for link', () => {
       cy.get(`.bx--card a.bx--link`).then($link => {
         const url = $link.prop('href');
-        expect(url).to.be.empty;
+        expect(url).not.to.be.empty;
       });
     });
 
