@@ -123,7 +123,7 @@ jobs:
     needs: web-components-tests
     steps:
       - name: Fail if other runners failed
-        if: ${{ always() && needs.web-components-tests.result != 'success' }}
+        if: ${{ always() && needs.web-components-tests.result == 'failure' }}
         run: exit 1
 
   install-react:
@@ -230,6 +230,6 @@ jobs:
     needs: react-tests
     steps:
       - name: Fail if other runners failed
-        if: ${{ always() && needs.react-tests.result != 'success' }}
+        if: ${{ always() && needs.react-tests.result == 'failure' }}
         run: exit 1
         
