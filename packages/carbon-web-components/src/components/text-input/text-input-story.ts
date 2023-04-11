@@ -28,9 +28,7 @@ const sizes = {
 
 export const Default = () => {
   return html`
-    <cds-text-input>
-      <span slot="label-text">Text input label</span>
-      <span slot="helper-text">Optional help text</span>
+    <cds-text-input label="Text input label" helper-text="Optional help text">
     </cds-text-input>
   `;
 };
@@ -41,9 +39,9 @@ export const ReadOnly = () => {
   return html`
     <cds-text-input
       value="This is read only, you can't type more."
-      readonly="true">
-      <span slot="label-text">Text input label</span>
-      <span slot="helper-text">Optional help text</span>
+      readonly="true"
+      label="Text input label"
+      helper-text="Optional help text">
     </cds-text-input>
   `;
 };
@@ -54,9 +52,11 @@ export const Skeleton = () => {
 
 export const TogglePasswordVisibility = () => {
   return html`
-    <cds-text-input type="password" show-password-visibility-toggle>
-      <span slot="label-text">Text input label</span>
-      <span slot="helper-text">Optional help text</span>
+    <cds-text-input
+      type="password"
+      show-password-visibility-toggle
+      label="Text input label"
+      helper-text="Optional help text">
     </cds-text-input>
   `;
 };
@@ -64,19 +64,13 @@ export const TogglePasswordVisibility = () => {
 export const WithLayer = () => {
   return html`
     <cds-layer>
-      <cds-text-input>
-        <span slot="label-text">First layer</span>
-        <span slot="helper-text">Optional help text</span>
+      <cds-text-input label="First layer" helper-text="Optional help text">
       </cds-text-input>
       <cds-layer>
-        <cds-text-input>
-          <span slot="label-text">Second layer</span>
-          <span slot="helper-text">Optional help text</span>
+        <cds-text-input label="Second layer" helper-text="Optional help text">
         </cds-text-input>
         <cds-layer>
-          <cds-text-input>
-            <span slot="label-text">Third layer</span>
-            <span slot="helper-text">Optional help text</span>
+          <cds-text-input label="Third layer" helper-text="Optional help text">
           </cds-text-input>
         </cds-layer>
       </cds-layer>

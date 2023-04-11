@@ -11,7 +11,6 @@ import { html, render } from 'lit';
 import EventManager from '../utils/event-manager';
 
 import CDSTextInput, {
-  INPUT_COLOR_SCHEME,
   INPUT_TYPE,
 } from '../../src/components/text-input/text-input';
 import { Playground } from '../../src/components/text-input/text-input-story';
@@ -43,7 +42,6 @@ describe('cds-text-input', function () {
         template({
           autocomplete: 'on',
           autofocus: true,
-          colorScheme: INPUT_COLOR_SCHEME.LIGHT,
           disabled: true,
           helperText: 'helper-text-foo',
           hidePasswordLabel: 'Hide password',
