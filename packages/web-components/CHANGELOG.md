@@ -3,6 +3,19 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.31.0-rc.0](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/compare/@carbon/ibmdotcom-web-components@1.30.0...@carbon/ibmdotcom-web-components@1.31.0-rc.0) (2023-04-11)
+
+
+### Bug Fixes
+
+* **hr/expressive-modal:** add separator role and update button ([#10256](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/issues/10256)) ([76da73a](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/commit/76da73a7e40a247637d4ae0ddc0954172717beac))
+* **image-with-caption:** adjust image button background color ([#10279](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/issues/10279)) ([9155681](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/commit/9155681fe47502da4bc02f998a239b903c654ee5))
+* **leadspace:** fix heading width for the leadspace ([#10303](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/issues/10303)) ([7045532](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/commit/7045532ecb4830c95b198106bd640845717f8a00))
+
+
+
+
+
 # [1.30.0](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/compare/@carbon/ibmdotcom-web-components@1.30.0-rc.3...@carbon/ibmdotcom-web-components@1.30.0) (2023-03-28)
 
 **Note:** Version bump only for package @carbon/ibmdotcom-web-components
