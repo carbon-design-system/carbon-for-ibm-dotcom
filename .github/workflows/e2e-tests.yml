@@ -123,7 +123,7 @@ jobs:
     needs: web-components-tests
     steps:
       - name: Check if tests failed
-        if: needs.jobs.web-components-tests.outcome != 'success'
+        if: needs.jobs.web-components-tests.result != 'success'
         run: exit 1
 
   install-react:
@@ -231,5 +231,5 @@ jobs:
     steps:
       - run: echo ${{ toJSON(needs) }}
       - name: Check if all tests passed
-        if: needs.jobs.react-tests.outcome != 'success'
+        if: needs.jobs.react-tests.result != 'success'
         run: exit 1
