@@ -9,6 +9,7 @@
 
 import { html, property, state, query, LitElement } from 'lit-element';
 import { carbonElement as customElement } from '../../internal/vendor/@carbon/web-components/globals/decorators/carbon-element.js';
+import { classMap } from 'lit-html/directives/class-map.js';
 import 'wicg-inert';
 import settings from 'carbon-components/es/globals/js/settings.js';
 import { slow01 } from '@carbon/motion';
@@ -206,6 +207,12 @@ class DDSCarousel extends HostListenerMixin(StableSelectorMixin(LitElement)) {
   private _startTime = 0;
 
   /**
+   * Whether the carousel is scrolling
+   */
+  @state()
+  private _isScrolling = false;
+
+  /**
    * Cleans-up and creates the resize observer for the scrolling container.
    *
    * @param [options] The options.
@@ -299,6 +306,7 @@ class DDSCarousel extends HostListenerMixin(StableSelectorMixin(LitElement)) {
   private _handleClickNextButton() {
     const { pageSize, start, _total: total } = this;
     this.start = Math.min(start + pageSize, total - 1);
+    this._handleIsScrolling();
   }
 
   /**
@@ -307,6 +315,17 @@ class DDSCarousel extends HostListenerMixin(StableSelectorMixin(LitElement)) {
   private _handleClickPrevButton() {
     const { pageSize, start } = this;
     this.start = Math.max(start - pageSize, 0);
+    this._handleIsScrolling();
+  }
+
+  /**
+   * Sets scrolling state of carousel
+   */
+  private _handleIsScrolling() {
+    this._isScrolling = true;
+    this._contentsNode?.addEventListener('transitionend', () => {
+      this._isScrolling = false;
+    });
   }
 
   /**
@@ -655,10 +674,15 @@ class DDSCarousel extends HostListenerMixin(StableSelectorMixin(LitElement)) {
       _handleSlotChange: handleSlotChange,
       _handleTouchStartEvent: handleTouchStartEvent,
       _handleTouchEndEvent: handleTouchEndEvent,
+      _isScrolling: isScrolling,
     } = this;
     // Copes with the condition where `start % pageSize` is non-zero
     const pagesBefore = Math.ceil(start / pageSize);
     const pagesSince = Math.ceil((total - start) / pageSize);
+    const scrollContentsClasses = classMap({
+      [`${prefix}--carousel__scroll-contents`]: true,
+      [`${prefix}--carousel__scroll-contents--scrolling`]: isScrolling,
+    });
     // Use another div from the host `<dds-carousel>` to reflect private state
     return html`
       <div role="region" aria-labelledby="carousel-title">
@@ -678,7 +702,7 @@ class DDSCarousel extends HostListenerMixin(StableSelectorMixin(LitElement)) {
               : `${customPropertyPageSize}: ${pageSizeExplicit}`
           )}">
           <div
-            class="${prefix}--carousel__scroll-contents"
+            class="${scrollContentsClasses}"
             style="left:${(-start * (contentsBaseWidth + gap)) / pageSize}px">
             <slot @slotchange="${handleSlotChange}"></slot>
           </div>
