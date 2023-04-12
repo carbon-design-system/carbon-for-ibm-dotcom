@@ -69,6 +69,15 @@ $css--plex: true !default;
   @extend .#{$prefix}--date-picker-container;
 
   outline: none;
+
+  .#{$prefix}--form-requirement[hidden] {
+    display: none;
+  }
+}
+:host(#{$prefix}-date-picker-input[warn]) {
+  .#{$prefix}--form-requirement {
+    color: $text-primary;
+  }
 }
 
 :host(#{$prefix}-date-picker-input[color-scheme='light'])
@@ -84,10 +93,8 @@ $css--plex: true !default;
 }
 
 /* stylelint-disable selector-pseudo-class-parentheses-space-inside */
-:host(#{$prefix}-date-picker-input[kind='simple'][size-horizontal='short']),
-:host(
-    #{$prefix}-date-picker-input-skeleton[kind='simple'][size-horizontal='short']
-  ) {
+:host(#{$prefix}-date-picker-input[kind='simple'][short]),
+:host(#{$prefix}-date-picker-input-skeleton[kind='simple'][short]) {
   .#{$prefix}--date-picker__input {
     width: rem(90px);
   }
@@ -119,12 +126,18 @@ $css--plex: true !default;
   }
 }
 
-:host(#{$prefix}-date-picker-input) ::slotted(.#{$prefix}--date-picker__icon) {
-  position: absolute;
-  right: 1rem;
-  fill: $icon-primary;
-  cursor: pointer;
-  z-index: 1;
+:host(#{$prefix}-date-picker-input) {
+  ::slotted(.#{$prefix}--date-picker__icon) {
+    @extend .#{$prefix}--date-picker__icon;
+  }
+
+  ::slotted(.#{$prefix}--date-picker__icon--warn) {
+    @extend .#{$prefix}--date-picker__icon--warn;
+  }
+
+  ::slotted(.#{$prefix}--date-picker__icon--invalid) {
+    @extend .#{$prefix}--date-picker__icon--invalid;
+  }
 }
 
 :host(#{$prefix}-date-picker-input-skeleton) {
