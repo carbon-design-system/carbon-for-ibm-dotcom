@@ -26,77 +26,7 @@ const kinds = {
 
 const noop = () => {};
 
-export const inline = (args) => {
-  const {
-    kind,
-    title,
-    subtitle,
-    hideCloseButton,
-    lowContrast,
-    closeButtonLabel,
-    iconLabel,
-    open,
-    timeout,
-    disableClose,
-    onBeforeClose = noop,
-    onClose = noop,
-  } = args?.[`${prefix}-inline-notification`] ?? {};
-  const handleBeforeClose = (event: CustomEvent) => {
-    onBeforeClose(event);
-    if (disableClose) {
-      event.preventDefault();
-    }
-  };
-  return html`
-    <cds-inline-notification
-      kind="${ifDefined(kind)}"
-      title="${ifDefined(title)}"
-      subtitle="${ifDefined(subtitle)}"
-      ?hide-close-button="${hideCloseButton}"
-      ?low-contrast="${lowContrast}"
-      close-button-label="${ifDefined(closeButtonLabel)}"
-      icon-label="${ifDefined(iconLabel)}"
-      ?open="${open}"
-      timeout="${ifDefined(timeout)}"
-      @cds-notification-beingclosed="${handleBeforeClose}"
-      @cds-notification-closed="${onClose}">
-    </cds-inline-notification>
-  `;
-};
-
-inline.parameters = {
-  knobs: {
-    [`${prefix}-inline-notification`]: () => ({
-      kind: select(
-        'The notification kind (kind)',
-        kinds,
-        NOTIFICATION_KIND.INFO
-      ),
-      title: textNullable('Title (title)', 'Notification title'),
-      subtitle: textNullable('Subtitle (subtitle)', 'Subtitle text goes here.'),
-      hideCloseButton: boolean(
-        'Hide the close button (hide-close-button)',
-        false
-      ),
-      lowContrast: boolean('Use low contrast variant (low-contrast)', false),
-      closeButtonLabel: textNullable(
-        'a11y label for the close button (close-button-label)',
-        ''
-      ),
-      iconLabel: textNullable('a11y label for the icon (icon-label)', ''),
-      open: boolean('Open (open)', true),
-      timeout: textNullable('Timeout (in ms)', ''),
-      disableClose: boolean(
-        `Disable user-initiated close action (Call event.preventDefault() in ${prefix}-notification-beingclosed event)`,
-        false
-      ),
-      onBeforeClose: action(`${prefix}-notification-beingclosed`),
-      onClose: action(`${prefix}-notification-closed`),
-    }),
-  },
-};
-
-export const toast = (args) => {
+export const Default = (args) => {
   const {
     kind,
     title,
@@ -136,17 +66,114 @@ export const toast = (args) => {
   `;
 };
 
-toast.parameters = {
+Default.parameters = {
   knobs: {
     [`${prefix}-toast-notification`]: () => ({
-      ...inline.parameters.knobs[`${prefix}-inline-notification`](),
+      kind: select(
+        'The notification kind (kind)',
+        kinds,
+        NOTIFICATION_KIND.INFO
+      ),
+      title: textNullable('Title (title)', 'Notification title'),
+      subtitle: textNullable('Subtitle (subtitle)', 'Subtitle text goes here.'),
+      hideCloseButton: boolean(
+        'Hide the close button (hide-close-button)',
+        false
+      ),
+      lowContrast: boolean('Use low contrast variant (low-contrast)', false),
+      closeButtonLabel: textNullable(
+        'a11y label for the close button (close-button-label)',
+        ''
+      ),
+      iconLabel: textNullable('a11y label for the icon (icon-label)', ''),
+      open: boolean('Open (open)', true),
+      timeout: textNullable('Timeout (in ms)', ''),
+      disableClose: boolean(
+        `Disable user-initiated close action (Call event.preventDefault() in ${prefix}-notification-beingclosed event)`,
+        false
+      ),
+      onBeforeClose: action(`${prefix}-notification-beingclosed`),
+      onClose: action(`${prefix}-notification-closed`),
+      caption: textNullable('Caption (caption)', 'Time stamp [00:00:00]'),
+    }),
+  },
+};
+
+export const Playground = (args) => {
+  const {
+    kind,
+    title,
+    subtitle,
+    caption,
+    hideCloseButton,
+    lowContrast,
+    closeButtonLabel,
+    iconLabel,
+    open,
+    timeout,
+    disableClose,
+    onBeforeClose = noop,
+    onClose = noop,
+  } = args?.[`${prefix}-toast-notification`] ?? {};
+  const handleBeforeClose = (event: CustomEvent) => {
+    onBeforeClose(event);
+    if (disableClose) {
+      event.preventDefault();
+    }
+  };
+  return html`
+    <cds-toast-notification
+      kind="${ifDefined(kind)}"
+      title="${ifDefined(title)}"
+      subtitle="${ifDefined(subtitle)}"
+      caption="${ifDefined(caption)}"
+      ?hide-close-button="${hideCloseButton}"
+      ?low-contrast="${lowContrast}"
+      close-button-label="${ifDefined(closeButtonLabel)}"
+      icon-label="${ifDefined(iconLabel)}"
+      ?open="${open}"
+      timeout="${ifDefined(timeout)}"
+      @cds-notification-beingclosed="${handleBeforeClose}"
+      @cds-notification-closed="${onClose}">
+    </cds-toast-notification>
+  `;
+};
+
+Playground.parameters = {
+  knobs: {
+    [`${prefix}-toast-notification`]: () => ({
+      kind: select(
+        'The notification kind (kind)',
+        kinds,
+        NOTIFICATION_KIND.INFO
+      ),
+      title: textNullable('Title (title)', 'Notification title'),
+      subtitle: textNullable('Subtitle (subtitle)', 'Subtitle text goes here.'),
+      hideCloseButton: boolean(
+        'Hide the close button (hide-close-button)',
+        false
+      ),
+      lowContrast: boolean('Use low contrast variant (low-contrast)', false),
+      closeButtonLabel: textNullable(
+        'a11y label for the close button (close-button-label)',
+        ''
+      ),
+      iconLabel: textNullable('a11y label for the icon (icon-label)', ''),
+      open: boolean('Open (open)', true),
+      timeout: textNullable('Timeout (in ms)', ''),
+      disableClose: boolean(
+        `Disable user-initiated close action (Call event.preventDefault() in ${prefix}-notification-beingclosed event)`,
+        false
+      ),
+      onBeforeClose: action(`${prefix}-notification-beingclosed`),
+      onClose: action(`${prefix}-notification-closed`),
       caption: textNullable('Caption (caption)', 'Time stamp [00:00:00]'),
     }),
   },
 };
 
 export default {
-  title: 'Components/Notifications',
+  title: 'Components/Notifications/Actionable',
   parameters: {
     ...storyDocs.parameters,
   },

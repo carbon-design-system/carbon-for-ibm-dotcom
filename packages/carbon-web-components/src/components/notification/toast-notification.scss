@@ -48,8 +48,26 @@ $css--plex: true !default;
   }
 }
 
+:host(#{$prefix}-toast-notification[kind='info-square']) {
+  @extend .#{$prefix}--toast-notification--info-square;
+
+  &[low-contrast] {
+    @extend .#{$prefix}--toast-notification--low-contrast,
+      .#{$prefix}--toast-notification--info;
+  }
+}
+
 :host(#{$prefix}-toast-notification[kind='warning']) {
   @extend .#{$prefix}--toast-notification--warning;
+
+  &[low-contrast] {
+    @extend .#{$prefix}--toast-notification--low-contrast,
+      .#{$prefix}--toast-notification--warning;
+  }
+}
+
+:host(#{$prefix}-toast-notification[kind='warning-alt']) {
+  @extend .#{$prefix}--toast-notification--warning-alt;
 
   &[low-contrast] {
     @extend .#{$prefix}--toast-notification--low-contrast,

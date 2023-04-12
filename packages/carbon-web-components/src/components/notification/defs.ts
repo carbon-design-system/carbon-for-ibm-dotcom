@@ -22,9 +22,19 @@ export enum NOTIFICATION_KIND {
   INFO = 'info',
 
   /**
+   * Informational square icon notification.
+   */
+  INFO_SQUARE = 'info-square',
+
+  /**
    * Warning notification.
    */
   WARNING = 'warning',
+
+  /**
+   * Warning Alt notification.
+   */
+  WARNING_ALT = 'warning-alt',
 
   /**
    * Error notification.
