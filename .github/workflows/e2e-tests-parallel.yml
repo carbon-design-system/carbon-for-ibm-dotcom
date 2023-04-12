@@ -7,7 +7,7 @@ on:
     branches: [ main, release/*, feat/cwc-v2, fix/content-updates ]
 
 concurrency:
-  group: e2e-tests-${{ github.ref }}
+  group: e2e-tests-parallel${{ github.ref }}
   cancel-in-progress: true
 
 jobs:
