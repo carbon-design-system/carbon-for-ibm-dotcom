@@ -28,6 +28,9 @@ export const Default = () => {
       kind="${NOTIFICATION_KIND.ERROR}"
       title="Notification title"
       subtitle="Subtitle text goes here">
+      <cds-actionable-notification-button slot="action"
+        >Action</cds-actionable-notification-button
+      >
     </cds-actionable-notification>
   `;
 };
@@ -35,6 +38,8 @@ export const Default = () => {
 export const Playground = (args) => {
   const {
     actionButtonLabel,
+    closeOnEscape,
+    hasFocus,
     kind,
     title,
     subtitle,
@@ -55,6 +60,8 @@ export const Playground = (args) => {
   };
   return html`
     <cds-actionable-notification
+      ?close-on-escape="${closeOnEscape}"
+      ?has-focus="${hasFocus}"
       kind="${ifDefined(kind)}"
       title="${ifDefined(title)}"
       subtitle="${ifDefined(subtitle)}"
@@ -79,6 +86,8 @@ Playground.parameters = {
         'Action button label (action-button-label)',
         'Action'
       ),
+      closeOnEscape: boolean('Close on escape (close-on-escape)', true),
+      hasFocus: boolean('Has focus (has-focus)', false),
       kind: select(
         'The notification kind (kind)',
         kinds,

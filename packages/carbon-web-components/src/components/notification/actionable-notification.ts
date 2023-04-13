@@ -18,6 +18,8 @@ import { prefix } from '../../globals/settings';
 import { NOTIFICATION_TYPE, NOTIFICATION_KIND } from './defs';
 import CDSInlineNotification from './inline-notification';
 import styles from './actionable-notification.scss';
+import HostListener from '../../globals/decorators/host-listener';
+import HostListenerMixin from '../../globals/mixins/host-listener';
 
 /**
  * The default icons, keyed by notification kind.
@@ -43,7 +45,9 @@ const iconsForKinds = {
  * @fires cds-notification-closed - The custom event fired after this notification is closed upon a user gesture.
  */
 @customElement(`${prefix}-actionable-notification`)
-class CDSActionableNotification extends CDSInlineNotification {
+class CDSActionableNotification extends HostListenerMixin(
+  CDSInlineNotification
+) {
   protected _type = NOTIFICATION_TYPE.ACTIONABLE;
 
   /**
@@ -69,6 +73,19 @@ class CDSActionableNotification extends CDSInlineNotification {
    */
   @property({ type: Boolean, reflect: true, attribute: 'has-focus' })
   hasFocus = true;
+
+  /**
+   * Handles `keydown` event on this event.
+   * Escape will close the notification if `closeOnEscape` is true
+   */
+  @HostListener('keydown')
+  // @ts-ignore: The decorator refers to this method but TS thinks this method is not referred to
+  private _handleKeyDown = async (event: KeyboardEvent) => {
+    const { key } = event;
+    if (this.closeOnEscape && key === 'Escape') {
+      this.open = false;
+    }
+  };
 
   connectedCallback() {
     if (!this.hasAttribute('role')) {
@@ -134,6 +151,11 @@ class CDSActionableNotification extends CDSInlineNotification {
         button?.setAttribute('hide-close-button', 'true');
       } else {
         button?.removeAttribute('hide-close-button');
+      }
+    }
+    if (changedProperties.has('hasFocus')) {
+      if (this.hasFocus) {
+        this.focus();
       }
     }
   }
