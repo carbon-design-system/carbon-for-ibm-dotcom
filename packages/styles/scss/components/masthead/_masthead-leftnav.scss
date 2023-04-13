@@ -469,11 +469,15 @@
     }
   }
 
-  :host(#{$dds-prefix}-left-nav-menu-category-heading):not(.#{$prefix}--left-nav-menu-category__heading-large),
+  /* stylelint-disable selector-pseudo-class-parentheses-space-inside */
+  :host(#{$dds-prefix}-left-nav-menu-category-heading):not(
+      .#{$prefix}--left-nav-menu-category__heading-large
+    ),
   :host(#{$dds-prefix}-left-nav-menu),
   :host(#{$dds-prefix}-left-nav-menu-item) {
     border-bottom: 1px solid $ui-03;
   }
+  /* stylelint-enable selector-pseudo-class-parentheses-space-inside */
 
   :host(#{$dds-prefix}-left-nav-menu-item) {
     .#{$prefix}--side-nav__link {

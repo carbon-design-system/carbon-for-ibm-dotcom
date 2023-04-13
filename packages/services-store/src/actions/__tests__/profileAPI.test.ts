@@ -15,7 +15,7 @@ import {
   UNAUTHENTICATED_STATUS,
   PROFILE_API_ACTION,
   ProfileAPIState,
-  MASTHEAD_AUTH_METHOD
+  MASTHEAD_AUTH_METHOD,
 } from '../../types/profileAPI';
 import convertValue from '../../../tests/utils/convert-value';
 import { loadUserStatus, setUserStatus } from '../profileAPI';

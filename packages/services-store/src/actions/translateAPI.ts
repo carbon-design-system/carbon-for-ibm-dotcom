@@ -110,7 +110,11 @@ export function loadTranslation(
         dataEndpoint
       );
     dispatch(
-      setRequestTranslationInProgress(effectiveLanguage, promiseTranslation, dataEndpoint)
+      setRequestTranslationInProgress(
+        effectiveLanguage,
+        promiseTranslation,
+        dataEndpoint
+      )
     );
     try {
       dispatch(
