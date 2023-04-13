@@ -73,11 +73,14 @@
     margin-right: calc(
       #{$spacing-05} + var(--#{$dds-prefix}--carousel--overflow-hint-size, #{$spacing-05})
     );
-    transition: left $duration--slow-01 motion(standard, productive);
     display: flex;
     // Achieves `sameHeight` effect for card group.
     // The cards must have `height:auto`.
     align-items: stretch;
+  }
+
+  .#{$prefix}--carousel__scroll-contents--scrolling {
+    transition: left $duration--slow-01 motion(standard, productive);
   }
 
   .#{$prefix}--carousel__navigation {
