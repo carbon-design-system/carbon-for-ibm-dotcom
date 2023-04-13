@@ -13,108 +13,40 @@ import { action } from '@storybook/addon-actions';
 import { boolean, select } from '@storybook/addon-knobs';
 import textNullable from '../../../.storybook/knob-text-nullable';
 import { NOTIFICATION_KIND } from './inline-notification';
-import './toast-notification';
+import './actionable-notification';
+import './actionable-notification-button';
 import storyDocs from './notification-story.mdx';
 import { prefix } from '../../globals/settings';
-
-const kinds = {
-  [`Success (${NOTIFICATION_KIND.SUCCESS})`]: NOTIFICATION_KIND.SUCCESS,
-  [`Info (${NOTIFICATION_KIND.INFO})`]: NOTIFICATION_KIND.INFO,
-  [`Warning (${NOTIFICATION_KIND.WARNING})`]: NOTIFICATION_KIND.WARNING,
-  [`Error (${NOTIFICATION_KIND.ERROR})`]: NOTIFICATION_KIND.ERROR,
-};
+import kinds from './stories/helper';
+import '../button/button';
 
 const noop = () => {};
 
-export const Default = (args) => {
-  const {
-    kind,
-    title,
-    subtitle,
-    caption,
-    hideCloseButton,
-    lowContrast,
-    closeButtonLabel,
-    iconLabel,
-    open,
-    timeout,
-    disableClose,
-    onBeforeClose = noop,
-    onClose = noop,
-  } = args?.[`${prefix}-toast-notification`] ?? {};
-  const handleBeforeClose = (event: CustomEvent) => {
-    onBeforeClose(event);
-    if (disableClose) {
-      event.preventDefault();
-    }
-  };
+export const Default = () => {
   return html`
-    <cds-toast-notification
-      kind="${ifDefined(kind)}"
-      title="${ifDefined(title)}"
-      subtitle="${ifDefined(subtitle)}"
-      caption="${ifDefined(caption)}"
-      ?hide-close-button="${hideCloseButton}"
-      ?low-contrast="${lowContrast}"
-      close-button-label="${ifDefined(closeButtonLabel)}"
-      icon-label="${ifDefined(iconLabel)}"
-      ?open="${open}"
-      timeout="${ifDefined(timeout)}"
-      @cds-notification-beingclosed="${handleBeforeClose}"
-      @cds-notification-closed="${onClose}">
-    </cds-toast-notification>
+    <cds-actionable-notification
+      kind="${NOTIFICATION_KIND.ERROR}"
+      title="Notification title"
+      subtitle="Subtitle text goes here">
+    </cds-actionable-notification>
   `;
-};
-
-Default.parameters = {
-  knobs: {
-    [`${prefix}-toast-notification`]: () => ({
-      kind: select(
-        'The notification kind (kind)',
-        kinds,
-        NOTIFICATION_KIND.INFO
-      ),
-      title: textNullable('Title (title)', 'Notification title'),
-      subtitle: textNullable('Subtitle (subtitle)', 'Subtitle text goes here.'),
-      hideCloseButton: boolean(
-        'Hide the close button (hide-close-button)',
-        false
-      ),
-      lowContrast: boolean('Use low contrast variant (low-contrast)', false),
-      closeButtonLabel: textNullable(
-        'a11y label for the close button (close-button-label)',
-        ''
-      ),
-      iconLabel: textNullable('a11y label for the icon (icon-label)', ''),
-      open: boolean('Open (open)', true),
-      timeout: textNullable('Timeout (in ms)', ''),
-      disableClose: boolean(
-        `Disable user-initiated close action (Call event.preventDefault() in ${prefix}-notification-beingclosed event)`,
-        false
-      ),
-      onBeforeClose: action(`${prefix}-notification-beingclosed`),
-      onClose: action(`${prefix}-notification-closed`),
-      caption: textNullable('Caption (caption)', 'Time stamp [00:00:00]'),
-    }),
-  },
 };
 
 export const Playground = (args) => {
   const {
+    actionButtonLabel,
     kind,
     title,
     subtitle,
-    caption,
     hideCloseButton,
     lowContrast,
-    closeButtonLabel,
-    iconLabel,
-    open,
-    timeout,
+    role,
+    inline,
+    statusIconDescription,
     disableClose,
     onBeforeClose = noop,
     onClose = noop,
-  } = args?.[`${prefix}-toast-notification`] ?? {};
+  } = args?.[`${prefix}-actionable-notification`] ?? {};
   const handleBeforeClose = (event: CustomEvent) => {
     onBeforeClose(event);
     if (disableClose) {
@@ -122,30 +54,35 @@ export const Playground = (args) => {
     }
   };
   return html`
-    <cds-toast-notification
+    <cds-actionable-notification
       kind="${ifDefined(kind)}"
       title="${ifDefined(title)}"
       subtitle="${ifDefined(subtitle)}"
-      caption="${ifDefined(caption)}"
+      role="${ifDefined(role)}"
+      ?inline="${inline}"
       ?hide-close-button="${hideCloseButton}"
       ?low-contrast="${lowContrast}"
-      close-button-label="${ifDefined(closeButtonLabel)}"
-      icon-label="${ifDefined(iconLabel)}"
-      ?open="${open}"
-      timeout="${ifDefined(timeout)}"
+      status-icon-description="${ifDefined(statusIconDescription)}"
       @cds-notification-beingclosed="${handleBeforeClose}"
       @cds-notification-closed="${onClose}">
-    </cds-toast-notification>
+      <cds-actionable-notification-button slot="action"
+        >${actionButtonLabel}</cds-actionable-notification-button
+      >
+    </cds-actionable-notification>
   `;
 };
 
 Playground.parameters = {
   knobs: {
-    [`${prefix}-toast-notification`]: () => ({
+    [`${prefix}-actionable-notification`]: () => ({
+      actionButtonLabel: textNullable(
+        'Action button label (action-button-label)',
+        'Action'
+      ),
       kind: select(
         'The notification kind (kind)',
         kinds,
-        NOTIFICATION_KIND.INFO
+        NOTIFICATION_KIND.ERROR
       ),
       title: textNullable('Title (title)', 'Notification title'),
       subtitle: textNullable('Subtitle (subtitle)', 'Subtitle text goes here.'),
@@ -154,20 +91,14 @@ Playground.parameters = {
         false
       ),
       lowContrast: boolean('Use low contrast variant (low-contrast)', false),
-      closeButtonLabel: textNullable(
-        'a11y label for the close button (close-button-label)',
-        ''
-      ),
-      iconLabel: textNullable('a11y label for the icon (icon-label)', ''),
-      open: boolean('Open (open)', true),
-      timeout: textNullable('Timeout (in ms)', ''),
-      disableClose: boolean(
-        `Disable user-initiated close action (Call event.preventDefault() in ${prefix}-notification-beingclosed event)`,
-        false
+      inline: boolean('Inline (inline)', false),
+      role: textNullable('Role (role)', 'alertdialog'),
+      statusIconDescription: textNullable(
+        'statusIconDescription (status-icon-description)',
+        'notification'
       ),
       onBeforeClose: action(`${prefix}-notification-beingclosed`),
       onClose: action(`${prefix}-notification-closed`),
-      caption: textNullable('Caption (caption)', 'Time stamp [00:00:00]'),
     }),
   },
 };

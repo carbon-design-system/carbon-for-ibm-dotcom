@@ -79,7 +79,7 @@ Playground.parameters = {
       ),
       lowContrast: boolean('Use low contrast variant (low-contrast)', false),
       role: select(
-        'role (role)',
+        'Role (role)',
         { alert: 'alert', log: 'log', status: 'status' },
         'status'
       ),

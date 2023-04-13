@@ -48,7 +48,7 @@ class CDSToastNotification extends CDSInlineNotification {
   }
 
   /**
-   * The caption.
+   * Specify the caption
    */
   @property()
   caption = '';

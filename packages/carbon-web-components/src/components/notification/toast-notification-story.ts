@@ -40,6 +40,7 @@ export const Playground = (args) => {
     subtitle,
     caption,
     hideCloseButton,
+    statusIconDescription,
     lowContrast,
     timeout,
     role,
@@ -62,6 +63,7 @@ export const Playground = (args) => {
       role="${ifDefined(role)}"
       ?hide-close-button="${hideCloseButton}"
       ?low-contrast="${lowContrast}"
+      status-icon-description="${ifDefined(statusIconDescription)}"
       timeout="${ifDefined(timeout)}"
       @cds-notification-beingclosed="${handleBeforeClose}"
       @cds-notification-closed="${onClose}">
@@ -84,7 +86,7 @@ Playground.parameters = {
       ),
       lowContrast: boolean('Use low contrast variant (low-contrast)', false),
       role: select(
-        'role (role)',
+        'Role (role)',
         { alert: 'alert', log: 'log', status: 'status' },
         'status'
       ),
