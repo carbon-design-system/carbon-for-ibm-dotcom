@@ -15,35 +15,18 @@ $css--plex: true !default;
 // https://github.com/carbon-design-system/carbon/issues/11408
 @include search;
 
-:host(#{$prefix}-search),
-:host(#{$prefix}-search-skeleton) {
-  @extend .#{$prefix}--search--lg;
-}
-
 :host(#{$prefix}-search) {
   @extend .#{$prefix}--search;
 
   outline: none;
-}
 
-:host(#{$prefix}-search[size='sm']),
-:host(#{$prefix}-search-skeleton[size='sm']) {
-  @extend .#{$prefix}--search--sm;
-}
+  &[expandable] {
+    @extend .#{$prefix}--search--expandable;
 
-:host(#{$prefix}-search[size='lg']),
-:host(#{$prefix}-search-skeleton[size='lg']) {
-  @extend .#{$prefix}--search--lg;
-}
-
-// TODO: deprecate
-// :host(#{$prefix}-search[size='xl']),
-// :host(#{$prefix}-search-skeleton[size='xl']) {
-//   @extend .#{$prefix}--search--xl;
-// }
-
-:host(#{$prefix}-search[color-scheme='light']) {
-  @extend .#{$prefix}--search--light;
+    &[expanded] {
+      @extend .#{$prefix}--search--expanded;
+    }
+  }
 }
 
 :host(#{$prefix}-search-skeleton) {
@@ -57,5 +40,20 @@ $css--plex: true !default;
     &::placeholder {
       color: transparent;
     }
+  }
+}
+
+:host(#{$prefix}-search),
+:host(#{$prefix}-search-skeleton) {
+  &[size='sm'] {
+    @extend .#{$prefix}--search--sm;
+  }
+
+  &[size='md'] {
+    @extend .#{$prefix}--search--md;
+  }
+
+  &[size='lg'] {
+    @extend .#{$prefix}--search--lg;
   }
 }
