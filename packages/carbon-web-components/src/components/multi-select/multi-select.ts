@@ -16,7 +16,7 @@ import {
   forEach,
   indexOf,
 } from '../../globals/internal/collection-helpers';
-import BXDropdown, { DROPDOWN_KEYBOARD_ACTION } from '../dropdown/dropdown';
+import CDSDropdown, { DROPDOWN_KEYBOARD_ACTION } from '../dropdown/dropdown';
 import BXMultiSelectItem from './multi-select-item';
 import styles from './multi-select.scss';
 
@@ -41,7 +41,7 @@ export {
  *   The custom event fired after the open state of this multi select is toggled upon a user gesture.
  */
 @customElement(`${prefix}-multi-select`)
-class BXMultiSelect extends BXDropdown {
+class BXMultiSelect extends CDSDropdown {
   @property({ type: Boolean })
   filterable;
 
@@ -136,7 +136,7 @@ class BXMultiSelect extends BXDropdown {
    */
   protected _handleKeypressInner(event: KeyboardEvent) {
     const { key } = event;
-    const action = (this.constructor as typeof BXDropdown).getAction(key);
+    const action = (this.constructor as typeof CDSDropdown).getAction(key);
     const { TRIGGERING } = DROPDOWN_KEYBOARD_ACTION;
 
     if (
@@ -167,7 +167,7 @@ class BXMultiSelect extends BXDropdown {
 
   protected _handleKeypressInnerFlterable(event: KeyboardEvent) {
     const { key } = event;
-    const action = (this.constructor as typeof BXDropdown).getAction(key);
+    const action = (this.constructor as typeof CDSDropdown).getAction(key);
     if (!this.open) {
       switch (action) {
         case DROPDOWN_KEYBOARD_ACTION.TRIGGERING:
@@ -180,7 +180,7 @@ class BXMultiSelect extends BXDropdown {
       switch (key) {
         case 'Enter':
           {
-            const constructor = this.constructor as typeof BXDropdown;
+            const constructor = this.constructor as typeof CDSDropdown;
             const highlightedItem = this.querySelector(
               constructor.selectorItemHighlighted
             ) as BXMultiSelectItem;

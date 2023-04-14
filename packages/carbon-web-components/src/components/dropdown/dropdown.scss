@@ -8,6 +8,7 @@
 $css--plex: true !default;
 
 @use '@carbon/styles/scss/config' as *;
+@use '@carbon/styles/scss/spacing' as *;
 @use '@carbon/styles/scss/theme' as *;
 @use '@carbon/styles/scss/utilities' as *;
 @use '@carbon/styles/scss/components/list-box/list-box' as *;
@@ -34,11 +35,28 @@ $css--plex: true !default;
   .#{$prefix}--list-box__menu {
     top: 100%;
     margin-top: 1px;
+    outline: 1px solid $focus;
+  }
+
+  &[open] {
+    .#{$prefix}--list-box__field {
+      outline: none;
+    }
+  }
+
+  &[direction='top'] {
+    @extend .#{$prefix}--list-box--up;
+
+    .#{$prefix}--list-box__menu {
+      top: auto;
+    }
   }
 }
 
 :host(#{$prefix}-dropdown[type='inline']) {
   @extend .#{$prefix}--list-box__wrapper--inline;
+
+  grid-gap: 0 1.5rem;
 }
 
 :host(#{$prefix}-dropdown-item) {
@@ -47,7 +65,7 @@ $css--plex: true !default;
   display: block;
 
   .#{$prefix}--list-box__menu-item__option {
-    height: 100%;
+    height: auto;
   }
 }
 

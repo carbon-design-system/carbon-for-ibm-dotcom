@@ -13,8 +13,8 @@ import { ifDefined } from 'lit/directives/if-defined.js';
 import { html } from 'lit';
 import { customElement, property, query } from 'lit/decorators.js';
 import ddsSettings from '@carbon/ibmdotcom-utilities/es/utilities/settings/settings.js';
-import BXDropdown from '../../internal/vendor/@carbon/web-components/components/dropdown/dropdown.js';
-import BXDropdownItem from '../../internal/vendor/@carbon/web-components/components/dropdown/dropdown-item.js';
+import CDSDropdown from '../../internal/vendor/@carbon/web-components/components/dropdown/dropdown.js';
+import CDSDropdownItem from '../../internal/vendor/@carbon/web-components/components/dropdown/dropdown-item.js';
 import ChevronDown16 from '../../internal/vendor/@carbon/web-components/icons/chevron--down/16.js';
 import WarningFilled16 from '../../internal/vendor/@carbon/web-components/icons/warning--filled/16.js';
 import {
@@ -56,7 +56,7 @@ const { prefix } = settings;
  * @fires bx-dropdown-toggled - The custom event fired after the open state of this dropdown is toggled upon a user gesture.
  */
 @customElement(`${ddsPrefix}-dropdown`)
-class DDSDropdown extends BXDropdown {
+class DDSDropdown extends CDSDropdown {
   /**
    * The `<input` node in ComboBox, used to get value.
    */
@@ -78,7 +78,7 @@ class DDSDropdown extends BXDropdown {
    * @param direction `-1` to navigate backward, `1` to navigate forward.
    */
   protected _navigate(direction: number) {
-    const constructor = this.constructor as typeof BXDropdown;
+    const constructor = this.constructor as typeof CDSDropdown;
     const items = this.querySelectorAll(constructor.selectorItem);
     const highlightedItem = this.querySelector(
       constructor.selectorItemHighlighted
@@ -92,7 +92,7 @@ class DDSDropdown extends BXDropdown {
       nextIndex = 0;
     }
     forEach(items, (item, i) => {
-      (item as BXDropdownItem).highlighted = i === nextIndex;
+      (item as CDSDropdownItem).highlighted = i === nextIndex;
     });
 
     const nextItem = items[nextIndex];
