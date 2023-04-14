@@ -85,6 +85,7 @@ export interface MastheadLink {
 
 /**
  * A menu section for masthead
+ *
  * @deprecated
  */
 export interface LegacyMastheadL1 {

@@ -9,6 +9,7 @@
 
 import {
   html,
+  customElement,
   LitElement,
   property,
   TemplateResult as _TemplateResult,
@@ -22,7 +23,7 @@ import StableSelectorMixin from '../../globals/mixins/stable-selector';
 import styles from './masthead-l1.scss';
 import {
   L1MenuItem as _L1MenuItem,
-  L1SubmenuSection,
+  L1SubmenuSection as _L1SubmenuSection,
   L1SubmenuSectionHeading,
   MastheadL1,
 } from '../../internal/vendor/@carbon/ibmdotcom-services-store/types/translateAPI';
@@ -34,8 +35,6 @@ import ArrowRight20 from '../../internal/vendor/@carbon/web-components/icons/arr
 import CaretLeft20 from '../../internal/vendor/@carbon/web-components/icons/caret--left/20.js';
 import CaretRight20 from '../../internal/vendor/@carbon/web-components/icons/caret--right/20.js';
 import { classMap } from 'lit-html/directives/class-map';
-import { carbonElement as customElement } from '../../internal/vendor/@carbon/web-components/globals/decorators/carbon-element';
-import { nothing } from 'lit-html';
 
 const { prefix } = settings;
 const { stablePrefix: ddsPrefix } = ddsSettings;
@@ -406,7 +405,7 @@ class DDSMastheadL1 extends StableSelectorMixin(LitElement) {
 
   /**
    *
-   * @param {L1SubmenuSection[]} sections the sections to render.
+   * @param {_L1SubmenuSection[]} sections the sections to render.
    * @param {boolean} hasWide if this column will be rendered as or next to a wide column.
    * @param {boolean} isWide if this column will be rendered as a wide column.
    * @returns rendered markup
