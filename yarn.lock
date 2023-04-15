@@ -2096,7 +2096,7 @@ __metadata:
     "@carbon/ibmdotcom-styles": 1.46.0-rc.0
     "@carbon/ibmdotcom-utilities": 1.46.0-rc.0
     "@carbon/icons-react": 10.49.0
-    "@carbon/pictograms-react": 11.40.0
+    "@carbon/pictograms-react": 11.41.0
     "@carbon/storybook-addon-theme": 1.37.0-rc.0
     "@carbon/telemetry": ^0.1.0
     "@percy-io/in-percy": ^0.1.11
@@ -2587,16 +2587,16 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@carbon/pictograms-react@npm:11.40.0":
-  version: 11.40.0
-  resolution: "@carbon/pictograms-react@npm:11.40.0"
+"@carbon/pictograms-react@npm:11.41.0":
+  version: 11.41.0
+  resolution: "@carbon/pictograms-react@npm:11.41.0"
   dependencies:
     "@carbon/icon-helpers": ^10.39.0
     "@carbon/telemetry": 0.1.0
     prop-types: ^15.7.2
   peerDependencies:
     react: ">=16"
-  checksum: e27e4fb0e435f63334fa31b391991988cb1cc32432c9aeed3db8c37af708ac0d2761ada01c1745ba804cd92346aa210adbf4c1c31bd0f04aad95bb4b92217c40
+  checksum: b7131e03d14cfdbe7aadb4cc48d9f64d1d760affbf4b3e3a07291fb7908f097ca98ca57d6817662b4f79f81004181a149e56b264cc00a29232dfbc89161411e4
   languageName: node
   linkType: hard
 
