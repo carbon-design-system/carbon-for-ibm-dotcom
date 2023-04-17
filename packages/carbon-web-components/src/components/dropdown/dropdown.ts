@@ -690,7 +690,6 @@ class CDSDropdown extends ValidityMixin(
           class: `${prefix}--list-box__invalid-icon ${prefix}--list-box__invalid-icon--warning`,
           'aria-label': toggleLabel,
         });
-    console.log(warnText);
     const helperMessage = invalid ? invalidText : warn ? warnText : helperText;
     const menuBody = !open
       ? undefined

@@ -59,9 +59,9 @@ export enum DROPDOWN_SIZE {
   SMALL = 'sm',
 
   /**
-   * Extra large size.
+   * Large size.
    */
-  EXTRA_LARGE = 'xl',
+  LARGE = 'lg',
 }
 
 /**

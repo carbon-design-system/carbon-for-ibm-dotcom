@@ -20,11 +20,7 @@ import CDSDropdown, { DROPDOWN_KEYBOARD_ACTION } from '../dropdown/dropdown';
 import BXMultiSelectItem from './multi-select-item';
 import styles from './multi-select.scss';
 
-export {
-  DROPDOWN_COLOR_SCHEME,
-  DROPDOWN_SIZE,
-  DROPDOWN_TYPE,
-} from '../dropdown/dropdown';
+export { DROPDOWN_SIZE, DROPDOWN_TYPE } from '../dropdown/dropdown';
 
 /**
  * Multi select.
@@ -219,18 +215,18 @@ class BXMultiSelect extends CDSDropdown {
     @returns The main content of the trigger button.
    */
   protected _renderTriggerContent(): TemplateResult {
-    const { triggerContent, _selectedItemContent: selectedItemContent } = this;
+    const { label, _selectedItemContent: selectedItemContent } = this;
     return !this.filterable
       ? html`
           <span id="trigger-label" class="${prefix}--list-box__label"
-            >${selectedItemContent || triggerContent}</span
+            >${selectedItemContent || label}</span
           >
         `
       : html`
           <input
             id="trigger-label"
             class="${prefix}--text-input"
-            placeholder="${triggerContent}"
+            placeholder="${label}"
             role="combobox"
             aria-controls="menu-body"
             aria-autocomplete="list"

@@ -8,7 +8,6 @@
  */
 
 import { html } from 'lit';
-import { action } from '@storybook/addon-actions';
 import { boolean, select } from '@storybook/addon-knobs';
 import { prefix } from '../../globals/settings';
 import textNullable from '../../../.storybook/knob-text-nullable';
@@ -24,10 +23,9 @@ const directionOptions = {
 };
 
 const sizes = {
-  'Regular size': null,
   [`Small size (${DROPDOWN_SIZE.SMALL})`]: DROPDOWN_SIZE.SMALL,
-  [`Extra large size (${DROPDOWN_SIZE.EXTRA_LARGE})`]:
-    DROPDOWN_SIZE.EXTRA_LARGE,
+  'Regular size': null,
+  [`Large size (${DROPDOWN_SIZE.LARGE})`]: DROPDOWN_SIZE.LARGE,
 };
 
 const types = {

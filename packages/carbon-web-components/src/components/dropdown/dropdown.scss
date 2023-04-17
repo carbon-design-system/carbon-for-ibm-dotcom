@@ -51,12 +51,12 @@ $css--plex: true !default;
       top: auto;
     }
   }
-}
 
-:host(#{$prefix}-dropdown[type='inline']) {
-  @extend .#{$prefix}--list-box__wrapper--inline;
+  &[type='inline'] {
+    @extend .#{$prefix}--list-box__wrapper--inline;
 
-  grid-gap: 0 1.5rem;
+    grid-gap: 0 $spacing-06;
+  }
 }
 
 :host(#{$prefix}-dropdown-item) {
@@ -67,46 +67,47 @@ $css--plex: true !default;
   .#{$prefix}--list-box__menu-item__option {
     height: auto;
   }
-}
 
-:host(#{$prefix}-dropdown-item[size='sm']) {
-  height: rem(32px);
-
-  .#{$prefix}--list-box__menu-item__option {
-    padding-top: rem(7px);
-    padding-bottom: rem(7px);
-  }
-}
-
-:host(#{$prefix}-dropdown-item[size='xl']) {
-  height: rem(48px);
-
-  .#{$prefix}--list-box__menu-item__option {
-    padding-top: rem(15px);
-    padding-bottom: rem(15px);
-  }
-}
-
-:host(#{$prefix}-dropdown-item[disabled])
-  .#{$prefix}--list-box__menu-item__option {
-  color: $text-disabled;
-  text-decoration: none;
-}
-
-:host(#{$prefix}-dropdown-item[highlighted]) {
-  @extend .#{$prefix}--list-box__menu-item--highlighted;
-}
-
-:host(#{$prefix}-dropdown-item[selected]) {
-  @extend .#{$prefix}--list-box__menu-item--active;
-  @extend .#{$prefix}--list-box__menu-item--highlighted;
-
-  .#{$prefix}--list-box__menu-item__option {
-    color: $text-primary;
+  &[highlighted] {
+    @extend .#{$prefix}--list-box__menu-item--highlighted;
   }
 
-  .#{$prefix}--list-box__menu-item__selected-icon {
-    display: block;
+  &[disabled] {
+    .#{$prefix}--list-box__menu-item__option {
+      color: $text-disabled;
+      text-decoration: none;
+    }
+  }
+
+  &[selected] {
+    @extend .#{$prefix}--list-box__menu-item--active;
+    @extend .#{$prefix}--list-box__menu-item--highlighted;
+
+    .#{$prefix}--list-box__menu-item__option {
+      color: $text-primary;
+    }
+
+    .#{$prefix}--list-box__menu-item__selected-icon {
+      display: block;
+    }
+  }
+
+  &[size='sm'] {
+    height: $spacing-07;
+
+    .#{$prefix}--list-box__menu-item__option {
+      padding-top: rem(7px);
+      padding-bottom: rem(7px);
+    }
+  }
+
+  &[size='lg'] {
+    height: $spacing-09;
+
+    .#{$prefix}--list-box__menu-item__option {
+      padding-top: rem(15px);
+      padding-bottom: rem(15px);
+    }
   }
 }
 
