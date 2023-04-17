@@ -8,6 +8,7 @@
 $css--plex: true !default;
 
 @use '@carbon/styles/scss/config' as *;
+@use '@carbon/styles/scss/colors' as *;
 @use '@carbon/styles/scss/theme' as *;
 @use '@carbon/styles/scss/spacing' as *;
 @use '@carbon/styles/scss/components/notification/index' as *;
@@ -129,6 +130,14 @@ $css--plex: true !default;
     @extend .#{$prefix}--actionable-notification--low-contrast,
       .#{$prefix}--actionable-notification--warning;
   }
+
+  /* TODO: Remove this once the following issue with icon fill is resolved:
+  ** https://github.com/carbon-design-system/carbon/issues/13616
+  */
+  .#{$prefix}--inline-notification__icon path[data-icon-path='inner-path'] {
+    fill: $black-100;
+    opacity: 1;
+  }
 }
 
 :host(#{$prefix}-actionable-notification[kind='warning-alt']) {
@@ -137,6 +146,17 @@ $css--plex: true !default;
   &[low-contrast] {
     @extend .#{$prefix}--actionable-notification--low-contrast,
       .#{$prefix}--actionable-notification--warning;
+  }
+
+  /* TODO: Remove this once the following issue with icon fill is resolved:
+  ** https://github.com/carbon-design-system/carbon/issues/13616
+  */
+  .#{$prefix}--inline-notification__icon,
+  .#{$prefix}--toast-notification__icon {
+    path[data-icon-path='inner-path'] {
+      fill: $black-100;
+      opacity: 1;
+    }
   }
 }
 

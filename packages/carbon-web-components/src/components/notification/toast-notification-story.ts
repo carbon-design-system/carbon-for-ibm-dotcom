@@ -74,7 +74,7 @@ export const Playground = (args) => {
 Playground.parameters = {
   knobs: {
     [`${prefix}-toast-notification`]: () => ({
-      caption: textNullable('Caption (caption)', 'Time stamp [00:00:00]'),
+      caption: textNullable('Caption (caption)', '00:00:00 AM'),
       hideCloseButton: boolean(
         'Hide the close button (hide-close-button)',
         false
@@ -94,7 +94,7 @@ Playground.parameters = {
         'statusIconDescription (status-icon-description)',
         'notification'
       ),
-      subtitle: textNullable('Subtitle (subtitle)', 'Subtitle text goes here.'),
+      subtitle: textNullable('Subtitle (subtitle)', 'Subtitle text goes here'),
       timeout: textNullable('Timeout in ms (timeout)', '0'),
       title: textNullable('Title (title)', 'Notification title'),
       onBeforeClose: action(`${prefix}-notification-beingclosed`),

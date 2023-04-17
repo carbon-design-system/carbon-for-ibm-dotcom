@@ -88,24 +88,24 @@ Playground.parameters = {
       ),
       closeOnEscape: boolean('Close on escape (close-on-escape)', true),
       hasFocus: boolean('Has focus (has-focus)', false),
+      hideCloseButton: boolean(
+        'Hide the close button (hide-close-button)',
+        false
+      ),
+      inline: boolean('Inline (inline)', false),
       kind: select(
         'The notification kind (kind)',
         kinds,
         NOTIFICATION_KIND.ERROR
       ),
-      title: textNullable('Title (title)', 'Notification title'),
-      subtitle: textNullable('Subtitle (subtitle)', 'Subtitle text goes here.'),
-      hideCloseButton: boolean(
-        'Hide the close button (hide-close-button)',
-        false
-      ),
       lowContrast: boolean('Use low contrast variant (low-contrast)', false),
-      inline: boolean('Inline (inline)', false),
       role: textNullable('Role (role)', 'alertdialog'),
+      subtitle: textNullable('Subtitle (subtitle)', 'Subtitle text goes here'),
       statusIconDescription: textNullable(
         'statusIconDescription (status-icon-description)',
         'notification'
       ),
+      title: textNullable('Title (title)', 'Notification title'),
       onBeforeClose: action(`${prefix}-notification-beingclosed`),
       onClose: action(`${prefix}-notification-closed`),
     }),

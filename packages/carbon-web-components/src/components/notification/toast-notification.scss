@@ -8,6 +8,7 @@
 $css--plex: true !default;
 
 @use '@carbon/styles/scss/config' as *;
+@use '@carbon/styles/scss/colors' as *;
 @use '@carbon/styles/scss/components/notification/index' as *;
 @use '@carbon/styles/scss/components/button';
 
@@ -72,6 +73,13 @@ $css--plex: true !default;
   &[low-contrast] {
     @extend .#{$prefix}--toast-notification--low-contrast,
       .#{$prefix}--toast-notification--warning;
+  }
+
+  /* TODO: Remove this once the following issue with icon fill is resolved: 
+  ** https://github.com/carbon-design-system/carbon/issues/13616
+  */
+  .#{$prefix}--toast-notification__icon path[data-icon-path='inner-path'] {
+    fill: $black-100;
   }
 }
 

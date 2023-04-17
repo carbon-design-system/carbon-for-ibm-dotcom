@@ -87,7 +87,7 @@ Playground.parameters = {
         'statusIconDescription (status-icon-description)',
         'notification'
       ),
-      subtitle: textNullable('Subtitle (subtitle)', 'Subtitle text goes here.'),
+      subtitle: textNullable('Subtitle (subtitle)', 'Subtitle text goes here'),
       title: textNullable('Title (title)', 'Notification title'),
       onBeforeClose: action(`${prefix}-notification-beingclosed`),
       onClose: action(`${prefix}-notification-closed`),
