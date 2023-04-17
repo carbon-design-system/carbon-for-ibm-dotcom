@@ -86,11 +86,6 @@ class BXCodeSnippet extends FocusMixin(LitElement) {
   private _expanded = false;
 
   /**
-   * `true` to show the feedback tooltip.
-   */
-  private _showCopyButtonFeedback = false;
-
-  /**
    * `true` to show the expando.
    */
   private _showExpando = false;
