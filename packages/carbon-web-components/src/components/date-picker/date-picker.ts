@@ -299,13 +299,13 @@ class CDSDatePicker extends HostListenerMixin(FormMixin(LitElement)) {
   /**
    * flatpickr prop passthrough. Allows the user to enter a date directly into the input field
    */
-  @property({ type: Boolean, reflect: true })
+  @property({ type: Boolean, reflect: true, attribute: 'allow-input' })
   allowInput = true;
 
   /**
    * flatpickr prop passthrough. Controls whether the calendar dropdown closes upon selection.
    */
-  @property({ type: Boolean, reflect: true })
+  @property({ type: Boolean, reflect: true, attribute: 'close-on-select' })
   closeOnSelect = true;
 
   /**

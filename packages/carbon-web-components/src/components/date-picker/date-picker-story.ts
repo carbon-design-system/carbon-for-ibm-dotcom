@@ -26,12 +26,11 @@ const knobs = {
   [`${prefix}-date-picker`]: () => ({
     dateFormat: textNullable('Date format (date-format)', 'm/d/Y'),
     disabled: boolean('Disabled (disabled)', false),
+    allowInput: boolean('Allow input (allow-input)', true),
+    closeOnSelect: boolean('Close on select (close-on-select)', true),
     minDate: textNullable('Minimum date in ISO8601 date format (min-date)', ''),
     maxDate: textNullable('Maximum date in ISO8601 date format (max-date)', ''),
     onChange: action(`${prefix}-date-picker-changed`),
-    onOpen: action(`${prefix}-date-picker-opened`),
-    onClose: action(`${prefix}-date-picker-closed`),
-    // onFlatpickrError: action('cds-date-picker-flatpickr-error'),
   }),
   [`${prefix}-date-picker-input`]: () => ({
     datePickerType: select(
@@ -47,7 +46,6 @@ const knobs = {
     invalidText: textNullable('Invalid text (invalid-text)', ''),
     placeholder: textNullable('Placeholder text (placeholder)', 'mm/dd/yyyy'),
     size: select('Size (size)', sizes, INPUT_SIZE.MEDIUM),
-
     onInput: action('input'),
   }),
 };
