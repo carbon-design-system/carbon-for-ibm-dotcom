@@ -7,17 +7,15 @@
  * LICENSE file in the root directory of this source tree.
  */
 
-import { LitElement, html } from 'lit';
-import { property, customElement, query } from 'lit/decorators.js';
-import { classMap } from 'lit-html/directives/class-map';
-import Information16 from '@carbon/icons/lib/information/16';
+import { css } from 'lit';
+import { property, customElement } from 'lit/decorators.js';
 import { prefix } from '../../globals/settings';
 import HostListener from '../../globals/decorators/host-listener';
 import HostListenerMixin from '../../globals/mixins/host-listener';
-import { find } from '../../globals/internal/collection-helpers';
-import BXFloatingMenu from '../floating-menu/floating-menu';
-import BXFloatingMenuTrigger from '../floating-menu/floating-menu-trigger';
+import CDSPopover from '../popover/popover';
+import '../popover/popover-content';
 import styles from './tooltip.scss';
+import CDSTooltipContent from './tooltip-content';
 
 /**
  * Trigger button of tooltip.
@@ -25,110 +23,117 @@ import styles from './tooltip.scss';
  * @element cds-tooltip
  */
 @customElement(`${prefix}-tooltip`)
-class BXTooltip
-  extends HostListenerMixin(LitElement)
-  implements BXFloatingMenuTrigger
-{
+class CDSTooltip extends HostListenerMixin(CDSPopover) {
   /**
-   * The menu body.
+   * Specify how the trigger should align with the tooltip
    */
-  private _menuBody: BXFloatingMenu | null = null;
+  @property({ reflect: true, type: String })
+  align = 'top';
 
   /**
-   * The trigger button.
+   * Specify whether the tooltip should be closed when clicked
    */
-  @query('#trigger')
-  private _triggerNode!: HTMLElement;
+  @property({ reflect: true, type: Boolean })
+  closeOnActivation = false;
 
-  @property({ reflect: true, type: String })
-  align = 'bottom';
+  /**
+   * Specify whether the tooltip should be open when it first renders
+   */
+  @property({ reflect: true, type: Boolean })
+  defaultOpen = false;
 
-  @property({ reflect: true, type: String })
-  duration;
-
+  /**
+   * Specify the duration in milliseconds to delay before displaying the tooltip
+   */
   @property({ attribute: 'enter-delay-ms', type: Number })
   enterDelayMs = 100;
 
-  @property({ attribute: 'exit-delay-ms', type: Number })
-  exitDelayMs = 300;
+  /**
+   * Specify the duration in milliseconds to delay before hiding the tooltip
+   */
+  @property({ attribute: 'leave-delay-ms', type: Number })
+  leaveDelayMs = 300;
 
   /**
-   * Handles `click` event on this element.
+   * Handles `mouseover` event on this element.
    */
-  @HostListener('mouseover')
-  // @ts-ignore: The decorator refers to this method but TS thinks this method is not referred to
-  private _handleOver = async () => {
+  private _handleHover = async () => {
     setTimeout(async () => {
-      this.open = !this.open;
+      this.open = true;
       const { open, updateComplete } = this;
       if (open) {
         await updateComplete;
-        const { _menuBody: menuBody } = this;
-        (
-          menuBody?.shadowRoot?.querySelector(
-            BXTooltip.selectorTooltipBody
-          ) as HTMLElement
-        )?.focus();
+        const { selectorTooltipContent } = this
+          .constructor as typeof CDSTooltip;
+        (this.querySelector(selectorTooltipContent) as HTMLElement)?.focus();
       }
     }, this.enterDelayMs);
   };
 
   /**
-   * Handles `keydown` event on this element.
+   * Handles `mouseleave` event on this element.
    */
-  @HostListener('mouseout')
-  // @ts-ignore: The decorator refers to this method but TS thinks this method is not referred to
   private _handleHoverOut = async () => {
     setTimeout(async () => {
       const { open } = this;
       if (open) {
-        this.open = !this.open;
+        this.open = false;
       }
-    }, this.exitDelayMs);
+    }, this.leaveDelayMs);
+  };
+
+  /**
+   * Handles `click` event on this element.
+   */
+  @HostListener('click')
+  // @ts-ignore: The decorator refers to this method but TS thinks this method is not referred to
+  private _handleClick = async () => {
+    if (this.closeOnActivation) {
+      this._handleHoverOut();
+    }
   };
 
   /**
    * Handles `keydown` event on this element.
    * Space & enter will toggle state, Escape will only close.
+
    */
-  @HostListener('keydown')
+  @HostListener('click')
   // @ts-ignore: The decorator refers to this method but TS thinks this method is not referred to
   private _handleKeydown = async (event) => {
-    if (event.key === ' ' || event.key === 'Enter') {
-      this._handleOver();
+    if (event.key === ' ' || event.key === 'Enter' || event.key === 'Escape') {
+      this._handleHoverOut();
     }
   };
 
   /**
-   * `true` if the dropdown should be open.
+   * Handles `slotchange` event.
    */
-  @property({ type: Boolean, reflect: true })
-  open = false;
-
-  /**
-   * @returns The position of the trigger button in the viewport.
-   */
-  get triggerPosition() {
-    const { _triggerNode: triggerNode } = this;
-    if (!triggerNode) {
-      throw new TypeError('Cannot find the trigger button.');
-    }
-    return triggerNode.getBoundingClientRect();
+  protected _handleSlotChange({ target }: Event) {
+    const component = (target as HTMLSlotElement)
+      .assignedNodes()
+      .filter(
+        (node) => node.nodeType !== Node.TEXT_NODE || node!.textContent!.trim()
+      );
+    (component[0] as HTMLElement).addEventListener('focus', this._handleHover);
+    (component[0] as HTMLElement).addEventListener(
+      'focusout',
+      this._handleHoverOut
+    );
+    (component[0] as HTMLElement).addEventListener(
+      'mouseover',
+      this._handleHover
+    );
+    (component[0] as HTMLElement).addEventListener(
+      'mouseleave',
+      this._handleHoverOut
+    );
+    this.requestUpdate();
   }
 
   connectedCallback() {
-    if (!this.hasAttribute('role')) {
-      this.setAttribute('role', 'button');
-    }
-    if (!this.hasAttribute('tabindex')) {
-      // TODO: Should we use a property?
-      this.setAttribute('tabindex', '0');
-    }
-    if (!this.hasAttribute('aria-haspopup')) {
-      this.setAttribute('aria-haspopup', 'true');
-    }
-    if (!this.hasAttribute('aria-expanded')) {
-      this.setAttribute('aria-expanded', 'false');
+    if (!this.hasAttribute('highContrast')) {
+      this.setAttribute('highContrast', '');
     }
     if (!this.shadowRoot) {
       this.attachShadow({ mode: 'open' });
@@ -137,49 +142,44 @@ class BXTooltip
   }
 
   updated(changedProperties) {
+    const { selectorTooltipContent } = this.constructor as typeof CDSTooltip;
+    const toolTipContent = this.querySelector(selectorTooltipContent);
+
+    if (changedProperties.has('defaultOpen')) {
+      this.open = this.defaultOpen;
+    }
+
     if (changedProperties.has('open')) {
-      if (!this._menuBody) {
-        this._menuBody = find(
-          this.childNodes,
-          (elem) => (elem.constructor as typeof BXFloatingMenu).FLOATING_MENU
-        );
-      }
-      if (this._menuBody) {
-        this._menuBody.open = this.open;
-      }
+      this.open
+        ? toolTipContent?.setAttribute('open', '')
+        : toolTipContent?.removeAttribute('open');
       this.setAttribute('aria-expanded', String(Boolean(this.open)));
     }
-  }
 
-  render() {
-    const buttonClasses = classMap({
-      [`${prefix}--popover-container`]: true,
-      [`${prefix}--popover--caret`]: true,
-      [`${prefix}--popover--high-contrast`]: true,
-      [`${prefix}--tooltip`]: true,
-      [`${prefix}--popover--open`]: this.open,
-      [`${prefix}--popover--${this.align}`]: true,
+    ['align', 'caret'].forEach((name) => {
+      if (changedProperties.has(name)) {
+        const { [name as keyof CDSTooltip]: value } = this;
+        (toolTipContent as CDSTooltipContent)[name] = value;
+      }
     });
-    return html`
-      <span class="${buttonClasses}">
-        <button class="sb-tooltip-trigger">
-          ${Information16({ id: 'trigger' })}
-        </button>
-        <span class="${prefix}--popover">
-          <span class="${prefix}--popover-content ${prefix}--tooltip-content">
-            <slot></slot>
-          </span>
-          <span class="${prefix}--popover-caret"> </span>
-        </span>
-      </span>
+
+    this.shadowRoot
+      ?.querySelector(`.${prefix}--popover-container`)
+      ?.classList.add(`${prefix}--tooltip`);
+  }
+
+  /**
+   * A selector that will return the CDSTooltipContent.
+   */
+  static get selectorTooltipContent() {
+    return `${prefix}-tooltip-content`;
+  }
+
+  static get styles() {
+    return css`
+      ${super.styles}${styles}
     `;
-  }
-
-  static get selectorTooltipBody() {
-    return `.${prefix}--tooltip__content`;
-  }
-
-  static styles = styles; // `styles` here is a `CSSResult` generated by custom WebPack loader
+  } // `styles` here is a `CSSResult` generated by custom WebPack loader
 }
 
-export default BXTooltip;
+export default CDSTooltip;
