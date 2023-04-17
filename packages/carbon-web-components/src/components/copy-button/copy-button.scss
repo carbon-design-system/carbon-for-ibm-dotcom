@@ -9,8 +9,20 @@ $css--plex: true !default;
 
 @use '@carbon/styles/scss/config' as *;
 @use '@carbon/styles/scss/components/copy-button/index';
+@use '@carbon/styles/scss/utilities' as *;
+@use '@carbon/styles/scss/utilities/keyframes' as *;
+@use '@carbon/styles/scss/motion' as *;
 
 :host(#{$prefix}-copy-button) {
   display: inline-flex;
   outline: none;
+}
+
+.#{$prefix}--copy-btn--animating.#{$prefix}--copy-btn--fade-out {
+  // https://github.com/stylelint/stylelint/issues/2363
+  animation: $duration-fast-02 motion(standard, productive) hide-feedback;
+}
+
+.#{$prefix}--copy-btn--animating.#{$prefix}--copy-btn--fade-in {
+  animation: $duration-fast-02 motion(standard, productive) show-feedback;
 }
