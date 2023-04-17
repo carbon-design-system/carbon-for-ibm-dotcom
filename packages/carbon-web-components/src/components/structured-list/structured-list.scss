@@ -31,6 +31,10 @@ $css--plex: true !default;
   ::slotted(#{$prefix}-structured-list-header-cell-skeleton) {
     @extend .#{$prefix}--structured-list-th;
   }
+
+  ::slotted(#{$prefix}-structured-list-header-cell) {
+    padding-left: 1rem;
+  }
 }
 
 .#{$prefix}--structured-list
@@ -55,6 +59,8 @@ $css--plex: true !default;
 :host(#{$prefix}-structured-list-row)
   ::slotted(#{$prefix}-structured-list-cell) {
   @extend .#{$prefix}--structured-list-td;
+
+  padding-left: 1rem;
 }
 
 :host(#{$prefix}-structured-list-row)
@@ -69,10 +75,41 @@ $css--plex: true !default;
   fill: $text-primary;
 }
 
-:host(#{$prefix}-structured-list-header-cell-skeleton) span {
-  @include skeleton;
+:host(#{$prefix}-structured-list-header-cell-skeleton) {
+  &:first-of-type {
+    width: 8%;
+  }
 
-  width: 75%;
-  height: 1rem;
-  display: block;
+  &:nth-of-type(3n + 2) {
+    width: 30%;
+  }
+
+  &:nth-of-type(3n + 3) {
+    width: 15%;
+  }
+
+  span {
+    @include skeleton;
+
+    width: 75%;
+    height: 1rem;
+    display: block;
+  }
+}
+
+// condensed
+:host(#{$prefix}-structured-list-row[condensed])
+  ::slotted(#{$prefix}-structured-list-cell),
+:host(#{$prefix}-structured-list-header-row)
+  ::slotted(#{$prefix}-structured-list-header-cell) {
+  padding: 2rem * 0.25;
+}
+
+// flush
+:host(#{$prefix}-structured-list-row[flush])
+  ::slotted(#{$prefix}-structured-list-cell),
+:host(#{$prefix}-structured-list-header-row[flush])
+  ::slotted(#{$prefix}-structured-list-header-cell) {
+  padding-right: 1rem;
+  padding-left: 0;
 }
