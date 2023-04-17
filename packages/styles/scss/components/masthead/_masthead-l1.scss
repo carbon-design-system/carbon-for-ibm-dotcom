@@ -45,8 +45,35 @@ $search-transition-timing: 95ms;
 }
 
 @mixin masthead-l1 {
+  // Set up variables to store column-widths without using flexbox
+
   .#{$prefix}--masthead__l1,
   :host(#{$dds-prefix}-masthead-l1) {
+    --page-width: calc(100vw - var(--scrollbar-width, 0));
+    --grid-width: var(--page-width);
+    --column-width: var(--page-width);
+    --gutter-width: 1rem;
+
+    // Small Breakpoint
+    @media screen and (min-width: 20rem) {
+      --column-width: calc(var(--grid-width) / 4);
+    }
+
+    // Medium Breakpoint
+    @media screen and (min-width: 42rem) {
+      --grid-width: calc(var(--page-width) - 2rem);
+      --column-width: calc(var(--grid-width) / 8);
+    }
+
+    // Large Breakpoint
+    @media screen and (min-width: 66rem) {
+      --column-width: calc(var(--grid-width) / 16);
+    }
+
+    // Max Breakpoint
+    @media screen and (min-width: 99rem) {
+      --grid-width: calc(99rem - 3rem);
+    }
     @include carbon--theme($carbon--theme--white, true);
 
     display: flex;
@@ -480,21 +507,36 @@ $search-transition-timing: 95ms;
       padding: $spacing-05 0 0;
       max-width: calc(100vw - (2 * #{$spacing-05}));
       visibility: hidden;
+      overflow-y: auto;
 
       &.is-open {
         visibility: visible;
       }
 
       &.#{$prefix}--masthead__l1-dropdown__1-col {
-        width: 320;
+        width: calc(2 * var(--column-width));
       }
 
       &.#{$prefix}--masthead__l1-dropdown__2-col {
-        width: 640;
+        width: calc(4 * var(--column-width));
       }
 
       &.#{$prefix}--masthead__l1-dropdown__3-col {
-        width: 980;
+        width: calc(6 * var(--column-width));
+      }
+
+      @media screen and (min-width: 66rem) {
+        &.#{$prefix}--masthead__l1-dropdown__1-col {
+          width: calc(4 * var(--column-width));
+        }
+
+        &.#{$prefix}--masthead__l1-dropdown__2-col {
+          width: calc(8 * var(--column-width));
+        }
+
+        &.#{$prefix}--masthead__l1-dropdown__3-col {
+          width: calc(12 * var(--column-width));
+        }
       }
     }
 

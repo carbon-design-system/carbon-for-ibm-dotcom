@@ -42,6 +42,48 @@ const { stablePrefix: ddsPrefix } = ddsSettings;
 // Magic Number: 799px matches masthead.scss's `$breakpoint--desktop-nav`.
 const layoutBreakpoint = window.matchMedia(`(max-width: 799px)`);
 
+function handleDropdownClose(event: FocusEvent | KeyboardEvent) {
+  const { currentTarget } = event;
+  const target = currentTarget as HTMLElement | null;
+  const isOpen =
+    Array.from(target?.querySelectorAll('.is-open') ?? []).length > 0;
+
+  if (isOpen) {
+    switch (event.type) {
+      case 'keydown': {
+        const { code } = event as KeyboardEvent;
+        if (code === 'Escape') {
+          (target?.querySelectorAll('.is-open') ?? []).forEach((el) => {
+            el.classList.remove('is-open');
+          });
+
+          (target?.firstElementChild as HTMLElement)?.focus();
+        }
+        break;
+      }
+      case 'focusout': {
+        const { relatedTarget } = event as FocusEvent;
+        if (
+          !relatedTarget ||
+          !currentTarget ||
+          !(
+            (relatedTarget as Node).compareDocumentPosition(
+              currentTarget as Node
+            ) & 8
+          )
+        ) {
+          target?.querySelectorAll('.is-open').forEach((el) => {
+            el.classList.remove('is-open');
+          });
+        }
+        break;
+      }
+      default:
+        break;
+    }
+  }
+}
+
 /**
  * Masthead.
  *
@@ -318,9 +360,8 @@ class DDSMastheadL1 extends StableSelectorMixin(LitElement) {
    */
   protected _renderL1TopNavDropDowns(menuItem) {
     const {
-      _toggleMobileSubsection: toggleMobileSubsection,
+      _toggleSubsection: toggleSubsection,
       _handleTopNavFocusIn: handleTopNavFocusIn,
-      _handleDropdownClose: handleDropdownClose,
     } = this;
     const { title, url, submenu } = menuItem;
 
@@ -367,7 +408,7 @@ class DDSMastheadL1 extends StableSelectorMixin(LitElement) {
       <li @focusout=${handleDropdownClose} @keydown=${handleDropdownClose}>
         <button
           class="${prefix}--masthead__l1-item"
-          @click=${toggleMobileSubsection}
+          @click=${toggleSubsection}
           @focusin=${handleTopNavFocusIn}>
           ${title}${ChevronDown16()}
         </button>
@@ -470,12 +511,10 @@ class DDSMastheadL1 extends StableSelectorMixin(LitElement) {
     const { url, title, actions, menuItems } = l1Data ?? {};
     const { cta, login } = actions ?? {};
 
-    const { _toggleMobileSubsection: toggleMobileSubsection } = this;
+    const { _toggleSubsection: toggleSubsection } = this;
 
     return html`
-      <button
-        class="${prefix}--masthead__l1-title"
-        @click=${toggleMobileSubsection}>
+      <button class="${prefix}--masthead__l1-title" @click=${toggleSubsection}>
         ${title}${ChevronDown16()}
       </button>
       <ul class="${prefix}--masthead__l1-dropdown">
@@ -516,7 +555,7 @@ class DDSMastheadL1 extends StableSelectorMixin(LitElement) {
    * @returns {_TemplateResult} rendered output
    */
   protected _renderL1MobileSubnav(menuItem) {
-    const { _toggleMobileSubsection: toggleMobileSubsection } = this;
+    const { _toggleSubsection: toggleSubsection } = this;
     const { title, url, submenu } = menuItem;
 
     if (!submenu && url) {
@@ -541,7 +580,7 @@ class DDSMastheadL1 extends StableSelectorMixin(LitElement) {
       <li>
         <button
           class="${prefix}--masthead__l1-dropdown-item"
-          @click=${toggleMobileSubsection}>
+          @click=${toggleSubsection}>
           ${title}${ChevronDown16()}
         </button>
         <div class="${prefix}--masthead__l1-dropdown-subsection">
@@ -591,7 +630,7 @@ class DDSMastheadL1 extends StableSelectorMixin(LitElement) {
    *
    * @param {PointerEvent} event The click event from the user
    */
-  protected _toggleMobileSubsection(event: PointerEvent) {
+  protected _toggleSubsection(event: PointerEvent) {
     const { isMobileVersion } = this;
     const { currentTarget } = event;
     const button = currentTarget as HTMLElement;
@@ -647,6 +686,11 @@ class DDSMastheadL1 extends StableSelectorMixin(LitElement) {
           (dropdownRect.width - buttonRect.width) * dirMultiplier;
         dropdown.style.translate = `${translationAmount}px`;
       }
+
+      // Ensure dropdown doesn't overflow viewport vertically.
+      const viewportHeight = window.innerHeight;
+      const maxHeight = viewportHeight - dropdownRect.top;
+      dropdown.style.maxHeight = `calc(${maxHeight}px - 4rem)`;
     }
 
     button.classList.toggle('is-open', !isOpen);
@@ -669,7 +713,6 @@ class DDSMastheadL1 extends StableSelectorMixin(LitElement) {
     const rightOverflow = Math.max(buttonBox.right - containerBox.right, 0);
 
     if (leftOverflow || rightOverflow) {
-      console.log(leftOverflow, rightOverflow);
       const computedScroll = parseInt(window.getComputedStyle(menu!).translate);
       const currentScroll = !Number.isNaN(computedScroll) ? computedScroll : 0;
       let newScroll = currentScroll;
@@ -683,50 +726,6 @@ class DDSMastheadL1 extends StableSelectorMixin(LitElement) {
       }
 
       menu!.style.translate = `${newScroll}px`;
-    }
-  }
-
-  protected _handleDropdownClose(event: FocusEvent | KeyboardEvent) {
-    console.log(this);
-
-    const { currentTarget } = event;
-    const target = currentTarget as HTMLElement | null;
-    const isOpen =
-      Array.from(target?.querySelectorAll('.is-open') ?? []).length > 0;
-
-    if (isOpen) {
-      switch (event.type) {
-        case 'keydown': {
-          const { code } = event as KeyboardEvent;
-          if (code === 'Escape') {
-            (target?.querySelectorAll('.is-open') ?? []).forEach((el) => {
-              el.classList.remove('is-open');
-            });
-
-            (target?.firstElementChild as HTMLElement)?.focus();
-          }
-          break;
-        }
-        case 'focusout': {
-          const { relatedTarget } = event as FocusEvent;
-          if (
-            !relatedTarget ||
-            !currentTarget ||
-            !(
-              (relatedTarget as Node).compareDocumentPosition(
-                currentTarget as Node
-              ) & 8
-            )
-          ) {
-            target?.querySelectorAll('.is-open').forEach((el) => {
-              el.classList.remove('is-open');
-            });
-          }
-          break;
-        }
-        default:
-          break;
-      }
     }
   }
 
@@ -799,6 +798,11 @@ class DDSMastheadL1 extends StableSelectorMixin(LitElement) {
   }
 
   protected firstUpdated() {
+    this.style.setProperty(
+      '--scrollbarWidth',
+      window.innerWidth - document.documentElement.clientWidth + 'px'
+    );
+
     // Allows component conditions on breakpoint change
     layoutBreakpoint.addEventListener('change', () => {
       this.isMobileVersion = layoutBreakpoint.matches;
@@ -809,15 +813,6 @@ class DDSMastheadL1 extends StableSelectorMixin(LitElement) {
     }
 
     this.direction = window.getComputedStyle(this).direction;
-
-    // this.l1Data?.menuItems.map(menuItem => {
-    //    const hasTwoSpan = menuItem.submenu?.menuSections.reduce((twoSpanExists, section) => {
-    //     if (twoSpanExists || section.span > 1) {
-    //       return true;
-    //     }
-    //    }, false);
-    //    menuItem.hasTwoSpan = hasTwoSpan
-    // })
   }
 
   protected updated(changedProperties) {
