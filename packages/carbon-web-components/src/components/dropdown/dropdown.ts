@@ -137,6 +137,10 @@ class CDSDropdown extends ValidityMixin(
    * @param event The event.
    */
   protected _handleClickInner(event: MouseEvent) {
+    if (this.readOnly) {
+      return;
+    }
+
     if (this.shadowRoot!.contains(event.target as Node)) {
       this._handleUserInitiatedToggle();
     } else {
@@ -383,7 +387,7 @@ class CDSDropdown extends ValidityMixin(
   /**
    * @returns The content preceding the trigger button.
    */
-  protected _renderPrecedinglabel(): TemplateResult | void {
+  protected _renderPrecedingLabel(): TemplateResult | void {
     return undefined;
   }
   /* eslint-enable class-methods-use-this */
@@ -391,7 +395,7 @@ class CDSDropdown extends ValidityMixin(
   /**
    * @returns The main content of the trigger button.
    */
-  protected _renderlabel(): TemplateResult {
+  protected _renderLabel(): TemplateResult {
     const { label, _selectedItemContent: selectedItemContent } = this;
     return html`
       <span id="trigger-label" class="${prefix}--list-box__label"
@@ -404,7 +408,7 @@ class CDSDropdown extends ValidityMixin(
   /**
    * @returns The content following the trigger button.
    */
-  protected _renderFollowinglabel(): TemplateResult | void {
+  protected _renderFollowingLabel(): TemplateResult | void {
     return undefined;
   }
   /* eslint-enable class-methods-use-this */
@@ -482,6 +486,12 @@ class CDSDropdown extends ValidityMixin(
    */
   @property({ type: Boolean, reflect: true })
   open = false;
+
+  /**
+   * Whether or not the Dropdown is readonly
+   */
+  @property({ type: Boolean, reflect: true, attribute: 'read-only' })
+  readOnly = false;
 
   /**
    * `true` if the value is required.
@@ -684,12 +694,13 @@ class CDSDropdown extends ValidityMixin(
           class: `${prefix}--list-box__invalid-icon`,
           'aria-label': toggleLabel,
         });
-    const warningIcon = !warn
-      ? undefined
-      : WarningAltFilled16({
-          class: `${prefix}--list-box__invalid-icon ${prefix}--list-box__invalid-icon--warning`,
-          'aria-label': toggleLabel,
-        });
+    const warningIcon =
+      !warn || (invalid && warn)
+        ? undefined
+        : WarningAltFilled16({
+            class: `${prefix}--list-box__invalid-icon ${prefix}--list-box__invalid-icon--warning`,
+            'aria-label': toggleLabel,
+          });
     const helperMessage = invalid ? invalidText : warn ? warnText : helperText;
     const menuBody = !open
       ? undefined
@@ -720,7 +731,6 @@ class CDSDropdown extends ValidityMixin(
         @click=${handleClickInner}
         @keydown=${handleKeydownInner}
         @keypress=${handleKeypressInner}>
-        ${validityIcon} ${warningIcon}
         <div
           part="trigger-button"
           role="${ifDefined(!shouldTriggerBeFocusable ? undefined : 'button')}"
@@ -731,8 +741,8 @@ class CDSDropdown extends ValidityMixin(
           aria-haspopup="listbox"
           aria-owns="menu-body"
           aria-controls="menu-body">
-          ${this._renderPrecedinglabel()}${this._renderlabel()}${this._renderFollowinglabel()}
-          <div class="${iconContainerClasses}">
+          ${this._renderPrecedingLabel()}${this._renderLabel()}${validityIcon}${warningIcon}${this._renderFollowingLabel()}
+          <div id="trigger-caret" class="${iconContainerClasses}">
             ${ChevronDown16({ 'aria-label': toggleLabel })}
           </div>
         </div>

@@ -12,6 +12,7 @@ $css--plex: true !default;
 @use '@carbon/styles/scss/theme' as *;
 @use '@carbon/styles/scss/utilities' as *;
 @use '@carbon/styles/scss/components/list-box/list-box' as *;
+@use '@carbon/styles/scss/components/dropdown' as *;
 @use '@carbon/styles/scss/components/form';
 @use '@carbon/styles/scss/components/checkbox';
 @use '@carbon/styles/scss/components/tag';
@@ -41,6 +42,25 @@ $css--plex: true !default;
   &[open] {
     .#{$prefix}--list-box__field {
       outline: none;
+    }
+  }
+
+  &[invalid] {
+    .#{$prefix}--list-box__field {
+      outline: none;
+    }
+
+    .#{$prefix}--form__helper-text {
+      color: $text-error;
+    }
+  }
+
+  &[read-only] {
+    @extend .#{$prefix}--dropdown--readonly;
+
+    .#{$prefix}--list-box {
+      background-color: transparent;
+      border-bottom-color: $border-subtle;
     }
   }
 

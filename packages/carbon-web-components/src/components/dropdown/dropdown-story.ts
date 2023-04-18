@@ -207,6 +207,7 @@ export const Playground = (args) => {
     invalid,
     invalidText,
     titleText,
+    readOnly,
     size,
     type,
     value,
@@ -222,6 +223,7 @@ export const Playground = (args) => {
       ?hide-label=${hideLabel}
       helper-text=${ifDefined(helperText)}
       ?invalid=${invalid}
+      ?read-only=${readOnly}
       invalid-text=${invalidText}
       direction="${direction}"
       title-text=${ifDefined(titleText)}
@@ -258,14 +260,15 @@ Playground.parameters = {
         'Invalid text (invalid-text)',
         'invalid selection'
       ),
-      titleText: textNullable('Label text (title-text)', 'Dropdown title'),
-      size: select('Dropdown size (size)', sizes, null),
-      type: select('Dropdown type (type)', types, null),
-      value: textNullable('Selected value (value)', ''),
+      readOnly: boolean('Read only (read-only)', false),
       label: textNullable(
         'The default content of the trigger button (label)',
         'This is an example label'
       ),
+      titleText: textNullable('Title text (title-text)', 'Dropdown title'),
+      size: select('Dropdown size (size)', sizes, null),
+      type: select('Dropdown type (type)', types, null),
+      value: textNullable('Selected value (value)', ''),
       warn: boolean('Warn (warn)', false),
       warnText: textNullable(
         'Warn text (warn-text)',

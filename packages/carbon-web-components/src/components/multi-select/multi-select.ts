@@ -214,7 +214,7 @@ class BXMultiSelect extends CDSDropdown {
   /**
     @returns The main content of the trigger button.
    */
-  protected _renderTriggerContent(): TemplateResult {
+  protected _renderLabel(): TemplateResult {
     const { label, _selectedItemContent: selectedItemContent } = this;
     return !this.filterable
       ? html`
@@ -234,7 +234,7 @@ class BXMultiSelect extends CDSDropdown {
         `;
   }
 
-  protected _renderFollowingTriggerContent(): TemplateResult | void {
+  protected _renderFollowingLabel(): TemplateResult | void {
     const { clearSelectionLabel, _filterInputNode: filterInputNode } = this;
     return filterInputNode &&
       filterInputNode.value.length > 0 &&
