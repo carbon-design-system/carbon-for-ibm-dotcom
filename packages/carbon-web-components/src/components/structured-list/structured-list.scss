@@ -100,7 +100,7 @@ $css--plex: true !default;
 // condensed
 :host(#{$prefix}-structured-list-row[condensed])
   ::slotted(#{$prefix}-structured-list-cell),
-:host(#{$prefix}-structured-list-header-row)
+:host(#{$prefix}-structured-list-header-row[condensed])
   ::slotted(#{$prefix}-structured-list-header-cell) {
   padding: 2rem * 0.25;
 }
