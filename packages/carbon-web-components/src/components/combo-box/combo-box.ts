@@ -7,20 +7,17 @@
  * LICENSE file in the root directory of this source tree.
  */
 
+import { classMap } from 'lit/directives/class-map.js';
 import { TemplateResult, html } from 'lit';
 import { property, customElement, query } from 'lit/decorators.js';
 import Close16 from '@carbon/icons/lib/close/16';
 import { prefix } from '../../globals/settings';
 import { findIndex, forEach } from '../../globals/internal/collection-helpers';
-import BXDropdown, { DROPDOWN_KEYBOARD_ACTION } from '../dropdown/dropdown';
-import BXComboBoxItem from './combo-box-item';
+import CDSDropdown, { DROPDOWN_KEYBOARD_ACTION } from '../dropdown/dropdown';
+import CDSComboBoxItem from './combo-box-item';
 import styles from './combo-box.scss';
 
-export {
-  DROPDOWN_COLOR_SCHEME,
-  DROPDOWN_SIZE,
-  DROPDOWN_TYPE,
-} from '../dropdown/dropdown';
+export { DROPDOWN_DIRECTION, DROPDOWN_SIZE } from '../dropdown/dropdown';
 
 /**
  * Combo box.
@@ -36,7 +33,7 @@ export {
  * @fires cds-combo-box-toggled - The custom event fired after the open state of this combo box is toggled upon a user gesture.
  */
 @customElement(`${prefix}-combo-box`)
-class BXComboBox extends BXDropdown {
+class CDSComboBox extends CDSDropdown {
   /**
    * The text content that should be set to the `<input>` for filtering.
    */
@@ -62,6 +59,9 @@ class BXComboBox extends BXDropdown {
   @query('#selection-button')
   private _selectionButtonNode!: HTMLElement;
 
+  @query('#trigger-caret')
+  private _triggerCaret!: HTMLElement;
+
   /**
    * @param item A combo box item.
    * @returns `true` if the given combo box item matches the query text user types.
@@ -82,7 +82,7 @@ class BXComboBox extends BXDropdown {
    * @returns `true` if the given combo box item matches the given query text.
    */
   protected _defaultItemMatches(
-    item: BXComboBoxItem,
+    item: CDSComboBoxItem,
     queryText: string
   ): boolean {
     return (
@@ -95,8 +95,14 @@ class BXComboBox extends BXDropdown {
    * Handles `input` event on the `<input>` for filtering.
    */
   protected _handleInput() {
+    if (this._filterInputValue.length != 0) {
+      this.setAttribute('isClosable', '');
+    } else {
+      this.removeAttribute('isClosable');
+    }
+
     const items = this.querySelectorAll(
-      (this.constructor as typeof BXComboBox).selectorItem
+      (this.constructor as typeof CDSComboBox).selectorItem
     );
     const index = !this._filterInputNode.value
       ? -1
@@ -122,7 +128,7 @@ class BXComboBox extends BXDropdown {
           }
         }
       }
-      (item as BXComboBoxItem).highlighted = i === index;
+      (item as CDSComboBoxItem).highlighted = i === index;
     });
     const { _filterInputNode: filterInput } = this;
     this._filterInputValue = !filterInput ? '' : filterInput.value;
@@ -131,16 +137,20 @@ class BXComboBox extends BXDropdown {
   }
 
   protected _handleClickInner(event: MouseEvent) {
-    if (this._selectionButtonNode?.contains(event.target as Node)) {
+    const { target } = event as any;
+    if (this._selectionButtonNode?.contains(target)) {
       this._handleUserInitiatedClearInput();
-    } else {
+    } else if (
+      this._triggerCaret?.contains(target) ||
+      target instanceof CDSComboBoxItem
+    ) {
       super._handleClickInner(event);
     }
   }
 
   protected _handleKeypressInner(event: KeyboardEvent) {
     const { key } = event;
-    const action = (this.constructor as typeof BXDropdown).getAction(key);
+    const action = (this.constructor as typeof CDSDropdown).getAction(key);
     const { TRIGGERING } = DROPDOWN_KEYBOARD_ACTION;
     if (
       this._selectionButtonNode?.contains(event.target as Node) &&
@@ -159,10 +169,10 @@ class BXComboBox extends BXDropdown {
   protected _handleUserInitiatedClearInput() {
     forEach(
       this.querySelectorAll(
-        (this.constructor as typeof BXComboBox).selectorItem
+        (this.constructor as typeof CDSComboBox).selectorItem
       ),
       (item) => {
-        (item as BXComboBoxItem).highlighted = false;
+        (item as CDSComboBoxItem).highlighted = false;
       }
     );
     this._filterInputValue = '';
@@ -170,7 +180,7 @@ class BXComboBox extends BXDropdown {
     this._handleUserInitiatedSelectItem();
   }
 
-  protected _handleUserInitiatedSelectItem(item?: BXComboBoxItem) {
+  protected _handleUserInitiatedSelectItem(item?: CDSComboBoxItem) {
     if (item && !this._selectionShouldChange(item)) {
       // Escape hatch for `shouldUpdate()` logic that updates `._filterInputValue()` when selection changes,
       // given we want to update the `<input>` and close the dropdown even if selection doesn't update.
@@ -187,14 +197,14 @@ class BXComboBox extends BXDropdown {
     super._handleUserInitiatedSelectItem(item);
   }
 
-  protected _selectionDidChange(itemToSelect?: BXComboBoxItem) {
+  protected _selectionDidChange(itemToSelect?: CDSComboBoxItem) {
     this.value = !itemToSelect ? '' : itemToSelect.value;
     forEach(
       this.querySelectorAll(
-        (this.constructor as typeof BXDropdown).selectorItemSelected
+        (this.constructor as typeof CDSDropdown).selectorItemSelected
       ),
       (item) => {
-        (item as BXComboBoxItem).selected = false;
+        (item as CDSComboBoxItem).selected = false;
       }
     );
     if (itemToSelect) {
@@ -204,31 +214,47 @@ class BXComboBox extends BXDropdown {
     this._handleUserInitiatedToggle(false);
   }
 
-  protected _renderTriggerContent(): TemplateResult {
+  protected _renderLabel(): TemplateResult {
     const {
       disabled,
       inputLabel,
-      triggerContent,
+      label,
+      readOnly,
+      value,
       _filterInputValue: filterInputValue,
       _handleInput: handleInput,
     } = this;
+
+    const inputClasses = classMap({
+      [`${prefix}--text-input`]: true,
+      [`${prefix}--text-input--empty`]: !value,
+    });
+
     return html`
       <input
         id="trigger-label"
-        class="${prefix}--text-input"
+        class="${inputClasses}"
         ?disabled=${disabled}
-        placeholder="${triggerContent}"
+        placeholder="${label}"
         .value=${filterInputValue}
         role="combobox"
         aria-label="${inputLabel}"
         aria-controls="menu-body"
         aria-autocomplete="list"
+        ?readonly=${readOnly}
         @input=${handleInput} />
     `;
   }
 
-  protected _renderFollowingTriggerContent(): TemplateResult | void {
+  protected _renderFollowingLabel(): TemplateResult | void {
     const { clearSelectionLabel, _filterInputValue: filterInputValue } = this;
+
+    if (filterInputValue.length != 0) {
+      this.setAttribute('isClosable', '');
+    } else {
+      this.removeAttribute('isClosable');
+    }
+
     return filterInputValue.length === 0
       ? undefined
       : html`
@@ -259,7 +285,7 @@ class BXComboBox extends BXDropdown {
    * The custom item matching callback.
    */
   @property({ attribute: false })
-  itemMatches!: (item: BXComboBoxItem, queryText: string) => boolean;
+  itemMatches!: (item: CDSComboBoxItem, queryText: string) => boolean;
 
   shouldUpdate(changedProperties) {
     super.shouldUpdate(changedProperties);
@@ -334,4 +360,4 @@ class BXComboBox extends BXDropdown {
   static styles = styles;
 }
 
-export default BXComboBox;
+export default CDSComboBox;
