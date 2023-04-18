@@ -189,6 +189,11 @@ export const WithMixedContent = (args) => {
         </bx-accordion>
       </dds-tab>
     `,
+    html`
+      <dds-tab label="Disabled" disabled>
+        <p>${exampleStrings[0]}</p>
+      </dds-tab>
+    `,
   ];
 
   return html`

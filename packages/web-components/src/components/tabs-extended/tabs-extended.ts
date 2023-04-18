@@ -11,6 +11,7 @@ import settings from 'carbon-components/es/globals/js/settings.js';
 import { html, state, LitElement, TemplateResult, property } from 'lit-element';
 import { unsafeHTML } from 'lit-html/directives/unsafe-html.js';
 import { classMap } from 'lit-html/directives/class-map.js';
+import '../../internal/vendor/@carbon/web-components/components/accordion/index';
 import ChevronRight20 from '../../internal/vendor/@carbon/web-components/icons/chevron--right/20.js';
 import ddsSettings from '../../internal/vendor/@carbon/ibmdotcom-utilities/utilities/settings/settings';
 import StableSelectorMixin from '../../globals/mixins/stable-selector';
@@ -184,41 +185,25 @@ class DDSTabsExtended extends StableSelectorMixin(LitElement) {
     });
   }
 
-  protected _renderAccordion(): TemplateResult | string | void {
+  protected _renderAccordion() {
     const { _tabItems: tabs } = this;
     return html`
-      <ul class="${prefix}--accordion">
+      <bx-accordion class="${prefix}--accordion">
         ${tabs.map((tab, index) => {
           const { disabled } = tab as DDSTab;
           const active = index === this._activeTabIndex;
           const label = (tab as DDSTab).getAttribute('label');
-          const classes = classMap({
-            'bx--accordion__item': true,
-            'bx--accordion__item--active': active,
-            'bx--accordion__item--disabled': disabled,
-          });
+
           return html`
-            <li class="${classes}">
-              <button
-                class="${prefix}--accordion__heading"
-                aria-expanded="${active}"
-                aria-controls="pane-${index}"
-                @click="${(e) => this._handleClick(index, e)}"
-                tabindex="${index + 1}"
-                ?disabled="${disabled}">
-                ${ChevronRight20({
-                  part: 'expando-icon',
-                  class: `${prefix}--accordion__arrow`,
-                })}
-                <div class="${prefix}--accordion__title">${label}</div>
-              </button>
-              <div id="pane-${index}" class="${prefix}--accordion__content">
-                ${unsafeHTML((tab as DDSTab).innerHTML)}
-              </div>
-            </li>
+            <bx-accordion-item
+              title-text="${label}"
+              ?open="${active}"
+              ?disabled="${disabled}">
+              ${unsafeHTML((tab as DDSTab).innerHTML)}
+            </bx-accordion-item>
           `;
         })}
-      </ul>
+      </bx-accordion>
     `;
   }
 
