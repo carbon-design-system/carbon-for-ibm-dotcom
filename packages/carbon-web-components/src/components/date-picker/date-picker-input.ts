@@ -9,7 +9,7 @@
 
 import { classMap } from 'lit/directives/class-map.js';
 import { LitElement, html } from 'lit';
-import { property, customElement, query } from 'lit/decorators.js';
+import { property, customElement, query, state } from 'lit/decorators.js';
 import Calendar16 from '@carbon/icons/lib/calendar/16';
 import { ifDefined } from 'lit/directives/if-defined.js';
 import { prefix } from '../../globals/settings';
@@ -67,6 +67,27 @@ class CDSDatePickerInput extends FocusMixin(LitElement) {
           role: 'img',
           children: [html` <title>Open calendar</title> `],
         });
+  }
+
+  /**
+   * `true` if there is helper text content.
+   */
+  @state()
+  protected _hasHelperText = false;
+
+  /**
+   * Handles `slotchange` event on the default `<slot>`.
+   */
+  protected _handleSlotChange({ target }: Event) {
+    if (!(target as HTMLSlotElement).name) {
+      const hasContent = (target as HTMLSlotElement)
+        .assignedNodes()
+        .some(
+          (node) =>
+            node.nodeType !== Node.TEXT_NODE || node!.textContent!.trim()
+        );
+      this._hasHelperText = hasContent;
+    }
   }
 
   /**
@@ -181,6 +202,7 @@ class CDSDatePickerInput extends FocusMixin(LitElement) {
     const constructor = this.constructor as typeof CDSDatePickerInput;
     const {
       disabled,
+      _hasHelperText: hasHelperText,
       hideLabel,
       invalid,
       invalidText,
@@ -231,17 +253,28 @@ class CDSDatePickerInput extends FocusMixin(LitElement) {
     });
     const inputClasses = classMap({
       [`${prefix}--date-picker__input`]: true,
-      [`${prefix}--date-picker--invalid`]: normalizedProps.invalid,
-      [`${prefix}--date-picker--warning`]: normalizedProps.warn,
+      [`${prefix}--date-picker__input--invalid`]: normalizedProps.invalid,
+      [`${prefix}--date-picker__input--warn`]: normalizedProps.warn,
       [`${prefix}--date-picker__input--${size}`]: size,
     });
+
+    const inputWrapperClasses = classMap({
+      [`${prefix}--date-picker-input__wrapper`]: true,
+      [`${prefix}--date-picker-input__wrapper--invalid`]:
+        normalizedProps.invalid,
+      [`${prefix}--date-picker-input__wrapper--warn`]: normalizedProps.warn,
+    });
+
+    const helperTextClasses = classMap({
+      [`${prefix}--form__helper-text`]: true,
+      [`${prefix}--form__helper-text--disabled`]: disabled,
+    });
+
     return html`
       <label for="input" class="${labelClasses}">
         <slot name="label-text">${labelText}</slot>
       </label>
-      <div
-        class="${prefix}--date-picker-input__wrapper"
-        @click="${handleClickWrapper}">
+      <div class="${inputWrapperClasses}" @click="${handleClickWrapper}">
         <input
           id="input"
           type="${type}"
@@ -261,6 +294,9 @@ class CDSDatePickerInput extends FocusMixin(LitElement) {
         <slot name="${normalizedProps['slot-name']}">
           ${normalizedProps['slot-text']}
         </slot>
+      </div>
+      <div ?hidden="${hasHelperText}" class="${helperTextClasses}">
+        <slot name="helper-text" @slotchange="${this._handleSlotChange}"></slot>
       </div>
     `;
   }

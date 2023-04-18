@@ -53,6 +53,16 @@ enum DATE_PICKER_MODE {
   RANGE = 'range',
 }
 
+// Weekdays shorthand for english locale
+flatpickr!.l10ns!.en!.weekdays.shorthand.forEach((_day, index) => {
+  const currentDay = flatpickr!.l10ns!.en!.weekdays.shorthand;
+  if (currentDay[index] === 'Thu' || currentDay[index] === 'Th') {
+    currentDay[index] = 'Th';
+  } else {
+    currentDay[index] = currentDay[index].charAt(0);
+  }
+});
+
 /**
  * Date picker.
  *
@@ -601,7 +611,7 @@ class CDSDatePicker extends HostListenerMixin(FormMixin(LitElement)) {
    * A selector that will return the `<input>` to enter starting date.
    */
   static get selectorInputFrom() {
-    return `${prefix}-date-picker-input[kind="single"],${prefix}-date-picker-input[kind="from"]`;
+    return `${prefix}-date-picker-input,${prefix}-date-picker-input[kind="from"]`;
   }
 
   /**

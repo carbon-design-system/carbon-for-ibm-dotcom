@@ -40,6 +40,7 @@ const knobs = {
     ),
     readonly: boolean('ReadOnly (readonly)', false),
     short: boolean('Short (short)', false),
+    helperText: textNullable('Helper text (helper-text)', ''),
     warning: boolean('Warning  (warning)', false),
     warningText: textNullable('Warning text (warning-text)', ''),
     invalid: boolean('Invalid  (invalid)', false),
@@ -228,6 +229,7 @@ export const Playground = (args) => {
     args?.['cds-date-picker'] || {};
   const {
     size,
+    helperText,
     placeholder,
     invalid,
     invalidText,
@@ -260,6 +262,9 @@ export const Playground = (args) => {
               ?warn="${warning}"
               warn-text="${warningText}"
               @input="${onInput}">
+              ${helperText
+                ? html`<span slot="helper-text">${helperText}</span>`
+                : html``}
             </cds-date-picker-input>
             <cds-date-picker-input
               kind="to"
@@ -272,6 +277,9 @@ export const Playground = (args) => {
               ?warn="${warning}"
               warn-text="${warningText}"
               @input="${onInput}">
+              ${helperText
+                ? html`<span slot="helper-text">${helperText}</span>`
+                : html``}
             </cds-date-picker-input>
           `
         : html`
@@ -286,6 +294,9 @@ export const Playground = (args) => {
               ?warn="${warning}"
               warn-text="${warningText}"
               @input="${onInput}">
+              ${helperText
+                ? html`<span slot="helper-text">${helperText}</span>`
+                : html``}
             </cds-date-picker-input>
           `}
     </cds-date-picker>
