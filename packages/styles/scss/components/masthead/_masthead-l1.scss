@@ -49,7 +49,8 @@ $search-transition-timing: 95ms;
 
   .#{$prefix}--masthead__l1,
   :host(#{$dds-prefix}-masthead-l1) {
-    --page-width: calc(100vw - var(--scrollbar-width, 0));
+    /* stylelint-disable-next-line length-zero-no-unit */
+    --page-width: calc(100vw - var(--scrollbar-width, 0px));
     --grid-width: var(--page-width);
     --column-width: var(--page-width);
     --gutter-width: 1rem;
