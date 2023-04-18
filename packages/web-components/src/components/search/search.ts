@@ -8,7 +8,7 @@
  */
 
 import { customElement } from 'lit/decorators.js';
-import CDSSearch from '../../internal/vendor/@carbon/web-components/components/search/search.js';
+import BXSearch from '../../internal/vendor/@carbon/web-components/components/search/search.js';
 import ddsSettings from '../../internal/vendor/@carbon/ibmdotcom-utilities/utilities/settings/settings';
 import styles from './search.scss';
 
@@ -22,7 +22,7 @@ const { stablePrefix: ddsPrefix } = ddsSettings;
  * @element dds-search
  */
 @customElement(`${ddsPrefix}-search`)
-class DDSSearch extends CDSSearch {
+class DDSSearch extends BXSearch {
   /**
    * The name of the custom event fired after the search content is changed upon a user gesture.
    */
