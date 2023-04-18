@@ -39,7 +39,7 @@ export default {
       [`${prefix}-copy-button`]: () => ({
         iconDescription: textNullable(
           'Icon description (slotted)',
-          'Copy to clipboard!'
+          'Copy to clipboard'
         ),
         feedbackText: textNullable('Feedback text (feedback)', 'Copied!'),
         feedbackTimeout: number('Feedback timeout (feedback-timeout)', 2000),
