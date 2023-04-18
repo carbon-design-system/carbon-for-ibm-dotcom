@@ -51,6 +51,10 @@
       }
     }
 
+    .#{$prefix}--tabs-extended {
+      width: inherit;
+    }
+
     .#{$prefix}--accordion__content {
       margin-top: -$carbon--spacing-07;
       margin-bottom: $carbon--spacing-05;
