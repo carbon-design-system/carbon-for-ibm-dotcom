@@ -52,11 +52,6 @@ $css--plex: true !default;
   @extend .#{$prefix}--structured-list-row;
 }
 
-:host(#{$prefix}-structured-list-row:hover) .#{$prefix}--structured-list-svg {
-  // TODO: audit
-  fill: $gray-40;
-}
-
 :host(#{$prefix}-structured-list-row) {
   ::slotted(#{$prefix}-structured-list-cell) {
     @extend .#{$prefix}--structured-list-td;
@@ -71,13 +66,24 @@ $css--plex: true !default;
   }
 }
 
-// "Selected" style with `.#{$prefix}--structured-list-td` does not work somehow - Need investigation
-.#{$prefix}--structured-list-input:checked
-  + .#{$prefix}--structured-list-cell
-  .#{$prefix}--structured-list-svg {
-  fill: $text-primary;
+// selection
+:host(#{$prefix}-structured-list-row[selection-value]:hover) {
+  border-bottom: 1px solid $background-hover;
+  background-color: $background-hover;
+  cursor: pointer;
 }
 
+:host(#{$prefix}-structured-list-row[selected]) {
+  background-color: $background-selected;
+
+  .#{$prefix}--structured-list-input:checked
+    + .#{$prefix}--structured-list-cell
+    .#{$prefix}--structured-list-svg {
+    fill: $text-primary;
+  }
+}
+
+// skeleton
 :host(#{$prefix}-structured-list-header-cell-skeleton) {
   &:first-of-type {
     width: 8%;
