@@ -9,11 +9,14 @@
 
 import { html } from 'lit-element';
 import ifNonNull from '../../../internal/vendor/@carbon/web-components/globals/directives/if-non-null.js';
+import '../../../internal/vendor/@carbon/web-components/components/accordion/index';
 import { boolean, select } from '@storybook/addon-knobs';
 import readme from './README.stories.mdx';
 import '../index';
+import '../../card-group/index';
 import '../../content-item-horizontal/index';
 import '../../image/index';
+import '../../video-player/video-player-composite';
 import { MEDIA_ALIGN, MEDIA_TYPE } from '../../content-item-horizontal/defs';
 import imgLg16x9 from '../../../../../storybook-images/assets/720/fpo--16x9--720x405--001.jpg';
 import textNullable from '../../../../.storybook/knob-text-nullable';
@@ -29,8 +32,9 @@ const mediaType = {
 };
 
 export const Default = (args) => {
-  const { sectionHeading, sectionHeadingText, align, type } =
+  const { sectionHeading, sectionHeadingText } =
     args?.TabsExtendedWithMedia ?? {};
+  const { align, type } = args?.TabsExtendedWithMediaDefault ?? {};
   const tabs: any[] = [];
 
   for (let i = 1; i < 5; i++) {
@@ -89,13 +93,8 @@ export const Default = (args) => {
 Default.story = {
   parameters: {
     knobs: {
-      TabsExtendedWithMedia: () => {
-        const sectionHeading = boolean('Section heading', true);
-        const sectionHeadingText =
-          sectionHeading && textNullable('Heading', 'Section heading');
+      TabsExtendedWithMediaDefault: () => {
         return {
-          sectionHeading,
-          sectionHeadingText,
           align: select('Alignment (align)', mediaAlign, MEDIA_ALIGN.LEFT),
           type: select('Media type', mediaType, MEDIA_TYPE.IMAGE),
         };
@@ -103,14 +102,108 @@ Default.story = {
     },
     propsSet: {
       default: {
-        TabsExtendedWithMedia: {
-          sectionHeading: 'TitleHeading',
+        TabsExtendedWithMediaDefault: {
           align: 'left',
-          type: 'image',
+          type: MEDIA_TYPE.IMAGE,
         },
       },
     },
   },
+};
+
+export const WithMixedContent = (args) => {
+  const { sectionHeading, sectionHeadingText } =
+    args?.TabsExtendedWithMedia ?? {};
+
+  // Needed to bypass html`` template strings from putting strings with line breaks
+  // (which are forced by prettier formatting) into <pre> tags.
+  const exampleStrings = [
+    `Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean et ultricies est.`,
+    `Donec tempus, urna eu elementum porta, justo massa porta nulla, et mattis mauris augue sit amet dolor.`,
+  ];
+
+  const cardGroupItems = [
+    html`
+      <dds-card-group-item cta-type="local" href="/">
+        <dds-card-eyebrow>Topic (Local)</dds-card-eyebrow>
+        <dds-card-heading>Lorem ipsum dolor sit amet</dds-card-heading>
+        <p>${exampleStrings[0]}</p>
+        <dds-card-cta-footer slot="footer"></dds-card-cta-footer>
+      </dds-card-group-item>
+    `,
+    html`
+      <dds-card-group-item cta-type="external" href="https://example.com">
+        <dds-card-eyebrow>Topic (External)</dds-card-eyebrow>
+        <dds-card-heading>Consectetur adipiscing elit</dds-card-heading>
+        <p>${exampleStrings[1]}</p>
+        <dds-card-cta-footer slot="footer"></dds-card-cta-footer>
+      </dds-card-group-item>
+    `,
+  ];
+
+  const tabs = [
+    html`
+      <dds-tab label="Image">
+        <dds-image alt="Image alt text" default-src="${imgLg16x9}"></dds-image>
+      </dds-tab>
+    `,
+    html`
+      <dds-tab label="Card Group">
+        <dds-card-group cards-per-row="3" grid-mode="narrow">
+          ${[...Array(5).keys()].map((i) => cardGroupItems[i % 2])}
+        </dds-card-group>
+      </dds-tab>
+    `,
+    html`
+      <dds-tab label="Accordion">
+        <bx-accordion>
+          <bx-accordion-item title-text="Image">
+            <dds-image
+              alt="Image alt text"
+              default-src="${imgLg16x9}"></dds-image>
+            <p>
+              Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
+              eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut
+              enim ad minim veniam, quis nostrud exercitation ullamco laboris
+              nisi ut aliquip ex ea commodo consequat.
+            </p>
+          </bx-accordion-item>
+          <bx-accordion-item title-text="Video">
+            <dds-video-player-composite
+              video-id="1_9h94wo6b"></dds-video-player-composite>
+            <p>
+              Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
+              eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut
+              enim ad minim veniam, quis nostrud exercitation ullamco laboris
+              nisi ut aliquip ex ea commodo consequat.
+            </p>
+          </bx-accordion-item>
+          <bx-accordion-item title-text="Text">
+            <p>
+              Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
+              eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut
+              enim ad minim veniam, quis nostrud exercitation ullamco laboris
+              nisi ut aliquip ex ea commodo consequat.
+            </p>
+          </bx-accordion-item>
+        </bx-accordion>
+      </dds-tab>
+    `,
+    html`
+      <dds-tab label="Disabled" disabled>
+        <p>${exampleStrings[0]}</p>
+      </dds-tab>
+    `,
+  ];
+
+  return html`
+    <dds-tabs-extended-media section-heading=${sectionHeading}>
+      <dds-content-section-heading
+        >${ifNonNull(sectionHeadingText)}</dds-content-section-heading
+      >
+      ${tabs}
+    </dds-tabs-extended-media>
+  `;
 };
 
 export default {
@@ -132,6 +225,24 @@ export default {
   parameters: {
     ...readme.parameters,
     hasStoryPadding: true,
-    knobs: {},
+    knobs: {
+      TabsExtendedWithMedia: () => {
+        const sectionHeading = boolean('Section heading', true);
+        const sectionHeadingText =
+          sectionHeading && textNullable('Heading', 'Section heading');
+
+        return {
+          sectionHeading,
+          sectionHeadingText,
+        };
+      },
+    },
+    propsSet: {
+      default: {
+        TabsExtendedWithMedia: {
+          sectionHeading: 'TitleHeading',
+        },
+      },
+    },
   },
 };
