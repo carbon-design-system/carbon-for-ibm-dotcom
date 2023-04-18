@@ -6,8 +6,11 @@
 
 ```
 <div class="bx--tabs-extended bx--tabs-extended--horizontal">
-  <ul class="bx--accordion">
-  </ul>
+  <bx-accordion
+    class="bx--accordion"
+    role="list"
+  >
+  </bx-accordion>
   <div class="bx--tabs">
     <ul
       class="bx--tabs__nav bx--tabs__nav--hidden"
@@ -27,8 +30,11 @@
 
 ```
 <div class="bx--tabs-extended bx--tabs-extended--horizontal">
-  <ul class="bx--accordion">
-  </ul>
+  <bx-accordion
+    class="bx--accordion"
+    role="list"
+  >
+  </bx-accordion>
   <div class="bx--tabs">
     <ul
       class="bx--tabs__nav bx--tabs__nav--hidden"

@@ -11,8 +11,11 @@
     </slot>
   </div>
   <div class="bx--tabs-extended">
-    <ul class="bx--accordion">
-    </ul>
+    <bx-accordion
+      class="bx--accordion"
+      role="list"
+    >
+    </bx-accordion>
     <div class="bx--tabs">
       <ul
         class="bx--tabs__nav bx--tabs__nav--hidden"
@@ -38,8 +41,11 @@
     </slot>
   </div>
   <div class="bx--tabs-extended">
-    <ul class="bx--accordion">
-    </ul>
+    <bx-accordion
+      class="bx--accordion"
+      role="list"
+    >
+    </bx-accordion>
     <div class="bx--tabs">
       <ul
         class="bx--tabs__nav bx--tabs__nav--hidden"
