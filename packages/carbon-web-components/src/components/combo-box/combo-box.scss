@@ -45,6 +45,12 @@ $css--plex: true !default;
       right: rem(66px) !important;
     }
   }
+
+  &[disabled] {
+    .#{$prefix}--list-box__selection {
+      pointer-events: none;
+    }
+  }
 }
 
 :host(#{$prefix}-combo-box-item) {

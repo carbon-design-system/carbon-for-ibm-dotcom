@@ -204,4 +204,5 @@ export default {
   parameters: {
     ...storyDocs.parameters,
   },
+  decorators: [(story) => html` <div style="width:400px">${story()}</div> `],
 };

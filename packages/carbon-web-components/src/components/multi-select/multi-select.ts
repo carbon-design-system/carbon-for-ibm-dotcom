@@ -17,7 +17,7 @@ import {
   indexOf,
 } from '../../globals/internal/collection-helpers';
 import CDSDropdown, { DROPDOWN_KEYBOARD_ACTION } from '../dropdown/dropdown';
-import BXMultiSelectItem from './multi-select-item';
+import CDSMultiSelectItem from './multi-select-item';
 import styles from './multi-select.scss';
 
 export { DROPDOWN_SIZE, DROPDOWN_TYPE } from '../dropdown/dropdown';
@@ -37,7 +37,7 @@ export { DROPDOWN_SIZE, DROPDOWN_TYPE } from '../dropdown/dropdown';
  *   The custom event fired after the open state of this multi select is toggled upon a user gesture.
  */
 @customElement(`${prefix}-multi-select`)
-class BXMultiSelect extends CDSDropdown {
+class CDSMultiSelect extends CDSDropdown {
   @property({ type: Boolean })
   filterable;
 
@@ -70,12 +70,12 @@ class BXMultiSelect extends CDSDropdown {
   @query(`.${prefix}--list-box__field`)
   private _triggerNode!: HTMLElement;
 
-  protected _selectionShouldChange(itemToSelect?: BXMultiSelectItem) {
+  protected _selectionShouldChange(itemToSelect?: CDSMultiSelectItem) {
     // If we are selecting an item, assumes we always toggle
     return Boolean(this.value || itemToSelect);
   }
 
-  protected _selectionDidChange(itemToSelect?: BXMultiSelectItem) {
+  protected _selectionDidChange(itemToSelect?: CDSMultiSelectItem) {
     if (itemToSelect) {
       itemToSelect.selected = !itemToSelect.selected;
       this._assistiveStatusText = itemToSelect.selected
@@ -84,10 +84,10 @@ class BXMultiSelect extends CDSDropdown {
     } else {
       forEach(
         this.querySelectorAll(
-          (this.constructor as typeof BXMultiSelect).selectorItemSelected
+          (this.constructor as typeof CDSMultiSelect).selectorItemSelected
         ),
         (item) => {
-          (item as BXMultiSelectItem).selected = false;
+          (item as CDSMultiSelectItem).selected = false;
         }
       );
       this._handleUserInitiatedToggle(false);
@@ -96,11 +96,11 @@ class BXMultiSelect extends CDSDropdown {
     // Change in `.selected` hasn't been reflected to the corresponding attribute yet
     this.value = filter(
       this.querySelectorAll(
-        (this.constructor as typeof BXMultiSelect).selectorItem
+        (this.constructor as typeof CDSMultiSelect).selectorItem
       ),
-      (item) => (item as BXMultiSelectItem).selected
+      (item) => (item as CDSMultiSelectItem).selected
     )
-      .map((item) => (item as BXMultiSelectItem).value)
+      .map((item) => (item as CDSMultiSelectItem).value)
       .join(',');
   }
 
@@ -118,7 +118,7 @@ class BXMultiSelect extends CDSDropdown {
       const shouldIgnoreClickInner = (elem) =>
         elem.closest &&
         elem.closest(
-          (this.constructor as typeof BXMultiSelect).selectorIgnoreClickInner
+          (this.constructor as typeof CDSMultiSelect).selectorIgnoreClickInner
         );
       if (!event.composedPath().some(shouldIgnoreClickInner)) {
         super._handleClickInner(event);
@@ -179,7 +179,7 @@ class BXMultiSelect extends CDSDropdown {
             const constructor = this.constructor as typeof CDSDropdown;
             const highlightedItem = this.querySelector(
               constructor.selectorItemHighlighted
-            ) as BXMultiSelectItem;
+            ) as CDSMultiSelectItem;
             if (highlightedItem) {
               this._handleUserInitiatedSelectItem(highlightedItem);
             } else {
@@ -257,7 +257,7 @@ class BXMultiSelect extends CDSDropdown {
    */
   protected _handleInput() {
     const items = this.querySelectorAll(
-      (this.constructor as typeof BXMultiSelect).selectorItem
+      (this.constructor as typeof CDSMultiSelect).selectorItem
     );
     const inputValue = this._filterInputNode.value.toLocaleLowerCase();
 
@@ -267,10 +267,10 @@ class BXMultiSelect extends CDSDropdown {
       const itemValue = (item as HTMLElement).innerText.toLocaleLowerCase();
 
       if (!itemValue.includes(inputValue)) {
-        (item as BXMultiSelectItem).setAttribute('filtered', '');
-        (item as BXMultiSelectItem).removeAttribute('highlighted');
+        (item as CDSMultiSelectItem).setAttribute('filtered', '');
+        (item as CDSMultiSelectItem).removeAttribute('highlighted');
       } else {
-        (item as BXMultiSelectItem).removeAttribute('filtered');
+        (item as CDSMultiSelectItem).removeAttribute('filtered');
       }
     });
 
@@ -288,7 +288,7 @@ class BXMultiSelect extends CDSDropdown {
       super._navigate(direction);
     } else {
       // only navigate through remaining item
-      const constructor = this.constructor as typeof BXMultiSelect;
+      const constructor = this.constructor as typeof CDSMultiSelect;
       const items = this.querySelectorAll(constructor.selectorItemResults);
       const highlightedItem = this.querySelector(
         constructor.selectorItemHighlighted
@@ -303,7 +303,7 @@ class BXMultiSelect extends CDSDropdown {
         nextIndex = 0;
       }
       forEach(items, (item, i) => {
-        (item as BXMultiSelectItem).highlighted = i === nextIndex;
+        (item as CDSMultiSelectItem).highlighted = i === nextIndex;
       });
     }
   }
@@ -312,13 +312,13 @@ class BXMultiSelect extends CDSDropdown {
    * Handles user-initiated clearing the `<input>` for filtering.
    */
   protected _handleUserInitiatedClearInput() {
-    const constructor = this.constructor as typeof BXMultiSelect;
+    const constructor = this.constructor as typeof CDSMultiSelect;
     const items = this.querySelectorAll(constructor.selectorItemFiltered);
     this._filterInputNode.value = '';
     this.open = true;
     this._filterInputNode.focus();
     forEach(items, (item) => {
-      (item as BXMultiSelectItem).removeAttribute('filtered');
+      (item as CDSMultiSelectItem).removeAttribute('filtered');
     });
   }
 
@@ -341,10 +341,10 @@ class BXMultiSelect extends CDSDropdown {
   unselectedAllAssistiveText = 'Unselected all items.';
 
   shouldUpdate(changedProperties) {
-    const { selectorItem } = this.constructor as typeof BXMultiSelect;
+    const { selectorItem } = this.constructor as typeof CDSMultiSelect;
     if (changedProperties.has('size')) {
       forEach(this.querySelectorAll(selectorItem), (elem) => {
-        (elem as BXMultiSelectItem).size = this.size;
+        (elem as CDSMultiSelectItem).size = this.size;
       });
     }
     if (changedProperties.has('value')) {
@@ -353,12 +353,12 @@ class BXMultiSelect extends CDSDropdown {
       // Updates selection beforehand because our rendering logic for `<cds-multi-select>` looks for selected items via `qSA()`
       const items = this.querySelectorAll(selectorItem);
       forEach(items, (elem) => {
-        (elem as BXMultiSelectItem).selected =
-          values.indexOf((elem as BXMultiSelectItem).value) >= 0;
+        (elem as CDSMultiSelectItem).selected =
+          values.indexOf((elem as CDSMultiSelectItem).value) >= 0;
       });
       this._selectedItemsCount = filter(
         items,
-        (elem) => values.indexOf((elem as BXMultiSelectItem).value) >= 0
+        (elem) => values.indexOf((elem as CDSMultiSelectItem).value) >= 0
       ).length;
     }
     return true;
@@ -441,4 +441,4 @@ class BXMultiSelect extends CDSDropdown {
   static styles = styles;
 }
 
-export default BXMultiSelect;
+export default CDSMultiSelect;

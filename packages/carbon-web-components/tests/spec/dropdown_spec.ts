@@ -13,10 +13,10 @@ import EventManager from '../utils/event-manager';
 
 import CDSDropdown from '../../src/components/dropdown/dropdown';
 import CDSDropdownItem from '../../src/components/dropdown/dropdown-item';
-import { Default } from '../../src/components/dropdown/dropdown-story';
+import { Playground } from '../../src/components/dropdown/dropdown-story';
 
 const template = (props?) =>
-  Default({
+  Playground({
     'cds-dropdown': props,
   });
 

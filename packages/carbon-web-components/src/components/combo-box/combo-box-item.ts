@@ -18,8 +18,8 @@ import styles from './combo-box.scss';
  * @element cds-combo-box-item
  */
 @customElement(`${prefix}-combo-box-item`)
-class BXComboBoxItem extends CDSDropdownItem {
+class CDSComboBoxItem extends CDSDropdownItem {
   static styles = styles;
 }
 
-export default BXComboBoxItem;
+export default CDSComboBoxItem;

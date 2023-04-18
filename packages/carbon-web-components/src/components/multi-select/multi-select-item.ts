@@ -20,7 +20,7 @@ import styles from './multi-select.scss';
  * @element cds-multi-select-item
  */
 @customElement(`${prefix}-multi-select-item`)
-class BXMultiSelectItem extends CDSDropdownItem {
+class CDSMultiSelectItem extends CDSDropdownItem {
   /**
    * The property to hide when item is filtered from input
    */
@@ -66,4 +66,4 @@ class BXMultiSelectItem extends CDSDropdownItem {
   static styles = styles;
 }
 
-export default BXMultiSelectItem;
+export default CDSMultiSelectItem;
