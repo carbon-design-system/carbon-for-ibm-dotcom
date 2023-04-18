@@ -32,6 +32,7 @@ const widthSliderOptions = {
 export const Default = () => {
   return html`
     <cds-search
+      size="lg"
       close-button-label-text="Clear search input"
       label-text="Search"
       placeholder="Find your items"
@@ -42,6 +43,7 @@ export const Default = () => {
 export const Disabled = () => {
   return html`
     <cds-search
+      size="lg"
       disabled
       close-button-label-text="Clear search input"
       label-text="Search"
@@ -53,6 +55,7 @@ export const Disabled = () => {
 export const Expandable = () => {
   return html`
     <cds-search
+      size="lg"
       expandable
       close-button-assistive-text="Clear search input"
       label-text="Search"
@@ -64,11 +67,14 @@ export const Expandable = () => {
 export const ExpandableWithLayer = () => {
   return html`
     <cds-layer>
-      <cds-search expandable placeholder="Layer one"></cds-search>
+      <cds-search size="lg" expandable placeholder="Layer one"></cds-search>
       <cds-layer>
-        <cds-search expandable placeholder="Layer two"></cds-search>
+        <cds-search size="lg" expandable placeholder="Layer two"></cds-search>
         <cds-layer>
-          <cds-search expandable placeholder="Layer three"></cds-search>
+          <cds-search
+            size="lg"
+            expandable
+            placeholder="Layer three"></cds-search>
         </cds-layer>
       </cds-layer>
     </cds-layer>
@@ -78,11 +84,11 @@ export const ExpandableWithLayer = () => {
 export const WithLayer = () => {
   return html`
     <cds-layer>
-      <cds-search placeholder="Layer one"></cds-search>
+      <cds-search size="lg" placeholder="Layer one"></cds-search>
       <cds-layer>
-        <cds-search placeholder="Layer two"></cds-search>
+        <cds-search size="lg" placeholder="Layer two"></cds-search>
         <cds-layer>
-          <cds-search placeholder="Layer three"></cds-search>
+          <cds-search size="lg" placeholder="Layer three"></cds-search>
         </cds-layer>
       </cds-layer>
     </cds-layer>
@@ -96,7 +102,6 @@ export const Playground = (args) => {
     colorScheme,
     disabled,
     labelText,
-    name,
     placeholder,
     playgroundWidth,
     size,
@@ -119,7 +124,6 @@ export const Playground = (args) => {
       color-scheme="${ifDefined(colorScheme)}"
       ?disabled="${disabled}"
       label-text="${ifDefined(labelText)}"
-      name="${ifDefined(name)}"
       placeholder="${ifDefined(placeholder)}"
       size="${ifDefined(size)}"
       type="${ifDefined(type)}"
@@ -140,7 +144,6 @@ Playground.parameters = {
       ),
       disabled: boolean('Disabled (disabled)', false),
       labelText: textNullable('Label text (label-text)', 'Search'),
-      name: textNullable('Name (name)', ''),
       placeholder: textNullable(
         'Placeholder text (placeholder)',
         'Placeholder text'
