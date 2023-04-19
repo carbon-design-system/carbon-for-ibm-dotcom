@@ -13,8 +13,8 @@ import { ifDefined } from 'lit/directives/if-defined.js';
 import { html } from 'lit';
 import { customElement, property, query } from 'lit/decorators.js';
 import ddsSettings from '@carbon/ibmdotcom-utilities/es/utilities/settings/settings.js';
-import BXDropdown from '../../internal/vendor/@carbon/web-components/components/dropdown/dropdown.js';
-import BXDropdownItem from '../../internal/vendor/@carbon/web-components/components/dropdown/dropdown-item.js';
+import CDSDropdown from '../../internal/vendor/@carbon/web-components/components/dropdown/dropdown.js';
+import CDSDropdownItem from '../../internal/vendor/@carbon/web-components/components/dropdown/dropdown-item.js';
 import ChevronDown16 from '../../internal/vendor/@carbon/web-components/icons/chevron--down/16.js';
 import WarningFilled16 from '../../internal/vendor/@carbon/web-components/icons/warning--filled/16.js';
 import {
@@ -46,17 +46,17 @@ const { prefix } = settings;
  * @csspart trigger-button The trigger button.
  * @csspart menu-body The menu body.
  * @csspart validity-message The validity message.
- * @fires bx-dropdown-beingselected
+ * @fires cds-dropdown-beingselected
  *   The custom event fired before a dropdown item is selected upon a user gesture.
  *   Cancellation of this event stops changing the user-initiated selection.
- * @fires bx-dropdown-beingtoggled
+ * @fires cds-dropdown-beingtoggled
  *   The custom event fired before the open state of this dropdown is toggled upon a user gesture.
  *   Cancellation of this event stops the user-initiated toggling.
- * @fires bx-dropdown-selected - The custom event fired after a dropdown item is selected upon a user gesture.
- * @fires bx-dropdown-toggled - The custom event fired after the open state of this dropdown is toggled upon a user gesture.
+ * @fires cds-dropdown-selected - The custom event fired after a dropdown item is selected upon a user gesture.
+ * @fires cds-dropdown-toggled - The custom event fired after the open state of this dropdown is toggled upon a user gesture.
  */
 @customElement(`${ddsPrefix}-dropdown`)
-class DDSDropdown extends BXDropdown {
+class DDSDropdown extends CDSDropdown {
   /**
    * The `<input` node in ComboBox, used to get value.
    */
@@ -78,7 +78,7 @@ class DDSDropdown extends BXDropdown {
    * @param direction `-1` to navigate backward, `1` to navigate forward.
    */
   protected _navigate(direction: number) {
-    const constructor = this.constructor as typeof BXDropdown;
+    const constructor = this.constructor as typeof CDSDropdown;
     const items = this.querySelectorAll(constructor.selectorItem);
     const highlightedItem = this.querySelector(
       constructor.selectorItemHighlighted
@@ -92,7 +92,7 @@ class DDSDropdown extends BXDropdown {
       nextIndex = 0;
     }
     forEach(items, (item, i) => {
-      (item as BXDropdownItem).highlighted = i === nextIndex;
+      (item as CDSDropdownItem).highlighted = i === nextIndex;
     });
 
     const nextItem = items[nextIndex];
@@ -129,7 +129,7 @@ class DDSDropdown extends BXDropdown {
       _handleKeydownInner: handleKeydownInner,
       _handleKeypressInner: handleKeypressInner,
       _handleSlotchangeHelperText: handleSlotchangeHelperText,
-      _handleSlotchangeTitleText: handleSlotchangeTitleText,
+      _handleSlotchangeLabelText: handleSlotchangeLabelText,
       _slotHelperTextNode: slotHelperTextNode,
       _slotTitleTextNode: slotTitleTextNode,
     } = this;
@@ -208,7 +208,7 @@ class DDSDropdown extends BXDropdown {
         part="label-text"
         class="${labelClasses}"
         ?hidden="${!hasTitleText}">
-        <slot name="label-text" @slotchange="${handleSlotchangeTitleText}"
+        <slot name="label-text" @slotchange="${handleSlotchangeLabelText}"
           >${hasTitleText}</slot
         >
       </label>
