@@ -113,11 +113,10 @@ class DDSDropdown extends BXDropdown {
 
   render() {
     const {
-      colorScheme,
       disabled,
       helperText,
       invalid,
-      labelText,
+      titleText,
       open,
       toggleLabelClosed,
       toggleLabelOpen,
@@ -130,9 +129,9 @@ class DDSDropdown extends BXDropdown {
       _handleKeydownInner: handleKeydownInner,
       _handleKeypressInner: handleKeypressInner,
       _handleSlotchangeHelperText: handleSlotchangeHelperText,
-      _handleSlotchangeLabelText: handleSlotchangeLabelText,
+      _handleSlotchangeTitleText: handleSlotchangeTitleText,
       _slotHelperTextNode: slotHelperTextNode,
-      _slotLabelTextNode: slotLabelTextNode,
+      _slotTitleTextNode: slotTitleTextNode,
     } = this;
     const inline = type === DROPDOWN_TYPE.INLINE;
     const selectedItemsCount = this.querySelectorAll(
@@ -141,7 +140,6 @@ class DDSDropdown extends BXDropdown {
     const classes = classMap({
       [`${prefix}--dropdown`]: true,
       [`${prefix}--list-box`]: true,
-      [`${prefix}--list-box--${colorScheme}`]: colorScheme,
       [`${prefix}--list-box--disabled`]: disabled,
       [`${prefix}--list-box--inline`]: inline,
       [`${prefix}--list-box--expanded`]: open,
@@ -168,9 +166,9 @@ class DDSDropdown extends BXDropdown {
     const hasHelperText =
       helperText ||
       (slotHelperTextNode && slotHelperTextNode.assignedNodes().length > 0);
-    const hasLabelText =
-      labelText ||
-      (slotLabelTextNode && slotLabelTextNode.assignedNodes().length > 0);
+    const hasTitleText =
+      titleText ||
+      (slotTitleTextNode && slotTitleTextNode.assignedNodes().length > 0);
     const helper = !invalid
       ? html`
           <div
@@ -209,9 +207,9 @@ class DDSDropdown extends BXDropdown {
       <label
         part="label-text"
         class="${labelClasses}"
-        ?hidden="${!hasLabelText}">
-        <slot name="label-text" @slotchange="${handleSlotchangeLabelText}"
-          >${labelText}</slot
+        ?hidden="${!hasTitleText}">
+        <slot name="label-text" @slotchange="${handleSlotchangeTitleText}"
+          >${hasTitleText}</slot
         >
       </label>
       <div
@@ -231,7 +229,7 @@ class DDSDropdown extends BXDropdown {
           aria-haspopup="listbox"
           aria-owns="menu-body"
           aria-controls="menu-body">
-          ${this._renderPrecedingTriggerContent()}${this._renderTriggerContent()}${this._renderFollowingTriggerContent()}
+          ${this._renderPrecedingLabel()}${this._renderLabel()}${this._renderFollowingLabel()}
           <div class="${iconContainerClasses}">
             ${ChevronDown16({ 'aria-label': toggleLabel })}
           </div>

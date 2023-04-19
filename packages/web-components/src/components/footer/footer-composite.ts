@@ -291,6 +291,7 @@ class DDSFooterComposite extends ModalRenderMixin(
         ${size !== FOOTER_SIZE.MICRO && langList && !disableLocaleButton
           ? html`
               <dds-language-selector-desktop
+                size="lg"
                 trigger-content="${languageSelectorLabel}"
                 label-text="${languageSelectorLabel}"
                 value="${selectedLanguage}"

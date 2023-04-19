@@ -140,10 +140,7 @@ class CDSComboBox extends CDSDropdown {
     const { target } = event as any;
     if (this._selectionButtonNode?.contains(target)) {
       this._handleUserInitiatedClearInput();
-    } else if (
-      this._triggerCaret?.contains(target) ||
-      target instanceof CDSComboBoxItem
-    ) {
+    } else {
       super._handleClickInner(event);
     }
   }
