@@ -59,9 +59,6 @@ class CDSComboBox extends CDSDropdown {
   @query('#selection-button')
   private _selectionButtonNode!: HTMLElement;
 
-  @query('#trigger-caret')
-  private _triggerCaret!: HTMLElement;
-
   /**
    * @param item A combo box item.
    * @returns `true` if the given combo box item matches the query text user types.
