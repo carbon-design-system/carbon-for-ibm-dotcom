@@ -318,56 +318,56 @@ export const ExpandableWithLayer = (args) => {
   };
   return html`
     <sb-template-layers>
-      <div width="400px" slot="layer-1">
-        <cds-expandable-tile
-          color-scheme="${ifDefined(colorScheme)}"
-          ?expanded="${expanded}"
-          @cds-expandable-tile-beingchanged=${handleBeforeChanged}
-          @cds-expandable-tile-changed=${onChange}>
-          <cds-tile-above-the-fold-content
-            slot="above-the-fold-content"
-            style="height: 200px">
-            Above the fold content here
-          </cds-tile-above-the-fold-content>
-          <cds-tile-below-the-fold-content style="height: 300px">
-            Below the fold content here
-          </cds-tile-below-the-fold-content>
-        </cds-expandable-tile>
-      </div>
+      <cds-expandable-tile
+        style="width:400px"
+        slot="layer-1"
+        color-scheme="${ifDefined(colorScheme)}"
+        ?expanded="${expanded}"
+        @cds-expandable-tile-beingchanged=${handleBeforeChanged}
+        @cds-expandable-tile-changed=${onChange}>
+        <cds-tile-above-the-fold-content
+          slot="above-the-fold-content"
+          style="height: 200px">
+          Above the fold content here
+        </cds-tile-above-the-fold-content>
+        <cds-tile-below-the-fold-content style="height: 300px">
+          Below the fold content here
+        </cds-tile-below-the-fold-content>
+      </cds-expandable-tile>
 
-      <div width="400px" slot="layer-2">
-        <cds-expandable-tile
-          color-scheme="${ifDefined(colorScheme)}"
-          ?expanded="${expanded}"
-          @cds-expandable-tile-beingchanged=${handleBeforeChanged}
-          @cds-expandable-tile-changed=${onChange}>
-          <cds-tile-above-the-fold-content
-            slot="above-the-fold-content"
-            style="height: 200px">
-            Above the fold content here
-          </cds-tile-above-the-fold-content>
-          <cds-tile-below-the-fold-content style="height: 300px">
-            Below the fold content here
-          </cds-tile-below-the-fold-content>
-        </cds-expandable-tile>
-      </div>
+      <cds-expandable-tile
+        style="width:400px"
+        slot="layer-2"
+        color-scheme="${ifDefined(colorScheme)}"
+        ?expanded="${expanded}"
+        @cds-expandable-tile-beingchanged=${handleBeforeChanged}
+        @cds-expandable-tile-changed=${onChange}>
+        <cds-tile-above-the-fold-content
+          slot="above-the-fold-content"
+          style="height: 200px">
+          Above the fold content here
+        </cds-tile-above-the-fold-content>
+        <cds-tile-below-the-fold-content style="height: 300px">
+          Below the fold content here
+        </cds-tile-below-the-fold-content>
+      </cds-expandable-tile>
 
-      <div width="400px" slot="layer-3">
-        <cds-expandable-tile
-          color-scheme="${ifDefined(colorScheme)}"
-          ?expanded="${expanded}"
-          @cds-expandable-tile-beingchanged=${handleBeforeChanged}
-          @cds-expandable-tile-changed=${onChange}>
-          <cds-tile-above-the-fold-content
-            slot="above-the-fold-content"
-            style="height: 200px">
-            Above the fold content here
-          </cds-tile-above-the-fold-content>
-          <cds-tile-below-the-fold-content style="height: 300px">
-            Below the fold content here
-          </cds-tile-below-the-fold-content>
-        </cds-expandable-tile>
-      </div>
+      <cds-expandable-tile
+        style="width:400px"
+        slot="layer-3"
+        color-scheme="${ifDefined(colorScheme)}"
+        ?expanded="${expanded}"
+        @cds-expandable-tile-beingchanged=${handleBeforeChanged}
+        @cds-expandable-tile-changed=${onChange}>
+        <cds-tile-above-the-fold-content
+          slot="above-the-fold-content"
+          style="height: 200px">
+          Above the fold content here
+        </cds-tile-above-the-fold-content>
+        <cds-tile-below-the-fold-content style="height: 300px">
+          Below the fold content here
+        </cds-tile-below-the-fold-content>
+      </cds-expandable-tile>
     </sb-template-layers>
   `;
 };
