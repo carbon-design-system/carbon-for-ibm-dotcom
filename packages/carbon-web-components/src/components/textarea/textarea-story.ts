@@ -18,6 +18,7 @@ import '../layer';
 import createProps from './stories/helpers';
 import storyDocs from './textarea-story.mdx';
 import { prefix } from '../../globals/settings';
+import '../../../.storybook/templates/with-layer';
 
 export const Default = () => {
   return html`
@@ -41,18 +42,23 @@ skeleton.parameters = {
 
 export const WithLayer = () => {
   return html`
-    <cds-layer>
-      <cds-textarea label="First layer" helper-text="Optional helper text">
+    <sb-template-layers>
+      <cds-textarea
+        slot="layer-1"
+        label="Text Area label"
+        helper-text="Optional helper text">
       </cds-textarea>
-      <cds-layer>
-        <cds-textarea label="Second layer" helper-text="Optional helper text">
-        </cds-textarea>
-        <cds-layer>
-          <cds-textarea label="Third layer" helper-text="Optional helper text">
-          </cds-textarea>
-        </cds-layer>
-      </cds-layer>
-    </cds-layer>
+      <cds-textarea
+        slot="layer-2"
+        label="Text Area label"
+        helper-text="Optional helper text">
+      </cds-textarea>
+      <cds-textarea
+        slot="layer-3"
+        label="Text Area label"
+        helper-text="Optional helper text">
+      </cds-textarea>
+    </sb-template-layers>
   `;
 };
 

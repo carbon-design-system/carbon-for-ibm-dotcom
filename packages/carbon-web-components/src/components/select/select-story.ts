@@ -23,6 +23,8 @@ import './select-item';
 import './select-skeleton';
 import '../form/form-item';
 import '../layer';
+import '../../../.storybook/templates/with-layer';
+
 import storyDocs from './select-story.mdx';
 
 const sizes = {
@@ -85,8 +87,11 @@ skeleton.parameters = {
 
 export const WithLayer = () => {
   return html`
-    <cds-layer>
-      <cds-select helper-text="First layer" placeholder="Choose an option">
+    <sb-template-layers>
+      <cds-select
+        slot="layer-1"
+        helper-text="Optional helper text"
+        placeholder="Choose an option">
         <cds-select-item-group label="Category 1">
           <cds-select-item value="all">Option 1</cds-select-item>
           <cds-select-item value="cloudFoundry">Option 2</cds-select-item>
@@ -97,34 +102,35 @@ export const WithLayer = () => {
           <cds-select-item value="router">Option 5</cds-select-item>
         </cds-select-item-group>
       </cds-select>
-      <cds-layer>
-        <cds-select helper-text="Second layer" placeholder="Choose an option">
-          <cds-select-item-group label="Category 1">
-            <cds-select-item value="all">Option 1</cds-select-item>
-            <cds-select-item value="cloudFoundry">Option 2</cds-select-item>
-          </cds-select-item-group>
-          <cds-select-item-group label="Category 2">
-            <cds-select-item value="staging">Option 3</cds-select-item>
-            <cds-select-item value="dea">Option 4</cds-select-item>
-            <cds-select-item value="router">Option 5</cds-select-item>
-          </cds-select-item-group>
-        </cds-select>
-
-        <cds-layer>
-          <cds-select helper-text="Third layer" placeholder="Choose an option">
-            <cds-select-item-group label="Category 1">
-              <cds-select-item value="all">Option 1</cds-select-item>
-              <cds-select-item value="cloudFoundry">Option 2</cds-select-item>
-            </cds-select-item-group>
-            <cds-select-item-group label="Category 2">
-              <cds-select-item value="staging">Option 3</cds-select-item>
-              <cds-select-item value="dea">Option 4</cds-select-item>
-              <cds-select-item value="router">Option 5</cds-select-item>
-            </cds-select-item-group>
-          </cds-select>
-        </cds-layer>
-      </cds-layer>
-    </cds-layer>
+      <cds-select
+        slot="layer-2"
+        helper-text="Optional helper text"
+        placeholder="Choose an option">
+        <cds-select-item-group label="Category 1">
+          <cds-select-item value="all">Option 1</cds-select-item>
+          <cds-select-item value="cloudFoundry">Option 2</cds-select-item>
+        </cds-select-item-group>
+        <cds-select-item-group label="Category 2">
+          <cds-select-item value="staging">Option 3</cds-select-item>
+          <cds-select-item value="dea">Option 4</cds-select-item>
+          <cds-select-item value="router">Option 5</cds-select-item>
+        </cds-select-item-group>
+      </cds-select>
+      <cds-select
+        slot="layer-3"
+        helper-text="Optional helper text"
+        placeholder="Choose an option">
+        <cds-select-item-group label="Category 1">
+          <cds-select-item value="all">Option 1</cds-select-item>
+          <cds-select-item value="cloudFoundry">Option 2</cds-select-item>
+        </cds-select-item-group>
+        <cds-select-item-group label="Category 2">
+          <cds-select-item value="staging">Option 3</cds-select-item>
+          <cds-select-item value="dea">Option 4</cds-select-item>
+          <cds-select-item value="router">Option 5</cds-select-item>
+        </cds-select-item-group>
+      </cds-select>
+    </sb-template-layers>
   `;
 };
 
