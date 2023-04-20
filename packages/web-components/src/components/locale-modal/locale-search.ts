@@ -14,7 +14,7 @@ import { INPUT_SIZE } from '../../internal/vendor/@carbon/web-components/compone
 import ddsSettings from '../../internal/vendor/@carbon/ibmdotcom-utilities/utilities/settings/settings';
 import ThrottedInputMixin from '../../globals/mixins/throttled-input';
 import { forEach } from '../../globals/internal/collection-helpers';
-import DDSSearch, { SEARCH_COLOR_SCHEME } from '../search/search';
+import DDSSearch from '../search/search';
 import DDSLocaleItem from './locale-item';
 import styles from './locale-modal.scss';
 import StableSelectorMixin from '../../globals/mixins/stable-selector';
@@ -213,7 +213,6 @@ class DDSLocaleSearch extends ThrottedInputMixin(
           <dds-search
             part="searchbox"
             close-button-assistive-text="${closeButtonAssistiveText}"
-            color-scheme="${SEARCH_COLOR_SCHEME.REGULAR}"
             label-text="${labelText}"
             placeholder="${placeholder}"
             size="${INPUT_SIZE.EXTRA_LARGE}"
