@@ -118,6 +118,7 @@ export const Default = (args) => {
     ${useMock
       ? html`
           <dds-masthead-composite
+            data-endpoint="/common/carbon-for-ibm-dotcom/translations/masthead-footer/v2.1"
             platform="${ifNonNull(platform)}"
             .platformUrl="${ifNonNull(platformData.url)}"
             selected-menu-item="${ifNonNull(selectedMenuItem)}"
@@ -135,6 +136,7 @@ export const Default = (args) => {
         `
       : html`
           <dds-masthead-container
+            data-endpoint="/common/carbon-for-ibm-dotcom/translations/masthead-footer/v2.1"
             platform="${ifNonNull(platform)}"
             .platformUrl="${ifNonNull(platformData.url)}"
             selected-menu-item="${ifNonNull(selectedMenuItem)}"
@@ -168,6 +170,7 @@ export const withV2Data = (args) => {
     ${useMock
       ? html`
           <dds-masthead-composite
+            data-endpoint="/common/carbon-for-ibm-dotcom/translations/masthead-footer/v2.1"
             selected-menu-item="${ifNonNull(selectedMenuItem)}"
             user-status="${ifNonNull(userStatus)}"
             searchPlaceholder="${ifNonNull(searchPlaceholder)}"
@@ -184,7 +187,7 @@ export const withV2Data = (args) => {
         `
       : html`
           <dds-masthead-container
-            data-endpoint="/common/carbon-for-ibm-dotcom/translations/masthead-footer/v2"
+            data-endpoint="/common/carbon-for-ibm-dotcom/translations/masthead-footer/v2.1"
             selected-menu-item="${ifNonNull(selectedMenuItem)}"
             platform="${ifNonNull(platform)}"
             user-status="${ifNonNull(userStatus)}"
@@ -218,6 +221,7 @@ export const withCloudData = ({ parameters }) => {
     ${useMock
       ? html`
           <dds-masthead-composite
+            data-endpoint="/common/carbon-for-ibm-dotcom/translations/masthead-footer/v2.1"
             platform="Cloud"
             .platformUrl="${ifNonNull(platformData.url)}"
             selected-menu-item="${ifNonNull(selectedMenuItem)}"
@@ -233,7 +237,7 @@ export const withCloudData = ({ parameters }) => {
         `
       : html`
           <dds-masthead-container
-            data-endpoint="/common/carbon-for-ibm-dotcom/translations/cloud-masthead"
+            data-endpoint="/common/carbon-for-ibm-dotcom/translations/masthead-footer/v2.1"
             platform="${platform || 'Cloud'}"
             .platformUrl="${ifNonNull(platformData.url)}"
             selected-menu-item="${ifNonNull(selectedMenuItem)}"
@@ -277,6 +281,7 @@ export const WithCustomTypeahead = (args) => {
     ${useMock
       ? html`
           <dds-masthead-composite
+            data-endpoint="/common/carbon-for-ibm-dotcom/translations/masthead-footer/v2.1"
             platform="${ifNonNull(platform)}"
             .platformUrl="${ifNonNull(platformData.url)}"
             selected-menu-item="${ifNonNull(selectedMenuItem)}"
@@ -294,7 +299,7 @@ export const WithCustomTypeahead = (args) => {
         `
       : html`
           <dds-masthead-container
-            data-endpoint="${ifNonNull(endpoint)}"
+            data-endpoint="/common/carbon-for-ibm-dotcom/translations/masthead-footer/v2.1"
             platform="${ifNonNull(platform)}"
             .platformUrl="${ifNonNull(platformData.url)}"
             selected-menu-item="${ifNonNull(selectedMenuItem)}"
@@ -332,6 +337,7 @@ export const searchOpenOnload = (args) => {
     ${useMock
       ? html`
           <dds-masthead-composite
+            data-endpoint="/common/carbon-for-ibm-dotcom/translations/masthead-footer/v2.1"
             activate-search
             platform="${ifNonNull(platformData.name)}"
             .platformUrl="${ifNonNull(platformData.url)}"
@@ -386,6 +392,7 @@ export const withPlatform = (args) => {
     ${useMock
       ? html`
           <dds-masthead-composite
+            data-endpoint="/common/carbon-for-ibm-dotcom/translations/masthead-footer/v2.1"
             platform="${ifNonNull(platformData.name)}"
             .platformUrl="${ifNonNull(urlObject)}"
             selected-menu-item="${ifNonNull(selectedMenuItem)}"
@@ -474,6 +481,7 @@ export const withL1 = (args) => {
     ${useMock
       ? html`
           <dds-masthead-composite
+            data-endpoint="/common/carbon-for-ibm-dotcom/translations/masthead-footer/v2.1"
             selected-menu-item="${ifNonNull(selectedMenuItem)}"
             searchPlaceholder="${ifNonNull(searchPlaceholder)}"
             user-status="${ifNonNull(userStatus)}"
@@ -488,9 +496,9 @@ export const withL1 = (args) => {
         `
       : html`
           <dds-masthead-container
+            data-endpoint="/common/carbon-for-ibm-dotcom/translations/masthead-footer/v2.1"
             platform="${ifNonNull(platform)}"
             .platformData="${ifNonNull(platformData.url)}"
-            data-endpoint="${ifNonNull(endpoint)}"
             selected-menu-item="${ifNonNull(selectedMenuItem)}"
             user-status="${ifNonNull(userStatus)}"
             has-profile="${hasProfile}"
@@ -563,6 +571,7 @@ export const withAlternateLogoAndTooltip = (args) => {
     ${useMock
       ? html`
           <dds-masthead-composite
+            data-endpoint="/common/carbon-for-ibm-dotcom/translations/masthead-footer/v2.1"
             selected-menu-item="${ifNonNull(selectedMenuItem)}"
             user-status="${ifNonNull(userStatus)}"
             searchPlaceholder="${ifNonNull(searchPlaceholder)}"
@@ -665,6 +674,7 @@ export const WithScopedSearch = ({ parameters }) => {
     ${useMock
       ? html`
           <dds-masthead-composite
+            data-endpoint="/common/carbon-for-ibm-dotcom/translations/masthead-footer/v2.1"
             platform="${ifNonNull(platform)}"
             .platformUrl="${ifNonNull(platformData.url)}"
             selected-menu-item="${ifNonNull(selectedMenuItem)}"
@@ -682,6 +692,7 @@ export const WithScopedSearch = ({ parameters }) => {
         `
       : html`
           <dds-masthead-container
+            data-endpoint="/common/carbon-for-ibm-dotcom/translations/masthead-footer/v2.1"
             platform="${ifNonNull(platform)}"
             .platformUrl="${ifNonNull(platformData.url)}"
             selected-menu-item="${ifNonNull(selectedMenuItem)}"
@@ -727,9 +738,7 @@ export default {
             },
           };
         </script>
-        <script
-          src="//www.ibm.com/common/digitaladvisor/cm-app/latest/cm-app.min.js"
-          defer></script>
+        <script src="//www.ibm.com/common/digitaladvisor/cm-app/latest/cm-app.min.js" defer></script>
       `;
     },
   ],

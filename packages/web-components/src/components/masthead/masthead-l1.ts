@@ -738,7 +738,7 @@ class DDSMastheadL1 extends StableSelectorMixin(LitElement) {
   protected _renderL1SubSectionHeading(heading: L1SubmenuSectionHeading) {
     const { isMobileVersion } = this;
 
-    const headingDesc = heading.description
+    const headingDesc = !isMobileVersion && heading.description
       ? html`<span class="${prefix}--masthead__l1-dropdown-heading-desc"
           >${heading.description}</span
         >`
