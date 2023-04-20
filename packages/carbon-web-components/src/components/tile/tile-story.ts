@@ -39,15 +39,7 @@ export const DefaultWithLayer = (args) => {
   const { colorScheme } = args?.[`${prefix}-tile`] ?? {};
   return html`
     <sb-template-layers>
-      <cds-tile slot="layer-1" color-scheme="${ifDefined(colorScheme)}">
-        Default layer
-        <a href="https://example.com">Link</a>
-      </cds-tile>
-      <cds-tile slot="layer-2" color-scheme="${ifDefined(colorScheme)}">
-        Default layer
-        <a href="https://example.com">Link</a>
-      </cds-tile>
-      <cds-tile slot="layer-3" color-scheme="${ifDefined(colorScheme)}">
+      <cds-tile color-scheme="${ifDefined(colorScheme)}">
         Default layer
         <a href="https://example.com">Link</a>
       </cds-tile>

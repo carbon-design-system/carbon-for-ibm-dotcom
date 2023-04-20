@@ -67,7 +67,6 @@ export const ControlledSlider = () => {
 export const ControlledSliderWithLayer = () => {
   let value = 87;
   function onClick() {
-    console.log('asdjnasjkdbjasbdjkasbsdk');
     value = Math.round(Math.random() * 100);
     const sliders = document.getElementsByTagName('cds-slider');
     for (const slider of sliders) {
