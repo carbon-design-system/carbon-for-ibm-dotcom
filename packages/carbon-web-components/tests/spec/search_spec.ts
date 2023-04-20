@@ -10,13 +10,11 @@
 import { render } from 'lit';
 import EventManager from '../utils/event-manager';
 import { INPUT_SIZE } from '../../src/components/text-input/text-input';
-import CDSSearch, {
-  SEARCH_COLOR_SCHEME,
-} from '../../src/components/search/search';
-import { Default } from '../../src/components/search/search-story';
+import CDSSearch from '../../src/components/search/search';
+import { Playground } from '../../src/components/search/search-story';
 
 const template = (props?) =>
-  Default({
+  Playground({
     'cds-search': props,
   });
 
@@ -36,7 +34,6 @@ describe('cds-search', function () {
       render(
         template({
           closeButtonAssistiveText: 'close-button-assistive-text-foo',
-          colorScheme: SEARCH_COLOR_SCHEME.LIGHT,
           disabled: true,
           labelText: 'label-text-foo',
           name: 'name-foo',
