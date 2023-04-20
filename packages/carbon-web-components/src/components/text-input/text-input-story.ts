@@ -65,20 +65,7 @@ export const TogglePasswordVisibility = () => {
 export const WithLayer = () => {
   return html`
     <sb-template-layers>
-      <cds-text-input
-        slot="layer-1"
-        label="Text input label"
-        helper-text="Optional help text">
-      </cds-text-input>
-      <cds-text-input
-        slot="layer-2"
-        label="Text input label"
-        helper-text="Optional help text">
-      </cds-text-input>
-      <cds-text-input
-        slot="layer-3"
-        label="Text input label"
-        helper-text="Optional help text">
+      <cds-text-input label="Text input label" helper-text="Optional help text">
       </cds-text-input>
     </sb-template-layers>
   `;

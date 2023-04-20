@@ -8,7 +8,7 @@
  */
 
 import { LitElement, html } from 'lit';
-import { customElement } from 'lit/decorators.js';
+import { customElement, property } from 'lit/decorators.js';
 import Layers from '@carbon/icons/lib/layers/16';
 import { prefix } from '../../src/globals/settings';
 
@@ -22,6 +22,33 @@ import styles from './with-layer.scss';
  */
 @customElement(`sb-template-layers`)
 class CDSLayer extends LitElement {
+  @property()
+  content;
+
+  private _handleSlotChange({ target }: Event) {
+    if (!this.content) {
+      const content = (target as HTMLSlotElement)
+        .assignedNodes()
+        .filter(
+          (node) =>
+            node.nodeType !== Node.TEXT_NODE || node!.textContent!.trim()
+        );
+
+      this.content = content[0];
+    }
+  }
+
+  updated() {
+    if (this.content) {
+      const layer2 = this.content.cloneNode(true) as HTMLElement;
+      const layer3 = this.content.cloneNode(true) as HTMLElement;
+      layer2.setAttribute('slot', 'layer-2');
+      layer3.setAttribute('slot', 'layer-3');
+      this.appendChild(layer2);
+      this.appendChild(layer3);
+    }
+  }
+
   render() {
     return html`
       <div class="${prefix}--with-layer">
@@ -29,8 +56,7 @@ class CDSLayer extends LitElement {
           <div class="${prefix}--with-layer__label">${Layers()} Layer 1</div>
           <div class="${prefix}--with-layer__content">
             <cds-layer>
-              <slot name="layer-1"></slot>
-
+              <slot @slotchange="${this._handleSlotChange}"></slot>
               <div class="${prefix}--with-layer__layer">
                 <div class="${prefix}--with-layer__label">
                   ${Layers()} Layer 2
@@ -38,7 +64,6 @@ class CDSLayer extends LitElement {
                 <div class="${prefix}--with-layer__content">
                   <cds-layer>
                     <slot name="layer-2"></slot>
-
                     <div class="${prefix}--with-layer__layer">
                       <div class="${prefix}--with-layer__label">
                         ${Layers()} Layer 3

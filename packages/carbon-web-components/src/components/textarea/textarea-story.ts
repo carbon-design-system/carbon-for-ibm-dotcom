@@ -43,20 +43,7 @@ skeleton.parameters = {
 export const WithLayer = () => {
   return html`
     <sb-template-layers>
-      <cds-textarea
-        slot="layer-1"
-        label="Text Area label"
-        helper-text="Optional helper text">
-      </cds-textarea>
-      <cds-textarea
-        slot="layer-2"
-        label="Text Area label"
-        helper-text="Optional helper text">
-      </cds-textarea>
-      <cds-textarea
-        slot="layer-3"
-        label="Text Area label"
-        helper-text="Optional helper text">
+      <cds-textarea label="Text Area label" helper-text="Optional helper text">
       </cds-textarea>
     </sb-template-layers>
   `;

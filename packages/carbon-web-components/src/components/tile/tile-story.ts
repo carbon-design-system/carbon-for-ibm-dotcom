@@ -86,29 +86,6 @@ export const ClickableWithLayer = (args) => {
   return html`
     <sb-template-layers>
       <cds-clickable-tile
-        slot="layer-1"
-        download="${ifDefined(download)}"
-        href="${ifDefined(href)}"
-        hreflang="${ifDefined(hreflang)}"
-        ping="${ifDefined(ping)}"
-        rel="${ifDefined(rel)}"
-        target="${ifDefined(target)}"
-        type="${ifDefined(type)}">
-        Clickable tile
-      </cds-clickable-tile>
-      <cds-clickable-tile
-        slot="layer-2"
-        download="${ifDefined(download)}"
-        href="${ifDefined(href)}"
-        hreflang="${ifDefined(hreflang)}"
-        ping="${ifDefined(ping)}"
-        rel="${ifDefined(rel)}"
-        target="${ifDefined(target)}"
-        type="${ifDefined(type)}">
-        Clickable tile
-      </cds-clickable-tile>
-      <cds-clickable-tile
-        slot="layer-3"
         download="${ifDefined(download)}"
         href="${ifDefined(href)}"
         hreflang="${ifDefined(hreflang)}"
@@ -121,8 +98,6 @@ export const ClickableWithLayer = (args) => {
     </sb-template-layers>
   `;
 };
-
-ClickableWithLayer.storyName = 'Clickable with layer';
 
 export const Radio = (args) => {
   const { checkmarkLabel, colorScheme, name, value, onInput } =
@@ -178,19 +153,7 @@ Radio.parameters = {
 export const RadioWithLayer = () => {
   return html`
     <sb-template-layers>
-      <cds-tile-group slot="layer-1">
-        <legend slot="legend">Radio tile group</legend>
-        <cds-radio-tile name="option-1a"> Option 1 </cds-radio-tile>
-        <cds-radio-tile name="option-2a"> Option 2 </cds-radio-tile>
-      </cds-tile-group>
-
-      <cds-tile-group slot="layer-2">
-        <legend slot="legend">Radio tile group</legend>
-        <cds-radio-tile name="option-1a"> Option 1 </cds-radio-tile>
-        <cds-radio-tile name="option-2a"> Option 2 </cds-radio-tile>
-      </cds-tile-group>
-
-      <cds-tile-group slot="layer-3">
+      <cds-tile-group>
         <legend slot="legend">Radio tile group</legend>
         <cds-radio-tile name="option-1a"> Option 1 </cds-radio-tile>
         <cds-radio-tile name="option-2a"> Option 2 </cds-radio-tile>
@@ -198,8 +161,6 @@ export const RadioWithLayer = () => {
     </sb-template-layers>
   `;
 };
-
-RadioWithLayer.storyName = 'Radio with layer';
 
 export const multiSelectable = (args) => {
   const { checkmarkLabel, colorScheme, name, selected, value, onInput } =
@@ -320,41 +281,6 @@ export const ExpandableWithLayer = (args) => {
     <sb-template-layers>
       <cds-expandable-tile
         style="width:400px"
-        slot="layer-1"
-        color-scheme="${ifDefined(colorScheme)}"
-        ?expanded="${expanded}"
-        @cds-expandable-tile-beingchanged=${handleBeforeChanged}
-        @cds-expandable-tile-changed=${onChange}>
-        <cds-tile-above-the-fold-content
-          slot="above-the-fold-content"
-          style="height: 200px">
-          Above the fold content here
-        </cds-tile-above-the-fold-content>
-        <cds-tile-below-the-fold-content style="height: 300px">
-          Below the fold content here
-        </cds-tile-below-the-fold-content>
-      </cds-expandable-tile>
-
-      <cds-expandable-tile
-        style="width:400px"
-        slot="layer-2"
-        color-scheme="${ifDefined(colorScheme)}"
-        ?expanded="${expanded}"
-        @cds-expandable-tile-beingchanged=${handleBeforeChanged}
-        @cds-expandable-tile-changed=${onChange}>
-        <cds-tile-above-the-fold-content
-          slot="above-the-fold-content"
-          style="height: 200px">
-          Above the fold content here
-        </cds-tile-above-the-fold-content>
-        <cds-tile-below-the-fold-content style="height: 300px">
-          Below the fold content here
-        </cds-tile-below-the-fold-content>
-      </cds-expandable-tile>
-
-      <cds-expandable-tile
-        style="width:400px"
-        slot="layer-3"
         color-scheme="${ifDefined(colorScheme)}"
         ?expanded="${expanded}"
         @cds-expandable-tile-beingchanged=${handleBeforeChanged}

@@ -67,6 +67,7 @@ export const ControlledSlider = () => {
 export const ControlledSliderWithLayer = () => {
   let value = 87;
   function onClick() {
+    console.log('asdjnasjkdbjasbdjkasbsdk');
     value = Math.round(Math.random() * 100);
     const sliders = document.getElementsByTagName('cds-slider');
     for (const slider of sliders) {
@@ -81,29 +82,7 @@ export const ControlledSliderWithLayer = () => {
 
   return html`
     <sb-template-layers>
-      <div slot="layer-1">
-        <button type="button" @click="${onClick}">randomize value</button>
-        <cds-form-item>
-          <cds-slider max="100" min="0" step="1" value="${ifDefined(value)}">
-            <cds-slider-input
-              aria-label="Slider value"
-              type="number"></cds-slider-input>
-          </cds-slider>
-        </cds-form-item>
-        <h1 class="slider-headers">${value}</h1>
-      </div>
-      <div slot="layer-2">
-        <button type="button" @click="${onClick}">randomize value</button>
-        <cds-form-item>
-          <cds-slider max="100" min="0" step="1" value="${ifDefined(value)}">
-            <cds-slider-input
-              aria-label="Slider value"
-              type="number"></cds-slider-input>
-          </cds-slider>
-        </cds-form-item>
-        <h1 class="slider-headers">${value}</h1>
-      </div>
-      <div slot="layer-3">
+      <div>
         <button type="button" @click="${onClick}">randomize value</button>
         <cds-form-item>
           <cds-slider max="100" min="0" step="1" value="${ifDefined(value)}">
@@ -121,31 +100,7 @@ export const ControlledSliderWithLayer = () => {
 export const WithLayer = () => {
   return html`
     <sb-template-layers>
-      <cds-form-item slot="layer-1">
-        <cds-slider
-          label-text="Slider label"
-          max="100"
-          min="0"
-          step="1"
-          value="50">
-          <cds-slider-input
-            aria-label="Slider value"
-            type="number"></cds-slider-input>
-        </cds-slider>
-      </cds-form-item>
-      <cds-form-item slot="layer-2">
-        <cds-slider
-          label-text="Slider label"
-          max="100"
-          min="0"
-          step="1"
-          value="50">
-          <cds-slider-input
-            aria-label="Slider value"
-            type="number"></cds-slider-input>
-        </cds-slider>
-      </cds-form-item>
-      <cds-form-item slot="layer-3">
+      <cds-form-item>
         <cds-slider
           label-text="Slider label"
           max="100"
