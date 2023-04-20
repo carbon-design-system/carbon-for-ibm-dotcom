@@ -46,9 +46,16 @@ $css--plex: true !default;
     }
   }
 
-  &[disabled] {
+  &[disabled],
+  &[read-only] {
     .#{$prefix}--list-box__selection {
       pointer-events: none;
+    }
+  }
+
+  &[read-only] {
+    .#{$prefix}--list-box__selection svg {
+      fill: $icon-disabled;
     }
   }
 }
