@@ -15,10 +15,10 @@ import { prefix } from '../../src/globals/settings';
 import styles from './with-layer.scss';
 
 /**
- * Basic layer
+ * Storybook template layer component, strictly for presentation purposes
  *
- * @element cds-layer
- * @slot children - The elements contained within the component.
+ * @element sb-template-layers
+ * @slot The elements contained within the component.
  */
 @customElement(`sb-template-layers`)
 class CDSLayer extends LitElement {
