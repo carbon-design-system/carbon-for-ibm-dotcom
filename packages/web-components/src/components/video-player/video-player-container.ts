@@ -183,7 +183,9 @@ export const DDSVideoPlayerContainerMixin = <
      */
     // Not using TypeScript `private` due to: microsoft/TypeScript#17744
     async _embedVideoImpl(videoId: string, backgroundMode = false) {
-      const doc = this.getRootNode() as Document | ShadowRoot;
+      const doc = Object.prototype.hasOwnProperty.call(this, 'getRootNode')
+        ? (this.getRootNode() as Document | ShadowRoot)
+        : this.ownerDocument;
       // Given Kaltura replaces the `<div>` here with `<iframe>` with the video player,
       // rendering this `<div>` in `renderLightDOM()` will cause the video player being clobbered
       const playerId = Math.random().toString(36).slice(2);
