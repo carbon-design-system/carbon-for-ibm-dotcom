@@ -399,9 +399,7 @@ class DDSMastheadL1 extends StableSelectorMixin(LitElement) {
     const wideColumnFirst = menuSections[0].span > 1;
 
     const wideColumns = menuSections.filter((section) => section.span > 1);
-    const normalColumns = menuSections.filter((section) =>
-      wideColumns.contains(section)
-    );
+    const normalColumns = menuSections.filter((section) => !(section.span > 1));
 
     return html`
       <li @focusout=${handleDropdownClose} @keydown=${handleDropdownClose}>
