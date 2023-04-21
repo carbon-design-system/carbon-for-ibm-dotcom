@@ -6,9 +6,10 @@
 
 ```
 <a
-  class="bx--link bx--link--lg bx--link-with-icon bx--link-with-icon--inline-icon bx--link-with-icon__icon-right"
+  class="bx--link-with-icon bx--link-with-icon--inline-icon bx--link-with-icon__icon-right cds--link cds--link--lg"
   id="link"
   part="link"
+  tabindex="0"
 >
   <span>
     <slot>
@@ -26,10 +27,11 @@
 
 ```
 <a
-  class="bx--link bx--link--lg bx--link-with-icon bx--link-with-icon--inline-icon bx--link-with-icon__icon-right"
+  class="bx--link-with-icon bx--link-with-icon--inline-icon bx--link-with-icon__icon-right cds--link cds--link--lg"
   href="#"
   id="link"
   part="link"
+  tabindex="0"
   target="_blank"
 >
   <span>

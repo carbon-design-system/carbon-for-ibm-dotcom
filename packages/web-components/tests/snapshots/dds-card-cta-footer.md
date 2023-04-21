@@ -7,9 +7,10 @@
 ```
 <a
   aria-label=""
-  class="bx--card__footer bx--link bx--link--lg bx--link-with-icon bx--link-with-icon--inline-icon bx--link-with-icon__icon-right dds-ce--card__footer"
+  class="bx--card__footer bx--link-with-icon bx--link-with-icon--inline-icon bx--link-with-icon__icon-right cds--link cds--link--lg dds-ce--card__footer"
   id="link"
   part="link"
+  tabindex="0"
 >
   <span
     class="bx--card__cta__copy"
@@ -31,10 +32,11 @@
 ```
 <a
   aria-label=" - This link plays a video"
-  class="bx--card__footer bx--link bx--link--lg bx--link-with-icon bx--link-with-icon--inline-icon bx--link-with-icon__icon-right dds-ce--card__footer"
+  class="bx--card__footer bx--link-with-icon bx--link-with-icon--inline-icon bx--link-with-icon__icon-right cds--link cds--link--lg dds-ce--card__footer"
   href="#"
   id="link"
   part="link"
+  tabindex="0"
 >
   <span class="bx--card__cta__copy">
     <slot>
