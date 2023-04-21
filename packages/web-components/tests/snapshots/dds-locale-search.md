@@ -9,7 +9,6 @@
   <div class="bx--locale-modal__search">
     <dds-search
       close-button-assistive-text=""
-      color-scheme=""
       data-autoid="dds--locale-modal__filter"
       label-text=""
       part="searchbox"
@@ -45,7 +44,6 @@
   <div class="bx--locale-modal__search">
     <dds-search
       close-button-assistive-text="close-button-assistive-text-foo"
-      color-scheme=""
       data-autoid="dds--locale-modal__filter"
       label-text="label-text-foo"
       part="searchbox"
