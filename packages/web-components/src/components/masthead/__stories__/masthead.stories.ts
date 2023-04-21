@@ -237,7 +237,7 @@ export const withCloudData = ({ parameters }) => {
         `
       : html`
           <dds-masthead-container
-            data-endpoint="/common/carbon-for-ibm-dotcom/translations/masthead-footer/v2.1"
+            data-endpoint="/common/carbon-for-ibm-dotcom/translations/cloud-masthead"
             platform="${platform || 'Cloud'}"
             .platformUrl="${ifNonNull(platformData.url)}"
             selected-menu-item="${ifNonNull(selectedMenuItem)}"
@@ -274,6 +274,9 @@ export const WithCustomTypeahead = (args) => {
     }
   );
 
+  const defaultEndpoint =
+    '/common/carbon-for-ibm-dotcom/translations/masthead-footer/v2.1';
+
   return html`
     <style>
       ${styles}
@@ -281,7 +284,7 @@ export const WithCustomTypeahead = (args) => {
     ${useMock
       ? html`
           <dds-masthead-composite
-            data-endpoint="/common/carbon-for-ibm-dotcom/translations/masthead-footer/v2.1"
+            data-endpoint="${defaultEndpoint}"
             platform="${ifNonNull(platform)}"
             .platformUrl="${ifNonNull(platformData.url)}"
             selected-menu-item="${ifNonNull(selectedMenuItem)}"
@@ -299,7 +302,7 @@ export const WithCustomTypeahead = (args) => {
         `
       : html`
           <dds-masthead-container
-            data-endpoint="/common/carbon-for-ibm-dotcom/translations/masthead-footer/v2.1"
+            data-endpoint="${ifNonNull(endpoint) ?? defaultEndpoint}"
             platform="${ifNonNull(platform)}"
             .platformUrl="${ifNonNull(platformData.url)}"
             selected-menu-item="${ifNonNull(selectedMenuItem)}"
@@ -474,6 +477,9 @@ export const withL1 = (args) => {
     platform,
     useMock,
   } = args?.MastheadComposite ?? {};
+
+  const defaultEndpoint =
+    '/common/carbon-for-ibm-dotcom/translations/masthead-footer/v2.1';
   return html`
     <style>
       ${styles}
@@ -481,7 +487,7 @@ export const withL1 = (args) => {
     ${useMock
       ? html`
           <dds-masthead-composite
-            data-endpoint="/common/carbon-for-ibm-dotcom/translations/masthead-footer/v2.1"
+            data-endpoint="${defaultEndpoint}"
             selected-menu-item="${ifNonNull(selectedMenuItem)}"
             searchPlaceholder="${ifNonNull(searchPlaceholder)}"
             user-status="${ifNonNull(userStatus)}"
@@ -496,7 +502,7 @@ export const withL1 = (args) => {
         `
       : html`
           <dds-masthead-container
-            data-endpoint="/common/carbon-for-ibm-dotcom/translations/masthead-footer/v2.1"
+            data-endpoint="${ifNonNull(endpoint) ?? defaultEndpoint}"
             platform="${ifNonNull(platform)}"
             .platformData="${ifNonNull(platformData.url)}"
             selected-menu-item="${ifNonNull(selectedMenuItem)}"
@@ -738,7 +744,9 @@ export default {
             },
           };
         </script>
-        <script src="//www.ibm.com/common/digitaladvisor/cm-app/latest/cm-app.min.js" defer></script>
+        <script
+          src="//www.ibm.com/common/digitaladvisor/cm-app/latest/cm-app.min.js"
+          defer></script>
       `;
     },
   ],
