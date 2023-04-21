@@ -15,7 +15,7 @@
 $search-transition: cubic-bezier(0.2, 0, 0.38, 0.9);
 $search-transition-timing: 95ms;
 
-@mixin mobile-button-sizing {
+@mixin mobile-button-base {
   border: none;
   border-bottom: 1px solid $ui-03;
   text-decoration: none;
@@ -32,7 +32,7 @@ $search-transition-timing: 95ms;
   }
 }
 
-@mixin desktop-button-sizing {
+@mixin desktop-button-base {
   appearance: none;
   background: transparent;
   border: none;
@@ -141,7 +141,7 @@ $search-transition-timing: 95ms;
 
     .#{$prefix}--masthead__l1-dropdown-item {
       @include carbon--type-style(body-short-01);
-      @include mobile-button-sizing;
+      @include mobile-button-base;
 
       background-color: transparent;
       color: $text-02;
@@ -281,7 +281,7 @@ $search-transition-timing: 95ms;
     }
 
     .#{$prefix}--masthead__l1-dropdown-login {
-      @include mobile-button-sizing;
+      @include mobile-button-base;
       @include carbon--type-style(body-short-01);
 
       color: $interactive-01;
@@ -306,7 +306,7 @@ $search-transition-timing: 95ms;
     }
 
     .#{$prefix}--masthead__l1-dropdown-cta {
-      @include mobile-button-sizing;
+      @include mobile-button-base;
       @include carbon--type-style(body-short-01);
 
       background-color: $interactive-01;
@@ -380,7 +380,7 @@ $search-transition-timing: 95ms;
 
     .#{$prefix}--masthead__l1-title {
       @include carbon--type-style(productive-heading-01);
-      @include desktop-button-sizing;
+      @include desktop-button-base;
 
       grid-area: platform;
       height: 100%;
@@ -412,7 +412,7 @@ $search-transition-timing: 95ms;
     }
 
     .#{$prefix}--masthead__l1-menu-container-scroller {
-      @include desktop-button-sizing;
+      @include desktop-button-base;
 
       background-color: $ui-background;
       flex-shrink: 0;
@@ -462,7 +462,7 @@ $search-transition-timing: 95ms;
 
     .#{$prefix}--masthead__l1-item {
       @include carbon--type-style(body-short-01);
-      @include desktop-button-sizing;
+      @include desktop-button-base;
 
       background-color: $ui-background;
       color: $text-02;
@@ -619,7 +619,7 @@ $search-transition-timing: 95ms;
 
       .#{$prefix}--masthead__l1-dropdown-item {
         @include carbon--type-style(productive-heading-03);
-        @include desktop-button-sizing;
+        @include desktop-button-base;
 
         color: inherit;
         align-items: center;
@@ -644,7 +644,7 @@ $search-transition-timing: 95ms;
 
     .#{$prefix}--masthead__l1-dropdown-item {
       @include carbon--type-style(body-short-01);
-      @include desktop-button-sizing;
+      @include desktop-button-base;
 
       align-items: center;
       padding: $spacing-03 $spacing-05;
@@ -724,7 +724,7 @@ $search-transition-timing: 95ms;
     }
 
     .#{$prefix}--masthead__l1-cta {
-      @include desktop-button-sizing;
+      @include desktop-button-base;
       @include carbon--type-style(body-short-01);
 
       grid-area: cta;
@@ -756,7 +756,7 @@ $search-transition-timing: 95ms;
     }
 
     .#{$prefix}--masthead__l1-login {
-      @include desktop-button-sizing;
+      @include desktop-button-base;
       @include carbon--type-style(body-short-01);
 
       grid-area: login;
