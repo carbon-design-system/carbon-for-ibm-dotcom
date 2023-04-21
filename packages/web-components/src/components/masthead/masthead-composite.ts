@@ -1380,13 +1380,6 @@ class DDSMastheadComposite extends HostListenerMixin(LitElement) {
                       >${platform}</dds-left-nav-name
                     >
                   `}
-              ${!l1Data?.title
-                ? undefined
-                : html`
-                    <dds-left-nav-name href="${ifNonNull(l1Data.url)}"
-                      >${l1Data.title}</dds-left-nav-name
-                    >
-                  `}
               ${this._renderNavItems({
                 target: NAV_ITEMS_RENDER_TARGET.LEFT_NAV,
                 hasL1: !!l1Data,
