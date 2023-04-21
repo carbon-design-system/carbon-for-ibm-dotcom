@@ -151,60 +151,6 @@ export const Default = (args) => {
   `;
 };
 
-export const withV2Data = (args) => {
-  const {
-    customProfileLogin,
-    hasProfile,
-    hasSearch,
-    selectedMenuItem,
-    searchPlaceholder,
-    userStatus,
-    hasContact,
-    platform,
-    useMock,
-  } = args?.MastheadComposite ?? {};
-  return html`
-    <style>
-      ${styles}
-    </style>
-    ${useMock
-      ? html`
-          <dds-masthead-composite
-            data-endpoint="/common/carbon-for-ibm-dotcom/translations/masthead-footer/v2.1"
-            selected-menu-item="${ifNonNull(selectedMenuItem)}"
-            user-status="${ifNonNull(userStatus)}"
-            searchPlaceholder="${ifNonNull(searchPlaceholder)}"
-            .authenticatedProfileItems="${ifNonNull(authenticatedProfileItems)}"
-            has-profile="${hasProfile}"
-            ?has-search="${hasSearch}"
-            .navLinks="${links}"
-            .unauthenticatedProfileItems="${ifNonNull(
-              unauthenticatedProfileItems
-            )}"
-            custom-profile-login="${customProfileLogin}"
-            auth-method="${MASTHEAD_AUTH_METHOD.DEFAULT}"
-            has-contact="${hasContact}"></dds-masthead-composite>
-        `
-      : html`
-          <dds-masthead-container
-            data-endpoint="/common/carbon-for-ibm-dotcom/translations/masthead-footer/v2.1"
-            selected-menu-item="${ifNonNull(selectedMenuItem)}"
-            platform="${ifNonNull(platform)}"
-            user-status="${ifNonNull(userStatus)}"
-            searchPlaceholder="${ifNonNull(searchPlaceholder)}"
-            has-profile="${hasProfile}"
-            ?has-search="${hasSearch}"
-            custom-profile-login="${customProfileLogin}"
-            auth-method="${MASTHEAD_AUTH_METHOD.DEFAULT}"
-            has-contact="${hasContact}"></dds-masthead-container>
-        `}
-  `;
-};
-
-withV2Data.story = {
-  name: 'With v2 Data',
-};
-
 export const withCloudData = ({ parameters }) => {
   const {
     customProfileLogin,
