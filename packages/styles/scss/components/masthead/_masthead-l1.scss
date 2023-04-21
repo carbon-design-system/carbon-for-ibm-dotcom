@@ -55,27 +55,25 @@ $search-transition-timing: 95ms;
     --column-width: var(--page-width);
     --gutter-width: 1rem;
 
-    // Small Breakpoint
-    @media screen and (min-width: 20rem) {
+    @include carbon--breakpoint(sm) {
       --column-width: calc(var(--grid-width) / 4);
     }
 
-    // Medium Breakpoint
-    @media screen and (min-width: 42rem) {
+    @include carbon--breakpoint(md) {
       --grid-width: calc(var(--page-width) - 2rem);
       --column-width: calc(var(--grid-width) / 8);
     }
 
-    // Large Breakpoint
-    @media screen and (min-width: 66rem) {
+    @include carbon--breakpoint(lg) {
       --column-width: calc(var(--grid-width) / 16);
     }
 
-    // Max Breakpoint
-    @media screen and (min-width: 99rem) {
+    @include carbon--breakpoint(max) {
       --grid-width: calc(99rem - 3rem);
     }
+
     @include carbon--theme($carbon--theme--white, true);
+
     position: relative;
     background-color: $ui-02;
     transition-timing-function: $search-transition;
@@ -199,7 +197,8 @@ $search-transition-timing: 95ms;
         border-bottom: none;
         color: $text-02;
 
-        &:hover, &:active {
+        &:hover,
+        &:active {
           color: $text-01;
         }
       }
@@ -604,7 +603,7 @@ $search-transition-timing: 95ms;
       padding-bottom: $spacing-05;
       border-bottom: 1px solid $ui-03;
 
-      :is(h1,h2,h3,h4,h5,h6,strong,b) {
+      :is(h1, h2, h3, h4, h5, h6, strong, b) {
         @include carbon--type-style(productive-heading-01);
       }
     }
