@@ -27,8 +27,8 @@ $search-transition-timing: 95ms;
   gap: $carbon--spacing-06;
 
   &:focus-visible {
-    outline: 2px solid $focus;
-    outline-offset: -2px;
+    outline: $spacing-01 solid $focus;
+    outline-offset: calc(-1 * #{$spacing-01});
   }
 }
 
@@ -109,8 +109,8 @@ $search-transition-timing: 95ms;
 
       &:active,
       &:focus-visible {
-        outline: 2px solid $focus;
-        outline-offset: -2px;
+        outline: $spacing-01 solid $focus;
+        outline-offset: calc(-1 * #{$spacing-01});
       }
 
       &:disabled {
@@ -158,8 +158,8 @@ $search-transition-timing: 95ms;
 
       &:active,
       &:focus-visible {
-        outline: 2px solid $focus;
-        outline-offset: -2px;
+        outline: $spacing-01 solid $focus;
+        outline-offset: calc(-1 * #{$spacing-01});
       }
 
       &:disabled {
@@ -275,8 +275,8 @@ $search-transition-timing: 95ms;
 
       &:active,
       &:focus-visible {
-        outline: 2px solid $focus;
-        outline-offset: -2px;
+        outline: $spacing-01 solid $focus;
+        outline-offset: calc(-1 * #{$spacing-01});
       }
     }
 
@@ -386,7 +386,7 @@ $search-transition-timing: 95ms;
       height: 100%;
       color: $text-01;
       border-bottom: 3px solid transparent;
-      padding-bottom: calc(#{$spacing-05} - 2px);
+      padding-bottom: calc(#{$spacing-05} - #{$spacing-01});
       align-items: flex-end;
       background-color: $ui-background;
 
@@ -400,8 +400,8 @@ $search-transition-timing: 95ms;
 
       &:active,
       &:focus-visible {
-        outline: 2px solid $focus;
-        outline-offset: -2px;
+        outline: $spacing-01 solid $focus;
+        outline-offset: calc(-1 * #{$spacing-01});
       }
     }
 
@@ -432,8 +432,8 @@ $search-transition-timing: 95ms;
 
       &:active,
       &:focus-visible {
-        outline: 2px solid $focus;
-        outline-offset: -2px;
+        outline: $spacing-01 solid $focus;
+        outline-offset: calc(-1 * #{$spacing-01});
       }
 
       &[hidden] {
@@ -482,8 +482,8 @@ $search-transition-timing: 95ms;
 
       &:active,
       &:focus-visible {
-        outline: 2px solid $focus;
-        outline-offset: -2px;
+        outline: $spacing-01 solid $focus;
+        outline-offset: calc(-1 * #{$spacing-01});
       }
 
       &:is([disabled], .is-disabled) {
@@ -664,8 +664,8 @@ $search-transition-timing: 95ms;
 
       &:active,
       &:focus-visible {
-        outline: 2px solid $focus;
-        outline-offset: -2px;
+        outline: $spacing-01 solid $focus;
+        outline-offset: calc(-1 * #{$spacing-01});
       }
 
       svg {
