@@ -43,15 +43,14 @@ const { stablePrefix: ddsPrefix } = ddsSettings;
 function handleDropdownClose(event: FocusEvent | KeyboardEvent) {
   const { currentTarget } = event;
   const target = currentTarget as HTMLElement | null;
-  const isOpen =
-    Array.from(target?.querySelectorAll('.is-open') ?? []).length > 0;
+  const openDropdowns = Array.from(target?.querySelectorAll('.is-open') ?? []);
 
-  if (isOpen) {
+  if (openDropdowns.length) {
     switch (event.type) {
       case 'keydown': {
         const { code } = event as KeyboardEvent;
         if (code === 'Escape') {
-          (target?.querySelectorAll('.is-open') ?? []).forEach((el) => {
+          openDropdowns.forEach((el) => {
             el.classList.remove('is-open');
           });
 
@@ -70,7 +69,7 @@ function handleDropdownClose(event: FocusEvent | KeyboardEvent) {
             ) & 8
           )
         ) {
-          target?.querySelectorAll('.is-open').forEach((el) => {
+          openDropdowns.forEach((el) => {
             el.classList.remove('is-open');
           });
         }
@@ -126,10 +125,16 @@ class DDSMastheadL1 extends StableSelectorMixin(LitElement) {
   menu?: HTMLElement;
 
   /**
-   * The first and last top-level menu items
+   * The first top-level menu items
    */
-  @queryAll(`.${prefix}--masthead__l1-menu > *:is(:first-child, :last-child)`)
-  menuFirstLastItems?: NodeListOf<HTMLElement>;
+  @query(`.${prefix}--masthead__l1-menu > *:first-child`)
+  menuFirstItem?: HTMLElement;
+
+  /**
+   * The last top-level menu items
+   */
+  @query(`.${prefix}--masthead__l1-menu > *:last-child`)
+  menuLastItem?: HTMLElement;
 
   /**
    * The buttons that scroll the top-level menu items
@@ -156,12 +161,10 @@ class DDSMastheadL1 extends StableSelectorMixin(LitElement) {
       const {
         menu,
         menuContainerInner,
-        menuFirstLastItems,
+        menuFirstItem,
+        menuLastItem,
         menuScrollerButtons,
       } = this;
-      const [menuFirstItem, menuLastItem] = Array.from(
-        menuFirstLastItems ?? []
-      );
 
       // Only act if all the needed elements are present.
       if (
@@ -390,17 +393,15 @@ class DDSMastheadL1 extends StableSelectorMixin(LitElement) {
 
     // 3-column dropdown has option for 33/66 split.
     const hasWideColumn =
-      columns === 3
-        ? menuSections.reduce((hasSpanTwo, section) => {
-            return hasSpanTwo || section.span > 1;
-          }, false)
-        : false;
+      columns === 3 ? menuSections.some((section) => section.span > 1) : false;
 
     // Split can be 33/66 or 66/33.
-    const wideColumnIndex = menuSections[0].span > 1 ? 1 : 2;
+    const wideColumnFirst = menuSections[0].span > 1;
 
     const wideColumns = menuSections.filter((section) => section.span > 1);
-    const normalColumns = menuSections.filter((section) => section.span === 1);
+    const normalColumns = menuSections.filter((section) =>
+      wideColumns.contains(section)
+    );
 
     return html`
       <li @focusout=${handleDropdownClose} @keydown=${handleDropdownClose}>
@@ -418,7 +419,7 @@ class DDSMastheadL1 extends StableSelectorMixin(LitElement) {
               </div>`
             : ''}
           <div class="${prefix}--masthead__l1-dropdown-links">
-            ${hasWideColumn && wideColumnIndex === 1
+            ${hasWideColumn && wideColumnFirst
               ? this._renderL1DropdownSections(wideColumns, hasWideColumn, true)
               : ''}
             ${this._renderL1DropdownSections(
@@ -426,7 +427,7 @@ class DDSMastheadL1 extends StableSelectorMixin(LitElement) {
               hasWideColumn,
               false
             )}
-            ${hasWideColumn && wideColumnIndex === 2
+            ${hasWideColumn && !wideColumnFirst
               ? this._renderL1DropdownSections(wideColumns, hasWideColumn, true)
               : ''}
           </div>
