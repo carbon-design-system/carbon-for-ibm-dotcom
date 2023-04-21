@@ -35,12 +35,10 @@ import ArrowRight20 from '../../internal/vendor/@carbon/web-components/icons/arr
 import CaretLeft20 from '../../internal/vendor/@carbon/web-components/icons/caret--left/20.js';
 import CaretRight20 from '../../internal/vendor/@carbon/web-components/icons/caret--right/20.js';
 import { classMap } from 'lit-html/directives/class-map';
+import layoutBreakpoint from './masthead-breakpoint';
 
 const { prefix } = settings;
 const { stablePrefix: ddsPrefix } = ddsSettings;
-
-// Magic Number: 799px matches masthead.scss's `$breakpoint--desktop-nav`.
-const layoutBreakpoint = window.matchMedia(`(max-width: 799px)`);
 
 function handleDropdownClose(event: FocusEvent | KeyboardEvent) {
   const { currentTarget } = event;
@@ -738,11 +736,12 @@ class DDSMastheadL1 extends StableSelectorMixin(LitElement) {
   protected _renderL1SubSectionHeading(heading: L1SubmenuSectionHeading) {
     const { isMobileVersion } = this;
 
-    const headingDesc = !isMobileVersion && heading.description
-      ? html`<span class="${prefix}--masthead__l1-dropdown-heading-desc"
-          >${heading.description}</span
-        >`
-      : '';
+    const headingDesc =
+      !isMobileVersion && heading.description
+        ? html`<span class="${prefix}--masthead__l1-dropdown-heading-desc"
+            >${heading.description}</span
+          >`
+        : '';
 
     const headingContent = heading.url
       ? html`

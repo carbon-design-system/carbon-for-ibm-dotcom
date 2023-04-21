@@ -69,11 +69,9 @@ import '../search-with-typeahead/search-with-typeahead';
 import '../search-with-typeahead/search-with-typeahead-item';
 import styles from './masthead.scss';
 import { MEGAMENU_LAYOUT_SCHEME } from './defs';
+import layoutBreakpoint from './masthead-breakpoint';
 
 const { stablePrefix: ddsPrefix } = ddsSettings;
-
-// Magic Number: 799px matches masthead.scss's `$breakpoint--desktop-nav`.
-const layoutBreakpoint = window.matchMedia(`(max-width: 799px)`);
 
 /**
  * Rendering target for masthead navigation items.
