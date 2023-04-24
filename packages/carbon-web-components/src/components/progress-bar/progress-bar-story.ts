@@ -17,6 +17,7 @@ import {
   PROGRESS_BAR_TYPE,
 } from '../progress-bar/progress-bar';
 import './progress-bar';
+import '../../../.storybook/templates/with-layer';
 import storyDocs from './progress-bar-story.mdx';
 import { prefix } from '../../globals/settings';
 
@@ -92,11 +93,13 @@ export const Indeterminate = () => {
 
 export const WithLayer = () => {
   return html`
-    <cds-progress-bar
-      label="Progress bar label"
-      helper-text="Optional helper text"
-      value="42">
-    </cds-progress-bar>
+    <sb-template-layers>
+      <cds-progress-bar
+        label="Progress bar label"
+        helper-text="Optional helper text"
+        value="42">
+      </cds-progress-bar>
+    </sb-template-layers>
   `;
 };
 
