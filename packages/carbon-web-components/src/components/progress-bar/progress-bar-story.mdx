@@ -1,21 +1,18 @@
 import { Props, Description } from '@storybook/addon-docs/blocks';
 import { cdnJs, cdnCss } from '../../globals/internal/storybook-cdn';
 
-# Progress indicator
+# Progress bar
 
 > 💡 Check our
-> [CodeSandbox](https://codesandbox.io/s/github/carbon-design-system/carbon-for-ibm-dotcom/tree/main/packages/carbon-web-components/examples/codesandbox/basic/components/progress-indicator)
+> [CodeSandbox](https://codesandbox.io/s/github/carbon-design-system/carbon-for-ibm-dotcom/tree/main/packages/carbon-web-components/examples/codesandbox/basic/components/progress-bar)
 > example implementation.
 
-[![Edit carbon-web-components](https://codesandbox.io/static/img/play-codesandbox.svg)](https://codesandbox.io/s/github/carbon-design-system/carbon-for-ibm-dotcom/tree/main/packages/carbon-web-components/examples/codesandbox/basic/components/progress-indicator)
+[![Edit carbon-web-components](https://codesandbox.io/static/img/play-codesandbox.svg)](https://codesandbox.io/s/github/carbon-design-system/carbon-for-ibm-dotcom/tree/main/packages/carbon-web-components/examples/codesandbox/basic/components/progress-bar)
 
-Progress indicator is a visual representation of a users progress through a set
-of steps. They guide the user through a number of steps in order to complete a
-specified process.
-
-Use progress indicators to keep the user on track when completing a specific
-task. By dividing the end goal into smaller, sub-tasks, it increases the
-percentage of completeness as each task is completed.
+A progress bar indicates that the user’s request has been received and the
+application is making progress toward completing the requested action. Progress
+bars inform users about the status of ongoing processes, the estimated time of
+how long a process will take, or if a request is being executed.
 
 ## Getting started
 
@@ -24,68 +21,41 @@ Here's a quick example to get you started.
 ### JS (via import)
 
 ```javascript
-import '@carbon/web-components/es/components/progress-indicator/index.js';
+import '@carbon/web-components/es/components/progress-bar/index.js';
 ```
 
-<Description markdown={`${cdnJs({ components: ['progress-indicator'] })}`} />
+<Description markdown={`${cdnJs({ components: ['progress-bar'] })}`} />
 <Description markdown={`${cdnCss()}`} />
 
 ### HTML
 
 ```html
-<cds-progress-indicator>
-  <cds-progress-step
-    label-text="Label"
-    secondary-label-text="Secondary label"
-    state="invalid"
-  ></cds-progress-step>
-  <cds-progress-step
-    label-text="Label"
-    secondary-label-text="Secondary label"
-    state="complete"
-  ></cds-progress-step>
-  <cds-progress-step
-    label-text="Label"
-    secondary-label-text="Secondary label"
-    state="current"
-  ></cds-progress-step>
-  <cds-progress-step
-    disabled
-    label-text="Label"
-    secondary-label-text="Secondary label"
-  ></cds-progress-step>
-  <cds-progress-step
-    label-text="Label"
-    secondary-label-text="Secondary label"
-  ></cds-progress-step>
-</cds-progress-indicator>
+<cds-progress-bar
+  label="Progress bar label"
+  helper-text="Optional helper text"
+  value="75">
+</cds-progress-bar>
 ```
 
-## Skeleton
+## Indeterminate
 
-For the skeleton variation, utilize `<cds-progress-indicator-skeleton>` and
-`<cds-progress-step-skeleton>`.
+Indeterminate progress bars are used when the loading progress is unknown or the
+amount of wait time can’t be calculated. To use the indeterminate variation,
+make sure the `status` property is set to `active` and there is no `value`
+attribute passed in.
 
 ```html
-<cds-progress-indicator-skeleton>
-  <cds-progress-step-skeleton></cds-progress-step-skeleton>
-  <cds-progress-step-skeleton></cds-progress-step-skeleton>
-  <cds-progress-step-skeleton></cds-progress-step-skeleton>
-</cds-progress-indicator-skeleton>
+<cds-progress-bar
+  label="Progress bar label"
+  helper-text="Optional helper text"
+  status="active">
+</cds-progress-bar>
 ```
 
-## `<cds-progress-indicator>` attributes and properties
+## `<cds-progress-bar>` attributes and properties
 
 Note: For `boolean` attributes, `true` means simply setting the attribute (e.g.
-`<cds-progress-indicator vertical>`) and `false` means not setting the attribute
-(e.g. `<cds-progress-indicator>` without `vertical` attribute).
+`<cds-progress-bar hide-label>`) and `false` means not setting the attribute
+(e.g. `<cds-progress-bar>` without `hide-label` attribute).
 
-<Props of="cds-progress-indicator" />
-
-## `<cds-progress-step>` attributes and properties
-
-Note: For `boolean` attributes, `true` means simply setting the attribute (e.g.
-`<cds-progress-step disabled>`) and `false` means not setting the attribute (e.g.
-`<cds-progress-step>` without `disabled` attribute).
-
-<Props of="cds-progress-step" />
+<Props of="cds-progress-bar" />

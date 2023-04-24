@@ -77,28 +77,34 @@ class CDSProgressBar extends LitElement {
   @property({ type: Number, reflect: true })
   value;
 
+  protected get _cappedValue() {
+    const { value, max, status } = this;
+
+    let cappedValue = value;
+    if (cappedValue > max) {
+      cappedValue = max;
+    }
+    if (cappedValue < 0) {
+      cappedValue = 0;
+    }
+    if (status === PROGRESS_BAR_STATUS.ERROR) {
+      cappedValue = 0;
+    } else if (status === PROGRESS_BAR_STATUS.FINISHED) {
+      cappedValue = max;
+    }
+
+    return cappedValue;
+  }
+
   updated(changedProperties) {
     if (
       changedProperties.has('value') ||
       changedProperties.has('max') ||
       changedProperties.has('status')
     ) {
-      const { value, max, status } = this;
+      const { _cappedValue: cappedValue, max, status } = this;
 
-      let cappedValue = value;
-      if (cappedValue > max) {
-        cappedValue = max;
-      }
-      if (cappedValue < 0) {
-        cappedValue = 0;
-      }
-      if (status === PROGRESS_BAR_STATUS.ERROR) {
-        cappedValue = 0;
-      } else if (status === PROGRESS_BAR_STATUS.FINISHED) {
-        cappedValue = max;
-      }
-
-      const percentage = cappedValue / max;
+      const percentage: number = cappedValue / max;
 
       const bar = this.shadowRoot!.querySelector(
         `.${prefix}--progress-bar__bar`
@@ -116,8 +122,17 @@ class CDSProgressBar extends LitElement {
   }
 
   render() {
-    const { helperText, hideLabel, label, max, size, status, type, value } =
-      this;
+    const {
+      _cappedValue: cappedValue,
+      helperText,
+      hideLabel,
+      label,
+      max,
+      size,
+      status,
+      type,
+      value,
+    } = this;
 
     const isFinished = status === PROGRESS_BAR_STATUS.FINISHED;
     const isError = status === PROGRESS_BAR_STATUS.ERROR;
@@ -159,17 +174,19 @@ class CDSProgressBar extends LitElement {
       <div
         class="${prefix}--progress-bar__track"
         role="progressbar"
-        aria-busy="true"
-        aria-valuemin="0"
-        aria-valuemax="${max}"
-        aria-valuenow="75">
-        <div
-          class="${prefix}--progress-bar__bar"
-          style="transform: scaleX(0.75);"></div>
+        aria-busy="${!isFinished}"
+        aria-invalid="${isError}"
+        aria-valuemin="${!indeterminate ? 0 : null}"
+        aria-valuemax="${!indeterminate ? max : null}"
+        aria-valuenow="${!indeterminate ? cappedValue : null}">
+        <div class="${prefix}--progress-bar__bar"></div>
       </div>
       ${helperText
         ? html`<div class="${prefix}--progress-bar__helper-text">
             ${helperText}
+            <div class="${prefix}--visually-hidden" aria-live="polite">
+              ${isFinished ? 'Done' : 'Loading'}
+            </div>
           </div>`
         : null}
     </div>`;

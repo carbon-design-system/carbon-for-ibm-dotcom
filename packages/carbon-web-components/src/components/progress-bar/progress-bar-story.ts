@@ -11,15 +11,91 @@ import { html } from 'lit';
 import { ifDefined } from 'lit/directives/if-defined.js';
 import { boolean, number, select } from '@storybook/addon-knobs';
 import textNullable from '../../../.storybook/knob-text-nullable';
+import {
+  PROGRESS_BAR_SIZE,
+  PROGRESS_BAR_STATUS,
+  PROGRESS_BAR_TYPE,
+} from '../progress-bar/progress-bar';
 import './progress-bar';
 import storyDocs from './progress-bar-story.mdx';
 import { prefix } from '../../globals/settings';
+
+const sizes = {
+  [`Small size (${PROGRESS_BAR_SIZE.SMALL})`]: PROGRESS_BAR_SIZE.SMALL,
+  [`Big size (${PROGRESS_BAR_SIZE.BIG})`]: PROGRESS_BAR_SIZE.BIG,
+};
+
+const status = {
+  [`Active (${PROGRESS_BAR_STATUS.ACTIVE})`]: PROGRESS_BAR_STATUS.ACTIVE,
+  [`Finished (${PROGRESS_BAR_STATUS.FINISHED})`]: PROGRESS_BAR_STATUS.FINISHED,
+  [`Error (${PROGRESS_BAR_STATUS.ERROR})`]: PROGRESS_BAR_STATUS.ERROR,
+};
+
+const types = {
+  [`Default (${PROGRESS_BAR_TYPE.DEFAULT})`]: PROGRESS_BAR_TYPE.DEFAULT,
+  [`Inline (${PROGRESS_BAR_TYPE.INLINE})`]: PROGRESS_BAR_TYPE.INLINE,
+  [`Indented (${PROGRESS_BAR_TYPE.INDENTED})`]: PROGRESS_BAR_TYPE.INDENTED,
+};
 
 export const Default = () => {
   return html`
     <cds-progress-bar
       label="Progress bar label"
+      helper-text="Optional helper text"
+      value="75">
+    </cds-progress-bar>
+  `;
+};
+
+export const Example = () => {
+  const size = 728;
+  let progress = 0;
+
+  setTimeout(() => {
+    const bar = document.querySelector('cds-progress-bar');
+    const interval = setInterval(() => {
+      const advancement = Math.random() * 8;
+      if (progress + advancement < size) {
+        progress = progress + advancement;
+        bar!.setAttribute('value', `${progress}`);
+        bar!.setAttribute(
+          'helper-text',
+          `${progress.toFixed(1)}MB of ${size}MB`
+        );
+      } else {
+        clearInterval(interval);
+        bar!.setAttribute('value', `${size}`);
+        bar!.setAttribute('status', `${PROGRESS_BAR_STATUS.FINISHED}`);
+        bar!.setAttribute('helper-text', 'Done');
+      }
+    }, 50);
+  }, 3000);
+
+  return html`
+    <cds-progress-bar
+      max="${size}"
+      label="Export data"
+      helper-text="Fetching assets..."
+      status="${PROGRESS_BAR_STATUS.ACTIVE}">
+    </cds-progress-bar>
+  `;
+};
+
+export const Indeterminate = () => {
+  return html`
+    <cds-progress-bar
+      label="Progress bar label"
       helper-text="Optional helper text">
+    </cds-progress-bar>
+  `;
+};
+
+export const WithLayer = () => {
+  return html`
+    <cds-progress-bar
+      label="Progress bar label"
+      helper-text="Optional helper text"
+      value="42">
     </cds-progress-bar>
   `;
 };
@@ -51,13 +127,9 @@ Playground.parameters = {
       hideLabel: boolean('Hide label (hide-label)', false),
       label: textNullable('Label (label)', 'Progress bar label'),
       max: number('Max (max)', 100),
-      size: select('Size (size)', ['small', 'big'], 'big'),
-      status: select(
-        'Status (status)',
-        ['active', 'finished', 'error'],
-        'active'
-      ),
-      type: select('Type (type)', ['default', 'inline', 'indented'], 'default'),
+      size: select('Size (size)', sizes, PROGRESS_BAR_SIZE.BIG),
+      status: select('Status (status)', status, PROGRESS_BAR_STATUS.ACTIVE),
+      type: select('Type (type)', types, PROGRESS_BAR_TYPE.DEFAULT),
       value: number('Value (value)', 75),
     }),
   },
