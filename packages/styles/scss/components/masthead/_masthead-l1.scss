@@ -240,6 +240,10 @@ $search-transition-timing: 95ms;
         width: 100%;
         min-height: $spacing-07;
         gap: $carbon--spacing-03;
+
+        svg {
+          fill: $icon-01;
+        }
       }
 
       &:not(:nth-of-type(1)) {
@@ -501,6 +505,10 @@ $search-transition-timing: 95ms;
           calc(100% + 6px) 100%,
           calc(0% - 6px) 100%
         );
+
+        svg {
+          rotate: 180deg;
+        }
       }
 
       svg {
@@ -607,6 +615,11 @@ $search-transition-timing: 95ms;
 
       :is(h1, h2, h3, h4, h5, h6, strong, b) {
         @include carbon--type-style(productive-heading-01);
+      }
+
+      :focus {
+        outline: $spacing-01 solid $focus;
+        outline-offset: calc(-1 * #{$spacing-01});
       }
     }
 
@@ -740,8 +753,8 @@ $search-transition-timing: 95ms;
       }
 
       &:focus-visible {
-        outline-color: $ui-02;
-        outline-offset: calc(-1 * #{$spacing-02});
+        outline: $spacing-01 solid $ui-02;
+        outline-offset: calc(-1 * #{$spacing-01});
       }
 
       &:active {
@@ -774,11 +787,15 @@ $search-transition-timing: 95ms;
 
       &:focus-visible {
         color: $interactive-01;
+        outline: $spacing-01 solid $focus;
+        outline-offset: calc(-1 * #{$spacing-01});
       }
 
       &:active {
         color: $active-primary;
         background-color: $active-ui;
+        outline: $spacing-01 solid $focus;
+        outline-offset: calc(-1 * #{$spacing-01});
       }
     }
   }
