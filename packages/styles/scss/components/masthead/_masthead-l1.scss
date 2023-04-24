@@ -599,6 +599,8 @@ $search-transition-timing: 95ms;
     }
 
     .#{$prefix}--masthead__l1-dropdown-announcement {
+      @include carbon--type-style(body-short-01);
+
       margin: 0 $spacing-05 $spacing-05;
       padding-bottom: $spacing-05;
       border-bottom: 1px solid $ui-03;
@@ -659,7 +661,6 @@ $search-transition-timing: 95ms;
 
       &:active {
         color: $text-01;
-        background-color: $active-ui;
       }
 
       &:active,
@@ -676,7 +677,6 @@ $search-transition-timing: 95ms;
         @include carbon--type-style(productive-heading-01);
 
         display: block;
-        color: $text-01;
       }
 
       .#{$prefix}--masthead__l1-dropdown-item-description {
