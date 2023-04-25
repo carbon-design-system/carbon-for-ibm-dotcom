@@ -751,7 +751,7 @@ class CDSDropdown extends ValidityMixin(
       <div
         part="helper-text"
         class="${helperClasses}"
-        ?hidden="${inline || !hasHelperText}">
+        ?hidden="${(inline && !warn && !invalid) || !hasHelperText}">
         <slot name="helper-text" @slotchange="${handleSlotchangeHelperText}"
           >${helperMessage}</slot
         >

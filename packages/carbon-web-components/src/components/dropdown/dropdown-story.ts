@@ -252,7 +252,7 @@ Playground.parameters = {
       disabled: boolean('Disabled (disabled)', false),
       helperText: textNullable(
         'Helper text (helper-text)',
-        'Optional helper text'
+        'This is some helper text'
       ),
       hideLabel: boolean('Hide label (hide-label)', false),
       invalid: boolean('Invalid (invalid)', false),
@@ -265,7 +265,10 @@ Playground.parameters = {
         'The default content of the trigger button (label)',
         'This is an example label'
       ),
-      titleText: textNullable('Title text (title-text)', 'Dropdown title'),
+      titleText: textNullable(
+        'Title text (title-text)',
+        'This is an example title'
+      ),
       size: select('Dropdown size (size)', sizes, null),
       type: select('Dropdown type (type)', types, null),
       value: textNullable('Selected value (value)', ''),

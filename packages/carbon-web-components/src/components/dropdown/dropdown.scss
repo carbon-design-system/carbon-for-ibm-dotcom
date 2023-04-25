@@ -76,6 +76,20 @@ $css--plex: true !default;
     @extend .#{$prefix}--list-box__wrapper--inline;
 
     grid-gap: 0 $spacing-06;
+
+    &[warn] {
+      .#{$prefix}--list-box__field {
+        padding-left: $spacing-05;
+        padding-right: calc(#{$spacing-08} + #{$spacing-05});
+      }
+    }
+
+    &[warn],
+    &[invalid] {
+      .#{$prefix}--form__helper-text {
+        grid-column: 2;
+      }
+    }
   }
 }
 
