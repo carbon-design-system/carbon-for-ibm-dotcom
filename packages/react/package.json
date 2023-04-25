@@ -189,11 +189,5 @@
   },
   "resolutions": {
     "@carbon/icons-react": "10.49.0"
-  },
-  "sideEffects": false,
-  "bundleSizeThreshold": 300000,
-  "release": {
-    "branch": "main"
-  },
-  "gitHead": "37ae2adac6241513f4d1974505a207705e9e2784"
+  }
 }
