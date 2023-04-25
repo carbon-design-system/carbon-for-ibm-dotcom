@@ -68,7 +68,7 @@ class CDSFileUploaderButton extends HostListenerMixin(LitElement) {
 
     const fileInput = this?.shadowRoot?.querySelector(selectorInput);
     if (fileInput) {
-      (fileInput as HTMLInputElement).value = ''; // carbon-web-components#904
+      (fileInput as HTMLInputElement).value = '';
     }
   }
 
