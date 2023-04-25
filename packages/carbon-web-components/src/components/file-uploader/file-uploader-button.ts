@@ -12,7 +12,6 @@ import { LitElement, html } from 'lit';
 import { property, customElement } from 'lit/decorators.js';
 import { prefix } from '../../globals/settings';
 import HostListenerMixin from '../../globals/mixins/host-listener';
-import HostListener from '../../globals/decorators/host-listener';
 import ifNonEmpty from '../../globals/directives/if-non-empty';
 import styles from './file-uploader.scss';
 import { BUTTON_KIND, BUTTON_SIZE } from '../button/defs';
