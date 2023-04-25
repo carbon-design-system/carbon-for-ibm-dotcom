@@ -37,7 +37,7 @@ export enum FILE_UPLOADER_ITEM_SIZE {
   SMALL = 'sm',
 
   /**
-   * Small size.
+   * Medium size.
    */
   MEDIUM = 'md',
 
