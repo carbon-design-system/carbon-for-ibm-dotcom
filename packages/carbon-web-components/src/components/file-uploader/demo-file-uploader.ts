@@ -154,6 +154,12 @@ export default class CDSCEDemoFileUploader extends LitElement {
   iconDescription = '';
 
   /**
+   * The input name.
+   */
+  @property({ attribute: 'input-name' })
+  inputName = '';
+
+  /**
    * The label description text.
    */
   @property({ attribute: 'label-description' })
@@ -210,6 +216,7 @@ export default class CDSCEDemoFileUploader extends LitElement {
           ? html` <cds-file-uploader-drop-container
               accept="${ifDefined(accept)}"
               ?multiple="${multiple}"
+              name="${ifDefined(this.inputName)}"
               @cds-file-uploader-drop-container-changed="${handleChange}">
               Drag and drop files here or click to upload
             </cds-file-uploader-drop-container>`
@@ -217,6 +224,7 @@ export default class CDSCEDemoFileUploader extends LitElement {
               size="${ifDefined(size)}"
               button-kind="${buttonKind}"
               accept="${ifDefined(accept)}"
+              name="${ifDefined(this.inputName)}"
               ?multiple="${multiple}"
               @cds-file-uploader-button-changed="${handleChange}">
               ${buttonLabel}

@@ -104,6 +104,7 @@ export const Playground = (args) => {
     multiple,
     onDelete,
     onChange,
+    name,
     size,
   } = args?.[`${prefix}-file-uploader`] ?? {};
 
@@ -120,6 +121,7 @@ export const Playground = (args) => {
       label-title="${ifDefined(labelTitle)}"
       ?multiple="${multiple}"
       size="${ifDefined(size)}"
+      input-name="${ifDefined(name)}"
       @cds-file-uploader-item-deleted="${onDelete}"
       @cds-file-uploader-drop-container-changed="${onChange}">
     </cds-ce-demo-file-uploader>
@@ -150,6 +152,7 @@ Playground.parameters = {
         'Max file size is 500mb. Only .jpg files are supported.'
       ),
       labelTitle: textNullable('Label title (label-title)', 'Upload files'),
+      name: textNullable('Input name (name)', ''),
       onDelete: action('cds-file-uploader-item-deleted'),
       onChange: action('cds-drop-container-changed'),
       multiple: boolean('Multiple (multiple)', false),

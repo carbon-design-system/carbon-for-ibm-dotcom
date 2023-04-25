@@ -141,6 +141,12 @@ class CDSFileUploaderDropContainer extends HostListenerMixin(LitElement) {
   multiple = false;
 
   /**
+   * The name of the input.
+   */
+  @property({ reflect: true })
+  name = '';
+
+  /**
    * The shadow DOM slot to put this drop container in.
    */
   @property({ reflect: true })
@@ -151,6 +157,7 @@ class CDSFileUploaderDropContainer extends HostListenerMixin(LitElement) {
       accept,
       disabled,
       multiple,
+      name,
       _active: active,
       _handleChange: handleChange,
     } = this;
@@ -169,6 +176,7 @@ class CDSFileUploaderDropContainer extends HostListenerMixin(LitElement) {
           <input
             id="file"
             type="file"
+            name="${ifNonEmpty(name)}"
             class="${prefix}--file-input"
             tabindex="-1"
             accept="${ifNonEmpty(accept)}"

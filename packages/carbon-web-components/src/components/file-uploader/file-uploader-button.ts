@@ -135,6 +135,12 @@ class CDSFileUploaderButton extends HostListenerMixin(LitElement) {
   multiple = false;
 
   /**
+   * The name of the input.
+   */
+  @property({ reflect: true })
+  name = '';
+
+  /**
    * The shadow DOM slot to put this drop container in.
    */
   @property({ reflect: true })
@@ -145,6 +151,7 @@ class CDSFileUploaderButton extends HostListenerMixin(LitElement) {
       accept,
       disabled,
       multiple,
+      name,
       buttonKind,
       size,
       _handleChange: handleChange,
@@ -177,6 +184,7 @@ class CDSFileUploaderButton extends HostListenerMixin(LitElement) {
         accept="${ifNonEmpty(accept)}"
         ?disabled="${disabled}"
         ?multiple="${multiple}"
+        name="${ifNonEmpty(name)}"
         @change="${handleChange}" />
     `;
   }
