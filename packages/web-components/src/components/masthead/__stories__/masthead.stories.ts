@@ -16,11 +16,7 @@ import textNullable from '../../../../.storybook/knob-text-nullable';
 import DDSLeftNav from '../left-nav';
 import '../masthead-container';
 import styles from './masthead.stories.scss';
-import {
-  mastheadLinksV2 as links,
-  legacyMastheadL1Data,
-  logoData,
-} from './links';
+import { mastheadLinksV2 as links, mastheadL1Data, logoData } from './links';
 import {
   UNAUTHENTICATED_STATUS,
   MASTHEAD_AUTH_METHOD,
@@ -122,6 +118,7 @@ export const Default = (args) => {
     ${useMock
       ? html`
           <dds-masthead-composite
+            data-endpoint="/common/carbon-for-ibm-dotcom/translations/masthead-footer/v2.1"
             platform="${ifNonNull(platform)}"
             .platformUrl="${ifNonNull(platformData.url)}"
             selected-menu-item="${ifNonNull(selectedMenuItem)}"
@@ -139,6 +136,7 @@ export const Default = (args) => {
         `
       : html`
           <dds-masthead-container
+            data-endpoint="/common/carbon-for-ibm-dotcom/translations/masthead-footer/v2.1"
             platform="${ifNonNull(platform)}"
             .platformUrl="${ifNonNull(platformData.url)}"
             selected-menu-item="${ifNonNull(selectedMenuItem)}"
@@ -151,59 +149,6 @@ export const Default = (args) => {
             auth-method="${authMethod}"></dds-masthead-container>
         `}
   `;
-};
-
-export const withV2Data = (args) => {
-  const {
-    customProfileLogin,
-    hasProfile,
-    hasSearch,
-    selectedMenuItem,
-    searchPlaceholder,
-    userStatus,
-    hasContact,
-    platform,
-    useMock,
-  } = args?.MastheadComposite ?? {};
-  return html`
-    <style>
-      ${styles}
-    </style>
-    ${useMock
-      ? html`
-          <dds-masthead-composite
-            selected-menu-item="${ifNonNull(selectedMenuItem)}"
-            user-status="${ifNonNull(userStatus)}"
-            searchPlaceholder="${ifNonNull(searchPlaceholder)}"
-            .authenticatedProfileItems="${ifNonNull(authenticatedProfileItems)}"
-            has-profile="${hasProfile}"
-            ?has-search="${hasSearch}"
-            .navLinks="${links}"
-            .unauthenticatedProfileItems="${ifNonNull(
-              unauthenticatedProfileItems
-            )}"
-            custom-profile-login="${customProfileLogin}"
-            auth-method="${MASTHEAD_AUTH_METHOD.DEFAULT}"
-            has-contact="${hasContact}"></dds-masthead-composite>
-        `
-      : html`
-          <dds-masthead-container
-            data-endpoint="/common/carbon-for-ibm-dotcom/translations/masthead-footer/v2"
-            selected-menu-item="${ifNonNull(selectedMenuItem)}"
-            platform="${ifNonNull(platform)}"
-            user-status="${ifNonNull(userStatus)}"
-            searchPlaceholder="${ifNonNull(searchPlaceholder)}"
-            has-profile="${hasProfile}"
-            ?has-search="${hasSearch}"
-            custom-profile-login="${customProfileLogin}"
-            auth-method="${MASTHEAD_AUTH_METHOD.DEFAULT}"
-            has-contact="${hasContact}"></dds-masthead-container>
-        `}
-  `;
-};
-
-withV2Data.story = {
-  name: 'With v2 Data',
 };
 
 export const withCloudData = ({ parameters }) => {
@@ -222,6 +167,7 @@ export const withCloudData = ({ parameters }) => {
     ${useMock
       ? html`
           <dds-masthead-composite
+            data-endpoint="/common/carbon-for-ibm-dotcom/translations/masthead-footer/v2.1"
             platform="Cloud"
             .platformUrl="${ifNonNull(platformData.url)}"
             selected-menu-item="${ifNonNull(selectedMenuItem)}"
@@ -274,6 +220,9 @@ export const WithCustomTypeahead = (args) => {
     }
   );
 
+  const defaultEndpoint =
+    '/common/carbon-for-ibm-dotcom/translations/masthead-footer/v2.1';
+
   return html`
     <style>
       ${styles}
@@ -281,6 +230,7 @@ export const WithCustomTypeahead = (args) => {
     ${useMock
       ? html`
           <dds-masthead-composite
+            data-endpoint="${defaultEndpoint}"
             platform="${ifNonNull(platform)}"
             .platformUrl="${ifNonNull(platformData.url)}"
             selected-menu-item="${ifNonNull(selectedMenuItem)}"
@@ -298,7 +248,7 @@ export const WithCustomTypeahead = (args) => {
         `
       : html`
           <dds-masthead-container
-            data-endpoint="${ifNonNull(endpoint)}"
+            data-endpoint="${ifNonNull(endpoint) ?? defaultEndpoint}"
             platform="${ifNonNull(platform)}"
             .platformUrl="${ifNonNull(platformData.url)}"
             selected-menu-item="${ifNonNull(selectedMenuItem)}"
@@ -336,6 +286,7 @@ export const searchOpenOnload = (args) => {
     ${useMock
       ? html`
           <dds-masthead-composite
+            data-endpoint="/common/carbon-for-ibm-dotcom/translations/masthead-footer/v2.1"
             activate-search
             platform="${ifNonNull(platformData.name)}"
             .platformUrl="${ifNonNull(platformData.url)}"
@@ -390,6 +341,7 @@ export const withPlatform = (args) => {
     ${useMock
       ? html`
           <dds-masthead-composite
+            data-endpoint="/common/carbon-for-ibm-dotcom/translations/masthead-footer/v2.1"
             platform="${ifNonNull(platformData.name)}"
             .platformUrl="${ifNonNull(urlObject)}"
             selected-menu-item="${ifNonNull(selectedMenuItem)}"
@@ -471,6 +423,9 @@ export const withL1 = (args) => {
     platform,
     useMock,
   } = args?.MastheadComposite ?? {};
+
+  const defaultEndpoint =
+    '/common/carbon-for-ibm-dotcom/translations/masthead-footer/v2.1';
   return html`
     <style>
       ${styles}
@@ -478,13 +433,14 @@ export const withL1 = (args) => {
     ${useMock
       ? html`
           <dds-masthead-composite
+            data-endpoint="${defaultEndpoint}"
             selected-menu-item="${ifNonNull(selectedMenuItem)}"
             searchPlaceholder="${ifNonNull(searchPlaceholder)}"
             user-status="${ifNonNull(userStatus)}"
             .authenticatedProfileItems="${ifNonNull(authenticatedProfileItems)}"
             has-profile="${hasProfile}"
             ?has-search="${hasSearch}"
-            .l1Data="${legacyMastheadL1Data}"
+            .l1Data="${mastheadL1Data}"
             .navLinks="${links}"
             .unauthenticatedProfileItems="${ifNonNull(
               unauthenticatedProfileItems
@@ -492,14 +448,14 @@ export const withL1 = (args) => {
         `
       : html`
           <dds-masthead-container
+            data-endpoint="${ifNonNull(endpoint) ?? defaultEndpoint}"
             platform="${ifNonNull(platform)}"
             .platformData="${ifNonNull(platformData.url)}"
-            data-endpoint="${ifNonNull(endpoint)}"
             selected-menu-item="${ifNonNull(selectedMenuItem)}"
             user-status="${ifNonNull(userStatus)}"
             has-profile="${hasProfile}"
             ?has-search="${hasSearch}"
-            .l1Data="${legacyMastheadL1Data}"
+            .l1Data="${mastheadL1Data}"
             .navLinks="${links}"></dds-masthead-container>
         `}
   `;
@@ -567,6 +523,7 @@ export const withAlternateLogoAndTooltip = (args) => {
     ${useMock
       ? html`
           <dds-masthead-composite
+            data-endpoint="/common/carbon-for-ibm-dotcom/translations/masthead-footer/v2.1"
             selected-menu-item="${ifNonNull(selectedMenuItem)}"
             user-status="${ifNonNull(userStatus)}"
             searchPlaceholder="${ifNonNull(searchPlaceholder)}"
@@ -669,6 +626,7 @@ export const WithScopedSearch = ({ parameters }) => {
     ${useMock
       ? html`
           <dds-masthead-composite
+            data-endpoint="/common/carbon-for-ibm-dotcom/translations/masthead-footer/v2.1"
             platform="${ifNonNull(platform)}"
             .platformUrl="${ifNonNull(platformData.url)}"
             selected-menu-item="${ifNonNull(selectedMenuItem)}"
@@ -686,6 +644,7 @@ export const WithScopedSearch = ({ parameters }) => {
         `
       : html`
           <dds-masthead-container
+            data-endpoint="/common/carbon-for-ibm-dotcom/translations/masthead-footer/v2.1"
             platform="${ifNonNull(platform)}"
             .platformUrl="${ifNonNull(platformData.url)}"
             selected-menu-item="${ifNonNull(selectedMenuItem)}"

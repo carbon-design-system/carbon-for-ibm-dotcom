@@ -10,7 +10,6 @@
 import {
   MastheadLink,
   MastheadL1,
-  LegacyMastheadL1,
   MastheadLogoData,
   L0MenuItem,
 } from '../../../internal/vendor/@carbon/ibmdotcom-services-store/types/translateAPI.d';
@@ -46,416 +45,6 @@ const logoData: MastheadLogoData = {
   end: 'May 5, 2021 0:00:01',
   path: '/',
   href: 'https://www.example.com/custom-href',
-};
-
-/**
- * Dotcom shell MastheadL1 Data
- */
-const l1Data: LegacyMastheadL1 = {
-  title: 'Stock Charts',
-  url: 'https://example.com',
-  menuItems: [
-    {
-      title: 'Lorem ipsum dolor sit amet',
-      titleEnglish: 'Lorem ipsum dolor sit amet',
-      url: '',
-      hasMenu: true,
-      hasMegapanel: false,
-      menuSections: [
-        {
-          heading: 'Explore',
-          menuItems: [
-            {
-              title: 'Link 1',
-              url: '',
-              megapanelContent: {
-                headingTitle: '',
-                headingUrl: '',
-                description: '',
-                quickLinks: {
-                  title: 'Title',
-                  links: [
-                    {
-                      title: 'Subnav 1',
-                      url: '',
-                    },
-                    {
-                      title: 'Subnav 2',
-                      url: '',
-                    },
-                    {
-                      title: 'Subnav 3',
-                      url: '',
-                    },
-                    {
-                      title: 'Subnav 4',
-                      url: '',
-                    },
-                  ],
-                },
-                feature: {
-                  heading: '',
-                  imageUrl: '',
-                  linkTitle: '',
-                  linkUrl: '',
-                },
-              },
-            },
-            {
-              title: 'Menu dropdown item with extra long text',
-              url: '',
-            },
-          ],
-        },
-      ],
-    },
-    {
-      title: 'Consectetur adipiscing elit',
-      titleEnglish: 'Consectetur adipiscing elit',
-      url: '',
-      hasMenu: true,
-      menuSections: [
-        {
-          heading: '',
-          menuItems: [
-            {
-              title: 'Link 2',
-              url: '',
-              megapanelContent: {
-                headingTitle: 'Services',
-                headingUrl:
-                  'https://www.ibm.com/services?lnk=hpmse_ts&lnk2=learn',
-                description:
-                  'Reimagine your business, designing and building the platforms necessary for growth',
-                quickLinks: {
-                  title: 'Quicklinks',
-                  links: [
-                    {
-                      title: 'Subnav 1',
-                      url: '',
-                    },
-                    {
-                      title: 'Subnav 2',
-                      url: '',
-                    },
-                    {
-                      title: 'Subnav 3',
-                      url: '',
-                    },
-                    {
-                      title: 'Subnav 4',
-                      url: '',
-                    },
-                  ],
-                },
-                feature: {
-                  heading: 'IBM Services, your Digital Reinvention â„¢ partner',
-                  imageUrl:
-                    'https://www.ibm.com/images/portal/U609055Q90660U49/windmills.jpg',
-                  linkTitle:
-                    'Explore all our business consulting and technology services',
-                  linkUrl:
-                    'https://www.ibm.com/services?lnk=hpmse_ts&lnk2=learn',
-                },
-              },
-            },
-            {
-              title: 'Financing',
-              url: 'https://www.ibm.com/financing?lnk=hpmse_fin&lnk2=learn',
-              megapanelContent: {
-                headingTitle: 'Financing',
-                headingUrl:
-                  'https://www.ibm.com/financing?lnk=hpmse_fin&lnk2=learn',
-                description: 'Funding options that fit your business',
-                quickLinks: {
-                  title: 'Quicklinks',
-                  links: [
-                    {
-                      title: 'Subnav 1',
-                      url: '',
-                    },
-                    {
-                      title: 'Subnav 2',
-                      url: '',
-                    },
-                    {
-                      title: 'Subnav 3',
-                      url: '',
-                    },
-                    {
-                      title: 'Subnav 4',
-                      url: '',
-                    },
-                  ],
-                },
-                feature: {
-                  heading:
-                    'Cloud financing strategies that work for your business',
-                  imageUrl:
-                    'https://www.ibm.com/images/portal/F774737R30303N19/Skyline-Card-cloud-feature380x160.jpg?1=1',
-                  linkTitle:
-                    'Committed to cloud? Make the most of your cash flow.',
-                  linkUrl:
-                    'https://www.ibm.com/financing/solutions/cloud-financing?lnk=hpmse_fin&lnk2=learn',
-                },
-              },
-            },
-          ],
-        },
-      ],
-    },
-    {
-      title: 'Nulla quis sem at nibh elementum imperdiet',
-      titleEnglish: 'Nulla quis sem at nibh elementum imperdiet',
-      url: 'https://www.ibm.com/industries?lnk=min',
-      hasMenu: false,
-      hasMegapanel: false,
-      menuSections: [],
-    },
-    {
-      title: 'Fusce nec tellus sed augue semper porta',
-      titleEnglish: 'Fusce nec tellus sed augue semper porta',
-      url: '',
-      hasMenu: true,
-      hasMegapanel: false,
-      menuSections: [
-        {
-          heading: '',
-          menuItems: [
-            {
-              title: 'IBM Developer',
-              url: 'https://developer.ibm.com/?lnk=hpmdev_dw&lnk2=learn',
-              megapanelContent: {
-                headingTitle: 'IBM Developer',
-                headingUrl:
-                  'https://developer.ibm.com/?lnk=hpmdev_dw&lnk2=learn',
-                description: '',
-                quickLinks: {
-                  title: 'Quicklinks',
-                  links: [
-                    {
-                      title: 'Subnav 1',
-                      url: '',
-                    },
-                    {
-                      title: 'Subnav 2',
-                      url: '',
-                    },
-                    {
-                      title: 'Subnav 3',
-                      url: '',
-                    },
-                    {
-                      title: 'Subnav 4',
-                      url: '',
-                    },
-                  ],
-                },
-                feature: {
-                  heading: 'IBM Developer newsletters',
-                  imageUrl:
-                    'https://1.dam.s81c.com/m/5908c17b26b9dd19/original/news-ibmdevnewsletters-600x245.jpg',
-                  linkTitle:
-                    'Technical info on popular software development topics, including AI, Blockchain, Java and more',
-                  linkUrl:
-                    'https://developer.ibm.com/newsletters/?lnk=hpmdev_dw&lnk2=learn',
-                },
-              },
-            },
-            {
-              title: 'Blockchain',
-              url: 'https://developer.ibm.com/technologies/blockchain/?lnk=hpmdev_dw&lnk2=learn',
-              megapanelContent: {
-                headingTitle: 'Blockchain',
-                headingUrl:
-                  'https://developer.ibm.com/technologies/blockchain/?lnk=hpmdev_dw&lnk2=learn',
-                description: '',
-                quickLinks: {
-                  title: 'Quicklinks',
-                  links: [
-                    {
-                      title: 'Subnav 1',
-                      url: '',
-                    },
-                    {
-                      title: 'Subnav 2',
-                      url: '',
-                    },
-                    {
-                      title: 'Subnav 3',
-                      url: '',
-                    },
-                    {
-                      title: 'Subnav 4',
-                      url: '',
-                    },
-                  ],
-                },
-                feature: {
-                  heading: 'Blockchain 101',
-                  imageUrl:
-                    'https://www.ibm.com/images/portal/E174255N41814O86/Blockchain2_600x245.jpg?1=3',
-                  linkTitle:
-                    'Build a kick-starter blockchain network and start coding with the IBM Blockchain Platform Starter Plan',
-                  linkUrl:
-                    'https://developer.ibm.com/tutorials/cl-ibm-blockchain-101-quick-start-guide-for-developers-bluemix-trs/?lnk=hpmdev_dw&lnk2=learn',
-                },
-              },
-            },
-            {
-              title: 'Containers',
-              url: 'https://developer.ibm.com/technologies/containers/?lnk=hpmdev_dw&lnk2=learn',
-              megapanelContent: {
-                headingTitle: 'Containers',
-                headingUrl:
-                  'https://developer.ibm.com/technologies/containers/?lnk=hpmdev_dw&lnk2=learn',
-                description: '',
-                quickLinks: {
-                  title: 'Quicklinks',
-                  links: [
-                    {
-                      title: 'Code patterns',
-                      url: 'https://developer.ibm.com/patterns/category/containers/?lnk=hpmdev_dw&lnk2=learn',
-                    },
-                    {
-                      title: 'Tutorials',
-                      url: 'https://developer.ibm.com/tutorials/category/containers/?lnk=hpmdev_dw&lnk2=learn',
-                    },
-                    {
-                      title: 'Events',
-                      url: 'https://developer.ibm.com/events/category/containers/?lnk=hpmdev_dw&lnk2=learn',
-                    },
-                  ],
-                },
-                feature: {
-                  heading: 'Make sense of Kubernetes',
-                  imageUrl:
-                    'https://www.ibm.com/images/portal/E693054G76296P64/Kubernetes-Pythomn_600x245.jpg?1=2',
-                  linkTitle:
-                    'Deploy a simple Python application with Kubernetes',
-                  linkUrl:
-                    'https://developer.ibm.com/tutorials/scalable-python-app-with-kubernetes/?lnk=hpmdev_dw&lnk2=learn',
-                },
-              },
-            },
-            {
-              title: 'Analytics',
-              url: 'https://developer.ibm.com/technologies/analytics/?lnk=hpmdev_dw&lnk2=learn',
-              megapanelContent: {
-                headingTitle: 'Analytics',
-                headingUrl:
-                  'https://developer.ibm.com/technologies/analytics/?lnk=hpmdev_dw&lnk2=learn',
-                description: '',
-                quickLinks: {
-                  title: 'Quicklinks',
-                  links: [
-                    {
-                      title: 'Code patterns',
-                      url: 'https://developer.ibm.com/patterns/category/analytics/?lnk=hpmdev_dw&lnk2=learn',
-                    },
-                    {
-                      title: 'Tutorials',
-                      url: 'https://developer.ibm.com/tutorials/category/analytics/?lnk=hpmdev_dw&lnk2=learn',
-                    },
-                    {
-                      title: 'Events',
-                      url: 'https://developer.ibm.com/events/category/analytics/?lnk=hpmdev_dw&lnk2=learn',
-                    },
-                    {
-                      title: 'Developer community',
-                      url: 'https://developer.ibm.com/watson/?lnk=hpmdev_dw&lnk2=learn',
-                    },
-                  ],
-                },
-                feature: {
-                  heading: 'Train your data no matter where it lives',
-                  imageUrl:
-                    'https://1.dam.s81c.com/m/76c0ed6f3e6386c1/original/Train-data_600x245.jpg',
-                  linkTitle:
-                    'Easily and securely connect to your data source for initial model training and continuous learning',
-                  linkUrl:
-                    'https://developer.ibm.com/announcements/training-machine-learning-models-in-watson-studio?lnk=hpmdev_dw&lnk2=learn',
-                },
-              },
-            },
-          ],
-        },
-      ],
-    },
-    {
-      title: 'Sed cursus ante dapibus diam',
-      titleEnglish: 'Sed cursus ante dapibus diam',
-      url: 'https://www.ibm.com/support/home/?lnk=msu_usen',
-      hasMenu: false,
-      hasMegapanel: false,
-      menuSections: [],
-    },
-  ],
-};
-
-/**
- * MastheadL1 Data
- */
-const legacyMastheadL1Data: LegacyMastheadL1 = {
-  title: 'Analytics',
-  url: 'https://www.ibm.com/analytics',
-  menuItems: [
-    {
-      title: 'Products',
-      titleEnglish: 'Products',
-      url: 'https://www.ibm.com/analytics/products',
-    },
-    {
-      title: 'Solutions',
-      titleEnglish: 'Solutions',
-      url: 'https://www.ibm.com/analytics/solutions',
-    },
-    {
-      title: 'Services',
-      titleEnglish: 'Services',
-      url: 'https://www.ibm.com/industries?lnk=min',
-    },
-    {
-      title: 'Learn',
-      titleEnglish: 'Learn',
-      menuSections: [
-        {
-          menuItems: [
-            {
-              title: 'Blogs',
-              url: 'https://www.ibm.com/blogs/journey-to-ai/',
-            },
-            {
-              title: 'Client stories',
-              url: 'https://www.ibm.com/analytics/client-stories',
-            },
-            {
-              title: 'Communities',
-              url: 'https://www.ibm.com/analytics/communities',
-            },
-          ],
-        },
-      ],
-    },
-    {
-      title: 'Explore more',
-      titleEnglish: 'Explore more',
-      menuSections: [
-        {
-          menuItems: [
-            {
-              title: 'Product support',
-              url: 'https://www.ibm.com/analytics/support',
-            },
-            {
-              title: 'Expert gallery',
-              url: 'https://developer.ibm.com/technologies/blockchain/?lnk=hpmdev_dw&lnk2=learn',
-            },
-          ],
-        },
-      ],
-    },
-  ],
 };
 
 /**
@@ -644,8 +233,227 @@ const mastheadL1Data: MastheadL1 = {
       },
     },
     {
+      title: 'Three Column',
+      submenu: {
+        columns: 3,
+        announcement:
+          '<strong>Lorem ipsum:</strong> Full announcement may be linked or only a portion as an <a href="#">inline link</a>',
+        menuSections: [
+          {
+            span: 1,
+            heading: {
+              headingLevel: 2,
+              title: 'Narrow 1',
+              description:
+                'Description text lorem ipsum dolor sit amet commondo ligua eaget',
+            },
+            items: [
+              {
+                title: 'Link item',
+                url: 'https://example.com',
+              },
+              {
+                title: 'Link item',
+                url: 'https://example.com',
+              },
+            ],
+          },
+          {
+            span: 2,
+            heading: {
+              headingLevel: 2,
+              title: 'Wide 1',
+            },
+            items: [
+              {
+                title: 'Link item',
+                url: 'https://example.com',
+                description:
+                  'Description text lorem ipsum dolor sit amet commondo ligua eaget',
+              },
+              {
+                title: 'Link item',
+                url: 'https://example.com',
+                description:
+                  'Description text lorem ipsum dolor sit amet commondo ligua eaget',
+              },
+              {
+                title: 'Link item',
+                url: 'https://example.com',
+                description:
+                  'Description text lorem ipsum dolor sit amet commondo ligua eaget',
+              },
+              {
+                title: 'Link item',
+                url: 'https://example.com',
+                description:
+                  'Description text lorem ipsum dolor sit amet commondo ligua eaget',
+              },
+              {
+                title: 'Link item',
+                url: 'https://example.com',
+                description:
+                  'Description text lorem ipsum dolor sit amet commondo ligua eaget',
+              },
+              {
+                title: 'Link item',
+                url: 'https://example.com',
+                description:
+                  'Description text lorem ipsum dolor sit amet commondo ligua eaget',
+              },
+              {
+                title: 'Link item',
+                url: 'https://example.com',
+                description:
+                  'Description text lorem ipsum dolor sit amet commondo ligua eaget',
+              },
+              {
+                title: 'Link item',
+                url: 'https://example.com',
+                description:
+                  'Description text lorem ipsum dolor sit amet commondo ligua eaget',
+              },
+            ],
+          },
+          {
+            span: 1,
+            heading: {
+              headingLevel: 2,
+              title: 'Narrow 2',
+              description:
+                'Description text lorem ipsum dolor sit amet commondo ligua eaget',
+            },
+            items: [
+              {
+                title: 'Link item',
+                url: 'https://example.com',
+              },
+              {
+                title: 'Link item',
+                url: 'https://example.com',
+              },
+            ],
+          },
+          {
+            span: 2,
+            heading: {
+              headingLevel: 2,
+              title: 'Wide 2',
+            },
+            items: [
+              {
+                title: 'Link item',
+                url: 'https://example.com',
+                description:
+                  'Description text lorem ipsum dolor sit amet commondo ligua eaget',
+              },
+              {
+                title: 'Link item',
+                url: 'https://example.com',
+                description:
+                  'Description text lorem ipsum dolor sit amet commondo ligua eaget',
+              },
+              {
+                title: 'Link item',
+                url: 'https://example.com',
+                description:
+                  'Description text lorem ipsum dolor sit amet commondo ligua eaget',
+              },
+              {
+                title: 'Link item',
+                url: 'https://example.com',
+                description:
+                  'Description text lorem ipsum dolor sit amet commondo ligua eaget',
+              },
+              {
+                title: 'Link item',
+                url: 'https://example.com',
+                description:
+                  'Description text lorem ipsum dolor sit amet commondo ligua eaget',
+              },
+              {
+                title: 'Link item',
+                url: 'https://example.com',
+                description:
+                  'Description text lorem ipsum dolor sit amet commondo ligua eaget',
+              },
+              {
+                title: 'Link item',
+                url: 'https://example.com',
+                description:
+                  'Description text lorem ipsum dolor sit amet commondo ligua eaget',
+              },
+              {
+                title: 'Link item',
+                url: 'https://example.com',
+                description:
+                  'Description text lorem ipsum dolor sit amet commondo ligua eaget',
+              },
+            ],
+          },
+        ],
+      },
+    },
+    {
       title: 'Plain Link',
       url: 'https://example.com',
+    },
+    {
+      title: 'Two Column',
+      submenu: {
+        columns: 2,
+        announcement:
+          '<strong>Lorem ipsum:</strong> Full announcement may be linked or only a portion as an <a href="#">inline link</a>',
+        footer: {
+          title: 'View all lorem ipsum',
+          url: 'https://example.com',
+        },
+        menuSections: [
+          {
+            span: 1,
+            heading: {
+              headingLevel: 2,
+              title: 'Heading level 2',
+              url: 'https://example.com',
+            },
+            items: [
+              {
+                title: 'Link item',
+                url: 'https://example.com',
+              },
+              {
+                title: 'Link item',
+                url: 'https://example.com',
+              },
+              {
+                title: 'Link item',
+                url: 'https://example.com',
+              },
+            ],
+          },
+          {
+            span: 1,
+            heading: {
+              headingLevel: 2,
+              title: 'Heading level 2',
+            },
+            items: [
+              {
+                title: 'Link item',
+                url: 'https://example.com',
+              },
+              {
+                title: 'Link item',
+                url: 'https://example.com',
+              },
+              {
+                title: 'Link item',
+                url: 'https://example.com',
+              },
+            ],
+          },
+        ],
+      },
     },
   ],
   actions: {
@@ -6278,8 +6086,6 @@ const customLinks: MastheadLink[] = [
 export {
   mastheadLinks,
   customLinks,
-  legacyMastheadL1Data,
-  l1Data,
   logoData,
   mastheadL1Data,
   mastheadLinksV2,
