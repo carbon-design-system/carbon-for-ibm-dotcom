@@ -73,20 +73,8 @@ export const Default = () => {
 
 export const WithLayer = () => {
   return html`
-    <cds-layer>
-      <cds-combo-box
-        title-text="ComboBox label"
-        helper-text="Combobox helper text"
-        label="Dropdown menu options">
-        ${items.map(
-          (elem) => html`
-            <cds-combo-box-item ?disabled=${elem.disabled} value="${elem.value}"
-              >${elem.text}</cds-combo-box-item
-            >
-          `
-        )}
-      </cds-combo-box>
-      <cds-layer>
+    <sb-template-layers>
+      <div style="width:400px">
         <cds-combo-box
           title-text="ComboBox label"
           helper-text="Combobox helper text"
@@ -101,24 +89,8 @@ export const WithLayer = () => {
             `
           )}
         </cds-combo-box>
-        <cds-layer>
-          <cds-combo-box
-            title-text="ComboBox label"
-            helper-text="Combobox helper text"
-            label="Dropdown menu options">
-            ${items.map(
-              (elem) => html`
-                <cds-combo-box-item
-                  ?disabled=${elem.disabled}
-                  value="${elem.value}"
-                  >${elem.text}</cds-combo-box-item
-                >
-              `
-            )}
-          </cds-combo-box>
-        </cds-layer>
-      </cds-layer>
-    </cds-layer>
+      </div>
+    </sb-template-layers>
   `;
 };
 
@@ -204,5 +176,10 @@ export default {
   parameters: {
     ...storyDocs.parameters,
   },
-  decorators: [(story) => html` <div style="width:400px">${story()}</div> `],
+  decorators: [
+    (story, { name }) => {
+      const width = !name.toLowerCase().includes('layer') ? `width:400px` : ``;
+      return html` <div style="${width}">${story()}</div> `;
+    },
+  ],
 };

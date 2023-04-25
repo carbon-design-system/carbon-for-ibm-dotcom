@@ -97,20 +97,8 @@ export const Inline = () => {
 
 export const InlineWithLayer = () => {
   return html`
-    <cds-layer>
-      <cds-dropdown
-        type="inline"
-        title-text="Inline dropdown label"
-        label="Dropdown menu options">
-        ${items.map(
-          (elem) => html`
-            <cds-dropdown-item ?disabled=${elem.disabled} value="${elem.value}"
-              >${elem.text}</cds-dropdown-item
-            >
-          `
-        )}
-      </cds-dropdown>
-      <cds-layer>
+    <sb-template-layers>
+      <div style="width:400px">
         <cds-dropdown
           type="inline"
           title-text="Inline dropdown label"
@@ -125,43 +113,15 @@ export const InlineWithLayer = () => {
             `
           )}
         </cds-dropdown>
-        <cds-layer>
-          <cds-dropdown
-            type="inline"
-            title-text="Inline dropdown label"
-            label="Dropdown menu options">
-            ${items.map(
-              (elem) => html`
-                <cds-dropdown-item
-                  ?disabled=${elem.disabled}
-                  value="${elem.value}"
-                  >${elem.text}</cds-dropdown-item
-                >
-              `
-            )}
-          </cds-dropdown>
-        </cds-layer>
-      </cds-layer>
-    </cds-layer>
+      </div>
+    </sb-template-layers>
   `;
 };
 
 export const WithLayer = () => {
   return html`
-    <cds-layer>
-      <cds-dropdown
-        title-text="Dropdown label"
-        helper-text="This is some helper text"
-        label="Dropdown menu options">
-        ${items.map(
-          (elem) => html`
-            <cds-dropdown-item ?disabled=${elem.disabled} value="${elem.value}"
-              >${elem.text}</cds-dropdown-item
-            >
-          `
-        )}
-      </cds-dropdown>
-      <cds-layer>
+    <sb-template-layers>
+      <div style="width:400px">
         <cds-dropdown
           title-text="Dropdown label"
           helper-text="This is some helper text"
@@ -176,24 +136,8 @@ export const WithLayer = () => {
             `
           )}
         </cds-dropdown>
-        <cds-layer>
-          <cds-dropdown
-            title-text="Dropdown label"
-            helper-text="This is some helper text"
-            label="Dropdown menu options">
-            ${items.map(
-              (elem) => html`
-                <cds-dropdown-item
-                  ?disabled=${elem.disabled}
-                  value="${elem.value}"
-                  >${elem.text}</cds-dropdown-item
-                >
-              `
-            )}
-          </cds-dropdown>
-        </cds-layer>
-      </cds-layer>
-    </cds-layer>
+      </div>
+    </sb-template-layers>
   `;
 };
 
@@ -295,5 +239,10 @@ export default {
   parameters: {
     ...storyDocs.parameters,
   },
-  decorators: [(story) => html` <div style="width:400px">${story()}</div> `],
+  decorators: [
+    (story, { name }) => {
+      const width = !name.toLowerCase().includes('layer') ? `width:400px` : ``;
+      return html` <div style="${width}">${story()}</div> `;
+    },
+  ],
 };
