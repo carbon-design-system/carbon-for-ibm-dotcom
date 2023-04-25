@@ -15,29 +15,38 @@ import HostListenerMixin from '../../globals/mixins/host-listener';
 import HostListener from '../../globals/decorators/host-listener';
 import ifNonEmpty from '../../globals/directives/if-non-empty';
 import styles from './file-uploader.scss';
+import { BUTTON_KIND, BUTTON_SIZE } from '../button/defs';
 
 export { FORM_ELEMENT_COLOR_SCHEME as TILE_COLOR_SCHEME } from '../../globals/shared-enums';
 
 /**
- * The value to set to `event.dataTransfer.dropEffect`, keyed by the event nane.
- */
-const dropEffects = {
-  dragover: 'copy',
-  dragleave: 'move',
-};
-
-/**
- * File drop container.
+ * File uploader button .
  *
- * @element cds-file-drop-container
- * @fires cds-file-drop-container-changed The custom event fired when there is a user gesture to select files to upload.
+ * @element cds-file-uploader-container
+ * @fires cds-file-uploader-button-changed The custom event fired when there is a user gesture to select files to upload.
  */
-@customElement(`${prefix}-file-drop-container`)
-class BXFileDropContainer extends HostListenerMixin(LitElement) {
+@customElement(`${prefix}-file-uploader-button`)
+class CDSFileUploaderButton extends HostListenerMixin(LitElement) {
   /**
-   * `true` to show the active state of this UI.
+   * Handles `click` event on the button.
    */
-  private _active = false;
+  private _handleClick(event) {
+    event.target.value = null;
+    const { selectorInput } = this.constructor as typeof CDSFileUploaderButton;
+    this?.shadowRoot?.querySelector(selectorInput)?.setAttribute('value', '');
+    (this?.shadowRoot?.querySelector(selectorInput) as HTMLElement).click();
+  }
+
+  /**
+   * Handles `keydown` event on the button.
+   */
+  private _handleKeyDown(event) {
+    const { selectorInput } = this.constructor as typeof CDSFileUploaderButton;
+    if (event.key === 'Enter' || event.key === 'Space') {
+      this?.shadowRoot?.querySelector(selectorInput)?.setAttribute('value', '');
+      (this?.shadowRoot?.querySelector(selectorInput) as HTMLElement).click();
+    }
+  }
 
   /**
    * Handles user gesture to select files to upload.
@@ -47,7 +56,7 @@ class BXFileDropContainer extends HostListenerMixin(LitElement) {
   private _handleChange(event: Event | DragEvent) {
     const addedFiles = this._getFiles(event);
     const { eventChange, selectorInput } = this
-      .constructor as typeof BXFileDropContainer;
+      .constructor as typeof CDSFileUploaderButton;
     this.dispatchEvent(
       new CustomEvent(eventChange, {
         bubbles: true,
@@ -62,32 +71,6 @@ class BXFileDropContainer extends HostListenerMixin(LitElement) {
     if (fileInput) {
       (fileInput as HTMLInputElement).value = ''; // carbon-web-components#904
     }
-  }
-
-  /**
-   * Handles `dragover`, `dragleave` and `drop` events.
-   *
-   * @param event The event.
-   */
-  @HostListener('dragover')
-  @HostListener('dragleave')
-  @HostListener('drop')
-  // @ts-ignore: The decorator refers to this method but TS thinks this method is not referred to
-  private _handleDrag(event: DragEvent) {
-    event.preventDefault(); // Prevents page navigation upon dropping
-    if (this.disabled) {
-      return;
-    }
-    const { dataTransfer, type } = event;
-    const dropEffect = dropEffects[type];
-    if (dataTransfer && dropEffect) {
-      dataTransfer.dropEffect = dropEffect;
-    }
-    this._active = type === 'dragover';
-    if (type === 'drop') {
-      this._handleChange(event);
-    }
-    this.requestUpdate();
   }
 
   /**
@@ -112,6 +95,7 @@ class BXFileDropContainer extends HostListenerMixin(LitElement) {
         const [fileExtension] = !hasFileExtension
           ? [undefined]
           : fileExtensionRegExp.exec(name) ?? [];
+
         return (
           acceptedTypes.has(mimeType) ||
           (fileExtension && acceptedTypes.has(fileExtension))
@@ -119,6 +103,18 @@ class BXFileDropContainer extends HostListenerMixin(LitElement) {
       }
     ) as File[];
   }
+
+  /**
+   * Button kind.
+   */
+  @property({ reflect: true, attribute: 'button-kind' })
+  buttonKind = BUTTON_KIND.PRIMARY;
+
+  /**
+   * Button size.
+   */
+  @property({ reflect: true })
+  size = BUTTON_SIZE.MEDIUM;
 
   /**
    * The file types the file input should accept, separated by space.
@@ -150,32 +146,39 @@ class BXFileDropContainer extends HostListenerMixin(LitElement) {
       accept,
       disabled,
       multiple,
-      _active: active,
+      buttonKind,
+      size,
       _handleChange: handleChange,
     } = this;
+
     const labelClasses = classMap({
       [`${prefix}--file-browse-btn`]: true,
       [`${prefix}--file-browse-btn--disabled`]: disabled,
     });
-    const dropareaClasses = classMap({
-      [`${prefix}--file__drop-container`]: true,
-      [`${prefix}--file__drop-container--drag-over`]: active,
+    const buttonClasses = classMap({
+      [`${prefix}--btn`]: true,
+      [`${prefix}--btn--${buttonKind}`]: buttonKind,
+      [`${prefix}--btn--disabled`]: disabled,
+      [`${prefix}--btn--${size}`]: size,
     });
     return html`
-      <label class="${labelClasses}" for="file" tabindex="0">
-        <div class="${dropareaClasses}" role="button">
-          <slot></slot>
-          <input
-            id="file"
-            type="file"
-            class="${prefix}--file-input"
-            tabindex="-1"
-            accept="${ifNonEmpty(accept)}"
-            ?disabled="${disabled}"
-            ?multiple="${multiple}"
-            @change="${handleChange}" />
-        </div>
-      </label>
+      <button
+        type="button"
+        class="${buttonClasses}"
+        @click="${this._handleClick}"
+        @keydown="${this._handleKeyDown}">
+        <slot></slot>
+      </button>
+      <label class="${labelClasses}" for="file"> </label>
+      <input
+        id="file"
+        type="file"
+        class="${prefix}--file-input"
+        tabindex="-1"
+        accept="${ifNonEmpty(accept)}"
+        ?disabled="${disabled}"
+        ?multiple="${multiple}"
+        @change="${handleChange}" />
     `;
   }
 
@@ -183,7 +186,7 @@ class BXFileDropContainer extends HostListenerMixin(LitElement) {
    * The name of the custom event fired when there is a user gesture to select files to upload.
    */
   static get eventChange() {
-    return `${prefix}-file-drop-container-changed`;
+    return `${prefix}-file-uploader-button-changed`;
   }
 
   /**
@@ -196,4 +199,4 @@ class BXFileDropContainer extends HostListenerMixin(LitElement) {
   static styles = styles;
 }
 
-export default BXFileDropContainer;
+export default CDSFileUploaderButton;
