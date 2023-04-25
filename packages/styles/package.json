@@ -52,11 +52,5 @@
     "gulp-sass": "^5.0.0",
     "node-sass": "^8.0.0",
     "require-dir": "^1.2.0"
-  },
-  "sideEffects": false,
-  "bundleSizeThreshold": 120000,
-  "release": {
-    "branch": "main"
-  },
-  "gitHead": "37ae2adac6241513f4d1974505a207705e9e2784"
+  }
 }
