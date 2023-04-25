@@ -165,10 +165,10 @@ class DDSComboBox extends DDSDropdown {
     super._handleUserInitiatedSelectItem(item);
   }
 
-  protected _renderTriggerContent(): TemplateResult {
+  protected _renderLabel(): TemplateResult {
     const {
       disabled,
-      triggerContent,
+      label,
       _filterInputValue: filterInputValue,
       _handleInput: handleInput,
     } = this;
@@ -177,7 +177,7 @@ class DDSComboBox extends DDSDropdown {
         id="trigger-label"
         class="${prefix}--text-input"
         ?disabled=${disabled}
-        placeholder="${triggerContent}"
+        placeholder="${label}"
         .value=${filterInputValue}
         role="combobox"
         aria-expanded="${this.open}"
@@ -188,7 +188,7 @@ class DDSComboBox extends DDSDropdown {
     `;
   }
 
-  protected _renderFollowingTriggerContent(): TemplateResult | void {
+  protected _renderFollowingLabel(): TemplateResult | void {
     const { clearSelectionLabel, _filterInputValue: filterInputValue } = this;
     return filterInputValue.length === 0
       ? undefined
