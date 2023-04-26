@@ -68,7 +68,7 @@ function tryFocusElems(
  * @fires cds-modal-closed - The custom event fired after this modal is closed upon a user gesture.
  */
 @customElement(`${prefix}-modal`)
-class BXModal extends HostListenerMixin(LitElement) {
+class CDSModal extends HostListenerMixin(LitElement) {
   /**
    * The element that had focus before this modal gets open.
    */
@@ -124,14 +124,14 @@ class BXModal extends HostListenerMixin(LitElement) {
     // * The viewport still has focus
     // * Modal body used to have focus but no longer has focus
     const { selectorTabbable: selectorTabbableForModal } = this
-      .constructor as typeof BXModal;
+      .constructor as typeof CDSModal;
     if (open && relatedTarget && oldContains && !currentContains) {
       const comparisonResult = (target as Node).compareDocumentPosition(
         relatedTarget as Node
       );
       // eslint-disable-next-line no-bitwise
       if (relatedTarget === startSentinelNode || comparisonResult & PRECEDING) {
-        await (this.constructor as typeof BXModal)._delay();
+        await (this.constructor as typeof CDSModal)._delay();
         if (
           !tryFocusElems(
             this.querySelectorAll(selectorTabbableForModal),
@@ -147,7 +147,7 @@ class BXModal extends HostListenerMixin(LitElement) {
         relatedTarget === endSentinelNode ||
         comparisonResult & FOLLOWING
       ) {
-        await (this.constructor as typeof BXModal)._delay();
+        await (this.constructor as typeof CDSModal)._delay();
         if (!tryFocusElems(this.querySelectorAll(selectorTabbableForModal))) {
           this.focus();
         }
@@ -171,8 +171,9 @@ class BXModal extends HostListenerMixin(LitElement) {
   private _handleClickContainer(event: MouseEvent) {
     if (
       (event.target as Element).matches(
-        (this.constructor as typeof BXModal).selectorCloseButton
-      )
+        (this.constructor as typeof CDSModal).selectorCloseButton
+      ) &&
+      !this.preventClose
     ) {
       this._handleUserInitiatedClose(event.target);
     }
@@ -196,14 +197,17 @@ class BXModal extends HostListenerMixin(LitElement) {
       if (
         this.dispatchEvent(
           new CustomEvent(
-            (this.constructor as typeof BXModal).eventBeforeClose,
+            (this.constructor as typeof CDSModal).eventBeforeClose,
             init
           )
         )
       ) {
         this.open = false;
         this.dispatchEvent(
-          new CustomEvent((this.constructor as typeof BXModal).eventClose, init)
+          new CustomEvent(
+            (this.constructor as typeof CDSModal).eventClose,
+            init
+          )
         );
       }
     }
@@ -214,6 +218,22 @@ class BXModal extends HostListenerMixin(LitElement) {
    */
   @property({ attribute: 'container-class' })
   containerClass = '';
+
+  /**
+   * Specify whether or not the Modal content should have any inner padding.
+   */
+  @property({ type: Boolean, reflect: true, attribute: 'full-width' })
+  fullWidth = false;
+
+  /**
+   * Specify whether the modal contains scrolling content
+   */
+  @property({
+    type: Boolean,
+    reflect: true,
+    attribute: 'has-scrolling-content',
+  })
+  hasScrollingContent = false;
 
   /**
    * `true` if the modal should be open.
@@ -227,8 +247,20 @@ class BXModal extends HostListenerMixin(LitElement) {
   @property({ reflect: true })
   size = MODAL_SIZE.REGULAR;
 
+  @property({ type: Boolean, attribute: 'prevent-close' })
+  preventClose = false;
+
+  firstUpdated() {
+    const body = this.querySelector('cds-modal-body');
+
+    if (!body) {
+      const bodyElement = document.createElement('cds-modal-body');
+      this.appendChild(bodyElement);
+    }
+  }
+
   render() {
-    const { size } = this;
+    const { size, hasScrollingContent } = this;
     const containerClass = this.containerClass
       .split(' ')
       .filter(Boolean)
@@ -251,6 +283,9 @@ class BXModal extends HostListenerMixin(LitElement) {
         tabindex="-1"
         @click=${this._handleClickContainer}>
         <slot></slot>
+        ${hasScrollingContent
+          ? html` <div class="cds--modal-content--overflow-indicator"></div> `
+          : ``}
       </div>
       <a
         id="end-sentinel"
@@ -265,9 +300,9 @@ class BXModal extends HostListenerMixin(LitElement) {
       if (this.open) {
         this._launcher = this.ownerDocument!.activeElement;
         const primaryFocusNode = this.querySelector(
-          (this.constructor as typeof BXModal).selectorPrimaryFocus
+          (this.constructor as typeof CDSModal).selectorPrimaryFocus
         );
-        await (this.constructor as typeof BXModal)._delay();
+        await (this.constructor as typeof CDSModal)._delay();
         if (primaryFocusNode) {
           // For cases where a `carbon-web-components` component (e.g. `<cds-button>`) being `primaryFocusNode`,
           // where its first update/render cycle that makes it focusable happens after `<cds-modal>`'s first update/render cycle
@@ -275,7 +310,7 @@ class BXModal extends HostListenerMixin(LitElement) {
         } else if (
           !tryFocusElems(
             this.querySelectorAll(
-              (this.constructor as typeof BXModal).selectorTabbable
+              (this.constructor as typeof CDSModal).selectorTabbable
             ),
             true
           )
@@ -341,4 +376,4 @@ class BXModal extends HostListenerMixin(LitElement) {
   static styles = styles; // `styles` here is a `CSSResult` generated by custom WebPack loader
 }
 
-export default BXModal;
+export default CDSModal;

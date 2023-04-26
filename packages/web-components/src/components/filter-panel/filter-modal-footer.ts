@@ -8,7 +8,7 @@
  */
 
 import { customElement } from 'lit/decorators.js';
-import BXModalFooter from '../../internal/vendor/@carbon/web-components/components/modal/modal-footer.js';
+import CDSModalFooter from '../../internal/vendor/@carbon/web-components/components/modal/modal-footer.js';
 import ddsSettings from '../../internal/vendor/@carbon/ibmdotcom-utilities/utilities/settings/settings';
 import StableSelectorMixin from '../../globals/mixins/stable-selector';
 import './filter-panel-input-select';
@@ -17,12 +17,12 @@ import styles from './filter-panel.scss';
 const { stablePrefix: ddsPrefix } = ddsSettings;
 
 /**
- * extends the BXModalFooter
+ * extends the CDSModalFooter
  *
  * @element dds-filter-modal-footer
  */
 @customElement(`${ddsPrefix}-filter-modal-footer`)
-class DDSFilterModalFooter extends StableSelectorMixin(BXModalFooter) {
+class DDSFilterModalFooter extends StableSelectorMixin(CDSModalFooter) {
   static get stableSelector() {
     return `${ddsPrefix}-filter-modal-footer`;
   }
