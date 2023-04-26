@@ -11,10 +11,7 @@ import { html } from 'lit';
 import { ifDefined } from 'lit/directives/if-defined.js';
 import { boolean, number, select } from '@storybook/addon-knobs';
 import textNullable from '../../../.storybook/knob-text-nullable';
-
-import { FLOATING_MENU_DIRECTION } from '../floating-menu/floating-menu';
 import {
-  OVERFLOW_MENU_COLOR_SCHEME,
   OVERFLOW_MENU_SIZE,
 } from './overflow-menu';
 import './overflow-menu-body';
@@ -23,18 +20,6 @@ import storyDocs from './overflow-menu-story.mdx';
 import { prefix } from '../../globals/settings';
 import OverflowMenuVertical16 from '@carbon/icons/lib/overflow-menu--vertical/16';
 import Filter16 from '@carbon/icons/lib/filter/16';
-
-const colorSchemes = {
-  [`Regular`]: null,
-  [`Light (${OVERFLOW_MENU_COLOR_SCHEME.LIGHT})`]:
-    OVERFLOW_MENU_COLOR_SCHEME.LIGHT,
-};
-
-const directions = {
-  [`Bottom (${FLOATING_MENU_DIRECTION.BOTTOM})`]:
-    FLOATING_MENU_DIRECTION.BOTTOM,
-  [`Top (${FLOATING_MENU_DIRECTION.TOP})`]: FLOATING_MENU_DIRECTION.TOP,
-};
 
 const sizes = {
   [`Small size (${OVERFLOW_MENU_SIZE.SMALL})`]: OVERFLOW_MENU_SIZE.SMALL,
@@ -86,20 +71,17 @@ export const renderCustomIcon = () => {
 };
 
 export const Playground = (args) => {
-  const { flipped, iconDescription, open, disabled, direction, size } =
+  const { flipped, iconDescription, open, size } =
     args?.[`${prefix}-overflow-menu`] ?? {};
   return html`
-    <cds-overflow-menu ?open="${open}" ?disabled="${disabled}" size="${size}">
+    <cds-overflow-menu ?open="${open}" size="${size}">
       <span name="icon">
         ${OverflowMenuVertical16({
           class: `${prefix}--overflow-menu__icon`,
         })}
       </span>
       <span slot="tooltip-content"> ${iconDescription} </span>
-      <cds-overflow-menu-body
-        direction="${ifDefined(direction)}"
-        ?flipped="${ifDefined(flipped)}"
-        focusTrap>
+      <cds-overflow-menu-body ?flipped="${ifDefined(flipped)}">
         <cds-overflow-menu-item>Stop app</cds-overflow-menu-item>
         <cds-overflow-menu-item>Restart app</cds-overflow-menu-item>
         <cds-overflow-menu-item>Rename app</cds-overflow-menu-item>
