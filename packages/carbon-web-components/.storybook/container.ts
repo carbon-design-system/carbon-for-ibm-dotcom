@@ -8,7 +8,6 @@
  */
 
 import { html, TemplateResult } from 'lit';
-import { prefix } from '../src/globals/settings';
 import containerStyles from './_container.scss'; // eslint-disable-line import/first
 
 /**
@@ -17,25 +16,12 @@ import containerStyles from './_container.scss'; // eslint-disable-line import/f
  * @param [options.children] The story content.
  * @returns The content that wraps the story.
  */
-const container = ({
-  hasMainTag,
-  children,
-}: {
-  hasMainTag?: boolean;
-  children: TemplateResult;
-}) => html`
+const container = ({ children }: { children: TemplateResult }) => html`
   <style>
     ${containerStyles}
   </style>
   <cds-skip-to-content href="#main-content"></cds-skip-to-content>
-  <div
-    id="main-content"
-    name="main-content"
-    data-floating-menu-container
-    role="${hasMainTag ? 'none' : 'main'}"
-    class="${prefix}-ce-demo-devenv--container">
-    ${children}
-  </div>
+  ${children}
 `;
 
 export default container;

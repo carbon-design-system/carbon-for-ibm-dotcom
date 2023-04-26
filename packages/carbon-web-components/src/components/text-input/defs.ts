@@ -35,6 +35,45 @@ export enum INPUT_SIZE {
   EXTRA_LARGE = 'xl',
 }
 
+export enum INPUT_TOOLTIP_ALIGNMENT {
+  /**
+   * Small size.
+   */
+  START = 'start',
+
+  /**
+   * Regular size, same as medium size.
+   */
+  CENTER = 'center',
+
+  /**
+   * Large size.
+   */
+  END = 'end',
+}
+
+export enum INPUT_TOOLTIP_DIRECTION {
+  /**
+   * Small size.
+   */
+  TOP = 'top',
+
+  /**
+   * Regular size, same as medium size.
+   */
+  RIGHT = 'right',
+
+  /**
+   * Large size.
+   */
+  BOTTOM = 'bottom',
+
+  /**
+   * Regular size, same as medium size.
+   */
+  LEFT = 'left',
+}
+
 /**
  * Supported input types.
  *

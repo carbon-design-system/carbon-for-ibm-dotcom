@@ -14,25 +14,19 @@ export { FORM_ELEMENT_COLOR_SCHEME as OVERFLOW_MENU_COLOR_SCHEME } from '../../g
  */
 export enum OVERFLOW_MENU_SIZE {
   /**
-   * Regular size.
-   */
-  REGULAR = '',
-
-  /**
    * Small size.
    */
   SMALL = 'sm',
 
   /**
+   * Medium size.
+   */
+  MEDIUM = 'md',
+
+  /**
    * Large size.
    */
   LARGE = 'lg',
-
-  // TODO: deprecate
-  /**
-   * X-Large size.
-   */
-  EXTRA_LARGE = 'xl',
 }
 
 export const NAVIGATION_DIRECTION = {
