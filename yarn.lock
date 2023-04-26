@@ -2637,7 +2637,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@carbon/icon-helpers@npm:^10.28.0, @carbon/icon-helpers@npm:^10.38.0":
+"@carbon/icon-helpers@npm:^10.28.0, @carbon/icon-helpers@npm:^10.38.0, @carbon/icon-helpers@npm:^10.39.0":
   version: 10.39.0
   resolution: "@carbon/icon-helpers@npm:10.39.0"
   checksum: b99ed8f595045ca1d6cb41181dfc731e79aa8bc372af4613728d6edc15421ac8d692dc5947c2e56a6fc039c43ae5771e7228edefac6d157f22f99f354e650940
@@ -2657,10 +2657,17 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@carbon/icons@npm:10.48.0, @carbon/icons@npm:^10.48.0":
+"@carbon/icons@npm:10.48.0":
   version: 10.48.0
   resolution: "@carbon/icons@npm:10.48.0"
   checksum: 38c0a89c3a70d56e0490e34ad6c5bb35007a422a7697c419c460c0c2d22135eb1bcf39c54c1cf39f12a4b2d6184eecbdc9b4beeaca84330dcc2638db84a3d92f
+  languageName: node
+  linkType: hard
+
+"@carbon/icons@npm:^11.18.0":
+  version: 11.18.0
+  resolution: "@carbon/icons@npm:11.18.0"
+  checksum: ff56ca787ad1d1481894ced1053b545fadb05aa4621806ca0fe3a9dfe7ab62d2f3b8222798d0dbffe75cae86110ebe06c1eeab3432dce8feb5b808bbc000b38c
   languageName: node
   linkType: hard
 
@@ -2844,8 +2851,8 @@ __metadata:
     "@babel/runtime": ^7.16.3
     "@babel/template": ~7.12.0
     "@babel/traverse": ~7.12.0
-    "@carbon/icon-helpers": ^10.28.0
-    "@carbon/icons": ^10.48.0
+    "@carbon/icon-helpers": ^10.39.0
+    "@carbon/icons": ^11.18.0
     "@carbon/styles": ^1.27.0
     "@open-wc/semantic-dom-diff": ~0.18.0
     "@percy-io/in-percy": ^0.1.11
@@ -2895,7 +2902,7 @@ __metadata:
     expect-playwright: ~0.8.0
     expect-puppeteer: ^6.0.0
     file-loader: ^6.2.0
-    flatpickr: 4.6.13
+    flatpickr: 4.6.1
     fs-extra: ^10.0.0
     gulp: ^4.0.2
     gulp-babel: ^8.0.0
