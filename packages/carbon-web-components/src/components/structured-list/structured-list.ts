@@ -33,13 +33,13 @@ class BXStructuredList extends FocusMixin(LitElement) {
   /**
    * Specify if structured list is condensed, default is false
    */
-  @property({ type: Boolean, reflect: true, attribute: 'condensed' })
+  @property({ type: Boolean, reflect: true })
   condensed = false;
 
   /**
    * Specify if structured list is flush, default is false
    */
-  @property({ type: Boolean, reflect: true, attribute: 'flush' })
+  @property({ type: Boolean, reflect: true })
   flush = false;
 
   connectedCallback() {
