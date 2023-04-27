@@ -36,11 +36,6 @@
     z-index $duration-slow-02 motion(exit, expressive),
     visibility $duration-moderate-02 motion(exit, expressive);
 
-  .#{$prefix}--text-input,
-  .#{$prefix}--select-input {
-    background-color: $field-02;
-  }
-
   &[full-width] {
     ::slotted(#{$prefix}-modal-body) {
       margin: 0;
@@ -78,8 +73,12 @@
   @extend .#{$prefix}--modal-content;
   @extend .#{$prefix}--layer-two;
 
-  ::slotted(cds-form-item) {
+  ::slotted(#{$prefix}-form-item) {
     margin-bottom: $spacing-05;
+  }
+
+  ::slotted(#{$prefix}-select:last-of-type) {
+    padding-bottom: 0;
   }
 
   ::slotted(*:last-child) {
@@ -104,13 +103,6 @@
   &[has-three-buttons] {
     @extend .#{$prefix}--modal-footer--three-button;
 
-    ::slotted(#{$prefix}-modal-footer-button) {
-      flex: 0 1 25%;
-    }
-  }
-
-  .#{$prefix}--modal-footer--three-button {
-    ::slotted(#{$prefix}-button),
     ::slotted(#{$prefix}-modal-footer-button) {
       flex: 0 1 25%;
     }

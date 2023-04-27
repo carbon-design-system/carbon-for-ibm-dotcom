@@ -94,7 +94,10 @@ class CDSModal extends HostListenerMixin(LitElement) {
   @HostListener('click')
   // @ts-ignore: The decorator refers to this method but TS thinks this method is not referred to
   private _handleClick = (event: MouseEvent) => {
-    if (event.composedPath().indexOf(this.shadowRoot!) < 0) {
+    if (
+      event.composedPath().indexOf(this.shadowRoot!) < 0 &&
+      !this.preventCloseOnClickOutside
+    ) {
       this._handleUserInitiatedClose(event.target);
     }
   };
@@ -214,6 +217,19 @@ class CDSModal extends HostListenerMixin(LitElement) {
   }
 
   /**
+   * Specify whether the Modal is displaying an alert, error or warning.
+   * Should go hand in hand with the danger prop.
+   */
+  @property({ type: Boolean, reflect: true })
+  alert = false;
+
+  /**
+   * Specify text for the accessibility label of the header
+   */
+  @property({ attribute: 'aria-label' })
+  ariaLabel = '';
+
+  /**
    * The additional CSS class names for the container <div> of the element.
    */
   @property({ attribute: 'container-class' })
@@ -245,22 +261,41 @@ class CDSModal extends HostListenerMixin(LitElement) {
    * Modal size.
    */
   @property({ reflect: true })
-  size = MODAL_SIZE.REGULAR;
+  size = MODAL_SIZE.MEDIUM;
 
+  /**
+   * Prevent closing on click outside of modal
+   */
+  @property({ type: Boolean, attribute: 'prevent-close-on-click-outside' })
+  preventCloseOnClickOutside = false;
+
+  /**
+   * Prevent the modal from closing after clicking the close button
+   */
   @property({ type: Boolean, attribute: 'prevent-close' })
   preventClose = false;
 
+  /**
+   * Specify whether the Button should be disabled, or not
+   */
+  @property({ type: Boolean, attribute: 'primary-button-disabled' })
+  primaryButtonDisabled = false;
+
   firstUpdated() {
-    const body = this.querySelector('cds-modal-body');
+    const body = this.querySelector(
+      (this.constructor as typeof CDSModal).selectorModalBody
+    );
 
     if (!body) {
-      const bodyElement = document.createElement('cds-modal-body');
+      const bodyElement = document.createElement(
+        (this.constructor as typeof CDSModal).selectorModalBody
+      );
       this.appendChild(bodyElement);
     }
   }
 
   render() {
-    const { size, hasScrollingContent } = this;
+    const { alert, ariaLabel, size, hasScrollingContent } = this;
     const containerClass = this.containerClass
       .split(' ')
       .filter(Boolean)
@@ -277,9 +312,10 @@ class CDSModal extends HostListenerMixin(LitElement) {
         href="javascript:void 0"
         role="navigation"></a>
       <div
+        aria-label=${ariaLabel}
         part="dialog"
         class=${containerClasses}
-        role="dialog"
+        role="${alert ? 'alert' : 'dialog'}"
         tabindex="-1"
         @click=${this._handleClickContainer}>
         <slot></slot>
@@ -356,6 +392,13 @@ class CDSModal extends HostListenerMixin(LitElement) {
    */
   static get selectorPrimaryFocus() {
     return `[data-modal-primary-focus],${prefix}-modal-footer ${prefix}-button[kind="primary"]`;
+  }
+
+  /**
+   * A selector selecting the modal body component
+   */
+  static get selectorModalBody() {
+    return `${prefix}-modal-body`;
   }
 
   /**

@@ -8,7 +8,6 @@
  */
 
 import { html } from 'lit';
-import { action } from '@storybook/addon-actions';
 import { boolean, select, text } from '@storybook/addon-knobs';
 import '../button/button';
 import { MODAL_SIZE } from './modal';
@@ -22,7 +21,7 @@ const toggleButton = () => {
 const sizes = {
   [`Extra small size (${MODAL_SIZE.EXTRA_SMALL})`]: MODAL_SIZE.EXTRA_SMALL,
   [`Small size (${MODAL_SIZE.SMALL})`]: MODAL_SIZE.SMALL,
-  [`Regular size`]: null,
+  [`Medium size (${MODAL_SIZE.MEDIUM})`]: MODAL_SIZE.MEDIUM,
   [`Large size (${MODAL_SIZE.LARGE})`]: MODAL_SIZE.LARGE,
 };
 
@@ -218,6 +217,8 @@ export const WithStateManager = () => {
 
 export const Playground = (args) => {
   const {
+    alert,
+    ariaLabel,
     danger,
     open,
     closeButtonLabel,
@@ -227,13 +228,15 @@ export const Playground = (args) => {
     modalLabel,
     numberOfButtons,
     passiveModal,
+    preventCloseOnClickOutside,
+    primaryButtonDisabled,
     size,
-    disableClose,
-    onBeforeClose,
-    onClose,
   } = args?.['cds-modal'] ?? {};
   return html`
     <cds-modal
+      aria-label=${ariaLabel}
+      ?prevent-close-on-click-outside=${preventCloseOnClickOutside}
+      ?alert=${alert}
       size="${size}"
       ?open=${open}
       ?full-width=${fullWidth}
@@ -255,7 +258,7 @@ export const Playground = (args) => {
           <cds-text-input placeholder="e.g. github.com" label="Domain name">
           </cds-text-input>
         </cds-form-item>
-        <cds-select label-text="Domain name" placeholder="US South">
+        <cds-select label-text="Region" placeholder="US South">
           <cds-select-item value="us-south">Option 1</cds-select-item>
           <cds-select-item value="us-east">Option 2</cds-select-item>
         </cds-select>
@@ -337,7 +340,9 @@ export const Playground = (args) => {
                 >`
               : ``}
 
-            <cds-modal-footer-button kind="${danger ? 'danger' : 'primary'}"
+            <cds-modal-footer-button
+              ?disabled=${primaryButtonDisabled}
+              kind="${danger ? 'danger' : 'primary'}"
               >Add</cds-modal-footer-button
             >
           </cds-modal-footer>`}
@@ -349,28 +354,29 @@ Playground.parameters = {
   ...storyDocs.parameters,
   knobs: {
     'cds-modal': () => ({
-      open: boolean('Open (open)', true),
+      alert: boolean('Alert (alert)', false),
+      ariaLabel: text('Aria label (aria-label)', ''),
       closeButtonLabel: text(
         'Close button label (close-button-label)',
         'Close'
       ),
       danger: boolean('Danger mode (danger)', false),
-      disableClose: boolean(
-        'Disable user-initiated close action (Call event.preventDefault() in cds-modal-beingclosed event)',
-        false
-      ),
       fullWidth: boolean('Full width (full-width)', false),
       hasScrollingContent: boolean(
         'Has scrolling content (has-scrolling-content)',
         false
       ),
       modalHeading: text('Modal heading', 'Add a custom domain'),
-      modalLabel: text('Modal label', 'Account resources'),
+      modalLabel: text('Modal label', ''),
       numberOfButtons: select('Number of buttons', buttons, 2),
-      passiveModal: boolean('Passive modal', false),
+      open: boolean('Open (open)', true),
+      passiveModal: boolean('Passive modal (passive-modal)', false),
+      preventCloseOnClickOutside: boolean(
+        'Prevent close on click outside',
+        false
+      ),
+      primaryButtonDisabled: boolean('Primary button disabled', false),
       size: select('Modal size (size)', sizes, null),
-      onBeforeClose: action('cds-modal-beingclosed'),
-      onClose: action('cds-modal-closed'),
     }),
   },
 };

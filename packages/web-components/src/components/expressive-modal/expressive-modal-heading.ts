@@ -8,7 +8,7 @@
  */
 
 import { customElement } from 'lit/decorators.js';
-import BXModalHeading from '../../internal/vendor/@carbon/web-components/components/modal/modal-heading.js';
+import CDSModalHeading from '../../internal/vendor/@carbon/web-components/components/modal/modal-heading.js';
 import ddsSettings from '../../internal/vendor/@carbon/ibmdotcom-utilities/utilities/settings/settings';
 import styles from './expressive-modal.scss';
 import StableSelectorMixin from '../../globals/mixins/stable-selector';
@@ -21,7 +21,7 @@ const { stablePrefix: ddsPrefix } = ddsSettings;
  * @element dds-expressive-modal-heading
  */
 @customElement(`${ddsPrefix}-expressive-modal-heading`)
-class DDSExpressiveModalHeading extends StableSelectorMixin(BXModalHeading) {
+class DDSExpressiveModalHeading extends StableSelectorMixin(CDSModalHeading) {
   connectedCallback() {
     if (!this.hasAttribute('role')) {
       this.setAttribute('role', 'heading');
