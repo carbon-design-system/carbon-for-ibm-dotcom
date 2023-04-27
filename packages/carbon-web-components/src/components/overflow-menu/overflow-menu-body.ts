@@ -13,11 +13,7 @@ import { prefix } from '../../globals/settings';
 import CDSFloatingMenu, {
   FLOATING_MENU_DIRECTION,
 } from '../floating-menu/floating-menu';
-import {
-  NAVIGATION_DIRECTION,
-  OVERFLOW_MENU_COLOR_SCHEME,
-  OVERFLOW_MENU_SIZE,
-} from './defs';
+import { NAVIGATION_DIRECTION, OVERFLOW_MENU_SIZE } from './defs';
 import CDSOverflowMenuItem from './overflow-menu-item';
 import HostListener from '../../globals/decorators/host-listener';
 import { indexOf } from '../../globals/internal/collection-helpers';
@@ -46,12 +42,6 @@ const capIndex = (index: number, length: number) => {
 @customElement(`${prefix}-overflow-menu-body`)
 class CDSOverflowMenuBody extends CDSFloatingMenu {
   /**
-   * The color scheme.
-   */
-  @property({ attribute: 'color-scheme', reflect: true })
-  colorScheme = OVERFLOW_MENU_COLOR_SCHEME.REGULAR;
-
-  /**
    * The menu direction.
    */
   @property()
@@ -74,7 +64,7 @@ class CDSOverflowMenuBody extends CDSFloatingMenu {
   selected: CDSOverflowMenuItem | null = null;
 
   /**
-   * The color scheme.
+   * The overflow menu size.
    */
   @property({ reflect: true })
   size = OVERFLOW_MENU_SIZE.MEDIUM;

@@ -15,12 +15,12 @@ import FocusMixin from '../../globals/mixins/focus';
 import HostListenerMixin from '../../globals/mixins/host-listener';
 import { find } from '../../globals/internal/collection-helpers';
 import BXFloatingMenuTrigger from '../floating-menu/floating-menu-trigger';
-import { OVERFLOW_MENU_COLOR_SCHEME, OVERFLOW_MENU_SIZE } from './defs';
+import { OVERFLOW_MENU_SIZE } from './defs';
 import BXOverflowMenuBody from './overflow-menu-body';
 import styles from './overflow-menu.scss';
 import CDSIconButton from '../icon-button/icon-button';
 
-export { OVERFLOW_MENU_COLOR_SCHEME, OVERFLOW_MENU_SIZE };
+export { OVERFLOW_MENU_SIZE };
 
 /**
  * Overflow menu.
@@ -73,12 +73,6 @@ class CDSOverflowMenu
       this._handleUserInitiatedToggle();
     }
   };
-
-  /**
-   * The color scheme.
-   */
-  @property({ attribute: 'color-scheme', reflect: true })
-  colorScheme = OVERFLOW_MENU_COLOR_SCHEME.REGULAR;
 
   /**
    * `true` if this overflow menu should be disabled.
@@ -141,7 +135,7 @@ class CDSOverflowMenu
     );
 
     if (changedProperties.has('open')) {
-      const { colorScheme, open } = this;
+      const { open } = this;
       if (open && !this._menuBody) {
         this._menuBody = find(
           this.childNodes,
@@ -151,7 +145,6 @@ class CDSOverflowMenu
       }
       const { _menuBody: menuBody } = this;
       if (menuBody) {
-        menuBody.colorScheme = colorScheme;
         menuBody.open = open;
         this.setAttribute('aria-expanded', String(Boolean(open)));
       }

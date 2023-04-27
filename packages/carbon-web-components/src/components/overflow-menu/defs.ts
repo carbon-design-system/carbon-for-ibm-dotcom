@@ -7,8 +7,6 @@
  * LICENSE file in the root directory of this source tree.
  */
 
-export { FORM_ELEMENT_COLOR_SCHEME as OVERFLOW_MENU_COLOR_SCHEME } from '../../globals/shared-enums';
-
 /**
  * Overflow menu size.
  */

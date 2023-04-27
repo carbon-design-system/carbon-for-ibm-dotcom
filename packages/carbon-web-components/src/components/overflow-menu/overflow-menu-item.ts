@@ -46,7 +46,7 @@ class CDSOverflowMenuItem extends FocusMixin(LitElement) {
   href = '';
 
   /**
-   * `true` if the action is danger.
+   * The size of the overflow menu item.
    */
   @property({ reflect: true })
   size = OVERFLOW_MENU_SIZE.MEDIUM;
