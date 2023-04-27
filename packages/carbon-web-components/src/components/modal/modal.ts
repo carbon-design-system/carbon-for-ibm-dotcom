@@ -275,12 +275,6 @@ class CDSModal extends HostListenerMixin(LitElement) {
   @property({ type: Boolean, attribute: 'prevent-close' })
   preventClose = false;
 
-  /**
-   * Specify whether the Button should be disabled, or not
-   */
-  @property({ type: Boolean, attribute: 'primary-button-disabled' })
-  primaryButtonDisabled = false;
-
   firstUpdated() {
     const body = this.querySelector(
       (this.constructor as typeof CDSModal).selectorModalBody
