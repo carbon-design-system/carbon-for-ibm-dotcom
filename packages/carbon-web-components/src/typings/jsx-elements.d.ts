@@ -31,6 +31,11 @@ declare global {
       'cds-copy-button': any;
       'cds-data-table': any;
       'cds-table': any;
+      'cds-file-uploader': any;
+      'cds-file-uploader-button': any;
+      'cds-file-uploader-drop-container': any;
+      'cds-file-uploader-item': any;
+      'cds-file-uploader-skeleton': any;
       'cds-table-head': any;
       'cds-table-header-row': any;
       'cds-table-header-cell': any;
@@ -71,6 +76,7 @@ declare global {
       'cds-pagination': any;
       'cds-page-sizes-select': any;
       'cds-pages-select': any;
+      'cds-progress-bar': any;
       'cds-progress-indicator': any;
       'cds-progress-step': any;
       'cds-popover': any;
