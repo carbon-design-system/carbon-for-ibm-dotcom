@@ -10,10 +10,10 @@
 import { render } from 'lit';
 
 import BXOverflowMenu from '../../src/components/overflow-menu/overflow-menu';
-import { Default } from '../../src/components/overflow-menu/overflow-menu-story';
+import { Playground } from '../../src/components/overflow-menu/overflow-menu-story';
 
 const template = (props?) =>
-  Default({
+  Playground({
     'cds-overflow-menu': props,
   });
 

@@ -16,12 +16,24 @@ import containerStyles from './_container.scss'; // eslint-disable-line import/f
  * @param [options.children] The story content.
  * @returns The content that wraps the story.
  */
-const container = ({ children }: { children: TemplateResult }) => html`
+const container = ({
+  hasMainTag,
+  children,
+}: {
+  hasMainTag?: boolean;
+  children: TemplateResult;
+}) => html`
   <style>
     ${containerStyles}
   </style>
   <cds-skip-to-content href="#main-content"></cds-skip-to-content>
-  ${children}
+  <div
+    id="main-content"
+    name="main-content"
+    data-floating-menu-container
+    role="${hasMainTag ? 'none' : 'main'}">
+    ${children}
+  </div>
 `;
 
 export default container;
