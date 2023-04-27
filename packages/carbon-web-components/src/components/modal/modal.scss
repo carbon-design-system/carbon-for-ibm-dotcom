@@ -42,10 +42,10 @@
       padding: 0;
     }
   }
-}
 
-:host(#{$prefix}-modal[open]) {
-  @extend .#{$prefix}--modal, .is-visible;
+  &[open] {
+    @extend .#{$prefix}--modal, .is-visible;
+  }
 }
 
 :host(#{$prefix}-modal-header) {
@@ -110,9 +110,25 @@
 }
 
 :host(#{$prefix}-modal-footer-button) {
+  &,
+  &:first-of-type {
+    .#{$prefix}--btn {
+      box-shadow: inherit;
+
+      &:focus {
+        box-shadow: inset 0 0 0 $button-outline-width $focus,
+          inset 0 0 0 $button-border-width $background;
+      }
+    }
+  }
+
   .#{$prefix}--btn {
     width: 100%;
     max-width: none;
+
+    padding-top: rem(16px);
+    padding-bottom: rem(32px);
+    box-shadow: rem(-1px) 0 0 0 $button-separator;
   }
 }
 
@@ -124,24 +140,4 @@
   height: rem(64px);
   margin: 0;
   padding-bottom: $spacing-07;
-}
-
-:host(#{$prefix}-modal-footer-button) .#{$prefix}--btn {
-  padding-top: rem(16px);
-  padding-bottom: rem(32px);
-  box-shadow: rem(-1px) 0 0 0 $button-separator;
-}
-
-:host(#{$prefix}-modal-footer-button:first-of-type) .#{$prefix}--btn {
-  box-shadow: inherit;
-}
-
-:host(#{$prefix}-modal-footer-button) {
-  &,
-  &:first-of-type {
-    .#{$prefix}--btn:focus {
-      box-shadow: inset 0 0 0 $button-outline-width $focus,
-        inset 0 0 0 $button-border-width $background;
-    }
-  }
 }
