@@ -6,7 +6,7 @@
  */
 
 import { markdownToHtml } from '../';
-import settings from 'carbon-components/es/globals/js/settings';
+import settings from 'carbon-components/es/globals/js/settings.js';
 
 const { prefix } = settings;
 

@@ -5,7 +5,7 @@
  * LICENSE file in the root directory of this source tree.
  */
 
-import on from 'carbon-components/es/globals/js/misc/on';
+import on from 'carbon-components/es/globals/js/misc/on.js';
 
 /**
  * Fires the given event if focus goes out of the given element.
