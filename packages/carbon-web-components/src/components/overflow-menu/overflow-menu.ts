@@ -68,9 +68,10 @@ class CDSOverflowMenu
    */
   @HostListener('keydown')
   // @ts-ignore: The decorator refers to this method but TS thinks this method is not referred to
-  private _handleKeydownTrigger = async ({ key }) => {
-    if (key === ' ' || key === 'Enter') {
+  private _handleKeydownTrigger = async (event) => {
+    if (event.key === ' ' || event.key === 'Enter') {
       this._handleUserInitiatedToggle();
+      event.preventDefault();
     }
   };
 
