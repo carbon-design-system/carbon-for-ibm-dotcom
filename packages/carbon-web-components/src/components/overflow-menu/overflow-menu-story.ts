@@ -69,10 +69,10 @@ export const renderCustomIcon = () => {
 };
 
 export const Playground = (args) => {
-  const { flipped, iconDescription, open, size } =
+  const { flipped, iconDescription, open, index, size } =
     args?.[`${prefix}-overflow-menu`] ?? {};
   return html`
-    <cds-overflow-menu ?open="${open}" size="${size}">
+    <cds-overflow-menu ?open="${open}" size="${size}" index=${index}>
       <span name="icon">
         ${OverflowMenuVertical16({
           class: `${prefix}--overflow-menu__icon`,
