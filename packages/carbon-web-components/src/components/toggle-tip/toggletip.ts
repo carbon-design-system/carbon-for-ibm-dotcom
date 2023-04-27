@@ -8,7 +8,8 @@
  */
 
 import { classMap } from 'lit/directives/class-map.js';
-import { html, property, customElement, LitElement } from 'lit-element';
+import { html, LitElement } from 'lit';
+import { customElement, property } from 'lit/decorators.js';
 import Information16 from '@carbon/icons/lib/information/16';
 import { prefix } from '../../globals/settings';
 import FocusMixin from '../../globals/mixins/focus';
