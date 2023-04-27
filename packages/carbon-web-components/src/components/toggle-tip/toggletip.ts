@@ -7,7 +7,7 @@
  * LICENSE file in the root directory of this source tree.
  */
 
-import { classMap } from 'lit-html/directives/class-map';
+import { classMap } from 'lit/directives/class-map.js';
 import { html, property, customElement, LitElement } from 'lit-element';
 import Information16 from '@carbon/icons/lib/information/16';
 import { prefix } from '../../globals/settings';

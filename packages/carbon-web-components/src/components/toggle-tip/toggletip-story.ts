@@ -14,7 +14,7 @@ import { select } from '@storybook/addon-knobs';
 // @ts-ignore
 import Filter16 from 'carbon-web-components/es/icons/filter/16';
 import textNullable from '../../../.storybook/knob-text-nullable';
-import { ifDefined } from 'lit/directives/if-defined';
+import { ifDefined } from 'lit/directives/if-defined.js';
 import { prefix } from '../../globals/settings';
 import './toggletip';
 import '../button';

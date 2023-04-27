@@ -11,7 +11,7 @@ import { html, property, LitElement, customElement } from 'lit-element';
 
 import { delay } from 'bluebird';
 import { prefix } from '../../globals/settings';
-import { ifDefined } from 'lit/directives/if-defined';
+import { ifDefined } from 'lit/directives/if-defined.js';
 import './index';
 import { FILE_UPLOADER_ITEM_STATE } from './file-uploader-item';
 import { BUTTON_SIZE } from '../button/button';
