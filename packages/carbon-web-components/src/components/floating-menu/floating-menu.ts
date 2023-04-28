@@ -16,7 +16,7 @@ import {
   FLOATING_MENU_DIRECTION,
   FLOATING_MENU_POSITION_DIRECTION,
 } from './defs';
-import BXFloatingMenuTrigger from './floating-menu-trigger';
+import CDSFloatingMenuTrigger from './floating-menu-trigger';
 import { prefix } from '../../globals/settings';
 
 export { FLOATING_MENU_DIRECTION, FLOATING_MENU_POSITION_DIRECTION };
@@ -78,7 +78,7 @@ const closestComposed = (elem: Element, selector: string) => {
 /**
  * Floating menu.
  */
-abstract class BXFloatingMenu extends HostListenerMixin(
+abstract class CDSFloatingMenu extends HostListenerMixin(
   FocusMixin(LitElement)
 ) {
   /**
@@ -144,7 +144,7 @@ abstract class BXFloatingMenu extends HostListenerMixin(
   /**
    * The DOM element, typically a custom element in this library, launching this floating menu.
    */
-  protected parent: BXFloatingMenuTrigger | null = null;
+  protected parent: CDSFloatingMenuTrigger | null = null;
 
   /**
    * The menu direction.
@@ -168,7 +168,7 @@ abstract class BXFloatingMenu extends HostListenerMixin(
     return (
       closestComposed(
         this,
-        (this.constructor as typeof BXFloatingMenu).selectorContainer
+        (this.constructor as typeof CDSFloatingMenu).selectorContainer
       ) || this.ownerDocument!.body
     );
   }
@@ -269,7 +269,7 @@ abstract class BXFloatingMenu extends HostListenerMixin(
       open
     ) {
       if (!parent) {
-        this.parent = this.parentElement as BXFloatingMenuTrigger;
+        this.parent = this.parentElement as CDSFloatingMenuTrigger;
         container.appendChild(this);
       }
       // Note: `this.position` cannot be referenced until `this.parent` is set
@@ -319,4 +319,4 @@ abstract class BXFloatingMenu extends HostListenerMixin(
   };
 }
 
-export default BXFloatingMenu;
+export default CDSFloatingMenu;

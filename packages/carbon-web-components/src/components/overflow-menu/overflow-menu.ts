@@ -14,9 +14,9 @@ import HostListener from '../../globals/decorators/host-listener';
 import FocusMixin from '../../globals/mixins/focus';
 import HostListenerMixin from '../../globals/mixins/host-listener';
 import { find } from '../../globals/internal/collection-helpers';
-import BXFloatingMenuTrigger from '../floating-menu/floating-menu-trigger';
+import CDSFloatingMenuTrigger from '../floating-menu/floating-menu-trigger';
 import { OVERFLOW_MENU_SIZE } from './defs';
-import BXOverflowMenuBody from './overflow-menu-body';
+import CDSOverflowMenuBody from './overflow-menu-body';
 import styles from './overflow-menu.scss';
 import CDSIconButton from '../icon-button/icon-button';
 
@@ -31,12 +31,12 @@ export { OVERFLOW_MENU_SIZE };
 @customElement(`${prefix}-overflow-menu`)
 class CDSOverflowMenu
   extends HostListenerMixin(FocusMixin(CDSIconButton))
-  implements BXFloatingMenuTrigger
+  implements CDSFloatingMenuTrigger
 {
   /**
    * The menu body.
    */
-  private _menuBody: BXOverflowMenuBody | null = null;
+  private _menuBody: CDSOverflowMenuBody | null = null;
 
   /**
    * Handles user-initiated toggling of the menu.
@@ -141,7 +141,7 @@ class CDSOverflowMenu
         this._menuBody = find(
           this.childNodes,
           (elem) =>
-            (elem.constructor as typeof BXOverflowMenuBody).FLOATING_MENU
+            (elem.constructor as typeof CDSOverflowMenuBody).FLOATING_MENU
         );
       }
       const { _menuBody: menuBody } = this;

@@ -35,6 +35,9 @@ export enum INPUT_SIZE {
   EXTRA_LARGE = 'xl',
 }
 
+/**
+ * Input tooltop alignment
+ */
 export enum INPUT_TOOLTIP_ALIGNMENT {
   /**
    * Small size.
@@ -52,6 +55,9 @@ export enum INPUT_TOOLTIP_ALIGNMENT {
   END = 'end',
 }
 
+/**
+ * Input tooltop direction
+ */
 export enum INPUT_TOOLTIP_DIRECTION {
   /**
    * Small size.
