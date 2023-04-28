@@ -29,11 +29,10 @@ const sizes = {
 export const Default = () => {
   return html`
     <cds-overflow-menu>
-      <span name="icon">
-        ${OverflowMenuVertical16({
-          class: `${prefix}--overflow-menu__icon`,
-        })}
-      </span>
+      ${OverflowMenuVertical16({
+        class: `${prefix}--overflow-menu__icon`,
+        slot: 'icon',
+      })}
       <span slot="tooltip-content"> Options </span>
       <cds-overflow-menu-body>
         <cds-overflow-menu-item>Stop app</cds-overflow-menu-item>
@@ -54,11 +53,10 @@ export const Default = () => {
 export const renderCustomIcon = () => {
   return html`
     <cds-overflow-menu>
-      <span name="icon">
-        ${Filter16({
-          class: `${prefix}--overflow-menu__icon`,
-        })}
-      </span>
+      ${Filter16({
+        class: `${prefix}--overflow-menu__icon`,
+        slot: 'icon',
+      })}
       <span slot="tooltip-content">Options</span>
       <cds-overflow-menu-body>
         <cds-overflow-menu-item>Filter A</cds-overflow-menu-item>
@@ -73,11 +71,10 @@ export const Playground = (args) => {
     args?.[`${prefix}-overflow-menu`] ?? {};
   return html`
     <cds-overflow-menu ?open="${open}" size="${size}" index=${index}>
-      <span name="icon">
-        ${OverflowMenuVertical16({
-          class: `${prefix}--overflow-menu__icon`,
-        })}
-      </span>
+      ${OverflowMenuVertical16({
+        class: `${prefix}--overflow-menu__icon`,
+        slot: 'icon',
+      })}
       <span slot="tooltip-content"> ${iconDescription} </span>
       <cds-overflow-menu-body ?flipped="${ifDefined(flipped)}">
         <cds-overflow-menu-item>Stop app</cds-overflow-menu-item>
