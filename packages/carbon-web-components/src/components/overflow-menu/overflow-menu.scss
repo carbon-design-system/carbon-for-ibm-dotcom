@@ -85,11 +85,11 @@ $css--plex: true !default;
 }
 
 :host(#{$prefix}-overflow-menu-item[size='sm']) {
-  height: rem(32px);
+  height: $spacing-07;
 }
 
 :host(#{$prefix}-overflow-menu-item[size='lg']) {
-  height: rem(48px);
+  height: $spacing-09;
 }
 
 :host(#{$prefix}-overflow-menu-item[danger]) {
