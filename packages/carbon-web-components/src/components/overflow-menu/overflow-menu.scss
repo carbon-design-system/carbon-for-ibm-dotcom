@@ -89,7 +89,7 @@ $css--plex: true !default;
 }
 
 :host(#{$prefix}-overflow-menu-item[size='lg']) {
-  height: rem(48px);
+  height: $spacing-09;
 }
 
 :host(#{$prefix}-overflow-menu-item[danger]) {
