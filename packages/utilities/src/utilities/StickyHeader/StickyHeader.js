@@ -79,9 +79,6 @@ class StickyHeader {
 
     const desktopSelector = `.${ddsPrefix}-ce--table-of-contents__items-container`;
 
-    console.log(window.innerWidth);
-    console.log(gridBreakpoint);
-
     if (window.innerWidth > gridBreakpoint) {
       if (toc.layout === 'horizontal') {
         this._tableOfContentsInnerBar = tocRoot.querySelector(
