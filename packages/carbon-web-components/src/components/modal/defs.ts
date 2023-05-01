@@ -22,7 +22,7 @@ export enum MODAL_SIZE {
   SMALL = 'sm',
 
   /**
-   * Regular size.
+   * Medium size.
    */
   MEDIUM = 'md',
 

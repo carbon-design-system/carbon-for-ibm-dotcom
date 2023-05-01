@@ -25,7 +25,7 @@ import styles from './modal.scss';
 @customElement(`${prefix}-modal-close-button`)
 class CDSModalCloseButton extends FocusMixin(LitElement) {
   /**
-   * Specify an label for the close button of the modal; defaults to close
+   * Specify a label for the close button of the modal; defaults to close
    */
   @property({ attribute: 'close-button-label' })
   closeButtonLabel = 'Close';

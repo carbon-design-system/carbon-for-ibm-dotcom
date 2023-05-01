@@ -17,24 +17,7 @@
 @use '@carbon/styles/scss/components/button' as *;
 
 :host(#{$prefix}-modal) {
-  // `@extend .#{$prefix}--modal` seems to cause `&.is-visible` style to be brought into `:host(#{$prefix}-modal)` with ShadyCSS
-  position: fixed;
-  top: 0;
-  bottom: 0;
-  width: 100vw;
-  height: 100vh;
-  z-index: z('modal');
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  content: '';
-  background-color: $overlay;
-  opacity: 0;
-  visibility: hidden;
-  transition: background-color $duration-slow-02 motion(exit, expressive),
-    opacity $duration-moderate-02 motion(exit, expressive),
-    z-index $duration-slow-02 motion(exit, expressive),
-    visibility $duration-moderate-02 motion(exit, expressive);
+  @extend .#{$prefix}--modal;
 
   &[full-width] {
     ::slotted(#{$prefix}-modal-body) {
