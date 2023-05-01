@@ -9,6 +9,7 @@
 
 import { html, TemplateResult } from 'lit';
 import { property, customElement, query } from 'lit/decorators.js';
+import { classMap } from 'lit/directives/class-map.js';
 import Close16 from '@carbon/icons/lib/close/16';
 import { prefix } from '../../globals/settings';
 import {
@@ -20,7 +21,11 @@ import CDSDropdown, { DROPDOWN_KEYBOARD_ACTION } from '../dropdown/dropdown';
 import CDSMultiSelectItem from './multi-select-item';
 import styles from './multi-select.scss';
 
-export { DROPDOWN_SIZE, DROPDOWN_TYPE } from '../dropdown/dropdown';
+export {
+  DROPDOWN_SIZE,
+  DROPDOWN_TYPE,
+  DROPDOWN_DIRECTION,
+} from '../dropdown/dropdown';
 
 /**
  * Multi select.
@@ -193,7 +198,49 @@ class CDSMultiSelect extends CDSDropdown {
     }
   }
 
-  protected _renderPrecedingTriggerContent() {
+  protected _renderTitleLabel() {
+    const {
+      clearSelectionDescription,
+      clearSelectionText,
+      disabled,
+      hideLabel,
+      titleText,
+      _selectedItemsCount: selectedItemsCount,
+      _slotTitleTextNode: slotTitleTextNode,
+      _handleSlotchangeLabelText: handleSlotchangeLabelText,
+    } = this;
+
+    const labelClasses = classMap({
+      [`${prefix}--label`]: true,
+      [`${prefix}--label--disabled`]: disabled,
+      [`${prefix}--visually-hidden`]: hideLabel,
+    });
+
+    const hasTitleText =
+      titleText ||
+      (slotTitleTextNode && slotTitleTextNode.assignedNodes().length > 0);
+
+    return html`
+      <label
+        part="title-text"
+        class="${labelClasses}"
+        ?hidden="${!hasTitleText}">
+        <slot name="title-text" @slotchange="${handleSlotchangeLabelText}"
+          >${titleText}</slot
+        >
+        ${selectedItemsCount > 0
+          ? html`
+              <span class="${prefix}--visually-hidden">
+                ${clearSelectionDescription} ${selectedItemsCount},
+                ${clearSelectionText}
+              </span>
+            `
+          : null}
+      </label>
+    `;
+  }
+
+  protected _renderPrecedingLabel() {
     const { clearSelectionLabel, _selectedItemsCount: selectedItemsCount } =
       this;
     return selectedItemsCount === 0
@@ -329,6 +376,18 @@ class CDSMultiSelect extends CDSDropdown {
   clearSelectionLabel = '';
 
   /**
+   * Specify the text that should be read for screen readers that describes total items selected
+   */
+  @property({ attribute: 'clear-selection-description' })
+  clearSelectionDescription = 'Total items selected: ';
+
+  /**
+   * Specify the text that should be read for screen readers to clear selection.
+   */
+  @property({ attribute: 'clear-selection-text' })
+  clearSelectionText = 'To clear selection, press Delete or Backspace.';
+
+  /**
    * An assistive text for screen reader to announce, telling that an item is unselected.
    */
   @property({ attribute: 'unselected-item-assistive-text' })
@@ -339,6 +398,36 @@ class CDSMultiSelect extends CDSDropdown {
    */
   @property({ attribute: 'unselected-all-assistive-text' })
   unselectedAllAssistiveText = 'Unselected all items.';
+
+  /**
+   * The CSS class list for multi-select listbox
+   */
+  protected get _classes() {
+    const {
+      disabled,
+      size,
+      inline,
+      invalid,
+      readOnly,
+      open,
+      warn,
+      _selectedItemsCount: selectedItemsCount,
+    } = this;
+
+    return classMap({
+      [`${prefix}--multi-select`]: true,
+      [`${prefix}--list-box`]: true,
+      [`${prefix}--list-box--disabled`]: disabled,
+      [`${prefix}--list-box--inline`]: inline,
+      [`${prefix}--list-box--expanded`]: open,
+      [`${prefix}--list-box--${size}`]: size,
+      [`${prefix}--multi-select--invalid`]: invalid,
+      [`${prefix}--multi-select--warn`]: warn,
+      [`${prefix}--multi-select--inline`]: inline,
+      [`${prefix}--multi-select--readonly`]: readOnly,
+      [`${prefix}--multi-select--selected`]: selectedItemsCount > 0,
+    });
+  }
 
   shouldUpdate(changedProperties) {
     const { selectorItem } = this.constructor as typeof CDSMultiSelect;

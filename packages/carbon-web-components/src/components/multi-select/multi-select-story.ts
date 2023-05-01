@@ -13,80 +13,37 @@ import { boolean, select } from '@storybook/addon-knobs';
 import { ifDefined } from 'lit/directives/if-defined.js';
 import textNullable from '../../../.storybook/knob-text-nullable';
 import { prefix } from '../../globals/settings';
-import { DROPDOWN_SIZE, DROPDOWN_TYPE } from './multi-select';
+import {
+  DROPDOWN_SIZE,
+  DROPDOWN_TYPE,
+  DROPDOWN_DIRECTION,
+} from './multi-select';
 import './multi-select-item';
+import '../../../.storybook/templates/with-layer';
 import storyDocs from './multi-select-story.mdx';
 
 const sizes = {
-  'Regular size': null,
   [`Small size (${DROPDOWN_SIZE.SMALL})`]: DROPDOWN_SIZE.SMALL,
-  [`Extra large size (${DROPDOWN_SIZE.LARGE})`]: DROPDOWN_SIZE.LARGE,
+  [`Medium size (${DROPDOWN_SIZE.MEDIUM})`]: DROPDOWN_SIZE.MEDIUM,
+  [`Large size (${DROPDOWN_SIZE.LARGE})`]: DROPDOWN_SIZE.LARGE,
+};
+
+const directionOptions = {
+  [`Top`]: DROPDOWN_DIRECTION.TOP,
+  [`Bottom`]: DROPDOWN_DIRECTION.BOTTOM,
 };
 
 const types = {
-  Regular: null,
+  Default: null,
   [`Inline (${DROPDOWN_TYPE.INLINE})`]: DROPDOWN_TYPE.INLINE,
 };
 
-export const Default = (args) => {
-  const {
-    clearSelectionLabel,
-    colorScheme,
-    disabled,
-    helperText,
-    invalid,
-    labelText,
-    open,
-    size,
-    toggleLabelClosed,
-    toggleLabelOpen,
-    triggerContent,
-    type,
-    validityMessage,
-    value,
-    disableSelection,
-    disableToggle,
-    onBeforeSelect,
-    onBeforeToggle,
-    onSelect,
-    onToggle,
-  } = args?.[`${prefix}-multi-select`] ?? {};
-  const handleBeforeSelect = (event: CustomEvent) => {
-    if (onBeforeSelect) {
-      onBeforeSelect(event);
-    }
-    if (disableSelection) {
-      event.preventDefault();
-    }
-  };
-  const handleBeforeToggle = (event: CustomEvent) => {
-    if (onBeforeToggle) {
-      onBeforeToggle(event);
-    }
-    if (disableToggle) {
-      event.preventDefault();
-    }
-  };
+export const Default = () => {
   return html`
     <cds-multi-select
-      color-scheme="${ifDefined(colorScheme)}"
-      ?disabled=${disabled}
-      ?invalid=${invalid}
-      ?open=${open}
-      clear-selection-label=${ifDefined(clearSelectionLabel)}
-      helper-text=${ifDefined(helperText)}
-      label-text=${ifDefined(labelText)}
-      size=${ifDefined(size)}
-      toggle-label-closed=${ifDefined(toggleLabelClosed)}
-      toggle-label-open=${ifDefined(toggleLabelOpen)}
-      trigger-content=${ifDefined(triggerContent)}
-      type=${ifDefined(type)}
-      validity-message=${ifDefined(validityMessage)}
-      value="${ifDefined(value)}"
-      @cds-multi-select-beingselected=${handleBeforeSelect}
-      @cds-multi-select-beingtoggled=${handleBeforeToggle}
-      @cds-multi-select-selected=${onSelect}
-      @cds-multi-select-toggled=${onToggle}>
+      title-text="Multiselect title"
+      label="Multiselect label"
+      helper-text="This is helper text">
       <cds-multi-select-item value="example"
         >An example option that is really long to show what should be done to
         handle long text</cds-multi-select-item
@@ -95,7 +52,9 @@ export const Default = (args) => {
       <cds-multi-select-item value="cloudFoundry"
         >Option 2</cds-multi-select-item
       >
-      <cds-multi-select-item value="staging">Option 3</cds-multi-select-item>
+      <cds-multi-select-item disabled value="staging"
+        >Option 3 - a disabled item</cds-multi-select-item
+      >
       <cds-multi-select-item value="dea">Option 4</cds-multi-select-item>
       <cds-multi-select-item value="router">Option 5</cds-multi-select-item>
     </cds-multi-select>
@@ -106,24 +65,134 @@ Default.decorators = [
   (story) => html` <div style="width:300px">${story()}</div> `,
 ];
 
-Default.storyName = 'Default';
+export const Filterable = () => {
+  return html`
+    <cds-multi-select
+      filterable="true"
+      title-text="Multiselect title"
+      helper-text="This is helper text">
+      <cds-multi-select-item value="example"
+        >An example option that is really long to show what should be done to
+        handle long text</cds-multi-select-item
+      >
+      <cds-multi-select-item value="all">Option 1</cds-multi-select-item>
+      <cds-multi-select-item value="cloudFoundry"
+        >Option 2</cds-multi-select-item
+      >
+      <cds-multi-select-item disabled value="staging"
+        >Option 3 - a disabled item</cds-multi-select-item
+      >
+      <cds-multi-select-item value="dea">Option 4</cds-multi-select-item>
+      <cds-multi-select-item value="router">Option 5</cds-multi-select-item>
+    </cds-multi-select>
+  `;
+};
 
-export const Filterable = (args) => {
+Filterable.decorators = [
+  (story) => html` <div style="width:300px">${story()}</div> `,
+];
+
+export const FilterableWithLayer = () => {
+  return html`
+    <sb-template-layers>
+      <div style="width:300px">
+        <cds-multi-select
+          filterable="true"
+          title-text="Multiselect title"
+          helper-text="This is helper text">
+          <cds-multi-select-item value="example"
+            >An example option that is really long to show what should be done
+            to handle long text</cds-multi-select-item
+          >
+          <cds-multi-select-item value="all">Option 1</cds-multi-select-item>
+          <cds-multi-select-item value="cloudFoundry"
+            >Option 2</cds-multi-select-item
+          >
+          <cds-multi-select-item disabled value="staging"
+            >Option 3 - a disabled item</cds-multi-select-item
+          >
+          <cds-multi-select-item value="dea">Option 4</cds-multi-select-item>
+          <cds-multi-select-item value="router">Option 5</cds-multi-select-item>
+        </cds-multi-select>
+      </div>
+    </sb-template-layers>
+  `;
+};
+
+export const WithInitialSelectedItems = () => {
+  return html`
+    <cds-multi-select
+      title-text="Multiselect title"
+      label="Multiselect label"
+      helper-text="This is helper text">
+      <cds-multi-select-item value="example"
+        >An example option that is really long to show what should be done to
+        handle long text</cds-multi-select-item
+      >
+      <cds-multi-select-item selected value="all"
+        >Option 1</cds-multi-select-item
+      >
+      <cds-multi-select-item selected value="cloudFoundry"
+        >Option 2</cds-multi-select-item
+      >
+      <cds-multi-select-item disabled value="staging"
+        >Option 3 - a disabled item</cds-multi-select-item
+      >
+      <cds-multi-select-item value="dea">Option 4</cds-multi-select-item>
+      <cds-multi-select-item value="router">Option 5</cds-multi-select-item>
+    </cds-multi-select>
+  `;
+};
+
+WithInitialSelectedItems.decorators = [
+  (story) => html` <div style="width:300px">${story()}</div> `,
+];
+
+export const WithLayer = () => {
+  return html`
+    <sb-template-layers>
+      <div style="width:300px">
+        <cds-multi-select
+          title-text="Multiselect title"
+          label="Multiselect label"
+          helper-text="This is helper text">
+          <cds-multi-select-item value="example"
+            >An example option that is really long to show what should be done
+            to handle long text</cds-multi-select-item
+          >
+          <cds-multi-select-item value="all">Option 1</cds-multi-select-item>
+          <cds-multi-select-item value="cloudFoundry"
+            >Option 2</cds-multi-select-item
+          >
+          <cds-multi-select-item disabled value="staging"
+            >Option 3 - a disabled item</cds-multi-select-item
+          >
+          <cds-multi-select-item value="dea">Option 4</cds-multi-select-item>
+          <cds-multi-select-item value="router">Option 5</cds-multi-select-item>
+        </cds-multi-select>
+      </div>
+    </sb-template-layers>
+  `;
+};
+
+export const Playground = (args) => {
   const {
     clearSelectionLabel,
-    colorScheme,
+    direction,
     disabled,
     helperText,
+    hideLabel,
     invalid,
-    labelText,
-    open,
+    invalidText,
+    titleText,
     size,
     toggleLabelClosed,
     toggleLabelOpen,
-    triggerContent,
+    label,
     type,
-    validityMessage,
     value,
+    warn,
+    warnText,
     disableSelection,
     disableToggle,
     onBeforeSelect,
@@ -149,20 +218,21 @@ export const Filterable = (args) => {
   };
   return html`
     <cds-multi-select
-      filterable="true"
-      color-scheme="${ifDefined(colorScheme)}"
+      direction=${ifDefined(direction)}
       ?disabled=${disabled}
       ?invalid=${invalid}
-      ?open=${open}
+      invalid-text=${ifDefined(invalidText)}
       clear-selection-label=${ifDefined(clearSelectionLabel)}
       helper-text=${ifDefined(helperText)}
-      label-text=${ifDefined(labelText)}
+      ?hide-label=${hideLabel}
+      title-text=${ifDefined(titleText)}
       size=${ifDefined(size)}
+      ?warn=${warn}
+      warn-text=${ifDefined(warnText)}
       toggle-label-closed=${ifDefined(toggleLabelClosed)}
       toggle-label-open=${ifDefined(toggleLabelOpen)}
-      trigger-content=${ifDefined(triggerContent)}
+      label=${ifDefined(label)}
       type=${ifDefined(type)}
-      validity-message=${ifDefined(validityMessage)}
       value="${ifDefined(value)}"
       @cds-multi-select-beingselected=${handleBeforeSelect}
       @cds-multi-select-beingtoggled=${handleBeforeToggle}
@@ -176,18 +246,18 @@ export const Filterable = (args) => {
       <cds-multi-select-item value="cloudFoundry"
         >Option 2</cds-multi-select-item
       >
-      <cds-multi-select-item value="staging">Option 3</cds-multi-select-item>
+      <cds-multi-select-item disabled value="staging"
+        >Option 3 - a disabled item</cds-multi-select-item
+      >
       <cds-multi-select-item value="dea">Option 4</cds-multi-select-item>
       <cds-multi-select-item value="router">Option 5</cds-multi-select-item>
     </cds-multi-select>
   `;
 };
 
-Filterable.decorators = [
+Playground.decorators = [
   (story) => html` <div style="width:300px">${story()}</div> `,
 ];
-
-Filterable.storyName = 'Filterable';
 
 export default {
   title: 'Components/Multi select',
@@ -195,18 +265,31 @@ export default {
     ...storyDocs.parameters,
     knobs: {
       [`${prefix}-multi-select`]: () => ({
-        clearSelectionLabel: textNullable(
-          'a11y label for the icon to clear selection (clear-selection-label)',
-          ''
+        clearSelectionDescription: textNullable(
+          'Clear selection description for a11y (clear-selection-description)',
+          'Total items selected: '
+        ),
+        clearSelectionText: textNullable(
+          'Clear selection text for a11y (clear-selection-text)',
+          'To clear selection, press Delete or Backspace.'
         ),
         disabled: boolean('Disabled (disabled)', false),
+        direction: select(
+          'Direction',
+          directionOptions,
+          DROPDOWN_DIRECTION.BOTTOM
+        ),
         helperText: textNullable(
           'Helper text (helper-text)',
           'Optional helper text'
         ),
+        hideLabel: boolean('Hide label (hide-label)', false),
         invalid: boolean('Show invalid state  (invalid)', false),
-        labelText: textNullable('Label text (label-text)', 'Multiselect title'),
-        open: boolean('Open (open)', false),
+        invalidText: textNullable('Invalid text  (invalid-text)', 'whoopsie!'),
+        titleText: textNullable(
+          'Title text (title-text)',
+          'This is a MultiSelect Title'
+        ),
         toggleLabelClosed: textNullable(
           'a11y label for the UI indicating the closed state (toggle-label-closed)',
           ''
@@ -215,16 +298,11 @@ export default {
           'a11y label for the UI indicating the closed state (toggle-label-open)',
           ''
         ),
-        triggerContent: textNullable(
-          'The default content of the trigger button (trigger-content)',
-          'Select items'
-        ),
-        size: select('Dropdown size (size)', sizes, null),
+        label: textNullable('Label of field (label)', 'This is a label'),
+        size: select('Size (size)', sizes, DROPDOWN_SIZE.MEDIUM),
         type: select('UI type (type)', types, null),
-        validityMessage: textNullable(
-          'The validity message (validity-message)',
-          ''
-        ),
+        warn: boolean('Warn (warn)', false),
+        warnText: textNullable('Warn text (warn-text)', 'whoopsie!'),
         disableSelection: boolean(
           `Disable user-initiated selection change (Call event.preventDefault() in ${prefix}-multi-select-beingselected event)`,
           false
