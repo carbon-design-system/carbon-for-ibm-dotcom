@@ -613,6 +613,18 @@ class CDSDropdown extends ValidityMixin(
         (elem as CDSDropdownItem).size = this.size;
       });
     }
+    if (changedProperties.has('disabled') && this.disabled) {
+      const { disabled } = this;
+      // Propagate `disabled` attribute to descendants until `:host-context()` gets supported in all major browsers
+      forEach(this.querySelectorAll(selectorItem), (elem) => {
+        console.log('disabled', disabled);
+        if (disabled) {
+          (elem as CDSDropdownItem).disabled = disabled;
+        } else {
+          (elem as CDSDropdownItem).removeAttribute('disabled');
+        }
+      });
+    }
     if (changedProperties.has('value')) {
       // `<cds-multi-select>` updates selection beforehand
       // because our rendering logic for `<cds-multi-select>` looks for selected items via `qSA()`
@@ -638,14 +650,6 @@ class CDSDropdown extends ValidityMixin(
   updated(changedProperties) {
     const { helperText, type } = this;
     const inline = type === DROPDOWN_TYPE.INLINE;
-    const { selectorItem } = this.constructor as typeof CDSDropdown;
-    if (changedProperties.has('disabled') && this.disabled) {
-      const { disabled } = this;
-      // Propagate `disabled` attribute to descendants until `:host-context()` gets supported in all major browsers
-      forEach(this.querySelectorAll(selectorItem), (elem) => {
-        (elem as CDSDropdownItem).disabled = disabled;
-      });
-    }
     if (
       (changedProperties.has('helperText') || changedProperties.has('type')) &&
       helperText &&
@@ -663,7 +667,8 @@ class CDSDropdown extends ValidityMixin(
    * The CSS class list for dropdown listbox
    */
   protected get _classes() {
-    const { disabled, size, inline, invalid, open, warn } = this;
+    const { disabled, size, type, invalid, open, warn } = this;
+    const inline = type === DROPDOWN_TYPE.INLINE;
 
     const selectedItemsCount = this.querySelectorAll(
       (this.constructor as typeof CDSDropdown).selectorItemSelected

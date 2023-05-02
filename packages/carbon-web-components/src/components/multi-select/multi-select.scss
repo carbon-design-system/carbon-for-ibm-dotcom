@@ -9,6 +9,7 @@ $css--plex: true !default;
 
 @use '@carbon/styles/scss/config' as *;
 @use '@carbon/styles/scss/theme' as *;
+@use '@carbon/styles/scss/utilities' as *;
 @use '@carbon/styles/scss/components/list-box/list-box';
 @use '@carbon/styles/scss/components/multiselect/multiselect';
 @use '@carbon/styles/scss/components/form';
@@ -113,18 +114,18 @@ $css--plex: true !default;
 }
 
 :host(#{$prefix}-multi-select-item[size='sm']) {
-  height: rem(32px);
-
+  height: fit-content;
   .#{$prefix}--list-box__menu-item__option {
+    height: rem(32px);
     padding-top: rem(7px);
     padding-bottom: rem(7px);
   }
 }
 
 :host(#{$prefix}-multi-select-item[size='lg']) {
-  height: rem(48px);
-
+  height: fit-content;
   .#{$prefix}--list-box__menu-item__option {
+    height: rem(48px);
     padding-top: rem(15px);
     padding-bottom: rem(15px);
   }

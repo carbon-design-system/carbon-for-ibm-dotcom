@@ -8,7 +8,6 @@
  */
 
 import { html } from 'lit';
-import { action } from '@storybook/addon-actions';
 import { boolean, select } from '@storybook/addon-knobs';
 import { ifDefined } from 'lit/directives/if-defined.js';
 import textNullable from '../../../.storybook/knob-text-nullable';
@@ -17,6 +16,7 @@ import {
   DROPDOWN_SIZE,
   DROPDOWN_TYPE,
   DROPDOWN_DIRECTION,
+  SELECTION_FEEDBACK_OPTION,
 } from './multi-select';
 import './multi-select-item';
 import '../../../.storybook/templates/with-layer';
@@ -36,6 +36,14 @@ const directionOptions = {
 const types = {
   Default: null,
   [`Inline (${DROPDOWN_TYPE.INLINE})`]: DROPDOWN_TYPE.INLINE,
+};
+
+const selectionFeedbackOptions = {
+  [`Top (${SELECTION_FEEDBACK_OPTION.TOP})`]: SELECTION_FEEDBACK_OPTION.TOP,
+  [`Fixed (${SELECTION_FEEDBACK_OPTION.FIXED})`]:
+    SELECTION_FEEDBACK_OPTION.FIXED,
+  [`Top-after-reopen (${SELECTION_FEEDBACK_OPTION.TOP_AFTER_REOPEN})`]:
+    SELECTION_FEEDBACK_OPTION.TOP_AFTER_REOPEN,
 };
 
 export const Default = () => {
@@ -184,38 +192,16 @@ export const Playground = (args) => {
     hideLabel,
     invalid,
     invalidText,
+    readOnly,
     titleText,
+    selectionFeedback,
     size,
-    toggleLabelClosed,
-    toggleLabelOpen,
     label,
     type,
     value,
     warn,
     warnText,
-    disableSelection,
-    disableToggle,
-    onBeforeSelect,
-    onBeforeToggle,
-    onSelect,
-    onToggle,
   } = args?.[`${prefix}-multi-select`] ?? {};
-  const handleBeforeSelect = (event: CustomEvent) => {
-    if (onBeforeSelect) {
-      onBeforeSelect(event);
-    }
-    if (disableSelection) {
-      event.preventDefault();
-    }
-  };
-  const handleBeforeToggle = (event: CustomEvent) => {
-    if (onBeforeToggle) {
-      onBeforeToggle(event);
-    }
-    if (disableToggle) {
-      event.preventDefault();
-    }
-  };
   return html`
     <cds-multi-select
       direction=${ifDefined(direction)}
@@ -225,19 +211,15 @@ export const Playground = (args) => {
       clear-selection-label=${ifDefined(clearSelectionLabel)}
       helper-text=${ifDefined(helperText)}
       ?hide-label=${hideLabel}
+      ?read-only=${readOnly}
       title-text=${ifDefined(titleText)}
+      selection-feedback=${ifDefined(selectionFeedback)}
       size=${ifDefined(size)}
       ?warn=${warn}
       warn-text=${ifDefined(warnText)}
-      toggle-label-closed=${ifDefined(toggleLabelClosed)}
-      toggle-label-open=${ifDefined(toggleLabelOpen)}
       label=${ifDefined(label)}
       type=${ifDefined(type)}
-      value="${ifDefined(value)}"
-      @cds-multi-select-beingselected=${handleBeforeSelect}
-      @cds-multi-select-beingtoggled=${handleBeforeToggle}
-      @cds-multi-select-selected=${onSelect}
-      @cds-multi-select-toggled=${onToggle}>
+      value="${ifDefined(value)}">
       <cds-multi-select-item value="example"
         >An example option that is really long to show what should be done to
         handle long text</cds-multi-select-item
@@ -290,31 +272,17 @@ export default {
           'Title text (title-text)',
           'This is a MultiSelect Title'
         ),
-        toggleLabelClosed: textNullable(
-          'a11y label for the UI indicating the closed state (toggle-label-closed)',
-          ''
-        ),
-        toggleLabelOpen: textNullable(
-          'a11y label for the UI indicating the closed state (toggle-label-open)',
-          ''
-        ),
         label: textNullable('Label of field (label)', 'This is a label'),
         size: select('Size (size)', sizes, DROPDOWN_SIZE.MEDIUM),
-        type: select('UI type (type)', types, null),
+        selectionFeedback: select(
+          'Selection feedback (selection-feedback)',
+          selectionFeedbackOptions,
+          SELECTION_FEEDBACK_OPTION.TOP_AFTER_REOPEN
+        ),
+        readOnly: boolean('Read only (read-only)', false),
+        type: select('Type (type)', types, null),
         warn: boolean('Warn (warn)', false),
         warnText: textNullable('Warn text (warn-text)', 'whoopsie!'),
-        disableSelection: boolean(
-          `Disable user-initiated selection change (Call event.preventDefault() in ${prefix}-multi-select-beingselected event)`,
-          false
-        ),
-        disableToggle: boolean(
-          `Disable user-initiated toggle of open state (Call event.preventDefault() in ${prefix}-multi-select-beingtoggled event)`,
-          false
-        ),
-        onBeforeSelect: action(`${prefix}-multi-select-beingselected`),
-        onBeforeToggle: action(`${prefix}-multi-select-beingtoggled`),
-        onSelect: action(`${prefix}-multi-select-selected`),
-        onToggle: action(`${prefix}-multi-select-toggled`),
       }),
     },
   },

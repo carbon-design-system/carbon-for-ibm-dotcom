@@ -17,7 +17,11 @@ import {
   forEach,
   indexOf,
 } from '../../globals/internal/collection-helpers';
-import CDSDropdown, { DROPDOWN_KEYBOARD_ACTION } from '../dropdown/dropdown';
+import CDSDropdown, {
+  DROPDOWN_KEYBOARD_ACTION,
+  DROPDOWN_TYPE,
+} from '../dropdown/dropdown';
+import { SELECTION_FEEDBACK_OPTION } from './defs';
 import CDSMultiSelectItem from './multi-select-item';
 import styles from './multi-select.scss';
 
@@ -26,6 +30,8 @@ export {
   DROPDOWN_TYPE,
   DROPDOWN_DIRECTION,
 } from '../dropdown/dropdown';
+
+export { SELECTION_FEEDBACK_OPTION };
 
 /**
  * Multi select.
@@ -400,19 +406,29 @@ class CDSMultiSelect extends CDSDropdown {
   unselectedAllAssistiveText = 'Unselected all items.';
 
   /**
+   * Specify feedback (mode) of the selection.
+   * `top`: selected item jumps to top
+   * `fixed`: selected item stays at it's position
+   * `top-after-reopen`: selected item jump to top after reopen dropdown
+   */
+  @property({ attribute: 'selection-feedback' })
+  selectionFeedback = SELECTION_FEEDBACK_OPTION.TOP_AFTER_REOPEN;
+
+  /**
    * The CSS class list for multi-select listbox
    */
   protected get _classes() {
     const {
       disabled,
       size,
-      inline,
+      type,
       invalid,
       readOnly,
       open,
       warn,
       _selectedItemsCount: selectedItemsCount,
     } = this;
+    const inline = type === DROPDOWN_TYPE.INLINE;
 
     return classMap({
       [`${prefix}--multi-select`]: true,
@@ -424,6 +440,7 @@ class CDSMultiSelect extends CDSDropdown {
       [`${prefix}--multi-select--invalid`]: invalid,
       [`${prefix}--multi-select--warn`]: warn,
       [`${prefix}--multi-select--inline`]: inline,
+      [`${prefix}--list-box--inline`]: inline,
       [`${prefix}--multi-select--readonly`]: readOnly,
       [`${prefix}--multi-select--selected`]: selectedItemsCount > 0,
     });
@@ -451,6 +468,22 @@ class CDSMultiSelect extends CDSDropdown {
       ).length;
     }
     return true;
+  }
+
+  connectedCallback() {
+    super.connectedCallback();
+
+    /**
+     * Detect if multi-select already has initially selected items
+     */
+    this.value = filter(
+      this.querySelectorAll(
+        (this.constructor as typeof CDSMultiSelect).selectorItem
+      ),
+      (item) => (item as CDSMultiSelectItem).selected
+    )
+      .map((item) => (item as CDSMultiSelectItem).value)
+      .join(',');
   }
 
   /**
