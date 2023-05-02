@@ -6,9 +6,10 @@
 
 ```
 <a
-  class="bx--link"
+  class="cds--link cds--link--md"
   id="link"
   part="link"
+  tabindex="0"
 >
   <div class="bx--locale-modal__locales__name">
     country-foo

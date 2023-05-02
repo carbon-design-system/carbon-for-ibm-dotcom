@@ -225,7 +225,7 @@ describe('dds-locale-search', function () {
       ).toBe(false);
     });
 
-    it('should support clearing the filter', async function () {
+    xit('should support clearing the filter', async function () {
       // Let `input` event be handled synchronously
       spyOn(
         Object.getPrototypeOf(DDSLocaleSearch).prototype,

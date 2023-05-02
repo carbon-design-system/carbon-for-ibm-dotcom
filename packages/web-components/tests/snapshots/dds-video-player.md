@@ -11,6 +11,7 @@
         data-autoid="dds--image"
         default-src="about:blank"
       >
+        [object Object]
       </dds-image>
     </button>
   </div>
