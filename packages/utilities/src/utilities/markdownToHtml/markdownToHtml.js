@@ -7,7 +7,7 @@
 
 import DOMPurify from 'isomorphic-dompurify';
 import { marked } from 'marked';
-import settings from 'carbon-components/es/globals/js/settings';
+import settings from 'carbon-components/es/globals/js/settings.js';
 import striptags from 'striptags';
 
 const { prefix } = settings;
