@@ -39,6 +39,7 @@
       data-autoid="dds--image"
       slot="image"
     >
+      [object Object]
     </dds-image>
   </slot>
   <div class="bx--card__wrapper">

@@ -14,10 +14,10 @@ import { customElement, property, query } from 'lit/decorators.js';
 import settings from 'carbon-components/es/globals/js/settings.js';
 import Close20 from '../../internal/vendor/@carbon/web-components/icons/close/20.js';
 import Search20 from '../../internal/vendor/@carbon/web-components/icons/search/20.js';
-import BXDropdown, {
+import CDSDropdown, {
   DROPDOWN_KEYBOARD_ACTION,
 } from '../../internal/vendor/@carbon/web-components/components/dropdown/dropdown.js';
-import BXDropdownItem from '../../internal/vendor/@carbon/web-components/components/dropdown/dropdown-item.js';
+import CDSDropdownItem from '../../internal/vendor/@carbon/web-components/components/dropdown/dropdown-item.js';
 import HostListener from '../../internal/vendor/@carbon/web-components/globals/decorators/host-listener.js';
 import HostListenerMixin from '../../internal/vendor/@carbon/web-components/globals/mixins/host-listener.js';
 import { baseFontSize, breakpoints } from '@carbon/layout';
@@ -49,7 +49,7 @@ const gridBreakpoint = parseFloat(breakpoints.lg.width) * baseFontSize;
  */
 @customElement(`${ddsPrefix}-search-with-typeahead`)
 class DDSSearchWithTypeahead extends HostListenerMixin(
-  StableSelectorMixin(BXDropdown)
+  StableSelectorMixin(CDSDropdown)
 ) {
   // eslint-disable-next-line class-methods-use-this
   async getResults(searchQuery) {
@@ -172,8 +172,8 @@ class DDSSearchWithTypeahead extends HostListenerMixin(
       }
     } else {
       const item = (event.target as Element).closest(
-        (this.constructor as typeof BXDropdown).selectorItem
-      ) as BXDropdownItem;
+        (this.constructor as typeof CDSDropdown).selectorItem
+      ) as CDSDropdownItem;
       if (this.shadowRoot!.contains(item) && !item.hasAttribute('groupTitle')) {
         this._handleUserInitiatedSelectItem(item);
       }
@@ -382,7 +382,7 @@ class DDSSearchWithTypeahead extends HostListenerMixin(
     this.removeAttribute('unfocused');
 
     const items = this.shadowRoot!.querySelectorAll(
-      (this.constructor as typeof BXDropdown).selectorItem
+      (this.constructor as typeof CDSDropdown).selectorItem
     );
     items.forEach((e) => {
       if (e.hasAttribute('highlighted')) {
@@ -450,10 +450,10 @@ class DDSSearchWithTypeahead extends HostListenerMixin(
   private _handleSubmit(event: Event) {
     const { eventBeforeRedirect } = this
       .constructor as typeof DDSSearchWithTypeahead;
-    const { selectorItemHighlighted } = this.constructor as typeof BXDropdown;
+    const { selectorItemHighlighted } = this.constructor as typeof CDSDropdown;
     const highlightedItem = this.shadowRoot!.querySelector(
       selectorItemHighlighted
-    ) as BXDropdownItem;
+    ) as CDSDropdownItem;
     if (highlightedItem || !this._searchInputNode.value) {
       event.preventDefault();
     }
@@ -473,7 +473,7 @@ class DDSSearchWithTypeahead extends HostListenerMixin(
     }
   }
 
-  protected _handleUserInitiatedSelectItem(item?: BXDropdownItem) {
+  protected _handleUserInitiatedSelectItem(item?: CDSDropdownItem) {
     if (item) {
       this._searchInputNode.value = (item as unknown as any).text;
       this._handleUserInitiatedRedirect({
@@ -488,7 +488,7 @@ class DDSSearchWithTypeahead extends HostListenerMixin(
    */
   protected _handleKeypressInner(event: KeyboardEvent) {
     const { key } = event;
-    const action = (this.constructor as typeof BXDropdown).getAction(key);
+    const action = (this.constructor as typeof CDSDropdown).getAction(key);
     if (!this.open) {
       switch (action) {
         case DROPDOWN_KEYBOARD_ACTION.TRIGGERING:
@@ -501,10 +501,10 @@ class DDSSearchWithTypeahead extends HostListenerMixin(
       switch (action) {
         case DROPDOWN_KEYBOARD_ACTION.TRIGGERING:
           {
-            const constructor = this.constructor as typeof BXDropdown;
+            const constructor = this.constructor as typeof CDSDropdown;
             const highlightedItem = this.shadowRoot!.querySelector(
               constructor.selectorItemHighlighted
-            ) as BXDropdownItem;
+            ) as CDSDropdownItem;
             if (highlightedItem) {
               this._handleUserInitiatedSelectItem(highlightedItem);
             } else {
@@ -552,7 +552,7 @@ class DDSSearchWithTypeahead extends HostListenerMixin(
       nextIndex = 0;
     }
     forEach(items, (item, i) => {
-      (item as BXDropdownItem).highlighted = i === nextIndex;
+      (item as CDSDropdownItem).highlighted = i === nextIndex;
     });
 
     this.setAttribute('unfocused', '');
@@ -605,8 +605,8 @@ class DDSSearchWithTypeahead extends HostListenerMixin(
    */
   protected _handleClickItem(event: MouseEvent) {
     const item = (event.target as Element).closest(
-      (this.constructor as typeof BXDropdown).selectorItem
-    ) as BXDropdownItem;
+      (this.constructor as typeof CDSDropdown).selectorItem
+    ) as CDSDropdownItem;
     if (this.shadowRoot!.contains(item)) {
       this._handleUserInitiatedSelectItem(item);
     }

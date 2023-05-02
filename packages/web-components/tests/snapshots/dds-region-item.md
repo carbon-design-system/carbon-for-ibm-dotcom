@@ -6,7 +6,7 @@
 
 ```
 <button
-  class="bx--link"
+  class="cds--link cds--link--md"
   id="link"
   type="button"
 >
@@ -29,7 +29,7 @@
 
 ```
 <button
-  class="bx--link bx--link--disabled"
+  class="cds--link cds--link--disabled cds--link--md"
   disabled=""
   id="link"
   type="button"
