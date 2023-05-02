@@ -14,7 +14,7 @@ import HostListenerMixin from '../../internal/vendor/@carbon/web-components/glob
 import './filter-group';
 import './filter-modal-button';
 import './filter-modal-heading';
-import BXModal from '../../internal/vendor/@carbon/web-components/components/modal/modal.js';
+import CDSModal from '../../internal/vendor/@carbon/web-components/components/modal/modal.js';
 import ddsSettings from '../../internal/vendor/@carbon/ibmdotcom-utilities/utilities/settings/settings';
 import './filter-modal-footer';
 import StableSelectorMixin from '../../globals/mixins/stable-selector';
@@ -33,7 +33,7 @@ const { stablePrefix: ddsPrefix } = ddsSettings;
  */
 @customElement(`${ddsPrefix}-filter-panel-modal`)
 class DDSFilterPanelModal extends HostListenerMixin(
-  StableSelectorMixin(BXModal)
+  StableSelectorMixin(CDSModal)
 ) {
   /**
    * Renders the selected values.
@@ -91,14 +91,17 @@ class DDSFilterPanelModal extends HostListenerMixin(
       if (
         this.dispatchEvent(
           new CustomEvent(
-            (this.constructor as typeof BXModal).eventBeforeClose,
+            (this.constructor as typeof CDSModal).eventBeforeClose,
             init
           )
         )
       ) {
         this.open = false;
         this.dispatchEvent(
-          new CustomEvent((this.constructor as typeof BXModal).eventClose, init)
+          new CustomEvent(
+            (this.constructor as typeof CDSModal).eventClose,
+            init
+          )
         );
       }
     }
@@ -112,11 +115,11 @@ class DDSFilterPanelModal extends HostListenerMixin(
         href="javascript:void 0"
         role="navigation"></a>
       <section class="${prefix}--filter-panel__section bx--modal-container">
-        <bx-modal-header>
-          <bx-modal-close-button
-            @click=${this._handleUserClose}></bx-modal-close-button>
+        <cds-modal-header>
+          <cds-modal-close-button
+            @click=${this._handleUserClose}></cds-modal-close-button>
           <dds-filter-modal-heading>${this.heading}</dds-filter-modal-heading>
-        </bx-modal-header>
+        </cds-modal-header>
         <div class="${prefix}--modal-body"><slot></slot></div>
         <dds-filter-modal-footer>
           <dds-filter-modal-footer-button
