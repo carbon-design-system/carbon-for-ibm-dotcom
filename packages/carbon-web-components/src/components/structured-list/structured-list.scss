@@ -47,9 +47,14 @@ $css--plex: true !default;
   @extend .#{$prefix}--structured-list-tbody;
 }
 
-:host(#{$prefix}-structured-list-body)
+:host(#{$prefix}-structured-list-body) {
   ::slotted(#{$prefix}-structured-list-row) {
-  @extend .#{$prefix}--structured-list-row;
+    @extend .#{$prefix}--structured-list-row;
+  }
+
+  ::slotted(#{$prefix}-structured-list-row:last-child) {
+    border-bottom: 1px solid $border-subtle;
+  }
 }
 
 :host(#{$prefix}-structured-list-row) {
