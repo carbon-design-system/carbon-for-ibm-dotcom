@@ -22,8 +22,6 @@ import CDSDropdown, {
   DROPDOWN_TYPE,
 } from '../dropdown/dropdown';
 import { SELECTION_FEEDBACK_OPTION } from './defs';
-import HostListenerMixin from '../../globals/mixins/host-listener';
-import HostListener from '../../globals/decorators/host-listener';
 import CDSMultiSelectItem from './multi-select-item';
 import styles from './multi-select.scss';
 
@@ -50,7 +48,7 @@ export { SELECTION_FEEDBACK_OPTION };
  *   The custom event fired after the open state of this multi select is toggled upon a user gesture.
  */
 @customElement(`${prefix}-multi-select`)
-class CDSMultiSelect extends HostListenerMixin(FocusMixin(CDSDropdown)) {
+class CDSMultiSelect extends CDSDropdown {
   @property({ type: Boolean })
   filterable;
 
@@ -128,14 +126,7 @@ class CDSMultiSelect extends HostListenerMixin(FocusMixin(CDSDropdown)) {
     } else if (this._clearButtonNode?.contains(event.target as Node)) {
       this._handleUserInitiatedClearInput();
     } else {
-      const shouldIgnoreClickInner = (elem) =>
-        elem.closest &&
-        elem.closest(
-          (this.constructor as typeof CDSMultiSelect).selectorIgnoreClickInner
-        );
-      if (!event.composedPath().some(shouldIgnoreClickInner)) {
-        super._handleClickInner(event);
-      }
+      super._handleClickInner(event);
       if (this.filterable) this._filterInputNode.focus();
     }
   }
@@ -479,35 +470,20 @@ class CDSMultiSelect extends HostListenerMixin(FocusMixin(CDSDropdown)) {
     return sortedArray;
   };
 
-  /**
-   * Handles `blur` event handler on the document this element is in.
-   *
-   * @param event The event.
-   */
-  @HostListener('focusout')
-  // @ts-ignore: The decorator refers to this method but TS thinks this method is not referred to
-  protected _handleFocusOut(event: FocusEvent) {
-    console.log('on blur', event.relatedTarget);
-    if (
-      !this.contains(event.relatedTarget as Node) &&
-      this.selectionFeedback !== SELECTION_FEEDBACK_OPTION.TOP
-    ) {
-      this._handleUserInitiatedToggle(false);
-    }
-  }
-
   shouldUpdate(changedProperties) {
     const { selectorItem } = this.constructor as typeof CDSMultiSelect;
+    const items = this.querySelectorAll(selectorItem);
+
+    const { value } = this;
+    const values = !value ? [] : value.split(',');
+
     if (changedProperties.has('size')) {
       forEach(this.querySelectorAll(selectorItem), (elem) => {
         (elem as CDSMultiSelectItem).size = this.size;
       });
     }
     if (changedProperties.has('value')) {
-      const { value } = this;
-      const values = !value ? [] : value.split(',');
       // Updates selection beforehand because our rendering logic for `<cds-multi-select>` looks for selected items via `qSA()`
-      const items = this.querySelectorAll(selectorItem);
       forEach(items, (elem) => {
         (elem as CDSMultiSelectItem).selected =
           values.indexOf((elem as CDSMultiSelectItem).value) >= 0;
@@ -518,6 +494,18 @@ class CDSMultiSelect extends HostListenerMixin(FocusMixin(CDSDropdown)) {
       ).length;
 
       if (this.selectionFeedback === SELECTION_FEEDBACK_OPTION.TOP) {
+        const sortedMenuItems = this.sortItems(items, {
+          values,
+          compareItems: this.compareItems,
+        });
+
+        this.replaceChildren(...sortedMenuItems);
+      }
+    }
+    if (changedProperties.has('open')) {
+      if (
+        this.selectionFeedback === SELECTION_FEEDBACK_OPTION.TOP_AFTER_REOPEN
+      ) {
         const sortedMenuItems = this.sortItems(items, {
           values,
           compareItems: this.compareItems,
@@ -542,14 +530,6 @@ class CDSMultiSelect extends HostListenerMixin(FocusMixin(CDSDropdown)) {
     )
       .map((item) => (item as CDSMultiSelectItem).value)
       .join(',');
-  }
-
-  /**
-   * A selector to ignore the `click` events from.
-   * Primary for the checkbox label where the `click` event will happen from the associated check box.
-   */
-  private static get selectorIgnoreClickInner() {
-    return `.${prefix}--checkbox-label`;
   }
 
   /**

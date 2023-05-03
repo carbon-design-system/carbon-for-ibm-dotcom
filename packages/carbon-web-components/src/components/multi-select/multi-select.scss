@@ -78,18 +78,13 @@ $css--plex: true !default;
 
   display: block;
 
-  .#{$prefix}--checkbox {
-    &:checked ~ .#{$prefix}--checkbox-label-text {
-      color: $text-primary;
-    }
-
-    &:focus + .#{$prefix}--checkbox-label::before {
-      box-shadow: none;
-    }
-  }
-
   .#{$prefix}--checkbox-label {
-    min-height: fit-content;
+    display: inline-block;
+    overflow: hidden;
+    width: 100%;
+    padding-left: rem(28px);
+    text-overflow: ellipsis;
+    white-space: nowrap;
   }
 
   .#{$prefix}--list-box__menu-item__option {
@@ -103,7 +98,6 @@ $css--plex: true !default;
     }
 
     > .#{$prefix}--form-item {
-      margin: 0;
       flex-direction: row;
     }
   }
