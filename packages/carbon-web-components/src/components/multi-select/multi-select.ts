@@ -444,14 +444,14 @@ class CDSMultiSelect extends CDSDropdown {
   };
 
   protected sortItems = (
-    menuItems: HTMLCollection,
+    menuItems: NodeList,
     { values, compareItems, locale = 'en' }
   ) => {
     const menuItemsArray = Array.from(menuItems);
 
-    const sortedArray = menuItemsArray.sort((itemA, itemB) => {
-      const hasItemA = values.includes(itemA.value);
-      const hasItemB = values.includes(itemB.value);
+    const sortedArray = menuItemsArray.sort((itemA, itemB: Element) => {
+      const hasItemA = values.includes((itemA as HTMLInputElement).value);
+      const hasItemB = values.includes((itemB as HTMLInputElement).value);
 
       // Prefer whichever item is in the `value` array first
       if (hasItemA && !hasItemB) {
@@ -462,9 +462,13 @@ class CDSMultiSelect extends CDSDropdown {
         return 1;
       }
 
-      return compareItems(itemA.value, itemB.value, {
-        locale,
-      });
+      return compareItems(
+        (itemA as HTMLInputElement).value,
+        (itemB as HTMLInputElement).value,
+        {
+          locale,
+        }
+      );
     });
 
     return sortedArray;
