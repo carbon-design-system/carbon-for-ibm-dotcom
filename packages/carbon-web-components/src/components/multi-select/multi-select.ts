@@ -446,6 +446,37 @@ class CDSMultiSelect extends CDSDropdown {
     });
   }
 
+  protected compareItems = (itemA, itemB, { locale }) => {
+    itemA.localeCompare(itemB, locale, { numeric: true });
+  };
+
+  protected sortItems = (
+    menuItems: HTMLCollection,
+    { values, compareItems, locale = 'en' }
+  ) => {
+    const menuItemsArray = Array.from(menuItems);
+
+    const sortedArray = menuItemsArray.sort((itemA, itemB) => {
+      const hasItemA = values.includes(itemA.value);
+      const hasItemB = values.includes(itemB.value);
+
+      // Prefer whichever item is in the `value` array first
+      if (hasItemA && !hasItemB) {
+        return -1;
+      }
+
+      if (hasItemB && !hasItemA) {
+        return 1;
+      }
+
+      return compareItems(itemA.value, itemB.value, {
+        locale,
+      });
+    });
+
+    return sortedArray;
+  };
+
   shouldUpdate(changedProperties) {
     const { selectorItem } = this.constructor as typeof CDSMultiSelect;
     if (changedProperties.has('size')) {
@@ -466,13 +497,21 @@ class CDSMultiSelect extends CDSDropdown {
         items,
         (elem) => values.indexOf((elem as CDSMultiSelectItem).value) >= 0
       ).length;
+
+      if (this.selectionFeedback === SELECTION_FEEDBACK_OPTION.TOP) {
+        const sortedMenuItems = this.sortItems(items, {
+          values,
+          compareItems: this.compareItems,
+        });
+
+        this.replaceChildren(...sortedMenuItems);
+      }
     }
     return true;
   }
 
   connectedCallback() {
     super.connectedCallback();
-
     /**
      * Detect if multi-select already has initially selected items
      */

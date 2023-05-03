@@ -282,6 +282,7 @@ class CDSDropdown extends ValidityMixin(
    * @param [force] If specified, forces the open state to the given one.
    */
   protected _handleUserInitiatedToggle(force: boolean = !this.open) {
+    console.log('hello toogle');
     const { eventBeforeToggle, eventToggle } = this
       .constructor as typeof CDSDropdown;
 
@@ -645,22 +646,6 @@ class CDSDropdown extends ValidityMixin(
       }
     }
     return true;
-  }
-
-  updated(changedProperties) {
-    const { helperText, type } = this;
-    const inline = type === DROPDOWN_TYPE.INLINE;
-    if (
-      (changedProperties.has('helperText') || changedProperties.has('type')) &&
-      helperText &&
-      inline
-    ) {
-      // eslint-disable-next-line no-console
-      console.warn(
-        'Found `helperText` property/attribute usage in inline mode, that is not supported, at:',
-        this
-      );
-    }
   }
 
   /**
