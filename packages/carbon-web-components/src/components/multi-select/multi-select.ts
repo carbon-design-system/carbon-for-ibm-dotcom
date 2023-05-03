@@ -22,6 +22,8 @@ import CDSDropdown, {
   DROPDOWN_TYPE,
 } from '../dropdown/dropdown';
 import { SELECTION_FEEDBACK_OPTION } from './defs';
+import HostListenerMixin from '../../globals/mixins/host-listener';
+import HostListener from '../../globals/decorators/host-listener';
 import CDSMultiSelectItem from './multi-select-item';
 import styles from './multi-select.scss';
 
@@ -48,7 +50,7 @@ export { SELECTION_FEEDBACK_OPTION };
  *   The custom event fired after the open state of this multi select is toggled upon a user gesture.
  */
 @customElement(`${prefix}-multi-select`)
-class CDSMultiSelect extends CDSDropdown {
+class CDSMultiSelect extends HostListenerMixin(FocusMixin(CDSDropdown)) {
   @property({ type: Boolean })
   filterable;
 
@@ -476,6 +478,23 @@ class CDSMultiSelect extends CDSDropdown {
 
     return sortedArray;
   };
+
+  /**
+   * Handles `blur` event handler on the document this element is in.
+   *
+   * @param event The event.
+   */
+  @HostListener('focusout')
+  // @ts-ignore: The decorator refers to this method but TS thinks this method is not referred to
+  protected _handleFocusOut(event: FocusEvent) {
+    console.log('on blur', event.relatedTarget);
+    if (
+      !this.contains(event.relatedTarget as Node) &&
+      this.selectionFeedback !== SELECTION_FEEDBACK_OPTION.TOP
+    ) {
+      this._handleUserInitiatedToggle(false);
+    }
+  }
 
   shouldUpdate(changedProperties) {
     const { selectorItem } = this.constructor as typeof CDSMultiSelect;

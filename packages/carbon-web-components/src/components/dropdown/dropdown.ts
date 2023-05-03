@@ -282,7 +282,6 @@ class CDSDropdown extends ValidityMixin(
    * @param [force] If specified, forces the open state to the given one.
    */
   protected _handleUserInitiatedToggle(force: boolean = !this.open) {
-    console.log('hello toogle');
     const { eventBeforeToggle, eventToggle } = this
       .constructor as typeof CDSDropdown;
 
