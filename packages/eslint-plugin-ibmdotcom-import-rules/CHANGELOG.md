@@ -3,6 +3,22 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.36.0](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/compare/@carbon/eslint-plugin-ibmdotcom-import-rules@1.36.0-rc.1...@carbon/eslint-plugin-ibmdotcom-import-rules@1.36.0) (2023-04-25)
+
+**Note:** Version bump only for package @carbon/eslint-plugin-ibmdotcom-import-rules
+
+
+
+
+
+# [1.36.0-rc.1](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/compare/@carbon/eslint-plugin-ibmdotcom-import-rules@1.36.0-rc.0...@carbon/eslint-plugin-ibmdotcom-import-rules@1.36.0-rc.1) (2023-04-18)
+
+**Note:** Version bump only for package @carbon/eslint-plugin-ibmdotcom-import-rules
+
+
+
+
+
 # [1.36.0-rc.0](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/compare/@carbon/eslint-plugin-ibmdotcom-import-rules@1.35.0...@carbon/eslint-plugin-ibmdotcom-import-rules@1.36.0-rc.0) (2023-04-11)
 
 **Note:** Version bump only for package @carbon/eslint-plugin-ibmdotcom-import-rules
