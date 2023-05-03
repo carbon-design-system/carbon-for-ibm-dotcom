@@ -172,6 +172,10 @@ module.exports = {
         ],
       },
       {
+        test: /\.svg$/,
+        use: ['@svgr/webpack'],
+      },
+      {
         test: /\.stories\.[jt]sx?$/,
         use: [
           {

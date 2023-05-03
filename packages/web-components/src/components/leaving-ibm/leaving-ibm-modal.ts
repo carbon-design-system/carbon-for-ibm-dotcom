@@ -8,7 +8,7 @@
  */
 
 import { customElement, property } from 'lit/decorators.js';
-import BXModal, {
+import CDSModal, {
   MODAL_SIZE,
 } from '../../internal/vendor/@carbon/web-components/components/modal/modal.js';
 import HostListener from '../../internal/vendor/@carbon/web-components/globals/decorators/host-listener.js';
@@ -24,7 +24,7 @@ const { stablePrefix: ddsPrefix } = ddsSettings;
  * @element dds-leaving-ibm-modal
  */
 @customElement(`${ddsPrefix}-leaving-ibm-modal`)
-class DDSLeavingIbmModal extends StableSelectorMixin(BXModal) {
+class DDSLeavingIbmModal extends StableSelectorMixin(CDSModal) {
   /**
    * The unique ID for ID ref.
    */
