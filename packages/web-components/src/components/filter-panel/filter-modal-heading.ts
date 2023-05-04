@@ -8,7 +8,7 @@
  */
 
 import { customElement } from 'lit/decorators.js';
-import BXModalHeading from '../../internal/vendor/@carbon/web-components/components/modal/modal-heading.js';
+import CDSModalHeading from '../../internal/vendor/@carbon/web-components/components/modal/modal-heading.js';
 import ddsSettings from '../../internal/vendor/@carbon/ibmdotcom-utilities/utilities/settings/settings';
 import StableSelectorMixin from '../../globals/mixins/stable-selector';
 import styles from './filter-panel.scss';
@@ -16,12 +16,12 @@ import styles from './filter-panel.scss';
 const { stablePrefix: ddsPrefix } = ddsSettings;
 
 /**
- * Extends the BXModalHeading
+ * Extends the CDSModalHeading
  *
  * @element dds-filter-modal-heading
  */
 @customElement(`${ddsPrefix}-filter-modal-heading`)
-class DDSFilterModalHeading extends StableSelectorMixin(BXModalHeading) {
+class DDSFilterModalHeading extends StableSelectorMixin(CDSModalHeading) {
   static get stableSelector() {
     return `${ddsPrefix}-filter-modal-heading`;
   }

@@ -515,7 +515,7 @@ class DDSExpressiveModal extends StableSelectorMixin(
         await this._waitForTransitionEnd();
         if (primaryFocusNode) {
           // For cases where a `carbon-web-components` component (e.g. `<bx-btn>`) being `primaryFocusNode`,
-          // where its first update/render cycle that makes it focusable happens after `<bx-modal>`'s first update/render cycle
+          // where its first update/render cycle that makes it focusable happens after `<cds-modal>`'s first update/render cycle
           (primaryFocusNode as HTMLElement).focus();
         } else {
           tryFocusElems(focusableElements as [HTMLElement], true, this);

@@ -8,7 +8,7 @@
  */
 
 import { customElement } from 'lit/decorators.js';
-import BXModalBody from '../../internal/vendor/@carbon/web-components/components/modal/modal-body.js';
+import CDSModalBody from '../../internal/vendor/@carbon/web-components/components/modal/modal-body.js';
 import ddsSettings from '../../internal/vendor/@carbon/ibmdotcom-utilities/utilities/settings/settings';
 import styles from './expressive-modal.scss';
 import StableSelectorMixin from '../../globals/mixins/stable-selector';
@@ -21,7 +21,7 @@ const { stablePrefix: ddsPrefix } = ddsSettings;
  * @element dds-expressive-modal-body
  */
 @customElement(`${ddsPrefix}-expressive-modal-body`)
-class DDSExpressiveModalBody extends StableSelectorMixin(BXModalBody) {
+class DDSExpressiveModalBody extends StableSelectorMixin(CDSModalBody) {
   static get stableSelector() {
     return `${ddsPrefix}--expressive-modal-body`;
   }

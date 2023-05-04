@@ -8,7 +8,7 @@
  */
 
 import { customElement } from 'lit/decorators.js';
-import BXModalHeading from '../../internal/vendor/@carbon/web-components/components/modal/modal-heading.js';
+import CDSModalHeading from '../../internal/vendor/@carbon/web-components/components/modal/modal-heading.js';
 import ddsSettings from '../../internal/vendor/@carbon/ibmdotcom-utilities/utilities/settings/settings';
 import styles from './leaving-ibm.scss';
 import StableSelectorMixin from '../../globals/mixins/stable-selector';
@@ -21,7 +21,7 @@ const { stablePrefix: ddsPrefix } = ddsSettings;
  * @element dds-leaving-ibm-modal-heading
  */
 @customElement(`${ddsPrefix}-leaving-ibm-modal-heading`)
-class DDSLeavingIbmModalHeading extends StableSelectorMixin(BXModalHeading) {
+class DDSLeavingIbmModalHeading extends StableSelectorMixin(CDSModalHeading) {
   connectedCallback() {
     if (!this.hasAttribute('role')) {
       this.setAttribute('role', 'heading');
