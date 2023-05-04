@@ -251,7 +251,7 @@ jobs:
 
       - name: Save failure file
         if: steps.cypress-tests-react.outcome == 'failure'
-        uses: actions/upload-artifact@v2
+        uses: actions/upload-artifact@v3
         with:
           name: failure-react
           path: failure-react.txt
