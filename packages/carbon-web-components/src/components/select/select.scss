@@ -9,6 +9,7 @@ $css--plex: true !default;
 
 @use '@carbon/styles/scss/config' as *;
 @use '@carbon/styles/scss/components/select';
+@use '@carbon/styles/scss/theme' as *;
 
 :host(#{$prefix}-select) {
   @extend .#{$prefix}--select;
@@ -40,6 +41,27 @@ $css--plex: true !default;
 
     .#{$prefix}--select__invalid-icon--warning {
       right: 2rem;
+    }
+  }
+
+  &[pagination] {
+    .#{$prefix}--label {
+      margin: 0;
+    }
+
+    .#{$prefix}--select-input {
+      padding: 0 2.25rem 0 1rem;
+    }
+
+    .#{$prefix}--select__arrow {
+      top: 50%;
+      transform: translate(-0.5rem, -50%);
+    }
+
+    &[left-select] {
+      .#{$prefix}--select-input {
+        border-right: 1px solid $border-subtle;
+      }
     }
   }
 }

@@ -9,7 +9,7 @@
 
 import { classMap } from 'lit/directives/class-map.js';
 import { LitElement, html } from 'lit';
-import { property, customElement } from 'lit/decorators.js';
+import { property, customElement, query } from 'lit/decorators.js';
 import CaretLeft16 from '@carbon/icons/lib/caret--left/16';
 import CaretRight16 from '@carbon/icons/lib/caret--right/16';
 import { prefix } from '../../globals/settings';
@@ -20,6 +20,7 @@ import { forEach } from '../../globals/internal/collection-helpers';
 import BXPagesSelect from './pages-select';
 import BXPageSizesSelect from './page-sizes-select';
 import styles from './pagination.scss';
+import CDSSelect from '../select/select';
 
 /**
  * Pagination UI.
@@ -32,12 +33,26 @@ import styles from './pagination.scss';
  */
 @customElement(`${prefix}-pagination`)
 class BXPagination extends FocusMixin(HostListenerMixin(LitElement)) {
+  @query(`${prefix}-select`)
+  private _pageSizeSelect!: HTMLElement;
+
+  private _handleSlotChange({ target }: Event) {
+    const content = (target as HTMLSlotElement)
+      .assignedNodes()
+      .filter(
+        (node) => node.nodeType !== Node.TEXT_NODE || node!.textContent!.trim()
+      );
+
+    content.forEach((item) => {
+      this._pageSizeSelect.appendChild(item);
+    });
+  }
+
   /**
    * @returns Page status text.
    */
   private _renderStatusText() {
     const {
-      atLastPage,
       start,
       pageSize,
       total,
@@ -46,13 +61,12 @@ class BXPagination extends FocusMixin(HostListenerMixin(LitElement)) {
     } = this;
     // * Regular: `1-10 of 100 items`
     // * Indeterminate total: `Item 1-10` (`Item 11-` at the last page)
-    const end = atLastPage
-      ? undefined
-      : Math.min(start + pageSize, total == null ? Infinity : total);
+    const end = Math.min(start + pageSize, total == null ? Infinity : total);
     const format =
       total == null
         ? formatStatusWithIndeterminateTotal
         : formatStatusWithDeterminateTotal;
+
     // `start`/`end` properties starts with zero, whereas we want to show number starting with 1
     return format({ start: start + 1, end, count: total });
   }
@@ -87,6 +101,7 @@ class BXPagination extends FocusMixin(HostListenerMixin(LitElement)) {
     if (newStart !== oldStart) {
       this._handleUserInitiatedChangeStart(newStart);
     }
+    this.currentPage--;
   }
 
   /**
@@ -98,31 +113,44 @@ class BXPagination extends FocusMixin(HostListenerMixin(LitElement)) {
     if (newStart < (total == null ? Infinity : total)) {
       this._handleUserInitiatedChangeStart(newStart);
     }
+    this.currentPage++;
   }
-
-  /**
-   * Handles user-initiated change in current page.
-   *
-   * @param event The event.
-   */
-  @HostListener('eventChangePage')
-  // @ts-ignore: The decorator refers to this method but TS thinks this method is not referred to
-  private _handleChangePage = ({ detail }: CustomEvent) => {
-    const { value } = detail;
-    const { pageSize } = this;
-    this._handleUserInitiatedChangeStart(value * pageSize);
-  };
 
   /**
    * Handles user-initiated change in number of rows per page.
    *
    * @param event The event.
    */
-  @HostListener('eventChangePageSize')
+  @HostListener('eventChangeSelect')
   // @ts-ignore: The decorator refers to this method but TS thinks this method is not referred to
-  private _handleChangePageSize = ({ detail }: CustomEvent) => {
-    this.pageSize = detail.value;
-  };
+  private _handleChangePageSize(event) {
+    const { value } = event.detail;
+    const { total, pageSize } = this;
+
+    if (event.composedPath()[0] === this._pageSizeSelect) {
+      this.pageSize = parseInt(value);
+      this.totalPages = Math.ceil(total / pageSize);
+      this.currentPage = 1;
+      this.start = 0;
+    } else {
+      this.currentPage = value;
+      this._handleUserInitiatedChangeStart((value - 1) * pageSize);
+    }
+  }
+
+  /**
+   * Number of items per page.
+   */
+  @property({ type: Number, attribute: 'page-size' })
+  currentPage = 1;
+
+  /**
+   * The formatter for the assistive text for screen readers to announce.
+   * Should be changed upon the locale the UI is rendered with.
+   */
+  @property({ attribute: false })
+  formatLabelText = ({ count }) =>
+    `Page number, of ${count} page${count <= 1 ? '' : 's'}`;
 
   /**
    * The formatter, used with determinate the total pages. Should be changed upon the locale the UI is rendered with.
@@ -139,10 +167,22 @@ class BXPagination extends FocusMixin(HostListenerMixin(LitElement)) {
     end == null ? `Item ${start}–` : `Item ${start}–${end}`;
 
   /**
+   * The formatter for the text next to the select box. Should be changed upon the locale the UI is rendered with.
+   */
+  @property({ attribute: false })
+  formatSupplementalText = ({ count }) =>
+    `of ${count} page${count <= 1 ? '' : 's'}`;
+  /**
    * `true` to explicitly state that user is at the last page.
    */
-  @property({ type: Boolean, attribute: 'at-last-page' })
-  atLastPage!: boolean;
+  @property({ type: Boolean, attribute: 'is-last-page' })
+  isLastPage!: boolean;
+
+  /**
+   * The translatable text indicating the number of items per page.
+   */
+  @property({ attribute: 'items-per-page-text' })
+  itemsPerPageText = 'Items per page:';
 
   /**
    * `true` if the pagination UI should be disabled.
@@ -186,43 +226,49 @@ class BXPagination extends FocusMixin(HostListenerMixin(LitElement)) {
   @property({ type: Number })
   total!: number;
 
+  /**
+   * The number of total pages.
+   */
+  @property({ type: Number })
+  totalPages = 1;
+
   updated(changedProperties) {
-    const { pageSize } = this;
+    const { pageSize, total } = this;
     const { selectorPageSizesSelect, selectorPagesSelect } = this
       .constructor as typeof BXPagination;
+
     if (changedProperties.has('pageSize')) {
-      forEach(this.querySelectorAll(selectorPageSizesSelect), (elem) => {
-        (elem as BXPageSizesSelect).value = pageSize;
-      });
+      (this.shadowRoot!.querySelector(selectorPageSizesSelect) as any).value =
+        pageSize;
     }
     if (changedProperties.has('pageSize') || changedProperties.has('start')) {
-      const { start } = this;
-      forEach(this.querySelectorAll(selectorPagesSelect), (elem) => {
-        (elem as BXPagesSelect).value = Math.floor(start / pageSize);
-      });
-    }
-    if (changedProperties.has('pageSize') || changedProperties.has('total')) {
-      const { total } = this;
-      forEach(this.querySelectorAll(selectorPagesSelect), (elem) => {
-        (elem as BXPagesSelect).total = Math.ceil(total / pageSize);
-      });
+      this.totalPages = Math.ceil(total / pageSize);
+      (this.shadowRoot!.querySelector(selectorPagesSelect) as CDSSelect).value =
+        this.currentPage.toString();
     }
   }
 
   render() {
     const {
+      currentPage,
       disabled,
       nextButtonText,
       prevButtonText,
+      itemsPerPageText,
       pageSize,
       start,
       total,
+      totalPages,
       _handleClickPrevButton: handleClickPrevButton,
       _handleClickNextButton: handleClickNextButton,
+      _handleSlotChange: handleSlotChange,
+      formatLabelText,
+      formatSupplementalText,
     } = this;
-    const { atLastPage = start + pageSize >= total } = this;
+
+    const { isLastPage = start + pageSize >= total } = this;
     const prevButtonDisabled = disabled || start === 0;
-    const nextButtonDisabled = disabled || atLastPage;
+    const nextButtonDisabled = disabled || isLastPage;
     const prevButtonClasses = classMap({
       [`${prefix}--pagination__button`]: true,
       [`${prefix}--pagination__button--backward`]: true,
@@ -235,31 +281,52 @@ class BXPagination extends FocusMixin(HostListenerMixin(LitElement)) {
     });
     return html`
       <div class="${prefix}--pagination__left">
-        <slot name="page-sizes-select"></slot>
-        <div class="${prefix}-ce--pagination__divider"></div>
+        <label for="select" class="${prefix}--pagination__text"
+          ><slot name="label-text">${itemsPerPageText}</slot></label
+        >
+        <cds-select
+          id="page-size-select"
+          left-select
+          pagination
+          inline
+          value="${pageSize}">
+          <slot @slotchange=${handleSlotChange}></slot>
+        </cds-select>
         <span
           class="${prefix}--pagination__text ${prefix}--pagination__items-count"
           >${this._renderStatusText()}</span
         >
       </div>
-      <div class="${prefix}-ce--pagination__divider"></div>
       <div class="${prefix}--pagination__right">
-        <slot></slot>
+        <label for="select" class="${prefix}--label ${prefix}--visually-hidden">
+          ${formatLabelText({ count: totalPages })}
+        </label>
+        <cds-select id="pages-select" pagination inline value=${currentPage}>
+          ${Array.from(new Array(totalPages)).map(
+            (_item, index) =>
+              html`
+                <cds-select-item value="${index + 1}">
+                  ${index + 1}
+                </cds-select-item>
+              `
+          )}
+        </cds-select>
+        <span class="cds--pagination__text"
+          >${formatSupplementalText({ count: totalPages })}</span
+        >
         <div class="${prefix}--pagination__control-buttons">
-          <button
+          <cds-button
             ?disabled="${prevButtonDisabled}"
-            class="${prevButtonClasses}"
-            title="${prevButtonText}"
+            tooltip-text="${'test'}"
             @click="${handleClickPrevButton}">
             ${CaretLeft16()}
-          </button>
-          <button
+          </cds-button>
+          <cds-button
             ?disabled="${nextButtonDisabled}"
-            class="${nextButtonClasses}"
-            title="${nextButtonText}"
-            @click="${handleClickNextButton}">
+            @click="${handleClickNextButton}"
+            tooltip-text="${'test'}">
             ${CaretRight16()}
-          </button>
+          </cds-button>
         </div>
       </div>
     `;
@@ -269,14 +336,14 @@ class BXPagination extends FocusMixin(HostListenerMixin(LitElement)) {
    * A selector that will return the select box for the current page.
    */
   static get selectorPagesSelect() {
-    return `${prefix}-pages-select`;
+    return `${prefix}-select#pages-select`;
   }
 
   /**
    * A selector that will return the select box for page sizes.
    */
   static get selectorPageSizesSelect() {
-    return `${prefix}-page-sizes-select`;
+    return `${prefix}-select`;
   }
 
   /**
@@ -287,17 +354,10 @@ class BXPagination extends FocusMixin(HostListenerMixin(LitElement)) {
   }
 
   /**
-   * The name of the custom event fired after the current page is changed from `<cds-pages-select>`.
-   */
-  static get eventChangePage() {
-    return `${prefix}-pages-select-changed`;
-  }
-
-  /**
    * The name of the custom event fired after the number of rows per page is changed from `<cds-page-sizes-select>`.
    */
-  static get eventChangePageSize() {
-    return `${prefix}-page-sizes-select-changed`;
+  static get eventChangeSelect() {
+    return `${prefix}-select-selected`;
   }
 
   static shadowRootOptions = {

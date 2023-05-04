@@ -21,10 +21,6 @@ $css--plex: true !default;
   position: relative;
   outline: none;
 
-  .#{$prefix}--pagination__left {
-    flex: 1;
-  }
-
   .#{$prefix}-ce--pagination__divider {
     height: 100%;
     width: rem(1px);

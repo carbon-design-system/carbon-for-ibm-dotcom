@@ -115,6 +115,12 @@ class CDSButton extends HostListenerMixin(FocusMixin(LitElement)) {
   autofocus = false;
 
   /**
+   * Specify an optional className to be added to your Button
+   */
+  @property({ reflect: true, attribute: 'class-name' })
+  className;
+
+  /**
    * Specify the message read by screen readers for the danger button variant
    */
   @property({ reflect: true, attribute: 'danger-descriptor' })
@@ -229,6 +235,7 @@ class CDSButton extends HostListenerMixin(FocusMixin(LitElement)) {
   render() {
     const {
       autofocus,
+      className,
       dangerDescriptor,
       disabled,
       download,
@@ -251,7 +258,8 @@ class CDSButton extends HostListenerMixin(FocusMixin(LitElement)) {
       _hasMainContent: hasMainContent,
       _handleSlotChange: handleSlotChange,
     } = this;
-    const classes = classMap({
+
+    let defaultClasses = {
       [`${prefix}--btn`]: true,
       [`${prefix}--btn--${kind}`]: kind,
       [`${prefix}--btn--disabled`]: disabled,
@@ -260,7 +268,17 @@ class CDSButton extends HostListenerMixin(FocusMixin(LitElement)) {
       [`${prefix}-ce--btn--has-icon`]: hasIcon,
       [`${prefix}--btn--expressive`]: isExpressive,
       [`${prefix}--btn--selected`]: isSelected && kind === 'ghost',
-    });
+    };
+
+    if (this.className) {
+      const outputObject = {};
+      this.className?.split(' ').forEach((element) => {
+        outputObject[`${element}`] = true;
+      });
+      defaultClasses = outputObject;
+      // defaultClasses = Object.assign(defaultClasses, outputObject);
+    }
+    const classes = classMap(defaultClasses);
 
     const isDanger = kind.includes('danger');
 

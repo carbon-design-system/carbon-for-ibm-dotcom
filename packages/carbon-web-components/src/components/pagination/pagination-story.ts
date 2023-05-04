@@ -19,7 +19,7 @@ import { prefix } from '../../globals/settings';
 
 export const Default = (args) => {
   const {
-    atLastPage,
+    isLastPage,
     pageSize,
     start,
     total,
@@ -28,18 +28,19 @@ export const Default = (args) => {
   } = args?.[`${prefix}-pagination`] ?? {};
   return html`
     <cds-pagination
-      ?at-last-page="${atLastPage || undefined}"
+      ?is-last-page="${isLastPage || undefined}"
       page-size="${ifDefined(pageSize)}"
       start="${ifDefined(start)}"
       total="${ifDefined(total)}"
       @cds-pagination-changed-current="${onChangedCurrent}"
       @cds-page-sizes-select-changed="${onChangedPageSizesSelect}">
-      <cds-page-sizes-select slot="page-sizes-select">
-        <option value="10">10</option>
-        <option value="20">20</option>
-        <option value="30">30</option>
-      </cds-page-sizes-select>
-      ${total == null
+      <cds-select-item value="10">10</cds-select-item>
+      <cds-select-item value="20">20</cds-select-item>
+      <cds-select-item value="30">30</cds-select-item>
+      <cds-select-item value="40">40</cds-select-item>
+      <cds-select-item value="50">50</cds-select-item>
+
+      ${total !== null
         ? undefined
         : html` <cds-pages-select></cds-pages-select> `}
     </cds-pagination>
@@ -54,7 +55,7 @@ export default {
     ...storyDocs.parameters,
     knobs: {
       [`${prefix}-pagination`]: () => ({
-        atLastPage: boolean(
+        isLastPage: boolean(
           'Explicitly state that the user is at the last page (at-last-apge)',
           false
         ),
