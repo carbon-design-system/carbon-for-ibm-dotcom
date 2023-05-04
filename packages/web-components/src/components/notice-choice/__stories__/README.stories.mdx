@@ -33,24 +33,24 @@ import '@carbon/ibmdotcom-web-components/es/components/notice-choice/index.js';
 <dds-notice-choice
     locale="us-en"
     country="US"
-    questionchoices="1,2"
+    question-choices="1,2"
     state="CA"
     email=""
-    termsConditionLink=""
-    enableAllOptIn="false"
-    bpidLegalText=""
-    @dds-notice-choice-change="onChangeFunction"
+    terms-condition-link=""
+    bpid-legal-text="false"
+    enable-all-opt-in=""
+    default-values=""
     >
 </dds-notice-choice>
 ```
-## Custom Events
-@dds-notice-choice-change="onChange"
+## Custom Event
+This even will return the field name and value. The values need to me sent to MRS.
+For more info, check > [W3 Publisher](https://w3.ibm.com/w3publisher/urx/notice-and-choice)
+
 ```javascript
-functionon onChangeFunction(e){
-    console.log(e.detail);
-    // detail object will have two parameter. name and value.
-    // get the name and value and then send it to MRS.
-}"
+document.addEventListener('dds-notice-choice-change', (event) =>{
+    this.handleInputChange(event.detail.field, event.detail.value)
+});
 ```
 ## Props
 
