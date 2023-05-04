@@ -3,6 +3,53 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.46.0](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/compare/@carbon/ibmdotcom-styles@1.46.0-rc.1...@carbon/ibmdotcom-styles@1.46.0) (2023-04-25)
+
+**Note:** Version bump only for package @carbon/ibmdotcom-styles
+
+
+
+
+
+# [1.46.0-rc.1](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/compare/@carbon/ibmdotcom-styles@1.46.0-rc.0...@carbon/ibmdotcom-styles@1.46.0-rc.1) (2023-04-18)
+
+
+### Bug Fixes
+
+* **carousel:** add scrolling state to carousel ([#10330](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/issues/10330)) ([04d27c0](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/commit/04d27c0ac475401b262a71231d4d7de51c2fad2c)), closes [#10259](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/issues/10259)
+
+
+
+
+
+# [1.46.0-rc.0](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/compare/@carbon/ibmdotcom-styles@1.45.0...@carbon/ibmdotcom-styles@1.46.0-rc.0) (2023-04-11)
+
+
+### Bug Fixes
+
+* **image-with-caption:** adjust image button background color ([#10279](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/issues/10279)) ([9155681](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/commit/9155681fe47502da4bc02f998a239b903c654ee5))
+* **leadspace:** fix heading width for the leadspace ([#10303](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/issues/10303)) ([7045532](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/commit/7045532ecb4830c95b198106bd640845717f8a00))
+
+
+
+
+
+# [1.45.0](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/compare/@carbon/ibmdotcom-styles@1.45.0-rc.3...@carbon/ibmdotcom-styles@1.45.0) (2023-03-28)
+
+**Note:** Version bump only for package @carbon/ibmdotcom-styles
+
+
+
+
+
+# [1.45.0-rc.3](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/compare/@carbon/ibmdotcom-styles@1.45.0-rc.2...@carbon/ibmdotcom-styles@1.45.0-rc.3) (2023-03-27)
+
+**Note:** Version bump only for package @carbon/ibmdotcom-styles
+
+
+
+
+
 # [1.45.0-rc.2](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/compare/@carbon/ibmdotcom-styles@1.45.0-rc.1...@carbon/ibmdotcom-styles@1.45.0-rc.2) (2023-03-23)
 
 **Note:** Version bump only for package @carbon/ibmdotcom-styles
