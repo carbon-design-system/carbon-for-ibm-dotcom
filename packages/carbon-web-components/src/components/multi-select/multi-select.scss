@@ -67,10 +67,18 @@ $css--plex: true !default;
       color: $text-error;
     }
   }
-}
 
-:host(#{$prefix}-multi-select[type='inline']) {
-  @extend .#{$prefix}--list-box__wrapper--inline;
+  &[type='inline'] {
+    @extend .#{$prefix}--list-box__wrapper--inline;
+
+    .#{$prefix}--form__helper-text {
+      grid-column: 2;
+    }
+  }
+
+  &[type='inline'][warn] .#{$prefix}--list-box__field {
+    padding-right: rem(56px);
+  }
 }
 
 :host(#{$prefix}-multi-select-item) {
