@@ -190,6 +190,7 @@ export const Playground = (args) => {
     disabled,
     helperText,
     hideLabel,
+    locale,
     invalid,
     invalidText,
     readOnly,
@@ -211,6 +212,7 @@ export const Playground = (args) => {
       clear-selection-label=${ifDefined(clearSelectionLabel)}
       helper-text=${ifDefined(helperText)}
       ?hide-label=${hideLabel}
+      locale=${ifDefined(locale)}
       ?read-only=${readOnly}
       title-text=${ifDefined(titleText)}
       selection-feedback=${ifDefined(selectionFeedback)}
@@ -266,6 +268,7 @@ export default {
           'Optional helper text'
         ),
         hideLabel: boolean('Hide label (hide-label)', false),
+        locale: textNullable('Locale (locale)', 'en'),
         invalid: boolean('Show invalid state  (invalid)', false),
         invalidText: textNullable('Invalid text  (invalid-text)', 'whoopsie!'),
         titleText: textNullable(

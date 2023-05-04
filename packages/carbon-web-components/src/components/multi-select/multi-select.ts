@@ -387,6 +387,12 @@ class CDSMultiSelect extends CDSDropdown {
   clearSelectionText = 'To clear selection, press Delete or Backspace.';
 
   /**
+   * Specify the locale of the control. Used for the default compareItems used for sorting the list of items in the control.
+   */
+  @property()
+  locale = 'en';
+
+  /**
    * An assistive text for screen reader to announce, telling that an item is unselected.
    */
   @property({ attribute: 'unselected-item-assistive-text' })
@@ -449,7 +455,7 @@ class CDSMultiSelect extends CDSDropdown {
   ) => {
     const menuItemsArray = Array.from(menuItems);
 
-    const sortedArray = menuItemsArray.sort((itemA, itemB: Element) => {
+    const sortedArray = menuItemsArray.sort((itemA, itemB) => {
       const hasItemA = values.includes((itemA as HTMLInputElement).value);
       const hasItemB = values.includes((itemB as HTMLInputElement).value);
 
@@ -478,7 +484,7 @@ class CDSMultiSelect extends CDSDropdown {
     const { selectorItem } = this.constructor as typeof CDSMultiSelect;
     const items = this.querySelectorAll(selectorItem);
 
-    const { value } = this;
+    const { value, locale } = this;
     const values = !value ? [] : value.split(',');
 
     if (changedProperties.has('size')) {
@@ -501,6 +507,7 @@ class CDSMultiSelect extends CDSDropdown {
         const sortedMenuItems = this.sortItems(items, {
           values,
           compareItems: this.compareItems,
+          locale,
         });
 
         this.replaceChildren(...sortedMenuItems);
@@ -513,6 +520,7 @@ class CDSMultiSelect extends CDSDropdown {
         const sortedMenuItems = this.sortItems(items, {
           values,
           compareItems: this.compareItems,
+          locale,
         });
 
         this.replaceChildren(...sortedMenuItems);
