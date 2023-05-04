@@ -617,7 +617,6 @@ class CDSDropdown extends ValidityMixin(
       const { disabled } = this;
       // Propagate `disabled` attribute to descendants until `:host-context()` gets supported in all major browsers
       forEach(this.querySelectorAll(selectorItem), (elem) => {
-        console.log('disabled', disabled);
         if (disabled) {
           (elem as CDSDropdownItem).disabled = disabled;
         } else {
