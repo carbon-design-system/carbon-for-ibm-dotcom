@@ -3,6 +3,25 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.31.0](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/compare/@carbon/ibmdotcom-web-components@1.31.0-rc.1...@carbon/ibmdotcom-web-components@1.31.0) (2023-04-25)
+
+**Note:** Version bump only for package @carbon/ibmdotcom-web-components
+
+
+
+
+
+# [1.31.0-rc.1](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/compare/@carbon/ibmdotcom-web-components@1.31.0-rc.0...@carbon/ibmdotcom-web-components@1.31.0-rc.1) (2023-04-18)
+
+
+### Bug Fixes
+
+* **carousel:** add scrolling state to carousel ([#10330](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/issues/10330)) ([04d27c0](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/commit/04d27c0ac475401b262a71231d4d7de51c2fad2c)), closes [#10259](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/issues/10259)
+
+
+
+
+
 # [1.31.0-rc.0](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/compare/@carbon/ibmdotcom-web-components@1.30.0...@carbon/ibmdotcom-web-components@1.31.0-rc.0) (2023-04-11)
 
 

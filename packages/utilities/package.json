@@ -1,7 +1,7 @@
 {
   "name": "@carbon/ibmdotcom-utilities",
   "description": "Carbon for IBM.com Utilities",
-  "version": "1.46.0-rc.0",
+  "version": "1.46.0",
   "license": "Apache-2.0",
   "main": "lib/index.js",
   "module": "es/index.js",
@@ -90,11 +90,5 @@
     "rollup-plugin-sizes": "^1.0.4",
     "rollup-plugin-terser": "^7.0.2",
     "whatwg-fetch": "^2.0.3"
-  },
-  "sideEffects": false,
-  "bundleSizeThreshold": 120000,
-  "release": {
-    "branch": "main"
-  },
-  "gitHead": "37ae2adac6241513f4d1974505a207705e9e2784"
+  }
 }
