@@ -5,7 +5,7 @@ import { cdnJs, cdnCss } from '../../../globals/internal/storybook-cdn';
 
 
 
-# Card Link
+# Notice Choice
 
 > 💡 Check our
 > [CodeSandbox](https://githubbox.com/carbon-design-system/carbon-for-ibm-dotcom/tree/main/packages/web-components/examples/codesandbox/components/notice-choice)
@@ -18,11 +18,11 @@ import { cdnJs, cdnCss } from '../../../globals/internal/storybook-cdn';
 Here's a quick example to get you started.
 
 ### JS (via import)
+Note that, please always use the latest version.
 
 ```javascript
 import '@carbon/ibmdotcom-web-components/es/components/notice-choice/index.js';
 ```
-
 <Description markdown={`${cdnJs({ components: ['notice-choice'] })}`} />
 
 <Description markdown={`${cdnCss()}`} />
@@ -33,24 +33,24 @@ import '@carbon/ibmdotcom-web-components/es/components/notice-choice/index.js';
 <dds-notice-choice
     locale="us-en"
     country="US"
-    questionchoices="1,2"
+    question-choices="1,2"
     state="CA"
     email=""
-    termsConditionLink=""
-    enableAllOptIn="false"
-    bpidLegalText=""
-    @dds-notice-choice-change="onChangeFunction"
+    terms-condition-link=""
+    bpid-legal-text="false"
+    enable-all-opt-in=""
+    default-values=""
     >
 </dds-notice-choice>
 ```
-## Custom Events
-@dds-notice-choice-change="onChange"
+## Custom Event
+This event will return the field name and value. The values need to be sent to MRS.
+For more info, check > [W3 Publisher](https://w3.ibm.com/w3publisher/urx/notice-and-choice)
+
 ```javascript
-functionon onChangeFunction(e){
-    console.log(e.detail);
-    // detail object will have two parameter. name and value.
-    // get the name and value and then send it to MRS.
-}"
+document.addEventListener('dds-notice-choice-change', (event) =>{
+    this.handleInputChange(event.detail.field, event.detail.value)
+});
 ```
 ## Props
 
