@@ -73,18 +73,26 @@ $css--plex: true !default;
 
 // selection
 :host(#{$prefix}-structured-list-row[selection-value]:hover) {
-  border-bottom: 1px solid $background-hover;
-  background-color: $background-hover;
+  border-bottom: 1px solid $layer-hover;
+  background-color: $layer-hover;
   cursor: pointer;
+
+  ::slotted(#{$prefix}-structured-list-cell) {
+    color: $text-primary;
+  }
 }
 
 :host(#{$prefix}-structured-list-row[selected]) {
-  background-color: $background-selected;
+  background-color: $layer-selected;
 
   .#{$prefix}--structured-list-input:checked
     + .#{$prefix}--structured-list-cell
     .#{$prefix}--structured-list-svg {
     fill: $text-primary;
+  }
+
+  ::slotted(#{$prefix}-structured-list-cell) {
+    color: $text-primary;
   }
 }
 
