@@ -76,7 +76,7 @@ class CDSButton extends HostListenerMixin(FocusMixin(LitElement)) {
   @HostListener('mouseover')
   // @ts-ignore: The decorator refers to this method but TS thinks this method is not referred to
   private _handleOver = () => {
-    this.openTooltip = !this.openTooltip;
+    this.openTooltip = true;
   };
 
   /**
@@ -85,7 +85,7 @@ class CDSButton extends HostListenerMixin(FocusMixin(LitElement)) {
   @HostListener('mouseout')
   // @ts-ignore: The decorator refers to this method but TS thinks this method is not referred to
   private _handleHoverOut = async () => {
-    this.openTooltip = !this.openTooltip;
+    this.openTooltip = false;
   };
 
   /**
@@ -95,7 +95,7 @@ class CDSButton extends HostListenerMixin(FocusMixin(LitElement)) {
   @HostListener('focus')
   // @ts-ignore: The decorator refers to this method but TS thinks this method is not referred to
   private _handleFocus = async (event) => {
-    this._handleOver();
+    this.openTooltip = true;
   };
 
   /**
@@ -105,7 +105,7 @@ class CDSButton extends HostListenerMixin(FocusMixin(LitElement)) {
   @HostListener('focusout')
   // @ts-ignore: The decorator refers to this method but TS thinks this method is not referred to
   private _handleFocusout = async (event) => {
-    this._handleOver();
+    this.openTooltip = false;
   };
 
   /**
@@ -270,13 +270,12 @@ class CDSButton extends HostListenerMixin(FocusMixin(LitElement)) {
       [`${prefix}--btn--selected`]: isSelected && kind === 'ghost',
     };
 
-    if (this.className) {
+    if (className) {
       const outputObject = {};
-      this.className?.split(' ').forEach((element) => {
-        outputObject[`${element}`] = true;
+      className?.split(' ').forEach((element) => {
+        outputObject[element] = true;
       });
       defaultClasses = outputObject;
-      // defaultClasses = Object.assign(defaultClasses, outputObject);
     }
     const classes = classMap(defaultClasses);
 
@@ -326,7 +325,7 @@ class CDSButton extends HostListenerMixin(FocusMixin(LitElement)) {
       [`${prefix}--popover--${tooltipPosition}${alignmentClass}`]: tooltipText,
     });
 
-    return tooltipText
+    return tooltipText && !disabled
       ? html`
           <span class="${tooltipClasses}">
             <button

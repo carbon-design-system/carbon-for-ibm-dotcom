@@ -34,6 +34,10 @@ $css--plex: true !default;
   .#{$prefix}--pagination__button svg {
     transform: rotate(0) #{'/*rtl:rotate(180deg)*/'};
   }
+
+  #{$prefix}-button {
+    border-left: 1px solid $border-subtle;
+  }
 }
 
 :host(#{$prefix}-pages-select) {

@@ -83,7 +83,6 @@ export const Default = (args) => {
 
   return html`
     <cds-button
-      class-name="thisidasd sias sdsd dsa as ads "
       kind="${ifDefined(kind)}"
       type="${ifDefined(type)}"
       ?disabled="${disabled}"

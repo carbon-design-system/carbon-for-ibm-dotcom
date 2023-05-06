@@ -21,6 +21,12 @@ $css--plex: true !default;
     width: rem(20px);
     height: rem(20px);
   }
+
+  &[pagination]:not([disabled]) {
+    .#{$prefix}--btn {
+      color: black;
+    }
+  }
 }
 
 :host(#{$prefix}-button[kind='ghost']:hover) .#{$prefix}--btn--ghost,
