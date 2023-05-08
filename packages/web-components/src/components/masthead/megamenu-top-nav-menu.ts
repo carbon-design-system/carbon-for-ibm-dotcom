@@ -15,8 +15,6 @@ import DDSMegaMenu from './megamenu';
 import DDSTopNav from './top-nav';
 import DDSTopNavMenu from './top-nav-menu';
 import DDSMegaMenuOverlay from './megamenu-overlay';
-import DDSMastheadContainer from './masthead-container';
-import { CMApp } from './masthead-composite';
 import styles from './masthead.scss';
 import { carbonElement as customElement } from '../../internal/vendor/@carbon/web-components/globals/decorators/carbon-element';
 
@@ -183,10 +181,6 @@ class DDSMegaMenuTopNavMenu extends DDSTopNavMenu {
         }
       );
 
-      const mastheadContainer = this.closest(`
-        ${ddsPrefix}-masthead-container,
-        ${ddsPrefix}-cloud-masthead-container`) as DDSMastheadContainer;
-
       // add the scrollbar width as right-margin to prevent content from shifting when
       // scrollbar disappears on megamenu expand
       const masthead: HTMLElement | null = doc.querySelector('dds-masthead');
@@ -208,14 +202,6 @@ class DDSMegaMenuTopNavMenu extends DDSTopNavMenu {
           (this.parentElement as DDSTopNav).importedMegamenu = true;
         }
 
-        /**
-         * This is a workaround to minimize the chat module. Currently no minimize methods exist.
-         *
-         * @see https://github.ibm.com/live-advisor/cm-app
-         */
-        if (mastheadContainer?.contactModuleApp) {
-          (mastheadContainer.contactModuleApp as CMApp).init();
-        }
         // Ask masthead-composite to render megamenu.
         // Pause further execution until the render is complete.
         await this._requestMegaMenuRenderUpdate();
