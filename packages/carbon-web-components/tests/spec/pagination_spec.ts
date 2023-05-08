@@ -12,10 +12,10 @@ import EventManager from '../utils/event-manager';
 import BXPagination from '../../src/components/pagination/pagination';
 import BXPageSizesSelect from '../../src/components/pagination/page-sizes-select';
 import BXPagesSelect from '../../src/components/pagination/pages-select';
-import { Default } from '../../src/components/pagination/pagination-story';
+import { Playground } from '../../src/components/pagination/pagination-story';
 
 const template = (props?) =>
-  Default({
+  Playground({
     'cds-pagination': props,
   });
 
@@ -159,7 +159,7 @@ describe('cds-pagination', function () {
         'cds-pagination'
       ) as BXPagination;
       paginationNode.pageSize = 5;
-      paginationNode.total = 21;
+      paginationNode.totalItems = 21;
       await Promise.resolve();
       const pagesSelectNode = document.body.querySelector(
         'cds-pages-select'
