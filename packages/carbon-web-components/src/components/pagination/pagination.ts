@@ -7,7 +7,6 @@
  * LICENSE file in the root directory of this source tree.
  */
 
-import { classMap } from 'lit/directives/class-map.js';
 import { LitElement, html } from 'lit';
 import { property, customElement, query } from 'lit/decorators.js';
 import CaretLeft16 from '@carbon/icons/lib/caret--left/16';
@@ -16,9 +15,6 @@ import { prefix } from '../../globals/settings';
 import FocusMixin from '../../globals/mixins/focus';
 import HostListenerMixin from '../../globals/mixins/host-listener';
 import HostListener from '../../globals/decorators/host-listener';
-import { forEach } from '../../globals/internal/collection-helpers';
-import BXPagesSelect from './pages-select';
-import BXPageSizesSelect from './page-sizes-select';
 import styles from './pagination.scss';
 import { PAGINATION_SIZE } from './defs';
 import CDSSelect from '../select/select';
