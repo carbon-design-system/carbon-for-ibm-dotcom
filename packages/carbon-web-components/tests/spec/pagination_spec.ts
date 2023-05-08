@@ -38,7 +38,7 @@ describe('cds-pagination', function () {
         template({
           pageSize: 20,
           start: 10,
-          total: 200,
+          totalItems: 200,
         }),
         document.body
       );
@@ -60,7 +60,7 @@ describe('cds-pagination', function () {
     });
 
     it('should render <cds-pages-select> with minimum attributes', async function () {
-      render(template({ total: 100 }), document.body);
+      render(template({ totalItems: 100 }), document.body);
       await Promise.resolve(); // Update cycle for `<cds-pagination>`
       await Promise.resolve(); // Update cycle for `<cds-pages-select>`
       expect(
@@ -77,7 +77,7 @@ describe('cds-pagination', function () {
         template({
           pageSize: 1,
           start: 0,
-          total: 1,
+          totalItems: 1,
         }),
         document.body
       );
@@ -93,7 +93,7 @@ describe('cds-pagination', function () {
         template({
           pageSize: 20,
           start: 10,
-          total: null,
+          totalItems: null,
         }),
         document.body
       );
@@ -110,7 +110,7 @@ describe('cds-pagination', function () {
           atLastPage: true,
           pageSize: 20,
           start: 30,
-          total: null,
+          totalItems: null,
         }),
         document.body
       );
@@ -138,7 +138,7 @@ describe('cds-pagination', function () {
     });
 
     it('should propagate the current page to `<cds-pages-select>`', async function () {
-      render(template({ total: 100 }), document.body);
+      render(template({ totalItems: 100 }), document.body);
       await Promise.resolve();
       const paginationNode = document.body.querySelector(
         'cds-pagination'
@@ -153,7 +153,7 @@ describe('cds-pagination', function () {
     });
 
     it('should propagate the total pages to `<cds-pages-select>`', async function () {
-      render(template({ total: 100 }), document.body);
+      render(template({ totalItems: 100 }), document.body);
       await Promise.resolve();
       const paginationNode = document.body.querySelector(
         'cds-pagination'
@@ -161,10 +161,7 @@ describe('cds-pagination', function () {
       paginationNode.pageSize = 5;
       paginationNode.totalItems = 21;
       await Promise.resolve();
-      const pagesSelectNode = document.body.querySelector(
-        'cds-pages-select'
-      ) as BXPagesSelect;
-      expect(pagesSelectNode.total).toBe(5);
+      expect(paginationNode.totalItems).toBe(5);
     });
 
     it('should handle change in page size at non-first page', async function () {
@@ -174,7 +171,7 @@ describe('cds-pagination', function () {
         template({
           pageSize: 10,
           start: 190,
-          total: 200,
+          totalItems: 200,
         }),
         document.body
       );
@@ -297,7 +294,7 @@ describe('cds-pagination', function () {
         template({
           pageSize: 10,
           start: 20,
-          total: 30,
+          totalItems: 30,
         }),
         document.body
       );
@@ -320,7 +317,7 @@ describe('cds-pagination', function () {
         template({
           pageSize: 10,
           start: 25,
-          total: 30,
+          totalItems: 30,
         }),
         document.body
       );
@@ -344,7 +341,7 @@ describe('cds-pagination', function () {
         template({
           pageSize: 10,
           start: 25,
-          total: null,
+          totalItems: null,
         }),
         document.body
       );
@@ -365,7 +362,7 @@ describe('cds-pagination', function () {
     });
 
     it('should support user-initiated change in page size', async function () {
-      render(template({ total: 100 }), document.body);
+      render(template({ totalItems: 100 }), document.body);
       await Promise.resolve();
       const pagesSelectNode = document.body.querySelector(
         'cds-pages-select'
@@ -384,7 +381,7 @@ describe('cds-pagination', function () {
 
     it('should support user-initiated change in current page', async function () {
       let newStart;
-      render(template({ pageSize: 10, total: 100 }), document.body);
+      render(template({ pageSize: 10, totalItems: 100 }), document.body);
       await Promise.resolve();
       const paginationNode = document.body.querySelector(
         'cds-pagination'
