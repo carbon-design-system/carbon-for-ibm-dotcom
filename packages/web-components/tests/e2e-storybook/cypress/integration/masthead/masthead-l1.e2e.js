@@ -13,6 +13,14 @@
  */
 const _pathl1 = '/iframe.html?id=components-masthead--with-l-1&knob-use%20mock%20nav%20data%20(use-mock)=true';
 
+/**
+ * Selectors for elements that comprise the L1.
+ */
+const _selectors = {
+  l1: 'dds-masthead-l1',
+  l1Name: '.bx--masthead__l1-title',
+}
+
 describe('dds-masthead | with L1 (desktop)', () => {
   beforeEach(() => {
     cy.visit(`/${_pathl1}`);
@@ -27,7 +35,7 @@ describe('dds-masthead | with L1 (desktop)', () => {
   });
 
   it('should render platform below the IBM logo', () => {
-    cy.get('dds-masthead-l1-name').then($platform => {
+    cy.get(_selectors.l1).shadow().find(_selectors.l1Name).then($platform => {
       cy.get('dds-masthead-logo').then($logo => {
         expect($logo[0].getBoundingClientRect().down).to.equal($platform[0].getBoundingClientRect().up);
       });
@@ -35,9 +43,8 @@ describe('dds-masthead | with L1 (desktop)', () => {
   });
 
   it('should render and have url for L1 platform', () => {
-    cy.get('dds-masthead-l1-name')
-      .shadow()
-      .find('a')
+    cy.get(_selectors.l1)
+      .find(`a${_selectors.l1Name}`)
       .then($link => {
         const url = $link.prop('href');
         expect(url).not.to.be.empty;
