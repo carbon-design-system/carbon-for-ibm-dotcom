@@ -2,8 +2,6 @@ name: Contribution Request 💓
 description:
   Contribute things large and small — code, design, ideas, and guidance.
 title: '[YOUR TITLE]: Brief description'
-assignees:
-  - jeffchew,ljcarot,oliviaflory,RichKummer,IgnacioBecerra
 labels: ['contribution']
 body:
   - type: markdown
