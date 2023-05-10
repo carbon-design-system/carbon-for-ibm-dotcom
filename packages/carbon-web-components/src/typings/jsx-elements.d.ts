@@ -47,6 +47,7 @@ declare global {
       'cds-dropdown': any;
       'cds-dropdown-item': any;
       'cds-form-item': any;
+      'cds-form-group': any;
       'cds-icon-button': any;
       'cds-text-input': any;
       'cds-inline-loading': any;
@@ -88,6 +89,7 @@ declare global {
       'cds-skeleton-text': any;
       'cds-slider': any;
       'cds-slider-input': any;
+      'cds-stack': any;
       'cds-structured-list': any;
       'cds-structured-list-head': any;
       'cds-structured-list-header-row': any;
