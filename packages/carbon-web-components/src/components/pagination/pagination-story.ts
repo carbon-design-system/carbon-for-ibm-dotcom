@@ -11,8 +11,6 @@ import { html } from 'lit';
 import { action } from '@storybook/addon-actions';
 import { boolean, number, text, select } from '@storybook/addon-knobs';
 import './pagination';
-import './page-sizes-select';
-import './pages-select';
 import storyDocs from './pagination-story.mdx';
 import { prefix } from '../../globals/settings';
 import { PAGINATION_SIZE } from './defs';
@@ -131,7 +129,7 @@ export default {
         pageInputDisabled: boolean('Pages input disabled', false),
         pageSizeInputDisabled: boolean('Pages size input disabled', false),
         pagesUnknown: boolean('Pages unknown', false),
-        size: select('Button size (size)', sizes, PAGINATION_SIZE.MEDIUM),
+        size: select('Size (size)', sizes, PAGINATION_SIZE.MEDIUM),
         totalItems: number('Total item count (total-items)', 103),
         onChangedCurrent: action(`${prefix}-pagination-changed-current`),
         onChangedPageSizesSelect: action(`${prefix}-page-sizes-select-changed`),

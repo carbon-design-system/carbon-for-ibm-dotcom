@@ -51,6 +51,10 @@ $css--plex: true !default;
 
     .#{$prefix}--select-input {
       padding: 0 2.25rem 0 1rem;
+
+      &:focus {
+        background-color: transparent;
+      }
     }
 
     .#{$prefix}--select__arrow {
