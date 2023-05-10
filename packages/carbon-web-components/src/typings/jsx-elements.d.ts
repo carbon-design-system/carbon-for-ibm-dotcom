@@ -46,8 +46,8 @@ declare global {
       'cds-date-picker-input': any;
       'cds-dropdown': any;
       'cds-dropdown-item': any;
-      'cds-form-item': any;
       'cds-form-group': any;
+      'cds-form-item': any;
       'cds-icon-button': any;
       'cds-text-input': any;
       'cds-inline-loading': any;
