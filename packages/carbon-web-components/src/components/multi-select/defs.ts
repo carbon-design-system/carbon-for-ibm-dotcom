@@ -24,5 +24,5 @@ export enum SELECTION_FEEDBACK_OPTION {
   /**
    * selected item jump to top after reopen dropdown
    */
-  TOP_AFTER_REOPEN = 'top-after-open',
+  TOP_AFTER_REOPEN = 'top-after-reopen',
 }
