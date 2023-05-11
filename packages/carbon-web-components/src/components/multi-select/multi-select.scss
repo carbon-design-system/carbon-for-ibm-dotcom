@@ -127,7 +127,7 @@ $css--plex: true !default;
 :host(#{$prefix}-multi-select-item[size='lg']) {
   height: fit-content;
   .#{$prefix}--list-box__menu-item__option {
-    height: rem(48px);
+    height: $spacing-09;
     padding-top: rem(15px);
     padding-bottom: rem(15px);
   }
