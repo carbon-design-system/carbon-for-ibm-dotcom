@@ -2794,10 +2794,10 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@carbon/icons@npm:^11.18.0":
-  version: 11.18.0
-  resolution: "@carbon/icons@npm:11.18.0"
-  checksum: ff56ca787ad1d1481894ced1053b545fadb05aa4621806ca0fe3a9dfe7ab62d2f3b8222798d0dbffe75cae86110ebe06c1eeab3432dce8feb5b808bbc000b38c
+"@carbon/icons@npm:^11.19.0":
+  version: 11.19.0
+  resolution: "@carbon/icons@npm:11.19.0"
+  checksum: d136b7847245adbeaf49d46f254ede0ff01637cbc5a526500ee3ff667e36ffc0d82314f1554d26b20edcc7ab56fa74c1004887f3c2ae4534cf9243d918df8ca4
   languageName: node
   linkType: hard
 
@@ -2876,9 +2876,9 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@carbon/styles@npm:^1.27.0":
-  version: 1.27.0
-  resolution: "@carbon/styles@npm:1.27.0"
+"@carbon/styles@npm:^1.28.0":
+  version: 1.28.0
+  resolution: "@carbon/styles@npm:1.28.0"
   dependencies:
     "@carbon/colors": ^11.14.0
     "@carbon/feature-flags": ^0.13.0
@@ -2890,7 +2890,7 @@ __metadata:
     "@ibm/plex": 6.0.0-next.6
   peerDependencies:
     sass: ^1.33.0
-  checksum: 881967cf104b4a51a90b1541f4cf15518023d173467223839c6f82e37e30faa3d71bf34ccadfabdebb7a2d37d823068584e12e97227b0bf4cb338d0e8da2601d
+  checksum: f145673f6a0c81561ac51e94e42de7f383ce95ba5f6990f862a471e957bd4b58c4ecd682230b6804200ba5f0be2eeb239dc7a7d92d66f3108eaf05b6dcf3b3c0
   languageName: node
   linkType: hard
 
@@ -2982,8 +2982,8 @@ __metadata:
     "@babel/template": ~7.12.0
     "@babel/traverse": ~7.12.0
     "@carbon/icon-helpers": ^10.39.0
-    "@carbon/icons": ^11.18.0
-    "@carbon/styles": ^1.27.0
+    "@carbon/icons": ^11.19.0
+    "@carbon/styles": ^1.28.0
     "@open-wc/semantic-dom-diff": ~0.18.0
     "@percy-io/in-percy": ^0.1.11
     "@percy/cli": ^1.8.1
