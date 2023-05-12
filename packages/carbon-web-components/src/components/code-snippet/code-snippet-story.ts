@@ -98,7 +98,7 @@ export const multiline = () => {
   // prettier-ignore
   return html`
     <cds-code-snippet
-      type="multi" disabled>${children}<span slot="button-description">Copy to clipboard</span>
+      type="multi">${children}<span slot="button-description">Copy to clipboard</span>
     </cds-code-snippet>
 `;
 };
