@@ -12,7 +12,12 @@ $css--plex: true !default;
 @use '@carbon/styles/scss/utilities' as *;
 @use '@carbon/styles/scss/utilities/keyframes' as *;
 @use '@carbon/styles/scss/motion' as *;
+@use '@carbon/styles/scss/components/button';
+@use '@carbon/styles/scss/components/tooltip';
+@use '@carbon/styles/scss/components/code-snippet/code-snippet' as *;
 @use '@carbon/styles/scss/components/copy-button/index';
+
+@include code-snippet;
 
 :host(#{$prefix}-copy-button) {
   display: inline-flex;

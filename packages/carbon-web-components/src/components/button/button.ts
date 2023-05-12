@@ -226,6 +226,9 @@ class CDSButton extends HostListenerMixin(FocusMixin(LitElement)) {
   @property({ reflect: true })
   type = BUTTON_TYPE.BUTTON;
 
+  @property({ attribute: false })
+  buttonClasses = {};
+
   render() {
     const {
       autofocus,
@@ -260,6 +263,7 @@ class CDSButton extends HostListenerMixin(FocusMixin(LitElement)) {
       [`${prefix}-ce--btn--has-icon`]: hasIcon,
       [`${prefix}--btn--expressive`]: isExpressive,
       [`${prefix}--btn--selected`]: isSelected && kind === 'ghost',
+      ...this.buttonClasses,
     });
 
     const isDanger = kind.includes('danger');

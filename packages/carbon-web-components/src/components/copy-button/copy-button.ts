@@ -37,7 +37,10 @@ class CDSCopyButton extends FocusMixin(LitElement) {
   render() {
     const { feedback, feedbackTimeout } = this;
     return html`
-      <cds-copy feedback=${feedback} feedback-timeout=${feedbackTimeout}>
+      <cds-copy
+        feedback=${feedback}
+        feedback-timeout=${feedbackTimeout}
+        .buttonClasses=${{ [`${prefix}--copy-btn`]: true }}>
         ${Copy16({ slot: 'icon', class: `${prefix}--snippet__icon` })}
         <span slot="tooltip-content"><slot></slot></span>
       </cds-copy>
