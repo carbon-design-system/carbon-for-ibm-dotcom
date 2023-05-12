@@ -34,16 +34,8 @@ const srcsets = {
 };
 
 export const Default = (args) => {
-  const {
-    alt,
-    aspectRatio,
-    defaultSrc,
-    heading,
-    copy,
-    border,
-    lightbox,
-    longDescription,
-  } = args?.['dds-image'] ?? {};
+  const { alt, defaultSrc, heading, copy, border, lightbox, longDescription } =
+    args?.['dds-image'] ?? {};
   // TODO: See if we can fix unwanted `&` to `&amp` conversion upon changing the select knob
   const srcset = srcsets[defaultSrc?.replace(/&amp;/, '&')];
   return html`
@@ -53,8 +45,7 @@ export const Default = (args) => {
       default-src="${ifNonNull(defaultSrc)}"
       ?border=${border}
       ?lightbox="${lightbox}"
-      copy="${ifNonNull(copy)}"
-      aspect-ratio="${ifNonNull(aspectRatio)}">
+      copy="${ifNonNull(copy)}">
       ${!longDescription
         ? undefined
         : html` <div slot="long-description">${longDescription}</div> `}
@@ -93,7 +84,6 @@ export default {
         defaultSrc: select('Default image (default-src)', images, imgLg2x1),
         lightbox: boolean('Lightbox (lightbox)', false),
         border: boolean('Border', false),
-        aspectRatio: textNullable('Aspect Ratio (aspect-ratio)', ''),
         copy: textNullable('Copy (copy)', 'Lorem ipsum dolor sit amet'),
         heading: textNullable('Heading (heading)', 'This is a caption'),
         longDescription: textNullable(

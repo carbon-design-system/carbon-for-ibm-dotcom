@@ -120,14 +120,6 @@ class DDSImage extends StableSelectorMixin(
   lightbox = false;
 
   /**
-   * Sets aspect-ratio style of `this` and any `img` tags rendered within.
-   *
-   * @see https://developer.mozilla.org/en-US/docs/Web/CSS/aspect-ratio
-   */
-  @property({ type: String, reflect: true, attribute: 'aspect-ratio' })
-  aspectRatio?: string;
-
-  /**
    * The heading.
    */
   @property()
@@ -166,15 +158,13 @@ class DDSImage extends StableSelectorMixin(
       (this.constructor as typeof DDSImage).eventCloseModal,
       this._handleCloseModal as EventListener
     );
-  }
 
-  protected updated(changedProperties) {
-    if (changedProperties.has('aspectRatio')) {
-      this.style.aspectRatio = this.aspectRatio ?? '';
-      if (this._defaultSrcImg) {
-        this._defaultSrcImg.style.aspectRatio = this.aspectRatio ?? '';
+    this.addEventListener('transitionend', (event: TransitionEvent) => {
+      if (event.propertyName === 'aspect-ratio' && this._defaultSrcImg) {
+        this._defaultSrcImg.style.aspectRatio =
+          window.getComputedStyle(this).aspectRatio;
       }
-    }
+    });
   }
 
   disconnectedCallback() {
