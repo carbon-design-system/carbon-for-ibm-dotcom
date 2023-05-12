@@ -59,11 +59,6 @@ class CDSCodeSnippet extends FocusMixin(LitElement) {
   private _hObserveResize: Handle | null = null;
 
   /**
-   * `true` to show the expando.
-   */
-  private _showExpando = false;
-
-  /**
    * Row height in pixels
    */
   private _rowHeightInPixels = 16;
@@ -159,18 +154,12 @@ class CDSCodeSnippet extends FocusMixin(LitElement) {
   }
 
   /**
-   * Handles `click` event on the expando.
+   * Handles `click` event on the show more or show less button.
    */
-  private _handleClickExpando() {
+  private _handleClickExpanded() {
     this._expandedCode = !this._expandedCode;
     this.requestUpdate();
   }
-
-  /**
-   * The `<pre>` element in the shadow DOM.
-   */
-  @query('pre')
-  private _preNode!: HTMLPreElement;
 
   /**
    * The `ResizeObserver` instance for observing element resizes for re-positioning floating menu position.
@@ -451,7 +440,7 @@ class CDSCodeSnippet extends FocusMixin(LitElement) {
               size="sm"
               .buttonClasses=${expandClass}
               ?disabled=${disabled}
-              @click=${() => this._handleClickExpando()}>
+              @click=${() => this._handleClickExpanded()}>
               <span class="${prefix}--snippet-btn--text">
                 ${expandCodeBtnText}
               </span>
