@@ -10,6 +10,7 @@
   class="bx--footer-logo__link"
   href="https://www.ibm.com/"
 >
+  [object Object]
   <slot>
   </slot>
 </a>
@@ -24,6 +25,7 @@
   class="bx--footer-logo__link"
   href="https://cloud.ibm.com/"
 >
+  [object Object]
   <slot>
   </slot>
 </a>

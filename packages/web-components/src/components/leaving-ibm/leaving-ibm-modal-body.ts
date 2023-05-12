@@ -9,7 +9,7 @@
 
 import { html } from 'lit';
 import { customElement, property } from 'lit/decorators.js';
-import BXModalBody from '../../internal/vendor/@carbon/web-components/components/modal/modal-body.js';
+import CDSModalBody from '../../internal/vendor/@carbon/web-components/components/modal/modal-body.js';
 import { ifDefined } from 'lit/directives/if-defined.js';
 import ddsSettings from '../../internal/vendor/@carbon/ibmdotcom-utilities/utilities/settings/settings';
 import '../../internal/vendor/@carbon/web-components/components/link/link.js';
@@ -24,7 +24,7 @@ const { stablePrefix: ddsPrefix } = ddsSettings;
  * @element dds-leaving-ibm-modal-body
  */
 @customElement(`${ddsPrefix}-leaving-ibm-modal-body`)
-class DDSLeavingIbmModalBody extends StableSelectorMixin(BXModalBody) {
+class DDSLeavingIbmModalBody extends StableSelectorMixin(CDSModalBody) {
   /**
    * external url triggering the leaving ibm modal.
    */
