@@ -12,7 +12,7 @@ $css--plex: true !default;
 @use '@carbon/styles/scss/spacing' as *;
 @use '@carbon/styles/scss/utilities' as *;
 @use '@carbon/styles/scss/components/list-box/list-box';
-@use '@carbon/styles/scss/components/multiselect/multiselect';
+@use '@carbon/styles/scss/components/multiselect/index';
 @use '@carbon/styles/scss/components/form';
 @use '@carbon/styles/scss/components/checkbox';
 @use '@carbon/styles/scss/components/tag';
@@ -79,6 +79,10 @@ $css--plex: true !default;
 
   &[type='inline'][warn] .#{$prefix}--list-box__field {
     padding-right: rem(56px);
+  }
+
+  .#{$prefix}--tag--disabled {
+    @extend .#{$prefix}--tag--disabled;
   }
 }
 

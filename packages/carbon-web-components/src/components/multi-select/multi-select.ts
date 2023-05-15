@@ -116,7 +116,10 @@ class CDSMultiSelect extends CDSDropdown {
   }
 
   protected _handleClickInner(event: MouseEvent) {
-    if (this._selectionButtonNode?.contains(event.target as Node)) {
+    if (
+      this._selectionButtonNode?.contains(event.target as Node) &&
+      !this.readOnly
+    ) {
       this._handleUserInitiatedSelectItem();
       if (this.filterable) {
         this._filterInputNode.focus();
@@ -240,19 +243,36 @@ class CDSMultiSelect extends CDSDropdown {
   }
 
   protected _renderPrecedingLabel() {
-    const { clearSelectionLabel, _selectedItemsCount: selectedItemsCount } =
-      this;
+    const {
+      disabled,
+      readOnly,
+      clearSelectionLabel,
+      _selectedItemsCount: selectedItemsCount,
+    } = this;
+
+    const selectionButtonClasses = classMap({
+      [`${prefix}--list-box__selection`]: true,
+      [`${prefix}--list-box__selection--multi`]: true,
+      [`${prefix}--tag`]: true,
+      [`${prefix}--tag--filter`]: true,
+      [`${prefix}--tag--high-contrast`]: true,
+      [`${prefix}--tag--disabled`]: disabled,
+    });
     return selectedItemsCount === 0
       ? undefined
       : html`
           <div
             id="selection-button"
             role="button"
-            class="${prefix}--list-box__selection ${prefix}--list-box__selection--multi ${prefix}--tag--filter"
-            tabindex="0"
+            class="${selectionButtonClasses}"
+            tabindex="-1"
+            aria-disabled=${readOnly}
             title="${clearSelectionLabel}">
             ${selectedItemsCount}
-            ${Close16({ 'aria-label': clearSelectionLabel })}
+            ${Close16({
+              'aria-label': clearSelectionLabel,
+              class: `${prefix}--tag__close-icon`,
+            })}
           </div>
         `;
   }
@@ -542,6 +562,13 @@ class CDSMultiSelect extends CDSDropdown {
     )
       .map((item) => (item as CDSMultiSelectItem).value)
       .join(',');
+  }
+
+  /**
+   * A selector that will return menu body.
+   */
+  static get selectorMenuBody() {
+    return `div[part="menu-body"]`;
   }
 
   /**
