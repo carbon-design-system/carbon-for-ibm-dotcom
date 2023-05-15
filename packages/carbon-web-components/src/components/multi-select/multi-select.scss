@@ -84,6 +84,10 @@ $css--plex: true !default;
   .#{$prefix}--tag--disabled {
     @extend .#{$prefix}--tag--disabled;
   }
+
+  .#{$prefix}--list-box__field:focus {
+    @extend .#{$prefix}--multi-select--filterable--input-focused;
+  }
 }
 
 :host(#{$prefix}-multi-select-item) {

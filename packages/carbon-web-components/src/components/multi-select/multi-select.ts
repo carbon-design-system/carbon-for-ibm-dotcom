@@ -70,6 +70,12 @@ class CDSMultiSelect extends CDSDropdown {
   private _selectionButtonNode!: HTMLElement;
 
   /**
+   * The menu body.
+   */
+  @query('#menu-body')
+  private _menuBodyNode!: HTMLElement;
+
+  /**
    * The `<input>` for filtering.
    */
   @query('input')
@@ -350,7 +356,6 @@ class CDSMultiSelect extends CDSDropdown {
    */
   protected _navigate(direction: number) {
     if (!this.filterable) {
-      this._triggerNode.focus();
       super._navigate(direction);
     } else {
       // only navigate through remaining item
@@ -547,6 +552,13 @@ class CDSMultiSelect extends CDSDropdown {
       }
     }
     return true;
+  }
+
+  updated(changedProperties) {
+    if (changedProperties.has('open') && this.open && !this.filterable) {
+      // move focus to menu body when open for non-filterable mulit-select
+      this._menuBodyNode.focus();
+    }
   }
 
   connectedCallback() {
