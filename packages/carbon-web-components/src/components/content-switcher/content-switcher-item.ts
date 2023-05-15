@@ -21,7 +21,7 @@ import styles from './content-switcher.scss';
  * @element cds-content-switcher-item
  */
 @customElement(`${prefix}-content-switcher-item`)
-class BXContentSwitcherItem extends FocusMixin(LitElement) {
+class CDSContentSwitcherItem extends FocusMixin(LitElement) {
   /**
    * `true` if this content switcher item should be disabled.
    */
@@ -98,4 +98,4 @@ class BXContentSwitcherItem extends FocusMixin(LitElement) {
   static styles = styles;
 }
 
-export default BXContentSwitcherItem;
+export default CDSContentSwitcherItem;
