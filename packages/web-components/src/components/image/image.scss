@@ -34,9 +34,3 @@
     top: 0;
   }
 }
-
-:host(#{$dds-prefix}-image) {
-  /* Transition property used to trigger JS event */
-  /* stylelint-disable time-min-milliseconds */
-  transition: aspect-ratio 1ms linear;
-}

@@ -99,7 +99,6 @@ export default {
           defaultSrc: imgLg2x1,
           border: false,
           lightbox: false,
-          aspectRatio: '',
           copy: 'Lorem ipsum dolor sit amet',
           heading: 'This is a caption',
           longDescription:

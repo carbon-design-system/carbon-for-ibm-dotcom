@@ -7,7 +7,7 @@
  * LICENSE file in the root directory of this source tree.
  */
 
-import { html, property, LitElement, state, query } from 'lit-element';
+import { html, property, LitElement, state } from 'lit-element';
 import { classMap } from 'lit-html/directives/class-map.js';
 import settings from 'carbon-components/es/globals/js/settings.js';
 import on from 'carbon-components/es/globals/js/misc/on.js';
@@ -39,12 +39,6 @@ const { stablePrefix: ddsPrefix } = ddsSettings;
 class DDSImage extends StableSelectorMixin(
   ModalRenderMixin(FocusMixin(LitElement))
 ) {
-  /**
-   * The <img> tag that renders the deafaultSrc image
-   */
-  @query(`.${prefix}--image__img`)
-  _defaultSrcImg?: HTMLImageElement;
-
   /**
    * The image data, harvested from `<dds-image-item>`.
    */
@@ -158,13 +152,6 @@ class DDSImage extends StableSelectorMixin(
       (this.constructor as typeof DDSImage).eventCloseModal,
       this._handleCloseModal as EventListener
     );
-
-    this.addEventListener('transitionend', (event: TransitionEvent) => {
-      if (event.propertyName === 'aspect-ratio' && this._defaultSrcImg) {
-        this._defaultSrcImg.style.aspectRatio =
-          window.getComputedStyle(this).aspectRatio;
-      }
-    });
   }
 
   disconnectedCallback() {
