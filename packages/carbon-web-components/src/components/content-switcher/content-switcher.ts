@@ -176,12 +176,22 @@ class CDSContentSwitcher extends LitElement {
   @property({ reflect: true })
   size = CONTENT_SWITCHER_SIZE.REGULAR;
 
+  /**
+   * Icon only.
+   */
+  @property({ type: Boolean, reflect: true, attribute: 'icon' })
+  iconOnly = false;
+
   shouldUpdate(changedProperties) {
     if (changedProperties.has('value')) {
       const { selectorItem } = this.constructor as typeof CDSContentSwitcher;
       forEach(this.querySelectorAll(selectorItem), (elem) => {
         (elem as CDSSwitch).selected = (elem as CDSSwitch).value === this.value;
       });
+    }
+    const { selectorIconItem } = this.constructor as typeof CDSContentSwitcher;
+    if (this.querySelector(selectorIconItem)) {
+      this.iconOnly = true;
     }
     return true;
   }
@@ -191,6 +201,13 @@ class CDSContentSwitcher extends LitElement {
    */
   static get selectorItem() {
     return `${prefix}-content-switcher-item`;
+  }
+
+  /**
+   * A selector that will return content switcher icon items.
+   */
+  static get selectorIconItem() {
+    return `${prefix}-content-switcher-item[icon]`;
   }
 
   /**
