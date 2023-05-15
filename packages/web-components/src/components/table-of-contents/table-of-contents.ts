@@ -376,9 +376,9 @@ class DDSTableOfContents extends HostListenerMixin(
             elem.innerText.match(notWhiteSpace) ||
             elem.dataset.title?.match(notWhiteSpace);
           const hasNameAttr = elem.matches(selectorTarget);
-          const notExcluded = !tagNamesToAvoid.includes(
-            elem.tagName.toLowerCase()
-          );
+          const notExcluded =
+            !tagNamesToAvoid.includes(elem.tagName.toLowerCase()) &&
+            !elem.hasAttribute('no-toc');
 
           return hasTitle && hasNameAttr && notExcluded;
         });
