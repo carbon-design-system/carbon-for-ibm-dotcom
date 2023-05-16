@@ -188,6 +188,12 @@ class DDSTableOfContents extends HostListenerMixin(
   private _tagNamesToAvoid = [`${ddsPrefix}-video-player`];
 
   /**
+   * The name of an attribute that will prevent the DOM element and any elements
+   * in its subtree from being added to the ToC.
+   */
+  private _disableTargetAttribute = 'no-toc';
+
+  /**
    * Boolean checking if page is RTL
    */
   @state()
@@ -363,7 +369,10 @@ class DDSTableOfContents extends HostListenerMixin(
    * Sets targets used for generating the table of contents.
    */
   private _setTargets(nodes: Node[]) {
-    const { _tagNamesToAvoid: tagNamesToAvoid } = this;
+    const {
+      _tagNamesToAvoid: tagNamesToAvoid,
+      _disableTargetAttribute: disableTargetAttribute,
+    } = this;
     const { selectorTarget } = this.constructor as typeof DDSTableOfContents;
     this._targets = nodes.reduce((acc, node) => {
       if (node instanceof HTMLElement) {
@@ -378,7 +387,7 @@ class DDSTableOfContents extends HostListenerMixin(
           const hasNameAttr = elem.matches(selectorTarget);
           const notExcluded =
             !tagNamesToAvoid.includes(elem.tagName.toLowerCase()) &&
-            !elem.hasAttribute('no-toc');
+            !elem.closest(`[${disableTargetAttribute}]`);
 
           return hasTitle && hasNameAttr && notExcluded;
         });
