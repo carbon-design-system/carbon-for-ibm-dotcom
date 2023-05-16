@@ -83,7 +83,7 @@ describe('dds-video-player-container', function () {
     });
 
     it('should track the error in embeddeding video', async function () {
-      spyOn(KalturaPlayerAPI, 'embedMedia').and.callFake(async () => {
+      jest.spyOn(KalturaPlayerAPI, 'embedMedia').mockImplementation(() => {
         throw new Error('error-embedvideo');
       });
       let caught;
@@ -114,7 +114,7 @@ describe('dds-video-player-container', function () {
     });
 
     it('caches the error in embeddeding video', async function () {
-      spyOn(KalturaPlayerAPI, 'embedMedia').and.callFake(async () => {
+      jest.spyOn(KalturaPlayerAPI, 'embedMedia').mockImplementation(() => {
         throw new Error('error-embedvideo');
       });
       videoPlayerContainer._requestsEmbedVideo = {
@@ -144,10 +144,10 @@ describe('dds-video-player-container', function () {
 
   describe('Handling API call results', function () {
     it('should support setting the error in embedding video data', function () {
-      videoPlayerContainer._setErrorRequestEmbedVideo(
-        'video-id-foo',
-        new Error('error-embedvideo')
-      );
+      const error = jest
+        .fn()
+        .mockImplementation(() => new Error('error-embedvideo'));
+      videoPlayerContainer._setErrorRequestEmbedVideo('video-id-foo', error);
       expect(convertValue(videoPlayerContainer._requestsEmbedVideo)).toEqual({
         'video-id-foo': 'PROMISE',
       });
