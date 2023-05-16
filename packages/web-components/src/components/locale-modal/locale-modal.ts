@@ -201,10 +201,13 @@ class DDSLocaleModal extends DDSExpressiveModal {
       const { selectorLocaleSearch } = this
         .constructor as typeof DDSLocaleModal;
       const localeSearch = this.querySelector(selectorLocaleSearch);
-      if (localeSearch && this.open) {
+      if (localeSearch) {
         (localeSearch as DDSLocaleSearch).region = this._currentRegion ?? '';
-        (localeSearch as DDSLocaleSearch).reset();
-        (localeSearch as HTMLElement).focus();
+
+        if (this.open) {
+          (localeSearch as DDSLocaleSearch).reset();
+          (localeSearch as HTMLElement).focus();
+        }
       }
 
       // re-focus on first region-item when navigating back to the first modal pane
