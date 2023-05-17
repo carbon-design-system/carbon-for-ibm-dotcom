@@ -139,6 +139,16 @@ describe('dds-video-player-container', function () {
   });
 
   describe('Handling API call results', function () {
+    xit('should support setting the error in embedding video data', function () {
+      videoPlayerContainer._setErrorRequestEmbedVideo(
+        'video-id-foo',
+        new Error('error-embedvideo')
+      );
+      expect(convertValue(videoPlayerContainer._requestsEmbedVideo)).toEqual({
+        'video-id-foo': 'PROMISE',
+      });
+    });
+
     it('should support setting the embedded video', function () {
       videoPlayerContainer._setEmbeddedVideo('video-id-foo', 'kwidget-foo');
       expect(convertValue(videoPlayerContainer.embeddedVideos)).toEqual({
