@@ -786,7 +786,7 @@ class DDSSearchWithTypeahead extends HostListenerMixin(
   /**
    * Value to display when the input has an empty `value`.
    */
-  @property()
+  @property({ attribute: 'placeholder', reflect: true })
   searchPlaceholder = 'Search all of IBM';
 
   /**
