@@ -2136,8 +2136,8 @@ __metadata:
     browserslist-config-carbon: 10.6.1
     browserstack-cypress-cli: ^1.11.1
     cache-loader: ^4.1.0
-    carbon-components: 10.58.6
-    carbon-components-react: 7.59.6
+    carbon-components: 10.58.7
+    carbon-components-react: 7.59.8
     carbon-icons: 7.0.7
     chalk: ^2.3.0
     classnames: 2.3.2
@@ -2302,8 +2302,8 @@ __metadata:
     "@carbon/telemetry": 0.1.0
     "@carbon/themes": 10.55.1
     "@carbon/type": 10.45.1
-    carbon-components: 10.58.6
-    carbon-components-react: 7.59.6
+    carbon-components: 10.58.7
+    carbon-components-react: 7.59.8
     del: ^6.0.0
     gulp: ^4.0.2
     gulp-autoprefixer: ^6.1.0
@@ -2340,7 +2340,7 @@ __metadata:
     babel-plugin-dev-expression: ^0.2.1
     babel-polyfill: ^6.26.0
     browserslist-config-carbon: 10.6.1
-    carbon-components: 10.58.6
+    carbon-components: 10.58.7
     chalk: ^2.3.0
     cli-table: ^0.3.0
     gzip-size: ^5.0.0
@@ -2427,7 +2427,7 @@ __metadata:
     babel-plugin-template-html-minifier: ^4.1.0
     browserstack-cypress-cli: ^1.11.1
     cache-loader: ^4.1.0
-    carbon-components: 10.58.6
+    carbon-components: 10.58.7
     chalk: ^4.1.1
     classnames: ^2.2.0
     commander: ^7.2.0
@@ -11265,9 +11265,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"carbon-components-react@npm:7.59.6":
-  version: 7.59.6
-  resolution: "carbon-components-react@npm:7.59.6"
+"carbon-components-react@npm:7.59.8":
+  version: 7.59.8
+  resolution: "carbon-components-react@npm:7.59.8"
   dependencies:
     "@babel/runtime": ^7.16.7
     "@carbon/feature-flags": ^0.7.0
@@ -11294,7 +11294,7 @@ __metadata:
     carbon-icons: ^7.0.7
     react: ^16.8.6 || ^17.0.1
     react-dom: ^16.8.6 || ^17.0.1
-  checksum: 75991fb578bf34ce7687bd92602229af0afaf8b860183b70c922397755ab3a6660b46f6847a689c5c0afaa062d91ef84664d2f2774e8cef515002567d0f14a02
+  checksum: 51d43a907e20588e0788d6c75f755bbc1e92b511d604f68aa8faa3c4b599789cb6fef05a2fad5381dc209b7a4bbaba4e047474fc86739ffba19c53b09e339eaf
   languageName: node
   linkType: hard
 
@@ -11310,15 +11310,15 @@ __metadata:
   languageName: node
   linkType: hard
 
-"carbon-components@npm:10.58.6":
-  version: 10.58.6
-  resolution: "carbon-components@npm:10.58.6"
+"carbon-components@npm:10.58.7":
+  version: 10.58.7
+  resolution: "carbon-components@npm:10.58.7"
   dependencies:
     "@carbon/telemetry": 0.1.0
     flatpickr: 4.6.1
     lodash.debounce: ^4.0.8
     warning: ^3.0.0
-  checksum: 9af81c7974884fedb224a295ee41b0d98611888a3c0e7a1da9e60266faf225586502fb1594c232823152de0be36e1d45cb43cfdeec08d451141262cbdb49b701
+  checksum: 80d27e9caa0913fce9a90d48e0982bdd7332976cd5ff0faa5c97195c0e16373419fc3be6faf0218bfa0f2d7518e4d14aabfb0be4727f774e0ea2388e3afa9fd0
   languageName: node
   linkType: hard
 
