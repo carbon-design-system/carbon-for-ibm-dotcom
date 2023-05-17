@@ -85,7 +85,7 @@
       class="bx--header__search--input"
       name="q"
       part="search-input"
-      placeholder="placeholder-foo"
+      placeholder="Search all of IBM"
       type="text"
     >
     <div
