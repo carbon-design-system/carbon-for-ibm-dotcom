@@ -81,15 +81,14 @@
   part="link"
   tabindex="0"
 >
-  <span
-    class="bx--card__cta__copy"
-    hidden=""
-  >
+  <span class="bx--card__cta__copy">
     <slot>
     </slot>
+    undefined-180000
   </span>
   <slot name="icon">
     <span class="bx--visually-hidden">
+      - This link plays a video
     </span>
   </slot>
 </a>
