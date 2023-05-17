@@ -715,8 +715,8 @@ class DDSMastheadComposite extends HostListenerMixin(LitElement) {
   /**
    * `true` if there is a search.
    */
-  @property({ type: Boolean, attribute: 'has-search' })
-  hasSearch = true;
+  @property({ type: String, reflect: true, attribute: 'has-search' })
+  hasSearch = 'true';
 
   /**
    * `true` to activate the search box.
@@ -1034,8 +1034,8 @@ class DDSMastheadComposite extends HostListenerMixin(LitElement) {
             </dds-top-nav>
           `) ||
         undefined}
-        ${!hasSearch
-          ? undefined
+        ${hasSearch === 'false'
+          ? ''
           : html`
               <dds-search-with-typeahead
                 ?active="${activateSearch}"
