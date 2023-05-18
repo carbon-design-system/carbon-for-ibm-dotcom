@@ -156,21 +156,6 @@ class DDSMegaMenuTopNavMenu extends DDSTopNavMenu {
   async updated(changedProperties) {
     super.updated(changedProperties);
     if (changedProperties.has('expanded')) {
-      // Import needed subcomponents on first expansion
-      if (!(this.parentElement as DDSTopNav)?.importedMegamenu) {
-        await import('./megamenu-left-navigation');
-        await import('./megamenu-category-link');
-        await import('./megamenu-category-link-group');
-        await import('./megamenu-category-group');
-        await import('./megamenu-category-group-copy');
-        await import('./megamenu-category-heading');
-        await import('./megamenu-link-with-icon');
-        await import('./megamenu-overlay');
-        await import('./megamenu-tab');
-        await import('./megamenu-tabs');
-        (this.parentElement as DDSTopNav).importedMegamenu = true;
-      }
-
       const doc = this.getRootNode() as Document;
       forEach(
         doc.querySelectorAll(
@@ -181,24 +166,24 @@ class DDSMegaMenuTopNavMenu extends DDSTopNavMenu {
         }
       );
 
-      // add the scrollbar width as right-margin to prevent content from shifting when
-      // scrollbar disappears on megamenu expand
       const masthead: HTMLElement | null = doc.querySelector('dds-masthead');
-
-      // determine whether to apply margin-right on expand as HC has extra masthead styling
       const cloudMasthead: HTMLElement | null | undefined = doc
         .querySelector('dds-cloud-masthead-container')
         ?.querySelector('dds-masthead');
 
       if (this.expanded) {
         // Import needed subcomponents on first expansion
-        if (!(this.parentElement as DDSTopNav).importedMegamenu) {
+        if (!(this.parentElement as DDSTopNav)?.importedMegamenu) {
           await import('./megamenu-left-navigation');
           await import('./megamenu-category-link');
+          await import('./megamenu-category-link-group');
           await import('./megamenu-category-group');
           await import('./megamenu-category-group-copy');
+          await import('./megamenu-category-heading');
           await import('./megamenu-link-with-icon');
           await import('./megamenu-overlay');
+          await import('./megamenu-tab');
+          await import('./megamenu-tabs');
           (this.parentElement as DDSTopNav).importedMegamenu = true;
         }
 
@@ -206,6 +191,8 @@ class DDSMegaMenuTopNavMenu extends DDSTopNavMenu {
         // Pause further execution until the render is complete.
         await this._requestMegaMenuRenderUpdate();
 
+        // Add the scrollbar width as right-margin to prevent content from shifting when
+        // scrollbar disappears on megamenu expand.
         doc.body.style.marginRight = `${this._scrollBarWidth}px`;
         doc.body.style.overflow = `hidden`;
         forEach(
@@ -217,6 +204,7 @@ class DDSMegaMenuTopNavMenu extends DDSTopNavMenu {
           }
         );
 
+        // Determine whether to apply margin-right on expand as Hybrid Cloud has extra masthead styling.
         if (cloudMasthead) {
           if (
             doc.body.classList.contains('ibm-masthead-sticky') &&
