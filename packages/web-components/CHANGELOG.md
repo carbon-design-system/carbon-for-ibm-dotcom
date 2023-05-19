@@ -3,6 +3,32 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.32.0-rc.2](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/compare/@carbon/ibmdotcom-web-components@1.32.0-rc.1...@carbon/ibmdotcom-web-components@1.32.0-rc.2) (2023-05-18)
+
+
+### Bug Fixes
+
+* **masthead:** fixes `has-search` toggle ([#10478](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/issues/10478)) ([eae1582](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/commit/eae15825dfa4cd62e78d4ca543976493620c05c0)), closes [#10477](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/issues/10477)
+* **unit-tests:** fix uncaught typescript errors ([#10475](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/issues/10475)) ([0ae5efc](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/commit/0ae5efcd93eb6c30e78588a42df8f9033fc454d5))
+
+
+### Features
+
+* **image:** add 'default-image' ::part ([#10450](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/issues/10450)) ([964713c](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/commit/964713cc73a5d3ec5576b58063554ae0fe5b6ae7)), closes [#10380](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/issues/10380)
+* **table-of-contents:** add self-filtering functionality ([#10469](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/issues/10469)) ([81a2fd2](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/commit/81a2fd293c16cbde61a09ae139617b4c0ca4dc98)), closes [#10442](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/issues/10442) [#10421](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/issues/10421)
+
+
+
+
+
+# [1.32.0-rc.1](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/compare/@carbon/ibmdotcom-web-components@1.32.0-rc.0...@carbon/ibmdotcom-web-components@1.32.0-rc.1) (2023-05-11)
+
+**Note:** Version bump only for package @carbon/ibmdotcom-web-components
+
+
+
+
+
 # [1.32.0-rc.0](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/compare/@carbon/ibmdotcom-web-components@1.31.0-rc.0...@carbon/ibmdotcom-web-components@1.32.0-rc.0) (2023-05-08)
 
 
