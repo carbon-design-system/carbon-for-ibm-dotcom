@@ -6,12 +6,20 @@
  */
 
 /**
- * Sets the correct path (default Masthead)
+ * The base path of the Story without any knob/control modifiers.
  *
  * @type {string}
  * @private
  */
-const _pathDefault = '/iframe.html?id=components-masthead--with-v-2-data&knob-use%20mock%20nav%20data%20(use-mock)=true';
+const _pathBase = '/iframe.html?id=components-masthead--default';
+
+/**
+ * The default path to use for this suite's tests.
+ *
+ * @type {string}
+ * @private
+ */
+const _pathDefault = `${_pathBase}&knob-use%20mock%20nav%20data%20(use-mock)=true`;
 
 /**
  * Checks for the existence of specific attribute values for a given element.
@@ -60,12 +68,12 @@ describe('dds-masthead | default (desktop)', () => {
   });
 
   it('should support custom url for IBM logo', () => {
-    cy.intercept(`https://1.www.s81c.com/common/carbon-for-ibm-dotcom/translations/masthead-footer/v2/*`, {
+    cy.intercept(`https://1.www.s81c.com/common/carbon-for-ibm-dotcom/translations/masthead-footer/+(v2|v2.1)/*`, {
       fixture: 'translation-custom-logo-v2.json',
     }).as('endpointInterceptor');
 
     // Visit version of masthead that receives endpoint data.
-    cy.visit('/iframe.html?id=components-masthead--with-v-2-data')
+    cy.visit(_pathBase)
       .injectAxe();
 
     cy.get('dds-masthead-container')
