@@ -188,6 +188,7 @@ class DDSImage extends StableSelectorMixin(
           src="${defaultSrc}"
           alt="${alt}"
           aria-describedby="image-caption long-description"
+          part="image"
           loading="lazy" />
       </picture>
       <div id="long-description" class="${prefix}--image__longdescription">
