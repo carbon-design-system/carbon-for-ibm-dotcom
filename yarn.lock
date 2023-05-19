@@ -22951,7 +22951,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"level-fix-range@npm:2.0":
+"level-fix-range@npm:2":
   version: 2.0.0
   resolution: "level-fix-range@npm:2.0.0"
   dependencies:
@@ -23003,7 +23003,7 @@ __metadata:
   version: 5.2.3
   resolution: "level-sublevel@npm:5.2.3"
   dependencies:
-    level-fix-range: 2.0
+    level-fix-range: 2
     level-hooks: ">=4.4.0 <5"
     string-range: ~1.2.1
     xtend: ~2.0.4
