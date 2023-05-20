@@ -13,17 +13,15 @@ import { ifDefined } from 'lit/directives/if-defined.js';
 import { html } from 'lit';
 import { customElement, property, query } from 'lit/decorators.js';
 import ddsSettings from '@carbon/ibmdotcom-utilities/es/utilities/settings/settings.js';
-import CDSDropdown from '../../internal/vendor/@carbon/web-components/components/dropdown/dropdown.js';
+import CDSDropdown, {
+  DROPDOWN_KEYBOARD_ACTION,
+  DROPDOWN_TYPE,
+  NAVIGATION_DIRECTION,
+} from '../../internal/vendor/@carbon/web-components/components/dropdown/dropdown.js';
 import CDSDropdownItem from '../../internal/vendor/@carbon/web-components/components/dropdown/dropdown-item.js';
 import ChevronDown16 from '../../internal/vendor/@carbon/web-components/icons/chevron--down/16.js';
 import WarningFilled16 from '../../internal/vendor/@carbon/web-components/icons/warning--filled/16.js';
-import {
-  DROPDOWN_COLOR_SCHEME,
-  DROPDOWN_KEYBOARD_ACTION,
-  DROPDOWN_SIZE,
-  DROPDOWN_TYPE,
-  NAVIGATION_DIRECTION,
-} from './defs';
+import { DROPDOWN_COLOR_SCHEME, DROPDOWN_SIZE } from './defs';
 import { forEach, indexOf } from '../../globals/internal/collection-helpers';
 
 export {
