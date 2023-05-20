@@ -98,10 +98,17 @@ class DDSVideoPlayer extends FocusMixin(
    * Updates video thumbnail url to match video width
    */
   private _updateThumbnailUrl() {
-    const thumbnailSrc = new URL(this.thumbnailUrl || '');
+    let thumbnailSrc: false | URL = false;
+
+    try {
+      thumbnailSrc = new URL(this.thumbnailUrl);
+    } catch (error) {
+      // Do nothing.
+    }
 
     // If current thumbnail is from Kaltura and includes this video's ID we should be able to safely update it.
     if (
+      thumbnailSrc &&
       thumbnailSrc.host.toLowerCase().includes('kaltura') &&
       thumbnailSrc.pathname.includes(this.videoId!)
     ) {
@@ -273,10 +280,11 @@ class DDSVideoPlayer extends FocusMixin(
 
   firstUpdated() {
     this.tabIndex = 0;
+    const parentIsBackground = Boolean(
+      (this.parentElement as DDSVideoPlayerContainer)?.backgroundMode
+    );
 
-    this.backgroundMode = (
-      this.parentElement as DDSVideoPlayerContainer
-    ).backgroundMode;
+    this.backgroundMode = parentIsBackground;
   }
 
   /**

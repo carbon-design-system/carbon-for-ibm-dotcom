@@ -312,83 +312,87 @@ class NoticeChoice extends StableSelectorMixin(LitElement) {
     </span>`;
   }
   postTextTemplate() {
-    const OptInContent = this.ncData.OptInContent;
-    const OtherPreferences = this.ncData.OtherPreferences;
-    let postText = OptInContent.postText;
-    let tcHtml = '';
-    if (this.termsConditionLink) {
-      let originalValue = OtherPreferences.trailPrivacyText;
-      const matchedValue = originalValue.match(/<tc>.*<\/tc>/g);
-      if (matchedValue) {
-        const anrTagHtml = matchedValue[0].replace(/<tc>|<\/tc>/g, '');
-        const link = `<a href='${this.termsConditionLink}' target='_blank' class='ibm-tooltip' >${anrTagHtml}</a>`;
-        const reg = new RegExp('<tc>' + anrTagHtml + '</tc>', 'g');
-        tcHtml = `<p>I accept the product  <a href='${this.termsConditionLink}' target='_blank' class='ibm-tooltip' >${anrTagHtml}</a> of this registration form.</p>`;
-        postText = originalValue.replace(reg, link);
+    if (this.ncData) {
+      const OptInContent = this.ncData.OptInContent;
+      const OtherPreferences = this.ncData.OtherPreferences;
+      let postText = OptInContent.postText;
+      let tcHtml = '';
+      if (this.termsConditionLink) {
+        let originalValue = OtherPreferences.trailPrivacyText;
+        const matchedValue = originalValue.match(/<tc>.*<\/tc>/g);
+        if (matchedValue) {
+          const anrTagHtml = matchedValue[0].replace(/<tc>|<\/tc>/g, '');
+          const link = `<a href='${this.termsConditionLink}' target='_blank' class='ibm-tooltip' >${anrTagHtml}</a>`;
+          const reg = new RegExp('<tc>' + anrTagHtml + '</tc>', 'g');
+          tcHtml = `<p>I accept the product  <a href='${this.termsConditionLink}' target='_blank' class='ibm-tooltip' >${anrTagHtml}</a> of this registration form.</p>`;
+          postText = originalValue.replace(reg, link);
+        }
       }
-    }
-    // replace default privacy link
-    try {
-      const { cc, lc } = getMappedValue(this.locale);
-      postText = postText.replaceAll(
-        'www.ibm.com/privacy/zz/en/',
-        `www.ibm.com/${cc}-${lc}/privacy`
-      );
-    } catch (e) {
-      console.log('unable to replace privacy link locale code.');
-    }
-    const ccLcObject = getMappedValue(this.locale);
-    const cc = ccLcObject.cc;
-    const lc = ccLcObject.lc;
-    const ccpa =
-      this.country === 'US' && (this.state === 'CA' || this.state === '');
-    if (this.country === 'CN' && lc === 'en') {
-      return html`<p class="nc-gdpr-info">
-          I agree and acknowledge that IBM may share my personal information
-          with IBM affiliates and third parties globally. I understand that I
-          can withdraw my marketing consent at any time by submitting an
-          <a
-            href="https://www.ibm.com/account/reg/${cc}-${lc}/signup?formid=urx-42537"
-            target="_blank"
-            >opt-out request</a
-          >, and also may unsubscribe from receiving marketing emails by
-          clicking the unsubscribe link in each email. More information in IBM’s
-          use and processing of personal information can be found in the
-          <a href="https://www.ibm.com/privacy" target="_blank"
-            >IBM Privacy Statement</a
-          >.
-        </p>
+      // replace default privacy link
+      try {
+        const { cc, lc } = getMappedValue(this.locale);
+        postText = postText.replaceAll(
+          'www.ibm.com/privacy/zz/en/',
+          `www.ibm.com/${cc}-${lc}/privacy`
+        );
+      } catch (e) {
+        console.log('unable to replace privacy link locale code.');
+      }
+      const ccLcObject = getMappedValue(this.locale);
+      const cc = ccLcObject.cc;
+      const lc = ccLcObject.lc;
+      const ccpa =
+        this.country === 'US' && (this.state === 'CA' || this.state === '');
+      if (this.country === 'CN' && lc === 'en') {
+        return html`<p class="nc-gdpr-info">
+            I agree and acknowledge that IBM may share my personal information
+            with IBM affiliates and third parties globally. I understand that I
+            can withdraw my marketing consent at any time by submitting an
+            <a
+              href="https://www.ibm.com/account/reg/${cc}-${lc}/signup?formid=urx-42537"
+              target="_blank"
+              >opt-out request</a
+            >, and also may unsubscribe from receiving marketing emails by
+            clicking the unsubscribe link in each email. More information in
+            IBM’s use and processing of personal information can be found in the
+            <a href="https://www.ibm.com/privacy" target="_blank"
+              >IBM Privacy Statement</a
+            >.
+          </p>
 
-        <p class="nc-gdpr-ack">
-          By ticking the above boxes and submitting this form, I have read and
-          understand the above notice and IBM Privacy Statement.
-        </p>
-        ${unsafeHTML(tcHtml)}`;
-    } else if (lc === 'en' && ccpa) {
-      return html`<p class="nc-gdpr-info">
-          You can withdraw your marketing consent at any time by submitting an
-          <a
-            href="https://www.ibm.com/account/reg/us-en/signup?formid=urx-42537"
-            target="_blank"
-            >opt-out request</a
-          >. Also you may unsubscribe from receiving marketing emails by
-          clicking the unsubscribe link in each email.
-        </p>
-        <p class="nc-gdpr-ack">
-          More information on our processing can be found in the
-          <a href="https://www.ibm.com/privacy" target="_blank"
-            >IBM Privacy Statement.</a
-          >
-          California residents, review
-          <a href="https://www.ibm.com/privacy/ccpa" target="_blank"
-            >our notice and your privacy choices</a
-          >. <br />
-          By submitting this form, I acknowledge that I have read and understand
-          the IBM Privacy Statement.
-        </p>
-        ${unsafeHTML(tcHtml)}`;
+          <p class="nc-gdpr-ack">
+            By ticking the above boxes and submitting this form, I have read and
+            understand the above notice and IBM Privacy Statement.
+          </p>
+          ${unsafeHTML(tcHtml)}`;
+      } else if (lc === 'en' && ccpa) {
+        return html`<p class="nc-gdpr-info">
+            You can withdraw your marketing consent at any time by submitting an
+            <a
+              href="https://www.ibm.com/account/reg/us-en/signup?formid=urx-42537"
+              target="_blank"
+              >opt-out request</a
+            >. Also you may unsubscribe from receiving marketing emails by
+            clicking the unsubscribe link in each email.
+          </p>
+          <p class="nc-gdpr-ack">
+            More information on our processing can be found in the
+            <a href="https://www.ibm.com/privacy" target="_blank"
+              >IBM Privacy Statement.</a
+            >
+            California residents, review
+            <a href="https://www.ibm.com/privacy/ccpa" target="_blank"
+              >our notice and your privacy choices</a
+            >. <br />
+            By submitting this form, I acknowledge that I have read and
+            understand the IBM Privacy Statement.
+          </p>
+          ${unsafeHTML(tcHtml)}`;
+      }
+      return html`${unsafeHTML(postText)}`;
+    } else {
+      return html``;
     }
-    return html`${unsafeHTML(postText)}`;
   }
   getBpidLegalText() {
     if (this.bpidLegalText) {
@@ -523,4 +527,5 @@ class NoticeChoice extends StableSelectorMixin(LitElement) {
     );
   }
 }
+
 export default NoticeChoice;
