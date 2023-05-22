@@ -8,45 +8,13 @@
  */
 
 import { html } from 'lit';
-import { ifDefined } from 'lit/directives/if-defined.js';
-import { action } from '@storybook/addon-actions';
-import { number, select, boolean } from '@storybook/addon-knobs';
+import { number, boolean } from '@storybook/addon-knobs';
 import { prefix } from '../../globals/settings';
 import textNullable from '../../../.storybook/knob-text-nullable';
-import { CODE_SNIPPET_COLOR_SCHEME } from './code-snippet';
 import storyDocs from './code-snippet-story.mdx';
 import './index';
 
-const colorSchemes = {
-  [`Regular`]: null,
-  [`Light (${CODE_SNIPPET_COLOR_SCHEME.LIGHT})`]:
-    CODE_SNIPPET_COLOR_SCHEME.LIGHT,
-};
-
-const defaultKnobs = {
-  [`${prefix}-code-snippet`]: () => ({
-    codeAssistiveText: textNullable(
-      'Assistive text for the code portion (code-assistive-text)',
-      ''
-    ),
-    copyButtonAssistiveText: textNullable(
-      'Assistive text for the copy button (copy-button-assistive-text)',
-      ''
-    ),
-    copyButtonFeedbackText: textNullable(
-      'Feedback text for copy button (copy-button-feedback-text)',
-      ''
-    ),
-    copyButtonFeedbackTimeout: number(
-      'Feedback timeout for copy button (copy-buttobn-feedback-timeout)',
-      2000
-    ),
-    colorScheme: select('Color scheme (color-scheme)', colorSchemes, null),
-    onClick: action('click'),
-  }),
-};
-
-export const Inline = () => {
+export const inline = () => {
   return html`
     <cds-code-snippet type="inline"
       >node -v<span slot="button-description">Copy to clipboard</span>
@@ -54,7 +22,7 @@ export const Inline = () => {
   `;
 };
 
-export const InlineWithLayer = () => {
+export const inlineWithLayer = () => {
   return html`
     <sb-template-layers>
       <cds-code-snippet type="inline"
