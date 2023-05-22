@@ -21,15 +21,15 @@ $css--plex: true !default;
 
 :host(#{$prefix}-code-snippet),
 :host(#{$prefix}-code-snippet-skeleton) {
-  @extend .cds--snippet;
+  @extend .#{$prefix}--snippet;
 
-  .cds--snippet-container {
-    @extend .cds--snippet-container;
+  .#{$prefix}--snippet-container {
+    @extend .#{$prefix}--snippet-container;
   }
 }
 
 :host(#{$prefix}-code-snippet[disabled]) {
-  @extend .cds--snippet--disabled;
+  @extend .#{$prefix}--snippet--disabled;
 }
 
 :host(#{$prefix}-code-snippet[wrap-text]) {
@@ -40,12 +40,12 @@ $css--plex: true !default;
 }
 
 :host(#{$prefix}-code-snippet[hide-copy-button]) {
-  @extend .cds--snippet--no-copy;
+  @extend .#{$prefix}--snippet--no-copy;
 }
 
 :host(#{$prefix}-code-snippet-skeleton[type='single']),
 :host(#{$prefix}-code-snippet[type='single']) {
-  @extend .cds--snippet--single;
+  @extend .#{$prefix}--snippet--single;
 }
 
 :host(#{$prefix}-code-snippet[type='single']) {
@@ -71,7 +71,7 @@ $css--plex: true !default;
 
 :host(#{$prefix}-code-snippet-skeleton[type='multi']),
 :host(#{$prefix}-code-snippet[type='multi']) {
-  @extend .cds--snippet--multi;
+  @extend .#{$prefix}--snippet--multi;
 }
 
 :host(#{$prefix}-code-snippet[type='multi']) {
@@ -98,19 +98,25 @@ $css--plex: true !default;
   }
 
   #{$prefix}-button {
-    .cds--snippet__icon {
+    .#{$prefix}--snippet__icon {
       margin-left: 0.5rem;
+    }
+
+    &[disabled] {
+      .#{$prefix}--snippet-btn--text {
+        color: $text-disabled;
+      }
     }
   }
 
   &[expanded-code] {
-    .cds--snippet-container {
+    .#{$prefix}--snippet-container {
       padding-bottom: $spacing-05;
       transition: max-height $duration-moderate-01 motion(standard, productive);
     }
 
     #{$prefix}-button {
-      .cds--snippet__icon {
+      .#{$prefix}--snippet__icon {
         transform: rotate(180deg);
         transition: transform $transition-expansion;
       }
@@ -125,11 +131,11 @@ $css--plex: true !default;
 }
 
 :host(#{$prefix}-code-snippet-skeleton[type='single']) {
-  @extend .cds--snippet--single, .cds--skeleton;
+  @extend .#{$prefix}--snippet--single, .#{$prefix}--skeleton;
 }
 
 :host(#{$prefix}-code-snippet-skeleton[type='multi']) {
-  @extend .cds--snippet--multi, .cds--skeleton;
+  @extend .#{$prefix}--snippet--multi, .#{$prefix}--skeleton;
 }
 
 :host(#{$prefix}-code-snippet-skeleton) {

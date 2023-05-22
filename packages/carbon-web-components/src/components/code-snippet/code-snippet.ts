@@ -347,8 +347,12 @@ class CDSCodeSnippet extends FocusMixin(LitElement) {
         type == 'multi' && hasRightOverflow,
     };
 
-    const expandClass = {
+    const expandButtonClass = {
       [`${prefix}--snippet-btn--expand`]: true,
+    };
+
+    const disabledCopyButtonClasses = {
+      [`${prefix}--snippet--disabled`]: disabled,
     };
 
     const expandCodeBtnText = expandedCode ? showLessText : showMoreText;
@@ -427,6 +431,7 @@ class CDSCodeSnippet extends FocusMixin(LitElement) {
         : html`
             <cds-copy-button
               ?disabled=${disabled}
+              .buttonClasses=${disabledCopyButtonClasses}
               feedback=${feedback}
               feedback-timeout=${feedbackTimeout}
               @click="${handlCopyClick}">
@@ -438,7 +443,7 @@ class CDSCodeSnippet extends FocusMixin(LitElement) {
             <cds-button
               kind="ghost"
               size="sm"
-              .buttonClasses=${expandClass}
+              .buttonClasses=${expandButtonClass}
               ?disabled=${disabled}
               @click=${() => this._handleClickExpanded()}>
               <span class="${prefix}--snippet-btn--text">
