@@ -11,7 +11,7 @@ import { LitElement, html } from 'lit';
 import { property, customElement } from 'lit/decorators.js';
 import { prefix } from '../../globals/settings';
 import { forEach } from '../../globals/internal/collection-helpers';
-import BXProgressStep from './progress-step';
+import CDSProgressStep from './progress-step';
 import styles from './progress-indicator.scss';
 
 /**
@@ -20,7 +20,7 @@ import styles from './progress-indicator.scss';
  * @element cds-progress-indicator
  */
 @customElement(`${prefix}-progress-indicator`)
-class BXProgressIndicator extends LitElement {
+export default class CDSProgressIndicator extends LitElement {
   /**
    * `true` if the progress indicator should be vertical.
    */
@@ -39,10 +39,10 @@ class BXProgressIndicator extends LitElement {
       // Propagate `vertical` attribute to descendants until `:host-context()` gets supported in all major browsers
       forEach(
         this.querySelectorAll(
-          (this.constructor as typeof BXProgressIndicator).selectorStep
+          (this.constructor as typeof CDSProgressIndicator).selectorStep
         ),
         (item) => {
-          (item as BXProgressStep).vertical = this.vertical;
+          (item as CDSProgressStep).vertical = this.vertical;
         }
       );
     }
@@ -61,5 +61,3 @@ class BXProgressIndicator extends LitElement {
 
   static styles = styles;
 }
-
-export default BXProgressIndicator;

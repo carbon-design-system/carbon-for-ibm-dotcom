@@ -16,7 +16,7 @@ import styles from './progress-indicator.scss';
  * Skeleton of progress step.
  */
 @customElement(`${prefix}-progress-step-skeleton`)
-class BXProgressStepSkeleton extends LitElement {
+export default class CDSProgressStepSkeleton extends LitElement {
   /**
    * `true` if the progress indicator should be vertical. Corresponds to the attribute with the same name.
    */
@@ -38,5 +38,3 @@ class BXProgressStepSkeleton extends LitElement {
 
   static styles = styles;
 }
-
-export default BXProgressStepSkeleton;

@@ -37,7 +37,7 @@ const icons = {
  * @slot secondary-label-text - The secondary progress label.
  */
 @customElement(`${prefix}-progress-step`)
-class BXProgressStep extends FocusMixin(LitElement) {
+export default class CDSProgressStep extends FocusMixin(LitElement) {
   /**
    * `true` if the progress step should be disabled.
    */
@@ -124,5 +124,3 @@ class BXProgressStep extends FocusMixin(LitElement) {
   };
   static styles = styles;
 }
-
-export default BXProgressStep;
