@@ -75,6 +75,7 @@ export const skeleton = (args) => {
       <cds-progress-step-skeleton></cds-progress-step-skeleton>
       <cds-progress-step-skeleton></cds-progress-step-skeleton>
       <cds-progress-step-skeleton></cds-progress-step-skeleton>
+      <cds-progress-step-skeleton></cds-progress-step-skeleton>
     </cds-progress-indicator-skeleton>
   `;
 };
