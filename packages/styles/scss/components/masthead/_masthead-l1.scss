@@ -221,7 +221,7 @@ $search-transition-timing: 95ms;
 
       color: $text-01;
 
-      // Headings that are not links. 
+      // Headings that are not links.
       &.no-link {
         padding-block: $carbon--spacing-04;
         padding-inline-start: $carbon--spacing-05;
@@ -585,10 +585,8 @@ $search-transition-timing: 95ms;
       > * {
         break-inside: avoid;
       }
-    }
 
-    // Contains a wide col child. 
-    .#{$prefix}--masthead__l1-dropdown-links {
+      // Contains a wide col child.
       &.has-wide {
         display: grid;
         grid-template-columns: repeat(3, 1fr);
@@ -644,7 +642,7 @@ $search-transition-timing: 95ms;
         margin-bottom: $spacing-03;
       }
 
-      // Headings that do not contain links. 
+      // Headings that do not contain links.
       &.no-link {
         padding: $spacing-03 $spacing-05;
         margin-bottom: $spacing-03;
