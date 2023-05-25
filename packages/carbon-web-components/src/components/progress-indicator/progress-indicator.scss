@@ -108,13 +108,6 @@ $css--plex: true !default;
   @extend .#{$prefix}--progress-step--incomplete;
 }
 
-:host(#{$prefix}-progress-step-skeleton) .#{$prefix}--progress-label {
-  @include skeleton;
-
-  height: rem(12px);
-  width: rem(40px);
-}
-
 :host(#{$prefix}-progress-step-skeleton) {
   svg {
     fill: $layer-selected-inverse;
