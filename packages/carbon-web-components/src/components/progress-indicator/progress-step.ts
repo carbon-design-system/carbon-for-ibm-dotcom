@@ -50,17 +50,26 @@ export default class CDSProgressStep extends FocusMixin(LitElement) {
   @property({ attribute: 'icon-label' })
   iconLabel!: string;
 
+  @property({ reflect: true })
+  description!: string;
+
   /**
    * The primary progress label.
    */
   @property({ attribute: 'label-text' })
   labelText!: string;
 
+  @property()
+  label!: string;
+
   /**
    * The secondary progress label.
    */
   @property({ attribute: 'secondary-label-text' })
   secondaryLabelText!: string;
+
+  @property({ attribute: 'secondary-label' })
+  secondaryLabel!: string;
 
   /**
    * The progress state.
@@ -90,31 +99,43 @@ export default class CDSProgressStep extends FocusMixin(LitElement) {
   }
 
   render() {
-    const { iconLabel, labelText, secondaryLabelText, state } = this;
+    const {
+      description,
+      iconLabel,
+      label,
+      secondaryLabelText,
+      secondaryLabel,
+      state,
+    } = this;
+    const svgLabel = iconLabel || description;
+    const optionalLabel = secondaryLabelText || secondaryLabel;
     return html`
-      ${icons[state]({
-        class: {
-          [PROGRESS_STEP_STAT.INVALID]: `${prefix}--progress__warning`,
-        }[state],
-        children: !iconLabel ? undefined : svg`<title>${iconLabel}</title>`,
-      })}
-      <slot>
-        <p
-          role="button"
-          class="${prefix}--progress-label"
-          tabindex="0"
-          aria-describedby="label-tooltip">
-          ${labelText}
-        </p>
-      </slot>
-      <slot name="secondary-label-text">
-        ${!secondaryLabelText
-          ? undefined
-          : html`
-              <p class="${prefix}--progress-optional">${secondaryLabelText}</p>
-            `}
-      </slot>
-      <span class="${prefix}--progress-line"></span>
+      <div class="${prefix}--progress-step-button">
+        ${icons[state]({
+          class: {
+            [PROGRESS_STEP_STAT.INVALID]: `${prefix}--progress__warning`,
+          }[state],
+          children: svgLabel ? svg`<title>${svgLabel}</title>` : undefined,
+        })}
+        <slot>
+          <p
+            role="button"
+            class="${prefix}--progress-label"
+            tabindex="0"
+            aria-describedby="label-tooltip"
+            title="${label}">
+            ${label}
+          </p>
+        </slot>
+        <slot name="secondary-label-text">
+          ${!optionalLabel
+            ? undefined
+            : html`<p class="${prefix}--progress-optional">
+                ${optionalLabel}
+              </p>`}
+        </slot>
+        <span class="${prefix}--progress-line"></span>
+      </div>
     `;
   }
 
