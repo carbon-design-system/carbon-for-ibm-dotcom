@@ -74,20 +74,20 @@
 
 ```
 <a
-  aria-label=""
+  aria-label="video-name-foo, DURATION undefined - This link plays a video"
   class="bx--card__footer bx--link bx--link--lg bx--link-with-icon bx--link-with-icon--inline-icon bx--link-with-icon__icon-right dds-ce--card__footer"
+  href="#"
   id="link"
   part="link"
 >
-  <span
-    class="bx--card__cta__copy"
-    hidden=""
-  >
+  <span class="bx--card__cta__copy">
     <slot>
     </slot>
+    undefined-180000
   </span>
   <slot name="icon">
     <span class="bx--visually-hidden">
+      - This link plays a video
     </span>
   </slot>
 </a>
