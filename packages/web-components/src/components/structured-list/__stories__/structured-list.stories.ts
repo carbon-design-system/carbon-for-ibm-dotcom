@@ -185,7 +185,8 @@ export const WithSubheaders = (args) => {
             </dds-structured-list-cell>
           </dds-structured-list-row>
         </dds-structured-list-group>
-        <dds-structured-list-group title="Group 2">
+        <dds-structured-list-group
+          title="Group 2 Lorem ipsum dolor sit amet consectetur, adipiscing elit vestibulum tempus dis, varius dignissim et aliquam.">
           <dds-structured-list-row>
             <dds-structured-list-header-cell scope="row"
               >Row 1</dds-structured-list-header-cell
