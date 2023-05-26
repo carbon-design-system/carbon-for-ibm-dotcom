@@ -67,13 +67,6 @@
   height: $spacing-09;
 }
 
-:host(#{$prefix}-table-row[size='lg']) {
-  ::slotted(#{$prefix}-table-cell),
-  ::slotted(#{$prefix}-table-cell-skeleton) {
-    padding-top: rem(16px);
-  }
-}
-
 //
 // "xl" table size variant
 //
@@ -87,5 +80,17 @@
   ::slotted(#{$prefix}-table-cell),
   ::slotted(#{$prefix}-table-cell-skeleton) {
     padding-top: rem(16px);
+  }
+}
+
+// Small persistent toolbar
+:host(#{$prefix}-table-toolbar[size='sm']),
+:host(#{$prefix}-table-toolbar-content[size='sm']) {
+  &,
+  ::slotted(#{$prefix}-table-toolbar-search),
+  ::slotted(#{$prefix}-overflow-menu),
+  ::slotted(#{$prefix}-button) {
+    min-height: $spacing-07;
+    height: $spacing-07;
   }
 }

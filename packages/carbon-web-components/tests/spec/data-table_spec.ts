@@ -20,7 +20,7 @@ import BXTableRow from '../../src/components/data-table/table-row';
 import BXTableExpandRow from '../../src/components/data-table/table-expand-row';
 import BXTableExpandedRow from '../../src/components/data-table/table-expanded-row';
 import BXTableToolbarSearch from '../../src/components/data-table/table-toolbar-search';
-import { Default } from '../../src/components/data-table/data-table-story';
+import { Default } from '../../src/components/data-table/stories/data-table-story';
 
 const template = ({ colorScheme = TABLE_COLOR_SCHEME.REGULAR, ...rest } = {}) =>
   Default({

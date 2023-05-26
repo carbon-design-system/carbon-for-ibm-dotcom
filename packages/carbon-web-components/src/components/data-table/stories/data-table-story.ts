@@ -22,41 +22,37 @@ import TrashCan from '@carbon/web-components/es/icons/trash-can/16';
 import Download16 from '@carbon/web-components/es/icons/download/16';
 // @ts-ignore
 import Settings16 from '@carbon/web-components/es/icons/settings/16';
-import { prefix } from '../../globals/settings';
-import BXBtn from '../button/button';
-import '../overflow-menu/overflow-menu';
-import '../overflow-menu/overflow-menu-body';
-import '../overflow-menu/overflow-menu-item';
-import '../pagination/pagination';
-import { TABLE_COLOR_SCHEME, TABLE_SIZE } from './table';
-import './table-head';
-import './table-header-row';
-import { TABLE_SORT_DIRECTION } from './table-header-cell';
-import './table-body';
-import './table-row';
-import './table-cell';
-import './table-header-expand-row';
-import './table-expand-row';
-import './table-expanded-row';
-import './table-toolbar';
-import './table-toolbar-content';
-import './table-toolbar-search';
-import './table-batch-actions';
-import './table-header-cell-skeleton';
-import './table-cell-skeleton';
+import { prefix } from '../../../globals/settings';
+import BXBtn from '../../button/button';
+import '../../overflow-menu/overflow-menu';
+import '../../overflow-menu/overflow-menu-body';
+import '../../overflow-menu/overflow-menu-item';
+import '../../pagination/pagination';
+import { TABLE_SIZE } from '../table';
+import '../table-head';
+import '../table-header-row';
+import { TABLE_SORT_DIRECTION } from '../table-header-cell';
+import '../table-body';
+import '../table-row';
+import '../table-cell';
+import '../table-header-expand-row';
+import '../table-expand-row';
+import '../table-expanded-row';
+import '../table-toolbar';
+import '../table-toolbar-content';
+import '../table-toolbar-search';
+import '../table-batch-actions';
+import '../table-header-cell-skeleton';
+import '../table-cell-skeleton';
 import {
   rows as demoRows,
   rowsMany as demoRowsMany,
   columns as demoColumns,
   sortInfo as demoSortInfo,
-} from './stories/data';
-import {
-  TDemoTableColumn,
-  TDemoTableRow,
-  TDemoSortInfo,
-} from './stories/types';
-import styles from './data-table-story.scss';
-import storyDocs from './data-table-story.mdx';
+} from './data';
+import { TDemoTableColumn, TDemoTableRow, TDemoSortInfo } from './types';
+import styles from '../data-table-story.scss';
+import storyDocs from '../data-table-story.mdx';
 
 /**
  * @param row A table row.
@@ -327,12 +323,6 @@ class BXCEDemoDataTable extends LitElement {
   size = TABLE_SIZE.MD;
 
   /**
-   * The table color scheme.
-   */
-  @property({ reflect: true, attribute: 'color-scheme' })
-  colorScheme = TABLE_COLOR_SCHEME.REGULAR;
-
-  /**
    * The row number where current page start with, index that starts with zero.
    */
   @property({ type: Number })
@@ -392,7 +382,6 @@ class BXCEDemoDataTable extends LitElement {
   render() {
     const {
       id: elementId,
-      colorScheme,
       hasSelection,
       pageSize = Infinity,
       start = 0,
@@ -449,7 +438,7 @@ class BXCEDemoDataTable extends LitElement {
           <cds-table-toolbar-search
             @cds-search-input="${this
               ._handleChangeSearchString}"></cds-table-toolbar-search>
-          <cds-overflow-menu>
+          <cds-overflow-menu tool>
             ${Settings16({ slot: 'icon' })}
             <cds-overflow-menu-body>
               <cds-overflow-menu-item> Action 1 </cds-overflow-menu-item>
@@ -491,7 +480,7 @@ class BXCEDemoDataTable extends LitElement {
             )}
           </cds-table-header-row>
         </cds-table-head>
-        <cds-table-body color-scheme="${colorScheme}">
+        <cds-table-body>
           ${repeat(
             sortedRows.slice(start, start + pageSize),
             ({ id: rowId }) => rowId,
@@ -534,11 +523,6 @@ class BXCEDemoDataTable extends LitElement {
   };
 }
 
-const colorSchemes = {
-  'Regular color scheme': null,
-  [`Zebra (${TABLE_COLOR_SCHEME.ZEBRA})`]: TABLE_COLOR_SCHEME.ZEBRA,
-};
-
 const sizes = {
   [`xs (${TABLE_SIZE.XS})`]: TABLE_SIZE.XS,
   [`sm (${TABLE_SIZE.SM})`]: TABLE_SIZE.SM,
@@ -567,57 +551,165 @@ export const Default = (args) => {
       <cds-table-head>
         <cds-table-header-row>
           <cds-table-header-cell>Name</cds-table-header-cell>
-          <cds-table-header-cell>Protocol</cds-table-header-cell>
-          <cds-table-header-cell>Port</cds-table-header-cell>
           <cds-table-header-cell>Rule</cds-table-header-cell>
-          <cds-table-header-cell>Attached Groups</cds-table-header-cell>
           <cds-table-header-cell>Status</cds-table-header-cell>
+          <cds-table-header-cell>Other</cds-table-header-cell>
+          <cds-table-header-cell>Example</cds-table-header-cell>
         </cds-table-header-row>
       </cds-table-head>
       <cds-table-body color-scheme="${colorScheme}">
         <cds-table-row>
           <cds-table-cell>Load Balancer 1</cds-table-cell>
-          <cds-table-cell>HTTP</cds-table-cell>
-          <cds-table-cell>80</cds-table-cell>
-          <cds-table-cell>Round Robin</cds-table-cell>
-          <cds-table-cell>Maureen's VM Groups</cds-table-cell>
-          <cds-table-cell>Active</cds-table-cell>
+          <cds-table-cell>Round robin</cds-table-cell>
+          <cds-table-cell>Starting</cds-table-cell>
+          <cds-table-cell>Test</cds-table-cell>
+          <cds-table-cell>22</cds-table-cell>
         </cds-table-row>
         <cds-table-row>
           <cds-table-cell>Load Balancer 2</cds-table-cell>
-          <cds-table-cell>HTTP</cds-table-cell>
-          <cds-table-cell>80</cds-table-cell>
-          <cds-table-cell>Round Robin</cds-table-cell>
-          <cds-table-cell>Maureen's VM Groups</cds-table-cell>
+          <cds-table-cell>DNS delegation</cds-table-cell>
           <cds-table-cell>Active</cds-table-cell>
+          <cds-table-cell>Test</cds-table-cell>
+          <cds-table-cell>22</cds-table-cell>
         </cds-table-row>
         <cds-table-row>
           <cds-table-cell>Load Balancer 3</cds-table-cell>
-          <cds-table-cell>HTTP</cds-table-cell>
-          <cds-table-cell>80</cds-table-cell>
-          <cds-table-cell>Round Robin</cds-table-cell>
-          <cds-table-cell>Maureen's VM Groups</cds-table-cell>
-          <cds-table-cell>Active</cds-table-cell>
+          <cds-table-cell>Round robin</cds-table-cell>
+          <cds-table-cell>Disabled</cds-table-cell>
+          <cds-table-cell>Test</cds-table-cell>
+          <cds-table-cell>22</cds-table-cell>
+        </cds-table-row>
+        <cds-table-row>
+          <cds-table-cell>Load Balancer 4</cds-table-cell>
+          <cds-table-cell>Round robin</cds-table-cell>
+          <cds-table-cell>Disabled</cds-table-cell>
+          <cds-table-cell>Test</cds-table-cell>
+          <cds-table-cell>2</cds-table-cell>
+        </cds-table-row>
+        <cds-table-row>
+          <cds-table-cell>Load Balancer 5</cds-table-cell>
+          <cds-table-cell>Round robin</cds-table-cell>
+          <cds-table-cell>Disabled</cds-table-cell>
+          <cds-table-cell>Test</cds-table-cell>
+          <cds-table-cell>22</cds-table-cell>
+        </cds-table-row>
+        <cds-table-row>
+          <cds-table-cell>Load Balancer 6</cds-table-cell>
+          <cds-table-cell>Round robin</cds-table-cell>
+          <cds-table-cell>Disabled</cds-table-cell>
+          <cds-table-cell>Test</cds-table-cell>
+          <cds-table-cell>22</cds-table-cell>
+        </cds-table-row>
+        <cds-table-row>
+          <cds-table-cell>Load Balancer 7</cds-table-cell>
+          <cds-table-cell>Round robin</cds-table-cell>
+          <cds-table-cell>Disabled</cds-table-cell>
+          <cds-table-cell>Test</cds-table-cell>
+          <cds-table-cell>22</cds-table-cell>
         </cds-table-row>
       </cds-table-body>
     </cds-table>
   `;
 };
 
-Default.storyName = 'Default';
+export const XLWithTwoLines = (args) => {
+  const { size } = args?.[`${prefix}-table`] ?? {};
+  const { colorScheme } = args?.[`${prefix}-table-body`] ?? {};
+  return html`
+    <cds-table size="xl">
+      <cds-table-head>
+        <cds-table-header-row>
+          <cds-table-header-cell>Name</cds-table-header-cell>
+          <cds-table-header-cell>Rule</cds-table-header-cell>
+          <cds-table-header-cell>Status</cds-table-header-cell>
+          <cds-table-header-cell>Other</cds-table-header-cell>
+          <cds-table-header-cell>Example</cds-table-header-cell>
+        </cds-table-header-row>
+      </cds-table-head>
+      <cds-table-body color-scheme="${colorScheme}">
+        <cds-table-row>
+          <cds-table-cell>
+            Load Balancer 1
+            <p class="test " style="all:unset;">Austin, Tx</p>
+          </cds-table-cell>
+          <cds-table-cell>Round robin</cds-table-cell>
+          <cds-table-cell>Starting</cds-table-cell>
+          <cds-table-cell>Test</cds-table-cell>
+          <cds-table-cell>22</cds-table-cell>
+        </cds-table-row>
+        <cds-table-row>
+          <cds-table-cell
+            >Load Balancer 2
+            <div>Austin, Tx</div></cds-table-cell
+          >
+          <cds-table-cell>DNS delegation</cds-table-cell>
+          <cds-table-cell>Active</cds-table-cell>
+          <cds-table-cell>Test</cds-table-cell>
+          <cds-table-cell>22</cds-table-cell>
+        </cds-table-row>
+        <cds-table-row>
+          <cds-table-cell
+            >Load Balancer 3
+            <div>Austin, Tx</div></cds-table-cell
+          >
+          <cds-table-cell>Round robin</cds-table-cell>
+          <cds-table-cell>Disabled</cds-table-cell>
+          <cds-table-cell>Test</cds-table-cell>
+          <cds-table-cell>22</cds-table-cell>
+        </cds-table-row>
+        <cds-table-row>
+          <cds-table-cell
+            >Load Balancer 4
+            <div>Austin, Tx</div></cds-table-cell
+          >
+          <cds-table-cell>Round robin</cds-table-cell>
+          <cds-table-cell>Disabled</cds-table-cell>
+          <cds-table-cell>Test</cds-table-cell>
+          <cds-table-cell>2</cds-table-cell>
+        </cds-table-row>
+        <cds-table-row>
+          <cds-table-cell
+            >Load Balancer 5
+            <div>Austin, Tx</div></cds-table-cell
+          >
+          <cds-table-cell>Round robin</cds-table-cell>
+          <cds-table-cell>Disabled</cds-table-cell>
+          <cds-table-cell>Test</cds-table-cell>
+          <cds-table-cell>22</cds-table-cell>
+        </cds-table-row>
+        <cds-table-row>
+          <cds-table-cell
+            >Load Balancer 6
+            <div>Austin, Tx</div></cds-table-cell
+          >
+          <cds-table-cell>Round robin</cds-table-cell>
+          <cds-table-cell>Disabled</cds-table-cell>
+          <cds-table-cell>Test</cds-table-cell>
+          <cds-table-cell>22</cds-table-cell>
+        </cds-table-row>
+        <cds-table-row>
+          <cds-table-cell
+            >Load Balancer 7
+            <div>Austin, Tx</div></cds-table-cell
+          >
+          <cds-table-cell>Round robin</cds-table-cell>
+          <cds-table-cell>Disabled</cds-table-cell>
+          <cds-table-cell>Test</cds-table-cell>
+          <cds-table-cell>22</cds-table-cell>
+        </cds-table-row>
+      </cds-table-body>
+    </cds-table>
+  `;
+};
+
+Default.storyName = 'DataTable/Basic/Default';
 
 Default.parameters = {
   knobs: {
     [`${prefix}-table`]: () => ({
       size: select('Table size (size)', sizes, null),
     }),
-    [`${prefix}-table-body`]: () => ({
-      colorScheme: select(
-        'Color scheme (color-scheme in `<cds-table-body>`)',
-        colorSchemes,
-        null
-      ),
-    }),
+    [`${prefix}-table-body`]: () => ({}),
   },
 };
 
@@ -662,7 +754,7 @@ export const expandable = (args) => {
           <cds-table-cell>Load Balancer 1</cds-table-cell>
           <cds-table-cell>HTTP</cds-table-cell>
           <cds-table-cell>80</cds-table-cell>
-          <cds-table-cell>Round Robin</cds-table-cell>
+          <cds-table-cell>Round robin</cds-table-cell>
           <cds-table-cell>Maureen's VM Groups</cds-table-cell>
           <cds-table-cell>Active</cds-table-cell>
         </cds-table-expand-row>
@@ -674,7 +766,7 @@ export const expandable = (args) => {
           <cds-table-cell>Load Balancer 2</cds-table-cell>
           <cds-table-cell>HTTP</cds-table-cell>
           <cds-table-cell>80</cds-table-cell>
-          <cds-table-cell>Round Robin</cds-table-cell>
+          <cds-table-cell>Round robin</cds-table-cell>
           <cds-table-cell>Maureen's VM Groups</cds-table-cell>
           <cds-table-cell>Active</cds-table-cell>
         </cds-table-expand-row>
@@ -686,7 +778,7 @@ export const expandable = (args) => {
           <cds-table-cell>Load Balancer 3</cds-table-cell>
           <cds-table-cell>HTTP</cds-table-cell>
           <cds-table-cell>80</cds-table-cell>
-          <cds-table-cell>Round Robin</cds-table-cell>
+          <cds-table-cell>Round robin</cds-table-cell>
           <cds-table-cell>Maureen's VM Groups</cds-table-cell>
           <cds-table-cell>Active</cds-table-cell>
         </cds-table-expand-row>
@@ -909,7 +1001,7 @@ skeleton.parameters = {
 };
 
 export default {
-  title: 'Components/Data table',
+  title: 'Components/Old data table',
   parameters: {
     ...storyDocs.parameters,
   },

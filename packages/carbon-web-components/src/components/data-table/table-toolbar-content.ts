@@ -18,16 +18,29 @@ import styles from './data-table.scss';
  * @element cds-table-toolbar-content
  */
 @customElement(`${prefix}-table-toolbar-content`)
-class BXTableToolbarContent extends LitElement {
+class CDSTableToolbarContent extends LitElement {
   /**
    * `true` if this batch actions bar is active.
    */
   @property({ type: Boolean, reflect: true, attribute: 'has-batch-actions' })
   hasBatchActions = false;
 
+  /**
+   * Table toolbar contents size
+   */
+  @property({ reflect: true })
+  size;
+
   updated(changedProperties) {
     if (changedProperties.has('hasBatchActions')) {
       this.setAttribute('tabindex', `${this.hasBatchActions ? '-1' : ''}`);
+    }
+
+    if (changedProperties.has('size')) {
+      console.log(this.size);
+      this.querySelector(
+        (this.constructor as typeof CDSTableToolbarContent).selectorButton
+      )?.setAttribute('size', this.size);
     }
   }
 
@@ -35,7 +48,14 @@ class BXTableToolbarContent extends LitElement {
     return html` <slot></slot> `;
   }
 
+  /**
+   * The CSS selector to find the button
+   */
+  static get selectorButton() {
+    return `${prefix}-button`;
+  }
+
   static styles = styles;
 }
 
-export default BXTableToolbarContent;
+export default CDSTableToolbarContent;

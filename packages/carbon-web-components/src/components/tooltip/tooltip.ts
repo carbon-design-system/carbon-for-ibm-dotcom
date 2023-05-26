@@ -55,6 +55,12 @@ class CDSTooltip extends HostListenerMixin(CDSPopover) {
   leaveDelayMs = 300;
 
   /**
+   * Specify whether the tooltip should be open when it first renders
+   */
+  @property({ reflect: true, attribute: 'toolbar-action', type: Boolean })
+  toolbarAction = false;
+
+  /**
    * Handles `mouseover` event on this element.
    */
   private _handleHover = async () => {
@@ -96,7 +102,6 @@ class CDSTooltip extends HostListenerMixin(CDSPopover) {
   /**
    * Handles `keydown` event on this element.
    * Space & enter will toggle state, Escape will only close.
-
    */
   @HostListener('click')
   // @ts-ignore: The decorator refers to this method but TS thinks this method is not referred to
@@ -115,6 +120,9 @@ class CDSTooltip extends HostListenerMixin(CDSPopover) {
       .filter(
         (node) => node.nodeType !== Node.TEXT_NODE || node!.textContent!.trim()
       );
+    if (!component[0]) {
+      return;
+    }
     (component[0] as HTMLElement).addEventListener('focus', this._handleHover);
     (component[0] as HTMLElement).addEventListener(
       'focusout',

@@ -1,16 +1,19 @@
 /**
  * @license
  *
- * Copyright IBM Corp. 2021
+ * Copyright IBM Corp. 2021, 2023
  *
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
  */
 
 import './table';
+import './table-header-title';
+import './table-header-description';
 import './table-batch-actions';
 import './table-body';
 import './table-cell';
+import './table-cell-content';
 import './table-cell-skeleton';
 import './table-expand-row';
 import './table-expanded-row';

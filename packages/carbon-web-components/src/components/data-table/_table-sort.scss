@@ -36,12 +36,6 @@
   padding-right: 0;
 }
 
-:host(#{$prefix}-table-header-cell[sort-direction]) .#{$prefix}--table-sort {
-  height: 100%;
-  padding-left: $spacing-04;
-  padding-right: $spacing-04;
-}
-
 :host(#{$prefix}-table-header-cell[sort-direction]:first-of-type)
   .#{$prefix}--table-sort {
   padding-left: $spacing-05;
