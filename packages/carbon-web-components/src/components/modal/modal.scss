@@ -87,10 +87,6 @@
   @media screen and (prefers-reduced-motion: reduce) {
     transition: none;
   }
-
-  .#{$prefix}--modal-container {
-    transform: translate3d(0, 0, 0);
-  }
 }
 
 :host(#{$prefix}-modal-header) {
