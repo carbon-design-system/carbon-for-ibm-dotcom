@@ -8,7 +8,8 @@
  */
 
 import { LitElement, html } from 'lit';
-import { customElement } from 'lit/decorators.js';
+import { customElement, property } from 'lit/decorators.js';
+import { classMap } from 'lit/directives/class-map.js';
 import { prefix } from '../../globals/settings';
 import styles from './data-table.scss';
 
@@ -19,6 +20,16 @@ import styles from './data-table.scss';
  */
 @customElement(`${prefix}-table-cell`)
 class BXTableCell extends LitElement {
+  @property({ type: Boolean, reflect: true })
+  disabled = false;
+
+  /**
+   * Specify whether the header should be sticky.
+   * Still experimental: may not work with every combination of table props
+   */
+  @property({ type: Boolean, reflect: true, attribute: 'sticky-header' })
+  stickyHeader = false;
+
   connectedCallback() {
     if (!this.hasAttribute('role')) {
       this.setAttribute('role', 'cell');
@@ -27,7 +38,22 @@ class BXTableCell extends LitElement {
   }
 
   render() {
-    return html` <slot></slot> `;
+    const { disabled, textContent } = this;
+
+    const statusText = ['Starting', 'Active', 'Disabled'];
+    const isStatus = statusText.some((word) => textContent?.includes(word));
+    const isDisabled = textContent!.includes('Disabled');
+    const cellClasses = classMap({
+      [`${prefix}--link`]: isStatus,
+      [`${prefix}--link--disabled`]: disabled || isDisabled,
+    });
+    return html`
+      ${isStatus
+        ? html` <div class="${cellClasses}">
+            <slot></slot>
+          </div>`
+        : html`<slot></slot>`}
+    `;
   }
 
   static styles = styles;

@@ -82,6 +82,12 @@ class CDSOverflowMenu
   disabled = false;
 
   /**
+   * `true` if this overflow menu body should be flipped.
+   */
+  @property({ type: Boolean, reflect: true })
+  flipped = false;
+
+  /**
    * `true` if the dropdown should be open.
    */
   @property({ type: Boolean, reflect: true })
@@ -98,6 +104,12 @@ class CDSOverflowMenu
    */
   @property({ reflect: true })
   size = OVERFLOW_MENU_SIZE.MEDIUM;
+
+  /**
+   * `true` if this menu is a toolbar action
+   */
+  @property({ type: Boolean, attribute: 'toolbar-action', reflect: true })
+  toolbarAction = false;
 
   /**
    * @returns The position of the trigger button in the viewport.
@@ -143,6 +155,15 @@ class CDSOverflowMenu
         this.setAttribute('aria-expanded', String(Boolean(open)));
       }
     }
+
+    if (changedProperties.has('flipped')) {
+      (
+        this.querySelector(
+          `${prefix}-overflow-menu-body`
+        ) as CDSOverflowMenuBody
+      ).flipped = true;
+    }
+
     if (changedProperties.has('size')) {
       const { size } = this;
       const { _menuBody: menuBody } = this;
@@ -156,6 +177,12 @@ class CDSOverflowMenu
         }
       });
       button?.classList.add(`${prefix}--overflow-menu--${this.size}`);
+    }
+
+    if (changedProperties.has('toolbarAction') && this.toolbarAction) {
+      this.shadowRoot
+        ?.querySelector(`${prefix}-tooltip`)
+        ?.setAttribute('toolbar-action', '');
     }
 
     super.updated(changedProperties);

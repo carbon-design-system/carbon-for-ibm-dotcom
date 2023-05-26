@@ -28,6 +28,66 @@
     width: 100%;
     display: table-row-group;
   }
+
+  &[use-static-width] {
+    width: auto;
+  }
+
+  &[sticky-header] {
+    // @extend .#{$prefix}--data-table--sticky-header;
+
+    ::slotted(#{$prefix}-table-head),
+    ::slotted(#{$prefix}-table-body) {
+      display: flex;
+      flex-direction: column;
+      // overflow-x: scroll;
+      will-change: transform;
+    }
+
+    .#{$prefix}--data-table-content {
+      display: block;
+      overflow-y: scroll;
+    }
+  }
+
+  &[with-header] {
+    .#{$prefix}--data-table-header {
+      display: table-caption;
+    }
+  }
+}
+
+:host(#{$prefix}-table-head) {
+  &[sticky-header] {
+    position: sticky;
+    z-index: 1;
+    top: 0;
+    width: 100%;
+    will-change: transform;
+
+    ::slotted(#{$prefix}-table-header-row) {
+      display: flex;
+      width: 100%;
+    }
+  }
+}
+
+:host(#{$prefix}-table-header-cell) {
+  &[sort-direction] {
+    height: 3rem;
+    position: relative;
+  }
+
+  &[sticky-header] {
+    width: 100%;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+
+    &:not([is-sortable]) {
+      padding-top: rem(14px);
+    }
+  }
 }
 
 //
@@ -81,18 +141,13 @@
     outline: none;
   }
 
-  ::slotted(#{$prefix}-table-header-cell:last-of-type),
-  ::slotted(#{$prefix}-table-header-cell-skeleton:last-of-type) {
-    position: relative;
-    width: auto;
-  }
-
   ::slotted(#{$prefix}-table-header-cell),
   ::slotted(#{$prefix}-table-header-cell-skeleton),
   .#{$prefix}--table-expand,
   .#{$prefix}--table-column-checkbox {
-    padding-left: $spacing-04;
-    padding-right: $spacing-04;
+    padding-left: $spacing-05;
+    padding-right: $spacing-05;
+    text-align: left;
     vertical-align: middle;
   }
 }
@@ -101,6 +156,46 @@
   ::slotted(#{$prefix}-table-header-cell:first-of-type),
   ::slotted(#{$prefix}-table-header-cell-skeleton:first-of-type) {
     padding-left: $spacing-05;
+  }
+
+  &:not([batch-expansion]) {
+    .#{$prefix}--table-expand__button {
+      display: none;
+    }
+  }
+
+  &[selection-name] {
+    .#{$prefix}--table-expand {
+      display: table-cell;
+    }
+  }
+
+  &[sticky-header] {
+    #{$prefix}-checkbox {
+      margin: 0;
+      padding-top: rem(12px);
+    }
+  }
+}
+
+:host(#{$prefix}-table-header-row),
+:host(#{$prefix}-table-row) {
+  &[expandable],
+  &[selection-name] {
+    .#{$prefix}--table-expand {
+      height: $spacing-07;
+      width: $spacing-07;
+
+      padding: $spacing-03;
+      padding-right: 0;
+    }
+  }
+
+  &[expanded] {
+    transition: transform $duration-moderate-01 motion(standard, productive);
+    .#{$prefix}--table-expand__svg {
+      transform: rotate(270deg);
+    }
   }
 }
 
@@ -117,23 +212,61 @@
     display: table-row;
     outline: none;
   }
+
+  &[sticky-header] {
+    ::slotted(#{$prefix}-table-row),
+    ::slotted(#{$prefix}-table-expand-row) {
+      display: flex;
+    }
+  }
 }
 
 //
 // Table cell
 //
 
+:host(#{$prefix}-table-cell) {
+  border-top: 1px solid $layer-01;
+  border-bottom: 1px solid $border-subtle;
+  padding: 0 $spacing-05;
+
+  ::slotted(#{$prefix}-overflow-menu:hover) {
+    background-color: $layer-selected-hover;
+  }
+}
+
+:host(#{$prefix}-table-cell-content) {
+  @include type-style('label-01');
+  display: block;
+}
+
 :host(#{$prefix}-table-row),
 :host(#{$prefix}-table-expand-row) {
+  &[sticky-header] {
+    ::slotted(#{$prefix}-table-cell),
+    ::slotted(#{$prefix}-table-cell-skeleton) {
+      width: 100%;
+      padding-top: rem(14px);
+    }
+
+    #{$prefix}-radio-button,
+    #{$prefix}-checkbox {
+      margin: 0;
+      padding-top: rem(12px);
+    }
+  }
+
+  &[size='xl'] {
+    ::slotted(#{$prefix}-table-cell),
+    ::slotted(#{$prefix}-table-cell-skeleton) {
+      vertical-align: top;
+    }
+  }
   ::slotted(#{$prefix}-table-cell),
   ::slotted(#{$prefix}-table-cell-skeleton),
   .#{$prefix}--table-expand,
   .#{$prefix}--table-column-checkbox {
     color: $text-secondary;
-    border-top: 1px solid $layer-01;
-    border-bottom: 1px solid $border-subtle-01;
-    padding: rem(14px) $spacing-04;
-    padding-bottom: rem(13px);
     vertical-align: middle;
   }
 }
@@ -148,29 +281,99 @@
   ::slotted(#{$prefix}-table-cell-skeleton:last-of-type) {
     padding-right: $spacing-05;
   }
-}
 
-:host(#{$prefix}-table-row[even]) {
-  ::slotted(#{$prefix}-table-cell),
-  ::slotted(#{$prefix}-table-cell-skeleton) {
-    border-bottom: 1px solid $layer-01;
+  &[expandable],
+  &[selection-name] {
+    .#{$prefix}--table-expand {
+      display: table-cell;
+      border-top: 1px solid $layer-01;
+      border-bottom: 1px solid $border-subtle;
+      padding-right: 0;
+      transition: transform $duration-moderate-01 motion(standard, productive);
+    }
+
+    &[expandable] {
+      &[expanded] {
+        .#{$prefix}--table-expand__svg {
+          transform: rotate(270deg);
+        }
+
+        &,
+        &:hover,
+        &[highlighted] {
+          .#{$prefix}--table-expand {
+            border-bottom-color: transparent;
+          }
+        }
+
+        &[selected] {
+          ::slotted(#{$prefix}-table-cell),
+          .#{$prefix}--table-expand,
+          #{$prefix}-checkbox,
+          #{$prefix}-radio-button {
+            background-color: $layer-selected;
+
+            border-top-color: $layer-active;
+            border-bottom-color: $border-subtle;
+          }
+
+          &[highlighted],
+          &:hover {
+            ::slotted(#{$prefix}-table-cell),
+            .#{$prefix}--table-expand,
+            #{$prefix}-checkbox,
+            #{$prefix}-radio-button {
+              background-color: $layer-selected-hover;
+            }
+          }
+        }
+      }
+
+      &[selected] {
+        ::slotted(#{$prefix}-table-cell),
+        .#{$prefix}--table-expand,
+        #{$prefix}-checkbox,
+        #{$prefix}-radio-button {
+          border-bottom-color: $border-subtle;
+        }
+      }
+
+      &[highlighted],
+      &:hover {
+        ::slotted(#{$prefix}-table-cell),
+        .#{$prefix}--table-expand,
+        #{$prefix}-checkbox,
+        #{$prefix}-radio-button {
+          border-bottom-color: $border-subtle;
+        }
+      }
+    }
+  }
+
+  &[odd] {
+    .#{$prefix}--table-expand,
+    #{$prefix}-checkbox,
+    #{$prefix}-radio-button,
+    ::slotted(#{$prefix}-table-cell),
+    ::slotted(#{$prefix}-table-cell-skeleton) {
+      border-bottom: 1px solid $layer-01;
+    }
+  }
+
+  &[even] {
+    .#{$prefix}--table-expand,
+    #{$prefix}-checkbox,
+    #{$prefix}-radio-button,
+    ::slotted(#{$prefix}-table-cell),
+    ::slotted(#{$prefix}-table-cell-skeleton) {
+      background-color: $layer-accent-01;
+      border-bottom: 1px solid $layer-accent-01;
+      border-top: 1px solid $layer-accent-01;
+    }
   }
 }
 
-:host(#{$prefix}-table-row[odd]) {
-  ::slotted(#{$prefix}-table-cell),
-  ::slotted(#{$prefix}-table-cell-skeleton) {
-    background-color: $layer-accent-01;
-    border-bottom: 1px solid $layer-accent-01;
-    border-top: 1px solid $layer-accent-01;
-
-    // TODO: confirm if this token is deprecated
-    // background-color: $data-table-zebra-color;
-    // border-bottom: 1px solid $data-table-zebra-color;
-    // border-top: 1px solid $data-table-zebra-color;
-  }
-}
-
+:host(#{$prefix}-table-row[highlighted]),
 :host(#{$prefix}-table-row:hover),
 :host(#{$prefix}-table-expand-row:hover) {
   ::slotted(#{$prefix}-table-cell),
@@ -184,12 +387,36 @@
   }
 }
 
+:host(#{$prefix}-table-row[highlighted]),
 :host(#{$prefix}-table-row[even]:hover),
 :host(#{$prefix}-table-row[odd]:hover) {
+  .#{$prefix}--table-expand,
+  #{$prefix}-checkbox,
+  #{$prefix}-radio-button,
   ::slotted(#{$prefix}-table-cell),
   ::slotted(#{$prefix}-table-cell-skeleton) {
     background-color: $background-hover;
     border-bottom: 1px solid $layer-hover-01;
     border-top: 1px solid $layer-hover-01;
+  }
+}
+
+:host(#{$prefix}-table-header-title) {
+  @extend .#{$prefix}--data-table-header__title;
+
+  display: block;
+}
+
+:host(#{$prefix}-table-header-description) {
+  @extend .#{$prefix}--data-table-header__description;
+
+  display: block;
+
+  @include breakpoint(md) {
+    max-width: 50ch;
+  }
+
+  @include breakpoint(lg) {
+    max-width: 80ch;
   }
 }

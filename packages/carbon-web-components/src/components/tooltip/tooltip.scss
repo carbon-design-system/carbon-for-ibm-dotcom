@@ -11,6 +11,15 @@
 @use '../popover/popover';
 @use '@carbon/styles/scss/components/tooltip';
 
+// For some reason `#{prefix}-tooltip` doesn't work here, will continue to investigate
+:host(cds-tooltip) {
+  &[toolbar-action] {
+    ::slotted(button) {
+      outline: none !important;
+    }
+  }
+}
+
 :host(#{prefix}-tooltip-content) {
   ::slotted(.#{$prefix}-tooltip-content) {
     @extend .#{$prefix}--tooltip-content;

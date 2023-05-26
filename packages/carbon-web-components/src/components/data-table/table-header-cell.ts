@@ -9,8 +9,8 @@
 
 import { LitElement, html } from 'lit';
 import { property, customElement } from 'lit/decorators.js';
-import ArrowsVeritcal16 from '@carbon/icons/lib/arrows--vertical/16';
-import ArrowDown16 from '@carbon/icons/lib/arrow--down/16';
+import ArrowsVertical32 from '@carbon/icons/lib/arrows--vertical/16';
+import ArrowDown32 from '@carbon/icons/lib/arrow--down/32';
 import { prefix } from '../../globals/settings';
 import FocusMixin from '../../globals/mixins/focus';
 import {
@@ -94,6 +94,12 @@ class BXTableHeaderCell extends FocusMixin(LitElement) {
   }
 
   /**
+   * `true` if this table header column should be sortable
+   */
+  @property({ type: Boolean, reflect: true, attribute: 'is-sortable' })
+  isSortable = false;
+
+  /**
    * `true` if this table header cell is of a primary sorting column.
    */
   @property({ type: Boolean, reflect: true, attribute: 'sort-active' })
@@ -112,6 +118,13 @@ class BXTableHeaderCell extends FocusMixin(LitElement) {
   @property({ reflect: true, attribute: 'sort-direction' })
   sortDirection?: TABLE_SORT_DIRECTION;
 
+  /**
+   * Specify whether the header should be sticky.
+   * Still experimental: may not work with every combination of table props
+   */
+  @property({ type: Boolean, reflect: true, attribute: 'sticky-header' })
+  stickyHeader = false;
+
   connectedCallback() {
     if (!this.hasAttribute('role')) {
       this.setAttribute('role', 'columnheader');
@@ -119,16 +132,22 @@ class BXTableHeaderCell extends FocusMixin(LitElement) {
     super.connectedCallback();
   }
 
+  updated(changedProperties) {
+    if (this.isSortable && !changedProperties.has('sortDirection')) {
+      this.sortDirection = TABLE_SORT_DIRECTION.NONE;
+    }
+  }
+
   render() {
     const { sortDirection } = this;
     if (sortDirection) {
       const sortIcon =
         sortDirection === TABLE_SORT_DIRECTION.NONE
-          ? ArrowsVeritcal16({
+          ? ArrowsVertical32({
               part: 'sort-icon',
               class: `${prefix}--table-sort__icon-unsorted`,
             })
-          : ArrowDown16({
+          : ArrowDown32({
               part: 'sort-icon',
               class: `${prefix}--table-sort__icon`,
             });
