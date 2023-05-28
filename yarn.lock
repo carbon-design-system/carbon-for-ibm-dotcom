@@ -2091,7 +2091,7 @@ __metadata:
     "@carbon/ibmdotcom-styles": 1.47.0
     "@carbon/ibmdotcom-utilities": 1.47.0
     "@carbon/icons-react": 10.49.0
-    "@carbon/pictograms-react": 11.42.0
+    "@carbon/pictograms-react": 11.43.0
     "@carbon/storybook-addon-theme": 1.38.0
     "@carbon/telemetry": ^0.1.0
     "@percy-io/in-percy": ^0.1.11
@@ -2529,10 +2529,17 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@carbon/icon-helpers@npm:10.39.0, @carbon/icon-helpers@npm:^10.28.0, @carbon/icon-helpers@npm:^10.39.0":
+"@carbon/icon-helpers@npm:10.39.0, @carbon/icon-helpers@npm:^10.28.0":
   version: 10.39.0
   resolution: "@carbon/icon-helpers@npm:10.39.0"
   checksum: b99ed8f595045ca1d6cb41181dfc731e79aa8bc372af4613728d6edc15421ac8d692dc5947c2e56a6fc039c43ae5771e7228edefac6d157f22f99f354e650940
+  languageName: node
+  linkType: hard
+
+"@carbon/icon-helpers@npm:^10.40.0":
+  version: 10.40.0
+  resolution: "@carbon/icon-helpers@npm:10.40.0"
+  checksum: d45ef09d571cad2618eb5e4530b5360a9cc4ee688acfd13bda69ab4c982f7d5d146340bdcb7d40c8ce9f505c215cc0128e1018f8fca36ac9a1f823484749d281
   languageName: node
   linkType: hard
 
@@ -2584,16 +2591,16 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@carbon/pictograms-react@npm:11.42.0":
-  version: 11.42.0
-  resolution: "@carbon/pictograms-react@npm:11.42.0"
+"@carbon/pictograms-react@npm:11.43.0":
+  version: 11.43.0
+  resolution: "@carbon/pictograms-react@npm:11.43.0"
   dependencies:
-    "@carbon/icon-helpers": ^10.39.0
+    "@carbon/icon-helpers": ^10.40.0
     "@carbon/telemetry": 0.1.0
     prop-types: ^15.7.2
   peerDependencies:
     react: ">=16"
-  checksum: b2c2b1236633bc98023c4a1b55a914a6ea1ebac96e878fd50a1812304eff47b54e0b61d14341e860608d25960010a13fd7765b115cfcdb553e95fcdb4752dcc8
+  checksum: fd3948c694cf9766593b80c424e00a5c0eecf84d1230b4fb9ff0245d25a64d1bdd9e530bbe7f6d7398f621831e821ed75e87761e0e253499c61e815dbb602812
   languageName: node
   linkType: hard
 
