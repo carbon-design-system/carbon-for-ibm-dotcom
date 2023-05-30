@@ -337,23 +337,16 @@ class CDSCodeSnippet extends FocusMixin(LitElement) {
       _shouldShowMoreLessBtn: shouldShowMoreLessBtn,
     } = this;
 
-    const classes = {
-      [`${prefix}--snippet`]: true,
-      [`${prefix}--snippet--${type}`]: type,
-      [`${prefix}--snippet--disabled`]: type !== 'inline' && disabled,
-      [`${prefix}--snippet--no-copy`]: hideCopyButton,
-      [`${prefix}--snippet--wraptext`]: wrapText,
-      [`${prefix}--snippet--has-right-overflow`]:
-        type == 'multi' && hasRightOverflow,
-    };
+    let classes = `${prefix}--snippet`;
+    type ? classes += ` ${prefix}--snippet--${type}` : '';
+    type !== 'inline' && disabled ? classes += ` ${prefix}--snippet--disabled` : '';
+    hideCopyButton ? classes += ` ${prefix}--snippet--no-copy` : '';
+    wrapText ? classes += ` ${prefix}--snippet--wraptext` : '';
+    type == 'multi' && hasRightOverflow ? classes += ` ${prefix}--snippet--has-right-overflow` : '';
 
-    const expandButtonClass = {
-      [`${prefix}--snippet-btn--expand`]: true,
-    };
+    const expandButtonClass = `${prefix}--snippet-btn--expand`;
 
-    const disabledCopyButtonClasses = {
-      [`${prefix}--snippet--disabled`]: disabled,
-    };
+    const disabledCopyButtonClasses = disabled ? `${prefix}--snippet--disabled` : '';
 
     const expandCodeBtnText = expandedCode ? showLessText : showMoreText;
 
@@ -361,7 +354,7 @@ class CDSCodeSnippet extends FocusMixin(LitElement) {
       // Ensures no extra whitespace text node
       // prettier-ignore
       return html`
-        <cds-copy .buttonClasses="${classes}" @click="${handlCopyClick}">
+        <cds-copy class-name="${classes}" @click="${handlCopyClick}">
           <code slot="icon"><slot></slot></code>
           <span slot="tooltip-content"><slot name="button-description"></slot> </span>
         </cds-copy>
@@ -431,7 +424,7 @@ class CDSCodeSnippet extends FocusMixin(LitElement) {
         : html`
             <cds-copy-button
               ?disabled=${disabled}
-              .buttonClasses=${disabledCopyButtonClasses}
+              class-name=${disabledCopyButtonClasses}
               feedback=${feedback}
               feedback-timeout=${feedbackTimeout}
               @click="${handlCopyClick}">
@@ -443,7 +436,7 @@ class CDSCodeSnippet extends FocusMixin(LitElement) {
             <cds-button
               kind="ghost"
               size="sm"
-              .buttonClasses=${expandButtonClass}
+              class-name=${expandButtonClass}
               ?disabled=${disabled}
               @click=${() => this._handleClickExpanded()}>
               <span class="${prefix}--snippet-btn--text">

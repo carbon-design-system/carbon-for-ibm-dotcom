@@ -76,7 +76,7 @@ class CDSButton extends HostListenerMixin(FocusMixin(LitElement)) {
   @HostListener('mouseover')
   // @ts-ignore: The decorator refers to this method but TS thinks this method is not referred to
   private _handleOver = () => {
-    this.openTooltip = !this.openTooltip;
+    this.openTooltip = true;
   };
 
   /**
@@ -85,7 +85,7 @@ class CDSButton extends HostListenerMixin(FocusMixin(LitElement)) {
   @HostListener('mouseout')
   // @ts-ignore: The decorator refers to this method but TS thinks this method is not referred to
   private _handleHoverOut = async () => {
-    this.openTooltip = !this.openTooltip;
+    this.openTooltip = false;
   };
 
   /**
@@ -95,7 +95,7 @@ class CDSButton extends HostListenerMixin(FocusMixin(LitElement)) {
   @HostListener('focus')
   // @ts-ignore: The decorator refers to this method but TS thinks this method is not referred to
   private _handleFocus = async (event) => {
-    this._handleOver();
+    this.openTooltip = true;
   };
 
   /**
@@ -105,7 +105,7 @@ class CDSButton extends HostListenerMixin(FocusMixin(LitElement)) {
   @HostListener('focusout')
   // @ts-ignore: The decorator refers to this method but TS thinks this method is not referred to
   private _handleFocusout = async (event) => {
-    this._handleOver();
+    this.openTooltip = false;
   };
 
   /**
@@ -115,10 +115,10 @@ class CDSButton extends HostListenerMixin(FocusMixin(LitElement)) {
   autofocus = false;
 
   /**
-   * Object for additional classes to be added to button.
+   * Specify an optional className to be added to your Button
    */
-  @property({ attribute: false })
-  buttonClasses = {};
+  @property({ reflect: true, attribute: 'class-name' })
+  className;
 
   /**
    * Specify the message read by screen readers for the danger button variant
@@ -235,7 +235,7 @@ class CDSButton extends HostListenerMixin(FocusMixin(LitElement)) {
   render() {
     const {
       autofocus,
-      buttonClasses,
+      className,
       dangerDescriptor,
       disabled,
       download,
@@ -258,7 +258,8 @@ class CDSButton extends HostListenerMixin(FocusMixin(LitElement)) {
       _hasMainContent: hasMainContent,
       _handleSlotChange: handleSlotChange,
     } = this;
-    const classes = classMap({
+
+    let defaultClasses = {
       [`${prefix}--btn`]: true,
       [`${prefix}--btn--${kind}`]: kind,
       [`${prefix}--btn--disabled`]: disabled,
@@ -267,8 +268,16 @@ class CDSButton extends HostListenerMixin(FocusMixin(LitElement)) {
       [`${prefix}-ce--btn--has-icon`]: hasIcon,
       [`${prefix}--btn--expressive`]: isExpressive,
       [`${prefix}--btn--selected`]: isSelected && kind === 'ghost',
-      ...buttonClasses,
-    });
+    };
+
+    if (className) {
+      const outputObject = {};
+      className?.split(' ').forEach((element) => {
+        outputObject[element] = true;
+      });
+      defaultClasses = outputObject;
+    }
+    const classes = classMap(defaultClasses);
 
     const isDanger = kind.includes('danger');
 
@@ -316,7 +325,7 @@ class CDSButton extends HostListenerMixin(FocusMixin(LitElement)) {
       [`${prefix}--popover--${tooltipPosition}${alignmentClass}`]: tooltipText,
     });
 
-    return tooltipText
+    return tooltipText && !disabled
       ? html`
           <span class="${tooltipClasses}">
             <button
