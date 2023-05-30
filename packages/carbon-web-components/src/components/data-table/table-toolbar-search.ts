@@ -24,7 +24,7 @@ import styles from './data-table.scss';
  * @fires cds-search-input - The custom event fired after the search content is changed upon a user gesture.
  */
 @customElement(`${prefix}-table-toolbar-search`)
-class BXTableToolbarSearch extends HostListenerMixin(CDSSearch) {
+class CDSTableToolbarSearch extends HostListenerMixin(CDSSearch) {
   @query('input')
   private _inputNode!: HTMLInputElement;
 
@@ -134,4 +134,4 @@ class BXTableToolbarSearch extends HostListenerMixin(CDSSearch) {
   static styles = styles;
 }
 
-export default BXTableToolbarSearch;
+export default CDSTableToolbarSearch;

@@ -19,7 +19,7 @@ import styles from './data-table.scss';
  * @element cds-table-cell
  */
 @customElement(`${prefix}-table-cell`)
-class BXTableCell extends LitElement {
+class CDSTableCell extends LitElement {
   @property({ type: Boolean, reflect: true })
   disabled = false;
 
@@ -59,4 +59,4 @@ class BXTableCell extends LitElement {
   static styles = styles;
 }
 
-export default BXTableCell;
+export default CDSTableCell;

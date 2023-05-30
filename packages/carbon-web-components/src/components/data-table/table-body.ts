@@ -10,7 +10,7 @@
 import { LitElement, html } from 'lit';
 import { property, customElement, query } from 'lit/decorators.js';
 import { prefix } from '../../globals/settings';
-import BXTableRow from './table-row';
+import CDSTableRow from './table-row';
 import styles from './data-table.scss';
 
 /**
@@ -19,7 +19,7 @@ import styles from './data-table.scss';
  * @element cds-table-body
  */
 @customElement(`${prefix}-table-body`)
-class BXTableBody extends LitElement {
+class CDSTableBody extends LitElement {
   /**
    * The `<slot>` element in the shadow DOM.
    */
@@ -34,8 +34,8 @@ class BXTableBody extends LitElement {
     slotNode.assignedNodes().forEach((node) => {
       if (node.nodeType === Node.ELEMENT_NODE) {
         const even = (node as HTMLElement).matches('*:nth-of-type(even)');
-        (node as BXTableRow).even = useZebraStyles && even;
-        (node as BXTableRow).odd = useZebraStyles && !even;
+        (node as CDSTableRow).even = useZebraStyles && even;
+        (node as CDSTableRow).odd = useZebraStyles && !even;
       }
     });
   }
@@ -81,4 +81,4 @@ class BXTableBody extends LitElement {
   static styles = styles;
 }
 
-export default BXTableBody;
+export default CDSTableBody;

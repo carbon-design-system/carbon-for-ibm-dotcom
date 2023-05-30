@@ -18,7 +18,7 @@ import styles from './data-table.scss';
  * @element cds-table-header-description
  */
 @customElement(`${prefix}-table-header-description`)
-class BXTableHeaderDescription extends LitElement {
+class CDSTableHeaderDescription extends LitElement {
   render() {
     return html` <slot></slot> `;
   }
@@ -26,4 +26,4 @@ class BXTableHeaderDescription extends LitElement {
   static styles = styles;
 }
 
-export default BXTableHeaderDescription;
+export default CDSTableHeaderDescription;

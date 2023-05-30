@@ -18,7 +18,7 @@ import styles from './data-table.scss';
  * @element cds-table-head
  */
 @customElement(`${prefix}-table-head`)
-class BXTableHead extends LitElement {
+class CDSTableHead extends LitElement {
   /**
    * Specify whether the header should be sticky.
    * Still experimental: may not work with every combination of table props
@@ -40,4 +40,4 @@ class BXTableHead extends LitElement {
   static styles = styles;
 }
 
-export default BXTableHead;
+export default CDSTableHead;

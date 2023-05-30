@@ -16,7 +16,7 @@ import styles from './data-table.scss';
 
 import HostListener from '../../globals/decorators/host-listener';
 import HostListenerMixin from '../../globals/mixins/host-listener';
-import BXTableExpandedRow from './table-expanded-row';
+import CDSTableExpandedRow from './table-expanded-row';
 
 /**
  * Data table row.
@@ -58,7 +58,7 @@ class CDSTableRow extends HostListenerMixin(FocusMixin(LitElement)) {
       const { selectorExpandedRow } = this.constructor as typeof CDSTableRow;
 
       if (this.nextElementSibling?.matches(selectorExpandedRow)) {
-        (this.nextElementSibling as BXTableExpandedRow).selected = selected;
+        (this.nextElementSibling as CDSTableExpandedRow).selected = selected;
       }
     }
   }
@@ -91,7 +91,7 @@ class CDSTableRow extends HostListenerMixin(FocusMixin(LitElement)) {
       const { selectorExpandedRow } = this.constructor as typeof CDSTableRow;
 
       if (this.nextElementSibling?.matches(selectorExpandedRow)) {
-        (this.nextElementSibling as BXTableExpandedRow).selected = selected;
+        (this.nextElementSibling as CDSTableExpandedRow).selected = selected;
       }
     }
   }
@@ -115,7 +115,7 @@ class CDSTableRow extends HostListenerMixin(FocusMixin(LitElement)) {
     const { selectorExpandedRow } = this.constructor as typeof CDSTableRow;
     const { nextElementSibling } = this;
     if (nextElementSibling?.matches(selectorExpandedRow)) {
-      (nextElementSibling as BXTableExpandedRow).highlighted =
+      (nextElementSibling as CDSTableExpandedRow).highlighted =
         event.type === 'mouseover';
     }
   }
@@ -125,7 +125,7 @@ class CDSTableRow extends HostListenerMixin(FocusMixin(LitElement)) {
    *
    * @param expanded The new expanded state.
    */
-  private _handleUserInitiatedToggleExpando(expanded = !this.expanded) {
+  _handleUserInitiatedToggleExpando(expanded = !this.expanded) {
     const init = {
       bubbles: true,
       cancelable: true,
@@ -312,7 +312,7 @@ class CDSTableRow extends HostListenerMixin(FocusMixin(LitElement)) {
       const { selectorExpandedRow } = this.constructor as typeof CDSTableRow;
       const { expanded, nextElementSibling } = this;
       if (nextElementSibling?.matches(selectorExpandedRow)) {
-        (nextElementSibling as BXTableExpandedRow).expanded = expanded;
+        (nextElementSibling as CDSTableExpandedRow).expanded = expanded;
       }
     }
 
@@ -320,7 +320,7 @@ class CDSTableRow extends HostListenerMixin(FocusMixin(LitElement)) {
       const { selectorExpandedRow } = this.constructor as typeof CDSTableRow;
       const { highlighted, nextElementSibling } = this;
       if (nextElementSibling?.matches(selectorExpandedRow)) {
-        (nextElementSibling as BXTableExpandedRow).highlighted = highlighted;
+        (nextElementSibling as CDSTableExpandedRow).highlighted = highlighted;
       }
     }
   }
