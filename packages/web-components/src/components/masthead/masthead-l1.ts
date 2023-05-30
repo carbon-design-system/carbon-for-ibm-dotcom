@@ -759,10 +759,11 @@ class DDSMastheadL1 extends StableSelectorMixin(LitElement) {
         `
       : html` ${heading.title} `;
 
-      const headingClasses = classMap({ 
-        [`${prefix}--masthead__l1-dropdown-heading`]: true, 
-        [`${prefix}--masthead__l1-dropdown-heading--no-link`]: Boolean(heading.url) === false, 
-      });
+    const headingClasses = classMap({
+      [`${prefix}--masthead__l1-dropdown-heading`]: true,
+      [`${prefix}--masthead__l1-dropdown-heading--no-link`]:
+        Boolean(heading.url) === false,
+    });
 
     let renderedHeading = headingContent;
     switch (heading.headingLevel) {
