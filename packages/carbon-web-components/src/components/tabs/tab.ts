@@ -20,7 +20,7 @@ import styles from './tabs.scss';
  * @element cds-tab
  */
 @customElement(`${prefix}-tab`)
-class BXTab extends CDSContentSwitcherItem {
+export default class CDSTab extends CDSContentSwitcherItem {
   /**
    * `true` if this tab should be highlighted.
    * If `true`, parent `<cds-tabs>` selects/deselects this tab upon keyboard interaction.
@@ -60,5 +60,3 @@ class BXTab extends CDSContentSwitcherItem {
 
   static styles = styles;
 }
-
-export default BXTab;
