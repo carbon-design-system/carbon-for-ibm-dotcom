@@ -406,7 +406,10 @@ class DDSMastheadL1 extends StableSelectorMixin(LitElement) {
     });
 
     return html`
-      <li @focusout=${handleDropdownClose} @keydown=${handleDropdownClose}>
+      <li
+        @focusout=${handleDropdownClose}
+        @keydown=${handleDropdownClose}
+        tabindex="-1">
         <button
           class="${prefix}--masthead__l1-item"
           @click=${toggleSubsection}
