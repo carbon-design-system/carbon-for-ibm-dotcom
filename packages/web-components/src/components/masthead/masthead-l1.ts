@@ -402,7 +402,10 @@ class DDSMastheadL1 extends StableSelectorMixin(LitElement) {
     const normalColumns = menuSections.filter((section) => !(section.span > 1));
 
     return html`
-      <li @focusout=${handleDropdownClose} @keydown=${handleDropdownClose}>
+      <li
+        @focusout=${handleDropdownClose}
+        @keydown=${handleDropdownClose}
+        tabindex="-1">
         <button
           class="${prefix}--masthead__l1-item"
           @click=${toggleSubsection}
