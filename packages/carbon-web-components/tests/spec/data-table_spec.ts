@@ -16,7 +16,6 @@ import CDSTableHeaderCell, {
   TABLE_SORT_DIRECTION,
 } from '../../src/components/data-table/table-header-cell';
 import CDSTableRow from '../../src/components/data-table/table-row';
-import CDSTableExpandRow from '../../src/components/data-table/table-expand-row';
 import CDSTableExpandedRow from '../../src/components/data-table/table-expanded-row';
 import CDSTableToolbarSearch from '../../src/components/data-table/table-toolbar-search';
 import { Playground } from '../../src/components/data-table/stories/data-table-basic-story';
@@ -61,13 +60,13 @@ const expandRowTemplate = (props?) => {
     selectionValue,
   } = props ?? {};
   return html`
-    <cds-table-expand-row
+    <cds-table-row
       ?disabled="${disabled}"
       ?expanded="${expanded}"
       ?selected="${selected}"
       selection-name="${ifDefined(selectionName)}"
       selection-label="${ifDefined(selectionLabel)}"
-      selection-value="${ifDefined(selectionValue)}"></cds-table-expand-row>
+      selection-value="${ifDefined(selectionValue)}"></cds-table-row>
     <cds-table-expanded-row></cds-table-expanded-row>
   `;
 };
@@ -430,13 +429,13 @@ describe('data-table', function () {
     });
   });
 
-  describe('cds-table-expand-row', function () {
+  describe('cds-table-row', function () {
     describe('Misc attributes', function () {
       it('should render with minimum attributes', async function () {
         render(expandRowTemplate(), document.body);
         await Promise.resolve();
         expect(
-          document.body.querySelector('cds-table-expand-row' as any)
+          document.body.querySelector('cds-table-row' as any)
         ).toMatchSnapshot({ mode: 'shadow' });
       });
 
@@ -454,7 +453,7 @@ describe('data-table', function () {
         );
         await Promise.resolve();
         expect(
-          document.body.querySelector('cds-table-expand-row' as any)
+          document.body.querySelector('cds-table-row' as any)
         ).toMatchSnapshot({ mode: 'shadow' });
       });
     });
@@ -464,20 +463,20 @@ describe('data-table', function () {
         render(expandRowTemplate(), document.body);
         await Promise.resolve();
 
-        const expandRow = document.body.querySelector('cds-table-expand-row');
+        const expandRow = document.body.querySelector('cds-table-row');
         const expandedRow = document.body.querySelector(
           'cds-table-expanded-row'
         );
 
         expandRow!.shadowRoot!.querySelector('button')!.click();
         await Promise.resolve();
-        expect((expandRow as CDSTableExpandRow).expanded).toBe(true);
+        expect((expandRow as CDSTableRow).expanded).toBe(true);
         await Promise.resolve();
         expect((expandedRow as CDSTableExpandedRow).expanded).toBe(true);
 
         expandRow!.shadowRoot!.querySelector('button')!.click();
         await Promise.resolve();
-        expect((expandRow as CDSTableExpandRow).expanded).toBe(false);
+        expect((expandRow as CDSTableRow).expanded).toBe(false);
         await Promise.resolve();
         expect((expandedRow as CDSTableExpandedRow).expanded).toBe(false);
       });
@@ -487,7 +486,7 @@ describe('data-table', function () {
         const spyAfterToggle = jasmine.createSpy('after toggle');
         render(expandRowTemplate(), document.body);
         await Promise.resolve();
-        const expandRow = document.body.querySelector('cds-table-expand-row');
+        const expandRow = document.body.querySelector('cds-table-row');
         events.on(
           expandRow!,
           'cds-table-row-expando-beingtoggled',
@@ -507,7 +506,7 @@ describe('data-table', function () {
         const spyAfterToggle = jasmine.createSpy('after toggle');
         render(expandRowTemplate({ expanded: true }), document.body);
         await Promise.resolve();
-        const expandRow = document.body.querySelector('cds-table-expand-row');
+        const expandRow = document.body.querySelector('cds-table-row');
         events.on(
           expandRow!,
           'cds-table-row-expando-beingtoggled',
@@ -526,7 +525,7 @@ describe('data-table', function () {
         const spyAfterToggle = jasmine.createSpy('after toggle');
         render(expandRowTemplate(), document.body);
         await Promise.resolve();
-        const expandRow = document.body.querySelector('cds-table-expand-row');
+        const expandRow = document.body.querySelector('cds-table-row');
         events.on(expandRow!, 'cds-table-row-expando-beingtoggled', (event) => {
           event.preventDefault();
         });
@@ -542,7 +541,7 @@ describe('data-table', function () {
         render(expandRowTemplate(), document.body);
         await Promise.resolve();
 
-        const expandRow = document.body.querySelector('cds-table-expand-row');
+        const expandRow = document.body.querySelector('cds-table-row');
         const expandedRow = document.body.querySelector(
           'cds-table-expanded-row'
         );
