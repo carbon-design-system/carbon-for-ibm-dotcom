@@ -402,7 +402,7 @@ class DDSMastheadL1 extends StableSelectorMixin(LitElement) {
     const normalColumns = menuSections.filter((section) => !(section.span > 1));
     const dropdownClasses = classMap({
       [`${prefix}--masthead__l1-dropdown-links`]: true,
-      [`has-wide`]: hasWideColumn,
+      [`${prefix}--masthead__l1-dropdown--has-column-wide`]: hasWideColumn,
     });
 
     return html`
@@ -759,16 +759,10 @@ class DDSMastheadL1 extends StableSelectorMixin(LitElement) {
         `
       : html` ${heading.title} `;
 
-    let noLink: boolean = false;
-
-    if (!heading.url) {
-      noLink = true;
-    }
-
-    const headingClasses = classMap({
-      [`${prefix}--masthead__l1-dropdown-heading`]: true,
-      [`no-link`]: noLink,
-    });
+      const headingClasses = classMap({ 
+        [`${prefix}--masthead__l1-dropdown-heading`]: true, 
+        [`${prefix}--masthead__l1-dropdown-heading--no-link`]: Boolean(heading.url) === false, 
+      });
 
     let renderedHeading = headingContent;
     switch (heading.headingLevel) {
