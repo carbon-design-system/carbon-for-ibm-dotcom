@@ -81,7 +81,7 @@ class CDSCodeSnippet extends FocusMixin(LitElement) {
   /**
    * Handles `click` event on the copy button.
    */
-  private _handlCopyClick() {
+  private _handleCopyClick() {
     const { ownerDocument: doc } = this;
     const selection = doc!.defaultView!.getSelection();
     selection!.removeAllRanges();
@@ -329,7 +329,7 @@ class CDSCodeSnippet extends FocusMixin(LitElement) {
       showMoreText,
       showLessText,
       _expandedCode: expandedCode,
-      _handlCopyClick: handlCopyClick,
+      _handleCopyClick: handleCopyClick,
       _handleScroll: handleScroll,
       _hasRightOverflow: hasRightOverflow,
       _hasLeftOverflow: hasLeftOverflow,
@@ -354,7 +354,7 @@ class CDSCodeSnippet extends FocusMixin(LitElement) {
       // Ensures no extra whitespace text node
       // prettier-ignore
       return html`
-        <cds-copy class-name="${classes}" @click="${handlCopyClick}">
+        <cds-copy class-name="${classes}" @click="${handleCopyClick}">
           <code slot="icon"><slot></slot></code>
           <span slot="tooltip-content"><slot name="button-description"></slot> </span>
         </cds-copy>
@@ -427,7 +427,7 @@ class CDSCodeSnippet extends FocusMixin(LitElement) {
               class-name=${disabledCopyButtonClasses}
               feedback=${feedback}
               feedback-timeout=${feedbackTimeout}
-              @click="${handlCopyClick}">
+              @click="${handleCopyClick}">
               <slot name="button-description"></slot>
             </cds-copy-button>
           `}

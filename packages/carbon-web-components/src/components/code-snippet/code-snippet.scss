@@ -64,7 +64,7 @@ $css--plex: true !default;
 
 #{$prefix}-copy {
   code {
-    padding: 0 0.5rem;
+    padding: 0 $spacing-03;
     @include type-style('code-01');
   }
 }
@@ -99,7 +99,7 @@ $css--plex: true !default;
 
   #{$prefix}-button {
     .#{$prefix}--snippet__icon {
-      margin-left: 0.5rem;
+      margin-left: $spacing-03;
     }
 
     &[disabled] {
