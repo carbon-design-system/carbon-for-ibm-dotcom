@@ -60,19 +60,25 @@ function handleDropdownClose(event: FocusEvent | KeyboardEvent) {
       }
       case 'focusout': {
         const { relatedTarget } = event as FocusEvent;
-        if (
-          !relatedTarget ||
-          !currentTarget ||
-          !(
-            (relatedTarget as Node).compareDocumentPosition(
-              currentTarget as Node
-            ) & 8
-          )
-        ) {
+        const hasUnknownTargets = !relatedTarget || !currentTarget;
+        let focusHasEscaped = false;
+
+        if (!hasUnknownTargets) {
+          const comparison = (relatedTarget as Node).compareDocumentPosition(
+            currentTarget as Node
+          );
+
+          focusHasEscaped =
+            !(comparison & 8) && // relatedTarget is not ancestor of currentTarget
+            relatedTarget !== currentTarget;
+        }
+
+        if (hasUnknownTargets || focusHasEscaped) {
           openDropdowns.forEach((el) => {
             el.classList.remove('is-open');
           });
         }
+
         break;
       }
       default:
