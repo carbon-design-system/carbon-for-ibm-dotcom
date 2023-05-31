@@ -82,6 +82,10 @@ $css--plex: true !default;
     position: initial;
     margin-left: 2.25rem;
   }
+
+  .#{$prefix}--progress-step-button {
+    display: block;
+  }
 }
 
 :host(#{$prefix}-progress-step[vertical][state='current']) svg {
