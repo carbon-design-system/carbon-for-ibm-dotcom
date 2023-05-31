@@ -22,10 +22,18 @@ import styles from './progress-indicator.scss';
 @customElement(`${prefix}-progress-indicator`)
 export default class CDSProgressIndicator extends LitElement {
   /**
-   * `true` if the progress indicator should be vertical.
+   * Determines whether or not the progress indicator should be rendered
+   * vertically.
    */
   @property({ type: Boolean, reflect: true })
   vertical = false;
+
+  /**
+   * Specify whether the progress steps should be split equally in size in the
+   * div
+   */
+  @property({ type: Boolean, reflect: true, attribute: 'space-equally' })
+  spaceEqually = false;
 
   connectedCallback() {
     if (!this.hasAttribute('role')) {
@@ -35,14 +43,29 @@ export default class CDSProgressIndicator extends LitElement {
   }
 
   updated(changedProperties) {
+    const spacingValue = this.vertical ? false : this.spaceEqually;
     if (changedProperties.has('vertical')) {
-      // Propagate `vertical` attribute to descendants until `:host-context()` gets supported in all major browsers
+      // Propagate `vertical` attribute to descendants until
+      // `:host-context()` gets supported in all major browsers
       forEach(
         this.querySelectorAll(
           (this.constructor as typeof CDSProgressIndicator).selectorStep
         ),
         (item) => {
           (item as CDSProgressStep).vertical = this.vertical;
+          (item as CDSProgressStep).spaceEqually = spacingValue;
+        }
+      );
+    }
+    if (changedProperties.has('spaceEqually')) {
+      // Propagate `spaceEqually` attribute to descendants until
+      // `:host-context()` gets supported in all major browsers
+      forEach(
+        this.querySelectorAll(
+          (this.constructor as typeof CDSProgressIndicator).selectorStep
+        ),
+        (item) => {
+          (item as CDSProgressStep).spaceEqually = spacingValue;
         }
       );
     }

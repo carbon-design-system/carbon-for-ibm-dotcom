@@ -85,6 +85,14 @@ export default class CDSProgressStep extends FocusMixin(LitElement) {
   @property({ type: Boolean, reflect: true })
   vertical = false;
 
+  /**
+   * `true` if the progress step should be spaced equally.
+   *
+   * @private
+   */
+  @property({ type: Boolean, reflect: true })
+  spaceEqually = false;
+
   connectedCallback() {
     if (!this.hasAttribute('role')) {
       this.setAttribute('role', 'listitem');

@@ -117,3 +117,7 @@ $css--plex: true !default;
     background-color: $layer-accent-01;
   }
 }
+
+:host(#{$prefix}-progress-step[spaceEqually]) {
+  flex-grow: 1;
+}

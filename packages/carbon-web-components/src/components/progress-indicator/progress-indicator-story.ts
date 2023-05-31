@@ -60,11 +60,14 @@ export const Interactive = () => html`
 `;
 
 export const Playground = (args) => {
-  const { vertical } = args?.[`${prefix}-progress-indicator`] ?? {};
+  const { vertical, spaceEqually } =
+    args?.[`${prefix}-progress-indicator`] ?? {};
   const { iconLabel, secondaryLabelText } =
     args?.[`${prefix}-progress-step`] ?? {};
   return html`
-    <cds-progress-indicator ?vertical="${vertical}">
+    <cds-progress-indicator
+      ?vertical="${vertical}"
+      ?space-equally="${spaceEqually}">
       <cds-progress-step
         description="${ifDefined(iconLabel)}"
         label="First step"
@@ -97,6 +100,7 @@ Playground.parameters = {
   knobs: {
     [`${prefix}-progress-indicator`]: () => ({
       vertical: boolean('Vertical (vertical)', false),
+      spaceEqually: boolean('Space equally (space-equally)', false),
     }),
     [`${prefix}-progress-step`]: () => ({
       description: textNullable('Icon label (description)', ''),
