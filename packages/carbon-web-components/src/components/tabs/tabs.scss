@@ -24,8 +24,6 @@
 :host(#{$prefix}-tabs) {
   @include focus-outline('reset');
 
-  display: block;
-
   &[color-scheme='light'] {
     background-color: $layer-01;
   }

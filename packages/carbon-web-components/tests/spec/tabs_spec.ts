@@ -11,10 +11,10 @@ import { render } from 'lit';
 import EventManager from '../utils/event-manager';
 import CDSTabs from '../../src/components/tabs/tabs';
 import CDSTab from '../../src/components/tabs/tab';
-import { Default } from '../../src/components/tabs/tabs-story';
+import { Playground } from '../../src/components/tabs/tabs-story';
 
 const template = (props?) =>
-  Default({
+  Playground({
     'cds-tabs': props,
   });
 
