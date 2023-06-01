@@ -338,15 +338,21 @@ class CDSCodeSnippet extends FocusMixin(LitElement) {
     } = this;
 
     let classes = `${prefix}--snippet`;
-    type ? classes += ` ${prefix}--snippet--${type}` : '';
-    type !== 'inline' && disabled ? classes += ` ${prefix}--snippet--disabled` : '';
-    hideCopyButton ? classes += ` ${prefix}--snippet--no-copy` : '';
-    wrapText ? classes += ` ${prefix}--snippet--wraptext` : '';
-    type == 'multi' && hasRightOverflow ? classes += ` ${prefix}--snippet--has-right-overflow` : '';
+    type ? (classes += ` ${prefix}--snippet--${type}`) : '';
+    type !== 'inline' && disabled
+      ? (classes += ` ${prefix}--snippet--disabled`)
+      : '';
+    hideCopyButton ? (classes += ` ${prefix}--snippet--no-copy`) : '';
+    wrapText ? (classes += ` ${prefix}--snippet--wraptext`) : '';
+    type == 'multi' && hasRightOverflow
+      ? (classes += ` ${prefix}--snippet--has-right-overflow`)
+      : '';
 
     const expandButtonClass = `${prefix}--snippet-btn--expand`;
 
-    const disabledCopyButtonClasses = disabled ? `${prefix}--snippet--disabled` : '';
+    const disabledCopyButtonClasses = disabled
+      ? `${prefix}--snippet--disabled`
+      : '';
 
     const expandCodeBtnText = expandedCode ? showLessText : showMoreText;
 
