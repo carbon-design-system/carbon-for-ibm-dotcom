@@ -13,6 +13,9 @@ import { boolean, select } from '@storybook/addon-knobs';
 // In our dev env, we auto-generate the file and re-map below path to to point to the generated file.
 // @ts-ignore
 import Fade16 from '@carbon/web-components/es/icons/fade/16';
+import Search20 from '@carbon/web-components/es/icons/search/20';
+import Notification20 from '@carbon/web-components/es/icons/notification/20';
+import SwitcherIcon20 from '@carbon/web-components/es/icons/switcher/20';
 import contentStyles from '@carbon/styles/scss/components/ui-shell/content/_content.scss';
 import textNullable from '../../../.storybook/knob-text-nullable';
 import { ifDefined } from 'lit/directives/if-defined.js';
@@ -29,6 +32,12 @@ import './header-menu';
 import './header-menu-item';
 import './header-menu-button';
 import './header-name';
+import './header-global-action';
+import './header-panel';
+import './switcher';
+import './switcher-item';
+import './switcher-divider';
+import '../skip-to-content';
 import styles from './ui-shell-story.scss';
 import storyDocs from './ui-shell-story.mdx';
 import { prefix } from '../../globals/settings';
@@ -44,6 +53,8 @@ const usageModes = {
   [`For header nav (${SIDE_NAV_USAGE_MODE.HEADER_NAV})`]:
     SIDE_NAV_USAGE_MODE.HEADER_NAV,
 };
+
+const linksHref = 'https://www.carbondesignsystem.com/';
 
 const updateRailExpanded = ({
   collapseMode,
@@ -121,56 +132,56 @@ const StoryContent = () => html`
   </main>
 `;
 
-export const sideNav = (args) => {
+export const FixedSideNav = (args) => {
   const { collapseMode, expanded } = args?.[`${prefix}-side-nav`] ?? {};
-  const { href } = args?.[`${prefix}-side-nav-menu-item`] ?? {};
   updateRailExpanded({ collapseMode, expanded });
   const result = html`
     <style>
       ${styles}
     </style>
     <cds-side-nav
+      is-child-of-header="false"
+      usage-mode="${SIDE_NAV_USAGE_MODE.REGULAR}"
       aria-label="Side navigation"
       collapse-mode="${ifDefined(collapseMode)}"
       ?expanded=${expanded}>
       <cds-side-nav-items>
         <cds-side-nav-menu title="L0 menu">
-          <cds-side-nav-menu-item href="${ifDefined(href)}">
+          <cds-side-nav-menu-item href="${linksHref}">
             L0 menu item
           </cds-side-nav-menu-item>
-          <cds-side-nav-menu-item href="${ifDefined(href)}">
+          <cds-side-nav-menu-item href="${linksHref}">
             L0 menu item
           </cds-side-nav-menu-item>
-          <cds-side-nav-menu-item href="${ifDefined(href)}">
+          <cds-side-nav-menu-item href="${linksHref}">
             L0 menu item
           </cds-side-nav-menu-item>
         </cds-side-nav-menu>
         <cds-side-nav-menu title="L0 menu">
-          <cds-side-nav-menu-item href="${ifDefined(href)}">
+          <cds-side-nav-menu-item href="${linksHref}">
             L0 menu item
           </cds-side-nav-menu-item>
           <cds-side-nav-menu-item
             active
             aria-current="page"
-            href="${ifDefined(href)}">
+            href="${linksHref}">
             L0 menu item
           </cds-side-nav-menu-item>
-          <cds-side-nav-menu-item href="${ifDefined(href)}">
+          <cds-side-nav-menu-item href="${linksHref}">
             L0 menu item
           </cds-side-nav-menu-item>
         </cds-side-nav-menu>
         <cds-side-nav-menu title="L0 menu">
-          <cds-side-nav-menu-item href="${ifDefined(href)}">
+          <cds-side-nav-menu-item href="${linksHref}">
             L0 menu item
           </cds-side-nav-menu-item>
-          <cds-side-nav-menu-item href="${ifDefined(href)}">
+          <cds-side-nav-menu-item href="${linksHref}">
             L0 menu item
           </cds-side-nav-menu-item>
-          <cds-side-nav-menu-item href="${ifDefined(href)}">
+          <cds-side-nav-menu-item href="${linksHref}">
             L0 menu item
           </cds-side-nav-menu-item>
         </cds-side-nav-menu>
-        <cds-side-nav-divider></cds-side-nav-divider>
         <cds-side-nav-link href="javascript:void(0)">L0 link</cds-side-nav-link>
         <cds-side-nav-link href="javascript:void(0)">L0 link</cds-side-nav-link>
       </cds-side-nav-items>
@@ -181,9 +192,9 @@ export const sideNav = (args) => {
   return result;
 };
 
-sideNav.storyName = 'Side nav';
+FixedSideNav.storyName = 'Fixed SideNav';
 
-sideNav.parameters = {
+FixedSideNav.parameters = {
   knobs: {
     [`${prefix}-side-nav`]: () => ({
       expanded: boolean('Expanded (expanded)', true),
@@ -193,70 +204,126 @@ sideNav.parameters = {
         null
       ),
     }),
-    [`${prefix}-side-nav-menu-item`]: () => ({
-      href: textNullable('Link href (href)', 'javascript:void 0'), // eslint-disable-line no-script-url
-    }),
   },
 };
 
-export const sideNavWithIcons = (args) => {
-  const { collapseMode, expanded } = args?.[`${prefix}-side-nav`] ?? {};
-  const { href } = args?.[`${prefix}-side-nav-menu-item`] ?? {};
-  updateRailExpanded({ collapseMode, expanded });
+export const FixedSideNavDivider = () => {
   const result = html`
     <style>
       ${styles}
     </style>
     <cds-side-nav
+      is-child-of-header="false"
+      usage-mode="${SIDE_NAV_USAGE_MODE.REGULAR}"
       aria-label="Side navigation"
-      collapse-mode="${ifDefined(collapseMode)}"
-      ?expanded=${expanded}>
+      collapse-mode="responsive"
+      expanded>
       <cds-side-nav-items>
         <cds-side-nav-menu title="L0 menu">
-          ${Fade16({ slot: 'title-icon' })}
-          <cds-side-nav-menu-item href="${ifDefined(href)}">
+          <cds-side-nav-menu-item href="${linksHref}">
             L0 menu item
           </cds-side-nav-menu-item>
-          <cds-side-nav-menu-item href="${ifDefined(href)}">
+          <cds-side-nav-menu-item href="${linksHref}">
             L0 menu item
           </cds-side-nav-menu-item>
-          <cds-side-nav-menu-item href="${ifDefined(href)}">
+          <cds-side-nav-menu-item href="${linksHref}">
             L0 menu item
           </cds-side-nav-menu-item>
         </cds-side-nav-menu>
         <cds-side-nav-menu title="L0 menu">
-          ${Fade16({ slot: 'title-icon' })}
-          <cds-side-nav-menu-item href="${ifDefined(href)}">
+          <cds-side-nav-menu-item href="${linksHref}">
             L0 menu item
           </cds-side-nav-menu-item>
           <cds-side-nav-menu-item
             active
             aria-current="page"
-            href="${ifDefined(href)}">
+            href="${linksHref}">
             L0 menu item
           </cds-side-nav-menu-item>
-          <cds-side-nav-menu-item href="${ifDefined(href)}">
+          <cds-side-nav-menu-item href="${linksHref}">
             L0 menu item
           </cds-side-nav-menu-item>
         </cds-side-nav-menu>
         <cds-side-nav-menu title="L0 menu">
-          ${Fade16({ slot: 'title-icon' })}
-          <cds-side-nav-menu-item href="${ifDefined(href)}">
+          <cds-side-nav-menu-item href="${linksHref}">
             L0 menu item
           </cds-side-nav-menu-item>
-          <cds-side-nav-menu-item href="${ifDefined(href)}">
+          <cds-side-nav-menu-item href="${linksHref}">
             L0 menu item
           </cds-side-nav-menu-item>
-          <cds-side-nav-menu-item href="${ifDefined(href)}">
+          <cds-side-nav-menu-item href="${linksHref}">
             L0 menu item
           </cds-side-nav-menu-item>
         </cds-side-nav-menu>
         <cds-side-nav-divider></cds-side-nav-divider>
+        <cds-side-nav-link href="javascript:void(0)">L0 link</cds-side-nav-link>
+        <cds-side-nav-link href="javascript:void(0)">L0 link</cds-side-nav-link>
+      </cds-side-nav-items>
+    </cds-side-nav>
+    ${StoryContent()}
+  `;
+  (result as any).hasMainTag = true;
+  return result;
+};
+
+FixedSideNavDivider.storyName = 'Fixed SideNav w/ Divider';
+
+export const FixedSideNavIcons = () => {
+  const result = html`
+    <style>
+      ${styles}
+    </style>
+    <cds-side-nav
+      is-child-of-header="false"
+      usage-mode="${SIDE_NAV_USAGE_MODE.REGULAR}"
+      aria-label="Side navigation"
+      collapse-mode="responsive"
+      expanded>
+      <cds-side-nav-items>
+        <cds-side-nav-menu title="Category title">
+          ${Fade16({ slot: 'title-icon' })}
+          <cds-side-nav-menu-item href="${linksHref}">
+            Link
+          </cds-side-nav-menu-item>
+          <cds-side-nav-menu-item href="${linksHref}">
+            Link
+          </cds-side-nav-menu-item>
+          <cds-side-nav-menu-item href="${linksHref}">
+            Link
+          </cds-side-nav-menu-item>
+        </cds-side-nav-menu>
+        <cds-side-nav-menu title="Category title">
+          ${Fade16({ slot: 'title-icon' })}
+          <cds-side-nav-menu-item href="${linksHref}">
+            Link
+          </cds-side-nav-menu-item>
+          <cds-side-nav-menu-item
+            active
+            aria-current="page"
+            href="${linksHref}">
+            Link
+          </cds-side-nav-menu-item>
+          <cds-side-nav-menu-item href="${linksHref}">
+            Link
+          </cds-side-nav-menu-item>
+        </cds-side-nav-menu>
+        <cds-side-nav-menu title="Category title">
+          ${Fade16({ slot: 'title-icon' })}
+          <cds-side-nav-menu-item href="${linksHref}">
+            Link
+          </cds-side-nav-menu-item>
+          <cds-side-nav-menu-item href="${linksHref}">
+            Link
+          </cds-side-nav-menu-item>
+          <cds-side-nav-menu-item href="${linksHref}">
+            Link
+          </cds-side-nav-menu-item>
+        </cds-side-nav-menu>
         <cds-side-nav-link href="javascript:void(0)"
-          >${Fade16({ slot: 'title-icon' })}L0 link</cds-side-nav-link
+          >${Fade16({ slot: 'title-icon' })}Link</cds-side-nav-link
         >
         <cds-side-nav-link href="javascript:void(0)"
-          >${Fade16({ slot: 'title-icon' })}L0 link</cds-side-nav-link
+          >${Fade16({ slot: 'title-icon' })}Link</cds-side-nav-link
         >
       </cds-side-nav-items>
     </cds-side-nav>
@@ -266,36 +333,135 @@ export const sideNavWithIcons = (args) => {
   return result;
 };
 
-sideNavWithIcons.storyName = 'Side nav with icons';
+FixedSideNavIcons.storyName = 'Fixed SideNav w/ Icons';
 
-sideNavWithIcons.parameters = {
-  knobs: sideNav.parameters.knobs,
-};
-
-export const header = (args) => {
-  const { collapseMode, expanded, usageMode } =
-    args?.[`${prefix}-side-nav`] ?? {};
-  const { href } = args?.[`${prefix}-side-nav-menu-item`] ?? {};
-  updateRailExpanded({ collapseMode, expanded, usageMode });
-  const handleButtonToggle = (event) => {
-    updateRailExpanded({
-      collapseMode,
-      expanded: event.detail.active,
-      usageMode,
-    });
-  };
-  const result = html`
-    <style>
+export const HeaderBase = () => {
+  return html` <style>
       ${styles}
     </style>
     <cds-header aria-label="IBM Platform Name">
-      <cds-header-menu-button
-        button-label-active="Close menu"
-        button-label-inactive="Open menu"
-        @cds-header-menu-button-toggled="${handleButtonToggle}"></cds-header-menu-button>
-      <cds-header-name href="javascript:void 0" prefix="IBM"
-        >[Platform]</cds-header-name
-      >
+      <cds-header-name href="javascript:void 0" prefix="IBM">
+        [Platform]
+      </cds-header-name>
+    </cds-header>`;
+};
+
+export const HeaderBaseWActions = () => {
+  return html` <style>
+      ${styles}
+    </style>
+    <cds-header aria-label="IBM Platform Name">
+      <cds-header-name href="javascript:void 0" prefix="IBM">
+        [Platform]
+      </cds-header-name>
+      <div class="${prefix}--header__global">
+        <cds-header-global-action aria-label="Search" tooltip-text="Search">
+          ${Search20({ slot: 'icon' })}
+        </cds-header-global-action>
+        <cds-header-global-action
+          aria-label="Notification"
+          tooltip-text="Notification">
+          ${Notification20({ slot: 'icon' })}
+        </cds-header-global-action>
+        <cds-header-global-action
+          aria-label="App Switcher"
+          tooltip-text="App Switcher"
+          tooltip-alignment="end">
+          ${SwitcherIcon20({ slot: 'icon' })}
+        </cds-header-global-action>
+      </div>
+    </cds-header>`;
+};
+
+HeaderBaseWActions.storyName = 'Header Base w/ Actions';
+
+export const HeaderBaseActionsRightPanel = () => {
+  return html` <style>
+      ${styles}
+    </style>
+    <cds-header aria-label="IBM Platform Name">
+      <cds-header-name href="javascript:void 0" prefix="IBM">
+        [Platform]
+      </cds-header-name>
+      <div class="${prefix}--header__global">
+        <cds-header-global-action aria-label="Search">
+          ${Search20({ slot: 'icon' })}
+        </cds-header-global-action>
+        <cds-header-global-action active aria-label="Notification">
+          ${Notification20({ slot: 'icon' })}
+        </cds-header-global-action>
+        <cds-header-global-action
+          aria-label="App Switcher"
+          tooltip-alignment="end">
+          ${SwitcherIcon20({ slot: 'icon' })}
+        </cds-header-global-action>
+      </div>
+      <cds-header-panel expanded aria-label="Header Panel"></cds-header-panel>
+    </cds-header>`;
+};
+
+HeaderBaseActionsRightPanel.storyName =
+  'Header Base w/ Actions and Right Panel';
+
+export const HeaderBaseActionsSwitcher = () => {
+  return html` <style>
+      ${styles}
+    </style>
+    <cds-header aria-label="IBM Platform Name">
+      <cds-header-name href="javascript:void 0" prefix="IBM">
+        [Platform]
+      </cds-header-name>
+      <div class="${prefix}--header__global">
+        <cds-header-global-action aria-label="Search">
+          ${Search20({ slot: 'icon' })}
+        </cds-header-global-action>
+        <cds-header-global-action aria-label="Notification">
+          ${Notification20({ slot: 'icon' })}
+        </cds-header-global-action>
+        <cds-header-global-action
+          active
+          aria-label="App Switcher"
+          tooltip-alignment="end">
+          ${SwitcherIcon20({ slot: 'icon' })}
+        </cds-header-global-action>
+      </div>
+      <cds-header-panel expanded aria-label="Header Panel">
+        <cds-switcher aria-label="Switcher Container">
+          <cds-switcher-item selected aria-label="Link 1" href="#"
+            >Link 1</cds-switcher-item
+          >
+          <cds-switcher-divider></cds-switcher-divider>
+          <cds-switcher-item aria-label="Link 2" href="#"
+            >Link 2</cds-switcher-item
+          >
+          <cds-switcher-item aria-label="Link 3" href="#"
+            >Link 3</cds-switcher-item
+          >
+          <cds-switcher-item aria-label="Link 4" href="#"
+            >Link 4</cds-switcher-item
+          >
+          <cds-switcher-item aria-label="Link 5" href="#"
+            >Link 5</cds-switcher-item
+          >
+          <cds-switcher-divider></cds-switcher-divider>
+          <cds-switcher-item aria-label="Link 6" href="#"
+            >Link 6</cds-switcher-item
+          >
+        </cds-switcher>
+      </cds-header-panel>
+    </cds-header>`;
+};
+
+HeaderBaseActionsSwitcher.storyName = 'Header Base w/ Actions and Switcher';
+
+export const HeaderBaseWNavigationActionsAndSideNav = () => {
+  return html` <style>
+      ${styles}
+    </style>
+    <cds-header aria-label="IBM Platform Name">
+      <cds-header-name href="javascript:void 0" prefix="IBM">
+        [Platform]
+      </cds-header-name>
       <cds-header-nav menu-bar-label="IBM [Platform]">
         <cds-header-nav-item href="javascript:void 0"
           >Link 1</cds-header-nav-item
@@ -318,58 +484,476 @@ export const header = (args) => {
           >
         </cds-header-menu>
       </cds-header-nav>
+      <div class="${prefix}--header__global">
+        <cds-header-global-action aria-label="Search" tooltip-text="Search">
+          ${Search20({ slot: 'icon' })}
+        </cds-header-global-action>
+        <cds-header-global-action
+          aria-label="Notification"
+          tooltip-text="Notification">
+          ${Notification20({ slot: 'icon' })}
+        </cds-header-global-action>
+        <cds-header-global-action
+          aria-label="App Switcher"
+          tooltip-text="App Switcher"
+          tooltip-alignment="end">
+          ${SwitcherIcon20({ slot: 'icon' })}
+        </cds-header-global-action>
+      </div>
+      <cds-side-nav
+        usage-mode="${SIDE_NAV_USAGE_MODE.REGULAR}"
+        aria-label="Side navigation"
+        collapse-mode="responsive"
+        expanded>
+        <cds-side-nav-items>
+          <cds-side-nav-menu title="Category title">
+            ${Fade16({ slot: 'title-icon' })}
+            <cds-side-nav-menu-item href="${linksHref}">
+              Link
+            </cds-side-nav-menu-item>
+            <cds-side-nav-menu-item href="${linksHref}">
+              Link
+            </cds-side-nav-menu-item>
+            <cds-side-nav-menu-item href="${linksHref}">
+              Link
+            </cds-side-nav-menu-item>
+          </cds-side-nav-menu>
+          <cds-side-nav-menu title="Category title">
+            ${Fade16({ slot: 'title-icon' })}
+            <cds-side-nav-menu-item href="${linksHref}">
+              Link
+            </cds-side-nav-menu-item>
+            <cds-side-nav-menu-item
+              active
+              aria-current="page"
+              href="${linksHref}">
+              Link
+            </cds-side-nav-menu-item>
+            <cds-side-nav-menu-item href="${linksHref}">
+              Link
+            </cds-side-nav-menu-item>
+          </cds-side-nav-menu>
+          <cds-side-nav-menu title="Category title">
+            ${Fade16({ slot: 'title-icon' })}
+            <cds-side-nav-menu-item href="${linksHref}">
+              Link
+            </cds-side-nav-menu-item>
+            <cds-side-nav-menu-item href="${linksHref}">
+              Link
+            </cds-side-nav-menu-item>
+            <cds-side-nav-menu-item href="${linksHref}">
+              Link
+            </cds-side-nav-menu-item>
+          </cds-side-nav-menu>
+          <cds-side-nav-link href="javascript:void(0)"
+            >${Fade16({ slot: 'title-icon' })}Link</cds-side-nav-link
+          >
+          <cds-side-nav-link href="javascript:void(0)"
+            >${Fade16({ slot: 'title-icon' })}Link</cds-side-nav-link
+          >
+        </cds-side-nav-items>
+      </cds-side-nav>
+    </cds-header>`;
+};
+
+HeaderBaseWNavigationActionsAndSideNav.storyName =
+  'Header Base w/ Navigation, Actions and SideNav';
+
+export const HeaderBaseWNavigation = () => {
+  return html` <style>
+      ${styles}
+    </style>
+    <cds-header aria-label="IBM Platform Name">
+      <cds-header-name href="javascript:void 0" prefix="IBM">
+        [Platform]
+      </cds-header-name>
+      <cds-header-nav menu-bar-label="IBM [Platform]">
+        <cds-header-nav-item href="javascript:void 0"
+          >Link 1</cds-header-nav-item
+        >
+        <cds-header-nav-item href="javascript:void 0"
+          >Link 2</cds-header-nav-item
+        >
+        <cds-header-nav-item href="javascript:void 0"
+          >Link 3</cds-header-nav-item
+        >
+        <cds-header-menu menu-label="Link 4" trigger-content="Link 4">
+          <cds-header-menu-item href="javascript:void 0"
+            >Sub-link 1</cds-header-menu-item
+          >
+          <cds-header-menu-item href="javascript:void 0"
+            >Sub-link 2</cds-header-menu-item
+          >
+          <cds-header-menu-item href="javascript:void 0"
+            >Sub-link 3</cds-header-menu-item
+          >
+        </cds-header-menu>
+      </cds-header-nav>
+      <cds-side-nav
+        aria-label="Side navigation"
+        collapse-mode="responsive"
+        expanded>
+        <cds-side-nav-items>
+          <cds-side-nav-link href="javascript:void(0)">
+            Link 1
+          </cds-side-nav-link>
+          <cds-side-nav-link href="javascript:void(0)">
+            Link 2
+          </cds-side-nav-link>
+          <cds-side-nav-link href="javascript:void(0)">
+            Link 3
+          </cds-side-nav-link>
+          <cds-side-nav-menu title="Link 4">
+            <cds-side-nav-menu-item href="${linksHref}">
+              Sub-link 1
+            </cds-side-nav-menu-item>
+            <cds-side-nav-menu-item href="${linksHref}">
+              Sub-link 2
+            </cds-side-nav-menu-item>
+            <cds-side-nav-menu-item href="${linksHref}">
+              Sub-link 3
+            </cds-side-nav-menu-item>
+          </cds-side-nav-menu>
+        </cds-side-nav-items>
+      </cds-side-nav>
+    </cds-header>`;
+};
+
+HeaderBaseWNavigation.storyName = 'Header Base w/ Navigation';
+
+export const HeaderBaseWSideNav = (args) => {
+  const { collapseMode, expanded, usageMode } =
+    args?.[`${prefix}-side-nav`] ?? {};
+  updateRailExpanded({ collapseMode, expanded, usageMode });
+  const handleButtonToggle = (event) => {
+    updateRailExpanded({
+      collapseMode,
+      expanded: event.detail.active,
+      usageMode,
+    });
+  };
+  const result = html`
+    <style>
+      ${styles}
+    </style>
+    <cds-header aria-label="IBM Platform Name">
+      <cds-header-menu-button
+        button-label-active="Close menu"
+        button-label-inactive="Open menu"
+        @cds-header-menu-button-toggled="${handleButtonToggle}"></cds-header-menu-button>
+      <cds-header-name href="javascript:void 0" prefix="IBM"
+        >[Platform]</cds-header-name
+      >
+      <cds-side-nav
+        aria-label="Side navigation"
+        collapse-mode="${SIDE_NAV_COLLAPSE_MODE.RESPONSIVE}"
+        ?expanded=${expanded}
+        usage-mode="${ifDefined(usageMode)}">
+        <cds-side-nav-items>
+          <cds-side-nav-menu title="Category title">
+            ${Fade16({ slot: 'title-icon' })}
+            <cds-side-nav-menu-item href="${linksHref}">
+              Link
+            </cds-side-nav-menu-item>
+            <cds-side-nav-menu-item href="${linksHref}">
+              Link
+            </cds-side-nav-menu-item>
+            <cds-side-nav-menu-item href="${linksHref}">
+              Link
+            </cds-side-nav-menu-item>
+          </cds-side-nav-menu>
+          <cds-side-nav-menu title="Category title">
+            ${Fade16({ slot: 'title-icon' })}
+            <cds-side-nav-menu-item href="${linksHref}">
+              Link
+            </cds-side-nav-menu-item>
+            <cds-side-nav-menu-item
+              active
+              aria-current="page"
+              href="${linksHref}">
+              Link
+            </cds-side-nav-menu-item>
+            <cds-side-nav-menu-item href="${linksHref}">
+              Link
+            </cds-side-nav-menu-item>
+          </cds-side-nav-menu>
+          <cds-side-nav-menu title="Category title">
+            ${Fade16({ slot: 'title-icon' })}
+            <cds-side-nav-menu-item href="${linksHref}">
+              Link
+            </cds-side-nav-menu-item>
+            <cds-side-nav-menu-item href="${linksHref}">
+              Link
+            </cds-side-nav-menu-item>
+            <cds-side-nav-menu-item href="${linksHref}">
+              Link
+            </cds-side-nav-menu-item>
+          </cds-side-nav-menu>
+          <cds-side-nav-link href="javascript:void(0)"
+            >${Fade16({ slot: 'title-icon' })}Link</cds-side-nav-link
+          >
+          <cds-side-nav-link href="javascript:void(0)"
+            >${Fade16({ slot: 'title-icon' })}Link</cds-side-nav-link
+          >
+        </cds-side-nav-items>
+      </cds-side-nav>
     </cds-header>
+    ${StoryContent()}
+  `;
+  (result as any).hasMainTag = true;
+  return result;
+};
+
+HeaderBaseWSideNav.storyName = 'Header Base w/ SideNav';
+
+HeaderBaseWSideNav.parameters = {
+  knobs: {
+    [`${prefix}-side-nav`]: () => ({
+      ...FixedSideNav.parameters.knobs[`${prefix}-side-nav`](),
+      usageMode: select('Usage mode (usage-mode)', usageModes, null),
+    }),
+    [`${prefix}-side-nav-menu-item`]:
+      FixedSideNav.parameters.knobs[`${prefix}-side-nav-menu-item`],
+  },
+};
+
+export const HeaderBaseWSkipToContent = () => {
+  return html` <style>
+      ${styles}
+    </style>
+    <cds-header aria-label="IBM Platform Name">
+      <cds-skip-to-content></cds-skip-to-content>
+      <cds-header-name href="javascript:void 0" prefix="IBM">
+        [Platform]
+      </cds-header-name>
+      <div class="${prefix}--header__global">
+        <cds-header-global-action aria-label="Search" tooltip-text="Search">
+          ${Search20({ slot: 'icon' })}
+        </cds-header-global-action>
+        <cds-header-global-action
+          aria-label="Notification"
+          tooltip-text="Notification">
+          ${Notification20({ slot: 'icon' })}
+        </cds-header-global-action>
+        <cds-header-global-action
+          aria-label="App Switcher"
+          tooltip-text="App Switcher"
+          tooltip-alignment="end">
+          ${SwitcherIcon20({ slot: 'icon' })}
+        </cds-header-global-action>
+      </div>
+    </cds-header>
+    ${StoryContent()}`;
+};
+
+HeaderBaseWSkipToContent.storyName = 'Header Base w/ SkipToContent';
+
+export const SideNavRail = () => {
+  return html` <style>
+      ${styles}
+    </style>
     <cds-side-nav
       aria-label="Side navigation"
-      collapse-mode="${ifDefined(collapseMode)}"
-      ?expanded=${expanded}
-      usage-mode="${ifDefined(usageMode)}">
+      collapse-mode="${SIDE_NAV_COLLAPSE_MODE.RAIL}">
       <cds-side-nav-items>
-        <cds-side-nav-menu title="L0 menu">
+        <cds-side-nav-menu title="Category title">
           ${Fade16({ slot: 'title-icon' })}
-          <cds-side-nav-menu-item href="${ifDefined(href)}">
-            L0 menu item
-          </cds-side-nav-menu-item>
-          <cds-side-nav-menu-item href="${ifDefined(href)}">
-            L0 menu item
-          </cds-side-nav-menu-item>
-          <cds-side-nav-menu-item href="${ifDefined(href)}">
-            L0 menu item
-          </cds-side-nav-menu-item>
-        </cds-side-nav-menu>
-        <cds-side-nav-menu title="L0 menu">
-          ${Fade16({ slot: 'title-icon' })}
-          <cds-side-nav-menu-item href="${ifDefined(href)}">
-            L0 menu item
+          <cds-side-nav-menu-item href="${linksHref}">
+            Link
           </cds-side-nav-menu-item>
           <cds-side-nav-menu-item
             active
             aria-current="page"
-            href="${ifDefined(href)}">
-            L0 menu item
+            href="${linksHref}">
+            Link
           </cds-side-nav-menu-item>
-          <cds-side-nav-menu-item href="${ifDefined(href)}">
-            L0 menu item
+          <cds-side-nav-menu-item href="${linksHref}">
+            Link
           </cds-side-nav-menu-item>
         </cds-side-nav-menu>
-        <cds-side-nav-menu title="L0 menu">
+        <cds-side-nav-menu title="Category title">
           ${Fade16({ slot: 'title-icon' })}
-          <cds-side-nav-menu-item href="${ifDefined(href)}">
-            L0 menu item
+          <cds-side-nav-menu-item href="${linksHref}">
+            Link
           </cds-side-nav-menu-item>
-          <cds-side-nav-menu-item href="${ifDefined(href)}">
-            L0 menu item
+          <cds-side-nav-menu-item href="${linksHref}">
+            Link
           </cds-side-nav-menu-item>
-          <cds-side-nav-menu-item href="${ifDefined(href)}">
-            L0 menu item
+          <cds-side-nav-menu-item href="${linksHref}">
+            Link
           </cds-side-nav-menu-item>
         </cds-side-nav-menu>
-        <cds-side-nav-divider></cds-side-nav-divider>
+        <cds-side-nav-menu title="Category title">
+          ${Fade16({ slot: 'title-icon' })}
+          <cds-side-nav-menu-item href="${linksHref}">
+            Link
+          </cds-side-nav-menu-item>
+          <cds-side-nav-menu-item href="${linksHref}">
+            Link
+          </cds-side-nav-menu-item>
+          <cds-side-nav-menu-item href="${linksHref}">
+            Link
+          </cds-side-nav-menu-item>
+        </cds-side-nav-menu>
         <cds-side-nav-link href="javascript:void(0)"
-          >${Fade16({ slot: 'title-icon' })}L0 link</cds-side-nav-link
+          >${Fade16({ slot: 'title-icon' })}Link</cds-side-nav-link
         >
         <cds-side-nav-link href="javascript:void(0)"
-          >${Fade16({ slot: 'title-icon' })}L0 link</cds-side-nav-link
+          >${Fade16({ slot: 'title-icon' })}Link</cds-side-nav-link
+        >
+      </cds-side-nav-items>
+    </cds-side-nav>
+    ${StoryContent()}`;
+};
+
+SideNavRail.storyName = 'SideNav Rail';
+
+export const SideNavRailWHeader = () => {
+  return html` <style>
+      ${styles}
+    </style>
+    <cds-header aria-label="IBM Platform Name">
+      <cds-header-menu-button
+        button-label-active="Close menu"
+        button-label-inactive="Open menu"></cds-header-menu-button>
+      <cds-header-name href="javascript:void 0" prefix="IBM">
+        [Platform]
+      </cds-header-name>
+      <cds-header-nav menu-bar-label="IBM [Platform]">
+        <cds-header-nav-item href="javascript:void 0"
+          >Link 1</cds-header-nav-item
+        >
+        <cds-header-nav-item href="javascript:void 0"
+          >Link 2</cds-header-nav-item
+        >
+        <cds-header-nav-item href="javascript:void 0"
+          >Link 3</cds-header-nav-item
+        >
+        <cds-header-menu menu-label="Link 4" trigger-content="Link 4">
+          <cds-header-menu-item href="javascript:void 0"
+            >Sub-link 1</cds-header-menu-item
+          >
+          <cds-header-menu-item href="javascript:void 0"
+            >Sub-link 2</cds-header-menu-item
+          >
+          <cds-header-menu-item href="javascript:void 0"
+            >Sub-link 3</cds-header-menu-item
+          >
+        </cds-header-menu>
+      </cds-header-nav>
+      <div class="${prefix}--header__global">
+        <cds-header-global-action aria-label="Search" tooltip-text="Search">
+          ${Search20({ slot: 'icon' })}
+        </cds-header-global-action>
+        <cds-header-global-action
+          aria-label="Notification"
+          tooltip-text="Notification">
+          ${Notification20({ slot: 'icon' })}
+        </cds-header-global-action>
+        <cds-header-global-action
+          aria-label="App Switcher"
+          tooltip-text="App Switcher"
+          tooltip-alignment="end">
+          ${SwitcherIcon20({ slot: 'icon' })}
+        </cds-header-global-action>
+      </div>
+      <cds-side-nav
+        aria-label="Side navigation"
+        collapse-mode="${SIDE_NAV_COLLAPSE_MODE.RAIL}">
+        <cds-side-nav-items>
+          <cds-side-nav-menu title="Category title">
+            ${Fade16({ slot: 'title-icon' })}
+            <cds-side-nav-menu-item href="${linksHref}">
+              Link
+            </cds-side-nav-menu-item>
+            <cds-side-nav-menu-item
+              active
+              aria-current="page"
+              href="${linksHref}">
+              Link
+            </cds-side-nav-menu-item>
+            <cds-side-nav-menu-item href="${linksHref}">
+              Link
+            </cds-side-nav-menu-item>
+          </cds-side-nav-menu>
+          <cds-side-nav-menu title="Category title">
+            ${Fade16({ slot: 'title-icon' })}
+            <cds-side-nav-menu-item href="${linksHref}">
+              Link
+            </cds-side-nav-menu-item>
+            <cds-side-nav-menu-item href="${linksHref}">
+              Link
+            </cds-side-nav-menu-item>
+            <cds-side-nav-menu-item href="${linksHref}">
+              Link
+            </cds-side-nav-menu-item>
+          </cds-side-nav-menu>
+          <cds-side-nav-menu title="Category title">
+            ${Fade16({ slot: 'title-icon' })}
+            <cds-side-nav-menu-item href="${linksHref}">
+              Link
+            </cds-side-nav-menu-item>
+            <cds-side-nav-menu-item href="${linksHref}">
+              Link
+            </cds-side-nav-menu-item>
+            <cds-side-nav-menu-item href="${linksHref}">
+              Link
+            </cds-side-nav-menu-item>
+          </cds-side-nav-menu>
+          <cds-side-nav-link href="javascript:void(0)"
+            >${Fade16({ slot: 'title-icon' })}Link</cds-side-nav-link
+          >
+          <cds-side-nav-link href="javascript:void(0)"
+            >${Fade16({ slot: 'title-icon' })}Link</cds-side-nav-link
+          >
+        </cds-side-nav-items>
+      </cds-side-nav>
+    </cds-header>
+    ${StoryContent()}`;
+};
+
+SideNavRailWHeader.storyName = 'SideNav Rail w/ Header';
+
+export const SideNavWLargeSideNavItems = () => {
+  const result = html`
+    <style>
+      ${styles}
+    </style>
+    <cds-side-nav
+      is-child-of-header="false"
+      usage-mode="${SIDE_NAV_USAGE_MODE.REGULAR}"
+      aria-label="Side navigation"
+      collapse-mode="responsive"
+      expanded>
+      <cds-side-nav-items>
+        <cds-side-nav-menu large title="Large menu">
+          <cds-side-nav-menu-item href="${linksHref}">
+            Menu 1
+          </cds-side-nav-menu-item>
+          <cds-side-nav-menu-item href="${linksHref}">
+            Menu 2
+          </cds-side-nav-menu-item>
+          <cds-side-nav-menu-item href="${linksHref}">
+            Menu 3
+          </cds-side-nav-menu-item>
+        </cds-side-nav-menu>
+        <cds-side-nav-link large href="javascript:void(0)"
+          >Large link</cds-side-nav-link
+        >
+        <cds-side-nav-menu large title="Large menu w/icon"
+          >${Fade16({ slot: 'title-icon' })}
+          <cds-side-nav-menu-item href="${linksHref}">
+            Menu 1
+          </cds-side-nav-menu-item>
+          <cds-side-nav-menu-item href="${linksHref}">
+            Menu 2
+          </cds-side-nav-menu-item>
+          <cds-side-nav-menu-item href="${linksHref}">
+            Menu 3
+          </cds-side-nav-menu-item>
+        </cds-side-nav-menu>
+        <cds-side-nav-link large href="javascript:void(0)">
+          ${Fade16({ slot: 'title-icon' })} Large link w/icon</cds-side-nav-link
         >
       </cds-side-nav-items>
     </cds-side-nav>
@@ -379,16 +963,7 @@ export const header = (args) => {
   return result;
 };
 
-header.parameters = {
-  knobs: {
-    [`${prefix}-side-nav`]: () => ({
-      ...sideNav.parameters.knobs[`${prefix}-side-nav`](),
-      usageMode: select('Usage mode (usage-mode)', usageModes, null),
-    }),
-    [`${prefix}-side-nav-menu-item`]:
-      sideNav.parameters.knobs[`${prefix}-side-nav-menu-item`],
-  },
-};
+SideNavWLargeSideNavItems.storyName = 'SideNav w/ large side nav items';
 
 export default {
   title: 'Components/UI Shell',
