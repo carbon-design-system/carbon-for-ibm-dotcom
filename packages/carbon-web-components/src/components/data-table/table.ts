@@ -217,7 +217,10 @@ class CDSTable extends HostListenerMixin(LitElement) {
       const rowText = elem.textContent?.trim();
       const filtered = this.filterRows(rowText as string, this._searchValue);
       (elem as any).filtered = filtered;
-      // (elem as any).nextElementSibling.filtered = filtered;
+
+      if (this.expandable) {
+        (elem as any).nextElementSibling.filtered = filtered;
+      }
     });
   }
 
@@ -305,7 +308,7 @@ class CDSTable extends HostListenerMixin(LitElement) {
       );
     });
 
-    // take into account the expanded rows
+    // take into account the expanded rows, mapping each expandable row to its original for proper reinsertion
     if (this.expandable) {
       const originalRows = [...this._tableRows];
       const expandedRows = [...this._tableExpandedRows];
@@ -409,7 +412,7 @@ class CDSTable extends HostListenerMixin(LitElement) {
   };
 
   /**
-   * Handles header row selection, selecting all rows
+   * Handles header row selection, selecting/unselecting all rows
    */
   @HostListener('eventBeforeChangeSelectionAll')
   // @ts-ignore: The decorator refers to this method but TS thinks this method is not referred to
@@ -475,7 +478,10 @@ class CDSTable extends HostListenerMixin(LitElement) {
     const { _tableHeaderRow: tableHeaderRow } = this;
 
     if (this.contains(target as CDSTableBatchActions)) {
-      tableHeaderRow.shadowRoot?.querySelector(`.${prefix}--checkbox`).click();
+      tableHeaderRow.shadowRoot
+        ?.querySelector(`${prefix}-checkbox`)
+        .shadowRoot.querySelector(`.${prefix}--checkbox`)
+        .click();
     }
   };
 
@@ -570,7 +576,7 @@ class CDSTable extends HostListenerMixin(LitElement) {
           elem.setAttribute('size', this.size);
         }
       );
-      this._tableToolbar.setAttribute('size', this.size);
+      this._tableToolbar?.setAttribute('size', this.size);
     }
     if (changedProperties.has('useZebraStyles')) {
       const tableBody = this.querySelector(

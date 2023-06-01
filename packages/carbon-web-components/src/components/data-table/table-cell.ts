@@ -20,9 +20,6 @@ import styles from './data-table.scss';
  */
 @customElement(`${prefix}-table-cell`)
 class CDSTableCell extends LitElement {
-  @property({ type: Boolean, reflect: true })
-  disabled = false;
-
   /**
    * Specify whether the header should be sticky.
    * Still experimental: may not work with every combination of table props
@@ -38,22 +35,7 @@ class CDSTableCell extends LitElement {
   }
 
   render() {
-    const { disabled, textContent } = this;
-
-    const statusText = ['Starting', 'Active', 'Disabled'];
-    const isStatus = statusText.some((word) => textContent?.includes(word));
-    const isDisabled = textContent!.includes('Disabled');
-    const cellClasses = classMap({
-      [`${prefix}--link`]: isStatus,
-      [`${prefix}--link--disabled`]: disabled || isDisabled,
-    });
-    return html`
-      ${isStatus
-        ? html` <div class="${cellClasses}">
-            <slot></slot>
-          </div>`
-        : html`<slot></slot>`}
-    `;
+    return html`<slot></slot>`;
   }
 
   static styles = styles;

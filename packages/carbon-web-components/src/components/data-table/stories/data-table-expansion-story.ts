@@ -51,9 +51,9 @@ export const Default = () => {
           <cds-table-cell>3000</cds-table-cell>
           <cds-table-cell>Round robin</cds-table-cell>
           <cds-table-cell>Kevin's VM Groups</cds-table-cell>
-          <cds-table-cell>Disabled</cds-table-cell>
-          <h6 slot="title">Test</h6>
-          <p slot="description">Test</p>
+          <cds-table-cell
+            ><cds-link disabled>Disabled</cds-link></cds-table-cell
+          >
         </cds-table-row>
         <cds-table-expanded-row>
           <h6>Expandable row content 3</h6>
@@ -65,7 +65,7 @@ export const Default = () => {
           <cds-table-cell>443</cds-table-cell>
           <cds-table-cell>Round robin</cds-table-cell>
           <cds-table-cell>Maureen's VM Groups</cds-table-cell>
-          <cds-table-cell>Starting</cds-table-cell>
+          <cds-table-cell><cds-link>Starting</cds-link></cds-table-cell>
         </cds-table-row>
         <cds-table-expanded-row>
           <h6>Expandable row content 3</h6>
@@ -77,7 +77,7 @@ export const Default = () => {
           <cds-table-cell>80</cds-table-cell>
           <cds-table-cell>DNS delegation</cds-table-cell>
           <cds-table-cell>Andrew's VM Groups</cds-table-cell>
-          <cds-table-cell>Active</cds-table-cell>
+          <cds-table-cell><cds-link>Active</cds-link></cds-table-cell>
         </cds-table-row>
         <cds-table-expanded-row>
           <h6>Expandable row content 3</h6>
@@ -89,7 +89,9 @@ export const Default = () => {
           <cds-table-cell>3000</cds-table-cell>
           <cds-table-cell>Round robin</cds-table-cell>
           <cds-table-cell>Marc's VM Groups</cds-table-cell>
-          <cds-table-cell>Disabled</cds-table-cell>
+          <cds-table-cell
+            ><cds-link disabled>Disabled</cds-link></cds-table-cell
+          >
         </cds-table-row>
         <cds-table-expanded-row>
           <h6>Expandable row content 3</h6>
@@ -101,7 +103,7 @@ export const Default = () => {
           <cds-table-cell>443</cds-table-cell>
           <cds-table-cell>Round robin</cds-table-cell>
           <cds-table-cell>Mel's VM Groups</cds-table-cell>
-          <cds-table-cell>Starting</cds-table-cell>
+          <cds-table-cell><cds-link>Starting</cds-link></cds-table-cell>
         </cds-table-row>
         <cds-table-expanded-row>
           <h6>Expandable row content 3</h6>
@@ -113,7 +115,7 @@ export const Default = () => {
           <cds-table-cell>80</cds-table-cell>
           <cds-table-cell>DNS delegation</cds-table-cell>
           <cds-table-cell>Ronja's VM Groups</cds-table-cell>
-          <cds-table-cell>Active</cds-table-cell>
+          <cds-table-cell><cds-link>Active</cds-link></cds-table-cell>
         </cds-table-row>
         <cds-table-expanded-row>
           <h6>Expandable row content 3</h6>
@@ -149,9 +151,9 @@ export const BatchExpansion = () => {
           <cds-table-cell>3000</cds-table-cell>
           <cds-table-cell>Round robin</cds-table-cell>
           <cds-table-cell>Kevin's VM Groups</cds-table-cell>
-          <cds-table-cell>Disabled</cds-table-cell>
-          <h6 slot="title">Test</h6>
-          <p slot="description">Test</p>
+          <cds-table-cell
+            ><cds-link disabled>Disabled</cds-link></cds-table-cell
+          >
         </cds-table-row>
         <cds-table-expanded-row>
           <h6>Expandable row content 3</h6>
@@ -163,7 +165,7 @@ export const BatchExpansion = () => {
           <cds-table-cell>443</cds-table-cell>
           <cds-table-cell>Round robin</cds-table-cell>
           <cds-table-cell>Maureen's VM Groups</cds-table-cell>
-          <cds-table-cell>Starting</cds-table-cell>
+          <cds-table-cell><cds-link>Starting</cds-link></cds-table-cell>
         </cds-table-row>
         <cds-table-expanded-row>
           <h6>Expandable row content 3</h6>
@@ -175,7 +177,7 @@ export const BatchExpansion = () => {
           <cds-table-cell>80</cds-table-cell>
           <cds-table-cell>DNS delegation</cds-table-cell>
           <cds-table-cell>Andrew's VM Groups</cds-table-cell>
-          <cds-table-cell>Active</cds-table-cell>
+          <cds-table-cell><cds-link>Active</cds-link></cds-table-cell>
         </cds-table-row>
         <cds-table-expanded-row>
           <h6>Expandable row content 3</h6>
@@ -187,7 +189,9 @@ export const BatchExpansion = () => {
           <cds-table-cell>3000</cds-table-cell>
           <cds-table-cell>Round robin</cds-table-cell>
           <cds-table-cell>Marc's VM Groups</cds-table-cell>
-          <cds-table-cell>Disabled</cds-table-cell>
+          <cds-table-cell
+            ><cds-link disabled>Disabled</cds-link></cds-table-cell
+          >
         </cds-table-row>
         <cds-table-expanded-row>
           <h6>Expandable row content 3</h6>
@@ -199,7 +203,7 @@ export const BatchExpansion = () => {
           <cds-table-cell>443</cds-table-cell>
           <cds-table-cell>Round robin</cds-table-cell>
           <cds-table-cell>Mel's VM Groups</cds-table-cell>
-          <cds-table-cell>Starting</cds-table-cell>
+          <cds-table-cell><cds-link>Starting</cds-link></cds-table-cell>
         </cds-table-row>
         <cds-table-expanded-row>
           <h6>Expandable row content 3</h6>
@@ -211,7 +215,7 @@ export const BatchExpansion = () => {
           <cds-table-cell>80</cds-table-cell>
           <cds-table-cell>DNS delegation</cds-table-cell>
           <cds-table-cell>Ronja's VM Groups</cds-table-cell>
-          <cds-table-cell>Active</cds-table-cell>
+          <cds-table-cell><cds-link>Active</cds-link></cds-table-cell>
         </cds-table-row>
         <cds-table-expanded-row>
           <h6>Expandable row content 3</h6>
@@ -262,9 +266,9 @@ export const Playground = (args) => {
           <cds-table-cell>3000</cds-table-cell>
           <cds-table-cell>Round robin</cds-table-cell>
           <cds-table-cell>Kevin's VM Groups</cds-table-cell>
-          <cds-table-cell>Disabled</cds-table-cell>
-          <h6 slot="title">Test</h6>
-          <p slot="description">Test</p>
+          <cds-table-cell
+            ><cds-link disabled>Disabled</cds-link></cds-table-cell
+          >
         </cds-table-row>
         <cds-table-expanded-row>
           <h6>Expandable row content 3</h6>
@@ -276,7 +280,7 @@ export const Playground = (args) => {
           <cds-table-cell>443</cds-table-cell>
           <cds-table-cell>Round robin</cds-table-cell>
           <cds-table-cell>Maureen's VM Groups</cds-table-cell>
-          <cds-table-cell>Starting</cds-table-cell>
+          <cds-table-cell><cds-link>Starting</cds-link></cds-table-cell>
         </cds-table-row>
         <cds-table-expanded-row>
           <h6>Expandable row content 3</h6>
@@ -288,7 +292,7 @@ export const Playground = (args) => {
           <cds-table-cell>80</cds-table-cell>
           <cds-table-cell>DNS delegation</cds-table-cell>
           <cds-table-cell>Andrew's VM Groups</cds-table-cell>
-          <cds-table-cell>Active</cds-table-cell>
+          <cds-table-cell><cds-link>Active</cds-link></cds-table-cell>
         </cds-table-row>
         <cds-table-expanded-row>
           <h6>Expandable row content 3</h6>
@@ -300,7 +304,9 @@ export const Playground = (args) => {
           <cds-table-cell>3000</cds-table-cell>
           <cds-table-cell>Round robin</cds-table-cell>
           <cds-table-cell>Marc's VM Groups</cds-table-cell>
-          <cds-table-cell>Disabled</cds-table-cell>
+          <cds-table-cell
+            ><cds-link disabled>Disabled</cds-link></cds-table-cell
+          >
         </cds-table-row>
         <cds-table-expanded-row>
           <h6>Expandable row content 3</h6>
@@ -312,7 +318,7 @@ export const Playground = (args) => {
           <cds-table-cell>443</cds-table-cell>
           <cds-table-cell>Round robin</cds-table-cell>
           <cds-table-cell>Mel's VM Groups</cds-table-cell>
-          <cds-table-cell>Starting</cds-table-cell>
+          <cds-table-cell><cds-link>Starting</cds-link></cds-table-cell>
         </cds-table-row>
         <cds-table-expanded-row>
           <h6>Expandable row content 3</h6>
@@ -324,7 +330,7 @@ export const Playground = (args) => {
           <cds-table-cell>80</cds-table-cell>
           <cds-table-cell>DNS delegation</cds-table-cell>
           <cds-table-cell>Ronja's VM Groups</cds-table-cell>
-          <cds-table-cell>Active</cds-table-cell>
+          <cds-table-cell><cds-link>Active</cds-link></cds-table-cell>
         </cds-table-row>
         <cds-table-expanded-row>
           <h6>Expandable row content 3</h6>

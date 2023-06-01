@@ -52,6 +52,12 @@ class CDSTableExpandedRow extends HostListenerMixin(LitElement) {
   expanded = false;
 
   /**
+   * `true` if the table row should be filtered.
+   */
+  @property({ type: Boolean, reflect: true })
+  filtered = false;
+
+  /**
    * `true` if the table row should be highlighted.
    */
   @property({ type: Boolean, reflect: true })

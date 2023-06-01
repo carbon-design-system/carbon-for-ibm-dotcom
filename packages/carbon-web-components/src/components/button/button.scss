@@ -51,6 +51,11 @@ $css--plex: true !default;
   &[batch-action] {
     .#{$prefix}--btn {
       padding: $button-padding-ghost;
+
+      &:focus {
+        outline: 2px solid $layer;
+        outline-offset: -#{$spacing-01};
+      }
     }
 
     &[has-main-content] {

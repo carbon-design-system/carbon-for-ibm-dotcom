@@ -11,9 +11,6 @@ import { html } from 'lit';
 import { boolean, select, text } from '@storybook/addon-knobs';
 import { prefix } from '../../../globals/settings';
 import { TABLE_SIZE } from '../table';
-import Add from '@carbon/web-components/es/icons/add/16';
-import Save from '@carbon/web-components/es/icons/save/16';
-import TrashCan from '@carbon/web-components/es/icons/trash-can/16';
 // @ts-ignore
 import Download16 from '@carbon/web-components/es/icons/download/16';
 // @ts-ignore
@@ -54,7 +51,9 @@ export const Default = () => {
           <cds-table-cell>3000</cds-table-cell>
           <cds-table-cell>Round robin</cds-table-cell>
           <cds-table-cell>Kevin's VM Groups</cds-table-cell>
-          <cds-table-cell>Disabled</cds-table-cell>
+          <cds-table-cell
+            ><cds-link disabled>Disabled</cds-link></cds-table-cell
+          >
         </cds-table-row>
         <cds-table-row selection-name="1">
           <cds-table-cell>Load Balancer 1</cds-table-cell>
@@ -62,7 +61,7 @@ export const Default = () => {
           <cds-table-cell>443</cds-table-cell>
           <cds-table-cell>Round robin</cds-table-cell>
           <cds-table-cell>Maureen's VM Groups</cds-table-cell>
-          <cds-table-cell>Starting</cds-table-cell>
+          <cds-table-cell><cds-link>Starting</cds-link></cds-table-cell>
         </cds-table-row>
         <cds-table-row selection-name="2">
           <cds-table-cell>Load Balancer 2</cds-table-cell>
@@ -70,7 +69,7 @@ export const Default = () => {
           <cds-table-cell>80</cds-table-cell>
           <cds-table-cell>DNS delegation</cds-table-cell>
           <cds-table-cell>Andrew's VM Groups</cds-table-cell>
-          <cds-table-cell>Active</cds-table-cell>
+          <cds-table-cell><cds-link>Active</cds-link></cds-table-cell>
         </cds-table-row>
         <cds-table-row selection-name="3">
           <cds-table-cell>Load Balancer 6</cds-table-cell>
@@ -78,7 +77,9 @@ export const Default = () => {
           <cds-table-cell>3000</cds-table-cell>
           <cds-table-cell>Round robin</cds-table-cell>
           <cds-table-cell>Marc's VM Groups</cds-table-cell>
-          <cds-table-cell>Disabled</cds-table-cell>
+          <cds-table-cell
+            ><cds-link disabled>Disabled</cds-link></cds-table-cell
+          >
         </cds-table-row>
         <cds-table-row selection-name="4">
           <cds-table-cell>Load Balancer 4</cds-table-cell>
@@ -86,7 +87,7 @@ export const Default = () => {
           <cds-table-cell>443</cds-table-cell>
           <cds-table-cell>Round robin</cds-table-cell>
           <cds-table-cell>Mel's VM Groups</cds-table-cell>
-          <cds-table-cell>Starting</cds-table-cell>
+          <cds-table-cell><cds-link>Starting</cds-link></cds-table-cell>
         </cds-table-row>
         <cds-table-row selection-name="5">
           <cds-table-cell>Load Balancer 5</cds-table-cell>
@@ -94,7 +95,7 @@ export const Default = () => {
           <cds-table-cell>80</cds-table-cell>
           <cds-table-cell>DNS delegation</cds-table-cell>
           <cds-table-cell>Ronja's VM Groups</cds-table-cell>
-          <cds-table-cell>Active</cds-table-cell>
+          <cds-table-cell><cds-link>Active</cds-link></cds-table-cell>
         </cds-table-row>
       </cds-table-body>
     </cds-table>
@@ -126,7 +127,9 @@ export const WithRadioSelection = () => {
           <cds-table-cell>3000</cds-table-cell>
           <cds-table-cell>Round robin</cds-table-cell>
           <cds-table-cell>Kevin's VM Groups</cds-table-cell>
-          <cds-table-cell>Disabled</cds-table-cell>
+          <cds-table-cell
+            ><cds-link disabled>Disabled</cds-link></cds-table-cell
+          >
         </cds-table-row>
         <cds-table-row selection-name="1">
           <cds-table-cell>Load Balancer 1</cds-table-cell>
@@ -134,7 +137,7 @@ export const WithRadioSelection = () => {
           <cds-table-cell>443</cds-table-cell>
           <cds-table-cell>Round robin</cds-table-cell>
           <cds-table-cell>Maureen's VM Groups</cds-table-cell>
-          <cds-table-cell>Starting</cds-table-cell>
+          <cds-table-cell><cds-link>Starting</cds-link></cds-table-cell>
         </cds-table-row>
         <cds-table-row selection-name="2">
           <cds-table-cell>Load Balancer 2</cds-table-cell>
@@ -142,7 +145,7 @@ export const WithRadioSelection = () => {
           <cds-table-cell>80</cds-table-cell>
           <cds-table-cell>DNS delegation</cds-table-cell>
           <cds-table-cell>Andrew's VM Groups</cds-table-cell>
-          <cds-table-cell>Active</cds-table-cell>
+          <cds-table-cell><cds-link>Active</cds-link></cds-table-cell>
         </cds-table-row>
         <cds-table-row selection-name="3">
           <cds-table-cell>Load Balancer 6</cds-table-cell>
@@ -150,7 +153,9 @@ export const WithRadioSelection = () => {
           <cds-table-cell>3000</cds-table-cell>
           <cds-table-cell>Round robin</cds-table-cell>
           <cds-table-cell>Marc's VM Groups</cds-table-cell>
-          <cds-table-cell>Disabled</cds-table-cell>
+          <cds-table-cell
+            ><cds-link disabled>Disabled</cds-link></cds-table-cell
+          >
         </cds-table-row>
         <cds-table-row selection-name="4">
           <cds-table-cell>Load Balancer 4</cds-table-cell>
@@ -158,7 +163,7 @@ export const WithRadioSelection = () => {
           <cds-table-cell>443</cds-table-cell>
           <cds-table-cell>Round robin</cds-table-cell>
           <cds-table-cell>Mel's VM Groups</cds-table-cell>
-          <cds-table-cell>Starting</cds-table-cell>
+          <cds-table-cell><cds-link>Starting</cds-link></cds-table-cell>
         </cds-table-row>
         <cds-table-row selection-name="5">
           <cds-table-cell>Load Balancer 5</cds-table-cell>
@@ -166,7 +171,7 @@ export const WithRadioSelection = () => {
           <cds-table-cell>80</cds-table-cell>
           <cds-table-cell>DNS delegation</cds-table-cell>
           <cds-table-cell>Ronja's VM Groups</cds-table-cell>
-          <cds-table-cell>Active</cds-table-cell>
+          <cds-table-cell><cds-link>Active</cds-link></cds-table-cell>
         </cds-table-row>
       </cds-table-body>
     </cds-table>
@@ -198,7 +203,9 @@ export const WithSelectionAndSorting = () => {
           <cds-table-cell>3000</cds-table-cell>
           <cds-table-cell>Round robin</cds-table-cell>
           <cds-table-cell>Kevin's VM Groups</cds-table-cell>
-          <cds-table-cell>Disabled</cds-table-cell>
+          <cds-table-cell
+            ><cds-link disabled>Disabled</cds-link></cds-table-cell
+          >
         </cds-table-row>
         <cds-table-row selection-name="1">
           <cds-table-cell>Load Balancer 1</cds-table-cell>
@@ -206,7 +213,7 @@ export const WithSelectionAndSorting = () => {
           <cds-table-cell>443</cds-table-cell>
           <cds-table-cell>Round robin</cds-table-cell>
           <cds-table-cell>Maureen's VM Groups</cds-table-cell>
-          <cds-table-cell>Starting</cds-table-cell>
+          <cds-table-cell><cds-link>Starting</cds-link></cds-table-cell>
         </cds-table-row>
         <cds-table-row selection-name="2">
           <cds-table-cell>Load Balancer 2</cds-table-cell>
@@ -214,7 +221,7 @@ export const WithSelectionAndSorting = () => {
           <cds-table-cell>80</cds-table-cell>
           <cds-table-cell>DNS delegation</cds-table-cell>
           <cds-table-cell>Andrew's VM Groups</cds-table-cell>
-          <cds-table-cell>Active</cds-table-cell>
+          <cds-table-cell><cds-link>Active</cds-link></cds-table-cell>
         </cds-table-row>
         <cds-table-row selection-name="3">
           <cds-table-cell>Load Balancer 6</cds-table-cell>
@@ -222,7 +229,9 @@ export const WithSelectionAndSorting = () => {
           <cds-table-cell>3000</cds-table-cell>
           <cds-table-cell>Round robin</cds-table-cell>
           <cds-table-cell>Marc's VM Groups</cds-table-cell>
-          <cds-table-cell>Disabled</cds-table-cell>
+          <cds-table-cell
+            ><cds-link disabled>Disabled</cds-link></cds-table-cell
+          >
         </cds-table-row>
         <cds-table-row selection-name="4">
           <cds-table-cell>Load Balancer 4</cds-table-cell>
@@ -230,7 +239,7 @@ export const WithSelectionAndSorting = () => {
           <cds-table-cell>443</cds-table-cell>
           <cds-table-cell>Round robin</cds-table-cell>
           <cds-table-cell>Mel's VM Groups</cds-table-cell>
-          <cds-table-cell>Starting</cds-table-cell>
+          <cds-table-cell><cds-link>Starting</cds-link></cds-table-cell>
         </cds-table-row>
         <cds-table-row selection-name="5">
           <cds-table-cell>Load Balancer 5</cds-table-cell>
@@ -238,7 +247,7 @@ export const WithSelectionAndSorting = () => {
           <cds-table-cell>80</cds-table-cell>
           <cds-table-cell>DNS delegation</cds-table-cell>
           <cds-table-cell>Ronja's VM Groups</cds-table-cell>
-          <cds-table-cell>Active</cds-table-cell>
+          <cds-table-cell><cds-link>Active</cds-link></cds-table-cell>
         </cds-table-row>
       </cds-table-body>
     </cds-table>
@@ -286,7 +295,9 @@ export const Playground = (args) => {
           <cds-table-cell>3000</cds-table-cell>
           <cds-table-cell>Round robin</cds-table-cell>
           <cds-table-cell>Kevin's VM Groups</cds-table-cell>
-          <cds-table-cell>Disabled</cds-table-cell>
+          <cds-table-cell
+            ><cds-link disabled>Disabled</cds-link></cds-table-cell
+          >
         </cds-table-row>
         <cds-table-row selection-name="1">
           <cds-table-cell>Load Balancer 1</cds-table-cell>
@@ -294,7 +305,7 @@ export const Playground = (args) => {
           <cds-table-cell>443</cds-table-cell>
           <cds-table-cell>Round robin</cds-table-cell>
           <cds-table-cell>Maureen's VM Groups</cds-table-cell>
-          <cds-table-cell>Starting</cds-table-cell>
+          <cds-table-cell><cds-link>Starting</cds-link></cds-table-cell>
         </cds-table-row>
         <cds-table-row selection-name="2">
           <cds-table-cell>Load Balancer 2</cds-table-cell>
@@ -302,7 +313,7 @@ export const Playground = (args) => {
           <cds-table-cell>80</cds-table-cell>
           <cds-table-cell>DNS delegation</cds-table-cell>
           <cds-table-cell>Andrew's VM Groups</cds-table-cell>
-          <cds-table-cell>Active</cds-table-cell>
+          <cds-table-cell><cds-link>Active</cds-link></cds-table-cell>
         </cds-table-row>
         <cds-table-row selection-name="3">
           <cds-table-cell>Load Balancer 6</cds-table-cell>
@@ -310,7 +321,9 @@ export const Playground = (args) => {
           <cds-table-cell>3000</cds-table-cell>
           <cds-table-cell>Round robin</cds-table-cell>
           <cds-table-cell>Marc's VM Groups</cds-table-cell>
-          <cds-table-cell>Disabled</cds-table-cell>
+          <cds-table-cell
+            ><cds-link disabled>Disabled</cds-link></cds-table-cell
+          >
         </cds-table-row>
         <cds-table-row selection-name="4">
           <cds-table-cell>Load Balancer 4</cds-table-cell>
@@ -318,7 +331,7 @@ export const Playground = (args) => {
           <cds-table-cell>443</cds-table-cell>
           <cds-table-cell>Round robin</cds-table-cell>
           <cds-table-cell>Mel's VM Groups</cds-table-cell>
-          <cds-table-cell>Starting</cds-table-cell>
+          <cds-table-cell><cds-link>Starting</cds-link></cds-table-cell>
         </cds-table-row>
         <cds-table-row selection-name="5">
           <cds-table-cell>Load Balancer 5</cds-table-cell>
@@ -326,7 +339,7 @@ export const Playground = (args) => {
           <cds-table-cell>80</cds-table-cell>
           <cds-table-cell>DNS delegation</cds-table-cell>
           <cds-table-cell>Ronja's VM Groups</cds-table-cell>
-          <cds-table-cell>Active</cds-table-cell>
+          <cds-table-cell><cds-link>Active</cds-link></cds-table-cell>
         </cds-table-row>
       </cds-table-body>
     </cds-table>

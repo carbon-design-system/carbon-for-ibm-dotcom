@@ -37,7 +37,6 @@ class CDSTableToolbarContent extends LitElement {
     }
 
     if (changedProperties.has('size')) {
-      console.log(this.size);
       this.querySelector(
         (this.constructor as typeof CDSTableToolbarContent).selectorButton
       )?.setAttribute('size', this.size);

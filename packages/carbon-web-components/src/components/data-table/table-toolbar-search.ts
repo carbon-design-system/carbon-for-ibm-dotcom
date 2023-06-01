@@ -108,7 +108,9 @@ class CDSTableToolbarSearch extends HostListenerMixin(CDSSearch) {
       [`${prefix}--search`]: true,
       [`${prefix}--search--${size}`]: size,
     });
-    this.expanded = persistent;
+    if (persistent) {
+      this.expanded = true;
+    }
     return html`
       <div
         class="${classes}"
