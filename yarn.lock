@@ -2876,9 +2876,9 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@carbon/styles@npm:^1.28.0":
-  version: 1.28.0
-  resolution: "@carbon/styles@npm:1.28.0"
+"@carbon/styles@npm:^1.29.0":
+  version: 1.29.0
+  resolution: "@carbon/styles@npm:1.29.0"
   dependencies:
     "@carbon/colors": ^11.14.0
     "@carbon/feature-flags": ^0.13.0
@@ -2890,7 +2890,7 @@ __metadata:
     "@ibm/plex": 6.0.0-next.6
   peerDependencies:
     sass: ^1.33.0
-  checksum: f145673f6a0c81561ac51e94e42de7f383ce95ba5f6990f862a471e957bd4b58c4ecd682230b6804200ba5f0be2eeb239dc7a7d92d66f3108eaf05b6dcf3b3c0
+  checksum: e2d9586fbdafca78ceba022bba88adc0e9815334b056f001f576e6a639885fbb5e9bd91e91fe9de552feb5cab785f1da57909e960d65b970f4db6feae8db6d6f
   languageName: node
   linkType: hard
 
@@ -2983,7 +2983,7 @@ __metadata:
     "@babel/traverse": ~7.12.0
     "@carbon/icon-helpers": ^10.39.0
     "@carbon/icons": ^11.19.0
-    "@carbon/styles": ^1.28.0
+    "@carbon/styles": ^1.29.0
     "@open-wc/semantic-dom-diff": ~0.18.0
     "@percy-io/in-percy": ^0.1.11
     "@percy/cli": ^1.8.1

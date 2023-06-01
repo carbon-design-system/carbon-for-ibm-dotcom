@@ -44,6 +44,7 @@ export { default as CDSDropdown } from './components/dropdown/dropdown';
 export { default as CDSDropdownItem } from './components/dropdown/dropdown-item';
 export { default as CDSDropdownSkeleton } from './components/dropdown/dropdown-skeleton';
 export { default as CDSFormItem } from './components/form/form-item';
+export { default as CDSFormGroup } from './components/form-group/form-group';
 export { default as CDSIconButton } from './components/icon-button/icon-button';
 export { default as CDSTextInput } from './components/text-input/text-input';
 export { default as CDSTextInputSkeleton } from './components/text-input/text-input-skeleton';
@@ -75,8 +76,6 @@ export { default as CDSOverflowMenu } from './components/overflow-menu/overflow-
 export { default as CDSOverflowMenuBody } from './components/overflow-menu/overflow-menu-body';
 export { default as CDSOverflowMenuItem } from './components/overflow-menu/overflow-menu-item';
 export { default as CDSPagination } from './components/pagination/pagination';
-export { default as CDSPageSizesSelect } from './components/pagination/page-sizes-select';
-export { default as CDSPagesSelect } from './components/pagination/pages-select';
 export { default as CDSProgressBar } from './components/progress-bar/progress-bar';
 export { default as CDSProgressIndicator } from './components/progress-indicator/progress-indicator';
 export { default as CDSProgressIndicatorSkeleton } from './components/progress-indicator/progress-indicator-skeleton';
@@ -124,3 +123,4 @@ export { default as CDSSideNavItems } from './components/ui-shell/side-nav-items
 export { default as CDSSideNavLink } from './components/ui-shell/side-nav-link';
 export { default as CDSSideNavMenu } from './components/ui-shell/side-nav-menu';
 export { default as CDSSideNavMenuItem } from './components/ui-shell/side-nav-menu-item';
+export { default as CDSStack } from './components/stack/stack';
