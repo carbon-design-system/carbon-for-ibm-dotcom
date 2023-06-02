@@ -92,6 +92,19 @@
   svg {
     left: 0;
   }
+
+  &[size='xs'],
+  &[size='sm'] {
+    svg {
+      left: 0.5rem;
+      padding: 0;
+    }
+
+    &[expanded] svg {
+      left: 0;
+      padding: $spacing-05;
+    }
+  }
 }
 
 :host(#{$prefix}-table-toolbar-search[expanded]) {

@@ -8,6 +8,7 @@
  */
 
 import './table';
+import './table-skeleton';
 import './table-header-title';
 import './table-header-description';
 import './table-batch-actions';

@@ -20,8 +20,6 @@ $css--plex: true !default;
 @use '@carbon/styles/scss/components/link' as *;
 
 @use '@carbon/styles/scss/components/data-table/expandable';
-// TODO: deprecate
-// @use '@carbon/styles/scss/components/data-table/data-table-inline-edit';
 @use '@carbon/styles/scss/components/data-table/skeleton';
 
 // TODO: deprecate @import
@@ -31,4 +29,3 @@ $css--plex: true !default;
 @import 'table-sizes';
 @import 'table-selection';
 @import 'table-sort';
-@import 'table-skeleton';

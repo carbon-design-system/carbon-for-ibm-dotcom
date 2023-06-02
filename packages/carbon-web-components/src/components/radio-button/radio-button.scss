@@ -40,13 +40,6 @@ $css--plex: true !default;
 }
 
 :host(#{$prefix}-radio-button[data-table]) {
-  display: table-cell;
-  padding-left: $spacing-05;
-  padding-right: $spacing-02;
-  border-top: 1px solid $layer-01;
-  border-bottom: 1px solid $border-subtle;
-  vertical-align: middle;
-
   .#{$prefix}--radio-button__label {
     width: rem(28px);
   }

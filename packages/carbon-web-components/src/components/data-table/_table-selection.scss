@@ -20,8 +20,7 @@
 }
 
 :host(#{$prefix}-table-header-row) {
-  #{$prefix}-radio-button,
-  #{$prefix}-checkbox {
+  .#{$prefix}--table-column-checkbox {
     border-top: none;
     border-bottom: none;
   }
@@ -29,8 +28,7 @@
 
 :host(#{$prefix}-table-row) {
   &:hover {
-    #{$prefix}-radio-button,
-    #{$prefix}-checkbox {
+    .#{$prefix}--table-column-checkbox {
       border-top-color: $layer-hover-01;
       border-bottom-color: $layer-hover-01;
       background-color: $background-hover;
@@ -58,8 +56,7 @@
 //
 
 :host(#{$prefix}-table-row[selected]) {
-  #{$prefix}-radio-button,
-  #{$prefix}-checkbox,
+  .#{$prefix}--table-column-checkbox,
   ::slotted(#{$prefix}-table-cell),
   .#{$prefix}--table-expand,
   .#{$prefix}--table-column-checkbox {
@@ -72,8 +69,7 @@
 }
 
 :host(#{$prefix}-table-row[selected]:hover) {
-  #{$prefix}-radio-button,
-  #{$prefix}-checkbox,
+  .#{$prefix}--table-column-checkbox,
   ::slotted(#{$prefix}-table-cell),
   .#{$prefix}--table-expand,
   .#{$prefix}--table-column-checkbox {

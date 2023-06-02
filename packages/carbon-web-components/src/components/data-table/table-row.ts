@@ -181,17 +181,19 @@ class CDSTableRow extends HostListenerMixin(FocusMixin(LitElement)) {
     return !selectionName
       ? undefined
       : html`
-          ${radio
-            ? html`<cds-radio-button data-table></cds-radio-button>`
-            : html`<cds-checkbox
-                hide-label
-                ?hide-checkbox="${hideCheckbox}"
-                label-text="${selectionLabel}"
-                name=${selectionName}
-                data-table
-                ?disabled=${disabled}
-                ?checked=${selected}
-                value=${selectionValue}></cds-checkbox> `}
+          <div class="cds--table-column-checkbox">
+            ${radio
+              ? html`<cds-radio-button data-table></cds-radio-button>`
+              : html`<cds-checkbox
+                  hide-label
+                  ?hide-checkbox="${hideCheckbox}"
+                  label-text="${selectionLabel}"
+                  name=${selectionName}
+                  data-table
+                  ?disabled=${disabled}
+                  ?checked=${selected}
+                  value=${selectionValue}></cds-checkbox> `}
+          </div>
         `;
   }
 

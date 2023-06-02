@@ -536,8 +536,10 @@ class CDSTable extends HostListenerMixin(LitElement) {
       this.headerCount += this.expandable ? 1 : -1;
     }
 
-    if (changedProperties.has('locale')) {
-      this.collator = new Intl.Collator(this.locale);
+    if (changedProperties.has('headerCount')) {
+      this._tableExpandedRows.forEach((e) => {
+        e.setAttribute('colspan', this.headerCount);
+      });
     }
 
     if (changedProperties.has('isSelectable')) {
@@ -552,6 +554,10 @@ class CDSTable extends HostListenerMixin(LitElement) {
         (e as CDSTableHeaderCell).isSortable = this.isSortable;
         (e as CDSTableHeaderCell).removeAttribute('sort-direction');
       });
+    }
+
+    if (changedProperties.has('locale')) {
+      this.collator = new Intl.Collator(this.locale);
     }
 
     if (changedProperties.has('radio')) {
@@ -570,19 +576,13 @@ class CDSTable extends HostListenerMixin(LitElement) {
       // Propagate `size` attribute to descendants until `:host-context()` gets supported in all major browsers
       forEach(
         this.querySelectorAll(
-          (this.constructor as typeof CDSTable).selectorRowsWithHeader
+          (this.constructor as typeof CDSTable).selectorAllRows
         ),
         (elem) => {
           elem.setAttribute('size', this.size);
         }
       );
       this._tableToolbar?.setAttribute('size', this.size);
-    }
-    if (changedProperties.has('useZebraStyles')) {
-      const tableBody = this.querySelector(
-        (this.constructor as typeof CDSTable).selectorTableBody
-      );
-      (tableBody as any).useZebraStyles = this.useZebraStyles;
     }
 
     if (changedProperties.has('stickyHeader')) {
@@ -612,10 +612,11 @@ class CDSTable extends HostListenerMixin(LitElement) {
       );
     }
 
-    if (changedProperties.has('headerCount')) {
-      this._tableExpandedRows.forEach((e) => {
-        e.setAttribute('colspan', this.headerCount);
-      });
+    if (changedProperties.has('useZebraStyles')) {
+      const tableBody = this.querySelector(
+        (this.constructor as typeof CDSTable).selectorTableBody
+      );
+      (tableBody as any).useZebraStyles = this.useZebraStyles;
     }
   }
 
@@ -769,6 +770,13 @@ class CDSTable extends HostListenerMixin(LitElement) {
    */
   static get selectorRowsWithHeader() {
     return `${prefix}-table-header-row,${prefix}-table-row`;
+  }
+
+  /**
+   * The CSS selector to find all rows
+   */
+  static get selectorAllRows() {
+    return `${prefix}-table-header-row,${prefix}-table-row,${prefix}-table-expanded-row`;
   }
 
   static styles = styles;

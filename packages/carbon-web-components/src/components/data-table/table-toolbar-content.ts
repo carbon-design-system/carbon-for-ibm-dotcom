@@ -37,21 +37,14 @@ class CDSTableToolbarContent extends LitElement {
     }
 
     if (changedProperties.has('size')) {
-      this.querySelector(
-        (this.constructor as typeof CDSTableToolbarContent).selectorButton
-      )?.setAttribute('size', this.size);
+      [...this.children].forEach((e) => {
+        e.setAttribute('size', this.size);
+      });
     }
   }
 
   render() {
     return html` <slot></slot> `;
-  }
-
-  /**
-   * The CSS selector to find the button
-   */
-  static get selectorButton() {
-    return `${prefix}-button`;
   }
 
   static styles = styles;

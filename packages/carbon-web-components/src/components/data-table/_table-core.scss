@@ -84,6 +84,8 @@
     text-overflow: ellipsis;
     white-space: nowrap;
 
+    border-bottom: 1px solid $layer-active;
+
     &:not([is-sortable]) {
       padding-top: rem(14px);
     }
@@ -173,7 +175,8 @@
   &[sticky-header] {
     #{$prefix}-checkbox {
       margin: 0;
-      padding-top: rem(12px);
+      padding-top: $spacing-04;
+      border-bottom: 1px solid $layer-active;
     }
   }
 }
@@ -248,12 +251,6 @@
       width: 100%;
       padding-top: rem(14px);
     }
-
-    #{$prefix}-radio-button,
-    #{$prefix}-checkbox {
-      margin: 0;
-      padding-top: rem(12px);
-    }
   }
 
   &[size='xl'] {
@@ -309,8 +306,7 @@
         &[selected] {
           ::slotted(#{$prefix}-table-cell),
           .#{$prefix}--table-expand,
-          #{$prefix}-checkbox,
-          #{$prefix}-radio-button {
+          .#{$prefix}--table-column-checkbox {
             background-color: $layer-selected;
 
             border-top-color: $layer-active;
@@ -321,8 +317,7 @@
           &:hover {
             ::slotted(#{$prefix}-table-cell),
             .#{$prefix}--table-expand,
-            #{$prefix}-checkbox,
-            #{$prefix}-radio-button {
+            .#{$prefix}--table-column-checkbox {
               background-color: $layer-selected-hover;
             }
           }
@@ -332,8 +327,7 @@
       &[selected] {
         ::slotted(#{$prefix}-table-cell),
         .#{$prefix}--table-expand,
-        #{$prefix}-checkbox,
-        #{$prefix}-radio-button {
+        .#{$prefix}--table-column-checkbox {
           border-bottom-color: $border-subtle;
         }
       }
@@ -342,8 +336,7 @@
       &:hover {
         ::slotted(#{$prefix}-table-cell),
         .#{$prefix}--table-expand,
-        #{$prefix}-checkbox,
-        #{$prefix}-radio-button {
+        .#{$prefix}--table-column-checkbox {
           border-bottom-color: $border-subtle;
         }
       }
@@ -352,8 +345,7 @@
 
   &[odd] {
     .#{$prefix}--table-expand,
-    #{$prefix}-checkbox,
-    #{$prefix}-radio-button,
+    .#{$prefix}--table-column-checkbox,
     ::slotted(#{$prefix}-table-cell),
     ::slotted(#{$prefix}-table-cell-skeleton) {
       border-bottom: 1px solid $layer-01;
@@ -362,8 +354,7 @@
 
   &[even] {
     .#{$prefix}--table-expand,
-    #{$prefix}-checkbox,
-    #{$prefix}-radio-button,
+    .#{$prefix}--table-column-checkbox,
     ::slotted(#{$prefix}-table-cell),
     ::slotted(#{$prefix}-table-cell-skeleton) {
       background-color: $layer-accent-01;
@@ -391,8 +382,7 @@
 :host(#{$prefix}-table-row[even]:hover),
 :host(#{$prefix}-table-row[odd]:hover) {
   .#{$prefix}--table-expand,
-  #{$prefix}-checkbox,
-  #{$prefix}-radio-button,
+  .#{$prefix}--table-column-checkbox,
   ::slotted(#{$prefix}-table-cell),
   ::slotted(#{$prefix}-table-cell-skeleton) {
     background-color: $background-hover;
