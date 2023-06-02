@@ -2,8 +2,6 @@ name: Bug report 🐛
 description:
   Something isn't working as expected? Here is the right place to report.
 title: '[YOUR TITLE]: Brief description'
-assignees:
-  - jeffchew,ljcarot,oliviaflory,RichKummer,IgnacioBecerra
 labels: ['bug','dev']
 body:
   - type: markdown

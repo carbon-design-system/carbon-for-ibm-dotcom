@@ -12,7 +12,7 @@
  * @private
  */
 const _pathDefault =
-  '/iframe.html?id=components-masthead--with-v-2-data&knob-use%20mock%20nav%20data%20(use-mock)=true&knob-The%20user%20authenticated%20status%20(user-status)=test.user@ibm.com';
+  '/iframe.html?id=components-masthead--default&knob-use%20mock%20nav%20data%20(use-mock)=true&knob-The%20user%20authenticated%20status%20(user-status)=test.user@ibm.com';
 
 describe('dds-masthead | authenticated (desktop)', () => {
   beforeEach(() => {
