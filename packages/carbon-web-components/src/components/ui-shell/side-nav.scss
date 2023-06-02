@@ -45,6 +45,10 @@ $css--plex: true !default;
   @extend .#{$prefix}--side-nav--expanded;
 }
 
+:host(#{$prefix}-side-nav[is-persistent='false']) {
+  @extend .#{$prefix}--side-nav--hidden;
+}
+
 :host(#{$prefix}-side-nav[is-child-of-header='true']) {
   @extend .#{$prefix}--side-nav--ux;
 }
@@ -174,4 +178,12 @@ $css--plex: true !default;
   // TODO: audit
   background-color: $background-hover;
   color: $text-primary;
+}
+
+:host(#{$prefix}-header-side-nav-items) {
+  @extend .#{$prefix}--side-nav__header-navigation;
+
+  &[has-divider] {
+    @extend .#{$prefix}--side-nav__header-divider;
+  }
 }

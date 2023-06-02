@@ -133,6 +133,12 @@ class CDSSideNav extends HostListenerMixin(LitElement) {
   @property({ type: String, reflect: true, attribute: 'is-child-of-header' })
   isChildofHeader = 'true';
 
+  /**
+   * Specify if the side-nav will be persistent above the lg breakpoint
+   */
+  @property({ type: String, reflect: true, attribute: 'is-persistent' })
+  isPersistent = 'true';
+
   connectedCallback() {
     if (!this.hasAttribute('role')) {
       this.setAttribute('role', 'navigation');
