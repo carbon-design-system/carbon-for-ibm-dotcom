@@ -9,15 +9,15 @@
 
 import { html } from 'lit';
 import { boolean, select, text } from '@storybook/addon-knobs';
-import { prefix } from '../../../globals/settings';
-import { TABLE_SIZE } from '../table';
+import { prefix } from '../../../../globals/settings';
+import { TABLE_SIZE } from '../../table';
 // @ts-ignore
 import Download16 from '@carbon/web-components/es/icons/download/16';
 // @ts-ignore
 import Settings16 from '@carbon/web-components/es/icons/settings/16';
 import OverflowMenuVertical16 from '@carbon/icons/lib/overflow-menu--vertical/16';
-import '../index';
-import storyDocs from '../data-table-story.mdx';
+import '../../index';
+import storyDocs from './data-table-story.mdx';
 
 const sizes = {
   [`xs (${TABLE_SIZE.XS})`]: TABLE_SIZE.XS,

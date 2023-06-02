@@ -9,12 +9,12 @@
 
 import { html } from 'lit';
 import { boolean, select, text } from '@storybook/addon-knobs';
-import { prefix } from '../../../globals/settings';
-import { TABLE_SIZE } from '../table';
+import { prefix } from '../../../../globals/settings';
+import { TABLE_SIZE } from '../../table';
 // @ts-ignore
 import Settings16 from '@carbon/web-components/es/icons/settings/16';
-import '../index';
-import storyDocs from '../data-table-story.mdx';
+import '../../index';
+import storyDocs from './data-table-story.mdx';
 
 const sizes = {
   [`xs (${TABLE_SIZE.XS})`]: TABLE_SIZE.XS,
@@ -26,11 +26,27 @@ const sizes = {
 
 export const Default = () => {
   return html`
-    <cds-table is-sortable>
+    <cds-table>
       <cds-table-header-title slot="title">DataTable</cds-table-header-title>
       <cds-table-header-description slot="description"
         >With filtering</cds-table-header-description
       >
+
+      <cds-table-toolbar slot="toolbar">
+        <cds-table-toolbar-content ?has-batch-actions="true">
+          <cds-table-toolbar-search
+            placeholder="Filter table"></cds-table-toolbar-search>
+          <cds-overflow-menu toolbar-action>
+            ${Settings16({ slot: 'icon' })}
+            <cds-overflow-menu-body>
+              <cds-overflow-menu-item> Action 1 </cds-overflow-menu-item>
+              <cds-overflow-menu-item> Action 2 </cds-overflow-menu-item>
+              <cds-overflow-menu-item> Action 3 </cds-overflow-menu-item>
+            </cds-overflow-menu-body>
+          </cds-overflow-menu>
+          <cds-button>Primary Button</cds-button>
+        </cds-table-toolbar-content>
+      </cds-table-toolbar>
 
       <cds-table-head>
         <cds-table-header-row>
@@ -104,6 +120,7 @@ export const Playground = (args) => {
   const {
     isSortable,
     locale,
+    radio,
     size,
     stickyHeader,
     useStaticWidth,
@@ -113,6 +130,7 @@ export const Playground = (args) => {
     <cds-table
       ?is-sortable=${isSortable}
       locale="${locale}"
+      ?radio=${radio}
       size="${size}"
       ?sticky-header="${stickyHeader}"
       ?use-static-width="${useStaticWidth}"
@@ -121,6 +139,22 @@ export const Playground = (args) => {
       <cds-table-header-description slot="description"
         >With filtering</cds-table-header-description
       >
+
+      <cds-table-toolbar slot="toolbar">
+        <cds-table-toolbar-content ?has-batch-actions="true">
+          <cds-table-toolbar-search
+            placeholder="Filter table"></cds-table-toolbar-search>
+          <cds-overflow-menu toolbar-action>
+            ${Settings16({ slot: 'icon' })}
+            <cds-overflow-menu-body>
+              <cds-overflow-menu-item> Action 1 </cds-overflow-menu-item>
+              <cds-overflow-menu-item> Action 2 </cds-overflow-menu-item>
+              <cds-overflow-menu-item> Action 3 </cds-overflow-menu-item>
+            </cds-overflow-menu-body>
+          </cds-overflow-menu>
+          <cds-button>Primary Button</cds-button>
+        </cds-table-toolbar-content>
+      </cds-table-toolbar>
 
       <cds-table-head>
         <cds-table-header-row>
@@ -193,7 +227,7 @@ export const Playground = (args) => {
 Playground.parameters = {
   knobs: {
     [`${prefix}-table`]: () => ({
-      isSortable: boolean('Is sortable', true),
+      isSortable: boolean('Is sortable', false),
       locale: text('Locale', 'en'),
       size: select('Size', sizes, TABLE_SIZE.LG),
       stickyHeader: boolean('Sticky header', false),
@@ -204,7 +238,7 @@ Playground.parameters = {
 };
 
 export default {
-  title: 'Components/DataTable/Sorting',
+  title: 'Components/DataTable/Filtering',
   parameters: {
     ...storyDocs.parameters,
   },

@@ -9,19 +9,29 @@
 
 import { html } from 'lit';
 import { boolean, number } from '@storybook/addon-knobs';
-import { prefix } from '../../../globals/settings';
-import storyDocs from '../data-table-story.mdx';
-import '../index';
+import { prefix } from '../../../../globals/settings';
+import storyDocs from './data-table-skeleton-story.mdx';
+import '../../index';
 
 export const Default = () => {
-  return html` <cds-table-skeleton> </cds-table-skeleton>s `;
+  return html` <cds-table-skeleton> </cds-table-skeleton>`;
 };
 
 export const Playground = (args) => {
   const { columnCount, rowCount, showHeader, showToolbar, zebra } =
     args?.[`${prefix}-table`] ?? {};
+
+  const headers = [
+    'Name',
+    'Protocol',
+    'Port',
+    'Rule',
+    'Attached groups',
+    'Status',
+  ];
   return html`
     <cds-table-skeleton
+      .headers=${headers}
       column-count=${columnCount}
       row-count=${rowCount}
       ?show-header=${showHeader}
@@ -34,6 +44,7 @@ export const Playground = (args) => {
 Playground.parameters = {
   knobs: {
     [`${prefix}-table`]: () => ({
+      compact: boolean('Compact', false),
       columnCount: number('Column count', 5),
       rowCount: number('Row count', 5),
       showHeader: boolean('Show header', true),

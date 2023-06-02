@@ -24,14 +24,13 @@ class CDSTableSkeleton extends LitElement {
    * Optionally specify the displayed headers
    */
   @property()
-  private headers = [
-    'Name',
-    'Protocol',
-    'Port',
-    'Rule',
-    'Attached groups',
-    'Status',
-  ];
+  private headers: string[] = [];
+
+  /**
+   * Optionally specify whether you want the Skeleton to be rendered as a compact DataTable
+   */
+  @property({ type: Boolean, reflect: true })
+  compact = false;
 
   /**
    * Specify the number of columns that you want to render in the skeleton state
@@ -104,15 +103,20 @@ class CDSTableSkeleton extends LitElement {
     super.connectedCallback();
   }
 
-  firstUpdated() {
-    this.columnCount = this.headers.length;
+  updated() {
+    if (this.headers.length) {
+      this.columnCount = this.headers.length;
+    } else {
+      this.headers = Array(this.columnCount).fill('');
+    }
   }
 
   render() {
-    const { columnCount, headers, rowCount, zebra } = this;
+    const { compact, columnCount, headers, rowCount, zebra } = this;
     const classes = classMap({
       [`${prefix}--skeleton`]: true,
       [`${prefix}--data-table`]: true,
+      [`${prefix}--data-table--compact`]: compact,
       [`${prefix}--data-table--zebra`]: zebra,
     });
     return html`

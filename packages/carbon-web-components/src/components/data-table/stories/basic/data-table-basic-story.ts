@@ -9,10 +9,10 @@
 
 import { html } from 'lit';
 import { boolean, select, text } from '@storybook/addon-knobs';
-import { prefix } from '../../../globals/settings';
-import { TABLE_SIZE } from '../table';
-import '../index';
-import storyDocs from '../data-table-story.mdx';
+import { prefix } from '../../../../globals/settings';
+import { TABLE_SIZE } from '../../table';
+import '../../index';
+import storyDocs from './data-table-story.mdx';
 
 const sizes = {
   [`xs (${TABLE_SIZE.XS})`]: TABLE_SIZE.XS,

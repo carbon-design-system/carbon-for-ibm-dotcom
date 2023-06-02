@@ -1,0 +1,68 @@
+import { Props, Description } from '@storybook/addon-docs/blocks';
+import { cdnJs, cdnCss } from '../../../../globals/internal/storybook-cdn';
+
+# Data table
+
+> 💡 Check our
+> [CodeSandbox](https://codesandbox.io/s/github/carbon-design-system/carbon-for-ibm-dotcom/tree/main/packages/carbon-web-components/examples/codesandbox/basic/components/data-table)
+> example implementation.
+
+[![Edit carbon-web-components](https://codesandbox.io/static/img/play-codesandbox.svg)](https://codesandbox.io/s/github/carbon-design-system/carbon-for-ibm-dotcom/tree/main/packages/carbon-web-components/examples/codesandbox/basic/components/data-table)
+
+## Getting started
+
+Here's a quick example to get you started.
+
+Data table in `carbon-web-components` focuses on primitives that constructs
+table UI, consisting of the following:
+
+| Tag                      | Description     | HTML tag counterpart |
+| ------------------------ | --------------- | -------------------- |
+| `<cds-data-table>`        | The container   | N/A                  |
+| `<cds-table>`             | The table       | `<table>`            |
+| `<cds-table-head>`        | The header      | `<thead>`            |
+| `<cds-table-header-row>`  | The header row  | `<tr>` in `<thead>`  |
+| `<cds-table-header-cell>` | The header cell | `<th>`               |
+| `<cds-table-body>`        | The header body | `<tbody>`            |
+| `<cds-table-row>`         | The header row  | `<tr>` in `<tbody>`  |
+| `<cds-table-cell>`        | The header cell | `<td>`               |
+
+### JS (via import)
+
+```javascript
+import '@carbon/web-components/es/components/data-table/index.js';
+```
+
+<Description markdown={`${cdnJs({ components: ['data-table-skeleton'] })}`} />
+<Description markdown={`${cdnCss()}`} />
+
+### Skeleton HTML
+
+```html
+ <cds-table-skeleton> </cds-table-skeleton>
+```
+
+Specify the number of rows and columns you need with the `row-count` and `column-count` attributes.
+
+```html
+ <cds-table-skeleton row-count="5" column-count="5"> </cds-table-skeleton>
+```
+
+
+## Custom headers
+
+Optionally, you can specify to have header titles on the Skeleton table.
+
+```html
+ <cds-table-skeleton> </cds-table-skeleton>
+```
+
+```javascript
+const customHeaders = ['Name', 'Protocol', 'Port', 'Rule', 'Attached groups', 'Status'];
+document.querySelector('cds-table-skeleton').headers = customHeaders;
+```
+
+### Skeleton props
+
+<Props of="cds-table-skeleton" />
+
