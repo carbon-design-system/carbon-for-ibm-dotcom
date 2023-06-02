@@ -60,19 +60,25 @@ function handleDropdownClose(event: FocusEvent | KeyboardEvent) {
       }
       case 'focusout': {
         const { relatedTarget } = event as FocusEvent;
-        if (
-          !relatedTarget ||
-          !currentTarget ||
-          !(
-            (relatedTarget as Node).compareDocumentPosition(
-              currentTarget as Node
-            ) & 8
-          )
-        ) {
+        const hasUnknownTargets = !relatedTarget || !currentTarget;
+        let focusHasEscaped = false;
+
+        if (!hasUnknownTargets) {
+          const comparison = (relatedTarget as Node).compareDocumentPosition(
+            currentTarget as Node
+          );
+
+          focusHasEscaped =
+            !(comparison & 8) && // relatedTarget is not ancestor of currentTarget
+            relatedTarget !== currentTarget;
+        }
+
+        if (hasUnknownTargets || focusHasEscaped) {
           openDropdowns.forEach((el) => {
             el.classList.remove('is-open');
           });
         }
+
         break;
       }
       default:
@@ -400,9 +406,16 @@ class DDSMastheadL1 extends StableSelectorMixin(LitElement) {
 
     const wideColumns = menuSections.filter((section) => section.span > 1);
     const normalColumns = menuSections.filter((section) => !(section.span > 1));
+    const dropdownClasses = classMap({
+      [`${prefix}--masthead__l1-dropdown-links`]: true,
+      [`${prefix}--masthead__l1-dropdown--has-column-wide`]: hasWideColumn,
+    });
 
     return html`
-      <li @focusout=${handleDropdownClose} @keydown=${handleDropdownClose}>
+      <li
+        @focusout=${handleDropdownClose}
+        @keydown=${handleDropdownClose}
+        tabindex="-1">
         <button
           class="${prefix}--masthead__l1-item"
           @click=${toggleSubsection}
@@ -416,7 +429,7 @@ class DDSMastheadL1 extends StableSelectorMixin(LitElement) {
                 ${unsafeHTML(announcement)}
               </div>`
             : ''}
-          <div class="${prefix}--masthead__l1-dropdown-links">
+          <div class="${dropdownClasses}">
             ${hasWideColumn && wideColumnFirst
               ? this._renderL1DropdownSections(wideColumns, hasWideColumn, true)
               : ''}
@@ -754,6 +767,8 @@ class DDSMastheadL1 extends StableSelectorMixin(LitElement) {
 
     const headingClasses = classMap({
       [`${prefix}--masthead__l1-dropdown-heading`]: true,
+      [`${prefix}--masthead__l1-dropdown-heading--no-link`]:
+        Boolean(heading.url) === false,
     });
 
     let renderedHeading = headingContent;
