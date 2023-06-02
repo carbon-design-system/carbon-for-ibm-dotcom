@@ -221,7 +221,8 @@ $search-transition-timing: 95ms;
 
       color: $text-01;
 
-      &:not(:has(> .#{$prefix}--masthead__l1-dropdown-item)) {
+      // Headings that are not links.
+      &.#{$prefix}--masthead__l1-dropdown-heading--no-link {
         padding-block: $carbon--spacing-04;
         padding-inline-start: $carbon--spacing-05;
         padding-inline-end: $carbon--spacing-08;
@@ -576,8 +577,7 @@ $search-transition-timing: 95ms;
         column-gap: 0;
       }
 
-      .#{$prefix}--masthead__l1-dropdown__3-col
-        &:not(:has(.#{$prefix}--masthead__l1-dropdown-column-wide)) {
+      .#{$prefix}--masthead__l1-dropdown__3-col & {
         column-count: 3;
         column-gap: 0;
       }
@@ -586,8 +586,8 @@ $search-transition-timing: 95ms;
         break-inside: avoid;
       }
 
-      .#{$prefix}--masthead__l1-dropdown__3-col
-        &:has(.#{$prefix}--masthead__l1-dropdown-column-wide) {
+      // Contains a wide col child.
+      &.#{$prefix}--masthead__l1-dropdown--has-column-wide {
         display: grid;
         grid-template-columns: repeat(3, 1fr);
 
@@ -642,7 +642,8 @@ $search-transition-timing: 95ms;
         margin-bottom: $spacing-03;
       }
 
-      &:not(:has(.#{$prefix}--masthead__l1-dropdown-item)) {
+      // Headings that do not contain links.
+      &.#{$prefix}--masthead__l1-dropdown-heading--no-link {
         padding: $spacing-03 $spacing-05;
         margin-bottom: $spacing-03;
       }

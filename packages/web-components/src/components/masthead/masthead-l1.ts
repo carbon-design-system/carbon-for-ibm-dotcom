@@ -406,6 +406,10 @@ class DDSMastheadL1 extends StableSelectorMixin(LitElement) {
 
     const wideColumns = menuSections.filter((section) => section.span > 1);
     const normalColumns = menuSections.filter((section) => !(section.span > 1));
+    const dropdownClasses = classMap({
+      [`${prefix}--masthead__l1-dropdown-links`]: true,
+      [`${prefix}--masthead__l1-dropdown--has-column-wide`]: hasWideColumn,
+    });
 
     return html`
       <li
@@ -425,7 +429,7 @@ class DDSMastheadL1 extends StableSelectorMixin(LitElement) {
                 ${unsafeHTML(announcement)}
               </div>`
             : ''}
-          <div class="${prefix}--masthead__l1-dropdown-links">
+          <div class="${dropdownClasses}">
             ${hasWideColumn && wideColumnFirst
               ? this._renderL1DropdownSections(wideColumns, hasWideColumn, true)
               : ''}
@@ -763,6 +767,8 @@ class DDSMastheadL1 extends StableSelectorMixin(LitElement) {
 
     const headingClasses = classMap({
       [`${prefix}--masthead__l1-dropdown-heading`]: true,
+      [`${prefix}--masthead__l1-dropdown-heading--no-link`]:
+        Boolean(heading.url) === false,
     });
 
     let renderedHeading = headingContent;
