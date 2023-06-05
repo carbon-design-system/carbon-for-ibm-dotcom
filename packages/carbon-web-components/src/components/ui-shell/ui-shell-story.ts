@@ -555,7 +555,7 @@ export const HeaderBaseWNavigationActions = () => {
         <cds-header-nav-item href="javascript:void 0"
           >Link 3</cds-header-nav-item
         >
-        <cds-header-menu menu-label="Link 4" trigger-content="Link 4">
+        <cds-header-menu is-active menu-label="Link 4" trigger-content="Link 4">
           <cds-header-menu-item href="javascript:void 0"
             >Sub-link 1</cds-header-menu-item
           >
@@ -641,7 +641,7 @@ export const HeaderBaseWNavigation = () => {
           <cds-header-menu-item href="javascript:void 0"
             >Sub-link 1</cds-header-menu-item
           >
-          <cds-header-menu-item active href="javascript:void 0"
+          <cds-header-menu-item is-active href="javascript:void 0"
             >Sub-link 2</cds-header-menu-item
           >
           <cds-header-menu-item href="javascript:void 0"

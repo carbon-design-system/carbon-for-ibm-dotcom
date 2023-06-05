@@ -51,6 +51,7 @@ $css--plex: true !default;
 
   a.#{$prefix}--header__menu-item {
     height: $spacing-09;
+    background-color: $layer;
 
     &:hover {
       background-color: $background-hover;
@@ -59,6 +60,25 @@ $css--plex: true !default;
 
     &:active {
       background-color: $background-active;
+    }
+  }
+
+  a.#{$prefix}--header__menu-item--current {
+    background-color: $layer-selected;
+
+    &:hover {
+      background-color: $layer-selected-hover;
+    }
+
+    &::after {
+      position: absolute;
+      top: -2px;
+      left: -2px;
+      bottom: -2px;
+      width: 3px;
+      height: 100%;
+      background-color: $border-interactive;
+      content: '';
     }
   }
 }

@@ -8,6 +8,7 @@
  */
 
 import { ifDefined } from 'lit/directives/if-defined.js';
+import { classMap } from 'lit/directives/class-map.js';
 import { LitElement, html } from 'lit';
 import { property, customElement } from 'lit/decorators.js';
 import { prefix } from '../../globals/settings';
@@ -36,17 +37,35 @@ class CDSHeaderNavItem extends FocusMixin(LitElement) {
   title!: string;
 
   /**
+   * Applies selected styles to the item if a user sets this to true and `aria-current !== 'page'`.
+   */
+  @property({ type: Boolean, attribute: 'is-active', reflect: true })
+  isActive = false;
+
+  /**
+   * indicates that this element represents the current item
+   */
+  @property({ type: Boolean, attribute: 'aria-current', reflect: true })
+  ariaCurrent;
+
+  /**
    * As child of <ul>, this element must have role of listitem
    */
   @property({ reflect: true })
   role: string = 'listitem';
 
   render() {
-    const { href, title } = this;
+    const { ariaCurrent, href, isActive, title } = this;
+    const linkClass = classMap({
+      [`${prefix}--header__menu-item`]: true,
+      [`${prefix}--header__menu-item--current`]:
+        isActive && ariaCurrent !== 'page',
+    });
+
     return html`
       <a
         part="link"
-        class="${prefix}--header__menu-item"
+        class="${linkClass}"
         tabindex="0"
         href="${ifDefined(href)}">
         <span part="title" class="${prefix}--text-truncate--end"

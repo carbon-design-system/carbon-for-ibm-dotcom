@@ -210,9 +210,8 @@ class CDSSideNav extends HostListenerMixin(LitElement) {
         !expanded && collapseMode === SIDE_NAV_COLLAPSE_MODE.FIXED,
       [`${prefix}--side-nav--rail`]:
         collapseMode === SIDE_NAV_COLLAPSE_MODE.RAIL,
-      [`${prefix}--side-nav--ux`]: isChildOfHeader,
-      [`${prefix}--side-nav--hidden`]:
-        !isPersistent || isPersistent === 'false',
+      [`${prefix}--side-nav--ux`]: isChildOfHeader === 'true',
+      [`${prefix}--side-nav--hidden`]: isPersistent === 'false',
     });
 
     const overlayClasses = classMap({
