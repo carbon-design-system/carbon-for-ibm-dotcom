@@ -236,6 +236,12 @@
   ::slotted(#{$prefix}-overflow-menu:hover) {
     background-color: $layer-selected-hover;
   }
+
+  &[overflow-menu-on-hover] {
+    ::slotted(*) {
+      opacity: 0;
+    }
+  }
 }
 
 :host(#{$prefix}-table-cell-content) {

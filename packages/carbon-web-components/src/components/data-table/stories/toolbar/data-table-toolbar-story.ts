@@ -53,7 +53,7 @@ export const Default = () => {
               </cds-overflow-menu-item>
             </cds-overflow-menu-body>
           </cds-overflow-menu>
-          <cds-button>Add new</cds-button>
+          <cds-button>Primary button</cds-button>
         </cds-table-toolbar-content>
       </cds-table-toolbar>
 
@@ -152,7 +152,7 @@ export const PersistentToolbar = () => {
               </cds-overflow-menu-item>
             </cds-overflow-menu-body>
           </cds-overflow-menu>
-          <cds-button>Add new</cds-button>
+          <cds-button>Primary button</cds-button>
         </cds-table-toolbar-content>
       </cds-table-toolbar>
 
@@ -319,7 +319,7 @@ export const SmallPersistentToolbar = () => {
 
 export const WithOverflowMenu = () => {
   return html`
-    <cds-table>
+    <cds-table overflow-menu-on-hover>
       <cds-table-header-title slot="title">DataTable</cds-table-header-title>
       <cds-table-header-description slot="description"
         >With toolbar</cds-table-header-description
@@ -343,7 +343,7 @@ export const WithOverflowMenu = () => {
               </cds-overflow-menu-item>
             </cds-overflow-menu-body>
           </cds-overflow-menu>
-          <cds-button>Add new</cds-button>
+          <cds-button>Primary button</cds-button>
         </cds-table-toolbar-content>
       </cds-table-toolbar>
 
@@ -493,6 +493,7 @@ export const Playground = (args) => {
     isSortable,
     locale,
     radio,
+    overflowMenuOnHover,
     size,
     stickyHeader,
     useStaticWidth,
@@ -502,6 +503,7 @@ export const Playground = (args) => {
     <cds-table
       ?is-sortable=${isSortable}
       locale="${locale}"
+      ?overflow-menu-on-hover=${overflowMenuOnHover}
       ?radio=${radio}
       size="${size}"
       ?sticky-header="${stickyHeader}"
@@ -524,7 +526,7 @@ export const Playground = (args) => {
               <cds-overflow-menu-item> Action 3 </cds-overflow-menu-item>
             </cds-overflow-menu-body>
           </cds-overflow-menu>
-          <cds-button>Add new</cds-button>
+          <cds-button>Primary button</cds-button>
         </cds-table-toolbar-content>
       </cds-table-toolbar>
 
@@ -536,6 +538,7 @@ export const Playground = (args) => {
           <cds-table-header-cell>Rule</cds-table-header-cell>
           <cds-table-header-cell>Attached groups</cds-table-header-cell>
           <cds-table-header-cell>Status</cds-table-header-cell>
+          <cds-table-header-cell></cds-table-header-cell>
         </cds-table-header-row>
       </cds-table-head>
       <cds-table-body>
@@ -548,6 +551,18 @@ export const Playground = (args) => {
           <cds-table-cell
             ><cds-link disabled>Disabled</cds-link></cds-table-cell
           >
+          <cds-table-cell>
+            <cds-overflow-menu toolbar-action>
+              ${OverflowMenuVertical16({ slot: 'icon' })}
+              <span slot="tooltip-content"> Options </span>
+
+              <cds-overflow-menu-body>
+                <cds-overflow-menu-item> Stop app </cds-overflow-menu-item>
+                <cds-overflow-menu-item> Restart app </cds-overflow-menu-item>
+                <cds-overflow-menu-item> Rename </cds-overflow-menu-item>
+              </cds-overflow-menu-body>
+            </cds-overflow-menu>
+          </cds-table-cell>
         </cds-table-row>
         <cds-table-row selection-name="1">
           <cds-table-cell>Load Balancer 1</cds-table-cell>
@@ -556,6 +571,18 @@ export const Playground = (args) => {
           <cds-table-cell>Round robin</cds-table-cell>
           <cds-table-cell>Maureen's VM Groups</cds-table-cell>
           <cds-table-cell><cds-link>Starting</cds-link></cds-table-cell>
+          <cds-table-cell>
+            <cds-overflow-menu toolbar-action>
+              ${OverflowMenuVertical16({ slot: 'icon' })}
+              <span slot="tooltip-content"> Options </span>
+
+              <cds-overflow-menu-body>
+                <cds-overflow-menu-item> Stop app </cds-overflow-menu-item>
+                <cds-overflow-menu-item> Restart app </cds-overflow-menu-item>
+                <cds-overflow-menu-item> Rename </cds-overflow-menu-item>
+              </cds-overflow-menu-body>
+            </cds-overflow-menu>
+          </cds-table-cell>
         </cds-table-row>
         <cds-table-row selection-name="2">
           <cds-table-cell>Load Balancer 2</cds-table-cell>
@@ -564,6 +591,18 @@ export const Playground = (args) => {
           <cds-table-cell>DNS delegation</cds-table-cell>
           <cds-table-cell>Andrew's VM Groups</cds-table-cell>
           <cds-table-cell><cds-link>Active</cds-link></cds-table-cell>
+          <cds-table-cell>
+            <cds-overflow-menu toolbar-action>
+              ${OverflowMenuVertical16({ slot: 'icon' })}
+              <span slot="tooltip-content"> Options </span>
+
+              <cds-overflow-menu-body>
+                <cds-overflow-menu-item> Stop app </cds-overflow-menu-item>
+                <cds-overflow-menu-item> Restart app </cds-overflow-menu-item>
+                <cds-overflow-menu-item> Rename </cds-overflow-menu-item>
+              </cds-overflow-menu-body>
+            </cds-overflow-menu>
+          </cds-table-cell>
         </cds-table-row>
         <cds-table-row selection-name="3">
           <cds-table-cell>Load Balancer 6</cds-table-cell>
@@ -574,6 +613,18 @@ export const Playground = (args) => {
           <cds-table-cell
             ><cds-link disabled>Disabled</cds-link></cds-table-cell
           >
+          <cds-table-cell>
+            <cds-overflow-menu toolbar-action>
+              ${OverflowMenuVertical16({ slot: 'icon' })}
+              <span slot="tooltip-content"> Options </span>
+
+              <cds-overflow-menu-body>
+                <cds-overflow-menu-item> Stop app </cds-overflow-menu-item>
+                <cds-overflow-menu-item> Restart app </cds-overflow-menu-item>
+                <cds-overflow-menu-item> Rename </cds-overflow-menu-item>
+              </cds-overflow-menu-body>
+            </cds-overflow-menu>
+          </cds-table-cell>
         </cds-table-row>
         <cds-table-row selection-name="4">
           <cds-table-cell>Load Balancer 4</cds-table-cell>
@@ -582,6 +633,18 @@ export const Playground = (args) => {
           <cds-table-cell>Round robin</cds-table-cell>
           <cds-table-cell>Mel's VM Groups</cds-table-cell>
           <cds-table-cell><cds-link>Starting</cds-link></cds-table-cell>
+          <cds-table-cell>
+            <cds-overflow-menu toolbar-action>
+              ${OverflowMenuVertical16({ slot: 'icon' })}
+              <span slot="tooltip-content"> Options </span>
+
+              <cds-overflow-menu-body>
+                <cds-overflow-menu-item> Stop app </cds-overflow-menu-item>
+                <cds-overflow-menu-item> Restart app </cds-overflow-menu-item>
+                <cds-overflow-menu-item> Rename </cds-overflow-menu-item>
+              </cds-overflow-menu-body>
+            </cds-overflow-menu>
+          </cds-table-cell>
         </cds-table-row>
         <cds-table-row selection-name="5">
           <cds-table-cell>Load Balancer 5</cds-table-cell>
@@ -590,6 +653,18 @@ export const Playground = (args) => {
           <cds-table-cell>DNS delegation</cds-table-cell>
           <cds-table-cell>Ronja's VM Groups</cds-table-cell>
           <cds-table-cell><cds-link>Active</cds-link></cds-table-cell>
+          <cds-table-cell>
+            <cds-overflow-menu toolbar-action>
+              ${OverflowMenuVertical16({ slot: 'icon' })}
+              <span slot="tooltip-content"> Options </span>
+
+              <cds-overflow-menu-body>
+                <cds-overflow-menu-item> Stop app </cds-overflow-menu-item>
+                <cds-overflow-menu-item> Restart app </cds-overflow-menu-item>
+                <cds-overflow-menu-item> Rename </cds-overflow-menu-item>
+              </cds-overflow-menu-body>
+            </cds-overflow-menu>
+          </cds-table-cell>
         </cds-table-row>
       </cds-table-body>
     </cds-table>
@@ -601,6 +676,7 @@ Playground.parameters = {
     [`${prefix}-table`]: () => ({
       isSortable: boolean('Is sortable', false),
       locale: text('Locale', 'en'),
+      overflowMenuOnHover: boolean('Overflow menu on hover', false),
       radio: boolean('Radio', false),
       size: select('Size', sizes, TABLE_SIZE.LG),
       stickyHeader: boolean('Sticky header', false),

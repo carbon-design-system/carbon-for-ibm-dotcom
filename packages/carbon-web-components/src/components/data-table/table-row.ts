@@ -17,6 +17,7 @@ import styles from './data-table.scss';
 import HostListener from '../../globals/decorators/host-listener';
 import HostListenerMixin from '../../globals/mixins/host-listener';
 import CDSTableExpandedRow from './table-expanded-row';
+import CDSTableCell from './table-cell';
 
 /**
  * Data table row.
@@ -112,11 +113,22 @@ class CDSTableRow extends HostListenerMixin(FocusMixin(LitElement)) {
   @HostListener('mouseout')
   // @ts-ignore: The decorator refers to this method but TS thinks this method is not referred to
   private _handleMouseOverOut(event: MouseEvent) {
-    const { selectorExpandedRow } = this.constructor as typeof CDSTableRow;
+    const { selectorExpandedRow, selectorTableCellOverflowMenu } = this
+      .constructor as typeof CDSTableRow;
     const { nextElementSibling } = this;
     if (nextElementSibling?.matches(selectorExpandedRow)) {
       (nextElementSibling as CDSTableExpandedRow).highlighted =
         event.type === 'mouseover';
+    }
+    if (this.overflowMenuOnHover) {
+      const overflowMenu = this.querySelector(selectorTableCellOverflowMenu);
+      const parentCell = overflowMenu?.parentElement;
+
+      if (event.type === 'mouseout') {
+        (parentCell as CDSTableCell).overflowMenuOnHover = true;
+      } else {
+        (parentCell as CDSTableCell).overflowMenuOnHover = false;
+      }
     }
   }
 
@@ -181,7 +193,7 @@ class CDSTableRow extends HostListenerMixin(FocusMixin(LitElement)) {
     return !selectionName
       ? undefined
       : html`
-          <div class="cds--table-column-checkbox">
+          <div class="${prefix}--table-column-checkbox">
             ${radio
               ? html`<cds-radio-button data-table></cds-radio-button>`
               : html`<cds-checkbox
@@ -261,6 +273,16 @@ class CDSTableRow extends HostListenerMixin(FocusMixin(LitElement)) {
    */
   @property({ type: Boolean, reflect: true })
   odd = false;
+
+  /**
+   * Specify whether the overflow menu (if it exists) should be shown always, or only on hover
+   */
+  @property({
+    type: Boolean,
+    reflect: true,
+    attribute: 'overflow-menu-on-hover',
+  })
+  overflowMenuOnHover = false;
 
   /**
    * Specify whether the control should be a radio button or inline checkbox
@@ -367,6 +389,13 @@ class CDSTableRow extends HostListenerMixin(FocusMixin(LitElement)) {
    */
   static get selectorTable() {
     return `${prefix}-table`;
+  }
+
+  /**
+   * The CSS selector to find the overflow menu on the table cell
+   */
+  static get selectorTableCellOverflowMenu() {
+    return `${prefix}-table-cell ${prefix}-overflow-menu`;
   }
 
   /**

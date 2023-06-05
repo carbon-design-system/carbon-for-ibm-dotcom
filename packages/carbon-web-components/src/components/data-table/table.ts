@@ -19,6 +19,7 @@ import HostListenerMixin from '../../globals/mixins/host-listener';
 import {
   CDSRadioButton,
   CDSTableBatchActions,
+  CDSTableCell,
   CDSTableHeaderCell,
   CDSTableHeaderRow,
   CDSTableRow,
@@ -168,6 +169,16 @@ class CDSTable extends HostListenerMixin(LitElement) {
    */
   @property({ reflect: true })
   locale = 'en';
+
+  /**
+   * Specify whether the overflow menu (if it exists) should be shown always, or only on hover
+   */
+  @property({
+    type: Boolean,
+    reflect: true,
+    attribute: 'overflow-menu-on-hover',
+  })
+  overflowMenuOnHover = false;
 
   /**
    * Specify whether the control should be a radio button or inline checkbox
@@ -560,6 +571,20 @@ class CDSTable extends HostListenerMixin(LitElement) {
       this.collator = new Intl.Collator(this.locale);
     }
 
+    if (changedProperties.has('overflowMenuOnHover')) {
+      forEach(
+        this.querySelectorAll(
+          (this.constructor as typeof CDSTable).selectorTableCellOverflowMenu
+        ),
+        (elem) => {
+          const cell = elem.parentNode as CDSTableCell;
+          const row = cell.parentNode as CDSTableRow;
+          cell.overflowMenuOnHover = this.overflowMenuOnHover;
+          row.overflowMenuOnHover = this.overflowMenuOnHover;
+        }
+      );
+    }
+
     if (changedProperties.has('radio')) {
       // Propagate `size` attribute to descendants until `:host-context()` gets supported in all major browsers
       forEach(
@@ -679,6 +704,13 @@ class CDSTable extends HostListenerMixin(LitElement) {
    */
   static get eventExpandoToggle() {
     return `${prefix}-table-row-expando-toggled`;
+  }
+
+  /**
+   * The CSS selector to find the overflow menu on the table cell
+   */
+  static get selectorTableCellOverflowMenu() {
+    return `${prefix}-table-cell ${prefix}-overflow-menu`;
   }
 
   /**

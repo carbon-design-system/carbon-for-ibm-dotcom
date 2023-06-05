@@ -9,7 +9,6 @@
 
 import { LitElement, html } from 'lit';
 import { customElement, property } from 'lit/decorators.js';
-import { classMap } from 'lit/directives/class-map.js';
 import { prefix } from '../../globals/settings';
 import styles from './data-table.scss';
 
@@ -20,6 +19,16 @@ import styles from './data-table.scss';
  */
 @customElement(`${prefix}-table-cell`)
 class CDSTableCell extends LitElement {
+  /**
+   * Specify whether the overflow menu (if it exists) should be shown always, or only on hover
+   */
+  @property({
+    type: Boolean,
+    reflect: true,
+    attribute: 'overflow-menu-on-hover',
+  })
+  overflowMenuOnHover = false;
+
   /**
    * Specify whether the header should be sticky.
    * Still experimental: may not work with every combination of table props
