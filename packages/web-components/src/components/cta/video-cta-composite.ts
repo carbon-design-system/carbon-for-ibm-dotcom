@@ -90,9 +90,12 @@ class DDSVideoCTAComposite extends ModalRenderMixin(
   // @ts-ignore: The decorator refers to this method but TS thinks this method is not referred to
   private async _handleRequestVideoData(event: CustomEvent) {
     const { href, videoName: customVideoName, videoDescription } = event.detail;
+    // Use a default value for thumbnail width in case the element doesn't have
+    // an offsetWidth yet.
+    const thumbnailWidth = (event?.target as HTMLElement)?.offsetWidth || 400;
     const videoThumbnailUrl = KalturaPlayerAPI.getThumbnailUrl({
       mediaId: href,
-      width: (event?.target as HTMLElement)?.offsetWidth,
+      width: thumbnailWidth,
     });
     (event.target as VideoCTAMixinImpl).videoThumbnailUrl = videoThumbnailUrl;
     const videoData = await this._loadVideoData?.(href);
