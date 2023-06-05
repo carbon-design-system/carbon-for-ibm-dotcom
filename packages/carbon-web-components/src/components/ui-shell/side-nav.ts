@@ -9,6 +9,7 @@
 
 import { LitElement, html } from 'lit';
 import { property, customElement } from 'lit/decorators.js';
+import { classMap } from 'lit/directives/class-map.js';
 import on from '../../globals/mixins/on';
 import { prefix } from '../../globals/settings';
 import HostListenerMixin from '../../globals/mixins/host-listener';
@@ -131,7 +132,7 @@ class CDSSideNav extends HostListenerMixin(LitElement) {
    * If `true` will style the side nav to sit below the header
    */
   @property({ type: String, reflect: true, attribute: 'is-child-of-header' })
-  isChildofHeader = 'true';
+  isChildOfHeader = 'true';
 
   /**
    * Specify if the side-nav will be persistent above the lg breakpoint
@@ -187,20 +188,41 @@ class CDSSideNav extends HostListenerMixin(LitElement) {
         }
       );
     }
-    if (changedProperties.has('isChildofHeader')) {
+    if (changedProperties.has('isChildOfHeader')) {
       forEach(
         doc.querySelectorAll(
           (this.constructor as typeof CDSSideNav).selectorButtonToggle
         ),
         (item) => {
-          (item as CDSHeaderMenuButton).isChildofHeader = this.isChildofHeader;
+          (item as CDSHeaderMenuButton).isChildOfHeader = this.isChildOfHeader;
         }
       );
     }
   }
 
   render() {
-    return html` <slot></slot> `;
+    const { collapseMode, expanded, isChildOfHeader, isPersistent } = this;
+    const classes = classMap({
+      [`${prefix}--side-nav__navigation`]: true,
+      [`${prefix}--side-nav`]: true,
+      [`${prefix}--side-nav--expanded`]: expanded,
+      [`${prefix}--side-nav--collapsed`]:
+        !expanded && collapseMode === SIDE_NAV_COLLAPSE_MODE.FIXED,
+      [`${prefix}--side-nav--rail`]:
+        collapseMode === SIDE_NAV_COLLAPSE_MODE.RAIL,
+      [`${prefix}--side-nav--ux`]: isChildOfHeader,
+      [`${prefix}--side-nav--hidden`]:
+        !isPersistent || isPersistent === 'false',
+    });
+
+    const overlayClasses = classMap({
+      [`${prefix}--side-nav__overlay`]: true,
+      [`${prefix}--side-nav__overlay-active`]: this.expanded,
+    });
+    return html`${this.collapseMode === SIDE_NAV_COLLAPSE_MODE.FIXED
+        ? null
+        : html`<div class="${overlayClasses}"></div>`}
+      <div class="${classes}"><slot></slot></div>`;
   }
 
   /**

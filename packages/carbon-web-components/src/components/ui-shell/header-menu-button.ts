@@ -80,7 +80,7 @@ class CDSHeaderMenuButton extends FocusMixin(LitElement) {
    * If `true` will style the side nav to sit below the header
    */
   @property({ type: String, reflect: true, attribute: 'is-child-of-header' })
-  isChildofHeader = 'true';
+  isChildOfHeader = 'true';
 
   render() {
     const {

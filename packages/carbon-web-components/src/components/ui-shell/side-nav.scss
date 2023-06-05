@@ -13,58 +13,8 @@ $css--plex: true !default;
 @use '@carbon/styles/scss/theme' as *;
 @use '@carbon/styles/scss/components/ui-shell/side-nav';
 
-:host(#{$prefix}-side-nav) {
-  @extend .#{$prefix}--side-nav;
-  @extend .#{$prefix}--side-nav--ux;
-  @extend .#{$prefix}--side-nav__navigation;
-
-  top: 0;
-}
-
-:host(#{$prefix}-side-nav[collapse-mode='fixed']) {
-  // TODO: Consider making `@extend .#{$prefix}--side-nav--fixed` work, possibly caused by `:not()` styles
-  width: 16rem;
-}
-
-:host(#{$prefix}-side-nav[collapse-mode='rail']) {
-  // TODO: audit
-  width: $spacing-09;
-
-  &:hover {
-    // TODO: audit
-    width: 16rem;
-  }
-}
-
 :host(#{$prefix}-side-nav[expanded]) ::slotted(#{$prefix}-side-nav-items) {
   overflow-y: auto;
-}
-
-:host(#{$prefix}-side-nav[expanded]),
-:host(#{$prefix}-side-nav[collapse-mode][expanded]) {
-  @extend .#{$prefix}--side-nav--expanded;
-}
-
-:host(#{$prefix}-side-nav[is-persistent='false']) {
-  @extend .#{$prefix}--side-nav--hidden;
-}
-
-:host(#{$prefix}-side-nav[is-child-of-header='true']) {
-  @extend .#{$prefix}--side-nav--ux;
-}
-
-:host(#{$prefix}-side-nav[expanded][is-child-of-header='true']),
-:host(#{$prefix}-side-nav[collapse-mode][expanded][is-child-of-header='true']) {
-  @include breakpoint-down('lg') {
-    // TODO: audit
-    width: 16rem;
-  }
-
-  @extend .#{$prefix}--side-nav--ux;
-}
-
-:host(#{$prefix}-side-nav[collapse-mode='rail']) {
-  @extend .#{$prefix}--side-nav--rail;
 }
 
 :host(#{$prefix}-side-nav-items) {

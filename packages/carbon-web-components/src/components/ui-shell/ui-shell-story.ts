@@ -169,9 +169,8 @@ export const FixedSideNavDivider = () => {
     </style>
     <cds-side-nav
       is-child-of-header="false"
-      usage-mode="${SIDE_NAV_USAGE_MODE.REGULAR}"
       aria-label="Side navigation"
-      collapse-mode="responsive"
+      collapse-mode="${SIDE_NAV_COLLAPSE_MODE.FIXED}"
       expanded>
       <cds-side-nav-items>
         <cds-side-nav-menu title="L0 menu">
@@ -230,9 +229,8 @@ export const FixedSideNavIcons = () => {
     </style>
     <cds-side-nav
       is-child-of-header="false"
-      usage-mode="${SIDE_NAV_USAGE_MODE.REGULAR}"
       aria-label="Side navigation"
-      collapse-mode="responsive"
+      collapse-mode="${SIDE_NAV_COLLAPSE_MODE.FIXED}"
       expanded>
       <cds-side-nav-items>
         <cds-side-nav-menu title="Category title">
@@ -459,9 +457,8 @@ export const HeaderBaseWNavigationActionsAndSideNav = () => {
         </cds-header-global-action>
       </div>
       <cds-side-nav
-        usage-mode="${SIDE_NAV_USAGE_MODE.REGULAR}"
         aria-label="Side navigation"
-        collapse-mode="responsive"
+        collapse-mode="${SIDE_NAV_COLLAPSE_MODE.RESPONSIVE}"
         expanded>
         <cds-side-nav-items>
           <cds-header-side-nav-items has-divider>
@@ -503,10 +500,7 @@ export const HeaderBaseWNavigationActionsAndSideNav = () => {
             <cds-side-nav-menu-item href="${linksHref}">
               Link
             </cds-side-nav-menu-item>
-            <cds-side-nav-menu-item
-              active
-              aria-current="page"
-              href="${linksHref}">
+            <cds-side-nav-menu-item aria-current="page" href="${linksHref}">
               Link
             </cds-side-nav-menu-item>
             <cds-side-nav-menu-item href="${linksHref}">
@@ -518,7 +512,7 @@ export const HeaderBaseWNavigationActionsAndSideNav = () => {
             <cds-side-nav-menu-item href="${linksHref}">
               Link
             </cds-side-nav-menu-item>
-            <cds-side-nav-menu-item href="${linksHref}">
+            <cds-side-nav-menu-item active href="${linksHref}">
               Link
             </cds-side-nav-menu-item>
             <cds-side-nav-menu-item href="${linksHref}">
@@ -647,7 +641,7 @@ export const HeaderBaseWNavigation = () => {
           <cds-header-menu-item href="javascript:void 0"
             >Sub-link 1</cds-header-menu-item
           >
-          <cds-header-menu-item href="javascript:void 0"
+          <cds-header-menu-item active href="javascript:void 0"
             >Sub-link 2</cds-header-menu-item
           >
           <cds-header-menu-item href="javascript:void 0"
@@ -701,8 +695,7 @@ export const HeaderBaseWSideNav = () => {
       >
       <cds-side-nav
         aria-label="Side navigation"
-        collapse-mode="${SIDE_NAV_COLLAPSE_MODE.RESPONSIVE}"
-        usage-mode="${SIDE_NAV_COLLAPSE_MODE.RESPONSIVE}">
+        collapse-mode="${SIDE_NAV_COLLAPSE_MODE.RESPONSIVE}">
         <cds-side-nav-items>
           <cds-side-nav-menu title="Category title">
             ${Fade16({ slot: 'title-icon' })}
@@ -964,9 +957,8 @@ export const SideNavWLargeSideNavItems = () => {
     </style>
     <cds-side-nav
       is-child-of-header="false"
-      usage-mode="${SIDE_NAV_USAGE_MODE.REGULAR}"
       aria-label="Side navigation"
-      collapse-mode="responsive"
+      collapse-mode="${SIDE_NAV_COLLAPSE_MODE.FIXED}"
       expanded>
       <cds-side-nav-items>
         <cds-side-nav-menu large title="Large menu">
