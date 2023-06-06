@@ -9,9 +9,9 @@
 
 import { html } from 'lit';
 import { boolean, number } from '@storybook/addon-knobs';
-import { prefix } from '../../../../globals/settings';
-import storyDocs from './data-table-skeleton-story.mdx';
-import '../../index';
+import { prefix } from '../../../globals/settings';
+import storyDocs from './data-table-story.mdx';
+import '../index';
 
 const headers = [
   'Name',

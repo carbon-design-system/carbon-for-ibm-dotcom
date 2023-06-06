@@ -38,6 +38,7 @@ export { default as CDSTableHeadDescription } from './components/data-table/tabl
 export { default as CDSTableHeaderCell } from './components/data-table/table-header-cell';
 export { default as CDSTableHeaderRow } from './components/data-table/table-header-row';
 export { default as CDSTableRow } from './components/data-table/table-row';
+export { default as CDSTableSkeleton } from './components/data-table/table-skeleton';
 export { default as CDSTableToolbarContent } from './components/data-table/table-toolbar-content';
 export { default as CDSTableToolbarSearch } from './components/data-table/table-toolbar-search';
 export { default as CDSDatePicker } from './components/date-picker/date-picker';

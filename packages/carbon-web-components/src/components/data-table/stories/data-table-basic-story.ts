@@ -9,9 +9,9 @@
 
 import { html } from 'lit';
 import { boolean, select, text } from '@storybook/addon-knobs';
-import { prefix } from '../../../../globals/settings';
-import { TABLE_SIZE } from '../../table';
-import '../../index';
+import { prefix } from '../../../globals/settings';
+import { TABLE_SIZE } from '../table';
+import '../index';
 import storyDocs from './data-table-story.mdx';
 
 const sizes = {

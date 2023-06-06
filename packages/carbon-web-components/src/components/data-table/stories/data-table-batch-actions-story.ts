@@ -9,11 +9,16 @@
 
 import { html } from 'lit';
 import { boolean, select, text } from '@storybook/addon-knobs';
-import { prefix } from '../../../../globals/settings';
-import { TABLE_SIZE } from '../../table';
+import { prefix } from '../../../globals/settings';
+import { TABLE_SIZE } from '../table';
+import Add from '@carbon/web-components/es/icons/add/16';
+import Save from '@carbon/web-components/es/icons/save/16';
+import TrashCan from '@carbon/web-components/es/icons/trash-can/16';
+// @ts-ignore
+import Download16 from '@carbon/web-components/es/icons/download/16';
 // @ts-ignore
 import Settings16 from '@carbon/web-components/es/icons/settings/16';
-import '../../index';
+import '../index';
 import storyDocs from './data-table-story.mdx';
 
 const sizes = {
@@ -29,27 +34,48 @@ export const Default = () => {
     <cds-table>
       <cds-table-header-title slot="title">DataTable</cds-table-header-title>
       <cds-table-header-description slot="description"
-        >With filtering</cds-table-header-description
+        >With batch actions. Lorem ipsum dolor sit amet, consectetur adipiscing
+        elit. Maecenas accumsan mauris sed congue egestas. Integer varius mauris
+        vel arcu pulvinar bibendum non sit amet ligula. Nullam ut nisi eu tellus
+        aliquet vestibulum vel sit amet odio.</cds-table-header-description
       >
 
       <cds-table-toolbar slot="toolbar">
+        <cds-table-batch-actions ?active="true">
+          <cds-button>Delete ${TrashCan({ slot: 'icon' })}</cds-button>
+          <cds-button tooltip-position="bottom" tooltip-text="Add"
+            >${Add({ slot: 'icon' })}</cds-button
+          >
+          <cds-button tooltip-position="bottom" tooltip-text="Save"
+            >${Save({ slot: 'icon' })}</cds-button
+          >
+          <cds-button href="javascript:void 0" download="table-data.json">
+            Download ${Download16({ slot: 'icon' })}
+          </cds-button>
+        </cds-table-batch-actions>
         <cds-table-toolbar-content ?has-batch-actions="true">
           <cds-table-toolbar-search
             placeholder="Filter table"></cds-table-toolbar-search>
           <cds-overflow-menu toolbar-action>
             ${Settings16({ slot: 'icon' })}
             <cds-overflow-menu-body>
-              <cds-overflow-menu-item> Action 1 </cds-overflow-menu-item>
-              <cds-overflow-menu-item> Action 2 </cds-overflow-menu-item>
-              <cds-overflow-menu-item> Action 3 </cds-overflow-menu-item>
+              <cds-overflow-menu-item @click=${() => alert('Alert 1')}>
+                Action 1
+              </cds-overflow-menu-item>
+              <cds-overflow-menu-item @click=${() => alert('Alert 2')}>
+                Action 2
+              </cds-overflow-menu-item>
+              <cds-overflow-menu-item @click=${() => alert('Alert 3')}>
+                Action 3
+              </cds-overflow-menu-item>
             </cds-overflow-menu-body>
           </cds-overflow-menu>
-          <cds-button>Primary Button</cds-button>
+          <cds-button>Add new</cds-button>
         </cds-table-toolbar-content>
       </cds-table-toolbar>
 
       <cds-table-head>
-        <cds-table-header-row>
+        <cds-table-header-row selection-name="header">
           <cds-table-header-cell>Name</cds-table-header-cell>
           <cds-table-header-cell>Protocol</cds-table-header-cell>
           <cds-table-header-cell>Port</cds-table-header-cell>
@@ -59,7 +85,7 @@ export const Default = () => {
         </cds-table-header-row>
       </cds-table-head>
       <cds-table-body>
-        <cds-table-row>
+        <cds-table-row selection-name="0">
           <cds-table-cell>Load Balancer 3</cds-table-cell>
           <cds-table-cell>HTTP</cds-table-cell>
           <cds-table-cell>3000</cds-table-cell>
@@ -69,15 +95,17 @@ export const Default = () => {
             ><cds-link disabled>Disabled</cds-link></cds-table-cell
           >
         </cds-table-row>
-        <cds-table-row>
+        <cds-table-row selection-name="1">
           <cds-table-cell>Load Balancer 1</cds-table-cell>
           <cds-table-cell>HTTP</cds-table-cell>
           <cds-table-cell>443</cds-table-cell>
           <cds-table-cell>Round robin</cds-table-cell>
           <cds-table-cell>Maureen's VM Groups</cds-table-cell>
-          <cds-table-cell><cds-link>Starting</cds-link></cds-table-cell>
+          <cds-table-cell>
+            <cds-link>Starting</cds-link>
+          </cds-table-cell>
         </cds-table-row>
-        <cds-table-row>
+        <cds-table-row selection-name="2">
           <cds-table-cell>Load Balancer 2</cds-table-cell>
           <cds-table-cell>HTTP</cds-table-cell>
           <cds-table-cell>80</cds-table-cell>
@@ -85,7 +113,7 @@ export const Default = () => {
           <cds-table-cell>Andrew's VM Groups</cds-table-cell>
           <cds-table-cell><cds-link>Active</cds-link></cds-table-cell>
         </cds-table-row>
-        <cds-table-row>
+        <cds-table-row selection-name="3">
           <cds-table-cell>Load Balancer 6</cds-table-cell>
           <cds-table-cell>HTTP</cds-table-cell>
           <cds-table-cell>3000</cds-table-cell>
@@ -95,7 +123,7 @@ export const Default = () => {
             ><cds-link disabled>Disabled</cds-link></cds-table-cell
           >
         </cds-table-row>
-        <cds-table-row>
+        <cds-table-row selection-name="4">
           <cds-table-cell>Load Balancer 4</cds-table-cell>
           <cds-table-cell>HTTP</cds-table-cell>
           <cds-table-cell>443</cds-table-cell>
@@ -103,7 +131,7 @@ export const Default = () => {
           <cds-table-cell>Mel's VM Groups</cds-table-cell>
           <cds-table-cell><cds-link>Starting</cds-link></cds-table-cell>
         </cds-table-row>
-        <cds-table-row>
+        <cds-table-row selection-name="5">
           <cds-table-cell>Load Balancer 5</cds-table-cell>
           <cds-table-cell>HTTP</cds-table-cell>
           <cds-table-cell>80</cds-table-cell>
@@ -129,27 +157,40 @@ export const Playground = (args) => {
       ?use-zebra-styles="${useZebraStyles}">
       <cds-table-header-title slot="title">DataTable</cds-table-header-title>
       <cds-table-header-description slot="description"
-        >With filtering</cds-table-header-description
+        >With batch actions.</cds-table-header-description
       >
 
       <cds-table-toolbar slot="toolbar">
+        <cds-table-batch-actions ?active="true">
+          <cds-button>Delete ${TrashCan({ slot: 'icon' })}</cds-button>
+          <cds-button>Save ${Save({ slot: 'icon' })}</cds-button>
+          <cds-button href="javascript:void 0" download="table-data.json">
+            Download ${Download16({ slot: 'icon' })}
+          </cds-button>
+        </cds-table-batch-actions>
         <cds-table-toolbar-content ?has-batch-actions="true">
           <cds-table-toolbar-search
             placeholder="Filter table"></cds-table-toolbar-search>
           <cds-overflow-menu toolbar-action>
             ${Settings16({ slot: 'icon' })}
             <cds-overflow-menu-body>
-              <cds-overflow-menu-item> Action 1 </cds-overflow-menu-item>
-              <cds-overflow-menu-item> Action 2 </cds-overflow-menu-item>
-              <cds-overflow-menu-item> Action 3 </cds-overflow-menu-item>
+              <cds-overflow-menu-item @click=${() => alert('Alert 1')}>
+                Action 1
+              </cds-overflow-menu-item>
+              <cds-overflow-menu-item @click=${() => alert('Alert 2')}>
+                Action 2
+              </cds-overflow-menu-item>
+              <cds-overflow-menu-item @click=${() => alert('Alert 3')}>
+                Action 3
+              </cds-overflow-menu-item>
             </cds-overflow-menu-body>
           </cds-overflow-menu>
-          <cds-button>Primary Button</cds-button>
+          <cds-button>Add new</cds-button>
         </cds-table-toolbar-content>
       </cds-table-toolbar>
 
       <cds-table-head>
-        <cds-table-header-row>
+        <cds-table-header-row selection-name="header">
           <cds-table-header-cell>Name</cds-table-header-cell>
           <cds-table-header-cell>Protocol</cds-table-header-cell>
           <cds-table-header-cell>Port</cds-table-header-cell>
@@ -159,7 +200,7 @@ export const Playground = (args) => {
         </cds-table-header-row>
       </cds-table-head>
       <cds-table-body>
-        <cds-table-row>
+        <cds-table-row selection-name="0">
           <cds-table-cell>Load Balancer 3</cds-table-cell>
           <cds-table-cell>HTTP</cds-table-cell>
           <cds-table-cell>3000</cds-table-cell>
@@ -169,7 +210,7 @@ export const Playground = (args) => {
             ><cds-link disabled>Disabled</cds-link></cds-table-cell
           >
         </cds-table-row>
-        <cds-table-row>
+        <cds-table-row selection-name="1">
           <cds-table-cell>Load Balancer 1</cds-table-cell>
           <cds-table-cell>HTTP</cds-table-cell>
           <cds-table-cell>443</cds-table-cell>
@@ -177,7 +218,7 @@ export const Playground = (args) => {
           <cds-table-cell>Maureen's VM Groups</cds-table-cell>
           <cds-table-cell><cds-link>Starting</cds-link></cds-table-cell>
         </cds-table-row>
-        <cds-table-row>
+        <cds-table-row selection-name="2">
           <cds-table-cell>Load Balancer 2</cds-table-cell>
           <cds-table-cell>HTTP</cds-table-cell>
           <cds-table-cell>80</cds-table-cell>
@@ -185,7 +226,7 @@ export const Playground = (args) => {
           <cds-table-cell>Andrew's VM Groups</cds-table-cell>
           <cds-table-cell><cds-link>Active</cds-link></cds-table-cell>
         </cds-table-row>
-        <cds-table-row>
+        <cds-table-row selection-name="3">
           <cds-table-cell>Load Balancer 6</cds-table-cell>
           <cds-table-cell>HTTP</cds-table-cell>
           <cds-table-cell>3000</cds-table-cell>
@@ -195,7 +236,7 @@ export const Playground = (args) => {
             ><cds-link disabled>Disabled</cds-link></cds-table-cell
           >
         </cds-table-row>
-        <cds-table-row>
+        <cds-table-row selection-name="4">
           <cds-table-cell>Load Balancer 4</cds-table-cell>
           <cds-table-cell>HTTP</cds-table-cell>
           <cds-table-cell>443</cds-table-cell>
@@ -203,7 +244,7 @@ export const Playground = (args) => {
           <cds-table-cell>Mel's VM Groups</cds-table-cell>
           <cds-table-cell><cds-link>Starting</cds-link></cds-table-cell>
         </cds-table-row>
-        <cds-table-row>
+        <cds-table-row selection-name="5">
           <cds-table-cell>Load Balancer 5</cds-table-cell>
           <cds-table-cell>HTTP</cds-table-cell>
           <cds-table-cell>80</cds-table-cell>
@@ -221,6 +262,7 @@ Playground.parameters = {
     [`${prefix}-table`]: () => ({
       isSortable: boolean('Is sortable', false),
       locale: text('Locale', 'en'),
+      radio: boolean('Radio', false),
       size: select('Size', sizes, TABLE_SIZE.LG),
       useStaticWidth: boolean('Use static width', false),
       useZebraStyles: boolean('Use zebra styles', false),
@@ -229,7 +271,7 @@ Playground.parameters = {
 };
 
 export default {
-  title: 'Components/DataTable/Filtering',
+  title: 'Components/DataTable/Batch Actions',
   parameters: {
     ...storyDocs.parameters,
   },
