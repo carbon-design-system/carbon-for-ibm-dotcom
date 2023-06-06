@@ -38,7 +38,6 @@
     ::slotted(#{$prefix}-table-body) {
       display: flex;
       flex-direction: column;
-      // overflow-x: scroll;
       will-change: transform;
     }
 

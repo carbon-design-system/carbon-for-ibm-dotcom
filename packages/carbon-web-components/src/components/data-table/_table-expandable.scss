@@ -29,9 +29,10 @@
 
   td {
     border-bottom-color: $border-subtle;
-    padding-left: $spacing-10;
     vertical-align: middle;
     transition: all $duration-fast-02 motion(standard, productive);
+    padding: 0;
+    padding-left: $spacing-10;
 
     .#{$prefix}--child-row-inner-container {
       overflow: hidden;
