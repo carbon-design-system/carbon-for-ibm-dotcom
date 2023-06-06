@@ -76,7 +76,7 @@
     "browserslist-config-carbon": "10.6.1",
     "chalk": "^2.3.0",
     "cli-table": "^0.3.0",
-    "gulp": "^4.0.0",
+    "gulp": "^4.0.2",
     "gzip-size": "^5.0.0",
     "jest": "25.5.4",
     "jest-circus": "25.5.4",
