@@ -133,7 +133,9 @@ $css--plex: true !default;
 :host(#{$prefix}-switcher-item) {
   @extend .#{$prefix}--switcher__item;
 
-  box-sizing: border-box;
+  a {
+    box-sizing: border-box;
+  }
 }
 
 :host(#{$prefix}-switcher-divider) {
