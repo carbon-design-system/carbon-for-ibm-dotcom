@@ -34,8 +34,6 @@
   }
 
   &[sticky-header] {
-    // @extend .#{$prefix}--data-table--sticky-header;
-
     ::slotted(#{$prefix}-table-head),
     ::slotted(#{$prefix}-table-body) {
       display: flex;
@@ -97,13 +95,9 @@
 //
 
 :host(#{$prefix}-table-header-row) ::slotted(#{$prefix}-table-header-cell),
-:host(#{$prefix}-table-header-row)
-  ::slotted(#{$prefix}-table-header-cell-skeleton),
 :host(#{$prefix}-table-header-row) .#{$prefix}--table-column-checkbox,
 :host(#{$prefix}-table-header-expand-row)
   ::slotted(#{$prefix}-table-header-cell),
-:host(#{$prefix}-table-header-expand-row)
-  ::slotted(#{$prefix}-table-header-cell-skeleton),
 :host(#{$prefix}-table-header-expand-row) .#{$prefix}--table-expand,
 :host(#{$prefix}-table-header-expand-row) .#{$prefix}--table-column-checkbox,
 :host(#{$prefix}-table-row) ::slotted(#{$prefix}-table-cell),
@@ -129,9 +123,7 @@
 //
 // Table header cell
 //
-
-:host(#{$prefix}-table-header-row),
-:host(#{$prefix}-table-header-expand-row) {
+:host(#{$prefix}-table-header-row) {
   outline: none;
 
   ::slotted(#{$prefix}-table-header-cell),
@@ -144,7 +136,6 @@
   }
 
   ::slotted(#{$prefix}-table-header-cell),
-  ::slotted(#{$prefix}-table-header-cell-skeleton),
   .#{$prefix}--table-expand,
   .#{$prefix}--table-column-checkbox {
     padding-left: $spacing-05;
@@ -152,9 +143,7 @@
     text-align: left;
     vertical-align: middle;
   }
-}
 
-:host(#{$prefix}-table-header-row) {
   ::slotted(#{$prefix}-table-header-cell:first-of-type),
   ::slotted(#{$prefix}-table-header-cell-skeleton:first-of-type) {
     padding-left: $spacing-05;

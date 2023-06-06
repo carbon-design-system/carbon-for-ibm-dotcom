@@ -37,13 +37,13 @@
     width: $spacing-09;
     transition: background-color $duration-fast-02 motion(entrance, productive);
   }
-}
 
-:host(#{$prefix}-table-toolbar-content[has-batch-actions]) {
-  clip-path: polygon(0 0, 100% 0, 100% 0, 0 0);
-  transform: translate3d(0, 48px, 0);
-  transition: transform $duration-fast-02 motion(standard, productive),
-    clip-path $duration-fast-02 motion(standard, productive);
+  &[has-batch-actions] {
+    clip-path: polygon(0 0, 100% 0, 100% 0, 0 0);
+    transform: translate3d(0, 48px, 0);
+    transition: transform $duration-fast-02 motion(standard, productive),
+      clip-path $duration-fast-02 motion(standard, productive);
+  }
 }
 
 :host(#{$prefix}-table-toolbar-search) {
@@ -105,18 +105,18 @@
       padding: $spacing-05;
     }
   }
-}
 
-:host(#{$prefix}-table-toolbar-search[expanded]) {
-  @extend .#{$prefix}--toolbar-search-container-active;
+  &[expanded] {
+    @extend .#{$prefix}--toolbar-search-container-active;
 
-  flex: auto;
-}
+    flex: auto;
+  }
 
-:host(#{$prefix}-table-toolbar-search[persistent]) {
-  &:hover {
-    .#{$prefix}--search-input {
-      background-color: $field-hover;
+  &[persistent] {
+    &:hover {
+      .#{$prefix}--search-input {
+        background-color: $field-hover;
+      }
     }
   }
 }
@@ -124,8 +124,8 @@
 :host(#{$prefix}-table-batch-actions) {
   @extend .#{$prefix}--batch-actions;
   box-sizing: border-box;
-}
 
-:host(#{$prefix}-table-batch-actions[active]) {
-  @extend .#{$prefix}--batch-actions--active;
+  &[active] {
+    @extend .#{$prefix}--batch-actions--active;
+  }
 }

@@ -16,6 +16,15 @@
 
   &[expanded] {
     height: $spacing-09;
+
+    td {
+      border-bottom: 1px solid $border-subtle;
+      height: auto;
+
+      .#{$prefix}--child-row-inner-container {
+        height: auto;
+      }
+    }
   }
 
   td {
@@ -27,15 +36,6 @@
     .#{$prefix}--child-row-inner-container {
       overflow: hidden;
       height: 0;
-    }
-  }
-
-  &[expanded] td {
-    border-bottom: 1px solid $border-subtle;
-    height: auto;
-
-    .#{$prefix}--child-row-inner-container {
-      height: auto;
     }
   }
 
