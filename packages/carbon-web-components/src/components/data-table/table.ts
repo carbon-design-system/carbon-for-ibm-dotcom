@@ -227,15 +227,35 @@ class CDSTable extends HostListenerMixin(LitElement) {
   }
 
   private _handleFilterRows() {
+    const unfilteredRows = [] as any;
     forEach(this._tableRows, (elem) => {
       const rowText = elem.textContent?.trim();
       const filtered = this.filterRows(rowText as string, this._searchValue);
       (elem as any).filtered = filtered;
 
+      if (!filtered) {
+        unfilteredRows.push(elem);
+      }
+
       if (this.expandable) {
         (elem as any).nextElementSibling.filtered = filtered;
       }
     });
+
+    const init = {
+      bubbles: true,
+      cancelable: true,
+      composed: true,
+      detail: {
+        unfilteredRows,
+      },
+    };
+    this.dispatchEvent(
+      new CustomEvent(
+        (this.constructor as typeof CDSTable).eventTableFiltered,
+        init
+      )
+    );
   }
 
   /**
@@ -350,6 +370,22 @@ class CDSTable extends HostListenerMixin(LitElement) {
         this._tableBody.insertBefore(e, null);
       });
     }
+
+    const init = {
+      bubbles: true,
+      cancelable: true,
+      composed: true,
+      detail: {
+        sortedHeader: columns[columnIndex],
+      },
+    };
+    this.dispatchEvent(
+      new CustomEvent(
+        (this.constructor as typeof CDSTable).eventTableSorted,
+        init
+      )
+    );
+
     this._handleFilterRows();
   };
 
@@ -424,6 +460,22 @@ class CDSTable extends HostListenerMixin(LitElement) {
     headerCheckbox.checked = !this._selectedRows.length ? false : true;
     headerCheckbox.indeterminate =
       !allRowsSelected && this._selectedRows.length > 0;
+
+    const init = {
+      bubbles: true,
+      cancelable: true,
+      composed: true,
+      detail: {
+        selectedRow: target,
+        selectedRows: selectedRows,
+      },
+    };
+    this.dispatchEvent(
+      new CustomEvent(
+        (this.constructor as typeof CDSTable).eventTableRowSelect,
+        init
+      )
+    );
   };
 
   /**
@@ -481,6 +533,21 @@ class CDSTable extends HostListenerMixin(LitElement) {
     if (tableToolbarContent) {
       tableToolbarContent.hasBatchActions = selected;
     }
+
+    const init = {
+      bubbles: true,
+      cancelable: true,
+      composed: true,
+      detail: {
+        selectedRows: this._selectedRows,
+      },
+    };
+    this.dispatchEvent(
+      new CustomEvent(
+        (this.constructor as typeof CDSTable).eventTableRowSelectAll,
+        init
+      )
+    );
   };
 
   /**
@@ -711,6 +778,34 @@ class CDSTable extends HostListenerMixin(LitElement) {
    */
   static get eventExpandoToggle() {
     return `${prefix}-table-row-expando-toggled`;
+  }
+
+  /**
+   * The name of the custom event fired after a row has been selected
+   */
+  static get eventTableRowSelect() {
+    return `${prefix}-table-row-selected`;
+  }
+
+  /**
+   * The name of the custom event fired after all rows have been selected
+   */
+  static get eventTableRowSelectAll() {
+    return `${prefix}-table-row-all-selected`;
+  }
+
+  /**
+   * The name of the custom event fired after the table has been sorted
+   */
+  static get eventTableSorted() {
+    return `${prefix}-table-sorted`;
+  }
+
+  /**
+   * The name of the custom event fired after the table has been filtered containing remaining rows.
+   */
+  static get eventTableFiltered() {
+    return `${prefix}-table-filtered`;
   }
 
   /**

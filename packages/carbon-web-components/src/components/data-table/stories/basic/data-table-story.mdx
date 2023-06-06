@@ -34,11 +34,10 @@ table UI, consisting of the following:
   - [Programmatic selection](#programmatic-selection)
 - [Filtering](#filtering)
 - [Batch actions](#batch-actions)
-- [Props](#props)
-  - [Render props](#render-props)
-    - [Prop getters](#prop-getters)
-    - [Actions](#actions)
-    - [State](#state)
+- [Toolbar](#toolbar)
+- [Skeleton](#skeleton)
+- [Attributes, properties, and events](#attributes-properties-and-events)
+
 - [Feedback](#feedback)
 
 ## Getting started
@@ -166,9 +165,13 @@ This is useful if you only want to enable sorting on some table column headers, 
 
 ### Programmatic sorting
 
-In addition to the prop getter specified in the previous section, you can also
-change the sort status of the table by using the `sortBy` action through dispatching 
-a CustomEvent, which sorts by the header that you've specified.
+You can also change the sort status of the table by querying the
+specific `<cds-table-header-cell>` you would like to sort. 
+
+```js
+  // sorting the first column
+  document.querySelectorAll('cds-table-header-cell')[0].shadowRoot.querySelector('button').click()
+```
 
 ### Custom sorting
 
@@ -258,10 +261,11 @@ adjacent sibling `<cds-table-expanded-row>` directly following it.
 
 ### Programmatic expansion
 
-You can use the `expandRow` action made available through your `render` prop
-function to toggle the expansion state of a given row. This method takes in the
-row id as a single argument.
+You can programmatically trigger a row expansion by querying the desired row as such:
 
+```js
+  document.querySelectorAll('cds-table-row')[0].shadowRoot.querySelector('.cds--table-expand__button').click();
+```
 
 ## Selection
 
@@ -286,6 +290,14 @@ prop within the component.
       </cds-table-header-row>
     ...
   </cds-table>
+```
+
+### Programmatic selection
+
+You can programmatically trigger a row selection by querying the desired row as such:
+
+```js
+document.querySelectorAll('cds-table-row')[0].shadowRoot.querySelector('cds-checkbox').shadowRoot.querySelector('input').click()
 ```
 
 ## Filtering
@@ -324,7 +336,7 @@ const newFilterRows = (rowText, searchString) => {
   document.querySelector('cds-table').filterRows = newFilterRows;
 ```
 
-# Batch actions
+## Batch actions
 
 You can combine batch actions with the `<cds-table>` component to allow the user to 
 perform a single action on multiple selected rows.
@@ -426,6 +438,34 @@ simply add a `<cds-table-cell>` containing the `<cds-overflow-menu>`.
   ...
 ```
 
+## Skeleton
+
+The default Skeleton table will render with 5 rows and columns, the header, and the toolbar.
+
+```html
+ <cds-table-skeleton> </cds-table-skeleton>
+```
+
+Specify the number of rows and columns you need with the `row-count` and `column-count` attributes.
+
+```html
+ <cds-table-skeleton row-count="5" column-count="5"> </cds-table-skeleton>
+```
+
+
+### Custom headers
+
+Optionally, you can specify to have header titles on the Skeleton table.
+
+```html
+ <cds-table-skeleton> </cds-table-skeleton>
+```
+
+```javascript
+const customHeaders = ['Name', 'Protocol', 'Port', 'Rule', 'Attached groups', 'Status'];
+document.querySelector('cds-table-skeleton').headers = customHeaders;
+```
+
 ## Attributes, properties and events
 
 Note: For `boolean` attributes, `true` means simply setting the attribute (e.g.
@@ -475,3 +515,7 @@ Note: For `boolean` attributes, `true` means simply setting the attribute (e.g.
 ### `<cds-table-toolbar-search>`
 
 <Props of="cds-table-toolbar-search" />
+
+### `cds-table-skeleton`
+
+<Props of="cds-table-skeleton" />
