@@ -7,7 +7,7 @@
 import { ipcinfoCookie } from '../../../internal/vendor/@carbon/ibmdotcom-utilities';
 import digitalDataResponse from '../../DDO/__tests__/data/response.json';
 import LocaleAPI from '../Locale';
-import DDOAPI from '../DDO';
+import { DDOAPI } from '../../DDO';
 import mockAxios from 'axios';
 import oldSession from './data/timestamp_response.json';
 import response from './data/response.json';
@@ -23,7 +23,11 @@ jest.mock(
   })
 );
 
-jest.mock('../DDO', () => jest.fn(() => Promise.resolve('us')));
+jest.mock('../../DDO', () => ({
+  DDOAPI: {
+    getLocation: jest.fn(() => Promise.resolve('us')),
+  },
+}));
 
 describe('LocaleAPI', () => {
   const handles = [];
