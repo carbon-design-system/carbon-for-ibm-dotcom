@@ -495,7 +495,6 @@ export const Playground = (args) => {
     radio,
     overflowMenuOnHover,
     size,
-    stickyHeader,
     useStaticWidth,
     useZebraStyles,
   } = args?.[`${prefix}-table`] ?? {};
@@ -506,7 +505,6 @@ export const Playground = (args) => {
       ?overflow-menu-on-hover=${overflowMenuOnHover}
       ?radio=${radio}
       size="${size}"
-      ?sticky-header="${stickyHeader}"
       ?use-static-width="${useStaticWidth}"
       ?use-zebra-styles="${useZebraStyles}">
       <cds-table-header-title slot="title">DataTable</cds-table-header-title>
@@ -679,7 +677,6 @@ Playground.parameters = {
       overflowMenuOnHover: boolean('Overflow menu on hover', false),
       radio: boolean('Radio', false),
       size: select('Size', sizes, TABLE_SIZE.LG),
-      stickyHeader: boolean('Sticky header', false),
       useStaticWidth: boolean('Use static width', false),
       useZebraStyles: boolean('Use zebra styles', false),
     }),

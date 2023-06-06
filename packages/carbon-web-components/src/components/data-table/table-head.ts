@@ -20,11 +20,12 @@ import styles from './data-table.scss';
 @customElement(`${prefix}-table-head`)
 class CDSTableHead extends LitElement {
   /**
+   * TODO: Uncomment when Carbon fully implements sticky header
    * Specify whether the header should be sticky.
    * Still experimental: may not work with every combination of table props
    */
-  @property({ type: Boolean, reflect: true, attribute: 'sticky-header' })
-  stickyHeader = false;
+  //@property({ type: Boolean, reflect: true, attribute: 'sticky-header' })
+  // stickyHeader = false;
 
   connectedCallback() {
     if (!this.hasAttribute('role')) {

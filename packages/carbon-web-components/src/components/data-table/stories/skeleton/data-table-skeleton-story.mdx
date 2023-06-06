@@ -13,20 +13,6 @@ import { cdnJs, cdnCss } from '../../../../globals/internal/storybook-cdn';
 
 Here's a quick example to get you started.
 
-Data table in `carbon-web-components` focuses on primitives that constructs
-table UI, consisting of the following:
-
-| Tag                      | Description     | HTML tag counterpart |
-| ------------------------ | --------------- | -------------------- |
-| `<cds-data-table>`        | The container   | N/A                  |
-| `<cds-table>`             | The table       | `<table>`            |
-| `<cds-table-head>`        | The header      | `<thead>`            |
-| `<cds-table-header-row>`  | The header row  | `<tr>` in `<thead>`  |
-| `<cds-table-header-cell>` | The header cell | `<th>`               |
-| `<cds-table-body>`        | The header body | `<tbody>`            |
-| `<cds-table-row>`         | The header row  | `<tr>` in `<tbody>`  |
-| `<cds-table-cell>`        | The header cell | `<td>`               |
-
 ### JS (via import)
 
 ```javascript
@@ -37,6 +23,8 @@ import '@carbon/web-components/es/components/data-table/index.js';
 <Description markdown={`${cdnCss()}`} />
 
 ### Skeleton HTML
+
+The default Skeleton table will render with 5 rows and columns, the header, and the toolbar.
 
 ```html
  <cds-table-skeleton> </cds-table-skeleton>

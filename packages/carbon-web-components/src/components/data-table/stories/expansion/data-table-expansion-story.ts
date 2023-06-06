@@ -56,7 +56,7 @@ export const Default = () => {
           >
         </cds-table-row>
         <cds-table-expanded-row>
-          <h6>Expandable row content 3</h6>
+          <h6>Expandable row content</h6>
           <div>Description here</div>
         </cds-table-expanded-row>
         <cds-table-row>
@@ -68,7 +68,7 @@ export const Default = () => {
           <cds-table-cell><cds-link>Starting</cds-link></cds-table-cell>
         </cds-table-row>
         <cds-table-expanded-row>
-          <h6>Expandable row content 3</h6>
+          <h6>Expandable row content</h6>
           <div>Description here</div>
         </cds-table-expanded-row>
         <cds-table-row>
@@ -80,7 +80,7 @@ export const Default = () => {
           <cds-table-cell><cds-link>Active</cds-link></cds-table-cell>
         </cds-table-row>
         <cds-table-expanded-row>
-          <h6>Expandable row content 3</h6>
+          <h6>Expandable row content</h6>
           <div>Description here</div>
         </cds-table-expanded-row>
         <cds-table-row>
@@ -94,7 +94,7 @@ export const Default = () => {
           >
         </cds-table-row>
         <cds-table-expanded-row>
-          <h6>Expandable row content 3</h6>
+          <h6>Expandable row content</h6>
           <div>Description here</div>
         </cds-table-expanded-row>
         <cds-table-row>
@@ -106,7 +106,7 @@ export const Default = () => {
           <cds-table-cell><cds-link>Starting</cds-link></cds-table-cell>
         </cds-table-row>
         <cds-table-expanded-row>
-          <h6>Expandable row content 3</h6>
+          <h6>Expandable row content</h6>
           <div>Description here</div>
         </cds-table-expanded-row>
         <cds-table-row>
@@ -118,7 +118,7 @@ export const Default = () => {
           <cds-table-cell><cds-link>Active</cds-link></cds-table-cell>
         </cds-table-row>
         <cds-table-expanded-row>
-          <h6>Expandable row content 3</h6>
+          <h6>Expandable row content</h6>
           <div>Description here</div>
         </cds-table-expanded-row>
       </cds-table-body>
@@ -156,7 +156,7 @@ export const BatchExpansion = () => {
           >
         </cds-table-row>
         <cds-table-expanded-row>
-          <h6>Expandable row content 3</h6>
+          <h6>Expandable row content</h6>
           <div>Description here</div>
         </cds-table-expanded-row>
         <cds-table-row>
@@ -168,7 +168,7 @@ export const BatchExpansion = () => {
           <cds-table-cell><cds-link>Starting</cds-link></cds-table-cell>
         </cds-table-row>
         <cds-table-expanded-row>
-          <h6>Expandable row content 3</h6>
+          <h6>Expandable row content</h6>
           <div>Description here</div>
         </cds-table-expanded-row>
         <cds-table-row>
@@ -180,7 +180,7 @@ export const BatchExpansion = () => {
           <cds-table-cell><cds-link>Active</cds-link></cds-table-cell>
         </cds-table-row>
         <cds-table-expanded-row>
-          <h6>Expandable row content 3</h6>
+          <h6>Expandable row content</h6>
           <div>Description here</div>
         </cds-table-expanded-row>
         <cds-table-row>
@@ -194,7 +194,7 @@ export const BatchExpansion = () => {
           >
         </cds-table-row>
         <cds-table-expanded-row>
-          <h6>Expandable row content 3</h6>
+          <h6>Expandable row content</h6>
           <div>Description here</div>
         </cds-table-expanded-row>
         <cds-table-row>
@@ -206,7 +206,7 @@ export const BatchExpansion = () => {
           <cds-table-cell><cds-link>Starting</cds-link></cds-table-cell>
         </cds-table-row>
         <cds-table-expanded-row>
-          <h6>Expandable row content 3</h6>
+          <h6>Expandable row content</h6>
           <div>Description here</div>
         </cds-table-expanded-row>
         <cds-table-row>
@@ -218,7 +218,7 @@ export const BatchExpansion = () => {
           <cds-table-cell><cds-link>Active</cds-link></cds-table-cell>
         </cds-table-row>
         <cds-table-expanded-row>
-          <h6>Expandable row content 3</h6>
+          <h6>Expandable row content</h6>
           <div>Description here</div>
         </cds-table-expanded-row>
       </cds-table-body>
@@ -227,21 +227,14 @@ export const BatchExpansion = () => {
 };
 
 export const Playground = (args) => {
-  const {
-    isSortable,
-    locale,
-    size,
-    stickyHeader,
-    useStaticWidth,
-    useZebraStyles,
-  } = args?.[`${prefix}-table`] ?? {};
+  const { isSortable, locale, size, useStaticWidth, useZebraStyles } =
+    args?.[`${prefix}-table`] ?? {};
   return html`
     <cds-table
       expandable
       ?is-sortable=${isSortable}
       locale="${locale}"
       size="${size}"
-      ?sticky-header="${stickyHeader}"
       ?use-static-width="${useStaticWidth}"
       ?use-zebra-styles="${useZebraStyles}">
       <cds-table-header-title slot="title">DataTable</cds-table-header-title>
@@ -271,7 +264,7 @@ export const Playground = (args) => {
           >
         </cds-table-row>
         <cds-table-expanded-row>
-          <h6>Expandable row content 3</h6>
+          <h6>Expandable row content</h6>
           <div>Description here</div>
         </cds-table-expanded-row>
         <cds-table-row>
@@ -283,7 +276,7 @@ export const Playground = (args) => {
           <cds-table-cell><cds-link>Starting</cds-link></cds-table-cell>
         </cds-table-row>
         <cds-table-expanded-row>
-          <h6>Expandable row content 3</h6>
+          <h6>Expandable row content</h6>
           <div>Description here</div>
         </cds-table-expanded-row>
         <cds-table-row>
@@ -295,7 +288,7 @@ export const Playground = (args) => {
           <cds-table-cell><cds-link>Active</cds-link></cds-table-cell>
         </cds-table-row>
         <cds-table-expanded-row>
-          <h6>Expandable row content 3</h6>
+          <h6>Expandable row content</h6>
           <div>Description here</div>
         </cds-table-expanded-row>
         <cds-table-row>
@@ -309,7 +302,7 @@ export const Playground = (args) => {
           >
         </cds-table-row>
         <cds-table-expanded-row>
-          <h6>Expandable row content 3</h6>
+          <h6>Expandable row content</h6>
           <div>Description here</div>
         </cds-table-expanded-row>
         <cds-table-row>
@@ -321,7 +314,7 @@ export const Playground = (args) => {
           <cds-table-cell><cds-link>Starting</cds-link></cds-table-cell>
         </cds-table-row>
         <cds-table-expanded-row>
-          <h6>Expandable row content 3</h6>
+          <h6>Expandable row content</h6>
           <div>Description here</div>
         </cds-table-expanded-row>
         <cds-table-row>
@@ -333,7 +326,7 @@ export const Playground = (args) => {
           <cds-table-cell><cds-link>Active</cds-link></cds-table-cell>
         </cds-table-row>
         <cds-table-expanded-row>
-          <h6>Expandable row content 3</h6>
+          <h6>Expandable row content</h6>
           <div>Description here</div>
         </cds-table-expanded-row>
       </cds-table-body>
@@ -347,7 +340,6 @@ Playground.parameters = {
       isSortable: boolean('Is sortable', false),
       locale: text('Locale', 'en'),
       size: select('Size', sizes, TABLE_SIZE.LG),
-      stickyHeader: boolean('Sticky header', false),
       useStaticWidth: boolean('Use static width', false),
       useZebraStyles: boolean('Use zebra styles', false),
     }),

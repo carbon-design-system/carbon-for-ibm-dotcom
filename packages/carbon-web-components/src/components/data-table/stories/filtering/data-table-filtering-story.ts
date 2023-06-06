@@ -117,22 +117,14 @@ export const Default = () => {
 };
 
 export const Playground = (args) => {
-  const {
-    isSortable,
-    locale,
-    radio,
-    size,
-    stickyHeader,
-    useStaticWidth,
-    useZebraStyles,
-  } = args?.[`${prefix}-table`] ?? {};
+  const { isSortable, locale, radio, size, useStaticWidth, useZebraStyles } =
+    args?.[`${prefix}-table`] ?? {};
   return html`
     <cds-table
       ?is-sortable=${isSortable}
       locale="${locale}"
       ?radio=${radio}
       size="${size}"
-      ?sticky-header="${stickyHeader}"
       ?use-static-width="${useStaticWidth}"
       ?use-zebra-styles="${useZebraStyles}">
       <cds-table-header-title slot="title">DataTable</cds-table-header-title>
@@ -230,7 +222,6 @@ Playground.parameters = {
       isSortable: boolean('Is sortable', false),
       locale: text('Locale', 'en'),
       size: select('Size', sizes, TABLE_SIZE.LG),
-      stickyHeader: boolean('Sticky header', false),
       useStaticWidth: boolean('Use static width', false),
       useZebraStyles: boolean('Use zebra styles', false),
     }),

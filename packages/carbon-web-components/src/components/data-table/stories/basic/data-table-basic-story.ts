@@ -178,13 +178,12 @@ export const XLWithTwoLines = () => {
 };
 
 export const Playground = (args) => {
-  const { locale, size, stickyHeader, useStaticWidth, useZebraStyles } =
+  const { locale, size, useStaticWidth, useZebraStyles } =
     args?.[`${prefix}-table`] ?? {};
   return html`
     <cds-table
       locale="${locale}"
       size="${size}"
-      ?sticky-header="${stickyHeader}"
       ?use-static-width="${useStaticWidth}"
       ?use-zebra-styles="${useZebraStyles}">
       <cds-table-head>
@@ -256,7 +255,6 @@ Playground.parameters = {
     [`${prefix}-table`]: () => ({
       locale: text('Locale', 'en'),
       size: select('Size', sizes, TABLE_SIZE.LG),
-      stickyHeader: boolean('Sticky header', false),
       useStaticWidth: boolean('Use static width', false),
       useZebraStyles: boolean('Use zebra styles', false),
     }),

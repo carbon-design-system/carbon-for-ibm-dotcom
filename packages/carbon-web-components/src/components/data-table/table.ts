@@ -116,16 +116,18 @@ class CDSTable extends HostListenerMixin(LitElement) {
   /**
    * @param lhs A value.
    * @param rhs Another value.
+   * @param collator A custom collator.
    * @returns
    *   `0` if the given two values are equal
    *   A negative value to sort `lhs` to an index lower than `rhs`
    *   A positive value to sort `rhs` to an index lower than `lhs`
    */
-  customSortRow(lhs, rhs) {
+  // eslint-disable-next-line class-methods-use-this
+  customSortRow(lhs, rhs, collator) {
     if (typeof lhs === 'number' && typeof rhs === 'number') {
       return lhs - rhs;
     }
-    return this.collator.compare(lhs, rhs);
+    return collator.compare(lhs, rhs);
   }
 
   /**
@@ -193,11 +195,12 @@ class CDSTable extends HostListenerMixin(LitElement) {
   size = TABLE_SIZE.LG;
 
   /**
+   * TODO: Uncomment when Carbon fully implements sticky header
    * Specify whether the header should be sticky.
    * Still experimental: may not work with every combination of table props
    */
-  @property({ type: Boolean, attribute: 'sticky-header', reflect: true })
-  stickyHeader = false;
+  // @property({ type: Boolean, attribute: 'sticky-header', reflect: true })
+  // stickyHeader = false;
 
   /**
    *  If true, will use a width of 'auto' instead of 100%
@@ -315,7 +318,8 @@ class CDSTable extends HostListenerMixin(LitElement) {
         (this.constructor as typeof CDSTable).selectorTableRowCells
       )[columnIndex].textContent;
       return (
-        this.collationFactors[sortDirection] * this.customSortRow(cellA, cellB)
+        this.collationFactors[sortDirection] *
+        this.customSortRow(cellA, cellB, this.collator)
       );
     });
 
@@ -610,32 +614,33 @@ class CDSTable extends HostListenerMixin(LitElement) {
       this._tableToolbar?.setAttribute('size', this.size);
     }
 
-    if (changedProperties.has('stickyHeader')) {
-      const tableBody = this.querySelector(
-        (this.constructor as typeof CDSTable).selectorTableBody
-      );
-      const tableHead = this.querySelector(
-        (this.constructor as typeof CDSTable).selectorTableHead
-      );
-      (tableBody as any).stickyHeader = this.stickyHeader;
-      (tableHead as any).stickyHeader = this.stickyHeader;
-      forEach(
-        this.querySelectorAll(
-          (this.constructor as typeof CDSTable).selectorRowsWithHeader
-        ),
-        (elem) => {
-          (elem as any).stickyHeader = this.stickyHeader;
-        }
-      );
-      forEach(
-        this.querySelectorAll(
-          (this.constructor as typeof CDSTable).selectorTableCells
-        ),
-        (elem) => {
-          (elem as any).stickyHeader = this.stickyHeader;
-        }
-      );
-    }
+    // TODO: Uncomment when Carbon fully implements Sticky header feature
+    // if (changedProperties.has('stickyHeader')) {
+    //   const tableBody = this.querySelector(
+    //     (this.constructor as typeof CDSTable).selectorTableBody
+    //   );
+    //   const tableHead = this.querySelector(
+    //     (this.constructor as typeof CDSTable).selectorTableHead
+    //   );
+    //   (tableBody as any).stickyHeader = this.stickyHeader;
+    //   (tableHead as any).stickyHeader = this.stickyHeader;
+    //   forEach(
+    //     this.querySelectorAll(
+    //       (this.constructor as typeof CDSTable).selectorRowsWithHeader
+    //     ),
+    //     (elem) => {
+    //       (elem as any).stickyHeader = this.stickyHeader;
+    //     }
+    //   );
+    //   forEach(
+    //     this.querySelectorAll(
+    //       (this.constructor as typeof CDSTable).selectorTableCells
+    //     ),
+    //     (elem) => {
+    //       (elem as any).stickyHeader = this.stickyHeader;
+    //     }
+    //   );
+    // }
 
     if (changedProperties.has('useZebraStyles')) {
       const tableBody = this.querySelector(
@@ -645,6 +650,7 @@ class CDSTable extends HostListenerMixin(LitElement) {
     }
   }
 
+  /* eslint-disable no-constant-condition */
   render() {
     return html`
       <div ?hidden="${!this.withHeader}" class="${prefix}--data-table-header">
@@ -653,7 +659,7 @@ class CDSTable extends HostListenerMixin(LitElement) {
       </div>
       <slot name="toolbar"></slot>
 
-      ${this.stickyHeader
+      ${false // TODO: replace with this.stickyHeader when feature is fully implemented
         ? html` <div class="${prefix}--data-table_inner-container">
             <div class="${prefix}--data-table-content">
               <slot></slot>
@@ -662,6 +668,7 @@ class CDSTable extends HostListenerMixin(LitElement) {
         : html`<slot></slot>`}
     `;
   }
+  /* eslint-enable no-constant-condition */
 
   /**
    * The name of the custom event fired before a new sort direction is set upon a user gesture.

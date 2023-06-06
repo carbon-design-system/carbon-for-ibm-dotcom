@@ -13,22 +13,23 @@ import { prefix } from '../../../../globals/settings';
 import storyDocs from './data-table-skeleton-story.mdx';
 import '../../index';
 
+const headers = [
+  'Name',
+  'Protocol',
+  'Port',
+  'Rule',
+  'Attached groups',
+  'Status',
+];
+
 export const Default = () => {
-  return html` <cds-table-skeleton> </cds-table-skeleton>`;
+  return html` <cds-table-skeleton .headers=${headers}> </cds-table-skeleton>`;
 };
 
 export const Playground = (args) => {
   const { columnCount, rowCount, showHeader, showToolbar, zebra } =
     args?.[`${prefix}-table`] ?? {};
 
-  const headers = [
-    'Name',
-    'Protocol',
-    'Port',
-    'Rule',
-    'Attached groups',
-    'Status',
-  ];
   return html`
     <cds-table-skeleton
       .headers=${headers}
