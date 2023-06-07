@@ -2314,7 +2314,7 @@ __metadata:
     carbon-components: 10.58.7
     carbon-components-react: 7.59.8
     carbon-icons: 7.0.7
-    chalk: ^2.3.0
+    chalk: ^4.1.1
     classnames: 2.3.2
     cli-table: ^0.3.0
     commander: ^7.2.0
@@ -2342,9 +2342,9 @@ __metadata:
     karma-sourcemap-loader: ^0.4.0
     karma-spec-reporter: 0.0.36
     karma-webpack: ^4.0.2
-    lodash-es: ^4.17.0
+    lodash-es: ^4.17.21
     magic-string: ^0.30.0
-    mini-css-extract-plugin: ^0.12.0
+    mini-css-extract-plugin: ~2.7.0
     null-loader: ^4.0.0
     object-assign: ^4.1.1
     postcss-loader: ^3.0.0
@@ -2356,7 +2356,7 @@ __metadata:
     react-dom: 16.14.0
     requestanimationframe: ^0.0.23
     require-context.macro: ^1.0.4
-    rimraf: ^2.6.3
+    rimraf: ^3.0.0
     rollup: ^2.55.1
     rollup-plugin-analyzer: ^4.0.0
     rollup-plugin-node-builtins: ^2.1.2
@@ -2364,7 +2364,7 @@ __metadata:
     rollup-plugin-sizes: ^1.0.4
     rollup-plugin-terser: ^7.0.2
     rollup-plugin-visualizer: ^2.5.4
-    rtlcss: ^2.4.0
+    rtlcss: ^3.0.0
     sass-loader: ^10.0.0
     style-loader: ^2.0.0
     temp: ^0.9.0
@@ -2413,7 +2413,7 @@ __metadata:
     strip-comments: ^1.0.0
     through2: ^3.0.0
     typescript: ~4.8.0
-    window-or-global: ^1.0.0
+    window-or-global: ^1.0.1
   languageName: unknown
   linkType: soft
 
@@ -2444,7 +2444,7 @@ __metadata:
     babel-plugin-dev-expression: ^0.2.1
     babel-polyfill: ^6.26.0
     browserslist-config-carbon: 10.6.1
-    chalk: ^2.3.0
+    chalk: ^4.1.1
     cli-table: ^0.3.0
     gulp: ^4.0.2
     gzip-size: ^5.0.0
@@ -2454,7 +2454,7 @@ __metadata:
     marked: ^4.0.10
     object-assign: ^4.1.1
     promise: ^8.0.1
-    rimraf: ^2.6.3
+    rimraf: ^3.0.0
     rollup: ^2.55.1
     rollup-plugin-node-builtins: ^2.1.2
     rollup-plugin-sizes: ^1.0.4
@@ -2515,7 +2515,7 @@ __metadata:
     babel-polyfill: ^6.26.0
     browserslist-config-carbon: 10.6.1
     carbon-components: 10.58.7
-    chalk: ^2.3.0
+    chalk: ^4.1.1
     cli-table: ^0.3.0
     gzip-size: ^5.0.0
     isomorphic-dompurify: 0.27.0
@@ -2526,7 +2526,7 @@ __metadata:
     marked: ^4.0.10
     object-assign: ^4.1.1
     promise: ^8.0.1
-    rimraf: ^2.6.3
+    rimraf: ^3.0.0
     rollup: ^2.55.1
     rollup-plugin-node-builtins: ^2.1.2
     rollup-plugin-sizes: ^1.0.4
@@ -2592,7 +2592,7 @@ __metadata:
     "@storybook/source-loader": ^6.5.15
     "@storybook/web-components": ^6.5.15
     "@types/jasmine": ^3.3.0
-    "@types/lodash-es": ^4.17.0
+    "@types/lodash-es": ^4.17.5
     "@types/prop-types": ^15.7.0
     async-done: ^1.3.0
     autoprefixer: ^9.8.8
@@ -2604,7 +2604,7 @@ __metadata:
     cache-loader: ^4.1.0
     carbon-components: 10.58.7
     chalk: ^4.1.1
-    classnames: ^2.2.0
+    classnames: 2.3.2
     commander: ^7.2.0
     cross-env: ^7.0.0
     css-loader: ^5.2.0
@@ -2628,7 +2628,7 @@ __metadata:
     gulp-sass: ^5.0.0
     gulp-sourcemaps: ^3.0.0
     gulp-typescript: ^5.0.1
-    istanbul-instrumenter-loader: ^3.0.0
+    istanbul-instrumenter-loader: ^3.0.1
     jasmine-core: ^3.0.0
     jest: 25.5.4
     jest-diff: 25.5.0
@@ -2642,20 +2642,19 @@ __metadata:
     karma-sourcemap-loader: ^0.4.0
     karma-spec-reporter: 0.0.36
     karma-webpack: ^4.0.2
-    lint-staged: ^12.3.8
     lit-element: 2.5.1
     lit-html: 1.4.1
-    lodash-es: ^4.17.0
+    lodash-es: ^4.17.21
     lodash.pickby: ^4.6.0
     magic-string: ^0.30.0
     marked: ^4.0.10
-    mini-css-extract-plugin: ^0.12.0
+    mini-css-extract-plugin: ~2.7.0
     mkdirp: ^0.5.0
     polymer-webpack-loader: ^2.0.0
     postcss: ^8.2.10
     postcss-loader: ^3.0.0
     postcss-selector-parser: ^6.0.0
-    prop-types: ^15.7.0
+    prop-types: ^15.7.2
     react: ^16.10.0 || ^17.0.0
     react-dom: ^16.10.0 || ^17.0.0
     react-redux: ^7.2.0
@@ -2663,13 +2662,13 @@ __metadata:
     redux: ^4.0.0
     redux-logger: ^3.0.0
     redux-thunk: ^2.3.0
-    replace-ext: ^1.0.0
+    replace-ext: ^2.0.0
     rollup: ^2.55.1
     rollup-plugin-analyzer: ^4.0.0
     rollup-plugin-inject-process-env: ^1.3.1
     rollup-plugin-multi-input: ^1.3.1
     rollup-plugin-sizes: ^1.0.4
-    rtlcss: ^2.4.0
+    rtlcss: ^3.0.0
     sass-loader: ^10.0.0
     strip-comments: ^1.0.0
     style-loader: ^2.0.0
@@ -2682,7 +2681,7 @@ __metadata:
     web-component-analyzer: 1.2.0-next.0
     webpack: ^4.46.0
     wicg-inert: ^3.1.2
-    window-or-global: ^1.0.0
+    window-or-global: ^1.0.1
   peerDependencies:
     typescript: ~4.8.0
   dependenciesMeta:
@@ -2932,7 +2931,6 @@ __metadata:
     karma-sourcemap-loader: ^0.4.0
     karma-spec-reporter: 0.0.36
     karma-webpack: ^4.0.2
-    lint-staged: ^12.3.8
     lit-element: ^2.5.1
     lit-html: ^1.4.1
     lodash-es: ^4.17.21
@@ -2945,7 +2943,7 @@ __metadata:
     postcss: ^8.2.10
     postcss-loader: ^3.0.0
     postcss-selector-parser: ^6.0.0
-    prop-types: ^15.7.0
+    prop-types: ^15.7.2
     puppeteer: ^13.0.0
     react: 16.14.0
     react-dom: 16.14.0
@@ -7371,7 +7369,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@types/lodash-es@npm:^4.17.0, @types/lodash-es@npm:^4.17.5":
+"@types/lodash-es@npm:^4.17.5":
   version: 4.17.7
   resolution: "@types/lodash-es@npm:4.17.7"
   dependencies:
@@ -11443,8 +11441,8 @@ __metadata:
     async-done: ^1.3.0
     babel-eslint: ^10.1.0
     browserslist-config-carbon: ^10.3.0
-    chalk: ^4.1.0
-    commander: ^4.1.0
+    chalk: ^4.1.1
+    commander: ^7.2.0
     cross-env: ^7.0.0
     doctoc: ^2.0.0
     enzyme-to-json: ^3.3.5
@@ -11462,8 +11460,7 @@ __metadata:
     node-fetch: ^2.6.0
     prettier: ^2.7.1
     react: 16.14.0
-    rimraf: ^2.6.3
-    sass: ^1.19.0
+    rimraf: ^3.0.0
     stylelint: ^10.1.0
     stylelint-config-prettier: ^5.2.0
     stylelint-prettier: ^1.1.1
@@ -11791,7 +11788,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"classnames@npm:2.3.2, classnames@npm:^2.2.0":
+"classnames@npm:2.3.2":
   version: 2.3.2
   resolution: "classnames@npm:2.3.2"
   checksum: 2c62199789618d95545c872787137262e741f9db13328e216b093eea91c85ef2bfb152c1f9e63027204e2559a006a92eb74147d46c800a9f96297ae1d9f96f4e
@@ -12325,7 +12322,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"commander@npm:^4.0.1, commander@npm:^4.1.0, commander@npm:^4.1.1":
+"commander@npm:^4.0.1, commander@npm:^4.1.1":
   version: 4.1.1
   resolution: "commander@npm:4.1.1"
   checksum: d7b9913ff92cae20cb577a4ac6fcc121bd6223319e54a40f51a14740a681ad5c574fd29a57da478a5f234a6fa6c52cbf0b7c641353e03c648b1ae85ba670b977
@@ -12357,13 +12354,6 @@ __metadata:
   version: 8.3.0
   resolution: "commander@npm:8.3.0"
   checksum: 0f82321821fc27b83bd409510bb9deeebcfa799ff0bf5d102128b500b7af22872c0c92cb6a0ebc5a4cf19c6b550fba9cedfa7329d18c6442a625f851377bacf0
-  languageName: node
-  linkType: hard
-
-"commander@npm:^9.3.0":
-  version: 9.5.0
-  resolution: "commander@npm:9.5.0"
-  checksum: c7a3e27aa59e913b54a1bafd366b88650bc41d6651f0cbe258d4ff09d43d6a7394232a4dadd0bf518b3e696fdf595db1028a0d82c785b88bd61f8a440cecfade
   languageName: node
   linkType: hard
 
@@ -20482,7 +20472,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"istanbul-instrumenter-loader@npm:^3.0.0, istanbul-instrumenter-loader@npm:^3.0.1":
+"istanbul-instrumenter-loader@npm:^3.0.1":
   version: 3.0.1
   resolution: "istanbul-instrumenter-loader@npm:3.0.1"
   dependencies:
@@ -22981,13 +22971,6 @@ __metadata:
   languageName: node
   linkType: hard
 
-"lilconfig@npm:2.0.5":
-  version: 2.0.5
-  resolution: "lilconfig@npm:2.0.5"
-  checksum: f7bb9e42656f06930ad04e583026f087508ae408d3526b8b54895e934eb2a966b7aafae569656f2c79a29fe6d779b3ec44ba577e80814734c8655d6f71cdf2d1
-  languageName: node
-  linkType: hard
-
 "lilconfig@npm:2.1.0, lilconfig@npm:^2.0.3, lilconfig@npm:^2.0.5":
   version: 2.1.0
   resolution: "lilconfig@npm:2.1.0"
@@ -23015,30 +22998,6 @@ __metadata:
   dependencies:
     uc.micro: ^1.0.1
   checksum: 31367a4bb70c5bbc9703246236b504b0a8e049bcd4e0de4291fa50f0ebdebf235b5eb54db6493cb0b1319357c6eeafc4324c9f4aa34b0b943d9f2e11a1268fbc
-  languageName: node
-  linkType: hard
-
-"lint-staged@npm:^12.3.8":
-  version: 12.5.0
-  resolution: "lint-staged@npm:12.5.0"
-  dependencies:
-    cli-truncate: ^3.1.0
-    colorette: ^2.0.16
-    commander: ^9.3.0
-    debug: ^4.3.4
-    execa: ^5.1.1
-    lilconfig: 2.0.5
-    listr2: ^4.0.5
-    micromatch: ^4.0.5
-    normalize-path: ^3.0.0
-    object-inspect: ^1.12.2
-    pidtree: ^0.5.0
-    string-argv: ^0.3.1
-    supports-color: ^9.2.2
-    yaml: ^1.10.2
-  bin:
-    lint-staged: bin/lint-staged.js
-  checksum: ac203917be098305bc0aebd5f1a969e88ea0854e8fb2199ebcbbb059d8bce324cf97db8f3d25f7954dd48c0666ae13987fb4db569d5b6fecda06f9fb742278e1
   languageName: node
   linkType: hard
 
@@ -23090,27 +23049,6 @@ __metadata:
     enquirer:
       optional: true
   checksum: fdb8b2d6bdf5df9371ebd5082bee46c6d0ca3d1e5f2b11fbb5a127839855d5f3da9d4968fce94f0a5ec67cac2459766abbb1faeef621065ebb1829b11ef9476d
-  languageName: node
-  linkType: hard
-
-"listr2@npm:^4.0.5":
-  version: 4.0.5
-  resolution: "listr2@npm:4.0.5"
-  dependencies:
-    cli-truncate: ^2.1.0
-    colorette: ^2.0.16
-    log-update: ^4.0.0
-    p-map: ^4.0.0
-    rfdc: ^1.3.0
-    rxjs: ^7.5.5
-    through: ^2.3.8
-    wrap-ansi: ^7.0.0
-  peerDependencies:
-    enquirer: ">= 2.3.0 < 3"
-  peerDependenciesMeta:
-    enquirer:
-      optional: true
-  checksum: 7af31851abe25969ef0581c6db808117e36af15b131401795182427769d9824f451ba9e8aff6ccd25b6a4f6c8796f816292caf08e5f1f9b1775e8e9c313dc6c5
   languageName: node
   linkType: hard
 
@@ -23262,7 +23200,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"lodash-es@npm:^4.17.0, lodash-es@npm:^4.17.21":
+"lodash-es@npm:^4.17.21":
   version: 4.17.21
   resolution: "lodash-es@npm:4.17.21"
   checksum: 05cbffad6e2adbb331a4e16fbd826e7faee403a1a04873b82b42c0f22090f280839f85b95393f487c1303c8a3d2a010048bf06151a6cbe03eee4d388fb0a12d2
@@ -24530,20 +24468,6 @@ __metadata:
   languageName: node
   linkType: hard
 
-"mini-css-extract-plugin@npm:^0.12.0":
-  version: 0.12.0
-  resolution: "mini-css-extract-plugin@npm:0.12.0"
-  dependencies:
-    loader-utils: ^1.1.0
-    normalize-url: 1.9.1
-    schema-utils: ^1.0.0
-    webpack-sources: ^1.1.0
-  peerDependencies:
-    webpack: ^4.4.0 || ^5.0.0
-  checksum: 0a7744667c5a85423b7e335418299e6ac5cbd855fe37048fb487a5b1af46c7d41b85bfee0e20d1dd59598396ede8bd87da75a6f1758ae6fd4e8b65d58cc52732
-  languageName: node
-  linkType: hard
-
 "mini-css-extract-plugin@npm:~2.7.0":
   version: 2.7.6
   resolution: "mini-css-extract-plugin@npm:2.7.6"
@@ -25405,18 +25329,6 @@ __metadata:
   languageName: node
   linkType: hard
 
-"normalize-url@npm:1.9.1":
-  version: 1.9.1
-  resolution: "normalize-url@npm:1.9.1"
-  dependencies:
-    object-assign: ^4.0.1
-    prepend-http: ^1.0.0
-    query-string: ^4.1.0
-    sort-keys: ^1.0.0
-  checksum: 4b03c22bebbb822874ce3b9204367ad1f27c314ae09b13aa201de730b3cf95f00dadf378277a56062322968c95c06e5764d01474d26af8b43d20bc4c8c491f84
-  languageName: node
-  linkType: hard
-
 "normalize-url@npm:^4.1.0":
   version: 4.5.1
   resolution: "normalize-url@npm:4.5.1"
@@ -25812,7 +25724,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"object-assign@npm:4.X, object-assign@npm:^4, object-assign@npm:^4.0.1, object-assign@npm:^4.1.0, object-assign@npm:^4.1.1":
+"object-assign@npm:4.X, object-assign@npm:^4, object-assign@npm:^4.0.1, object-assign@npm:^4.1.1":
   version: 4.1.1
   resolution: "object-assign@npm:4.1.1"
   checksum: fcc6e4ea8c7fe48abfbb552578b1c53e0d194086e2e6bbbf59e0a536381a292f39943c6e9628af05b5528aa5e3318bb30d6b2e53cadaf5b8fe9e12c4b69af23f
@@ -25837,7 +25749,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"object-inspect@npm:^1.12.2, object-inspect@npm:^1.12.3, object-inspect@npm:^1.7.0, object-inspect@npm:^1.9.0":
+"object-inspect@npm:^1.12.3, object-inspect@npm:^1.7.0, object-inspect@npm:^1.9.0":
   version: 1.12.3
   resolution: "object-inspect@npm:1.12.3"
   checksum: dabfd824d97a5f407e6d5d24810d888859f6be394d8b733a77442b277e0808860555176719c5905e765e3743a7cada6b8b0a3b85e5331c530fd418cc8ae991db
@@ -26986,15 +26898,6 @@ __metadata:
   languageName: node
   linkType: hard
 
-"pidtree@npm:^0.5.0":
-  version: 0.5.0
-  resolution: "pidtree@npm:0.5.0"
-  bin:
-    pidtree: bin/pidtree.js
-  checksum: 371cd14bbc9bdee2a6a44596dd521dd3565e223481e0b1afffdca3f1c29831850bfa7784114dc30d245d37e7d186cec035e036256b39f75d878d19498fe0df6a
-  languageName: node
-  linkType: hard
-
 "pidtree@npm:^0.6.0":
   version: 0.6.0
   resolution: "pidtree@npm:0.6.0"
@@ -27840,13 +27743,6 @@ __metadata:
   languageName: node
   linkType: hard
 
-"prepend-http@npm:^1.0.0":
-  version: 1.0.4
-  resolution: "prepend-http@npm:1.0.4"
-  checksum: 01e7baf4ad38af02257b99098543469332fc42ae50df33d97a124bf8172295907352fa6138c9b1610c10c6dd0847ca736e53fda736387cc5cf8fcffe96b47f29
-  languageName: node
-  linkType: hard
-
 "prepend-http@npm:^2.0.0":
   version: 2.0.0
   resolution: "prepend-http@npm:2.0.0"
@@ -28191,7 +28087,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"prop-types@npm:^15.0.0, prop-types@npm:^15.5.8, prop-types@npm:^15.6.0, prop-types@npm:^15.6.1, prop-types@npm:^15.6.2, prop-types@npm:^15.7.0, prop-types@npm:^15.7.2, prop-types@npm:^15.8.1":
+"prop-types@npm:^15.0.0, prop-types@npm:^15.5.8, prop-types@npm:^15.6.0, prop-types@npm:^15.6.1, prop-types@npm:^15.6.2, prop-types@npm:^15.7.2, prop-types@npm:^15.8.1":
   version: 15.8.1
   resolution: "prop-types@npm:15.8.1"
   dependencies:
@@ -28435,16 +28331,6 @@ __metadata:
   version: 6.5.3
   resolution: "qs@npm:6.5.3"
   checksum: 6f20bf08cabd90c458e50855559539a28d00b2f2e7dddcb66082b16a43188418cb3cb77cbd09268bcef6022935650f0534357b8af9eeb29bf0f27ccb17655692
-  languageName: node
-  linkType: hard
-
-"query-string@npm:^4.1.0":
-  version: 4.3.4
-  resolution: "query-string@npm:4.3.4"
-  dependencies:
-    object-assign: ^4.1.0
-    strict-uri-encode: ^1.0.0
-  checksum: 3b2bae6a8454cf0edf11cf1aa4d1f920398bbdabc1c39222b9bb92147e746fcd97faf00e56f494728fb66b2961b495ba0fde699d5d3bd06b11472d664b36c6cf
   languageName: node
   linkType: hard
 
@@ -30689,7 +30575,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"sass@npm:^1.19.0, sass@npm:~1.62.0":
+"sass@npm:~1.62.0":
   version: 1.62.1
   resolution: "sass@npm:1.62.1"
   dependencies:
@@ -31482,15 +31368,6 @@ __metadata:
   languageName: node
   linkType: hard
 
-"sort-keys@npm:^1.0.0":
-  version: 1.1.2
-  resolution: "sort-keys@npm:1.1.2"
-  dependencies:
-    is-plain-obj: ^1.0.0
-  checksum: 5963fd191a2a185a5ec86f06e47721e8e04713eda43bb04ae60d2a8afb21241553dd5bc9d863ed2bd7c3d541b609b0c8d0e58836b1a3eb6764c09c094bcc8b00
-  languageName: node
-  linkType: hard
-
 "sort-keys@npm:^2.0.0":
   version: 2.0.0
   resolution: "sort-keys@npm:2.0.0"
@@ -31964,13 +31841,6 @@ __metadata:
     debug: ^4.3.4
     fs-extra: ^8.1.0
   checksum: c1df5612b785ffa4b6bbf16460590b62994c57265bc55a5166eebeeb0daf648e84bc52dc6d57e0cd4e5c7609bda93076753c63ff54589febd1e0b95590f0e443
-  languageName: node
-  linkType: hard
-
-"strict-uri-encode@npm:^1.0.0":
-  version: 1.1.0
-  resolution: "strict-uri-encode@npm:1.1.0"
-  checksum: 9466d371f7b36768d43f7803f26137657559e4c8b0161fb9e320efb8edba3ae22f8e99d4b0d91da023b05a13f62ec5412c3f4f764b5788fac11d1fea93720bb3
   languageName: node
   linkType: hard
 
@@ -32597,13 +32467,6 @@ __metadata:
   dependencies:
     has-flag: ^4.0.0
   checksum: c052193a7e43c6cdc741eb7f378df605636e01ad434badf7324f17fb60c69a880d8d8fcdcb562cf94c2350e57b937d7425ab5b8326c67c2adc48f7c87c1db406
-  languageName: node
-  linkType: hard
-
-"supports-color@npm:^9.2.2":
-  version: 9.3.1
-  resolution: "supports-color@npm:9.3.1"
-  checksum: 00c4d1082a7ba0ee21cba1d4e4a466642635412e40476777b530aa5110d035e99a420cd048e1fb6811f2254c0946095fbb87a1eccf1af1d1ca45ab0a4535db93
   languageName: node
   linkType: hard
 
@@ -35277,7 +35140,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"webpack-sources@npm:^1.1.0, webpack-sources@npm:^1.4.0, webpack-sources@npm:^1.4.1, webpack-sources@npm:^1.4.3":
+"webpack-sources@npm:^1.4.0, webpack-sources@npm:^1.4.1, webpack-sources@npm:^1.4.3":
   version: 1.4.3
   resolution: "webpack-sources@npm:1.4.3"
   dependencies:
@@ -35609,7 +35472,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"window-or-global@npm:^1.0.0, window-or-global@npm:^1.0.1":
+"window-or-global@npm:^1.0.1":
   version: 1.0.1
   resolution: "window-or-global@npm:1.0.1"
   checksum: 19272a9589dedf790389376015b7a92e9b987d1c9b15457840f65a3829c5173a8cecce72111944624d98c2120799168d26b38e6b911fff77b4828a2322a8a02e
