@@ -12,6 +12,7 @@
 @use '@carbon/styles/scss/spacing' as *;
 @use '@carbon/styles/scss/motion' as *;
 @use '@carbon/styles/scss/type' as *;
+@use '@carbon/styles/scss/components/button/index' as *;
 @use '@carbon/styles/scss/components/tabs/index';
 @use '@carbon/styles/scss/components/tabs/vars' as *;
 @use '@carbon/styles/scss/utilities/button-reset';
@@ -51,6 +52,8 @@
     @include focus-outline('reset');
     @include type-style('body-compact-01');
 
+    display: flex;
+    align-items: center;
     width: 100%;
     overflow: hidden;
     max-width: 10rem;
@@ -91,7 +94,7 @@
   box-shadow: 0 -1px 0 $background-hover;
 }
 
-:host(#{$prefix}-tab[type='container']) {
+:host(#{$prefix}-tab[type='contained']) {
   @include breakpoint(md) {
     background-color: $layer-accent-01;
 
@@ -110,6 +113,7 @@
   a.#{$prefix}--tabs__nav-link {
     @include breakpoint(md) {
       height: rem(48px);
+      padding: $spacing-03 $spacing-05;
       // height - vertical padding
       /* stylelint-disable declaration-property-unit-whitelist */
       line-height: calc(#{rem(48px)} - (#{$spacing-03} * 2));
@@ -117,14 +121,12 @@
   }
 }
 
-// `[role]` is only for specificity.
-// We have `:not()` usage in the corresponding Carbon core style
-// which puts specificity of "specific" scenario though the style is for "regular" scenario
-:host(#{$prefix}-tab[type='container'][role]),
-:host(#{$prefix}-tab[type='container'][role]:hover) {
+:host(#{$prefix}-tab[type='contained']),
+:host(#{$prefix}-tab[type='contained']:hover) {
   a.#{$prefix}--tabs__nav-link {
     @include breakpoint(md) {
       border-bottom: none;
+      box-shadow: rem(-1px) 0 0 0 $border-strong;
     }
   }
 }
@@ -154,9 +156,11 @@
   }
 }
 
-:host(#{$prefix}-tab[type='container'][disabled][role])
+:host(#{$prefix}-tab[type='contained'][disabled][role])
   .#{$prefix}--tabs__nav-link {
   @include breakpoint(md) {
+    background-color: $button-disabled;
+    border-bottom: none;
     color: $text-on-color-disabled;
   }
 }
@@ -185,19 +189,12 @@
 
     .#{$prefix}--tabs__nav-link {
       @include type-style('heading-01');
-
-      border-bottom: 3px solid $background-brand;
-
-      &:focus,
-      &:active {
-        border-bottom-width: 2px;
-      }
     }
   }
 }
 
-:host(#{$prefix}-tab[type='container'][selected]),
-:host(#{$prefix}-tab[type='container'][selected]:hover) {
+:host(#{$prefix}-tab[type='contained'][selected]),
+:host(#{$prefix}-tab[type='contained'][selected]:hover) {
   @include breakpoint(md) {
     background-color: $layer-01;
 

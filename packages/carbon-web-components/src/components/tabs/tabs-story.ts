@@ -30,6 +30,7 @@ const colorSchemes = {
 const types = {
   'Regular type': null,
   [`Container type (${TABS_TYPE.CONTAINER})`]: TABS_TYPE.CONTAINER,
+  [`Container type (${TABS_TYPE.CONTAINED})`]: TABS_TYPE.CONTAINED,
 };
 
 export const Default = () => html`
@@ -79,6 +80,64 @@ export const Default = () => html`
       Tab Panel 3
     </div>
     <div id="panel-dea" role="tabpanel" aria-labelledby="tab-dea" hidden>
+      Tab Panel 4
+    </div>
+  </div>
+`;
+
+export const Contained = () => html`
+  <style>
+    ${styles}
+  </style>
+  <cds-tabs value="all" type="${TABS_TYPE.CONTAINED}">
+    <cds-tab id="tab-all" target="panel-all" value="all">Tab label 1</cds-tab>
+    <cds-tab
+      id="tab-cloudFoundry"
+      target="panel-cloudFoundry"
+      value="cloudFoundry">
+      Tab label 2
+    </cds-tab>
+    <cds-tab id="tab-staging" target="panel-staging" value="staging" disabled>
+      Tab label 3
+    </cds-tab>
+    <cds-tab id="tab-dea" target="panel-dea" value="dea">Tab label 4</cds-tab>
+    <cds-tab id="tab-five" target="panel-five" value="five">
+      Tab label 5
+    </cds-tab>
+  </cds-tabs>
+  <div class="${prefix}-ce-demo-devenv--tab-panels">
+    <div id="panel-all" role="tabpanel" aria-labelledby="tab-all" hidden>
+      Tab Panel 1
+    </div>
+    <div
+      id="panel-cloudFoundry"
+      role="tabpanel"
+      aria-labelledby="tab-cloudFoundry"
+      hidden>
+      <form style="margin: 2em">
+        <legend class="${prefix}--label">Validation example</legend>
+        <cds-checkbox id="cb" label-text="Accept privacy policy"></cds-checkbox>
+        <cds-button style="margin-top: 1rem; margin-bottom: 1rem" type="submit">
+          Submit
+        </cds-button>
+        <cds-text-input
+          type="text"
+          label="Text input label"
+          helper-text="Optional help text"
+          id="text-input-1"></cds-text-input>
+      </form>
+    </div>
+    <div
+      id="panel-staging"
+      role="tabpanel"
+      aria-labelledby="tab-staging"
+      hidden>
+      Tab Panel 3
+    </div>
+    <div id="panel-dea" role="tabpanel" aria-labelledby="tab-dea" hidden>
+      Tab Panel 4
+    </div>
+    <div id="panel-five" role="tabpanel" aria-labelledby="tab-five" hidden>
       Tab Panel 4
     </div>
   </div>
