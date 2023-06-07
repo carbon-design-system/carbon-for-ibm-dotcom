@@ -22,7 +22,7 @@
     "clean": "rimraf es"
   },
   "dependencies": {
-    "@storybook/addons": "^5.3.0",
+    "@storybook/addons": "^6.5.15",
     "@storybook/components": "^5.3.0"
   },
   "peerDependencies": {
