@@ -39,13 +39,13 @@ class CDSHeaderNavItem extends FocusMixin(LitElement) {
   /**
    * Applies selected styles to the item if a user sets this to true and `aria-current !== 'page'`.
    */
-  @property({ type: Boolean, attribute: 'is-active', reflect: true })
+  @property({ type: Boolean, attribute: 'is-active' })
   isActive = false;
 
   /**
    * indicates that this element represents the current item
    */
-  @property({ type: Boolean, attribute: 'aria-current', reflect: true })
+  @property({ type: String, attribute: 'aria-current' })
   ariaCurrent;
 
   /**

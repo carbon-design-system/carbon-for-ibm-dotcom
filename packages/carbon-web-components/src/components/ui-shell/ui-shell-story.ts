@@ -115,7 +115,7 @@ export const FixedSideNav = () => {
       ${styles}
     </style>
     <cds-side-nav
-      is-child-of-header="false"
+      is-not-child-of-header
       usage-mode="${SIDE_NAV_USAGE_MODE.REGULAR}"
       aria-label="Side navigation"
       collapse-mode="${SIDE_NAV_COLLAPSE_MODE.FIXED}"
@@ -175,7 +175,7 @@ export const FixedSideNavDivider = () => {
       ${styles}
     </style>
     <cds-side-nav
-      is-child-of-header="false"
+      is-not-child-of-header
       aria-label="Side navigation"
       collapse-mode="${SIDE_NAV_COLLAPSE_MODE.FIXED}"
       expanded>
@@ -235,7 +235,7 @@ export const FixedSideNavIcons = () => {
       ${styles}
     </style>
     <cds-side-nav
-      is-child-of-header="false"
+      is-not-child-of-header
       aria-label="Side navigation"
       collapse-mode="${SIDE_NAV_COLLAPSE_MODE.FIXED}"
       expanded>
@@ -326,7 +326,7 @@ export const HeaderBaseWActions = () => {
         <cds-header-global-action
           aria-label="App Switcher"
           tooltip-text="App Switcher"
-          tooltip-alignment="end">
+          tooltip-alignment="right">
           ${SwitcherIcon20({ slot: 'icon' })}
         </cds-header-global-action>
       </div>
@@ -352,7 +352,7 @@ export const HeaderBaseWActionsRightPanel = () => {
         </cds-header-global-action>
         <cds-header-global-action
           aria-label="App Switcher"
-          tooltip-alignment="end">
+          tooltip-alignment="right">
           ${SwitcherIcon20({ slot: 'icon' })}
         </cds-header-global-action>
       </div>
@@ -381,7 +381,7 @@ export const HeaderBaseWActionsSwitcher = () => {
         <cds-header-global-action
           active
           aria-label="App Switcher"
-          tooltip-alignment="end">
+          tooltip-alignment="right">
           ${SwitcherIcon20({ slot: 'icon' })}
         </cds-header-global-action>
       </div>
@@ -459,7 +459,7 @@ export const HeaderBaseWNavigationActionsAndSideNav = () => {
         <cds-header-global-action
           aria-label="App Switcher"
           tooltip-text="App Switcher"
-          tooltip-alignment="end">
+          tooltip-alignment="right">
           ${SwitcherIcon20({ slot: 'icon' })}
         </cds-header-global-action>
       </div>
@@ -586,12 +586,12 @@ export const HeaderBaseWNavigationActions = () => {
         <cds-header-global-action
           aria-label="App Switcher"
           tooltip-text="App Switcher"
-          tooltip-alignment="end">
+          tooltip-alignment="right">
           ${SwitcherIcon20({ slot: 'icon' })}
         </cds-header-global-action>
       </div>
       <cds-side-nav
-        is-persistent="false"
+        is-not-persistent
         aria-label="Side navigation"
         collapse-mode="${SIDE_NAV_COLLAPSE_MODE.RESPONSIVE}">
         <cds-side-nav-items>
@@ -657,7 +657,7 @@ export const HeaderBaseWNavigation = () => {
         </cds-header-menu>
       </cds-header-nav>
       <cds-side-nav
-        is-persistent="false"
+        is-not-persistent
         aria-label="Side navigation"
         collapse-mode="${SIDE_NAV_COLLAPSE_MODE.RESPONSIVE}">
         <cds-side-nav-items>
@@ -781,7 +781,7 @@ export const HeaderBaseWSkipToContent = () => {
         <cds-header-global-action
           aria-label="App Switcher"
           tooltip-text="App Switcher"
-          tooltip-alignment="end">
+          tooltip-alignment="right">
           ${SwitcherIcon20({ slot: 'icon' })}
         </cds-header-global-action>
       </div>
@@ -896,7 +896,7 @@ export const SideNavRailWHeader = () => {
         <cds-header-global-action
           aria-label="App Switcher"
           tooltip-text="App Switcher"
-          tooltip-alignment="end">
+          tooltip-alignment="right">
           ${SwitcherIcon20({ slot: 'icon' })}
         </cds-header-global-action>
       </div>
@@ -963,7 +963,7 @@ export const SideNavWLargeSideNavItems = () => {
       ${styles}
     </style>
     <cds-side-nav
-      is-child-of-header="false"
+      is-not-child-of-header
       aria-label="Side navigation"
       collapse-mode="${SIDE_NAV_COLLAPSE_MODE.FIXED}"
       expanded>
