@@ -2642,8 +2642,8 @@ __metadata:
     karma-sourcemap-loader: ^0.4.0
     karma-spec-reporter: 0.0.36
     karma-webpack: ^4.0.2
-    lit-element: 2.5.1
-    lit-html: 1.4.1
+    lit-element: ^2.5.1
+    lit-html: ^1.4.1
     lodash-es: ^4.17.21
     lodash.pickby: ^4.6.0
     magic-string: ^0.30.0
@@ -22992,7 +22992,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"lit-element@npm:2.5.1, lit-element@npm:^2.5.1":
+"lit-element@npm:^2.5.1":
   version: 2.5.1
   resolution: "lit-element@npm:2.5.1"
   dependencies:
@@ -23001,7 +23001,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"lit-html@npm:^1.4.0":
+"lit-html@npm:^1.4.1":
   version: 1.4.1
   resolution: "lit-html@npm:1.4.1"
   checksum: 6e1bb335cd8493700d2f1eaf1e019c2f6bf78ac641bdba5e2ff9f1545430e0fec15c6721ee1c8ca75559e1d52a1d34cdc568da46319681304299d9aff83a6346
