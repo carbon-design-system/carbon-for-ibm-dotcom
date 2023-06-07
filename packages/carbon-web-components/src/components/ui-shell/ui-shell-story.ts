@@ -8,7 +8,6 @@
  */
 
 import { html } from 'lit';
-import { boolean, select } from '@storybook/addon-knobs';
 // Below path will be there when an application installs `@carbon/web-components` package.
 // In our dev env, we auto-generate the file and re-map below path to to point to the generated file.
 // @ts-ignore
@@ -17,9 +16,8 @@ import Search20 from '@carbon/web-components/es/icons/search/20';
 import Notification20 from '@carbon/web-components/es/icons/notification/20';
 import SwitcherIcon20 from '@carbon/web-components/es/icons/switcher/20';
 import contentStyles from '@carbon/styles/scss/components/ui-shell/content/_content.scss';
-import textNullable from '../../../.storybook/knob-text-nullable';
-import { ifDefined } from 'lit/directives/if-defined.js';
 import { SIDE_NAV_COLLAPSE_MODE, SIDE_NAV_USAGE_MODE } from './side-nav';
+import { classMap } from 'lit/directives/class-map.js';
 import './side-nav-items';
 import './side-nav-link';
 import './side-nav-divider';
@@ -45,62 +43,71 @@ import { prefix } from '../../globals/settings';
 
 const linksHref = 'https://www.carbondesignsystem.com/';
 
-const StoryContent = () => html`
-  <style type="text/css">
-    ${contentStyles.cssText}
-  </style>
-  <main class="${prefix}--content ${prefix}-ce-demo-devenv--ui-shell-content">
-    <div class="${prefix}--grid">
-      <div class="${prefix}--row">
-        <div class="${prefix}--offset-lg-3 ${prefix}--col-lg-13">
-          <h2>Purpose and function</h2>
-          <p>
-            The shell is perhaps the most crucial piece of any UI built with
-            Carbon. It contains the shared navigation framework for the entire
-            design system and ties the products in IBM’s portfolio together in a
-            cohesive and elegant way. The shell is the home of the topmost
-            navigation, where users can quickly and dependably gain their
-            bearings and move between pages.
-            <br />
-            <br />
-            The shell was designed with maximum flexibility built in, to serve
-            the needs of a broad range of products and users. Adopting the shell
-            ensures compliance with IBM design standards, simplifies development
-            efforts, and provides great user experiences. All IBM products built
-            with Carbon are required to use the shell’s header.
-            <br />
-            <br />
-            To better understand the purpose and function of the UI shell,
-            consider the “shell” of MacOS, which contains the Apple menu,
-            top-level navigation, and universal, OS-level controls at the top of
-            the screen, as well as a universal dock along the bottom or side of
-            the screen. The Carbon UI shell is roughly analogous in function to
-            these parts of the Mac UI. For example, the app switcher portion of
-            the shell can be compared to the dock in MacOS.
-          </p>
-          <h2>Header responsive behavior</h2>
-          <p>
-            As a header scales down to fit smaller screen sizes, headers with
-            persistent side nav menus should have the side nav collapse into
-            “hamburger” menu. See the example to better understand responsive
-            behavior of the header.
-          </p>
-          <h2>Secondary navigation</h2>
-          <p>
-            The side-nav contains secondary navigation and fits below the
-            header. It can be configured to be either fixed-width or flexible,
-            with only one level of nested items allowed. Both links and category
-            lists can be used in the side-nav and may be mixed together. There
-            are several configurations of the side-nav, but only one
-            configuration should be used per product section. If tabs are needed
-            on a page when using a side-nav, then the tabs are secondary in
-            hierarchy to the side-nav.
-          </p>
+const StoryContent = ({ useResponsiveOffset = true }) => {
+  const firstColumnClasses = classMap({
+    [`${prefix}--col-lg-13`]: true,
+    [`${prefix}--offset-lg-3`]: useResponsiveOffset,
+  });
+  return html`
+    <style type="text/css">
+      ${contentStyles.cssText}
+    </style>
+    <main class="${prefix}--content ${prefix}-ce-demo-devenv--ui-shell-content">
+      <div class="${prefix}--grid">
+        <div class="${prefix}--row">
+          <div
+            class="${firstColumnClasses}"
+            style="${!useResponsiveOffset ? `margin-left: 16rem;` : ''}">
+            <h2>Purpose and function</h2>
+            <p>
+              The shell is perhaps the most crucial piece of any UI built with
+              Carbon. It contains the shared navigation framework for the entire
+              design system and ties the products in IBM’s portfolio together in
+              a cohesive and elegant way. The shell is the home of the topmost
+              navigation, where users can quickly and dependably gain their
+              bearings and move between pages.
+              <br />
+              <br />
+              The shell was designed with maximum flexibility built in, to serve
+              the needs of a broad range of products and users. Adopting the
+              shell ensures compliance with IBM design standards, simplifies
+              development efforts, and provides great user experiences. All IBM
+              products built with Carbon are required to use the shell’s header.
+              <br />
+              <br />
+              To better understand the purpose and function of the UI shell,
+              consider the “shell” of MacOS, which contains the Apple menu,
+              top-level navigation, and universal, OS-level controls at the top
+              of the screen, as well as a universal dock along the bottom or
+              side of the screen. The Carbon UI shell is roughly analogous in
+              function to these parts of the Mac UI. For example, the app
+              switcher portion of the shell can be compared to the dock in
+              MacOS.
+            </p>
+            <h2>Header responsive behavior</h2>
+            <p>
+              As a header scales down to fit smaller screen sizes, headers with
+              persistent side nav menus should have the side nav collapse into
+              “hamburger” menu. See the example to better understand responsive
+              behavior of the header.
+            </p>
+            <h2>Secondary navigation</h2>
+            <p>
+              The side-nav contains secondary navigation and fits below the
+              header. It can be configured to be either fixed-width or flexible,
+              with only one level of nested items allowed. Both links and
+              category lists can be used in the side-nav and may be mixed
+              together. There are several configurations of the side-nav, but
+              only one configuration should be used per product section. If tabs
+              are needed on a page when using a side-nav, then the tabs are
+              secondary in hierarchy to the side-nav.
+            </p>
+          </div>
         </div>
       </div>
-    </div>
-  </main>
-`;
+    </main>
+  `;
+};
 
 export const FixedSideNav = () => {
   const result = html`
@@ -154,7 +161,7 @@ export const FixedSideNav = () => {
         <cds-side-nav-link href="javascript:void(0)">L0 link</cds-side-nav-link>
       </cds-side-nav-items>
     </cds-side-nav>
-    ${StoryContent()}
+    ${StoryContent({ useResponsiveOffset: false })}
   `;
   (result as any).hasMainTag = true;
   return result;
@@ -214,7 +221,7 @@ export const FixedSideNavDivider = () => {
         <cds-side-nav-link href="javascript:void(0)">L0 link</cds-side-nav-link>
       </cds-side-nav-items>
     </cds-side-nav>
-    ${StoryContent()}
+    ${StoryContent({ useResponsiveOffset: false })}
   `;
   (result as any).hasMainTag = true;
   return result;
@@ -280,7 +287,7 @@ export const FixedSideNavIcons = () => {
         >
       </cds-side-nav-items>
     </cds-side-nav>
-    ${StoryContent()}
+    ${StoryContent({ useResponsiveOffset: false })}
   `;
   (result as any).hasMainTag = true;
   return result;
@@ -528,7 +535,7 @@ export const HeaderBaseWNavigationActionsAndSideNav = () => {
         </cds-side-nav-items>
       </cds-side-nav>
     </cds-header>
-    ${StoryContent()}`;
+    ${StoryContent({ useResponsiveOffset: true })}`;
 };
 
 HeaderBaseWNavigationActionsAndSideNav.storyName =
@@ -745,7 +752,7 @@ export const HeaderBaseWSideNav = () => {
         </cds-side-nav-items>
       </cds-side-nav>
     </cds-header>
-    ${StoryContent()}
+    ${StoryContent({ useResponsiveOffset: true })}
   `;
   (result as any).hasMainTag = true;
   return result;
@@ -779,7 +786,7 @@ export const HeaderBaseWSkipToContent = () => {
         </cds-header-global-action>
       </div>
     </cds-header>
-    ${StoryContent()}`;
+    ${StoryContent({ useResponsiveOffset: true })}`;
 };
 
 HeaderBaseWSkipToContent.storyName = 'Header Base w/ SkipToContent';
@@ -839,7 +846,7 @@ export const SideNavRail = () => {
         >
       </cds-side-nav-items>
     </cds-side-nav>
-    ${StoryContent()}`;
+    ${StoryContent({ useResponsiveOffset: true })}`;
 };
 
 SideNavRail.storyName = 'SideNav Rail';
@@ -945,7 +952,7 @@ export const SideNavRailWHeader = () => {
         </cds-side-nav-items>
       </cds-side-nav>
     </cds-header>
-    ${StoryContent()}`;
+    ${StoryContent({ useResponsiveOffset: true })}`;
 };
 
 SideNavRailWHeader.storyName = 'SideNav Rail w/ Header';
@@ -992,7 +999,7 @@ export const SideNavWLargeSideNavItems = () => {
         >
       </cds-side-nav-items>
     </cds-side-nav>
-    ${StoryContent()}
+    ${StoryContent({ useResponsiveOffset: true })}
   `;
   (result as any).hasMainTag = true;
   return result;

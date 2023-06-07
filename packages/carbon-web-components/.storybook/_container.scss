@@ -8,6 +8,9 @@
 //
 
 @use '@carbon/styles' as *;
+@use '@carbon/grid';
+
+@include grid.flex-grid();
 @include reset();
 
 *,
