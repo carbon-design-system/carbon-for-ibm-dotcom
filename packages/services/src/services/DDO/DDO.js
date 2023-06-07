@@ -142,7 +142,7 @@ class DDOAPI {
    */
   static async getLocation() {
     return await this.isReady().then(() => {
-      return root.digitalData.user.location.country;
+      return root.digitalData.user.location.country.toLowerCase();
     });
   }
 }
