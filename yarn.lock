@@ -2610,9 +2610,9 @@ __metadata:
     css-loader: ^5.2.0
     cssnano: ^5.0.0
     cy2: ^4.0.6
-    cypress: ^8.7.0
-    cypress-axe: ~0.14.0
-    cypress-wait-until: ~1.7.2
+    cypress: ~9.7.0
+    cypress-axe: ^0.14.0
+    cypress-wait-until: ^1.7.2
     del: ^6.0.0
     doctoc: ^2.0.0
     dompurify: ^2.0.0
@@ -3199,7 +3199,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@cypress/request@npm:^2.88.10, @cypress/request@npm:^2.88.6":
+"@cypress/request@npm:^2.88.10":
   version: 2.88.11
   resolution: "@cypress/request@npm:2.88.11"
   dependencies:
@@ -7702,13 +7702,6 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@types/sinonjs__fake-timers@npm:^6.0.2":
-  version: 6.0.4
-  resolution: "@types/sinonjs__fake-timers@npm:6.0.4"
-  checksum: 200cb24235409964269465e8a94ad735ec8bab98f3b2405cd6351fa6f6399be268cbbd4e824c9d361d9431ae11070cff4c3b6400b18aff03cb7933985853c0c9
-  languageName: node
-  linkType: hard
-
 "@types/sizzle@npm:^2.3.2":
   version: 2.3.3
   resolution: "@types/sizzle@npm:2.3.3"
@@ -11831,7 +11824,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"cli-table3@npm:^0.6.1, cli-table3@npm:~0.6.0, cli-table3@npm:~0.6.1":
+"cli-table3@npm:^0.6.1, cli-table3@npm:~0.6.1":
   version: 0.6.3
   resolution: "cli-table3@npm:0.6.3"
   dependencies:
@@ -13426,7 +13419,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"cypress-axe@npm:^0.14.0, cypress-axe@npm:~0.14.0":
+"cypress-axe@npm:^0.14.0":
   version: 0.14.0
   resolution: "cypress-axe@npm:0.14.0"
   peerDependencies:
@@ -13436,62 +13429,10 @@ __metadata:
   languageName: node
   linkType: hard
 
-"cypress-wait-until@npm:^1.7.2, cypress-wait-until@npm:~1.7.2":
+"cypress-wait-until@npm:^1.7.2":
   version: 1.7.2
   resolution: "cypress-wait-until@npm:1.7.2"
   checksum: e3fe3c35ef8cfda39fb8919ae63a238bd580a98f5c02120306b32d6502ddfa9bfc3afde733cd9b282035b9f67e8386bd6c58bd59ca5fd2ea65291e6d9bac1ed7
-  languageName: node
-  linkType: hard
-
-"cypress@npm:^8.7.0":
-  version: 8.7.0
-  resolution: "cypress@npm:8.7.0"
-  dependencies:
-    "@cypress/request": ^2.88.6
-    "@cypress/xvfb": ^1.2.4
-    "@types/node": ^14.14.31
-    "@types/sinonjs__fake-timers": ^6.0.2
-    "@types/sizzle": ^2.3.2
-    arch: ^2.2.0
-    blob-util: ^2.0.2
-    bluebird: ^3.7.2
-    cachedir: ^2.3.0
-    chalk: ^4.1.0
-    check-more-types: ^2.24.0
-    cli-cursor: ^3.1.0
-    cli-table3: ~0.6.0
-    commander: ^5.1.0
-    common-tags: ^1.8.0
-    dayjs: ^1.10.4
-    debug: ^4.3.2
-    enquirer: ^2.3.6
-    eventemitter2: ^6.4.3
-    execa: 4.1.0
-    executable: ^4.1.1
-    extract-zip: 2.0.1
-    figures: ^3.2.0
-    fs-extra: ^9.1.0
-    getos: ^3.2.1
-    is-ci: ^3.0.0
-    is-installed-globally: ~0.4.0
-    lazy-ass: ^1.6.0
-    listr2: ^3.8.3
-    lodash: ^4.17.21
-    log-symbols: ^4.0.0
-    minimist: ^1.2.5
-    ospath: ^1.2.2
-    pretty-bytes: ^5.6.0
-    proxy-from-env: 1.0.0
-    ramda: ~0.27.1
-    request-progress: ^3.0.0
-    supports-color: ^8.1.1
-    tmp: ~0.2.1
-    untildify: ^4.0.0
-    url: ^0.11.0
-    yauzl: ^2.10.0
-  bin:
-    cypress: bin/cypress
-  checksum: 607771bda6c37228cd8537a7faa2ae89ae9bcf2720210b22865f532059d8c7e0741bb7520f241c46ceacd503ff349e41f0eea104734e71423071dd67a79098b9
   languageName: node
   linkType: hard
 
@@ -28184,13 +28125,6 @@ __metadata:
   version: 0.28.0
   resolution: "ramda@npm:0.28.0"
   checksum: 44ea6e5010bba70151b6a92d8114a91915e8b5a16105cce65fae58c9d7386b812c429645e35f21141d7087568550ce383bc10ee1a65cdec951f4b69ea457e6a4
-  languageName: node
-  linkType: hard
-
-"ramda@npm:~0.27.1":
-  version: 0.27.2
-  resolution: "ramda@npm:0.27.2"
-  checksum: 28d6735dd1eea1a796c56cf6111f3673c6105bbd736e521cdd7826c46a18eeff337c2dba4668f6eed990d539b9961fd6db19aa46ccc1530ba67a396c0a9f580d
   languageName: node
   linkType: hard
 
