@@ -24,7 +24,7 @@ class CDSHeaderSideNavItems extends LitElement {
    * between original sidenav items and header menu items. False by default.
    */
   @property({ type: Boolean, attribute: 'has-divider' })
-  hasDivder = false;
+  hasDivider = false;
 
   connectedCallback() {
     if (!this.hasAttribute('role')) {
