@@ -72,14 +72,10 @@ class DDSCTAHead extends HostListenerMixin(StableSelectorMixin(LitElement)) {
   // @ts-ignore: The decorator refers to this method but TS thinks this method is not referred to
   private _handleVideoTitleUpdate = async (event: FocusEvent) => {
     if (event) {
-      const { videoDuration, videoName, videoThumbnailUrl } =
-        event.detail as any;
+      const { videoDuration, videoName } = event.detail as any;
       const formattedVideoDuration = formatVideoDuration({
         duration: !videoDuration ? videoDuration : videoDuration * 1000,
       });
-      this.videoThumbnailUrl
-        ? null
-        : (this.videoThumbnailUrl = videoThumbnailUrl);
       this.videoDuration ? null : (this.videoDuration = formattedVideoDuration);
 
       if (this.ctaStyle !== 'card' && this.ctaStyle !== 'feature') {

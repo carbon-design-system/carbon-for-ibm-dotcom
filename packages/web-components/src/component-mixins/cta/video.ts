@@ -171,7 +171,7 @@ const VideoCTAMixin = <T extends Constructor<HTMLElement>>(Base: T) => {
     /**
      * Updates video thumbnail url to match card width.
      */
-    private _updateVideoThumbnailUrl() {
+    _updateVideoThumbnailUrl() {
       this.videoThumbnailUrl = KalturaPlayerAPI.getThumbnailUrl({
         mediaId: this.href,
         width: String(this.offsetWidth),

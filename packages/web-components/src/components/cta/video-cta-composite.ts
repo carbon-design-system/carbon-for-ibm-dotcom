@@ -13,7 +13,6 @@ import ifNonNull from '../../internal/vendor/@carbon/web-components/globals/dire
 import HostListener from '../../internal/vendor/@carbon/web-components/globals/decorators/host-listener.js';
 import HostListenerMixin from '../../internal/vendor/@carbon/web-components/globals/mixins/host-listener.js';
 import ddsSettings from '../../internal/vendor/@carbon/ibmdotcom-utilities/utilities/settings/settings';
-import KalturaPlayerAPI from '../../internal/vendor/@carbon/ibmdotcom-services/services/KalturaPlayer/KalturaPlayer';
 import ModalRenderMixin from '../../globals/mixins/modal-render';
 import { MediaData } from '../../internal/vendor/@carbon/ibmdotcom-services-store/types/kalturaPlayerAPI.d';
 import Handle from '../../globals/internal/handle';
@@ -111,7 +110,6 @@ class DDSVideoCTAComposite extends ModalRenderMixin(
           detail: {
             videoName,
             videoDuration: duration,
-            videoThumbnailUrl,
           },
         }
       );
