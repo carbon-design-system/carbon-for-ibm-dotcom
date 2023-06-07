@@ -12,7 +12,6 @@ export * from './deprecate';
 export * from './escaperegexp';
 export * from './featureflag';
 export * from './formatVideoCaption';
-export * from './geolocation';
 export * from './ipcinfoCookie';
 export * from './loadNonLatinPlex';
 export * from './markdownToHtml';
