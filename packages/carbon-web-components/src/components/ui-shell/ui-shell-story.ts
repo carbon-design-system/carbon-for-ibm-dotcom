@@ -300,9 +300,9 @@ export const HeaderBase = () => {
       ${styles}
     </style>
     <cds-header aria-label="IBM Platform Name">
-      <cds-header-name href="javascript:void 0" prefix="IBM">
-        [Platform]
-      </cds-header-name>
+      <cds-header-name href="javascript:void 0" prefix="IBM"
+        >[Platform]</cds-header-name
+      >
     </cds-header>`;
 };
 
@@ -311,9 +311,9 @@ export const HeaderBaseWActions = () => {
       ${styles}
     </style>
     <cds-header aria-label="IBM Platform Name">
-      <cds-header-name href="javascript:void 0" prefix="IBM">
-        [Platform]
-      </cds-header-name>
+      <cds-header-name href="javascript:void 0" prefix="IBM"
+        >[Platform]</cds-header-name
+      >
       <div class="${prefix}--header__global">
         <cds-header-global-action aria-label="Search" tooltip-text="Search">
           ${Search20({ slot: 'icon' })}
@@ -340,9 +340,9 @@ export const HeaderBaseWActionsRightPanel = () => {
       ${styles}
     </style>
     <cds-header aria-label="IBM Platform Name">
-      <cds-header-name href="javascript:void 0" prefix="IBM">
-        [Platform]
-      </cds-header-name>
+      <cds-header-name href="javascript:void 0" prefix="IBM"
+        >[Platform]</cds-header-name
+      >
       <div class="${prefix}--header__global">
         <cds-header-global-action aria-label="Search">
           ${Search20({ slot: 'icon' })}
@@ -368,9 +368,9 @@ export const HeaderBaseWActionsSwitcher = () => {
       ${styles}
     </style>
     <cds-header aria-label="IBM Platform Name">
-      <cds-header-name href="javascript:void 0" prefix="IBM">
-        [Platform]
-      </cds-header-name>
+      <cds-header-name href="javascript:void 0" prefix="IBM"
+        >[Platform]</cds-header-name
+      >
       <div class="${prefix}--header__global">
         <cds-header-global-action aria-label="Search">
           ${Search20({ slot: 'icon' })}
@@ -422,9 +422,9 @@ export const HeaderBaseWNavigationActionsAndSideNav = () => {
       <cds-header-menu-button
         button-label-active="Close menu"
         button-label-inactive="Open menu"></cds-header-menu-button>
-      <cds-header-name href="javascript:void 0" prefix="IBM">
-        [Platform]
-      </cds-header-name>
+      <cds-header-name href="javascript:void 0" prefix="IBM"
+        >[Platform]</cds-header-name
+      >
       <cds-header-nav menu-bar-label="IBM [Platform]">
         <cds-header-nav-item href="javascript:void 0"
           >Link 1</cds-header-nav-item
@@ -549,9 +549,9 @@ export const HeaderBaseWNavigationActions = () => {
       <cds-header-menu-button
         button-label-active="Close menu"
         button-label-inactive="Open menu"></cds-header-menu-button>
-      <cds-header-name href="javascript:void 0" prefix="IBM">
-        [Platform]
-      </cds-header-name>
+      <cds-header-name href="javascript:void 0" prefix="IBM"
+        >[Platform]</cds-header-name
+      >
       <cds-header-nav menu-bar-label="IBM [Platform]">
         <cds-header-nav-item href="javascript:void 0"
           >Link 1</cds-header-nav-item
@@ -631,9 +631,9 @@ export const HeaderBaseWNavigation = () => {
       <cds-header-menu-button
         button-label-active="Close menu"
         button-label-inactive="Open menu"></cds-header-menu-button>
-      <cds-header-name href="javascript:void 0" prefix="IBM">
-        [Platform]
-      </cds-header-name>
+      <cds-header-name href="javascript:void 0" prefix="IBM"
+        >[Platform]</cds-header-name
+      >
       <cds-header-nav menu-bar-label="IBM [Platform]">
         <cds-header-nav-item href="javascript:void 0"
           >Link 1</cds-header-nav-item
@@ -766,9 +766,9 @@ export const HeaderBaseWSkipToContent = () => {
     </style>
     <cds-header aria-label="IBM Platform Name">
       <cds-skip-to-content></cds-skip-to-content>
-      <cds-header-name href="javascript:void 0" prefix="IBM">
-        [Platform]
-      </cds-header-name>
+      <cds-header-name href="javascript:void 0" prefix="IBM"
+        >[Platform]</cds-header-name
+      >
       <div class="${prefix}--header__global">
         <cds-header-global-action aria-label="Search" tooltip-text="Search">
           ${Search20({ slot: 'icon' })}
@@ -859,9 +859,9 @@ export const SideNavRailWHeader = () => {
       <cds-header-menu-button
         button-label-active="Close menu"
         button-label-inactive="Open menu"></cds-header-menu-button>
-      <cds-header-name href="javascript:void 0" prefix="IBM">
-        [Platform]
-      </cds-header-name>
+      <cds-header-name href="javascript:void 0" prefix="IBM"
+        >[Platform]</cds-header-name
+      >
       <cds-header-nav menu-bar-label="IBM [Platform]">
         <cds-header-nav-item href="javascript:void 0"
           >Link 1</cds-header-nav-item

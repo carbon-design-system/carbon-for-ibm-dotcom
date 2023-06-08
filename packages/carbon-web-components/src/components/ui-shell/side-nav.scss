@@ -68,7 +68,6 @@ $css--plex: true !default;
   @extend .#{$prefix}--side-nav__item--active;
 
   // TODO: audit
-  background-color: $background-selected;
   color: $text-primary;
   position: relative;
 

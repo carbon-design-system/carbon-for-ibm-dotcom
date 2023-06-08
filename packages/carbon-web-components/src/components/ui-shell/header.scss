@@ -116,6 +116,10 @@ $css--plex: true !default;
 :host(#{$prefix}-header-name) {
   display: content;
   height: 100%;
+
+  a {
+    box-sizing: border-box;
+  }
 }
 
 :host(#{$prefix}-header-panel) {
