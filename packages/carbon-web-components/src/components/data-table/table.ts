@@ -652,6 +652,7 @@ class CDSTable extends HostListenerMixin(LitElement) {
           const row = cell.parentNode as CDSTableRow;
           cell.overflowMenuOnHover = this.overflowMenuOnHover;
           row.overflowMenuOnHover = this.overflowMenuOnHover;
+          cell.size = this.size;
         }
       );
     }

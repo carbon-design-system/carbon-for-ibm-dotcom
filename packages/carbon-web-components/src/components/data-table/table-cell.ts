@@ -30,6 +30,12 @@ class CDSTableCell extends LitElement {
   overflowMenuOnHover = false;
 
   /**
+   * The table size.
+   */
+  @property({ reflect: true })
+  size;
+
+  /**
    * TODO: Uncomment when Carbon fully implements sticky header
    * Specify whether the header should be sticky.
    * Still experimental: may not work with every combination of table props
