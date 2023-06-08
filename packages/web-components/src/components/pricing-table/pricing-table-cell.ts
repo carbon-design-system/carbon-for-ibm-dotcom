@@ -7,7 +7,7 @@
  * LICENSE file in the root directory of this source tree.
  */
 
-import { html } from 'lit-element';
+import { html, property } from 'lit-element';
 import settings from 'carbon-components/es/globals/js/settings.js';
 import ddsSettings from '@carbon/ibmdotcom-utilities/es/utilities/settings/settings.js';
 import HostListenerMixin from '../../internal/vendor/@carbon/web-components/globals/mixins/host-listener.js';
@@ -26,6 +26,9 @@ const { stablePrefix: ddsPrefix } = ddsSettings;
 class DDSPricingTableCell extends StableSelectorMixin(
   HostListenerMixin(DDSStructuredListCell)
 ) {
+  @property({ type: Boolean, attribute: 'icon-text', reflect: true })
+  iconText?: boolean = false;
+
   _parentGroup: DDSPricingTableGroup | null = this.closest(
     `${ddsPrefix}-pricing-table-group`
   );
@@ -67,6 +70,21 @@ class DDSPricingTableCell extends StableSelectorMixin(
     if (slotContents.length === 0) {
       this.classList.toggle('no-cell-content');
     }
+  }
+
+  /**
+   * Override to support having the slotted text side by side with the icon.
+   */
+  private _renderIcon() {
+    const { iconText } = this;
+    const icon = super._renderIcon();
+
+    return iconText
+      ? html`${icon}
+          <span class="$prefix--pricing-table-cell-icon-text">
+            <slot></slot>
+          </span>`
+      : icon;
   }
 
   render() {
