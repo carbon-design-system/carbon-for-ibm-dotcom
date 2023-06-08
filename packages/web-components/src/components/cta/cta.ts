@@ -93,20 +93,6 @@ class DDSCTAHead extends HostListenerMixin(StableSelectorMixin(LitElement)) {
           ? (spanElement.textContent = heading)
           : (ctaComponent!.textContent = heading);
       } else {
-        if (!this.getAttribute('no-poster')) {
-          const imageQuery =
-            this.ctaStyle === 'card'
-              ? `${ddsPrefix}-card-cta-image`
-              : `${ddsPrefix}-image`;
-          const imageComponent = this.shadowRoot
-            ?.querySelector(`${ddsPrefix}-${this.ctaStyle}-cta`)
-            ?.shadowRoot!.querySelector(imageQuery);
-          const imageUrl = this.thumbnail
-            ? this.thumbnail
-            : this.videoThumbnailUrl;
-          imageComponent?.setAttribute('default-src', imageUrl);
-        }
-
         const footer = this.shadowRoot
           ?.querySelector(`${ddsPrefix}-${this.ctaStyle}-cta`)
           ?.querySelector(`${ddsPrefix}-${this.ctaStyle}-cta-footer`);
