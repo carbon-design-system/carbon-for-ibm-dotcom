@@ -48,13 +48,13 @@ $css--plex: true !default;
 :host(#{$prefix}-progress-step[vertical]),
 :host(#{$prefix}-progress-step-skeleton[vertical]) {
   display: list-item;
-  min-height: $spacing-12;
+  min-height: 3.625rem;
   width: initial;
   min-width: initial;
 
   svg {
     display: inline-block;
-    margin: 0.1rem 0.5rem;
+    margin: 0.1rem 0.25rem 0.1rem 0.5rem;
   }
 
   .#{$prefix}--progress-label {
@@ -80,7 +80,7 @@ $css--plex: true !default;
   .#{$prefix}--progress-optional {
     margin-top: auto;
     position: initial;
-    margin-left: 2.25rem;
+    margin-left: 2rem;
   }
 
   .#{$prefix}--progress-step-button {
