@@ -8,13 +8,14 @@
  */
 
 import { html, TemplateResult } from 'lit-element';
-import { number, text } from '@storybook/addon-knobs';
+import { number, text, boolean } from '@storybook/addon-knobs';
 import readme from './README.stories.mdx';
 import '../index';
 import '../../../internal/vendor/@carbon/web-components/components/tooltip/index.js';
 import textNullable from '../../../../.storybook/knob-text-nullable';
 import { PRICING_TABLE_HEADER_CELL_TYPES } from '../defs';
 import styles from './pricing-table.stories.scss';
+import { ifDefined } from 'lit-html/directives/if-defined.js';
 
 enum CELL_TYPES {
   TEXT = 'text',
@@ -137,7 +138,10 @@ const renderHead = (
   `;
 };
 
-const renderBodyCell = (type: CELL_TYPES): TemplateResult => {
+const renderBodyCell = (
+  type: CELL_TYPES,
+  iconText: boolean = false
+): TemplateResult => {
   switch (type) {
     case CELL_TYPES.TEXT:
       return html`
@@ -152,8 +156,10 @@ const renderBodyCell = (type: CELL_TYPES): TemplateResult => {
       `;
     case CELL_TYPES.ICON:
       return html`
-        <dds-pricing-table-cell icon="checkmark">
-          Cell with icon
+        <dds-pricing-table-cell
+          icon="checkmark"
+          icon-text="${ifDefined(iconText ? iconText : undefined)}">
+          Billed per instance
           <dds-pricing-table-cell-annotation>
             Sed quis neque ultrices, convallis augue non, scelerisque massa.
           </dds-pricing-table-cell-annotation>
@@ -174,7 +180,8 @@ const renderBodyRow = (
   columnCount: number,
   rowNum: number,
   cellType: CELL_TYPES,
-  rowHeaders: boolean = true
+  rowHeaders: boolean = true,
+  iconText: boolean = false
 ): TemplateResult => html`
   <dds-pricing-table-row>
     ${(() => {
@@ -188,6 +195,7 @@ const renderBodyRow = (
               `
             : html`
                 <dds-pricing-table-cell
+                  icon-text="${ifDefined(iconText ? iconText : undefined)}"
                   >Row ${rowNum} Lorem ipsum dolor sit amet, consectetur
                   adipiscing elit. Nunc dui magna, finibus id tortor sed,
                   aliquet bibendum augue. Aenean posuere sem vel euismod
@@ -197,7 +205,7 @@ const renderBodyRow = (
         `,
       ];
       for (let i = 1; i < columnCount; i++) {
-        cells.push(renderBodyCell(cellType));
+        cells.push(renderBodyCell(cellType, iconText));
       }
       return cells;
     })()}
@@ -214,6 +222,7 @@ export const Default = (args) => {
     highlightLabel,
     columnCount,
     heading,
+    iconText,
   } = args?.PricingTable ?? {};
   return html`
     <style>
@@ -233,7 +242,7 @@ export const Default = (args) => {
       highlight-label="${highlightLabel}">
       ${renderHead(columnCount, heading)}
       <dds-pricing-table-body>
-        ${renderBodyRow(columnCount, 1, CELL_TYPES.ICON)}
+        ${renderBodyRow(columnCount, 1, CELL_TYPES.ICON, true, iconText)}
         ${renderBodyRow(columnCount, 2, CELL_TYPES.EMPTY)}
         ${renderBodyRow(columnCount, 3, CELL_TYPES.TEXT)}
       </dds-pricing-table-body>
@@ -340,6 +349,7 @@ export default {
         colSpan2: textNullable('col-span-2', ''),
         colSpan3: textNullable('col-span-3', ''),
         colSpan4: textNullable('col-span-4', ''),
+        iconText: boolean('Show text with icon', false),
       }),
     },
   },
