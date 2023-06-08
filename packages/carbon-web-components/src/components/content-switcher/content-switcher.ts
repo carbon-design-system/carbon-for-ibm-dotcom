@@ -42,7 +42,7 @@ const capIndex = (index: number, length: number) => {
  * @fires cds-content-switcher-selected - The custom event fired after a a content switcher item is selected upon a user gesture.
  */
 @customElement(`${prefix}-content-switcher`)
-class CDSContentSwitcher extends LitElement {
+export default class CDSContentSwitcher extends LitElement {
   /**
    * Handles `mouseover`/`mouseout` events on `<slot>`.
    *
@@ -61,6 +61,12 @@ class CDSContentSwitcher extends LitElement {
       // until `:host-context()` gets supported in all major browsers
       (elem as CDSSwitch).hideDivider = i === nextIndex;
     });
+
+    const { selectorItemSelected } = this
+      .constructor as typeof CDSContentSwitcher;
+    const selectedItem = this.querySelector(selectorItemSelected);
+    const nextItem = this._getNextItem(selectedItem as CDSSwitch, 1);
+    (nextItem as CDSSwitch).hideDivider = true;
   }
 
   /**
@@ -161,6 +167,19 @@ class CDSContentSwitcher extends LitElement {
     // Waits for rendering with the new state that updates `tabindex`
     Promise.resolve().then(() => {
       itemToSelect.focus();
+
+      const { selectorItem } = this.constructor as typeof CDSContentSwitcher;
+      const items = this.querySelectorAll(selectorItem);
+      const index = indexOf(
+        items,
+        (itemToSelect as Element).closest(selectorItem)!
+      );
+      const nextIndex = index < 0 ? index : index + 1;
+      forEach(this.querySelectorAll(selectorItem), (elem, i) => {
+        // Specifies child `<cds-content-switcher-item>` to hide its divider instead of using CSS,
+        // until `:host-context()` gets supported in all major browsers
+        (elem as CDSSwitch).hideDivider = i === nextIndex;
+      });
     });
   }
 
@@ -194,6 +213,17 @@ class CDSContentSwitcher extends LitElement {
       this.iconOnly = true;
     }
     return true;
+  }
+
+  _handleSlotchange() {
+    const { selectorItemSelected } = this
+      .constructor as typeof CDSContentSwitcher;
+    const selectedItem = this.querySelector(selectorItemSelected);
+    const nextItem = this._getNextItem(selectedItem as CDSSwitch, 1);
+
+    // Specifies child `<cds-content-switcher-item>` to hide its divider instead of using CSS,
+    // until `:host-context()` gets supported in all major browsers
+    (nextItem as CDSSwitch).hideDivider = true;
   }
 
   /**
@@ -240,17 +270,20 @@ class CDSContentSwitcher extends LitElement {
   }
 
   render() {
-    const { _handleHover: handleHover, _handleKeydown: handleKeydown } = this;
+    const {
+      _handleHover: handleHover,
+      _handleKeydown: handleKeydown,
+      _handleSlotchange: handleSlotchange,
+    } = this;
     return html`
       <slot
         @click="${this._handleClick}"
         @keydown="${handleKeydown}"
         @mouseover="${handleHover}"
-        @mouseout="${handleHover}"></slot>
+        @mouseout="${handleHover}"
+        @slotchange=${handleSlotchange}></slot>
     `;
   }
 
   static styles = styles;
 }
-
-export default CDSContentSwitcher;
