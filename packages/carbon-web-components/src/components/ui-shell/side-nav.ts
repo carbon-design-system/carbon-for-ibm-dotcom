@@ -181,6 +181,9 @@ class CDSSideNav extends HostListenerMixin(LitElement) {
       );
     }
     if (changedProperties.has('expanded')) {
+      const headerName = doc.querySelector(
+        (this.constructor as typeof CDSSideNav).selectorHeaderName
+      );
       this._updatedSideNavMenuForceCollapsedState();
       forEach(
         doc.querySelectorAll(
@@ -190,6 +193,11 @@ class CDSSideNav extends HostListenerMixin(LitElement) {
           (item as CDSHeaderMenuButton).active = this.expanded;
         }
       );
+      if (this.expanded) {
+        headerName?.setAttribute('tabindex', '-1');
+      } else {
+        headerName?.removeAttribute('tabindex');
+      }
     }
     if (changedProperties.has('isNotChildOfHeader')) {
       forEach(
@@ -201,6 +209,19 @@ class CDSSideNav extends HostListenerMixin(LitElement) {
             this.isNotChildOfHeader;
         }
       );
+    }
+  }
+
+  /**
+   * Handles `blur` event handler on this element.
+   *
+   * @param event The event.
+   */
+  @HostListener('focusout')
+  // @ts-ignore: The decorator refers to this method but TS thinks this method is not referred to
+  private _handleFocusOut({ relatedTarget }: FocusEvent) {
+    if (!this.contains(relatedTarget as Node)) {
+      this.expanded = false;
     }
   }
 
@@ -234,6 +255,13 @@ class CDSSideNav extends HostListenerMixin(LitElement) {
    */
   static get selectorButtonToggle() {
     return `${prefix}-header-menu-button`;
+  }
+
+  /**
+   * A selector that will return the header name element.
+   */
+  static get selectorHeaderName() {
+    return `${prefix}-header-name`;
   }
 
   /**

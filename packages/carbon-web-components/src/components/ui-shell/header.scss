@@ -83,8 +83,13 @@ $css--plex: true !default;
   }
 }
 
-:host(#{$prefix}-header-global-action) ::slotted(svg) {
-  fill: $icon-primary;
+:host(#{$prefix}-header-global-action) {
+  ::slotted(svg) {
+    fill: $icon-secondary;
+  }
+  &:hover ::slotted(svg) {
+    fill: $icon-primary;
+  }
 }
 
 :host(#{$prefix}-header-nav-item),

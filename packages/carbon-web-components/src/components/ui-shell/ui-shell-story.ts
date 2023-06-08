@@ -58,14 +58,15 @@ const StoryContent = ({ useResponsiveOffset = true }) => {
           <div
             class="${firstColumnClasses}"
             style="${!useResponsiveOffset ? `margin-left: 16rem;` : ''}">
-            <h2>Purpose and function</h2>
+            <h2 style="margin: '0 0 30px'">Purpose and function</h2>
             <p>
               The shell is perhaps the most crucial piece of any UI built with
-              Carbon. It contains the shared navigation framework for the entire
-              design system and ties the products in IBM’s portfolio together in
-              a cohesive and elegant way. The shell is the home of the topmost
-              navigation, where users can quickly and dependably gain their
-              bearings and move between pages.
+              <a href="www.carbondesignsystem.com"> Carbon</a>. It contains the
+              shared navigation framework for the entire design system and ties
+              the products in IBM’s portfolio together in a cohesive and elegant
+              way. The shell is the home of the topmost navigation, where users
+              can quickly and dependably gain their bearings and move between
+              pages.
               <br />
               <br />
               The shell was designed with maximum flexibility built in, to serve
@@ -84,14 +85,14 @@ const StoryContent = ({ useResponsiveOffset = true }) => {
               switcher portion of the shell can be compared to the dock in
               MacOS.
             </p>
-            <h2>Header responsive behavior</h2>
+            <h2 style="margin: '0 0 30px'">Header responsive behavior</h2>
             <p>
               As a header scales down to fit smaller screen sizes, headers with
               persistent side nav menus should have the side nav collapse into
               “hamburger” menu. See the example to better understand responsive
               behavior of the header.
             </p>
-            <h2>Secondary navigation</h2>
+            <h2 style="margin: '0 0 30px'">Secondary navigation</h2>
             <p>
               The side-nav contains secondary navigation and fits below the
               header. It can be configured to be either fixed-width or flexible,
