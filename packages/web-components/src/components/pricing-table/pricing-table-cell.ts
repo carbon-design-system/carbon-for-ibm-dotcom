@@ -75,7 +75,7 @@ class DDSPricingTableCell extends StableSelectorMixin(
   /**
    * Override to support having the slotted text side by side with the icon.
    */
-  private _renderIcon() {
+  protected _renderIcon() {
     const { iconText } = this;
     const icon = super._renderIcon();
 

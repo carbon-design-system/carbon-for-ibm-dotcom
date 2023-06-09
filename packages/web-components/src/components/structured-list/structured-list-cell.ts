@@ -52,7 +52,7 @@ class DDSStructuredListCell extends BXStructuredListCell {
     this.groupLabel = this.parentGroup?.groupTitle;
   }
 
-  private _renderIcon() {
+  protected _renderIcon() {
     const { icon, _iconsAllowed: iconMap } = this;
 
     return html` ${iconMap[icon!.toLowerCase()].call()} `;
