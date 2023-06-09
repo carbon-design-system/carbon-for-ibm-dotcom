@@ -123,6 +123,12 @@ class DDSMastheadL1 extends StableSelectorMixin(LitElement) {
   isMobileVersion = layoutBreakpoint.matches;
 
   /**
+   * Elements that are currently selected.
+   */
+  @state()
+  selectedElements: Element[] = [];
+
+  /**
    * The translated label for the overview links visible on mobile
    */
   @property({ attribute: 'overview-text' })
@@ -758,25 +764,24 @@ class DDSMastheadL1 extends StableSelectorMixin(LitElement) {
   protected _handleSelectedMenuItem() {
     const { selectedMenuItem, currentUrlPath } = this;
 
-    const sectionName = this.shadowRoot?.querySelector(
-      `.${prefix}--masthead__l1-title`
-    );
     const menuItems = Array.from(
       (this.shadowRoot as ShadowRoot).querySelectorAll(
         `.${prefix}--masthead__l1-item`
       )
     );
-    const linksAll = Array.from(
+    const allLinks = Array.from(
       (this.shadowRoot as ShadowRoot).querySelectorAll('a')
     );
-    let linksSelected: HTMLAnchorElement[];
 
-    // Reset all active attributes.
-    [sectionName, ...menuItems].forEach((el) => el?.removeAttribute('active'));
+    // Reset all selected elements.
+    Array.from(
+      (this.shadowRoot as ShadowRoot).querySelectorAll('[active]')
+    ).forEach((el) => el?.removeAttribute('active'));
+    this.selectedElements = [];
 
     // Check for manually set selected item.
     if (selectedMenuItem) {
-      linksSelected = linksAll.filter(
+      this.selectedElements = [...menuItems, ...allLinks].filter(
         (el) =>
           el.textContent?.trim()?.toLowerCase() ===
           selectedMenuItem.trim().toLowerCase()
@@ -784,17 +789,24 @@ class DDSMastheadL1 extends StableSelectorMixin(LitElement) {
     }
     // Fall back to automated selection based on URL.
     else {
-      linksSelected = linksAll.filter((el) => el.href === currentUrlPath);
+      this.selectedElements = allLinks.filter(
+        (el) => el.href === currentUrlPath
+      );
     }
 
     // Should default to active section name if no menu links are selected.
-    if (!linksSelected.length) {
-      sectionName?.setAttribute('active', '');
+    if (!this.selectedElements.length) {
+      this.selectedElements.push(
+        this.shadowRoot?.querySelector(
+          `.${prefix}--masthead__l1-title`
+        ) as Element
+      );
     }
 
     // Set active on nearest menu item.
-    linksSelected.forEach((link) => {
-      link
+    this.selectedElements.forEach((element) => {
+      element.setAttribute('active', '');
+      element
         .closest(`.${prefix}--masthead__l1-dropdown`)
         ?.previousElementSibling?.setAttribute('active', '');
     });
