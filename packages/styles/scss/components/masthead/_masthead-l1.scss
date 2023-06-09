@@ -395,6 +395,10 @@ $search-transition-timing: 95ms;
       align-items: flex-end;
       background-color: $ui-background;
 
+      &[active] {
+        border-bottom-color: $focus;
+      }
+
       &:hover {
         background-color: $hover-ui;
       }
@@ -474,6 +478,16 @@ $search-transition-timing: 95ms;
       border: 1px solid transparent;
       border-top: none;
       align-items: flex-end;
+
+      &[active]::after {
+        content: '';
+        position: absolute;
+        right: 0;
+        bottom: 0;
+        left: 0;
+        height: 3px;
+        background-color: $focus;
+      }
 
       &:hover {
         color: $text-01;

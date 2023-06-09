@@ -416,6 +416,7 @@ export const withL1 = (args) => {
   const {
     endpoint,
     selectedMenuItem,
+    selectedMenuItemL1,
     userStatus,
     hasProfile,
     hasSearch,
@@ -435,6 +436,7 @@ export const withL1 = (args) => {
           <dds-masthead-composite
             data-endpoint="${defaultEndpoint}"
             selected-menu-item="${ifNonNull(selectedMenuItem)}"
+            selected-menu-item-l1="${ifNonNull(selectedMenuItemL1)}"
             searchPlaceholder="${ifNonNull(searchPlaceholder)}"
             user-status="${ifNonNull(userStatus)}"
             .authenticatedProfileItems="${ifNonNull(authenticatedProfileItems)}"
@@ -452,6 +454,7 @@ export const withL1 = (args) => {
             platform="${ifNonNull(platform)}"
             .platformData="${ifNonNull(platformData.url)}"
             selected-menu-item="${ifNonNull(selectedMenuItem)}"
+            selected-menu-item-l1="${ifNonNull(selectedMenuItemL1)}"
             user-status="${ifNonNull(userStatus)}"
             has-profile="${hasProfile}"
             ?has-search="${hasSearch}"
@@ -478,8 +481,12 @@ withL1.story = {
           inPercy() ? '' : 'Search all of IBM'
         ),
         selectedMenuItem: textNullable(
-          'selected menu item (selected-menu-item)',
-          'Products'
+          'selected menu item in L0 (selected-menu-item)',
+          ''
+        ),
+        selectedMenuItemL1: textNullable(
+          'selected menu item in L1 (selected-menu-item-l1)',
+          ''
         ),
         userStatus: select(
           'The user authenticated status (user-status)',
