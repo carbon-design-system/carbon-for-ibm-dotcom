@@ -156,6 +156,7 @@
     .#{$prefix}--pricing-table-cell-content {
       display: flex;
       align-items: start;
+      line-height: 1.25rem;
 
       svg {
         margin-right: $spacing-03;
