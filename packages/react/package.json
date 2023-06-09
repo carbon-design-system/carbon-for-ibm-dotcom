@@ -130,7 +130,7 @@
     "cache-loader": "^4.1.0",
     "chalk": "^4.1.1",
     "cli-table": "^0.3.0",
-    "commander": "^7.2.0",
+    "commander": "^4.1.0",
     "cross-env": "^7.0.0",
     "css-loader": "^5.2.0",
     "cy2": "^4.0.6",
