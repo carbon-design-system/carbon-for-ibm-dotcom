@@ -2317,7 +2317,7 @@ __metadata:
     chalk: ^4.1.1
     classnames: 2.3.2
     cli-table: ^0.3.0
-    commander: ^7.2.0
+    commander: ^4.1.0
     cross-env: ^7.0.0
     css-loader: ^5.2.0
     cy2: ^4.0.6
@@ -2605,7 +2605,7 @@ __metadata:
     carbon-components: 10.58.7
     chalk: ^4.1.1
     classnames: 2.3.2
-    commander: ^7.2.0
+    commander: ^4.1.0
     cross-env: ^7.0.0
     css-loader: ^5.2.0
     cssnano: ^5.0.0
@@ -2886,7 +2886,7 @@ __metadata:
     cache-loader: ^4.1.0
     carbon-components: 10.58.3
     child-process-promise: ^2.2.1
-    commander: ^7.2.0
+    commander: ^4.1.0
     core-js: ^3.19.1
     cross-env: ^7.0.0
     css-loader: ^5.2.0
@@ -11273,7 +11273,7 @@ __metadata:
     babel-eslint: ^10.1.0
     browserslist-config-carbon: ^10.3.0
     chalk: ^4.1.1
-    commander: ^7.2.0
+    commander: ^4.1.0
     cross-env: ^7.0.0
     doctoc: ^2.0.0
     enzyme-to-json: ^3.3.5
@@ -12146,7 +12146,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"commander@npm:^4.0.1, commander@npm:^4.1.1":
+"commander@npm:^4.0.1, commander@npm:^4.1.0, commander@npm:^4.1.1":
   version: 4.1.1
   resolution: "commander@npm:4.1.1"
   checksum: d7b9913ff92cae20cb577a4ac6fcc121bd6223319e54a40f51a14740a681ad5c574fd29a57da478a5f234a6fa6c52cbf0b7c641353e03c648b1ae85ba670b977

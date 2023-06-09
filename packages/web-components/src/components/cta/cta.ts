@@ -72,14 +72,10 @@ class DDSCTAHead extends HostListenerMixin(StableSelectorMixin(LitElement)) {
   // @ts-ignore: The decorator refers to this method but TS thinks this method is not referred to
   private _handleVideoTitleUpdate = async (event: FocusEvent) => {
     if (event) {
-      const { videoDuration, videoName, videoThumbnailUrl } =
-        event.detail as any;
+      const { videoDuration, videoName } = event.detail as any;
       const formattedVideoDuration = formatVideoDuration({
         duration: !videoDuration ? videoDuration : videoDuration * 1000,
       });
-      this.videoThumbnailUrl
-        ? null
-        : (this.videoThumbnailUrl = videoThumbnailUrl);
       this.videoDuration ? null : (this.videoDuration = formattedVideoDuration);
 
       if (this.ctaStyle !== 'card' && this.ctaStyle !== 'feature') {
@@ -97,20 +93,6 @@ class DDSCTAHead extends HostListenerMixin(StableSelectorMixin(LitElement)) {
           ? (spanElement.textContent = heading)
           : (ctaComponent!.textContent = heading);
       } else {
-        if (!this.getAttribute('no-poster')) {
-          const imageQuery =
-            this.ctaStyle === 'card'
-              ? `${ddsPrefix}-card-cta-image`
-              : `${ddsPrefix}-image`;
-          const imageComponent = this.shadowRoot
-            ?.querySelector(`${ddsPrefix}-${this.ctaStyle}-cta`)
-            ?.shadowRoot!.querySelector(imageQuery);
-          const imageUrl = this.thumbnail
-            ? this.thumbnail
-            : this.videoThumbnailUrl;
-          imageComponent?.setAttribute('default-src', imageUrl);
-        }
-
         const footer = this.shadowRoot
           ?.querySelector(`${ddsPrefix}-${this.ctaStyle}-cta`)
           ?.querySelector(`${ddsPrefix}-${this.ctaStyle}-cta-footer`);
