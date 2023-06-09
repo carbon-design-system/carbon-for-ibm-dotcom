@@ -97,26 +97,6 @@ class CDSSideNav extends HostListenerMixin(LitElement) {
   }
 
   /**
-   * Handles `mouseover` event handler.
-   */
-  @HostListener('mouseover')
-  // @ts-ignore: The decorator refers to this method but TS thinks this method is not referred to
-  private _handleMouseover() {
-    this._hovered = true;
-    this._updatedSideNavMenuForceCollapsedState();
-  }
-
-  /**
-   * Handles `mouseout` event handler.
-   */
-  @HostListener('mouseout')
-  // @ts-ignore: The decorator refers to this method but TS thinks this method is not referred to
-  private _handleMouseout() {
-    this._hovered = false;
-    this._updatedSideNavMenuForceCollapsedState();
-  }
-
-  /**
    * Collapse mode of the side nav.
    */
   @property({ reflect: true, attribute: 'collapse-mode' })
@@ -225,6 +205,43 @@ class CDSSideNav extends HostListenerMixin(LitElement) {
     }
   }
 
+  /**
+   * Handles `focus` event handler on this element.
+   *
+   * @param event The event.
+   */
+  @HostListener('focusin')
+  // @ts-ignore: The decorator refers to this method but TS thinks this method is not referred to
+  private _handleFocusIn() {
+    this.expanded = true;
+  }
+
+  /**
+   * Handles the `mouseover` event for the side nav in rail mode.
+   *
+   */
+  private _handleNavMouseOver() {
+    const { collapseMode } = this;
+    if (collapseMode === SIDE_NAV_COLLAPSE_MODE.RAIL) {
+      this.expanded = true;
+      this._hovered = true;
+      this._updatedSideNavMenuForceCollapsedState();
+    }
+  }
+
+  /**
+   * Handles the `mouseout` event for the side nav in rail mode.
+   *
+   */
+  private _handleNavMouseOut() {
+    const { collapseMode } = this;
+    if (collapseMode === SIDE_NAV_COLLAPSE_MODE.RAIL) {
+      this.expanded = false;
+      this._hovered = false;
+      this._updatedSideNavMenuForceCollapsedState();
+    }
+  }
+
   render() {
     const { collapseMode, expanded, isNotChildOfHeader, isNotPersistent } =
       this;
@@ -242,12 +259,17 @@ class CDSSideNav extends HostListenerMixin(LitElement) {
 
     const overlayClasses = classMap({
       [`${prefix}--side-nav__overlay`]: true,
-      [`${prefix}--side-nav__overlay-active`]: this.expanded,
+      [`${prefix}--side-nav__overlay-active`]: expanded,
     });
     return html`${this.collapseMode === SIDE_NAV_COLLAPSE_MODE.FIXED
         ? null
         : html`<div class="${overlayClasses}"></div>`}
-      <div class="${classes}"><slot></slot></div>`;
+      <div
+        class="${classes}"
+        @mouseover="${this._handleNavMouseOver}"
+        @mouseout="${this._handleNavMouseOut}">
+        <slot></slot>
+      </div>`;
   }
 
   /**
