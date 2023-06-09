@@ -118,7 +118,7 @@ export default class CDSProgressStep extends FocusMixin(LitElement) {
     const svgLabel = iconLabel || description;
     const optionalLabel = secondaryLabelText || secondaryLabel;
     return html`
-      <div class="${prefix}--progress-step-button">
+      <div class="${prefix}--progress-step-button" tabindex="0">
         ${icons[state]({
           class: {
             [PROGRESS_STEP_STAT.INVALID]: `${prefix}--progress__warning`,
@@ -129,7 +129,6 @@ export default class CDSProgressStep extends FocusMixin(LitElement) {
           <p
             role="button"
             class="${prefix}--progress-label"
-            tabindex="0"
             aria-describedby="label-tooltip"
             title="${label}">
             ${label}
