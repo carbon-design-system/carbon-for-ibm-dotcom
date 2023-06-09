@@ -15,7 +15,6 @@ import '../../../internal/vendor/@carbon/web-components/components/tooltip/index
 import textNullable from '../../../../.storybook/knob-text-nullable';
 import { PRICING_TABLE_HEADER_CELL_TYPES } from '../defs';
 import styles from './pricing-table.stories.scss';
-import { ifDefined } from 'lit-html/directives/if-defined.js';
 
 enum CELL_TYPES {
   TEXT = 'text',
@@ -156,9 +155,7 @@ const renderBodyCell = (
       `;
     case CELL_TYPES.ICON:
       return html`
-        <dds-pricing-table-cell
-          icon="checkmark"
-          icon-text="${ifDefined(iconText ? iconText : undefined)}">
+        <dds-pricing-table-cell icon="checkmark" ?icon-text=${iconText}>
           Billed per instance
           <dds-pricing-table-cell-annotation>
             Sed quis neque ultrices, convallis augue non, scelerisque massa.
@@ -194,8 +191,7 @@ const renderBodyRow = (
                 >
               `
             : html`
-                <dds-pricing-table-cell
-                  icon-text="${ifDefined(iconText ? iconText : undefined)}"
+                <dds-pricing-table-cell ?icon-text=${iconText}
                   >Row ${rowNum} Lorem ipsum dolor sit amet, consectetur
                   adipiscing elit. Nunc dui magna, finibus id tortor sed,
                   aliquet bibendum augue. Aenean posuere sem vel euismod
