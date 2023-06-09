@@ -37,6 +37,8 @@ import './switcher';
 import './switcher-item';
 import './switcher-divider';
 import '../skip-to-content';
+import '../modal/modal';
+import '../button/button';
 import styles from './ui-shell-story.scss';
 import storyDocs from './ui-shell-story.mdx';
 import { prefix } from '../../globals/settings';
@@ -48,6 +50,9 @@ const StoryContent = ({ useResponsiveOffset = true }) => {
     [`${prefix}--col-lg-13`]: true,
     [`${prefix}--offset-lg-3`]: useResponsiveOffset,
   });
+  const toggleButton = () => {
+    document.querySelector('cds-modal')?.toggleAttribute('open');
+  };
   return html`
     <style type="text/css">
       ${contentStyles.cssText}
@@ -58,7 +63,7 @@ const StoryContent = ({ useResponsiveOffset = true }) => {
           <div
             class="${firstColumnClasses}"
             style="${!useResponsiveOffset ? `margin-left: 16rem;` : ''}">
-            <h2 style="margin: '0 0 30px'">Purpose and function</h2>
+            <h2 style="margin: 0 0 30px">Purpose and function</h2>
             <p>
               The shell is perhaps the most crucial piece of any UI built with
               <a href="www.carbondesignsystem.com"> Carbon</a>. It contains the
@@ -85,14 +90,14 @@ const StoryContent = ({ useResponsiveOffset = true }) => {
               switcher portion of the shell can be compared to the dock in
               MacOS.
             </p>
-            <h2 style="margin: '0 0 30px'">Header responsive behavior</h2>
+            <h2 style="margin: 30px 0px">Header responsive behavior</h2>
             <p>
               As a header scales down to fit smaller screen sizes, headers with
               persistent side nav menus should have the side nav collapse into
               “hamburger” menu. See the example to better understand responsive
               behavior of the header.
             </p>
-            <h2 style="margin: '0 0 30px'">Secondary navigation</h2>
+            <h2 style="margin: 30px 0px">Secondary navigation</h2>
             <p>
               The side-nav contains secondary navigation and fits below the
               header. It can be configured to be either fixed-width or flexible,
@@ -103,6 +108,28 @@ const StoryContent = ({ useResponsiveOffset = true }) => {
               are needed on a page when using a side-nav, then the tabs are
               secondary in hierarchy to the side-nav.
             </p>
+            <cds-modal>
+              <cds-modal-header>
+                <cds-modal-close-button></cds-modal-close-button>
+                <cds-modal-label>Account resources</cds-modal-label>
+                <cds-modal-heading>Add a custom domain</cds-modal-heading>
+              </cds-modal-header>
+              <cds-modal-body>
+                <cds-modal-body-content description>
+                  Custom domains direct requests for your apps in this Cloud
+                  Foundry organization to a URL that you own. A custom domain
+                  can be a shared domain, a shared subdomain, or a shared domain
+                  and host.
+                </cds-modal-body-content>
+              </cds-modal-body>
+              <cds-modal-footer>
+                <cds-modal-footer-button kind="secondary" data-modal-close
+                  >Cancel</cds-modal-footer-button
+                >
+                <cds-modal-footer-button>Add</cds-modal-footer-button>
+              </cds-modal-footer>
+            </cds-modal>
+            <cds-button @click="${toggleButton}">Launch modal</cds-button>
           </div>
         </div>
       </div>
@@ -466,8 +493,7 @@ export const HeaderBaseWNavigationActionsAndSideNav = () => {
       </div>
       <cds-side-nav
         aria-label="Side navigation"
-        collapse-mode="${SIDE_NAV_COLLAPSE_MODE.RESPONSIVE}"
-        expanded>
+        collapse-mode="${SIDE_NAV_COLLAPSE_MODE.RESPONSIVE}">
         <cds-side-nav-items>
           <cds-header-side-nav-items has-divider>
             <cds-side-nav-link href="javascript:void(0)">
