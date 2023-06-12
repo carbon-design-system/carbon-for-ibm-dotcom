@@ -548,29 +548,29 @@ class DDSMastheadL1 extends StableSelectorMixin(LitElement) {
       </button>
       <ul class="${prefix}--masthead__l1-dropdown">
         ${url
-          ? html`<li>
-              <a class="${prefix}--masthead__l1-dropdown-item" href="${url}"
-                >${overviewText}</a
-              >
+          ? html` <li>
+              <a class="${prefix}--masthead__l1-dropdown-item" href="${url}">
+                ${overviewText}
+              </a>
             </li>`
           : ''}
         ${menuItems?.map((menuItem) => this._renderL1MobileSubnav(menuItem))}
         ${login && login.url && login.title
-          ? html`<li>
+          ? html` <li>
               <a
                 class="${prefix}--masthead__l1-dropdown-login"
-                href="${ifDefined(login.url)}"
-                >${login.title}${ArrowRight16()}</a
-              >
+                href="${ifDefined(login.url)}">
+                ${login.title}${ArrowRight16()}
+              </a>
             </li>`
           : ''}
         ${cta && cta.url && cta.title
           ? html`<li>
               <a
                 class="${prefix}--masthead__l1-dropdown-cta"
-                href="${ifDefined(cta.url)}"
-                >${cta.title}${ArrowRight16()}</a
-              >
+                href="${ifDefined(cta.url)}">
+                ${cta.title}${ArrowRight16()}
+              </a>
             </li>`
           : ''}
       </ul>
@@ -631,11 +631,13 @@ class DDSMastheadL1 extends StableSelectorMixin(LitElement) {
                         ${items.map((item) => {
                           const { title, url } = item;
 
-                          return html`<a
-                            class="${prefix}--masthead__l1-dropdown-item"
-                            href="${url}"
-                            >${title}</a
-                          >`;
+                          return html` <li>
+                            <a
+                              class="${prefix}--masthead__l1-dropdown-item"
+                              href="${url}">
+                              ${title}
+                            </a>
+                          </li>`;
                         })}
                       </ul>`
                     : ''}
@@ -643,11 +645,13 @@ class DDSMastheadL1 extends StableSelectorMixin(LitElement) {
               })
             : ''}
           ${footer
-            ? html`<a
-                class="${prefix}--masthead__l1-dropdown-viewall"
-                href="${footer.url}"
-                >${footer.title}${ArrowRight16()}</a
-              >`
+            ? html`
+                <a
+                  class="${prefix}--masthead__l1-dropdown-viewall"
+                  href="${footer.url}"
+                >
+                  ${footer.title}${ArrowRight16()}
+                </li>`
             : ''}
         </div>
       </li>
