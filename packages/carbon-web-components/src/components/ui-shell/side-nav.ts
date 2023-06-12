@@ -161,8 +161,8 @@ class CDSSideNav extends HostListenerMixin(LitElement) {
       );
     }
     if (changedProperties.has('expanded')) {
-      const headerName = doc.querySelector(
-        (this.constructor as typeof CDSSideNav).selectorHeaderName
+      const headerItems = doc.querySelectorAll(
+        (this.constructor as typeof CDSSideNav).selectorHeaderItems
       );
       this._updatedSideNavMenuForceCollapsedState();
       forEach(
@@ -174,9 +174,13 @@ class CDSSideNav extends HostListenerMixin(LitElement) {
         }
       );
       if (this.expanded) {
-        headerName?.setAttribute('tabindex', '-1');
+        forEach(headerItems, (item) => {
+          item.setAttribute('tabindex', '-1');
+        });
       } else {
-        headerName?.removeAttribute('tabindex');
+        forEach(headerItems, (item) => {
+          item.removeAttribute('tabindex');
+        });
       }
     }
     if (changedProperties.has('isNotChildOfHeader')) {
@@ -280,10 +284,10 @@ class CDSSideNav extends HostListenerMixin(LitElement) {
   }
 
   /**
-   * A selector that will return the header name element.
+   * A selector that will return the header name + global action elements.
    */
-  static get selectorHeaderName() {
-    return `${prefix}-header-name`;
+  static get selectorHeaderItems() {
+    return `${prefix}-header-name, ${prefix}-header-global-action`;
   }
 
   /**
