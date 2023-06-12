@@ -26,9 +26,6 @@ const { stablePrefix: ddsPrefix } = ddsSettings;
 class DDSPricingTableCell extends StableSelectorMixin(
   HostListenerMixin(DDSStructuredListCell)
 ) {
-  @property({ type: Boolean, attribute: 'icon-text', reflect: true })
-  iconText: boolean = false;
-
   _parentGroup: DDSPricingTableGroup | null = this.closest(
     `${ddsPrefix}-pricing-table-group`
   );
@@ -70,21 +67,6 @@ class DDSPricingTableCell extends StableSelectorMixin(
     if (slotContents.length === 0) {
       this.classList.toggle('no-cell-content');
     }
-  }
-
-  /**
-   * Override to support having the slotted text side by side with the icon.
-   */
-  protected _renderIcon() {
-    const { iconText } = this;
-    const icon = super._renderIcon();
-
-    return iconText
-      ? html`${icon}
-          <span class="$prefix--pricing-table-cell-icon-text">
-            <slot></slot>
-          </span>`
-      : icon;
   }
 
   render() {
