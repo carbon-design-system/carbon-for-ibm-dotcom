@@ -80,7 +80,7 @@ $css--plex: true !default;
   .#{$prefix}--progress-optional {
     margin-top: auto;
     position: initial;
-    margin-left: 2rem;
+    margin-left: $spacing-07;
   }
 
   .#{$prefix}--progress-step-button {
