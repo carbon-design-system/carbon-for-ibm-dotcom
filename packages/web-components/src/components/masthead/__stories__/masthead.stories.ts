@@ -149,7 +149,7 @@ export const Default = (args) => {
   `;
 };
 
-export const withCloudData = ({ parameters }) => {
+export const withCloudData = (args) => {
   const {
     customProfileLogin,
     hasSearch,
@@ -157,7 +157,7 @@ export const withCloudData = ({ parameters }) => {
     searchPlaceholder,
     platform,
     useMock,
-  } = parameters?.props?.MastheadComposite ?? {};
+  } = args?.MastheadComposite ?? {};
 
   return html`
     <style>
@@ -347,6 +347,7 @@ export const withPlatform = (args) => {
             data-endpoint="${dataEndpoints['v2.1']}"
             platform="${ifNonNull(platform)}"
             .platformUrl="${ifNonNull(urlObject)}"
+            selected-menu-item="${ifNonNull(selectedMenuItem)}"
             user-status="${ifNonNull(userStatus)}"
             searchPlaceholder="${ifNonNull(searchPlaceholder)}"
             has-profile="${hasProfile}"
@@ -465,7 +466,7 @@ withL1.story = {
         ),
         selectedMenuItem: textNullable(
           'selected menu item in L0 (selected-menu-item)',
-          ''
+          'Consulting'
         ),
         selectedMenuItemL1: textNullable(
           'selected menu item in L1 (selected-menu-item-l1)',
@@ -595,7 +596,7 @@ withAlternateLogoAndTooltip.story = {
   },
 };
 
-export const WithScopedSearch = ({ parameters }) => {
+export const WithScopedSearch = (args) => {
   const {
     customProfileLogin,
     platform,
@@ -605,9 +606,8 @@ export const WithScopedSearch = ({ parameters }) => {
     hasProfile,
     hasSearch,
     navLinks,
-  } = parameters?.props?.MastheadComposite ?? {};
-  const { useMock } = parameters?.props?.Other ?? {};
-
+    useMock,
+  } = args?.MastheadComposite ?? {};
   return html`
     <style>
       ${styles}
