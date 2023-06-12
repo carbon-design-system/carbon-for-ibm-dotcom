@@ -766,7 +766,7 @@ class DDSMastheadL1 extends StableSelectorMixin(LitElement) {
 
     const menuItems = Array.from(
       (this.shadowRoot as ShadowRoot).querySelectorAll(
-        `.${prefix}--masthead__l1-item`
+        `.${prefix}--masthead__l1-item, .${prefix}--masthead__l1-dropdown-item`
       )
     );
     const allLinks = Array.from(
@@ -807,7 +807,9 @@ class DDSMastheadL1 extends StableSelectorMixin(LitElement) {
     this.selectedElements.forEach((element) => {
       element.setAttribute('active', '');
       element
-        .closest(`.${prefix}--masthead__l1-dropdown`)
+        .closest(
+          `.${prefix}--masthead__l1-dropdown, .${prefix}--masthead__l1-dropdown-subsection`
+        )
         ?.previousElementSibling?.setAttribute('active', '');
     });
   }
@@ -914,6 +916,8 @@ class DDSMastheadL1 extends StableSelectorMixin(LitElement) {
         // Creat observer, start observing.
         this._createScrollObserver();
       }
+
+      this._handleSelectedMenuItem();
     }
   }
 

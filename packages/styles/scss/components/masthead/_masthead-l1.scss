@@ -167,6 +167,10 @@ $search-transition-timing: 95ms;
         border-bottom-color: $disabled-02;
       }
 
+      &[active] {
+        border-bottom: 3px solid $focus;
+      }
+
       &.is-open {
         background-color: $selected-ui;
         color: $text-01;
