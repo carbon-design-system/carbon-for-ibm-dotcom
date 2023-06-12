@@ -27,7 +27,7 @@ class DDSPricingTableCell extends StableSelectorMixin(
   HostListenerMixin(DDSStructuredListCell)
 ) {
   @property({ type: Boolean, attribute: 'icon-text', reflect: true })
-  iconText?: boolean = false;
+  iconText: boolean = false;
 
   _parentGroup: DDSPricingTableGroup | null = this.closest(
     `${ddsPrefix}-pricing-table-group`
