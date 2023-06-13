@@ -13,7 +13,6 @@ import ifNonNull from '../../internal/vendor/@carbon/web-components/globals/dire
 import HostListener from '../../internal/vendor/@carbon/web-components/globals/decorators/host-listener.js';
 import HostListenerMixin from '../../internal/vendor/@carbon/web-components/globals/mixins/host-listener.js';
 import ddsSettings from '../../internal/vendor/@carbon/ibmdotcom-utilities/utilities/settings/settings';
-import KalturaPlayerAPI from '../../internal/vendor/@carbon/ibmdotcom-services/services/KalturaPlayer/KalturaPlayer';
 import ModalRenderMixin from '../../globals/mixins/modal-render';
 import { MediaData } from '../../internal/vendor/@carbon/ibmdotcom-services-store/types/kalturaPlayerAPI.d';
 import Handle from '../../globals/internal/handle';
@@ -90,11 +89,6 @@ class DDSVideoCTAComposite extends ModalRenderMixin(
   // @ts-ignore: The decorator refers to this method but TS thinks this method is not referred to
   private async _handleRequestVideoData(event: CustomEvent) {
     const { href, videoName: customVideoName, videoDescription } = event.detail;
-    const videoThumbnailUrl = KalturaPlayerAPI.getThumbnailUrl({
-      mediaId: href,
-      width: (event?.target as HTMLElement)?.offsetWidth,
-    });
-    (event.target as VideoCTAMixinImpl).videoThumbnailUrl = videoThumbnailUrl;
     const videoData = await this._loadVideoData?.(href);
     if (videoData) {
       const { duration, name } = videoData;
@@ -116,7 +110,6 @@ class DDSVideoCTAComposite extends ModalRenderMixin(
           detail: {
             videoName,
             videoDuration: duration,
-            videoThumbnailUrl,
           },
         }
       );

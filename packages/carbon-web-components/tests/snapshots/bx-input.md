@@ -2,7 +2,7 @@
 
 ## `Rendering`
 
-#### `Should render with various attributes`
+####   `Should render with various attributes`
 
 ```
 <label
@@ -16,7 +16,7 @@
 <div class="bx--text-input__field-wrapper">
   <input
     aria-describedby="helper-text"
-    autocomplete=""
+    autocomplete="on"
     autofocus=""
     class="bx--text-input bx--text-input--light bx--text-input--xl"
     disabled=""
@@ -44,3 +44,4 @@
 </div>
 
 ```
+
