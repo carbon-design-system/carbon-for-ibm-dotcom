@@ -8,7 +8,7 @@
  */
 
 import { html, TemplateResult } from 'lit-element';
-import { number, text, boolean } from '@storybook/addon-knobs';
+import { number, text } from '@storybook/addon-knobs';
 import readme from './README.stories.mdx';
 import '../index';
 import '../../../internal/vendor/@carbon/web-components/components/tooltip/index.js';
