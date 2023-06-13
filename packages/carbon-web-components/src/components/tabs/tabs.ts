@@ -73,6 +73,16 @@ export default class CDSTabs extends HostListenerMixin(CDSContentSwitcher) {
   private _totalTabs: number = 0;
 
   /**
+   * `true` if the tablist is scrollable
+   */
+  private _isScrollable: boolean = false;
+
+  /**
+   * The DOM element for the tablist.
+   */
+  private tablist: Element | null = null;
+
+  /**
    * The DOM element for the trigger button in narrow mode.
    */
   @query('#trigger')
@@ -310,6 +320,10 @@ export default class CDSTabs extends HostListenerMixin(CDSContentSwitcher) {
 
   shouldUpdate(changedProperties) {
     super.shouldUpdate(changedProperties);
+    if (this.tablist) {
+      const { clientWidth, scrollWidth } = this.tablist;
+      this._isScrollable = scrollWidth > clientWidth;
+    }
     const { selectorItem } = this.constructor as typeof CDSTabs;
     if (changedProperties.has('type')) {
       forEach(this.querySelectorAll(selectorItem), (elem) => {
@@ -333,10 +347,35 @@ export default class CDSTabs extends HostListenerMixin(CDSContentSwitcher) {
     return true;
   }
 
+  firstUpdated() {
+    const { selectorTablist } = this.constructor as typeof CDSTabs;
+    const tablist = this.shadowRoot!.querySelector(selectorTablist)!;
+    this.tablist = tablist;
+    this.requestUpdate();
+  }
+
   render() {
     const { _assistiveStatusText: assistiveStatusText } = this;
-    const isPreviousButtonVisible = false;
-    const isNextButtonVisible = true;
+    const { scrollLeft, clientWidth, scrollWidth } = this.tablist ?? {};
+    const buttonWidth = 44;
+    /**
+     * Previous Button
+     * VISIBLE IF:
+     *   - SCROLLABLE
+     *   - AND SCROLL_LEFT > 0
+     */
+    const isPreviousButtonVisible = this.tablist
+      ? this._isScrollable && scrollLeft! > 0
+      : false;
+    /**
+     * Next Button
+     * VISIBLE IF:
+     *   - SCROLLABLE
+     *   - AND SCROLL_LEFT + CLIENT_WIDTH < SCROLL_WIDTH
+     */
+    const isNextButtonVisible = this.tablist
+      ? scrollLeft! + buttonWidth + clientWidth! < scrollWidth!
+      : false;
     const previousButtonClasses = classMap({
       [`${prefix}--tab--overflow-nav-button`]: true,
       [`${prefix}--tab--overflow-nav-button--previous`]: true,
@@ -406,6 +445,13 @@ export default class CDSTabs extends HostListenerMixin(CDSContentSwitcher) {
    */
   static get selectorItemSelected() {
     return `${prefix}-tab[selected]`;
+  }
+
+  /**
+   * A selector that returns the tablist
+   */
+  static get selectorTablist() {
+    return `.${prefix}--tab--list`;
   }
 
   /**
