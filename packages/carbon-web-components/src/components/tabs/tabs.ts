@@ -9,10 +9,13 @@
 
 import { html } from 'lit';
 import { property, customElement, query } from 'lit/decorators.js';
+import { classMap } from 'lit/directives/class-map.js';
 import { prefix } from '../../globals/settings';
 import HostListenerMixin from '../../globals/mixins/host-listener';
 import HostListener from '../../globals/decorators/host-listener';
 import { find, forEach } from '../../globals/internal/collection-helpers';
+import ChevronRight16 from '@carbon/icons/lib/chevron--right/16';
+import ChevronLeft16 from '@carbon/icons/lib/chevron--left/16';
 import CDSContentSwitcher, {
   NAVIGATION_DIRECTION,
 } from '../content-switcher/content-switcher';
@@ -332,10 +335,36 @@ export default class CDSTabs extends HostListenerMixin(CDSContentSwitcher) {
 
   render() {
     const { _assistiveStatusText: assistiveStatusText } = this;
+    const isPreviousButtonVisible = false;
+    const isNextButtonVisible = true;
+    const previousButtonClasses = classMap({
+      [`${prefix}--tab--overflow-nav-button`]: true,
+      [`${prefix}--tab--overflow-nav-button--previous`]: true,
+      [`${prefix}--tab--overflow-nav-button--hidden`]: !isPreviousButtonVisible,
+    });
+    const nextButtonClasses = classMap({
+      [`${prefix}--tab--overflow-nav-button`]: true,
+      [`${prefix}--tab--overflow-nav-button--next`]: true,
+      [`${prefix}--tab--overflow-nav-button--hidden`]: !isNextButtonVisible,
+    });
     return html`
+      <button
+        aria-hidden="true"
+        aria-label="Scroll left"
+        type="button"
+        class="${previousButtonClasses}">
+        ${ChevronLeft16()}
+      </button>
       <div id="tablist" role="tablist" class="${prefix}--tab--list">
         <slot></slot>
       </div>
+      <button
+        aria-hidden="true"
+        aria-label="Scroll right"
+        type="button"
+        class="${nextButtonClasses}">
+        ${ChevronRight16()}
+      </button>
       <div
         class="${prefix}--assistive-text"
         role="status"
