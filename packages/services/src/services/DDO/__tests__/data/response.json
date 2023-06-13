@@ -1,12 +1,7 @@
 {
   "page": {
     "attributes": {
-      "pageidQueryStrings": [
-        "q",
-        "s",
-        "tabType[0]",
-        "tabType%5B0%5D"
-      ],
+      "pageidQueryStrings": ["q", "s", "tabType[0]", "tabType%5B0%5D"],
       "agentMobileOS": "unknown"
     },
     "category": {
@@ -155,6 +150,11 @@
       "longitude": -73.9967,
       "isCountryMemberOfEU": false,
       "isCountryRequiringExplicitConsent": false
+    },
+    "location": {
+      "country": "US",
+      "stateProvince": "NJ",
+      "city": "NEWARK"
     },
     "profile": {
       "dw": {},
