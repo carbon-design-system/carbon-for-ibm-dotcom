@@ -287,6 +287,12 @@ export default class CDSTabs extends HostListenerMixin(CDSContentSwitcher) {
     this.requestUpdate();
   };
 
+  @HostListener('scroll')
+  protected _handleScroll = () => {
+    // TODO: debounce
+    this.requestUpdate();
+  };
+
   protected _selectionDidChange(itemToSelect: CDSTab) {
     super._selectionDidChange(itemToSelect);
     this._assistiveStatusText = this.selectedItemAssistiveText;
@@ -331,6 +337,7 @@ export default class CDSTabs extends HostListenerMixin(CDSContentSwitcher) {
 
   disconnectedCallback = () => {
     window.removeEventListener('resize', this._handleResize);
+    this.tablist?.removeEventListener('scroll', this._handleScroll);
     super.disconnectedCallback();
   };
 
@@ -367,6 +374,7 @@ export default class CDSTabs extends HostListenerMixin(CDSContentSwitcher) {
     const { selectorTablist } = this.constructor as typeof CDSTabs;
     const tablist = this.shadowRoot!.querySelector(selectorTablist)!;
     this.tablist = tablist;
+    this.tablist.addEventListener('scroll', this._handleScroll);
     this.requestUpdate();
   }
 
