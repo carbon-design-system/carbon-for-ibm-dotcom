@@ -281,6 +281,12 @@ export default class CDSTabs extends HostListenerMixin(CDSContentSwitcher) {
     }
   }
 
+  @HostListener('resize')
+  protected _handleResize = () => {
+    // TODO: debounce
+    this.requestUpdate();
+  };
+
   protected _selectionDidChange(itemToSelect: CDSTab) {
     super._selectionDidChange(itemToSelect);
     this._assistiveStatusText = this.selectedItemAssistiveText;
@@ -317,6 +323,16 @@ export default class CDSTabs extends HostListenerMixin(CDSContentSwitcher) {
    */
   @property({ reflect: true })
   type = TABS_TYPE.REGULAR;
+
+  connectedCallback = () => {
+    super.connectedCallback();
+    window.addEventListener('resize', this._handleResize);
+  };
+
+  disconnectedCallback = () => {
+    window.removeEventListener('resize', this._handleResize);
+    super.disconnectedCallback();
+  };
 
   shouldUpdate(changedProperties) {
     super.shouldUpdate(changedProperties);
