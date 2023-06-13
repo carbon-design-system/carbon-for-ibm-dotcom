@@ -60,7 +60,7 @@ class BXHeaderMenu extends HostListenerMixin(FocusMixin(LitElement)) {
   private _handleUserInitiatedToggle(force: boolean = !this.expanded) {
     this.expanded = force;
     if (!force) {
-      this._trigger.focus();
+      this._trigger.focus(); 
     }
   }
 
@@ -105,6 +105,7 @@ class BXHeaderMenu extends HostListenerMixin(FocusMixin(LitElement)) {
       this.setAttribute('role', 'listitem');
     }
     super.connectedCallback();
+    this.addEventListener('keydown', this._handleKeydownTrigger);
   }
 
   updated(changedProperties) {

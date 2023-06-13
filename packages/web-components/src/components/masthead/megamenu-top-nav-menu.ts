@@ -55,16 +55,6 @@ class DDSMegaMenuTopNavMenu extends DDSTopNavMenu {
     this.ownerDocument!.body.offsetWidth;
 
   /**
-   * Removes inherited _handleBlur method from BXHeaderMenu
-   */
-  private _handleKeydown = (event: KeyboardEvent) => {
-    if (event.key === 'Escape') {
-      this.expanded = false;
-      this._topMenuItem.focus();
-    }
-  };
-
-  /**
    * The observer for the resize of the viewport.
    */
   private _observerResizeRoot: any | null = null; // TODO: Wait for `.d.ts` update to support `ResizeObserver`
@@ -127,7 +117,6 @@ class DDSMegaMenuTopNavMenu extends DDSTopNavMenu {
   connectedCallback() {
     super.connectedCallback();
     this._cleanAndCreateObserverResize({ create: true });
-    this.addEventListener('keydown', this._handleKeydown);
   }
 
   disconnectedCallback() {
