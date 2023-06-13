@@ -39,9 +39,6 @@ class DDSStructuredListCell extends BXStructuredListCell {
   @property({ attribute: 'icon', reflect: true })
   icon?: string;
 
-  @property({ type: Boolean, attribute: 'icon-text', reflect: true })
-  iconText: boolean = false;
-
   private _iconsAllowed = {
     checkmark: Checkmark20,
     error: Error20,
@@ -56,15 +53,9 @@ class DDSStructuredListCell extends BXStructuredListCell {
   }
 
   private _renderIcon() {
-    const { icon, iconText, _iconsAllowed: iconMap } = this;
-    const renderedIcon = html`${iconMap[icon!.toLowerCase()].call()}`;
+    const { icon, _iconsAllowed: iconMap } = this;
 
-    return iconText
-      ? html`${renderedIcon}
-          <span class="$prefix--pricing-table-cell-icon-text">
-            <slot></slot>
-          </span>`
-      : renderedIcon;
+    return html`${iconMap[icon!.toLowerCase()].call()}<slot></slot>`;
   }
 
   private _renderTags() {

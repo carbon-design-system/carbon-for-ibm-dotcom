@@ -139,7 +139,7 @@ const renderHead = (
 
 const renderBodyCell = (
   type: CELL_TYPES,
-  iconText: boolean = false
+  iconText: string = ''
 ): TemplateResult => {
   switch (type) {
     case CELL_TYPES.TEXT:
@@ -155,8 +155,8 @@ const renderBodyCell = (
       `;
     case CELL_TYPES.ICON:
       return html`
-        <dds-pricing-table-cell icon="checkmark" ?icon-text=${iconText}>
-          Billed per instance
+        <dds-pricing-table-cell icon="checkmark">
+          ${iconText}
           <dds-pricing-table-cell-annotation>
             Sed quis neque ultrices, convallis augue non, scelerisque massa.
           </dds-pricing-table-cell-annotation>
@@ -178,7 +178,7 @@ const renderBodyRow = (
   rowNum: number,
   cellType: CELL_TYPES,
   rowHeaders: boolean = true,
-  iconText: boolean = false
+  iconText: string = ''
 ): TemplateResult => html`
   <dds-pricing-table-row>
     ${(() => {
@@ -191,7 +191,7 @@ const renderBodyRow = (
                 >
               `
             : html`
-                <dds-pricing-table-cell ?icon-text=${iconText}
+                <dds-pricing-table-cell
                   >Row ${rowNum} Lorem ipsum dolor sit amet, consectetur
                   adipiscing elit. Nunc dui magna, finibus id tortor sed,
                   aliquet bibendum augue. Aenean posuere sem vel euismod
@@ -345,7 +345,7 @@ export default {
         colSpan2: textNullable('col-span-2', ''),
         colSpan3: textNullable('col-span-3', ''),
         colSpan4: textNullable('col-span-4', ''),
-        iconText: boolean('Show text with icon', false),
+        iconText: textNullable('icon-text', ''),
       }),
     },
   },
