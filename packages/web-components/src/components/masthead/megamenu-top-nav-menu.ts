@@ -41,12 +41,6 @@ class DDSMegaMenuTopNavMenu extends DDSTopNavMenu {
   private _menuNode!: HTMLElement;
 
   /**
-   * The trigger button.
-   */
-  @query('[part="trigger"]')
-  private _topMenuItem!: HTMLAnchorElement;
-
-  /**
    * scrollbar width.
    */
   @state()
