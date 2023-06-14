@@ -635,6 +635,8 @@ class CDSTable extends HostListenerMixin(LitElement) {
       headerCells.forEach((e) => {
         (e as CDSTableHeaderCell).isSortable = this.isSortable;
         (e as CDSTableHeaderCell).removeAttribute('sort-direction');
+        (e as CDSTableHeaderCell).isSelectable = this.isSelectable;
+        (e as CDSTableHeaderCell).isExpandable = this.expandable;
       });
     }
 
@@ -642,7 +644,10 @@ class CDSTable extends HostListenerMixin(LitElement) {
       this.collator = new Intl.Collator(this.locale);
     }
 
-    if (changedProperties.has('overflowMenuOnHover')) {
+    if (
+      changedProperties.has('overflowMenuOnHover') ||
+      changedProperties.has('size')
+    ) {
       forEach(
         this.querySelectorAll(
           (this.constructor as typeof CDSTable).selectorTableCellOverflowMenu
@@ -652,7 +657,9 @@ class CDSTable extends HostListenerMixin(LitElement) {
           const row = cell.parentNode as CDSTableRow;
           cell.overflowMenuOnHover = this.overflowMenuOnHover;
           row.overflowMenuOnHover = this.overflowMenuOnHover;
-          cell.size = this.size;
+          cell.setAttribute('size', this.size);
+          elem.setAttribute('size', this.size);
+          elem.setAttribute('data-table', '');
         }
       );
     }

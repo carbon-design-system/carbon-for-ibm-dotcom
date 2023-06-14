@@ -26,6 +26,11 @@
   padding-left: $spacing-05;
 }
 
+:host(#{$prefix}-table-header-cell[sort-direction][expandable][selection-name])
+  .#{$prefix}--table-sort {
+  padding-left: 0;
+}
+
 //
 // Sort icon style
 //

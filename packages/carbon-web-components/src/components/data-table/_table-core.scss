@@ -71,7 +71,7 @@
 
 :host(#{$prefix}-table-header-cell) {
   &[sort-direction] {
-    height: 3rem;
+    height: $spacing-09;
     position: relative;
   }
 
@@ -222,7 +222,7 @@
   padding: 0 $spacing-05;
 
   ::slotted(#{$prefix}-overflow-menu:hover) {
-    background-color: $layer-selected-hover;
+    background-color: none;
   }
 
   &[overflow-menu-on-hover] {

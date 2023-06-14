@@ -31,6 +31,12 @@ class CDSTooltip extends HostListenerMixin(CDSPopover) {
   align = 'top';
 
   /**
+   * `true` if this tooltip is in a data table row
+   */
+  @property({ type: Boolean, reflect: true, attribute: 'data-table' })
+  dataTable = false;
+
+  /**
    * Specify whether the tooltip should be closed when clicked
    */
   @property({ reflect: true, type: Boolean })
@@ -53,6 +59,12 @@ class CDSTooltip extends HostListenerMixin(CDSPopover) {
    */
   @property({ attribute: 'leave-delay-ms', type: Number })
   leaveDelayMs = 300;
+
+  /**
+   * Specify the size of the tooltip
+   */
+  @property({ reflect: true })
+  size = false;
 
   /**
    * Specify whether the tooltip should be open when it first renders

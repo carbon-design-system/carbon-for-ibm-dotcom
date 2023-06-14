@@ -16,6 +16,10 @@
 
 :host(#{$prefix}-table-header-row[size='xs']),
 :host(#{$prefix}-table-row[size='xs']) {
+  ::slotted(#{$prefix}-table-header-cell) {
+    height: $spacing-06;
+  }
+
   ::slotted(#{$prefix}-table-cell) {
     padding-top: rem(2px);
     padding-bottom: rem(2px);
@@ -40,6 +44,10 @@
 
 :host(#{$prefix}-table-header-row[size='sm']),
 :host(#{$prefix}-table-row[size='sm']) {
+  ::slotted(#{$prefix}-table-header-cell) {
+    height: $spacing-07;
+  }
+
   ::slotted(#{$prefix}-table-cell) {
     padding-top: rem(7px);
     padding-bottom: rem(6px);
@@ -67,6 +75,9 @@
 
 :host(#{$prefix}-table-row[size='md']),
 :host(#{$prefix}-table-header-row[size='md']) {
+  ::slotted(#{$prefix}-table-header-cell) {
+    height: $spacing-08;
+  }
   ::slotted(#{$prefix}-table-cell) {
     padding-top: rem(7px);
     padding-left: $spacing-05;
@@ -213,15 +224,10 @@
 //
 
 :host(#{$prefix}-table-cell) {
-  &[size='xs'] {
-    ::slotted(#{$prefix}-overflow-menu) {
-      height: $spacing-06;
-    }
-  }
-
+  &[size='xs'],
   &[size='sm'] {
     ::slotted(#{$prefix}-overflow-menu) {
-      height: $spacing-07;
+      height: calc(100% + 1px);
     }
   }
 

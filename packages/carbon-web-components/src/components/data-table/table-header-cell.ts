@@ -9,7 +9,7 @@
 
 import { LitElement, html } from 'lit';
 import { property, customElement } from 'lit/decorators.js';
-import ArrowsVertical32 from '@carbon/icons/lib/arrows--vertical/16';
+import ArrowsVertical32 from '@carbon/icons/lib/arrows--vertical/32';
 import ArrowDown32 from '@carbon/icons/lib/arrow--down/32';
 import { prefix } from '../../globals/settings';
 import FocusMixin from '../../globals/mixins/focus';
@@ -93,6 +93,17 @@ class CDSTableHeaderCell extends FocusMixin(LitElement) {
     return directions[(index + 1) % directions.length];
   }
 
+  /**
+   * `true` if the table has expandable rows
+   */
+  @property({ type: Boolean, reflect: true, attribute: 'is-sortable' })
+  isExpandable = false;
+
+  /**
+   * `true` if this table has selectable rows
+   */
+  @property({ type: Boolean, reflect: true, attribute: 'is-sortable' })
+  isSelectable = false;
   /**
    * `true` if this table header column should be sortable
    */

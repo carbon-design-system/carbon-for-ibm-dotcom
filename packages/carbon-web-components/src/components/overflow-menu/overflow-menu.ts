@@ -76,6 +76,12 @@ class CDSOverflowMenu
   };
 
   /**
+   * `true` if this tooltip is in a data table row
+   */
+  @property({ type: Boolean, reflect: true, attribute: 'data-table' })
+  dataTable = false;
+
+  /**
    * `true` if this overflow menu should be disabled.
    */
   @property({ type: Boolean, reflect: true })
@@ -156,6 +162,11 @@ class CDSOverflowMenu
       }
     }
 
+    if (changedProperties.has('dataTable')) {
+      const tooltip = this.shadowRoot?.querySelector(`${prefix}-tooltip`);
+      tooltip?.setAttribute('data-table', '');
+    }
+
     if (changedProperties.has('flipped')) {
       (
         this.querySelector(
@@ -177,6 +188,9 @@ class CDSOverflowMenu
         }
       });
       button?.classList.add(`${prefix}--overflow-menu--${this.size}`);
+
+      const tooltip = this.shadowRoot?.querySelector(`${prefix}-tooltip`);
+      tooltip?.setAttribute('size', this.size);
     }
 
     if (changedProperties.has('toolbarAction') && this.toolbarAction) {
