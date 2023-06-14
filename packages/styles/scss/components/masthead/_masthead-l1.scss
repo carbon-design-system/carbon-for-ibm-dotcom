@@ -168,7 +168,17 @@ $search-transition-timing: 95ms;
       }
 
       &[active] {
-        border-bottom: 3px solid $focus;
+        position: relative;
+
+        &::after {
+          content: '';
+          display: block;
+          position: absolute;
+          inset-inline-start: 0;
+          inset-block: 0;
+          width: 3px;
+          background-color: $focus;
+        }
       }
 
       &.is-open {
