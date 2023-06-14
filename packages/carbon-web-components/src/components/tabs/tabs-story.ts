@@ -138,7 +138,7 @@ export const Contained = () => html`
       Tab Panel 4
     </div>
     <div id="panel-five" role="tabpanel" aria-labelledby="tab-five" hidden>
-      Tab Panel 4
+      Tab Panel 5
     </div>
   </div>
 `;
