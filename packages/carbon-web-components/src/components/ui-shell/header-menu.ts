@@ -24,7 +24,7 @@ const { prefix } = settings;
  * Header menu.
  *
  * @element bx-header-menu
- * @csspart topMenuItem The trigger button.
+ * @csspart trigger The trigger button.
  * @csspart trigger-icon The trigger button icon.
  * @csspart menu-body The menu body.
  */
