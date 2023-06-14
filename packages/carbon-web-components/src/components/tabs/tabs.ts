@@ -8,29 +8,23 @@
  */
 
 import { html } from 'lit';
-import { property, customElement, query } from 'lit/decorators.js';
+import { property, customElement } from 'lit/decorators.js';
 import { classMap } from 'lit/directives/class-map.js';
 import { prefix } from '../../globals/settings';
 import HostListenerMixin from '../../globals/mixins/host-listener';
 import HostListener from '../../globals/decorators/host-listener';
-import { find, forEach } from '../../globals/internal/collection-helpers';
+import { forEach } from '../../globals/internal/collection-helpers';
 import ChevronRight16 from '@carbon/icons/lib/chevron--right/16';
 import ChevronLeft16 from '@carbon/icons/lib/chevron--left/16';
 import CDSContentSwitcher, {
   NAVIGATION_DIRECTION,
 } from '../content-switcher/content-switcher';
-import {
-  NAVIGATION_DIRECTION_NARROW,
-  TABS_COLOR_SCHEME,
-  TABS_KEYBOARD_ACTION,
-  TABS_TYPE,
-} from './defs';
+import { TABS_COLOR_SCHEME, TABS_KEYBOARD_ACTION, TABS_TYPE } from './defs';
 import CDSTab from './tab';
 import styles from './tabs.scss';
 
 export {
   NAVIGATION_DIRECTION,
-  NAVIGATION_DIRECTION_NARROW,
   TABS_COLOR_SCHEME,
   TABS_KEYBOARD_ACTION,
   TABS_TYPE,
@@ -53,19 +47,9 @@ export default class CDSTabs extends HostListenerMixin(CDSContentSwitcher) {
   private _assistiveStatusText?: string;
 
   /**
-   * `true` if the narrow mode dropdown should be open.
-   */
-  private _open = false;
-
-  /**
    * The currently selected index
    */
   private _currentIndex: number = 0;
-
-  /**
-   * The content of the selected item, used in the narrow mode.
-   */
-  private _selectedItemContent: DocumentFragment | null = null;
 
   /**
    * Total number of tabs in the component
@@ -83,71 +67,12 @@ export default class CDSTabs extends HostListenerMixin(CDSContentSwitcher) {
   private tablist: Element | null = null;
 
   /**
-   * The DOM element for the trigger button in narrow mode.
-   */
-  @query('#trigger')
-  private _triggerNode!: HTMLDivElement;
-
-  /**
-   * Handles `blur` event handler on this element.
-   *
-   * @param event The event.
-   */
-  @HostListener('focusout')
-  // @ts-ignore: The decorator refers to this method but TS thinks this method is not referred to
-  private _handleFocusOut({ relatedTarget }: FocusEvent) {
-    if (!this.contains(relatedTarget as Node)) {
-      this._handleUserInitiatedToggle(false);
-    }
-  }
-
-  /**
-   * Handles user-initiated toggling the open state.
-   *
-   * @param [force] If specified, forces the open state to the given one.
-   */
-  private _handleUserInitiatedToggle(force: boolean = !this._open) {
-    this._open = force;
-    if (this._open) {
-      this._assistiveStatusText = this.selectingItemsAssistiveText;
-    } else {
-      const {
-        selectedItemAssistiveText,
-        triggerContent,
-        _assistiveStatusText: assistiveStatusText,
-        _selectedItemContent: selectedItemContent,
-      } = this;
-      const selectedItemText =
-        (selectedItemContent && selectedItemContent.textContent) ||
-        triggerContent;
-      if (
-        selectedItemText &&
-        assistiveStatusText !== selectedItemAssistiveText
-      ) {
-        this._assistiveStatusText = selectedItemText;
-      }
-    }
-    this.requestUpdate();
-  }
-
-  /**
-   * Clears the selection of tabs.
-   */
-  private _clearHighlight() {
-    forEach(
-      this.querySelectorAll((this.constructor as typeof CDSTabs).selectorItem),
-      (item) => {
-        (item as CDSTab).highlighted = false;
-      }
-    );
-  }
-
-  /**
    * Navigates through tabs.
    *
    * @param direction `-1` to navigate backward, `1` to navigate forward.
    * @param [options] The options.
    * @param [options.immediate]
+   *   Defaults to `true`
    *   `true` to make it "immediate selection change" mode, which does:
    *
    *   Starts with the selected item
@@ -155,7 +80,7 @@ export default class CDSTabs extends HostListenerMixin(CDSContentSwitcher) {
    */
   protected _navigate(
     direction: number,
-    { immediate }: { immediate?: boolean } = {}
+    { immediate = true }: { immediate?: boolean } = {}
   ) {
     const { selectorItem, selectorItemHighlighted, selectorItemSelected } = this
       .constructor as typeof CDSTabs;
@@ -181,7 +106,7 @@ export default class CDSTabs extends HostListenerMixin(CDSContentSwitcher) {
     // Using `{ block: 'nearest' }` to prevent scrolling unless scrolling is absolutely necessary.
     // `scrollIntoViewOptions` seems to work in latest Safari despite of MDN/caniuse table.
     // IE falls back to the old behavior.
-    nextItem.scrollIntoView({ block: 'nearest' });
+    nextItem.scrollIntoView({ block: 'nearest', inline: 'nearest' });
 
     const nextItemText = nextItem.textContent;
     if (nextItemText) {
@@ -193,91 +118,47 @@ export default class CDSTabs extends HostListenerMixin(CDSContentSwitcher) {
 
   @HostListener('click')
   protected _handleClick(event: MouseEvent) {
-    const { target } = event;
-    if (this === target) {
-      this._handleUserInitiatedToggle();
-    } else if ((target as CDSTab).value === this.value) {
-      // Clicking on selected item, simply closes the narrow mode dropdown
-      this._handleUserInitiatedToggle(false);
-    } else {
-      // Trying to select the item
-      // If the custom event of the selection is canceled, we don't close the narrow mode dropdown
-      super._handleClick(event);
-    }
+    super._handleClick(event);
   }
 
   @HostListener('keydown')
   protected _handleKeydown(event: KeyboardEvent) {
-    const { _open: open, _triggerNode: triggerNode } = this;
-    const { key, target } = event;
-    const narrowMode = Boolean(triggerNode.offsetParent);
-    const action = (this.constructor as typeof CDSTabs).getAction(key, {
-      narrowMode,
-    });
-    if (!open && narrowMode) {
-      // Menu closed in narrow mode
-      switch (action) {
-        case TABS_KEYBOARD_ACTION.NAVIGATING:
-          this._handleUserInitiatedToggle(true);
-          // If this menu gets open with an arrow key, resets the highlight
-          this._clearHighlight();
-          break;
-        case TABS_KEYBOARD_ACTION.TRIGGERING:
-          this._handleUserInitiatedToggle(true);
-          break;
-        default:
-          break;
-      }
-    } else {
-      switch (action) {
-        case TABS_KEYBOARD_ACTION.CLOSING:
-          this._handleUserInitiatedToggle(false);
-          break;
-        case TABS_KEYBOARD_ACTION.SELECTING:
-          this._handleUserInitiatedSelectItem(target as CDSTab);
-          break;
-        case TABS_KEYBOARD_ACTION.HOME:
-          this._navigate(this._currentIndex + this._totalTabs, {
-            immediate: !narrowMode,
+    const { key } = event;
+    const action = (this.constructor as typeof CDSTabs).getAction(key);
+    const enabledTabs = this.querySelectorAll(`${prefix}-tab:not([disabled])`);
+    switch (action) {
+      case TABS_KEYBOARD_ACTION.HOME:
+        {
+          const [firstEnabledTab] = enabledTabs;
+          firstEnabledTab.scrollIntoView({
+            block: 'nearest',
+            inline: 'nearest',
           });
-          break;
-        case TABS_KEYBOARD_ACTION.END:
-          this._navigate(-this._currentIndex, { immediate: !narrowMode });
-          break;
-        case TABS_KEYBOARD_ACTION.NAVIGATING:
-          {
-            const direction = narrowMode
-              ? NAVIGATION_DIRECTION_NARROW[key]
-              : NAVIGATION_DIRECTION[key];
-            if (direction) {
-              this._navigate(direction, { immediate: !narrowMode });
-            }
+          this._handleUserInitiatedSelectItem(firstEnabledTab as CDSTab);
+          this.requestUpdate();
+        }
+        break;
+      case TABS_KEYBOARD_ACTION.END:
+        {
+          const lastEnabledTab = enabledTabs[enabledTabs.length - 1];
+          lastEnabledTab.scrollIntoView({
+            block: 'nearest',
+            inline: 'nearest',
+          });
+          this._handleUserInitiatedSelectItem(lastEnabledTab as CDSTab);
+          this.requestUpdate();
+        }
+        break;
+      case TABS_KEYBOARD_ACTION.NAVIGATING:
+        {
+          const direction = NAVIGATION_DIRECTION[key];
+          if (direction) {
+            this._navigate(direction);
           }
-          break;
-        case TABS_KEYBOARD_ACTION.TRIGGERING:
-          {
-            const { selectorItemHighlighted } = this
-              .constructor as typeof CDSTabs;
-            const highlightedItem = this.querySelector(
-              selectorItemHighlighted
-            ) as CDSTab;
-            if (highlightedItem) {
-              if (highlightedItem.value === this.value) {
-                // Selecting an already-selected item, simply closes the narrow mode dropdown
-                this._handleUserInitiatedToggle(false);
-              } else {
-                // Trying to select the item
-                // If the custom event of the selection is canceled, we don't close the narrow mode dropdown
-                this._handleUserInitiatedSelectItem(highlightedItem);
-              }
-            } else {
-              this._handleUserInitiatedToggle();
-            }
-          }
-          break;
-        default:
-          break;
-      }
+        }
+        break;
+      default:
+        break;
     }
   }
 
@@ -296,7 +177,6 @@ export default class CDSTabs extends HostListenerMixin(CDSContentSwitcher) {
   protected _selectionDidChange(itemToSelect: CDSTab) {
     super._selectionDidChange(itemToSelect);
     this._assistiveStatusText = this.selectedItemAssistiveText;
-    this._handleUserInitiatedToggle(false);
   }
 
   /**
@@ -353,19 +233,6 @@ export default class CDSTabs extends HostListenerMixin(CDSContentSwitcher) {
         this._totalTabs++;
         (elem as CDSTab).type = this.type;
       });
-    }
-    if (changedProperties.has('value')) {
-      const item = find(
-        this.querySelectorAll(selectorItem),
-        (elem) => (elem as CDSTab).value === this.value
-      );
-      if (item) {
-        const range = this.ownerDocument!.createRange();
-        range.selectNodeContents(item);
-        this._selectedItemContent = range.cloneContents();
-      } else {
-        this._selectedItemContent = null;
-      }
     }
     return true;
   }
@@ -497,30 +364,17 @@ export default class CDSTabs extends HostListenerMixin(CDSContentSwitcher) {
 
   /**
    * @param key The key symbol.
-   * @param [options] The options.
-   * @param [options.narrowMode] `true` to get the action for narrow mode.
    * @returns A action for dropdown for the given key symbol.
    */
-  static getAction(key: string, { narrowMode }: { narrowMode?: boolean }) {
-    if (key === 'Escape') {
-      return TABS_KEYBOARD_ACTION.CLOSING;
-    }
-    if (key === 'Enter') {
-      return TABS_KEYBOARD_ACTION.SELECTING;
-    }
+  static getAction(key: string) {
     if (key === 'Home') {
       return TABS_KEYBOARD_ACTION.HOME;
     }
     if (key === 'End') {
       return TABS_KEYBOARD_ACTION.END;
     }
-    if (
-      key in (narrowMode ? NAVIGATION_DIRECTION_NARROW : NAVIGATION_DIRECTION)
-    ) {
+    if (key in NAVIGATION_DIRECTION) {
       return TABS_KEYBOARD_ACTION.NAVIGATING;
-    }
-    if (narrowMode && this.TRIGGER_KEYS.has(key)) {
-      return TABS_KEYBOARD_ACTION.TRIGGERING;
     }
     return TABS_KEYBOARD_ACTION.NONE;
   }
