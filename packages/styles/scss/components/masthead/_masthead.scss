@@ -359,6 +359,10 @@ $search-transition-timing: 95ms;
         &[data-selected='true'] {
           border-bottom-color: transparent;
         }
+
+        &::after {
+          background-color: $focus;
+        }
       }
     }
 
@@ -367,6 +371,10 @@ $search-transition-timing: 95ms;
       &:active {
         &[data-selected='true'][aria-expanded='false'] {
           border-bottom-color: transparent;
+
+          &::after {
+            background-color: $focus;
+          }
         }
       }
     }
