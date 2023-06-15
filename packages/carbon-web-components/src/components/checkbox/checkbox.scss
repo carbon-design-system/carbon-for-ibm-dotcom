@@ -15,10 +15,10 @@ $css--plex: true !default;
 :host(#{$prefix}-checkbox) {
   @extend .#{$prefix}--form-item;
   @extend .#{$prefix}--checkbox-wrapper;
+}
 
-  &[readonly] {
-    @extend .#{$prefix}--checkbox-wrapper--readonly;
-  }
+:host(#{$prefix}-checkbox[readonly]) {
+  @extend .#{$prefix}--checkbox-wrapper--readonly;
 }
 
 :host(#{$prefix}-checkbox-skeleton) {
