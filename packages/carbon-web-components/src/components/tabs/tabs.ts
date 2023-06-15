@@ -167,6 +167,36 @@ export default class CDSTabs extends HostListenerMixin(CDSContentSwitcher) {
     }
   }
 
+  /**
+   * Handles click on overflow scroll buttons.
+   *
+   * @param _ Event object
+   * @param [options] The options.
+   * @param [options.direction] `-1` to scroll forward, `1` to scroll backward.
+   */
+  protected _handleScrollButtonClick(_, { direction }) {
+    if (!this.tablist) {
+      return;
+    }
+    const { scrollLeft, clientWidth, scrollWidth } = this.tablist;
+    switch (direction) {
+      case -1:
+        this.tablist.scrollLeft = Math.max(
+          scrollLeft - (scrollWidth / this._totalTabs) * 1.5,
+          0
+        );
+        break;
+      case 1:
+        this.tablist.scrollLeft = Math.min(
+          scrollLeft + (scrollWidth / this._totalTabs) * 1.5,
+          scrollWidth - clientWidth
+        );
+        break;
+      default:
+        break;
+    }
+  }
+
   @HostListener('resize')
   protected _handleResize = () => {
     // TODO: debounce
@@ -286,7 +316,9 @@ export default class CDSTabs extends HostListenerMixin(CDSContentSwitcher) {
         aria-hidden="true"
         aria-label="Scroll left"
         type="button"
-        class="${previousButtonClasses}">
+        class="${previousButtonClasses}"
+        @click=${(_) =>
+          this._scroll(_, { direction: NAVIGATION_DIRECTION.Left })}>
         ${ChevronLeft16()}
       </button>
       <div id="tablist" role="tablist" class="${prefix}--tab--list">
@@ -296,7 +328,9 @@ export default class CDSTabs extends HostListenerMixin(CDSContentSwitcher) {
         aria-hidden="true"
         aria-label="Scroll right"
         type="button"
-        class="${nextButtonClasses}">
+        class="${nextButtonClasses}"
+        @click=${(_) =>
+          this._scroll(_, { direction: NAVIGATION_DIRECTION.Right })}>
         ${ChevronRight16()}
       </button>
       <div
