@@ -91,7 +91,7 @@ $search-transition-timing: 95ms;
 
       background-color: transparent;
       border: none;
-      border-bottom: 3px solid $focus;
+      border-bottom: 1px solid $ui-03;
       color: $text-01;
       display: flex;
       justify-content: space-between;
@@ -116,6 +116,10 @@ $search-transition-timing: 95ms;
       &:disabled {
         color: $disabled-02;
         border-bottom-color: $disabled-02;
+      }
+
+      &[active] {
+        border-bottom: 3px solid $focus;
       }
 
       &.is-open {

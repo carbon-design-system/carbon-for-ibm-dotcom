@@ -810,11 +810,15 @@ class DDSMastheadL1 extends StableSelectorMixin(LitElement) {
     // Set active on nearest menu item.
     this.selectedElements.forEach((element) => {
       element.setAttribute('active', '');
-      element
-        .closest(
-          `.${prefix}--masthead__l1-dropdown, .${prefix}--masthead__l1-dropdown-subsection`
-        )
-        ?.previousElementSibling?.setAttribute('active', '');
+
+      const prevSibling = element.closest(
+        `.${prefix}--masthead__l1-dropdown, .${prefix}--masthead__l1-dropdown-subsection`
+      )?.previousElementSibling;
+
+      // Don't set active on mobile dropdown toggle when a menu item is selected.
+      if (!prevSibling?.classList?.contains(`bx--masthead__l1-title`)) {
+        prevSibling?.setAttribute('active', '');
+      }
     });
   }
 
