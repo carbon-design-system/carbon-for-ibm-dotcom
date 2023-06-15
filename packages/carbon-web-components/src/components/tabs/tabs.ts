@@ -67,6 +67,11 @@ export default class CDSTabs extends HostListenerMixin(CDSContentSwitcher) {
   private tablist: Element | null = null;
 
   /**
+   * The width of the overflow scroll buttons.
+   */
+  private BUTTON_WIDTH = 44;
+
+  /**
    * Navigates through tabs.
    *
    * @param direction `-1` to navigate backward, `1` to navigate forward.
@@ -248,7 +253,6 @@ export default class CDSTabs extends HostListenerMixin(CDSContentSwitcher) {
   render() {
     const { _assistiveStatusText: assistiveStatusText } = this;
     const { scrollLeft, clientWidth, scrollWidth } = this.tablist ?? {};
-    const buttonWidth = 44;
     /**
      * Previous Button
      * VISIBLE IF:
@@ -265,7 +269,7 @@ export default class CDSTabs extends HostListenerMixin(CDSContentSwitcher) {
      *   - AND SCROLL_LEFT + CLIENT_WIDTH < SCROLL_WIDTH
      */
     const isNextButtonVisible = this.tablist
-      ? scrollLeft! + buttonWidth + clientWidth! < scrollWidth!
+      ? scrollLeft! + this.BUTTON_WIDTH + clientWidth! < scrollWidth!
       : false;
     const previousButtonClasses = classMap({
       [`${prefix}--tab--overflow-nav-button`]: true,
