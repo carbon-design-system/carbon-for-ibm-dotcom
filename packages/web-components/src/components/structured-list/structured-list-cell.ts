@@ -57,10 +57,10 @@ class DDSStructuredListCell extends BXStructuredListCell {
   private _renderIcon() {
     const { icon, _iconsAllowed: iconMap } = this;
 
-    return html`${iconMap[icon!.toLowerCase()].call()}<span
-        class="${prefix}--structured-list-cell-icon-text"
-        ><slot></slot
-      ></span>`;
+    return html`${iconMap[icon!.toLowerCase()].call()}
+      <span class="${prefix}--structured-list-cell-icon-text">
+        <slot></slot>
+      </span>`;
   }
 
   private _renderTags() {
