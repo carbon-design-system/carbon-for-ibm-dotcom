@@ -256,6 +256,7 @@ export const WithoutRowHeaders = (args) => {
     highlightLabel,
     columnCount,
     heading,
+    iconText,
   } = args?.PricingTable ?? {};
   return html`
     <dds-pricing-table
@@ -267,7 +268,7 @@ export const WithoutRowHeaders = (args) => {
       highlight-label="${highlightLabel}">
       ${renderHead(columnCount, heading)}
       <dds-pricing-table-body>
-        ${renderBodyRow(columnCount, 1, CELL_TYPES.ICON, false)}
+        ${renderBodyRow(columnCount, 1, CELL_TYPES.ICON, false, iconText)}
         ${renderBodyRow(columnCount, 2, CELL_TYPES.EMPTY, false)}
         ${renderBodyRow(columnCount, 3, CELL_TYPES.TEXT, false)}
       </dds-pricing-table-body>
@@ -291,6 +292,7 @@ export const WithSubheaders = (args) => {
     highlightCol,
     highlightLabel,
     heading,
+    iconText,
   } = args?.PricingTable ?? {};
   return html`
     <dds-pricing-table
@@ -303,17 +305,17 @@ export const WithSubheaders = (args) => {
       ${renderHead(columnCount, heading)}
       <dds-pricing-table-body>
         <dds-pricing-table-group title="Group 1">
-          ${renderBodyRow(columnCount, 1, CELL_TYPES.ICON)}
+          ${renderBodyRow(columnCount, 1, CELL_TYPES.ICON, true, iconText)}
           ${renderBodyRow(columnCount, 2, CELL_TYPES.EMPTY)}
           ${renderBodyRow(columnCount, 3, CELL_TYPES.TEXT)}
         </dds-pricing-table-group>
         <dds-pricing-table-group title="Group 2">
-          ${renderBodyRow(columnCount, 1, CELL_TYPES.ICON)}
+          ${renderBodyRow(columnCount, 1, CELL_TYPES.ICON, true, iconText)}
           ${renderBodyRow(columnCount, 2, CELL_TYPES.EMPTY)}
           ${renderBodyRow(columnCount, 3, CELL_TYPES.TEXT)}
         </dds-pricing-table-group>
         <dds-pricing-table-group title="Group 3">
-          ${renderBodyRow(columnCount, 1, CELL_TYPES.ICON)}
+          ${renderBodyRow(columnCount, 1, CELL_TYPES.ICON, true, iconText)}
           ${renderBodyRow(columnCount, 2, CELL_TYPES.EMPTY)}
           ${renderBodyRow(columnCount, 3, CELL_TYPES.TEXT)}
         </dds-pricing-table-group>
