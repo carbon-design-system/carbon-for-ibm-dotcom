@@ -124,6 +124,10 @@ $css--plex: true !default;
   }
 }
 
+:host(#{$prefix}-multi-select-item:hover) {
+  background-color: $layer-hover;
+}
+
 :host(#{$prefix}-multi-select-item[filtered]) {
   display: none;
 }

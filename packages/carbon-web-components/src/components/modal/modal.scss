@@ -17,6 +17,11 @@
 @use '@carbon/styles/scss/components/modal' as *;
 @use '@carbon/styles/scss/components/button' as *;
 
+:host(#{$prefix}-modal[open]) {
+  @extend .#{$prefix}--modal;
+  @extend .is-visible;
+}
+
 :host(#{$prefix}-modal) {
   @extend .#{$prefix}--modal;
 
@@ -28,11 +33,6 @@
     margin: 0;
     padding: 0;
   }
-}
-
-:host(#{$prefix}-modal[open]) {
-  @extend .#{$prefix}--modal;
-  @extend .is-visible;
 }
 
 :host(#{$prefix}-modal-header) {
