@@ -14,19 +14,6 @@
     color: $text-secondary;
   }
 
-  &[expanded] {
-    height: $spacing-09;
-
-    td {
-      border-bottom: 1px solid $border-subtle;
-      height: auto;
-
-      .#{$prefix}--child-row-inner-container {
-        height: auto;
-      }
-    }
-  }
-
   td {
     border-bottom-color: $border-subtle;
     vertical-align: middle;
@@ -39,18 +26,31 @@
       height: 0;
     }
   }
+}
 
-  &:hover,
-  &[selected],
-  &[highlighted] {
-    background-color: $background-hover;
+:host(#{$prefix}-table-expanded-row[expanded]) {
+  height: $spacing-09;
 
-    ::slotted(*) {
-      color: $text-primary;
+  td {
+    border-bottom: 1px solid $border-subtle;
+    height: auto;
+
+    .#{$prefix}--child-row-inner-container {
+      height: auto;
     }
   }
+}
 
-  &[selected][highlighted] {
-    background-color: $layer-selected;
+:host(#{$prefix}-table-expanded-row:hover),
+:host(#{$prefix}-table-expanded-row[selected]),
+:host(#{$prefix}-table-expanded-row[highlighted]) {
+  background-color: $background-hover;
+
+  ::slotted(*) {
+    color: $text-primary;
   }
+}
+
+:host(#{$prefix}-table-expanded-row[selected][highlighted]) {
+  background-color: $layer-selected;
 }

@@ -37,13 +37,13 @@
     width: $spacing-09;
     transition: background-color $duration-fast-02 motion(entrance, productive);
   }
+}
 
-  &[has-batch-actions] {
-    clip-path: polygon(0 0, 100% 0, 100% 0, 0 0);
-    transform: translate3d(0, 48px, 0);
-    transition: transform $duration-fast-02 motion(standard, productive),
-      clip-path $duration-fast-02 motion(standard, productive);
-  }
+:host(#{$prefix}-table-toolbar-content[has-batch-actions]) {
+  clip-path: polygon(0 0, 100% 0, 100% 0, 0 0);
+  transform: translate3d(0, 48px, 0);
+  transition: transform $duration-fast-02 motion(standard, productive),
+    clip-path $duration-fast-02 motion(standard, productive);
 }
 
 :host(#{$prefix}-table-toolbar-search) {
@@ -92,32 +92,33 @@
   svg {
     left: 0;
   }
+}
 
-  &[size='xs'],
-  &[size='sm'] {
-    svg {
-      left: $spacing-03;
-      padding: 0;
-    }
-
-    &[expanded] svg {
-      left: 0;
-      padding: $spacing-05;
-    }
+:host(#{$prefix}-table-toolbar-search[size='xs']),
+:host(#{$prefix}-table-toolbar-search[size='sm']) {
+  svg {
+    left: $spacing-03;
+    padding: 0;
   }
+}
 
-  &[expanded] {
-    @extend .#{$prefix}--toolbar-search-container-active;
+:host(#{$prefix}-table-toolbar-search[expanded]) {
+  @extend .#{$prefix}--toolbar-search-container-active;
 
-    flex: auto;
+  flex: auto;
+}
+
+:host(#{$prefix}-table-toolbar-search[size='xs'][expanded]),
+:host(#{$prefix}-table-toolbar-search[size='sm'][expanded]) {
+  svg {
+    left: $spacing-05;
   }
+}
 
-  &[persistent] {
-    &:hover {
-      .#{$prefix}--search-input {
-        background-color: $field-hover;
-      }
-    }
+:host(#{$prefix}-table-toolbar-search[persistent]:hover),
+:host(#{$prefix}-table-toolbar-search[persistent]:hover) {
+  .#{$prefix}--search-input {
+    background-color: $field-hover;
   }
 }
 

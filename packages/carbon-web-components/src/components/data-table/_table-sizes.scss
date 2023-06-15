@@ -185,55 +185,49 @@
 //
 // "selection" and "expandable" sizes
 //
-
 :host(#{$prefix}-table-header-row[selection-name][expandable]),
 :host(#{$prefix}-table-row[selection-name][expandable]) {
   ::slotted(#{$prefix}-table-header-cell),
   ::slotted(#{$prefix}-table-cell) {
     padding-left: $spacing-03;
   }
+}
 
-  &[size='xs'] {
-    .#{$prefix}--table-column-checkbox {
-      padding: 0 rem(6px);
-    }
+:host(#{$prefix}-table-header-row[selection-name][expandable][size='xs']),
+:host(#{$prefix}-table-row[selection-name][expandable][size='xs']) {
+  .#{$prefix}--table-column-checkbox {
+    padding: 0 rem(6px);
   }
+}
 
-  &[size='sm'] {
-    .#{$prefix}--table-column-checkbox {
-      padding: rem(3px) rem(6px);
-    }
+:host(#{$prefix}-table-header-row[selection-name][expandable][size='sm']),
+:host(#{$prefix}-table-row[selection-name][expandable][size='sm']),
+:host(#{$prefix}-table-header-row[selection-name][expandable][size='md']),
+:host(#{$prefix}-table-row[selection-name][expandable][size='md']) {
+  .#{$prefix}--table-column-checkbox {
+    padding: rem(3px) rem(6px);
   }
+}
 
-  &[size='md'] {
-    .#{$prefix}--table-column-checkbox {
-      padding: rem(3px) rem(6px);
-    }
-  }
-
-  &[size='xl'] {
-    .#{$prefix}--table-column-checkbox {
-      padding-left: rem(6px);
-      padding-right: rem(6px);
-    }
+:host(#{$prefix}-table-header-row[selection-name][expandable][size='xl']) {
+  .#{$prefix}--table-column-checkbox {
+    padding-left: rem(6px);
+    padding-right: rem(6px);
   }
 }
 
 //
 // table cell size for overflow menu
 //
-
-:host(#{$prefix}-table-cell) {
-  &[size='xs'],
-  &[size='sm'] {
-    ::slotted(#{$prefix}-overflow-menu) {
-      height: calc(100% + 1px);
-    }
+:host(#{$prefix}-table-cell[size='xs']),
+:host(#{$prefix}-table-cell[size='sm']) {
+  ::slotted(#{$prefix}-overflow-menu) {
+    height: calc(100% + 1px);
   }
+}
 
-  &[size='md'] {
-    ::slotted(#{$prefix}-overflow-menu) {
-      height: $spacing-08;
-    }
+:host(#{$prefix}-table-cell[size='md']) {
+  ::slotted(#{$prefix}-overflow-menu) {
+    height: $spacing-08;
   }
 }

@@ -34,36 +34,36 @@
       padding-left: $spacing-05;
     }
   }
+}
 
-  &:hover {
-    .#{$prefix}--table-column-checkbox {
-      border-top-color: $layer-hover-01;
-      border-bottom-color: $layer-hover-01;
-      background-color: $background-hover;
-    }
+:host(#{$prefix}-table-row:hover) {
+  .#{$prefix}--table-column-checkbox {
+    border-top-color: $layer-hover-01;
+    border-bottom-color: $layer-hover-01;
+    background-color: $background-hover;
   }
+}
 
-  &[selected] {
-    .#{$prefix}--table-column-checkbox,
-    ::slotted(#{$prefix}-table-cell),
-    .#{$prefix}--table-expand,
-    .#{$prefix}--table-column-checkbox {
-      color: $text-primary;
-      background-color: $layer-accent-01;
-      border-top: 1px solid $border-subtle-01;
-      //bottom border acts as separator from other rows
-      border-bottom: 1px solid $layer-active;
-    }
+:host(#{$prefix}-table-row[selected]) {
+  .#{$prefix}--table-column-checkbox,
+  ::slotted(#{$prefix}-table-cell),
+  .#{$prefix}--table-expand,
+  .#{$prefix}--table-column-checkbox {
+    color: $text-primary;
+    background-color: $layer-accent-01;
+    border-top: 1px solid $border-subtle-01;
+    //bottom border acts as separator from other rows
+    border-bottom: 1px solid $layer-active;
+  }
+}
 
-    &:hover {
-      .#{$prefix}--table-column-checkbox,
-      ::slotted(#{$prefix}-table-cell),
-      .#{$prefix}--table-expand,
-      .#{$prefix}--table-column-checkbox {
-        background-color: $data-table-column-hover;
-        border-bottom-color: $data-table-column-hover;
-      }
-    }
+:host(#{$prefix}-table-row[selected]:hover) {
+  .#{$prefix}--table-column-checkbox,
+  ::slotted(#{$prefix}-table-cell),
+  .#{$prefix}--table-expand,
+  .#{$prefix}--table-column-checkbox {
+    background-color: $data-table-column-hover;
+    border-bottom-color: $data-table-column-hover;
   }
 }
 
