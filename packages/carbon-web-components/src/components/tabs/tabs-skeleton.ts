@@ -16,7 +16,7 @@ import styles from './tabs.scss';
  * Skeleton of tabs.
  */
 @customElement(`${prefix}-tabs-skeleton`)
-class BXTabsSkeleton extends LitElement {
+class CDSTabsSkeleton extends LitElement {
   render() {
     return html`
       <div class="${prefix}--tabs-trigger">
@@ -31,4 +31,4 @@ class BXTabsSkeleton extends LitElement {
   static styles = styles;
 }
 
-export default BXTabsSkeleton;
+export default CDSTabsSkeleton;

@@ -32,39 +32,39 @@ $css--plex: true !default;
 }
 
 :host(#{$prefix}-toast-notification[kind='success']) {
-  @extend .#{$prefix}--toast-notification--success;
+  @extend .#{$prefix}--toast-notification--success;  
 
   &[low-contrast] {
-    @extend .#{$prefix}--toast-notification--low-contrast,
-      .#{$prefix}--toast-notification--success;
-  }
+  @extend .#{$prefix}--toast-notification--low-contrast,
+    .#{$prefix}--toast-notification--success;
+}
 }
 
 :host(#{$prefix}-toast-notification[kind='info']) {
   @extend .#{$prefix}--toast-notification--info;
 
   &[low-contrast] {
-    @extend .#{$prefix}--toast-notification--low-contrast,
-      .#{$prefix}--toast-notification--info;
-  }
+  @extend .#{$prefix}--toast-notification--low-contrast,
+    .#{$prefix}--toast-notification--info;
+}
 }
 
 :host(#{$prefix}-toast-notification[kind='info-square']) {
   @extend .#{$prefix}--toast-notification--info-square;
 
   &[low-contrast] {
-    @extend .#{$prefix}--toast-notification--low-contrast,
-      .#{$prefix}--toast-notification--info;
-  }
+  @extend .#{$prefix}--toast-notification--low-contrast,
+    .#{$prefix}--toast-notification--info;
+}
 }
 
 :host(#{$prefix}-toast-notification[kind='warning']) {
   @extend .#{$prefix}--toast-notification--warning;
 
   &[low-contrast] {
-    @extend .#{$prefix}--toast-notification--low-contrast,
-      .#{$prefix}--toast-notification--warning;
-  }
+  @extend .#{$prefix}--toast-notification--low-contrast,
+    .#{$prefix}--toast-notification--warning;
+}
 }
 
 :host(#{$prefix}-toast-notification[kind='warning-alt']) {
@@ -87,7 +87,7 @@ $css--plex: true !default;
   @extend .#{$prefix}--toast-notification--error;
 
   &[low-contrast] {
-    @extend .#{$prefix}--toast-notification--low-contrast,
-      .#{$prefix}--toast-notification--error;
-  }
+  @extend .#{$prefix}--toast-notification--low-contrast,
+    .#{$prefix}--toast-notification--error;
+}
 }

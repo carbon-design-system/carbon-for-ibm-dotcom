@@ -18,7 +18,7 @@ import styles from './data-table.scss';
  * @element cds-table-toolbar
  */
 @customElement(`${prefix}-table-toolbar`)
-class BXTableToolbar extends LitElement {
+class CDSTableToolbar extends LitElement {
   connectedCallback() {
     if (!this.hasAttribute('role')) {
       this.setAttribute('role', 'section');
@@ -33,4 +33,4 @@ class BXTableToolbar extends LitElement {
   static styles = styles;
 }
 
-export default BXTableToolbar;
+export default CDSTableToolbar;

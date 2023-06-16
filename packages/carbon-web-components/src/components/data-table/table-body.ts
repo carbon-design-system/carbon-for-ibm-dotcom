@@ -11,7 +11,7 @@ import { LitElement, html } from 'lit';
 import { property, customElement, query } from 'lit/decorators.js';
 import { prefix } from '../../globals/settings';
 import { TABLE_COLOR_SCHEME } from './defs';
-import BXTableRow from './table-row';
+import CDSTableRow from './table-row';
 import styles from './data-table.scss';
 
 /**
@@ -20,7 +20,7 @@ import styles from './data-table.scss';
  * @element cds-table-body
  */
 @customElement(`${prefix}-table-body`)
-class BXTableBody extends LitElement {
+class CDSTableBody extends LitElement {
   /**
    * The `<slot>` element in the shadow DOM.
    */
@@ -35,9 +35,9 @@ class BXTableBody extends LitElement {
     slotNode.assignedNodes().forEach((node) => {
       if (node.nodeType === Node.ELEMENT_NODE) {
         const odd = (node as HTMLElement).matches('*:nth-of-type(odd)');
-        (node as BXTableRow).even =
+        (node as CDSTableRow).even =
           colorScheme === TABLE_COLOR_SCHEME.ZEBRA && !odd;
-        (node as BXTableRow).odd =
+        (node as CDSTableRow).odd =
           colorScheme === TABLE_COLOR_SCHEME.ZEBRA && odd;
       }
     });
@@ -77,4 +77,4 @@ class BXTableBody extends LitElement {
   static styles = styles;
 }
 
-export default BXTableBody;
+export default CDSTableBody;

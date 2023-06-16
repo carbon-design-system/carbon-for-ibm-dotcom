@@ -22,7 +22,7 @@ export { TABLE_COLOR_SCHEME, TABLE_SIZE };
  * @element cds-table
  */
 @customElement(`${prefix}-table`)
-class BXTable extends LitElement {
+class CDSTable extends LitElement {
   /**
    * The table size.
    */
@@ -47,7 +47,7 @@ class BXTable extends LitElement {
       // Propagate `size` attribute to descendants until `:host-context()` gets supported in all major browsers
       forEach(
         this.querySelectorAll(
-          (this.constructor as typeof BXTable).selectorRowsWithHeader
+          (this.constructor as typeof CDSTable).selectorRowsWithHeader
         ),
         (elem) => {
           elem.setAttribute('size', this.size);
@@ -70,4 +70,4 @@ class BXTable extends LitElement {
   static styles = styles;
 }
 
-export default BXTable;
+export default CDSTable;

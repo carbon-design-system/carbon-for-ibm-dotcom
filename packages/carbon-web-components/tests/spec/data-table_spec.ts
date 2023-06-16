@@ -12,14 +12,14 @@ import EventManager from '../utils/event-manager';
 import { ifDefined } from 'lit/directives/if-defined.js';
 import { INPUT_SIZE } from '../../src/components/text-input/text-input';
 import { TABLE_COLOR_SCHEME } from '../../src/components/data-table/table';
-import BXTableHeaderCell, {
+import CDSTableHeaderCell, {
   TABLE_SORT_CYCLE,
   TABLE_SORT_DIRECTION,
 } from '../../src/components/data-table/table-header-cell';
-import BXTableRow from '../../src/components/data-table/table-row';
-import BXTableExpandRow from '../../src/components/data-table/table-expand-row';
-import BXTableExpandedRow from '../../src/components/data-table/table-expanded-row';
-import BXTableToolbarSearch from '../../src/components/data-table/table-toolbar-search';
+import CDSTableRow from '../../src/components/data-table/table-row';
+import CDSTableExpandRow from '../../src/components/data-table/table-expand-row';
+import CDSTableExpandedRow from '../../src/components/data-table/table-expanded-row';
+import CDSTableToolbarSearch from '../../src/components/data-table/table-toolbar-search';
 import { Default } from '../../src/components/data-table/data-table-story';
 
 const template = ({ colorScheme = TABLE_COLOR_SCHEME.REGULAR, ...rest } = {}) =>
@@ -166,8 +166,8 @@ describe('data-table', function () {
       const result = Array.prototype.every.call(
         document.body.querySelectorAll('cds-table-row'),
         (item, i) =>
-          (item as BXTableRow).even === ((i + 1) % 2 === 0) &&
-          (item as BXTableRow).odd === ((i + 1) % 2 !== 0)
+          (item as CDSTableRow).even === ((i + 1) % 2 === 0) &&
+          (item as CDSTableRow).odd === ((i + 1) % 2 !== 0)
       );
       expect(result).toBe(true);
     });
@@ -178,8 +178,8 @@ describe('data-table', function () {
       const result = Array.prototype.every.call(
         document.body.querySelectorAll('cds-table-row'),
         (item) =>
-          (item as BXTableRow).even === false &&
-          (item as BXTableRow).odd === false
+          (item as CDSTableRow).even === false &&
+          (item as CDSTableRow).odd === false
       );
       expect(result).toBe(true);
     });
@@ -224,7 +224,7 @@ describe('data-table', function () {
         await Promise.resolve();
         const elem = document.body.querySelector(
           'cds-table-header-cell'
-        ) as BXTableHeaderCell;
+        ) as CDSTableHeaderCell;
         const button = elem.shadowRoot!.querySelector(
           '.cds--table-sort'
         ) as HTMLButtonElement;
@@ -251,7 +251,7 @@ describe('data-table', function () {
         await Promise.resolve();
         const elem = document.body.querySelector(
           'cds-table-header-cell'
-        ) as BXTableHeaderCell;
+        ) as CDSTableHeaderCell;
         const button = elem.shadowRoot!.querySelector(
           '.cds--table-sort'
         ) as HTMLButtonElement;
@@ -278,7 +278,7 @@ describe('data-table', function () {
         await Promise.resolve();
         const elem = document.body.querySelector(
           'cds-table-header-cell'
-        ) as BXTableHeaderCell;
+        ) as CDSTableHeaderCell;
         const button = elem.shadowRoot!.querySelector(
           '.cds--table-sort'
         ) as HTMLButtonElement;
@@ -305,7 +305,7 @@ describe('data-table', function () {
         await Promise.resolve();
         const elem = document.body.querySelector(
           'cds-table-header-cell'
-        ) as BXTableHeaderCell;
+        ) as CDSTableHeaderCell;
         const button = elem.shadowRoot!.querySelector(
           '.cds--table-sort'
         ) as HTMLButtonElement;
@@ -332,7 +332,7 @@ describe('data-table', function () {
         await Promise.resolve();
         const elem = document.body.querySelector(
           'cds-table-header-cell'
-        ) as BXTableHeaderCell;
+        ) as CDSTableHeaderCell;
         events.on(elem, 'cds-table-header-cell-sort', (event) => {
           event.preventDefault();
         });
@@ -394,7 +394,7 @@ describe('data-table', function () {
         expect(spyBeforeChange).toHaveBeenCalled();
         expect(spyBeforeChange.calls.argsFor(0)[0].detail.selected).toBe(true);
         await Promise.resolve();
-        expect((row as BXTableRow).selected).toBe(true);
+        expect((row as CDSTableRow).selected).toBe(true);
       });
 
       it('should fire cds-table-row-change-selection event upon unselecting', async function () {
@@ -413,7 +413,7 @@ describe('data-table', function () {
         expect(spyBeforeChange).toHaveBeenCalled();
         expect(spyBeforeChange.calls.argsFor(0)[0].detail.selected).toBe(false);
         await Promise.resolve();
-        expect((row as BXTableRow).selected).toBe(false);
+        expect((row as CDSTableRow).selected).toBe(false);
       });
 
       it('should support preventing table row selection from being toggled upon user gesture', async function () {
@@ -430,7 +430,7 @@ describe('data-table', function () {
         });
         row!.shadowRoot!.querySelector('input')!.click();
         await Promise.resolve();
-        expect((row as BXTableRow).selected).toBe(false);
+        expect((row as CDSTableRow).selected).toBe(false);
       });
     });
   });
@@ -476,15 +476,15 @@ describe('data-table', function () {
 
         expandRow!.shadowRoot!.querySelector('button')!.click();
         await Promise.resolve();
-        expect((expandRow as BXTableExpandRow).expanded).toBe(true);
+        expect((expandRow as CDSTableExpandRow).expanded).toBe(true);
         await Promise.resolve();
-        expect((expandedRow as BXTableExpandedRow).expanded).toBe(true);
+        expect((expandedRow as CDSTableExpandedRow).expanded).toBe(true);
 
         expandRow!.shadowRoot!.querySelector('button')!.click();
         await Promise.resolve();
-        expect((expandRow as BXTableExpandRow).expanded).toBe(false);
+        expect((expandRow as CDSTableExpandRow).expanded).toBe(false);
         await Promise.resolve();
-        expect((expandedRow as BXTableExpandedRow).expanded).toBe(false);
+        expect((expandedRow as CDSTableExpandedRow).expanded).toBe(false);
       });
 
       it('should fire cds-table-row-expando-beingtoggled/cds-table-row-expando-toggled events upon expanding', async function () {
@@ -555,12 +555,12 @@ describe('data-table', function () {
         expandRow!.dispatchEvent(
           new CustomEvent('mouseover', { bubbles: true })
         );
-        expect((expandedRow as BXTableExpandedRow).highlighted).toBe(true);
+        expect((expandedRow as CDSTableExpandedRow).highlighted).toBe(true);
 
         expandRow!.dispatchEvent(
           new CustomEvent('mouseout', { bubbles: true })
         );
-        expect((expandedRow as BXTableExpandedRow).highlighted).toBe(false);
+        expect((expandedRow as CDSTableExpandedRow).highlighted).toBe(false);
       });
     });
   });
@@ -602,7 +602,7 @@ describe('data-table', function () {
         toolbarSearch!.dispatchEvent(
           new CustomEvent('focusin', { bubbles: true })
         );
-        expect((toolbarSearch as BXTableToolbarSearch).expanded).toBe(true);
+        expect((toolbarSearch as CDSTableToolbarSearch).expanded).toBe(true);
         await Promise.resolve();
         await Promise.resolve();
         expect(input!.focus).toHaveBeenCalled();
@@ -617,7 +617,7 @@ describe('data-table', function () {
         toolbarSearch!.dispatchEvent(
           new CustomEvent('focusout', { bubbles: true })
         );
-        expect((toolbarSearch as BXTableToolbarSearch).expanded).toBe(false);
+        expect((toolbarSearch as CDSTableToolbarSearch).expanded).toBe(false);
       });
     });
   });

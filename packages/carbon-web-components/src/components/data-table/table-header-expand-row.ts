@@ -9,7 +9,7 @@
 
 import { customElement } from 'lit/decorators.js';
 import { prefix } from '../../globals/settings';
-import BXTableExpandRow from './table-expand-row';
+import CDSTableExpandRow from './table-expand-row';
 
 /**
  * Data table header row.
@@ -17,7 +17,7 @@ import BXTableExpandRow from './table-expand-row';
  * @element cds-table-header-expand-row
  */
 @customElement(`${prefix}-table-header-expand-row`)
-class BXTableHeaderExpandRow extends BXTableExpandRow {
+class CDSTableHeaderExpandRow extends CDSTableExpandRow {
   /**
    * The name of the custom event fired before this row is selected/unselected upon a user gesture.
    * Cancellation of this event stops the user-initiated change in selection.
@@ -42,4 +42,4 @@ class BXTableHeaderExpandRow extends BXTableExpandRow {
   }
 }
 
-export default BXTableHeaderExpandRow;
+export default CDSTableHeaderExpandRow;

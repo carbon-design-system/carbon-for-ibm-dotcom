@@ -10,7 +10,7 @@
 import { html } from 'lit';
 import { property, customElement } from 'lit/decorators.js';
 import { prefix } from '../../globals/settings';
-import BXContentSwitcherItem from '../content-switcher/content-switcher-item';
+import CDSContentSwitcherItem from '../content-switcher/content-switcher-item';
 import { TABS_TYPE } from './tabs';
 import styles from './tabs.scss';
 
@@ -20,7 +20,7 @@ import styles from './tabs.scss';
  * @element cds-tab
  */
 @customElement(`${prefix}-tab`)
-class BXTab extends BXContentSwitcherItem {
+class CDSTab extends CDSContentSwitcherItem {
   /**
    * `true` if this tab should be highlighted.
    * If `true`, parent `<cds-tabs>` selects/deselects this tab upon keyboard interaction.
@@ -61,4 +61,4 @@ class BXTab extends BXContentSwitcherItem {
   static styles = styles;
 }
 
-export default BXTab;
+export default CDSTab;

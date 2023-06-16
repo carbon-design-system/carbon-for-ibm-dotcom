@@ -10,7 +10,7 @@
 import { html } from 'lit';
 import { customElement } from 'lit/decorators.js';
 import { prefix } from '../../globals/settings';
-import BXTableCell from './table-cell';
+import CDSTableCell from './table-cell';
 
 /**
  * Data table cell with skeleton content.
@@ -18,10 +18,10 @@ import BXTableCell from './table-cell';
  * @element cds-table-cell-skeleton
  */
 @customElement(`${prefix}-table-cell-skeleton`)
-class BXTableCellSkeleton extends BXTableCell {
+class CDSTableCellSkeleton extends CDSTableCell {
   render() {
     return html` <span></span> `;
   }
 }
 
-export default BXTableCellSkeleton;
+export default CDSTableCellSkeleton;

@@ -23,7 +23,7 @@ import Download16 from '@carbon/web-components/es/icons/download/16';
 // @ts-ignore
 import Settings16 from '@carbon/web-components/es/icons/settings/16';
 import { prefix } from '../../globals/settings';
-import BXBtn from '../button/button';
+import CDSButton from '../button/button';
 import '../overflow-menu/overflow-menu';
 import '../overflow-menu/overflow-menu-body';
 import '../overflow-menu/overflow-menu-item';
@@ -75,9 +75,9 @@ const doesRowMatchSearchString = (row: TDemoTableRow, searchString: string) =>
  * and thus abstracting everything in a library won't be a good return on investment
  * vs. letting users copy code here and implement features that fit their needs.
  */
-// @ts-ignore `BXCEDemoDataTable` is used (only) for type reference
+// @ts-ignore `CDSCEDemoDataTable` is used (only) for type reference
 // eslint-disable-next-line @typescript-eslint/no-unused-vars
-class BXCEDemoDataTable extends LitElement {
+class CDSCEDemoDataTable extends LitElement {
   /**
    * The debounced handler for user-initiated change in search string.
    */
@@ -249,7 +249,7 @@ class BXCEDemoDataTable extends LitElement {
       [JSON.stringify(this._filteredRows!.filter((row) => row.selected))],
       { type: 'application/json' }
     );
-    (target as BXBtn).href = URL.createObjectURL(blob);
+    (target as CDSButton).href = URL.createObjectURL(blob);
     this._handleCancelSelection();
   }
 
@@ -424,7 +424,7 @@ class BXCEDemoDataTable extends LitElement {
             .slice()
             .sort(
               (lhs, rhs) =>
-                (this.constructor as typeof BXCEDemoDataTable).collationFactors[
+                (this.constructor as typeof CDSCEDemoDataTable).collationFactors[
                   sortDirection
                 ] * this._compare(lhs[sortColumnId!], rhs[sortColumnId!])
             );
@@ -554,7 +554,7 @@ const defineDemoDataTable = (() => {
       hasDemoDataTableDefined = true;
       const ce = customElements;
       // Prevents `web-component-analyzer` from harvesting `<cds-ce-demo-data-table>`
-      ce.define(`${prefix}-ce-demo-data-table`, BXCEDemoDataTable);
+      ce.define(`${prefix}-ce-demo-data-table`, CDSCEDemoDataTable);
     }
   };
 })();

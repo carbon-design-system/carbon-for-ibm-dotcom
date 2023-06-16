@@ -31,7 +31,7 @@ export { TABLE_SORT_CYCLE, TABLE_SORT_CYCLES, TABLE_SORT_DIRECTION };
  *   Cancellation of this event stops the user-initiated change in sort direction.
  */
 @customElement(`${prefix}-table-header-cell`)
-class BXTableHeaderCell extends FocusMixin(LitElement) {
+class CDSTableHeaderCell extends FocusMixin(LitElement) {
   /**
    * Handles `click` event on the sort button.
    *
@@ -47,7 +47,7 @@ class BXTableHeaderCell extends FocusMixin(LitElement) {
         sortDirection: nextSortDirection,
       },
     };
-    const constructor = this.constructor as typeof BXTableHeaderCell;
+    const constructor = this.constructor as typeof CDSTableHeaderCell;
     if (
       this.dispatchEvent(new CustomEvent(constructor.eventBeforeSort, init))
     ) {
@@ -78,7 +78,7 @@ class BXTableHeaderCell extends FocusMixin(LitElement) {
           'Likely that `_getNextSort()` is called with non-sorted table column, which should not happen in regular condition.'
       );
     }
-    const directions = (this.constructor as typeof BXTableHeaderCell)
+    const directions = (this.constructor as typeof CDSTableHeaderCell)
       .TABLE_SORT_CYCLES[sortCycle];
     const index = directions.indexOf(sortDirection as TABLE_SORT_DIRECTION);
     if (index < 0) {
@@ -168,4 +168,4 @@ class BXTableHeaderCell extends FocusMixin(LitElement) {
   static TABLE_SORT_CYCLES = TABLE_SORT_CYCLES;
 }
 
-export default BXTableHeaderCell;
+export default CDSTableHeaderCell;

@@ -14,10 +14,13 @@
 @use '@carbon/styles/scss/type' as *;
 @use '@carbon/styles/scss/components/tabs/index';
 @use '@carbon/styles/scss/components/tabs/vars' as *;
+@use '@carbon/styles/scss/layer/layer-tokens';
 @use '@carbon/styles/scss/utilities/button-reset';
 
 :host(#{$prefix}-tabs),
 :host(#{$prefix}-tabs-skeleton) {
+  @include layer-tokens.emit-layer-tokens(1);
+
   @extend .#{$prefix}--tabs;
 }
 

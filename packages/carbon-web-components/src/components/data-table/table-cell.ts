@@ -18,7 +18,7 @@ import styles from './data-table.scss';
  * @element cds-table-cell
  */
 @customElement(`${prefix}-table-cell`)
-class BXTableCell extends LitElement {
+class CDSTableCell extends LitElement {
   connectedCallback() {
     if (!this.hasAttribute('role')) {
       this.setAttribute('role', 'cell');
@@ -33,4 +33,4 @@ class BXTableCell extends LitElement {
   static styles = styles;
 }
 
-export default BXTableCell;
+export default CDSTableCell;

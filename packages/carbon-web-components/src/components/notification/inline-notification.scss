@@ -36,6 +36,8 @@ $css--plex: true !default;
   display: none;
 }
 
+
+
 :host(#{$prefix}-inline-notification[kind='success']) {
   @extend .#{$prefix}--inline-notification--success;
 
