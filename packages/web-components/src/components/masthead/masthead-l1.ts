@@ -798,28 +798,28 @@ class DDSMastheadL1 extends StableSelectorMixin(LitElement) {
       );
     }
 
-    // Should default to active section name if no menu links are selected.
-    if (!this.selectedElements.length) {
-      this.selectedElements.push(
-        this.shadowRoot?.querySelector(
-          `.${prefix}--masthead__l1-title`
-        ) as Element
-      );
+    if (this.selectedElements.length) {
+      // Set active on nearest menu item.
+      this.selectedElements.forEach((element) => {
+        const parentMenuItem = element.closest(
+          `.${prefix}--masthead__l1-dropdown, .${prefix}--masthead__l1-dropdown-subsection`
+        )?.previousElementSibling;
+
+        // Set on parent item as long as it's not the dropdown toggle.
+        if (!parentMenuItem?.classList?.contains(`bx--masthead__l1-title`)) {
+          parentMenuItem?.setAttribute('active', '');
+        } else {
+          element.setAttribute('active', '');
+        }
+      });
+    } else {
+      // Should default to active section name if no menu links are selected.
+      const l1Title = this.shadowRoot?.querySelector(
+        `.${prefix}--masthead__l1-title`
+      ) as Element;
+      l1Title.setAttribute('active', '');
+      this.selectedElements.push(l1Title);
     }
-
-    // Set active on nearest menu item.
-    this.selectedElements.forEach((element) => {
-      const parentMenuItem = element.closest(
-        `.${prefix}--masthead__l1-dropdown, .${prefix}--masthead__l1-dropdown-subsection`
-      )?.previousElementSibling;
-
-      // Set on parent item as long as it's not the dropdown toggle.
-      if (!parentMenuItem?.classList?.contains(`bx--masthead__l1-title`)) {
-        parentMenuItem?.setAttribute('active', '');
-      } else {
-        element.setAttribute('active', '');
-      }
-    });
   }
 
   /**
