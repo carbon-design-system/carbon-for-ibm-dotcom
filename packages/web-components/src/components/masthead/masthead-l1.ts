@@ -806,7 +806,10 @@ class DDSMastheadL1 extends StableSelectorMixin(LitElement) {
         )?.previousElementSibling;
 
         // Set on parent item as long as it's not the dropdown toggle.
-        if (!parentMenuItem?.classList?.contains(`bx--masthead__l1-title`)) {
+        if (
+          parentMenuItem &&
+          !parentMenuItem?.classList?.contains(`bx--masthead__l1-title`)
+        ) {
           parentMenuItem?.setAttribute('active', '');
         } else {
           element.setAttribute('active', '');
