@@ -13,8 +13,8 @@ import ChevronRight16 from '@carbon/icons/lib/chevron--right/16';
 import { prefix } from '../../globals/settings';
 import HostListenerMixin from '../../globals/mixins/host-listener';
 import HostListener from '../../globals/decorators/host-listener';
-import CDSTableRow from './table-row';
-import CDSTableExpandedRow from './table-expanded-row';
+import BXTableRow from './table-row';
+import BXTableExpandedRow from './table-expanded-row';
 import styles from './data-table.scss';
 
 /**
@@ -23,7 +23,7 @@ import styles from './data-table.scss';
  * @element cds-table-expand-row
  */
 @customElement(`${prefix}-table-expand-row`)
-class CDSTableExpandRow extends HostListenerMixin(CDSTableRow) {
+class BXTableExpandRow extends HostListenerMixin(BXTableRow) {
   /**
    * Handles `click` event on the expando button.
    */
@@ -40,8 +40,7 @@ class CDSTableExpandRow extends HostListenerMixin(CDSTableRow) {
   @HostListener('mouseout')
   // @ts-ignore: The decorator refers to this method but TS thinks this method is not referred to
   private _handleMouseOverOut(event: MouseEvent) {
-    const { selectorExpandedRow } = this
-      .constructor as typeof CDSTableExpandRow;
+    const { selectorExpandedRow } = this.constructor as typeof BXTableExpandRow;
     const { nextElementSibling } = this;
     if (nextElementSibling?.matches(selectorExpandedRow)) {
       (nextElementSibling as CDSTableExpandedRow).highlighted =

@@ -18,7 +18,7 @@ import styles from './data-table.scss';
  * @element cds-table-toolbar-content
  */
 @customElement(`${prefix}-table-toolbar-content`)
-class CDSTableToolbarContent extends LitElement {
+class BXTableToolbarContent extends LitElement {
   /**
    * `true` if this batch actions bar is active.
    */
@@ -38,4 +38,4 @@ class CDSTableToolbarContent extends LitElement {
   static styles = styles;
 }
 
-export default CDSTableToolbarContent;
+export default BXTableToolbarContent;

@@ -18,7 +18,7 @@ import styles from './data-table.scss';
  * @element cds-table-head
  */
 @customElement(`${prefix}-table-head`)
-class CDSTableHead extends LitElement {
+class BXTableHead extends LitElement {
   connectedCallback() {
     if (!this.hasAttribute('role')) {
       this.setAttribute('role', 'rowgroup');
@@ -33,4 +33,4 @@ class CDSTableHead extends LitElement {
   static styles = styles;
 }
 
-export default CDSTableHead;
+export default BXTableHead;

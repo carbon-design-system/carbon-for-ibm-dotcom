@@ -24,7 +24,7 @@ import styles from './data-table.scss';
  *   Cancellation of this event stops the user-initiated change in selection.
  */
 @customElement(`${prefix}-table-row`)
-class CDSTableRow extends FocusMixin(LitElement) {
+class BXTableRow extends FocusMixin(LitElement) {
   /**
    * Handles `click` event on the check box.
    *
@@ -40,7 +40,7 @@ class CDSTableRow extends FocusMixin(LitElement) {
         selected,
       },
     };
-    const constructor = this.constructor as typeof CDSTableRow;
+    const constructor = this.constructor as typeof BXTableRow;
     if (
       this.dispatchEvent(
         new CustomEvent(constructor.eventBeforeChangeSelection, init)
@@ -166,4 +166,4 @@ class CDSTableRow extends FocusMixin(LitElement) {
   static styles = styles;
 }
 
-export default CDSTableRow;
+export default BXTableRow;

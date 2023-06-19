@@ -9,7 +9,7 @@
 
 import { customElement } from 'lit/decorators.js';
 import { prefix } from '../../globals/settings';
-import CDSTableRow from './table-row';
+import BXTableRow from './table-row';
 
 /**
  * Data table header row.
@@ -17,7 +17,7 @@ import CDSTableRow from './table-row';
  * @element cds-table-header-row
  */
 @customElement(`${prefix}-table-header-row`)
-class CDSTableHeaderRow extends CDSTableRow {
+class BXTableHeaderRow extends BXTableRow {
   /**
    * The name of the custom event fired before this row is selected/unselected upon a user gesture.
    * Cancellation of this event stops the user-initiated change in selection.
@@ -27,4 +27,4 @@ class CDSTableHeaderRow extends CDSTableRow {
   }
 }
 
-export default CDSTableHeaderRow;
+export default BXTableHeaderRow;

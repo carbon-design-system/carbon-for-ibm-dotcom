@@ -19,13 +19,12 @@ import styles from './data-table.scss';
  * @fires cds-table-batch-actions-cancel-clicked - The custom event fired after the Cancel button is clicked.
  */
 @customElement(`${prefix}-table-batch-actions`)
-class CDSTableBatchActions extends LitElement {
+class BXTableBatchActions extends LitElement {
   /**
    * Handles `click` event on the Cancel button.
    */
   private _handleCancel() {
-    const { eventClickCancel } = this
-      .constructor as typeof CDSTableBatchActions;
+    const { eventClickCancel } = this.constructor as typeof BXTableBatchActions;
     this.dispatchEvent(
       new CustomEvent(eventClickCancel, { bubbles: true, composed: true })
     );
@@ -90,4 +89,4 @@ class CDSTableBatchActions extends LitElement {
   static styles = styles;
 }
 
-export default CDSTableBatchActions;
+export default BXTableBatchActions;
