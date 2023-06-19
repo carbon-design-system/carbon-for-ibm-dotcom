@@ -16,7 +16,7 @@ $css--plex: true !default;
 @use '@carbon/styles/scss/breakpoint' as *;
 @use '@carbon/styles/scss/components/popover';
 
-:host(#{$prefix}-popover){
+:host(#{$prefix}-popover) {
   @include layer-tokens.emit-layer-tokens(1);
 }
 

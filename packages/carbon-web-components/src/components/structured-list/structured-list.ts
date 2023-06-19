@@ -71,7 +71,8 @@ class CDSStructuredList extends FocusMixin(LitElement) {
         // Propagate watched attribute to descendants until `:host-context()` gets supported in all major browsers
         forEach(
           this.querySelectorAll(
-            (this.constructor as typeof CDSStructuredList).selectorRowsWithHeader
+            (this.constructor as typeof CDSStructuredList)
+              .selectorRowsWithHeader
           ),
           (elem) => {
             this[`${attr}`]

@@ -25,9 +25,12 @@ $css--plex: true !default;
   outline: none;
 }
 
-:host(#{$prefix}-actionable-notification-button:not(
-  [low-contrast]
-)[kind='tertiary']) button {
+:host(
+    #{$prefix}-actionable-notification-button:not(
+        [low-contrast]
+      )[kind='tertiary']
+  )
+  button {
   @include button-mixins.button-theme(
     transparent,
     $notification-action-tertiary-inverse,
@@ -68,9 +71,9 @@ $css--plex: true !default;
   }
 }
 
-:host(#{$prefix}-actionable-notification-button:not(
-  [low-contrast]
-)[kind='ghost'])
+:host(
+    #{$prefix}-actionable-notification-button:not([low-contrast])[kind='ghost']
+  )
   button {
   color: $link-inverse;
 }
@@ -108,8 +111,8 @@ $css--plex: true !default;
   @extend .#{$prefix}--actionable-notification--info;
 
   &[low-contrast] {
-  @extend .#{$prefix}--actionable-notification--low-contrast,
-    .#{$prefix}--actionable-notification--info;
+    @extend .#{$prefix}--actionable-notification--low-contrast,
+      .#{$prefix}--actionable-notification--info;
   }
 }
 
@@ -117,8 +120,8 @@ $css--plex: true !default;
   @extend .#{$prefix}--actionable-notification--info-square;
 
   &[low-contrast] {
-  @extend .#{$prefix}--actionable-notification--low-contrast,
-    .#{$prefix}--actionable-notification--info;
+    @extend .#{$prefix}--actionable-notification--low-contrast,
+      .#{$prefix}--actionable-notification--info;
   }
 }
 
@@ -143,9 +146,9 @@ $css--plex: true !default;
   @extend .#{$prefix}--actionable-notification--warning-alt;
 
   &[low-contrast] {
-  @extend .#{$prefix}--actionable-notification--low-contrast,
-    .#{$prefix}--actionable-notification--warning;
-}
+    @extend .#{$prefix}--actionable-notification--low-contrast,
+      .#{$prefix}--actionable-notification--warning;
+  }
 
   /* TODO: Remove this once the following issue with icon fill is resolved:
   ** https://github.com/carbon-design-system/carbon/issues/13616
@@ -163,7 +166,7 @@ $css--plex: true !default;
   @extend .#{$prefix}--actionable-notification--error;
 
   &[low-contrast] {
-  @extend .#{$prefix}--actionable-notification--low-contrast,
-    .#{$prefix}--actionable-notification--error;
+    @extend .#{$prefix}--actionable-notification--low-contrast,
+      .#{$prefix}--actionable-notification--error;
   }
 }

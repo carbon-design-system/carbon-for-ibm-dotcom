@@ -48,7 +48,9 @@ class CDSListItem extends LitElement {
     this.toggleAttribute(
       'nested',
       Boolean(
-        this.closest((this.constructor as typeof CDSListItem).selectorNestedList)
+        this.closest(
+          (this.constructor as typeof CDSListItem).selectorNestedList
+        )
       )
     );
     if (!this.hasAttribute('role')) {

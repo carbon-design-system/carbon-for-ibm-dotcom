@@ -27,15 +27,18 @@ $css--plex: true !default;
   }
 }
 
-:host(#{$prefix}-text-input[show-password-visibility-toggle][size='sm']) .#{$prefix}--text-input__invalid-icon {
+:host(#{$prefix}-text-input[show-password-visibility-toggle][size='sm'])
+  .#{$prefix}--text-input__invalid-icon {
   right: $spacing-07;
 }
 
-:host(#{$prefix}-text-input[show-password-visibility-toggle][size='md']) .#{$prefix}--text-input__invalid-icon,
+:host(#{$prefix}-text-input[show-password-visibility-toggle][size='md'])
+  .#{$prefix}--text-input__invalid-icon,
 .#{$prefix}--text-input__invalid-icon {
   right: $spacing-08;
 }
 
-:host(#{$prefix}-text-input[show-password-visibility-toggle][size='lg']) .#{$prefix}--text-input__invalid-icon {
+:host(#{$prefix}-text-input[show-password-visibility-toggle][size='lg'])
+  .#{$prefix}--text-input__invalid-icon {
   right: $spacing-09;
 }

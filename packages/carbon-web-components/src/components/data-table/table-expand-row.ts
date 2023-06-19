@@ -40,7 +40,8 @@ class CDSTableExpandRow extends HostListenerMixin(CDSTableRow) {
   @HostListener('mouseout')
   // @ts-ignore: The decorator refers to this method but TS thinks this method is not referred to
   private _handleMouseOverOut(event: MouseEvent) {
-    const { selectorExpandedRow } = this.constructor as typeof CDSTableExpandRow;
+    const { selectorExpandedRow } = this
+      .constructor as typeof CDSTableExpandRow;
     const { nextElementSibling } = this;
     if (nextElementSibling?.matches(selectorExpandedRow)) {
       (nextElementSibling as CDSTableExpandedRow).highlighted =

@@ -101,7 +101,7 @@ $css--plex: true !default;
 
 :host(#{$prefix}-expandable-tile) {
   @include layer-tokens.emit-layer-tokens(1);
-  
+
   @extend .#{$prefix}--tile;
   @extend .#{$prefix}--tile--expandable;
 

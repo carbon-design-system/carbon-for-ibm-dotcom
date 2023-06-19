@@ -424,9 +424,9 @@ class CDSCEDemoDataTable extends LitElement {
             .slice()
             .sort(
               (lhs, rhs) =>
-                (this.constructor as typeof CDSCEDemoDataTable).collationFactors[
-                  sortDirection
-                ] * this._compare(lhs[sortColumnId!], rhs[sortColumnId!])
+                (this.constructor as typeof CDSCEDemoDataTable)
+                  .collationFactors[sortDirection] *
+                this._compare(lhs[sortColumnId!], rhs[sortColumnId!])
             );
     return html`
       <cds-table-toolbar>

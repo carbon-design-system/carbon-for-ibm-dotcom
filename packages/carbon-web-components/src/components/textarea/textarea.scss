@@ -10,7 +10,6 @@ $css--plex: true !default;
 @use '@carbon/styles/scss/layer/layer-tokens';
 @use '@carbon/styles/scss/components/text-area/index';
 
-
 :host(#{$prefix}-textarea) {
   @include layer-tokens.emit-layer-tokens(1);
 
@@ -21,6 +20,5 @@ $css--plex: true !default;
 :host(#{$prefix}-textarea:not([cols])),
 :host(#{$prefix}-textarea) textarea[cols='0'],
 :host(#{$prefix}-textarea) textarea:not([cols]) {
-    width: 100%;
-  }
-
+  width: 100%;
+}

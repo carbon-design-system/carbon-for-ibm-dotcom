@@ -24,7 +24,8 @@ class CDSTableBatchActions extends LitElement {
    * Handles `click` event on the Cancel button.
    */
   private _handleCancel() {
-    const { eventClickCancel } = this.constructor as typeof CDSTableBatchActions;
+    const { eventClickCancel } = this
+      .constructor as typeof CDSTableBatchActions;
     this.dispatchEvent(
       new CustomEvent(eventClickCancel, { bubbles: true, composed: true })
     );
