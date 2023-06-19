@@ -430,7 +430,7 @@ describe('data-table', function () {
         });
         row!.shadowRoot!.querySelector('input')!.click();
         await Promise.resolve();
-        expect((row as CDSTableRow).selected).toBe(false);
+        expect((row as BXTableRow).selected).toBe(false);
       });
     });
   });

@@ -53,10 +53,10 @@ const doesRowMatchSearchString = (row, searchString) =>
  * and thus abstracting everything in a library won't be a good return on investment
  * vs. letting users copy code here and implement features that fit their needs.
  */
-// @ts-ignore `CDSCEDemoDataTable` is used (only) for type reference
+// @ts-ignore `BXCEDemoDataTable` is used (only) for type reference
 // eslint-disable-next-line @typescript-eslint/no-unused-vars
 @customElement('cds-ce-demo-data-table')
-class CDSCEDemoDataTable extends LitElement {
+class BXCEDemoDataTable extends LitElement {
   /**
    * The debounced handler for user-initiated change in search string.
    * @type {Function}
@@ -457,4 +457,4 @@ class CDSCEDemoDataTable extends LitElement {
   };
 }
 
-export default CDSCEDemoDataTable;
+export default BXCEDemoDataTable;
