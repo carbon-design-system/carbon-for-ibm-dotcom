@@ -13,7 +13,7 @@ import { prefix } from '../../globals/settings';
 import HostListenerMixin from '../../globals/mixins/host-listener';
 import HostListener from '../../globals/decorators/host-listener';
 import { find, forEach } from '../../globals/internal/collection-helpers';
-import CDSContentSwitcher, {
+import BXContentSwitcher, {
   NAVIGATION_DIRECTION,
 } from '../content-switcher/content-switcher';
 import {
@@ -22,7 +22,7 @@ import {
   TABS_KEYBOARD_ACTION,
   TABS_TYPE,
 } from './defs';
-import CDSTab from './tab';
+import BXTab from './tab';
 import styles from './tabs.scss';
 
 export {
@@ -43,7 +43,7 @@ export {
  * @fires cds-tabs-selected - The custom event fired after a a tab is selected upon a user gesture.
  */
 @customElement(`${prefix}-tabs`)
-class CDSTabs extends HostListenerMixin(CDSContentSwitcher) {
+class BXTabs extends HostListenerMixin(BXContentSwitcher) {
   /**
    * The latest status of this dropdown, for screen reader to accounce.
    */
@@ -122,9 +122,9 @@ class CDSTabs extends HostListenerMixin(CDSContentSwitcher) {
    */
   private _clearHighlight() {
     forEach(
-      this.querySelectorAll((this.constructor as typeof CDSTabs).selectorItem),
+      this.querySelectorAll((this.constructor as typeof BXTabs).selectorItem),
       (item) => {
-        (item as CDSTab).highlighted = false;
+        (item as BXTab).highlighted = false;
       }
     );
   }
@@ -145,11 +145,11 @@ class CDSTabs extends HostListenerMixin(CDSContentSwitcher) {
     { immediate }: { immediate?: boolean } = {}
   ) {
     const { selectorItem, selectorItemHighlighted, selectorItemSelected } = this
-      .constructor as typeof CDSTabs;
+      .constructor as typeof BXTabs;
     const nextItem = this._getNextItem(
       this.querySelector(
         immediate ? selectorItemSelected : selectorItemHighlighted
-      ) as CDSTab,
+      ) as BXTab,
       direction
     );
     if (!nextItem) {
@@ -157,10 +157,10 @@ class CDSTabs extends HostListenerMixin(CDSContentSwitcher) {
     }
 
     if (immediate) {
-      this._handleUserInitiatedSelectItem(nextItem as CDSTab);
+      this._handleUserInitiatedSelectItem(nextItem as BXTab);
     } else {
       forEach(this.querySelectorAll(selectorItem), (item) => {
-        (item as CDSTab)[immediate ? 'selected' : 'highlighted'] =
+        (item as BXTab)[immediate ? 'selected' : 'highlighted'] =
           nextItem === item;
       });
     }
@@ -183,7 +183,7 @@ class CDSTabs extends HostListenerMixin(CDSContentSwitcher) {
     const { target } = event;
     if (this === target) {
       this._handleUserInitiatedToggle();
-    } else if ((target as CDSTab).value === this.value) {
+    } else if ((target as BXTab).value === this.value) {
       // Clicking on selected item, simply closes the narrow mode dropdown
       this._handleUserInitiatedToggle(false);
     } else {
@@ -198,7 +198,7 @@ class CDSTabs extends HostListenerMixin(CDSContentSwitcher) {
     const { _open: open, _triggerNode: triggerNode } = this;
     const { key, target } = event;
     const narrowMode = Boolean(triggerNode.offsetParent);
-    const action = (this.constructor as typeof CDSTabs).getAction(key, {
+    const action = (this.constructor as typeof BXTabs).getAction(key, {
       narrowMode,
     });
     if (!open && narrowMode) {
@@ -221,7 +221,7 @@ class CDSTabs extends HostListenerMixin(CDSContentSwitcher) {
           this._handleUserInitiatedToggle(false);
           break;
         case TABS_KEYBOARD_ACTION.SELECTING:
-          this._handleUserInitiatedSelectItem(target as CDSTab);
+          this._handleUserInitiatedSelectItem(target as BXTab);
           break;
         case TABS_KEYBOARD_ACTION.HOME:
           this._navigate(this._currentIndex + this._totalTabs, {
@@ -244,10 +244,10 @@ class CDSTabs extends HostListenerMixin(CDSContentSwitcher) {
         case TABS_KEYBOARD_ACTION.TRIGGERING:
           {
             const { selectorItemHighlighted } = this
-              .constructor as typeof CDSTabs;
+              .constructor as typeof BXTabs;
             const highlightedItem = this.querySelector(
               selectorItemHighlighted
-            ) as CDSTab;
+            ) as BXTab;
             if (highlightedItem) {
               if (highlightedItem.value === this.value) {
                 // Selecting an already-selected item, simply closes the narrow mode dropdown
@@ -268,7 +268,7 @@ class CDSTabs extends HostListenerMixin(CDSContentSwitcher) {
     }
   }
 
-  protected _selectionDidChange(itemToSelect: CDSTab) {
+  protected _selectionDidChange(itemToSelect: BXTab) {
     super._selectionDidChange(itemToSelect);
     this._assistiveStatusText = this.selectedItemAssistiveText;
     this._handleUserInitiatedToggle(false);
@@ -307,17 +307,17 @@ class CDSTabs extends HostListenerMixin(CDSContentSwitcher) {
 
   shouldUpdate(changedProperties) {
     super.shouldUpdate(changedProperties);
-    const { selectorItem } = this.constructor as typeof CDSTabs;
+    const { selectorItem } = this.constructor as typeof BXTabs;
     if (changedProperties.has('type')) {
       forEach(this.querySelectorAll(selectorItem), (elem) => {
         this._totalTabs++;
-        (elem as CDSTab).type = this.type;
+        (elem as BXTab).type = this.type;
       });
     }
     if (changedProperties.has('value')) {
       const item = find(
         this.querySelectorAll(selectorItem),
-        (elem) => (elem as CDSTab).value === this.value
+        (elem) => (elem as BXTab).value === this.value
       );
       if (item) {
         const range = this.ownerDocument!.createRange();
@@ -427,4 +427,4 @@ class CDSTabs extends HostListenerMixin(CDSContentSwitcher) {
   }
 }
 
-export default CDSTabs;
+export default BXTabs;
