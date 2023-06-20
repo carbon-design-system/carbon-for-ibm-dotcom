@@ -840,6 +840,18 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@babel/plugin-proposal-private-property-in-object@npm:~7.12.0":
+  version: 7.12.13
+  resolution: "@babel/plugin-proposal-private-property-in-object@npm:7.12.13"
+  dependencies:
+    "@babel/helper-create-class-features-plugin": ^7.12.13
+    "@babel/helper-plugin-utils": ^7.12.13
+  peerDependencies:
+    "@babel/core": ^7.0.0-0
+  checksum: 469e7d45b5686d8355569043fac088dafdf7bfe8de5e33e9688b0694781ba42a8cc45f618e8face97b93e0835513938395ab885846b841684be11ab3b748374b
+  languageName: node
+  linkType: hard
+
 "@babel/plugin-proposal-unicode-property-regex@npm:^7.12.13, @babel/plugin-proposal-unicode-property-regex@npm:^7.4.4":
   version: 7.18.6
   resolution: "@babel/plugin-proposal-unicode-property-regex@npm:7.18.6"
@@ -2267,6 +2279,7 @@ __metadata:
     "@babel/plugin-proposal-class-properties": ~7.12.0
     "@babel/plugin-proposal-export-default-from": ~7.12.0
     "@babel/plugin-proposal-export-namespace-from": ~7.12.0
+    "@babel/plugin-proposal-private-property-in-object": ~7.12.0
     "@babel/plugin-transform-runtime": 7.18.5
     "@babel/preset-env": ~7.12.0
     "@babel/preset-react": ~7.12.1
