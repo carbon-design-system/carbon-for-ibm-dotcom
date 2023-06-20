@@ -12,6 +12,8 @@
 @use '@carbon/styles/scss/components/loading';
 @use '@carbon/styles/scss/components/inline-loading/inline-loading' as *;
 
+@include inline-loading;
+
 :host(#{$prefix}-inline-loading) {
   @extend .#{$prefix}--inline-loading;
 
