@@ -13,7 +13,6 @@ $css--plex: true !default;
 @use '@carbon/styles/scss/spacing' as *;
 @use '@carbon/styles/scss/motion' as *;
 @use '@carbon/styles/scss/utilities' as *;
-@use '@carbon/styles/scss/layer' as *;
 @use '@carbon/styles/scss/layer/layer-tokens';
 @use '@carbon/styles/scss/components/code-snippet/code-snippet' as *;
 @use '@carbon/styles/scss/components/copy-button/copy-button';
