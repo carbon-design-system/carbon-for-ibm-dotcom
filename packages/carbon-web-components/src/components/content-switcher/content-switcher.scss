@@ -72,20 +72,20 @@ $css--plex: true !default;
       border-bottom-color: $border-inverse;
     }
   }
+}
 
-  &[icon] {
-    width: initial;
+:host(#{$prefix}-content-switcher-item)[icon] {
+  width: initial;
 
-    .#{$prefix}--content-switcher-btn {
-      padding-left: rem(11px);
-      padding-right: rem(11px);
-      height: rem(40px);
-    }
+  .#{$prefix}--content-switcher-btn {
+    padding-left: rem(11px);
+    padding-right: rem(11px);
+    height: rem(40px);
+  }
 
-    .#{$prefix}--content-switcher__label {
-      display: flex;
-      align-items: center;
-    }
+  .#{$prefix}--content-switcher__label {
+    display: flex;
+    align-items: center;
   }
 }
 
