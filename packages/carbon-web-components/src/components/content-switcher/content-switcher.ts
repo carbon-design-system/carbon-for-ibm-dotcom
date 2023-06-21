@@ -12,7 +12,7 @@ import { property, customElement } from 'lit/decorators.js';
 import { prefix } from '../../globals/settings';
 import { forEach, indexOf } from '../../globals/internal/collection-helpers';
 import { NAVIGATION_DIRECTION, CONTENT_SWITCHER_SIZE } from './defs';
-import CDSSwitch from './content-switcher-item';
+import CDSContentSwitcherItem from './content-switcher-item';
 import styles from './content-switcher.scss';
 
 export { NAVIGATION_DIRECTION, CONTENT_SWITCHER_SIZE };
@@ -59,14 +59,17 @@ export default class CDSContentSwitcher extends LitElement {
     forEach(this.querySelectorAll(selectorItem), (elem, i) => {
       // Specifies child `<cds-content-switcher-item>` to hide its divider instead of using CSS,
       // until `:host-context()` gets supported in all major browsers
-      (elem as CDSSwitch).hideDivider = i === nextIndex;
+      (elem as CDSContentSwitcherItem).hideDivider = i === nextIndex;
     });
 
     const { selectorItemSelected } = this
       .constructor as typeof CDSContentSwitcher;
     const selectedItem = this.querySelector(selectorItemSelected);
-    const nextItem = this._getNextItem(selectedItem as CDSSwitch, 1);
-    (nextItem as CDSSwitch).hideDivider = true;
+    const nextItem = this._getNextItem(
+      selectedItem as CDSContentSwitcherItem,
+      1
+    );
+    (nextItem as CDSContentSwitcherItem).hideDivider = true;
   }
 
   /**
@@ -74,7 +77,10 @@ export default class CDSContentSwitcher extends LitElement {
    * @param direction The navigation direction.
    * @returns The item to be selected.
    */
-  protected _getNextItem(currentItem: CDSSwitch, direction: number) {
+  protected _getNextItem(
+    currentItem: CDSContentSwitcherItem,
+    direction: number
+  ) {
     const items = this.querySelectorAll(
       (this.constructor as typeof CDSContentSwitcher).selectorItemEnabled
     );
@@ -89,7 +95,7 @@ export default class CDSContentSwitcher extends LitElement {
    * @param event The event.
    */
   protected _handleClick({ target }: MouseEvent) {
-    this._handleUserInitiatedSelectItem(target as CDSSwitch);
+    this._handleUserInitiatedSelectItem(target as CDSContentSwitcherItem);
   }
 
   /**
@@ -108,7 +114,7 @@ export default class CDSContentSwitcher extends LitElement {
    *
    * @param [item] The content switcher item user wants to select.
    */
-  protected _handleUserInitiatedSelectItem(item: CDSSwitch) {
+  protected _handleUserInitiatedSelectItem(item: CDSContentSwitcherItem) {
     if (!item.disabled && item.value !== this.value) {
       const init = {
         bubbles: true,
@@ -139,11 +145,11 @@ export default class CDSContentSwitcher extends LitElement {
     const { selectorItemSelected } = this
       .constructor as typeof CDSContentSwitcher;
     const nextItem = this._getNextItem(
-      this.querySelector(selectorItemSelected) as CDSSwitch,
+      this.querySelector(selectorItemSelected) as CDSContentSwitcherItem,
       direction
     );
     if (nextItem) {
-      this._handleUserInitiatedSelectItem(nextItem as CDSSwitch);
+      this._handleUserInitiatedSelectItem(nextItem as CDSContentSwitcherItem);
       this.requestUpdate();
     }
   }
@@ -153,14 +159,14 @@ export default class CDSContentSwitcher extends LitElement {
    *
    * @param itemToSelect A content switcher item.
    */
-  protected _selectionDidChange(itemToSelect: CDSSwitch) {
+  protected _selectionDidChange(itemToSelect: CDSContentSwitcherItem) {
     this.value = itemToSelect.value;
     forEach(
       this.querySelectorAll(
         (this.constructor as typeof CDSContentSwitcher).selectorItemSelected
       ),
       (item) => {
-        (item as CDSSwitch).selected = false;
+        (item as CDSContentSwitcherItem).selected = false;
       }
     );
     itemToSelect.selected = true;
@@ -178,7 +184,7 @@ export default class CDSContentSwitcher extends LitElement {
       forEach(this.querySelectorAll(selectorItem), (elem, i) => {
         // Specifies child `<cds-content-switcher-item>` to hide its divider instead of using CSS,
         // until `:host-context()` gets supported in all major browsers
-        (elem as CDSSwitch).hideDivider = i === nextIndex;
+        (elem as CDSContentSwitcherItem).hideDivider = i === nextIndex;
       });
     });
   }
@@ -205,7 +211,8 @@ export default class CDSContentSwitcher extends LitElement {
     if (changedProperties.has('value')) {
       const { selectorItem } = this.constructor as typeof CDSContentSwitcher;
       forEach(this.querySelectorAll(selectorItem), (elem) => {
-        (elem as CDSSwitch).selected = (elem as CDSSwitch).value === this.value;
+        (elem as CDSContentSwitcherItem).selected =
+          (elem as CDSContentSwitcherItem).value === this.value;
       });
     }
     const { selectorIconItem } = this.constructor as typeof CDSContentSwitcher;
@@ -219,11 +226,14 @@ export default class CDSContentSwitcher extends LitElement {
     const { selectorItemSelected } = this
       .constructor as typeof CDSContentSwitcher;
     const selectedItem = this.querySelector(selectorItemSelected);
-    const nextItem = this._getNextItem(selectedItem as CDSSwitch, 1);
+    const nextItem = this._getNextItem(
+      selectedItem as CDSContentSwitcherItem,
+      1
+    );
 
     // Specifies child `<cds-content-switcher-item>` to hide its divider instead of using CSS,
     // until `:host-context()` gets supported in all major browsers
-    (nextItem as CDSSwitch).hideDivider = true;
+    (nextItem as CDSContentSwitcherItem).hideDivider = true;
   }
 
   /**
