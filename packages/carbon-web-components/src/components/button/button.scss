@@ -8,10 +8,11 @@
 $css--plex: true !default;
 
 @use '@carbon/styles/scss/config' as *;
+@use '@carbon/styles/scss/spacing' as *;
 @use '@carbon/styles/scss/utilities/convert' as *;
 @use '@carbon/styles/scss/theme' as *;
 @use '@carbon/styles/scss/layer/layer-tokens';
-@use '@carbon/styles/scss/components/button';
+@use '@carbon/styles/scss/components/button' as *;
 @use '@carbon/styles/scss/components/popover/index';
 @use '@carbon/styles/scss/components/code-snippet/code-snippet' as *;
 @use '@carbon/styles/scss/components/tooltip';
@@ -52,6 +53,27 @@ $css--plex: true !default;
     color: $icon-primary;
     &:active {
       background-color: $layer-hover;
+    }
+  }
+}
+
+
+:host(#{$prefix}-button[pagination][batch-action]:not([disabled])),
+:host(#{$prefix}-modal-footer-button[pagination][batch-action]:not([disabled])) {
+  .#{$prefix}--btn {
+    padding: $button-padding-ghost;
+
+    &:focus {
+      outline: 2px solid $layer;
+      outline-offset: -#{$spacing-01};
+    }
+  }
+
+ :host(#{$prefix}-button[pagination][has-main-content]:not([disabled])),
+ :host(#{$prefix}-modal-footer-button[pagination][has-main-content]:not([disabled])) { {
+    ::slotted([slot='icon']) {
+      position: static;
+      margin-left: $spacing-02;
     }
   }
 }
