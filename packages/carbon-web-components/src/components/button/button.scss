@@ -57,9 +57,10 @@ $css--plex: true !default;
   }
 }
 
-
 :host(#{$prefix}-button[pagination][batch-action]:not([disabled])),
-:host(#{$prefix}-modal-footer-button[pagination][batch-action]:not([disabled])) {
+:host(
+    #{$prefix}-modal-footer-button[pagination][batch-action]:not([disabled])
+  ) {
   .#{$prefix}--btn {
     padding: $button-padding-ghost;
 
@@ -69,8 +70,12 @@ $css--plex: true !default;
     }
   }
 
- :host(#{$prefix}-button[pagination][has-main-content]:not([disabled])),
- :host(#{$prefix}-modal-footer-button[pagination][has-main-content]:not([disabled])) {
+  :host(#{$prefix}-button[pagination][has-main-content]:not([disabled])),
+  :host(
+      #{$prefix}-modal-footer-button[pagination][has-main-content]:not(
+          [disabled]
+        )
+    ) {
     ::slotted([slot='icon']) {
       position: static;
       margin-left: $spacing-02;
