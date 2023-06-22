@@ -3,6 +3,18 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.33.0-rc.1](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/compare/@carbon/ibmdotcom-web-components@1.33.0-rc.0...@carbon/ibmdotcom-web-components@1.33.0-rc.1) (2023-06-22)
+
+
+### Bug Fixes
+
+* **locale-modal:** set ipcinfo cookie with selected locale ([#10587](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/issues/10587)) ([e026bd6](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/commit/e026bd660b20ed6fece706926c26262b0c62f63d)), closes [selector#10581](https://github.com/selector/issues/10581)
+* **masthead:** Esc to close Cloud Masthead ([#10555](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/issues/10555)) ([#10588](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/issues/10588)) ([06cd69d](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/commit/06cd69dec6d91cafb358e078d8d083ae62edfc13)), closes [#10174](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/issues/10174)
+
+
+
+
+
 # [1.33.0-rc.0](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/compare/@carbon/ibmdotcom-web-components@1.32.0...@carbon/ibmdotcom-web-components@1.33.0-rc.0) (2023-06-09)
 
 
