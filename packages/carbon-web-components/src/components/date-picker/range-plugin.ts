@@ -1,7 +1,7 @@
 /**
  * @license
  *
- * Copyright IBM Corp. 2019, 2022
+ * Copyright IBM Corp. 2019, 2023
  *
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
@@ -23,7 +23,7 @@ import { Plugin } from 'flatpickr/dist/types/options';
  *     We'd like to reset the selection when user re-opens calendar dropdown and re-selects a date.
  *     Workaround for: https://github.com/flatpickr/flatpickr/issues/1958
  *   * Disables the logic in Flatpickr `rangePlugin` that closes the calendar dropdown
- *     when it's lauched from the `<input>` for the end date and user selects a date.
+ *     when it's launched from the `<input>` for the end date and user selects a date.
  *     Workaround for: https://github.com/flatpickr/flatpickr/issues/1958
  *   * Ensures that the `<input>` in shadow DOM is treated as part of Flatpickr UI,
  *     by ensuring such `<input>` hits `.contains()` search from `fp.config.ignoredFocusElements`.
