@@ -114,7 +114,7 @@ class StickyHeader {
       const leadspaceSearchBar = component.shadowRoot.querySelector(
         `.${prefix}--search-container`
       );
-      this._leadspaceWithSearchBar = leadspaceSearchBar;
+      this._leadspaceSearchBar = leadspaceSearchBar;
       this._leadspaceWithSearchInput = component.querySelector(
         `${ddsPrefix}-search-with-typeahead`
       );
@@ -209,7 +209,7 @@ class StickyHeader {
       _tableOfContents: toc,
       _tableOfContentsInnerBar: tocInner,
       _leadspaceWithSearch: leadspaceSearch,
-      _leadspaceWithSearchBar: leadspaceSearchBar,
+      _leadspaceSearchBar: leadspaceSearchBar,
       _leadspaceWithSearchInput: leadspaceSearchInput,
       _leadspaceWithSearchStickyThreshold: leadspaceSearchThreshold,
     } = StickyHeader.global;
