@@ -125,6 +125,11 @@ $inset-transition: inset 110ms motion(standard, productive);
   }
 }
 
+:host(#{$prefix}-tabs[type='contained'])
+  .#{$prefix}--tabs-nav-content-container {
+  height: rem(48px);
+}
+
 :host(#{$prefix}-tab[type='contained']) {
   background-color: $layer-accent-01;
 
