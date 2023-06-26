@@ -56,10 +56,6 @@ $inset-transition: inset 110ms motion(standard, productive);
 :host(#{$prefix}-tabs) {
   @include focus-outline('reset');
 
-  &[color-scheme='light'] {
-    background-color: $layer-01;
-  }
-
   .#{$prefix}--tabs-trigger svg {
     width: auto;
     height: auto;

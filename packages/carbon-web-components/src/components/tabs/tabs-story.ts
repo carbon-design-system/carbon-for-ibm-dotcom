@@ -12,7 +12,7 @@ import { action } from '@storybook/addon-actions';
 import { boolean, select } from '@storybook/addon-knobs';
 import textNullable from '../../../.storybook/knob-text-nullable';
 import { ifDefined } from 'lit/directives/if-defined.js';
-import { TABS_COLOR_SCHEME, TABS_TYPE } from './tabs';
+import { TABS_TYPE } from './tabs';
 import './tab';
 import './tabs-skeleton';
 import './tab-skeleton';
@@ -22,14 +22,8 @@ import { prefix } from '../../globals/settings';
 
 const noop = () => {};
 
-const colorSchemes = {
-  [`Regular`]: null,
-  [`Light (${TABS_COLOR_SCHEME.LIGHT})`]: TABS_COLOR_SCHEME.LIGHT,
-};
-
 const types = {
   'Regular type': null,
-  [`Container type (${TABS_TYPE.CONTAINER})`]: TABS_TYPE.CONTAINER,
   [`Container type (${TABS_TYPE.CONTAINED})`]: TABS_TYPE.CONTAINED,
 };
 
@@ -161,7 +155,6 @@ skeleton.parameters = {
 
 export const Playground = (args) => {
   const {
-    colorScheme,
     triggerContent,
     type,
     value,
@@ -180,7 +173,6 @@ export const Playground = (args) => {
       ${styles}
     </style>
     <cds-tabs
-      color-scheme="${ifDefined(colorScheme)}"
       trigger-content="${ifDefined(triggerContent)}"
       type="${ifDefined(type)}"
       value="${ifDefined(value)}"
@@ -242,7 +234,6 @@ Playground.parameters = {
   ...storyDocs.parameters,
   knobs: {
     [`${prefix}-tabs`]: () => ({
-      colorScheme: select('Color scheme (color-scheme)', colorSchemes, null),
       triggerContent: textNullable(
         'The default content of the trigger button for narrow screen (trigger-content)',
         'Select an item'

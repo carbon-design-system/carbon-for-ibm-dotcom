@@ -20,16 +20,11 @@ import ChevronLeft16 from '@carbon/icons/lib/chevron--left/16';
 import CDSContentSwitcher, {
   NAVIGATION_DIRECTION,
 } from '../content-switcher/content-switcher';
-import { TABS_COLOR_SCHEME, TABS_KEYBOARD_ACTION, TABS_TYPE } from './defs';
+import { TABS_KEYBOARD_ACTION, TABS_TYPE } from './defs';
 import CDSTab from './tab';
 import styles from './tabs.scss';
 
-export {
-  NAVIGATION_DIRECTION,
-  TABS_COLOR_SCHEME,
-  TABS_KEYBOARD_ACTION,
-  TABS_TYPE,
-};
+export { NAVIGATION_DIRECTION, TABS_KEYBOARD_ACTION, TABS_TYPE };
 
 // button gradient width size
 const buttonGradientWidth = 8;
@@ -264,12 +259,6 @@ export default class CDSTabs extends HostListenerMixin(CDSContentSwitcher) {
    */
   @query(`.${prefix}--sub-content-right`)
   private _intersectionRightSentinelNode?: HTMLElement;
-
-  /**
-   * The color scheme.
-   */
-  @property({ attribute: 'color-scheme', reflect: true })
-  colorScheme = TABS_COLOR_SCHEME.REGULAR;
 
   /**
    * An assistive text for screen reader to announce, telling the open state.
