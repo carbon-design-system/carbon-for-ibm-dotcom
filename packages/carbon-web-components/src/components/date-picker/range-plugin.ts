@@ -11,6 +11,23 @@ import rangePlugin, { Config } from 'flatpickr/dist/plugins/rangePlugin';
 import { Instance as FlatpickrInstance } from 'flatpickr/dist/types/instance';
 import { Plugin } from 'flatpickr/dist/types/options';
 import on from 'carbon-components/es/globals/js/misc/on';
+import Handle from '../../globals/internal/handle';
+
+/**
+ * `FlatpickrInstance` with additional properties used for `range` plugin.
+ */
+export interface ExtendedFlatpickrInstanceRangePlugin
+  extends FlatpickrInstance {
+  /**
+   * The handle for `blur` event handler for from date range input.
+   */
+  _hBXCEDatePickerRangePluginOnBlurFrom?: Handle | null;
+
+  /**
+   * The handle for `blur` event handler for to date range input.
+   */
+  _hBXCEDatePickerRangePluginOnBlurTo?: Handle | null;
+}
 
 /**
  * @param config Plugin configuration.
@@ -32,7 +49,7 @@ import on from 'carbon-components/es/globals/js/misc/on';
  */
 export default (config: Config): Plugin => {
   const factory = rangePlugin({ position: 'left', ...config });
-  return (fp: FlatpickrInstance) => {
+  return (fp: ExtendedFlatpickrInstanceRangePlugin) => {
     const origRangePlugin = factory(fp);
     const { onReady: origOnReady } = origRangePlugin;
 
@@ -52,21 +69,19 @@ export default (config: Config): Plugin => {
         );
     };
 
-    /**
-     *
-     */
     const handleBlur = (event: FocusEvent) => {
       event.stopPropagation();
       const firstInput = fp._input;
-      const secondInput = config.input;
+      const secondInput = config.input as HTMLInputElement;
       const isInput =
         event.target === firstInput || event.target === secondInput;
       const valueChanged =
         getDateStrFromInputs([firstInput.value, secondInput.value]) !==
         fp.getDateStr();
-      const relatedTargetIsCalendar = fp.calendarContainer.contains(
-        event.relatedTarget
-      );
+      const relatedTargetIsCalendar =
+        event.relatedTarget &&
+        event.relatedTarget instanceof Node &&
+        fp.calendarContainer.contains(event.relatedTarget);
 
       if (isInput && valueChanged && !relatedTargetIsCalendar) {
         fp.setDate(
@@ -128,7 +143,7 @@ export default (config: Config): Plugin => {
             { capture: true }
           );
           fp._hBXCEDatePickerRangePluginOnBlurTo = on(
-            config.input,
+            config.input as HTMLInputElement,
             'blur',
             handleBlur,
             { capture: true }
