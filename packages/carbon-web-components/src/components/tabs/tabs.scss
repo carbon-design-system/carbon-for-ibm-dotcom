@@ -118,6 +118,11 @@ $inset-transition: inset 110ms motion(standard, productive);
 :host(#{$prefix}-tab:hover) {
   background-color: transparent;
   box-shadow: 0 -1px 0 $background-hover;
+
+  a.#{$prefix}--tabs__nav-link {
+    border-bottom: $tab-underline-color-hover;
+    color: $text-primary;
+  }
 }
 
 :host(#{$prefix}-tab[type='contained']) {
