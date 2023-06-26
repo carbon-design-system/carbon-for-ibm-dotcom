@@ -120,18 +120,20 @@ export default (config: Config): Plugin => {
         // the range plugin into consideration when it calls setDate.
         // Workaround for: https://github.com/flatpickr/flatpickr/issues/2918
         release();
-        fp._hBXCEDatePickerRangePluginOnBlurFrom = on(
-          fp._input,
-          'blur',
-          handleBlur,
-          { capture: true }
-        );
-        fp._hBXCEDatePickerRangePluginOnBlurTo = on(
-          config.input,
-          'blur',
-          handleBlur,
-          { capture: true }
-        );
+        if (fp.config.allowInput) {
+          fp._hBXCEDatePickerRangePluginOnBlurFrom = on(
+            fp._input,
+            'blur',
+            handleBlur,
+            { capture: true }
+          );
+          fp._hBXCEDatePickerRangePluginOnBlurTo = on(
+            config.input,
+            'blur',
+            handleBlur,
+            { capture: true }
+          );
+        }
       },
     });
   };
