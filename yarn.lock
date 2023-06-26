@@ -16481,6 +16481,13 @@ __metadata:
   languageName: node
   linkType: hard
 
+"flatpickr@patch:flatpickr@npm%3A4.6.13#./.yarn/patches/flatpickr-npm-4.6.13-06399933fc.patch::locator=carbon-for-ibm-dotcom%40workspace%3A.":
+  version: 4.6.13
+  resolution: "flatpickr@patch:flatpickr@npm%3A4.6.13#./.yarn/patches/flatpickr-npm-4.6.13-06399933fc.patch::version=4.6.13&hash=45a0af&locator=carbon-for-ibm-dotcom%40workspace%3A."
+  checksum: 0a74c045602fa77a394076f0f47b51618dc2fac5869c521a2ad3a26a9a91c244c3cfa83c4e624b180bbfe00e92c81dff9a86a7362dffb5fa565925aca22eaea5
+  languageName: node
+  linkType: hard
+
 "flatted@npm:^2.0.0":
   version: 2.0.2
   resolution: "flatted@npm:2.0.2"
