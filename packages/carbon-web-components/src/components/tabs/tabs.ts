@@ -45,6 +45,7 @@ export default class CDSTabs extends HostListenerMixin(CDSContentSwitcher) {
   /**
    * The currently selected index
    */
+  // @ts-ignore: TS thinks this method is not referred to
   private _currentIndex: number = 0;
 
   /**
