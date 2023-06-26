@@ -102,7 +102,7 @@ $inset-transition: inset 110ms motion(standard, productive);
 
   &[selected] {
     .#{$prefix}--tabs__nav-link {
-      @include type-style('heading-01');
+      @include type-style('heading-compact-01');
 
       border-bottom: 2px solid $border-interactive;
     }
