@@ -15,6 +15,7 @@ import { ifDefined } from 'lit/directives/if-defined.js';
 import FocusMixin from '../../internal/vendor/@carbon/web-components/globals/mixins/focus.js';
 import { BUTTON_ICON_LAYOUT, BUTTON_KIND, BUTTON_SIZE } from './defs';
 import ddsSettings from '../../internal/vendor/@carbon/ibmdotcom-utilities/utilities/settings/settings';
+import deprecate from '../../internal/vendor/@carbon/ibmdotcom-utilities/utilities/deprecate/deprecate';
 import styles from './button.scss';
 import StableSelectorMixin from '../../globals/mixins/stable-selector';
 
@@ -248,4 +249,8 @@ class DDSButtonExpressive extends FocusMixin(StableSelectorMixin(LitElement)) {
 }
 
 /* @__GENERATE_REACT_CUSTOM_ELEMENT_TYPE__ */
-export default DDSButtonExpressive;
+export default deprecate(
+  DDSButtonExpressive,
+  'The dds-button-expressive component has been deprecated in favor of the core carbon button component using the isExpressive prop. ' +
+    'See carbon core button documentation for more information.' 
+);

@@ -12,6 +12,7 @@ import { html, LitElement, TemplateResult } from 'lit';
 import { customElement, property, state } from 'lit/decorators.js';
 import settings from 'carbon-components/es/globals/js/settings.js';
 import ddsSettings from '../../internal/vendor/@carbon/ibmdotcom-utilities/utilities/settings/settings';
+import deprecate from '../../internal/vendor/@carbon/ibmdotcom-utilities/utilities/deprecate/deprecate';
 import { CONTENT_BLOCK_COMPLEMENTARY_STYLE_SCHEME } from './defs';
 import styles from './content-block.scss';
 import StableSelectorMixin from '../../globals/mixins/stable-selector';
@@ -219,4 +220,8 @@ class DDSContentBlock extends StableSelectorMixin(LitElement) {
 }
 
 /* @__GENERATE_REACT_CUSTOM_ELEMENT_TYPE__ */
-export default DDSContentBlock;
+export default deprecate(
+  DDSContentBlock,
+  'The content-block component has been deprecated in favor of the content-section/block component. ' +
+    'See content-section/block documentation for more information.'
+);

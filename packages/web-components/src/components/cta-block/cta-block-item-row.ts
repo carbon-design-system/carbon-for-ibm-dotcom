@@ -11,6 +11,7 @@ import { LitElement, html } from 'lit';
 import { customElement, property, state } from 'lit/decorators.js';
 import settings from 'carbon-components/es/globals/js/settings.js';
 import ddsSettings from '../../internal/vendor/@carbon/ibmdotcom-utilities/utilities/settings/settings';
+import deprecate from '../../internal/vendor/@carbon/ibmdotcom-utilities/utilities/deprecate/deprecate';
 import sameHeight from '../../internal/vendor/@carbon/ibmdotcom-utilities/utilities/sameHeight/sameHeight';
 import StableSelectorMixin from '../../globals/mixins/stable-selector';
 import ParentVisibilityMixin from '../../component-mixins/parent-visibility/parent-visibility';
@@ -187,4 +188,8 @@ class DDSCTABlockItemRow extends ParentVisibilityMixin(
 }
 
 /* @__GENERATE_REACT_CUSTOM_ELEMENT_TYPE__ */
-export default DDSCTABlockItemRow;
+export default deprecate(
+  DDSCTABlockItemRow,
+  'The cta-block-item-row component has been deprecated in favor of the content-section/block and content-item components. ' +
+    'See content-section/block and content-items documentation for more information.'
+);

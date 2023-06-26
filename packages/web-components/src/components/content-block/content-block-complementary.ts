@@ -10,6 +10,7 @@
 import { LitElement, html } from 'lit';
 import { customElement, property } from 'lit/decorators.js';
 import ddsSettings from '../../internal/vendor/@carbon/ibmdotcom-utilities/utilities/settings/settings';
+import deprecate from '../../internal/vendor/@carbon/ibmdotcom-utilities/utilities/deprecate/deprecate';
 import styles from './content-block.scss';
 
 const { stablePrefix: ddsPrefix } = ddsSettings;
@@ -42,4 +43,8 @@ class DDSContentBlockComplementary extends LitElement {
 }
 
 /* @__GENERATE_REACT_CUSTOM_ELEMENT_TYPE__ */
-export default DDSContentBlockComplementary;
+export default deprecate(
+  DDSContentBlockComplementary,
+  'The content-block-complementary component has been deprecated in favor of the content-section/block complimentary component. ' +
+    'See content-section/block complimentary documentation for more information.'
+);

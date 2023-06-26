@@ -10,6 +10,7 @@
 import { css } from 'lit';
 import { customElement } from 'lit/decorators.js';
 import ddsSettings from '../../internal/vendor/@carbon/ibmdotcom-utilities/utilities/settings/settings';
+import deprecate from '../../internal/vendor/@carbon/ibmdotcom-utilities/utilities/deprecate/deprecate';
 import StableSelectorMixin from '../../globals/mixins/stable-selector';
 import DDSContentGroup from '../content-group/content-group';
 import styles from './content-group-simple.scss';
@@ -36,4 +37,8 @@ class DDSContentGroupSimple extends StableSelectorMixin(DDSContentGroup) {
 }
 
 /* @__GENERATE_REACT_CUSTOM_ELEMENT_TYPE__ */
-export default DDSContentGroupSimple;
+export default deprecate(
+  DDSContentGroupSimple,
+  'The content-group-simple component has been deprecated in favor of the content-group, image, and content-item components. ' +
+    'See content-group, image, and content-item documentation for more information.'
+);

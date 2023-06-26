@@ -12,6 +12,7 @@ import { customElement, property, state } from 'lit/decorators.js';
 import { stripHTML } from '@carbon/ibmdotcom-utilities/es/utilities/stripHTML/index.js';
 import { render } from 'lit/html.js';
 import ddsSettings from '../../internal/vendor/@carbon/ibmdotcom-utilities/utilities/settings/settings';
+import deprecate from '../../internal/vendor/@carbon/ibmdotcom-utilities/utilities/deprecate/deprecate';
 import StableSelectorMixin from '../../globals/mixins/stable-selector';
 import styles from './content-block.scss';
 
@@ -60,4 +61,8 @@ class DDSContentBlockHeading extends StableSelectorMixin(LitElement) {
 }
 
 /* @__GENERATE_REACT_CUSTOM_ELEMENT_TYPE__ */
-export default DDSContentBlockHeading;
+export default deprecate(
+  DDSContentBlockHeading,
+  'The content-block-heading component has been deprecated in favor of the content-section/block heading component. ' +
+    'See content-section/block heading documentation for more information.'
+);

@@ -12,6 +12,7 @@ import { customElement, property } from 'lit/decorators.js';
 import { classMap } from 'lit/directives/class-map.js';
 import settings from 'carbon-components/es/globals/js/settings.js';
 import ddsSettings from '../../internal/vendor/@carbon/ibmdotcom-utilities/utilities/settings/settings';
+import deprecate from '../../internal/vendor/@carbon/ibmdotcom-utilities/utilities/deprecate/deprecate';
 import parseAspectRatio from '../../internal/vendor/@carbon/ibmdotcom-utilities/utilities/parseAspectRatio/parseAspectRatio';
 import DDSContentBlock from '../content-block/content-block';
 import '../horizontal-rule/horizontal-rule';
@@ -122,4 +123,8 @@ class DDSLogoGrid extends StableSelectorMixin(DDSContentBlock) {
 }
 
 /* @__GENERATE_REACT_CUSTOM_ELEMENT_TYPE__ */
-export default DDSLogoGrid;
+export default deprecate(
+  DDSLogoGrid,
+  'The logo-grid component has been deprecated in favor of the content-section/block and image-group component. ' + //TODO confirm new image-group or images in grid
+    'See content-section/block and image-group documentation for more information.'
+);

@@ -10,6 +10,7 @@
 import { customElement, property } from 'lit/decorators.js';
 import settings from 'carbon-components/es/globals/js/settings.js';
 import ddsSettings from '../../internal/vendor/@carbon/ibmdotcom-utilities/utilities/settings/settings';
+import deprecate from '../../internal/vendor/@carbon/ibmdotcom-utilities/utilities/deprecate/deprecate';
 import DDSCard from '../card/card';
 import styles from './card-link.scss';
 
@@ -49,4 +50,8 @@ class DDSCardLink extends DDSCard {
 }
 
 /* @__GENERATE_REACT_CUSTOM_ELEMENT_TYPE__ */
-export default DDSCardLink;
+export default deprecate(
+  DDSCardLink,
+  'The card-link component has been deprecated in favor of the card (link variant) component. ' +
+    'See card documentation for more information.'
+);

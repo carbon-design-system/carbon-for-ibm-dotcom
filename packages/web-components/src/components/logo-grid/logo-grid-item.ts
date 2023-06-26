@@ -9,6 +9,7 @@
 import { html } from 'lit';
 import { customElement } from 'lit/decorators.js';
 import ddsSettings from '@carbon/ibmdotcom-utilities/es/utilities/settings/settings.js';
+import deprecate from '../../internal/vendor/@carbon/ibmdotcom-utilities/utilities/deprecate/deprecate';
 import styles from './logo-grid.scss';
 import DDSImage from '../image/image';
 import StableSelectorMixin from '../../globals/mixins/stable-selector';
@@ -34,4 +35,8 @@ class DDSLogoGridItem extends StableSelectorMixin(DDSImage) {
 }
 
 /* @__GENERATE_REACT_CUSTOM_ELEMENT_TYPE__ */
-export default DDSLogoGridItem;
+export default deprecate(
+  DDSLogoGridItem,
+  'The logo-grid-item component has been deprecated in favor of the content-section/block and image-group component. ' + //TODO confirm new image-group or images in grid
+    'See content-section/block and image-group documentation for more information.'
+);

@@ -11,6 +11,7 @@ import { css, html, TemplateResult } from 'lit';
 import { customElement } from 'lit/decorators.js';
 import settings from 'carbon-components/es/globals/js/settings.js';
 import ddsSettings from '../../internal/vendor/@carbon/ibmdotcom-utilities/utilities/settings/settings';
+import deprecate from '../../internal/vendor/@carbon/ibmdotcom-utilities/utilities/deprecate/deprecate';
 import DDSContentGroup from '../content-group/content-group';
 import styles from './content-group-cards.scss';
 
@@ -53,4 +54,8 @@ class DDSContentGroupCards extends DDSContentGroup {
 }
 
 /* @__GENERATE_REACT_CUSTOM_ELEMENT_TYPE__ */
-export default DDSContentGroupCards;
+export default deprecate(
+  DDSContentGroupCards,
+  'The content-group-cards component has been deprecated in favor of the content-section/block and the card group component. ' +
+    'See content-section/block and card-group documentation for more information.'
+);

@@ -11,6 +11,7 @@ import { css } from 'lit';
 import { customElement, property } from 'lit/decorators.js';
 import parseAspectRatio from '@carbon/ibmdotcom-utilities/es/utilities/parseAspectRatio/parseAspectRatio.js';
 import ddsSettings from '../../internal/vendor/@carbon/ibmdotcom-utilities/utilities/settings/settings';
+import deprecate from '../../internal/vendor/@carbon/ibmdotcom-utilities/utilities/deprecate/deprecate';
 import StableSelectorMixin from '../../globals/mixins/stable-selector';
 import styles from './cta-section.scss';
 import DDSContentSection from '../content-section/content-section';
@@ -51,4 +52,8 @@ class DDSCTASection extends StableSelectorMixin(DDSContentSection) {
 }
 
 /* @__GENERATE_REACT_CUSTOM_ELEMENT_TYPE__ */
-export default DDSCTASection;
+export default deprecate(
+  DDSCTASection,
+  'The cta-section component has been deprecated in favor of the content-section/block and content-item components. ' +
+    'See content-section/block amd content-item documentation for more information.'
+);

@@ -10,6 +10,7 @@
 import { css } from 'lit';
 import { customElement, property } from 'lit/decorators.js';
 import ddsSettings from '../../internal/vendor/@carbon/ibmdotcom-utilities/utilities/settings/settings';
+import deprecate from '../../internal/vendor/@carbon/ibmdotcom-utilities/utilities/deprecate/deprecate';
 import StableSelectorMixin from '../../globals/mixins/stable-selector';
 import DDSMarkdown from '../markdown/markdown';
 import { CONTENT_BLOCK_COPY_SIZE } from './defs';
@@ -73,4 +74,8 @@ class DDSContentBlockCopy extends StableSelectorMixin(DDSMarkdown) {
 }
 
 /* @__GENERATE_REACT_CUSTOM_ELEMENT_TYPE__ */
-export default DDSContentBlockCopy;
+export default deprecate(
+  DDSContentBlockCopy,
+  'The card-block-copy component has been deprecated in favor of the content-section/block copy component. ' +
+    'See content-section/block documentation for more information.'
+);

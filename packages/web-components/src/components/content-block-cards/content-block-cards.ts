@@ -11,6 +11,7 @@ import { css, Part } from 'lit';
 import { customElement } from 'lit/decorators.js';
 import settings from 'carbon-components/es/globals/js/settings.js';
 import ddsSettings from '../../internal/vendor/@carbon/ibmdotcom-utilities/utilities/settings/settings';
+import deprecate from '../../internal/vendor/@carbon/ibmdotcom-utilities/utilities/deprecate/deprecate';
 import StableSelectorMixin from '../../globals/mixins/stable-selector';
 import DDSContentBlock from '../content-block/content-block';
 import styles from './content-block-cards.scss';
@@ -46,4 +47,8 @@ class DDSContentBlockCards extends StableSelectorMixin(DDSContentBlock) {
 }
 
 /* @__GENERATE_REACT_CUSTOM_ELEMENT_TYPE__ */
-export default DDSContentBlockCards;
+export default deprecate(
+  DDSContentBlockCards,
+  'The content-block-cards component has been deprecated in favor of the content-section/block and card-group component. ' +
+    'See content-section/block and card-group documentation for more information.'
+);

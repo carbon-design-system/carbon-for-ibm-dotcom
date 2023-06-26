@@ -10,6 +10,7 @@
 import { css } from 'lit';
 import { customElement } from 'lit/decorators.js';
 import ddsSettings from '../../internal/vendor/@carbon/ibmdotcom-utilities/utilities/settings/settings';
+import deprecate from '../../internal/vendor/@carbon/ibmdotcom-utilities/utilities/deprecate/deprecate';
 import StableSelectorMixin from '../../globals/mixins/stable-selector';
 import DDSContentBlock from '../content-block/content-block';
 import styles from './content-block-simple.scss';
@@ -36,4 +37,8 @@ class DDSContentBlockSimple extends StableSelectorMixin(DDSContentBlock) {
 }
 
 /* @__GENERATE_REACT_CUSTOM_ELEMENT_TYPE__ */
-export default DDSContentBlockSimple;
+export default deprecate(
+  DDSContentBlockSimple,
+  'The content-block-simple component has been deprecated in favor of the content-section/block component. ' +
+    'See content-section/block documentation for more information.'
+);

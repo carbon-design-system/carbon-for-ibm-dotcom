@@ -10,6 +10,7 @@
 import { css } from 'lit';
 import { customElement } from 'lit/decorators.js';
 import ddsSettings from '../../internal/vendor/@carbon/ibmdotcom-utilities/utilities/settings/settings';
+import deprecate from '../../internal/vendor/@carbon/ibmdotcom-utilities/utilities/deprecate/deprecate';
 import DDSContentBlock from '../content-block/content-block';
 import styles from './content-block-mixed.scss';
 
@@ -35,4 +36,8 @@ class DDSContentBlockMixed extends DDSContentBlock {
 }
 
 /* @__GENERATE_REACT_CUSTOM_ELEMENT_TYPE__ */
-export default DDSContentBlockMixed;
+export default deprecate(
+  DDSContentBlockMixed,
+  'The content-block-mixed component has been deprecated in favor of the content-section/block, video-player/image, pictogram-items, and other content-group components. ' +
+    'See content-block/section documentation for more information.'
+);
