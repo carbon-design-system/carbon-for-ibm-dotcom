@@ -26,28 +26,6 @@ import styles from './tabs.scss';
 
 export { NAVIGATION_DIRECTION, TABS_KEYBOARD_ACTION, TABS_TYPE };
 
-// button gradient width size
-const buttonGradientWidth = 8;
-
-/**
- * @param a An array.
- * @param predicate The callback function.
- * @param [thisObject] The context object for the given callback function.
- * @returns The index of the last item in the given array where `predicate` returns `true`. `-1` if no such item is found.
- */
-function findLastIndex<T>(
-  a: T[],
-  predicate: (search: T, index?: number, thisObject?: any) => boolean,
-  thisObject?: any
-): number {
-  for (let i = a.length - 1; i >= 0; --i) {
-    if (predicate(a[i], i, thisObject)) {
-      return i;
-    }
-  }
-  return -1;
-}
-
 /**
  * Tabs.
  *
@@ -77,6 +55,7 @@ export default class CDSTabs extends HostListenerMixin(CDSContentSwitcher) {
   /**
    * `true` if the tablist is scrollable
    */
+  // @ts-ignore: TS thinks this method is not referred to
   private _isScrollable: boolean = false;
 
   /**
