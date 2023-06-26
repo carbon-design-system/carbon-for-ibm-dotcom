@@ -50,7 +50,7 @@ export default class CDSTab extends CDSContentSwitcherItem {
       <a
         class="${prefix}--tabs__nav-link"
         role="tab"
-        tabindex="${disabled ? -1 : 0}"
+        tabindex="${selected ? 0 : -1}"
         ?disabled="${disabled}"
         aria-selected="${Boolean(selected)}">
         <slot></slot>
