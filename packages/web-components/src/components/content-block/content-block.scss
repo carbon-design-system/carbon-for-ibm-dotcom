@@ -11,6 +11,7 @@
 @import '@carbon/ibmdotcom-styles/scss/internal/content-block/content-block';
 @import '@carbon/ibmdotcom-styles/scss/internal/content-item/content-item';
 @import '@carbon/ibmdotcom-styles/scss/components/layout/layout';
+@import '@carbon/ibmdotcom-styles/scss/components/card-group/card-group';
 
 :host(#{$dds-prefix}-content-block),
 :host(#{$dds-prefix}-callout-with-media-copy),
@@ -19,6 +20,10 @@
 :host(#{$dds-prefix}-content-block-complementary),
 :host(#{$dds-prefix}-content-block-paragraph) {
   display: block;
+}
+
+:host(#{$dds-prefix}-content-block) ::slotted([slot='footer']) {
+  background-color: pink;
 }
 
 // TODO: Consider applying this rule in general
@@ -46,6 +51,10 @@
 
     margin-bottom: $carbon--spacing-06;
   }
+}
+
+.#{$dds-prefix}--content-block-footer {
+  @extend :host(#{$dds-prefix}-card-group);
 }
 
 // TODO: Apply `dds--make-col(2, 3)` to React version, too, so we can merge the style to React version
