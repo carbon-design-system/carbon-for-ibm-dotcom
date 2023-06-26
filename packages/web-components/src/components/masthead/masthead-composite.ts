@@ -125,7 +125,10 @@ class DDSMastheadComposite extends HostListenerMixin(LitElement) {
     if (!this.l1Data) return undefined;
 
     return html`
-      <dds-masthead-l1 slot="masthead-l1" .l1Data=${this.l1Data}>
+      <dds-masthead-l1
+        slot="masthead-l1"
+        .l1Data=${this.l1Data}
+        selected-menu-item=${this.selectedMenuItemL1 || ''}>
       </dds-masthead-l1>
     `;
   }
@@ -907,7 +910,9 @@ class DDSMastheadComposite extends HostListenerMixin(LitElement) {
     let selected;
 
     if (selectedMenuItem) {
-      selected = titleEnglish === selectedMenuItem;
+      selected =
+        titleEnglish?.trim()?.toLowerCase() ===
+        selectedMenuItem?.trim()?.toLowerCase();
     } else {
       selected = this._isActiveMenuItem(item);
     }
@@ -1168,6 +1173,12 @@ class DDSMastheadComposite extends HostListenerMixin(LitElement) {
   selectedMenuItem!: string;
 
   /**
+   * The English title of the selected nav item in the L1.
+   */
+  @property({ attribute: 'selected-menu-item-l1' })
+  selectedMenuItemL1!: string;
+
+  /**
    * The profile items for unauthenticated state.
    */
   @property({ attribute: false })
@@ -1385,7 +1396,9 @@ class DDSMastheadComposite extends HostListenerMixin(LitElement) {
             </dds-left-nav>
           `
         : ''}
-      <dds-masthead aria-label="${ifNonNull(mastheadAssistiveText)}">
+      <dds-masthead
+        ?has-l1=${this.l1Data}
+        aria-label="${ifNonNull(mastheadAssistiveText)}">
         <dds-skip-to-content
           href="${skipToContentHref}"
           link-assistive-text="${skipToContentText}"></dds-skip-to-content>

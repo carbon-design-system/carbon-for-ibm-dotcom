@@ -91,7 +91,7 @@ $search-transition-timing: 95ms;
 
       background-color: transparent;
       border: none;
-      border-bottom: 3px solid $focus;
+      border-bottom: 1px solid $ui-03;
       color: $text-01;
       display: flex;
       justify-content: space-between;
@@ -116,6 +116,10 @@ $search-transition-timing: 95ms;
       &:disabled {
         color: $disabled-02;
         border-bottom-color: $disabled-02;
+      }
+
+      &[active] {
+        border-bottom: 3px solid $focus;
       }
 
       &.is-open {
@@ -165,6 +169,20 @@ $search-transition-timing: 95ms;
       &:disabled {
         color: $disabled-02;
         border-bottom-color: $disabled-02;
+      }
+
+      &[active] {
+        position: relative;
+
+        &::after {
+          content: '';
+          display: block;
+          position: absolute;
+          inset-inline-start: 0;
+          inset-block: 0;
+          width: 3px;
+          background-color: $focus;
+        }
       }
 
       &.is-open {
@@ -395,6 +413,10 @@ $search-transition-timing: 95ms;
       align-items: flex-end;
       background-color: $ui-background;
 
+      &[active] {
+        border-bottom-color: $focus;
+      }
+
       &:hover {
         background-color: $hover-ui;
       }
@@ -474,6 +496,16 @@ $search-transition-timing: 95ms;
       border: 1px solid transparent;
       border-top: none;
       align-items: flex-end;
+
+      &[active]::after {
+        content: '';
+        position: absolute;
+        right: 0;
+        bottom: 0;
+        left: 0;
+        height: 3px;
+        background-color: $focus;
+      }
 
       &:hover {
         color: $text-01;

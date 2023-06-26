@@ -18,6 +18,7 @@ import {
   queryAll,
 } from 'lit-element';
 import settings from 'carbon-components/es/globals/js/settings.js';
+import root from 'window-or-global';
 import ddsSettings from '../../internal/vendor/@carbon/ibmdotcom-utilities/utilities/settings/settings';
 import StableSelectorMixin from '../../globals/mixins/stable-selector';
 import styles from './masthead-l1.scss';
@@ -104,10 +105,28 @@ class DDSMastheadL1 extends StableSelectorMixin(LitElement) {
   l1Data?: MastheadL1;
 
   /**
+   * The URL path of the current document root.
+   */
+  @property()
+  currentUrlPath?: string = root.location?.href;
+
+  /**
+   * The English title of the selected nav item.
+   */
+  @property({ attribute: 'selected-menu-item' })
+  selectedMenuItem?: string;
+
+  /**
    * Whether the current viewport is below 800px or not
    */
   @state()
   isMobileVersion = layoutBreakpoint.matches;
+
+  /**
+   * Elements that are currently selected.
+   */
+  @state()
+  selectedElements: Element[] = [];
 
   /**
    * The translated label for the overview links visible on mobile
@@ -507,8 +526,8 @@ class DDSMastheadL1 extends StableSelectorMixin(LitElement) {
       [`${prefix}--masthead__l1-dropdown-column-wide`]: hasWide && isWide,
     });
     return hasWide
-      ? html` <div class=${classes}>${renderedSections}</div> `
-      : html` ${renderedSections} `;
+      ? html`<div class=${classes}>${renderedSections}</div>`
+      : html`${renderedSections}`;
   }
 
   /**
@@ -529,29 +548,29 @@ class DDSMastheadL1 extends StableSelectorMixin(LitElement) {
       </button>
       <ul class="${prefix}--masthead__l1-dropdown">
         ${url
-          ? html`<li>
-              <a class="${prefix}--masthead__l1-dropdown-item" href="${url}"
-                >${overviewText}</a
-              >
+          ? html` <li>
+              <a class="${prefix}--masthead__l1-dropdown-item" href="${url}">
+                ${overviewText}
+              </a>
             </li>`
           : ''}
         ${menuItems?.map((menuItem) => this._renderL1MobileSubnav(menuItem))}
         ${login && login.url && login.title
-          ? html`<li>
+          ? html` <li>
               <a
                 class="${prefix}--masthead__l1-dropdown-login"
-                href="${ifDefined(login.url)}"
-                >${login.title}${ArrowRight16()}</a
-              >
+                href="${ifDefined(login.url)}">
+                ${login.title}${ArrowRight16()}
+              </a>
             </li>`
           : ''}
         ${cta && cta.url && cta.title
           ? html`<li>
               <a
                 class="${prefix}--masthead__l1-dropdown-cta"
-                href="${ifDefined(cta.url)}"
-                >${cta.title}${ArrowRight16()}</a
-              >
+                href="${ifDefined(cta.url)}">
+                ${cta.title}${ArrowRight16()}
+              </a>
             </li>`
           : ''}
       </ul>
@@ -612,11 +631,13 @@ class DDSMastheadL1 extends StableSelectorMixin(LitElement) {
                         ${items.map((item) => {
                           const { title, url } = item;
 
-                          return html`<a
-                            class="${prefix}--masthead__l1-dropdown-item"
-                            href="${url}"
-                            >${title}</a
-                          >`;
+                          return html` <li>
+                            <a
+                              class="${prefix}--masthead__l1-dropdown-item"
+                              href="${url}">
+                              ${title}
+                            </a>
+                          </li>`;
                         })}
                       </ul>`
                     : ''}
@@ -624,11 +645,13 @@ class DDSMastheadL1 extends StableSelectorMixin(LitElement) {
               })
             : ''}
           ${footer
-            ? html`<a
-                class="${prefix}--masthead__l1-dropdown-viewall"
-                href="${footer.url}"
-                >${footer.title}${ArrowRight16()}</a
-              >`
+            ? html`
+                <a
+                  class="${prefix}--masthead__l1-dropdown-viewall"
+                  href="${footer.url}"
+                >
+                  ${footer.title}${ArrowRight16()}
+                </li>`
             : ''}
         </div>
       </li>
@@ -740,6 +763,69 @@ class DDSMastheadL1 extends StableSelectorMixin(LitElement) {
   }
 
   /**
+   * Sets active menu item styles.
+   */
+  protected _handleSelectedMenuItem() {
+    const { selectedMenuItem, currentUrlPath } = this;
+
+    const menuItems = Array.from(
+      (this.shadowRoot as ShadowRoot).querySelectorAll(
+        `.${prefix}--masthead__l1-item, .${prefix}--masthead__l1-dropdown-item`
+      )
+    );
+    const allLinks = Array.from(
+      (this.shadowRoot as ShadowRoot).querySelectorAll('a')
+    );
+
+    // Reset all selected elements.
+    Array.from(
+      (this.shadowRoot as ShadowRoot).querySelectorAll('[active]')
+    ).forEach((el) => el?.removeAttribute('active'));
+    this.selectedElements = [];
+
+    // Check for manually set selected item.
+    if (selectedMenuItem) {
+      this.selectedElements = [...menuItems, ...allLinks].filter(
+        (el) =>
+          el.textContent?.trim()?.toLowerCase() ===
+          selectedMenuItem.trim().toLowerCase()
+      );
+    }
+    // Fall back to automated selection based on URL.
+    else {
+      this.selectedElements = allLinks.filter(
+        (el) => el.href === currentUrlPath
+      );
+    }
+
+    if (this.selectedElements.length) {
+      // Set active on nearest menu item.
+      this.selectedElements.forEach((element) => {
+        const parentMenuItem = element.closest(
+          `.${prefix}--masthead__l1-dropdown, .${prefix}--masthead__l1-dropdown-subsection`
+        )?.previousElementSibling;
+
+        // Set on parent item as long as it's not the dropdown toggle.
+        if (
+          parentMenuItem &&
+          !parentMenuItem?.classList?.contains(`bx--masthead__l1-title`)
+        ) {
+          parentMenuItem?.setAttribute('active', '');
+        } else {
+          element.setAttribute('active', '');
+        }
+      });
+    } else {
+      // Should default to active section name if no menu links are selected.
+      const l1Title = this.shadowRoot?.querySelector(
+        `.${prefix}--masthead__l1-title`
+      ) as Element;
+      l1Title.setAttribute('active', '');
+      this.selectedElements.push(l1Title);
+    }
+  }
+
+  /**
    * Renders a heading object in the proper <H#> element.
    *
    * @param heading The heading object to be rendered.
@@ -829,6 +915,9 @@ class DDSMastheadL1 extends StableSelectorMixin(LitElement) {
   }
 
   protected updated(changedProperties) {
+    if (changedProperties.has('selectedMenuItem')) {
+      this._handleSelectedMenuItem();
+    }
     if (changedProperties.has('isMobileVersion')) {
       if (this.isMobileVersion) {
         // Stop observing, delete the observer.
@@ -838,6 +927,8 @@ class DDSMastheadL1 extends StableSelectorMixin(LitElement) {
         // Creat observer, start observing.
         this._createScrollObserver();
       }
+
+      this._handleSelectedMenuItem();
     }
   }
 
