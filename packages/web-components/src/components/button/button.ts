@@ -252,5 +252,5 @@ class DDSButtonExpressive extends FocusMixin(StableSelectorMixin(LitElement)) {
 export default deprecate(
   DDSButtonExpressive,
   'The dds-button-expressive component has been deprecated in favor of the core carbon button component using the isExpressive prop. ' +
-    'See carbon core button documentation for more information.' 
+    'See carbon core button documentation for more information.'
 );
