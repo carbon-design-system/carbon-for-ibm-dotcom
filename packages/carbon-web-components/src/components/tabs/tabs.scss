@@ -147,6 +147,11 @@ $inset-transition: inset 110ms motion(standard, productive);
   }
 }
 
+:host(#{$prefix}-tab[type='contained'][hide-divider])
+  a.#{$prefix}--tabs__nav-link {
+  box-shadow: rem(-1px) 0 0 0 transparent;
+}
+
 // `[role]` is only for specificity.
 // We have `:not()` usage in the corresponding Carbon core style
 // which puts specificity of "specific" scenario though the style is for "regular" scenario

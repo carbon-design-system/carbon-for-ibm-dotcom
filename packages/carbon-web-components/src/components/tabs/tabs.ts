@@ -202,6 +202,17 @@ export default class CDSTabs extends HostListenerMixin(CDSContentSwitcher) {
     this.requestUpdate();
   };
 
+  _handleSlotchange() {
+    console.log('asdf');
+    const { selectorItemSelected } = this.constructor as typeof CDSTabs;
+    const selectedItem = this.querySelector(selectorItemSelected);
+    const nextItem = this._getNextItem(selectedItem as CDSTab, 1);
+
+    // Specifies child `<cds-tab>` to hide its divider instead of using CSS,
+    // until `:host-context()` gets supported in all major browsers
+    (nextItem as CDSTab).hideDivider = true;
+  }
+
   protected _selectionDidChange(itemToSelect: CDSTab) {
     super._selectionDidChange(itemToSelect);
     this._assistiveStatusText = this.selectedItemAssistiveText;
@@ -427,6 +438,7 @@ export default class CDSTabs extends HostListenerMixin(CDSContentSwitcher) {
       _isIntersectionLeftTrackerInContent: isIntersectionLeftTrackerInContent,
       _isIntersectionRightTrackerInContent: isIntersectionRightTrackerInContent,
       _assistiveStatusText: assistiveStatusText,
+      _handleSlotchange: handleSlotchange,
     } = this;
 
     const previousButtonClasses = classMap({
@@ -462,7 +474,7 @@ export default class CDSTabs extends HostListenerMixin(CDSContentSwitcher) {
           <div class="${prefix}--tabs-nav">
             <div id="tablist" role="tablist" class="${prefix}--tab--list">
               <div class="${prefix}--sub-content-left"></div>
-              <slot></slot>
+              <slot @slotchange=${handleSlotchange}></slot>
               <div class="${prefix}--sub-content-right"></div>
             </div>
           </div>
