@@ -304,7 +304,10 @@ class StickyHeader {
     if (tocInner) {
       tocInner.style.transition = 'none';
       tocInner.style.top = `${cumulativeOffset}px`;
-      cumulativeOffset += tocInner.offsetHeight;
+
+      if (toc.layout === 'horizontal') {
+        cumulativeOffset += tocInner.offsetHeight;
+      }
     }
 
     if (!tocInner && leadspaceSearchBar) {
