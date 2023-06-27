@@ -137,7 +137,10 @@ const renderHead = (
   `;
 };
 
-const renderBodyCell = (type: CELL_TYPES): TemplateResult => {
+const renderBodyCell = (
+  type: CELL_TYPES,
+  iconText: string = ''
+): TemplateResult => {
   switch (type) {
     case CELL_TYPES.TEXT:
       return html`
@@ -153,7 +156,7 @@ const renderBodyCell = (type: CELL_TYPES): TemplateResult => {
     case CELL_TYPES.ICON:
       return html`
         <dds-pricing-table-cell icon="checkmark">
-          Cell with icon
+          ${iconText}
           <dds-pricing-table-cell-annotation>
             Sed quis neque ultrices, convallis augue non, scelerisque massa.
           </dds-pricing-table-cell-annotation>
@@ -174,7 +177,8 @@ const renderBodyRow = (
   columnCount: number,
   rowNum: number,
   cellType: CELL_TYPES,
-  rowHeaders: boolean = true
+  rowHeaders: boolean = true,
+  iconText: string = ''
 ): TemplateResult => html`
   <dds-pricing-table-row>
     ${(() => {
@@ -197,7 +201,7 @@ const renderBodyRow = (
         `,
       ];
       for (let i = 1; i < columnCount; i++) {
-        cells.push(renderBodyCell(cellType));
+        cells.push(renderBodyCell(cellType, iconText));
       }
       return cells;
     })()}
@@ -214,6 +218,7 @@ export const Default = (args) => {
     highlightLabel,
     columnCount,
     heading,
+    iconText,
   } = args?.PricingTable ?? {};
   return html`
     <style>
@@ -233,7 +238,7 @@ export const Default = (args) => {
       highlight-label="${highlightLabel}">
       ${renderHead(columnCount, heading)}
       <dds-pricing-table-body>
-        ${renderBodyRow(columnCount, 1, CELL_TYPES.ICON)}
+        ${renderBodyRow(columnCount, 1, CELL_TYPES.ICON, true, iconText)}
         ${renderBodyRow(columnCount, 2, CELL_TYPES.EMPTY)}
         ${renderBodyRow(columnCount, 3, CELL_TYPES.TEXT)}
       </dds-pricing-table-body>
@@ -251,6 +256,7 @@ export const WithoutRowHeaders = (args) => {
     highlightLabel,
     columnCount,
     heading,
+    iconText,
   } = args?.PricingTable ?? {};
   return html`
     <dds-pricing-table
@@ -262,7 +268,7 @@ export const WithoutRowHeaders = (args) => {
       highlight-label="${highlightLabel}">
       ${renderHead(columnCount, heading)}
       <dds-pricing-table-body>
-        ${renderBodyRow(columnCount, 1, CELL_TYPES.ICON, false)}
+        ${renderBodyRow(columnCount, 1, CELL_TYPES.ICON, false, iconText)}
         ${renderBodyRow(columnCount, 2, CELL_TYPES.EMPTY, false)}
         ${renderBodyRow(columnCount, 3, CELL_TYPES.TEXT, false)}
       </dds-pricing-table-body>
@@ -286,6 +292,7 @@ export const WithSubheaders = (args) => {
     highlightCol,
     highlightLabel,
     heading,
+    iconText,
   } = args?.PricingTable ?? {};
   return html`
     <dds-pricing-table
@@ -298,17 +305,17 @@ export const WithSubheaders = (args) => {
       ${renderHead(columnCount, heading)}
       <dds-pricing-table-body>
         <dds-pricing-table-group title="Group 1">
-          ${renderBodyRow(columnCount, 1, CELL_TYPES.ICON)}
+          ${renderBodyRow(columnCount, 1, CELL_TYPES.ICON, true, iconText)}
           ${renderBodyRow(columnCount, 2, CELL_TYPES.EMPTY)}
           ${renderBodyRow(columnCount, 3, CELL_TYPES.TEXT)}
         </dds-pricing-table-group>
         <dds-pricing-table-group title="Group 2">
-          ${renderBodyRow(columnCount, 1, CELL_TYPES.ICON)}
+          ${renderBodyRow(columnCount, 1, CELL_TYPES.ICON, true, iconText)}
           ${renderBodyRow(columnCount, 2, CELL_TYPES.EMPTY)}
           ${renderBodyRow(columnCount, 3, CELL_TYPES.TEXT)}
         </dds-pricing-table-group>
         <dds-pricing-table-group title="Group 3">
-          ${renderBodyRow(columnCount, 1, CELL_TYPES.ICON)}
+          ${renderBodyRow(columnCount, 1, CELL_TYPES.ICON, true, iconText)}
           ${renderBodyRow(columnCount, 2, CELL_TYPES.EMPTY)}
           ${renderBodyRow(columnCount, 3, CELL_TYPES.TEXT)}
         </dds-pricing-table-group>
@@ -340,6 +347,7 @@ export default {
         colSpan2: textNullable('col-span-2', ''),
         colSpan3: textNullable('col-span-3', ''),
         colSpan4: textNullable('col-span-4', ''),
+        iconText: textNullable('icon-text', ''),
       }),
     },
   },
