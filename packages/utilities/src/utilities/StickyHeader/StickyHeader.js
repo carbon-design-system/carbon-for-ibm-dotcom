@@ -284,12 +284,10 @@ class StickyHeader {
      *   with the elements that should be visible starting at the top of the
      *   viewport.
      */
-    let cumulativeOffset = masthead
-      ? Math.max(
-          Math.min(masthead.offsetTop + oldY - newY, 0),
-          maxScrollaway * -1
-        )
-      : Math.max(Math.min(oldY - newY, 0), maxScrollaway * -1);
+    let cumulativeOffset = Math.max(
+      Math.min((masthead ? masthead.offsetTop : 0) + oldY - newY, 0),
+      maxScrollaway * -1
+    );
 
     if (banner) {
       cumulativeOffset += Math.max(banner.offsetHeight - newY, 0);
@@ -308,7 +306,11 @@ class StickyHeader {
       tocShouldStick =
         toc.layout === 'horizontal' || window.innerWidth < gridBreakpoint;
 
-      if (tocShouldStick) {
+      const tocIsStuck =
+        Math.round(tocInner.getBoundingClientRect().top) <=
+        cumulativeOffset + 1;
+
+      if (tocShouldStick && tocIsStuck) {
         cumulativeOffset += tocInner.offsetHeight;
       }
     }
