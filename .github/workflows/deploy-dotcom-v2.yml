@@ -1,12 +1,12 @@
-name: deploy-cwc-v2-beta (Deploy storybook environments to GitHub Pages)
+name: deploy-dotcom-v2 (Deploy storybook environments to GitHub Pages)
 
 on:
   push:
     branches:
-      - feat/cwc-v2
+      - feat/carbon-for-ibm-dotcom-v2
 
 concurrency:
-  group: deploy-cwc-v2-beta${{ github.ref }}
+  group: deploy-dotcom-v2${{ github.ref }}
   cancel-in-progress: true
 
 jobs:
@@ -45,12 +45,12 @@ jobs:
           git update-ref -d refs/remotes/origin/gh-pages
           git pull origin gh-pages
 
-          rm -rf beta/carbon-web-components-v2
-          mkdir -p beta
-          mv builds/carbon-web-components-v2 beta/carbon-web-components-v2
+          rm -rf v2/carbon-web-components-v2
+          mkdir -p v2
+          mv builds/carbon-web-components-v2 v2/carbon-web-components-v2
 
-          git add beta/carbon-web-components-v2
-          git commit -m "chore(deploy): deploy @carbon/web-components v2 beta to GitHub Pages"
+          git add v2/carbon-web-components-v2
+          git commit -m "chore(deploy): deploy @carbon/web-components v2 to GitHub Pages"
           git push origin gh-pages
       - uses: act10ns/slack@v2
         if: failure()
