@@ -10,7 +10,6 @@
 import { html } from 'lit';
 import { property, customElement, state, query } from 'lit/decorators.js';
 import { classMap } from 'lit/directives/class-map.js';
-import debounce from 'lodash/debounce';
 import { prefix } from '../../globals/settings';
 import HostListenerMixin from '../../globals/mixins/host-listener';
 import HostListener from '../../globals/decorators/host-listener';
@@ -197,14 +196,7 @@ export default class CDSTabs extends HostListenerMixin(CDSContentSwitcher) {
     }
   }
 
-  @HostListener('scroll')
-  protected _handleScroll = () => {
-    debounce(this.requestUpdate as () => void, 500);
-    this.requestUpdate();
-  };
-
   _handleSlotchange() {
-    console.log('asdf');
     const { selectorItemSelected } = this.constructor as typeof CDSTabs;
     const selectedItem = this.querySelector(selectorItemSelected);
     const nextItem = this._getNextItem(selectedItem as CDSTab, 1);
@@ -307,18 +299,6 @@ export default class CDSTabs extends HostListenerMixin(CDSContentSwitcher) {
     } = this;
 
     records.forEach(({ isIntersecting, target }) => {
-      if (isIntersecting) {
-        this._contentContainerNode?.addEventListener(
-          'scroll',
-          this._handleScroll
-        );
-      } else {
-        this._contentContainerNode?.removeEventListener(
-          'scroll',
-          this._handleScroll
-        );
-      }
-
       if (target === intersectionLeftSentinelNode) {
         this._isIntersectionLeftTrackerInContent = isIntersecting;
       }
@@ -367,10 +347,6 @@ export default class CDSTabs extends HostListenerMixin(CDSContentSwitcher) {
 
   disconnectedCallback() {
     this._cleanAndCreateIntersectionObserverContainer();
-    this._contentContainerNode?.removeEventListener(
-      'scroll',
-      this._handleScroll
-    );
     super.disconnectedCallback();
   }
 
