@@ -305,7 +305,10 @@ class StickyHeader {
       tocInner.style.transition = 'none';
       tocInner.style.top = `${cumulativeOffset}px`;
 
-      if (toc.layout === 'horizontal') {
+      tocShouldStick =
+        toc.layout === 'horizontal' || window.innerWidth < gridBreakpoint;
+
+      if (tocShouldStick) {
         cumulativeOffset += tocInner.offsetHeight;
       }
     }
