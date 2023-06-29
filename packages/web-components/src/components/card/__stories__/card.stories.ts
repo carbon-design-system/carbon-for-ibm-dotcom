@@ -42,6 +42,8 @@ export const Default = (args) => {
     cardStyles,
   } = args?.Card ?? {};
   /* eslint-disable no-nested-ternary */
+
+  console.log(args.Card);
   return html`
     <dds-card
       color-scheme=${cardStyles === 'Inverse card'
@@ -118,7 +120,8 @@ Default.story = {
 
 export const Pictogram = (args) => {
   const { href, heading, copy, tagGroup, pictogramPlacement, cardStyles } =
-    args?.PictogramCard ?? {};
+    args?.props?.CardPictogram ?? {};
+
   return html`
     <dds-card
       pictogram-placement="${pictogramPlacement}"
@@ -159,7 +162,7 @@ Pictogram.story = {
   parameters: {
     ...readme.parameters,
     knobs: {
-      PictogramCard: () => {
+      CardPictogram: () => {
         const pictogramPlacement = select(
           'Pictogram position:',
           pictogramPlacements,
@@ -192,7 +195,7 @@ Pictogram.story = {
     },
     propsSet: {
       default: {
-        PictogramCard: {
+        CardPictogram: {
           pictogramPlacement: 'top',
           heading: 'Aerospace and defence',
           copy: `Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.

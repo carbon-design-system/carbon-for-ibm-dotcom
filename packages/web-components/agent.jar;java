@@ -1,0 +1,16 @@
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html;charset=ISO-8859-1"/>
+<title>Error 400 Semicolons are not allowed in the request URI</title>
+</head>
+<body><h2>HTTP ERROR 400 Semicolons are not allowed in the request URI</h2>
+<table>
+<tr><th>URI:</th><td>/jnlpJars/agent.jar;java</td></tr>
+<tr><th>STATUS:</th><td>400</td></tr>
+<tr><th>MESSAGE:</th><td>Semicolons are not allowed in the request URI</td></tr>
+<tr><th>SERVLET:</th><td>Stapler</td></tr>
+</table>
+<hr/><a href="https://eclipse.org/jetty">Powered by Jetty:// 10.0.13</a><hr/>
+
+</body>
+</html>
