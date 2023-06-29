@@ -37,8 +37,6 @@ $search-transition-timing: 95ms;
   background: transparent;
   border: none;
   text-decoration: none;
-  display: inline-flex;
-  white-space: nowrap;
   height: 100%;
   column-gap: $spacing-03;
   padding: $spacing-05;
@@ -405,6 +403,7 @@ $search-transition-timing: 95ms;
       @include carbon--type-style(productive-heading-01);
       @include desktop-button-base;
 
+      display: inline-flex;
       grid-area: platform;
       height: 100%;
       color: $text-01;
@@ -441,6 +440,7 @@ $search-transition-timing: 95ms;
     .#{$prefix}--masthead__l1-menu-container-scroller {
       @include desktop-button-base;
 
+      display: inline-flex;
       background-color: $ui-background;
       flex-shrink: 0;
       padding-inline: $spacing-03;
@@ -491,11 +491,14 @@ $search-transition-timing: 95ms;
       @include carbon--type-style(body-short-01);
       @include desktop-button-base;
 
+      display: inline-flex;
       background-color: $ui-background;
       color: $text-02;
       border: 1px solid transparent;
       border-top: none;
       align-items: flex-end;
+      white-space: nowrap;
+      background-color: pink;
 
       &[active]::after {
         content: '';
@@ -669,9 +672,15 @@ $search-transition-timing: 95ms;
         @include desktop-button-base;
 
         color: inherit;
-        align-items: center;
         padding: $spacing-03 $spacing-05;
         margin-bottom: $spacing-03;
+
+        svg {
+          vertical-align: middle;
+          position: relative;
+          bottom: carbon--rem(2px);
+          margin-inline-start: $spacing-03;
+        }
       }
 
       // Headings that do not contain links.
@@ -694,11 +703,10 @@ $search-transition-timing: 95ms;
       @include carbon--type-style(body-short-01);
       @include desktop-button-base;
 
-      align-items: center;
+      display: inline-block;
       padding: $spacing-03 $spacing-05;
       color: $text-02;
       width: 100%;
-      flex-wrap: wrap;
 
       &:hover {
         color: $text-01;
@@ -772,6 +780,7 @@ $search-transition-timing: 95ms;
       @include desktop-button-base;
       @include carbon--type-style(body-short-01);
 
+      display: inline-flex;
       grid-area: cta;
       background-color: $interactive-01;
       color: $ui-02;
@@ -804,6 +813,7 @@ $search-transition-timing: 95ms;
       @include desktop-button-base;
       @include carbon--type-style(body-short-01);
 
+      display: inline-flex;
       grid-area: login;
       color: $interactive-01;
       background-color: $ui-background;
