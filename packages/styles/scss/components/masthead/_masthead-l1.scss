@@ -374,11 +374,31 @@ $search-transition-timing: 95ms;
       grid-template-areas: 'padding platform menu spacer login cta';
       grid-template-columns: $spacing-05 auto minmax(1px, 1fr) $spacing-08 auto auto;
       position: relative;
+      overflow: hidden;
       z-index: 1;
 
       > * {
         position: relative;
         z-index: 1;
+      }
+
+      > .#{$prefix}--masthead__l1-menu-container-mask {
+        content: '';
+        position: absolute;
+        display: block;
+        background-color: $ui-background;
+        z-index: 2;
+        inset-block: 0;
+
+        &--start {
+          inset-inline-start: -50vw;
+          inset-inline-end: 100%;
+        }
+
+        &--end {
+          inset-inline-start: 100%;
+          inset-inline-end: -50vw;
+        }
       }
 
       &::before,
@@ -498,7 +518,6 @@ $search-transition-timing: 95ms;
       border-top: none;
       align-items: flex-end;
       white-space: nowrap;
-      background-color: pink;
 
       &[active]::after {
         content: '';
