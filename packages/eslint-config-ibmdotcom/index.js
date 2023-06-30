@@ -13,6 +13,7 @@ module.exports = {
     'eslint:recommended',
     'plugin:jsx-a11y/recommended',
     'plugin:jsdoc/recommended',
+    'plugin:lit/recommended',
   ],
   plugins: ['react', 'jsdoc', 'jsx-a11y', 'react-hooks', 'tree-shaking'],
   rules: {
@@ -33,6 +34,9 @@ module.exports = {
         ignoreMemberSort: true,
       },
     ],
+
+    'lit/no-native-attributes': 'error',
+
     'react/jsx-uses-vars': 1,
     'react/jsx-uses-react': 1,
 
