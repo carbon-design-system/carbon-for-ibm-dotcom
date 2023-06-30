@@ -21,6 +21,10 @@ $fcb-breakpoint-up--lg: map-get(
   ) - carbon--rem(1px);
 
 @mixin feature-card-block-large {
+  :host(#{$dds-prefix}-feature-card-block-large:not(:defined)) {
+    display: none;
+  }
+
   :host(#{$dds-prefix}-feature-card-block-large),
   .#{$prefix}--feature-card-block-large {
     margin-bottom: $carbon--layout-03;

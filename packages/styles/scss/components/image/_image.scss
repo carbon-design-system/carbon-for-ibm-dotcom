@@ -10,6 +10,10 @@
 @import '../../globals/utils/ratio-base';
 
 @mixin image {
+  :host(#{$dds-prefix}-image:not(:defined)) {
+    display: none;
+  }
+
   .#{$prefix}--image {
     position: relative;
   }

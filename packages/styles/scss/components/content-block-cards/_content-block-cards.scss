@@ -10,6 +10,9 @@
 @import '../card-group/card-group';
 
 @mixin content-block-cards {
+  :host(#{$dds-prefix}-content-block-cards:not(:defined)) {
+    display: none;
+  }
   :host(#{$dds-prefix}-content-block-cards),
   .#{$prefix}--content-block-cards .#{$prefix}--content-block {
     display: block;

@@ -14,6 +14,10 @@
 @import 'carbon-components/scss/components/tag/tag';
 
 @mixin card {
+  :host(#{$dds-prefix}-card:not(:defined)) {
+    display: none;
+  }
+
   .#{$prefix}--card,
   :host(#{$dds-prefix}-card),
   :host(#{$dds-prefix}-link-list-item-card),

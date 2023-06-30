@@ -6,6 +6,10 @@
  */
 
 @mixin content-block-simple {
+  :host(#{$dds-prefix}-content-block-simple:not(:defined)) {
+    display: none;
+  }
+  
   .#{$prefix}--content-block {
     // empty for now
   }

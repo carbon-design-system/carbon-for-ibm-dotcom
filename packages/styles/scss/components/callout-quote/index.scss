@@ -12,6 +12,10 @@
 @import '../../globals/utils/hang';
 
 @mixin callout-quote {
+  :host(#{$dds-prefix}-callout-quote:not(:defined)) {
+    display: none;
+  }
+
   .#{$prefix}--callout-quote,
   :host(#{$dds-prefix}-callout-quote) {
     .#{$prefix}--quote {

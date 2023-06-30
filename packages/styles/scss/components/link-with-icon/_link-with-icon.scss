@@ -11,6 +11,10 @@
 @import '../lightbox-media-viewer/lightbox-media-viewer';
 
 @mixin link-with-icon {
+  :host(#{$dds-prefix}-link-with-icon:not(:defined)) {
+    display: none;
+  }
+
   .#{$prefix}--link-with-icon,
   :host(#{$dds-prefix}-link-with-icon),
   :host(#{$dds-prefix}-link-list-item),

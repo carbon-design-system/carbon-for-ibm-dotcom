@@ -8,6 +8,10 @@
 @import '../../globals/imports';
 
 @mixin content-block-segmented {
+  :host(#{$dds-prefix}-content-block-segmented:not(:defined)) {
+    display: none;
+  }
+  
   :host(#{$dds-prefix}-content-block-segmented),
   .#{$prefix}--content-block-segmented {
     .#{$prefix}--row {

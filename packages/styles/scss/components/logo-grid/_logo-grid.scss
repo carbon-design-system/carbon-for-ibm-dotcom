@@ -13,6 +13,10 @@
 @import '../../internal/content-block/content-block';
 
 @mixin logo-grid {
+  :host(#{$dds-prefix}-logo-grid:not(:defined)) {
+    display: none;
+  }
+
   .#{$prefix}--logo-grid,
   :host(#{$dds-prefix}-logo-grid) {
     .#{$prefix}--content-block {

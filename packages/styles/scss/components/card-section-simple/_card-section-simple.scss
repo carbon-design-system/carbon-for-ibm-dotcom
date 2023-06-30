@@ -8,3 +8,13 @@
 @import '../../globals/imports';
 @import '../../internal/content-section/content-section';
 @import '../card-group/card-group';
+
+@mixin card-section-simple {
+  :host(#{$dds-prefix}-card-section-simple:not(:defined)) {
+    display: none;
+  }
+}
+
+@include exports('card-section-simple') {
+  @include card-section-simple;
+}

@@ -68,6 +68,10 @@ $btn-min-width: 26;
 }
 
 @mixin leadspace {
+  :host(#{$dds-prefix}-leadspace:not(:defined)) {
+    display: none;
+  }
+
   ::slotted([slot='action']),
   .#{$prefix}--buttongroup {
     padding-top: $carbon--layout-03;

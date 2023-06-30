@@ -12,6 +12,10 @@
 @import 'carbon-components/scss/globals/scss/vendor/@carbon/elements/scss/motion/motion.scss';
 
 @mixin image-with-caption {
+  :host(#{$dds-prefix}-image-with-caption:not(:defined)) {
+    display: none;
+  }
+
   .#{$prefix}--image-with-caption,
   :host(#{$dds-prefix}-image)[heading] {
     display: block;

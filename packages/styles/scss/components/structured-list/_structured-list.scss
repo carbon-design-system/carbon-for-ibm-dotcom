@@ -65,6 +65,10 @@
 }
 
 @mixin structured-list {
+  :host(#{$dds-prefix}-structured-list:not(:defined)) {
+    display: none;
+  }
+
   // Inherited Table Styles
   .#{$prefix}--structured-list-header-row,
   :host(#{$dds-prefix}-structured-list-header-row) {

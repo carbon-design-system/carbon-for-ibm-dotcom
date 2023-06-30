@@ -10,6 +10,10 @@
 @import '../content-block-horizontal/content-block-horizontal';
 
 @mixin content-group-horizontal {
+  :host(#{$dds-prefix}-content-group-horizontal:not(:defined)) {
+    display: none;
+  }
+  
   :host(#{$dds-prefix}-content-group-horizontal) ::slotted([slot='heading']),
   .#{$prefix}--content-group-horizontal .#{$prefix}--content-block__heading {
     margin-bottom: $layout-05;

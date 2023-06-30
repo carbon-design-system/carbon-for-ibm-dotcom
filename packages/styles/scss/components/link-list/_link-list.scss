@@ -6,6 +6,10 @@
  */
 
 @mixin link-list {
+  :host(#{$dds-prefix}-link-list:not(:defined)) {
+    display: none;
+  }
+
   .#{$prefix}--link-list {
     padding-bottom: $carbon--layout-05;
 

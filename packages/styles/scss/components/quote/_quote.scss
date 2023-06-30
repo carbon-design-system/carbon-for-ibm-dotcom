@@ -12,6 +12,10 @@
 @import '../../components/link-with-icon/link-with-icon';
 
 @mixin quote {
+  :host(#{$dds-prefix}-quote:not(:defined)) {
+    display: none;
+  }
+
   .#{$prefix}--quote,
   :host(#{$dds-prefix}-quote) {
     background: $ui-background;

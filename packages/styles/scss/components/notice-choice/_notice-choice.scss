@@ -7,6 +7,10 @@
 @import '../../globals/vars';
 @import '../../globals/imports';
 @mixin notice-choice {
+  :host(#{$dds-prefix}-notice-choice:not(:defined)) {
+    display: none;
+  }
+
   .#{$prefix}--nc {
     max-width: 640px;
     p,

@@ -9,6 +9,10 @@
 @import '../card/index';
 
 @mixin card-link {
+  :host(#{$dds-prefix}-card-link:not(:defined)) {
+    display: none;
+  }
+
   .#{$prefix}--card__CTA--disabled {
     cursor: not-allowed;
   }

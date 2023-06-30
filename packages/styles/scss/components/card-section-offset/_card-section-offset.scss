@@ -12,6 +12,10 @@
 @import '../card-group/card-group';
 
 @mixin card-section-offset {
+  :host(#{$dds-prefix}-card-section-offset:not(:defined)) {
+    display: none;
+  }
+
   :host(#{$dds-prefix}-card-section-offset) {
     display: block;
     position: relative;

@@ -10,6 +10,10 @@
 /// @group footer
 
 @mixin footer {
+  :host(#{$dds-prefix}-footer-container:not(:defined)) {
+    display: none;
+  }
+
   :host(#{$dds-prefix}-footer),
   .#{$prefix}--footer {
     width: 100%;

@@ -26,6 +26,10 @@
 }
 
 @mixin leadspace-block {
+  :host(#{$dds-prefix}-leadspace-block:not(:defined)) {
+    display: none;
+  }
+
   :host(#{$dds-prefix}-leadspace-block)
     ::slotted(#{$dds-prefix}-leadspace-block-content) {
     @extend %leadspace-block-padding;

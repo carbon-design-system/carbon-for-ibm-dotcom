@@ -24,6 +24,10 @@
 }
 
 @mixin pricing-table {
+  :host(#{$dds-prefix}-pricing-table:not(:defined)) {
+    display: none;
+  }
+
   .#{$prefix}--pricing-table,
   :host(#{$dds-prefix}-pricing-table) {
     @extend .#{$dds-prefix}--structured-list;

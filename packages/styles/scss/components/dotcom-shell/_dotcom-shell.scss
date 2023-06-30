@@ -11,6 +11,10 @@
 @import '../masthead/index';
 
 @mixin dotcom-shell {
+  :host(#{$dds-prefix}-dotcom-shell-container:not(:defined)) {
+    display: none;
+  }
+
   :host(#{$dds-prefix}-dotcom-shell),
   .#{$prefix}--dotcom-shell {
     display: flex;

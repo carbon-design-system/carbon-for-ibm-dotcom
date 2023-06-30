@@ -16,6 +16,10 @@
 /// @group locale-modal
 
 @mixin locale-modal {
+  :host(#{$dds-prefix}-locale-modal:not(:defined)) {
+    display: none;
+  }
+
   :host(#{$dds-prefix}-locale-modal),
   .#{$prefix}--locale-modal-container {
     @include carbon--theme(

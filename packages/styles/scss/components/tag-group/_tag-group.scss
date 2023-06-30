@@ -8,20 +8,30 @@
 @import '../../globals/imports';
 @import '../../globals/vars';
 
-:host(#{$dds-prefix}-tag-group) {
-  display: flex;
-  flex-flow: row wrap;
-  gap: $spacing-03;
+@mixin tag-group {
+  :host(#{$dds-prefix}-tag-group:not(:defined)) {
+    display: none;
+  }
 
-  ::slotted(#{$dds-prefix}-tag-link) {
+  :host(#{$dds-prefix}-tag-group) {
     display: flex;
-  }
+    flex-flow: row wrap;
+    gap: $spacing-03;
 
-  // !important necessary for React wrappers since Carbon React styles override margin without this
-  ::slotted(.#{$prefix}--tag),
-  ::slotted(#{$prefix}-filter-tag),
-  ::slotted(#{$prefix}-tag) {
-    // stylelint-disable-next-line declaration-no-important
-    margin: 0 !important;
+    ::slotted(#{$dds-prefix}-tag-link) {
+      display: flex;
+    }
+
+    // !important necessary for React wrappers since Carbon React styles override margin without this
+    ::slotted(.#{$prefix}--tag),
+    ::slotted(#{$prefix}-filter-tag),
+    ::slotted(#{$prefix}-tag) {
+      // stylelint-disable-next-line declaration-no-important
+      margin: 0 !important;
+    }
   }
+}
+
+@include exports('tag-group') {
+  @include tag-group;
 }

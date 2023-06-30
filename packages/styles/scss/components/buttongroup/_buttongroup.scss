@@ -13,6 +13,10 @@
 @mixin buttongroup {
   @include button;
 
+  :host(#{$dds-prefix}-button-group:not(:defined)) {
+    display: none;
+  }
+
   .#{$prefix}--buttongroup,
   :host(#{$dds-prefix}-button-group),
   :host(#{$dds-prefix}-leadspace-block-cta) {

@@ -20,6 +20,10 @@
   $icon-size: carbon--rem(20px);
   $offset-close-icon: $carbon--spacing-07 - (($button-size - $icon-size) / 2);
 
+  :host(#{$dds-prefix}-expressive-modal:not(:defined)) {
+    display: none;
+  }
+
   :host(#{$dds-prefix}-expressive-modal),
   #{$modal}--expressive {
     color: $text-01;

@@ -12,6 +12,10 @@
 @import '../../globals/utils/ratio-base';
 
 @mixin feature-section {
+  :host(#{$dds-prefix}-feature-section:not(:defined)) {
+    display: none;
+  }
+
   .#{$prefix}--feature-section {
     position: relative;
     padding-left: $carbon--spacing-05;

@@ -13,6 +13,10 @@
 @import 'carbon-components/scss/components/accordion/keyframes';
 
 @mixin tabs-extended-media {
+  :host(#{$dds-prefix}-tabs-extended-media:not(:defined)) {
+    display: none;
+  }
+
   :host(#{$dds-prefix}-tabs-extended-media) {
     margin: 0;
     display: flex;

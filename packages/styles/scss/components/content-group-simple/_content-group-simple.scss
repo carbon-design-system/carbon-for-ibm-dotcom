@@ -6,6 +6,10 @@
  */
 
 @mixin content-group-simple {
+  :host(#{$dds-prefix}-content-group-simple:not(:defined)) {
+    display: none;
+  }
+  
   :host(#{$dds-prefix}-content-group-simple)
     ::slotted(#{$dds-prefix}-content-group-copy),
   .#{$prefix}--content-group-simple .#{$prefix}--content-group__copy {

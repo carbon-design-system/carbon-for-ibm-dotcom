@@ -167,6 +167,11 @@ $search-transition-timing: 95ms;
 
 /// @access private
 @mixin masthead {
+  :host(#{$dds-prefix}-masthead-container:not(:defined)),
+  :host(#{$dds-prefix}-cloud-masthead-container:not(:defined)) {
+    display: none;
+  }
+
   :host(#{$dds-prefix}-masthead-composite),
   :host(#{$dds-prefix}-cloud-masthead-container) {
     z-index: 900;

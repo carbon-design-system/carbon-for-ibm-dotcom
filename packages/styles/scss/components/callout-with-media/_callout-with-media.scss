@@ -11,6 +11,10 @@
 @import '../../internal/callout/callout';
 
 @mixin callout-with-media {
+  :host(#{$dds-prefix}-callout-with-media:not(:defined)) {
+    display: none;
+  }
+
   :host(#{$dds-prefix}-callout-with-media),
   .#{$prefix}--callout-with-media {
     display: block;

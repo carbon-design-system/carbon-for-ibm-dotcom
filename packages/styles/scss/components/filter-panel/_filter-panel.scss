@@ -12,6 +12,10 @@
 @import '@carbon/web-components/scss/components/checkbox/checkbox';
 
 @mixin filter-panel {
+  :host(#{$dds-prefix}-filter-panel:not(:defined)) {
+    display: none;
+  }
+
   .#{$prefix}--filter__heading {
     @include carbon--type-style('heading-01');
 

@@ -11,6 +11,10 @@
 @import '../link-with-icon/link-with-icon';
 
 @mixin pictogram-item {
+  :host(#{$dds-prefix}-pictogram-item:not(:defined)) {
+    display: none;
+  }
+
   .#{$prefix}--pictogram-item,
   :host(#{$dds-prefix}-pictogram-item) {
     .#{$prefix}--pictogram-item__row {

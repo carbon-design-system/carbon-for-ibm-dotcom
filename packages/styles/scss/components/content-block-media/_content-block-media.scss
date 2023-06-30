@@ -17,6 +17,10 @@
 }
 
 @mixin content-block-media {
+  :host(#{$dds-prefix}-content-block-media:not(:defined)) {
+    display: none;
+  }
+  
   .#{$prefix}--content-block-media,
   :host(#{$dds-prefix}-content-block-media) {
     @include themed-items;

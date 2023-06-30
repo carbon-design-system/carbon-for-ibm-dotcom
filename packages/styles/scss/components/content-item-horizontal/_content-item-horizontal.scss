@@ -9,6 +9,10 @@
 @import '../link-list/index';
 
 @mixin content-item-horizontal {
+  :host(#{$dds-prefix}-content-item-horizontal:not(:defined)) {
+    display: none;
+  }
+  
   // Web component
   :host(#{$dds-prefix}-content-item-horizontal),
   // React

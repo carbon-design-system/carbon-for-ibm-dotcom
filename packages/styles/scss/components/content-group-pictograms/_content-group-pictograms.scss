@@ -6,6 +6,10 @@
  */
 
 @mixin content-group-pictograms {
+  :host(#{$dds-prefix}-content-group-pictograms:not(:defined)) {
+    display: none;
+  }
+  
   :host(#{$dds-prefix}-content-group-pictograms)
     ::slotted(#{$dds-prefix}-content-group-copy),
   .#{$prefix}--content-group-pictograms .#{$prefix}--content-group__copy {

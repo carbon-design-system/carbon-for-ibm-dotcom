@@ -26,6 +26,10 @@
 }
 
 @mixin cta-block--pattern {
+  :host(#{$dds-prefix}-cta-block:not(:defined)) {
+    display: none;
+  }
+  
   :host(#{$dds-prefix}-cta-block),
   .#{$prefix}--cta-block {
     padding-top: $carbon--layout-03;

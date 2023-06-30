@@ -14,6 +14,10 @@
   $high-contrast: $ui-05;
   $thin-weight: carbon--rem(1px);
 
+  :host(#{$dds-prefix}-hr:not(:defined)) {
+    display: none;
+  }
+
   :host(#{$dds-prefix}-hr)[size='small'] {
     @extend .#{$prefix}--hr--small;
   }

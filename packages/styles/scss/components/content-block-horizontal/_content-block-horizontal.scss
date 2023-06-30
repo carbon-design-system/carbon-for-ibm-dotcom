@@ -9,6 +9,10 @@
 @import '../content-item-horizontal/content-item-horizontal';
 
 @mixin content-block-horizontal {
+  :host(#{$dds-prefix}-content-block-horizontal:not(:defined)) {
+    display: none;
+  }
+  
   :host(#{$dds-prefix}-content-block-horizontal),
   :host(#{$dds-prefix}-content-group-horizontal) {
     padding-top: $layout-03;

@@ -6,6 +6,10 @@
  */
 
 @mixin leadspace-with-search {
+  :host(#{$dds-prefix}-leadspace-with-search:not(:defined)) {
+    display: none;
+  }
+
   .#{$prefix}--leadspace-with-search {
     padding-top: $layout-04;
     padding-bottom: $layout-04;

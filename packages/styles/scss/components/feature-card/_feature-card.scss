@@ -65,6 +65,10 @@ $fcb-breakpoint-up--lg: map-get(
 }
 
 @mixin feature-card {
+  :host(#{$dds-prefix}-feature-card:not(:defined)),
+  :host(#{$dds-prefix}-feature-cta:not(:defined)) {
+    display: none;
+  }
   // all feature cards
   :host(#{$dds-prefix}-feature-card),
   :host(#{$dds-prefix}-feature-cta),

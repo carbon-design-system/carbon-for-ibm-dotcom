@@ -43,6 +43,10 @@
 }
 
 @mixin card-group {
+  :host(#{$dds-prefix}-card-group:not(:defined)) {
+    display: none;
+  }
+
   :host(#{$dds-prefix}-card-group),
   .#{$prefix}--card-group {
     @include themed-items;

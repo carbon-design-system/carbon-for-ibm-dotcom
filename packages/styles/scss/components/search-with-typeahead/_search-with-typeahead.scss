@@ -18,6 +18,10 @@ $search-transition-timing: 95ms;
 $button-transition: background-color 110ms, border-color 110ms, color 110ms;
 
 @mixin search-with-typeahead {
+  :host(#{$dds-prefix}-search-with-typeahead:not(:defined)) {
+    display: none;
+  }
+
   // main nav/search container excluding
   // profile and logo icons for masthead use
   :host(#{$dds-prefix}-top-nav),

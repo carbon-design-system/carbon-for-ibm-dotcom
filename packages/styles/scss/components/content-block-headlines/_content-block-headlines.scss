@@ -9,6 +9,10 @@
 @import '../../globals/utils/hang';
 
 @mixin content-block-headlines {
+  :host(#{$dds-prefix}-content-block-headlines:not(:defined)) {
+    display: none;
+  }
+  
   :host(#{$dds-prefix}-content-block-headlines),
   .#{$prefix}--content-block-headlines {
     .#{$prefix}--content-block {

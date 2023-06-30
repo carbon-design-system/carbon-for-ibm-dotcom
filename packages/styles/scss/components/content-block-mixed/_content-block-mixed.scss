@@ -6,6 +6,10 @@
  */
 
 @mixin content-block-mixed {
+  :host(#{$dds-prefix}-content-block-mixed:not(:defined)) {
+    display: none;
+  }
+  
   :host(dds-content-block-mixed),
   .#{$prefix}--content-block-mixed {
     .#{$prefix}--content-group-pictograms {

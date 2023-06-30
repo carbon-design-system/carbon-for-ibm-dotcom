@@ -10,6 +10,10 @@
 @import 'carbon-components/scss/components/button/button';
 
 @mixin back-to-top {
+  :host(#{$dds-prefix}-back-to-top:not(:defined)) {
+    display: none;
+  }
+
   :host(#{$dds-prefix}-back-to-top) {
     position: sticky;
     bottom: 0;

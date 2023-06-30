@@ -9,6 +9,10 @@
 @import '../../globals/imports';
 
 @mixin content-group-banner {
+  :host(#{$dds-prefix}-content-group-banner:not(:defined)) {
+    display: none;
+  }
+  
   :host(#{$dds-prefix}-content-group-banner),
   .#{$prefix}--content-group-banner {
     background: $ui-background;

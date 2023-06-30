@@ -11,6 +11,10 @@
 @import '../feature-card/feature-card';
 
 @mixin feature-card-block-medium {
+  :host(#{$dds-prefix}-feature-card-block-medium:not(:defined)) {
+    display: none;
+  }
+
   .#{$prefix}--feature-card-block-medium,
   :host(#{$dds-prefix}-feature-card-block-medium) {
     color: $text-01;
