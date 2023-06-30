@@ -374,7 +374,6 @@ $search-transition-timing: 95ms;
       grid-template-areas: 'padding platform menu spacer login cta';
       grid-template-columns: $spacing-05 auto minmax(1px, 1fr) $spacing-08 auto auto;
       position: relative;
-      overflow: hidden;
       z-index: 1;
 
       > * {
