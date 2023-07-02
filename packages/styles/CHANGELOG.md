@@ -3,6 +3,53 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.48.0](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/compare/@carbon/ibmdotcom-styles@1.48.0-rc.3...@carbon/ibmdotcom-styles@1.48.0) (2023-06-27)
+
+**Note:** Version bump only for package @carbon/ibmdotcom-styles
+
+
+
+
+
+# [1.48.0-rc.3](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/compare/@carbon/ibmdotcom-styles@1.48.0-rc.2...@carbon/ibmdotcom-styles@1.48.0-rc.3) (2023-06-27)
+
+**Note:** Version bump only for package @carbon/ibmdotcom-styles
+
+
+
+
+
+# [1.48.0-rc.2](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/compare/@carbon/ibmdotcom-styles@1.48.0-rc.1...@carbon/ibmdotcom-styles@1.48.0-rc.2) (2023-06-23)
+
+
+### Features
+
+* **pricing-table:** support combined checkmark with copy ([#10550](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/issues/10550)) ([#10595](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/issues/10595)) ([e3bccb3](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/commit/e3bccb35d58ca36b281d467c4c9e8c29a79cf3b4))
+
+
+
+
+
+# [1.48.0-rc.1](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/compare/@carbon/ibmdotcom-styles@1.48.0-rc.0...@carbon/ibmdotcom-styles@1.48.0-rc.1) (2023-06-22)
+
+**Note:** Version bump only for package @carbon/ibmdotcom-styles
+
+
+
+
+
+# [1.48.0-rc.0](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/compare/@carbon/ibmdotcom-styles@1.47.0...@carbon/ibmdotcom-styles@1.48.0-rc.0) (2023-06-09)
+
+
+### Bug Fixes
+
+* **deps:** update dependency carbon-components to v10.58.7 ([#10490](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/issues/10490)) ([1902578](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/commit/1902578d1f724921ddc0787d81b326ed614078d1))
+* **structured-list:** Ensure group header text can go full width ([#10451](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/issues/10451)) ([6ae7313](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/commit/6ae73130dabcbb58c0fa4d45a8d9ad6784558df7)), closes [#10449](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/issues/10449)
+
+
+
+
+
 # [1.47.0](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/compare/@carbon/ibmdotcom-styles@1.47.0-rc.2...@carbon/ibmdotcom-styles@1.47.0) (2023-05-23)
 
 **Note:** Version bump only for package @carbon/ibmdotcom-styles

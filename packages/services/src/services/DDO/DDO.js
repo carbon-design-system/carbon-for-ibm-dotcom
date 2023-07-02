@@ -132,6 +132,19 @@ class DDOAPI {
       return root.digitalData.page.pageInfo.language;
     });
   }
+
+  /**
+   * Gets the country location of the user based on data populated by IBM analytics script.
+   * Application should `window.digitalData` up-front, e.g. in a `<script>` tag in `<head>`.
+   * For quick developerment purpose, what `ibm-common.js` automatically populates can be used.
+   *
+   * @returns {Promise<*>} Promise object
+   */
+  static async getLocation() {
+    return await this.isReady().then(() => {
+      return root.digitalData.user.location.country.toLowerCase();
+    });
+  }
 }
 
 export default DDOAPI;

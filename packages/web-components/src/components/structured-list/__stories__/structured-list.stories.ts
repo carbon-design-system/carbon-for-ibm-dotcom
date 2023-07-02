@@ -1,7 +1,7 @@
 /**
  * @license
  *
- * Copyright IBM Corp. 2020, 2022
+ * Copyright IBM Corp. 2020, 2023
  *
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
@@ -288,7 +288,6 @@ export const WithComplexContent = (args) => {
         </dds-structured-list-row>
         <dds-structured-list-row>
           <dds-structured-list-cell icon="checkmark">
-            Cell with icon
           </dds-structured-list-cell>
         </dds-structured-list-row>
         <dds-structured-list-row>

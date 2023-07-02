@@ -16,7 +16,9 @@ import ddsSettings from '../../internal/vendor/@carbon/ibmdotcom-utilities/utili
 import DDSStructuredListGroup from './structured-list-group';
 import styles from './structured-list.scss';
 import { carbonElement as customElement } from '../../internal/vendor/@carbon/web-components/globals/decorators/carbon-element.js';
+import settings from 'carbon-components/es/globals/js/settings';
 
+const { prefix } = settings;
 const { stablePrefix: ddsPrefix } = ddsSettings;
 
 /**
@@ -55,7 +57,10 @@ class DDSStructuredListCell extends BXStructuredListCell {
   private _renderIcon() {
     const { icon, _iconsAllowed: iconMap } = this;
 
-    return html` ${iconMap[icon!.toLowerCase()].call()} `;
+    return html`${iconMap[icon!.toLowerCase()].call()}
+      <span class="${prefix}--structured-list-cell-icon-text">
+        <slot></slot>
+      </span>`;
   }
 
   private _renderTags() {
