@@ -106,19 +106,6 @@ export default (config: Config): Plugin => {
     };
 
     return Object.assign(origRangePlugin, {
-      onChange() {},
-      onPreCalendarPosition() {},
-      onValueUpdate(selectedDates) {
-        const [startDateFormatted, endDateFormatted] = selectedDates.map(
-          (item) => fp.formatDate(item, fp.config.dateFormat)
-        );
-        if (startDateFormatted) {
-          fp._input.value = startDateFormatted;
-        }
-        if (endDateFormatted) {
-          (config.input as HTMLInputElement).value = endDateFormatted;
-        }
-      },
       onReady() {
         (origOnReady as Function).call(this);
         const { ignoredFocusElements } = fp.config;
