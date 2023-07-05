@@ -1052,8 +1052,8 @@ class DDSMastheadComposite extends HostListenerMixin(LitElement) {
   /**
    * `true` if there is a search.
    */
-  @property({ type: Boolean, attribute: 'has-search' })
-  hasSearch = true;
+  @property({ type: String, reflect: true, attribute: 'has-search' })
+  hasSearch = 'true';
 
   /**
    * `true` to activate the search box.

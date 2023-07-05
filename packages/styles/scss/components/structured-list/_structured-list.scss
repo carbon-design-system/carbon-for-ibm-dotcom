@@ -103,6 +103,7 @@
       text-align: left;
       font-weight: bold;
       padding-inline: $spacing-05;
+      max-width: 100%;
     }
   }
 
@@ -248,6 +249,12 @@
     &[icon='checkmark'] {
       color: $support-02;
     }
+  }
+
+  .#{$prefix}--structured-list-cell-icon-text,
+  :host(#{$dds-prefix}-structured-list-cell)
+    .#{$prefix}--structured-list-cell-icon-text {
+    color: $text-02;
   }
 }
 

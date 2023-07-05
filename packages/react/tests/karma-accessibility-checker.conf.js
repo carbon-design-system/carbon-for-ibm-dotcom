@@ -1,5 +1,5 @@
 /**
- * Copyright IBM Corp. 2020, 2022
+ * Copyright IBM Corp. 2020, 2023
  *
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
@@ -115,16 +115,11 @@ module.exports = function setupKarmaIBMa(config) {
                 options: {
                   plugins: () => [
                     require('autoprefixer')({
-                      browsers: [
-                        'last 1 version',
+                      overrideBrowsersList: [
+                        '> 0.5%',
+                        'last 2 versions',
                         'Firefox ESR',
-                        'not opera > 0',
-                        'not op_mini > 0',
-                        'not op_mob > 0',
-                        'not android > 0',
-                        'not edge > 0',
-                        'not ie > 0',
-                        'not ie_mob > 0',
+                        'not dead',
                       ],
                     }),
                   ],
@@ -167,7 +162,6 @@ module.exports = function setupKarmaIBMa(config) {
       require('karma-webpack'),
       require('karma-chrome-launcher'),
       require('karma-firefox-launcher'),
-      require('karma-safari-launcher'),
     ],
 
     reporters: ['spec', 'aChecker'],

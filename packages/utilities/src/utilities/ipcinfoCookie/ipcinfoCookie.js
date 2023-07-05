@@ -1,5 +1,5 @@
 /**
- * Copyright IBM Corp. 2020, 2022
+ * Copyright IBM Corp. 2020, 2023
  *
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
@@ -29,11 +29,17 @@ class ipcinfoCookie {
    * const info = ipcinfoCookie.get();
    */
   static get() {
-    const ipcinfo = Cookies.get(_cookieName);
+    const cookiesDecode = Cookies.withConverter({
+      read: function (value) {
+        return decodeURIComponent(value);
+      },
+    });
+
+    const ipcinfo = cookiesDecode.get(_cookieName);
     if (ipcinfo) {
       let cc;
       let lc;
-      const info = decodeURIComponent(ipcinfo).split(';');
+      const info = ipcinfo.split(';');
       info.map((code) => {
         const itemParts = code.split('=');
         if (itemParts[0] === 'cc') cc = itemParts[1];
@@ -60,7 +66,13 @@ class ipcinfoCookie {
   static set({ cc, lc }) {
     const info = `cc=${cc};lc=${lc}`;
 
-    Cookies.set(_cookieName, encodeURIComponent(info), {
+    const cookiesEncode = Cookies.withConverter({
+      write: function (value) {
+        return encodeURIComponent(value);
+      },
+    });
+
+    cookiesEncode.set(_cookieName, info, {
       expires: 365,
       domain: '.ibm.com',
     });
