@@ -333,6 +333,8 @@ class DDSMastheadL1 extends StableSelectorMixin(LitElement) {
     const { cta, login } = actions ?? {};
 
     return html`
+      <div
+        class="${prefix}--masthead__l1-menu-container-mask ${prefix}--masthead__l1-menu-container-mask--start"></div>
       ${!title || !url
         ? undefined
         : html`
@@ -375,6 +377,8 @@ class DDSMastheadL1 extends StableSelectorMixin(LitElement) {
             >
           `
         : ''}
+      <div
+        class="${prefix}--masthead__l1-menu-container-mask ${prefix}--masthead__l1-menu-container-mask--end"></div>
     `;
   }
 

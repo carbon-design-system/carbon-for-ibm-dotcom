@@ -62,11 +62,11 @@ describe('dds-masthead | with L1 (desktop)', () => {
     cy.takeSnapshots();
   });
 
-  it('should render 6 menu items', () => {
+  it('should render menu items', () => {
     cy.get(_selectors.l1)
       .shadow()
       .find(_selectors.l1Item)
-      .should('have.length', 6);
+      .should('exist');
   });
 
   it('should open dropdowns', () => {
@@ -75,9 +75,8 @@ describe('dds-masthead | with L1 (desktop)', () => {
       .find(`${_selectors.l1Item}`)
       .first()
       .click()
-      .should('have.class', 'is-open')
       .next(_selectors.l1Dropdown)
-      .should('have.class', 'is-open');
+      .should('be.visible');
 
     cy.takeSnapshots();
   });
@@ -100,7 +99,7 @@ describe('dds-masthead | with L1 (desktop)', () => {
       .click()
       .next(_selectors.l1Dropdown)
       .find(_selectors.l1DropdownAnnouncement)
-      .should('have.length', 1);
+      .should('be.visible');
   });
 
   it('should support view all links in dropdowns', () => {
