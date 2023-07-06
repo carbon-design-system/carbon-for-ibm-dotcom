@@ -7602,16 +7602,6 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@types/send@npm:*":
-  version: 0.17.1
-  resolution: "@types/send@npm:0.17.1"
-  dependencies:
-    "@types/mime": ^1
-    "@types/node": "*"
-  checksum: 10b620a5960058ef009afbc17686f680d6486277c62f640845381ec4baa0ea683fdd77c3afea4803daf5fcddd3fb2972c8aa32e078939f1d4e96f83195c89793
-  languageName: node
-  linkType: hard
-
 "@types/serve-index@npm:^1.9.1":
   version: 1.9.1
   resolution: "@types/serve-index@npm:1.9.1"
@@ -26038,7 +26028,7 @@ __metadata:
     tar: ^6.1.11
   bin:
     pacote: lib/bin.js
-  checksum: de03c08e2e04b812953d64e50f5b22e56c826487e8b8b35bb79368681ebe865e92cd5ca189339c75fb133c8fb25a3e1518c8eb19a864f1c6b1a8d42bce99e54e
+  checksum: 109388e873615cdad342f5dbd3639389c00aaac2c84b824dcb1a9460b4cf1c66264387b1d0200b1769abda7feca94165804d1308ca5e59904ae24d489d3bfb13
   languageName: node
   linkType: hard
 
@@ -30624,7 +30614,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"sigstore@npm:^1.0.0, sigstore@npm:^1.3.0, sigstore@npm:^1.4.0":
+"sigstore@npm:^1.3.0, sigstore@npm:^1.4.0":
   version: 1.6.0
   resolution: "sigstore@npm:1.6.0"
   dependencies:
