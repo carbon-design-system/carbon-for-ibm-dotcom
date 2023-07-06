@@ -109,7 +109,7 @@ class DDSMegaMenuTopNavMenu extends DDSTopNavMenu {
   }
 
   private _setAnalyticsAttributes() {
-    const { _triggerNode: trigger } = this;
+    const { _topMenuItem: trigger } = this;
 
     trigger!.setAttribute('data-attribute1', 'headerNav');
     trigger!.setAttribute('data-attribute2', 'L0');
