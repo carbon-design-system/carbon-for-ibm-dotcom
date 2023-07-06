@@ -4,7 +4,6 @@
   "npmClientArgs": [
     "--frozen-lockfile"
   ],
-  "useWorkspaces": true,
   "ignoreChanges": [
     "**/__fixtures__/**",
     "**/__tests__/**",
