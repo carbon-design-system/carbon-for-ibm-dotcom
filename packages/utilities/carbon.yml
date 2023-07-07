@@ -2,13 +2,16 @@
 library:
   id: ibmdotcom-utilities
   name: IBM.com Utilities
-  description: Apply JavaScript ES6 utility classes that adhere to IBM’s web standards.
+  description:
+    Apply JavaScript ES6 utility classes that adhere to IBM’s web standards.
   externalDocsUrl: https://carbon-design-system.github.io/carbon-for-ibm-dotcom/utilities
   noIndex: true
 assets:
   altlangs:
     name: altlangs
-    description: Utility to grab all alternative languages on the page. this scrapes the page of all elements and returns as a readable object.
+    description:
+      Utility to grab all alternative languages on the page. this scrapes the
+      page of all elements and returns as a readable object.
     type: function
     platform: web
     status: stable
@@ -30,7 +33,9 @@ assets:
       - utility
   decode-string:
     name: decodeString
-    description: Utility function to parse and decode text content. Strings can become encoded for various reasons. This utility decodes those strings.
+    description:
+      Utility function to parse and decode text content. Strings can become
+      encoded for various reasons. This utility decodes those strings.
     type: function
     platform: web
     status: stable
@@ -63,7 +68,9 @@ assets:
       - utility
   ipc-info-cookie:
     name: ipcinfoCookie
-    description: Utility to set and get the ipcInfo cookie needed to determine country and language code.
+    description:
+      Utility to set and get the ipcInfo cookie needed to determine country and
+      language code.
     type: function
     platform: web
     status: stable
@@ -74,7 +81,11 @@ assets:
       - utility
   format-video-caption:
     name: formatVideoCaption
-    description: The default g11n formatter for video caption, combining video name and video duration. Components using this function should have a mechanism to allow translators to replace it with one accomodating the preferences of specific locale.
+    description:
+      The default g11n formatter for video caption, combining video name and
+      video duration. Components using this function should have a mechanism to
+      allow translators to replace it with one accomodating the preferences of
+      specific locale.
     type: function
     platform: web
     status: stable
@@ -85,7 +96,12 @@ assets:
       - utility
   format-video-duration:
     name: formatVideoDuration
-    description: The default g11n formatter for video duration. Components using this function should have a mechanism to allow translators to replace it with one accomodating the preferences of specific locale, or to replace it with general-purpose g11n formatting library. (e.g. moment, though it’s too big for us to make it a hard dependency)
+    description:
+      The default g11n formatter for video duration. Components using this
+      function should have a mechanism to allow translators to replace it with
+      one accomodating the preferences of specific locale, or to replace it with
+      general-purpose g11n formatting library. (e.g. moment, though it’s too big
+      for us to make it a hard dependency)
     type: function
     platform: web
     status: stable
@@ -94,20 +110,10 @@ assets:
     externalDocsUrl: https://carbon-design-system.github.io/carbon-for-ibm-dotcom/utilities/global.html#formatVideoDuration
     tags:
       - utility
-  geolocation:
-    name: geolocation
-    description: Utility to retrieve user’s country code based on their IP address
-    type: function
-    platform: web
-    status: stable
-    framework: vanilla
-    noIndex: true
-    externalDocsUrl: https://carbon-design-system.github.io/carbon-for-ibm-dotcom/utilities/global.html#geolocation
-    tags:
-      - utility
   load-non-latin-plex:
     name: loadNonLatinPlex
-    description: Utility to load in the corresponding non-Latin Plex font if necessary
+    description:
+      Utility to load in the corresponding non-Latin Plex font if necessary
     type: function
     platform: web
     status: stable
@@ -161,7 +167,8 @@ assets:
       - utility
   smooth-scroll:
     name: smoothScroll
-    description: Utility handles smoothScroll on the anchor element after onClick
+    description:
+      Utility handles smoothScroll on the anchor element after onClick
     type: function
     platform: web
     status: stable

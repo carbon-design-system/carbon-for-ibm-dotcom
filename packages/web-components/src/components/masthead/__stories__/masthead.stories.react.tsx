@@ -7,7 +7,7 @@
  * LICENSE file in the root directory of this source tree.
  */
 
-import { boolean, select } from '@storybook/addon-knobs';
+import { select } from '@storybook/addon-knobs';
 import React from 'react';
 // Below path will be there when an application installs `@carbon/ibmdotcom-web-components` package.
 // In our dev env, we auto-generate the file and re-map below path to to point to the generated file.
@@ -23,14 +23,6 @@ import textNullable from '../../../../.storybook/knob-text-nullable';
 const userStatuses = {
   authenticated: 'test.user@ibm.com',
   unauthenticated: UNAUTHENTICATED_STATUS,
-};
-
-/**
- * platform knob data
- */
-const platformData = {
-  name: 'IBM Cloud',
-  url: 'https://www.ibm.com/cloud',
 };
 
 const scopeParameters = [
@@ -82,7 +74,6 @@ async function customTypeaheadApiFunction(searchVal) {
 export const Default = (args) => {
   const {
     customProfileLogin,
-    platform,
     hasProfile,
     hasSearch,
     selectedMenuItem,
@@ -100,8 +91,6 @@ export const Default = (args) => {
   }
   return (
     <DDSMastheadContainer
-      platform={platform}
-      platformUrl={platformData.url}
       selected-menu-item={selectedMenuItem}
       user-status={userStatus}
       searchPlaceholder={searchPlaceholder}
@@ -112,18 +101,7 @@ export const Default = (args) => {
   );
 };
 
-export const WithCustomTypeahead = (args) => {
-  const {
-    customProfileLogin,
-    navLinks,
-    platform,
-    selectedMenuItem,
-    userStatus,
-    searchPlaceholder,
-    hasProfile,
-    hasSearch,
-  } = args?.MastheadComposite ?? {};
-
+export const WithCustomTypeahead = () => {
   document.documentElement.addEventListener(
     'dds-search-with-typeahead-input',
     async (e) => {
@@ -137,83 +115,50 @@ export const WithCustomTypeahead = (args) => {
   );
 
   return (
-    <DDSMastheadContainer
-      platform={platform}
-      platformUrl={platformData.url}
-      selected-menu-item={selectedMenuItem}
-      user-status={userStatus}
-      searchPlaceholder={searchPlaceholder}
-      navLinks={navLinks}
-      has-profile={hasProfile}
-      has-search={hasSearch}
-      custom-profile-login={customProfileLogin}
-      custom-typeahead-api={true}></DDSMastheadContainer>
+    <DDSMastheadContainer custom-typeahead-api={true}></DDSMastheadContainer>
   );
 };
 
 WithCustomTypeahead.story = {
   name: 'With custom typeahead',
+  parameters: {
+    knobs: {
+      MastheadComposite: () => ({}),
+    },
+  },
 };
 
 export const searchOpenOnload = (args) => {
-  const {
-    customProfileLogin,
-    platform,
-    selectedMenuItem,
-    userStatus,
-    searchPlaceholder,
-    hasProfile,
-    hasSearch,
-    navLinks,
-  } = args?.MastheadComposite ?? {};
+  const { searchPlaceholder } = args?.MastheadComposite ?? {};
 
-  if (!hasSearch) {
-    setTimeout(() => {
-      document
-        .querySelector('dds-masthead-container')
-        ?.removeAttribute('has-search');
-    }, 1000);
-  }
   return (
     <DDSMastheadContainer
       activate-search="true"
-      platform={platform}
-      platformUrl={platformData.url}
-      selected-menu-item={selectedMenuItem}
-      user-status={userStatus}
-      searchPlaceholder={searchPlaceholder}
-      navLinks={navLinks}
-      has-profile={hasProfile}
-      has-search={hasSearch}
-      custom-profile-login={customProfileLogin}></DDSMastheadContainer>
+      searchPlaceholder={searchPlaceholder}></DDSMastheadContainer>
   );
 };
 
 searchOpenOnload.story = {
   name: 'Search open onload',
+  parameters: {
+    knobs: {
+      MastheadComposite: () => ({
+        searchPlaceholder: textNullable(
+          'search placeholder (searchPlaceholder)',
+          'Search all of IBM'
+        ),
+      }),
+    },
+  },
 };
 
 export const withPlatform = (args) => {
-  const { userStatus, navLinks, hasProfile, hasSearch, searchPlaceholder } =
-    args?.MastheadComposite ?? {};
-
-  if (!hasSearch) {
-    setTimeout(() => {
-      document
-        .querySelector('dds-masthead-container')
-        ?.removeAttribute('has-search');
-    }, 1000);
-  }
+  const { platform, platformUrl } = args?.WithPlatform ?? {};
 
   return (
     <DDSMastheadContainer
-      platform={'Platform'}
-      platformUrl={platformData.url}
-      user-status={userStatus}
-      searchPlaceholder={searchPlaceholder}
-      navLinks={navLinks}
-      has-profile={hasProfile}
-      has-search={hasSearch}></DDSMastheadContainer>
+      platform={platform}
+      platformUrl={platformUrl}></DDSMastheadContainer>
   );
 };
 
@@ -221,21 +166,12 @@ withPlatform.story = {
   name: 'With platform',
   parameters: {
     knobs: {
-      MastheadComposite: () => ({
-        hasProfile: select(
-          'show the profile functionality (has-profile)',
-          ['true', 'false'],
-          'true'
-        ),
-        hasSearch: boolean('show the search functionality (has-search)', true),
-        searchPlaceholder: textNullable(
-          'search placeholder (searchPlaceholder)',
-          'Search all of IBM'
-        ),
-        userStatus: select(
-          'The user authenticated status (user-status)',
-          userStatuses,
-          userStatuses.unauthenticated
+      MastheadComposite: () => ({}),
+      WithPlatform: () => ({
+        platform: textNullable('platform name (platform)', 'Platform'),
+        platformUrl: textNullable(
+          'platform url (platformUrl)',
+          'https://www.ibm.com'
         ),
       }),
     },
@@ -243,24 +179,11 @@ withPlatform.story = {
 };
 
 export const withL1 = (args) => {
-  const { selectedMenuItem, userStatus, navLinks, hasProfile, hasSearch } =
-    args?.MastheadComposite ?? {};
-
-  if (!hasSearch) {
-    setTimeout(() => {
-      document
-        .querySelector('dds-masthead-container')
-        ?.removeAttribute('has-search');
-    }, 1000);
-  }
+  const { selectedMenuItem } = args?.MastheadComposite ?? {};
   return (
     <DDSMastheadContainer
       selected-menu-item={selectedMenuItem}
-      user-status={userStatus}
-      has-profile={hasProfile}
-      has-search={hasSearch}
-      l1Data={mastheadL1Data}
-      navLinks={navLinks}></DDSMastheadContainer>
+      l1Data={mastheadL1Data}></DDSMastheadContainer>
   );
 };
 
@@ -269,20 +192,9 @@ withL1.story = {
   parameters: {
     knobs: {
       MastheadComposite: () => ({
-        hasProfile: select(
-          'show the profile functionality (has-profile)',
-          ['true', 'false'],
-          'true'
-        ),
-        hasSearch: boolean('show the search functionality (has-search)', true),
         selectedMenuItem: textNullable(
           'selected menu item (selected-menu-item)',
           'Products'
-        ),
-        userStatus: select(
-          'The user authenticated status (user-status)',
-          userStatuses,
-          userStatuses.unauthenticated
         ),
       }),
     },
@@ -290,33 +202,13 @@ withL1.story = {
 };
 
 export const withAlternateLogoAndTooltip = (args) => {
-  const {
-    selectedMenuItem,
-    userStatus,
-    navLinks,
-    hasProfile,
-    hasSearch,
-    searchPlaceholder,
-    mastheadLogo,
-  } = args?.MastheadComposite ?? {};
-
-  if (!hasSearch) {
-    setTimeout(() => {
-      document
-        .querySelector('dds-masthead-container')
-        ?.removeAttribute('has-search');
-    }, 1000);
-  }
+  const { mastheadLogo } = args?.MastheadComposite ?? {};
 
   return (
     <DDSMastheadContainer
-      selected-menu-item={selectedMenuItem}
-      user-status={userStatus}
-      searchPlaceholder={searchPlaceholder}
-      navLinks={navLinks}
-      logoData={mastheadLogo === 'alternateWithTooltip' ? logoData : null}
-      has-profile={hasProfile}
-      has-search={hasSearch}></DDSMastheadContainer>
+      logoData={
+        mastheadLogo === 'alternateWithTooltip' ? logoData : null
+      }></DDSMastheadContainer>
   );
 };
 
@@ -325,20 +217,6 @@ withAlternateLogoAndTooltip.story = {
   parameters: {
     knobs: {
       MastheadComposite: () => ({
-        hasProfile: select(
-          'show the profile functionality (has-profile)',
-          ['true', 'false'],
-          'true'
-        ),
-        hasSearch: boolean('show the search functionality (has-search)', true),
-        searchPlaceholder: textNullable(
-          'search placeholder (searchPlaceholder)',
-          'Search all of IBM'
-        ),
-        selectedMenuItem: textNullable(
-          'selected menu item (selected-menu-item)',
-          'Consulting & Services'
-        ),
         mastheadLogo: select(
           'masthead logo data (logoData)',
           {
@@ -347,43 +225,25 @@ withAlternateLogoAndTooltip.story = {
           },
           'alternateWithTooltip'
         ),
-        userStatus: select(
-          'The user authenticated status (user-status)',
-          userStatuses,
-          userStatuses.unauthenticated
-        ),
       }),
     },
   },
 };
 
-export const WithScopedSearch = args => {
-  const { customProfileLogin, platform, hasProfile, hasSearch, selectedMenuItem, searchPlaceholder, userStatus, navLinks } =
-    args?.MastheadComposite ?? {};
-
-  if (!hasSearch) {
-    setTimeout(() => {
-      document.querySelector('dds-masthead-container')?.removeAttribute('has-search');
-    }, 1000);
-  }
-
+export const WithScopedSearch = () => {
   return (
     <DDSMastheadContainer
-      platform={platform}
-      platformUrl={platformData.url}
-      selected-menu-item={selectedMenuItem}
-      user-status={userStatus}
-      searchPlaceholder={searchPlaceholder}
-      navLinks={navLinks}
-      has-profile={hasProfile}
-      has-search={hasSearch}
-      custom-profile-login={customProfileLogin}
       scopeParameters={scopeParameters}></DDSMastheadContainer>
   );
 };
 
 WithScopedSearch.story = {
   name: 'With scoped search',
+  parameters: {
+    knobs: {
+      MastheadComposite: () => ({}),
+    },
+  },
 };
 
 export default {
@@ -403,7 +263,11 @@ export default {
           ['true', 'false'],
           'true'
         ),
-        hasSearch: boolean('show the search functionality (has-search)', true),
+        hasSearch: select(
+          'show the search functionality (has-search)',
+          ['true', 'false'],
+          'true'
+        ),
         searchPlaceholder: textNullable(
           'search placeholder (searchPlaceholder)',
           'Search all of IBM'

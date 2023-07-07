@@ -1,5 +1,5 @@
 /**
- * Copyright IBM Corp. 2020
+ * Copyright IBM Corp. 2020, 2023
  *
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
@@ -20,7 +20,7 @@ describe('ipcinfo cookie utility', () => {
   it('should fetch the ipcInfo cookie and return a neat object', () => {
     Object.defineProperty(window.document, 'cookie', {
       writable: true,
-      value: 'ipcInfo=cc%253DUS%253Blc%253Den',
+      value: 'ipcInfo=cc%3DUS%3Blc%3Den',
     });
 
     const info = {

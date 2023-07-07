@@ -39,6 +39,12 @@ describe('DDOAPI', () => {
     expect(root.digitalData.page.pageInfo.version).toEqual('dds.v1.0.0');
   });
 
+  it('should return the country location', async () => {
+    await DDOAPI.getLocation();
+
+    expect(root.digitalData.user.location.country).toEqual('US');
+  });
+
   it('should set a loop if the data layer is not ready', async () => {
     root.digitalData.page.isDataLayerReady = false;
     jest.useFakeTimers();
