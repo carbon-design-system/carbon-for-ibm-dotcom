@@ -73,7 +73,7 @@
     "prettier": "^2.7.1",
     "react": "16.14.0",
     "rimraf": "^3.0.0",
-    "stylelint": "^13.3.3",
+    "stylelint": "^15.0.0",
     "stylelint-config-prettier": "^7.0.0",
     "stylelint-prettier": "^1.1.2",
     "stylelint-scss": "^3.17.1",
