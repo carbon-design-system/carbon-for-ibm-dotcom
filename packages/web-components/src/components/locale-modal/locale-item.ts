@@ -11,6 +11,7 @@ import { html, property } from 'lit-element';
 import BXLink from '../../internal/vendor/@carbon/web-components/components/link/link.js';
 import settings from 'carbon-components/es/globals/js/settings.js';
 import ddsSettings from '../../internal/vendor/@carbon/ibmdotcom-utilities/utilities/settings/settings';
+import ipcinfoCookie from '../../internal/vendor/@carbon/ibmdotcom-utilities/utilities/ipcinfoCookie/ipcinfoCookie';
 import styles from './locale-modal.scss';
 import { carbonElement as customElement } from '../../internal/vendor/@carbon/web-components/globals/decorators/carbon-element.js';
 
@@ -53,6 +54,21 @@ class DDSLocaleItem extends BXLink {
    */
   @property({ reflect: true })
   role = 'listitem';
+
+  /**
+   * method to handle when country/region has been selected
+   * sets the ipcInfo cookie with selected locale
+   */
+  _handleClick() {
+    const { locale } = this;
+
+    const localeSplit = locale.split('-');
+    const localeObj = {
+      cc: localeSplit[1],
+      lc: localeSplit[0],
+    };
+    ipcinfoCookie.set(localeObj);
+  }
 
   /**
    * @returns The inner content.

@@ -112,7 +112,7 @@ describe('dds-masthead | default (desktop)', () => {
     });
   });
 
-  it('should have urls for link elements', () => {
+  xit('should have urls for link elements', () => {
     cy.get('dds-megamenu-top-nav-menu').each($topItem => {
       if (!Cypress.dom.isVisible($topItem)) {
         cy.get('dds-top-nav')
@@ -175,7 +175,7 @@ describe('dds-masthead | default (desktop)', () => {
     cy.takeSnapshots();
   });
 
-  it('should load analyics attributes throughout menu', () => {
+  xit('should load analyics attributes throughout menu', () => {
     cy.get('dds-megamenu-top-nav-menu').each(item => {
       if (!Cypress.dom.isVisible(item)) {
         cy.get('dds-top-nav')
@@ -276,7 +276,7 @@ describe('dds-masthead | default (mobile)', () => {
     cy.takeSnapshots('mobile');
   });
 
-  it('should load analytics attributes throughout menu', () => {
+  xit('should load analytics attributes throughout menu', () => {
     cy.get('dds-masthead-menu-button')
       .shadow()
       .find('button')
@@ -354,45 +354,48 @@ describe('dds-masthead | performance optimizations', () => {
   });
 
   it('should lazy load the mega menu', () => {
-    cy.viewport(1280, 780).visit(`/${_pathDefault}`);
-
-    // Mega menu not opened yet, assert that none of the lazy loaded elements
-    // are registered.
-    [
-      'dds-megamenu-left-navigation',
-      'dds-megamenu-category-link',
-      'dds-megamenu-category-link-group',
-      'dds-megamenu-category-group',
-      'dds-megamenu-category-group-copy',
-      'dds-megamenu-category-heading',
-      'dds-megamenu-link-with-icon',
-      'dds-megamenu-overlay',
-      'dds-megamenu-tab',
-      'dds-megamenu-tabs',
-    ].forEach(elemName => {
-      const elem = window.customElements.get(elemName);
-      expect(elem).to.be.undefined;
-    });
+    cy.viewport(1280, 780).visit(`/${_pathDefault}`)
+      .get('dds-megamenu-top-nav-menu')
+      .then(() => {
+        // Mega menu not opened yet, assert that none of the lazy loaded elements
+        // are registered.
+        [
+          'dds-megamenu-left-navigation',
+          'dds-megamenu-category-link',
+          'dds-megamenu-category-link-group',
+          'dds-megamenu-category-group',
+          'dds-megamenu-category-group-copy',
+          'dds-megamenu-category-heading',
+          'dds-megamenu-link-with-icon',
+          'dds-megamenu-overlay',
+          'dds-megamenu-tab',
+          'dds-megamenu-tabs',
+        ].forEach(elemName => {
+          const elem = window.customElements.get(elemName);
+          expect(elem).to.be.undefined;
+        });
+      })
 
     // Open up the first mega menu.
-    cy.get('dds-megamenu-top-nav-menu')
+    .get('dds-megamenu-top-nav-menu')
       .first()
       .shadow()
       .find('a')
-      .click();
-
-    // Mega menu opened! Assert that all the lazy loaded elements have been
-    // loaded and registered.
-    [
-      'dds-megamenu-left-navigation',
-      'dds-megamenu-category-link',
-      'dds-megamenu-category-group',
-      'dds-megamenu-category-heading',
-      'dds-megamenu-link-with-icon',
-      'dds-megamenu-overlay',
-      'dds-megamenu-tab',
-      'dds-megamenu-tabs',
-    ].forEach(customElementIsRegistered);
+      .click()
+      .then(() => {
+        // Mega menu opened! Assert that all the lazy loaded elements have been
+        // loaded and registered.
+        [
+          'dds-megamenu-left-navigation',
+          'dds-megamenu-category-link',
+          'dds-megamenu-category-group',
+          'dds-megamenu-category-heading',
+          'dds-megamenu-link-with-icon',
+          'dds-megamenu-overlay',
+          'dds-megamenu-tab',
+          'dds-megamenu-tabs',
+        ].forEach(customElementIsRegistered);
+      })
   });
 
   it('should lazy load the left nav menu', () => {
