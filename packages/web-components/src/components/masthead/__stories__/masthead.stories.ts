@@ -125,7 +125,7 @@ export const Default = (args) => {
             searchPlaceholder="${ifNonNull(searchPlaceholder)}"
             .authenticatedProfileItems="${ifNonNull(authenticatedProfileItems)}"
             has-profile="${hasProfile}"
-            ?has-search="${hasSearch}"
+            has-search="${hasSearch}"
             .navLinks="${links}"
             .unauthenticatedProfileItems="${ifNonNull(
               unauthenticatedProfileItems
@@ -142,7 +142,7 @@ export const Default = (args) => {
             user-status="${ifNonNull(userStatus)}"
             searchPlaceholder="${ifNonNull(searchPlaceholder)}"
             has-profile="${hasProfile}"
-            ?has-search="${hasSearch}"
+            has-search="${hasSearch}"
             custom-profile-login="${customProfileLogin}"
             auth-method="${authMethod}"></dds-masthead-container>
         `}
@@ -171,7 +171,7 @@ export const withCloudData = (args) => {
             selected-menu-item="${ifNonNull(selectedMenuItem)}"
             searchPlaceholder="${ifNonNull(searchPlaceholder)}"
             .authenticatedProfileItems="${ifNonNull(authenticatedProfileItems)}"
-            ?has-search="${hasSearch}"
+            has-search="${hasSearch}"
             .navLinks="${links}"
             .unauthenticatedProfileItems="${ifNonNull(
               unauthenticatedProfileItems
@@ -186,7 +186,7 @@ export const withCloudData = (args) => {
             .platformUrl="https://www.ibm.com/cloud"
             selected-menu-item="${ifNonNull(selectedMenuItem)}"
             searchPlaceholder="${ifNonNull(searchPlaceholder)}"
-            ?has-search="${hasSearch}"
+            has-search="${hasSearch}"
             custom-profile-login="${customProfileLogin}"
             auth-method="${MASTHEAD_AUTH_METHOD.COOKIE}"></dds-masthead-container>
         `}
@@ -231,7 +231,7 @@ export const WithCustomTypeahead = (args) => {
             searchPlaceholder="${ifNonNull(searchPlaceholder)}"
             .authenticatedProfileItems="${ifNonNull(authenticatedProfileItems)}"
             has-profile="${hasProfile}"
-            ?has-search="${hasSearch}"
+            has-search="${hasSearch}"
             .navLinks="${links}"
             .unauthenticatedProfileItems="${ifNonNull(
               unauthenticatedProfileItems
@@ -248,7 +248,7 @@ export const WithCustomTypeahead = (args) => {
             user-status="${ifNonNull(userStatus)}"
             searchPlaceholder="${ifNonNull(searchPlaceholder)}"
             has-profile="${hasProfile}"
-            ?has-search="${hasSearch}"
+            has-search="${hasSearch}"
             custom-profile-login="${customProfileLogin}"
             ?custom-typeahead-api=${true}></dds-masthead-container>
         `}
@@ -286,7 +286,7 @@ export const searchOpenOnload = (args) => {
             .authenticatedProfileItems="${ifNonNull(authenticatedProfileItems)}"
             .navLinks="${links}"
             has-profile="${hasProfile}"
-            ?has-search="${hasSearch}"
+            has-search="${hasSearch}"
             .unauthenticatedProfileItems="${ifNonNull(
               unauthenticatedProfileItems
             )}"
@@ -302,7 +302,7 @@ export const searchOpenOnload = (args) => {
             user-status="${ifNonNull(userStatus)}"
             searchPlaceholder="${ifNonNull(searchPlaceholder)}"
             has-profile="${hasProfile}"
-            ?has-search="${hasSearch}"
+            has-search="${hasSearch}"
             custom-profile-login="${customProfileLogin}"></dds-masthead-container>
         `}
   `;
@@ -337,7 +337,7 @@ export const withPlatform = (args) => {
             .authenticatedProfileItems="${ifNonNull(authenticatedProfileItems)}"
             .navLinks="${links}"
             has-profile="${hasProfile}"
-            ?has-search="${hasSearch}"
+            has-search="${hasSearch}"
             .unauthenticatedProfileItems="${ifNonNull(
               unauthenticatedProfileItems
             )}"></dds-masthead-composite>
@@ -351,7 +351,7 @@ export const withPlatform = (args) => {
             user-status="${ifNonNull(userStatus)}"
             searchPlaceholder="${ifNonNull(searchPlaceholder)}"
             has-profile="${hasProfile}"
-            ?has-search="${hasSearch}"></dds-masthead-container>
+            has-search="${hasSearch}"></dds-masthead-container>
         `}
   `;
 };
@@ -426,7 +426,7 @@ export const withL1 = (args) => {
             user-status="${ifNonNull(userStatus)}"
             .authenticatedProfileItems="${ifNonNull(authenticatedProfileItems)}"
             has-profile="${hasProfile}"
-            ?has-search="${hasSearch}"
+            has-search="${hasSearch}"
             .l1Data="${mastheadL1Data}"
             .navLinks="${links}"
             .unauthenticatedProfileItems="${ifNonNull(
@@ -442,7 +442,7 @@ export const withL1 = (args) => {
             selected-menu-item-l1="${ifNonNull(selectedMenuItemL1)}"
             user-status="${ifNonNull(userStatus)}"
             has-profile="${hasProfile}"
-            ?has-search="${hasSearch}"
+            has-search="${hasSearch}"
             .l1Data="${mastheadL1Data}"></dds-masthead-container>
         `}
   `;
@@ -520,7 +520,7 @@ export const withAlternateLogoAndTooltip = (args) => {
             searchPlaceholder="${ifNonNull(searchPlaceholder)}"
             .authenticatedProfileItems="${ifNonNull(authenticatedProfileItems)}"
             has-profile="${hasProfile}"
-            ?has-search="${hasSearch}"
+            has-search="${hasSearch}"
             .navLinks="${links}"
             .logoData="${mastheadLogo === 'alternateWithTooltip'
               ? logoData
@@ -541,7 +541,7 @@ export const withAlternateLogoAndTooltip = (args) => {
               ? logoData
               : undefined}"
             has-profile="${hasProfile}"
-            ?has-search="${hasSearch}"></dds-masthead-container>
+            has-search="${hasSearch}"></dds-masthead-container>
         `}
   `;
 };
@@ -622,7 +622,7 @@ export const WithScopedSearch = (args) => {
             searchPlaceholder="${ifNonNull(searchPlaceholder)}"
             .authenticatedProfileItems="${ifNonNull(authenticatedProfileItems)}"
             ?has-profile="${hasProfile}"
-            ?has-search="${hasSearch}"
+            has-search="${hasSearch}"
             .navLinks="${navLinks}"
             .unauthenticatedProfileItems="${ifNonNull(
               unauthenticatedProfileItems
@@ -639,7 +639,7 @@ export const WithScopedSearch = (args) => {
             user-status="${ifNonNull(userStatus)}"
             searchPlaceholder="${ifNonNull(searchPlaceholder)}"
             ?has-profile="${hasProfile}"
-            ?has-search="${hasSearch}"
+            has-search="${hasSearch}"
             custom-profile-login="${customProfileLogin}"
             .scopeParameters=${scopeParameters}></dds-masthead-container>
         `}
