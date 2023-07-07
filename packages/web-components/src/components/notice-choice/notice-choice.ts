@@ -527,4 +527,5 @@ class NoticeChoice extends StableSelectorMixin(LitElement) {
     );
   }
 }
+
 export default NoticeChoice;

@@ -139,7 +139,12 @@ module.exports = function setupKarma(config) {
                 options: {
                   plugins: () => [
                     require('autoprefixer')({
-                      overrideBrowsersList: ['last 1 version', 'ie >= 11'],
+                      overrideBrowsersList: [
+                        '> 0.5%',
+                        'last 2 versions',
+                        'Firefox ESR',
+                        'not dead',
+                      ],
                     }),
                   ],
                 },
@@ -206,8 +211,6 @@ module.exports = function setupKarma(config) {
       require('karma-webpack'),
       require('karma-chrome-launcher'),
       require('karma-firefox-launcher'),
-      require('karma-safari-launcher'),
-      require('karma-ie-launcher'),
     ],
 
     reporters: [
