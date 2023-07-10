@@ -164,7 +164,6 @@ class CDSSideNav extends HostListenerMixin(LitElement) {
       const headerItems = doc.querySelectorAll(
         (this.constructor as typeof CDSSideNav).selectorHeaderItems
       );
-      this._updatedSideNavMenuForceCollapsedState();
       forEach(
         doc.querySelectorAll(
           (this.constructor as typeof CDSSideNav).selectorButtonToggle
@@ -205,7 +204,7 @@ class CDSSideNav extends HostListenerMixin(LitElement) {
   // @ts-ignore: The decorator refers to this method but TS thinks this method is not referred to
   private _handleFocusOut({ relatedTarget }: FocusEvent) {
     const { collapseMode } = this;
-    if (collapseMode === SIDE_NAV_COLLAPSE_MODE.RAIL) {
+    if (collapseMode !== SIDE_NAV_COLLAPSE_MODE.FIXED) {
       if (!this.contains(relatedTarget as Node)) {
         this.expanded = false;
       }
