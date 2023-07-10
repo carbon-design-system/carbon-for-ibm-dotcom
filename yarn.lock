@@ -2260,7 +2260,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@carbon/grid@npm:10.43.1, @carbon/grid@npm:^10.43.0":
+"@carbon/grid@npm:10.43.1, @carbon/grid@npm:^10.43.0, @carbon/grid@npm:^10.43.1":
   version: 10.43.1
   resolution: "@carbon/grid@npm:10.43.1"
   dependencies:
@@ -2497,7 +2497,7 @@ __metadata:
     "@carbon/motion": 10.29.0
     "@carbon/telemetry": 0.1.0
     "@carbon/themes": 10.55.1
-    "@carbon/type": 10.45.1
+    "@carbon/type": 10.45.2
     carbon-components: 10.58.7
     carbon-components-react: 7.59.8
     del: ^6.0.0
@@ -2588,7 +2588,7 @@ __metadata:
     "@carbon/layout": 10.37.1
     "@carbon/motion": ^11.0.0
     "@carbon/telemetry": 0.1.0
-    "@carbon/type": 10.45.1
+    "@carbon/type": 10.45.2
     "@carbon/web-components": 1.29.0
     "@open-wc/semantic-dom-diff": ~0.18.0
     "@percy-io/in-percy": ^0.1.11
@@ -2865,7 +2865,17 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@carbon/type@npm:10.45.1, @carbon/type@npm:^10.45.1":
+"@carbon/type@npm:10.45.2":
+  version: 10.45.2
+  resolution: "@carbon/type@npm:10.45.2"
+  dependencies:
+    "@carbon/grid": ^10.43.1
+    "@carbon/import-once": ^10.7.0
+  checksum: 879c7d5b4bb8f34130b374dbbd63948077326dd3d571a926369fe501daed20157cc5ed230b3ff1f9d1deaa791164e2440f8025b359889540e70a4f96d730bf57
+  languageName: node
+  linkType: hard
+
+"@carbon/type@npm:^10.45.1":
   version: 10.45.1
   resolution: "@carbon/type@npm:10.45.1"
   dependencies:
