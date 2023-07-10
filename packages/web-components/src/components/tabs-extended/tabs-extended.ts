@@ -22,6 +22,9 @@ import { carbonElement as customElement } from '../../internal/vendor/@carbon/we
 const { prefix } = settings;
 const { stablePrefix: ddsPrefix } = ddsSettings;
 
+// Magic Number: 1056px matches 'carbon--breakpoint(lg) mixin'.
+const layoutBreakpoint = window.matchMedia(`(max-width: 1056px)`);
+
 /**
  * A component to present content inside a tabbed layout.
  *
@@ -29,6 +32,18 @@ const { stablePrefix: ddsPrefix } = ddsSettings;
  */
 @customElement(`${ddsPrefix}-tabs-extended`)
 class DDSTabsExtended extends StableSelectorMixin(LitElement) {
+  /**
+   * Whether the we're viewing smaller or larger window.
+   */
+  _isMobileVersion = layoutBreakpoint.matches;
+
+  // Allows conditional rendering of tabs/accordion.
+  firstUpdated() {
+    layoutBreakpoint.addEventListener('change', () => {
+      this._isMobileVersion = layoutBreakpoint.matches;
+      this.requestUpdate();
+    });
+  }
   /**
    * Child tab components.
    */
@@ -166,25 +181,28 @@ class DDSTabsExtended extends StableSelectorMixin(LitElement) {
     this._isLTR = window.getComputedStyle(this).direction === 'ltr';
     this._activeTabIndex = parseInt(this._activeTab, 10);
 
-    this._tabItems.map((tab, index) => {
-      (tab as DDSTab).selected = index === this._activeTabIndex;
-      (tab as DDSTab).setIndex(index);
-      const navLink = this.shadowRoot!.querySelectorAll(
-        `.${prefix}--tabs__nav-link`
-      )[index];
-      const navText = navLink!.querySelector('div p');
-      if (navText!.scrollHeight > navText!.clientHeight) {
-        const label = (tab as DDSTab).getAttribute('label');
-        if (label) {
-          navLink!.setAttribute('aria-label', label);
-          navLink!.setAttribute('hasTooltip', label);
+    // Set aria-label on tabs for desktop.
+    if (!this._isMobileVersion) {
+      this._tabItems.forEach((tab, index) => {
+        (tab as DDSTab).selected = index === this._activeTabIndex;
+        (tab as DDSTab).setIndex(index);
+        const navLink = this.shadowRoot!.querySelectorAll(
+          `.${prefix}--tabs__nav-link`
+        )[index];
+        const navText = navLink!.querySelector('div p');
+        if (navText!.scrollHeight > navText!.clientHeight) {
+          const label = (tab as DDSTab).getAttribute('label');
+          if (label) {
+            navLink!.setAttribute('aria-label', label);
+            navLink!.setAttribute('hasTooltip', label);
+          }
         }
-      }
-      return tab;
-    });
+        return tab;
+      });
+    }
   }
 
-  protected _renderAccordion(): TemplateResult | string | void {
+  protected _renderAccordion(): TemplateResult {
     const { _tabItems: tabs } = this;
     return html`
       <ul class="${prefix}--accordion">
@@ -222,7 +240,7 @@ class DDSTabsExtended extends StableSelectorMixin(LitElement) {
     `;
   }
 
-  protected _renderTabs(): TemplateResult | string | void {
+  protected _renderTabs(): TemplateResult {
     const { _tabItems: tabs } = this;
     return html`
       <div class="${prefix}--tabs">
@@ -280,9 +298,13 @@ class DDSTabsExtended extends StableSelectorMixin(LitElement) {
   orientation = ORIENTATION.HORIZONTAL;
 
   render() {
+    const {
+      _isMobileVersion: isMobileVersion,
+    } = this;
+
     return html`
       <div class="${this._getOrientationClass()}">
-        ${this._renderAccordion()} ${this._renderTabs()}
+        ${isMobileVersion ? this._renderAccordion() : this._renderTabs()}
         <div class="${prefix}--tab-content">
           <slot @slotchange="${this._handleSlotChange}"></slot>
         </div>
