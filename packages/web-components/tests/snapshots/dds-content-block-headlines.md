@@ -21,7 +21,11 @@
       <slot>
       </slot>
     </div>
-    <div hidden="">
+    <div
+      class="null"
+      hidden=""
+      style="undefined"
+    >
       <slot name="footer">
       </slot>
     </div>
