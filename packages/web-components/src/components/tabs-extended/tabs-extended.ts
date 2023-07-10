@@ -298,9 +298,7 @@ class DDSTabsExtended extends StableSelectorMixin(LitElement) {
   orientation = ORIENTATION.HORIZONTAL;
 
   render() {
-    const {
-      _isMobileVersion: isMobileVersion,
-    } = this;
+    const { _isMobileVersion: isMobileVersion } = this;
 
     return html`
       <div class="${this._getOrientationClass()}">

@@ -31,9 +31,7 @@ class DDSTabsExtendedMedia extends DDSTabsExtended {
   sectionHeading = 'true';
 
   render() {
-    const {
-      _isMobileVersion: isMobileVersion,
-    } = this;
+    const { _isMobileVersion: isMobileVersion } = this;
 
     return html`
       <div class="${prefix}--tabs-extended-media">
