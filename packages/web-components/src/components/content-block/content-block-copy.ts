@@ -74,8 +74,4 @@ class DDSContentBlockCopy extends StableSelectorMixin(DDSMarkdown) {
 }
 
 /* @__GENERATE_REACT_CUSTOM_ELEMENT_TYPE__ */
-export default deprecate(
-  DDSContentBlockCopy,
-  'The card-block-copy component has been deprecated in favor of the content-section/block copy component. ' +
-    'See content-section/block documentation for more information.'
-);
+export default DDSContentBlockCopy;

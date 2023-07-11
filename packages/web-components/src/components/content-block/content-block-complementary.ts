@@ -43,8 +43,4 @@ class DDSContentBlockComplementary extends LitElement {
 }
 
 /* @__GENERATE_REACT_CUSTOM_ELEMENT_TYPE__ */
-export default deprecate(
-  DDSContentBlockComplementary,
-  'The content-block-complementary component has been deprecated in favor of the content-section/block complimentary component. ' +
-    'See content-section/block complimentary documentation for more information.'
-);
+export default DDSContentBlockComplementary;

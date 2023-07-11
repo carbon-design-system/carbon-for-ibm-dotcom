@@ -48,8 +48,4 @@ class DDSContentSectionHeading extends StableSelectorMixin(LitElement) {
 }
 
 /* @__GENERATE_REACT_CUSTOM_ELEMENT_TYPE__ */
-export default deprecate(
-  DDSContentSectionHeading,
-  'The content-section-heading component has been deprecated in favor of the content-section/block. ' +
-    'See content-section/block documentation for more information.'
-);
+export default DDSContentSectionHeading;
