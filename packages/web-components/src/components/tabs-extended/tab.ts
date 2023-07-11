@@ -14,13 +14,11 @@ import ddsSettings from '../../internal/vendor/@carbon/ibmdotcom-utilities/utili
 import ChevronRight20 from '../../internal/vendor/@carbon/web-components/icons/chevron--right/20.js';
 import styles from './tabs-extended.scss';
 import StableSelectorMixin from '../../globals/mixins/stable-selector';
+import MediaQueryMixin from '../../component-mixins/media-query/media-query';
 import { carbonElement as customElement } from '../../internal/vendor/@carbon/web-components/globals/decorators/carbon-element';
 
 const { prefix } = settings;
 const { stablePrefix: ddsPrefix } = ddsSettings;
-
-// Magic Number: 1056px matches 'carbon--breakpoint(lg) mixin'.
-const layoutBreakpoint = window.matchMedia(`(max-width: 1056px)`);
 
 /**
  * A tab within a tabbed layout.
@@ -28,11 +26,19 @@ const layoutBreakpoint = window.matchMedia(`(max-width: 1056px)`);
  * @element dds-tab
  */
 @customElement(`${ddsPrefix}-tab`)
-class DDSTab extends StableSelectorMixin(LitElement) {
+class DDSTab extends MediaQueryMixin(StableSelectorMixin(LitElement)) {
   /**
    * Whether the we're viewing smaller or larger window.
    */
-  _isMobileVersion = layoutBreakpoint.matches;
+  _isMobileVersion = this._mediaQuery.matches;
+
+  /**
+   * @inheritdoc
+   */
+  mediaQueryCallback() {
+    this._isMobileVersion = this._mediaQuery.matches;
+    this.requestUpdate();
+  }
 
   /**
    * Defines label of the tab.
@@ -63,14 +69,6 @@ class DDSTab extends StableSelectorMixin(LitElement) {
    */
   setIndex(index: number) {
     this._index = index;
-  }
-
-  // Allows conditional rendering of tabs/accordion.
-  protected firstUpdated() {
-    layoutBreakpoint.addEventListener('change', () => {
-      this._isMobileVersion = layoutBreakpoint.matches;
-      this.requestUpdate();
-    });
   }
 
   protected updated(

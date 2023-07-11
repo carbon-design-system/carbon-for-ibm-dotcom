@@ -12,6 +12,7 @@ import { html, state, LitElement, TemplateResult, property } from 'lit-element';
 import { classMap } from 'lit-html/directives/class-map.js';
 import ddsSettings from '../../internal/vendor/@carbon/ibmdotcom-utilities/utilities/settings/settings';
 import StableSelectorMixin from '../../globals/mixins/stable-selector';
+import MediaQueryMixin from '../../component-mixins/media-query/media-query';
 import DDSTab from './tab';
 import styles from './tabs-extended.scss';
 import { ORIENTATION } from './defs';
@@ -20,27 +21,24 @@ import { carbonElement as customElement } from '../../internal/vendor/@carbon/we
 const { prefix } = settings;
 const { stablePrefix: ddsPrefix } = ddsSettings;
 
-// Magic Number: 1056px matches 'carbon--breakpoint(lg) mixin'.
-const layoutBreakpoint = window.matchMedia(`(max-width: 1056px)`);
-
 /**
  * A component to present content inside a tabbed layout.
  *
  * @element dds-tabs-extended
  */
 @customElement(`${ddsPrefix}-tabs-extended`)
-class DDSTabsExtended extends StableSelectorMixin(LitElement) {
+class DDSTabsExtended extends MediaQueryMixin(StableSelectorMixin(LitElement)) {
   /**
    * Whether the we're viewing smaller or larger window.
    */
-  _isMobileVersion = layoutBreakpoint.matches;
+  _isMobileVersion = this._mediaQuery.matches;
 
-  // Allows conditional rendering of tabs/accordion.
-  firstUpdated() {
-    layoutBreakpoint.addEventListener('change', () => {
-      this._isMobileVersion = layoutBreakpoint.matches;
-      this.requestUpdate();
-    });
+  /**
+   * @inheritdoc
+   */
+  mediaQueryCallback() {
+    this._isMobileVersion = this._mediaQuery.matches;
+    this.requestUpdate();
   }
   /**
    * Child tab components.
