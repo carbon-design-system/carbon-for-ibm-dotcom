@@ -2957,7 +2957,7 @@ __metadata:
     expect-playwright: ~0.8.0
     expect-puppeteer: ^6.0.0
     file-loader: ^6.2.0
-    flatpickr: 4.6.9
+    flatpickr: 4.6.13
     fs-extra: ^10.0.0
     gulp: ^4.0.2
     gulp-babel: ^8.0.0
@@ -16497,10 +16497,24 @@ __metadata:
   languageName: node
   linkType: hard
 
+"flatpickr@npm:4.6.13":
+  version: 4.6.13
+  resolution: "flatpickr@npm:4.6.13"
+  checksum: 2cca1b8dc974e7673b51174ee3f0679ae3a6b79525a0c53bf49b87455ef358354e64acfd60b312e44cef208aab9750a1a48df32a0914046a53de6d9403742304
+  languageName: node
+  linkType: hard
+
 "flatpickr@npm:4.6.9":
   version: 4.6.9
   resolution: "flatpickr@npm:4.6.9"
   checksum: 4702ad182531af0524b2fc74a70e06d276ff91918449092b3a11c464cb5a5e010df6c7cc9ff92e8b8373f81b238ea85d911ce9b3b883ee8df5085180cc3aea13
+  languageName: node
+  linkType: hard
+
+"flatpickr@patch:flatpickr@npm%3A4.6.13#./.yarn/patches/flatpickr-npm-4.6.13-06399933fc.patch::locator=carbon-for-ibm-dotcom%40workspace%3A.":
+  version: 4.6.13
+  resolution: "flatpickr@patch:flatpickr@npm%3A4.6.13#./.yarn/patches/flatpickr-npm-4.6.13-06399933fc.patch::version=4.6.13&hash=45a0af&locator=carbon-for-ibm-dotcom%40workspace%3A."
+  checksum: 0a74c045602fa77a394076f0f47b51618dc2fac5869c521a2ad3a26a9a91c244c3cfa83c4e624b180bbfe00e92c81dff9a86a7362dffb5fa565925aca22eaea5
   languageName: node
   linkType: hard
 
