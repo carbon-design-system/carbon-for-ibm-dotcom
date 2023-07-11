@@ -29,12 +29,14 @@ const MediaQueryMixin = <T extends Constructor<HTMLElement>>(Base: T) => {
      *
      * @see https://developer.mozilla.org/en-US/docs/Web/API/MediaQueryList
      */
-    _mediaQuery = window.matchMedia(`(max-width: ${this._breakpoint}px)`);
+    _mediaQuery: MediaQueryList = window.matchMedia(
+      `(max-width: ${this._breakpoint}px)`
+    );
 
     /**
      * The method that is invoked when crossing over the breakpoint.
      */
-    abstract mediaQueryCallback();
+    abstract mediaQueryCallback(): void;
 
     firstUpdated() {
       this._mediaQuery.addEventListener(
