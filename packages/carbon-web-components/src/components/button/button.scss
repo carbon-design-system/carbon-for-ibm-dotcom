@@ -27,6 +27,11 @@ $css--plex: true !default;
   ::slotted([slot='icon']) {
     @extend .#{$prefix}--btn__icon;
   }
+
+  .#{$prefix}--btn {
+    flex-grow: 1;
+    max-width: 100%;
+  }
 }
 
 :host(#{$prefix}-button[isExpressive]) ::slotted([slot='icon']),
