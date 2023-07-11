@@ -112,8 +112,10 @@ class CDSCopy extends CDSIconButton {
       });
 
     super.updated(changedProperties);
-    // @ts-ignore: TS thinks `host` doesn't exist on `parentNode` 
-    this.shadowRoot?.querySelector('button')?.setAttribute('aria-label', this.parentNode?.host.textContent); 
+
+    this.shadowRoot
+      ?.querySelector('button') // @ts-ignore: TS thinks `host` doesn't exist on `parentNode`
+      ?.setAttribute('aria-label', this.parentNode?.host.textContent);
   }
 
   static styles = styles;
