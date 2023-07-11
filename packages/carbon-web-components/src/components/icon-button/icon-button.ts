@@ -67,8 +67,13 @@ class CDSIconButton extends CDSButton {
         ?.shadowRoot?.querySelector(`.${prefix}--tooltip`)
         ?.classList.add(`${prefix}--icon-tooltip`);
 
-      const tooltipContent = this.querySelector('[slot=tooltip-content]')?.textContent;
-      this.shadowRoot?.querySelector(`${prefix}-tooltip`)?.querySelector(`button`)?.setAttribute('aria-label', String(tooltipContent));
+      const tooltipContent = this.querySelector(
+        '[slot=tooltip-content]'
+      )?.textContent;
+      this.shadowRoot
+        ?.querySelector(`${prefix}-tooltip`)
+        ?.querySelector(`button`)
+        ?.setAttribute('aria-label', String(tooltipContent));
     }
   }
 

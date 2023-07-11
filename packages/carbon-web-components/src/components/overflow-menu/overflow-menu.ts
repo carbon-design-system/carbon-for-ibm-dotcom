@@ -155,8 +155,10 @@ class CDSOverflowMenu
       const { _menuBody: menuBody } = this;
       if (menuBody) {
         menuBody.open = open;
-        
-        const tooltipContent = this.querySelector('[slot=tooltip-content]')?.textContent;
+
+        const tooltipContent = this.querySelector(
+          '[slot=tooltip-content]'
+        )?.textContent;
         button?.setAttribute('aria-expanded', String(Boolean(open)));
         button?.setAttribute('aria-label', String(tooltipContent));
       }
