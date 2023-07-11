@@ -112,6 +112,10 @@ class CDSCopy extends CDSIconButton {
       });
 
     super.updated(changedProperties);
+
+    this.shadowRoot
+      ?.querySelector('button')
+      ?.setAttribute('aria-label', this.parentNode?.host.textContent); // eslint-disable-line
   }
 
   static styles = styles;
