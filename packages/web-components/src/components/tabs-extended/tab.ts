@@ -8,12 +8,19 @@
  */
 
 import { html, property, LitElement, state } from 'lit-element';
+import { classMap } from 'lit-html/directives/class-map.js';
+import settings from 'carbon-components/es/globals/js/settings.js';
 import ddsSettings from '../../internal/vendor/@carbon/ibmdotcom-utilities/utilities/settings/settings';
+import ChevronRight20 from '../../internal/vendor/@carbon/web-components/icons/chevron--right/20.js';
 import styles from './tabs-extended.scss';
 import StableSelectorMixin from '../../globals/mixins/stable-selector';
 import { carbonElement as customElement } from '../../internal/vendor/@carbon/web-components/globals/decorators/carbon-element';
 
+const { prefix } = settings;
 const { stablePrefix: ddsPrefix } = ddsSettings;
+
+// Magic Number: 1056px matches 'carbon--breakpoint(lg) mixin'.
+const layoutBreakpoint = window.matchMedia(`(max-width: 1056px)`);
 
 /**
  * A tab within a tabbed layout.
@@ -22,6 +29,11 @@ const { stablePrefix: ddsPrefix } = ddsSettings;
  */
 @customElement(`${ddsPrefix}-tab`)
 class DDSTab extends StableSelectorMixin(LitElement) {
+  /**
+   * Whether the we're viewing smaller or larger window.
+   */
+  _isMobileVersion = layoutBreakpoint.matches;
+
   /**
    * Defines label of the tab.
    */
@@ -44,13 +56,21 @@ class DDSTab extends StableSelectorMixin(LitElement) {
    * Defines the index of the tab relative to other tabs.
    */
   @state()
-  private _index: Number = 0;
+  private _index: number = 0;
 
   /**
    * Sets the index of the tab.
    */
-  setIndex(index: Number) {
+  setIndex(index: number) {
     this._index = index;
+  }
+
+  // Allows conditional rendering of tabs/accordion.
+  protected firstUpdated() {
+    layoutBreakpoint.addEventListener('change', () => {
+      this._isMobileVersion = layoutBreakpoint.matches;
+      this.requestUpdate();
+    });
   }
 
   protected updated(
@@ -72,19 +92,54 @@ class DDSTab extends StableSelectorMixin(LitElement) {
     super.updated(_changedProperties);
   }
 
-  render() {
+  protected _renderAccordionItem() {
+    const { label, selected, disabled, _index: index } = this;
+    const classes = classMap({
+      'bx--accordion__item': true,
+      'bx--accordion__item--active': selected,
+      'bx--accordion__item--disabled': disabled,
+    });
+    return html`
+      <li class="${classes}">
+        <button
+          class="${prefix}--accordion__heading"
+          aria-expanded="${selected}"
+          aria-controls="pane-${index}"
+          tabindex="${index + 1}"
+          ?disabled="${disabled}">
+          ${ChevronRight20({
+            part: 'expando-icon',
+            class: `${prefix}--accordion__arrow`,
+          })}
+          <div class="${prefix}--accordion__title">${label}</div>
+        </button>
+        <div id="pane-${index}" class="${prefix}--accordion__content">
+          <slot></slot>
+        </div>
+      </li>
+    `;
+  }
+
+  protected _renderTabItem() {
+    const { _index, selected } = this;
     return html`
       <div
-        id="tab-panel-${this._index}-default"
+        id="tab-panel-${_index}-default"
         tabindex="0"
-        class="tab-${this._index}-container"
+        class="tab-${_index}-container"
         role="tabpanel"
-        aria-labelledby="tab-link-${this._index}-default"
-        aria-hidden="${!this.selected}"
-        ?hidden="${!this.selected}">
+        aria-labelledby="tab-link-${_index}-default"
+        aria-hidden="${!selected}"
+        ?hidden="${!selected}">
         <slot></slot>
       </div>
     `;
+  }
+
+  render() {
+    return this._isMobileVersion
+      ? this._renderAccordionItem()
+      : this._renderTabItem();
   }
 
   static get stableSelector() {
