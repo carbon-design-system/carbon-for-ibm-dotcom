@@ -101,46 +101,41 @@ class NoticeChoice extends StableSelectorMixin(LitElement) {
   values = {
     EMAIL: false,
     PHONE: false,
-    POSTAL: false,
     NC_HIDDEN_EMAIL: worldWideContent.cc_default_status,
     NC_HIDDEN_PHONE: worldWideContent.cc_default_status,
-    NC_HIDDEN_POSTAL: worldWideContent.cc_default_status,
   };
 
   prepareCheckboxes() {
     if (this.ncData) {
-      const OptInContent = this.ncData.OptInContent;
+      const OptInContent = this.ncData;
       this.preText = OptInContent.preText;
       this.defaultPreText = OptInContent.preText;
-      const newCheckboxes = this._buildCheckboxes(OptInContent);
+      const newCheckboxes = this._buildCheckboxes();
       this.checkboxes = newCheckboxes;
       this.performUpdate();
     }
   }
   connectedCallback() {
     super.connectedCallback();
-    const { cc, lc } = getMappedValue(this.locale);
     loadContent(
-      cc,
-      lc,
+      this.locale,
       (ncData) => {
         this.ncData = ncData;
         this.prepareCheckboxes();
+        this.countryChanged(this.country);
       },
       (error) => {
         console.error('error loading content', error);
       }
     );
-    if (this.country && this.country !== cc) {
-      this.countryChanged(this.country);
-    }
+
+   
   }
   setDefaultSelections() {
     if (!this.enableAllOptIn && this.checkboxes) {
       const newValues = { ...this.values };
       Object.keys(this.checkboxes).forEach((key) => {
-        const optInContent = this.optInContent || this.ncData.OptInContent;
-        const option = this._getOptionByQuestion(key, optInContent);
+        const option = this._getOptionByQuestion(key);
         newValues[key] = !!(
           option.checked === 'true' || option.checked === true
         );
@@ -159,49 +154,30 @@ class NoticeChoice extends StableSelectorMixin(LitElement) {
     }
   }
   countryChangeAction() {
-    const splitValue = this.locale.split('-', 2);
+    const splitValue = this.locale;
     const ncData = getNcContentFromWindow();
-    if (splitValue[1] === 'en') {
-      let preText = this.defaultPreText;
-      if (ncData.OtherPreferences.englishNoticeText !== '') {
-        preText = ncData.OtherPreferences.englishNoticeText;
+      if (splitValue == 'en') {
+        let preText = this.defaultPreText;
+        this.preText = this.preTextTemplate();
       }
-      this.preText = preText;
-    }
-    /**
-     * @description if the user already interacted with the checkboxes,
-     * skip country default selection.
-     */
-    if (!this.changed && !this.fetchedPref) {
       /**
-       * @description
-       * change checkbox checked option based on new country.
+       * @description if the user already interacted with the checkboxes,
+       * skip country default selection.
        */
-      this.setDefaultSelections();
-    }
+      if (!this.changed && !this.fetchedPref) {
+        /**
+         * @description
+         * change checkbox checked option based on new country.
+         */
+        this.setDefaultSelections();
+      }
+
   }
   countryChanged(newVal) {
     const cc = newVal.toLocaleLowerCase();
     const lc = countrySettings[newVal.toLocaleLowerCase()].lang;
     resetToWorldWideContent();
-    loadContent(
-      cc,
-      lc,
-      (ncData) => {
-        /**
-         * @description Do not change content language.
-         * Change the checkbox according to the country rule.
-         */
-        this.optInContent = {
-          ...ncData.OptInContent,
-          cclc: `${worldWideContent.cc_name}-${worldWideContent.cc_lang}`,
-        };
-        this.countryChangeAction();
-      },
-      (error) => {
-        console.error('error loading content', error);
-      }
-    );
+    this.countryChangeAction();
   }
   /**
    *
@@ -224,10 +200,8 @@ class NoticeChoice extends StableSelectorMixin(LitElement) {
       case 'locale': {
         // load content when locale changed.
         if (hasValue && oldVal !== newVal) {
-          const { cc, lc } = getMappedValue(newVal);
           loadContent(
-            cc,
-            lc,
+            newVal,
             (ncData) => {
               this.ncData = ncData;
               this.prepareCheckboxes();
@@ -240,6 +214,7 @@ class NoticeChoice extends StableSelectorMixin(LitElement) {
         break;
       }
       case 'country': {
+
         /**
          * load content when country value changed.
          */
@@ -248,6 +223,7 @@ class NoticeChoice extends StableSelectorMixin(LitElement) {
           oldVal !== newVal &&
           countrySettings[newVal.toLocaleLowerCase()]
         ) {
+
           this.countryChanged(newVal);
         }
         break;
@@ -311,83 +287,89 @@ class NoticeChoice extends StableSelectorMixin(LitElement) {
       </div>
     </span>`;
   }
+  preTextTemplate() {
+    if (this.ncData) {
+    
+      const lang = this.locale;
+      const country = this.country.toLocaleLowerCase();
+      const ecmTranslateContent = this.ncData;
+      let preText =ecmTranslateContent.preText
+
+      if (ecmTranslateContent.state[country]) {
+        const state = this.state.toLocaleLowerCase() || '';
+        if (
+          country === 'us' &&
+          (state === 'ca' || state === '' || typeof state === 'undefined')
+        ) {
+          preText = ecmTranslateContent.state[country]['ca'].preText;
+        } else {
+          preText = ecmTranslateContent.state[country][state]
+            ? ecmTranslateContent.state[country][state].preText
+            : ecmTranslateContent.preText;
+        }
+      }
+
+      if (ecmTranslateContent.country[country]) {
+        preText = ecmTranslateContent.country[country.toLowerCase()].preText;
+      }
+
+      const opt_out_url =
+        'https://www.ibm.com/account/reg/' +
+        country +
+        '-' +
+        lang +
+        '/signup?formid=urx-42537';
+
+      const noticeChoiceRegex = {
+        optoutMath: new RegExp('<optout>.*</optout>', 'g'),
+        optoutReplace: new RegExp('<optout>|</optout>', 'g'),
+      };
+      const optOutLink = preText.match(noticeChoiceRegex.optoutMath);
+      if (optOutLink) {
+        const optoutAnrTagHtml = optOutLink[0].replace(
+          noticeChoiceRegex.optoutReplace,
+          ''
+        );
+        const optoutReplaceValue =
+          "<a href='" +
+          opt_out_url +
+          "' target='_blank' class='ibm-tooltip' >" +
+          optoutAnrTagHtml +
+          '</a>';
+        preText = preText.replace(
+          noticeChoiceRegex.optoutMath,
+          optoutReplaceValue
+        );
+      }
+
+      return html`${unsafeHTML(preText)}`;
+    } else {
+      return html``;
+    }
+  }
   postTextTemplate() {
     if (this.ncData) {
-      const OptInContent = this.ncData.OptInContent;
-      const OtherPreferences = this.ncData.OtherPreferences;
-      let postText = OptInContent.postText;
+      const OtherPreferences = this.ncData.trialPrivacyText;
       let tcHtml = '';
+      let postText = this.ncData.postText;
+
+      if (postText) {
+        postText = '<p>' + postText + '</p>';
+      }
+
       if (this.termsConditionLink) {
-        let originalValue = OtherPreferences.trailPrivacyText;
+        let originalValue = OtherPreferences;
         const matchedValue = originalValue.match(/<tc>.*<\/tc>/g);
         if (matchedValue) {
           const anrTagHtml = matchedValue[0].replace(/<tc>|<\/tc>/g, '');
           const link = `<a href='${this.termsConditionLink}' target='_blank' class='ibm-tooltip' >${anrTagHtml}</a>`;
           const reg = new RegExp('<tc>' + anrTagHtml + '</tc>', 'g');
           tcHtml = `<p>I accept the product  <a href='${this.termsConditionLink}' target='_blank' class='ibm-tooltip' >${anrTagHtml}</a> of this registration form.</p>`;
-          postText = originalValue.replace(reg, link);
+          postText = postText + originalValue.replace(reg, link);
         }
       }
-      // replace default privacy link
-      try {
-        const { cc, lc } = getMappedValue(this.locale);
-        postText = postText.replaceAll(
-          'www.ibm.com/privacy/zz/en/',
-          `www.ibm.com/${cc}-${lc}/privacy`
-        );
-      } catch (e) {
-        console.log('unable to replace privacy link locale code.');
-      }
-      const ccLcObject = getMappedValue(this.locale);
-      const cc = ccLcObject.cc;
-      const lc = ccLcObject.lc;
-      const ccpa =
-        this.country === 'US' && (this.state === 'CA' || this.state === '');
-      if (this.country === 'CN' && lc === 'en') {
-        return html`<p class="nc-gdpr-info">
-            I agree and acknowledge that IBM may share my personal information
-            with IBM affiliates and third parties globally. I understand that I
-            can withdraw my marketing consent at any time by submitting an
-            <a
-              href="https://www.ibm.com/account/reg/${cc}-${lc}/signup?formid=urx-42537"
-              target="_blank"
-              >opt-out request</a
-            >, and also may unsubscribe from receiving marketing emails by
-            clicking the unsubscribe link in each email. More information in
-            IBM’s use and processing of personal information can be found in the
-            <a href="https://www.ibm.com/privacy" target="_blank"
-              >IBM Privacy Statement</a
-            >.
-          </p>
-
-          <p class="nc-gdpr-ack">
-            By ticking the above boxes and submitting this form, I have read and
-            understand the above notice and IBM Privacy Statement.
-          </p>
-          ${unsafeHTML(tcHtml)}`;
-      } else if (lc === 'en' && ccpa) {
-        return html`<p class="nc-gdpr-info">
-            You can withdraw your marketing consent at any time by submitting an
-            <a
-              href="https://www.ibm.com/account/reg/us-en/signup?formid=urx-42537"
-              target="_blank"
-              >opt-out request</a
-            >. Also you may unsubscribe from receiving marketing emails by
-            clicking the unsubscribe link in each email.
-          </p>
-          <p class="nc-gdpr-ack">
-            More information on our processing can be found in the
-            <a href="https://www.ibm.com/privacy" target="_blank"
-              >IBM Privacy Statement.</a
-            >
-            California residents, review
-            <a href="https://www.ibm.com/privacy/ccpa" target="_blank"
-              >our notice and your privacy choices</a
-            >. <br />
-            By submitting this form, I acknowledge that I have read and
-            understand the IBM Privacy Statement.
-          </p>
-          ${unsafeHTML(tcHtml)}`;
+      if (postText !== '') {
+        postText = "<div id='ncPostTextContainer'>" + postText + '</div>';
       }
       return html`${unsafeHTML(postText)}`;
     } else {
@@ -403,9 +385,7 @@ class NoticeChoice extends StableSelectorMixin(LitElement) {
   }
   render() {
     return html`<section class="${prefix}--nc">
-      <p id="ncHeading" class="${ddsPrefix}--nc__pre-text">${unsafeHTML(
-      this.preText
-    )}</p>
+    <p id="ncHeading" class="${ddsPrefix}--nc__pre-text">${this.preTextTemplate()} </p>
       <div class="${prefix}--checkbox-group">
             ${
               this.checkboxes &&
@@ -444,49 +424,51 @@ class NoticeChoice extends StableSelectorMixin(LitElement) {
       });
     }
   }
-  protected _getOptionByQuestion = (question, OptInContentValue) => {
-    let OptInContent = OptInContentValue;
-    if (!OptInContent) {
-      OptInContent = this.ncData.OptInContent;
-    }
+  protected _getOptionByQuestion = (question) => {
+    const questionChoiceStatus =
+      countrySettings[this.country.toLocaleLowerCase()];
+
     let option;
     switch (question) {
       case 'EMAIL': {
-        option = OptInContent.fourQuestionApp[0];
+        option = {
+          id: '0',
+          checked: questionChoiceStatus.email === 'opt-out' ? true : false,
+          optionTextPost: this.ncData.email,
+        };
         break;
       }
       case 'PHONE': {
-        option = OptInContent.fourQuestionApp[1];
+        option = {
+          id: '1',
+          checked: questionChoiceStatus.phone === 'opt-out' ? true : false,
+          optionTextPost: this.ncData.telephone,
+        };
         break;
       }
-      case 'POSTAL': {
-        option = OptInContent.fourQuestionApp[2];
-        break;
-      }
+
       default: {
-        option = OptInContent.fourQuestionApp[0];
+        option = {
+          id: '0',
+          checked: questionChoiceStatus.email === 'opt-out' ? true : false,
+          optionTextPost: this.ncData.email,
+        };
         break;
       }
     }
+
     return option;
   };
-  protected _buildCheckboxes(OptInContent: any) {
+  protected _buildCheckboxes() {
     const fieldElements: any = {};
     const fieldCollections = {
       EMAIL: {
         id: 'EMAIL',
-        labelText: this._getOptionByQuestion('EMAIL', OptInContent)
-          .optionTextPost,
+        labelText: this._getOptionByQuestion('EMAIL').optionTextPost,
       },
       PHONE: {
         id: 'PHONE',
-        labelText: this._getOptionByQuestion('PHONE', OptInContent)
-          .optionTextPost,
-      },
-      POSTAL: {
-        id: 'POSTAL',
-        labelText: this._getOptionByQuestion('POSTAL', OptInContent)
-          .optionTextPost,
+        labelText: this._getOptionByQuestion('PHONE').optionTextPost,
       },
     };
     if (this.questionchoices) {
@@ -498,10 +480,6 @@ class NoticeChoice extends StableSelectorMixin(LitElement) {
       if (this.questionchoices.indexOf('2') > -1) {
         fieldElements.PHONE = fieldCollections.PHONE;
       }
-      // by Postal mail
-      if (this.questionchoices.indexOf('3') > -1) {
-        fieldElements.POSTAL = fieldCollections.POSTAL;
-      }
     }
     return fieldElements;
   }
@@ -510,7 +488,6 @@ class NoticeChoice extends StableSelectorMixin(LitElement) {
     const pwsFieldsMap = {
       NC_HIDDEN_EMAIL: 'permission_email',
       NC_HIDDEN_PHONE: 'permission_phone',
-      NC_HIDDEN_POSTAL: 'permission_postal',
     };
     if (Object.prototype.hasOwnProperty.call(pwsFieldsMap, field)) {
       field = pwsFieldsMap[field];

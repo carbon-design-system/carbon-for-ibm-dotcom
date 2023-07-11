@@ -18,23 +18,28 @@ import readme from './README.stories.mdx';
 const questionChoices = {
   Email: '1',
   'Email + Phone': '1,2',
-  'Email + Phone + Postal': '1,2,3',
 };
 const locales = {
-  'United States English': 'us-en',
-  'fr-fr': 'fr-fr',
-  'ca-fr': 'ca-fr',
-  'br-pt': 'br-pt',
-  'it-it': 'it-it',
-  'pl-pl': 'pl-pl',
-  'cn-zh': 'cn-zh',
-  'ru-ru': 'ru-ru',
-  'kr-ko': 'kr-ko',
-  'jp-ja': 'jp-ja',
-  'de-de': 'de-de',
-  'tw-zh': 'tw-zh',
-  'tr-tr': 'tr-tr',
-  'in-en': 'in-en',
+  'English [en]': 'en',
+  'Arabic [ar]': 'ar',
+  'Chinese (PRC) [zh-cn]': 'zh-cn',
+  'Chinese (Taiwan) [zh-tw]': 'zh-tw',
+  'French [fr]': 'fr',
+  'German [de]': 'de',
+  'Greek [el]': 'el',
+  'Hebrew [he]': 'he',
+  'Hungarian [hu]': 'hu',
+  'Indonesian [id]': 'id',
+  'Italian [it]': 'it',
+  'Japanese [ja]': 'ja',
+  'Korean [ko]': 'ko',
+  'Malaysian [ms]': 'ms',
+  'Polish [pl]': 'pl',
+  'Portuguese [pt-br]': 'pt-br',
+  'Slovenian [sl]': 'sl',
+  'Spanish [es]': 'es',
+  'Turkish [tr]': 'tr',
+  'Ukrainian [uk]': 'uk',
 };
 const countryList = {
   'Unites States': 'US',
@@ -52,7 +57,7 @@ const onChange = (event: CustomEvent) => {
   console.log(event.detail);
 };
 const props = () => ({
-  locale: select('Locale', locales, 'in-en'),
+  locale: select('Locale', locales, 'en'),
   country: select('Country', countryList, 'US'),
   state: select('State', stateList, ''),
   questionchoices: select('Question Choices', questionChoices, '1,2'),
