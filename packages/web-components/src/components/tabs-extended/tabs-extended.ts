@@ -197,7 +197,6 @@ class DDSTabsExtended extends StableSelectorMixin(LitElement) {
             navLink!.setAttribute('hasTooltip', label);
           }
         }
-        return tab;
       });
     }
   }
