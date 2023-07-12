@@ -17,21 +17,14 @@ import { Constructor } from '../../globals/defs';
 const MediaQueryMixin = <T extends Constructor<HTMLElement>>(Base: T) => {
   abstract class MediaQueryMixinImpl extends Base {
     /**
-     * The breakpoint in pixels.
-     *
-     * Magic Number: The default, 1056, matches 'carbon--breakpoint(lg)' mixin.
-     */
-    _breakpoint: number = 1056;
-
-    /**
      * A MediaQueryList object that indicates when we've crossed over the
      * breakpoint threshold.
      *
+     * Magic Number: The default, 1056px, matches 'carbon--breakpoint(lg)' mixin.
+     *
      * @see https://developer.mozilla.org/en-US/docs/Web/API/MediaQueryList
      */
-    _mediaQuery: MediaQueryList = window.matchMedia(
-      `(max-width: ${this._breakpoint}px)`
-    );
+    _mediaQuery: MediaQueryList = window.matchMedia(`(max-width: 1056px)`);
 
     /**
      * The method that is invoked when crossing over the breakpoint.
