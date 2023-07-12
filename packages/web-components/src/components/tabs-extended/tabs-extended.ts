@@ -174,7 +174,7 @@ class DDSTabsExtended extends MediaQueryMixin(StableSelectorMixin(LitElement)) {
     return tabItems;
   }
 
-  updated() {
+  updated(_changedProperties) {
     const { _isMobileVersion } = this;
     this._isLTR = window.getComputedStyle(this).direction === 'ltr';
     this._activeTabIndex = parseInt(this._activeTab, 10);
@@ -183,22 +183,24 @@ class DDSTabsExtended extends MediaQueryMixin(StableSelectorMixin(LitElement)) {
       (tab as DDSTab).selected = index === this._activeTabIndex;
       (tab as DDSTab).setIndex(index);
 
-      // Attach accordion behavior on mobile.
-      if (_isMobileVersion) {
-        tab.addEventListener('click', (e) => this._handleClick(index, e));
-      }
+      if (_changedProperties.has('_isMobileVersion')) {
+        // Attach accordion behavior on mobile.
+        if (_isMobileVersion) {
+          tab.addEventListener('click', (e) => this._handleClick(index, e));
+        }
 
-      // Set aria-label on tabs for desktop.
-      if (!_isMobileVersion) {
-        const navLink = this.shadowRoot!.querySelectorAll(
-          `.${prefix}--tabs__nav-link`
-        )[index];
-        const navText = navLink!.querySelector('div p');
-        if (navText!.scrollHeight > navText!.clientHeight) {
-          const label = (tab as DDSTab).getAttribute('label');
-          if (label) {
-            navLink!.setAttribute('aria-label', label);
-            navLink!.setAttribute('hasTooltip', label);
+        // Set aria-label on tabs for desktop.
+        if (!_isMobileVersion) {
+          const navLink = this.shadowRoot!.querySelectorAll(
+            `.${prefix}--tabs__nav-link`
+          )[index];
+          const navText = navLink!.querySelector('div p');
+          if (navText!.scrollHeight > navText!.clientHeight) {
+            const label = (tab as DDSTab).getAttribute('label');
+            if (label) {
+              navLink!.setAttribute('aria-label', label);
+              navLink!.setAttribute('hasTooltip', label);
+            }
           }
         }
       }
