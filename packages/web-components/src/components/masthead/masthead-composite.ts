@@ -1437,8 +1437,8 @@ class DDSMastheadComposite extends HostListenerMixin(LitElement) {
               </dds-top-nav>
             `
           : ''}
-        ${!hasSearch
-          ? undefined
+        ${hasSearch === 'false'
+          ? ''
           : html`
               <dds-search-with-typeahead
                 ?active="${activateSearch}"
