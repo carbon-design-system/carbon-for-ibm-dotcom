@@ -8,34 +8,49 @@
  */
 
 import { Constructor } from '../../globals/defs';
+import { breakpoints } from '@carbon/layout';
+
+const queriesByBreakpoint: { [index: string]: MediaQueryList } = {};
+for (let [key, val] of Object.entries(breakpoints)) {
+  queriesByBreakpoint[key] = window.matchMedia(
+    `(max-width: ${(val as any).width})`
+  );
+}
 
 /**
  * @param Base The base class.
- * @returns A mix-in implementing the logic for performing an action when the
- * viewport width crosses over a configurable breakpoint.
+ * @returns A mix-in implementing the logic for performing actions when the
+ * viewport width crosses over Carbon breakpoints.
  */
 const MediaQueryMixin = <T extends Constructor<HTMLElement>>(Base: T) => {
   abstract class MediaQueryMixinImpl extends Base {
     /**
-     * A MediaQueryList object that indicates when we've crossed over the
-     * breakpoint threshold.
-     *
-     * Magic Number: The default, 1056px, matches 'carbon--breakpoint(lg)' mixin.
+     * A keyed list of MediaQueryList objects that indicate when we've crossed
+     * over Carbon breakpoint thresholds.
      *
      * @see https://developer.mozilla.org/en-US/docs/Web/API/MediaQueryList
      */
-    _mediaQuery: MediaQueryList = window.matchMedia(`(max-width: 1056px)`);
+    _mediaQueries = { ...queriesByBreakpoint };
 
     /**
-     * The method that is invoked when crossing over the breakpoint.
+     * Sets up event listeners that fire any defined callback methods that
+     * correspond to the breakpoint being crossed over.
+     *
+     * Example callback method names:
+     *  - mediaQueryCallbackSM
+     *  - mediaQueryCallbackLG
+     *  - mediaQueryCallbackMAX
      */
-    abstract mediaQueryCallback(): void;
-
     firstUpdated() {
-      this._mediaQuery.addEventListener(
-        'change',
-        this.mediaQueryCallback.bind(this)
-      );
+      Object.keys(breakpoints).forEach((bp) => {
+        const funcName = `mediaQueryCallback${bp.toUpperCase()}`;
+        if (typeof this[funcName] === 'function') {
+          this._mediaQueries[bp].addEventListener(
+            'change',
+            this[funcName].bind(this)
+          );
+        }
+      });
     }
   }
 

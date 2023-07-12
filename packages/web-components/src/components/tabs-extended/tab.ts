@@ -30,14 +30,14 @@ class DDSTab extends MediaQueryMixin(StableSelectorMixin(LitElement)) {
   /**
    * Whether the we're viewing smaller or larger window.
    */
-  _isMobileVersion = this._mediaQuery.matches;
+  @state()
+  _isMobileVersion = this._mediaQueries.lg.matches;
 
   /**
    * @inheritdoc
    */
-  mediaQueryCallback() {
-    this._isMobileVersion = this._mediaQuery.matches;
-    this.requestUpdate();
+  mediaQueryCallbackLG() {
+    this._isMobileVersion = this._mediaQueries.lg.matches;
   }
 
   /**
