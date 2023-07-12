@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.49.0-rc.0](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/compare/@carbon/ibmdotcom-styles@1.48.0...@carbon/ibmdotcom-styles@1.49.0-rc.0) (2023-07-11)
+
+
+### Bug Fixes
+
+* **card-link:** make card link width match card-group ([#10601](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/issues/10601)) ([35b3253](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/commit/35b325302ecf7d1f2da9c6348a19fc1858d08aa9)), closes [bug#10580](https://github.com/bug/issues/10580)
+
+
+
+
+
 # [1.48.0](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/compare/@carbon/ibmdotcom-styles@1.48.0-rc.3...@carbon/ibmdotcom-styles@1.48.0) (2023-06-27)
 
 **Note:** Version bump only for package @carbon/ibmdotcom-styles
