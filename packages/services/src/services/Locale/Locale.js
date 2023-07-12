@@ -6,7 +6,7 @@
  */
 
 import axios from 'axios';
-import geolocation from '../../internal/vendor/@carbon/ibmdotcom-utilities/utilities/geolocation/geolocation';
+import { DDOAPI } from '../DDO';
 import ipcinfoCookie from '../../internal/vendor/@carbon/ibmdotcom-utilities/utilities/ipcinfoCookie/ipcinfoCookie';
 import root from 'window-or-global';
 
@@ -173,7 +173,7 @@ class LocaleAPI {
    *
    * Grab the locale from the `lang` attribute from html, else
    * check if ipcinfo cookie exists (ipcinfoCookie util)
-   * if not, retrieve the user's locale through geolocation util + gets user's
+   * if not, retrieve the user's locale through DDO service + gets user's
    * browser language preference then set the cookie
    *
    * @returns {object} object with lc and cc
@@ -197,7 +197,7 @@ class LocaleAPI {
       await this.getList(cookie);
       return cookie;
     } else {
-      const cc = await geolocation();
+      const cc = await DDOAPI.getLocation();
       /**
        * get language preference from browser
        * can return in either 'en-US' format or 'en' so will need to extract language only

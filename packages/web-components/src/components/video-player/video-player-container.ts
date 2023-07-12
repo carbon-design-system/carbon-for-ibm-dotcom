@@ -13,7 +13,7 @@ import {
   Store,
   bindActionCreators,
 } from 'redux';
-import { customElement } from 'lit/decorators.js';
+import {} from 'lit';
 import settings from 'carbon-components/es/globals/js/settings.js';
 import KalturaPlayerAPI from '@carbon/ibmdotcom-services/es/services/KalturaPlayer/KalturaPlayer.js';
 import ddsSettings from '../../internal/vendor/@carbon/ibmdotcom-utilities/utilities/settings/settings';
@@ -28,6 +28,7 @@ import { Constructor } from '../../globals/defs';
 import ConnectMixin from '../../globals/mixins/connect';
 import StableSelectorMixin from '../../globals/mixins/stable-selector';
 import DDSVideoPlayerComposite from './video-player-composite';
+import { carbonElement as customElement } from '../../internal/vendor/@carbon/web-components/globals/decorators/carbon-element';
 
 const { prefix } = settings;
 const { stablePrefix: ddsPrefix } = ddsSettings;
@@ -182,11 +183,13 @@ export const DDSVideoPlayerContainerMixin = <
      */
     // Not using TypeScript `private` due to: microsoft/TypeScript#17744
     async _embedVideoImpl(videoId: string, backgroundMode = false) {
-      const { ownerDocument: doc } = this;
+      const doc = Object.prototype.hasOwnProperty.call(this, 'getRootNode')
+        ? (this.getRootNode() as Document | ShadowRoot)
+        : this.ownerDocument;
       // Given Kaltura replaces the `<div>` here with `<iframe>` with the video player,
       // rendering this `<div>` in `renderLightDOM()` will cause the video player being clobbered
       const playerId = Math.random().toString(36).slice(2);
-      const div = doc!.createElement('div');
+      const div = document.createElement('div');
       div.id = playerId;
       div.className = `${prefix}--video-player__video`;
       const { _videoPlayer: videoPlayer } = this;

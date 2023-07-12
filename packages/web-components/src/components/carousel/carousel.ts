@@ -11,6 +11,7 @@ import { ifDefined } from 'lit/directives/if-defined.js';
 import { LitElement, html } from 'lit';
 import { customElement, property, query, state } from 'lit/decorators.js';
 import 'wicg-inert';
+import { slow01 } from '@carbon/motion';
 import settings from 'carbon-components/es/globals/js/settings.js';
 import CaretLeft20 from '../../internal/vendor/@carbon/web-components/icons/caret--left/20.js';
 import CaretRight20 from '../../internal/vendor/@carbon/web-components/icons/caret--right/20.js';
@@ -31,6 +32,11 @@ const MIN_DISTANCE_TRAVELLED = 75; // min distance traveled to be considered swi
 const headingBottomMargin = 64; // tag constants used for same height calculations
 
 /**
+ * Minimum percentage of a slide being visible for it to be interactable.
+ */
+const minIntersectionRatio = 0.75;
+
+/**
  * Carousel.
  *
  * @element dds-carousel
@@ -44,6 +50,12 @@ class DDSCarousel extends HostListenerMixin(StableSelectorMixin(LitElement)) {
    */
   @query(`.${prefix}--carousel__scroll-contents`)
   private _contentsNode?: HTMLElement;
+
+  /**
+   * The node whose text content is announced to screen readers on change.
+   */
+  @query('[aria-live]')
+  private _announcementNode!: HTMLElement;
 
   /**
    * The width of the scroll contents area node, excluding one of overflowed contents.
@@ -97,6 +109,64 @@ class DDSCarousel extends HostListenerMixin(StableSelectorMixin(LitElement)) {
    */
   private _observerResizeRoot: any | null = null; // TODO: Wait for `.d.ts` update to support `ResizeObserver`
 
+  private _intersectionThresholdDifference =
+    Math.max(0.5, minIntersectionRatio) - Math.min(0.5, minIntersectionRatio);
+
+  /**
+   *  IntersectionObserver to watch carousel contents.
+   *  As items cross the minIntersectionRatio `inert` and `aria-hidden` are toggled.
+   */
+  private _intersectionObserver = new IntersectionObserver(
+    this._onIntersect.bind(this),
+    {
+      root: this._contentsNode,
+      threshold: [
+        0.5 + this._intersectionThresholdDifference,
+        0.5 - this._intersectionThresholdDifference,
+      ],
+    }
+  );
+
+  private _intersectionTimeout?;
+
+  /**
+   * IntersectionObserver callback.
+   * Carousel items with more than `minIntersectionRatio` visible will interactable.
+   *
+   * @param {IntersectionObserverEntry[]} entries Array of observed intersections.
+   */
+  private _onIntersect(entries) {
+    const {
+      _announcementNode: announcementNode,
+      formatAnnouncement,
+      _getStatus: status,
+      _intersectionTimeout: timeout,
+    } = this;
+
+    // Mark off-screen slides as [inert]
+    entries.forEach((entry) => {
+      const { target, isIntersecting, intersectionRatio } = entry;
+
+      if (isIntersecting && intersectionRatio > minIntersectionRatio) {
+        target.inert = false;
+        target.setAttribute('aria-hidden', false);
+      } else {
+        target.inert = true;
+        target.setAttribute('aria-hidden', true);
+      }
+    });
+
+    // Wait for slide action to finish, then announce slide information
+    clearTimeout(timeout);
+
+    // Delay should equal the design token in the carousel's styles.
+    const delay = parseInt(slow01, 10);
+
+    this._intersectionTimeout = setTimeout(() => {
+      announcementNode.innerText = formatAnnouncement(status);
+    }, delay);
+  }
+
   /**
    * The page size that is explicitly set.
    */
@@ -136,7 +206,13 @@ class DDSCarousel extends HostListenerMixin(StableSelectorMixin(LitElement)) {
   private _startTime = 0;
 
   /**
-   * Cleans-up and creats the resize observer for the scrolling container.
+   * Whether the carousel is scrolling
+   */
+  @state()
+  private _isScrolling = false;
+
+  /**
+   * Cleans-up and creates the resize observer for the scrolling container.
    *
    * @param [options] The options.
    * @param [options.create] `true` to create the new resize observer.
@@ -168,7 +244,7 @@ class DDSCarousel extends HostListenerMixin(StableSelectorMixin(LitElement)) {
   }
 
   /**
-   * Stops the container from scrolling when focusing on a card outside of the viewport.
+   * Stops the container from scrolling when focusing on a card outside the viewport.
    *
    * @param event The event.
    */
@@ -188,7 +264,7 @@ class DDSCarousel extends HostListenerMixin(StableSelectorMixin(LitElement)) {
     const containsCurrent =
       target !== this && this.contains(target as HTMLElement);
     let currentItemIndex = 0;
-    Array.from(this.children).forEach((carouselItem, index) => {
+    Array.from(this._childItems).forEach((carouselItem, index) => {
       if (carouselItem.contains(target as HTMLElement)) {
         currentItemIndex = index;
       }
@@ -229,6 +305,7 @@ class DDSCarousel extends HostListenerMixin(StableSelectorMixin(LitElement)) {
   private _handleClickNextButton() {
     const { pageSize, start, _total: total } = this;
     this.start = Math.min(start + pageSize, total - 1);
+    this._handleIsScrolling();
   }
 
   /**
@@ -237,6 +314,17 @@ class DDSCarousel extends HostListenerMixin(StableSelectorMixin(LitElement)) {
   private _handleClickPrevButton() {
     const { pageSize, start } = this;
     this.start = Math.max(start - pageSize, 0);
+    this._handleIsScrolling();
+  }
+
+  /**
+   * Sets scrolling state of carousel
+   */
+  private _handleIsScrolling() {
+    this._isScrolling = true;
+    this._contentsNode?.addEventListener('transitionend', () => {
+      this._isScrolling = false;
+    });
   }
 
   /**
@@ -282,9 +370,13 @@ class DDSCarousel extends HostListenerMixin(StableSelectorMixin(LitElement)) {
     }
     this._updateGap();
 
-    this._childItems = (event.target as HTMLSlotElement)
-      .assignedNodes()
-      .filter((node) => node instanceof HTMLElement);
+    this._childItems = (event.target as HTMLSlotElement).assignedElements();
+
+    this._intersectionObserver.disconnect();
+
+    this._childItems.forEach((item) => {
+      this._intersectionObserver.observe(item);
+    });
 
     // retrieve item heading, eyebrows, and footers to set same height
     if (this._childItems) {
@@ -342,6 +434,8 @@ class DDSCarousel extends HostListenerMixin(StableSelectorMixin(LitElement)) {
             )
           );
         });
+      this._observeResizeRoot();
+      this.markHiddenAsInert();
     }
   }
 
@@ -370,18 +464,15 @@ class DDSCarousel extends HostListenerMixin(StableSelectorMixin(LitElement)) {
     this._setSameHeight();
   };
 
-  /**
-   * @returns Page status text.
-   */
-  private _renderStatus() {
-    const { start, pageSize, formatStatus, _total: total } = this;
+  private get _getStatus() {
+    const { start, pageSize, _total: total } = this;
     // Copes with the condition where `start % pageSize` is non-zero
     const pagesBefore = Math.ceil(start / pageSize);
     const pagesSince = Math.ceil((total - start) / pageSize);
-    return formatStatus({
+    return {
       currentPage: Math.ceil(start / pageSize) + 1,
       pages: pagesBefore + pagesSince,
-    });
+    };
   }
 
   private _setSameHeight = () => {
@@ -406,7 +497,7 @@ class DDSCarousel extends HostListenerMixin(StableSelectorMixin(LitElement)) {
 
     let tagGroupHeight: number = 0;
 
-    // get tallest height of tag groups
+    // Get the tallest height of tag groups.
     this._childItemTagGroup.forEach((item) => {
       if (item) {
         const groupHeight = (item as HTMLElement).offsetHeight;
@@ -466,10 +557,20 @@ class DDSCarousel extends HostListenerMixin(StableSelectorMixin(LitElement)) {
   }
 
   /**
-   * The formatter for the pagination status. Should be changed upon the locale the UI is rendered with.
+   * The formatters for the pagination status & aria-live announcement.
+   * Should be changed with the locale in which the UI is rendered.
    */
   @property({ attribute: false })
   formatStatus = ({ currentPage, pages }) => `${currentPage} / ${pages}`;
+
+  @property({ attribute: false })
+  formatAnnouncement = ({ currentPage, pages }) => {
+    const visibleItemsCount = this._childItems.filter(
+      (item) => !item.matches('[inert]')
+    ).length;
+
+    return `Slide ${currentPage} of ${pages}. Showing ${visibleItemsCount} items.`;
+  };
 
   /**
    * Number of items per page.
@@ -488,16 +589,20 @@ class DDSCarousel extends HostListenerMixin(StableSelectorMixin(LitElement)) {
   }
 
   /**
-   * The assistive text for the button to go to next page.
+   * The assistive text for the button to go to next slide/group.
    */
   @property({ attribute: 'next-button-text' })
-  nextButtonText = 'Next page';
+  nextButtonText?: string;
+
+  private _defaultNextButtonText = 'next';
+
+  private _defaultPrevButtonText = 'previous';
 
   /**
-   * The assistive text for the button to go to previous page.
+   * The assistive text for the button to go to previous slide/group.
    */
   @property({ attribute: 'prev-button-text' })
-  prevButtonText = 'Previous page';
+  prevButtonText?: string;
 
   /**
    * The current zero-based index of the left-most card.
@@ -511,7 +616,7 @@ class DDSCarousel extends HostListenerMixin(StableSelectorMixin(LitElement)) {
 
     const containingModal = this.closest(
       `${ddsPrefix}-expressive-modal`
-    ) as DDSExpressiveModal;
+    ) as DDSExpressiveModal | null;
     if (containingModal) {
       containingModal.hasFocusableElements.push(this);
       this.setAttribute('in-modal', '');
@@ -521,6 +626,15 @@ class DDSCarousel extends HostListenerMixin(StableSelectorMixin(LitElement)) {
         containingModal.modalBody!.style.width = 'var(--modal-vw)';
       }, 0);
     }
+  }
+
+  markHiddenAsInert() {
+    const { _childItems: childItems, start, pageSize } = this;
+
+    childItems.forEach((item) => {
+      const index = childItems.indexOf(item);
+      item.inert = index < start || index > start + pageSize - 1;
+    });
   }
 
   disconnectedCallback() {
@@ -551,61 +665,80 @@ class DDSCarousel extends HostListenerMixin(StableSelectorMixin(LitElement)) {
     const { customPropertyPageSize } = this.constructor as typeof DDSCarousel;
     const {
       nextButtonText,
+      _defaultNextButtonText: defaultNextButtonText,
       pageSize,
       prevButtonText,
+      _defaultPrevButtonText: defaultPrevButtonText,
       start,
       _contentsBaseWidth: contentsBaseWidth,
       _gap: gap,
       _pageSize: pageSizeExplicit,
       _total: total,
+      _getStatus: status,
+      formatStatus,
       _handleClickNextButton: handleClickNextButton,
       _handleClickPrevButton: handleClickPrevButton,
       _handleScrollFocus: handleScrollFocus,
       _handleSlotChange: handleSlotChange,
       _handleTouchStartEvent: handleTouchStartEvent,
       _handleTouchEndEvent: handleTouchEndEvent,
+      _isScrolling: isScrolling,
     } = this;
     // Copes with the condition where `start % pageSize` is non-zero
     const pagesBefore = Math.ceil(start / pageSize);
     const pagesSince = Math.ceil((total - start) / pageSize);
+    const scrollContentsClasses = classMap({
+      [`${prefix}--carousel__scroll-contents`]: true,
+      [`${prefix}--carousel__scroll-contents--scrolling`]: isScrolling,
+    });
     // Use another div from the host `<dds-carousel>` to reflect private state
     return html`
-      <div
-        class="${prefix}--carousel__scroll-container"
-        @scroll="${handleScrollFocus}"
-        @touchstart="${handleTouchStartEvent}"
-        @touchend="${handleTouchEndEvent}"
-        style="${ifDefined(
-          pageSizeExplicit == null
-            ? null
-            : `${customPropertyPageSize}: ${pageSizeExplicit}`
-        )}">
-        <div
-          class="${prefix}--carousel__scroll-contents"
-          style="left:${(-start * (contentsBaseWidth + gap)) / pageSize}px">
-          <slot @slotchange="${handleSlotChange}"></slot>
+      <div role="region" aria-labelledby="carousel-title">
+        <div id="carousel-title">
+          <slot name="title">
+            <span class="bx--visually-hidden">Carousel</span>
+          </slot>
         </div>
-      </div>
-      <div class="${prefix}--carousel__navigation">
-        <button
-          part="prev-button"
-          class="${prefix}--btn ${prefix}--btn--secondary ${prefix}--btn--icon-only ${prefix}--carousel__navigation__btn"
-          ?disabled="${pagesBefore === 0}"
-          @click="${handleClickPrevButton}"
-          aria-label="${ifDefined(prevButtonText)}"
-          title="${ifDefined(prevButtonText)}">
-          ${CaretLeft20()}
-        </button>
-        ${this._renderStatus()}
-        <button
-          part="next-button"
-          class="${prefix}--btn ${prefix}--btn--secondary ${prefix}--btn--icon-only ${prefix}--carousel__navigation__btn"
-          ?disabled="${pagesSince <= 1}"
-          @click="${handleClickNextButton}"
-          aria-label="${ifDefined(nextButtonText)}"
-          title="${ifDefined(nextButtonText)}">
-          ${CaretRight20()}
-        </button>
+        <div
+          class="${prefix}--carousel__scroll-container"
+          @scroll="${handleScrollFocus}"
+          @touchstart="${handleTouchStartEvent}"
+          @touchend="${handleTouchEndEvent}"
+          style="${ifNonNull(
+            pageSizeExplicit == null
+              ? null
+              : `${customPropertyPageSize}: ${pageSizeExplicit}`
+          )}">
+          <div
+            class="${scrollContentsClasses}"
+            style="left:${(-start * (contentsBaseWidth + gap)) / pageSize}px">
+            <slot @slotchange="${handleSlotChange}"></slot>
+          </div>
+        </div>
+        <nav
+          aria-label="Carousel Navigation"
+          class="${prefix}--carousel__navigation">
+          <button
+            part="prev-button"
+            class="${prefix}--btn ${prefix}--btn--tertiary ${prefix}--btn--icon-only ${prefix}--carousel__navigation__btn"
+            ?disabled="${pagesBefore === 0}"
+            @click="${handleClickPrevButton}"
+            aria-label="${prevButtonText || defaultPrevButtonText}"
+            title="${prevButtonText || defaultPrevButtonText}">
+            ${CaretLeft20()}
+          </button>
+          <span aria-hidden="true">${formatStatus(status)}</span>
+          <span class="${prefix}--visually-hidden" aria-live="polite"></span>
+          <button
+            part="next-button"
+            class="${prefix}--btn ${prefix}--btn--tertiary ${prefix}--btn--icon-only ${prefix}--carousel__navigation__btn"
+            ?disabled="${pagesSince <= 1}"
+            @click="${handleClickNextButton}"
+            aria-label="${nextButtonText || defaultNextButtonText}"
+            title="${nextButtonText || defaultNextButtonText}">
+            ${CaretRight20()}
+          </button>
+        </nav>
       </div>
     `;
   }
