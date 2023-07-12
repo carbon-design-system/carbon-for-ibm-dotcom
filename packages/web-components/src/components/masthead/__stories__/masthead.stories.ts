@@ -257,6 +257,22 @@ export const WithCustomTypeahead = (args) => {
 
 WithCustomTypeahead.story = {
   name: 'With custom typeahead',
+  parameters: {
+    knobs: {
+      MastheadComposite: () => ({}),
+    },
+    propsSet: {
+      default: {
+        MastheadComposite: {
+          hasProfile: 'true',
+          hasSearch: 'true',
+          searchPlaceHolder: 'Search all of IBM',
+          selectedMenuItem: 'Services & Consulting',
+          userStatus: userStatuses.unauthenticated,
+        },
+      },
+    },
+  },
 };
 
 export const searchOpenOnload = (args) => {
@@ -310,6 +326,16 @@ export const searchOpenOnload = (args) => {
 
 searchOpenOnload.story = {
   name: 'Search open onload',
+  parameters: {
+    knobs: {
+      MastheadComposite: () => ({
+        searchPlaceholder: textNullable(
+          'search placeholder (searchPlaceholder)',
+          'Search all of IBM'
+        ),
+      }),
+    },
+  },
 };
 
 export const withPlatform = (args) => {
@@ -389,7 +415,7 @@ withPlatform.story = {
         MastheadComposite: {
           platform: 'Platform',
           hasProfile: 'true',
-          hasSearch: true,
+          hasSearch: 'true',
           searchPlaceHolder: 'Search all of IBM',
           selectedMenuItem: 'Services & Consulting',
           userStatus: userStatuses.unauthenticated,
@@ -574,11 +600,6 @@ withAlternateLogoAndTooltip.story = {
           },
           'alternateWithTooltip'
         ),
-        userStatus: select(
-          'The user authenticated status (user-status)',
-          userStatuses,
-          userStatuses.unauthenticated
-        ),
       }),
     },
     propsSet: {
@@ -586,7 +607,7 @@ withAlternateLogoAndTooltip.story = {
         MastheadComposite: {
           platform: null,
           hasProfile: 'true',
-          hasSearch: true,
+          hasSearch: 'true',
           searchPlaceholder: 'Search all of IBM',
           selectedMenuItem: 'Services & Consulting',
           userStatus: userStatuses.unauthenticated,
@@ -648,6 +669,22 @@ export const WithScopedSearch = (args) => {
 
 WithScopedSearch.story = {
   name: 'With scoped search',
+  parameters: {
+    knobs: {
+      MastheadComposite: () => ({}),
+    },
+    propsSet: {
+      default: {
+        MastheadComposite: {
+          hasProfile: 'true',
+          hasSearch: 'true',
+          searchPlaceHolder: 'Search all of IBM',
+          selectedMenuItem: 'Services & Consulting',
+          userStatus: userStatuses.unauthenticated,
+        },
+      },
+    },
+  },
 };
 
 export default {
@@ -727,7 +764,7 @@ export default {
         MastheadComposite: {
           platform: null,
           hasProfile: 'true',
-          hasSearch: true,
+          hasSearch: 'true',
           searchPlaceholder: 'Search all of IBM',
           selectedMenuItem: 'Services & Consulting',
           userStatus: userStatuses.unauthenticated,
