@@ -8,12 +8,62 @@
  */
 
 import { html } from 'lit-element';
-import { select } from '@storybook/addon-knobs';
+import { select, text } from '@storybook/addon-knobs';
 import ArrowRight20 from '../../internal/vendor/@carbon/web-components/icons/arrow--right/20';
 import imgLg16x9 from '../../../../storybook-images/assets/720/fpo--16x9--720x405--005.jpg';
 import imgMd16x9 from '../../../../storybook-images/assets/480/fpo--16x9--480x270--005.jpg';
 import imgSm16x9 from '../../../../storybook-images/assets/320/fpo--16x9--320x180--005.jpg';
 // import styles from './playground.stories.scss';
+
+const currentComponents = [
+  'Callout quote',
+  'Callout with media',
+  'Card group',
+  'Card in card',
+  'Carousel',
+  'Content block',
+  'Content group',
+  'Content item horizontal',
+  'Content item',
+  'CTA block',
+  'Feature card',
+  'Image',
+  'Lightbox media viewer',
+  'Link list',
+  'Logo grid',
+  'Notice Choice',
+  'Pictogram item',
+  'Quote',
+  'Structured list',
+  'Tabs extended',
+  'Tabs extended - with media',
+  'Tag group',
+  'Video player',
+];
+const kitchenSinkComponents = [
+  'Callout quote',
+  'Callout with media',
+  'Card group',
+  'Card in card',
+  'Carousel',
+  'Content block',
+  'Content group',
+  'Content item horizontal',
+  'Content item',
+  'CTA block',
+  'Feature card',
+  'Image',
+  'Link list',
+  'Logo grid',
+  'Notice Choice',
+  'Pictogram item',
+  'Quote',
+  'Structured list',
+  'Tabs extended',
+  'Tabs extended - with media',
+  'Tag group',
+  'Video player',
+];
 
 const card1 = html`
   <dds-content-group-cards-item href="https://www.example.com">
@@ -44,30 +94,20 @@ const card2 = html`
   </dds-content-group-cards-item>
 `;
 
-const savedOne = localStorage.getItem('savedComponent')
-  ? localStorage.getItem('savedComponent')
-  : 'Background media';
-
 const specContext = require.context('../../', true, /\.stories\.ts$/);
 
 const storyModules = specContext.keys().map(specContext);
 
-const componentList = [] as any;
 const componentStories = {};
 
 storyModules.forEach((e) => {
   const title = (e as any)?.default?.title || '';
-
-  if (!title || title.includes('Dotcom shell')) return;
-  componentList.push(title.split('/')[1]);
   componentStories[title.split('/')[1]] = e;
 });
 
 export const Default = (args) => {
-  const { component } = args?.Playground ?? {};
+  const { component, childrenCustomClass } = args?.Playground ?? {};
   const currentStory = componentStories[component];
-
-  localStorage.setItem('savedComponent', component);
 
   const storyParameters = currentStory?.default?.parameters;
 
@@ -96,16 +136,12 @@ export const Default = (args) => {
       if (storyParameters?.props) {
         storyParameters.props[key] = (
           value as any
-        ).story?.parameters?.propsSet.default[key];
+        ).story?.parameters?.propsSet?.default[key];
       }
 
       storyArray.push(value);
     }
   }
-
-  // console.log(storyArray)
-
-  console.log(storyParameters.props);
 
   const returnStory = storyArray.map((story) => {
     const variationTitle =
@@ -118,8 +154,15 @@ export const Default = (args) => {
   });
 
   return html`
-    <dds-content-section>
+    <dds-content-section children-custom-class=${childrenCustomClass}>
       <dds-content-section-heading>Heading</dds-content-section-heading>
+      ${component === 'Card group'
+        ? html`
+            <dds-card-group>
+              ${card1}${card2}${card1}${card2}${card1}${card2}
+            </dds-card-group>
+          `
+        : ``}
       ${returnStory}
     </dds-content-section>
   `;
@@ -252,14 +295,92 @@ export const MultipleContentSections = () => {
   `;
 };
 
+export const KitchenSink = (args) => {
+  const { childrenCustomClass } = args?.Playground ?? {};
+
+  const storyMappings = {};
+
+  kitchenSinkComponents.forEach((component) => {
+    const currentStory = componentStories[component] as any;
+
+    const storyParameters = currentStory?.default?.parameters;
+
+    // // setting default props from propSet
+    if (!storyParameters?.props) {
+      storyParameters.props = storyParameters?.propsSet?.default || {};
+    }
+
+    const storyArray = [] as any;
+
+    // setting up Story array to render all
+    // eslint-disable-next-line no-restricted-syntax
+    for (const [key, value] of Object.entries(currentStory)) {
+      if (value instanceof Function) {
+        const defaultObject = (value as any).story?.parameters?.propsSet
+          ?.default;
+        const defaultPropsKey = defaultObject && Object.keys(defaultObject)[0];
+
+        // ensure variant story props save to its own key
+        if (defaultPropsKey && (value as any).story) {
+          storyParameters.props[defaultPropsKey] = (
+            value as any
+          ).story?.parameters?.propsSet.default[defaultPropsKey];
+        }
+
+        // set props from current variant propSet if default props aren't defined
+        if (storyParameters?.props) {
+          storyParameters.props[key] = (
+            value as any
+          ).story?.parameters?.propsSet?.default[key];
+        }
+
+        storyArray.push(value);
+      }
+    }
+    storyMappings[component] = storyArray;
+  });
+
+  const storyHtml = [] as any;
+
+  for (const [key, value] of Object.entries(storyMappings)) {
+    const storyParameters = componentStories[key]?.default?.parameters;
+    const returnStory = (value as any).map((story) => {
+      return html` ${story(storyParameters.props)} `;
+    });
+
+    storyHtml.push(returnStory);
+  }
+
+  return html`
+    <dds-content-section children-custom-class=${childrenCustomClass}>
+      <dds-content-section-heading>Heading</dds-content-section-heading>
+      <dds-card-group>
+        ${card1}${card2}${card1}${card2}${card1}${card2}
+      </dds-card-group>
+      ${storyHtml.map((e) => e)}
+    </dds-content-section>
+  `;
+};
+
+KitchenSink.story = {
+  parameters: {
+    knobs: {
+      Playground: () => ({
+        childrenCustomClass: text('Custom class:', ''),
+      }),
+    },
+  },
+};
+
 export default {
-  title: 'Components/Playground',
+  title: 'Components/Content section playground',
   decorators: [(story) => html` ${story()} `],
   parameters: {
     hasStoryPadding: true,
     knobs: {
       Playground: () => ({
-        component: select('Component:', componentList, savedOne),
+        childrenCustomClass: text('Custom class:', ''),
+        component: select('Component:', currentComponents, 'Callout quote'),
       }),
     },
   },
