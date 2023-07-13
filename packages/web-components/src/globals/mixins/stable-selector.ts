@@ -46,8 +46,8 @@ const StableSelectorMixin = <T extends Constructor<HTMLElement>>(Base: T) => {
         this.dataset.autoid = stableSelector;
 
         var css = `${this.tagName.toLowerCase()}:not(:defined) { display: none; }`,
-        head = document.head || document.getElementsByTagName('head')[0],
-        style = document.createElement('style');
+          head = document.head || document.getElementsByTagName('head')[0],
+          style = document.createElement('style');
 
         head.appendChild(style);
         style.appendChild(document.createTextNode(css));
