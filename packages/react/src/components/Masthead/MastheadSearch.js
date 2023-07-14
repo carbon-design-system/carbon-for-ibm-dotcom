@@ -1,5 +1,5 @@
 /**
- * Copyright IBM Corp. 2016, 2023
+ * Copyright IBM Corp. 2016, 2022
  *
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
@@ -626,8 +626,7 @@ const MastheadSearch = forwardRef(
           </HeaderGlobalAction>
           <HeaderGlobalAction
             onClick={closeBtnAction}
-            part="close-button"
-            aria-label="Clear input"
+            aria-label="Close"
             className={`${prefix}--header__search--close`}
             data-autoid={`${stablePrefix}--masthead-${navType}__l0-search--close`}>
             <Close20 />

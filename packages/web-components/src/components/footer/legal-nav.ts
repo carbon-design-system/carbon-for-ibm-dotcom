@@ -8,14 +8,13 @@
  */
 
 import { LitElement, html } from 'lit';
-import { property, query } from 'lit/decorators.js';
+import { customElement, property, query } from 'lit/decorators.js';
 import { classMap } from 'lit/directives/class-map.js';
 import settings from 'carbon-components/es/globals/js/settings.js';
 import ddsSettings from '../../internal/vendor/@carbon/ibmdotcom-utilities/utilities/settings/settings';
 import { FOOTER_SIZE } from './footer';
 import StableSelectorMixin from '../../globals/mixins/stable-selector';
 import styles from './footer.scss';
-import { carbonElement as customElement } from '../../internal/vendor/@carbon/web-components/globals/decorators/carbon-element';
 
 const { prefix } = settings;
 const { stablePrefix: ddsPrefix } = ddsSettings;

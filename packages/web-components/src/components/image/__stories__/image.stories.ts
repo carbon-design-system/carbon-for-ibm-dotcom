@@ -18,14 +18,12 @@ import imgMd16x9 from '../../../../../storybook-images/assets/480/fpo--16x9--480
 import imgMd2x1 from '../../../../../storybook-images/assets/480/fpo--2x1--480x240--005.jpg';
 import imgSm16x9 from '../../../../../storybook-images/assets/320/fpo--16x9--320x180--005.jpg';
 import imgSm2x1 from '../../../../../storybook-images/assets/320/fpo--2x1--320x160--005.jpg';
-import chartSvg from './chart-svg.js';
 import readme from './README.stories.mdx';
 import textNullable from '../../../../.storybook/knob-text-nullable';
 
 const images = {
   '2:1': imgLg2x1,
   '16:9': imgLg16x9,
-  'SVG (transparent background)': chartSvg,
 };
 
 const srcsets = {

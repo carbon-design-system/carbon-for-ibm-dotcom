@@ -41,7 +41,7 @@ const Card = ({
 } = {}) => html`
   <dds-card href="${ifDefined(href)}">
     <dds-card-heading>${heading}</dds-card-heading>
-    <p>${copy}</p>
+    ${copy}
     ${image
       ? html`
           <dds-image
@@ -62,7 +62,7 @@ const CardWithLongHeading = ({
 } = {}) => html`
   <dds-card href="${ifDefined(href)}">
     <dds-card-heading>${heading} ${heading}</dds-card-heading>
-    <p>${copy}</p>
+    ${copy}
     ${image
       ? html`
           <dds-image
@@ -78,7 +78,7 @@ const CardWithLongHeading = ({
 const CardWithVideo = ({ copy = copyDefault, href = hrefDefault } = {}) => html`
   <dds-video-cta-container>
     <dds-card-cta cta-type="video" href="${href}">
-      <p>${copy}</p>
+      ${copy}
       <dds-card-cta-footer href="${href}">
         ${ArrowRight20({ slot: 'icon' })}
       </dds-card-cta-footer>
@@ -93,9 +93,6 @@ export const Default = (args) => {
   });
   return html`
     <dds-carousel class="${classes}">
-      <span class="bx--visually-hidden" slot="title"
-        >Carousel (Storybook Sample)</span
-      >
       ${Card()}${Card({ copy: copyOdd })}${CardWithLongHeading()}${Card({
         copy: copyOdd,
       })}${Card()}

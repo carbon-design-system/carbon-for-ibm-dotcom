@@ -8,7 +8,7 @@
  */
 
 import { LitElement, html } from 'lit';
-import { property } from 'lit/decorators.js';
+import { customElement, property } from 'lit/decorators.js';
 import { classMap } from 'lit/directives/class-map.js';
 import ArrowRight16 from '../../internal/vendor/@carbon/web-components/icons/arrow--right/16';
 import settings from 'carbon-components/es/globals/js/settings.js';
@@ -16,7 +16,6 @@ import ddsSettings from '../../internal/vendor/@carbon/ibmdotcom-utilities/utili
 import { MEGAMENU_RIGHT_NAVIGATION_STYLE_SCHEME } from './defs';
 import styles from './masthead.scss';
 import './megamenu-link-with-icon';
-import { carbonElement as customElement } from '../../internal/vendor/@carbon/web-components/globals/decorators/carbon-element.js';
 
 export { MEGAMENU_RIGHT_NAVIGATION_STYLE_SCHEME };
 

@@ -8,7 +8,7 @@
  */
 
 import { html } from 'lit';
-import { property, state } from 'lit/decorators.js';
+import { customElement, property, state } from 'lit/decorators.js';
 import ddsSettings from '../../internal/vendor/@carbon/ibmdotcom-utilities/utilities/settings/settings';
 import {
   formatVideoCaption,
@@ -19,7 +19,6 @@ import CTAMixin from '../../component-mixins/cta/cta';
 import VideoCTAMixin from '../../component-mixins/cta/video';
 import { CTA_TYPE } from './defs';
 import styles from './cta.scss';
-import { carbonElement as customElement } from '../../internal/vendor/@carbon/web-components/globals/decorators/carbon-element';
 
 export { CTA_TYPE };
 

@@ -10,7 +10,13 @@
 import { classMap } from 'lit/directives/class-map.js';
 import { ifDefined } from 'lit/directives/if-defined.js';
 import { html, LitElement, nothing } from 'lit';
-import { property, query, queryAll, state } from 'lit/decorators.js';
+import {
+  customElement,
+  property,
+  query,
+  queryAll,
+  state,
+} from 'lit/decorators.js';
 import CaretLeft20 from '../../internal/vendor/@carbon/web-components/icons/caret--left/20.js';
 import CaretRight20 from '../../internal/vendor/@carbon/web-components/icons/caret--right/20.js';
 import settings from 'carbon-components/es/globals/js/settings.js';
@@ -24,7 +30,6 @@ import ddsSettings from '../../internal/vendor/@carbon/ibmdotcom-utilities/utili
 import styles from './table-of-contents.scss';
 import { TOC_TYPES } from './defs';
 import StableSelectorMixin from '../../globals/mixins/stable-selector';
-import { carbonElement as customElement } from '../../internal/vendor/@carbon/web-components/globals/decorators/carbon-element.js';
 
 const { prefix } = settings;
 const { stablePrefix: ddsPrefix } = ddsSettings;
@@ -179,12 +184,6 @@ class DDSTableOfContents extends HostListenerMixin(
    * Typically added here because these elements have their own `[name]` attribute.
    */
   private _tagNamesToAvoid = [`${ddsPrefix}-video-player`];
-
-  /**
-   * The name of an attribute that will prevent the DOM element and any elements
-   * in its subtree from being added to the ToC.
-   */
-  private _disableTargetAttribute = 'no-toc';
 
   /**
    * Boolean checking if page is RTL
@@ -362,10 +361,7 @@ class DDSTableOfContents extends HostListenerMixin(
    * Sets targets used for generating the table of contents.
    */
   private _setTargets(nodes: Node[]) {
-    const {
-      _tagNamesToAvoid: tagNamesToAvoid,
-      _disableTargetAttribute: disableTargetAttribute,
-    } = this;
+    const { _tagNamesToAvoid: tagNamesToAvoid } = this;
     const { selectorTarget } = this.constructor as typeof DDSTableOfContents;
     this._targets = nodes.reduce((acc, node) => {
       if (node instanceof HTMLElement) {
@@ -378,9 +374,9 @@ class DDSTableOfContents extends HostListenerMixin(
             elem.innerText.match(notWhiteSpace) ||
             elem.dataset.title?.match(notWhiteSpace);
           const hasNameAttr = elem.matches(selectorTarget);
-          const notExcluded =
-            !tagNamesToAvoid.includes(elem.tagName.toLowerCase()) &&
-            !elem.closest(`[${disableTargetAttribute}]`);
+          const notExcluded = !tagNamesToAvoid.includes(
+            elem.tagName.toLowerCase()
+          );
 
           return hasTitle && hasNameAttr && notExcluded;
         });
@@ -795,7 +791,12 @@ class DDSTableOfContents extends HostListenerMixin(
           `
         : ``}
       <div class="${containerClasses}">
-        <div part="table" class="${navigationClasses}">
+        <div
+          part="table"
+          class="${navigationClasses}"
+          style="top: ${this.layout === TOC_TYPES.HORIZONTAL && stickyOffset
+            ? `${stickyOffset}px`
+            : 0}">
           ${hasMobileContainerVisible
             ? nothing
             : html`

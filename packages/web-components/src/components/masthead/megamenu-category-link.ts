@@ -8,11 +8,10 @@
  */
 
 import { html } from 'lit';
-import { property } from 'lit/decorators.js';
+import { customElement, property } from 'lit/decorators.js';
 import BXLink from '../../internal/vendor/@carbon/web-components/components/link/link.js';
 import ddsSettings from '../../internal/vendor/@carbon/ibmdotcom-utilities/utilities/settings/settings';
 import styles from './masthead.scss';
-import { carbonElement as customElement } from '../../internal/vendor/@carbon/web-components/globals/decorators/carbon-element.js';
 
 const { stablePrefix: ddsPrefix } = ddsSettings;
 

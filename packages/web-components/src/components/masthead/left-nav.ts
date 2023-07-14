@@ -9,7 +9,7 @@
 
 import findLast from 'lodash-es/findLast.js';
 import { html } from 'lit';
-import { property, query } from 'lit/decorators.js';
+import { customElement, property, query } from 'lit/decorators.js';
 import settings from 'carbon-components/es/globals/js/settings.js';
 import { selectorTabbable } from '../../internal/vendor/@carbon/web-components/globals/settings.js';
 import HostListener from '../../internal/vendor/@carbon/web-components/globals/decorators/host-listener.js';
@@ -24,7 +24,7 @@ import StableSelectorMixin from '../../globals/mixins/stable-selector';
 import DDSLeftNavOverlay from './left-nav-overlay';
 import styles from './masthead.scss';
 import DDSLeftNavMenuSection from './left-nav-menu-section';
-import { carbonElement as customElement } from '../../internal/vendor/@carbon/web-components/globals/decorators/carbon-element.js';
+import DDSMasthead from './masthead';
 
 const { prefix } = settings;
 const { stablePrefix: ddsPrefix } = ddsSettings;
@@ -59,9 +59,6 @@ class DDSLeftNav extends StableSelectorMixin(BXSideNav) {
    */
   @query('#end-sentinel')
   private _endSentinelNode!: HTMLAnchorElement;
-
-  @property({ type: Boolean })
-  private _importedSideNav = false;
 
   /**
    * Handles `dds-request-focus-wrap` event on the document.
@@ -252,23 +249,9 @@ class DDSLeftNav extends StableSelectorMixin(BXSideNav) {
         _endSentinelNode: endSentinelNode,
       } = this;
 
-      const masthead: HTMLElement | null | undefined = doc
-        ?.querySelector(
-          `${ddsPrefix}-cloud-masthead-container,
-          ${ddsPrefix}-cloud-masthead-composite,
-          ${ddsPrefix}-masthead-container,
-          ${ddsPrefix}-masthead-composite`
-        )
-        ?.querySelector(`${ddsPrefix}-masthead`);
-      if (expanded && !this._importedSideNav) {
-        import('./left-nav-name');
-        import('./left-nav-menu');
-        import('./left-nav-menu-section');
-        import('./left-nav-menu-item');
-        import('./left-nav-menu-category-heading');
-        import('./left-nav-overlay');
-        this._importedSideNav = true;
-      }
+      const masthead: DDSMasthead | null | undefined = doc
+        ?.querySelector('dds-cloud-masthead-container')
+        ?.querySelector('dds-masthead');
       if (expanded && masthead) {
         this._hFocusWrap = focuswrap(this.shadowRoot!, [
           startSentinelNode,

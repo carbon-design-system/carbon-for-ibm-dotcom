@@ -7,11 +7,9 @@
  * LICENSE file in the root directory of this source tree.
  */
 
-import { html, LitElement, nothing, render, TemplateResult } from 'lit';
-import { property } from 'lit/decorators.js';
+import { html, LitElement, nothing } from 'lit';
+import { customElement, property } from 'lit/decorators.js';
 import ArrowRight16 from '../../internal/vendor/@carbon/web-components/icons/arrow--right/16.js';
-import HostListener from '../../internal/vendor/@carbon/web-components/globals/decorators/host-listener.js';
-import HostListenerMixin from '../../internal/vendor/@carbon/web-components/globals/mixins/host-listener.js';
 import { ifDefined } from 'lit/directives/if-defined.js';
 import { unsafeSVG } from 'lit/directives/unsafe-svg.js';
 import root from 'window-or-global';
@@ -39,6 +37,12 @@ import './masthead-profile';
 import './masthead-profile-item';
 import './megamenu';
 import './megamenu-top-nav-menu';
+import './megamenu-left-navigation';
+import './megamenu-category-link';
+import './megamenu-category-group';
+import './megamenu-category-group-copy';
+import './megamenu-link-with-icon';
+import './megamenu-overlay';
 import './skip-to-content';
 import './top-nav';
 import './top-nav-l1';
@@ -47,10 +51,15 @@ import './top-nav-item';
 import './top-nav-menu';
 import './top-nav-menu-item';
 import './left-nav';
+import './left-nav-name';
+import './left-nav-menu';
+import './left-nav-menu-section';
+import './left-nav-menu-item';
+import './left-nav-menu-category-heading';
+import './left-nav-overlay';
 import '../search-with-typeahead/search-with-typeahead';
 import '../search-with-typeahead/search-with-typeahead-item';
 import styles from './masthead.scss';
-import { carbonElement as customElement } from '../../internal/vendor/@carbon/web-components/globals/decorators/carbon-element.js';
 
 const { stablePrefix: ddsPrefix } = ddsSettings;
 
@@ -75,7 +84,7 @@ export enum NAV_ITEMS_RENDER_TARGET {
  * @element dds-masthead-composite
  */
 @customElement(`${ddsPrefix}-masthead-composite`)
-class DDSMastheadComposite extends HostListenerMixin(LitElement) {
+class DDSMastheadComposite extends LitElement {
   /**
    * Renders L1 menu based on l1Data
    *
@@ -593,10 +602,7 @@ class DDSMastheadComposite extends HostListenerMixin(LitElement) {
 
             let sections;
             if (link.hasMegapanel) {
-              sections = this.megamenuSet[i] = this._renderMegaMenu(
-                menuSections,
-                i
-              );
+              sections = this._renderMegaMenu(menuSections, i);
             } else {
               sections = menuSections
                 // eslint-disable-next-line no-use-before-define
@@ -636,6 +642,7 @@ class DDSMastheadComposite extends HostListenerMixin(LitElement) {
                   menu-label="${title}"
                   trigger-content="${title}"
                   data-autoid="${autoid}-nav--nav${i}">
+                  ${sections}
                 </dds-megamenu-top-nav-menu>
               `;
             }
@@ -655,25 +662,6 @@ class DDSMastheadComposite extends HostListenerMixin(LitElement) {
       ? undefined
       : this._renderLeftNav(menu, selectedMenuItem, autoid, currentUrlPath);
   }
-
-  /**
-   * Handles the rendering of the megamenu once it is active
-   *
-   * @param event The event.
-   */
-  @HostListener('eventMegamenuActive')
-  // @ts-ignore: The decorator refers to this method but TS thinks this method is not referred to
-  protected _loadMegamenu = (event: CustomEvent) => {
-    const {
-      target,
-      detail: { active, resolveFn },
-    } = event;
-    const { autoid } = (target as HTMLElement).dataset;
-    const index = autoid?.slice(-1);
-    const currentMenu = this.megamenuSet[index!];
-    render(active ? currentMenu : nothing, target as HTMLElement);
-    resolveFn();
-  };
 
   /**
    * Whether or not a nav item has automatically been designated as "selected".
@@ -715,8 +703,8 @@ class DDSMastheadComposite extends HostListenerMixin(LitElement) {
   /**
    * `true` if there is a search.
    */
-  @property({ type: String, reflect: true, attribute: 'has-search' })
-  hasSearch = 'true';
+  @property({ type: Boolean, attribute: 'has-search' })
+  hasSearch = true;
 
   /**
    * `true` to activate the search box.
@@ -779,12 +767,6 @@ class DDSMastheadComposite extends HostListenerMixin(LitElement) {
    */
   @property({ attribute: 'masthead-assistive-text' })
   mastheadAssistiveText!: string;
-
-  /**
-   * The array containing all the megamenus to be loaded in.
-   */
-  @property()
-  megamenuSet: TemplateResult[] = [];
 
   /**
    * The `aria-label` attribute for the menu bar UI.
@@ -1030,8 +1012,8 @@ class DDSMastheadComposite extends HostListenerMixin(LitElement) {
             </dds-top-nav>
           `) ||
         undefined}
-        ${hasSearch === 'false'
-          ? ''
+        ${!hasSearch
+          ? undefined
           : html`
               <dds-search-with-typeahead
                 ?active="${activateSearch}"
@@ -1072,13 +1054,6 @@ class DDSMastheadComposite extends HostListenerMixin(LitElement) {
     ...LitElement.shadowRootOptions,
     delegatesFocus: true,
   };
-  /**
-   * The name of the custom event fired when a top nav menu is clicked
-   */
-  static get eventMegamenuActive() {
-    return `${ddsPrefix}-megamenu-top-nav-menu-toggle`;
-  }
-
   static styles = styles; // `styles` here is a `CSSResult` generated by custom WebPack loader
 }
 

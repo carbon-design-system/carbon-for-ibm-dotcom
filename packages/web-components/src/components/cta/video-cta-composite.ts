@@ -8,12 +8,13 @@
  */
 
 import { LitElement, html } from 'lit';
-import { property, state } from 'lit/decorators.js';
+import { customElement, property, state } from 'lit/decorators.js';
 import on from 'carbon-components/es/globals/js/misc/on.js';
 import { ifDefined } from 'lit/directives/if-defined.js';
 import HostListener from '../../internal/vendor/@carbon/web-components/globals/decorators/host-listener.js';
 import HostListenerMixin from '../../internal/vendor/@carbon/web-components/globals/mixins/host-listener.js';
 import ddsSettings from '../../internal/vendor/@carbon/ibmdotcom-utilities/utilities/settings/settings';
+import KalturaPlayerAPI from '../../internal/vendor/@carbon/ibmdotcom-services/services/KalturaPlayer/KalturaPlayer';
 import ModalRenderMixin from '../../globals/mixins/modal-render';
 import { MediaData } from '../../internal/vendor/@carbon/ibmdotcom-services-store/types/kalturaPlayerAPI.d';
 import Handle from '../../globals/internal/handle';
@@ -23,7 +24,6 @@ import '../lightbox-media-viewer/lightbox-video-player-composite';
 import { CTA_TYPE } from './defs';
 import { VideoCTAMixinImpl } from '../../component-mixins/cta/video';
 import styles from './video-cta-composite.scss';
-import { carbonElement as customElement } from '../../internal/vendor/@carbon/web-components/globals/decorators/carbon-element.js';
 
 const { stablePrefix: ddsPrefix } = ddsSettings;
 
@@ -90,32 +90,19 @@ class DDSVideoCTAComposite extends ModalRenderMixin(
   // @ts-ignore: The decorator refers to this method but TS thinks this method is not referred to
   private async _handleRequestVideoData(event: CustomEvent) {
     const { href, videoName: customVideoName, videoDescription } = event.detail;
+    (event.target as VideoCTAMixinImpl).videoThumbnailUrl =
+      KalturaPlayerAPI.getThumbnailUrl({
+        mediaId: href,
+        width: (event?.target as HTMLElement)?.offsetWidth,
+      });
     const videoData = await this._loadVideoData?.(href);
     if (videoData) {
       const { duration, name } = videoData;
       const videoName = customVideoName || name;
 
-      if (event.target as VideoCTAMixinImpl) {
-        (event.target as VideoCTAMixinImpl).videoName =
-          videoName || customVideoName;
-        (event.target as VideoCTAMixinImpl).videoDescription = videoDescription;
-        (event.target as VideoCTAMixinImpl).videoDuration = duration;
-      }
-
-      const videoInfo = new CustomEvent(
-        `${ddsPrefix}-cta-request-additional-video-data`,
-        {
-          bubbles: true,
-          cancelable: true,
-          composed: true,
-          detail: {
-            videoName,
-            videoDuration: duration,
-          },
-        }
-      );
-
-      this.dispatchEvent(videoInfo);
+      (event.target as VideoCTAMixinImpl).videoName = videoName;
+      (event.target as VideoCTAMixinImpl).videoDescription = videoDescription;
+      (event.target as VideoCTAMixinImpl).videoDuration = duration;
     }
   }
 

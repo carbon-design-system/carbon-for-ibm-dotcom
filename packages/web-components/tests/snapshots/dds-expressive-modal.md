@@ -104,10 +104,7 @@
   tabindex="-1"
 >
   <div class="bx--modal-content">
-    <div
-      class="dds-ce--modal__header--with-body"
-      id="dds--modal-header"
-    >
+    <div id="dds--modal-header">
       <slot name="header">
       </slot>
     </div>
@@ -195,7 +192,7 @@
       <slot name="header">
       </slot>
     </div>
-    <div class="dds-ce--modal__body dds-ce--modal__body--with-footer">
+    <div class="dds-ce--modal__body">
       <slot>
       </slot>
     </div>

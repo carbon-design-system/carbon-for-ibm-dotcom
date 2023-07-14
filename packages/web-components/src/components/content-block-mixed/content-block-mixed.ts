@@ -8,8 +8,8 @@
  */
 
 import { css } from 'lit';
+import { customElement } from 'lit/decorators.js';
 import ddsSettings from '../../internal/vendor/@carbon/ibmdotcom-utilities/utilities/settings/settings';
-import { carbonElement as customElement } from '../../internal/vendor/@carbon/web-components/globals/decorators/carbon-element';
 import DDSContentBlock from '../content-block/content-block';
 import styles from './content-block-mixed.scss';
 

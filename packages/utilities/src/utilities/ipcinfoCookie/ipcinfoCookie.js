@@ -29,17 +29,11 @@ class ipcinfoCookie {
    * const info = ipcinfoCookie.get();
    */
   static get() {
-    const cookiesDecode = Cookies.withConverter({
-      read: function (value) {
-        return decodeURIComponent(value);
-      },
-    });
-
-    const ipcinfo = cookiesDecode.get(_cookieName);
+    const ipcinfo = Cookies.get(_cookieName);
     if (ipcinfo) {
       let cc;
       let lc;
-      const info = ipcinfo.split(';');
+      const info = decodeURIComponent(ipcinfo).split(';');
       info.map((code) => {
         const itemParts = code.split('=');
         if (itemParts[0] === 'cc') cc = itemParts[1];
@@ -66,13 +60,7 @@ class ipcinfoCookie {
   static set({ cc, lc }) {
     const info = `cc=${cc};lc=${lc}`;
 
-    const cookiesEncode = Cookies.withConverter({
-      write: function (value) {
-        return encodeURIComponent(value);
-      },
-    });
-
-    cookiesEncode.set(_cookieName, info, {
+    Cookies.set(_cookieName, encodeURIComponent(info), {
       expires: 365,
       domain: '.ibm.com',
     });

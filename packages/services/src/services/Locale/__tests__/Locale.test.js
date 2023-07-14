@@ -4,10 +4,12 @@
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
  */
-import { ipcinfoCookie } from '../../../internal/vendor/@carbon/ibmdotcom-utilities';
+import {
+  geolocation,
+  ipcinfoCookie,
+} from '../../../internal/vendor/@carbon/ibmdotcom-utilities';
 import digitalDataResponse from '../../DDO/__tests__/data/response.json';
 import LocaleAPI from '../Locale';
-import { DDOAPI } from '../../DDO';
 import mockAxios from 'axios';
 import oldSession from './data/timestamp_response.json';
 import response from './data/response.json';
@@ -23,11 +25,10 @@ jest.mock(
   })
 );
 
-jest.mock('../../DDO', () => ({
-  DDOAPI: {
-    getLocation: jest.fn(() => Promise.resolve('us')),
-  },
-}));
+jest.mock(
+  '../../../internal/vendor/@carbon/ibmdotcom-utilities/utilities/geolocation/geolocation',
+  () => jest.fn(() => Promise.resolve('us'))
+);
 
 describe('LocaleAPI', () => {
   const handles = [];
@@ -444,33 +445,33 @@ describe('LocaleAPI', () => {
     expect(locale).toEqual({ cc: 'us', lc: 'en' });
   });
 
-  it('should get locale from DDO on missing cookie', async () => {
+  it('should get locale from geolocation on missing cookie', async () => {
     ipcinfoCookie.get.mockImplementation(() => false);
 
     await LocaleAPI.getLocale();
 
-    expect(DDOAPI.getLocation).toHaveBeenCalledTimes(1);
+    expect(geolocation).toHaveBeenCalledTimes(1);
   });
 
-  it('should get locale from DDO on missing cookie lc', async () => {
-    DDOAPI.getLocation.mockClear();
+  it('should get locale from geolocation on missing cookie lc', async () => {
+    geolocation.mockClear();
     ipcinfoCookie.get.mockImplementation(() => ({ cc: 'testCC' }));
 
     await LocaleAPI.getLocale();
 
-    expect(DDOAPI.getLocation).toHaveBeenCalledTimes(1);
+    expect(geolocation).toHaveBeenCalledTimes(1);
   });
 
-  it('should get locale from DDO on missing cookie cc', async () => {
-    DDOAPI.getLocation.mockClear();
+  it('should get locale from geolocation on missing cookie cc', async () => {
+    geolocation.mockClear();
     ipcinfoCookie.get.mockImplementation(() => ({ lc: 'testLC' }));
 
     await LocaleAPI.getLocale();
 
-    expect(DDOAPI.getLocation).toHaveBeenCalledTimes(1);
+    expect(geolocation).toHaveBeenCalledTimes(1);
   });
 
-  it('should get locale from DDO', async () => {
+  it('should get locale from geolocation', async () => {
     ipcinfoCookie.set.mockClear();
     ipcinfoCookie.get.mockImplementation(() => false);
 
@@ -482,7 +483,7 @@ describe('LocaleAPI', () => {
   });
 
   it('should get undefined locale on no cc', async () => {
-    DDOAPI.getLocation.mockImplementation(() => Promise.resolve(false));
+    geolocation.mockImplementation(() => Promise.resolve(false));
 
     const locale = await LocaleAPI.getLocale();
     expect(locale).toBeUndefined();

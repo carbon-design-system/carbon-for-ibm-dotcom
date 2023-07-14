@@ -8,7 +8,7 @@
  */
 
 import { html } from 'lit';
-import { property, state } from 'lit/decorators.js';
+import { customElement, property, state } from 'lit/decorators.js';
 import BXLink from '../../internal/vendor/@carbon/web-components/components/link/link.js';
 import HostListener from '../../internal/vendor/@carbon/web-components/globals/decorators/host-listener.js';
 import HostListenerMixin from '../../internal/vendor/@carbon/web-components/globals/mixins/host-listener.js';
@@ -18,7 +18,6 @@ import IBM8BarLogoH23 from '@carbon/ibmdotcom-styles/icons/svg/IBM-8bar-logo--h2
 import ddsSettings from '../../internal/vendor/@carbon/ibmdotcom-utilities/utilities/settings/settings';
 import styles from './masthead.scss';
 import StableSelectorMixin from '../../globals/mixins/stable-selector';
-import { carbonElement as customElement } from '../../internal/vendor/@carbon/web-components/globals/decorators/carbon-element.js';
 
 const { prefix } = settings;
 const { stablePrefix: ddsPrefix } = ddsSettings;

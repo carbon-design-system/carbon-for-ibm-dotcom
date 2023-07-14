@@ -11,7 +11,7 @@ import settings from 'carbon-components/es/globals/js/settings.js';
 import { classMap } from 'lit/directives/class-map.js';
 import { ifDefined } from 'lit/directives/if-defined.js';
 import { html } from 'lit';
-import { property, query } from 'lit/decorators.js';
+import { customElement, property, query } from 'lit/decorators.js';
 import ddsSettings from '@carbon/ibmdotcom-utilities/es/utilities/settings/settings.js';
 import CDSDropdown, {
   DROPDOWN_KEYBOARD_ACTION,
@@ -23,7 +23,6 @@ import ChevronDown16 from '../../internal/vendor/@carbon/web-components/icons/ch
 import WarningFilled16 from '../../internal/vendor/@carbon/web-components/icons/warning--filled/16.js';
 import { DROPDOWN_COLOR_SCHEME, DROPDOWN_SIZE } from './defs';
 import { forEach, indexOf } from '../../globals/internal/collection-helpers';
-import { carbonElement as customElement } from '../../internal/vendor/@carbon/web-components/globals/decorators/carbon-element.js';
 
 export {
   DROPDOWN_COLOR_SCHEME,

@@ -8,11 +8,10 @@
  */
 
 import { LitElement, html } from 'lit';
-import { property, state } from 'lit/decorators.js';
+import { customElement, property, state } from 'lit/decorators.js';
 import ddsSettings from '../../internal/vendor/@carbon/ibmdotcom-utilities/utilities/settings/settings';
 import styles from './tabs-extended.scss';
 import StableSelectorMixin from '../../globals/mixins/stable-selector';
-import { carbonElement as customElement } from '../../internal/vendor/@carbon/web-components/globals/decorators/carbon-element';
 
 const { stablePrefix: ddsPrefix } = ddsSettings;
 

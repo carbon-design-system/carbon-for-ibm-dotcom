@@ -105,6 +105,7 @@
   .#{$prefix}--masthead__megamenu__container {
     width: 100%;
     height: 100%;
+    overflow-y: scroll;
     overflow-x: hidden;
   }
 
@@ -225,10 +226,6 @@
     &:hover {
       text-decoration: none;
       background-color: $hover-ui;
-
-      span {
-        color: $text-01;
-      }
     }
 
     &:focus {
@@ -260,7 +257,7 @@
       svg {
         margin: 0 $spacing-03;
         padding-top: $spacing-02;
-        fill: $icon-01;
+        fill: $link-01;
 
         /* stylelint-disable-next-line comment-whitespace-inside */
         /* !rtl:raw:
@@ -270,6 +267,10 @@
 
       &:hover {
         text-decoration: underline;
+
+        svg {
+          fill: $hover-primary-text;
+        }
       }
 
       &:focus {

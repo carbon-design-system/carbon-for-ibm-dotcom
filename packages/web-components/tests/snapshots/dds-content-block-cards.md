@@ -18,11 +18,7 @@
     </slot>
     <slot name="media">
     </slot>
-    <div
-      class="false"
-      hidden=""
-      style="null"
-    >
+    <div hidden="">
       <slot name="footer">
       </slot>
     </div>
@@ -49,11 +45,7 @@
     </slot>
     <slot name="media">
     </slot>
-    <div
-      class="false"
-      hidden=""
-      style="null"
-    >
+    <div hidden="">
       <slot name="footer">
       </slot>
     </div>

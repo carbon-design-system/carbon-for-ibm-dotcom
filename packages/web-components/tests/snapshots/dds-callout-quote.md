@@ -32,10 +32,7 @@
           class="bx--quote__footer"
           hidden=""
         >
-          <dds-hr
-            data-autoid="dds--hr"
-            role="separator"
-          >
+          <dds-hr data-autoid="dds--hr">
           </dds-hr>
           <slot name="footer">
           </slot>

@@ -8,14 +8,13 @@
  */
 
 import { LitElement, html } from 'lit';
-import { property, state } from 'lit/decorators.js';
+import { customElement, property, state } from 'lit/decorators.js';
 import settings from 'carbon-components/es/globals/js/settings.js';
 import ChevronRight16 from '../../internal/vendor/@carbon/web-components/icons/chevron--right/16.js';
 import ddsSettings from '../../internal/vendor/@carbon/ibmdotcom-utilities/utilities/settings/settings';
 import StableSelectorMixin from '../../globals/mixins/stable-selector';
 import Handle from '../../globals/internal/handle';
 import styles from './footer.scss';
-import { carbonElement as customElement } from '../../internal/vendor/@carbon/web-components/globals/decorators/carbon-element.js';
 
 const { prefix } = settings;
 const { stablePrefix: ddsPrefix } = ddsSettings;

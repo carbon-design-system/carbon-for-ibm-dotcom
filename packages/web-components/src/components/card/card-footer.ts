@@ -8,10 +8,9 @@
  */
 
 import { TemplateResult, html } from 'lit';
-import { property, query, state } from 'lit/decorators.js';
-import { carbonElement as customElement } from '../../internal/vendor/@carbon/web-components/globals/decorators/carbon-element.js';
+import { customElement, property, query, state } from 'lit/decorators.js';
 import settings from 'carbon-components/es/globals/js/settings.js';
-import ddsSettings from '../../internal/vendor/@carbon/ibmdotcom-utilities/utilities/settings/settings.js';
+import ddsSettings from '@carbon/ibmdotcom-utilities/es/utilities/settings/settings.js';
 import DDSLinkWithIcon, {
   ICON_PLACEMENT,
 } from '../link-with-icon/link-with-icon';

@@ -7,7 +7,7 @@
 ```
 <dds-masthead-global-bar data-autoid="dds--masthead-global-bar">
   <dds-masthead-profile data-autoid="dds--masthead-profile">
-    <dds-masthead-profile-item href="https://idaas.iam.ibm.com/idaas/oidc/endpoint/default/authorize?response_type=token&amp;client_id=v18loginprod&amp;state=http%3A%2F%2Flocalhost%3A9876%2Fcontext.html&amp;redirect_uri=https%3A%2F%2Fmyibm.ibm.com%2FOIDCHandler.html&amp;scope=openid">
+    <dds-masthead-profile-item href="https://idaas.iam.ibm.com/idaas/oidc/endpoint/default/authorize?response_type=token&client_id=v18loginprod&state=http%3A%2F%2Flocalhost%3A9876%2Fcontext.html&redirect_uri=https%3A%2F%2Fmyibm.ibm.com%2FOIDCHandler.html&scope=openid">
       Log in
     </dds-masthead-profile-item>
   </dds-masthead-profile>
@@ -111,6 +111,44 @@
     </dds-left-nav-menu-item>
   </dds-left-nav-menu-section>
 </dds-left-nav>
+
+```
+
+####   `should render the megamenu`
+
+```
+<dds-megamenu data-autoid="dds--masthead__megamenu">
+  <dds-megamenu-left-navigation>
+    <dds-megamenu-category-group
+      data-autoid="dds--masthead__l0-nav-list0"
+      href="https://www.ibm.com"
+      title="menu-section-1-title"
+    >
+      <dds-megamenu-category-group-copy>
+      </dds-megamenu-category-group-copy>
+      <dds-megamenu-category-link
+        data-autoid="dds--masthead__l0-nav-list0-item0"
+        href="https://www.ibm.com"
+        title="category-link-1"
+      >
+      </dds-megamenu-category-link>
+    </dds-megamenu-category-group>
+  </dds-megamenu-left-navigation>
+  <dds-megamenu-right-navigation style-scheme="left-section">
+    <dds-megamenu-category-group
+      data-autoid="dds--masthead__l0-nav-list1"
+      href="https://www.ibm.com"
+      title="menu-section-2-title"
+    >
+      <dds-megamenu-category-link
+        data-autoid="dds--masthead__l0-nav-list1-item0"
+        href="https://www.ibm.com"
+        title="category-link-2"
+      >
+      </dds-megamenu-category-link>
+    </dds-megamenu-category-group>
+  </dds-megamenu-right-navigation>
+</dds-megamenu>
 
 ```
 
