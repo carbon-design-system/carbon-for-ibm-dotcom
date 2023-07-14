@@ -18,6 +18,11 @@ export enum MQBreakpoints {
   MAX = 'max',
 }
 
+export enum MQDirs {
+  MIN = 'min',
+  MAX = 'max',
+}
+
 /**
  * @param Base The base class.
  * @returns A mix-in implementing the logic for performing actions when the
@@ -25,7 +30,7 @@ export enum MQBreakpoints {
  */
 const MediaQueryMixin = <T extends Constructor<HTMLElement>>(
   Base: T,
-  config: { [Property in MQBreakpoints]?: 'min' | 'max' }
+  config: { [Property in MQBreakpoints]?: MQDirs }
 ) => {
   abstract class MediaQueryMixinImpl extends Base {
     /**
@@ -71,7 +76,7 @@ const MediaQueryMixin = <T extends Constructor<HTMLElement>>(
 
       Object.keys(carbonBreakpoints).forEach((bp) => {
         const dir =
-          config[bp] === 'max'
+          config[bp] === MQDirs.MAX
             ? `${config[bp][0].toUpperCase()}${config[bp].slice(1)}`
             : '';
         const funcName = `mediaQueryCallback${dir}${bp.toUpperCase()}`;

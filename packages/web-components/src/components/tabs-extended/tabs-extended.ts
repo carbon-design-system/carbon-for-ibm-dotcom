@@ -14,6 +14,7 @@ import ddsSettings from '../../internal/vendor/@carbon/ibmdotcom-utilities/utili
 import StableSelectorMixin from '../../globals/mixins/stable-selector';
 import MediaQueryMixin, {
   MQBreakpoints,
+  MQDirs,
 } from '../../component-mixins/media-query/media-query';
 import DDSTab from './tab';
 import styles from './tabs-extended.scss';
@@ -30,7 +31,7 @@ const { stablePrefix: ddsPrefix } = ddsSettings;
  */
 @customElement(`${ddsPrefix}-tabs-extended`)
 class DDSTabsExtended extends MediaQueryMixin(StableSelectorMixin(LitElement), {
-  [MQBreakpoints.LG]: 'max',
+  [MQBreakpoints.LG]: MQDirs.MAX,
 }) {
   /**
    * Whether the we're viewing smaller or larger window.
