@@ -8,7 +8,7 @@
  */
 
 import { LitElement, html } from 'lit';
-import { customElement, property, state } from 'lit/decorators.js';
+import { property, state } from 'lit/decorators.js';
 import { classMap } from 'lit/directives/class-map.js';
 import settings from 'carbon-components/es/globals/js/settings.js';
 import on from 'carbon-components/es/globals/js/misc/on.js';
@@ -24,6 +24,7 @@ import styles from './image.scss';
 import ModalRenderMixin from '../../globals/mixins/modal-render';
 import Handle from '../../globals/internal/handle';
 import StableSelectorMixin from '../../globals/mixins/stable-selector';
+import { carbonElement as customElement } from '../../internal/vendor/@carbon/web-components/globals/decorators/carbon-element.js';
 
 const { prefix } = settings;
 const { stablePrefix: ddsPrefix } = ddsSettings;
@@ -179,6 +180,7 @@ class DDSImage extends StableSelectorMixin(
           src="${defaultSrc}"
           alt="${alt}"
           aria-describedby="image-caption long-description"
+          part="image"
           loading="lazy" />
       </picture>
       <div id="long-description" class="${prefix}--image__longdescription">
