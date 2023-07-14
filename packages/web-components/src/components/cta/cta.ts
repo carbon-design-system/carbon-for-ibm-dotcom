@@ -7,7 +7,7 @@
  * LICENSE file in the root directory of this source tree.
  */
 
-import { property, customElement, html, LitElement } from 'lit-element';
+import { property, html, LitElement } from 'lit-element';
 import ddsSettings from '@carbon/ibmdotcom-utilities/es/utilities/settings/settings.js';
 import HostListener from '../../internal/vendor/@carbon/web-components/globals/decorators/host-listener.js';
 import HostListenerMixin from '../../internal/vendor/@carbon/web-components/globals/mixins/host-listener.js';
@@ -18,6 +18,7 @@ import {
   formatVideoCaption,
   formatVideoDuration,
 } from '../../internal/vendor/@carbon/ibmdotcom-utilities/utilities/formatVideoCaption/formatVideoCaption.js';
+import { carbonElement as customElement } from '../../internal/vendor/@carbon/web-components/globals/decorators/carbon-element.js';
 
 const { stablePrefix: ddsPrefix } = ddsSettings;
 
@@ -71,14 +72,10 @@ class DDSCTAHead extends HostListenerMixin(StableSelectorMixin(LitElement)) {
   // @ts-ignore: The decorator refers to this method but TS thinks this method is not referred to
   private _handleVideoTitleUpdate = async (event: FocusEvent) => {
     if (event) {
-      const { videoDuration, videoName, videoThumbnailUrl } =
-        event.detail as any;
+      const { videoDuration, videoName } = event.detail as any;
       const formattedVideoDuration = formatVideoDuration({
         duration: !videoDuration ? videoDuration : videoDuration * 1000,
       });
-      this.videoThumbnailUrl
-        ? null
-        : (this.videoThumbnailUrl = videoThumbnailUrl);
       this.videoDuration ? null : (this.videoDuration = formattedVideoDuration);
 
       if (this.ctaStyle !== 'card' && this.ctaStyle !== 'feature') {
@@ -96,20 +93,6 @@ class DDSCTAHead extends HostListenerMixin(StableSelectorMixin(LitElement)) {
           ? (spanElement.textContent = heading)
           : (ctaComponent!.textContent = heading);
       } else {
-        if (!this.getAttribute('no-poster')) {
-          const imageQuery =
-            this.ctaStyle === 'card'
-              ? `${ddsPrefix}-card-cta-image`
-              : `${ddsPrefix}-image`;
-          const imageComponent = this.shadowRoot
-            ?.querySelector(`${ddsPrefix}-${this.ctaStyle}-cta`)
-            ?.shadowRoot!.querySelector(imageQuery);
-          const imageUrl = this.thumbnail
-            ? this.thumbnail
-            : this.videoThumbnailUrl;
-          imageComponent?.setAttribute('default-src', imageUrl);
-        }
-
         const footer = this.shadowRoot
           ?.querySelector(`${ddsPrefix}-${this.ctaStyle}-cta`)
           ?.querySelector(`${ddsPrefix}-${this.ctaStyle}-cta-footer`);

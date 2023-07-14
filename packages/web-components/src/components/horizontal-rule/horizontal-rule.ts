@@ -8,11 +8,12 @@
  */
 
 import { LitElement } from 'lit';
-import { customElement, property } from 'lit/decorators.js';
+import { property } from 'lit/decorators.js';
 import ddsSettings from '@carbon/ibmdotcom-utilities/es/utilities/settings/settings.js';
 import StableSelectorMixin from '../../globals/mixins/stable-selector';
 import { HR_TYPE, HR_SIZE, HR_CONTRAST, HR_WEIGHT } from './defs';
 import styles from './horizontal-rule.scss';
+import { carbonElement as customElement } from '../../internal/vendor/@carbon/web-components/globals/decorators/carbon-element';
 
 export { HR_TYPE, HR_SIZE, HR_CONTRAST, HR_WEIGHT };
 
@@ -51,6 +52,13 @@ class DDSHorizontalRule extends StableSelectorMixin(LitElement) {
    */
   @property({ attribute: 'weight', reflect: true })
   weight = HR_WEIGHT.THIN;
+
+  connectedCallback() {
+    if (!this.hasAttribute('role')) {
+      this.setAttribute('role', 'separator');
+    }
+    super.connectedCallback();
+  }
 
   static get stableSelector() {
     return `${ddsPrefix}--hr`;

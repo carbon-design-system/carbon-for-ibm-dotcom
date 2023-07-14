@@ -7,11 +7,11 @@
  * LICENSE file in the root directory of this source tree.
  */
 
-import { customElement } from 'lit/decorators.js';
 import ddsSettings from '../../internal/vendor/@carbon/ibmdotcom-utilities/utilities/settings/settings';
 import styles from './callout-quote.scss';
 import DDSCalloutMixin from '../../component-mixins/callout/callout';
 import DDSQuote from '../quote/quote';
+import { carbonElement as customElement } from '../../internal/vendor/@carbon/web-components/globals/decorators/carbon-element';
 
 const { stablePrefix: ddsPrefix } = ddsSettings;
 

@@ -8,7 +8,7 @@
  */
 
 import { TemplateResult, html } from 'lit';
-import { customElement, property } from 'lit/decorators.js';
+import { property } from 'lit/decorators.js';
 import BXLink, {
   LINK_SIZE,
 } from '../../internal/vendor/@carbon/web-components/components/link/link.js';
@@ -17,6 +17,7 @@ import ddsSettings from '../../internal/vendor/@carbon/ibmdotcom-utilities/utili
 import { ICON_PLACEMENT } from '../../globals/defs';
 import StableSelectorMixin from '../../globals/mixins/stable-selector';
 import styles from './link-with-icon.scss';
+import { carbonElement as customElement } from '../../internal/vendor/@carbon/web-components/globals/decorators/carbon-element.js';
 
 export { ICON_PLACEMENT };
 

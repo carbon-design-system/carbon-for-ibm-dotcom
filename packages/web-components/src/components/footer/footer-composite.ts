@@ -8,7 +8,7 @@
  */
 
 import { LitElement, html } from 'lit';
-import { customElement, property } from 'lit/decorators.js';
+import { property } from 'lit/decorators.js';
 import { ifDefined } from 'lit/directives/if-defined.js';
 import HostListener from '../../internal/vendor/@carbon/web-components/globals/decorators/host-listener.js';
 import HostListenerMixin from '../../internal/vendor/@carbon/web-components/globals/mixins/host-listener.js';
@@ -40,6 +40,7 @@ import './language-selector-desktop';
 import './language-selector-mobile';
 import '../../internal/vendor/@carbon/web-components/components/combo-box/combo-box-item.js';
 import '../../internal/vendor/@carbon/web-components/components/select/select-item.js';
+import { carbonElement as customElement } from '../../internal/vendor/@carbon/web-components/globals/decorators/carbon-element.js';
 
 const { stablePrefix: ddsPrefix } = ddsSettings;
 

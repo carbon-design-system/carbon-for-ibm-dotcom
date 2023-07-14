@@ -1,7 +1,7 @@
 /**
  * @license
  *
- * Copyright IBM Corp. 2020, 2022
+ * Copyright IBM Corp. 2020, 2023
  *
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
@@ -46,9 +46,13 @@ For example: optical scan of documents (to create a text file out of an image of
 
 const card1 = (
   <DDSContentGroupCardsItem href="https://www.example.com">
-    <DDSCardHeading>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt</DDSCardHeading>
+    <DDSCardHeading>
+      Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+      tempor incididunt
+    </DDSCardHeading>
     <p>
-      Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+      Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod
+      tempor incididunt ut labore et dolore magna aliqua.
     </p>
     <DDSCardFooter icon-placemenet="left">
       <ArrowRight20 slot="icon" />
@@ -58,7 +62,10 @@ const card1 = (
 
 const card2 = (
   <DDSContentGroupCardsItem href="https://www.example.com">
-    <DDSCardHeading>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt</DDSCardHeading>
+    <DDSCardHeading>
+      Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+      tempor incididunt
+    </DDSCardHeading>
     <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit</p>
     <DDSCardFooter icon-placemenet="left">
       <ArrowRight20 slot="icon" />
@@ -68,13 +75,18 @@ const card2 = (
 
 const hrefDefault = 'https://www.ibm.com/standards/carbon';
 const headingDefault = 'Lorem ipsum dolor sit amet';
-const copyDefault = 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean et ultricies est.';
+const copyDefault =
+  'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean et ultricies est.';
 const copyOdd = `
-  {copyDefault}
+  ${copyDefault}
   Mauris iaculis eget dolor nec hendrerit. Phasellus at elit sollicitudin, sodales nulla quis, consequat libero.
 `;
 
-const Card = ({ copy = copyDefault, heading = headingDefault, href = hrefDefault } = {}) => (
+const Card = ({
+  copy = copyDefault,
+  heading = headingDefault,
+  href = hrefDefault,
+} = {}) => (
   <DDSCard href={href}>
     <DDSCardHeading>{heading}</DDSCardHeading>
     {copy}
@@ -84,17 +96,24 @@ const Card = ({ copy = copyDefault, heading = headingDefault, href = hrefDefault
   </DDSCard>
 );
 
-export const Default = args => {
+export const Default = (args) => {
   const { heading, copy, addChildren } = args?.ContentSection ?? {};
+  const classes = addChildren.includes('Content block simple')
+    ? 'bx--col-lg-16 bx--no-gutter'
+    : '';
   return (
-    <DDSContentSection>
+    <DDSContentSection childrenCustomClass={classes}>
       <DDSContentSectionHeading>{heading}</DDSContentSectionHeading>
       <DDSContentSectionCopy>{copy}</DDSContentSectionCopy>
       {addChildren.includes('Content block simple') ? (
         <DDSContentBlockSimple>
-          <DDSContentBlockHeading>What's the latest news in artificial intelligence?</DDSContentBlockHeading>
+          <DDSContentBlockHeading>
+            What's the latest news in artificial intelligence?
+          </DDSContentBlockHeading>
           <DDSContentBlockCopy size="sm">{blockCopy}</DDSContentBlockCopy>
-          <DDSVideoPlayerContainer slot="media" video-id="1_9h94wo6b"></DDSVideoPlayerContainer>
+          <DDSVideoPlayerContainer
+            slot="media"
+            video-id="1_9h94wo6b"></DDSVideoPlayerContainer>
           <DDSTextCTA slot="footer" cta-type="jump" href="https://www.ibm.com">
             Jump to AI ethics and trust
           </DDSTextCTA>
@@ -112,7 +131,7 @@ export const Default = args => {
       ) : (
         ''
       )}
-      {addChildren.includes('Card group') ? (
+      {addChildren.includes('Link list') ? (
         <DDSLinkList>
           <DDSLinkListItem href="https://example.com">
             Learn more about Kubernetes and automating deployment
@@ -165,7 +184,7 @@ export const Default = args => {
 export default {
   title: 'Components/Content section',
   decorators: [
-    story => {
+    (story) => {
       return (
         <>
           <div className="bx--grid">
@@ -185,8 +204,14 @@ export default {
     knobs: {
       escapeHTML: false,
       ContentSection: () => ({
-        heading: textNullable('Heading:', 'Speech recognition (statistical Artificial Intelligence)'),
-        copy: textNullable('Copy:', "AI features for understanding speech can be trained for a specific speaker's voice."),
+        heading: textNullable(
+          'Heading:',
+          'Speech recognition (statistical Artificial Intelligence)'
+        ),
+        copy: textNullable(
+          'Copy:',
+          "AI features for understanding speech can be trained for a specific speaker's voice."
+        ),
         addChildren: optionsKnob(
           'Add children:',
           {

@@ -94,6 +94,19 @@ dds-carousel {
 
 Another CSS custom property `<dds-carousel>` looks at is `--dds--carousel--overflow-hint-size`. If `0rem` is set there, the first card at the next page as a hint of page overflow will be hidden.
 
+## Accessibility Notes
+
+### Carousel labeling
+
+The carousel allows content within the `title` slot to be used as the accessible aria label for the `region` role. Even if a design does not call for the modal to have content in the title slot, it is _required_ for accessibility. The title can be visually hidden using the `.bx--visually-hidden` or `.bx--assistive-text` classes. This will prevent the text from rendering on the screen, but will still be announced to assistive technology users. If no value is provided for the `title` slot, a generic title of "carousel" will be announced.
+
+```html
+<dds-carousel>
+  <span class="bx--visually-hidden" slot="title">Carousel label text</span>
+  ...
+</dds-carousel>
+```
+
 ## Props
 
 <Props of="dds-carousel" />

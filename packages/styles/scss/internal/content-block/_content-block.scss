@@ -101,11 +101,14 @@
       }
     }
 
+    .dds--content-block-footer ::slotted([slot='footer']) {
+      max-width: none;
+    }
+
     ::slotted([slot='footer']) {
       margin-top: $carbon--layout-04;
 
       @include carbon--breakpoint('md') {
-        width: 50%;
         margin-top: $carbon--layout-05;
       }
     }

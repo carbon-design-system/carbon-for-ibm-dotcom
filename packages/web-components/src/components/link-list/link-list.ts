@@ -9,13 +9,14 @@
 
 import { classMap } from 'lit/directives/class-map.js';
 import { LitElement, html } from 'lit';
-import { customElement, property, state } from 'lit/decorators.js';
+import { property, state } from 'lit/decorators.js';
 import settings from 'carbon-components/es/globals/js/settings.js';
 import ddsSettings from '@carbon/ibmdotcom-utilities/es/utilities/settings/settings.js';
 import StableSelectorMixin from '../../globals/mixins/stable-selector';
 import { LINK_LIST_TYPE, LINK_LIST_ITEM_TYPE } from './defs';
 import styles from './link-list.scss';
 import DDSLinkListItem from './link-list-item';
+import { carbonElement as customElement } from '../../internal/vendor/@carbon/web-components/globals/decorators/carbon-element';
 
 const { prefix } = settings;
 const { stablePrefix: ddsPrefix } = ddsSettings;

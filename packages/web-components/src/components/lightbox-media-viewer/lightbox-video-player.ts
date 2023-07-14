@@ -8,7 +8,7 @@
  */
 
 import { html } from 'lit';
-import { customElement, property } from 'lit/decorators.js';
+import { property } from 'lit/decorators.js';
 import settings from 'carbon-components/es/globals/js/settings.js';
 import removeHtmlTagEntities from '@carbon/ibmdotcom-utilities/es/utilities/removeHtmlTagEntities/removeHtmlTagEntities.js';
 import ddsSettings from '../../internal/vendor/@carbon/ibmdotcom-utilities/utilities/settings/settings';
@@ -17,6 +17,7 @@ import {
   formatVideoDuration,
 } from '../../internal/vendor/@carbon/ibmdotcom-utilities/utilities/formatVideoCaption/formatVideoCaption.js';
 import DDSLightboxMediaViewerBody from './lightbox-media-viewer-body';
+import { carbonElement as customElement } from '../../internal/vendor/@carbon/web-components/globals/decorators/carbon-element';
 
 const { prefix } = settings;
 const { stablePrefix: ddsPrefix } = ddsSettings;
@@ -52,12 +53,14 @@ class DDSLightboxVideoPlayer extends DDSLightboxMediaViewerBody {
     const { duration, formatCaption, formatDuration, name } = this;
     return html`
       <slot name="title">
-        ${formatCaption({
-          duration: formatDuration({
-            duration: !duration ? duration : duration * 1000,
-          }),
-          name,
-        })}
+        <h2 style="all: inherit;">
+          ${formatCaption({
+            duration: formatDuration({
+              duration: !duration ? duration : duration * 1000,
+            }),
+            name,
+          })}
+        </h2>
       </slot>
     `;
   }
