@@ -15,6 +15,7 @@ import textNullable from '../../../../.storybook/knob-text-nullable';
 import DDSLeftNav from '../left-nav';
 import '../masthead-container';
 import styles from './masthead.stories.scss';
+import { ifDefined } from 'lit/directives/if-defined.js';
 import { mastheadLinks as links, mastheadL1Data, logoData } from './links';
 import { UNAUTHENTICATED_STATUS } from '../../../internal/vendor/@carbon/ibmdotcom-services-store/types/profileAPI';
 import {
@@ -92,22 +93,22 @@ export const Default = (args) => {
     ${useMock
       ? html`
           <dds-masthead-composite
-            selected-menu-item="${ifNonNull(selectedMenuItem)}"
-            user-status="${ifNonNull(userStatus)}"
-            searchPlaceholder="${ifNonNull(searchPlaceholder)}"
-            .authenticatedProfileItems="${ifNonNull(authenticatedProfileItems)}"
+            selected-menu-item="${ifDefined(selectedMenuItem)}"
+            user-status="${ifDefined(userStatus)}"
+            searchPlaceholder="${ifDefined(searchPlaceholder)}"
+            .authenticatedProfileItems="${ifDefined(authenticatedProfileItems)}"
             has-profile="${hasProfile}"
             has-search="${hasSearch}"
-            .unauthenticatedProfileItems="${ifNonNull(
+            .unauthenticatedProfileItems="${ifDefined(
               unauthenticatedProfileItems
             )}"
             custom-profile-login="${customProfileLogin}"></dds-masthead-composite>
         `
       : html`
           <dds-masthead-container
-            selected-menu-item="${ifNonNull(selectedMenuItem)}"
-            user-status="${ifNonNull(userStatus)}"
-            searchPlaceholder="${ifNonNull(searchPlaceholder)}"
+            selected-menu-item="${ifDefined(selectedMenuItem)}"
+            user-status="${ifDefined(userStatus)}"
+            searchPlaceholder="${ifDefined(searchPlaceholder)}"
             has-profile="${hasProfile}"
             has-search="${hasSearch}"
             custom-profile-login="${customProfileLogin}"></dds-masthead-container>
@@ -177,14 +178,14 @@ export const searchOpenOnload = (args) => {
       ? html`
           <dds-masthead-composite
             activate-search="true"
-            searchPlaceholder="${ifNonNull(
+            searchPlaceholder="${ifDefined(
               searchPlaceholder
             )}"></dds-masthead-composite>
         `
       : html`
           <dds-masthead-container
             activate-search="true"
-            searchPlaceholder="${ifNonNull(
+            searchPlaceholder="${ifDefined(
               searchPlaceholder
             )}"></dds-masthead-container>
         `}
@@ -215,13 +216,13 @@ export const withPlatform = (args) => {
     ${useMock
       ? html`
           <dds-masthead-composite
-            platform="${ifNonNull(platform)}"
-            .platformUrl="${ifNonNull(platformUrl)}"></dds-masthead-composite>
+            platform="${ifDefined(platform)}"
+            .platformUrl="${ifDefined(platformUrl)}"></dds-masthead-composite>
         `
       : html`
           <dds-masthead-container
-            platform="${ifNonNull(platform)}"
-            .platformUrl="${ifNonNull(platformUrl)}"></dds-masthead-container>
+            platform="${ifDefined(platform)}"
+            .platformUrl="${ifDefined(platformUrl)}"></dds-masthead-container>
         `}
   `;
 };
@@ -264,14 +265,14 @@ export const withL1 = (args) => {
       ? html`
           <dds-masthead-composite
             .l1Data="${mastheadL1Data}"
-            selected-menu-item="${ifNonNull(
+            selected-menu-item="${ifDefined(
               selectedMenuItem
             )}"></dds-masthead-composite>
         `
       : html`
           <dds-masthead-container
             .l1Data="${mastheadL1Data}"
-            selected-menu-item="${ifNonNull(
+            selected-menu-item="${ifDefined(
               selectedMenuItem
             )}"></dds-masthead-container>
         `}
