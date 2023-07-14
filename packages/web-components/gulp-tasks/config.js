@@ -23,7 +23,7 @@ program
   )
   .option(
     '-d, --debug',
-    'Disables collection of code coverage for Karma testing, useful for running debugger against specs or sources'
+    'Disables collection of code coverage for Karma testing, useful for runinng debugger against specs or sources'
   )
   .option(
     '-k, --keepalive',
@@ -41,13 +41,7 @@ program
   .option('--verbose', 'Enables verbose output')
   .parse(process.argv);
 
-const { browser: browsers, spec: specs, ...rest } = program.opts();
-
-const cloptions = {
-  browsers: (browsers && Array.from(browsers)) || [],
-  specs: (specs && Array.from(specs)) || [],
-  ...rest,
-};
+const cloptions = { browsers: [], specs: [], ...program.opts() };
 
 module.exports = {
   ENV_PRODUCTION: 'production',
@@ -63,7 +57,6 @@ module.exports = {
   sassDestDir: 'scss',
   tasksDir: 'gulp-tasks',
   testsDir: 'tests',
-  vendorSrcDirBase: path.resolve(__dirname, '../src/internal/vendor'),
   carbonWebComponentsCJSSrcDir: path.resolve(
     __dirname,
     '../../carbon-web-components/lib'

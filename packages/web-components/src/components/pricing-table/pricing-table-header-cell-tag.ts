@@ -7,12 +7,11 @@
  * LICENSE file in the root directory of this source tree.
  */
 
-import { property } from 'lit/decorators.js';
+import { customElement, property } from 'lit/decorators.js';
 import ddsSettings from '@carbon/ibmdotcom-utilities/es/utilities/settings/settings.js';
 import StableSelectorMixin from '../../globals/mixins/stable-selector';
 import DDSTagLink from '../tag-link/tag-link';
 import styles from './pricing-table.scss';
-import { carbonElement as customElement } from '../../internal/vendor/@carbon/web-components/globals/decorators/carbon-element';
 
 const { stablePrefix: ddsPrefix } = ddsSettings;
 

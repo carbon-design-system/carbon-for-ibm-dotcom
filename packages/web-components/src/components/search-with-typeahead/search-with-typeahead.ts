@@ -10,7 +10,7 @@
 import { ifDefined } from 'lit/directives/if-defined.js';
 import { classMap } from 'lit/directives/class-map.js';
 import { html } from 'lit';
-import { property, query } from 'lit/decorators.js';
+import { customElement, property, query } from 'lit/decorators.js';
 import settings from 'carbon-components/es/globals/js/settings.js';
 import Close20 from '../../internal/vendor/@carbon/web-components/icons/close/20.js';
 import Search20 from '../../internal/vendor/@carbon/web-components/icons/search/20.js';
@@ -27,7 +27,6 @@ import { forEach, indexOf } from '../../globals/internal/collection-helpers';
 import styles from './search-with-typeahead.scss';
 import StableSelectorMixin from '../../globals/mixins/stable-selector';
 import './search-with-typeahead-item';
-import { carbonElement as customElement } from '../../internal/vendor/@carbon/web-components/globals/decorators/carbon-element.js';
 
 const { stablePrefix: ddsPrefix } = ddsSettings;
 const { prefix } = settings;
@@ -638,11 +637,7 @@ class DDSSearchWithTypeahead extends HostListenerMixin(
       'react-autosuggest__suggestions-container--open': open,
     });
     return html`
-      <form
-        role="search"
-        method="get"
-        action="${redirectUrl}"
-        @submit="${handleSubmit}">
+      <form method="get" action="${redirectUrl}" @submit="${handleSubmit}">
         <input type="hidden" name="lang" value="${primary}" />
         <input type="hidden" name="cc" value="${country}" />
         <input type="hidden" name="lnk" value="mhsrch" />
@@ -762,7 +757,7 @@ class DDSSearchWithTypeahead extends HostListenerMixin(
    * The assistive text for the button to close the search box.
    */
   @property({ attribute: 'close-search-button-assistive-text' })
-  closeSearchButtonAssistiveText = 'Clear input';
+  closeSearchButtonAssistiveText = 'Close';
 
   /**
    * The language embedded in the inner form.
@@ -785,7 +780,7 @@ class DDSSearchWithTypeahead extends HostListenerMixin(
   /**
    * Value to display when the input has an empty `value`.
    */
-  @property({ attribute: 'placeholder', reflect: true })
+  @property()
   searchPlaceholder = 'Search all of IBM';
 
   /**

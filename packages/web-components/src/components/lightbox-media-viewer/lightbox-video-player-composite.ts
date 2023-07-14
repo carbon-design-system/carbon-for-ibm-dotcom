@@ -8,7 +8,7 @@
  */
 
 import { html } from 'lit';
-import { property } from 'lit/decorators.js';
+import { customElement, property } from 'lit/decorators.js';
 import on from 'carbon-components/es/globals/js/misc/on.js';
 import { ifDefined } from 'lit/directives/if-defined.js';
 import HostListener from '../../internal/vendor/@carbon/web-components/globals/decorators/host-listener.js';
@@ -25,7 +25,6 @@ import {
 } from '../video-player/video-player';
 import './lightbox-video-player';
 import styles from './lightbox-video-player-composite.scss';
-import { carbonElement as customElement } from '../../internal/vendor/@carbon/web-components/globals/decorators/carbon-element.js';
 
 const { stablePrefix: ddsPrefix } = ddsSettings;
 

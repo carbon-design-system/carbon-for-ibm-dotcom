@@ -9,17 +9,14 @@
 
 import BXStructuredListCell from '../../internal/vendor/@carbon/web-components/components/structured-list/structured-list-cell.js';
 import { html } from 'lit';
-import { property } from 'lit/decorators.js';
+import { customElement, property } from 'lit/decorators.js';
 import Info16 from '../../internal/vendor/@carbon/web-components/icons/information/16.js';
 import Checkmark20 from '../../internal/vendor/@carbon/web-components/icons/checkmark/20.js';
 import Error20 from '../../internal/vendor/@carbon/web-components/icons/error/20.js';
 import ddsSettings from '../../internal/vendor/@carbon/ibmdotcom-utilities/utilities/settings/settings';
 import DDSStructuredListGroup from './structured-list-group';
 import styles from './structured-list.scss';
-import { carbonElement as customElement } from '../../internal/vendor/@carbon/web-components/globals/decorators/carbon-element.js';
-import settings from 'carbon-components/es/globals/js/settings';
 
-const { prefix } = settings;
 const { stablePrefix: ddsPrefix } = ddsSettings;
 
 /**
@@ -58,10 +55,7 @@ class DDSStructuredListCell extends BXStructuredListCell {
   private _renderIcon() {
     const { icon, _iconsAllowed: iconMap } = this;
 
-    return html`${iconMap[icon!.toLowerCase()].call()}
-      <span class="${prefix}--structured-list-cell-icon-text">
-        <slot></slot>
-      </span>`;
+    return html` ${iconMap[icon!.toLowerCase()].call()} `;
   }
 
   private _renderTags() {

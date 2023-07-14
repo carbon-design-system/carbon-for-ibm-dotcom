@@ -9,7 +9,7 @@
 
 import pickBy from 'lodash-es/pickBy.js';
 import { LitElement, html } from 'lit';
-import { property } from 'lit/decorators.js';
+import { customElement, property } from 'lit/decorators.js';
 import ddsSettings from '../../internal/vendor/@carbon/ibmdotcom-utilities/utilities/settings/settings';
 import { globalInit } from '../../internal/vendor/@carbon/ibmdotcom-services/services/global/global';
 import { LocaleList } from '../../internal/vendor/@carbon/ibmdotcom-services-store/types/localeAPI.d';
@@ -26,7 +26,6 @@ import { FOOTER_SIZE } from '../footer/footer';
 import '../footer/footer-composite';
 import './dotcom-shell';
 import styles from './dotcom-shell-composite.scss';
-import { carbonElement as customElement } from '../../internal/vendor/@carbon/web-components/globals/decorators/carbon-element';
 
 const { stablePrefix: ddsPrefix } = ddsSettings;
 

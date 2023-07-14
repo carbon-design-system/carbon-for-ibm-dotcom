@@ -8,7 +8,7 @@
  */
 
 import { html, LitElement, svg } from 'lit';
-import { property } from 'lit/decorators.js';
+import { customElement, property } from 'lit/decorators.js';
 import { classMap } from 'lit/directives/class-map.js';
 import settings from 'carbon-components/es/globals/js/settings.js';
 import ddsSettings from '../../internal/vendor/@carbon/ibmdotcom-utilities/utilities/settings/settings';
@@ -19,7 +19,6 @@ import {
 } from './defs';
 import styles from './leadspace.scss';
 import StableSelectorMixin from '../../globals/mixins/stable-selector';
-import { carbonElement as customElement } from '../../internal/vendor/@carbon/web-components/globals/decorators/carbon-element';
 
 export { LEADSPACE_TYPE, LEADSPACE_GRADIENT_STYLE_SCHEME, LEADSPACE_SIZE };
 
@@ -204,9 +203,7 @@ class DDSLeadSpace extends StableSelectorMixin(LitElement) {
                 ? html`
                     <div class="${prefix}--leadspace__content">
                       ${this._renderCopy()}
-                      <div class="${prefix}--leadspace__action">
-                        <slot name="action"></slot>
-                      </div>
+                      <slot name="action"></slot>
                     </div>
                   `
                 : ``}

@@ -7,13 +7,11 @@
  * LICENSE file in the root directory of this source tree.
  */
 
-import { LitElement, render, html } from 'lit';
-import { property, state } from 'lit/decorators.js';
-import { stripHTML } from '@carbon/ibmdotcom-utilities/es/utilities/stripHTML/index.js';
+import { LitElement, html } from 'lit';
+import { customElement, property, state } from 'lit/decorators.js';
 import ddsSettings from '../../internal/vendor/@carbon/ibmdotcom-utilities/utilities/settings/settings';
 import styles from './leadspace.scss';
 import StableSelectorMixin from '../../globals/mixins/stable-selector';
-import { carbonElement as customElement } from '../../internal/vendor/@carbon/web-components/globals/decorators/carbon-element';
 
 const { stablePrefix: ddsPrefix } = ddsSettings;
 
@@ -41,11 +39,6 @@ class DDSLeadspaceHeading extends StableSelectorMixin(LitElement) {
       this.setAttribute('aria-level', '1');
     }
     super.connectedCallback();
-  }
-
-  firstUpdated() {
-    this.content = stripHTML(this.innerHTML);
-    render(html`<h1>${this.content}</h1>`, this);
   }
 
   render() {

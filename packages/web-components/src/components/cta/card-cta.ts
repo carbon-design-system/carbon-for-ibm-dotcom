@@ -8,7 +8,7 @@
  */
 
 import { html } from 'lit';
-import { property } from 'lit/decorators.js';
+import { customElement, property } from 'lit/decorators.js';
 import settings from 'carbon-components/es/globals/js/settings.js';
 import ddsSettings from '@carbon/ibmdotcom-utilities/es/utilities/settings/settings.js';
 import { ifDefined } from 'lit/directives/if-defined.js';
@@ -27,7 +27,6 @@ import DDSCardCTAFooter from './card-cta-footer';
 import './card-cta-footer';
 import { CTA_TYPE } from './defs';
 import styles from './cta.scss';
-import { carbonElement as customElement } from '../../internal/vendor/@carbon/web-components/globals/decorators/carbon-element.js';
 
 export { CTA_TYPE };
 

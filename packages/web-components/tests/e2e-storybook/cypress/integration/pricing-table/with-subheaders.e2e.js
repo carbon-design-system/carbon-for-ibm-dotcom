@@ -1,5 +1,5 @@
 /**
- * Copyright IBM Corp. 2022, 2023
+ * Copyright IBM Corp. 2022
  *
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
@@ -41,11 +41,8 @@ const _tests = (path = path) => [
         });
     });
   },
-  /**
-   * Disabled while exploring potential sticky-header solutions.
-   */
   () => {
-    xit('should have stick & unstick on header on scroll', () => {
+    it('should have stick & unstick on header on scroll', () => {
       let table, header, body;
       cy.visit(path)
         .get(selectors.table)
@@ -84,7 +81,7 @@ const _tests = (path = path) => [
     });
   },
   () => {
-    xit('should hide header scroll description when stuck', () => {
+    it('should hide header scroll description when stuck', () => {
       cy.visit(path)
         .get(selectors.headerCellDescription)
         .should('be.visible')

@@ -8,7 +8,7 @@
  */
 
 import { LitElement, html } from 'lit';
-import { property } from 'lit/decorators.js';
+import { customElement, property } from 'lit/decorators.js';
 import { classMap } from 'lit/directives/class-map.js';
 import settings from 'carbon-components/es/globals/js/settings.js';
 import { ifDefined } from 'lit/directives/if-defined.js';
@@ -26,7 +26,6 @@ import styles from './video-player.scss';
 import StableSelectorMixin from '../../globals/mixins/stable-selector';
 import DDSVideoPlayerContainer from './video-player-container';
 import ParentVisibilityMixin from '../../component-mixins/parent-visibility/parent-visibility';
-import { carbonElement as customElement } from '../../internal/vendor/@carbon/web-components/globals/decorators/carbon-element.js';
 
 export { VIDEO_PLAYER_CONTENT_STATE };
 export { VIDEO_PLAYER_PLAYING_MODE };
@@ -272,11 +271,10 @@ class DDSVideoPlayer extends FocusMixin(
 
   firstUpdated() {
     this.tabIndex = 0;
-    const parentIsBackground = Boolean(
-      (this.parentElement as DDSVideoPlayerContainer)?.backgroundMode
-    );
 
-    this.backgroundMode = parentIsBackground;
+    this.backgroundMode = (
+      this.parentElement as DDSVideoPlayerContainer
+    ).backgroundMode;
   }
 
   /**

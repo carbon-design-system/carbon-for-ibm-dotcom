@@ -8,6 +8,7 @@
  */
 
 import { ActionCreatorsMapObject, Store } from 'redux';
+import { customElement } from 'lit/decorators.js';
 import ddsSettings from '../../internal/vendor/@carbon/ibmdotcom-utilities/utilities/settings/settings';
 import store from '../../internal/vendor/@carbon/ibmdotcom-services-store/store';
 import { LocaleAPIActions } from '../../internal/vendor/@carbon/ibmdotcom-services-store/actions/localeAPI.d';
@@ -21,7 +22,6 @@ import {
   LeavingIbmContainerActions,
 } from './leaving-ibm-connect';
 import DDSLeavingIbmComposite from './leaving-ibm-composite';
-import { carbonElement as customElement } from '../../internal/vendor/@carbon/web-components/globals/decorators/carbon-element';
 
 const { stablePrefix: ddsPrefix } = ddsSettings;
 

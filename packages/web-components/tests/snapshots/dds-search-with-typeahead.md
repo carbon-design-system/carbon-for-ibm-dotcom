@@ -14,7 +14,7 @@
   >
   </button>
   <button
-    aria-label="Clear input"
+    aria-label="Close"
     class="bx--header__action bx--header__search--close"
     part="close-button"
     type="button"
@@ -36,7 +36,7 @@
   >
   </button>
   <button
-    aria-label="Clear input"
+    aria-label="Close"
     class="bx--header__action bx--header__search--close"
     part="close-button"
     type="button"
@@ -52,7 +52,6 @@
 <form
   action="https://www.ibm.com/search"
   method="get"
-  role="search"
 >
   <input
     name="lang"
@@ -85,7 +84,7 @@
       class="bx--header__search--input"
       name="q"
       part="search-input"
-      placeholder="Search all of IBM"
+      placeholder="placeholder-foo"
       type="text"
     >
     <div

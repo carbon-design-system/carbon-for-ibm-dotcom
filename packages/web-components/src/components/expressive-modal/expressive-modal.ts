@@ -7,21 +7,20 @@
  * LICENSE file in the root directory of this source tree.
  */
 
-import { html, LitElement, SVGTemplateResult, TemplateResult } from 'lit';
-import { property, query, state } from 'lit/decorators.js';
-import { EXPRESSIVE_MODAL_MODE, EXPRESSIVE_MODAL_SIZE } from './defs';
 import { classMap } from 'lit/directives/class-map.js';
-import DDSCarousel from '../carousel/carousel';
-import DDSExpressiveModalCloseButton from './expressive-modal-close-button';
-import ddsSettings from '../../internal/vendor/@carbon/ibmdotcom-utilities/utilities/settings/settings';
-import HostListener from '../../internal/vendor/@carbon/web-components/globals/decorators/host-listener.js';
-import HostListenerMixin from '../../internal/vendor/@carbon/web-components/globals/mixins/host-listener.js';
+import { html, LitElement, SVGTemplateResult, TemplateResult } from 'lit';
+import { customElement, property, query, state } from 'lit/decorators.js';
+import settings from 'carbon-components/es/globals/js/settings.js';
 import on from 'carbon-components/es/globals/js/misc/on.js';
 import { selectorTabbable } from '../../internal/vendor/@carbon/web-components/globals/settings.js';
-import settings from 'carbon-components/es/globals/js/settings.js';
+import HostListener from '../../internal/vendor/@carbon/web-components/globals/decorators/host-listener.js';
+import HostListenerMixin from '../../internal/vendor/@carbon/web-components/globals/mixins/host-listener.js';
+import ddsSettings from '../../internal/vendor/@carbon/ibmdotcom-utilities/utilities/settings/settings';
 import StableSelectorMixin from '../../globals/mixins/stable-selector';
+import { EXPRESSIVE_MODAL_SIZE, EXPRESSIVE_MODAL_MODE } from './defs';
+import DDSExpressiveModalCloseButton from './expressive-modal-close-button';
 import styles from './expressive-modal.scss';
-import { carbonElement as customElement } from '../../internal/vendor/@carbon/web-components/globals/decorators/carbon-element';
+import DDSCarousel from '../carousel/carousel';
 
 const { prefix } = settings;
 const { stablePrefix: ddsPrefix } = ddsSettings;
@@ -326,19 +325,9 @@ class DDSExpressiveModal extends StableSelectorMixin(
     const { name } = target as HTMLSlotElement;
     const hasContent = (target as HTMLSlotElement)
       .assignedNodes()
-      .some((node) => {
-        // Allow non-empty text nodes.
-        if (node.nodeType === Node.TEXT_NODE && node!.textContent!.trim()) {
-          return true;
-        }
-        // Allow only element nodes that don't have a .bx--visually-hidden
-        // class.
-        if (node instanceof Element) {
-          return !node.classList.contains('bx--visually-hidden');
-        }
-        // No opinion on other cases.
-        return true;
-      });
+      .some(
+        (node) => node.nodeType !== Node.TEXT_NODE || node!.textContent!.trim()
+      );
     this[slotExistencePropertyNames[name] || '_hasBody'] = hasContent;
   }
 

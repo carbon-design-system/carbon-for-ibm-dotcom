@@ -8,7 +8,7 @@
  */
 
 import { LitElement, html } from 'lit';
-import { property } from 'lit/decorators.js';
+import { customElement, property } from 'lit/decorators.js';
 import settings from 'carbon-components/es/globals/js/settings.js';
 import HostListener from '../../internal/vendor/@carbon/web-components/globals/decorators/host-listener.js';
 import HostListenerMixin from '../../internal/vendor/@carbon/web-components/globals/mixins/host-listener.js';
@@ -20,7 +20,6 @@ import ddsSettings from '../../internal/vendor/@carbon/ibmdotcom-utilities/utili
 import { forEach } from '../../globals/internal/collection-helpers';
 import styles from './masthead.scss';
 import DDSLeftNav from './left-nav';
-import { carbonElement as customElement } from '../../internal/vendor/@carbon/web-components/globals/decorators/carbon-element.js';
 
 const { prefix } = settings;
 const { stablePrefix: ddsPrefix } = ddsSettings;
@@ -90,27 +89,6 @@ class DDSLeftNavMenuSection extends HostListenerMixin(FocusMixin(LitElement)) {
   @property()
   titleUrl = '';
 
-  private async _requestLeftNavMenuSectionUpdate() {
-    const { eventToggle } = this.constructor as typeof DDSLeftNavMenuSection;
-    return new Promise((resolve: Function): void => {
-      this.dispatchEvent(
-        new CustomEvent(eventToggle, {
-          bubbles: true,
-          cancelable: true,
-          composed: true,
-          detail: {
-            active: this.expanded,
-            resolveFn: resolve,
-          },
-        })
-      );
-
-      setTimeout(() => {
-        resolve();
-      }, 0);
-    });
-  }
-
   /**
    * Handler for the `click` event on the back button.
    */
@@ -179,10 +157,7 @@ class DDSLeftNavMenuSection extends HostListenerMixin(FocusMixin(LitElement)) {
     return true;
   }
 
-  async updated(changedProperties) {
-    // make sure leftNavMenuSection updates before setting the tabIndex's per item
-    await this._requestLeftNavMenuSectionUpdate();
-
+  updated(changedProperties) {
     if (changedProperties.has('expanded')) {
       const { selectorNavMenu, selectorNavItem } = this
         .constructor as typeof DDSLeftNavMenuSection;

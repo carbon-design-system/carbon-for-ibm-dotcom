@@ -15,7 +15,6 @@ import PlayOutline20 from '../../internal/vendor/@carbon/web-components/icons/pl
 import ddsSettings from '../../internal/vendor/@carbon/ibmdotcom-utilities/utilities/settings/settings';
 import { Constructor } from '../../globals/defs';
 import { CTA_TYPE } from '../../components/cta/defs';
-import KalturaPlayerAPI from '../../internal/vendor/@carbon/ibmdotcom-services/services/KalturaPlayer/KalturaPlayer';
 
 const { stablePrefix: ddsPrefix } = ddsSettings;
 
@@ -162,20 +161,6 @@ const VideoCTAMixin = <T extends Constructor<HTMLElement>>(Base: T) => {
           })
         );
       }
-
-      if (ctaType === CTA_TYPE.VIDEO && this.offsetWidth > 0) {
-        this._updateVideoThumbnailUrl();
-      }
-    }
-
-    /**
-     * Updates video thumbnail url to match card width.
-     */
-    _updateVideoThumbnailUrl() {
-      this.videoThumbnailUrl = KalturaPlayerAPI.getThumbnailUrl({
-        mediaId: this.href,
-        width: String(this.offsetWidth),
-      });
     }
 
     /**

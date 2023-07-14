@@ -9,7 +9,7 @@
 
 import { unsafeHTML } from 'lit/directives/unsafe-html.js';
 import { LitElement, html, render } from 'lit';
-import { property } from 'lit/decorators.js';
+import { customElement, property } from 'lit/decorators.js';
 import settings from 'carbon-components/es/globals/js/settings.js';
 import '../../internal/vendor/@carbon/web-components/components/link/link.js';
 import '../../internal/vendor/@carbon/web-components/components/list/ordered-list.js';
@@ -18,7 +18,6 @@ import '../../internal/vendor/@carbon/web-components/components/list/list-item.j
 import markdownToHtml from '@carbon/ibmdotcom-utilities/es/utilities/markdownToHtml/markdownToHtml.js';
 import ddsSettings from '../../internal/vendor/@carbon/ibmdotcom-utilities/utilities/settings/settings';
 import styles from './markdown.scss';
-import { carbonElement as customElement } from '../../internal/vendor/@carbon/web-components/globals/decorators/carbon-element.js';
 
 const { prefix } = settings;
 const { stablePrefix: ddsPrefix } = ddsSettings;

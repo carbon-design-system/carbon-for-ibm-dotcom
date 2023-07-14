@@ -1,5 +1,5 @@
 /**
- * Copyright IBM Corp. 2016, 2023
+ * Copyright IBM Corp. 2016, 2022
  *
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
@@ -79,7 +79,7 @@ class StickyHeader {
 
     const desktopSelector = `.${ddsPrefix}-ce--table-of-contents__items-container`;
 
-    if (window.innerWidth > gridBreakpoint) {
+    if (window.outerWidth > gridBreakpoint) {
       if (toc.layout === 'horizontal') {
         this._tableOfContentsInnerBar = tocRoot.querySelector(
           `.${prefix}--tableofcontents__navbar`
@@ -114,7 +114,7 @@ class StickyHeader {
       const leadspaceSearchBar = component.shadowRoot.querySelector(
         `.${prefix}--search-container`
       );
-      this._leadspaceSearchBar = leadspaceSearchBar;
+      this._leadspaceWithSearchBar = leadspaceSearchBar;
       this._leadspaceWithSearchInput = component.querySelector(
         `${ddsPrefix}-search-with-typeahead`
       );
@@ -209,7 +209,7 @@ class StickyHeader {
       _tableOfContents: toc,
       _tableOfContentsInnerBar: tocInner,
       _leadspaceWithSearch: leadspaceSearch,
-      _leadspaceSearchBar: leadspaceSearchBar,
+      _leadspaceWithSearchBar: leadspaceSearchBar,
       _leadspaceWithSearchInput: leadspaceSearchInput,
       _leadspaceWithSearchStickyThreshold: leadspaceSearchThreshold,
     } = StickyHeader.global;
@@ -284,10 +284,12 @@ class StickyHeader {
      *   with the elements that should be visible starting at the top of the
      *   viewport.
      */
-    let cumulativeOffset = Math.max(
-      Math.min((masthead ? masthead.offsetTop : 0) + oldY - newY, 0),
-      maxScrollaway * -1
-    );
+    let cumulativeOffset = masthead
+      ? Math.max(
+          Math.min(masthead.offsetTop + oldY - newY, 0),
+          maxScrollaway * -1
+        )
+      : Math.max(Math.min(oldY - newY, 0), maxScrollaway * -1);
 
     if (banner) {
       cumulativeOffset += Math.max(banner.offsetHeight - newY, 0);
@@ -302,17 +304,7 @@ class StickyHeader {
     if (tocInner) {
       tocInner.style.transition = 'none';
       tocInner.style.top = `${cumulativeOffset}px`;
-
-      tocShouldStick =
-        toc.layout === 'horizontal' || window.innerWidth < gridBreakpoint;
-
-      const tocIsStuck =
-        Math.round(tocInner.getBoundingClientRect().top) <=
-        cumulativeOffset + 1;
-
-      if (tocShouldStick && tocIsStuck) {
-        cumulativeOffset += tocInner.offsetHeight;
-      }
+      cumulativeOffset += tocInner.offsetHeight;
     }
 
     if (!tocInner && leadspaceSearchBar) {

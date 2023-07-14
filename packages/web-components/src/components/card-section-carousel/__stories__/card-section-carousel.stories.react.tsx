@@ -1,7 +1,7 @@
 /**
  * @license
  *
- * Copyright IBM Corp. 2020, 2023
+ * Copyright IBM Corp. 2020, 2021
  *
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
@@ -34,21 +34,16 @@ import styles from './card-section-carousel.stories.scss';
 
 const hrefDefault = 'https://www.ibm.com/standards/carbon';
 const headingDefault = 'Lorem ipsum dolor sit amet';
-const copyDefault =
-  'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean et ultricies est.';
+const copyDefault = 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean et ultricies est.';
 const copyOdd = `
   ${copyDefault}
   Mauris iaculis eget dolor nec hendrerit. Phasellus at elit sollicitudin, sodales nulla quis, consequat libero.
 `;
 
-const Card = ({
-  copy = copyDefault,
-  heading = headingDefault,
-  href = hrefDefault,
-} = {}) => (
+const Card = ({ copy = copyDefault, heading = headingDefault, href = hrefDefault } = {}) => (
   <DDSCard href={href}>
     <DDSCardHeading>{heading}</DDSCardHeading>
-    <p>{copy}</p>
+    {copy}
     <DDSCardFooter>
       <ArrowRight20 slot="icon" />
     </DDSCardFooter>
@@ -58,12 +53,9 @@ const Card = ({
 export const Default = () => {
   return (
     <DDSCardSectionCarousel>
-      <DDSContentSectionHeading>
-        Lorem ipsum dolor sit amet
-      </DDSContentSectionHeading>
+      <DDSContentSectionHeading>Lorem ipsum dolor sit amet</DDSContentSectionHeading>
       <DDSContentSectionCopy>
-        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean et
-        ultricies est.
+        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean et ultricies est.
       </DDSContentSectionCopy>
       <DDSLinkWithIcon slot="footer" href={hrefDefault}>
         Link text
@@ -83,7 +75,7 @@ export const Default = () => {
 export default {
   title: 'Components/Card section carousel',
   decorators: [
-    (story) => (
+    story => (
       <>
         <style type="text/css">{styles.cssText}</style>
         <div className="bx--grid">

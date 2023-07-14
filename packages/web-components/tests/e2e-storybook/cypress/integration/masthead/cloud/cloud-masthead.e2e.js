@@ -1,5 +1,5 @@
 /**
- * Copyright IBM Corp. 2021, 2023
+ * Copyright IBM Corp. 2021, 2022
  *
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
@@ -91,19 +91,18 @@ describe('dds-masthead | cloud platform (desktop)', () => {
       cy.get($megaMenuNavItem)
         .shadow()
         .find('a')
-        .click();
-      cy.get($megaMenuNavItem)
+        .click({ force: true })
+        .parent()
         .find('dds-cloud-megamenu')
         .should('be.visible')
-        .find('dds-cloud-megamenu-tab')
+        .get('dds-cloud-megamenu-tab', { withinSubject: $megaMenuNavItem })
         .each($tab => {
-          cy.get(`#${$tab.attr('id')}`)
-            .shadow()
-            .find('button')
-            .click({ force: true });
-          const panelSelector = `#${$tab.attr('target')}`;
-          cy.get(panelSelector)
-            .should('be.visible');
+          cy.get($tab)
+            .click('right')
+            .then($tab => {
+              const panelSelector = `#${$tab.attr('target')}`;
+              cy.get(panelSelector).should('be.visible');
+            });
         });
     });
   });
@@ -212,7 +211,7 @@ describe('dds-masthead | cloud platform (mobile)', () => {
 
   it('should load menu hidden behind hamburger button', () => {
     cy.get('dds-top-nav')
-      .should('not.exist')
+      .should('not.be.visible')
       .get('dds-left-nav')
       .should('not.be.visible')
       .get('dds-masthead-menu-button')
@@ -263,7 +262,7 @@ describe('dds-masthead | cloud platform (mobile)', () => {
         expect($results.length).to.be.equal(10);
       })
       .get('dds-megamenu-top-nav-menu, dds-top-nav-menu, dds-top-nav-menu-item')
-      .should('not.exist');
+      .should('not.be.visible');
   });
 
   it('should have contact, login, and create-account CTAs', () => {

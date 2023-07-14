@@ -8,7 +8,7 @@
  */
 
 import { LitElement, html } from 'lit';
-import { property, query, state } from 'lit/decorators.js';
+import { customElement, property, query, state } from 'lit/decorators.js';
 import settings from 'carbon-components/es/globals/js/settings.js';
 import { INPUT_SIZE } from '../../internal/vendor/@carbon/web-components/components/text-input/text-input.js';
 import ddsSettings from '../../internal/vendor/@carbon/ibmdotcom-utilities/utilities/settings/settings';
@@ -18,7 +18,6 @@ import DDSSearch from '../search/search';
 import DDSLocaleItem from './locale-item';
 import styles from './locale-modal.scss';
 import StableSelectorMixin from '../../globals/mixins/stable-selector';
-import { carbonElement as customElement } from '../../internal/vendor/@carbon/web-components/globals/decorators/carbon-element.js';
 
 const { prefix } = settings;
 const { stablePrefix: ddsPrefix } = ddsSettings;

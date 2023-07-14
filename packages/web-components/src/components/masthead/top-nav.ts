@@ -9,7 +9,7 @@
 
 import { classMap } from 'lit/directives/class-map.js';
 import { html } from 'lit';
-import { property, query, state } from 'lit/decorators.js';
+import { customElement, property, query, state } from 'lit/decorators.js';
 import settings from 'carbon-components/es/globals/js/settings.js';
 import CaretLeft20 from '../../internal/vendor/@carbon/web-components/icons/caret--left/20.js';
 import CaretRight20 from '../../internal/vendor/@carbon/web-components/icons/caret--right/20.js';
@@ -20,7 +20,6 @@ import HostListenerMixin from '../../internal/vendor/@carbon/web-components/glob
 import ddsSettings from '../../internal/vendor/@carbon/ibmdotcom-utilities/utilities/settings/settings';
 import StableSelectorMixin from '../../globals/mixins/stable-selector';
 import styles from './masthead.scss';
-import { carbonElement as customElement } from '../../internal/vendor/@carbon/web-components/globals/decorators/carbon-element.js';
 
 const { prefix } = settings;
 const { stablePrefix: ddsPrefix } = ddsSettings;
@@ -113,14 +112,6 @@ class DDSTopNav extends StableSelectorMixin(HostListenerMixin(BXHeaderNav)) {
    */
   @property({ type: Boolean, reflect: true })
   hideNav = false;
-
-  /**
-   * `true` if the megamenu has been opened once and thus imported.
-   *
-   * Used for lazy loading the megamenu.
-   */
-  @property({ type: Boolean })
-  importedMegamenu = false;
 
   /**
    * The English title of the selected nav item.

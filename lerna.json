@@ -1,8 +1,9 @@
 {
   "lerna": "6.5.1",
   "version": "independent",
-  "npmClient": "yarn",
-  "npmClientArgs": ["--no-immutable"],
+  "npmClientArgs": [
+    "--frozen-lockfile"
+  ],
   "useWorkspaces": true,
   "ignoreChanges": [
     "**/__fixtures__/**",
