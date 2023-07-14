@@ -12,7 +12,9 @@ import { html, state, LitElement, TemplateResult, property } from 'lit-element';
 import { classMap } from 'lit-html/directives/class-map.js';
 import ddsSettings from '../../internal/vendor/@carbon/ibmdotcom-utilities/utilities/settings/settings';
 import StableSelectorMixin from '../../globals/mixins/stable-selector';
-import MediaQueryMixin from '../../component-mixins/media-query/media-query';
+import MediaQueryMixin, {
+  MQBreakpoints,
+} from '../../component-mixins/media-query/media-query';
 import DDSTab from './tab';
 import styles from './tabs-extended.scss';
 import { ORIENTATION } from './defs';
@@ -27,18 +29,17 @@ const { stablePrefix: ddsPrefix } = ddsSettings;
  * @element dds-tabs-extended
  */
 @customElement(`${ddsPrefix}-tabs-extended`)
-class DDSTabsExtended extends MediaQueryMixin(StableSelectorMixin(LitElement)) {
+class DDSTabsExtended extends MediaQueryMixin(StableSelectorMixin(LitElement), {
+  [MQBreakpoints.LG]: 'max',
+}) {
   /**
    * Whether the we're viewing smaller or larger window.
    */
   @state()
-  _isMobileVersion = this._mediaQueries.lg.matches;
+  _isMobileVersion = this.carbonBreakpoints.lg.matches;
 
-  /**
-   * @inheritdoc
-   */
-  mediaQueryCallbackLG() {
-    this._isMobileVersion = this._mediaQueries.lg.matches;
+  mediaQueryCallbackMaxLG() {
+    this._isMobileVersion = this.carbonBreakpoints.lg.matches;
   }
 
   /**

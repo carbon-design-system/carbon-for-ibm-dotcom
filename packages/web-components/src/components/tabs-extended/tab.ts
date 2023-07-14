@@ -14,7 +14,9 @@ import ddsSettings from '../../internal/vendor/@carbon/ibmdotcom-utilities/utili
 import ChevronRight20 from '../../internal/vendor/@carbon/web-components/icons/chevron--right/20.js';
 import styles from './tabs-extended.scss';
 import StableSelectorMixin from '../../globals/mixins/stable-selector';
-import MediaQueryMixin from '../../component-mixins/media-query/media-query';
+import MediaQueryMixin, {
+  MQBreakpoints,
+} from '../../component-mixins/media-query/media-query';
 import { carbonElement as customElement } from '../../internal/vendor/@carbon/web-components/globals/decorators/carbon-element';
 
 const { prefix } = settings;
@@ -26,18 +28,17 @@ const { stablePrefix: ddsPrefix } = ddsSettings;
  * @element dds-tab
  */
 @customElement(`${ddsPrefix}-tab`)
-class DDSTab extends MediaQueryMixin(StableSelectorMixin(LitElement)) {
+class DDSTab extends MediaQueryMixin(StableSelectorMixin(LitElement), {
+  [MQBreakpoints.LG]: 'max',
+}) {
   /**
    * Whether the we're viewing smaller or larger window.
    */
   @state()
-  _isMobileVersion = this._mediaQueries.lg.matches;
+  _isMobileVersion = this.carbonBreakpoints.lg.matches;
 
-  /**
-   * @inheritdoc
-   */
-  mediaQueryCallbackLG() {
-    this._isMobileVersion = this._mediaQueries.lg.matches;
+  mediaQueryCallbackMaxLG() {
+    this._isMobileVersion = this.carbonBreakpoints.lg.matches;
   }
 
   /**

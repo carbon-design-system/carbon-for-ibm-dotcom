@@ -8,29 +8,53 @@
  */
 
 import { Constructor } from '../../globals/defs';
-import { breakpoints } from '@carbon/layout';
+import { breakpoints as BXBreakpoints } from '@carbon/layout';
 
-const queriesByBreakpoint: { [index: string]: MediaQueryList } = {};
-for (let [key, val] of Object.entries(breakpoints)) {
-  queriesByBreakpoint[key] = window.matchMedia(
-    `(max-width: ${(val as any).width})`
-  );
+export enum MQBreakpoints {
+  SM = 'sm',
+  MD = 'md',
+  LG = 'lg',
+  XLG = 'xlg',
+  MAX = 'max',
 }
 
 /**
  * @param Base The base class.
  * @returns A mix-in implementing the logic for performing actions when the
- * viewport width crosses over Carbon breakpoints.
+ * viewport width crosses over configured Carbon breakpoints.
  */
-const MediaQueryMixin = <T extends Constructor<HTMLElement>>(Base: T) => {
+const MediaQueryMixin = <T extends Constructor<HTMLElement>>(
+  Base: T,
+  config: { [Property in MQBreakpoints]?: 'min' | 'max' }
+) => {
   abstract class MediaQueryMixinImpl extends Base {
     /**
-     * A keyed list of MediaQueryList objects that indicate when we've crossed
-     * over Carbon breakpoint thresholds.
+     * Configuration passed as argument into MediaQueryMixin.
+     */
+    _mqConfig = config;
+
+    /**
+     * Generates a list of MediaQueryList objects keyed by breakpoint identifiers.
      *
      * @see https://developer.mozilla.org/en-US/docs/Web/API/MediaQueryList
      */
-    _mediaQueries = { ...queriesByBreakpoint };
+    _generateMediaQueriesByBreakpoint(): { [index: string]: MediaQueryList } {
+      const { _mqConfig: config } = this;
+
+      const breakpoints = Object.keys(config);
+      const queries = {};
+      breakpoints.forEach((bp) => {
+        queries[bp] = window.matchMedia(
+          `(${config[bp]}-width: ${BXBreakpoints[bp].width})`
+        );
+      });
+      return queries;
+    }
+
+    /**
+     * A keyed list of MediaQueryList objects.
+     */
+    carbonBreakpoints = this._generateMediaQueriesByBreakpoint();
 
     /**
      * Sets up event listeners that fire any defined callback methods that
@@ -39,18 +63,35 @@ const MediaQueryMixin = <T extends Constructor<HTMLElement>>(Base: T) => {
      * Example callback method names:
      *  - mediaQueryCallbackSM
      *  - mediaQueryCallbackLG
-     *  - mediaQueryCallbackMAX
+     *  - mediaQueryCallbackMaxMD
+     *  - mediaQueryCallbackMaxMAX
      */
-    firstUpdated() {
-      Object.keys(breakpoints).forEach((bp) => {
-        const funcName = `mediaQueryCallback${bp.toUpperCase()}`;
+    _attachMediaQueryEventListeners() {
+      const { _mqConfig: config, carbonBreakpoints } = this;
+
+      Object.keys(carbonBreakpoints).forEach((bp) => {
+        const dir =
+          config[bp] === 'max'
+            ? `${config[bp][0].toUpperCase()}${config[bp].slice(1)}`
+            : '';
+        const funcName = `mediaQueryCallback${dir}${bp.toUpperCase()}`;
         if (typeof this[funcName] === 'function') {
-          this._mediaQueries[bp].addEventListener(
+          this.carbonBreakpoints[bp].addEventListener(
             'change',
             this[funcName].bind(this)
           );
+        } else {
+          console.warn(
+            `MediaQueryMixin: Element ${this.nodeName} has not defined a callback for the "${bp}" breakpoint. Please remove the breakpoint from the mixin configuration or implement the following method: ${funcName}`
+          );
         }
       });
+    }
+
+    firstUpdated() {
+      this._attachMediaQueryEventListeners();
+      //@ts-ignore
+      super.firstUpdated();
     }
   }
 
