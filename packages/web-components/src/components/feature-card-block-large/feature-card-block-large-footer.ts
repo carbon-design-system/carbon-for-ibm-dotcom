@@ -7,8 +7,8 @@
  * LICENSE file in the root directory of this source tree.
  */
 
-import { customElement } from 'lit/decorators.js';
 import ddsSettings from '@carbon/ibmdotcom-utilities/es/utilities/settings/settings.js';
+import { carbonElement as customElement } from '../../internal/vendor/@carbon/web-components/globals/decorators/carbon-element';
 import DDSFeatureCardFooter from '../feature-card/feature-card-footer';
 import styles from './feature-card-block-large.scss';
 

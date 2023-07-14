@@ -7,10 +7,11 @@
  * LICENSE file in the root directory of this source tree.
  */
 
-import { customElement, property, query } from 'lit/decorators.js';
+import { property } from 'lit/decorators.js';
 import BXHeaderMenu from '../../internal/vendor/@carbon/web-components/components/ui-shell/header-menu.js';
 import ddsSettings from '../../internal/vendor/@carbon/ibmdotcom-utilities/utilities/settings/settings';
 import styles from './masthead.scss';
+import { carbonElement as customElement } from '../../internal/vendor/@carbon/web-components/globals/decorators/carbon-element.js';
 
 const { stablePrefix: ddsPrefix } = ddsSettings;
 
@@ -22,12 +23,6 @@ const { stablePrefix: ddsPrefix } = ddsSettings;
 @customElement(`${ddsPrefix}-top-nav-menu`)
 class DDSTopNavMenu extends BXHeaderMenu {
   /**
-   * The trigger button.
-   */
-  @query('[part="trigger"]')
-  private _triggerNode?: HTMLAnchorElement;
-
-  /**
    * `true` if this submenu should be in its active state.
    */
   @property({ type: Boolean, reflect: true })
@@ -36,7 +31,7 @@ class DDSTopNavMenu extends BXHeaderMenu {
   updated(changedProperties) {
     super.updated(changedProperties);
     if (changedProperties.has('active')) {
-      const { active, _triggerNode: triggerNode } = this;
+      const { active, _topMenuItem: triggerNode } = this;
       if (triggerNode) {
         triggerNode.setAttribute('data-selected', String(Boolean(active)));
       }

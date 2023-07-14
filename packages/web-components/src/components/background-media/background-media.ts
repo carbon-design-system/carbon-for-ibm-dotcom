@@ -8,7 +8,7 @@
  */
 
 import { html } from 'lit';
-import { customElement, property } from 'lit/decorators.js';
+import { property } from 'lit/decorators.js';
 import { classMap } from 'lit/directives/class-map.js';
 import settings from 'carbon-components/es/globals/js/settings.js';
 import pauseIcon from '../../internal/vendor/@carbon/web-components/icons/pause--outline--filled/32.js';
@@ -20,6 +20,7 @@ import DDSImage from '../image/image';
 import DDSVideoPlayer from '../video-player/video-player';
 import DDSVideoPlayerContainer from '../video-player/video-player-container';
 import DDSLeadSpace from '../leadspace/leadspace';
+import { carbonElement as customElement } from '../../internal/vendor/@carbon/web-components/globals/decorators/carbon-element.js';
 
 const { prefix } = settings;
 const { stablePrefix: ddsPrefix } = ddsSettings;

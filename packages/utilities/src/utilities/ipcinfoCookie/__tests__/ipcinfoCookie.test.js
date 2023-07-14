@@ -20,7 +20,7 @@ describe('ipcinfo cookie utility', () => {
   it('should fetch the ipcInfo cookie and return a neat object', () => {
     Object.defineProperty(window.document, 'cookie', {
       writable: true,
-      value: 'ipcInfo=cc%253DUS%253Blc%253Den',
+      value: 'ipcInfo=cc%3DUS%3Blc%3Den',
     });
 
     const info = {

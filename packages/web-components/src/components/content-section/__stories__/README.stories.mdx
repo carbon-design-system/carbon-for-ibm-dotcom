@@ -3,10 +3,6 @@ import markdownContents from '../../../../docs/markdown-contents.md';
 import contributing from '../../../../../../docs/contributing-license.md';
 import { cdnJs, cdnCss } from '../../../globals/internal/storybook-cdn';
 
-
-
-
-
 # `<dds-content-section>`
 
 > 💡 Check our
@@ -35,51 +31,85 @@ import '@carbon/ibmdotcom-web-components/es/components/content-section/index.js'
 <dds-content-section>
   <dds-content-section-heading>Heading</dds-content-section-heading>
   <dds-content-section-copy>Copy</dds-content-section-copy>
-  <dds-text-cta slot="footer" cta-type="local" href="https://www.example.com"> CTA text</dds-text-cta>
+  <dds-text-cta slot="footer" cta-type="local" href="https://www.example.com">
+    CTA text</dds-text-cta
+  >
 </dds-content-section>
 ```
 
-As part of the ongoing upgrade to Carbon for IBM.com v2, we have consolidated some of the other `Content section` variants under a single one.
-Some of the components that are compatible with the `Content section` component are: `Card group`, `Carousel`, `Link list`.
+As part of the ongoing upgrade to Carbon for IBM.com v2, we have consolidated
+some of the other `Content section` variants under a single one. Some of the
+components that are compatible with the `Content section` component are:
+`Content block simple`, `Card group`, `Carousel`, `Link list`.
+
+### Content block simple
+
+Note: With `Content block simple`, the `children-custom-class` attribute will need to be provided with proper grid class as shown below in order for the component to render correctly within the grid.
+
+```html
+<dds-content-section children-custom-class="bx--col-lg-16 bx--no-gutter">
+  <dds-content-section-heading>Heading</dds-content-section-heading>
+  <dds-content-section-copy>Copy</dds-content-section-copy>
+  <dds-text-cta slot="footer" cta-type="local" href="https://www.example.com">
+    CTA text</dds-text-cta
+  >
+  <dds-content-block-simple>
+    <dds-content-block-heading>Content block simple heading</dds-content-block-heading>
+    <dds-content-block-copy size="sm">Content block simple copy</dds-content-block-copy>
+    <dds-video-player-container
+      slot="media"
+      video-id="1_9h94wo6b"></dds-video-player-container>
+    <dds-text-cta slot="footer" cta-type="jump" href="https://www.ibm.com"
+      >Jump to AI ethics and trust</dds-text-cta
+    >
+  </dds-content-block-simple>
+</dds-content-section>
+```
 
 ### Card group
 
 ```html
-
 <dds-content-section>
   <dds-content-section-heading>Heading</dds-content-section-heading>
   <dds-content-section-copy>Copy</dds-content-section-copy>
-  <dds-text-cta slot="footer" cta-type="local" href="https://www.example.com"> CTA text</dds-text-cta>
+  <dds-text-cta slot="footer" cta-type="local" href="https://www.example.com">
+    CTA text</dds-text-cta
+  >
   <dds-card-group>
     <dds-card-group-item href="https://example.com" cta-type="local">
       <dds-card-heading>Nunc convallis lobortis</dds-card-heading>
       <p>
-        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean et ultricies est. Mauris iaculis eget dolor nec hendrerit.
-        Phasellus at elit sollicitudin, sodales nulla quis, consequat libero.
+        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean et
+        ultricies est. Mauris iaculis eget dolor nec hendrerit. Phasellus at
+        elit sollicitudin, sodales nulla quis, consequat libero.
       </p>
-      <dds-card-cta-footer slot="footer">
-      </dds-card-cta-footer>
+      <dds-card-cta-footer slot="footer"> </dds-card-cta-footer>
     </dds-card-group-item>
-  </dds-card-group>  
+  </dds-card-group>
 </dds-content-section>
 ```
 
 ### Carousel
 
 ```html
-
 <dds-content-section>
   <dds-content-section-heading>Heading</dds-content-section-heading>
   <dds-content-section-copy>Copy</dds-content-section-copy>
-  <dds-text-cta slot="footer" cta-type="local" href="https://www.example.com"> CTA text</dds-text-cta>
-  <dds-content-section-heading>Lorem ipsum dolor sit amet</dds-content-section-heading>
+  <dds-text-cta slot="footer" cta-type="local" href="https://www.example.com">
+    CTA text</dds-text-cta
+  >
+  <dds-content-section-heading
+    >Lorem ipsum dolor sit amet</dds-content-section-heading
+  >
   <dds-content-section-copy>
-    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean et ultricies est.
+    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean et ultricies
+    est.
   </dds-content-section-copy>
   <dds-carousel>
     <dds-card href="https://example.com">
       <dds-card-heading>Lorem ipsum dolor sit amet</dds-card-heading>
-      Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean et ultricies est.
+      Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean et
+      ultricies est.
       <dds-card-footer>
         <svg
           slot="footer"
@@ -90,15 +120,16 @@ Some of the components that are compatible with the `Content section` component 
           aria-hidden="true"
           width="20"
           height="20"
-          viewBox="0 0 20 20"
-        >
-          <path d="M11.8 2.8L10.8 3.8 16.2 9.3 1 9.3 1 10.7 16.2 10.7 10.8 16.2 11.8 17.2 19 10z"></path>
+          viewBox="0 0 20 20">
+          <path
+            d="M11.8 2.8L10.8 3.8 16.2 9.3 1 9.3 1 10.7 16.2 10.7 10.8 16.2 11.8 17.2 19 10z"></path>
         </svg>
       </dds-card-footer>
     </dds-card>
     <dds-card href="https://example.com">
       <dds-card-heading>Lorem ipsum dolor sit amet</dds-card-heading>
-      Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean et ultricies est.
+      Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean et
+      ultricies est.
       <dds-card-footer>
         <svg
           slot="footer"
@@ -109,15 +140,16 @@ Some of the components that are compatible with the `Content section` component 
           aria-hidden="true"
           width="20"
           height="20"
-          viewBox="0 0 20 20"
-        >
-          <path d="M11.8 2.8L10.8 3.8 16.2 9.3 1 9.3 1 10.7 16.2 10.7 10.8 16.2 11.8 17.2 19 10z"></path>
+          viewBox="0 0 20 20">
+          <path
+            d="M11.8 2.8L10.8 3.8 16.2 9.3 1 9.3 1 10.7 16.2 10.7 10.8 16.2 11.8 17.2 19 10z"></path>
         </svg>
       </dds-card-footer>
     </dds-card>
     <dds-card href="https://example.com">
       <dds-card-heading>Lorem ipsum dolor sit amet</dds-card-heading>
-      Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean et ultricies est.
+      Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean et
+      ultricies est.
       <dds-card-footer>
         <svg
           slot="footer"
@@ -128,15 +160,16 @@ Some of the components that are compatible with the `Content section` component 
           aria-hidden="true"
           width="20"
           height="20"
-          viewBox="0 0 20 20"
-        >
-          <path d="M11.8 2.8L10.8 3.8 16.2 9.3 1 9.3 1 10.7 16.2 10.7 10.8 16.2 11.8 17.2 19 10z"></path>
+          viewBox="0 0 20 20">
+          <path
+            d="M11.8 2.8L10.8 3.8 16.2 9.3 1 9.3 1 10.7 16.2 10.7 10.8 16.2 11.8 17.2 19 10z"></path>
         </svg>
       </dds-card-footer>
     </dds-card>
     <dds-card href="https://example.com">
       <dds-card-heading>Lorem ipsum dolor sit amet</dds-card-heading>
-      Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean et ultricies est.
+      Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean et
+      ultricies est.
       <dds-card-footer>
         <svg
           slot="footer"
@@ -147,15 +180,16 @@ Some of the components that are compatible with the `Content section` component 
           aria-hidden="true"
           width="20"
           height="20"
-          viewBox="0 0 20 20"
-        >
-          <path d="M11.8 2.8L10.8 3.8 16.2 9.3 1 9.3 1 10.7 16.2 10.7 10.8 16.2 11.8 17.2 19 10z"></path>
+          viewBox="0 0 20 20">
+          <path
+            d="M11.8 2.8L10.8 3.8 16.2 9.3 1 9.3 1 10.7 16.2 10.7 10.8 16.2 11.8 17.2 19 10z"></path>
         </svg>
       </dds-card-footer>
     </dds-card>
     <dds-card href="https://example.com">
       <dds-card-heading>Lorem ipsum dolor sit amet</dds-card-heading>
-      Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean et ultricies est.
+      Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean et
+      ultricies est.
       <dds-card-footer>
         <svg
           slot="footer"
@@ -166,15 +200,16 @@ Some of the components that are compatible with the `Content section` component 
           aria-hidden="true"
           width="20"
           height="20"
-          viewBox="0 0 20 20"
-        >
-          <path d="M11.8 2.8L10.8 3.8 16.2 9.3 1 9.3 1 10.7 16.2 10.7 10.8 16.2 11.8 17.2 19 10z"></path>
+          viewBox="0 0 20 20">
+          <path
+            d="M11.8 2.8L10.8 3.8 16.2 9.3 1 9.3 1 10.7 16.2 10.7 10.8 16.2 11.8 17.2 19 10z"></path>
         </svg>
       </dds-card-footer>
     </dds-card>
     <dds-card href="https://example.com">
       <dds-card-heading>Lorem ipsum dolor sit amet</dds-card-heading>
-      Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean et ultricies est.
+      Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean et
+      ultricies est.
       <dds-card-footer>
         <svg
           slot="footer"
@@ -185,9 +220,9 @@ Some of the components that are compatible with the `Content section` component 
           aria-hidden="true"
           width="20"
           height="20"
-          viewBox="0 0 20 20"
-        >
-          <path d="M11.8 2.8L10.8 3.8 16.2 9.3 1 9.3 1 10.7 16.2 10.7 10.8 16.2 11.8 17.2 19 10z"></path>
+          viewBox="0 0 20 20">
+          <path
+            d="M11.8 2.8L10.8 3.8 16.2 9.3 1 9.3 1 10.7 16.2 10.7 10.8 16.2 11.8 17.2 19 10z"></path>
         </svg>
       </dds-card-footer>
     </dds-card>
@@ -201,14 +236,20 @@ Some of the components that are compatible with the `Content section` component 
 <dds-content-section>
   <dds-content-section-heading>Heading</dds-content-section-heading>
   <dds-content-section-copy>Copy</dds-content-section-copy>
-  <dds-text-cta slot="footer" cta-type="local" href="https://www.example.com"> CTA text</dds-text-cta>
-  <dds-content-section-heading>Lorem ipsum dolor sit amet</dds-content-section-heading>
+  <dds-text-cta slot="footer" cta-type="local" href="https://www.example.com">
+    CTA text</dds-text-cta
+  >
+  <dds-content-section-heading
+    >Lorem ipsum dolor sit amet</dds-content-section-heading
+  >
   <dds-content-section-copy>
-    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean et ultricies est.
+    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean et ultricies
+    est.
   </dds-content-section-copy>
   <dds-link-list>
     <dds-link-list-item href="https://example.com">
-      Learn more about Kubernetes and automating deployment ${ArrowRight20({ slot: 'icon' })}
+      Learn more about Kubernetes and automating deployment ${ArrowRight20({
+      slot: 'icon' })}
     </dds-link-list-item>
     <dds-link-list-item href="https://example.com">
       Containerization A Complete Guide ${ArrowRight20({ slot: 'icon' })}
@@ -225,7 +266,7 @@ Some of the components that are compatible with the `Content section` component 
     <dds-link-list-item href="https://example.com">
       Microservices and containers ${ArrowRight20({ slot: 'icon' })}
     </dds-link-list-item>
-  </dds-link-list>  
+  </dds-link-list>
 </dds-content-section>
 ```
 
@@ -236,7 +277,9 @@ Some of the components that are compatible with the `Content section` component 
 
 ## Stable selectors
 
-See [our README](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/tree/main/packages/web-components#stable-selectors-for-analytics-and-integratione2e-testing-in-web-components) to see how Web Components selector and `data-autoid` should be used.
+See
+[our README](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/tree/main/packages/web-components#stable-selectors-for-analytics-and-integratione2e-testing-in-web-components)
+to see how Web Components selector and `data-autoid` should be used.
 
 | Web Components selector         | Compatibility selector                        | Description |
 | ------------------------------- | --------------------------------------------- | ----------- |

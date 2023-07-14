@@ -7,13 +7,16 @@
  * LICENSE file in the root directory of this source tree.
  */
 
-import { customElement, query, state } from 'lit/decorators.js';
+import { query, state, property } from 'lit/decorators.js';
 import settings from 'carbon-components/es/globals/js/settings.js';
 import ddsSettings from '../../internal/vendor/@carbon/ibmdotcom-utilities/utilities/settings/settings';
 import { forEach } from '../../globals/internal/collection-helpers';
+import DDSMegaMenu from './megamenu';
+import DDSTopNav from './top-nav';
 import DDSTopNavMenu from './top-nav-menu';
 import DDSMegaMenuOverlay from './megamenu-overlay';
 import styles from './masthead.scss';
+import { carbonElement as customElement } from '../../internal/vendor/@carbon/web-components/globals/decorators/carbon-element';
 
 const { prefix } = settings;
 const { stablePrefix: ddsPrefix } = ddsSettings;
@@ -26,16 +29,16 @@ const { stablePrefix: ddsPrefix } = ddsSettings;
 @customElement(`${ddsPrefix}-megamenu-top-nav-menu`)
 class DDSMegaMenuTopNavMenu extends DDSTopNavMenu {
   /**
+   * The megamenu component
+   */
+  @property()
+  megaMenu!: DDSMegaMenu;
+
+  /**
    * The menu ul node.
    */
   @query(`.${prefix}--header__menu`)
   private _menuNode!: HTMLElement;
-
-  /**
-   * The trigger button.
-   */
-  @query('[part="trigger"]')
-  private _topMenuItem!: HTMLAnchorElement;
 
   /**
    * scrollbar width.
@@ -44,16 +47,6 @@ class DDSMegaMenuTopNavMenu extends DDSTopNavMenu {
   private _scrollBarWidth =
     this.ownerDocument!.defaultView!.innerWidth -
     this.ownerDocument!.body.offsetWidth;
-
-  /**
-   * Removes inherited _handleBlur method from BXHeaderMenu
-   */
-  private _handleKeydown = (event: KeyboardEvent) => {
-    if (event.key === 'Escape') {
-      this.expanded = false;
-      this._topMenuItem.focus();
-    }
-  };
 
   /**
    * The observer for the resize of the viewport.
@@ -95,10 +88,29 @@ class DDSMegaMenuTopNavMenu extends DDSTopNavMenu {
     );
   };
 
+  private async _requestMegaMenuRenderUpdate() {
+    return new Promise((resolve: Function): void => {
+      this.dispatchEvent(
+        new CustomEvent('dds-megamenu-top-nav-menu-toggle', {
+          bubbles: true,
+          cancelable: true,
+          composed: true,
+          detail: {
+            active: this.expanded,
+            resolveFn: resolve,
+          },
+        })
+      );
+
+      setTimeout(() => {
+        resolve();
+      }, 5000);
+    });
+  }
+
   connectedCallback() {
     super.connectedCallback();
     this._cleanAndCreateObserverResize({ create: true });
-    this.addEventListener('keydown', this._handleKeydown);
   }
 
   disconnectedCallback() {
@@ -115,7 +127,7 @@ class DDSMegaMenuTopNavMenu extends DDSTopNavMenu {
     }
   }
 
-  updated(changedProperties) {
+  async updated(changedProperties) {
     super.updated(changedProperties);
     if (changedProperties.has('expanded')) {
       const doc = this.getRootNode() as Document;
@@ -138,6 +150,21 @@ class DDSMegaMenuTopNavMenu extends DDSTopNavMenu {
         ?.querySelector('dds-masthead');
 
       if (this.expanded) {
+        // Import needed subcomponents on first expansion
+        if (!(this.parentElement as DDSTopNav).importedMegamenu) {
+          await import('./megamenu-left-navigation');
+          await import('./megamenu-category-link');
+          await import('./megamenu-category-group');
+          await import('./megamenu-category-group-copy');
+          await import('./megamenu-link-with-icon');
+          await import('./megamenu-overlay');
+          (this.parentElement as DDSTopNav).importedMegamenu = true;
+        }
+
+        // Ask masthead-composite to render megamenu.
+        // Pause further execution until the render is complete.
+        await this._requestMegaMenuRenderUpdate();
+
         document.body.style.marginInlineStart = `${this._scrollBarWidth}px`;
         document.body.style.overflow = 'hidden';
         forEach(
@@ -148,6 +175,7 @@ class DDSMegaMenuTopNavMenu extends DDSTopNavMenu {
             (item as DDSMegaMenuOverlay).active = this.expanded;
           }
         );
+
         if (cloudMasthead) {
           if (
             doc.body.classList.contains('ibm-masthead-sticky') &&
@@ -189,6 +217,12 @@ class DDSMegaMenuTopNavMenu extends DDSTopNavMenu {
             }
           }, 0);
         }
+
+        // Ask masthead-composite to un-render megamenu.
+        // Wait long enough for the transition to end.
+        setTimeout(() => {
+          this._requestMegaMenuRenderUpdate();
+        }, 500);
       }
     }
   }
