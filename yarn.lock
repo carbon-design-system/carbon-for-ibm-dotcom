@@ -12085,6 +12085,7 @@ __metadata:
     prettier: ^2.7.1
     react: 16.14.0
     rimraf: ^3.0.0
+    sass: ^1.19.0
     stylelint: ^13.3.3
     stylelint-config-prettier: ^7.0.0
     stylelint-prettier: ^1.1.2
@@ -30706,6 +30707,19 @@ __metadata:
     sass:
       optional: true
   checksum: df9a65a62247e95305299ccbdf212cffdcdb69490928aecdf4f3dcf539b5302ed7cbffa663f83c5fc3ce0864decf84257a9ce484f6df4cb4426feeb88445dcd0
+  languageName: node
+  linkType: hard
+
+"sass@npm:^1.19.0":
+  version: 1.63.6
+  resolution: "sass@npm:1.63.6"
+  dependencies:
+    chokidar: ">=3.0.0 <4.0.0"
+    immutable: ^4.0.0
+    source-map-js: ">=0.6.2 <2.0.0"
+  bin:
+    sass: sass.js
+  checksum: 3372319904658eeafaf78a09a6fcb3368a68e6d76fe3c43c2d009f4f72e475ab22b82ef483ef5c00fcda3ab00066846c0bd88c36b42771b855f6ab80c7eda541
   languageName: node
   linkType: hard
 

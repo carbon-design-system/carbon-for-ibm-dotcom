@@ -404,7 +404,7 @@ class NoticeChoice extends StableSelectorMixin(LitElement) {
   render() {
     return html`<section class="${prefix}--nc">
       <p id="ncHeading" class="${ddsPrefix}--nc__pre-text">${unsafeHTML(
-      this.preText
+      `${this.preText}`
     )}</p>
       <div class="${prefix}--checkbox-group">
             ${

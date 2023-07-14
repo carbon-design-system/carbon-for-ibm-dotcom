@@ -7,7 +7,7 @@
  * LICENSE file in the root directory of this source tree.
  */
 
-import { property, query } from 'lit/decorators.js';
+import { property } from 'lit/decorators.js';
 import BXHeaderMenu from '../../internal/vendor/@carbon/web-components/components/ui-shell/header-menu.js';
 import ddsSettings from '../../internal/vendor/@carbon/ibmdotcom-utilities/utilities/settings/settings';
 import styles from './masthead.scss';

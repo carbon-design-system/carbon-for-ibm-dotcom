@@ -290,7 +290,6 @@ class DDSCloudMastheadComposite extends DDSMastheadComposite {
     this._loadTranslation?.(language, dataEndpoint).catch(() => {}); // The error is logged in the Redux store
     this._loadUserStatus?.(this.authMethod);
 
-    // This is a temp fix until we figure out why we can't set styles to the :host(dds-cloud-masthead-container) in stylesheets
     this.style.zIndex = '900';
 
     // Allows conditional rendering of left/top navs.
@@ -345,178 +344,153 @@ class DDSCloudMastheadComposite extends DDSMastheadComposite {
     }
 
     return html`
-      <<<<<<< HEAD
-      <dds-left-nav-overlay cloud></dds-left-nav-overlay>
-      <dds-left-nav cloud>
+      ${isMobileVersion
+        ? html`
+            <dds-left-nav-overlay cloud></dds-left-nav-overlay>
+            <dds-left-nav cloud>
+              ${!platform
+                ? undefined
+                : html`
+                    <dds-left-nav-name href="${ifDefined(platformAltUrl)}"
+                      >${platform}</dds-left-nav-name
+                    >
+                  `}
+              ${this._renderNavItems({
+                selectedMenuItem,
+                target: NAV_ITEMS_RENDER_TARGET.LEFT_NAV,
+                hasL1: !!l1Data,
+              })}
+            </dds-left-nav>
+          `
+        : ''}
+      <dds-masthead aria-label="${ifDefined(mastheadAssistiveText)}">
+        ${isMobileVersion
+          ? html`
+              <dds-masthead-menu-button
+                cloud
+                button-label-active="${ifDefined(
+                  menuButtonAssistiveTextActive
+                )}"
+                button-label-inactive="${ifDefined(
+                  menuButtonAssistiveTextInactive
+                )}">
+              </dds-masthead-menu-button>
+            `
+          : ''}
+        ${this._renderLogo()}
         ${!platform
           ? undefined
           : html`
-              <dds-left-nav-name href="${ifDefined(platformAltUrl)}"
-                >${platform}</dds-left-nav-name
+              <dds-cloud-top-nav-name href="${ifDefined(platformAltUrl)}"
+                >${platform}</dds-cloud-top-nav-name
               >
             `}
-        ${this._renderNavItems({
-          selectedMenuItem,
-          target: NAV_ITEMS_RENDER_TARGET.LEFT_NAV,
-          hasL1: !!l1Data,
-        })}
-      </dds-left-nav>
-      <dds-masthead aria-label="${ifDefined(mastheadAssistiveText)}">
-        <dds-masthead-menu-button
-          cloud
-          button-label-active="${ifDefined(menuButtonAssistiveTextActive)}"
-          button-label-inactive="${ifDefined(menuButtonAssistiveTextInactive)}">
-        </dds-masthead-menu-button>
-
-        =======
-        ${isMobileVersion
+        ${l1Data
+          ? undefined
+          : !isMobileVersion
           ? html`
-              <dds-left-nav-overlay cloud></dds-left-nav-overlay>
-              <dds-left-nav cloud>
-                ${!platform
-                  ? undefined
-                  : html`
-                      <dds-left-nav-name href="${ifNonNull(platformAltUrl)}"
-                        >${platform}</dds-left-nav-name
-                      >
-                    `}
+              <dds-top-nav
+                cloud
+                menu-bar-label="${ifDefined(menuBarAssistiveText)}">
                 ${this._renderNavItems({
                   selectedMenuItem,
-                  target: NAV_ITEMS_RENDER_TARGET.LEFT_NAV,
-                  hasL1: !!l1Data,
+                  target: NAV_ITEMS_RENDER_TARGET.TOP_NAV,
+                  hasL1: false,
                 })}
-              </dds-left-nav>
+              </dds-top-nav>
             `
-          : ''}
-        <dds-masthead aria-label="${ifNonNull(mastheadAssistiveText)}">
-          ${isMobileVersion
-            ? html`
-                <dds-masthead-menu-button
-                  cloud
-                  button-label-active="${ifNonNull(
-                    menuButtonAssistiveTextActive
-                  )}"
-                  button-label-inactive="${ifNonNull(
-                    menuButtonAssistiveTextInactive
-                  )}">
-                </dds-masthead-menu-button>
-              `
-            : ''}
-          >>>>>>> upstream/main ${this._renderLogo()}
-          ${!platform
-            ? undefined
-            : html`
-                <dds-cloud-top-nav-name href="${ifDefined(platformAltUrl)}"
-                  >${platform}</dds-cloud-top-nav-name
-                >
-              `}
-          ${l1Data
-            ? undefined
-            : !isMobileVersion
-            ? html`
-                <dds-top-nav
-                  cloud
-                  menu-bar-label="${ifDefined(menuBarAssistiveText)}">
-                  ${this._renderNavItems({
-                    selectedMenuItem,
-                    target: NAV_ITEMS_RENDER_TARGET.TOP_NAV,
-                    hasL1: false,
-                  })}
-                </dds-top-nav>
-              `
-            : undefined}
-          <dds-search-with-typeahead
-            ?active="${activateSearch}"
-            input-timeout="${inputTimeout}"
-            language="${ifDefined(language)}"
-            ?open="${openSearchDropdown}"
-            placeholder="${ifDefined(
-              searchPlaceholder
-            )}"></dds-search-with-typeahead>
-          ${authenticated
-            ? html`
-                <dds-cloud-masthead-global-bar>
-                  <dds-cloud-masthead-profile>
-                    ${profileItems?.map(
-                      ({ title, url }) =>
-                        html`
-                          <dds-cloud-button-cta
-                            href="${ifDefined(url)}"
-                            kind="ghost"
-                            >${title}</dds-cloud-button-cta
-                          >
-                        `
-                    )}
-                  </dds-cloud-masthead-profile>
-                  ${hasContact === 'false'
-                    ? ''
-                    : html`
-                        <dds-cloud-button-cta
-                          kind="ghost"
-                          data-ibm-contact="contact-link"
-                          ><span
-                            >${contactUsButton?.title}</span
-                          ></dds-cloud-button-cta
-                        >
-                      `}
-                  ${ctaButtons?.map(
-                    ({ title, url }) =>
-                      html`
-                        <dds-cloud-button-cta
-                          href="${ifDefined(url)}"
-                          class="console"
-                          kind="ghost"
-                          >${title}</dds-cloud-button-cta
-                        >
-                      `
-                  )}
-                </dds-cloud-masthead-global-bar>
-              `
-            : html`
-                <dds-cloud-masthead-global-bar>
-                  ${hasContact === 'false'
-                    ? ''
-                    : html`
-                        <dds-cloud-button-cta
-                          kind="ghost"
-                          data-ibm-contact="contact-link"
-                          ><span
-                            >${contactUsButton?.title}</span
-                          ></dds-cloud-button-cta
-                        >
-                      `}
+          : undefined}
+        <dds-search-with-typeahead
+          ?active="${activateSearch}"
+          input-timeout="${inputTimeout}"
+          language="${ifDefined(language)}"
+          ?open="${openSearchDropdown}"
+          placeholder="${ifDefined(
+            searchPlaceholder
+          )}"></dds-search-with-typeahead>
+        ${authenticated
+          ? html`
+              <dds-cloud-masthead-global-bar>
+                <dds-cloud-masthead-profile>
                   ${profileItems?.map(
                     ({ title, url }) =>
                       html`
                         <dds-cloud-button-cta
-                          href="${url === 'https://cloud.ibm.com/login' &&
-                          this.redirectPath
-                            ? ifDefined(
-                                `${url}?redirect=${encodeURIComponent(
-                                  this.redirectPath
-                                )}`
-                              )
-                            : ifDefined(url)}"
+                          href="${ifDefined(url)}"
                           kind="ghost"
                           >${title}</dds-cloud-button-cta
                         >
                       `
                   )}
-                  ${ctaButtons?.map(
-                    ({ title, url }) =>
-                      html`
-                        <dds-cloud-button-cta
-                          href="${ifDefined(url)}"
-                          kind="primary"
-                          >${title}</dds-cloud-button-cta
-                        >
-                      `
-                  )}
-                </dds-cloud-masthead-global-bar>
-              `}
-          ${!l1Data ? undefined : this._renderL1({ selectedMenuItem })}
-          <dds-megamenu-overlay></dds-megamenu-overlay>
-        </dds-masthead>
+                </dds-cloud-masthead-profile>
+                ${hasContact === 'false'
+                  ? ''
+                  : html`
+                      <dds-cloud-button-cta
+                        kind="ghost"
+                        data-ibm-contact="contact-link"
+                        ><span
+                          >${contactUsButton?.title}</span
+                        ></dds-cloud-button-cta
+                      >
+                    `}
+                ${ctaButtons?.map(
+                  ({ title, url }) =>
+                    html`
+                      <dds-cloud-button-cta
+                        href="${ifDefined(url)}"
+                        class="console"
+                        kind="ghost"
+                        >${title}</dds-cloud-button-cta
+                      >
+                    `
+                )}
+              </dds-cloud-masthead-global-bar>
+            `
+          : html`
+              <dds-cloud-masthead-global-bar>
+                ${hasContact === 'false'
+                  ? ''
+                  : html`
+                      <dds-cloud-button-cta
+                        kind="ghost"
+                        data-ibm-contact="contact-link"
+                        ><span
+                          >${contactUsButton?.title}</span
+                        ></dds-cloud-button-cta
+                      >
+                    `}
+                ${profileItems?.map(
+                  ({ title, url }) =>
+                    html`
+                      <dds-cloud-button-cta
+                        href="${url === 'https://cloud.ibm.com/login' &&
+                        this.redirectPath
+                          ? ifDefined(
+                              `${url}?redirect=${encodeURIComponent(
+                                this.redirectPath
+                              )}`
+                            )
+                          : ifDefined(url)}"
+                        kind="ghost"
+                        >${title}</dds-cloud-button-cta
+                      >
+                    `
+                )}
+                ${ctaButtons?.map(
+                  ({ title, url }) =>
+                    html`
+                      <dds-cloud-button-cta
+                        href="${ifDefined(url)}"
+                        kind="primary"
+                        >${title}</dds-cloud-button-cta
+                      >
+                    `
+                )}
+              </dds-cloud-masthead-global-bar>
+            `}
+        ${!l1Data ? undefined : this._renderL1({ selectedMenuItem })}
+        <dds-megamenu-overlay></dds-megamenu-overlay>
       </dds-masthead>
     `;
   }
