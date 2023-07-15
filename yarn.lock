@@ -2202,7 +2202,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@carbon/colors@npm:^10.37.0":
+"@carbon/colors@npm:^10.37.1":
   version: 10.37.1
   resolution: "@carbon/colors@npm:10.37.1"
   checksum: 7cdc38370d1a51d968f28de951a180211b33db14f6dee5cd55c1d965ebe74c19c55924898df7c344f72dfa2c46a764ad16696038911e77b43d9b701d34c56514
@@ -2260,7 +2260,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@carbon/grid@npm:10.43.1, @carbon/grid@npm:^10.43.0, @carbon/grid@npm:^10.43.1":
+"@carbon/grid@npm:10.43.1, @carbon/grid@npm:^10.43.1":
   version: 10.43.1
   resolution: "@carbon/grid@npm:10.43.1"
   dependencies:
@@ -2496,7 +2496,7 @@ __metadata:
     "@carbon/layout": 10.37.1
     "@carbon/motion": 10.29.0
     "@carbon/telemetry": 0.1.0
-    "@carbon/themes": 10.55.1
+    "@carbon/themes": 10.55.2
     "@carbon/type": 10.45.2
     carbon-components: 10.58.7
     carbon-components-react: 7.59.8
@@ -2860,35 +2860,25 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@carbon/themes@npm:10.55.1":
-  version: 10.55.1
-  resolution: "@carbon/themes@npm:10.55.1"
+"@carbon/themes@npm:10.55.2":
+  version: 10.55.2
+  resolution: "@carbon/themes@npm:10.55.2"
   dependencies:
-    "@carbon/colors": ^10.37.0
-    "@carbon/layout": ^10.37.0
-    "@carbon/type": ^10.45.1
+    "@carbon/colors": ^10.37.1
+    "@carbon/layout": ^10.37.1
+    "@carbon/type": ^10.45.2
     color: ^3.1.2
-  checksum: de435ba20b24da2d7aad57e9a9ab1210349af0f7f99885f24bb6e993fa0408f541a500a1696e76ff3c8dfd602da9ee102d2dd01536938f8e6a2c5e719e01eb42
+  checksum: baeb77c1f497be131e497919f5b9935021f8204d952e38411a924cf382aefa8ca2cbf89601cef527cfe9874ddd6b6cd8565392100fe75c1d66d9b1c0499dd43b
   languageName: node
   linkType: hard
 
-"@carbon/type@npm:10.45.2":
+"@carbon/type@npm:10.45.2, @carbon/type@npm:^10.45.2":
   version: 10.45.2
   resolution: "@carbon/type@npm:10.45.2"
   dependencies:
     "@carbon/grid": ^10.43.1
     "@carbon/import-once": ^10.7.0
   checksum: 879c7d5b4bb8f34130b374dbbd63948077326dd3d571a926369fe501daed20157cc5ed230b3ff1f9d1deaa791164e2440f8025b359889540e70a4f96d730bf57
-  languageName: node
-  linkType: hard
-
-"@carbon/type@npm:^10.45.1":
-  version: 10.45.1
-  resolution: "@carbon/type@npm:10.45.1"
-  dependencies:
-    "@carbon/grid": ^10.43.0
-    "@carbon/import-once": ^10.7.0
-  checksum: 08d168987495472eea47241fd1533d3ce7582813eabace8b108d5ec751286910dd6229957ed453f1fcfd18f06e9cb877a0631eea41d83dd5e8fde98e88b7bbb8
   languageName: node
   linkType: hard
 
