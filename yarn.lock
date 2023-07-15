@@ -2333,7 +2333,7 @@ __metadata:
     browserslist-config-carbon: 10.6.1
     browserstack-cypress-cli: ^1.11.1
     cache-loader: ^4.1.0
-    carbon-components: 10.58.7
+    carbon-components: 10.58.8
     carbon-components-react: 7.59.8
     carbon-icons: 7.0.7
     chalk: ^4.1.1
@@ -2498,7 +2498,7 @@ __metadata:
     "@carbon/telemetry": 0.1.0
     "@carbon/themes": 10.55.1
     "@carbon/type": 10.45.2
-    carbon-components: 10.58.7
+    carbon-components: 10.58.8
     carbon-components-react: 7.59.8
     del: ^6.0.0
     gulp: ^4.0.2
@@ -2536,7 +2536,7 @@ __metadata:
     babel-plugin-dev-expression: ^0.2.1
     babel-polyfill: ^6.26.0
     browserslist-config-carbon: 10.6.1
-    carbon-components: 10.58.7
+    carbon-components: 10.58.8
     chalk: ^4.1.1
     cli-table: ^0.3.0
     gzip-size: ^5.0.0
@@ -2624,7 +2624,7 @@ __metadata:
     babel-plugin-template-html-minifier: ^4.1.0
     browserstack-cypress-cli: ^1.11.1
     cache-loader: ^4.1.0
-    carbon-components: 10.58.7
+    carbon-components: 10.58.8
     chalk: ^4.1.1
     classnames: 2.3.2
     commander: ^4.1.0
@@ -11320,15 +11320,15 @@ __metadata:
   languageName: node
   linkType: hard
 
-"carbon-components@npm:10.58.7":
-  version: 10.58.7
-  resolution: "carbon-components@npm:10.58.7"
+"carbon-components@npm:10.58.8":
+  version: 10.58.8
+  resolution: "carbon-components@npm:10.58.8"
   dependencies:
     "@carbon/telemetry": 0.1.0
     flatpickr: 4.6.1
     lodash.debounce: ^4.0.8
     warning: ^3.0.0
-  checksum: 80d27e9caa0913fce9a90d48e0982bdd7332976cd5ff0faa5c97195c0e16373419fc3be6faf0218bfa0f2d7518e4d14aabfb0be4727f774e0ea2388e3afa9fd0
+  checksum: 1cb5eb8d9036522aae79ee0fcf8c92cda79c9b623454a636aea81023d8bb06d3da703f160dc064f3f2ea699d9a42668260676973a00aabe87437b90ce66f0b17
   languageName: node
   linkType: hard
 
