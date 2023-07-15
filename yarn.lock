@@ -2334,7 +2334,7 @@ __metadata:
     browserstack-cypress-cli: ^1.11.1
     cache-loader: ^4.1.0
     carbon-components: 10.58.7
-    carbon-components-react: 7.59.8
+    carbon-components-react: 7.59.9
     carbon-icons: 7.0.7
     chalk: ^4.1.1
     classnames: 2.3.2
@@ -2499,7 +2499,7 @@ __metadata:
     "@carbon/themes": 10.55.1
     "@carbon/type": 10.45.2
     carbon-components: 10.58.7
-    carbon-components-react: 7.59.8
+    carbon-components-react: 7.59.9
     del: ^6.0.0
     gulp: ^4.0.2
     gulp-autoprefixer: ^6.1.0
@@ -2743,7 +2743,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@carbon/icons-react@npm:10.49.1":
+"@carbon/icons-react@npm:10.49.1, @carbon/icons-react@npm:^10.49.1":
   version: 10.49.1
   resolution: "@carbon/icons-react@npm:10.49.1"
   dependencies:
@@ -2753,19 +2753,6 @@ __metadata:
   peerDependencies:
     react: ">=16"
   checksum: 73625d9782211f6ce937504dab5d75c1f15634511debeb7184f29a5d855484cb3b52768ca37b461de7c7bd40c1ddf06160094fa5e15e4194febe8d197868b63c
-  languageName: node
-  linkType: hard
-
-"@carbon/icons-react@npm:^10.49.0":
-  version: 10.49.0
-  resolution: "@carbon/icons-react@npm:10.49.0"
-  dependencies:
-    "@carbon/icon-helpers": ^10.28.0
-    "@carbon/telemetry": 0.1.0
-    prop-types: ^15.7.2
-  peerDependencies:
-    react: ">=16"
-  checksum: dd3aec2718ba80a40100f9015aea60f3cc39aa2e08580c07fa342c36034053f29ee5575446b0641692ef2555ca27a3f305561f271a2de2e0ddab564030d94de7
   languageName: node
   linkType: hard
 
@@ -11275,14 +11262,14 @@ __metadata:
   languageName: node
   linkType: hard
 
-"carbon-components-react@npm:7.59.8":
-  version: 7.59.8
-  resolution: "carbon-components-react@npm:7.59.8"
+"carbon-components-react@npm:7.59.9":
+  version: 7.59.9
+  resolution: "carbon-components-react@npm:7.59.9"
   dependencies:
     "@babel/runtime": ^7.16.7
     "@carbon/feature-flags": ^0.7.0
-    "@carbon/icons-react": ^10.49.0
-    "@carbon/layout": ^10.37.0
+    "@carbon/icons-react": ^10.49.1
+    "@carbon/layout": ^10.37.1
     "@carbon/telemetry": 0.1.0
     classnames: 2.3.1
     copy-to-clipboard: ^3.3.1
@@ -11304,7 +11291,7 @@ __metadata:
     carbon-icons: ^7.0.7
     react: ^16.8.6 || ^17.0.1
     react-dom: ^16.8.6 || ^17.0.1
-  checksum: 51d43a907e20588e0788d6c75f755bbc1e92b511d604f68aa8faa3c4b599789cb6fef05a2fad5381dc209b7a4bbaba4e047474fc86739ffba19c53b09e339eaf
+  checksum: 6be557ae36ab0c6c21d28334112a7d8dc7294b7d688347579e5993de7845c1e15e02ad9b9ffdff65e27062a49e682c4250d61d62263758381ca64e4336d9fa93
   languageName: node
   linkType: hard
 
