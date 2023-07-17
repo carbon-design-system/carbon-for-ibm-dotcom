@@ -954,7 +954,6 @@ class DDSMastheadComposite extends HostListenerMixin(LitElement) {
     } = this;
 
     const authenticated = userStatus !== UNAUTHENTICATED_STATUS;
-    console.log('auth', authenticated, userStatus, UNAUTHENTICATED_STATUS);
     let profileItems;
     if (DDS_CUSTOM_PROFILE_LOGIN && customProfileLogin && !authenticated) {
       profileItems = unauthenticatedProfileItems?.map((item) => {
