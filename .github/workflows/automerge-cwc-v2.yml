@@ -5,7 +5,7 @@ on:
       - 'main'
 
 concurrency:
-  group: automerge-dotcom-v2-${{ github.ref }}
+  group: automerge-cwc-v2-${{ github.ref }}
   cancel-in-progress: true
 
 jobs:
