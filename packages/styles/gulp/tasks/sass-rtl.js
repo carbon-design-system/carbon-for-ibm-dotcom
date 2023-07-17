@@ -13,7 +13,7 @@ const gulp = require('gulp'),
   rename = require('gulp-rename'),
   rtlcss = require('gulp-rtlcss'),
   // This can be changed to `dart-sass` once Carbon V11 is used require('sass')
-  sass = require('gulp-sass')(require('node-sass')),
+  sass = require('gulp-sass')(require('sass')),
   path = require('path');
 
 /**

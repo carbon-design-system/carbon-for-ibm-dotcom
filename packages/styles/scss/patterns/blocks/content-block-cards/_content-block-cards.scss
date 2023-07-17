@@ -7,7 +7,8 @@
 
 /// @deprecated Remap import to "@carbon/ibmdotcom-styles/scss/components/content-block-cards/content-block-cards"
 @warn 'Deprecated scss import for `content-block-cards`, remap to `@carbon/ibmdotcom-styles/scss/components/content-block-cards/content-block-cards`';
-@import '../../../components/content-block-cards/content-block-cards';
+@use '../../globals/utils/flex-grid' as *;
+@use '../../../components/content-block-cards';
 
 @mixin content-block-cards {
   .#{$prefix}--content-block-cards {
@@ -18,35 +19,31 @@
       }
     }
     .#{$prefix}--content-block {
-      padding-top: $carbon--layout-03;
-      padding-bottom: $carbon--layout-05;
-      @include carbon--breakpoint('md') {
-        padding-top: $carbon--layout-03;
-        padding-bottom: $carbon--layout-06;
+      padding-top: $spacing-07;
+      padding-bottom: $spacing-10;
+      @include breakpoint(md) {
+        padding-top: $spacing-07;
+        padding-bottom: $spacing-12;
       }
-      @include carbon--breakpoint('lg') {
-        padding-top: $carbon--layout-05;
-        padding-bottom: $carbon--layout-07;
+      @include breakpoint(lg) {
+        padding-top: $spacing-10;
+        padding-bottom: $spacing-13;
       }
 
       &__heading {
-        margin-bottom: $carbon--layout-03;
-        @include carbon--breakpoint('md') {
-          margin-bottom: $carbon--layout-04;
+        margin-bottom: $spacing-07;
+        @include breakpoint(md) {
+          margin-bottom: $spacing-09;
         }
-        @include carbon--breakpoint('lg') {
-          margin-bottom: $carbon--layout-05;
+        @include breakpoint(lg) {
+          margin-bottom: $spacing-10;
         }
       }
       &__cta {
-        @include carbon--breakpoint('lg') {
-          @include carbon--make-col(4, 12);
+        @include breakpoint(lg) {
+          @include make-col(4, 12);
         }
       }
     }
   }
-}
-
-@include exports('content-block-cards') {
-  @include content-block-cards;
 }

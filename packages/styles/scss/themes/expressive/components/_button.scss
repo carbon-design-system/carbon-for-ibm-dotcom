@@ -5,7 +5,7 @@
  * LICENSE file in the root directory of this source tree.
  */
 
-@import 'carbon-components/scss/globals/scss/vendor/@carbon/elements/scss/layout/convert';
+@use '@carbon/styles/scss/utilities/convert' as *;
 
 //-----------------------------
 // Button (expressive)
@@ -17,10 +17,12 @@
 @mixin button-expressive {
   .#{$prefix}--btn {
     padding-top: calc(
-      (#{$button-md-height} - #{map-get($body-short-01, 'line-height')}) / 2 - #{$button-outline-width}
+      (#{$button-md-height} - #{map-get($body-compact-01, 'line-height')}) / 2 -
+        #{$button-outline-width}
     );
     padding-bottom: calc(
-      (#{$button-md-height} - #{map-get($body-short-01, 'line-height')}) / 2 - #{$button-outline-width}
+      (#{$button-md-height} - #{map-get($body-compact-01, 'line-height')}) / 2 -
+        #{$button-outline-width}
     );
 
     .#{$prefix}--btn__icon {
@@ -31,11 +33,11 @@
     &.#{$prefix}--btn--field {
       min-height: $button-field-height;
       padding-top: calc(
-        (#{$button-field-height} - #{map-get($body-short-01, 'line-height')}) /
+        (#{$button-field-height} - #{map-get($body-compact-01, 'line-height')}) /
           2 - #{$button-outline-width}
       );
       padding-bottom: calc(
-        (#{$button-field-height} - #{map-get($body-short-01, 'line-height')}) /
+        (#{$button-field-height} - #{map-get($body-compact-01, 'line-height')}) /
           2 - #{$button-outline-width}
       );
     }
@@ -43,11 +45,11 @@
     &.#{$prefix}--btn--sm {
       min-height: $button-sm-height;
       padding-top: calc(
-        (#{$button-sm-height} - #{map-get($body-short-01, 'line-height')}) / 2 -
+        (#{$button-sm-height} - #{map-get($body-compact-01, 'line-height')}) / 2 -
           #{$button-outline-width}
       );
       padding-bottom: calc(
-        (#{$button-sm-height} - #{map-get($body-short-01, 'line-height')}) / 2 -
+        (#{$button-sm-height} - #{map-get($body-compact-01, 'line-height')}) / 2 -
           #{$button-outline-width}
       );
     }

@@ -10,57 +10,57 @@
     .#{$prefix}--callout {
       &-data {
         &__data {
-          @include carbon--type-style('display-03', true);
+          @include type-style('display-03', true);
 
-          color: $inverse-01;
+          color: $icon-inverse;
           padding-top: $layout-01;
           padding-bottom: $layout-05;
         }
 
         &__copy {
-          @include carbon--type-style('expressive-heading-03', true);
+          @include type-style('fluid-heading-03', true);
 
-          color: $inverse-01;
+          color: $icon-inverse;
           margin-top: auto;
           padding-bottom: $layout-01;
         }
 
         &__source {
-          @include carbon--type-style('body-short-01', true);
+          @include type-style('body-compact-01', true);
 
           width: 90%;
           max-width: carbon--mini-units(80);
           padding-bottom: $layout-03;
 
-          @include carbon--breakpoint('md') {
+          @include breakpoint(md) {
             padding-bottom: $layout-05;
           }
 
-          @include carbon--breakpoint('lg') {
+          @include breakpoint(lg) {
             padding-bottom: $layout-06;
           }
 
           padding-top: $spacing-03;
-          color: $text-05;
+          color: $text-helper;
         }
       }
 
       &__column {
         height: auto;
 
-        @include carbon--breakpoint('md') {
+        @include breakpoint(md) {
           height: carbon--mini-units(40);
         }
 
-        @include carbon--breakpoint('lg') {
+        @include breakpoint(lg) {
           height: carbon--mini-units(50);
         }
 
-        @include carbon--breakpoint('xlg') {
+        @include breakpoint(xlg) {
           height: carbon--mini-units(60);
         }
 
-        @include carbon--breakpoint('max') {
+        @include breakpoint(max) {
           height: carbon--mini-units(70);
         }
       }
@@ -76,7 +76,4 @@
       }
     }
   }
-}
-@include exports('callout-data') {
-  @include callout-data;
 }

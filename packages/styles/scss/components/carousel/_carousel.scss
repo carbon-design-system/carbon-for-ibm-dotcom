@@ -7,20 +7,19 @@
 // LICENSE file in the root directory of this source tree.
 //
 
-@import 'carbon-components/scss/globals/scss/vars';
-@import 'carbon-components/scss/components/button/button';
-@import 'carbon-components/scss/globals/scss/vendor/@carbon/elements/scss/grid/vendor/@carbon/layout/breakpoint';
-@import '../../globals/vars';
+@use '../../globals/vars' as *;
+@use '@carbon/styles/scss/components/button' as *;
+@use '@carbon/styles/scss/breakpoint';
 
 :host(#{$dds-prefix}-carousel),
 .#{$prefix}--carousel {
   --#{$dds-prefix}--carousel--page-size: 1;
 
-  @include carbon--breakpoint(md) {
+  @include breakpoint(md) {
     --#{$dds-prefix}--carousel--page-size: 2;
   }
 
-  @include carbon--breakpoint(lg) {
+  @include breakpoint(lg) {
     --#{$dds-prefix}--carousel--page-size: 3;
   }
 
@@ -43,7 +42,7 @@
     #{$spacing-05} + var(--#{$dds-prefix}--carousel--overflow-hint-size, #{$spacing-05})
   );
 
-  @include carbon--breakpoint(md) {
+  @include breakpoint(md) {
     padding-left: 0;
   }
 
@@ -80,11 +79,11 @@
   }
 
   .#{$prefix}--carousel__scroll-contents--scrolling {
-    transition: left $duration--slow-01 motion(standard, productive);
+    transition: left $duration-slow-01 motion(standard, productive);
   }
 
   .#{$prefix}--carousel__navigation {
-    @include carbon--type-style('body-long-02', true);
+    @include type-style('body-02', true);
 
     grid-area: navigation;
     display: grid;
@@ -97,9 +96,9 @@
 
   .#{$prefix}--btn.#{$prefix}--carousel__navigation__btn {
     padding: 0;
-    min-height: $container-03;
-    width: $container-03;
-    height: $container-03;
+    min-height: $$spacing-09;
+    width: $$spacing-09;
+    height: $$spacing-09;
 
     svg {
       margin: auto;
@@ -112,7 +111,7 @@
   width: 100%;
   height: 100%;
 
-  @include carbon--breakpoint(md) {
+  @include breakpoint(md) {
     padding-bottom: 0;
   }
 

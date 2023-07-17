@@ -5,16 +5,20 @@
  * LICENSE file in the root directory of this source tree.
  */
 
-@import '../../globals/vars';
-@import '../../globals/imports';
-@import '../../globals/utils/ratio-base';
-
+@use '../../globals/vars' as *;
+@use '../../globals/utils/ratio-base' as *;
+@use '@carbon/styles/scss/colors' as *;
+@use '@carbon/styles/scss/config' as *;
+@use '@carbon/styles/scss/motion' as *;
+@use '@carbon/styles/scss/spacing' as *;
+@use '@carbon/styles/scss/theme' as *;
+@use '@carbon/styles/scss/type' as *;
 $aspect-ratios: ((16, 9), (9, 16), (2, 1), (1, 2), (4, 3), (3, 4), (1, 1));
 
 @mixin video-player {
   :host(#{$dds-prefix}-video-player),
   .#{$prefix}--video-player {
-    color: var(--#{$dds-prefix}--video-caption--color, $text-02);
+    color: var(--#{$dds-prefix}--video-caption--color, $text-secondary);
 
     .#{$prefix}--image__img {
       width: 100%;
@@ -32,7 +36,7 @@ $aspect-ratios: ((16, 9), (9, 16), (2, 1), (1, 2), (4, 3), (3, 4), (1, 1));
           right: rem(2px);
           bottom: rem(2px);
           z-index: 1;
-          border: 1px solid $inverse-focus-ui;
+          border: 1px solid $focus-inverse;
           outline: 2px solid $focus;
         }
       }
@@ -56,7 +60,7 @@ $aspect-ratios: ((16, 9), (9, 16), (2, 1), (1, 2), (4, 3), (3, 4), (1, 1));
     right: rem(2px);
     bottom: rem(2px);
     z-index: 1;
-    border: 1px solid $inverse-focus-ui;
+    border: 1px solid $focus-inverse;
     outline: 2px solid $focus;
   }
 
@@ -75,8 +79,8 @@ $aspect-ratios: ((16, 9), (9, 16), (2, 1), (1, 2), (4, 3), (3, 4), (1, 1));
       left: 0;
       opacity: 0;
       z-index: 1;
-      background-color: $ui-05;
-      transition: opacity $duration--moderate-01 motion(standard, productive);
+      background-color: $border-inverse;
+      transition: opacity $duration-moderate-01 motion(standard, productive);
     }
 
     &:hover::before {
@@ -117,7 +121,7 @@ $aspect-ratios: ((16, 9), (9, 16), (2, 1), (1, 2), (4, 3), (3, 4), (1, 1));
   }
 
   .#{$prefix}--video-player__video-caption {
-    @include carbon--type-style('caption-02');
+    @include type-style('caption-02');
 
     padding-top: var(--#{$dds-prefix}--video-caption--padding, $spacing-03);
     max-width: 90%;
@@ -144,7 +148,7 @@ $aspect-ratios: ((16, 9), (9, 16), (2, 1), (1, 2), (4, 3), (3, 4), (1, 1));
         }
 
         path {
-          fill: $icon-03;
+          fill: $icon-on-color;
         }
       }
     }
@@ -152,8 +156,8 @@ $aspect-ratios: ((16, 9), (9, 16), (2, 1), (1, 2), (4, 3), (3, 4), (1, 1));
     svg {
       circle,
       path {
-        transition: fill $duration--moderate-01 motion(standard, productive),
-          opacity $duration--moderate-01 motion(standard, productive);
+        transition: fill $duration-moderate-01 motion(standard, productive),
+          opacity $duration-moderate-01 motion(standard, productive);
       }
 
       circle {
@@ -171,8 +175,4 @@ $aspect-ratios: ((16, 9), (9, 16), (2, 1), (1, 2), (4, 3), (3, 4), (1, 1));
       }
     }
   }
-}
-
-@include exports('video-player') {
-  @include video-player;
 }

@@ -5,7 +5,7 @@
  * LICENSE file in the root directory of this source tree.
  */
 
-@import 'carbon-components/scss/globals/scss/vendor/@carbon/elements/scss/layout/convert';
+@use '@carbon/styles/scss/utilities/convert' as *;
 
 //-----------------------------
 // Search (expressive)
@@ -21,10 +21,10 @@
   }
 
   .#{$prefix}--search--lg .#{$prefix}--search-input {
-    height: $carbon--spacing-09;
+    height: $spacing-09;
   }
 
   .#{$prefix}--search--sm .#{$prefix}--search-input {
-    height: $carbon--spacing-08;
+    height: $spacing-08;
   }
 }

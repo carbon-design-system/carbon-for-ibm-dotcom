@@ -5,8 +5,11 @@
  * LICENSE file in the root directory of this source tree.
  */
 
+@use 'sass:math';
+@use '@carbon/styles/scss/grid' as *;
+
 // mixin to hang into the gutters of the grid
 @mixin hang() {
-  margin-left: -($carbon--grid-gutter / 2);
-  margin-right: -($carbon--grid-gutter / 2);
+  margin-left: math.div($grid-gutter, -2);
+  margin-right: math.div($grid-gutter, -2);
 }

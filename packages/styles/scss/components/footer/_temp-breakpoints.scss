@@ -5,11 +5,11 @@
 // LICENSE file in the root directory of this source tree.
 //
 
-$TEMP--breakpoint-down--md: map-get(
-    map-get($carbon--grid-breakpoints, 'md'),
-    'width'
-  ) - carbon--rem(1px);
-$TEMP--breakpoint-down--lg: map-get(
-    map-get($carbon--grid-breakpoints, 'lg'),
-    'width'
-  ) - carbon--rem(1px);
+@use 'sass:map';
+
+@use '@carbon/styles/scss/grid' as *;
+
+$TEMP--breakpoint-down--md: map.get(map.get($grid-breakpoints, 'md'), 'width') -
+  carbon--rem(1px);
+$TEMP--breakpoint-down--lg: map.get(map.get($grid-breakpoints, 'lg'), 'width') -
+  carbon--rem(1px);

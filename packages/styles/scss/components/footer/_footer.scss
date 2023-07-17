@@ -5,6 +5,16 @@
  * LICENSE file in the root directory of this source tree.
  */
 
+@use '@carbon/styles/scss/breakpoint' as *;
+@use '@carbon/styles/scss/config' as *;
+@use '@carbon/styles/scss/spacing' as *;
+@use '@carbon/styles/scss/theme' as *;
+@use '@carbon/styles/scss/themes' as *;
+@use '@carbon/styles/scss/type' as *;
+@use '../../globals/utils/flex-grid' as *;
+@use '../../globals/vars' as *;
+@use '../locale-modal';
+
 /// Footer styles
 /// @access private
 /// @group footer
@@ -13,22 +23,19 @@
   :host(#{$dds-prefix}-footer),
   .#{$prefix}--footer {
     width: 100%;
-    padding-block: $carbon--spacing-09;
+    padding-block: $spacing-09;
 
-    @include carbon--theme(
-      $carbon--theme--g90,
-      feature-flag-enabled('enable-css-custom-properties')
-    ) {
-      color: $text-01;
-      background-color: $ui-background;
-      padding-top: carbon--mini-units(6);
+    @include theme($g90, feature-flag-enabled('enable-css-custom-properties'));
 
-      .#{$prefix}--modal-content {
-        .#{$prefix}--link {
-          &,
-          &:visited {
-            color: $inverse-01;
-          }
+    color: $text-primary;
+    background-color: $background;
+    padding-top: carbon--mini-units(6);
+
+    .#{$prefix}--modal-content {
+      .#{$prefix}--link {
+        &,
+        &:visited {
+          color: $icon-inverse;
         }
       }
     }
@@ -40,11 +47,11 @@
 
     .#{$prefix}--language-selector__container {
       margin-top: $spacing-09;
-      @include carbon--breakpoint('md') {
+      @include breakpoint(md) {
         margin-top: 0;
       }
-      @include carbon--breakpoint('max') {
-        @include carbon--make-col-offset(10, 16);
+      @include breakpoint(max) {
+        @include make-col-offset(10, 16);
       }
     }
   }
@@ -78,48 +85,42 @@
   :host(#{$dds-prefix}-legal-nav-item),
   :host(#{$dds-prefix}-legal-nav-cookie-preferences-placeholder),
   .#{$prefix}--footer {
-    @include carbon--theme(
-      $carbon--theme--g90,
-      feature-flag-enabled('enable-css-custom-properties')
-    ) {
-      .#{$prefix}--footer__link.#{$prefix}--link {
-        @include carbon--type-style('body-long-01');
-        &,
-        &:visited {
-          color: $text-02;
-        }
+    @include theme($g90, feature-flag-enabled('enable-css-custom-properties'));
 
-        &:focus {
-          outline-color: $focus;
-          outline-offset: -1px;
-        }
+    .#{$prefix}--footer__link.#{$prefix}--link {
+      @include type-style('body-01');
+      &,
+      &:visited {
+        color: $text-secondary;
+      }
 
-        &:active {
-          color: $text-04;
-        }
+      &:focus {
+        outline-color: $focus;
+        outline-offset: -1px;
+      }
 
-        &:hover,
-        &:visited:hover {
-          color: $text-01;
-        }
+      &:active {
+        color: $text-on-color;
+      }
+
+      &:hover,
+      &:visited:hover {
+        color: $text-primary;
       }
     }
   }
 
   :host(#{$dds-prefix}-legal-nav),
   .#{$prefix}--footer {
-    @include carbon--theme(
-      $carbon--theme--g90,
-      feature-flag-enabled('enable-css-custom-properties')
-    ) {
-      .#{$prefix}--legal-nav__list {
-        .#{$prefix}--legal-nav__list-item {
-          .#{$prefix}--link {
-            color: $text-02;
+    @include theme($g90, feature-flag-enabled('enable-css-custom-properties'));
 
-            &:hover {
-              color: $text-01;
-            }
+    .#{$prefix}--legal-nav__list {
+      .#{$prefix}--legal-nav__list-item {
+        .#{$prefix}--link {
+          color: $text-secondary;
+
+          &:hover {
+            color: $text-primary;
           }
         }
       }
@@ -127,11 +128,11 @@
   }
 
   .#{$prefix}--footer__main {
-    @include carbon--make-container;
+    @include make-container;
   }
 
   .#{$prefix}--footer__main-container {
-    @include carbon--make-row;
+    @include make-row;
 
     flex-direction: column;
 
@@ -140,28 +141,28 @@
       flex-direction: row;
     }
 
-    @include carbon--breakpoint('lg') {
+    @include breakpoint(lg) {
       flex-direction: row;
     }
   }
 
   .#{$prefix}--footer__logo-container {
     width: 100%;
-    @include carbon--make-container;
+    @include make-container;
 
-    @include carbon--breakpoint('md') {
+    @include breakpoint(md) {
       margin-bottom: 0;
       padding-left: $spacing-05;
       padding-right: $spacing-05;
     }
 
     .#{$prefix}--footer__logo-row {
-      @include carbon--make-row;
+      @include make-row;
     }
   }
 
   .#{$prefix}--footer__locale-button--disabled {
-    @include carbon--make-col(2, 16);
+    @include make-col(2, 16);
 
     margin-left: 0;
     margin-right: 0;
@@ -176,8 +177,4 @@
       /* stylelint-enable declaration-no-important */
     }
   }
-}
-
-@include exports('footer') {
-  @include footer;
 }

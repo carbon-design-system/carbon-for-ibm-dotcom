@@ -5,17 +5,16 @@
  * LICENSE file in the root directory of this source tree.
  */
 
-@import 'carbon-components/scss/globals/scss/vendor/@carbon/elements/scss/themes/mixins';
-@import '../../globals/vars';
-@import '../../globals/imports';
-@import '../../globals/utils/aspect-ratio';
-@import '../../globals/utils/ratio-base';
+@use '../../globals/vars' as *;
+@use '@carbon/styles/scss/theme' as *;
+@use '../../globals/utils/aspect-ratio';
+@use '../../globals/utils/ratio-base' as *;
 
 @mixin feature-section {
   .#{$prefix}--feature-section {
     position: relative;
-    padding-left: $carbon--spacing-05;
-    padding-right: $carbon--spacing-05;
+    padding-left: $spacing-05;
+    padding-right: $spacing-05;
     outline: none;
 
     &:hover {
@@ -39,30 +38,30 @@
   }
 
   .#{$prefix}--feature-section__container {
-    background-color: $ui-01;
+    background-color: $layer-01;
     display: block;
 
-    @include carbon--breakpoint('lg') {
+    @include breakpoint(lg) {
       display: flex;
     }
   }
 
   .#{$prefix}--feature-section__body {
     position: relative;
-    padding-top: $carbon--spacing-07;
+    padding-top: $spacing-07;
     padding-left: 0;
     padding-right: 0;
 
-    @include carbon--breakpoint('max') {
-      padding-top: $carbon--spacing-08;
+    @include breakpoint(max) {
+      padding-top: $spacing-08;
     }
 
     .#{$prefix}--content-item__copy p,
     ::slotted(#{$dds-prefix}-content-item-paragraph) {
-      margin-bottom: $carbon--spacing-07;
+      margin-bottom: $spacing-07;
 
-      @include carbon--breakpoint('md') {
-        margin-bottom: $carbon--spacing-09;
+      @include breakpoint(md) {
+        margin-bottom: $spacing-09;
       }
     }
 
@@ -72,11 +71,11 @@
       display: inline-block;
       margin-left: 25%;
 
-      @include carbon--breakpoint('md') {
+      @include breakpoint(md) {
         margin-left: 50%;
       }
 
-      @include carbon--breakpoint('lg') {
+      @include breakpoint(lg) {
         position: absolute;
         margin-left: 0;
       }
@@ -92,15 +91,15 @@
     ::slotted(#{$dds-prefix}-image) {
       overflow: hidden;
 
-      @include carbon--breakpoint('sm') {
+      @include breakpoint(sm) {
         height: aspect-ratio(1, 1);
       }
 
-      @include carbon--breakpoint('md') {
+      @include breakpoint(md) {
         height: aspect-ratio(4, 3);
       }
 
-      @include carbon--breakpoint('lg') {
+      @include breakpoint(lg) {
         height: aspect-ratio(1, 1);
       }
     }
@@ -109,7 +108,7 @@
   .#{$prefix}--card__eyebrow,
   ::slotted(#{$dds-prefix}-card-eyebrow) {
     display: inline-block;
-    margin-bottom: $carbon--spacing-05;
+    margin-bottom: $spacing-05;
   }
 
   .#{$prefix}--card-link,
@@ -119,16 +118,16 @@
     bottom: 0;
     width: 75%;
 
-    @include carbon--breakpoint('md') {
-      width: calc(50% - #{$carbon--spacing-05});
-      right: $carbon--spacing-05;
+    @include breakpoint(md) {
+      width: calc(50% - #{$spacing-05});
+      right: $spacing-05;
     }
 
-    @include carbon--breakpoint('lg') {
+    @include breakpoint(lg) {
       width: calc(50% - #{$spacing-03});
     }
 
-    @include carbon--breakpoint('max') {
+    @include breakpoint(max) {
       width: calc(50% - #{$spacing-04});
     }
 
@@ -136,12 +135,8 @@
       max-width: inherit;
     }
 
-    @include carbon--breakpoint('max') {
-      right: $carbon--spacing-06;
+    @include breakpoint(max) {
+      right: $spacing-06;
     }
   }
-}
-
-@include exports('feature-section') {
-  @include feature-section;
 }

@@ -151,7 +151,7 @@ module: {
         {
           loader: 'sass-loader',
           options: {
-            implementation: require('node-sass'),
+            implementation: require('sass'),
             sassOptions: {
               includePaths: ['../node_modules', '../../../node_modules'],
               // `enable-css-custom-properties` and `grid-columns-16` feature flags

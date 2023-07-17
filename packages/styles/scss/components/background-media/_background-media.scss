@@ -5,10 +5,9 @@
  * LICENSE file in the root directory of this source tree.
  */
 
-@import 'carbon-components/scss/globals/scss/vendor/@carbon/elements/scss/themes/mixins';
-@import '../../globals/vars';
-@import '../../globals/imports';
-@import '../image/image';
+@use '@carbon/styles/scss/theme' as *;
+@use '../../globals/vars' as *;
+@use '../image';
 
 @mixin background-media {
   :host(#{$dds-prefix}-background-media) {
@@ -31,27 +30,27 @@
     height: 100%;
     z-index: 1;
 
-    @include carbon--breakpoint('md') {
+    @include breakpoint(md) {
       background-image: linear-gradient(
         to bottom,
-        $ui-background 0%,
+        $background 0%,
         rgba(255, 255, 255, 0) 100%
       );
     }
   }
 
   .#{$prefix}--background-media--gradient--left-to-right {
-    @include carbon--breakpoint('lg') {
+    @include breakpoint(lg) {
       background-image: linear-gradient(
         to right,
-        $ui-background 25%,
+        $background 25%,
         rgba(255, 255, 255, 0) 75%
       );
 
       [dir='rtl'] & {
         background-image: linear-gradient(
           to left,
-          $ui-background 25%,
+          $background 25%,
           rgba(255, 255, 255, 0) 75%
         );
       }
@@ -59,10 +58,10 @@
   }
 
   .#{$prefix}--background-media--gradient--top-to-bottom {
-    @include carbon--breakpoint('lg') {
+    @include breakpoint(lg) {
       background-image: linear-gradient(
         to bottom,
-        $ui-background 0%,
+        $background 0%,
         rgba(255, 255, 255, 0) 100%
       );
     }
@@ -70,9 +69,9 @@
 
   .#{$prefix}--video-player__controls {
     appearance: none;
-    background: $ui-background;
+    background: $background;
     border: none;
-    color: $text-01;
+    color: $text-primary;
     border-radius: 50%;
     padding: 0;
     line-height: 0;
@@ -83,8 +82,4 @@
     z-index: 2;
     cursor: pointer;
   }
-}
-
-@include exports('background-media') {
-  @include background-media;
 }

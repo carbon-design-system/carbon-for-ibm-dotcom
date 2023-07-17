@@ -5,40 +5,46 @@
  * LICENSE file in the root directory of this source tree.
  */
 
-@import '../../globals/imports';
-@import '../link-list/index';
+@use '@carbon/styles/scss/breakpoint' as *;
+@use '@carbon/styles/scss/config' as *;
+@use '@carbon/styles/scss/spacing' as *;
+@use '@carbon/styles/scss/theme' as *;
+@use '@carbon/styles/scss/type' as *;
+@use '../../globals/utils/flex-grid' as *;
+@use '../../globals/vars' as *;
+@use '../link-list';
 
 @mixin content-item-horizontal {
   // Web component
   :host(#{$dds-prefix}-content-item-horizontal),
   // React
   .#{$prefix}--content-item-horizontal__item {
-    @include carbon--make-row;
+    @include make-row;
 
-    border-top: 1px solid $ui-03;
-    padding-left: $carbon--spacing-05;
-    padding-right: $carbon--spacing-05;
+    border-top: 1px solid $layer-accent-01;
+    padding-left: $spacing-05;
+    padding-right: $spacing-05;
 
-    @include carbon--breakpoint(sm) {
-      padding-top: $carbon--spacing-07;
-      padding-bottom: $carbon--spacing-10;
+    @include breakpoint(sm) {
+      padding-top: $spacing-07;
+      padding-bottom: $spacing-10;
     }
 
-    @include carbon--breakpoint(lg) {
-      padding-top: $carbon--spacing-07;
-      padding-bottom: $carbon--layout-05;
+    @include breakpoint(lg) {
+      padding-top: $spacing-07;
+      padding-bottom: $spacing-10;
     }
 
     &[thumbnail] {
-      @include carbon--breakpoint(md) {
+      @include breakpoint(md) {
         min-height: rem(306px);
       }
 
-      @include carbon--breakpoint(lg) {
+      @include breakpoint(lg) {
         min-height: rem(272px);
       }
 
-      @include carbon--breakpoint(xlg) {
+      @include breakpoint(xlg) {
         min-height: rem(252px);
       }
     }
@@ -53,7 +59,7 @@
     width: 100%;
     display: flex;
     flex-direction: column;
-    @include carbon--breakpoint(md) {
+    @include breakpoint(md) {
       flex-direction: row;
     }
 
@@ -65,19 +71,19 @@
 
   .#{$prefix}--content-item-horizontal__col {
     // React styles - only accounting for the default variation
-    @include carbon--make-col-ready;
+    @include make-col-ready;
 
     // Web component layout styles - accommodating the thumbnail variation
     &--1,
     &--2 {
-      @include carbon--make-col-ready;
+      @include make-col-ready;
     }
 
     &--1 {
-      @include carbon--make-col(4, 4);
+      @include make-col(4, 4);
 
-      @include carbon--breakpoint(md) {
-        @include carbon--make-row;
+      @include breakpoint(md) {
+        @include make-row;
 
         margin: 0;
         padding: 0;
@@ -85,12 +91,12 @@
       }
 
       :host(#{$dds-prefix}-content-item-horizontal)[thumbnail] & {
-        @include carbon--breakpoint(md) {
-          @include carbon--make-col(4, 8);
+        @include breakpoint(md) {
+          @include make-col(4, 8);
         }
 
-        @include carbon--breakpoint(lg) {
-          @include carbon--make-col(8, 12);
+        @include breakpoint(lg) {
+          @include make-col(8, 12);
 
           display: flex;
         }
@@ -101,21 +107,21 @@
       grid-column: 1 / span 4;
       padding-left: 0;
       padding-right: 0;
-      @include carbon--breakpoint(md) {
+      @include breakpoint(md) {
         grid-column: 5 / span 4;
         grid-row: 1 / span 2;
       }
-      @include carbon--breakpoint(lg) {
+      @include breakpoint(lg) {
         grid-column: 9 / span 4;
         grid-row: 1 / span 1;
       }
       :host(#{$dds-prefix}-content-item-horizontal)[thumbnail] & {
-        @include carbon--breakpoint(md) {
-          @include carbon--make-col(3, 8);
+        @include breakpoint(md) {
+          @include make-col(3, 8);
         }
 
-        @include carbon--breakpoint(lg) {
-          @include carbon--make-col(3, 12);
+        @include breakpoint(lg) {
+          @include make-col(3, 12);
         }
       }
     }
@@ -128,10 +134,10 @@
   .#{$prefix}--content-item-horizontal__col:first-of-type,
   .#{$prefix}--content-item-horizontal__col:last-of-type {
     :host(#{$dds-prefix}-content-item-horizontal)[thumbnail] & {
-      @include carbon--make-col(4, 4);
+      @include make-col(4, 4);
 
-      @include carbon--breakpoint(lg) {
-        @include carbon--make-col(4, 8);
+      @include breakpoint(lg) {
+        @include make-col(4, 8);
       }
     }
   }
@@ -140,11 +146,11 @@
   .#{$prefix}--content-item-horizontal__heading-wrapper,
   // React
   .#{$prefix}--content-item-horizontal__col:first-of-type {
-    @include carbon--breakpoint(md) {
-      @include carbon--make-col(6, 12);
+    @include breakpoint(md) {
+      @include make-col(6, 12);
     }
-    @include carbon--breakpoint(lg) {
-      @include carbon--make-col(4, 12);
+    @include breakpoint(lg) {
+      @include make-col(4, 12);
     }
   }
 
@@ -156,8 +162,8 @@
     flex-direction: column;
     width: 100%;
 
-    @include carbon--breakpoint(lg) {
-      @include carbon--make-col(8, 12);
+    @include breakpoint(lg) {
+      @include make-col(8, 12);
 
       display: flex;
     }
@@ -165,7 +171,7 @@
 
   .#{$prefix}--content-item-horizontal__content-wrapper {
     grid-column: 1 / span 4;
-    @include carbon--breakpoint(lg) {
+    @include breakpoint(lg) {
       grid-column: 5 / span 4;
       padding-left: $spacing-04;
     }
@@ -173,8 +179,8 @@
 
   .#{$prefix}--content-item-horizontal__content-wrapper_with-media {
     width: 100%;
-    @include carbon--breakpoint(lg) {
-      @include carbon--make-col(8, 12);
+    @include breakpoint(lg) {
+      @include make-col(8, 12);
 
       padding-left: $spacing-04;
     }
@@ -191,7 +197,7 @@
   .#{$prefix}--content-item-horizontal__item--eyebrow,
   .#{$prefix}--content-item-horizontal__item--heading,
   .#{$prefix}--content-item-horizontal__item--copy {
-    @include carbon--breakpoint(md) {
+    @include breakpoint(md) {
       max-width: 90%;
     }
   }
@@ -202,24 +208,24 @@
 
   :host(#{$dds-prefix}-content-item-horizontal-eyebrow),
   .#{$prefix}--content-item-horizontal__item--eyebrow {
-    color: $text-05;
+    color: $text-helper;
     padding-bottom: $spacing-03;
-    @include carbon--type-style('label-02');
+    @include type-style('label-02');
   }
 
   :host(#{$dds-prefix}-content-item-horizontal) ::slotted([slot='heading']),
   .#{$prefix}--content-item-horizontal__item--heading {
     display: block;
-    color: $text-01;
-    margin-bottom: $carbon--spacing-07;
+    color: $text-primary;
+    margin-bottom: $spacing-07;
 
-    @include carbon--type-style('expressive-heading-03', true);
+    @include type-style('fluid-heading-03', true);
   }
 
   ::slotted([slot='heading']) {
-    margin-bottom: $carbon--spacing-07;
+    margin-bottom: $spacing-07;
     max-width: 100%;
-    @include carbon--breakpoint(lg) {
+    @include breakpoint(lg) {
       padding-left: 0;
     }
   }
@@ -229,11 +235,11 @@
     grid-template-columns: repeat(4, 1fr);
     grid-auto-flow: dense;
 
-    @include carbon--breakpoint(md) {
+    @include breakpoint(md) {
       grid-template-columns: repeat(8, 1fr);
       column-gap: $spacing-07;
     }
-    @include carbon--breakpoint(lg) {
+    @include breakpoint(lg) {
       grid-template-columns: repeat(12, 1fr);
     }
   }
@@ -245,7 +251,7 @@
 
   :host(#{$dds-prefix}-content-item-horizontal[thumbnail])
     .#{$prefix}--content-item-horizontal__content-wrapper {
-    @include carbon--breakpoint-down(md) {
+    @include breakpoint-down(md) {
       margin-bottom: $spacing-07;
     }
 
@@ -258,7 +264,7 @@
       grid-column: 1 / span 4;
       max-width: 100%;
 
-      @include carbon--breakpoint(lg) {
+      @include breakpoint(lg) {
         grid-column: 1 / span 8;
         display: contents;
       }
@@ -266,10 +272,10 @@
     .#{$prefix}--content-item-horizontal__col--2 {
       max-width: 100%;
       grid-column: 1 / span 4;
-      @include carbon--breakpoint(md) {
+      @include breakpoint(md) {
         grid-column: 5 / span 4;
       }
-      @include carbon--breakpoint(lg) {
+      @include breakpoint(lg) {
         grid-column: 9 / span 4;
       }
     }
@@ -283,12 +289,12 @@
 
   :host(#{$dds-prefix}-content-item-horizontal-copy) ::slotted(:not([slot])),
   .#{$prefix}--content-item-horizontal__item--copy {
-    margin-bottom: $carbon--spacing-07;
+    margin-bottom: $spacing-07;
   }
 
   :host(#{$dds-prefix}-content-item-horizontal-thumbnail-copy)
     ::slotted(#{$dds-prefix}-content-item-paragraph) {
-    margin-bottom: $carbon--spacing-07;
+    margin-bottom: $spacing-07;
   }
 
   :host(#{$dds-prefix}-content-item-horizontal) .#{$prefix}--content-item__cta,
@@ -307,15 +313,11 @@
   }
 
   :host(#{$dds-prefix}-content-item-horizontal) ::slotted([slot='thumbnail']) {
-    @include carbon--breakpoint(md) {
-      @include carbon--make-col(3, 3);
+    @include breakpoint(md) {
+      @include make-col(3, 3);
 
       margin-top: 0;
       padding-right: 0;
     }
   }
-}
-
-@include exports('content-item-horizontal') {
-  @include content-item-horizontal;
 }

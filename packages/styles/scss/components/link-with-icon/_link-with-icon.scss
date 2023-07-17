@@ -5,10 +5,14 @@
  * LICENSE file in the root directory of this source tree.
  */
 
-@import 'carbon-components/scss/components/link/link';
-@import '../../globals/vars';
-@import '../../globals/imports';
-@import '../lightbox-media-viewer/lightbox-media-viewer';
+@use '@carbon/styles/scss/breakpoint' as *;
+@use '@carbon/styles/scss/config' as *;
+@use '@carbon/styles/scss/spacing' as *;
+@use '@carbon/styles/scss/theme' as *;
+@use '@carbon/styles/scss/type' as *;
+@use '@carbon/styles/scss/components/link';
+@use '../../globals/vars' as *;
+@use '../lightbox-media-viewer/lightbox-media-viewer';
 
 @mixin link-with-icon {
   .#{$prefix}--link-with-icon,
@@ -27,18 +31,18 @@
     svg,
     ::slotted(svg[slot='icon']) {
       display: block;
-      margin-left: $carbon--spacing-03;
+      margin-left: $spacing-03;
       align-self: center;
       fill: currentColor;
     }
 
     &.#{$prefix}--link--visited {
-      color: $visited-link;
+      color: $link-visited;
     }
 
     &.#{$prefix}--link--disabled {
       &:hover {
-        @include type-style('body-short-02');
+        @include type-style('body-compact-02');
       }
     }
 
@@ -53,7 +57,7 @@
         align-self: start;
         position: relative;
         margin-left: 0;
-        margin-right: $carbon--spacing-03;
+        margin-right: $spacing-03;
         top: 1px;
       }
     }
@@ -87,7 +91,7 @@
     .#{$prefix}--link-with-icon.#{$prefix}--link-with-icon--inline-icon span {
       display: none;
 
-      @include carbon--breakpoint('lg') {
+      @include breakpoint(lg) {
         display: inline;
       }
     }
@@ -97,16 +101,16 @@
   :host(#{$dds-prefix}-link-with-icon),
   :host(#{$dds-prefix}-text-cta) {
     &:not(:first-of-type) {
-      margin-left: $carbon--spacing-07;
+      margin-left: $spacing-07;
     }
 
     .#{$prefix}--link-with-icon__icon-left::slotted(svg[slot='icon']) {
-      margin-right: $carbon--spacing-03;
+      margin-right: $spacing-03;
       margin-left: 0;
     }
 
     .#{$prefix}--link-with-icon__icon-right::slotted(svg[slot='icon']) {
-      margin-left: $carbon--spacing-03;
+      margin-left: $spacing-03;
       margin-right: 0;
     }
 
@@ -130,8 +134,4 @@
   .#{$prefix}--link-with-icon__container {
     display: table;
   }
-}
-
-@include exports('link-with-icon') {
-  @include link-with-icon;
 }

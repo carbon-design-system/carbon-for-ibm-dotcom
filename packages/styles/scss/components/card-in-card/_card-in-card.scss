@@ -5,13 +5,12 @@
  * LICENSE file in the root directory of this source tree.
  */
 
-@import 'carbon-components/scss/globals/scss/vendor/@carbon/elements/scss/themes/mixins';
-@import '../../globals/vars';
-@import '../../globals/imports';
-@import '../../globals/utils/aspect-ratio';
-@import '../../globals/utils/ratio-base';
-@import '../image/image';
-@import '../card/index';
+@use '@carbon/styles/scss/theme' as *;
+@use '../../globals/vars' as *;
+@use '../../globals/utils/aspect-ratio';
+@use '../../globals/utils/ratio-base' as *;
+@use '../image';
+@use '../card';
 
 @mixin card-in-card {
   :host(#{$dds-prefix}-card-in-card),
@@ -38,24 +37,24 @@
     }
 
     .#{$prefix}--card-in-card__container {
-      color: $text-01;
-      background: $ui-background;
+      color: $text-primary;
+      background: $background;
       position: relative;
     }
 
     .#{$prefix}--card__wrapper {
-      background-color: $ui-01;
+      background-color: $layer-01;
       height: auto;
-      padding: $carbon--spacing-05;
+      padding: $spacing-05;
 
-      @include carbon--breakpoint('md') {
+      @include breakpoint(md) {
         width: 50%;
         position: absolute;
         bottom: 0;
         right: 0;
       }
 
-      @include carbon--breakpoint('lg') {
+      @include breakpoint(lg) {
         width: 33.33%;
       }
 
@@ -63,7 +62,7 @@
       .#{$prefix}--card__heading,
       ::slotted(#{$dds-prefix}-card-eyebrow),
       ::slotted(#{$dds-prefix}-card-heading) {
-        @include carbon--breakpoint('md') {
+        @include breakpoint(md) {
           width: 90%;
         }
       }
@@ -74,8 +73,8 @@
 
       .#{$prefix}--card__eyebrow,
       ::slotted(#{$dds-prefix}-card-eyebrow) {
-        margin-bottom: $carbon--spacing-03;
-        color: $text-02;
+        margin-bottom: $spacing-03;
+        color: $text-secondary;
       }
     }
   }
@@ -88,19 +87,19 @@
 
     @include ratio-base(4, 3, true);
 
-    @include carbon--breakpoint('md') {
+    @include breakpoint(md) {
       @include ratio-base(16, 9, true);
     }
 
     ::slotted(svg[slot='icon']) {
       @extend .#{$prefix}--image__icon;
 
-      @include carbon--breakpoint('md') {
-        right: calc(75% - #{$carbon--spacing-07});
+      @include breakpoint(md) {
+        right: calc(75% - #{$spacing-07});
       }
 
-      @include carbon--breakpoint('lg') {
-        right: calc(50% - #{$carbon--spacing-04});
+      @include breakpoint(lg) {
+        right: calc(50% - #{$spacing-04});
       }
     }
 
@@ -113,9 +112,8 @@
       left: 0;
       opacity: 0;
       z-index: 1;
-      background-color: $inverse-02;
-      transition: opacity $duration--moderate-01
-        motion('standard', 'productive');
+      background-color: $background-inverse;
+      transition: opacity $duration-moderate-01 motion('standard', 'productive');
     }
 
     .#{$prefix}--image__img {
@@ -128,22 +126,22 @@
   // Adjust the card width when grid mode is equal to "narrow".
   :host(#{$dds-prefix}-card-in-card)[grid-mode='narrow'],
   .#{$prefix}--card-in-card--narrow {
-    @include carbon--breakpoint('lg') {
+    @include breakpoint(lg) {
       width: calc(100% - #{carbon--mini-units(2)});
     }
 
     .#{$prefix}--card__wrapper {
-      @include carbon--breakpoint('md') {
-        width: calc(50% - #{$carbon--spacing-04});
+      @include breakpoint(md) {
+        width: calc(50% - #{$spacing-04});
       }
 
-      @include carbon--breakpoint('lg') {
-        width: calc(33.33% - #{$carbon--spacing-04});
+      @include breakpoint(lg) {
+        width: calc(33.33% - #{$spacing-04});
       }
     }
   }
 
-  // Add a $ui-03 border line color when the grid mode is equal "collapsed".
+  // Add a $layer-accent-01 border line color when the grid mode is equal "collapsed".
   :host(#{$dds-prefix}-card-in-card)[grid-mode='collapsed'],
   .#{$prefix}--card-in-card--narrow {
     .#{$prefix}--card__wrapper {
@@ -157,12 +155,8 @@
         bottom: -1px;
         pointer-events: none;
         z-index: 1;
-        background-color: $ui-03;
+        background-color: $layer-accent-01;
       }
     }
   }
-}
-
-@include exports('card-in-card') {
-  @include card-in-card;
 }

@@ -7,9 +7,13 @@
  * LICENSE file in the root directory of this source tree.
  */
 
-@import '../../globals/vars';
-@import '../../globals/imports';
-@import '../card-group/card-group';
+@use '@carbon/styles/scss/breakpoint' as *;
+@use '@carbon/styles/scss/config' as *;
+@use '@carbon/styles/scss/spacing' as *;
+@use '@carbon/styles/scss/theme' as *;
+@use '@carbon/styles/scss/type' as *;
+@use '../../globals/vars' as *;
+@use '../card-group/card-group';
 
 @mixin card-section-offset {
   :host(#{$dds-prefix}-card-section-offset) {
@@ -28,7 +32,7 @@
       aspect-ratio: 4 / 3;
     }
 
-    @include carbon--breakpoint('md') {
+    @include breakpoint(md) {
       #{$dds-prefix}-background-media {
         position: absolute;
         height: 100%;
@@ -39,7 +43,7 @@
       }
     }
 
-    @include carbon--breakpoint('lg') {
+    @include breakpoint(lg) {
       display: flex;
     }
 
@@ -51,8 +55,8 @@
       width: 90%;
       max-width: rem(640px);
 
-      @include carbon--breakpoint('md') {
-        width: calc(100% - var(--cds-spacing-07, 2rem));
+      @include breakpoint(md) {
+        width: calc(100% - $spacing-07);
       }
     }
 
@@ -62,7 +66,7 @@
       width: 100%;
       padding: $spacing-07 0 $spacing-10 $spacing-05;
 
-      @include carbon--breakpoint('lg') {
+      @include breakpoint(lg) {
         padding-bottom: 0;
       }
     }
@@ -74,7 +78,7 @@
       padding-top: 0;
       z-index: 1;
 
-      @include carbon--breakpoint('lg') {
+      @include breakpoint(lg) {
         padding-top: $spacing-07;
       }
     }
@@ -84,7 +88,7 @@
   @media print {
     .#{$prefix}--card-section-offset__content,
     :host(#{$dds-prefix}-card-section-offset) {
-      background-color: $white-0;
+      background-color: $background;
       flex-wrap: wrap;
 
       /* stylelint-disable-next-line property-no-unknown */
@@ -99,10 +103,10 @@
       }
 
       ::slotted([slot='heading']) {
-        @include carbon--type-style('expressive-heading-05');
+        // @include type-style('fluid-heading-05');
 
-        color: $gray-90;
-        margin-bottom: $carbon--spacing-03;
+        color: $layer-01;
+        margin-bottom: $spacing-03;
       }
 
       ::slotted([slot='card-group']) {
@@ -110,8 +114,4 @@
       }
     }
   }
-}
-
-@include exports('card-section-offset') {
-  @include card-section-offset;
 }

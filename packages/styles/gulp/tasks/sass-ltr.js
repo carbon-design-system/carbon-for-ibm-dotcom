@@ -12,7 +12,7 @@ const gulp = require('gulp'),
   cleanCSS = require('gulp-clean-css'),
   rename = require('gulp-rename'),
   // This can be changed to `dart-sass` once Carbon V11 is used require('sass')
-  sass = require('gulp-sass')(require('node-sass')),
+  sass = require('gulp-sass')(require('sass')),
   path = require('path');
 
 /**
