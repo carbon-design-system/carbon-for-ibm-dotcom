@@ -1,4 +1,4 @@
-name: automerge-dotcom-v2
+name: automerge-cwc-v2
 on:
   push:
     branches:
@@ -20,7 +20,7 @@ jobs:
         uses: devmasx/merge-branch@1.4.0
         with:
           type: now
-          target_branch: 'feat/carbon-for-ibm-dotcom-v2'
+          target_branch: 'feat/cwc-v2'
         env:
           GITHUB_TOKEN: ${{secrets.MERGE_ACTION}}
       - uses: act10ns/slack@v2
