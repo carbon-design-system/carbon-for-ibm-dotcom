@@ -186,18 +186,28 @@ class DDSTabsExtended extends MediaQueryMixin(StableSelectorMixin(LitElement), {
     this._isLTR = window.getComputedStyle(this).direction === 'ltr';
     this._activeTabIndex = parseInt(this._activeTab, 10);
 
-    if (changedProperties.has('_tabItems') && _isMobileVersion) {
-      _tabItems.forEach((tab) => {
-        tab.addEventListener('click', this._handleAccordionClick.bind(this));
+    if (changedProperties.has('_tabItems')) {
+      _tabItems.forEach((tab, index) => {
+        (tab as DDSTab).setIndex(index);
+
+        if (_isMobileVersion) {
+          tab.addEventListener('click', this._handleAccordionClick.bind(this));
+        }
       });
     }
 
-    _tabItems.forEach((tab, index) => {
-      (tab as DDSTab).selected = index === this._activeTabIndex;
-      (tab as DDSTab).setIndex(index);
+    if (changedProperties.has('_activeTabIndex')) {
+      _tabItems.forEach((tab, index) => {
+        (tab as DDSTab).selected = index === this._activeTabIndex;
+      });
+    }
 
-      if (changedProperties.has('_isMobileVersion') && !_isMobileVersion) {
-        // Set aria-label on tabs for desktop.
+    if (
+      (changedProperties.has('_isMobileVersion') && !_isMobileVersion) ||
+      (changedProperties.has('_tabItems') && !_isMobileVersion)
+    ) {
+      // Set aria-label on tabs for desktop.
+      _tabItems.forEach((tab, index) => {
         const navLink = this.shadowRoot!.querySelectorAll(
           `.${prefix}--tabs__nav-link`
         )[index];
@@ -209,8 +219,8 @@ class DDSTabsExtended extends MediaQueryMixin(StableSelectorMixin(LitElement), {
             navLink!.setAttribute('hasTooltip', label);
           }
         }
-      }
-    });
+      });
+    }
   }
 
   protected _renderAccordion(): TemplateResult {
