@@ -102,9 +102,9 @@ class DDSTab extends MediaQueryMixin(StableSelectorMixin(LitElement), {
   protected _renderAccordionItem() {
     const { label, selected, disabled, _index: index } = this;
     const classes = classMap({
-      'bx--accordion__item': true,
-      'bx--accordion__item--active': selected,
-      'bx--accordion__item--disabled': disabled,
+      [`${prefix}--accordion__item`]: true,
+      [`${prefix}--accordion__item--active`]: selected,
+      [`${prefix}--accordion__item--disabled`]: disabled,
     });
     return html`
       <li class="${classes}">
