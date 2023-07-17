@@ -44,6 +44,14 @@ const StableSelectorMixin = <T extends Constructor<HTMLElement>>(Base: T) => {
         .constructor as typeof StableSelectorMixinImpl;
       if (stableSelector) {
         this.dataset.autoid = stableSelector;
+
+        const css = `${this.tagName.toLowerCase()}:not(:defined) { display: none; }`;
+        const head = document.head || document.getElementsByTagName('head')[0];
+        const style =
+          head.querySelector('style') || document.createElement('style');
+
+        head.appendChild(style);
+        style.appendChild(document.createTextNode(css));
       }
 
       this._cleanAndCreateMutationObserver({ create: true });
