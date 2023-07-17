@@ -23,7 +23,7 @@ import textNullable from '../../../../.storybook/knob-text-nullable';
 
 const tagGroupContent = html`
   <dds-tag-group>
-    <bx-tag> Most popular </bx-tag>
+    <bx-tag type="green"> Most popular </bx-tag>
     <bx-tag type="purple"> Enterprise </bx-tag>
   </dds-tag-group>
 `;

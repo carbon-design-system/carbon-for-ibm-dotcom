@@ -7,8 +7,8 @@
  * LICENSE file in the root directory of this source tree.
  */
 import { css } from 'lit';
-import { customElement } from 'lit/decorators.js';
 import ddsSettings from '../../internal/vendor/@carbon/ibmdotcom-utilities/utilities/settings/settings';
+import { carbonElement as customElement } from '../../internal/vendor/@carbon/web-components/globals/decorators/carbon-element';
 import DDSContentBlockCopy from '../content-block/content-block-copy';
 import styles from './callout-with-media.scss';
 

@@ -14,9 +14,6 @@ jobs:
   yarn-mirror:
     if: github.repository == 'carbon-design-system/carbon-for-ibm-dotcom'
     runs-on: ubuntu-20.04
-    strategy:
-      matrix:
-        node-version: ['18.x']
     steps:
       - uses: actions/checkout@v3
         with:
@@ -24,14 +21,14 @@ jobs:
       - name: Use Node.js 18.x
         uses: actions/setup-node@v3
         with:
-          node-version: ${{ matrix.node-version }}
+          node-version: '18.x'
           cache: 'yarn'
       - name: Get branch name
         shell: bash
         run: echo "##[set-output name=branch;]$(echo ${GITHUB_REF#refs/heads/})"
         id: get_branch
       - name: Install dependencies
-        run: yarn install
+        run: yarn install --no-immutable --immutable-cache
       - name: Push changes
         run: |
           if [ -z "$(git status --porcelain)" ]; then

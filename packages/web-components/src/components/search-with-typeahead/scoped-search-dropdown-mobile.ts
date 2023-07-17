@@ -10,7 +10,7 @@
 import settings from 'carbon-components/es/globals/js/settings.js';
 import Filter20 from '../../internal/vendor/@carbon/web-components/icons/filter/20.js';
 import { html } from 'lit';
-import { customElement, property } from 'lit/decorators.js';
+import { property } from 'lit/decorators.js';
 import CDSSelect from '../../internal/vendor/@carbon/web-components/components/select/select.js';
 import { INPUT_SIZE } from '../../internal/vendor/@carbon/web-components/components/text-input/text-input.js';
 import { classMap } from 'lit/directives/class-map.js';
@@ -18,6 +18,7 @@ import { ifDefined } from 'lit/directives/if-defined.js';
 import ddsSettings from '../../internal/vendor/@carbon/ibmdotcom-utilities/utilities/settings/settings';
 import { filter } from '../../globals/internal/collection-helpers';
 import styles from './search-with-typeahead.scss';
+import { carbonElement as customElement } from '../../internal/vendor/@carbon/web-components/globals/decorators/carbon-element.js';
 
 const { stablePrefix: ddsPrefix } = ddsSettings;
 const { prefix } = settings;

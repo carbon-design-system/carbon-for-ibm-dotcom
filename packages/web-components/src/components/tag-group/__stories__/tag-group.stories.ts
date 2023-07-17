@@ -33,7 +33,7 @@ export const Default = (args) => {
           ? html`
               <dds-tag-link href="https://example.com"> ${title} </dds-tag-link>
             `
-          : html` <bx-tag> ${title} </bx-tag> `
+          : html` <bx-tag type="green"> ${title} </bx-tag> `
       )}
     </dds-tag-group>
   `;
