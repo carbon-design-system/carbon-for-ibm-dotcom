@@ -85,6 +85,11 @@ class DDSTabsExtended extends MediaQueryMixin(StableSelectorMixin(LitElement), {
     this._setActiveItem(index);
   }
 
+  private _handleAccordionClick(e) {
+    const tab = e.target.closest('dds-tab');
+    this._handleClick(tab.getIndex(), e);
+  }
+
   private _setActiveItem(index: number) {
     this._activeTabIndex = index;
     this._activeTab = index.toString();
@@ -176,33 +181,32 @@ class DDSTabsExtended extends MediaQueryMixin(StableSelectorMixin(LitElement), {
     return tabItems;
   }
 
-  updated(_changedProperties) {
-    const { _isMobileVersion } = this;
+  updated(changedProperties) {
+    const { _isMobileVersion, _tabItems } = this;
     this._isLTR = window.getComputedStyle(this).direction === 'ltr';
     this._activeTabIndex = parseInt(this._activeTab, 10);
 
-    this._tabItems.forEach((tab, index) => {
+    if (changedProperties.has('_tabItems') && _isMobileVersion) {
+      _tabItems.forEach((tab) => {
+        tab.addEventListener('click', this._handleAccordionClick.bind(this));
+      });
+    }
+
+    _tabItems.forEach((tab, index) => {
       (tab as DDSTab).selected = index === this._activeTabIndex;
       (tab as DDSTab).setIndex(index);
 
-      if (_changedProperties.has('_isMobileVersion')) {
-        // Attach accordion behavior on mobile.
-        if (_isMobileVersion) {
-          tab.addEventListener('click', (e) => this._handleClick(index, e));
-        }
-
+      if (changedProperties.has('_isMobileVersion') && !_isMobileVersion) {
         // Set aria-label on tabs for desktop.
-        if (!_isMobileVersion) {
-          const navLink = this.shadowRoot!.querySelectorAll(
-            `.${prefix}--tabs__nav-link`
-          )[index];
-          const navText = navLink!.querySelector('div p');
-          if (navText!.scrollHeight > navText!.clientHeight) {
-            const label = (tab as DDSTab).getAttribute('label');
-            if (label) {
-              navLink!.setAttribute('aria-label', label);
-              navLink!.setAttribute('hasTooltip', label);
-            }
+        const navLink = this.shadowRoot!.querySelectorAll(
+          `.${prefix}--tabs__nav-link`
+        )[index];
+        const navText = navLink!.querySelector('div p');
+        if (navText!.scrollHeight > navText!.clientHeight) {
+          const label = (tab as DDSTab).getAttribute('label');
+          if (label) {
+            navLink!.setAttribute('aria-label', label);
+            navLink!.setAttribute('hasTooltip', label);
           }
         }
       }

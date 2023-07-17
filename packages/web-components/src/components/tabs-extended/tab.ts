@@ -73,6 +73,13 @@ class DDSTab extends MediaQueryMixin(StableSelectorMixin(LitElement), {
     this._index = index;
   }
 
+  /**
+   * Returns the index of the tab.
+   */
+  getIndex() {
+    return this._index;
+  }
+
   protected updated(
     _changedProperties: Map<string | number | symbol, unknown>
   ): void {
