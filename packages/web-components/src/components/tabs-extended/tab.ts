@@ -33,7 +33,7 @@ class DDSTab extends MediaQueryMixin(StableSelectorMixin(LitElement), {
   [MQBreakpoints.LG]: MQDirs.MAX,
 }) {
   /**
-   * Whether the we're viewing smaller or larger window.
+   * Whether we're viewing smaller or larger window.
    */
   @state()
   _isMobileVersion = this.carbonBreakpoints.lg.matches;
