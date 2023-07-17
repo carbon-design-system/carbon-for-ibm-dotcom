@@ -8,7 +8,7 @@
  */
 
 import { html } from 'lit';
-import { property, customElement } from 'lit/decorators.js';
+import { property } from 'lit/decorators.js';
 import { prefix } from '../../globals/settings';
 import HostListener from '../../globals/decorators/host-listener';
 import FocusMixin from '../../globals/mixins/focus';
@@ -19,6 +19,7 @@ import { OVERFLOW_MENU_SIZE } from './defs';
 import CDSOverflowMenuBody from './overflow-menu-body';
 import styles from './overflow-menu.scss';
 import CDSIconButton from '../icon-button/icon-button';
+import { carbonElement as customElement } from '../../globals/decorators/carbon-element';
 
 export { OVERFLOW_MENU_SIZE };
 
@@ -128,9 +129,6 @@ class CDSOverflowMenu
     if (!this.hasAttribute('aria-haspopup')) {
       this.setAttribute('aria-haspopup', 'true');
     }
-    if (!this.hasAttribute('aria-expanded')) {
-      this.setAttribute('aria-expanded', 'false');
-    }
     if (!this.shadowRoot) {
       this.attachShadow({ mode: 'open' });
     }
@@ -158,7 +156,12 @@ class CDSOverflowMenu
       const { _menuBody: menuBody } = this;
       if (menuBody) {
         menuBody.open = open;
-        this.setAttribute('aria-expanded', String(Boolean(open)));
+
+        const tooltipContent = this.querySelector(
+          '[slot=tooltip-content]'
+        )?.textContent;
+        button?.setAttribute('aria-expanded', String(Boolean(open)));
+        button?.setAttribute('aria-label', String(tooltipContent));
       }
     }
 

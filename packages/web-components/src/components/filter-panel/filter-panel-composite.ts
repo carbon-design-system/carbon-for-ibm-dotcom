@@ -8,7 +8,7 @@
  */
 
 import { html, LitElement, TemplateResult } from 'lit';
-import { customElement, property, state } from 'lit/decorators.js';
+import { property, state } from 'lit/decorators.js';
 import settings from 'carbon-components/es/globals/js/settings.js';
 import Filter from '../../internal/vendor/@carbon/web-components/icons/filter/16.js';
 import HostListenerMixin from '../../internal/vendor/@carbon/web-components/globals/mixins/host-listener.js';
@@ -26,6 +26,7 @@ import DDSFilterGroupItem from './filter-group-item';
 import DDSFilterPanelCheckbox from './filter-panel-checkbox';
 import DDSFilterPanelInputSelect from './filter-panel-input-select';
 import DDSFilterPanelInputSelectItem from './filter-panel-input-select-item';
+import { carbonElement as customElement } from '../../internal/vendor/@carbon/web-components/globals/decorators/carbon-element.js';
 
 const { prefix } = settings;
 const { stablePrefix: ddsPrefix } = ddsSettings;

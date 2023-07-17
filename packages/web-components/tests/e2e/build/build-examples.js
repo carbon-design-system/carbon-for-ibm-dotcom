@@ -1,5 +1,5 @@
 /**
- * Copyright IBM Corp. 2021
+ * Copyright IBM Corp. 2021, 2023
  *
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
@@ -11,6 +11,7 @@ const fsExtra = require('fs-extra');
 const fs = require('fs');
 const path = require('path');
 const { execSync } = require('child_process');
+const execa = require('execa');
 const chalk = require('chalk');
 const program = require('commander');
 const { mkdirSync, track } = require('temp');
@@ -29,7 +30,7 @@ program.parse();
  */
 const _opts = program.opts();
 
-const { log, error } = console;
+const { log } = console;
 
 /**
  * Project root folder
@@ -89,8 +90,17 @@ const _packages = {
   services: path.resolve(__dirname, '../../../../services'),
   styles: path.resolve(__dirname, '../../../../styles'),
   utilities: path.resolve(__dirname, '../../../../utilities'),
-  'web-components': path.resolve(__dirname, '../../..'),
+  'web-components': path.resolve(__dirname, '../../../../web-components'),
 };
+
+/**
+ * Use older version of Yarn for example builds.
+ * Later versions would require changes to every example's package.json file.
+ *
+ * @type {string}
+ * @private
+ */
+const _oldYarnVersion = '1.22.19';
 
 /**
  * Stores the list of examples
@@ -121,30 +131,18 @@ function _getDirectories(folder) {
  * @private
  */
 function _setupPackages() {
+  const execOptions = { stdio: 'inherit', shell: true };
+
   if (!_opts.skipPackages) {
     log(chalk.yellow('Creating local packages...'));
 
     Object.keys(_packages).forEach(pack => {
       log(chalk.green(`Building package: ${pack}`));
-
-      const commands = [];
-      commands.push(
-        `cd "${_packages[pack]}" && yarn pack --filename "${_localPackagesFolder}/carbon-ibmdotcom-${pack}.tar.gz"`,
-        `tar xzf "${_localPackagesFolder}/carbon-ibmdotcom-${pack}.tar.gz" --directory "${_localPackagesFolder}"`,
-        `mv "${_localPackagesFolder}/package" "${_localPackagesFolder}/ibmdotcom-${pack}"`,
-        // eslint-disable-next-line max-len
-        `node "${_testScriptFolder}/replace-dependencies.js" -f "${_localPackagesFolder}" "${_localPackagesFolder}/ibmdotcom-${pack}/package.json"`
-      );
-
-      commands.forEach(command => {
-        const { stdout, stderr } = execSync(command);
-        if (stdout) {
-          log(stdout.toString());
-        }
-        if (stderr) {
-          error(stderr.toString());
-        }
-      });
+      // Use execa to avoid the maxBuffer limitation of execSync - web components.tgz file size too large
+      execa.commandSync(`cd ${_packages[pack]} && yarn pack --filename ${_localPackagesFolder}/carbon-ibmdotcom-${pack}.tar.gz`, execOptions);
+      execa.commandSync(`tar xzf ${_localPackagesFolder}/carbon-ibmdotcom-${pack}.tar.gz --directory ${_localPackagesFolder}`, execOptions);
+      execa.commandSync(`mv ${_localPackagesFolder}/package ${_localPackagesFolder}/ibmdotcom-${pack}`, execOptions);
+      execa.commandSync(`node ${_testScriptFolder}/replace-dependencies.js -f ${_localPackagesFolder} ${_localPackagesFolder}/ibmdotcom-${pack}/package.json`, execOptions);
     });
   }
 }
@@ -187,14 +185,16 @@ function _buildDist() {
  * @private
  */
 function _buildExamples() {
+  // Use older Yarn version for example builds.
+  // Setting the version earlier in the build chain will alter the root project.
   log(chalk.yellow('Installing all examples...'));
   // need to install twice for some reason, need to look into this
-  execSync('yarn install --network-timeout 100000', {
+  execSync(`yarn set version ${_oldYarnVersion} && yarn install --network-timeout 100000`, {
     cwd: _exampleBuild,
     stdio: 'inherit',
   });
 
-  execSync('yarn cache clean && yarn install --network-timeout 100000', {
+  execSync(`yarn set version ${_oldYarnVersion} && yarn cache clean && yarn install --network-timeout 100000`, {
     cwd: _exampleBuild,
     stdio: 'inherit',
   });

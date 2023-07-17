@@ -13,6 +13,7 @@
     aria-describedby="image-caption long-description"
     class="bx--image__img"
     loading="lazy"
+    part="image"
     src=""
   >
 </picture>
@@ -39,6 +40,7 @@
     aria-describedby="image-caption long-description"
     class="bx--image__img"
     loading="lazy"
+    part="image"
     src=""
   >
 </picture>

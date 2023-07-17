@@ -9,9 +9,9 @@
 
 import BXStructuredListRow from '../../internal/vendor/@carbon/web-components/components/structured-list/structured-list-row.js';
 import { html } from 'lit';
-import { customElement } from 'lit/decorators.js';
 import ddsSettings from '../../internal/vendor/@carbon/ibmdotcom-utilities/utilities/settings/settings';
 import styles from './structured-list.scss';
+import { carbonElement as customElement } from '../../internal/vendor/@carbon/web-components/globals/decorators/carbon-element.js';
 
 const { stablePrefix: ddsPrefix } = ddsSettings;
 

@@ -8,7 +8,7 @@
  */
 
 import { html } from 'lit';
-import { customElement, property, state } from 'lit/decorators.js';
+import { property, state } from 'lit/decorators.js';
 import settings from 'carbon-components/es/globals/js/settings.js';
 import ArrowLeft20 from '../../internal/vendor/@carbon/web-components/icons/arrow--left/20.js';
 import EarthFilled16 from '../../internal/vendor/@carbon/web-components/icons/earth--filled/16.js';
@@ -25,6 +25,7 @@ import DDSRegionItem from './region-item';
 import styles from './locale-modal.scss';
 import { ICON_PLACEMENT } from '../link-with-icon/link-with-icon';
 import StickyHeader from '../../internal/vendor/@carbon/ibmdotcom-utilities/utilities/StickyHeader/StickyHeader';
+import { carbonElement as customElement } from '../../internal/vendor/@carbon/web-components/globals/decorators/carbon-element.js';
 
 const { prefix } = settings;
 const { stablePrefix: ddsPrefix } = ddsSettings;
