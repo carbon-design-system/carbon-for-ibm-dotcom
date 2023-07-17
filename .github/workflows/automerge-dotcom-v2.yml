@@ -1,4 +1,4 @@
-name: automerge-cwc-v2
+name: automerge-dotcom-v2
 on:
   push:
     branches:
