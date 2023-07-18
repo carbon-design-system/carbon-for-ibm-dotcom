@@ -5,8 +5,8 @@
 // LICENSE file in the root directory of this source tree.
 //
 
-@import '@carbon/ibmdotcom-styles/scss/globals/vars';
-@import '@carbon/ibmdotcom-styles/scss/internal/content-section/content-section';
+@use '@carbon/ibmdotcom-styles/scss/globals/vars' as *;
+@use '@carbon/ibmdotcom-styles/scss/internal/content-section';
 
 :host(#{$dds-prefix}-content-section),
 :host(#{$dds-prefix}-card-section-carousel),
@@ -28,7 +28,7 @@
   }
 
   ::slotted(#{$dds-prefix}-link-list) {
-    @include carbon--breakpoint-down(md) {
+    @include breakpoint-down(md) {
       display: block;
       margin: 0 $spacing-05;
     }

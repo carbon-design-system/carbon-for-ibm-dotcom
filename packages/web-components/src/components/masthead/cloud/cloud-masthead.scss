@@ -5,8 +5,8 @@
 // LICENSE file in the root directory of this source tree.
 //
 
-@import '../masthead.scss';
-@import '../../cta/cta.scss';
+@use '../masthead.scss';
+@use '../../cta/cta.scss';
 
 // Cloud Masthead.
 
@@ -18,14 +18,14 @@
 :host(#{$dds-prefix}-cloud-masthead-global-bar) {
   @extend :host(#{$dds-prefix}-masthead-global-bar);
 
-  background-color: $ui-background;
+  background-color: $background;
   flex: none;
   z-index: 0;
 }
 
 :host(#{$dds-prefix}-cloud-masthead-global-bar)
   ::slotted(#{$dds-prefix}-cloud-button-cta) {
-  @include carbon--breakpoint-down('md') {
+  @include breakpoint-down('md') {
     display: none;
   }
 }
@@ -59,26 +59,26 @@
   outline: none;
   position: relative;
   z-index: 1;
-  background-color: $ui-background;
+  background-color: $background;
 
   a.#{$prefix}--header__name {
     margin-left: 0;
 
     @include masthead-top-nav-name;
 
-    @include carbon--breakpoint-down(800px) {
+    @include breakpoint-down(800px) {
       display: flex;
       position: absolute;
       top: 0;
       left: 0;
     }
 
-    @include carbon--breakpoint('lg') {
+    @include breakpoint('lg') {
       margin-left: 0;
     }
 
-    @include carbon--breakpoint('xlg') {
-      margin-left: $carbon--spacing-05;
+    @include breakpoint('xlg') {
+      margin-left: $spacing-05;
       position: relative;
     }
   }
@@ -98,7 +98,7 @@
     height: carbon--rem(48px);
     background: linear-gradient(
       rgba(255, 255, 255, 0.001),
-      $ui-background
+      $background
     ); /* transparent keyword is broken in Safari */
   }
 
@@ -110,7 +110,7 @@
 
   .#{$prefix}--masthead__megamenu__container--row {
     // Override flex-direction: column set in _masthead-megamenu.scss.
-    @include carbon--breakpoint-between(960px, 1055px) {
+    @include breakpoint-between(960px, 1055px) {
       flex-direction: inherit;
     }
   }
@@ -124,11 +124,11 @@
   justify-content: space-between;
   border-right: carbon--rem(1px) solid $ui-03;
 
-  @include carbon--breakpoint('md') {
+  @include breakpoint('md') {
     min-height: carbon--rem(580px);
   }
 
-  @include carbon--breakpoint('xlg') {
+  @include breakpoint('xlg') {
     min-height: carbon--rem(475px);
   }
 }
@@ -157,14 +157,14 @@
   outline: 0;
 
   button {
-    @include carbon--type-style(body-short-01);
+    @include type-style(body-short-01);
 
     color: $text-02;
     width: 100%;
     border: none;
     text-align: left;
     padding: carbon--rem(6px) $spacing-05;
-    background-color: $ui-background;
+    background-color: $background;
     cursor: pointer;
 
     &:hover,
@@ -199,7 +199,7 @@
   max-width: 50%;
   outline: 0;
 
-  @include carbon--breakpoint('xlg') {
+  @include breakpoint('xlg') {
     max-width: 33.33%;
   }
 
@@ -209,13 +209,13 @@
     height: 100%;
 
     p {
-      @include carbon--type-style('expressive-heading-01');
+      @include type-style('expressive-heading-01');
 
       color: $text-01;
     }
 
     span {
-      @include carbon--type-style(body-short-01);
+      @include type-style(body-short-01);
 
       color: $text-02;
       display: block;
@@ -244,7 +244,7 @@
   margin-bottom: $spacing-07;
   width: 66.66%;
 
-  @include carbon--breakpoint('lg') {
+  @include breakpoint('lg') {
     width: auto;
   }
 
@@ -281,11 +281,11 @@
 
   span {
     display: block;
-    @include carbon--type-style(body-short-01);
+    @include type-style(body-short-01);
 
     color: $text-02;
 
-    @include carbon--breakpoint('lg') {
+    @include breakpoint('lg') {
       width: 40%;
     }
   }
@@ -318,7 +318,7 @@
 :host(#{$dds-prefix}-cloud-masthead-profile)
   .#{$prefix}--header__menu-title[aria-expanded='true']
   + .#{$prefix}--header__menu {
-  @include carbon--breakpoint-down('md') {
+  @include breakpoint-down('md') {
     width: 100vw;
   }
 }

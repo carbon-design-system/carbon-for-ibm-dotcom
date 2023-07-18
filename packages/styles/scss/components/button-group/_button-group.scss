@@ -47,7 +47,7 @@
     min-width: 0;
 
     @media print {
-      max-width: carbon--rem(640px);
+      max-width: rem(640px);
       margin-bottom: $spacing-05;
       display: block;
     }
@@ -63,7 +63,7 @@
 
       @media print {
         background: $white-0;
-        border: carbon--rem(1px) solid $gray-100;
+        border: rem(1px) solid $gray-100;
         color: $gray-100;
         font-weight: 600;
         display: block;

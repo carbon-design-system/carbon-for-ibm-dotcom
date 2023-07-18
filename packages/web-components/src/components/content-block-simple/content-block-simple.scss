@@ -5,18 +5,16 @@
 // LICENSE file in the root directory of this source tree.
 //
 
-@import 'carbon-components/scss/globals/scss/vars';
-@import '@carbon/ibmdotcom-styles/scss/globals/vars';
-@import '../../globals/scss/box-sizing';
-@import '@carbon/ibmdotcom-styles/scss/components/content-block-simple/content-block-simple';
-@import '@carbon/ibmdotcom-styles/scss/components/image/image';
-@import '@carbon/ibmdotcom-styles/scss/components/video-player/video-player';
+@use '@carbon/ibmdotcom-styles/scss/globals/vars' as *;
+@use '@carbon/ibmdotcom-styles/scss/components/content-block-simple';
+@use '@carbon/ibmdotcom-styles/scss/components/image';
+@use '@carbon/ibmdotcom-styles/scss/components/video-player';
 
 :host(#{$dds-prefix}-content-block-simple) {
   display: block;
 
   ::slotted(#{$dds-prefix}-content-block-complementary) {
-    @include carbon--breakpoint-down('lg') {
+    @include breakpoint-down(lg) {
       margin: $layout-05 0;
     }
   }

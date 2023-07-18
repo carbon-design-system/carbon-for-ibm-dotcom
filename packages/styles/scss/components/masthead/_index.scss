@@ -11,6 +11,8 @@
 @use 'masthead-l1';
 @forward 'masthead-search';
 @use 'masthead-search';
+@forward '../search-with-typeahead';
+@use '../search-with-typeahead';
 @forward 'masthead-leftnav';
 @use 'masthead-leftnav';
 @forward 'masthead-megamenu';

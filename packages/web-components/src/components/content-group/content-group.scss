@@ -5,12 +5,9 @@
 // LICENSE file in the root directory of this source tree.
 //
 
-@import 'carbon-components/scss/globals/scss/vars';
-@import 'carbon-components/scss/globals/scss/vendor/@carbon/elements/scss/type/styles';
-@import '@carbon/ibmdotcom-styles/scss/globals/vars';
-@import '../../globals/scss/box-sizing';
-@import '@carbon/ibmdotcom-styles/scss/internal/content-block/content-block';
-@import '@carbon/ibmdotcom-styles/scss/internal/content-group/content-group';
+@use '@carbon/ibmdotcom-styles/scss/globals/vars' as *;
+@use '@carbon/ibmdotcom-styles/scss/internal/content-block';
+@use '@carbon/ibmdotcom-styles/scss/internal/content-group';
 
 :host(#{$dds-prefix}-content-group),
 :host(#{$dds-prefix}-content-group-copy),
@@ -19,5 +16,5 @@
 }
 
 :host(#{$dds-prefix}-content-group-copy) {
-  @include carbon--type-style('body-long-02');
+  @include type-style('body-02');
 }

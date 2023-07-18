@@ -5,9 +5,8 @@
 // LICENSE file in the root directory of this source tree.
 //
 
-@import '@carbon/ibmdotcom-styles/scss/globals/vars';
-@import '@carbon/ibmdotcom-styles/scss/components/link-with-icon/link-with-icon';
-@import '../../globals/scss/box-sizing';
+@use '@carbon/ibmdotcom-styles/scss/globals/vars' as *;
+@use '@carbon/ibmdotcom-styles/scss/components/link-with-icon';
 
 :host(#{$dds-prefix}-link-with-icon),
 :host(#{$dds-prefix}-link-list-item),
@@ -32,10 +31,10 @@
 
 :host(#{$dds-prefix}-link-list-item)[type='end'] {
   .#{$prefix}--link-with-icon__icon-left ::slotted(svg[slot='icon']) {
-    margin-right: $carbon--spacing-07;
+    margin-right: $spacing-07;
   }
 
   .#{$prefix}--link-with-icon__icon-right ::slotted(svg[slot='icon']) {
-    margin-left: $carbon--spacing-07;
+    margin-left: $spacing-07;
   }
 }

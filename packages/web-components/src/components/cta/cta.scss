@@ -5,10 +5,10 @@
 // LICENSE file in the root directory of this source tree.
 //
 
-@import '../button-group/button-group';
-@import '../link-with-icon/link-with-icon';
-@import '../feature-card/feature-card'; /* Covers regular card style, too */
-@import '../card-link/card-link.scss';
+@use '../button-group/button-group';
+@use '../link-with-icon';
+@use '../feature-card/feature-card'; /* Covers regular card style, too */
+@use '../card-link/card-link';
 
 .#{$dds-prefix}-ce--cta__icon {
   flex-shrink: 0;
@@ -16,7 +16,7 @@
 
 :host(#{$dds-prefix}-button-cta) .#{$dds-prefix}-ce--cta__icon {
   position: absolute;
-  right: 1rem;
+  right: $spacing-05;
   top: 50%;
   transform: translateY(-50%);
 }

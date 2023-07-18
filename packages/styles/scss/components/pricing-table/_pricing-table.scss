@@ -16,8 +16,8 @@
 @use '../button-group' as *;
 @use '../structured-list' as *;
 
-@include button-group;
-@include structured-list;
+// @include button-group;
+// @include structured-list;
 // @include tags;
 
 @keyframes sticky-header-slide-in {
@@ -30,7 +30,7 @@
 }
 
 @mixin pricing-table {
-  .#{$prefix}--pricing-table,
+  .#{$dds-prefix}--pricing-table,
   :host(#{$dds-prefix}-pricing-table) {
     @extend .#{$dds-prefix}--structured-list;
 
@@ -311,14 +311,14 @@
 
   .#{$prefix}--pricing-table-header-cell-cta,
   :host(#{$dds-prefix}-pricing-table-header-cell-cta) {
-    @extend .#{$prefix}--buttongroup-item;
+    @extend .#{$prefix}--button-group-item;
 
     display: block;
     margin-block-start: $spacing-06;
 
     .#{$prefix}--btn svg {
       position: absolute;
-      right: 1rem;
+      right: $spacing-05;
       top: 50%;
       transform: translateY(-50%);
     }

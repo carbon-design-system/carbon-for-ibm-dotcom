@@ -5,13 +5,11 @@
 // LICENSE file in the root directory of this source tree.
 //
 
-@import 'carbon-components/scss/globals/scss/vars';
-@import '@carbon/ibmdotcom-styles/scss/globals/vars';
-@import '../../globals/scss/box-sizing';
-@import '@carbon/ibmdotcom-styles/scss/internal/content-block/content-block';
-@import '@carbon/ibmdotcom-styles/scss/internal/content-item/content-item';
-@import '@carbon/ibmdotcom-styles/scss/components/layout/layout';
-@import '@carbon/ibmdotcom-styles/scss/components/card-group/card-group';
+@use '@carbon/ibmdotcom-styles/scss/globals/vars' as *;
+@use '@carbon/ibmdotcom-styles/scss/internal/content-block';
+@use '@carbon/ibmdotcom-styles/scss/internal/content-item';
+@use '@carbon/ibmdotcom-styles/scss/components/layout';
+@use '@carbon/ibmdotcom-styles/scss/components/card-group';
 
 :host(#{$dds-prefix}-content-block),
 :host(#{$dds-prefix}-callout-with-media-copy),
@@ -27,8 +25,8 @@
 :host(#{$dds-prefix}-content-block-segmented) {
   ::slotted(#{$dds-prefix}-callout-with-media-copy),
   ::slotted(#{$dds-prefix}-content-block-copy) {
-    @include carbon--breakpoint('md') {
-      width: calc((100% - 2 * #{$carbon--spacing-05}) * 0.9);
+    @include breakpoint(md) {
+      width: calc((100% - 2 * #{$spacing-05}) * 0.9);
     }
   }
 }
@@ -38,14 +36,14 @@
   width: auto;
   max-width: none;
 
-  @include carbon--breakpoint(md) {
+  @include breakpoint(md) {
     @include content-width;
   }
 
   ::slotted(#{$dds-prefix}-content-block-paragraph) {
-    @include carbon--type-style('body-long-02');
+    @include type-style('body-02');
 
-    margin-bottom: $carbon--spacing-06;
+    margin-bottom: $spacing-06;
   }
 }
 

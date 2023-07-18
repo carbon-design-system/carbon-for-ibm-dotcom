@@ -5,7 +5,7 @@
 // LICENSE file in the root directory of this source tree.
 //
 
-@import '@carbon/ibmdotcom-styles/scss/components/buttongroup/buttongroup';
+@use '@carbon/ibmdotcom-styles/scss/components/buttongroup';
 
 :host(#{$dds-prefix}-button-group-item),
 :host(#{$dds-prefix}-button-cta) {

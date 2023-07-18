@@ -5,8 +5,8 @@
 // LICENSE file in the root directory of this source tree.
 //
 
-@import 'carbon-components/scss/globals/scss/vendor/@carbon/elements/scss/layout/breakpoint';
-@import 'carbon-components/scss/components/ui-shell/functions';
+@use 'carbon-components/scss/globals/scss/vendor/@carbon/elements/scss/layout/breakpoint';
+@use 'carbon-components/scss/components/ui-shell/functions';
 
 .dds-ce-demo-devenv--container {
   padding-top: calc(#{mini-units(6)} + 3rem + 1px);
@@ -16,7 +16,7 @@
   transition: margin-left 0.11s cubic-bezier(0.2, 0, 1, 0.9);
 }
 
-@include carbon--breakpoint-down(lg) {
+@include breakpoint-down(lg) {
   .bx--offset-lg-3 {
     margin-left: 0;
   }
@@ -25,7 +25,7 @@
 .bx--content {
   padding: 6rem 0 2rem;
 
-  @include carbon--breakpoint-down(lg) {
+  @include breakpoint-down(lg) {
     padding-top: 0;
   }
 
@@ -34,7 +34,7 @@
   }
 
   &.has-l1 {
-    @include carbon--breakpoint-down(lg) {
+    @include breakpoint-down(lg) {
       padding-top: 3rem;
     }
   }

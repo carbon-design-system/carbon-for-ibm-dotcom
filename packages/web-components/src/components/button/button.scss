@@ -5,10 +5,9 @@
 // LICENSE file in the root directory of this source tree.
 //
 
-@import '@carbon/ibmdotcom-styles/scss/globals/vars';
-@import '@carbon/web-components/scss/components/button/button';
-@import '../../globals/scss/box-sizing';
-
+@use '@carbon/ibmdotcom-styles/scss/globals/vars' as *;
+@use '@carbon/web-components/scss/components/button';
+//
 :host(#{$dds-prefix}-button-expressive) {
   @extend :host(#{$prefix}-btn);
 

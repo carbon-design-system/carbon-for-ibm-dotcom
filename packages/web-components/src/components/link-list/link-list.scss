@@ -7,10 +7,9 @@
  * LICENSE file in the root directory of this source tree.
  */
 
-@import '@carbon/ibmdotcom-styles/scss/globals/vars';
-@import '@carbon/ibmdotcom-styles/scss/components/link-list/index';
-@import '../../globals/scss/box-sizing';
-@import '../../../../styles/scss/globals/utils/hang';
+@use '@carbon/ibmdotcom-styles/scss/globals/vars' as *;
+@use '@carbon/ibmdotcom-styles/scss/components/link-list';
+@use 'carbon/ibmdotcom-styles/scss/globals/utils/hang' as *;
 
 :host(#{$dds-prefix}-link-list-heading),
 :host(#{$dds-prefix}-link-list-item) {
@@ -49,7 +48,7 @@
   &:hover {
     .#{$prefix}--link {
       text-decoration: none;
-      background: $hover-ui;
+      background: $background-hover;
     }
   }
 
@@ -61,7 +60,7 @@
 }
 
 :host(#{$dds-prefix}-link-list):last-of-type {
-  padding-bottom: $carbon--layout-05;
+  padding-bottom: $spacing-10;
 }
 
 :host(#{$dds-prefix}-link-list) {
@@ -99,14 +98,14 @@
   .#{$dds-prefix}-ce--link-list__list--end {
     ::slotted(#{$dds-prefix}-link-list-item),
     ::slotted(#{$dds-prefix}-link-list-item-cta) {
-      border-top: 1px solid $ui-03;
-      border-bottom: 1px solid $ui-03;
+      border-top: 1px solid $border-subtle-01;
+      border-bottom: 1px solid $border-subtle-01;
       margin-top: -1px;
-      margin-left: -$carbon--layout-01;
-      --#{$dds-prefix}--link-list-item--anchor-padding: #{$carbon--spacing-05};
+      margin-left: -$spacing-05;
+      --#{$dds-prefix}--link-list-item--anchor-padding: #{$spacing-05};
 
-      @include carbon--breakpoint('md') {
-        margin-right: -$carbon--layout-01;
+      @include breakpoint(md) {
+        margin-right: -$spacing-05;
       }
     }
   }
@@ -115,7 +114,7 @@
     display: contents;
   }
 
-  @include carbon--breakpoint('md') {
+  @include breakpoint(md) {
     .#{$dds-prefix}-ce--link-list__heading--split
       ::slotted(#{$dds-prefix}-link-list-heading) {
       width: 33.3%;
@@ -128,28 +127,28 @@
     ::slotted(#{$dds-prefix}-link-list-item) {
       display: grid;
       align-items: stretch;
-      margin-right: -$carbon--layout-01;
+      margin-right: -$spacing-05;
     }
 
-    @include carbon--breakpoint('md') {
+    @include breakpoint(md) {
       display: grid;
-      grid-column-gap: 2rem;
+      grid-column-gap: $spacing-07;
 
       ::slotted(#{$dds-prefix}-link-list-item) {
-        margin-left: -$carbon--layout-01;
+        margin-left: -$spacing-05;
         margin-right: 0;
       }
     }
   }
 
   .#{$dds-prefix}-ce--link-list__list--split {
-    @include carbon--breakpoint('md') {
+    @include breakpoint(md) {
       grid-template-columns: 1fr 1fr;
     }
   }
 
   .#{$dds-prefix}-ce--link-list__list--three-columns {
-    @include carbon--breakpoint('md') {
+    @include breakpoint(md) {
       grid-template-columns: 1fr 1fr 1fr;
     }
   }

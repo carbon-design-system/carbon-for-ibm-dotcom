@@ -5,8 +5,8 @@
 // LICENSE file in the root directory of this source tree.
 //
 
-@import '@carbon/ibmdotcom-styles/scss/components/content-block-media/index';
-@import '@carbon/ibmdotcom-styles/scss/components/content-group-simple/content-group-simple';
+@use '@carbon/ibmdotcom-styles/scss/components/content-block-media';
+@use '@carbon/ibmdotcom-styles/scss/components/content-group-simple';
 
 :host(#{$dds-prefix}-content-block-media),
 :host(#{$dds-prefix}-content-block-media-content) {
@@ -17,20 +17,20 @@
   @extend :host(#{$dds-prefix}-content-group-simple);
 
   &::slotted(#{$dds-prefix}-card-link) {
-    margin-left: -1rem;
-    margin-right: -1rem;
+    margin-left: -$spacing-05;
+    margin-right: -$spacing-05;
     display: block;
   }
 
   ::slotted(#{$dds-prefix}-content-block-complementary) {
-    @include carbon--breakpoint-down('lg') {
+    @include breakpoint-down(lg) {
       margin: $layout-05 0;
     }
   }
 
   ::slotted(*) {
-    margin-left: $carbon--spacing-05;
-    margin-right: $carbon--spacing-05;
+    margin-left: $spacing-05;
+    margin-right: $spacing-05;
   }
 
   ::slotted([slot='media']) {

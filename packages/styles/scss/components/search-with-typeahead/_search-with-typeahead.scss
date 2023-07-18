@@ -5,15 +5,58 @@
  * LICENSE file in the root directory of this source tree.
  */
 
-@use '../../globals/vars' as *;
+@use '@carbon/styles/scss/breakpoint' as *;
+@use '@carbon/styles/scss/config' as *;
+@use '@carbon/styles/scss/motion' as *;
+@use '@carbon/styles/scss/spacing' as *;
+@use '@carbon/styles/scss/theme' as *;
+@use '@carbon/styles/scss/type' as *;
 @use '@carbon/styles/scss/components/ui-shell/header';
 @use '@carbon/styles/scss/components/ui-shell/side-nav';
 @use '@carbon/web-components/scss/components/dropdown/dropdown';
 @use '@carbon/web-components/scss/components/select/select';
+@use '../../globals/vars' as *;
+@use '../masthead/vars' as *;
 
-$search-transition: cubic-bezier(0.2, 0, 0.38, 0.9);
-$search-transition-timing: 95ms;
-$button-transition: background-color 110ms, border-color 110ms, color 110ms;
+%react-autosuggest-suggestion {
+  color: $text-primary;
+  height: $spacing-09;
+  display: flex;
+  span {
+    font-weight: 600;
+  }
+
+  .#{$prefix}--container-class {
+    display: flex;
+    border-bottom: 1px solid $layer-01;
+    flex: 1;
+    padding: 0 $spacing-05;
+    align-items: center;
+
+    &:focus {
+      outline: none;
+    }
+  }
+
+  &:hover {
+    cursor: pointer;
+    background-color: $background-hover;
+    transition: $search-transition-timing;
+  }
+
+  .#{$prefix}--container-highlight-class:not(:hover),
+  &:focus,
+  &:active {
+    outline: 2px solid $focus;
+    outline-offset: -2px;
+  }
+
+  &:last-of-type {
+    .#{$prefix}--container-class {
+      border-bottom: none;
+    }
+  }
+}
 
 @mixin search-with-typeahead {
   // main nav/search container excluding
@@ -151,7 +194,7 @@ $button-transition: background-color 110ms, border-color 110ms, color 110ms;
     position: relative;
     outline: none;
     height: $spacing-09;
-    margin-left: rem(48px);
+    margin-left: rem($spacing-09);
 
     .#{$dds-prefix}-ce__search__list {
       height: 0;
@@ -304,10 +347,10 @@ $button-transition: background-color 110ms, border-color 110ms, color 110ms;
       }
 
       .react-autosuggest__suggestions-container {
-        top: carbon--rem(50px);
+        top: rem(50px);
 
         @include breakpoint(md) {
-          top: carbon--rem(66px);
+          top: rem(66px);
         }
       }
 
@@ -357,17 +400,17 @@ $button-transition: background-color 110ms, border-color 110ms, color 110ms;
         }
 
         .react-autosuggest__suggestions-container {
-          top: carbon--rem(50px);
+          top: rem(50px);
 
           @include breakpoint(md) {
-            top: carbon--rem(50px);
+            top: rem(50px);
           }
         }
       }
     }
 
     &[sticky-search] {
-      top: carbon--rem(80px);
+      top: rem(80px);
     }
 
     &[theme-sticky] {
@@ -418,43 +461,7 @@ $button-transition: background-color 110ms, border-color 110ms, color 110ms;
   }
 
   .react-autosuggest__suggestion {
-    color: $text-primary;
-    height: $spacing-09;
-    display: flex;
-    span {
-      font-weight: 600;
-    }
-
-    .#{$prefix}--container-class {
-      display: flex;
-      border-bottom: 1px solid $layer-01;
-      flex: 1;
-      padding: 0 $spacing-05;
-      align-items: center;
-
-      &:focus {
-        outline: none;
-      }
-    }
-
-    &:hover {
-      cursor: pointer;
-      background-color: $background-hover;
-      transition: $search-transition-timing;
-    }
-
-    .#{$prefix}--container-highlight-class:not(:hover),
-    &:focus,
-    &:active {
-      outline: 2px solid $focus;
-      outline-offset: -2px;
-    }
-
-    &:last-of-type {
-      .#{$prefix}--container-class {
-        border-bottom: none;
-      }
-    }
+    @extend %react-autosuggest-suggestion;
   }
 
   .#{$prefix}--header__search--input {
@@ -475,7 +482,7 @@ $button-transition: background-color 110ms, border-color 110ms, color 110ms;
 }
 
 :host(#{$dds-prefix}-search-with-typeahead-item) {
-  @extend .react-autosuggest__suggestion;
+  @extend %react-autosuggest-suggestion;
 
   span {
     white-space: pre;
@@ -509,7 +516,7 @@ $button-transition: background-color 110ms, border-color 110ms, color 110ms;
   border-right: 1px solid $layer-accent-01;
 
   .#{$prefix}--list-box {
-    height: 3rem;
+    height: $spacing-09;
     max-height: none;
   }
 
@@ -529,7 +536,7 @@ $button-transition: background-color 110ms, border-color 110ms, color 110ms;
 }
 
 :host(#{$dds-prefix}-scoped-search-dropdown-mobile) {
-  width: 3rem;
+  width: $spacing-09;
 
   .#{$prefix}--select-input {
     padding: 0;

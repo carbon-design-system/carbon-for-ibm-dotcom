@@ -5,8 +5,8 @@
 // LICENSE file in the root directory of this source tree.
 //
 
-@import '@carbon/ibmdotcom-styles/scss/globals/vars';
-@import '@carbon/web-components/scss/components/modal/modal';
+@use '@carbon/ibmdotcom-styles/scss/globals/vars' as *;
+@use '@carbon/web-components/scss/components/modal';
 
 :host(#{$dds-prefix}-leaving-ibm-composite),
 :host(#{$dds-prefix}-leaving-ibm-container) {
@@ -24,7 +24,7 @@
 }
 
 :host(#{$dds-prefix}-leaving-ibm-modal-heading) {
-  @include carbon--type-style('expressive-heading-04');
+  @include type-style('expressive-heading-04');
 }
 
 :host(#{$dds-prefix}-leaving-ibm-modal-body) {
@@ -36,8 +36,8 @@
   ::slotted(slot[name='supplemental']) {
     display: block;
     margin-top: $spacing-07;
-    color: $text-02;
-    @include carbon--type-style('label-02');
+    color: $text-secondary;
+    @include type-style('label-02');
   }
 
   > p {

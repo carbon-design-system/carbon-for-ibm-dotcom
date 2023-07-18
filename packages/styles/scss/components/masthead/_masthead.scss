@@ -71,11 +71,11 @@
         content: '';
         display: block;
         position: absolute;
-        right: carbon--rem(-3px);
+        right: rem(-3px);
         top: 50%;
         transform: translateY(-50%);
-        height: carbon--rem(24px);
-        width: carbon--rem(1px);
+        height: rem(24px);
+        width: rem(1px);
         background-color: $layer-accent-01;
       }
     }
@@ -204,7 +204,7 @@
   .#{$prefix}--masthead__overlay {
     position: fixed;
     left: 0;
-    top: 48px;
+    top: $spacing-09;
     height: 100%;
     width: 100%;
     z-index: -1;
@@ -232,7 +232,7 @@
     top: -98px;
 
     @include breakpoint-up(800px) {
-      top: -48px;
+      top: -$spacing-09;
     }
   }
 
@@ -248,7 +248,7 @@
     top: 0;
 
     @include breakpoint-up(800px) {
-      top: 48px;
+      top: $spacing-09;
     }
   }
 
@@ -285,7 +285,7 @@
       content: '';
       position: absolute;
       background-color: $background;
-      height: 48px;
+      height: $spacing-09;
       left: calc(-50vw + 50%);
       right: 100%;
       z-index: 1;
@@ -294,7 +294,7 @@
       content: '';
       position: absolute;
       background-color: $background;
-      height: 48px;
+      height: $spacing-09;
       left: 100%;
       right: calc(-50vw + 50%);
     }

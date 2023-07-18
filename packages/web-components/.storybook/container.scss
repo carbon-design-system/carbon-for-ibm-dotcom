@@ -42,7 +42,7 @@ body {
   // `@include css-body` has `font-family: inherit` via `@include type-style('body-short-01')`,
   // which kills `font-family` from `@include carbon--type-reset`
   color: $text-01;
-  background-color: $ui-background;
+  background-color: $background;
   line-height: 1;
 }
 

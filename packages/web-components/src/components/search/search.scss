@@ -5,10 +5,9 @@
 // LICENSE file in the root directory of this source tree.
 //
 
-@import '@carbon/web-components/scss/components/search/search';
-@import '@carbon/ibmdotcom-styles/scss/globals/vars';
-@import '../../globals/scss/box-sizing';
-
+@use '@carbon/web-components/scss/components/search';
+@use '@carbon/ibmdotcom-styles/scss/globals/vars' as *;
+//
 :host(#{$dds-prefix}-search) {
   @extend :host(#{$prefix}-search);
 
@@ -36,6 +35,6 @@
    * while this replacement color passes testing.
    */
   ::placeholder {
-    color: $text-02;
+    color: $text-secondary;
   }
 }
