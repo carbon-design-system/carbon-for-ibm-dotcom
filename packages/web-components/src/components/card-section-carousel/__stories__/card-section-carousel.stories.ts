@@ -30,7 +30,7 @@ const Card = ({
 } = {}) => html`
   <dds-card href="${ifDefined(href)}">
     <dds-card-heading>${heading}</dds-card-heading>
-    ${copy}
+    <p>${copy}</p>
     <dds-card-footer> ${ArrowRight20({ slot: 'icon' })} </dds-card-footer>
   </dds-card>
 `;

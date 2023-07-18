@@ -8,7 +8,6 @@
  */
 
 import { ActionCreatorsMapObject, Store } from 'redux';
-import { customElement } from 'lit/decorators.js';
 import ddsSettings from '../../internal/vendor/@carbon/ibmdotcom-utilities/utilities/settings/settings';
 import store from '../../internal/vendor/@carbon/ibmdotcom-services-store/store';
 import { MediaPlayerAPIActions } from '../../internal/vendor/@carbon/ibmdotcom-services-store/actions/kalturaPlayerAPI.d';
@@ -22,6 +21,7 @@ import {
   mapDispatchToProps,
 } from '../video-player/video-player-container';
 import DDSLightboxVideoPlayerComposite from './lightbox-video-player-composite';
+import { carbonElement as customElement } from '../../internal/vendor/@carbon/web-components/globals/decorators/carbon-element';
 
 const { stablePrefix: ddsPrefix } = ddsSettings;
 

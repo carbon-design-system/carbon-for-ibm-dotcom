@@ -15,6 +15,12 @@ import textNullable from '../../../../.storybook/knob-text-nullable';
 export const Default = (args) => {
   const { colSpan1, colSpan2, colSpan3, colSpan4 } = args?.StructuredList ?? {};
   return html`
+    <style>
+      html,
+      body {
+        overflow-x: hidden;
+      }
+    </style>
     <dds-structured-list
       col-span-1="${colSpan1 ?? ''}"
       col-span-2="${colSpan2 ?? ''}"
@@ -179,7 +185,8 @@ export const WithSubheaders = (args) => {
             </dds-structured-list-cell>
           </dds-structured-list-row>
         </dds-structured-list-group>
-        <dds-structured-list-group title="Group 2">
+        <dds-structured-list-group
+          title="Group 2 Lorem ipsum dolor sit amet consectetur, adipiscing elit vestibulum tempus dis, varius dignissim et aliquam.">
           <dds-structured-list-row>
             <dds-structured-list-header-cell scope="row"
               >Row 1</dds-structured-list-header-cell
@@ -281,7 +288,6 @@ export const WithComplexContent = (args) => {
         </dds-structured-list-row>
         <dds-structured-list-row>
           <dds-structured-list-cell icon="checkmark">
-            Cell with icon
           </dds-structured-list-cell>
         </dds-structured-list-row>
         <dds-structured-list-row>

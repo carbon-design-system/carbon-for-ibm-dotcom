@@ -10,10 +10,11 @@
 import { ifDefined } from 'lit/directives/if-defined.js';
 import { classMap } from 'lit/directives/class-map.js';
 import { LitElement, html } from 'lit';
-import { property, customElement } from 'lit/decorators.js';
+import { property } from 'lit/decorators.js';
 import { prefix } from '../../globals/settings';
 import FocusMixin from '../../globals/mixins/focus';
 import styles from './header.scss';
+import { carbonElement as customElement } from '../../globals/decorators/carbon-element';
 
 /**
  * Header nav item.
@@ -29,6 +30,18 @@ class CDSHeaderNavItem extends FocusMixin(LitElement) {
    */
   @property()
   href!: string;
+
+  /**
+   * The link type.
+   */
+  @property({ reflect: true })
+  rel!: string;
+
+  /**
+   * The link target.
+   */
+  @property({ reflect: true })
+  target!: string;
 
   /**
    * The title.
@@ -55,7 +68,7 @@ class CDSHeaderNavItem extends FocusMixin(LitElement) {
   role: string = 'listitem';
 
   render() {
-    const { ariaCurrent, href, isActive, title } = this;
+    const { ariaCurrent, href, isActive, title, rel, target } = this;
     const linkClass = classMap({
       [`${prefix}--header__menu-item`]: true,
       [`${prefix}--header__menu-item--current`]:
@@ -67,7 +80,9 @@ class CDSHeaderNavItem extends FocusMixin(LitElement) {
         part="link"
         class="${linkClass}"
         tabindex="0"
-        href="${ifDefined(href)}">
+        href="${ifDefined(href)}"
+        rel="${ifDefined(rel)}"
+        target="${ifDefined(target)}">
         <span part="title" class="${prefix}--text-truncate--end"
           ><slot>${title}</slot></span
         >

@@ -10,7 +10,7 @@
 import { classMap } from 'lit/directives/class-map.js';
 import { ifDefined } from 'lit/directives/if-defined.js';
 import { LitElement, html } from 'lit';
-import { property, customElement } from 'lit/decorators.js';
+import { property } from 'lit/decorators.js';
 import { prefix } from '../../globals/settings';
 import FocusMixin from '../../globals/mixins/focus';
 import {
@@ -23,6 +23,7 @@ import {
 import styles from './button.scss';
 import HostListener from '../../globals/decorators/host-listener';
 import HostListenerMixin from '../../globals/mixins/host-listener';
+import { carbonElement as customElement } from '../../globals/decorators/carbon-element';
 
 export {
   BUTTON_KIND,
@@ -341,7 +342,8 @@ class CDSButton extends HostListenerMixin(FocusMixin(LitElement)) {
               class="${classes}"
               ?autofocus="${autofocus}"
               ?disabled="${disabled}"
-              type="${ifDefined(type)}">
+              type="${ifDefined(type)}"
+              aria-label="${ifDefined(tooltipText)}">
               <slot @slotchange="${handleSlotChange}"></slot>
               <slot name="icon" @slotchange="${handleSlotChange}"></slot>
             </button>

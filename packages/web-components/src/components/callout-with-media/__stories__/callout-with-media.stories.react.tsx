@@ -27,8 +27,7 @@ const image = (
   <DDSCalloutWithMediaImage
     alt="Image alt text"
     default-src={imgLg16x9}
-    heading="Lorem ipsum dolor sit amet, consectetur adipiscing elit."
-  ></DDSCalloutWithMediaImage>
+    heading="Lorem ipsum dolor sit amet, consectetur adipiscing elit."></DDSCalloutWithMediaImage>
 );
 
 const video = (

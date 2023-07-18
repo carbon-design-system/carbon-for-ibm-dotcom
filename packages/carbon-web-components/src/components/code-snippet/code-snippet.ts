@@ -9,7 +9,7 @@
 
 import { styleMap } from 'lit/directives/style-map.js';
 import { LitElement, html } from 'lit';
-import { property, customElement } from 'lit/decorators.js';
+import { property } from 'lit/decorators.js';
 import ChevronDown16 from '@carbon/icons/lib/chevron--down/16';
 import { prefix } from '../../globals/settings';
 import FocusMixin from '../../globals/mixins/focus';
@@ -19,6 +19,7 @@ import Handle from '../../globals/internal/handle';
 import '../copy-button/index';
 import '../copy/copy';
 import '../button/button';
+import { carbonElement as customElement } from '../../globals/decorators/carbon-element';
 
 export { CODE_SNIPPET_COLOR_SCHEME, CODE_SNIPPET_TYPE };
 
@@ -278,6 +279,12 @@ class CDSCodeSnippet extends FocusMixin(LitElement) {
   showMoreText = 'Show more';
 
   /**
+   * Tooltip content for the copy button.
+   */
+  @property({ attribute: 'tooltip-content' })
+  tooltipContent = 'Copy to clipboard';
+
+  /**
    * `true` if the button should be disabled.
    */
   @property({ type: Boolean, reflect: true, attribute: 'wrap-text' })
@@ -290,9 +297,6 @@ class CDSCodeSnippet extends FocusMixin(LitElement) {
   type = CODE_SNIPPET_TYPE.SINGLE;
 
   connectedCallback() {
-    if (!this.hasAttribute('role')) {
-      this.setAttribute('role', 'listitem');
-    }
     super.connectedCallback();
     if (this._hObserveResize) {
       this._hObserveResize = this._hObserveResize.release();
@@ -326,6 +330,7 @@ class CDSCodeSnippet extends FocusMixin(LitElement) {
       minCollapsedNumberOfRows,
       type,
       wrapText,
+      tooltipContent,
       showMoreText,
       showLessText,
       _expandedCode: expandedCode,
@@ -434,7 +439,7 @@ class CDSCodeSnippet extends FocusMixin(LitElement) {
               feedback=${feedback}
               feedback-timeout=${feedbackTimeout}
               @click="${handleCopyClick}">
-              <slot name="button-description"></slot>
+              ${tooltipContent}
             </cds-copy-button>
           `}
       ${shouldShowMoreLessBtn

@@ -8,11 +8,13 @@
  */
 
 import { classMap } from 'lit/directives/class-map.js';
+import { ifDefined } from 'lit/directives/if-defined.js';
 import { LitElement, html } from 'lit';
-import { property, customElement, query } from 'lit/decorators.js';
+import { property, query } from 'lit/decorators.js';
 import { prefix } from '../../globals/settings';
 import FocusMixin from '../../globals/mixins/focus';
 import styles from './side-nav.scss';
+import { carbonElement as customElement } from '../../globals/decorators/carbon-element';
 
 /**
  * Side nav menu item.
@@ -53,6 +55,18 @@ class CDSSideNavLink extends FocusMixin(LitElement) {
   href = '';
 
   /**
+   * The link type.
+   */
+  @property({ reflect: true })
+  rel!: string;
+
+  /**
+   * The link target.
+   */
+  @property({ reflect: true })
+  target!: string;
+
+  /**
    * Specify if this is a large variation of the side nav link
    */
   @property({ type: Boolean, reflect: true })
@@ -75,6 +89,8 @@ class CDSSideNavLink extends FocusMixin(LitElement) {
     const {
       active,
       href,
+      rel,
+      target,
       title,
       _handleSlotChangeTitleIcon: handleSlotChangeTitleIcon,
     } = this;
@@ -83,7 +99,12 @@ class CDSSideNavLink extends FocusMixin(LitElement) {
       [`${prefix}--side-nav__link--current`]: active,
     });
     return html`
-      <a part="link" class="${classes}" href="${href}">
+      <a
+        part="link"
+        class="${classes}"
+        href="${href}"
+        rel="${ifDefined(rel)}"
+        target="${ifDefined(target)}">
         <div
           id="title-icon-container"
           part="title-icon-container"

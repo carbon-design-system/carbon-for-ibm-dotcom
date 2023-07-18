@@ -37,7 +37,7 @@
     height: auto;
     aspect-ratio: 4 / 3; /* stylelint-disable-line property-no-unknown */
 
-    @include carbon--breakpoint(md) {
+    @include carbon--breakpoint(lg) {
       position: absolute;
       inset: 0;
       height: 100%;

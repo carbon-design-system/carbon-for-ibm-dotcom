@@ -21,6 +21,8 @@
           part="title"
         >
           <slot name="title">
+            <h2 style="all: inherit;">
+            </h2>
           </slot>
         </div>
         <div
@@ -59,7 +61,9 @@
           part="title"
         >
           <slot name="title">
-            video-name-foo (0:30)
+            <h2 style="all: inherit;">
+              video-name-foo (0:30)
+            </h2>
           </slot>
         </div>
         <div
