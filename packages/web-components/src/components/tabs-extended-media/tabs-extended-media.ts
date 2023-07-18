@@ -44,9 +44,6 @@ class DDSTabsExtendedMedia extends DDSTabsExtended {
           : undefined}
         <div class="${prefix}--tabs-extended">
           ${isMobileVersion ? this._renderAccordion() : this._renderTabs()}
-          <div class="${prefix}--tab-content">
-            <slot @slotchange="${this._handleSlotChange}"></slot>
-          </div>
         </div>
       </div>
     `;

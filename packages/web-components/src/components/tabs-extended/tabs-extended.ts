@@ -196,7 +196,10 @@ class DDSTabsExtended extends MediaQueryMixin(StableSelectorMixin(LitElement), {
       });
     }
 
-    if (changedProperties.has('_activeTabIndex')) {
+    if (
+      changedProperties.has('_activeTabIndex') ||
+      changedProperties.has('_tabItems')
+    ) {
       _tabItems.forEach((tab, index) => {
         (tab as DDSTab).selected = index === this._activeTabIndex;
       });
