@@ -15,10 +15,6 @@
       <slot>
       </slot>
     </ul>
-    <div class="bx--tab-content">
-      <slot>
-      </slot>
-    </div>
   </div>
 </div>
 
@@ -37,10 +33,6 @@
       <slot>
       </slot>
     </ul>
-    <div class="bx--tab-content">
-      <slot>
-      </slot>
-    </div>
   </div>
 </div>
 
