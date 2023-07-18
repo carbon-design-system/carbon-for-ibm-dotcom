@@ -895,7 +895,9 @@ class DDSMastheadComposite extends HostListenerMixin(LitElement) {
       this._setLanguage?.(language);
     }
     this._loadTranslation?.(language, dataEndpoint).catch(() => {}); // The error is logged in the Redux store
-    this._loadUserStatus?.();
+    if (this.userStatus === UNAUTHENTICATED_STATUS) {
+      this._loadUserStatus?.();
+    }
 
     // This is a temp fix until we figure out why we can't set styles to the :host(dds-masthead-container) in stylesheets
     this.style.zIndex = '900';
