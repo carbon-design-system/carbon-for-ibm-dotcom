@@ -115,5 +115,5 @@ $css--plex: true !default;
 .#{$prefix}--btn--xl:not(.#{$prefix}--btn--icon-only),
 .#{$prefix}--btn--2xl:not(.#{$prefix}--btn--icon-only) {
   align-items: start;
-  padding: $button-padding-ghost;  
+  padding: $button-padding-ghost;
 }
