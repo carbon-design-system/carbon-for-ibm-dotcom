@@ -16,6 +16,7 @@ import './header-nav';
 import './side-nav-link';
 import './header-menu';
 import './header-menu-item';
+import './header-side-nav-items';
 import './side-nav-items';
 import './header-menu-button';
 import './header-nav-item';
