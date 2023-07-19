@@ -38,15 +38,15 @@ $css--plex: true !default;
   }
 }
 
-:host(#{$prefix}-accordion-item[size='sm']),
-:host(#{$prefix}-accordion-item-skeleton[size='sm']) {
-  @extend .#{$prefix}--accordion--sm;
-}
+// :host(#{$prefix}-accordion-item[size='sm']),
+// :host(#{$prefix}-accordion-item-skeleton[size='sm']) {
+//   @extend .#{$prefix}--accordion--sm;
+// }
 
-:host(#{$prefix}-accordion-item[size='lg']),
-:host(#{$prefix}-accordion-item-skeleton[size='lg']) {
-  @extend .#{$prefix}--accordion--lg;
-}
+// :host(#{$prefix}-accordion-item[size='lg']),
+// :host(#{$prefix}-accordion-item-skeleton[size='lg']) {
+//   @extend .#{$prefix}--accordion--lg;
+// }
 
 :host(#{$prefix}-accordion-item[alignment='start']),
 :host(#{$prefix}-accordion-item-skeleton[alignment='start']) {
