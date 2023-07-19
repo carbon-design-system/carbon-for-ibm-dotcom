@@ -15,17 +15,29 @@ For Carbon v11 migration guidance, see their
 | ------------------------- | -------------------------------------- |
 | accordion                 | View changes [here](#accordion)        |
 | button                    | No API changes.                        |
+| dropdown                  | View changes [here](#dropdown)         |
+| form-group                | New component in v2.                   |
 | input                     | Replaced by `text-input`               |
+| mult-select               | View changes [here](#multi-select)     |
 | number-input              | View changes [here](#number-input)     |
 | progress-bar              | New component in v2.                   |
 | stack                     | New component in v2.                   |
 | text-input                | New component in v2. Replaces `input`. |
 | ui-shell                  | View changes [here](#ui-shell)         |
 
+### dropdown
+
+- `direction` property expects 'top' or 'bottom' value
+
+### multi-select
+
+- `size` property expected values have been changed from '', 'sm' to 'sm', 'md'
+- New `clear-selection-description`, `clear-selection-text`, `locale`, `selection-feedback` properties
+
 ### number-input
 
 - Removed `color-scheme`, `mobile` property
-- `size` property values have been changed from 'regular', 'small', 'extra large' to 'small', 'medium', and 'large'
+- `size` property expected values have been changed from '', 'sm', 'xl' to 'sm', 'md', and 'lg'
 - `validity-message-min` and `validity-message-max` properties replaced with `decrement-button-assistive-text` and `increment-button-assistive-text` respectively
 - `label-text` property replaced with `label`
 - New `warn`, `warn-text`, `invalid-text`, `hide-label`, `allow-empty`, `hide-steppers` properties
