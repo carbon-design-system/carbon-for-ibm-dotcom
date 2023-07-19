@@ -10,11 +10,13 @@
 import settings from 'carbon-components/es/globals/js/settings.js';
 import { html, LitElement, TemplateResult } from 'lit';
 import { property, state } from 'lit/decorators.js';
-import { unsafeHTML } from 'lit/directives/unsafe-html.js';
 import { classMap } from 'lit/directives/class-map.js';
-import ChevronRight20 from '../../internal/vendor/@carbon/web-components/icons/chevron--right/20.js';
 import ddsSettings from '../../internal/vendor/@carbon/ibmdotcom-utilities/utilities/settings/settings';
 import StableSelectorMixin from '../../globals/mixins/stable-selector';
+import MediaQueryMixin, {
+  MQBreakpoints,
+  MQDirs,
+} from '../../component-mixins/media-query/media-query';
 import DDSTab from './tab';
 import styles from './tabs-extended.scss';
 import { ORIENTATION } from './defs';
@@ -29,7 +31,19 @@ const { stablePrefix: ddsPrefix } = ddsSettings;
  * @element dds-tabs-extended
  */
 @customElement(`${ddsPrefix}-tabs-extended`)
-class DDSTabsExtended extends StableSelectorMixin(LitElement) {
+class DDSTabsExtended extends MediaQueryMixin(StableSelectorMixin(LitElement), {
+  [MQBreakpoints.LG]: MQDirs.MAX,
+}) {
+  /**
+   * Whether we're viewing smaller or larger window.
+   */
+  @state()
+  _isMobileVersion = this.carbonBreakpoints.lg.matches;
+
+  mediaQueryCallbackMaxLG() {
+    this._isMobileVersion = this.carbonBreakpoints.lg.matches;
+  }
+
   /**
    * Child tab components.
    */
@@ -70,6 +84,11 @@ class DDSTabsExtended extends StableSelectorMixin(LitElement) {
   private _handleClick(index, e) {
     e.preventDefault();
     this._setActiveItem(index);
+  }
+
+  private _handleAccordionClick(e) {
+    const tab = e.target.closest('dds-tab');
+    this._handleClick(tab.getIndex(), e);
   }
 
   private _setActiveItem(index: number) {
@@ -163,67 +182,60 @@ class DDSTabsExtended extends StableSelectorMixin(LitElement) {
     return tabItems;
   }
 
-  updated() {
+  updated(changedProperties) {
+    const { _isMobileVersion, _tabItems } = this;
     this._isLTR = window.getComputedStyle(this).direction === 'ltr';
     this._activeTabIndex = parseInt(this._activeTab, 10);
 
-    this._tabItems.map((tab, index) => {
-      (tab as DDSTab).selected = index === this._activeTabIndex;
-      (tab as DDSTab).setIndex(index);
-      const navLink = this.shadowRoot!.querySelectorAll(
-        `.${prefix}--tabs__nav-link`
-      )[index];
-      const navText = navLink!.querySelector('div p');
-      if (navText!.scrollHeight > navText!.clientHeight) {
-        const label = (tab as DDSTab).getAttribute('label');
-        if (label) {
-          navLink!.setAttribute('aria-label', label);
-          navLink!.setAttribute('hasTooltip', label);
+    if (changedProperties.has('_tabItems')) {
+      _tabItems.forEach((tab, index) => {
+        (tab as DDSTab).setIndex(index);
+
+        if (_isMobileVersion) {
+          tab.addEventListener('click', this._handleAccordionClick.bind(this));
         }
-      }
-      return tab;
-    });
+      });
+    }
+
+    if (
+      changedProperties.has('_activeTabIndex') ||
+      changedProperties.has('_tabItems')
+    ) {
+      _tabItems.forEach((tab, index) => {
+        (tab as DDSTab).selected = index === this._activeTabIndex;
+      });
+    }
+
+    if (
+      (changedProperties.has('_isMobileVersion') && !_isMobileVersion) ||
+      (changedProperties.has('_tabItems') && !_isMobileVersion)
+    ) {
+      // Set aria-label on tabs for desktop.
+      _tabItems.forEach((tab, index) => {
+        const navLink = this.shadowRoot!.querySelectorAll(
+          `.${prefix}--tabs__nav-link`
+        )[index];
+        const navText = navLink!.querySelector('div p');
+        if (navText!.scrollHeight > navText!.clientHeight) {
+          const label = (tab as DDSTab).getAttribute('label');
+          if (label) {
+            navLink!.setAttribute('aria-label', label);
+            navLink!.setAttribute('hasTooltip', label);
+          }
+        }
+      });
+    }
   }
 
-  protected _renderAccordion(): TemplateResult | string | void {
-    const { _tabItems: tabs } = this;
+  protected _renderAccordion(): TemplateResult {
     return html`
       <ul class="${prefix}--accordion">
-        ${tabs.map((tab, index) => {
-          const { disabled } = tab as DDSTab;
-          const active = index === this._activeTabIndex;
-          const label = (tab as DDSTab).getAttribute('label');
-          const classes = classMap({
-            'bx--accordion__item': true,
-            'bx--accordion__item--active': active,
-            'bx--accordion__item--disabled': disabled,
-          });
-          return html`
-            <li class="${classes}">
-              <button
-                class="${prefix}--accordion__heading"
-                aria-expanded="${active}"
-                aria-controls="pane-${index}"
-                @click="${(e) => this._handleClick(index, e)}"
-                tabindex="${index + 1}"
-                ?disabled="${disabled}">
-                ${ChevronRight20({
-                  part: 'expando-icon',
-                  class: `${prefix}--accordion__arrow`,
-                })}
-                <div class="${prefix}--accordion__title">${label}</div>
-              </button>
-              <div id="pane-${index}" class="${prefix}--accordion__content">
-                ${unsafeHTML((tab as DDSTab).innerHTML)}
-              </div>
-            </li>
-          `;
-        })}
+        <slot @slotchange="${this._handleSlotChange}"></slot>
       </ul>
     `;
   }
 
-  protected _renderTabs(): TemplateResult | string | void {
+  protected _renderTabs(): TemplateResult {
     const { _tabItems: tabs } = this;
     return html`
       <div class="${prefix}--tabs">
@@ -261,6 +273,9 @@ class DDSTabsExtended extends StableSelectorMixin(LitElement) {
           })}
         </ul>
       </div>
+      <div class="${prefix}--tab-content">
+        <slot @slotchange="${this._handleSlotChange}"></slot>
+      </div>
     `;
   }
 
@@ -281,12 +296,10 @@ class DDSTabsExtended extends StableSelectorMixin(LitElement) {
   orientation = ORIENTATION.HORIZONTAL;
 
   render() {
+    const { _isMobileVersion: isMobileVersion } = this;
     return html`
       <div class="${this._getOrientationClass()}">
-        ${this._renderAccordion()} ${this._renderTabs()}
-        <div class="${prefix}--tab-content">
-          <slot @slotchange="${this._handleSlotChange}"></slot>
-        </div>
+        ${isMobileVersion ? this._renderAccordion() : this._renderTabs()}
       </div>
     `;
   }
