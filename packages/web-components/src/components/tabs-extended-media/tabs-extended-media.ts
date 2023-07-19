@@ -32,6 +32,8 @@ class DDSTabsExtendedMedia extends DDSTabsExtended {
   sectionHeading = 'true';
 
   render() {
+    const { _isMobileVersion: isMobileVersion } = this;
+
     return html`
       <div class="${prefix}--tabs-extended-media">
         ${this.sectionHeading === 'true'
@@ -42,10 +44,7 @@ class DDSTabsExtendedMedia extends DDSTabsExtended {
             `
           : undefined}
         <div class="${prefix}--tabs-extended">
-          ${this._renderAccordion()} ${this._renderTabs()}
-          <div class="${prefix}--tab-content">
-            <slot @slotchange="${this._handleSlotChange}"></slot>
-          </div>
+          ${isMobileVersion ? this._renderAccordion() : this._renderTabs()}
         </div>
       </div>
     `;
