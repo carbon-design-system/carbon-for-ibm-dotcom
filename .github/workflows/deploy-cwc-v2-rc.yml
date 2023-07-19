@@ -1,4 +1,4 @@
-name: deploy-cwc-v2-beta (Deploy storybook environments to GitHub Pages)
+name: deploy-cwc-v2-rc (Deploy storybook environments to GitHub Pages)
 
 on:
   push:
@@ -6,7 +6,7 @@ on:
       - feat/cwc-v2
 
 concurrency:
-  group: deploy-cwc-v2-beta${{ github.ref }}
+  group: deploy-cwc-v2-rc${{ github.ref }}
   cancel-in-progress: true
 
 jobs:
@@ -35,7 +35,7 @@ jobs:
           mkdir -p builds
           mv packages/carbon-web-components/storybook-static builds/carbon-web-components-v2
 
-      - name: Deploying @carbon/web-components v2 beta storybook to GitHub Pages
+      - name: Deploying @carbon/web-components v2 rc storybook to GitHub Pages
         run: |
           git config --global user.email ${{ secrets.BOT_EMAIL }}
           git config --global user.name ${{ secrets.BOT_NAME }}
@@ -45,12 +45,12 @@ jobs:
           git update-ref -d refs/remotes/origin/gh-pages
           git pull origin gh-pages
 
-          rm -rf beta/carbon-web-components-v2
-          mkdir -p beta
-          mv builds/carbon-web-components-v2 beta/carbon-web-components-v2
+          rm -rf rc/carbon-web-components-v2
+          mkdir -p rc
+          mv builds/carbon-web-components-v2 rc/carbon-web-components-v2
 
-          git add beta/carbon-web-components-v2
-          git commit -m "chore(deploy): deploy @carbon/web-components v2 beta to GitHub Pages"
+          git add rc/carbon-web-components-v2
+          git commit -m "chore(deploy): deploy @carbon/web-components v2 rc to GitHub Pages"
           git push origin gh-pages
       - uses: act10ns/slack@v2
         if: failure()
