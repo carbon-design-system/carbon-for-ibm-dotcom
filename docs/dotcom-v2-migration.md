@@ -17,6 +17,27 @@ For Carbon v11 migration guidance, see their
 | ------------------------- | -------------------------------------- |
 | back-to-top               | View changes [here](#backtotop)        |
 | background-media          | No API changes.                        |
+| button                    | This component is deprecated in v2 in favor for Carbon's core Button |
+| card-group-card-link-item | This component is deprecated in v2 in favor for default card or with content-item |
+| card-link                 | This component is deprecated in v2 in favor for card (link variant) component |
+| card-section-carousel     | This component is deprecated in v2 in favor for content-section/block component combined with carousel |
+| card-section-simple       | This component is deprecated in v2 in facor for content-section/block component combined with card-group |
+| content-block-cards       | This component is deprecated in v2 in favor for content-section/block & card-group components |
+| content-block-horizontal  | This component is deprecated in v2 in favor for content-section/block & content-item-horizontal components|
+| content-block-media       | This component is deprecated in v2 in favor for content-section/block & repeated video-player/image components
+| content-block-mixed       | This component is deprecated in v2 in favor for content-section/block, video-player/image, pictogram-items, and other content-group components |
+| content-block-segmented   | This component is deprecated in v2 in favor for content-section/block component |
+| content-block-simple      | This component is deprecated in v2 in favor for content-section/block component |
+| content-group-cards       | This component is deprecated in v2 in favor for content-section/block & card-group componets |
+| content-group-pictograms  | This component is deprecated in v2 in favor for content-section/block content-item (pictogram variant) components |
+| content-group-simple      | This component is deprecated in v2 in favor for content-group, image, & content-item components |
+| cta-block                 | This component is deprecated in v2 in favor for content-section/block & content-item components |
+| cta-section               | This component is deprecated in v2 in favor for content-section/block & content-item components |
+| link-list-section         | This component is deprecated in v2 in favor for content-section/block & link-list end of section variant components |
+| logo-grid                 | This component is deprecated in v2 in favor for content-section/block & image-group components |
+| pictogram-item            | This component is deprecated in v2 in favor for content-item (pictogram variation) componet |
+| tabs-extended-media       | This component is deprecated in v2 in favor for tabs-extended component |
+
 
 ### BackToTop
 

@@ -45,8 +45,10 @@ class DDSContentBlockCards extends StableSelectorMixin(DDSContentBlock) {
   }
 }
 
-console.warn('The content-block-cards component has been deprecated in favor of the content-section/block and card-group component. ' +
-'See content-section/block and card-group documentation for more information.')
+console.warn(
+  'The content-block-cards component has been deprecated in favor of the content-section/block and card-group component. ' +
+    'See content-section/block and card-group documentation for more information.'
+);
 
 /* @__GENERATE_REACT_CUSTOM_ELEMENT_TYPE__ */
 export default DDSContentBlockCards;

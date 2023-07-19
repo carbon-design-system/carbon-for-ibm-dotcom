@@ -60,8 +60,10 @@ class DDSPictogramItem extends StableSelectorMixin(DDSContentItem) {
   static styles = styles;
 }
 
-console.warn('The pictogram-item component has been deprecated in favor of the content-item (pictogram variation) component. ' +
-'See content-item documentation for more information.')
+console.warn(
+  'The pictogram-item component has been deprecated in favor of the content-item (pictogram variation) component. ' +
+    'See content-item documentation for more information.'
+);
 
 /* @__GENERATE_REACT_CUSTOM_ELEMENT_TYPE__ */
 export default DDSPictogramItem;

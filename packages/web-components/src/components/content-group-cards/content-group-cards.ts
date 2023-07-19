@@ -52,8 +52,10 @@ class DDSContentGroupCards extends DDSContentGroup {
   }
 }
 
-console.warn('The content-group-cards component has been deprecated in favor of the content-section/block and the card group component. ' +
-'See content-section/block and card-group documentation for more information.');
+console.warn(
+  'The content-group-cards component has been deprecated in favor of the content-section/block and the card group component. ' +
+    'See content-section/block and card-group documentation for more information.'
+);
 
 /* @__GENERATE_REACT_CUSTOM_ELEMENT_TYPE__ */
 export default DDSContentGroupCards;

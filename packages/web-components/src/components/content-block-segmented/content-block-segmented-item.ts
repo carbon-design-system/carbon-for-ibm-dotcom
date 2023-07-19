@@ -54,8 +54,10 @@ class DDSContentBlockSegmentedItem extends StableSelectorMixin(
   }
 }
 
-console.warn('The content-block-segmented-item component has been deprecated in favor of the content-block component. ' +
-'See content-block documentation for more information.');
+console.warn(
+  'The content-block-segmented-item component has been deprecated in favor of the content-block component. ' +
+    'See content-block documentation for more information.'
+);
 
 /* @__GENERATE_REACT_CUSTOM_ELEMENT_TYPE__ */
 export default DDSContentBlockSegmentedItem;

@@ -35,8 +35,10 @@ class DDSContentGroupSimple extends StableSelectorMixin(DDSContentGroup) {
   }
 }
 
-console.warn('The content-group-simple component has been deprecated in favor of the content-group, image, and content-item components. ' +
-'See content-group, image, and content-item documentation for more information.');
+console.warn(
+  'The content-group-simple component has been deprecated in favor of the content-group, image, and content-item components. ' +
+    'See content-group, image, and content-item documentation for more information.'
+);
 
 /* @__GENERATE_REACT_CUSTOM_ELEMENT_TYPE__ */
 export default DDSContentGroupSimple;

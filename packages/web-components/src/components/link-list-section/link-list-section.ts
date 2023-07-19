@@ -68,8 +68,10 @@ class DDSLinkListSection extends StableSelectorMixin(DDSContentSection) {
   }
 }
 
-console.warn('The link-list-section component has been deprecated in favor of the content-section/block and link-list end of section variant components. ' +
-'See content-section/block and link-list documentation for more information.')
+console.warn(
+  'The link-list-section component has been deprecated in favor of the content-section/block and link-list end of section variant components. ' +
+    'See content-section/block and link-list documentation for more information.'
+);
 
 /* @__GENERATE_REACT_CUSTOM_ELEMENT_TYPE__ */
 export default DDSLinkListSection;

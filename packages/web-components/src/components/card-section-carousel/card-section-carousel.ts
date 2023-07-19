@@ -34,8 +34,10 @@ class DDSCardSectionCarousel extends DDSContentSection {
   }
 }
 
-console.warn('The card-section-carousel component has been deprecated in favor of the content-section/block component combined with carousel. ' +
-'See content-section/block and carousel documentation for more information.');
+console.warn(
+  'The card-section-carousel component has been deprecated in favor of the content-section/block component combined with carousel. ' +
+    'See content-section/block and carousel documentation for more information.'
+);
 
 /* @__GENERATE_REACT_CUSTOM_ELEMENT_TYPE__ */
 export default DDSCardSectionCarousel;

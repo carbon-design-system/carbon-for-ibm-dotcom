@@ -57,8 +57,10 @@ class DDSTabsExtendedMedia extends DDSTabsExtended {
   static styles = styles;
 }
 
-console.warn('The tabs-extended-media component has been deprecated in favor of tabs-extended component. ' +
-'See tabs-extended documentation for more information.')
+console.warn(
+  'The tabs-extended-media component has been deprecated in favor of tabs-extended component. ' +
+    'See tabs-extended documentation for more information.'
+);
 
 /* @__GENERATE_REACT_CUSTOM_ELEMENT_TYPE__ */
 export default DDSTabsExtendedMedia;

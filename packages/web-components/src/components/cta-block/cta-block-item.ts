@@ -122,8 +122,10 @@ class DDSCTABlockItem extends StableSelectorMixin(DDSContentItem) {
   }
 }
 
-console.warn('The cta-block-item component has been deprecated in favor of the content-section/block and content-item components. ' +
-'See content-section/block and content-items documentation for more information.')
+console.warn(
+  'The cta-block-item component has been deprecated in favor of the content-section/block and content-item components. ' +
+    'See content-section/block and content-items documentation for more information.'
+);
 
 /* @__GENERATE_REACT_CUSTOM_ELEMENT_TYPE__ */
 export default DDSCTABlockItem;
