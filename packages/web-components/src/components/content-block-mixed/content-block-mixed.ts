@@ -9,7 +9,6 @@
 
 import { css } from 'lit';
 import ddsSettings from '../../internal/vendor/@carbon/ibmdotcom-utilities/utilities/settings/settings';
-import deprecate from '../../internal/vendor/@carbon/ibmdotcom-utilities/utilities/deprecate/deprecate';
 import { carbonElement as customElement } from '../../internal/vendor/@carbon/web-components/globals/decorators/carbon-element';
 import DDSContentBlock from '../content-block/content-block';
 import styles from './content-block-mixed.scss';
@@ -35,9 +34,8 @@ class DDSContentBlockMixed extends DDSContentBlock {
   }
 }
 
+console.warn('The content-block-mixed component has been deprecated in favor of the content-section/block, video-player/image, pictogram-items, and other content-group components. ' +
+'See content-block/section documentation for more information.');
+
 /* @__GENERATE_REACT_CUSTOM_ELEMENT_TYPE__ */
-export default deprecate(
-  DDSContentBlockMixed,
-  'The content-block-mixed component has been deprecated in favor of the content-section/block, video-player/image, pictogram-items, and other content-group components. ' +
-    'See content-block/section documentation for more information.'
-);
+export default DDSContentBlockMixed;

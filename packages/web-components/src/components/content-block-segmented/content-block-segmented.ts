@@ -11,7 +11,6 @@ import { classMap } from 'lit/directives/class-map.js';
 import { css, html } from 'lit';
 import settings from 'carbon-components/es/globals/js/settings.js';
 import ddsSettings from '../../internal/vendor/@carbon/ibmdotcom-utilities/utilities/settings/settings';
-import deprecate from '../../internal/vendor/@carbon/ibmdotcom-utilities/utilities/deprecate/deprecate';
 import DDSContentBlock, {
   CONTENT_BLOCK_COMPLEMENTARY_STYLE_SCHEME,
 } from '../content-block/content-block';
@@ -64,9 +63,8 @@ class DDSContentBlockSegmented extends DDSContentBlock {
   }
 }
 
+console.warn('The content-block-segmented component has been deprecated in favor of the content-section/block and a variety of group components. ' +
+'See content-section/block documentation for more information.');
+
 /* @__GENERATE_REACT_CUSTOM_ELEMENT_TYPE__ */
-export default deprecate(
-  DDSContentBlockSegmented,
-  'The content-block-segmented component has been deprecated in favor of the content-section/block and a variety of group components. ' +
-    'See content-section/block documentation for more information.'
-);
+export default DDSContentBlockSegmented;

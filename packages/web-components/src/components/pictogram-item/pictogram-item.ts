@@ -11,7 +11,6 @@ import { html } from 'lit';
 import { property } from 'lit/decorators.js';
 import settings from 'carbon-components/es/globals/js/settings.js';
 import ddsSettings from '../../internal/vendor/@carbon/ibmdotcom-utilities/utilities/settings/settings';
-import deprecate from '../../internal/vendor/@carbon/ibmdotcom-utilities/utilities/deprecate/deprecate';
 import { COLOR_OPTIONS } from './defs';
 import DDSContentItem from '../content-item/content-item';
 import styles from './pictogram-item.scss';
@@ -61,9 +60,8 @@ class DDSPictogramItem extends StableSelectorMixin(DDSContentItem) {
   static styles = styles;
 }
 
+console.warn('The pictogram-item component has been deprecated in favor of the content-item (pictogram variation) component. ' +
+'See content-item documentation for more information.')
+
 /* @__GENERATE_REACT_CUSTOM_ELEMENT_TYPE__ */
-export default deprecate(
-  DDSPictogramItem,
-  'The pictogram-item component has been deprecated in favor of the content-item (pictogram variation) component. ' +
-    'See content-item documentation for more information.'
-);
+export default DDSPictogramItem;

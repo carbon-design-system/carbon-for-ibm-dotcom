@@ -9,7 +9,6 @@
 
 import { property } from 'lit/decorators.js';
 import ddsSettings from '../../internal/vendor/@carbon/ibmdotcom-utilities/utilities/settings/settings';
-import deprecate from '../../internal/vendor/@carbon/ibmdotcom-utilities/utilities/deprecate/deprecate';
 import { carbonElement as customElement } from '../../internal/vendor/@carbon/web-components/globals/decorators/carbon-element';
 import DDSCardLinkCTA from '../cta/card-link-cta';
 import styles from './card-group.scss';
@@ -55,9 +54,7 @@ class DDSCardGroupCardLinkItem extends DDSCardLinkCTA {
   static styles = styles;
 }
 
+console.warn('The card-group-card-link-item component has been deprecated in favor of default card or with content-item. ' +
+'See card-group documentation for more information.')
 /* @__GENERATE_REACT_CUSTOM_ELEMENT_TYPE__ */
-export default deprecate(
-  DDSCardGroupCardLinkItem,
-  'The card-group-card-link-item component has been deprecated in favor of default card or with content-item. ' +
-    'See card-group documentation for more information.'
-);
+export default DDSCardGroupCardLinkItem;

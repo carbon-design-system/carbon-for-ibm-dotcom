@@ -9,7 +9,6 @@
 import { html } from 'lit';
 import settings from 'carbon-components/es/globals/js/settings.js';
 import ddsSettings from '@carbon/ibmdotcom-utilities/es/utilities/settings/settings.js';
-import deprecate from '../../internal/vendor/@carbon/ibmdotcom-utilities/utilities/deprecate/deprecate';
 import styles from './link-list-section.scss';
 import StableSelectorMixin from '../../globals/mixins/stable-selector';
 import DDSContentSection from '../content-section/content-section';
@@ -69,9 +68,8 @@ class DDSLinkListSection extends StableSelectorMixin(DDSContentSection) {
   }
 }
 
+console.warn('The link-list-section component has been deprecated in favor of the content-section/block and link-list end of section variant components. ' +
+'See content-section/block and link-list documentation for more information.')
+
 /* @__GENERATE_REACT_CUSTOM_ELEMENT_TYPE__ */
-export default deprecate(
-  DDSLinkListSection,
-  'The link-list-section component has been deprecated in favor of the content-section/block and link-list end of section variant components. ' +
-    'See content-section/block and link-list documentation for more information.'
-);
+export default DDSLinkListSection;

@@ -10,7 +10,6 @@
 import { css, html, TemplateResult } from 'lit';
 import settings from 'carbon-components/es/globals/js/settings.js';
 import ddsSettings from '../../internal/vendor/@carbon/ibmdotcom-utilities/utilities/settings/settings';
-import deprecate from '../../internal/vendor/@carbon/ibmdotcom-utilities/utilities/deprecate/deprecate';
 import StableSelectorMixin from '../../globals/mixins/stable-selector';
 import styles from './content-block-media.scss';
 import DDSContentGroup from '../content-group/content-group';
@@ -51,9 +50,8 @@ class DDSContentBlockMediaContent extends StableSelectorMixin(DDSContentGroup) {
   }
 }
 
+console.warn('The content-block-media-content component has been deprecated in favor of the content-section/block content component. ' +
+'See content-section/block documentation for more information.')
+
 /* @__GENERATE_REACT_CUSTOM_ELEMENT_TYPE__ */
-export default deprecate(
-  DDSContentBlockMediaContent,
-  'The content-block-media-content component has been deprecated in favor of the content-section/block content component. ' +
-    'See content-section/block documentation for more information.'
-);
+export default DDSContentBlockMediaContent;

@@ -10,7 +10,6 @@
 import { css, html } from 'lit';
 import { property } from 'lit/decorators.js';
 import ddsSettings from '../../internal/vendor/@carbon/ibmdotcom-utilities/utilities/settings/settings';
-import deprecate from '../../internal/vendor/@carbon/ibmdotcom-utilities/utilities/deprecate/deprecate';
 import { carbonElement as customElement } from '../../internal/vendor/@carbon/web-components/globals/decorators/carbon-element';
 import DDSContentGroup from '../content-group/content-group';
 import '../horizontal-rule/horizontal-rule';
@@ -46,9 +45,8 @@ class DDSContentBlockHorizontal extends DDSContentGroup {
   }
 }
 
+console.warn('The content-block-horizontal component has been deprecated in favor of the content-section/block and content item horizontal component. ' +
+'See content-section/block and content item horizontal documentation for more information.')
+
 /* @__GENERATE_REACT_CUSTOM_ELEMENT_TYPE__ */
-export default deprecate(
-  DDSContentBlockHorizontal,
-  'The content-block-horizontal component has been deprecated in favor of the content-section/block and content item horizontal component. ' +
-    'See content-section/block and content item horizontal documentation for more information.'
-);
+export default DDSContentBlockHorizontal;

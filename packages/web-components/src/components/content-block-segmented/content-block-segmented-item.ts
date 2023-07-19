@@ -10,7 +10,6 @@
 import { css, html, TemplateResult } from 'lit';
 import settings from 'carbon-components/es/globals/js/settings.js';
 import ddsSettings from '../../internal/vendor/@carbon/ibmdotcom-utilities/utilities/settings/settings';
-import deprecate from '../../internal/vendor/@carbon/ibmdotcom-utilities/utilities/deprecate/deprecate';
 import StableSelectorMixin from '../../globals/mixins/stable-selector';
 import DDSContentGroup from '../content-group/content-group';
 import styles from './content-block-segmented.scss';
@@ -55,9 +54,8 @@ class DDSContentBlockSegmentedItem extends StableSelectorMixin(
   }
 }
 
+console.warn('The content-block-segmented-item component has been deprecated in favor of the content-block component. ' +
+'See content-block documentation for more information.');
+
 /* @__GENERATE_REACT_CUSTOM_ELEMENT_TYPE__ */
-export default deprecate(
-  DDSContentBlockSegmentedItem,
-  'The content-block-segmented-item component has been deprecated in favor of the content-block component. ' +
-    'See content-block documentation for more information.'
-);
+export default DDSContentBlockSegmentedItem;

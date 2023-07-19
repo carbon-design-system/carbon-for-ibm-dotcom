@@ -9,7 +9,6 @@
 
 import { css } from 'lit';
 import ddsSettings from '../../internal/vendor/@carbon/ibmdotcom-utilities/utilities/settings/settings';
-import deprecate from '../../internal/vendor/@carbon/ibmdotcom-utilities/utilities/deprecate/deprecate';
 import { carbonElement as customElement } from '../../internal/vendor/@carbon/web-components/globals/decorators/carbon-element';
 import DDSContentBlock from '../content-block/content-block';
 import styles from './content-block-media.scss';
@@ -35,9 +34,8 @@ class DDSContentBlockMedia extends DDSContentBlock {
   }
 }
 
+console.warn('The content-block-media component has been deprecated in favor of the content-section/block and repeated video-player/image components. ' +
+'See content-section/block, video-player, and image documentation for more information.')
+
 /* @__GENERATE_REACT_CUSTOM_ELEMENT_TYPE__ */
-export default deprecate(
-  DDSContentBlockMedia,
-  'The content-block-media component has been deprecated in favor of the content-section/block and repeated video-player/image components. ' +
-    'See content-section/block, video-player, and image documentation for more information.'
-);
+export default DDSContentBlockMedia;

@@ -9,7 +9,6 @@
 
 import { css } from 'lit';
 import ddsSettings from '../../internal/vendor/@carbon/ibmdotcom-utilities/utilities/settings/settings';
-import deprecate from '../../internal/vendor/@carbon/ibmdotcom-utilities/utilities/deprecate/deprecate';
 import { carbonElement as customElement } from '../../internal/vendor/@carbon/web-components/globals/decorators/carbon-element';
 import DDSContentGroup from '../content-group/content-group';
 import styles from './content-group-pictograms.scss';
@@ -36,9 +35,8 @@ class DDSContentGroupPictograms extends DDSContentGroup {
   }
 }
 
+console.warn('The content-group-pictograms component has been deprecated in favor of the content-section/block and content-item (pictogram variant) components. ' +
+'See content-section/block and content-item documentation for more information.');
+
 /* @__GENERATE_REACT_CUSTOM_ELEMENT_TYPE__ */
-export default deprecate(
-  DDSContentGroupPictograms,
-  'The content-group-pictograms component has been deprecated in favor of the content-section/block and content-item (pictogram variant) components. ' +
-    'See content-section/block and content-item documentation for more information.'
-);
+export default DDSContentGroupPictograms;

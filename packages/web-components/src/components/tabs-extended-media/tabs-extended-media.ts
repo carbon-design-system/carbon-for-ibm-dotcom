@@ -11,7 +11,6 @@ import settings from 'carbon-components/es/globals/js/settings.js';
 import { html } from 'lit';
 import { property } from 'lit/decorators.js';
 import ddsSettings from '../../internal/vendor/@carbon/ibmdotcom-utilities/utilities/settings/settings';
-import deprecate from '../../internal/vendor/@carbon/ibmdotcom-utilities/utilities/deprecate/deprecate';
 import { carbonElement as customElement } from '../../internal/vendor/@carbon/web-components/globals/decorators/carbon-element';
 import DDSTabsExtended from '../tabs-extended/tabs-extended';
 import styles from './tabs-extended-media.scss';
@@ -59,9 +58,8 @@ class DDSTabsExtendedMedia extends DDSTabsExtended {
   static styles = styles;
 }
 
+console.warn('The tabs-extended-media component has been deprecated in favor of tabs-extended component. ' +
+'See tabs-extended documentation for more information.')
+
 /* @__GENERATE_REACT_CUSTOM_ELEMENT_TYPE__ */
-export default deprecate(
-  DDSTabsExtendedMedia,
-  'The tabs-extended-media component has been deprecated in favor of tabs-extended component. ' +
-    'See tabs-extended documentation for more information.'
-);
+export default DDSTabsExtendedMedia;

@@ -11,7 +11,6 @@ import { css, html, TemplateResult } from 'lit';
 import { state } from 'lit/decorators.js';
 import settings from 'carbon-components/es/globals/js/settings.js';
 import ddsSettings from '../../internal/vendor/@carbon/ibmdotcom-utilities/utilities/settings/settings';
-import deprecate from '../../internal/vendor/@carbon/ibmdotcom-utilities/utilities/deprecate/deprecate';
 import StableSelectorMixin from '../../globals/mixins/stable-selector';
 import DDSContentItem from '../content-item/content-item';
 
@@ -123,9 +122,8 @@ class DDSCTABlockItem extends StableSelectorMixin(DDSContentItem) {
   }
 }
 
+console.warn('The cta-block-item component has been deprecated in favor of the content-section/block and content-item components. ' +
+'See content-section/block and content-items documentation for more information.')
+
 /* @__GENERATE_REACT_CUSTOM_ELEMENT_TYPE__ */
-export default deprecate(
-  DDSCTABlockItem,
-  'The cta-block-item component has been deprecated in favor of the content-section/block and content-item components. ' +
-    'See content-section/block and content-items documentation for more information.'
-);
+export default DDSCTABlockItem;

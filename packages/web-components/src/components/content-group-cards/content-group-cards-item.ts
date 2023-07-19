@@ -8,7 +8,6 @@
  */
 
 import ddsSettings from '../../internal/vendor/@carbon/ibmdotcom-utilities/utilities/settings/settings';
-import deprecate from '../../internal/vendor/@carbon/ibmdotcom-utilities/utilities/deprecate/deprecate';
 import StableSelectorMixin from '../../globals/mixins/stable-selector';
 import DDSCard from '../card/card';
 import styles from './content-group-cards.scss';
@@ -30,9 +29,8 @@ class DDSContentGroupCardsItem extends StableSelectorMixin(DDSCard) {
   static styles = styles;
 }
 
+console.warn('The content-group-cards-item component has been deprecated in favor of the content-section/block and the card group component. ' +
+'See content-section/block and card-group documentation for more information.');
+
 /* @__GENERATE_REACT_CUSTOM_ELEMENT_TYPE__ */
-export default deprecate(
-  DDSContentGroupCardsItem,
-  'The content-group-cards-item component has been deprecated in favor of the content-section/block and the card group component. ' +
-    'See content-section/block and card-group documentation for more information.'
-);
+export default DDSContentGroupCardsItem;
