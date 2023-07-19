@@ -5,10 +5,10 @@
 // LICENSE file in the root directory of this source tree.
 //
 
-@use '@carbon/ibmdotcom-styles/scss/globals/vars' as *;
-@use '@carbon/ibmdotcom-styles/scss/globals/utils/ratio-base' as *;
-@use '@carbon/ibmdotcom-styles/scss/components/image';
-@use '@carbon/ibmdotcom-styles/scss/components/image-with-caption';
+@use '../../../../styles/scss/globals/vars' as *;
+@use '../../../../styles/scss/globals/utils/ratio-base' as *;
+@use '../../../../styles/scss/components/image';
+@use '../../../../styles/scss/components/image-with-caption';
 
 :host(#{$dds-prefix}-card-cta-image),
 :host(#{$dds-prefix}-image) {

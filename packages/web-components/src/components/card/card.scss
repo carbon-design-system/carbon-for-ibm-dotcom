@@ -5,8 +5,8 @@
 // LICENSE file in the root directory of this source tree.
 //
 
-@use '@carbon/ibmdotcom-styles/scss/components/card';
-@use '@carbon/ibmdotcom-styles/scss/components/link-with-icon';
+@use '../../../../styles/scss/components/card';
+@use '../../../../styles/scss/components/link-with-icon';
 
 :host(#{$dds-prefix}-card-footer),
 :host(#{$dds-prefix}-card-cta-footer) {

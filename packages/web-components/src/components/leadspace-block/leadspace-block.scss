@@ -5,9 +5,9 @@
 // LICENSE file in the root directory of this source tree.
 //
 
-@use '@carbon/ibmdotcom-styles/scss/globals/vars' as *;
-@use '@carbon/ibmdotcom-styles/scss/components/buttongroup';
-@use '@carbon/ibmdotcom-styles/scss/components/leadspace-block';
+@use '../../../../styles/scss/globals/vars' as *;
+@use '../../../../styles/scss/components/button-group';
+@use '../../../../styles/scss/components/leadspace-block';
 
 :host(#{$dds-prefix}-leadspace-with-search-heading),
 :host(#{$dds-prefix}-leadspace-block-heading) {

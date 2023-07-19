@@ -5,9 +5,10 @@
 // LICENSE file in the root directory of this source tree.
 //
 
-@use '@carbon/ibmdotcom-styles/scss/globals/vars' as *;
-@use '@carbon/ibmdotcom-styles/scss/components/background-media';
-@use '@carbon/web-components/scss/components/tooltip';
+@use '../../../../styles/scss/globals/vars' as *;
+@use '../../../../styles/scss/components/background-media';
+@use '../../../../carbon-web-components/src/components/tooltip';
+@use '../../../../carbon-web-components/src/components/tooltip/tooltip';
 
 .#{$prefix}--background-media--video {
   aspect-ratio: 16 / 9; /* stylelint-disable-line property-no-unknown */

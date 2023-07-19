@@ -7,8 +7,8 @@
  * LICENSE file in the root directory of this source tree.
  */
 
-@use '@carbon/ibmdotcom-styles/scss/globals/vars' as *;
-@use '@carbon/ibmdotcom-styles/scss/components/card-group';
+@use '../../../../styles/scss/globals/vars' as *;
+@use '../../../../styles/scss/components/card-group';
 @use '../card/card';
 
 :host(#{$dds-prefix}-card-group) {

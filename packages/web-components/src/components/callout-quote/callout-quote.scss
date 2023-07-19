@@ -5,8 +5,8 @@
 // LICENSE file in the root directory of this source tree.
 //
 
-@use '@carbon/ibmdotcom-styles/scss/components/callout-quote';
-@use '@carbon/ibmdotcom-styles/scss/components/link-with-icon';
+@use '../../../../styles/scss/components/callout-quote';
+@use '../../../../styles/scss/components/link-with-icon';
 
 :host(#{$dds-prefix}-callout-link-with-icon) {
   @extend .#{$prefix}--link-with-icon;

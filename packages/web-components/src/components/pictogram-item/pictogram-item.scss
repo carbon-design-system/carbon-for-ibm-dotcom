@@ -5,9 +5,9 @@
 // LICENSE file in the root directory of this source tree.
 //
 
-@use '@carbon/ibmdotcom-styles/scss/globals/vars' as *;
-@use '@carbon/ibmdotcom-styles/scss/internal/content-item';
-@use '@carbon/ibmdotcom-styles/scss/components/pictogram-item';
+@use '../../../../styles/scss/globals/vars' as *;
+@use '../../../../styles/scss/internal/content-item';
+@use '../../../../styles/scss/components/pictogram-item';
 
 :host(#{$dds-prefix}-pictogram-item) {
   display: block;

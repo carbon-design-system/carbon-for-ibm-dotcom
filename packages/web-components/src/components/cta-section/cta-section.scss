@@ -5,9 +5,9 @@
 // LICENSE file in the root directory of this source tree.
 //
 
-@use '@carbon/ibmdotcom-styles/scss/internal/content-section';
-@use '@carbon/ibmdotcom-styles/scss/globals/utils/hang' as *;
-@use '@carbon/ibmdotcom-styles/scss/globals/vars' as *;
+@use '../../../../styles/scss/internal/content-section';
+@use '../../../../styles/scss/globals/utils/hang' as *;
+@use '../../../../styles/scss/globals/vars' as *;
 
 :host(#{$dds-prefix}-cta-section) {
   display: block;

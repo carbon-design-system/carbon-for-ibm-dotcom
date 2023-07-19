@@ -7,16 +7,16 @@
 
 @use '@carbon/styles/scss/components/ui-shell/header';
 @use '@carbon/styles/scss/components/ui-shell/side-nav';
-@use '@carbon/ibmdotcom-styles/scss/globals/vars' as *;
-@use '@carbon/ibmdotcom-styles/scss/components/masthead';
-// @use '@carbon/ibmdotcom-styles/scss/components/masthead/masthead-leftnav';
-// @use '@carbon/ibmdotcom-styles/scss/components/masthead/masthead-top-nav-name';
-// @use '@carbon/ibmdotcom-styles/scss/components/search-with-typeahead/search-with-typeahead';
-// @use '@carbon/ibmdotcom-styles/scss/components/masthead/masthead-l1';
-@use '@carbon/web-components/scss/components/tooltip';
-// @use '@carbon/web-components/scss/components/ui-shell/header';
-// @use '@carbon/web-components/scss/components/ui-shell/side-nav';
-// @use '@carbon/ibmdotcom-styles/scss/components/masthead/masthead-megamenu';
+@use '../../../../styles/scss/globals/vars' as *;
+@use '../../../../styles/scss/components/masthead';
+// @use '../../../../styles/scss/components/masthead/masthead-leftnav';
+// @use '../../../../styles/scss/components/masthead/masthead-top-nav-name';
+// @use '../../../../styles/scss/components/search-with-typeahead/search-with-typeahead';
+// @use '../../../../styles/scss/components/masthead/masthead-l1';
+@use '../../../../carbon-web-components/src/components/tooltip';
+// @use '../../../../carbon-web-components/src/components/ui-shell/header';
+// @use '../../../../carbon-web-components/src/components/ui-shell/side-nav';
+// @use '../../../../styles/scss/components/masthead/masthead-megamenu';
 
 :host(#{$dds-prefix}-masthead-menu-button) {
   @extend :host(#{$prefix}-header-menu-button);

@@ -6,8 +6,8 @@
 //
 
 // This import is used for generating the CDN artifact
-@use '@carbon/ibmdotcom-styles/scss/globals/vars' as *;
-@use '@carbon/ibmdotcom-styles/scss/components/tableofcontents';
+@use '../../../../styles/scss/globals/vars' as *;
+@use '../../../../styles/scss/components/tableofcontents';
 
 body {
   /* stylelint-disable-next-line */

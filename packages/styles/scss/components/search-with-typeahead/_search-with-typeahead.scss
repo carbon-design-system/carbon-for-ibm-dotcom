@@ -13,8 +13,8 @@
 @use '@carbon/styles/scss/type' as *;
 @use '@carbon/styles/scss/components/ui-shell/header';
 @use '@carbon/styles/scss/components/ui-shell/side-nav';
-@use '@carbon/web-components/scss/components/dropdown/dropdown';
-@use '@carbon/web-components/scss/components/select/select';
+@use '../../../../carbon-web-components/src/components/dropdown/dropdown';
+@use '../../../../carbon-web-components/src/components/select/select';
 @use '../../globals/vars' as *;
 @use '../masthead/vars' as *;
 

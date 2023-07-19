@@ -7,9 +7,9 @@
  * LICENSE file in the root directory of this source tree.
  */
 
-@use '@carbon/ibmdotcom-styles/scss/globals/vars' as *;
-@use '@carbon/ibmdotcom-styles/scss/components/filter-panel';
-@use '@carbon/web-components/scss/components/modal';
+@use '../../../../styles/scss/globals/vars' as *;
+@use '../../../../styles/scss/components/filter-panel';
+@use '../../../../carbon-web-components/src/components/modal';
 
 :host(#{$dds-prefix}-filter-panel-modal) {
   @extend :host(#{$prefix}-modal);

@@ -7,7 +7,7 @@
 
 $css--reset: false !default;
 
-@use '@carbon/ibmdotcom-styles/scss/globals/vars' as *;
+@use '../../../../styles/scss/globals/vars' as *;
 
 :host(#{$dds-prefix}-markdown) {
   p {

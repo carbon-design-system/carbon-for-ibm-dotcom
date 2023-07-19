@@ -6,7 +6,7 @@
 //
 
 @use 'carbon-components/scss/globals/scss/vendor/@carbon/elements/scss/layout/breakpoint';
-@use '@carbon/ibmdotcom-styles/scss/globals/vars' as *;
+@use '../../../../styles/scss/globals/vars' as *;
 
 /* stylelint-disable-next-line selector-type-no-unknown */
 dds-card-group.dds-ce-demo-devenv--cards-in-row-2 {
