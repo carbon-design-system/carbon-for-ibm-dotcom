@@ -110,6 +110,12 @@ class CDSTextInput extends ValidityMixin(FormMixin(LitElement)) {
   invalid = false;
 
   /**
+   * Message which is displayed if the value is invalid.
+   */
+  @property({ attribute: 'invalid-text' })
+  invalidText = '';
+
+  /**
    * Max character count allowed for input. This is needed in order for enableCounter to display
    */
   @property({ type: Number, attribute: 'max-count', reflect: true })
@@ -126,12 +132,6 @@ class CDSTextInput extends ValidityMixin(FormMixin(LitElement)) {
    */
   @property({ attribute: 'warn-text' })
   warnText = '';
-
-  /**
-   * Message which is displayed if the value is invalid.
-   */
-  @property({ attribute: 'invalid-text' })
-  invalidText = '';
 
   /**
    * Specify whether you want the underlying label to be visually hidden
