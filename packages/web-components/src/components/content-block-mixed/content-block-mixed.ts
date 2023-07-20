@@ -34,5 +34,10 @@ class DDSContentBlockMixed extends DDSContentBlock {
   }
 }
 
+console.warn(
+  'The content-block-mixed component has been deprecated in favor of the content-section/block, video-player/image, pictogram-items, and other content-group components. ' +
+    'See content-block/section documentation for more information.'
+);
+
 /* @__GENERATE_REACT_CUSTOM_ELEMENT_TYPE__ */
 export default DDSContentBlockMixed;

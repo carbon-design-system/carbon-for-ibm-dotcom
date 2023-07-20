@@ -34,5 +34,10 @@ class DDSContentBlockMedia extends DDSContentBlock {
   }
 }
 
+console.warn(
+  'The content-block-media component has been deprecated in favor of the content-section/block and repeated video-player/image components. ' +
+    'See content-section/block, video-player, and image documentation for more information.'
+);
+
 /* @__GENERATE_REACT_CUSTOM_ELEMENT_TYPE__ */
 export default DDSContentBlockMedia;

@@ -41,5 +41,10 @@ class DDSLogoGridLink extends StableSelectorMixin(DDSCardLink) {
   }
 }
 
+console.warn(
+  'The logo-grid-link component has been deprecated in favor of the content-section/block and image-group component. ' + //TODO confirm new image-group or images in grid
+    'See content-section/block and image-group documentation for more information.'
+);
+
 /* @__GENERATE_REACT_CUSTOM_ELEMENT_TYPE__ */
 export default DDSLogoGridLink;
