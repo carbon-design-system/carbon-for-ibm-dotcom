@@ -27,15 +27,14 @@ $css--plex: true !default;
 }
 
 :host(#{$prefix}-content-switcher[size='sm']) {
-  @extend .#{$prefix}--layout--size-sm; 
+  @extend .#{$prefix}--layout--size-sm;
 }
 
 :host(#{$prefix}-content-switcher[size='lg']) {
-  @extend .#{$prefix}--layout--size-lg; 
+  @extend .#{$prefix}--layout--size-lg;
 }
 
 :host(#{$prefix}-content-switcher-item) {
-
   outline: none;
   width: 100%;
 
