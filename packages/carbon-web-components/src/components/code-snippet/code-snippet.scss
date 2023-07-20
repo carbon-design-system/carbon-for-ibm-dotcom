@@ -14,7 +14,7 @@ $css--plex: true !default;
 @use '@carbon/styles/scss/motion' as *;
 @use '@carbon/styles/scss/utilities' as *;
 @use '@carbon/styles/scss/layer/layer-tokens';
-@use '@carbon/styles/scss/components/code-snippet/index' as *;
+@use '@carbon/styles/scss/components/code-snippet/index';
 @use '@carbon/styles/scss/components/copy-button/copy-button';
 
 :host(#{$prefix}-code-snippet),
