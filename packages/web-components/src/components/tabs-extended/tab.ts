@@ -9,11 +9,19 @@
 
 import { LitElement, html } from 'lit';
 import { property, state } from 'lit/decorators.js';
+import { classMap } from 'lit/directives/class-map.js';
+import settings from 'carbon-components/es/globals/js/settings.js';
 import ddsSettings from '../../internal/vendor/@carbon/ibmdotcom-utilities/utilities/settings/settings';
+import ChevronRight20 from '../../internal/vendor/@carbon/web-components/icons/chevron--right/20.js';
 import styles from './tabs-extended.scss';
 import StableSelectorMixin from '../../globals/mixins/stable-selector';
+import MediaQueryMixin, {
+  MQBreakpoints,
+  MQDirs,
+} from '../../component-mixins/media-query/media-query';
 import { carbonElement as customElement } from '../../internal/vendor/@carbon/web-components/globals/decorators/carbon-element';
 
+const { prefix } = settings;
 const { stablePrefix: ddsPrefix } = ddsSettings;
 
 /**
@@ -22,7 +30,19 @@ const { stablePrefix: ddsPrefix } = ddsSettings;
  * @element dds-tab
  */
 @customElement(`${ddsPrefix}-tab`)
-class DDSTab extends StableSelectorMixin(LitElement) {
+class DDSTab extends MediaQueryMixin(StableSelectorMixin(LitElement), {
+  [MQBreakpoints.LG]: MQDirs.MAX,
+}) {
+  /**
+   * Whether we're viewing smaller or larger window.
+   */
+  @state()
+  _isMobileVersion = this.carbonBreakpoints.lg.matches;
+
+  mediaQueryCallbackMaxLG() {
+    this._isMobileVersion = this.carbonBreakpoints.lg.matches;
+  }
+
   /**
    * Defines label of the tab.
    */
@@ -45,13 +65,20 @@ class DDSTab extends StableSelectorMixin(LitElement) {
    * Defines the index of the tab relative to other tabs.
    */
   @state()
-  private _index: Number = 0;
+  private _index: number = 0;
 
   /**
    * Sets the index of the tab.
    */
-  setIndex(index: Number) {
+  setIndex(index: number) {
     this._index = index;
+  }
+
+  /**
+   * Returns the index of the tab.
+   */
+  getIndex() {
+    return this._index;
   }
 
   protected updated(
@@ -73,19 +100,54 @@ class DDSTab extends StableSelectorMixin(LitElement) {
     super.updated(_changedProperties);
   }
 
-  render() {
+  protected _renderAccordionItem() {
+    const { label, selected, disabled, _index: index } = this;
+    const classes = classMap({
+      [`${prefix}--accordion__item`]: true,
+      [`${prefix}--accordion__item--active`]: selected,
+      [`${prefix}--accordion__item--disabled`]: disabled,
+    });
+    return html`
+      <li class="${classes}">
+        <button
+          class="${prefix}--accordion__heading"
+          aria-expanded="${selected}"
+          aria-controls="pane-${index}"
+          tabindex="${index + 1}"
+          ?disabled="${disabled}">
+          ${ChevronRight20({
+            part: 'expando-icon',
+            class: `${prefix}--accordion__arrow`,
+          })}
+          <div class="${prefix}--accordion__title">${label}</div>
+        </button>
+        <div id="pane-${index}" class="${prefix}--accordion__content">
+          <slot></slot>
+        </div>
+      </li>
+    `;
+  }
+
+  protected _renderTabItem() {
+    const { _index, selected } = this;
     return html`
       <div
-        id="tab-panel-${this._index}-default"
+        id="tab-panel-${_index}-default"
         tabindex="0"
-        class="tab-${this._index}-container"
+        class="tab-${_index}-container"
         role="tabpanel"
-        aria-labelledby="tab-link-${this._index}-default"
-        aria-hidden="${!this.selected}"
-        ?hidden="${!this.selected}">
+        aria-labelledby="tab-link-${_index}-default"
+        aria-hidden="${!selected}"
+        ?hidden="${!selected}">
         <slot></slot>
       </div>
     `;
+  }
+
+  render() {
+    return this._isMobileVersion
+      ? this._renderAccordionItem()
+      : this._renderTabItem();
   }
 
   static get stableSelector() {
