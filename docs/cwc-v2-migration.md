@@ -36,7 +36,7 @@ For Carbon v11 migration guidance, see their
 
 ### number-input
 
-- Removed `color-scheme`, `mobile` property
+- Removed `color-scheme` and `mobile` properties
 - `size` property expected values have been changed from '', 'sm', 'xl' to 'sm', 'md', and 'lg'
 - `validity-message-min` and `validity-message-max` properties replaced with `decrement-button-assistive-text` and `increment-button-assistive-text` respectively
 - `label-text` property replaced with `label`
