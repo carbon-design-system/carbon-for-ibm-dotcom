@@ -343,6 +343,7 @@ class CDSTextInput extends ValidityMixin(FormMixin(LitElement)) {
       [`${prefix}--text-input--invalid`]: normalizedProps.invalid,
       [`${prefix}--text-input--warning`]: normalizedProps.warn,
       [`${prefix}--text-input--${size}`]: size,
+      [`${prefix}--layout--size-${size}`]: size,
       [`${prefix}--password-input`]: type === INPUT_TYPE.PASSWORD,
     });
 
