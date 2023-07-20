@@ -284,7 +284,7 @@ class CDSButton extends HostListenerMixin(FocusMixin(LitElement)) {
       buttonClassName?.split(' ').forEach((element) => {
         outputObject[element] = true;
       });
-      defaultClasses = outputObject;
+      defaultClasses = {...defaultClasses, ...outputObject}
     }
     const classes = classMap(defaultClasses);
 
