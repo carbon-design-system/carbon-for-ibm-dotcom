@@ -5,11 +5,11 @@
 // LICENSE file in the root directory of this source tree.
 //
 
-@use '../../../../styles/scss/globals/vars' as *;
-@use '../../../../styles/scss/internal/content-block';
-@use '../../../../styles/scss/internal/content-item';
-@use '../../../../styles/scss/components/layout';
-@use '../../../../styles/scss/components/card-group';
+@forward '@carbon/ibmdotcom-styles/scss/globals/vars';
+@forward '@carbon/ibmdotcom-styles/scss/internal/content-block';
+@forward '@carbon/ibmdotcom-styles/scss/internal/content-item';
+@forward '@carbon/ibmdotcom-styles/scss/components/layout';
+@forward '@carbon/ibmdotcom-styles/scss/components/card-group';
 
 :host(#{$dds-prefix}-content-block),
 :host(#{$dds-prefix}-callout-with-media-copy),

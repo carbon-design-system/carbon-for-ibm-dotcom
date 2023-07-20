@@ -7,9 +7,9 @@
  * LICENSE file in the root directory of this source tree.
  */
 
-@use '../../../../styles/scss/globals/vars' as *;
-@use '../../../../styles/scss/components/link-list';
-@use 'carbon/ibmdotcom-styles/scss/globals/utils/hang' as *;
+@forward '@carbon/ibmdotcom-styles/scss/globals/vars';
+@forward '@carbon/ibmdotcom-styles/scss/components/link-list';
+@use 'carbon/ibmdotcom-styles/scss/globals/utils/hang';
 
 :host(#{$dds-prefix}-link-list-heading),
 :host(#{$dds-prefix}-link-list-item) {

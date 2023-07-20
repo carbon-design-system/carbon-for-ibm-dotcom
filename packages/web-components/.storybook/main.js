@@ -10,7 +10,7 @@
 'use strict';
 
 const path = require('path');
-const sass = require('node-sass');
+const sass = require('sass');
 const webpack = require('webpack');
 const TerserPlugin = require('terser-webpack-plugin');
 const rtlcss = require('rtlcss');

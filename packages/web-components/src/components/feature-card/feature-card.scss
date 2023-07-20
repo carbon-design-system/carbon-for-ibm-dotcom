@@ -6,9 +6,9 @@
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
  */
-@use '../../../../styles/scss/globals/vars' as *;
-@use '../../../../styles/scss/components/card';
-@use '../../../../styles/scss/components/feature-card/feature-card';
+@forward '@carbon/ibmdotcom-styles/scss/globals/vars';
+@forward '@carbon/ibmdotcom-styles/scss/components/card';
+@forward '@carbon/ibmdotcom-styles/scss/components/feature-card';
 @use '../card/card.scss';
 
 :host(#{$dds-prefix}-feature-card),

@@ -5,10 +5,9 @@
 // LICENSE file in the root directory of this source tree.
 //
 
-@use '@carbon/styles/scss/breakpoint' as *;
-@use '../../../../styles/scss/globals/vars' as *;
-@use 'carbon-components/scss/globals/scss/vendor/@carbon/elements/scss/layout/breakpoint';
-@use '../../../../styles/scss/components/content-group-pictograms';
+@use '@carbon/styles/scss/breakpoint';
+@forward '@carbon/ibmdotcom-styles/scss/globals/vars';
+@forward '@carbon/ibmdotcom-styles/scss/components/content-group-pictograms';
 
 :host(#{$dds-prefix}-content-group-pictograms) {
   display: block;

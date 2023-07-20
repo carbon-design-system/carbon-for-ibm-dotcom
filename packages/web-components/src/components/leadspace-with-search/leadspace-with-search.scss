@@ -5,4 +5,4 @@
 * LICENSE file in the root directory of this source tree.
 */
 
-@use '../../../../styles/scss/components/leadspace-with-search';
+@forward '@carbon/ibmdotcom-styles/scss/components/leadspace-with-search';

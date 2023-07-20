@@ -7,9 +7,9 @@
  * LICENSE file in the root directory of this source tree.
  */
 
-@use '../../../../styles/scss/globals/vars' as *;
-@use '../../../../styles/scss/components/card';
-@use '../../../../styles/scss/components/card-link';
+@forward '@carbon/ibmdotcom-styles/scss/globals/vars';
+@forward '@carbon/ibmdotcom-styles/scss/components/card';
+@forward '@carbon/ibmdotcom-styles/scss/components/card-link';
 
 :host(#{$dds-prefix}-card-link),
 :host(#{$dds-prefix}-card-link-cta),

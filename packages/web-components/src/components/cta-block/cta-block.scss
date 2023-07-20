@@ -5,8 +5,8 @@
 // LICENSE file in the root directory of this source tree.
 //
 
-@use '../../../../styles/scss/components/cta-block';
-@use '../../../../styles/scss/components/layout';
+@forward '@carbon/ibmdotcom-styles/scss/components/cta-block';
+@forward '@carbon/ibmdotcom-styles/scss/components/layout';
 
 :host(#{$dds-prefix}-cta-block) {
   @include cta-block--pattern;

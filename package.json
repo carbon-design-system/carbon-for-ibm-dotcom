@@ -7,14 +7,9 @@
   "engines": {
     "node": ">=18.x"
   },
-  "workspaces": {
-    "packages": [
-      "packages/*"
-    ],
-    "nohoist": [
-      "**/marked"
-    ]
-  },
+  "workspaces": [
+    "packages/*"
+  ],
   "scripts": {
     "build": "lerna run build --stream --prefix",
     "ci-check": "npm run format:diff && yarn lint:license && yarn lint && yarn lint:styles",

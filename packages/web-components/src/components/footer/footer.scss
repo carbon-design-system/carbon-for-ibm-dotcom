@@ -12,8 +12,8 @@
 @use '@carbon/styles/scss/components/text-input';
 @use '@carbon/styles/scss/components/link';
 
-@use '../../../../styles/scss/globals/vars' as *;
-@use '../../../../styles/scss/components/footer';
+@forward '@carbon/ibmdotcom-styles/scss/globals/vars';
+@forward '@carbon/ibmdotcom-styles/scss/components/footer';
 
 :host(#{$dds-prefix}-footer),
 :host(#{$dds-prefix}-legal-nav) {

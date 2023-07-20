@@ -7,4 +7,4 @@
  * LICENSE file in the root directory of this source tree.
  */
 
-@use '../../../../styles/scss/components/logo-grid';
+@forward '@carbon/ibmdotcom-styles/scss/components/logo-grid';

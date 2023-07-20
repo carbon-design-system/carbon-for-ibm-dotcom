@@ -52,7 +52,11 @@ const _cssStream = ({ banner, dir }) =>
     )
     .pipe(
       sass({
-        includePaths: ['node_modules', path.resolve(__dirname, '../../../../../node_modules')],
+        includePaths: [
+          path.resolve(__dirname, '../../../node_modules'),
+          path.resolve(__dirname, '../../../../../node_modules'),
+          path.resolve(__dirname, '../../../../../node_modules/@carbon/styles/node_modules'),
+        ],
       })
     )
     .pipe(

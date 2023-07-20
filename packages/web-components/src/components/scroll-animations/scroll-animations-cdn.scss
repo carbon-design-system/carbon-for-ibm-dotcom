@@ -6,4 +6,4 @@
 //
 
 // This import is used for generating the CDN artifact
-@use '../../../../styles/scss/components/scroll-into-view';
+@forward '@carbon/ibmdotcom-styles/scss/components/scroll-into-view';

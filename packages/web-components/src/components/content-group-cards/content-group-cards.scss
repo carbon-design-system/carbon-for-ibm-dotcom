@@ -5,5 +5,5 @@
 // LICENSE file in the root directory of this source tree.
 //
 
-@use '../../../../styles/scss/components/card';
-@use '../../../../styles/scss/components/content-group-cards';
+@forward '@carbon/ibmdotcom-styles/scss/components/card';
+@forward '@carbon/ibmdotcom-styles/scss/components/content-group-cards';

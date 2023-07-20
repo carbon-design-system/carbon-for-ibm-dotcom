@@ -5,4 +5,4 @@
 // LICENSE file in the root directory of this source tree.
 //
 
-@use '../../../../styles/scss/components/pricing-table';
+@forward '@carbon/ibmdotcom-styles/scss/components/pricing-table';

@@ -5,8 +5,8 @@
 // LICENSE file in the root directory of this source tree.
 //
 
-@use '../../../../styles/scss/globals/vars' as *;
-@use '../../../../styles/scss/internal/content-item';
+@forward '@carbon/ibmdotcom-styles/scss/globals/vars';
+@forward '@carbon/ibmdotcom-styles/scss/internal/content-item';
 
 :host(#{$dds-prefix}-content-item-copy),
 :host(#{$dds-prefix}-content-item-paragraph) {

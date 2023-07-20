@@ -7,10 +7,9 @@
 
 @use 'sass:map';
 
-@use 'carbon-components/scss/globals/scss/vendor/@carbon/elements/scss/grid/_inlined/mixins';
-@use '../../../../styles/scss/globals/vars' as *;
-@use '../../../../styles/scss/components/card-link';
-@use '../../../../styles/scss/components/locale-modal';
+@forward '@carbon/ibmdotcom-styles/scss/globals/vars';
+@forward '@carbon/ibmdotcom-styles/scss/components/card-link';
+@forward '@carbon/ibmdotcom-styles/scss/components/locale-modal';
 @use '../expressive-modal/expressive-modal';
 
 :host(#{$dds-prefix}-locale-modal) {
