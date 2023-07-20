@@ -41,7 +41,7 @@ $css--plex: true !default;
 :host(#{$prefix}-accordion-item[size='sm']),
 :host(#{$prefix}-accordion-item-skeleton[size='sm']) {
   button {
-    @extend .cds--layout--size-sm;
+    @extend .#{$prefix}--layout--size-sm;
     min-height: var(--cds-layout-size-height-context);
   }
 }
@@ -49,7 +49,7 @@ $css--plex: true !default;
 :host(#{$prefix}-accordion-item[size='lg']),
 :host(#{$prefix}-accordion-item-skeleton[size='lg']) {
   button {
-    @extend .cds--layout--size-lg;
+    @extend .#{$prefix}--layout--size-lg;
     min-height: var(--cds-layout-size-height-context);
   }
 }
