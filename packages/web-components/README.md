@@ -177,14 +177,14 @@ module: {
 
 [![Edit @carbon/ibmdotcom-web-components](https://codesandbox.io/static/img/play-codesandbox.svg)](https://githubbox.com/carbon-design-system/carbon-for-ibm-dotcom/tree/main/packages/web-components/examples/codesandbox/usage/webpack-sass)
 
-To prevent a flash of unstyled content (FOUC)  from happening on your page be sure to to `display: none` if a component has not been defined yet. For example
+To prevent a flash of unstyled content (FOUC) from happening on your page be
+sure to to `display: none` if a component has not been defined yet. For example
 
 ```css
-  dds-button-group:not(:defined) {
-    display: none;
-  }
+dds-button-group:not(:defined) {
+  display: none;
+}
 ```
-
 
 #### Enabling RTL
 
