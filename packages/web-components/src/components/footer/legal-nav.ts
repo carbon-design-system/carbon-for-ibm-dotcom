@@ -81,7 +81,7 @@ class DDSLegalNav extends StableSelectorMixin(LitElement) {
               </div>
             </div>
           </div>
-          <slot name='locale'>
+          <slot name="locale"></slot>
         </div>
       </nav>
     `;
