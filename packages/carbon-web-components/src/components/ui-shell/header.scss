@@ -11,6 +11,7 @@ $css--plex: true !default;
 @use '@carbon/styles/scss/breakpoint' as *;
 @use '@carbon/styles/scss/spacing' as *;
 @use '@carbon/styles/scss/theme' as *;
+@use '@carbon/styles/scss/utilities' as *;
 @use '@carbon/styles/scss/components/button';
 @use '@carbon/styles/scss/components/popover/index';
 @use '@carbon/styles/scss/components/tooltip';
