@@ -155,6 +155,10 @@ $css--plex: true !default;
   }
 }
 
+:host(#{$prefix}-switcher-item:nth-child(1)) {
+  margin-top: $spacing-05;
+}
+
 :host(#{$prefix}-switcher-divider) {
   @extend .#{$prefix}--switcher__item--divider;
 }
