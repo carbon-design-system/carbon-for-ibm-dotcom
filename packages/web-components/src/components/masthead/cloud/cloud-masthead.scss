@@ -173,7 +173,7 @@
     }
 
     &:hover {
-      background-color: $hover-ui;
+      background-color: $background-hover;
     }
 
     &:focus {
@@ -224,7 +224,7 @@
 
     &:hover {
       text-decoration: none;
-      background-color: $hover-ui;
+      background-color: $background-hover;
 
       span {
         color: $text-01;

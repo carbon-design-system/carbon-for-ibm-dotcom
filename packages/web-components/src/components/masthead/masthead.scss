@@ -5,11 +5,18 @@
 // LICENSE file in the root directory of this source tree.
 //
 
+@use '@carbon/styles/scss/breakpoint' as *;
+@use '@carbon/styles/scss/config' as *;
+@use '@carbon/styles/scss/motion' as *;
+@use '@carbon/styles/scss/spacing' as *;
+@use '@carbon/styles/scss/theme' as *;
+@use '@carbon/styles/scss/type' as *;
+@use '@carbon/styles/scss/utilities' as *;
 @use '@carbon/styles/scss/components/ui-shell/header';
 @use '@carbon/styles/scss/components/ui-shell/side-nav';
+@use '@carbon/ibmdotcom-styles/scss/components/masthead' as *;
+@use '../../../../carbon-web-components/src/components/tooltip/tooltip';
 @use '@carbon/ibmdotcom-styles/scss/globals/vars' as *;
-@use '@carbon/ibmdotcom-styles/scss/components/masthead';
-@use '../../../../carbon-web-components/src/components/tooltip';
 
 :host(#{$dds-prefix}-masthead-menu-button) {
   @extend :host(#{$prefix}-header-menu-button);
@@ -309,8 +316,8 @@
     inset-inline-start: -100vw;
     visibility: hidden;
     /* stylelint-disable-next-line  time-min-milliseconds */
-    transition: visibility 1ms motion(exit, productive) $duration--fast-02,
-      left $duration--fast-02 motion(exit, productive) 1ms;
+    transition: visibility 1ms motion(exit, productive) $duration-fast-02,
+      left $duration-fast-02 motion(exit, productive) 1ms;
   }
 
   &[expanded][usage-mode='header-nav'],
@@ -320,7 +327,7 @@
     visibility: visible;
     /* stylelint-disable-next-line time-min-milliseconds */
     transition: visibility 1ms motion(exit, productive) 0ms,
-      inset-inline-start $duration--fast-02 motion(exit, productive) 1ms;
+      inset-inline-start $duration-fast-02 motion(exit, productive) 1ms;
   }
 
   .#{$prefix}--side-nav__wrapper {
@@ -420,8 +427,8 @@
 :host(#{$dds-prefix}-left-nav-menu),
 :host(#{$dds-prefix}-left-nav-menu-item) {
   .#{$prefix}--side-nav__link:hover {
-    background-color: $shell-side-nav-bg-04;
-    color: $ibm-color__gray-100;
+    background-color: $background-hover;
+    color: $text-primary;
   }
 }
 
@@ -451,8 +458,8 @@
   height: 100vh;
   background-color: rgba(22, 22, 22, 0.5);
   opacity: 1;
-  transition: opacity $transition--expansion $carbon--standard-easing,
-    background-color $transition--expansion $carbon--standard-easing;
+  transition: opacity $transition--expansion $standard-easing,
+    background-color $transition--expansion $standard-easing;
 
   // Makes the trigger button work without making it floated. In this way, we don't have to adjust the position of the logo
   top: 0;

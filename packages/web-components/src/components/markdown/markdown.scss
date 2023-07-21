@@ -10,7 +10,8 @@ $css--reset: false !default;
 @use '@carbon/ibmdotcom-styles/scss/globals/vars' as *;
 
 :host(#{$dds-prefix}-markdown) {
-  p {
-    @include reset;
-  }
+  // shouldn't be needed
+  // p {
+  //   @include reset;
+  // }
 }
