@@ -5,8 +5,12 @@
 // LICENSE file in the root directory of this source tree.
 //
 
-@forward '@carbon/ibmdotcom-styles/scss/globals/vars';
-@forward '@carbon/ibmdotcom-styles/scss/components/link-with-icon';
+@use '@carbon/styles/scss/breakpoint' as *;
+@use '@carbon/styles/scss/config' as *;
+@use '@carbon/styles/scss/spacing' as *;
+@use '@carbon/styles/scss/theme' as *;
+@use '@carbon/ibmdotcom-styles/scss/components/link-with-icon';
+@use '@carbon/ibmdotcom-styles/scss/globals/vars' as *;
 
 :host(#{$dds-prefix}-link-with-icon),
 :host(#{$dds-prefix}-link-list-item),
@@ -14,7 +18,7 @@
 :host(#{$dds-prefix}-link-list-item-cta) {
   // Re-define the ruleset so this wins over `.bx--link:visited`, etc.
   .#{$prefix}--link--disabled {
-    color: $disabled-02;
+    color: $text-disabled;
   }
 }
 

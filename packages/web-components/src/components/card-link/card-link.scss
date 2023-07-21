@@ -7,9 +7,11 @@
  * LICENSE file in the root directory of this source tree.
  */
 
-@forward '@carbon/ibmdotcom-styles/scss/globals/vars';
-@forward '@carbon/ibmdotcom-styles/scss/components/card';
-@forward '@carbon/ibmdotcom-styles/scss/components/card-link';
+@use '@carbon/styles/scss/breakpoint' as *;
+@use '@carbon/styles/scss/config' as *;
+@use '@carbon/ibmdotcom-styles/scss/globals/vars' as *;
+@use '@carbon/ibmdotcom-styles/scss/components/card';
+@use '@carbon/ibmdotcom-styles/scss/components/card-link';
 
 :host(#{$dds-prefix}-card-link),
 :host(#{$dds-prefix}-card-link-cta),
@@ -45,7 +47,7 @@
   ::slotted(#{$dds-prefix}-card-footer) {
     margin-block: 2px;
     margin-inline-start: 32px;
-    @include breakpoint('lg') {
+    @include breakpoint(lg) {
       margin-inline-start: 0;
     }
   }

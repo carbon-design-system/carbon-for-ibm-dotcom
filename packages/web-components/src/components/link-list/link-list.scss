@@ -7,9 +7,13 @@
  * LICENSE file in the root directory of this source tree.
  */
 
-@forward '@carbon/ibmdotcom-styles/scss/globals/vars';
-@forward '@carbon/ibmdotcom-styles/scss/components/link-list';
-@use 'carbon/ibmdotcom-styles/scss/globals/utils/hang';
+@use '@carbon/styles/scss/breakpoint' as *;
+@use '@carbon/styles/scss/config' as *;
+@use '@carbon/styles/scss/spacing' as *;
+@use '@carbon/styles/scss/theme' as *;
+@use '@carbon/ibmdotcom-styles/scss/components/link-list';
+@use '@carbon/ibmdotcom-styles/scss/globals/utils/hang';
+@use '@carbon/ibmdotcom-styles/scss/globals/vars' as *;
 
 :host(#{$dds-prefix}-link-list-heading),
 :host(#{$dds-prefix}-link-list-item) {

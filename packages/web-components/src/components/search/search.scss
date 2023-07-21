@@ -6,7 +6,7 @@
 //
 
 @use '../../../../carbon-web-components/src/components/search';
-@forward '@carbon/ibmdotcom-styles/scss/globals/vars';
+@use '@carbon/ibmdotcom-styles/scss/globals/vars' as *;
 //
 :host(#{$dds-prefix}-search) {
   @extend :host(#{$prefix}-search);

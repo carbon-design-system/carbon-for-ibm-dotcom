@@ -6,8 +6,8 @@
 //
 
 @use '@carbon/styles/scss/breakpoint';
-@forward '@carbon/ibmdotcom-styles/scss/globals/vars';
-@forward '@carbon/ibmdotcom-styles/scss/components/content-group-pictograms';
+@use '@carbon/ibmdotcom-styles/scss/globals/vars' as *;
+@use '@carbon/ibmdotcom-styles/scss/components/content-group-pictograms';
 
 :host(#{$dds-prefix}-content-group-pictograms) {
   display: block;

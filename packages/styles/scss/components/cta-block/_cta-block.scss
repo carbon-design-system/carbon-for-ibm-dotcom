@@ -5,6 +5,12 @@
  * LICENSE file in the root directory of this source tree.
  */
 
+@use '@carbon/styles/scss/breakpoint' as *;
+@use '@carbon/styles/scss/config' as *;
+@use '@carbon/styles/scss/spacing' as *;
+@use '@carbon/styles/scss/theme' as *;
+@use '@carbon/styles/scss/themes' as *;
+@use '@carbon/styles/scss/type' as *;
 @use '../../globals/utils/flex-grid' as *;
 @use '../../globals/vars' as *;
 @use '../../internal/content-block';
@@ -30,7 +36,7 @@
   }
 }
 
-@mixin cta-block--pattern {
+@mixin cta-block {
   :host(#{$dds-prefix}-cta-block),
   .#{$prefix}--cta-block {
     padding-top: $spacing-07;
@@ -173,23 +179,20 @@
   }
 
   .#{$prefix}--cta-block--g10 {
-    @include theme($g10, feature-flag-enabled('enable-css-custom-properties')) {
-      @include themed-items;
-    }
+    @include theme($g10, feature-flag-enabled('enable-css-custom-properties'));
+
+    @include themed-items;
   }
 
   .#{$prefix}--cta-block--g90 {
-    @include theme($g90, feature-flag-enabled('enable-css-custom-properties')) {
-      @include themed-items;
-    }
+    @include theme($g90, feature-flag-enabled('enable-css-custom-properties'));
+
+    @include themed-items;
   }
 
   .#{$prefix}--cta-block--g100 {
-    @include theme(
-      $g100,
-      feature-flag-enabled('enable-css-custom-properties')
-    ) {
-      @include themed-items;
-    }
+    @include theme($g100, feature-flag-enabled('enable-css-custom-properties'));
+
+    @include themed-items;
   }
 }

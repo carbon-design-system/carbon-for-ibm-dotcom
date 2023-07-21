@@ -5,15 +5,20 @@
 // LICENSE file in the root directory of this source tree.
 //
 
+@use '@carbon/styles/scss/breakpoint' as *;
+@use '@carbon/styles/scss/config' as *;
+@use '@carbon/styles/scss/spacing' as *;
+@use '@carbon/styles/scss/theme' as *;
+@use '@carbon/styles/scss/type' as *;
 @use '@carbon/styles/scss/components/accordion';
 @use '@carbon/styles/scss/components/combo-box';
 @use '@carbon/styles/scss/components/select';
 @use '@carbon/styles/scss/components/form';
 @use '@carbon/styles/scss/components/text-input';
 @use '@carbon/styles/scss/components/link';
-
-@forward '@carbon/ibmdotcom-styles/scss/globals/vars';
-@forward '@carbon/ibmdotcom-styles/scss/components/footer';
+@use '@carbon/ibmdotcom-styles/scss/components/footer';
+@use '@carbon/ibmdotcom-styles/scss/globals/utils/flex-grid' as *;
+@use '@carbon/ibmdotcom-styles/scss/globals/vars' as *;
 
 :host(#{$dds-prefix}-footer),
 :host(#{$dds-prefix}-legal-nav) {
@@ -116,7 +121,7 @@
       @include breakpoint(md) {
         display: block;
         column-count: 2;
-        column-gap: $carbon--grid-gutter;
+        column-gap: $grid-gutter;
       }
 
       @include breakpoint(lg) {
@@ -224,7 +229,7 @@
       }
 
       &:active {
-        background-color: $active-ui;
+        background-color: $background-active;
       }
     }
 

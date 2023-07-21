@@ -5,7 +5,11 @@
 // LICENSE file in the root directory of this source tree.
 //
 
-@forward '@carbon/ibmdotcom-styles/scss/components/content-block-segmented';
+@use '@carbon/styles/scss/breakpoint' as *;
+@use '@carbon/styles/scss/spacing' as *;
+@use '@carbon/styles/scss/theme' as *;
+@use '@carbon/ibmdotcom-styles/scss/components/content-block-segmented';
+@use '@carbon/ibmdotcom-styles/scss/globals/vars' as *;
 
 :host(#{$dds-prefix}-content-block-segmented) {
   ::slotted(:not([slot])) {
@@ -23,8 +27,8 @@
   }
 
   ::slotted(#{$dds-prefix}-content-block-complementary) {
-    @include breakpoint-down('lg') {
-      margin: $layout-05 0;
+    @include breakpoint-down(lg) {
+      margin: $spacing-10 0;
     }
   }
 }
@@ -37,7 +41,7 @@
 // TODO: Consider applying this rule in general
 :host(#{$dds-prefix}-content-block-segmented-item) {
   ::slotted(#{$dds-prefix}-content-item-copy) {
-    @include breakpoint('md') {
+    @include breakpoint(md) {
       width: calc((100% - 2 * #{$spacing-05}) * 0.9);
     }
   }

@@ -11,7 +11,7 @@
 
 /* stylelint-disable-next-line selector-type-no-unknown */
 dds-carousel {
-  @include breakpoint('lg') {
+  @include breakpoint(lg) {
     --dds--carousel--page-size: 4;
   }
 }

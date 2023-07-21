@@ -5,10 +5,11 @@
 // LICENSE file in the root directory of this source tree.
 //
 
-@forward '@carbon/ibmdotcom-styles/scss/globals/vars';
-@forward '@carbon/ibmdotcom-styles/scss/components/lightbox-media-viewer';
-@forward '@carbon/ibmdotcom-styles/scss/components/video-player';
+@use '@carbon/styles/scss/config' as *;
+@use '@carbon/ibmdotcom-styles/scss/components/lightbox-media-viewer';
+@use '@carbon/ibmdotcom-styles/scss/components/video-player';
 @use '../expressive-modal/expressive-modal';
+@use '@carbon/ibmdotcom-styles/scss/globals/vars' as *;
 
 :host(#{$dds-prefix}-lightbox-image-viewer),
 :host(#{$dds-prefix}-lightbox-video-player) {

@@ -5,8 +5,11 @@
 // LICENSE file in the root directory of this source tree.
 //
 
-@forward '@carbon/ibmdotcom-styles/scss/components/card-section-images';
-@forward '@carbon/ibmdotcom-styles/scss/components/layout';
+@use '@carbon/styles/scss/config' as *;
+@use '@carbon/styles/scss/spacing' as *;
+@use '@carbon/ibmdotcom-styles/scss/components/card-section-images';
+@use '@carbon/ibmdotcom-styles/scss/components/layout';
+@use '@carbon/ibmdotcom-styles/scss/globals/vars' as *;
 
 :host(#{$dds-prefix}-card-section-images) {
   display: block;

@@ -5,12 +5,18 @@
 // LICENSE file in the root directory of this source tree.
 //
 
-@forward '@carbon/ibmdotcom-styles/scss/components/cta-block';
-@forward '@carbon/ibmdotcom-styles/scss/components/layout';
+@use '@carbon/styles/scss/breakpoint' as *;
+@use '@carbon/styles/scss/config' as *;
+@use '@carbon/styles/scss/spacing' as *;
+@use '@carbon/styles/scss/theme' as *;
+@use '@carbon/styles/scss/themes' as *;
+@use '@carbon/styles/scss/type' as *;
+@use '@carbon/ibmdotcom-styles/scss/components/cta-block';
+@use '@carbon/ibmdotcom-styles/scss/components/layout';
+@use '@carbon/ibmdotcom-styles/scss/globals/utils/flex-grid' as *;
+@use '@carbon/ibmdotcom-styles/scss/globals/vars' as *;
 
 :host(#{$dds-prefix}-cta-block) {
-  @include cta-block--pattern;
-
   display: block;
 
   .#{$prefix}--content-layout {
@@ -38,7 +44,7 @@
   }
 
   ::slotted(#{$dds-prefix}-content-block-heading) {
-    @include dds--make-col(8, 12);
+    @include make-col(8, 12);
 
     margin-left: 0;
     padding-left: 0;
@@ -57,7 +63,7 @@
   }
 
   ::slotted(#{$dds-prefix}-content-block-copy) {
-    @include dds--make-col(8, 12);
+    @include make-col(8, 12);
     @include type-style('fluid-heading-03', true);
 
     max-width: 640px;
@@ -160,7 +166,7 @@
 }
 
 .#{$dds-prefix}-ce--cta-block__col {
-  @include dds--make-col(2, 3);
+  @include make-col(2, 3);
 }
 
 :host(#{$dds-prefix}-cta-block-item) {

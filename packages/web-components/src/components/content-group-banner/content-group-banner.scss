@@ -5,9 +5,9 @@
 // LICENSE file in the root directory of this source tree.
 //
 
-@forward '@carbon/ibmdotcom-styles/scss/globals/vars';
-@forward '@carbon/ibmdotcom-styles/scss/internal/content-block';
-@forward '@carbon/ibmdotcom-styles/scss/components/content-group-banner';
+@use '@carbon/ibmdotcom-styles/scss/globals/vars' as *;
+@use '@carbon/ibmdotcom-styles/scss/internal/content-block';
+@use '@carbon/ibmdotcom-styles/scss/components/content-group-banner';
 
 :host(#{$dds-prefix}-content-group-banner) {
   display: block;

@@ -5,9 +5,12 @@
 // LICENSE file in the root directory of this source tree.
 //
 
-@forward '@carbon/ibmdotcom-styles/scss/globals/vars';
-@forward '@carbon/ibmdotcom-styles/scss/components/button-group';
-@forward '@carbon/ibmdotcom-styles/scss/components/leadspace-block';
+@use '@carbon/styles/scss/breakpoint' as *;
+@use '@carbon/styles/scss/config' as *;
+@use '@carbon/styles/scss/spacing' as *;
+@use '@carbon/ibmdotcom-styles/scss/components/button-group';
+@use '@carbon/ibmdotcom-styles/scss/components/leadspace-block';
+@use '@carbon/ibmdotcom-styles/scss/globals/vars' as *;
 
 :host(#{$dds-prefix}-leadspace-with-search-heading),
 :host(#{$dds-prefix}-leadspace-block-heading) {

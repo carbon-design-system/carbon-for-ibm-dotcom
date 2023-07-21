@@ -5,8 +5,8 @@
 // LICENSE file in the root directory of this source tree.
 //
 
-@forward '@carbon/ibmdotcom-styles/scss/globals/vars';
-@forward '@carbon/ibmdotcom-styles/scss/components/layout';
+@use '@carbon/ibmdotcom-styles/scss/globals/vars' as *;
+@use '@carbon/ibmdotcom-styles/scss/components/layout';
 
 :host(#{$dds-prefix}-table-of-contents[toc-layout='horizontal'])
   .#{$prefix}--tableofcontents__navbar {

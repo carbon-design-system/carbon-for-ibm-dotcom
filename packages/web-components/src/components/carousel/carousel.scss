@@ -7,5 +7,5 @@
 // LICENSE file in the root directory of this source tree.
 //
 
-@forward '@carbon/ibmdotcom-styles/scss/globals/vars';
-@forward '@carbon/ibmdotcom-styles/scss/components/carousel';
+@use '@carbon/ibmdotcom-styles/scss/components/carousel';
+@use '@carbon/ibmdotcom-styles/scss/globals/vars' as *;

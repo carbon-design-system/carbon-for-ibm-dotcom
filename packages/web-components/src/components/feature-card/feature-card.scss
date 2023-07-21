@@ -6,20 +6,24 @@
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
  */
-@forward '@carbon/ibmdotcom-styles/scss/globals/vars';
-@forward '@carbon/ibmdotcom-styles/scss/components/card';
-@forward '@carbon/ibmdotcom-styles/scss/components/feature-card';
-@use '../card/card.scss';
+
+@use '@carbon/styles/scss/breakpoint' as *;
+@use '@carbon/styles/scss/config' as *;
+@use '@carbon/styles/scss/spacing' as *;
+@use '@carbon/styles/scss/theme' as *;
+@use '@carbon/ibmdotcom-styles/scss/components/feature-card';
+@use '../card/card';
+@use '@carbon/ibmdotcom-styles/scss/globals/vars' as *;
 
 :host(#{$dds-prefix}-feature-card),
 :host(#{$dds-prefix}-feature-cta) {
   display: block;
   outline: none;
   ::slotted(#{$dds-prefix}-card-heading) {
-    color: $inverse-01;
+    color: $focus-inset;
   }
 
-  @include breakpoint-down('md') {
+  @include breakpoint-down(md) {
     .#{$prefix}--card__wrapper {
       display: block;
       min-height: 0;
@@ -40,7 +44,7 @@
 :host(#{$dds-prefix}-feature-card[size='large']) {
   &:hover {
     .#{$prefix}--card__wrapper {
-      background-color: $inverse-hover-ui;
+      background-color: $background-inverse-hover;
     }
   }
 
@@ -48,7 +52,7 @@
     display: flex;
     justify-content: flex-start;
 
-    @include breakpoint('xlg') {
+    @include breakpoint(xlg) {
       justify-content: flex-end;
     }
   }
@@ -59,13 +63,13 @@
   display: flex;
   justify-content: flex-start;
 
-  @include breakpoint('md') {
+  @include breakpoint(md) {
     justify-content: flex-end;
   }
 
   &[size='large'] {
     .dds-ce--card__footer ::slotted(svg[slot='icon']) {
-      @include breakpoint('max') {
+      @include breakpoint(max) {
         width: $spacing-10;
         height: $spacing-10;
       }

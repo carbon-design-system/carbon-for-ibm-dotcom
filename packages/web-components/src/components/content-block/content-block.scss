@@ -5,11 +5,16 @@
 // LICENSE file in the root directory of this source tree.
 //
 
-@forward '@carbon/ibmdotcom-styles/scss/globals/vars';
-@forward '@carbon/ibmdotcom-styles/scss/internal/content-block';
-@forward '@carbon/ibmdotcom-styles/scss/internal/content-item';
-@forward '@carbon/ibmdotcom-styles/scss/components/layout';
-@forward '@carbon/ibmdotcom-styles/scss/components/card-group';
+@use '@carbon/styles/scss/breakpoint' as *;
+@use '@carbon/styles/scss/spacing' as *;
+@use '@carbon/styles/scss/type' as *;
+@use '@carbon/ibmdotcom-styles/scss/internal/content-block';
+@use '@carbon/ibmdotcom-styles/scss/internal/content-item';
+@use '@carbon/ibmdotcom-styles/scss/components/layout';
+@use '@carbon/ibmdotcom-styles/scss/components/card-group';
+@use '@carbon/ibmdotcom-styles/scss/globals/utils/content-width' as *;
+@use '@carbon/ibmdotcom-styles/scss/globals/utils/flex-grid' as *;
+@use '@carbon/ibmdotcom-styles/scss/globals/vars' as *;
 
 :host(#{$dds-prefix}-content-block),
 :host(#{$dds-prefix}-callout-with-media-copy),
@@ -53,5 +58,5 @@
 
 // TODO: Apply `dds--make-col(2, 3)` to React version, too, so we can merge the style to React version
 .#{$dds-prefix}-ce--content-block__col {
-  @include dds--make-col(2, 3);
+  @include make-col(2, 3);
 }

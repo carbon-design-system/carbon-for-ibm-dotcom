@@ -7,7 +7,7 @@
 
 @use '../../globals/vars' as *;
 @use '../link-list';
-@use '@carbon/styles/scss/breakpoint';
+@use '@carbon/styles/scss/breakpoint' as *;
 @use '@carbon/styles/scss/components/accordion';
 @use '@carbon/styles/scss/components/tabs/index';
 

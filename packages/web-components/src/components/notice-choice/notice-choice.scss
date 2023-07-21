@@ -9,4 +9,4 @@
 
 $css--plex: true !default;
 @use 'carbon-components/scss/components/checkbox';
-@forward '@carbon/ibmdotcom-styles/scss/components/notice-choice';
+@use '@carbon/ibmdotcom-styles/scss/components/notice-choice';

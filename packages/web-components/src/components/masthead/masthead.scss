@@ -7,8 +7,8 @@
 
 @use '@carbon/styles/scss/components/ui-shell/header';
 @use '@carbon/styles/scss/components/ui-shell/side-nav';
-@forward '@carbon/ibmdotcom-styles/scss/globals/vars';
-@forward '@carbon/ibmdotcom-styles/scss/components/masthead';
+@use '@carbon/ibmdotcom-styles/scss/globals/vars' as *;
+@use '@carbon/ibmdotcom-styles/scss/components/masthead';
 @use '../../../../carbon-web-components/src/components/tooltip';
 
 :host(#{$dds-prefix}-masthead-menu-button) {

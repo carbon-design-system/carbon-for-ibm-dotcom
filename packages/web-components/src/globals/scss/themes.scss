@@ -6,6 +6,7 @@
 //
 
 @use '@carbon/ibmdotcom-styles/scss/globals/vars' as *;
+@use '@carbon/styles/scss/theme' as *;
 @use '@carbon/styles/scss/themes' as *;
 
 :host(.#{$dds-prefix}-theme-zone-white),

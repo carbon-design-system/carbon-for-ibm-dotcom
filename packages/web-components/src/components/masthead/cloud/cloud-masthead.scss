@@ -25,7 +25,7 @@
 
 :host(#{$dds-prefix}-cloud-masthead-global-bar)
   ::slotted(#{$dds-prefix}-cloud-button-cta) {
-  @include breakpoint-down('md') {
+  @include breakpoint-down(md) {
     display: none;
   }
 }
@@ -73,11 +73,11 @@
       left: 0;
     }
 
-    @include breakpoint('lg') {
+    @include breakpoint(lg) {
       margin-left: 0;
     }
 
-    @include breakpoint('xlg') {
+    @include breakpoint(xlg) {
       margin-left: $spacing-05;
       position: relative;
     }
@@ -124,11 +124,11 @@
   justify-content: space-between;
   border-right: carbon--rem(1px) solid $ui-03;
 
-  @include breakpoint('md') {
+  @include breakpoint(md) {
     min-height: carbon--rem(580px);
   }
 
-  @include breakpoint('xlg') {
+  @include breakpoint(xlg) {
     min-height: carbon--rem(475px);
   }
 }
@@ -199,7 +199,7 @@
   max-width: 50%;
   outline: 0;
 
-  @include breakpoint('xlg') {
+  @include breakpoint(xlg) {
     max-width: 33.33%;
   }
 
@@ -209,7 +209,7 @@
     height: 100%;
 
     p {
-      @include type-style('expressive-heading-01');
+      @include type-style('heading-01');
 
       color: $text-01;
     }
@@ -244,7 +244,7 @@
   margin-bottom: $spacing-07;
   width: 66.66%;
 
-  @include breakpoint('lg') {
+  @include breakpoint(lg) {
     width: auto;
   }
 
@@ -285,7 +285,7 @@
 
     color: $text-02;
 
-    @include breakpoint('lg') {
+    @include breakpoint(lg) {
       width: 40%;
     }
   }
@@ -318,7 +318,7 @@
 :host(#{$dds-prefix}-cloud-masthead-profile)
   .#{$prefix}--header__menu-title[aria-expanded='true']
   + .#{$prefix}--header__menu {
-  @include breakpoint-down('md') {
+  @include breakpoint-down(md) {
     width: 100vw;
   }
 }

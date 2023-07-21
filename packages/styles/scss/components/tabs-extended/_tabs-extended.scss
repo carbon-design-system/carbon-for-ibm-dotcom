@@ -8,7 +8,7 @@
 @use '../../globals/utils/flex-grid' as *;
 @use '../../globals/vars' as *;
 @use '../link-list';
-@use '@carbon/styles/scss/breakpoint';
+@use '@carbon/styles/scss/breakpoint' as *;
 @use '@carbon/styles/scss/components/tabs/index';
 @use '@carbon/web-components/scss/components/tooltip/tooltip';
 @use '@carbon/styles/scss/components/accordion';
