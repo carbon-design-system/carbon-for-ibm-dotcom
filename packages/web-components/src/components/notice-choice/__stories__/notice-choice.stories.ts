@@ -35,11 +35,12 @@ const locales = {
   'Korean [ko]': 'ko',
   'Malaysian [ms]': 'ms',
   'Polish [pl]': 'pl',
-  'Portuguese [pt-br]': 'pt-br',
+  'Portuguese [pt]': 'pt',
   'Slovenian [sl]': 'sl',
   'Spanish [es]': 'es',
+  'Spanish-Latin America [es-la]': 'es-la',
   'Turkish [tr]': 'tr',
-  'Ukrainian [uk]': 'uk',
+  'Ukrainian [uk]': 'uk'
 };
 const countryList = {
   'Unites States': 'US',

@@ -384,6 +384,7 @@ class NoticeChoice extends StableSelectorMixin(LitElement) {
     }
   }
   render() {
+
     return html`<section class="${prefix}--nc">
     <p id="ncHeading" class="${ddsPrefix}--nc__pre-text">${this.preTextTemplate()} </p>
       <div class="${prefix}--checkbox-group">
@@ -395,7 +396,7 @@ class NoticeChoice extends StableSelectorMixin(LitElement) {
                 const checkbox = this.checkboxes[key];
                 const hiddenBox = {
                   id: 'NC_HIDDEN_' + key,
-                  value: this.values['NC_HIDDEN_' + key],
+                  value: this.values[key] ? 'OPT_OUT':'OPT_IN',
                 };
                 return this.checkBoxTemplate(checkbox, checked, hiddenBox);
               })
