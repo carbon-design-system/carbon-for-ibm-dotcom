@@ -62,7 +62,6 @@ class DDSFooterComposite extends MediaQueryMixin(
    */
   private _handleClickLocaleButton = () => {
     this.openLocaleModal = true;
-    this.modalVisible = true;
   };
 
   @state()
