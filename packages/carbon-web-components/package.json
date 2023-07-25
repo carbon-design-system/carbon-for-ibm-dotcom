@@ -52,7 +52,6 @@
   },
   "files": [
     "custom-elements.json",
-    "tools/fix-carbon-sass-imports.js",
     "dist/**/*",
     "es/**/*",
     "lib/**/*",
