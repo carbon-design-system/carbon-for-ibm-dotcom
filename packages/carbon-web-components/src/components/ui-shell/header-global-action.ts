@@ -8,9 +8,10 @@
  */
 
 import { LitElement } from 'lit';
-import { property, customElement } from 'lit/decorators.js';
+import { property, customElement, query } from 'lit/decorators.js';
 import { BUTTON_TOOLTIP_POSITION } from '../button/button';
 import CDSButton from '../button/button';
+import HostListener from '../../globals/decorators/host-listener';
 import styles from './header.scss';
 import { prefix } from '../../globals/settings';
 
@@ -21,27 +22,77 @@ import { prefix } from '../../globals/settings';
  */
 @customElement(`${prefix}-header-global-action`)
 class CDSHeaderGlobalAction extends CDSButton {
+  @query('button')
+  protected _buttonNode!: HTMLButtonElement;
+
   /**
    * Specify whether the action is currently active
    */
   @property({ type: Boolean, reflect: true })
   active;
 
+  /**
+   * Specify which header panel the button is associated with.
+   */
+  @property({ type: String, attribute: 'panel-id', reflect: true })
+  panelId;
+
+  /**
+   * The `aria-label` attribute for the button in its active state.
+   */
+  @property({ attribute: 'button-label-active' })
+  buttonLabelActive;
+
+  /**
+   * The `aria-label` attribute for the button in its inactive state.
+   */
+  @property({ attribute: 'button-label-inactive' })
+  buttonLabelInactive;
+
   connectedCallback() {
     this.tooltipPosition = BUTTON_TOOLTIP_POSITION.BOTTOM;
     super.connectedCallback();
   }
 
-  firstUpdated() {
-    const button = this.shadowRoot?.querySelector('button');
+  @HostListener('click', { capture: true })
+  // @ts-ignore
+  private _handleClick(event: Event) {
+    const { disabled } = this;
+    if (disabled) {
+      event.stopPropagation();
+    } else {
+      const active = !this.active;
+      this.active = active;
+    }
+  }
 
-    if (button) {
-      button?.classList.add(`${prefix}--header__action`);
+  updated() {
+    if (this._buttonNode) {
+      this._buttonNode.classList.add(`${prefix}--header__action`);
+    }
+  }
+
+  shouldUpdate(changedProperties) {
+    if (changedProperties.has('active')) {
+      const panel = document.querySelector(`#${this.panelId}`);
 
       if (this.active) {
-        button?.classList.add(`${prefix}--header__action--active`);
+        this._buttonNode.classList.add(`${prefix}--header__action--active`);
+        panel?.setAttribute('expanded', 'true');
+
+        if (this.buttonLabelActive) {
+          this.tooltipText = this.buttonLabelActive;
+        }
+      } else {
+        this._buttonNode.classList.remove(`${prefix}--header__action--active`);
+        panel?.removeAttribute('expanded');
+
+        if (this.buttonLabelInactive) {
+          this.tooltipText = this.buttonLabelInactive;
+        }
       }
     }
+    return true;
   }
 
   static shadowRootOptions = {
