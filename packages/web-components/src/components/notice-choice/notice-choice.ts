@@ -11,7 +11,6 @@ import { checkPreferencesv3, loadContent } from './services';
 import { html, LitElement, property } from 'lit-element';
 import {
   emailRegExp,
-  getNcContentFromWindow,
   pwsValueMap,
   resetToWorldWideContent,
 } from './utils';
@@ -23,6 +22,7 @@ import styles from './notice-choice.scss';
 import { unsafeHTML } from 'lit-html/directives/unsafe-html';
 import { worldWideContent } from './world-wide-content';
 import { carbonElement as customElement } from '../../internal/vendor/@carbon/web-components/globals/decorators/carbon-element';
+import _ from 'lodash'
 
 const { stablePrefix: ddsPrefix } = ddsSettings;
 const { prefix } = settings;
@@ -120,7 +120,7 @@ class NoticeChoice extends StableSelectorMixin(LitElement) {
       (ncData) => {
         this.ncData = ncData;
         this.prepareCheckboxes();
-        this.countryChanged(this.country);
+        this.countryChanged();
       },
       (error) => {
         console.error('error loading content', error);
@@ -152,9 +152,7 @@ class NoticeChoice extends StableSelectorMixin(LitElement) {
   }
   countryChangeAction() {
     const splitValue = this.locale;
-    const ncData = getNcContentFromWindow();
     if (splitValue == 'en') {
-      let preText = this.defaultPreText;
       this.preText = this.preTextTemplate();
     }
     /**
@@ -169,9 +167,7 @@ class NoticeChoice extends StableSelectorMixin(LitElement) {
       this.setDefaultSelections();
     }
   }
-  countryChanged(newVal) {
-    const cc = newVal.toLocaleLowerCase();
-    const lc = countrySettings[newVal.toLocaleLowerCase()].lang;
+  countryChanged() {
     resetToWorldWideContent();
     this.countryChangeAction();
   }
@@ -218,7 +214,7 @@ class NoticeChoice extends StableSelectorMixin(LitElement) {
           oldVal !== newVal &&
           countrySettings[newVal.toLocaleLowerCase()]
         ) {
-          this.countryChanged(newVal);
+          this.countryChanged();
         }
         break;
       }
@@ -348,7 +344,6 @@ class NoticeChoice extends StableSelectorMixin(LitElement) {
   postTextTemplate() {
     if (this.ncData) {
       const OtherPreferences = this.ncData.trialPrivacyText;
-      let tcHtml = '';
       let postText = this.ncData.postText;
 
       if (postText) {
@@ -362,7 +357,6 @@ class NoticeChoice extends StableSelectorMixin(LitElement) {
           const anrTagHtml = matchedValue[0].replace(/<tc>|<\/tc>/g, '');
           const link = `<a href='${this.termsConditionLink}' target='_blank' class='ibm-tooltip' >${anrTagHtml}</a>`;
           const reg = new RegExp('<tc>' + anrTagHtml + '</tc>', 'g');
-          tcHtml = `<p>I accept the product  <a href='${this.termsConditionLink}' target='_blank' class='ibm-tooltip' >${anrTagHtml}</a> of this registration form.</p>`;
           postText = postText + originalValue.replace(reg, link);
         }
       }
@@ -386,7 +380,7 @@ class NoticeChoice extends StableSelectorMixin(LitElement) {
     <p id="ncHeading" class="${ddsPrefix}--nc__pre-text">${this.preTextTemplate()} </p>
       <div class="${prefix}--checkbox-group">
             ${
-              this.checkboxes
+              !_.isEmpty(this.checkboxes)
                 ? Object.keys(this.checkboxes).length > 0 &&
                   Object.keys(this.checkboxes).map((key) => {
                     const checked = this.values[key];
