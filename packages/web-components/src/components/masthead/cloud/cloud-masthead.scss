@@ -5,8 +5,17 @@
 // LICENSE file in the root directory of this source tree.
 //
 
-@use '../masthead.scss';
-@use '../../cta/cta.scss';
+@use '@carbon/styles/scss/breakpoint' as *;
+@use '@carbon/styles/scss/config' as *;
+@use '@carbon/styles/scss/spacing' as *;
+@use '@carbon/styles/scss/theme' as *;
+@use '@carbon/styles/scss/type' as *;
+@use '@carbon/styles/scss/components/button/tokens' as *;
+@use '@carbon/ibmdotcom-styles/scss/components/masthead' as *;
+@use '../masthead';
+@use '../../cta/cta';
+@use '@carbon/ibmdotcom-styles/scss/globals/utils/flex-grid' as *;
+@use '@carbon/ibmdotcom-styles/scss/globals/vars' as *;
 
 // Cloud Masthead.
 
@@ -38,19 +47,19 @@
 
   &.console .#{$prefix}--btn--ghost {
     border-left: 1px solid $button-separator;
-    color: $link-02;
+    color: $link-secondary;
   }
 
   .#{$prefix}--btn {
-    padding: calc(0.875rem - 3px) carbon--rem(15px);
+    padding: calc(0.875rem - 3px) rem(15px);
   }
 
   .#{$prefix}--btn--ghost {
-    color: $text-02;
+    color: $text-secondary;
 
     &:hover,
     &:focus {
-      color: $text-01;
+      color: $text-primary;
     }
   }
 }
@@ -95,7 +104,7 @@
     position: fixed;
     bottom: 0;
     width: 100%;
-    height: carbon--rem(48px);
+    height: rem(48px);
     background: linear-gradient(
       rgba(255, 255, 255, 0.001),
       $background
@@ -117,24 +126,24 @@
 }
 
 :host(#{$dds-prefix}-cloud-megamenu-left-navigation) {
-  @include carbon--make-col(4, 16);
+  @include make-col(4, 16);
 
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  border-right: carbon--rem(1px) solid $ui-03;
+  border-right: rem(1px) solid $border-subtle-01;
 
   @include breakpoint(md) {
-    min-height: carbon--rem(580px);
+    min-height: rem(580px);
   }
 
   @include breakpoint(xlg) {
-    min-height: carbon--rem(475px);
+    min-height: rem(475px);
   }
 }
 
 :host(#{$dds-prefix}-cloud-megamenu-right-navigation) {
-  @include carbon--make-col(12, 16);
+  @include make-col(12, 16);
 
   display: flex;
   flex-direction: column;
@@ -145,8 +154,8 @@
 :host(#{$dds-prefix}-cloud-megamenu-tabs) {
   display: flex;
   flex-direction: column;
-  margin-top: carbon--rem(18px);
-  margin-bottom: carbon--rem(18px);
+  margin-top: rem(18px);
+  margin-bottom: rem(18px);
 
   .#{$prefix}--tabs-trigger {
     display: none;
@@ -159,17 +168,17 @@
   button {
     @include type-style(body-short-01);
 
-    color: $text-02;
+    color: $text-secondary;
     width: 100%;
     border: none;
     text-align: left;
-    padding: carbon--rem(6px) $spacing-05;
+    padding: rem(6px) $spacing-05;
     background-color: $background;
     cursor: pointer;
 
     &:hover,
     &:focus {
-      color: $text-01;
+      color: $text-primary;
     }
 
     &:hover {
@@ -177,15 +186,15 @@
     }
 
     &:focus {
-      outline: carbon--rem(2px) solid $focus;
-      outline-offset: carbon--rem(-2px);
+      outline: rem(2px) solid $focus;
+      outline-offset: rem(-2px);
     }
   }
 }
 
 :host(#{$dds-prefix}-cloud-megamenu-tab)[selected] button {
-  background-color: $selected-ui;
-  color: $text-01;
+  background-color: $background-selected;
+  color: $text-primary;
 }
 
 :host(#{$dds-prefix}-cloud-megamenu-category-link-group) {
@@ -211,13 +220,13 @@
     p {
       @include type-style('heading-01');
 
-      color: $text-01;
+      color: $text-primary;
     }
 
     span {
       @include type-style(body-short-01);
 
-      color: $text-02;
+      color: $text-secondary;
       display: block;
       width: 90%;
     }
@@ -227,13 +236,13 @@
       background-color: $background-hover;
 
       span {
-        color: $text-01;
+        color: $text-primary;
       }
     }
 
     &:focus {
-      outline: carbon--rem(2px) solid $focus;
-      outline-offset: carbon--rem(-2px);
+      outline: rem(2px) solid $focus;
+      outline-offset: rem(-2px);
     }
   }
 }
@@ -253,14 +262,14 @@
     margin-bottom: $spacing-03;
 
     a {
-      color: $text-01;
+      color: $text-primary;
       text-decoration: none;
       align-self: center;
 
       svg {
         margin: 0 $spacing-03;
         padding-top: $spacing-02;
-        fill: $icon-01;
+        fill: $icon-primary;
 
         /* stylelint-disable-next-line comment-whitespace-inside */
         /* !rtl:raw:
@@ -273,8 +282,8 @@
       }
 
       &:focus {
-        outline: carbon--rem(2px) solid $focus;
-        outline-offset: carbon--rem(-2px);
+        outline: rem(2px) solid $focus;
+        outline-offset: rem(-2px);
       }
     }
   }
@@ -283,7 +292,7 @@
     display: block;
     @include type-style(body-short-01);
 
-    color: $text-02;
+    color: $text-secondary;
 
     @include breakpoint(lg) {
       width: 40%;
@@ -295,21 +304,21 @@
   @extend :host(#{$dds-prefix}-left-nav-item);
 
   a.#{$prefix}--side-nav__link .#{$prefix}--side-nav__link-text {
-    color: $text-02;
+    color: $text-secondary;
 
     &:hover,
     &:focus {
-      color: $text-01;
+      color: $text-primary;
     }
   }
 
   &:last-child {
     a.#{$prefix}--side-nav__link .#{$prefix}--side-nav__link-text {
-      color: $link-01;
+      color: $link-primary;
 
       &:hover,
       &:focus {
-        color: $link-02;
+        color: $link-secondary;
       }
     }
   }
@@ -325,6 +334,6 @@
 
 :host(#{$dds-prefix}-cloud-masthead-profile) a.#{$prefix}--header__menu-item {
   svg {
-    fill: $icon-02;
+    fill: $icon-secondary;
   }
 }

@@ -5,12 +5,18 @@
  * LICENSE file in the root directory of this source tree.
  */
 
+@use '@carbon/styles/scss/breakpoint' as *;
+@use '@carbon/styles/scss/config' as *;
+@use '@carbon/styles/scss/motion' as *;
+@use '@carbon/styles/scss/spacing' as *;
+@use '@carbon/styles/scss/theme' as *;
+@use '@carbon/styles/scss/type' as *;
+@use '@carbon/styles/scss/utilities' as *;
 @use '../../globals/utils/flex-grid' as *;
 @use '../../globals/vars' as *;
 @use '../link-list';
-@use '@carbon/styles/scss/breakpoint' as *;
-@use '@carbon/styles/scss/components/tabs/index';
-@use '@carbon/web-components/scss/components/tooltip/tooltip';
+@use '@carbon/styles/scss/components/tabs/vars' as *;
+@use '@carbon/styles/scss/components/tooltip';
 @use '@carbon/styles/scss/components/accordion';
 
 @mixin tabs-extended {
@@ -44,7 +50,7 @@
         .#{$prefix}--tabs__nav-link,
         .#{$prefix}--tabs__nav-link:focus,
         .#{$prefix}--tabs__nav-link:active {
-          border-bottom: carbon--rem(2px) solid $border-interactive;
+          border-bottom: rem(2px) solid $border-interactive;
 
           p {
             @include type-style('heading-compact-02');
@@ -68,7 +74,7 @@
         white-space: normal;
         background: none;
         border: initial;
-        border-bottom: carbon--rem(2px) solid $layer-accent-01;
+        border-bottom: rem(2px) solid $layer-accent-01;
         display: inline-flex;
         width: 100%;
         text-align: left;
@@ -151,13 +157,13 @@
         .#{$prefix}--tabs__nav-link {
           width: auto;
           padding: 0;
-          border-bottom: carbon--rem(2px) solid transparent;
+          border-bottom: rem(2px) solid transparent;
         }
 
         .#{$prefix}--tabs__nav-item {
           width: max-content;
           max-width: calc(100% - #{$spacing-06});
-          min-height: carbon--rem(26px);
+          min-height: rem(26px);
           margin-top: $spacing-06;
         }
       }
@@ -246,7 +252,7 @@ button.#{$prefix}--tabs__nav-link {
     &:focus,
     &:active {
       width: rem(160px);
-      border-bottom: carbon--rem(2px);
+      border-bottom: rem(2px);
     }
   }
 }

@@ -12,14 +12,14 @@
 @use '@carbon/styles/scss/theme' as *;
 @use '@carbon/styles/scss/type' as *;
 @use '@carbon/styles/scss/utilities' as *;
-@use '@carbon/styles/scss/components/ui-shell/header';
-@use '@carbon/styles/scss/components/ui-shell/side-nav';
+@use '@carbon/styles/scss/components/ui-shell/header' as *;
+@use '@carbon/styles/scss/components/ui-shell/side-nav' as *;
 @use '@carbon/ibmdotcom-styles/scss/components/masthead' as *;
-@use '../../../../carbon-web-components/src/components/tooltip/tooltip';
+@use '@carbon/web-components/src/components/tooltip/tooltip';
 @use '@carbon/ibmdotcom-styles/scss/globals/vars' as *;
 
 :host(#{$dds-prefix}-masthead-menu-button) {
-  @extend :host(#{$prefix}-header-menu-button);
+  // @extend :host(#{$prefix}-header-menu-button);
 
   position: relative;
   width: mini-units(6);
@@ -43,7 +43,7 @@
 }
 
 :host(#{$dds-prefix}-masthead-logo) {
-  @extend :host(#{$prefix}-header-name);
+  // @extend :host(#{$prefix}-header-name);
   @include masthead-logo;
 
   &[hasTooltip] {
@@ -231,14 +231,14 @@
 }
 
 :host(#{$dds-prefix}-top-nav-item) {
-  @extend :host(#{$prefix}-header-nav-item);
+  // @extend :host(#{$prefix}-header-nav-item);
 }
 
 :host(#{$dds-prefix}-top-nav-menu),
 :host(#{$dds-prefix}-megamenu-top-nav-menu),
 :host(#{$dds-prefix}-masthead-profile),
 :host(#{$dds-prefix}-cloud-masthead-profile) {
-  @extend :host(#{$prefix}-header-menu);
+  // @extend :host(#{$prefix}-header-menu);
 
   .#{$prefix}--header__menu-title[aria-expanded='true'] {
     background-color: $layer-01;
@@ -259,7 +259,7 @@
 
 :host(#{$dds-prefix}-top-nav-menu-item),
 :host(#{$dds-prefix}-masthead-profile-item) {
-  @extend :host(#{$prefix}-header-menu-item);
+  // @extend :host(#{$prefix}-header-menu-item);
   @include masthead-top-nav-menu-item;
 
   a.#{$prefix}--header__menu-item {
@@ -298,7 +298,7 @@
 }
 
 :host(#{$dds-prefix}-left-nav) {
-  @extend :host(#{$prefix}-side-nav);
+  // @extend :host(#{$prefix}-side-nav);
 
   display: block;
   overflow: hidden;
@@ -395,19 +395,19 @@
 }
 
 :host(#{$dds-prefix}-left-nav-items) {
-  @extend :host(#{$prefix}-side-nav-items);
+  // @extend :host(#{$prefix}-side-nav-items);
 }
 
 :host(#{$dds-prefix}-left-nav-item) {
-  @extend :host(#{$prefix}-side-nav-link);
+  // @extend :host(#{$prefix}-side-nav-link);
 }
 
 :host(#{$dds-prefix}-left-nav-menu) {
-  @extend :host(#{$prefix}-side-nav-menu);
+  // @extend :host(#{$prefix}-side-nav-menu);
 }
 
 :host(#{$dds-prefix}-left-nav-menu-item) {
-  @extend :host(#{$prefix}-side-nav-menu-item);
+  // @extend :host(#{$prefix}-side-nav-menu-item);
 }
 
 :host(#{$dds-prefix}-left-nav-item-highlighted) a.#{$prefix}--side-nav__link,
@@ -458,8 +458,8 @@
   height: 100vh;
   background-color: rgba(22, 22, 22, 0.5);
   opacity: 1;
-  transition: opacity $transition--expansion $standard-easing,
-    background-color $transition--expansion $standard-easing;
+  transition: opacity $transition-expansion $standard-easing,
+    background-color $transition-expansion $standard-easing;
 
   // Makes the trigger button work without making it floated. In this way, we don't have to adjust the position of the logo
   top: 0;
@@ -479,7 +479,7 @@
 }
 
 :host(#{$dds-prefix}-left-nav-overlay) {
-  @extend .#{$prefix}--side-nav__overlay;
+  // @extend .#{$prefix}--side-nav__overlay;
 
   &[active] {
     @include breakpoint-down(800px) {

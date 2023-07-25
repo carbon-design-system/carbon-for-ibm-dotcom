@@ -5,7 +5,7 @@
 // LICENSE file in the root directory of this source tree.
 //
 
-@use '@carbon/styles/scss/breakpoint';
+@use '@carbon/styles/scss/breakpoint' as *;
 
 .dds-ce-demo-devenv--container {
   padding-top: calc(#{mini-units(6)} + 3rem + 1px);

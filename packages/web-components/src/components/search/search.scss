@@ -5,7 +5,9 @@
 // LICENSE file in the root directory of this source tree.
 //
 
-@use '../../../../carbon-web-components/src/components/search';
+@use '@carbon/styles/scss/config' as *;
+@use '@carbon/styles/scss/theme' as *;
+@use '@carbon/web-components/src/components/search/search' as *;
 @use '@carbon/ibmdotcom-styles/scss/globals/vars' as *;
 //
 :host(#{$dds-prefix}-search) {
@@ -15,12 +17,12 @@
     @extend .#{$prefix}--search--sm;
   }
 
-  &[size='lg'] {
-    @extend .#{$prefix}--search--lg;
+  &[size='md'] {
+    @extend .#{$prefix}--search--md;
   }
 
-  &[size='xl'] {
-    @extend .#{$prefix}--search--xl;
+  &[size='lg'] {
+    @extend .#{$prefix}--search--lg;
   }
 
   &[color-scheme='light'] {

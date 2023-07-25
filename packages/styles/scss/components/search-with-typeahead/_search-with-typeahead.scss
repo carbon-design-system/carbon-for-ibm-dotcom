@@ -13,8 +13,8 @@
 @use '@carbon/styles/scss/type' as *;
 @use '@carbon/styles/scss/components/ui-shell/header';
 @use '@carbon/styles/scss/components/ui-shell/side-nav';
-@use '../../../../carbon-web-components/src/components/dropdown/dropdown';
-@use '../../../../carbon-web-components/src/components/select/select';
+@use '@carbon/web-components/src/components/dropdown/dropdown';
+@use '@carbon/web-components/src/components/select/select';
 @use '../../globals/vars' as *;
 @use '../masthead/vars' as *;
 
@@ -326,7 +326,7 @@
         z-index: 2;
         top: 50%;
         left: $spacing-05;
-        fill: var(--cds-icon-02, #525252);
+        fill: var(--cds-icon-secondary, #525252);
         pointer-events: none;
         transform: translateY(-50%);
       }
