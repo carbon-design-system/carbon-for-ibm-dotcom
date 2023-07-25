@@ -11,12 +11,10 @@ import { checkPreferencesv3, loadContent } from './services';
 import { html, LitElement, property } from 'lit-element';
 import {
   emailRegExp,
-  getMappedValue,
   getNcContentFromWindow,
   pwsValueMap,
   resetToWorldWideContent,
 } from './utils';
-
 import countrySettings from './country-settings';
 import ddsSettings from '../../internal/vendor/@carbon/ibmdotcom-utilities/utilities/settings/settings';
 import settings from 'carbon-components/es/globals/js/settings';
@@ -144,7 +142,7 @@ class NoticeChoice extends StableSelectorMixin(LitElement) {
           newValues[key] = this.defaultValues[key];
         }
         const hiddenFieldName = `NC_HIDDEN_${key}`;
-        newValues[hiddenFieldName] = option[hiddenFieldName]
+        newValues[hiddenFieldName] = option[hiddenFieldName];
         this._onChange(hiddenFieldName, newValues[key] ? 'OPT_IN' : null);
       });
       if (JSON.stringify(this.values) !== JSON.stringify(newValues)) {
@@ -384,22 +382,22 @@ class NoticeChoice extends StableSelectorMixin(LitElement) {
     }
   }
   render() {
-
     return html`<section class="${prefix}--nc">
     <p id="ncHeading" class="${ddsPrefix}--nc__pre-text">${this.preTextTemplate()} </p>
       <div class="${prefix}--checkbox-group">
             ${
-              this.checkboxes &&
-              Object.keys(this.checkboxes).length > 0 &&
-              Object.keys(this.checkboxes).map((key) => {
-                const checked = this.values[key];
-                const checkbox = this.checkboxes[key];
-                const hiddenBox = {
-                  id: 'NC_HIDDEN_' + key,
-                  value: this.values[key] ? 'OPT_OUT':'OPT_IN',
-                };
-                return this.checkBoxTemplate(checkbox, checked, hiddenBox);
-              })
+              this.checkboxes
+                ? Object.keys(this.checkboxes).length > 0 &&
+                  Object.keys(this.checkboxes).map((key) => {
+                    const checked = this.values[key];
+                    const checkbox = this.checkboxes[key];
+                    const hiddenBox = {
+                      id: 'NC_HIDDEN_' + key,
+                      value: this.values[key] ? 'OPT_OUT' : 'OPT_IN',
+                    };
+                    return this.checkBoxTemplate(checkbox, checked, hiddenBox);
+                  })
+                : 'Loading ...'
             }
           </div>
           <div class="${prefix}--nc__post-text"
@@ -451,7 +449,7 @@ class NoticeChoice extends StableSelectorMixin(LitElement) {
           checked: questionChoiceStatus.phone === 'opt-out' ? true : false,
           optionTextPost: this.ncData.telephone,
           NC_HIDDEN_PHONE:
-          questionChoiceStatus.phone === 'opt-out' ? 'OPT_OUT' : 'OPT_IN',
+            questionChoiceStatus.phone === 'opt-out' ? 'OPT_OUT' : 'OPT_IN',
         };
         break;
       }
@@ -462,7 +460,7 @@ class NoticeChoice extends StableSelectorMixin(LitElement) {
           checked: questionChoiceStatus.email === 'opt-out' ? true : false,
           optionTextPost: this.ncData.email,
           NC_HIDDEN_EMAIL:
-          questionChoiceStatus.email === 'opt-out' ? 'OPT_OUT' : 'OPT_IN',
+            questionChoiceStatus.email === 'opt-out' ? 'OPT_OUT' : 'OPT_IN',
         };
         break;
       }
@@ -470,7 +468,6 @@ class NoticeChoice extends StableSelectorMixin(LitElement) {
 
     return option;
   };
-  protected setAllPreferences() {}
   protected _buildCheckboxes() {
     const fieldElements: any = {};
     const fieldCollections = {
@@ -497,13 +494,10 @@ class NoticeChoice extends StableSelectorMixin(LitElement) {
   }
 
   _onChange(field: string, value: string | null) {
- 
     const pwsFieldsMap = {
       NC_HIDDEN_EMAIL: 'permission_email',
       NC_HIDDEN_PHONE: 'permission_phone',
-    };  
-
-
+    };
 
     if (Object.prototype.hasOwnProperty.call(pwsFieldsMap, field)) {
       field = pwsFieldsMap[field];
