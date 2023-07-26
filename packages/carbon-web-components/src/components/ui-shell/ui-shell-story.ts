@@ -415,6 +415,7 @@ export const HeaderBaseWActionsSwitcher = () => {
         <cds-header-global-action
           button-label-active="Close switcher"
           button-label-inactive="Open switcher"
+          tooltip-text="Open switcher"
           panel-id="switcher-panel"
           tooltip-alignment="right">
           ${SwitcherIcon20({ slot: 'icon' })}
