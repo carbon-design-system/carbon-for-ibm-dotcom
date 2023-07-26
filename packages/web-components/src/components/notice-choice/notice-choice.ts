@@ -9,11 +9,7 @@
 
 import { checkPreferencesv3, loadContent } from './services';
 import { html, LitElement, property } from 'lit-element';
-import {
-  emailRegExp,
-  pwsValueMap,
-  resetToWorldWideContent,
-} from './utils';
+import { emailRegExp, pwsValueMap, resetToWorldWideContent } from './utils';
 import countrySettings from './country-settings';
 import ddsSettings from '../../internal/vendor/@carbon/ibmdotcom-utilities/utilities/settings/settings';
 import settings from 'carbon-components/es/globals/js/settings';
@@ -22,7 +18,7 @@ import styles from './notice-choice.scss';
 import { unsafeHTML } from 'lit-html/directives/unsafe-html';
 import { worldWideContent } from './world-wide-content';
 import { carbonElement as customElement } from '../../internal/vendor/@carbon/web-components/globals/decorators/carbon-element';
-import _ from 'lodash'
+import _ from 'lodash';
 
 const { stablePrefix: ddsPrefix } = ddsSettings;
 const { prefix } = settings;
@@ -249,9 +245,12 @@ class NoticeChoice extends StableSelectorMixin(LitElement) {
     };
     newValues[id] = !!checked;
     this.values = newValues;
+
     this.changed = true;
     const hiddenFieldName = `NC_HIDDEN_${id}`;
-    this._onChange(hiddenFieldName, checked ? 'PERMISSION' : 'SUPPRESSION');
+    const hiddenFieldStatus = checked ? 'PERMISSION' : 'SUPPRESSION';
+    this.values['checkBoxStatus'] = hiddenFieldStatus;
+    this._onChange(hiddenFieldName, hiddenFieldStatus);
   }
   static get stableSelector() {
     return `${ddsPrefix}--notice-choice`;
@@ -380,7 +379,6 @@ class NoticeChoice extends StableSelectorMixin(LitElement) {
     <p id="ncHeading" class="${ddsPrefix}--nc__pre-text">${this.preTextTemplate()} </p>
       <div class="${prefix}--checkbox-group">
             ${
-            
               !_.isEmpty(this.checkboxes)
                 ? Object.keys(this.checkboxes).length > 0 &&
                   Object.keys(this.checkboxes).map((key) => {
@@ -388,7 +386,11 @@ class NoticeChoice extends StableSelectorMixin(LitElement) {
                     const checkbox = this.checkboxes[key];
                     const hiddenBox = {
                       id: 'NC_HIDDEN_' + key,
-                      value: this.values[key] ? 'OPT_IN' : 'OPT_OUT',
+                      value: this.values['checkBoxStatus']
+                        ? this.values['checkBoxStatus']
+                        : this.values[key]
+                        ? 'PERMISSION'
+                        : 'UNCHANGED',
                     };
                     return this.checkBoxTemplate(checkbox, checked, hiddenBox);
                   })
@@ -416,6 +418,7 @@ class NoticeChoice extends StableSelectorMixin(LitElement) {
           this.values = {
             ...this.values,
             EMAIL: false,
+            checkBoxStatus:"UNCHANGED"
           };
           this._onChange('NC_HIDDEN_EMAIL', null);
         }
