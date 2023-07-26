@@ -10,7 +10,8 @@
 import '../../card/index';
 import '../../image/image';
 import '../index';
-
+import { select } from '@storybook/addon-knobs';
+import { BASIC_COLOR_SCHEME } from '../../../globals/defs';
 import ArrowRight20 from '../../../internal/vendor/@carbon/web-components/icons/arrow--right/20.js';
 import { html } from 'lit';
 import { boolean, select } from '@storybook/addon-knobs';
@@ -26,70 +27,51 @@ import imgXlg2x1 from '../../../../../storybook-images/assets/1312/fpo--2x1--131
 import readme from './README.stories.mdx';
 import textNullable from '../../../../.storybook/knob-text-nullable';
 
-import { CTA_TYPE } from '../../cta/defs';
-
-import {
-  hrefsForType,
-  knobNamesForType,
-  typeOptions,
-  types,
-} from '../../cta/__stories__/ctaTypeConfig';
+const colorSchemeMap = {
+  Regular: BASIC_COLOR_SCHEME.REGULAR,
+  Inverse: BASIC_COLOR_SCHEME.INVERSE,
+};
 
 export const Medium = (args) => {
-  const { ctaType, heading, href, customVideoTitle, noPoster } =
-    args?.['c4d-feature-card'] ?? {};
-  let videoCopy;
-
-  if (ctaType === CTA_TYPE.VIDEO) {
-    const card = document.querySelector('c4d-feature-card') as any;
-    const duration = card?.videoTitle?.match(/\((.*)\)/)?.pop();
-
-    if (!customVideoTitle) {
-      videoCopy = card?.videoTitle;
-    } else {
-      videoCopy = duration
-        ? `${customVideoTitle} (${duration})`
-        : customVideoTitle;
-    }
-  }
-
+  const { heading, href, colorScheme } = args?.['dds-feature-card'] ?? {};
   return html`
-    <c4d-video-cta-container>
-      <c4d-feature-card
-        ?no-poster=${noPoster}
-        cta-type="${ctaType}"
-        href=${ifDefined(href || undefined)}>
-        ${ctaType !== CTA_TYPE.VIDEO
-          ? html`<c4d-image
-              slot="image"
-              alt="Image alt text"
-              default-src="${mediumImgLg1x1}"></c4d-image>`
-          : ``}
-        <c4d-card-heading>${videoCopy ?? heading}</c4d-card-heading>
-        <c4d-feature-card-footer> </c4d-feature-card-footer>
-      </c4d-feature-card>
-    </c4d-video-cta-container>
+    <dds-feature-card
+      href=${ifDefined(href || undefined)}
+      color-scheme=${colorSchemeMap[colorScheme]}>
+      <dds-image
+        slot="image"
+        alt="Image alt text"
+        default-src="${mediumImgLg1x1}"></dds-image>
+      <dds-card-heading>${heading}</dds-card-heading>
+      <dds-feature-card-footer>
+        ${ArrowRight20({ slot: 'icon' })}
+      </dds-feature-card-footer>
+    </dds-feature-card>
   `;
 };
 
 export const Large = (args) => {
-  const { eyebrow, heading, copy, href } = args?.['c4d-feature-card'] ?? {};
+  const { eyebrow, heading, copy, href, colorScheme } =
+    args?.['dds-feature-card'] ?? {};
   return html`
-    <c4d-feature-card size="large" href=${ifDefined(href || undefined)}>
-      <c4d-image slot="image" default-src="${ifDefined(imgLg1x1)}">
-        <c4d-image-item media="(min-width: 1312px)" srcset="${imgMax2x1}">
-        </c4d-image-item>
-        <c4d-image-item media="(min-width: 1056px)" srcset="${imgXlg2x1}">
-        </c4d-image-item>
-        <c4d-image-item media="(min-width: 991px)" srcset="${imgXlg2x1}">
-        </c4d-image-item>
-        <c4d-image-item media="(min-width: 672px)" srcset="${imgLg2x1}">
-        </c4d-image-item>
-        <c4d-image-item media="(min-width: 0px)" srcset="${imgSm2x1}">
-        </c4d-image-item>
-      </c4d-image>
-      <c4d-card-eyebrow>${eyebrow}</c4d-card-eyebrow>
-      <c4d-card-heading>${heading}</c4d-card-heading>
+    <dds-feature-card
+      size="large"
+      href=${ifDefined(href || undefined)}
+      color-scheme=${colorSchemeMap[colorScheme]}>
+      <dds-image slot="image" default-src="${ifDefined(imgLg1x1)}">
+        <dds-image-item media="(min-width: 1312px)" srcset="${imgMax2x1}">
+        </dds-image-item>
+        <dds-image-item media="(min-width: 1056px)" srcset="${imgXlg2x1}">
+        </dds-image-item>
+        <dds-image-item media="(min-width: 991px)" srcset="${imgXlg2x1}">
+        </dds-image-item>
+        <dds-image-item media="(min-width: 672px)" srcset="${imgLg2x1}">
+        </dds-image-item>
+        <dds-image-item media="(min-width: 0px)" srcset="${imgSm2x1}">
+        </dds-image-item>
+      </dds-image>
+      <dds-card-eyebrow>${eyebrow}</dds-card-eyebrow>
+      <dds-card-heading>${heading}</dds-card-heading>
       <p>${copy}</p>
       <c4d-feature-card-footer>
         ${ArrowRight20({ slot: 'icon' })}
@@ -117,6 +99,7 @@ Large.story = {
           dolore magna aliqua.`
         ),
         href: textNullable('Card Href (href):', 'https://example.com'),
+        colorScheme: select('Color scheme:', ['Regular', 'Inverse'], 'Regular'),
       }),
     },
     propsSet: {
@@ -149,36 +132,14 @@ export default {
     storyGrid: 'cds--col-lg-8 cds--no-gutter"',
     hasStoryPadding: true,
     knobs: {
-      'c4d-feature-card': () => {
-        const ctaType = select(
-          'CTA type (cta-type)',
-          typeOptions,
-          types[CTA_TYPE.LOCAL]
-        );
-
-        const heading =
-          ctaType === CTA_TYPE.VIDEO
-            ? undefined
-            : textNullable('Heading:', 'Aerospace and defence');
-
-        const customVideoTitle =
-          ctaType === CTA_TYPE.VIDEO
-            ? textNullable('Custom video title', 'Custom video title')
-            : null;
-
-        const noPoster =
-          ctaType === CTA_TYPE.VIDEO ? boolean('No poster:', false) : null;
-        return {
-          ctaType,
-          heading,
-          customVideoTitle,
-          noPoster,
-          href: textNullable(
-            knobNamesForType[ctaType ?? CTA_TYPE.REGULAR],
-            hrefsForType[ctaType ?? CTA_TYPE.REGULAR]
-          ),
-        };
-      },
+      'dds-feature-card': () => ({
+        heading: textNullable(
+          'Card Heading (heading):',
+          'Explore AI use cases in all industries'
+        ),
+        href: textNullable('Card Href (href):', 'https://example.com'),
+        colorScheme: select('Color scheme:', ['Regular', 'Inverse'], 'Regular'),
+      }),
     },
     propsSet: {
       default: {
