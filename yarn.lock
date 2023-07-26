@@ -3148,6 +3148,7 @@ __metadata:
     browserstack-cypress-cli: ^1.11.1
     cache-loader: ^4.1.0
     carbon-components: 10.58.7
+    carbon-icons: ^7.0.5
     chalk: ^4.1.1
     classnames: 2.3.2
     commander: ^4.1.0
@@ -11658,6 +11659,13 @@ __metadata:
     webpack: ^4.46.0
   languageName: unknown
   linkType: soft
+
+"carbon-icons@npm:^7.0.5":
+  version: 7.0.7
+  resolution: "carbon-icons@npm:7.0.7"
+  checksum: ecb87c4f09ef52dab4a01c3de8ab5aeee14f1c93dedd09f164e95143642a34fe7a52433ab76a3536565db14f037dd8c1bf7ff1ed45b28c9c49a1bee142ffc1b5
+  languageName: node
+  linkType: hard
 
 "case-sensitive-paths-webpack-plugin@npm:^2.3.0":
   version: 2.4.0
