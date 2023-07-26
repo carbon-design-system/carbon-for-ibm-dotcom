@@ -49,5 +49,10 @@ class DDSCardLink extends DDSCard {
   static styles = styles;
 }
 
+console.warn(
+  'The card-link component has been deprecated in favor of the card (link variant) component. ' +
+    'See card documentation for more information.'
+);
+
 /* @__GENERATE_REACT_CUSTOM_ELEMENT_TYPE__ */
 export default DDSCardLink;

@@ -63,5 +63,10 @@ class DDSContentBlockSegmented extends DDSContentBlock {
   }
 }
 
+console.warn(
+  'The content-block-segmented component has been deprecated in favor of the content-section/block and a variety of group components. ' +
+    'See content-section/block documentation for more information.'
+);
+
 /* @__GENERATE_REACT_CUSTOM_ELEMENT_TYPE__ */
 export default DDSContentBlockSegmented;

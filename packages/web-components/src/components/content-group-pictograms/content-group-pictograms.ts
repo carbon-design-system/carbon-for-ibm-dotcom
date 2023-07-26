@@ -35,5 +35,10 @@ class DDSContentGroupPictograms extends DDSContentGroup {
   }
 }
 
+console.warn(
+  'The content-group-pictograms component has been deprecated in favor of the content-section/block and content-item (pictogram variant) components. ' +
+    'See content-section/block and content-item documentation for more information.'
+);
+
 /* @__GENERATE_REACT_CUSTOM_ELEMENT_TYPE__ */
 export default DDSContentGroupPictograms;

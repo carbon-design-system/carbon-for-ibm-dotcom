@@ -372,14 +372,18 @@ export const HeaderBaseWActionsRightPanel = () => {
         >[Platform]</cds-header-name
       >
       <div class="${prefix}--header__global">
-        <cds-header-global-action aria-label="Search">
+        <cds-header-global-action aria-label="Search" tooltip-text="Search">
           ${Search20({ slot: 'icon' })}
         </cds-header-global-action>
-        <cds-header-global-action active aria-label="Notification">
+        <cds-header-global-action
+          active
+          aria-label="Notification"
+          tooltip-text="Notification">
           ${Notification20({ slot: 'icon' })}
         </cds-header-global-action>
         <cds-header-global-action
           aria-label="App Switcher"
+          tooltip-text="App Switcher"
           tooltip-alignment="right">
           ${SwitcherIcon20({ slot: 'icon' })}
         </cds-header-global-action>
@@ -400,22 +404,25 @@ export const HeaderBaseWActionsSwitcher = () => {
         >[Platform]</cds-header-name
       >
       <div class="${prefix}--header__global">
-        <cds-header-global-action aria-label="Search">
+        <cds-header-global-action aria-label="Search" tooltip-text="Search">
           ${Search20({ slot: 'icon' })}
         </cds-header-global-action>
-        <cds-header-global-action aria-label="Notification">
+        <cds-header-global-action
+          aria-label="Notification"
+          tooltip-text="Notification">
           ${Notification20({ slot: 'icon' })}
         </cds-header-global-action>
         <cds-header-global-action
           active
           aria-label="App Switcher"
+          tooltip-text="App Switcher"
           tooltip-alignment="right">
           ${SwitcherIcon20({ slot: 'icon' })}
         </cds-header-global-action>
       </div>
       <cds-header-panel expanded aria-label="Header Panel">
         <cds-switcher aria-label="Switcher Container">
-          <cds-switcher-item selected aria-label="Link 1" href="#"
+          <cds-switcher-item aria-label="Link 1" href="#"
             >Link 1</cds-switcher-item
           >
           <cds-switcher-divider></cds-switcher-divider>

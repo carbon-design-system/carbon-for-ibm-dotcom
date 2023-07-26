@@ -35,5 +35,10 @@ class DDSContentBlockSimple extends StableSelectorMixin(DDSContentBlock) {
   }
 }
 
+console.warn(
+  'The content-block-simple component has been deprecated in favor of the content-section/block component. ' +
+    'See content-section/block documentation for more information.'
+);
+
 /* @__GENERATE_REACT_CUSTOM_ELEMENT_TYPE__ */
 export default DDSContentBlockSimple;

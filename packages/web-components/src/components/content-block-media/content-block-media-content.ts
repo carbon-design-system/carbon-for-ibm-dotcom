@@ -50,5 +50,10 @@ class DDSContentBlockMediaContent extends StableSelectorMixin(DDSContentGroup) {
   }
 }
 
+console.warn(
+  'The content-block-media-content component has been deprecated in favor of the content-section/block content component. ' +
+    'See content-section/block documentation for more information.'
+);
+
 /* @__GENERATE_REACT_CUSTOM_ELEMENT_TYPE__ */
 export default DDSContentBlockMediaContent;

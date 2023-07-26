@@ -22,7 +22,7 @@
     "doctoc": "doctoc --title '## Table of Contents' docs",
     "format": "prettier --cache --write '**/*.{js,md,scss,ts}'",
     "format:diff": "prettier --cache --list-different '**/*.{js,md,scss,ts}'",
-    "lint": "eslint packages",
+    "lint": "eslint packages --ext .js,.ts",
     "lint:license": "gulp lint:license",
     "lint:license:staged": "tasks/check-license.js -w",
     "lint:scripts:staged": "eslint",

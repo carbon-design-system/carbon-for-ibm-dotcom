@@ -51,5 +51,10 @@ class DDSCTASection extends StableSelectorMixin(DDSContentSection) {
   }
 }
 
+console.warn(
+  'The cta-section component has been deprecated in favor of the content-section/block and content-item components. ' +
+    'See content-section/block amd content-item documentation for more information.'
+);
+
 /* @__GENERATE_REACT_CUSTOM_ELEMENT_TYPE__ */
 export default DDSCTASection;
