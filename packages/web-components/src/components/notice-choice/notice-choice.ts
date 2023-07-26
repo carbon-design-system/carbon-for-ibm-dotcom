@@ -418,7 +418,7 @@ class NoticeChoice extends StableSelectorMixin(LitElement) {
           this.values = {
             ...this.values,
             EMAIL: false,
-            checkBoxStatus:"UNCHANGED"
+            ...{checkBoxStatus:"UNCHANGED"}
           };
           this._onChange('NC_HIDDEN_EMAIL', null);
         }
