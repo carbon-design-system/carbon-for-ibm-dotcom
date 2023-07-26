@@ -61,8 +61,22 @@ class CDSHeaderGlobalAction extends CDSButton {
     if (disabled) {
       event.stopPropagation();
     } else {
-      const active = !this.active;
-      this.active = active;
+      const panel = document.querySelector(`#${this.panelId}`);
+
+      // see if there is related panel for header-global-action button first
+      // and then set the expanded attr of it accordingly
+      if (panel) {
+        const expanded = panel.getAttribute('expanded');
+
+        if (expanded) {
+          panel.removeAttribute('expanded');
+        } else {
+          panel.setAttribute('expanded', 'true');
+        }
+
+        const active = !this.active;
+        this.active = active;
+      }
     }
   }
 
@@ -74,18 +88,14 @@ class CDSHeaderGlobalAction extends CDSButton {
 
   shouldUpdate(changedProperties) {
     if (changedProperties.has('active')) {
-      const panel = document.querySelector(`#${this.panelId}`);
-
       if (this.active) {
         this._buttonNode.classList.add(`${prefix}--header__action--active`);
-        panel?.setAttribute('expanded', 'true');
 
         if (this.buttonLabelActive) {
           this.tooltipText = this.buttonLabelActive;
         }
       } else {
         this._buttonNode.classList.remove(`${prefix}--header__action--active`);
-        panel?.removeAttribute('expanded');
 
         if (this.buttonLabelInactive) {
           this.tooltipText = this.buttonLabelInactive;

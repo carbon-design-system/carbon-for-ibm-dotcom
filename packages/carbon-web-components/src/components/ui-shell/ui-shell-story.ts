@@ -444,7 +444,8 @@ export const HeaderBaseWActionsSwitcher = () => {
           >
         </cds-switcher>
       </cds-header-panel>
-    </cds-header>`;
+    </cds-header>
+    ${StoryContent({ useResponsiveOffset: true })}`;
 };
 
 HeaderBaseWActionsSwitcher.storyName = 'Header Base w/ Actions and Switcher';
