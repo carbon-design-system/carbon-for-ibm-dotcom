@@ -1,7 +1,8 @@
 @use "@carbon/styles/scss/reset";
 @use "@carbon/styles/scss/theme";
 @use "@carbon/styles/scss/themes";
-@use "@carbon/styles/scss/components/button";
+@use '@carbon/styles/scss/components/button/tokens' as button-tokens;
+@include theme.add-component-tokens(button-tokens.$button-tokens);
 
 html {
   height: 100%;

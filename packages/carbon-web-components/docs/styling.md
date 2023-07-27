@@ -50,14 +50,13 @@ specific element by:
 @use "@carbon/styles/scss/reset";
 @use "@carbon/styles/scss/theme";
 @use "@carbon/styles/scss/themes";
-@use "@carbon/styles/scss/components/button";
 
 footer {
    @include theme.theme(themes.$g100);
  } // Emits all theme tokens in CSS Custom Properties
 ```
 
-Some components such as `Button`, `Notification`, &`Tag` have specific tokens per theme
+Some components such as `Button`, `Notification`, & `Tag` have specific tokens per theme
 that need to emitted in the styles. You can do this for example by adding the
 following:
 
@@ -65,9 +64,12 @@ following:
 @use "@carbon/styles/scss/reset";
 @use "@carbon/styles/scss/theme";
 @use "@carbon/styles/scss/themes";
-@use "@carbon/styles/scss/components/button"; // additional styles for button
-@use "@carbon/styles/scss/components/notification"; // additional styles for notification
-@use "@carbon/styles/scss/components/tag"; // additional styles for tag
+@use '@carbon/styles/scss/components/button/tokens' as button-tokens;
+@use '@carbon/styles/scss/components/notification/tokens' as notification-tokens;
+@use '@carbon/styles/scss/components/tag/tokens' as tag-tokens;
+@include theme.add-component-tokens(button-tokens.$button-tokens);
+@include theme.add-component-tokens(notification-tokens.$notification-tokens);
+@include theme.add-component-tokens(tag-tokens.$tag-tokens);
 ```
 
 ## Dependency injection
