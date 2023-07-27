@@ -15,6 +15,13 @@ $css--plex: true !default;
 @use '@carbon/styles/scss/breakpoint' as *;
 @use '@carbon/styles/scss/components/popover';
 
+:host(#{$prefix}-tooltip),
+:host(#{$prefix}-popover) {
+  ::slotted(.#{$prefix}--popover--tab-tip__button) {    
+    @extend .#{$prefix}--popover--tab-tip__button;
+  }
+}
+
 :host(#{$prefix}-tooltip[highContrast]),
 :host(#{$prefix}-popover[highContrast]) {
   ::slotted(#{$prefix}-tooltip-content),
