@@ -37,6 +37,8 @@ $css--plex: true !default;
 }
 
 :host(#{$prefix}-clickable-tile) {
+  @include emit-layout-tokens();
+
   display: grid;
   outline: none;
 
@@ -68,6 +70,8 @@ $css--plex: true !default;
 }
 
 :host(#{$prefix}-radio-tile) {
+  @include emit-layout-tokens();
+
   display: block;
   outline: none;
 
@@ -75,6 +79,8 @@ $css--plex: true !default;
 }
 
 :host(#{$prefix}-selectable-tile) {
+  @include emit-layout-tokens();
+
   display: content;
   outline: none;
 
@@ -95,6 +101,7 @@ $css--plex: true !default;
 :host(#{$prefix}-expandable-tile) {
   @extend .#{$prefix}--tile;
   @extend .#{$prefix}--tile--expandable;
+  @include emit-layout-tokens();
 
   ::slotted(#{$prefix}-tile-above-the-fold-content) {
     @extend .#{$prefix}--tile-content__above-the-fold;
