@@ -19,6 +19,10 @@ $css--plex: true !default;
 :host(#{$prefix}-overflow-menu),
 :host(#{$prefix}-breadcrumb-overflow-menu) {
   @extend .#{$prefix}--overflow-menu;
+
+  ::slotted(.#{$prefix}--overflow-menu__icon) {
+    @extend .#{$prefix}--overflow-menu__icon;
+  }
 }
 
 :host(#{$prefix}-overflow-menu[size='sm']),
