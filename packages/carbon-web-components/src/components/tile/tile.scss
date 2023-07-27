@@ -15,12 +15,9 @@ $css--plex: true !default;
 @use '@carbon/styles/scss/components/link/index' as *;
 @use '@carbon/styles/scss/components/form/index' as *;
 @use '@carbon/styles/scss/theme' as *;
-@use '@carbon/styles/scss/layer/layer-tokens';
 
 :host(#{$prefix}-tile) {
   @extend .#{$prefix}--tile;
-
-  @include layer-tokens.emit-layer-tokens(1);
 
   ::slotted(.#{$prefix}--link) {
     @extend .#{$prefix}--link;
@@ -38,8 +35,6 @@ $css--plex: true !default;
 }
 
 :host(#{$prefix}-clickable-tile) {
-  @include layer-tokens.emit-layer-tokens(1);
-
   display: grid;
   outline: none;
 
@@ -71,8 +66,6 @@ $css--plex: true !default;
 }
 
 :host(#{$prefix}-radio-tile) {
-  @include layer-tokens.emit-layer-tokens(1);
-
   display: block;
   outline: none;
 
@@ -80,8 +73,6 @@ $css--plex: true !default;
 }
 
 :host(#{$prefix}-selectable-tile) {
-  @include layer-tokens.emit-layer-tokens(1);
-
   display: content;
   outline: none;
 
@@ -100,8 +91,6 @@ $css--plex: true !default;
 }
 
 :host(#{$prefix}-expandable-tile) {
-  @include layer-tokens.emit-layer-tokens(1);
-
   @extend .#{$prefix}--tile;
   @extend .#{$prefix}--tile--expandable;
 

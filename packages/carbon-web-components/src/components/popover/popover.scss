@@ -12,13 +12,8 @@ $css--plex: true !default;
 @use '@carbon/styles/scss/utilities' as *;
 @use '@carbon/styles/scss/utilities/custom-property';
 @use '@carbon/styles/scss/theme';
-@use '@carbon/styles/scss/layer/layer-tokens';
 @use '@carbon/styles/scss/breakpoint' as *;
 @use '@carbon/styles/scss/components/popover';
-
-:host(#{$prefix}-popover) {
-  @include layer-tokens.emit-layer-tokens(1);
-}
 
 :host(#{$prefix}-tooltip[highContrast]),
 :host(#{$prefix}-popover[highContrast]) {

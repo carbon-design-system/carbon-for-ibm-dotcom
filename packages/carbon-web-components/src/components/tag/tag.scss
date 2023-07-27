@@ -10,12 +10,9 @@ $css--plex: true !default;
 @use '@carbon/styles/scss/config' as *;
 @use '@carbon/styles/scss/utilities' as *;
 @use '@carbon/styles/scss/breakpoint' as *;
-@use '@carbon/styles/scss/layer/layer-tokens';
 @use '@carbon/styles/scss/components/tag/index' as *;
 
 :host(#{$prefix}-tag) {
-  @include layer-tokens.emit-layer-tokens(1);
-
   @extend .#{$prefix}--tag;
   @extend .#{$prefix}--layout--size-md;
 }

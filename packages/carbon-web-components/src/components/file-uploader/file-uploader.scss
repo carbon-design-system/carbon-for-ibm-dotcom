@@ -9,7 +9,6 @@
 @use '@carbon/styles/scss/type' as *;
 @use '@carbon/styles/scss/spacing' as *;
 @use '@carbon/styles/scss/theme' as *;
-@use '@carbon/styles/scss/layer/layer-tokens';
 @use '@carbon/styles/scss/components/file-uploader/file-uploader' as *;
 
 // https://github.com/carbon-design-system/carbon/issues/11408
@@ -23,14 +22,10 @@
 
 :host(#{$prefix}-file-drop-container) {
   @extend .#{$prefix}--file;
-
-  @include layer-tokens.emit-layer-tokens(1);
 }
 
 :host(#{$prefix}-file-uploader-item) {
   @extend .#{$prefix}--file__selected-file;
-
-  @include layer-tokens.emit-layer-tokens(1);
 
   .#{$prefix}--file-filename {
     margin-top: 0;
