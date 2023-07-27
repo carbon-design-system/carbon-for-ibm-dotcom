@@ -21,6 +21,10 @@ $css--plex: true !default;
 
 :host(#{$prefix}-header) {
   @extend .#{$prefix}--header;
+
+  ::slotted(.#{$prefix}--header__global) {
+    @extend .#{$prefix}--header__global;
+  }
 }
 
 :host(#{$prefix}-header-nav) {

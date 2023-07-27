@@ -14,7 +14,6 @@ $css--plex: true !default;
 @use '@carbon/styles/scss/components/accordion';
 @use '../../globals/mixins/temp-layout' as *;
 
-
 :host(#{$prefix}-accordion),
 :host(#{$prefix}-accordion-skeleton) {
   @extend .#{$prefix}--accordion;

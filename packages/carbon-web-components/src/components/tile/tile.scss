@@ -17,7 +17,6 @@ $css--plex: true !default;
 @use '@carbon/styles/scss/theme' as *;
 @use '../../globals/mixins/temp-layout' as *;
 
-
 :host(#{$prefix}-tile) {
   @extend .#{$prefix}--tile;
   @include emit-layout-tokens();

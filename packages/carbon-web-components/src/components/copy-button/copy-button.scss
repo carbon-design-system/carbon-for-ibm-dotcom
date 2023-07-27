@@ -22,7 +22,7 @@ $css--plex: true !default;
 
 :host(#{$prefix}-copy-button) {
   @include emit-layout-tokens();
-  
+
   display: inline-flex;
   outline: none;
 }
