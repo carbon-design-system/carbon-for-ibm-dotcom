@@ -117,7 +117,10 @@ export const Default = () => {
           <cds-table-toolbar-search
             placeholder="Filter table"></cds-table-toolbar-search>
           <cds-overflow-menu toolbar-action>
-            ${Settings16({ slot: 'icon', class: `${prefix}--overflow-menu__icon` })}
+            ${Settings16({
+              slot: 'icon',
+              class: `${prefix}--overflow-menu__icon`,
+            })}
             <cds-overflow-menu-body flipped>
               <cds-overflow-menu-item @click=${addRow}
                 >Add row</cds-overflow-menu-item
@@ -228,7 +231,10 @@ export const Playground = (args) => {
           <cds-table-toolbar-search
             placeholder="Filter table"></cds-table-toolbar-search>
           <cds-overflow-menu toolbar-action>
-            ${Settings16({ slot: 'icon', class: `${prefix}--overflow-menu__icon` })}
+            ${Settings16({
+              slot: 'icon',
+              class: `${prefix}--overflow-menu__icon`,
+            })}
             <cds-overflow-menu-body flipped>
               <cds-overflow-menu-item @click=${addRow}
                 >Add row</cds-overflow-menu-item

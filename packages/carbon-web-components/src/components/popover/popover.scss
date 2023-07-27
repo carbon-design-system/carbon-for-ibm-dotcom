@@ -17,7 +17,7 @@ $css--plex: true !default;
 
 :host(#{$prefix}-tooltip),
 :host(#{$prefix}-popover) {
-  ::slotted(.#{$prefix}--popover--tab-tip__button) {    
+  ::slotted(.#{$prefix}--popover--tab-tip__button) {
     @extend .#{$prefix}--popover--tab-tip__button;
   }
 }
