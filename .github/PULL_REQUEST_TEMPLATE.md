@@ -1,6 +1,6 @@
 ### Related Ticket(s)
 
-{{Provide url(s) to the related ticket(s) that this pull request addresses}}
+Closes # {{Provide issue number(s) to the related ticket(s) that this pull request addresses}}
 
 ### Description
 
