@@ -16,10 +16,13 @@ $css--plex: true !default;
 @use '@carbon/styles/scss/components/tooltip';
 @use '@carbon/styles/scss/components/code-snippet/code-snippet' as *;
 @use '@carbon/styles/scss/components/copy-button/index';
+@use '../../globals/mixins/temp-layout' as *;
 
 @include code-snippet;
 
 :host(#{$prefix}-copy-button) {
+  @include emit-layout-tokens();
+  
   display: inline-flex;
   outline: none;
 }

@@ -11,12 +11,14 @@ $css--plex: true !default;
 @use '@carbon/styles/scss/theme' as *;
 @use '@carbon/styles/scss/utilities/convert' as *;
 @use '@carbon/styles/scss/components/content-switcher/content-switcher' as *;
+@use '../../globals/mixins/temp-layout' as *;
 
 // https://github.com/carbon-design-system/carbon/issues/11408
 @include content-switcher;
 
 :host(#{$prefix}-content-switcher) {
   @extend .#{$prefix}--content-switcher;
+  @include emit-layout-tokens();
 }
 
 :host(#{$prefix}-content-switcher[icon]) {
