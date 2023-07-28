@@ -91,10 +91,6 @@ module.exports = function setupKarma(config) {
             use: 'null-loader',
           },
           {
-            test: /[\\/]styles[\\/]icons[\\/]/i,
-            use: [require.resolve('../tools/svg-result-ibmdotcom-icon-loader')],
-          },
-          {
             test: /\.svg$/,
             use: ['@svgr/webpack'],
           },
