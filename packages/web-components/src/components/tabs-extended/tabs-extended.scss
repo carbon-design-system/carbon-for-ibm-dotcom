@@ -1,5 +1,5 @@
 //
-// Copyright IBM Corp. 2020, 2021
+// Copyright IBM Corp. 2020, 2023
 //
 // This source code is licensed under the Apache-2.0 license found in the
 // LICENSE file in the root directory of this source tree.
@@ -10,4 +10,20 @@
 
 :host(#{$dds-prefix}-tabs-extended) {
   margin: 0;
+}
+
+:host(#{$dds-prefix}-tab) {
+  display: contents;
+
+  .#{$prefix}--accordion__item:last-of-type {
+    border-bottom-width: none;
+    border-bottom-style: none;
+  }
+
+  &:last-of-type() {
+    .#{$prefix}--accordion__item:last-of-type {
+      border-bottom-width: 1px;
+      border-bottom-style: solid;
+    }
+  }
 }

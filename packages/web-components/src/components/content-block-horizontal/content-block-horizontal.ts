@@ -45,5 +45,10 @@ class DDSContentBlockHorizontal extends DDSContentGroup {
   }
 }
 
+console.warn(
+  'The content-block-horizontal component has been deprecated in favor of the content-section/block and content item horizontal component. ' +
+    'See content-section/block and content item horizontal documentation for more information.'
+);
+
 /* @__GENERATE_REACT_CUSTOM_ELEMENT_TYPE__ */
 export default DDSContentBlockHorizontal;

@@ -21,7 +21,7 @@
     <div
       class="false"
       hidden=""
-      style="null"
+      style=""
     >
       <slot name="footer">
       </slot>
@@ -52,7 +52,7 @@
     <div
       class="false"
       hidden=""
-      style="null"
+      style=""
     >
       <slot name="footer">
       </slot>

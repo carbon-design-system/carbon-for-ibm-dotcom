@@ -19,9 +19,8 @@
     <slot>
     </slot>
     <div
-      class="null"
       hidden=""
-      style="undefined"
+      style=""
     >
       <slot name="footer">
       </slot>
@@ -50,9 +49,8 @@
     <slot>
     </slot>
     <div
-      class="null"
       hidden=""
-      style="undefined"
+      style=""
     >
       <slot name="footer">
       </slot>

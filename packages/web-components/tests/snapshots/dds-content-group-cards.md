@@ -28,9 +28,8 @@
       </div>
     </div>
     <div
-      class="null"
       hidden=""
-      style="undefined"
+      style=""
     >
       <slot name="footer">
       </slot>
@@ -68,9 +67,8 @@
       </div>
     </div>
     <div
-      class="null"
       hidden=""
-      style="undefined"
+      style=""
     >
       <slot name="footer">
       </slot>

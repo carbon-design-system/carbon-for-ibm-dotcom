@@ -32,6 +32,8 @@ class DDSTabsExtendedMedia extends DDSTabsExtended {
   sectionHeading = 'true';
 
   render() {
+    const { _isMobileVersion: isMobileVersion } = this;
+
     return html`
       <div class="${prefix}--tabs-extended-media">
         ${this.sectionHeading === 'true'
@@ -42,10 +44,7 @@ class DDSTabsExtendedMedia extends DDSTabsExtended {
             `
           : undefined}
         <div class="${prefix}--tabs-extended">
-          ${this._renderAccordion()} ${this._renderTabs()}
-          <div class="${prefix}--tab-content">
-            <slot @slotchange="${this._handleSlotChange}"></slot>
-          </div>
+          ${isMobileVersion ? this._renderAccordion() : this._renderTabs()}
         </div>
       </div>
     `;
@@ -57,6 +56,11 @@ class DDSTabsExtendedMedia extends DDSTabsExtended {
 
   static styles = styles;
 }
+
+console.warn(
+  'The tabs-extended-media component has been deprecated in favor of tabs-extended component. ' +
+    'See tabs-extended documentation for more information.'
+);
 
 /* @__GENERATE_REACT_CUSTOM_ELEMENT_TYPE__ */
 export default DDSTabsExtendedMedia;
