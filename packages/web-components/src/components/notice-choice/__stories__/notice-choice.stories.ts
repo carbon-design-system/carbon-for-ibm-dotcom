@@ -58,7 +58,7 @@ const onChange = (event: CustomEvent) => {
   console.log(event.detail);
 };
 const props = () => ({
-  locale: select('Locale', locales, 'en'),
+  locale: select('Language', locales, 'en'),
   country: select('Country', countryList, 'US'),
   state: select('State', stateList, ''),
   questionchoices: select('Question Choices', questionChoices, '1,2'),
