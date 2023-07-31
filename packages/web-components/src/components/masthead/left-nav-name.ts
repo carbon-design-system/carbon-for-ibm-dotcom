@@ -7,9 +7,10 @@
  * LICENSE file in the root directory of this source tree.
  */
 
-import { html, property } from 'lit-element';
+import { html } from 'lit';
+import { property } from 'lit/decorators.js';
 import settings from 'carbon-components/es/globals/js/settings.js';
-import ifNonNull from '../../internal/vendor/@carbon/web-components/globals/directives/if-non-null.js';
+import { ifDefined } from 'lit/directives/if-defined.js';
 import BXHeaderName from '../../internal/vendor/@carbon/web-components/components/ui-shell/header-name.js';
 import ddsSettings from '../../internal/vendor/@carbon/ibmdotcom-utilities/utilities/settings/settings';
 import styles from './masthead.scss';
@@ -50,7 +51,7 @@ class DDSLeftNavName extends BXHeaderName {
     return html`
       <a
         class="${prefix}--side-nav__submenu ${prefix}--side-nav__submenu-platform"
-        href="${ifNonNull(href)}">
+        href="${ifDefined(href)}">
         ${namePrefixPart}
         <slot></slot>
       </a>

@@ -8,7 +8,8 @@
  */
 
 import BXStructuredListCell from '../../internal/vendor/@carbon/web-components/components/structured-list/structured-list-cell.js';
-import { property, html } from 'lit-element';
+import { html } from 'lit';
+import { property } from 'lit/decorators.js';
 import Info16 from '../../internal/vendor/@carbon/web-components/icons/information/16.js';
 import Checkmark20 from '../../internal/vendor/@carbon/web-components/icons/checkmark/20.js';
 import Error20 from '../../internal/vendor/@carbon/web-components/icons/error/20.js';

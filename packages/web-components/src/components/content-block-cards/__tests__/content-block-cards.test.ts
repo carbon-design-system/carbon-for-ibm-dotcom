@@ -7,9 +7,9 @@
  * LICENSE file in the root directory of this source tree.
  */
 
-import { html, render } from 'lit-html';
+import { html, render } from 'lit/html.js';
 import ArrowRight20 from '../../../internal/vendor/@carbon/web-components/icons/arrow--right/20';
-import ifNonNull from '../../../internal/vendor/@carbon/web-components/globals/directives/if-non-null.js';
+import { ifDefined } from 'lit/directives/if-defined.js';
 import '../../card/card-heading';
 import '../content-block-cards';
 
@@ -21,8 +21,8 @@ const template = (props?) => {
       <dds-card-group>${children}</dds-card-group>
       <dds-card-cta
         slot="footer"
-        cta-type="${ifNonNull(ctaType)}"
-        href="${ifNonNull(href)}">
+        cta-type="${ifDefined(ctaType)}"
+        href="${ifDefined(href)}">
         <p>ctaCopy-foo</p>
         ${ArrowRight20({ slot: 'footer' })}
       </dds-card-cta>

@@ -41,6 +41,7 @@
     data-autoid="dds--image"
     default-src="https://example.com/video-thumbnail-foo"
   >
+    [object Object]
   </dds-card-cta-image>
   <div class="bx--card__wrapper">
     <div class="bx--card__content">
@@ -75,10 +76,11 @@
 ```
 <a
   aria-label="video-name-foo, DURATION undefined - This link plays a video"
-  class="bx--card__footer bx--link bx--link--lg bx--link-with-icon bx--link-with-icon--inline-icon bx--link-with-icon__icon-right dds-ce--card__footer"
+  class="bx--card__footer bx--link-with-icon bx--link-with-icon--inline-icon bx--link-with-icon__icon-right cds--link cds--link--lg dds-ce--card__footer"
   href="#"
   id="link"
   part="link"
+  tabindex="0"
 >
   <span class="bx--card__cta__copy">
     <slot>

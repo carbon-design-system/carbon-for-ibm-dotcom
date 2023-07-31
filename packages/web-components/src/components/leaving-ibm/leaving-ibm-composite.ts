@@ -7,8 +7,9 @@
  * LICENSE file in the root directory of this source tree.
  */
 
-import { html, property, LitElement } from 'lit-element';
-import BXModal from '../../internal/vendor/@carbon/web-components/components/modal/modal.js';
+import { LitElement, html } from 'lit';
+import { property } from 'lit/decorators.js';
+import CDSModal from '../../internal/vendor/@carbon/web-components/components/modal/modal.js';
 import HostListenerMixin from '../../internal/vendor/@carbon/web-components/globals/mixins/host-listener.js';
 import HostListener from '../../internal/vendor/@carbon/web-components/globals/decorators/host-listener.js';
 import ddsSettings from '../../internal/vendor/@carbon/ibmdotcom-utilities/utilities/settings/settings';
@@ -114,7 +115,7 @@ class DDSLeavingIbmComposite extends HostListenerMixin(
     }
   };
 
-  @HostListener(`document:${BXModal.eventClose}`)
+  @HostListener(`document:${CDSModal.eventClose}`)
   protected handleEventClose = (): void => {
     this.open = false;
     this.href = '';
@@ -141,26 +142,26 @@ class DDSLeavingIbmComposite extends HostListenerMixin(
     const { open, leavingIbmCopy, leavingIbmButtonLabel, href } = this;
     return html`
       <dds-leaving-ibm-modal ?open="${open}">
-        <bx-modal-header>
-          <bx-modal-close-button></bx-modal-close-button>
+        <cds-modal-header>
+          <cds-modal-close-button></cds-modal-close-button>
           <dds-leaving-ibm-modal-heading
             >${leavingIbmCopy?.LEAVING001}</dds-leaving-ibm-modal-heading
           >
-        </bx-modal-header>
+        </cds-modal-header>
         <dds-leaving-ibm-modal-body href="${href}">
           <p>${leavingIbmCopy?.LEAVING002}</p>
           <dds-leaving-ibm-modal-supplemental
             >${leavingIbmCopy?.LEAVING003}</dds-leaving-ibm-modal-supplemental
           >
         </dds-leaving-ibm-modal-body>
-        <bx-modal-footer>
+        <cds-modal-footer>
           <bx-btn
             data-autoid="${ddsPrefix}--leaving-ibm-cta"
             href="${href}"
             kind="primary"
             >${leavingIbmButtonLabel}</bx-btn
           >
-        </bx-modal-footer>
+        </cds-modal-footer>
       </dds-leaving-ibm-modal>
     `;
   }

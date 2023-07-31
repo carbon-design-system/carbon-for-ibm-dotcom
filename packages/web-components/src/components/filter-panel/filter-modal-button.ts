@@ -7,7 +7,7 @@
  * LICENSE file in the root directory of this source tree.
  */
 
-import BXModalFooterButton from '../../internal/vendor/@carbon/web-components/components/modal/modal-footer-button.js';
+import CDSModalFooterButton from '../../internal/vendor/@carbon/web-components/components/modal/modal-footer-button.js';
 import ddsSettings from '../../internal/vendor/@carbon/ibmdotcom-utilities/utilities/settings/settings';
 import StableSelectorMixin from '../../globals/mixins/stable-selector';
 import styles from './filter-panel.scss';
@@ -16,12 +16,12 @@ import { carbonElement as customElement } from '../../internal/vendor/@carbon/we
 const { stablePrefix: ddsPrefix } = ddsSettings;
 
 /**
- * Extends the BXModalFooterButton.
+ * Extends the CDSModalFooterButton.
  *
  * @element dds-filter-modal-footer-button
  */
 @customElement(`${ddsPrefix}-filter-modal-footer-button`)
-class DDSFilterModalButton extends StableSelectorMixin(BXModalFooterButton) {
+class DDSFilterModalButton extends StableSelectorMixin(CDSModalFooterButton) {
   static get stableSelector() {
     return `${ddsPrefix}-filter-modal-footer-button`;
   }

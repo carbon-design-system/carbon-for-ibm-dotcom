@@ -14,7 +14,7 @@ import '../logo-grid-link';
 import '../../card-link/card-link-heading';
 import '../../card/card-footer';
 import { boolean, text, select } from '@storybook/addon-knobs';
-import { html } from 'lit-element';
+import { html } from 'lit';
 import ArrowRight20 from '../../../internal/vendor/@carbon/web-components/icons/arrow--right/20.js';
 import logos from './data/logos.js';
 import readme from './README.stories.mdx';

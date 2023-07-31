@@ -7,7 +7,8 @@
  * LICENSE file in the root directory of this source tree.
  */
 
-import { state, html, LitElement } from 'lit-element';
+import { LitElement, html } from 'lit';
+import { state } from 'lit/decorators.js';
 import settings from 'carbon-components/es/globals/js/settings.js';
 import ddsSettings from '../../internal/vendor/@carbon/ibmdotcom-utilities/utilities/settings/settings';
 import '../horizontal-rule/horizontal-rule';

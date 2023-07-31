@@ -7,8 +7,9 @@
  * LICENSE file in the root directory of this source tree.
  */
 
-import { html, property, LitElement } from 'lit-element';
-import ifNonNull from '../../internal/vendor/@carbon/web-components/globals/directives/if-non-null.js';
+import { LitElement, html } from 'lit';
+import { property } from 'lit/decorators.js';
+import { ifDefined } from 'lit/directives/if-defined.js';
 import HostListener from '../../internal/vendor/@carbon/web-components/globals/decorators/host-listener.js';
 import HostListenerMixin from '../../internal/vendor/@carbon/web-components/globals/mixins/host-listener.js';
 import ddsSettings from '../../internal/vendor/@carbon/ibmdotcom-utilities/utilities/settings/settings';
@@ -288,16 +289,16 @@ class DDSVideoPlayerComposite extends HybridRenderMixin(
       });
     return html`
       <dds-video-player
-        duration="${ifNonNull(duration)}"
+        duration="${ifDefined(duration)}"
         ?hide-caption=${hideCaption}
-        name="${ifNonNull(caption || name)}"
-        video-description="${ifNonNull(customVideoDescription)}"
-        thumbnail-url="${ifNonNull(thumbnailUrl)}"
-        video-id="${ifNonNull(videoId)}"
-        aspect-ratio="${ifNonNull(aspectRatio)}"
-        .formatCaption="${ifNonNull(formatCaption)}"
-        .formatDuration="${ifNonNull(formatDuration)}"
-        playing-mode="${ifNonNull(playingMode)}">
+        name="${ifDefined(caption || name)}"
+        video-description="${ifDefined(customVideoDescription)}"
+        thumbnail-url="${ifDefined(thumbnailUrl)}"
+        video-id="${ifDefined(videoId)}"
+        aspect-ratio="${ifDefined(aspectRatio)}"
+        .formatCaption="${ifDefined(formatCaption)}"
+        .formatDuration="${ifDefined(formatDuration)}"
+        playing-mode="${ifDefined(playingMode)}">
       </dds-video-player>
     `;
   }

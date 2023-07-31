@@ -7,8 +7,7 @@
  * LICENSE file in the root directory of this source tree.
  */
 
-import { nothing } from 'lit-html';
-import { html } from 'lit-element';
+import { html, nothing } from 'lit';
 import { boolean, select, text } from '@storybook/addon-knobs';
 import ArrowLeft20 from '../../../internal/vendor/@carbon/web-components/icons/arrow--left/20.js';
 import '../table-of-contents';

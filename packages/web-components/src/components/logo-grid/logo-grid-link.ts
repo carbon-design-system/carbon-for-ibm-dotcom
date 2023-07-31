@@ -6,7 +6,8 @@
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
  */
-import { css, property } from 'lit-element';
+import { css } from 'lit';
+import { property } from 'lit/decorators.js';
 import ddsSettings from '@carbon/ibmdotcom-utilities/es/utilities/settings/settings.js';
 import styles from './logo-grid.scss';
 import DDSCardLink from '../card-link/card-link';

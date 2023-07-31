@@ -16,7 +16,7 @@
       class="bx--content-block__children bx--content-layout__body"
       hidden=""
     >
-      <div class="bx--logo-grid__row bx--logo-grid__undefined-columns">
+      <div class="bx--logo-grid__row">
         <slot>
         </slot>
         <slot name="media">

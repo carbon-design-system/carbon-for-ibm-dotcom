@@ -6,7 +6,7 @@
  * LICENSE file in the root directory of this source tree.
  */
 
-import { html } from 'lit-element';
+import { html } from 'lit';
 import ArrowRight20 from '../../../../internal/vendor/@carbon/web-components/icons/arrow--right/20';
 import logosGroup from '../../../logo-grid/__stories__/data/logos.js';
 import { TOC_TYPES } from '../../../table-of-contents/defs';

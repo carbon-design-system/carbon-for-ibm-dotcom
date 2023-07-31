@@ -7,8 +7,8 @@
  * LICENSE file in the root directory of this source tree.
  */
 
-import { classMap } from 'lit-html/directives/class-map.js';
-import { html } from 'lit-element';
+import { classMap } from 'lit/directives/class-map.js';
+import { html } from 'lit';
 import settings from 'carbon-components/es/globals/js/settings.js';
 import BXSideNavMenuItem from '../../internal/vendor/@carbon/web-components/components/ui-shell/side-nav-menu-item.js';
 import ddsSettings from '../../internal/vendor/@carbon/ibmdotcom-utilities/utilities/settings/settings';

@@ -8,8 +8,8 @@
  */
 
 import { select } from '@storybook/addon-knobs';
-import { html } from 'lit-element';
-import ifNonNull from '../../../internal/vendor/@carbon/web-components/globals/directives/if-non-null.js';
+import { html } from 'lit';
+import { ifDefined } from 'lit/directives/if-defined.js';
 import '../horizontal-rule';
 import readme from './README.stories.mdx';
 
@@ -17,10 +17,10 @@ export const Default = (args) => {
   const { type, size, contrast, weight } = args?.HorizontalRule ?? {};
   return html`
     <dds-hr
-      type="${ifNonNull(type)}"
-      size="${ifNonNull(size)}"
-      contrast="${ifNonNull(contrast)}"
-      weight="${ifNonNull(weight)}">
+      type="${ifDefined(type)}"
+      size="${ifDefined(size)}"
+      contrast="${ifDefined(contrast)}"
+      weight="${ifDefined(weight)}">
     </dds-hr>
   `;
 };

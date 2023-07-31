@@ -7,8 +7,8 @@
  * LICENSE file in the root directory of this source tree.
  */
 
-import { html } from 'lit-html'; // eslint-disable-line import/first
-import { classMap } from 'lit-html/directives/class-map';
+import { html } from 'lit';
+import { classMap } from 'lit/directives/class-map.js';
 import coreEvents from '@storybook/core-events';
 import addons from '@storybook/addons';
 

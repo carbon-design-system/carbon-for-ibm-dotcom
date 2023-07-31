@@ -7,7 +7,8 @@
  * LICENSE file in the root directory of this source tree.
  */
 
-import { css, property } from 'lit-element';
+import { css } from 'lit';
+import { property } from 'lit/decorators.js';
 import parseAspectRatio from '@carbon/ibmdotcom-utilities/es/utilities/parseAspectRatio/parseAspectRatio.js';
 import ddsSettings from '../../internal/vendor/@carbon/ibmdotcom-utilities/utilities/settings/settings';
 import StableSelectorMixin from '../../globals/mixins/stable-selector';

@@ -7,8 +7,8 @@
  * LICENSE file in the root directory of this source tree.
  */
 
-import { html, render } from 'lit-html';
-import ifNonNull from '../../../internal/vendor/@carbon/web-components/globals/directives/if-non-null.js';
+import { html, render } from 'lit/html.js';
+import { ifDefined } from 'lit/directives/if-defined.js';
 import EventManager from '../../../../tests/utils/event-manager';
 import { MastheadLink } from '../../../internal/vendor/@carbon/ibmdotcom-services-store/types/translateAPI.d';
 import DDSMastheadComposite from '../masthead-composite';
@@ -21,11 +21,11 @@ const template = (props?) => {
   const { language, userStatus, navLinks } = props ?? {};
   return html`
     <dds-masthead-composite
-      language="${ifNonNull(language)}"
-      user-status="${ifNonNull(userStatus)}"
-      .authenticatedProfileItems="${ifNonNull(authenticatedProfileItems)}"
+      language="${ifDefined(language)}"
+      user-status="${ifDefined(userStatus)}"
+      .authenticatedProfileItems="${ifDefined(authenticatedProfileItems)}"
       .navLinks="${navLinks}"
-      .unauthenticatedProfileItems="${ifNonNull(unauthenticatedProfileItems)}">
+      .unauthenticatedProfileItems="${ifDefined(unauthenticatedProfileItems)}">
     </dds-masthead-composite>
   `;
 };
@@ -61,7 +61,7 @@ describe('dds-masthead-composite', function () {
         'dds-masthead-composite'
       );
       expect(
-        mastheadComposite!.querySelector('dds-masthead-global-bar')
+        mastheadComposite?.shadowRoot?.querySelector('dds-masthead-global-bar')
       ).toMatchSnapshot();
     });
 
@@ -72,7 +72,7 @@ describe('dds-masthead-composite', function () {
         'dds-masthead-composite'
       );
       expect(
-        mastheadComposite!.querySelector('dds-masthead-global-bar')
+        mastheadComposite?.shadowRoot?.querySelector('dds-masthead-global-bar')
       ).toMatchSnapshot();
     });
   });
@@ -84,9 +84,12 @@ describe('dds-masthead-composite', function () {
       const mastheadComposite = document.body.querySelector(
         'dds-masthead-composite'
       );
-      expect(mastheadComposite!.querySelector('dds-top-nav')).toBeNull();
       expect(
-        mastheadComposite!.querySelector('dds-left-nav')!.children.length
+        mastheadComposite?.shadowRoot?.querySelector('dds-top-nav')
+      ).toBeNull();
+      expect(
+        mastheadComposite?.shadowRoot?.querySelector('dds-left-nav')!.children
+          .length
       ).toBe(0);
     });
 
@@ -95,8 +98,8 @@ describe('dds-masthead-composite', function () {
       await Promise.resolve();
       expect(
         document.body
-          .querySelector('dds-masthead-composite')!
-          .querySelector('dds-top-nav')
+          .querySelector('dds-masthead-composite')
+          ?.shadowRoot?.querySelector('dds-top-nav')
       ).toMatchSnapshot();
     });
 
@@ -105,8 +108,8 @@ describe('dds-masthead-composite', function () {
       await Promise.resolve();
       expect(
         document.body
-          .querySelector('dds-masthead-composite')!
-          .querySelector('dds-left-nav')
+          .querySelector('dds-masthead-composite')
+          ?.shadowRoot?.querySelector('dds-left-nav')
       ).toMatchSnapshot();
     });
   });

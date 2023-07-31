@@ -7,7 +7,7 @@
  * LICENSE file in the root directory of this source tree.
  */
 
-import { property, query } from 'lit-element';
+import { property, query } from 'lit/decorators.js';
 import BXHeaderNavItem from '../../internal/vendor/@carbon/web-components/components/ui-shell/header-nav-item.js';
 import ddsSettings from '../../internal/vendor/@carbon/ibmdotcom-utilities/utilities/settings/settings';
 import styles from './masthead.scss';

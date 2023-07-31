@@ -7,8 +7,9 @@
  * LICENSE file in the root directory of this source tree.
  */
 
-import { html, property } from 'lit-element';
-import { classMap } from 'lit-html/directives/class-map.js';
+import { html } from 'lit';
+import { property } from 'lit/decorators.js';
+import { classMap } from 'lit/directives/class-map.js';
 import settings from 'carbon-components/es/globals/js/settings.js';
 import pauseIcon from '../../internal/vendor/@carbon/web-components/icons/pause--outline--filled/32.js';
 import playIcon from '../../internal/vendor/@carbon/web-components/icons/play--filled/32.js';

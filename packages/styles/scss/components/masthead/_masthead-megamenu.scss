@@ -211,6 +211,7 @@
 
       @include type-style('expressive-heading-01');
     }
+    /* stylelint-enable selector-pseudo-class-parentheses-space-inside */
 
     ::slotted(span),
     span {
@@ -245,6 +246,7 @@
     }
   }
 
+  /* stylelint-disable selector-pseudo-class-parentheses-space-inside */
   .#{$prefix}--masthead__megamenu__category-sublink--highlighted,
   :host(
       #{$dds-prefix}-megamenu-link-with-icon
@@ -257,6 +259,7 @@
       flex: inherit;
     }
   }
+  /* stylelint-enable selector-pseudo-class-parentheses-space-inside */
 
   .#{$prefix}--masthead__megamenu__category-sublink--highlighted,
   :host(#{$dds-prefix}-megamenu-link-with-icon)[style-scheme='category-sublink']

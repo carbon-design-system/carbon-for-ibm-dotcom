@@ -7,9 +7,10 @@
  * LICENSE file in the root directory of this source tree.
  */
 
-import { html, property } from 'lit-element';
-import BXModalBody from '../../internal/vendor/@carbon/web-components/components/modal/modal-body.js';
-import ifNonNull from '../../internal/vendor/@carbon/web-components/globals/directives/if-non-null.js';
+import { html } from 'lit';
+import { property } from 'lit/decorators.js';
+import CDSModalBody from '../../internal/vendor/@carbon/web-components/components/modal/modal-body.js';
+import { ifDefined } from 'lit/directives/if-defined.js';
 import ddsSettings from '../../internal/vendor/@carbon/ibmdotcom-utilities/utilities/settings/settings';
 import '../../internal/vendor/@carbon/web-components/components/link/link.js';
 import styles from './leaving-ibm.scss';
@@ -24,7 +25,7 @@ const { stablePrefix: ddsPrefix } = ddsSettings;
  * @element dds-leaving-ibm-modal-body
  */
 @customElement(`${ddsPrefix}-leaving-ibm-modal-body`)
-class DDSLeavingIbmModalBody extends StableSelectorMixin(BXModalBody) {
+class DDSLeavingIbmModalBody extends StableSelectorMixin(CDSModalBody) {
   /**
    * external url triggering the leaving ibm modal.
    */
@@ -36,7 +37,7 @@ class DDSLeavingIbmModalBody extends StableSelectorMixin(BXModalBody) {
     return html`
       <p><slot></slot></p>
       <slot name="supplemental"></slot>
-      <bx-link size="lg" href="${ifNonNull(href)}"
+      <bx-link size="lg" href="${ifDefined(href)}"
         >${!href ? href : new URL(href).hostname}</bx-link
       >
     `;

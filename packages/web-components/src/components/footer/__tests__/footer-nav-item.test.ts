@@ -7,15 +7,15 @@
  * LICENSE file in the root directory of this source tree.
  */
 
-import { html, render } from 'lit-html';
-import ifNonNull from '../../../internal/vendor/@carbon/web-components/globals/directives/if-non-null.js';
+import { html, render } from 'lit/html.js';
+import { ifDefined } from 'lit/directives/if-defined.js';
 import '../footer-nav-item';
 
 const template = (props?) => {
   const { titleText } = props ?? {};
   return html`
     <dds-footer-nav-item
-      title-text="${ifNonNull(titleText)}"></dds-footer-nav-item>
+      title-text="${ifDefined(titleText)}"></dds-footer-nav-item>
   `;
 };
 

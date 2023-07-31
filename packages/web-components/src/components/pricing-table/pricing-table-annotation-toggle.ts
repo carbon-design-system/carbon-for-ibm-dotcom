@@ -7,7 +7,8 @@
  * LICENSE file in the root directory of this source tree.
  */
 
-import { html, LitElement, property } from 'lit-element';
+import { LitElement, html } from 'lit';
+import { property } from 'lit/decorators.js';
 import ddsSettings from '@carbon/ibmdotcom-utilities/es/utilities/settings/settings.js';
 import ChevronDown16 from '../../internal/vendor/@carbon/web-components/icons/chevron--down/16.js';
 import Close16 from '../../internal/vendor/@carbon/web-components/icons/close/16.js';

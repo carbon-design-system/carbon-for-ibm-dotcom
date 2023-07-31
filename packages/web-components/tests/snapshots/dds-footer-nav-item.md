@@ -6,9 +6,10 @@
 
 ```
 <a
-  class="bx--footer__link bx--link"
+  class="bx--footer__link cds--link cds--link--md"
   id="link"
   part="link"
+  tabindex="0"
 >
   <slot>
   </slot>
@@ -20,9 +21,10 @@
 
 ```
 <a
-  class="bx--footer__link bx--link"
+  class="bx--footer__link cds--link cds--link--md"
   id="link"
   part="link"
+  tabindex="0"
 >
   <slot>
     title-text-foo

@@ -7,9 +7,10 @@
  * LICENSE file in the root directory of this source tree.
  */
 
-import { html, property, state, LitElement } from 'lit-element';
+import { LitElement, html } from 'lit';
+import { property, state } from 'lit/decorators.js';
 import on from 'carbon-components/es/globals/js/misc/on.js';
-import ifNonNull from '../../internal/vendor/@carbon/web-components/globals/directives/if-non-null.js';
+import { ifDefined } from 'lit/directives/if-defined.js';
 import HostListener from '../../internal/vendor/@carbon/web-components/globals/decorators/host-listener.js';
 import HostListenerMixin from '../../internal/vendor/@carbon/web-components/globals/mixins/host-listener.js';
 import ddsSettings from '../../internal/vendor/@carbon/ibmdotcom-utilities/utilities/settings/settings';
@@ -202,12 +203,12 @@ class DDSVideoCTAComposite extends ModalRenderMixin(
       <dds-lightbox-video-player-composite
         ?open="${Boolean(activeVideoId)}"
         video-cta-lightbox="true"
-        custom-video-name="${ifNonNull(videoName)}"
-        custom-video-description="${ifNonNull(videoDescription)}"
-        video-id="${ifNonNull(activeVideoId)}"
-        .embeddedVideos="${ifNonNull(embeddedVideos)}"
-        .mediaData="${ifNonNull(mediaData)}"
-        ._embedMedia="${ifNonNull(embedMedia)}">
+        custom-video-name="${ifDefined(videoName)}"
+        custom-video-description="${ifDefined(videoDescription)}"
+        video-id="${ifDefined(activeVideoId)}"
+        .embeddedVideos="${ifDefined(embeddedVideos)}"
+        .mediaData="${ifDefined(mediaData)}"
+        ._embedMedia="${ifDefined(embedMedia)}">
       </dds-lightbox-video-player-composite>
     `;
   }
@@ -235,13 +236,6 @@ class DDSVideoCTAComposite extends ModalRenderMixin(
    */
   static get eventCloseLightbox() {
     return `${ddsPrefix}-expressive-modal-closed`;
-  }
-
-  /**
-   * The name of the custom event fired when there is a user gesture to run the action.
-   */
-  static get eventRequestAdditionalVideoData() {
-    return `${ddsPrefix}-cta-request-additional-video-data`;
   }
 
   /**

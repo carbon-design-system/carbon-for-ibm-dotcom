@@ -7,7 +7,8 @@
  * LICENSE file in the root directory of this source tree.
  */
 
-import { html, LitElement, property } from 'lit-element';
+import { LitElement, html } from 'lit';
+import { property } from 'lit/decorators.js';
 import settings from 'carbon-components/es/globals/js/settings.js';
 import Reset from '../../internal/vendor/@carbon/web-components/icons/reset/16.js';
 import HostListenerMixin from '../../internal/vendor/@carbon/web-components/globals/mixins/host-listener.js';

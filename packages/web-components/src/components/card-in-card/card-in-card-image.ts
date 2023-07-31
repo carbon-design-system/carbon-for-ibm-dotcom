@@ -7,7 +7,7 @@
  * LICENSE file in the root directory of this source tree.
  */
 
-import { css } from 'lit-element';
+import { css } from 'lit';
 import ddsSettings from '@carbon/ibmdotcom-utilities/es/utilities/settings/settings.js';
 import DDSImage from '../image/image';
 import styles from './card-in-card.scss';

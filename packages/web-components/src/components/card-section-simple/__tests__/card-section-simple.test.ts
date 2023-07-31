@@ -7,16 +7,16 @@
  * LICENSE file in the root directory of this source tree.
  */
 
-import { html, render } from 'lit-html';
+import { html, render } from 'lit/html.js';
 import ArrowRight20 from '../../../internal/vendor/@carbon/web-components/icons/arrow--right/20';
-import ifNonNull from '../../../internal/vendor/@carbon/web-components/globals/directives/if-non-null.js';
+import { ifDefined } from 'lit/directives/if-defined.js';
 import '../../card/card-heading';
 import '../card-section-simple';
 
 const template = (props?) => {
   const { heading, children } = props ?? {};
   return html`
-    <dds-card-section-simple heading=${ifNonNull(heading)}>
+    <dds-card-section-simple heading=${ifDefined(heading)}>
       <dds-card-group>${children}</dds-card-group>
     </dds-card-section-simple>
   `;

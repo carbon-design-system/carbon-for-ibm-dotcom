@@ -7,16 +7,16 @@
  * LICENSE file in the root directory of this source tree.
  */
 
-import { html, render } from 'lit-html';
-import ifNonNull from '../../../internal/vendor/@carbon/web-components/globals/directives/if-non-null.js';
+import { html, render } from 'lit/html.js';
+import { ifDefined } from 'lit/directives/if-defined.js';
 import '../locale-item';
 
 const template = (props?) => {
   const { country, language } = props ?? {};
   return html`
     <dds-locale-item
-      country="${ifNonNull(country)}"
-      language="${ifNonNull(language)}"></dds-locale-item>
+      country="${ifDefined(country)}"
+      language="${ifDefined(language)}"></dds-locale-item>
   `;
 };
 

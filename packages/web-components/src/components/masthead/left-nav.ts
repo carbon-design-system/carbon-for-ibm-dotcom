@@ -8,7 +8,8 @@
  */
 
 import findLast from 'lodash-es/findLast.js';
-import { html, query, property } from 'lit-element';
+import { html } from 'lit';
+import { property, query } from 'lit/decorators.js';
 import settings from 'carbon-components/es/globals/js/settings.js';
 import { selectorTabbable } from '../../internal/vendor/@carbon/web-components/globals/settings.js';
 import HostListener from '../../internal/vendor/@carbon/web-components/globals/decorators/host-listener.js';
@@ -82,7 +83,10 @@ class DDSLeftNav extends StableSelectorMixin(BXSideNav) {
       if (toggle) {
         (toggle as HTMLElement).focus();
       }
-    } else if ((event.target as HTMLElement).matches?.(selectorButtonToggle)) {
+    } else if (
+      (event.composedPath()[1] as HTMLElement).tagName ===
+      selectorButtonToggle.toUpperCase()
+    ) {
       const { comparisonResult } = event.detail;
       const {
         selectorExpandedMenuSection,
@@ -137,17 +141,16 @@ class DDSLeftNav extends StableSelectorMixin(BXSideNav) {
   };
 
   private _handleClickOut(event: MouseEvent) {
-    const { target } = event;
     const { selectorButtonToggle } = this.constructor as typeof DDSLeftNav;
     const toggleButton: HTMLElement | null = (
       this.getRootNode() as Document
     ).querySelector(selectorButtonToggle);
 
+    // TODO: check why `target` returns `dds-masthead-container` (parent) in Lit v2
     if (
       this.expanded &&
-      target instanceof Element &&
-      target.closest(selectorButtonToggle) === null &&
-      target.closest(this.tagName) === null
+      (event.composedPath()[0] as HTMLElement).tagName ===
+        'DDS-LEFT-NAV-OVERLAY'
     ) {
       this.expanded = false;
       toggleButton?.focus();
@@ -271,7 +274,10 @@ class DDSLeftNav extends StableSelectorMixin(BXSideNav) {
           startSentinelNode,
           endSentinelNode,
         ]);
-        document.body.style.overflow = 'hidden';
+
+        if (doc.body?.style) {
+          doc.body.style.overflow = `hidden`;
+        }
 
         // TODO: remove this logic once masthead can account for banners.
         // set masthead position to `fixed` when left-nav is open for cloud-mastead

@@ -7,12 +7,12 @@
  * LICENSE file in the root directory of this source tree.
  */
 
-import { html } from 'lit-element';
+import { html } from 'lit';
 import { action } from '@storybook/addon-actions';
 import { boolean, select } from '@storybook/addon-knobs';
 import ArrowRight20 from '../../../internal/vendor/@carbon/web-components/icons/arrow--right/20.js';
 import '../../../internal/vendor/@carbon/web-components/components/button/button.js';
-import ifNonNull from '../../../internal/vendor/@carbon/web-components/globals/directives/if-non-null.js';
+import { ifDefined } from 'lit/directives/if-defined.js';
 import textNullable from '../../../../.storybook/knob-text-nullable';
 import { EXPRESSIVE_MODAL_SIZE } from '../defs';
 import '../index';
@@ -42,7 +42,7 @@ export const Default = (args) => {
     </style>
     <dds-expressive-modal
       ?open="${open}"
-      expressive-size="${ifNonNull(size)}"
+      expressive-size="${ifDefined(size)}"
       @dds-expressive-modal-beingclosed="${handleBeforeClose}"
       @dds-expressive-modal-closed="${onClose}">
       <dds-expressive-modal-header>

@@ -7,13 +7,13 @@
  * LICENSE file in the root directory of this source tree.
  */
 
-import { html, render } from 'lit-html';
-import ifNonNull from '../../../internal/vendor/@carbon/web-components/globals/directives/if-non-null.js';
+import { html, render } from 'lit/html.js';
+import { ifDefined } from 'lit/directives/if-defined.js';
 import '../footer-logo';
 
 const template = (props?) => {
   const { href } = props ?? {};
-  return html` <dds-footer-logo href="${ifNonNull(href)}"></dds-footer-logo> `;
+  return html` <dds-footer-logo href="${ifDefined(href)}"></dds-footer-logo> `;
 };
 
 describe('dds-footer-logo', function () {

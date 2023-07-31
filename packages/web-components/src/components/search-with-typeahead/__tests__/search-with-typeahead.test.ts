@@ -7,8 +7,8 @@
  * LICENSE file in the root directory of this source tree.
  */
 
-import { html, render } from 'lit-html';
-import ifNonNull from '../../../internal/vendor/@carbon/web-components/globals/directives/if-non-null.js';
+import { html, render } from 'lit/html.js';
+import { ifDefined } from 'lit/directives/if-defined.js';
 import { find } from '../../../globals/internal/collection-helpers';
 import EventManager from '../../../../tests/utils/event-manager';
 import DDSSearchWithTypeahead from '../search-with-typeahead';
@@ -30,19 +30,19 @@ const template = (props?) => {
   return html`
     <dds-search-with-typeahead
       ?active="${active}"
-      close-search-button-assistive-text="${ifNonNull(
+      close-search-button-assistive-text="${ifDefined(
         closeSearchButtonAssistiveText
       )}"
-      language=${ifNonNull(language)}
+      language=${ifDefined(language)}
       ?open="${open}"
-      open-search-button-assistive-text="${ifNonNull(
+      open-search-button-assistive-text="${ifDefined(
         openSearchButtonAssistiveText
       )}"
-      perform-search-button-assistive-text="${ifNonNull(
+      perform-search-button-assistive-text="${ifDefined(
         performSearchButtonAssistiveText
       )}"
-      searchPlaceholder="${ifNonNull(searchPlaceholder)}"
-      redirect-url="${ifNonNull(redirectUrl)}">
+      searchPlaceholder="${ifDefined(searchPlaceholder)}"
+      redirect-url="${ifDefined(redirectUrl)}">
     </dds-search-with-typeahead>
   `;
 };

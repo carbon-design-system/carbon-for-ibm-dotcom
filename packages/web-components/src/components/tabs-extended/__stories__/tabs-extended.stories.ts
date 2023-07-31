@@ -7,11 +7,11 @@
  * LICENSE file in the root directory of this source tree.
  */
 
-import { html } from 'lit-element';
+import { html } from 'lit';
 import '../index';
 import '../../content-block-media/index';
 import '../../card-group/index';
-import ifNonNull from '../../../internal/vendor/@carbon/web-components/globals/directives/if-non-null.js';
+import { ifDefined } from 'lit/directives/if-defined.js';
 import { select } from '@storybook/addon-knobs';
 import ArrowRight20 from '../../../internal/vendor/@carbon/web-components/icons/arrow--right/20';
 import { ORIENTATION } from '../defs';
@@ -32,7 +32,7 @@ const copy = `Lorem ipsum dolor sit amet, *consectetur* adipiscing elit.
 export const Default = (args) => {
   const { orientation } = args?.TabsExtended ?? {};
   return html`
-    <dds-tabs-extended orientation="${ifNonNull(orientation)}">
+    <dds-tabs-extended orientation="${ifDefined(orientation)}">
       <dds-tab
         label="First tab with long text that wraps multiple lines. Lorem ipsum dolor sit amet consectetur adipiscing elit"
         selected>

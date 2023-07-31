@@ -13,7 +13,7 @@ import {
   Store,
   bindActionCreators,
 } from 'redux';
-import {} from 'lit-element';
+import {} from 'lit';
 import settings from 'carbon-components/es/globals/js/settings.js';
 import KalturaPlayerAPI from '@carbon/ibmdotcom-services/es/services/KalturaPlayer/KalturaPlayer.js';
 import ddsSettings from '../../internal/vendor/@carbon/ibmdotcom-utilities/utilities/settings/settings';

@@ -7,9 +7,9 @@
  * LICENSE file in the root directory of this source tree.
  */
 
-import { html, property, state, LitElement } from 'lit-element';
+import { LitElement, render, html } from 'lit';
+import { property, state } from 'lit/decorators.js';
 import { stripHTML } from '@carbon/ibmdotcom-utilities/es/utilities/stripHTML/index.js';
-import { render } from 'lit-html';
 import ddsSettings from '../../internal/vendor/@carbon/ibmdotcom-utilities/utilities/settings/settings';
 import styles from './leadspace.scss';
 import StableSelectorMixin from '../../globals/mixins/stable-selector';

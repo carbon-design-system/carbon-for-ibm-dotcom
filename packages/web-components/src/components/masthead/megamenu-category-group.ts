@@ -7,8 +7,9 @@
  * LICENSE file in the root directory of this source tree.
  */
 
-import { html, LitElement, property } from 'lit-element';
-import ifNonNull from '../../internal/vendor/@carbon/web-components/globals/directives/if-non-null.js';
+import { LitElement, html } from 'lit';
+import { property } from 'lit/decorators.js';
+import { ifDefined } from 'lit/directives/if-defined.js';
 import ArrowRight16 from '../../internal/vendor/@carbon/web-components/icons/arrow--right/16.js';
 import settings from 'carbon-components/es/globals/js/settings.js';
 import ddsSettings from '../../internal/vendor/@carbon/ibmdotcom-utilities/utilities/settings/settings';
@@ -46,7 +47,7 @@ class DDSMegaMenuCategoryGroup extends LitElement {
           ${href
             ? html`
                 <dds-megamenu-link-with-icon
-                  href="${ifNonNull(href)}"
+                  href="${ifDefined(href)}"
                   style-scheme="category-headline"
                   title="${title}">
                   <span>${title}</span>${ArrowRight16({ slot: 'icon' })}

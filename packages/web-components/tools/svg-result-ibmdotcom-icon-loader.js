@@ -1,7 +1,7 @@
 /**
  * @license
  *
- * Copyright IBM Corp. 2020, 2022
+ * Copyright IBM Corp. 2020, 2023
  *
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
@@ -9,8 +9,9 @@
 
 'use strict';
 
-const svg2js = require('svgo/lib/svgo/svg2js');
 const createSVGResultFromIconDescriptor = require('./svg-result-from-icon-descriptor');
+const path = require('path');
+const svg2js = require('svgo/lib/svgo/svg2js');
 
 /**
  * @param {object} node The node in SVG2JS result.
@@ -70,8 +71,11 @@ function svgResultIBMDotcomIconLoader(content) {
         callback(
           null,
           `
-          import { svg } from 'lit-html';
-          import spread from '@carbon/web-components/es/globals/directives/spread.js';
+          import { svg } from 'lit';
+          import spread from '${path.resolve(
+            __dirname,
+            '../src/internal/vendor/@carbon/web-components/globals/directives/spread'
+          )}';
           const svgResultCarbonIcon = ${createSVGResultFromIconDescriptor(
             convertAttrs(svgNode)
           )};

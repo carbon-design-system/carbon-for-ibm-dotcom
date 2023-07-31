@@ -8,7 +8,7 @@
  */
 
 import settings from 'carbon-components/es/globals/js/settings.js';
-import { LitElement, html } from 'lit-element';
+import { LitElement, html } from 'lit';
 import ddsSettings from '../../internal/vendor/@carbon/ibmdotcom-utilities/utilities/settings/settings';
 import StableSelectorMixin from '../../globals/mixins/stable-selector';
 import styles from './structured-list.scss';

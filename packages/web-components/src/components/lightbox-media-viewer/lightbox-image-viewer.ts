@@ -7,9 +7,10 @@
  * LICENSE file in the root directory of this source tree.
  */
 
-import { html, property } from 'lit-element';
+import { html } from 'lit';
+import { property } from 'lit/decorators.js';
 import settings from 'carbon-components/es/globals/js/settings.js';
-import ifNonNull from '../../internal/vendor/@carbon/web-components/globals/directives/if-non-null.js';
+import { ifDefined } from 'lit/directives/if-defined.js';
 import ddsSettings from '../../internal/vendor/@carbon/ibmdotcom-utilities/utilities/settings/settings';
 import DDSLightboxMediaViewerBody from './lightbox-media-viewer-body';
 import '../expressive-modal/expressive-modal';
@@ -39,8 +40,8 @@ class DDSLightboxImageViewer extends DDSLightboxMediaViewerBody {
     return html`
       <img
         class="${prefix}--image__img"
-        alt="${ifNonNull(alt)}"
-        src="${ifNonNull(defaultSrc)}"
+        alt="${ifDefined(alt)}"
+        src="${ifDefined(defaultSrc)}"
         loading="lazy" />
     `;
   }

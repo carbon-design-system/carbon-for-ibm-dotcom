@@ -7,7 +7,7 @@
  * LICENSE file in the root directory of this source tree.
  */
 
-import { html, TemplateResult } from 'lit-element';
+import { TemplateResult, html } from 'lit';
 import { number, text } from '@storybook/addon-knobs';
 import readme from './README.stories.mdx';
 import '../index';

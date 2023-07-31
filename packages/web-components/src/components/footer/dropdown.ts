@@ -8,21 +8,20 @@
  */
 
 import settings from 'carbon-components/es/globals/js/settings.js';
-import { classMap } from 'lit-html/directives/class-map.js';
-import { ifDefined } from 'lit-html/directives/if-defined.js';
-import { html, query, property } from 'lit-element';
+import { classMap } from 'lit/directives/class-map.js';
+import { ifDefined } from 'lit/directives/if-defined.js';
+import { html } from 'lit';
+import { property, query } from 'lit/decorators.js';
 import ddsSettings from '@carbon/ibmdotcom-utilities/es/utilities/settings/settings.js';
-import BXDropdown from '../../internal/vendor/@carbon/web-components/components/dropdown/dropdown.js';
-import BXDropdownItem from '../../internal/vendor/@carbon/web-components/components/dropdown/dropdown-item.js';
-import ChevronDown16 from '../../internal/vendor/@carbon/web-components/icons/chevron--down/16.js';
-import WarningFilled16 from '../../internal/vendor/@carbon/web-components/icons/warning--filled/16.js';
-import {
-  DROPDOWN_COLOR_SCHEME,
+import CDSDropdown, {
   DROPDOWN_KEYBOARD_ACTION,
-  DROPDOWN_SIZE,
   DROPDOWN_TYPE,
   NAVIGATION_DIRECTION,
-} from './defs';
+} from '../../internal/vendor/@carbon/web-components/components/dropdown/dropdown.js';
+import CDSDropdownItem from '../../internal/vendor/@carbon/web-components/components/dropdown/dropdown-item.js';
+import ChevronDown16 from '../../internal/vendor/@carbon/web-components/icons/chevron--down/16.js';
+import WarningFilled16 from '../../internal/vendor/@carbon/web-components/icons/warning--filled/16.js';
+import { DROPDOWN_COLOR_SCHEME, DROPDOWN_SIZE } from './defs';
 import { forEach, indexOf } from '../../globals/internal/collection-helpers';
 import { carbonElement as customElement } from '../../internal/vendor/@carbon/web-components/globals/decorators/carbon-element.js';
 
@@ -46,17 +45,17 @@ const { prefix } = settings;
  * @csspart trigger-button The trigger button.
  * @csspart menu-body The menu body.
  * @csspart validity-message The validity message.
- * @fires bx-dropdown-beingselected
+ * @fires cds-dropdown-beingselected
  *   The custom event fired before a dropdown item is selected upon a user gesture.
  *   Cancellation of this event stops changing the user-initiated selection.
- * @fires bx-dropdown-beingtoggled
+ * @fires cds-dropdown-beingtoggled
  *   The custom event fired before the open state of this dropdown is toggled upon a user gesture.
  *   Cancellation of this event stops the user-initiated toggling.
- * @fires bx-dropdown-selected - The custom event fired after a dropdown item is selected upon a user gesture.
- * @fires bx-dropdown-toggled - The custom event fired after the open state of this dropdown is toggled upon a user gesture.
+ * @fires cds-dropdown-selected - The custom event fired after a dropdown item is selected upon a user gesture.
+ * @fires cds-dropdown-toggled - The custom event fired after the open state of this dropdown is toggled upon a user gesture.
  */
 @customElement(`${ddsPrefix}-dropdown`)
-class DDSDropdown extends BXDropdown {
+class DDSDropdown extends CDSDropdown {
   /**
    * The `<input` node in ComboBox, used to get value.
    */
@@ -78,7 +77,7 @@ class DDSDropdown extends BXDropdown {
    * @param direction `-1` to navigate backward, `1` to navigate forward.
    */
   protected _navigate(direction: number) {
-    const constructor = this.constructor as typeof BXDropdown;
+    const constructor = this.constructor as typeof CDSDropdown;
     const items = this.querySelectorAll(constructor.selectorItem);
     const highlightedItem = this.querySelector(
       constructor.selectorItemHighlighted
@@ -92,7 +91,7 @@ class DDSDropdown extends BXDropdown {
       nextIndex = 0;
     }
     forEach(items, (item, i) => {
-      (item as BXDropdownItem).highlighted = i === nextIndex;
+      (item as CDSDropdownItem).highlighted = i === nextIndex;
     });
 
     const nextItem = items[nextIndex];
@@ -113,11 +112,10 @@ class DDSDropdown extends BXDropdown {
 
   render() {
     const {
-      colorScheme,
       disabled,
       helperText,
       invalid,
-      labelText,
+      titleText,
       open,
       toggleLabelClosed,
       toggleLabelOpen,
@@ -132,7 +130,7 @@ class DDSDropdown extends BXDropdown {
       _handleSlotchangeHelperText: handleSlotchangeHelperText,
       _handleSlotchangeLabelText: handleSlotchangeLabelText,
       _slotHelperTextNode: slotHelperTextNode,
-      _slotLabelTextNode: slotLabelTextNode,
+      _slotTitleTextNode: slotTitleTextNode,
     } = this;
     const inline = type === DROPDOWN_TYPE.INLINE;
     const selectedItemsCount = this.querySelectorAll(
@@ -141,7 +139,6 @@ class DDSDropdown extends BXDropdown {
     const classes = classMap({
       [`${prefix}--dropdown`]: true,
       [`${prefix}--list-box`]: true,
-      [`${prefix}--list-box--${colorScheme}`]: colorScheme,
       [`${prefix}--list-box--disabled`]: disabled,
       [`${prefix}--list-box--inline`]: inline,
       [`${prefix}--list-box--expanded`]: open,
@@ -168,9 +165,9 @@ class DDSDropdown extends BXDropdown {
     const hasHelperText =
       helperText ||
       (slotHelperTextNode && slotHelperTextNode.assignedNodes().length > 0);
-    const hasLabelText =
-      labelText ||
-      (slotLabelTextNode && slotLabelTextNode.assignedNodes().length > 0);
+    const hasTitleText =
+      titleText ||
+      (slotTitleTextNode && slotTitleTextNode.assignedNodes().length > 0);
     const helper = !invalid
       ? html`
           <div
@@ -209,9 +206,9 @@ class DDSDropdown extends BXDropdown {
       <label
         part="label-text"
         class="${labelClasses}"
-        ?hidden="${!hasLabelText}">
+        ?hidden="${!hasTitleText}">
         <slot name="label-text" @slotchange="${handleSlotchangeLabelText}"
-          >${labelText}</slot
+          >${hasTitleText}</slot
         >
       </label>
       <div
@@ -231,7 +228,7 @@ class DDSDropdown extends BXDropdown {
           aria-haspopup="listbox"
           aria-owns="menu-body"
           aria-controls="menu-body">
-          ${this._renderPrecedingTriggerContent()}${this._renderTriggerContent()}${this._renderFollowingTriggerContent()}
+          ${this._renderPrecedingLabel()}${this._renderLabel()}${this._renderFollowingLabel()}
           <div class="${iconContainerClasses}">
             ${ChevronDown16({ 'aria-label': toggleLabel })}
           </div>

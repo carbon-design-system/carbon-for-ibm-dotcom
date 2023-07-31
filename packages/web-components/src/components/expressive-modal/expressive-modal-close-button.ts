@@ -7,8 +7,8 @@
  * LICENSE file in the root directory of this source tree.
  */
 
-import { property } from 'lit-element';
-import BXModalCloseButton from '../../internal/vendor/@carbon/web-components/components/modal/modal-close-button.js';
+import { property } from 'lit/decorators.js';
+import CDSModalCloseButton from '../../internal/vendor/@carbon/web-components/components/modal/modal-close-button.js';
 import ddsSettings from '../../internal/vendor/@carbon/ibmdotcom-utilities/utilities/settings/settings';
 import { EXPRESSIVE_MODAL_SIZE } from './defs';
 import styles from './expressive-modal.scss';
@@ -24,7 +24,7 @@ const { stablePrefix: ddsPrefix } = ddsSettings;
  */
 @customElement(`${ddsPrefix}-expressive-modal-close-button`)
 class DDSExpressiveModalCloseButton extends StableSelectorMixin(
-  BXModalCloseButton
+  CDSModalCloseButton
 ) {
   /**
    * The size variant.

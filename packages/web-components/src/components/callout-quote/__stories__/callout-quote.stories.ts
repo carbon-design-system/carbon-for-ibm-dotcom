@@ -10,7 +10,7 @@
 import '../index';
 import '../callout-link-with-icon';
 import ArrowRight20 from '../../../internal/vendor/@carbon/web-components/icons/arrow--right/20.js';
-import { html } from 'lit-element';
+import { html } from 'lit';
 import { select } from '@storybook/addon-knobs';
 import { QUOTE_TYPES } from '../../quote/quote';
 import readme from './README.stories.mdx';

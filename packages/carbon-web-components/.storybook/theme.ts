@@ -11,6 +11,10 @@ import { create, ThemeVars } from '@storybook/theming';
 import { version } from '../package.json';
 
 export default create({
+  // Typography
+  fontBase: "'IBM Plex Sans', 'Helvetica Neue', Arial, sans-serif",
+  fontCode:
+    "'IBM Plex Mono', Menlo, 'DejaVu Sans Mono', 'Bitstream Vera Sans Mono', Courier, monospace",
   brandTitle: `@carbon/web-components ${version}`,
   brandUrl:
     'https://github.com/carbon-design-system/carbon-for-ibm-dotcom/tree/main/packages/carbon-web-components',

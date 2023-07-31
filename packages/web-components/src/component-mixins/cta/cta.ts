@@ -7,7 +7,7 @@
  * LICENSE file in the root directory of this source tree.
  */
 
-import { html } from 'lit-element';
+import { html } from 'lit';
 import settings from 'carbon-components/es/globals/js/settings.js';
 import ArrowDown20 from '../../internal/vendor/@carbon/web-components/icons/arrow--down/20.js';
 import ArrowRight20 from '../../internal/vendor/@carbon/web-components/icons/arrow--right/20.js';

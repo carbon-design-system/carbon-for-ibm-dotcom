@@ -66,6 +66,7 @@ $button-transition: background-color 110ms, border-color 110ms, color 110ms;
       overflow-x: visible;
     }
   }
+  /* stylelint-enable selector-pseudo-class-parentheses-space-inside */
 
   .#{$prefix}--header__action {
     border: 2px solid transparent;

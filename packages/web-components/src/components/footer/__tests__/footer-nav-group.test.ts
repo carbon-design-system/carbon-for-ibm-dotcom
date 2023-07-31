@@ -7,8 +7,8 @@
  * LICENSE file in the root directory of this source tree.
  */
 
-import { html, render } from 'lit-html';
-import ifNonNull from '../../../internal/vendor/@carbon/web-components/globals/directives/if-non-null.js';
+import { html, render } from 'lit/html.js';
+import { ifDefined } from 'lit/directives/if-defined.js';
 import EventManager from '../../../../tests/utils/event-manager';
 import DDSFooterNavGroup from '../footer-nav-group';
 // Above import is interface-only ref and thus code won't be brought into the build
@@ -18,7 +18,7 @@ import '../footer-nav-item';
 const template = (props?) => {
   const { open, titleText } = props ?? {};
   return html`
-    <dds-footer-nav-group ?open="${open}" title-text="${ifNonNull(titleText)}">
+    <dds-footer-nav-group ?open="${open}" title-text="${ifDefined(titleText)}">
       <dds-footer-nav-item ?open="${open}"></dds-footer-nav-item>
     </dds-footer-nav-group>
   `;

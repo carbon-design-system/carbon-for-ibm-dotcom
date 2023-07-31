@@ -7,17 +7,10 @@
  * LICENSE file in the root directory of this source tree.
  */
 
-import { nothing } from 'lit-html';
-import { classMap } from 'lit-html/directives/class-map.js';
-import { ifDefined } from 'lit-html/directives/if-defined.js';
-import {
-  html,
-  property,
-  state,
-  query,
-  queryAll,
-  LitElement,
-} from 'lit-element';
+import { classMap } from 'lit/directives/class-map.js';
+import { ifDefined } from 'lit/directives/if-defined.js';
+import { html, LitElement, nothing } from 'lit';
+import { property, query, queryAll, state } from 'lit/decorators.js';
 import CaretLeft20 from '../../internal/vendor/@carbon/web-components/icons/caret--left/20.js';
 import CaretRight20 from '../../internal/vendor/@carbon/web-components/icons/caret--right/20.js';
 import settings from 'carbon-components/es/globals/js/settings.js';

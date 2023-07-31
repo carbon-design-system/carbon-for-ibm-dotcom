@@ -8,8 +8,7 @@
  */
 
 import BXStructuredListRow from '../../internal/vendor/@carbon/web-components/components/structured-list/structured-list-row.js';
-import {} from 'lit-element';
-import { html } from 'lit-html';
+import { html } from 'lit';
 import ddsSettings from '../../internal/vendor/@carbon/ibmdotcom-utilities/utilities/settings/settings';
 import styles from './structured-list.scss';
 import { carbonElement as customElement } from '../../internal/vendor/@carbon/web-components/globals/decorators/carbon-element.js';

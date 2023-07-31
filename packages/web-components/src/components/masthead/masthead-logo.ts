@@ -7,7 +7,8 @@
  * LICENSE file in the root directory of this source tree.
  */
 
-import { html, state, property } from 'lit-element';
+import { html } from 'lit';
+import { property, state } from 'lit/decorators.js';
 import BXLink from '../../internal/vendor/@carbon/web-components/components/link/link.js';
 import HostListener from '../../internal/vendor/@carbon/web-components/globals/decorators/host-listener.js';
 import HostListenerMixin from '../../internal/vendor/@carbon/web-components/globals/mixins/host-listener.js';

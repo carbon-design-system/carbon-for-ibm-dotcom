@@ -7,8 +7,8 @@
  * LICENSE file in the root directory of this source tree.
  */
 
-import { html, render } from 'lit-html';
-import ifNonNull from '../../../internal/vendor/@carbon/web-components/globals/directives/if-non-null.js';
+import { html, render } from 'lit/html.js';
+import { ifDefined } from 'lit/directives/if-defined.js';
 import {
   VIDEO_PLAYER_CONTENT_STATE,
   VIDEO_PLAYER_PLAYING_MODE,
@@ -30,15 +30,15 @@ const template = (props?) => {
   } = props ?? {};
   return html`
     <dds-video-player
-      content-state="${ifNonNull(contentState)}"
-      duration="${ifNonNull(duration)}"
+      content-state="${ifDefined(contentState)}"
+      duration="${ifDefined(duration)}"
       ?hide-caption="${hideCaption}"
-      name="${ifNonNull(name)}"
-      thumbnail-url="${ifNonNull(thumbnailUrl)}"
-      video-id="${ifNonNull(videoId)}"
-      .formatCaption="${ifNonNull(formatCaption)}"
-      .formatDuration="${ifNonNull(formatDuration)}"
-      .playingMode="${ifNonNull(playingMode)}">
+      name="${ifDefined(name)}"
+      thumbnail-url="${ifDefined(thumbnailUrl)}"
+      video-id="${ifDefined(videoId)}"
+      .formatCaption="${ifDefined(formatCaption)}"
+      .formatDuration="${ifDefined(formatDuration)}"
+      .playingMode="${ifDefined(playingMode)}">
     </dds-video-player>
   `;
 };

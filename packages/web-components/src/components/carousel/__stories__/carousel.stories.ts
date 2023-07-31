@@ -7,12 +7,12 @@
  * LICENSE file in the root directory of this source tree.
  */
 
-import { classMap } from 'lit-html/directives/class-map.js';
-import { html } from 'lit-element';
+import { classMap } from 'lit/directives/class-map.js';
+import { html } from 'lit';
 // Below path will be there when an application installs `carbon-web-components` package.
 // In our dev env, we auto-generate the file and re-map below path to to point to the generated file.
 // @ts-ignore
-import ifNonNull from '../../../internal/vendor/@carbon/web-components/globals/directives/if-non-null.js';
+import { ifDefined } from 'lit/directives/if-defined.js';
 import ArrowRight20 from '../../../internal/vendor/@carbon/web-components/icons/arrow--right/20.js';
 import '../../card/index';
 import '../../cta/index';
@@ -39,7 +39,7 @@ const Card = ({
   href = hrefDefault,
   image = undefined,
 } = {}) => html`
-  <dds-card href="${ifNonNull(href)}">
+  <dds-card href="${ifDefined(href)}">
     <dds-card-heading>${heading}</dds-card-heading>
     <p>${copy}</p>
     ${image
@@ -60,7 +60,7 @@ const CardWithLongHeading = ({
   href = hrefDefault,
   image = undefined,
 } = {}) => html`
-  <dds-card href="${ifNonNull(href)}">
+  <dds-card href="${ifDefined(href)}">
     <dds-card-heading>${heading} ${heading}</dds-card-heading>
     <p>${copy}</p>
     ${image

@@ -7,9 +7,10 @@
  * LICENSE file in the root directory of this source tree.
  */
 
-import { html, property, LitElement } from 'lit-element';
+import { LitElement, html } from 'lit';
+import { property } from 'lit/decorators.js';
 import settings from 'carbon-components/es/globals/js/settings.js';
-import ifNonNull from '../../internal/vendor/@carbon/web-components/globals/directives/if-non-null.js';
+import { ifDefined } from 'lit/directives/if-defined.js';
 import ddsSettings from '../../internal/vendor/@carbon/ibmdotcom-utilities/utilities/settings/settings';
 import styles from './tag-link.scss';
 import StableSelectorMixin from '../../globals/mixins/stable-selector';
@@ -80,14 +81,14 @@ class DDSTagLink extends StableSelectorMixin(LitElement) {
     return html`
       <a
         id="link"
-        role="${ifNonNull(linkRole)}"
+        role="${ifDefined(linkRole)}"
         class="${prefix}--link"
         part="link"
-        href="${ifNonNull(href)}"
-        hreflang="${ifNonNull(hreflang)}"
-        ping="${ifNonNull(ping)}"
-        rel="${ifNonNull(rel)}"
-        target="${ifNonNull(target)}"
+        href="${ifDefined(href)}"
+        hreflang="${ifDefined(hreflang)}"
+        ping="${ifDefined(ping)}"
+        rel="${ifDefined(rel)}"
+        target="${ifDefined(target)}"
         @click="${handleClick}">
         <slot></slot>
       </a>

@@ -7,7 +7,7 @@
  * LICENSE file in the root directory of this source tree.
  */
 
-import { property } from 'lit-element';
+import { property } from 'lit/decorators.js';
 import BXSkipToContent from '../../internal/vendor/@carbon/web-components/components/skip-to-content/skip-to-content.js';
 import ddsSettings from '../../internal/vendor/@carbon/ibmdotcom-utilities/utilities/settings/settings';
 import styles from './masthead.scss';

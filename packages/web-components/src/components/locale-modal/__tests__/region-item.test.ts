@@ -7,19 +7,19 @@
  * LICENSE file in the root directory of this source tree.
  */
 
-import { html, render } from 'lit-html';
+import { html, render } from 'lit/html.js';
 import ArrowRight20 from '../../../internal/vendor/@carbon/web-components/icons/arrow--right/20.js';
 import Error20 from '../../../internal/vendor/@carbon/web-components/icons/error/20.js';
-import ifNonNull from '../../../internal/vendor/@carbon/web-components/globals/directives/if-non-null.js';
+import { ifDefined } from 'lit/directives/if-defined.js';
 import '../region-item';
 
 const template = (props?) => {
   const { href, invalid, name } = props ?? {};
   return html`
     <dds-region-item
-      href="${ifNonNull(href)}"
+      href="${ifDefined(href)}"
       ?invalid="${invalid}"
-      name="${ifNonNull(name)}"></dds-region-item>
+      name="${ifDefined(name)}"></dds-region-item>
   `;
 };
 

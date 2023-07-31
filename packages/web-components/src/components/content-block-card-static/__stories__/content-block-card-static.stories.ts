@@ -8,7 +8,7 @@
  */
 
 import '../index';
-import { html } from 'lit-element';
+import { html } from 'lit';
 import ArrowRight20 from '../../../internal/vendor/@carbon/web-components/icons/arrow--right/20.js';
 import Chat20 from '../../../internal/vendor/@carbon/web-components/icons/chat/20.js';
 // eslint-disable-next-line sort-imports

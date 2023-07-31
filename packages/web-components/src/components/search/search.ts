@@ -7,13 +7,11 @@
  * LICENSE file in the root directory of this source tree.
  */
 
-import {} from 'lit-element';
-import BXSearch from '../../internal/vendor/@carbon/web-components/components/search/search.js';
+import {} from 'lit';
+import CDSSearch from '../../internal/vendor/@carbon/web-components/components/search/search.js';
 import ddsSettings from '../../internal/vendor/@carbon/ibmdotcom-utilities/utilities/settings/settings';
 import styles from './search.scss';
 import { carbonElement as customElement } from '../../internal/vendor/@carbon/web-components/globals/decorators/carbon-element.js';
-
-export { SEARCH_COLOR_SCHEME } from '../../internal/vendor/@carbon/web-components/components/search/search.js';
 
 const { stablePrefix: ddsPrefix } = ddsSettings;
 
@@ -23,7 +21,7 @@ const { stablePrefix: ddsPrefix } = ddsSettings;
  * @element dds-search
  */
 @customElement(`${ddsPrefix}-search`)
-class DDSSearch extends BXSearch {
+class DDSSearch extends CDSSearch {
   /**
    * The name of the custom event fired after the search content is changed upon a user gesture.
    */

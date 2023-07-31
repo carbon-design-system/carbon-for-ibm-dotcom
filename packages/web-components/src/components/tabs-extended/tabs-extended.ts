@@ -8,8 +8,9 @@
  */
 
 import settings from 'carbon-components/es/globals/js/settings.js';
-import { html, state, LitElement, TemplateResult, property } from 'lit-element';
-import { classMap } from 'lit-html/directives/class-map.js';
+import { html, LitElement, TemplateResult } from 'lit';
+import { property, state } from 'lit/decorators.js';
+import { classMap } from 'lit/directives/class-map.js';
 import ddsSettings from '../../internal/vendor/@carbon/ibmdotcom-utilities/utilities/settings/settings';
 import StableSelectorMixin from '../../globals/mixins/stable-selector';
 import MediaQueryMixin, {

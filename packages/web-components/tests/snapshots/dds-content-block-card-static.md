@@ -11,7 +11,7 @@
     cta-type=""
     data-autoid="dds--card-group-item"
     pictogram-placement=""
-    size=""
+    size="md"
   >
   </dds-card-group-item>
   <dds-card-group
@@ -67,7 +67,7 @@
     cta-type=""
     data-autoid="dds--card-group-item"
     pictogram-placement=""
-    size=""
+    size="md"
   >
     heading-foo
   </dds-card-group-item>
@@ -82,7 +82,7 @@
       data-autoid="dds--card-group-item"
       href="https://example.com"
       pictogram-placement=""
-      size=""
+      size="md"
     >
       <dds-card-heading
         aria-level="3"

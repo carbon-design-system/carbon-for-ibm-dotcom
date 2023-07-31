@@ -7,7 +7,7 @@
  * LICENSE file in the root directory of this source tree.
  */
 
-import { html } from 'lit-element';
+import { html } from 'lit';
 import { text, select } from '@storybook/addon-knobs';
 import Launch20 from '../../../internal/vendor/@carbon/web-components/icons/launch/20.js';
 import styles from './leaving-ibm.stories.scss';

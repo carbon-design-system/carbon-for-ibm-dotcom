@@ -7,11 +7,11 @@
  * LICENSE file in the root directory of this source tree.
  */
 
-import { html, render } from 'lit-html';
+import { html, render } from 'lit/html.js';
 import EventManager from '../../../../tests/utils/event-manager';
 import DDSExpressiveModal from '../expressive-modal';
 import '../../../internal/vendor/@carbon/web-components/components/button/button';
-import BXModalCloseButton from '../../../internal/vendor/@carbon/web-components/components/modal/modal-close-button';
+import CDSModalCloseButton from '../../../internal/vendor/@carbon/web-components/components/modal/modal-close-button';
 import { EXPRESSIVE_MODAL_SIZE } from '../defs';
 import { Default } from '../__stories__/expressive-modal.stories';
 
@@ -134,8 +134,8 @@ describe('dds-expressive-modal', function () {
       spyOn(input, 'focus');
       spyOn(button, 'focus');
       modal.open = true;
-      await Promise.resolve(); // For triggering the update cycle of `<bx-modal>`
-      await Promise.resolve(); // `update()` in `<bx-modal>` waits for child nodes' update cycles to run
+      await Promise.resolve(); // For triggering the update cycle of `<cds-modal>`
+      await Promise.resolve(); // `update()` in `<cds-modal>` waits for child nodes' update cycles to run
       expect(input.focus).not.toHaveBeenCalled();
       expect(button.focus).toHaveBeenCalled();
     });
@@ -200,14 +200,14 @@ describe('dds-expressive-modal', function () {
       render(
         html`
           <dds-expressive-modal open
-            ><bx-modal-close-button></bx-modal-close-button
+            ><cds-modal-close-button></cds-modal-close-button
           ></dds-expressive-modal>
         `,
         document.body
       );
       await Promise.resolve();
       (
-        document.querySelector('bx-modal-close-button') as BXModalCloseButton
+        document.querySelector('cds-modal-close-button') as CDSModalCloseButton
       ).click();
       await Promise.resolve();
       expect(

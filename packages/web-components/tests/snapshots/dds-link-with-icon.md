@@ -6,9 +6,10 @@
 
 ```
 <a
-  class="bx--link bx--link--lg bx--link-with-icon"
+  class="bx--link-with-icon cds--link cds--link--lg"
   id="link"
   part="link"
+  tabindex="0"
 >
   <span>
     <slot>
@@ -24,7 +25,7 @@
 
 ```
 <p
-  class="bx--link bx--link--disabled bx--link--lg bx--link-with-icon"
+  class="bx--link-with-icon cds--link cds--link--disabled cds--link--lg"
   id="link"
   part="link"
 >

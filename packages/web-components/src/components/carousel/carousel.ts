@@ -6,14 +6,12 @@
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
  */
-
-import { html, property, state, query, LitElement } from 'lit-element';
-import { carbonElement as customElement } from '../../internal/vendor/@carbon/web-components/globals/decorators/carbon-element.js';
-import { classMap } from 'lit-html/directives/class-map.js';
+import { LitElement, html } from 'lit';
+import { customElement, property, query, state } from 'lit/decorators.js';
 import 'wicg-inert';
-import settings from 'carbon-components/es/globals/js/settings.js';
 import { slow01 } from '@carbon/motion';
-import ifNonNull from '../../internal/vendor/@carbon/web-components/globals/directives/if-non-null.js';
+import { classMap } from 'lit/directives/class-map.js';
+import settings from 'carbon-components/es/globals/js/settings.js';
 import CaretLeft20 from '../../internal/vendor/@carbon/web-components/icons/caret--left/20.js';
 import CaretRight20 from '../../internal/vendor/@carbon/web-components/icons/caret--right/20.js';
 import HostListener from '../../internal/vendor/@carbon/web-components/globals/decorators/host-listener.js';
@@ -24,6 +22,7 @@ import sameHeight from '../../internal/vendor/@carbon/ibmdotcom-utilities/utilit
 import styles from './carousel.scss';
 import StableSelectorMixin from '../../globals/mixins/stable-selector';
 import DDSExpressiveModal from '../expressive-modal/expressive-modal';
+import { ifDefined } from 'lit/directives/if-defined.js';
 
 const { prefix } = settings;
 const { stablePrefix: ddsPrefix } = ddsSettings;
@@ -649,7 +648,16 @@ class DDSCarousel extends HostListenerMixin(StableSelectorMixin(LitElement)) {
 
   protected updated(changedProperties) {
     if (changedProperties.has('start')) {
-      this.markHiddenAsInert();
+      const { _childItems: childItems, start, pageSize } = this;
+
+      childItems.forEach((item) => {
+        const index = childItems.indexOf(item);
+        if (index < start || index > start + pageSize - 1) {
+          item.inert = true;
+        } else {
+          item.inert = false;
+        }
+      });
     }
   }
 
@@ -696,7 +704,7 @@ class DDSCarousel extends HostListenerMixin(StableSelectorMixin(LitElement)) {
           @scroll="${handleScrollFocus}"
           @touchstart="${handleTouchStartEvent}"
           @touchend="${handleTouchEndEvent}"
-          style="${ifNonNull(
+          style="${ifDefined(
             pageSizeExplicit == null
               ? null
               : `${customPropertyPageSize}: ${pageSizeExplicit}`

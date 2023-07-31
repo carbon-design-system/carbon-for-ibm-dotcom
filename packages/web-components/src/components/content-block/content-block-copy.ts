@@ -7,7 +7,8 @@
  * LICENSE file in the root directory of this source tree.
  */
 
-import { css, property } from 'lit-element';
+import { css } from 'lit';
+import { property } from 'lit/decorators.js';
 import ddsSettings from '../../internal/vendor/@carbon/ibmdotcom-utilities/utilities/settings/settings';
 import StableSelectorMixin from '../../globals/mixins/stable-selector';
 import DDSMarkdown from '../markdown/markdown';
@@ -34,6 +35,12 @@ class DDSContentBlockCopy extends StableSelectorMixin(DDSMarkdown) {
   }
 
   protected get _renderer() {
+    this.childNodes.forEach((node) => {
+      if (node.nodeType === Node.TEXT_NODE) {
+        this.removeChild(node);
+      }
+    });
+
     return Object.assign(super._renderer, {
       paragraph(text) {
         return `<${ddsPrefix}-content-block-paragraph>${text}</${ddsPrefix}-content-block-paragraph>`;

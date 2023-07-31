@@ -7,7 +7,8 @@
  * LICENSE file in the root directory of this source tree.
  */
 
-import { css, property } from 'lit-element';
+import { css } from 'lit';
+import { property } from 'lit/decorators.js';
 import BXLink from '../../internal/vendor/@carbon/web-components/components/link/link.js';
 import ddsSettings from '../../internal/vendor/@carbon/ibmdotcom-utilities/utilities/settings/settings';
 import { MEGAMENU_LINK_WITH_ICON_STYLE_SCHEME } from './defs';

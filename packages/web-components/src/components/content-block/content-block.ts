@@ -7,9 +7,9 @@
  * LICENSE file in the root directory of this source tree.
  */
 
-import { Part } from 'lit-html';
-import { classMap } from 'lit-html/directives/class-map.js';
-import { html, property, state, LitElement, TemplateResult } from 'lit-element';
+import { classMap } from 'lit/directives/class-map.js';
+import { html, LitElement, TemplateResult } from 'lit';
+import { property, state } from 'lit/decorators.js';
 import settings from 'carbon-components/es/globals/js/settings.js';
 import ddsSettings from '../../internal/vendor/@carbon/ibmdotcom-utilities/utilities/settings/settings';
 import { CONTENT_BLOCK_COMPLEMENTARY_STYLE_SCHEME } from './defs';
@@ -85,7 +85,7 @@ class DDSContentBlock extends StableSelectorMixin(LitElement) {
   /**
    * The CSS class list for the container (grid) node.
    */
-  protected _getContainerClasses(): string | ((part: Part) => void) {
+  protected _getContainerClasses() {
     const { complementaryStyleScheme, _hasComplementary: hasComplementary } =
       this;
     return classMap({

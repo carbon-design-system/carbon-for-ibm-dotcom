@@ -7,13 +7,14 @@
  * LICENSE file in the root directory of this source tree.
  */
 
-import { classMap } from 'lit-html/directives/class-map.js';
-import { html, property, state, query } from 'lit-element';
+import { classMap } from 'lit/directives/class-map.js';
+import { html } from 'lit';
+import { property, query, state } from 'lit/decorators.js';
 import settings from 'carbon-components/es/globals/js/settings.js';
 import CaretLeft20 from '../../internal/vendor/@carbon/web-components/icons/caret--left/20.js';
 import CaretRight20 from '../../internal/vendor/@carbon/web-components/icons/caret--right/20.js';
 import BXHeaderNav from '../../internal/vendor/@carbon/web-components/components/ui-shell/header-nav.js';
-import ifNonNull from '../../internal/vendor/@carbon/web-components/globals/directives/if-non-null.js';
+import { ifDefined } from 'lit/directives/if-defined.js';
 import HostListener from '../../internal/vendor/@carbon/web-components/globals/decorators/host-listener.js';
 import HostListenerMixin from '../../internal/vendor/@carbon/web-components/globals/mixins/host-listener.js';
 import ddsSettings from '../../internal/vendor/@carbon/ibmdotcom-utilities/utilities/settings/settings';
@@ -560,7 +561,7 @@ class DDSTopNav extends StableSelectorMixin(HostListenerMixin(BXHeaderNav)) {
                       <div
                         part="menubar"
                         class="${prefix}--header__menu-bar"
-                        aria-label="${ifNonNull(this.menuBarLabel)}">
+                        aria-label="${ifDefined(this.menuBarLabel)}">
                         <slot
                           @slotchange=${handleSlotChange}
                           @keydown="${handleOnKeyDown}"></slot>
@@ -600,7 +601,7 @@ class DDSTopNav extends StableSelectorMixin(HostListenerMixin(BXHeaderNav)) {
                       <div
                         part="menubar"
                         class="${prefix}--header__menu-bar"
-                        aria-label="${ifNonNull(this.menuBarLabel)}">
+                        aria-label="${ifDefined(this.menuBarLabel)}">
                         <slot
                           @slotchange=${handleSlotChange}
                           @keydown="${handleOnKeyDown}"></slot>

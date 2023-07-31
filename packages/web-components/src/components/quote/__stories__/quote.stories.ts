@@ -8,7 +8,7 @@
  */
 
 import { select } from '@storybook/addon-knobs';
-import { html } from 'lit-element';
+import { html } from 'lit';
 import ArrowRight20 from '../../../internal/vendor/@carbon/web-components/icons/arrow--right/20.js';
 import { QUOTE_TYPES, QUOTE_COLOR_SCHEMES } from '../quote';
 import '../index';

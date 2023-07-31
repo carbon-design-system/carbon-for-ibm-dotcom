@@ -7,18 +7,10 @@
  * LICENSE file in the root directory of this source tree.
  */
 
-import {
-  html,
-  LitElement,
-  property,
-  query,
-  state,
-  SVGTemplateResult,
-  TemplateResult,
-} from 'lit-element';
+import { html, LitElement, SVGTemplateResult, TemplateResult } from 'lit';
+import { property, query, state } from 'lit/decorators.js';
 import { EXPRESSIVE_MODAL_MODE, EXPRESSIVE_MODAL_SIZE } from './defs';
-
-import { classMap } from 'lit-html/directives/class-map.js';
+import { classMap } from 'lit/directives/class-map.js';
 import DDSCarousel from '../carousel/carousel';
 import DDSExpressiveModalCloseButton from './expressive-modal-close-button';
 import ddsSettings from '../../internal/vendor/@carbon/ibmdotcom-utilities/utilities/settings/settings';
@@ -534,7 +526,7 @@ class DDSExpressiveModal extends StableSelectorMixin(
         await this._waitForTransitionEnd();
         if (primaryFocusNode) {
           // For cases where a `carbon-web-components` component (e.g. `<bx-btn>`) being `primaryFocusNode`,
-          // where its first update/render cycle that makes it focusable happens after `<bx-modal>`'s first update/render cycle
+          // where its first update/render cycle that makes it focusable happens after `<cds-modal>`'s first update/render cycle
           (primaryFocusNode as HTMLElement).focus();
         } else {
           tryFocusElems(focusableElements as [HTMLElement], true, this);

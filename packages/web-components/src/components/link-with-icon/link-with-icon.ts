@@ -7,7 +7,8 @@
  * LICENSE file in the root directory of this source tree.
  */
 
-import { html, TemplateResult, property } from 'lit-element';
+import { TemplateResult, html } from 'lit';
+import { property } from 'lit/decorators.js';
 import BXLink, {
   LINK_SIZE,
 } from '../../internal/vendor/@carbon/web-components/components/link/link.js';

@@ -7,8 +7,8 @@
  * LICENSE file in the root directory of this source tree.
  */
 
-import { html, render } from 'lit-html';
-import ifNonNull from '../../../internal/vendor/@carbon/web-components/globals/directives/if-non-null.js';
+import { html, render } from 'lit/html.js';
+import { ifDefined } from 'lit/directives/if-defined.js';
 import DDSVideoPlayer from '../video-player';
 import DDSVideoPlayerComposite from '../video-player-composite';
 // Above import is interface-only ref and thus code won't be brought into the build
@@ -27,12 +27,12 @@ const template = (props?) => {
   return html`
     <dds-video-player-composite
       ?hide-caption="${hideCaption}"
-      video-id="${ifNonNull(videoId)}"
-      .embeddedVideos="${ifNonNull(embeddedVideos)}"
-      .formatCaption="${ifNonNull(formatCaption)}"
-      .formatDuration="${ifNonNull(formatDuration)}"
-      .mediaData="${ifNonNull(mediaData)}"
-      .playingMode="${ifNonNull(playingMode)}">
+      video-id="${ifDefined(videoId)}"
+      .embeddedVideos="${ifDefined(embeddedVideos)}"
+      .formatCaption="${ifDefined(formatCaption)}"
+      .formatDuration="${ifDefined(formatDuration)}"
+      .mediaData="${ifDefined(mediaData)}"
+      .playingMode="${ifDefined(playingMode)}">
     </dds-video-player-composite>
   `;
 };

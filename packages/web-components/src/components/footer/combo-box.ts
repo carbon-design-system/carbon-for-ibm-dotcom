@@ -8,8 +8,8 @@
  */
 
 import settings from 'carbon-components/es/globals/js/settings.js';
-import { TemplateResult } from 'lit-html';
-import { html, property, query } from 'lit-element';
+import { TemplateResult, html } from 'lit';
+import { property, query } from 'lit/decorators.js';
 import BXComboBoxItem from '../../internal/vendor/@carbon/web-components/components/combo-box/combo-box-item.js';
 import Close16 from '../../internal/vendor/@carbon/web-components/icons/close/16.js';
 import ddsSettings from '@carbon/ibmdotcom-utilities/es/utilities/settings/settings.js';
@@ -166,10 +166,10 @@ class DDSComboBox extends DDSDropdown {
     super._handleUserInitiatedSelectItem(item);
   }
 
-  protected _renderTriggerContent(): TemplateResult {
+  protected _renderLabel(): TemplateResult {
     const {
       disabled,
-      triggerContent,
+      label,
       _filterInputValue: filterInputValue,
       _handleInput: handleInput,
     } = this;
@@ -178,7 +178,7 @@ class DDSComboBox extends DDSDropdown {
         id="trigger-label"
         class="${prefix}--text-input"
         ?disabled=${disabled}
-        placeholder="${triggerContent}"
+        placeholder="${label}"
         .value=${filterInputValue}
         role="combobox"
         aria-expanded="${this.open}"
@@ -189,7 +189,7 @@ class DDSComboBox extends DDSDropdown {
     `;
   }
 
-  protected _renderFollowingTriggerContent(): TemplateResult | void {
+  protected _renderFollowingLabel(): TemplateResult | void {
     const { clearSelectionLabel, _filterInputValue: filterInputValue } = this;
     return filterInputValue.length === 0
       ? undefined

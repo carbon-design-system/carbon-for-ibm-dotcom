@@ -7,8 +7,8 @@
  * LICENSE file in the root directory of this source tree.
  */
 
-import { html, render } from 'lit-html';
-import ifNonNull from '../../../internal/vendor/@carbon/web-components/globals/directives/if-non-null.js';
+import { html, render } from 'lit/html.js';
+import { ifDefined } from 'lit/directives/if-defined.js';
 import '../lightbox-video-player';
 
 const template = (props?) => {
@@ -22,12 +22,12 @@ const template = (props?) => {
   } = props ?? {};
   return html`
     <dds-lightbox-video-player
-      description="${ifNonNull(description)}"
-      duration="${ifNonNull(duration)}"
+      description="${ifDefined(description)}"
+      duration="${ifDefined(duration)}"
       ?hide-caption="${hideCaption}"
-      name="${ifNonNull(name)}"
-      .formatCaption="${ifNonNull(formatCaption)}"
-      .formatDuration="${ifNonNull(formatDuration)}">
+      name="${ifDefined(name)}"
+      .formatCaption="${ifDefined(formatCaption)}"
+      .formatDuration="${ifDefined(formatDuration)}">
     </dds-lightbox-video-player>
   `;
 };

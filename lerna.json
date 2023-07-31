@@ -1,5 +1,5 @@
 {
-  "lerna": "6.4.1",
+  "lerna": "6.5.1",
   "version": "independent",
   "npmClient": "yarn",
   "npmClientArgs": ["--no-immutable"],

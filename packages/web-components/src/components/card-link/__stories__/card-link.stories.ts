@@ -8,10 +8,10 @@
  */
 
 import { boolean } from '@storybook/addon-knobs';
-import { html } from 'lit-element';
+import { html } from 'lit';
 import ArrowRight20 from '../../../internal/vendor/@carbon/web-components/icons/arrow--right/20.js';
 import Error20 from '../../../internal/vendor/@carbon/web-components/icons/error/20.js';
-import ifNonNull from '../../../internal/vendor/@carbon/web-components/globals/directives/if-non-null.js';
+import { ifDefined } from 'lit/directives/if-defined.js';
 import readme from './README.stories.mdx';
 import textNullable from '../../../../.storybook/knob-text-nullable';
 import '../index';
@@ -19,7 +19,7 @@ import '../index';
 export const Default = (args) => {
   const { disabled, href, heading, copy } = args?.CardLink ?? {};
   return html`
-    <dds-card-link ?disabled=${disabled} href=${ifNonNull(href || undefined)}>
+    <dds-card-link ?disabled=${disabled} href=${ifDefined(href || undefined)}>
       <dds-card-link-heading>${heading}</dds-card-link-heading>
       ${copy ? html` <p>${copy}</p> ` : ``}
       <dds-card-footer ?disabled=${disabled}>

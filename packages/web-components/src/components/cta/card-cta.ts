@@ -7,10 +7,11 @@
  * LICENSE file in the root directory of this source tree.
  */
 
-import { html, property } from 'lit-element';
+import { html } from 'lit';
+import { property } from 'lit/decorators.js';
 import settings from 'carbon-components/es/globals/js/settings.js';
 import ddsSettings from '@carbon/ibmdotcom-utilities/es/utilities/settings/settings.js';
-import ifNonNull from '../../internal/vendor/@carbon/web-components/globals/directives/if-non-null.js';
+import { ifDefined } from 'lit/directives/if-defined.js';
 import PlayVideo from '@carbon/ibmdotcom-styles/icons/svg/play-video.svg';
 import {
   formatVideoCaption,
@@ -60,11 +61,10 @@ class DDSCardCTA extends VideoCTAMixin(CTAMixin(DDSCard)) {
         }
       )
     );
-
-    const heading = this.querySelector('dds-card-heading')
-      ? html``
-      : html` <dds-card-heading>${caption}</dds-card-heading> `;
-    return html` <slot name="heading"></slot>${heading} `;
+    return html`
+      <slot name="heading"></slot
+      ><dds-card-heading>${caption}</dds-card-heading>
+    `;
   }
 
   protected _renderImage() {
@@ -82,8 +82,8 @@ class DDSCardCTA extends VideoCTAMixin(CTAMixin(DDSCard)) {
         : html`
             <dds-card-cta-image
               class="${prefix}--card__video-thumbnail"
-              alt="${ifNonNull(videoName)}"
-              default-src="${ifNonNull(thumbnail || videoThumbnailUrl)}">
+              alt="${ifDefined(videoName)}"
+              default-src="${ifDefined(thumbnail || videoThumbnailUrl)}">
               ${PlayVideo({ slot: 'icon' })}
             </dds-card-cta-image>
           `;

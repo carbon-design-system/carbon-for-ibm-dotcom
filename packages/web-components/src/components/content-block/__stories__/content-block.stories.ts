@@ -10,7 +10,7 @@
 import '../index';
 import '../../cta/index';
 import '../../card-link/index';
-import { html } from 'lit-element';
+import { html } from 'lit';
 import { boolean, optionsKnob } from '@storybook/addon-knobs';
 import ArrowRight20 from '../../../internal/vendor/@carbon/web-components/icons/arrow--right/20.js';
 import { CONTENT_BLOCK_COMPLEMENTARY_STYLE_SCHEME } from '../content-block';
