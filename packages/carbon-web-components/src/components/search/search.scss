@@ -45,13 +45,17 @@ $css--plex: true !default;
   .#{$prefix}--search-magnifier {
     width: $spacing-09;
     height: $spacing-09;
-  }}
+  }
+}
 
 :host(#{$prefix}-search[expandable][expanded]) {
   @extend .#{$prefix}--search--expanded;
 
   .#{$prefix}--search-input {
     width: 100%;
+  }
+  .#{$prefix}--search-magnifier {
+    pointer-events: none;
   }
 }
 

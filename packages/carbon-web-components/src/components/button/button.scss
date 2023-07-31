@@ -35,7 +35,7 @@ $css--plex: true !default;
   }
 }
 
-:host(#{$prefix}-button-skeleton){
+:host(#{$prefix}-button-skeleton) {
   @include emit-layout-tokens();
 }
 
