@@ -27,21 +27,21 @@ $css--plex: true !default;
   @extend .#{$prefix}--search--expandable;
 }
 
-:host(#{$prefix}-search[size='sm']) {
+:host(#{$prefix}-search[expandable][size='sm']) {
   .#{$prefix}--search-magnifier {
     width: $spacing-07;
     height: $spacing-07;
   }
 }
 
-:host(#{$prefix}-search[size='md']) {
+:host(#{$prefix}-search[expandable][size='md']) {
   .#{$prefix}--search-magnifier {
     width: $spacing-08;
     height: $spacing-08;
   }
 }
 
-:host(#{$prefix}-search[size='lg']) {
+:host(#{$prefix}-search[expandable][size='lg']) {
   .#{$prefix}--search-magnifier {
     width: $spacing-09;
     height: $spacing-09;
