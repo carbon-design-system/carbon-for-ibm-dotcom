@@ -41,7 +41,7 @@ theme:
 
 The names of CSS Custom Properties you can use are the Carbon theme tokens
 prefixed with `--cds-`. The list of Carbon theme tokens can be found at
-[here](https://github.com/carbon-design-system/carbon/blob/main/packages/themes/src/index.js).
+[here](https://github.com/carbon-design-system/carbon/blob/v11.34.1/packages/themes/src/index.js).
 
 With CSS Custom Properties approach, you can switch the entire theme under the
 specific element by:
