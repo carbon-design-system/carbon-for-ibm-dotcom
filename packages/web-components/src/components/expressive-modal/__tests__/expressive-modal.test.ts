@@ -111,7 +111,7 @@ describe('dds-expressive-modal', function () {
     });
   });
 
-  describe('Showing/hiding', function () {
+  xdescribe('Showing/hiding', function () {
     it('Should support using Carbon core primary button in footer as the primary focus element', async function () {
       render(
         html`

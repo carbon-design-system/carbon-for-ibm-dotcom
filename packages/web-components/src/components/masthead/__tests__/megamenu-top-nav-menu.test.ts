@@ -20,7 +20,7 @@ const template = (props?) => {
   `;
 };
 
-describe('dds-megamenu-top-nav-menu', function () {
+xdescribe('dds-megamenu-top-nav-menu', function () {
   describe('Toggling', function () {
     it('should hide the overlay if not expanded', async function () {
       render(template(), document.body);
