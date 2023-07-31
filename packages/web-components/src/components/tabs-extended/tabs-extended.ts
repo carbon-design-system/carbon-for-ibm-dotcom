@@ -291,6 +291,8 @@ class DDSTabsExtended extends MediaQueryMixin(StableSelectorMixin(LitElement), {
 
   /**
    * Orientation (horizontal (default) | vertical)
+   * 
+   * @deprecated will only have horizontal variant
    */
   @property({ attribute: 'orientation', reflect: true })
   orientation = ORIENTATION.HORIZONTAL;
@@ -310,6 +312,11 @@ class DDSTabsExtended extends MediaQueryMixin(StableSelectorMixin(LitElement), {
 
   static styles = styles;
 }
+
+console.warn(
+  'The tabs-extended orientation prop has been deprecated in favor for only horizontal variations. ' +
+    'See tabs-extended documentation for more information.'
+);
 
 /* @__GENERATE_REACT_CUSTOM_ELEMENT_TYPE__ */
 export default DDSTabsExtended;
