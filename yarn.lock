@@ -3330,7 +3330,7 @@ __metadata:
     karma-sourcemap-loader: ^0.4.0
     karma-spec-reporter: 0.0.36
     karma-webpack: ^4.0.2
-    lit: ^2.6.0
+    lit: ^2.7.6
     lodash-es: ^4.17.21
     lodash.pickby: ^4.6.0
     magic-string: ^0.30.0
@@ -3740,7 +3740,7 @@ __metadata:
     karma-sourcemap-loader: ^0.4.0
     karma-spec-reporter: 0.0.36
     karma-webpack: ^4.0.2
-    lit: ^2.6.0
+    lit: ^2.7.6
     lodash-es: ^4.17.21
     magic-string: ^0.30.0
     mini-css-extract-plugin: ~2.7.0
@@ -23571,14 +23571,14 @@ __metadata:
   languageName: node
   linkType: hard
 
-"lit@npm:^2.6.0":
-  version: 2.7.0
-  resolution: "lit@npm:2.7.0"
+"lit@npm:^2.7.6":
+  version: 2.7.6
+  resolution: "lit@npm:2.7.6"
   dependencies:
     "@lit/reactive-element": ^1.6.0
     lit-element: ^3.3.0
     lit-html: ^2.7.0
-  checksum: 916f459ded2e9700fe695070963dcb2edcea2dd1d127db6885cf10e94766d5ca9f438ebf659dca264c6402708254927b0ffed6595b6bcaac422e6f203dbbf6ee
+  checksum: 984a7fb9c0fa387f20177a07de22ea1c9cdc01a7dc7cb1c400d1df5b43a8956908460482a3259ea173555c6f0f13457d2ddc5c84d4c365007afd86e7ca58b384
   languageName: node
   linkType: hard
 
