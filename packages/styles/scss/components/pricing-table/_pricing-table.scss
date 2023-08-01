@@ -273,7 +273,6 @@
   .#{$prefix}--pricing-table-header-cell-headline,
   :host(#{$dds-prefix}-pricing-table-header-cell-headline) {
     // @include type-style('fluid-heading-03');
-
     color: $text-primary;
     display: block;
   }

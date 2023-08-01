@@ -51,13 +51,11 @@
 
 :host(#{$dds-prefix}-breadcrumb) {
   // @extend :host(#{$prefix}-breadcrumb);
-
   padding-bottom: $spacing-05;
 }
 
 :host(#{$dds-prefix}-breadcrumb-item) {
   // @extend :host(#{$prefix}-breadcrumb-item);
-
   display: inline;
 }
 

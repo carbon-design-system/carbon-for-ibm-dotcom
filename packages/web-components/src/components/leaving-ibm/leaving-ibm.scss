@@ -19,7 +19,6 @@
 
 :host(#{$dds-prefix}-leaving-ibm-modal) {
   // @extend :host(#{$prefix}-modal);
-
   max-height: 100%;
 
   &[open] {
@@ -33,7 +32,6 @@
 
 :host(#{$dds-prefix}-leaving-ibm-modal-body) {
   // @extend :host(#{$prefix}-modal-body);
-
   padding-right: 20%;
 
   ::slotted(#{$dds-prefix}-leaving-ibm-modal-supplemental),

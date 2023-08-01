@@ -14,7 +14,7 @@ import React from 'react';
 import DDSTagLink from '@carbon/ibmdotcom-web-components/es/components-react/tag-link/tag-link';
 // @ts-ignore
 import DDSTagGroup from '@carbon/ibmdotcom-web-components/es/components-react/tag-group/tag-group';
-import { Tag } from 'carbon-components-react';
+import { Tag } from '@carbon/react/es/components/Tag/Tag.js';
 import '@carbon/web-components/es/components/tag/tag.js';
 import readme from './README.stories.react.mdx';
 

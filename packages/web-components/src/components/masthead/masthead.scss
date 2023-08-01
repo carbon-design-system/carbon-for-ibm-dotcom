@@ -20,7 +20,6 @@
 
 :host(#{$dds-prefix}-masthead-menu-button) {
   // @extend :host(#{$prefix}-header-menu-button);
-
   position: relative;
   width: mini-units(6);
   height: mini-units(6);
@@ -299,7 +298,6 @@
 
 :host(#{$dds-prefix}-left-nav) {
   // @extend :host(#{$prefix}-side-nav);
-
   display: block;
   overflow: hidden;
   margin-top: calc(#{mini-units(6)} + 1px);

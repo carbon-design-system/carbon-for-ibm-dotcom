@@ -20,7 +20,7 @@ import DDSCardFooter from '@carbon/ibmdotcom-web-components/es/components-react/
 import DDSImage from '@carbon/ibmdotcom-web-components/es/components-react/image/image';
 import DDSImageLogo from '@carbon/ibmdotcom-web-components/es/components-react/card/image-logo';
 import DDSTagGroup from '@carbon/ibmdotcom-web-components/es/components-react/tag-group/tag-group';
-import { Tag } from 'carbon-components-react';
+import { Tag } from '@carbon/react/es/components/Tag/Tag.js';
 import textNullable from '../../../../.storybook/knob-text-nullable';
 import readme from './README.stories.react.mdx';
 import imgXlg4x3 from '../../../../../storybook-images/assets/1312/fpo--4x3--1312x984--003.jpg';

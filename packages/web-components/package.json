@@ -134,6 +134,7 @@
     "@carbon/icon-helpers": "10.43.1",
     "@carbon/icons": "^11.23.0",
     "@carbon/pictograms-react": "11.45.2",
+    "@carbon/react": "^1.34.1",
     "@carbon/type": "^11.21.1",
     "@open-wc/semantic-dom-diff": "~0.18.0",
     "@percy-io/in-percy": "^0.1.11",
