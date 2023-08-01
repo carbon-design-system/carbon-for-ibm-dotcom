@@ -7,6 +7,7 @@
 // LICENSE file in the root directory of this source tree.
 //
 
+@use '@carbon/styles/scss/spacing' as *;
 @use '@carbon/styles/scss/theme' as *;
 @use '@carbon/styles/scss/themes' as *;
 @use '@carbon/styles/scss/type' as *;
@@ -32,7 +33,7 @@
 body {
   // `@include css-body` has `font-family: inherit` via `@include type-style('body-short-01')`,
   // which kills `font-family` from `@include carbon--type-reset`
-  color: $text-01;
+  color: $text-primary;
   background-color: $background;
   line-height: 1;
 }
