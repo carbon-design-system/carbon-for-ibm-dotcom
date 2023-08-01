@@ -2265,16 +2265,6 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@carbon/grid@npm:^10.43.1":
-  version: 10.43.1
-  resolution: "@carbon/grid@npm:10.43.1"
-  dependencies:
-    "@carbon/import-once": ^10.7.0
-    "@carbon/layout": ^10.37.1
-  checksum: d59818f5602b1cada5188982a687ef861c63a2e165ed3266496b0a0b7e2e12528e55d4ac9d7d4134a4f4c19e7e16fd48425e5982279ac86ff914ba879c120a32
-  languageName: node
-  linkType: hard
-
 "@carbon/grid@npm:^11.17.1":
   version: 11.17.1
   resolution: "@carbon/grid@npm:11.17.1"
@@ -2461,14 +2451,15 @@ __metadata:
     "@carbon/ibmdotcom-services-store": 2.0.0-beta.0
     "@carbon/ibmdotcom-styles": 2.0.0-beta.0
     "@carbon/ibmdotcom-utilities": 2.0.0-beta.0
-    "@carbon/icon-helpers": 10.40.0
-    "@carbon/icons": 10.48.1
+    "@carbon/icon-helpers": 10.43.1
+    "@carbon/icons": ^11.23.0
     "@carbon/icons-react": 10.49.1
-    "@carbon/layout": 10.37.1
+    "@carbon/layout": ^11.17.1
     "@carbon/motion": ^11.0.0
     "@carbon/pictograms-react": 11.45.2
+    "@carbon/styles": ^1.30.0
     "@carbon/telemetry": 0.1.0
-    "@carbon/type": 10.45.2
+    "@carbon/type": ^11.21.1
     "@carbon/web-components": 2.0.0-rc.2
     "@open-wc/semantic-dom-diff": ~0.18.0
     "@percy-io/in-percy": ^0.1.11
@@ -2603,14 +2594,7 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@carbon/icon-helpers@npm:10.40.0":
-  version: 10.40.0
-  resolution: "@carbon/icon-helpers@npm:10.40.0"
-  checksum: d45ef09d571cad2618eb5e4530b5360a9cc4ee688acfd13bda69ab4c982f7d5d146340bdcb7d40c8ce9f505c215cc0128e1018f8fca36ac9a1f823484749d281
-  languageName: node
-  linkType: hard
-
-"@carbon/icon-helpers@npm:^10.28.1, @carbon/icon-helpers@npm:^10.42.1, @carbon/icon-helpers@npm:^10.43.0, @carbon/icon-helpers@npm:^10.43.1":
+"@carbon/icon-helpers@npm:10.43.1, @carbon/icon-helpers@npm:^10.28.1, @carbon/icon-helpers@npm:^10.42.1, @carbon/icon-helpers@npm:^10.43.1":
   version: 10.43.1
   resolution: "@carbon/icon-helpers@npm:10.43.1"
   checksum: b77039f58dfb28ee42c832387a59f787fd14c2ebac98a36c6fb5cdcff84fb19c35a5854f0066e1ddead55440cad783e1e52923d2706a482ec1a7067dcf23330b
@@ -2643,31 +2627,10 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@carbon/icons@npm:10.48.1":
-  version: 10.48.1
-  resolution: "@carbon/icons@npm:10.48.1"
-  checksum: b45239822e14378d72cff20a434b9319b4f9ef31e6f2cbc18e45774192ce3150c929ee7b555ea7f5986970033e19e2872775369c50aa04e67c87ca03c255ceb3
-  languageName: node
-  linkType: hard
-
 "@carbon/icons@npm:^11.23.0":
   version: 11.23.1
   resolution: "@carbon/icons@npm:11.23.1"
   checksum: 795ec41349df8d53399a8c8e92e0ec385fe8bb9e26f12749a980eca2590b306da478ecce32a8370c53d5296c28412d40c9e87c73764167a585d9f5c84bdd823c
-  languageName: node
-  linkType: hard
-
-"@carbon/import-once@npm:^10.7.0":
-  version: 10.7.0
-  resolution: "@carbon/import-once@npm:10.7.0"
-  checksum: c92625bc34833073a2b113a9cf014353210570ed1105225e70c6c6d06e5203407aa472d95685a53b6460794408897641b8d8cd5fd6416f8b0fa36c28919bf5f0
-  languageName: node
-  linkType: hard
-
-"@carbon/layout@npm:10.37.1, @carbon/layout@npm:^10.37.1":
-  version: 10.37.1
-  resolution: "@carbon/layout@npm:10.37.1"
-  checksum: baabf7e70e4779f0e5000e700bcafe96f272debaac490a4345e39fedf8d0970636f7099e2607aeb9ca6170a56bbacdff69d8181c2a46ed8adac38fadc08332b6
   languageName: node
   linkType: hard
 
@@ -2767,16 +2730,6 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@carbon/type@npm:10.45.2":
-  version: 10.45.2
-  resolution: "@carbon/type@npm:10.45.2"
-  dependencies:
-    "@carbon/grid": ^10.43.1
-    "@carbon/import-once": ^10.7.0
-  checksum: 879c7d5b4bb8f34130b374dbbd63948077326dd3d571a926369fe501daed20157cc5ed230b3ff1f9d1deaa791164e2440f8025b359889540e70a4f96d730bf57
-  languageName: node
-  linkType: hard
-
 "@carbon/type@npm:^11.19.0, @carbon/type@npm:^11.21.1":
   version: 11.21.1
   resolution: "@carbon/type@npm:11.21.1"
@@ -2807,7 +2760,7 @@ __metadata:
     "@babel/runtime": ^7.16.3
     "@babel/template": ~7.12.0
     "@babel/traverse": ~7.12.0
-    "@carbon/icon-helpers": ^10.43.0
+    "@carbon/icon-helpers": 10.43.1
     "@carbon/icons": ^11.23.0
     "@carbon/styles": ^1.34.0
     "@open-wc/semantic-dom-diff": ~0.18.0

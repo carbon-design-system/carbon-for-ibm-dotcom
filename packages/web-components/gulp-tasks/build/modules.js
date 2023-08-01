@@ -19,7 +19,6 @@ require('./modules/react-types');
 require('./modules/scripts');
 require('./modules/scripts-node');
 require('./modules/types');
-require('./modules/watch');
 
 gulp.task(
   'build:modules',
@@ -33,6 +32,5 @@ gulp.task(
     gulp.task('build:modules:scripts'),
     gulp.task('build:modules:scripts-node'),
     gulp.task('build:modules:types'),
-    gulp.task('build:modules:watch')
   )
 );
