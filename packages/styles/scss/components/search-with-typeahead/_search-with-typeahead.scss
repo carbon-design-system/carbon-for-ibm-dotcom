@@ -47,7 +47,7 @@
   .#{$prefix}--container-highlight-class:not(:hover),
   &:focus,
   &:active {
-    outline: 2px solid $focus;
+    outline: $spacing-01 solid $focus;
     outline-offset: -2px;
   }
 
@@ -109,7 +109,7 @@
   }
 
   .#{$prefix}--header__action {
-    border: 2px solid transparent;
+    border: $spacing-01 solid transparent;
     background-color: $background;
     display: inline-flex;
     justify-content: center;
@@ -229,9 +229,9 @@
           bottom: 0;
           left: 0;
           display: block;
-          border-bottom: 2px solid $background-brand;
+          border-bottom: $spacing-01 solid $background-brand;
           width: 100%;
-          height: 2px;
+          height: $spacing-01;
           z-index: 10002;
         }
       }
@@ -240,7 +240,7 @@
         display: flex;
         flex: 1;
         padding: 0 $spacing-05;
-        outline: 2px solid transparent;
+        outline: $spacing-01 solid transparent;
         outline-offset: -2px;
         background-color: $layer-01;
         height: carbon--mini-units(6);
@@ -262,11 +262,11 @@
 
       .#{$prefix}--header__search--close,
       .#{$prefix}--header__search--search {
-        border: 2px solid transparent;
+        border: $spacing-01 solid transparent;
 
         &:focus,
         &:active {
-          border: 2px solid $focus;
+          border: $spacing-01 solid $focus;
         }
       }
 
@@ -289,7 +289,7 @@
 
     &[leadspace-search] {
       background: $layer-01;
-      outline: 2px solid transparent;
+      outline: $spacing-01 solid transparent;
       transition: background-color $duration-fast-02
           motion(standard, productive),
         outline $duration-fast-02 motion(standard, productive),
@@ -302,7 +302,7 @@
       }
 
       &:focus {
-        outline: 2px solid $focus;
+        outline: $spacing-01 solid $focus;
         .#{$prefix}--header__search--actions {
           border-bottom: none;
         }
@@ -410,7 +410,7 @@
     }
 
     &[sticky-search] {
-      top: rem(80px);
+      top: $spacing-11;
     }
 
     &[theme-sticky] {
@@ -438,7 +438,7 @@
     top: $spacing-09;
     left: 0;
     width: 100%;
-    box-shadow: 0 2px 6px 0 rgba(0, 0, 0, 0.3);
+    box-shadow: 0 $spacing-01 6px 0 rgba(0, 0, 0, 0.3);
     max-height: 80vh;
     overflow-y: auto;
   }
@@ -475,7 +475,7 @@
 
     &::placeholder {
       position: relative;
-      left: 5rem;
+      left: $spacing-11;
       opacity: 0;
     }
   }

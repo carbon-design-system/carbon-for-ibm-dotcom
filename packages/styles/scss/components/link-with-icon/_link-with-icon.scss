@@ -115,7 +115,7 @@
     }
 
     &:focus {
-      outline: 2px solid $focus;
+      outline: $spacing-01 solid $focus;
     }
 
     &:active {

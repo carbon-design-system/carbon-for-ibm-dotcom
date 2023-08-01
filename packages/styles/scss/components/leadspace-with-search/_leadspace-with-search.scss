@@ -143,12 +143,12 @@
 
     ::slotted(#{$dds-prefix}-leadspace-block-heading) {
       @include breakpoint(md) {
-        width: calc(75% - 32px);
+        width: calc(75% - $spacing-07);
         max-width: rem(640px);
       }
 
       @include breakpoint(lg) {
-        width: calc(100% - 32px);
+        width: calc(100% - $spacing-07);
         max-width: rem(640px);
       }
     }

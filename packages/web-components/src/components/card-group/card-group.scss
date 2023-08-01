@@ -35,7 +35,7 @@
 }
 
 :host(#{$dds-prefix}-card-group)[grid-mode='border'] {
-  background: var(--#{$dds-prefix}--card-group-gradient, $border-subtle-02);
+  background: $border-subtle-02;
 
   /* stylelint-disable-next-line selector-type-no-unknown */
   #{$dds-prefix}-card-group-item[empty],

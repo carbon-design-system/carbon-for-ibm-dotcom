@@ -34,7 +34,7 @@ $css--plex: true !default;
     left: 0;
     top: 50%;
     transform: translateY(-50%);
-    height: rem(24px);
+    height: $spacing-06;
     width: rem(1px);
     background-color: $border-subtle;
   }

@@ -58,8 +58,8 @@
     ::slotted(svg) {
       display: block;
       margin-top: $spacing-07;
-      height: 80px;
-      width: 80px;
+      height: $spacing-11;
+      width: $spacing-11;
     }
 
     &[color='blue'] {

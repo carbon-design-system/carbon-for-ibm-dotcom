@@ -215,7 +215,7 @@
     }
 
     &:focus-within {
-      outline: 2px solid $focus;
+      outline: $spacing-01 solid $focus;
     }
 
     &:first-of-type {

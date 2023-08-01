@@ -19,7 +19,7 @@
   }
 
   .bx--content-group__cta {
-    max-width: calc(320px + 1rem);
+    max-width: calc(320px + $spacing-05);
     padding-right: 0;
   }
 }

@@ -16,7 +16,7 @@
 /// @group select-expressive
 @mixin select-expressive {
   .#{$prefix}--select-input {
-    height: rem(48px);
+    height: $spacing-09;
   }
   .#{$prefix}--select__invalid-icon {
     height: rem(20px);
@@ -28,9 +28,9 @@
   .#{$prefix}--select--inline.#{$prefix}--select--invalid .#{$prefix}--label,
   .#{$prefix}--select--inline.#{$prefix}--select--invalid
     .#{$prefix}--form__helper-text {
-    margin-top: 1rem;
+    margin-top: $spacing-05;
   }
   .#{$prefix}--form__helper-text {
-    line-height: 1rem;
+    line-height: $spacing-05;
   }
 }

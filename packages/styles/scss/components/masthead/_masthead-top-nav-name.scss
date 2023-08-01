@@ -19,7 +19,7 @@
     color: $text-primary;
     padding-left: $spacing-05;
     padding-right: $spacing-05;
-    border: solid 2px transparent;
+    border: solid $spacing-01 transparent;
     transition: $button-transition;
     position: relative;
     white-space: nowrap;

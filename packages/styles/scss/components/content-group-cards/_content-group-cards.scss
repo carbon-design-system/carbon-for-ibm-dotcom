@@ -5,7 +5,7 @@
  * LICENSE file in the root directory of this source tree.
  */
 
-@use 'sass:math';
+@use 'sass:list';
 
 @use '@carbon/styles/scss/breakpoint' as *;
 @use '@carbon/styles/scss/config' as *;
@@ -37,8 +37,8 @@
   }
 
   .#{$prefix}--content-group-cards__row {
-    margin-left: -1rem;
-    margin-right: -1rem;
+    margin-left: -$spacing-05;
+    margin-right: -$spacing-05;
 
     display: grid;
 
@@ -50,10 +50,10 @@
 
   :host(#{$dds-prefix}-content-group-cards-item),
   .#{$prefix}--content-group-cards-item__col {
-    margin-top: math.div($grid-gutter, 2);
-    margin-bottom: math.div($grid-gutter, 2);
-    padding-left: math.div($grid-gutter, 2);
-    padding-right: math.div($grid-gutter, 2);
+    margin-top: list.slash($grid-gutter, 2);
+    margin-bottom: list.slash($grid-gutter, 2);
+    padding-left: list.slash($grid-gutter, 2);
+    padding-right: list.slash($grid-gutter, 2);
 
     &:focus {
       outline: none;
@@ -61,7 +61,7 @@
   }
 
   :host(#{$dds-prefix}-content-group-cards-item) {
-    padding: math.div($grid-gutter, 2);
+    padding: list.slash($grid-gutter, 2);
     background: none;
   }
 }

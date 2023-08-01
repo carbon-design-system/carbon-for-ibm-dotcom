@@ -16,8 +16,8 @@
 /// @group search-expressive
 @mixin search-expressive {
   .#{$prefix}--search svg {
-    height: carbon--rem(20px);
-    width: carbon--rem(20px);
+    height: rem(20px);
+    width: rem(20px);
   }
 
   .#{$prefix}--search--lg .#{$prefix}--search-input {

@@ -5,9 +5,9 @@
 * LICENSE file in the root directory of this source tree.
 */
 
+@use 'sass:list';
 @use 'sass:map';
 @use 'sass:math';
-@use 'sass:list';
 
 @use '@carbon/grid/scss/breakpoint' as *;
 @use '@carbon/styles/scss/config' as *;
@@ -30,7 +30,7 @@
   padding-right: $gutter * 0.5;
   padding-left: $gutter * 0.5;
 
-  // For our condensed use-case, our gutters collapse to 2px solid, 1px on each
+  // For our condensed use-case, our gutters collapse to $spacing-01 solid, 1px on each
   // side.
   .#{$prefix}--row--condensed &,
   .#{$prefix}--grid--condensed & {
@@ -38,7 +38,7 @@
     padding-left: $condensed-gutter * 0.5;
   }
 
-  // For our narrow use-case, our container hangs 16px into the gutter
+  // For our narrow use-case, our container hangs $spacing-05 into the gutter
   .#{$prefix}--row--narrow &,
   .#{$prefix}--grid--narrow & {
     padding-right: $gutter * 0.5;

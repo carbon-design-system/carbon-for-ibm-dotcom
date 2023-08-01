@@ -55,7 +55,7 @@
   }
 
   .#{$prefix}--content-item-horizontal__row {
-    min-height: 160px;
+    min-height: $spacing-13;
     width: 100%;
     display: flex;
     flex-direction: column;

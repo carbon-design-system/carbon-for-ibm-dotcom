@@ -132,7 +132,7 @@
     + .#{$prefix}--header__menu {
       left: auto;
       right: 0;
-      width: rem(160px);
+      width: $spacing-13;
     }
   }
 }
@@ -251,7 +251,7 @@
   .#{$prefix}--header__menu-title[aria-expanded='true']
     + .#{$prefix}--header__menu {
     background-color: $background;
-    box-shadow: 0 2px 6px 0 rgba(0, 0, 0, 0.3);
+    box-shadow: 0 $spacing-01 6px 0 rgba(0, 0, 0, 0.3);
     bottom: -1px;
   }
 }

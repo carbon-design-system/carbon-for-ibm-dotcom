@@ -53,7 +53,7 @@
     }
 
     .#{$prefix}--btn {
-      font-size: 1rem;
+      font-size: $spacing-05;
       position: relative;
       width: 100%;
       height: 100%;
@@ -102,7 +102,7 @@
   :host(#{$dds-prefix}-button-group-item) {
     ::slotted([slot='icon']) {
       position: absolute;
-      right: 1rem;
+      right: $spacing-05;
       top: 50%;
       transform: translateY(-50%);
       flex-shrink: 0;

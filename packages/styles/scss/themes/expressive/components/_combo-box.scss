@@ -17,12 +17,12 @@
 @mixin combo-box-expressive {
   .#{$prefix}--list-box__invalid-icon,
   .#{$prefix}--list-box__selection svg {
-    width: carbon--rem(20px);
-    height: carbon--rem(20px);
+    width: rem(20px);
+    height: rem(20px);
   }
   .#{$prefix}--combo-box.#{$prefix}--list-box {
     .#{$prefix}--list-box__menu-icon {
-      top: 0.75rem;
+      top: $spacing-04;
       svg {
         height: rem(20px);
         width: rem(20px);

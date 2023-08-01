@@ -7,7 +7,7 @@
 @use '@carbon/styles/scss/theme' as *;
 
 .example-layer-test-component {
-  padding: 1rem;
+  padding: $spacing-05;
   background: $layer;
   color: $text-primary;
 }

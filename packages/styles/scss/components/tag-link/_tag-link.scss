@@ -14,8 +14,8 @@
   :host(#{$dds-prefix}-tag-link) a {
     @include type-style(body-01, true);
 
-    padding: carbon--rem(6px) $spacing-05;
-    border-radius: carbon--rem(15px);
+    padding: rem(6px) $spacing-05;
+    border-radius: rem(15px);
     background-color: $layer-01;
     color: $text-secondary;
     text-decoration: none;
@@ -31,7 +31,7 @@
 
     &:focus {
       outline: none;
-      box-shadow: inset 0 0 0 2px $focus;
+      box-shadow: inset 0 0 0 $spacing-01 $focus;
     }
   }
 }

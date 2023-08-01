@@ -14,7 +14,7 @@
   $low-contrast: $layer-accent-01;
   $medium-contrast: $toggle-off;
   $high-contrast: $border-inverse;
-  $thin-weight: carbon--rem(1px);
+  $thin-weight: rem(1px);
 
   :host(#{$dds-prefix}-hr)[size='small'] {
     @extend .#{$prefix}--hr--small;
@@ -58,7 +58,7 @@
     }
 
     &.#{$prefix}--hr--thick {
-      height: carbon--rem(2px);
+      height: $spacing-01;
     }
 
     &.#{$prefix}--hr--low-contrast {

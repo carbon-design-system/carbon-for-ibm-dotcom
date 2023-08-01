@@ -103,8 +103,8 @@
     }
     svg {
       &.#{$prefix}--btn__icon {
-        width: var(--cds-icon-size-04, 2rem);
-        height: var(--cds-icon-size-04, 2rem);
+        width: $spacing-07;
+        height: $spacing-07;
       }
     }
   }

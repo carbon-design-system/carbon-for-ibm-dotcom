@@ -104,7 +104,7 @@
       }
 
       .#{$prefix}--header__logo {
-        height: 3rem;
+        height: $spacing-09;
         padding-left: $spacing-09;
       }
     }
@@ -202,13 +202,13 @@
       color: $text-primary;
       padding: 0.8rem $spacing-05;
       height: auto;
-      min-height: 3rem;
+      min-height: $spacing-09;
       border-bottom: 1px solid $toggle-off;
       align-items: center;
       text-decoration: none;
 
       &:focus {
-        outline: 2px solid $focus;
+        outline: $spacing-01 solid $focus;
         outline-offset: -2px;
       }
     }
@@ -216,7 +216,7 @@
     .#{$prefix}--side-nav__item
       .#{$prefix}--masthead__side-nav--submemu-section-title {
       height: auto;
-      min-height: 3rem;
+      min-height: $spacing-09;
       padding: 0;
 
       span {
@@ -224,7 +224,7 @@
 
         display: flex;
         width: 100%;
-        padding: 0.8rem 1rem;
+        padding: 0.8rem $spacing-05;
         color: $text-primary;
         border-bottom: 1px solid $toggle-off;
       }
@@ -236,7 +236,7 @@
       justify-content: flex-end;
       align-items: center;
       align-self: flex-start;
-      margin-top: rem(2px);
+      margin-top: $spacing-01;
     }
   }
 
@@ -289,17 +289,17 @@
       width: 100%;
       border: none;
       cursor: pointer;
-      outline: 2px solid transparent;
+      outline: $spacing-01 solid transparent;
       outline-offset: -2px;
       position: relative;
       display: flex;
       align-items: center;
-      min-height: 2rem;
-      padding: 0 1rem;
+      min-height: $spacing-07;
+      padding: 0 $spacing-05;
       background-color: $background;
 
       &:focus {
-        outline: 2px solid $focus;
+        outline: $spacing-01 solid $focus;
         outline-offset: -2px;
       }
 
@@ -366,7 +366,7 @@
     .#{$prefix}--side-nav__submenu-content {
       width: 100%;
       height: auto;
-      min-height: rem(48px);
+      min-height: $spacing-09;
       display: flex;
       border-bottom: 1px solid $layer-accent-01;
     }
@@ -411,8 +411,8 @@
   :host(#{$dds-prefix}-left-nav-menu-category-heading) {
     @include type-style('body-01');
 
-    font-size: 1rem;
-    line-height: 1.5rem;
+    font-size: $spacing-05;
+    line-height: $spacing-06;
     letter-spacing: normal;
     display: block;
     color: $text-secondary;

@@ -30,8 +30,8 @@
   }
 
   .#{$prefix}--callout-quote .#{$prefix}--callout__container {
-    padding-left: 1rem;
-    padding-right: 1rem;
+    padding-left: $spacing-05;
+    padding-right: $spacing-05;
 
     @include breakpoint(md) {
       padding-left: 0;

@@ -5,6 +5,8 @@
  * LICENSE file in the root directory of this source tree.
  */
 
+@use 'sass:list';
+
 @use '../../globals/utils/flex-grid' as *;
 @use '../../../components/link-with-icon';
 
@@ -20,8 +22,8 @@
     }
 
     &-item__col {
-      margin-top: $grid-gutter / 2;
-      margin-bottom: $grid-gutter / 2;
+      margin-top: list.slash($grid-gutter, 2);
+      margin-bottom: list.slash($grid-gutter, 2);
       @include make-col-ready;
 
       @include breakpoint(lg) {

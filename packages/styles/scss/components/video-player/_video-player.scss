@@ -31,13 +31,13 @@ $aspect-ratios: ((16, 9), (9, 16), (2, 1), (1, 2), (4, 3), (3, 4), (1, 1));
         &::before {
           content: ' ';
           position: absolute;
-          top: rem(2px);
-          left: rem(2px);
-          right: rem(2px);
-          bottom: rem(2px);
+          top: $spacing-01;
+          left: $spacing-01;
+          right: $spacing-01;
+          bottom: $spacing-01;
           z-index: 1;
           border: 1px solid $focus-inverse;
-          outline: 2px solid $focus;
+          outline: $spacing-01 solid $focus;
         }
       }
     }
@@ -55,13 +55,13 @@ $aspect-ratios: ((16, 9), (9, 16), (2, 1), (1, 2), (4, 3), (3, 4), (1, 1));
     .#{$prefix}--video-player__image-overlay:focus::before {
     content: ' ';
     position: absolute;
-    top: rem(2px);
-    left: rem(2px);
-    right: rem(2px);
-    bottom: rem(2px);
+    top: $spacing-01;
+    left: $spacing-01;
+    right: $spacing-01;
+    bottom: $spacing-01;
     z-index: 1;
     border: 1px solid $focus-inverse;
-    outline: 2px solid $focus;
+    outline: $spacing-01 solid $focus;
   }
 
   :host(#{$dds-prefix}-video-player) #{$dds-prefix}-image,

@@ -83,7 +83,7 @@
           left: calc(50% - 50vw);
           right: calc(50% - 50vw);
           background-color: $background;
-          box-shadow: 0 2px 6px 0 rgba(0, 0, 0, 0.3);
+          box-shadow: 0 $spacing-01 6px 0 rgba(0, 0, 0, 0.3);
           transition: $duration-fast-02 motion(standard, productive),
             box-shadow $duration-slow-01 motion(standard, productive);
         }

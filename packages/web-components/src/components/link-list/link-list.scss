@@ -31,7 +31,7 @@
 }
 
 :host(#{$dds-prefix}-link-list-item-card) .#{$prefix}--link:focus {
-  outline: 2px solid $focus;
+  outline: $spacing-01 solid $focus;
   outline-offset: -2px;
 }
 

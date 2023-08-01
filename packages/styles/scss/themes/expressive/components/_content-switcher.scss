@@ -16,6 +16,6 @@
 /// @group content-switcher-expressive
 @mixin content-switcher-expressive {
   .#{$prefix}--content-switcher {
-    height: carbon--rem(48px);
+    height: $spacing-09;
   }
 }

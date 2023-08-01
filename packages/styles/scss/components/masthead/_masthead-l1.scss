@@ -51,7 +51,7 @@
       content: '';
       position: absolute;
       background-color: $background;
-      height: 48px;
+      height: $spacing-09;
       left: calc(-50vw + 50%);
       right: 100%;
       z-index: 1;
@@ -61,7 +61,7 @@
       content: '';
       position: absolute;
       background-color: $background;
-      height: 48px;
+      height: $spacing-09;
       left: 100%;
       right: calc(-50vw + 50%);
     }
@@ -74,7 +74,7 @@
     z-index: 1;
     background-color: $layer-02;
     color: $text-on-color;
-    padding: 0 0 0 rem(12px);
+    padding: 0 0 0 $spacing-04;
     align-items: stretch;
     white-space: nowrap;
 
@@ -114,7 +114,7 @@
 
       &:active,
       &:focus {
-        outline: 2px solid $background-brand;
+        outline: $spacing-01 solid $background-brand;
         outline-offset: -2px;
       }
     }

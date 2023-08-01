@@ -26,7 +26,7 @@ $hover-transition-timing: 95ms;
   background: $background;
   .#{$prefix}--tableofcontents__mobile {
     border-bottom: 1px solid $toggle-off;
-    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+    box-shadow: 0 $spacing-01 $spacing-03 rgba(0, 0, 0, 0.2);
 
     &:hover {
       background-color: $background-hover;
@@ -35,7 +35,7 @@ $hover-transition-timing: 95ms;
 
   .#{$prefix}--tableofcontents__desktop__item {
     a {
-      border-left: carbon--rem(4px) solid $layer-accent-01;
+      border-left: $spacing-02 solid $layer-accent-01;
       color: $text-secondary;
 
       &:hover {
@@ -138,7 +138,7 @@ $hover-transition-timing: 95ms;
     border: none;
     background-color: transparent;
     color: $text-primary;
-    height: carbon--rem(48px);
+    height: $spacing-09;
     appearance: none;
     @include type-style(body-compact-02);
     @include focus-outline('reset');
@@ -154,7 +154,7 @@ $hover-transition-timing: 95ms;
   }
 
   .#{$prefix}--tableofcontents__mobile__select__wrapper {
-    height: carbon--rem(47px);
+    height: rem(47px);
     position: relative;
     display: flex;
     align-items: center;
@@ -182,9 +182,9 @@ $hover-transition-timing: 95ms;
       text-decoration: none;
       display: inline-block;
       width: 100%;
-      padding-top: carbon--rem(12px);
-      padding-bottom: carbon--rem(12px);
-      padding-left: carbon--rem(12px);
+      padding-top: $spacing-04;
+      padding-bottom: $spacing-04;
+      padding-left: $spacing-04;
       @include type-style('body-02');
     }
 
@@ -193,7 +193,7 @@ $hover-transition-timing: 95ms;
     }
 
     a:focus {
-      outline: 2px solid $focus;
+      outline: $spacing-01 solid $focus;
       z-index: 1;
       position: relative;
     }
@@ -263,9 +263,9 @@ $hover-transition-timing: 95ms;
     width: 100%;
 
     @include breakpoint(lg) {
-      filter: drop-shadow(0 2px 6px rgba(0, 0, 0, 0.3));
+      filter: drop-shadow(0 $spacing-01 6px rgba(0, 0, 0, 0.3));
       border-bottom: 1px solid $toggle-off;
-      height: carbon--rem(49px);
+      height: rem(49px);
       background-color: $layer-01;
     }
 
@@ -277,16 +277,16 @@ $hover-transition-timing: 95ms;
         padding-right: $spacing-05;
 
         &:focus {
-          outline: 2px solid $focus;
-          height: carbon--rem(48px);
+          outline: $spacing-01 solid $focus;
+          height: $spacing-09;
           outline-offset: -2px;
         }
       }
     }
 
     .#{$prefix}--tableofcontents__desktop__item--active a {
-      border-bottom: 2px solid $border-interactive;
-      padding-bottom: carbon--rem(10px);
+      border-bottom: $spacing-01 solid $border-interactive;
+      padding-bottom: rem(10px);
     }
 
     .#{$prefix}--tableofcontents__desktop {
@@ -322,7 +322,7 @@ $hover-transition-timing: 95ms;
 
   .#{$prefix}--toc__navbar-caret-left,
   .#{$prefix}--toc__navbar-caret-right {
-    width: rem(40px);
+    width: $spacing-08;
     height: 100%;
     display: none;
     position: absolute;
@@ -351,7 +351,7 @@ $hover-transition-timing: 95ms;
     &:active {
       display: block;
       background-color: $background-hover;
-      outline: 2px solid $background-brand;
+      outline: $spacing-01 solid $background-brand;
       outline-offset: -2px;
       &::before,
       &::after {
@@ -375,10 +375,10 @@ $hover-transition-timing: 95ms;
   .#{$prefix}--toc__navbar-caret-left-gradient {
     display: block;
     position: absolute;
-    left: rem(40px);
+    left: $spacing-08;
     top: 0;
     height: 100%;
-    width: rem(8px);
+    width: $spacing-03;
     z-index: 1;
     background: linear-gradient(to right, $layer-01, rgba(255, 255, 255, 0));
   }
@@ -391,9 +391,9 @@ $hover-transition-timing: 95ms;
     display: block;
     position: absolute;
     top: 0;
-    right: rem(40px);
+    right: $spacing-08;
     height: 100%;
-    width: rem(8px);
+    width: $spacing-03;
     background: linear-gradient(to left, $layer-01, rgba(255, 255, 255, 0));
   }
 

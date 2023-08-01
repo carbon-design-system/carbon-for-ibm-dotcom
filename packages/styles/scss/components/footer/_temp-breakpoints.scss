@@ -10,6 +10,6 @@
 @use '@carbon/styles/scss/grid' as *;
 
 $TEMP--breakpoint-down--md: map.get(map.get($grid-breakpoints, 'md'), 'width') -
-  carbon--rem(1px);
+  rem(1px);
 $TEMP--breakpoint-down--lg: map.get(map.get($grid-breakpoints, 'lg'), 'width') -
-  carbon--rem(1px);
+  rem(1px);

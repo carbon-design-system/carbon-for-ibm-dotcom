@@ -5,6 +5,8 @@
  * LICENSE file in the root directory of this source tree.
  */
 
+@use 'sass:list';
+
 @use '@carbon/styles/scss/utilities/convert' as *;
 
 //-----------------------------
@@ -16,7 +18,10 @@
 /// @group accordion-expressive
 @mixin accordion-expressive {
   .#{$prefix}--accordion__heading {
-    padding: calc((#{$spacing-09} - #{map-get($body-01, 'line-height')}) / 2) 0;
+    padding: calc(
+        list.slash(#{$spacing-09} - #{map-get($body-01, 'line-height')}, 2)
+      )
+      0;
   }
 
   .#{$prefix}--accordion__arrow {

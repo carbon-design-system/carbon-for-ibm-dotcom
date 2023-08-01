@@ -16,7 +16,7 @@
 /// @group time-picker-expressive
 @mixin time-picker-expressive {
   .#{$prefix}--time-picker__input-field {
-    height: carbon--rem(48px);
-    width: carbon--rem(85px);
+    height: $spacing-09;
+    width: rem(85px);
   }
 }

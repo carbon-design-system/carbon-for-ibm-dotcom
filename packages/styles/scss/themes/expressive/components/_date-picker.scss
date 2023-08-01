@@ -16,7 +16,7 @@
 /// @group date-picker-expressive
 @mixin date-picker-expressive {
   .#{$prefix}--date-picker__input {
-    height: carbon--rem(48px); /* $carbon--container-04 */
+    height: $spacing-09; /* $carbon--container-04 */
   }
 
   .#{$prefix}--date-picker.#{$prefix}--date-picker--simple {
@@ -32,7 +32,7 @@
 
   .#{$prefix}--date-picker--range .#{$prefix}--date-picker-container,
   .#{$prefix}--date-picker--range .#{$prefix}--date-picker__input {
-    width: rem(160px);
+    width: $spacing-13;
   }
 
   .flatpickr-prev-month svg,

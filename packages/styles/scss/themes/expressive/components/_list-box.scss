@@ -16,28 +16,28 @@
 /// @group list-box-expressive
 @mixin list-box-expressive {
   .#{$prefix}--list-box {
-    height: carbon--rem(48px); /* $carbon--container-04 */
-    max-height: carbon--rem(48px); /* $carbon--container-04 */
+    height: $spacing-09; /* $carbon--container-04 */
+    max-height: $spacing-09; /* $carbon--container-04 */
   }
 
   .#{$prefix}--list-box__field {
-    height: carbon--rem(48px); /* $carbon--container-04 */
+    height: $spacing-09; /* $carbon--container-04 */
   }
 
   .#{$prefix}--list-box__menu-item {
-    height: carbon--rem(48px); /* $carbon--container-04 */
+    height: $spacing-09; /* $carbon--container-04 */
   }
 
   .#{$prefix}--list-box__menu-item__option {
-    height: carbon--rem(48px); /* $carbon--container-04 */
-    padding: carbon--rem(14px) 0;
+    height: $spacing-09; /* $carbon--container-04 */
+    padding: rem(14px) 0;
 
     &:focus {
-      padding: carbon--rem(14px) carbon--rem(16px);
+      padding: rem(14px) $spacing-05;
     }
   }
 
   .#{$prefix}--list-box__menu-icon > svg {
-    width: carbon--rem(20px);
+    width: rem(20px);
   }
 }

@@ -6,14 +6,7 @@
 //
 
 @use '@carbon/styles/scss/breakpoint' as *;
-
-.dds-ce-demo-devenv--container {
-  padding-top: calc(#{mini-units(6)} + 3rem + 1px);
-
-  // Ref: https://github.com/carbon-design-system/carbon/blob/v10.10.0/packages/components/src/components/ui-shell/_side-nav.scss#L82
-  will-change: margin-left;
-  transition: margin-left 0.11s cubic-bezier(0.2, 0, 1, 0.9);
-}
+@use '@carbon/styles/scss/spacing' as *;
 
 @include breakpoint-down(lg) {
   .bx--offset-lg-3 {
@@ -22,7 +15,7 @@
 }
 
 .bx--content {
-  padding: 6rem 0 2rem;
+  padding: $spacing-12 0 $spacing-07;
 
   @include breakpoint-down(lg) {
     padding-top: 0;
@@ -34,12 +27,12 @@
 
   &.has-l1 {
     @include breakpoint-down(lg) {
-      padding-top: 3rem;
+      padding-top: $spacing-09;
     }
   }
 
   &.has-leadspace.has-l1 {
-    padding-top: 3rem;
+    padding-top: $spacing-09;
   }
 
   &.dds-ce-demo-devenv--ui-shell-content {

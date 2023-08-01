@@ -5,6 +5,8 @@
  * LICENSE file in the root directory of this source tree.
  */
 
+@use 'sass:math';
+
 @use '@carbon/styles/scss/breakpoint' as *;
 @use '@carbon/styles/scss/config' as *;
 @use '@carbon/styles/scss/motion' as *;
@@ -32,7 +34,9 @@
 
       .#{$prefix}--tabs__nav-item {
         min-height: $spacing-09;
-        width: calc(100% / (12 / 2) - (#{$spacing-01} / 2));
+        width: calc(
+          math.div(100%, math.div(12, 2)) - math.div(#{$spacing-01}, 2)
+        );
         height: auto;
 
         p {
@@ -50,7 +54,7 @@
         .#{$prefix}--tabs__nav-link,
         .#{$prefix}--tabs__nav-link:focus,
         .#{$prefix}--tabs__nav-link:active {
-          border-bottom: rem(2px) solid $border-interactive;
+          border-bottom: $spacing-01 solid $border-interactive;
 
           p {
             @include type-style('heading-compact-02');
@@ -74,7 +78,7 @@
         white-space: normal;
         background: none;
         border: initial;
-        border-bottom: rem(2px) solid $layer-accent-01;
+        border-bottom: $spacing-01 solid $layer-accent-01;
         display: inline-flex;
         width: 100%;
         text-align: left;
@@ -157,7 +161,7 @@
         .#{$prefix}--tabs__nav-link {
           width: auto;
           padding: 0;
-          border-bottom: rem(2px) solid transparent;
+          border-bottom: $spacing-01 solid transparent;
         }
 
         .#{$prefix}--tabs__nav-item {
@@ -220,7 +224,7 @@ button.#{$prefix}--tabs__nav-link {
   display: inline-block;
   overflow: hidden;
   width: calc(100% - #{$spacing-07});
-  height: rem(40px);
+  height: $spacing-08;
   padding: $spacing-04 0;
   border-bottom: 1px solid $layer-accent-01;
   margin: 0 $spacing-05;
@@ -243,7 +247,7 @@ button.#{$prefix}--tabs__nav-link {
   }
 
   @include breakpoint(md) {
-    width: rem(160px);
+    width: $spacing-13;
     padding: $spacing-04 $spacing-05 $spacing-03;
     border-bottom: $tab-underline-color;
     margin: 0;
@@ -251,15 +255,15 @@ button.#{$prefix}--tabs__nav-link {
 
     &:focus,
     &:active {
-      width: rem(160px);
-      border-bottom: rem(2px);
+      width: $spacing-13;
+      border-bottom: $spacing-01;
     }
   }
 }
 
 .#{$prefix}--tabs--container button.#{$prefix}--tabs__nav-link {
   @include breakpoint(md) {
-    height: rem(48px);
+    height: $spacing-09;
     padding: $spacing-03 $spacing-05;
     border-bottom: none;
   }

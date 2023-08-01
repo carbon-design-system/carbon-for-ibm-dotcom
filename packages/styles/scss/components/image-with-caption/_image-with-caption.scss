@@ -58,7 +58,7 @@
     &:focus {
       // only have lightbox functionality on bigger breakpoints
       @include breakpoint(md) {
-        outline: 2px solid $focus;
+        outline: $spacing-01 solid $focus;
       }
     }
   }

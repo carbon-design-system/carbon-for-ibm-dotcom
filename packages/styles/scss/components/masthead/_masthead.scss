@@ -35,7 +35,7 @@
     height: 100%;
     align-items: center;
     padding: 0 $spacing-07;
-    border: solid 2px transparent;
+    border: solid $spacing-01 transparent;
     transition: $button-transition;
     outline: none;
 
@@ -74,7 +74,7 @@
         right: rem(-3px);
         top: 50%;
         transform: translateY(-50%);
-        height: rem(24px);
+        height: $spacing-06;
         width: rem(1px);
         background-color: $layer-accent-01;
       }
@@ -139,7 +139,7 @@
 
   &:focus {
     &::before {
-      border: 2px solid $background-brand;
+      border: $spacing-01 solid $background-brand;
       box-sizing: border-box;
     }
   }
@@ -165,7 +165,7 @@
 
   &:active,
   &:focus {
-    outline: 2px solid $background-brand;
+    outline: $spacing-01 solid $background-brand;
     outline-offset: -2px;
     > svg {
       fill: $text-primary;
@@ -400,7 +400,7 @@
       background-color: $layer-01;
       + .#{$prefix}--header__menu {
         background-color: $layer-02;
-        box-shadow: 0 2px 6px 0 rgba(0, 0, 0, 0.3);
+        box-shadow: 0 $spacing-01 6px 0 rgba(0, 0, 0, 0.3);
         bottom: -1px;
         width: rem(256px);
         li {
@@ -418,7 +418,7 @@
 
           &:focus {
             &::before {
-              border: 2px solid $background-brand;
+              border: $spacing-01 solid $background-brand;
               box-sizing: border-box;
             }
           }
@@ -448,7 +448,7 @@
     }
   }
   .#{$prefix}--header__action {
-    border: 2px solid transparent;
+    border: $spacing-01 solid transparent;
     background-color: $background;
     display: inline-flex;
     justify-content: center;
@@ -481,7 +481,7 @@
 
       &.#{$prefix}--overflow-menu--open {
         box-shadow: none;
-        outline: 2px solid $background-brand;
+        outline: $spacing-01 solid $background-brand;
         outline-offset: 0;
       }
 
@@ -514,7 +514,7 @@
 
   .#{$prefix}--header__nav-caret-left,
   .#{$prefix}--header__nav-caret-right {
-    width: rem(40px);
+    width: $spacing-08;
     height: 100%;
     display: none;
     position: absolute;
@@ -543,7 +543,7 @@
     &:active {
       display: block;
       background-color: $background-hover;
-      outline: 2px solid $background-brand;
+      outline: $spacing-01 solid $background-brand;
       outline-offset: -2px;
       &::before,
       &::after {
@@ -567,7 +567,7 @@
       left: 0;
       top: 50%;
       transform: translateY(-50%);
-      height: rem(24px);
+      height: $spacing-06;
       width: rem(1px);
       background-color: #dcdcdc;
     }
@@ -576,10 +576,10 @@
   .#{$prefix}--header__nav-caret-left-gradient {
     display: block;
     position: absolute;
-    left: rem(40px);
+    left: $spacing-08;
     top: 0;
     height: 100%;
-    width: rem(8px);
+    width: $spacing-03;
     background: linear-gradient(to right, $background, rgba(255, 255, 255, 0));
     z-index: 1;
   }
@@ -594,7 +594,7 @@
       right: 0;
       top: 50%;
       transform: translateY(-50%);
-      height: rem(24px);
+      height: $spacing-06;
       width: rem(1px);
       background-color: #dcdcdc;
     }
@@ -604,15 +604,15 @@
     display: block;
     position: absolute;
     top: 0;
-    right: rem(40px);
+    right: $spacing-08;
     height: 100%;
-    width: rem(8px);
+    width: $spacing-03;
     background: linear-gradient(to left, $background, rgba(255, 255, 255, 0));
   }
 
   .#{$prefix}--header__action--active {
     position: relative;
-    border: 2px solid $background-brand;
+    border: $spacing-01 solid $background-brand;
     background-color: $background-hover;
 
     @include breakpoint-up(sm) {

@@ -18,7 +18,7 @@
 $legal-01: (
   font-size: carbon--type-scale(1),
   font-weight: carbon--font-weight('regular'),
-  line-height: carbon--rem(16px),
+  line-height: $spacing-05,
   letter-spacing: 0.32px,
 ) !default;
 
@@ -28,7 +28,7 @@ $legal-01: (
 $subbody-compact-01: (
   font-size: carbon--type-scale(2),
   font-weight: carbon--font-weight('regular'),
-  line-height: carbon--rem(18px),
+  line-height: rem(18px),
   letter-spacing: 0.16px,
 ) !default;
 
@@ -38,6 +38,6 @@ $subbody-compact-01: (
 $subbody-01: (
   font-size: carbon--type-scale(2),
   font-weight: carbon--font-weight('regular'),
-  line-height: carbon--rem(18px),
+  line-height: rem(18px),
   letter-spacing: 0.16px,
 ) !default;

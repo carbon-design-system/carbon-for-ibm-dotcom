@@ -191,8 +191,8 @@
 
   ::slotted(svg) {
     display: block;
-    height: rem(80px);
-    width: rem(80px);
+    height: $spacing-11;
+    width: $spacing-11;
   }
 
   .#{$prefix}--cta-block-item__statitics {

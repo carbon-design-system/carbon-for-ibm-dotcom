@@ -8,10 +8,11 @@
  */
 
 @use '@carbon/styles/scss/breakpoint' as *;
+@use '@carbon/styles/scss/spacing' as *;
 @use '@carbon/ibmdotcom-styles/scss/globals/vars' as *;
 
 .grid-alignment {
   @include breakpoint(md) {
-    margin-right: -2rem;
+    margin-right: -$spacing-07;
   }
 }

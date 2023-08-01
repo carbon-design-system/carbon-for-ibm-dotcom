@@ -104,7 +104,7 @@
     position: fixed;
     bottom: 0;
     width: 100%;
-    height: rem(48px);
+    height: $spacing-09;
     background: linear-gradient(
       rgba(255, 255, 255, 0.001),
       $background
@@ -186,7 +186,7 @@
     }
 
     &:focus {
-      outline: rem(2px) solid $focus;
+      outline: $spacing-01 solid $focus;
       outline-offset: rem(-2px);
     }
   }
@@ -241,7 +241,7 @@
     }
 
     &:focus {
-      outline: rem(2px) solid $focus;
+      outline: $spacing-01 solid $focus;
       outline-offset: rem(-2px);
     }
   }
@@ -282,7 +282,7 @@
       }
 
       &:focus {
-        outline: rem(2px) solid $focus;
+        outline: $spacing-01 solid $focus;
         outline-offset: rem(-2px);
       }
     }

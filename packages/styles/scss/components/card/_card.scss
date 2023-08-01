@@ -83,7 +83,7 @@
     }
 
     &:focus-within {
-      outline: 2px solid $focus;
+      outline: $spacing-01 solid $focus;
       outline-offset: -2px;
       position: relative;
       z-index: 2;
@@ -463,7 +463,7 @@
         content: none;
       }
       &:focus {
-        outline: 2px solid $focus;
+        outline: $spacing-01 solid $focus;
       }
     }
   }
@@ -531,7 +531,7 @@
         left: 0;
         bottom: 0;
         right: 0;
-        border: 2px solid $focus;
+        border: $spacing-01 solid $focus;
         outline: 1px solid $focus-inverse;
         outline-offset: -3px;
         pointer-events: none;
@@ -707,7 +707,7 @@
           ::slotted(#{$dds-prefix}-card-heading) {
             @include breakpoint(md) {
               opacity: 0;
-              transform: translate3d(0, 16px, 0);
+              transform: translate3d(0, $spacing-05, 0);
               transition-delay: 0s;
             }
           }

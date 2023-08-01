@@ -19,9 +19,9 @@
     @include type-style('label-01');
 
     /* stylelint-disable-next-line declaration-property-unit-whitelist */
-    line-height: carbon--rem(20px);
+    line-height: rem(20px);
 
-    height: carbon--rem(32px); /* carbon--container-02 */
+    height: $spacing-07; /* carbon--container-02 */
     padding: 6px $spacing-05;
   }
 

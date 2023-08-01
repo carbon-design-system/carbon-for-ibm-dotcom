@@ -5,6 +5,8 @@
  * LICENSE file in the root directory of this source tree.
  */
 
+@use 'sass:math';
+
 @use '@carbon/styles/scss/breakpoint' as *;
 @use '@carbon/styles/scss/config' as *;
 @use '@carbon/styles/scss/spacing' as *;
@@ -152,7 +154,7 @@
         left: 0;
         bottom: 0;
         right: 0;
-        outline: 2px solid $focus;
+        outline: $spacing-01 solid $focus;
         outline-offset: -2px;
         pointer-events: none;
       }
@@ -192,8 +194,8 @@
     // `@include make-row()` has negative margin adjustment assuming that it's placed in Carbon grid.
     // Such adjustment has adverse effect when card group is placed in non-Carbon-grid,
     // but keeps it for React for backward-compatibility reason.
-    margin-left: calc(-1 * #{$grid-gutter} / 2);
-    margin-right: calc(-1 * #{$grid-gutter} / 2);
+    margin-left: calc(-1 * #{math.div(#{$grid-gutter}, 2)});
+    margin-right: calc(-1 * #{math.div(#{$grid-gutter}, 2)});
 
     position: relative;
     &::after {
@@ -269,7 +271,7 @@
           left: 0;
           bottom: 0;
           right: 0;
-          box-shadow: inset 0 0 0 2px $focus;
+          box-shadow: inset 0 0 0 $spacing-01 $focus;
           pointer-events: none;
         }
       }

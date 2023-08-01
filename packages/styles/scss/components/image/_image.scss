@@ -46,7 +46,7 @@
   :host(#{$dds-prefix}-image-logo) {
     background-color: $layer-02;
     margin: $spacing-05 $spacing-05 $spacing-03 $spacing-05;
-    max-width: carbon--rem(160px);
+    max-width: $spacing-13;
 
     @include ratio-base(2, 1, false);
 

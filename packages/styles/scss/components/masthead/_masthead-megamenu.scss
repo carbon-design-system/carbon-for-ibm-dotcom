@@ -286,7 +286,7 @@
       text-decoration: none;
       width: 100%;
       margin: 0 $spacing-05;
-      border-top: carbon--rem(1px) solid $layer-accent-01;
+      border-top: rem(1px) solid $layer-accent-01;
       height: $spacing-09;
 
       &:hover,
@@ -296,7 +296,7 @@
       }
 
       &:hover {
-        border-top: carbon--rem(1px) solid transparent;
+        border-top: rem(1px) solid transparent;
         color: $link-primary-hover;
       }
     }
@@ -324,7 +324,7 @@
     &:active {
       @include focus-outline;
 
-      outline-width: 2px;
+      outline-width: $spacing-01;
       outline-offset: -2px;
     }
 
@@ -347,7 +347,7 @@
   .#{$prefix}--masthead__megamenu__highlight-section {
     min-height: 100%;
     padding-top: rem(18px);
-    border-right: carbon--rem(1px) solid $layer-accent-01;
+    border-right: rem(1px) solid $layer-accent-01;
     @include make-col(4, 16);
   }
 
@@ -359,7 +359,7 @@
     :host(#{$dds-prefix}-megamenu-left-navigation),
     .#{$prefix}--masthead__megamenu__highlight-section {
       border-right: none;
-      border-bottom: carbon--rem(1px) solid $layer-accent-01;
+      border-bottom: rem(1px) solid $layer-accent-01;
       column-count: 2;
       column-gap: 0;
       @include make-col(8, 8);

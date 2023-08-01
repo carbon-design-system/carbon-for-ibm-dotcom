@@ -8,10 +8,11 @@
  */
 
 @use '@carbon/styles/scss/breakpoint' as *;
+@use '@carbon/styles/scss/spacing' as *;
 @use '@carbon/ibmdotcom-styles/scss/globals/vars' as *;
 
 .bx--no-gutter {
   @include breakpoint(md) {
-    padding: 0 1rem;
+    padding: 0 $spacing-05;
   }
 }

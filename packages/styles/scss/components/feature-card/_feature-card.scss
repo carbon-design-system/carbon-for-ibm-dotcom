@@ -25,7 +25,7 @@
 $fcb-large-custom-bp-copy: 992px;
 $fcb-large-custom-bp-nocopy: 752px;
 $fcb-breakpoint-up--lg: map.get(map.get($grid-breakpoints, 'lg'), 'width') -
-  carbon--rem(1px);
+  rem(1px);
 
 @mixin card {
   @include breakpoint-down(md) {
@@ -60,7 +60,7 @@ $fcb-breakpoint-up--lg: map.get(map.get($grid-breakpoints, 'lg'), 'width') -
       left: 0;
       right: 0;
       bottom: 0;
-      border: 2px solid $focus;
+      border: $spacing-01 solid $focus;
       outline: 1px solid #ffffff;
       outline-offset: -3px;
 
@@ -222,8 +222,8 @@ $fcb-breakpoint-up--lg: map.get(map.get($grid-breakpoints, 'lg'), 'width') -
         fill: $link-inverse;
 
         @include breakpoint(sm) {
-          width: carbon--rem(20px);
-          height: carbon--rem(20px);
+          width: rem(20px);
+          height: rem(20px);
         }
 
         @include breakpoint(md) {
@@ -319,7 +319,7 @@ $fcb-breakpoint-up--lg: map.get(map.get($grid-breakpoints, 'lg'), 'width') -
       ::slotted(#{$dds-prefix}-card-heading) {
         width: 100%;
         color: $icon-inverse;
-        max-width: carbon--rem(480px);
+        max-width: rem(480px);
 
         @include breakpoint(md) {
           width: 90%;
@@ -406,8 +406,8 @@ $fcb-breakpoint-up--lg: map.get(map.get($grid-breakpoints, 'lg'), 'width') -
     fill: $link-inverse;
 
     @include breakpoint(sm) {
-      width: carbon--rem(20px);
-      height: carbon--rem(20px);
+      width: rem(20px);
+      height: rem(20px);
     }
 
     @include breakpoint(md) {

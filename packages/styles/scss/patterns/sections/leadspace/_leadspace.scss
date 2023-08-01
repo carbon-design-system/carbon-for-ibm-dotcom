@@ -135,7 +135,7 @@ $btn-min-width: 26;
     }
 
     &__title {
-      padding-left: 1rem;
+      padding-left: $spacing-05;
       width: 95%;
     }
     &__desc {
@@ -304,7 +304,7 @@ $btn-min-width: 26;
       }
       &--content__container {
         margin: auto;
-        padding-left: 1.5rem;
+        padding-left: $spacing-06;
         @include make-col(4, 8);
       }
       &__image {

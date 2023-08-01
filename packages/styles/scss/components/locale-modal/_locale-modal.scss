@@ -82,7 +82,7 @@
       }
 
       &:focus {
-        outline-width: 2px;
+        outline-width: $spacing-01;
         outline-offset: -2px;
         outline-color: $background-brand;
       }
@@ -98,7 +98,7 @@
       transform: translate3d(0, -24px, 0);
       transition: transform 240ms cubic-bezier(0.4, 0.14, 1, 1);
       display: none;
-      top: 3rem;
+      top: $spacing-09;
     }
 
     .#{$prefix}--modal-header {
@@ -170,13 +170,13 @@
   display: flex;
 
   &:focus-within {
-    outline-width: 2px;
+    outline-width: $spacing-01;
     outline-offset: -2px;
     outline-color: $background-brand;
   }
 
   @include breakpoint-down(lg) {
-    min-height: rem(96px);
+    min-height: $spacing-12;
   }
 }
 
@@ -190,7 +190,7 @@
 :host(#{$dds-prefix}-locale-item) a.#{$prefix}--link,
 .#{$prefix}--locale-modal-container .#{$prefix}--locale-modal__locales {
   text-decoration: none;
-  border: 2px solid transparent;
+  border: $spacing-01 solid transparent;
   display: flex;
   min-height: $spacing-09;
   border-bottom: 1px solid $layer-accent-01;
@@ -203,7 +203,7 @@
 
   &:active,
   &:focus {
-    border: 2px solid $focus;
+    border: $spacing-01 solid $focus;
     outline: none;
   }
 }
