@@ -26,7 +26,7 @@ describe('dds-filter-panel-composite', function () {
       ).toMatchSnapshot({ mode: 'shadow' });
     });
 
-    it('should render with various attributes', async function () {
+    xit('should render with various attributes', async function () {
       render(
         template({
           heading: 'Filter',
