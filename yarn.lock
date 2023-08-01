@@ -2207,13 +2207,6 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@carbon/colors@npm:^10.37.0":
-  version: 10.37.1
-  resolution: "@carbon/colors@npm:10.37.1"
-  checksum: 7cdc38370d1a51d968f28de951a180211b33db14f6dee5cd55c1d965ebe74c19c55924898df7c344f72dfa2c46a764ad16696038911e77b43d9b701d34c56514
-  languageName: node
-  linkType: hard
-
 "@carbon/colors@npm:^11.18.1":
   version: 11.18.1
   resolution: "@carbon/colors@npm:11.18.1"
@@ -2225,7 +2218,7 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@carbon/eslint-config-ibmdotcom@workspace:packages/eslint-config-ibmdotcom"
   dependencies:
-    "@carbon/eslint-plugin-react-prop-type-comments": 1.39.0
+    "@carbon/eslint-plugin-react-prop-type-comments": 2.0.0-beta.0
     "@typescript-eslint/eslint-plugin": ^5.43.0
     "@typescript-eslint/parser": ^5.43.0
     babel-eslint: ^10.1.0
@@ -2257,7 +2250,7 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@carbon/eslint-plugin-react-prop-type-comments@1.39.0, @carbon/eslint-plugin-react-prop-type-comments@workspace:packages/eslint-plugin-react-prop-type-comments":
+"@carbon/eslint-plugin-react-prop-type-comments@2.0.0-beta.0, @carbon/eslint-plugin-react-prop-type-comments@workspace:packages/eslint-plugin-react-prop-type-comments":
   version: 0.0.0-use.local
   resolution: "@carbon/eslint-plugin-react-prop-type-comments@workspace:packages/eslint-plugin-react-prop-type-comments"
   peerDependencies:
@@ -2272,7 +2265,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@carbon/grid@npm:10.43.1, @carbon/grid@npm:^10.43.1":
+"@carbon/grid@npm:^10.43.1":
   version: 10.43.1
   resolution: "@carbon/grid@npm:10.43.1"
   dependencies:
@@ -2291,7 +2284,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@carbon/ibmdotcom-services-store@1.49.0, @carbon/ibmdotcom-services-store@workspace:packages/services-store":
+"@carbon/ibmdotcom-services-store@2.0.0-beta.0, @carbon/ibmdotcom-services-store@workspace:packages/services-store":
   version: 0.0.0-use.local
   resolution: "@carbon/ibmdotcom-services-store@workspace:packages/services-store"
   dependencies:
@@ -2302,8 +2295,8 @@ __metadata:
     "@babel/plugin-transform-modules-commonjs": ~7.12.0
     "@babel/plugin-transform-typescript": ~7.12.0
     "@babel/preset-modules": ^0.1.5
-    "@carbon/ibmdotcom-services": 1.49.0
-    "@carbon/ibmdotcom-utilities": 1.49.0
+    "@carbon/ibmdotcom-services": 2.0.0-beta.0
+    "@carbon/ibmdotcom-utilities": 2.0.0-beta.0
     async-done: ^1.3.0
     babel-eslint: ^10.1.0
     babel-jest: ^24.0.0
@@ -2328,7 +2321,7 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@carbon/ibmdotcom-services@1.49.0, @carbon/ibmdotcom-services@workspace:packages/services":
+"@carbon/ibmdotcom-services@2.0.0-beta.0, @carbon/ibmdotcom-services@workspace:packages/services":
   version: 0.0.0-use.local
   resolution: "@carbon/ibmdotcom-services@workspace:packages/services"
   dependencies:
@@ -2341,7 +2334,7 @@ __metadata:
     "@babel/plugin-transform-runtime": 7.18.5
     "@babel/preset-env": ~7.12.0
     "@babel/runtime": ^7.16.3
-    "@carbon/ibmdotcom-utilities": 1.49.0
+    "@carbon/ibmdotcom-utilities": 2.0.0-beta.0
     "@carbon/telemetry": 0.1.0
     "@rollup/plugin-babel": ^5.3.1
     "@rollup/plugin-commonjs": ^21.0.3
@@ -2375,24 +2368,7 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@carbon/ibmdotcom-styles@npm:1.49.0":
-  version: 1.49.0
-  resolution: "@carbon/ibmdotcom-styles@npm:1.49.0"
-  dependencies:
-    "@carbon/grid": 10.43.1
-    "@carbon/icons-react": 10.49.1
-    "@carbon/import-once": 10.7.0
-    "@carbon/layout": 10.37.1
-    "@carbon/motion": 10.29.0
-    "@carbon/telemetry": 0.1.0
-    "@carbon/themes": 10.55.1
-    "@carbon/type": 10.45.2
-    carbon-components: 10.58.7
-  checksum: bbc4ec81ae1750374573d46a3d982f4bb2c12212cbe9ee605b90ce35d224a71d052d038aa9fa5db323972a5e4ff26db976f2988f657a2a3043795be251987a96
-  languageName: node
-  linkType: hard
-
-"@carbon/ibmdotcom-styles@workspace:packages/styles":
+"@carbon/ibmdotcom-styles@2.0.0-beta.0, @carbon/ibmdotcom-styles@workspace:packages/styles":
   version: 0.0.0-use.local
   resolution: "@carbon/ibmdotcom-styles@workspace:packages/styles"
   dependencies:
@@ -2415,7 +2391,7 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@carbon/ibmdotcom-utilities@1.49.0, @carbon/ibmdotcom-utilities@workspace:packages/utilities":
+"@carbon/ibmdotcom-utilities@2.0.0-beta.0, @carbon/ibmdotcom-utilities@workspace:packages/utilities":
   version: 0.0.0-use.local
   resolution: "@carbon/ibmdotcom-utilities@workspace:packages/utilities"
   dependencies:
@@ -2439,7 +2415,6 @@ __metadata:
     babel-plugin-dev-expression: ^0.2.1
     babel-polyfill: ^6.26.0
     browserslist-config-carbon: 10.6.1
-    carbon-components: 10.58.7
     chalk: ^4.1.1
     cli-table: ^0.3.0
     gzip-size: ^5.0.0
@@ -2482,10 +2457,10 @@ __metadata:
     "@babel/preset-react": ~7.12.1
     "@babel/template": ~7.12.0
     "@babel/traverse": ~7.12.0
-    "@carbon/ibmdotcom-services": 1.49.0
-    "@carbon/ibmdotcom-services-store": 1.49.0
-    "@carbon/ibmdotcom-styles": 1.49.0
-    "@carbon/ibmdotcom-utilities": 1.49.0
+    "@carbon/ibmdotcom-services": 2.0.0-beta.0
+    "@carbon/ibmdotcom-services-store": 2.0.0-beta.0
+    "@carbon/ibmdotcom-styles": 2.0.0-beta.0
+    "@carbon/ibmdotcom-utilities": 2.0.0-beta.0
     "@carbon/icon-helpers": 10.40.0
     "@carbon/icons": 10.48.1
     "@carbon/icons-react": 10.49.1
@@ -2682,14 +2657,14 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@carbon/import-once@npm:10.7.0, @carbon/import-once@npm:^10.7.0":
+"@carbon/import-once@npm:^10.7.0":
   version: 10.7.0
   resolution: "@carbon/import-once@npm:10.7.0"
   checksum: c92625bc34833073a2b113a9cf014353210570ed1105225e70c6c6d06e5203407aa472d95685a53b6460794408897641b8d8cd5fd6416f8b0fa36c28919bf5f0
   languageName: node
   linkType: hard
 
-"@carbon/layout@npm:10.37.1, @carbon/layout@npm:^10.37.0, @carbon/layout@npm:^10.37.1":
+"@carbon/layout@npm:10.37.1, @carbon/layout@npm:^10.37.1":
   version: 10.37.1
   resolution: "@carbon/layout@npm:10.37.1"
   checksum: baabf7e70e4779f0e5000e700bcafe96f272debaac490a4345e39fedf8d0970636f7099e2607aeb9ca6170a56bbacdff69d8181c2a46ed8adac38fadc08332b6
@@ -2700,13 +2675,6 @@ __metadata:
   version: 11.17.1
   resolution: "@carbon/layout@npm:11.17.1"
   checksum: ebf5d3173ac2f05e8b3a1771ab0341da429096326452f38470a4a0f783d5f70e1f7914854fe4f31f1bcdd9c6bf23e2e8141d9fc0cce89dee643e2fe83289f5da
-  languageName: node
-  linkType: hard
-
-"@carbon/motion@npm:10.29.0":
-  version: 10.29.0
-  resolution: "@carbon/motion@npm:10.29.0"
-  checksum: 15894d6bc7c3cbe575ad8b0ac422846777558be1577b1c63da4ce401f5abd821cc278a302f83b5643262f3ca6348c9ba10d9fc48b735e6dcbb6e407c2424b6df
   languageName: node
   linkType: hard
 
@@ -2787,18 +2755,6 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@carbon/themes@npm:10.55.1":
-  version: 10.55.1
-  resolution: "@carbon/themes@npm:10.55.1"
-  dependencies:
-    "@carbon/colors": ^10.37.0
-    "@carbon/layout": ^10.37.0
-    "@carbon/type": ^10.45.1
-    color: ^3.1.2
-  checksum: de435ba20b24da2d7aad57e9a9ab1210349af0f7f99885f24bb6e993fa0408f541a500a1696e76ff3c8dfd602da9ee102d2dd01536938f8e6a2c5e719e01eb42
-  languageName: node
-  linkType: hard
-
 "@carbon/themes@npm:^11.20.0, @carbon/themes@npm:^11.22.1":
   version: 11.22.1
   resolution: "@carbon/themes@npm:11.22.1"
@@ -2811,7 +2767,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@carbon/type@npm:10.45.2, @carbon/type@npm:^10.45.1":
+"@carbon/type@npm:10.45.2":
   version: 10.45.2
   resolution: "@carbon/type@npm:10.45.2"
   dependencies:
@@ -11133,18 +11089,6 @@ __metadata:
   languageName: node
   linkType: hard
 
-"carbon-components@npm:10.58.7":
-  version: 10.58.7
-  resolution: "carbon-components@npm:10.58.7"
-  dependencies:
-    "@carbon/telemetry": 0.1.0
-    flatpickr: 4.6.1
-    lodash.debounce: ^4.0.8
-    warning: ^3.0.0
-  checksum: 80d27e9caa0913fce9a90d48e0982bdd7332976cd5ff0faa5c97195c0e16373419fc3be6faf0218bfa0f2d7518e4d14aabfb0be4727f774e0ea2388e3afa9fd0
-  languageName: node
-  linkType: hard
-
 "carbon-for-ibm-dotcom@workspace:.":
   version: 0.0.0-use.local
   resolution: "carbon-for-ibm-dotcom@workspace:."
@@ -11834,7 +11778,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"color-convert@npm:^1.9.0, color-convert@npm:^1.9.3":
+"color-convert@npm:^1.9.0":
   version: 1.9.3
   resolution: "color-convert@npm:1.9.3"
   dependencies:
@@ -11866,7 +11810,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"color-string@npm:^1.6.0, color-string@npm:^1.9.0":
+"color-string@npm:^1.9.0":
   version: 1.9.1
   resolution: "color-string@npm:1.9.1"
   dependencies:
@@ -11882,16 +11826,6 @@ __metadata:
   bin:
     color-support: bin.js
   checksum: 9b7356817670b9a13a26ca5af1c21615463b500783b739b7634a0c2047c16cef4b2865d7576875c31c3cddf9dd621fa19285e628f20198b233a5cfdda6d0793b
-  languageName: node
-  linkType: hard
-
-"color@npm:^3.1.2":
-  version: 3.2.1
-  resolution: "color@npm:3.2.1"
-  dependencies:
-    color-convert: ^1.9.3
-    color-string: ^1.6.0
-  checksum: f81220e8b774d35865c2561be921f5652117638dcda7ca4029262046e37fc2444ac7bbfdd110cf1fd9c074a4ee5eda8f85944ffbdda26186b602dd9bb05f6400
   languageName: node
   linkType: hard
 
