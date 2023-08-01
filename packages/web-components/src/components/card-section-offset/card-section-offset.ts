@@ -51,6 +51,7 @@ class DDSCardSectionOffset extends StableSelectorMixin(DDSContentBlock) {
 
   render() {
     return html`
+      <slot name="image"></slot>
       <div class="${prefix}--card-section-offset__content">
         ${this._renderHeading()}
         <slot name="action"></slot>

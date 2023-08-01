@@ -21,6 +21,14 @@
     /* stylelint-disable-next-line property-no-unknown */
     aspect-ratio: 16 / 9;
 
+    ::slotted(#{$dds-prefix}-background-media) {
+      height: auto;
+
+      /* stylelint-disable-next-line property-no-unknown */
+      aspect-ratio: 4 / 3;
+    }
+
+    /* remove when the `mobile-position` attribute is removed */
     #{$dds-prefix}-background-media {
       height: auto;
 
@@ -29,6 +37,16 @@
     }
 
     @include carbon--breakpoint('md') {
+      ::slotted(#{$dds-prefix}-background-media) {
+        position: absolute;
+        height: 100%;
+        width: 100%;
+
+        /* stylelint-disable-next-line property-no-unknown */
+        aspect-ratio: auto;
+      }
+
+      /* remove when the `mobile-position` attribute is removed */
       #{$dds-prefix}-background-media {
         position: absolute;
         height: 100%;
