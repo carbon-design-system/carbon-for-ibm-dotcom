@@ -1,5 +1,5 @@
 /**
- * Copyright IBM Corp. 2020, 2022
+ * Copyright IBM Corp. 2020, 2023
  *
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
@@ -40,7 +40,6 @@ if (!process.env.DDS_FLAGS_ALL) {
     process.env.DDS_CONTENT_BLOCK_CARD_STATIC,
     'components-content-block-card-static'
   );
-  css += getCss(process.env.DDS_PRICING_TABLE, 'components-pricing-table');
   css += getCss(
     process.env.DDS_SCOPED_SEARCH,
     'components-masthead-with-scoped-search'
