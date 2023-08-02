@@ -418,7 +418,22 @@ class NoticeChoice extends StableSelectorMixin(LitElement) {
           this.values = {
             ...this.values,
             EMAIL: false,
-            ...{checkBoxStatus:"UNCHANGED"}
+            ...{ checkBoxStatus: 'UNCHANGED' },
+          };
+          this._onChange('NC_HIDDEN_EMAIL', null);
+        } else {
+          const questionChoiceStatus =
+            countrySettings[this.country.toLocaleLowerCase()];
+          console.log(questionChoiceStatus);
+          this.values = {
+            ...this.values,
+            EMAIL: questionChoiceStatus.email === 'opt-out' ? true : false,
+            ...{
+              checkBoxStatus:
+                questionChoiceStatus.email === 'opt-out'
+                  ? 'PERMISSION'
+                  : 'UNCHANGED',
+            },
           };
           this._onChange('NC_HIDDEN_EMAIL', null);
         }
