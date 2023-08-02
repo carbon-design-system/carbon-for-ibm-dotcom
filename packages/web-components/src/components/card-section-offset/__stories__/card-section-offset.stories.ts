@@ -62,7 +62,7 @@ export const Default = (args) => {
     <dds-card-section-offset>
       <dds-background-media
         gradient-direction="left-to-right"
-        slot="image"
+        slot="image-top"
         alt="${ifNonNull(alt)}"
         default-src="${ifNonNull(defaultSrc)}">
       </dds-background-media>

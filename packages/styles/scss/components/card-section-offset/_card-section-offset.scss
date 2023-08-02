@@ -38,6 +38,7 @@
 
     @include carbon--breakpoint('md') {
       ::slotted(#{$dds-prefix}-background-media) {
+        top: 0;
         position: absolute;
         height: 100%;
         width: 100%;
