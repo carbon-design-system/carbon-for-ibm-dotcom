@@ -2595,10 +2595,17 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@carbon/icon-helpers@npm:10.43.1, @carbon/icon-helpers@npm:^10.28.1, @carbon/icon-helpers@npm:^10.42.1, @carbon/icon-helpers@npm:^10.43.1":
+"@carbon/icon-helpers@npm:10.43.1, @carbon/icon-helpers@npm:^10.43.1":
   version: 10.43.1
   resolution: "@carbon/icon-helpers@npm:10.43.1"
   checksum: b77039f58dfb28ee42c832387a59f787fd14c2ebac98a36c6fb5cdcff84fb19c35a5854f0066e1ddead55440cad783e1e52923d2706a482ec1a7067dcf23330b
+  languageName: node
+  linkType: hard
+
+"@carbon/icon-helpers@npm:^10.28.1, @carbon/icon-helpers@npm:^10.42.1":
+  version: 10.42.1
+  resolution: "@carbon/icon-helpers@npm:10.42.1"
+  checksum: 98981041d7fb44258c227825eb704b0f25fc6f1cc84d500d5cf0feba71307f5c1e1734f37608c9bb9836b5c864bafc8c6aa9f422f99250f662f67ad2c87708f7
   languageName: node
   linkType: hard
 
@@ -2628,7 +2635,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@carbon/icons@npm:^11.23.0":
+"@carbon/icons@npm:^11.23.0, @carbon/icons@npm:^11.23.1":
   version: 11.23.1
   resolution: "@carbon/icons@npm:11.23.1"
   checksum: 795ec41349df8d53399a8c8e92e0ec385fe8bb9e26f12749a980eca2590b306da478ecce32a8370c53d5296c28412d40c9e87c73764167a585d9f5c84bdd823c
@@ -2722,7 +2729,7 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@carbon/styles@npm:^1.30.0, @carbon/styles@npm:^1.34.0, @carbon/styles@npm:^1.34.1":
+"@carbon/styles@npm:^1.30.0, @carbon/styles@npm:^1.34.1":
   version: 1.34.1
   resolution: "@carbon/styles@npm:1.34.1"
   dependencies:
@@ -2774,7 +2781,20 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@carbon/web-components@2.0.0-rc.2, @carbon/web-components@workspace:packages/carbon-web-components":
+"@carbon/web-components@npm:2.0.0-rc.2":
+  version: 2.0.0-rc.2
+  resolution: "@carbon/web-components@npm:2.0.0-rc.2"
+  dependencies:
+    "@babel/runtime": ^7.16.3
+    "@carbon/styles": ^1.30.0
+    flatpickr: 4.6.1
+    lit: ^2.6.0
+    lodash-es: ^4.17.21
+  checksum: 0b4c6015e1722fd2e317a3575f4611561cbc711dd2d619f7008a3a7fd03ba6f8e08f2c976983b2693814f84e506baa20b90b164d06e3c4b2e33eb587639cd393
+  languageName: node
+  linkType: hard
+
+"@carbon/web-components@workspace:packages/carbon-web-components":
   version: 0.0.0-use.local
   resolution: "@carbon/web-components@workspace:packages/carbon-web-components"
   dependencies:
@@ -2794,9 +2814,9 @@ __metadata:
     "@babel/runtime": ^7.16.3
     "@babel/template": ~7.12.0
     "@babel/traverse": ~7.12.0
-    "@carbon/icon-helpers": 10.43.1
-    "@carbon/icons": ^11.23.0
-    "@carbon/styles": ^1.34.0
+    "@carbon/icon-helpers": ^10.43.1
+    "@carbon/icons": ^11.23.1
+    "@carbon/styles": ^1.34.1
     "@open-wc/semantic-dom-diff": ~0.18.0
     "@percy-io/in-percy": ^0.1.11
     "@percy/cli": ^1.8.1
@@ -22503,7 +22523,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"lit@npm:^2.7.6":
+"lit@npm:^2.6.0, lit@npm:^2.7.6":
   version: 2.7.6
   resolution: "lit@npm:2.7.6"
   dependencies:
