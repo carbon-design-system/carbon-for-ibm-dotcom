@@ -25,6 +25,11 @@ For Carbon v11 migration guidance, see their
 | text-input                | New component in v2. Replaces `input`. |
 | ui-shell                  | View changes [here](#ui-shell)         |
 
+### accordion
+
+- New `accordion-skeleton` & `accordion-item-skeleton` components
+- `title-text` property replaced with `title`
+
 ### dropdown
 
 - `direction` property expects 'top' or 'bottom' value
