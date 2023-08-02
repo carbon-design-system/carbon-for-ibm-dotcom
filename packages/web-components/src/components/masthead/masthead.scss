@@ -12,10 +12,10 @@
 @use '@carbon/styles/scss/theme' as *;
 @use '@carbon/styles/scss/type' as *;
 @use '@carbon/styles/scss/utilities' as *;
+@use '@carbon/styles/scss/components/tooltip/tooltip' as *;
 @use '@carbon/styles/scss/components/ui-shell/header' as *;
 @use '@carbon/styles/scss/components/ui-shell/side-nav' as *;
 @use '@carbon/ibmdotcom-styles/scss/components/masthead' as *;
-@use '@carbon/web-components/src/components/tooltip/tooltip';
 @use '@carbon/ibmdotcom-styles/scss/globals/vars' as *;
 
 :host(#{$dds-prefix}-masthead-menu-button) {
