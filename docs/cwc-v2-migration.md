@@ -14,20 +14,47 @@ For Carbon v11 migration guidance, see their
 | Component                 | Changes                                |
 | ------------------------- | -------------------------------------- |
 | accordion                 | View changes [here](#accordion)        |
+| breadcrumb                | View changes [here](#breadcrumb)       |
 | button                    | No API changes.                        |
+| date-picker               | View changes [here](#date-picker)      |
 | dropdown                  | View changes [here](#dropdown)         |
 | form-group                | New component in v2.                   |
+| icon-button               | New component in v2.                   |
 | input                     | Replaced by `text-input`               |
+| link                      | View changes [here](#link)             |
 | mult-select               | View changes [here](#multi-select)     |
 | number-input              | View changes [here](#number-input)     |
 | progress-bar              | New component in v2.                   |
+| radio-button              | View changes [here](#radio-button)     |
 | stack                     | New component in v2.                   |
 | text-input                | New component in v2. Replaces `input`. |
+| tooltip                   | View changes [here](#tooltip)          |
 | ui-shell                  | View changes [here](#ui-shell)         |
+
+### accordion
+
+- New `accordion-skeleton` & `accordion-item-skeleton` components
+- `title-text` property replaced with `title`
+
+### breadcrumb
+
+- New `breadcrumb-skeleton` component
+- New `no-trailing-slash` property
+
+### date-picker
+
+- New `date-picker-input` properties: `warn`, `warn-text`, `invalid-text`, `readonly`, `short`
+- Removed `date-picker-input` properties: `side-horizontal`, `required-validity-message`
+- New `date-picker` properties: `allow-input`, `close-on-select`, `min-date`, `max-date`, `readonly`
 
 ### dropdown
 
 - `direction` property expects 'top' or 'bottom' value
+
+### link
+
+- `size` property replaced `REGULAR = ''` with `MEDIUM = 'md'`
+- New `inline` & `visited` properties
 
 ### multi-select
 
@@ -41,6 +68,17 @@ For Carbon v11 migration guidance, see their
 - `validity-message-min` and `validity-message-max` properties replaced with `decrement-button-assistive-text` and `increment-button-assistive-text` respectively
 - `label-text` property replaced with `label`
 - New `warn`, `warn-text`, `invalid-text`, `hide-label`, `allow-empty`, `hide-steppers` properties
+
+### radio-button
+
+- New `radio-button-group` properties: `defaultSelected`, `legend-text`, `readOnly`
+- New `radio-button` properties: `disabledItem`, `readOnly`
+
+### tooltip
+
+- `tooltip-body` has been replaced with `tooltip-content
+- `tooltip-footer` has been removed
+- New `defaultOpen` & `closeOnActivation` properties
 
 ### ui-shell
 
