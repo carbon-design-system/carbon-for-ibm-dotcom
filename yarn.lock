@@ -2494,7 +2494,7 @@ __metadata:
     "@carbon/icons-react": 10.49.1
     "@carbon/import-once": 10.7.0
     "@carbon/layout": 10.37.1
-    "@carbon/motion": 10.29.0
+    "@carbon/motion": 10.29.1
     "@carbon/telemetry": 0.1.0
     "@carbon/themes": 10.55.1
     "@carbon/type": 10.45.2
@@ -2797,10 +2797,10 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@carbon/motion@npm:10.29.0":
-  version: 10.29.0
-  resolution: "@carbon/motion@npm:10.29.0"
-  checksum: 15894d6bc7c3cbe575ad8b0ac422846777558be1577b1c63da4ce401f5abd821cc278a302f83b5643262f3ca6348c9ba10d9fc48b735e6dcbb6e407c2424b6df
+"@carbon/motion@npm:10.29.1":
+  version: 10.29.1
+  resolution: "@carbon/motion@npm:10.29.1"
+  checksum: 642a454f5ae15dc81d38b11845cd1aa55d57d9693ac85ca84a110c87b7d1abfd0d31b87d95ed456d79e2bba7c22b5bc57d555cca22434c252ac8b258f717e5c4
   languageName: node
   linkType: hard
 
