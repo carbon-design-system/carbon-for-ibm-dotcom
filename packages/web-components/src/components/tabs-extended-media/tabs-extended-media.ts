@@ -7,16 +7,14 @@
  * LICENSE file in the root directory of this source tree.
  */
 
-import settings from 'carbon-components/es/globals/js/settings.js';
 import { html } from 'lit';
 import { property } from 'lit/decorators.js';
-import ddsSettings from '../../internal/vendor/@carbon/ibmdotcom-utilities/utilities/settings/settings';
+import settings from '../../internal/vendor/@carbon/ibmdotcom-utilities/utilities/settings/settings';
 import { carbonElement as customElement } from '../../internal/vendor/@carbon/web-components/globals/decorators/carbon-element';
 import DDSTabsExtended from '../tabs-extended/tabs-extended';
 import styles from './tabs-extended-media.scss';
 
-const { prefix } = settings;
-const { stablePrefix: ddsPrefix } = ddsSettings;
+const { prefix, stablePrefix: ddsPrefix } = settings;
 
 /**
  * A component to present media content inside a tabbed layout.

@@ -9,19 +9,17 @@
 
 import { TemplateResult, html } from 'lit';
 import { property, state } from 'lit/decorators.js';
-import settings from 'carbon-components/es/globals/js/settings.js';
 import { baseFontSize, breakpoints } from '@carbon/layout';
 import HostListener from '../../internal/vendor/@carbon/web-components/globals/decorators/host-listener.js';
 import HostListenerMixin from '../../internal/vendor/@carbon/web-components/globals/mixins/host-listener.js';
-import ddsSettings from '../../internal/vendor/@carbon/ibmdotcom-utilities/utilities/settings/settings';
+import settings from '../../internal/vendor/@carbon/ibmdotcom-utilities/utilities/settings/settings';
 import DDSContentItem from '../content-item/content-item';
 import styles from './content-item-horizontal-media.scss';
 
 import { MEDIA_ALIGN } from './defs';
 import { carbonElement as customElement } from '../../internal/vendor/@carbon/web-components/globals/decorators/carbon-element.js';
 
-const { prefix } = settings;
-const { stablePrefix: ddsPrefix } = ddsSettings;
+const { prefix, stablePrefix: ddsPrefix } = settings;
 
 const breakpoint = parseFloat(breakpoints.lg.width) * baseFontSize;
 

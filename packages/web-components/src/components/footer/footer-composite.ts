@@ -13,7 +13,7 @@ import { ifDefined } from 'lit/directives/if-defined.js';
 import HostListener from '../../internal/vendor/@carbon/web-components/globals/decorators/host-listener.js';
 import HostListenerMixin from '../../internal/vendor/@carbon/web-components/globals/mixins/host-listener.js';
 import LocaleAPI from '../../internal/vendor/@carbon/ibmdotcom-services/services/Locale/Locale';
-import ddsSettings from '../../internal/vendor/@carbon/ibmdotcom-utilities/utilities/settings/settings';
+import settings from '../../internal/vendor/@carbon/ibmdotcom-utilities/utilities/settings/settings';
 import HybridRenderMixin from '../../globals/mixins/hybrid-render';
 import ModalRenderMixin from '../../globals/mixins/modal-render';
 import { globalInit } from '../../internal/vendor/@carbon/ibmdotcom-services/services/global/global';
@@ -42,7 +42,7 @@ import '../../internal/vendor/@carbon/web-components/components/combo-box/combo-
 import '../../internal/vendor/@carbon/web-components/components/select/select-item.js';
 import { carbonElement as customElement } from '../../internal/vendor/@carbon/web-components/globals/decorators/carbon-element.js';
 
-const { stablePrefix: ddsPrefix } = ddsSettings;
+const { stablePrefix: ddsPrefix } = settings;
 
 /**
  * Component that rendres footer from inks data.

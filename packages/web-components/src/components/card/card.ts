@@ -9,19 +9,17 @@
 
 import { TemplateResult, html, LitElement } from 'lit';
 import { property, query, state } from 'lit/decorators.js';
-import settings from 'carbon-components/es/globals/js/settings.js';
 import BXLink from '../../internal/vendor/@carbon/web-components/components/link/link.js';
 import markdownToHtml from '../../internal/vendor/@carbon/ibmdotcom-utilities/utilities/markdownToHtml/markdownToHtml.js';
 import { carbonElement as customElement } from '../../internal/vendor/@carbon/web-components/globals/decorators/carbon-element.js';
-import ddsSettings from '../../internal/vendor/@carbon/ibmdotcom-utilities/utilities/settings/settings';
+import settings from '../../internal/vendor/@carbon/ibmdotcom-utilities/utilities/settings/settings';
 import { BASIC_COLOR_SCHEME } from '../../globals/defs';
 import StableSelectorMixin from '../../globals/mixins/stable-selector';
 import DDSCardFooter from './card-footer';
 import styles from './card.scss';
 import { PICTOGRAM_PLACEMENT } from './defs';
 
-const { prefix } = settings;
-const { stablePrefix: ddsPrefix } = ddsSettings;
+const { prefix, stablePrefix: ddsPrefix } = settings;
 
 /**
  * The table mapping slot name with the private property name that indicates the existence of the slot content.

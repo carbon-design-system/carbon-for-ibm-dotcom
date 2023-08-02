@@ -9,7 +9,6 @@
 
 import { LitElement, html } from 'lit';
 import { property } from 'lit/decorators.js';
-import settings from 'carbon-components/es/globals/js/settings.js';
 import on from 'carbon-components/es/globals/js/misc/on.js';
 import { ifDefined } from 'lit/directives/if-defined.js';
 import FocusMixin from '../../internal/vendor/@carbon/web-components/globals/mixins/focus.js';
@@ -20,15 +19,14 @@ import '../lightbox-media-viewer/lightbox-image-viewer';
 import '../button/button';
 import ZoomIn20 from '../../internal/vendor/@carbon/web-components/icons/zoom--in/20.js';
 import deprecate from '../../internal/vendor/@carbon/ibmdotcom-utilities/utilities/deprecate/deprecate';
-import ddsSettings from '../../internal/vendor/@carbon/ibmdotcom-utilities/utilities/settings/settings';
+import settings from '../../internal/vendor/@carbon/ibmdotcom-utilities/utilities/settings/settings';
 import styles from './image-with-caption.scss';
 import ModalRenderMixin from '../../globals/mixins/modal-render';
 import Handle from '../../globals/internal/handle';
 import StableSelectorMixin from '../../globals/mixins/stable-selector';
 import { carbonElement as customElement } from '../../internal/vendor/@carbon/web-components/globals/decorators/carbon-element.js';
 
-const { prefix } = settings;
-const { stablePrefix: ddsPrefix } = ddsSettings;
+const { prefix, stablePrefix: ddsPrefix } = settings;
 
 /**
  * Image With Caption

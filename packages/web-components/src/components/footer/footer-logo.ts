@@ -9,17 +9,15 @@
 
 import { html, LitElement, svg } from 'lit';
 import { property } from 'lit/decorators.js';
-import settings from 'carbon-components/es/globals/js/settings.js';
 import FocusMixin from '../../internal/vendor/@carbon/web-components/globals/mixins/focus.js';
 import { ifDefined } from 'lit/directives/if-defined.js';
 import IBM8BarLogoH65White from '@carbon/ibmdotcom-styles/icons/svg/IBM-8bar-logo--h65-white.svg';
-import ddsSettings from '../../internal/vendor/@carbon/ibmdotcom-utilities/utilities/settings/settings';
+import settings from '../../internal/vendor/@carbon/ibmdotcom-utilities/utilities/settings/settings';
 import StableSelectorMixin from '../../globals/mixins/stable-selector';
 import styles from './footer.scss';
 import { carbonElement as customElement } from '../../internal/vendor/@carbon/web-components/globals/decorators/carbon-element.js';
 
-const { prefix } = settings;
-const { stablePrefix: ddsPrefix } = ddsSettings;
+const { prefix, stablePrefix: ddsPrefix } = settings;
 
 /**
  * The IBM logo UI in footer.

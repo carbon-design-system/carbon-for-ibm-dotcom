@@ -9,7 +9,7 @@
 
 import { css } from 'lit';
 import { property } from 'lit/decorators.js';
-import ddsSettings from '../../internal/vendor/@carbon/ibmdotcom-utilities/utilities/settings/settings';
+import settings from '../../internal/vendor/@carbon/ibmdotcom-utilities/utilities/settings/settings';
 import StableSelectorMixin from '../../globals/mixins/stable-selector';
 import DDSMarkdown from '../markdown/markdown';
 import { CONTENT_BLOCK_COPY_SIZE } from './defs';
@@ -19,7 +19,7 @@ import { carbonElement as customElement } from '../../internal/vendor/@carbon/we
 
 export { CONTENT_BLOCK_COPY_SIZE };
 
-const { stablePrefix: ddsPrefix } = ddsSettings;
+const { stablePrefix: ddsPrefix } = settings;
 
 /**
  * The copy content of content block.

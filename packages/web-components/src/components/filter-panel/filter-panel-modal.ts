@@ -9,13 +9,12 @@
 
 import { html } from 'lit';
 import { property } from 'lit/decorators.js';
-import settings from 'carbon-components/es/globals/js/settings.js';
 import HostListenerMixin from '../../internal/vendor/@carbon/web-components/globals/mixins/host-listener.js';
 import './filter-group';
 import './filter-modal-button';
 import './filter-modal-heading';
 import CDSModal from '../../internal/vendor/@carbon/web-components/components/modal/modal.js';
-import ddsSettings from '../../internal/vendor/@carbon/ibmdotcom-utilities/utilities/settings/settings';
+import settings from '../../internal/vendor/@carbon/ibmdotcom-utilities/utilities/settings/settings';
 import './filter-modal-footer';
 import StableSelectorMixin from '../../globals/mixins/stable-selector';
 import styles from './filter-panel.scss';
@@ -24,8 +23,7 @@ import '../../internal/vendor/@carbon/web-components/components/modal/modal-clos
 import '../../internal/vendor/@carbon/web-components/components/modal/modal-header.js';
 import { carbonElement as customElement } from '../../internal/vendor/@carbon/web-components/globals/decorators/carbon-element.js';
 
-const { prefix } = settings;
-const { stablePrefix: ddsPrefix } = ddsSettings;
+const { prefix, stablePrefix: ddsPrefix } = settings;
 
 /**
  * Renders the filter panel modal

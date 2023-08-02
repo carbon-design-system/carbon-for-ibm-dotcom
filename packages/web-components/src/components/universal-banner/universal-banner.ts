@@ -9,9 +9,8 @@
 
 import { LitElement, html } from 'lit';
 import { property, query } from 'lit/decorators.js';
-import settings from 'carbon-components/es/globals/js/settings.js';
 import { baseFontSize, breakpoints } from '@carbon/layout';
-import ddsSettings from '../../internal/vendor/@carbon/ibmdotcom-utilities/utilities/settings/settings';
+import settings from '../../internal/vendor/@carbon/ibmdotcom-utilities/utilities/settings/settings';
 import StableSelectorMixin from '../../globals/mixins/stable-selector';
 import styles from './universal-banner.scss';
 import StickyHeader from '../../internal/vendor/@carbon/ibmdotcom-utilities/utilities/StickyHeader/StickyHeader';
@@ -21,8 +20,7 @@ import { carbonElement as customElement } from '../../internal/vendor/@carbon/we
 
 const gridLgBreakpoint = parseFloat(breakpoints.lg.width) * baseFontSize;
 
-const { stablePrefix: ddsPrefix } = ddsSettings;
-const { prefix } = settings;
+const { prefix, stablePrefix: ddsPrefix } = settings;
 
 /**
  * Universal banner

@@ -8,7 +8,6 @@
  */
 
 import { html } from 'lit';
-import settings from 'carbon-components/es/globals/js/settings.js';
 import ArrowDown20 from '../../internal/vendor/@carbon/web-components/icons/arrow--down/20.js';
 import ArrowRight20 from '../../internal/vendor/@carbon/web-components/icons/arrow--right/20.js';
 import Download20 from '../../internal/vendor/@carbon/web-components/icons/download/20.js';
@@ -21,12 +20,11 @@ import Phone20 from '../../internal/vendor/@carbon/web-components/icons/phone/20
 import Calendar20 from '../../internal/vendor/@carbon/web-components/icons/calendar/20.js';
 import Email20 from '../../internal/vendor/@carbon/web-components/icons/email/20.js';
 import Chat20 from '../../internal/vendor/@carbon/web-components/icons/chat/20.js';
-import ddsSettings from '../../internal/vendor/@carbon/ibmdotcom-utilities/utilities/settings/settings';
+import settings from '../../internal/vendor/@carbon/ibmdotcom-utilities/utilities/settings/settings';
 import { Constructor } from '../../globals/defs';
 import { CTA_TYPE } from '../../components/cta/defs';
 
-const { prefix } = settings;
-const { stablePrefix: ddsPrefix } = ddsSettings;
+const { prefix, stablePrefix: ddsPrefix } = settings;
 
 /**
  * Icons to use, keyed by CTA type.

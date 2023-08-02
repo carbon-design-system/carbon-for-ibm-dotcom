@@ -8,14 +8,12 @@
  */
 
 import { css, html, TemplateResult } from 'lit';
-import settings from 'carbon-components/es/globals/js/settings.js';
-import ddsSettings from '../../internal/vendor/@carbon/ibmdotcom-utilities/utilities/settings/settings';
+import settings from '../../internal/vendor/@carbon/ibmdotcom-utilities/utilities/settings/settings';
 import DDSContentBlock from '../content-block/content-block';
 import styles from './leadspace-block.scss';
 import { carbonElement as customElement } from '../../internal/vendor/@carbon/web-components/globals/decorators/carbon-element';
 
-const { prefix } = settings;
-const { stablePrefix: ddsPrefix } = ddsSettings;
+const { prefix, stablePrefix: ddsPrefix } = settings;
 
 /**
  * LeadSpace Block content Component.

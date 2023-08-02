@@ -10,15 +10,13 @@
 import { LitElement, html } from 'lit';
 import { property } from 'lit/decorators.js';
 import { breakpoints } from '@carbon/layout';
-import settings from 'carbon-components/es/globals/js/settings.js';
-import ddsSettings from '../../internal/vendor/@carbon/ibmdotcom-utilities/utilities/settings/settings';
+import settings from '../../internal/vendor/@carbon/ibmdotcom-utilities/utilities/settings/settings';
 import StableSelectorMixin from '../../globals/mixins/stable-selector';
 import { forEach } from '../../globals/internal/collection-helpers';
 import { ANIMATION_TYPE } from './defs';
 import { carbonElement as customElement } from '../../internal/vendor/@carbon/web-components/globals/decorators/carbon-element';
 
-const { prefix } = settings;
-const { stablePrefix: ddsPrefix } = ddsSettings;
+const { prefix, stablePrefix: ddsPrefix } = settings;
 
 /**
  * Amount of columns used for calculation.

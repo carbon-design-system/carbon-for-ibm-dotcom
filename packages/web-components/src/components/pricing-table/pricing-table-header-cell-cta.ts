@@ -8,14 +8,14 @@
  */
 
 import { property } from 'lit/decorators.js';
-import ddsSettings from '@carbon/ibmdotcom-utilities/es/utilities/settings/settings.js';
+import settings from '@carbon/ibmdotcom-utilities/es/utilities/settings/settings.js';
 import DDSButtonCTA from '../cta/button-cta';
 import { BUTTON_KIND } from '../button/button';
 import StableSelectorMixin from '../../globals/mixins/stable-selector';
 import styles from './pricing-table.scss';
 import { carbonElement as customElement } from '../../internal/vendor/@carbon/web-components/globals/decorators/carbon-element';
 
-const { stablePrefix: ddsPrefix } = ddsSettings;
+const { stablePrefix: ddsPrefix } = settings;
 
 @customElement(`${ddsPrefix}-pricing-table-header-cell-cta`)
 class DDSPricingTableHeaderCellCta extends StableSelectorMixin(DDSButtonCTA) {

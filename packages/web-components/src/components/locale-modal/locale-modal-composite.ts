@@ -11,7 +11,7 @@ import { LitElement, html } from 'lit';
 import { property } from 'lit/decorators.js';
 import { ifDefined } from 'lit/directives/if-defined.js';
 import LocaleAPI from '@carbon/ibmdotcom-services/es/services/Locale/Locale.js';
-import ddsSettings from '../../internal/vendor/@carbon/ibmdotcom-utilities/utilities/settings/settings';
+import settings from '../../internal/vendor/@carbon/ibmdotcom-utilities/utilities/settings/settings';
 import altlangs from '../../internal/vendor/@carbon/ibmdotcom-utilities/utilities/altlangs/altlangs.js';
 import HybridRenderMixin from '../../globals/mixins/hybrid-render';
 import {
@@ -26,7 +26,7 @@ import './locale-item';
 import styles from './locale-modal-composite.scss';
 import { carbonElement as customElement } from '../../internal/vendor/@carbon/web-components/globals/decorators/carbon-element.js';
 
-const { stablePrefix: ddsPrefix } = ddsSettings;
+const { stablePrefix: ddsPrefix } = settings;
 
 /**
  * Container component for locale modal.

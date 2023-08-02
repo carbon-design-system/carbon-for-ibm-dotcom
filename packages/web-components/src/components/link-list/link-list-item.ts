@@ -9,14 +9,14 @@
 
 import { css } from 'lit';
 import { property } from 'lit/decorators.js';
-import ddsSettings from '../../internal/vendor/@carbon/ibmdotcom-utilities/utilities/settings/settings';
+import settings from '../../internal/vendor/@carbon/ibmdotcom-utilities/utilities/settings/settings';
 import DDSLinkWithIcon from '../link-with-icon/link-with-icon';
 import styles from './link-list.scss';
 
 import { LINK_LIST_ITEM_TYPE } from './defs';
 import { carbonElement as customElement } from '../../internal/vendor/@carbon/web-components/globals/decorators/carbon-element';
 
-const { stablePrefix: ddsPrefix } = ddsSettings;
+const { stablePrefix: ddsPrefix } = settings;
 
 /**
  * Link list item.

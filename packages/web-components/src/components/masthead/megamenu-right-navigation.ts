@@ -11,8 +11,7 @@ import { LitElement, html } from 'lit';
 import { property } from 'lit/decorators.js';
 import { classMap } from 'lit/directives/class-map.js';
 import ArrowRight16 from '../../internal/vendor/@carbon/web-components/icons/arrow--right/16';
-import settings from 'carbon-components/es/globals/js/settings.js';
-import ddsSettings from '../../internal/vendor/@carbon/ibmdotcom-utilities/utilities/settings/settings';
+import settings from '../../internal/vendor/@carbon/ibmdotcom-utilities/utilities/settings/settings';
 import { MEGAMENU_RIGHT_NAVIGATION_STYLE_SCHEME } from './defs';
 import styles from './masthead.scss';
 import './megamenu-link-with-icon';
@@ -20,8 +19,7 @@ import { carbonElement as customElement } from '../../internal/vendor/@carbon/we
 
 export { MEGAMENU_RIGHT_NAVIGATION_STYLE_SCHEME };
 
-const { prefix } = settings;
-const { stablePrefix: ddsPrefix } = ddsSettings;
+const { prefix, stablePrefix: ddsPrefix } = settings;
 
 /**
  * MegaMenu right navigation section

@@ -8,13 +8,13 @@
  */
 
 import { css } from 'lit';
-import ddsSettings from '../../internal/vendor/@carbon/ibmdotcom-utilities/utilities/settings/settings';
+import settings from '../../internal/vendor/@carbon/ibmdotcom-utilities/utilities/settings/settings';
 import StableSelectorMixin from '../../globals/mixins/stable-selector';
 import DDSContentBlock from '../content-block/content-block';
 import styles from './content-block-card-static.scss';
 import { DDS_CONTENT_BLOCK_CARD_STATIC } from '../../globals/internal/feature-flags';
 
-const { stablePrefix: ddsPrefix } = ddsSettings;
+const { stablePrefix: ddsPrefix } = settings;
 
 /**
  * Content block variation which includes a static card group.

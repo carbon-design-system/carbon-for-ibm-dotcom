@@ -8,9 +8,8 @@
  */
 
 import { property, query, state } from 'lit/decorators.js';
-import settings from 'carbon-components/es/globals/js/settings.js';
 import BXAccordionItem from '../../internal/vendor/@carbon/web-components/components/accordion/accordion-item.js';
-import ddsSettings from '../../internal/vendor/@carbon/ibmdotcom-utilities/utilities/settings/settings';
+import settings from '../../internal/vendor/@carbon/ibmdotcom-utilities/utilities/settings/settings';
 import styles from './filter-panel.scss';
 import StableSelectorMixin from '../../globals/mixins/stable-selector';
 import DDSFilterPanelComposite from './filter-panel-composite';
@@ -19,8 +18,7 @@ import DDSFilterPanelInputSelectItem from './filter-panel-input-select-item';
 import DDSFilterPanelInputSelect from './filter-panel-input-select';
 import { carbonElement as customElement } from '../../internal/vendor/@carbon/web-components/globals/decorators/carbon-element.js';
 
-const { stablePrefix: ddsPrefix } = ddsSettings;
-const { prefix } = settings;
+const { prefix, stablePrefix: ddsPrefix } = settings;
 
 const viewAllClassName = `${ddsPrefix}-filter-group-item__view-all`;
 

@@ -8,8 +8,7 @@
  */
 
 import { query, state, property } from 'lit/decorators.js';
-import settings from 'carbon-components/es/globals/js/settings.js';
-import ddsSettings from '../../internal/vendor/@carbon/ibmdotcom-utilities/utilities/settings/settings';
+import settings from '../../internal/vendor/@carbon/ibmdotcom-utilities/utilities/settings/settings';
 import { forEach } from '../../globals/internal/collection-helpers';
 import DDSMegaMenu from './megamenu';
 import DDSTopNav from './top-nav';
@@ -18,8 +17,7 @@ import DDSMegaMenuOverlay from './megamenu-overlay';
 import styles from './masthead.scss';
 import { carbonElement as customElement } from '../../internal/vendor/@carbon/web-components/globals/decorators/carbon-element';
 
-const { prefix } = settings;
-const { stablePrefix: ddsPrefix } = ddsSettings;
+const { prefix, stablePrefix: ddsPrefix } = settings;
 
 /**
  * Megamenu top nav menu.

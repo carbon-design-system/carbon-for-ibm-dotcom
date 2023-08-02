@@ -9,13 +9,13 @@
 
 import BXCheckbox from '../../internal/vendor/@carbon/web-components/components/checkbox/checkbox';
 import FocusMixin from '../../internal/vendor/@carbon/web-components/globals/mixins/focus';
-import ddsSettings from '../../internal/vendor/@carbon/ibmdotcom-utilities/utilities/settings/settings';
+import settings from '../../internal/vendor/@carbon/ibmdotcom-utilities/utilities/settings/settings';
 import '../../internal/vendor/@carbon/web-components/components/modal/modal';
 import styles from './filter-panel.scss';
 import StableSelectorMixin from '../../globals/mixins/stable-selector';
 import { carbonElement as customElement } from '../../internal/vendor/@carbon/web-components/globals/decorators/carbon-element';
 
-const { stablePrefix: ddsPrefix } = ddsSettings;
+const { stablePrefix: ddsPrefix } = settings;
 
 /**
  * Filter Panel Checkbox

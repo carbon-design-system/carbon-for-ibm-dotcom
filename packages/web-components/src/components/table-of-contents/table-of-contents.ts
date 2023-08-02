@@ -13,21 +13,19 @@ import { html, LitElement, nothing } from 'lit';
 import { property, query, queryAll, state } from 'lit/decorators.js';
 import CaretLeft20 from '../../internal/vendor/@carbon/web-components/icons/caret--left/20.js';
 import CaretRight20 from '../../internal/vendor/@carbon/web-components/icons/caret--right/20.js';
-import settings from 'carbon-components/es/globals/js/settings.js';
 import { baseFontSize, breakpoints } from '@carbon/layout';
 import HostListener from '../../internal/vendor/@carbon/web-components/globals/decorators/host-listener.js';
 import HostListenerMixin from '../../internal/vendor/@carbon/web-components/globals/mixins/host-listener.js';
 import TableOfContents20 from '../../internal/vendor/@carbon/web-components/icons/table-of-contents/20.js';
 import throttle from 'lodash-es/throttle.js';
 import StickyHeader from '../../internal/vendor/@carbon/ibmdotcom-utilities/utilities/StickyHeader/StickyHeader';
-import ddsSettings from '../../internal/vendor/@carbon/ibmdotcom-utilities/utilities/settings/settings';
+import settings from '../../internal/vendor/@carbon/ibmdotcom-utilities/utilities/settings/settings';
 import styles from './table-of-contents.scss';
 import { TOC_TYPES } from './defs';
 import StableSelectorMixin from '../../globals/mixins/stable-selector';
 import { carbonElement as customElement } from '../../internal/vendor/@carbon/web-components/globals/decorators/carbon-element.js';
 
-const { prefix } = settings;
-const { stablePrefix: ddsPrefix } = ddsSettings;
+const { prefix, stablePrefix: ddsPrefix } = settings;
 
 // total button width - grid offset
 const buttonWidthOffset = 32;

@@ -9,13 +9,12 @@
 
 import { html } from 'lit';
 import { property, state } from 'lit/decorators.js';
-import settings from 'carbon-components/es/globals/js/settings.js';
 import ArrowLeft20 from '../../internal/vendor/@carbon/web-components/icons/arrow--left/20.js';
 import EarthFilled16 from '../../internal/vendor/@carbon/web-components/icons/earth--filled/16.js';
 import HostListener from '../../internal/vendor/@carbon/web-components/globals/decorators/host-listener.js';
 import { ifDefined } from 'lit/directives/if-defined.js';
 import { selectorTabbable } from '../../internal/vendor/@carbon/web-components/globals/settings.js';
-import ddsSettings from '../../internal/vendor/@carbon/ibmdotcom-utilities/utilities/settings/settings';
+import settings from '../../internal/vendor/@carbon/ibmdotcom-utilities/utilities/settings/settings';
 import DDSExpressiveModal from '../expressive-modal/expressive-modal';
 import '../expressive-modal/expressive-modal-header';
 import '../expressive-modal/expressive-modal-heading';
@@ -27,8 +26,7 @@ import { ICON_PLACEMENT } from '../link-with-icon/link-with-icon';
 import StickyHeader from '../../internal/vendor/@carbon/ibmdotcom-utilities/utilities/StickyHeader/StickyHeader';
 import { carbonElement as customElement } from '../../internal/vendor/@carbon/web-components/globals/decorators/carbon-element.js';
 
-const { prefix } = settings;
-const { stablePrefix: ddsPrefix } = ddsSettings;
+const { prefix, stablePrefix: ddsPrefix } = settings;
 
 /**
  * Locale modal.

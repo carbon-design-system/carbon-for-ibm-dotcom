@@ -9,9 +9,8 @@
 
 import { html } from 'lit';
 import { property } from 'lit/decorators.js';
-import settings from 'carbon-components/es/globals/js/settings.js';
 import removeHtmlTagEntities from '@carbon/ibmdotcom-utilities/es/utilities/removeHtmlTagEntities/removeHtmlTagEntities.js';
-import ddsSettings from '../../internal/vendor/@carbon/ibmdotcom-utilities/utilities/settings/settings';
+import settings from '../../internal/vendor/@carbon/ibmdotcom-utilities/utilities/settings/settings';
 import {
   formatVideoCaption,
   formatVideoDuration,
@@ -19,8 +18,7 @@ import {
 import DDSLightboxMediaViewerBody from './lightbox-media-viewer-body';
 import { carbonElement as customElement } from '../../internal/vendor/@carbon/web-components/globals/decorators/carbon-element';
 
-const { prefix } = settings;
-const { stablePrefix: ddsPrefix } = ddsSettings;
+const { prefix, stablePrefix: ddsPrefix } = settings;
 
 /**
  * The video content of lightbox media viewer.

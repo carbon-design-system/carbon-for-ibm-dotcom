@@ -7,11 +7,10 @@
  * LICENSE file in the root directory of this source tree.
  */
 
-import settings from 'carbon-components/es/globals/js/settings.js';
 import { html, LitElement, TemplateResult } from 'lit';
 import { property, state } from 'lit/decorators.js';
 import { classMap } from 'lit/directives/class-map.js';
-import ddsSettings from '../../internal/vendor/@carbon/ibmdotcom-utilities/utilities/settings/settings';
+import settings from '../../internal/vendor/@carbon/ibmdotcom-utilities/utilities/settings/settings';
 import StableSelectorMixin from '../../globals/mixins/stable-selector';
 import MediaQueryMixin, {
   MQBreakpoints,
@@ -22,8 +21,7 @@ import styles from './tabs-extended.scss';
 import { ORIENTATION } from './defs';
 import { carbonElement as customElement } from '../../internal/vendor/@carbon/web-components/globals/decorators/carbon-element.js';
 
-const { prefix } = settings;
-const { stablePrefix: ddsPrefix } = ddsSettings;
+const { prefix, stablePrefix: ddsPrefix } = settings;
 
 /**
  * A component to present content inside a tabbed layout.

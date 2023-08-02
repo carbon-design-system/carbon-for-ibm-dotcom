@@ -9,12 +9,12 @@
 
 import { LitElement, html } from 'lit';
 import { BUTTON_KIND } from '../../internal/vendor/@carbon/web-components/components/button/defs.js';
-import ddsSettings from '@carbon/ibmdotcom-utilities/es/utilities/settings/settings.js';
+import settings from '@carbon/ibmdotcom-utilities/es/utilities/settings/settings.js';
 import styles from './button-group.scss';
 import StableSelectorMixin from '../../globals/mixins/stable-selector';
 import { carbonElement as customElement } from '../../internal/vendor/@carbon/web-components/globals/decorators/carbon-element.js';
 
-const { stablePrefix: ddsPrefix } = ddsSettings;
+const { stablePrefix: ddsPrefix } = settings;
 
 /**
  * Button group.

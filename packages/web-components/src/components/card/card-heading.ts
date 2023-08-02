@@ -9,11 +9,11 @@
 import { LitElement, html } from 'lit';
 import { property } from 'lit/decorators.js';
 import { carbonElement as customElement } from '../../internal/vendor/@carbon/web-components/globals/decorators/carbon-element';
-import ddsSettings from '../../internal/vendor/@carbon/ibmdotcom-utilities/utilities/settings/settings';
+import settings from '../../internal/vendor/@carbon/ibmdotcom-utilities/utilities/settings/settings';
 import styles from './card.scss';
 import StableSelectorMixin from '../../globals/mixins/stable-selector';
 
-const { stablePrefix: ddsPrefix } = ddsSettings;
+const { stablePrefix: ddsPrefix } = settings;
 
 /**
  * The heading content of card.

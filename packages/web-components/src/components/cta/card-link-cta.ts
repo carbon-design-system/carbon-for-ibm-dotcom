@@ -9,7 +9,7 @@
 
 import { html } from 'lit';
 import { property } from 'lit/decorators.js';
-import ddsSettings from '@carbon/ibmdotcom-utilities/es/utilities/settings/settings.js';
+import settings from '@carbon/ibmdotcom-utilities/es/utilities/settings/settings.js';
 import {
   formatVideoCaption,
   formatVideoDuration,
@@ -26,7 +26,7 @@ import { carbonElement as customElement } from '../../internal/vendor/@carbon/we
 
 export { CTA_TYPE };
 
-const { stablePrefix: ddsPrefix } = ddsSettings;
+const { stablePrefix: ddsPrefix } = settings;
 
 /**
  * Card CTA.

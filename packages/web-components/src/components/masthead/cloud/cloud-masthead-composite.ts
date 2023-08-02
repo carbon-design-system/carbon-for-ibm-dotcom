@@ -10,7 +10,7 @@
 import { html } from 'lit';
 import { property } from 'lit/decorators.js';
 import { ifDefined } from 'lit/directives/if-defined.js';
-import ddsSettings from '../../../internal/vendor/@carbon/ibmdotcom-utilities/utilities/settings/settings';
+import settings from '../../../internal/vendor/@carbon/ibmdotcom-utilities/utilities/settings/settings';
 import { globalInit } from '../../../internal/vendor/@carbon/ibmdotcom-services/services/global/global';
 import './cloud-button-cta';
 import './cloud-left-nav-item';
@@ -36,7 +36,7 @@ import DDSMastheadComposite, {
 } from '../masthead-composite';
 import { carbonElement as customElement } from '../../../internal/vendor/@carbon/web-components/globals/decorators/carbon-element.js';
 
-const { stablePrefix: ddsPrefix } = ddsSettings;
+const { stablePrefix: ddsPrefix } = settings;
 
 // Magic Number: 960px matches masthead.scss's `$breakpoint--desktop-nav`.
 const layoutBreakpoint = window.matchMedia(`(max-width: 959px)`);

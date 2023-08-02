@@ -13,7 +13,7 @@ import on from 'carbon-components/es/globals/js/misc/on.js';
 import { ifDefined } from 'lit/directives/if-defined.js';
 import HostListener from '../../internal/vendor/@carbon/web-components/globals/decorators/host-listener.js';
 import HostListenerMixin from '../../internal/vendor/@carbon/web-components/globals/mixins/host-listener.js';
-import ddsSettings from '../../internal/vendor/@carbon/ibmdotcom-utilities/utilities/settings/settings';
+import settings from '../../internal/vendor/@carbon/ibmdotcom-utilities/utilities/settings/settings';
 import ModalRenderMixin from '../../globals/mixins/modal-render';
 import { MediaData } from '../../internal/vendor/@carbon/ibmdotcom-services-store/types/kalturaPlayerAPI.d';
 import Handle from '../../globals/internal/handle';
@@ -25,7 +25,7 @@ import { VideoCTAMixinImpl } from '../../component-mixins/cta/video';
 import styles from './video-cta-composite.scss';
 import { carbonElement as customElement } from '../../internal/vendor/@carbon/web-components/globals/decorators/carbon-element.js';
 
-const { stablePrefix: ddsPrefix } = ddsSettings;
+const { stablePrefix: ddsPrefix } = settings;
 
 /**
  * Component that handles video CTAs in app.

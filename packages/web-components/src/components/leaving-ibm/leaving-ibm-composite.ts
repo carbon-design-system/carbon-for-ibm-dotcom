@@ -12,7 +12,7 @@ import { property } from 'lit/decorators.js';
 import CDSModal from '../../internal/vendor/@carbon/web-components/components/modal/modal.js';
 import HostListenerMixin from '../../internal/vendor/@carbon/web-components/globals/mixins/host-listener.js';
 import HostListener from '../../internal/vendor/@carbon/web-components/globals/decorators/host-listener.js';
-import ddsSettings from '../../internal/vendor/@carbon/ibmdotcom-utilities/utilities/settings/settings';
+import settings from '../../internal/vendor/@carbon/ibmdotcom-utilities/utilities/settings/settings';
 import {
   LeavingIBMLabels,
   Translation,
@@ -29,7 +29,7 @@ import '../../internal/vendor/@carbon/web-components/components/button/button.js
 import styles from './leaving-ibm.scss';
 import { carbonElement as customElement } from '../../internal/vendor/@carbon/web-components/globals/decorators/carbon-element.js';
 
-const { stablePrefix: ddsPrefix } = ddsSettings;
+const { stablePrefix: ddsPrefix } = settings;
 
 /**
  * Component that renders leaving IBM modal component.

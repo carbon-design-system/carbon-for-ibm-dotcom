@@ -9,13 +9,13 @@
 
 import { css, html } from 'lit';
 import { property } from 'lit/decorators.js';
-import ddsSettings from '../../internal/vendor/@carbon/ibmdotcom-utilities/utilities/settings/settings';
+import settings from '../../internal/vendor/@carbon/ibmdotcom-utilities/utilities/settings/settings';
 import { carbonElement as customElement } from '../../internal/vendor/@carbon/web-components/globals/decorators/carbon-element';
 import DDSContentGroup from '../content-group/content-group';
 import '../horizontal-rule/horizontal-rule';
 import styles from './content-block-horizontal.scss';
 
-const { stablePrefix: ddsPrefix } = ddsSettings;
+const { stablePrefix: ddsPrefix } = settings;
 
 /**
  * Horizontal version of content group.

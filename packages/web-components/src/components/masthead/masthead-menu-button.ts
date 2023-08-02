@@ -12,16 +12,14 @@ import { html } from 'lit';
 import { property, query, state } from 'lit/decorators.js';
 import HostListener from '../../internal/vendor/@carbon/web-components/globals/decorators/host-listener.js';
 import HostListenerMixin from '../../internal/vendor/@carbon/web-components/globals/mixins/host-listener.js';
-import settings from 'carbon-components/es/globals/js/settings.js';
 import BXHeaderMenuButton from '../../internal/vendor/@carbon/web-components/components/ui-shell/header-menu-button.js';
-import ddsSettings from '../../internal/vendor/@carbon/ibmdotcom-utilities/utilities/settings/settings';
+import settings from '../../internal/vendor/@carbon/ibmdotcom-utilities/utilities/settings/settings';
 import focuswrap from '../../internal/vendor/@carbon/ibmdotcom-utilities/utilities/focuswrap/focuswrap';
 import Handle from '../../globals/internal/handle';
 import styles from './masthead.scss';
 import { carbonElement as customElement } from '../../internal/vendor/@carbon/web-components/globals/decorators/carbon-element.js';
 
-const { prefix } = settings;
-const { stablePrefix: ddsPrefix } = ddsSettings;
+const { prefix, stablePrefix: ddsPrefix } = settings;
 
 /**
  * Toggle button for masthead left nav.

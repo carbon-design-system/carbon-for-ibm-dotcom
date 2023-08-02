@@ -7,12 +7,11 @@
  * LICENSE file in the root directory of this source tree.
  */
 
-import settings from 'carbon-components/es/globals/js/settings.js';
 import { classMap } from 'lit/directives/class-map.js';
 import { ifDefined } from 'lit/directives/if-defined.js';
 import { html } from 'lit';
 import { property, query } from 'lit/decorators.js';
-import ddsSettings from '@carbon/ibmdotcom-utilities/es/utilities/settings/settings.js';
+import settings from '@carbon/ibmdotcom-utilities/es/utilities/settings/settings.js';
 import CDSDropdown, {
   DROPDOWN_KEYBOARD_ACTION,
   DROPDOWN_TYPE,
@@ -33,8 +32,7 @@ export {
   NAVIGATION_DIRECTION,
 };
 
-const { stablePrefix: ddsPrefix } = ddsSettings;
-const { prefix } = settings;
+const { prefix, stablePrefix: ddsPrefix } = settings;
 
 /**
  * Dropdown.

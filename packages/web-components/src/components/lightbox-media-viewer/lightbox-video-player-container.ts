@@ -8,7 +8,7 @@
  */
 
 import { ActionCreatorsMapObject, Store } from 'redux';
-import ddsSettings from '../../internal/vendor/@carbon/ibmdotcom-utilities/utilities/settings/settings';
+import settings from '../../internal/vendor/@carbon/ibmdotcom-utilities/utilities/settings/settings';
 import store from '../../internal/vendor/@carbon/ibmdotcom-services-store/store';
 import { MediaPlayerAPIActions } from '../../internal/vendor/@carbon/ibmdotcom-services-store/actions/kalturaPlayerAPI.d';
 import ConnectMixin from '../../globals/mixins/connect';
@@ -23,7 +23,7 @@ import {
 import DDSLightboxVideoPlayerComposite from './lightbox-video-player-composite';
 import { carbonElement as customElement } from '../../internal/vendor/@carbon/web-components/globals/decorators/carbon-element';
 
-const { stablePrefix: ddsPrefix } = ddsSettings;
+const { stablePrefix: ddsPrefix } = settings;
 
 /**
  * Container component for lightbox media viewer, works with video data.

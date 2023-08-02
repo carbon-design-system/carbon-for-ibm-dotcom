@@ -10,20 +10,18 @@
 import { classMap } from 'lit/directives/class-map.js';
 import { html } from 'lit';
 import { property, query, state } from 'lit/decorators.js';
-import settings from 'carbon-components/es/globals/js/settings.js';
 import CaretLeft20 from '../../internal/vendor/@carbon/web-components/icons/caret--left/20.js';
 import CaretRight20 from '../../internal/vendor/@carbon/web-components/icons/caret--right/20.js';
 import BXHeaderNav from '../../internal/vendor/@carbon/web-components/components/ui-shell/header-nav.js';
 import { ifDefined } from 'lit/directives/if-defined.js';
 import HostListener from '../../internal/vendor/@carbon/web-components/globals/decorators/host-listener.js';
 import HostListenerMixin from '../../internal/vendor/@carbon/web-components/globals/mixins/host-listener.js';
-import ddsSettings from '../../internal/vendor/@carbon/ibmdotcom-utilities/utilities/settings/settings';
+import settings from '../../internal/vendor/@carbon/ibmdotcom-utilities/utilities/settings/settings';
 import StableSelectorMixin from '../../globals/mixins/stable-selector';
 import styles from './masthead.scss';
 import { carbonElement as customElement } from '../../internal/vendor/@carbon/web-components/globals/decorators/carbon-element.js';
 
-const { prefix } = settings;
-const { stablePrefix: ddsPrefix } = ddsSettings;
+const { prefix, stablePrefix: ddsPrefix } = settings;
 
 // button gradient width size
 const buttonGradientWidth = 8;

@@ -7,12 +7,12 @@
  * LICENSE file in the root directory of this source tree.
  */
 
-import ddsSettings from '@carbon/ibmdotcom-utilities/es/utilities/settings/settings.js';
+import settings from '@carbon/ibmdotcom-utilities/es/utilities/settings/settings.js';
 import { carbonElement as customElement } from '../../internal/vendor/@carbon/web-components/globals/decorators/carbon-element';
 import DDSFeatureCardFooter from '../feature-card/feature-card-footer';
 import styles from './feature-card-block-large.scss';
 
-const { stablePrefix: ddsPrefix } = ddsSettings;
+const { stablePrefix: ddsPrefix } = settings;
 
 /**
  * Feature card block large footer.

@@ -9,7 +9,7 @@
 
 import { LitElement } from 'lit';
 import { property } from 'lit/decorators.js';
-import ddsSettings from '@carbon/ibmdotcom-utilities/es/utilities/settings/settings.js';
+import settings from '@carbon/ibmdotcom-utilities/es/utilities/settings/settings.js';
 import StableSelectorMixin from '../../globals/mixins/stable-selector';
 import { HR_TYPE, HR_SIZE, HR_CONTRAST, HR_WEIGHT } from './defs';
 import styles from './horizontal-rule.scss';
@@ -17,7 +17,7 @@ import { carbonElement as customElement } from '../../internal/vendor/@carbon/we
 
 export { HR_TYPE, HR_SIZE, HR_CONTRAST, HR_WEIGHT };
 
-const { stablePrefix: ddsPrefix } = ddsSettings;
+const { stablePrefix: ddsPrefix } = settings;
 
 /**
  * Horizontal Rule

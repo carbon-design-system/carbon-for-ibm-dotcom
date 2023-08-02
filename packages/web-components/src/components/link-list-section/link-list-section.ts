@@ -7,15 +7,13 @@
  * LICENSE file in the root directory of this source tree.
  */
 import { html } from 'lit';
-import settings from 'carbon-components/es/globals/js/settings.js';
-import ddsSettings from '@carbon/ibmdotcom-utilities/es/utilities/settings/settings.js';
+import settings from '@carbon/ibmdotcom-utilities/es/utilities/settings/settings.js';
 import styles from './link-list-section.scss';
 import StableSelectorMixin from '../../globals/mixins/stable-selector';
 import DDSContentSection from '../content-section/content-section';
 import { carbonElement as customElement } from '../../internal/vendor/@carbon/web-components/globals/decorators/carbon-element';
 
-const { prefix } = settings;
-const { stablePrefix: ddsPrefix } = ddsSettings;
+const { prefix, stablePrefix: ddsPrefix } = settings;
 
 /**
  * Link list.

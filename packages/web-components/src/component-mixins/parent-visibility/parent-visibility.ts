@@ -7,11 +7,11 @@
  * LICENSE file in the root directory of this source tree.
  */
 
-import ddsSettings from '../../internal/vendor/@carbon/ibmdotcom-utilities/utilities/settings/settings';
+import settings from '../../internal/vendor/@carbon/ibmdotcom-utilities/utilities/settings/settings';
 import { Constructor } from '../../globals/defs';
 import DDSTab from '../../components/tabs-extended/tab';
 
-const { stablePrefix: ddsPrefix } = ddsSettings;
+const { stablePrefix: ddsPrefix } = settings;
 
 /**
  * @param Base The base class.

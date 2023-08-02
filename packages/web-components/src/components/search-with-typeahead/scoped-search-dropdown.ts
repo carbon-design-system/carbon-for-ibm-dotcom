@@ -7,9 +7,8 @@
  * LICENSE file in the root directory of this source tree.
  */
 
-import settings from 'carbon-components/es/globals/js/settings.js';
 import {} from 'lit-element';
-import ddsSettings from '@carbon/ibmdotcom-utilities/es/utilities/settings/settings.js';
+import settings from '@carbon/ibmdotcom-utilities/es/utilities/settings/settings.js';
 import DDSDropdown from '../footer/dropdown';
 import styles from './search-with-typeahead.scss';
 import { carbonElement as customElement } from '../../internal/vendor/@carbon/web-components/globals/decorators/carbon-element';
@@ -20,8 +19,7 @@ export {
   DROPDOWN_TYPE,
 } from '../footer/dropdown';
 
-const { stablePrefix: ddsPrefix } = ddsSettings;
-const { prefix } = settings;
+const { prefix, stablePrefix: ddsPrefix } = settings;
 
 /**
  * Dropdown component to change search scope.

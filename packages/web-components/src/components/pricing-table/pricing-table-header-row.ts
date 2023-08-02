@@ -8,7 +8,7 @@
  */
 
 import { html } from 'lit';
-import ddsSettings from '@carbon/ibmdotcom-utilities/es/utilities/settings/settings.js';
+import settings from '@carbon/ibmdotcom-utilities/es/utilities/settings/settings.js';
 import StableSelectorMixin from '../../globals/mixins/stable-selector';
 import sameHeight from '../../internal/vendor/@carbon/ibmdotcom-utilities/utilities/sameHeight/sameHeight';
 import DDSStructuredListHeaderRow from '../structured-list/structured-list-header-row';
@@ -18,7 +18,7 @@ import { setColumnWidth } from './utils';
 import { PRICING_TABLE_HEADER_CELL_TYPES } from './defs';
 import { carbonElement as customElement } from '../../internal/vendor/@carbon/web-components/globals/decorators/carbon-element';
 
-const { stablePrefix: ddsPrefix } = ddsSettings;
+const { stablePrefix: ddsPrefix } = settings;
 
 @customElement(`${ddsPrefix}-pricing-table-header-row`)
 class DDSPricingTableHeaderRow extends StableSelectorMixin(

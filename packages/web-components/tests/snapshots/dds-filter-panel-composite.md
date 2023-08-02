@@ -47,6 +47,5 @@
   heading=""
 >
 </dds-filter-panel>
-
 ```
 

@@ -7,13 +7,13 @@
  * LICENSE file in the root directory of this source tree.
  */
 
-import ddsSettings from '@carbon/ibmdotcom-utilities/es/utilities/settings/settings.js';
+import settings from '@carbon/ibmdotcom-utilities/es/utilities/settings/settings.js';
 import StableSelectorMixin from '../../globals/mixins/stable-selector';
 import { carbonElement as customElement } from '../../internal/vendor/@carbon/web-components/globals/decorators/carbon-element';
 import DDSLeadspaceHeading from '../leadspace/leadspace-heading';
 import styles from './leadspace-block.scss';
 
-const { stablePrefix: ddsPrefix } = ddsSettings;
+const { stablePrefix: ddsPrefix } = settings;
 
 /**
  * Heading content in leadspace block.

@@ -9,8 +9,7 @@
 
 import { html } from 'lit';
 import { property } from 'lit/decorators.js';
-import settings from 'carbon-components/es/globals/js/settings.js';
-import ddsSettings from '@carbon/ibmdotcom-utilities/es/utilities/settings/settings.js';
+import settings from '@carbon/ibmdotcom-utilities/es/utilities/settings/settings.js';
 import {
   formatVideoCaption,
   formatVideoDuration,
@@ -22,8 +21,7 @@ import { CTA_TYPE } from './defs';
 import styles from './cta.scss';
 import { carbonElement as customElement } from '../../internal/vendor/@carbon/web-components/globals/decorators/carbon-element.js';
 
-const { prefix } = settings;
-const { stablePrefix: ddsPrefix } = ddsSettings;
+const { prefix, stablePrefix: ddsPrefix } = settings;
 
 /**
  * Card CTA footer.

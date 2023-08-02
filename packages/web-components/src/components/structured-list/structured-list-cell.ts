@@ -13,14 +13,12 @@ import { property } from 'lit/decorators.js';
 import Info16 from '../../internal/vendor/@carbon/web-components/icons/information/16.js';
 import Checkmark20 from '../../internal/vendor/@carbon/web-components/icons/checkmark/20.js';
 import Error20 from '../../internal/vendor/@carbon/web-components/icons/error/20.js';
-import ddsSettings from '../../internal/vendor/@carbon/ibmdotcom-utilities/utilities/settings/settings';
+import settings from '../../internal/vendor/@carbon/ibmdotcom-utilities/utilities/settings/settings';
 import DDSStructuredListGroup from './structured-list-group';
 import styles from './structured-list.scss';
 import { carbonElement as customElement } from '../../internal/vendor/@carbon/web-components/globals/decorators/carbon-element.js';
-import settings from 'carbon-components/es/globals/js/settings';
 
-const { prefix } = settings;
-const { stablePrefix: ddsPrefix } = ddsSettings;
+const { prefix, stablePrefix: ddsPrefix } = settings;
 
 /**
  * StructuredListCell

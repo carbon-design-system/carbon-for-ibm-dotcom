@@ -14,7 +14,7 @@ import {
   Store,
   bindActionCreators,
 } from 'redux';
-import ddsSettings from '../../internal/vendor/@carbon/ibmdotcom-utilities/utilities/settings/settings';
+import settings from '../../internal/vendor/@carbon/ibmdotcom-utilities/utilities/settings/settings';
 import ConnectMixin from '../../globals/mixins/connect';
 import store from '../../internal/vendor/@carbon/ibmdotcom-services-store/store';
 import {
@@ -30,7 +30,7 @@ import { LocaleAPIActions } from '../../internal/vendor/@carbon/ibmdotcom-servic
 import DDSLocaleModalComposite from './locale-modal-composite';
 import { carbonElement as customElement } from '../../internal/vendor/@carbon/web-components/globals/decorators/carbon-element';
 
-const { stablePrefix: ddsPrefix } = ddsSettings;
+const { stablePrefix: ddsPrefix } = settings;
 
 /**
  * The Redux actions used for `<dds-locale-modal-container>`.
