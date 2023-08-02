@@ -2872,7 +2872,7 @@ __metadata:
     eslint-plugin-import: ^2.26.0
     eslint-plugin-jsdoc: ^39.6.2
     eslint-plugin-jsx-a11y: ^6.6.1
-    eslint-plugin-lit: ^1.6.1
+    eslint-plugin-lit: ^1.8.3
     eslint-plugin-prettier: ^4.2.1
     eslint-plugin-react: ^7.31.10
     eslint-plugin-react-hooks: ^4.6.0
@@ -15961,7 +15961,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"eslint-plugin-lit@npm:^1.6.1":
+"eslint-plugin-lit@npm:^1.8.3":
   version: 1.8.3
   resolution: "eslint-plugin-lit@npm:1.8.3"
   dependencies:
