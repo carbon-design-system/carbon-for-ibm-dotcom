@@ -2229,7 +2229,7 @@ __metadata:
     eslint-plugin-import: ^2.26.0
     eslint-plugin-jsdoc: ^39.6.2
     eslint-plugin-jsx-a11y: ^6.6.1
-    eslint-plugin-lit: ^1.6.1
+    eslint-plugin-lit: ^1.8.3
     eslint-plugin-prettier: ^4.2.1
     eslint-plugin-react: ^7.31.10
     eslint-plugin-react-hooks: ^4.6.0
@@ -2538,7 +2538,7 @@ __metadata:
     karma-sourcemap-loader: ^0.4.0
     karma-spec-reporter: 0.0.36
     karma-webpack: ^4.0.2
-    lit: ^2.6.0
+    lit: ^2.7.6
     lodash-es: ^4.17.21
     lodash.pickby: ^4.6.0
     magic-string: ^0.30.0
@@ -2879,7 +2879,7 @@ __metadata:
     karma-sourcemap-loader: ^0.4.0
     karma-spec-reporter: 0.0.36
     karma-webpack: ^4.0.2
-    lit: ^2.6.0
+    lit: ^2.7.6
     lodash-es: ^4.17.21
     magic-string: ^0.30.0
     mini-css-extract-plugin: ~2.7.0
@@ -14929,7 +14929,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"eslint-plugin-lit@npm:^1.6.1":
+"eslint-plugin-lit@npm:^1.8.3":
   version: 1.8.3
   resolution: "eslint-plugin-lit@npm:1.8.3"
   dependencies:
@@ -22503,7 +22503,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"lit@npm:^2.6.0":
+"lit@npm:^2.7.6":
   version: 2.7.6
   resolution: "lit@npm:2.7.6"
   dependencies:
