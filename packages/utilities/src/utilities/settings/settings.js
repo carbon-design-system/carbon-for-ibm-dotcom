@@ -17,7 +17,7 @@
 const settings = {
   version: 'Carbon for IBM.com v1.49.0',
   stablePrefix: 'dds',
-  prefix: 'bx',
+  prefix: 'cds',
 };
 
 export default settings;
