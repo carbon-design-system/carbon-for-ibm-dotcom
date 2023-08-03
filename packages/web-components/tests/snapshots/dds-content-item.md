@@ -14,7 +14,7 @@
 <slot>
 </slot>
 <div
-  class="bx--content-item__cta"
+  class="cds--content-item__cta"
   hidden=""
 >
   <slot name="footer">
@@ -34,7 +34,7 @@
 </div>
 <slot>
 </slot>
-<div class="bx--content-item__cta">
+<div class="cds--content-item__cta">
   <slot name="footer">
   </slot>
 </div>

@@ -5,17 +5,17 @@
 ####   `should render with minimum attributes`
 
 ```
-<div class="bx--card bx--tile">
+<div class="cds--card cds--tile">
   <slot name="image">
   </slot>
-  <div class="bx--card__wrapper">
-    <div class="bx--card__content">
+  <div class="cds--card__wrapper">
+    <div class="cds--card__content">
       <slot name="eyebrow">
       </slot>
       <slot name="heading">
       </slot>
       <div
-        class="bx--card__copy"
+        class="cds--card__copy"
         hidden=""
       >
         <slot>
@@ -32,19 +32,19 @@
 ####   `should render with various attributes`
 
 ```
-<div class="bx--card bx--tile">
+<div class="cds--card cds--tile">
   <slot name="image">
   </slot>
   <dds-card-cta-image
     alt="video-name-foo"
-    class="bx--card__video-thumbnail"
+    class="cds--card__video-thumbnail"
     data-autoid="dds--image"
     default-src="https://example.com/video-thumbnail-foo"
   >
     [object Object]
   </dds-card-cta-image>
-  <div class="bx--card__wrapper">
-    <div class="bx--card__content">
+  <div class="cds--card__wrapper">
+    <div class="cds--card__content">
       <slot name="eyebrow">
       </slot>
       <slot name="heading">
@@ -57,7 +57,7 @@
         video-name-foo-caption
       </dds-card-heading>
       <div
-        class="bx--card__copy"
+        class="cds--card__copy"
         hidden=""
       >
         <slot>
@@ -76,13 +76,13 @@
 ```
 <a
   aria-label="video-name-foo, DURATION undefined - This link plays a video"
-  class="bx--card__footer bx--link-with-icon bx--link-with-icon--inline-icon bx--link-with-icon__icon-right cds--link cds--link--lg dds-ce--card__footer"
+  class="cds--card__footer cds--link cds--link--lg cds--link-with-icon cds--link-with-icon--inline-icon cds--link-with-icon__icon-right dds-ce--card__footer"
   href="#"
   id="link"
   part="link"
   tabindex="0"
 >
-  <span class="bx--card__cta__copy">
+  <span class="cds--card__cta__copy">
     <slot>
     </slot>
     undefined-180000

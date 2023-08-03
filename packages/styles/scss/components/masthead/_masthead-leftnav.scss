@@ -209,7 +209,7 @@
 
       &:focus {
         outline: $spacing-01 solid $focus;
-        outline-offset: -2px;
+        outline-offset: -#{$spacing-01};
       }
     }
 
@@ -290,7 +290,7 @@
       border: none;
       cursor: pointer;
       outline: $spacing-01 solid transparent;
-      outline-offset: -2px;
+      outline-offset: -#{$spacing-01};
       position: relative;
       display: flex;
       align-items: center;
@@ -300,7 +300,7 @@
 
       &:focus {
         outline: $spacing-01 solid $focus;
-        outline-offset: -2px;
+        outline-offset: -#{$spacing-01};
       }
 
       > .#{$prefix}--side-nav__link-text {

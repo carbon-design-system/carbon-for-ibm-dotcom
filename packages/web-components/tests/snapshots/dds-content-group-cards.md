@@ -5,21 +5,21 @@
 ####   `should render with minimum attributes`
 
 ```
-<div class="bx--content-layout">
+<div class="cds--content-layout">
   <slot name="heading">
   </slot>
   <div
-    class="bx--content-layout__body"
+    class="cds--content-layout__body"
     hidden=""
   >
     <slot name="copy">
     </slot>
     <div
-      class="bx--content-group__children bx--content-group__col"
+      class="cds--content-group__children cds--content-group__col"
       hidden=""
     >
-      <div class="bx--content-group-cards-group bx--grid--condensed">
-        <div class="bx--content-group-cards__row">
+      <div class="cds--content-group-cards-group cds--grid--condensed">
+        <div class="cds--content-group-cards__row">
           <slot>
           </slot>
           <slot name="media">
@@ -44,21 +44,21 @@
 ####   `should render with various attributes`
 
 ```
-<div class="bx--content-layout">
+<div class="cds--content-layout">
   <slot name="heading">
   </slot>
   <div
-    class="bx--content-layout__body"
+    class="cds--content-layout__body"
     hidden=""
   >
     <slot name="copy">
     </slot>
     <div
-      class="bx--content-group__children bx--content-group__col"
+      class="cds--content-group__children cds--content-group__col"
       hidden=""
     >
-      <div class="bx--content-group-cards-group bx--grid--condensed">
-        <div class="bx--content-group-cards__row">
+      <div class="cds--content-group-cards-group cds--grid--condensed">
+        <div class="cds--content-group-cards__row">
           <slot>
           </slot>
           <slot name="media">

@@ -5,13 +5,13 @@
 ####   `should render with minimum attributes`
 
 ```
-<div class="bx--content-layout">
+<div class="cds--content-layout">
   <slot
     hidden=""
     name="heading"
   >
   </slot>
-  <div class="bx--content-layout__body">
+  <div class="cds--content-layout__body">
     <slot>
     </slot>
     <dds-hr
@@ -27,13 +27,13 @@
 ####   `should render with various attributes`
 
 ```
-<div class="bx--content-layout">
+<div class="cds--content-layout">
   <slot
     hidden=""
     name="heading"
   >
   </slot>
-  <div class="bx--content-layout__body">
+  <div class="cds--content-layout__body">
     <slot>
     </slot>
     <dds-hr
@@ -51,13 +51,13 @@
 ####   `should render with minimum attributes`
 
 ```
-<div class="bx--content-layout">
+<div class="cds--content-layout">
   <slot
     hidden=""
     name="heading"
   >
   </slot>
-  <div class="bx--content-layout__body">
+  <div class="cds--content-layout__body">
     <slot>
     </slot>
     <dds-hr
@@ -73,13 +73,13 @@
 ####   `should render with various attributes`
 
 ```
-<div class="bx--content-layout">
+<div class="cds--content-layout">
   <slot
     hidden=""
     name="heading"
   >
   </slot>
-  <div class="bx--content-layout__body">
+  <div class="cds--content-layout__body">
     <slot>
     </slot>
     <dds-hr

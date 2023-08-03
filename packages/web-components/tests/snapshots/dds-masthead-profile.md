@@ -8,13 +8,13 @@
 <a
   aria-expanded="false"
   aria-label="User profile"
-  class="bx--header__menu-item bx--header__menu-title"
+  class="cds--header__menu-item cds--header__menu-title"
   href="javascript:void 0"
   role="button"
   tabindex="0"
 >
 </a>
-<ul class="bx--header__menu">
+<ul class="cds--header__menu">
   <slot>
   </slot>
 </ul>
@@ -27,7 +27,7 @@
 <a
   aria-expanded="true"
   aria-label="User profile"
-  class="bx--header__menu-item bx--header__menu-title"
+  class="cds--header__menu-item cds--header__menu-title"
   href="javascript:void 0"
   role="button"
   tabindex="0"
@@ -35,7 +35,7 @@
 </a>
 <ul
   aria-label="menu-label-foo"
-  class="bx--header__menu"
+  class="cds--header__menu"
 >
   <slot>
   </slot>

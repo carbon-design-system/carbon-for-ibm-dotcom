@@ -325,7 +325,7 @@
       @include focus-outline;
 
       outline-width: $spacing-01;
-      outline-offset: -2px;
+      outline-offset: -#{$spacing-01};
     }
 
     &:active,

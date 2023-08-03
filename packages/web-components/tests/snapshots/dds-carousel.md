@@ -16,9 +16,9 @@
       </span>
     </slot>
   </div>
-  <div class="bx--carousel__scroll-container">
+  <div class="cds--carousel__scroll-container">
     <div
-      class="bx--carousel__scroll-contents"
+      class="cds--carousel__scroll-contents"
       style="left:0px"
     >
       <slot>
@@ -27,11 +27,11 @@
   </div>
   <nav
     aria-label="Carousel Navigation"
-    class="bx--carousel__navigation"
+    class="cds--carousel__navigation"
   >
     <button
       aria-label="previous"
-      class="bx--btn bx--btn--icon-only bx--btn--tertiary bx--carousel__navigation__btn"
+      class="cds--btn cds--btn--icon-only cds--btn--tertiary cds--carousel__navigation__btn"
       disabled=""
       part="prev-button"
       title="previous"
@@ -42,12 +42,12 @@
     </span>
     <span
       aria-live="polite"
-      class="bx--visually-hidden"
+      class="cds--visually-hidden"
     >
     </span>
     <button
       aria-label="next"
-      class="bx--btn bx--btn--icon-only bx--btn--tertiary bx--carousel__navigation__btn"
+      class="cds--btn cds--btn--icon-only cds--btn--tertiary cds--carousel__navigation__btn"
       disabled=""
       part="next-button"
       title="next"

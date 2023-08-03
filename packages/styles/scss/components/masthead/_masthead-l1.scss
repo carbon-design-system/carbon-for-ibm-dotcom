@@ -115,7 +115,7 @@
       &:active,
       &:focus {
         outline: $spacing-01 solid $background-brand;
-        outline-offset: -2px;
+        outline-offset: -#{$spacing-01};
       }
     }
 
@@ -144,7 +144,7 @@
 
       svg {
         position: relative;
-        top: -2px;
+        top: -#{$spacing-01};
         fill: $text-primary;
       }
     }

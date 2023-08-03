@@ -6,7 +6,7 @@
 
 ```
 <button class="bx--filter-button">
-  <div class="bx--filter__modal__button">
+  <div class="cds--filter__modal__button">
   </div>
 </button>
 <dds-filter-panel-modal

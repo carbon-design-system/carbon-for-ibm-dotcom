@@ -279,7 +279,7 @@ $hover-transition-timing: 95ms;
         &:focus {
           outline: $spacing-01 solid $focus;
           height: $spacing-09;
-          outline-offset: -2px;
+          outline-offset: -#{$spacing-01};
         }
       }
     }
@@ -352,7 +352,7 @@ $hover-transition-timing: 95ms;
       display: block;
       background-color: $background-hover;
       outline: $spacing-01 solid $background-brand;
-      outline-offset: -2px;
+      outline-offset: -#{$spacing-01};
       &::before,
       &::after {
         display: none;

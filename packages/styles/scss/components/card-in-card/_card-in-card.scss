@@ -24,7 +24,7 @@
     &:focus-within {
       z-index: 0;
       outline: $spacing-01 solid $focus;
-      outline-offset: -2px;
+      outline-offset: -#{$spacing-01};
     }
 
     .#{$prefix}--card:focus-within {

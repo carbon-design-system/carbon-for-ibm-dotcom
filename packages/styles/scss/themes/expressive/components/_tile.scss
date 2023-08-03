@@ -16,7 +16,7 @@
 /// @group tile-expressive
 @mixin tile-expressive {
   .#{$prefix}--tile--is-selected {
-    outline-offset: -2px;
+    outline-offset: -#{$spacing-01};
   }
 
   .#{$prefix}--tile__checkmark {

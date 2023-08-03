@@ -6,18 +6,18 @@
 
 ```
 <button
-  class="bx--visually-hidden"
+  class="cds--visually-hidden"
   id="start-sentinel"
 >
   START
 </button>
 <div
   aria-labelledby="dds--modal-header"
-  class="bx--modal-container"
+  class="cds--modal-container"
   role="dialog"
   tabindex="-1"
 >
-  <div class="bx--modal-content">
+  <div class="cds--modal-content">
     <div
       class="dds-ce--modal__header--with-body"
       id="dds--modal-header"
@@ -36,7 +36,7 @@
   </div>
 </div>
 <button
-  class="bx--visually-hidden"
+  class="cds--visually-hidden"
   id="end-sentinel"
 >
   END
@@ -48,18 +48,18 @@
 
 ```
 <button
-  class="bx--visually-hidden"
+  class="cds--visually-hidden"
   id="start-sentinel"
 >
   START
 </button>
 <div
   aria-labelledby="dds--modal-header"
-  class="bx--modal-container"
+  class="cds--modal-container"
   role="dialog"
   tabindex="-1"
 >
-  <div class="bx--modal-content">
+  <div class="cds--modal-content">
     <div
       class="dds-ce--modal__header--with-body"
       id="dds--modal-header"
@@ -78,7 +78,7 @@
   </div>
 </div>
 <button
-  class="bx--visually-hidden"
+  class="cds--visually-hidden"
   id="end-sentinel"
 >
   END
@@ -92,18 +92,18 @@
 
 ```
 <button
-  class="bx--visually-hidden"
+  class="cds--visually-hidden"
   id="start-sentinel"
 >
   START
 </button>
 <div
   aria-labelledby="dds--modal-header"
-  class="bx--modal-container"
+  class="cds--modal-container"
   role="dialog"
   tabindex="-1"
 >
-  <div class="bx--modal-content">
+  <div class="cds--modal-content">
     <div
       class="dds-ce--modal__header--with-body"
       id="dds--modal-header"
@@ -122,7 +122,7 @@
   </div>
 </div>
 <button
-  class="bx--visually-hidden"
+  class="cds--visually-hidden"
   id="end-sentinel"
 >
   END
@@ -134,18 +134,18 @@
 
 ```
 <button
-  class="bx--visually-hidden"
+  class="cds--visually-hidden"
   id="start-sentinel"
 >
   START
 </button>
 <div
   aria-labelledby="dds--modal-header"
-  class="bx--modal-container"
+  class="cds--modal-container"
   role="dialog"
   tabindex="-1"
 >
-  <div class="bx--modal-content">
+  <div class="cds--modal-content">
     <div
       class="dds-ce--modal__header--with-body"
       id="dds--modal-header"
@@ -164,7 +164,7 @@
   </div>
 </div>
 <button
-  class="bx--visually-hidden"
+  class="cds--visually-hidden"
   id="end-sentinel"
 >
   END
@@ -176,18 +176,18 @@
 
 ```
 <button
-  class="bx--visually-hidden"
+  class="cds--visually-hidden"
   id="start-sentinel"
 >
   START
 </button>
 <div
   aria-labelledby="dds--modal-header"
-  class="bx--modal-container"
+  class="cds--modal-container"
   role="dialog"
   tabindex="-1"
 >
-  <div class="bx--modal-content">
+  <div class="cds--modal-content">
     <div
       class="dds-ce--modal__header--with-body"
       id="dds--modal-header"
@@ -206,7 +206,7 @@
   </div>
 </div>
 <button
-  class="bx--visually-hidden"
+  class="cds--visually-hidden"
   id="end-sentinel"
 >
   END

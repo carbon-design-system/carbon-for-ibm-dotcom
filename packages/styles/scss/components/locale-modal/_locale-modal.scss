@@ -83,7 +83,7 @@
 
       &:focus {
         outline-width: $spacing-01;
-        outline-offset: -2px;
+        outline-offset: -#{$spacing-01};
         outline-color: $background-brand;
       }
 
@@ -171,7 +171,7 @@
 
   &:focus-within {
     outline-width: $spacing-01;
-    outline-offset: -2px;
+    outline-offset: -#{$spacing-01};
     outline-color: $background-brand;
   }
 

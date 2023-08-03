@@ -13,8 +13,8 @@
 @use '@carbon/styles/scss/type' as *;
 @use '@carbon/styles/scss/components/ui-shell/header';
 @use '@carbon/styles/scss/components/ui-shell/side-nav';
-@use '@carbon/web-components/src/components/dropdown/dropdown';
-@use '@carbon/web-components/src/components/select/select';
+@use '@carbon/styles/scss/components/dropdown';
+@use '@carbon/styles/scss/components/select';
 @use '../../globals/vars' as *;
 @use '../masthead/vars' as *;
 
@@ -48,7 +48,7 @@
   &:focus,
   &:active {
     outline: $spacing-01 solid $focus;
-    outline-offset: -2px;
+    outline-offset: -#{$spacing-01};
   }
 
   &:last-of-type {
@@ -241,7 +241,7 @@
         flex: 1;
         padding: 0 $spacing-05;
         outline: $spacing-01 solid transparent;
-        outline-offset: -2px;
+        outline-offset: -#{$spacing-01};
         background-color: $layer-01;
         height: carbon--mini-units(6);
         z-index: 10000;

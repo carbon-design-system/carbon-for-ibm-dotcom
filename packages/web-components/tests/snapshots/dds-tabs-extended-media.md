@@ -5,13 +5,13 @@
 ####   `should render with minimum attributes`
 
 ```
-<div class="bx--tabs-extended-media">
-  <div class="bx--heading">
+<div class="cds--tabs-extended-media">
+  <div class="cds--heading">
     <slot name="heading">
     </slot>
   </div>
-  <div class="bx--tabs-extended">
-    <ul class="bx--accordion">
+  <div class="cds--tabs-extended">
+    <ul class="cds--accordion">
       <slot>
       </slot>
     </ul>
@@ -23,13 +23,13 @@
 ####   `should render with various attributes`
 
 ```
-<div class="bx--tabs-extended-media">
-  <div class="bx--heading">
+<div class="cds--tabs-extended-media">
+  <div class="cds--heading">
     <slot name="heading">
     </slot>
   </div>
-  <div class="bx--tabs-extended">
-    <ul class="bx--accordion">
+  <div class="cds--tabs-extended">
+    <ul class="cds--accordion">
       <slot>
       </slot>
     </ul>

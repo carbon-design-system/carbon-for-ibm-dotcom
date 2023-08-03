@@ -5,8 +5,8 @@
 ####   `should render with minimum attributes`
 
 ```
-<div class="bx--content-section bx--content-section-layout">
-  <div class="bx--content-section__leading">
+<div class="cds--content-section cds--content-section-layout">
+  <div class="cds--content-section__leading">
     <slot name="heading">
     </slot>
     <slot name="copy">
@@ -14,7 +14,7 @@
     <slot name="footer">
     </slot>
   </div>
-  <div class="bx--content-section__body">
+  <div class="cds--content-section__body">
     <slot>
     </slot>
   </div>
@@ -25,8 +25,8 @@
 ####   `should render with various attributes`
 
 ```
-<div class="bx--content-section bx--content-section-layout">
-  <div class="bx--content-section__leading">
+<div class="cds--content-section cds--content-section-layout">
+  <div class="cds--content-section__leading">
     <slot name="heading">
     </slot>
     <slot name="copy">
@@ -34,7 +34,7 @@
     <slot name="footer">
     </slot>
   </div>
-  <div class="bx--content-section__body">
+  <div class="cds--content-section__body">
     <slot>
     </slot>
   </div>

@@ -3,20 +3,20 @@
 #### `should render with minimum attributes`
 
 ```
-<div class="bx--lightbox-media-viewer__container">
-  <div class="bx--lightbox-media-viewer__row">
-    <div class="bx--lightbox-media-viewer__media bx--no-gutter">
-      <div class="bx--video-player">
-        <div class="bx--video-player__video-container">
+<div class="cds--lightbox-media-viewer__container">
+  <div class="cds--lightbox-media-viewer__row">
+    <div class="cds--lightbox-media-viewer__media cds--no-gutter">
+      <div class="cds--video-player">
+        <div class="cds--video-player__video-container">
           <slot>
           </slot>
         </div>
       </div>
     </div>
-    <div class="bx--lightbox-media-viewer__media-description bx--no-gutter">
-      <div class="bx--lightbox-media-viewer__content">
+    <div class="cds--lightbox-media-viewer__media-description cds--no-gutter">
+      <div class="cds--lightbox-media-viewer__content">
         <div
-          class="bx--lightbox-media-viewer__content__title"
+          class="cds--lightbox-media-viewer__content__title"
           data-autoid="dds--lightbox-media-viewer__content__title"
           part="title"
         >
@@ -26,7 +26,7 @@
           </slot>
         </div>
         <div
-          class="bx--lightbox-media-viewer__content__desc"
+          class="cds--lightbox-media-viewer__content__desc"
           data-autoid="dds--lightbox-media-viewer__content__desc"
           part="description"
         >
@@ -43,20 +43,20 @@
 #### `should render with various attributes`
 
 ```
-<div class="bx--lightbox-media-viewer__container">
-  <div class="bx--lightbox-media-viewer__row">
-    <div class="bx--lightbox-media-viewer__media bx--no-gutter">
-      <div class="bx--video-player">
-        <div class="bx--video-player__video-container">
+<div class="cds--lightbox-media-viewer__container">
+  <div class="cds--lightbox-media-viewer__row">
+    <div class="cds--lightbox-media-viewer__media cds--no-gutter">
+      <div class="cds--video-player">
+        <div class="cds--video-player__video-container">
           <slot>
           </slot>
         </div>
       </div>
     </div>
-    <div class="bx--lightbox-media-viewer__media-description bx--no-gutter">
-      <div class="bx--lightbox-media-viewer__content">
+    <div class="cds--lightbox-media-viewer__media-description cds--no-gutter">
+      <div class="cds--lightbox-media-viewer__content">
         <div
-          class="bx--lightbox-media-viewer__content__title"
+          class="cds--lightbox-media-viewer__content__title"
           data-autoid="dds--lightbox-media-viewer__content__title"
           part="title"
         >
@@ -67,7 +67,7 @@
           </slot>
         </div>
         <div
-          class="bx--lightbox-media-viewer__content__desc"
+          class="cds--lightbox-media-viewer__content__desc"
           data-autoid="dds--lightbox-media-viewer__content__desc"
           part="description"
         >

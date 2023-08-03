@@ -5,13 +5,13 @@
 ####   `should render with minimum attributes`
 
 ```
-<div class="bx--callout__column">
-  <div class="bx--callout__content">
-    <div class="bx--content-layout">
+<div class="cds--callout__column">
+  <div class="cds--callout__content">
+    <div class="cds--content-layout">
       <slot name="heading">
       </slot>
       <div
-        class="bx--content-layout__body"
+        class="cds--content-layout__body"
         hidden=""
       >
         <slot name="copy">
@@ -39,13 +39,13 @@
 ####   `should render with image attributes`
 
 ```
-<div class="bx--callout__column">
-  <div class="bx--callout__content">
-    <div class="bx--content-layout">
+<div class="cds--callout__column">
+  <div class="cds--callout__content">
+    <div class="cds--content-layout">
       <slot name="heading">
       </slot>
       <div
-        class="bx--content-layout__body"
+        class="cds--content-layout__body"
         hidden=""
       >
         <slot name="copy">
@@ -73,13 +73,13 @@
 ####   `should render with video attributes`
 
 ```
-<div class="bx--callout__column">
-  <div class="bx--callout__content">
-    <div class="bx--content-layout">
+<div class="cds--callout__column">
+  <div class="cds--callout__content">
+    <div class="cds--content-layout">
       <slot name="heading">
       </slot>
       <div
-        class="bx--content-layout__body"
+        class="cds--content-layout__body"
         hidden=""
       >
         <slot name="copy">

@@ -8,16 +8,16 @@
 <button
   aria-controls="content"
   aria-expanded="false"
-  class="bx--accordion__heading"
+  class="cds--accordion__heading"
   type="button"
 >
-  <div class="bx--accordion__title">
+  <div class="cds--accordion__title">
     <slot name="title">
     </slot>
   </div>
 </button>
 <div
-  class="bx--accordion__content"
+  class="cds--accordion__content"
   id="content"
 >
   <ul>
@@ -31,12 +31,12 @@
 ####   `should render with minimum attributes for wide screen`
 
 ```
-<h2 class="bx--footer-nav-group__title">
+<h2 class="cds--footer-nav-group__title">
   <slot name="title">
   </slot>
 </h2>
 <div
-  class="bx--accordion__content"
+  class="cds--accordion__content"
   id="content"
 >
   <ul>
@@ -53,17 +53,17 @@
 <button
   aria-controls="content"
   aria-expanded="true"
-  class="bx--accordion__heading"
+  class="cds--accordion__heading"
   type="button"
 >
-  <div class="bx--accordion__title">
+  <div class="cds--accordion__title">
     <slot name="title">
       title-text-foo
     </slot>
   </div>
 </button>
 <div
-  class="bx--accordion__content"
+  class="cds--accordion__content"
   id="content"
 >
   <ul>
@@ -77,13 +77,13 @@
 ####   `should render with various attributes for wide screen`
 
 ```
-<h2 class="bx--footer-nav-group__title">
+<h2 class="cds--footer-nav-group__title">
   <slot name="title">
     title-text-foo
   </slot>
 </h2>
 <div
-  class="bx--accordion__content"
+  class="cds--accordion__content"
   id="content"
 >
   <ul>

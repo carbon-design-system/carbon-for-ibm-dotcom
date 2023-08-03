@@ -12,7 +12,7 @@
 
 ```
 <a
-  class="bx--btn bx--btn--expressive bx--btn--primary"
+  class="cds--btn cds--btn--expressive cds--btn--primary"
   href="https://example.com"
   id="button"
   part="button"
@@ -22,7 +22,7 @@
   </slot>
   <p
     aria-hidden="true"
-    class="bx--btn--hidden"
+    class="cds--btn--hidden"
   >
     <span>
       :

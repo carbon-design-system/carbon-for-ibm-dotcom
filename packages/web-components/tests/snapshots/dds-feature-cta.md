@@ -5,17 +5,17 @@
 ####   `should render with minimum attributes`
 
 ```
-<div class="bx--card bx--feature-card__card bx--tile">
+<div class="cds--card cds--feature-card__card cds--tile">
   <slot name="image">
   </slot>
-  <div class="bx--card__wrapper">
-    <div class="bx--card__content">
+  <div class="cds--card__wrapper">
+    <div class="cds--card__content">
       <slot name="eyebrow">
       </slot>
       <slot name="heading">
       </slot>
       <div
-        class="bx--card__copy"
+        class="cds--card__copy"
         hidden=""
       >
         <slot>
@@ -32,7 +32,7 @@
 ####   `should render with various attributes`
 
 ```
-<div class="bx--card bx--feature-card__card bx--tile">
+<div class="cds--card cds--feature-card__card cds--tile">
   <slot name="image">
     <dds-image
       alt="video-name-foo"
@@ -42,13 +42,13 @@
       [object Object]
     </dds-image>
   </slot>
-  <div class="bx--card__wrapper">
-    <div class="bx--card__content">
+  <div class="cds--card__wrapper">
+    <div class="cds--card__content">
       <slot name="eyebrow">
       </slot>
       <slot name="heading">
       </slot>
-      <div class="bx--card__copy">
+      <div class="cds--card__copy">
         <slot>
         </slot>
       </div>

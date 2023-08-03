@@ -8,7 +8,7 @@
   </slot>
 </div>
 <ul
-  class="bx--link-list__list bx--link-list__list--card"
+  class="cds--link-list__list cds--link-list__list--card"
   name="list"
 >
   <slot>
@@ -25,7 +25,7 @@
   </slot>
 </div>
 <ul
-  class="bx--link-list__list bx--link-list__list--horizontal"
+  class="cds--link-list__list cds--link-list__list--horizontal"
   name="list"
 >
   <slot>
@@ -42,7 +42,7 @@
   </slot>
 </div>
 <ul
-  class="bx--link-list__list bx--link-list__list--vertical"
+  class="cds--link-list__list cds--link-list__list--vertical"
   name="list"
 >
   <slot>
@@ -59,7 +59,7 @@
   </slot>
 </div>
 <ul
-  class="bx--link-list__list dds-ce--link-list__list--end"
+  class="cds--link-list__list dds-ce--link-list__list--end"
   name="list"
 >
   <slot>
