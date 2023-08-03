@@ -406,15 +406,10 @@ class NoticeChoice extends StableSelectorMixin(LitElement) {
   protected emailChanged(email) {
     if (this.changed === false) {
       checkPreferencesv3(email).then((response) => {
-        if (
-          response === 'S' &&
-          JSON.stringify(this.values) !==
-            JSON.stringify({
-              ...this.values,
-              EMAIL: false,
-            })
-        ) {
-          this.fetchedPref = email;
+        const questionChoiceStatus =
+          countrySettings[this.country.toLocaleLowerCase()];
+          
+        if (response === 'S' && questionChoiceStatus.email === 'out') {
           this.values = {
             ...this.values,
             EMAIL: false,
@@ -422,9 +417,6 @@ class NoticeChoice extends StableSelectorMixin(LitElement) {
           };
           this._onChange('NC_HIDDEN_EMAIL', null);
         } else {
-          const questionChoiceStatus =
-            countrySettings[this.country.toLocaleLowerCase()];
-          console.log(questionChoiceStatus);
           this.values = {
             ...this.values,
             EMAIL: questionChoiceStatus.email === 'opt-out' ? true : false,
