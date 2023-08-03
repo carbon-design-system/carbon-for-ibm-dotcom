@@ -408,8 +408,8 @@ class NoticeChoice extends StableSelectorMixin(LitElement) {
       checkPreferencesv3(email).then((response) => {
         const questionChoiceStatus =
           countrySettings[this.country.toLocaleLowerCase()];
-          
-        if (response === 'S' && questionChoiceStatus.email === 'out') {
+
+        if (response === 'S' && questionChoiceStatus.email === 'opt-out') {
           this.values = {
             ...this.values,
             EMAIL: false,
