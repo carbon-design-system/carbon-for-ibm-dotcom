@@ -36,7 +36,6 @@ if (!process.env.DDS_FLAGS_ALL) {
     process.env.DDS_CONTENT_BLOCK_HEADLINES,
     'components-content-block-headlines'
   );
-  css += getCss(process.env.DDS_PRICING_TABLE, 'components-pricing-table');
   css += getCss(
     process.env.DDS_LEADSPACE_WITH_SEARCH,
     'components-lead-space-with-search'
