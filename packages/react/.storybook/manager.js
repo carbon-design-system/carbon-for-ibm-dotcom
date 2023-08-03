@@ -1,5 +1,5 @@
 /**
- * Copyright IBM Corp. 2020, 2022
+ * Copyright IBM Corp. 2020, 2023
  *
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
@@ -24,7 +24,7 @@ addons.setConfig({
  */
 const getCss = (envVar, cssId) => {
   return envVar !== 'true'
-    ? `button[id^="${cssId}"] { display: none !important; }\n`
+    ? `[id^="${cssId}"] { display: none !important; }\n`
     : '';
 };
 
@@ -36,6 +36,7 @@ if (!process.env.DDS_FLAGS_ALL) {
     process.env.DDS_CONTENT_BLOCK_HEADLINES,
     'components-content-block-headlines'
   );
+  css += getCss(process.env.DDS_PRICING_TABLE, 'components-pricing-table');
   css += getCss(
     process.env.DDS_LEADSPACE_WITH_SEARCH,
     'components-lead-space-with-search'

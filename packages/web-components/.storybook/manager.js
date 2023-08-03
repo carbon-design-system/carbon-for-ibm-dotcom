@@ -24,7 +24,7 @@ addons.setConfig({
  */
 const getCss = (envVar, cssId) => {
   return envVar !== 'true'
-    ? `button[id^="${cssId}"] { display: none !important; }\n`
+    ? `[id^="${cssId}"] { display: none !important; }\n`
     : '';
 };
 
@@ -40,6 +40,7 @@ if (!process.env.DDS_FLAGS_ALL) {
     process.env.DDS_CONTENT_BLOCK_CARD_STATIC,
     'components-content-block-card-static'
   );
+  css += getCss(process.env.DDS_PRICING_TABLE, 'components-pricing-table');
   css += getCss(
     process.env.DDS_SCOPED_SEARCH,
     'components-masthead-with-scoped-search'
