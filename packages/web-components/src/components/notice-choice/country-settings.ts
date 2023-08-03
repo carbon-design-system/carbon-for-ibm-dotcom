@@ -5,1013 +5,257 @@
  * LICENSE file in the root directory of this source tree.
  */
 const countrySettings = {
-  us: {
-    status: 'OPT_IN',
-    lang: 'en',
-  },
-  ag: {
-    status: 'OPT_IN',
-    lang: 'en',
-  },
-  ai: {
-    status: 'OPT_IN',
-    lang: 'en',
-  },
-  aw: {
-    status: 'OPT_IN',
-    lang: 'en',
-  },
-  bb: {
-    status: 'OPT_IN',
-    lang: 'en',
-  },
-  bm: {
-    status: 'OPT_IN',
-    lang: 'en',
-  },
-  bs: {
-    status: 'OPT_IN',
-    lang: 'en',
-  },
-  gd: {
-    status: 'OPT_IN',
-    lang: 'en',
-  },
-  gy: {
-    status: 'OPT_IN',
-    lang: 'en',
-  },
-  jm: {
-    status: 'OPT_IN',
-    lang: 'en',
-  },
-  kn: {
-    status: 'OPT_IN',
-    lang: 'en',
-  },
-  ky: {
-    status: 'OPT_IN',
-    lang: 'en',
-  },
-  ms: {
-    status: 'OPT_IN',
-    lang: 'en',
-  },
-  sr: {
-    status: 'OPT_IN',
-    lang: 'en',
-  },
-  tc: {
-    status: 'OPT_IN',
-    lang: 'en',
-  },
-  tt: {
-    status: 'OPT_IN',
-    lang: 'en',
-  },
-  vc: {
-    status: 'OPT_IN',
-    lang: 'en',
-  },
-  vg: {
-    status: 'OPT_IN',
-    lang: 'en',
-  },
-  ca: {
-    status: 'OPT_IN',
-    lang: 'fr',
-  },
-  at: {
-    status: 'OPT_IN',
-    lang: 'de',
-  },
-  ch: {
-    status: 'OPT_IN',
-    lang: 'fr',
-  },
-  de: {
-    status: 'OPT_IN',
-    lang: 'de',
-  },
-  dk: {
-    status: 'OPT_IN',
-    lang: 'da',
-  },
-  fi: {
-    status: 'OPT_IN',
-    lang: 'fi',
-  },
-  no: {
-    status: 'OPT_IN',
-    lang: 'no',
-  },
-  se: {
-    status: 'OPT_IN',
-    lang: 'sv',
-  },
-  uk: {
-    status: 'OPT_IN',
-    lang: 'en',
-  },
-  ie: {
-    status: 'OPT_IN',
-    lang: 'en',
-  },
-  be: {
-    status: 'OPT_IN',
-    lang: 'en',
-  },
-  nl: {
-    status: 'OPT_IN',
-    lang: 'nl',
-  },
-  fr: {
-    status: 'OPT_IN',
-    lang: 'fr',
-  },
-  it: {
-    status: 'OPT_IN',
-    lang: 'it',
-  },
-  cy: {
-    status: 'OPT_IN',
-    lang: 'en',
-  },
-  es: {
-    status: 'OPT_IN',
-    lang: 'es',
-  },
-  gr: {
-    status: 'OPT_IN',
-    lang: 'el',
-  },
-  il: {
-    status: 'OPT_IN',
-    lang: 'he',
-  },
-  pt: {
-    status: 'OPT_IN',
-    lang: 'pt',
-  },
-  ar: {
-    status: 'OPT_IN',
-    lang: 'es',
-  },
-  bo: {
-    status: 'OPT_IN',
-    lang: 'es',
-  },
-  br: {
-    status: 'OPT_IN',
-    lang: 'pt',
-  },
-  cl: {
-    status: 'OPT_IN',
-    lang: 'es',
-  },
-  co: {
-    status: 'OPT_IN',
-    lang: 'es',
-  },
-  do: {
-    status: 'OPT_IN',
-    lang: 'en',
-  },
-  ec: {
-    status: 'OPT_IN',
-    lang: 'es',
-  },
-  mx: {
-    status: 'OPT_IN',
-    lang: 'es',
-  },
-  pe: {
-    status: 'OPT_IN',
-    lang: 'es',
-  },
-  py: {
-    status: 'OPT_IN',
-    lang: 'es',
-  },
-  uy: {
-    status: 'OPT_IN',
-    lang: 'es',
-  },
-  ve: {
-    status: 'OPT_IN',
-    lang: 'es',
-  },
-  au: {
-    status: 'OPT_IN',
-    lang: 'en',
-  },
-  id: {
-    status: 'OPT_IN',
-    lang: 'en',
-  },
-  my: {
-    status: 'OPT_IN',
-    lang: 'en',
-  },
-  ph: {
-    status: 'OPT_IN',
-    lang: 'en',
-  },
-  sg: {
-    status: 'OPT_IN',
-    lang: 'en',
-  },
-  th: {
-    status: 'OPT_IN',
-    lang: 'en',
-  },
-  cn: {
-    status: 'OPT_IN',
-    lang: 'zh',
-  },
-  hk: {
-    status: 'OPT_IN',
-    lang: 'en',
-  },
-  tw: {
-    status: 'OPT_IN',
-    lang: 'zh',
-  },
-  bd: {
-    status: 'OPT_IN',
-    lang: 'en',
-  },
-  in: {
-    status: 'OPT_IN',
-    lang: 'en',
-  },
-  lk: {
-    status: 'OPT_IN',
-    lang: 'en',
-  },
-  kr: {
-    status: 'OPT_IN',
-    lang: 'ko',
-  },
-  bg: {
-    status: 'OPT_IN',
-    lang: 'bg',
-  },
-  bh: {
-    status: 'OPT_IN',
-    lang: 'en',
-  },
-  cz: {
-    status: 'OPT_IN',
-    lang: 'cs',
-  },
-  dz: {
-    status: 'OPT_IN',
-    lang: 'fr',
-  },
-  ee: {
-    status: 'OPT_IN',
-    lang: 'et',
-  },
-  eg: {
-    status: 'OPT_IN',
-    lang: 'en',
-  },
-  hr: {
-    status: 'OPT_IN',
-    lang: 'hr',
-  },
-  hu: {
-    status: 'OPT_IN',
-    lang: 'hu',
-  },
-  jo: {
-    status: 'OPT_IN',
-    lang: 'en',
-  },
-  kw: {
-    status: 'OPT_IN',
-    lang: 'en',
-  },
-  lb: {
-    status: 'OPT_IN',
-    lang: 'en',
-  },
-  lt: {
-    status: 'OPT_IN',
-    lang: 'lt',
-  },
-  lv: {
-    status: 'OPT_IN',
-    lang: 'lv',
-  },
-  ma: {
-    status: 'OPT_IN',
-    lang: 'fr',
-  },
-  om: {
-    status: 'OPT_IN',
-    lang: 'en',
-  },
-  pk: {
-    status: 'OPT_IN',
-    lang: 'en',
-  },
-  pl: {
-    status: 'OPT_IN',
-    lang: 'pl',
-  },
-  qa: {
-    status: 'OPT_IN',
-    lang: 'en',
-  },
-  ro: {
-    status: 'OPT_IN',
-    lang: 'ro',
-  },
-  rs: {
-    status: 'OPT_IN',
-    lang: 'sr',
-  },
-  me: {
-    status: 'OPT_IN',
-    lang: 'sr',
-  },
-  ru: {
-    status: 'OPT_IN',
-    lang: 'ru',
-  },
-  sk: {
-    status: 'OPT_IN',
-    lang: 'sk',
-  },
-  tn: {
-    status: 'OPT_IN',
-    lang: 'fr',
-  },
-  tr: {
-    status: 'OPT_IN',
-    lang: 'tr',
-  },
-  ua: {
-    status: 'OPT_IN',
-    lang: 'uk',
-  },
-  za: {
-    status: 'OPT_IN',
-    lang: 'en',
-  },
-  ad: {
-    status: 'OPT_IN',
-    lang: 'en',
-  },
-  af: {
-    status: 'OPT_IN',
-    lang: 'en',
-  },
-  al: {
-    status: 'OPT_IN',
-    lang: 'en',
-  },
-  am: {
-    status: 'OPT_IN',
-    lang: 'en',
-  },
-  an: {
-    status: 'OPT_IN',
-    lang: 'en',
-  },
-  ao: {
-    status: 'OPT_IN',
-    lang: 'pt',
-  },
-  as: {
-    status: 'OPT_IN',
-    lang: 'en',
-  },
-  ax: {
-    status: 'OPT_IN',
-    lang: 'en',
-  },
-  az: {
-    status: 'OPT_IN',
-    lang: 'en',
-  },
-  ba: {
-    status: 'OPT_IN',
-    lang: 'en',
-  },
-  bi: {
-    status: 'OPT_IN',
-    lang: 'en',
-  },
-  bj: {
-    status: 'OPT_IN',
-    lang: 'en',
-  },
-  bn: {
-    status: 'OPT_IN',
-    lang: 'en',
-  },
-  bt: {
-    status: 'OPT_IN',
-    lang: 'en',
-  },
-  bv: {
-    status: 'OPT_IN',
-    lang: 'en',
-  },
-  by: {
-    status: 'OPT_IN',
-    lang: 'en',
-  },
-  bz: {
-    status: 'OPT_IN',
-    lang: 'en',
-  },
-  cc: {
-    status: 'OPT_IN',
-    lang: 'en',
-  },
-  cf: {
-    status: 'OPT_IN',
-    lang: 'en',
-  },
-  ci: {
-    status: 'OPT_IN',
-    lang: 'en',
-  },
-  ck: {
-    status: 'OPT_IN',
-    lang: 'en',
-  },
-  cu: {
-    status: 'OPT_IN',
-    lang: 'en',
-  },
-  cv: {
-    status: 'OPT_IN',
-    lang: 'en',
-  },
-  cx: {
-    status: 'OPT_IN',
-    lang: 'en',
-  },
-  dj: {
-    status: 'OPT_IN',
-    lang: 'en',
-  },
-  eh: {
-    status: 'OPT_IN',
-    lang: 'en',
-  },
-  er: {
-    status: 'OPT_IN',
-    lang: 'en',
-  },
-  fj: {
-    status: 'OPT_IN',
-    lang: 'en',
-  },
-  fk: {
-    status: 'OPT_IN',
-    lang: 'en',
-  },
-  fm: {
-    status: 'OPT_IN',
-    lang: 'en',
-  },
-  fo: {
-    status: 'OPT_IN',
-    lang: 'en',
-  },
-  ge: {
-    status: 'OPT_IN',
-    lang: 'en',
-  },
-  gf: {
-    status: 'OPT_IN',
-    lang: 'en',
-  },
-  gg: {
-    status: 'OPT_IN',
-    lang: 'en',
-  },
-  gi: {
-    status: 'OPT_IN',
-    lang: 'en',
-  },
-  gl: {
-    status: 'OPT_IN',
-    lang: 'en',
-  },
-  gm: {
-    status: 'OPT_IN',
-    lang: 'en',
-  },
-  gn: {
-    status: 'OPT_IN',
-    lang: 'en',
-  },
-  gp: {
-    status: 'OPT_IN',
-    lang: 'en',
-  },
-  gq: {
-    status: 'OPT_IN',
-    lang: 'en',
-  },
-  gs: {
-    status: 'OPT_IN',
-    lang: 'en',
-  },
-  gt: {
-    status: 'OPT_IN',
-    lang: 'en',
-  },
-  gu: {
-    status: 'OPT_IN',
-    lang: 'en',
-  },
-  gw: {
-    status: 'OPT_IN',
-    lang: 'en',
-  },
-  hm: {
-    status: 'OPT_IN',
-    lang: 'en',
-  },
-  hn: {
-    status: 'OPT_IN',
-    lang: 'en',
-  },
-  ht: {
-    status: 'OPT_IN',
-    lang: 'en',
-  },
-  im: {
-    status: 'OPT_IN',
-    lang: 'en',
-  },
-  io: {
-    status: 'OPT_IN',
-    lang: 'en',
-  },
-  iq: {
-    status: 'OPT_IN',
-    lang: 'en',
-  },
-  ir: {
-    status: 'OPT_IN',
-    lang: 'en',
-  },
-  is: {
-    status: 'OPT_IN',
-    lang: 'en',
-  },
-  je: {
-    status: 'OPT_IN',
-    lang: 'en',
-  },
-  ke: {
-    status: 'OPT_IN',
-    lang: 'en',
-  },
-  kg: {
-    status: 'OPT_IN',
-    lang: 'en',
-  },
-  kh: {
-    status: 'OPT_IN',
-    lang: 'en',
-  },
-  ki: {
-    status: 'OPT_IN',
-    lang: 'en',
-  },
-  km: {
-    status: 'OPT_IN',
-    lang: 'en',
-  },
-  kp: {
-    status: 'OPT_IN',
-    lang: 'en',
-  },
-  la: {
-    status: 'OPT_IN',
-    lang: 'en',
-  },
-  li: {
-    status: 'OPT_IN',
-    lang: 'en',
-  },
-  lr: {
-    status: 'OPT_IN',
-    lang: 'en',
-  },
-  ls: {
-    status: 'OPT_IN',
-    lang: 'en',
-  },
-  lu: {
-    status: 'OPT_IN',
-    lang: 'en',
-  },
-  ly: {
-    status: 'OPT_IN',
-    lang: 'en',
-  },
-  mc: {
-    status: 'OPT_IN',
-    lang: 'en',
-  },
-  md: {
-    status: 'OPT_IN',
-    lang: 'en',
-  },
-  mh: {
-    status: 'OPT_IN',
-    lang: 'en',
-  },
-  mk: {
-    status: 'OPT_IN',
-    lang: 'en',
-  },
-  ml: {
-    status: 'OPT_IN',
-    lang: 'en',
-  },
-  mm: {
-    status: 'OPT_IN',
-    lang: 'en',
-  },
-  mn: {
-    status: 'OPT_IN',
-    lang: 'en',
-  },
-  mo: {
-    status: 'OPT_IN',
-    lang: 'en',
-  },
-  mp: {
-    status: 'OPT_IN',
-    lang: 'en',
-  },
-  mq: {
-    status: 'OPT_IN',
-    lang: 'en',
-  },
-  mr: {
-    status: 'OPT_IN',
-    lang: 'en',
-  },
-  mt: {
-    status: 'OPT_IN',
-    lang: 'en',
-  },
-  mv: {
-    status: 'OPT_IN',
-    lang: 'en',
-  },
-  nc: {
-    status: 'OPT_IN',
-    lang: 'en',
-  },
-  nf: {
-    status: 'OPT_IN',
-    lang: 'en',
-  },
-  ng: {
-    status: 'OPT_IN',
-    lang: 'en',
-  },
-  ni: {
-    status: 'OPT_IN',
-    lang: 'en',
-  },
-  np: {
-    status: 'OPT_IN',
-    lang: 'en',
-  },
-  nr: {
-    status: 'OPT_IN',
-    lang: 'en',
-  },
-  nu: {
-    status: 'OPT_IN',
-    lang: 'en',
-  },
-  nz: {
-    status: 'OPT_IN',
-    lang: 'en',
-  },
-  pa: {
-    status: 'OPT_IN',
-    lang: 'en',
-  },
-  pf: {
-    status: 'OPT_IN',
-    lang: 'en',
-  },
-  pg: {
-    status: 'OPT_IN',
-    lang: 'en',
-  },
-  pm: {
-    status: 'OPT_IN',
-    lang: 'en',
-  },
-  pn: {
-    status: 'OPT_IN',
-    lang: 'en',
-  },
-  pr: {
-    status: 'OPT_IN',
-    lang: 'en',
-  },
-  ps: {
-    status: 'OPT_IN',
-    lang: 'en',
-  },
-  pw: {
-    status: 'OPT_IN',
-    lang: 'en',
-  },
-  re: {
-    status: 'OPT_IN',
-    lang: 'en',
-  },
-  rw: {
-    status: 'OPT_IN',
-    lang: 'en',
-  },
-  sb: {
-    status: 'OPT_IN',
-    lang: 'en',
-  },
-  sd: {
-    status: 'OPT_IN',
-    lang: 'en',
-  },
-  sh: {
-    status: 'OPT_IN',
-    lang: 'en',
-  },
-  sj: {
-    status: 'OPT_IN',
-    lang: 'en',
-  },
-  si: {
-    status: 'OPT_IN',
-    lang: 'sl',
-  },
-  sm: {
-    status: 'OPT_IN',
-    lang: 'en',
-  },
-  so: {
-    status: 'OPT_IN',
-    lang: 'en',
-  },
-  sp: {
-    status: 'OPT_IN',
-    lang: 'en',
-  },
-  st: {
-    status: 'OPT_IN',
-    lang: 'en',
-  },
-  sv: {
-    status: 'OPT_IN',
-    lang: 'en',
-  },
-  sy: {
-    status: 'OPT_IN',
-    lang: 'en',
-  },
-  sz: {
-    status: 'OPT_IN',
-    lang: 'en',
-  },
-  tf: {
-    status: 'OPT_IN',
-    lang: 'en',
-  },
-  tg: {
-    status: 'OPT_IN',
-    lang: 'en',
-  },
-  tj: {
-    status: 'OPT_IN',
-    lang: 'en',
-  },
-  tk: {
-    status: 'OPT_IN',
-    lang: 'en',
-  },
-  tl: {
-    status: 'OPT_IN',
-    lang: 'en',
-  },
-  tm: {
-    status: 'OPT_IN',
-    lang: 'en',
-  },
-  to: {
-    status: 'OPT_IN',
-    lang: 'en',
-  },
-  tv: {
-    status: 'OPT_IN',
-    lang: 'en',
-  },
-  va: {
-    status: 'OPT_IN',
-    lang: 'en',
-  },
-  vi: {
-    status: 'OPT_IN',
-    lang: 'en',
-  },
-  vu: {
-    status: 'OPT_IN',
-    lang: 'en',
-  },
-  wf: {
-    status: 'OPT_IN',
-    lang: 'en',
-  },
-  ws: {
-    status: 'OPT_IN',
-    lang: 'en',
-  },
-  ye: {
-    status: 'OPT_IN',
-    lang: 'en',
-  },
-  yt: {
-    status: 'OPT_IN',
-    lang: 'en',
-  },
-  zm: {
-    status: 'OPT_IN',
-    lang: 'en',
-  },
-  zw: {
-    status: 'OPT_IN',
-    lang: 'en',
-  },
-  vn: {
-    status: 'OPT_IN',
-    lang: 'vi',
-  },
-  cr: {
-    status: 'OPT_IN',
-    lang: 'es',
-  },
-  kz: {
-    status: 'OPT_IN',
-    lang: 'ru',
-  },
-  uz: {
-    status: 'OPT_IN',
-    lang: 'ru',
-  },
-  bw: {
-    status: 'OPT_IN',
-    lang: 'en',
-  },
-  gh: {
-    status: 'OPT_IN',
-    lang: 'en',
-  },
-  sl: {
-    status: 'OPT_IN',
-    lang: 'en',
-  },
-  mw: {
-    status: 'OPT_IN',
-    lang: 'en',
-  },
-  tz: {
-    status: 'OPT_IN',
-    lang: 'en',
-  },
-  na: {
-    status: 'OPT_IN',
-    lang: 'en',
-  },
-  sc: {
-    status: 'OPT_IN',
-    lang: 'en',
-  },
-  ug: {
-    status: 'OPT_IN',
-    lang: 'en',
-  },
-  et: {
-    status: 'OPT_IN',
-    lang: 'en',
-  },
-  bf: {
-    status: 'OPT_IN',
-    lang: 'fr',
-  },
-  cm: {
-    status: 'OPT_IN',
-    lang: 'fr',
-  },
-  td: {
-    status: 'OPT_IN',
-    lang: 'fr',
-  },
-  cg: {
-    status: 'OPT_IN',
-    lang: 'fr',
-  },
-  cd: {
-    status: 'OPT_IN',
-    lang: 'fr',
-  },
-  ga: {
-    status: 'OPT_IN',
-    lang: 'fr',
-  },
-  mg: {
-    status: 'OPT_IN',
-    lang: 'fr',
-  },
-  mu: {
-    status: 'OPT_IN',
-    lang: 'fr',
-  },
-  ne: {
-    status: 'OPT_IN',
-    lang: 'fr',
-  },
-  sn: {
-    status: 'OPT_IN',
-    lang: 'fr',
-  },
-  mz: {
-    status: 'OPT_IN',
-    lang: 'pt',
-  },
-  jp: {
-    status: 'OPT_IN',
-    lang: 'ja',
-  },
-  cw: {
-    status: 'OPT_IN',
-    lang: 'en',
-  },
-  dm: {
-    status: 'OPT_IN',
-    lang: 'en',
-  },
-  lc: {
-    status: 'OPT_IN',
-    lang: 'en',
-  },
-  gb: {
-    status: 'OPT_IN',
-    lang: 'en',
-  },
-  aq: {
-    status: 'OPT_IN',
-    lang: 'en',
-  },
-  bl: {
-    status: 'OPT_IN',
-    lang: 'en',
-  },
-  bq: {
-    status: 'OPT_IN',
-    lang: 'en',
-  },
-  mf: {
-    status: 'OPT_IN',
-    lang: 'en',
-  },
-  ss: {
-    status: 'OPT_IN',
-    lang: 'en',
-  },
-  sx: {
-    status: 'OPT_IN',
-    lang: 'en',
-  },
-  um: {
-    status: 'OPT_IN',
-    lang: 'en',
-  },
-  sa: {
-    status: 'OPT_IN',
-    lang: 'ar',
-  },
-  ae: {
-    status: 'OPT_IN',
-    lang: 'ar',
-  },
+  us: { status: 'OPT_IN', lang: 'en', email: 'opt-out', phone: 'opt-out' },
+  ag: { status: 'OPT_IN', lang: 'en', email: 'opt-in', phone: 'opt-in' },
+  ai: { status: 'OPT_IN', lang: 'en', email: 'opt-in', phone: 'opt-in' },
+  aw: { status: 'OPT_IN', lang: 'en', email: 'opt-in', phone: 'opt-in' },
+  bb: { status: 'OPT_IN', lang: 'en', email: 'opt-in', phone: 'opt-in' },
+  bm: { status: 'OPT_IN', lang: 'en', email: 'opt-in', phone: 'opt-in' },
+  bs: { status: 'OPT_IN', lang: 'en', email: 'opt-in', phone: 'opt-in' },
+  ca: { status: 'OPT_IN', lang: 'fr', email: 'opt-in', phone: 'opt-out' },
+  gd: { status: 'OPT_IN', lang: 'en', email: 'opt-in', phone: 'opt-in' },
+  gy: { status: 'OPT_IN', lang: 'en', email: 'opt-in', phone: 'opt-in' },
+  jm: { status: 'OPT_IN', lang: 'en', email: 'opt-out', phone: 'opt-out' },
+  kn: { status: 'OPT_IN', lang: 'en', email: 'opt-in', phone: 'opt-in' },
+  ky: { status: 'OPT_IN', lang: 'en', email: 'opt-in', phone: 'opt-in' },
+  ms: { status: 'OPT_IN', lang: 'en', email: 'opt-in', phone: 'opt-in' },
+  sr: { status: 'OPT_IN', lang: 'en', email: 'opt-in', phone: 'opt-in' },
+  tc: { status: 'OPT_IN', lang: 'en', email: 'opt-in', phone: 'opt-in' },
+  tt: { status: 'OPT_IN', lang: 'en', email: 'opt-in', phone: 'opt-in' },
+  vc: { status: 'OPT_IN', lang: 'en', email: 'opt-in', phone: 'opt-in' },
+  vg: { status: 'OPT_IN', lang: 'en', email: 'opt-in', phone: 'opt-in' },
+  at: { status: 'OPT_IN', lang: 'de', email: 'opt-in', phone: 'opt-in' },
+  ch: { status: 'OPT_IN', lang: 'fr', email: 'opt-in', phone: 'opt-out' },
+  de: { status: 'OPT_IN', lang: 'de', email: 'opt-in', phone: 'opt-in' },
+  dk: { status: 'OPT_IN', lang: 'da', email: 'opt-in', phone: 'opt-out' },
+  fi: { status: 'OPT_IN', lang: 'fi', email: 'opt-in', phone: 'opt-out' },
+  no: { status: 'OPT_IN', lang: 'no', email: 'opt-in', phone: 'opt-out' },
+  se: { status: 'OPT_IN', lang: 'sv', email: 'opt-in', phone: 'opt-out' },
+  uk: { status: 'OPT_IN', lang: 'en', email: 'opt-in', phone: 'opt-in' },
+  ie: { status: 'OPT_IN', lang: 'en', email: 'opt-in', phone: 'opt-out' },
+  be: { status: 'OPT_IN', lang: 'en', email: 'opt-in', phone: 'opt-out' },
+  nl: { status: 'OPT_IN', lang: 'nl', email: 'opt-in', phone: 'opt-out' },
+  fr: { status: 'OPT_IN', lang: 'fr', email: 'opt-in', phone: 'opt-out' },
+  it: { status: 'OPT_IN', lang: 'it', email: 'opt-in', phone: 'opt-in' },
+  cy: { status: 'OPT_IN', lang: 'en', email: 'opt-in', phone: 'opt-in' },
+  es: { status: 'OPT_IN', lang: 'es', email: 'opt-in', phone: 'opt-in' },
+  gr: { status: 'OPT_IN', lang: 'el', email: 'opt-in', phone: 'opt-out' },
+  il: { status: 'OPT_IN', lang: 'he', email: 'opt-in', phone: 'opt-out' },
+  pt: { status: 'OPT_IN', lang: 'pt', email: 'opt-in', phone: 'opt-in' },
+  ar: { status: 'OPT_IN', lang: 'es', email: 'opt-in', phone: 'opt-out' },
+  bo: { status: 'OPT_IN', lang: 'es', email: 'opt-out', phone: 'opt-out' },
+  br: { status: 'OPT_IN', lang: 'pt', email: 'opt-in', phone: 'opt-out' },
+  cl: { status: 'OPT_IN', lang: 'es', email: 'opt-out', phone: 'opt-out' },
+  co: { status: 'OPT_IN', lang: 'es', email: 'opt-in', phone: 'opt-in' },
+  do: { status: 'OPT_IN', lang: 'en', email: 'opt-out', phone: 'opt-out' },
+  ec: { status: 'OPT_IN', lang: 'es', email: 'opt-out', phone: 'opt-out' },
+  mx: { status: 'OPT_IN', lang: 'es', email: 'opt-out', phone: 'opt-out' },
+  pe: { status: 'OPT_IN', lang: 'es', email: 'opt-in', phone: 'opt-in' },
+  py: { status: 'OPT_IN', lang: 'es', email: 'opt-out', phone: 'opt-out' },
+  uy: { status: 'OPT_IN', lang: 'es', email: 'opt-out', phone: 'opt-out' },
+  ve: { status: 'OPT_IN', lang: 'es', email: 'opt-out', phone: 'opt-out' },
+  au: { status: 'OPT_IN', lang: 'en', email: 'opt-in', phone: 'opt-out' },
+  id: { status: 'OPT_IN', lang: 'id', email: 'opt-in', phone: 'opt-out' },
+  my: { status: 'OPT_IN', lang: 'en', email: 'opt-in', phone: 'opt-out' },
+  ph: { status: 'OPT_IN', lang: 'en', email: 'opt-in', phone: 'opt-out' },
+  sg: { status: 'OPT_IN', lang: 'en', email: 'opt-in', phone: 'opt-in' },
+  th: { status: 'OPT_IN', lang: 'en', email: 'opt-in', phone: 'opt-out' },
+  vn: { status: 'OPT_IN', lang: 'vi', email: 'opt-in', phone: 'opt-in' },
+  cn: { status: 'OPT_IN', lang: 'zh', email: 'opt-in', phone: 'opt-in' },
+  hk: { status: 'OPT_IN', lang: 'en', email: 'opt-out', phone: 'opt-out' },
+  tw: { status: 'OPT_IN', lang: 'zh', email: 'opt-out', phone: 'opt-out' },
+  bd: { status: 'OPT_IN', lang: 'en', email: 'opt-out', phone: 'opt-out' },
+  in: { status: 'OPT_IN', lang: 'en', email: 'opt-out', phone: 'opt-out' },
+  lk: { status: 'OPT_IN', lang: 'en', email: 'opt-out', phone: 'opt-out' },
+  kp: { status: 'OPT_IN', lang: 'en', email: 'opt-out', phone: 'opt-out' },
+  kr: { status: 'OPT_IN', lang: 'ko', email: 'opt-in', phone: 'opt-in' },
+  ae: { status: 'OPT_IN', lang: 'ar', email: 'opt-out', phone: 'opt-out' },
+  bg: { status: 'OPT_IN', lang: 'bg', email: 'opt-in', phone: 'opt-in' },
+  bh: { status: 'OPT_IN', lang: 'en', email: 'opt-out', phone: 'opt-out' },
+  cz: { status: 'OPT_IN', lang: 'cs', email: 'opt-in', phone: 'opt-in' },
+  dz: { status: 'OPT_IN', lang: 'fr', email: 'opt-in', phone: 'opt-out' },
+  ee: { status: 'OPT_IN', lang: 'et', email: 'opt-in', phone: 'opt-out' },
+  eg: { status: 'OPT_IN', lang: 'en', email: 'opt-out', phone: 'opt-out' },
+  hr: { status: 'OPT_IN', lang: 'hr', email: 'opt-in', phone: 'opt-out' },
+  hu: { status: 'OPT_IN', lang: 'hu', email: 'opt-in', phone: 'opt-out' },
+  jo: { status: 'OPT_IN', lang: 'en', email: 'opt-out', phone: 'opt-out' },
+  kw: { status: 'OPT_IN', lang: 'en', email: 'opt-out', phone: 'opt-out' },
+  lb: { status: 'OPT_IN', lang: 'en', email: 'opt-out', phone: 'opt-out' },
+  lt: { status: 'OPT_IN', lang: 'lt', email: 'opt-in', phone: 'opt-in' },
+  lv: { status: 'OPT_IN', lang: 'lv', email: 'opt-in', phone: 'opt-in' },
+  ma: { status: 'OPT_IN', lang: 'fr', email: 'opt-in', phone: 'opt-out' },
+  mk: { status: 'OPT_IN', lang: 'en', email: 'opt-in', phone: 'opt-out' },
+  om: { status: 'OPT_IN', lang: 'en', email: 'opt-out', phone: 'opt-out' },
+  pk: { status: 'OPT_IN', lang: 'en', email: 'opt-in', phone: 'opt-out' },
+  pl: { status: 'OPT_IN', lang: 'pl', email: 'opt-in', phone: 'opt-in' },
+  qa: { status: 'OPT_IN', lang: 'en', email: 'opt-in', phone: 'opt-out' },
+  ro: { status: 'OPT_IN', lang: 'ro', email: 'opt-in', phone: 'opt-out' },
+  rs: { status: 'OPT_IN', lang: 'sr', email: 'opt-in', phone: 'opt-out' },
+  me: { status: 'OPT_IN', lang: 'sr', email: 'opt-in', phone: 'opt-out' },
+  ru: { status: 'OPT_IN', lang: 'ru', email: 'opt-in', phone: 'opt-in' },
+  sa: { status: 'OPT_IN', lang: 'ar', email: 'opt-in', phone: 'opt-in' },
+  si: { status: 'OPT_IN', lang: 'sl', email: 'opt-in', phone: 'opt-in' },
+  sk: { status: 'OPT_IN', lang: 'sk', email: 'opt-in', phone: 'opt-out' },
+  tn: { status: 'OPT_IN', lang: 'fr', email: 'opt-in', phone: 'opt-out' },
+  tr: { status: 'OPT_IN', lang: 'tr', email: 'opt-in', phone: 'opt-in' },
+  ua: { status: 'OPT_IN', lang: 'uk', email: 'opt-in', phone: 'opt-out' },
+  za: { status: 'OPT_IN', lang: 'en', email: 'opt-in', phone: 'opt-out' },
+  ad: { status: 'OPT_IN', lang: 'en', email: 'opt-in', phone: 'opt-out' },
+  af: { status: 'OPT_IN', lang: 'en', email: 'opt-out', phone: 'opt-out' },
+  al: { status: 'OPT_IN', lang: 'en', email: 'opt-in', phone: 'opt-out' },
+  am: { status: 'OPT_IN', lang: 'en', email: 'opt-in', phone: 'opt-in' },
+  an: { status: 'OPT_IN', lang: 'en', email: 'opt-in', phone: 'opt-in' },
+  ao: { status: 'OPT_IN', lang: 'pt', email: 'opt-in', phone: 'opt-out' },
+  as: { status: 'OPT_IN', lang: 'en', email: 'opt-out', phone: 'opt-out' },
+  ax: { status: 'OPT_IN', lang: 'en', email: 'opt-in', phone: 'opt-out' },
+  az: { status: 'OPT_IN', lang: 'en', email: 'opt-in', phone: 'opt-in' },
+  ba: { status: 'OPT_IN', lang: 'en', email: 'opt-in', phone: 'opt-out' },
+  bf: { status: 'OPT_IN', lang: 'fr', email: 'opt-in', phone: 'opt-out' },
+  bi: { status: 'OPT_IN', lang: 'en', email: 'opt-in', phone: 'opt-out' },
+  bj: { status: 'OPT_IN', lang: 'en', email: 'opt-in', phone: 'opt-out' },
+  bn: { status: 'OPT_IN', lang: 'en', email: 'opt-out', phone: 'opt-out' },
+  bt: { status: 'OPT_IN', lang: 'en', email: 'opt-out', phone: 'opt-out' },
+  bv: { status: 'OPT_IN', lang: 'en', email: 'opt-in', phone: 'opt-out' },
+  bw: { status: 'OPT_IN', lang: 'en', email: 'opt-in', phone: 'opt-out' },
+  by: { status: 'OPT_IN', lang: 'en', email: 'opt-in', phone: 'opt-out' },
+  bz: { status: 'OPT_IN', lang: 'en', email: 'opt-out', phone: 'opt-out' },
+  cc: { status: 'OPT_IN', lang: 'en', email: 'opt-out', phone: 'opt-out' },
+  cd: { status: 'OPT_IN', lang: 'fr', email: 'opt-in', phone: 'opt-out' },
+  cf: { status: 'OPT_IN', lang: 'en', email: 'opt-in', phone: 'opt-out' },
+  cg: { status: 'OPT_IN', lang: 'fr', email: 'opt-in', phone: 'opt-out' },
+  ci: { status: 'OPT_IN', lang: 'fr', email: 'opt-out', phone: 'opt-out' },
+  ck: { status: 'OPT_IN', lang: 'en', email: 'opt-out', phone: 'opt-out' },
+  cm: { status: 'OPT_IN', lang: 'fr', email: 'opt-in', phone: 'opt-out' },
+  cr: { status: 'OPT_IN', lang: 'es', email: 'opt-out', phone: 'opt-out' },
+  cu: { status: 'OPT_IN', lang: 'en', email: 'opt-out', phone: 'opt-out' },
+  cv: { status: 'OPT_IN', lang: 'en', email: 'opt-in', phone: 'opt-out' },
+  cx: { status: 'OPT_IN', lang: 'en', email: 'opt-out', phone: 'opt-out' },
+  dj: { status: 'OPT_IN', lang: 'en', email: 'opt-in', phone: 'opt-out' },
+  eh: { status: 'OPT_IN', lang: 'en', email: 'opt-in', phone: 'opt-out' },
+  er: { status: 'OPT_IN', lang: 'en', email: 'opt-in', phone: 'opt-out' },
+  et: { status: 'OPT_IN', lang: 'en', email: 'opt-out', phone: 'opt-out' },
+  fj: { status: 'OPT_IN', lang: 'en', email: 'opt-out', phone: 'opt-out' },
+  fk: { status: 'OPT_IN', lang: 'en', email: 'opt-in', phone: 'opt-out' },
+  fm: { status: 'OPT_IN', lang: 'en', email: 'opt-out', phone: 'opt-out' },
+  fo: { status: 'OPT_IN', lang: 'en', email: 'opt-in', phone: 'opt-out' },
+  ga: { status: 'OPT_IN', lang: 'fr', email: 'opt-in', phone: 'opt-out' },
+  ge: { status: 'OPT_IN', lang: 'en', email: 'opt-in', phone: 'opt-out' },
+  gf: { status: 'OPT_IN', lang: 'en', email: 'opt-out', phone: 'opt-out' },
+  gg: { status: 'OPT_IN', lang: 'en', email: 'opt-in', phone: 'opt-out' },
+  gh: { status: 'OPT_IN', lang: 'en', email: 'opt-in', phone: 'opt-out' },
+  gi: { status: 'OPT_IN', lang: 'en', email: 'opt-in', phone: 'opt-out' },
+  gl: { status: 'OPT_IN', lang: 'en', email: 'opt-in', phone: 'opt-out' },
+  gm: { status: 'OPT_IN', lang: 'en', email: 'opt-in', phone: 'opt-out' },
+  gn: { status: 'OPT_IN', lang: 'en', email: 'opt-in', phone: 'opt-out' },
+  gp: { status: 'OPT_IN', lang: 'en', email: 'opt-out', phone: 'opt-out' },
+  gq: { status: 'OPT_IN', lang: 'en', email: 'opt-in', phone: 'opt-out' },
+  gs: { status: 'OPT_IN', lang: 'en', email: 'opt-in', phone: 'opt-out' },
+  gt: { status: 'OPT_IN', lang: 'en', email: 'opt-out', phone: 'opt-out' },
+  gu: { status: 'OPT_IN', lang: 'en', email: 'opt-out', phone: 'opt-out' },
+  gw: { status: 'OPT_IN', lang: 'en', email: 'opt-in', phone: 'opt-out' },
+  hm: { status: 'OPT_IN', lang: 'en', email: 'opt-out', phone: 'opt-out' },
+  hn: { status: 'OPT_IN', lang: 'en', email: 'opt-out', phone: 'opt-out' },
+  ht: { status: 'OPT_IN', lang: 'en', email: 'opt-out', phone: 'opt-out' },
+  im: { status: 'OPT_IN', lang: 'en', email: 'opt-in', phone: 'opt-out' },
+  io: { status: 'OPT_IN', lang: 'en', email: 'opt-in', phone: 'opt-out' },
+  iq: { status: 'OPT_IN', lang: 'en', email: 'opt-out', phone: 'opt-out' },
+  ir: { status: 'OPT_IN', lang: 'en', email: 'opt-in', phone: 'opt-out' },
+  is: { status: 'OPT_IN', lang: 'en', email: 'opt-in', phone: 'opt-out' },
+  je: { status: 'OPT_IN', lang: 'en', email: 'opt-in', phone: 'opt-out' },
+  ke: { status: 'OPT_IN', lang: 'en', email: 'opt-in', phone: 'opt-out' },
+  kg: { status: 'OPT_IN', lang: 'en', email: 'opt-in', phone: 'opt-out' },
+  kh: { status: 'OPT_IN', lang: 'en', email: 'opt-out', phone: 'opt-out' },
+  ki: { status: 'OPT_IN', lang: 'en', email: 'opt-out', phone: 'opt-out' },
+  km: { status: 'OPT_IN', lang: 'en', email: 'opt-in', phone: 'opt-out' },
+  kz: { status: 'OPT_IN', lang: 'ru', email: 'opt-in', phone: 'opt-out' },
+  la: { status: 'OPT_IN', lang: 'en', email: 'opt-out', phone: 'opt-out' },
+  li: { status: 'OPT_IN', lang: 'en', email: 'opt-in', phone: 'opt-out' },
+  lr: { status: 'OPT_IN', lang: 'en', email: 'opt-in', phone: 'opt-out' },
+  ls: { status: 'OPT_IN', lang: 'en', email: 'opt-in', phone: 'opt-out' },
+  lu: { status: 'OPT_IN', lang: 'en', email: 'opt-in', phone: 'opt-in' },
+  ly: { status: 'OPT_IN', lang: 'en', email: 'opt-in', phone: 'opt-out' },
+  mc: { status: 'OPT_IN', lang: 'en', email: 'opt-out', phone: 'opt-out' },
+  md: { status: 'OPT_IN', lang: 'en', email: 'opt-in', phone: 'opt-out' },
+  mg: { status: 'OPT_IN', lang: 'fr', email: 'opt-in', phone: 'opt-out' },
+  mh: { status: 'OPT_IN', lang: 'en', email: 'opt-out', phone: 'opt-out' },
+  ml: { status: 'OPT_IN', lang: 'en', email: 'opt-in', phone: 'opt-out' },
+  mm: { status: 'OPT_IN', lang: 'en', email: 'opt-out', phone: 'opt-out' },
+  mn: { status: 'OPT_IN', lang: 'en', email: 'opt-out', phone: 'opt-out' },
+  mo: { status: 'OPT_IN', lang: 'en', email: 'opt-out', phone: 'opt-out' },
+  mp: { status: 'OPT_IN', lang: 'en', email: 'opt-out', phone: 'opt-out' },
+  mq: { status: 'OPT_IN', lang: 'en', email: 'opt-out', phone: 'opt-out' },
+  mr: { status: 'OPT_IN', lang: 'en', email: 'opt-in', phone: 'opt-out' },
+  mt: { status: 'OPT_IN', lang: 'en', email: 'opt-in', phone: 'opt-in' },
+  mu: { status: 'OPT_IN', lang: 'fr', email: 'opt-out', phone: 'opt-out' },
+  mv: { status: 'OPT_IN', lang: 'en', email: 'opt-out', phone: 'opt-out' },
+  mw: { status: 'OPT_IN', lang: 'en', email: 'opt-in', phone: 'opt-out' },
+  mz: { status: 'OPT_IN', lang: 'pt', email: 'opt-in', phone: 'opt-out' },
+  na: { status: 'OPT_IN', lang: 'en', email: 'opt-in', phone: 'opt-out' },
+  nc: { status: 'OPT_IN', lang: 'en', email: 'opt-in', phone: 'opt-out' },
+  ne: { status: 'OPT_IN', lang: 'fr', email: 'opt-in', phone: 'opt-out' },
+  nf: { status: 'OPT_IN', lang: 'en', email: 'opt-out', phone: 'opt-out' },
+  ng: { status: 'OPT_IN', lang: 'en', email: 'opt-in', phone: 'opt-out' },
+  ni: { status: 'OPT_IN', lang: 'en', email: 'opt-out', phone: 'opt-out' },
+  np: { status: 'OPT_IN', lang: 'en', email: 'opt-out', phone: 'opt-out' },
+  nr: { status: 'OPT_IN', lang: 'en', email: 'opt-out', phone: 'opt-out' },
+  nu: { status: 'OPT_IN', lang: 'en', email: 'opt-out', phone: 'opt-out' },
+  nz: { status: 'OPT_IN', lang: 'en', email: 'opt-in', phone: 'opt-out' },
+  pa: { status: 'OPT_IN', lang: 'en', email: 'opt-out', phone: 'opt-out' },
+  pf: { status: 'OPT_IN', lang: 'en', email: 'opt-in', phone: 'opt-out' },
+  pg: { status: 'OPT_IN', lang: 'en', email: 'opt-out', phone: 'opt-out' },
+  pm: { status: 'OPT_IN', lang: 'en', email: 'opt-out', phone: 'opt-out' },
+  pn: { status: 'OPT_IN', lang: 'en', email: 'opt-in', phone: 'opt-out' },
+  pr: { status: 'OPT_IN', lang: 'en', email: 'opt-out', phone: 'opt-out' },
+  ps: { status: 'OPT_IN', lang: 'en', email: 'opt-out', phone: 'opt-out' },
+  pw: { status: 'OPT_IN', lang: 'en', email: 'opt-out', phone: 'opt-out' },
+  re: { status: 'OPT_IN', lang: 'en', email: 'opt-out', phone: 'opt-out' },
+  rw: { status: 'OPT_IN', lang: 'en', email: 'opt-in', phone: 'opt-in' },
+  sb: { status: 'OPT_IN', lang: 'en', email: 'opt-out', phone: 'opt-out' },
+  sc: { status: 'OPT_IN', lang: 'en', email: 'opt-in', phone: 'opt-out' },
+  sd: { status: 'OPT_IN', lang: 'en', email: 'opt-in', phone: 'opt-out' },
+  sh: { status: 'OPT_IN', lang: 'en', email: 'opt-in', phone: 'opt-out' },
+  sj: { status: 'OPT_IN', lang: 'en', email: 'opt-in', phone: 'opt-out' },
+  sl: { status: 'OPT_IN', lang: 'en', email: 'opt-in', phone: 'opt-out' },
+  sm: { status: 'OPT_IN', lang: 'en', email: 'opt-in', phone: 'opt-out' },
+  sn: { status: 'OPT_IN', lang: 'fr', email: 'opt-in', phone: 'opt-out' },
+  so: { status: 'OPT_IN', lang: 'en', email: 'opt-in', phone: 'opt-out' },
+  sp: { status: 'OPT_IN', lang: 'en', email: 'opt-in', phone: 'opt-in' },
+  st: { status: 'OPT_IN', lang: 'en', email: 'opt-in', phone: 'opt-out' },
+  sv: { status: 'OPT_IN', lang: 'en', email: 'opt-out', phone: 'opt-out' },
+  sy: { status: 'OPT_IN', lang: 'en', email: 'opt-in', phone: 'opt-out' },
+  sz: { status: 'OPT_IN', lang: 'en', email: 'opt-in', phone: 'opt-out' },
+  td: { status: 'OPT_IN', lang: 'fr', email: 'opt-in', phone: 'opt-out' },
+  tf: { status: 'OPT_IN', lang: 'en', email: 'opt-out', phone: 'opt-out' },
+  tg: { status: 'OPT_IN', lang: 'en', email: 'opt-in', phone: 'opt-out' },
+  tj: { status: 'OPT_IN', lang: 'en', email: 'opt-in', phone: 'opt-out' },
+  tk: { status: 'OPT_IN', lang: 'en', email: 'opt-out', phone: 'opt-out' },
+  tl: { status: 'OPT_IN', lang: 'en', email: 'opt-out', phone: 'opt-out' },
+  tm: { status: 'OPT_IN', lang: 'en', email: 'opt-in', phone: 'opt-out' },
+  to: { status: 'OPT_IN', lang: 'en', email: 'opt-out', phone: 'opt-out' },
+  tv: { status: 'OPT_IN', lang: 'en', email: 'opt-out', phone: 'opt-out' },
+  tz: { status: 'OPT_IN', lang: 'en', email: 'opt-out', phone: 'opt-out' },
+  ug: { status: 'OPT_IN', lang: 'en', email: 'opt-in', phone: 'opt-in' },
+  uz: { status: 'OPT_IN', lang: 'ru', email: 'opt-in', phone: 'opt-out' },
+  va: { status: 'OPT_IN', lang: 'en', email: 'opt-in', phone: 'opt-in' },
+  vi: { status: 'OPT_IN', lang: 'en', email: 'opt-out', phone: 'opt-out' },
+  vu: { status: 'OPT_IN', lang: 'en', email: 'opt-in', phone: 'opt-out' },
+  wf: { status: 'OPT_IN', lang: 'en', email: 'opt-in', phone: 'opt-out' },
+  ws: { status: 'OPT_IN', lang: 'en', email: 'opt-out', phone: 'opt-out' },
+  ye: { status: 'OPT_IN', lang: 'en', email: 'opt-out', phone: 'opt-out' },
+  yt: { status: 'OPT_IN', lang: 'en', email: 'opt-in', phone: 'opt-out' },
+  zm: { status: 'OPT_IN', lang: 'en', email: 'opt-in', phone: 'opt-out' },
+  zw: { status: 'OPT_IN', lang: 'en', email: 'opt-in', phone: 'opt-out' },
+  jp: { status: 'OPT_IN', lang: 'ja', email: 'opt-in', phone: 'opt-out' },
+  cw: { status: 'OPT_IN', lang: 'en', email: 'opt-in', phone: 'opt-in' },
+  dm: { status: 'OPT_IN', lang: 'en', email: 'opt-in', phone: 'opt-in' },
+  lc: { status: 'OPT_IN', lang: 'en', email: 'opt-out', phone: 'opt-out' },
+  gb: { status: 'OPT_IN', lang: 'en', email: 'opt-in', phone: 'opt-out' },
+  aq: { status: 'OPT_IN', lang: 'en', email: 'opt-in', phone: 'opt-in' },
+  bl: { status: 'OPT_IN', lang: 'en', email: 'opt-in', phone: 'opt-in' },
+  bq: { status: 'OPT_IN', lang: 'en', email: 'opt-in', phone: 'opt-in' },
+  mf: { status: 'OPT_IN', lang: 'en', email: 'opt-in', phone: 'opt-in' },
+  ss: { status: 'OPT_IN', lang: 'en', email: 'opt-in', phone: 'opt-in' },
+  sx: { status: 'OPT_IN', lang: 'en', email: 'opt-in', phone: 'opt-in' },
+  um: { status: 'OPT_IN', lang: 'en', email: 'opt-in', phone: 'opt-in' },
 };
 export default countrySettings;
