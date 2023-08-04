@@ -18,7 +18,6 @@ import styles from './notice-choice.scss';
 import { unsafeHTML } from 'lit-html/directives/unsafe-html';
 import { worldWideContent } from './world-wide-content';
 import { carbonElement as customElement } from '../../internal/vendor/@carbon/web-components/globals/decorators/carbon-element';
-import _ from 'lodash';
 
 const { stablePrefix: ddsPrefix } = ddsSettings;
 const { prefix } = settings;
@@ -379,7 +378,7 @@ class NoticeChoice extends StableSelectorMixin(LitElement) {
     <p id="ncHeading" class="${ddsPrefix}--nc__pre-text">${this.preTextTemplate()} </p>
       <div class="${prefix}--checkbox-group">
             ${
-              !_.isEmpty(this.checkboxes)
+              Object.keys(this.checkboxes).length !== 0
                 ? Object.keys(this.checkboxes).length > 0 &&
                   Object.keys(this.checkboxes).map((key) => {
                     const checked = this.values[key];
