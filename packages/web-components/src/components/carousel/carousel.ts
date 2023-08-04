@@ -11,21 +11,19 @@ import { customElement, property, query, state } from 'lit/decorators.js';
 import 'wicg-inert';
 import { slow01 } from '@carbon/motion';
 import { classMap } from 'lit/directives/class-map.js';
-import settings from 'carbon-components/es/globals/js/settings.js';
 import CaretLeft20 from '../../internal/vendor/@carbon/web-components/icons/caret--left/20.js';
 import CaretRight20 from '../../internal/vendor/@carbon/web-components/icons/caret--right/20.js';
 import HostListener from '../../internal/vendor/@carbon/web-components/globals/decorators/host-listener.js';
 import HostListenerMixin from '../../internal/vendor/@carbon/web-components/globals/mixins/host-listener.js';
 import { selectorTabbable } from '../../internal/vendor/@carbon/web-components/globals/settings.js';
-import ddsSettings from '../../internal/vendor/@carbon/ibmdotcom-utilities/utilities/settings/settings';
+import settings from '../../internal/vendor/@carbon/ibmdotcom-utilities/utilities/settings/settings';
 import sameHeight from '../../internal/vendor/@carbon/ibmdotcom-utilities/utilities/sameHeight/sameHeight';
 import styles from './carousel.scss';
 import StableSelectorMixin from '../../globals/mixins/stable-selector';
 import DDSExpressiveModal from '../expressive-modal/expressive-modal';
 import { ifDefined } from 'lit/directives/if-defined.js';
 
-const { prefix } = settings;
-const { stablePrefix: ddsPrefix } = ddsSettings;
+const { prefix, stablePrefix: ddsPrefix } = settings;
 
 const MAX_GESTURE_DURATION = 300; // max time allowed to do swipe
 const MIN_DISTANCE_TRAVELLED = 75; // min distance traveled to be considered swipe

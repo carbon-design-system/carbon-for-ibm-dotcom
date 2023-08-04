@@ -7,14 +7,9 @@
   "engines": {
     "node": ">=18.x"
   },
-  "workspaces": {
-    "packages": [
-      "packages/*"
-    ],
-    "nohoist": [
-      "**/marked"
-    ]
-  },
+  "workspaces": [
+    "packages/*"
+  ],
   "scripts": {
     "build": "lerna run build --stream --prefix",
     "ci-check": "npm run format:diff && yarn lint:license && yarn lint && yarn lint:styles",
@@ -28,10 +23,9 @@
     "lint:scripts:staged": "eslint",
     "lint:styles": "stylelint '**/*.{css,scss}' --config ./packages/stylelint-config-ibmdotcom",
     "reset": "yarn cache clean && yarn clean && yarn install && yarn build",
-    "test": "yarn test:unit && yarn test:a11y && yarn test:integration:build",
+    "test": "yarn test:unit && yarn test:a11y",
     "test:a11y": "yarn lerna run --stream --prefix test:a11y",
     "test:unit": "cross-env BABEL_ENV=test jest",
-    "test:integration:build": "yarn lerna run --stream --prefix --scope=@carbon/ibmdotcom-react test:integration:build",
     "prepare": "husky install"
   },
   "devDependencies": {

@@ -11,10 +11,10 @@
   part="link"
   tabindex="0"
 >
-  <div class="bx--locale-modal__locales__name">
+  <div class="cds--locale-modal__locales__name">
     country-foo
   </div>
-  <div class="bx--locale-modal__locales__name">
+  <div class="cds--locale-modal__locales__name">
     language-foo
   </div>
 </a>

@@ -8,18 +8,16 @@
  */
 
 import { css, html } from 'lit';
-import settings from 'carbon-components/es/globals/js/settings.js';
 import { ifDefined } from 'lit/directives/if-defined.js';
 import PlayVideo from '@carbon/ibmdotcom-styles/icons/svg/play-video.svg';
-import ddsSettings from '../../internal/vendor/@carbon/ibmdotcom-utilities/utilities/settings/settings';
+import settings from '../../internal/vendor/@carbon/ibmdotcom-utilities/utilities/settings/settings';
 import DDSCardCTA, { CTA_TYPE } from '../cta/card-cta';
 import './card-in-card-image';
 import styles from './card-in-card.scss';
 import StableSelectorMixin from '../../globals/mixins/stable-selector';
 import { carbonElement as customElement } from '../../internal/vendor/@carbon/web-components/globals/decorators/carbon-element.js';
 
-const { prefix } = settings;
-const { stablePrefix: ddsPrefix } = ddsSettings;
+const { prefix, stablePrefix: ddsPrefix } = settings;
 
 /**
  * Card in Card.

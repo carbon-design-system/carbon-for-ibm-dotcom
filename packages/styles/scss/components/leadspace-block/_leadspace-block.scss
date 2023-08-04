@@ -5,23 +5,28 @@
  * LICENSE file in the root directory of this source tree.
  */
 
-@import '../../globals/imports';
-@import '../../globals/utils/content-width';
-@import '../../globals/utils/hang';
-@import '../buttongroup/_buttongroup';
-@import '../link-list/index';
-@import '../image-with-caption/image-with-caption';
-@import '../../internal/content-block/content-block';
+@use '@carbon/styles/scss/breakpoint' as *;
+@use '@carbon/styles/scss/config' as *;
+@use '@carbon/styles/scss/spacing' as *;
+@use '@carbon/styles/scss/theme' as *;
+@use '@carbon/styles/scss/type' as *;
+@use '../../globals/utils/content-width' as *;
+@use '../../globals/utils/hang' as *;
+@use '../../globals/vars' as *;
+@use '../button-group';
+@use '../link-list';
+@use '../image-with-caption';
+@use '../../internal/content-block';
 
 %leadspace-block-padding {
   padding-top: 0;
-  padding-bottom: $layout-01;
+  padding-bottom: $spacing-05;
 
-  @include carbon--breakpoint('md') {
-    padding-bottom: $layout-06;
+  @include breakpoint(md) {
+    padding-bottom: $spacing-12;
   }
-  @include carbon--breakpoint('lg') {
-    padding-bottom: $layout-07;
+  @include breakpoint(lg) {
+    padding-bottom: $spacing-13;
   }
 }
 
@@ -46,13 +51,13 @@
 
     .#{$prefix}--content-block__copy {
       p {
-        @include carbon--type-style('expressive-heading-03', true);
+        @include type-style('fluid-heading-03', true);
       }
     }
 
     dds-hr,
     .#{$prefix}--hr {
-      border-color: $ui-04;
+      border-color: $toggle-off;
       margin-top: 0;
 
       @include hang;
@@ -67,9 +72,9 @@
   :host(#{$dds-prefix}-leadspace-block-heading),
   .#{$prefix}--leadspace-block__title {
     width: 90%;
-    color: $text-01;
-    padding-top: $layout-03;
-    @include carbon--type-style('expressive-heading-06', true);
+    color: $text-primary;
+    padding-top: $spacing-07;
+    @include type-style('fluid-heading-06', true);
 
     /* stylelint-disable declaration-no-important */
     ::slotted(h1) {
@@ -77,12 +82,12 @@
     }
     /* stylelint-enable declaration-no-important */
 
-    @include carbon--breakpoint('md') {
-      padding-top: $layout-03;
+    @include breakpoint(md) {
+      padding-top: $spacing-07;
     }
 
-    @include carbon--breakpoint('lg') {
-      padding-top: $layout-05;
+    @include breakpoint(lg) {
+      padding-top: $spacing-10;
     }
   }
 
@@ -95,7 +100,7 @@
     margin-right: 0;
     max-width: none;
 
-    @include carbon--breakpoint('md') {
+    @include breakpoint(md) {
       max-width: carbon--mini-units(80);
     }
   }
@@ -117,7 +122,7 @@
     display: block;
     max-width: carbon--mini-units(80);
 
-    @include carbon--breakpoint('md') {
+    @include breakpoint(md) {
       padding-top: $spacing-05;
     }
 
@@ -138,8 +143,4 @@
       padding-top: 0;
     }
   }
-}
-
-@include exports('leadspace-block') {
-  @include leadspace-block;
 }

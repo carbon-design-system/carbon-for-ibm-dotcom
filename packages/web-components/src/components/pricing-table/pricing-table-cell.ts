@@ -8,8 +8,7 @@
  */
 
 import { html } from 'lit';
-import settings from 'carbon-components/es/globals/js/settings.js';
-import ddsSettings from '@carbon/ibmdotcom-utilities/es/utilities/settings/settings.js';
+import settings from '@carbon/ibmdotcom-utilities/es/utilities/settings/settings.js';
 import HostListenerMixin from '../../internal/vendor/@carbon/web-components/globals/mixins/host-listener.js';
 import HostListener from '../../internal/vendor/@carbon/web-components/globals/decorators/host-listener.js';
 import StableSelectorMixin from '../../globals/mixins/stable-selector';
@@ -19,8 +18,7 @@ import styles from './pricing-table.scss';
 import DDSPricingTableCellAnnotation from './pricing-table-cell-annotation';
 import { carbonElement as customElement } from '../../internal/vendor/@carbon/web-components/globals/decorators/carbon-element.js';
 
-const { prefix } = settings;
-const { stablePrefix: ddsPrefix } = ddsSettings;
+const { prefix, stablePrefix: ddsPrefix } = settings;
 
 @customElement(`${ddsPrefix}-pricing-table-cell`)
 class DDSPricingTableCell extends StableSelectorMixin(

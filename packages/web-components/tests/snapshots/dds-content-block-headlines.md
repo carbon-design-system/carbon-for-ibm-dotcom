@@ -5,17 +5,17 @@
 ####   `should render with minimum attributes`
 
 ```
-<div class="bx--content-layout bx--content-layout--with-headlines bx--layout--border">
+<div class="cds--content-layout cds--content-layout--with-headlines cds--layout--border">
   <slot name="heading">
   </slot>
   <div
-    class="bx--content-layout__body"
+    class="cds--content-layout__body"
     hidden=""
   >
     <slot name="copy">
     </slot>
     <div
-      class="bx--content-block-headlines__item-container"
+      class="cds--content-block-headlines__item-container"
       hidden=""
     >
       <slot>

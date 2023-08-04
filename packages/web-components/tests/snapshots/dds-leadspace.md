@@ -6,29 +6,29 @@
 
 ```
 <section
-  class="bx--leadspace__section"
+  class="cds--leadspace__section"
   part="section"
 >
-  <div class="bx--leadspace__container">
-    <div class="bx--leadspace__overlay">
-      <div class="bx--leadspace--content__container">
-        <div class="bx--leadspace__row">
+  <div class="cds--leadspace__container">
+    <div class="cds--leadspace__overlay">
+      <div class="cds--leadspace--content__container">
+        <div class="cds--leadspace__row">
           <slot name="navigation">
           </slot>
           <slot name="heading">
           </slot>
         </div>
-        <div class="bx--leadspace__content">
-          <div class="bx--leadspace__row">
+        <div class="cds--leadspace__content">
+          <div class="cds--leadspace__row">
             <p
-              class="bx--leadspace__desc"
+              class="cds--leadspace__desc"
               data-autoid="dds--leadspace__desc"
             >
               <slot>
               </slot>
             </p>
           </div>
-          <div class="bx--leadspace__action">
+          <div class="cds--leadspace__action">
             <slot name="action">
             </slot>
           </div>
@@ -46,29 +46,29 @@
 
 ```
 <section
-  class="bx--leadspace__section"
+  class="cds--leadspace__section"
   part="section"
 >
-  <div class="bx--leadspace__container">
-    <div class="bx--leadspace__overlay">
-      <div class="bx--leadspace--content__container">
-        <div class="bx--leadspace__row">
+  <div class="cds--leadspace__container">
+    <div class="cds--leadspace__overlay">
+      <div class="cds--leadspace--content__container">
+        <div class="cds--leadspace__row">
           <slot name="navigation">
           </slot>
           <slot name="heading">
           </slot>
         </div>
-        <div class="bx--leadspace__content">
-          <div class="bx--leadspace__row">
+        <div class="cds--leadspace__content">
+          <div class="cds--leadspace__row">
             <p
-              class="bx--leadspace__desc"
+              class="cds--leadspace__desc"
               data-autoid="dds--leadspace__desc"
             >
               <slot>
               </slot>
             </p>
           </div>
-          <div class="bx--leadspace__action">
+          <div class="cds--leadspace__action">
             <slot name="action">
             </slot>
           </div>
@@ -88,29 +88,29 @@
 
 ```
 <section
-  class="bx--leadspace__section"
+  class="cds--leadspace__section"
   part="section"
 >
-  <div class="bx--leadspace__container">
-    <div class="bx--leadspace__overlay">
-      <div class="bx--leadspace--content__container">
-        <div class="bx--leadspace__row">
+  <div class="cds--leadspace__container">
+    <div class="cds--leadspace__overlay">
+      <div class="cds--leadspace--content__container">
+        <div class="cds--leadspace__row">
           <slot name="navigation">
           </slot>
           <slot name="heading">
           </slot>
         </div>
-        <div class="bx--leadspace__content">
-          <div class="bx--leadspace__row">
+        <div class="cds--leadspace__content">
+          <div class="cds--leadspace__row">
             <p
-              class="bx--leadspace__desc"
+              class="cds--leadspace__desc"
               data-autoid="dds--leadspace__desc"
             >
               <slot>
               </slot>
             </p>
           </div>
-          <div class="bx--leadspace__action">
+          <div class="cds--leadspace__action">
             <slot name="action">
             </slot>
           </div>
@@ -128,29 +128,29 @@
 
 ```
 <section
-  class="bx--leadspace__section"
+  class="cds--leadspace__section"
   part="section"
 >
-  <div class="bx--leadspace__container">
-    <div class="bx--leadspace--gradient bx--leadspace__overlay">
-      <div class="bx--leadspace--content__container">
-        <div class="bx--leadspace__row">
+  <div class="cds--leadspace__container">
+    <div class="cds--leadspace--gradient cds--leadspace__overlay">
+      <div class="cds--leadspace--content__container">
+        <div class="cds--leadspace__row">
           <slot name="navigation">
           </slot>
           <slot name="heading">
           </slot>
         </div>
-        <div class="bx--leadspace__content">
-          <div class="bx--leadspace__row">
+        <div class="cds--leadspace__content">
+          <div class="cds--leadspace__row">
             <p
-              class="bx--leadspace__desc"
+              class="cds--leadspace__desc"
               data-autoid="dds--leadspace__desc"
             >
               <slot>
               </slot>
             </p>
           </div>
-          <div class="bx--leadspace__action">
+          <div class="cds--leadspace__action">
             <slot name="action">
             </slot>
           </div>
@@ -170,29 +170,29 @@
 
 ```
 <section
-  class="bx--leadspace--centered bx--leadspace__section"
+  class="cds--leadspace--centered cds--leadspace__section"
   part="section"
 >
-  <div class="bx--leadspace__container">
-    <div class="bx--leadspace__overlay">
-      <div class="bx--leadspace--content__container">
-        <div class="bx--leadspace__row">
+  <div class="cds--leadspace__container">
+    <div class="cds--leadspace__overlay">
+      <div class="cds--leadspace--content__container">
+        <div class="cds--leadspace__row">
           <slot name="navigation">
           </slot>
           <slot name="heading">
           </slot>
         </div>
-        <div class="bx--leadspace__content">
-          <div class="bx--leadspace__row">
+        <div class="cds--leadspace__content">
+          <div class="cds--leadspace__row">
             <p
-              class="bx--leadspace__desc"
+              class="cds--leadspace__desc"
               data-autoid="dds--leadspace__desc"
             >
               <slot>
               </slot>
             </p>
           </div>
-          <div class="bx--leadspace__action">
+          <div class="cds--leadspace__action">
             <slot name="action">
             </slot>
           </div>
@@ -210,29 +210,29 @@
 
 ```
 <section
-  class="bx--leadspace--centered bx--leadspace__section"
+  class="cds--leadspace--centered cds--leadspace__section"
   part="section"
 >
-  <div class="bx--leadspace__container">
-    <div class="bx--leadspace__overlay">
-      <div class="bx--leadspace--content__container">
-        <div class="bx--leadspace__row">
+  <div class="cds--leadspace__container">
+    <div class="cds--leadspace__overlay">
+      <div class="cds--leadspace--content__container">
+        <div class="cds--leadspace__row">
           <slot name="navigation">
           </slot>
           <slot name="heading">
           </slot>
         </div>
-        <div class="bx--leadspace__content">
-          <div class="bx--leadspace__row">
+        <div class="cds--leadspace__content">
+          <div class="cds--leadspace__row">
             <p
-              class="bx--leadspace__desc"
+              class="cds--leadspace__desc"
               data-autoid="dds--leadspace__desc"
             >
               <slot>
               </slot>
             </p>
           </div>
-          <div class="bx--leadspace__action">
+          <div class="cds--leadspace__action">
             <slot name="action">
             </slot>
           </div>
@@ -252,29 +252,29 @@
 
 ```
 <section
-  class="bx--leadspace--centered bx--leadspace__section"
+  class="cds--leadspace--centered cds--leadspace__section"
   part="section"
 >
-  <div class="bx--leadspace__container">
-    <div class="bx--leadspace__overlay">
-      <div class="bx--leadspace--content__container">
-        <div class="bx--leadspace__row">
+  <div class="cds--leadspace__container">
+    <div class="cds--leadspace__overlay">
+      <div class="cds--leadspace--content__container">
+        <div class="cds--leadspace__row">
           <slot name="navigation">
           </slot>
           <slot name="heading">
           </slot>
         </div>
-        <div class="bx--leadspace__content">
-          <div class="bx--leadspace__row">
+        <div class="cds--leadspace__content">
+          <div class="cds--leadspace__row">
             <p
-              class="bx--leadspace__desc"
+              class="cds--leadspace__desc"
               data-autoid="dds--leadspace__desc"
             >
               <slot>
               </slot>
             </p>
           </div>
-          <div class="bx--leadspace__action">
+          <div class="cds--leadspace__action">
             <slot name="action">
             </slot>
           </div>
@@ -292,29 +292,29 @@
 
 ```
 <section
-  class="bx--leadspace--centered bx--leadspace--centered__image bx--leadspace__section"
+  class="cds--leadspace--centered cds--leadspace--centered__image cds--leadspace__section"
   part="section"
 >
-  <div class="bx--leadspace__container">
-    <div class="bx--leadspace--gradient bx--leadspace__overlay">
-      <div class="bx--leadspace--content__container">
-        <div class="bx--leadspace__row">
+  <div class="cds--leadspace__container">
+    <div class="cds--leadspace--gradient cds--leadspace__overlay">
+      <div class="cds--leadspace--content__container">
+        <div class="cds--leadspace__row">
           <slot name="navigation">
           </slot>
           <slot name="heading">
           </slot>
         </div>
-        <div class="bx--leadspace__content">
-          <div class="bx--leadspace__row">
+        <div class="cds--leadspace__content">
+          <div class="cds--leadspace__row">
             <p
-              class="bx--leadspace__desc"
+              class="cds--leadspace__desc"
               data-autoid="dds--leadspace__desc"
             >
               <slot>
               </slot>
             </p>
           </div>
-          <div class="bx--leadspace__action">
+          <div class="cds--leadspace__action">
             <slot name="action">
             </slot>
           </div>
@@ -334,29 +334,29 @@
 
 ```
 <section
-  class="bx--leadspace__section"
+  class="cds--leadspace__section"
   part="section"
 >
-  <div class="bx--leadspace__container">
-    <div class="bx--leadspace__overlay">
-      <div class="bx--leadspace--content__container">
-        <div class="bx--leadspace__row">
+  <div class="cds--leadspace__container">
+    <div class="cds--leadspace__overlay">
+      <div class="cds--leadspace--content__container">
+        <div class="cds--leadspace__row">
           <slot name="navigation">
           </slot>
           <slot name="heading">
           </slot>
         </div>
-        <div class="bx--leadspace__content">
-          <div class="bx--leadspace__row">
+        <div class="cds--leadspace__content">
+          <div class="cds--leadspace__row">
             <p
-              class="bx--leadspace__desc"
+              class="cds--leadspace__desc"
               data-autoid="dds--leadspace__desc"
             >
               <slot>
               </slot>
             </p>
           </div>
-          <div class="bx--leadspace__action">
+          <div class="cds--leadspace__action">
             <slot name="action">
             </slot>
           </div>
@@ -374,29 +374,29 @@
 
 ```
 <section
-  class="bx--leadspace__section"
+  class="cds--leadspace__section"
   part="section"
 >
-  <div class="bx--leadspace__container">
-    <div class="bx--leadspace__overlay">
-      <div class="bx--leadspace--content__container">
-        <div class="bx--leadspace__row">
+  <div class="cds--leadspace__container">
+    <div class="cds--leadspace__overlay">
+      <div class="cds--leadspace--content__container">
+        <div class="cds--leadspace__row">
           <slot name="navigation">
           </slot>
           <slot name="heading">
           </slot>
         </div>
-        <div class="bx--leadspace__content">
-          <div class="bx--leadspace__row">
+        <div class="cds--leadspace__content">
+          <div class="cds--leadspace__row">
             <p
-              class="bx--leadspace__desc"
+              class="cds--leadspace__desc"
               data-autoid="dds--leadspace__desc"
             >
               <slot>
               </slot>
             </p>
           </div>
-          <div class="bx--leadspace__action">
+          <div class="cds--leadspace__action">
             <slot name="action">
             </slot>
           </div>
@@ -416,29 +416,29 @@
 
 ```
 <section
-  class="bx--leadspace__section"
+  class="cds--leadspace__section"
   part="section"
 >
-  <div class="bx--leadspace__container">
-    <div class="bx--leadspace__overlay">
-      <div class="bx--leadspace--content__container">
-        <div class="bx--leadspace__row">
+  <div class="cds--leadspace__container">
+    <div class="cds--leadspace__overlay">
+      <div class="cds--leadspace--content__container">
+        <div class="cds--leadspace__row">
           <slot name="navigation">
           </slot>
           <slot name="heading">
           </slot>
         </div>
-        <div class="bx--leadspace__content">
-          <div class="bx--leadspace__row">
+        <div class="cds--leadspace__content">
+          <div class="cds--leadspace__row">
             <p
-              class="bx--leadspace__desc"
+              class="cds--leadspace__desc"
               data-autoid="dds--leadspace__desc"
             >
               <slot>
               </slot>
             </p>
           </div>
-          <div class="bx--leadspace__action">
+          <div class="cds--leadspace__action">
             <slot name="action">
             </slot>
           </div>
@@ -456,29 +456,29 @@
 
 ```
 <section
-  class="bx--leadspace__section"
+  class="cds--leadspace__section"
   part="section"
 >
-  <div class="bx--leadspace__container">
-    <div class="bx--leadspace--gradient bx--leadspace__overlay">
-      <div class="bx--leadspace--content__container">
-        <div class="bx--leadspace__row">
+  <div class="cds--leadspace__container">
+    <div class="cds--leadspace--gradient cds--leadspace__overlay">
+      <div class="cds--leadspace--content__container">
+        <div class="cds--leadspace__row">
           <slot name="navigation">
           </slot>
           <slot name="heading">
           </slot>
         </div>
-        <div class="bx--leadspace__content">
-          <div class="bx--leadspace__row">
+        <div class="cds--leadspace__content">
+          <div class="cds--leadspace__row">
             <p
-              class="bx--leadspace__desc"
+              class="cds--leadspace__desc"
               data-autoid="dds--leadspace__desc"
             >
               <slot>
               </slot>
             </p>
           </div>
-          <div class="bx--leadspace__action">
+          <div class="cds--leadspace__action">
             <slot name="action">
             </slot>
           </div>

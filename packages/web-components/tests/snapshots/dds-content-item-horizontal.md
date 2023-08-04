@@ -5,17 +5,17 @@
 ####   `should render with minimum attributes`
 
 ```
-<div class="bx--content-item-horizontal__heading-wrapper">
+<div class="cds--content-item-horizontal__heading-wrapper">
   <slot name="eyebrow">
   </slot>
   <slot name="heading">
   </slot>
 </div>
-<div class="bx--content-item-horizontal__content-wrapper">
+<div class="cds--content-item-horizontal__content-wrapper">
   <slot>
   </slot>
   <div
-    class="bx--content-item__cta"
+    class="cds--content-item__cta"
     hidden=""
   >
     <slot name="footer">
@@ -30,17 +30,17 @@
 ####   `should render with various attributes`
 
 ```
-<div class="bx--content-item-horizontal__heading-wrapper">
+<div class="cds--content-item-horizontal__heading-wrapper">
   <slot name="eyebrow">
   </slot>
   <slot name="heading">
   </slot>
 </div>
-<div class="bx--content-item-horizontal__content-wrapper">
+<div class="cds--content-item-horizontal__content-wrapper">
   <slot>
   </slot>
   <div
-    class="bx--content-item__cta"
+    class="cds--content-item__cta"
     hidden=""
   >
     <slot name="footer">
@@ -57,8 +57,8 @@
 ####   `should render with minimum attributes`
 
 ```
-<div class="bx--content-item-horizontal-media__align-right bx--content-item-horizontal__row">
-  <div class="bx--content-item-horizontal__col">
+<div class="cds--content-item-horizontal-media__align-right cds--content-item-horizontal__row">
+  <div class="cds--content-item-horizontal__col">
     <slot name="eyebrow">
     </slot>
     <slot name="heading">
@@ -66,14 +66,14 @@
     <slot>
     </slot>
     <div
-      class="bx--content-item__cta"
+      class="cds--content-item__cta"
       hidden=""
     >
       <slot name="footer">
       </slot>
     </div>
   </div>
-  <div class="bx--content-item-horizontal__col">
+  <div class="cds--content-item-horizontal__col">
     <slot name="media">
     </slot>
   </div>
@@ -84,8 +84,8 @@
 ####   `should render with various attributes`
 
 ```
-<div class="bx--content-item-horizontal-media__align-right bx--content-item-horizontal__row">
-  <div class="bx--content-item-horizontal__col">
+<div class="cds--content-item-horizontal-media__align-right cds--content-item-horizontal__row">
+  <div class="cds--content-item-horizontal__col">
     <slot name="eyebrow">
     </slot>
     <slot name="heading">
@@ -93,14 +93,14 @@
     <slot>
     </slot>
     <div
-      class="bx--content-item__cta"
+      class="cds--content-item__cta"
       hidden=""
     >
       <slot name="footer">
       </slot>
     </div>
   </div>
-  <div class="bx--content-item-horizontal__col">
+  <div class="cds--content-item-horizontal__col">
     <slot name="media">
     </slot>
   </div>
@@ -113,18 +113,18 @@
 ####   `should render with minimum attributes`
 
 ```
-<div class="bx--content-item-horizontal__row">
-  <div class="bx--content-item-horizontal__col">
+<div class="cds--content-item-horizontal__row">
+  <div class="cds--content-item-horizontal__col">
     <slot name="eyebrow">
     </slot>
     <slot name="heading">
     </slot>
   </div>
-  <div class="bx--content-item-horizontal__col">
+  <div class="cds--content-item-horizontal__col">
     <slot>
     </slot>
     <div
-      class="bx--content-item__cta"
+      class="cds--content-item__cta"
       hidden=""
     >
       <slot name="footer">
@@ -132,7 +132,7 @@
     </div>
   </div>
 </div>
-<div class="bx--content-item-horizontal__row">
+<div class="cds--content-item-horizontal__row">
   <slot name="media">
   </slot>
 </div>
@@ -142,18 +142,18 @@
 ####   `should render with various attributes`
 
 ```
-<div class="bx--content-item-horizontal__row">
-  <div class="bx--content-item-horizontal__col">
+<div class="cds--content-item-horizontal__row">
+  <div class="cds--content-item-horizontal__col">
     <slot name="eyebrow">
     </slot>
     <slot name="heading">
     </slot>
   </div>
-  <div class="bx--content-item-horizontal__col">
+  <div class="cds--content-item-horizontal__col">
     <slot>
     </slot>
     <div
-      class="bx--content-item__cta"
+      class="cds--content-item__cta"
       hidden=""
     >
       <slot name="footer">
@@ -161,7 +161,7 @@
     </div>
   </div>
 </div>
-<div class="bx--content-item-horizontal__row">
+<div class="cds--content-item-horizontal__row">
   <slot name="media">
   </slot>
 </div>
@@ -173,16 +173,16 @@
 ####   `should render with minimum attributes`
 
 ```
-<div class="bx--content-item-horizontal__body-wrapper">
-  <div class="bx--content-item-horizontal__heading-wrapper">
+<div class="cds--content-item-horizontal__body-wrapper">
+  <div class="cds--content-item-horizontal__heading-wrapper">
     <slot name="heading">
     </slot>
   </div>
-  <div class="bx--content-item-horizontal__content-wrapper">
+  <div class="cds--content-item-horizontal__content-wrapper">
     <slot>
     </slot>
     <div
-      class="bx--content-item__cta"
+      class="cds--content-item__cta"
       hidden=""
     >
       <slot name="footer">
@@ -190,7 +190,7 @@
     </div>
   </div>
 </div>
-<div class="bx--content-item-horizontal__col--2">
+<div class="cds--content-item-horizontal__col--2">
   <slot name="thumbnail">
   </slot>
 </div>
@@ -200,16 +200,16 @@
 ####   `should render with various attributes`
 
 ```
-<div class="bx--content-item-horizontal__body-wrapper">
-  <div class="bx--content-item-horizontal__heading-wrapper">
+<div class="cds--content-item-horizontal__body-wrapper">
+  <div class="cds--content-item-horizontal__heading-wrapper">
     <slot name="heading">
     </slot>
   </div>
-  <div class="bx--content-item-horizontal__content-wrapper">
+  <div class="cds--content-item-horizontal__content-wrapper">
     <slot>
     </slot>
     <div
-      class="bx--content-item__cta"
+      class="cds--content-item__cta"
       hidden=""
     >
       <slot name="footer">
@@ -217,7 +217,7 @@
     </div>
   </div>
 </div>
-<div class="bx--content-item-horizontal__col--2">
+<div class="cds--content-item-horizontal__col--2">
   <slot name="thumbnail">
   </slot>
 </div>

@@ -5,7 +5,7 @@
  * LICENSE file in the root directory of this source tree.
  */
 
-@import 'carbon-components/scss/globals/scss/vendor/@carbon/elements/scss/layout/convert';
+@use '@carbon/styles/scss/utilities/convert' as *;
 
 //-----------------------------
 // Data Table (expressive)
@@ -16,10 +16,10 @@
 /// @group data-table-expressive
 @mixin data-table-expressive {
   .#{$prefix}--data-table--compact td {
-    height: rem(32px);
+    height: $spacing-07;
   }
   .#{$prefix}--data-table--short td {
-    height: rem(40px);
+    height: $spacing-08;
   }
   .#{$prefix}--data-table--tall td {
     height: rem(70px);

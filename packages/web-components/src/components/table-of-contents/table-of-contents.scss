@@ -5,34 +5,35 @@
 // LICENSE file in the root directory of this source tree.
 //
 
-@import 'carbon-components/scss/globals/scss/vars';
-@import '@carbon/ibmdotcom-styles/scss/globals/vars';
-@import '../../globals/scss/box-sizing';
-@import '@carbon/ibmdotcom-styles/scss/components/tableofcontents/tableofcontents';
-@import '@carbon/ibmdotcom-styles/scss/components/layout/layout';
+@use '@carbon/styles/scss/breakpoint' as *;
+@use '@carbon/styles/scss/config' as *;
+@use '@carbon/styles/scss/spacing' as *;
+@use '@carbon/styles/scss/theme' as *;
+@use '@carbon/ibmdotcom-styles/scss/components/layout';
+@use '@carbon/ibmdotcom-styles/scss/globals/vars' as *;
 
 :host(#{$dds-prefix}-table-of-contents[toc-layout='horizontal'])
   .#{$prefix}--tableofcontents__navbar {
-  @include carbon--breakpoint('lg') {
+  @include breakpoint(lg) {
     &::before {
-      border-bottom: 1px solid $ui-04;
+      border-bottom: 1px solid $border-strong-01;
       content: '';
-      background-color: $ui-01;
+      background-color: $layer-01;
       position: absolute;
       top: 0;
-      height: 48px;
+      height: $spacing-09;
       left: calc(-50vw + 50%);
       right: 100%;
       z-index: 1;
     }
 
     &::after {
-      border-bottom: 1px solid $ui-04;
+      border-bottom: 1px solid $border-strong-01;
       content: '';
-      background-color: $ui-01;
+      background-color: $layer-01;
       position: absolute;
       top: 0;
-      height: 48px;
+      height: $spacing-09;
       left: 100%;
       right: calc(-50vw + 50%);
       z-index: 1;
@@ -42,10 +43,10 @@
 
 :host(#{$dds-prefix}-table-of-contents[toc-layout='horizontal'])
   .#{$prefix}--tableofcontents__desktop-container {
-  @include carbon--breakpoint('lg') {
+  @include breakpoint(lg) {
     position: relative;
     overflow: hidden;
-    height: 48px;
+    height: $spacing-09;
   }
 }
 
@@ -64,8 +65,8 @@
   // TODO: Make the layout CSS grid-based so we can remove this ruleset
   ::slotted(#{$dds-prefix}-content-block-simple),
   ::slotted(#{$dds-prefix}-content-block-segmented) {
-    margin-left: calc(-1 * #{$carbon--spacing-05});
-    margin-right: calc(-1 * #{$carbon--spacing-05});
+    margin-left: calc(-1 * #{$spacing-05});
+    margin-right: calc(-1 * #{$spacing-05});
   }
 }
 
@@ -76,25 +77,25 @@
   position: absolute;
   display: none;
 
-  @include carbon--breakpoint('lg') {
+  @include breakpoint(lg) {
     display: block;
   }
 }
 
 .#{$prefix}--toc__navbar-caret-right-container {
-  right: -1rem;
+  right: -$spacing-05;
   z-index: 2;
 }
 
 .#{$prefix}--toc__navbar-caret-left-container {
-  left: -1rem;
+  left: -$spacing-05;
 }
 
 .#{$prefix}--toc__navbar-caret-left,
 .#{$prefix}--toc__navbar-caret-right {
   position: relative;
   // 40px caret width & 8px gradient
-  height: 48px;
+  height: $spacing-09;
 }
 
 .#{$dds-prefix}-ce--toc__navbar-caret-container--hidden {

@@ -5,12 +5,12 @@
 // LICENSE file in the root directory of this source tree.
 //
 
-@import 'carbon-components/scss/globals/scss/css--reset';
-@import '@carbon/type/scss/font-face/mono';
-@import '@carbon/type/scss/font-face/sans';
-@import '@carbon/type/scss/font-face/serif';
-@import '@carbon/type/scss/reset';
-@include carbon--font-face-mono();
-@include carbon--font-face-sans();
-@include carbon--font-face-serif();
-@include carbon--type-reset();
+// @use 'carbon-components/scss/globals/scss/css--reset';
+// @use '@carbon/type/scss/font-face/mono';
+// @use '@carbon/type/scss/font-face/sans';
+// @use '@carbon/type/scss/font-face/serif';
+// @use '@carbon/type/scss/reset';
+// @include carbon--font-face-mono();
+// @include carbon--font-face-sans();
+// @include carbon--font-face-serif();
+// @include carbon--type-reset();

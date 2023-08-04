@@ -7,13 +7,13 @@
 ```
 <a
   aria-label=""
-  class="bx--card__footer bx--link-with-icon bx--link-with-icon--inline-icon bx--link-with-icon__icon-right cds--link cds--link--lg dds-ce--card__footer"
+  class="cds--card__footer cds--link cds--link--lg cds--link-with-icon cds--link-with-icon--inline-icon cds--link-with-icon__icon-right dds-ce--card__footer"
   id="link"
   part="link"
   tabindex="0"
 >
   <span
-    class="bx--card__cta__copy"
+    class="cds--card__cta__copy"
     hidden=""
   >
     <slot>
@@ -32,13 +32,13 @@
 ```
 <a
   aria-label=" - This link plays a video"
-  class="bx--card__footer bx--link-with-icon bx--link-with-icon--inline-icon bx--link-with-icon__icon-right cds--link cds--link--lg dds-ce--card__footer"
+  class="cds--card__footer cds--link cds--link--lg cds--link-with-icon cds--link-with-icon--inline-icon cds--link-with-icon__icon-right dds-ce--card__footer"
   href="#"
   id="link"
   part="link"
   tabindex="0"
 >
-  <span class="bx--card__cta__copy">
+  <span class="cds--card__cta__copy">
     <slot>
     </slot>
     undefined-180000

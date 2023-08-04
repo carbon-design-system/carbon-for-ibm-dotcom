@@ -14,8 +14,7 @@ import React from 'react';
 import DDSTagLink from '@carbon/ibmdotcom-web-components/es/components-react/tag-link/tag-link';
 // @ts-ignore
 import DDSTagGroup from '@carbon/ibmdotcom-web-components/es/components-react/tag-group/tag-group';
-import { Tag } from 'carbon-components-react';
-import '@carbon/web-components/es/components/tag/tag.js';
+import Tag from '@carbon/web-components/es/components-react/tag/tag.js';
 import readme from './README.stories.react.mdx';
 
 const tagTitles = [

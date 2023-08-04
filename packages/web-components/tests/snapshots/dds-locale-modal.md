@@ -6,18 +6,18 @@
 
 ```
 <button
-  class="bx--visually-hidden"
+  class="cds--visually-hidden"
   id="start-sentinel"
 >
   START
 </button>
 <div
   aria-labelledby="dds--modal-header"
-  class="bx--modal-container"
+  class="cds--modal-container"
   role="dialog"
   tabindex="-1"
 >
-  <div class="bx--modal-content">
+  <div class="cds--modal-content">
     <div id="dds--modal-header">
       <dds-expressive-modal-header data-autoid="dds--expressive-modal-header">
         <dds-expressive-modal-close-button data-autoid="dds--expressive-modal-close-button">
@@ -30,7 +30,7 @@
         </dds-expressive-modal-heading>
       </dds-expressive-modal-header>
     </div>
-    <div class="bx--locale-modal bx--modal-content">
+    <div class="cds--locale-modal cds--modal-content">
       <slot name="regions-selector">
       </slot>
     </div>
@@ -41,7 +41,7 @@
   </div>
 </div>
 <button
-  class="bx--visually-hidden"
+  class="cds--visually-hidden"
   id="end-sentinel"
 >
   END
@@ -53,18 +53,18 @@
 
 ```
 <button
-  class="bx--visually-hidden"
+  class="cds--visually-hidden"
   id="start-sentinel"
 >
   START
 </button>
 <div
   aria-labelledby="dds--modal-header"
-  class="bx--modal-container"
+  class="cds--modal-container"
   role="dialog"
   tabindex="-1"
 >
-  <div class="bx--modal-content">
+  <div class="cds--modal-content">
     <div id="dds--modal-header">
       <dds-expressive-modal-header data-autoid="dds--expressive-modal-header">
         <dds-expressive-modal-close-button data-autoid="dds--expressive-modal-close-button">
@@ -74,7 +74,7 @@
           data-autoid="dds--expressive-modal-heading"
           role="heading"
         >
-          <p class="bx--modal-header__label bx--type-delta">
+          <p class="cds--modal-header__label cds--type-delta">
             lang-display-foo
           </p>
           <p class="bx--modal-header__heading bx--type-beta">
@@ -83,7 +83,7 @@
         </dds-expressive-modal-heading>
       </dds-expressive-modal-header>
     </div>
-    <div class="bx--locale-modal bx--modal-content">
+    <div class="cds--locale-modal cds--modal-content">
       <slot name="regions-selector">
       </slot>
     </div>
@@ -94,7 +94,7 @@
   </div>
 </div>
 <button
-  class="bx--visually-hidden"
+  class="cds--visually-hidden"
   id="end-sentinel"
 >
   END
@@ -106,18 +106,18 @@
 
 ```
 <button
-  class="bx--visually-hidden"
+  class="cds--visually-hidden"
   id="start-sentinel"
 >
   START
 </button>
 <div
   aria-labelledby="dds--modal-header"
-  class="bx--modal-container"
+  class="cds--modal-container"
   role="dialog"
   tabindex="-1"
 >
-  <div class="bx--modal-content">
+  <div class="cds--modal-content">
     <div id="dds--modal-header">
       <dds-expressive-modal-header
         data-autoid="dds--expressive-modal-header"
@@ -158,7 +158,7 @@
   </div>
 </div>
 <button
-  class="bx--visually-hidden"
+  class="cds--visually-hidden"
   id="end-sentinel"
 >
   END

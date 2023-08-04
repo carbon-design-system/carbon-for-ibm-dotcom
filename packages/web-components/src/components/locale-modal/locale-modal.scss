@@ -5,97 +5,90 @@
 // LICENSE file in the root directory of this source tree.
 //
 
-@import 'carbon-components/scss/globals/scss/vendor/@carbon/elements/scss/grid/_inlined/mixins';
-@import '@carbon/ibmdotcom-styles/scss/globals/vars';
-@import '@carbon/ibmdotcom-styles/scss/components/card-link/card-link';
-@import '@carbon/ibmdotcom-styles/scss/components/locale-modal/locale-modal';
-@import '../../globals/scss/box-sizing';
-@import '../expressive-modal/expressive-modal';
+@use 'sass:map';
 
-:host(#{$dds-prefix}-locale-modal) {
-  @extend :host(#{$dds-prefix}-expressive-modal);
+@use '@carbon/styles/scss/breakpoint' as *;
+@use '@carbon/styles/scss/config' as *;
+@use '@carbon/styles/scss/spacing' as *;
+@use '@carbon/styles/scss/theme' as *;
+@use '@carbon/ibmdotcom-styles/scss/components/card-link';
+@use '@carbon/ibmdotcom-styles/scss/components/locale-modal';
+@use '../expressive-modal/expressive-modal';
+@use '@carbon/ibmdotcom-styles/scss/globals/utils/flex-grid' as *;
+@use '@carbon/ibmdotcom-styles/scss/globals/vars' as *;
 
-  #{$dds-prefix}-expressive-modal-header {
-    padding: 0 20% 0 $spacing-05;
-    margin-bottom: $carbon--spacing-03;
-  }
+// :host(#{$dds-prefix}-locale-modal) {
+//   @extend :host(#{$dds-prefix}-expressive-modal);
 
-  .#{$prefix}--modal-container {
-    padding: $spacing-05;
-  }
+//   #{$dds-prefix}-expressive-modal-header {
+//     padding: 0 20% 0 $spacing-05;
+//     margin-bottom: $spacing-03;
+//   }
 
-  .#{$prefix}--modal-content {
-    padding-right: 0;
-  }
+//   .#{$prefix}--modal-container {
+//     padding: $spacing-05;
+//   }
 
-  .#{$prefix}--locale-modal {
-    margin-bottom: 0;
-    &.#{$prefix}--modal-content {
-      padding-top: $carbon--spacing-03;
-      margin-top: $carbon--spacing-07;
+//   .#{$prefix}--modal-content {
+//     padding-right: 0;
+//   }
 
-      @include carbon--breakpoint('lg', $carbon--grid-breakpoints) {
-        margin-top: auto;
-      }
-    }
-  }
-}
+//   .#{$prefix}--locale-modal {
+//     margin-bottom: 0;
+//     &.#{$prefix}--modal-content {
+//       padding-top: $spacing-03;
+//       margin-top: $spacing-07;
 
-:host(#{$dds-prefix}-locale-modal) #{$dds-prefix}-expressive-modal-heading {
-  width: fit-content;
-}
+//       @include breakpoint('lg', $grid-breakpoints) {
+//         margin-top: auto;
+//       }
+//     }
+//   }
+// }
 
-:host(#{$dds-prefix}-locale-search) {
-  padding-top: $carbon--spacing-03;
-}
+// :host(#{$dds-prefix}-locale-modal) #{$dds-prefix}-expressive-modal-heading {
+//   width: fit-content;
+// }
 
-:host(#{$dds-prefix}-region-item) {
-  @include carbon--breakpoint('sm', $carbon--grid-breakpoints) {
-    @include carbon--make-col(
-      4,
-      map-get(map-get($carbon--grid-breakpoints, 'sm'), 'columns')
-    );
-  }
+// :host(#{$dds-prefix}-locale-search) {
+//   padding-top: $spacing-03;
+// }
 
-  @include carbon--breakpoint('md', $carbon--grid-breakpoints) {
-    @include carbon--make-col(
-      8,
-      map-get(map-get($carbon--grid-breakpoints, 'md'), 'columns')
-    );
-  }
+// :host(#{$dds-prefix}-region-item) {
+//   @include breakpoint('sm', $grid-breakpoints) {
+//     @include make-col(4, map.get(map.get($grid-breakpoints, 'sm'), 'columns'));
+//   }
 
-  @include carbon--breakpoint('lg', $carbon--grid-breakpoints) {
-    @include carbon--make-col(
-      8,
-      map-get(map-get($carbon--grid-breakpoints, 'lg'), 'columns')
-    );
-  }
+//   @include breakpoint('md', $grid-breakpoints) {
+//     @include make-col(8, map.get(map.get($grid-breakpoints, 'md'), 'columns'));
+//   }
 
-  @include carbon--breakpoint('xlg', $carbon--grid-breakpoints) {
-    @include carbon--make-col(
-      8,
-      map-get(map-get($carbon--grid-breakpoints, 'xlg'), 'columns')
-    );
-  }
+//   @include breakpoint('lg', $grid-breakpoints) {
+//     @include make-col(8, map.get(map.get($grid-breakpoints, 'lg'), 'columns'));
+//   }
 
-  .#{$prefix}--link {
-    @extend .#{$prefix}--tile;
-    @extend .#{$prefix}--tile--clickable;
-    @extend .#{$prefix}--card;
+//   @include breakpoint('xlg', $grid-breakpoints) {
+//     @include make-col(8, map.get(map.get($grid-breakpoints, 'xlg'), 'columns'));
+//   }
 
-    align-items: stretch;
-    text-align: inherit;
+//   .#{$prefix}--link {
+//     @extend .#{$prefix}--tile;
+//     @extend .#{$prefix}--tile--clickable;
+//     @extend .#{$prefix}--card;
 
-    &:hover.#{$prefix}--link--disabled {
-      display: flex;
-    }
+//     align-items: stretch;
+//     text-align: inherit;
 
-    .#{$prefix}--card__wrapper .bx--card__footer svg {
-      color: $ui-05;
-    }
-  }
+//     &:hover.#{$prefix}--link--disabled {
+//       display: flex;
+//     }
 
-  &[disabled] .#{$prefix}--link {
-    @extend .#{$prefix}--card__CTA--disabled;
-  }
-}
+//     .#{$prefix}--card__wrapper .bx--card__footer svg {
+//       color: $layer-selected-inverse;
+//     }
+//   }
+
+//   &[disabled] .#{$prefix}--link {
+//     @extend .#{$prefix}--card__CTA--disabled;
+//   }
+// }

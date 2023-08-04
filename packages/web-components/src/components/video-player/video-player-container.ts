@@ -14,9 +14,8 @@ import {
   bindActionCreators,
 } from 'redux';
 import {} from 'lit';
-import settings from 'carbon-components/es/globals/js/settings.js';
 import KalturaPlayerAPI from '@carbon/ibmdotcom-services/es/services/KalturaPlayer/KalturaPlayer.js';
-import ddsSettings from '../../internal/vendor/@carbon/ibmdotcom-utilities/utilities/settings/settings';
+import settings from '../../internal/vendor/@carbon/ibmdotcom-utilities/utilities/settings/settings';
 import store from '../../internal/vendor/@carbon/ibmdotcom-services-store/store';
 import {
   MediaData,
@@ -30,8 +29,7 @@ import StableSelectorMixin from '../../globals/mixins/stable-selector';
 import DDSVideoPlayerComposite from './video-player-composite';
 import { carbonElement as customElement } from '../../internal/vendor/@carbon/web-components/globals/decorators/carbon-element';
 
-const { prefix } = settings;
-const { stablePrefix: ddsPrefix } = ddsSettings;
+const { prefix, stablePrefix: ddsPrefix } = settings;
 
 /**
  * The Redux state used for `<dds-video-player-container>`.

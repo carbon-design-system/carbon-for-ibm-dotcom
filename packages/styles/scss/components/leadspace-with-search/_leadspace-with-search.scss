@@ -5,78 +5,92 @@
  * LICENSE file in the root directory of this source tree.
  */
 
+@use '@carbon/styles/scss/breakpoint' as *;
+@use '@carbon/styles/scss/config' as *;
+@use '@carbon/styles/scss/spacing' as *;
+@use '@carbon/styles/scss/theme' as *;
+@use '@carbon/styles/scss/themes' as *;
+@use '@carbon/styles/scss/type' as *;
+@use '../../globals/utils/flex-grid' as *;
+@use '../../globals/vars' as *;
+@use '../../internal/content-block';
+@use '../leadspace-block';
+
 @mixin leadspace-with-search {
   .#{$prefix}--leadspace-with-search {
-    padding-top: $layout-04;
-    padding-bottom: $layout-04;
-    border-bottom: 1px solid $ui-03;
-    @include carbon--make-container;
-    @include carbon--breakpoint('lg') {
-      padding-top: $layout-05;
-      padding-bottom: $layout-05;
+    padding-top: $spacing-09;
+    padding-bottom: $spacing-09;
+    border-bottom: 1px solid $layer-accent-01;
+    @include make-container;
+    @include breakpoint(lg) {
+      padding-top: $spacing-10;
+      padding-bottom: $spacing-10;
     }
     &__row {
-      @include carbon--make-row;
+      @include make-row;
     }
     &__content {
-      @include carbon--make-col(4, 4);
-      @include carbon--make-col-ready;
-      @include carbon--breakpoint('lg') {
-        @include carbon--make-col(12, 16);
-        @include carbon--make-col-offset(4, 16);
+      @include make-col(4, 4);
+      @include make-col-ready;
+      @include breakpoint(lg) {
+        @include make-col(12, 16);
+        @include make-col-offset(4, 16);
       }
     }
     &__heading {
-      color: $text-01;
-      @include type-style('expressive-heading-06', true);
+      color: $text-primary;
+      @include type-style('fluid-heading-06', true);
     }
     &__copy {
-      color: $text-01;
-      @include type-style('expressive-heading-05', true);
-      @include carbon--breakpoint('md') {
-        @include carbon--make-col(6, 8);
+      color: $text-primary;
+      @include type-style('fluid-heading-05', true);
+      @include breakpoint(md) {
+        @include make-col(6, 8);
       }
-      @include carbon--breakpoint('lg') {
-        @include carbon--make-col(8, 16);
+      @include breakpoint(lg) {
+        @include make-col(8, 16);
       }
     }
     &__search {
-      margin-top: $layout-03;
+      margin-top: $spacing-07;
       svg.bx--search-magnifier {
-        height: $layout-02;
-        width: $layout-02;
-        @include carbon--breakpoint('lg') {
-          height: $layout-03;
-          width: $layout-03;
+        height: $spacing-06;
+        width: $spacing-06;
+        @include breakpoint(lg) {
+          height: $spacing-07;
+          width: $spacing-07;
         }
       }
       button.bx--search-close {
         height: 100%;
-        width: $layout-04;
-        @include carbon--breakpoint('md') {
-          width: $layout-05;
+        width: $spacing-09;
+        @include breakpoint(md) {
+          width: $spacing-10;
           svg {
-            height: $layout-02;
-            width: $layout-02;
+            height: $spacing-06;
+            width: $spacing-06;
           }
         }
       }
-      @include carbon--breakpoint('md') {
-        @include carbon--make-col(6, 8);
+      @include breakpoint(md) {
+        @include make-col(6, 8);
       }
-      @include carbon--breakpoint('lg') {
-        height: $layout-05;
-        margin-top: $layout-05;
-        @include carbon--make-col(8, 10);
+
+      @include breakpoint(lg) {
+        height: $spacing-10;
+        margin-top: $spacing-10;
+        @include make-col(8, 10);
 
         input.bx--search-input {
           height: 100%;
-          color: $text-01;
+          color: $text-primary;
           padding-left: carbon--mini-units(8);
-          @include type-style('expressive-heading-03');
+
+          // @include type-style('fluid-heading-03');
+
           &::placeholder {
-            color: $text-05;
-            @include type-style('expressive-heading-03');
+            color: $text-helper;
+            //     @include type-style('fluid-heading-03');
           }
           &:focus::placeholder {
             color: transparent;
@@ -91,14 +105,14 @@
     position: relative;
 
     &[has-image] {
-      @include carbon--breakpoint-down('lg') {
+      @include breakpoint-down(lg) {
         ::slotted([slot='hr']) {
           display: none;
         }
       }
 
       .#{$prefix}--content-layout {
-        @include carbon--breakpoint-down('md') {
+        @include breakpoint-down(md) {
           padding-bottom: 0;
         }
       }
@@ -108,14 +122,14 @@
       display: block;
       height: auto;
 
-      @include carbon--breakpoint('md') {
+      @include breakpoint(md) {
         display: none;
       }
     }
 
     ::slotted([slot='image']) {
       display: none;
-      @include carbon--breakpoint('md') {
+      @include breakpoint(md) {
         position: absolute;
         display: block;
         height: 100%;
@@ -128,13 +142,13 @@
     }
 
     ::slotted(#{$dds-prefix}-leadspace-block-heading) {
-      @include carbon--breakpoint('md') {
-        width: calc(75% - 32px);
+      @include breakpoint(md) {
+        width: calc(75% - $spacing-07);
         max-width: rem(640px);
       }
 
-      @include carbon--breakpoint('lg') {
-        width: calc(100% - 32px);
+      @include breakpoint(lg) {
+        width: calc(100% - $spacing-07);
         max-width: rem(640px);
       }
     }
@@ -146,31 +160,31 @@
       &::before {
         right: calc(50% - 50vw);
         content: '';
-        background-color: $ui-background;
+        background-color: $background;
         position: absolute;
         width: 100vw;
         height: 100%;
         z-index: -1;
       }
 
-      @include carbon--breakpoint('md') {
+      @include breakpoint(md) {
         padding: $spacing-07 0 $spacing-09;
       }
 
-      @include carbon--breakpoint('xlg') {
+      @include breakpoint(xlg) {
         padding: $spacing-09 0;
       }
 
       &-g10 {
-        @include carbon--theme($carbon--theme--g10, true);
+        @include theme($g10, true);
       }
 
       &-g90 {
-        @include carbon--theme($carbon--theme--g90, true);
+        @include theme($g90, true);
       }
 
       &-g100 {
-        @include carbon--theme($carbon--theme--g100, true);
+        @include theme($g100, true);
       }
     }
 
@@ -183,36 +197,36 @@
       transition-timing-function: motion(entrance, productive);
       transition-duration: 0s;
 
-      @include carbon--breakpoint-down('md') {
+      @include breakpoint-down(md) {
         margin: 0 $spacing-05;
       }
 
-      @include carbon--breakpoint('md') {
+      @include breakpoint(md) {
         padding-bottom: $spacing-12;
       }
 
       &-adjacent-theme {
         padding: $spacing-07 0;
 
-        @include carbon--breakpoint('md') {
+        @include breakpoint(md) {
           padding: $spacing-09 0;
         }
       }
 
       &-g10 {
-        @include carbon--theme($carbon--theme--g10, true);
+        @include theme($g10, true);
       }
 
       &-g90 {
-        @include carbon--theme($carbon--theme--g90, true);
+        @include theme($g90, true);
       }
 
       &-g100 {
-        @include carbon--theme($carbon--theme--g100, true);
+        @include theme($g100, true);
       }
 
       .#{$prefix}--sticky-header {
-        @include carbon--type-style('expressive-heading-01');
+        @include type-style('heading-01');
 
         display: none;
         align-self: center;
@@ -222,7 +236,7 @@
         top: 0;
         right: calc(50% - 50vw);
         content: '';
-        background-color: $ui-background;
+        background-color: $background;
         position: absolute;
         width: 100vw;
         height: 100%;
@@ -231,11 +245,11 @@
     }
 
     ::slotted(#{$dds-prefix}-search-with-typeahead) {
-      @include carbon--breakpoint('md') {
+      @include breakpoint(md) {
         width: 75%;
       }
 
-      @include carbon--breakpoint('lg') {
+      @include breakpoint(lg) {
         width: 125%;
       }
     }
@@ -243,41 +257,41 @@
     ::slotted(#{$dds-prefix}-hr) {
       margin: 0 calc(50% - 50vw);
       position: relative;
-      background: $ui-03;
+      background: $layer-accent-01;
     }
 
     &[adjacent-theme='white-and-g10'] {
       .#{$prefix}--search-container {
-        @include carbon--theme($carbon--theme--g10, true);
+        @include theme($g10, true);
       }
     }
 
     &[adjacent-theme='g10-and-white'] {
       ::slotted(#{$dds-prefix}-background-media),
       .#{$prefix}--content-layout {
-        @include carbon--theme($carbon--theme--g10, true);
+        @include theme($g10, true);
       }
     }
 
     &[adjacent-theme='g90-and-g100'] {
       ::slotted(#{$dds-prefix}-background-media),
       .#{$prefix}--content-layout {
-        @include carbon--theme($carbon--theme--g90, true);
+        @include theme($g90, true);
       }
 
       .#{$prefix}--search-container {
-        @include carbon--theme($carbon--theme--g100, true);
+        @include theme($g100, true);
       }
     }
 
     &[adjacent-theme='g100-and-g90'] {
       ::slotted(#{$dds-prefix}-background-media),
       .#{$prefix}--content-layout {
-        @include carbon--theme($carbon--theme--g100, true);
+        @include theme($g100, true);
       }
 
       .#{$prefix}--search-container {
-        @include carbon--theme($carbon--theme--g90, true);
+        @include theme($g90, true);
       }
     }
 
@@ -293,31 +307,31 @@
       }
 
       .#{$prefix}--search-container-inner {
-        @include carbon--make-container;
-        @include carbon--make-row;
+        @include make-container;
+        @include make-row;
 
         margin-left: auto;
         margin-right: auto;
       }
 
       .#{$prefix}--sticky-header {
-        @include carbon--breakpoint('lg') {
-          @include carbon--make-col(4, 16);
+        @include breakpoint(lg) {
+          @include make-col(4, 16);
         }
       }
 
       ::slotted(#{$dds-prefix}-search-with-typeahead) {
-        @include carbon--make-col(4, 4);
+        @include make-col(4, 4);
 
-        @include carbon--breakpoint('lg') {
-          @include carbon--make-col(10, 16);
+        @include breakpoint(lg) {
+          @include make-col(10, 16);
         }
       }
 
       &[scroll-behavior]:not([adjacent-theme]) {
         .#{$prefix}--search-container {
           &::before {
-            border-bottom: 1px solid $ui-03;
+            border-bottom: 1px solid $layer-accent-01;
           }
         }
       }
@@ -339,20 +353,20 @@
   :host(#{$dds-prefix}-leadspace-with-search-content-heading) {
     @extend :host(#{$dds-prefix}-content-block-heading);
 
-    @include carbon--breakpoint-down('lg') {
+    @include breakpoint-down(lg) {
       display: block;
       width: calc(75% - #{$spacing-07});
       margin-bottom: 0;
     }
 
-    @include carbon--breakpoint('xlg') {
+    @include breakpoint(xlg) {
       display: block;
       width: calc(100% - #{$spacing-07});
       margin-bottom: 0;
     }
 
     // !important required to override slotted styling from block-content component
-    @include carbon--breakpoint-down('md') {
+    @include breakpoint-down(md) {
       /* stylelint-disable declaration-no-important */
       margin-left: 0 !important;
       /* stylelint-enable declaration-no-important */
@@ -362,23 +376,23 @@
 
   :host(#{$dds-prefix}-leadspace-with-search-content-copy) {
     @extend :host(#{$dds-prefix}-content-block-paragraph);
-    @include carbon--type-style('expressive-heading-03', true);
+    @include type-style('fluid-heading-03', true);
 
     display: block;
     padding-top: $spacing-07;
     margin-bottom: 0;
     max-width: rem(640px);
 
-    @include carbon--breakpoint('md') {
+    @include breakpoint(md) {
       width: calc(75% - #{$spacing-07});
     }
 
-    @include carbon--breakpoint('lg') {
+    @include breakpoint(lg) {
       width: calc(100% - #{$spacing-07});
     }
 
     // !important required to override slotted styling from block-content component
-    @include carbon--breakpoint-down('md') {
+    @include breakpoint-down(md) {
       /* stylelint-disable declaration-no-important */
       margin-left: 0 !important;
       /* stylelint-enable declaration-no-important */
@@ -386,8 +400,4 @@
       width: 100%;
     }
   }
-}
-
-@include exports('leadspace-with-search') {
-  @include leadspace-with-search;
 }

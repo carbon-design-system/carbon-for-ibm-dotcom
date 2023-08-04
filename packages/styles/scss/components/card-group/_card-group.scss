@@ -5,39 +5,47 @@
  * LICENSE file in the root directory of this source tree.
  */
 
-@import '../../globals/vars';
-@import '../../globals/imports';
-@import '../../globals/utils/ratio-base';
-@import '../../internal/content-section/content-section';
-@import '../card/index';
-@import '../image/image';
-@import '../link-with-icon/link-with-icon';
+@use 'sass:math';
 
-@mixin themed-items {
-  color: $text-01;
-  background: $ui-background;
+@use '@carbon/styles/scss/breakpoint' as *;
+@use '@carbon/styles/scss/config' as *;
+@use '@carbon/styles/scss/spacing' as *;
+@use '@carbon/styles/scss/theme' as *;
+@use '@carbon/styles/scss/themes' as *;
+@use '@carbon/styles/scss/type' as *;
+@use '../../globals/utils/flex-grid' as *;
+@use '../../globals/vars' as *;
+@use '../../globals/utils/ratio-base' as *;
+@use '../../internal/content-section';
+@use '../card';
+@use '../image';
+@use '../link-with-icon';
+
+@mixin card-group-themed-items {
+  color: $text-primary;
+  background: $background;
   .#{$prefix}--card__heading {
-    color: $text-01;
+    color: $text-primary;
   }
   .#{$prefix}--card__copy,
   .#{$prefix}--card__eyebrow {
-    color: $text-02;
+    color: $text-secondary;
   }
   .#{$prefix}--card--inverse {
-    background-color: $inverse-02;
+    background-color: $background-inverse;
     height: 100%;
 
     .#{$prefix}--card__heading {
-      color: $inverse-01;
+      color: $icon-inverse;
     }
 
     &.#{$prefix}--card--link:hover {
-      background-color: $inverse-hover-ui;
+      background-color: $background-inverse-hover;
     }
     .#{$prefix}--card__cta,
     .#{$prefix}--card__cta a,
     .#{$prefix}--card__cta a:visited {
-      color: $inverse-link;
+      color: $link-inverse;
     }
   }
 }
@@ -45,14 +53,14 @@
 @mixin card-group {
   :host(#{$dds-prefix}-card-group),
   .#{$prefix}--card-group {
-    @include themed-items;
+    @include card-group-themed-items;
   }
 
   :host(#{$dds-prefix}-card-group-item),
   .#{$prefix}--card-group__card {
     // FIXME: CardLink is being used as Card in React, need to separate this
     .#{$prefix}--card-link .#{$prefix}--card__heading {
-      @include carbon--type-style('expressive-heading-03', true);
+      @include type-style('fluid-heading-03', true);
     }
 
     .#{$prefix}--image {
@@ -60,7 +68,7 @@
         height: carbon--mini-units(30);
       }
 
-      @include carbon--breakpoint('lg') {
+      @include breakpoint(lg) {
         @include ratio-base(4, 3, true);
 
         &__img {
@@ -81,7 +89,7 @@
   :host(#{$dds-prefix}-card-group-item)
     .#{$prefix}--card-link
     .#{$prefix}--card__heading {
-    @include carbon--type-style('expressive-heading-02', true);
+    @include type-style('heading-02', true);
   }
 
   :host(#{$dds-prefix}-card-group-item),
@@ -95,10 +103,10 @@
 
     &[empty] {
       display: none;
-      background-color: $ui-background;
-      outline: 1px solid $ui-background;
+      background-color: $background;
+      outline: 1px solid $background;
 
-      @include carbon--breakpoint('md') {
+      @include breakpoint(md) {
         display: block;
       }
 
@@ -115,19 +123,19 @@
       &[border],
       &[border]:hover {
         .#{$prefix}--card__wrapper {
-          background: $ui-background;
+          background: $background;
         }
       }
     }
 
     &[pattern-background] {
       .#{$prefix}--card {
-        border-bottom: 1px solid $ui-03;
+        border-bottom: 1px solid $layer-accent-01;
       }
 
       .#{$prefix}--card,
       .#{$prefix}--card__wrapper {
-        background: $ui-background;
+        background: $background;
       }
     }
   }
@@ -146,8 +154,8 @@
         left: 0;
         bottom: 0;
         right: 0;
-        outline: 2px solid $focus;
-        outline-offset: -2px;
+        outline: $spacing-01 solid $focus;
+        outline-offset: -#{$spacing-01};
         pointer-events: none;
       }
 
@@ -170,11 +178,11 @@
     display: grid;
     grid-template-columns: 1fr;
 
-    @include carbon--breakpoint('md') {
+    @include breakpoint(md) {
       grid-template-columns: repeat(2, 1fr);
     }
 
-    @include carbon--breakpoint('lg') {
+    @include breakpoint(lg) {
       grid-template-columns: repeat(
         var(--#{$dds-prefix}--card-group--cards-in-row),
         1fr
@@ -183,11 +191,11 @@
   }
 
   .#{$prefix}--card-group__cards__row {
-    // `@include carbon--make-row()` has negative margin adjustment assuming that it's placed in Carbon grid.
+    // `@include make-row()` has negative margin adjustment assuming that it's placed in Carbon grid.
     // Such adjustment has adverse effect when card group is placed in non-Carbon-grid,
     // but keeps it for React for backward-compatibility reason.
-    margin-left: calc(-1 * #{$carbon--grid-gutter} / 2);
-    margin-right: calc(-1 * #{$carbon--grid-gutter} / 2);
+    margin-left: calc(-1 * #{math.div(#{$grid-gutter}, 2)});
+    margin-right: calc(-1 * #{math.div(#{$grid-gutter}, 2)});
 
     position: relative;
     &::after {
@@ -199,16 +207,16 @@
       left: 0;
       top: 0;
       pointer-events: none;
-      box-shadow: inset 0 0 0 1px $ui-background;
+      box-shadow: inset 0 0 0 1px $background;
     }
   }
 
   .#{$prefix}--card-group__cards__col {
     padding: 0;
-    background: $decorative-01;
+    background: $border-subtle-02;
 
-    border-right: 1px solid $decorative-01;
-    border-top: 1px solid $decorative-01;
+    border-right: 1px solid $border-subtle-02;
+    border-top: 1px solid $border-subtle-02;
 
     &:last-of-type {
       border-right: 0;
@@ -223,17 +231,17 @@
   // Add Grid Mode Narrow (16px gutter) style.
   :host(#{$dds-prefix}-card-group)[grid-mode='narrow'],
   .#{$prefix}--card-group--narrow {
-    @include carbon--breakpoint('sm') {
-      padding-top: $carbon--spacing-03;
-      gap: $carbon--spacing-03;
+    @include breakpoint(sm) {
+      padding-top: $spacing-03;
+      gap: $spacing-03;
     }
 
-    @include carbon--breakpoint('md') {
-      padding-top: $carbon--spacing-05;
-      gap: $carbon--spacing-05;
+    @include breakpoint(md) {
+      padding-top: $spacing-05;
+      gap: $spacing-05;
     }
 
-    @include carbon--breakpoint('lg') {
+    @include breakpoint(lg) {
       grid-template-columns: repeat(
         3,
         calc((100% / 3) - #{carbon--mini-units(2)})
@@ -263,7 +271,7 @@
           left: 0;
           bottom: 0;
           right: 0;
-          box-shadow: inset 0 0 0 2px $focus;
+          box-shadow: inset 0 0 0 $spacing-01 $focus;
           pointer-events: none;
         }
       }
@@ -278,16 +286,16 @@
 
     .#{$prefix}--card-group__cards__col {
       padding: 0;
-      border: 1px solid $decorative-01;
+      border: 1px solid $border-subtle-02;
       border-bottom: 0;
     }
 
     .#{$prefix}--card-group__cards__col:last-of-type {
-      border-bottom: 1px solid $decorative-01;
+      border-bottom: 1px solid $border-subtle-02;
       padding-right: 0;
     }
 
-    @include carbon--breakpoint('md') {
+    @include breakpoint(md) {
       .#{$prefix}--card-group__cards__col {
         border-bottom: 0;
         border-right: 0;
@@ -295,7 +303,7 @@
 
       .#{$prefix}--card-group__cards__col:nth-child(2n),
       .#{$prefix}--card-group__cards__col:last-of-type {
-        border-right: 1px solid $decorative-01;
+        border-right: 1px solid $border-subtle-02;
       }
 
       .#{$prefix}--card-group__cards__col:last-of-type:not(:nth-child(2n)) {
@@ -303,12 +311,12 @@
       }
 
       .#{$prefix}--card-group__cards__col:nth-last-of-type(-n + 2) {
-        border-bottom: 1px solid $decorative-01;
+        border-bottom: 1px solid $border-subtle-02;
         height: calc(100% + 1px);
       }
     }
 
-    @include carbon--breakpoint('lg') {
+    @include breakpoint(lg) {
       .#{$prefix}--card-group__cards__col:nth-child(2n),
       .#{$prefix}--card-group__cards__col:nth-last-of-type(-n + 2) {
         border-bottom: 0;
@@ -318,12 +326,12 @@
 
       .#{$prefix}--card-group__cards__col:nth-child(3n),
       .#{$prefix}--card-group__cards__col:last-of-type {
-        border-right: 1px solid $decorative-01;
+        border-right: 1px solid $border-subtle-02;
         width: calc(100% + 1px);
       }
 
       .#{$prefix}--card-group__cards__col:nth-last-of-type(-n + 3) {
-        border-bottom: 1px solid $decorative-01;
+        border-bottom: 1px solid $border-subtle-02;
         height: calc(100% + 1px);
       }
 
@@ -340,28 +348,18 @@
   }
 
   .#{$prefix}--card-group.#{$prefix}--card-group--g10 {
-    @include carbon--theme(
-      $carbon--theme--g10,
-      feature-flag-enabled('enable-css-custom-properties')
-    ) {
-      @include themed-items;
-    }
+    @include theme($g10, feature-flag-enabled('enable-css-custom-properties'));
+    @include card-group-themed-items;
   }
+
   .#{$prefix}--card-group.#{$prefix}--card-group--g90 {
-    @include carbon--theme(
-      $carbon--theme--g90,
-      feature-flag-enabled('enable-css-custom-properties')
-    ) {
-      @include themed-items;
-    }
+    @include theme($g90, feature-flag-enabled('enable-css-custom-properties'));
+    @include card-group-themed-items;
   }
+
   .#{$prefix}--card-group.#{$prefix}--card-group--g100 {
-    @include carbon--theme(
-      $carbon--theme--g100,
-      feature-flag-enabled('enable-css-custom-properties')
-    ) {
-      @include themed-items;
-    }
+    @include theme($g100, feature-flag-enabled('enable-css-custom-properties'));
+    @include card-group-themed-items;
   }
 
   // Print styles
@@ -390,7 +388,7 @@
       background-color: transparent;
 
       &[empty] {
-        @include carbon--breakpoint('md') {
+        @include breakpoint(md) {
           /* stylelint-disable declaration-no-important */
           // need important since it gets overriden in WC Card Group without it
           display: none !important;
@@ -400,12 +398,8 @@
 
       .#{$prefix}--tile {
         background-color: transparent;
-        border: 1px solid $gray-20;
+        border: 1px solid $border-subtle-01;
       }
     }
   }
-}
-
-@include exports('card-group') {
-  @include card-group;
 }

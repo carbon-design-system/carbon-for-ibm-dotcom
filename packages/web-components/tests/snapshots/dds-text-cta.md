@@ -6,7 +6,7 @@
 
 ```
 <a
-  class="bx--link-with-icon bx--link-with-icon--inline-icon bx--link-with-icon__icon-right cds--link cds--link--lg"
+  class="cds--link cds--link--lg cds--link-with-icon cds--link-with-icon--inline-icon cds--link-with-icon__icon-right"
   id="link"
   part="link"
   tabindex="0"
@@ -27,7 +27,7 @@
 
 ```
 <a
-  class="bx--link-with-icon bx--link-with-icon--inline-icon bx--link-with-icon__icon-right cds--link cds--link--lg"
+  class="cds--link cds--link--lg cds--link-with-icon cds--link-with-icon--inline-icon cds--link-with-icon__icon-right"
   href="#"
   id="link"
   part="link"

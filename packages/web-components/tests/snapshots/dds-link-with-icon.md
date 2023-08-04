@@ -6,7 +6,7 @@
 
 ```
 <a
-  class="bx--link-with-icon cds--link cds--link--lg"
+  class="cds--link cds--link--lg cds--link-with-icon"
   id="link"
   part="link"
   tabindex="0"
@@ -25,7 +25,7 @@
 
 ```
 <p
-  class="bx--link-with-icon cds--link cds--link--disabled cds--link--lg"
+  class="cds--link cds--link--disabled cds--link--lg cds--link-with-icon"
   id="link"
   part="link"
 >

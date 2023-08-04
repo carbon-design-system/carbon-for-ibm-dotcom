@@ -7,21 +7,23 @@
  * LICENSE file in the root directory of this source tree.
  */
 
-@import '../card/card';
-@import '@carbon/ibmdotcom-styles/scss/globals/vars';
-@import '@carbon/ibmdotcom-styles/scss/globals/imports';
-@import '@carbon/ibmdotcom-styles/scss/components/card-group/card-group';
+@use '@carbon/styles/scss/breakpoint' as *;
+@use '@carbon/styles/scss/spacing' as *;
+@use '@carbon/styles/scss/theme' as *;
+@use '@carbon/ibmdotcom-styles/scss/globals/vars' as *;
+@use '@carbon/ibmdotcom-styles/scss/components/card-group';
+@use '../card/card';
 
 :host(#{$dds-prefix}-card-group) {
   background: none;
 
   ::slotted(#{$dds-prefix}-card-group-item) {
-    background-color: $decorative-01;
+    background-color: $border-subtle-02;
   }
 
   ::slotted(#{$dds-prefix}-card-group-card-link-item) {
-    @include carbon--breakpoint('md') {
-      padding-right: $carbon--spacing-05;
+    @include breakpoint(md) {
+      padding-right: $spacing-05;
     }
   }
 
@@ -33,7 +35,7 @@
 }
 
 :host(#{$dds-prefix}-card-group)[grid-mode='border'] {
-  background: var(--#{$dds-prefix}--card-group-gradient, $decorative-01);
+  background: $border-subtle-02;
 
   /* stylelint-disable-next-line selector-type-no-unknown */
   #{$dds-prefix}-card-group-item[empty],

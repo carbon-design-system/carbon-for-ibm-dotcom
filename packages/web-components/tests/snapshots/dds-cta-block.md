@@ -3,39 +3,39 @@
 #### `Renders Default`
 
 ```
-<div class="bx--content-layout">
+<div class="cds--content-layout">
   <slot name="heading">
   </slot>
   <div
-    class="bx--content-layout__body"
+    class="cds--content-layout__body"
     hidden=""
   >
     <div
-      class="bx--content-layout__copy"
+      class="cds--content-layout__copy"
       hidden=""
     >
       <slot name="copy">
       </slot>
     </div>
     <div
-      class="bx--content-layout__cta"
+      class="cds--content-layout__cta"
       hidden=""
     >
       <slot name="action">
       </slot>
     </div>
     <div
-      class="bx--content-layout__link-list"
+      class="cds--content-layout__link-list"
       hidden=""
     >
       <slot name="link-list">
       </slot>
     </div>
     <div
-      class="bx--helper-wrapper bx--helper-wrapper--less-space"
+      class="cds--helper-wrapper cds--helper-wrapper--less-space"
       hidden=""
     >
-      <div class="bx--content-item-wrapper">
+      <div class="cds--content-item-wrapper">
         <slot>
         </slot>
       </div>
@@ -52,39 +52,39 @@
 ####   `should render with minimum attributes`
 
 ```
-<div class="bx--content-layout bx--content-layout--border">
+<div class="cds--content-layout cds--content-layout--border">
   <slot name="heading">
   </slot>
   <div
-    class="bx--content-layout__body"
+    class="cds--content-layout__body"
     hidden=""
   >
     <div
-      class="bx--content-layout__copy"
+      class="cds--content-layout__copy"
       hidden=""
     >
       <slot name="copy">
       </slot>
     </div>
     <div
-      class="bx--content-layout__cta"
+      class="cds--content-layout__cta"
       hidden=""
     >
       <slot name="action">
       </slot>
     </div>
     <div
-      class="bx--content-layout__link-list"
+      class="cds--content-layout__link-list"
       hidden=""
     >
       <slot name="link-list">
       </slot>
     </div>
     <div
-      class="bx--helper-wrapper bx--helper-wrapper--less-space"
+      class="cds--helper-wrapper cds--helper-wrapper--less-space"
       hidden=""
     >
-      <div class="bx--content-item-wrapper">
+      <div class="cds--content-item-wrapper">
         <slot>
         </slot>
       </div>
@@ -99,30 +99,30 @@
 ####   `should render with various attributes`
 
 ```
-<div class="bx--content-layout bx--content-layout--border">
+<div class="cds--content-layout cds--content-layout--border">
   <slot name="heading">
   </slot>
-  <div class="bx--content-layout__body">
+  <div class="cds--content-layout__body">
     <div
-      class="bx--content-layout__copy"
+      class="cds--content-layout__copy"
       hidden=""
     >
       <slot name="copy">
       </slot>
     </div>
-    <div class="bx--content-layout__cta">
+    <div class="cds--content-layout__cta">
       <slot name="action">
       </slot>
     </div>
     <div
-      class="bx--content-layout__link-list"
+      class="cds--content-layout__link-list"
       hidden=""
     >
       <slot name="link-list">
       </slot>
     </div>
-    <div class="bx--helper-wrapper">
-      <div class="bx--content-item-wrapper">
+    <div class="cds--helper-wrapper">
+      <div class="cds--content-item-wrapper">
         <slot>
         </slot>
       </div>

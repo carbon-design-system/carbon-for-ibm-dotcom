@@ -8,13 +8,13 @@
  */
 
 import {} from 'lit-element';
-import ddsSettings from '@carbon/ibmdotcom-utilities/es/utilities/settings/settings.js';
+import settings from '@carbon/ibmdotcom-utilities/es/utilities/settings/settings.js';
 import StableSelectorMixin from '../../globals/mixins/stable-selector';
 import DDSStructuredListHead from '../structured-list/structured-list-head';
 import styles from './pricing-table.scss';
 import { carbonElement as customElement } from '../../internal/vendor/@carbon/web-components/globals/decorators/carbon-element';
 
-const { stablePrefix: ddsPrefix } = ddsSettings;
+const { stablePrefix: ddsPrefix } = settings;
 
 @customElement(`${ddsPrefix}-pricing-table-head`)
 class DDSPricingTableHead extends StableSelectorMixin(DDSStructuredListHead) {

@@ -10,14 +10,14 @@
   id="link"
   type="button"
 >
-  <div class="bx--card__wrapper">
-    <div class="bx--card__content">
-      <h3 class="bx--card__heading">
+  <div class="cds--card__wrapper">
+    <div class="cds--card__content">
+      <h3 class="cds--card__heading">
         <slot>
           name-foo
         </slot>
       </h3>
-      <div class="bx--card__footer">
+      <div class="cds--card__footer">
       </div>
     </div>
   </div>
@@ -34,14 +34,14 @@
   id="link"
   type="button"
 >
-  <div class="bx--card__wrapper">
-    <div class="bx--card__content">
-      <h3 class="bx--card__heading">
+  <div class="cds--card__wrapper">
+    <div class="cds--card__content">
+      <h3 class="cds--card__heading">
         <slot>
           name-foo
         </slot>
       </h3>
-      <div class="bx--card__footer">
+      <div class="cds--card__footer">
       </div>
     </div>
   </div>

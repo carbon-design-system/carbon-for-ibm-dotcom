@@ -5,10 +5,13 @@
 // LICENSE file in the root directory of this source tree.
 //
 
-@import '@carbon/ibmdotcom-styles/scss/globals/vars';
-@import '@carbon/ibmdotcom-styles/scss/components/expressive-modal/expressive-modal';
-@import '@carbon/web-components/scss/components/modal/modal';
-@import '../../globals/scss/box-sizing';
+@use '@carbon/styles/scss/breakpoint' as *;
+@use '@carbon/styles/scss/config' as *;
+@use '@carbon/styles/scss/spacing' as *;
+@use '@carbon/styles/scss/type' as *;
+@use '@carbon/ibmdotcom-styles/scss/globals/vars' as *;
+@use '@carbon/ibmdotcom-styles/scss/components/expressive-modal';
+@use '../../../../carbon-web-components/src/components/modal/modal';
 
 :host(#{$dds-prefix}-expressive-modal) {
   @extend :host(#{$prefix}-modal);
@@ -21,9 +24,9 @@
     .#{$prefix}--modal-container {
       max-height: none;
 
-      @include carbon--breakpoint('md') {
-        width: calc(100% - 2rem);
-        height: calc(100% - 2rem);
+      @include breakpoint(md) {
+        width: calc(100% - $spacing-07);
+        height: calc(100% - $spacing-07);
       }
 
       .#{$prefix}--modal-content {
@@ -70,12 +73,12 @@
 
 :host(#{$dds-prefix}-expressive-modal-body),
 :host(#{$dds-prefix}-lightbox-media-viewer-body) {
-  @include carbon--type-style('body-long-02');
+  @include type-style('body-02');
 }
 
 :host(#{$dds-prefix}-expressive-modal)[mode='lightbox'] {
   .#{$prefix}--modal-container {
-    @include carbon--breakpoint-down('md') {
+    @include breakpoint-down(md) {
       padding: 0 $spacing-05;
     }
   }

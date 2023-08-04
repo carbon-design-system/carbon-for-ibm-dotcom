@@ -1,4 +1,9 @@
-import { Preview, Props, Description, Story } from '@storybook/addon-docs/blocks';
+import {
+  Preview,
+  Props,
+  Description,
+  Story,
+} from '@storybook/addon-docs/blocks';
 import contributing from '../../../../../../docs/contributing-license.md';
 import { PropTypesRef } from '@carbon/ibmdotcom-web-components/es/components-react/carousel/carousel';
 
@@ -26,15 +31,17 @@ function App() {
     <DDSCarousel>
       <DDSCard href="https://www.ibm.com/standards/carbon">
         <DDSCardHeading>Lorem ipsum dolor sit amet</DDSCardHeading>
-        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean et ultricies est.
+        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean et ultricies
+        est.
         <DDSCardFooter>
           <ArrowRight20 slot="icon" />
         </DDSCardFooter>
       </DDSCard>
       <DDSCard href="https://www.ibm.com/standards/carbon">
         <DDSCardHeading>Lorem ipsum dolor sit amet</DDSCardHeading>
-        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean et ultricies est. Mauris iaculis eget dolor nec hendrerit.
-        Phasellus at elit sollicitudin, sodales nulla quis, consequat libero.
+        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean et ultricies
+        est. Mauris iaculis eget dolor nec hendrerit. Phasellus at elit sollicitudin,
+        sodales nulla quis, consequat libero.
         <DDSCardFooter>
           <ArrowRight20 slot="icon" />
         </DDSCardFooter>
@@ -46,26 +53,30 @@ function App() {
 
 ### SCSS
 
-While `<dds-carousel>` has `page-size` attribute, `<dds-carousel>` also looks at `--dds--carousel--page-size` CSS custom property to determine the number of cards per page.
-This is useful for setting different number of cards for different breakpoints.
+While `<dds-carousel>` has `page-size` attribute, `<dds-carousel>` also looks at
+`--dds--carousel--page-size` CSS custom property to determine the number of
+cards per page. This is useful for setting different number of cards for
+different breakpoints.
 
 ```scss
-@import 'carbon-components/scss/globals/scss/vendor/@carbon/elements/scss/layout/breakpoint';
+@use '@carbon/styles/scss/breakpoint';
 
 dds-carousel {
   --dds--carousel--page-size: 1;
 
-  @include carbon--breakpoint(md) {
+  @include breakpoint(md) {
     --dds--carousel--page-size: 2;
   }
 
-  @include carbon--breakpoint(lg) {
+  @include breakpoint(lg) {
     --dds--carousel--page-size: 3;
   }
 }
 ```
 
-Another CSS custom property `<dds-carousel>` looks at is `--dds--carousel--overflow-hint-size`. If `0rem` is set there, the first card at the next page as a hint of page overflow will be hidden.
+Another CSS custom property `<dds-carousel>` looks at is
+`--dds--carousel--overflow-hint-size`. If `0rem` is set there, the first card at
+the next page as a hint of page overflow will be hidden.
 
 ## Props
 
@@ -73,7 +84,9 @@ Another CSS custom property `<dds-carousel>` looks at is `--dds--carousel--overf
 
 ## Stable selectors
 
-See [our README](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/tree/main/packages/web-components#stable-selectors-for-analytics-and-integratione2e-testing-in-web-components) to see how Web Components selector and `data-autoid` should be used.
+See
+[our README](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/tree/main/packages/web-components#stable-selectors-for-analytics-and-integratione2e-testing-in-web-components)
+to see how Web Components selector and `data-autoid` should be used.
 
 | Web Components selector | Compatibility selector | Description |
 | ----------------------- | ---------------------- | ----------- |

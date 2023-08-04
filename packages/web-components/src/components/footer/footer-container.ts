@@ -14,7 +14,7 @@ import {
   Store,
   bindActionCreators,
 } from 'redux';
-import ddsSettings from '../../internal/vendor/@carbon/ibmdotcom-utilities/utilities/settings/settings';
+import settings from '../../internal/vendor/@carbon/ibmdotcom-utilities/utilities/settings/settings';
 import ConnectMixin from '../../globals/mixins/connect';
 import store from '../../internal/vendor/@carbon/ibmdotcom-services-store/store';
 import { LocaleAPIState } from '../../internal/vendor/@carbon/ibmdotcom-services-store/types/localeAPI.d';
@@ -43,7 +43,7 @@ import {
 import DDSFooterComposite from './footer-composite';
 import { carbonElement as customElement } from '../../internal/vendor/@carbon/web-components/globals/decorators/carbon-element';
 
-const { stablePrefix: ddsPrefix } = ddsSettings;
+const { stablePrefix: ddsPrefix } = settings;
 
 /**
  * The Redux actions used for `<dds-footer-container>`.

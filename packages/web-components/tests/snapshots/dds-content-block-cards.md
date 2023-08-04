@@ -5,11 +5,11 @@
 ####   `should render with minimum attributes`
 
 ```
-<div class="bx--content-layout bx--content-layout--card-group">
+<div class="cds--content-layout cds--content-layout--card-group">
   <slot name="heading">
   </slot>
   <div
-    class="bx--content-layout__body"
+    class="cds--content-layout__body"
     hidden=""
   >
     <slot name="copy">
@@ -36,11 +36,11 @@
 ####   `should render with various attributes`
 
 ```
-<div class="bx--content-layout bx--content-layout--card-group">
+<div class="cds--content-layout cds--content-layout--card-group">
   <slot name="heading">
   </slot>
   <div
-    class="bx--content-layout__body"
+    class="cds--content-layout__body"
     hidden=""
   >
     <slot name="copy">

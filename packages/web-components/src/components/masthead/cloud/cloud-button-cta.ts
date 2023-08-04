@@ -7,7 +7,7 @@
  * LICENSE file in the root directory of this source tree.
  */
 
-import ddsSettings from '../../../internal/vendor/@carbon/ibmdotcom-utilities/utilities/settings/settings';
+import settings from '../../../internal/vendor/@carbon/ibmdotcom-utilities/utilities/settings/settings';
 import { CTA_TYPE } from '../../cta/defs';
 import DDSButtonExpressive from '../../button/button';
 import styles from './cloud-masthead.scss';
@@ -15,7 +15,7 @@ import { carbonElement as customElement } from '../../../internal/vendor/@carbon
 
 export { CTA_TYPE };
 
-const { stablePrefix: ddsPrefix } = ddsSettings;
+const { stablePrefix: ddsPrefix } = settings;
 
 /**
  * Cloud Button CTA.

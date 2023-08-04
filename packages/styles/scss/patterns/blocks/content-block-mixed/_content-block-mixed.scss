@@ -8,7 +8,3 @@
 @mixin content-block-mixed {
   // empty for now
 }
-
-@include exports('content-block-mixed') {
-  @include content-block-mixed;
-}

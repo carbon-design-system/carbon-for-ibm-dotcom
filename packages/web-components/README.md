@@ -151,7 +151,7 @@ module: {
         {
           loader: 'sass-loader',
           options: {
-            implementation: require('node-sass'),
+            implementation: require('sass'),
             sassOptions: {
               includePaths: ['../node_modules', '../../../node_modules'],
               // `enable-css-custom-properties` and `grid-columns-16` feature flags
@@ -493,12 +493,11 @@ With CSS Custom Properties approach, you can switch the entire theme under the
 specific element by:
 
 ```scss
-@import 'carbon-components/scss/globals/scss/css--helpers';
-@import 'carbon-components/scss/globals/scss/vendor/@carbon/elements/scss/themes/mixins';
+@use '@carbon/styles/scss/themes' as *;
 
 dds-link-with-icon {
   // Emits all theme tokens in CSS Custom Properties
-  @include carbon--theme($carbon--theme--g100, true);
+  @include theme(g100, true);
 }
 ```
 

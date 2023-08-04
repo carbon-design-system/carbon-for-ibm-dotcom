@@ -5,7 +5,7 @@
 ####   `should render with minimum attributes`
 
 ```
-<div class="bx--card-section-offset__content">
+<div class="cds--card-section-offset__content">
   <slot name="heading">
   </slot>
   <slot name="action">
@@ -19,7 +19,7 @@
 ####   `should render with various attributes`
 
 ```
-<div class="bx--card-section-offset__content">
+<div class="cds--card-section-offset__content">
   <slot name="heading">
   </slot>
   <slot name="action">

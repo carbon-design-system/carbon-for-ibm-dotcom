@@ -10,7 +10,7 @@
     .#{$prefix}--content-group__copy {
       margin-bottom: $spacing-05;
 
-      @include carbon--breakpoint('md') {
+      @include breakpoint(md) {
         margin-bottom: $spacing-07;
       }
     }
@@ -25,7 +25,4 @@
       }
     }
   }
-}
-@include exports('content-group-pictograms') {
-  @include content-group-pictograms;
 }

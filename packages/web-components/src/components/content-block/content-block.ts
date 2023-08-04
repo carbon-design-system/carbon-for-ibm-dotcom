@@ -10,8 +10,7 @@
 import { classMap } from 'lit/directives/class-map.js';
 import { html, LitElement, TemplateResult } from 'lit';
 import { property, state } from 'lit/decorators.js';
-import settings from 'carbon-components/es/globals/js/settings.js';
-import ddsSettings from '../../internal/vendor/@carbon/ibmdotcom-utilities/utilities/settings/settings';
+import settings from '../../internal/vendor/@carbon/ibmdotcom-utilities/utilities/settings/settings';
 import { CONTENT_BLOCK_COMPLEMENTARY_STYLE_SCHEME } from './defs';
 import styles from './content-block.scss';
 import StableSelectorMixin from '../../globals/mixins/stable-selector';
@@ -19,8 +18,7 @@ import { carbonElement as customElement } from '../../internal/vendor/@carbon/we
 
 export { CONTENT_BLOCK_COMPLEMENTARY_STYLE_SCHEME };
 
-const { stablePrefix: ddsPrefix } = ddsSettings;
-const { prefix } = settings;
+const { prefix, stablePrefix: ddsPrefix } = settings;
 
 /**
  * The table mapping slot name with the private property name that indicates the existence of the slot content.

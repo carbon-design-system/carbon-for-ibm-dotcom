@@ -6,7 +6,7 @@
 
 ```
 <a
-  class="bx--link"
+  class="cds--link"
   id="link"
   part="link"
 >
@@ -20,7 +20,7 @@
 
 ```
 <a
-  class="bx--link"
+  class="cds--link"
   href="https://example.com"
   id="link"
   part="link"

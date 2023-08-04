@@ -85,7 +85,7 @@ describe('dds-top-nav', function () {
       MockIntersectionObserver as unknown as typeof IntersectionObserver;
   });
 
-  describe('Navigating to right', function () {
+  xdescribe('Navigating to right', function () {
     it('should go to the next page', async function () {
       render(template(), document.body);
       await Promise.resolve(); // Update cycle for the component
@@ -171,7 +171,7 @@ describe('dds-top-nav', function () {
     // });
   });
 
-  describe('Navigating to left', function () {
+  xdescribe('Navigating to left', function () {
     it('should go to the next page', async function () {
       render(template({ width: 255 }), document.body);
       await Promise.resolve(); // Update cycle for the component

@@ -5,29 +5,27 @@
 // LICENSE file in the root directory of this source tree.
 //
 
-@import 'carbon-components/scss/components/ui-shell/header';
-@import 'carbon-components/scss/components/ui-shell/side-nav';
-@import '@carbon/ibmdotcom-styles/scss/globals/vars';
-@import '@carbon/ibmdotcom-styles/scss/components/masthead/masthead';
-@import '@carbon/ibmdotcom-styles/scss/components/masthead/masthead-leftnav';
-@import '@carbon/ibmdotcom-styles/scss/components/masthead/masthead-top-nav-name';
-@import '@carbon/ibmdotcom-styles/scss/components/search-with-typeahead/search-with-typeahead';
-@import '@carbon/ibmdotcom-styles/scss/components/masthead/masthead-l1';
-@import '@carbon/web-components/scss/components/tooltip/tooltip';
-@import '@carbon/web-components/scss/components/ui-shell/header';
-@import '@carbon/web-components/scss/components/ui-shell/side-nav';
-@import '@carbon/ibmdotcom-styles/scss/components/masthead/masthead-megamenu';
-@import '../../globals/scss/box-sizing';
+@use '@carbon/styles/scss/breakpoint' as *;
+@use '@carbon/styles/scss/config' as *;
+@use '@carbon/styles/scss/motion' as *;
+@use '@carbon/styles/scss/spacing' as *;
+@use '@carbon/styles/scss/theme' as *;
+@use '@carbon/styles/scss/type' as *;
+@use '@carbon/styles/scss/utilities' as *;
+@use '@carbon/styles/scss/components/tooltip/tooltip' as *;
+@use '@carbon/styles/scss/components/ui-shell/header' as *;
+@use '@carbon/styles/scss/components/ui-shell/side-nav' as *;
+@use '@carbon/ibmdotcom-styles/scss/components/masthead' as *;
+@use '@carbon/ibmdotcom-styles/scss/globals/vars' as *;
 
 :host(#{$dds-prefix}-masthead-menu-button) {
-  @extend :host(#{$prefix}-header-menu-button);
-
+  // @extend :host(#{$prefix}-header-menu-button);
   position: relative;
   width: mini-units(6);
   height: mini-units(6);
 
   &[hide-menu-button] {
-    @include carbon--breakpoint-down('md') {
+    @include breakpoint-down(md) {
       display: none;
     }
   }
@@ -37,14 +35,14 @@
   }
 
   .#{$dds-prefix}-ce--header__menu-trigger__container--has-search-active {
-    @include carbon--breakpoint-down('md') {
+    @include breakpoint-down(md) {
       display: none;
     }
   }
 }
 
 :host(#{$dds-prefix}-masthead-logo) {
-  @extend :host(#{$prefix}-header-name);
+  // @extend :host(#{$prefix}-header-name);
   @include masthead-logo;
 
   &[hasTooltip] {
@@ -58,7 +56,7 @@
   }
 
   .#{$dds-prefix}-ce--header__logo--has-search-active {
-    @include carbon--breakpoint-down('md') {
+    @include breakpoint-down(md) {
       display: none;
     }
   }
@@ -73,7 +71,7 @@
 :host(#{$dds-prefix}-top-nav-name) {
   outline: none;
   z-index: 1;
-  background: $ui-background;
+  background: $background;
 
   a.#{$prefix}--header__name {
     @include masthead-top-nav-name;
@@ -96,14 +94,14 @@
 :host(#{$dds-prefix}-masthead-search-item) {
   @extend .react-autosuggest__suggestion;
 
-  font-size: $carbon--spacing-05;
+  font-size: $spacing-05;
 }
 
 :host(#{$dds-prefix}-masthead-global-bar) {
   @extend .#{$prefix}--header__global;
 
   &[has-search-active] {
-    @include carbon--breakpoint-down('md') {
+    @include breakpoint-down(md) {
       display: none;
     }
   }
@@ -113,7 +111,7 @@
   }
 
   .#{$dds-prefix}-ce--header__global__container--has-search-active {
-    @include carbon--breakpoint-down('md') {
+    @include breakpoint-down(md) {
       display: none;
     }
   }
@@ -121,7 +119,7 @@
 
 :host(#{$dds-prefix}-masthead-profile),
 :host(#{$dds-prefix}-cloud-masthead-profile) {
-  background-color: $ui-background;
+  background-color: $background;
   width: $spacing-09;
   a.#{$prefix}--header__menu-item {
     @include masthead-top-nav-link;
@@ -134,7 +132,7 @@
     + .#{$prefix}--header__menu {
       left: auto;
       right: 0;
-      width: rem(160px);
+      width: $spacing-13;
     }
   }
 }
@@ -142,16 +140,16 @@
 :host(#{$dds-prefix}-top-nav),
 :host(#{$dds-prefix}-top-nav-l1) {
   display: none;
-  background-color: $ui-background;
+  background-color: $background;
 
-  @include carbon--breakpoint(800px) {
+  @include breakpoint(800px) {
     flex: 1;
     display: flex;
     align-items: stretch;
   }
 
   .#{$prefix}--header__nav {
-    @include carbon--breakpoint(800px) {
+    @include breakpoint(800px) {
       display: block;
       position: absolute;
     }
@@ -194,7 +192,7 @@
   .#{$prefix}--header__nav-caret-right {
     position: relative;
     // 40px caret width & 8px gradient
-    height: 48px;
+    height: $spacing-09;
   }
 
   .#{$dds-prefix}-ce--header__nav-caret-container--hidden {
@@ -205,22 +203,22 @@
 
 :host(#{$dds-prefix}-top-nav)[cloud],
 :host(#{$dds-prefix}-top-nav-l1)[cloud] {
-  @include carbon--breakpoint(800px) {
+  @include breakpoint(800px) {
     display: none;
   }
 
-  @include carbon--breakpoint(960px) {
+  @include breakpoint(960px) {
     flex: 1;
     display: flex;
     align-items: stretch;
   }
 
   .#{$prefix}--header__nav {
-    @include carbon--breakpoint(800px) {
+    @include breakpoint(800px) {
       display: none;
     }
 
-    @include carbon--breakpoint(960px) {
+    @include breakpoint(960px) {
       display: block;
       position: absolute;
     }
@@ -232,17 +230,17 @@
 }
 
 :host(#{$dds-prefix}-top-nav-item) {
-  @extend :host(#{$prefix}-header-nav-item);
+  // @extend :host(#{$prefix}-header-nav-item);
 }
 
 :host(#{$dds-prefix}-top-nav-menu),
 :host(#{$dds-prefix}-megamenu-top-nav-menu),
 :host(#{$dds-prefix}-masthead-profile),
 :host(#{$dds-prefix}-cloud-masthead-profile) {
-  @extend :host(#{$prefix}-header-menu);
+  // @extend :host(#{$prefix}-header-menu);
 
   .#{$prefix}--header__menu-title[aria-expanded='true'] {
-    background-color: $ui-01;
+    background-color: $layer-01;
     z-index: 0;
   }
 }
@@ -252,15 +250,15 @@
 :host(#{$dds-prefix}-cloud-masthead-profile) {
   .#{$prefix}--header__menu-title[aria-expanded='true']
     + .#{$prefix}--header__menu {
-    background-color: $ui-background;
-    box-shadow: 0 2px 6px 0 rgba(0, 0, 0, 0.3);
+    background-color: $background;
+    box-shadow: 0 $spacing-01 6px 0 rgba(0, 0, 0, 0.3);
     bottom: -1px;
   }
 }
 
 :host(#{$dds-prefix}-top-nav-menu-item),
 :host(#{$dds-prefix}-masthead-profile-item) {
-  @extend :host(#{$prefix}-header-menu-item);
+  // @extend :host(#{$prefix}-header-menu-item);
   @include masthead-top-nav-menu-item;
 
   a.#{$prefix}--header__menu-item {
@@ -274,7 +272,7 @@
 :host(#{$dds-prefix}-top-nav-menu-item),
 :host(#{$dds-prefix}-masthead-profile-item) {
   .#{$prefix}--header__menu-arrow {
-    fill: $text-01;
+    fill: $text-primary;
     width: 20px;
     height: 20px;
   }
@@ -283,7 +281,7 @@
     @include masthead-top-nav-link;
 
     &:hover {
-      color: $text-01;
+      color: $text-primary;
     }
   }
 }
@@ -293,23 +291,20 @@
     + .#{$prefix}--header__menu {
     bottom: auto;
     height: auto;
-    max-height: calc(
-      100vh - var(--cds-spacing-09, 3rem) - var(--cds-layout-05, 4rem)
-    );
+    max-height: calc(100vh - $spacing-09 - $spacing-10);
     min-height: 0;
   }
 }
 
 :host(#{$dds-prefix}-left-nav) {
-  @extend :host(#{$prefix}-side-nav);
-
+  // @extend :host(#{$prefix}-side-nav);
   display: block;
   overflow: hidden;
   margin-top: calc(#{mini-units(6)} + 1px);
   height: calc(100% - #{mini-units(6)} - 1px);
   width: 16rem;
 
-  @include carbon--breakpoint-down(md) {
+  @include breakpoint-down(md) {
     width: 100vw;
     max-width: 100vw;
   }
@@ -319,8 +314,8 @@
     inset-inline-start: -100vw;
     visibility: hidden;
     /* stylelint-disable-next-line  time-min-milliseconds */
-    transition: visibility 1ms motion(exit, productive) $duration--fast-02,
-      left $duration--fast-02 motion(exit, productive) 1ms;
+    transition: visibility 1ms motion(exit, productive) $duration-fast-02,
+      left $duration-fast-02 motion(exit, productive) 1ms;
   }
 
   &[expanded][usage-mode='header-nav'],
@@ -330,7 +325,7 @@
     visibility: visible;
     /* stylelint-disable-next-line time-min-milliseconds */
     transition: visibility 1ms motion(exit, productive) 0ms,
-      inset-inline-start $duration--fast-02 motion(exit, productive) 1ms;
+      inset-inline-start $duration-fast-02 motion(exit, productive) 1ms;
   }
 
   .#{$prefix}--side-nav__wrapper {
@@ -358,22 +353,22 @@
 
 :host(#{$dds-prefix}-masthead-menu-button),
 :host(#{$dds-prefix}-left-nav) {
-  @include carbon--breakpoint('md') {
+  @include breakpoint(md) {
     display: block;
   }
 
-  @include carbon--breakpoint(800px) {
+  @include breakpoint(800px) {
     display: none;
   }
 }
 
 :host(#{$dds-prefix}-masthead-menu-button)[cloud],
 :host(#{$dds-prefix}-left-nav)[cloud] {
-  @include carbon--breakpoint('md') {
+  @include breakpoint(md) {
     display: block;
   }
 
-  @include carbon--breakpoint(960px) {
+  @include breakpoint(960px) {
     display: none;
   }
 }
@@ -384,33 +379,33 @@
     align-items: center;
     height: carbon--mini-units(6);
     padding: 0 mini-units(2);
-    border-bottom: 1px solid $ui-04;
+    border-bottom: 1px solid $border-strong-01;
     text-decoration: none;
-    color: $text-01;
+    color: $text-primary;
     flex-direction: row;
 
     &::after {
       content: none;
     }
 
-    @include carbon--type-style(expressive-heading-02, true);
+    @include type-style(heading-02, true);
   }
 }
 
 :host(#{$dds-prefix}-left-nav-items) {
-  @extend :host(#{$prefix}-side-nav-items);
+  // @extend :host(#{$prefix}-side-nav-items);
 }
 
 :host(#{$dds-prefix}-left-nav-item) {
-  @extend :host(#{$prefix}-side-nav-link);
+  // @extend :host(#{$prefix}-side-nav-link);
 }
 
 :host(#{$dds-prefix}-left-nav-menu) {
-  @extend :host(#{$prefix}-side-nav-menu);
+  // @extend :host(#{$prefix}-side-nav-menu);
 }
 
 :host(#{$dds-prefix}-left-nav-menu-item) {
-  @extend :host(#{$prefix}-side-nav-menu-item);
+  // @extend :host(#{$prefix}-side-nav-menu-item);
 }
 
 :host(#{$dds-prefix}-left-nav-item-highlighted) a.#{$prefix}--side-nav__link,
@@ -421,7 +416,7 @@
   display: flex;
   flex-direction: column;
   justify-content: center;
-  padding-left: $carbon--spacing-05;
+  padding-left: $spacing-05;
   height: carbon--mini-units(6);
   width: 100%;
 }
@@ -430,8 +425,8 @@
 :host(#{$dds-prefix}-left-nav-menu),
 :host(#{$dds-prefix}-left-nav-menu-item) {
   .#{$prefix}--side-nav__link:hover {
-    background-color: $shell-side-nav-bg-04;
-    color: $ibm-color__gray-100;
+    background-color: $background-hover;
+    color: $text-primary;
   }
 }
 
@@ -461,8 +456,8 @@
   height: 100vh;
   background-color: rgba(22, 22, 22, 0.5);
   opacity: 1;
-  transition: opacity $transition--expansion $carbon--standard-easing,
-    background-color $transition--expansion $carbon--standard-easing;
+  transition: opacity $transition-expansion $standard-easing,
+    background-color $transition-expansion $standard-easing;
 
   // Makes the trigger button work without making it floated. In this way, we don't have to adjust the position of the logo
   top: 0;
@@ -482,10 +477,10 @@
 }
 
 :host(#{$dds-prefix}-left-nav-overlay) {
-  @extend .#{$prefix}--side-nav__overlay;
+  // @extend .#{$prefix}--side-nav__overlay;
 
   &[active] {
-    @include carbon--breakpoint-down(800px) {
+    @include breakpoint-down(800px) {
       @include left-nav-overlay;
     }
   }
@@ -493,7 +488,7 @@
 
 :host(#{$dds-prefix}-left-nav-overlay)[cloud] {
   &[active] {
-    @include carbon--breakpoint-down(960px) {
+    @include breakpoint-down(960px) {
       @include left-nav-overlay;
     }
   }

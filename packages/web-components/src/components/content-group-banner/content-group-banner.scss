@@ -5,11 +5,9 @@
 // LICENSE file in the root directory of this source tree.
 //
 
-@import 'carbon-components/scss/globals/scss/vars';
-@import '@carbon/ibmdotcom-styles/scss/globals/vars';
-@import '../../globals/scss/box-sizing';
-@import '@carbon/ibmdotcom-styles/scss/internal/content-block/content-block';
-@import '@carbon/ibmdotcom-styles/scss/components/content-group-banner/content-group-banner';
+@use '@carbon/ibmdotcom-styles/scss/globals/vars' as *;
+@use '@carbon/ibmdotcom-styles/scss/internal/content-block';
+@use '@carbon/ibmdotcom-styles/scss/components/content-group-banner';
 
 :host(#{$dds-prefix}-content-group-banner) {
   display: block;

@@ -5,17 +5,17 @@
 ####   `should render with minimum attributes`
 
 ```
-<div class="bx--header__search--actions">
+<div class="cds--header__search--actions">
   <button
     aria-label="Open IBM search field"
-    class="bx--header__action bx--header__search--search"
+    class="cds--header__action cds--header__search--search"
     part="open-button"
     type="button"
   >
   </button>
   <button
     aria-label="Clear input"
-    class="bx--header__action bx--header__search--close"
+    class="cds--header__action cds--header__search--close"
     part="close-button"
     type="button"
   >
@@ -27,17 +27,17 @@
 ####   `should render with various attributes in the inactive state`
 
 ```
-<div class="bx--header__search--actions">
+<div class="cds--header__search--actions">
   <button
     aria-label="open-search-button-assistive-text-foo"
-    class="bx--header__action bx--header__search--search"
+    class="cds--header__action cds--header__search--search"
     part="open-button"
     type="button"
   >
   </button>
   <button
     aria-label="Clear input"
-    class="bx--header__action bx--header__search--close"
+    class="cds--header__action cds--header__search--close"
     part="close-button"
     type="button"
   >
@@ -82,7 +82,7 @@
       aria-controls="result-list"
       aria-label="IBM search field"
       autocomplete="off"
-      class="bx--header__search--input"
+      class="cds--header__search--input"
       name="q"
       part="search-input"
       placeholder="Search all of IBM"
@@ -103,21 +103,21 @@
 <div
   aria-live="assertive"
   aria-relevant="additions text"
-  class="bx--assistive-text"
+  class="cds--assistive-text"
   role="status"
 >
 </div>
-<div class="bx--header__search--actions">
+<div class="cds--header__search--actions">
   <button
     aria-label="perform-search-button-assistive-text-foo"
-    class="bx--header__action bx--header__search--search"
+    class="cds--header__action cds--header__search--search"
     part="open-button"
     type="button"
   >
   </button>
   <button
     aria-label="close-search-button-assistive-text-foo"
-    class="bx--header__action bx--header__search--close"
+    class="cds--header__action cds--header__search--close"
     part="close-button"
     type="button"
   >

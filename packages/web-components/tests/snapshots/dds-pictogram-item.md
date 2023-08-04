@@ -3,16 +3,16 @@
 #### `Renders as expected`
 
 ```
-<div class="bx--pictogram-item__row">
-  <div class="bx--pictogram-item__wrapper">
+<div class="cds--pictogram-item__row">
+  <div class="cds--pictogram-item__wrapper">
     <slot
-      class="bx--pictogram-item__pictogram"
+      class="cds--pictogram-item__pictogram"
       name="pictogram"
     >
     </slot>
   </div>
-  <div class="bx--pictogram-item__content">
-    <div class="bx--content-item">
+  <div class="cds--pictogram-item__content">
+    <div class="cds--content-item">
       <slot name="heading">
       </slot>
       <div>
@@ -22,7 +22,7 @@
       <slot>
       </slot>
       <div
-        class="bx--content-item__cta"
+        class="cds--content-item__cta"
         hidden=""
       >
         <slot name="footer">

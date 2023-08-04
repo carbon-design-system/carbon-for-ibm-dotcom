@@ -11,7 +11,6 @@ import { ifDefined } from 'lit/directives/if-defined.js';
 import { classMap } from 'lit/directives/class-map.js';
 import { html } from 'lit';
 import { property, query } from 'lit/decorators.js';
-import settings from 'carbon-components/es/globals/js/settings.js';
 import Close20 from '../../internal/vendor/@carbon/web-components/icons/close/20.js';
 import Search20 from '../../internal/vendor/@carbon/web-components/icons/search/20.js';
 import CDSDropdown, {
@@ -21,7 +20,7 @@ import CDSDropdownItem from '../../internal/vendor/@carbon/web-components/compon
 import HostListener from '../../internal/vendor/@carbon/web-components/globals/decorators/host-listener.js';
 import HostListenerMixin from '../../internal/vendor/@carbon/web-components/globals/mixins/host-listener.js';
 import { baseFontSize, breakpoints } from '@carbon/layout';
-import ddsSettings from '../../internal/vendor/@carbon/ibmdotcom-utilities/utilities/settings/settings';
+import settings from '../../internal/vendor/@carbon/ibmdotcom-utilities/utilities/settings/settings';
 import SearchTypeaheadAPI from '../../internal/vendor/@carbon/ibmdotcom-services/services/SearchTypeahead/SearchTypeahead';
 import { forEach, indexOf } from '../../globals/internal/collection-helpers';
 import styles from './search-with-typeahead.scss';
@@ -29,8 +28,7 @@ import StableSelectorMixin from '../../globals/mixins/stable-selector';
 import './search-with-typeahead-item';
 import { carbonElement as customElement } from '../../internal/vendor/@carbon/web-components/globals/decorators/carbon-element.js';
 
-const { stablePrefix: ddsPrefix } = ddsSettings;
-const { prefix } = settings;
+const { prefix, stablePrefix: ddsPrefix } = settings;
 const gridBreakpoint = parseFloat(breakpoints.lg.width) * baseFontSize;
 
 /**

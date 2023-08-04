@@ -10,12 +10,12 @@
 import { LitElement, render, html } from 'lit';
 import { property, state } from 'lit/decorators.js';
 import { stripHTML } from '@carbon/ibmdotcom-utilities/es/utilities/stripHTML/index.js';
-import ddsSettings from '../../internal/vendor/@carbon/ibmdotcom-utilities/utilities/settings/settings';
+import settings from '../../internal/vendor/@carbon/ibmdotcom-utilities/utilities/settings/settings';
 import styles from './leadspace.scss';
 import StableSelectorMixin from '../../globals/mixins/stable-selector';
 import { carbonElement as customElement } from '../../internal/vendor/@carbon/web-components/globals/decorators/carbon-element';
 
-const { stablePrefix: ddsPrefix } = ddsSettings;
+const { stablePrefix: ddsPrefix } = settings;
 
 /**
  * The heading content of leadspace.

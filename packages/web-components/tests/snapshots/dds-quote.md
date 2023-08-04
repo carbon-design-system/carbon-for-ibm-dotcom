@@ -3,20 +3,20 @@
 #### `renders dds-quote properly`
 
 ```
-<div class="bx--quote__container">
-  <div class="bx--quote__wrapper">
-    <span class="bx--quote__mark">
+<div class="cds--quote__container">
+  <div class="cds--quote__wrapper">
+    <span class="cds--quote__mark">
       “
     </span>
-    <blockquote class="bx--quote__copy">
+    <blockquote class="cds--quote__copy">
       <slot>
       </slot>
-      <span class="bx--quote__mark-closing">
+      <span class="cds--quote__mark-closing">
         ”
       </span>
     </blockquote>
     <div
-      class="bx--quote__source"
+      class="cds--quote__source"
       hidden=""
     >
       <slot name="source-heading">
@@ -27,7 +27,7 @@
       </slot>
     </div>
     <div
-      class="bx--quote__footer"
+      class="cds--quote__footer"
       hidden=""
     >
       <dds-hr

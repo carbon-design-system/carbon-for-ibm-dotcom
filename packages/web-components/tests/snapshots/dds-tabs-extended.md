@@ -5,8 +5,8 @@
 ####   `should render with minimum attributes`
 
 ```
-<div class="bx--tabs-extended bx--tabs-extended--horizontal">
-  <ul class="bx--accordion">
+<div class="cds--tabs-extended cds--tabs-extended--horizontal">
+  <ul class="cds--accordion">
     <slot>
     </slot>
   </ul>
@@ -17,8 +17,8 @@
 ####   `should render with various attributes`
 
 ```
-<div class="bx--tabs-extended bx--tabs-extended--horizontal">
-  <ul class="bx--accordion">
+<div class="cds--tabs-extended cds--tabs-extended--horizontal">
+  <ul class="cds--accordion">
     <slot>
     </slot>
   </ul>

@@ -5,7 +5,7 @@
 ####   `should render with minimum attributes`
 
 ```
-<div class="bx--row">
+<div class="cds--row">
   <slot>
   </slot>
 </div>

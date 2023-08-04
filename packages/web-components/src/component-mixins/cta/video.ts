@@ -12,12 +12,12 @@ import ArrowRight20 from '../../internal/vendor/@carbon/web-components/icons/arr
 import Download20 from '../../internal/vendor/@carbon/web-components/icons/download/20.js';
 import Launch20 from '../../internal/vendor/@carbon/web-components/icons/launch/20.js';
 import PlayOutline20 from '../../internal/vendor/@carbon/web-components/icons/play--outline/20.js';
-import ddsSettings from '../../internal/vendor/@carbon/ibmdotcom-utilities/utilities/settings/settings';
+import settings from '../../internal/vendor/@carbon/ibmdotcom-utilities/utilities/settings/settings';
 import { Constructor } from '../../globals/defs';
 import { CTA_TYPE } from '../../components/cta/defs';
 import KalturaPlayerAPI from '../../internal/vendor/@carbon/ibmdotcom-services/services/KalturaPlayer/KalturaPlayer';
 
-const { stablePrefix: ddsPrefix } = ddsSettings;
+const { stablePrefix: ddsPrefix } = settings;
 
 /**
  * Icons to use, keyed by CTA type.

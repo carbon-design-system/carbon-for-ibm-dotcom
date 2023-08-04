@@ -5,12 +5,12 @@
 ####   `should render with minimum attributes`
 
 ```
-<div class="bx--card bx--feature-card__card bx--feature-section bx--grid bx--tile">
-  <div class="bx--feature-section__container bx--row">
-    <div class="bx--col-lg-8 bx--col-md-8 bx--col-sm-4 bx--feature-section__body">
-      <div class="bx--grid">
-        <div class="bx--row">
-          <div class="bx--col-lg-12 bx--col-md-6 bx--col-sm-4">
+<div class="cds--card cds--feature-card__card cds--feature-section cds--grid cds--tile">
+  <div class="cds--feature-section__container cds--row">
+    <div class="cds--col-lg-8 cds--col-md-8 cds--col-sm-4 cds--feature-section__body">
+      <div class="cds--grid">
+        <div class="cds--row">
+          <div class="cds--col-lg-12 cds--col-md-6 cds--col-sm-4">
             <slot name="eyebrow">
             </slot>
             <slot name="heading">
@@ -21,7 +21,7 @@
         </div>
       </div>
     </div>
-    <div class="bx--col-lg-8 bx--col-md-8 bx--col-sm-4 bx--feature-section__image">
+    <div class="cds--col-lg-8 cds--col-md-8 cds--col-sm-4 cds--feature-section__image">
       <slot name="image">
       </slot>
       <slot name="footer">
@@ -35,12 +35,12 @@
 ####   `should render with various attributes`
 
 ```
-<div class="bx--card bx--feature-card__card bx--feature-section bx--grid bx--tile">
-  <div class="bx--feature-section__container bx--row">
-    <div class="bx--col-lg-8 bx--col-md-8 bx--col-sm-4 bx--feature-section__body">
-      <div class="bx--grid">
-        <div class="bx--row">
-          <div class="bx--col-lg-12 bx--col-md-6 bx--col-sm-4">
+<div class="cds--card cds--feature-card__card cds--feature-section cds--grid cds--tile">
+  <div class="cds--feature-section__container cds--row">
+    <div class="cds--col-lg-8 cds--col-md-8 cds--col-sm-4 cds--feature-section__body">
+      <div class="cds--grid">
+        <div class="cds--row">
+          <div class="cds--col-lg-12 cds--col-md-6 cds--col-sm-4">
             <slot name="eyebrow">
             </slot>
             <slot name="heading">
@@ -51,7 +51,7 @@
         </div>
       </div>
     </div>
-    <div class="bx--col-lg-8 bx--col-md-8 bx--col-sm-4 bx--feature-section__image">
+    <div class="cds--col-lg-8 cds--col-md-8 cds--col-sm-4 cds--feature-section__image">
       <slot name="image">
       </slot>
       <slot name="footer">

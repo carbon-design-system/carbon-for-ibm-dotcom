@@ -1,0 +1,56 @@
+/**
+ * Copyright IBM Corp. 2016, 2021
+ *
+ * This source code is licensed under the Apache-2.0 license found in the
+ * LICENSE file in the root directory of this source tree.
+ */
+
+@use '@carbon/styles/scss/breakpoint' as *;
+@use '@carbon/styles/scss/config' as *;
+@use '@carbon/styles/scss/spacing' as *;
+@use '@carbon/styles/scss/theme' as *;
+@use '../../globals/vars' as *;
+@use '../../globals/utils/hang' as *;
+@use '../../internal/callout/callout';
+@use '../quote/quote';
+
+@mixin callout-quote {
+  .#{$prefix}--callout-quote,
+  :host(#{$dds-prefix}-callout-quote) {
+    .#{$prefix}--quote {
+      background-color: $background-inverse;
+      .#{$prefix}--link {
+        color: $link-inverse;
+        outline-color: $focus-inverse;
+        &:hover {
+          color: #a6c8ff;
+        }
+      }
+    }
+  }
+
+  .#{$prefix}--callout-quote .#{$prefix}--callout__container {
+    padding-left: $spacing-05;
+    padding-right: $spacing-05;
+
+    @include breakpoint(md) {
+      padding-left: 0;
+      padding-right: 0;
+    }
+  }
+
+  :host(#{$dds-prefix}-callout-quote) {
+    @extend .#{$prefix}--callout__container;
+
+    @include breakpoint(md) {
+      @include hang;
+    }
+
+    padding-bottom: $spacing-10;
+
+    ::slotted(#{$dds-prefix}-callout-link-with-icon) {
+      padding-left: $spacing-07;
+      outline: transparent;
+    }
+  }
+}

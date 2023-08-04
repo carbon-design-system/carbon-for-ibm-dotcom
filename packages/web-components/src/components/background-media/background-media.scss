@@ -5,13 +5,17 @@
 // LICENSE file in the root directory of this source tree.
 //
 
-@import '@carbon/ibmdotcom-styles/scss/globals/vars';
-@import '@carbon/ibmdotcom-styles/scss/components/background-media/background-media';
-@import '@carbon/web-components/scss/components/tooltip/tooltip';
+@use '@carbon/styles/scss/breakpoint' as *;
+@use '@carbon/styles/scss/config' as *;
+@use '@carbon/styles/scss/spacing' as *;
+@use '@carbon/styles/scss/theme' as *;
+@use '@carbon/styles/scss/utilities' as *;
+@use '@carbon/ibmdotcom-styles/scss/components/background-media';
+@use '../../../../carbon-web-components/src/components/tooltip/tooltip';
 
 .#{$prefix}--background-media--video {
   aspect-ratio: 16 / 9; /* stylelint-disable-line property-no-unknown */
-  @include carbon--breakpoint(md) {
+  @include breakpoint(md) {
     aspect-ratio: auto; /* stylelint-disable-line property-no-unknown */
   }
 }
@@ -25,8 +29,8 @@
   background-clip: padding-box;
 
   &:focus {
-    border-color: $text-01;
-    outline: $spacing-01 solid $ui-background;
+    border-color: $text-primary;
+    outline: $spacing-01 solid $background;
   }
 }
 

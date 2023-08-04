@@ -5,6 +5,16 @@
  * LICENSE file in the root directory of this source tree.
  */
 
+@use '@carbon/styles/scss/breakpoint' as *;
+@use '@carbon/styles/scss/config' as *;
+@use '@carbon/styles/scss/motion' as *;
+@use '@carbon/styles/scss/spacing' as *;
+@use '@carbon/styles/scss/theme' as *;
+@use '@carbon/styles/scss/type' as *;
+@use '@carbon/styles/scss/utilities' as *;
+@use '../../globals/utils/flex-grid' as *;
+@use '../../globals/vars' as *;
+
 @mixin masthead-megamenu {
   $l0-nav-height: $spacing-09;
   $l1-nav-height: rem(98px);
@@ -53,11 +63,11 @@
       position: fixed;
       display: block;
       visibility: hidden;
-      margin-bottom: $layout-05;
+      margin-bottom: $spacing-10;
       left: 0;
       width: 100vw;
       transform: translateZ(0.0001px);
-      transition: visibility $transition--expansion $carbon--standard-easing;
+      transition: visibility $transition-expansion $standard-easing;
     }
 
     .#{$prefix}--header__menu-title[aria-expanded='false']
@@ -65,7 +75,7 @@
       ::slotted(#{$dds-prefix}-megamenu),
       ::slotted(#{$dds-prefix}-cloud-megamenu),
       .#{$prefix}--masthead__megamenu {
-        animation: $transition--expansion motion(standard, expressive) collapse;
+        animation: $transition-expansion motion(standard, expressive) collapse;
       }
     }
 
@@ -77,7 +87,7 @@
       height: calc(100vh - #{$spacing-10} - #{$spacing-09});
       transform: translateZ(0);
       visibility: visible;
-      margin-bottom: $layout-05;
+      margin-bottom: $spacing-10;
       // `100vw` in Shadow DOM causes delayed rendering bug in Safari
       // https://github.com/carbon-design-system/carbon-for-ibm-dotcom/issues/4493
       width: var(--#{$dds-prefix}-ce--viewport-width, 100vw);
@@ -86,7 +96,7 @@
       ::slotted(#{$dds-prefix}-megamenu),
       ::slotted(#{$dds-prefix}-cloud-megamenu),
       .#{$prefix}--masthead__megamenu {
-        animation: $transition--expansion motion(standard, expressive) expand;
+        animation: $transition-expansion motion(standard, expressive) expand;
       }
     }
   }
@@ -111,7 +121,7 @@
     display: block;
     overflow-y: overlay;
     overflow-x: hidden;
-    background-color: $ui-background;
+    background-color: $background;
 
     &:focus {
       outline: none;
@@ -121,10 +131,10 @@
 
     .#{$prefix}--masthead__megamenu__container {
       width: 100vw;
-      @include carbon--make-container;
+      @include make-container;
 
       .#{$prefix}--masthead__megamenu__container--row {
-        @include carbon--make-row;
+        @include make-row;
 
         flex-wrap: nowrap;
       }
@@ -139,7 +149,7 @@
     width: 100%;
 
     .#{$prefix}--masthead__megamenu__categories {
-      padding: 0 0 $layout-03 0;
+      padding: 0 0 $spacing-07 0;
       column-count: 4;
       column-gap: 0;
     }
@@ -156,9 +166,9 @@
   .#{$prefix}--masthead__megamenu__copy,
   :host(#{$dds-prefix}-megamenu-category-group-copy) {
     display: block;
-    @include type-style('body-long-01');
+    @include type-style('body-01');
 
-    color: $text-02;
+    color: $text-secondary;
     padding: rem(6px) $spacing-05 rem(10px);
   }
 
@@ -174,9 +184,9 @@
 
     .#{$prefix}--masthead__megamenu__copy,
     ::slotted(#{$dds-prefix}-megamenu-category-group-copy) {
-      @include type-style('body-long-01');
+      @include type-style('body-01');
 
-      color: $text-01;
+      color: $text-primary;
       margin-top: rem(-6px);
       padding: 0 $spacing-05 $spacing-03 $spacing-05;
     }
@@ -209,49 +219,47 @@
       text-decoration: none;
       width: 100%;
 
-      @include type-style('expressive-heading-01');
+      @include type-style('heading-01');
     }
-    /* stylelint-enable selector-pseudo-class-parentheses-space-inside */
 
     ::slotted(span),
     span {
-      color: $text-01;
+      color: $text-primary;
 
       flex: inherit;
     }
 
     svg {
-      color: $link-01;
+      color: $link-primary;
       min-width: $spacing-05;
     }
 
     &:visited,
     &:hover {
-      color: $text-01;
+      color: $text-primary;
     }
   }
 
   :host(#{$dds-prefix}-megamenu-category-link) a,
   .#{$prefix}--masthead__megamenu__category-sublink {
-    @include type-style('body-long-01');
+    @include type-style('body-01');
 
-    color: $text-02;
+    color: $text-secondary;
     text-decoration: none;
     padding: 6px $spacing-05;
     display: block;
 
     &:hover,
     &:active {
-      color: $text-01;
+      color: $text-primary;
     }
   }
 
-  /* stylelint-disable selector-pseudo-class-parentheses-space-inside */
   .#{$prefix}--masthead__megamenu__category-sublink--highlighted,
   :host(
       #{$dds-prefix}-megamenu-link-with-icon
     )[style-scheme='category-sublink'] {
-    @include type-style('body-short-01');
+    @include type-style('body-compact-01');
 
     width: 100%;
 
@@ -259,7 +267,6 @@
       flex: inherit;
     }
   }
-  /* stylelint-enable selector-pseudo-class-parentheses-space-inside */
 
   .#{$prefix}--masthead__megamenu__category-sublink--highlighted,
   :host(#{$dds-prefix}-megamenu-link-with-icon)[style-scheme='category-sublink']
@@ -279,7 +286,7 @@
       text-decoration: none;
       width: 100%;
       margin: 0 $spacing-05;
-      border-top: carbon--rem(1px) solid $ui-03;
+      border-top: rem(1px) solid $layer-accent-01;
       height: $spacing-09;
 
       &:hover,
@@ -289,8 +296,8 @@
       }
 
       &:hover {
-        border-top: carbon--rem(1px) solid transparent;
-        color: $hover-primary-text;
+        border-top: rem(1px) solid transparent;
+        color: $link-primary-hover;
       }
     }
 
@@ -300,7 +307,7 @@
     }
 
     span {
-      @include type-style('body-short-01');
+      @include type-style('body-compact-01');
 
       flex: inherit;
     }
@@ -317,13 +324,13 @@
     &:active {
       @include focus-outline;
 
-      outline-width: 2px;
-      outline-offset: -2px;
+      outline-width: $spacing-01;
+      outline-offset: -#{$spacing-01};
     }
 
     &:active,
     &:hover {
-      background-color: $hover-ui;
+      background-color: $background-hover;
       text-decoration: none;
     }
 
@@ -340,11 +347,11 @@
   .#{$prefix}--masthead__megamenu__highlight-section {
     min-height: 100%;
     padding-top: rem(18px);
-    border-right: carbon--rem(1px) solid $ui-03;
-    @include carbon--make-col(4, 16);
+    border-right: rem(1px) solid $layer-accent-01;
+    @include make-col(4, 16);
   }
 
-  @include carbon--breakpoint-between(800px, 1055px) {
+  @include breakpoint-between(800px, 1055px) {
     .#{$prefix}--masthead__megamenu__container--row {
       flex-direction: column;
     }
@@ -352,10 +359,10 @@
     :host(#{$dds-prefix}-megamenu-left-navigation),
     .#{$prefix}--masthead__megamenu__highlight-section {
       border-right: none;
-      border-bottom: carbon--rem(1px) solid $ui-03;
+      border-bottom: rem(1px) solid $layer-accent-01;
       column-count: 2;
       column-gap: 0;
-      @include carbon--make-col(8, 8);
+      @include make-col(8, 8);
     }
 
     :host(#{$dds-prefix}-megamenu-right-navigation),
@@ -365,8 +372,4 @@
       }
     }
   }
-}
-
-@include exports('masthead-megamenu') {
-  @include masthead-megamenu;
 }
