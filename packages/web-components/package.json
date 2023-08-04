@@ -96,7 +96,7 @@
     "@carbon/motion": "^11.0.0",
     "@carbon/telemetry": "0.1.0",
     "@carbon/web-components": "1.30.0",
-    "carbon-components": "10.58.7",
+    "carbon-components": "10.58.8",
     "lit": "^2.7.6",
     "lodash-es": "^4.17.21",
     "redux": "^4.0.0",
