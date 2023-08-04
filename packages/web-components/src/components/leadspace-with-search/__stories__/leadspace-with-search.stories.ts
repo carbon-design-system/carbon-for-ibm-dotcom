@@ -89,7 +89,6 @@ export const WithImage = (args) => {
     <dds-leadspace-with-search adjacent-theme="${theme}">
       <dds-background-media
         gradient-direction="left-to-right"
-        mobile-position="bottom"
         default-src="${image}"
         slot="image">
       </dds-background-media>
