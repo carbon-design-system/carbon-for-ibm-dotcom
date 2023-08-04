@@ -14,6 +14,7 @@ templates
 generate.sh
 tests/a11y-results
 
+
 # e2e tests
 tests/cdn-build/cypress/screenshots
 tests/cdn-build/cypress/videos
