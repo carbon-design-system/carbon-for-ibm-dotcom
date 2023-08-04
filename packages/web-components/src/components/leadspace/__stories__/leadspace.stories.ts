@@ -114,8 +114,8 @@ export const SuperWithImage = (args) => {
         })}
       </dds-button-group>
       <dds-background-media
-        mobile-position="bottom"
-        alt="${ifDefined(alt)}"
+        slot="image"
+        alt="${ifNonNull(alt)}"
         default-src="${defaultSrc}"
         opacity="100">
         <dds-image-item media="(min-width: 1312px)" srcset="${image}">
@@ -166,7 +166,7 @@ export const SuperWithVideo = (args) => {
           `;
         })}
       </dds-button-group>
-      <dds-background-media mobile-position="bottom" opacity="100">
+      <dds-background-media slot="image" opacity="100">
         <dds-video-player-container
           video-id="1_9h94wo6b"
           background-mode="true"></dds-video-player-container>
@@ -235,8 +235,8 @@ export const TallWithImage = (args) => {
         })}
       </dds-button-group>
       <dds-background-media
-        mobile-position="bottom"
-        alt="${ifDefined(alt)}"
+        slot="image"
+        alt="${ifNonNull(alt)}"
         default-src="${defaultSrc}"
         opacity="100">
         <dds-image-item media="(min-width: 1312px)" srcset="${image}">
@@ -287,7 +287,7 @@ export const TallWithVideo = (args) => {
           `;
         })}
       </dds-button-group>
-      <dds-background-media mobile-position="bottom" opacity="100">
+      <dds-background-media slot="image" opacity="100">
         <dds-video-player-container
           video-id="1_9h94wo6b"
           background-mode="true"></dds-video-player-container>
@@ -356,8 +356,8 @@ export const MediumWithImage = (args) => {
         })}
       </dds-button-group>
       <dds-background-media
-        mobile-position="bottom"
-        alt="${ifDefined(alt)}"
+        slot="image"
+        alt="${ifNonNull(alt)}"
         default-src="${defaultSrc}"
         opacity="100">
         <dds-image-item media="(min-width: 1312px)" srcset="${image}">
@@ -408,7 +408,7 @@ export const MediumWithVideo = (args) => {
           `;
         })}
       </dds-button-group>
-      <dds-background-media mobile-position="bottom" opacity="100">
+      <dds-background-media slot="image" opacity="100">
         <dds-video-player-container
           video-id="1_9h94wo6b"
           background-mode="true"></dds-video-player-container>
@@ -472,8 +472,8 @@ export const ShortWithImage = (args) => {
       ${navElements === navigationOptions[1] ? navigationWithBreadcrumbs : ``}
       <dds-leadspace-heading>${ifDefined(title)}</dds-leadspace-heading>
       <dds-background-media
-        mobile-position="bottom"
-        alt="${ifDefined(alt)}"
+        slot="image"
+        alt="${ifNonNull(alt)}"
         default-src="${defaultSrc}"
         opacity="100">
         <dds-image-item media="(min-width: 1312px)" srcset="${image}">
@@ -531,8 +531,8 @@ export const ShortWithVideo = (args) => {
       default-src="${ifDefined(defaultSrc)}">
       ${navElements === navigationOptions[0] ? navigationWithTagGroup : ``}
       ${navElements === navigationOptions[1] ? navigationWithBreadcrumbs : ``}
-      <dds-leadspace-heading>${ifDefined(title)}</dds-leadspace-heading>
-      <dds-background-media mobile-position="bottom" opacity="100">
+      <dds-leadspace-heading>${ifNonNull(title)}</dds-leadspace-heading>
+      <dds-background-media slot="image" opacity="100">
         <dds-video-player-container
           video-id="1_9h94wo6b"
           background-mode="true"></dds-video-player-container>
@@ -595,8 +595,8 @@ export const CenteredWithImage = (args) => {
         })}
       </dds-button-group>
       <dds-background-media
-        mobile-position="bottom"
-        alt="${ifDefined(alt)}"
+        slot="image"
+        alt="${ifNonNull(alt)}"
         default-src="${defaultSrc}"
         opacity="100">
         <dds-image-item media="(min-width: 1312px)" srcset="${image}">
@@ -641,7 +641,7 @@ export const CenteredWithVideo = (args) => {
           `;
         })}
       </dds-button-group>
-      <dds-background-media mobile-position="bottom" opacity="100">
+      <dds-background-media slot="image" opacity="100">
         <dds-video-player-container
           video-id="1_9h94wo6b"
           background-mode="true"></dds-video-player-container>
