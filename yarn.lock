@@ -2418,7 +2418,7 @@ __metadata:
     async-done: ^1.3.0
     babel-eslint: ^10.1.0
     babel-jest: ^24.0.0
-    carbon-components: 10.58.3
+    carbon-components: 10.58.8
     del: ^6.0.0
     gulp: ^4.0.2
     gulp-babel: ^8.0.0
@@ -2950,7 +2950,7 @@ __metadata:
     babel-loader: ^8.0.4
     babel-plugin-template-html-minifier: ^4.1.0
     cache-loader: ^4.1.0
-    carbon-components: 10.58.3
+    carbon-components: 10.58.8
     child-process-promise: ^2.2.1
     commander: ^4.1.0
     core-js: ^3.19.1
@@ -11305,18 +11305,6 @@ __metadata:
     react: ^16.8.6 || ^17.0.1
     react-dom: ^16.8.6 || ^17.0.1
   checksum: 51d43a907e20588e0788d6c75f755bbc1e92b511d604f68aa8faa3c4b599789cb6fef05a2fad5381dc209b7a4bbaba4e047474fc86739ffba19c53b09e339eaf
-  languageName: node
-  linkType: hard
-
-"carbon-components@npm:10.58.3":
-  version: 10.58.3
-  resolution: "carbon-components@npm:10.58.3"
-  dependencies:
-    "@carbon/telemetry": 0.1.0
-    flatpickr: 4.6.1
-    lodash.debounce: ^4.0.8
-    warning: ^3.0.0
-  checksum: 84a7e6ad39df192462225f92394407c59d2c3dcf6b1f4b5c2fb9ed96f3f593538d3999a8f1f30ff8de0095d1e282a3ddcdd3c8a3e653f295ef6e60436dba59d7
   languageName: node
   linkType: hard
 
