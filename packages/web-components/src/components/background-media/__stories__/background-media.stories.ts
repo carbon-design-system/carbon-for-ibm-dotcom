@@ -29,7 +29,6 @@ export const Default = (args) => {
   return html`
     <dds-background-media
       gradient-direction="${ifNonNull(gradientDirection)}"
-      mobile-position="bottom"
       alt="${ifNonNull(alt)}"
       default-src="${imgMax}"
       opacity="${ifNonNull(backgroundOpacity)}">
@@ -54,7 +53,6 @@ export const WithVideo = (args) => {
     <div style="height: 70vh;">
       <dds-background-media
         gradient-direction="${ifNonNull(gradientDirection)}"
-        mobile-position="bottom"
         opacity="${ifNonNull(backgroundOpacity)}">
         <dds-video-player-container
           video-id="1_9h94wo6b"
@@ -70,7 +68,6 @@ export const WithDefaultSource = (args) => {
   return html`
     <dds-background-media
       gradient-direction="${ifNonNull(gradientDirection)}"
-      mobile-position="bottom"
       alt="${ifNonNull(alt)}"
       default-src="${imgMax}"
       opacity="${ifNonNull(backgroundOpacity)}">

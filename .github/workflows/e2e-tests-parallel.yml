@@ -2,9 +2,9 @@ name: e2e-tests-parallel
 
 on:
   push:
-    branches: [ main, release/*, feat/cwc-v2, fix/content-updates ]
+    branches: [ main, release/*, feat/*, fix/content-updates ]
   pull_request:
-    branches: [ main, release/*, feat/cwc-v2, fix/content-updates ]
+    branches: [ main, release/*, feat/*, fix/content-updates ]
 
 concurrency:
   group: e2e-tests-parallel${{ github.ref }}
@@ -62,6 +62,11 @@ jobs:
         with:
           name: storybook-build
           path: packages/web-components/storybook-static
+      
+      - name: Clear remnant failure files
+        uses: geekyeggo/delete-artifact@v2
+        with:
+          name: failure-wc.txt          
 
   web-components-tests:
     runs-on: macos-latest
@@ -114,7 +119,7 @@ jobs:
           CYPRESS_CACHE_FOLDER: /Users/runner/Library/Caches/Cypress
 
       - name: Create failure file if job failed
-        id: react-no-tests-ran
+        id: wc-no-tests-ran
         if: steps.cypress-tests-wc.outcome == 'failure'
         run: touch failure-wc.txt
 
@@ -193,6 +198,11 @@ jobs:
         with:
           name: storybook-build
           path: packages/react/storybook-static
+
+      - name: Clear remnant failure files
+        uses: geekyeggo/delete-artifact@v2
+        with:
+          name: failure-react.txt 
 
   react-tests:
     runs-on: ubuntu-latest
