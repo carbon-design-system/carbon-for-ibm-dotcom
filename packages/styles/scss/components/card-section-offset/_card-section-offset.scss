@@ -40,7 +40,7 @@
       aspect-ratio: 4 / 3;
     }
 
-    @include carbon--breakpoint('md') {
+    @include breakpoint(md) {
       ::slotted(#{$dds-prefix}-background-media) {
         top: 0;
         position: absolute;
