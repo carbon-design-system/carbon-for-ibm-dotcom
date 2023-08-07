@@ -93,7 +93,7 @@ export const Default = (args) => {
   });
   return html`
     <dds-carousel class="${classes}">
-      <span class="bx--visually-hidden" slot="title"
+      <span class="cds--visually-hidden" slot="title"
         >Carousel (Storybook Sample)</span
       >
       ${Card()}${Card({ copy: copyOdd })}${CardWithLongHeading()}${Card({
@@ -181,8 +181,8 @@ export default {
         <style>
           ${styles}
         </style>
-        <div class="bx--grid">
-          <div class="bx--row">${story()}</div>
+        <div class="cds--grid">
+          <div class="cds--row">${story()}</div>
         </div>
       `;
     },

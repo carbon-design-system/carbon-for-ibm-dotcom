@@ -196,7 +196,7 @@ export const Default = (args) => {
 
 Default.story = {
   parameters: {
-    gridContentClasses: 'bx--col-sm-4 bx--col-lg-8',
+    gridContentClasses: 'cds--col-sm-4 cds--col-lg-8',
     knobs: {
       DefaultCTA: () => {
         const ctaStyle = select(
@@ -311,8 +311,8 @@ export default {
   decorators: [
     (story, { parameters }) => {
       return html`
-        <div class="bx--grid">
-          <div class="bx--row">
+        <div class="cds--grid">
+          <div class="cds--row">
             <div class="${parameters.gridContentClasses}">
               <dds-video-cta-container> ${story()} </dds-video-cta-container>
             </div>

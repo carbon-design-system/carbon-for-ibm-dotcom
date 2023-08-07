@@ -53,8 +53,8 @@ const setGridMode = {
 
 const tagGroupContent = html`
   <dds-tag-group>
-    <bx-tag type="cool-gray"> Systems w/TPS </bx-tag>
-    <bx-tag type="cool-gray"> Virtual </bx-tag>
+    <cds-tag type="cool-gray"> Systems w/TPS </cds-tag>
+    <cds-tag type="cool-gray"> Virtual </cds-tag>
   </dds-tag-group>
 `;
 
@@ -175,7 +175,7 @@ const pictogramCard = (gridMode) => html`
       height="48"
       viewBox="0 0 32 32"
       role="img"
-      class="bx--card__pictogram">
+      class="cds--card__pictogram">
       <path
         id="desktop_1_"
         d="M23,29.36H9v-0.72h6.64v-4.28H3c-1.301,0-2.36-1.059-2.36-2.36V5c0-1.301,1.059-2.36,2.36-2.36h26
@@ -416,9 +416,9 @@ export default {
       <style>
         ${styles}
       </style>
-      <div class="bx--grid">
-        <div class="bx--row">
-          <div class="bx--col-lg-12 bx--no-gutter">
+      <div class="cds--grid">
+        <div class="cds--row">
+          <div class="cds--col-lg-12 cds--no-gutter">
             <dds-video-cta-container> ${story()} </dds-video-cta-container>
           </div>
         </div>

@@ -83,7 +83,7 @@ const Card = ({
 export const Default = (args) => {
   const { heading, copy, addChildren } = args?.ContentSection ?? {};
   const classes = addChildren.includes('Content block simple')
-    ? 'bx--col-lg-16 bx--no-gutter'
+    ? 'cds--col-lg-16 cds--no-gutter'
     : '';
   return html`
     <dds-content-section children-custom-class="${classes}">
@@ -168,9 +168,9 @@ export default {
   title: 'Components/Content section',
   decorators: [
     (story) => html`
-      <div class="bx--grid">
-        <div class="bx--row">
-          <div class="bx--col-lg-16 bx--no-gutter">
+      <div class="cds--grid">
+        <div class="cds--row">
+          <div class="cds--col-lg-16 cds--no-gutter">
             <dds-video-container> ${story()} </dds-video-container>
           </div>
         </div>

@@ -205,7 +205,7 @@ export const WithVideo = (args) => {
 WithVideo.story = {
   name: 'With video',
   parameters: {
-    gridContentClasses: 'bx--col-lg-12',
+    gridContentClasses: 'cds--col-lg-12',
   },
 };
 
@@ -266,7 +266,7 @@ export const WithLinkList = (args) => {
 WithLinkList.story = {
   name: 'With link list',
   parameters: {
-    gridContentClasses: 'bx--col-lg-12',
+    gridContentClasses: 'cds--col-lg-12',
   },
 };
 
@@ -274,9 +274,9 @@ export default {
   title: 'Components/Content block simple',
   decorators: [
     (story, { parameters }) => html`
-      <div class="bx--grid">
-        <div class="bx--row">
-          <div class="bx--no-gutter ${parameters.gridContentClasses}">
+      <div class="cds--grid">
+        <div class="cds--row">
+          <div class="cds--no-gutter ${parameters.gridContentClasses}">
             ${story()}
           </div>
         </div>
@@ -285,7 +285,7 @@ export default {
   ],
   parameters: {
     ...readme.parameters,
-    gridContentClasses: 'bx--col-lg-9',
+    gridContentClasses: 'cds--col-lg-9',
     hasStoryPadding: true,
     knobs: {
       ContentBlockSimple: () => ({

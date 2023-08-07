@@ -55,9 +55,9 @@ const contentItemRow2 = html`
 export const Default = (args) => {
   const { heading, copy } = args?.ContentBlockHeadlines ?? {};
   return html`
-    <div class="bx--grid">
-      <div class="bx--row">
-        <div class="bx--col-lg-12 bx--no-gutter">
+    <div class="cds--grid">
+      <div class="cds--row">
+        <div class="cds--col-lg-12 cds--no-gutter">
           <dds-content-block-headlines>
             <dds-content-block-heading>${heading}</dds-content-block-heading>
             <dds-content-block-copy>${copy}</dds-content-block-copy>

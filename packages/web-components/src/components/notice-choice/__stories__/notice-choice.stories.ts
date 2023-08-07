@@ -94,9 +94,9 @@ export default {
   title: 'Components/Notice Choice',
   decorators: [
     (story) => html`
-      <div class="bx--grid">
-        <div class="bx--row">
-          <div class="bx--col-sm-4 bx--col-md-8 bx--col-lg-12 bx--offset-lg-2">
+      <div class="cds--grid">
+        <div class="cds--row">
+          <div class="cds--col-sm-4 cds--col-md-8 cds--col-lg-12 cds--offset-lg-2">
             ${story()}
           </div>
         </div>

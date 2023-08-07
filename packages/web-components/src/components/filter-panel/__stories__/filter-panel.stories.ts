@@ -23,7 +23,7 @@ export const Default = (args) => {
 
   return html`
     <div
-      class="${gridKnobs === '3 columns' ? 'bx--col-lg-3' : 'bx--col-lg-4'}"
+      class="${gridKnobs === '3 columns' ? 'cds--col-lg-3' : 'cds--col-lg-4'}"
       style="padding-right: 1rem;">
       <dds-filter-panel-composite>
         <dds-filter-panel-heading slot="heading"
@@ -142,8 +142,8 @@ export default {
   decorators: [
     (story) =>
       html`
-        <div class="bx--grid bx--grid--condensed">
-          <div class="bx--row">${story()}</div>
+        <div class="cds--grid cds--grid--condensed">
+          <div class="cds--row">${story()}</div>
         </div>
       `,
   ],

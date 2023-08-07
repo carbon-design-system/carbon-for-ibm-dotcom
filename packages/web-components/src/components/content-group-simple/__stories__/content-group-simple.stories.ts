@@ -153,9 +153,9 @@ export default {
   title: 'Components/Content group simple',
   decorators: [
     (story) => html`
-      <div class="bx--grid">
-        <div class="bx--row">
-          <div class="bx--col-lg-12 bx--no-gutter">
+      <div class="cds--grid">
+        <div class="cds--row">
+          <div class="cds--col-lg-12 cds--no-gutter">
             <dds-video-cta-container> ${story()} </dds-video-cta-container>
           </div>
         </div>

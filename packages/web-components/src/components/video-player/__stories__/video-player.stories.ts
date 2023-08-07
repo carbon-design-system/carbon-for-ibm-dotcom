@@ -170,9 +170,9 @@ export default {
   title: 'Components/Video player',
   decorators: [
     (story) => html`
-      <div class="bx--grid">
-        <div class="bx--row">
-          <div class="bx--col-sm-4 bx--col-lg-8">${story()}</div>
+      <div class="cds--grid">
+        <div class="cds--row">
+          <div class="cds--col-sm-4 cds--col-lg-8">${story()}</div>
         </div>
       </div>
     `,

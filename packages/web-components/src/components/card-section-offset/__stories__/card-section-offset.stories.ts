@@ -88,8 +88,8 @@ export default {
   title: 'Components/Card section offset',
   decorators: [
     (story) => html`
-      <div class="bx--grid">
-        <div class="bx--row">
+      <div class="cds--grid">
+        <div class="cds--row">
           <dds-video-cta-container> ${story()} </dds-video-cta-container>
         </div>
       </div>

@@ -37,7 +37,7 @@ const placementTypes = {
 
 export default {
   title: 'Components/Link with icon',
-  decorators: [(story) => html` <div class="bx--grid">${story()}</div> `],
+  decorators: [(story) => html` <div class="cds--grid">${story()}</div> `],
   parameters: {
     ...readme.parameters,
     hasStoryPadding: true,

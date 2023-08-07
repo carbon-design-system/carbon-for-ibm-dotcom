@@ -64,8 +64,8 @@ export default {
       <style>
         ${styles}
       </style>
-      <div class="bx--grid">
-        <div class="bx--row grid-alignment">${story()}</div>
+      <div class="cdss--grid">
+        <div class="cdss--row grid-alignment">${story()}</div>
       </div>
     `,
   ],

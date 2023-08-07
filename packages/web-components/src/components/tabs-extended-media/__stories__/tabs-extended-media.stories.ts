@@ -117,12 +117,12 @@ export default {
   title: 'Components/Tabs extended - with media',
   decorators: [
     (story, { args }) => html`
-      <div class="bx--grid">
-        <div class="bx--row">
+      <div class="cds--grid">
+        <div class="cds--row">
           <div
             class="${args?.TabsExtendedWithMedia?.sectionHeading
-              ? `bx--col-lg-16`
-              : `bx--col-lg-12`} bx--no-gutter">
+              ? `cds--col-lg-16`
+              : `cds--col-lg-12`} cds--no-gutter">
             ${story()}
           </div>
         </div>

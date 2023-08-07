@@ -48,9 +48,9 @@ export default {
   title: 'Components/Button group',
   decorators: [
     (story) => html`
-      <div class="bx--grid">
-        <div class="bx--row">
-          <div class="bx--col-sm-16 bx--col-md-6 bx--col-lg-16">${story()}</div>
+      <div class="cds--grid">
+        <div class="cds--row">
+          <div class="cds--col-sm-16 cds--col-md-6 cds--col-lg-16">${story()}</div>
         </div>
       </div>
     `,
