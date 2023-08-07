@@ -81,6 +81,8 @@ class DDSBackgroundMedia extends DDSImage {
   gradientHidden: boolean = false;
 
   /**
+   * @deprecated
+   *
    * Mobile Position (bottom (default) | top)
    */
   @property({ attribute: 'mobile-position', reflect: true })
@@ -168,6 +170,7 @@ class DDSBackgroundMedia extends DDSImage {
    * Append the dds-background-media to the parent element where this component is being used.
    */
   updated() {
+    // mobilePosition attribute deprecated
     if (this.mobilePosition === MOBILE_POSITION.TOP) {
       this.parentElement?.shadowRoot?.prepend(this);
     }
