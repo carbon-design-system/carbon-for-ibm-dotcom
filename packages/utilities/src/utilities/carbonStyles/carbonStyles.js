@@ -6,20 +6,48 @@
  */
 
 import root from 'window-or-global';
+import buttonStyles from './button.scss';
+import resetStyles from './reset.scss';
+import typeStyles from './type.scss';
 
-const plex =
-  'https://1.www.s81c.com/common/carbon-for-ibm-dotcom/tag/v1/latest/plex.css';
-const grid =
-  'https://1.www.s81c.com/common/carbon-for-ibm-dotcom/tag/v1/latest/grid.css';
-const theme =
-  'https://1.www.s81c.com/common/carbon-for-ibm-dotcom/tag/v1/latest/themes.css';
+const importedStyleSheets = {
+  buttonStyles,
+  resetStyles,
+  typeStyles,
+};
+
+function handleStylesRequest(e) {
+  const carbon = this; // Bound from constructor.
+  const component = e.target;
+  const sheetsRequested = e.detail.map(
+    (sheetName) => carbon.styleSheets[sheetName]
+  );
+
+  component.dispatchEvent(
+    new CustomEvent('respondCarbonStyles', {
+      bubbles: false,
+      cancelable: false,
+      composed: true,
+      detail: sheetsRequested,
+    })
+  );
+}
 
 class CarbonStyles {
   constructor() {
-    window.addEventListener('requestCarbonStyles', (e) => {
-      const component = e.target;
-      console.log('styles requested ', e.detail);
-    });
+    window.addEventListener(
+      'requestCarbonStyles',
+      handleStylesRequest.bind(this)
+    );
+
+    this.styleSheets = Object.fromEntries(
+      Object.entries(importedStyleSheets).map(([name, ss]) => {
+        const sheet = new CSSStyleSheet();
+        sheet.replaceSync(ss.cssText);
+
+        return [name, sheet];
+      })
+    );
   }
 
   /**

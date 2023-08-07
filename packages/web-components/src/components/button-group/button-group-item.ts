@@ -8,8 +8,9 @@
  */
 import { carbonElement as customElement } from '../../internal/vendor/@carbon/web-components/globals/decorators/carbon-element';
 import settings from '@carbon/ibmdotcom-utilities/es/utilities/settings/settings.js';
-import styles from './button-group.scss';
+import styles from './button-group-item.scss';
 import DDSButtonExpressive from '../button/button';
+import carbonStyles from '../../../../utilities/src/utilities/carbonStyles/carbonStyles.js';
 
 const { stablePrefix: ddsPrefix } = settings;
 
