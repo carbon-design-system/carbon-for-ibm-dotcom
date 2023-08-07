@@ -61,8 +61,8 @@ export const decorators = [
       <style>
         ${containerStyles}
       </style>
-      <bx-skip-to-content href="#main-content"
-        >Skip to main content</bx-skip-to-content
+      <cds-skip-to-content href="#main-content"
+        >Skip to main content</cds-skip-to-content
       >
       <div
         id="main-content"
