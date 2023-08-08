@@ -1,9 +1,11 @@
-import { Preview, Props, Description, Story } from '@storybook/addon-docs/blocks';
+import {
+  Preview,
+  Props,
+  Description,
+  Story,
+} from '@storybook/addon-docs/blocks';
 import contributing from '../../../../../../docs/contributing-license.md';
 import { cdnJs, cdnCss } from '../../../globals/internal/storybook-cdn';
-
-
-
 
 # Leadspace with Search
 
@@ -52,7 +54,6 @@ import '@carbon/ibmdotcom-web-components/es/components/leadspace-with-search/ind
 <dds-leadspace-with-search>
   <dds-background-media
     gradient-direction="left-to-right"
-    mobile-position="bottom"
     default-src="https://fpoimg.com/1584x560?&bg_color=ee5396&text_color=161616"
     slot='image'
   >
@@ -74,18 +75,25 @@ import '@carbon/ibmdotcom-web-components/es/components/leadspace-with-search/ind
 
 ## Adjacent Themes
 
-This component has four adjacent theme combinations which can be used to display different theming between the two parts of the component,
-the "top" and the "bottom" of the component. In other words, this component can be "divided" into two halves, the "top" contains the heading,
-subheading, and paragraph elements to display information, whereas the "bottom" part contains the Search With Typeahead component.
+This component has four adjacent theme combinations which can be used to display
+different theming between the two parts of the component, the "top" and the
+"bottom" of the component. In other words, this component can be "divided" into
+two halves, the "top" contains the heading, subheading, and paragraph elements
+to display information, whereas the "bottom" part contains the Search With
+Typeahead component.
 
-By applying these different themes, you may have the "top" part have the default "White" theme, while the bottom has the "Gray 10" theme, for example.
-Feel free to play around with the knobs to choose which option would work best for your page.
+By applying these different themes, you may have the "top" part have the default
+"White" theme, while the bottom has the "Gray 10" theme, for example. Feel free
+to play around with the knobs to choose which option would work best for your
+page.
 
-There are four adjacent theme combinations that are available in this component are the following:
-* White and Gray 10
-* Gray 10 and White
-* Gray 90 and Gray 100
-* Gray 100 and Gray 90
+There are four adjacent theme combinations that are available in this component
+are the following:
+
+- White and Gray 10
+- Gray 10 and White
+- Gray 90 and Gray 100
+- Gray 100 and Gray 90
 
 ### HTML Example
 
@@ -93,7 +101,6 @@ There are four adjacent theme combinations that are available in this component 
 <dds-leadspace-with-search adjacent-theme='white-and-g10'>
   <dds-background-media
     gradient-direction="left-to-right"
-    mobile-position="bottom"
     default-src="https://fpoimg.com/1584x560?&bg_color=ee5396&text_color=161616"
     slot='image'
   >
@@ -114,19 +121,26 @@ There are four adjacent theme combinations that are available in this component 
 ```
 
 ## Horizontal rule use
-The horizontal rule should **only** be used when the leadspace will have the same Carbon theme as the page content,
-*OR* when using Adjacent Themes, the search container will need to be the same Carbon theme as the page content.
 
-In other words, the horizontal rule should only be included as a slotted element if, for example, the page content has
-the `g100` theme *and* the `Leadspace with search` **also** uses `g100`.
+The horizontal rule should **only** be used when the leadspace will have the
+same Carbon theme as the page content, _OR_ when using Adjacent Themes, the
+search container will need to be the same Carbon theme as the page content.
 
-When using adjacent themes, the theme applied **must** be `g90-and-g100`, as the latter theme must match the page content theme.
+In other words, the horizontal rule should only be included as a slotted element
+if, for example, the page content has the `g100` theme _and_ the
+`Leadspace with search` **also** uses `g100`.
 
-Using the horizontal rule for other cases in which the themes are not matching is not advisable.
+When using adjacent themes, the theme applied **must** be `g90-and-g100`, as the
+latter theme must match the page content theme.
+
+Using the horizontal rule for other cases in which the themes are not matching
+is not advisable.
 
 ## Scroll behavior
-When including the `Leadspace with search` component within the `Dotcom Shell` component, an optional scroll behavior option is available.
-If enabled, the search container will remain fixed on top of the page as the user scrolls.
+
+When including the `Leadspace with search` component within the `Dotcom Shell`
+component, an optional scroll behavior option is available. If enabled, the
+search container will remain fixed on top of the page as the user scrolls.
 
 To enable, add the `scroll-behavior` attribute to `Leadspace with search`
 
@@ -150,9 +164,12 @@ To enable, add the `scroll-behavior` attribute to `Leadspace with search`
 </dds-leadspace-with-search>
 </dds-dotcom-shell-container>
 ```
+
 ## Stable selectors
 
-See [our README](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/tree/main/packages/web-components#stable-selectors-for-analytics-and-integratione2e-testing-in-web-components) to see how Web Components selector and `data-autoid` should be used.
+See
+[our README](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/tree/main/packages/web-components#stable-selectors-for-analytics-and-integratione2e-testing-in-web-components)
+to see how Web Components selector and `data-autoid` should be used.
 
 | Web Components selector                       | Compatibility selector                                     | Description |
 | --------------------------------------------- | ---------------------------------------------------------- | ----------- |
@@ -161,7 +178,6 @@ See [our README](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/t
 | `<dds-leadspace-with-search-heading>`         | `data-autoid="dds--leadspace-with-search__heading"`        | Component   |
 | `<dds-leadspace-with-search-content-copy>`    | `data-autoid="dds--leadspace-with-search-content-copy"`    | Component   |
 | `<dds-leadspace-with-search-content-heading>` | `data-autoid="dds--leadspace-with-search-content-heading"` | Component   |
-
 
 ## Props
 
