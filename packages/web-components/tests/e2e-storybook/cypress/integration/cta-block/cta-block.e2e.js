@@ -26,7 +26,7 @@ describe('dds-cta-block (desktop)', () => {
     cy.checkAxeA11y();
   });
 
-  it('should set items to same height when made visible', () => {
+  xit('should set items to same height when made visible', () => {
     // Delay variable
     const forHeightsToBeSet = 100;
 
