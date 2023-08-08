@@ -80,7 +80,9 @@ export default {
       </style>
       <div class="cds--grid">
         <div class="cds--row">
-          <div class="cds--col-sm-4 cds--col-lg-8 cds--no-gutter">${story()}</div>
+          <div class="cds--col-sm-4 cds--col-lg-8 cds--no-gutter">
+            ${story()}
+          </div>
         </div>
       </div>
     `,

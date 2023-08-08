@@ -96,7 +96,8 @@ export default {
     (story) => html`
       <div class="cds--grid">
         <div class="cds--row">
-          <div class="cds--col-sm-4 cds--col-md-8 cds--col-lg-12 cds--offset-lg-2">
+          <div
+            class="cds--col-sm-4 cds--col-md-8 cds--col-lg-12 cds--offset-lg-2">
             ${story()}
           </div>
         </div>

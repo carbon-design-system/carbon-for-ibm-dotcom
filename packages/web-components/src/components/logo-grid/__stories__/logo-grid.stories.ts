@@ -66,7 +66,9 @@ export default {
     (story) => html`
       <div class="cds--grid">
         <div class="cds--row">
-          <div class="cds--col-sm-4 cds--col-md-8 cds--col-lg-12">${story()}</div>
+          <div class="cds--col-sm-4 cds--col-md-8 cds--col-lg-12">
+            ${story()}
+          </div>
         </div>
       </div>
     `,

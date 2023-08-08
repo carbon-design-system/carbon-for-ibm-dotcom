@@ -50,7 +50,9 @@ export default {
     (story) => html`
       <div class="cds--grid">
         <div class="cds--row">
-          <div class="cds--col-sm-16 cds--col-md-6 cds--col-lg-16">${story()}</div>
+          <div class="cds--col-sm-16 cds--col-md-6 cds--col-lg-16">
+            ${story()}
+          </div>
         </div>
       </div>
     `,
