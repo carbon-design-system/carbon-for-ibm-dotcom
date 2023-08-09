@@ -30,7 +30,6 @@ describe('dds-background-media', function () {
       render(
         template({
           gradientDirection: 'left-to-right',
-          mobilePosition: 'top',
           alt: 'Image alt text',
           defaultSrc:
             'https://fpoimg.com/1584x560?&bg_color=ee5396&text_color=161616',
