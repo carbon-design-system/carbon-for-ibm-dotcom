@@ -27,6 +27,7 @@ import {
   Translation,
 } from '../../internal/vendor/@carbon/ibmdotcom-services-store/types/translateAPI.d';
 import { FOOTER_SIZE } from './footer';
+import { DROPDOWN_SIZE } from './combo-box';
 // Above import is interface-only ref and thus code won't be brought into the build
 import './footer';
 // Above import is interface-only ref and thus code won't be brought into the build
@@ -268,7 +269,7 @@ class DDSFooterComposite extends MediaQueryMixin(
     return isMobile
       ? html`
           <dds-language-selector-mobile
-            size="${size}"
+            size="${size || DROPDOWN_SIZE.EXTRA_LARGE}"
             slot="${slot}"
             value="${selectedLanguage}"
             placeholder="${selectedLanguage}">
@@ -286,7 +287,7 @@ class DDSFooterComposite extends MediaQueryMixin(
         `
       : html`
           <dds-language-selector-desktop
-            size="${size}"
+            size="${size || DROPDOWN_SIZE.EXTRA_LARGE}"
             slot="${slot}"
             trigger-content="${languageSelectorLabel}"
             label-text="${languageSelectorLabel}"
