@@ -266,10 +266,14 @@ class DDSFooterComposite extends MediaQueryMixin(
       selectedLanguage,
       size,
     } = this;
+    const dropdownSize =
+      size === FOOTER_SIZE.MICRO
+        ? DROPDOWN_SIZE.MICRO
+        : DROPDOWN_SIZE.EXTRA_LARGE;
     return isMobile
       ? html`
           <dds-language-selector-mobile
-            size="${size || DROPDOWN_SIZE.EXTRA_LARGE}"
+            size="${dropdownSize}"
             slot="${slot}"
             value="${selectedLanguage}"
             placeholder="${selectedLanguage}">
@@ -287,7 +291,7 @@ class DDSFooterComposite extends MediaQueryMixin(
         `
       : html`
           <dds-language-selector-desktop
-            size="${size || DROPDOWN_SIZE.EXTRA_LARGE}"
+            size="${dropdownSize}"
             slot="${slot}"
             trigger-content="${languageSelectorLabel}"
             label-text="${languageSelectorLabel}"
