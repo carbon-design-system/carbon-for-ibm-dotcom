@@ -28,8 +28,8 @@ export const Default = (args) => {
     args?.['dds-background-media'] ?? {};
   return html`
     <dds-background-media
-      gradient-direction="${ifNonNull(gradientDirection)}"
-      alt="${ifNonNull(alt)}"
+      gradient-direction="${ifDefined(gradientDirection)}"
+      alt="${ifDefined(alt)}"
       default-src="${imgMax}"
       opacity="${ifDefined(backgroundOpacity)}">
       <dds-image-item media="(min-width: 1584px)" srcset="${imgMax}">
@@ -52,8 +52,8 @@ export const WithVideo = (args) => {
   return html`
     <div style="height: 70vh;">
       <dds-background-media
-        gradient-direction="${ifNonNull(gradientDirection)}"
-        opacity="${ifNonNull(backgroundOpacity)}">
+        gradient-direction="${ifDefined(gradientDirection)}"
+        opacity="${ifDefined(backgroundOpacity)}">
         <dds-video-player-container
           video-id="1_9h94wo6b"
           background-mode="true"></dds-video-player-container>
@@ -67,8 +67,8 @@ export const WithDefaultSource = (args) => {
     args?.['dds-background-media'] ?? {};
   return html`
     <dds-background-media
-      gradient-direction="${ifNonNull(gradientDirection)}"
-      alt="${ifNonNull(alt)}"
+      gradient-direction="${ifDefined(gradientDirection)}"
+      alt="${ifDefined(alt)}"
       default-src="${imgMax}"
       opacity="${ifDefined(backgroundOpacity)}">
     </dds-background-media>
