@@ -74,8 +74,8 @@ export default {
   title: 'Components/Card section simple',
   decorators: [
     (story) => html`
-      <div class="bx--grid">
-        <div class="bx--row">${story()}</div>
+      <div class="cds--grid">
+        <div class="cds--row">${story()}</div>
       </div>
     `,
   ],

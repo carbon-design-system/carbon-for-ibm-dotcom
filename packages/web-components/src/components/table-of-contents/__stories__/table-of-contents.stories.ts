@@ -46,7 +46,7 @@ export const Default = (args) => {
             <dds-hr slot="menu-rule"></dds-hr>
           `
         : nothing}
-      ${content({ contentClass: 'bx--tableofcontents__contents', items })}
+      ${content({ contentClass: 'cds--tableofcontents__contents', items })}
     </dds-table-of-contents>
   `;
 };
@@ -55,10 +55,10 @@ export const Horizontal = (args) => {
   const { numberOfItems: items } = args?.Other ?? {};
   return html`
     <dds-table-of-contents toc-layout="${TOC_TYPES.HORIZONTAL}">
-      <div class="bx--row">
-        <div class="bx--col-lg-12">
+      <div class="cds--row">
+        <div class="cds--col-lg-12">
           ${content({
-            contentClass: 'bx--tableofcontents-horizontal__contents',
+            contentClass: 'cds--tableofcontents-horizontal__contents',
             items,
           })}
         </div>
@@ -106,7 +106,7 @@ export default {
       <style>
         ${styles}
       </style>
-      <div class="bx--grid" style="padding: 0">${story()}</div>
+      <div class="cds--grid" style="padding: 0">${story()}</div>
     `,
   ],
   parameters: {

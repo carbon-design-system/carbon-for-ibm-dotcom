@@ -74,7 +74,7 @@ const contentItemTypeMap = {
         height="48"
         viewBox="0 0 48 48"
         role="img"
-        class="bx--pictogram-item__pictogram">
+        class="cds--pictogram-item__pictogram">
         <path
           fill="none"
           stroke-linejoin="round"

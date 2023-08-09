@@ -28,8 +28,8 @@ export default {
         <style>
           ${styles}
         </style>
-        <div class="bx--grid">
-          <div class="bx--row">${story()}</div>
+        <div class="cds--grid">
+          <div class="cds--row">${story()}</div>
         </div>
       `;
     },

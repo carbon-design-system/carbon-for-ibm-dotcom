@@ -60,9 +60,9 @@ export default {
   title: 'Components/Quote',
   decorators: [
     (story) => html`
-      <div class="bx--grid">
-        <div class="bx--row">
-          <div class="bx--col-lg-11">${story()}</div>
+      <div class="cds--grid">
+        <div class="cds--row">
+          <div class="cds--col-lg-11">${story()}</div>
         </div>
       </div>
     `,

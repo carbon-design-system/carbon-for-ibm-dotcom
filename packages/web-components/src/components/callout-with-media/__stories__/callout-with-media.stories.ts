@@ -48,9 +48,9 @@ export default {
   title: 'Components/Callout with media',
   decorators: [
     (story) => html`
-      <div class="bx--grid">
-        <div class="bx--row">
-          <div class="bx--col-lg-12 bx--no-gutter">${story()}</div>
+      <div class="cds--grid">
+        <div class="cds--row">
+          <div class="cds--col-lg-12 cds--no-gutter">${story()}</div>
         </div>
       </div>
     `,

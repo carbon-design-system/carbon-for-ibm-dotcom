@@ -96,7 +96,7 @@ export const Default = (args) => {
 
 Default.story = {
   parameters: {
-    colLgClass: 'bx--col-lg-3',
+    colLgClass: 'cds--col-lg-3',
     knobs: {
       LinkListItem: () => {
         const ctaType = select('CTA type (cta-type)', types, null);
@@ -179,7 +179,7 @@ export const Horizontal = (args) => {
 
 Horizontal.story = {
   parameters: {
-    colLgClass: 'bx--col-lg-10',
+    colLgClass: 'cds--col-lg-10',
     knobs: {
       LinkListItem: () => {
         const ctaType = select('CTA type (cta-type)', types, null);
@@ -262,7 +262,7 @@ export const Vertical = (args) => {
 
 Vertical.story = {
   parameters: {
-    colLgClass: 'bx--col-lg-4',
+    colLgClass: 'cds--col-lg-4',
     knobs: Horizontal.story.parameters.knobs,
     propsSet: {
       default: {
@@ -327,7 +327,7 @@ export const EndOfSection = (args) => {
 EndOfSection.story = {
   name: 'End of section',
   parameters: {
-    colLgClass: 'bx--col-lg-6',
+    colLgClass: 'cds--col-lg-6',
     knobs: Default.story.parameters.knobs,
     propsSet: {
       default: {
@@ -351,9 +351,9 @@ export default {
     (story, { parameters }) => {
       const { colLgClass } = parameters;
       return html`
-        <dds-video-cta-container class="bx--grid">
-          <div class="bx--row">
-            <div class="bx--col-sm-4 ${colLgClass}">${story()}</div>
+        <dds-video-cta-container class="cds--grid">
+          <div class="cds--row">
+            <div class="cds--col-sm-4 ${colLgClass}">${story()}</div>
           </div>
         </dds-video-cta-container>
       `;

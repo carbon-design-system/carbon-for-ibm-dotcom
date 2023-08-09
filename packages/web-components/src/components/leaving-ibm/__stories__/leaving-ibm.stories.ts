@@ -78,9 +78,11 @@ export default {
       <style>
         ${styles}
       </style>
-      <div class="bx--grid">
-        <div class="bx--row">
-          <div class="bx--col-sm-4 bx--col-lg-8 bx--no-gutter">${story()}</div>
+      <div class="cds--grid">
+        <div class="cds--row">
+          <div class="cds--col-sm-4 cds--col-lg-8 cds--no-gutter">
+            ${story()}
+          </div>
         </div>
       </div>
     `,

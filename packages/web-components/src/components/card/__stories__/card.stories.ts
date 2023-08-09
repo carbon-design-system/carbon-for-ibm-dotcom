@@ -23,8 +23,8 @@ import textNullable from '../../../../.storybook/knob-text-nullable';
 
 const tagGroupContent = html`
   <dds-tag-group>
-    <bx-tag type="green"> Most popular </bx-tag>
-    <bx-tag type="purple"> Enterprise </bx-tag>
+    <cds-tag type="green"> Most popular </cds-tag>
+    <cds-tag type="purple"> Enterprise </cds-tag>
   </dds-tag-group>
 `;
 
@@ -143,7 +143,7 @@ export const Pictogram = (args) => {
         height="48"
         viewBox="0 0 32 32"
         role="img"
-        class="bx--card__pictogram">
+        class="cds--card__pictogram">
         <path
           id="desktop_1_"
           d="M23,29.36H9v-0.72h6.64v-4.28H3c-1.301,0-2.36-1.059-2.36-2.36V5c0-1.301,1.059-2.36,2.36-2.36h26
@@ -356,10 +356,10 @@ export default {
   title: 'Components/Card',
   decorators: [
     (story) => html`
-      <div class="bx--grid">
-        <div class="bx--row">
+      <div class="cds--grid">
+        <div class="cds--row">
           <div
-            class="bx--col-sm-4 bx--col-md-3 bx--col-lg-6 bx--col-xlg-4 bx--no-gutter">
+            class="cds--col-sm-4 cds--col-md-3 cds--col-lg-6 cds--col-xlg-4 cds--no-gutter">
             ${story()}
           </div>
         </div>
