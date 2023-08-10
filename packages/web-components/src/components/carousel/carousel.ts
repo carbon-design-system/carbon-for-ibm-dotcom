@@ -572,7 +572,7 @@ class DDSCarousel extends HostListenerMixin(StableSelectorMixin(LitElement)) {
 
   /**
    * Number of items per page.
-   * If `--dds--carousel--page-size` CSS custom property is set to `<div class="bx--carousel__scroll-container">`
+   * If `--dds--carousel--page-size` CSS custom property is set to `<div class="cds--carousel__scroll-container">`
    * or its ancestor (e.g. the host `<dds-carousel>`), this is set automatically from `--dds--carousel--page-size`.
    */
   @property({ type: Number, attribute: 'page-size' })
@@ -694,7 +694,7 @@ class DDSCarousel extends HostListenerMixin(StableSelectorMixin(LitElement)) {
       <div role="region" aria-labelledby="carousel-title">
         <div id="carousel-title">
           <slot name="title">
-            <span class="bx--visually-hidden">Carousel</span>
+            <span class="cds--visually-hidden">Carousel</span>
           </slot>
         </div>
         <div
@@ -743,7 +743,7 @@ class DDSCarousel extends HostListenerMixin(StableSelectorMixin(LitElement)) {
 
   /**
    * The CSS custom property name for the live page size.
-   * If the CSS custom property is set to `<div class="bx--carousel__scroll-container">`
+   * If the CSS custom property is set to `<div class="cds--carousel__scroll-container">`
    * or its ancestor (e.g. the host `<dds-carousel>`), this is set automatically from the CSS custom property.
    */
   static get customPropertyPageSize() {

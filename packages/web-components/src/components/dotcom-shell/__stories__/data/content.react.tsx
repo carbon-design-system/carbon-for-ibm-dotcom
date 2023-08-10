@@ -226,7 +226,7 @@ export const contentLeadspace = (
         test
       </DDSButtonGroupItem>
     </DDSButtonGroup>
-    <DDSImage slot="image" class="bx--image" alt="" default-src={leadspaceImg}>
+    <DDSImage slot="image" class="cds--image" alt="" default-src={leadspaceImg}>
       <DDSImageItem
         media="(min-width: 672px)"
         srcset={leadspaceImg}
@@ -452,7 +452,7 @@ export const StoryContent = (
   }
 ) => {
   const mainClasses = [
-    'bx--content',
+    'cds--content',
     'dds-ce-demo-devenv--ui-shell-content',
     config?.l1 ? 'has-l1' : null,
     config?.leadspace ? 'has-leadspace' : null,
@@ -465,8 +465,8 @@ export const StoryContent = (
       {config?.leadspace ? contentLeadspace : null}
       {config?.tocLayout === TOC_TYPES.HORIZONTAL ? (
         <DDSTableOfContents stickyOffset={48} toc-layout={config.tocLayout}>
-          <div className="bx--row">
-            <div className="bx--col-lg-12">{tocContent}</div>
+          <div className="cds--row">
+            <div className="cds--col-lg-12">{tocContent}</div>
           </div>
         </DDSTableOfContents>
       ) : (
@@ -483,7 +483,7 @@ export const StoryContentNoToC = () => (
     className="dds-ce-demo-devenv--ui-shell-content"
     style={{ paddingRight: '1rem' }}
   >
-    <div className="bx--grid bx--col-lg-8">
+    <div className="cds--gridcdsds--col-lg-8">
       {contentLeadspaceSearch}
 
       <DDSContentBlockSegmented>

@@ -30,7 +30,7 @@ export const Default = args => {
   return (
     <>
       <div
-        className={`grid-alignment ${gridKnobs === '3 columns' ? 'bx--col-lg-3' : 'bx--col-lg-4'}`}
+        className={`grid-alignment ${gridKnobs === '3 columns' ? 'cds--col-lg-3' : 'cds--col-lg-4'}`}
         style={{ paddingRight: '1rem' }}>
         <DDSFilterPanelComposite>
           <DDSFilterPanelHeading slot="heading">{heading}</DDSFilterPanelHeading>
@@ -94,8 +94,8 @@ export default {
   title: 'Components/Filter panel',
   decorators: [
     story => (
-      <div className="bx--grid bx--grid--condensed">
-        <div className="bx--row">{story()}</div>
+      <div className="cds--grid cds--grid--condensed">
+        <div className="cds--row">{story()}</div>
       </div>
     ),
   ],

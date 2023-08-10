@@ -104,14 +104,14 @@ describe('dds-search-with-typeahead', function () {
       ) as DDSSearchWithTypeahead;
       (
         search.shadowRoot!.querySelector(
-          '.bx--header__search--search'
+          '.cds--header__search--search'
         ) as HTMLElement
       ).click();
       expect(search.active).toBe(true);
       await Promise.resolve();
       // The `<input>` for the search box isn't rendered unless it's activated
       const searchInputNode = search.shadowRoot!.querySelector(
-        '.bx--header__search--input'
+        '.cds--header__search--input'
       ) as HTMLInputElement;
       spyOn(searchInputNode, 'focus');
       await Promise.resolve(); // `.updateComplete()` in `<dds-search-with-typeahead>` seems to take two rounds of micro-tasks
@@ -125,16 +125,16 @@ describe('dds-search-with-typeahead', function () {
         'dds-search-with-typeahead'
       ) as DDSSearchWithTypeahead;
       const searchButtonNode = search.shadowRoot!.querySelector(
-        '.bx--header__search--search'
+        '.cds--header__search--search'
       ) as HTMLButtonElement;
       const searchInputNode = search.shadowRoot!.querySelector(
-        '.bx--header__search--input'
+        '.cds--header__search--input'
       ) as HTMLInputElement;
       searchInputNode.value = 'search-input-node-value-foo';
       spyOn(searchButtonNode, 'focus');
       (
         search.shadowRoot!.querySelector(
-          '.bx--header__search--close'
+          '.cds--header__search--close'
         ) as HTMLElement
       ).click();
       expect(searchInputNode.value).toBe('');
@@ -161,12 +161,12 @@ describe('dds-search-with-typeahead', function () {
       ) as DDSSearchWithTypeahead;
       spyOn(search as any, '_redirect');
       const searchInputNode = search.shadowRoot!.querySelector(
-        '.bx--header__search--input'
+        '.cds--header__search--input'
       ) as HTMLInputElement;
       searchInputNode.value = 'search-query-foo';
       (
         search.shadowRoot!.querySelector(
-          '.bx--header__search--search'
+          '.cds--header__search--search'
         ) as HTMLElement
       ).click();
       expect((search as any)._redirect).toHaveBeenCalledWith(
@@ -187,7 +187,7 @@ describe('dds-search-with-typeahead', function () {
         'dds-search-with-typeahead'
       ) as DDSSearchWithTypeahead;
       const input = search.shadowRoot!.querySelector(
-        '.bx--header__search--input'
+        '.cds--header__search--input'
       );
       spyOn(search as any, '_redirect');
       (input as HTMLInputElement).value = 'test';
@@ -225,12 +225,12 @@ describe('dds-search-with-typeahead', function () {
         }
       );
       const searchInputNode = search.shadowRoot!.querySelector(
-        '.bx--header__search--input'
+        '.cds--header__search--input'
       ) as HTMLInputElement;
       searchInputNode.value = 'search-query-foo';
       (
         search.shadowRoot!.querySelector(
-          '.bx--header__search--search'
+          '.cds--header__search--search'
         ) as HTMLElement
       ).click();
       expect(redirectUrlInEvent).toBe(
@@ -251,7 +251,7 @@ describe('dds-search-with-typeahead', function () {
         'dds-search-with-typeahead'
       ) as DDSSearchWithTypeahead;
       const input = search.shadowRoot!.querySelector(
-        '.bx--header__search--input'
+        '.cds--header__search--input'
       );
       (input as HTMLInputElement).value = 'test';
       input?.dispatchEvent(
@@ -295,7 +295,7 @@ describe('dds-search-with-typeahead', function () {
         'dds-search-with-typeahead'
       ) as DDSSearchWithTypeahead;
       const input = search.shadowRoot!.querySelector(
-        '.bx--header__search--input'
+        '.cds--header__search--input'
       );
       (input as HTMLInputElement).value = 'tes';
       input?.dispatchEvent(
@@ -313,7 +313,7 @@ describe('dds-search-with-typeahead', function () {
       );
       expect(highlightedContent!.textContent).toBe('tes');
       const textNode = find(
-        searchItem!.shadowRoot!.querySelector('.bx--container-class')!
+        searchItem!.shadowRoot!.querySelector('.cds--container-class')!
           .childNodes,
         ({ nodeType, nodeValue }) =>
           nodeType === Node.TEXT_NODE && !/^\s*$/.test(nodeValue ?? '')

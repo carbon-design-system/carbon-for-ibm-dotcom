@@ -36,7 +36,7 @@ const { prefix, stablePrefix: ddsPrefix } = settings;
  * @slot locales-selector - The area for the locales selector.
  */
 @customElement(`${ddsPrefix}-locale-modal`)
-// `BXModal` extends `HostListenerMixin`
+// `CDSModal` extends `HostListenerMixin`
 class DDSLocaleModal extends DDSExpressiveModal {
   /**
    * The current region.
@@ -87,7 +87,7 @@ class DDSLocaleModal extends DDSExpressiveModal {
       ${langDisplay &&
       headerTitle &&
       html`
-        <p class="bx--modal-header__heading bx--type-beta">${headerTitle}</p>
+        <p class="cds--modal-header__heading cds--type-beta">${headerTitle}</p>
       `}
     `;
   }
@@ -111,7 +111,7 @@ class DDSLocaleModal extends DDSExpressiveModal {
           class: `${prefix}--locale-modal__label-arrow`,
         })}
       </dds-link-with-icon>
-      <p class="bx--modal-header__heading bx--type-beta" tabindex="0">
+      <p class="cds--modal-header__heading cds--type-beta" tabindex="0">
         ${currentRegion}
       </p>
     `;

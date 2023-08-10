@@ -26,7 +26,7 @@ nisl.`;
 const generateCopySections = (n: Number) => [...Array(n)].map(() => <p>{LOREM}</p>);
 
 const content = ({ items }: { items: Array }) => (
-  <div className="bx--tableofcontents__contents dds-ce-demo--table-of-contents">
+  <div className="cds--tableofcontents__contents dds-ce-demo--table-of-contents">
     {items?.map(({ heading, copy }, i: Number) => (
       <>
         {/* eslint-disable-next-line jsx-a11y/anchor-is-valid */}

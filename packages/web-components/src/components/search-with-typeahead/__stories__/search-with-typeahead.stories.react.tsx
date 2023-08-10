@@ -33,8 +33,8 @@ export default {
       return (
         <>
           <style>{styles.cssText}</style>
-          <div className="bx--grid">
-            <div className="bx--row">{story()}</div>
+          <div className="cds--grid">
+            <div className="cds--row">{story()}</div>
           </div>
         </>
       );

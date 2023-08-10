@@ -99,7 +99,7 @@ const Card = ({
 export const Default = (args) => {
   const { heading, copy, addChildren } = args?.ContentSection ?? {};
   const classes = addChildren.includes('Content block simple')
-    ? 'bx--col-lg-16 bx--no-gutter'
+    ? 'cds--col-lg-16 cds--no-gutter'
     : '';
   return (
     <DDSContentSection childrenCustomClass={classes}>
@@ -187,9 +187,9 @@ export default {
     (story) => {
       return (
         <>
-          <div className="bx--grid">
-            <div className="bx--row">
-              <div className="bx--col-lg-16 bx--no-gutter">
+          <div className="cds--grid">
+            <div className="cds--row">
+              <div className="cds--col-lg-16 cds--no-gutter">
                 <DDSVideoCTAContainer>{story()}</DDSVideoCTAContainer>
               </div>
             </div>

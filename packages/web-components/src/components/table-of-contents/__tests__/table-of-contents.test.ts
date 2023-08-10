@@ -80,7 +80,7 @@ describe('dds-table-of-contents', function () {
       ) as DDSTableOfContents;
       MockResizeObserver.run(
         tableOfContents!.shadowRoot!.querySelector(
-          '.bx--tableofcontents__mobile'
+          '.cds--tableofcontents__mobile'
         )!,
         { height: 32 }
       );
@@ -238,7 +238,7 @@ describe('dds-table-of-contents', function () {
       ) as DDSTableOfContents;
       spyOn(tableOfContents as any, '_handleUserInitiatedJump');
       const select = tableOfContents!.shadowRoot!.querySelector(
-        '.bx--tableofcontents__mobile__select'
+        '.cds--tableofcontents__mobile__select'
       ) as HTMLSelectElement;
       select.value = '2';
       select.dispatchEvent(new CustomEvent('change', { bubbles: true }));

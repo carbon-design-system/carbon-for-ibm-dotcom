@@ -71,9 +71,9 @@ export default {
   decorators: [
     story => {
       return (
-        <div className="bx--grid bx--grid--condensed">
-          <div className="bx--row">
-            <div className="bx--col-lg-12">
+        <div className="cds-grid cds--grid--condensed">
+          <div className="cds-row">
+            <div className="cds-col-lg-12">
               <h2>Horizontal Rule</h2>
               {story()}
             </div>

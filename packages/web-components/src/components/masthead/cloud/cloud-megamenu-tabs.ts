@@ -7,7 +7,7 @@
  * LICENSE file in the root directory of this source tree.
  */
 
-import BXTabs from '../../../internal/vendor/@carbon/web-components/components/tabs/tabs.js';
+import CDSTabs from '../../../internal/vendor/@carbon/web-components/components/tabs/tabs.js';
 import settings from '../../../internal/vendor/@carbon/ibmdotcom-utilities/utilities/settings/settings';
 import styles from './cloud-masthead.scss';
 import { carbonElement as customElement } from '../../../internal/vendor/@carbon/web-components/globals/decorators/carbon-element.js';
@@ -20,7 +20,7 @@ const { stablePrefix: ddsPrefix } = settings;
  * @element dds-cloud-megamenu-tabs
  */
 @customElement(`${ddsPrefix}-cloud-megamenu-tabs`)
-class DDSCloudMegaMenuTabs extends BXTabs {
+class DDSCloudMegaMenuTabs extends CDSTabs {
   /**
    * A selector that will return megamenu tabs.
    */

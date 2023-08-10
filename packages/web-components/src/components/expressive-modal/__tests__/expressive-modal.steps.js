@@ -17,7 +17,7 @@ describe('dds-expressive-modal', () => {
   it('should have modal closable', async () => {
     await page.click('dds-expressive-modal-close-button button');
     await expect(page).toHaveSelector(
-      'dds-expressive-modal .bx--modal-container',
+      'dds-expressive-modal .cds--modal-container',
       { state: 'hidden' }
     );
   });

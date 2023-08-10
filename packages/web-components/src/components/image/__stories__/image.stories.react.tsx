@@ -79,9 +79,9 @@ export default {
   decorators: [
     story => {
       return (
-        <div className="bx--grid">
-          <div className="bx--row">
-            <div className="bx--col-sm-4 bx--col-lg-8">{story()}</div>
+        <div className="cds--grid">
+          <div className="cds--row">
+            <div className="cds--col-sm-4 cds--col-lg-8">{story()}</div>
           </div>
         </div>
       );

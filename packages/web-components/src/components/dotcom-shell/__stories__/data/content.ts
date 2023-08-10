@@ -170,7 +170,7 @@ export const contentLeadspace = html`
     </dds-button-group>
     <dds-image
       slot="image"
-      class="bx--image"
+      class="cds--image"
       alt=""
       default-src="${leadspaceImg}">
       <dds-image-item
@@ -399,7 +399,7 @@ export const StoryContent = (
   }
 ) => {
   const mainClasses = [
-    'bx--content',
+    'cds--content',
     'dds-ce-demo-devenv--ui-shell-content',
     config?.l1 ? 'has-l1' : null,
     config?.leadspace ? 'has-leadspace' : null,
@@ -415,8 +415,8 @@ export const StoryContent = (
             <dds-table-of-contents
               stickyOffset="48"
               toc-layout=${config.tocLayout}>
-              <div class="bx--row">
-                <div class="bx--col-lg-12">${tocContent}</div>
+              <div class="cds--row">
+                <div class="cds--col-lg-12">${tocContent}</div>
               </div>
             </dds-table-of-contents>
           `
@@ -436,7 +436,7 @@ export const StoryContentNoToC = () =>
     <div
       class="dds-ce-demo-devenv--ui-shell-content"
       style="padding-right:1rem">
-      <div class="bx--grid bx--col-lg-8">
+      <div class="cds--grid cds--col-lg-8">
         ${contentLeadspaceSearch}
 
         <dds-content-block-segmented>

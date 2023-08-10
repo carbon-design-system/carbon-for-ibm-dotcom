@@ -94,9 +94,11 @@ class DDSMarkdown extends LitElement {
       this._hasRendered = true;
       render(lightDOMTemplateResult, this);
     }
-    this.querySelectorAll('bx-ordered-list, bx-unordered-list').forEach((e) => {
-      e.setAttribute('isExpressive', '');
-    });
+    this.querySelectorAll('cds-ordered-list, cds-unordered-list').forEach(
+      (e) => {
+        e.setAttribute('isExpressive', '');
+      }
+    );
   }
 
   render() {

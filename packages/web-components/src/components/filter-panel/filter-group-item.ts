@@ -8,7 +8,7 @@
  */
 
 import { property, query, state } from 'lit/decorators.js';
-import BXAccordionItem from '../../internal/vendor/@carbon/web-components/components/accordion/accordion-item.js';
+import CDSAccordionItem from '../../internal/vendor/@carbon/web-components/components/accordion/accordion-item.js';
 import settings from '../../internal/vendor/@carbon/ibmdotcom-utilities/utilities/settings/settings';
 import styles from './filter-panel.scss';
 import StableSelectorMixin from '../../globals/mixins/stable-selector';
@@ -28,9 +28,9 @@ const viewAllClassName = `${ddsPrefix}-filter-group-item__view-all`;
  * @element dds-filter-group-item
  */
 @customElement(`${ddsPrefix}-filter-group-item`)
-class DDSFilterGroupItem extends StableSelectorMixin(BXAccordionItem) {
+class DDSFilterGroupItem extends StableSelectorMixin(CDSAccordionItem) {
   /**
-   * Extends BXAccordionItem component
+   * Extends CDSAccordionItem component
    */
   static get stableSelector() {
     return `${ddsPrefix}--filter-group-item`;

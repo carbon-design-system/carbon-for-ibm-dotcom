@@ -101,7 +101,7 @@ describe('dds-card-cta', function () {
       expect(
         document.body
           .querySelector('dds-card-cta')!
-          .shadowRoot!.querySelector('.bx--card__copy')!
+          .shadowRoot!.querySelector('.cds--card__copy')!
           .textContent!.trim()
       ).toBe('');
     });

@@ -12,7 +12,7 @@ import { html } from 'lit';
 import { property, query } from 'lit/decorators.js';
 import { selectorTabbable } from '../../internal/vendor/@carbon/web-components/globals/settings.js';
 import HostListener from '../../internal/vendor/@carbon/web-components/globals/decorators/host-listener.js';
-import BXSideNav, {
+import CDSSideNav, {
   SIDE_NAV_USAGE_MODE,
 } from '../../internal/vendor/@carbon/web-components/components/ui-shell/side-nav.js';
 import settings from '../../internal/vendor/@carbon/ibmdotcom-utilities/utilities/settings/settings';
@@ -40,7 +40,7 @@ const FOLLOWING =
  * @element dds-left-nav
  */
 @customElement(`${ddsPrefix}-left-nav`)
-class DDSLeftNav extends StableSelectorMixin(BXSideNav) {
+class DDSLeftNav extends StableSelectorMixin(CDSSideNav) {
   /**
    * The handle for focus wrapping.
    */

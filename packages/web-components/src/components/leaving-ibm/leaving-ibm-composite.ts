@@ -155,11 +155,11 @@ class DDSLeavingIbmComposite extends HostListenerMixin(
           >
         </dds-leaving-ibm-modal-body>
         <cds-modal-footer>
-          <bx-btn
+          <cds-btn
             data-autoid="${ddsPrefix}--leaving-ibm-cta"
             href="${href}"
             kind="primary"
-            >${leavingIbmButtonLabel}</bx-btn
+            >${leavingIbmButtonLabel}</cds-btn
           >
         </cds-modal-footer>
       </dds-leaving-ibm-modal>

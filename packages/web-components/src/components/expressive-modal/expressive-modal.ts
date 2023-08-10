@@ -329,10 +329,10 @@ class DDSExpressiveModal extends StableSelectorMixin(
         if (node.nodeType === Node.TEXT_NODE && node!.textContent!.trim()) {
           return true;
         }
-        // Allow only element nodes that don't have a .bx--visually-hidden
+        // Allow only element nodes that don't have a .cds--visually-hidden
         // class.
         if (node instanceof Element) {
-          return !node.classList.contains('bx--visually-hidden');
+          return !node.classList.contains('cds--visually-hidden');
         }
         // No opinion on other cases.
         return true;
@@ -523,7 +523,7 @@ class DDSExpressiveModal extends StableSelectorMixin(
         );
         await this._waitForTransitionEnd();
         if (primaryFocusNode) {
-          // For cases where a `carbon-web-components` component (e.g. `<bx-btn>`) being `primaryFocusNode`,
+          // For cases where a `carbon-web-components` component (e.g. `<cds-btn>`) being `primaryFocusNode`,
           // where its first update/render cycle that makes it focusable happens after `<cds-modal>`'s first update/render cycle
           (primaryFocusNode as HTMLElement).focus();
         } else {

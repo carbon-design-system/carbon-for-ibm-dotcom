@@ -64,7 +64,7 @@ export const Text = args => {
 
 Text.story = {
   parameters: {
-    gridContentClasses: 'bx--col-sm-4 bx--col-lg-8',
+    gridContentClasses: 'cds--col-sm-4 cds--col-lg-8',
     knobs: {
       TextCTA: () => {
         const ctaType = select('CTA type (cta-type)', typeOptions, types[CTA_TYPE.LOCAL]);
@@ -122,7 +122,7 @@ export const Button = args => {
 
 Button.story = {
   parameters: {
-    gridContentClasses: 'bx--col-sm-4 bx--col-lg-8',
+    gridContentClasses: 'cds--col-sm-4 cds--col-lg-8',
     knobs: {
       ButtonCTA: () => {
         const ctaType = select('CTA type (cta-type)', typeOptions, types[CTA_TYPE.LOCAL]);
@@ -202,7 +202,7 @@ export const Card = args => {
 
 Card.story = {
   parameters: {
-    gridContentClasses: 'bx--col-sm-4 bx--col-lg-4 bx--no-gutter',
+    gridContentClasses: 'cds--col-sm-4 cds--col-lg-4 cds--no-gutter',
     knobs: {
       CardCTA: () => {
         const { ctaType } = Text.story.parameters.knobs.TextCTA();
@@ -264,7 +264,7 @@ export const CardLink = args => {
 
 CardLink.story = {
   parameters: {
-    gridContentClasses: 'bx--col-sm-4 bx--col-lg-4 bx--no-gutter',
+    gridContentClasses: 'cds--col-sm-4 cds--col-lg-4 cds--no-gutter',
     knobs: {
       CardCTA: () => {
         const ctaType = select('CTA type (cta-type)', typeOptions, types[CTA_TYPE.LOCAL]);
@@ -335,7 +335,7 @@ export const Feature = args => {
 
 Feature.story = {
   parameters: {
-    gridContentClasses: 'bx--col-sm-4 bx--col-lg-8',
+    gridContentClasses: 'cds--col-sm-4 cds--col-lg-8',
     knobs: {
       FeatureCTA: () => {
         const ctaType = select('CTA type:', typeOptions, types[CTA_TYPE.LOCAL]);
@@ -363,8 +363,8 @@ export default {
   decorators: [
     (story, { parameters }) => {
       return (
-        <div className="bx--grid">
-          <div className="bx--row">
+        <div className="cds--grid">
+          <div className="cds--row">
             <div className={parameters.gridContentClasses}>
               <DDSVideoCTAContainer>{story()}</DDSVideoCTAContainer>
             </div>

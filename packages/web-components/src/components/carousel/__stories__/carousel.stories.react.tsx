@@ -84,8 +84,8 @@ export default {
   decorators: [
     (story) => {
       return (
-        <div className="bx--grid">
-          <div className="bx--row">{story()}</div>
+        <div className="cds--grid">
+          <div className="cds--row">{story()}</div>
         </div>
       );
     },

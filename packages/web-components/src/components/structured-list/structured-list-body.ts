@@ -7,7 +7,7 @@
  * LICENSE file in the root directory of this source tree.
  */
 
-import BXStructuredListBody from '../../internal/vendor/@carbon/web-components/components/structured-list/structured-list-body.js';
+import CDSStructuredListBody from '../../internal/vendor/@carbon/web-components/components/structured-list/structured-list-body.js';
 import {} from 'lit';
 import settings from '../../internal/vendor/@carbon/ibmdotcom-utilities/utilities/settings/settings';
 import styles from './structured-list.scss';
@@ -21,7 +21,7 @@ const { stablePrefix: ddsPrefix } = settings;
  * @element dds-structured-list-body
  */
 @customElement(`${ddsPrefix}-structured-list-body`)
-class DDSStructuredListBody extends BXStructuredListBody {
+class DDSStructuredListBody extends CDSStructuredListBody {
   connectedCallback() {
     super.connectedCallback();
   }
