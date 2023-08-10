@@ -8,12 +8,16 @@
  */
 
 import { LitElement, html } from 'lit';
-import { property } from 'lit/decorators.js';
+import { property, state } from 'lit/decorators.js';
 import { ifDefined } from 'lit/directives/if-defined.js';
 import HostListener from '../../internal/vendor/@carbon/web-components/globals/decorators/host-listener.js';
 import HostListenerMixin from '../../internal/vendor/@carbon/web-components/globals/mixins/host-listener.js';
 import LocaleAPI from '../../internal/vendor/@carbon/ibmdotcom-services/services/Locale/Locale';
 import settings from '../../internal/vendor/@carbon/ibmdotcom-utilities/utilities/settings/settings';
+import MediaQueryMixin, {
+  MQBreakpoints,
+  MQDirs,
+} from '../../component-mixins/media-query/media-query';
 import HybridRenderMixin from '../../globals/mixins/hybrid-render';
 import ModalRenderMixin from '../../globals/mixins/modal-render';
 import { globalInit } from '../../internal/vendor/@carbon/ibmdotcom-services/services/global/global';
@@ -24,6 +28,7 @@ import {
   Translation,
 } from '../../internal/vendor/@carbon/ibmdotcom-services-store/types/translateAPI.d';
 import { FOOTER_SIZE } from './footer';
+import { DROPDOWN_SIZE } from './combo-box';
 // Above import is interface-only ref and thus code won't be brought into the build
 import './footer';
 // Above import is interface-only ref and thus code won't be brought into the build
@@ -50,8 +55,9 @@ const { stablePrefix: ddsPrefix } = settings;
  * @element dds-footer-composite
  */
 @customElement(`${ddsPrefix}-footer-composite`)
-class DDSFooterComposite extends ModalRenderMixin(
-  HybridRenderMixin(HostListenerMixin(LitElement))
+class DDSFooterComposite extends MediaQueryMixin(
+  ModalRenderMixin(HybridRenderMixin(HostListenerMixin(LitElement))),
+  { [MQBreakpoints.LG]: MQDirs.MAX }
 ) {
   /**
    * Handles `click` event on the locale button.
@@ -59,6 +65,13 @@ class DDSFooterComposite extends ModalRenderMixin(
   private _handleClickLocaleButton = () => {
     this.openLocaleModal = true;
   };
+
+  @state()
+  _isMobile = this.carbonBreakpoints.lg.matches;
+
+  protected mediaQueryCallbackMaxLG() {
+    this._isMobile = this.carbonBreakpoints.lg.matches;
+  }
 
   /**
    * Handles `dds-expressive-modal-closed` event on the locale modal.
@@ -207,6 +220,8 @@ class DDSFooterComposite extends ModalRenderMixin(
     this.getLangDisplay().then((res) => {
       this.langDisplay = res;
     });
+
+    super.firstUpdated();
   }
 
   updated(changedProperties) {
@@ -243,20 +258,83 @@ class DDSFooterComposite extends ModalRenderMixin(
     `;
   }
 
-  renderLightDOM() {
+  renderLanguageSelector(slot = 'language-selector') {
     const {
-      buttonLabel,
       clearSelectionLabel,
-      disableLocaleButton,
-      langDisplay,
+      _isMobile: isMobile,
       langList,
       languageSelectorLabel,
       selectedLanguage,
       size,
+    } = this;
+    const dropdownSize =
+      size === FOOTER_SIZE.MICRO ? DROPDOWN_SIZE.MICRO : DROPDOWN_SIZE.LARGE;
+    return isMobile
+      ? html`
+          <dds-language-selector-mobile
+            size="${dropdownSize}"
+            slot="${slot}"
+            value="${selectedLanguage}"
+            placeholder="${selectedLanguage}">
+            ${langList?.map(
+              (language) => html`
+                <bx-select-item
+                  label="${ifDefined(language.text)}"
+                  value="${ifDefined(language.text)}"
+                  lang="${ifDefined(language.id)}"
+                  >${ifDefined(language.text)}</bx-select-item
+                >
+              `
+            )}
+          </dds-language-selector-mobile>
+        `
+      : html`
+          <dds-language-selector-desktop
+            size="${dropdownSize}"
+            slot="${slot}"
+            trigger-content="${languageSelectorLabel}"
+            label-text="${languageSelectorLabel}"
+            value="${selectedLanguage}"
+            clear-selection-label="${clearSelectionLabel}">
+            ${langList?.map(
+              (language) => html`
+                <bx-combo-box-item
+                  value="${ifDefined(language.text)}"
+                  lang="${ifDefined(language.id)}"
+                  >${ifDefined(language.text)}</bx-combo-box-item
+                >
+              `
+            )}
+          </dds-language-selector-desktop>
+        `;
+  }
+
+  renderLocaleButton(slot = 'locale-button') {
+    const {
+      buttonLabel,
+      _handleClickLocaleButton: handleClickLocaleButton,
+      langDisplay,
+      size,
+    } = this;
+    return html`
+      <dds-locale-button
+        buttonLabel="${ifDefined(buttonLabel)}"
+        size="${size}"
+        slot="${slot}"
+        @click="${handleClickLocaleButton}"
+        >${langDisplay}</dds-locale-button
+      >
+    `;
+  }
+
+  renderLightDOM() {
+    const {
+      disableLocaleButton,
+      langList,
+      size,
       links,
       legalLinks,
       adjunctLinks,
-      _handleClickLocaleButton: handleClickLocaleButton,
     } = this;
     return html`
       <dds-footer
@@ -280,48 +358,10 @@ class DDSFooterComposite extends ModalRenderMixin(
           )}
         </dds-footer-nav>
         ${size !== FOOTER_SIZE.MICRO && !langList && !disableLocaleButton
-          ? html`
-              <dds-locale-button
-                buttonLabel="${ifDefined(buttonLabel)}"
-                size="${size}"
-                @click="${handleClickLocaleButton}"
-                >${langDisplay}</dds-locale-button
-              >
-            `
+          ? this.renderLocaleButton()
           : ``}
         ${size !== FOOTER_SIZE.MICRO && langList && !disableLocaleButton
-          ? html`
-              <dds-language-selector-desktop
-                size="lg"
-                trigger-content="${languageSelectorLabel}"
-                label-text="${languageSelectorLabel}"
-                value="${selectedLanguage}"
-                clear-selection-label="${clearSelectionLabel}">
-                ${langList?.map(
-                  (language) => html`
-                    <bx-combo-box-item
-                      value="${ifDefined(language.text)}"
-                      lang="${ifDefined(language.id)}"
-                      >${ifDefined(language.text)}</bx-combo-box-item
-                    >
-                  `
-                )}
-              </dds-language-selector-desktop>
-              <dds-language-selector-mobile
-                value="${selectedLanguage}"
-                placeholder="${selectedLanguage}">
-                ${langList?.map(
-                  (language) => html`
-                    <bx-select-item
-                      label="${ifDefined(language.text)}"
-                      value="${ifDefined(language.text)}"
-                      lang="${ifDefined(language.id)}"
-                      >${ifDefined(language.text)}</bx-select-item
-                    >
-                  `
-                )}
-              </dds-language-selector-mobile>
-            `
+          ? this.renderLanguageSelector()
           : ``}
         <dds-legal-nav size="${ifDefined(size)}">
           ${legalLinks?.map(
@@ -347,52 +387,10 @@ class DDSFooterComposite extends ModalRenderMixin(
             : ``}
           <dds-legal-nav-cookie-preferences-placeholder></dds-legal-nav-cookie-preferences-placeholder>
           ${size === FOOTER_SIZE.MICRO && !langList && !disableLocaleButton
-            ? html`
-                <dds-locale-button
-                  buttonLabel="${ifDefined(buttonLabel)}"
-                  size="${size}"
-                  slot="locale"
-                  @click="${handleClickLocaleButton}"
-                  >${langDisplay}</dds-locale-button
-                >
-              `
+            ? this.renderLocaleButton('locale')
             : ``}
           ${size === FOOTER_SIZE.MICRO && langList && !disableLocaleButton
-            ? html`
-                <dds-language-selector-desktop
-                  size="${size}"
-                  slot="locale"
-                  trigger-content="${languageSelectorLabel}"
-                  label-text="${languageSelectorLabel}"
-                  value="${selectedLanguage}"
-                  clear-selection-label="${clearSelectionLabel}">
-                  ${langList?.map(
-                    (language) => html`
-                      <bx-combo-box-item
-                        value="${ifDefined(language.text)}"
-                        lang="${ifDefined(language.id)}"
-                        >${ifDefined(language.text)}</bx-combo-box-item
-                      >
-                    `
-                  )}
-                </dds-language-selector-desktop>
-                <dds-language-selector-mobile
-                  size="${size}"
-                  slot="locale"
-                  value="${selectedLanguage}"
-                  placeholder="${selectedLanguage}">
-                  ${langList?.map(
-                    (language) => html`
-                      <bx-select-item
-                        label="${ifDefined(language.text)}"
-                        value="${ifDefined(language.text)}"
-                        lang="${ifDefined(language.id)}"
-                        >${ifDefined(language.text)}</bx-select-item
-                      >
-                    `
-                  )}
-                </dds-language-selector-mobile>
-              `
+            ? this.renderLanguageSelector('locale')
             : ``}
         </dds-legal-nav>
       </dds-footer>

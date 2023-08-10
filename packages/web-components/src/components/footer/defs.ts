@@ -65,4 +65,9 @@ export enum DROPDOWN_SIZE {
    * Large size.
    */
   LARGE = 'lg',
+
+  /**
+   * Micro size.
+   */
+  MICRO = 'micro',
 }
