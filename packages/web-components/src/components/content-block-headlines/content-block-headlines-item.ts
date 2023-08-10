@@ -28,7 +28,9 @@ class DDSContentBlockHeadlinesItem extends StableSelectorMixin(DDSContentItem) {
       <h4 class="cds--content-block-headlines__heading">
         <slot name="heading"></slot>
       </h4>
-      <p class="cds--content-block-headlines__copy"><slot name="copy"></slot></p>
+      <p class="cds--content-block-headlines__copy">
+        <slot name="copy"></slot>
+      </p>
       <slot name="footer"></slot>
     `;
   }

@@ -69,7 +69,8 @@ class DDSStructuredListCell extends CDSStructuredListCell {
       ${tags!
         .split(',')
         .map(
-          (tag) => html` <cds-tag size="sm" type="green">${tag.trim()}</cds-tag> `
+          (tag) =>
+            html` <cds-tag size="sm" type="green">${tag.trim()}</cds-tag> `
         )}
     `;
   }
