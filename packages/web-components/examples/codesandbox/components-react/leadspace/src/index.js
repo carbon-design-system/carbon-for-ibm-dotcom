@@ -15,6 +15,7 @@ import DDSLeadspaceHeading from '@carbon/ibmdotcom-web-components/es/components-
 import DDSButtonGroup from '@carbon/ibmdotcom-web-components/es/components-react/button-group/button-group';
 import DDSButtonGroupItem from '@carbon/ibmdotcom-web-components/es/components-react/button-group/button-group-item';
 import DDSBackgroundMedia from '@carbon/ibmdotcom-web-components/es/components-react/background-media/background-media';
+import DDSImageItem from '@carbon/ibmdotcom-web-components/es/components-react/image/image-item';
 import './index.css';
 
 const App = () => (
