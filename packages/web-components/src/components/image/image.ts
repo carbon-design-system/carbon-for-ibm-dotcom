@@ -165,12 +165,13 @@ class DDSImage extends StableSelectorMixin(
       alt,
       border,
       defaultSrc,
+      lightbox,
       _images: images,
       _handleSlotChange: handleSlotChange,
     } = this;
     const imgClasses = classMap({
       [`${prefix}--image__img`]: true,
-      [`${prefix}--image__img--border`]: border,
+      [`${prefix}--image__img--border`]: border && !lightbox,
     });
 
     return html`

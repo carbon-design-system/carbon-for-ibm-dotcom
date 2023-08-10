@@ -76,7 +76,7 @@ export const Default = args => {
     <DDSImage
       alt={alt || undefined}
       default-src={defaultSrc || undefined}
-      border={border}
+      border={border || undefined}
       heading={heading || undefined}
       copy={copy || undefined}
       lightbox={lightbox || undefined}
