@@ -53,7 +53,7 @@ describe('dds-masthead-profile', function () {
         'dds-masthead-profile'
       ) as DDSMastheadProfile;
       const icon = mastheadProfile.shadowRoot!.querySelector(
-        '.bx--header__menu-title svg'
+        '.cds--header__menu-title svg'
       );
       const iconRef = document.getElementById('icon-ref');
       expect(icon!.querySelector('path')!.getAttribute('d')).toBe(
@@ -75,7 +75,7 @@ describe('dds-masthead-profile', function () {
         'dds-masthead-profile'
       ) as DDSMastheadProfile;
       const icon = mastheadProfile.shadowRoot!.querySelector(
-        '.bx--header__menu-title svg'
+        '.cds--header__menu-title svg'
       );
       const iconRef = document.getElementById('icon-ref');
       expect(icon!.querySelector('path')!.getAttribute('d')).toBe(
@@ -92,7 +92,7 @@ describe('dds-masthead-profile', function () {
         'dds-masthead-profile'
       ) as DDSMastheadProfile;
       const trigger = mastheadProfile.shadowRoot!.querySelector(
-        '.bx--header__menu-title'
+        '.cds--header__menu-title'
       ) as HTMLElement;
       trigger.click();
       await Promise.resolve();
@@ -111,7 +111,7 @@ describe('dds-masthead-profile', function () {
         'dds-masthead-profile'
       ) as DDSMastheadProfile;
       const trigger = mastheadProfile.shadowRoot!.querySelector(
-        '.bx--header__menu-title'
+        '.cds--header__menu-title'
       ) as HTMLElement;
       spyOn(trigger, 'focus');
       const event = new CustomEvent('keydown', {
@@ -136,7 +136,7 @@ describe('dds-masthead-profile', function () {
         'dds-masthead-profile'
       ) as DDSMastheadProfile;
       const trigger = mastheadProfile.shadowRoot!.querySelector(
-        '.bx--header__menu-title'
+        '.cds--header__menu-title'
       ) as HTMLElement;
       spyOn(trigger, 'focus');
       mastheadProfile.dispatchEvent(

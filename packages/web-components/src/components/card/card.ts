@@ -9,7 +9,7 @@
 
 import { TemplateResult, html, LitElement } from 'lit';
 import { property, query, state } from 'lit/decorators.js';
-import BXLink from '../../internal/vendor/@carbon/web-components/components/link/link.js';
+import CDSLink from '../../internal/vendor/@carbon/web-components/components/link/link.js';
 import markdownToHtml from '../../internal/vendor/@carbon/ibmdotcom-utilities/utilities/markdownToHtml/markdownToHtml.js';
 import { carbonElement as customElement } from '../../internal/vendor/@carbon/web-components/globals/decorators/carbon-element.js';
 import settings from '../../internal/vendor/@carbon/ibmdotcom-utilities/utilities/settings/settings';
@@ -39,7 +39,7 @@ const slotExistencePropertyNames = {
  * @slot footer - The footer content.
  */
 @customElement(`${ddsPrefix}-card`)
-class DDSCard extends StableSelectorMixin(BXLink) {
+class DDSCard extends StableSelectorMixin(CDSLink) {
   /**
    * `true` if there is image content.
    */

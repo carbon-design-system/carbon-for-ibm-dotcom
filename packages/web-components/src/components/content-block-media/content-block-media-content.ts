@@ -25,7 +25,7 @@ const { prefix, stablePrefix: ddsPrefix } = settings;
 class DDSContentBlockMediaContent extends StableSelectorMixin(DDSContentGroup) {
   protected _renderInnerBody(): TemplateResult | string | void {
     const { _hasContent: hasContent, _hasMedia: hasMedia } = this;
-    // Moves media content out of `<div class="bx--content-block__children">`
+    // Moves media content out of `<div class="cds--content-block__children">`
     return html`
       ${this._renderMedia()}
       <div

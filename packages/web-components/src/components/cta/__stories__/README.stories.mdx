@@ -284,7 +284,7 @@ document.addEventListener('dds-cta-run-action', async event => {
     document.body.appendChild(lightboxElem);
     const videoTarget = document.createElement('div');
     videoTarget.id = `video-target-${videoId}`;
-    videoTarget.className = 'bx--video-player__video';
+    videoTarget.className = 'cds--video-player__video';
     const videoPlayer = document.getElementById(`lightbox-video-player-${videoId}`);
     videoPlayer.appendChild(videoTarget);
     const [videoData] = await Promise.all([

@@ -70,7 +70,7 @@ describe('dds-carousel', function () {
       expect(
         (
           carousel!.shadowRoot!.querySelector(
-            '.bx--carousel__scroll-contents'
+            '.cds--carousel__scroll-contents'
           ) as HTMLElement
         ).style.left
       ).toBe('-400px');
@@ -157,7 +157,7 @@ describe('dds-carousel', function () {
         'dds-carousel'
       ) as DDSCarousel;
       const navigation = carousel!.shadowRoot!.querySelector(
-        '.bx--carousel__navigation'
+        '.cds--carousel__navigation'
       );
       expect(navigation!.textContent!.trim()).toBe('1 / 2');
       carousel.start = 1;
@@ -192,7 +192,7 @@ describe('dds-carousel', function () {
         'dds-carousel'
       ) as DDSCarousel;
       const navigation = carousel!.shadowRoot!.querySelector(
-        '.bx--carousel__navigation'
+        '.cds--carousel__navigation'
       );
       expect(navigation!.textContent!.trim()).toBe('1 in 2');
       carousel.start = 3;
@@ -380,13 +380,13 @@ describe('dds-carousel', function () {
       pageSize = 2;
       spyOnProperty(
         carousel.shadowRoot!.querySelector(
-          '.bx--carousel__scroll-contents'
+          '.cds--carousel__scroll-contents'
         ) as Element,
         'scrollWidth'
       ).and.returnValue(700);
       MockResizeObserver.run(document.documentElement, {});
       MockResizeObserver.run(
-        carousel.shadowRoot!.querySelector('.bx--carousel__scroll-contents')!,
+        carousel.shadowRoot!.querySelector('.cds--carousel__scroll-contents')!,
         { width: 700 }
       );
       await Promise.resolve();

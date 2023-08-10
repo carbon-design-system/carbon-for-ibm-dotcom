@@ -9,7 +9,7 @@
 
 import { html } from 'lit';
 import { property, state } from 'lit/decorators.js';
-import BXLink from '../../internal/vendor/@carbon/web-components/components/link/link.js';
+import CDSLink from '../../internal/vendor/@carbon/web-components/components/link/link.js';
 import HostListener from '../../internal/vendor/@carbon/web-components/globals/decorators/host-listener.js';
 import HostListenerMixin from '../../internal/vendor/@carbon/web-components/globals/mixins/host-listener.js';
 import FocusMixin from '../../internal/vendor/@carbon/web-components/globals/mixins/focus.js';
@@ -28,7 +28,7 @@ const { prefix, stablePrefix: ddsPrefix } = settings;
  */
 @customElement(`${ddsPrefix}-masthead-logo`)
 class DDSMastheadLogo extends FocusMixin(
-  HostListenerMixin(StableSelectorMixin(BXLink))
+  HostListenerMixin(StableSelectorMixin(CDSLink))
 ) {
   /**
    * Search bar opened flag.

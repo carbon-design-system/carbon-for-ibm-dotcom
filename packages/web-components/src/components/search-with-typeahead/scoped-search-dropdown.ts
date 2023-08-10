@@ -25,7 +25,7 @@ const { prefix, stablePrefix: ddsPrefix } = settings;
  * Dropdown component to change search scope.
  *
  * @element dds-scoped-search-dropdown
- * @fires bx-select-selected - The custom event fired after the the dropdown value is changed upon a user gesture.
+ * @fires cds-select-selected - The custom event fired after the the dropdown value is changed upon a user gesture.
  */
 @customElement(`${ddsPrefix}-scoped-search-dropdown`)
 class DDSScopedSearchDropdown extends DDSDropdown {

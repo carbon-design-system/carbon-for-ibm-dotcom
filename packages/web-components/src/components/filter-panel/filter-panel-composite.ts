@@ -470,7 +470,7 @@ class DDSFilterPanelComposite extends HostListenerMixin(
 
   render() {
     return html`
-      <button class="bx--filter-button" @click=${this._openModal}>
+      <button class="cds--filter-button" @click=${this._openModal}>
         <div class="${prefix}--filter__modal__button">
           ${this._filterButtonTitle} ${Filter()}
         </div>

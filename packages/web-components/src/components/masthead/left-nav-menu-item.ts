@@ -9,7 +9,7 @@
 
 import { classMap } from 'lit/directives/class-map.js';
 import { html } from 'lit';
-import BXSideNavMenuItem from '../../internal/vendor/@carbon/web-components/components/ui-shell/side-nav-menu-item.js';
+import CDSSideNavMenuItem from '../../internal/vendor/@carbon/web-components/components/ui-shell/side-nav-menu-item.js';
 import settings from '../../internal/vendor/@carbon/ibmdotcom-utilities/utilities/settings/settings';
 import styles from './masthead.scss';
 import { carbonElement as customElement } from '../../internal/vendor/@carbon/web-components/globals/decorators/carbon-element.js';
@@ -22,7 +22,7 @@ const { prefix, stablePrefix: ddsPrefix } = settings;
  * @element dds-left-nav-menu-item
  */
 @customElement(`${ddsPrefix}-left-nav-menu-item`)
-class DDSLeftNavMenuItem extends BXSideNavMenuItem {
+class DDSLeftNavMenuItem extends CDSSideNavMenuItem {
   render() {
     const { active, href, title } = this;
     const classes = classMap({

@@ -11,7 +11,7 @@
 @use '@carbon/styles/scss/spacing' as *;
 @use '@carbon/ibmdotcom-styles/scss/globals/vars' as *;
 
-.bx--no-gutter {
+.cds--no-gutter {
   @include breakpoint-down(md) {
     padding-right: $spacing-05;
   }

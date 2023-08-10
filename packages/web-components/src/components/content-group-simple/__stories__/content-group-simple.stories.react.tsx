@@ -139,9 +139,9 @@ export default {
   title: 'Components/Content group simple',
   decorators: [
     story => (
-      <div className="bx--grid">
-        <div className="bx--row">
-          <div className="bx--col-lg-12 bx--no-gutter">
+      <div className="cds--grid">
+        <div className="cds--row">
+          <div className="cds--col-lg-12 cds--no-gutter">
             <DDSVideoCTAContainer>{story()}</DDSVideoCTAContainer>
           </div>
         </div>

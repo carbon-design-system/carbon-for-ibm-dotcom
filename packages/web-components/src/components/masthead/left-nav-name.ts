@@ -10,7 +10,7 @@
 import { html } from 'lit';
 import { property } from 'lit/decorators.js';
 import { ifDefined } from 'lit/directives/if-defined.js';
-import BXHeaderName from '../../internal/vendor/@carbon/web-components/components/ui-shell/header-name.js';
+import CDSHeaderName from '../../internal/vendor/@carbon/web-components/components/ui-shell/header-name.js';
 import settings from '../../internal/vendor/@carbon/ibmdotcom-utilities/utilities/settings/settings';
 import styles from './masthead.scss';
 import DDSLeftNav from './left-nav';
@@ -24,7 +24,7 @@ const { prefix, stablePrefix: ddsPrefix } = settings;
  * @element dds-left-nav-name
  */
 @customElement(`${ddsPrefix}-left-nav-name`)
-class DDSLeftNavName extends BXHeaderName {
+class DDSLeftNavName extends CDSHeaderName {
   /**
    * Set slot name property.
    */

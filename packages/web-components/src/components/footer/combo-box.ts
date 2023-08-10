@@ -9,7 +9,7 @@
 
 import { TemplateResult, html } from 'lit';
 import { property, query } from 'lit/decorators.js';
-import BXComboBoxItem from '../../internal/vendor/@carbon/web-components/components/combo-box/combo-box-item.js';
+import CDSComboBoxItem from '../../internal/vendor/@carbon/web-components/components/combo-box/combo-box-item.js';
 import Close16 from '../../internal/vendor/@carbon/web-components/icons/close/16.js';
 import settings from '@carbon/ibmdotcom-utilities/es/utilities/settings/settings.js';
 import { findIndex, forEach } from '../../globals/internal/collection-helpers';
@@ -28,14 +28,14 @@ const { prefix, stablePrefix: ddsPrefix } = settings;
  * Combo box.
  *
  * @element dds-combo-box
- * @fires bx-combo-box-beingselected
+ * @fires cds-combo-box-beingselected
  *   The custom event fired before a combo box item is selected upon a user gesture.
  *   Cancellation of this event stops changing the user-initiated selection.
- * @fires bx-combo-box-beingtoggled
+ * @fires cds-combo-box-beingtoggled
  *   The custom event fired before the open state of this combo box is toggled upon a user gesture.
  *   Cancellation of this event stops the user-initiated toggling.
- * @fires bx-combo-box-selected - The custom event fired after a combo box item is selected upon a user gesture.
- * @fires bx-combo-box-toggled - The custom event fired after the open state of this combo box is toggled upon a user gesture.
+ * @fires cds-combo-box-selected - The custom event fired after a combo box item is selected upon a user gesture.
+ * @fires cds-combo-box-toggled - The custom event fired after the open state of this combo box is toggled upon a user gesture.
  */
 @customElement(`${ddsPrefix}-combo-box`)
 class DDSComboBox extends DDSDropdown {
@@ -78,7 +78,7 @@ class DDSComboBox extends DDSDropdown {
    * @returns `true` if the given combo box item matches the given query text.
    */
   protected _defaultItemMatches(
-    item: BXComboBoxItem,
+    item: CDSComboBoxItem,
     queryText: string
   ): boolean {
     return (
@@ -98,7 +98,7 @@ class DDSComboBox extends DDSDropdown {
       ? -1
       : findIndex(items, this._testItemWithQueryText, this);
     forEach(items, (item, i) => {
-      (item as BXComboBoxItem).highlighted = i === index;
+      (item as CDSComboBoxItem).highlighted = i === index;
     });
     const { _filterInputNode: filterInput } = this;
     this._filterInputValue = !filterInput ? '' : filterInput.value;
@@ -138,7 +138,7 @@ class DDSComboBox extends DDSDropdown {
         (this.constructor as typeof DDSComboBox).selectorItem
       ),
       (item) => {
-        (item as BXComboBoxItem).highlighted = false;
+        (item as CDSComboBoxItem).highlighted = false;
       }
     );
     this._filterInputValue = '';
@@ -147,7 +147,7 @@ class DDSComboBox extends DDSDropdown {
     this.requestUpdate();
   }
 
-  protected _handleUserInitiatedSelectItem(item?: BXComboBoxItem) {
+  protected _handleUserInitiatedSelectItem(item?: CDSComboBoxItem) {
     if (item && !this._selectionShouldChange(item)) {
       // Escape hatch for `shouldUpdate()` logic that updates `._filterInputValue()` when selection changes,
       // given we want to update the `<input>` and close the dropdown even if selection doesn't update.
@@ -213,7 +213,7 @@ class DDSComboBox extends DDSDropdown {
    * The custom item matching callback.
    */
   @property({ attribute: false })
-  itemMatches!: (item: BXComboBoxItem, queryText: string) => boolean;
+  itemMatches!: (item: CDSComboBoxItem, queryText: string) => boolean;
 
   shouldUpdate(changedProperties) {
     super.shouldUpdate(changedProperties);

@@ -25,10 +25,10 @@ const { stablePrefix: ddsPrefix } = settings;
 class DDSContentBlockHeadlinesItem extends StableSelectorMixin(DDSContentItem) {
   render() {
     return html`
-      <h4 class="bx--content-block-headlines__heading">
+      <h4 class="cds--content-block-headlines__heading">
         <slot name="heading"></slot>
       </h4>
-      <p class="bx--content-block-headlines__copy"><slot name="copy"></slot></p>
+      <p class="cds--content-block-headlines__copy"><slot name="copy"></slot></p>
       <slot name="footer"></slot>
     `;
   }

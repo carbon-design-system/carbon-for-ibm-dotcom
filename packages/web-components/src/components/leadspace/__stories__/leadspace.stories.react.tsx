@@ -545,7 +545,7 @@ export default {
   title: 'Components/Leadspace',
   decorators: [
     story => {
-      return <div className="bx--grid bx--no-gutter">{story()}</div>;
+      return <div className="cds--grid cds--no-gutter">{story()}</div>;
     },
   ],
   parameters: {

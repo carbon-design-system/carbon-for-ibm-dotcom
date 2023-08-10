@@ -7,7 +7,7 @@
  * LICENSE file in the root directory of this source tree.
  */
 
-import BXCheckbox from '../../internal/vendor/@carbon/web-components/components/checkbox/checkbox';
+import CDSCheckbox from '../../internal/vendor/@carbon/web-components/components/checkbox/checkbox';
 import FocusMixin from '../../internal/vendor/@carbon/web-components/globals/mixins/focus';
 import settings from '../../internal/vendor/@carbon/ibmdotcom-utilities/utilities/settings/settings';
 import '../../internal/vendor/@carbon/web-components/components/modal/modal';
@@ -25,7 +25,7 @@ const { stablePrefix: ddsPrefix } = settings;
  */
 @customElement(`${ddsPrefix}-filter-panel-checkbox`)
 class DDSFilterPanelCheckbox extends FocusMixin(
-  StableSelectorMixin(BXCheckbox)
+  StableSelectorMixin(CDSCheckbox)
 ) {
   /**
    * Handles `click` event on the `<input>` in the shadow DOM.
@@ -34,7 +34,7 @@ class DDSFilterPanelCheckbox extends FocusMixin(
     const { checked, indeterminate } = this._checkboxNode;
     this.checked = checked;
     this.indeterminate = indeterminate;
-    const { eventChange } = this.constructor as typeof BXCheckbox;
+    const { eventChange } = this.constructor as typeof CDSCheckbox;
     this.dispatchEvent(
       new CustomEvent(eventChange, {
         bubbles: true,

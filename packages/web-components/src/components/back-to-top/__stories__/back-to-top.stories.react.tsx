@@ -129,7 +129,7 @@ export const Default = () => {
           </DDSButtonGroupItem>
         </DDSButtonGroup>
       </DDSLeadspace>
-      <div className="bx--col-sm-4 bx--col-lg-12 bx--offset-lg-4">
+      <div className="cds--col-sm-4 cds--col-lg-12 cds--offset-lg-4">
         {/* eslint-disable-next-line jsx-a11y/anchor-is-valid, jsx-a11y/anchor-has-content  */}
         <a name="section-1"></a>
         <DDSContentBlockSimple>
@@ -202,8 +202,8 @@ export default {
       return (
         <>
           <style type="text/css">{styles.cssText}</style>
-          <div className="bx--grid bx--grid--condensed">
-            <div className="bx--row">
+          <div className="cds--grid cds--grid--condensed">
+            <div className="cds--row">
               <div>{story()}</div>
             </div>
           </div>

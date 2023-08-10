@@ -9,7 +9,7 @@
 
 import { TemplateResult, html } from 'lit';
 import { property } from 'lit/decorators.js';
-import BXLink, {
+import CDSLink, {
   LINK_SIZE,
 } from '../../internal/vendor/@carbon/web-components/components/link/link.js';
 import settings from '../../internal/vendor/@carbon/ibmdotcom-utilities/utilities/settings/settings';
@@ -30,7 +30,7 @@ const { prefix, stablePrefix: ddsPrefix } = settings;
  * @slot icon-left - The CTA icon to place at the left.
  */
 @customElement(`${ddsPrefix}-link-with-icon`)
-class DDSLinkWithIcon extends StableSelectorMixin(BXLink) {
+class DDSLinkWithIcon extends StableSelectorMixin(CDSLink) {
   /**
    * Icon placement(right (default) | left)
    */

@@ -64,7 +64,7 @@ export const Large = args => {
 Medium.story = {
   parameters: {
     ...readme.parameters,
-    storyGrid: 'bx--col-sm-4 bx--col-lg-8',
+    storyGrid: 'cds-col-sm-4 cds--col-lg-8',
     knobs: {
       FeatureCard: () => ({
         heading: text('Heading (heading)', 'Explore AI use cases in all industries'),
@@ -77,7 +77,7 @@ Medium.story = {
 Large.story = {
   parameters: {
     ...readme.parameters,
-    storyGrid: 'bx--col-sm-4 bx--col-lg-12',
+    storyGrid: 'cds-col-sm-4 cds--col-lg-12',
     knobs: {
       FeatureCard: () => ({
         copy: text(
@@ -97,8 +97,8 @@ export default {
   decorators: [
     (story, { parameters }) => {
       return (
-        <div className="bx--grid">
-          <div className="bx--row">
+        <div className="cds-grid">
+          <div className="cds-row">
             <div className={parameters.storyGrid}>{story()}</div>
           </div>
         </div>

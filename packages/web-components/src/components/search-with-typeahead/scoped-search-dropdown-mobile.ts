@@ -64,7 +64,7 @@ class DDSScopedSearchDropdownMobile extends CDSSelect {
   private _renderItemsMobile(element) {
     const { selectorItem, selectorLeafItem } = this
       .constructor as typeof CDSSelect;
-    // Harvests attributes from `<bx-select-item>` and `<bx-select-item-group>`.
+    // Harvests attributes from `<cds-select-item>` and `<cds-select-item-group>`.
     // Does not use properties to avoid delay in attribute to property mapping, which runs in custom element reaction cycle:
     // https://html.spec.whatwg.org/multipage/custom-elements.html#custom-element-reactions
     return html`

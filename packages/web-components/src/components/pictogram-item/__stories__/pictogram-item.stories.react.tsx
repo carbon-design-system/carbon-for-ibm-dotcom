@@ -35,7 +35,7 @@ const Desktop = (
     height="64"
     viewBox="8 8 32 32"
     role="img"
-    class="bx--pictogram-item__pictogram"
+    class="cds--pictogram-item__pictogram"
   >
     <path
       fill="none"
@@ -61,7 +61,7 @@ const Pattern = (
     height="64"
     viewBox="0 0 32 32"
     role="img"
-    class="bx--pictogram-item__pictogram"
+    class="cds--pictogram-item__pictogram"
     // @ts-ignore
     style={{ enableBackground: 'new 0 0 32 32' }}
   >
@@ -115,7 +115,7 @@ const Touch = (
     height="64"
     viewBox="0 0 32 32"
     role="img"
-    class="bx--pictogram-item__pictogram"
+    class="cds--pictogram-item__pictogram"
   >
     <path
       id="touch_1_"
@@ -219,9 +219,9 @@ export default {
   decorators: [
     (story) => {
       return (
-        <div className="bx--grid">
-          <div className="bx--row">
-            <div className="bx--col-sm-4 bx--col-lg-8 bx--no-gutter">
+        <div className="cds--grid">
+          <div className="cds--row">
+            <div className="cds--col-sm-4 cds--col-lg-8 cds--no-gutter">
               {story()}
             </div>
           </div>

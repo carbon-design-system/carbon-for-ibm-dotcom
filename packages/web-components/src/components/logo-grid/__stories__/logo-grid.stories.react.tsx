@@ -57,9 +57,9 @@ export default {
   title: 'Components/Logo grid',
   decorators: [
     story => (
-      <div className="bx--grid">
-        <div className="bx--row">
-          <div className="bx--col-sm-4 bx--col-md-8 bx--col-lg-12">{story()}</div>
+      <div className="cds--grid">
+        <div className="cds--row">
+          <div className="cds--col-sm-4 cds--col-md-8 cds--col-lg-12">{story()}</div>
         </div>
       </div>
     ),

@@ -160,7 +160,7 @@ class DDSSearchWithTypeahead extends HostListenerMixin(
    */
   protected _handleClickInner(event: MouseEvent) {
     if (
-      (event.target as HTMLElement).closest('.bx--header__search--input') ===
+      (event.target as HTMLElement).closest('.cds--header__search--input') ===
       event.target
     ) {
       this._handleUserInitiatedToggle();
@@ -673,8 +673,8 @@ class DDSSearchWithTypeahead extends HostListenerMixin(
                 <dds-scoped-search-dropdown value="${this.appId}">
                   ${this.scopeParameters.map(
                     (scope) => html`
-                      <bx-dropdown-item value="${scope.appId}"
-                        >${scope.name}</bx-dropdown-item
+                      <cds-dropdown-item value="${scope.appId}"
+                        >${scope.name}</cds-dropdown-item
                       >
                     `
                   )}
@@ -682,10 +682,10 @@ class DDSSearchWithTypeahead extends HostListenerMixin(
                 <dds-scoped-search-dropdown-mobile value="${this.appId}">
                   ${this.scopeParameters.map(
                     (scope) => html`
-                      <bx-select-item
+                      <cds-select-item
                         label="${scope.name}"
                         value="${scope.appId}"
-                        >${scope.name}</bx-select-item
+                        >${scope.name}</cds-select-item
                       >
                     `
                   )}
