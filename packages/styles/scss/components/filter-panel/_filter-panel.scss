@@ -119,6 +119,7 @@
   :host(#{$dds-prefix}-filter-panel) {
     .#{$prefix}--clear {
       display: block;
+      padding: $spacing-05 0 0 $spacing-05;
 
       &:focus-visible {
         outline: $spacing-01 solid $focus;

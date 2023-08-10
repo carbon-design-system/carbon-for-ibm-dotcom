@@ -13,7 +13,7 @@ import HostListenerMixin from '../../internal/vendor/@carbon/web-components/glob
 import './filter-group';
 import './filter-modal-button';
 import './filter-modal-heading';
-import BXModal from '../../internal/vendor/@carbon/web-components/components/modal/modal.js';
+import DDSExpressiveModal from '../expressive-modal/expressive-modal';
 import ddsSettings from '../../internal/vendor/@carbon/ibmdotcom-utilities/utilities/settings/settings';
 import './filter-modal-footer';
 import StableSelectorMixin from '../../globals/mixins/stable-selector';
@@ -33,8 +33,21 @@ const { stablePrefix: ddsPrefix } = ddsSettings;
  */
 @customElement(`${ddsPrefix}-filter-panel-modal`)
 class DDSFilterPanelModal extends HostListenerMixin(
-  StableSelectorMixin(BXModal)
+  StableSelectorMixin(DDSExpressiveModal)
 ) {
+  connectedCallback() {
+    /**
+     * Checks if the modal has aria attributes and if not, sets them.
+     */
+    if (
+      !this.hasAttribute('aria-modal') &&
+      !this.hasAttribute('aria-labelledby')
+    ) {
+      this.setAttribute('aria-modal', 'true');
+      this.setAttribute('aria-labelledby', 'dds-filter-modal-heading');
+    }
+    super.connectedCallback();
+  }
   /**
    * Renders the selected values.
    */
@@ -91,14 +104,17 @@ class DDSFilterPanelModal extends HostListenerMixin(
       if (
         this.dispatchEvent(
           new CustomEvent(
-            (this.constructor as typeof BXModal).eventBeforeClose,
+            (this.constructor as typeof DDSExpressiveModal).eventBeforeClose,
             init
           )
         )
       ) {
         this.open = false;
         this.dispatchEvent(
-          new CustomEvent((this.constructor as typeof BXModal).eventClose, init)
+          new CustomEvent(
+            (this.constructor as typeof DDSExpressiveModal).eventClose,
+            init
+          )
         );
       }
     }
