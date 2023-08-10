@@ -23,6 +23,7 @@
     <dds-locale-button
       data-autoid="dds--locale-btn"
       size=""
+      slot="locale-button"
     >
     </dds-locale-button>
     <dds-legal-nav
@@ -98,6 +99,7 @@
     <dds-locale-button
       data-autoid="dds--locale-btn"
       size=""
+      slot="locale-button"
     >
       lang-display-foo
     </dds-locale-button>
