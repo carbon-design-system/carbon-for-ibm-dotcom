@@ -21,12 +21,13 @@
   :host(#{$dds-prefix}-image) {
     position: relative;
     display: block;
+  }
 
-    ::slotted(svg[slot='icon']) {
-      position: absolute;
-      top: calc(50% - #{$spacing-07});
-      right: calc(50% - #{$spacing-07});
-    }
+  :host(#{$dds-prefix}-card-cta-image::slotted(svg[slot='icon'])),
+  :host(#{$dds-prefix}-image::slotted(svg[slot='icon'])) {
+    position: absolute;
+    top: calc(50% - #{$spacing-07});
+    right: calc(50% - #{$spacing-07});
   }
 
   :host(#{$dds-prefix}-image-item) {

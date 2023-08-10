@@ -22,7 +22,6 @@ import imgMd2x1 from '../../../../../storybook-images/assets/480/fpo--2x1--480x2
 import imgMd3x2 from '../../../../../storybook-images/assets/480/fpo--3x2--480x320--005.jpg';
 import imgMd4x3 from '../../../../../storybook-images/assets/480/fpo--4x3--480x360--005.jpg';
 import imgMd1x1 from '../../../../../storybook-images/assets/480/fpo--1x1--480x480--005.jpg';
-
 import imgSm16x9 from '../../../../../storybook-images/assets/320/fpo--16x9--320x180--005.jpg';
 import imgSm2x1 from '../../../../../storybook-images/assets/320/fpo--2x1--320x160--005.jpg';
 import imgSm3x2 from '../../../../../storybook-images/assets/320/fpo--3x2--320x213--005.jpg';
