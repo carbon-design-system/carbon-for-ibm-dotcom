@@ -134,9 +134,9 @@ export default {
   title: 'Components/Lead space search',
   decorators: [
     (story) => html`
-      <div class="cdss--grid">
-        <div class="cdss--row">
-          <div class="cdss--col-lg-8cdsds--offset-lg-cdscds--no-gutter">
+      <div class="cds--grid">
+        <div class="cds--row">
+          <div class="cds--col-lg-8cdsds--offset-lg-cdscds--no-gutter">
             ${story()}
           </div>
         </div>

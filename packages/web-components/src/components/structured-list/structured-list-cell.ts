@@ -7,7 +7,7 @@
  * LICENSE file in the root directory of this source tree.
  */
 
-import BXStructuredListCell from '../../internal/vendor/@carbon/web-components/components/structured-list/structured-list-cell.js';
+import CDSStructuredListCell from '../../internal/vendor/@carbon/web-components/components/structured-list/structured-list-cell.js';
 import { html } from 'lit';
 import { property } from 'lit/decorators.js';
 import Info16 from '../../internal/vendor/@carbon/web-components/icons/information/16.js';
@@ -26,7 +26,7 @@ const { prefix, stablePrefix: ddsPrefix } = settings;
  * @element dds-structured-list-cell
  */
 @customElement(`${ddsPrefix}-structured-list-cell`)
-class DDSStructuredListCell extends BXStructuredListCell {
+class DDSStructuredListCell extends CDSStructuredListCell {
   parentGroup: DDSStructuredListGroup | null = this.closest(
     `${ddsPrefix}-structured-list-group`
   );
@@ -69,7 +69,8 @@ class DDSStructuredListCell extends BXStructuredListCell {
       ${tags!
         .split(',')
         .map(
-          (tag) => html` <bx-tag size="sm" type="green">${tag.trim()}</bx-tag> `
+          (tag) =>
+            html` <cds-tag size="sm" type="green">${tag.trim()}</cds-tag> `
         )}
     `;
   }
@@ -78,12 +79,12 @@ class DDSStructuredListCell extends BXStructuredListCell {
     const { tooltipText: tooltip } = this;
 
     return html`
-      <bx-tooltip-icon
+      <cds-tooltip-icon
         alignment="start"
         body-text="${tooltip}"
         direction="right">
         ${Info16()}
-      </bx-tooltip-icon>
+      </cds-tooltip-icon>
     `;
   }
 

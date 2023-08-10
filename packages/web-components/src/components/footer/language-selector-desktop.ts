@@ -10,7 +10,7 @@
 import { property, query, state } from 'lit/decorators.js';
 import HostListener from '../../internal/vendor/@carbon/web-components/globals/decorators/host-listener.js';
 import HostListenerMixin from '../../internal/vendor/@carbon/web-components/globals/mixins/host-listener.js';
-import BXComboBoxItem from '../../internal/vendor/@carbon/web-components/components/combo-box/combo-box-item.js';
+import CDSComboBoxItem from '../../internal/vendor/@carbon/web-components/components/combo-box/combo-box-item.js';
 import settings from '../../internal/vendor/@carbon/ibmdotcom-utilities/utilities/settings/settings';
 import { LANGUAGE_SELECTOR_STYLE_SCHEME } from './defs';
 import DDSComboBox from './combo-box';
@@ -69,7 +69,7 @@ class DDSLanguageSelectorDesktop extends HostListenerMixin(DDSComboBox) {
       : findIndex(items, this._testItemWithQueryText, this);
     forEach(items, (item, i) => {
       if (i === index) item.scrollIntoView();
-      (item as BXComboBoxItem).highlighted = i === index;
+      (item as CDSComboBoxItem).highlighted = i === index;
     });
     const { _filterInputNode: filterInput } = this;
     this._filterInputValue = !filterInput ? '' : filterInput.value;
@@ -87,8 +87,8 @@ class DDSLanguageSelectorDesktop extends HostListenerMixin(DDSComboBox) {
         (this.constructor as typeof DDSComboBox).selectorItem
       ),
       (item) => {
-        (item as BXComboBoxItem).highlighted = false;
-        (item as BXComboBoxItem).selected = false;
+        (item as CDSComboBoxItem).highlighted = false;
+        (item as CDSComboBoxItem).selected = false;
       }
     );
     this._lastValidLang = this._filterInputValue;
@@ -103,7 +103,7 @@ class DDSLanguageSelectorDesktop extends HostListenerMixin(DDSComboBox) {
    *
    * @param item that was selected
    */
-  protected _handleUserInitiatedSelectItem(item?: BXComboBoxItem) {
+  protected _handleUserInitiatedSelectItem(item?: CDSComboBoxItem) {
     if (item && !this._selectionShouldChange(item)) {
       // Escape hatch for `shouldUpdate()` logic that updates `._filterInputValue()` when selection changes,
       // given we want to update the `<input>` and close the dropdown even if selection doesn't update.
@@ -118,7 +118,7 @@ class DDSLanguageSelectorDesktop extends HostListenerMixin(DDSComboBox) {
       this.requestUpdate();
     }
     this._lastValidLang = item?.textContent as string;
-    (item as BXComboBoxItem).selected = true;
+    (item as CDSComboBoxItem).selected = true;
     super._handleUserInitiatedSelectItem(item);
   }
 

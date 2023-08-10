@@ -86,8 +86,8 @@ export default {
     (story) => (
       <>
         <style type="text/css">{styles.cssText}</style>
-        <div className="bx--grid">
-          <div className="bx--row grid-alignment">{story()}</div>
+        <div className="cds--grid">
+          <div className="cds--row grid-alignment">{story()}</div>
         </div>
       </>
     ),

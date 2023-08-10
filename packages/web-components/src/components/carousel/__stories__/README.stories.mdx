@@ -112,14 +112,14 @@ the next page as a hint of page overflow will be hidden.
 The carousel allows content within the `title` slot to be used as the accessible
 aria label for the `region` role. Even if a design does not call for the modal
 to have content in the title slot, it is _required_ for accessibility. The title
-can be visually hidden using the `.bx--visually-hidden` or `.bx--assistive-text`
+can be visually hidden using the `.cds--visually-hidden` or `.cds--assistive-text`
 classes. This will prevent the text from rendering on the screen, but will still
 be announced to assistive technology users. If no value is provided for the
 `title` slot, a generic title of "carousel" will be announced.
 
 ```html
 <dds-carousel>
-  <span class="bx--visually-hidden" slot="title">Carousel label text</span>
+  <span class="cds--visually-hidden" slot="title">Carousel label text</span>
   ...
 </dds-carousel>
 ```

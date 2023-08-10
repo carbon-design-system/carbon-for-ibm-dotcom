@@ -9,12 +9,12 @@
 @use '@carbon/styles/scss/spacing' as *;
 
 @include breakpoint-down(lg) {
-  .bx--offset-lg-3 {
+  .cds--offset-lg-3 {
     margin-left: 0;
   }
 }
 
-.bx--content {
+.cds--content {
   padding: $spacing-12 0 $spacing-07;
 
   @include breakpoint-down(lg) {

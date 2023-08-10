@@ -18,12 +18,12 @@ export const Default = () => (
       {styles.cssText}
       {list.cssText}
     </style>
-    <div style={{ width: '100%' }} className="bx--grid bx--layout--top-layout-03 bx--layout--bottom-layout-06">
-      <div className="bx--row bx--layout--top-layout-03 bx--layout--bottom-layout-06">
-        <div className="bx--col-lg-12">
+    <div style={{ width: '100%' }} className="cds--grid cds--layout--top-layout-03 cds--layout--bottom-layout-06">
+      <div className="cds--row cds--layout--top-layout-03 cds--layout--bottom-layout-06">
+        <div className="cds--col-lg-12">
           <div>
-            <div className="bx--row">
-              <div className="bx--layout-2-3">
+            <div className="cds--row">
+              <div className="cds--layout-2-3">
                 <h3>Column 2-3</h3>
                 <p>
                   Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore
@@ -40,16 +40,16 @@ export const Default = () => (
                   ultrices dui sapien. Augue eget arcu dictum varius duis. Eget mauris pharetra et ultrices neque ornare aenean.
                 </p>
               </div>
-              <div className="bx--layout-1-3">
+              <div className="cds--layout-1-3">
                 <h3>layout 1-3</h3>
-                <ul className="bx--list--unordered">
-                  <li className="bx--list__item">item 1</li>
-                  <li className="bx--list__item">item 2</li>
-                  <li className="bx--list__item">item 3</li>
-                  <li className="bx--list__item">item 4</li>
-                  <li className="bx--list__item">item 5</li>
-                  <li className="bx--list__item">item 6</li>
-                  <li className="bx--list__item">item 7</li>
+                <ul className="cds--list--unordered">
+                  <li className="cds--list__item">item 1</li>
+                  <li className="cds--list__item">item 2</li>
+                  <li className="cds--list__item">item 3</li>
+                  <li className="cds--list__item">item 4</li>
+                  <li className="cds--list__item">item 5</li>
+                  <li className="cds--list__item">item 6</li>
+                  <li className="cds--list__item">item 7</li>
                 </ul>
                 <p>
                   A pellentesque sit amet porttitor. Sed euismod nisi porta lorem. Pellentesque dignissim enim sit amet venenatis
@@ -60,27 +60,27 @@ export const Default = () => (
           </div>
         </div>
       </div>
-      <div className="bx--row">
-        <div className="bx--col-lg-12">
+      <div className="cds--row">
+        <div className="cds--col-lg-12">
           <div>
-            <div className="bx--row">
-              <div className="bx--layout-1-3">
+            <div className="cds--row">
+              <div className="cds--layout-1-3">
                 <h3>layout 1-3</h3>
-                <ul className="bx--list--unordered">
-                  <li className="bx--list__item">item 1</li>
-                  <li className="bx--list__item">item 2</li>
-                  <li className="bx--list__item">item 3</li>
-                  <li className="bx--list__item">item 4</li>
-                  <li className="bx--list__item">item 5</li>
-                  <li className="bx--list__item">item 6</li>
-                  <li className="bx--list__item">item 7</li>
+                <ul className="cds--list--unordered">
+                  <li className="cds--list__item">item 1</li>
+                  <li className="cds--list__item">item 2</li>
+                  <li className="cds--list__item">item 3</li>
+                  <li className="cds--list__item">item 4</li>
+                  <li className="cds--list__item">item 5</li>
+                  <li className="cds--list__item">item 6</li>
+                  <li className="cds--list__item">item 7</li>
                 </ul>
                 <p>
                   A pellentesque sit amet porttitor. Sed euismod nisi porta lorem. Pellentesque dignissim enim sit amet venenatis
                   urna urna urna cursus eget nunc. Eu lobortis elementum nibh tellus molestie nunc non blandit massa.
                 </p>
               </div>
-              <div className="bx--layout-2-3">
+              <div className="cds--layout-2-3">
                 <h3>layout 2-3</h3>
                 <p>
                   Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore

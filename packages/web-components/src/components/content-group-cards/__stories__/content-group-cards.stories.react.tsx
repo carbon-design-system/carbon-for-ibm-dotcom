@@ -58,9 +58,9 @@ export default {
   title: 'Components/Content group cards',
   decorators: [
     story => (
-      <div className="bx--grid">
-        <div className="bx--row">
-          <div className="bx--col-lg-8 bx--no-gutter">{story()}</div>
+      <div className="cds--grid">
+        <div className="cds--row">
+          <div className="cds--col-lg-8 cds--no-gutter">{story()}</div>
         </div>
       </div>
     ),

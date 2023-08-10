@@ -8,7 +8,7 @@
  */
 
 import { html } from 'lit';
-import BXTab from '../../../internal/vendor/@carbon/web-components/components/tabs/tab.js';
+import CDSTab from '../../../internal/vendor/@carbon/web-components/components/tabs/tab.js';
 import settings from '../../../internal/vendor/@carbon/ibmdotcom-utilities/utilities/settings/settings';
 import styles from './cloud-masthead.scss';
 import { carbonElement as customElement } from '../../../internal/vendor/@carbon/web-components/globals/decorators/carbon-element.js';
@@ -21,7 +21,7 @@ const { prefix, stablePrefix: ddsPrefix } = settings;
  * @element dds-cloud-megamenu-tab
  */
 @customElement(`${ddsPrefix}-cloud-megamenu-tab`)
-class DDSCloudMegaMenuTab extends BXTab {
+class DDSCloudMegaMenuTab extends CDSTab {
   render() {
     const { disabled, selected } = this;
     return html`

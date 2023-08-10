@@ -29,9 +29,10 @@ communities as a way to stay at the forefront of development.`;
 // the purposes of checking the behavior of the back to top button.
 const FauxNextPage = html`
   <main>
-    <div class="bx--grid bx--grid--narrow">
-      <div class="bx--row">
-        <div class="bx--col-sm-4 bx--col-md-8 bx--col-lg-12 bx--offset-lg-4">
+    <div class="cds--grid cds--grid--narrow">
+      <div class="cds--row">
+        <div
+          class="cds--col-sm-4 cds--col-md-8 cds--col-lg-12 cds--offset-lg-4">
           <dds-content-block-simple complementary-style-scheme="with-border">
             <dds-content-block-heading
               >Flexibility and control are the key to open source Linux
@@ -125,9 +126,10 @@ export const StoryContent = () =>
       </dds-leadspace-image>
     </dds-leadspace>
     <main>
-      <div class="bx--grid bx--grid--narrow">
-        <div class="bx--row">
-          <div class="bx--col-sm-4 bx--col-md-8 bx--col-lg-12 bx--offset-lg-4">
+      <div class="cds--grid cds--grid--narrow">
+        <div class="cds--row">
+          <div
+            class="cds--col-sm-4 cds--col-md-8 cds--col-lg-12 cds--offset-lg-4">
             <dds-content-block-simple complementary-style-scheme="with-border">
               <dds-content-block-heading
                 >Flexibility and control are the key to open source Linux
@@ -145,8 +147,9 @@ export const StoryContent = () =>
             </dds-content-block-simple>
           </div>
         </div>
-        <div class="bx--row">
-          <div class="bx--col-sm-4 bx--col-md-8 bx--col-lg-12 bx--offset-lg-4">
+        <div class="cds--row">
+          <div
+            class="cds--col-sm-4 cds--col-md-8 cds--col-lg-12 cds--offset-lg-4">
             <dds-content-block-simple>
               <dds-content-block-heading
                 >What sets IBM Linux servers apart?</dds-content-block-heading
@@ -231,9 +234,10 @@ export const StoryContent = () =>
           </div>
         </div>
       </div>
-      <div class="bx--grid bx--no-gutter">
-        <div class="bx--row">
-          <div class="bx--col-sm-4 bx--col-md-8 bx--col-lg-8 bx--offset-lg-4">
+      <div class="cds--grid cds--no-gutter">
+        <div class="cds--row">
+          <div
+            class="cds--col-sm-4 cds--col-md-8 cds--col-lg-8 cds--offset-lg-4">
             <dds-content-group-simple>
               <dds-content-group-heading
                 >See how it works</dds-content-group-heading
@@ -255,9 +259,9 @@ export const StoryContent = () =>
           </div>
         </div>
       </div>
-      <div class="bx--grid bx--no-gutter">
-        <div class="bx--row">
-          <div class="bx--col-sm-4 bx--col-md-8 bx--col-lg-16">
+      <div class="cds--grid cds--no-gutter">
+        <div class="cds--row">
+          <div class="cds--col-sm-4 cds--col-md-8 cds--col-lg-16">
             <dds-card-section-simple>
               <dds-content-section-heading
                 >Linux operating systems</dds-content-section-heading
@@ -300,9 +304,9 @@ export const StoryContent = () =>
         </div>
       </div>
 
-      <div class="bx--grid bx--no-gutter">
-        <div class="bx--row">
-          <div class="bx--col-sm-4 bx--col-md-8 bx--col-lg-16">
+      <div class="cds--grid cds--no-gutter">
+        <div class="cds--row">
+          <div class="cds--col-sm-4 cds--col-md-8 cds--col-lg-16">
             <dds-cta-section>
               <dds-cta-block no-border>
                 <dds-content-block-heading
@@ -394,9 +398,10 @@ export const StoryContent = () =>
           </div>
         </div>
       </div>
-      <div class="bx--grid bx--grid--narrow">
-        <div class="bx--row">
-          <div class="bx--col-sm-4 bx--col-md-8 bx--col-lg-12 bx--offset-lg-4">
+      <div class="cds--grid cds--grid--narrow">
+        <div class="cds--row">
+          <div
+            class="cds--col-sm-4 cds--col-md-8 cds--col-lg-12 cds--offset-lg-4">
             <dds-content-block-simple>
               <dds-content-block-heading
                 >Learn more by going to the next

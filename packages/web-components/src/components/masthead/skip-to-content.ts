@@ -8,7 +8,7 @@
  */
 
 import { property } from 'lit/decorators.js';
-import BXSkipToContent from '../../internal/vendor/@carbon/web-components/components/skip-to-content/skip-to-content.js';
+import CDSSkipToContent from '../../internal/vendor/@carbon/web-components/components/skip-to-content/skip-to-content.js';
 import settings from '../../internal/vendor/@carbon/ibmdotcom-utilities/utilities/settings/settings';
 import styles from './masthead.scss';
 import { carbonElement as customElement } from '../../internal/vendor/@carbon/web-components/globals/decorators/carbon-element.js';
@@ -21,7 +21,7 @@ const { stablePrefix: ddsPrefix } = settings;
  * @element dds-masthead-skip-to-content
  */
 @customElement(`${ddsPrefix}-skip-to-content`)
-class DDSSkipToContent extends BXSkipToContent {
+class DDSSkipToContent extends CDSSkipToContent {
   /**
    * The shadow slot this logo UI should be in.
    */

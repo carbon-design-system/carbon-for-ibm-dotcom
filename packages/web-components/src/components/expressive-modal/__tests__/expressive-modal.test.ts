@@ -118,7 +118,7 @@ describe('dds-expressive-modal', function () {
           <dds-expressive-modal>
             <input type="text" />
             <dds-expressive-modal-footer
-              ><bx-btn kind="primary"></bx-btn
+              ><cds-btn kind="primary"></cds-btn
             ></dds-expressive-modal-footer>
           </dds-expressive-modal>
         `,
@@ -129,7 +129,7 @@ describe('dds-expressive-modal', function () {
         'dds-expressive-modal'
       ) as DDSExpressiveModal;
       const input = modal.querySelector('input') as HTMLInputElement;
-      const button = modal.querySelector('bx-btn') as HTMLButtonElement;
+      const button = modal.querySelector('cds-btn') as HTMLButtonElement;
       spyOn(modal as any, '_waitForTransitionEnd').and.callFake(() => {});
       spyOn(input, 'focus');
       spyOn(button, 'focus');

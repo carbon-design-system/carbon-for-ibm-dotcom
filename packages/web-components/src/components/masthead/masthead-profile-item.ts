@@ -7,7 +7,7 @@
  * LICENSE file in the root directory of this source tree.
  */
 
-import BXHeaderMenuItem from '../../internal/vendor/@carbon/web-components/components/ui-shell/header-menu-item.js';
+import CDSHeaderMenuItem from '../../internal/vendor/@carbon/web-components/components/ui-shell/header-menu-item.js';
 import settings from '../../internal/vendor/@carbon/ibmdotcom-utilities/utilities/settings/settings';
 import styles from './masthead.scss';
 import { carbonElement as customElement } from '../../internal/vendor/@carbon/web-components/globals/decorators/carbon-element.js';
@@ -20,7 +20,7 @@ const { stablePrefix: ddsPrefix } = settings;
  * @element dds-masthead-profile-item
  */
 @customElement(`${ddsPrefix}-masthead-profile-item`)
-class DDSMastheadProfileItem extends BXHeaderMenuItem {
+class DDSMastheadProfileItem extends CDSHeaderMenuItem {
   static styles = styles;
 
   firstUpdated() {

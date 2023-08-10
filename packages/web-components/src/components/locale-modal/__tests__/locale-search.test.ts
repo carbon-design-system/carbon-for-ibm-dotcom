@@ -252,7 +252,7 @@ describe('dds-locale-search', function () {
         }),
         document.body
       );
-      await Promise.resolve(); // The update cycle for `<bx-locale-search>`
+      await Promise.resolve(); // The update cycle for `<cds-locale-search>`
       await Promise.resolve(); // The update cycle for `<dds-search>`
       const localeSearch = document.body.querySelector('dds-locale-search');
       const searchInputNode = localeSearch!.shadowRoot!.querySelector(
@@ -268,7 +268,7 @@ describe('dds-locale-search', function () {
       searchInputNode!.value = 'LANGUAGE-B'; // The clear button handler checks if the value is empty to see if clearing is no-op
       (
         searchInputNode!.shadowRoot!.querySelector(
-          '.bx--search-close'
+          '.cds--search-close'
         ) as HTMLElement
       ).click();
       expect(
@@ -314,12 +314,12 @@ describe('dds-locale-search', function () {
         }),
         document.body
       );
-      await Promise.resolve(); // The update cycle for `<bx-locale-search>`
+      await Promise.resolve(); // The update cycle for `<cds-locale-search>`
       await Promise.resolve(); // The update cycle for `<dds-search>`
       const localeSearch = document.body.querySelector('dds-locale-search');
       const spyScrollTop = spyOnProperty(
         localeSearch!.shadowRoot!.querySelector(
-          '.bx--locale-modal__list'
+          '.cds--locale-modal__list'
         ) as HTMLElement,
         'scrollTop',
         'set'
@@ -346,7 +346,7 @@ describe('dds-locale-search', function () {
         }),
         document.body
       );
-      await Promise.resolve(); // The update cycle for `<bx-locale-search>`
+      await Promise.resolve(); // The update cycle for `<cds-locale-search>`
       await Promise.resolve(); // The update cycle for `<dds-search>`
       const localeSearch = document.body.querySelector('dds-locale-search');
       const searchInputNode = localeSearch!.shadowRoot!.querySelector(
@@ -361,7 +361,7 @@ describe('dds-locale-search', function () {
       );
       searchInputNode!.value = 'LANGUAGE-B'; // The clear button handler checks if the value is empty to see if clearing is no-op
       (localeSearch as DDSLocaleSearch).reset();
-      await Promise.resolve(); // The update cycle for `<bx-locale-search>`
+      await Promise.resolve(); // The update cycle for `<cds-locale-search>`
       await Promise.resolve(); // The update cycle for `<dds-search>`
       expect(searchInputNode!.value).toBe('');
       expect(

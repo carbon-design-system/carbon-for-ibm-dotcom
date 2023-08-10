@@ -86,7 +86,7 @@ describe('dds-video-player', function () {
     expect(
       document
         .querySelector('dds-video-player')!
-        .shadowRoot!.querySelector('.bx--video-player__video-caption')
+        .shadowRoot!.querySelector('.cds--video-player__video-caption')
     ).toBeNull();
   });
 

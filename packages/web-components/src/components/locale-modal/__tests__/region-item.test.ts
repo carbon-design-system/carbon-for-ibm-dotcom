@@ -37,7 +37,7 @@ describe('dds-region-item', function () {
       await Promise.resolve();
       const regionItem = document.body.querySelector('dds-region-item');
       expect(regionItem).toMatchSnapshot({ mode: 'shadow' });
-      const icon = regionItem!.shadowRoot!.querySelector('.bx--card__cta');
+      const icon = regionItem!.shadowRoot!.querySelector('.cds--card__cta');
       const iconRef = document.getElementById('icon-ref');
       expect(icon!.querySelector('path')!.getAttribute('d')).toBe(
         iconRef!.querySelector('path')!.getAttribute('d')
@@ -56,7 +56,7 @@ describe('dds-region-item', function () {
       await Promise.resolve();
       const regionItem = document.body.querySelector('dds-region-item');
       expect(regionItem).toMatchSnapshot({ mode: 'shadow' });
-      const icon = regionItem!.shadowRoot!.querySelector('.bx--card__cta');
+      const icon = regionItem!.shadowRoot!.querySelector('.cds--card__cta');
       const iconRef = document.getElementById('icon-ref');
       expect(icon!.querySelector('path')!.getAttribute('d')).toBe(
         iconRef!.querySelector('path')!.getAttribute('d')

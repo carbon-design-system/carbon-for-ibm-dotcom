@@ -8,7 +8,7 @@
  */
 
 import { property } from 'lit/decorators.js';
-import BXHeaderMenu from '../../internal/vendor/@carbon/web-components/components/ui-shell/header-menu.js';
+import CDSHeaderMenu from '../../internal/vendor/@carbon/web-components/components/ui-shell/header-menu.js';
 import settings from '../../internal/vendor/@carbon/ibmdotcom-utilities/utilities/settings/settings';
 import styles from './masthead.scss';
 import { carbonElement as customElement } from '../../internal/vendor/@carbon/web-components/globals/decorators/carbon-element.js';
@@ -21,7 +21,7 @@ const { stablePrefix: ddsPrefix } = settings;
  * @element dds-top-nav-menu
  */
 @customElement(`${ddsPrefix}-top-nav-menu`)
-class DDSTopNavMenu extends BXHeaderMenu {
+class DDSTopNavMenu extends CDSHeaderMenu {
   /**
    * `true` if this submenu should be in its active state.
    */

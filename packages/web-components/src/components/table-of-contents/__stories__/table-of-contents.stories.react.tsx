@@ -88,7 +88,7 @@ export default {
       return (
         <>
           <style type="text/css">{styles.cssText}</style>
-          <div className="bx--grid" style={{ padding: '0' }}>
+          <div className="cds--grid" style={{ padding: '0' }}>
             {story()}
           </div>
         </>
