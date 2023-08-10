@@ -10,6 +10,7 @@
 import { html, render } from 'lit-html';
 import ifNonNull from '../../../internal/vendor/@carbon/web-components/globals/directives/if-non-null.js';
 import EventManager from '../../../../tests/utils/event-manager';
+import MockMediaQueryList from '../../../../tests/utils/mock-media-query-list';
 import DDSFooterNavGroup from '../footer-nav-group';
 // Above import is interface-only ref and thus code won't be brought into the build
 import '../footer-nav-group';
@@ -24,37 +25,11 @@ const template = (props?) => {
   `;
 };
 
-class MockMediaQueryList {
-  private _matches = false;
-
-  constructor(matches: boolean) {
-    this._matches = matches;
-  }
-
-  addListener(fn: EventListener) {
-    const { _matches: matches } = this;
-    fn({ matches } as unknown as Event);
-  }
-
-  removeListener() {} // eslint-disable-line class-methods-use-this
-}
-
 describe('dds-footer-nav-group', function () {
   const events = new EventManager();
 
   describe('Misc attributes', function () {
     it('should render with minimum attributes for narrow screen', async function () {
-      spyOn(window, 'matchMedia').and.returnValue(
-        new MockMediaQueryList(false)
-      );
-      render(template(), document.body);
-      await Promise.resolve(); // Update cycle for `<dds-footer-nav-group>`
-      expect(
-        document.body.querySelector('dds-footer-nav-group')
-      ).toMatchSnapshot({ mode: 'shadow' });
-    });
-
-    it('should render with minimum attributes for wide screen', async function () {
       spyOn(window, 'matchMedia').and.returnValue(new MockMediaQueryList(true));
       render(template(), document.body);
       await Promise.resolve(); // Update cycle for `<dds-footer-nav-group>`
@@ -63,10 +38,19 @@ describe('dds-footer-nav-group', function () {
       ).toMatchSnapshot({ mode: 'shadow' });
     });
 
-    it('should render with various attributes for narrow screen', async function () {
+    it('should render with minimum attributes for wide screen', async function () {
       spyOn(window, 'matchMedia').and.returnValue(
         new MockMediaQueryList(false)
       );
+      render(template(), document.body);
+      await Promise.resolve(); // Update cycle for `<dds-footer-nav-group>`
+      expect(
+        document.body.querySelector('dds-footer-nav-group')
+      ).toMatchSnapshot({ mode: 'shadow' });
+    });
+
+    it('should render with various attributes for narrow screen', async function () {
+      spyOn(window, 'matchMedia').and.returnValue(new MockMediaQueryList(true));
       render(
         template({ open: true, titleText: 'title-text-foo' }),
         document.body
@@ -78,7 +62,9 @@ describe('dds-footer-nav-group', function () {
     });
 
     it('should render with various attributes for wide screen', async function () {
-      spyOn(window, 'matchMedia').and.returnValue(new MockMediaQueryList(true));
+      spyOn(window, 'matchMedia').and.returnValue(
+        new MockMediaQueryList(false)
+      );
       render(
         template({ open: true, titleText: 'title-text-foo' }),
         document.body
@@ -94,9 +80,7 @@ describe('dds-footer-nav-group', function () {
     let group: DDSFooterNavGroup | null;
 
     beforeEach(async function () {
-      spyOn(window, 'matchMedia').and.returnValue(
-        new MockMediaQueryList(false)
-      );
+      spyOn(window, 'matchMedia').and.returnValue(new MockMediaQueryList(true));
       render(template(), document.body);
       await Promise.resolve();
       group = document.body.querySelector('dds-footer-nav-group');
