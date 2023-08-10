@@ -1,5 +1,5 @@
 //
-// Copyright IBM Corp. 2020, 2022
+// Copyright IBM Corp. 2020, 2023
 //
 // This source code is licensed under the Apache-2.0 license found in the
 // LICENSE file in the root directory of this source tree.
@@ -303,10 +303,6 @@
     right: 2.25rem;
   }
 
-  @include carbon--breakpoint-down('lg') {
-    display: none;
-  }
-
   .#{$prefix}--label-visually-hidden {
     visibility: hidden;
     height: 0;
@@ -395,9 +391,5 @@
   .#{$prefix}--select-input__wrapper {
     height: $carbon--spacing-09;
     margin-top: -#{$carbon--spacing-05};
-  }
-
-  @include carbon--breakpoint('lg') {
-    display: none;
   }
 }
