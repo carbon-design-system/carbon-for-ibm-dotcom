@@ -7,31 +7,3 @@
 
 @use '@carbon/styles/scss/config' as *;
 @use '@carbon/ibmdotcom-styles/scss/components/image';
-@use '@carbon/ibmdotcom-styles/scss/components/image-with-caption';
-@use '@carbon/ibmdotcom-styles/scss/globals/utils/ratio-base' as *;
-@use '@carbon/ibmdotcom-styles/scss/globals/vars' as *;
-
-:host(#{$dds-prefix}-card-cta-image),
-:host(#{$dds-prefix}-image) {
-  @extend .#{$prefix}--image;
-
-  display: block;
-
-  ::slotted(svg[slot='icon']) {
-    @extend .#{$prefix}--image__icon;
-  }
-}
-
-:host(#{$dds-prefix}-image-item) {
-  display: none;
-}
-
-:host(#{$dds-prefix}-card-cta-image) {
-  @include ratio-base(4, 3, true);
-
-  .#{$prefix}--image__img {
-    position: absolute;
-    height: 100%;
-    top: 0;
-  }
-}
