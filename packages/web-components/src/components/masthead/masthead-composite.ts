@@ -172,7 +172,7 @@ class DDSMastheadComposite extends HostListenerMixin(LitElement) {
     menu: L0Megamenu,
     _parentKey,
     layout: MEGAMENU_LAYOUT_SCHEME = MEGAMENU_LAYOUT_SCHEME.LIST
-  ) {
+  ): TemplateResult {
     const { _megamenuRenderMap } = this;
     if (_megamenuRenderMap.has(layout)) {
       return (_megamenuRenderMap.get(layout) as Function)(menu, _parentKey);
@@ -953,17 +953,16 @@ class DDSMastheadComposite extends HostListenerMixin(LitElement) {
           ? MEGAMENU_LAYOUT_SCHEME.TAB
           : MEGAMENU_LAYOUT_SCHEME.LIST;
 
-      const activeMegamenu = _activeMegamenuIndex === i
-        ? this._renderMegaMenu(submenu, i, layout)
-        : null;
-
+      // Render nav menu, but only render megamenu if it is active.
       return html`
         <dds-megamenu-top-nav-menu
           ?active="${selected}"
           menu-label="${title}"
           trigger-content="${title}"
           data-autoid="${autoid}-nav--nav${i}">
-          ${activeMegamenu}
+          ${_activeMegamenuIndex === i
+            ? this._renderMegaMenu(submenu, i, layout)
+            : null}
         </dds-megamenu-top-nav-menu>
       `;
     }
@@ -979,7 +978,7 @@ class DDSMastheadComposite extends HostListenerMixin(LitElement) {
   }
 
   /**
-   * Handles the rendering of the megamenu once it is active
+   * Sets the active megamenu upon user interaction.
    *
    * @param event The event.
    */
@@ -993,23 +992,34 @@ class DDSMastheadComposite extends HostListenerMixin(LitElement) {
     const { autoid } = (target as HTMLElement).dataset;
     const targetMegamenuIndex = Number(autoid?.slice(-1));
 
+    // Open a megamenu by updating state to trigger a re-render. This also closes
+    // any previously opened megamenu.
     if (active) {
       this._activeMegamenuIndex = targetMegamenuIndex;
-    } else if (targetMegamenuIndex === this._activeMegamenuIndex) {
+    }
+
+    // If clicking the same nav item to close megamenu, reset state to prune its
+    // markup from the DOM.
+    if (!active && targetMegamenuIndex === this._activeMegamenuIndex) {
       this._activeMegamenuIndex = undefined;
     }
 
-    if (!active) {
-      // Reset active tab when closing a megamenu.
+    // Reset active tab when closing any megamenu.
+    if (!active && this._activeMegamenuTabKey) {
       this._activeMegamenuTabKey = undefined;
     }
 
     resolveFn()
   };
 
+  /**
+   * Sets the active megamenu tabpanel upon user interaction.
+   *
+   * @param event The event.
+   */
   @HostListener('eventMegamenuTabBeingSelected')
-  protected _loadMegamenuTabPanel(e) {
-    const { detail } = e;
+  protected _loadMegamenuTabPanel(event) {
+    const { detail } = event;
     const panelId = detail.item.id.split('tab-')[1];
     this._activeMegamenuTabKey = panelId;
   }
