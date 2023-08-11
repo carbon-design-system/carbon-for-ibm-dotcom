@@ -60,9 +60,12 @@ class DDSMegaMenuRightNavigation extends StableSelectorMixin(LitElement) {
     const children = (event.target as HTMLSlotElement).assignedElements();
     this.childCount = children.length;
 
+
     // Supports alternative layout for single items.
     if (children.length === 1 && onlyChildClassName) {
       children[0].classList.add(onlyChildClassName);
+    } else if (children[0].classList.contains(onlyChildClassName)) {
+      children[0].classList.remove(onlyChildClassName);
     }
   }
 

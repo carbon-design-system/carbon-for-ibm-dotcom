@@ -991,11 +991,11 @@ class DDSMastheadComposite extends HostListenerMixin(LitElement) {
       detail: { active, resolveFn },
     } = event;
     const { autoid } = (target as HTMLElement).dataset;
-    const index = Number(autoid?.slice(-1));
+    const targetMegamenuIndex = Number(autoid?.slice(-1));
 
     if (active) {
-      this._activeMegamenuIndex = index;
-    } else if (index === this._activeMegamenuIndex) {
+      this._activeMegamenuIndex = targetMegamenuIndex;
+    } else if (targetMegamenuIndex === this._activeMegamenuIndex) {
       this._activeMegamenuIndex = undefined;
     }
 
