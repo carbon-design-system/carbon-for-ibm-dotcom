@@ -10,6 +10,7 @@
 import {
   html,
   property,
+  state,
   customElement,
   LitElement,
   TemplateResult,
@@ -197,11 +198,15 @@ class DDSMastheadComposite extends HostListenerMixin(LitElement) {
       });
     });
 
+    const activeMenuItem = this._activeMegamenuTabKey
+      ? sortedMenuItems.find(item => item.itemKey === this._activeMegamenuTabKey)
+      : sortedMenuItems[0];
+
     return html`
       <dds-megamenu layout="${MEGAMENU_LAYOUT_SCHEME.TAB}">
         <dds-megamenu-left-navigation>
           <dds-megamenu-tabs
-            value="${ifNonNull(sortedMenuItems[0]?.heading?.title)}">
+            value="${ifNonNull(activeMenuItem?.heading?.title)}">
             ${sortedMenuItems.map((item) => {
               return item?.heading?.title
                 ? html`
@@ -226,51 +231,53 @@ class DDSMastheadComposite extends HostListenerMixin(LitElement) {
               `
             : null}
         </dds-megamenu-left-navigation>
-        ${sortedMenuItems.map((item) => {
-          const { itemKey, groups, heading, viewAll: itemViewAll } = item;
-          return html`
-            <div
-              id="panel-${itemKey}"
-              role="tabpanel"
-              aria-labelledby="tab-${itemKey}"
-              hidden>
-              <dds-megamenu-right-navigation
-                class="${ddsPrefix}--masthead__tabpanel-child"
-                style-scheme="${MEGAMENU_RIGHT_NAVIGATION_STYLE_SCHEME.HAS_SIDEBAR}">
-                ${heading?.title
-                  ? html`
-                      <dds-megamenu-heading
-                        href="${ifNonNull(heading?.url)}"
-                        title="${heading?.title}"
-                        slot="heading">
-                        ${heading?.description}
-                      </dds-megamenu-heading>
-                    `
-                  : ''}
-                ${groups
-                  ? groups.map((group, i) =>
-                      this._renderMegapanelLinkGroup(group, {
-                        autoid: `panel-${itemKey}-${i}`,
-                      })
-                    )
-                  : ''}
-                ${itemViewAll?.url && itemViewAll?.title
-                  ? html`
-                      <dds-megamenu-link-with-icon
-                        href="${itemViewAll.url}"
-                        part="view-all view-all-right"
-                        slot="view-all">
-                        <span>${itemViewAll.title}</span>${ArrowRight16({
-                          slot: 'icon',
-                        })}
-                      </dds-megamenu-link-with-icon>
-                    `
-                  : null}
-              </dds-megamenu-right-navigation>
-            </div>
-          `;
-        })}
+        ${this._renderMegamenuTabPanel(activeMenuItem)}
       </dds-megamenu>
+    `;
+  }
+
+  protected _renderMegamenuTabPanel(menuItem) {
+    const { itemKey, groups, heading, viewAll: itemViewAll } = menuItem;
+    return html`
+      <div
+        id="panel-${itemKey}"
+        role="tabpanel"
+        aria-labelledby="tab-${itemKey}"
+      >
+        <dds-megamenu-right-navigation
+          class="${ddsPrefix}--masthead__tabpanel-child"
+          style-scheme="${MEGAMENU_RIGHT_NAVIGATION_STYLE_SCHEME.HAS_SIDEBAR}">
+          ${heading?.title
+          ? html`
+              <dds-megamenu-heading
+                href="${ifNonNull(heading?.url)}"
+                title="${heading?.title}"
+                slot="heading">
+                ${heading?.description}
+              </dds-megamenu-heading>
+            `
+          : ''}
+          ${groups
+          ? groups.map((group, i) =>
+            this._renderMegapanelLinkGroup(group, {
+              autoid: `panel-${itemKey}-${i}`,
+            })
+          )
+          : ''}
+          ${itemViewAll?.url && itemViewAll?.title
+          ? html`
+              <dds-megamenu-link-with-icon
+                href="${itemViewAll.url}"
+                part="view-all view-all-right"
+                slot="view-all">
+                <span>${itemViewAll.title}</span>${ArrowRight16({
+                  slot: 'icon',
+                })}
+              </dds-megamenu-link-with-icon>
+            `
+          : null}
+        </dds-megamenu-right-navigation>
+      </div>
     `;
   }
 
@@ -905,7 +912,7 @@ class DDSMastheadComposite extends HostListenerMixin(LitElement) {
    * @returns A template fragment representing a nav item.
    */
   protected _renderNavItem(item: L0MenuItem, i, autoid): TemplateResult {
-    const { selectedMenuItem, currentUrlPath } = this;
+    const { selectedMenuItem, currentUrlPath, _activeMegamenuIndex } = this;
     const { submenu, title, titleEnglish, url } = item;
     let selected;
 
@@ -945,13 +952,18 @@ class DDSMastheadComposite extends HostListenerMixin(LitElement) {
         submenu.sections.length > 1
           ? MEGAMENU_LAYOUT_SCHEME.TAB
           : MEGAMENU_LAYOUT_SCHEME.LIST;
-      this.megamenuSet[i] = this._renderMegaMenu(submenu, i, layout);
+
+      const activeMegamenu = _activeMegamenuIndex === i
+        ? this._renderMegaMenu(submenu, i, layout)
+        : null;
+
       return html`
         <dds-megamenu-top-nav-menu
           ?active="${selected}"
           menu-label="${title}"
           trigger-content="${title}"
           data-autoid="${autoid}-nav--nav${i}">
+          ${activeMegamenu}
         </dds-megamenu-top-nav-menu>
       `;
     }
@@ -979,11 +991,28 @@ class DDSMastheadComposite extends HostListenerMixin(LitElement) {
       detail: { active, resolveFn },
     } = event;
     const { autoid } = (target as HTMLElement).dataset;
-    const index = autoid?.slice(-1);
-    const currentMenu = this.megamenuSet[index!];
-    render(active ? currentMenu : nothing, target as HTMLElement);
-    resolveFn();
+    const index = Number(autoid?.slice(-1));
+
+    if (active) {
+      this._activeMegamenuIndex = index;
+    } else if (index === this._activeMegamenuIndex) {
+      this._activeMegamenuIndex = undefined;
+    }
+
+    if (!active) {
+      // Reset active tab when closing a megamenu.
+      this._activeMegamenuTabKey = undefined;
+    }
+
+    resolveFn()
   };
+
+  @HostListener('eventMegamenuTabBeingSelected')
+  protected _loadMegamenuTabPanel(e) {
+    const { detail } = e;
+    const panelId = detail.item.id.split('tab-')[1];
+    this._activeMegamenuTabKey = panelId;
+  }
 
   /**
    * Stores a reference of the globally-scoped CM_APP object within the masthead.
@@ -1042,6 +1071,18 @@ class DDSMastheadComposite extends HostListenerMixin(LitElement) {
     [MEGAMENU_LAYOUT_SCHEME.LIST, this._renderMegaMenuListing.bind(this)],
     [MEGAMENU_LAYOUT_SCHEME.TAB, this._renderMegaMenuTabbed.bind(this)],
   ]);
+
+  /**
+   * The index of a megamenu that should be visible.
+   */
+  @state()
+  _activeMegamenuIndex?: number;
+
+  /**
+   * The index of a megamenu's tabpanel that should be visible.
+   */
+  @state()
+  _activeMegamenuTabKey?: string;
 
   /**
    * `true` if there is a profile.
@@ -1123,12 +1164,6 @@ class DDSMastheadComposite extends HostListenerMixin(LitElement) {
    */
   @property({ attribute: 'masthead-assistive-text' })
   mastheadAssistiveText!: string;
-
-  /**
-   * The array containing all the megamenus to be loaded in.
-   */
-  @property()
-  megamenuSet: TemplateResult[] = [];
 
   /**
    * The `aria-label` attribute for the menu bar UI.
@@ -1497,6 +1532,10 @@ class DDSMastheadComposite extends HostListenerMixin(LitElement) {
    */
   static get eventMegamenuActive() {
     return `${ddsPrefix}-megamenu-top-nav-menu-toggle`;
+  }
+
+  static get eventMegamenuTabBeingSelected() {
+    return `${ddsPrefix}-megamenu-tabs-beingselected`;
   }
 
   static styles = styles; // `styles` here is a `CSSResult` generated by custom WebPack loader

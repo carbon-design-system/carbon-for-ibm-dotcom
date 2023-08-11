@@ -35,6 +35,14 @@ class DDSMegaMenuTabs extends BXTabs {
     return `${ddsPrefix}-megamenu-tab[selected]`;
   }
 
+  /**
+   * The name of the custom event fired before a tab is selected upon a user gesture.
+   * Cancellation of this event stops changing the user-initiated selection.
+   */
+  static get eventBeforeSelect() {
+    return `${ddsPrefix}-megamenu-tabs-beingselected`;
+  }
+
   static styles = styles;
 }
 
