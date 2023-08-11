@@ -103,6 +103,12 @@
       }
     }
   }
+  :host(#{$dds-prefix}-link-list-item-card-cta)[cta-type='video'] {
+    [slot='heading'],
+    .#{$prefix}--card__heading {
+      color: $link-01;
+    }
+  }
 
   .#{$prefix}--link-list__heading,
   :host(#{$dds-prefix}-link-list-heading) {
