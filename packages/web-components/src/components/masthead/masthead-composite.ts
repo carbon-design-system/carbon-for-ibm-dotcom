@@ -900,7 +900,9 @@ class DDSMastheadComposite extends HostListenerMixin(LitElement) {
       this._setLanguage?.(language);
     }
     this._loadTranslation?.(language, dataEndpoint).catch(() => {}); // The error is logged in the Redux store
-    this._loadUserStatus?.();
+    if (this.userStatus === UNAUTHENTICATED_STATUS) {
+      this._loadUserStatus?.();
+    }
 
     this.style.zIndex = '900';
   }
