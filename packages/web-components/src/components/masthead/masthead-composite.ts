@@ -15,7 +15,7 @@ import {
   LitElement,
   TemplateResult,
 } from 'lit-element';
-import { nothing, render } from 'lit-html';
+import { nothing } from 'lit-html';
 import { ifDefined } from 'lit-html/directives/if-defined';
 import ArrowRight16 from '../../internal/vendor/@carbon/web-components/icons/arrow--right/16.js';
 import ifNonNull from '../../internal/vendor/@carbon/web-components/globals/directives/if-non-null.js';
@@ -1544,6 +1544,9 @@ class DDSMastheadComposite extends HostListenerMixin(LitElement) {
     return `${ddsPrefix}-megamenu-top-nav-menu-toggle`;
   }
 
+  /**
+   * The name of the custom event fired when a megamenu tab is selected.
+   */
   static get eventMegamenuTabBeingSelected() {
     return `${ddsPrefix}-megamenu-tabs-beingselected`;
   }
