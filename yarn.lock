@@ -2911,10 +2911,10 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@carbon/colors@npm:^11.18.1":
-  version: 11.18.1
-  resolution: "@carbon/colors@npm:11.18.1"
-  checksum: e27de1b09e50e02380c09d44915e6ba3522fba6215d1c9cd5ef4e6c72be2bd411f4514b6ef43fb999aa585da8dad3fede6da91e4bb5ee42aa74891c37d5a8172
+"@carbon/colors@npm:^11.19.0":
+  version: 11.19.0
+  resolution: "@carbon/colors@npm:11.19.0"
+  checksum: ea0448e90e05768c615af71955e5fe4435583e3637d039912336ba8b123fbbd841078df98cb71e56ebb0a0be04c88fed3fe34408585bdf3a11cb6297b9ce14b5
   languageName: node
   linkType: hard
 
@@ -2962,10 +2962,10 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@carbon/feature-flags@npm:^0.15.0":
-  version: 0.15.0
-  resolution: "@carbon/feature-flags@npm:0.15.0"
-  checksum: 211827fec11ec29140ef783a025cc3b466c4f94bab7ca9a0f5eb0a84332919ca58f7a885813d4cdf441c9be0e998bc493a819c3c7124da1f24771ce65ab2c42c
+"@carbon/feature-flags@npm:^0.16.0":
+  version: 0.16.0
+  resolution: "@carbon/feature-flags@npm:0.16.0"
+  checksum: 1fb964311f240c65fd57ee5971234b0c7b665d660b89ac931d0acc3d140ae0bed1b04eb8fc629f675a307be9579d9c4de317987749878b5a48bb364cbffd85d1
   languageName: node
   linkType: hard
 
@@ -2986,12 +2986,12 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@carbon/grid@npm:^11.17.1":
-  version: 11.17.1
-  resolution: "@carbon/grid@npm:11.17.1"
+"@carbon/grid@npm:^11.18.0":
+  version: 11.18.0
+  resolution: "@carbon/grid@npm:11.18.0"
   dependencies:
-    "@carbon/layout": ^11.17.1
-  checksum: d4c898f972ac4d5383bd3322e5bde1682590cdcc500b7d5cddceb8e8af10f48189e2cc37a5aec664034f933e6ca8114259b1ace917bf0574c7935468a960191c
+    "@carbon/layout": ^11.18.0
+  checksum: 32aefc03be55a4d5f31f535e9c9a62db355eda83dff7b76552f25d23f531571a723de08fca5d1624cd4b35e735a62f4c81339c50df2fdd980ea1604345c7dcc3
   languageName: node
   linkType: hard
 
@@ -3462,10 +3462,10 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@carbon/icon-helpers@npm:^10.43.1":
-  version: 10.43.1
-  resolution: "@carbon/icon-helpers@npm:10.43.1"
-  checksum: b77039f58dfb28ee42c832387a59f787fd14c2ebac98a36c6fb5cdcff84fb19c35a5854f0066e1ddead55440cad783e1e52923d2706a482ec1a7067dcf23330b
+"@carbon/icon-helpers@npm:^10.44.0":
+  version: 10.44.0
+  resolution: "@carbon/icon-helpers@npm:10.44.0"
+  checksum: c61b711ef78ba5546514917571ccec01c0943a2dc53d34a90987985bd839de7c164ce7bf9890d21012e585c1a655f6a5a9ac88492af4345653f095f9ddebe54a
   languageName: node
   linkType: hard
 
@@ -3489,10 +3489,10 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@carbon/icons@npm:^11.23.1":
-  version: 11.23.1
-  resolution: "@carbon/icons@npm:11.23.1"
-  checksum: 795ec41349df8d53399a8c8e92e0ec385fe8bb9e26f12749a980eca2590b306da478ecce32a8370c53d5296c28412d40c9e87c73764167a585d9f5c84bdd823c
+"@carbon/icons@npm:^11.24.0":
+  version: 11.24.0
+  resolution: "@carbon/icons@npm:11.24.0"
+  checksum: 8063c15eb24ffb87bc402badc66ee60ef97077337577787886267ece63efeb1c45ea1922fdcab3db6f3f44acda50b9105ee77e2a6f3c7929b1873dd14e15fa0f
   languageName: node
   linkType: hard
 
@@ -3510,10 +3510,10 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@carbon/layout@npm:^11.17.1":
-  version: 11.17.1
-  resolution: "@carbon/layout@npm:11.17.1"
-  checksum: ebf5d3173ac2f05e8b3a1771ab0341da429096326452f38470a4a0f783d5f70e1f7914854fe4f31f1bcdd9c6bf23e2e8141d9fc0cce89dee643e2fe83289f5da
+"@carbon/layout@npm:^11.18.0":
+  version: 11.18.0
+  resolution: "@carbon/layout@npm:11.18.0"
+  checksum: 8673ba64a8464fd99551ba53e43f719d33e79fcdb8e2bb2fe95069edf9b597c52ef56cbeb5e10849b8b93081bcaaa08023cb41f21c0583b62321299389558eb6
   languageName: node
   linkType: hard
 
@@ -3524,17 +3524,10 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@carbon/motion@npm:^11.0.0":
+"@carbon/motion@npm:^11.0.0, @carbon/motion@npm:^11.15.0":
   version: 11.15.0
   resolution: "@carbon/motion@npm:11.15.0"
   checksum: 985a559324fb4cb6b1df50ead3d9c1ceefec338f075f5cca4a9d937888cb6b357207a20493807eed47627e41529de215e4b51e0e217eee12970c1b8da2ce1b90
-  languageName: node
-  linkType: hard
-
-"@carbon/motion@npm:^11.14.1":
-  version: 11.14.1
-  resolution: "@carbon/motion@npm:11.14.1"
-  checksum: 640650f85c04ebb343fc6cd87758fd4c368cecac7f140180c91d776a91ff881b93ff5b86d2066c5a8bb678fa7b6fb2648c6910a5d2ab001a53b9b597089e16f8
   languageName: node
   linkType: hard
 
@@ -3578,24 +3571,24 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@carbon/styles@npm:^1.34.1":
-  version: 1.34.1
-  resolution: "@carbon/styles@npm:1.34.1"
+"@carbon/styles@npm:^1.35.0":
+  version: 1.35.0
+  resolution: "@carbon/styles@npm:1.35.0"
   dependencies:
-    "@carbon/colors": ^11.18.1
-    "@carbon/feature-flags": ^0.15.0
-    "@carbon/grid": ^11.17.1
-    "@carbon/layout": ^11.17.1
-    "@carbon/motion": ^11.14.1
-    "@carbon/themes": ^11.22.1
-    "@carbon/type": ^11.21.1
+    "@carbon/colors": ^11.19.0
+    "@carbon/feature-flags": ^0.16.0
+    "@carbon/grid": ^11.18.0
+    "@carbon/layout": ^11.18.0
+    "@carbon/motion": ^11.15.0
+    "@carbon/themes": ^11.23.0
+    "@carbon/type": ^11.22.0
     "@ibm/plex": 6.0.0-next.6
   peerDependencies:
     sass: ^1.33.0
   peerDependenciesMeta:
     sass:
       optional: true
-  checksum: a33281dc7c6cbbe63373b2f853a8d8734ded4af667bc899a0b9e54dfd5ed7ec377c5723057608bcdc837566eeee239174271510427a92b67207ee29507cbfadf
+  checksum: 297e7f8c5008aea956e7b646f9b2258df7adf8b6ec8b2342653b3d9353f5346357741567b9ada521b14c05d058a0eda69daf0f12fcf798c576445bc0e6669a95
   languageName: node
   linkType: hard
 
@@ -3620,15 +3613,15 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@carbon/themes@npm:^11.22.1":
-  version: 11.22.1
-  resolution: "@carbon/themes@npm:11.22.1"
+"@carbon/themes@npm:^11.23.0":
+  version: 11.23.0
+  resolution: "@carbon/themes@npm:11.23.0"
   dependencies:
-    "@carbon/colors": ^11.18.1
-    "@carbon/layout": ^11.17.1
-    "@carbon/type": ^11.21.1
+    "@carbon/colors": ^11.19.0
+    "@carbon/layout": ^11.18.0
+    "@carbon/type": ^11.22.0
     color: ^4.0.0
-  checksum: 373971bfcfb4acfb5e18656791912bcf4a10a96b88cba589711fcb69e2db8a1d1848ac78aff488b392ba0ecd79bed9a5a2e92562234263f080e9442ff7a83fb2
+  checksum: d62b59e2f2bdd00d47d33578fd16cd402d19dda7ac5f148b74ae82339451612cc00ed9e3fc85566218545b045703a214dfb8bb635dbe2cd763ef0ed54a70c744
   languageName: node
   linkType: hard
 
@@ -3642,13 +3635,13 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@carbon/type@npm:^11.21.1":
-  version: 11.21.1
-  resolution: "@carbon/type@npm:11.21.1"
+"@carbon/type@npm:^11.22.0":
+  version: 11.22.0
+  resolution: "@carbon/type@npm:11.22.0"
   dependencies:
-    "@carbon/grid": ^11.17.1
-    "@carbon/layout": ^11.17.1
-  checksum: 190ab4f37cdc1cae5a3c37766a38af0ec29ca81285e206a6570b9ae7d531ff61f43c52e3dad298cf94af11ab6368ce75bb97f3e2c9643099b77e8295fee89894
+    "@carbon/grid": ^11.18.0
+    "@carbon/layout": ^11.18.0
+  checksum: 65f46f68e3ee74e9c184e8c698a557c68701c937edaa0a28c0ee47738a84e864f485b996dfb73543d400a78f467c8276e8a480bddaac3b57530acc3b137077a3
   languageName: node
   linkType: hard
 
@@ -3686,9 +3679,9 @@ __metadata:
     "@babel/runtime": ^7.16.3
     "@babel/template": ~7.12.0
     "@babel/traverse": ~7.12.0
-    "@carbon/icon-helpers": ^10.43.1
-    "@carbon/icons": ^11.23.1
-    "@carbon/styles": ^1.34.1
+    "@carbon/icon-helpers": ^10.44.0
+    "@carbon/icons": ^11.24.0
+    "@carbon/styles": ^1.35.0
     "@open-wc/semantic-dom-diff": ~0.18.0
     "@percy-io/in-percy": ^0.1.11
     "@percy/cli": ^1.8.1
