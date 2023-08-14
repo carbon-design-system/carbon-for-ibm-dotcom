@@ -27,7 +27,7 @@
     grid-auto-rows: 1fr;
     grid-gap: $spacing-05;
 
-    @include carbon--breakpoint(md) {
+    @include breakpoint(md) {
       display: inline-grid;
       grid-template-columns: repeat(
         var(--#{$dds-prefix}--button-group--item-count),
