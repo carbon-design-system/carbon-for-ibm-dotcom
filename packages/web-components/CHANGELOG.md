@@ -3,6 +3,28 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.35.0-rc.0](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/compare/@carbon/ibmdotcom-web-components@1.34.0...@carbon/ibmdotcom-web-components@1.35.0-rc.0) (2023-08-14)
+
+
+### Bug Fixes
+
+* **background-media:** deprecate mobile-position attribute and utilize slots ([#10777](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/issues/10777)) ([bed6088](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/commit/bed6088fb0aa8937956878574efec601f8405763)), closes [#10736](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/issues/10736)
+* **components:** add styles to remove fouc ([#10678](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/issues/10678)) ([8ef9a10](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/commit/8ef9a10d734fa849cee403be17a95b94e321a14b)), closes [#10607](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/issues/10607)
+* **deps:** update dependency carbon-components to v10.58.8 ([#10690](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/issues/10690)) ([c22052d](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/commit/c22052dbd218d2e6d968515982bd2369e0d4733b))
+* **fouc:** add to documentation ([#10729](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/issues/10729)) ([95028b1](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/commit/95028b1a7905a5be47a5b1f55408d78430147fe2)), closes [#10607](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/issues/10607)
+* **masthead:** firstupdated user-status is authenticated ([#10700](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/issues/10700)) ([5773c69](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/commit/5773c69dff2d4aac127a36498cade51e7b0955ea)), closes [#10682](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/issues/10682)
+* **storybook:** wc update with node-options ([#10663](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/issues/10663)) ([b599039](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/commit/b599039a86ba1f3ee44f95dfa54ed7115ec6118e))
+* **tabs-extended:** ensure accordion doesn't load on desktop, and tabs don't load on mobile ([#10650](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/issues/10650)) ([5e6e4a3](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/commit/5e6e4a38c5cc1f5ec9c89927be7bf10169896d30))
+
+
+### Features
+
+* **footer:** optimize node counts ([#10731](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/issues/10731)) ([afc2302](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/commit/afc2302f01823928b16f5c1256c8812bfc964ca6))
+
+
+
+
+
 # [1.34.0](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/compare/@carbon/ibmdotcom-web-components@1.34.0-rc.0...@carbon/ibmdotcom-web-components@1.34.0) (2023-07-26)
 
 **Note:** Version bump only for package @carbon/ibmdotcom-web-components
