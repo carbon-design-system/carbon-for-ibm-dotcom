@@ -199,7 +199,9 @@ class DDSMastheadComposite extends HostListenerMixin(LitElement) {
     });
 
     const activeMenuItem = this._activeMegamenuTabKey
-      ? sortedMenuItems.find(item => item.itemKey === this._activeMegamenuTabKey)
+      ? sortedMenuItems.find(
+          (item) => item.itemKey === this._activeMegamenuTabKey
+        )
       : sortedMenuItems[0];
 
     return html`
@@ -242,40 +244,39 @@ class DDSMastheadComposite extends HostListenerMixin(LitElement) {
       <div
         id="panel-${itemKey}"
         role="tabpanel"
-        aria-labelledby="tab-${itemKey}"
-      >
+        aria-labelledby="tab-${itemKey}">
         <dds-megamenu-right-navigation
           class="${ddsPrefix}--masthead__tabpanel-child"
           style-scheme="${MEGAMENU_RIGHT_NAVIGATION_STYLE_SCHEME.HAS_SIDEBAR}">
           ${heading?.title
-          ? html`
-              <dds-megamenu-heading
-                href="${ifNonNull(heading?.url)}"
-                title="${heading?.title}"
-                slot="heading">
-                ${heading?.description}
-              </dds-megamenu-heading>
-            `
-          : ''}
+            ? html`
+                <dds-megamenu-heading
+                  href="${ifNonNull(heading?.url)}"
+                  title="${heading?.title}"
+                  slot="heading">
+                  ${heading?.description}
+                </dds-megamenu-heading>
+              `
+            : ''}
           ${groups
-          ? groups.map((group, i) =>
-            this._renderMegapanelLinkGroup(group, {
-              autoid: `panel-${itemKey}-${i}`,
-            })
-          )
-          : ''}
+            ? groups.map((group, i) =>
+                this._renderMegapanelLinkGroup(group, {
+                  autoid: `panel-${itemKey}-${i}`,
+                })
+              )
+            : ''}
           ${itemViewAll?.url && itemViewAll?.title
-          ? html`
-              <dds-megamenu-link-with-icon
-                href="${itemViewAll.url}"
-                part="view-all view-all-right"
-                slot="view-all">
-                <span>${itemViewAll.title}</span>${ArrowRight16({
-                  slot: 'icon',
-                })}
-              </dds-megamenu-link-with-icon>
-            `
-          : null}
+            ? html`
+                <dds-megamenu-link-with-icon
+                  href="${itemViewAll.url}"
+                  part="view-all view-all-right"
+                  slot="view-all">
+                  <span>${itemViewAll.title}</span>${ArrowRight16({
+                    slot: 'icon',
+                  })}
+                </dds-megamenu-link-with-icon>
+              `
+            : null}
         </dds-megamenu-right-navigation>
       </div>
     `;
@@ -1009,7 +1010,7 @@ class DDSMastheadComposite extends HostListenerMixin(LitElement) {
       this._activeMegamenuTabKey = undefined;
     }
 
-    resolveFn()
+    resolveFn();
   };
 
   /**
