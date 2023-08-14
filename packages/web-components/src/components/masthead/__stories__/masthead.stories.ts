@@ -8,10 +8,9 @@
  */
 
 import { html } from 'lit-element';
-import { boolean, select } from '@storybook/addon-knobs';
+import { select, boolean } from '@storybook/addon-knobs';
 import on from 'carbon-components/es/globals/js/misc/on.js';
 import ifNonNull from '../../../internal/vendor/@carbon/web-components/globals/directives/if-non-null.js';
-import inPercy from '@percy-io/in-percy';
 import textNullable from '../../../../.storybook/knob-text-nullable';
 import DDSLeftNav from '../left-nav';
 import '../masthead-container';
@@ -31,18 +30,6 @@ import readme from './README.stories.mdx';
 const userStatuses = {
   authenticated: 'test.user@ibm.com',
   unauthenticated: UNAUTHENTICATED_STATUS,
-};
-
-const urlObject = {
-  'en-US': {
-    url: 'https://www.example.com/us-en',
-  },
-  'fr-FR': {
-    url: 'https://www.example.com/fr-fr/sample',
-  },
-  'es-MX': {
-    url: 'https://www.example.com/ibm/es-mx/sample',
-  },
 };
 
 const scopeParameters = [
@@ -74,8 +61,6 @@ const scopeParameters = [
   },
 ];
 
-const defaultPlatformUrl = 'https://www.example.com';
-
 const dataEndpoints = {
   cloud: '/common/carbon-for-ibm-dotcom/translations/cloud-masthead',
   v2: '/common/carbon-for-ibm-dotcom/translations/masthead-footer/v2',
@@ -102,9 +87,9 @@ async function customTypeaheadApiFunction(searchVal) {
 export const Default = (args) => {
   const {
     customProfileLogin,
-    platform,
     hasProfile,
     hasSearch,
+    hasContact,
     selectedMenuItem,
     searchPlaceholder,
     userStatus,
@@ -118,14 +103,13 @@ export const Default = (args) => {
     ${useMock
       ? html`
           <dds-masthead-composite
-            platform="${ifNonNull(platform)}"
-            .platformUrl="${ifNonNull(defaultPlatformUrl)}"
             selected-menu-item="${ifNonNull(selectedMenuItem)}"
             user-status="${ifNonNull(userStatus)}"
             searchPlaceholder="${ifNonNull(searchPlaceholder)}"
             .authenticatedProfileItems="${ifNonNull(authenticatedProfileItems)}"
             has-profile="${hasProfile}"
             has-search="${hasSearch}"
+            has-contact="${hasContact}"
             .navLinks="${links}"
             .unauthenticatedProfileItems="${ifNonNull(
               unauthenticatedProfileItems
@@ -136,13 +120,12 @@ export const Default = (args) => {
       : html`
           <dds-masthead-container
             data-endpoint="${dataEndpoints['v2.1']}"
-            platform="${ifNonNull(platform)}"
-            .platformUrl="${ifNonNull(defaultPlatformUrl)}"
             selected-menu-item="${ifNonNull(selectedMenuItem)}"
             user-status="${ifNonNull(userStatus)}"
             searchPlaceholder="${ifNonNull(searchPlaceholder)}"
             has-profile="${hasProfile}"
             has-search="${hasSearch}"
+            has-contact="${hasContact}"
             custom-profile-login="${customProfileLogin}"
             auth-method="${authMethod}"></dds-masthead-container>
         `}
@@ -155,7 +138,6 @@ export const withCloudData = (args) => {
     hasSearch,
     selectedMenuItem,
     searchPlaceholder,
-    platform,
     useMock,
   } = args?.MastheadComposite ?? {};
 
@@ -166,7 +148,7 @@ export const withCloudData = (args) => {
     ${useMock
       ? html`
           <dds-masthead-composite
-            platform="${platform || 'Cloud'}"
+            platform="Cloud"
             .platformUrl="https://www.ibm.com/cloud"
             selected-menu-item="${ifNonNull(selectedMenuItem)}"
             searchPlaceholder="${ifNonNull(searchPlaceholder)}"
@@ -182,7 +164,7 @@ export const withCloudData = (args) => {
       : html`
           <dds-masthead-container
             data-endpoint="${dataEndpoints['cloud']}"
-            platform="${platform || 'Cloud'}"
+            platform="Cloud"
             .platformUrl="https://www.ibm.com/cloud"
             selected-menu-item="${ifNonNull(selectedMenuItem)}"
             searchPlaceholder="${ifNonNull(searchPlaceholder)}"
@@ -194,16 +176,7 @@ export const withCloudData = (args) => {
 };
 
 export const WithCustomTypeahead = (args) => {
-  const {
-    customProfileLogin,
-    platform,
-    selectedMenuItem,
-    userStatus,
-    searchPlaceholder,
-    hasProfile,
-    hasSearch,
-    useMock,
-  } = args?.MastheadComposite ?? {};
+  const { useMock } = args?.MastheadComposite ?? {};
 
   document.documentElement.addEventListener(
     'dds-search-with-typeahead-input',
@@ -224,32 +197,12 @@ export const WithCustomTypeahead = (args) => {
     ${useMock
       ? html`
           <dds-masthead-composite
-            platform="${ifNonNull(platform)}"
-            .platformUrl="${ifNonNull(defaultPlatformUrl)}"
-            selected-menu-item="${ifNonNull(selectedMenuItem)}"
-            user-status="${ifNonNull(userStatus)}"
-            searchPlaceholder="${ifNonNull(searchPlaceholder)}"
-            .authenticatedProfileItems="${ifNonNull(authenticatedProfileItems)}"
-            has-profile="${hasProfile}"
-            has-search="${hasSearch}"
             .navLinks="${links}"
-            .unauthenticatedProfileItems="${ifNonNull(
-              unauthenticatedProfileItems
-            )}"
-            custom-profile-login="${customProfileLogin}"
             ?custom-typeahead-api=${true}></dds-masthead-composite>
         `
       : html`
           <dds-masthead-container
             data-endpoint="${dataEndpoints['v2.1']}"
-            platform="${ifNonNull(platform)}"
-            .platformUrl="${ifNonNull(defaultPlatformUrl)}"
-            selected-menu-item="${ifNonNull(selectedMenuItem)}"
-            user-status="${ifNonNull(userStatus)}"
-            searchPlaceholder="${ifNonNull(searchPlaceholder)}"
-            has-profile="${hasProfile}"
-            has-search="${hasSearch}"
-            custom-profile-login="${customProfileLogin}"
             ?custom-typeahead-api=${true}></dds-masthead-container>
         `}
   `;
@@ -257,19 +210,26 @@ export const WithCustomTypeahead = (args) => {
 
 WithCustomTypeahead.story = {
   name: 'With custom typeahead',
+  parameters: {
+    knobs: {
+      MastheadComposite: () => ({}),
+    },
+    propsSet: {
+      default: {
+        MastheadComposite: {
+          hasProfile: 'true',
+          hasSearch: 'true',
+          searchPlaceHolder: 'Search all of IBM',
+          selectedMenuItem: 'Services & Consulting',
+          userStatus: userStatuses.unauthenticated,
+        },
+      },
+    },
+  },
 };
 
 export const searchOpenOnload = (args) => {
-  const {
-    customProfileLogin,
-    platform,
-    selectedMenuItem,
-    userStatus,
-    searchPlaceholder,
-    hasProfile,
-    hasSearch,
-    useMock,
-  } = args?.MastheadComposite ?? {};
+  const { searchPlaceholder, useMock } = args?.MastheadComposite ?? {};
   return html`
     <style>
       ${styles}
@@ -277,51 +237,39 @@ export const searchOpenOnload = (args) => {
     ${useMock
       ? html`
           <dds-masthead-composite
-            activate-search
-            platform="${ifNonNull(platform)}"
-            .platformUrl="${ifNonNull(defaultPlatformUrl)}"
-            selected-menu-item="${ifNonNull(selectedMenuItem)}"
-            user-status="${ifNonNull(userStatus)}"
-            searchPlaceholder="${ifNonNull(searchPlaceholder)}"
-            .authenticatedProfileItems="${ifNonNull(authenticatedProfileItems)}"
             .navLinks="${links}"
-            has-profile="${hasProfile}"
-            has-search="${hasSearch}"
-            .unauthenticatedProfileItems="${ifNonNull(
-              unauthenticatedProfileItems
-            )}"
-            custom-profile-login="${customProfileLogin}"></dds-masthead-composite>
+            activate-search="true"
+            searchPlaceholder="${ifNonNull(
+              searchPlaceholder
+            )}"></dds-masthead-composite>
         `
       : html`
           <dds-masthead-container
             data-endpoint="${dataEndpoints['v2.1']}"
-            activate-search
-            platform="${ifNonNull(platform)}"
-            .platformUrl="${ifNonNull(defaultPlatformUrl)}"
-            selected-menu-item="${ifNonNull(selectedMenuItem)}"
-            user-status="${ifNonNull(userStatus)}"
-            searchPlaceholder="${ifNonNull(searchPlaceholder)}"
-            has-profile="${hasProfile}"
-            has-search="${hasSearch}"
-            custom-profile-login="${customProfileLogin}"></dds-masthead-container>
+            activate-search="true"
+            searchPlaceholder="${ifNonNull(
+              searchPlaceholder
+            )}"></dds-masthead-container>
         `}
   `;
 };
 
 searchOpenOnload.story = {
   name: 'Search open onload',
+  parameters: {
+    knobs: {
+      MastheadComposite: () => ({
+        searchPlaceholder: textNullable(
+          'search placeholder (searchPlaceholder)',
+          'Search all of IBM'
+        ),
+      }),
+    },
+  },
 };
 
 export const withPlatform = (args) => {
-  const {
-    selectedMenuItem,
-    userStatus,
-    hasProfile,
-    hasSearch,
-    searchPlaceholder,
-    platform,
-    useMock,
-  } = args?.MastheadComposite ?? {};
+  const { platform, platformUrl, useMock } = args?.WithPlatform ?? {};
   return html`
     <style>
       ${styles}
@@ -330,28 +278,14 @@ export const withPlatform = (args) => {
       ? html`
           <dds-masthead-composite
             platform="${ifNonNull(platform)}"
-            .platformUrl="${ifNonNull(urlObject)}"
-            selected-menu-item="${ifNonNull(selectedMenuItem)}"
-            user-status="${ifNonNull(userStatus)}"
-            searchPlaceholder="${ifNonNull(searchPlaceholder)}"
-            .authenticatedProfileItems="${ifNonNull(authenticatedProfileItems)}"
             .navLinks="${links}"
-            has-profile="${hasProfile}"
-            has-search="${hasSearch}"
-            .unauthenticatedProfileItems="${ifNonNull(
-              unauthenticatedProfileItems
-            )}"></dds-masthead-composite>
+            .platformUrl="${ifNonNull(platformUrl)}"></dds-masthead-composite>
         `
       : html`
           <dds-masthead-container
             data-endpoint="${dataEndpoints['v2.1']}"
             platform="${ifNonNull(platform)}"
-            .platformUrl="${ifNonNull(urlObject)}"
-            selected-menu-item="${ifNonNull(selectedMenuItem)}"
-            user-status="${ifNonNull(userStatus)}"
-            searchPlaceholder="${ifNonNull(searchPlaceholder)}"
-            has-profile="${hasProfile}"
-            has-search="${hasSearch}"></dds-masthead-container>
+            .platformUrl="${ifNonNull(platformUrl)}"></dds-masthead-container>
         `}
   `;
 };
@@ -360,26 +294,12 @@ withPlatform.story = {
   name: 'With platform',
   parameters: {
     knobs: {
-      MastheadComposite: () => ({
+      MastheadComposite: () => ({}),
+      WithPlatform: () => ({
         platform: textNullable('platform name (platform)', 'Platform'),
-        hasProfile: select(
-          'show the profile functionality (has-profile)',
-          ['true', 'false'],
-          'true'
-        ),
-        hasSearch: boolean('show the search functionality (has-search)', true),
-        searchPlaceholder: textNullable(
-          'search placeholder (searchPlaceholder)',
-          inPercy() ? '' : 'Search all of IBM'
-        ),
-        selectedMenuItem: textNullable(
-          'selected menu item (selected-menu-item)',
-          'Consulting'
-        ),
-        userStatus: select(
-          'The user authenticated status (user-status)',
-          userStatuses,
-          userStatuses.unauthenticated
+        platformUrl: textNullable(
+          'platform url (platformUrl)',
+          'https://www.ibm.com'
         ),
         useMock: boolean('use mock nav data (use-mock)', false),
       }),
@@ -389,7 +309,7 @@ withPlatform.story = {
         MastheadComposite: {
           platform: 'Platform',
           hasProfile: 'true',
-          hasSearch: true,
+          hasSearch: 'true',
           searchPlaceHolder: 'Search all of IBM',
           selectedMenuItem: 'Services & Consulting',
           userStatus: userStatuses.unauthenticated,
@@ -400,17 +320,8 @@ withPlatform.story = {
 };
 
 export const withL1 = (args) => {
-  const {
-    selectedMenuItem,
-    selectedMenuItemL1,
-    userStatus,
-    hasProfile,
-    hasSearch,
-    searchPlaceholder,
-    platform,
-    useMock,
-  } = args?.MastheadComposite ?? {};
-
+  const { selectedMenuItem, selectedMenuItemL1, useMock } =
+    args?.MastheadComposite ?? {};
   return html`
     <style>
       ${styles}
@@ -418,32 +329,21 @@ export const withL1 = (args) => {
     ${useMock
       ? html`
           <dds-masthead-composite
-            platform="${ifNonNull(platform)}"
-            .platformUrl="${ifNonNull(defaultPlatformUrl)}"
-            selected-menu-item="${ifNonNull(selectedMenuItem)}"
-            selected-menu-item-l1="${ifNonNull(selectedMenuItemL1)}"
-            searchPlaceholder="${ifNonNull(searchPlaceholder)}"
-            user-status="${ifNonNull(userStatus)}"
-            .authenticatedProfileItems="${ifNonNull(authenticatedProfileItems)}"
-            has-profile="${hasProfile}"
-            has-search="${hasSearch}"
-            .l1Data="${mastheadL1Data}"
             .navLinks="${links}"
-            .unauthenticatedProfileItems="${ifNonNull(
-              unauthenticatedProfileItems
+            .l1Data="${mastheadL1Data}"
+            selected-menu-item="${ifNonNull(selectedMenuItem)}"
+            selected-menu-item-l1="${ifNonNull(
+              selectedMenuItemL1
             )}"></dds-masthead-composite>
         `
       : html`
           <dds-masthead-container
             data-endpoint="${dataEndpoints['v2.1']}"
-            platform="${ifNonNull(platform)}"
-            .platformUrl="${ifNonNull(defaultPlatformUrl)}"
+            .l1Data="${mastheadL1Data}"
             selected-menu-item="${ifNonNull(selectedMenuItem)}"
-            selected-menu-item-l1="${ifNonNull(selectedMenuItemL1)}"
-            user-status="${ifNonNull(userStatus)}"
-            has-profile="${hasProfile}"
-            has-search="${hasSearch}"
-            .l1Data="${mastheadL1Data}"></dds-masthead-container>
+            selected-menu-item-l1="${ifNonNull(
+              selectedMenuItemL1
+            )}"></dds-masthead-container>
         `}
   `;
 };
@@ -453,17 +353,6 @@ withL1.story = {
   parameters: {
     knobs: {
       MastheadComposite: () => ({
-        platform: textNullable('platform name (platform)', ''),
-        hasProfile: select(
-          'show the profile functionality (has-profile)',
-          ['true', 'false'],
-          'true'
-        ),
-        hasSearch: boolean('show the search functionality (has-search)', true),
-        searchPlaceholder: textNullable(
-          'search placeholder (searchPlaceholder)',
-          inPercy() ? '' : 'Search all of IBM'
-        ),
         selectedMenuItem: textNullable(
           'selected menu item in L0 (selected-menu-item)',
           'Consulting'
@@ -472,11 +361,6 @@ withL1.story = {
           'selected menu item in L1 (selected-menu-item-l1)',
           ''
         ),
-        userStatus: select(
-          'The user authenticated status (user-status)',
-          userStatuses,
-          userStatuses.unauthenticated
-        ),
         useMock: boolean('use mock nav data (use-mock)', false),
       }),
     },
@@ -484,8 +368,7 @@ withL1.story = {
       default: {
         MastheadComposite: {
           hasProfile: 'true',
-          hasSearch: true,
-          platform: null,
+          hasSearch: 'true',
           searchPlaceholder: 'Search all of IBM',
           selectedMenuItem: 'Lorem ipsum dolor sit amet',
           userStatus: userStatuses.unauthenticated,
@@ -496,16 +379,7 @@ withL1.story = {
 };
 
 export const withAlternateLogoAndTooltip = (args) => {
-  const {
-    selectedMenuItem,
-    userStatus,
-    hasProfile,
-    hasSearch,
-    searchPlaceholder,
-    mastheadLogo,
-    platform,
-    useMock,
-  } = args?.MastheadComposite ?? {};
+  const { mastheadLogo, useMock } = args?.MastheadComposite ?? {};
   return html`
     <style>
       ${styles}
@@ -513,35 +387,17 @@ export const withAlternateLogoAndTooltip = (args) => {
     ${useMock
       ? html`
           <dds-masthead-composite
-            platform="${ifNonNull(platform)}"
-            .platformUrl="${ifNonNull(defaultPlatformUrl)}"
-            selected-menu-item="${ifNonNull(selectedMenuItem)}"
-            user-status="${ifNonNull(userStatus)}"
-            searchPlaceholder="${ifNonNull(searchPlaceholder)}"
-            .authenticatedProfileItems="${ifNonNull(authenticatedProfileItems)}"
-            has-profile="${hasProfile}"
-            has-search="${hasSearch}"
             .navLinks="${links}"
             .logoData="${mastheadLogo === 'alternateWithTooltip'
               ? logoData
-              : undefined}"
-            .unauthenticatedProfileItems="${ifNonNull(
-              unauthenticatedProfileItems
-            )}"></dds-masthead-composite>
+              : null}"></dds-masthead-composite>
         `
       : html`
           <dds-masthead-container
-            platform="${ifNonNull(platform)}"
-            .platformUrl="${ifNonNull(defaultPlatformUrl)}"
             data-endpoint="${dataEndpoints['v2.1']}"
-            selected-menu-item="${ifNonNull(selectedMenuItem)}"
-            user-status="${ifNonNull(userStatus)}"
-            searchPlaceholder="${ifNonNull(searchPlaceholder)}"
             .logoData="${mastheadLogo === 'alternateWithTooltip'
               ? logoData
-              : undefined}"
-            has-profile="${hasProfile}"
-            has-search="${hasSearch}"></dds-masthead-container>
+              : null}"></dds-masthead-container>
         `}
   `;
 };
@@ -551,21 +407,6 @@ withAlternateLogoAndTooltip.story = {
   parameters: {
     knobs: {
       MastheadComposite: () => ({
-        platform: textNullable('platform name (platform)', ''),
-        hasProfile: select(
-          'show the profile functionality (has-profile)',
-          ['true', 'false'],
-          'true'
-        ),
-        hasSearch: boolean('show the search functionality (has-search)', true),
-        searchPlaceholder: textNullable(
-          'search placeholder (searchPlaceholder)',
-          'Search all of IBM'
-        ),
-        selectedMenuItem: textNullable(
-          'selected menu item (selected-menu-item)',
-          'Consulting'
-        ),
         mastheadLogo: select(
           'masthead logo data (logoData)',
           {
@@ -574,11 +415,6 @@ withAlternateLogoAndTooltip.story = {
           },
           'alternateWithTooltip'
         ),
-        userStatus: select(
-          'The user authenticated status (user-status)',
-          userStatuses,
-          userStatuses.unauthenticated
-        ),
       }),
     },
     propsSet: {
@@ -586,7 +422,7 @@ withAlternateLogoAndTooltip.story = {
         MastheadComposite: {
           platform: null,
           hasProfile: 'true',
-          hasSearch: true,
+          hasSearch: 'true',
           searchPlaceholder: 'Search all of IBM',
           selectedMenuItem: 'Services & Consulting',
           userStatus: userStatuses.unauthenticated,
@@ -597,17 +433,7 @@ withAlternateLogoAndTooltip.story = {
 };
 
 export const WithScopedSearch = (args) => {
-  const {
-    customProfileLogin,
-    platform,
-    selectedMenuItem,
-    userStatus,
-    searchPlaceholder,
-    hasProfile,
-    hasSearch,
-    navLinks,
-    useMock,
-  } = args?.MastheadComposite ?? {};
+  const { useMock } = args?.MastheadComposite ?? {};
   return html`
     <style>
       ${styles}
@@ -615,32 +441,12 @@ export const WithScopedSearch = (args) => {
     ${useMock
       ? html`
           <dds-masthead-composite
-            platform="${ifNonNull(platform)}"
-            .platformUrl="${ifNonNull(defaultPlatformUrl)}"
-            selected-menu-item="${ifNonNull(selectedMenuItem)}"
-            user-status="${ifNonNull(userStatus)}"
-            searchPlaceholder="${ifNonNull(searchPlaceholder)}"
-            .authenticatedProfileItems="${ifNonNull(authenticatedProfileItems)}"
-            ?has-profile="${hasProfile}"
-            has-search="${hasSearch}"
-            .navLinks="${navLinks}"
-            .unauthenticatedProfileItems="${ifNonNull(
-              unauthenticatedProfileItems
-            )}"
-            custom-profile-login="${customProfileLogin}"
+            .navLinks="${links}"
             .scopeParameters=${scopeParameters}></dds-masthead-composite>
         `
       : html`
           <dds-masthead-container
             data-endpoint="${dataEndpoints['v2.1']}"
-            platform="${ifNonNull(platform)}"
-            .platformUrl="${ifNonNull(defaultPlatformUrl)}"
-            selected-menu-item="${ifNonNull(selectedMenuItem)}"
-            user-status="${ifNonNull(userStatus)}"
-            searchPlaceholder="${ifNonNull(searchPlaceholder)}"
-            ?has-profile="${hasProfile}"
-            has-search="${hasSearch}"
-            custom-profile-login="${customProfileLogin}"
             .scopeParameters=${scopeParameters}></dds-masthead-container>
         `}
   `;
@@ -648,6 +454,22 @@ export const WithScopedSearch = (args) => {
 
 WithScopedSearch.story = {
   name: 'With scoped search',
+  parameters: {
+    knobs: {
+      MastheadComposite: () => ({}),
+    },
+    propsSet: {
+      default: {
+        MastheadComposite: {
+          hasProfile: 'true',
+          hasSearch: 'true',
+          searchPlaceHolder: 'Search all of IBM',
+          selectedMenuItem: 'Services & Consulting',
+          userStatus: userStatuses.unauthenticated,
+        },
+      },
+    },
+  },
 };
 
 export default {
@@ -694,7 +516,11 @@ export default {
           ['true', 'false'],
           'true'
         ),
-        hasSearch: boolean('show the search functionality (has-search)', true),
+        hasSearch: select(
+          'show the search functionality (has-search)',
+          ['true', 'false'],
+          'true'
+        ),
         hasContact: select(
           'Contact us button visibility (has-contact)',
           ['true', 'false'],
@@ -727,7 +553,7 @@ export default {
         MastheadComposite: {
           platform: null,
           hasProfile: 'true',
-          hasSearch: true,
+          hasSearch: 'true',
           searchPlaceholder: 'Search all of IBM',
           selectedMenuItem: 'Services & Consulting',
           userStatus: userStatuses.unauthenticated,

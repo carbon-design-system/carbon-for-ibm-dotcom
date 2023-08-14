@@ -1,14 +1,19 @@
-import { Preview, Props, Description, Story } from '@storybook/addon-docs/blocks';
+import {
+  Preview,
+  Props,
+  Description,
+  Story,
+} from '@storybook/addon-docs/blocks';
 import contributing from '../../../../../../docs/contributing-license.md';
 import { PropTypesRef } from '@carbon/ibmdotcom-web-components/es/components-react/logo-grid/logo-grid';
 
 # Logo Grid
 
 > 💡 Check our
-> [CodeSandbox](https://githubbox.com/carbon-design-system/carbon-for-ibm-dotcom/tree/master/packages/web-components/examples/codesandbox/components-react/logo-grid)
+> [CodeSandbox](https://githubbox.com/carbon-design-system/carbon-for-ibm-dotcom/tree/main/packages/web-components/examples/codesandbox/components-react/logo-grid)
 > example implementation.
 
-[![Edit @carbon/ibmdotcom-web-components](https://codesandbox.io/static/img/play-codesandbox.svg)](https://githubbox.com/carbon-design-system/carbon-for-ibm-dotcom/tree/master/packages/web-components/examples/codesandbox/components-react/logo-grid)
+[![Edit @carbon/ibmdotcom-web-components](https://codesandbox.io/static/img/play-codesandbox.svg)](https://githubbox.com/carbon-design-system/carbon-for-ibm-dotcom/tree/main/packages/web-components/examples/codesandbox/components-react/logo-grid)
 
 ## Getting started
 
@@ -25,19 +30,20 @@ import DDSLogoGrid from '@carbon/ibmdotcom-web-components/es/components-react/lo
 import DDSLogoGridLink from '@carbon/ibmdotcom-web-components/es/components-react/logo-grid/logo-grid-link';
 import DDSLogoGridItem from '@carbon/ibmdotcom-web-components/es/components-react/logo-grid/logo-grid-item';
 
-
 function App() {
   return (
     <DDSLogoGrid>
-    <DDSContentBlockHeading>Our customers</DDSContentBlockHeading>
-    <DDSLogoGridItem default-src="https://fpoimg.com/288x216?text=Example%20Logo&bg_color=ee5396&text_color=161616" alt={""}></DDSLogoGridItem>
-    <DDSLogoGridLink href={"https://example.com"}>
+      <DDSContentBlockHeading>Our customers</DDSContentBlockHeading>
+      <DDSLogoGridItem
+        default-src="https://fpoimg.com/288x216?text=Example%20Logo&bg_color=ee5396&text_color=161616"
+        alt=""></DDSLogoGridItem>
+      <DDSLogoGridLink href="https://example.com">
         <DDSCardLinkHeading>Lorem ipsum</DDSCardLinkHeading>
         <DDSCardFooter>
-          <ArrowRight20 slot='icon'/>
+          <ArrowRight20 slot="icon" />
         </DDSCardFooter>
       </DDSLogoGridLink>
-  </DDSLogoGrid>
+    </DDSLogoGrid>
   );
 }
 ```
@@ -48,10 +54,12 @@ function App() {
 
 ## Stable selectors
 
-See [our README](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/tree/master/packages/web-components#stable-selectors-for-analytics-and-integratione2e-testing-in-web-components) to see how Web Components selector and `data-autoid` should be used.
+See
+[our README](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/tree/main/packages/web-components#stable-selectors-for-analytics-and-integratione2e-testing-in-web-components)
+to see how Web Components selector and `data-autoid` should be used.
 
 | Web Components selector | Compatibility selector | Description |
 | ----------------------- | ---------------------- | ----------- |
-| `<dds-logo-grid>`        | N/A                    | Component   |
+| `<dds-logo-grid>`       | N/A                    | Component   |
 
 <Description markdown={contributing} />
