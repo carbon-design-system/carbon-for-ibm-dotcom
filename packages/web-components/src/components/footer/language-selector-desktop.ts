@@ -13,7 +13,7 @@ import HostListenerMixin from '../../internal/vendor/@carbon/web-components/glob
 import BXComboBoxItem from '../../internal/vendor/@carbon/web-components/components/combo-box/combo-box-item.js';
 import ddsSettings from '../../internal/vendor/@carbon/ibmdotcom-utilities/utilities/settings/settings';
 import { LANGUAGE_SELECTOR_STYLE_SCHEME } from './defs';
-import DDSComboBox, { DROPDOWN_SIZE } from './combo-box';
+import DDSComboBox from './combo-box';
 import styles from './footer.scss';
 import { findIndex, forEach } from '../../globals/internal/collection-helpers';
 import { carbonElement as customElement } from '../../internal/vendor/@carbon/web-components/globals/decorators/carbon-element.js';
@@ -121,14 +121,6 @@ class DDSLanguageSelectorDesktop extends HostListenerMixin(DDSComboBox) {
     (item as BXComboBoxItem).selected = true;
     super._handleUserInitiatedSelectItem(item);
   }
-
-  /**
-   * Property that specifies the ComboBox to have size xl
-   *
-   * @internal
-   */
-  @property()
-  size = DROPDOWN_SIZE.EXTRA_LARGE;
 
   /**
    * Size property to apply different styles.
