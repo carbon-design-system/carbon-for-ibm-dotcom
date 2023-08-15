@@ -110,22 +110,28 @@ export default {
     hasStoryPadding: true,
     knobs: {
       'dds-image': () => {
+        const alt = textNullable('Alt text', 'Image alt text');
+        const defaultSrc = select('Default image (default-src)', images, imgLg2x1);
+        const border = boolean('Border', false);
+        const copy = textNullable('Copy (copy)', 'Lorem ipsum dolor sit amet');
+        const heading = textNullable('Heading (heading)', 'This is a caption');
+        const longDescription = textNullable(
+          'Long Description',
+          'Optional long descriptive text that is visually hidden to help screen reader users.'
+        );
         const lightbox = boolean('Lightbox (lightbox)', false);
         const lightboxContrast = lightbox
           ? select('Lightbox contrast', contrasts, LIGHTBOX_CONTRAST.LIGHT)
           : '';
         return {
-          alt: textNullable('Alt text', 'Image alt text'),
-          defaultSrc: select('Default image (default-src)', images, imgLg2x1),
+          alt,
+          defaultSrc,
+          border,
+          copy,
+          heading,
+          longDescription,
           lightbox,
           lightboxContrast,
-          border: boolean('Border', false),
-          copy: textNullable('Copy (copy)', 'Lorem ipsum dolor sit amet'),
-          heading: textNullable('Heading (heading)', 'This is a caption'),
-          longDescription: textNullable(
-            'Long Description',
-            'Optional long descriptive text that is visually hidden to help screen reader users.'
-          ),
         };
       },
     },
