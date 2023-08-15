@@ -44,7 +44,6 @@ $fcb-breakpoint-up--lg: map.get(map.get($grid-breakpoints, 'lg'), 'width') -
   .#{$prefix}--card__heading,
   ::slotted(#{$c4d-prefix}-card-heading) {
     margin-bottom: $spacing-07;
-    color: $icon-inverse;
   }
 
   &:focus-within {
@@ -88,10 +87,6 @@ $fcb-breakpoint-up--lg: map.get(map.get($grid-breakpoints, 'lg'), 'width') -
           opacity: 0.08;
         }
       }
-
-      .#{$prefix}--card__wrapper {
-        background-color: $background-inverse-hover;
-      }
     }
 
     @include breakpoint-down(md) {
@@ -118,7 +113,6 @@ $fcb-breakpoint-up--lg: map.get(map.get($grid-breakpoints, 'lg'), 'width') -
         left: 0;
         opacity: 0;
         z-index: 1;
-        background-color: $icon-inverse;
         transition: opacity $duration-moderate-01 motion(standard, productive);
       }
     }
@@ -175,11 +169,9 @@ $fcb-breakpoint-up--lg: map.get(map.get($grid-breakpoints, 'lg'), 'width') -
 
     .#{$prefix}--card__heading {
       margin-bottom: $spacing-07;
-      color: $icon-inverse;
     }
 
     .#{$prefix}--card__wrapper {
-      background-color: $background-inverse;
       width: 100%;
       height: aspect-ratio(2, 1);
 
@@ -191,12 +183,6 @@ $fcb-breakpoint-up--lg: map.get(map.get($grid-breakpoints, 'lg'), 'width') -
       .#{$prefix}--card__content {
         height: auto;
         min-height: 100%;
-      }
-    }
-
-    &:hover {
-      .#{$prefix}--card__wrapper {
-        background-color: $background-inverse-hover;
       }
     }
 
@@ -220,8 +206,6 @@ $fcb-breakpoint-up--lg: map.get(map.get($grid-breakpoints, 'lg'), 'width') -
       }
 
       svg {
-        fill: $link-inverse;
-
         @include breakpoint(sm) {
           width: rem(20px);
           height: rem(20px);
@@ -309,7 +293,6 @@ $fcb-breakpoint-up--lg: map.get(map.get($grid-breakpoints, 'lg'), 'width') -
     }
 
     .#{$prefix}--card__wrapper {
-      background-color: $background-inverse;
       min-height: 50%;
       height: auto;
 
@@ -327,7 +310,6 @@ $fcb-breakpoint-up--lg: map.get(map.get($grid-breakpoints, 'lg'), 'width') -
       ::slotted(#{$c4d-prefix}-card-eyebrow),
       ::slotted(#{$c4d-prefix}-card-heading) {
         width: 100%;
-        color: $icon-inverse;
         max-width: rem(480px);
 
         @include breakpoint(md) {
@@ -350,12 +332,10 @@ $fcb-breakpoint-up--lg: map.get(map.get($grid-breakpoints, 'lg'), 'width') -
       .#{$prefix}--card__eyebrow,
       ::slotted(#{$c4d-prefix}-card-eyebrow) {
         margin: 0 0 $spacing-05 0;
-        color: $icon-inverse;
       }
 
       .#{$prefix}--card__heading,
-      ::slotted(#{$c4d-prefix}-card-heading) {
-        color: $icon-inverse;
+      ::slotted(#{$dds-prefix}-card-heading) {
         margin-bottom: $spacing-07;
         @include type-style('fluid-heading-04', true);
       }
@@ -412,7 +392,6 @@ $fcb-breakpoint-up--lg: map.get(map.get($grid-breakpoints, 'lg'), 'width') -
     .#{$prefix}--card__cta:visited {
     margin-top: auto;
     float: none;
-    fill: $link-inverse;
 
     @include breakpoint(sm) {
       width: rem(20px);
@@ -431,4 +410,77 @@ $fcb-breakpoint-up--lg: map.get(map.get($grid-breakpoints, 'lg'), 'width') -
 
     @include type-style('productive-heading-05');
   }
+}
+
+// inverse color scheme
+:host(#{$dds-prefix}-feature-card)[color-scheme='inverse'],
+:host(#{$dds-prefix}-feature-cta)[color-scheme='inverse'] {
+  .#{$prefix}--card__heading,
+  ::slotted(#{$dds-prefix}-card-heading) {
+    color: $icon-inverse;
+  }
+
+  &:hover .#{$prefix}--card__wrapper {
+    background-color: $background-inverse-hover;
+  }
+
+  ::slotted([slot='image']),
+  #{$dds-prefix}-image,
+  .#{$prefix}--image {
+    &::before {
+      background-color: $icon-inverse;
+    }
+  }
+}
+
+// feature cards that are not size large
+:host(#{$dds-prefix}-feature-card:not([size='large']))[color-scheme='inverse'],
+:host(#{$dds-prefix}-feature-cta:not([size='large']))[color-scheme='inverse'] {
+  .#{$prefix}--card__heading {
+    color: $icon-inverse;
+  }
+
+  .#{$prefix}--card__wrapper {
+    background-color: $background-inverse;
+  }
+
+  &:hover .#{$prefix}--card__wrapper {
+    background-color: $background-inverse-hover;
+  }
+
+  // footer
+  .#{$prefix}--feature-card__card .#{$prefix}--card__footer svg {
+    fill: $link-inverse;
+  }
+}
+
+// feature cards that are size large
+:host(#{$dds-prefix}-feature-card[size='large'])[color-scheme='inverse'],
+:host(#{$dds-prefix}-feature-cta[size='large'])[color-scheme='inverse'] {
+  .#{$prefix}--card__wrapper {
+    background-color: $background-inverse;
+
+    .#{$prefix}--card__eyebrow,
+    .#{$prefix}--card__heading,
+    .#{$prefix}--card__copy,
+    ::slotted(#{$dds-prefix}-card-eyebrow),
+    ::slotted(#{$dds-prefix}-card-heading) {
+      color: $icon-inverse;
+    }
+    .#{$prefix}--card__eyebrow,
+    ::slotted(#{$dds-prefix}-card-eyebrow) {
+      color: $icon-inverse;
+    }
+
+    .#{$prefix}--card__heading,
+    ::slotted(#{$dds-prefix}-card-heading) {
+      color: $icon-inverse;
+    }
+  }
+}
+
+:host(#{$dds-prefix}-feature-card-footer)[color-scheme='inverse']
+  .#{$dds-prefix}-ce--card__footer
+  ::slotted(svg[slot='icon']) {
+  fill: $link-inverse;
 }

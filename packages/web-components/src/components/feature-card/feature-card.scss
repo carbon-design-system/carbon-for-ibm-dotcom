@@ -23,9 +23,6 @@ $feature-flags: (
 :host(#{$dds-prefix}-feature-cta) {
   display: block;
   outline: none;
-  ::slotted(#{$c4d-prefix}-card-heading) {
-    color: $focus-inset;
-  }
 
   @include breakpoint-down(md) {
     .#{$prefix}--card__wrapper {
@@ -45,14 +42,8 @@ $feature-flags: (
   }
 }
 
-:host(#{$c4d-prefix}-feature-card[size='large']) {
-  &:hover {
-    .#{$prefix}--card__wrapper {
-      background-color: $background-inverse-hover;
-    }
-  }
-
-  ::slotted(#{$c4d-prefix}-feature-card-footer) {
+:host(#{$dds-prefix}-feature-card[size='large']) {
+  ::slotted(#{$dds-prefix}-feature-card-footer) {
     display: flex;
     justify-content: flex-start;
 
@@ -79,4 +70,16 @@ $feature-flags: (
       }
     }
   }
+}
+
+:host(#{$dds-prefix}-feature-card)[color-scheme='inverse'],
+:host(#{$dds-prefix}-feature-cta)[color-scheme='inverse'] {
+  ::slotted(#{$dds-prefix}-card-heading) {
+    color: $focus-inset;
+  }
+}
+
+:host(#{$dds-prefix}-feature-card[size='large'])[color-scheme='inverse']:hover
+  .#{$prefix}--card__wrapper {
+  background-color: $background-inverse-hover;
 }
