@@ -77,7 +77,7 @@
           <p class="cds--modal-header__label cds--type-delta">
             lang-display-foo
           </p>
-          <p class="bx--modal-header__heading bx--type-beta">
+          <p class="cds--modal-header__heading cds--type-beta">
             header-title-foo
           </p>
         </dds-expressive-modal-heading>
@@ -141,7 +141,7 @@
             header-title-foo
           </dds-link-with-icon>
           <p
-            class="bx--modal-header__heading bx--type-beta"
+            class="cds--modal-header__heading cds--type-beta"
             tabindex="0"
           >
             region-foo
