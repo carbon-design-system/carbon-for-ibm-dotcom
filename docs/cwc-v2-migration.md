@@ -22,11 +22,15 @@ For Carbon v11 migration guidance, see their
 | icon-button               | New component in v2.                   |
 | input                     | Replaced by `text-input`               |
 | link                      | View changes [here](#link)             |
-| mult-select               | View changes [here](#multi-select)     |
+| multi-select              | View changes [here](#multi-select)     |
+| notification              | View changes [here](#notification)     |
 | number-input              | View changes [here](#number-input)     |
 | progress-bar              | New component in v2.                   |
 | radio-button              | View changes [here](#radio-button)     |
+| select                    | View changes [here](#select)           |
+| slider                    | View changes [here](#slider)           |
 | stack                     | New component in v2.                   |
+| textarea                  | View changes [here](#textarea)         |
 | text-input                | New component in v2. Replaces `input`. |
 | tooltip                   | View changes [here](#tooltip)          |
 | ui-shell                  | View changes [here](#ui-shell)         |
@@ -58,16 +62,28 @@ For Carbon v11 migration guidance, see their
 
 ### multi-select
 
-- `size` property expected values have been changed from '', 'sm' to 'sm', 'md'
-- New `clear-selection-description`, `clear-selection-text`, `locale`, `selection-feedback` properties
+- Removed `color-scheme` property
+- `size` property expected values have been changed from '' (default), 'sm' --> 'sm', 'md' (default)
+- New a11y `clear-selection-description` and `clear-selection-text` properties
+- New `locale` property to specify locale of the multi-select, used when sorting the list of items
+- New `selection-feedback` property: `'fixed', 'top', 'top-after-reopen'` options for sorting list items once selection occurs 
+- New `warn` and `warn-text` properties for warn state
+
+### notification
+
+- New `actionable-notification` component that has inline and toast variations
 
 ### number-input
 
 - Removed `color-scheme` and `mobile` properties
-- `size` property expected values have been changed from '', 'sm', 'xl' to 'sm', 'md', and 'lg'
+- `size` property expected values have been changed from '' (default), 'sm', 'xl' --> 'sm', 'md' (default), and 'lg'
 - `validity-message-min` and `validity-message-max` properties replaced with `decrement-button-assistive-text` and `increment-button-assistive-text` respectively
 - `label-text` property replaced with `label`
-- New `warn`, `warn-text`, `invalid-text`, `hide-label`, `allow-empty`, `hide-steppers` properties
+- New `warn` and `warn-text` properties for warn state
+- New `invalid-text` that appears when in invalid state
+- New `hide-label` property
+- New`allow-empty` property to allow empty string
+- New `hide-steppers` property for option to hide increment/decrement steppers
 
 ### radio-button
 
@@ -79,6 +95,32 @@ For Carbon v11 migration guidance, see their
 - `tooltip-body` has been replaced with `tooltip-content
 - `tooltip-footer` has been removed
 - New `defaultOpen` & `closeOnActivation` properties
+
+### slider
+
+- New `required` property to specify if slider is required
+- New `readonly` property 
+- New `max-label` and `min-label` a11y properties
+- New `invalid` and `invalid-text` property for invalid state - when input entered in the text-input is above or lower than given max / min, the invalid state will be triggered automatically
+- New `step-multiplier` property to determine how much the value should increase / decrease by Shift + arrow keys
+- New `warn` and `warn-text` properties for warn state
+- New `hide-text-input` property for option to hide text input on side of slider
+
+### select
+
+- Removed `color-scheme` property
+- `size` property expected values have been changed from '' (default), 'sm', and 'xl' --> 'sm', 'md' (default), and 'lg'
+- New `inline` property for inline variation
+- New `invalid-text` property for invalid state
+- New `warn` and `warn-text` properties for warn state
+- New `hide-label` property for option to hide label
+
+### textarea
+
+- Removed `color-scheme` property
+- New `max-count` property that limits character count in component
+- New `enable-counter` property for option to display character counter
+- New `warn` and `warn-text` properties for warn state
 
 ### ui-shell
 
