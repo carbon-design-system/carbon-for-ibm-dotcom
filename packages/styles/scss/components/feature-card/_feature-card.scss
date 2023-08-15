@@ -235,7 +235,7 @@ $fcb-breakpoint-up--lg: map.get(map.get($grid-breakpoints, 'lg'), 'width') -
   .#{$prefix}--feature-card-large {
     margin-bottom: $spacing-07;
     color: $text-primary;
-    background: $background;
+    background-color: $layer-01;
     position: relative;
     @include hang;
 
