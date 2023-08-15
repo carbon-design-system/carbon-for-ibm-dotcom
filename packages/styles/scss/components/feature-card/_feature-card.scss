@@ -276,6 +276,10 @@ $fcb-breakpoint-up--lg: map.get(map.get($grid-breakpoints, 'lg'), 'width') -
         outline-offset: 1px;
       }
 
+      @include breakpoint(lg) {
+        flex-direction: row;
+      }
+
       @include breakpoint(xlg) {
         position: absolute;
         top: 0;
@@ -289,6 +293,10 @@ $fcb-breakpoint-up--lg: map.get(map.get($grid-breakpoints, 'lg'), 'width') -
       #{$c4d-prefix}-image,
       &__wrapper,
       .#{$prefix}--image {
+        @include breakpoint(lg) {
+          width: 50%;
+        }
+
         @include breakpoint(xlg) {
           width: 50%;
           height: 100%;

@@ -61,7 +61,7 @@ export const Large = (args) => {
       <dds-image slot="image" default-src="${ifDefined(imgLg1x1)}">
         <dds-image-item media="(min-width: 1312px)" srcset="${imgMax2x1}">
         </dds-image-item>
-        <dds-image-item media="(min-width: 1056px)" srcset="${imgXlg2x1}">
+        <dds-image-item media="(min-width: 1056px)" srcset="${imgLg1x1}">
         </dds-image-item>
         <dds-image-item media="(min-width: 991px)" srcset="${imgXlg2x1}">
         </dds-image-item>
