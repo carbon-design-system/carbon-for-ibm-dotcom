@@ -15,9 +15,13 @@ For Carbon v11 migration guidance, see their
 | ------------------------- | -------------------------------------- |
 | accordion                 | View changes [here](#accordion)        |
 | breadcrumb                | View changes [here](#breadcrumb)       |
-| button                    | No API changes.                        |
+| button                    | View changes [here](#button)           |
+| checkbox                  | View changes [here](#checkbox)         |
+| code-snippet              | View changes [here](#code-snippet)     |
+| copy-button               | View changes [here](#copy-button)      |
 | date-picker               | View changes [here](#date-picker)      |
 | dropdown                  | View changes [here](#dropdown)         |
+| file-uploader             | View changes [here](#file-uploader)    |
 | form-group                | New component in v2.                   |
 | icon-button               | New component in v2.                   |
 | input                     | Replaced by `text-input`               |
@@ -25,6 +29,7 @@ For Carbon v11 migration guidance, see their
 | multi-select              | View changes [here](#multi-select)     |
 | notification              | View changes [here](#notification)     |
 | number-input              | View changes [here](#number-input)     |
+| overflow-menu             | View changes [here](#overflow-menu)    |
 | progress-bar              | New component in v2.                   |
 | radio-button              | View changes [here](#radio-button)     |
 | select                    | View changes [here](#select)           |
@@ -40,10 +45,29 @@ For Carbon v11 migration guidance, see their
 - New `accordion-skeleton` & `accordion-item-skeleton` components
 - `title-text` property replaced with `title`
 
+### button
+
+- `danger-primary` new option for `kind` property
+
 ### breadcrumb
 
 - New `breadcrumb-skeleton` component
 - New `no-trailing-slash` property
+
+### checkbox
+
+- New `checkbox-skeleton`
+- New `readonly` & `title` properties for `checkbox`
+
+### code-snippet
+
+- New properties: `copy-text`, `disabled`, `feedback`, `feedback-timeout`, `hide-copy-button`, `maxCollapsedNumberOfRows`, `maxExpandedNumberOfRows`, `minCollapsedNumberOfRows`, `minExpandedNumberOfRows`, `show-less-text`, `show-more-text`, `wrap-text`, `tooltip-content`
+- Removed properties: `code-assistive-text`, `collapse-button-text`, `color-scheme`, `copy-button-assistive-text`, `copy-button-feedback-text`, `copy-button-feedback-timeout`, `expand-button-text`
+### copy-button
+
+- `feedback-text` property replaced with `feedback`
+- Removed `button-assistive-text` property
+- New `class-name` & `disabled` properties
 
 ### date-picker
 
@@ -54,6 +78,17 @@ For Carbon v11 migration guidance, see their
 ### dropdown
 
 - `direction` property expects 'top' or 'bottom' value
+
+### file-uploader
+
+- `state` now accepts `uploading`, `complete`, & `edit` instead of `uploading`, `uploaded`, & `editing`
+- `size` now accepts `sm`, `md`, `lg`, instead of `''`, `sm`, `lg`, `field`
+- New `file-uploader-button` & `file-uploader-skeleton` components
+- `file-drop-container` is replaced with `file-uploader-drop-container` with a new `name` property
+- New `file-uploader-item` properties: `icon-desciption`, `error-subject`, `error-body`
+- Removed `file-uploader-item` properties: `uploaded-assitive-text`, `uploading-assistive-text`, `validity-message`
+- New `file-uploader` properties: `disabled`, `label-description`, `label-title`
+- Removed `file-uploader` properties: `helper-text`, `label-text`
 
 ### link
 
@@ -84,6 +119,15 @@ For Carbon v11 migration guidance, see their
 - New `hide-label` property
 - New`allow-empty` property to allow empty string
 - New `hide-steppers` property for option to hide increment/decrement steppers
+
+### overflow-menu
+
+- `size` now accepts: `sm`, `md`, `lg` instead of `''`, `sm`, `lg` `xl`
+- New `overlfow-menu-body` properties: `flipped`, `size`
+- Removed `overlfow-menu-body` properties: `alignment`, `color-scheme`
+- New `overlfow-menu-item` properties: `divider`, `size`
+- New `overlfow-menu` properties: `index`
+- Removed `overlfow-menu` properties: `color-scheme`
 
 ### radio-button
 
