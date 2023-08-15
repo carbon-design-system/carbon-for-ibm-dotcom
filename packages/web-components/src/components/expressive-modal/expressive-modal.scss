@@ -16,17 +16,13 @@
 :host(#{$dds-prefix}-expressive-modal) {
   @extend :host(#{$prefix}-modal);
 
-  &[open] {
-    @extend :host(#{$prefix}-modal[open]);
-  }
-
   &[expressive-size='full-width'] {
     .#{$prefix}--modal-container {
       max-height: none;
 
       @include breakpoint(md) {
-        width: calc(100% - $spacing-07);
-        height: calc(100% - $spacing-07);
+        width: calc(100% - $spacing-10);
+        height: calc(100% - $spacing-10);
       }
 
       .#{$prefix}--modal-content {
@@ -55,6 +51,11 @@
   .#{$dds-prefix}-ce--modal__body--with-footer {
     margin-bottom: $spacing-09;
   }
+}
+
+:host(#{$dds-prefix}-expressive-modal[open]) {
+  @extend .#{$prefix}--modal;
+  @extend .is-visible;
 }
 
 :host(#{$dds-prefix}-expressive-modal-header),

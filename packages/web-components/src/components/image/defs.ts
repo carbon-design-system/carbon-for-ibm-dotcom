@@ -7,4 +7,17 @@
  * LICENSE file in the root directory of this source tree.
  */
 
-import './image-with-caption';
+/**
+ * Image lightbox contrast
+ */
+export enum LIGHTBOX_CONTRAST {
+  /**
+   * Light (default).
+   */
+  LIGHT = 'light',
+
+  /**
+   * Dark.
+   */
+  DARK = 'dark',
+}
