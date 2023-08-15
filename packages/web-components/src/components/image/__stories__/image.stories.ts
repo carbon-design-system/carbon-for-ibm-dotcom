@@ -111,7 +111,11 @@ export default {
     knobs: {
       'dds-image': () => {
         const alt = textNullable('Alt text', 'Image alt text');
-        const defaultSrc = select('Default image (default-src)', images, imgLg2x1);
+        const defaultSrc = select(
+          'Default image (default-src)',
+          images,
+          imgLg2x1
+        );
         const border = boolean('Border', false);
         const copy = textNullable('Copy (copy)', 'Lorem ipsum dolor sit amet');
         const heading = textNullable('Heading (heading)', 'This is a caption');
