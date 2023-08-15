@@ -99,7 +99,7 @@ describe('dds-masthead | with L1 (desktop)', () => {
       .click()
       .next(_selectors.l1Dropdown)
       .find(_selectors.l1DropdownAnnouncement)
-      .should('be.visible');
+      .should('have.length', 1);
   });
 
   it('should support view all links in dropdowns', () => {

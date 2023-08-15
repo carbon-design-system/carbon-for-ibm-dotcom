@@ -1336,7 +1336,9 @@ class DDSMastheadComposite extends HostListenerMixin(LitElement) {
       this._setLanguage?.(language);
     }
     this._loadTranslation?.(language, dataEndpoint).catch(() => {}); // The error is logged in the Redux store
-    this._loadUserStatus?.(this.authMethod);
+    if (this.userStatus === UNAUTHENTICATED_STATUS) {
+      this._loadUserStatus?.(this.authMethod);
+    }
 
     this.style.zIndex = '900';
 
@@ -1483,8 +1485,8 @@ class DDSMastheadComposite extends HostListenerMixin(LitElement) {
               </dds-top-nav>
             `
           : ''}
-        ${!hasSearch
-          ? undefined
+        ${hasSearch === 'false'
+          ? ''
           : html`
               <dds-search-with-typeahead
                 ?active="${activateSearch}"
