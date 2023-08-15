@@ -77,7 +77,9 @@ $fcb-breakpoint-up--lg: map.get(map.get($grid-breakpoints, 'lg'), 'width') -
   .#{$prefix}--feature-card-large,
   .#{$prefix}--feature-card {
     position: relative;
-    border: rem(1px) solid $border-subtle-selected;
+    border-color: $border-subtle-selected;
+    border-style: solid;
+    border-width: rem(1px);
 
     &:hover {
       ::slotted([slot='image']),
