@@ -91,6 +91,10 @@ $fcb-breakpoint-up--lg: map.get(map.get($grid-breakpoints, 'lg'), 'width') -
       }
     }
 
+    &:focus-within {
+      border-color: transparent;
+    }
+
     @include breakpoint-down(md) {
       @include make-row;
     }
@@ -258,8 +262,26 @@ $fcb-breakpoint-up--lg: map.get(map.get($grid-breakpoints, 'lg'), 'width') -
       height: 100%;
 
       &:focus-within {
-        outline-width: 3px;
-        outline-offset: 1px;
+        outline: none;
+        outline-offset: 0;
+
+        &::before {
+          content: '';
+          display: block;
+          position: absolute;
+          z-index: 1;
+          top: 0;
+          left: 0;
+          right: 0;
+          bottom: 0;
+          border: $spacing-01 solid $focus;
+          outline: 1px solid #ffffff;
+          outline-offset: -3px;
+
+          @include breakpoint-down(md) {
+            min-height: 292px;
+          }
+        }
       }
 
       @include breakpoint(lg) {
