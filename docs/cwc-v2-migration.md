@@ -11,44 +11,51 @@ For Carbon v11 migration guidance, see their
 
 ## List of component changes
 
-| Component                 | Changes                                |
-| ------------------------- | -------------------------------------- |
-| accordion                 | View changes [here](#accordion)        |
-| breadcrumb                | View changes [here](#breadcrumb)       |
-| button                    | View changes [here](#button)           |
-| checkbox                  | View changes [here](#checkbox)         |
-| code-snippet              | View changes [here](#code-snippet)     |
-| combo-box                 | View changes [here](#combo-box)        |
-| copy-button               | View changes [here](#copy-button)      |
-| data-table                | View changes [here](#data-table)       |
-| date-picker               | View changes [here](#date-picker)      |
-| dropdown                  | View changes [here](#dropdown)         |
-| file-uploader             | View changes [here](#file-uploader)    |
-| form-group                | New component in v2.                   |
-| icon-button               | New component in v2.                   |
-| input                     | Replaced by `text-input`               |
-| layer                     | New component in v2.                   |
-| link                      | View changes [here](#link)             |
-| modal                     | View changes [here](#modal)            |
-| multi-select              | View changes [here](#multi-select)     |
-| notification              | View changes [here](#notification)     |
-| number-input              | View changes [here](#number-input)     |
-| overflow-menu             | View changes [here](#overflow-menu)    |
-| pagination                | View changes [here](#pagination)       |
-| progress-bar              | New component in v2.                   |
-| radio-button              | View changes [here](#radio-button)     |
-| search                    | View changes [here](#search)           |
-| select                    | View changes [here](#select)           |
-| slider                    | View changes [here](#slider)           |
-| stack                     | New component in v2.                   |
-| tag                       | View changes [here](#tag)              |
-| textarea                  | View changes [here](#textarea)         |
-| text-input                | New component in v2. Replaces `input`. |
-| tile                      | View changes [here](#tile)             |
-| toggle                    | View changes [here](#toggle)           |
-| toggletip                 | New component in v2.                   |
-| tooltip                   | View changes [here](#tooltip)          |
-| ui-shell                  | View changes [here](#ui-shell)         |
+| Component                 | Changes                                 |
+| ------------------------- | --------------------------------------- |
+| accordion                 | View changes [here](#accordion)         |
+| breadcrumb                | View changes [here](#breadcrumb)        |
+| button                    | View changes [here](#button)            |
+| checkbox                  | View changes [here](#checkbox)          |
+| code-snippet              | View changes [here](#code-snippet)      |
+| combo-box                 | View changes [here](#combo-box)         |
+| content-switcher          | View changes [here](#content-switcher)  |
+| copy-button               | View changes [here](#copy-button)       |
+| data-table                | View changes [here](#data-table)        |
+| date-picker               | View changes [here](#date-picker)       |
+| dropdown                  | View changes [here](#dropdown)          |
+| file-uploader             | View changes [here](#file-uploader)     |
+| form-group                | New component in v2.                    |
+| icon-button               | New component in v2.                    |
+| inline-loading            | View changes [here](#inline-loading)    |
+| input                     | Replaced by `text-input`                |
+| layer                     | New component in v2.                    |
+| link                      | View changes [here](#link)              |
+| loading                   | View changes [here](#loading)           |
+| modal                     | View changes [here](#modal)             |
+| multi-select              | View changes [here](#multi-select)      |
+| notification              | View changes [here](#notification)      |
+| number-input              | View changes [here](#number-input)      |
+| overflow-menu             | View changes [here](#overflow-menu)     |
+| pagination                | View changes [here](#pagination)        |
+| progress-bar              | New component in v2.                    |
+| progress-indicator        | View changes [here](#progress-indicator)|
+| radio-button              | View changes [here](#radio-button)      |
+| search                    | View changes [here](#search)            |
+| select                    | View changes [here](#select)            |
+| skeleton-text             | View changes [here](#skeleton-text)     |
+| slider                    | View changes [here](#slider)            |
+| stack                     | New component in v2.                    |
+| structured-list           | View changes [here](#structured-list)   |
+| tabs                      | View changes [here](#tabs)              |
+| tag                       | View changes [here](#tag)               |
+| textarea                  | View changes [here](#textarea)          |
+| text-input                | New component in v2. Replaces `input`.  |
+| tile                      | View changes [here](#tile)              |
+| toggle                    | View changes [here](#toggle)            |
+| toggletip                 | New component in v2.                    |
+| tooltip                   | View changes [here](#tooltip)           |
+| ui-shell                  | View changes [here](#ui-shell)          |
 
 ### accordion
 
@@ -86,6 +93,12 @@ For Carbon v11 migration guidance, see their
 - `trigger-content` is now `label` 
 - New attributes: `hide-label`, `invalid`, `invalid-text`, `read-only`, `warn`, `warn-text`
 - Removed `color-scheme` property
+
+### content-switcher
+
+- New `icon` property for icon-only variation
+- New `align` property for icon tooltips in icon-only variation
+- New `close-on-activation` property
 
 ### copy-button
 
@@ -131,10 +144,18 @@ For Carbon v11 migration guidance, see their
 - New `file-uploader` properties: `disabled`, `label-description`, `label-title`
 - Removed `file-uploader` properties: `helper-text`, `label-text`
 
+### inline-loading
+
+- New `assistive-text` property
+
 ### link
 
 - `size` property replaced `REGULAR = ''` with `MEDIUM = 'md'`
 - New `inline` & `visited` properties
+
+### loading
+
+- New `assistive-text` property
 
 ### modal
 - `<p>` inside the `modal-body` is replaced with `cds-modal-body-content`
@@ -187,6 +208,13 @@ For Carbon v11 migration guidance, see their
 - New properties: `items-per-page-text`, `page-input-disabled`, `page-size-input-disabled`, `page-size-label-text`, `pages-unkown`,
  `size`, `total-items`, `total-pages`
 
+### progress-indicator
+
+- New `space-equally` property for `progress-indicator`
+- New `description` property for `progress-step`
+- New `label` property for `progress-step`
+- New `secondary-label` property for `progress-step`
+
 ### radio-button
 
 - New `radio-button-group` properties: `defaultSelected`, `legend-text`, `readOnly`
@@ -224,6 +252,20 @@ For Carbon v11 migration guidance, see their
 - New `invalid-text` property for invalid state
 - New `warn` and `warn-text` properties for warn state
 - New `hide-label` property for option to hide label
+
+### skeleton-text
+
+- Removed `LINE` type def` and `line` option for `type` property
+
+### structured-list
+
+- New `condensed` property for condensed variation
+- New `flush` property for flush variation
+
+### tabs
+
+- Replaced mobile dropdown style tabs with overflow scrolling tabs at all screen sizes
+- New `CONTAINED` value for `type` property
 
 ### tag
 - Removed `filter-tag` in favor of `filter` attribute
