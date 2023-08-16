@@ -107,6 +107,9 @@ For Carbon v11 migration guidance, see their
 ### notification
 
 - New `actionable-notification` component that has inline and toast variations
+- New `info`, `info-square`, and `warning-alt` values for `kind` property
+- `icon-label` property replaced with `status-icon-description`
+- `close-button-label` property replaced with `aria-label`
 
 ### number-input
 
