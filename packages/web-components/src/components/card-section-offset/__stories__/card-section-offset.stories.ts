@@ -63,8 +63,8 @@ export const Default = (args) => {
       <dds-background-media
         gradient-direction="left-to-right"
         slot="image-top"
-        alt="${ifNonNull(alt)}"
-        default-src="${ifNonNull(defaultSrc)}">
+        alt="${ifDefined(alt)}"
+        default-src="${ifDefined(defaultSrc)}">
       </dds-background-media>
       <dds-content-block-heading slot="heading"
         >${heading}</dds-content-block-heading

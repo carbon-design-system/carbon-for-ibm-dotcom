@@ -115,7 +115,7 @@ export const SuperWithImage = (args) => {
       </dds-button-group>
       <dds-background-media
         slot="image"
-        alt="${ifNonNull(alt)}"
+        alt="${ifDefined(alt)}"
         default-src="${defaultSrc}"
         opacity="100">
         <dds-image-item media="(min-width: 1312px)" srcset="${image}">
@@ -236,7 +236,7 @@ export const TallWithImage = (args) => {
       </dds-button-group>
       <dds-background-media
         slot="image"
-        alt="${ifNonNull(alt)}"
+        alt="${ifDefined(alt)}"
         default-src="${defaultSrc}"
         opacity="100">
         <dds-image-item media="(min-width: 1312px)" srcset="${image}">
@@ -357,7 +357,7 @@ export const MediumWithImage = (args) => {
       </dds-button-group>
       <dds-background-media
         slot="image"
-        alt="${ifNonNull(alt)}"
+        alt="${ifDefined(alt)}"
         default-src="${defaultSrc}"
         opacity="100">
         <dds-image-item media="(min-width: 1312px)" srcset="${image}">
@@ -473,7 +473,7 @@ export const ShortWithImage = (args) => {
       <dds-leadspace-heading>${ifDefined(title)}</dds-leadspace-heading>
       <dds-background-media
         slot="image"
-        alt="${ifNonNull(alt)}"
+        alt="${ifDefined(alt)}"
         default-src="${defaultSrc}"
         opacity="100">
         <dds-image-item media="(min-width: 1312px)" srcset="${image}">
@@ -531,7 +531,7 @@ export const ShortWithVideo = (args) => {
       default-src="${ifDefined(defaultSrc)}">
       ${navElements === navigationOptions[0] ? navigationWithTagGroup : ``}
       ${navElements === navigationOptions[1] ? navigationWithBreadcrumbs : ``}
-      <dds-leadspace-heading>${ifNonNull(title)}</dds-leadspace-heading>
+      <dds-leadspace-heading>${ifDefined(title)}</dds-leadspace-heading>
       <dds-background-media slot="image" opacity="100">
         <dds-video-player-container
           video-id="1_9h94wo6b"
@@ -596,7 +596,7 @@ export const CenteredWithImage = (args) => {
       </dds-button-group>
       <dds-background-media
         slot="image"
-        alt="${ifNonNull(alt)}"
+        alt="${ifDefined(alt)}"
         default-src="${defaultSrc}"
         opacity="100">
         <dds-image-item media="(min-width: 1312px)" srcset="${image}">
