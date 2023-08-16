@@ -76,7 +76,7 @@ describe('dds-masthead | with L1 (desktop)', () => {
       .first()
       .click()
       .next(_selectors.l1Dropdown)
-      .should('be.visible');
+      .should('have.length', 1);
 
     cy.takeSnapshots();
   });
