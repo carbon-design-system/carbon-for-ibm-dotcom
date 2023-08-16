@@ -11,34 +11,41 @@ For Carbon v11 migration guidance, see their
 
 ## List of component changes
 
-| Component                 | Changes                                |
-| ------------------------- | -------------------------------------- |
-| accordion                 | View changes [here](#accordion)        |
-| breadcrumb                | View changes [here](#breadcrumb)       |
-| button                    | View changes [here](#button)           |
-| checkbox                  | View changes [here](#checkbox)         |
-| code-snippet              | View changes [here](#code-snippet)     |
-| copy-button               | View changes [here](#copy-button)      |
-| date-picker               | View changes [here](#date-picker)      |
-| dropdown                  | View changes [here](#dropdown)         |
-| file-uploader             | View changes [here](#file-uploader)    |
-| form-group                | New component in v2.                   |
-| icon-button               | New component in v2.                   |
-| input                     | Replaced by `text-input`               |
-| link                      | View changes [here](#link)             |
-| multi-select              | View changes [here](#multi-select)     |
-| notification              | View changes [here](#notification)     |
-| number-input              | View changes [here](#number-input)     |
-| overflow-menu             | View changes [here](#overflow-menu)    |
-| progress-bar              | New component in v2.                   |
-| radio-button              | View changes [here](#radio-button)     |
-| select                    | View changes [here](#select)           |
-| slider                    | View changes [here](#slider)           |
-| stack                     | New component in v2.                   |
-| textarea                  | View changes [here](#textarea)         |
-| text-input                | New component in v2. Replaces `input`. |
-| tooltip                   | View changes [here](#tooltip)          |
-| ui-shell                  | View changes [here](#ui-shell)         |
+| Component                 | Changes                                  |
+| ------------------------- | ---------------------------------------- |
+| accordion                 | View changes [here](#accordion)          |
+| breadcrumb                | View changes [here](#breadcrumb)         |
+| button                    | View changes [here](#button)             |
+| checkbox                  | View changes [here](#checkbox)           |
+| code-snippet              | View changes [here](#code-snippet)       |
+| content-switcher          | View changes [here](#content-switcher)   |
+| copy-button               | View changes [here](#copy-button)        |
+| date-picker               | View changes [here](#date-picker)        |
+| dropdown                  | View changes [here](#dropdown)           |
+| file-uploader             | View changes [here](#file-uploader)      |
+| form-group                | New component in v2.                     |
+| icon-button               | New component in v2.                     |
+| inline-loading            | View changes [here](#inline-loading)     |
+| input                     | Replaced by `text-input`                 |
+| link                      | View changes [here](#link)               |
+| loading                   | View changes [here](#loading)            |
+| multi-select              | View changes [here](#multi-select)       |
+| notification              | View changes [here](#notification)       |
+| number-input              | View changes [here](#number-input)       |
+| overflow-menu             | View changes [here](#overflow-menu)      |
+| progress-bar              | New component in v2.                     |
+| progress-indicator        | View changes [here](#progress-indicator) |
+| radio-button              | View changes [here](#radio-button)       |
+| select                    | View changes [here](#select)             |
+| skeleton-text             | View changes [here](#skeleton-text)      |
+| slider                    | View changes [here](#slider)             |
+| stack                     | New component in v2.                     |
+| structured-list           | View changes [here](#structured-list)    |
+| tabs                      | View changes [here](#tabs)               |
+| textarea                  | View changes [here](#textarea)           |
+| text-input                | New component in v2. Replaces `input`.   |
+| tooltip                   | View changes [here](#tooltip)            |
+| ui-shell                  | View changes [here](#ui-shell)           |
 
 ### accordion
 
@@ -63,6 +70,13 @@ For Carbon v11 migration guidance, see their
 
 - New properties: `copy-text`, `disabled`, `feedback`, `feedback-timeout`, `hide-copy-button`, `maxCollapsedNumberOfRows`, `maxExpandedNumberOfRows`, `minCollapsedNumberOfRows`, `minExpandedNumberOfRows`, `show-less-text`, `show-more-text`, `wrap-text`, `tooltip-content`
 - Removed properties: `code-assistive-text`, `collapse-button-text`, `color-scheme`, `copy-button-assistive-text`, `copy-button-feedback-text`, `copy-button-feedback-timeout`, `expand-button-text`
+
+### content-switcher
+
+- New `icon` property for icon-only variation
+- New `align` property for icon tooltips in icon-only variation
+- New `close-on-activation` property
+
 ### copy-button
 
 - `feedback-text` property replaced with `feedback`
@@ -90,10 +104,18 @@ For Carbon v11 migration guidance, see their
 - New `file-uploader` properties: `disabled`, `label-description`, `label-title`
 - Removed `file-uploader` properties: `helper-text`, `label-text`
 
+### inline-loading
+
+- New `assistive-text` property
+
 ### link
 
 - `size` property replaced `REGULAR = ''` with `MEDIUM = 'md'`
 - New `inline` & `visited` properties
+
+### loading
+
+- New `assistive-text` property
 
 ### multi-select
 
@@ -132,6 +154,13 @@ For Carbon v11 migration guidance, see their
 - New `overlfow-menu` properties: `index`
 - Removed `overlfow-menu` properties: `color-scheme`
 
+### progress-indicator
+
+- New `space-equally` property for `progress-indicator`
+- New `description` property for `progress-step`
+- New `label` property for `progress-step`
+- New `secondary-label` property for `progress-step`
+
 ### radio-button
 
 - New `radio-button-group` properties: `defaultSelected`, `legend-text`, `readOnly`
@@ -161,6 +190,20 @@ For Carbon v11 migration guidance, see their
 - New `invalid-text` property for invalid state
 - New `warn` and `warn-text` properties for warn state
 - New `hide-label` property for option to hide label
+
+### skeleton-text
+
+- Removed `LINE` type def` and `line` option for `type` property
+
+### structured-list
+
+- New `condensed` property for condensed variation
+- New `flush` property for flush variation
+
+### tabs
+
+- Replaced mobile dropdown style tabs with overflow scrolling tabs at all screen sizes
+- New `CONTAINED` value for `type` property
 
 ### textarea
 
