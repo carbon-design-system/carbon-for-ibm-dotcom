@@ -15,6 +15,7 @@ const rootCarbonPath = [__dirname, '..', '..', '..', 'node_modules', '@carbon'];
 // map of root Carbon package to local Carbon Sass module index
 const modulesMap = new Map([
   ['colors', 'styles/scss/_colors.scss'],
+  ['feature-flags', 'styles/scss/_feature-flags.scss'],
   ['motion', 'styles/scss/_motion.scss'],
 ]);
 
