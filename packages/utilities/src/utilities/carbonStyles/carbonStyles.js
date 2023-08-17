@@ -6,9 +6,9 @@
  */
 
 import root from 'window-or-global';
-import buttonStyles from './button.scss';
-import resetStyles from './reset.scss';
-import typeStyles from './type.scss';
+import buttonStyles from '@carbon/ibmdotcom-styles/scss/globals/primitives/button.scss';
+import resetStyles from '@carbon/ibmdotcom-styles/scss/globals/primitives/reset.scss';
+import typeStyles from '@carbon/ibmdotcom-styles/scss/globals/primitives/type.scss';
 
 const importedStyleSheets = {
   buttonStyles,

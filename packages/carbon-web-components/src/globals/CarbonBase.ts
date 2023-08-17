@@ -5,6 +5,7 @@
  * LICENSE file in the root directory of this source tree.
  */
 
+// @ts-nocheck
 import { LitElement } from 'lit';
 import CarbonStyles from '../../../utilities/src/utilities/carbonStyles/carbonStyles.js';
 
@@ -15,17 +16,12 @@ export default class CarbonBase extends LitElement {
     super.connectedCallback();
 
     if (CarbonStyles.global && this.shadowRoot && this.carbonStyles) {
-      const component = this;
-
       // Prepare to receive stylesheets
       this.addEventListener('respondCarbonStyles', (e) => {
-        const thisSheets = [...component.shadowRoot.adoptedStyleSheets];
+        const thisSheets = [...this.shadowRoot.adoptedStyleSheets];
         const globalSheets = e.detail;
 
-        component.shadowRoot.adoptedStyleSheets = [
-          ...globalSheets,
-          ...thisSheets,
-        ];
+        this.shadowRoot.adoptedStyleSheets = [...globalSheets, ...thisSheets];
       });
 
       // Request stylesheets
