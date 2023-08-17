@@ -22,7 +22,7 @@ export const Default = (args) => {
 
 export default {
   title: 'Components/Tag link',
-  decorators: [(story) => html` <div class="bx--grid">${story()}</div> `],
+  decorators: [(story) => html` <div class="cds--grid">${story()}</div> `],
   parameters: {
     ...readme.parameters,
     hasStoryPadding: true,

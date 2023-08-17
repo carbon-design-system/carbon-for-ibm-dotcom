@@ -183,7 +183,7 @@ export const withLinkList = args => {
 withLinkList.story = {
   name: 'With link list',
   parameters: {
-    gridContentClasses: 'bx--col-lg-12',
+    gridContentClasses: 'cds--col-lg-12',
     knobs: {
       ContentBlockSegmented: () => ({
         blockHeading: text('Heading (required)', 'Lorem ipsum dolor sit amet.'),
@@ -229,16 +229,16 @@ export default {
   title: 'Components/Content block segmented',
   decorators: [
     (story, { parameters }) => (
-      <div className="bx--grid">
-        <div className="bx--row">
-          <div className={`bx--no-gutter ${parameters.gridContentClasses}`}>{story()}</div>
+      <div className="cds--grid">
+        <div className="cds--row">
+          <div className={`cds--no-gutter ${parameters.gridContentClasses}`}>{story()}</div>
         </div>
       </div>
     ),
   ],
   parameters: {
     ...readme.parameters,
-    gridContentClasses: 'bx--col-lg-8',
+    gridContentClasses: 'cds--col-lg-8',
     hasStoryPadding: true,
     knobs: {
       ContentBlockSegmented: () => ({

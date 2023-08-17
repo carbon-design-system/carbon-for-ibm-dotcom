@@ -33,6 +33,8 @@ For Carbon v11 migration guidance, see their
 | content-group-simple      | This component is deprecated in v2 in favor for content-group, image, & content-item components |
 | cta-block                 | This component is deprecated in v2 in favor for content-section/block & content-item components |
 | cta-section               | This component is deprecated in v2 in favor for content-section/block & content-item components |
+| image                     | View changes [here](#image)            |
+| image-with-caption        | Replaced by `image`                    |
 | link-list-section         | This component is deprecated in v2 in favor for content-section/block & link-list end of section variant components |
 | logo-grid                 | This component is deprecated in v2 in favor for content-section/block & image-group components |
 | pictogram-item            | This component is deprecated in v2 in favor for content-item (pictogram variation) componet |
@@ -42,3 +44,7 @@ For Carbon v11 migration guidance, see their
 ### BackToTop
 
 - 
+
+### Image
+
+- New `lightbox-contrast` property

@@ -17,7 +17,8 @@ import '../expressive-modal/expressive-modal';
 import '../expressive-modal/expressive-modal-close-button';
 import '../lightbox-media-viewer/lightbox-image-viewer';
 import '../button/button';
-import ZoomIn20 from '../../internal/vendor/@carbon/web-components/icons/zoom--in/20.js';
+import { LIGHTBOX_CONTRAST } from './defs';
+import Maximize20 from '../../internal/vendor/@carbon/web-components/icons/maximize/20.js';
 import settings from '../../internal/vendor/@carbon/ibmdotcom-utilities/utilities/settings/settings';
 import styles from './image.scss';
 import ModalRenderMixin from '../../globals/mixins/modal-render';
@@ -26,6 +27,8 @@ import StableSelectorMixin from '../../globals/mixins/stable-selector';
 import { carbonElement as customElement } from '../../internal/vendor/@carbon/web-components/globals/decorators/carbon-element.js';
 
 const { prefix, stablePrefix: ddsPrefix } = settings;
+
+export { LIGHTBOX_CONTRAST };
 
 /**
  * Image.
@@ -107,6 +110,12 @@ class DDSImage extends StableSelectorMixin(
   border = false;
 
   /**
+   * The lightbox contrast option.
+   */
+  @property({ attribute: 'lightbox-contrast' })
+  lightboxContrast = LIGHTBOX_CONTRAST.LIGHT;
+
+  /**
    * The lightbox.
    */
   @property({ type: Boolean, reflect: true })
@@ -156,12 +165,13 @@ class DDSImage extends StableSelectorMixin(
       alt,
       border,
       defaultSrc,
+      lightbox,
       _images: images,
       _handleSlotChange: handleSlotChange,
     } = this;
     const imgClasses = classMap({
       [`${prefix}--image__img`]: true,
-      [`${prefix}--image__img--border`]: border,
+      [`${prefix}--image__img--border`]: border && !lightbox,
     });
 
     return html`
@@ -221,7 +231,7 @@ class DDSImage extends StableSelectorMixin(
               @click="${handleClick}">
               ${this.renderImage()}
               <div class="${prefix}--image-with-caption__zoom-button">
-                ${ZoomIn20()}
+                ${Maximize20()}
               </div>
             </button>
           `

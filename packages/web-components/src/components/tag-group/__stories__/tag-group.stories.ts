@@ -33,7 +33,7 @@ export const Default = (args) => {
           ? html`
               <dds-tag-link href="https://example.com"> ${title} </dds-tag-link>
             `
-          : html` <bx-tag type="green"> ${title} </bx-tag> `
+          : html` <cds-tag type="green"> ${title} </cds-tag> `
       )}
     </dds-tag-group>
   `;
@@ -43,9 +43,9 @@ export default {
   title: 'Components/Tag group',
   decorators: [
     (story) => html`
-      <div class="bx--grid">
-        <div class="bx--row">
-          <div class="bx--col-sm-16 bx--col-md-6">${story()}</div>
+      <div class="cds--grid">
+        <div class="cds--row">
+          <div class="cds--col-sm-16 cds--col-md-6">${story()}</div>
         </div>
       </div>
     `,

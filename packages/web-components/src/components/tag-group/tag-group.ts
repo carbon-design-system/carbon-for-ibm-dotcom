@@ -23,7 +23,7 @@ const { prefix, stablePrefix: ddsPrefix } = settings;
 @customElement(`${ddsPrefix}-tag-group`)
 class DDSTagGroup extends StableSelectorMixin(LitElement) {
   /**
-   * Handler for @slotchange, ensure that the only elements being rendered are BXTag and DDSTagLink
+   * Handler for @slotchange, ensure that the only elements being rendered are CDSTag and DDSTagLink
    *
    * @private
    */
@@ -52,7 +52,7 @@ class DDSTagGroup extends StableSelectorMixin(LitElement) {
       if (
         !(elem as HTMLElement).className
           .split(' ')
-          .some((c) => /^bx--tag--/.test(c))
+          .some((c) => /^cds--tag--/.test(c))
       ) {
         (elem as HTMLElement).classList?.add(`${prefix}--tag--green`);
       }
@@ -76,14 +76,14 @@ class DDSTagGroup extends StableSelectorMixin(LitElement) {
   }
 
   /**
-   * A selector that will return the BXTag child items.
+   * A selector that will return the CDSTag child items.
    */
   static get selectorTag() {
     return `${prefix}-tag`;
   }
 
   /**
-   * A selector that will return the BXTag child items.
+   * A selector that will return the CDSTag child items.
    */
   static get selectorReactTag() {
     return `${prefix}--tag`;

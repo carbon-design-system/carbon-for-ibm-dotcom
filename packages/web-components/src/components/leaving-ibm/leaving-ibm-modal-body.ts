@@ -37,8 +37,8 @@ class DDSLeavingIbmModalBody extends StableSelectorMixin(CDSModalBody) {
     return html`
       <p><slot></slot></p>
       <slot name="supplemental"></slot>
-      <bx-link size="lg" href="${ifDefined(href)}"
-        >${!href ? href : new URL(href).hostname}</bx-link
+      <cds-link size="lg" href="${ifDefined(href)}"
+        >${!href ? href : new URL(href).hostname}</cds-link
       >
     `;
   }

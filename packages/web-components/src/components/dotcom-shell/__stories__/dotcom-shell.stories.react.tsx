@@ -747,9 +747,9 @@ export const WithoutShell = args => {
       ) : (
         <DDSMastheadContainer id="masthead-container" l1Data={l1Data}></DDSMastheadContainer>
       )}
-      <main className="bx--content dds-ce-demo--ui-shell-content">
-        {leadspaceSearch ? <div className="bx--grid bx--col-lg-8">{contentLeadspaceSearch}</div> : ''}
-        {tocLayout === 'none' ? <div className="bx--grid bx--col-lg-8">{tocContent}</div> : ''}
+      <main className="cds--content dds-ce-demo--ui-shell-content">
+        {leadspaceSearch ? <div className="cds--grid cds--col-lg-8">{contentLeadspaceSearch}</div> : ''}
+        {tocLayout === 'none' ? <div className="cds--grid cds--col-lg-8">{tocContent}</div> : ''}
         {tocLayout === null ? StoryContent() : ''}
         {tocLayout === 'horizontal' ? StoryContent({ l1: false, leadspace: true, tocLayout: TOC_TYPES.HORIZONTAL }) : ''}
       </main>

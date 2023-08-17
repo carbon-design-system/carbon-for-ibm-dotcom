@@ -77,7 +77,7 @@ describe('dds-card-cta-footer', function () {
       expect(
         document.body
           .querySelector('dds-card-cta-footer')!
-          .shadowRoot!.querySelector('.bx--card__cta__copy')!
+          .shadowRoot!.querySelector('.cds--card__cta__copy')!
           .textContent!.trim()
       ).toBe('');
     });

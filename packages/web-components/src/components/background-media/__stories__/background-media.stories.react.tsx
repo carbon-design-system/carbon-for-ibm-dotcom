@@ -81,9 +81,9 @@ export default {
   title: 'Components/Background media',
   decorators: [
     story => (
-      <div className="bx--grid">
-        <div className="bx--row">
-          <div className="bx--col-sm-4 bx--no-gutter">{story()}</div>
+      <div className="cds--grid">
+        <div className="cds--row">
+          <div className="cds--col-sm-4 cds--no-gutter">{story()}</div>
         </div>
       </div>
     ),

@@ -5,7 +5,7 @@
 ####   `should render with minimum attributes`
 
 ```
-<button class="bx--filter-button">
+<button class="cds--filter-button">
   <div class="cds--filter__modal__button">
   </div>
 </button>

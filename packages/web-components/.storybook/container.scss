@@ -11,6 +11,10 @@
 @use '@carbon/styles/scss/theme' as *;
 @use '@carbon/styles/scss/themes' as *;
 @use '@carbon/styles/scss/type' as *;
+@use '@carbon/grid';
+
+// Emit the flex-grid styles
+@include grid.flex-grid();
 
 :root {
   @include theme($white, true);

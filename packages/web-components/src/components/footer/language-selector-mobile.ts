@@ -9,7 +9,6 @@
 
 import { property } from 'lit/decorators.js';
 import CDSSelect from '../../internal/vendor/@carbon/web-components/components/select/select.js';
-import { INPUT_SIZE } from '../../internal/vendor/@carbon/web-components/components/text-input/text-input.js';
 import settings from '../../internal/vendor/@carbon/ibmdotcom-utilities/utilities/settings/settings';
 import styles from './footer.scss';
 import { carbonElement as customElement } from '../../internal/vendor/@carbon/web-components/globals/decorators/carbon-element.js';
@@ -25,14 +24,6 @@ const { stablePrefix: ddsPrefix } = settings;
  */
 @customElement(`${ddsPrefix}-language-selector-mobile`)
 class DDSLanguageSelectorMobile extends CDSSelect {
-  /**
-   * Property that specifies the Select to have size xl
-   *
-   * @internal
-   */
-  @property()
-  size = INPUT_SIZE.EXTRA_LARGE;
-
   /**
    * The shadow slot this language-selector should be in.
    */

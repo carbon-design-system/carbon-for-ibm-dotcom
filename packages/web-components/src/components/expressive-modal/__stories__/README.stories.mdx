@@ -71,12 +71,12 @@ import '@carbon/ibmdotcom-web-components/es/components/expressive-modal/index.js
 
 ### Dialog labeling
 
-The expressive modal anticipates content within the `header` slot to be used as the accessible aria label for the dialog box. Even if a design does not call for the modal to have content in the title slot, it is _required_ for accessibility. The header can be visually hidden using the `.bx--visually-hidden` or `.bx--assistive-text` classes. This will prevent the text from rendering on the screen, but will still be announced to assistive technology users.
+The expressive modal anticipates content within the `header` slot to be used as the accessible aria label for the dialog box. Even if a design does not call for the modal to have content in the title slot, it is _required_ for accessibility. The header can be visually hidden using the `.cds--visually-hidden` or `.cds--assistive-text` classes. This will prevent the text from rendering on the screen, but will still be announced to assistive technology users.
 
 ```html
 <dds-expressive-modal id="my-lightbox" expressive-size="full-width">
   <dds-expressive-modal-close-button></dds-expressive-modal-close-button>
-  <span class="bx--visually-hidden" slot="header">Dialog box label text</span>
+  <span class="cds--visually-hidden" slot="header">Dialog box label text</span>
   ...
 </dds-expressive-modal>
 ```
@@ -104,7 +104,7 @@ document.getElementById('my-btn').addEventListener('click', () => {
 
 ### `<dds-expressive-modal>`
 
-**Note**: The events with `bx-` prefix and `size` attribute/property came from deriving `<bx-modal>`, but _not_ used in `<dds-expressive-modal>`.
+**Note**: The events with `cds-` prefix and `size` attribute/property came from deriving `<cds-modal>`, but _not_ used in `<dds-expressive-modal>`.
 
 <Props of="dds-expressive-modal" />
 

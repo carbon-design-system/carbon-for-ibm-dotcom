@@ -22,7 +22,7 @@ const longHeadingCardGroupItem = html`
       lobortis</dds-card-heading
     >
     <dds-tag-group>
-      <bx-tag>Most popular</bx-tag>
+      <cds-tag>Most popular</cds-tag>
     </dds-tag-group>
     <p>
       Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean et
@@ -73,9 +73,9 @@ export default {
   title: 'Components/Content block card static',
   decorators: [
     (story) => html`
-      <div class="bx--grid">
-        <div class="bx--row">
-          <div class="bx--col-lg-12 bx--no-gutter">${story()}</div>
+      <div class="cds--grid">
+        <div class="cds--row">
+          <div class="cds--col-lg-12 cds--no-gutter">${story()}</div>
         </div>
       </div>
     `,

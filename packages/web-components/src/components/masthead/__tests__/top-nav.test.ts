@@ -92,7 +92,7 @@ describe('dds-top-nav', function () {
       await Promise.resolve(); // The cycle where `slotchange` event is called
       const topNav = document.querySelector('dds-top-nav');
       const intersectionRightSentinelNode = topNav!.shadowRoot!.querySelector(
-        '.bx--sub-content-right'
+        '.cds-sub-content-right'
       );
       MockIntersectionObserver.run(intersectionRightSentinelNode!, false);
       await Promise.resolve();
@@ -103,7 +103,7 @@ describe('dds-top-nav', function () {
       await Promise.resolve();
       await pause(250); // Let DOM update, transition to end.
       const offsetElement = topNav!.shadowRoot!.querySelector(
-        '.bx--header__nav-content'
+        '.cds-header__nav-content'
       ) as HTMLElement;
       expect(window.getComputedStyle(offsetElement).insetInlineStart).toBe(
         '-167px'
@@ -116,7 +116,7 @@ describe('dds-top-nav', function () {
       await Promise.resolve(); // The cycle where `slotchange` event is called
       const topNav = document.querySelector('dds-top-nav');
       const intersectionRightSentinelNode = topNav!.shadowRoot!.querySelector(
-        '.bx--sub-content-right'
+        '.cds-sub-content-right'
       );
       MockIntersectionObserver.run(intersectionRightSentinelNode!, false);
       await Promise.resolve();
@@ -127,7 +127,7 @@ describe('dds-top-nav', function () {
       await Promise.resolve();
       await pause(250); // Let DOM update, transition to end.
       const offsetElement = topNav!.shadowRoot!.querySelector(
-        '.bx--header__nav-content'
+        '.cds-header__nav-content'
       ) as HTMLElement;
       expect(window.getComputedStyle(offsetElement).insetInlineStart).toBe(
         '-92px'
@@ -139,14 +139,14 @@ describe('dds-top-nav', function () {
     //   await Promise.resolve(); // Update cycle for the component
     //   await Promise.resolve(); // The cycle where `slotchange` event is called
     //   const topNav = document.querySelector('dds-top-nav');
-    //   const intersectionRightSentinelNode = topNav!.shadowRoot!.querySelector('.bx--sub-content-right');
+    //   const intersectionRightSentinelNode = topNav!.shadowRoot!.querySelector('.cds-sub-content-right');
     //   MockIntersectionObserver.run(intersectionRightSentinelNode!, false);
     //   await Promise.resolve();
     //   (topNav as any)._currentScrollPosition = 565;
     //   (topNav!.shadowRoot!.querySelector('[part="next-button"]') as HTMLElement).click();
     //   await Promise.resolve();
     //   await pause(250); // Let DOM update, transition to end.
-    //   const offsetElement = topNav!.shadowRoot!.querySelector('.bx--header__nav-content') as HTMLElement;
+    //   const offsetElement = topNav!.shadowRoot!.querySelector('.cds-header__nav-content') as HTMLElement;
     //   const offsetStyle = window.getComputedStyle(offsetElement).insetInlineStart;
     //   expect(offsetStyle).toBe('-565px');
     // });
@@ -156,16 +156,16 @@ describe('dds-top-nav', function () {
     //   await Promise.resolve(); // Update cycle for the component
     //   await Promise.resolve(); // The cycle where `slotchange` event is called
     //   const topNav = document.querySelector('dds-top-nav');
-    //   const intersectionLeftSentinelNode = topNav!.shadowRoot!.querySelector('.bx--sub-content-left');
+    //   const intersectionLeftSentinelNode = topNav!.shadowRoot!.querySelector('.cds-sub-content-left');
     //   MockIntersectionObserver.run(intersectionLeftSentinelNode!, false);
-    //   const intersectionRightSentinelNode = topNav!.shadowRoot!.querySelector('.bx--sub-content-right');
+    //   const intersectionRightSentinelNode = topNav!.shadowRoot!.querySelector('.cds-sub-content-right');
     //   MockIntersectionObserver.run(intersectionRightSentinelNode!, false);
     //   await Promise.resolve();
     //   (topNav as any)._currentScrollPosition = 690;
     //   (topNav!.shadowRoot!.querySelector('[part="next-button"]') as HTMLElement).click();
     //   await Promise.resolve();
     //   await pause(250); // Let DOM update, transition to end.
-    //   const offsetElement = topNav!.shadowRoot!.querySelector('.bx--header__nav-content') as HTMLElement;
+    //   const offsetElement = topNav!.shadowRoot!.querySelector('.cds-header__nav-content') as HTMLElement;
     //   const offsetStyle = window.getComputedStyle(offsetElement).insetInlineStart;
     //   expect(offsetStyle).toBe('-690px');
     // });
@@ -178,11 +178,11 @@ describe('dds-top-nav', function () {
       await Promise.resolve(); // The cycle where `slotchange` event is called
       const topNav = document.querySelector('dds-top-nav');
       const intersectionLeftSentinelNode = topNav!.shadowRoot!.querySelector(
-        '.bx--sub-content-left'
+        '.cds-sub-content-left'
       );
       MockIntersectionObserver.run(intersectionLeftSentinelNode!, false);
       const intersectionRightSentinelNode = topNav!.shadowRoot!.querySelector(
-        '.bx--sub-content-right'
+        '.cds-sub-content-right'
       );
       MockIntersectionObserver.run(intersectionRightSentinelNode!, false);
       await Promise.resolve();
@@ -193,7 +193,7 @@ describe('dds-top-nav', function () {
       await Promise.resolve();
       await pause(250); // Let DOM update, transition to end.
       const offsetElement = topNav!.shadowRoot!.querySelector(
-        '.bx--header__nav-content'
+        '.cds-header__nav-content'
       ) as HTMLElement;
       const offsetStyle =
         window.getComputedStyle(offsetElement).insetInlineStart;
@@ -206,11 +206,11 @@ describe('dds-top-nav', function () {
       await Promise.resolve(); // The cycle where `slotchange` event is called
       const topNav = document.querySelector('dds-top-nav');
       const intersectionLeftSentinelNode = topNav!.shadowRoot!.querySelector(
-        '.bx--sub-content-left'
+        '.cds-sub-content-left'
       );
       MockIntersectionObserver.run(intersectionLeftSentinelNode!, false);
       const intersectionRightSentinelNode = topNav!.shadowRoot!.querySelector(
-        '.bx--sub-content-right'
+        '.cds-sub-content-right'
       );
       MockIntersectionObserver.run(intersectionRightSentinelNode!, false);
       await Promise.resolve();
@@ -223,7 +223,7 @@ describe('dds-top-nav', function () {
       // Given the 4th item should be the right-most, the left position should be `350px - (200px - 80px)`
       await pause(250); // Let DOM update, transition to end.
       const offsetElement = topNav!.shadowRoot!.querySelector(
-        '.bx--header__nav-content'
+        '.cds-header__nav-content'
       ) as HTMLElement;
       const offsetStyle =
         window.getComputedStyle(offsetElement).insetInlineStart;
@@ -236,7 +236,7 @@ describe('dds-top-nav', function () {
       await Promise.resolve(); // The cycle where `slotchange` event is called
       const topNav = document.querySelector('dds-top-nav');
       const intersectionLeftSentinelNode = topNav!.shadowRoot!.querySelector(
-        '.bx--sub-content-left'
+        '.cds-sub-content-left'
       );
       MockIntersectionObserver.run(intersectionLeftSentinelNode!, false);
       await Promise.resolve();
@@ -247,7 +247,7 @@ describe('dds-top-nav', function () {
       await Promise.resolve();
       await pause(250); // Let DOM update, transition to end.
       const offsetElement = topNav!.shadowRoot!.querySelector(
-        '.bx--header__nav-content'
+        '.cds-header__nav-content'
       ) as HTMLElement;
       const offsetStyle =
         window.getComputedStyle(offsetElement).insetInlineStart;
@@ -260,11 +260,11 @@ describe('dds-top-nav', function () {
       await Promise.resolve(); // The cycle where `slotchange` event is called
       const topNav = document.querySelector('dds-top-nav');
       const intersectionLeftSentinelNode = topNav!.shadowRoot!.querySelector(
-        '.bx--sub-content-left'
+        '.cds-sub-content-left'
       );
       MockIntersectionObserver.run(intersectionLeftSentinelNode!, false);
       const intersectionRightSentinelNode = topNav!.shadowRoot!.querySelector(
-        '.bx--sub-content-right'
+        '.cds-sub-content-right'
       );
       MockIntersectionObserver.run(intersectionRightSentinelNode!, false);
       await Promise.resolve();
@@ -278,7 +278,7 @@ describe('dds-top-nav', function () {
       await Promise.resolve();
       await pause(250); // Let DOM update, transition to end.
       const offsetElement = topNav!.shadowRoot!.querySelector(
-        '.bx--header__nav-content'
+        '.cds-header__nav-content'
       ) as HTMLElement;
       const offsetStyle =
         window.getComputedStyle(offsetElement).insetInlineStart;

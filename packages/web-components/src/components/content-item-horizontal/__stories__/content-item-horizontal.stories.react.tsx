@@ -97,7 +97,7 @@ export const Default = args => {
 
 Default.story = {
   parameters: {
-    gridContentClasses: 'bx--col-lg-12 bx--no-gutter',
+    gridContentClasses: 'cds--col-lg-12 cds--no-gutter',
     knobs: {
       ContentItemHorizontal: () => ({
         eyebrow: textNullable('Eyebrow (eyebrow):', 'Lorem ipsum'),
@@ -126,7 +126,7 @@ export const withThumbnail = args => {
 withThumbnail.story = {
   name: 'With thumbnail',
   parameters: {
-    gridContentClasses: 'bx--col-lg-12 bx--no-gutter',
+    gridContentClasses: 'cds--col-lg-12 cds--no-gutter',
     knobs: {
       ContentItemHorizontal: () => ({
         heading: textNullable('Heading (heading):', 'Aliquam condimentum'),
@@ -160,7 +160,7 @@ export const withMedia = args => {
 withMedia.story = {
   name: 'With media',
   parameters: {
-    gridContentClasses: 'bx--col-lg-12 bx--no-gutter',
+    gridContentClasses: 'cds--col-lg-12 cds--no-gutter',
     knobs: {
       ContentItemHorizontal: () => ({
         align: select('Alignment', mediaAlign, MEDIA_ALIGN.RIGHT),
@@ -201,7 +201,7 @@ export const withFeaturedMedia = args => {
 withFeaturedMedia.story = {
   name: 'With featured media',
   parameters: {
-    gridContentClasses: 'bx--col-lg-12',
+    gridContentClasses: 'cds--col-lg-12',
     knobs: {
       ContentItemHorizontal: () => ({
         type: select('Media type', mediaType, MEDIA_TYPE.IMAGE),
@@ -218,8 +218,8 @@ export default {
   decorators: [
     (story, { parameters }) => {
       return (
-        <div className="bx--grid">
-          <div className="bx--row">
+        <div className="cds--grid">
+          <div className="cds--row">
             <div className={parameters.gridContentClasses}>{story()}</div>
           </div>
         </div>

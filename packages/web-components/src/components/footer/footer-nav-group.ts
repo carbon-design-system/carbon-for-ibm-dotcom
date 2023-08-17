@@ -11,8 +11,11 @@ import { LitElement, html } from 'lit';
 import { property, state } from 'lit/decorators.js';
 import ChevronRight16 from '../../internal/vendor/@carbon/web-components/icons/chevron--right/16.js';
 import settings from '../../internal/vendor/@carbon/ibmdotcom-utilities/utilities/settings/settings';
+import MediaQueryMixin, {
+  MQBreakpoints,
+  MQDirs,
+} from '../../component-mixins/media-query/media-query';
 import StableSelectorMixin from '../../globals/mixins/stable-selector';
-import Handle from '../../globals/internal/handle';
 import styles from './footer.scss';
 import { carbonElement as customElement } from '../../internal/vendor/@carbon/web-components/globals/decorators/carbon-element.js';
 
@@ -25,17 +28,18 @@ const { prefix, stablePrefix: ddsPrefix } = settings;
  * @slot title - The title content.
  */
 @customElement(`${ddsPrefix}-footer-nav-group`)
-class DDSFooterNavGroup extends StableSelectorMixin(LitElement) {
-  /**
-   * The handle for observing match of the media query for making the accordion item stick expanded.
-   */
-  private _hChangeMediaQuery: Handle | null = null;
-
-  /**
-   * `true` to make the accordion item stick expanded.
-   */
+class DDSFooterNavGroup extends MediaQueryMixin(
+  StableSelectorMixin(LitElement),
+  {
+    [MQBreakpoints.MD]: MQDirs.MAX,
+  }
+) {
   @state()
-  private _shouldStickExpanded = false;
+  private _isMobile = this.carbonBreakpoints.md.matches;
+
+  protected mediaQueryCallbackMaxMD() {
+    this._isMobile = this.carbonBreakpoints.md.matches;
+  }
 
   /**
    * Handles user-initiated toggle request of this accordion item.
@@ -78,15 +82,6 @@ class DDSFooterNavGroup extends StableSelectorMixin(LitElement) {
   };
 
   /**
-   * Handles `change` event on the media query list for making the accordion item stick expanded.
-   *
-   * @param event The event.
-   */
-  private _handleChangeMediaQuery = (event: MediaQueryListEvent) => {
-    this._shouldStickExpanded = event.matches;
-  };
-
-  /**
    * `true` if the check box should be open.
    */
   @property({ type: Boolean, reflect: true })
@@ -103,37 +98,17 @@ class DDSFooterNavGroup extends StableSelectorMixin(LitElement) {
       this.setAttribute('role', 'listitem');
     }
     super.connectedCallback();
-    if (this._hChangeMediaQuery) {
-      this._hChangeMediaQuery = this._hChangeMediaQuery.release();
-    }
-    const { mediaStickExpanded } = this.constructor as typeof DDSFooterNavGroup;
-    const mediaQueryList =
-      this.ownerDocument!.defaultView!.matchMedia(mediaStickExpanded);
-    this._shouldStickExpanded = mediaQueryList.matches;
-    const { _handleChangeMediaQuery: handleChangeMediaQuery } = this;
-    mediaQueryList.addListener(handleChangeMediaQuery);
-    this._hChangeMediaQuery = {
-      release() {
-        mediaQueryList.removeListener(handleChangeMediaQuery);
-      },
-    } as Handle;
-  }
-
-  disconnectedCallback() {
-    if (this._hChangeMediaQuery) {
-      this._hChangeMediaQuery = this._hChangeMediaQuery.release();
-    }
   }
 
   render() {
     const {
       titleText,
       open,
-      _shouldStickExpanded: shouldStickExpanded,
+      _isMobile: isMobile,
       _handleClickExpando: handleClickExpando,
       _handleKeydownExpando: handleKeydownExpando,
     } = this;
-    const heading = shouldStickExpanded
+    const heading = !isMobile
       ? html`
           <h2 class="${prefix}--footer-nav-group__title">
             <slot name="title">${titleText}</slot>
@@ -163,13 +138,6 @@ class DDSFooterNavGroup extends StableSelectorMixin(LitElement) {
         </ul>
       </div>
     `;
-  }
-
-  /**
-   * The media query to make the accordion item stick expaned.
-   */
-  static get mediaStickExpanded() {
-    return '(min-width: 42rem)';
   }
 
   /**

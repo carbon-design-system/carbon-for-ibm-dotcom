@@ -113,7 +113,7 @@ class DDSFilterPanelModal extends HostListenerMixin(
         class="${prefix}--visually-hidden"
         href="javascript:void 0"
         role="navigation"></a>
-      <section class="${prefix}--filter-panel__section bx--modal-container">
+      <section class="${prefix}--filter-panel__section cds--modal-container">
         <cds-modal-header>
           <cds-modal-close-button
             @click=${this._handleUserClose}></cds-modal-close-button>

@@ -168,14 +168,14 @@ export const WithMediaFeatured = (args) => {
 
 Default.story = {
   parameters: {
-    gridContentClasses: 'bx--col-lg-12 bx--no-gutter',
+    gridContentClasses: 'cds--col-lg-12 cds--no-gutter',
   },
 };
 
 WithThumbnail.story = {
   name: 'With thumbnail',
   parameters: {
-    gridContentClasses: 'bx--col-lg-12 bx--no-gutter',
+    gridContentClasses: 'cds--col-lg-12 cds--no-gutter',
     knobs: {
       ContentItemHorizontal: () => ({
         heading: textNullable('Heading (heading):', 'Aliquam condimentum'),
@@ -196,7 +196,7 @@ WithThumbnail.story = {
 WithMedia.story = {
   name: 'With media',
   parameters: {
-    gridContentClasses: 'bx--col-lg-12 bx--no-gutter',
+    gridContentClasses: 'cds--col-lg-12 cds--no-gutter',
     knobs: {
       ContentItemHorizontal: () => ({
         align: select('Alignment', mediaAlign, MEDIA_ALIGN.RIGHT),
@@ -224,7 +224,7 @@ WithMedia.story = {
 WithMediaFeatured.story = {
   name: 'With featured media',
   parameters: {
-    gridContentClasses: 'bx--col-lg-12',
+    gridContentClasses: 'cds--col-lg-12',
     knobs: {
       ContentItemHorizontal: () => ({
         type: select('Media type', mediaType, MEDIA_TYPE.IMAGE),
@@ -251,8 +251,8 @@ export default {
   title: 'Components/Content item horizontal',
   decorators: [
     (story, { parameters }) => html`
-      <div class="bx--grid">
-        <div class="bx--row">
+      <div class="cds--grid">
+        <div class="cds--row">
           <div class="${parameters.gridContentClasses}">${story()}</div>
         </div>
       </div>

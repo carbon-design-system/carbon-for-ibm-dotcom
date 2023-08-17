@@ -11,7 +11,7 @@
 >
   <div id="carousel-title">
     <slot name="title">
-      <span class="bx--visually-hidden">
+      <span class="cds--visually-hidden">
         Carousel
       </span>
     </slot>

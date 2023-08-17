@@ -16,13 +16,13 @@ export const Default = () => {
   return html`
     <div
       style="width:100%"
-      class="bx--grid bx--layout--top-layout-03 bx--layout--bottom-layout-06">
+      class="cds-grid cds--layout--top-layout-0 cds--layout--bottom-layout-06">
       <div
-        class="bx--row bx--layout--top-layout-03 bx--layout--bottom-layout-06">
-        <div class="bx--col-lg-12">
+        class="cds-row cds--layout--top-layout-0 cds--layout--bottom-layout-06">
+        <div class="cds-col-lg-12">
           <div>
-            <div class="bx--row">
-              <div class="bx--layout-2-3">
+            <div class="cds-row">
+              <div class="cds-layout-2-3">
                 <h3>Column 2-3</h3>
                 <p>
                   Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed
@@ -49,16 +49,16 @@ export const Default = () => {
                   ornare aenean.
                 </p>
               </div>
-              <div class="bx--layout-1-3">
+              <div class="cds-layout-1-3">
                 <h3>layout 1-3</h3>
-                <ul class="bx--list--unordered">
-                  <li class="bx--list__item">item 1</li>
-                  <li class="bx--list__item">item 2</li>
-                  <li class="bx--list__item">item 3</li>
-                  <li class="bx--list__item">item 4</li>
-                  <li class="bx--list__item">item 5</li>
-                  <li class="bx--list__item">item 6</li>
-                  <li class="bx--list__item">item 7</li>
+                <ul class="cds-list--unordered">
+                  <li class="cds-list__item">item 1</li>
+                  <li class="cds-list__item">item 2</li>
+                  <li class="cds-list__item">item 3</li>
+                  <li class="cds-list__item">item 4</li>
+                  <li class="cds-list__item">item 5</li>
+                  <li class="cds-list__item">item 6</li>
+                  <li class="cds-list__item">item 7</li>
                 </ul>
                 <p>
                   A pellentesque sit amet porttitor. Sed euismod nisi porta
@@ -71,20 +71,20 @@ export const Default = () => {
           </div>
         </div>
       </div>
-      <div class="bx--row">
-        <div class="bx--col-lg-12">
+      <div class="cds-row">
+        <div class="cds-col-lg-12">
           <div>
-            <div class="bx--row">
-              <div class="bx--layout-1-3">
+            <div class="cds-row">
+              <div class="cds-layout-1-3">
                 <h3>layout 1-3</h3>
-                <ul class="bx--list--unordered">
-                  <li class="bx--list__item">item 1</li>
-                  <li class="bx--list__item">item 2</li>
-                  <li class="bx--list__item">item 3</li>
-                  <li class="bx--list__item">item 4</li>
-                  <li class="bx--list__item">item 5</li>
-                  <li class="bx--list__item">item 6</li>
-                  <li class="bx--list__item">item 7</li>
+                <ul class="cds-list--unordered">
+                  <li class="cds-list__item">item 1</li>
+                  <li class="cds-list__item">item 2</li>
+                  <li class="cds-list__item">item 3</li>
+                  <li class="cds-list__item">item 4</li>
+                  <li class="cds-list__item">item 5</li>
+                  <li class="cds-list__item">item 6</li>
+                  <li class="cds-list__item">item 7</li>
                 </ul>
                 <p>
                   A pellentesque sit amet porttitor. Sed euismod nisi porta
@@ -93,7 +93,7 @@ export const Default = () => {
                   molestie nunc non blandit massa.
                 </p>
               </div>
-              <div class="bx--layout-2-3">
+              <div class="cds-layout-2-3">
                 <h3>layout 2-3</h3>
                 <p>
                   Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed

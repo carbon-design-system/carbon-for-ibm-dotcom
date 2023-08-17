@@ -111,9 +111,9 @@ export default {
   decorators: [
     (story, args) => {
       return (
-        <div className="bx--grid">
-          <div className="bx--row">
-            <div className={`${args?.TabsExtendedMedia?.sectionHeading ? `bx--col-lg-16` : `bx--col-lg-12`} bx--no-gutter`}>
+        <div className="cds--grid">
+          <div className="cds--row">
+            <div className={`${args?.TabsExtendedMedia?.sectionHeading ? `cds--col-lg-16` : `cds--col-lg-12`} cds--no-gutter`}>
               {story()}
             </div>
           </div>

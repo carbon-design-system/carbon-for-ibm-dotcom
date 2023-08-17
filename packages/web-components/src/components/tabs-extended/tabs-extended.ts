@@ -95,7 +95,7 @@ class DDSTabsExtended extends MediaQueryMixin(StableSelectorMixin(LitElement), {
     const newTabLink = this.shadowRoot?.querySelector(`
     [role="tablist"] li[role="tab"]:nth-child(${
       index + 1
-    }) .bx--tabs__nav-link`);
+    }) .cds--tabs__nav-link`);
     if (newTabLink instanceof HTMLElement) {
       newTabLink.focus();
     }
@@ -246,9 +246,9 @@ class DDSTabsExtended extends MediaQueryMixin(StableSelectorMixin(LitElement), {
             const active = index === this._activeTabIndex;
             const label = (tab as DDSTab).getAttribute('label');
             const classes = classMap({
-              'bx--tabs__nav-item': true,
-              'bx--tabs__nav-item--selected': active,
-              'bx--tabs__nav-item--disabled': disabled,
+              'cds--tabs__nav-item': true,
+              'cds--tabs__nav-item--selected': active,
+              'cds--tabs__nav-item--disabled': disabled,
             });
             return html`
               <li

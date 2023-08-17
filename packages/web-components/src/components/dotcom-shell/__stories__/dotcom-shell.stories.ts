@@ -1225,14 +1225,14 @@ export const WithoutShell = (args) => {
             id="masthead-container"
             .l1Data="${l1Data}"></dds-masthead-container>
         `}
-    <main class="bx--content dds-ce-demo--ui-shell-content">
+    <main class="cds--content dds-ce-demo--ui-shell-content">
       ${leadspaceSearch
         ? html`
-            <div class="bx--grid bx--col-lg-8">${contentLeadspaceSearch}</div>
+            <div class="cds--grid cds--col-lg-8">${contentLeadspaceSearch}</div>
           `
         : ''}
       ${tocLayout === 'none'
-        ? html` <div class="bx--grid bx--col-lg-8">${tocContent}</div> `
+        ? html` <div class="cds--grid cds--col-lg-8">${tocContent}</div> `
         : ''}
       ${tocLayout === null ? StoryContent() : ''}
       ${tocLayout === 'horizontal'

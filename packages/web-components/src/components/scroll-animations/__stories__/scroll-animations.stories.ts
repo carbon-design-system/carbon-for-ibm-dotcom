@@ -24,13 +24,13 @@ const selectorTargets = `dds-content-block-heading,
    dds-text-cta,
    dds-feature-card-block-large,
    dds-image,
-   .bx--image__img,
+   .cds--image__img,
    dds-image,
    dds-card-cta,
    dds-callout-with-media,
    dds-content-item-horizontal,
    dds-logo-grid-item,
-   .bx--card__CTA,
+   .cds--card__CTA,
    dds-card-group-item,
    dds-callout-quote,
    dds-video-player,
@@ -239,7 +239,7 @@ export default {
   },
   decorators: [
     (story) => html`
-      <div class="bx--grid" style="padding: 0">${story()}</div>
+      <div class="cds--grid" style="padding: 0">${story()}</div>
     `,
   ],
 };

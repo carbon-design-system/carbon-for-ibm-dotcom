@@ -88,9 +88,9 @@ export default {
       <style>
         ${styles}
       </style>
-      <div class="bx--grid">
-        <div class="bx--row">
-          <div class="${parameters.gridContentClasses} bx--no-gutter">
+      <div class="cds--grid">
+        <div class="cds--row">
+          <div class="${parameters.gridContentClasses} cds--no-gutter">
             ${story()}
           </div>
         </div>
@@ -99,7 +99,7 @@ export default {
   ],
   parameters: {
     ...readme.parameters,
-    gridContentClasses: 'bx--col-lg-8',
+    gridContentClasses: 'cds--col-lg-8',
     hasStoryPadding: true,
     knobs: {
       ContentBlockMixed: () => ({
@@ -364,7 +364,7 @@ export const WithLinkList = (args) => {
 WithLinkList.story = {
   name: 'With link list',
   parameters: {
-    gridContentClasses: 'bx--col-lg-12',
+    gridContentClasses: 'cds--col-lg-12',
     knobs: {
       ContentBlockMixed: () => ({
         heading: textNullable(

@@ -242,7 +242,7 @@ export const withLinkList = args => {
 withLinkList.story = {
   name: 'With link list',
   parameters: {
-    gridContentClasses: 'bx--col-lg-12',
+    gridContentClasses: 'cds--col-lg-12',
     knobs: {
       ContentBlockMixed: () => ({
         heading: text('Heading (heading)', 'Lorem ipsum dolor sit amet'),
@@ -271,9 +271,9 @@ export default {
   decorators: [
     (story, { parameters }) => {
       return (
-        <div className="bx--grid">
-          <div className="bx--row">
-            <div className={`${parameters.gridContentClasses} bx--no-gutter`}>{story()}</div>
+        <div className="cds--grid">
+          <div className="cds--row">
+            <div className={`${parameters.gridContentClasses} cds--no-gutter`}>{story()}</div>
           </div>
         </div>
       );
@@ -281,7 +281,7 @@ export default {
   ],
   parameters: {
     ...readme.parameters,
-    gridContentClasses: 'bx--col-lg-8',
+    gridContentClasses: 'cds--col-lg-8',
     hasStoryPadding: true,
     knobs: {
       ContentBlockMixed: () => ({

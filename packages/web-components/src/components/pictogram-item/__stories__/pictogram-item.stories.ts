@@ -30,7 +30,7 @@ const Desktop = html`
     height="64"
     viewBox="8 8 32 32"
     role="img"
-    class="bx--pictogram-item__pictogram">
+    class="cds--pictogram-item__pictogram">
     <path
       fill="none"
       stroke-linejoin="round"
@@ -53,7 +53,7 @@ const Pattern = html`
     height="64"
     viewBox="0 0 32 32"
     role="img"
-    class="bx--pictogram-item__pictogram"
+    class="cds--pictogram-item__pictogram"
     style="enable-background:new 0 0 32 32;">
     <path
       id="pattern_1_"
@@ -100,7 +100,7 @@ const Touch = html`
     height="64"
     viewBox="0 0 32 32"
     role="img"
-    class="bx--pictogram-item__pictogram">
+    class="cds--pictogram-item__pictogram">
     <path
       id="touch_1_"
       d="M19.77,31.36c-5.067,0-7.409-2.218-10.404-5.602c-0.844-0.953-3.435-3.76-3.435-3.76L5.43,21.444
@@ -176,9 +176,11 @@ export default {
       <style>
         ${styles}
       </style>
-      <div class="bx--grid">
-        <div class="bx--row">
-          <div class="bx--col-sm-4 bx--col-lg-8 bx--no-gutter">${story()}</div>
+      <div class="cds--grid">
+        <div class="cds--row">
+          <div class="cds--col-sm-4 cds--col-lg-8 cds--no-gutter">
+            ${story()}
+          </div>
         </div>
       </div>
     `,

@@ -237,7 +237,7 @@ export const withLinkList = (args) => {
 withLinkList.story = {
   name: 'With link list',
   parameters: {
-    gridContentClasses: 'bx--col-lg-12',
+    gridContentClasses: 'cds--col-lg-12',
     knobs: {
       ContentBlockSegmented: () => ({
         blockHeading: textNullable(
@@ -286,9 +286,9 @@ export default {
   title: 'Components/Content block segmented',
   decorators: [
     (story, { parameters }) => html`
-      <div class="bx--grid">
-        <div class="bx--row">
-          <div class="bx--no-gutter ${parameters.gridContentClasses}">
+      <div class="cds--grid">
+        <div class="cds--row">
+          <div class="cds--no-gutter ${parameters.gridContentClasses}">
             ${story()}
           </div>
         </div>
@@ -297,7 +297,7 @@ export default {
   ],
   parameters: {
     ...readme.parameters,
-    gridContentClasses: 'bx--col-lg-8',
+    gridContentClasses: 'cds--col-lg-8',
     hasStoryPadding: true,
     knobs: {
       ContentBlockSegmented: () => ({

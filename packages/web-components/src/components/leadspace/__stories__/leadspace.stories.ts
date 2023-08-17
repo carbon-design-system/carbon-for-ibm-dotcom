@@ -681,7 +681,7 @@ const iconOptions = {
 export default {
   title: 'Components/Lead space',
   decorators: [
-    (story) => html` <div class="bx--grid bx--no-gutter">${story()}</div> `,
+    (story) => html` <div class="cds--grid cds--no-gutter">${story()}</div> `,
   ],
   parameters: {
     ...readme.parameters,

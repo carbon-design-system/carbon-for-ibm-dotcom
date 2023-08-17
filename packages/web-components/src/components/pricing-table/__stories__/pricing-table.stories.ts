@@ -38,14 +38,14 @@ const renderHeaderCell = (iterator: number): TemplateResult => {
         >
         <dds-pricing-table-header-cell-description>
           Lorem ipsum dolor sit amet consectetur.
-          <bx-unordered-list>
-            <bx-list-item>Lorem ipsum dolor</bx-list-item>
-            <bx-list-item>sit amet</bx-list-item>
-            <bx-list-item
+          <cds-unordered-list>
+            <cds-list-item>Lorem ipsum dolor</cds-list-item>
+            <cds-list-item>sit amet</cds-list-item>
+            <cds-list-item
               >consectetur retention adispiscing elit sed do eiusm Eiusmod
-              tempor</bx-list-item
+              tempor</cds-list-item
             >
-          </bx-unordered-list>
+          </cds-unordered-list>
         </dds-pricing-table-header-cell-description>
         <dds-pricing-table-header-cell-cta
           cta-type="local"
@@ -64,14 +64,14 @@ const renderHeaderCell = (iterator: number): TemplateResult => {
         >
         <dds-pricing-table-header-cell-description>
           Lorem ipsum dolor sit amet consectetur.
-          <bx-unordered-list>
-            <bx-list-item>Lorem ipsum dolor</bx-list-item>
-            <bx-list-item>sit amet</bx-list-item>
-            <bx-list-item
+          <cds-unordered-list>
+            <cds-list-item>Lorem ipsum dolor</cds-list-item>
+            <cds-list-item>sit amet</cds-list-item>
+            <cds-list-item
               >consectetur retention adispiscing elit sed do eiusm Eiusmod
-              tempor</bx-list-item
+              tempor</cds-list-item
             >
-          </bx-unordered-list>
+          </cds-unordered-list>
         </dds-pricing-table-header-cell-description>
         <dds-pricing-table-header-cell-cta
           cta-type="local"
@@ -94,14 +94,14 @@ const renderHeaderCell = (iterator: number): TemplateResult => {
         >
         <dds-pricing-table-header-cell-description>
           Lorem ipsum dolor sit amet consectetur.
-          <bx-unordered-list>
-            <bx-list-item>Lorem ipsum dolor</bx-list-item>
-            <bx-list-item>sit amet</bx-list-item>
-            <bx-list-item
+          <cds-unordered-list>
+            <cds-list-item>Lorem ipsum dolor</cds-list-item>
+            <cds-list-item>sit amet</cds-list-item>
+            <cds-list-item
               >consectetur retention adispiscing elit sed do eiusm Eiusmod
-              tempor</bx-list-item
+              tempor</cds-list-item
             >
-          </bx-unordered-list>
+          </cds-unordered-list>
         </dds-pricing-table-header-cell-description>
         <dds-pricing-table-header-cell-cta
           cta-type="local"
@@ -370,9 +370,9 @@ export default {
       <style>
         ${styles}
       </style>
-      <div class="bx--grid">
-        <div class="bx--row">
-          <div class="bx--col-lg-16">${story()}</div>
+      <div class="cds--grid">
+        <div class="cds--row">
+          <div class="cds--col-lg-16">${story()}</div>
         </div>
       </div>
     `,

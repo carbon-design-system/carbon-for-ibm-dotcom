@@ -96,7 +96,7 @@
     }
 
     ::slotted(svg[slot='icon']) {
-      @extend .#{$prefix}--image__icon;
+      @extend :host(#{$dds-prefix}-image::slotted(svg[slot='icon']));
 
       @include breakpoint(md) {
         right: calc(75% - #{$spacing-07});

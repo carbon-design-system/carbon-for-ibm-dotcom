@@ -121,12 +121,6 @@
     class="cds--tableofcontents__sidebar"
     part="table"
   >
-    <div class="cds--tableofcontents__desktop__children">
-      <slot name="heading">
-      </slot>
-      <slot name="menu-rule">
-      </slot>
-    </div>
     <div class="cds--tableofcontents__mobile-top">
     </div>
     <div
@@ -159,6 +153,10 @@
   </div>
   <div class="cds--tableofcontents__content">
     <div class="cds--tableofcontents__content-wrapper">
+      <div class="cds--tableofcontents__children__mobile">
+        <slot name="heading">
+        </slot>
+      </div>
       <slot>
       </slot>
     </div>

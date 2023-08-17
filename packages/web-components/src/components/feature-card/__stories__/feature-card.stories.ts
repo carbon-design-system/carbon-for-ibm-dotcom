@@ -69,7 +69,7 @@ export const Large = (args) => {
 
 Large.story = {
   parameters: {
-    storyGrid: 'bx--col-lg-12',
+    storyGrid: 'cds--col-lg-12',
     knobs: {
       'dds-feature-card': () => ({
         eyebrow: textNullable(
@@ -106,16 +106,16 @@ export default {
   title: 'Components/Feature card',
   decorators: [
     (story, { parameters }) => html`
-      <div class="bx--grid">
-        <div class="bx--row">
-          <div class="bx--col-sm-4 ${parameters.storyGrid}">${story()}</div>
+      <div class="cds--grid">
+        <div class="cds--row">
+          <div class="cds--col-sm-4 ${parameters.storyGrid}">${story()}</div>
         </div>
       </div>
     `,
   ],
   parameters: {
     ...readme.parameters,
-    storyGrid: 'bx--col-lg-8 bx--no-gutter"',
+    storyGrid: 'cds--col-lg-8 cds--no-gutter"',
     hasStoryPadding: true,
     knobs: {
       'dds-feature-card': () => ({

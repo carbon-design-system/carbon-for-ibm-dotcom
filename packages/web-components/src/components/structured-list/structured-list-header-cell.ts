@@ -7,7 +7,7 @@
  * LICENSE file in the root directory of this source tree.
  */
 
-import BXStructuredListHeaderCell from '../../internal/vendor/@carbon/web-components/components/structured-list/structured-list-header-cell.js';
+import CDSStructuredListHeaderCell from '../../internal/vendor/@carbon/web-components/components/structured-list/structured-list-header-cell.js';
 import {} from 'lit';
 import settings from '../../internal/vendor/@carbon/ibmdotcom-utilities/utilities/settings/settings';
 import styles from './structured-list.scss';
@@ -21,7 +21,7 @@ const { stablePrefix: ddsPrefix } = settings;
  * @element dds-structured-list-header-cell
  */
 @customElement(`${ddsPrefix}-structured-list-header-cell`)
-class DDSStructuredListHeaderCell extends BXStructuredListHeaderCell {
+class DDSStructuredListHeaderCell extends CDSStructuredListHeaderCell {
   connectedCallback() {
     super.connectedCallback();
   }

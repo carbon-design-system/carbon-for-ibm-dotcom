@@ -10,7 +10,7 @@
 import { html } from 'lit';
 import { property } from 'lit/decorators.js';
 import ArrowRight20 from '../../internal/vendor/@carbon/web-components/icons/arrow--right/20.js';
-import BXLink from '../../internal/vendor/@carbon/web-components/components/link/link.js';
+import CDSLink from '../../internal/vendor/@carbon/web-components/components/link/link.js';
 import Error20 from '../../internal/vendor/@carbon/web-components/icons/error/20.js';
 import settings from '../../internal/vendor/@carbon/ibmdotcom-utilities/utilities/settings/settings';
 import styles from './locale-modal.scss';
@@ -24,7 +24,7 @@ const { prefix, stablePrefix: ddsPrefix } = settings;
  * @element dds-region-item
  */
 @customElement(`${ddsPrefix}-region-item`)
-class DDSRegionItem extends BXLink {
+class DDSRegionItem extends CDSLink {
   /**
    * `true` if this region has no countries.
    */

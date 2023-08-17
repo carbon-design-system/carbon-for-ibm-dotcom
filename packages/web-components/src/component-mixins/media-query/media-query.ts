@@ -9,6 +9,7 @@
 
 import { Constructor } from '../../globals/defs';
 import { breakpoints as BXBreakpoints } from '@carbon/layout';
+import root from 'window-or-global';
 
 export enum MQBreakpoints {
   SM = 'sm',
@@ -46,10 +47,10 @@ const MediaQueryMixin = <T extends Constructor<HTMLElement>>(
     _generateMediaQueriesByBreakpoint(): { [index: string]: MediaQueryList } {
       const { _mqConfig: config } = this;
 
-      const breakpoints = Object.keys(config);
-      const queries = {};
+      const breakpoints = Object.keys(config) as MQBreakpoints[];
+      const queries: { [Property in MQBreakpoints]?: MediaQueryList } = {};
       breakpoints.forEach((bp) => {
-        queries[bp] = window.matchMedia(
+        queries[bp] = root.matchMedia(
           `(${config[bp]}-width: ${BXBreakpoints[bp].width})`
         );
       });

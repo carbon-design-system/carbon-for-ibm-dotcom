@@ -33,10 +33,10 @@ export default {
   title: 'Components/Card link',
   decorators: [
     (story) => html`
-      <div class="bx--grid">
-        <div class="bx--row">
+      <div class="cds--grid">
+        <div class="cds--row">
           <div
-            class="bx--col-sm-4 bx--col-md-3 bx--col-lg-6 bx--col-xlg-4 bx--no-gutter">
+            class="cds--col-sm-4 cds--col-md-3 cds--col-lg-6 cds--col-xlg-4 cds--no-gutter">
             ${story()}
           </div>
         </div>
