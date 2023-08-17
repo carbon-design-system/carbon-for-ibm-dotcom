@@ -9,6 +9,9 @@ This document will review in detail the changes in @carbon/web-components v1 to 
 For Carbon v11 migration guidance, see their
 [migration guide](https://github.com/carbon-design-system/carbon/blob/main/docs/migration/v11.md).
 
+*** Note
+When using @carbon/web-components v2 you need to include theming to get all the token values necessary for the components. This includes using white theme, see the accordion codesandbox example [here](https://codesandbox.io/p/sandbox/github/carbon-design-system/carbon-for-ibm-dotcom/tree/feat/cwc-v2/packages/carbon-web-components/examples/codesandbox/basic/components/accordion?file=/index.html:1,1)
+
 ## List of component changes
 
 | Component                 | Changes                                  |
