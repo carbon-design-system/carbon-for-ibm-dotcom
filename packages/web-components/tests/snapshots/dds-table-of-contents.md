@@ -9,6 +9,7 @@
   <div
     class="cds--tableofcontents__sidebar"
     part="table"
+    style="transition: none 0s ease 0s; top: 0px;"
   >
     <div
       class="cds--tableofcontents__desktop__children"
@@ -66,6 +67,7 @@
   <div
     class="cds--tableofcontents__sidebar"
     part="table"
+    style="transition: none 0s ease 0s; top: 0px;"
   >
     <div class="cds--tableofcontents__desktop__children">
       <slot name="heading">
@@ -120,6 +122,7 @@
   <div
     class="cds--tableofcontents__sidebar"
     part="table"
+    style="transition: none 0s ease 0s; top: 0px;"
   >
     <div class="cds--tableofcontents__mobile-top">
     </div>
