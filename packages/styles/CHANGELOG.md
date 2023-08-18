@@ -3,6 +3,21 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.50.0-rc.0](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/compare/@carbon/ibmdotcom-styles@1.49.0...@carbon/ibmdotcom-styles@1.50.0-rc.0) (2023-08-14)
+
+
+### Bug Fixes
+
+* **background-media:** deprecate mobile-position attribute and utilize slots ([#10777](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/issues/10777)) ([bed6088](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/commit/bed6088fb0aa8937956878574efec601f8405763)), closes [#10736](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/issues/10736)
+* **button-group:** small breakpoints alignments ([#10802](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/issues/10802)) ([1b2e55f](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/commit/1b2e55faa5aa68d54762bd374892070daa614fa8)), closes [#9574](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/issues/9574)
+* **deps:** update dependency @carbon/motion to v10.29.1 ([#10688](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/issues/10688)) ([5f27637](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/commit/5f27637fe836089bf4775358b8fb5ebf955dc7df))
+* **deps:** update dependency @carbon/themes to v10.55.2 ([#10689](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/issues/10689)) ([849c366](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/commit/849c36681111fe1a0e5dcffe5a778ec321c91e1a))
+* **deps:** update dependency carbon-components to v10.58.8 ([#10690](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/issues/10690)) ([c22052d](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/commit/c22052dbd218d2e6d968515982bd2369e0d4733b))
+
+
+
+
+
 # [1.49.0](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/compare/@carbon/ibmdotcom-styles@1.49.0-rc.0...@carbon/ibmdotcom-styles@1.49.0) (2023-07-26)
 
 **Note:** Version bump only for package @carbon/ibmdotcom-styles
