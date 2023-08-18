@@ -30,16 +30,18 @@ export function loadContent(locale: string, onSuccess: any, onError: any) {
   const script = document.createElement('script');
   script.async = false;
   script.charset = 'utf-8';
-  script.src = `https://www.ibm.com/common/translations/notice/v23/${locale}/ncContent_v23.js`; // URL for the third-party library being loaded.
+  script.src = `https://www.ibm.com/common/translations/notice/v23/${locale.toLowerCase()}/ncContent_v23.js`; // URL for the third-party library being loaded.
   document.body.appendChild(script);
   script.onload = () => {
-    try {
+    try {    
+
       if (onSuccess) onSuccess(window.NoticeChoice.Content);
     } catch (e) {
       if (onError) onError(e);
     }
   };
   script.onerror = () => {
+
     if (onError) onError();
   };
 }

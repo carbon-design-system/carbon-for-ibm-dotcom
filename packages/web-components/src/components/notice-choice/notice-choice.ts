@@ -108,6 +108,21 @@ class NoticeChoice extends StableSelectorMixin(LitElement) {
       this.performUpdate();
     }
   }
+  defaultLoadContent() {
+
+    loadContent(
+      'en',
+      (ncData) => {
+        this.ncData = ncData;
+        this.prepareCheckboxes();
+        this.countryChanged();
+      },
+      (error) => {
+        console.error('error loading content', error);
+      }
+    );
+  }
+
   connectedCallback() {
     super.connectedCallback();
     loadContent(
@@ -118,7 +133,7 @@ class NoticeChoice extends StableSelectorMixin(LitElement) {
         this.countryChanged();
       },
       (error) => {
-        console.error('error loading content', error);
+        this.defaultLoadContent();
       }
     );
   }
@@ -194,7 +209,7 @@ class NoticeChoice extends StableSelectorMixin(LitElement) {
               this.prepareCheckboxes();
             },
             (error) => {
-              console.error('error loading content', error);
+              this.defaultLoadContent()
             }
           );
         }
