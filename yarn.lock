@@ -2590,7 +2590,7 @@ __metadata:
     "@carbon/ibmdotcom-styles": 1.50.0-rc.2
     "@carbon/ibmdotcom-utilities": 1.50.0-rc.2
     "@carbon/icon-helpers": 10.40.0
-    "@carbon/icons": 10.48.1
+    "@carbon/icons": 10.48.2
     "@carbon/icons-react": 10.49.1
     "@carbon/layout": 10.37.1
     "@carbon/motion": ^11.0.0
@@ -2756,7 +2756,14 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@carbon/icons@npm:10.48.1, @carbon/icons@npm:^10.48.0":
+"@carbon/icons@npm:10.48.2":
+  version: 10.48.2
+  resolution: "@carbon/icons@npm:10.48.2"
+  checksum: 51b1ef72f0e84ec0df3609132942c48b0b6a211b3a53bde46a0df230d11d2eb0f3c197deb4ddbfa1b182627450d27e8bebcc34e99cd6dc1e3266283b03e470ee
+  languageName: node
+  linkType: hard
+
+"@carbon/icons@npm:^10.48.0":
   version: 10.48.1
   resolution: "@carbon/icons@npm:10.48.1"
   checksum: b45239822e14378d72cff20a434b9319b4f9ef31e6f2cbc18e45774192ce3150c929ee7b555ea7f5986970033e19e2872775369c50aa04e67c87ca03c255ceb3
