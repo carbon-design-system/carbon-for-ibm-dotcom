@@ -36,11 +36,11 @@ const languages = {
   'Malaysian [ms]': 'ms',
   'Polish [pl]': 'pl',
   'Portuguese [pt]': 'pt',
-  'Portuguese (Brazil)':'pt-br',
+  'Portuguese (Brazil)': 'pt-br',
   'Slovenian [sl]': 'sl',
   'Spanish [es]': 'es',
   'Spanish-Latin America [es-la]': 'es-la',
-  'Spanish (Mexico)':'es-MX',
+  'Spanish (Mexico)': 'es-MX',
   'Turkish [tr]': 'tr',
   'Ukrainian [uk]': 'uk',
 };
@@ -86,7 +86,7 @@ export const Default = (args) => {
   } = args?.NoticeChoice ?? {};
   return html`
     <dds-notice-choice
-    language="${language}"
+      language="${language}"
       country="${country}"
       question-choices="${questionchoices}"
       state="${state}"

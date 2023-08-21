@@ -418,8 +418,10 @@ class NoticeChoice extends StableSelectorMixin(LitElement) {
     }
   }
   protected _getOptionByQuestion = (question) => {
-    const questionChoiceStatus = this.country ? countrySettings[this.country.toLocaleLowerCase()] : { email:'opt-in',phone:'opt-in' }
-    
+    const questionChoiceStatus = this.country
+      ? countrySettings[this.country.toLocaleLowerCase()]
+      : { email: 'opt-in', phone: 'opt-in' };
+
     let option;
     switch (question) {
       case 'EMAIL': {
