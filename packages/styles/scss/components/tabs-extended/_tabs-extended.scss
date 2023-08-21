@@ -274,3 +274,7 @@ button.#{$prefix}--tabs__nav-link {
   button.#{$prefix}--tabs__nav-link:active {
   color: $text-02;
 }
+
+.#{$prefix}--accordion__title {
+  hyphens: auto;
+}
