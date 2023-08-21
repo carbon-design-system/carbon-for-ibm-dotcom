@@ -19,7 +19,7 @@ const questionChoices = {
   Email: '1',
   'Email + Phone': '1,2',
 };
-const locales = {
+const languages = {
   'English [en]': 'en',
   'Arabic [ar]': 'ar',
   'Chinese (PRC) [zh-cn]': 'zh-cn',
@@ -36,9 +36,11 @@ const locales = {
   'Malaysian [ms]': 'ms',
   'Polish [pl]': 'pl',
   'Portuguese [pt]': 'pt',
+  'Portuguese (Brazil)':'pt-br',
   'Slovenian [sl]': 'sl',
   'Spanish [es]': 'es',
   'Spanish-Latin America [es-la]': 'es-la',
+  'Spanish (Mexico)':'es-MX',
   'Turkish [tr]': 'tr',
   'Ukrainian [uk]': 'uk',
 };
@@ -58,7 +60,7 @@ const onChange = (event: CustomEvent) => {
   console.log(event.detail);
 };
 const props = () => ({
-  locale: select('Language', locales, 'en'),
+  language: select('Language', languages, 'en'),
   country: select('Country', countryList, 'US'),
   state: select('State', stateList, ''),
   questionchoices: select('Question Choices', questionChoices, '1,2'),
@@ -73,7 +75,7 @@ const props = () => ({
 
 export const Default = (args) => {
   const {
-    locale,
+    language,
     country,
     state,
     email,
@@ -84,7 +86,7 @@ export const Default = (args) => {
   } = args?.NoticeChoice ?? {};
   return html`
     <dds-notice-choice
-      locale="${locale}"
+    language="${language}"
       country="${country}"
       question-choices="${questionchoices}"
       state="${state}"

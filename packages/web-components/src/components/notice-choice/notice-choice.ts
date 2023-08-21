@@ -44,8 +44,8 @@ class NoticeChoice extends StableSelectorMixin(LitElement) {
   @property({ type: String, attribute: 'state' })
   state = '';
 
-  @property({ type: String, attribute: 'locale' })
-  locale = 'us-en';
+  @property({ type: String, attribute: 'language' })
+  language = 'en';
 
   @property({ type: String, attribute: 'terms-condition-link' })
   termsConditionLink = html``;
@@ -108,10 +108,9 @@ class NoticeChoice extends StableSelectorMixin(LitElement) {
       this.performUpdate();
     }
   }
-  connectedCallback() {
-    super.connectedCallback();
+  defaultLoadContent() {
     loadContent(
-      this.locale,
+      'en',
       (ncData) => {
         this.ncData = ncData;
         this.prepareCheckboxes();
@@ -119,6 +118,21 @@ class NoticeChoice extends StableSelectorMixin(LitElement) {
       },
       (error) => {
         console.error('error loading content', error);
+      }
+    );
+  }
+  connectedCallback() {
+    super.connectedCallback();
+    const [language] = this.language.split(/[-_]/);
+    loadContent(
+      language,
+      (ncData) => {
+        this.ncData = ncData;
+        this.prepareCheckboxes();
+        this.countryChanged();
+      },
+      () => {
+        this.defaultLoadContent();
       }
     );
   }
@@ -146,7 +160,7 @@ class NoticeChoice extends StableSelectorMixin(LitElement) {
     }
   }
   countryChangeAction() {
-    const splitValue = this.locale;
+    const splitValue = this.language;
     if (splitValue == 'en') {
       this.preText = this.preTextTemplate();
     }
@@ -184,17 +198,18 @@ class NoticeChoice extends StableSelectorMixin(LitElement) {
         }
         break;
       }
-      case 'locale': {
+      case 'language': {
         // load content when locale changed.
+        const [language] = newVal.split(/[-_]/);
         if (hasValue && oldVal !== newVal) {
           loadContent(
-            newVal,
+            language,
             (ncData) => {
               this.ncData = ncData;
               this.prepareCheckboxes();
             },
             (error) => {
-              console.error('error loading content', error);
+              this.defaultLoadContent();
             }
           );
         }
@@ -282,8 +297,8 @@ class NoticeChoice extends StableSelectorMixin(LitElement) {
   }
   preTextTemplate() {
     if (this.ncData) {
-      const lang = this.locale;
-      const country = this.country.toLocaleLowerCase();
+      const lang = this.language;
+      const country = this.country?.toLocaleLowerCase();
       const ecmTranslateContent = this.ncData;
       let preText = ecmTranslateContent.preText;
 
@@ -303,35 +318,6 @@ class NoticeChoice extends StableSelectorMixin(LitElement) {
 
       if (ecmTranslateContent.country[country]) {
         preText = ecmTranslateContent.country[country.toLowerCase()].preText;
-      }
-
-      const opt_out_url =
-        'https://www.ibm.com/account/reg/' +
-        country +
-        '-' +
-        lang +
-        '/signup?formid=urx-42537';
-
-      const noticeChoiceRegex = {
-        optoutMath: new RegExp('<optout>.*</optout>', 'g'),
-        optoutReplace: new RegExp('<optout>|</optout>', 'g'),
-      };
-      const optOutLink = preText.match(noticeChoiceRegex.optoutMath);
-      if (optOutLink) {
-        const optoutAnrTagHtml = optOutLink[0].replace(
-          noticeChoiceRegex.optoutReplace,
-          ''
-        );
-        const optoutReplaceValue =
-          "<a href='" +
-          opt_out_url +
-          "' target='_blank' class='ibm-tooltip' >" +
-          optoutAnrTagHtml +
-          '</a>';
-        preText = preText.replace(
-          noticeChoiceRegex.optoutMath,
-          optoutReplaceValue
-        );
       }
 
       return html`${unsafeHTML(preText)}`;
@@ -432,9 +418,8 @@ class NoticeChoice extends StableSelectorMixin(LitElement) {
     }
   }
   protected _getOptionByQuestion = (question) => {
-    const questionChoiceStatus =
-      countrySettings[this.country.toLocaleLowerCase()];
-
+    const questionChoiceStatus = this.country ? countrySettings[this.country.toLocaleLowerCase()] : { email:'opt-in',phone:'opt-in' }
+    
     let option;
     switch (question) {
       case 'EMAIL': {
