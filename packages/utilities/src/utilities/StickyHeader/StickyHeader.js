@@ -103,6 +103,8 @@ class StickyHeader {
       if (this._masthead) {
         this._masthead.setAttribute('with-banner', '');
       }
+
+      this._calculateCumulativeHeight();
     }
   }
 
@@ -121,12 +123,14 @@ class StickyHeader {
       this._leadspaceWithSearchStickyThreshold =
         parseInt(window.getComputedStyle(leadspaceSearchBar).paddingBottom) -
         16;
+      this._calculateCumulativeHeight();
     }
   }
 
   set localeModal(component) {
     if (this._validateComponent(component, `${ddsPrefix}-locale-modal`)) {
       this._localeModal = component;
+      this._calculateCumulativeHeight();
     }
   }
 
@@ -139,6 +143,7 @@ class StickyHeader {
         `.${prefix}--masthead__l0`
       );
       this._mastheadL1 = component.querySelector(`${ddsPrefix}-masthead-l1`);
+      this._calculateCumulativeHeight();
     }
   }
 
@@ -147,6 +152,7 @@ class StickyHeader {
       this._tableOfContents = component;
       this._tableOfContentsStickyUpdate();
       this._resizeObserver.observe(this._tableOfContents);
+      this._calculateCumulativeHeight();
     }
   }
 
@@ -156,7 +162,7 @@ class StickyHeader {
   _throttledHandler() {
     if (!this._throttled) {
       this._throttled = true;
-      this._handleScroll();
+      this._calculateCumulativeHeight();
 
       setTimeout(() => {
         this._throttled = false;
@@ -188,7 +194,7 @@ class StickyHeader {
           tocInner.style.top = `${masthead.offsetHeight}px`;
         }
       }
-      this._handleScroll();
+      this._calculateCumulativeHeight();
     }
 
     if (leadspaceSearchBar) {
@@ -198,7 +204,7 @@ class StickyHeader {
     }
   }
 
-  _handleScroll() {
+  _calculateCumulativeHeight() {
     const {
       _lastScrollPosition: oldY,
       _banner: banner,
