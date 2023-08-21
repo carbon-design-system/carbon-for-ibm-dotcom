@@ -208,7 +208,7 @@ class NoticeChoice extends StableSelectorMixin(LitElement) {
               this.ncData = ncData;
               this.prepareCheckboxes();
             },
-            (error) => {
+            () => {
               this.defaultLoadContent();
             }
           );
@@ -297,7 +297,7 @@ class NoticeChoice extends StableSelectorMixin(LitElement) {
   }
   preTextTemplate() {
     if (this.ncData) {
-      const lang = this.language;
+
       const country = this.country?.toLocaleLowerCase();
       const ecmTranslateContent = this.ncData;
       let preText = ecmTranslateContent.preText;
