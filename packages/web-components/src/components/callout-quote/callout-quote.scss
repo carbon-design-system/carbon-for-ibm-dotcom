@@ -33,3 +33,10 @@
     margin: 1rem 0.5rem;
   }
 }
+
+:host(#{$dds-prefix}-callout-quote)  {
+  .#{$prefix}--quote__wrapper{
+    margin-left: -1rem;
+    margin-right: -1rem;
+  }
+}
