@@ -21,6 +21,9 @@ import imgSm2x1 from '../../../../../storybook-images/assets/320/fpo--2x1--320x1
 import imgMd1x1 from '../../../../../storybook-images/assets/480/fpo--1x1--480x480--005.jpg';
 import imgLg1x1 from '../../../../../storybook-images/assets/720/fpo--1x1--720x720--002.jpg';
 import imgXlg1x1 from '../../../../../storybook-images/assets/1584/fpo--1x1--1584x1584--002.jpg';
+import settings from '../../../internal/vendor/@carbon/ibmdotcom-utilities/utilities/settings/settings';
+
+const { stablePrefix: ddsPrefix, prefix } = settings;
 
 import readme from './README.stories.mdx';
 import textNullable from '../../../../.storybook/knob-text-nullable';
@@ -31,7 +34,8 @@ const colorSchemeMap = {
 };
 
 export const Medium = (args) => {
-  const { heading, href, colorScheme } = args?.['dds-feature-card'] ?? {};
+  const { heading, href, colorScheme } =
+    args?.[`${ddsPrefix}-feature-card`] ?? {};
   return html`
     <dds-feature-card
       href=${ifDefined(href || undefined)}
@@ -50,7 +54,7 @@ export const Medium = (args) => {
 
 export const Large = (args) => {
   const { eyebrow, heading, copy, href, colorScheme } =
-    args?.['dds-feature-card'] ?? {};
+    args?.[`${ddsPrefix}-feature-card`] ?? {};
   return html`
     <dds-feature-card
       size="large"
@@ -80,9 +84,9 @@ export const Large = (args) => {
 
 Large.story = {
   parameters: {
-    storyGrid: 'cds--col-lg-12',
+    storyGrid: `${prefix}--col-lg-12`,
     knobs: {
-      'c4d-feature-card': () => ({
+      [`${ddsPrefix}-feature-card`]: () => ({
         eyebrow: textNullable(
           'Card Eyebrow (required) (eyebrow):',
           'This is an eyebrow'
@@ -102,7 +106,7 @@ Large.story = {
     },
     propsSet: {
       default: {
-        'c4d-feature-card': {
+        [`${ddsPrefix}-feature-card`]: {
           eyebrow: 'This is an eyebrow',
           heading: 'Explore AI use cases in all industries',
           copy: `Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et
@@ -118,19 +122,21 @@ export default {
   title: 'Components/Feature card',
   decorators: [
     (story, { parameters }) => html`
-      <div class="cds--grid">
-        <div class="cds--row">
-          <div class="cds--col-sm-4 ${parameters.storyGrid}">${story()}</div>
+      <div class="${prefix}--grid">
+        <div class="${prefix}--row">
+          <div class="${prefix}--col-sm-4 ${parameters.storyGrid}">
+            ${story()}
+          </div>
         </div>
       </div>
     `,
   ],
   parameters: {
     ...readme.parameters,
-    storyGrid: 'cds--col-lg-8 cds--no-gutter"',
+    storyGrid: `${prefix}--col-lg-8 ${prefix}--no-gutter`,
     hasStoryPadding: true,
     knobs: {
-      'dds-feature-card': () => ({
+      [`${ddsPrefix}-feature-card`]: () => ({
         heading: textNullable(
           'Card Heading (heading):',
           'Explore AI use cases in all industries'
@@ -141,7 +147,7 @@ export default {
     },
     propsSet: {
       default: {
-        'c4d-feature-card': {
+        [`${ddsPrefix}-feature-card`]: {
           heading: 'Explore AI use cases in all industries',
           href: 'https://example.com',
         },
