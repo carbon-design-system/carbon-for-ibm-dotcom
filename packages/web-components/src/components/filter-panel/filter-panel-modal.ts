@@ -7,12 +7,13 @@
  * LICENSE file in the root directory of this source tree.
  */
 
-import { html, property } from 'lit-element';
+import { html, property, query } from 'lit-element';
 import settings from 'carbon-components/es/globals/js/settings.js';
 import HostListenerMixin from '../../internal/vendor/@carbon/web-components/globals/mixins/host-listener.js';
 import './filter-group';
 import './filter-modal-button';
 import './filter-modal-heading';
+//import DDSExpressiveModal from '../../internal/vendor/@carbon/web-components/components/modal/modal.js';
 import DDSExpressiveModal from '../expressive-modal/expressive-modal';
 import ddsSettings from '../../internal/vendor/@carbon/ibmdotcom-utilities/utilities/settings/settings';
 import './filter-modal-footer';
@@ -26,6 +27,50 @@ import { carbonElement as customElement } from '../../internal/vendor/@carbon/we
 const { prefix } = settings;
 const { stablePrefix: ddsPrefix } = ddsSettings;
 
+const WITHIN = Node.DOCUMENT_POSITION_CONTAINED_BY;
+const PRECEDING =
+  Node.DOCUMENT_POSITION_PRECEDING | Node.DOCUMENT_POSITION_CONTAINS;
+const FOLLOWING =
+  Node.DOCUMENT_POSITION_FOLLOWING | Node.DOCUMENT_POSITION_CONTAINED_BY;
+
+function tryFocusElems(
+  elems: NodeListOf<HTMLElement> | [HTMLElement],
+  reverse: boolean = false,
+  fallback: HTMLElement | null = null
+) {
+  if (!reverse) {
+    for (let i = 0; i < elems.length; ++i) {
+      const elem = elems[i];
+      if (
+        elem.offsetWidth ||
+        elem.offsetHeight ||
+        elem.getClientRects().length
+      ) {
+        elem.focus();
+        if ((elem.getRootNode() as Document).activeElement === elem) {
+          return true;
+        }
+      }
+    }
+  } else {
+    for (let i = elems.length - 1; i >= 0; --i) {
+      const elem = elems[i];
+      if (
+        elem.offsetWidth ||
+        elem.offsetHeight ||
+        elem.getClientRects().length
+      ) {
+        elem.focus();
+        if ((elem.getRootNode() as Document).activeElement === elem) {
+          return true;
+        }
+      }
+    }
+  }
+  fallback?.focus();
+  return false;
+}
+
 /**
  * Renders the filter panel modal
  *
@@ -35,24 +80,27 @@ const { stablePrefix: ddsPrefix } = ddsSettings;
 class DDSFilterPanelModal extends HostListenerMixin(
   StableSelectorMixin(DDSExpressiveModal)
 ) {
-  connectedCallback() {
-    /**
-     * Checks if the modal has aria attributes and if not, sets them.
-     */
-    if (
-      !this.hasAttribute('aria-modal') &&
-      !this.hasAttribute('aria-labelledby')
-    ) {
-      this.setAttribute('aria-modal', 'true');
-      this.setAttribute('aria-labelledby', 'dds-filter-modal-heading');
-    }
-    super.connectedCallback();
+  constructor(
+    _startSentinelNode: HTMLAnchorElement,
+    _endSentinelNode: HTMLAnchorElement
+  ) {
+    super();
   }
+
   /**
    * Renders the selected values.
    */
   @property()
   selectedValues: any[] = [];
+
+  @query('#start-sentinel')
+  private _startSentinelPanelModalNode!: HTMLAnchorElement;
+
+  /**
+   * Node to track focus going outside of modal content.
+   */
+  @query('#end-sentinel')
+  private _endSentinelPanelModalNode!: HTMLAnchorElement;
 
   // eslint-disable-next-line class-methods-use-this, @typescript-eslint/no-unused-vars
   protected _handleContentStateChange(_: CustomEvent) {}
@@ -73,6 +121,80 @@ class DDSFilterPanelModal extends HostListenerMixin(
       })
     );
   }
+
+  get focusableElements() {
+    const { selectorCloseButton, selectorTabbable: selectorTabbableForModal } =
+      this.constructor as typeof DDSExpressiveModal;
+    return [
+      ...Array.from(
+        (this.shadowRoot?.querySelectorAll(
+          selectorCloseButton
+        ) as NodeListOf<HTMLElement>) || []
+      ),
+      ...Array.from(
+        this.querySelectorAll(
+          selectorTabbableForModal
+        ) as NodeListOf<HTMLElement>
+      ),
+    ];
+  }
+
+  private get _focusablePanelModalElements() {
+    const { hasFocusableElements } = this;
+
+    const focusableElements: [HTMLElement?] = [];
+
+    hasFocusableElements.forEach((el) => {
+      if (el.focusableElements) {
+        focusableElements.push(...el.focusableElements);
+      }
+    });
+
+    return Array.from(new Set(focusableElements)).sort((a, b) => {
+      const comparison = a!.compareDocumentPosition(b!);
+
+      /* eslint-disable no-bitwise */
+      if (comparison & PRECEDING) {
+        return 1;
+      }
+
+      if (comparison & FOLLOWING) {
+        return -1;
+      }
+      /* eslint-enable no-bitwise */
+
+      return 0;
+    });
+  }
+
+  private _handlePanelModalFocusIn = ({ target, relatedTarget }) => {
+    let focusFromWithin = false;
+    if (target && relatedTarget) {
+      const comparedToThis = this.compareDocumentPosition(relatedTarget);
+      const comparedToShadowRoot =
+        this.shadowRoot!.compareDocumentPosition(relatedTarget);
+      // If relatedTarget is descendent of `this` or `this.shadowRoot`.
+      if (comparedToThis & WITHIN || comparedToShadowRoot & WITHIN) {
+        focusFromWithin = true;
+      }
+    }
+
+    const {
+      _endSentinelPanelModalNode: endSentinelNode,
+      _startSentinelPanelModalNode: startSentinelNode,
+      _focusablePanelModalElements: focusableElements,
+    } = this;
+
+    if (focusFromWithin) {
+      if (target === startSentinelNode) {
+        tryFocusElems(focusableElements as [HTMLElement], true, this);
+      } else if (target === endSentinelNode) {
+        tryFocusElems(focusableElements as [HTMLElement], false, this);
+      }
+    } else {
+      tryFocusElems(focusableElements as [HTMLElement], false, this);
+    }
+  };
 
   /**
    * Handles items in the selected array
@@ -121,12 +243,15 @@ class DDSFilterPanelModal extends HostListenerMixin(
   }
 
   render() {
+    const { _handlePanelModalFocusIn: handleFocusIn } = this;
+
     return html`
-      <a
+      <button
         id="start-sentinel"
         class="${prefix}--visually-hidden"
-        href="javascript:void 0"
-        role="navigation"></a>
+        @focusin="${handleFocusIn}">
+        START
+      </button>
       <section class="${prefix}--filter-panel__section bx--modal-container">
         <bx-modal-header>
           <bx-modal-close-button
@@ -148,11 +273,12 @@ class DDSFilterPanelModal extends HostListenerMixin(
           >
         </dds-filter-modal-footer>
       </section>
-      <a
+      <button
         id="end-sentinel"
         class="${prefix}--visually-hidden"
-        href="javascript:void 0"
-        role="navigation"></a>
+        @focusin="${handleFocusIn}">
+        END
+      </button>
     `;
   }
 
