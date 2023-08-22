@@ -90,7 +90,8 @@ class DDSMegaMenuTopNavMenu extends DDSTopNavMenu {
 
   private async _requestMegaMenuRenderUpdate() {
     return new Promise((resolve: Function): void => {
-      const { eventMegaMenuToggled } = this.constructor as typeof DDSMegaMenuTopNavMenu;
+      const { eventMegaMenuToggled } = this
+        .constructor as typeof DDSMegaMenuTopNavMenu;
       this.dispatchEvent(
         new CustomEvent(eventMegaMenuToggled, {
           bubbles: true,
