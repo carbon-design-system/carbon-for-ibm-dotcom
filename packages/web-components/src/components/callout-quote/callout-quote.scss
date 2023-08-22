@@ -34,8 +34,8 @@
   }
 }
 
-:host(#{$dds-prefix}-callout-quote)  {
-  .#{$prefix}--quote__wrapper{
+:host(#{$dds-prefix}-callout-quote) {
+  .#{$prefix}--quote__wrapper {
     margin-left: -1rem;
     margin-right: -1rem;
   }
