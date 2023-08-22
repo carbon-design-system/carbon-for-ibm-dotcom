@@ -9,7 +9,12 @@
 
 import { checkPreferencesv3, loadContent } from './services';
 import { html, LitElement, property } from 'lit-element';
-import { emailRegExp, pwsValueMap, resetToWorldWideContent } from './utils';
+import {
+  emailRegExp,
+  pwsValueMap,
+  resetToWorldWideContent,
+  supportedLanguages,
+} from './utils';
 import countrySettings from './country-settings';
 import ddsSettings from '../../internal/vendor/@carbon/ibmdotcom-utilities/utilities/settings/settings';
 import settings from 'carbon-components/es/globals/js/settings';
@@ -124,8 +129,16 @@ class NoticeChoice extends StableSelectorMixin(LitElement) {
   connectedCallback() {
     super.connectedCallback();
     const [language] = this.language.split(/[-_]/);
+
+    let defaultLanguage = 'en';
+    if (supportedLanguages(this.language)) {
+      defaultLanguage = this.language;
+    } else if (supportedLanguages(language)) {
+      defaultLanguage = language;
+    }
+
     loadContent(
-      language,
+      defaultLanguage,
       (ncData) => {
         this.ncData = ncData;
         this.prepareCheckboxes();
@@ -201,9 +214,17 @@ class NoticeChoice extends StableSelectorMixin(LitElement) {
       case 'language': {
         // load content when locale changed.
         const [language] = newVal.split(/[-_]/);
+
+        let defaultLanguage = 'en';
+        if (supportedLanguages(newVal)) {
+          defaultLanguage = newVal;
+        } else if (supportedLanguages(language)) {
+          defaultLanguage = language;
+        }
+
         if (hasValue && oldVal !== newVal) {
           loadContent(
-            language,
+            defaultLanguage,
             (ncData) => {
               this.ncData = ncData;
               this.prepareCheckboxes();
