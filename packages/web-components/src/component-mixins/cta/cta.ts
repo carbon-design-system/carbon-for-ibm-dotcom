@@ -87,15 +87,12 @@ const CTAMixin = <T extends Constructor<HTMLElement>>(Base: T) => {
     _handleClick(event: MouseEvent) {
       const { ctaType, disabled, href, videoDescription, videoName } = this;
 
-      console.log('asjkdaskjdbasjkdbjaksd', disabled);
-
       if (ctaType === CTA_TYPE.VIDEO) {
         event.preventDefault(); // Stop following the link
       }
       if (!disabled) {
         const { eventRunAction } = this.constructor as typeof CTAMixinImpl;
 
-        console.log('asjodnakjsdnajksdnjkasndjkasndjkasndjksandjakndjks');
         this.dispatchEvent(
           new CustomEvent(eventRunAction, {
             bubbles: true,
@@ -110,7 +107,6 @@ const CTAMixin = <T extends Constructor<HTMLElement>>(Base: T) => {
           })
         );
       } else {
-        console.log('???');
         event.preventDefault(); // Stop following the link
         event.stopPropagation(); // Stop firing `onClick`
       }
@@ -178,6 +174,9 @@ const CTAMixin = <T extends Constructor<HTMLElement>>(Base: T) => {
     @property({ attribute: 'video-description' })
     videoDescription?: string;
 
+    @property()
+    videoTitle;
+
     /**
      * The video thumbnail URL.
      * Text CTA does not support video thumbnail, and this property should never be set.
@@ -191,7 +190,7 @@ const CTAMixin = <T extends Constructor<HTMLElement>>(Base: T) => {
       const { ctaType } = this;
       return html`
         <slot name="icon">
-          <span class="bx--visually-hidden">${ariaLabels[ctaType]}</span>
+          <span class="${prefix}--visually-hidden">${ariaLabels[ctaType]}</span>
           ${icons[ctaType]?.({
             class: `${prefix}--card__cta ${ddsPrefix}-ce--cta__icon`,
           })}
