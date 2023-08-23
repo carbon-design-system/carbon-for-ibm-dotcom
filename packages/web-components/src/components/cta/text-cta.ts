@@ -31,6 +31,7 @@ const { stablePrefix: ddsPrefix } = settings;
  * @element dds-text-cta
  */
 @customElement(`${ddsPrefix}-text-cta`)
+// @ts-ignore
 class DDSTextCTA extends VideoCTAMixin(CTAMixin(DDSLinkWithIcon)) {
   /**
    * `true` if there is a non-empty default slot content.

@@ -342,6 +342,7 @@ class DDSCard extends CTAMixin(StableSelectorMixin(CDSLink)) {
       }
 
       if (footer?.textContent?.trim() === '') {
+        console.log(this.textContent);
         const title = document.createTextNode(formattedVideoDuration);
         footer?.appendChild(title);
       }

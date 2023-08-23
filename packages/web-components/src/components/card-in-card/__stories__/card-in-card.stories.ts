@@ -32,9 +32,7 @@ export const Default = (args) => {
       <dds-video-cta-container>
         <dds-card-in-card href="1_9h94wo6b" cta-type="video">
           <dds-card-eyebrow>${eyebrow}</dds-card-eyebrow>
-          <dds-card-cta-footer
-            cta-type="video"
-            href="1_9h94wo6b"></dds-card-cta-footer>
+          <dds-card-footer cta-type="video" href="1_9h94wo6b"></dds-card-footer>
         </dds-card-in-card>
       </dds-video-cta-container>
     `;
@@ -54,9 +52,7 @@ export const Default = (args) => {
       </dds-card-in-card-image>
       <dds-card-eyebrow>${eyebrow}</dds-card-eyebrow>
       <dds-card-heading>${heading}</dds-card-heading>
-      <dds-card-cta-footer>
-        ${ArrowRight20({ slot: 'icon' })}
-      </dds-card-cta-footer>
+      <dds-card-footer> ${ArrowRight20({ slot: 'icon' })} </dds-card-footer>
     </dds-card-in-card>
   `;
 };
