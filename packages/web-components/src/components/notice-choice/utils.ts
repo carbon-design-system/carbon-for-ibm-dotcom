@@ -101,5 +101,5 @@ export function supportedLanguages(language) {
     sr: 'sr',
     vi: 'vi',
   };
-  return languageMapping[language];
+  return languageMapping[language.toLocaleLowerCase()];
 }
