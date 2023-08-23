@@ -32,11 +32,15 @@ For Carbon v11 migration guidance, see their
 | multi-select              | View changes [here](#multi-select)       |
 | notification              | View changes [here](#notification)       |
 | number-input              | View changes [here](#number-input)       |
+| ordered-list              | No API changes.                          |
 | overflow-menu             | View changes [here](#overflow-menu)      |
+| pagination                | View changes [here](#pagination)         |
+| popover                   | New component in v2.                     |
 | progress-bar              | New component in v2.                     |
 | progress-indicator        | View changes [here](#progress-indicator) |
 | radio-button              | View changes [here](#radio-button)       |
 | select                    | View changes [here](#select)             |
+| skeleton-placeholder      | No API changes.                          |
 | skeleton-text             | View changes [here](#skeleton-text)      |
 | slider                    | View changes [here](#slider)             |
 | stack                     | New component in v2.                     |
@@ -46,6 +50,7 @@ For Carbon v11 migration guidance, see their
 | text-input                | New component in v2. Replaces `input`.   |
 | tooltip                   | View changes [here](#tooltip)            |
 | ui-shell                  | View changes [here](#ui-shell)           |
+| unordered-list            | No API changes.                          |
 
 ### accordion
 
