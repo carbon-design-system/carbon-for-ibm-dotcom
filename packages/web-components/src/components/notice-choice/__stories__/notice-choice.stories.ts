@@ -91,7 +91,7 @@ export const Default = (args) => {
       question-choices="${questionchoices}"
       state="${state}"
       email=${email}
-      terms-condition-link="${termsConditionLink}"
+      terms-condition-link="${termsConditionLink || ''}"
       ?enable-all-opt-in=${enableAllOptIn}
       bpid-legal-text="${bpidLegalText}"
       @dds-notice-choice-change=${onChange}></dds-notice-choice>
