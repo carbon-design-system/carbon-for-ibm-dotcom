@@ -354,7 +354,7 @@ class NoticeChoice extends StableSelectorMixin(LitElement) {
         postText = '<p>' + postText + '</p>';
       }
 
-      if (this.termsConditionLink) {
+      if (!this.termsConditionLink.strings && this.termsConditionLink) {
         let originalValue = OtherPreferences;
         const matchedValue = originalValue.match(/<tc>.*<\/tc>/g);
         if (matchedValue) {
@@ -399,7 +399,7 @@ class NoticeChoice extends StableSelectorMixin(LitElement) {
                     };
                     return this.checkBoxTemplate(checkbox, checked, hiddenBox);
                   })
-                : 'Loading ...'
+                : ''
             }
           </div>
           <div class="${prefix}--nc__post-text"
