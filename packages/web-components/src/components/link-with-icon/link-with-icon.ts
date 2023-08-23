@@ -73,7 +73,7 @@ class DDSLinkWithIcon extends CTAMixin(StableSelectorMixin(CDSLink)) {
       );
   }
 
-  protected _renderContent() {
+  _renderContent() {
     const { ctaType, _hasContent: hasContent } = this;
     if (ctaType !== CTA_TYPE.VIDEO) {
       return html`<span><slot></span></slot>`;

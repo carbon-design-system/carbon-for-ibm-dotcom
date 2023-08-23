@@ -65,7 +65,7 @@ class DDSButton extends CTAMixin(StableSelectorMixin(CDSButton)) {
   }
 
   /**
-   * Handles card with video heading and applies the set same height function.
+   * Handles button video title
    *
    * @param event The event.
    */

@@ -22,7 +22,7 @@ import {
 
 export const Default = (args) => {
   const { copy, customVideoTitle, ctaType, disabled, download, href } =
-    args?.LinkWithIcon ?? {};
+    args?.Button ?? {};
 
   let videoCopy;
 
@@ -59,7 +59,7 @@ export default {
     // ...readme.parameters,
     hasStoryPadding: true,
     knobs: {
-      LinkWithIcon: () => {
+      Button: () => {
         const ctaType = select(
           'CTA type (cta-type)',
           typeOptions,

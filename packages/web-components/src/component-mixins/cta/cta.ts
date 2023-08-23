@@ -159,21 +159,24 @@ const CTAMixin = <T extends Constructor<HTMLElement>>(Base: T) => {
     /**
      * The video duration.
      */
-    @property({ type: Number, attribute: 'video-duration' })
+    @property({ type: Number, attribute: 'video-duration', reflect: true })
     videoDuration?: number;
 
     /**
      * The video name.
      */
-    @property({ attribute: 'video-name' })
+    @property({ attribute: 'video-name', reflect: true })
     videoName?: string;
 
     /**
      * The video description.
      */
-    @property({ attribute: 'video-description' })
+    @property({ attribute: 'video-description', reflect: true })
     videoDescription?: string;
 
+    /**
+     * The full formatted video title with duration
+     */
     @property()
     videoTitle;
 

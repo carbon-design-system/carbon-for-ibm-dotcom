@@ -18,6 +18,11 @@ import StableSelectorMixin from '../../globals/mixins/stable-selector';
 import DDSCardFooter from './card-footer';
 import styles from './card.scss';
 import { PICTOGRAM_PLACEMENT } from './defs';
+// import PlayVideo from '@carbon/ibmdotcom-styles/icons/svg/play-video.svg';
+
+import { CTA_TYPE } from '../cta/defs';
+
+import CTAMixin from '../../component-mixins/cta/cta';
 
 const { prefix, stablePrefix: ddsPrefix } = settings;
 
@@ -39,7 +44,13 @@ const slotExistencePropertyNames = {
  * @slot footer - The footer content.
  */
 @customElement(`${ddsPrefix}-card`)
-class DDSCard extends StableSelectorMixin(CDSLink) {
+class DDSCard extends CTAMixin(StableSelectorMixin(CDSLink)) {
+  /**
+   * `true` if there is copy content.
+   */
+  @property({ attribute: 'cta-type' })
+  ctaType;
+
   /**
    * `true` if there is image content.
    */
@@ -57,6 +68,9 @@ class DDSCard extends StableSelectorMixin(CDSLink) {
    */
   @state()
   protected _hasPictogram = false;
+
+  @property({ attribute: 'no-poster', type: Boolean })
+  noPoster;
 
   /**
    * Handles `slotchange` event.
@@ -88,12 +102,29 @@ class DDSCard extends StableSelectorMixin(CDSLink) {
     `;
   }
 
-  /**
-   * @returns The image content.
-   */
   protected _renderImage(): TemplateResult | string | void {
+    const {
+      ctaType,
+      videoName,
+      videoThumbnailUrl,
+      _hasImage: hasImage,
+      noPoster,
+    } = this;
+
+    // TODO: SVGs aren't currently working in v2, add this within dds-image when fixed
+    // PlayVideo({ slot: 'icon' })
+    const image =
+      hasImage || ctaType !== CTA_TYPE.VIDEO || noPoster
+        ? undefined
+        : html`
+            <dds-image
+              class="${prefix}--card__video-thumbnail"
+              alt="${videoName}"
+              default-src="${videoThumbnailUrl}">
+            </dds-image>
+          `;
     return html`
-      <slot name="image" @slotchange="${this._handleSlotChange}"></slot>
+      <slot name="image" @slotchange="${this._handleSlotChange}"></slot>${image}
     `;
   }
 
@@ -193,11 +224,55 @@ class DDSCard extends StableSelectorMixin(CDSLink) {
   logo = false;
 
   @query('div')
-  protected _linkNode?: HTMLDivElement | HTMLParagraphElement;
+  protected _divNode?: HTMLDivElement | HTMLParagraphElement;
 
   updated(changedProperties) {
     super.updated(changedProperties);
-    const { colorScheme, href, _linkNode: linkNode } = this;
+    const { colorScheme, href, _divNode: divNode, ctaType } = this;
+
+    if (
+      changedProperties.has('ctaType') ||
+      changedProperties.has('formatCaption') ||
+      changedProperties.has('formatDuration') ||
+      changedProperties.has('videoDuration') ||
+      changedProperties.has('videoName')
+    ) {
+      const {
+        ctaType,
+        videoDuration,
+        videoName,
+        videoDescription,
+        formatVideoCaption: formatVideoCaptionInEffect,
+        formatVideoDuration: formatVideoDurationInEffect,
+      } = this;
+      const footer = this.querySelector('dds-card-footer');
+
+      const headingText = this.querySelector(
+        `${ddsPrefix}-card-heading`
+      )?.textContent;
+      const copyText = this.textContent;
+      if (footer) {
+        const ariaTitle = videoName || headingText || copyText;
+        let ariaDuration = '';
+        if (videoDuration !== undefined) {
+          ariaDuration = `, DURATION ${videoDuration}`;
+        }
+        (footer as DDSCardFooter).altAriaLabel = `${ariaTitle}${ariaDuration}`;
+        (footer as DDSCardFooter).ctaType = ctaType;
+        (footer as DDSCardFooter).videoDuration = videoDuration;
+        (footer as DDSCardFooter).videoName = videoName;
+        (footer as DDSCardFooter).videoDescription = videoDescription;
+        if (formatVideoCaptionInEffect) {
+          (footer as DDSCardFooter).formatVideoCaption =
+            formatVideoCaptionInEffect;
+        }
+        if (formatVideoDurationInEffect) {
+          (footer as DDSCardFooter).formatVideoDuration =
+            formatVideoDurationInEffect;
+        }
+      }
+    }
+
     if (changedProperties.has('colorScheme') || changedProperties.has('href')) {
       const headingText = this.querySelector(
         `${ddsPrefix}-card-heading`
@@ -209,16 +284,17 @@ class DDSCard extends StableSelectorMixin(CDSLink) {
       if (footer && href) {
         (footer as DDSCardFooter).colorScheme = colorScheme;
         (footer as DDSCardFooter).parentHref = href;
+        (footer as DDSCardFooter).ctaType = ctaType;
         (footer as DDSCardFooter).href = href;
         (footer as DDSCardFooter).altAriaLabel = headingText || copyText;
       }
     }
-    if (linkNode) {
-      linkNode.classList.add(`${prefix}--tile`);
-      linkNode.classList.add(`${prefix}--card`);
-      linkNode.classList.toggle(`${prefix}--tile--clickable`, Boolean(href));
-      linkNode.classList.toggle(`${prefix}--card--link`, Boolean(href));
-      linkNode.classList.toggle(
+    if (divNode) {
+      divNode.classList.add(`${prefix}--tile`);
+      divNode.classList.add(`${prefix}--card`);
+      divNode.classList.toggle(`${prefix}--tile--clickable`, Boolean(href));
+      divNode.classList.toggle(`${prefix}--card--link`, Boolean(href));
+      divNode.classList.toggle(
         `${prefix}--card--inverse`,
         colorScheme === BASIC_COLOR_SCHEME.INVERSE
       );
@@ -237,6 +313,60 @@ class DDSCard extends StableSelectorMixin(CDSLink) {
     }
   }
 
+  /**
+   * Handles card with video heading and applies the set same height function.
+   *
+   * @param event The event.
+   */
+  // @ts-ignore: The decorator refers to this method but TS thinks this method is not referred to
+  private _handleVideoTitleUpdate = async (event) => {
+    if (event) {
+      const { videoDuration, videoName } = event.detail as any;
+      const { formatVideoDuration, formatVideoCaption } = this;
+      const formattedVideoDuration = formatVideoDuration({
+        duration: !videoDuration ? videoDuration : videoDuration * 1000,
+      });
+      this.videoDuration ? null : (this.videoDuration = formattedVideoDuration);
+
+      this.videoTitle = formatVideoCaption({
+        duration: formattedVideoDuration,
+        name: videoName,
+      });
+
+      const heading = this.querySelector('dds-card-heading');
+      const footer = this.querySelector('dds-card-footer');
+
+      if (heading?.textContent?.trim() === '') {
+        const title = document.createTextNode(this.videoTitle);
+        heading?.appendChild(title);
+      }
+
+      if (footer?.textContent?.trim() === '') {
+        const title = document.createTextNode(formattedVideoDuration);
+        footer?.appendChild(title);
+      }
+    }
+  };
+
+  connectedCallback() {
+    super.connectedCallback();
+    const { eventRequestAdditionalVideoData } = this
+      .constructor as typeof DDSCard;
+    document.addEventListener(
+      eventRequestAdditionalVideoData,
+      this._handleVideoTitleUpdate
+    );
+  }
+
+  disconnectedCallback() {
+    super.disconnectedCallback();
+    const { eventRequestAdditionalVideoData } = this
+      .constructor as typeof DDSCard;
+    document.removeEventListener(
+      eventRequestAdditionalVideoData,
+      this._handleVideoTitleUpdate
+    );
+  }
   render() {
     return this._hasPictogram
       ? html`
@@ -262,6 +392,13 @@ class DDSCard extends StableSelectorMixin(CDSLink) {
    */
   static get selectorFooter() {
     return `${ddsPrefix}-card-footer`;
+  }
+
+  /**
+   * The name of the custom event fired when there is a user gesture to run the action.
+   */
+  static get eventRequestAdditionalVideoData() {
+    return `${ddsPrefix}-cta-request-additional-video-data`;
   }
 
   static shadowRootOptions = {
