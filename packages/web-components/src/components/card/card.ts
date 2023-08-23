@@ -320,7 +320,7 @@ class DDSCard extends CTAMixin(StableSelectorMixin(CDSLink)) {
    */
   // @ts-ignore: The decorator refers to this method but TS thinks this method is not referred to
   private _handleVideoTitleUpdate = async (event) => {
-    if (event) {
+    if (event && this.ctaType === CTA_TYPE.VIDEO) {
       const { videoDuration, videoName } = event.detail as any;
       const { formatVideoDuration, formatVideoCaption } = this;
       const formattedVideoDuration = formatVideoDuration({
@@ -342,7 +342,6 @@ class DDSCard extends CTAMixin(StableSelectorMixin(CDSLink)) {
       }
 
       if (footer?.textContent?.trim() === '') {
-        console.log(this.textContent);
         const title = document.createTextNode(formattedVideoDuration);
         footer?.appendChild(title);
       }
