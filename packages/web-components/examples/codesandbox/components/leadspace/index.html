@@ -1,7 +1,7 @@
 <!--
 @license
 
-Copyright IBM Corp. 2020
+Copyright IBM Corp. 2020, 2023
 
 This source code is licensed under the Apache-2.0 license found in the
 LICENSE file in the root directory of this source tree.
@@ -11,7 +11,10 @@ LICENSE file in the root directory of this source tree.
   <head>
     <title>@carbon/ibmdotcom-web-components example</title>
     <meta charset="UTF-8" />
-    <link rel="stylesheet" href="https://1.www.s81c.com/common/carbon-for-ibm-dotcom/tag/v1/latest/plex.css" />
+    <link
+      rel="stylesheet"
+      href="https://1.www.s81c.com/common/carbon-for-ibm-dotcom/tag/v1/latest/plex.css"
+    />
     <style type="text/css">
       /* Suppress custom element until styles are loaded */
       dds-leadspace:not(:defined) {
@@ -24,29 +27,80 @@ LICENSE file in the root directory of this source tree.
     <div class="bx--grid">
       <div class="bx--row">
         <div class="bx--col-sm-8 bx--col-lg-16">
-          <dds-leadspace size="medium" alt="Image text" default-src="https://picsum.photos/id/1076/1056/480">
+          <dds-leadspace
+            size="medium"
+            alt="Image text"
+            default-src="https://picsum.photos/id/1076/1056/480"
+          >
             <dds-leadspace-heading>Lead space title</dds-leadspace-heading>
             Use this area for a short line of copy to support the title
 
-            <dds-button-group>
+            <dds-button-group slot="action">
               <dds-button-group-item href="https://example.com">
                 Button 1
-                <svg focusable="false" preserveAspectRatio="xMidYMid meet" xmlns="http://www.w3.org/2000/svg" fill="currentColor" aria-hidden="true" width="20" height="20" viewBox="0 0 20 20" slot="icon">
-                  <path d="M11.8 2.8L10.8 3.8 16.2 9.3 1 9.3 1 10.7 16.2 10.7 10.8 16.2 11.8 17.2 19 10z"></path>
+                <svg
+                  focusable="false"
+                  preserveAspectRatio="xMidYMid meet"
+                  xmlns="http://www.w3.org/2000/svg"
+                  fill="currentColor"
+                  aria-hidden="true"
+                  width="20"
+                  height="20"
+                  viewBox="0 0 20 20"
+                  slot="icon"
+                >
+                  <path
+                    d="M11.8 2.8L10.8 3.8 16.2 9.3 1 9.3 1 10.7 16.2 10.7 10.8 16.2 11.8 17.2 19 10z"
+                  ></path>
                 </svg>
               </dds-button-group-item>
               <dds-button-group-item href="https://example.com">
                 Button 2
-                <svg focusable="false" preserveAspectRatio="xMidYMid meet" xmlns="http://www.w3.org/2000/svg" fill="currentColor" aria-hidden="true" width="20" height="20" viewBox="0 0 20 20" slot="icon">
-                  <path d="M11.8 2.8L10.8 3.8 16.2 9.3 1 9.3 1 10.7 16.2 10.7 10.8 16.2 11.8 17.2 19 10z"></path>
+                <svg
+                  focusable="false"
+                  preserveAspectRatio="xMidYMid meet"
+                  xmlns="http://www.w3.org/2000/svg"
+                  fill="currentColor"
+                  aria-hidden="true"
+                  width="20"
+                  height="20"
+                  viewBox="0 0 20 20"
+                  slot="icon"
+                >
+                  <path
+                    d="M11.8 2.8L10.8 3.8 16.2 9.3 1 9.3 1 10.7 16.2 10.7 10.8 16.2 11.8 17.2 19 10z"
+                  ></path>
                 </svg>
               </dds-button-group-item>
             </dds-button-group>
 
-            <dds-leadspace-image slot="image" alt="Image text" default-src="https://picsum.photos/id/1076/1056/480">
-              <dds-image-item media="(min-width: 672px)" srcset="https://picsum.photos/id/1076/672/400"></dds-image-item>
-              <dds-image-item media="(min-width: 0)" srcset="https://picsum.photos/id/1076/320/370"></dds-image-item>
-            </dds-leadspace-image>
+            <dds-background-media
+              slot="image"
+              alt="Image text"
+              default-src="https://picsum.photos/id/1076/1056/480"
+              opacity="100"
+            >
+              <dds-image-item
+                media="(min-width: 1312px)"
+                srcset="https://picsum.photos/id/1076/1056/480"
+              >
+              </dds-image-item>
+              <dds-image-item
+                media="(min-width: 672px)"
+                srcset="https://picsum.photos/id/1076/672/400"
+              >
+              </dds-image-item>
+              <dds-image-item
+                media="(min-width: 320px)"
+                srcset="https://picsum.photos/id/1076/672/400"
+              >
+              </dds-image-item>
+              <dds-image-item
+                media="(min-width: 0px)"
+                srcset="https://picsum.photos/id/1076/320/370"
+              >
+              </dds-image-item>
+            </dds-background-media>
           </dds-leadspace>
         </div>
       </div>

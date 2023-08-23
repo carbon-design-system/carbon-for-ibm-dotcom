@@ -63,18 +63,16 @@ describe('dds-masthead | with L1 (desktop)', () => {
   });
 
   it('should render menu items', () => {
-    cy.get(_selectors.l1)
-      .shadow()
-      .find(_selectors.l1Item)
-      .should('exist');
+    cy.get(_selectors.l1).shadow().find(_selectors.l1Item).should('exist');
   });
 
   it('should open dropdowns', () => {
+    cy.get(_selectors.l1).shadow().find(`${_selectors.l1Item}`).first().click();
+
     cy.get(_selectors.l1)
       .shadow()
       .find(`${_selectors.l1Item}`)
       .first()
-      .click()
       .next(_selectors.l1Dropdown)
       .should('have.length', 1);
 
