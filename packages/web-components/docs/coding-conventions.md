@@ -442,21 +442,20 @@ Global `document`/`window` can be different from the ones associated with custom
 ## Custom Elements
 ### @carbonElement Decorator
 
-We use a custom `@carbonElement` decorator instead of Lit's `@customElement`, which doesn't provide
-a way to check if an element has already been defined in the window's `CustomElementRegistry`. If an attempt is made to redefine an element that has already been registered, an error will occur and any remaining code will fail to execute.
+We use a custom [`@carbonElement`](../../carbon-web-components/src/globals/decorators/carbon-element.ts) decorator instead of Lit's [`@customElement`](https://lit.dev/docs/v1/api/lit-element/decorators/#customElement), which doesn't provide a way to check if an element has already been defined in the window's `CustomElementRegistry`. If an attempt is made to redefine an element that has already been registered, an error will occur and any remaining code will fail to execute.
 
 `@carbonElement` is identical to `@customElement` with the exception that it gracefully handles any failures from duplicate registrations and continues executing the remainder of the running script.
 
 #### Usage
 
-1. Use this project's carbon-element.ts file to supply the decorator
-2. Alias @carbonElement to @customElement
+1. Use this project's `carbon-element.ts` file to supply the decorator
+2. Alias `@carbonElement` to `@customElement`
 
 The second item is **required** for proper creation of the react-wrapped components
 
 Example: 
 
-```
+```typescript
 import { html, property, LitElement } from 'lit-element';
 import { carbonElement as customElement } from '../../globals/decorators/carbon-element';
 
