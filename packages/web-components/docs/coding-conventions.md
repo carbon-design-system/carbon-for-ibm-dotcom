@@ -442,10 +442,12 @@ Global `document`/`window` can be different from the ones associated with custom
 ## Custom Elements
 ### @carbonElement Decorator
 
-When creating a custom element, we alias `@carbonElement` as lit framework's `@customElement`. Lit's `@customElement` does not provide
-a way to check if an element has already been defined. If an attempt is made to define an element that has already been defined on a page, an error state will occur and code will break. 
+We use a custom `@carbonElement` decorator instead of Lit's `@customElement`, which doesn't provide
+a way to check if an element has already been defined in the window's `CustomElementRegistry`. If an attempt is made to redefine an element that has already been registered, an error will occur and any remaining code will fail to execute.
 
-This new approach offers a method for elements to attempt to define themselves, but to gracefully handle the failure and to continue executing the remainder of the running script. The new decorator is a simple copy/paste from the LitElement `@customElement` decorator, with the `customElements.define` functions wrapped in a try/catch block.
+`@carbonElement` is identical to `@customElement` with the exception that it gracefully handles any failures from duplicate registrations and continues executing the remainder of the running script.
+
+#### Usage
 
 1. Use this project's carbon-element.ts file to supply the decorator
 2. Alias @carbonElement to @customElement
