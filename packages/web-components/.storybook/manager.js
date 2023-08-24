@@ -24,7 +24,7 @@ addons.setConfig({
  */
 const getCss = (envVar, cssId) => {
   return envVar !== 'true'
-    ? `button[id^="${cssId}"] { display: none !important; }\n`
+    ? `[id^="${cssId}"] { display: none !important; }\n`
     : '';
 };
 
