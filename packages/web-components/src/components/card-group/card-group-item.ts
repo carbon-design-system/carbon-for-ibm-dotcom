@@ -38,6 +38,16 @@ class DDSCardGroupItem extends DDSCard {
     return `${ddsPrefix}--card-group-item`;
   }
 
+  updated(changedProperties) {
+    super.updated(changedProperties);
+
+    if (changedProperties.has('ctaType')) {
+      this.shadowRoot
+        ?.querySelector('dds-image')
+        ?.setAttribute('card-group-item', '');
+    }
+  }
+
   /**
    * A selector that will return the child footer.
    */
