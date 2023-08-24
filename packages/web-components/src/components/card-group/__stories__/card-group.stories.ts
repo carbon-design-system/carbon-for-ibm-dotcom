@@ -410,16 +410,12 @@ withCardInCard.story = {
 };
 
 export const withMultipleVideos = (args) => {
-  const { gridMode, tagGroup, cards: cardCount } = args?.CardGroup ?? {};
+  const { cards: cardCount } = args?.CardGroup ?? {};
 
   const videoCardGroupItem = (videoId = '1_9h94wo6b') =>
     html`
-      <dds-card-group-item
-        cta-type="video"
-        href="${videoId}"
-        color-scheme=${gridMode === 'border' ? 'light' : null}>
+      <dds-card-group-item cta-type="video" href="${videoId}">
         <dds-card-eyebrow>Topic</dds-card-eyebrow>
-        ${tagGroup ? tagGroupContent : ''}
         <dds-card-cta-footer cta-type="video" slot="footer" href="1_9h94wo6b">
         </dds-card-cta-footer>
       </dds-card-group-item>
@@ -432,11 +428,7 @@ export const withMultipleVideos = (args) => {
     cards.push(videoCardGroupItem(demoVideoIds[i % 3]));
   }
 
-  return html`
-    <dds-card-group grid-mode="${ifNonNull(gridMode)}">
-      ${cards}
-    </dds-card-group>
-  `;
+  return html` <dds-card-group> ${cards} </dds-card-group> `;
 };
 
 withMultipleVideos.story = {
