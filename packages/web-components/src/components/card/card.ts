@@ -224,11 +224,11 @@ class DDSCard extends CTAMixin(StableSelectorMixin(CDSLink)) {
   logo = false;
 
   @query('div')
-  protected _divNode?: HTMLDivElement | HTMLParagraphElement;
+  _linkNode;
 
   updated(changedProperties) {
     super.updated(changedProperties);
-    const { colorScheme, href, _divNode: divNode, ctaType } = this;
+    const { colorScheme, href, _linkNode: linkNode, ctaType } = this;
 
     if (
       changedProperties.has('ctaType') ||
@@ -289,12 +289,12 @@ class DDSCard extends CTAMixin(StableSelectorMixin(CDSLink)) {
         (footer as DDSCardFooter).altAriaLabel = headingText || copyText;
       }
     }
-    if (divNode) {
-      divNode.classList.add(`${prefix}--tile`);
-      divNode.classList.add(`${prefix}--card`);
-      divNode.classList.toggle(`${prefix}--tile--clickable`, Boolean(href));
-      divNode.classList.toggle(`${prefix}--card--link`, Boolean(href));
-      divNode.classList.toggle(
+    if (linkNode) {
+      linkNode.classList.add(`${prefix}--tile`);
+      linkNode.classList.add(`${prefix}--card`);
+      linkNode.classList.toggle(`${prefix}--tile--clickable`, Boolean(href));
+      linkNode.classList.toggle(`${prefix}--card--link`, Boolean(href));
+      linkNode.classList.toggle(
         `${prefix}--card--inverse`,
         colorScheme === BASIC_COLOR_SCHEME.INVERSE
       );

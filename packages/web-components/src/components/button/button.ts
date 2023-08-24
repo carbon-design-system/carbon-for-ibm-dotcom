@@ -42,9 +42,11 @@ class DDSButton extends CTAMixin(StableSelectorMixin(CDSButton)) {
   }
 
   /**
-   * @returns The inner content.
+   * TODO: Due to the new render() logic coming from the CWC v2 button,
+   * this function is currently unused. We'd need to dynamically add it.
+   * @returns The icon for the print styles
    */
-  _renderIcon1() {
+  _renderIconPrintStyles() {
     return html`
       <p class="${prefix}--btn--hidden" aria-hidden="true">
         <span>:</span> ${this.href}
