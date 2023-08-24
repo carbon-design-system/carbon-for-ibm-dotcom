@@ -137,7 +137,7 @@ export const parameters = {
         [
           'Welcome',
           'Custom styles',
-          'Carbon CDN Style Helpers',
+          'Carbon CDN style helpers',
           'Form Participation',
         ],
         'Components',
