@@ -3,6 +3,33 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.50.0](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/compare/@carbon/ibmdotcom-styles@1.50.0-rc.2...@carbon/ibmdotcom-styles@1.50.0) (2023-08-22)
+
+**Note:** Version bump only for package @carbon/ibmdotcom-styles
+
+
+
+
+
+# [1.50.0-rc.2](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/compare/@carbon/ibmdotcom-styles@1.50.0-rc.1...@carbon/ibmdotcom-styles@1.50.0-rc.2) (2023-08-18)
+
+
+### Bug Fixes
+
+* **content-item-horizontal:** fix media overflow on mobile ([#10857](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/issues/10857)) ([f8f7b62](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/commit/f8f7b62f9b8297bd9584fc22375dc5d503772cc6))
+
+
+
+
+
+# [1.50.0-rc.1](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/compare/@carbon/ibmdotcom-styles@1.50.0-rc.0...@carbon/ibmdotcom-styles@1.50.0-rc.1) (2023-08-18)
+
+**Note:** Version bump only for package @carbon/ibmdotcom-styles
+
+
+
+
+
 # [1.50.0-rc.0](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/compare/@carbon/ibmdotcom-styles@1.49.0...@carbon/ibmdotcom-styles@1.50.0-rc.0) (2023-08-14)
 
 
