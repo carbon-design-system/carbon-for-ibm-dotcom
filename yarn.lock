@@ -3633,9 +3633,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@carbon/web-components@npm:1.31.0-rc.0":
-  version: 1.31.0-rc.0
-  resolution: "@carbon/web-components@npm:1.31.0-rc.0"
+"@carbon/web-components@npm:1.31.0":
+  version: 1.31.0
+  resolution: "@carbon/web-components@npm:1.31.0"
   dependencies:
     "@babel/runtime": ^7.16.3
     carbon-components: 10.58.3
@@ -3643,7 +3643,7 @@ __metadata:
     lit-element: ^2.5.1
     lit-html: ^1.4.1
     lodash-es: ^4.17.21
-  checksum: ae6aee6cc282d879ebefc41973544c368256e4771b309bb4be3d1fd5697c95c8686c520a0154656a8fa564e6087b3e1af64904a7fd5459328c11b72699348e4a
+  checksum: 53b512ff785da8e747063b7885816fc154cbfba44d076092fcef68024ded9d15fdb28cf3414076bc1c11aa0d615ac450c90d8626012445e4271bcad6d0a8e43c
   languageName: node
   linkType: hard
 
