@@ -13,7 +13,6 @@ import HostListenerMixin from '../../internal/vendor/@carbon/web-components/glob
 import './filter-group';
 import './filter-modal-button';
 import './filter-modal-heading';
-//import DDSExpressiveModal from '../../internal/vendor/@carbon/web-components/components/modal/modal.js';
 import DDSExpressiveModal from '../expressive-modal/expressive-modal';
 import ddsSettings from '../../internal/vendor/@carbon/ibmdotcom-utilities/utilities/settings/settings';
 import './filter-modal-footer';
