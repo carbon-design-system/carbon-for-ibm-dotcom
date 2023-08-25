@@ -595,7 +595,7 @@ class DDSTopNav extends StableSelectorMixin(HostListenerMixin(BXHeaderNav)) {
                 </div>
                 <div class="${ddsPrefix}-ce--header__nav-content-container">
                   <div class="${prefix}--header__nav-content">
-                    <nav part="nav" class="${prefix}--header__nav">
+                    <nav part="nav" class="${prefix}--header__nav" aria-label="Main Navigation">
                       <div class="${prefix}--sub-content-left"></div>
                       <div
                         part="menubar"
