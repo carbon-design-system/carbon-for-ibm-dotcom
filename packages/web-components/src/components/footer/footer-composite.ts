@@ -62,6 +62,7 @@ class DDSFooterComposite extends MediaQueryMixin(
    * Handles `click` event on the locale button.
    */
   private _handleClickLocaleButton = () => {
+    console.log("HALP");
     this.openLocaleModal = true;
   };
 
@@ -245,7 +246,8 @@ class DDSFooterComposite extends MediaQueryMixin(
       openLocaleModal,
       _loadLocaleList: loadLocaleList,
     } = this;
-    return html`
+    return openLocaleModal 
+    ? html`
       <dds-locale-modal-composite
         lang-display="${ifNonNull(langDisplay)}"
         language="${ifNonNull(language)}"
@@ -254,7 +256,8 @@ class DDSFooterComposite extends MediaQueryMixin(
         .localeList="${ifNonNull(localeList)}"
         ._loadLocaleList="${ifNonNull(loadLocaleList)}">
       </dds-locale-modal-composite>
-    `;
+    `
+    : html ``;
   }
 
   renderLanguageSelector(slot = 'language-selector') {
