@@ -169,7 +169,10 @@
     }
 
     ::slotted([slot='media']) {
-      grid-column: 1 / span 12;
+      grid-column: 1 / span 4;
+      @include breakpoint(lg) {
+        grid-column: 1 / span 12;
+      }
     }
     ::slotted(#{$dds-prefix}-image) {
       max-width: none;

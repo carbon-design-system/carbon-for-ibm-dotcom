@@ -4,6 +4,16 @@
   "npmClient": "yarn",
   "npmClientArgs": ["--no-immutable"],
   "useWorkspaces": true,
+  "packages": [
+    "packages/web-components",
+    "packages/utilities",
+    "packages/react",
+    "packages/eslint-*",
+    "packages/services-*",
+    "packages/storybook-addon-theme",
+    "packages/stylelint-config-ibmdotcom",
+    "packages/styles"
+  ],
   "ignoreChanges": [
     "**/__fixtures__/**",
     "**/__tests__/**",

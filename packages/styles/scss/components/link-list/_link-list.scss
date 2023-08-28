@@ -105,7 +105,6 @@
   .#{$prefix}--card__video {
     [slot='heading'],
     .#{$prefix}--card__heading {
-      color: $link-primary;
       margin-bottom: 0;
 
       @include type-style('body-compact-02');
@@ -113,6 +112,12 @@
       @include breakpoint(lg) {
         margin-bottom: $spacing-05;
       }
+    }
+  }
+  :host(#{$dds-prefix}-link-list-item-card-cta)[cta-type='video'] {
+    [slot='heading'],
+    .#{$prefix}--card__heading {
+      color: $link-primary;
     }
   }
 
