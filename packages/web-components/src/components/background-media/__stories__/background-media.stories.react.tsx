@@ -59,7 +59,7 @@ export const WithVideo = args => {
   return (
     <div style={{ height: '70vh' }}>
       <DDSBackgroundMedia gradient-direction={gradientDirection} mobile-position="bottom" opacity={backgroundOpacity}>
-        <DDSVideoPlayerContainer video-id="1_9h94wo6b" background-mode="true"></DDSVideoPlayerContainer>
+        <DDSVideoPlayerContainer video-id="0_ibuqxqbe" background-mode="true"></DDSVideoPlayerContainer>
       </DDSBackgroundMedia>
     </div>
   );
