@@ -73,7 +73,6 @@ import '../search-with-typeahead/search-with-typeahead-item';
 import styles from './masthead.scss';
 import { MEGAMENU_LAYOUT_SCHEME } from './defs';
 import layoutBreakpoint from './masthead-breakpoint';
-import DDSTopNavMenuItem from './top-nav-menu-item';
 
 const { stablePrefix: ddsPrefix } = ddsSettings;
 
