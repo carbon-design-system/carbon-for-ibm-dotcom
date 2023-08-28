@@ -18,7 +18,7 @@
 @use '../../globals/vars' as *;
 @use '../masthead/vars' as *;
 
-%react-autosuggest-suggestion {
+@mixin react-autosuggest-suggestion {
   color: $text-primary;
   height: $spacing-09;
   display: flex;
@@ -194,15 +194,17 @@
     position: relative;
     outline: none;
     height: $spacing-09;
-    margin-left: rem($spacing-09);
+    margin-left: $spacing-09;
 
     .#{$dds-prefix}-ce__search__list {
       height: 0;
       overflow: hidden;
+      margin: 0;
     }
 
     &[open] .#{$dds-prefix}-ce__search__list {
       height: auto;
+      padding: 0;
     }
 
     &[active] {
@@ -461,7 +463,7 @@
   }
 
   .react-autosuggest__suggestion {
-    @extend %react-autosuggest-suggestion;
+    @include react-autosuggest-suggestion;
   }
 
   .#{$prefix}--header__search--input {
@@ -482,7 +484,7 @@
 }
 
 :host(#{$dds-prefix}-search-with-typeahead-item) {
-  @extend %react-autosuggest-suggestion;
+  @include react-autosuggest-suggestion;
 
   span {
     white-space: pre;
