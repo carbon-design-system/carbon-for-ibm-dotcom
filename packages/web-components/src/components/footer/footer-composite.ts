@@ -62,7 +62,6 @@ class DDSFooterComposite extends MediaQueryMixin(
    * Handles `click` event on the locale button.
    */
   private _handleClickLocaleButton = () => {
-    console.log("HALP");
     this.openLocaleModal = true;
   };
 
