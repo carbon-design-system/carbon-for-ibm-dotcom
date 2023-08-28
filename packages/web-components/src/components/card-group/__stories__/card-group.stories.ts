@@ -12,7 +12,7 @@ import '../../card/index';
 import '../../card-in-card/index';
 import '../index';
 import '../../cta/video-cta-container';
-import { html, TemplateResult } from 'lit-element';
+import { html } from 'lit-element';
 import { select, number, boolean } from '@storybook/addon-knobs';
 import ifNonNull from '../../../internal/vendor/@carbon/web-components/globals/directives/if-non-null.js';
 // eslint-disable-next-line sort-imports
@@ -104,10 +104,10 @@ const cardsDiffLengthPhrase = (
     </dds-card-group-item>
   `;
 
-  const videoCardGroupItem = html`
+  const videoCardGroupItem = (videoId = '1_9h94wo6b') => html`
     <dds-card-group-item
       cta-type="video"
-      href="1_9h94wo6b"
+      href="${videoId}"
       color-scheme=${gridMode === 'border' ? 'light' : null}>
       <dds-card-eyebrow>Topic</dds-card-eyebrow>
       ${tagGroup ? tagGroupContent : ''}
@@ -116,8 +116,12 @@ const cardsDiffLengthPhrase = (
     </dds-card-group-item>
   `;
 
+  const demoVideoIds = ['1_9h94wo6b', '0_ibuqxqbe', '1_6b6qjovy'];
+
   count = count > 3 ? 0 : count + 1;
-  return media && index % 2 ? videoCardGroupItem : defaultCardGroupItem;
+  return media && index % 2
+    ? videoCardGroupItem(demoVideoIds[index % 3])
+    : defaultCardGroupItem;
 };
 
 const longHeadingCardGroupItem = (
@@ -402,48 +406,6 @@ withCardInCard.story = {
           media: false,
           tagGroup: false,
           gridMode: 'narrow',
-          cards: 5,
-        },
-      },
-    },
-  },
-};
-
-export const withMultipleVideos = (args) => {
-  const { cards: cardCount } = args?.CardGroup ?? {};
-
-  const videoCardGroupItem = (videoId = '1_9h94wo6b') =>
-    html`
-      <dds-card-group-item cta-type="video" href="${videoId}">
-        <dds-card-eyebrow>Topic</dds-card-eyebrow>
-        <dds-card-cta-footer cta-type="video" slot="footer" href="1_9h94wo6b">
-        </dds-card-cta-footer>
-      </dds-card-group-item>
-    `;
-
-  const demoVideoIds = ['1_9h94wo6b', '0_ibuqxqbe', '1_6b6qjovy'];
-
-  const cards: TemplateResult[] = [];
-  for (let i = 0; i < cardCount; i++) {
-    cards.push(videoCardGroupItem(demoVideoIds[i % 3]));
-  }
-
-  return html` <dds-card-group> ${cards} </dds-card-group> `;
-};
-
-withMultipleVideos.story = {
-  name: 'With multiple videos',
-  parameters: {
-    ...readme.parameters,
-    hasStoryPadding: true,
-    knobs: {
-      CardGroup: () => ({
-        cards: number('Number of cards', 5, { min: 2, max: 6 }),
-      }),
-    },
-    propsSet: {
-      default: {
-        CardGroup: {
           cards: 5,
         },
       },
