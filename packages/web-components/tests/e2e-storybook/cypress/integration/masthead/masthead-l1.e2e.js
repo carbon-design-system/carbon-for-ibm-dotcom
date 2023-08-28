@@ -67,14 +67,11 @@ describe('dds-masthead | with L1 (desktop)', () => {
   });
 
   it('should open dropdowns', () => {
-    cy.get(_selectors.l1).shadow().find(`${_selectors.l1Item}`).first().click();
+    cy.get(_selectors.l1).shadow().find(`${_selectors.l1Item}`).first().as('l1Item').click();
 
-    cy.get(_selectors.l1)
-      .shadow()
-      .find(`${_selectors.l1Item}`)
-      .first()
+    cy.get('@l1Item')
       .next(_selectors.l1Dropdown)
-      .should('have.length', 1);
+      .should('be.visible');
 
     cy.takeSnapshots();
   });
@@ -90,25 +87,21 @@ describe('dds-masthead | with L1 (desktop)', () => {
   });
 
   it('should support announcements in dropdowns', () => {
-    cy.get(_selectors.l1)
-      .shadow()
-      .find(_selectors.l1Item)
-      .eq(1)
-      .click()
+    cy.get(_selectors.l1).shadow().find(_selectors.l1Item).eq(1).as('l1Item').click();
+
+    cy.get('@l1Item')
       .next(_selectors.l1Dropdown)
       .find(_selectors.l1DropdownAnnouncement)
-      .should('have.length', 1);
+      .should('be.visible');
   });
 
   it('should support view all links in dropdowns', () => {
-    cy.get(_selectors.l1)
-      .shadow()
-      .find(_selectors.l1Item)
-      .eq(1)
-      .click()
+    cy.get(_selectors.l1).shadow().find(_selectors.l1Item).eq(1).as('l1Item').click();
+
+    cy.get('@l1Item')
       .next(_selectors.l1Dropdown)
       .find(_selectors.l1DropdownViewAll)
-      .should('have.length', 1)
+      .should('be.visible')
       .then($link => {
         const url = $link.prop('href');
         expect(url).not.to.be.empty;
