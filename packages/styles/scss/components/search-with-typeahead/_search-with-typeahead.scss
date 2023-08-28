@@ -299,10 +299,6 @@
 
       top: 0;
 
-      @include breakpoint(md) {
-        height: $spacing-10;
-      }
-
       &:focus {
         outline: $spacing-01 solid $focus;
         .#{$prefix}--header__search--actions {
@@ -336,10 +332,6 @@
       form {
         width: 100%;
         padding-left: $spacing-09;
-
-        @include breakpoint(md) {
-          height: $spacing-10;
-        }
       }
 
       .react-autosuggest__container {
@@ -349,11 +341,7 @@
       }
 
       .react-autosuggest__suggestions-container {
-        top: rem(50px);
-
-        @include breakpoint(md) {
-          top: rem(66px);
-        }
+        top: calc($spacing-09 + 2px);
       }
 
       .react-autosuggest__suggestions-list {
@@ -363,16 +351,6 @@
       .#{$prefix}--header__search--input {
         color: $text-primary;
         border-bottom: none;
-
-        @include breakpoint(md) {
-          height: $spacing-10;
-        }
-      }
-
-      .#{$prefix}--header__search--close {
-        @include breakpoint(md) {
-          height: $spacing-10;
-        }
       }
 
       &[large] {
