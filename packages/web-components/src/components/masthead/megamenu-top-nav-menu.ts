@@ -49,6 +49,11 @@ class DDSMegaMenuTopNavMenu extends DDSTopNavMenu {
     this.ownerDocument!.body.offsetWidth;
 
   /**
+   * Identifier for this menu's position in a series.
+   */
+  menuIndex: number | undefined;
+
+  /**
    * The observer for the resize of the viewport.
    */
   private _observerResizeRoot: any | null = null; // TODO: Wait for `.d.ts` update to support `ResizeObserver`

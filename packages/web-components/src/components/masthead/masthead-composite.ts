@@ -73,6 +73,7 @@ import '../search-with-typeahead/search-with-typeahead-item';
 import styles from './masthead.scss';
 import { MEGAMENU_LAYOUT_SCHEME } from './defs';
 import layoutBreakpoint from './masthead-breakpoint';
+import DDSTopNavMenuItem from './top-nav-menu-item';
 
 const { stablePrefix: ddsPrefix } = ddsSettings;
 
@@ -962,7 +963,8 @@ class DDSMastheadComposite extends HostListenerMixin(LitElement) {
           ?active="${selected}"
           menu-label="${title}"
           trigger-content="${title}"
-          data-autoid="${autoid}-nav--nav${i}">
+          data-autoid="${autoid}-nav--nav${i}"
+          .menuIndex=${i}>
           ${_activeMegamenuIndex === i
             ? this._renderMegaMenu(submenu, i, layout)
             : null}
@@ -992,18 +994,17 @@ class DDSMastheadComposite extends HostListenerMixin(LitElement) {
       target,
       detail: { active, resolveFn },
     } = event;
-    const { autoid } = (target as HTMLElement).dataset;
-    const targetMegamenuIndex = Number(autoid?.slice(-1));
+    const { menuIndex } = target as DDSMegamenuTopNavMenu;
 
     // Open a megamenu by updating state to trigger a re-render. This also closes
     // any previously opened megamenu.
-    if (active) {
-      this._activeMegamenuIndex = targetMegamenuIndex;
+    if (active && menuIndex !== undefined) {
+      this._activeMegamenuIndex = menuIndex;
     }
 
     // If clicking the same nav item to close megamenu, reset state to prune its
     // markup from the DOM.
-    if (!active && targetMegamenuIndex === this._activeMegamenuIndex) {
+    if (!active && menuIndex === this._activeMegamenuIndex) {
       this._activeMegamenuIndex = undefined;
     }
 
