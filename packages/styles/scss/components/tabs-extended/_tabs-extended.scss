@@ -109,7 +109,7 @@
           overflow: hidden;
           height: 100%;
           line-height: 1.375rem;
-          word-break: break-word;
+          hyphens: auto;
 
           @include type-style('body-short-02');
         }
@@ -273,4 +273,8 @@ button.#{$prefix}--tabs__nav-link {
   ):not(.#{$prefix}--tabs__nav-item--selected)
   button.#{$prefix}--tabs__nav-link:active {
   color: $text-02;
+}
+
+.#{$prefix}--accordion__title {
+  hyphens: auto;
 }
