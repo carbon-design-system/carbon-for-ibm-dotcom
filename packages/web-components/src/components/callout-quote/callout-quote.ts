@@ -16,9 +16,9 @@ import { carbonElement as customElement } from '../../internal/vendor/@carbon/we
 const { stablePrefix: ddsPrefix } = settings;
 
 /**
- * Callout Data.
+ * Callout Qupte.
  *
- * @element dds-callout-data
+ * @element dds-callout-quote
  */
 @customElement(`${ddsPrefix}-callout-quote`)
 class DDSCalloutQuote extends DDSCalloutMixin(DDSQuote) {

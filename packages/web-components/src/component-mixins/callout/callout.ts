@@ -9,7 +9,6 @@
 import { html } from 'lit';
 import settings from '../../internal/vendor/@carbon/ibmdotcom-utilities/utilities/settings/settings';
 import { Constructor } from '../../globals/defs';
-import { COLOR_SCHEME } from './defs';
 
 const { prefix } = settings;
 
@@ -20,11 +19,6 @@ const { prefix } = settings;
  */
 const DDSCalloutMixin = <T extends Constructor<HTMLElement>>(base: T) => {
   abstract class CalloutMixin extends base {
-    /**
-     * The callout color-scheme.
-     */
-    abstract colorScheme: COLOR_SCHEME;
-
     render() {
       return html`
         <div class="${prefix}--callout__column">

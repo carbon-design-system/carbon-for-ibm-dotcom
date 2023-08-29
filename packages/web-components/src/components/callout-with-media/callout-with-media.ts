@@ -31,7 +31,7 @@ class DDSCalloutWithMedia extends DDSCalloutMixin(
   StableSelectorMixin(DDSContentBlock)
 ) {
   /**
-   * The CTA type.
+   * The color-scheme type.
    */
   @property({ reflect: true, attribute: 'color-scheme' })
   colorScheme = COLOR_SCHEME.REGULAR;
