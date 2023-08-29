@@ -6,8 +6,6 @@
 //
 
 @use '@carbon/ibmdotcom-styles/scss/globals/vars' as *;
-@use '@carbon/ibmdotcom-styles/scss/components/horizontal-rule';
+@use '../../../../styles/scss/components/horizontal-rule';
 
-:host(#{$dds-prefix}-hr) {
-  display: block;
-}
+

@@ -5,45 +5,5 @@
 // LICENSE file in the root directory of this source tree.
 //
 
-@use '@carbon/styles/scss/breakpoint' as *;
-@use '@carbon/styles/scss/config' as *;
-@use '@carbon/styles/scss/spacing' as *;
-@use '@carbon/styles/scss/theme' as *;
-@use '@carbon/ibmdotcom-styles/scss/components/quote';
+@use '../../../../styles/scss/components/quote';
 @use '@carbon/ibmdotcom-styles/scss/components/link-with-icon';
-@use '@carbon/ibmdotcom-styles/scss/globals/vars' as *;
-
-:host(#{$dds-prefix}-quote-source-bottom-copy),
-:host(#{$dds-prefix}-quote-source-copy),
-:host(#{$dds-prefix}-quote-source-heading) {
-  display: block;
-}
-
-:host(#{$dds-prefix}-quote) #{$dds-prefix}-hr {
-  margin: $spacing-05;
-  @include breakpoint(md) {
-    margin: $spacing-05 0;
-  }
-  @include breakpoint(lg) {
-    margin: $spacing-05 $spacing-03;
-  }
-}
-
-:host(#{$dds-prefix}-quote-link-with-icon) {
-  @extend .#{$prefix}--link-with-icon;
-
-  display: inline-block;
-}
-
-:host-context(#{$dds-prefix}-quote[color-scheme='inverse'])
-  a.#{$prefix}--link-with-icon.#{$prefix}--link.#{$prefix}--link-with-icon__icon-right {
-  color: $link-inverse;
-  outline-color: $focus-inverse;
-  &:hover {
-    color: $link-inverse;
-    text-decoration: underline;
-  }
-  &:active {
-    color: $link-inverse;
-  }
-}

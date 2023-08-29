@@ -11,24 +11,27 @@
 @use '@carbon/styles/scss/theme' as *;
 @use '../../globals/vars' as *;
 @use '../../globals/utils/hang' as *;
-@use '../../internal/callout/callout';
-@use '../quote/quote';
+@use '../../internal/callout/callout' as *;
+@use '../quote/quote' as *;
+
+@include callout;
+@include quote;
 
 @mixin callout-quote {
-  .#{$prefix}--callout-quote,
   :host(#{$dds-prefix}-callout-quote) {
-    .#{$prefix}--quote {
-      background-color: $background-inverse;
-      .#{$prefix}--link {
-        color: $link-inverse;
-        outline-color: $focus-inverse;
-        &:hover {
-          color: #a6c8ff;
-        }
-      }
-    }
+    @extend  :host(#{$dds-prefix}-callout);
+
+    // background-color: $background-inverse;
+    padding-bottom: $spacing-10;
   }
 
+  :host(#{$dds-prefix}-callout-quote[color-scheme="purple"]) {
+    @extend :host(#{$dds-prefix}-callout[color-scheme="purple"]);
+  }
+  :host(#{$dds-prefix}-callout-quote[color-scheme="cyan"]) {
+    @extend :host(#{$dds-prefix}-callout[color-scheme="cyan"]);
+  }
+  
   .#{$prefix}--callout-quote .#{$prefix}--callout__container {
     padding-left: $spacing-05;
     padding-right: $spacing-05;
@@ -40,7 +43,7 @@
   }
 
   :host(#{$dds-prefix}-callout-quote) {
-    @extend .#{$prefix}--callout__container;
+    // @extend .#{$prefix}--callout__container;
 
     @include breakpoint(md) {
       @include hang;

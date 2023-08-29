@@ -52,7 +52,7 @@ export default {
   title: 'Components/Horizontal rule',
   decorators: [
     (story) => html`
-      <div class="cds--grid cds--grid--condensed">
+      <div class="cds--grid">
         <div class="cds--row">
           <div class="cds--col-lg-12">
             <h2>Horizontal Rule</h2>

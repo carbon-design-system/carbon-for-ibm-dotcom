@@ -1,0 +1,46 @@
+// //
+// // Copyright IBM Corp. 2020
+// //
+// // This source code is licensed under the Apache-2.0 license found in the
+// // LICENSE file in the root directory of this source tree.
+// //
+
+// @use 'sass:color';
+// @use 'sass:map';
+// @use '@carbon/colors' as *;
+// @use '@carbon/styles/scss/config';
+// @use '@carbon/styles/scss/themes';
+// @use '@carbon/styles/scss/theme' as *;
+// @use '@carbon/styles/scss/utilities/component-tokens';
+
+// // red
+// $callout-background-cyan: (
+//   fallback: $cyan-10,
+//   values: (
+//     (
+//       theme: themes.$white,
+//       value: $cyan-10,
+//     ),
+//     (
+//       theme: themes.$g10,
+//       value: $cyan-10,
+//     ),
+//     (
+//       theme: themes.$g90,
+//       value: $cyan-90,
+//     ),
+//     (
+//       theme: themes.$g100,
+//       value: $cyan-90,
+//     ),
+//   ),
+// ) !default;
+
+// $callout-tokens: (
+//   callout-background-cyan: $callout-background-cyan
+// )
+
+// $callout-background-cyan: component-tokens.get-var(
+//   $callout-background-cyan,
+//   'callout-background-cyan'
+// );

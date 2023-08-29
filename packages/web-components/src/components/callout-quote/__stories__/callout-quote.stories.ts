@@ -27,10 +27,10 @@ const types = {
 };
 
 export const Default = (args) => {
-  const { copy, quoteMark, sourceHeading, sourceCopy, sourceBottomCopy } =
+  const { copy, quoteMark, sourceHeading, sourceCopy, sourceBottomCopy,colorScheme } =
     args?.CalloutQuote ?? {};
   return html`
-    <dds-callout-quote mark-type="${quoteMark}">
+    <dds-callout-quote mark-type="${quoteMark}" color-scheme="${colorScheme}">
       ${copy}
       <dds-quote-source-heading> ${sourceHeading} </dds-quote-source-heading>
       <dds-quote-source-copy> ${sourceCopy} </dds-quote-source-copy>
@@ -78,6 +78,7 @@ export default {
           'Source bottom copy (source-bottom-copy slot)',
           'IBM Cloud'
         ),
+        colorScheme: select('Color scheme:', ['regular', 'purple', 'cyan'], 'regular')
       }),
     },
     propsSet: {

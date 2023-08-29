@@ -9,6 +9,7 @@
 import { html } from 'lit';
 import settings from '../../internal/vendor/@carbon/ibmdotcom-utilities/utilities/settings/settings';
 import { Constructor } from '../../globals/defs';
+import { COLOR_SCHEME } from './defs';
 
 const { prefix } = settings;
 
@@ -18,7 +19,12 @@ const { prefix } = settings;
  * @mixin dds-callout
  */
 const DDSCalloutMixin = <T extends Constructor<HTMLElement>>(base: T) => {
-  return class extends base {
+  abstract class CalloutMixin extends base {
+    /**
+     * The CTA type.
+     */
+    abstract ctaType: COLOR_SCHEME;
+
     render() {
       return html`
         <div class="${prefix}--callout__column">
@@ -32,7 +38,9 @@ const DDSCalloutMixin = <T extends Constructor<HTMLElement>>(base: T) => {
         </div>
       `;
     }
-  };
+  }
+
+  return CalloutMixin;
 };
 
 export default DDSCalloutMixin;

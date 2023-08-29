@@ -10,7 +10,7 @@
 @use '@carbon/styles/scss/spacing' as *;
 @use '@carbon/styles/scss/theme' as *;
 @use '@carbon/ibmdotcom-styles/scss/globals/vars' as *;
-@use '@carbon/ibmdotcom-styles/scss/components/callout-quote';
+@use '../../../../styles/scss/components/callout-quote';
 @use '@carbon/ibmdotcom-styles/scss/components/link-with-icon';
 
 :host(#{$dds-prefix}-callout-link-with-icon) {
