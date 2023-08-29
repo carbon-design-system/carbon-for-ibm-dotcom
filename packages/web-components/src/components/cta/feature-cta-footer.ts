@@ -15,7 +15,7 @@ import {
   formatVideoDuration,
 } from '../../internal/vendor/@carbon/ibmdotcom-utilities/utilities/formatVideoCaption/formatVideoCaption.js';
 import DDSFeatureCardFooter from '../feature-card/feature-card-footer';
-import CTAMixin from '../../component-mixins/cta/cta';
+import CTAMixin from '../../component-mixins/cta/cta-v1';
 import VideoCTAMixin from '../../component-mixins/cta/video';
 import { CTA_TYPE } from './defs';
 import styles from './cta.scss';

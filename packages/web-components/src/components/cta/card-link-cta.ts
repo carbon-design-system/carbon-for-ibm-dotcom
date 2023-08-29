@@ -17,7 +17,7 @@ import {
 } from '../../internal/vendor/@carbon/ibmdotcom-utilities/utilities/formatVideoCaption/formatVideoCaption.js';
 import DDSCardLink from '../card-link/card-link';
 import '../card-link/card-link-heading';
-import CTAMixin from '../../component-mixins/cta/cta';
+import CTAMixin from '../../component-mixins/cta/cta-v1';
 import VideoCTAMixin from '../../component-mixins/cta/video';
 import DDSCardCTAFooter from './card-cta-footer';
 import './card-cta-footer';
