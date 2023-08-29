@@ -29,7 +29,6 @@ $fcb-breakpoint-up--lg: map.get(map.get($grid-breakpoints, 'lg'), 'width') -
 
 @mixin card {
   @include breakpoint-down(md) {
-    position: absolute;
     padding-top: 0;
     top: 0;
     left: 0;
