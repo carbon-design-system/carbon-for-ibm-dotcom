@@ -10,11 +10,12 @@
 import {
   html,
   property,
+  state,
   customElement,
   LitElement,
   TemplateResult,
 } from 'lit-element';
-import { nothing, render } from 'lit-html';
+import { nothing } from 'lit-html';
 import { ifDefined } from 'lit-html/directives/if-defined';
 import ArrowRight16 from '../../internal/vendor/@carbon/web-components/icons/arrow--right/16.js';
 import ifNonNull from '../../internal/vendor/@carbon/web-components/globals/directives/if-non-null.js';
@@ -45,6 +46,8 @@ import {
 import { MEGAMENU_RIGHT_NAVIGATION_STYLE_SCHEME } from './megamenu-right-navigation';
 import { DDS_CUSTOM_PROFILE_LOGIN } from '../../globals/internal/feature-flags';
 import DDSMastheadLogo from './masthead-logo';
+import DDSMegaMenuTabs from './megamenu-tabs';
+import DDSMegamenuTopNavMenu from './megamenu-top-nav-menu';
 import './masthead';
 import './masthead-button-cta';
 import './masthead-l1';
@@ -171,7 +174,7 @@ class DDSMastheadComposite extends HostListenerMixin(LitElement) {
     menu: L0Megamenu,
     _parentKey,
     layout: MEGAMENU_LAYOUT_SCHEME = MEGAMENU_LAYOUT_SCHEME.LIST
-  ) {
+  ): TemplateResult {
     const { _megamenuRenderMap } = this;
     if (_megamenuRenderMap.has(layout)) {
       return (_megamenuRenderMap.get(layout) as Function)(menu, _parentKey);
@@ -197,11 +200,17 @@ class DDSMastheadComposite extends HostListenerMixin(LitElement) {
       });
     });
 
+    const activeMenuItem = this._activeMegamenuTabKey
+      ? sortedMenuItems.find(
+          (item) => item.itemKey === this._activeMegamenuTabKey
+        )
+      : sortedMenuItems[0];
+
     return html`
       <dds-megamenu layout="${MEGAMENU_LAYOUT_SCHEME.TAB}">
         <dds-megamenu-left-navigation>
           <dds-megamenu-tabs
-            value="${ifNonNull(sortedMenuItems[0]?.heading?.title)}">
+            value="${ifNonNull(activeMenuItem?.heading?.title)}">
             ${sortedMenuItems.map((item) => {
               return item?.heading?.title
                 ? html`
@@ -226,51 +235,52 @@ class DDSMastheadComposite extends HostListenerMixin(LitElement) {
               `
             : null}
         </dds-megamenu-left-navigation>
-        ${sortedMenuItems.map((item) => {
-          const { itemKey, groups, heading, viewAll: itemViewAll } = item;
-          return html`
-            <div
-              id="panel-${itemKey}"
-              role="tabpanel"
-              aria-labelledby="tab-${itemKey}"
-              hidden>
-              <dds-megamenu-right-navigation
-                class="${ddsPrefix}--masthead__tabpanel-child"
-                style-scheme="${MEGAMENU_RIGHT_NAVIGATION_STYLE_SCHEME.HAS_SIDEBAR}">
-                ${heading?.title
-                  ? html`
-                      <dds-megamenu-heading
-                        href="${ifNonNull(heading?.url)}"
-                        title="${heading?.title}"
-                        slot="heading">
-                        ${heading?.description}
-                      </dds-megamenu-heading>
-                    `
-                  : ''}
-                ${groups
-                  ? groups.map((group, i) =>
-                      this._renderMegapanelLinkGroup(group, {
-                        autoid: `panel-${itemKey}-${i}`,
-                      })
-                    )
-                  : ''}
-                ${itemViewAll?.url && itemViewAll?.title
-                  ? html`
-                      <dds-megamenu-link-with-icon
-                        href="${itemViewAll.url}"
-                        part="view-all view-all-right"
-                        slot="view-all">
-                        <span>${itemViewAll.title}</span>${ArrowRight16({
-                          slot: 'icon',
-                        })}
-                      </dds-megamenu-link-with-icon>
-                    `
-                  : null}
-              </dds-megamenu-right-navigation>
-            </div>
-          `;
-        })}
+        ${this._renderMegamenuTabPanel(activeMenuItem)}
       </dds-megamenu>
+    `;
+  }
+
+  protected _renderMegamenuTabPanel(menuItem) {
+    const { itemKey, groups, heading, viewAll: itemViewAll } = menuItem;
+    return html`
+      <div
+        id="panel-${itemKey}"
+        role="tabpanel"
+        aria-labelledby="tab-${itemKey}">
+        <dds-megamenu-right-navigation
+          class="${ddsPrefix}--masthead__tabpanel-child"
+          style-scheme="${MEGAMENU_RIGHT_NAVIGATION_STYLE_SCHEME.HAS_SIDEBAR}">
+          ${heading?.title
+            ? html`
+                <dds-megamenu-heading
+                  href="${ifNonNull(heading?.url)}"
+                  title="${heading?.title}"
+                  slot="heading">
+                  ${heading?.description}
+                </dds-megamenu-heading>
+              `
+            : ''}
+          ${groups
+            ? groups.map((group, i) =>
+                this._renderMegapanelLinkGroup(group, {
+                  autoid: `panel-${itemKey}-${i}`,
+                })
+              )
+            : ''}
+          ${itemViewAll?.url && itemViewAll?.title
+            ? html`
+                <dds-megamenu-link-with-icon
+                  href="${itemViewAll.url}"
+                  part="view-all view-all-right"
+                  slot="view-all">
+                  <span>${itemViewAll.title}</span>${ArrowRight16({
+                    slot: 'icon',
+                  })}
+                </dds-megamenu-link-with-icon>
+              `
+            : null}
+        </dds-megamenu-right-navigation>
+      </div>
     `;
   }
 
@@ -905,7 +915,7 @@ class DDSMastheadComposite extends HostListenerMixin(LitElement) {
    * @returns A template fragment representing a nav item.
    */
   protected _renderNavItem(item: L0MenuItem, i, autoid): TemplateResult {
-    const { selectedMenuItem, currentUrlPath } = this;
+    const { selectedMenuItem, currentUrlPath, _activeMegamenuIndex } = this;
     const { submenu, title, titleEnglish, url } = item;
     let selected;
 
@@ -945,13 +955,18 @@ class DDSMastheadComposite extends HostListenerMixin(LitElement) {
         submenu.sections.length > 1
           ? MEGAMENU_LAYOUT_SCHEME.TAB
           : MEGAMENU_LAYOUT_SCHEME.LIST;
-      this.megamenuSet[i] = this._renderMegaMenu(submenu, i, layout);
+
+      // Render nav menu, but only render megamenu if it is active.
       return html`
         <dds-megamenu-top-nav-menu
           ?active="${selected}"
           menu-label="${title}"
           trigger-content="${title}"
-          data-autoid="${autoid}-nav--nav${i}">
+          data-autoid="${autoid}-nav--nav${i}"
+          .menuIndex=${i}>
+          ${_activeMegamenuIndex === i
+            ? this._renderMegaMenu(submenu, i, layout)
+            : null}
         </dds-megamenu-top-nav-menu>
       `;
     }
@@ -967,23 +982,50 @@ class DDSMastheadComposite extends HostListenerMixin(LitElement) {
   }
 
   /**
-   * Handles the rendering of the megamenu once it is active
+   * Sets the active megamenu upon user interaction.
    *
    * @param event The event.
    */
-  @HostListener('eventMegamenuActive')
+  @HostListener(DDSMegamenuTopNavMenu.eventMegaMenuToggled)
   // @ts-ignore: The decorator refers to this method but TS thinks this method is not referred to
   protected _loadMegamenu = (event: CustomEvent) => {
     const {
       target,
       detail: { active, resolveFn },
     } = event;
-    const { autoid } = (target as HTMLElement).dataset;
-    const index = autoid?.slice(-1);
-    const currentMenu = this.megamenuSet[index!];
-    render(active ? currentMenu : nothing, target as HTMLElement);
+    const { menuIndex } = target as DDSMegamenuTopNavMenu;
+
+    // Open a megamenu by updating state to trigger a re-render. This also closes
+    // any previously opened megamenu.
+    if (active && menuIndex !== undefined) {
+      this._activeMegamenuIndex = menuIndex;
+    }
+
+    // If clicking the same nav item to close megamenu, reset state to prune its
+    // markup from the DOM.
+    if (!active && menuIndex === this._activeMegamenuIndex) {
+      this._activeMegamenuIndex = undefined;
+    }
+
+    // Reset active tab when closing any megamenu.
+    if (!active && this._activeMegamenuTabKey) {
+      this._activeMegamenuTabKey = undefined;
+    }
+
     resolveFn();
   };
+
+  /**
+   * Sets the active megamenu tabpanel upon user interaction.
+   *
+   * @param event The event.
+   */
+  @HostListener(DDSMegaMenuTabs.eventBeforeSelect)
+  protected _loadMegamenuTabPanel(event) {
+    const { detail } = event;
+    const panelId = detail.item.id.split('tab-')[1];
+    this._activeMegamenuTabKey = panelId;
+  }
 
   /**
    * Stores a reference of the globally-scoped CM_APP object within the masthead.
@@ -1042,6 +1084,18 @@ class DDSMastheadComposite extends HostListenerMixin(LitElement) {
     [MEGAMENU_LAYOUT_SCHEME.LIST, this._renderMegaMenuListing.bind(this)],
     [MEGAMENU_LAYOUT_SCHEME.TAB, this._renderMegaMenuTabbed.bind(this)],
   ]);
+
+  /**
+   * The index of a megamenu that should be visible.
+   */
+  @state()
+  _activeMegamenuIndex?: number;
+
+  /**
+   * The index of a megamenu's tabpanel that should be visible.
+   */
+  @state()
+  _activeMegamenuTabKey?: string;
 
   /**
    * `true` if there is a profile.
@@ -1123,12 +1177,6 @@ class DDSMastheadComposite extends HostListenerMixin(LitElement) {
    */
   @property({ attribute: 'masthead-assistive-text' })
   mastheadAssistiveText!: string;
-
-  /**
-   * The array containing all the megamenus to be loaded in.
-   */
-  @property()
-  megamenuSet: TemplateResult[] = [];
 
   /**
    * The `aria-label` attribute for the menu bar UI.
@@ -1492,13 +1540,6 @@ class DDSMastheadComposite extends HostListenerMixin(LitElement) {
         <dds-megamenu-overlay></dds-megamenu-overlay>
       </dds-masthead>
     `;
-  }
-
-  /**
-   * The name of the custom event fired when a top nav menu is clicked
-   */
-  static get eventMegamenuActive() {
-    return `${ddsPrefix}-megamenu-top-nav-menu-toggle`;
   }
 
   static styles = styles; // `styles` here is a `CSSResult` generated by custom WebPack loader
