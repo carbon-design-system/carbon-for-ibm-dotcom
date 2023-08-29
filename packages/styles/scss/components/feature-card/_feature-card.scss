@@ -356,6 +356,9 @@ $fcb-breakpoint-up--lg: map.get(map.get($grid-breakpoints, 'lg'), 'width') -
 
       .#{$prefix}--card__copy {
         @include type-style('body-02');
+        @include breakpoint(md) {
+          @include type-style('body-01');
+        }
         @include breakpoint-down(md) {
           margin-bottom: $spacing-07;
         }
