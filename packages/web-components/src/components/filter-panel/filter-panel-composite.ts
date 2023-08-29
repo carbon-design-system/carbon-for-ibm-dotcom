@@ -348,19 +348,26 @@ class DDSFilterPanelComposite extends HostListenerMixin(
    * @param event The event.
    */
   protected _handleSlotChange({ target }: Event) {
-    this._contents = (target as HTMLSlotElement)
+    const contents = (this._contents = (target as HTMLSlotElement)
       .assignedNodes()
       .filter(
         (node) => node.nodeType !== Node.TEXT_NODE || node!.textContent!.trim()
-      );
-    // Calculate initial this._selectedValues.
-    if (this._contents.length) {
-      this._selectedValues = Array.from(
-        this._contents[0].querySelectorAll(
-          `${ddsPrefix}-filter-panel-checkbox[checked], ${ddsPrefix}-filter-panel-input-select[selected], ${ddsPrefix}-filter-panel-input-select-item[selected]`
+      ));
+    // Calculate initial this._selectedValues. Look at the first node, which is
+    // expected to be <dds-filter-group>.
+    if (contents[0] instanceof Element) {
+      const items = Array.from(
+        contents[0].querySelectorAll(
+          `${ddsPrefix}-filter-panel-checkbox[checked],
+            ${ddsPrefix}-filter-panel-input-select[selected],
+            ${ddsPrefix}-filter-panel-input-select-item[selected]`
         )
-      ).map((item) => item?.headerValue ?? item?.value);
-      renderStatus();
+      );
+      this._selectedValues = items
+        .map((item) => {
+          return item.getAttribute('value') ?? '';
+        })
+        .filter((item) => !!item);
     }
   }
 
