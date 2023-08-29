@@ -184,7 +184,10 @@ export const contentLeadspace = html`
 `;
 
 export const contentLeadspaceSearch = html`
-  <dds-leadspace-with-search adjacent-theme="white-and-g10" scroll-behavior>
+  <dds-leadspace-with-search
+    adjacent-theme="white-and-g10"
+    sticky-search
+    scroll-behavior>
     <dds-leadspace-with-search-heading
       >Find a product</dds-leadspace-with-search-heading
     >
