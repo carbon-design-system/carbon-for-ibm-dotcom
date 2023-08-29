@@ -80,9 +80,7 @@ export const Default = (args) => {
           <dds-filter-group-item title-text="Technologies">
             <dds-filter-panel-input-select
               header-value="Analytics"
-              title="Analytics"
-              selected
-              is-open></dds-filter-panel-input-select>
+              title="Analytics"></dds-filter-panel-input-select>
             <dds-filter-panel-input-select
               header-value="Artificial intelligence"
               title="Artificial intelligence">
