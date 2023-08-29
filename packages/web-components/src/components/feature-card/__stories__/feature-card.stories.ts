@@ -133,7 +133,7 @@ export default {
   ],
   parameters: {
     ...readme.parameters,
-    storyGrid: `${prefix}--col-lg-8 ${prefix}--no-gutter`,
+    storyGrid: `${prefix}--col-lg-8`,
     hasStoryPadding: true,
     knobs: {
       [`${ddsPrefix}-feature-card`]: () => ({
