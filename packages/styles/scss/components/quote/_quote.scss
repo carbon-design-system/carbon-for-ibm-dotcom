@@ -198,13 +198,13 @@
       margin: $spacing-05 $spacing-03;
     }
   }
-  
+
   :host(#{$dds-prefix}-quote-link-with-icon) {
     @extend .#{$prefix}--link-with-icon;
-  
+
     display: inline-block;
   }
-  
+
   :host-context(#{$dds-prefix}-quote[color-scheme='inverse'])
     a.#{$prefix}--link-with-icon.#{$prefix}--link.#{$prefix}--link-with-icon__icon-right {
     color: $link-inverse;

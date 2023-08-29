@@ -19,21 +19,31 @@ import DDSQuoteSourceCopy from '@carbon/ibmdotcom-web-components/es/components-r
 import DDSQuoteSourceBottomCopy from '@carbon/ibmdotcom-web-components/es/components-react/quote/quote-source-bottom-copy';
 import textNullable from '../../../../.storybook/knob-text-nullable';
 import { QUOTE_TYPES } from '../../quote/quote';
+import { COLOR_SCHEME } from '../../../component-mixins/callout/defs';
 import readme from './README.stories.react.mdx';
 
-const types = {
+const quoteTypes = {
   [`${QUOTE_TYPES.DEFAULT}`]: QUOTE_TYPES.DEFAULT,
   [`${QUOTE_TYPES.SINGLE_CURVED}`]: QUOTE_TYPES.SINGLE_CURVED,
   [`${QUOTE_TYPES.DOUBLE_ANGLE}`]: QUOTE_TYPES.DOUBLE_ANGLE,
   [`${QUOTE_TYPES.SINGLE_ANGLE}`]: QUOTE_TYPES.SINGLE_ANGLE,
-  [`${QUOTE_TYPES.LOW_HIGH_REVERSED_DOUBLE_CURVED}`]: QUOTE_TYPES.LOW_HIGH_REVERSED_DOUBLE_CURVED,
+  [`${QUOTE_TYPES.LOW_HIGH_REVERSED_DOUBLE_CURVED}`]:
+    QUOTE_TYPES.LOW_HIGH_REVERSED_DOUBLE_CURVED,
   [`${QUOTE_TYPES.CORNER_BRACKET}`]: QUOTE_TYPES.CORNER_BRACKET,
 };
 
+const colorSchemeTypes = {
+  'none': COLOR_SCHEME.REGULAR,
+  [`${COLOR_SCHEME.GRAY10}`]: COLOR_SCHEME.GRAY10,
+  [`${COLOR_SCHEME.PURPLE}`]: COLOR_SCHEME.PURPLE,
+  [`${COLOR_SCHEME.CYAN}`]: COLOR_SCHEME.CYAN,
+};
+
+
 export const Default = args => {
-  const { copy, quoteMark, sourceHeading, sourceCopy, sourceBottomCopy } = args?.CalloutQuote ?? {};
+  const { copy, quoteMark, sourceHeading, sourceCopy, sourceBottomCopy, colorScheme } = args?.CalloutQuote ?? {};
   return (
-    <DDSCalloutQuote mark-type={quoteMark}>
+    <DDSCalloutQuote mark-type={quoteMark} color-scheme={colorScheme}>
       {copy}
       <DDSQuoteSourceHeading>{sourceHeading}</DDSQuoteSourceHeading>
       <DDSQuoteSourceCopy>{sourceCopy}</DDSQuoteSourceCopy>
@@ -50,10 +60,15 @@ Default.story = {
     knobs: {
       CalloutQuote: () => ({
         copy: textNullable('Quote (copy):', 'Bringing together the technology and expertise for a new way to create'),
-        quoteMark: select('Quote Mark (markType):', types, types.doubleCurved),
+        quoteMark: select('Quote Mark (markType):', quoteTypes, quoteTypes.doubleCurved),
         sourceHeading: textNullable('Source heading (source-heading slot)', 'John Doe'),
         sourceCopy: textNullable('Source copy (source-copy slot)', 'Senior Vice President'),
         sourceBottomCopy: textNullable('Source bottom copy (source-bottom-copy slot)', 'IBM Cloud'),
+        colorScheme: select(
+          'Color scheme:',
+          colorSchemeTypes,
+          COLOR_SCHEME.REGULAR
+        ),
       }),
     },
     propsSet: {

@@ -19,9 +19,18 @@ import DDSCalloutWithMediaCopy from '@carbon/ibmdotcom-web-components/es/compone
 import DDSCalloutWithMediaImage from '@carbon/ibmdotcom-web-components/es/components-react/callout-with-media/callout-with-media-image';
 import DDSCalloutWithMediaVideo from '@carbon/ibmdotcom-web-components/es/components-react/callout-with-media/callout-with-media-video';
 import { CONTENT_BLOCK_COPY_SIZE } from '../../content-block/content-block-copy';
+import { COLOR_SCHEME } from '../../../component-mixins/callout/defs';
 import imgLg16x9 from '../../../../../storybook-images/assets/720/fpo--16x9--720x405--005.jpg';
 import readme from './README.stories.react.mdx';
 import textNullable from '../../../../.storybook/knob-text-nullable';
+
+const colorSchemeTypes = {
+  'none': COLOR_SCHEME.REGULAR,
+  [`${COLOR_SCHEME.GRAY10}`]: COLOR_SCHEME.GRAY10,
+  [`${COLOR_SCHEME.PURPLE}`]: COLOR_SCHEME.PURPLE,
+  [`${COLOR_SCHEME.CYAN}`]: COLOR_SCHEME.CYAN,
+};
+
 
 const image = (
   <DDSCalloutWithMediaImage
@@ -35,7 +44,7 @@ const video = (
 );
 
 export const Default = (args) => {
-  const { copy, heading, mediaType } = args?.CalloutWithMedia ?? {};
+  const { copy, heading, mediaType, colorScheme } = args?.CalloutWithMedia ?? {};
   const headingComponent = document.querySelector('dds-content-block-heading');
 
   if (headingComponent) {
@@ -43,7 +52,7 @@ export const Default = (args) => {
   }
 
   return (
-    <DDSCalloutWithMedia>
+    <DDSCalloutWithMedia color-scheme={colorScheme}>
       <DDSContentBlockHeading>{heading}</DDSContentBlockHeading>
       <DDSCalloutWithMediaCopy size={CONTENT_BLOCK_COPY_SIZE.SMALL}>
         {copy}
@@ -82,6 +91,11 @@ export default {
           Mauris iaculis eget dolor nec hendrerit. Phasellus at elit sollicitudin, sodales
           nulla quis, *consequat* libero. Here are
           some common categories:`,
+          colorScheme: select(
+            'Color scheme:',
+            colorSchemeTypes,
+            COLOR_SCHEME.REGULAR
+          ),
       }),
     },
   },

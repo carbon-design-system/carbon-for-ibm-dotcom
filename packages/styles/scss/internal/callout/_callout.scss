@@ -16,21 +16,48 @@
 @use '../../globals/vars' as *;
 @use '../../globals/utils/hang' as *;
 @use './tokens' as *;
-@use './mixins' as *;
 
 @mixin callout {
   :host(#{$dds-prefix}-callout) {
-    background-color: $background-inverse;
-    // @include callout-theme($callout-background-cyan);
-    @include make-row;
+    background-color: $background;
   }
 
-  :host(#{$dds-prefix}-callout[color-scheme="purple"]) {
-    background-color: purple;
+  :host(#{$dds-prefix}-callout[color-scheme='gray10']) {
+    background-color: $layer-01;
   }
 
-  :host(#{$dds-prefix}-callout[color-scheme="cyan"]) {
-    background-color: cyan;
+  :host(#{$dds-prefix}-callout[color-scheme='purple']) {
+    background-color: $callout-background-purple;
+  }
+
+  :host(#{$dds-prefix}-callout[color-scheme='cyan']) {
+    background-color: $callout-background-cyan;
+  }
+
+  :host(#{$dds-prefix}-callout-text),
+  :host(#{$dds-prefix}-callout-text[color-scheme='gray10']) {
+    color: $text-primary;
+  }
+
+  :host(#{$dds-prefix}-callout-text[color-scheme='purple']) {
+    color: $callout-color-purple;
+  }
+
+  :host(#{$dds-prefix}-callout-text[color-scheme='cyan']) {
+    color: $callout-color-cyan;
+  }
+
+  :host(#{$dds-prefix}-callout-caption[color-scheme='gray10']),
+  :host(#{$dds-prefix}-callout-caption) {
+    color: $text-secondary;
+  }
+
+  :host(#{$dds-prefix}-callout-caption[color-scheme='purple']) {
+    color: $callout-caption-purple;
+  }
+
+  :host(#{$dds-prefix}-callout-caption[color-scheme='cyan']) {
+    color: $callout-caption-cyan;
   }
 
   .#{$prefix}--callout__column {
@@ -53,21 +80,6 @@
       padding-right: $spacing-01;
       @include make-col-offset(1, 12);
       @include make-col(10, 12);
-    }
-
-    .#{$prefix}--quote {
-      background-color: $layer-01;
-    }
-
-    .#{$prefix}--quote__copy,
-    .#{$prefix}--quote__source-heading,
-    .#{$prefix}--quote__source-body,
-    .#{$prefix}--quote__source-optional-copy,
-    ::slotted(#{$dds-prefix}-quote-source-bottom-copy),
-    ::slotted(#{$dds-prefix}-quote-source-copy),
-    ::slotted(#{$dds-prefix}-quote-source-heading),
-    .#{$prefix}--quote__mark {
-      color: $icon-inverse;
     }
   }
 }

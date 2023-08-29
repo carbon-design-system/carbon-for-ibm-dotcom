@@ -11,6 +11,7 @@
 @use '@carbon/styles/scss/theme' as *;
 @use '../../globals/vars' as *;
 @use '../../globals/utils/hang' as *;
+@use '../../globals/utils/flex-grid' as *;
 @use '../../internal/callout/callout' as *;
 @use '../quote/quote' as *;
 
@@ -19,32 +20,27 @@
 
 @mixin callout-quote {
   :host(#{$dds-prefix}-callout-quote) {
-    @extend  :host(#{$dds-prefix}-callout);
-
-    // background-color: $background-inverse;
+    @extend :host(#{$dds-prefix}-callout);
+    @extend :host(#{$dds-prefix}-callout-text);
+    @include make-row;
     padding-bottom: $spacing-10;
   }
 
-  :host(#{$dds-prefix}-callout-quote[color-scheme="purple"]) {
-    @extend :host(#{$dds-prefix}-callout[color-scheme="purple"]);
+  :host(#{$dds-prefix}-callout-quote[color-scheme='gray10']) {
+    @extend :host(#{$dds-prefix}-callout[color-scheme='gray10']);
+    @extend :host(#{$dds-prefix}-callout-text[color-scheme='gray10']);
   }
-  :host(#{$dds-prefix}-callout-quote[color-scheme="cyan"]) {
-    @extend :host(#{$dds-prefix}-callout[color-scheme="cyan"]);
-  }
-  
-  .#{$prefix}--callout-quote .#{$prefix}--callout__container {
-    padding-left: $spacing-05;
-    padding-right: $spacing-05;
 
-    @include breakpoint(md) {
-      padding-left: 0;
-      padding-right: 0;
-    }
+  :host(#{$dds-prefix}-callout-quote[color-scheme='purple']) {
+    @extend :host(#{$dds-prefix}-callout[color-scheme='purple']);
+    @extend :host(#{$dds-prefix}-callout-text[color-scheme='purple']);
+  }
+  :host(#{$dds-prefix}-callout-quote[color-scheme='cyan']) {
+    @extend :host(#{$dds-prefix}-callout[color-scheme='cyan']);
+    @extend :host(#{$dds-prefix}-callout-text[color-scheme='cyan']);
   }
 
   :host(#{$dds-prefix}-callout-quote) {
-    // @extend .#{$prefix}--callout__container;
-
     @include breakpoint(md) {
       @include hang;
     }
@@ -54,6 +50,37 @@
     ::slotted(#{$dds-prefix}-callout-link-with-icon) {
       padding-left: $spacing-07;
       outline: transparent;
+    }
+  }
+
+  :host(#{$dds-prefix}-callout-link-with-icon) {
+    @extend .#{$prefix}--link-with-icon;
+
+    display: inline-block;
+    a.#{$prefix}--link-with-icon.#{$prefix}--link.#{$prefix}--link-with-icon__icon-right {
+      color: $link-inverse;
+      outline-color: $focus-inverse;
+
+      &:hover {
+        // @carbon/styles has no hover color for $inverse-link.
+        // Solution is to use the same token and add underline
+        color: $link-inverse;
+        text-decoration: underline;
+      }
+
+      &:active {
+        color: $link-inverse;
+      }
+    }
+  }
+
+  :host(#{$dds-prefix}-callout-quote) #{$dds-prefix}-hr {
+    margin: $spacing-05;
+    @include breakpoint(md) {
+      margin: $spacing-05 0;
+    }
+    @include breakpoint(lg) {
+      margin: $spacing-05 $spacing-03;
     }
   }
 }

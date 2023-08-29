@@ -11,6 +11,7 @@ import { property } from 'lit/decorators.js';
 import settings from '../../internal/vendor/@carbon/ibmdotcom-utilities/utilities/settings/settings';
 import styles from './callout-with-media.scss';
 import DDSVideoPlayerContainer from '../video-player/video-player-container';
+import { COLOR_SCHEME } from '../../component-mixins/callout/defs';
 import { carbonElement as customElement } from '../../internal/vendor/@carbon/web-components/globals/decorators/carbon-element';
 
 const { stablePrefix: ddsPrefix } = settings;
@@ -22,6 +23,12 @@ const { stablePrefix: ddsPrefix } = settings;
  */
 @customElement(`${ddsPrefix}-callout-with-media-video`)
 class DDSCalloutWithMediaVideo extends DDSVideoPlayerContainer {
+  /**
+   * The color-scheme type.
+   */
+  @property({ reflect: true, attribute: 'color-scheme' })
+  colorScheme = COLOR_SCHEME.REGULAR;
+
   /**
    * The shadow slot this video container should be in.
    */

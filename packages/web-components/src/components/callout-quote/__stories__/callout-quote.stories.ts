@@ -13,10 +13,11 @@ import ArrowRight20 from '../../../internal/vendor/@carbon/web-components/icons/
 import { html } from 'lit';
 import { select } from '@storybook/addon-knobs';
 import { QUOTE_TYPES } from '../../quote/quote';
+import { COLOR_SCHEME } from '../../../component-mixins/callout/defs';
 import readme from './README.stories.mdx';
 import textNullable from '../../../../.storybook/knob-text-nullable';
 
-const types = {
+const quoteTypes = {
   [`${QUOTE_TYPES.DEFAULT}`]: QUOTE_TYPES.DEFAULT,
   [`${QUOTE_TYPES.SINGLE_CURVED}`]: QUOTE_TYPES.SINGLE_CURVED,
   [`${QUOTE_TYPES.DOUBLE_ANGLE}`]: QUOTE_TYPES.DOUBLE_ANGLE,
@@ -26,9 +27,22 @@ const types = {
   [`${QUOTE_TYPES.CORNER_BRACKET}`]: QUOTE_TYPES.CORNER_BRACKET,
 };
 
+const colorSchemeTypes = {
+  none: COLOR_SCHEME.REGULAR,
+  [`${COLOR_SCHEME.GRAY10}`]: COLOR_SCHEME.GRAY10,
+  [`${COLOR_SCHEME.PURPLE}`]: COLOR_SCHEME.PURPLE,
+  [`${COLOR_SCHEME.CYAN}`]: COLOR_SCHEME.CYAN,
+};
+
 export const Default = (args) => {
-  const { copy, quoteMark, sourceHeading, sourceCopy, sourceBottomCopy,colorScheme } =
-    args?.CalloutQuote ?? {};
+  const {
+    copy,
+    quoteMark,
+    sourceHeading,
+    sourceCopy,
+    sourceBottomCopy,
+    colorScheme,
+  } = args?.CalloutQuote ?? {};
   return html`
     <dds-callout-quote mark-type="${quoteMark}" color-scheme="${colorScheme}">
       ${copy}
@@ -65,7 +79,11 @@ export default {
           'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus est purus, posuere at est vitae, ' +
             'ornare rhoncus sem. Suspendisse vitae tellus fermentum, hendrerit augue eu, placerat magna.'
         ),
-        quoteMark: select('Quote Mark (markType):', types, types.doubleCurved),
+        quoteMark: select(
+          'Quote Mark (markType):',
+          quoteTypes,
+          quoteTypes.doubleCurved
+        ),
         sourceHeading: textNullable(
           'Source heading (source-heading slot)',
           'Lorem ipsum dolor sit amet'
@@ -78,7 +96,11 @@ export default {
           'Source bottom copy (source-bottom-copy slot)',
           'IBM Cloud'
         ),
-        colorScheme: select('Color scheme:', ['regular', 'purple', 'cyan'], 'regular')
+        colorScheme: select(
+          'Color scheme:',
+          colorSchemeTypes,
+          COLOR_SCHEME.REGULAR
+        ),
       }),
     },
     propsSet: {

@@ -11,54 +11,105 @@
 @use '@carbon/styles/scss/theme' as *;
 @use '@carbon/styles/scss/type' as *;
 @use '../../globals/vars' as *;
-@use '../../internal/callout/callout';
+@use '../../internal/callout/callout' as *;
 @use '../../internal/content-block';
 @use '../../internal/content-item/content-item';
 @use '../image';
 @use '../content-block-simple/content-block-simple';
 
+@include callout;
+
 @mixin callout-with-media {
   :host(#{$dds-prefix}-callout-with-media),
   .#{$prefix}--callout-with-media {
+    @extend :host(#{$dds-prefix}-callout);
     display: block;
-    background-color: $background-inverse;
 
-    ::slotted([slot='heading']),
-    .#{$prefix}--content-block__heading {
+    ::slotted([slot='heading']) {
       margin-bottom: $spacing-07;
     }
 
     ::slotted([slot='copy']) {
       margin-bottom: $spacing-07;
-      color: $icon-inverse;
     }
   }
 
-  :host(#{$dds-prefix}-callout-with-media) ::slotted([slot='heading']),
-  .#{$prefix}--callout-with-media .#{$prefix}--content-block__heading,
-  :host(#{$dds-prefix}-callout-with-media-copy)
-    ::slotted(#{$dds-prefix}-content-block-paragraph),
-  .#{$prefix}--callout-with-media .#{$prefix}--content-item__copy p,
-  :host(#{$dds-prefix}-callout-with-media-image) .#{$prefix}--image__caption,
-  :host(#{$dds-prefix}-callout-with-media-video)
-    ::slotted(#{$dds-prefix}-video-player),
-  .#{$prefix}--callout-with-media .#{$prefix}--video-player__video-caption,
-  .#{$prefix}--callout-with-media .#{$prefix}--image__caption {
-    color: $icon-inverse;
+  :host(#{$dds-prefix}-callout-with-media[color-scheme='gray10']) {
+    @extend :host(#{$dds-prefix}-callout[color-scheme='gray10']);
+  }
+
+  :host(#{$dds-prefix}-callout-with-media[color-scheme='purple']) {
+    @extend :host(#{$dds-prefix}-callout[color-scheme='purple']);
+  }
+
+  :host(#{$dds-prefix}-callout-with-media[color-scheme='cyan']) {
+    @extend :host(#{$dds-prefix}-callout[color-scheme='cyan']);
   }
 
   :host(#{$dds-prefix}-callout-with-media) ::slotted([slot='heading']),
-  .#{$prefix}--callout-with-media .#{$prefix}--content-block__heading,
-  :host(#{$dds-prefix}-callout-with-media) ::slotted([slot='copy']),
-  .#{$prefix}--callout-with-media .#{$prefix}--callout-with-media-copy {
+  :host(#{$dds-prefix}-callout-with-media-copy)
+    ::slotted(#{$dds-prefix}-content-block-paragraph) {
+    @extend :host(#{$dds-prefix}-callout-text);
+  }
+
+  :host(#{$dds-prefix}-callout-with-media[color-scheme='gray10'])
+    ::slotted([slot='heading']),
+  :host(#{$dds-prefix}-callout-with-media-copy[color-scheme='gray10'])
+    ::slotted(#{$dds-prefix}-content-block-paragraph) {
+    @extend :host(#{$dds-prefix}-callout-text[color-scheme='gray10']);
+  }
+
+  :host(#{$dds-prefix}-callout-with-media[color-scheme='purple'])
+    ::slotted([slot='heading']),
+  :host(#{$dds-prefix}-callout-with-media-copy[color-scheme='purple'])
+    ::slotted(#{$dds-prefix}-content-block-paragraph) {
+    @extend :host(#{$dds-prefix}-callout-text[color-scheme='purple']);
+  }
+
+  :host(#{$dds-prefix}-callout-with-media[color-scheme='cyan'])
+    ::slotted([slot='heading']),
+  :host(#{$dds-prefix}-callout-with-media-copy[color-scheme='cyan'])
+    ::slotted(#{$dds-prefix}-content-block-paragraph) {
+    @extend :host(#{$dds-prefix}-callout-text[color-scheme='cyan']);
+  }
+
+  :host(#{$dds-prefix}-callout-with-media-image) .#{$prefix}--image__caption,
+  :host(#{$dds-prefix}-callout-with-media-video)
+    ::slotted(#{$dds-prefix}-video-player) {
+    @extend :host(#{$dds-prefix}-callout-caption);
+  }
+
+  :host(#{$dds-prefix}-callout-with-media-image[color-scheme='gray10'])
+    .#{$prefix}--image__caption,
+  :host(#{$dds-prefix}-callout-with-media-video[color-scheme='gray10'])
+    ::slotted(#{$dds-prefix}-video-player) {
+    @extend :host(#{$dds-prefix}-callout-caption[color-scheme='gray10']);
+  }
+
+  :host(#{$dds-prefix}-callout-with-media-image[color-scheme='purple'])
+    .#{$prefix}--image__caption,
+  :host(#{$dds-prefix}-callout-with-media-video[color-scheme='purple'])
+    ::slotted(#{$dds-prefix}-video-player) {
+    @extend :host(#{$dds-prefix}-callout-caption[color-scheme='purple']);
+  }
+
+  :host(#{$dds-prefix}-callout-with-media-image[color-scheme='cyan'])
+    .#{$prefix}--image__caption,
+  :host(#{$dds-prefix}-callout-with-media-video[color-scheme='cyan'])
+    ::slotted(#{$dds-prefix}-video-player) {
+    @extend :host(#{$dds-prefix}-callout-caption[color-scheme='cyan']);
+  }
+
+  :host(#{$dds-prefix}-callout-with-media) ::slotted([slot='heading']),
+  :host(#{$dds-prefix}-callout-with-media) ::slotted([slot='copy']) {
     padding-right: $spacing-07;
     max-width: rem(640px);
     width: auto;
   }
 
-  .#{$prefix}--callout-with-media .#{$prefix}--callout__content {
-    padding-top: 0;
-  }
+  // .#{$prefix}--callout-with-media .#{$prefix}--callout__content {
+  //   padding-top: 0;
+  // }
   :host(#{$dds-prefix}-callout-with-media-video),
   .#{$prefix}--callout-with-media
     .#{$prefix}--callout__content

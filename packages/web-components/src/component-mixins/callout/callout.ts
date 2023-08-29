@@ -21,9 +21,9 @@ const { prefix } = settings;
 const DDSCalloutMixin = <T extends Constructor<HTMLElement>>(base: T) => {
   abstract class CalloutMixin extends base {
     /**
-     * The CTA type.
+     * The callout color-scheme.
      */
-    abstract ctaType: COLOR_SCHEME;
+    abstract colorScheme: COLOR_SCHEME;
 
     render() {
       return html`

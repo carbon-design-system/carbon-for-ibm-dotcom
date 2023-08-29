@@ -12,6 +12,9 @@
 @use '@carbon/styles/scss/themes' as *;
 @use '@carbon/styles/scss/type' as *;
 @use '@carbon/grid';
+@use '@carbon/ibmdotcom-styles/scss/internal/callout/tokens' as callout-tokens;
+
+@include add-component-tokens(callout-tokens.$callout-tokens);
 
 // Emit the flex-grid styles
 @include grid.flex-grid();

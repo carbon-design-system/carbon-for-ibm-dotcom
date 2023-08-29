@@ -6,11 +6,7 @@
 //
 
 @forward 'callout';
-// @forward 'tokens';
 
-// @use '@carbon/styles/scss/theme';
 @use 'callout';
-// @use 'tokens';
 
-// @include theme.add-component-tokens(tokens.$callout-tokens);
 @include callout.callout;

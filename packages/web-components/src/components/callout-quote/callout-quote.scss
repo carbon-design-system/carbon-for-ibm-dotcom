@@ -5,41 +5,5 @@
 // LICENSE file in the root directory of this source tree.
 //
 
-@use '@carbon/styles/scss/breakpoint' as *;
-@use '@carbon/styles/scss/config' as *;
-@use '@carbon/styles/scss/spacing' as *;
-@use '@carbon/styles/scss/theme' as *;
-@use '@carbon/ibmdotcom-styles/scss/globals/vars' as *;
-@use '../../../../styles/scss/components/callout-quote';
+@use '@carbon/ibmdotcom-styles/scss/components/callout-quote';
 @use '@carbon/ibmdotcom-styles/scss/components/link-with-icon';
-
-:host(#{$dds-prefix}-callout-link-with-icon) {
-  @extend .#{$prefix}--link-with-icon;
-
-  display: inline-block;
-  a.#{$prefix}--link-with-icon.#{$prefix}--link.#{$prefix}--link-with-icon__icon-right {
-    color: $link-inverse;
-    outline-color: $focus-inverse;
-
-    &:hover {
-      // @carbon/styles has no hover color for $inverse-link.
-      // Solution is to use the same token and add underline
-      color: $link-inverse;
-      text-decoration: underline;
-    }
-
-    &:active {
-      color: $link-inverse;
-    }
-  }
-}
-
-:host(#{$dds-prefix}-callout-quote) #{$dds-prefix}-hr {
-  margin: $spacing-05;
-  @include breakpoint(md) {
-    margin: $spacing-05 0;
-  }
-  @include breakpoint(lg) {
-    margin: $spacing-05 $spacing-03;
-  }
-}
