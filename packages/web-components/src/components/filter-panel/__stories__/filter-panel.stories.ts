@@ -15,7 +15,9 @@ import readme from './README.stories.mdx';
 export const Default = (args) => {
   const { heading, filterCutoff, maxFilters, viewAllText, gridKnobs } =
     args?.FilterPanel ?? {};
-  const selectedItems = parseInt(args?.FilterPanel.selectedItems);
+  const selectedItems = args?.FilterPanel?.selectedItems
+    ? parseInt(args?.FilterPanel?.selectedItems)
+    : 0;
 
   const filterPanelHeading = document.querySelector('dds-filter-panel-heading');
   if (filterPanelHeading) {
