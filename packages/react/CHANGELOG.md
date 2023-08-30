@@ -3,6 +3,57 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.50.0](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/compare/@carbon/ibmdotcom-react@1.50.0-rc.2...@carbon/ibmdotcom-react@1.50.0) (2023-08-22)
+
+**Note:** Version bump only for package @carbon/ibmdotcom-react
+
+
+
+
+
+# [1.50.0-rc.2](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/compare/@carbon/ibmdotcom-react@1.50.0-rc.1...@carbon/ibmdotcom-react@1.50.0-rc.2) (2023-08-18)
+
+**Note:** Version bump only for package @carbon/ibmdotcom-react
+
+
+
+
+
+# [1.50.0-rc.1](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/compare/@carbon/ibmdotcom-react@1.50.0-rc.0...@carbon/ibmdotcom-react@1.50.0-rc.1) (2023-08-18)
+
+**Note:** Version bump only for package @carbon/ibmdotcom-react
+
+
+
+
+
+# [1.50.0-rc.0](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/compare/@carbon/ibmdotcom-react@1.49.0...@carbon/ibmdotcom-react@1.50.0-rc.0) (2023-08-14)
+
+
+### Bug Fixes
+
+* **deps:** update dependency carbon-components to v10.58.8 ([#10690](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/issues/10690)) ([c22052d](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/commit/c22052dbd218d2e6d968515982bd2369e0d4733b))
+
+
+
+
+
+# [1.49.0](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/compare/@carbon/ibmdotcom-react@1.49.0-rc.0...@carbon/ibmdotcom-react@1.49.0) (2023-07-26)
+
+**Note:** Version bump only for package @carbon/ibmdotcom-react
+
+
+
+
+
+# [1.49.0-rc.0](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/compare/@carbon/ibmdotcom-react@1.48.0...@carbon/ibmdotcom-react@1.49.0-rc.0) (2023-07-11)
+
+**Note:** Version bump only for package @carbon/ibmdotcom-react
+
+
+
+
+
 # [1.48.0](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/compare/@carbon/ibmdotcom-react@1.48.0-rc.3...@carbon/ibmdotcom-react@1.48.0) (2023-06-27)
 
 **Note:** Version bump only for package @carbon/ibmdotcom-react
