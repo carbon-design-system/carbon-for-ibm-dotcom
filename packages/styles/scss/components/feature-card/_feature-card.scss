@@ -21,6 +21,7 @@
 @use '../../components/card';
 @use '../../globals/utils/aspect-ratio';
 @use '../../globals/utils/hang' as *;
+@use '../../../../web-components/src/components/card/card' as *;
 
 $fcb-large-custom-bp-copy: 992px;
 $fcb-large-custom-bp-nocopy: 752px;
@@ -426,77 +427,146 @@ $fcb-breakpoint-up--lg: map.get(map.get($grid-breakpoints, 'lg'), 'width') -
 
     @include type-style('productive-heading-05');
   }
-}
 
-// inverse color scheme
-:host(#{$dds-prefix}-feature-card)[color-scheme='inverse'],
-:host(#{$dds-prefix}-feature-cta)[color-scheme='inverse'] {
-  .#{$prefix}--card__heading,
-  ::slotted(#{$dds-prefix}-card-heading) {
-    color: $icon-inverse;
-  }
+  // inverse color scheme
+  :host(#{$dds-prefix}-feature-card)[color-scheme='inverse'],
+  :host(#{$dds-prefix}-feature-cta)[color-scheme='inverse'] {
+    .#{$prefix}--card__heading,
+    ::slotted(#{$dds-prefix}-card-heading) {
+      color: $icon-inverse;
+    }
 
-  &:hover .#{$prefix}--card__wrapper {
-    background-color: $background-inverse-hover;
-  }
+    &:hover .#{$prefix}--card__wrapper {
+      background-color: $background-inverse-hover;
+    }
 
-  ::slotted([slot='image']),
-  #{$dds-prefix}-image,
-  .#{$prefix}--image {
-    &::before {
-      background-color: $icon-inverse;
+    ::slotted([slot='image']),
+    #{$dds-prefix}-image,
+    .#{$prefix}--image {
+      &::before {
+        background-color: $icon-inverse;
+      }
     }
   }
-}
 
-// feature cards that are not size large
-:host(#{$dds-prefix}-feature-card:not([size='large']))[color-scheme='inverse'],
-:host(#{$dds-prefix}-feature-cta:not([size='large']))[color-scheme='inverse'] {
-  .#{$prefix}--card__heading {
-    color: $icon-inverse;
+  // feature cards that are not size large
+  :host(
+      #{$dds-prefix}-feature-card:not([size='large'])
+    )[color-scheme='inverse'],
+  :host(
+      #{$dds-prefix}-feature-cta:not([size='large'])
+    )[color-scheme='inverse'] {
+    .#{$prefix}--card__heading {
+      color: $icon-inverse;
+    }
+
+    .#{$prefix}--card__wrapper {
+      background-color: $background-inverse;
+    }
+
+    &:hover .#{$prefix}--card__wrapper {
+      background-color: $background-inverse-hover;
+    }
+
+    // footer
+    .#{$prefix}--feature-card__card .#{$prefix}--card__footer svg {
+      fill: $link-inverse;
+    }
   }
 
-  .#{$prefix}--card__wrapper {
-    background-color: $background-inverse;
+  // feature cards that are size large
+  :host(#{$dds-prefix}-feature-card[size='large'])[color-scheme='inverse'],
+  :host(#{$dds-prefix}-feature-cta[size='large'])[color-scheme='inverse'] {
+    .#{$prefix}--card__wrapper {
+      background-color: $background-inverse;
+
+      .#{$prefix}--card__eyebrow,
+      .#{$prefix}--card__heading,
+      .#{$prefix}--card__copy,
+      ::slotted(#{$dds-prefix}-card-eyebrow),
+      ::slotted(#{$dds-prefix}-card-heading) {
+        color: $icon-inverse;
+      }
+      .#{$prefix}--card__eyebrow,
+      ::slotted(#{$dds-prefix}-card-eyebrow) {
+        color: $icon-inverse;
+      }
+
+      .#{$prefix}--card__heading,
+      ::slotted(#{$dds-prefix}-card-heading) {
+        color: $icon-inverse;
+      }
+    }
   }
 
-  &:hover .#{$prefix}--card__wrapper {
-    background-color: $background-inverse-hover;
-  }
-
-  // footer
-  .#{$prefix}--feature-card__card .#{$prefix}--card__footer svg {
+  :host(#{$dds-prefix}-feature-card-footer)[color-scheme='inverse']
+    .#{$dds-prefix}-ce--card__footer
+    ::slotted(svg[slot='icon']) {
     fill: $link-inverse;
   }
-}
 
-// feature cards that are size large
-:host(#{$dds-prefix}-feature-card[size='large'])[color-scheme='inverse'],
-:host(#{$dds-prefix}-feature-cta[size='large'])[color-scheme='inverse'] {
-  .#{$prefix}--card__wrapper {
-    background-color: $background-inverse;
+  :host(#{$dds-prefix}-feature-card),
+  :host(#{$dds-prefix}-feature-cta) {
+    display: block;
+    outline: none;
 
-    .#{$prefix}--card__eyebrow,
-    .#{$prefix}--card__heading,
-    .#{$prefix}--card__copy,
-    ::slotted(#{$dds-prefix}-card-eyebrow),
-    ::slotted(#{$dds-prefix}-card-heading) {
-      color: $icon-inverse;
-    }
-    .#{$prefix}--card__eyebrow,
-    ::slotted(#{$dds-prefix}-card-eyebrow) {
-      color: $icon-inverse;
-    }
+    @include breakpoint-down(md) {
+      .#{$prefix}--card__wrapper {
+        display: block;
+        min-height: 0;
+        height: auto;
 
-    .#{$prefix}--card__heading,
-    ::slotted(#{$dds-prefix}-card-heading) {
-      color: $icon-inverse;
+        .#{$prefix}--card__content {
+          height: 100%;
+          padding: $spacing-05;
+        }
+      }
+
+      .#{$prefix}--card--link {
+        display: block;
+      }
     }
   }
-}
 
-:host(#{$dds-prefix}-feature-card-footer)[color-scheme='inverse']
-  .#{$dds-prefix}-ce--card__footer
-  ::slotted(svg[slot='icon']) {
-  fill: $link-inverse;
+  :host(#{$dds-prefix}-feature-card[size='large']) {
+    ::slotted(#{$dds-prefix}-feature-card-footer) {
+      display: flex;
+      justify-content: flex-end;
+
+      @include breakpoint(xlg) {
+        justify-content: flex-end;
+      }
+    }
+  }
+
+  :host(#{$dds-prefix}-feature-card-footer),
+  :host(#{$dds-prefix}-feature-cta-footer) {
+    display: flex;
+    justify-content: flex-end;
+
+    @include breakpoint(md) {
+      justify-content: flex-end;
+    }
+
+    &[size='large'] {
+      .dds-ce--card__footer ::slotted(svg[slot='icon']) {
+        @include breakpoint(max) {
+          width: $spacing-10;
+          height: $spacing-10;
+        }
+      }
+    }
+  }
+
+  :host(#{$dds-prefix}-feature-card)[color-scheme='inverse'],
+  :host(#{$dds-prefix}-feature-cta)[color-scheme='inverse'] {
+    ::slotted(#{$dds-prefix}-card-heading) {
+      color: $focus-inset;
+    }
+  }
+
+  :host(#{$dds-prefix}-feature-card[size='large'])[color-scheme='inverse']:hover
+    .#{$prefix}--card__wrapper {
+    background-color: $background-inverse-hover;
+  }
 }
