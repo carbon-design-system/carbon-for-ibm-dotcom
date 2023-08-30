@@ -453,6 +453,8 @@ $feature-flags: (
   // inverse color scheme
   :host(#{$dds-prefix}-feature-card)[color-scheme='inverse'],
   :host(#{$dds-prefix}-feature-cta)[color-scheme='inverse'] {
+    border-color: $border-inverse;
+
     .#{$prefix}--card__heading,
     ::slotted(#{$dds-prefix}-card-heading) {
       color: $icon-inverse;
