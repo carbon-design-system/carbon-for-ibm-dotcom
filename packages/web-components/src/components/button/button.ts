@@ -65,7 +65,7 @@ class DDSButton extends CTAMixin(StableSelectorMixin(CDSButton)) {
     const { ctaType } = this;
     return `
         <span class="${prefix}--visually-hidden">${ariaLabels[ctaType]}</span>
-        ${icons[this.ctaType]().strings.join()}
+        ${icons[ctaType]?.()?.strings?.join()}
       `;
   }
 
