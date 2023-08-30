@@ -124,10 +124,27 @@ $fcb-breakpoint-up--lg: map.get(map.get($grid-breakpoints, 'lg'), 'width') -
     }
   }
 
-  :host(#{$c4d-prefix}-feature-card),
-  :host(#{$c4d-prefix}-feature-cta) {
+  :host(#{$dds-prefix}-feature-card),
+  :host(#{$dds-prefix}-feature-cta) {
+    display: block;
+    outline: none;
+
     @include breakpoint-down(md) {
       display: flex;
+      .#{$prefix}--card__wrapper {
+        display: block;
+        min-height: 0;
+        height: auto;
+
+        .#{$prefix}--card__content {
+          height: 100%;
+          padding: $spacing-05;
+        }
+      }
+
+      .#{$prefix}--card--link {
+        display: block;
+      }
     }
   }
 
@@ -436,6 +453,10 @@ $fcb-breakpoint-up--lg: map.get(map.get($grid-breakpoints, 'lg'), 'width') -
       color: $icon-inverse;
     }
 
+    ::slotted(#{$dds-prefix}-card-heading) {
+      color: $focus-inset;
+    }
+
     &:hover .#{$prefix}--card__wrapper {
       background-color: $background-inverse-hover;
     }
@@ -505,29 +526,6 @@ $fcb-breakpoint-up--lg: map.get(map.get($grid-breakpoints, 'lg'), 'width') -
     fill: $link-inverse;
   }
 
-  :host(#{$dds-prefix}-feature-card),
-  :host(#{$dds-prefix}-feature-cta) {
-    display: block;
-    outline: none;
-
-    @include breakpoint-down(md) {
-      .#{$prefix}--card__wrapper {
-        display: block;
-        min-height: 0;
-        height: auto;
-
-        .#{$prefix}--card__content {
-          height: 100%;
-          padding: $spacing-05;
-        }
-      }
-
-      .#{$prefix}--card--link {
-        display: block;
-      }
-    }
-  }
-
   :host(#{$dds-prefix}-feature-card[size='large']) {
     ::slotted(#{$dds-prefix}-feature-card-footer) {
       display: flex;
@@ -555,13 +553,6 @@ $fcb-breakpoint-up--lg: map.get(map.get($grid-breakpoints, 'lg'), 'width') -
           height: $spacing-10;
         }
       }
-    }
-  }
-
-  :host(#{$dds-prefix}-feature-card)[color-scheme='inverse'],
-  :host(#{$dds-prefix}-feature-cta)[color-scheme='inverse'] {
-    ::slotted(#{$dds-prefix}-card-heading) {
-      color: $focus-inset;
     }
   }
 
