@@ -46,7 +46,7 @@ For Carbon v11 migration guidance, see their
 
 - 
 
-### CalloutQuote
+### Callout quote
 
 - new options for `color-scheme` property: `REGULAR = ''`, `GRAY10 = 'gray10'`, `CYAN = 'cyan'`, `PURPLE = 'purple'`
 - new callout style tokens
