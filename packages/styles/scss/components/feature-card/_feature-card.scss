@@ -84,7 +84,8 @@ $feature-flags: (
     // avoid shorthand for border to render correctly
     border-color: $border-subtle-selected;
     border-style: solid;
-    border-width: rem(1px);
+    // breaks on Firefox with `rem` function
+    border-width: 1px;
 
     &:hover {
       ::slotted([slot='image']),
