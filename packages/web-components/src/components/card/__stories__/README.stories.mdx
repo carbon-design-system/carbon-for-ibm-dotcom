@@ -214,9 +214,12 @@ In order to use the desired type, modify the `cta-type` attribute to one of the 
 * chat
 * call
 
-Notes: 
-* When using `video`, you need to pass the video ID as the `href` attribute.
+Notes for `video`:
+* You need to pass the video ID as the `href` attribute.
 * The Card component will need to be wrapped within a `dds-video-cta-container` components for videos to play.
+* If left empty, the `dds-card-footer` can display the video duration. If not, it will be overridden with custom text.
+
+General note:
 * Custom icons can replace the built-in ones within `dds-card-footer`, they only need to be assigned to the `icon` slot.
 
 

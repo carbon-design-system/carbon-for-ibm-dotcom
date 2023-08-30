@@ -8,7 +8,7 @@
  */
 
 import { LitElement, html } from 'lit';
-import { property } from 'lit/decorators.js';
+import { property, query } from 'lit/decorators.js';
 import { BUTTON_KIND, BUTTON_SIZE } from './defs';
 import settings from '../../internal/vendor/@carbon/ibmdotcom-utilities/utilities/settings/settings';
 import styles from './button.scss';
@@ -31,6 +31,9 @@ const { prefix, stablePrefix: ddsPrefix } = settings;
 @customElement(`${ddsPrefix}-button`)
 // @ts-ignore
 class DDSButton extends CTAMixin(StableSelectorMixin(CDSButton)) {
+  @query('a')
+  _linkNode;
+
   @property()
   iconDiv;
 
