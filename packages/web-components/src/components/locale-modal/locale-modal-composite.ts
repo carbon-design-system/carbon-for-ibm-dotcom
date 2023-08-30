@@ -88,6 +88,12 @@ class DDSLocaleModalComposite extends HybridRenderMixin(LitElement) {
   @property({ type: Boolean })
   open = false;
 
+  /**
+   * The region chosen by user.
+   */
+  @property()
+  chosenRegion?: string;
+
   // eslint-disable-next-line class-methods-use-this
   async getLangDisplay() {
     const response = await LocaleAPI.getLangDisplay();
@@ -181,7 +187,8 @@ class DDSLocaleModalComposite extends HybridRenderMixin(LitElement) {
                 ?invalid="${countryList.length === 0 ||
                 massagedCountryList?.find(({ region }) => region === name) ===
                   undefined}"
-                name="${name}"></dds-region-item>
+                name="${name}"
+                @click="${this._handleRegionClick}"></dds-region-item>
             `;
           })}
         </dds-regions>
@@ -191,7 +198,9 @@ class DDSLocaleModalComposite extends HybridRenderMixin(LitElement) {
           placeholder="${ifNonNull(searchPlaceholder)}"
           availability-label-text="${ifNonNull(availabilityText)}"
           unavailability-label-text="${ifNonNull(unavailabilityText)}">
-          ${massagedCountryList?.map(
+          ${massagedCountryList?.filter(({ region }) => {
+            return region === this.chosenRegion
+          }).map(
             ({ country, href, language, locale, region }) => html`
               <dds-locale-item
                 country="${country}"
@@ -205,6 +214,15 @@ class DDSLocaleModalComposite extends HybridRenderMixin(LitElement) {
         </dds-locale-search>
       </dds-locale-modal>
     `;
+  }
+
+  /**
+   * Handles click on a region.
+   *
+   * @param event The event triggering this action.
+   */
+  private _handleRegionClick(target) {
+    this.chosenRegion = target.currentTarget.__name;
   }
 
   render() {
