@@ -28,6 +28,10 @@ $fcb-large-custom-bp-nocopy: 752px;
 $fcb-breakpoint-up--lg: map.get(map.get($grid-breakpoints, 'lg'), 'width') -
   rem(1px);
 
+$feature-flags: (
+  enable-experimental-tile-contrast: true,
+);
+
 @mixin card {
   @include breakpoint-down(md) {
     padding-top: 0;
@@ -77,6 +81,7 @@ $fcb-breakpoint-up--lg: map.get(map.get($grid-breakpoints, 'lg'), 'width') -
   .#{$prefix}--feature-card-large,
   .#{$prefix}--feature-card {
     position: relative;
+    // avoid shorthand for border to render correctly
     border-color: $border-subtle-selected;
     border-style: solid;
     border-width: rem(1px);
