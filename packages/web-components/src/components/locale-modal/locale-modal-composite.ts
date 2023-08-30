@@ -220,8 +220,6 @@ class DDSLocaleModalComposite extends HybridRenderMixin(LitElement) {
 
   /**
    * Handles click on a region.
-   *
-   * @param event The event triggering this action.
    */
   private _handleRegionClick(target) {
     this.chosenRegion = target.currentTarget.__name;
