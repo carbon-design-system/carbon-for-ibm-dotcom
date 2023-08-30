@@ -198,19 +198,21 @@ class DDSLocaleModalComposite extends HybridRenderMixin(LitElement) {
           placeholder="${ifNonNull(searchPlaceholder)}"
           availability-label-text="${ifNonNull(availabilityText)}"
           unavailability-label-text="${ifNonNull(unavailabilityText)}">
-          ${massagedCountryList?.filter(({ region }) => {
-            return region === this.chosenRegion
-          }).map(
-            ({ country, href, language, locale, region }) => html`
-              <dds-locale-item
-                country="${country}"
-                href="${href}"
-                language="${language}"
-                locale="${locale}"
-                region="${region}">
-              </dds-locale-item>
-            `
-          )}
+          ${massagedCountryList
+            ?.filter(({ region }) => {
+              return region === this.chosenRegion;
+            })
+            .map(
+              ({ country, href, language, locale, region }) => html`
+                <dds-locale-item
+                  country="${country}"
+                  href="${href}"
+                  language="${language}"
+                  locale="${locale}"
+                  region="${region}">
+                </dds-locale-item>
+              `
+            )}
         </dds-locale-search>
       </dds-locale-modal>
     `;
