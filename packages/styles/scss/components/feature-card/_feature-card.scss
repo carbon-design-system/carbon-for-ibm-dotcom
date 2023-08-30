@@ -381,6 +381,9 @@ $feature-flags: (
 
         @include breakpoint(md) {
           @include type-style('body-01');
+
+          overflow: hidden;
+          text-overflow: ellipsis;
         }
 
         @include breakpoint(lg) {
@@ -390,6 +393,19 @@ $feature-flags: (
         @include breakpoint-down(md) {
           margin-bottom: $spacing-07;
         }
+
+        /* stylelint-disable value-no-vendor-prefix, property-no-vendor-prefix */
+        @include breakpoint-between(md, lg) {
+          ::slotted(*) {
+            display: -webkit-box;
+            white-space: normal;
+            -webkit-line-clamp: 8;
+            -webkit-box-orient: vertical;
+            height: 100%;
+            word-break: break-word;
+          }
+        }
+        /* stylelint-enable value-no-vendor-prefix, property-no-vendor-prefix */
       }
     }
 
