@@ -435,11 +435,16 @@ $feature-flags: (
     @include breakpoint(sm) {
       width: rem(20px);
       height: rem(20px);
+      @include type-style('heading-03');
     }
 
     @include breakpoint(md) {
       width: $spacing-06;
       height: $spacing-06;
+    }
+
+    @include breakpoint(lg) {
+      @include type-style('heading-04');
     }
 
     @include breakpoint(max) {
