@@ -366,8 +366,8 @@ $feature-flags: (
       }
 
       .#{$prefix}--card__eyebrow,
-      ::slotted(#{$c4d-prefix}-card-eyebrow) {
-        margin: 0 0 $spacing-05 0;
+      ::slotted(#{$dds-prefix}-card-eyebrow) {
+        margin: 0 0 $spacing-03 0;
       }
 
       .#{$prefix}--card__heading,
