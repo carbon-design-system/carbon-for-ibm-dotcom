@@ -51,8 +51,9 @@ For Carbon v11 migration guidance, see their
 | cta-block                 | Deprecated in favor of `content-section` or `content-block` combined with `content-item`.                                                                  |
 | cta-section               | Deprecated in favor of `content-section` or `content-block` combined with `content-item`.                                                                  |
 | dotcom-shell              | No API changes.                                                                                                                                            |
-| feature-card-block-large  | Removed - use `feature-card`.                                                                                                                              |
-| feature-card-block-medium | Removed - use `feature-card`.                                                                                                                              |
+| feature-card              | View [changes](#feature-card).                                                                                                                             |
+| feature-card-block-large  | Removed - use [`feature-card`](#feature-card).                                                                                                             |
+| feature-card-block-medium | Removed - use [`feature-card`](#feature-card).                                                                                                             |
 | feature-section           | View [changes](#feature-section).                                                                                                                          |
 | filter-panel              | View [changes](#filter-panel).                                                                                                                             |
 | footer                    | No API changes.                                                                                                                                            |
@@ -131,6 +132,11 @@ within `button`, `card`, `feature-card`, and `link-with-icon`.
 Each new component has a `cta-type` property that can change the icon and
 behavior of the component. See the components' documentation for more
 information.
+
+### Feature card
+
+- Enable support for both `regular` and `inverse` values for `color-scheme`
+  property
 
 ### Feature section
 
