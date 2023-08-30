@@ -23,7 +23,17 @@
     @extend :host(#{$dds-prefix}-callout);
     @extend :host(#{$dds-prefix}-callout-text);
     @include make-row;
+
+    @include breakpoint(md) {
+      @include hang;
+    }
+
     padding-bottom: $spacing-10;
+
+    ::slotted(#{$dds-prefix}-callout-link-with-icon) {
+      padding-left: $spacing-07;
+      outline: transparent;
+    }
   }
 
   :host(#{$dds-prefix}-callout-quote[color-scheme='gray10']) {
@@ -38,19 +48,6 @@
   :host(#{$dds-prefix}-callout-quote[color-scheme='cyan']) {
     @extend :host(#{$dds-prefix}-callout[color-scheme='cyan']);
     @extend :host(#{$dds-prefix}-callout-text[color-scheme='cyan']);
-  }
-
-  :host(#{$dds-prefix}-callout-quote) {
-    @include breakpoint(md) {
-      @include hang;
-    }
-
-    padding-bottom: $spacing-10;
-
-    ::slotted(#{$dds-prefix}-callout-link-with-icon) {
-      padding-left: $spacing-07;
-      outline: transparent;
-    }
   }
 
   :host(#{$dds-prefix}-callout-link-with-icon) {

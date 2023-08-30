@@ -20,9 +20,9 @@
 @include callout;
 
 @mixin callout-with-media {
-  :host(#{$dds-prefix}-callout-with-media),
-  .#{$prefix}--callout-with-media {
+  :host(#{$dds-prefix}-callout-with-media){
     @extend :host(#{$dds-prefix}-callout);
+
     display: block;
 
     ::slotted([slot='heading']) {
