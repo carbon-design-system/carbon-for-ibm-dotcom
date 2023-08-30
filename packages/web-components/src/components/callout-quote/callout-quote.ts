@@ -12,6 +12,8 @@ import styles from './callout-quote.scss';
 import DDSCalloutMixin from '../../component-mixins/callout/callout';
 import DDSQuote from '../quote/quote';
 import { carbonElement as customElement } from '../../internal/vendor/@carbon/web-components/globals/decorators/carbon-element';
+import { property } from 'lit/decorators.js';
+import { COLOR_SCHEME } from '../../component-mixins/callout/defs';
 
 const { stablePrefix: ddsPrefix } = settings;
 
@@ -22,6 +24,12 @@ const { stablePrefix: ddsPrefix } = settings;
  */
 @customElement(`${ddsPrefix}-callout-quote`)
 class DDSCalloutQuote extends DDSCalloutMixin(DDSQuote) {
+  /**
+   * The color-scheme type.
+   */
+  @property({ reflect: true, attribute: 'color-scheme' })
+  colorScheme = COLOR_SCHEME.REGULAR;
+
   static get stableSelector() {
     return `${ddsPrefix}--callout-quote`;
   }

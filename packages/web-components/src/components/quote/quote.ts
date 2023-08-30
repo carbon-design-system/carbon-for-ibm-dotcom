@@ -55,7 +55,7 @@ class DDSQuote extends StableSelectorMixin(LitElement) {
    * Defines if the inverse class is included
    */
   @property({ reflect: true, attribute: 'color-scheme' })
-  colorScheme = QUOTE_COLOR_SCHEMES.REGULAR;
+  colorScheme = '';
 
   /**
    * `true` if there is source heading.
