@@ -18,7 +18,7 @@ For Carbon v11 migration guidance, see their
 | back-to-top               | View changes [here](#backtotop)        |
 | background-media          | No API changes.                        |
 | button                    | This component is deprecated in v2 in favor for Carbon's core Button |
-| callout-quote             | View changes [here](#calloutQuote)          |
+| callout-quote             | View changes [here](#callout-quote)          |
 | card-group-card-link-item | This component is deprecated in v2 in favor for default card or with content-item |
 | card-link                 | This component is deprecated in v2 in favor for card (link variant) component |
 | card-section-carousel     | This component is deprecated in v2 in favor for content-section/block component combined with carousel |
