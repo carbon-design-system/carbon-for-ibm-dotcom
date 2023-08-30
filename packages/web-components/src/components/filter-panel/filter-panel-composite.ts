@@ -395,7 +395,7 @@ class DDSFilterPanelComposite extends HostListenerMixin(
 
   /**
    * Renders original content into the modal and listens for changes to this
-   * content to then be stored in `this.title` and `this._content`.
+   * content to then be stored in `this._title` and `this._content`.
    */
   protected _renderModal = (): TemplateResult => html`
     <dds-filter-panel-modal
