@@ -21,6 +21,15 @@ import { PICTOGRAM_PLACEMENT } from '../defs';
 import readme from './README.stories.mdx';
 import textNullable from '../../../../.storybook/knob-text-nullable';
 
+import { CTA_TYPE } from '../../cta/defs';
+
+import {
+  hrefsForType,
+  knobNamesForType,
+  typeOptions,
+  types,
+} from '../../cta/__stories__/ctaTypeConfig';
+
 const tagGroupContent = html`
   <dds-tag-group>
     <cds-tag type="green"> Most popular </cds-tag>
@@ -30,6 +39,8 @@ const tagGroupContent = html`
 
 export const Default = (args) => {
   const {
+    ctaType,
+    noPoster,
     image,
     href,
     alt,
@@ -40,33 +51,55 @@ export const Default = (args) => {
     copy,
     footer,
     cardStyles,
+    customVideoTitle,
   } = args?.Card ?? {};
   /* eslint-disable no-nested-ternary */
+
+  let videoCopy;
+  let videoFooterCopy;
+
+  if (ctaType === CTA_TYPE.VIDEO) {
+    const card = document.querySelector('dds-card') as any;
+    const duration = card?.videoTitle?.match(/\((.*)\)/)?.pop();
+
+    if (!customVideoTitle) {
+      videoCopy = card?.videoTitle;
+    } else {
+      videoCopy = customVideoTitle;
+    }
+
+    if (!footer) {
+      videoFooterCopy = duration;
+    }
+  }
+
   return html`
-    <dds-card
-      color-scheme=${cardStyles === 'Inverse card'
-        ? 'inverse'
-        : cardStyles === 'Outlined card'
-        ? 'light'
-        : ''}
-      ?border=${cardStyles === 'Outlined card'}
-      href=${ifDefined(href || undefined)}>
-      ${image
-        ? html`
-            <dds-image
-              slot="image"
-              alt="${ifDefined(alt)}"
-              default-src="${ifDefined(defaultSrc)}"></dds-image>
-          `
-        : ``}
-      <dds-card-eyebrow>${eyebrow}</dds-card-eyebrow>
-      <dds-card-heading>${heading}</dds-card-heading>
-      ${copy ? html` <p>${copy}</p> ` : ``}
-      ${tagGroup ? html` ${tagGroupContent} ` : ``}
-      <dds-card-footer>
-        ${footer}${ArrowRight20({ slot: 'icon' })}
-      </dds-card-footer>
-    </dds-card>
+    <dds-video-cta-container>
+      <dds-card
+        ?no-poster=${noPoster}
+        cta-type=${ctaType}
+        color-scheme=${cardStyles === 'Inverse card'
+          ? 'inverse'
+          : cardStyles === 'Outlined card'
+          ? 'light'
+          : ''}
+        ?border=${cardStyles === 'Outlined card'}
+        href=${ifDefined(href || undefined)}>
+        ${image
+          ? html`
+              <dds-image
+                slot="image"
+                alt="${ifDefined(alt)}"
+                default-src="${ifDefined(defaultSrc)}"></dds-image>
+            `
+          : ``}
+        <dds-card-eyebrow>${eyebrow}</dds-card-eyebrow>
+        <dds-card-heading>${videoCopy ?? heading}</dds-card-heading>
+        ${copy ? html` <p>${copy}</p> ` : ``}
+        ${tagGroup ? html` ${tagGroupContent} ` : ``}
+        <dds-card-footer> ${videoFooterCopy ?? footer} </dds-card-footer>
+      </dds-card>
+    </dds-video-cta-container>
   `;
 };
 
@@ -79,23 +112,51 @@ Default.story = {
   parameters: {
     ...readme.parameters,
     knobs: {
-      Card: () => ({
-        image: boolean('Add image:', false, 'Default'),
-        eyebrow: textNullable('Eyebrow:', 'Industry', 'Default'),
-        heading: textNullable('Heading:', 'Aerospace and defence', 'Default'),
-        copy: textNullable('Body copy:', '', 'Default'),
-        alt: 'Image alt text',
-        defaultSrc: imgXlg4x3,
-        tagGroup: boolean('Add tags:', false, 'Default'),
-        href: 'https://example.com',
-        footer: textNullable('CTA:', 'Learn more', 'Default'),
-        cardStyles: select(
-          'Card style:',
-          ['Outlined card', 'Inverse card', 'none'],
-          'none',
-          'Default'
-        ),
-      }),
+      Card: () => {
+        const ctaType = select(
+          'CTA type (cta-type)',
+          typeOptions,
+          types[CTA_TYPE.LOCAL]
+        );
+
+        const heading =
+          ctaType === CTA_TYPE.VIDEO
+            ? undefined
+            : textNullable('Heading:', 'Aerospace and defence');
+
+        const customVideoTitle =
+          ctaType === CTA_TYPE.VIDEO
+            ? textNullable('Custom video title', 'Custom video title')
+            : null;
+
+        const image =
+          ctaType === CTA_TYPE.VIDEO ? null : boolean('Add image:', false);
+        const noPoster =
+          ctaType === CTA_TYPE.VIDEO ? boolean('No poster:', false) : null;
+
+        return {
+          customVideoTitle,
+          ctaType,
+          image,
+          noPoster,
+          eyebrow: textNullable('Eyebrow:', 'Industry'),
+          heading,
+          copy: textNullable('Body copy:', ''),
+          alt: 'Image alt text',
+          defaultSrc: imgXlg4x3,
+          tagGroup: boolean('Add tags:', false),
+          href: textNullable(
+            knobNamesForType[ctaType ?? CTA_TYPE.REGULAR],
+            hrefsForType[ctaType ?? CTA_TYPE.REGULAR]
+          ),
+          footer: textNullable('CTA:', 'Learn more'),
+          cardStyles: select(
+            'Card style:',
+            ['Outlined card', 'Inverse card', 'none'],
+            'none'
+          ),
+        };
+      },
     },
     propsSet: {
       default: {

@@ -7,8 +7,8 @@
  * LICENSE file in the root directory of this source tree.
  */
 
-import { TemplateResult, html } from 'lit';
-import { property } from 'lit/decorators.js';
+import { html } from 'lit';
+import { property, state } from 'lit/decorators.js';
 import CDSLink, {
   LINK_SIZE,
 } from '../../internal/vendor/@carbon/web-components/components/link/link.js';
@@ -17,6 +17,9 @@ import { ICON_PLACEMENT } from '../../globals/defs';
 import StableSelectorMixin from '../../globals/mixins/stable-selector';
 import styles from './link-with-icon.scss';
 import { carbonElement as customElement } from '../../internal/vendor/@carbon/web-components/globals/decorators/carbon-element.js';
+
+import CTAMixin from '../../component-mixins/cta/cta';
+import { CTA_TYPE } from '../cta/defs';
 
 export { ICON_PLACEMENT };
 
@@ -30,7 +33,7 @@ const { prefix, stablePrefix: ddsPrefix } = settings;
  * @slot icon-left - The CTA icon to place at the left.
  */
 @customElement(`${ddsPrefix}-link-with-icon`)
-class DDSLinkWithIcon extends StableSelectorMixin(CDSLink) {
+class DDSLinkWithIcon extends CTAMixin(StableSelectorMixin(CDSLink)) {
   /**
    * Icon placement(right (default) | left)
    */
@@ -52,26 +55,57 @@ class DDSLinkWithIcon extends StableSelectorMixin(CDSLink) {
   size = LINK_SIZE.LARGE;
 
   /**
-   * @returns The main content.
+   * `true` if there is a non-empty default slot content.
    */
-  // eslint-disable-next-line class-methods-use-this
-  protected _renderContent(): TemplateResult | string | void {
-    return html` <span><slot></slot></span> `;
-  }
+  @state()
+  protected _hasContent = false;
 
   /**
-   * @returns The icon content.
+   * Handles `slotchange` event on the default `<slot>`.
    */
-  // eslint-disable-next-line class-methods-use-this
-  protected _renderIcon(): TemplateResult | string | void {
-    return html` <slot name="icon"></slot> `;
+  protected _handleSlotChange({ target }: Event) {
+    this._hasContent = (target as HTMLSlotElement)
+      .assignedNodes()
+      .some(
+        (node) =>
+          node.nodeType !== Node.COMMENT_NODE &&
+          (node.nodeType !== Node.TEXT_NODE || node.nodeValue?.trim())
+      );
+  }
+
+  _renderContent() {
+    const { ctaType, _hasContent: hasContent } = this;
+    if (ctaType !== CTA_TYPE.VIDEO) {
+      return html`<span><slot></span></slot>`;
+    }
+    const {
+      videoDuration,
+      videoName,
+      formatVideoCaption: formatVideoCaptionInEffect,
+      formatVideoDuration: formatVideoDurationInEffect,
+    } = this;
+
+    const caption = hasContent
+      ? undefined
+      : formatVideoCaptionInEffect({
+          duration: formatVideoDurationInEffect({
+            duration: !videoDuration ? videoDuration : videoDuration * 1000,
+          }),
+          name: videoName,
+        });
+    return html`
+      <span
+        ><slot @slotchange="${this._handleSlotChange}"></slot>${caption}</span
+      >
+    `;
   }
 
   protected _renderInner() {
     return html` ${this._renderContent()}${this._renderIcon()} `;
   }
 
-  updated() {
+  updated(changedProperties) {
+    super.updated(changedProperties);
     const { iconInline, iconPlacement, _linkNode: linkNode } = this;
     if (linkNode) {
       linkNode.classList.add(`${prefix}--link-with-icon`);
