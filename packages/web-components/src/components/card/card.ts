@@ -15,7 +15,7 @@ import { carbonElement as customElement } from '../../internal/vendor/@carbon/we
 import settings from '../../internal/vendor/@carbon/ibmdotcom-utilities/utilities/settings/settings';
 import { BASIC_COLOR_SCHEME } from '../../globals/defs';
 import StableSelectorMixin from '../../globals/mixins/stable-selector';
-import DDSCardFooter from './card-footer';
+import C4DCardFooter from './card-footer';
 import styles from './card.scss';
 import { PICTOGRAM_PLACEMENT } from './defs';
 // import PlayVideo from '@carbon/ibmdotcom-styles/icons/svg/play-video.svg';
@@ -37,14 +37,14 @@ const slotExistencePropertyNames = {
 /**
  * Card.
  *
- * @element dds-card
+ * @element c4d-card
  * @slot eyebrow - The eyebrow content.
  * @slot heading - The heading content.
  * @slot image - The image content.
  * @slot footer - The footer content.
  */
 @customElement(`${ddsPrefix}-card`)
-class DDSCard extends CTAMixin(StableSelectorMixin(CDSLink)) {
+class C4DCard extends CTAMixin(StableSelectorMixin(CDSLink)) {
   /**
    * `true` if there is copy content.
    */
@@ -111,17 +111,17 @@ class DDSCard extends CTAMixin(StableSelectorMixin(CDSLink)) {
       noPoster,
     } = this;
 
-    // TODO: SVGs aren't currently working in v2, add this within dds-image when fixed
+    // TODO: SVGs aren't currently working in v2, add this within c4d-image when fixed
     // PlayVideo({ slot: 'icon' })
     const image =
       hasImage || ctaType !== CTA_TYPE.VIDEO || noPoster
         ? undefined
         : html`
-            <dds-image
+            <c4d-image
               class="${prefix}--card__video-thumbnail"
               alt="${videoName}"
               default-src="${videoThumbnailUrl}">
-            </dds-image>
+            </c4d-image>
           `;
     return html`
       <slot name="image" @slotchange="${this._handleSlotChange}"></slot>${image}
@@ -245,7 +245,7 @@ class DDSCard extends CTAMixin(StableSelectorMixin(CDSLink)) {
         formatVideoCaption: formatVideoCaptionInEffect,
         formatVideoDuration: formatVideoDurationInEffect,
       } = this;
-      const footer = this.querySelector('dds-card-footer');
+      const footer = this.querySelector(`${ddsPrefix}-card-footer`);
 
       const headingText = this.querySelector(
         `${ddsPrefix}-card-heading`
@@ -257,17 +257,17 @@ class DDSCard extends CTAMixin(StableSelectorMixin(CDSLink)) {
         if (videoDuration !== undefined) {
           ariaDuration = `, DURATION ${videoDuration}`;
         }
-        (footer as DDSCardFooter).altAriaLabel = `${ariaTitle}${ariaDuration}`;
-        (footer as DDSCardFooter).ctaType = ctaType;
-        (footer as DDSCardFooter).videoDuration = videoDuration;
-        (footer as DDSCardFooter).videoName = videoName;
-        (footer as DDSCardFooter).videoDescription = videoDescription;
+        (footer as C4DCardFooter).altAriaLabel = `${ariaTitle}${ariaDuration}`;
+        (footer as C4DCardFooter).ctaType = ctaType;
+        (footer as C4DCardFooter).videoDuration = videoDuration;
+        (footer as C4DCardFooter).videoName = videoName;
+        (footer as C4DCardFooter).videoDescription = videoDescription;
         if (formatVideoCaptionInEffect) {
-          (footer as DDSCardFooter).formatVideoCaption =
+          (footer as C4DCardFooter).formatVideoCaption =
             formatVideoCaptionInEffect;
         }
         if (formatVideoDurationInEffect) {
-          (footer as DDSCardFooter).formatVideoDuration =
+          (footer as C4DCardFooter).formatVideoDuration =
             formatVideoDurationInEffect;
         }
       }
@@ -279,14 +279,14 @@ class DDSCard extends CTAMixin(StableSelectorMixin(CDSLink)) {
       )?.textContent;
       const copyText = this.textContent;
       const footer = this.querySelector(
-        (this.constructor as typeof DDSCard).selectorFooter
+        (this.constructor as typeof C4DCard).selectorFooter
       );
       if (footer && href) {
-        (footer as DDSCardFooter).colorScheme = colorScheme;
-        (footer as DDSCardFooter).parentHref = href;
-        (footer as DDSCardFooter).ctaType = ctaType;
-        (footer as DDSCardFooter).href = href;
-        (footer as DDSCardFooter).altAriaLabel = headingText || copyText;
+        (footer as C4DCardFooter).colorScheme = colorScheme;
+        (footer as C4DCardFooter).parentHref = href;
+        (footer as C4DCardFooter).ctaType = ctaType;
+        (footer as C4DCardFooter).href = href;
+        (footer as C4DCardFooter).altAriaLabel = headingText || copyText;
       }
     }
     if (linkNode) {
@@ -333,8 +333,8 @@ class DDSCard extends CTAMixin(StableSelectorMixin(CDSLink)) {
         name: videoName,
       });
 
-      const heading = this.querySelector('dds-card-heading');
-      const footer = this.querySelector('dds-card-footer');
+      const heading = this.querySelector(`${ddsPrefix}-card-heading`);
+      const footer = this.querySelector(`${ddsPrefix}-card-footer`);
 
       if (heading?.textContent?.trim() === '') {
         const title = document.createTextNode(this.videoTitle);
@@ -351,7 +351,7 @@ class DDSCard extends CTAMixin(StableSelectorMixin(CDSLink)) {
   connectedCallback() {
     super.connectedCallback();
     const { eventRequestAdditionalVideoData } = this
-      .constructor as typeof DDSCard;
+      .constructor as typeof C4DCard;
     document.addEventListener(
       eventRequestAdditionalVideoData,
       this._handleVideoTitleUpdate
@@ -361,7 +361,7 @@ class DDSCard extends CTAMixin(StableSelectorMixin(CDSLink)) {
   disconnectedCallback() {
     super.disconnectedCallback();
     const { eventRequestAdditionalVideoData } = this
-      .constructor as typeof DDSCard;
+      .constructor as typeof C4DCard;
     document.removeEventListener(
       eventRequestAdditionalVideoData,
       this._handleVideoTitleUpdate
@@ -409,4 +409,4 @@ class DDSCard extends CTAMixin(StableSelectorMixin(CDSLink)) {
 }
 
 /* @__GENERATE_REACT_CUSTOM_ELEMENT_TYPE__ */
-export default DDSCard;
+export default C4DCard;

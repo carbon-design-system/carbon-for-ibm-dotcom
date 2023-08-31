@@ -18,10 +18,10 @@ const { stablePrefix: ddsPrefix } = settings;
 /**
  * Extends the CDSModalFooterButton.
  *
- * @element dds-filter-modal-footer-button
+ * @element c4d-filter-modal-footer-button
  */
 @customElement(`${ddsPrefix}-filter-modal-footer-button`)
-class DDSFilterModalButton extends StableSelectorMixin(CDSModalFooterButton) {
+class C4DFilterModalButton extends StableSelectorMixin(CDSModalFooterButton) {
   static get stableSelector() {
     return `${ddsPrefix}-filter-modal-footer-button`;
   }
@@ -30,4 +30,4 @@ class DDSFilterModalButton extends StableSelectorMixin(CDSModalFooterButton) {
 }
 
 /* @__GENERATE_REACT_CUSTOM_ELEMENT_TYPE__ */
-export default DDSFilterModalButton;
+export default C4DFilterModalButton;

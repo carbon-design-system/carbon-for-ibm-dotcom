@@ -32,10 +32,10 @@ import { PropTypesRef } from '@carbon/ibmdotcom-web-components/es/components-rea
 ### JS
 
 ```javascript
-import DDSMastheadContainer from '@carbon/ibmdotcom-web-components/es/components-react/masthead/masthead-container.js';
+import C4DMastheadContainer from '@carbon/ibmdotcom-web-components/es/components-react/masthead/masthead-container.js';
 
 function App() {
-  return <DDSMastheadContainer></DDSMastheadContainer>;
+  return <C4DMastheadContainer></C4DMastheadContainer>;
 }
 ```
 
@@ -43,7 +43,7 @@ function App() {
 
 ```javascript
 function App() {
-  return <DDSMastheadContainer platform="Lorem ipsum"></DDSMastheadContainer>;
+  return <C4DMastheadContainer platform="Lorem ipsum"></C4DMastheadContainer>;
 }
 ```
 
@@ -57,9 +57,9 @@ specific URL for each locale. This property has to be set via javascript.
 ```javascript
 function App() {
   return (
-    <DDSMastheadContainer
+    <C4DMastheadContainer
       platform="Lorem ipsum"
-      id="masthead-container"></DDSMastheadContainer>
+      id="masthead-container"></C4DMastheadContainer>
   );
 }
 ```
@@ -93,9 +93,9 @@ document.getElementById('masthead-container').platformUrl = urlObject;
 ```javascript
 function App() {
   return (
-    <DDSMastheadContainer
+    <C4DMastheadContainer
       platform="Lorem ipsum"
-      id="masthead-container"></DDSMastheadContainer>
+      id="masthead-container"></C4DMastheadContainer>
   );
 }
 ```
@@ -124,18 +124,18 @@ const l1Data = {
 
 ```javascript
 function App() {
-  return <DDSMastheadContainer id="masthead-container"></DDSMastheadContainer>;
+  return <C4DMastheadContainer id="masthead-container"></C4DMastheadContainer>;
 }
 ```
 
 To set a custom endpoint for the translation service to fetch from, set either
-the `data-endpoint` attribute like below or `DDS_TRANSLATION_ENDPOINT`
+the `data-endpoint` attribute like below or `C4D_TRANSLATION_ENDPOINT`
 environment variable.
 
 ```javascript
 function App() {
   return (
-    <DDSMastheadContainer data-endpoint="/custom-endpoint"></DDSMastheadContainer>
+    <C4DMastheadContainer data-endpoint="/custom-endpoint"></C4DMastheadContainer>
   );
 }
 ```
@@ -169,7 +169,7 @@ First, add the `custom-typeahead-api` attribute into the masthead and set it to
 ```javascript
 function App() {
   return (
-    <DDSMastheadContainer custom-typeahead-api="true"></DDSMastheadContainer>
+    <C4DMastheadContainer custom-typeahead-api="true"></C4DMastheadContainer>
   );
 }
 
@@ -311,8 +311,8 @@ the `.`), in order for the array to be processed properly in the component.
 ```javascript
 function App() {
   return (
-    <DDSMastheadContainer
-      scopeParameters={scopeParameters}></DDSMastheadContainer>
+    <C4DMastheadContainer
+      scopeParameters={scopeParameters}></C4DMastheadContainer>
   );
 }
 ```
@@ -347,7 +347,7 @@ with a value of either 'cookie' or 'api'.
 
 ```javascript
 function App() {
-  return <DDSMastheadContainer auth-method="cookie"></DDSMastheadContainer>;
+  return <C4DMastheadContainer auth-method="cookie"></C4DMastheadContainer>;
 }
 ```
 

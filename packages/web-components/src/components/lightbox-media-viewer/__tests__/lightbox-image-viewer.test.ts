@@ -14,20 +14,20 @@ import '../lightbox-image-viewer';
 const template = (props?) => {
   const { alt, defaultSrc, description, title } = props ?? {};
   return html`
-    <dds-lightbox-image-viewer
+    <c4d-lightbox-image-viewer
       alt="${ifDefined(alt)}"
       default-src="${ifDefined(defaultSrc)}"
       description="${ifDefined(description)}"
       title="${ifDefined(title)}">
-    </dds-lightbox-image-viewer>
+    </c4d-lightbox-image-viewer>
   `;
 };
 
-describe('dds-lightbox-image-viewer', function () {
+describe('c4d-lightbox-image-viewer', function () {
   it('should render with minimum attributes', async function () {
     render(template(), document.body);
     await Promise.resolve();
-    expect(document.querySelector('dds-lightbox-image-viewer')).toMatchSnapshot(
+    expect(document.querySelector('c4d-lightbox-image-viewer')).toMatchSnapshot(
       { mode: 'shadow' }
     );
   });
@@ -43,7 +43,7 @@ describe('dds-lightbox-image-viewer', function () {
       document.body
     );
     await Promise.resolve();
-    expect(document.querySelector('dds-lightbox-image-viewer')).toMatchSnapshot(
+    expect(document.querySelector('c4d-lightbox-image-viewer')).toMatchSnapshot(
       { mode: 'shadow' }
     );
   });

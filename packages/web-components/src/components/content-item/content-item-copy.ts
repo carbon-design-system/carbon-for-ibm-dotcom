@@ -9,7 +9,7 @@
 import { css } from 'lit';
 import settings from '../../internal/vendor/@carbon/ibmdotcom-utilities/utilities/settings/settings';
 import StableSelectorMixin from '../../globals/mixins/stable-selector';
-import DDSMarkdown from '../markdown/markdown';
+import C4DMarkdown from '../markdown/markdown';
 import './content-item-paragraph';
 import styles from './content-item.scss';
 import { carbonElement as customElement } from '../../internal/vendor/@carbon/web-components/globals/decorators/carbon-element';
@@ -19,10 +19,10 @@ const { stablePrefix: ddsPrefix } = settings;
 /**
  * The copy content of content item.
  *
- * @element dds-content-item-copy
+ * @element c4d-content-item-copy
  */
 @customElement(`${ddsPrefix}-content-item-copy`)
-class DDSContentItemCopy extends StableSelectorMixin(DDSMarkdown) {
+class C4DContentItemCopy extends StableSelectorMixin(C4DMarkdown) {
   protected get _customTags() {
     const tags = new Set(super._customTags);
     tags.add(`${ddsPrefix}-content-item-paragraph`);
@@ -56,4 +56,4 @@ class DDSContentItemCopy extends StableSelectorMixin(DDSMarkdown) {
 }
 
 /* @__GENERATE_REACT_CUSTOM_ELEMENT_TYPE__ */
-export default DDSContentItemCopy;
+export default C4DContentItemCopy;

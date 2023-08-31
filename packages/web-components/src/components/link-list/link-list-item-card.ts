@@ -10,7 +10,7 @@
 import { css } from 'lit';
 import settings from '../../internal/vendor/@carbon/ibmdotcom-utilities/utilities/settings/settings';
 import { carbonElement as customElement } from '../../internal/vendor/@carbon/web-components/globals/decorators/carbon-element';
-import DDSCardLink from '../card-link/card-link';
+import C4DCardLink from '../card-link/card-link';
 import styles from './link-list.scss';
 
 const { stablePrefix: ddsPrefix } = settings;
@@ -18,10 +18,10 @@ const { stablePrefix: ddsPrefix } = settings;
 /**
  * Link list item.
  *
- * @element dds-link-list-item-card
+ * @element c4d-link-list-item-card
  */
 @customElement(`${ddsPrefix}-link-list-item-card`)
-class DDSLinkListItem extends DDSCardLink {
+class C4DLinkListItem extends C4DCardLink {
   connectedCallback() {
     if (!this.hasAttribute('role')) {
       this.setAttribute('role', 'listitem');
@@ -42,4 +42,4 @@ class DDSLinkListItem extends DDSCardLink {
 }
 
 /* @__GENERATE_REACT_CUSTOM_ELEMENT_TYPE__ */
-export default DDSLinkListItem;
+export default C4DLinkListItem;

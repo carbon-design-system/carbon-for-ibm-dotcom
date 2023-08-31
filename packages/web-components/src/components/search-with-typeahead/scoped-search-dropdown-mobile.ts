@@ -25,11 +25,11 @@ const { prefix, stablePrefix: ddsPrefix } = settings;
  * Scoped search dropdown - mobile version.
  * The dropdown to scope the search suggestions in mobile
  *
- * @element dds-scoped-search-dropdown-mobile
+ * @element c4d-scoped-search-dropdown-mobile
  * @internal
  */
 @customElement(`${ddsPrefix}-scoped-search-dropdown-mobile`)
-class DDSScopedSearchDropdownMobile extends CDSSelect {
+class C4DScopedSearchDropdownMobile extends CDSSelect {
   /**
    * The `value` for placeholder `<option>`.
    */
@@ -189,4 +189,4 @@ class DDSScopedSearchDropdownMobile extends CDSSelect {
 }
 
 /* @__GENERATE_REACT_CUSTOM_ELEMENT_TYPE__ */
-export default DDSScopedSearchDropdownMobile;
+export default C4DScopedSearchDropdownMobile;

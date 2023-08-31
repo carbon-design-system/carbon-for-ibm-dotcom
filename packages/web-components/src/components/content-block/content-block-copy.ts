@@ -11,7 +11,7 @@ import { css } from 'lit';
 import { property } from 'lit/decorators.js';
 import settings from '../../internal/vendor/@carbon/ibmdotcom-utilities/utilities/settings/settings';
 import StableSelectorMixin from '../../globals/mixins/stable-selector';
-import DDSMarkdown from '../markdown/markdown';
+import C4DMarkdown from '../markdown/markdown';
 import { CONTENT_BLOCK_COPY_SIZE } from './defs';
 import './content-block-paragraph';
 import styles from './content-block.scss';
@@ -24,10 +24,10 @@ const { stablePrefix: ddsPrefix } = settings;
 /**
  * The copy content of content block.
  *
- * @element dds-content-block-copy
+ * @element c4d-content-block-copy
  */
 @customElement(`${ddsPrefix}-content-block-copy`)
-class DDSContentBlockCopy extends StableSelectorMixin(DDSMarkdown) {
+class C4DContentBlockCopy extends StableSelectorMixin(C4DMarkdown) {
   protected get _customTags() {
     const tags = new Set(super._customTags);
     tags.add(`${ddsPrefix}-content-block-paragraph`);
@@ -74,4 +74,4 @@ class DDSContentBlockCopy extends StableSelectorMixin(DDSMarkdown) {
 }
 
 /* @__GENERATE_REACT_CUSTOM_ELEMENT_TYPE__ */
-export default DDSContentBlockCopy;
+export default C4DContentBlockCopy;

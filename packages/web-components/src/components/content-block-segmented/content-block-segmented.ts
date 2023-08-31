@@ -10,7 +10,7 @@
 import { classMap } from 'lit/directives/class-map.js';
 import { css, html } from 'lit';
 import settings from '../../internal/vendor/@carbon/ibmdotcom-utilities/utilities/settings/settings';
-import DDSContentBlock, {
+import C4DContentBlock, {
   CONTENT_BLOCK_COMPLEMENTARY_STYLE_SCHEME,
 } from '../content-block/content-block';
 import styles from './content-block-segmented.scss';
@@ -21,10 +21,10 @@ const { prefix, stablePrefix: ddsPrefix } = settings;
 /**
  * Simple version of content block.
  *
- * @element dds-content-block-segmented
+ * @element c4d-content-block-segmented
  */
 @customElement(`${ddsPrefix}-content-block-segmented`)
-class DDSContentBlockSegmented extends DDSContentBlock {
+class C4DContentBlockSegmented extends C4DContentBlock {
   protected _getContainerClasses() {
     const {
       complementaryStyleScheme,
@@ -67,4 +67,4 @@ console.warn(
 );
 
 /* @__GENERATE_REACT_CUSTOM_ELEMENT_TYPE__ */
-export default DDSContentBlockSegmented;
+export default C4DContentBlockSegmented;

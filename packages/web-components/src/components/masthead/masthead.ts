@@ -19,13 +19,13 @@ const { prefix, stablePrefix: ddsPrefix } = settings;
 /**
  * Masthead.
  *
- * @element dds-masthead
+ * @element c4d-masthead
  * @slot brand - The left hand area.
  * @slot nav - The nav content.
  * @slot profile - The right hand area.
  */
 @customElement(`${ddsPrefix}-masthead`)
-class DDSMasthead extends StableSelectorMixin(LitElement) {
+class C4DMasthead extends StableSelectorMixin(LitElement) {
   firstUpdated() {
     StickyHeader.global.masthead = this;
   }
@@ -56,4 +56,4 @@ class DDSMasthead extends StableSelectorMixin(LitElement) {
 }
 
 /* @__GENERATE_REACT_CUSTOM_ELEMENT_TYPE__ */
-export default DDSMasthead;
+export default C4DMasthead;

@@ -58,13 +58,13 @@ function findLastIndex<T>(
 /**
  * Table of contents.
  *
- * @element dds-table-of-contents
+ * @element c4d-table-of-contents
  * @csspart table - The table UI.
  * @slot heading - The heading content.
  * @slot menu-rule - The menu rule.
  */
 @customElement(`${ddsPrefix}-table-of-contents`)
-class DDSTableOfContents extends HostListenerMixin(
+class C4DTableOfContents extends HostListenerMixin(
   StableSelectorMixin(LitElement)
 ) {
   /**
@@ -239,7 +239,7 @@ class DDSTableOfContents extends HostListenerMixin(
    */
   private _handleClickItem(event: MouseEvent) {
     const { selectorDesktopItem } = this
-      .constructor as typeof DDSTableOfContents;
+      .constructor as typeof C4DTableOfContents;
     const target = event.target as HTMLAnchorElement;
     if (target.matches?.(selectorDesktopItem)) {
       this._handleUserInitiatedJump(target.dataset.target!);
@@ -254,7 +254,7 @@ class DDSTableOfContents extends HostListenerMixin(
    */
   private _handleOnKeyDown(event: KeyboardEvent) {
     const { selectorDesktopItem } = this
-      .constructor as typeof DDSTableOfContents;
+      .constructor as typeof C4DTableOfContents;
     const target = event.target as HTMLAnchorElement;
     const { _pageIsRTL: pageIsRTL } = this;
     if (target.matches?.(selectorDesktopItem)) {
@@ -364,7 +364,7 @@ class DDSTableOfContents extends HostListenerMixin(
       _tagNamesToAvoid: tagNamesToAvoid,
       _disableTargetAttribute: disableTargetAttribute,
     } = this;
-    const { selectorTarget } = this.constructor as typeof DDSTableOfContents;
+    const { selectorTarget } = this.constructor as typeof C4DTableOfContents;
     this._targets = nodes.reduce((acc, node) => {
       if (node instanceof HTMLElement) {
         const descendants = node.querySelectorAll(
@@ -993,4 +993,4 @@ class DDSTableOfContents extends HostListenerMixin(
 }
 
 /* @__GENERATE_REACT_CUSTOM_ELEMENT_TYPE__ */
-export default DDSTableOfContents;
+export default C4DTableOfContents;

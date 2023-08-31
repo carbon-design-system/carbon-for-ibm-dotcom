@@ -27,15 +27,15 @@ const { prefix, stablePrefix: ddsPrefix } = settings;
 /**
  * The LeadSpace component.
  *
- * @element dds-leadspace
+ * @element c4d-leadspace
  * @slot action The action (CTA) content.
  * @slot image The image content.
  * @csspart section The first DOM node inside the shadow-root
  */
 @customElement(`${ddsPrefix}-leadspace`)
-class DDSLeadSpace extends StableSelectorMixin(LitElement) {
+class C4DLeadSpace extends StableSelectorMixin(LitElement) {
   /**
-   * Handler for @slotchange, ensure that the only element being rendered is DDSTagGroup
+   * Handler for @slotchange, ensure that the only element being rendered is C4DTagGroup
    *
    * @private
    */
@@ -45,8 +45,8 @@ class DDSLeadSpace extends StableSelectorMixin(LitElement) {
     childItems.filter(
       (elem) =>
         (elem as HTMLElement).matches?.(
-          (this.constructor as typeof DDSLeadSpace).tagGroupSelector
-        ) || (this.constructor as typeof DDSLeadSpace).breadcrumbSelector
+          (this.constructor as typeof C4DLeadSpace).tagGroupSelector
+        ) || (this.constructor as typeof C4DLeadSpace).breadcrumbSelector
     );
   }
 
@@ -142,8 +142,8 @@ class DDSLeadSpace extends StableSelectorMixin(LitElement) {
   firstUpdated() {
     Array.from(this.children).forEach((child) => {
       if (
-        (child.tagName === 'DDS-BACKGROUND-MEDIA' ||
-          child.tagName === 'DDS-LEADSPACE-IMAGE') &&
+        (child.tagName === 'C4D-BACKGROUND-MEDIA' ||
+          child.tagName === 'C4D-LEADSPACE-IMAGE') &&
         child.slot === ''
       ) {
         child.slot = 'image';
@@ -236,4 +236,4 @@ class DDSLeadSpace extends StableSelectorMixin(LitElement) {
 }
 
 /* @__GENERATE_REACT_CUSTOM_ELEMENT_TYPE__ */
-export default DDSLeadSpace;
+export default C4DLeadSpace;

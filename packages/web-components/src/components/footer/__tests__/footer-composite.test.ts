@@ -131,12 +131,12 @@ const setupLinkAlternate = (set: boolean = true) => {
   }
 };
 
-describe('dds-footer-composite', function () {
+describe('c4d-footer-composite', function () {
   describe('Misc attributes', function () {
     it('should render minimum attributes', async function () {
       render(template(), document.body);
       await Promise.resolve();
-      expect(document.querySelector('dds-footer-composite')).toMatchSnapshot();
+      expect(document.querySelector('c4d-footer-composite')).toMatchSnapshot();
     });
 
     it('should render various attributes', async function () {
@@ -153,7 +153,7 @@ describe('dds-footer-composite', function () {
         document.body
       );
       await Promise.resolve();
-      expect(document.querySelector('dds-footer-composite')).toMatchSnapshot();
+      expect(document.querySelector('c4d-footer-composite')).toMatchSnapshot();
     });
   });
 

@@ -13,23 +13,23 @@ import '../footer-logo';
 
 const template = (props?) => {
   const { href } = props ?? {};
-  return html` <dds-footer-logo href="${ifDefined(href)}"></dds-footer-logo> `;
+  return html` <c4d-footer-logo href="${ifDefined(href)}"></c4d-footer-logo> `;
 };
 
-describe('dds-footer-logo', function () {
+describe('c4d-footer-logo', function () {
   describe('Misc attributes', function () {
     it('should render with minimum attributes', async function () {
       render(template(), document.body);
-      await Promise.resolve(); // Update cycle for `<dds-footer-logo>`
-      expect(document.body.querySelector('dds-footer-logo')).toMatchSnapshot({
+      await Promise.resolve(); // Update cycle for `<c4d-footer-logo>`
+      expect(document.body.querySelector('c4d-footer-logo')).toMatchSnapshot({
         mode: 'shadow',
       });
     });
 
     it('should render with various attributes', async function () {
       render(template({ href: 'https://cloud.ibm.com/' }), document.body);
-      await Promise.resolve(); // Update cycle for `<dds-footer-logo>`
-      expect(document.body.querySelector('dds-footer-logo')).toMatchSnapshot({
+      await Promise.resolve(); // Update cycle for `<c4d-footer-logo>`
+      expect(document.body.querySelector('c4d-footer-logo')).toMatchSnapshot({
         mode: 'shadow',
       });
     });

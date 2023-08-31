@@ -12,7 +12,7 @@ import { property } from 'lit/decorators.js';
 import settings from '../../internal/vendor/@carbon/ibmdotcom-utilities/utilities/settings/settings';
 import styles from './content-section.scss';
 import StableSelectorMixin from '../../globals/mixins/stable-selector';
-import DDSMarkdown from '../markdown/markdown';
+import C4DMarkdown from '../markdown/markdown';
 import { carbonElement as customElement } from '../../internal/vendor/@carbon/web-components/globals/decorators/carbon-element';
 
 const { stablePrefix: ddsPrefix } = settings;
@@ -20,10 +20,10 @@ const { stablePrefix: ddsPrefix } = settings;
 /**
  * Copy content in content section.
  *
- * @element dds-content-section-copy
+ * @element c4d-content-section-copy
  */
 @customElement(`${ddsPrefix}-content-section-copy`)
-class DDSContentSectionCopy extends StableSelectorMixin(DDSMarkdown) {
+class C4DContentSectionCopy extends StableSelectorMixin(C4DMarkdown) {
   @property({ reflect: true })
   slot = 'copy';
 
@@ -49,4 +49,4 @@ class DDSContentSectionCopy extends StableSelectorMixin(DDSMarkdown) {
 }
 
 /* @__GENERATE_REACT_CUSTOM_ELEMENT_TYPE__ */
-export default DDSContentSectionCopy;
+export default C4DContentSectionCopy;

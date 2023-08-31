@@ -10,7 +10,7 @@
 import settings from '../../internal/vendor/@carbon/ibmdotcom-utilities/utilities/settings/settings';
 import StableSelectorMixin from '../../globals/mixins/stable-selector';
 import styles from './card-section-simple.scss';
-import DDSContentSection from '../content-section/content-section';
+import C4DContentSection from '../content-section/content-section';
 import { carbonElement as customElement } from '../../internal/vendor/@carbon/web-components/globals/decorators/carbon-element';
 
 const { stablePrefix: ddsPrefix } = settings;
@@ -18,10 +18,10 @@ const { stablePrefix: ddsPrefix } = settings;
 /**
  * The Card Section Simple pattern
  *
- * @element dds-card-section-simple
+ * @element c4d-card-section-simple
  */
 @customElement(`${ddsPrefix}-card-section-simple`)
-class DDSCardSectionSimple extends StableSelectorMixin(DDSContentSection) {
+class C4DCardSectionSimple extends StableSelectorMixin(C4DContentSection) {
   static get stableSelector() {
     return `${ddsPrefix}--card-section-simple`;
   }
@@ -35,4 +35,4 @@ console.warn(
 );
 
 /* @__GENERATE_REACT_CUSTOM_ELEMENT_TYPE__ */
-export default DDSCardSectionSimple;
+export default C4DCardSectionSimple;

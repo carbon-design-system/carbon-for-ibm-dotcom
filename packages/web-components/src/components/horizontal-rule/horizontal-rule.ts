@@ -22,10 +22,10 @@ const { stablePrefix: ddsPrefix } = settings;
 /**
  * Horizontal Rule
  *
- * @element dds-hr
+ * @element c4d-hr
  */
 @customElement(`${ddsPrefix}-hr`)
-class DDSHorizontalRule extends StableSelectorMixin(LitElement) {
+class C4DHorizontalRule extends StableSelectorMixin(LitElement) {
   /**
    * Style of the HR (solid (default) | dashed)
    */
@@ -68,4 +68,4 @@ class DDSHorizontalRule extends StableSelectorMixin(LitElement) {
 }
 
 /* @__GENERATE_REACT_CUSTOM_ELEMENT_TYPE__ */
-export default DDSHorizontalRule;
+export default C4DHorizontalRule;

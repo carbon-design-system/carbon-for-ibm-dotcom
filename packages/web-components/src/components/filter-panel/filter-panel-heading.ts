@@ -19,10 +19,10 @@ const { stablePrefix: ddsPrefix } = settings;
 /**
  * The heading content of filter panel.
  *
- * @element dds-filter-panel-heading
+ * @element c4d-filter-panel-heading
  */
 @customElement(`${ddsPrefix}-filter-panel-heading`)
-class DDSFilterPanelHeading extends StableSelectorMixin(LitElement) {
+class C4DFilterPanelHeading extends StableSelectorMixin(LitElement) {
   /**
    * The shadow slot this heading content should be in.
    */
@@ -40,7 +40,7 @@ class DDSFilterPanelHeading extends StableSelectorMixin(LitElement) {
   }
 
   protected _handleSlotChange = () => {
-    const { eventChange } = this.constructor as typeof DDSFilterPanelHeading;
+    const { eventChange } = this.constructor as typeof C4DFilterPanelHeading;
     this.dispatchEvent(
       new CustomEvent(eventChange, {
         bubbles: true,
@@ -70,4 +70,4 @@ class DDSFilterPanelHeading extends StableSelectorMixin(LitElement) {
 }
 
 /* @__GENERATE_REACT_CUSTOM_ELEMENT_TYPE__ */
-export default DDSFilterPanelHeading;
+export default C4DFilterPanelHeading;

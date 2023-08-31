@@ -31,7 +31,7 @@ import {
 } from '../../../internal/vendor/@carbon/ibmdotcom-services-store/types/translateAPI.d';
 import { UNAUTHENTICATED_STATUS } from '../../../internal/vendor/@carbon/ibmdotcom-services-store/types/cloudAccountAuthAPI';
 import styles from './cloud-masthead.scss';
-import DDSMastheadComposite, {
+import C4DMastheadComposite, {
   NAV_ITEMS_RENDER_TARGET,
 } from '../masthead-composite';
 import { carbonElement as customElement } from '../../../internal/vendor/@carbon/web-components/globals/decorators/carbon-element.js';
@@ -44,11 +44,11 @@ const layoutBreakpoint = window.matchMedia(`(max-width: 959px)`);
 /**
  * Component that renders masthead from links, etc. data.
  *
- * @element dds-cloud-masthead-composite
+ * @element c4d-cloud-masthead-composite
  */
 
 @customElement(`${ddsPrefix}-cloud-masthead-composite`)
-class DDSCloudMastheadComposite extends DDSMastheadComposite {
+class C4DCloudMastheadComposite extends C4DMastheadComposite {
   /**
    * The placeholder for `loadUserStatus()` Redux action that will be mixed in.
    *
@@ -124,24 +124,24 @@ class DDSCloudMastheadComposite extends DDSMastheadComposite {
     });
 
     return html`
-      <dds-cloud-megamenu>
-        <dds-cloud-megamenu-left-navigation
+      <c4d-cloud-megamenu>
+        <c4d-cloud-megamenu-left-navigation
           view-all-href="${ifDefined(viewAllLink?.url)}"
           view-all-title="${ifDefined(viewAllLink?.title)}">
-          <dds-cloud-megamenu-tabs value="${sortedMenuItems[0]?.title}">
+          <c4d-cloud-megamenu-tabs value="${sortedMenuItems[0]?.title}">
             ${sortedMenuItems.map((item) => {
               return html`
-                <dds-cloud-megamenu-tab
+                <c4d-cloud-megamenu-tab
                   id="tab-${item.itemKey}"
                   target="panel-${item.itemKey}"
                   value="${item.title}"
-                  >${item.title}</dds-cloud-megamenu-tab
+                  >${item.title}</c4d-cloud-megamenu-tab
                 >
               `;
             })}
-          </dds-cloud-megamenu-tabs>
-        </dds-cloud-megamenu-left-navigation>
-        <dds-cloud-megamenu-right-navigation>
+          </c4d-cloud-megamenu-tabs>
+        </c4d-cloud-megamenu-left-navigation>
+        <c4d-cloud-megamenu-right-navigation>
           ${sortedMenuItems.map((item) => {
             return html`
               <div
@@ -149,29 +149,29 @@ class DDSCloudMastheadComposite extends DDSMastheadComposite {
                 role="tabpanel"
                 aria-labelledby="tab-${item.itemKey}"
                 hidden>
-                <dds-cloud-megamenu-category-heading
+                <c4d-cloud-megamenu-category-heading
                   href="${item.megapanelContent?.headingUrl}"
                   title="${item.megapanelContent?.headingTitle}"
                   >${item.megapanelContent
-                    ?.description}</dds-cloud-megamenu-category-heading
+                    ?.description}</c4d-cloud-megamenu-category-heading
                 >
-                <dds-cloud-megamenu-category-link-group>
+                <c4d-cloud-megamenu-category-link-group>
                   ${item?.megapanelContent?.quickLinks?.links.map(
                     (link) =>
                       html`
-                        <dds-cloud-megamenu-category-link
+                        <c4d-cloud-megamenu-category-link
                           href="${link.url}"
                           title="${link.title}"
-                          >${link.description}</dds-cloud-megamenu-category-link
+                          >${link.description}</c4d-cloud-megamenu-category-link
                         >
                       `
                   )}
-                </dds-cloud-megamenu-category-link-group>
+                </c4d-cloud-megamenu-category-link-group>
               </div>
             `;
           })}
-        </dds-cloud-megamenu-right-navigation>
-      </dds-cloud-megamenu>
+        </c4d-cloud-megamenu-right-navigation>
+      </c4d-cloud-megamenu>
     `;
   }
 
@@ -214,31 +214,31 @@ class DDSCloudMastheadComposite extends DDSMastheadComposite {
     const items = menuItems.map((elem) => {
       if (elem.menu) {
         return html`
-          <dds-left-nav-menu
+          <c4d-left-nav-menu
             ?last-highlighted=${elem.lastHighlightedItem}
             panel-id=${elem.panelId}
             ?active="${elem.selected}"
             title="${elem.title}"
             data-autoid="${elem.autoid}">
-          </dds-left-nav-menu>
+          </c4d-left-nav-menu>
         `;
       }
 
       return html`
-        <dds-left-nav-menu-item
+        <c4d-left-nav-menu-item
           ?last-highlighted=${elem.lastHighlightedItem}
           ?active="${elem.selected}"
           href="${elem.url}"
           title="${elem.title}"
-          data-autoid="${elem.autoid}"></dds-left-nav-menu-item>
+          data-autoid="${elem.autoid}"></c4d-left-nav-menu-item>
       `;
     });
 
     if (heading) {
       items.unshift(
         html`
-          <dds-left-nav-menu-category-heading
-            >${heading}</dds-left-nav-menu-category-heading
+          <c4d-left-nav-menu-category-heading
+            >${heading}</c4d-left-nav-menu-category-heading
           >
         `
       );
@@ -252,17 +252,17 @@ class DDSCloudMastheadComposite extends DDSMastheadComposite {
             : html`
                 ${profileItems?.map((item) => {
                   return html`
-                    <dds-cloud-left-nav-item
+                    <c4d-cloud-left-nav-item
                       href="${item.url}"
-                      title="${item.title}"></dds-cloud-left-nav-item>
+                      title="${item.title}"></c4d-cloud-left-nav-item>
                   `;
                 })}
               `}
           ${ctaButtons?.map((item) => {
             return html`
-              <dds-cloud-left-nav-item
+              <c4d-cloud-left-nav-item
                 href="${item.url}"
-                title="${item.title}"></dds-cloud-left-nav-item>
+                title="${item.title}"></c4d-cloud-left-nav-item>
             `;
           })}
         `
@@ -270,14 +270,14 @@ class DDSCloudMastheadComposite extends DDSMastheadComposite {
     }
 
     return html`
-      <dds-left-nav-menu-section
+      <c4d-left-nav-menu-section
         section-id="${sectionId}"
         ?is-submenu=${ifDefined(isSubmenu)}
         title=${ifDefined(sectionTitle)}
         titleUrl=${ifDefined(sectionUrl)}
         ?show-back-button=${ifDefined(showBackButton)}>
         ${items}
-      </dds-left-nav-menu-section>
+      </c4d-left-nav-menu-section>
     `;
   }
 
@@ -346,13 +346,13 @@ class DDSCloudMastheadComposite extends DDSMastheadComposite {
     return html`
       ${isMobileVersion
         ? html`
-            <dds-left-nav-overlay cloud></dds-left-nav-overlay>
-            <dds-left-nav cloud>
+            <c4d-left-nav-overlay cloud></c4d-left-nav-overlay>
+            <c4d-left-nav cloud>
               ${!platform
                 ? undefined
                 : html`
-                    <dds-left-nav-name href="${ifDefined(platformAltUrl)}"
-                      >${platform}</dds-left-nav-name
+                    <c4d-left-nav-name href="${ifDefined(platformAltUrl)}"
+                      >${platform}</c4d-left-nav-name
                     >
                   `}
               ${this._renderNavItems({
@@ -360,13 +360,13 @@ class DDSCloudMastheadComposite extends DDSMastheadComposite {
                 target: NAV_ITEMS_RENDER_TARGET.LEFT_NAV,
                 hasL1: !!l1Data,
               })}
-            </dds-left-nav>
+            </c4d-left-nav>
           `
         : ''}
-      <dds-masthead aria-label="${ifDefined(mastheadAssistiveText)}">
+      <c4d-masthead aria-label="${ifDefined(mastheadAssistiveText)}">
         ${isMobileVersion
           ? html`
-              <dds-masthead-menu-button
+              <c4d-masthead-menu-button
                 cloud
                 button-label-active="${ifDefined(
                   menuButtonAssistiveTextActive
@@ -374,22 +374,22 @@ class DDSCloudMastheadComposite extends DDSMastheadComposite {
                 button-label-inactive="${ifDefined(
                   menuButtonAssistiveTextInactive
                 )}">
-              </dds-masthead-menu-button>
+              </c4d-masthead-menu-button>
             `
           : ''}
         ${this._renderLogo()}
         ${!platform
           ? undefined
           : html`
-              <dds-cloud-top-nav-name href="${ifDefined(platformAltUrl)}"
-                >${platform}</dds-cloud-top-nav-name
+              <c4d-cloud-top-nav-name href="${ifDefined(platformAltUrl)}"
+                >${platform}</c4d-cloud-top-nav-name
               >
             `}
         ${l1Data
           ? undefined
           : !isMobileVersion
           ? html`
-              <dds-top-nav
+              <c4d-top-nav
                 cloud
                 menu-bar-label="${ifDefined(menuBarAssistiveText)}">
                 ${this._renderNavItems({
@@ -397,73 +397,73 @@ class DDSCloudMastheadComposite extends DDSMastheadComposite {
                   target: NAV_ITEMS_RENDER_TARGET.TOP_NAV,
                   hasL1: false,
                 })}
-              </dds-top-nav>
+              </c4d-top-nav>
             `
           : undefined}
-        <dds-search-with-typeahead
+        <c4d-search-with-typeahead
           ?active="${activateSearch}"
           input-timeout="${inputTimeout}"
           language="${ifDefined(language)}"
           ?open="${openSearchDropdown}"
           placeholder="${ifDefined(
             searchPlaceholder
-          )}"></dds-search-with-typeahead>
+          )}"></c4d-search-with-typeahead>
         ${authenticated
           ? html`
-              <dds-cloud-masthead-global-bar>
-                <dds-cloud-masthead-profile>
+              <c4d-cloud-masthead-global-bar>
+                <c4d-cloud-masthead-profile>
                   ${profileItems?.map(
                     ({ title, url }) =>
                       html`
-                        <dds-cloud-button-cta
+                        <c4d-cloud-button-cta
                           href="${ifDefined(url)}"
                           kind="ghost"
-                          >${title}</dds-cloud-button-cta
+                          >${title}</c4d-cloud-button-cta
                         >
                       `
                   )}
-                </dds-cloud-masthead-profile>
+                </c4d-cloud-masthead-profile>
                 ${hasContact === 'false'
                   ? ''
                   : html`
-                      <dds-cloud-button-cta
+                      <c4d-cloud-button-cta
                         kind="ghost"
                         data-ibm-contact="contact-link"
                         ><span
                           >${contactUsButton?.title}</span
-                        ></dds-cloud-button-cta
+                        ></c4d-cloud-button-cta
                       >
                     `}
                 ${ctaButtons?.map(
                   ({ title, url }) =>
                     html`
-                      <dds-cloud-button-cta
+                      <c4d-cloud-button-cta
                         href="${ifDefined(url)}"
                         class="console"
                         kind="ghost"
-                        >${title}</dds-cloud-button-cta
+                        >${title}</c4d-cloud-button-cta
                       >
                     `
                 )}
-              </dds-cloud-masthead-global-bar>
+              </c4d-cloud-masthead-global-bar>
             `
           : html`
-              <dds-cloud-masthead-global-bar>
+              <c4d-cloud-masthead-global-bar>
                 ${hasContact === 'false'
                   ? ''
                   : html`
-                      <dds-cloud-button-cta
+                      <c4d-cloud-button-cta
                         kind="ghost"
                         data-ibm-contact="contact-link"
                         ><span
                           >${contactUsButton?.title}</span
-                        ></dds-cloud-button-cta
+                        ></c4d-cloud-button-cta
                       >
                     `}
                 ${profileItems?.map(
                   ({ title, url }) =>
                     html`
-                      <dds-cloud-button-cta
+                      <c4d-cloud-button-cta
                         href="${url === 'https://cloud.ibm.com/login' &&
                         this.redirectPath
                           ? ifDefined(
@@ -473,29 +473,29 @@ class DDSCloudMastheadComposite extends DDSMastheadComposite {
                             )
                           : ifDefined(url)}"
                         kind="ghost"
-                        >${title}</dds-cloud-button-cta
+                        >${title}</c4d-cloud-button-cta
                       >
                     `
                 )}
                 ${ctaButtons?.map(
                   ({ title, url }) =>
                     html`
-                      <dds-cloud-button-cta
+                      <c4d-cloud-button-cta
                         href="${ifDefined(url)}"
                         kind="primary"
-                        >${title}</dds-cloud-button-cta
+                        >${title}</c4d-cloud-button-cta
                       >
                     `
                 )}
-              </dds-cloud-masthead-global-bar>
+              </c4d-cloud-masthead-global-bar>
             `}
         ${!l1Data ? undefined : this._renderL1({ selectedMenuItem })}
-        <dds-megamenu-overlay></dds-megamenu-overlay>
-      </dds-masthead>
+        <c4d-megamenu-overlay></c4d-megamenu-overlay>
+      </c4d-masthead>
     `;
   }
 
   static styles = styles; // `styles` here is a `CSSResult` generated by custom WebPack loader
 }
 
-export default DDSCloudMastheadComposite;
+export default C4DCloudMastheadComposite;

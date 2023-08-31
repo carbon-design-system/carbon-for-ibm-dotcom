@@ -22,10 +22,10 @@ const { stablePrefix: ddsPrefix } = settings;
 /**
  * Leaving IBM Modal body.
  *
- * @element dds-leaving-ibm-modal-body
+ * @element c4d-leaving-ibm-modal-body
  */
 @customElement(`${ddsPrefix}-leaving-ibm-modal-body`)
-class DDSLeavingIbmModalBody extends StableSelectorMixin(CDSModalBody) {
+class C4DLeavingIbmModalBody extends StableSelectorMixin(CDSModalBody) {
   /**
    * external url triggering the leaving ibm modal.
    */
@@ -51,4 +51,4 @@ class DDSLeavingIbmModalBody extends StableSelectorMixin(CDSModalBody) {
 }
 
 /* @__GENERATE_REACT_CUSTOM_ELEMENT_TYPE__ */
-export default DDSLeavingIbmModalBody;
+export default C4DLeavingIbmModalBody;

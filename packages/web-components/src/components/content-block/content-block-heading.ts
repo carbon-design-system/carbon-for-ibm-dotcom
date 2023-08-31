@@ -21,10 +21,10 @@ const { stablePrefix: ddsPrefix } = settings;
 /**
  * The heading content in content block.
  *
- * @element dds-content-block-heading
+ * @element c4d-content-block-heading
  */
 @customElement(`${ddsPrefix}-content-block-heading`)
-class DDSContentBlockHeading extends StableSelectorMixin(LitElement) {
+class C4DContentBlockHeading extends StableSelectorMixin(LitElement) {
   /**
    * The shadow slot this logo UI should be in.
    */
@@ -61,4 +61,4 @@ class DDSContentBlockHeading extends StableSelectorMixin(LitElement) {
 }
 
 /* @__GENERATE_REACT_CUSTOM_ELEMENT_TYPE__ */
-export default DDSContentBlockHeading;
+export default C4DContentBlockHeading;

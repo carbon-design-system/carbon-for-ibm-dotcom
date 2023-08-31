@@ -17,7 +17,7 @@ import settings from '../../internal/vendor/@carbon/ibmdotcom-utilities/utilitie
 import ModalRenderMixin from '../../globals/mixins/modal-render';
 import { MediaData } from '../../internal/vendor/@carbon/ibmdotcom-services-store/types/kalturaPlayerAPI.d';
 import Handle from '../../globals/internal/handle';
-import DDSLightboxVideoPlayerComposite from '../lightbox-media-viewer/lightbox-video-player-composite';
+import C4DLightboxVideoPlayerComposite from '../lightbox-media-viewer/lightbox-video-player-composite';
 // Above import is interface-only ref and thus code won't be brought into the build
 import '../lightbox-media-viewer/lightbox-video-player-composite';
 import { CTA_TYPE } from './defs';
@@ -30,10 +30,10 @@ const { stablePrefix: ddsPrefix } = settings;
 /**
  * Component that handles video CTAs in app.
  *
- * @element dds-video-cta-composite
+ * @element c4d-video-cta-composite
  */
 @customElement(`${ddsPrefix}-video-cta-composite`)
-class DDSVideoCTAComposite extends ModalRenderMixin(
+class C4DVideoCTAComposite extends ModalRenderMixin(
   HostListenerMixin(LitElement)
 ) {
   /**
@@ -139,12 +139,12 @@ class DDSVideoCTAComposite extends ModalRenderMixin(
    */
   protected get _videoPlayer() {
     const { selectorVideoPlayer, selectorLightboxVideoPlayerComposite } = this
-      .constructor as typeof DDSVideoCTAComposite;
+      .constructor as typeof C4DVideoCTAComposite;
     const lightbox = (this.modalRenderRoot as Element)?.querySelector(
       selectorLightboxVideoPlayerComposite
     );
     return (
-      (lightbox as DDSLightboxVideoPlayerComposite)?.modalRenderRoot as Element
+      (lightbox as C4DLightboxVideoPlayerComposite)?.modalRenderRoot as Element
     )?.querySelector(selectorVideoPlayer);
   }
 
@@ -171,16 +171,16 @@ class DDSVideoCTAComposite extends ModalRenderMixin(
     super.updated(changedProperties);
     if (!this._hCloseModal) {
       const { selectorLightboxVideoPlayerComposite } = this
-        .constructor as typeof DDSVideoCTAComposite;
+        .constructor as typeof C4DVideoCTAComposite;
       const videoPlayerComposite = (
         this.modalRenderRoot as Element
       ).querySelector(
         selectorLightboxVideoPlayerComposite
-      ) as DDSLightboxVideoPlayerComposite;
+      ) as C4DLightboxVideoPlayerComposite;
       // Manually hooks the event listeners on the modal render root to make the event names configurable
       this._hCloseModal = on(
         videoPlayerComposite.modalRenderRoot,
-        (this.constructor as typeof DDSVideoCTAComposite).eventCloseLightbox,
+        (this.constructor as typeof C4DVideoCTAComposite).eventCloseLightbox,
         this._handleCloseVideoPlayer as EventListener
       );
     }
@@ -199,7 +199,7 @@ class DDSVideoCTAComposite extends ModalRenderMixin(
       _videoDescription: videoDescription,
     } = this;
     return html`
-      <dds-lightbox-video-player-composite
+      <c4d-lightbox-video-player-composite
         ?open="${Boolean(activeVideoId)}"
         video-cta-lightbox="true"
         custom-video-name="${ifDefined(videoName)}"
@@ -208,7 +208,7 @@ class DDSVideoCTAComposite extends ModalRenderMixin(
         .embeddedVideos="${ifDefined(embeddedVideos)}"
         .mediaData="${ifDefined(mediaData)}"
         ._embedMedia="${ifDefined(embedMedia)}">
-      </dds-lightbox-video-player-composite>
+      </c4d-lightbox-video-player-composite>
     `;
   }
 
@@ -255,4 +255,4 @@ class DDSVideoCTAComposite extends ModalRenderMixin(
 }
 
 /* @__GENERATE_REACT_CUSTOM_ELEMENT_TYPE__ */
-export default DDSVideoCTAComposite;
+export default C4DVideoCTAComposite;

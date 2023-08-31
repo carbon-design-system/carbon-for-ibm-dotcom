@@ -17,7 +17,7 @@ import { carbonElement as customElement } from '../../internal/vendor/@carbon/we
 const { stablePrefix: ddsPrefix } = settings;
 
 @customElement(`${ddsPrefix}-pricing-table-cell-annotation`)
-class DDSPricingTableCellAnnotation extends StableSelectorMixin(LitElement) {
+class C4DPricingTableCellAnnotation extends StableSelectorMixin(LitElement) {
   @property({ reflect: true })
   slot = 'annotation';
 
@@ -32,4 +32,4 @@ class DDSPricingTableCellAnnotation extends StableSelectorMixin(LitElement) {
   static styles = styles;
 }
 
-export default DDSPricingTableCellAnnotation;
+export default C4DPricingTableCellAnnotation;

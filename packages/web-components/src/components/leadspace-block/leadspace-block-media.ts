@@ -18,10 +18,10 @@ const { stablePrefix: ddsPrefix } = settings;
 /**
  * LeadSpace Block Media Component.
  *
- * @element dds-leadspace-block-media
+ * @element c4d-leadspace-block-media
  */
 @customElement(`${ddsPrefix}-leadspace-block-media`)
-class DDSLeadSpaceBlockMedia extends StableSelectorMixin(LitElement) {
+class C4DLeadSpaceBlockMedia extends StableSelectorMixin(LitElement) {
   render() {
     return html` <slot></slot> `;
   }
@@ -34,4 +34,4 @@ class DDSLeadSpaceBlockMedia extends StableSelectorMixin(LitElement) {
 }
 
 /* @__GENERATE_REACT_CUSTOM_ELEMENT_TYPE__ */
-export default DDSLeadSpaceBlockMedia;
+export default C4DLeadSpaceBlockMedia;

@@ -11,7 +11,7 @@ import { css, html, TemplateResult } from 'lit';
 import settings from '../../internal/vendor/@carbon/ibmdotcom-utilities/utilities/settings/settings';
 import StableSelectorMixin from '../../globals/mixins/stable-selector';
 import styles from './content-block-media.scss';
-import DDSContentGroup from '../content-group/content-group';
+import C4DContentGroup from '../content-group/content-group';
 import { carbonElement as customElement } from '../../internal/vendor/@carbon/web-components/globals/decorators/carbon-element';
 
 const { prefix, stablePrefix: ddsPrefix } = settings;
@@ -19,10 +19,10 @@ const { prefix, stablePrefix: ddsPrefix } = settings;
 /**
  * Content block media.
  *
- * @element dds-content-block-media-content
+ * @element c4d-content-block-media-content
  */
 @customElement(`${ddsPrefix}-content-block-media-content`)
-class DDSContentBlockMediaContent extends StableSelectorMixin(DDSContentGroup) {
+class C4DContentBlockMediaContent extends StableSelectorMixin(C4DContentGroup) {
   protected _renderInnerBody(): TemplateResult | string | void {
     const { _hasContent: hasContent, _hasMedia: hasMedia } = this;
     // Moves media content out of `<div class="cds--content-block__children">`
@@ -54,4 +54,4 @@ console.warn(
 );
 
 /* @__GENERATE_REACT_CUSTOM_ELEMENT_TYPE__ */
-export default DDSContentBlockMediaContent;
+export default C4DContentBlockMediaContent;

@@ -438,13 +438,13 @@ like:
 
 ```javascript
 import { css, customElement } from 'lit-element';
-import DDSLinkWithIcon from '@carbon/ibmdotcom-web-components/es/components/link-with-icon/link-with-icon';
+import C4DLinkWithIcon from '@carbon/ibmdotcom-web-components/es/components/link-with-icon/link-with-icon';
 
 @customElement('my-link-with-icon')
-class MyLinkWithIcon extends DDSLinkWithIcon {
+class MyLinkWithIcon extends C4DLinkWithIcon {
   // Custom CSS to enforce `g100` color of the link text
   static styles = css`
-    ${DDSLinkWithIcon.styles}
+    ${C4DLinkWithIcon.styles}
     .bx--link-with-icon {
       color: #3d70b2;
     }

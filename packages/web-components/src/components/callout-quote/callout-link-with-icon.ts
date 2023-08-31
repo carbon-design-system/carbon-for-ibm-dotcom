@@ -10,7 +10,7 @@
 import { css } from 'lit';
 import settings from '../../internal/vendor/@carbon/ibmdotcom-utilities/utilities/settings/settings';
 import { carbonElement as customElement } from '../../internal/vendor/@carbon/web-components/globals/decorators/carbon-element';
-import DDSLinkWithIcon from '../link-with-icon/link-with-icon';
+import C4DLinkWithIcon from '../link-with-icon/link-with-icon';
 import styles from './callout-quote.scss';
 
 const { stablePrefix: ddsPrefix } = settings;
@@ -18,10 +18,10 @@ const { stablePrefix: ddsPrefix } = settings;
 /**
  * Callout link with item
  *
- * @element dds-callout-link-with-icon
+ * @element c4d-callout-link-with-icon
  */
 @customElement(`${ddsPrefix}-callout-link-with-icon`)
-class DDSCalloutLinkWithIcon extends DDSLinkWithIcon {
+class C4DCalloutLinkWithIcon extends C4DLinkWithIcon {
   static get stableSelector() {
     return `${ddsPrefix}--callout-link-with-icon`;
   }
@@ -35,4 +35,4 @@ class DDSCalloutLinkWithIcon extends DDSLinkWithIcon {
 }
 
 /* @__GENERATE_REACT_CUSTOM_ELEMENT_TYPE__ */
-export default DDSCalloutLinkWithIcon;
+export default C4DCalloutLinkWithIcon;

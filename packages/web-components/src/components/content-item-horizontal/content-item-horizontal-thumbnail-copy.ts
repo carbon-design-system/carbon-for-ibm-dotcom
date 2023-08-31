@@ -9,7 +9,7 @@
 
 import { html } from 'lit';
 import settings from '../../internal/vendor/@carbon/ibmdotcom-utilities/utilities/settings/settings';
-import DDSContentItemCopy from '../content-item/content-item-copy';
+import C4DContentItemCopy from '../content-item/content-item-copy';
 import StableSelectorMixin from '../../globals/mixins/stable-selector';
 import styles from './content-item-horizontal.scss';
 import { carbonElement as customElement } from '../../internal/vendor/@carbon/web-components/globals/decorators/carbon-element';
@@ -19,11 +19,11 @@ const { stablePrefix: ddsPrefix } = settings;
 /**
  * The copy content of content item horizontal with thumbnail.
  *
- * @element dds-content-item-horizontal-thumbnail-copy
+ * @element c4d-content-item-horizontal-thumbnail-copy
  */
 @customElement(`${ddsPrefix}-content-item-horizontal-thumbnail-copy`)
-class DDSContentItemHorizontalThumbnailCopy extends StableSelectorMixin(
-  DDSContentItemCopy
+class C4DContentItemHorizontalThumbnailCopy extends StableSelectorMixin(
+  C4DContentItemCopy
 ) {
   render() {
     return html` <slot></slot> `;
@@ -37,4 +37,4 @@ class DDSContentItemHorizontalThumbnailCopy extends StableSelectorMixin(
 }
 
 /* @__GENERATE_REACT_CUSTOM_ELEMENT_TYPE__ */
-export default DDSContentItemHorizontalThumbnailCopy;
+export default C4DContentItemHorizontalThumbnailCopy;

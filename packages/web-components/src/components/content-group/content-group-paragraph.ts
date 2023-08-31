@@ -18,10 +18,10 @@ const { stablePrefix: ddsPrefix } = settings;
 /**
  * The paragraph content in content group.
  *
- * @element dds-content-group-paragraph
+ * @element c4d-content-group-paragraph
  */
 @customElement(`${ddsPrefix}-content-group-paragraph`)
-class DDSContentGroupParagraph extends StableSelectorMixin(LitElement) {
+class C4DContentGroupParagraph extends StableSelectorMixin(LitElement) {
   render() {
     return html` <slot></slot> `;
   }
@@ -34,4 +34,4 @@ class DDSContentGroupParagraph extends StableSelectorMixin(LitElement) {
 }
 
 /* @__GENERATE_REACT_CUSTOM_ELEMENT_TYPE__ */
-export default DDSContentGroupParagraph;
+export default C4DContentGroupParagraph;

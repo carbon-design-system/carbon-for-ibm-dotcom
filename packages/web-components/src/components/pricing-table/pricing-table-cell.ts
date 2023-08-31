@@ -12,19 +12,19 @@ import settings from '@carbon/ibmdotcom-utilities/es/utilities/settings/settings
 import HostListenerMixin from '../../internal/vendor/@carbon/web-components/globals/mixins/host-listener.js';
 import HostListener from '../../internal/vendor/@carbon/web-components/globals/decorators/host-listener.js';
 import StableSelectorMixin from '../../globals/mixins/stable-selector';
-import DDSStructuredListCell from '../structured-list/structured-list-cell';
-import DDSPricingTableGroup from './pricing-table-group';
+import C4DStructuredListCell from '../structured-list/structured-list-cell';
+import C4DPricingTableGroup from './pricing-table-group';
 import styles from './pricing-table.scss';
-import DDSPricingTableCellAnnotation from './pricing-table-cell-annotation';
+import C4DPricingTableCellAnnotation from './pricing-table-cell-annotation';
 import { carbonElement as customElement } from '../../internal/vendor/@carbon/web-components/globals/decorators/carbon-element.js';
 
 const { prefix, stablePrefix: ddsPrefix } = settings;
 
 @customElement(`${ddsPrefix}-pricing-table-cell`)
-class DDSPricingTableCell extends StableSelectorMixin(
-  HostListenerMixin(DDSStructuredListCell)
+class C4DPricingTableCell extends StableSelectorMixin(
+  HostListenerMixin(C4DStructuredListCell)
 ) {
-  _parentGroup: DDSPricingTableGroup | null = this.closest(
+  _parentGroup: C4DPricingTableGroup | null = this.closest(
     `${ddsPrefix}-pricing-table-group`
   );
 
@@ -56,7 +56,7 @@ class DDSPricingTableCell extends StableSelectorMixin(
     // sometimes appear as inside the default slot. Also filter out empty
     // text nodes.
     const slotContents = (defaultSlot?.assignedNodes() || []).filter((node) => {
-      const isAnnotation = node instanceof DDSPricingTableCellAnnotation;
+      const isAnnotation = node instanceof C4DPricingTableCellAnnotation;
       const isEmpty = node.textContent?.trim() === '';
 
       return !isAnnotation && !isEmpty;
@@ -86,4 +86,4 @@ class DDSPricingTableCell extends StableSelectorMixin(
   static styles = styles;
 }
 
-export default DDSPricingTableCell;
+export default C4DPricingTableCell;

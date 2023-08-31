@@ -10,7 +10,7 @@
 import { css, Part } from 'lit';
 import settings from '../../internal/vendor/@carbon/ibmdotcom-utilities/utilities/settings/settings';
 import StableSelectorMixin from '../../globals/mixins/stable-selector';
-import DDSContentBlock from '../content-block/content-block';
+import C4DContentBlock from '../content-block/content-block';
 import styles from './content-block-cards.scss';
 import { carbonElement as customElement } from '../../internal/vendor/@carbon/web-components/globals/decorators/carbon-element';
 
@@ -19,10 +19,10 @@ const { prefix, stablePrefix: ddsPrefix } = settings;
 /**
  * Content block cards.
  *
- * @element dds-content-block-cards
+ * @element c4d-content-block-cards
  */
 @customElement(`${ddsPrefix}-content-block-cards`)
-class DDSContentBlockCards extends StableSelectorMixin(DDSContentBlock) {
+class C4DContentBlockCards extends StableSelectorMixin(C4DContentBlock) {
   /**
    * The CSS class list for the container (grid) node.
    */
@@ -49,4 +49,4 @@ console.warn(
 );
 
 /* @__GENERATE_REACT_CUSTOM_ELEMENT_TYPE__ */
-export default DDSContentBlockCards;
+export default C4DContentBlockCards;

@@ -13,43 +13,43 @@ import textNullable from '../../../../.storybook/knob-text-nullable';
 import '../index';
 
 const contentItemRow1 = html`
-  <dds-content-block-headlines-item>
-    <dds-content-block-headlines-heading
-      >25%</dds-content-block-headlines-heading
+  <c4d-content-block-headlines-item>
+    <c4d-content-block-headlines-heading
+      >25%</c4d-content-block-headlines-heading
     >
-    <dds-content-item-copy slot="copy"
+    <c4d-content-item-copy slot="copy"
       >Modernize mission-critical applications and infrastructure in a hybrid
-      multicloud environment up to 25 percent faster.</dds-content-item-copy
+      multicloud environment up to 25 percent faster.</c4d-content-item-copy
     >
-    <dds-link-list slot="footer" type="vertical">
-      <dds-link-list-item-cta
+    <c4d-link-list slot="footer" type="vertical">
+      <c4d-link-list-item-cta
         icon-placement="right"
         href="https://www.ibm.com"
         cta-type="local">
         Link text
-      </dds-link-list-item-cta>
-    </dds-link-list>
-  </dds-content-block-headlines-item>
+      </c4d-link-list-item-cta>
+    </c4d-link-list>
+  </c4d-content-block-headlines-item>
 `;
 
 const contentItemRow2 = html`
-  <dds-content-block-headlines-item>
-    <dds-content-block-headlines-heading
-      >1.34M</dds-content-block-headlines-heading
+  <c4d-content-block-headlines-item>
+    <c4d-content-block-headlines-heading
+      >1.34M</c4d-content-block-headlines-heading
     >
-    <dds-content-item-copy slot="copy"
+    <c4d-content-item-copy slot="copy"
       >Save 1.34M per year by optimizing your time and IT
-      expenses.</dds-content-item-copy
+      expenses.</c4d-content-item-copy
     >
-    <dds-link-list slot="footer" type="vertical">
-      <dds-link-list-item-cta
+    <c4d-link-list slot="footer" type="vertical">
+      <c4d-link-list-item-cta
         icon-placement="right"
         href="https://www.ibm.com"
         cta-type="local">
         Link text
-      </dds-link-list-item-cta>
-    </dds-link-list>
-  </dds-content-block-headlines-item>
+      </c4d-link-list-item-cta>
+    </c4d-link-list>
+  </c4d-content-block-headlines-item>
 `;
 
 export const Default = (args) => {
@@ -58,12 +58,12 @@ export const Default = (args) => {
     <div class="cds--grid">
       <div class="cds--row">
         <div class="cds--col-lg-12 cds--no-gutter">
-          <dds-content-block-headlines>
-            <dds-content-block-heading>${heading}</dds-content-block-heading>
-            <dds-content-block-copy>${copy}</dds-content-block-copy>
+          <c4d-content-block-headlines>
+            <c4d-content-block-heading>${heading}</c4d-content-block-heading>
+            <c4d-content-block-copy>${copy}</c4d-content-block-copy>
             ${contentItemRow1} ${contentItemRow1} ${contentItemRow2}
             ${contentItemRow1}
-          </dds-content-block-headlines>
+          </c4d-content-block-headlines>
         </div>
       </div>
     </div>
@@ -75,7 +75,7 @@ export default {
   decorators: [
     (story) => html`
       <div
-        class="dds-ce-demo-devenv--simple-grid dds-ce-demo-devenv--simple-grid--content-block-headlines">
+        class="c4d-ce-demo-devenv--simple-grid c4d-ce-demo-devenv--simple-grid--content-block-headlines">
         ${story()}
       </div>
     `,

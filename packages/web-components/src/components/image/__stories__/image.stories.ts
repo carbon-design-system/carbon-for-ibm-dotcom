@@ -64,11 +64,11 @@ export const Default = (args) => {
     lightbox,
     lightboxContrast,
     longDescription,
-  } = args?.['dds-image'] ?? {};
+  } = args?.['c4d-image'] ?? {};
   // TODO: See if we can fix unwanted `&` to `&amp` conversion upon changing the select knob
   const srcset = srcsets[defaultSrc?.replace(/&amp;/, '&')];
   return html`
-    <dds-image
+    <c4d-image
       alt="${ifDefined(alt)}"
       heading="${ifDefined(heading)}"
       default-src="${ifDefined(defaultSrc)}"
@@ -82,14 +82,14 @@ export const Default = (args) => {
       ${!srcset
         ? undefined
         : html`
-            <dds-image-item media="(min-width: 672px)" srcset="${srcset[2]}">
-            </dds-image-item>
-            <dds-image-item media="(min-width: 400px)" srcset="${srcset[1]}">
-            </dds-image-item>
-            <dds-image-item media="(min-width: 320px)" srcset="${srcset[0]}">
-            </dds-image-item>
+            <c4d-image-item media="(min-width: 672px)" srcset="${srcset[2]}">
+            </c4d-image-item>
+            <c4d-image-item media="(min-width: 400px)" srcset="${srcset[1]}">
+            </c4d-image-item>
+            <c4d-image-item media="(min-width: 320px)" srcset="${srcset[0]}">
+            </c4d-image-item>
           `}
-    </dds-image>
+    </c4d-image>
   `;
 };
 
@@ -109,7 +109,7 @@ export default {
     ...readme.parameters,
     hasStoryPadding: true,
     knobs: {
-      'dds-image': () => {
+      'c4d-image': () => {
         const alt = textNullable('Alt text', 'Image alt text');
         const defaultSrc = select(
           'Default image (default-src)',
@@ -141,7 +141,7 @@ export default {
     },
     propsSet: {
       default: {
-        'dds-image': {
+        'c4d-image': {
           alt: 'Image alt text',
           defaultSrc: imgLg2x1,
           border: false,

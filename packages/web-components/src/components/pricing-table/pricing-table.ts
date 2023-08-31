@@ -13,19 +13,19 @@ import HostListenerMixin from '../../internal/vendor/@carbon/web-components/glob
 import HostListener from '../../internal/vendor/@carbon/web-components/globals/decorators/host-listener.js';
 import settings from '@carbon/ibmdotcom-utilities/es/utilities/settings/settings.js';
 import StableSelectorMixin from '../../globals/mixins/stable-selector';
-import DDSStructuredList from '../structured-list/structured-list';
+import C4DStructuredList from '../structured-list/structured-list';
 import styles from './pricing-table.scss';
-import DDSPricingTableHeaderCell from './pricing-table-header-cell';
-import DDSPricingTableHighlightLabel from './pricing-table-highlight-label';
-import DDSPricingTableHead from './pricing-table-head';
-import DDSPricingTableHeaderRow from './pricing-table-header-row';
+import C4DPricingTableHeaderCell from './pricing-table-header-cell';
+import C4DPricingTableHighlightLabel from './pricing-table-highlight-label';
+import C4DPricingTableHead from './pricing-table-head';
+import C4DPricingTableHeaderRow from './pricing-table-header-row';
 import { carbonElement as customElement } from '../../internal/vendor/@carbon/web-components/globals/decorators/carbon-element.js';
 
 const { prefix, stablePrefix: ddsPrefix } = settings;
 
 @customElement(`${ddsPrefix}-pricing-table`)
-class DDSPricingTable extends HostListenerMixin(
-  StableSelectorMixin(DDSStructuredList)
+class C4DPricingTable extends HostListenerMixin(
+  StableSelectorMixin(C4DStructuredList)
 ) {
   @property({ reflect: true, attribute: 'highlight-column' })
   highlightColumn?: number;
@@ -40,19 +40,19 @@ class DDSPricingTable extends HostListenerMixin(
   highlightGap: number = 0;
 
   /**
-   * This table's DDSPricingTableHead node.
+   * This table's C4DPricingTableHead node.
    */
-  public head?: DDSPricingTableHead;
+  public head?: C4DPricingTableHead;
 
   /**
-   * This table's DDSPricingTableHeaderRow node.
+   * This table's C4DPricingTableHeaderRow node.
    */
-  public headerRow?: DDSPricingTableHeaderRow;
+  public headerRow?: C4DPricingTableHeaderRow;
 
   /**
-   * This table's DDSPricingTableHeaderCell nodes.
+   * This table's C4DPricingTableHeaderCell nodes.
    */
-  public headerCells?: DDSPricingTableHeaderCell[];
+  public headerCells?: C4DPricingTableHeaderCell[];
 
   /**
    * Collect and store references to current header elements.
@@ -63,26 +63,26 @@ class DDSPricingTable extends HostListenerMixin(
     this.headerCells = undefined;
 
     const head = this.querySelector(`${ddsPrefix}-pricing-table-head`);
-    if (head instanceof DDSPricingTableHead) {
+    if (head instanceof C4DPricingTableHead) {
       this.head = head;
     }
 
     const headerRow = head?.querySelector(
       `${ddsPrefix}-pricing-table-header-row`
     );
-    if (headerRow instanceof DDSPricingTableHeaderRow) {
+    if (headerRow instanceof C4DPricingTableHeaderRow) {
       this.headerRow = headerRow;
       this.headerCells = Array.from(
         headerRow.children
-      ) as DDSPricingTableHeaderCell[];
+      ) as C4DPricingTableHeaderCell[];
     }
   }
 
-  protected _renderHighlightLabel(): DDSPricingTableHighlightLabel {
+  protected _renderHighlightLabel(): C4DPricingTableHighlightLabel {
     const { highlightLabel } = this;
     const element = this.ownerDocument.createElement(
       `${ddsPrefix}-pricing-table-highlight-label`
-    ) as DDSPricingTableHighlightLabel;
+    ) as C4DPricingTableHighlightLabel;
     element.innerText = highlightLabel || '';
     return element;
   }
@@ -103,7 +103,7 @@ class DDSPricingTable extends HostListenerMixin(
     cells.forEach((cell) => cell.classList.add(highlightClass));
     if (highlightLabel) {
       const firstCell = cells[0];
-      if (firstCell instanceof DDSPricingTableHeaderCell) {
+      if (firstCell instanceof C4DPricingTableHeaderCell) {
         firstCell.prepend(this._renderHighlightLabel());
       }
       this._setHighlightGap();
@@ -112,7 +112,7 @@ class DDSPricingTable extends HostListenerMixin(
 
   protected _setHighlightGap(): void {
     const wrapper =
-      this.shadowRoot?.getElementById(DDSStructuredList.wrapperId) || this;
+      this.shadowRoot?.getElementById(C4DStructuredList.wrapperId) || this;
     (async () => {
       return this.querySelector(`${ddsPrefix}-pricing-table-highlight-label`);
     })()
@@ -172,7 +172,7 @@ class DDSPricingTable extends HostListenerMixin(
   }
 
   renderInner() {
-    const { sentinelClass } = this.constructor as typeof DDSPricingTable;
+    const { sentinelClass } = this.constructor as typeof C4DPricingTable;
 
     return html`
       <section id="section" class="${`${prefix}--structured-list`}">
@@ -191,7 +191,7 @@ class DDSPricingTable extends HostListenerMixin(
    * The name of the custom event captured when the header row's slot changes.
    */
   static get eventHeaderRowSlotchange() {
-    return DDSPricingTableHeaderRow.eventSlotChange;
+    return C4DPricingTableHeaderRow.eventSlotChange;
   }
 
   static get sentinelClass() {
@@ -205,4 +205,4 @@ class DDSPricingTable extends HostListenerMixin(
   static styles = styles;
 }
 
-export default DDSPricingTable;
+export default C4DPricingTable;

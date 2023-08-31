@@ -43,7 +43,7 @@ const slotExistencePropertyNames = {
  * @abstract
  */
 @customElement(`${ddsPrefix}-content-block`)
-class DDSContentBlock extends StableSelectorMixin(LitElement) {
+class C4DContentBlock extends StableSelectorMixin(LitElement) {
   /**
    * `true` if there is complementary content.
    */
@@ -160,7 +160,7 @@ class DDSContentBlock extends StableSelectorMixin(LitElement) {
 
     // if card-group exists, ensure the card link footer item matches width of card-group-item
     const cardGroup = this.querySelector(
-      (this.constructor as typeof DDSContentBlock).selectorCardGroup
+      (this.constructor as typeof C4DContentBlock).selectorCardGroup
     );
     const cardGroupStyle = cardGroup?.getAttribute('style');
 
@@ -236,4 +236,4 @@ class DDSContentBlock extends StableSelectorMixin(LitElement) {
 }
 
 /* @__GENERATE_REACT_CUSTOM_ELEMENT_TYPE__ */
-export default DDSContentBlock;
+export default C4DContentBlock;

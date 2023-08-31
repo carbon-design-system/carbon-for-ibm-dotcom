@@ -12,14 +12,14 @@ import { Default } from '../__stories__/callout-quote.stories';
 
 const template = (props?) =>
   Default({
-    'dds-callout-quote': props,
+    'c4d-callout-quote': props,
   });
 
-describe('dds-callout-quote', function () {
+describe('c4d-callout-quote', function () {
   it('Renders as expected', async function () {
     render(template(), document.body);
     await Promise.resolve();
-    expect(document.body.querySelector('dds-callout-quote')).toMatchSnapshot({
+    expect(document.body.querySelector('c4d-callout-quote')).toMatchSnapshot({
       mode: 'shadow',
     });
   });

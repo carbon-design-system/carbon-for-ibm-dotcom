@@ -18,10 +18,10 @@ const { prefix, stablePrefix: ddsPrefix } = settings;
 /**
  * Dotcom shell.
  *
- * @element dds-dotcom-shell
+ * @element c4d-dotcom-shell
  */
 @customElement(`${ddsPrefix}-dotcom-shell`)
-class DDSDotcomShell extends StableSelectorMixin(LitElement) {
+class C4DDotcomShell extends StableSelectorMixin(LitElement) {
   render() {
     return html`
       <div class="${prefix}--dotcom-shell__content">
@@ -38,4 +38,4 @@ class DDSDotcomShell extends StableSelectorMixin(LitElement) {
 }
 
 /* @__GENERATE_REACT_CUSTOM_ELEMENT_TYPE__ */
-export default DDSDotcomShell;
+export default C4DDotcomShell;

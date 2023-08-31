@@ -11,7 +11,7 @@ import { property } from 'lit/decorators.js';
 import { classMap } from 'lit/directives/class-map.js';
 import settings from '../../internal/vendor/@carbon/ibmdotcom-utilities/utilities/settings/settings';
 import parseAspectRatio from '../../internal/vendor/@carbon/ibmdotcom-utilities/utilities/parseAspectRatio/parseAspectRatio';
-import DDSContentBlock from '../content-block/content-block';
+import C4DContentBlock from '../content-block/content-block';
 import '../horizontal-rule/horizontal-rule';
 import '../content-block/content-block-heading';
 import StableSelectorMixin from '../../globals/mixins/stable-selector';
@@ -23,10 +23,10 @@ const { prefix, stablePrefix: ddsPrefix } = settings;
 /**
  * Logo grid.
  *
- * @element dds-logo-grid
+ * @element c4d-logo-grid
  */
 @customElement(`${ddsPrefix}-logo-grid`)
-class DDSLogoGrid extends StableSelectorMixin(DDSContentBlock) {
+class C4DLogoGrid extends StableSelectorMixin(C4DContentBlock) {
   protected _renderInnerBody() {
     const { _hasContent: hasContent, _hasMedia: hasMedia, logoCount } = this;
 
@@ -103,7 +103,7 @@ class DDSLogoGrid extends StableSelectorMixin(DDSContentBlock) {
         <slot name="heading"></slot>
         ${this._renderBody()}
       </div>
-      ${!this.hideBorder ? html` <dds-hr></dds-hr> ` : ``}
+      ${!this.hideBorder ? html` <c4d-hr></c4d-hr> ` : ``}
     `;
   }
 
@@ -125,4 +125,4 @@ console.warn(
 );
 
 /* @__GENERATE_REACT_CUSTOM_ELEMENT_TYPE__ */
-export default DDSLogoGrid;
+export default C4DLogoGrid;

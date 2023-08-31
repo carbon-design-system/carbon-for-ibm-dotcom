@@ -11,7 +11,7 @@ import { html } from 'lit';
 import { property } from 'lit/decorators.js';
 import settings from '../../internal/vendor/@carbon/ibmdotcom-utilities/utilities/settings/settings';
 import { carbonElement as customElement } from '../../internal/vendor/@carbon/web-components/globals/decorators/carbon-element';
-import DDSTabsExtended from '../tabs-extended/tabs-extended';
+import C4DTabsExtended from '../tabs-extended/tabs-extended';
 import styles from './tabs-extended-media.scss';
 
 const { prefix, stablePrefix: ddsPrefix } = settings;
@@ -19,10 +19,10 @@ const { prefix, stablePrefix: ddsPrefix } = settings;
 /**
  * A component to present media content inside a tabbed layout.
  *
- * @element dds-tabs-extended-media
+ * @element c4d-tabs-extended-media
  */
 @customElement(`${ddsPrefix}-tabs-extended-media`)
-class DDSTabsExtendedMedia extends DDSTabsExtended {
+class C4DTabsExtendedMedia extends C4DTabsExtended {
   /**
    * `true` if section heading should be shown.
    */
@@ -61,4 +61,4 @@ console.warn(
 );
 
 /* @__GENERATE_REACT_CUSTOM_ELEMENT_TYPE__ */
-export default DDSTabsExtendedMedia;
+export default C4DTabsExtendedMedia;

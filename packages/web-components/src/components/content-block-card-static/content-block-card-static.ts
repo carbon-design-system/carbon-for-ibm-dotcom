@@ -10,22 +10,25 @@
 import { css } from 'lit';
 import settings from '../../internal/vendor/@carbon/ibmdotcom-utilities/utilities/settings/settings';
 import StableSelectorMixin from '../../globals/mixins/stable-selector';
-import DDSContentBlock from '../content-block/content-block';
+import C4DContentBlock from '../content-block/content-block';
 import styles from './content-block-card-static.scss';
-import { DDS_CONTENT_BLOCK_CARD_STATIC } from '../../globals/internal/feature-flags';
+import { C4D_CONTENT_BLOCK_CARD_STATIC } from '../../globals/internal/feature-flags';
 
 const { stablePrefix: ddsPrefix } = settings;
 
 /**
  * Content block variation which includes a static card group.
  *
- * @element dds-content-block-card-static
+ * @element c4d-content-block-card-static
  */
-class DDSContentBlockCardStatic extends StableSelectorMixin(DDSContentBlock) {
+class C4DContentBlockCardStatic extends StableSelectorMixin(C4DContentBlock) {
   updated() {
-    this.querySelector('dds-card-group')?.setAttribute('grid-mode', 'border');
+    this.querySelector(`${ddsPrefix}-card-group`)?.setAttribute(
+      'grid-mode',
+      'border'
+    );
     const cardGroupItems = this.querySelectorAll(
-      (this.constructor as typeof DDSContentBlockCardStatic).selectorCardItem
+      (this.constructor as typeof C4DContentBlockCardStatic).selectorCardItem
     );
     cardGroupItems.forEach((e) => {
       (e as HTMLElement).setAttribute('color-scheme', 'light');
@@ -50,15 +53,15 @@ class DDSContentBlockCardStatic extends StableSelectorMixin(DDSContentBlock) {
 
 // Define the new element
 if (
-  DDS_CONTENT_BLOCK_CARD_STATIC &&
+  C4D_CONTENT_BLOCK_CARD_STATIC &&
   !customElements.get(`${ddsPrefix}-content-block-card-static`)
 ) {
   customElements.define(
     `${ddsPrefix}-content-block-card-static`,
-    DDSContentBlockCardStatic
+    C4DContentBlockCardStatic
   );
 }
 
-export default !DDS_CONTENT_BLOCK_CARD_STATIC
+export default !C4D_CONTENT_BLOCK_CARD_STATIC
   ? undefined
-  : DDSContentBlockCardStatic;
+  : C4DContentBlockCardStatic;

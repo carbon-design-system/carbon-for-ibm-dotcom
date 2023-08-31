@@ -10,7 +10,7 @@
 import { css } from 'lit';
 import settings from '../../internal/vendor/@carbon/ibmdotcom-utilities/utilities/settings/settings';
 import StableSelectorMixin from '../../globals/mixins/stable-selector';
-import DDSContentGroup from '../content-group/content-group';
+import C4DContentGroup from '../content-group/content-group';
 import styles from './content-group-banner.scss';
 import { carbonElement as customElement } from '../../internal/vendor/@carbon/web-components/globals/decorators/carbon-element';
 
@@ -19,10 +19,10 @@ const { stablePrefix: ddsPrefix } = settings;
 /**
  * Content Group - Banner.
  *
- * @element dds-content-group-banner
+ * @element c4d-content-group-banner
  */
 @customElement(`${ddsPrefix}-content-group-banner`)
-class DDSContentGroupBanner extends StableSelectorMixin(DDSContentGroup) {
+class C4DContentGroupBanner extends StableSelectorMixin(C4DContentGroup) {
   static get stableSelector() {
     return `${ddsPrefix}--content-group-banner`;
   }
@@ -36,4 +36,4 @@ class DDSContentGroupBanner extends StableSelectorMixin(DDSContentGroup) {
 }
 
 /* @__GENERATE_REACT_CUSTOM_ELEMENT_TYPE__ */
-export default DDSContentGroupBanner;
+export default C4DContentGroupBanner;

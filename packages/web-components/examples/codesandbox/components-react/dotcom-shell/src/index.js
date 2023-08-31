@@ -9,7 +9,7 @@
 
 import React from 'react';
 import { render } from 'react-dom';
-import DDSDotcomShellContainer from '@carbon/ibmdotcom-web-components/es/components-react/dotcom-shell/dotcom-shell-container';
+import C4DDotcomShellContainer from '@carbon/ibmdotcom-web-components/es/components-react/dotcom-shell/dotcom-shell-container';
 import './index.css';
 
 window.digitalData = {
@@ -26,7 +26,7 @@ window.digitalData = {
 };
 
 const App = () => (
-  <DDSDotcomShellContainer>
+  <C4DDotcomShellContainer>
     <main className="bx--content dds-ce-demo--ui-shell-content">
       <div className="bx--grid">
         <div className="bx--row">
@@ -66,7 +66,7 @@ const App = () => (
         </div>
       </div>
     </main>
-  </DDSDotcomShellContainer>
+  </C4DDotcomShellContainer>
 );
 
 render(<App />, document.getElementById('root'));

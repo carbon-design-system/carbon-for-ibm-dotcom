@@ -12,10 +12,10 @@ import CDSAccordionItem from '../../internal/vendor/@carbon/web-components/compo
 import settings from '../../internal/vendor/@carbon/ibmdotcom-utilities/utilities/settings/settings';
 import styles from './filter-panel.scss';
 import StableSelectorMixin from '../../globals/mixins/stable-selector';
-import DDSFilterPanelComposite from './filter-panel-composite';
-import DDSFilterPanelCheckbox from './filter-panel-checkbox';
-import DDSFilterPanelInputSelectItem from './filter-panel-input-select-item';
-import DDSFilterPanelInputSelect from './filter-panel-input-select';
+import C4DFilterPanelComposite from './filter-panel-composite';
+import C4DFilterPanelCheckbox from './filter-panel-checkbox';
+import C4DFilterPanelInputSelectItem from './filter-panel-input-select-item';
+import C4DFilterPanelInputSelect from './filter-panel-input-select';
 import { carbonElement as customElement } from '../../internal/vendor/@carbon/web-components/globals/decorators/carbon-element.js';
 
 const { prefix, stablePrefix: ddsPrefix } = settings;
@@ -23,12 +23,12 @@ const { prefix, stablePrefix: ddsPrefix } = settings;
 const viewAllClassName = `${ddsPrefix}-filter-group-item__view-all`;
 
 /**
- * DDSFilterGroupItem renders each individual accordion
+ * C4DFilterGroupItem renders each individual accordion
  *
- * @element dds-filter-group-item
+ * @element c4d-filter-group-item
  */
 @customElement(`${ddsPrefix}-filter-group-item`)
-class DDSFilterGroupItem extends StableSelectorMixin(CDSAccordionItem) {
+class C4DFilterGroupItem extends StableSelectorMixin(CDSAccordionItem) {
   /**
    * Extends CDSAccordionItem component
    */
@@ -93,12 +93,12 @@ class DDSFilterGroupItem extends StableSelectorMixin(CDSAccordionItem) {
     let result: boolean = false;
 
     [...children].slice(filterCutoff, children.length).forEach((elem) => {
-      if (elem instanceof DDSFilterPanelCheckbox) {
+      if (elem instanceof C4DFilterPanelCheckbox) {
         if (elem.checked) result = true;
       }
       if (
-        elem instanceof DDSFilterPanelInputSelectItem ||
-        elem instanceof DDSFilterPanelInputSelect
+        elem instanceof C4DFilterPanelInputSelectItem ||
+        elem instanceof C4DFilterPanelInputSelect
       ) {
         if (elem.selected) result = true;
       }
@@ -159,7 +159,7 @@ class DDSFilterGroupItem extends StableSelectorMixin(CDSAccordionItem) {
    * filter group has all options revealed.
    */
   protected _dispatchViewAllEvent(removed: boolean): void {
-    const { eventViewAll } = this.constructor as typeof DDSFilterGroupItem;
+    const { eventViewAll } = this.constructor as typeof C4DFilterGroupItem;
     this.dispatchEvent(
       new CustomEvent(eventViewAll, {
         bubbles: true,
@@ -181,7 +181,7 @@ class DDSFilterGroupItem extends StableSelectorMixin(CDSAccordionItem) {
     const { allRevealed, title } = this;
     let result: boolean = allRevealed;
 
-    const filterPanel = this.closest('dds-filter-panel');
+    const filterPanel = this.closest('c4d-filter-panel');
     if (filterPanel !== null) {
       // Indicates this is composite's duplicated content.
       let parentHost: Element | undefined;
@@ -189,7 +189,7 @@ class DDSFilterGroupItem extends StableSelectorMixin(CDSAccordionItem) {
       if (parent instanceof ShadowRoot) {
         parentHost = parent.host;
       }
-      if (parentHost instanceof DDSFilterPanelComposite) {
+      if (parentHost instanceof C4DFilterPanelComposite) {
         const match = parentHost._filterGroupsAllRevealed.find((entry) => {
           return entry.id === title;
         });
@@ -247,4 +247,4 @@ class DDSFilterGroupItem extends StableSelectorMixin(CDSAccordionItem) {
 }
 
 /* @__GENERATE_REACT_CUSTOM_ELEMENT_TYPE__ */
-export default DDSFilterGroupItem;
+export default C4DFilterGroupItem;

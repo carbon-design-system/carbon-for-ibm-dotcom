@@ -10,10 +10,10 @@
 import { html } from 'lit';
 import { property, query } from 'lit/decorators.js';
 import settings from '../../internal/vendor/@carbon/ibmdotcom-utilities/utilities/settings/settings';
-import DDSLightboxMediaViewerBody from './lightbox-media-viewer-body';
-import DDSVideoPlayerContainer from '../video-player/video-player-container';
-import DDSCarousel from '../carousel/carousel';
-import DDSExpressiveModal from '../expressive-modal/expressive-modal';
+import C4DLightboxMediaViewerBody from './lightbox-media-viewer-body';
+import C4DVideoPlayerContainer from '../video-player/video-player-container';
+import C4DCarousel from '../carousel/carousel';
+import C4DExpressiveModal from '../expressive-modal/expressive-modal';
 import { carbonElement as customElement } from '../../internal/vendor/@carbon/web-components/globals/decorators/carbon-element';
 
 const { prefix, stablePrefix: ddsPrefix } = settings;
@@ -21,12 +21,12 @@ const { prefix, stablePrefix: ddsPrefix } = settings;
 /**
  * The image content of lightbox media viewer.
  *
- * @element dds-lightbox-image-viewer
+ * @element c4d-lightbox-image-viewer
  * @slot title - The title content.
  * @slot description - The description content.
  */
 @customElement(`${ddsPrefix}-lightbox-media-viewer`)
-class DDSLightboxMediaViewer extends DDSLightboxMediaViewerBody {
+class C4DLightboxMediaViewer extends C4DLightboxMediaViewerBody {
   _renderDescription() {
     const { description } = this;
     return html` <slot name="description">${description}</slot> `;
@@ -50,14 +50,14 @@ class DDSLightboxMediaViewer extends DDSLightboxMediaViewerBody {
   @query(`.${prefix}--lightbox-media-viewer__media`)
   private _mediaWindow!: HTMLDivElement;
 
-  private _containingCarousel?: DDSCarousel;
+  private _containingCarousel?: C4DCarousel;
 
-  private _containingModal?: DDSExpressiveModal;
+  private _containingModal?: C4DExpressiveModal;
 
   private _handleSlotChange(event: Event) {
     const { _containingModal: containingModal } = this;
     const [media] = (event.target as HTMLSlotElement).assignedNodes();
-    this._mediaItem = media as HTMLImageElement | DDSVideoPlayerContainer;
+    this._mediaItem = media as HTMLImageElement | C4DVideoPlayerContainer;
 
     // Disconnect & delete intersection observer
     if (this._intersectionObserver instanceof IntersectionObserver) {
@@ -68,13 +68,13 @@ class DDSLightboxMediaViewer extends DDSLightboxMediaViewerBody {
     // Remove modal closed listeners from the containing modal
     if (containingModal && this._boundModalClosedHandler) {
       containingModal.removeEventListener(
-        DDSExpressiveModal.eventBeforeClose,
+        C4DExpressiveModal.eventBeforeClose,
         this._boundModalClosedHandler
       );
       this._boundModalClosedHandler = undefined;
     }
 
-    if (media instanceof DDSVideoPlayerContainer) {
+    if (media instanceof C4DVideoPlayerContainer) {
       const {
         _mediaWindow: mediaWindow,
         _containingCarousel: containingCarousel,
@@ -97,7 +97,7 @@ class DDSLightboxMediaViewer extends DDSLightboxMediaViewerBody {
         this._boundModalClosedHandler = this._handleModalClosed.bind(this);
 
         containingModal.addEventListener(
-          DDSExpressiveModal.eventBeforeClose,
+          C4DExpressiveModal.eventBeforeClose,
           this._boundModalClosedHandler
         );
       }
@@ -121,7 +121,7 @@ class DDSLightboxMediaViewer extends DDSLightboxMediaViewerBody {
   private _pauseVideo() {
     const { _mediaItem: mediaItem } = this;
 
-    if (mediaItem instanceof DDSVideoPlayerContainer) {
+    if (mediaItem instanceof C4DVideoPlayerContainer) {
       mediaItem.pauseAllVideos();
     }
   }
@@ -132,9 +132,9 @@ class DDSLightboxMediaViewer extends DDSLightboxMediaViewerBody {
     super.connectedCallback();
 
     this._containingCarousel =
-      (this.closest(`${ddsPrefix}-carousel`) as DDSCarousel) || undefined;
+      (this.closest(`${ddsPrefix}-carousel`) as C4DCarousel) || undefined;
     this._containingModal =
-      (this.closest(`${ddsPrefix}-expressive-modal`) as DDSExpressiveModal) ||
+      (this.closest(`${ddsPrefix}-expressive-modal`) as C4DExpressiveModal) ||
       undefined;
   }
 
@@ -142,14 +142,14 @@ class DDSLightboxMediaViewer extends DDSLightboxMediaViewerBody {
     if (this.videoId) {
       const { videoId, caption, hideCaption, thumbnail } = this;
       this.innerHTML = `
-        <dds-video-player-container
+        <c4d-video-player-container
           playing-mode="inline"
           video-id="${videoId}"
           caption="${caption}"
           ?hide-caption="${hideCaption}"
           thumbnail="${thumbnail}"
           slot="media"
-        ></dds-video-player-container>
+        ></c4d-video-player-container>
       `;
     } else {
       const { alt, defaultSrc } = this;
@@ -213,4 +213,4 @@ class DDSLightboxMediaViewer extends DDSLightboxMediaViewerBody {
 }
 
 /* @__GENERATE_REACT_CUSTOM_ELEMENT_TYPE__ */
-export default DDSLightboxMediaViewer;
+export default C4DLightboxMediaViewer;

@@ -12,7 +12,7 @@ import { property } from 'lit/decorators.js';
 import settings from '../../internal/vendor/@carbon/ibmdotcom-utilities/utilities/settings/settings';
 import styles from './leadspace-with-search.scss';
 import StableSelectorMixin from '../../globals/mixins/stable-selector';
-import DDSContentBlockParagraph from '../content-block/content-block-paragraph';
+import C4DContentBlockParagraph from '../content-block/content-block-paragraph';
 import { carbonElement as customElement } from '../../internal/vendor/@carbon/web-components/globals/decorators/carbon-element';
 
 const { stablePrefix: ddsPrefix } = settings;
@@ -20,11 +20,11 @@ const { stablePrefix: ddsPrefix } = settings;
 /**
  * Copy in the content section of Leadspace with search
  *
- * @element dds-leadspace-with-search-content-copy
+ * @element c4d-leadspace-with-search-content-copy
  */
 @customElement(`${ddsPrefix}-leadspace-with-search-content-copy`)
-class DDSLeadspaceWithSearchContentCopy extends StableSelectorMixin(
-  DDSContentBlockParagraph
+class C4DLeadspaceWithSearchContentCopy extends StableSelectorMixin(
+  C4DContentBlockParagraph
 ) {
   /**
    * The shadow slot the content should be in.
@@ -45,4 +45,4 @@ class DDSLeadspaceWithSearchContentCopy extends StableSelectorMixin(
 }
 
 /* @__GENERATE_REACT_CUSTOM_ELEMENT_TYPE__ */
-export default DDSLeadspaceWithSearchContentCopy;
+export default C4DLeadspaceWithSearchContentCopy;

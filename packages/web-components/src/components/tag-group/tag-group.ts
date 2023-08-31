@@ -18,12 +18,12 @@ const { prefix, stablePrefix: ddsPrefix } = settings;
 /**
  * Tag Group
  *
- * @element dds-tag-group
+ * @element c4d-tag-group
  */
 @customElement(`${ddsPrefix}-tag-group`)
-class DDSTagGroup extends StableSelectorMixin(LitElement) {
+class C4DTagGroup extends StableSelectorMixin(LitElement) {
   /**
-   * Handler for @slotchange, ensure that the only elements being rendered are CDSTag and DDSTagLink
+   * Handler for @slotchange, ensure that the only elements being rendered are CDSTag and C4DTagLink
    *
    * @private
    */
@@ -32,13 +32,13 @@ class DDSTagGroup extends StableSelectorMixin(LitElement) {
 
     const carbonTags = childItems.filter((elem) =>
       (elem as HTMLElement).matches?.(
-        (this.constructor as typeof DDSTagGroup).selectorTag
+        (this.constructor as typeof C4DTagGroup).selectorTag
       )
     );
 
     const carbonReactTags = childItems.filter((elem) =>
       (elem as HTMLElement).classList?.contains?.(
-        (this.constructor as typeof DDSTagGroup).selectorReactTag
+        (this.constructor as typeof C4DTagGroup).selectorReactTag
       )
     );
 
@@ -69,7 +69,7 @@ class DDSTagGroup extends StableSelectorMixin(LitElement) {
   }
 
   /**
-   * A selector that will return the DDSTagLink child items.
+   * A selector that will return the C4DTagLink child items.
    */
   static get selectorTagLink() {
     return `${ddsPrefix}-tag-link`;
@@ -97,4 +97,4 @@ class DDSTagGroup extends StableSelectorMixin(LitElement) {
 }
 
 /* @__GENERATE_REACT_CUSTOM_ELEMENT_TYPE__ */
-export default DDSTagGroup;
+export default C4DTagGroup;

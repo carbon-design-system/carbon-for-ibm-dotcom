@@ -19,12 +19,12 @@ const { stablePrefix: ddsPrefix } = settings;
 /**
  * Expressive modal footer.
  *
- * @element dds-expressive-modal-footer
+ * @element c4d-expressive-modal-footer
  */
 @customElement(`${ddsPrefix}-expressive-modal-footer`)
-class DDSExpressiveModalFooter extends StableSelectorMixin(CDSModalFooter) {
+class C4DExpressiveModalFooter extends StableSelectorMixin(CDSModalFooter) {
   /**
-   * The slot in parent `<dds-modal>`.
+   * The slot in parent `<c4d-modal>`.
    */
   @property({ reflect: true })
   slot = 'footer';
@@ -37,4 +37,4 @@ class DDSExpressiveModalFooter extends StableSelectorMixin(CDSModalFooter) {
 }
 
 /* @__GENERATE_REACT_CUSTOM_ELEMENT_TYPE__ */
-export default DDSExpressiveModalFooter;
+export default C4DExpressiveModalFooter;

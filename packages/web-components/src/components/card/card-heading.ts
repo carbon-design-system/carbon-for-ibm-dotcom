@@ -18,10 +18,10 @@ const { stablePrefix: ddsPrefix } = settings;
 /**
  * The heading content of card.
  *
- * @element dds-card-heading
+ * @element c4d-card-heading
  */
 @customElement(`${ddsPrefix}-card-heading`)
-class DDSCardHeading extends StableSelectorMixin(LitElement) {
+class C4DCardHeading extends StableSelectorMixin(LitElement) {
   /**
    * The shadow slot this card heading should be in.
    */
@@ -51,4 +51,4 @@ class DDSCardHeading extends StableSelectorMixin(LitElement) {
 }
 
 /* @__GENERATE_REACT_CUSTOM_ELEMENT_TYPE__ */
-export default DDSCardHeading;
+export default C4DCardHeading;

@@ -19,10 +19,10 @@ const { stablePrefix: ddsPrefix } = settings;
 /**
  * extends the CDSModalFooter
  *
- * @element dds-filter-modal-footer
+ * @element c4d-filter-modal-footer
  */
 @customElement(`${ddsPrefix}-filter-modal-footer`)
-class DDSFilterModalFooter extends StableSelectorMixin(CDSModalFooter) {
+class C4DFilterModalFooter extends StableSelectorMixin(CDSModalFooter) {
   static get stableSelector() {
     return `${ddsPrefix}-filter-modal-footer`;
   }
@@ -31,4 +31,4 @@ class DDSFilterModalFooter extends StableSelectorMixin(CDSModalFooter) {
 }
 
 /* @__GENERATE_REACT_CUSTOM_ELEMENT_TYPE__ */
-export default DDSFilterModalFooter;
+export default C4DFilterModalFooter;

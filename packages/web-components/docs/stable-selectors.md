@@ -17,7 +17,7 @@ It means that in Web Components world, tag names and their attributes will conve
 
 ```javascript
 document.body.addEventListener('click', event => {
-  if (event.target.tagName === 'DDS-MASTHEAD-LOGO') {
+  if (event.target.tagName === 'C4D-MASTHEAD-LOGO') {
     // Code to send header logo click event to analytics...
   }
 });

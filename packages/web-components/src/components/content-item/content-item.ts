@@ -26,13 +26,13 @@ const slotExistencePropertyNames = {
 /**
  * Content item.
  *
- * @element dds-content-item
+ * @element c4d-content-item
  * @slot media - The media content.
  * @slot heading - The heading content.
  * @slot footer - The footer (CTA) content.
  */
 @customElement(`${ddsPrefix}-content-item`)
-class DDSContentItem extends StableSelectorMixin(LitElement) {
+class C4DContentItem extends StableSelectorMixin(LitElement) {
   /**
    * `true` if there is a footer content.
    */
@@ -51,19 +51,19 @@ class DDSContentItem extends StableSelectorMixin(LitElement) {
       .filter((elem) =>
         (elem as HTMLElement).matches !== undefined
           ? (elem as HTMLElement).matches(
-              (this.constructor as typeof DDSContentItem).selectorTextCTA
+              (this.constructor as typeof C4DContentItem).selectorTextCTA
             ) ||
             (elem as HTMLElement).matches(
-              (this.constructor as typeof DDSContentItem).selectorButtonCTA
+              (this.constructor as typeof C4DContentItem).selectorButtonCTA
             ) ||
             (elem as HTMLElement).matches(
-              (this.constructor as typeof DDSContentItem).selectorButtonGroup
+              (this.constructor as typeof C4DContentItem).selectorButtonGroup
             ) ||
             (elem as HTMLElement).matches(
-              (this.constructor as typeof DDSContentItem).selectorLinkWithIcon
+              (this.constructor as typeof C4DContentItem).selectorLinkWithIcon
             ) ||
             (elem as HTMLElement).matches(
-              (this.constructor as typeof DDSContentItem).selectorLinkList
+              (this.constructor as typeof C4DContentItem).selectorLinkList
             )
           : false
       );
@@ -131,4 +131,4 @@ class DDSContentItem extends StableSelectorMixin(LitElement) {
 }
 
 /* @__GENERATE_REACT_CUSTOM_ELEMENT_TYPE__ */
-export default DDSContentItem;
+export default C4DContentItem;

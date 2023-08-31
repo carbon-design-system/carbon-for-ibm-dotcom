@@ -18,10 +18,10 @@ const { stablePrefix: ddsPrefix } = settings;
 /**
  * Extends the CDSModalHeading
  *
- * @element dds-filter-modal-heading
+ * @element c4d-filter-modal-heading
  */
 @customElement(`${ddsPrefix}-filter-modal-heading`)
-class DDSFilterModalHeading extends StableSelectorMixin(CDSModalHeading) {
+class C4DFilterModalHeading extends StableSelectorMixin(CDSModalHeading) {
   static get stableSelector() {
     return `${ddsPrefix}-filter-modal-heading`;
   }
@@ -30,4 +30,4 @@ class DDSFilterModalHeading extends StableSelectorMixin(CDSModalHeading) {
 }
 
 /* @__GENERATE_REACT_CUSTOM_ELEMENT_TYPE__ */
-export default DDSFilterModalHeading;
+export default C4DFilterModalHeading;

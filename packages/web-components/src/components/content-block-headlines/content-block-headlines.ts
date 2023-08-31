@@ -10,7 +10,7 @@
 import { css, html, TemplateResult } from 'lit';
 import settings from '../../internal/vendor/@carbon/ibmdotcom-utilities/utilities/settings/settings';
 import StableSelectorMixin from '../../globals/mixins/stable-selector';
-import DDSContentBlock from '../content-block/content-block';
+import C4DContentBlock from '../content-block/content-block';
 import styles from './content-block-headlines.scss';
 import { carbonElement as customElement } from '../../internal/vendor/@carbon/web-components/globals/decorators/carbon-element';
 
@@ -19,10 +19,10 @@ const { prefix, stablePrefix: ddsPrefix } = settings;
 /**
  * Content Block Headlines
  *
- * @element dds-content-block-headlines
+ * @element c4d-content-block-headlines
  */
 @customElement(`${ddsPrefix}-content-block-headlines`)
-class DDSContentBlockHeadlines extends StableSelectorMixin(DDSContentBlock) {
+class C4DContentBlockHeadlines extends StableSelectorMixin(C4DContentBlock) {
   /**
    * The CSS class list for the container (grid) node.
    */
@@ -55,4 +55,4 @@ class DDSContentBlockHeadlines extends StableSelectorMixin(DDSContentBlock) {
   }
 }
 
-export default DDSContentBlockHeadlines;
+export default C4DContentBlockHeadlines;

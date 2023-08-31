@@ -27,8 +27,8 @@ export const Default = (args) => {
   const { copy, ctaType, disabled, download, href, onClick, iconPlacement } =
     args?.LinkWithIcon ?? {};
   return html`
-    <dds-video-cta-container>
-      <dds-link-with-icon
+    <c4d-video-cta-container>
+      <c4d-link-with-icon
         icon-placement="${iconPlacement}"
         ?disabled="${disabled}"
         href="${href}"
@@ -36,8 +36,8 @@ export const Default = (args) => {
         cta-type="${ctaType}"
         @click="${onClick}">
         ${copy}
-      </dds-link-with-icon>
-    </dds-video-cta-container>
+      </c4d-link-with-icon>
+    </c4d-video-cta-container>
   `;
 };
 

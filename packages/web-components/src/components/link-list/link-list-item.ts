@@ -10,7 +10,7 @@
 import { css } from 'lit';
 import { property } from 'lit/decorators.js';
 import settings from '../../internal/vendor/@carbon/ibmdotcom-utilities/utilities/settings/settings';
-import DDSLinkWithIcon from '../link-with-icon/link-with-icon';
+import C4DLinkWithIcon from '../link-with-icon/link-with-icon';
 import styles from './link-list.scss';
 
 import { LINK_LIST_ITEM_TYPE } from './defs';
@@ -21,10 +21,10 @@ const { stablePrefix: ddsPrefix } = settings;
 /**
  * Link list item.
  *
- * @element dds-link-list-item
+ * @element c4d-link-list-item
  */
 @customElement(`${ddsPrefix}-link-list-item`)
-class DDSLinkListItem extends DDSLinkWithIcon {
+class C4DLinkListItem extends C4DLinkWithIcon {
   /**
    * Defines the style of the link-list-item: `default` or `end`
    */
@@ -57,4 +57,4 @@ class DDSLinkListItem extends DDSLinkWithIcon {
 }
 
 /* @__GENERATE_REACT_CUSTOM_ELEMENT_TYPE__ */
-export default DDSLinkListItem;
+export default C4DLinkListItem;

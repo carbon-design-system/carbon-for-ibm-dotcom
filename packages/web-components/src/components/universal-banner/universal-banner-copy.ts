@@ -12,7 +12,7 @@ import { property } from 'lit/decorators.js';
 import settings from '../../internal/vendor/@carbon/ibmdotcom-utilities/utilities/settings/settings';
 import styles from './universal-banner.scss';
 import StableSelectorMixin from '../../globals/mixins/stable-selector';
-import DDSMarkdown from '../markdown/markdown';
+import C4DMarkdown from '../markdown/markdown';
 import { carbonElement as customElement } from '../../internal/vendor/@carbon/web-components/globals/decorators/carbon-element';
 
 const { stablePrefix: ddsPrefix } = settings;
@@ -20,10 +20,10 @@ const { stablePrefix: ddsPrefix } = settings;
 /**
  * The paragraph content in the universal banner
  *
- * @element dds-universal-banner-copy
+ * @element c4d-universal-banner-copy
  */
 @customElement(`${ddsPrefix}-universal-banner-copy`)
-class DDSUniversalBannerCopy extends StableSelectorMixin(DDSMarkdown) {
+class C4DUniversalBannerCopy extends StableSelectorMixin(C4DMarkdown) {
   @property({ reflect: true })
   slot = 'copy';
 
@@ -43,4 +43,4 @@ class DDSUniversalBannerCopy extends StableSelectorMixin(DDSMarkdown) {
 }
 
 /* @__GENERATE_REACT_CUSTOM_ELEMENT_TYPE__ */
-export default DDSUniversalBannerCopy;
+export default C4DUniversalBannerCopy;

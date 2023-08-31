@@ -18,10 +18,10 @@ const { stablePrefix: ddsPrefix } = settings;
 /**
  * Leaving Ibm modal heading.
  *
- * @element dds-leaving-ibm-modal-heading
+ * @element c4d-leaving-ibm-modal-heading
  */
 @customElement(`${ddsPrefix}-leaving-ibm-modal-heading`)
-class DDSLeavingIbmModalHeading extends StableSelectorMixin(CDSModalHeading) {
+class C4DLeavingIbmModalHeading extends StableSelectorMixin(CDSModalHeading) {
   connectedCallback() {
     if (!this.hasAttribute('role')) {
       this.setAttribute('role', 'heading');
@@ -40,4 +40,4 @@ class DDSLeavingIbmModalHeading extends StableSelectorMixin(CDSModalHeading) {
 }
 
 /* @__GENERATE_REACT_CUSTOM_ELEMENT_TYPE__ */
-export default DDSLeavingIbmModalHeading;
+export default C4DLeavingIbmModalHeading;

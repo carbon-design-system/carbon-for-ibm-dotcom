@@ -10,7 +10,7 @@
 import { css } from 'lit';
 import settings from '../../internal/vendor/@carbon/ibmdotcom-utilities/utilities/settings/settings';
 import styles from './card-section-carousel.scss';
-import DDSContentSection from '../content-section/content-section';
+import C4DContentSection from '../content-section/content-section';
 import { carbonElement as customElement } from '../../internal/vendor/@carbon/web-components/globals/decorators/carbon-element';
 
 const { stablePrefix: ddsPrefix } = settings;
@@ -18,10 +18,10 @@ const { stablePrefix: ddsPrefix } = settings;
 /**
  * The Card Section Carousel pattern
  *
- * @element dds-card-section-carousel
+ * @element c4d-card-section-carousel
  */
 @customElement(`${ddsPrefix}-card-section-carousel`)
-class DDSCardSectionCarousel extends DDSContentSection {
+class C4DCardSectionCarousel extends C4DContentSection {
   static get stableSelector() {
     return `${ddsPrefix}--card-section-carousel`;
   }
@@ -40,4 +40,4 @@ console.warn(
 );
 
 /* @__GENERATE_REACT_CUSTOM_ELEMENT_TYPE__ */
-export default DDSCardSectionCarousel;
+export default C4DCardSectionCarousel;

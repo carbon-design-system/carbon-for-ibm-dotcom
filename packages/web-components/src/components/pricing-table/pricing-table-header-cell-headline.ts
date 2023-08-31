@@ -17,7 +17,7 @@ import { carbonElement as customElement } from '../../internal/vendor/@carbon/we
 const { stablePrefix: ddsPrefix } = settings;
 
 @customElement(`${ddsPrefix}-pricing-table-header-cell-headline`)
-class DDSPricingTableHeaderCellHeadline extends StableSelectorMixin(
+class C4DPricingTableHeaderCellHeadline extends StableSelectorMixin(
   LitElement
 ) {
   @property({ reflect: true })
@@ -34,4 +34,4 @@ class DDSPricingTableHeaderCellHeadline extends StableSelectorMixin(
   static styles = styles;
 }
 
-export default DDSPricingTableHeaderCellHeadline;
+export default C4DPricingTableHeaderCellHeadline;

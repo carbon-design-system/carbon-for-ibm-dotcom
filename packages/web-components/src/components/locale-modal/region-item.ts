@@ -21,10 +21,10 @@ const { prefix, stablePrefix: ddsPrefix } = settings;
 /**
  * Region item.
  *
- * @element dds-region-item
+ * @element c4d-region-item
  */
 @customElement(`${ddsPrefix}-region-item`)
-class DDSRegionItem extends CDSLink {
+class C4DRegionItem extends CDSLink {
   /**
    * `true` if this region has no countries.
    */
@@ -99,4 +99,4 @@ class DDSRegionItem extends CDSLink {
   static styles = styles;
 }
 
-export default DDSRegionItem;
+export default C4DRegionItem;

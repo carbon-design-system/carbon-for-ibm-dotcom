@@ -19,11 +19,11 @@ const { prefix, stablePrefix: ddsPrefix } = settings;
 /**
  * The Content Section component for use with cardSection
  *
- * @element dds-content-section
+ * @element c4d-content-section
  * @slot heading - Section heading
  */
 @customElement(`${ddsPrefix}-content-section`)
-class DDSContentSection extends StableSelectorMixin(LitElement) {
+class C4DContentSection extends StableSelectorMixin(LitElement) {
   /**
    * An optional custom class for children.
    */
@@ -45,7 +45,7 @@ class DDSContentSection extends StableSelectorMixin(LitElement) {
     childItems.forEach((elem) => {
       if (
         (elem as HTMLElement).matches(
-          (this.constructor as typeof DDSContentSection).linkListSelector
+          (this.constructor as typeof C4DContentSection).linkListSelector
         )
       ) {
         (elem as HTMLElement).setAttribute('type', 'end');
@@ -92,4 +92,4 @@ class DDSContentSection extends StableSelectorMixin(LitElement) {
 }
 
 /* @__GENERATE_REACT_CUSTOM_ELEMENT_TYPE__ */
-export default DDSContentSection;
+export default C4DContentSection;

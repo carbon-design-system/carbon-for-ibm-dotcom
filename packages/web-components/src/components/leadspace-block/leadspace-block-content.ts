@@ -9,7 +9,7 @@
 
 import { css, html, TemplateResult } from 'lit';
 import settings from '../../internal/vendor/@carbon/ibmdotcom-utilities/utilities/settings/settings';
-import DDSContentBlock from '../content-block/content-block';
+import C4DContentBlock from '../content-block/content-block';
 import styles from './leadspace-block.scss';
 import { carbonElement as customElement } from '../../internal/vendor/@carbon/web-components/globals/decorators/carbon-element';
 
@@ -18,10 +18,10 @@ const { prefix, stablePrefix: ddsPrefix } = settings;
 /**
  * LeadSpace Block content Component.
  *
- * @element dds-leadspace-block-content
+ * @element c4d-leadspace-block-content
  */
 @customElement(`${ddsPrefix}-leadspace-block-content`)
-class DDSLeadSpaceBlockContent extends DDSContentBlock {
+class C4DLeadSpaceBlockContent extends C4DContentBlock {
   protected _renderInnerBody(): TemplateResult | string | void {
     const { _hasContent: hasContent, _hasMedia: hasMedia } = this;
     return html`
@@ -38,7 +38,7 @@ class DDSLeadSpaceBlockContent extends DDSContentBlock {
      * ensure link list heading is aria level 3 so that the headings in
      * leadspace block are hierarchical for accessibility purposes
      */
-    const linkListHeading = this.querySelector('dds-link-list-heading');
+    const linkListHeading = this.querySelector('c4d-link-list-heading');
     if (linkListHeading) {
       linkListHeading.setAttribute('aria-level', '3');
     }
@@ -65,4 +65,4 @@ class DDSLeadSpaceBlockContent extends DDSContentBlock {
 }
 
 /* @__GENERATE_REACT_CUSTOM_ELEMENT_TYPE__ */
-export default DDSLeadSpaceBlockContent;
+export default C4DLeadSpaceBlockContent;

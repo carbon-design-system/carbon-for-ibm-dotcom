@@ -9,7 +9,7 @@
 
 import settings from '../../internal/vendor/@carbon/ibmdotcom-utilities/utilities/settings/settings';
 import { carbonElement as customElement } from '../../internal/vendor/@carbon/web-components/globals/decorators/carbon-element';
-import DDSCardHeading from '../card/card-heading';
+import C4DCardHeading from '../card/card-heading';
 import styles from './card-link.scss';
 
 const { stablePrefix: ddsPrefix } = settings;
@@ -17,10 +17,10 @@ const { stablePrefix: ddsPrefix } = settings;
 /**
  * Card Link Heading.
  *
- * @element dds-card-link-heading
+ * @element c4d-card-link-heading
  */
 @customElement(`${ddsPrefix}-card-link-heading`)
-class DDSCardLinkHeading extends DDSCardHeading {
+class C4DCardLinkHeading extends C4DCardHeading {
   static get stableSelector() {
     return `${ddsPrefix}--card-link-heading`;
   }
@@ -29,4 +29,4 @@ class DDSCardLinkHeading extends DDSCardHeading {
 }
 
 /* @__GENERATE_REACT_CUSTOM_ELEMENT_TYPE__ */
-export default DDSCardLinkHeading;
+export default C4DCardLinkHeading;

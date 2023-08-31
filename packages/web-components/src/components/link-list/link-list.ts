@@ -14,7 +14,7 @@ import settings from '@carbon/ibmdotcom-utilities/es/utilities/settings/settings
 import StableSelectorMixin from '../../globals/mixins/stable-selector';
 import { LINK_LIST_TYPE, LINK_LIST_ITEM_TYPE } from './defs';
 import styles from './link-list.scss';
-import DDSLinkListItem from './link-list-item';
+import C4DLinkListItem from './link-list-item';
 import { carbonElement as customElement } from '../../internal/vendor/@carbon/web-components/globals/decorators/carbon-element';
 
 const { prefix, stablePrefix: ddsPrefix } = settings;
@@ -39,11 +39,11 @@ export enum END_TYPE_LAYOUT {
 /**
  * Link list.
  *
- * @element dds-link-list
+ * @element c4d-link-list
  * @slot heading - The heading content.
  */
 @customElement(`${ddsPrefix}-link-list`)
-class DDSLinkList extends StableSelectorMixin(LitElement) {
+class C4DLinkList extends StableSelectorMixin(LitElement) {
   /**
    * Defines the layout for the end layout - based on END_TYPE_LAYOUT
    */
@@ -62,7 +62,7 @@ class DDSLinkList extends StableSelectorMixin(LitElement) {
    * @private
    */
   private _handleSlotChange(event: Event) {
-    const { selectorItem } = this.constructor as typeof DDSLinkList;
+    const { selectorItem } = this.constructor as typeof C4DLinkList;
     this._childItems = (event.target as HTMLSlotElement)
       .assignedNodes({ flatten: true })
       .filter(
@@ -80,7 +80,7 @@ class DDSLinkList extends StableSelectorMixin(LitElement) {
     }
     if (this.type === LINK_LIST_TYPE.END) {
       this._childItems.forEach((elem) => {
-        (elem as DDSLinkListItem).type = LINK_LIST_ITEM_TYPE.END;
+        (elem as C4DLinkListItem).type = LINK_LIST_ITEM_TYPE.END;
       });
     }
   }
@@ -135,7 +135,7 @@ class DDSLinkList extends StableSelectorMixin(LitElement) {
   updated() {
     if (this.type === LINK_LIST_TYPE.END) {
       this._childItems.forEach((elem) => {
-        (elem as DDSLinkListItem).type = LINK_LIST_ITEM_TYPE.END;
+        (elem as C4DLinkListItem).type = LINK_LIST_ITEM_TYPE.END;
       });
     }
 
@@ -144,7 +144,7 @@ class DDSLinkList extends StableSelectorMixin(LitElement) {
       this.type === LINK_LIST_TYPE.VERTICAL
     ) {
       this._childItems.forEach((elem) => {
-        (elem as DDSLinkListItem).iconInline = true;
+        (elem as C4DLinkListItem).iconInline = true;
       });
     }
   }
@@ -164,4 +164,4 @@ class DDSLinkList extends StableSelectorMixin(LitElement) {
 }
 
 /* @__GENERATE_REACT_CUSTOM_ELEMENT_TYPE__ */
-export default DDSLinkList;
+export default C4DLinkList;

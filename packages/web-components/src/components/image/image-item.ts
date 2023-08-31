@@ -17,11 +17,11 @@ const { stablePrefix: ddsPrefix } = settings;
 /**
  * Image item.
  *
- * @element dds-image-item
+ * @element c4d-image-item
  */
 
 @customElement(`${ddsPrefix}-image-item`)
-class DDSImageItem extends StableSelectorMixin(LitElement) {
+class C4DImageItem extends StableSelectorMixin(LitElement) {
   static get stableSelector() {
     return `${ddsPrefix}-image-item`;
   }
@@ -30,4 +30,4 @@ class DDSImageItem extends StableSelectorMixin(LitElement) {
 }
 
 /* @__GENERATE_REACT_CUSTOM_ELEMENT_TYPE__ */
-export default DDSImageItem;
+export default C4DImageItem;

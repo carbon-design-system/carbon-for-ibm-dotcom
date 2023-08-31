@@ -11,7 +11,7 @@ import { html } from 'lit';
 import { property, query, state } from 'lit/decorators.js';
 import { carbonElement as customElement } from '../../internal/vendor/@carbon/web-components/globals/decorators/carbon-element.js';
 import settings from '../../internal/vendor/@carbon/ibmdotcom-utilities/utilities/settings/settings.js';
-import DDSLinkWithIcon, {
+import C4DLinkWithIcon, {
   ICON_PLACEMENT,
 } from '../link-with-icon/link-with-icon';
 import { BASIC_COLOR_SCHEME } from '../../globals/defs';
@@ -22,12 +22,12 @@ const { prefix, stablePrefix: ddsPrefix } = settings;
 /**
  * Card footer.
  *
- * @element dds-card-footer
+ * @element c4d-card-footer
  */
 @customElement(`${ddsPrefix}-card-footer`)
-class DDSCardFooter extends DDSLinkWithIcon {
+class C4DCardFooter extends C4DLinkWithIcon {
   /**
-   * The non-link container node, used when the link of parent `<dds-card>` should be used.
+   * The non-link container node, used when the link of parent `<c4d-card>` should be used.
    */
   @query(`.${ddsPrefix}-ce--card__footer--static`)
   private _staticNode?: HTMLSpanElement;
@@ -39,7 +39,7 @@ class DDSCardFooter extends DDSLinkWithIcon {
   protected _hasCopy = false;
 
   /**
-   * `true` if the link of parent `<dds-card>` should be used.
+   * `true` if the link of parent `<c4d-card>` should be used.
    */
   protected get _shouldUseParentLink() {
     const { href, parentHref } = this;
@@ -92,8 +92,8 @@ class DDSCardFooter extends DDSLinkWithIcon {
   colorScheme = BASIC_COLOR_SCHEME.REGULAR;
 
   /**
-   * The `href` in parent `<dds-card>`.
-   * `<dds-card>` sets this automatically.
+   * The `href` in parent `<c4d-card>`.
+   * `<c4d-card>` sets this automatically.
    */
   @property({ attribute: 'parent-href', reflect: true })
   parentHref?: string;
@@ -105,7 +105,7 @@ class DDSCardFooter extends DDSLinkWithIcon {
   iconInline = true;
 
   /**
-   * The slot in parent `<dds-card>`.
+   * The slot in parent `<c4d-card>`.
    */
   @property({ reflect: true })
   slot = 'footer';
@@ -151,4 +151,4 @@ class DDSCardFooter extends DDSLinkWithIcon {
 }
 
 /* @__GENERATE_REACT_CUSTOM_ELEMENT_TYPE__ */
-export default DDSCardFooter;
+export default C4DCardFooter;

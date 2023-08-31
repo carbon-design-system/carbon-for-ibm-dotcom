@@ -9,7 +9,7 @@
 
 import { property } from 'lit/decorators.js';
 import settings from '../../internal/vendor/@carbon/ibmdotcom-utilities/utilities/settings/settings';
-import DDSFooterNavItem from './footer-nav-item';
+import C4DFooterNavItem from './footer-nav-item';
 import { carbonElement as customElement } from '../../internal/vendor/@carbon/web-components/globals/decorators/carbon-element';
 
 const { prefix, stablePrefix: ddsPrefix } = settings;
@@ -17,10 +17,10 @@ const { prefix, stablePrefix: ddsPrefix } = settings;
 /**
  * Legal nav item.
  *
- * @element dds-legal-nav-item
+ * @element c4d-legal-nav-item
  */
 @customElement(`${ddsPrefix}-legal-nav-item`)
-class DDSLegalNavItem extends DDSFooterNavItem {
+class C4DLegalNavItem extends C4DFooterNavItem {
   /**
    * autoid text.
    */
@@ -43,4 +43,4 @@ class DDSLegalNavItem extends DDSFooterNavItem {
   }
 }
 
-export default DDSLegalNavItem;
+export default C4DLegalNavItem;

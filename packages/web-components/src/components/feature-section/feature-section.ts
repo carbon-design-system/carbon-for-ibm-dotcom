@@ -10,7 +10,7 @@
 import { css, html } from 'lit';
 import { property } from 'lit/decorators.js';
 import settings from '../../internal/vendor/@carbon/ibmdotcom-utilities/utilities/settings/settings';
-import DDSFeatureCard from '../feature-card/feature-card';
+import C4DFeatureCard from '../feature-card/feature-card';
 import '../image/image';
 import styles from './feature-section.scss';
 import StableSelectorMixin from '../../globals/mixins/stable-selector';
@@ -22,10 +22,10 @@ const { prefix, stablePrefix: ddsPrefix } = settings;
 /**
  * Feature Section.
  *
- * @element dds-feature-section
+ * @element c4d-feature-section
  */
 @customElement(`${ddsPrefix}-feature-section`)
-class DDSFeatureSection extends StableSelectorMixin(DDSFeatureCard) {
+class C4DFeatureSection extends StableSelectorMixin(C4DFeatureCard) {
   /**
    * Media Alignment (right (default) | left)
    */
@@ -98,4 +98,4 @@ class DDSFeatureSection extends StableSelectorMixin(DDSFeatureCard) {
 }
 
 /* @__GENERATE_REACT_CUSTOM_ELEMENT_TYPE__ */
-export default DDSFeatureSection;
+export default C4DFeatureSection;

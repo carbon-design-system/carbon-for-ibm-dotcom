@@ -19,10 +19,10 @@ const { stablePrefix: ddsPrefix } = settings;
 /**
  * Heading in content section.
  *
- * @element dds-content-section-heading
+ * @element c4d-content-section-heading
  */
 @customElement(`${ddsPrefix}-content-section-heading`)
-class DDSContentSectionHeading extends StableSelectorMixin(LitElement) {
+class C4DContentSectionHeading extends StableSelectorMixin(LitElement) {
   @property({ reflect: true })
   slot = 'heading';
 
@@ -48,4 +48,4 @@ class DDSContentSectionHeading extends StableSelectorMixin(LitElement) {
 }
 
 /* @__GENERATE_REACT_CUSTOM_ELEMENT_TYPE__ */
-export default DDSContentSectionHeading;
+export default C4DContentSectionHeading;

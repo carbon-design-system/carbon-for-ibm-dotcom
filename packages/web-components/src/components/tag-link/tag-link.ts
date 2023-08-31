@@ -20,10 +20,10 @@ const { prefix, stablePrefix: ddsPrefix } = settings;
 /**
  * Tag Link.
  *
- * @element dds-tag-link
+ * @element c4d-tag-link
  */
 @customElement(`${ddsPrefix}-tag-link`)
-class DDSTagLink extends StableSelectorMixin(LitElement) {
+class C4DTagLink extends StableSelectorMixin(LitElement) {
   /**
    * Link `href`.
    */
@@ -101,4 +101,4 @@ class DDSTagLink extends StableSelectorMixin(LitElement) {
 }
 
 /* @__GENERATE_REACT_CUSTOM_ELEMENT_TYPE__ */
-export default DDSTagLink;
+export default C4DTagLink;

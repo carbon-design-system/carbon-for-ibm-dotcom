@@ -18,10 +18,10 @@ const { stablePrefix: ddsPrefix } = settings;
 /**
  * The eyebrow content of card.
  *
- * @element dds-card-eyebrow
+ * @element c4d-card-eyebrow
  */
 @customElement(`${ddsPrefix}-card-eyebrow`)
-class DDSCardEyebrow extends StableSelectorMixin(LitElement) {
+class C4DCardEyebrow extends StableSelectorMixin(LitElement) {
   /**
    * The shadow slot this card eyebrow should be in.
    */
@@ -41,4 +41,4 @@ class DDSCardEyebrow extends StableSelectorMixin(LitElement) {
 }
 
 /* @__GENERATE_REACT_CUSTOM_ELEMENT_TYPE__ */
-export default DDSCardEyebrow;
+export default C4DCardEyebrow;

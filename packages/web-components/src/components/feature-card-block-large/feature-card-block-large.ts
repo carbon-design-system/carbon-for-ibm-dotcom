@@ -10,7 +10,7 @@
 import { html } from 'lit';
 import settings from '../../internal/vendor/@carbon/ibmdotcom-utilities/utilities/settings/settings';
 import deprecate from '../../internal/vendor/@carbon/ibmdotcom-utilities/utilities/deprecate/deprecate';
-import DDSFeatureCard from '../feature-card/feature-card';
+import C4DFeatureCard from '../feature-card/feature-card';
 import '../image/image';
 import styles from './feature-card-block-large.scss';
 import StableSelectorMixin from '../../globals/mixins/stable-selector';
@@ -21,10 +21,10 @@ const { prefix, stablePrefix: ddsPrefix } = settings;
 /**
  * Feature Card Block Large.
  *
- * @element dds-feature-card-block-large
+ * @element c4d-feature-card-block-large
  */
 @customElement(`${ddsPrefix}-feature-card-block-large`)
-class DDSFeatureCardBlockLarge extends StableSelectorMixin(DDSFeatureCard) {
+class C4DFeatureCardBlockLarge extends StableSelectorMixin(C4DFeatureCard) {
   render() {
     return html`
       <div class="${prefix}--feature-card-block-large__container">
@@ -50,7 +50,7 @@ class DDSFeatureCardBlockLarge extends StableSelectorMixin(DDSFeatureCard) {
 }
 
 export default deprecate(
-  DDSFeatureCardBlockLarge,
+  C4DFeatureCardBlockLarge,
   `The FeatureCardBlockLarge component has been deprecated in favor of the FeatureCard component. ` +
     `See FeatureCard's size attribute documentation for more information.`
 );

@@ -18,10 +18,10 @@ const { stablePrefix: ddsPrefix } = settings;
 /**
  * Skip to content button in masthead.
  *
- * @element dds-masthead-skip-to-content
+ * @element c4d-masthead-skip-to-content
  */
 @customElement(`${ddsPrefix}-skip-to-content`)
-class DDSSkipToContent extends CDSSkipToContent {
+class C4DSkipToContent extends CDSSkipToContent {
   /**
    * The shadow slot this logo UI should be in.
    */
@@ -31,4 +31,4 @@ class DDSSkipToContent extends CDSSkipToContent {
   static styles = styles;
 }
 
-export default DDSSkipToContent;
+export default C4DSkipToContent;

@@ -14,7 +14,7 @@ import FocusMixin from '../../internal/vendor/@carbon/web-components/globals/mix
 import settings from '../../internal/vendor/@carbon/ibmdotcom-utilities/utilities/settings/settings';
 import StableSelectorMixin from '../../globals/mixins/stable-selector';
 import styles from './filter-panel.scss';
-import DDSFilterPanelInputSelectItem from './filter-panel-input-select-item';
+import C4DFilterPanelInputSelectItem from './filter-panel-input-select-item';
 import { carbonElement as customElement } from '../../internal/vendor/@carbon/web-components/globals/decorators/carbon-element.js';
 
 const { prefix, stablePrefix: ddsPrefix } = settings;
@@ -22,10 +22,10 @@ const { prefix, stablePrefix: ddsPrefix } = settings;
 /**
  * The container of the input select.
  *
- * @element dds-filter-panel-input-select
+ * @element c4d-filter-panel-input-select
  */
 @customElement(`${ddsPrefix}-filter-panel-input-select`)
-class DDSFilterPanelInputSelect extends FocusMixin(
+class C4DFilterPanelInputSelect extends FocusMixin(
   StableSelectorMixin(LitElement)
 ) {
   @property()
@@ -72,10 +72,10 @@ class DDSFilterPanelInputSelect extends FocusMixin(
    */
   protected _handleClickInner(event) {
     const { eventContentStateChange } = this
-      .constructor as typeof DDSFilterPanelInputSelect;
+      .constructor as typeof C4DFilterPanelInputSelect;
     const selected = (event.target as Element).closest(
-      (this.constructor as typeof DDSFilterPanelInputSelect).selectorItem
-    ) as DDSFilterPanelInputSelectItem;
+      (this.constructor as typeof C4DFilterPanelInputSelect).selectorItem
+    ) as C4DFilterPanelInputSelectItem;
     if (selected.hasAttribute('selected')) {
       selected.removeAttribute('selected');
     } else {
@@ -144,7 +144,7 @@ class DDSFilterPanelInputSelect extends FocusMixin(
    */
   protected _handleClickHeader() {
     const { eventInputSelect } = this
-      .constructor as typeof DDSFilterPanelInputSelect;
+      .constructor as typeof C4DFilterPanelInputSelect;
     this.isOpen = !this.isOpen;
     this.selected = !this.selected;
     this.dispatchEvent(
@@ -236,4 +236,4 @@ class DDSFilterPanelInputSelect extends FocusMixin(
 }
 
 /* @__GENERATE_REACT_CUSTOM_ELEMENT_TYPE__ */
-export default DDSFilterPanelInputSelect;
+export default C4DFilterPanelInputSelect;

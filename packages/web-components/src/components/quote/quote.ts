@@ -29,7 +29,7 @@ const slotExistencePropertyNames = {
 /**
  * Quote.
  *
- * @element dds-quote
+ * @element c4d-quote
  * @slot copy - The copy content.
  * @slot footer - The footer (CTA) content.
  * @slot source-heading - The heading content of the quote source.
@@ -37,7 +37,7 @@ const slotExistencePropertyNames = {
  * @slot source-bottom-copy - The copy content of the quote source placed at the bottom.
  */
 @customElement(`${ddsPrefix}-quote`)
-class DDSQuote extends StableSelectorMixin(LitElement) {
+class C4DQuote extends StableSelectorMixin(LitElement) {
   /**
    * Defines rendered quote mark style
    * styles:
@@ -164,7 +164,7 @@ class DDSQuote extends StableSelectorMixin(LitElement) {
     const { _hasFooter: hasFooter, _handleSlotChange: handleSlotChange } = this;
     return html`
       <div ?hidden="${!hasFooter}" class="${prefix}--quote__footer">
-        <dds-hr></dds-hr>
+        <c4d-hr></c4d-hr>
         <slot name="footer" @slotchange="${handleSlotChange}"></slot>
       </div>
     `;
@@ -202,4 +202,4 @@ class DDSQuote extends StableSelectorMixin(LitElement) {
 }
 
 /* @__GENERATE_REACT_CUSTOM_ELEMENT_TYPE__ */
-export default DDSQuote;
+export default C4DQuote;

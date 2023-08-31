@@ -26,10 +26,10 @@ interface Cancelable {
 /**
  * Back to top
  *
- * @element dds-back-to-top
+ * @element c4d-back-to-top
  */
 @customElement(`${ddsPrefix}-back-to-top`)
-class DDSBackToTop extends HostListenerMixin(StableSelectorMixin(LitElement)) {
+class C4DBackToTop extends HostListenerMixin(StableSelectorMixin(LitElement)) {
   /**
    * The observer for the resize of the document body.
    */
@@ -185,4 +185,4 @@ class DDSBackToTop extends HostListenerMixin(StableSelectorMixin(LitElement)) {
 }
 
 /* @__GENERATE_REACT_CUSTOM_ELEMENT_TYPE__ */
-export default DDSBackToTop;
+export default C4DBackToTop;

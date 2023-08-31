@@ -10,7 +10,7 @@ import { css } from 'lit';
 import { property } from 'lit/decorators.js';
 import settings from '@carbon/ibmdotcom-utilities/es/utilities/settings/settings.js';
 import styles from './logo-grid.scss';
-import DDSCardLink from '../card-link/card-link';
+import C4DCardLink from '../card-link/card-link';
 import StableSelectorMixin from '../../globals/mixins/stable-selector';
 import { carbonElement as customElement } from '../../internal/vendor/@carbon/web-components/globals/decorators/carbon-element';
 
@@ -19,10 +19,10 @@ const { stablePrefix: ddsPrefix } = settings;
 /**
  * Logo-grid-link.
  *
- * @element dds-logo-grid-link
+ * @element c4d-logo-grid-link
  */
 @customElement(`${ddsPrefix}-logo-grid-link`)
-class DDSLogoGridLink extends StableSelectorMixin(DDSCardLink) {
+class C4DLogoGridLink extends StableSelectorMixin(C4DCardLink) {
   /**
    * The shadow slot this link should be in.
    */
@@ -47,4 +47,4 @@ console.warn(
 );
 
 /* @__GENERATE_REACT_CUSTOM_ELEMENT_TYPE__ */
-export default DDSLogoGridLink;
+export default C4DLogoGridLink;

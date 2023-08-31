@@ -22,10 +22,10 @@ const { stablePrefix: ddsPrefix } = settings;
 /**
  * Megamenu link with icon.
  *
- * @element dds-megamenu-link-with-icon
+ * @element c4d-megamenu-link-with-icon
  */
 @customElement(`${ddsPrefix}-megamenu-link-with-icon`)
-class DDSMegaMenuLinkWithIcon extends CDSLink {
+class C4DMegaMenuLinkWithIcon extends CDSLink {
   /**
    * link title.
    */
@@ -40,4 +40,4 @@ class DDSMegaMenuLinkWithIcon extends CDSLink {
   }
 }
 
-export default DDSMegaMenuLinkWithIcon;
+export default C4DMegaMenuLinkWithIcon;

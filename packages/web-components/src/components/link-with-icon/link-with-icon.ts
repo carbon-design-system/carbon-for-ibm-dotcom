@@ -28,12 +28,12 @@ const { prefix, stablePrefix: ddsPrefix } = settings;
 /**
  * Link with icon.
  *
- * @element dds-link-with-icon
+ * @element c4d-link-with-icon
  * @slot icon - The icon.
  * @slot icon-left - The CTA icon to place at the left.
  */
 @customElement(`${ddsPrefix}-link-with-icon`)
-class DDSLinkWithIcon extends CTAMixin(StableSelectorMixin(CDSLink)) {
+class C4DLinkWithIcon extends CTAMixin(StableSelectorMixin(CDSLink)) {
   /**
    * Icon placement(right (default) | left)
    */
@@ -132,4 +132,4 @@ class DDSLinkWithIcon extends CTAMixin(StableSelectorMixin(CDSLink)) {
 }
 
 /* @__GENERATE_REACT_CUSTOM_ELEMENT_TYPE__ */
-export default DDSLinkWithIcon;
+export default C4DLinkWithIcon;

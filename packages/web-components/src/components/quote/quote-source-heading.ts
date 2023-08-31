@@ -18,10 +18,10 @@ const { stablePrefix: ddsPrefix } = settings;
 /**
  * The source heading content of quote.
  *
- * @element dds-quote-source-heading
+ * @element c4d-quote-source-heading
  */
 @customElement(`${ddsPrefix}-quote-source-heading`)
-class DDSQuoteSourceHeading extends LitElement {
+class C4DQuoteSourceHeading extends LitElement {
   /**
    * The shadow slot this source copy content should be in.
    */
@@ -37,4 +37,4 @@ class DDSQuoteSourceHeading extends LitElement {
 }
 
 /* @__GENERATE_REACT_CUSTOM_ELEMENT_TYPE__ */
-export default DDSQuoteSourceHeading;
+export default C4DQuoteSourceHeading;

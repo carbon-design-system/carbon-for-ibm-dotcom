@@ -28,10 +28,10 @@ const { prefix, stablePrefix: ddsPrefix } = settings;
 /**
  * Renders the filter panel modal
  *
- * @element dds-filter-panel-modal
+ * @element c4d-filter-panel-modal
  */
 @customElement(`${ddsPrefix}-filter-panel-modal`)
-class DDSFilterPanelModal extends HostListenerMixin(
+class C4DFilterPanelModal extends HostListenerMixin(
   StableSelectorMixin(CDSModal)
 ) {
   /**
@@ -48,7 +48,7 @@ class DDSFilterPanelModal extends HostListenerMixin(
    */
   protected _handleClear() {
     const { eventSelectionClear } = this
-      .constructor as typeof DDSFilterPanelModal;
+      .constructor as typeof C4DFilterPanelModal;
     this.dispatchEvent(
       new CustomEvent(eventSelectionClear, {
         bubbles: true,
@@ -117,22 +117,22 @@ class DDSFilterPanelModal extends HostListenerMixin(
         <cds-modal-header>
           <cds-modal-close-button
             @click=${this._handleUserClose}></cds-modal-close-button>
-          <dds-filter-modal-heading>${this.heading}</dds-filter-modal-heading>
+          <c4d-filter-modal-heading>${this.heading}</c4d-filter-modal-heading>
         </cds-modal-header>
         <div class="${prefix}--modal-body"><slot></slot></div>
-        <dds-filter-modal-footer>
-          <dds-filter-modal-footer-button
+        <c4d-filter-modal-footer>
+          <c4d-filter-modal-footer-button
             ?disabled="${!this.hasSelections}"
             @click=${this._handleClear}
             kind="tertiary"
-            >Clear</dds-filter-modal-footer-button
+            >Clear</c4d-filter-modal-footer-button
           >
-          <dds-filter-modal-footer-button
+          <c4d-filter-modal-footer-button
             @click=${this._handleUserClose}
             kind="primary"
-            >See Results</dds-filter-modal-footer-button
+            >See Results</c4d-filter-modal-footer-button
           >
-        </dds-filter-modal-footer>
+        </c4d-filter-modal-footer>
       </section>
       <a
         id="end-sentinel"
@@ -173,4 +173,4 @@ class DDSFilterPanelModal extends HostListenerMixin(
 }
 
 /* @__GENERATE_REACT_CUSTOM_ELEMENT_TYPE__ */
-export default DDSFilterPanelModal;
+export default C4DFilterPanelModal;

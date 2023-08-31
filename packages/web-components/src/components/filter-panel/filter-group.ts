@@ -19,10 +19,10 @@ const { stablePrefix: ddsPrefix } = settings;
 /**
  * Filter group renders the entire accordion group.
  *
- * @element dds-filter-group
+ * @element c4d-filter-group
  */
 @customElement(`${ddsPrefix}-filter-group`)
-class DDSFilterGroup extends StableSelectorMixin(CDSAccordion) {
+class C4DFilterGroup extends StableSelectorMixin(CDSAccordion) {
   /**
    * Extends CDSAccordion component
    */
@@ -34,4 +34,4 @@ class DDSFilterGroup extends StableSelectorMixin(CDSAccordion) {
 }
 
 /* @__GENERATE_REACT_CUSTOM_ELEMENT_TYPE__ */
-export default DDSFilterGroup;
+export default C4DFilterGroup;

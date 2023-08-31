@@ -8,7 +8,7 @@
  */
 
 import settings from '../../internal/vendor/@carbon/ibmdotcom-utilities/utilities/settings/settings';
-import DDSButtonGroup from '../button-group/button-group';
+import C4DButtonGroup from '../button-group/button-group';
 import StableSelectorMixin from '../../globals/mixins/stable-selector';
 import styles from './leadspace-block.scss';
 import { carbonElement as customElement } from '../../internal/vendor/@carbon/web-components/globals/decorators/carbon-element';
@@ -18,10 +18,10 @@ const { stablePrefix: ddsPrefix } = settings;
 /**
  * LeadSpace Block cta.
  *
- * @element dds-leadspace-block-cta
+ * @element c4d-leadspace-block-cta
  */
 @customElement(`${ddsPrefix}-leadspace-block-cta`)
-class DDSLeadSpaceBlockCTA extends StableSelectorMixin(DDSButtonGroup) {
+class C4DLeadSpaceBlockCTA extends StableSelectorMixin(C4DButtonGroup) {
   static get stableSelector() {
     return `${ddsPrefix}--leadspace-block__cta`;
   }
@@ -30,4 +30,4 @@ class DDSLeadSpaceBlockCTA extends StableSelectorMixin(DDSButtonGroup) {
 }
 
 /* @__GENERATE_REACT_CUSTOM_ELEMENT_TYPE__ */
-export default DDSLeadSpaceBlockCTA;
+export default C4DLeadSpaceBlockCTA;

@@ -20,10 +20,10 @@ const { stablePrefix: ddsPrefix } = settings;
 /**
  * The heading content of leadspace.
  *
- * @element dds-leadspace-heading
+ * @element c4d-leadspace-heading
  */
 @customElement(`${ddsPrefix}-leadspace-heading`)
-class DDSLeadspaceHeading extends StableSelectorMixin(LitElement) {
+class C4DLeadspaceHeading extends StableSelectorMixin(LitElement) {
   /**
    * The shadow slot this heading content should be in.
    */
@@ -61,4 +61,4 @@ class DDSLeadspaceHeading extends StableSelectorMixin(LitElement) {
 }
 
 /* @__GENERATE_REACT_CUSTOM_ELEMENT_TYPE__ */
-export default DDSLeadspaceHeading;
+export default C4DLeadspaceHeading;

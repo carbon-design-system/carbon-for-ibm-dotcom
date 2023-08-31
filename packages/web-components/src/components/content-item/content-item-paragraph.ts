@@ -18,10 +18,10 @@ const { stablePrefix: ddsPrefix } = settings;
 /**
  * The paragraph content in content item.
  *
- * @element dds-content-item-paragraph
+ * @element c4d-content-item-paragraph
  */
 @customElement(`${ddsPrefix}-content-item-paragraph`)
-class DDSContentItemParagraph extends StableSelectorMixin(LitElement) {
+class C4DContentItemParagraph extends StableSelectorMixin(LitElement) {
   static get stableSelector() {
     return `${ddsPrefix}--content-item-paragraph`;
   }
@@ -34,4 +34,4 @@ class DDSContentItemParagraph extends StableSelectorMixin(LitElement) {
 }
 
 /* @__GENERATE_REACT_CUSTOM_ELEMENT_TYPE__ */
-export default DDSContentItemParagraph;
+export default C4DContentItemParagraph;

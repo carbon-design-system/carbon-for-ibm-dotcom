@@ -18,10 +18,10 @@ const { stablePrefix: ddsPrefix } = settings;
 /**
  * StructuredListHeaderRow
  *
- * @element dds-structured-list-header-row
+ * @element c4d-structured-list-header-row
  */
 @customElement(`${ddsPrefix}-structured-list-header-row`)
-class DDSStructuredListHeaderRow extends CDSStructuredListHeaderRow {
+class C4DStructuredListHeaderRow extends CDSStructuredListHeaderRow {
   connectedCallback() {
     super.connectedCallback();
   }
@@ -30,4 +30,4 @@ class DDSStructuredListHeaderRow extends CDSStructuredListHeaderRow {
 }
 
 /* @__GENERATE_REACT_CUSTOM_ELEMENT_TYPE__ */
-export default DDSStructuredListHeaderRow;
+export default C4DStructuredListHeaderRow;

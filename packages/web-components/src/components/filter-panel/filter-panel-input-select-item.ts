@@ -21,10 +21,10 @@ const { prefix, stablePrefix: ddsPrefix } = settings;
 /**
  * The input select inner dropdown.
  *
- * @element dds-filter-panel-input-select-item
+ * @element c4d-filter-panel-input-select-item
  */
 @customElement(`${ddsPrefix}-filter-panel-input-select-item`)
-class DDSFilterPanelInputSelectItem extends FocusMixin(
+class C4DFilterPanelInputSelectItem extends FocusMixin(
   StableSelectorMixin(LitElement)
 ) {
   /**
@@ -92,4 +92,4 @@ class DDSFilterPanelInputSelectItem extends FocusMixin(
 }
 
 /* @__GENERATE_REACT_CUSTOM_ELEMENT_TYPE__ */
-export default DDSFilterPanelInputSelectItem;
+export default C4DFilterPanelInputSelectItem;

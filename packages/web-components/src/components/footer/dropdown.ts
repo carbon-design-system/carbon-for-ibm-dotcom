@@ -37,7 +37,7 @@ const { prefix, stablePrefix: ddsPrefix } = settings;
 /**
  * Dropdown.
  *
- * @element dds-dropdown
+ * @element c4d-dropdown
  * @csspart label-text The label text.
  * @csspart helper-text The helper text.
  * @csspart trigger-button The trigger button.
@@ -53,7 +53,7 @@ const { prefix, stablePrefix: ddsPrefix } = settings;
  * @fires cds-dropdown-toggled - The custom event fired after the open state of this dropdown is toggled upon a user gesture.
  */
 @customElement(`${ddsPrefix}-dropdown`)
-class DDSDropdown extends CDSDropdown {
+class C4DDropdown extends CDSDropdown {
   /**
    * The `<input` node in ComboBox, used to get value.
    */
@@ -132,7 +132,7 @@ class DDSDropdown extends CDSDropdown {
     } = this;
     const inline = type === DROPDOWN_TYPE.INLINE;
     const selectedItemsCount = this.querySelectorAll(
-      (this.constructor as typeof DDSDropdown).selectorItemSelected
+      (this.constructor as typeof C4DDropdown).selectorItemSelected
     ).length;
     const classes = classMap({
       [`${prefix}--dropdown`]: true,
@@ -246,4 +246,4 @@ class DDSDropdown extends CDSDropdown {
   }
 }
 
-export default DDSDropdown;
+export default C4DDropdown;

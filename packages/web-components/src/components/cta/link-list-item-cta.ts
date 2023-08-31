@@ -9,7 +9,7 @@
 
 import { css } from 'lit';
 import settings from '../../internal/vendor/@carbon/ibmdotcom-utilities/utilities/settings/settings';
-import DDSTextCTA from './text-cta';
+import C4DTextCTA from './text-cta';
 import styles from '../link-list/link-list.scss';
 import { carbonElement as customElement } from '../../internal/vendor/@carbon/web-components/globals/decorators/carbon-element';
 
@@ -18,10 +18,10 @@ const { stablePrefix: ddsPrefix } = settings;
 /**
  * Link list item CTA.
  *
- * @element dds-link-list-item-cta
+ * @element c4d-link-list-item-cta
  */
 @customElement(`${ddsPrefix}-link-list-item-cta`)
-class DDSLinkListItemCTA extends DDSTextCTA {
+class C4DLinkListItemCTA extends C4DTextCTA {
   connectedCallback() {
     if (!this.hasAttribute('role')) {
       this.setAttribute('role', 'listitem');
@@ -42,4 +42,4 @@ class DDSLinkListItemCTA extends DDSTextCTA {
 }
 
 /* @__GENERATE_REACT_CUSTOM_ELEMENT_TYPE__ */
-export default DDSLinkListItemCTA;
+export default C4DLinkListItemCTA;

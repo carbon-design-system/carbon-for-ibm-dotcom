@@ -23,12 +23,12 @@ const { prefix, stablePrefix: ddsPrefix } = settings;
 /**
  * Notice Choice
  *
- * @element dds-notice-choice
- * @fires dds-notice-choice-change
+ * @element c4d-notice-choice
+ * @fires c4d-notice-choice-change
  * The custom event fired when default choice loaded or user change some preferences.
  * The field and value should be taken from the detail object and send it to MRS.
  */
-@customElement(`dds-notice-choice`)
+@customElement(`c4d-notice-choice`)
 class NoticeChoice extends StableSelectorMixin(LitElement) {
   /**
    * properties for passed attributes.

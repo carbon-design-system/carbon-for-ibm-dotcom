@@ -10,7 +10,7 @@
 import { css, html, TemplateResult } from 'lit';
 import settings from '../../internal/vendor/@carbon/ibmdotcom-utilities/utilities/settings/settings';
 import StableSelectorMixin from '../../globals/mixins/stable-selector';
-import DDSContentGroup from '../content-group/content-group';
+import C4DContentGroup from '../content-group/content-group';
 import styles from './content-block-segmented.scss';
 import { carbonElement as customElement } from '../../internal/vendor/@carbon/web-components/globals/decorators/carbon-element';
 
@@ -19,11 +19,11 @@ const { prefix, stablePrefix: ddsPrefix } = settings;
 /**
  * Content block segmented item.
  *
- * @element dds-content-block-segmented-item
+ * @element c4d-content-block-segmented-item
  */
 @customElement(`${ddsPrefix}-content-block-segmented-item`)
-class DDSContentBlockSegmentedItem extends StableSelectorMixin(
-  DDSContentGroup
+class C4DContentBlockSegmentedItem extends StableSelectorMixin(
+  C4DContentGroup
 ) {
   protected _renderInnerBody(): TemplateResult | string | void {
     return html` ${this._renderContent()}${this._renderMedia()} `;
@@ -58,4 +58,4 @@ console.warn(
 );
 
 /* @__GENERATE_REACT_CUSTOM_ELEMENT_TYPE__ */
-export default DDSContentBlockSegmentedItem;
+export default C4DContentBlockSegmentedItem;

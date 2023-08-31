@@ -22,10 +22,10 @@ const { stablePrefix: ddsPrefix } = settings;
 /**
  * Leaving IBM Modal.
  *
- * @element dds-leaving-ibm-modal
+ * @element c4d-leaving-ibm-modal
  */
 @customElement(`${ddsPrefix}-leaving-ibm-modal`)
-class DDSLeavingIbmModal extends StableSelectorMixin(CDSModal) {
+class C4DLeavingIbmModal extends StableSelectorMixin(CDSModal) {
   /**
    * The unique ID for ID ref.
    */
@@ -41,7 +41,7 @@ class DDSLeavingIbmModal extends StableSelectorMixin(CDSModal) {
   @HostListener('shadowRoot:slotchange')
   // @ts-ignore: The decorator refers to this method but TS thinks this method is not referred to
   private _handleSlotChange = (event: Event) => {
-    const { selectorHeading } = this.constructor as typeof DDSLeavingIbmModal;
+    const { selectorHeading } = this.constructor as typeof C4DLeavingIbmModal;
     if (!this.hasAttribute('aria-labelledby')) {
       const headingNode = (event.target as HTMLSlotElement)
         .assignedNodes()
@@ -95,4 +95,4 @@ class DDSLeavingIbmModal extends StableSelectorMixin(CDSModal) {
 }
 
 /* @__GENERATE_REACT_CUSTOM_ELEMENT_TYPE__ */
-export default DDSLeavingIbmModal;
+export default C4DLeavingIbmModal;

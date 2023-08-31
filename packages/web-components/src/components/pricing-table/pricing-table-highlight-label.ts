@@ -17,7 +17,7 @@ import { carbonElement as customElement } from '../../internal/vendor/@carbon/we
 const { stablePrefix: ddsPrefix } = settings;
 
 @customElement(`${ddsPrefix}-pricing-table-highlight-label`)
-class DDSPricingTableHighlightLabel extends StableSelectorMixin(LitElement) {
+class C4DPricingTableHighlightLabel extends StableSelectorMixin(LitElement) {
   @property({ reflect: true })
   slot = 'highlight-label';
 
@@ -32,4 +32,4 @@ class DDSPricingTableHighlightLabel extends StableSelectorMixin(LitElement) {
   static styles = styles;
 }
 
-export default DDSPricingTableHighlightLabel;
+export default C4DPricingTableHighlightLabel;

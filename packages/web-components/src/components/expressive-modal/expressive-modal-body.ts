@@ -18,10 +18,10 @@ const { stablePrefix: ddsPrefix } = settings;
 /**
  * Expressive modal body.
  *
- * @element dds-expressive-modal-body
+ * @element c4d-expressive-modal-body
  */
 @customElement(`${ddsPrefix}-expressive-modal-body`)
-class DDSExpressiveModalBody extends StableSelectorMixin(CDSModalBody) {
+class C4DExpressiveModalBody extends StableSelectorMixin(CDSModalBody) {
   static get stableSelector() {
     return `${ddsPrefix}--expressive-modal-body`;
   }
@@ -30,4 +30,4 @@ class DDSExpressiveModalBody extends StableSelectorMixin(CDSModalBody) {
 }
 
 /* @__GENERATE_REACT_CUSTOM_ELEMENT_TYPE__ */
-export default DDSExpressiveModalBody;
+export default C4DExpressiveModalBody;

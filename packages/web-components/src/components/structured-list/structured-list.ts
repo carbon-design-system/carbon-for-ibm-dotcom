@@ -18,10 +18,10 @@ const { prefix, stablePrefix: ddsPrefix } = settings;
 /**
  * StructuredList
  *
- * @element dds-structured-list
+ * @element c4d-structured-list
  */
 @customElement(`${ddsPrefix}-structured-list`)
-class DDSStructuredList extends StableSelectorMixin(LitElement) {
+class C4DStructuredList extends StableSelectorMixin(LitElement) {
   private _listMutationObserver = new MutationObserver(
     this._setColumnSpans.bind(this)
   );
@@ -41,7 +41,7 @@ class DDSStructuredList extends StableSelectorMixin(LitElement) {
 
   protected _resetIntersectionObserver() {
     this._scrollObserver.disconnect();
-    const { cellSelector } = this.constructor as typeof DDSStructuredList;
+    const { cellSelector } = this.constructor as typeof C4DStructuredList;
     this.querySelectorAll(cellSelector).forEach((cell) => {
       this._scrollObserver.observe(cell);
     });
@@ -111,7 +111,7 @@ class DDSStructuredList extends StableSelectorMixin(LitElement) {
   }
 
   protected renderInner() {
-    const { wrapperId } = this.constructor as typeof DDSStructuredList;
+    const { wrapperId } = this.constructor as typeof C4DStructuredList;
     return html`
       <section id="${wrapperId}" class="${prefix}--structured-list">
         <slot></slot>
@@ -131,4 +131,4 @@ class DDSStructuredList extends StableSelectorMixin(LitElement) {
 }
 
 /* @__GENERATE_REACT_CUSTOM_ELEMENT_TYPE__ */
-export default DDSStructuredList;
+export default C4DStructuredList;

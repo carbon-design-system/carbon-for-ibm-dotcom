@@ -9,15 +9,15 @@
 
 import { html, render } from 'lit/html.js';
 import KalturaPlayerAPI from '@carbon/ibmdotcom-services/es/services/KalturaPlayer/KalturaPlayer.js';
-import DDSExpressiveModal from '../../expressive-modal/expressive-modal';
-import DDSLightboxVideoPlayerComposite from '../../lightbox-media-viewer/lightbox-video-player-composite';
+import C4DExpressiveModal from '../../expressive-modal/expressive-modal';
+import C4DLightboxVideoPlayerComposite from '../../lightbox-media-viewer/lightbox-video-player-composite';
 import '../video-cta-composite';
 
 const template = () => html`
-  <dds-video-cta-composite></dds-video-cta-composite>
+  <c4d-video-cta-composite></c4d-video-cta-composite>
 `;
 
-describe('dds-video-cta-composite', function () {
+describe('c4d-video-cta-composite', function () {
   describe('Handling video type', function () {
     beforeEach(function () {
       spyOn(KalturaPlayerAPI, 'api').and.returnValue(Promise.resolve({}));
@@ -30,7 +30,7 @@ describe('dds-video-cta-composite', function () {
       render(template(), document.body);
       await Promise.resolve();
       const { modalRenderRoot } = document.querySelector(
-        'dds-video-cta-composite'
+        'c4d-video-cta-composite'
       ) as any;
       expect(modalRenderRoot).toMatchSnapshot();
     });
@@ -39,28 +39,28 @@ describe('dds-video-cta-composite', function () {
       render(template(), document.body);
       await Promise.resolve();
       const videoCTAComposite = document.querySelector(
-        'dds-video-cta-composite'
+        'c4d-video-cta-composite'
       );
       videoCTAComposite!.dispatchEvent(
-        new CustomEvent('dds-cta-run-action', {
+        new CustomEvent('c4d-cta-run-action', {
           detail: { ctaType: 'video', href: '1_9h94wo6b' },
         })
       );
-      await Promise.resolve(); // Update cycle for `<dds-video-cta-composite>`
-      await Promise.resolve(); // Update cycle for `<dds-lightbox-video-player-composite>`
+      await Promise.resolve(); // Update cycle for `<c4d-video-cta-composite>`
+      await Promise.resolve(); // Update cycle for `<c4d-lightbox-video-player-composite>`
       const { modalRenderRoot } = document.querySelector(
-        'dds-video-cta-composite'
+        'c4d-video-cta-composite'
       ) as any;
       const lightboxVideoPlayerComposite = modalRenderRoot!.querySelector(
-        'dds-lightbox-video-player-composite'
-      ) as DDSLightboxVideoPlayerComposite;
+        'c4d-lightbox-video-player-composite'
+      ) as C4DLightboxVideoPlayerComposite;
       const lightboxRenderRoot =
         lightboxVideoPlayerComposite.modalRenderRoot as Element;
       expect(
         (
           lightboxRenderRoot.querySelector(
-            'dds-expressive-modal'
-          ) as DDSExpressiveModal
+            'c4d-expressive-modal'
+          ) as C4DExpressiveModal
         ).open
       ).toBe(true);
       const { videoId: videoIdInVideoPlayerCompositeOpen } =
@@ -68,15 +68,15 @@ describe('dds-video-cta-composite', function () {
       expect(videoIdInVideoPlayerCompositeOpen).toBe('1_9h94wo6b');
       (
         lightboxRenderRoot.querySelector(
-          'dds-expressive-modal-close-button'
+          'c4d-expressive-modal-close-button'
         ) as HTMLElement
       ).click();
       await Promise.resolve();
       expect(
         (
           lightboxRenderRoot.querySelector(
-            'dds-expressive-modal'
-          ) as DDSExpressiveModal
+            'c4d-expressive-modal'
+          ) as C4DExpressiveModal
         ).open
       ).toBe(false);
       const { videoId: videoIdInVideoPlayerCompositeClosed } =

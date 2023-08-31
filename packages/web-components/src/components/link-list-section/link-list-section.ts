@@ -10,7 +10,7 @@ import { html } from 'lit';
 import settings from '@carbon/ibmdotcom-utilities/es/utilities/settings/settings.js';
 import styles from './link-list-section.scss';
 import StableSelectorMixin from '../../globals/mixins/stable-selector';
-import DDSContentSection from '../content-section/content-section';
+import C4DContentSection from '../content-section/content-section';
 import { carbonElement as customElement } from '../../internal/vendor/@carbon/web-components/globals/decorators/carbon-element';
 
 const { prefix, stablePrefix: ddsPrefix } = settings;
@@ -18,18 +18,18 @@ const { prefix, stablePrefix: ddsPrefix } = settings;
 /**
  * Link list.
  *
- * @element dds-link-list
+ * @element c4d-link-list
  * @slot heading - The heading content.
  */
 @customElement(`${ddsPrefix}-link-list-section`)
-class DDSLinkListSection extends StableSelectorMixin(DDSContentSection) {
+class C4DLinkListSection extends StableSelectorMixin(C4DContentSection) {
   _handleSlotChange = (event: Event) => {
     const slot = (event.target as HTMLSlotElement)
       .assignedElements()
       .filter(
         (elem) =>
           elem.localName ===
-          (this.constructor as typeof DDSLinkListSection).linkListSelector
+          (this.constructor as typeof C4DLinkListSection).linkListSelector
       )[0];
     if (
       slot &&
@@ -72,4 +72,4 @@ console.warn(
 );
 
 /* @__GENERATE_REACT_CUSTOM_ELEMENT_TYPE__ */
-export default DDSLinkListSection;
+export default C4DLinkListSection;

@@ -10,7 +10,7 @@
 import { property } from 'lit/decorators.js';
 import settings from '../../internal/vendor/@carbon/ibmdotcom-utilities/utilities/settings/settings';
 import { carbonElement as customElement } from '../../internal/vendor/@carbon/web-components/globals/decorators/carbon-element';
-import DDSCardLinkCTA from '../cta/card-link-cta';
+import C4DCardLinkCTA from '../cta/card-link-cta';
 import styles from './card-group.scss';
 
 const { stablePrefix: ddsPrefix } = settings;
@@ -18,10 +18,10 @@ const { stablePrefix: ddsPrefix } = settings;
 /**
  * Card Group Card Link item.
  *
- * @element dds-card-group-card-link-item
+ * @element c4d-card-group-card-link-item
  */
 @customElement(`${ddsPrefix}-card-group-card-link-item`)
-class DDSCardGroupCardLinkItem extends DDSCardLinkCTA {
+class C4DCardGroupCardLinkItem extends C4DCardLinkCTA {
   /**
    * `true` if the card group is using border.
    */
@@ -59,4 +59,4 @@ console.warn(
     'See card-group documentation for more information.'
 );
 /* @__GENERATE_REACT_CUSTOM_ELEMENT_TYPE__ */
-export default DDSCardGroupCardLinkItem;
+export default C4DCardGroupCardLinkItem;

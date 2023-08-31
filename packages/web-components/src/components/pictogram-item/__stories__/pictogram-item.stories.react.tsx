@@ -11,10 +11,10 @@ import React from 'react';
 // Below path will be there when an application installs `@carbon/ibmdotcom-web-components` package.
 // In our dev env, we auto-generate the file and re-map below path to to point to the generated file.
 // @ts-ignore
-import DDSPictogramItem from '@carbon/ibmdotcom-web-components/es/components-react/pictogram-item/pictogram-item';
-import DDSContentItemHeading from '@carbon/ibmdotcom-web-components/es/components-react/content-item/content-item-heading.js';
-import DDSContentItemCopy from '@carbon/ibmdotcom-web-components/es/components-react/content-item/content-item-copy.js';
-import DDSLinkWithIcon from '@carbon/ibmdotcom-web-components/es/components-react/link-with-icon/link-with-icon';
+import C4DPictogramItem from '@carbon/ibmdotcom-web-components/es/components-react/pictogram-item/pictogram-item';
+import C4DContentItemHeading from '@carbon/ibmdotcom-web-components/es/components-react/content-item/content-item-heading.js';
+import C4DContentItemCopy from '@carbon/ibmdotcom-web-components/es/components-react/content-item/content-item-copy.js';
+import C4DLinkWithIcon from '@carbon/ibmdotcom-web-components/es/components-react/link-with-icon/link-with-icon';
 import ArrowRight20 from '@carbon/icons-react/es/arrow--right/20.js';
 import { COLOR_OPTIONS } from '../defs';
 import textNullable from '../../../../.storybook/knob-text-nullable';
@@ -35,16 +35,14 @@ const Desktop = (
     height="64"
     viewBox="8 8 32 32"
     role="img"
-    class="cds--pictogram-item__pictogram"
-  >
+    class="cds--pictogram-item__pictogram">
     <path
       fill="none"
       stroke-linejoin="round"
       stroke-miterlimit="10"
       stroke-width=".72"
       d="M37,32 H11c-1.1,0-2-0.9-2-2V13c0-1.1,0.9-2,2-2h26c1.1,
-  0,2,0.9,2,2v17C39,31.1,38.1,32,37,32z M17,37h14 M24,32v5 M9,27h30"
-    ></path>
+  0,2,0.9,2,2v17C39,31.1,38.1,32,37,32z M17,37h14 M24,32v5 M9,27h30"></path>
   </svg>
 );
 
@@ -63,8 +61,7 @@ const Pattern = (
     role="img"
     class="cds--pictogram-item__pictogram"
     // @ts-ignore
-    style={{ enableBackground: 'new 0 0 32 32' }}
-  >
+    style={{ enableBackground: 'new 0 0 32 32' }}>
     <path
       id="pattern_1_"
       d="M29,31.36H13c-1.301,0-2.36-1.059-2.36-2.36v-7.64H3c-1.301,0-2.36-1.059-2.36-2.36V3
@@ -115,8 +112,7 @@ const Touch = (
     height="64"
     viewBox="0 0 32 32"
     role="img"
-    class="cds--pictogram-item__pictogram"
-  >
+    class="cds--pictogram-item__pictogram">
     <path
       id="touch_1_"
       d="M19.77,31.36c-5.067,0-7.409-2.218-10.404-5.602c-0.844-0.953-3.435-3.76-3.435-3.76L5.43,21.444
@@ -176,14 +172,14 @@ export const Default = (args) => {
   const { heading, copy, href, linkCopy, pictogram, pictogramColor } =
     args?.PictogramItem ?? {};
   return (
-    <DDSPictogramItem color={pictogramColor}>
+    <C4DPictogramItem color={pictogramColor}>
       {pictogram?.src}
-      <DDSContentItemHeading>{heading}</DDSContentItemHeading>
-      <DDSContentItemCopy>{copy}</DDSContentItemCopy>
-      <DDSLinkWithIcon href={href} slot="footer">
+      <C4DContentItemHeading>{heading}</C4DContentItemHeading>
+      <C4DContentItemCopy>{copy}</C4DContentItemCopy>
+      <C4DLinkWithIcon href={href} slot="footer">
         {linkCopy} <ArrowRight20 slot="icon"></ArrowRight20>
-      </DDSLinkWithIcon>
-    </DDSPictogramItem>
+      </C4DLinkWithIcon>
+    </C4DPictogramItem>
   );
 };
 

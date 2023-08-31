@@ -37,24 +37,24 @@ const colSpan = 3;
  * const list = '${prefix}--content-block, ${prefix}--content-group';
  *
  * For default values of 400ms and 'one and done' play:
- * <dds-scroll-animations selectorTargets="${selectorTargets}">
+ * <c4d-scroll-animations selectorTargets="${selectorTargets}">
  *  // some content
- * </dds-scroll-animations>
+ * </c4d-scroll-animations>
  *
  * With 'continuous play' option:
- * <dds-scroll-animations selector-targets="${selectorTargets}" keep-animation="true">
+ * <c4d-scroll-animations selector-targets="${selectorTargets}" keep-animation="true">
  *   // some content
- * </dds-scroll-animations>
+ * </c4d-scroll-animations>
  *
  * For custom delay time, set within targeted class in the application's CSS code as such:
  *
  * .${prefix}--content-block {
- *   --#{$dds-prefix}--scroll-animations-delay: 250ms;
+ *   --#{$c4d-prefix}--scroll-animations-delay: 250ms;
  * }
- * @element dds-scroll-animations
+ * @element c4d-scroll-animations
  */
 @customElement(`${ddsPrefix}-scroll-animations`)
-class DDSScrollAnimations extends StableSelectorMixin(LitElement) {
+class C4DScrollAnimations extends StableSelectorMixin(LitElement) {
   /**
    * Intersection Observer that watches outer viewport.
    *
@@ -333,4 +333,4 @@ class DDSScrollAnimations extends StableSelectorMixin(LitElement) {
   }
 }
 
-export default DDSScrollAnimations;
+export default C4DScrollAnimations;

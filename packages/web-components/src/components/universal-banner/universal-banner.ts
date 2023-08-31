@@ -14,7 +14,7 @@ import settings from '../../internal/vendor/@carbon/ibmdotcom-utilities/utilitie
 import StableSelectorMixin from '../../globals/mixins/stable-selector';
 import styles from './universal-banner.scss';
 import StickyHeader from '../../internal/vendor/@carbon/ibmdotcom-utilities/utilities/StickyHeader/StickyHeader';
-import DDSButtonCTA from '../cta/button-cta';
+import C4DButtonCTA from '../cta/button-cta';
 import { icons as ctaIcons } from '../../component-mixins/cta/cta';
 import { carbonElement as customElement } from '../../internal/vendor/@carbon/web-components/globals/decorators/carbon-element';
 
@@ -25,10 +25,10 @@ const { prefix, stablePrefix: ddsPrefix } = settings;
 /**
  * Universal banner
  *
- * @element dds-universal-banner
+ * @element c4d-universal-banner
  */
 @customElement(`${ddsPrefix}-universal-banner`)
-class DDSUniversalBanner extends StableSelectorMixin(LitElement) {
+class C4DUniversalBanner extends StableSelectorMixin(LitElement) {
   /**
    * Saves the button CTA's href to use in link-with-icon for the small breakpoint
    */
@@ -85,12 +85,12 @@ class DDSUniversalBanner extends StableSelectorMixin(LitElement) {
       .assignedNodes()
       .filter((elem) =>
         (elem as HTMLElement).matches?.(
-          (this.constructor as typeof DDSUniversalBanner).ctaButton
+          (this.constructor as typeof C4DUniversalBanner).ctaButton
         )
       );
 
     this.buttonHref = (hasContent[0] as HTMLElement)?.getAttribute('href');
-    this.ctaType = (hasContent[0] as DDSButtonCTA)?.ctaType;
+    this.ctaType = (hasContent[0] as C4DButtonCTA)?.ctaType;
   }
 
   protected _handleResize() {
@@ -196,4 +196,4 @@ class DDSUniversalBanner extends StableSelectorMixin(LitElement) {
 }
 
 /* @__GENERATE_REACT_CUSTOM_ELEMENT_TYPE__ */
-export default DDSUniversalBanner;
+export default C4DUniversalBanner;

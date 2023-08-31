@@ -23,7 +23,7 @@ import { VIDEO_PLAYER_CONTENT_STATE, VIDEO_PLAYER_PLAYING_MODE } from './defs';
 import '../image/image';
 import styles from './video-player.scss';
 import StableSelectorMixin from '../../globals/mixins/stable-selector';
-import DDSVideoPlayerContainer from './video-player-container';
+import C4DVideoPlayerContainer from './video-player-container';
 import ParentVisibilityMixin from '../../component-mixins/parent-visibility/parent-visibility';
 import { carbonElement as customElement } from '../../internal/vendor/@carbon/web-components/globals/decorators/carbon-element.js';
 
@@ -35,10 +35,10 @@ const { prefix, stablePrefix: ddsPrefix } = settings;
 /**
  * Video player.
  *
- * @element dds-video-player
+ * @element c4d-video-player
  */
 @customElement(`${ddsPrefix}-video-player`)
-class DDSVideoPlayer extends FocusMixin(
+class C4DVideoPlayer extends FocusMixin(
   StableSelectorMixin(ParentVisibilityMixin(LitElement))
 ) {
   /**
@@ -56,7 +56,7 @@ class DDSVideoPlayer extends FocusMixin(
     }
     const { videoId, name, customVideoDescription } = this;
     const { eventContentStateChange } = this
-      .constructor as typeof DDSVideoPlayer;
+      .constructor as typeof C4DVideoPlayer;
     this.dispatchEvent(
       new CustomEvent(eventContentStateChange, {
         bubbles: true,
@@ -84,9 +84,9 @@ class DDSVideoPlayer extends FocusMixin(
             <button
               class="${prefix}--video-player__image-overlay"
               @click="${this._handleClickOverlay}">
-              <dds-image default-src="${thumbnailUrl}" alt="${ifDefined(name)}">
+              <c4d-image default-src="${thumbnailUrl}" alt="${ifDefined(name)}">
                 ${PlayVideo({ slot: 'icon' })}
-              </dds-image>
+              </c4d-image>
             </button>
           </div>
         `
@@ -128,7 +128,7 @@ class DDSVideoPlayer extends FocusMixin(
   public userInitiatedTogglePlaybackState() {
     const { videoId } = this;
     const { eventPlaybackStateChange } = this
-      .constructor as typeof DDSVideoPlayer;
+      .constructor as typeof C4DVideoPlayer;
     this.dispatchEvent(
       new CustomEvent(eventPlaybackStateChange, {
         bubbles: true,
@@ -271,7 +271,7 @@ class DDSVideoPlayer extends FocusMixin(
   firstUpdated() {
     this.tabIndex = 0;
     const parentIsBackground = Boolean(
-      (this.parentElement as DDSVideoPlayerContainer)?.backgroundMode
+      (this.parentElement as C4DVideoPlayerContainer)?.backgroundMode
     );
 
     this.backgroundMode = parentIsBackground;
@@ -303,4 +303,4 @@ class DDSVideoPlayer extends FocusMixin(
 }
 
 /* @__GENERATE_REACT_CUSTOM_ELEMENT_TYPE__ */
-export default DDSVideoPlayer;
+export default C4DVideoPlayer;

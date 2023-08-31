@@ -29,10 +29,10 @@ const { stablePrefix: ddsPrefix } = settings;
 /**
  * Component that renders video player from its metadata, etc.
  *
- * @element dds-video-player-composite
+ * @element c4d-video-player-composite
  */
 @customElement(`${ddsPrefix}-video-player-composite`)
-class DDSVideoPlayerComposite extends HybridRenderMixin(
+class C4DVideoPlayerComposite extends HybridRenderMixin(
   HostListenerMixin(LitElement)
 ) {
   /**
@@ -80,12 +80,12 @@ class DDSVideoPlayerComposite extends HybridRenderMixin(
    */
   protected get _videoPlayer() {
     const { selectorVideoPlayer } = this
-      .constructor as typeof DDSVideoPlayerComposite;
+      .constructor as typeof C4DVideoPlayerComposite;
     return this.querySelector(selectorVideoPlayer);
   }
 
   /**
-   * Handles `dds-video-player-content-state-changed` event.
+   * Handles `c4d-video-player-content-state-changed` event.
    * Such event is fired when user changes video content state, e.g. from thumbnail to video player.
    *
    * @param event The event.
@@ -288,7 +288,7 @@ class DDSVideoPlayerComposite extends HybridRenderMixin(
         width: String(videoThumbnailWidth),
       });
     return html`
-      <dds-video-player
+      <c4d-video-player
         duration="${ifDefined(duration)}"
         ?hide-caption=${hideCaption}
         name="${ifDefined(caption || name)}"
@@ -299,7 +299,7 @@ class DDSVideoPlayerComposite extends HybridRenderMixin(
         .formatCaption="${ifDefined(formatCaption)}"
         .formatDuration="${ifDefined(formatDuration)}"
         playing-mode="${ifDefined(playingMode)}">
-      </dds-video-player>
+      </c4d-video-player>
     `;
   }
 
@@ -330,4 +330,4 @@ class DDSVideoPlayerComposite extends HybridRenderMixin(
 }
 
 /* @__GENERATE_REACT_CUSTOM_ELEMENT_TYPE__ */
-export default DDSVideoPlayerComposite;
+export default C4DVideoPlayerComposite;

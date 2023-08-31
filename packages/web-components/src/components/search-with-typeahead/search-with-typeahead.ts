@@ -34,20 +34,20 @@ const gridBreakpoint = parseFloat(breakpoints.lg.width) * baseFontSize;
 /**
  * Search with Typeahead
  *
- * @element dds-search-with-typeahead
+ * @element c4d-search-with-typeahead
  * @csspart open-button The button to show the search box.
  * @csspart close-button The button to hide the search box.
  * @csspart search-input The input box for search.
- * @fires dds-search-with-typeahead-beingredirected
+ * @fires c4d-search-with-typeahead-beingredirected
  *   The custom event fired before the page is being redirected to the search result page.
  *   Cancellation of this event stops the user-initiated action of redirection.
- * @fires dds-search-with-typeahead-input
+ * @fires c4d-search-with-typeahead-input
  *   The name of the custom event fired after the search content is changed upon a user gesture.
- * @fires dds-search-with-typeahead-toggled
+ * @fires c4d-search-with-typeahead-toggled
  *   The name of the custom event fired after this search box is toggled upon a user gesture.
  */
 @customElement(`${ddsPrefix}-search-with-typeahead`)
-class DDSSearchWithTypeahead extends HostListenerMixin(
+class C4DSearchWithTypeahead extends HostListenerMixin(
   StableSelectorMixin(CDSDropdown)
 ) {
   // eslint-disable-next-line class-methods-use-this
@@ -210,7 +210,7 @@ class DDSSearchWithTypeahead extends HostListenerMixin(
     }
     const { _searchInputNode: searchInputNode } = this;
     const { eventInput, eventToggle } = this
-      .constructor as typeof DDSSearchWithTypeahead;
+      .constructor as typeof C4DSearchWithTypeahead;
     if (!active && searchInputNode.value) {
       searchInputNode.value = '';
       this.dispatchEvent(
@@ -252,7 +252,7 @@ class DDSSearchWithTypeahead extends HostListenerMixin(
    */
   private _handleKeyInput(event: KeyboardEvent) {
     if (
-      (this.constructor as typeof DDSSearchWithTypeahead).getAction(
+      (this.constructor as typeof C4DSearchWithTypeahead).getAction(
         event.key
       ) === DROPDOWN_KEYBOARD_ACTION.NONE
     ) {
@@ -272,7 +272,7 @@ class DDSSearchWithTypeahead extends HostListenerMixin(
     targetHref,
   }: { targetQuery?: string; targetHref?: string } = {}) {
     const { eventBeforeRedirect, eventInput } = this
-      .constructor as typeof DDSSearchWithTypeahead;
+      .constructor as typeof C4DSearchWithTypeahead;
     const { language, redirectUrl } = this;
     const [primary, country] = language.split('-');
     const tokens = redirectUrl.split('?');
@@ -391,7 +391,7 @@ class DDSSearchWithTypeahead extends HostListenerMixin(
 
     this.dispatchEvent(
       new CustomEvent(
-        (this.constructor as typeof DDSSearchWithTypeahead).eventInput,
+        (this.constructor as typeof C4DSearchWithTypeahead).eventInput,
         {
           bubbles: true,
           composed: true,
@@ -426,7 +426,7 @@ class DDSSearchWithTypeahead extends HostListenerMixin(
     ) {
       const scopeBarWidth = (
         this.shadowRoot?.querySelector(
-          'dds-scoped-search-dropdown'
+          'c4d-scoped-search-dropdown'
         ) as HTMLElement
       ).offsetWidth;
       (this._searchSuggestions?.parentElement as HTMLElement)?.setAttribute(
@@ -448,7 +448,7 @@ class DDSSearchWithTypeahead extends HostListenerMixin(
    */
   private _handleSubmit(event: Event) {
     const { eventBeforeRedirect } = this
-      .constructor as typeof DDSSearchWithTypeahead;
+      .constructor as typeof C4DSearchWithTypeahead;
     const { selectorItemHighlighted } = this.constructor as typeof CDSDropdown;
     const highlightedItem = this.shadowRoot!.querySelector(
       selectorItemHighlighted
@@ -532,7 +532,7 @@ class DDSSearchWithTypeahead extends HostListenerMixin(
    * @param direction `-1` to navigate backward, `1` to navigate forward.
    */
   protected _navigate(direction: number) {
-    const constructor = this.constructor as typeof DDSSearchWithTypeahead;
+    const constructor = this.constructor as typeof C4DSearchWithTypeahead;
     const items = this.shadowRoot!.querySelectorAll(constructor.selectorItem);
     const highlightedItem = this.shadowRoot!.querySelector(
       constructor.selectorItemHighlighted
@@ -670,7 +670,7 @@ class DDSSearchWithTypeahead extends HostListenerMixin(
           @keypress="${handleKeypressInner}">
           ${this.scopeParameters
             ? html`
-                <dds-scoped-search-dropdown value="${this.appId}">
+                <c4d-scoped-search-dropdown value="${this.appId}">
                   ${this.scopeParameters.map(
                     (scope) => html`
                       <cds-dropdown-item value="${scope.appId}"
@@ -678,8 +678,8 @@ class DDSSearchWithTypeahead extends HostListenerMixin(
                       >
                     `
                   )}
-                </dds-scoped-search-dropdown>
-                <dds-scoped-search-dropdown-mobile value="${this.appId}">
+                </c4d-scoped-search-dropdown>
+                <c4d-scoped-search-dropdown-mobile value="${this.appId}">
                   ${this.scopeParameters.map(
                     (scope) => html`
                       <cds-select-item
@@ -689,7 +689,7 @@ class DDSSearchWithTypeahead extends HostListenerMixin(
                       >
                     `
                   )}
-                </dds-scoped-search-dropdown-mobile>
+                </c4d-scoped-search-dropdown-mobile>
               `
             : ``}
           ${this._renderTriggerContent()}
@@ -705,23 +705,23 @@ class DDSSearchWithTypeahead extends HostListenerMixin(
                     this.searchResults.map(
                       (item) =>
                         html`
-                          <dds-search-with-typeahead-item
-                            text="${item}"></dds-search-with-typeahead-item>
+                          <c4d-search-with-typeahead-item
+                            text="${item}"></c4d-search-with-typeahead-item>
                         `
                     )}
                     ${this.groupedResults &&
                     this.groupedResults.map(
                       (group) =>
                         html`
-                          <dds-search-with-typeahead-item
+                          <c4d-search-with-typeahead-item
                             groupTitle
-                            text="${group.title}"></dds-search-with-typeahead-item>
+                            text="${group.title}"></c4d-search-with-typeahead-item>
                           ${group.items.map(
                             (item) =>
                               html`
-                                <dds-search-with-typeahead-item
+                                <c4d-search-with-typeahead-item
                                   text="${item.name}"
-                                  href="${item.href}"></dds-search-with-typeahead-item>
+                                  href="${item.href}"></c4d-search-with-typeahead-item>
                               `
                           )}
                         `
@@ -847,7 +847,7 @@ class DDSSearchWithTypeahead extends HostListenerMixin(
   updated(changedProperties) {
     if (changedProperties.has('searchResults')) {
       const titleElements = this.shadowRoot?.querySelectorAll(
-        'dds-search-with-typeahead-item[groupTitle]'
+        'c4d-search-with-typeahead-item[groupTitle]'
       );
       titleElements?.forEach((e) => {
         e.previousElementSibling?.setAttribute('lastBeforeGroup', '');
@@ -862,7 +862,7 @@ class DDSSearchWithTypeahead extends HostListenerMixin(
       ) {
         const scopeBarWidth = (
           this.shadowRoot?.querySelector(
-            'dds-scoped-search-dropdown'
+            'c4d-scoped-search-dropdown'
           ) as HTMLElement
         ).offsetWidth;
         (this._searchSuggestions?.parentElement as HTMLElement)?.setAttribute(
@@ -957,9 +957,9 @@ class DDSSearchWithTypeahead extends HostListenerMixin(
                 this.searchResults.map(
                   (item) =>
                     html`
-                      <dds-search-with-typeahead-item
+                      <c4d-search-with-typeahead-item
                         text="${item}"
-                        @click=${handleClickItem}></dds-search-with-typeahead-item>
+                        @click=${handleClickItem}></c4d-search-with-typeahead-item>
                     `
                 )}
               </ul>
@@ -1026,4 +1026,4 @@ class DDSSearchWithTypeahead extends HostListenerMixin(
 }
 
 /* @__GENERATE_REACT_CUSTOM_ELEMENT_TYPE__ */
-export default DDSSearchWithTypeahead;
+export default C4DSearchWithTypeahead;

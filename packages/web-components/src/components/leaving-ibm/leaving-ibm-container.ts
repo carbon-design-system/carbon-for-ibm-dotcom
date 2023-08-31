@@ -20,7 +20,7 @@ import {
   LeavingIbmContainerStateProps,
   LeavingIbmContainerActions,
 } from './leaving-ibm-connect';
-import DDSLeavingIbmComposite from './leaving-ibm-composite';
+import C4DLeavingIbmComposite from './leaving-ibm-composite';
 import { carbonElement as customElement } from '../../internal/vendor/@carbon/web-components/globals/decorators/carbon-element';
 
 const { stablePrefix: ddsPrefix } = settings;
@@ -28,10 +28,10 @@ const { stablePrefix: ddsPrefix } = settings;
 /**
  * Container component for masthead search.
  *
- * @element dds-leaving-ibm-container
+ * @element c4d-leaving-ibm-container
  */
 @customElement(`${ddsPrefix}-leaving-ibm-container`)
-class DDSLeavingIbmContainer extends ConnectMixin<
+class C4DLeavingIbmContainer extends ConnectMixin<
   LeavingIbmContainerState,
   LocaleAPIActions | TranslateAPIActions,
   LeavingIbmContainerStateProps,
@@ -43,7 +43,7 @@ class DDSLeavingIbmContainer extends ConnectMixin<
   >,
   mapStateToProps,
   mapDispatchToProps
-)(DDSLeavingIbmComposite) {}
+)(C4DLeavingIbmComposite) {}
 
 /* @__GENERATE_REACT_CUSTOM_ELEMENT_TYPE__ */
-export default DDSLeavingIbmContainer;
+export default C4DLeavingIbmContainer;

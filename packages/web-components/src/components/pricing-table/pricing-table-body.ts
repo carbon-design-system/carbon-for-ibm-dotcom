@@ -9,14 +9,14 @@
 
 import settings from '@carbon/ibmdotcom-utilities/es/utilities/settings/settings.js';
 import StableSelectorMixin from '../../globals/mixins/stable-selector';
-import DDSStructuredListBody from '../structured-list/structured-list-body';
+import C4DStructuredListBody from '../structured-list/structured-list-body';
 import styles from './pricing-table.scss';
 import { carbonElement as customElement } from '../../internal/vendor/@carbon/web-components/globals/decorators/carbon-element';
 
 const { stablePrefix: ddsPrefix } = settings;
 
 @customElement(`${ddsPrefix}-pricing-table-body`)
-class DDSPricingTableBody extends StableSelectorMixin(DDSStructuredListBody) {
+class C4DPricingTableBody extends StableSelectorMixin(C4DStructuredListBody) {
   static get stableSelector() {
     return `${ddsPrefix}--pricing-table-body`;
   }
@@ -24,4 +24,4 @@ class DDSPricingTableBody extends StableSelectorMixin(DDSStructuredListBody) {
   static styles = styles;
 }
 
-export default DDSPricingTableBody;
+export default C4DPricingTableBody;

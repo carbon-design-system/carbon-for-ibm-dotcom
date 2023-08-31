@@ -20,10 +20,10 @@ const { prefix, stablePrefix: ddsPrefix } = settings;
 /**
  * Locale item.
  *
- * @element dds-locale-item
+ * @element c4d-locale-item
  */
 @customElement(`${ddsPrefix}-locale-item`)
-class DDSLocaleItem extends CDSLink {
+class C4DLocaleItem extends CDSLink {
   /**
    * The country.
    */
@@ -83,4 +83,4 @@ class DDSLocaleItem extends CDSLink {
   static styles = styles;
 }
 
-export default DDSLocaleItem;
+export default C4DLocaleItem;

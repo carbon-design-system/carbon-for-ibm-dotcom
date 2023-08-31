@@ -18,10 +18,10 @@ const { stablePrefix: ddsPrefix } = settings;
 /**
  * The supplemental content of leaving IBM modal.
  *
- * @element dds-leaving-ibm-modal-supplemental
+ * @element c4d-leaving-ibm-modal-supplemental
  */
 @customElement(`${ddsPrefix}-leaving-ibm-modal-supplemental`)
-class DDSLeavingIbmModalSupplemental extends StableSelectorMixin(LitElement) {
+class C4DLeavingIbmModalSupplemental extends StableSelectorMixin(LitElement) {
   /**
    * The shadow slot this supplemental content should be in.
    */
@@ -41,4 +41,4 @@ class DDSLeavingIbmModalSupplemental extends StableSelectorMixin(LitElement) {
 }
 
 /* @__GENERATE_REACT_CUSTOM_ELEMENT_TYPE__ */
-export default DDSLeavingIbmModalSupplemental;
+export default C4DLeavingIbmModalSupplemental;

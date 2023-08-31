@@ -18,10 +18,10 @@ const { stablePrefix: ddsPrefix } = settings;
 /**
  * The complementary content in content block.
  *
- * @element dds-content-block-complementary
+ * @element c4d-content-block-complementary
  */
 @customElement(`${ddsPrefix}-content-block-complementary`)
-class DDSContentBlockComplementary extends LitElement {
+class C4DContentBlockComplementary extends LitElement {
   /**
    * The shadow slot this logo UI should be in.
    */
@@ -43,4 +43,4 @@ class DDSContentBlockComplementary extends LitElement {
 }
 
 /* @__GENERATE_REACT_CUSTOM_ELEMENT_TYPE__ */
-export default DDSContentBlockComplementary;
+export default C4DContentBlockComplementary;

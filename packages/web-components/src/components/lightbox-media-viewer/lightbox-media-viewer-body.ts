@@ -17,7 +17,7 @@ const { prefix, stablePrefix: ddsPrefix } = settings;
 /**
  * Media viewer modal body.
  */
-abstract class DDSLightboxMediaViewerBody extends FocusMixin(LitElement) {
+abstract class C4DLightboxMediaViewerBody extends FocusMixin(LitElement) {
   /**
    * @returns The description content.
    */
@@ -67,4 +67,4 @@ abstract class DDSLightboxMediaViewerBody extends FocusMixin(LitElement) {
 }
 
 /* @__GENERATE_REACT_CUSTOM_ELEMENT_TYPE__ */
-export default DDSLightboxMediaViewerBody;
+export default C4DLightboxMediaViewerBody;

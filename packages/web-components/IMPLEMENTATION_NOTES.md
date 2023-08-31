@@ -97,7 +97,7 @@ Most components use the following to define CSS:
 import styles from './some-component.scss';
 
 @customElement('dds-some-component')
-class DDSSomeComponent extends LitElement {
+class C4DSomeComponent extends LitElement {
   ...
 
   static styles = styles;
@@ -446,11 +446,11 @@ And container components are created by `ConnectMixin`:
 
 ```typescript
 @customElement(`${ddsPrefix}-footer-container`)
-class DDSFooterContainer extends ConnectMixin(
+class C4DFooterContainer extends ConnectMixin(
   store,
   mapStateToProps,
   mapDispatchToProps
-)(DDSFooterComposite) {}
+)(C4DFooterComposite) {}
 ```
 
 As seen in the example above, one notable difference of `ConnectMixin` from

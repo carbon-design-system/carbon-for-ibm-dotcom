@@ -1,8 +1,14 @@
-import { Preview, Props, Description, Story } from '@storybook/addon-docs/blocks';
+import {
+  Preview,
+  Props,
+  Description,
+  Story,
+} from '@storybook/addon-docs/blocks';
 import contributing from '../../../../../../docs/contributing-license.md';
 import { PropTypesRef } from '@carbon/ibmdotcom-web-components/es/components-react/content-item-horizontal/content-item-horizontal';
 
 # Content Item Horizontal
+
 > 💡 Check our
 > [CodeSandbox](https://githubbox.com/carbon-design-system/carbon-for-ibm-dotcom/tree/main/packages/web-components/examples/codesandbox/components-react/content-item-horizontal)
 > example implementation.
@@ -16,62 +22,83 @@ Here's a quick example to get you started.
 ### JS
 
 ```javascript
-import DDSContentItemHorizontal from '@carbon/ibmdotcom-web-components/es/components-react/content-item-horizontal/content-item-horizontal';
-import DDSContentItemHorizontalCopy from '@carbon/ibmdotcom-web-components/es/components-react/content-item-horizontal/content-item-horizontal-copy';
-import DDSContentItemHorizontalEyebrow from '@carbon/ibmdotcom-web-components/es/components-react/content-item-horizontal/content-item-horizontal-eyebrow';
-import DDSContentItemHeading from '@carbon/ibmdotcom-web-components/es/components-react/content-item/content-item-heading';
-import DDSLinkList from '@carbon/ibmdotcom-web-components/es/components-react/link-list/link-list';
-import DDSLinkListItemCTA from '@carbon/ibmdotcom-web-components/es/components-react/cta/link-list-item-cta';
+import C4DContentItemHorizontal from '@carbon/ibmdotcom-web-components/es/components-react/content-item-horizontal/content-item-horizontal';
+import C4DContentItemHorizontalCopy from '@carbon/ibmdotcom-web-components/es/components-react/content-item-horizontal/content-item-horizontal-copy';
+import C4DContentItemHorizontalEyebrow from '@carbon/ibmdotcom-web-components/es/components-react/content-item-horizontal/content-item-horizontal-eyebrow';
+import C4DContentItemHeading from '@carbon/ibmdotcom-web-components/es/components-react/content-item/content-item-heading';
+import C4DLinkList from '@carbon/ibmdotcom-web-components/es/components-react/link-list/link-list';
+import C4DLinkListItemCTA from '@carbon/ibmdotcom-web-components/es/components-react/cta/link-list-item-cta';
 
 function App() {
   return (
-  <DDSContentItemHorizontal>
-    <DDSContentItemHorizontalEyebrow>Lorem ipsum</DDSContentItemHorizontalEyebrow>
-    <DDSContentItemHeading>Aliquam condimentum</DDSContentItemHeading>
-    <DDSContentItemHorizontalCopy
-      >Lorem ipsum dolor sit amet, _consectetur_ adipiscing elit. Aenean et ultricies est. Mauris iaculis eget dolor nec hendrerit.
-      Phasellus at elit sollicitudin.</DDSContentItemHorizontalCopy
-    >
-    <DDSLinkList slot="footer" type="vertical">
-      <DDSLinkListItemCTA icon-placement="right" href="https://www.ibm.com" cta-type="local">
-        Learn more
-      </DDSLinkListItemCTA>
-      <DDSLinkListItemCTA icon-placement="right" href="https://www.ibm.com" cta-type="external">
-        Microservices and containers
-      </DDSLinkListItemCTA>
-    </DDSLinkList>
-  </DDSContentItemHorizontal>
+    <C4DContentItemHorizontal>
+      <C4DContentItemHorizontalEyebrow>
+        Lorem ipsum
+      </C4DContentItemHorizontalEyebrow>
+      <C4DContentItemHeading>Aliquam condimentum</C4DContentItemHeading>
+      <C4DContentItemHorizontalCopy>
+        Lorem ipsum dolor sit amet, _consectetur_ adipiscing elit. Aenean et
+        ultricies est. Mauris iaculis eget dolor nec hendrerit. Phasellus at
+        elit sollicitudin.
+      </C4DContentItemHorizontalCopy>
+      <C4DLinkList slot="footer" type="vertical">
+        <C4DLinkListItemCTA
+          icon-placement="right"
+          href="https://www.ibm.com"
+          cta-type="local">
+          Learn more
+        </C4DLinkListItemCTA>
+        <C4DLinkListItemCTA
+          icon-placement="right"
+          href="https://www.ibm.com"
+          cta-type="external">
+          Microservices and containers
+        </C4DLinkListItemCTA>
+      </C4DLinkList>
+    </C4DContentItemHorizontal>
   );
 }
 ```
+
 ### JS (with thumbnail)
 
 ```javascript
-import DDSContentItemHorizontal from '@carbon/ibmdotcom-web-components/es/components-react/content-item-horizontal/content-item-horizontal';
-import DDSContentItemHorizontalThumbnailCopy from '@carbon/ibmdotcom-web-components/es/components-react/content-item-horizontal/content-item-horizontal-thumbnail-copy';
-import DDSContentItemHeading from '@carbon/ibmdotcom-web-components/es/components-react/content-item/content-item-heading';
-import DDSLinkList from '@carbon/ibmdotcom-web-components/es/components-react/link-list/link-list';
-import DDSLinkListItemCTA from '@carbon/ibmdotcom-web-components/es/components-react/cta/link-list-item-cta';
-import DDSImage from '@carbon/ibmdotcom-web-components/es/components-react/image/image';
+import C4DContentItemHorizontal from '@carbon/ibmdotcom-web-components/es/components-react/content-item-horizontal/content-item-horizontal';
+import C4DContentItemHorizontalThumbnailCopy from '@carbon/ibmdotcom-web-components/es/components-react/content-item-horizontal/content-item-horizontal-thumbnail-copy';
+import C4DContentItemHeading from '@carbon/ibmdotcom-web-components/es/components-react/content-item/content-item-heading';
+import C4DLinkList from '@carbon/ibmdotcom-web-components/es/components-react/link-list/link-list';
+import C4DLinkListItemCTA from '@carbon/ibmdotcom-web-components/es/components-react/cta/link-list-item-cta';
+import C4DImage from '@carbon/ibmdotcom-web-components/es/components-react/image/image';
 
 function App() {
   return (
-  <DDSContentItemHorizontal thumbnail>
-    <DDSContentItemHeading>Aliquam condimentum</DDSContentItemHeading>
-    <DDSContentItemHorizontalThumbnailCopy
-      >Lorem ipsum dolor sit amet, _consectetur_ adipiscing elit. Aenean et ultricies est. Mauris iaculis eget dolor nec hendrerit.
-      Phasellus at elit sollicitudin.</DDSContentItemHorizontalThumbnailCopy
-    >
-    <DDSLinkList slot="footer" type="vertical">
-      <DDSLinkListItemCTA icon-placement="right" href="https://www.ibm.com" cta-type="local">
-        Learn more
-      </DDSLinkListItemCTA>
-      <DDSLinkListItemCTA icon-placement="right" href="https://www.ibm.com" cta-type="external">
-        Microservices and containers
-      </DDSLinkListItemCTA>
-    </DDSLinkList>
-    <DDSImage slot="thumbnail" alt="Alt text" default-src="https://fpoimg.com/960x720?text=4:3&bg_color=ee5396&text_color=161616" />
-  </DDSContentItemHorizontal>
+    <C4DContentItemHorizontal thumbnail>
+      <C4DContentItemHeading>Aliquam condimentum</C4DContentItemHeading>
+      <C4DContentItemHorizontalThumbnailCopy>
+        Lorem ipsum dolor sit amet, _consectetur_ adipiscing elit. Aenean et
+        ultricies est. Mauris iaculis eget dolor nec hendrerit. Phasellus at
+        elit sollicitudin.
+      </C4DContentItemHorizontalThumbnailCopy>
+      <C4DLinkList slot="footer" type="vertical">
+        <C4DLinkListItemCTA
+          icon-placement="right"
+          href="https://www.ibm.com"
+          cta-type="local">
+          Learn more
+        </C4DLinkListItemCTA>
+        <C4DLinkListItemCTA
+          icon-placement="right"
+          href="https://www.ibm.com"
+          cta-type="external">
+          Microservices and containers
+        </C4DLinkListItemCTA>
+      </C4DLinkList>
+      <C4DImage
+        slot="thumbnail"
+        alt="Alt text"
+        default-src="https://fpoimg.com/960x720?text=4:3&bg_color=ee5396&text_color=161616"
+      />
+    </C4DContentItemHorizontal>
   );
 }
 ```
@@ -79,28 +106,40 @@ function App() {
 ### JS (with media - image)
 
 ```javascript
-import DDSContentItemHorizontalMedia from '@carbon/ibmdotcom-web-components/es/components-react/content-item-horizontal/content-item-horizontal-media';
-import DDSContentItemHorizontalMediaCopy from '@carbon/ibmdotcom-web-components/es/components-react/content-item-horizontal/content-item-horizontal-media-copy';
-import DDSContentItemHeading from '@carbon/ibmdotcom-web-components/es/components-react/content-item/content-item-heading';
-import DDSLinkList from '@carbon/ibmdotcom-web-components/es/components-react/link-list/link-list';
-import DDSLinkListItemCTA from '@carbon/ibmdotcom-web-components/es/components-react/cta/link-list-item-cta';
-import DDSImage from '@carbon/ibmdotcom-web-components/es/components-react/image/image';
+import C4DContentItemHorizontalMedia from '@carbon/ibmdotcom-web-components/es/components-react/content-item-horizontal/content-item-horizontal-media';
+import C4DContentItemHorizontalMediaCopy from '@carbon/ibmdotcom-web-components/es/components-react/content-item-horizontal/content-item-horizontal-media-copy';
+import C4DContentItemHeading from '@carbon/ibmdotcom-web-components/es/components-react/content-item/content-item-heading';
+import C4DLinkList from '@carbon/ibmdotcom-web-components/es/components-react/link-list/link-list';
+import C4DLinkListItemCTA from '@carbon/ibmdotcom-web-components/es/components-react/cta/link-list-item-cta';
+import C4DImage from '@carbon/ibmdotcom-web-components/es/components-react/image/image';
 
 function App() {
   return (
-  <DDSContentItemHorizontalMedia align="right">
-    <DDSImage slot="media" alt="Alt text" default-src="https://fpoimg.com/960x720?text=4:3&bg_color=ee5396&text_color=161616" />
-    <DDSContentItemHeading>Aliquam condimentum</DDSContentItemHeading>
-    <DDSContentItemHorizontalMediaCopy>Lorem Ipsum</DDSContentItemHorizontalMediaCopy>
-    <DDSLinkList slot="footer" type="vertical">
-      <DDSLinkListItemCTA icon-placement="right" href="https://www.ibm.com" cta-type="local">
-        Learn more
-      </DDSLinkListItemCTA>
-      <DDSLinkListItemCTA icon-placement="right" href="https://www.ibm.com" cta-type="external">
-        Microservices and containers
-      </DDSLinkListItemCTA>
-    </DDSLinkList>
-  </DDSContentItemHorizontalMedia>
+    <C4DContentItemHorizontalMedia align="right">
+      <C4DImage
+        slot="media"
+        alt="Alt text"
+        default-src="https://fpoimg.com/960x720?text=4:3&bg_color=ee5396&text_color=161616"
+      />
+      <C4DContentItemHeading>Aliquam condimentum</C4DContentItemHeading>
+      <C4DContentItemHorizontalMediaCopy>
+        Lorem Ipsum
+      </C4DContentItemHorizontalMediaCopy>
+      <C4DLinkList slot="footer" type="vertical">
+        <C4DLinkListItemCTA
+          icon-placement="right"
+          href="https://www.ibm.com"
+          cta-type="local">
+          Learn more
+        </C4DLinkListItemCTA>
+        <C4DLinkListItemCTA
+          icon-placement="right"
+          href="https://www.ibm.com"
+          cta-type="external">
+          Microservices and containers
+        </C4DLinkListItemCTA>
+      </C4DLinkList>
+    </C4DContentItemHorizontalMedia>
   );
 }
 ```
@@ -108,28 +147,36 @@ function App() {
 ### JS (with media - video)
 
 ```javascript
-import DDSContentItemHorizontalMedia from '@carbon/ibmdotcom-web-components/es/components-react/content-item-horizontal/content-item-horizontal-media';
-import DDSContentItemHorizontalMediaVideo from '@carbon/ibmdotcom-web-components/es/components-react/content-item-horizontal/content-item-horizontal-media-video';
-import DDSContentItemHorizontalMediaCopy from '@carbon/ibmdotcom-web-components/es/components-react/content-item-horizontal/content-item-horizontal-media-copy';
-import DDSContentItemHeading from '@carbon/ibmdotcom-web-components/es/components-react/content-item/content-item-heading';
-import DDSLinkList from '@carbon/ibmdotcom-web-components/es/components-react/link-list/link-list';
-import DDSLinkListItemCTA from '@carbon/ibmdotcom-web-components/es/components-react/cta/link-list-item-cta';
+import C4DContentItemHorizontalMedia from '@carbon/ibmdotcom-web-components/es/components-react/content-item-horizontal/content-item-horizontal-media';
+import C4DContentItemHorizontalMediaVideo from '@carbon/ibmdotcom-web-components/es/components-react/content-item-horizontal/content-item-horizontal-media-video';
+import C4DContentItemHorizontalMediaCopy from '@carbon/ibmdotcom-web-components/es/components-react/content-item-horizontal/content-item-horizontal-media-copy';
+import C4DContentItemHeading from '@carbon/ibmdotcom-web-components/es/components-react/content-item/content-item-heading';
+import C4DLinkList from '@carbon/ibmdotcom-web-components/es/components-react/link-list/link-list';
+import C4DLinkListItemCTA from '@carbon/ibmdotcom-web-components/es/components-react/cta/link-list-item-cta';
 
 function App() {
   return (
-  <DDSContentItemHorizontalMedia align="right">
-    <DDSContentItemHorizontalMediaVideo video-id="1_9h94wo6b"></DDSContentItemHorizontalMediaVideo>
-    <DDSContentItemHeading>Aliquam condimentum</DDSContentItemHeading>
-    <DDSContentItemHorizontalMediaCopy>Lorem Ipsum</DDSContentItemHorizontalMediaCopy>
-    <DDSLinkList slot="footer" type="vertical">
-      <DDSLinkListItemCTA icon-placement="right" href="https://www.ibm.com" cta-type="local">
-        Learn more
-      </DDSLinkListItemCTA>
-      <DDSLinkListItemCTA icon-placement="right" href="https://www.ibm.com" cta-type="external">
-        Microservices and containers
-      </DDSLinkListItemCTA>
-    </DDSLinkList>
-  </DDSContentItemHorizontalMedia>
+    <C4DContentItemHorizontalMedia align="right">
+      <C4DContentItemHorizontalMediaVideo video-id="1_9h94wo6b"></C4DContentItemHorizontalMediaVideo>
+      <C4DContentItemHeading>Aliquam condimentum</C4DContentItemHeading>
+      <C4DContentItemHorizontalMediaCopy>
+        Lorem Ipsum
+      </C4DContentItemHorizontalMediaCopy>
+      <C4DLinkList slot="footer" type="vertical">
+        <C4DLinkListItemCTA
+          icon-placement="right"
+          href="https://www.ibm.com"
+          cta-type="local">
+          Learn more
+        </C4DLinkListItemCTA>
+        <C4DLinkListItemCTA
+          icon-placement="right"
+          href="https://www.ibm.com"
+          cta-type="external">
+          Microservices and containers
+        </C4DLinkListItemCTA>
+      </C4DLinkList>
+    </C4DContentItemHorizontalMedia>
   );
 }
 ```
@@ -137,32 +184,32 @@ function App() {
 ### JS (with featured media - image)
 
 ```javascript
-import DDSContentItemHorizontalMediaFeatured from '@carbon/ibmdotcom-web-components/es/components-react/content-item-horizontal/content-item-horizontal-media-featured';
-import DDSContentItemHorizontalMediaCopy from '@carbon/ibmdotcom-web-components/es/components-react/content-item-horizontal/content-item-horizontal-media-copy';
-import DDSContentItemHorizontalEyebrow from '@carbon/ibmdotcom-web-components/es/components-react/content-item-horizontal/content-item-horizontal-eyebrow';
-import DDSContentItemHeading from '@carbon/ibmdotcom-web-components/es/components-react/content-item/content-item-heading';
-import DDSLinkList from '@carbon/ibmdotcom-web-components/es/components-react/link-list/link-list';
-import DDSLinkListItemCTA from '@carbon/ibmdotcom-web-components/es/components-react/cta/link-list-item-cta';
-import DDSImage from '@carbon/ibmdotcom-web-components/es/components-react/image/image';
+import C4DContentItemHorizontalMediaFeatured from '@carbon/ibmdotcom-web-components/es/components-react/content-item-horizontal/content-item-horizontal-media-featured';
+import C4DContentItemHorizontalMediaCopy from '@carbon/ibmdotcom-web-components/es/components-react/content-item-horizontal/content-item-horizontal-media-copy';
+import C4DContentItemHorizontalEyebrow from '@carbon/ibmdotcom-web-components/es/components-react/content-item-horizontal/content-item-horizontal-eyebrow';
+import C4DContentItemHeading from '@carbon/ibmdotcom-web-components/es/components-react/content-item/content-item-heading';
+import C4DLinkList from '@carbon/ibmdotcom-web-components/es/components-react/link-list/link-list';
+import C4DLinkListItemCTA from '@carbon/ibmdotcom-web-components/es/components-react/cta/link-list-item-cta';
+import C4DImage from '@carbon/ibmdotcom-web-components/es/components-react/image/image';
 
 function App() {
   return (
-  <DDSContentItemHorizontalMediaFeatured>
-    <DDSContentItemHorizontalEyebrow>Lorem ipsum</DDSContentItemHorizontalEyebrow>
-    <DDSContentItemHeading>Aliquam condimentum</DDSContentItemHeading>
-    <DDSContentItemHorizontalMediaCopy>
+  <C4DContentItemHorizontalMediaFeatured>
+    <C4DContentItemHorizontalEyebrow>Lorem ipsum</C4DContentItemHorizontalEyebrow>
+    <C4DContentItemHeading>Aliquam condimentum</C4DContentItemHeading>
+    <C4DContentItemHorizontalMediaCopy>
         Lorem ipsum dolor sit amet, _consectetur_ adipiscing elit. Aenean et ultricies est. Mauris iaculis eget dolor nec hendrerit. Phasellus at elit sollicitudin.
-    </DDSContentItemHorizontalMediaCopy>
-    <DDSLinkList slot="footer" type="vertical">
-      <DDSLinkListItemCTA icon-placement="right" href="https://www.ibm.com" cta-type="local">
+    </C4DContentItemHorizontalMediaCopy>
+    <C4DLinkList slot="footer" type="vertical">
+      <C4DLinkListItemCTA icon-placement="right" href="https://www.ibm.com" cta-type="local">
         Learn more
-      </DDSLinkListItemCTA>
-      <DDSLinkListItemCTA icon-placement="right" href="https://www.ibm.com" cta-type="external">
+      </C4DLinkListItemCTA>
+      <C4DLinkListItemCTA icon-placement="right" href="https://www.ibm.com" cta-type="external">
         Microservices and containers
-      </DDSLinkListItemCTA>
-    </DDSLinkList>
-    <DDSImage slot="media" alt="Alt text" default-src="https://fpoimg.com/960x720?text=4:3&bg_color=ee5396&text_color=161616" />
-  </DDSContentItemHorizontalMedia>
+      </C4DLinkListItemCTA>
+    </C4DLinkList>
+    <C4DImage slot="media" alt="Alt text" default-src="https://fpoimg.com/960x720?text=4:3&bg_color=ee5396&text_color=161616" />
+  </C4DContentItemHorizontalMedia>
   );
 }
 ```
@@ -170,32 +217,32 @@ function App() {
 ### JS (with featured media - video)
 
 ```javascript
-import DDSContentItemHorizontalMediaFeatured from '@carbon/ibmdotcom-web-components/es/components-react/content-item-horizontal/content-item-horizontal-media-featured';
-import DDSContentItemHorizontalMediaCopy from '@carbon/ibmdotcom-web-components/es/components-react/content-item-horizontal/content-item-horizontal-media-copy';
-import DDSContentItemHorizontalMediaVideo from '@carbon/ibmdotcom-web-components/es/components-react/content-item-horizontal/content-item-horizontal-media-video';
-import DDSContentItemHorizontalEyebrow from '@carbon/ibmdotcom-web-components/es/components-react/content-item-horizontal/content-item-horizontal-eyebrow';
-import DDSContentItemHeading from '@carbon/ibmdotcom-web-components/es/components-react/content-item/content-item-heading';
-import DDSLinkList from '@carbon/ibmdotcom-web-components/es/components-react/link-list/link-list';
-import DDSLinkListItemCTA from '@carbon/ibmdotcom-web-components/es/components-react/cta/link-list-item-cta';
+import C4DContentItemHorizontalMediaFeatured from '@carbon/ibmdotcom-web-components/es/components-react/content-item-horizontal/content-item-horizontal-media-featured';
+import C4DContentItemHorizontalMediaCopy from '@carbon/ibmdotcom-web-components/es/components-react/content-item-horizontal/content-item-horizontal-media-copy';
+import C4DContentItemHorizontalMediaVideo from '@carbon/ibmdotcom-web-components/es/components-react/content-item-horizontal/content-item-horizontal-media-video';
+import C4DContentItemHorizontalEyebrow from '@carbon/ibmdotcom-web-components/es/components-react/content-item-horizontal/content-item-horizontal-eyebrow';
+import C4DContentItemHeading from '@carbon/ibmdotcom-web-components/es/components-react/content-item/content-item-heading';
+import C4DLinkList from '@carbon/ibmdotcom-web-components/es/components-react/link-list/link-list';
+import C4DLinkListItemCTA from '@carbon/ibmdotcom-web-components/es/components-react/cta/link-list-item-cta';
 
 function App() {
   return (
-  <DDSContentItemHorizontalMediaFeatured>
-    <DDSContentItemHorizontalEyebrow>Lorem ipsum</DDSContentItemHorizontalEyebrow>
-    <DDSContentItemHeading>Aliquam condimentum</DDSContentItemHeading>
-    <DDSContentItemHorizontalMediaCopy>
+  <C4DContentItemHorizontalMediaFeatured>
+    <C4DContentItemHorizontalEyebrow>Lorem ipsum</C4DContentItemHorizontalEyebrow>
+    <C4DContentItemHeading>Aliquam condimentum</C4DContentItemHeading>
+    <C4DContentItemHorizontalMediaCopy>
         Lorem ipsum dolor sit amet, _consectetur_ adipiscing elit. Aenean et ultricies est. Mauris iaculis eget dolor nec hendrerit. Phasellus at elit sollicitudin.
-    </DDSContentItemHorizontalMediaCopy>
-    <DDSLinkList slot="footer" type="vertical">
-      <DDSLinkListItemCTA icon-placement="right" href="https://www.ibm.com" cta-type="local">
+    </C4DContentItemHorizontalMediaCopy>
+    <C4DLinkList slot="footer" type="vertical">
+      <C4DLinkListItemCTA icon-placement="right" href="https://www.ibm.com" cta-type="local">
         Learn more
-      </DDSLinkListItemCTA>
-      <DDSLinkListItemCTA icon-placement="right" href="https://www.ibm.com" cta-type="external">
+      </C4DLinkListItemCTA>
+      <C4DLinkListItemCTA icon-placement="right" href="https://www.ibm.com" cta-type="external">
         Microservices and containers
-      </DDSLinkListItemCTA>
-    </DDSLinkList>
-  <DDSContentItemHorizontalMediaVideo video-id="1_9h94wo6b"></DDSContentItemHorizontalMediaVideo>
-  </DDSContentItemHorizontalMedia>
+      </C4DLinkListItemCTA>
+    </C4DLinkList>
+  <C4DContentItemHorizontalMediaVideo video-id="1_9h94wo6b"></C4DContentItemHorizontalMediaVideo>
+  </C4DContentItemHorizontalMedia>
   );
 }
 ```
@@ -206,17 +253,19 @@ function App() {
 
 ## Stable selectors
 
-See [our README](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/tree/main/packages/web-components#stable-selectors-for-analytics-and-integratione2e-testing-in-web-components) to see how Web Components selector and `data-autoid` should be used.
+See
+[our README](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/tree/main/packages/web-components#stable-selectors-for-analytics-and-integratione2e-testing-in-web-components)
+to see how Web Components selector and `data-autoid` should be used.
 
-| Web Components selector               | Compatibility selector                                                     | Description |
-| ------------------------------------- | -------------------------------------------------------------------------- | ----------- |
-| `<dds-content-item-horizontal>`                      | `data-autoid="dds--content-item-horizontal"`                | Component   |
-| `<dds-content-item-horizontal-copy>`                 | `data-autoid="dds--content-item-horizontal-copy"`           | Component   |
-| `<dds-content-item-horizontal-eyebrow>`              | `data-autoid="dds--content-item-horizontal-eyebrow"`        | Component   |
-| `<dds-content-item-horizontal-media>`                | `data-autoid="dds--content-item-horizontal-media"`          | Component   |
-| `<dds-content-item-horizontal-media-copy>`           | `data-autoid="dds--content-item-horizontal-media-copy"`     | Component   |
-| `<dds-content-item-horizontal-media-video>`          | `data-autoid="dds--content-item-horizontal-media-video"`    | Component   |
-| `<dds-content-item-horizontal-media-featured>`       | `data-autoid="dds--content-item-horizontal-media-featured"` | Component   |
-| `<dds-content-item-horizontal-thumbnail-copy>`       | `data-autoid="dds--content-item-horizontal-thumbnail-copy"` | Component   |
+| Web Components selector                        | Compatibility selector                                      | Description |
+| ---------------------------------------------- | ----------------------------------------------------------- | ----------- |
+| `<dds-content-item-horizontal>`                | `data-autoid="dds--content-item-horizontal"`                | Component   |
+| `<dds-content-item-horizontal-copy>`           | `data-autoid="dds--content-item-horizontal-copy"`           | Component   |
+| `<dds-content-item-horizontal-eyebrow>`        | `data-autoid="dds--content-item-horizontal-eyebrow"`        | Component   |
+| `<dds-content-item-horizontal-media>`          | `data-autoid="dds--content-item-horizontal-media"`          | Component   |
+| `<dds-content-item-horizontal-media-copy>`     | `data-autoid="dds--content-item-horizontal-media-copy"`     | Component   |
+| `<dds-content-item-horizontal-media-video>`    | `data-autoid="dds--content-item-horizontal-media-video"`    | Component   |
+| `<dds-content-item-horizontal-media-featured>` | `data-autoid="dds--content-item-horizontal-media-featured"` | Component   |
+| `<dds-content-item-horizontal-thumbnail-copy>` | `data-autoid="dds--content-item-horizontal-thumbnail-copy"` | Component   |
 
 <Description markdown={contributing} />

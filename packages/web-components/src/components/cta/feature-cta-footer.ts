@@ -14,7 +14,7 @@ import {
   formatVideoCaption,
   formatVideoDuration,
 } from '../../internal/vendor/@carbon/ibmdotcom-utilities/utilities/formatVideoCaption/formatVideoCaption.js';
-import DDSFeatureCardFooter from '../feature-card/feature-card-footer';
+import C4DFeatureCardFooter from '../feature-card/feature-card-footer';
 import CTAMixin from '../../component-mixins/cta/cta-v1';
 import VideoCTAMixin from '../../component-mixins/cta/video';
 import { CTA_TYPE } from './defs';
@@ -26,11 +26,11 @@ const { stablePrefix: ddsPrefix } = settings;
 /**
  * Feature CTA footer.
  *
- * @element dds-feature-cta-footer
+ * @element c4d-feature-cta-footer
  */
 @customElement(`${ddsPrefix}-feature-cta-footer`)
-class DDSFeatureCTAFooter extends VideoCTAMixin(
-  CTAMixin(DDSFeatureCardFooter)
+class C4DFeatureCTAFooter extends VideoCTAMixin(
+  CTAMixin(C4DFeatureCardFooter)
 ) {
   /**
    * The formatter for the video caption, composed with the video name and the video duration.
@@ -80,4 +80,4 @@ class DDSFeatureCTAFooter extends VideoCTAMixin(
 }
 
 /* @__GENERATE_REACT_CUSTOM_ELEMENT_TYPE__ */
-export default DDSFeatureCTAFooter;
+export default C4DFeatureCTAFooter;

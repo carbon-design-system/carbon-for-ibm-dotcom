@@ -31,10 +31,10 @@ const { stablePrefix: ddsPrefix } = settings;
 /**
  * Container component for locale modal.
  *
- * @element dds-locale-modal-composite
+ * @element c4d-locale-modal-composite
  */
 @customElement(`${ddsPrefix}-locale-modal-composite`)
-class DDSLocaleModalComposite extends HybridRenderMixin(LitElement) {
+class C4DLocaleModalComposite extends HybridRenderMixin(LitElement) {
   /**
    * @param countries A country list.
    * @returns Sorted version of the given country list.
@@ -170,23 +170,23 @@ class DDSLocaleModalComposite extends HybridRenderMixin(LitElement) {
     );
 
     return html`
-      <dds-locale-modal
+      <c4d-locale-modal
         close-button-assistive-text="${ifDefined(modalClose)}"
         header-title="${ifDefined(headerTitle)}"
         lang-display="${ifDefined(langDisplay)}"
         ?open="${open}">
-        <dds-regions title="${ifDefined(headerTitle)}">
+        <c4d-regions title="${ifDefined(headerTitle)}">
           ${regionList?.map(({ countryList, name }) => {
             return html`
-              <dds-region-item
+              <c4d-region-item
                 ?invalid="${countryList.length === 0 ||
                 massagedCountryList?.find(({ region }) => region === name) ===
                   undefined}"
-                name="${name}"></dds-region-item>
+                name="${name}"></c4d-region-item>
             `;
           })}
-        </dds-regions>
-        <dds-locale-search
+        </c4d-regions>
+        <c4d-locale-search
           close-button-assistive-text="${ifDefined(searchClearText)}"
           label-text="${ifDefined(searchLabel)}"
           placeholder="${ifDefined(searchPlaceholder)}"
@@ -194,17 +194,17 @@ class DDSLocaleModalComposite extends HybridRenderMixin(LitElement) {
           unavailability-label-text="${ifDefined(unavailabilityText)}">
           ${massagedCountryList?.map(
             ({ country, href, language, locale, region }) => html`
-              <dds-locale-item
+              <c4d-locale-item
                 country="${country}"
                 href="${href}"
                 language="${language}"
                 locale="${locale}"
                 region="${region}">
-              </dds-locale-item>
+              </c4d-locale-item>
             `
           )}
-        </dds-locale-search>
-      </dds-locale-modal>
+        </c4d-locale-search>
+      </c4d-locale-modal>
     `;
   }
 
@@ -216,4 +216,4 @@ class DDSLocaleModalComposite extends HybridRenderMixin(LitElement) {
 }
 
 /* @__GENERATE_REACT_CUSTOM_ELEMENT_TYPE__ */
-export default DDSLocaleModalComposite;
+export default C4DLocaleModalComposite;

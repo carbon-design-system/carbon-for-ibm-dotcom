@@ -11,7 +11,7 @@ import { html } from 'lit';
 import { property } from 'lit/decorators.js';
 import settings from '../../internal/vendor/@carbon/ibmdotcom-utilities/utilities/settings/settings';
 import { carbonElement as customElement } from '../../internal/vendor/@carbon/web-components/globals/decorators/carbon-element';
-import DDSVideoPlayerContainer from '../video-player/video-player-container';
+import C4DVideoPlayerContainer from '../video-player/video-player-container';
 import styles from './content-item-horizontal-media.scss';
 
 const { stablePrefix: ddsPrefix } = settings;
@@ -19,10 +19,10 @@ const { stablePrefix: ddsPrefix } = settings;
 /**
  * The video content in horizontal content item with media.
  *
- * @element dds-content-item-horizontal-media-video
+ * @element c4d-content-item-horizontal-media-video
  */
 @customElement(`${ddsPrefix}-content-item-horizontal-media-video`)
-class DDSContentItemHorizontalMediaVideo extends DDSVideoPlayerContainer {
+class C4DContentItemHorizontalMediaVideo extends C4DVideoPlayerContainer {
   /**
    * The shadow slot this video should be in.
    */
@@ -41,4 +41,4 @@ class DDSContentItemHorizontalMediaVideo extends DDSVideoPlayerContainer {
 }
 
 /* @__GENERATE_REACT_CUSTOM_ELEMENT_TYPE__ */
-export default DDSContentItemHorizontalMediaVideo;
+export default C4DContentItemHorizontalMediaVideo;

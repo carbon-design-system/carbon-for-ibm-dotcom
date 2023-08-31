@@ -10,7 +10,7 @@
 import settings from '@carbon/ibmdotcom-utilities/es/utilities/settings/settings.js';
 import StableSelectorMixin from '../../globals/mixins/stable-selector';
 import styles from './leadspace-with-search.scss';
-import DDSContentBlockHeading from '../content-block/content-block-heading';
+import C4DContentBlockHeading from '../content-block/content-block-heading';
 import { carbonElement as customElement } from '../../internal/vendor/@carbon/web-components/globals/decorators/carbon-element';
 
 const { stablePrefix: ddsPrefix } = settings;
@@ -18,11 +18,11 @@ const { stablePrefix: ddsPrefix } = settings;
 /**
  * Heading in the content section of Leadspace with search
  *
- * @element dds-leadspace-with-search-content-heading
+ * @element c4d-leadspace-with-search-content-heading
  */
 @customElement(`${ddsPrefix}-leadspace-with-search-content-heading`)
-class DDSLeadspaceWithSearchContentHeading extends StableSelectorMixin(
-  DDSContentBlockHeading
+class C4DLeadspaceWithSearchContentHeading extends StableSelectorMixin(
+  C4DContentBlockHeading
 ) {
   static get stableSelector() {
     return `${ddsPrefix}--leadspace-with-search-content-heading`;
@@ -32,4 +32,4 @@ class DDSLeadspaceWithSearchContentHeading extends StableSelectorMixin(
 }
 
 /* @__GENERATE_REACT_CUSTOM_ELEMENT_TYPE__ */
-export default DDSLeadspaceWithSearchContentHeading;
+export default C4DLeadspaceWithSearchContentHeading;

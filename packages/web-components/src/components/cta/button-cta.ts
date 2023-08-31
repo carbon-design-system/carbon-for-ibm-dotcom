@@ -15,7 +15,7 @@ import {
   formatVideoCaption,
   formatVideoDuration,
 } from '../../internal/vendor/@carbon/ibmdotcom-utilities/utilities/formatVideoCaption/formatVideoCaption.js';
-import DDSButtonGroupItem from '../button-group/button-group-item';
+import C4DButtonGroupItem from '../button-group/button-group-item';
 import CTAMixin from '../../component-mixins/cta/cta-v1';
 import VideoCTAMixin from '../../component-mixins/cta/video';
 import { CTA_TYPE } from './defs';
@@ -29,10 +29,10 @@ const { stablePrefix: ddsPrefix } = settings;
 /**
  * Button CTA.
  *
- * @element dds-button-cta
+ * @element c4d-button-cta
  */
 @customElement(`${ddsPrefix}-button-cta`)
-class DDSButtonCTA extends VideoCTAMixin(CTAMixin(DDSButtonGroupItem)) {
+class C4DButtonCTA extends VideoCTAMixin(CTAMixin(C4DButtonGroupItem)) {
   /**
    * The button that may work as a link.
    *
@@ -124,9 +124,9 @@ class DDSButtonCTA extends VideoCTAMixin(CTAMixin(DDSButtonGroupItem)) {
 }
 
 console.warn(
-  `The dds-buton-cta component has been deprecated. All its features have been absorbed into 
-  the base dds-button component. See migration guide for more information.`
+  `The c4d-buton-cta component has been deprecated. All its features have been absorbed into
+  the base c4d-button component. See migration guide for more information.`
 );
 
 /* @__GENERATE_REACT_CUSTOM_ELEMENT_TYPE__ */
-export default DDSButtonCTA;
+export default C4DButtonCTA;

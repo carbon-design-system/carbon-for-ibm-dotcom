@@ -18,10 +18,10 @@ const { stablePrefix: ddsPrefix } = settings;
 /**
  * The source bottom copy content of quote.
  *
- * @element dds-quote-source-bottom-copy
+ * @element c4d-quote-source-bottom-copy
  */
 @customElement(`${ddsPrefix}-quote-source-bottom-copy`)
-class DDSQuoteSourceBottomCopy extends LitElement {
+class C4DQuoteSourceBottomCopy extends LitElement {
   /**
    * The shadow slot this source bottom copy content should be in.
    */
@@ -37,4 +37,4 @@ class DDSQuoteSourceBottomCopy extends LitElement {
 }
 
 /* @__GENERATE_REACT_CUSTOM_ELEMENT_TYPE__ */
-export default DDSQuoteSourceBottomCopy;
+export default C4DQuoteSourceBottomCopy;

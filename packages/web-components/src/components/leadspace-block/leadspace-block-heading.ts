@@ -10,7 +10,7 @@
 import settings from '@carbon/ibmdotcom-utilities/es/utilities/settings/settings.js';
 import StableSelectorMixin from '../../globals/mixins/stable-selector';
 import { carbonElement as customElement } from '../../internal/vendor/@carbon/web-components/globals/decorators/carbon-element';
-import DDSLeadspaceHeading from '../leadspace/leadspace-heading';
+import C4DLeadspaceHeading from '../leadspace/leadspace-heading';
 import styles from './leadspace-block.scss';
 
 const { stablePrefix: ddsPrefix } = settings;
@@ -18,11 +18,11 @@ const { stablePrefix: ddsPrefix } = settings;
 /**
  * Heading content in leadspace block.
  *
- * @element dds-leadspace-block-heading
+ * @element c4d-leadspace-block-heading
  */
 @customElement(`${ddsPrefix}-leadspace-block-heading`)
-class DDSLeadspaceBlockHeading extends StableSelectorMixin(
-  DDSLeadspaceHeading
+class C4DLeadspaceBlockHeading extends StableSelectorMixin(
+  C4DLeadspaceHeading
 ) {
   static get stableSelector() {
     return `${ddsPrefix}--leadspace-block__heading`;
@@ -32,4 +32,4 @@ class DDSLeadspaceBlockHeading extends StableSelectorMixin(
 }
 
 /* @__GENERATE_REACT_CUSTOM_ELEMENT_TYPE__ */
-export default DDSLeadspaceBlockHeading;
+export default C4DLeadspaceBlockHeading;

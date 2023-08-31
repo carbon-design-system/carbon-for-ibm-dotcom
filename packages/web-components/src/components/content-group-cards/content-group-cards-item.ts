@@ -9,7 +9,7 @@
 
 import settings from '../../internal/vendor/@carbon/ibmdotcom-utilities/utilities/settings/settings';
 import StableSelectorMixin from '../../globals/mixins/stable-selector';
-import DDSCard from '../card/card';
+import C4DCard from '../card/card';
 import styles from './content-group-cards.scss';
 import { carbonElement as customElement } from '../../internal/vendor/@carbon/web-components/globals/decorators/carbon-element';
 
@@ -18,10 +18,10 @@ const { stablePrefix: ddsPrefix } = settings;
 /**
  * Content Group Card item.
  *
- * @element dds-content-group-card-item
+ * @element c4d-content-group-card-item
  */
 @customElement(`${ddsPrefix}-content-group-cards-item`)
-class DDSContentGroupCardsItem extends StableSelectorMixin(DDSCard) {
+class C4DContentGroupCardsItem extends StableSelectorMixin(C4DCard) {
   static get stableSelector() {
     return `${ddsPrefix}--content-group-cards-item`;
   }
@@ -35,4 +35,4 @@ console.warn(
 );
 
 /* @__GENERATE_REACT_CUSTOM_ELEMENT_TYPE__ */
-export default DDSContentGroupCardsItem;
+export default C4DContentGroupCardsItem;

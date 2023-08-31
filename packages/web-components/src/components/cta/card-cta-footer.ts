@@ -15,7 +15,7 @@ import {
   formatVideoCaption,
   formatVideoDuration,
 } from '../../internal/vendor/@carbon/ibmdotcom-utilities/utilities/formatVideoCaption/formatVideoCaption.js';
-import DDSCardFooter from '../card/card-footer';
+import C4DCardFooter from '../card/card-footer';
 import CTAMixin from '../../component-mixins/cta/cta-v1';
 import VideoCTAMixin from '../../component-mixins/cta/video';
 import { CTA_TYPE } from './defs';
@@ -27,10 +27,10 @@ const { prefix, stablePrefix: ddsPrefix } = settings;
 /**
  * Card CTA footer.
  *
- * @element dds-card-cta-footer
+ * @element c4d-card-cta-footer
  */
 @customElement(`${ddsPrefix}-card-cta-footer`)
-class DDSCardCTAFooter extends VideoCTAMixin(CTAMixin(DDSCardFooter)) {
+class C4DCardCTAFooter extends VideoCTAMixin(CTAMixin(C4DCardFooter)) {
   protected _renderContent() {
     const { ctaType, _hasCopy: hasCopy } = this;
     if (ctaType !== CTA_TYPE.VIDEO) {
@@ -120,4 +120,4 @@ class DDSCardCTAFooter extends VideoCTAMixin(CTAMixin(DDSCardFooter)) {
 }
 
 /* @__GENERATE_REACT_CUSTOM_ELEMENT_TYPE__ */
-export default DDSCardCTAFooter;
+export default C4DCardCTAFooter;

@@ -15,11 +15,11 @@ import {
   formatVideoCaption,
   formatVideoDuration,
 } from '../../internal/vendor/@carbon/ibmdotcom-utilities/utilities/formatVideoCaption/formatVideoCaption.js';
-import DDSCardLink from '../card-link/card-link';
+import C4DCardLink from '../card-link/card-link';
 import '../card-link/card-link-heading';
 import CTAMixin from '../../component-mixins/cta/cta-v1';
 import VideoCTAMixin from '../../component-mixins/cta/video';
-import DDSCardCTAFooter from './card-cta-footer';
+import C4DCardCTAFooter from './card-cta-footer';
 import './card-cta-footer';
 import { CTA_TYPE } from './defs';
 import styles from './cta.scss';
@@ -32,10 +32,10 @@ const { stablePrefix: ddsPrefix } = settings;
 /**
  * Card CTA.
  *
- * @element dds-card-cta
+ * @element c4d-card-cta
  */
 @customElement(`${ddsPrefix}-card-link-cta`)
-class DDSCardLinkCTA extends VideoCTAMixin(CTAMixin(DDSCardLink)) {
+class C4DCardLinkCTA extends VideoCTAMixin(CTAMixin(C4DCardLink)) {
   protected _renderHeading() {
     const {
       ctaType,
@@ -48,7 +48,7 @@ class DDSCardLinkCTA extends VideoCTAMixin(CTAMixin(DDSCardLink)) {
     const caption = formatVideoCaptionInEffect({ name: videoName });
     return html`
       <slot name="heading"></slot
-      ><dds-card-link-heading>${caption}</dds-card-link-heading>
+      ><c4d-card-link-heading>${caption}</c4d-card-link-heading>
     `;
   }
 
@@ -99,7 +99,7 @@ class DDSCardLinkCTA extends VideoCTAMixin(CTAMixin(DDSCardLink)) {
   updated(changedProperties) {
     super.updated(changedProperties);
     const footer = this.querySelector(
-      (this.constructor as typeof DDSCardLinkCTA).selectorFooter
+      (this.constructor as typeof C4DCardLinkCTA).selectorFooter
     );
     if (
       changedProperties.has('ctaType') ||
@@ -121,18 +121,18 @@ class DDSCardLinkCTA extends VideoCTAMixin(CTAMixin(DDSCardLink)) {
       )?.textContent;
       const copyText = this.textContent;
       if (footer) {
-        (footer as DDSCardCTAFooter).altAriaLabel =
+        (footer as C4DCardCTAFooter).altAriaLabel =
           videoName || headingText || copyText;
-        (footer as DDSCardCTAFooter).ctaType = ctaType;
-        (footer as DDSCardCTAFooter).videoDuration = videoDuration;
-        (footer as DDSCardCTAFooter).videoName = videoName;
-        (footer as DDSCardCTAFooter).videoDescription = videoDescription;
+        (footer as C4DCardCTAFooter).ctaType = ctaType;
+        (footer as C4DCardCTAFooter).videoDuration = videoDuration;
+        (footer as C4DCardCTAFooter).videoName = videoName;
+        (footer as C4DCardCTAFooter).videoDescription = videoDescription;
         if (formatVideoCaptionInEffect) {
-          (footer as DDSCardCTAFooter).formatVideoCaption =
+          (footer as C4DCardCTAFooter).formatVideoCaption =
             formatVideoCaptionInEffect;
         }
         if (formatVideoDurationInEffect) {
-          (footer as DDSCardCTAFooter).formatVideoDuration =
+          (footer as C4DCardCTAFooter).formatVideoDuration =
             formatVideoDurationInEffect;
         }
       }
@@ -154,4 +154,4 @@ class DDSCardLinkCTA extends VideoCTAMixin(CTAMixin(DDSCardLink)) {
 }
 
 /* @__GENERATE_REACT_CUSTOM_ELEMENT_TYPE__ */
-export default DDSCardLinkCTA;
+export default C4DCardLinkCTA;

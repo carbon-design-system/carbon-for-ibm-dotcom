@@ -14,7 +14,7 @@ import {
   formatVideoCaption,
   formatVideoDuration,
 } from '../../internal/vendor/@carbon/ibmdotcom-utilities/utilities/formatVideoCaption/formatVideoCaption.js';
-import DDSLinkWithIcon from '../link-with-icon/link-with-icon';
+import C4DLinkWithIcon from '../link-with-icon/link-with-icon';
 import CTAMixin from '../../component-mixins/cta/cta-v1';
 import VideoCTAMixin from '../../component-mixins/cta/video';
 import { CTA_TYPE } from './defs';
@@ -28,11 +28,11 @@ const { stablePrefix: ddsPrefix } = settings;
 /**
  * Text CTA.
  *
- * @element dds-text-cta
+ * @element c4d-text-cta
  */
 @customElement(`${ddsPrefix}-text-cta`)
 // @ts-ignore
-class DDSTextCTA extends VideoCTAMixin(CTAMixin(DDSLinkWithIcon)) {
+class C4DTextCTA extends VideoCTAMixin(CTAMixin(C4DLinkWithIcon)) {
   /**
    * `true` if there is a non-empty default slot content.
    */
@@ -131,9 +131,9 @@ class DDSTextCTA extends VideoCTAMixin(CTAMixin(DDSLinkWithIcon)) {
 }
 
 console.warn(
-  `The dds-feature-cta component has been deprecated. All its features have been absorbed into 
-  the base dds-feature-card component. See migration guide for more information.`
+  `The c4d-feature-cta component has been deprecated. All its features have been absorbed into
+  the base c4d-feature-card component. See migration guide for more information.`
 );
 
 /* @__GENERATE_REACT_CUSTOM_ELEMENT_TYPE__ */
-export default DDSTextCTA;
+export default C4DTextCTA;

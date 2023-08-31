@@ -16,7 +16,7 @@ import settings from '../../internal/vendor/@carbon/ibmdotcom-utilities/utilitie
 import { MediaData } from '../../internal/vendor/@carbon/ibmdotcom-services-store/types/kalturaPlayerAPI.d';
 import ModalRenderMixin from '../../globals/mixins/modal-render';
 import Handle from '../../globals/internal/handle';
-import DDSVideoPlayerComposite from '../video-player/video-player-composite';
+import C4DVideoPlayerComposite from '../video-player/video-player-composite';
 import '../expressive-modal/expressive-modal';
 import '../expressive-modal/expressive-modal-close-button';
 import {
@@ -32,11 +32,11 @@ const { stablePrefix: ddsPrefix } = settings;
 /**
  * Component that renders lightbox media viewer for video from its metadata, etc.
  *
- * @element dds-lightbox-video-player-composite
+ * @element c4d-lightbox-video-player-composite
  */
 @customElement(`${ddsPrefix}-lightbox-video-player-composite`)
-class DDSLightboxVideoPlayerComposite extends ModalRenderMixin(
-  DDSVideoPlayerComposite
+class C4DLightboxVideoPlayerComposite extends ModalRenderMixin(
+  C4DVideoPlayerComposite
 ) {
   /**
    * The handle for the listener of `${ddsPrefix}-expressive-modal-closed` event.
@@ -67,11 +67,11 @@ class DDSLightboxVideoPlayerComposite extends ModalRenderMixin(
     }
 
     const { selectorEmbeddedVideoContainer } = this
-      .constructor as typeof DDSLightboxVideoPlayerComposite;
+      .constructor as typeof C4DLightboxVideoPlayerComposite;
 
     const elems = Array.prototype.slice.call(
       document
-        .querySelector('dds-lightbox-video-player')
+        .querySelector('c4d-lightbox-video-player')
         ?.querySelectorAll(selectorEmbeddedVideoContainer)
     );
 
@@ -84,7 +84,7 @@ class DDSLightboxVideoPlayerComposite extends ModalRenderMixin(
   };
 
   /**
-   * The handler of `${ddsPrefix}-expressive-modal-closed` event from `<dds-expressive-modal>`.
+   * The handler of `${ddsPrefix}-expressive-modal-closed` event from `<c4d-expressive-modal>`.
    */
   private _handleCloseModal = () => {
     const { embeddedVideos = {}, videoId } = this;
@@ -128,7 +128,7 @@ class DDSLightboxVideoPlayerComposite extends ModalRenderMixin(
    */
   protected get _videoPlayer() {
     const { selectorVideoPlayer } = this
-      .constructor as typeof DDSLightboxVideoPlayerComposite;
+      .constructor as typeof C4DLightboxVideoPlayerComposite;
     return (this.modalRenderRoot as Element)?.querySelector?.(
       selectorVideoPlayer
     );
@@ -164,7 +164,7 @@ class DDSLightboxVideoPlayerComposite extends ModalRenderMixin(
     // Manually hooks the event listeners on the modal render root to make the event names configurable
     this._hCloseModal = on(
       this.modalRenderRoot,
-      (this.constructor as typeof DDSLightboxVideoPlayerComposite)
+      (this.constructor as typeof C4DLightboxVideoPlayerComposite)
         .eventCloseModal,
       this._handleCloseModal as EventListener
     );
@@ -194,7 +194,7 @@ class DDSLightboxVideoPlayerComposite extends ModalRenderMixin(
   renderLightDOM() {
     // In this class we render that in modal instead of in light DOM.
     // Overriding `.renderLightDOM()` here
-    // to prevent the parent `<dds-video-player-composite>` from rendering `<dds-video-player>` in light DOM.
+    // to prevent the parent `<c4d-video-player-composite>` from rendering `<c4d-video-player>` in light DOM.
     return html``;
   }
 
@@ -214,20 +214,20 @@ class DDSLightboxVideoPlayerComposite extends ModalRenderMixin(
     const videoName = customVideoName || name;
     const videoDescription = customVideoDescription || description;
     return html`
-      <dds-expressive-modal
+      <c4d-expressive-modal
         ?open="${open}"
         expressive-size="full-width"
         mode="lightbox">
-        <dds-expressive-modal-close-button></dds-expressive-modal-close-button>
-        <dds-lightbox-video-player
+        <c4d-expressive-modal-close-button></c4d-expressive-modal-close-button>
+        <c4d-lightbox-video-player
           description="${ifDefined(videoDescription)}"
           duration="${ifDefined(duration)}"
           name="${ifDefined(videoName)}"
           ?hide-caption="${hideCaption}"
           .formatCaption="${ifDefined(formatCaption)}"
           .formatDuration="${ifDefined(formatDuration)}">
-        </dds-lightbox-video-player>
-      </dds-expressive-modal>
+        </c4d-lightbox-video-player>
+      </c4d-expressive-modal>
     `;
   }
 
@@ -256,4 +256,4 @@ class DDSLightboxVideoPlayerComposite extends ModalRenderMixin(
 }
 
 /* @__GENERATE_REACT_CUSTOM_ELEMENT_TYPE__ */
-export default DDSLightboxVideoPlayerComposite;
+export default C4DLightboxVideoPlayerComposite;

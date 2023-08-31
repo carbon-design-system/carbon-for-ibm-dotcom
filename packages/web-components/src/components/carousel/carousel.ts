@@ -20,7 +20,7 @@ import settings from '../../internal/vendor/@carbon/ibmdotcom-utilities/utilitie
 import sameHeight from '../../internal/vendor/@carbon/ibmdotcom-utilities/utilities/sameHeight/sameHeight';
 import styles from './carousel.scss';
 import StableSelectorMixin from '../../globals/mixins/stable-selector';
-import DDSExpressiveModal from '../expressive-modal/expressive-modal';
+import C4DExpressiveModal from '../expressive-modal/expressive-modal';
 import { ifDefined } from 'lit/directives/if-defined.js';
 
 const { prefix, stablePrefix: ddsPrefix } = settings;
@@ -37,12 +37,12 @@ const minIntersectionRatio = 0.75;
 /**
  * Carousel.
  *
- * @element dds-carousel
+ * @element c4d-carousel
  * @csspart prev-button The button to go to the previous page.
  * @csspart next-button The button to go to the next page.
  */
 @customElement(`${ddsPrefix}-carousel`)
-class DDSCarousel extends HostListenerMixin(StableSelectorMixin(LitElement)) {
+class C4DCarousel extends HostListenerMixin(StableSelectorMixin(LitElement)) {
   /**
    * The scrolling contents node.
    */
@@ -173,7 +173,7 @@ class DDSCarousel extends HostListenerMixin(StableSelectorMixin(LitElement)) {
 
   /**
    * The page size that is automatically calculated upon viewport size
-   * via `--dds--carousel--page-size` CSS custom property.
+   * via `--c4d--carousel--page-size` CSS custom property.
    * If `page-size` attribute is set, this value is ignored.
    */
   @state()
@@ -382,10 +382,10 @@ class DDSCarousel extends HostListenerMixin(StableSelectorMixin(LitElement)) {
         .filter((elem) =>
           (elem as HTMLElement).matches !== undefined
             ? (elem as HTMLElement).matches(
-                (this.constructor as typeof DDSCarousel).selectorItem
+                (this.constructor as typeof C4DCarousel).selectorItem
               ) ||
               (elem as HTMLElement).matches(
-                (this.constructor as typeof DDSCarousel)
+                (this.constructor as typeof C4DCarousel)
                   .selectorItemVideoCTAContainer
               )
             : false
@@ -393,32 +393,32 @@ class DDSCarousel extends HostListenerMixin(StableSelectorMixin(LitElement)) {
         .forEach((e) => {
           this._childItemEyebrows.push(
             (e as HTMLElement).querySelector(
-              (this.constructor as typeof DDSCarousel).selectorItemEyebrow
+              (this.constructor as typeof C4DCarousel).selectorItemEyebrow
             )
           );
           this._childItemParagraphs.push(
             (e as HTMLElement).querySelector(
-              (this.constructor as typeof DDSCarousel).selectorItemParagraph
+              (this.constructor as typeof C4DCarousel).selectorItemParagraph
             )
           );
           this._childItemTagGroup.push(
             (e as HTMLElement).querySelector(
-              (this.constructor as typeof DDSCarousel).selectorItemTagGroup
+              (this.constructor as typeof C4DCarousel).selectorItemTagGroup
             )
           );
           this._childItemHeadings.push(
             (e as HTMLElement).querySelector(
-              (this.constructor as typeof DDSCarousel).selectorItemHeading
+              (this.constructor as typeof C4DCarousel).selectorItemHeading
             )
           );
 
           this._childItemHeadings.push(
             (e as HTMLElement)
               .querySelector(
-                (this.constructor as typeof DDSCarousel).selectorItemCardCTA
+                (this.constructor as typeof C4DCarousel).selectorItemCardCTA
               )
               ?.shadowRoot?.querySelector(
-                (this.constructor as typeof DDSCarousel).selectorItemHeading
+                (this.constructor as typeof C4DCarousel).selectorItemHeading
               )
           );
 
@@ -428,7 +428,7 @@ class DDSCarousel extends HostListenerMixin(StableSelectorMixin(LitElement)) {
 
           this._childItemFooters.push(
             (e as HTMLElement).querySelector(
-              (this.constructor as typeof DDSCarousel).selectorItemFooter
+              (this.constructor as typeof C4DCarousel).selectorItemFooter
             )
           );
         });
@@ -451,7 +451,7 @@ class DDSCarousel extends HostListenerMixin(StableSelectorMixin(LitElement)) {
    * The observer for the resize of the viewport.
    */
   private _observeResizeRoot = () => {
-    const { customPropertyPageSize } = this.constructor as typeof DDSCarousel;
+    const { customPropertyPageSize } = this.constructor as typeof C4DCarousel;
     const { _contentsNode: contentsNode } = this;
     const { defaultView: w } = this.ownerDocument!;
     this._pageSizeAuto = Number(
@@ -510,7 +510,7 @@ class DDSCarousel extends HostListenerMixin(StableSelectorMixin(LitElement)) {
       if (
         e &&
         !e.nextElementSibling?.matches(
-          (this.constructor as typeof DDSCarousel).selectorItemTagGroup
+          (this.constructor as typeof C4DCarousel).selectorItemTagGroup
         )
       ) {
         e.style.marginBottom = `${tagGroupHeight + headingBottomMargin}px`;
@@ -539,7 +539,7 @@ class DDSCarousel extends HostListenerMixin(StableSelectorMixin(LitElement)) {
 
   get focusableElements() {
     const { selectorTabbable: selectorTabbableForCarousel } = this
-      .constructor as typeof DDSExpressiveModal;
+      .constructor as typeof C4DExpressiveModal;
     return [
       ...Array.from(
         (this.shadowRoot?.querySelectorAll(
@@ -572,8 +572,8 @@ class DDSCarousel extends HostListenerMixin(StableSelectorMixin(LitElement)) {
 
   /**
    * Number of items per page.
-   * If `--dds--carousel--page-size` CSS custom property is set to `<div class="cds--carousel__scroll-container">`
-   * or its ancestor (e.g. the host `<dds-carousel>`), this is set automatically from `--dds--carousel--page-size`.
+   * If `--c4d--carousel--page-size` CSS custom property is set to `<div class="cds--carousel__scroll-container">`
+   * or its ancestor (e.g. the host `<c4d-carousel>`), this is set automatically from `--c4d--carousel--page-size`.
    */
   @property({ type: Number, attribute: 'page-size' })
   get pageSize() {
@@ -614,7 +614,7 @@ class DDSCarousel extends HostListenerMixin(StableSelectorMixin(LitElement)) {
 
     const containingModal = this.closest(
       `${ddsPrefix}-expressive-modal`
-    ) as DDSExpressiveModal | null;
+    ) as C4DExpressiveModal | null;
     if (containingModal) {
       containingModal.hasFocusableElements.push(this);
       this.setAttribute('in-modal', '');
@@ -660,7 +660,7 @@ class DDSCarousel extends HostListenerMixin(StableSelectorMixin(LitElement)) {
   }
 
   render() {
-    const { customPropertyPageSize } = this.constructor as typeof DDSCarousel;
+    const { customPropertyPageSize } = this.constructor as typeof C4DCarousel;
     const {
       nextButtonText,
       _defaultNextButtonText: defaultNextButtonText,
@@ -689,7 +689,7 @@ class DDSCarousel extends HostListenerMixin(StableSelectorMixin(LitElement)) {
       [`${prefix}--carousel__scroll-contents`]: true,
       [`${prefix}--carousel__scroll-contents--scrolling`]: isScrolling,
     });
-    // Use another div from the host `<dds-carousel>` to reflect private state
+    // Use another div from the host `<c4d-carousel>` to reflect private state
     return html`
       <div role="region" aria-labelledby="carousel-title">
         <div id="carousel-title">
@@ -744,7 +744,7 @@ class DDSCarousel extends HostListenerMixin(StableSelectorMixin(LitElement)) {
   /**
    * The CSS custom property name for the live page size.
    * If the CSS custom property is set to `<div class="cds--carousel__scroll-container">`
-   * or its ancestor (e.g. the host `<dds-carousel>`), this is set automatically from the CSS custom property.
+   * or its ancestor (e.g. the host `<c4d-carousel>`), this is set automatically from the CSS custom property.
    */
   static get customPropertyPageSize() {
     return `--${ddsPrefix}--carousel--page-size`;
@@ -830,4 +830,4 @@ class DDSCarousel extends HostListenerMixin(StableSelectorMixin(LitElement)) {
 }
 
 /* @__GENERATE_REACT_CUSTOM_ELEMENT_TYPE__ */
-export default DDSCarousel;
+export default C4DCarousel;

@@ -11,7 +11,7 @@ import { css, html, TemplateResult } from 'lit';
 import { state } from 'lit/decorators.js';
 import settings from '../../internal/vendor/@carbon/ibmdotcom-utilities/utilities/settings/settings';
 import StableSelectorMixin from '../../globals/mixins/stable-selector';
-import DDSContentItem from '../content-item/content-item';
+import C4DContentItem from '../content-item/content-item';
 
 import styles from './cta-block.scss';
 import { carbonElement as customElement } from '../../internal/vendor/@carbon/web-components/globals/decorators/carbon-element';
@@ -30,7 +30,7 @@ const slotExistencePropertyNames = {
 /**
  * The CTA BLOCK ITEM component
  *
- * @element dds-cta-block-item
+ * @element c4d-cta-block-item
  * @slot statistics
  * @slot media
  * @slot heading
@@ -38,7 +38,7 @@ const slotExistencePropertyNames = {
  * @slot footer
  */
 @customElement(`${ddsPrefix}-cta-block-item`)
-class DDSCTABlockItem extends StableSelectorMixin(DDSContentItem) {
+class C4DCTABlockItem extends StableSelectorMixin(C4DContentItem) {
   /**
    * `true` if there are CTA media in the content item area.
    */
@@ -63,7 +63,7 @@ class DDSCTABlockItem extends StableSelectorMixin(DDSContentItem) {
       .filter(
         (elem) =>
           !(elem as HTMLElement).matches?.(
-            (this.constructor as typeof DDSCTABlockItem).selectorButtonGroup
+            (this.constructor as typeof C4DCTABlockItem).selectorButtonGroup
           )
       )
       .some(
@@ -126,4 +126,4 @@ console.warn(
 );
 
 /* @__GENERATE_REACT_CUSTOM_ELEMENT_TYPE__ */
-export default DDSCTABlockItem;
+export default C4DCTABlockItem;

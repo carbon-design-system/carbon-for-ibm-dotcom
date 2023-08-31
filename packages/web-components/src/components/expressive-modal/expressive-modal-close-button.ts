@@ -20,10 +20,10 @@ const { stablePrefix: ddsPrefix } = settings;
 /**
  * Expressive modal close button.
  *
- * @element dds-expressive-modal-close-button
+ * @element c4d-expressive-modal-close-button
  */
 @customElement(`${ddsPrefix}-expressive-modal-close-button`)
-class DDSExpressiveModalCloseButton extends StableSelectorMixin(
+class C4DExpressiveModalCloseButton extends StableSelectorMixin(
   CDSModalCloseButton
 ) {
   /**
@@ -40,4 +40,4 @@ class DDSExpressiveModalCloseButton extends StableSelectorMixin(
 }
 
 /* @__GENERATE_REACT_CUSTOM_ELEMENT_TYPE__ */
-export default DDSExpressiveModalCloseButton;
+export default C4DExpressiveModalCloseButton;

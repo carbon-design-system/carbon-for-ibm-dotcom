@@ -9,12 +9,12 @@
 
 import React from 'react';
 import { render } from 'react-dom';
-import DDSMastheadContainer from '@carbon/ibmdotcom-web-components/es/components-react/masthead/masthead-container';
+import C4DMastheadContainer from '@carbon/ibmdotcom-web-components/es/components-react/masthead/masthead-container';
 import './index.css';
 
 const App = () => (
   <>
-    <DDSMastheadContainer id="masthead-container"></DDSMastheadContainer>
+    <C4DMastheadContainer id="masthead-container"></C4DMastheadContainer>
     <main className="bx--content dds-ce-demo--ui-shell-content">
       <div className="bx--grid">
         <div className="bx--row">

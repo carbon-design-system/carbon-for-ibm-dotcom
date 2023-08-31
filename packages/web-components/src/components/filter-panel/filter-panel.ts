@@ -21,10 +21,10 @@ const { prefix, stablePrefix: ddsPrefix } = settings;
 /**
  * The filter panel.
  *
- * @element dds-filter-panel
+ * @element c4d-filter-panel
  */
 @customElement(`${ddsPrefix}-filter-panel`)
-class DDSFilterPanel extends HostListenerMixin(
+class C4DFilterPanel extends HostListenerMixin(
   StableSelectorMixin(LitElement)
 ) {
   /**
@@ -37,7 +37,7 @@ class DDSFilterPanel extends HostListenerMixin(
    * Handles `click` event on the `<input>` in the shadow DOM.
    */
   protected _handleClear() {
-    const { eventSelectionClear } = this.constructor as typeof DDSFilterPanel;
+    const { eventSelectionClear } = this.constructor as typeof C4DFilterPanel;
     this.dispatchEvent(
       new CustomEvent(eventSelectionClear, {
         bubbles: true,
@@ -100,4 +100,4 @@ class DDSFilterPanel extends HostListenerMixin(
 }
 
 /* @__GENERATE_REACT_CUSTOM_ELEMENT_TYPE__ */
-export default DDSFilterPanel;
+export default C4DFilterPanel;

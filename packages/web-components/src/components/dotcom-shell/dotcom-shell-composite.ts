@@ -33,10 +33,10 @@ const { stablePrefix: ddsPrefix } = settings;
 /**
  * Component that rendres dotcom shell from links, etc. data.
  *
- * @element dds-dotcom-shell-composite
+ * @element c4d-dotcom-shell-composite
  */
 @customElement(`${ddsPrefix}-dotcom-shell-composite`)
-class DDSDotcomShellComposite extends LitElement {
+class C4DDotcomShellComposite extends LitElement {
   /**
    * The render target of the footer contents.
    */
@@ -469,13 +469,15 @@ class DDSDotcomShellComposite extends LitElement {
     super.updated(changedProperties);
 
     // moving universal banner outside of dotcom shell if placed within
-    if (this.querySelector('dds-universal-banner')) {
+    if (this.querySelector(`${ddsPrefix}-universal-banner`)) {
       this.ownerDocument
-        .querySelector('dds-masthead-composite')
-        ?.before(this.querySelector('dds-universal-banner') as HTMLElement);
+        .querySelector(`${ddsPrefix}-masthead-composite`)
+        ?.before(
+          this.querySelector(`${ddsPrefix}-universal-banner`) as HTMLElement
+        );
     }
 
-    if (this.ownerDocument.querySelector('dds-universal-banner')) {
+    if (this.ownerDocument.querySelector(`${ddsPrefix}-universal-banner`)) {
       this.hasBanner = true;
       this._masthead?.setAttribute('with-banner', '');
     }
@@ -483,9 +485,9 @@ class DDSDotcomShellComposite extends LitElement {
 
   render() {
     return html`
-      <dds-dotcom-shell>
+      <c4d-dotcom-shell>
         <slot></slot>
-      </dds-dotcom-shell>
+      </c4d-dotcom-shell>
     `;
   }
 
@@ -493,4 +495,4 @@ class DDSDotcomShellComposite extends LitElement {
 }
 
 /* @__GENERATE_REACT_CUSTOM_ELEMENT_TYPE__ */
-export default DDSDotcomShellComposite;
+export default C4DDotcomShellComposite;

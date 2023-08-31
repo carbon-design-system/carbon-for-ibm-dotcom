@@ -141,7 +141,7 @@ class SomeComponent extends LitElement {
 
   connectedCallback() {
     super.connectedCallback();
-    const { mediaStickExpanded } = this.constructor as typeof DDSFooterNavGroup;
+    const { mediaStickExpanded } = this.constructor as typeof C4DFooterNavGroup;
     // `.matchMedia()` returns an event target
     const mediaQueryList = this.ownerDocument!.defaultView!.matchMedia(mediaStickExpanded);
     this._hChangeMediaQuery = on(mediaQueryList, 'change', this._handleChangeMediaQuery);
@@ -453,7 +453,7 @@ When we create a custom element that represents `<li class="bx--footer-nav-group
 
 ```typescript
 @customElement(`${ddsPreifx}-footer-nav-item`)
-class DDSFooterNavItem extends LitElement {
+class C4DFooterNavItem extends LitElement {
   ...
 
   render() {
@@ -485,7 +485,7 @@ To solve such redundant DOM element, we do the following instead:
 
 ```typescript
 @customElement(`${ddsPreifx}-footer-nav-item`)
-class DDSFooterNavItem extends LitElement {
+class C4DFooterNavItem extends LitElement {
   ...
 
   connectedCallback() {
@@ -535,7 +535,7 @@ That said, in `@carbon/ibmdotcom-web-components` codebase prefers class inherita
 To highlight this, here is an example of what a preferred inheritance pattern would be:
 
 ```typescript
-class DDSFoo extends DDSBar {
+class C4DFoo extends C4DBar {
   render() {
     return html`
       ${super.render()}(Some additional content)
@@ -547,7 +547,7 @@ class DDSFoo extends DDSBar {
 Whereas this would be a pattern to avoid:
 
 ```typescript
-class DDSFoo extends LitElement {
+class C4DFoo extends LitElement {
   render() {
     return html`
       // ❗️ Consider avoiding this

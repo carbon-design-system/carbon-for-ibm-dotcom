@@ -11,7 +11,7 @@ import { html } from 'lit';
 import { property } from 'lit/decorators.js';
 import settings from '@carbon/ibmdotcom-utilities/es/utilities/settings/settings.js';
 import StableSelectorMixin from '../../globals/mixins/stable-selector';
-import DDSStructuredListRow from '../structured-list/structured-list-row';
+import C4DStructuredListRow from '../structured-list/structured-list-row';
 import styles from './pricing-table.scss';
 import { setColumnWidth } from './utils';
 import { carbonElement as customElement } from '../../internal/vendor/@carbon/web-components/globals/decorators/carbon-element';
@@ -19,7 +19,7 @@ import { carbonElement as customElement } from '../../internal/vendor/@carbon/we
 const { stablePrefix: ddsPrefix } = settings;
 
 @customElement(`${ddsPrefix}-pricing-table-row`)
-class DDSPricingTableRow extends StableSelectorMixin(DDSStructuredListRow) {
+class C4DPricingTableRow extends StableSelectorMixin(C4DStructuredListRow) {
   @property()
   hasAnnotations: boolean = false;
 
@@ -44,7 +44,7 @@ class DDSPricingTableRow extends StableSelectorMixin(DDSStructuredListRow) {
 
     if (this.hasAnnotations) {
       const toggle = this.ownerDocument.createElement(
-        'dds-pricing-table-annotation-toggle'
+        'c4d-pricing-table-annotation-toggle'
       );
       this.children[0].append(toggle);
     }
@@ -63,4 +63,4 @@ class DDSPricingTableRow extends StableSelectorMixin(DDSStructuredListRow) {
   static styles = styles;
 }
 
-export default DDSPricingTableRow;
+export default C4DPricingTableRow;

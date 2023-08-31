@@ -11,7 +11,7 @@ import { css, html } from 'lit';
 import { property } from 'lit/decorators.js';
 import settings from '../../internal/vendor/@carbon/ibmdotcom-utilities/utilities/settings/settings';
 import { carbonElement as customElement } from '../../internal/vendor/@carbon/web-components/globals/decorators/carbon-element';
-import DDSContentGroup from '../content-group/content-group';
+import C4DContentGroup from '../content-group/content-group';
 import '../horizontal-rule/horizontal-rule';
 import styles from './content-block-horizontal.scss';
 
@@ -20,16 +20,16 @@ const { stablePrefix: ddsPrefix } = settings;
 /**
  * Horizontal version of content group.
  *
- * @element dds-content-block-horizontal
+ * @element c4d-content-block-horizontal
  */
 @customElement(`${ddsPrefix}-content-block-horizontal`)
-class DDSContentBlockHorizontal extends DDSContentGroup {
+class C4DContentBlockHorizontal extends C4DContentGroup {
   @property({ type: Boolean, reflect: true, attribute: 'border' })
   border = false;
 
   render() {
     return html`
-      ${super.render()} ${this.border ? html` <dds-hr></dds-hr> ` : ''}
+      ${super.render()} ${this.border ? html` <c4d-hr></c4d-hr> ` : ''}
     `;
   }
 
@@ -51,4 +51,4 @@ console.warn(
 );
 
 /* @__GENERATE_REACT_CUSTOM_ELEMENT_TYPE__ */
-export default DDSContentBlockHorizontal;
+export default C4DContentBlockHorizontal;

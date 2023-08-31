@@ -10,7 +10,7 @@
 import { css } from 'lit';
 import settings from '../../internal/vendor/@carbon/ibmdotcom-utilities/utilities/settings/settings';
 import { carbonElement as customElement } from '../../internal/vendor/@carbon/web-components/globals/decorators/carbon-element';
-import DDSContentGroup from '../content-group/content-group';
+import C4DContentGroup from '../content-group/content-group';
 import styles from './content-group-pictograms.scss';
 
 const { stablePrefix: ddsPrefix } = settings;
@@ -18,11 +18,11 @@ const { stablePrefix: ddsPrefix } = settings;
 /**
  * Content group with pictograms
  *
- * @element dds-content-group-pictogram
+ * @element c4d-content-group-pictogram
  */
 
 @customElement(`${ddsPrefix}-content-group-pictograms`)
-class DDSContentGroupPictograms extends DDSContentGroup {
+class C4DContentGroupPictograms extends C4DContentGroup {
   static get stableSelector() {
     return `${ddsPrefix}--content-group-pictograms`;
   }
@@ -41,4 +41,4 @@ console.warn(
 );
 
 /* @__GENERATE_REACT_CUSTOM_ELEMENT_TYPE__ */
-export default DDSContentGroupPictograms;
+export default C4DContentGroupPictograms;

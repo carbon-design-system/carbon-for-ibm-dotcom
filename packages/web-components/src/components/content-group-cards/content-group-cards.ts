@@ -9,7 +9,7 @@
 
 import { css, html, TemplateResult } from 'lit';
 import settings from '../../internal/vendor/@carbon/ibmdotcom-utilities/utilities/settings/settings';
-import DDSContentGroup from '../content-group/content-group';
+import C4DContentGroup from '../content-group/content-group';
 import styles from './content-group-cards.scss';
 import { carbonElement as customElement } from '../../internal/vendor/@carbon/web-components/globals/decorators/carbon-element';
 
@@ -18,10 +18,10 @@ const { prefix, stablePrefix: ddsPrefix } = settings;
 /**
  * Content group cards.
  *
- * @element dds-content-group-cards
+ * @element c4d-content-group-cards
  */
 @customElement(`${ddsPrefix}-content-group-cards`)
-class DDSContentGroupCards extends DDSContentGroup {
+class C4DContentGroupCards extends C4DContentGroup {
   protected _renderInnerBody(): TemplateResult | string | void {
     const { _hasContent: hasContent, _hasMedia: hasMedia } = this;
     return html`
@@ -56,4 +56,4 @@ console.warn(
 );
 
 /* @__GENERATE_REACT_CUSTOM_ELEMENT_TYPE__ */
-export default DDSContentGroupCards;
+export default C4DContentGroupCards;

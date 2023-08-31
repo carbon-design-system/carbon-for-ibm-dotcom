@@ -25,10 +25,10 @@ const { stablePrefix: ddsPrefix } = settings;
 /**
  * CTA component
  *
- * @element dds-cta
+ * @element c4d-cta
  */
 @customElement(`${ddsPrefix}-cta`)
-class DDSCTAHead extends HostListenerMixin(StableSelectorMixin(LitElement)) {
+class C4DCTAHead extends HostListenerMixin(StableSelectorMixin(LitElement)) {
   @property({ attribute: 'cta-style' })
   ctaStyle = 'text';
 
@@ -85,7 +85,7 @@ class DDSCTAHead extends HostListenerMixin(StableSelectorMixin(LitElement)) {
         });
 
         const ctaComponent = this.shadowRoot!.querySelector(
-          `dds-${this.ctaStyle}-cta`
+          `c4d-${this.ctaStyle}-cta`
         );
         const spanElement = ctaComponent?.shadowRoot!.querySelector('span');
 
@@ -120,19 +120,19 @@ class DDSCTAHead extends HostListenerMixin(StableSelectorMixin(LitElement)) {
   render() {
     return html`
       ${this.ctaStyle === 'feature'
-        ? html` <dds-feature-cta></dds-feature-cta> `
+        ? html` <c4d-feature-cta></c4d-feature-cta> `
         : ``}
       ${this.ctaStyle === 'card'
-        ? html` <dds-card-cta><slot></slot></dds-card-cta> `
+        ? html` <c4d-card-cta><slot></slot></c4d-card-cta> `
         : ``}
       ${this.ctaStyle === 'card-link'
-        ? html` <dds-card-link-cta><slot></slot></dds-card-link-cta> `
+        ? html` <c4d-card-link-cta><slot></slot></c4d-card-link-cta> `
         : ``}
       ${this.ctaStyle === 'text'
-        ? html` <dds-text-cta><slot></slot></dds-text-cta> `
+        ? html` <c4d-text-cta><slot></slot></c4d-text-cta> `
         : ``}
       ${this.ctaStyle === 'button'
-        ? html` <dds-button-cta><slot></slot></dds-button-cta> `
+        ? html` <c4d-button-cta><slot></slot></c4d-button-cta> `
         : ``}
     `;
   }
@@ -159,9 +159,9 @@ class DDSCTAHead extends HostListenerMixin(StableSelectorMixin(LitElement)) {
 }
 
 console.warn(
-  `The dds-cta component has been deprecated in favor of the dds-card, dds-feature-card, dds-link-with-icon, 
-  and dds-button-group. See migration guide for more information.`
+  `The c4d-cta component has been deprecated in favor of the c4d-card, c4d-feature-card, c4d-link-with-icon,
+  and c4d-button-group. See migration guide for more information.`
 );
 
 /* @__GENERATE_REACT_CUSTOM_ELEMENT_TYPE__ */
-export default DDSCTAHead;
+export default C4DCTAHead;

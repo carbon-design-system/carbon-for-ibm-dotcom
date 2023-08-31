@@ -25,10 +25,10 @@ const { prefix, stablePrefix: ddsPrefix } = settings;
 /**
  * A tab within a tabbed layout.
  *
- * @element dds-tab
+ * @element c4d-tab
  */
 @customElement(`${ddsPrefix}-tab`)
-class DDSTab extends MediaQueryMixin(StableSelectorMixin(LitElement), {
+class C4DTab extends MediaQueryMixin(StableSelectorMixin(LitElement), {
   [MQBreakpoints.LG]: MQDirs.MAX,
 }) {
   /**
@@ -83,7 +83,7 @@ class DDSTab extends MediaQueryMixin(StableSelectorMixin(LitElement), {
     _changedProperties: Map<string | number | symbol, unknown>
   ): void {
     if (_changedProperties.has('selected')) {
-      const { eventTabSelected } = this.constructor as typeof DDSTab;
+      const { eventTabSelected } = this.constructor as typeof C4DTab;
       this.dispatchEvent(
         new CustomEvent(eventTabSelected, {
           bubbles: true,
@@ -163,4 +163,4 @@ class DDSTab extends MediaQueryMixin(StableSelectorMixin(LitElement), {
 }
 
 /* @__GENERATE_REACT_CUSTOM_ELEMENT_TYPE__ */
-export default DDSTab;
+export default C4DTab;

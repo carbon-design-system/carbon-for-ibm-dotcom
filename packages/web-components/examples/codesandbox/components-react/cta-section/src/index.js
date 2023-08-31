@@ -9,26 +9,26 @@
 
 import React from 'react';
 import { render } from 'react-dom';
-import DDSCTASection from '@carbon/ibmdotcom-web-components/es/components-react/cta-section/cta-section';
-import DDSCTABlock from '@carbon/ibmdotcom-web-components/es/components-react/cta-block/cta-block';
-import DDSContentBlockHeading from '@carbon/ibmdotcom-web-components/es/components-react/content-block/content-block-heading';
-import DDSContentBlockCopy from '@carbon/ibmdotcom-web-components/es/components-react/content-block/content-block-copy';
-import DDSTextCTA from '@carbon/ibmdotcom-web-components/es/components-react/cta/text-cta';
+import C4DCTASection from '@carbon/ibmdotcom-web-components/es/components-react/cta-section/cta-section';
+import C4DCTABlock from '@carbon/ibmdotcom-web-components/es/components-react/cta-block/cta-block';
+import C4DContentBlockHeading from '@carbon/ibmdotcom-web-components/es/components-react/content-block/content-block-heading';
+import C4DContentBlockCopy from '@carbon/ibmdotcom-web-components/es/components-react/content-block/content-block-copy';
+import C4DTextCTA from '@carbon/ibmdotcom-web-components/es/components-react/cta/text-cta';
 
 import './index.css';
 
 const App = () => (
-  <DDSCTASection>
-    <DDSCTABlock>
-      <DDSContentBlockHeading>Curabitur malesuada varius mi eu posuere</DDSContentBlockHeading>
-      <DDSContentBlockCopy>
+  <C4DCTASection>
+    <C4DCTABlock>
+      <C4DContentBlockHeading>Curabitur malesuada varius mi eu posuere</C4DContentBlockHeading>
+      <C4DContentBlockCopy>
         Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum non porttitor libero, in venenatis magna.
-      </DDSContentBlockCopy>
-      <DDSTextCTA slot="action" cta-type="local" icon-placement="right" href="https://www.example.com">
+      </C4DContentBlockCopy>
+      <C4DTextCTA slot="action" cta-type="local" icon-placement="right" href="https://www.example.com">
         Browse tutorials
-      </DDSTextCTA>
-    </DDSCTABlock>
-  </DDSCTASection>
+      </C4DTextCTA>
+    </C4DCTABlock>
+  </C4DCTASection>
 );
 
 render(<App />, document.getElementById('root'));

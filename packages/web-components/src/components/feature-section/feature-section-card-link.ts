@@ -10,7 +10,7 @@
 import { css } from 'lit';
 import settings from '../../internal/vendor/@carbon/ibmdotcom-utilities/utilities/settings/settings';
 import { carbonElement as customElement } from '../../internal/vendor/@carbon/web-components/globals/decorators/carbon-element';
-import DDSCardCTA from '../cta/card-cta';
+import C4DCardCTA from '../cta/card-cta';
 import styles from './feature-section.scss';
 
 const { stablePrefix: ddsPrefix } = settings;
@@ -18,10 +18,10 @@ const { stablePrefix: ddsPrefix } = settings;
 /**
  * Feature Section Card Link.
  *
- * @element dds-feature-section-card-link
+ * @element c4d-feature-section-card-link
  */
 @customElement(`${ddsPrefix}-feature-section-card-link`)
-class DDSFeatureSectionCardLink extends DDSCardCTA {
+class C4DFeatureSectionCardLink extends C4DCardCTA {
   static get stableSelector() {
     return `${ddsPrefix}--feature-section-card-link`;
   }
@@ -35,4 +35,4 @@ class DDSFeatureSectionCardLink extends DDSCardCTA {
 }
 
 /* @__GENERATE_REACT_CUSTOM_ELEMENT_TYPE__ */
-export default DDSFeatureSectionCardLink;
+export default C4DFeatureSectionCardLink;

@@ -11,7 +11,7 @@ import { css, html } from 'lit';
 import { ifDefined } from 'lit/directives/if-defined.js';
 import PlayVideo from '@carbon/ibmdotcom-styles/icons/svg/play-video.svg';
 import settings from '../../internal/vendor/@carbon/ibmdotcom-utilities/utilities/settings/settings';
-import DDSCardCTA, { CTA_TYPE } from '../cta/card-cta';
+import C4DCardCTA, { CTA_TYPE } from '../cta/card-cta';
 import './card-in-card-image';
 import styles from './card-in-card.scss';
 import StableSelectorMixin from '../../globals/mixins/stable-selector';
@@ -22,10 +22,10 @@ const { prefix, stablePrefix: ddsPrefix } = settings;
 /**
  * Card in Card.
  *
- * @element dds-card-in-card
+ * @element c4d-card-in-card
  */
 @customElement(`${ddsPrefix}-card-in-card`)
-class DDSCardInCard extends StableSelectorMixin(DDSCardCTA) {
+class C4DCardInCard extends StableSelectorMixin(C4DCardCTA) {
   protected _renderImage() {
     const {
       ctaType,
@@ -38,11 +38,11 @@ class DDSCardInCard extends StableSelectorMixin(DDSCardCTA) {
       hasImage || ctaType !== CTA_TYPE.VIDEO
         ? undefined
         : html`
-            <dds-card-in-card-image
+            <c4d-card-in-card-image
               alt="${ifDefined(videoName)}"
               default-src="${ifDefined(thumbnail || videoThumbnailUrl)}">
               ${PlayVideo({ slot: 'icon' })}
-            </dds-card-in-card-image>
+            </c4d-card-in-card-image>
           `;
     return html`
       <slot name="image" @slotchange="${this._handleSlotChange}"></slot>${image}
@@ -61,7 +61,7 @@ class DDSCardInCard extends StableSelectorMixin(DDSCardCTA) {
     );
     const cardInCardImageVideo = this.parentElement
       ?.querySelector(`${ddsPrefix}-card-in-card`)
-      ?.shadowRoot?.querySelector('dds-card-in-card-image');
+      ?.shadowRoot?.querySelector('c4d-card-in-card-image');
 
     // fires the card cta footer when card image is clicked
     if (cardInCardImage || cardInCardImageVideo) {
@@ -87,4 +87,4 @@ class DDSCardInCard extends StableSelectorMixin(DDSCardCTA) {
 }
 
 /* @__GENERATE_REACT_CUSTOM_ELEMENT_TYPE__ */
-export default DDSCardInCard;
+export default C4DCardInCard;

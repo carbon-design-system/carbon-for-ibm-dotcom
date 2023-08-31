@@ -9,7 +9,7 @@
 
 import { css, html } from 'lit';
 import settings from '../../internal/vendor/@carbon/ibmdotcom-utilities/utilities/settings/settings';
-import DDSCardCTA from './card-cta';
+import C4DCardCTA from './card-cta';
 import styles from '../link-list/link-list.scss';
 import { carbonElement as customElement } from '../../internal/vendor/@carbon/web-components/globals/decorators/carbon-element';
 
@@ -18,10 +18,10 @@ const { stablePrefix: ddsPrefix } = settings;
 /**
  * Link list item card CTA.
  *
- * @element dds-link-list-item-card-cta
+ * @element c4d-link-list-item-card-cta
  */
 @customElement(`${ddsPrefix}-link-list-item-card-cta`)
-class DDSLinkListItemCardCTA extends DDSCardCTA {
+class C4DLinkListItemCardCTA extends C4DCardCTA {
   protected _renderImage() {
     // Link list doesn't show video thumbnail in card
     return html`
@@ -49,4 +49,4 @@ class DDSLinkListItemCardCTA extends DDSCardCTA {
 }
 
 /* @__GENERATE_REACT_CUSTOM_ELEMENT_TYPE__ */
-export default DDSLinkListItemCardCTA;
+export default C4DLinkListItemCardCTA;

@@ -18,10 +18,10 @@ const { stablePrefix: ddsPrefix } = settings;
 /**
  * The eyebrow content of content item horizontal.
  *
- * @element dds-content-item-horizontal-eyebrow
+ * @element c4d-content-item-horizontal-eyebrow
  */
 @customElement(`${ddsPrefix}-content-item-horizontal-eyebrow`)
-class DDSContentItemHorizontalEyebrow extends StableSelectorMixin(LitElement) {
+class C4DContentItemHorizontalEyebrow extends StableSelectorMixin(LitElement) {
   /**
    * The shadow slot this eyebrow content should be in.
    */
@@ -41,4 +41,4 @@ class DDSContentItemHorizontalEyebrow extends StableSelectorMixin(LitElement) {
 }
 
 /* @__GENERATE_REACT_CUSTOM_ELEMENT_TYPE__ */
-export default DDSContentItemHorizontalEyebrow;
+export default C4DContentItemHorizontalEyebrow;

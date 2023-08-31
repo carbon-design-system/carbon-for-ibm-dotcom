@@ -19,10 +19,10 @@ const { prefix, stablePrefix: ddsPrefix } = settings;
 /**
  * Search result item in masthead.
  *
- * @element dds-search-with-typeahead-item
+ * @element c4d-search-with-typeahead-item
  */
 @customElement(`${ddsPrefix}-search-with-typeahead-item`)
-class DDSSearchWithTypeaheadItem extends LitElement {
+class C4DSearchWithTypeaheadItem extends LitElement {
   /**
    * The the search result to be shown.
    */
@@ -36,7 +36,7 @@ class DDSSearchWithTypeaheadItem extends LitElement {
 
   /**
    * `true` if this dropdown item should be highlighted.
-   * If `true`, parent `<dds-search-with-typeahead>` selects/deselects this dropdown item upon keyboard interaction.
+   * If `true`, parent `<c4d-search-with-typeahead>` selects/deselects this dropdown item upon keyboard interaction.
    *
    * @private
    */
@@ -117,4 +117,4 @@ class DDSSearchWithTypeaheadItem extends LitElement {
 }
 
 /* @__GENERATE_REACT_CUSTOM_ELEMENT_TYPE__ */
-export default DDSSearchWithTypeaheadItem;
+export default C4DSearchWithTypeaheadItem;

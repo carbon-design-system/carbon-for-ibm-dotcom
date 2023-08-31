@@ -19,10 +19,10 @@ const { stablePrefix: ddsPrefix } = settings;
 /**
  * Button group.
  *
- * @element dds-button-group
+ * @element c4d-button-group
  */
 @customElement(`${ddsPrefix}-button-group`)
-class DDSButtonGroup extends StableSelectorMixin(LitElement) {
+class C4DButtonGroup extends StableSelectorMixin(LitElement) {
   /**
    * Handler for @slotchange, set the first button-group-item to kind tertiary and primary for the remaining ones
    *
@@ -34,13 +34,13 @@ class DDSButtonGroup extends StableSelectorMixin(LitElement) {
       .filter((elem) =>
         (elem as HTMLElement).matches !== undefined
           ? (elem as HTMLElement).matches(
-              (this.constructor as typeof DDSButtonGroup).selectorItem
+              (this.constructor as typeof C4DButtonGroup).selectorItem
             ) ||
             (elem as HTMLElement).matches(
-              (this.constructor as typeof DDSButtonGroup).selectorItemCTA
+              (this.constructor as typeof C4DButtonGroup).selectorItemCTA
             ) ||
             (elem as HTMLElement).matches(
-              (this.constructor as typeof DDSButtonGroup).selectorItemDefaultCTA
+              (this.constructor as typeof C4DButtonGroup).selectorItemDefaultCTA
             )
           : false
       );
@@ -53,7 +53,7 @@ class DDSButtonGroup extends StableSelectorMixin(LitElement) {
     });
 
     const { customPropertyItemCount } = this
-      .constructor as typeof DDSButtonGroup;
+      .constructor as typeof C4DButtonGroup;
     this.style.setProperty(customPropertyItemCount, String(childItems.length));
 
     const update = new CustomEvent(`${ddsPrefix}-button-group-update`, {
@@ -110,4 +110,4 @@ class DDSButtonGroup extends StableSelectorMixin(LitElement) {
 }
 
 /* @__GENERATE_REACT_CUSTOM_ELEMENT_TYPE__ */
-export default DDSButtonGroup;
+export default C4DButtonGroup;

@@ -10,7 +10,7 @@
 import { css } from 'lit';
 import settings from '../../internal/vendor/@carbon/ibmdotcom-utilities/utilities/settings/settings';
 import { carbonElement as customElement } from '../../internal/vendor/@carbon/web-components/globals/decorators/carbon-element';
-import DDSContentBlock from '../content-block/content-block';
+import C4DContentBlock from '../content-block/content-block';
 import styles from './content-block-media.scss';
 
 const { stablePrefix: ddsPrefix } = settings;
@@ -18,10 +18,10 @@ const { stablePrefix: ddsPrefix } = settings;
 /**
  * Content block media.
  *
- * @element dds-content-block-media
+ * @element c4d-content-block-media
  */
 @customElement(`${ddsPrefix}-content-block-media`)
-class DDSContentBlockMedia extends DDSContentBlock {
+class C4DContentBlockMedia extends C4DContentBlock {
   static get stableSelector() {
     return `${ddsPrefix}--content-block-media`;
   }
@@ -40,4 +40,4 @@ console.warn(
 );
 
 /* @__GENERATE_REACT_CUSTOM_ELEMENT_TYPE__ */
-export default DDSContentBlockMedia;
+export default C4DContentBlockMedia;

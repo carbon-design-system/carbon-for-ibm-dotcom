@@ -12,7 +12,7 @@ import settings from '../../internal/vendor/@carbon/ibmdotcom-utilities/utilitie
 import StableSelectorMixin from '../../globals/mixins/stable-selector';
 
 import styles from './card-section-images.scss';
-import DDSContentSection from '../content-section/content-section';
+import C4DContentSection from '../content-section/content-section';
 import { carbonElement as customElement } from '../../internal/vendor/@carbon/web-components/globals/decorators/carbon-element';
 
 const { stablePrefix: ddsPrefix } = settings;
@@ -20,10 +20,10 @@ const { stablePrefix: ddsPrefix } = settings;
 /**
  * The Card Section Images pattern
  *
- * @element dds-card-section-images
+ * @element c4d-card-section-images
  */
 @customElement(`${ddsPrefix}-card-section-images`)
-class DDSCardSectionImages extends StableSelectorMixin(DDSContentSection) {
+class C4DCardSectionImages extends StableSelectorMixin(C4DContentSection) {
   static get stableSelector() {
     return `${ddsPrefix}--card-section-images`;
   }
@@ -33,7 +33,7 @@ class DDSCardSectionImages extends StableSelectorMixin(DDSContentSection) {
 
 export default deprecate(
   /* @__GENERATE_REACT_CUSTOM_ELEMENT_TYPE__ */
-  DDSCardSectionImages,
-  'The dds-card-section-images component has been merged with the dds-card-section component ' +
-    'See dds-card-section documentation for more information.'
+  C4DCardSectionImages,
+  'The c4d-card-section-images component has been merged with the c4d-card-section component ' +
+    'See c4d-card-section documentation for more information.'
 );

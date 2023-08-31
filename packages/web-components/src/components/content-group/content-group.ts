@@ -9,7 +9,7 @@
 
 import { TemplateResult, html } from 'lit';
 import settings from '../../internal/vendor/@carbon/ibmdotcom-utilities/utilities/settings/settings';
-import DDSContentBlock from '../content-block/content-block';
+import C4DContentBlock from '../content-block/content-block';
 import StableSelectorMixin from '../../globals/mixins/stable-selector';
 import styles from './content-group.scss';
 import { carbonElement as customElement } from '../../internal/vendor/@carbon/web-components/globals/decorators/carbon-element';
@@ -22,7 +22,7 @@ const { stablePrefix: ddsPrefix } = settings;
  * @abstract
  */
 @customElement(`${ddsPrefix}-content-group`)
-class DDSContentGroup extends StableSelectorMixin(DDSContentBlock) {
+class C4DContentGroup extends StableSelectorMixin(C4DContentBlock) {
   protected _renderInnerBody(): TemplateResult | string | void {
     return html` ${this._renderMedia()}${this._renderContent()} `;
   }
@@ -35,4 +35,4 @@ class DDSContentGroup extends StableSelectorMixin(DDSContentBlock) {
 }
 
 /* @__GENERATE_REACT_CUSTOM_ELEMENT_TYPE__ */
-export default DDSContentGroup;
+export default C4DContentGroup;

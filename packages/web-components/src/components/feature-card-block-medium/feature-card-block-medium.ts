@@ -10,7 +10,7 @@
 import { html } from 'lit';
 import settings from '../../internal/vendor/@carbon/ibmdotcom-utilities/utilities/settings/settings';
 import deprecate from '../../internal/vendor/@carbon/ibmdotcom-utilities/utilities/deprecate/deprecate';
-import DDSFeatureCard from '../feature-card/feature-card';
+import C4DFeatureCard from '../feature-card/feature-card';
 import styles from './feature-card-block-medium.scss';
 import { carbonElement as customElement } from '../../internal/vendor/@carbon/web-components/globals/decorators/carbon-element';
 
@@ -19,11 +19,11 @@ const { prefix, stablePrefix: ddsPrefix } = settings;
 /**
  * Feature Card Block Medium
  *
- * @element dds-feature-card-block-medium
+ * @element c4d-feature-card-block-medium
  * @slot block-heading - The block heading content.
  */
 @customElement(`${ddsPrefix}-feature-card-block-medium`)
-class DDSFeatureCardBlockMedium extends DDSFeatureCard {
+class C4DFeatureCardBlockMedium extends C4DFeatureCard {
   protected _renderInner() {
     return html` ${this._renderImage()}${super._renderInner()} `;
   }
@@ -53,7 +53,7 @@ class DDSFeatureCardBlockMedium extends DDSFeatureCard {
   static styles = styles;
 }
 export default deprecate(
-  DDSFeatureCardBlockMedium,
+  C4DFeatureCardBlockMedium,
   `The FeatureCardBlockMedium component has been deprecated in favor of the FeatureCard component. ` +
     `See FeatureCard's size attribute documentation for more information.`
 );

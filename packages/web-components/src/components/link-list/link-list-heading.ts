@@ -18,10 +18,10 @@ const { stablePrefix: ddsPrefix } = settings;
 /**
  * The heading content of link list.
  *
- * @element dds-link-list-heading
+ * @element c4d-link-list-heading
  */
 @customElement(`${ddsPrefix}-link-list-heading`)
-class DDSLinkListHeading extends StableSelectorMixin(LitElement) {
+class C4DLinkListHeading extends StableSelectorMixin(LitElement) {
   /**
    * The shadow slot this link list heading should be in.
    */
@@ -51,4 +51,4 @@ class DDSLinkListHeading extends StableSelectorMixin(LitElement) {
 }
 
 /* @__GENERATE_REACT_CUSTOM_ELEMENT_TYPE__ */
-export default DDSLinkListHeading;
+export default C4DLinkListHeading;

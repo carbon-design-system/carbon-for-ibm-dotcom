@@ -21,10 +21,10 @@ const { stablePrefix: ddsPrefix } = settings;
 /**
  * The heading content in universal banner
  *
- * @element dds-universal-banner-heading
+ * @element c4d-universal-banner-heading
  */
 @customElement(`${ddsPrefix}-universal-banner-heading`)
-class DDSUniversalBannerHeading extends StableSelectorMixin(LitElement) {
+class C4DUniversalBannerHeading extends StableSelectorMixin(LitElement) {
   /**
    * The shadow slot this logo UI should be in.
    */
@@ -61,4 +61,4 @@ class DDSUniversalBannerHeading extends StableSelectorMixin(LitElement) {
 }
 
 /* @__GENERATE_REACT_CUSTOM_ELEMENT_TYPE__ */
-export default DDSUniversalBannerHeading;
+export default C4DUniversalBannerHeading;

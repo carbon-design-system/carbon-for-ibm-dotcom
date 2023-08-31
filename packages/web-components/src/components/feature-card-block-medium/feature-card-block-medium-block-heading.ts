@@ -18,10 +18,10 @@ const { stablePrefix: ddsPrefix } = settings;
 /**
  * The block heading content of feature card block medium.
  *
- * @element dds-feature-card-block-medium-block-heading
+ * @element c4d-feature-card-block-medium-block-heading
  */
 @customElement(`${ddsPrefix}-feature-card-block-medium-block-heading`)
-class DDSFeatureCardBlockMediumBlockHeading extends LitElement {
+class C4DFeatureCardBlockMediumBlockHeading extends LitElement {
   /**
    * The shadow slot this block heading should be in.
    */
@@ -46,4 +46,4 @@ class DDSFeatureCardBlockMediumBlockHeading extends LitElement {
   static styles = styles;
 }
 
-export default DDSFeatureCardBlockMediumBlockHeading;
+export default C4DFeatureCardBlockMediumBlockHeading;

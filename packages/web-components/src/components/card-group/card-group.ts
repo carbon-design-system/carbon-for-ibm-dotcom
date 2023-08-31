@@ -31,10 +31,10 @@ const headingBottomMargin = 64;
 /**
  * Card Group.
  *
- * @element dds-card-group
+ * @element c4d-card-group
  */
 @customElement(`${ddsPrefix}-card-group`)
-class DDSCardGroup extends StableSelectorMixin(LitElement) {
+class C4DCardGroup extends StableSelectorMixin(LitElement) {
   /**
    * Array to hold the card-heading elements within child items.
    */
@@ -99,7 +99,7 @@ class DDSCardGroup extends StableSelectorMixin(LitElement) {
       .assignedNodes()
       .filter((elem) =>
         (elem as HTMLElement).matches?.(
-          (this.constructor as typeof DDSCardGroup).selectorItem
+          (this.constructor as typeof C4DCardGroup).selectorItem
         )
       );
 
@@ -108,34 +108,34 @@ class DDSCardGroup extends StableSelectorMixin(LitElement) {
       this._childItems.forEach((e) => {
         this._childItemEyebrows.push(
           (e as HTMLElement).querySelector(
-            (this.constructor as typeof DDSCardGroup).selectorItemEyebrow
+            (this.constructor as typeof C4DCardGroup).selectorItemEyebrow
           )
         );
         this._childItemParagraphs.push(
           (e as HTMLElement).querySelector(
-            (this.constructor as typeof DDSCardGroup).selectorItemParagraph
+            (this.constructor as typeof C4DCardGroup).selectorItemParagraph
           )
         );
         this._childItemTagGroup.push(
           (e as HTMLElement).querySelector(
-            (this.constructor as typeof DDSCardGroup).selectorItemTagGroup
+            (this.constructor as typeof C4DCardGroup).selectorItemTagGroup
           )
         );
         this._childItemHeadings.push(
           (e as HTMLElement).querySelector(
-            (this.constructor as typeof DDSCardGroup).selectorItemHeading
+            (this.constructor as typeof C4DCardGroup).selectorItemHeading
           )
         );
         this._childItemFooters.push(
           (e as HTMLElement).querySelector(
-            (this.constructor as typeof DDSCardGroup).selectorItemFooter
+            (this.constructor as typeof C4DCardGroup).selectorItemFooter
           )
         );
         e.toggleAttribute('border', this.gridMode === 'border');
       });
 
       const { customPropertyCardsPerRow } = this
-        .constructor as typeof DDSCardGroup;
+        .constructor as typeof C4DCardGroup;
       this.style.setProperty(
         customPropertyCardsPerRow,
         String(this.cardsPerRow)
@@ -214,7 +214,7 @@ class DDSCardGroup extends StableSelectorMixin(LitElement) {
       if (
         e &&
         !e.nextElementSibling?.matches(
-          (this.constructor as typeof DDSCardGroup).selectorItemTagGroup
+          (this.constructor as typeof C4DCardGroup).selectorItemTagGroup
         )
       ) {
         e.style.marginBottom = `${tagGroupHeight + headingBottomMargin}px`;
@@ -309,7 +309,7 @@ class DDSCardGroup extends StableSelectorMixin(LitElement) {
         ? columnCount - (this.childElementCount % columnCount)
         : 0;
     for (let i = 0; i < emptyNeeded; i++) {
-      const card = document.createElement('dds-card-group-item');
+      const card = document.createElement('c4d-card-group-item');
       card.setAttribute('empty', '');
       this.shadowRoot?.appendChild(card);
     }
@@ -333,7 +333,7 @@ class DDSCardGroup extends StableSelectorMixin(LitElement) {
 
   /**
    * Number of cards per column.
-   * If `--dds--card-group--cards-in-row` CSS custom property is set to `<dds-card-group>`.
+   * If `--c4d--card-group--cards-in-row` CSS custom property is set to `<c4d-card-group>`.
    */
   @property({ type: Number, attribute: 'cards-per-row' })
   get cardsPerRow() {
@@ -452,4 +452,4 @@ class DDSCardGroup extends StableSelectorMixin(LitElement) {
 }
 
 /* @__GENERATE_REACT_CUSTOM_ELEMENT_TYPE__ */
-export default DDSCardGroup;
+export default C4DCardGroup;

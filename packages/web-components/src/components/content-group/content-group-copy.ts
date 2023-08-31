@@ -10,7 +10,7 @@
 import { property } from 'lit/decorators.js';
 import settings from '../../internal/vendor/@carbon/ibmdotcom-utilities/utilities/settings/settings';
 import StableSelectorMixin from '../../globals/mixins/stable-selector';
-import DDSMarkdown from '../markdown/markdown';
+import C4DMarkdown from '../markdown/markdown';
 import './content-group-paragraph';
 import styles from './content-group.scss';
 import { carbonElement as customElement } from '../../internal/vendor/@carbon/web-components/globals/decorators/carbon-element';
@@ -20,10 +20,10 @@ const { stablePrefix: ddsPrefix } = settings;
 /**
  * The copy content in content group.
  *
- * @element dds-content-group-copy
+ * @element c4d-content-group-copy
  */
 @customElement(`${ddsPrefix}-content-group-copy`)
-class DDSContentGroupCopy extends StableSelectorMixin(DDSMarkdown) {
+class C4DContentGroupCopy extends StableSelectorMixin(C4DMarkdown) {
   protected get _customTags() {
     const tags = new Set(super._customTags);
     tags.add(`${ddsPrefix}-content-group-paragraph`);
@@ -60,4 +60,4 @@ class DDSContentGroupCopy extends StableSelectorMixin(DDSMarkdown) {
 }
 
 /* @__GENERATE_REACT_CUSTOM_ELEMENT_TYPE__ */
-export default DDSContentGroupCopy;
+export default C4DContentGroupCopy;

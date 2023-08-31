@@ -13,7 +13,7 @@ import CDSComboBoxItem from '../../internal/vendor/@carbon/web-components/compon
 import Close16 from '../../internal/vendor/@carbon/web-components/icons/close/16.js';
 import settings from '@carbon/ibmdotcom-utilities/es/utilities/settings/settings.js';
 import { findIndex, forEach } from '../../globals/internal/collection-helpers';
-import DDSDropdown, { DROPDOWN_KEYBOARD_ACTION } from './dropdown';
+import C4DDropdown, { DROPDOWN_KEYBOARD_ACTION } from './dropdown';
 import { carbonElement as customElement } from '../../internal/vendor/@carbon/web-components/globals/decorators/carbon-element.js';
 
 export {
@@ -27,7 +27,7 @@ const { prefix, stablePrefix: ddsPrefix } = settings;
 /**
  * Combo box.
  *
- * @element dds-combo-box
+ * @element c4d-combo-box
  * @fires cds-combo-box-beingselected
  *   The custom event fired before a combo box item is selected upon a user gesture.
  *   Cancellation of this event stops changing the user-initiated selection.
@@ -38,7 +38,7 @@ const { prefix, stablePrefix: ddsPrefix } = settings;
  * @fires cds-combo-box-toggled - The custom event fired after the open state of this combo box is toggled upon a user gesture.
  */
 @customElement(`${ddsPrefix}-combo-box`)
-class DDSComboBox extends DDSDropdown {
+class C4DComboBox extends C4DDropdown {
   /**
    * The text content that should be set to the `<input>` for filtering.
    */
@@ -92,7 +92,7 @@ class DDSComboBox extends DDSDropdown {
    */
   protected _handleInput() {
     const items = this.querySelectorAll(
-      (this.constructor as typeof DDSComboBox).selectorItem
+      (this.constructor as typeof C4DComboBox).selectorItem
     );
     const index = !this._filterInputNode.value
       ? -1
@@ -116,7 +116,7 @@ class DDSComboBox extends DDSDropdown {
 
   protected _handleKeypressInner(event: KeyboardEvent) {
     const { key } = event;
-    const action = (this.constructor as typeof DDSDropdown).getAction(key);
+    const action = (this.constructor as typeof C4DDropdown).getAction(key);
     const { TRIGGERING } = DROPDOWN_KEYBOARD_ACTION;
     if (
       this._selectionButtonNode?.contains(event.target as Node) &&
@@ -135,7 +135,7 @@ class DDSComboBox extends DDSDropdown {
   protected _handleUserInitiatedClearInput() {
     forEach(
       this.querySelectorAll(
-        (this.constructor as typeof DDSComboBox).selectorItem
+        (this.constructor as typeof C4DComboBox).selectorItem
       ),
       (item) => {
         (item as CDSComboBoxItem).highlighted = false;
@@ -286,4 +286,4 @@ class DDSComboBox extends DDSDropdown {
   }
 }
 
-export default DDSComboBox;
+export default C4DComboBox;

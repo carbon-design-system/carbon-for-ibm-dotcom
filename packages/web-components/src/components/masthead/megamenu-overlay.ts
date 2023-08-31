@@ -18,10 +18,10 @@ const { stablePrefix: ddsPrefix } = settings;
 /**
  * Megamenu overlay.
  *
- * @element dds-megamenu-overlay
+ * @element c4d-megamenu-overlay
  */
 @customElement(`${ddsPrefix}-megamenu-overlay`)
-class DDSMegaMenuOverlay extends LitElement {
+class C4DMegaMenuOverlay extends LitElement {
   /**
    * `true` if this overlay should represent its active state.
    */
@@ -35,4 +35,4 @@ class DDSMegaMenuOverlay extends LitElement {
   static styles = styles;
 }
 
-export default DDSMegaMenuOverlay;
+export default C4DMegaMenuOverlay;

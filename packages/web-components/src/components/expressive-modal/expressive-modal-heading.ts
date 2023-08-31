@@ -18,10 +18,10 @@ const { stablePrefix: ddsPrefix } = settings;
 /**
  * Expressive modal heading.
  *
- * @element dds-expressive-modal-heading
+ * @element c4d-expressive-modal-heading
  */
 @customElement(`${ddsPrefix}-expressive-modal-heading`)
-class DDSExpressiveModalHeading extends StableSelectorMixin(CDSModalHeading) {
+class C4DExpressiveModalHeading extends StableSelectorMixin(CDSModalHeading) {
   connectedCallback() {
     if (!this.hasAttribute('role')) {
       this.setAttribute('role', 'heading');
@@ -40,4 +40,4 @@ class DDSExpressiveModalHeading extends StableSelectorMixin(CDSModalHeading) {
 }
 
 /* @__GENERATE_REACT_CUSTOM_ELEMENT_TYPE__ */
-export default DDSExpressiveModalHeading;
+export default C4DExpressiveModalHeading;

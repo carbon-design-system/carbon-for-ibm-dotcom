@@ -11,8 +11,8 @@ import { html, LitElement, SVGTemplateResult, TemplateResult } from 'lit';
 import { property, query, state } from 'lit/decorators.js';
 import { EXPRESSIVE_MODAL_MODE, EXPRESSIVE_MODAL_SIZE } from './defs';
 import { classMap } from 'lit/directives/class-map.js';
-import DDSCarousel from '../carousel/carousel';
-import DDSExpressiveModalCloseButton from './expressive-modal-close-button';
+import C4DCarousel from '../carousel/carousel';
+import C4DExpressiveModalCloseButton from './expressive-modal-close-button';
 import settings from '../../internal/vendor/@carbon/ibmdotcom-utilities/utilities/settings/settings';
 import HostListener from '../../internal/vendor/@carbon/web-components/globals/decorators/host-listener.js';
 import HostListenerMixin from '../../internal/vendor/@carbon/web-components/globals/mixins/host-listener.js';
@@ -101,16 +101,16 @@ const slotExistencePropertyNames = {
 /**
  * Expressive modal.
  *
- * @element dds-expressive-modal
- * @fires dds-expressive-modal-beingclosed
+ * @element c4d-expressive-modal
+ * @fires c4d-expressive-modal-beingclosed
  *   The custom event fired before this modal is being closed upon a user gesture.
  *   Cancellation of this event stops the user-initiated action of closing this modal.
- * @fires dds-expressive-modal-closed - The custom event fired after this modal is closed upon a user gesture.
+ * @fires c4d-expressive-modal-closed - The custom event fired after this modal is closed upon a user gesture.
  * @slot header - The header content.
  * @slot footer - The footer content.
  */
 @customElement(`${ddsPrefix}-expressive-modal`)
-class DDSExpressiveModal extends StableSelectorMixin(
+class C4DExpressiveModal extends StableSelectorMixin(
   HostListenerMixin(LitElement)
 ) {
   /**
@@ -139,14 +139,14 @@ class DDSExpressiveModal extends StableSelectorMixin(
   /**
    * Collection of elements to search for focusable elements.
    */
-  hasFocusableElements: [DDSExpressiveModal | DDSCarousel] = [this];
+  hasFocusableElements: [C4DExpressiveModal | C4DCarousel] = [this];
 
   /**
    * Returns all focusable elements within this component and its shadowroot
    */
   get focusableElements() {
     const { selectorCloseButton, selectorTabbable: selectorTabbableForModal } =
-      this.constructor as typeof DDSExpressiveModal;
+      this.constructor as typeof C4DExpressiveModal;
     return [
       ...Array.from(
         (this.shadowRoot?.querySelectorAll(
@@ -310,7 +310,7 @@ class DDSExpressiveModal extends StableSelectorMixin(
   private _handleClickContainer(event: MouseEvent) {
     if (
       (event.target as Element).matches(
-        (this.constructor as typeof DDSExpressiveModal).selectorCloseButton
+        (this.constructor as typeof C4DExpressiveModal).selectorCloseButton
       )
     ) {
       this._handleUserInitiatedClose(event.target);
@@ -356,7 +356,7 @@ class DDSExpressiveModal extends StableSelectorMixin(
         },
       };
       const { eventBeforeClose, eventClose } = this
-        .constructor as typeof DDSExpressiveModal;
+        .constructor as typeof C4DExpressiveModal;
       if (this.dispatchEvent(new CustomEvent(eventBeforeClose, init))) {
         this.open = false;
         this.dispatchEvent(new CustomEvent(eventClose, init));
@@ -505,12 +505,12 @@ class DDSExpressiveModal extends StableSelectorMixin(
   async updated(changedProperties) {
     const { _focusableElements: focusableElements, size } = this;
     const { selectorCloseButton } = this
-      .constructor as typeof DDSExpressiveModal;
+      .constructor as typeof C4DExpressiveModal;
 
     if (changedProperties.has('size')) {
       const closeButton = this.querySelector(selectorCloseButton);
       if (closeButton) {
-        (closeButton as DDSExpressiveModalCloseButton).size = size;
+        (closeButton as C4DExpressiveModalCloseButton).size = size;
       }
     }
     if (changedProperties.has('open')) {
@@ -519,7 +519,7 @@ class DDSExpressiveModal extends StableSelectorMixin(
         this.removeAttribute('aria-hidden');
         this._launcher = this.ownerDocument!.activeElement;
         const primaryFocusNode = this.querySelector(
-          (this.constructor as typeof DDSExpressiveModal).selectorPrimaryFocus
+          (this.constructor as typeof C4DExpressiveModal).selectorPrimaryFocus
         );
         await this._waitForTransitionEnd();
         if (primaryFocusNode) {
@@ -595,4 +595,4 @@ class DDSExpressiveModal extends StableSelectorMixin(
 }
 
 /* @__GENERATE_REACT_CUSTOM_ELEMENT_TYPE__ */
-export default DDSExpressiveModal;
+export default C4DExpressiveModal;

@@ -20,11 +20,11 @@ const { stablePrefix: ddsPrefix } = settings;
 /**
  * Filter Panel Checkbox
  *
- * @element dds-filter-panel-checkbox
- * @fires dds-checkbox-select - The custom event fired after this changebox changes its checked state.
+ * @element c4d-filter-panel-checkbox
+ * @fires c4d-checkbox-select - The custom event fired after this changebox changes its checked state.
  */
 @customElement(`${ddsPrefix}-filter-panel-checkbox`)
-class DDSFilterPanelCheckbox extends FocusMixin(
+class C4DFilterPanelCheckbox extends FocusMixin(
   StableSelectorMixin(CDSCheckbox)
 ) {
   /**
@@ -61,4 +61,4 @@ class DDSFilterPanelCheckbox extends FocusMixin(
 }
 
 /* @__GENERATE_REACT_CUSTOM_ELEMENT_TYPE__ */
-export default DDSFilterPanelCheckbox;
+export default C4DFilterPanelCheckbox;

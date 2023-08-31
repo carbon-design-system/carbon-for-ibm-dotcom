@@ -18,10 +18,10 @@ const { prefix, stablePrefix: ddsPrefix } = settings;
 /**
  * Cloud Megamenu Tab.
  *
- * @element dds-cloud-megamenu-tab
+ * @element c4d-cloud-megamenu-tab
  */
 @customElement(`${ddsPrefix}-cloud-megamenu-tab`)
-class DDSCloudMegaMenuTab extends CDSTab {
+class C4DCloudMegaMenuTab extends CDSTab {
   render() {
     const { disabled, selected } = this;
     return html`
@@ -38,4 +38,4 @@ class DDSCloudMegaMenuTab extends CDSTab {
   static styles = styles;
 }
 
-export default DDSCloudMegaMenuTab;
+export default C4DCloudMegaMenuTab;

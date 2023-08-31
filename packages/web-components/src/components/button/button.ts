@@ -25,12 +25,12 @@ const { prefix, stablePrefix: ddsPrefix } = settings;
 /**
  * Expressive button.
  *
- * @element dds-button-expressive
+ * @element c4d-button-expressive
  * @csspart button The button.
  */
 @customElement(`${ddsPrefix}-button`)
 // @ts-ignore
-class DDSButton extends CTAMixin(StableSelectorMixin(CDSButton)) {
+class C4DButton extends CTAMixin(StableSelectorMixin(CDSButton)) {
   @query('a')
   _linkNode;
 
@@ -99,7 +99,7 @@ class DDSButton extends CTAMixin(StableSelectorMixin(CDSButton)) {
   connectedCallback() {
     super.connectedCallback();
     const { eventRequestAdditionalVideoData } = this
-      .constructor as typeof DDSButton;
+      .constructor as typeof C4DButton;
     document.addEventListener(
       eventRequestAdditionalVideoData,
       this._handleVideoTitleUpdate
@@ -109,7 +109,7 @@ class DDSButton extends CTAMixin(StableSelectorMixin(CDSButton)) {
   disconnectedCallback() {
     super.disconnectedCallback();
     const { eventRequestAdditionalVideoData } = this
-      .constructor as typeof DDSButton;
+      .constructor as typeof C4DButton;
     document.removeEventListener(
       eventRequestAdditionalVideoData,
       this._handleVideoTitleUpdate
@@ -153,4 +153,4 @@ class DDSButton extends CTAMixin(StableSelectorMixin(CDSButton)) {
 }
 
 /* @__GENERATE_REACT_CUSTOM_ELEMENT_TYPE__ */
-export default DDSButton;
+export default C4DButton;

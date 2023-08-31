@@ -9,7 +9,7 @@
 import { css } from 'lit';
 import settings from '../../internal/vendor/@carbon/ibmdotcom-utilities/utilities/settings/settings';
 import { carbonElement as customElement } from '../../internal/vendor/@carbon/web-components/globals/decorators/carbon-element';
-import DDSContentBlockCopy from '../content-block/content-block-copy';
+import C4DContentBlockCopy from '../content-block/content-block-copy';
 import styles from './callout-with-media.scss';
 
 const { stablePrefix: ddsPrefix } = settings;
@@ -17,10 +17,10 @@ const { stablePrefix: ddsPrefix } = settings;
 /**
  * The copy content of callout with media.
  *
- * @element dds-callout-with-media-copy
+ * @element c4d-callout-with-media-copy
  */
 @customElement(`${ddsPrefix}-callout-with-media-copy`)
-class DDSCalloutWithMediaCopy extends DDSContentBlockCopy {
+class C4DCalloutWithMediaCopy extends C4DContentBlockCopy {
   static get stableSelector() {
     return `${ddsPrefix}--callout-with-media-copy`;
   }
@@ -34,4 +34,4 @@ class DDSCalloutWithMediaCopy extends DDSContentBlockCopy {
 }
 
 /* @__GENERATE_REACT_CUSTOM_ELEMENT_TYPE__ */
-export default DDSCalloutWithMediaCopy;
+export default C4DCalloutWithMediaCopy;

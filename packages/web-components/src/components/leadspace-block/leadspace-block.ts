@@ -27,10 +27,10 @@ const slotExistencePropertyNames = {
 /**
  * LeadSpace Block Component.
  *
- * @element dds-leadspace-block
+ * @element c4d-leadspace-block
  */
 @customElement(`${ddsPrefix}-leadspace-block`)
-class DDSLeadSpaceBlock extends StableSelectorMixin(LitElement) {
+class C4DLeadSpaceBlock extends StableSelectorMixin(LitElement) {
   /**
    * `true` if there is a title.
    */
@@ -71,7 +71,7 @@ class DDSLeadSpaceBlock extends StableSelectorMixin(LitElement) {
         ${this._renderHeading()}
         <div class="${prefix}--content-layout__body">
           <slot></slot>
-          <dds-hr></dds-hr>
+          <c4d-hr></c4d-hr>
         </div>
       </div>
     `;
@@ -85,4 +85,4 @@ class DDSLeadSpaceBlock extends StableSelectorMixin(LitElement) {
 }
 
 /* @__GENERATE_REACT_CUSTOM_ELEMENT_TYPE__ */
-export default DDSLeadSpaceBlock;
+export default C4DLeadSpaceBlock;

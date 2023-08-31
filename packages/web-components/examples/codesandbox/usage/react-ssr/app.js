@@ -32,7 +32,7 @@ app.get('/', async (req, res) => {
   setLanguage(`${code}-${region}`);
 
   // Loads translation data of the masthead navigation items from `@carbon/ibmdotcom-services`.
-  // Once it's done, the masthead navigation items is populated into `<DDSMastheadContainer>` from our Redux store
+  // Once it's done, the masthead navigation items is populated into `<C4DMastheadContainer>` from our Redux store
   await loadTranslation();
 
   const { devMiddleware } = res.locals.webpack;

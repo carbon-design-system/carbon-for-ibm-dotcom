@@ -24,10 +24,10 @@ const { prefix, stablePrefix: ddsPrefix } = settings;
 /**
  * Leadspace with Search
  *
- * @element dds-leadspace-with-search
+ * @element c4d-leadspace-with-search
  */
 @customElement(`${ddsPrefix}-leadspace-with-search`)
-class DDSLeadspaceWithSearch extends StableSelectorMixin(LitElement) {
+class C4DLeadspaceWithSearch extends StableSelectorMixin(LitElement) {
   /**
    *
    */
@@ -141,4 +141,4 @@ class DDSLeadspaceWithSearch extends StableSelectorMixin(LitElement) {
 }
 
 /* @__GENERATE_REACT_CUSTOM_ELEMENT_TYPE__ */
-export default DDSLeadspaceWithSearch;
+export default C4DLeadspaceWithSearch;

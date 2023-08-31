@@ -24,18 +24,18 @@ export const Default = (args) => {
     </style>
     ${useMock
       ? html`
-          <dds-locale-modal-composite
+          <c4d-locale-modal-composite
             lang-display="${ifDefined(langDisplay)}"
             open
             .localeList="${ifDefined(localeList)}">
-          </dds-locale-modal-composite>
+          </c4d-locale-modal-composite>
         `
       : html`
-          <dds-locale-modal-container
+          <c4d-locale-modal-container
             lang-display="${ifDefined(langDisplay)}"
             open
             .localeList="${ifDefined(localeList)}">
-          </dds-locale-modal-container>
+          </c4d-locale-modal-container>
         `}
   `;
 };
@@ -45,7 +45,7 @@ export default {
   parameters: {
     ...readme.parameters,
     ...(() => {
-      // Lets `<dds-footer-container>` load the locale list
+      // Lets `<c4d-footer-container>` load the locale list
       const useMock =
         inPercy() || new URLSearchParams(window.location.search).has('mock');
       return {

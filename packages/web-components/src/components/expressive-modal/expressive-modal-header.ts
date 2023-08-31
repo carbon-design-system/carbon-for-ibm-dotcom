@@ -19,10 +19,10 @@ const { stablePrefix: ddsPrefix } = settings;
 /**
  * Expressive modal header.
  *
- * @element dds-expressive-modal-header
+ * @element c4d-expressive-modal-header
  */
 @customElement(`${ddsPrefix}-expressive-modal-header`)
-class DDSExpressiveModalHeader extends StableSelectorMixin(CDSModalHeader) {
+class C4DExpressiveModalHeader extends StableSelectorMixin(CDSModalHeader) {
   @property({ reflect: true })
   slot = 'header';
 
@@ -34,4 +34,4 @@ class DDSExpressiveModalHeader extends StableSelectorMixin(CDSModalHeader) {
 }
 
 /* @__GENERATE_REACT_CUSTOM_ELEMENT_TYPE__ */
-export default DDSExpressiveModalHeader;
+export default C4DExpressiveModalHeader;

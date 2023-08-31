@@ -9,7 +9,7 @@
 
 import settings from '../../internal/vendor/@carbon/ibmdotcom-utilities/utilities/settings/settings';
 import { Constructor } from '../../globals/defs';
-import DDSTab from '../../components/tabs-extended/tab';
+import C4DTab from '../../components/tabs-extended/tab';
 
 const { stablePrefix: ddsPrefix } = settings;
 
@@ -51,7 +51,7 @@ const ParentVisibilityMixin = <T extends Constructor<HTMLElement>>(Base: T) => {
      */
     static get parentsThatHide() {
       return {
-        [`${ddsPrefix}-tab`]: DDSTab.eventTabSelected,
+        [`${ddsPrefix}-tab`]: C4DTab.eventTabSelected,
       };
     }
   }

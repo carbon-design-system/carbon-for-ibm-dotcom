@@ -22,11 +22,11 @@ const { prefix, stablePrefix: ddsPrefix } = settings;
 /**
  * The CTA BLOCK ITEM ROW component
  *
- * @element dds-cta-block-item-row
+ * @element c4d-cta-block-item-row
  * @slot .
  */
 @customElement(`${ddsPrefix}-cta-block-item-row`)
-class DDSCTABlockItemRow extends ParentVisibilityMixin(
+class C4DCTABlockItemRow extends ParentVisibilityMixin(
   StableSelectorMixin(LitElement)
 ) {
   /** Defines if the bottom border is rendered */
@@ -106,7 +106,7 @@ class DDSCTABlockItemRow extends ParentVisibilityMixin(
   protected _handleSlotChange(event: Event) {
     const { target } = event;
     const { selectorItem, selectorItemHeading, selectorItemCopy } = this
-      .constructor as typeof DDSCTABlockItemRow;
+      .constructor as typeof C4DCTABlockItemRow;
 
     const childItems = (target as HTMLSlotElement)
       .assignedNodes()
@@ -191,4 +191,4 @@ console.warn(
 );
 
 /* @__GENERATE_REACT_CUSTOM_ELEMENT_TYPE__ */
-export default DDSCTABlockItemRow;
+export default C4DCTABlockItemRow;

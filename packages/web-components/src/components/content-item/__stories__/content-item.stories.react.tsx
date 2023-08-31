@@ -12,52 +12,70 @@ import React from 'react';
 // Below path will be there when an application installs `@carbon/ibmdotcom-web-components` package.
 // In our dev env, we auto-generate the file and re-map below path to to point to the generated file.
 // @ts-ignore
-import DDSContentItem from '@carbon/ibmdotcom-web-components/es/components-react/content-item/content-item';
-import DDSContentItemHeading from '@carbon/ibmdotcom-web-components/es/components-react/content-item/content-item-heading';
-import DDSContentItemCopy from '@carbon/ibmdotcom-web-components/es/components-react/content-item/content-item-copy';
-import DDSButtonCTA from '@carbon/ibmdotcom-web-components/es/components-react/cta/button-cta';
-import DDSTextCTA from '@carbon/ibmdotcom-web-components/es/components-react/cta/text-cta';
-import DDSImage from '@carbon/ibmdotcom-web-components/es/components-react/image/image';
-import DDSVideoPlayerContainer from '@carbon/ibmdotcom-web-components/es/components-react/video-player/video-player-container';
+import C4DContentItem from '@carbon/ibmdotcom-web-components/es/components-react/content-item/content-item';
+import C4DContentItemHeading from '@carbon/ibmdotcom-web-components/es/components-react/content-item/content-item-heading';
+import C4DContentItemCopy from '@carbon/ibmdotcom-web-components/es/components-react/content-item/content-item-copy';
+import C4DButtonCTA from '@carbon/ibmdotcom-web-components/es/components-react/cta/button-cta';
+import C4DTextCTA from '@carbon/ibmdotcom-web-components/es/components-react/cta/text-cta';
+import C4DImage from '@carbon/ibmdotcom-web-components/es/components-react/image/image';
+import C4DVideoPlayerContainer from '@carbon/ibmdotcom-web-components/es/components-react/video-player/video-player-container';
 
 import imgLg16x9 from '../../../../../storybook-images/assets/720/fpo--16x9--720x405--005.jpg';
 import textNullable from '../../../../.storybook/knob-text-nullable';
 import readme from './README.stories.react.mdx';
 
-export const Default = args => {
-  const { heading, media, copy, showCopy, ctaStyle, ctaCopy } = args?.ContentItem ?? {};
+export const Default = (args) => {
+  const { heading, media, copy, showCopy, ctaStyle, ctaCopy } =
+    args?.ContentItem ?? {};
   return (
-    <DDSContentItem>
+    <C4DContentItem>
       {media === 'image' ? (
-        <DDSImage slot="media" alt="Alt image text" default-src={imgLg16x9} heading="Image caption text"></DDSImage>
+        <C4DImage
+          slot="media"
+          alt="Alt image text"
+          default-src={imgLg16x9}
+          heading="Image caption text"></C4DImage>
       ) : (
         ''
       )}
-      {media === 'video' ? <DDSVideoPlayerContainer slot="media" video-id="1_9h94wo6b"></DDSVideoPlayerContainer> : ''}
-      <DDSContentItemHeading>{heading}</DDSContentItemHeading>
-      {showCopy ? <DDSContentItemCopy>{copy}</DDSContentItemCopy> : ''}
+      {media === 'video' ? (
+        <C4DVideoPlayerContainer
+          slot="media"
+          video-id="1_9h94wo6b"></C4DVideoPlayerContainer>
+      ) : (
+        ''
+      )}
+      <C4DContentItemHeading>{heading}</C4DContentItemHeading>
+      {showCopy ? <C4DContentItemCopy>{copy}</C4DContentItemCopy> : ''}
       {ctaStyle === 'text' ? (
-        <DDSTextCTA slot="footer" cta-type="local" icon-placement="right" href="https://www.example.com">
+        <C4DTextCTA
+          slot="footer"
+          cta-type="local"
+          icon-placement="right"
+          href="https://www.example.com">
           {ctaCopy}
-        </DDSTextCTA>
+        </C4DTextCTA>
       ) : (
         ''
       )}
       {ctaStyle === 'button' ? (
-        <DDSButtonCTA slot="footer" cta-type="local" href="https://www.example.com">
+        <C4DButtonCTA
+          slot="footer"
+          cta-type="local"
+          href="https://www.example.com">
           {ctaCopy}
-        </DDSButtonCTA>
+        </C4DButtonCTA>
       ) : (
         ''
       )}
-    </DDSContentItem>
+    </C4DContentItem>
   );
 };
 
 export default {
   title: 'Components/Content item',
   decorators: [
-    story => {
+    (story) => {
       return (
         <>
           <div className="cds--grid">
