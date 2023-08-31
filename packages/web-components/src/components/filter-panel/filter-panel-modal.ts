@@ -32,44 +32,6 @@ const PRECEDING =
 const FOLLOWING =
   Node.DOCUMENT_POSITION_FOLLOWING | Node.DOCUMENT_POSITION_CONTAINED_BY;
 
-function tryFocusElems(
-  elems: NodeListOf<HTMLElement> | [HTMLElement],
-  reverse: boolean = false,
-  fallback: HTMLElement | null = null
-) {
-  if (!reverse) {
-    for (let i = 0; i < elems.length; ++i) {
-      const elem = elems[i];
-      if (
-        elem.offsetWidth ||
-        elem.offsetHeight ||
-        elem.getClientRects().length
-      ) {
-        elem.focus();
-        if ((elem.getRootNode() as Document).activeElement === elem) {
-          return true;
-        }
-      }
-    }
-  } else {
-    for (let i = elems.length - 1; i >= 0; --i) {
-      const elem = elems[i];
-      if (
-        elem.offsetWidth ||
-        elem.offsetHeight ||
-        elem.getClientRects().length
-      ) {
-        elem.focus();
-        if ((elem.getRootNode() as Document).activeElement === elem) {
-          return true;
-        }
-      }
-    }
-  }
-  fallback?.focus();
-  return false;
-}
-
 /**
  * Renders the filter panel modal
  *
@@ -167,6 +129,7 @@ class DDSFilterPanelModal extends HostListenerMixin(
   }
 
   private _handlePanelModalFocusIn = ({ target, relatedTarget }) => {
+    const { tryFocusElems } = this.constructor as typeof DDSFilterPanelModal;
     let focusFromWithin = false;
     if (target && relatedTarget) {
       const comparedToThis = this.compareDocumentPosition(relatedTarget);
