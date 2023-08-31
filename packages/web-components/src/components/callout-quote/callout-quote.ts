@@ -38,7 +38,8 @@ class DDSCalloutQuote extends DDSCalloutMixin(DDSQuote) {
       (this.constructor as typeof DDSCalloutQuote).selectorLinkWithIcon
     );
     linkWithIcon
-      ? ((linkWithIcon as DDSCalloutLinkWithIcon).colorScheme = this.colorScheme)
+      ? ((linkWithIcon as DDSCalloutLinkWithIcon).colorScheme =
+          this.colorScheme)
       : '';
   }
 
@@ -62,7 +63,6 @@ class DDSCalloutQuote extends DDSCalloutMixin(DDSQuote) {
   static get selectorLinkWithIcon() {
     return `${ddsPrefix}-callout-link-with-icon`;
   }
-
 
   static get stableSelector() {
     return `${ddsPrefix}--callout-quote`;

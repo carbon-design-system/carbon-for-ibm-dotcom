@@ -38,8 +38,8 @@ const sizes = {
 };
 
 const contrasts = {
-  'strong': 'strong',
-  'subtle': 'subtle',
+  strong: 'strong',
+  subtle: 'subtle',
 };
 
 const weights = {
