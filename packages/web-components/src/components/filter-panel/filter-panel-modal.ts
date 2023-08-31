@@ -76,34 +76,6 @@ class DDSFilterPanelModal extends HostListenerMixin(
     );
   }
 
-  private get _focusablePanelModalElements() {
-    const { hasFocusableElements } = this;
-
-    const focusableElements: [HTMLElement?] = [];
-
-    hasFocusableElements.forEach((el) => {
-      if (el.focusableElements) {
-        focusableElements.push(...el.focusableElements);
-      }
-    });
-
-    return Array.from(new Set(focusableElements)).sort((a, b) => {
-      const comparison = a!.compareDocumentPosition(b!);
-
-      /* eslint-disable no-bitwise */
-      if (comparison & PRECEDING) {
-        return 1;
-      }
-
-      if (comparison & FOLLOWING) {
-        return -1;
-      }
-      /* eslint-enable no-bitwise */
-
-      return 0;
-    });
-  }
-
   private _handlePanelModalFocusIn = ({ target, relatedTarget }) => {
     const { tryFocusElems } = this.constructor as typeof DDSFilterPanelModal;
     let focusFromWithin = false;
@@ -120,7 +92,7 @@ class DDSFilterPanelModal extends HostListenerMixin(
     const {
       _endSentinelPanelModalNode: endSentinelNode,
       _startSentinelPanelModalNode: startSentinelNode,
-      _focusablePanelModalElements: focusableElements,
+      _focusableElements: focusableElements,
     } = this;
 
     if (focusFromWithin) {

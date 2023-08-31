@@ -125,7 +125,7 @@ class DDSExpressiveModal extends StableSelectorMixin(
     ];
   }
 
-  private get _focusableElements() {
+  get _focusableElements() {
     const { hasFocusableElements } = this;
 
     const focusableElements: [HTMLElement?] = [];
