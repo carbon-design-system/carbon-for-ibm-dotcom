@@ -96,7 +96,7 @@ Most components use the following to define CSS:
 ```typescript
 import styles from './some-component.scss';
 
-@customElement('dds-some-component')
+@customElement('c4d-some-component')
 class C4DSomeComponent extends LitElement {
   ...
 

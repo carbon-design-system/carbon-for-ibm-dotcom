@@ -13,10 +13,8 @@ import root from 'window-or-global';
  * @constant {string | string} Host for the Translation API call
  * @private
  */
-const _host =
-  (process &&
-    (process.env.REACT_APP_TRANSLATION_HOST || process.env.TRANSLATION_HOST)) ||
-  'https://1.www.s81c.com';
+const _host = process && process.env.TRANSLATION_HOST;
+('https://1.www.s81c.com');
 
 /**
  * Translation API default endpoint
@@ -24,7 +22,7 @@ const _host =
  * @type {string}
  * @private
  */
-const _ddsEndpointDefault =
+const _c4dEndpointDefault =
   '/common/carbon-for-ibm-dotcom/translations/masthead-footer';
 
 /**
@@ -33,11 +31,8 @@ const _ddsEndpointDefault =
  * @type {string}
  * @private
  */
-const _ddsEndpoint =
-  (process &&
-    (process.env.REACT_APP_C4D_TRANSLATION_ENDPOINT ||
-      process.env.C4D_TRANSLATION_ENDPOINT)) ||
-  _ddsEndpointDefault;
+const _c4dEndpoint = process && process.env.C4D_TRANSLATION_ENDPOINT;
+_c4dEndpointDefault;
 
 /**
  * Session Storage key for translation data
@@ -45,7 +40,7 @@ const _ddsEndpoint =
  * @type {string}
  * @private
  */
-const _sessionTranslationKey = 'dds-translation';
+const _sessionTranslationKey = 'c4d-translation';
 
 /**
  * The cache for in-flight or resolved requests for the i18n data, keyed by the initiating locale.
@@ -158,7 +153,7 @@ class TranslationAPI {
         const regex = /((http(s?)):\/\/)/g;
 
         // Check to see if the string from the endpoint variable contains https/http or not.
-        const urlEndpoint = endpoint || _ddsEndpoint;
+        const urlEndpoint = endpoint || _c4dEndpoint;
         const locationParam =
           country !== 'undefined' ? `${country}${lang}` : `${lang}`;
         const host = regex.test(endpoint) ? '' : _host;
@@ -210,8 +205,8 @@ class TranslationAPI {
   static getSessionKey(endpoint) {
     let sessionKey = _sessionTranslationKey;
     // form session key from specified endpoint
-    if (_ddsEndpointDefault !== _ddsEndpoint || endpoint) {
-      const endpointSrc = endpoint || _ddsEndpoint;
+    if (_c4dEndpointDefault !== _c4dEndpoint || endpoint) {
+      const endpointSrc = endpoint || _c4dEndpoint;
       sessionKey = endpointSrc.replace(
         /[`~!@#$%^&*()_|+\-=?;:'",.<>{}[\]\\/]/gi,
         ''
