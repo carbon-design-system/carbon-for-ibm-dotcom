@@ -36,9 +36,14 @@
     }
   }
 
-  :host(#{$dds-prefix}-callout-quote[color-scheme='gray10']) {
-    @extend :host(#{$dds-prefix}-callout[color-scheme='gray10']);
-    @extend :host(#{$dds-prefix}-callout-text[color-scheme='gray10']);
+  :host(#{$dds-prefix}-callout-quote[color-scheme='inverse']) {
+    @extend :host(#{$dds-prefix}-callout[color-scheme='inverse']);
+    @extend :host(#{$dds-prefix}-callout-text[color-scheme='inverse']);
+  }
+
+  :host(#{$dds-prefix}-callout-quote[color-scheme='layer']) {
+    @extend :host(#{$dds-prefix}-callout[color-scheme='layer']);
+    @extend :host(#{$dds-prefix}-callout-text[color-scheme='layer']);
   }
 
   :host(#{$dds-prefix}-callout-quote[color-scheme='purple']) {
@@ -55,14 +60,30 @@
 
     display: inline-block;
     a.#{$prefix}--link-with-icon.#{$prefix}--link.#{$prefix}--link-with-icon__icon-right {
-      color: $link-inverse;
+      color: $link-primary;
       outline-color: $focus-inverse;
 
       &:hover {
         // @carbon/styles has no hover color for $inverse-link.
         // Solution is to use the same token and add underline
-        color: $link-inverse;
+        color: $link-primary;
         text-decoration: underline;
+      }
+
+      &:active {
+        color: $link-primary;
+      }
+    }
+  }
+  
+  :host(#{$dds-prefix}-callout-link-with-icon[color-scheme='inverse']) {
+    a.#{$prefix}--link-with-icon.#{$prefix}--link.#{$prefix}--link-with-icon__icon-right {
+      color: $link-inverse;
+
+      &:hover {
+        // @carbon/styles has no hover color for $inverse-link.
+        // Solution is to use the same token and add underline
+        color: $link-inverse;
       }
 
       &:active {

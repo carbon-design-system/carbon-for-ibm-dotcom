@@ -12,9 +12,8 @@
 @use '../../globals/vars' as *;
 
 @mixin horizontal-rule {
-  $low-contrast: $layer-accent-01;
-  $medium-contrast: $toggle-off;
-  $high-contrast: $border-inverse;
+  $subtle-contrast: $border-subtle-01;
+  $strong-contrast: $border-strong-01;
   $thin-weight: rem(1px);
 
   :host(#{$dds-prefix}-hr) {
@@ -22,7 +21,7 @@
     margin: $spacing-05 0;
     border: none;
     height: $thin-weight;
-    background: $medium-contrast;
+    background: $strong-contrast;
   }
 
   :host(
@@ -36,7 +35,7 @@
     background-repeat: repeat-x;
     background-image: linear-gradient(
       to right,
-      $medium-contrast 50%,
+      $strong-contrast 50%,
       transparent 50%
     );
   }
@@ -51,12 +50,12 @@
     max-width: $spacing-10;
   }
 
-  :host(#{$dds-prefix}-hr[contrast='low-contrast']) {
-    background: $low-contrast;
+  :host(#{$dds-prefix}-hr[contrast='subtle']) {
+    background: $subtle-contrast;
   }
 
-  :host(#{$dds-prefix}-hr[contrast='high-contrast']) {
-    background: $high-contrast;
+  :host(#{$dds-prefix}-hr[contrast='strong']) {
+    background: $strong-contrast;
   }
 
   :host(#{$dds-prefix}-hr[weight='thick']) {

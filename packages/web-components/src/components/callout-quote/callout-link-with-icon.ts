@@ -11,6 +11,8 @@ import { css } from 'lit';
 import settings from '../../internal/vendor/@carbon/ibmdotcom-utilities/utilities/settings/settings';
 import { carbonElement as customElement } from '../../internal/vendor/@carbon/web-components/globals/decorators/carbon-element';
 import DDSLinkWithIcon from '../link-with-icon/link-with-icon';
+import { property } from 'lit/decorators.js';
+import { COLOR_SCHEME } from '../../component-mixins/callout/defs';
 import styles from './callout-quote.scss';
 
 const { stablePrefix: ddsPrefix } = settings;
@@ -22,6 +24,12 @@ const { stablePrefix: ddsPrefix } = settings;
  */
 @customElement(`${ddsPrefix}-callout-link-with-icon`)
 class DDSCalloutLinkWithIcon extends DDSLinkWithIcon {
+  /**
+   * The color-scheme type.
+   */
+  @property({ reflect: true, attribute: 'color-scheme' })
+  colorScheme = COLOR_SCHEME.REGULAR;
+
   static get stableSelector() {
     return `${ddsPrefix}--callout-link-with-icon`;
   }

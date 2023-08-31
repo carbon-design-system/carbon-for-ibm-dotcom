@@ -34,11 +34,13 @@ For Carbon v11 migration guidance, see their
 | content-group-simple      | This component is deprecated in v2 in favor for content-group, image, & content-item components |
 | cta-block                 | This component is deprecated in v2 in favor for content-section/block & content-item components |
 | cta-section               | This component is deprecated in v2 in favor for content-section/block & content-item components |
+| hr                        | View changes [here](#horizontal-rule)                      |
 | image                     | View changes [here](#image)            |
 | image-with-caption        | Replaced by `image`                    |
 | link-list-section         | This component is deprecated in v2 in favor for content-section/block & link-list end of section variant components |
 | logo-grid                 | This component is deprecated in v2 in favor for content-section/block & image-group components |
 | pictogram-item            | This component is deprecated in v2 in favor for content-item (pictogram variation) componet |
+| quote                     | No API changes.                        |
 | tabs-extended-media       | This component is deprecated in v2 in favor for tabs-extended component |
 
 
@@ -48,8 +50,12 @@ For Carbon v11 migration guidance, see their
 
 ### Callout quote
 
-- new options for `color-scheme` property: `REGULAR = ''`, `GRAY10 = 'gray10'`, `CYAN = 'cyan'`, `PURPLE = 'purple'`
-- new callout style tokens
+- New options for `color-scheme` property: `REGULAR = 'regular'`, `INVERSE = 'inverse'` `LAYER = 'layer'`, `CYAN = 'cyan'`, `PURPLE = 'purple'`
+- New callout style tokens
+
+### Horizontal rule
+
+- New options for `contrast` property: `SUBTLE = 'subtle' (default)`, `STRONG = 'strong'` instead of `MEDIUM_CONTRAST = 'medium_contrast'`, `LOW_CONTRAST = 'low_contrast'`, `HIGH_CONTRAST = 'high_contrast'`
 
 ### Image
 

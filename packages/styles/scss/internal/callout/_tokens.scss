@@ -33,15 +33,15 @@ $callout-background-cyan: (
 );
 
 $callout-color-cyan: (
-  fallback: $cyan-80,
+  fallback: $cyan-90,
   values: (
     (
       theme: themes.$white,
-      value: $cyan-80,
+      value: $cyan-90,
     ),
     (
       theme: themes.$g10,
-      value: $cyan-80,
+      value: $cyan-90,
     ),
     (
       theme: themes.$g90,
@@ -99,15 +99,15 @@ $callout-background-purple: (
 );
 
 $callout-color-purple: (
-  fallback: $purple-80,
+  fallback: $purple-90,
   values: (
     (
       theme: themes.$white,
-      value: $purple-80,
+      value: $purple-90,
     ),
     (
       theme: themes.$g10,
-      value: $purple-80,
+      value: $purple-90,
     ),
     (
       theme: themes.$g90,

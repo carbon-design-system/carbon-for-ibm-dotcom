@@ -25,8 +25,9 @@ import readme from './README.stories.react.mdx';
 import textNullable from '../../../../.storybook/knob-text-nullable';
 
 const colorSchemeTypes = {
-  'none': COLOR_SCHEME.REGULAR,
-  [`${COLOR_SCHEME.GRAY10}`]: COLOR_SCHEME.GRAY10,
+  [`${COLOR_SCHEME.REGULAR}`]: COLOR_SCHEME.REGULAR,
+  [`${COLOR_SCHEME.INVERSE}`]: COLOR_SCHEME.INVERSE,
+  [`${COLOR_SCHEME.LAYER}`]: COLOR_SCHEME.LAYER,
   [`${COLOR_SCHEME.PURPLE}`]: COLOR_SCHEME.PURPLE,
   [`${COLOR_SCHEME.CYAN}`]: COLOR_SCHEME.CYAN,
 };

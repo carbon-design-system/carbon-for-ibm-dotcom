@@ -22,7 +22,11 @@
     background-color: $background;
   }
 
-  :host(#{$dds-prefix}-callout[color-scheme='gray10']) {
+  :host(#{$dds-prefix}-callout[color-scheme='inverse']) {
+    background-color: $background-inverse;
+  }
+
+  :host(#{$dds-prefix}-callout[color-scheme='layer']) {
     background-color: $layer-01;
   }
 
@@ -35,8 +39,12 @@
   }
 
   :host(#{$dds-prefix}-callout-text),
-  :host(#{$dds-prefix}-callout-text[color-scheme='gray10']) {
+  :host(#{$dds-prefix}-callout-text[color-scheme='layer']) {
     color: $text-primary;
+  }
+
+  :host(#{$dds-prefix}-callout-text[color-scheme='inverse']) {
+    color: $text-inverse;
   }
 
   :host(#{$dds-prefix}-callout-text[color-scheme='purple']) {
@@ -47,9 +55,13 @@
     color: $callout-color-cyan;
   }
 
-  :host(#{$dds-prefix}-callout-caption[color-scheme='gray10']),
+  :host(#{$dds-prefix}-callout-caption[color-scheme='layer']),
   :host(#{$dds-prefix}-callout-caption) {
     color: $text-secondary;
+  }
+
+  :host(#{$dds-prefix}-callout-caption[color-scheme='inverse']) {
+    color: $text-inverse;
   }
 
   :host(#{$dds-prefix}-callout-caption[color-scheme='purple']) {

@@ -11,12 +11,17 @@ export enum COLOR_SCHEME {
   /**
    * Regular
    */
-  REGULAR = '',
+  REGULAR = 'regular',
 
   /**
-   * Gray 10 background
+   * Inverse
    */
-  GRAY10 = 'gray10',
+  INVERSE = 'inverse',
+
+  /**
+   * Layer background
+   */
+  LAYER = 'layer',
 
   /**
    * Cyan background

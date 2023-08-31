@@ -38,9 +38,8 @@ const sizes = {
 };
 
 const contrasts = {
-  'low-contrast': 'low-contrast',
-  'medium-contrast': undefined,
-  'high-contrast': 'high-contrast',
+  'strong': 'strong',
+  'subtle': 'subtle',
 };
 
 const weights = {
@@ -72,7 +71,7 @@ export default {
         contrast: select(
           'Contrast (contrast):',
           contrasts,
-          contrasts['medium-contrast']
+          contrasts['strong']
         ),
         weight: select('Weight (weight):', weights, weights.thin),
       }),
@@ -82,7 +81,7 @@ export default {
         HorizontalRule: {
           type: types.solid,
           size: sizes.fluid,
-          contrast: contrasts['medium-contrast'],
+          contrast: contrasts['strong'],
           weight: weights.thin,
         },
       },

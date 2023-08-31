@@ -34,8 +34,12 @@
     }
   }
 
-  :host(#{$dds-prefix}-callout-with-media[color-scheme='gray10']) {
-    @extend :host(#{$dds-prefix}-callout[color-scheme='gray10']);
+  :host(#{$dds-prefix}-callout-with-media[color-scheme='inverse']) {
+    @extend :host(#{$dds-prefix}-callout[color-scheme='inverse']);
+  }
+
+  :host(#{$dds-prefix}-callout-with-media[color-scheme='layer']) {
+    @extend :host(#{$dds-prefix}-callout[color-scheme='layer']);
   }
 
   :host(#{$dds-prefix}-callout-with-media[color-scheme='purple']) {
@@ -52,11 +56,18 @@
     @extend :host(#{$dds-prefix}-callout-text);
   }
 
-  :host(#{$dds-prefix}-callout-with-media[color-scheme='gray10'])
+  :host(#{$dds-prefix}-callout-with-media[color-scheme='inverse'])
     ::slotted([slot='heading']),
-  :host(#{$dds-prefix}-callout-with-media-copy[color-scheme='gray10'])
+  :host(#{$dds-prefix}-callout-with-media-copy[color-scheme='inverse'])
     ::slotted(#{$dds-prefix}-content-block-paragraph) {
-    @extend :host(#{$dds-prefix}-callout-text[color-scheme='gray10']);
+    @extend :host(#{$dds-prefix}-callout-text[color-scheme='inverse']);
+  }
+
+  :host(#{$dds-prefix}-callout-with-media[color-scheme='layer'])
+    ::slotted([slot='heading']),
+  :host(#{$dds-prefix}-callout-with-media-copy[color-scheme='layer'])
+    ::slotted(#{$dds-prefix}-content-block-paragraph) {
+    @extend :host(#{$dds-prefix}-callout-text[color-scheme='layer']);
   }
 
   :host(#{$dds-prefix}-callout-with-media[color-scheme='purple'])
@@ -79,11 +90,18 @@
     @extend :host(#{$dds-prefix}-callout-caption);
   }
 
-  :host(#{$dds-prefix}-callout-with-media-image[color-scheme='gray10'])
+  :host(#{$dds-prefix}-callout-with-media-image[color-scheme='inverse'])
     .#{$prefix}--image__caption,
-  :host(#{$dds-prefix}-callout-with-media-video[color-scheme='gray10'])
+  :host(#{$dds-prefix}-callout-with-media-video[color-scheme='inverse'])
     ::slotted(#{$dds-prefix}-video-player) {
-    @extend :host(#{$dds-prefix}-callout-caption[color-scheme='gray10']);
+    @extend :host(#{$dds-prefix}-callout-caption[color-scheme='inverse']);
+  }
+
+  :host(#{$dds-prefix}-callout-with-media-image[color-scheme='layer'])
+    .#{$prefix}--image__caption,
+  :host(#{$dds-prefix}-callout-with-media-video[color-scheme='layer'])
+    ::slotted(#{$dds-prefix}-video-player) {
+    @extend :host(#{$dds-prefix}-callout-caption[color-scheme='layer']);
   }
 
   :host(#{$dds-prefix}-callout-with-media-image[color-scheme='purple'])
