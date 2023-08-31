@@ -304,15 +304,15 @@ class C4DCardGroup extends StableSelectorMixin(LitElement) {
     this._removeEmptyCards();
 
     // add empty cards
-    const emptyNeeded =
-      this.childElementCount % columnCount > 0 && columnCount > 1
-        ? columnCount - (this.childElementCount % columnCount)
-        : 0;
-    for (let i = 0; i < emptyNeeded; i++) {
-      const card = document.createElement('c4d-card-group-item');
-      card.setAttribute('empty', '');
-      this.shadowRoot?.appendChild(card);
-    }
+    // const emptyNeeded =
+    //   this.childElementCount % columnCount > 0 && columnCount > 1
+    //     ? columnCount - (this.childElementCount % columnCount)
+    //     : 0;
+    // for (let i = 0; i < emptyNeeded; i++) {
+    //   const card = document.createElement('c4d-card-group-item');
+    //   card.setAttribute('empty', '');
+    //   this.shadowRoot?.appendChild(card);
+    // }
   };
 
   private _removeEmptyCards = () => {
