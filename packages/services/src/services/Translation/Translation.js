@@ -35,8 +35,8 @@ const _ddsEndpointDefault =
  */
 const _ddsEndpoint =
   (process &&
-    (process.env.REACT_APP_DDS_TRANSLATION_ENDPOINT ||
-      process.env.DDS_TRANSLATION_ENDPOINT)) ||
+    (process.env.REACT_APP_C4D_TRANSLATION_ENDPOINT ||
+      process.env.C4D_TRANSLATION_ENDPOINT)) ||
   _ddsEndpointDefault;
 
 /**
