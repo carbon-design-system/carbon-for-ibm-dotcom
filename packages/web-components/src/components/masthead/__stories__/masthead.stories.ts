@@ -22,7 +22,7 @@ import {
   authenticatedProfileItems,
   unauthenticatedProfileItems,
 } from './profile-items';
-import { c4d_CUSTOM_PROFILE_LOGIN } from '../../../globals/internal/feature-flags';
+import { C4D_CUSTOM_PROFILE_LOGIN } from '../../../globals/internal/feature-flags';
 import readme from './README.stories.mdx';
 
 const userStatuses = {
@@ -440,7 +440,7 @@ export default {
           userStatuses.unauthenticated
         ),
         customProfileLogin:
-          c4d_CUSTOM_PROFILE_LOGIN &&
+          C4D_CUSTOM_PROFILE_LOGIN &&
           textNullable(
             'custom profile login url (customProfileLogin)',
             'https://www.example.com/'
