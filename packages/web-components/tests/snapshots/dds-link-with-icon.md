@@ -7,6 +7,8 @@
 ```
 <a
   class="cds--link cds--link--lg cds--link-with-icon"
+  download=""
+  href=""
   id="link"
   part="link"
   tabindex="0"
@@ -16,6 +18,8 @@
     </slot>
   </span>
   <slot name="icon">
+    <span class="cds--visually-hidden">
+    </span>
   </slot>
 </a>
 
@@ -34,6 +38,8 @@
     </slot>
   </span>
   <slot name="icon">
+    <span class="cds--visually-hidden">
+    </span>
   </slot>
 </p>
 
