@@ -445,7 +445,7 @@ Similar to `react-redux`, `ConnectMixin` uses two callbacks:
 And container components are created by `ConnectMixin`:
 
 ```typescript
-@customElement(`${ddsPrefix}-footer-container`)
+@customElement(`${c4dPrefix}-footer-container`)
 class C4DFooterContainer extends ConnectMixin(
   store,
   mapStateToProps,
