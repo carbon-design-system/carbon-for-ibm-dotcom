@@ -76,23 +76,6 @@ class DDSFilterPanelModal extends HostListenerMixin(
     );
   }
 
-  get focusableElements() {
-    const { selectorCloseButton, selectorTabbable: selectorTabbableForModal } =
-      this.constructor as typeof DDSExpressiveModal;
-    return [
-      ...Array.from(
-        (this.shadowRoot?.querySelectorAll(
-          selectorCloseButton
-        ) as NodeListOf<HTMLElement>) || []
-      ),
-      ...Array.from(
-        this.querySelectorAll(
-          selectorTabbableForModal
-        ) as NodeListOf<HTMLElement>
-      ),
-    ];
-  }
-
   private get _focusablePanelModalElements() {
     const { hasFocusableElements } = this;
 
