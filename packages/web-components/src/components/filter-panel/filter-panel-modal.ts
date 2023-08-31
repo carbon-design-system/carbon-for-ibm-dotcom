@@ -76,36 +76,6 @@ class DDSFilterPanelModal extends HostListenerMixin(
     );
   }
 
-  private _handlePanelModalFocusIn = ({ target, relatedTarget }) => {
-    const { tryFocusElems } = this.constructor as typeof DDSFilterPanelModal;
-    let focusFromWithin = false;
-    if (target && relatedTarget) {
-      const comparedToThis = this.compareDocumentPosition(relatedTarget);
-      const comparedToShadowRoot =
-        this.shadowRoot!.compareDocumentPosition(relatedTarget);
-      // If relatedTarget is descendent of `this` or `this.shadowRoot`.
-      if (comparedToThis & WITHIN || comparedToShadowRoot & WITHIN) {
-        focusFromWithin = true;
-      }
-    }
-
-    const {
-      _endSentinelPanelModalNode: endSentinelNode,
-      _startSentinelPanelModalNode: startSentinelNode,
-      _focusableElements: focusableElements,
-    } = this;
-
-    if (focusFromWithin) {
-      if (target === startSentinelNode) {
-        tryFocusElems(focusableElements as [HTMLElement], true, this);
-      } else if (target === endSentinelNode) {
-        tryFocusElems(focusableElements as [HTMLElement], false, this);
-      }
-    } else {
-      tryFocusElems(focusableElements as [HTMLElement], false, this);
-    }
-  };
-
   /**
    * Handles items in the selected array
    */
@@ -153,7 +123,7 @@ class DDSFilterPanelModal extends HostListenerMixin(
   }
 
   render() {
-    const { _handlePanelModalFocusIn: handleFocusIn } = this;
+    const { _handleFocusIn: handleFocusIn } = this;
 
     return html`
       <button

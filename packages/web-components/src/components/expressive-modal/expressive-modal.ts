@@ -196,7 +196,7 @@ class DDSExpressiveModal extends StableSelectorMixin(
    *
    * @param event The event.
    */
-  private _handleFocusIn = ({ target, relatedTarget }) => {
+  protected _handleFocusIn = ({ target, relatedTarget }) => {
     const { tryFocusElems } = this.constructor as typeof DDSExpressiveModal;
     let focusFromWithin = false;
     if (target && relatedTarget) {
