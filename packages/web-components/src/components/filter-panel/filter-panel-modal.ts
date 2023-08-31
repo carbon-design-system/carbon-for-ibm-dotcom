@@ -7,7 +7,7 @@
  * LICENSE file in the root directory of this source tree.
  */
 
-import { html, property, query } from 'lit-element';
+import { html, property } from 'lit-element';
 import settings from 'carbon-components/es/globals/js/settings.js';
 import HostListenerMixin from '../../internal/vendor/@carbon/web-components/globals/mixins/host-listener.js';
 import './filter-group';
@@ -26,12 +26,6 @@ import { carbonElement as customElement } from '../../internal/vendor/@carbon/we
 const { prefix } = settings;
 const { stablePrefix: ddsPrefix } = ddsSettings;
 
-const WITHIN = Node.DOCUMENT_POSITION_CONTAINED_BY;
-const PRECEDING =
-  Node.DOCUMENT_POSITION_PRECEDING | Node.DOCUMENT_POSITION_CONTAINS;
-const FOLLOWING =
-  Node.DOCUMENT_POSITION_FOLLOWING | Node.DOCUMENT_POSITION_CONTAINED_BY;
-
 /**
  * Renders the filter panel modal
  *
@@ -46,15 +40,6 @@ class DDSFilterPanelModal extends HostListenerMixin(
    */
   @property()
   selectedValues: any[] = [];
-
-  @query('#start-sentinel')
-  private _startSentinelPanelModalNode!: HTMLAnchorElement;
-
-  /**
-   * Node to track focus going outside of modal content.
-   */
-  @query('#end-sentinel')
-  private _endSentinelPanelModalNode!: HTMLAnchorElement;
 
   // eslint-disable-next-line class-methods-use-this, @typescript-eslint/no-unused-vars
   protected _handleContentStateChange(_: CustomEvent) {}
