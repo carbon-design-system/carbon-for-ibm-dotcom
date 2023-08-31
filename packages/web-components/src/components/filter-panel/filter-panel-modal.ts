@@ -41,13 +41,6 @@ const FOLLOWING =
 class DDSFilterPanelModal extends HostListenerMixin(
   StableSelectorMixin(DDSExpressiveModal)
 ) {
-  constructor(
-    _startSentinelNode: HTMLAnchorElement,
-    _endSentinelNode: HTMLAnchorElement
-  ) {
-    super();
-  }
-
   /**
    * Renders the selected values.
    */
