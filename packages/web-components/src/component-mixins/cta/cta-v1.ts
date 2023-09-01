@@ -24,7 +24,7 @@ import settings from '../../internal/vendor/@carbon/ibmdotcom-utilities/utilitie
 import { Constructor } from '../../globals/defs';
 import { CTA_TYPE } from '../../components/cta/defs';
 
-const { prefix, stablePrefix: ddsPrefix } = settings;
+const { prefix, stablePrefix: c4dPrefix } = settings;
 
 /**
  * Icons to use, keyed by CTA type.
@@ -120,7 +120,7 @@ const CTAMixin = <T extends Constructor<HTMLElement>>(Base: T) => {
         <slot name="icon">
           <span class="bx--visually-hidden">${ariaLabels[ctaType]}</span>
           ${icons[ctaType]?.({
-            class: `${prefix}--card__cta ${ddsPrefix}-ce--cta__icon`,
+            class: `${prefix}--card__cta ${c4dPrefix}-ce--cta__icon`,
           })}
         </slot>
       `;

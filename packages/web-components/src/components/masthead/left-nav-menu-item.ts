@@ -14,14 +14,14 @@ import settings from '../../internal/vendor/@carbon/ibmdotcom-utilities/utilitie
 import styles from './masthead.scss';
 import { carbonElement as customElement } from '../../internal/vendor/@carbon/web-components/globals/decorators/carbon-element.js';
 
-const { prefix, stablePrefix: ddsPrefix } = settings;
+const { prefix, stablePrefix: c4dPrefix } = settings;
 
 /**
  * Masthead left nav submenu item.
  *
  * @element c4d-left-nav-menu-item
  */
-@customElement(`${ddsPrefix}-left-nav-menu-item`)
+@customElement(`${c4dPrefix}-left-nav-menu-item`)
 class C4DLeftNavMenuItem extends CDSSideNavMenuItem {
   render() {
     const { active, href, title } = this;

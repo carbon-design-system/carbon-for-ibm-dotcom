@@ -18,9 +18,9 @@ import { setColumnWidth } from './utils';
 import { PRICING_TABLE_HEADER_CELL_TYPES } from './defs';
 import { carbonElement as customElement } from '../../internal/vendor/@carbon/web-components/globals/decorators/carbon-element';
 
-const { stablePrefix: ddsPrefix } = settings;
+const { stablePrefix: c4dPrefix } = settings;
 
-@customElement(`${ddsPrefix}-pricing-table-header-row`)
+@customElement(`${c4dPrefix}-pricing-table-header-row`)
 class C4DPricingTableHeaderRow extends StableSelectorMixin(
   C4DStructuredListHeaderRow
 ) {
@@ -84,11 +84,11 @@ class C4DPricingTableHeaderRow extends StableSelectorMixin(
   }
 
   static get stableSelector() {
-    return `${ddsPrefix}--pricing-table-header-row`;
+    return `${c4dPrefix}--pricing-table-header-row`;
   }
 
   static get eventSlotChange() {
-    return `${ddsPrefix}-pricing-table-header-row-slot-change`;
+    return `${c4dPrefix}-pricing-table-header-row-slot-change`;
   }
 
   static styles = styles;

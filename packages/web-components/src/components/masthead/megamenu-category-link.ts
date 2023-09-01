@@ -14,14 +14,14 @@ import settings from '../../internal/vendor/@carbon/ibmdotcom-utilities/utilitie
 import styles from './masthead.scss';
 import { carbonElement as customElement } from '../../internal/vendor/@carbon/web-components/globals/decorators/carbon-element.js';
 
-const { stablePrefix: ddsPrefix } = settings;
+const { stablePrefix: c4dPrefix } = settings;
 
 /**
  * MegaMenu category sublink
  *
  * @element c4d-megamenu-category-link
  */
-@customElement(`${ddsPrefix}-megamenu-category-link`)
+@customElement(`${c4dPrefix}-megamenu-category-link`)
 class C4DMegaMenuCateoryLink extends CDSLink {
   /**
    * link title.

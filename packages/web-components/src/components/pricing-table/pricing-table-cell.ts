@@ -18,14 +18,14 @@ import styles from './pricing-table.scss';
 import C4DPricingTableCellAnnotation from './pricing-table-cell-annotation';
 import { carbonElement as customElement } from '../../internal/vendor/@carbon/web-components/globals/decorators/carbon-element.js';
 
-const { prefix, stablePrefix: ddsPrefix } = settings;
+const { prefix, stablePrefix: c4dPrefix } = settings;
 
-@customElement(`${ddsPrefix}-pricing-table-cell`)
+@customElement(`${c4dPrefix}-pricing-table-cell`)
 class C4DPricingTableCell extends StableSelectorMixin(
   HostListenerMixin(C4DStructuredListCell)
 ) {
   _parentGroup: C4DPricingTableGroup | null = this.closest(
-    `${ddsPrefix}-pricing-table-group`
+    `${c4dPrefix}-pricing-table-group`
   );
 
   @HostListener('document:event-toggle-annotations')
@@ -80,7 +80,7 @@ class C4DPricingTableCell extends StableSelectorMixin(
   }
 
   static get stableSelector() {
-    return `${ddsPrefix}--pricing-table-cell`;
+    return `${c4dPrefix}--pricing-table-cell`;
   }
 
   static styles = styles;

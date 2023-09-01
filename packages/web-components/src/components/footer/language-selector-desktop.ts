@@ -18,7 +18,7 @@ import styles from './footer.scss';
 import { findIndex, forEach } from '../../globals/internal/collection-helpers';
 import { carbonElement as customElement } from '../../internal/vendor/@carbon/web-components/globals/decorators/carbon-element.js';
 
-const { stablePrefix: ddsPrefix } = settings;
+const { stablePrefix: c4dPrefix } = settings;
 
 /**
  * Language selector component - desktop.
@@ -27,7 +27,7 @@ const { stablePrefix: ddsPrefix } = settings;
  * @element c4d-language-selector-desktop
  * @internal
  */
-@customElement(`${ddsPrefix}-language-selector-desktop`)
+@customElement(`${c4dPrefix}-language-selector-desktop`)
 class C4DLanguageSelectorDesktop extends HostListenerMixin(C4DComboBox) {
   /**
    * Property that saves the last valid language to use on reset cases.

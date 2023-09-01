@@ -13,14 +13,14 @@ import settings from '../../internal/vendor/@carbon/ibmdotcom-utilities/utilitie
 import { carbonElement as customElement } from '../../internal/vendor/@carbon/web-components/globals/decorators/carbon-element';
 import styles from './feature-card-block-medium.scss';
 
-const { stablePrefix: ddsPrefix } = settings;
+const { stablePrefix: c4dPrefix } = settings;
 
 /**
  * The block heading content of feature card block medium.
  *
  * @element c4d-feature-card-block-medium-block-heading
  */
-@customElement(`${ddsPrefix}-feature-card-block-medium-block-heading`)
+@customElement(`${c4dPrefix}-feature-card-block-medium-block-heading`)
 class C4DFeatureCardBlockMediumBlockHeading extends LitElement {
   /**
    * The shadow slot this block heading should be in.

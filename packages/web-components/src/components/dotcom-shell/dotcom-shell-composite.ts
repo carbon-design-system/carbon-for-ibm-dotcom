@@ -28,14 +28,14 @@ import './dotcom-shell';
 import styles from './dotcom-shell-composite.scss';
 import { carbonElement as customElement } from '../../internal/vendor/@carbon/web-components/globals/decorators/carbon-element';
 
-const { stablePrefix: ddsPrefix } = settings;
+const { stablePrefix: c4dPrefix } = settings;
 
 /**
  * Component that rendres dotcom shell from links, etc. data.
  *
  * @element c4d-dotcom-shell-composite
  */
-@customElement(`${ddsPrefix}-dotcom-shell-composite`)
+@customElement(`${c4dPrefix}-dotcom-shell-composite`)
 class C4DDotcomShellComposite extends LitElement {
   /**
    * The render target of the footer contents.
@@ -57,7 +57,7 @@ class C4DDotcomShellComposite extends LitElement {
    */
   private _createFooterRenderRoot() {
     const footer = this.ownerDocument!.createElement(
-      `${ddsPrefix}-footer-composite`
+      `${c4dPrefix}-footer-composite`
     );
     this.parentNode?.insertBefore(footer, this.nextSibling);
     return footer;
@@ -68,7 +68,7 @@ class C4DDotcomShellComposite extends LitElement {
    */
   private _createMastheadRenderRoot() {
     const masthead = this.ownerDocument!.createElement(
-      `${ddsPrefix}-masthead-composite`
+      `${c4dPrefix}-masthead-composite`
     );
     this.parentNode?.insertBefore(masthead, this);
     return masthead;
@@ -469,15 +469,15 @@ class C4DDotcomShellComposite extends LitElement {
     super.updated(changedProperties);
 
     // moving universal banner outside of dotcom shell if placed within
-    if (this.querySelector(`${ddsPrefix}-universal-banner`)) {
+    if (this.querySelector(`${c4dPrefix}-universal-banner`)) {
       this.ownerDocument
-        .querySelector(`${ddsPrefix}-masthead-composite`)
+        .querySelector(`${c4dPrefix}-masthead-composite`)
         ?.before(
-          this.querySelector(`${ddsPrefix}-universal-banner`) as HTMLElement
+          this.querySelector(`${c4dPrefix}-universal-banner`) as HTMLElement
         );
     }
 
-    if (this.ownerDocument.querySelector(`${ddsPrefix}-universal-banner`)) {
+    if (this.ownerDocument.querySelector(`${c4dPrefix}-universal-banner`)) {
       this.hasBanner = true;
       this._masthead?.setAttribute('with-banner', '');
     }

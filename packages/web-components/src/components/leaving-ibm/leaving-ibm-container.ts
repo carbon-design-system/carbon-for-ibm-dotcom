@@ -23,14 +23,14 @@ import {
 import C4DLeavingIbmComposite from './leaving-ibm-composite';
 import { carbonElement as customElement } from '../../internal/vendor/@carbon/web-components/globals/decorators/carbon-element';
 
-const { stablePrefix: ddsPrefix } = settings;
+const { stablePrefix: c4dPrefix } = settings;
 
 /**
  * Container component for masthead search.
  *
  * @element c4d-leaving-ibm-container
  */
-@customElement(`${ddsPrefix}-leaving-ibm-container`)
+@customElement(`${c4dPrefix}-leaving-ibm-container`)
 class C4DLeavingIbmContainer extends ConnectMixin<
   LeavingIbmContainerState,
   LocaleAPIActions | TranslateAPIActions,

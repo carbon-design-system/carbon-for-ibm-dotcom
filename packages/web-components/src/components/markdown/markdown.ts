@@ -19,14 +19,14 @@ import settings from '../../internal/vendor/@carbon/ibmdotcom-utilities/utilitie
 import styles from './markdown.scss';
 import { carbonElement as customElement } from '../../internal/vendor/@carbon/web-components/globals/decorators/carbon-element.js';
 
-const { prefix, stablePrefix: ddsPrefix } = settings;
+const { prefix, stablePrefix: c4dPrefix } = settings;
 
 /**
  * Markdown content.
  *
  * @element c4d-markdown
  */
-@customElement(`${ddsPrefix}-markdown`)
+@customElement(`${c4dPrefix}-markdown`)
 class C4DMarkdown extends LitElement {
   /**
    * `true` if the first rendering has happened.

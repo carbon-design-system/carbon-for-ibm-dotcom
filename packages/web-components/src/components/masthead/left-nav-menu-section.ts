@@ -21,7 +21,7 @@ import styles from './masthead.scss';
 import C4DLeftNav from './left-nav';
 import { carbonElement as customElement } from '../../internal/vendor/@carbon/web-components/globals/decorators/carbon-element.js';
 
-const { prefix, stablePrefix: ddsPrefix } = settings;
+const { prefix, stablePrefix: c4dPrefix } = settings;
 
 /**
  * Masthead left nav menu section.
@@ -32,7 +32,7 @@ const { prefix, stablePrefix: ddsPrefix } = settings;
  *   Cancellation of this event stops the user-initiated action of toggling this side nav menu.
  * @fires c4d-left-nav-menu-toggled The custom event fired after this side nav menu is toggled upon a user gesture.
  */
-@customElement(`${ddsPrefix}-left-nav-menu-section`)
+@customElement(`${c4dPrefix}-left-nav-menu-section`)
 class C4DLeftNavMenuSection extends HostListenerMixin(FocusMixin(LitElement)) {
   /**
    * Set aria-hidden property.
@@ -317,21 +317,21 @@ class C4DLeftNavMenuSection extends HostListenerMixin(FocusMixin(LitElement)) {
    * The name of the custom event fired after this side nav menu is toggled upon a user gesture.
    */
   static get eventToggle() {
-    return `${ddsPrefix}-left-nav-menu-toggled`;
+    return `${c4dPrefix}-left-nav-menu-toggled`;
   }
 
   /**
    * A selector that will return the nav menus.
    */
   static get selectorNavMenu() {
-    return `${ddsPrefix}-left-nav-menu`;
+    return `${c4dPrefix}-left-nav-menu`;
   }
 
   /**
    * A selector that will return the menu items.
    */
   static get selectorNavItem() {
-    return `${ddsPrefix}-left-nav-menu-item`;
+    return `${c4dPrefix}-left-nav-menu-item`;
   }
 
   /**
@@ -340,9 +340,9 @@ class C4DLeftNavMenuSection extends HostListenerMixin(FocusMixin(LitElement)) {
   static get selectorTabbable() {
     return [
       selectorTabbable,
-      `${ddsPrefix}-left-nav-item`,
-      `${ddsPrefix}-left-nav-menu`,
-      `${ddsPrefix}-left-nav-menu-item`,
+      `${c4dPrefix}-left-nav-item`,
+      `${c4dPrefix}-left-nav-menu`,
+      `${c4dPrefix}-left-nav-menu-item`,
     ].join(',');
   }
 

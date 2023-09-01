@@ -30,14 +30,14 @@ import { carbonElement as customElement } from '../../internal/vendor/@carbon/we
 export { VIDEO_PLAYER_CONTENT_STATE };
 export { VIDEO_PLAYER_PLAYING_MODE };
 
-const { prefix, stablePrefix: ddsPrefix } = settings;
+const { prefix, stablePrefix: c4dPrefix } = settings;
 
 /**
  * Video player.
  *
  * @element c4d-video-player
  */
-@customElement(`${ddsPrefix}-video-player`)
+@customElement(`${c4dPrefix}-video-player`)
 class C4DVideoPlayer extends FocusMixin(
   StableSelectorMixin(ParentVisibilityMixin(LitElement))
 ) {
@@ -281,18 +281,18 @@ class C4DVideoPlayer extends FocusMixin(
    * The name of the custom event fired after video content state is changed upon a user gesture.
    */
   static get eventContentStateChange() {
-    return `${ddsPrefix}-video-player-content-state-changed`;
+    return `${c4dPrefix}-video-player-content-state-changed`;
   }
 
   /**
    * The name of the custom event fired requesting playback state change.
    */
   static get eventPlaybackStateChange() {
-    return `${ddsPrefix}-video-player-playback-state-changed`;
+    return `${c4dPrefix}-video-player-playback-state-changed`;
   }
 
   static get stableSelector() {
-    return `${ddsPrefix}--video-player`;
+    return `${c4dPrefix}--video-player`;
   }
 
   static shadowRootOptions = {

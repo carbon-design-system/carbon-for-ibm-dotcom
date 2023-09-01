@@ -13,14 +13,14 @@ import settings from '../../internal/vendor/@carbon/ibmdotcom-utilities/utilitie
 import { carbonElement as customElement } from '../../internal/vendor/@carbon/web-components/globals/decorators/carbon-element';
 import styles from './masthead.scss';
 
-const { stablePrefix: ddsPrefix } = settings;
+const { stablePrefix: c4dPrefix } = settings;
 
 /**
  * Left nav overlay.
  *
  * @element c4d-left-nav-overlay
  */
-@customElement(`${ddsPrefix}-left-nav-overlay`)
+@customElement(`${c4dPrefix}-left-nav-overlay`)
 class C4DLeftNavOverlay extends LitElement {
   /**
    * `true` if this overlay should represent its active state.

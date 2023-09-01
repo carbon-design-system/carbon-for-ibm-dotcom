@@ -15,14 +15,14 @@ import StableSelectorMixin from '../../globals/mixins/stable-selector';
 import C4DMarkdown from '../markdown/markdown';
 import { carbonElement as customElement } from '../../internal/vendor/@carbon/web-components/globals/decorators/carbon-element';
 
-const { stablePrefix: ddsPrefix } = settings;
+const { stablePrefix: c4dPrefix } = settings;
 
 /**
  * Copy content in content section.
  *
  * @element c4d-content-section-copy
  */
-@customElement(`${ddsPrefix}-content-section-copy`)
+@customElement(`${c4dPrefix}-content-section-copy`)
 class C4DContentSectionCopy extends StableSelectorMixin(C4DMarkdown) {
   @property({ reflect: true })
   slot = 'copy';
@@ -42,7 +42,7 @@ class C4DContentSectionCopy extends StableSelectorMixin(C4DMarkdown) {
   }
 
   static get stableSelector() {
-    return `${ddsPrefix}--content-section-copy`;
+    return `${c4dPrefix}--content-section-copy`;
   }
 
   static styles = styles;

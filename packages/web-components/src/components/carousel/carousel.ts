@@ -23,7 +23,7 @@ import StableSelectorMixin from '../../globals/mixins/stable-selector';
 import C4DExpressiveModal from '../expressive-modal/expressive-modal';
 import { ifDefined } from 'lit/directives/if-defined.js';
 
-const { prefix, stablePrefix: ddsPrefix } = settings;
+const { prefix, stablePrefix: c4dPrefix } = settings;
 
 const MAX_GESTURE_DURATION = 300; // max time allowed to do swipe
 const MIN_DISTANCE_TRAVELLED = 75; // min distance traveled to be considered swipe
@@ -41,7 +41,7 @@ const minIntersectionRatio = 0.75;
  * @csspart prev-button The button to go to the previous page.
  * @csspart next-button The button to go to the next page.
  */
-@customElement(`${ddsPrefix}-carousel`)
+@customElement(`${c4dPrefix}-carousel`)
 class C4DCarousel extends HostListenerMixin(StableSelectorMixin(LitElement)) {
   /**
    * The scrolling contents node.
@@ -613,7 +613,7 @@ class C4DCarousel extends HostListenerMixin(StableSelectorMixin(LitElement)) {
     this._cleanAndCreateObserverResize({ create: true });
 
     const containingModal = this.closest(
-      `${ddsPrefix}-expressive-modal`
+      `${c4dPrefix}-expressive-modal`
     ) as C4DExpressiveModal | null;
     if (containingModal) {
       containingModal.hasFocusableElements.push(this);
@@ -747,49 +747,49 @@ class C4DCarousel extends HostListenerMixin(StableSelectorMixin(LitElement)) {
    * or its ancestor (e.g. the host `<c4d-carousel>`), this is set automatically from the CSS custom property.
    */
   static get customPropertyPageSize() {
-    return `--${ddsPrefix}--carousel--page-size`;
+    return `--${c4dPrefix}--carousel--page-size`;
   }
 
   /**
    * The name of the custom event fired when the video title is updated
    */
   static get eventVideoTitleUpdated() {
-    return `${ddsPrefix}-card-cta-video-title-updated`;
+    return `${c4dPrefix}-card-cta-video-title-updated`;
   }
 
   /**
    * The selector for the card component
    */
   static get selectorItem() {
-    return `${ddsPrefix}-card`;
+    return `${c4dPrefix}-card`;
   }
 
   /**
    * The selector for the card cta
    */
   static get selectorItemCardCTA() {
-    return `${ddsPrefix}-card-cta`;
+    return `${c4dPrefix}-card-cta`;
   }
 
   /**
    * The selector for the video cta container
    */
   static get selectorItemVideoCTAContainer() {
-    return `${ddsPrefix}-video-cta-container`;
+    return `${c4dPrefix}-video-cta-container`;
   }
 
   /**
    * A selector that will return the card item's eyebrow
    */
   static get selectorItemEyebrow() {
-    return `${ddsPrefix}-card-eyebrow`;
+    return `${c4dPrefix}-card-eyebrow`;
   }
 
   /**
    * A selector that will return the card item's tag group
    */
   static get selectorItemTagGroup() {
-    return `${ddsPrefix}-tag-group`;
+    return `${c4dPrefix}-tag-group`;
   }
 
   /**
@@ -803,18 +803,18 @@ class C4DCarousel extends HostListenerMixin(StableSelectorMixin(LitElement)) {
    * A selector that will return the card item's heading
    */
   static get selectorItemHeading() {
-    return `${ddsPrefix}-card-heading`;
+    return `${c4dPrefix}-card-heading`;
   }
 
   /**
    * A selector that will return the card item's footer
    */
   static get selectorItemFooter() {
-    return `${ddsPrefix}-card-cta-footer`;
+    return `${c4dPrefix}-card-cta-footer`;
   }
 
   static get stableSelector() {
-    return `${ddsPrefix}--carousel`;
+    return `${c4dPrefix}--carousel`;
   }
 
   /**

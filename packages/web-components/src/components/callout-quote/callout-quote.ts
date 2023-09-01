@@ -13,17 +13,17 @@ import C4DCalloutMixin from '../../component-mixins/callout/callout';
 import C4DQuote from '../quote/quote';
 import { carbonElement as customElement } from '../../internal/vendor/@carbon/web-components/globals/decorators/carbon-element';
 
-const { stablePrefix: ddsPrefix } = settings;
+const { stablePrefix: c4dPrefix } = settings;
 
 /**
  * Callout Data.
  *
  * @element c4d-callout-data
  */
-@customElement(`${ddsPrefix}-callout-quote`)
+@customElement(`${c4dPrefix}-callout-quote`)
 class C4DCalloutQuote extends C4DCalloutMixin(C4DQuote) {
   static get stableSelector() {
-    return `${ddsPrefix}--callout-quote`;
+    return `${c4dPrefix}--callout-quote`;
   }
 
   static styles = styles;

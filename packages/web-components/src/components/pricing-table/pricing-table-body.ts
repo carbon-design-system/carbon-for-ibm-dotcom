@@ -13,12 +13,12 @@ import C4DStructuredListBody from '../structured-list/structured-list-body';
 import styles from './pricing-table.scss';
 import { carbonElement as customElement } from '../../internal/vendor/@carbon/web-components/globals/decorators/carbon-element';
 
-const { stablePrefix: ddsPrefix } = settings;
+const { stablePrefix: c4dPrefix } = settings;
 
-@customElement(`${ddsPrefix}-pricing-table-body`)
+@customElement(`${c4dPrefix}-pricing-table-body`)
 class C4DPricingTableBody extends StableSelectorMixin(C4DStructuredListBody) {
   static get stableSelector() {
-    return `${ddsPrefix}--pricing-table-body`;
+    return `${c4dPrefix}--pricing-table-body`;
   }
 
   static styles = styles;

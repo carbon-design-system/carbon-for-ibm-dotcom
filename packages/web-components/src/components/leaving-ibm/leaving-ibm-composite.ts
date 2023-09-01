@@ -29,14 +29,14 @@ import '../../internal/vendor/@carbon/web-components/components/button/button.js
 import styles from './leaving-ibm.scss';
 import { carbonElement as customElement } from '../../internal/vendor/@carbon/web-components/globals/decorators/carbon-element.js';
 
-const { stablePrefix: ddsPrefix } = settings;
+const { stablePrefix: c4dPrefix } = settings;
 
 /**
  * Component that renders leaving IBM modal component.
  *
  * @element c4d-leaving-ibm-composite
  */
-@customElement(`${ddsPrefix}-leaving-ibm-composite`)
+@customElement(`${c4dPrefix}-leaving-ibm-composite`)
 class C4DLeavingIbmComposite extends HostListenerMixin(
   ModalRenderMixin(LitElement)
 ) {
@@ -156,7 +156,7 @@ class C4DLeavingIbmComposite extends HostListenerMixin(
         </c4d-leaving-ibm-modal-body>
         <cds-modal-footer>
           <cds-btn
-            data-autoid="${ddsPrefix}--leaving-ibm-cta"
+            data-autoid="${c4dPrefix}--leaving-ibm-cta"
             href="${href}"
             kind="primary"
             >${leavingIbmButtonLabel}</cds-btn

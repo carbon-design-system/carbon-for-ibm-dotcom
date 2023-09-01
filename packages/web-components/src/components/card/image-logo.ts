@@ -12,7 +12,7 @@ import { carbonElement as customElement } from '../../internal/vendor/@carbon/we
 import C4DImage from '../image/image';
 import styles from '../image/image.scss';
 
-const { stablePrefix: ddsPrefix } = settings;
+const { stablePrefix: c4dPrefix } = settings;
 
 /**
  * Image logo.
@@ -20,10 +20,10 @@ const { stablePrefix: ddsPrefix } = settings;
  * @element c4d-image-logo
  */
 
-@customElement(`${ddsPrefix}-image-logo`)
+@customElement(`${c4dPrefix}-image-logo`)
 class C4DImageLogo extends C4DImage {
   static get stableSelector() {
-    return `${ddsPrefix}-image-logo`;
+    return `${c4dPrefix}-image-logo`;
   }
 
   static get styles() {

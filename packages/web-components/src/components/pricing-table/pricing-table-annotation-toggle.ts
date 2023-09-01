@@ -17,9 +17,9 @@ import styles from './pricing-table.scss';
 import C4DPricingTableRow from './pricing-table-row';
 import { carbonElement as customElement } from '../../internal/vendor/@carbon/web-components/globals/decorators/carbon-element.js';
 
-const { stablePrefix: ddsPrefix } = settings;
+const { stablePrefix: c4dPrefix } = settings;
 
-@customElement(`${ddsPrefix}-pricing-table-annotation-toggle`)
+@customElement(`${c4dPrefix}-pricing-table-annotation-toggle`)
 class C4DPricingTableAnnotationToggle extends StableSelectorMixin(LitElement) {
   @property({ reflect: true })
   slot = 'toggle';
@@ -47,7 +47,7 @@ class C4DPricingTableAnnotationToggle extends StableSelectorMixin(LitElement) {
   };
 
   connectedCallback(): void {
-    this.parentRow = this.closest(`${ddsPrefix}-pricing-table-row`);
+    this.parentRow = this.closest(`${c4dPrefix}-pricing-table-row`);
     super.connectedCallback();
   }
 
@@ -65,7 +65,7 @@ class C4DPricingTableAnnotationToggle extends StableSelectorMixin(LitElement) {
   }
 
   static get stableSelector() {
-    return `${ddsPrefix}--pricing-table-annotation-toggle`;
+    return `${c4dPrefix}--pricing-table-annotation-toggle`;
   }
 
   static styles = styles;

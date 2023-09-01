@@ -16,14 +16,14 @@ import styles from './masthead.scss';
 import './megamenu-link-with-icon';
 import { carbonElement as customElement } from '../../internal/vendor/@carbon/web-components/globals/decorators/carbon-element.js';
 
-const { prefix, stablePrefix: ddsPrefix } = settings;
+const { prefix, stablePrefix: c4dPrefix } = settings;
 
 /**
  * MegaMenu category group
  *
  * @element c4d-megamenu-category-group
  */
-@customElement(`${ddsPrefix}-megamenu-category-group`)
+@customElement(`${c4dPrefix}-megamenu-category-group`)
 class C4DMegaMenuCategoryGroup extends LitElement {
   /**
    * href for the category group title

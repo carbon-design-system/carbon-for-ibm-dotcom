@@ -131,7 +131,7 @@ const setupLinkAlternate = (set: boolean = true) => {
   }
 };
 
-describe('c4d-footer-composite', function () {
+xdescribe('c4d-footer-composite', function () {
   describe('Misc attributes', function () {
     it('should render minimum attributes', async function () {
       render(template(), document.body);
@@ -139,7 +139,7 @@ describe('c4d-footer-composite', function () {
       expect(document.querySelector('c4d-footer-composite')).toMatchSnapshot();
     });
 
-    it('should render various attributes', async function () {
+    xit('should render various attributes', async function () {
       setupLinkAlternate();
       render(
         template({

@@ -13,14 +13,14 @@ import { carbonElement as customElement } from '../../internal/vendor/@carbon/we
 import C4DCardLinkCTA from '../cta/card-link-cta';
 import styles from './card-group.scss';
 
-const { stablePrefix: ddsPrefix } = settings;
+const { stablePrefix: c4dPrefix } = settings;
 
 /**
  * Card Group Card Link item.
  *
  * @element c4d-card-group-card-link-item
  */
-@customElement(`${ddsPrefix}-card-group-card-link-item`)
+@customElement(`${c4dPrefix}-card-group-card-link-item`)
 class C4DCardGroupCardLinkItem extends C4DCardLinkCTA {
   /**
    * `true` if the card group is using border.
@@ -41,14 +41,14 @@ class C4DCardGroupCardLinkItem extends C4DCardLinkCTA {
   patternBackground = false;
 
   static get stableSelector() {
-    return `${ddsPrefix}--card-group-card-link-item`;
+    return `${c4dPrefix}--card-group-card-link-item`;
   }
 
   /**
    * A selector that will return the child footer.
    */
   static get selectorFooter() {
-    return `${ddsPrefix}-card-cta-footer`;
+    return `${c4dPrefix}-card-cta-footer`;
   }
 
   static styles = styles;

@@ -19,7 +19,7 @@ import { filter } from '../../globals/internal/collection-helpers';
 import styles from './search-with-typeahead.scss';
 import { carbonElement as customElement } from '../../internal/vendor/@carbon/web-components/globals/decorators/carbon-element.js';
 
-const { prefix, stablePrefix: ddsPrefix } = settings;
+const { prefix, stablePrefix: c4dPrefix } = settings;
 
 /**
  * Scoped search dropdown - mobile version.
@@ -28,7 +28,7 @@ const { prefix, stablePrefix: ddsPrefix } = settings;
  * @element c4d-scoped-search-dropdown-mobile
  * @internal
  */
-@customElement(`${ddsPrefix}-scoped-search-dropdown-mobile`)
+@customElement(`${c4dPrefix}-scoped-search-dropdown-mobile`)
 class C4DScopedSearchDropdownMobile extends CDSSelect {
   /**
    * The `value` for placeholder `<option>`.

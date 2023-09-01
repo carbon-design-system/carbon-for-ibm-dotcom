@@ -16,14 +16,14 @@ import StableSelectorMixin from '../../globals/mixins/stable-selector';
 import styles from './filter-panel.scss';
 import { carbonElement as customElement } from '../../internal/vendor/@carbon/web-components/globals/decorators/carbon-element.js';
 
-const { prefix, stablePrefix: ddsPrefix } = settings;
+const { prefix, stablePrefix: c4dPrefix } = settings;
 
 /**
  * The input select inner dropdown.
  *
  * @element c4d-filter-panel-input-select-item
  */
-@customElement(`${ddsPrefix}-filter-panel-input-select-item`)
+@customElement(`${c4dPrefix}-filter-panel-input-select-item`)
 class C4DFilterPanelInputSelectItem extends FocusMixin(
   StableSelectorMixin(LitElement)
 ) {
@@ -85,7 +85,7 @@ class C4DFilterPanelInputSelectItem extends FocusMixin(
   }
 
   static get stableSelector() {
-    return `${ddsPrefix}-filter-panel-input-select-item`;
+    return `${c4dPrefix}-filter-panel-input-select-item`;
   }
 
   static styles = styles;

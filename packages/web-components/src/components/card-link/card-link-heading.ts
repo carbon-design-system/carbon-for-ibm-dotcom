@@ -12,17 +12,17 @@ import { carbonElement as customElement } from '../../internal/vendor/@carbon/we
 import C4DCardHeading from '../card/card-heading';
 import styles from './card-link.scss';
 
-const { stablePrefix: ddsPrefix } = settings;
+const { stablePrefix: c4dPrefix } = settings;
 
 /**
  * Card Link Heading.
  *
  * @element c4d-card-link-heading
  */
-@customElement(`${ddsPrefix}-card-link-heading`)
+@customElement(`${c4dPrefix}-card-link-heading`)
 class C4DCardLinkHeading extends C4DCardHeading {
   static get stableSelector() {
-    return `${ddsPrefix}--card-link-heading`;
+    return `${c4dPrefix}--card-link-heading`;
   }
 
   static styles = styles;

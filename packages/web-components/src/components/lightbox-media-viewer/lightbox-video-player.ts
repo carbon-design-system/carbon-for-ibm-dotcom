@@ -18,7 +18,7 @@ import {
 import C4DLightboxMediaViewerBody from './lightbox-media-viewer-body';
 import { carbonElement as customElement } from '../../internal/vendor/@carbon/web-components/globals/decorators/carbon-element';
 
-const { prefix, stablePrefix: ddsPrefix } = settings;
+const { prefix, stablePrefix: c4dPrefix } = settings;
 
 /**
  * The video content of lightbox media viewer.
@@ -27,7 +27,7 @@ const { prefix, stablePrefix: ddsPrefix } = settings;
  * @slot title - The title content.
  * @slot description - The description content.
  */
-@customElement(`${ddsPrefix}-lightbox-video-player`)
+@customElement(`${c4dPrefix}-lightbox-video-player`)
 class C4DLightboxVideoPlayer extends C4DLightboxMediaViewerBody {
   _renderDescription() {
     const { description } = this;

@@ -12,14 +12,14 @@ import { carbonElement as customElement } from '../../../internal/vendor/@carbon
 import C4DTopNavName from '../top-nav-name';
 import styles from './cloud-masthead.scss';
 
-const { stablePrefix: ddsPrefix } = settings;
+const { stablePrefix: c4dPrefix } = settings;
 
 /**
  * Cloud's brand name UI in top nav.
  *
  * @element c4d-cloud-top-nav-name
  */
-@customElement(`${ddsPrefix}-cloud-top-nav-name`)
+@customElement(`${c4dPrefix}-cloud-top-nav-name`)
 class C4DCloudTopNavName extends C4DTopNavName {
   static styles = styles;
 }

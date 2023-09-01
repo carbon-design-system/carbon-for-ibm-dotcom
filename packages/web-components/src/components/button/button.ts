@@ -20,7 +20,7 @@ import CDSButton from '../../internal/vendor/@carbon/web-components/components/b
 export { BUTTON_KIND, BUTTON_SIZE };
 
 import { ariaLabels, icons } from '../../component-mixins/cta/cta';
-const { prefix, stablePrefix: ddsPrefix } = settings;
+const { prefix, stablePrefix: c4dPrefix } = settings;
 
 /**
  * Expressive button.
@@ -28,7 +28,7 @@ const { prefix, stablePrefix: ddsPrefix } = settings;
  * @element c4d-button-expressive
  * @csspart button The button.
  */
-@customElement(`${ddsPrefix}-button`)
+@customElement(`${c4dPrefix}-button`)
 // @ts-ignore
 class C4DButton extends CTAMixin(StableSelectorMixin(CDSButton)) {
   @query('a')
@@ -130,19 +130,19 @@ class C4DButton extends CTAMixin(StableSelectorMixin(CDSButton)) {
       iconDiv.innerHTML = this._renderButtonIcon();
       iconDiv
         ?.querySelector('svg')
-        ?.classList.add(`${prefix}--card__cta`, `${ddsPrefix}-ce--cta__icon`);
+        ?.classList.add(`${prefix}--card__cta`, `${c4dPrefix}-ce--cta__icon`);
     }
   }
 
   static get stableSelector() {
-    return `${ddsPrefix}--button`;
+    return `${c4dPrefix}--button`;
   }
 
   /**
    * The name of the custom event fired when there is a user gesture to run the action.
    */
   static get eventRequestAdditionalVideoData() {
-    return `${ddsPrefix}-cta-request-additional-video-data`;
+    return `${c4dPrefix}-cta-request-additional-video-data`;
   }
 
   static shadowRootOptions = {

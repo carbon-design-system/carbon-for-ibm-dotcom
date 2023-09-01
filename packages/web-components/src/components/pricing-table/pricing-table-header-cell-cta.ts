@@ -15,9 +15,9 @@ import StableSelectorMixin from '../../globals/mixins/stable-selector';
 import styles from './pricing-table.scss';
 import { carbonElement as customElement } from '../../internal/vendor/@carbon/web-components/globals/decorators/carbon-element';
 
-const { stablePrefix: ddsPrefix } = settings;
+const { stablePrefix: c4dPrefix } = settings;
 
-@customElement(`${ddsPrefix}-pricing-table-header-cell-cta`)
+@customElement(`${c4dPrefix}-pricing-table-header-cell-cta`)
 class C4DPricingTableHeaderCellCta extends StableSelectorMixin(C4DButtonCTA) {
   @property({ reflect: true })
   slot = 'cta';
@@ -28,7 +28,7 @@ class C4DPricingTableHeaderCellCta extends StableSelectorMixin(C4DButtonCTA) {
   }
 
   static get stableSelector() {
-    return `${ddsPrefix}--pricing-table-header-cell-cta`;
+    return `${c4dPrefix}--pricing-table-header-cell-cta`;
   }
 
   static styles = styles;

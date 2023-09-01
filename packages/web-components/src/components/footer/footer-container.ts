@@ -43,7 +43,7 @@ import {
 import C4DFooterComposite from './footer-composite';
 import { carbonElement as customElement } from '../../internal/vendor/@carbon/web-components/globals/decorators/carbon-element';
 
-const { stablePrefix: ddsPrefix } = settings;
+const { stablePrefix: c4dPrefix } = settings;
 
 /**
  * The Redux actions used for `<c4d-footer-container>`.
@@ -134,7 +134,7 @@ export function mapDispatchToProps(
  *
  * @element c4d-footer-container
  */
-@customElement(`${ddsPrefix}-footer-container`)
+@customElement(`${c4dPrefix}-footer-container`)
 class C4DFooterContainer extends ConnectMixin<
   FooterContainerState,
   LocaleAPIActions | TranslateAPIActions,

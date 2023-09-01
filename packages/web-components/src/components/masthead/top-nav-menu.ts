@@ -13,14 +13,14 @@ import settings from '../../internal/vendor/@carbon/ibmdotcom-utilities/utilitie
 import styles from './masthead.scss';
 import { carbonElement as customElement } from '../../internal/vendor/@carbon/web-components/globals/decorators/carbon-element.js';
 
-const { stablePrefix: ddsPrefix } = settings;
+const { stablePrefix: c4dPrefix } = settings;
 
 /**
  * Masthead top nav submenu.
  *
  * @element c4d-top-nav-menu
  */
-@customElement(`${ddsPrefix}-top-nav-menu`)
+@customElement(`${c4dPrefix}-top-nav-menu`)
 class C4DTopNavMenu extends CDSHeaderMenu {
   /**
    * `true` if this submenu should be in its active state.

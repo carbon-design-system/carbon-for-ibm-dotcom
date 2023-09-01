@@ -16,14 +16,14 @@ import styles from './masthead.scss';
 import C4DLeftNav from './left-nav';
 import { carbonElement as customElement } from '../../internal/vendor/@carbon/web-components/globals/decorators/carbon-element.js';
 
-const { prefix, stablePrefix: ddsPrefix } = settings;
+const { prefix, stablePrefix: c4dPrefix } = settings;
 
 /**
  * The brand name UI in left nav.
  *
  * @element c4d-left-nav-name
  */
-@customElement(`${ddsPrefix}-left-nav-name`)
+@customElement(`${c4dPrefix}-left-nav-name`)
 class C4DLeftNavName extends CDSHeaderName {
   /**
    * Set slot name property.

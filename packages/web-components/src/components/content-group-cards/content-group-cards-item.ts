@@ -13,17 +13,17 @@ import C4DCard from '../card/card';
 import styles from './content-group-cards.scss';
 import { carbonElement as customElement } from '../../internal/vendor/@carbon/web-components/globals/decorators/carbon-element';
 
-const { stablePrefix: ddsPrefix } = settings;
+const { stablePrefix: c4dPrefix } = settings;
 
 /**
  * Content Group Card item.
  *
  * @element c4d-content-group-card-item
  */
-@customElement(`${ddsPrefix}-content-group-cards-item`)
+@customElement(`${c4dPrefix}-content-group-cards-item`)
 class C4DContentGroupCardsItem extends StableSelectorMixin(C4DCard) {
   static get stableSelector() {
-    return `${ddsPrefix}--content-group-cards-item`;
+    return `${c4dPrefix}--content-group-cards-item`;
   }
 
   static styles = styles;

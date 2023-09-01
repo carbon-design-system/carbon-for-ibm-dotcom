@@ -79,7 +79,7 @@ setting the `data-autoid` based on the custom element name for the wrapper
 element:
 
 ```javascript
-@customElement(`${ddsPrefix}-my-component`)
+@customElement(`${c4dPrefix}-my-component`)
 class C4DMyComponent extends StableSelectorMixin(LitElement) {
   ...
   render() {

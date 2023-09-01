@@ -97,6 +97,5 @@
     </c4d-locale-item>
   </c4d-locale-search>
 </c4d-locale-modal>
-
 ```
 

@@ -14,12 +14,12 @@ import C4DStructuredListHead from '../structured-list/structured-list-head';
 import styles from './pricing-table.scss';
 import { carbonElement as customElement } from '../../internal/vendor/@carbon/web-components/globals/decorators/carbon-element';
 
-const { stablePrefix: ddsPrefix } = settings;
+const { stablePrefix: c4dPrefix } = settings;
 
-@customElement(`${ddsPrefix}-pricing-table-head`)
+@customElement(`${c4dPrefix}-pricing-table-head`)
 class C4DPricingTableHead extends StableSelectorMixin(C4DStructuredListHead) {
   static get stableSelector() {
-    return `${ddsPrefix}--pricing-table-head`;
+    return `${c4dPrefix}--pricing-table-head`;
   }
 
   static styles = styles;

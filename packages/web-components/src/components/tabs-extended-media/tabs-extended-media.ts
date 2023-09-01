@@ -14,14 +14,14 @@ import { carbonElement as customElement } from '../../internal/vendor/@carbon/we
 import C4DTabsExtended from '../tabs-extended/tabs-extended';
 import styles from './tabs-extended-media.scss';
 
-const { prefix, stablePrefix: ddsPrefix } = settings;
+const { prefix, stablePrefix: c4dPrefix } = settings;
 
 /**
  * A component to present media content inside a tabbed layout.
  *
  * @element c4d-tabs-extended-media
  */
-@customElement(`${ddsPrefix}-tabs-extended-media`)
+@customElement(`${c4dPrefix}-tabs-extended-media`)
 class C4DTabsExtendedMedia extends C4DTabsExtended {
   /**
    * `true` if section heading should be shown.
@@ -49,7 +49,7 @@ class C4DTabsExtendedMedia extends C4DTabsExtended {
   }
 
   static get stableSelector() {
-    return `${ddsPrefix}--tabs-extended-media`;
+    return `${c4dPrefix}--tabs-extended-media`;
   }
 
   static styles = styles;

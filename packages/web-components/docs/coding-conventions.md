@@ -124,7 +124,7 @@ import Handle from '../../globals/internal/handle';
 
 ...
 
-@customElement(`${ddsPrefix}-some-component`)
+@customElement(`${c4dPrefix}-some-component`)
 class SomeComponent extends LitElement {
   ...
 
@@ -327,8 +327,8 @@ active = false;
 render() {
   const { active } = this;
   const classes = classMap({
-    [`${ddsPrefix}--left-nav__content`]: true,
-    [`${ddsPrefix}--left-nav__content__shown`]: active,
+    [`${c4dPrefix}--left-nav__content`]: true,
+    [`${c4dPrefix}--left-nav__content__shown`]: active,
   });
   return html`
     <div class="${classes}">
@@ -361,7 +361,7 @@ _handleClick(event: MouseEvent) {
 }
 
 static get eventToggle() {
-  return `${ddsPrefix}-masthead-menu-button-toggled`;
+  return `${c4dPrefix}-masthead-menu-button-toggled`;
 }
 ```
 
@@ -377,7 +377,7 @@ private _handleToggleMenuButton(event: CustomEvent) {
 }
 
 static get eventButtonToggle() {
-  return `${ddsPrefix}-header-menu-button-toggled`;
+  return `${c4dPrefix}-header-menu-button-toggled`;
 }
 ```
 
@@ -508,7 +508,7 @@ class C4DFooterNavItem extends LitElement {
 }
 ```
 
-> 💡 Make sure `:host(#{$ddsPrefix}-footer-nav-item)` the same CSS rules as `#{$prefix}--footer-nav-group__item` in the Sass code.
+> 💡 Make sure `:host(#{$c4dPrefix}-footer-nav-item)` the same CSS rules as `#{$prefix}--footer-nav-group__item` in the Sass code.
 
 > 💡 `<button>` and `<a>` are exceptions to this rule because there is no way to implement the same feature of those tags with a custom element.
 

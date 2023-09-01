@@ -12,14 +12,14 @@ import settings from '../../internal/vendor/@carbon/ibmdotcom-utilities/utilitie
 import { carbonElement as customElement } from '../../internal/vendor/@carbon/web-components/globals/decorators/carbon-element';
 import styles from './masthead.scss';
 
-const { stablePrefix: ddsPrefix } = settings;
+const { stablePrefix: c4dPrefix } = settings;
 
 /**
  * MegaMenu left navigation (highlighted) section.
  *
  * @element c4d-megamenu-left-navigation
  */
-@customElement(`${ddsPrefix}-megamenu-left-navigation`)
+@customElement(`${c4dPrefix}-megamenu-left-navigation`)
 class C4DMegaMenuLeftNavigation extends LitElement {
   render() {
     return html` <slot></slot> `;

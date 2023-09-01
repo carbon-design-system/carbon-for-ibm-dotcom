@@ -13,17 +13,17 @@ import styles from './content-item.scss';
 import StableSelectorMixin from '../../globals/mixins/stable-selector';
 import { carbonElement as customElement } from '../../internal/vendor/@carbon/web-components/globals/decorators/carbon-element';
 
-const { stablePrefix: ddsPrefix } = settings;
+const { stablePrefix: c4dPrefix } = settings;
 
 /**
  * The paragraph content in content item.
  *
  * @element c4d-content-item-paragraph
  */
-@customElement(`${ddsPrefix}-content-item-paragraph`)
+@customElement(`${c4dPrefix}-content-item-paragraph`)
 class C4DContentItemParagraph extends StableSelectorMixin(LitElement) {
   static get stableSelector() {
-    return `${ddsPrefix}--content-item-paragraph`;
+    return `${c4dPrefix}--content-item-paragraph`;
   }
 
   render() {

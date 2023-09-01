@@ -13,14 +13,14 @@ import settings from '../../internal/vendor/@carbon/ibmdotcom-utilities/utilitie
 import { carbonElement as customElement } from '../../internal/vendor/@carbon/web-components/globals/decorators/carbon-element';
 import styles from './masthead.scss';
 
-const { stablePrefix: ddsPrefix } = settings;
+const { stablePrefix: c4dPrefix } = settings;
 
 /**
  * Megamenu overlay.
  *
  * @element c4d-megamenu-overlay
  */
-@customElement(`${ddsPrefix}-megamenu-overlay`)
+@customElement(`${c4dPrefix}-megamenu-overlay`)
 class C4DMegaMenuOverlay extends LitElement {
   /**
    * `true` if this overlay should represent its active state.

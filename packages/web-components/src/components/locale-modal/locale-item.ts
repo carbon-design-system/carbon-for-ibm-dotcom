@@ -15,14 +15,14 @@ import ipcinfoCookie from '../../internal/vendor/@carbon/ibmdotcom-utilities/uti
 import styles from './locale-modal.scss';
 import { carbonElement as customElement } from '../../internal/vendor/@carbon/web-components/globals/decorators/carbon-element.js';
 
-const { prefix, stablePrefix: ddsPrefix } = settings;
+const { prefix, stablePrefix: c4dPrefix } = settings;
 
 /**
  * Locale item.
  *
  * @element c4d-locale-item
  */
-@customElement(`${ddsPrefix}-locale-item`)
+@customElement(`${c4dPrefix}-locale-item`)
 class C4DLocaleItem extends CDSLink {
   /**
    * The country.

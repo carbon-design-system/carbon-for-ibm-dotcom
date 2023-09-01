@@ -17,14 +17,14 @@ import styles from './card-in-card.scss';
 import StableSelectorMixin from '../../globals/mixins/stable-selector';
 import { carbonElement as customElement } from '../../internal/vendor/@carbon/web-components/globals/decorators/carbon-element.js';
 
-const { prefix, stablePrefix: ddsPrefix } = settings;
+const { prefix, stablePrefix: c4dPrefix } = settings;
 
 /**
  * Card in Card.
  *
  * @element c4d-card-in-card
  */
-@customElement(`${ddsPrefix}-card-in-card`)
+@customElement(`${c4dPrefix}-card-in-card`)
 class C4DCardInCard extends StableSelectorMixin(C4DCardCTA) {
   protected _renderImage() {
     const {
@@ -57,10 +57,10 @@ class C4DCardInCard extends StableSelectorMixin(C4DCardCTA) {
     }
 
     const cardInCardImage = this.querySelector(
-      `${ddsPrefix}-card-in-card-image`
+      `${c4dPrefix}-card-in-card-image`
     );
     const cardInCardImageVideo = this.parentElement
-      ?.querySelector(`${ddsPrefix}-card-in-card`)
+      ?.querySelector(`${c4dPrefix}-card-in-card`)
       ?.shadowRoot?.querySelector('c4d-card-in-card-image');
 
     // fires the card cta footer when card image is clicked
@@ -69,14 +69,14 @@ class C4DCardInCard extends StableSelectorMixin(C4DCardCTA) {
         (cardInCardImage as HTMLElement) ||
         (cardInCardImageVideo as HTMLElement)
       ).onclick = () =>
-        this.querySelector(`${ddsPrefix}-card-cta-footer`)
+        this.querySelector(`${c4dPrefix}-card-cta-footer`)
           ?.shadowRoot?.querySelector(`a`)
           ?.click();
     }
   }
 
   static get stableSelector() {
-    return `${ddsPrefix}--card-in-card`;
+    return `${c4dPrefix}--card-in-card`;
   }
 
   static get styles() {

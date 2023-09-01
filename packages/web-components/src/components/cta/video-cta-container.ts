@@ -25,7 +25,7 @@ import ConnectMixin from '../../globals/mixins/connect';
 import C4DVideoCTAComposite from './video-cta-composite';
 import { carbonElement as customElement } from '../../internal/vendor/@carbon/web-components/globals/decorators/carbon-element';
 
-const { stablePrefix: ddsPrefix } = settings;
+const { stablePrefix: c4dPrefix } = settings;
 
 /**
  * The Redux state used for `<c4d-cta-container>`.
@@ -57,7 +57,7 @@ export type CTAContainerActions = ReturnType<typeof loadMediaData>;
  *
  * @element c4d-cta-container
  */
-@customElement(`${ddsPrefix}-video-cta-container`)
+@customElement(`${c4dPrefix}-video-cta-container`)
 class C4DVideoCTAContainer extends ConnectMixin<
   VideoCTAContainerState,
   MediaPlayerAPIActions,

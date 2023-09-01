@@ -12,14 +12,14 @@ import settings from '../../internal/vendor/@carbon/ibmdotcom-utilities/utilitie
 import { carbonElement as customElement } from '../../internal/vendor/@carbon/web-components/globals/decorators/carbon-element';
 import styles from './masthead.scss';
 
-const { stablePrefix: ddsPrefix } = settings;
+const { stablePrefix: c4dPrefix } = settings;
 
 /**
  * MegaMenu Category Group Description.
  *
  * @element c4d-megamenu-category-group-desc
  */
-@customElement(`${ddsPrefix}-megamenu-category-group-copy`)
+@customElement(`${c4dPrefix}-megamenu-category-group-copy`)
 class C4DMegaMenuCategoryGroupCopy extends LitElement {
   render() {
     return html` <slot></slot> `;

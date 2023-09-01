@@ -17,14 +17,14 @@ import { carbonElement as customElement } from '../../internal/vendor/@carbon/we
 
 export { MEGAMENU_LINK_WITH_ICON_STYLE_SCHEME };
 
-const { stablePrefix: ddsPrefix } = settings;
+const { stablePrefix: c4dPrefix } = settings;
 
 /**
  * Megamenu link with icon.
  *
  * @element c4d-megamenu-link-with-icon
  */
-@customElement(`${ddsPrefix}-megamenu-link-with-icon`)
+@customElement(`${c4dPrefix}-megamenu-link-with-icon`)
 class C4DMegaMenuLinkWithIcon extends CDSLink {
   /**
    * link title.

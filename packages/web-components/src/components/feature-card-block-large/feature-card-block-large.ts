@@ -16,14 +16,14 @@ import styles from './feature-card-block-large.scss';
 import StableSelectorMixin from '../../globals/mixins/stable-selector';
 import { carbonElement as customElement } from '../../internal/vendor/@carbon/web-components/globals/decorators/carbon-element';
 
-const { prefix, stablePrefix: ddsPrefix } = settings;
+const { prefix, stablePrefix: c4dPrefix } = settings;
 
 /**
  * Feature Card Block Large.
  *
  * @element c4d-feature-card-block-large
  */
-@customElement(`${ddsPrefix}-feature-card-block-large`)
+@customElement(`${c4dPrefix}-feature-card-block-large`)
 class C4DFeatureCardBlockLarge extends StableSelectorMixin(C4DFeatureCard) {
   render() {
     return html`
@@ -43,7 +43,7 @@ class C4DFeatureCardBlockLarge extends StableSelectorMixin(C4DFeatureCard) {
   }
 
   static get stableSelector() {
-    return `${ddsPrefix}--feature-card-block-large`;
+    return `${c4dPrefix}--feature-card-block-large`;
   }
 
   static styles = styles;

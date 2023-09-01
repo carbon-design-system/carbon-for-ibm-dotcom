@@ -12,14 +12,14 @@ import { carbonElement as customElement } from '../../internal/vendor/@carbon/we
 import C4DCardFooter from '../card/card-footer';
 import styles from './feature-card.scss';
 
-const { prefix, stablePrefix: ddsPrefix } = settings;
+const { prefix, stablePrefix: c4dPrefix } = settings;
 
 /**
  * Feature card footer.
  *
  * @element c4d-feature-card-footer
  */
-@customElement(`${ddsPrefix}-feature-card-footer`)
+@customElement(`${c4dPrefix}-feature-card-footer`)
 class C4DFeatureCardFooter extends C4DCardFooter {
   updated(changedProperties) {
     super.updated(changedProperties);

@@ -16,7 +16,7 @@ import { forEach } from '../../globals/internal/collection-helpers';
 import { ANIMATION_TYPE } from './defs';
 import { carbonElement as customElement } from '../../internal/vendor/@carbon/web-components/globals/decorators/carbon-element';
 
-const { prefix, stablePrefix: ddsPrefix } = settings;
+const { prefix, stablePrefix: c4dPrefix } = settings;
 
 /**
  * Amount of columns used for calculation.
@@ -53,7 +53,7 @@ const colSpan = 3;
  * }
  * @element c4d-scroll-animations
  */
-@customElement(`${ddsPrefix}-scroll-animations`)
+@customElement(`${c4dPrefix}-scroll-animations`)
 class C4DScrollAnimations extends StableSelectorMixin(LitElement) {
   /**
    * Intersection Observer that watches outer viewport.
@@ -329,7 +329,7 @@ class C4DScrollAnimations extends StableSelectorMixin(LitElement) {
   }
 
   static get stableSelector() {
-    return `${ddsPrefix}--scroll-animations`;
+    return `${c4dPrefix}--scroll-animations`;
   }
 }
 

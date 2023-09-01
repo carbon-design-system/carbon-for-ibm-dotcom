@@ -26,7 +26,7 @@ import Handle from '../../globals/internal/handle';
 import StableSelectorMixin from '../../globals/mixins/stable-selector';
 import { carbonElement as customElement } from '../../internal/vendor/@carbon/web-components/globals/decorators/carbon-element.js';
 
-const { prefix, stablePrefix: ddsPrefix } = settings;
+const { prefix, stablePrefix: c4dPrefix } = settings;
 
 export { LIGHTBOX_CONTRAST };
 
@@ -37,7 +37,7 @@ export { LIGHTBOX_CONTRAST };
  * @slot long-description - The long description content.
  * @slot icon - The icon content.
  */
-@customElement(`${ddsPrefix}-image`)
+@customElement(`${c4dPrefix}-image`)
 class C4DImage extends StableSelectorMixin(
   ModalRenderMixin(FocusMixin(LitElement))
 ) {
@@ -80,14 +80,14 @@ class C4DImage extends StableSelectorMixin(
   }
 
   /**
-   * The handler of `${ddsPrefix}-expressive-modal-closed` event from `<c4d-expressive-modal>`.
+   * The handler of `${c4dPrefix}-expressive-modal-closed` event from `<c4d-expressive-modal>`.
    */
   private _handleCloseModal = () => {
     this.open = false;
   };
 
   /**
-   * The handle for the listener of `${ddsPrefix}-expressive-modal-closed` event.
+   * The handle for the listener of `${c4dPrefix}-expressive-modal-closed` event.
    */
   private _hCloseModal: Handle | null = null;
 
@@ -256,18 +256,18 @@ class C4DImage extends StableSelectorMixin(
    * The name of the custom event fired after the modal is closed upon a user gesture.
    */
   static get eventCloseModal() {
-    return `${ddsPrefix}-expressive-modal-closed`;
+    return `${c4dPrefix}-expressive-modal-closed`;
   }
 
   /**
    * A selector that will return image items.
    */
   static get selectorItem() {
-    return `${ddsPrefix}-image-item`;
+    return `${c4dPrefix}-image-item`;
   }
 
   static get stableSelector() {
-    return `${ddsPrefix}--image`;
+    return `${c4dPrefix}--image`;
   }
 
   static shadowRootOptions = {

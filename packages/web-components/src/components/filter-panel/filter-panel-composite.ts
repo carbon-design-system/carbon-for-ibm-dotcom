@@ -27,7 +27,7 @@ import C4DFilterPanelInputSelect from './filter-panel-input-select';
 import C4DFilterPanelInputSelectItem from './filter-panel-input-select-item';
 import { carbonElement as customElement } from '../../internal/vendor/@carbon/web-components/globals/decorators/carbon-element.js';
 
-const { prefix, stablePrefix: ddsPrefix } = settings;
+const { prefix, stablePrefix: c4dPrefix } = settings;
 
 const breakpoint = parseFloat(breakpoints.lg.width) * baseFontSize;
 
@@ -36,7 +36,7 @@ const breakpoint = parseFloat(breakpoints.lg.width) * baseFontSize;
  *
  * @element c4d-filter-panel-composite
  */
-@customElement(`${ddsPrefix}-filter-panel-composite`)
+@customElement(`${c4dPrefix}-filter-panel-composite`)
 class C4DFilterPanelComposite extends HostListenerMixin(
   StableSelectorMixin(LitElement)
 ) {
@@ -63,10 +63,10 @@ class C4DFilterPanelComposite extends HostListenerMixin(
 
       if (!this._selectedValues.length) {
         this.shadowRoot!.querySelector(
-          `${ddsPrefix}-filter-panel-modal`
+          `${c4dPrefix}-filter-panel-modal`
         )?.removeAttribute('has-selections');
         this.shadowRoot!.querySelector(
-          `${ddsPrefix}-filter-panel`
+          `${c4dPrefix}-filter-panel`
         )?.removeAttribute('has-selections');
       }
       return;
@@ -84,9 +84,9 @@ class C4DFilterPanelComposite extends HostListenerMixin(
     // enables the clear button
     if (this._selectedValues) {
       this.shadowRoot!.querySelector(
-        `${ddsPrefix}-filter-panel-modal`
+        `${c4dPrefix}-filter-panel-modal`
       )?.setAttribute('has-selections', '');
-      this.shadowRoot!.querySelector(`${ddsPrefix}-filter-panel`)?.setAttribute(
+      this.shadowRoot!.querySelector(`${c4dPrefix}-filter-panel`)?.setAttribute(
         'has-selections',
         ''
       );
@@ -105,10 +105,10 @@ class C4DFilterPanelComposite extends HostListenerMixin(
     const { value } = event.detail;
 
     // toggle checkbox in filter panel modal
-    this.querySelectorAll(`${ddsPrefix}-filter-panel-checkbox`).forEach((e) => {
+    this.querySelectorAll(`${c4dPrefix}-filter-panel-checkbox`).forEach((e) => {
       if (e.getAttribute('value') === value) {
         e.toggleAttribute('checked');
-        e.closest(`${ddsPrefix}-filter-group-item`)?.setAttribute('open', '');
+        e.closest(`${c4dPrefix}-filter-group-item`)?.setAttribute('open', '');
 
         const { stableSelector } = C4DFilterPanelCheckbox;
         this._focusElement = `${stableSelector}[value="${value}"]`;
@@ -116,10 +116,10 @@ class C4DFilterPanelComposite extends HostListenerMixin(
     });
 
     const filterGroupItems = this.querySelectorAll(
-      `${ddsPrefix}-filter-group-item`
+      `${c4dPrefix}-filter-group-item`
     );
     this.shadowRoot
-      ?.querySelectorAll(`${ddsPrefix}-filter-group-item`)
+      ?.querySelectorAll(`${c4dPrefix}-filter-group-item`)
       .forEach((filterGroupItem, index) => {
         if ((filterGroupItem as C4DFilterGroupItem).open) {
           (filterGroupItems[index] as C4DFilterGroupItem).open = true;
@@ -136,16 +136,16 @@ class C4DFilterPanelComposite extends HostListenerMixin(
     // shows clear button depending on the list's length
     if (!this._selectedValues.length) {
       this.shadowRoot!.querySelector(
-        `${ddsPrefix}-filter-panel-modal`
+        `${c4dPrefix}-filter-panel-modal`
       )?.removeAttribute('has-selections');
       this.shadowRoot!.querySelector(
-        `${ddsPrefix}-filter-panel`
+        `${c4dPrefix}-filter-panel`
       )?.removeAttribute('has-selections');
     } else {
       this.shadowRoot!.querySelector(
-        `${ddsPrefix}-filter-panel-modal`
+        `${c4dPrefix}-filter-panel-modal`
       )?.setAttribute('has-selections', '');
-      this.shadowRoot!.querySelector(`${ddsPrefix}-filter-panel`)?.setAttribute(
+      this.shadowRoot!.querySelector(`${c4dPrefix}-filter-panel`)?.setAttribute(
         'has-selections',
         ''
       );
@@ -195,16 +195,16 @@ class C4DFilterPanelComposite extends HostListenerMixin(
     this._focusElement = `${stableSelector}[header-value="${headerValue}"]`;
 
     // toggle checkbox in filter panel modal
-    this.querySelectorAll(`${ddsPrefix}-filter-panel-input-select`).forEach(
+    this.querySelectorAll(`${c4dPrefix}-filter-panel-input-select`).forEach(
       (e) => {
         // capture the element counterpart in Filter Panel Modal
         if (e.getAttribute('header-value') === headerValue) {
-          const currentGroup = e.closest(`${ddsPrefix}-filter-group-item`);
+          const currentGroup = e.closest(`${c4dPrefix}-filter-group-item`);
           currentGroup?.setAttribute('open', '');
 
           // Clears all other sibling items in the Filter Group
           currentGroup
-            ?.querySelectorAll(`${ddsPrefix}-filter-panel-input-select`)
+            ?.querySelectorAll(`${c4dPrefix}-filter-panel-input-select`)
             .forEach((inputSelect) => {
               if (inputSelect === e) return;
               this._selectedValues = this._selectedValues.filter(
@@ -231,19 +231,19 @@ class C4DFilterPanelComposite extends HostListenerMixin(
 
     if (!this._selectedValues.length) {
       this.shadowRoot!.querySelector(
-        `${ddsPrefix}-filter-panel-modal`
+        `${c4dPrefix}-filter-panel-modal`
       )?.removeAttribute('has-selections');
       this.shadowRoot!.querySelector(
-        `${ddsPrefix}-filter-panel`
+        `${c4dPrefix}-filter-panel`
       )?.removeAttribute('has-selections');
     }
 
     // enables the clear button
     if (this._selectedValues.length > 0) {
       this.shadowRoot!.querySelector(
-        `${ddsPrefix}-filter-panel-modal`
+        `${c4dPrefix}-filter-panel-modal`
       )?.setAttribute('has-selections', '');
-      this.shadowRoot!.querySelector(`${ddsPrefix}-filter-panel`)?.setAttribute(
+      this.shadowRoot!.querySelector(`${c4dPrefix}-filter-panel`)?.setAttribute(
         'has-selections',
         ''
       );
@@ -274,18 +274,18 @@ class C4DFilterPanelComposite extends HostListenerMixin(
     // handles clear when clearing from the static filter panel modal
     this._contents.forEach((group) => {
       group
-        .querySelectorAll(`${ddsPrefix}-filter-panel-checkbox`)
+        .querySelectorAll(`${c4dPrefix}-filter-panel-checkbox`)
         .forEach((e) => {
           e.removeAttribute('checked');
         });
       group
-        .querySelectorAll(`${ddsPrefix}-filter-panel-input-select-item`)
+        .querySelectorAll(`${c4dPrefix}-filter-panel-input-select-item`)
         .forEach((e) => {
           e.removeAttribute('selected');
           e.removeAttribute('is-open');
         });
       group
-        .querySelectorAll(`${ddsPrefix}-filter-panel-input-select`)
+        .querySelectorAll(`${c4dPrefix}-filter-panel-input-select`)
         .forEach((e) => {
           e.removeAttribute('selected');
           e.removeAttribute('is-open');
@@ -294,18 +294,18 @@ class C4DFilterPanelComposite extends HostListenerMixin(
 
     // handles clear when clearing from the filter panel static
     this.shadowRoot
-      ?.querySelectorAll(`${ddsPrefix}-filter-panel-checkbox`)
+      ?.querySelectorAll(`${c4dPrefix}-filter-panel-checkbox`)
       .forEach((e) => {
         e.removeAttribute('checked');
       });
     this.shadowRoot
-      ?.querySelectorAll(`${ddsPrefix}-filter-panel-input-select-item`)
+      ?.querySelectorAll(`${c4dPrefix}-filter-panel-input-select-item`)
       .forEach((e) => {
         e.removeAttribute('selected');
         e.removeAttribute('is-open');
       });
     this.shadowRoot
-      ?.querySelectorAll(`${ddsPrefix}-filter-panel-input-select`)
+      ?.querySelectorAll(`${c4dPrefix}-filter-panel-input-select`)
       .forEach((e) => {
         e.removeAttribute('selected');
         e.removeAttribute('is-open');
@@ -313,10 +313,10 @@ class C4DFilterPanelComposite extends HostListenerMixin(
 
     // disables the button
     this.shadowRoot!.querySelector(
-      `${ddsPrefix}-filter-panel-modal`
+      `${c4dPrefix}-filter-panel-modal`
     )?.removeAttribute('has-selections');
     this.shadowRoot!.querySelector(
-      `${ddsPrefix}-filter-panel`
+      `${c4dPrefix}-filter-panel`
     )?.removeAttribute('has-selections');
 
     this.renderStatus();
@@ -498,7 +498,7 @@ class C4DFilterPanelComposite extends HostListenerMixin(
    */
 
   static get eventCheckboxSelect() {
-    return `${ddsPrefix}-checkbox-select`;
+    return `${c4dPrefix}-checkbox-select`;
   }
 
   /**
@@ -506,7 +506,7 @@ class C4DFilterPanelComposite extends HostListenerMixin(
    */
 
   static get eventInputSelectItem() {
-    return `${ddsPrefix}-filter-panel-input-select`;
+    return `${c4dPrefix}-filter-panel-input-select`;
   }
 
   /**
@@ -515,7 +515,7 @@ class C4DFilterPanelComposite extends HostListenerMixin(
    */
 
   static get eventFilterGroupViewAllToggle() {
-    return `${ddsPrefix}-filter-group-view-all-toggle`;
+    return `${c4dPrefix}-filter-group-view-all-toggle`;
   }
 
   /**
@@ -531,7 +531,7 @@ class C4DFilterPanelComposite extends HostListenerMixin(
    */
 
   static get eventInputSelect() {
-    return `${ddsPrefix}-filter-panel-input-select-title`;
+    return `${c4dPrefix}-filter-panel-input-select-title`;
   }
 
   /**
@@ -539,7 +539,7 @@ class C4DFilterPanelComposite extends HostListenerMixin(
    */
 
   static get eventSelectionClear() {
-    return `${ddsPrefix}-selection-clear`;
+    return `${c4dPrefix}-selection-clear`;
   }
 
   /**
@@ -547,11 +547,11 @@ class C4DFilterPanelComposite extends HostListenerMixin(
    */
 
   static get eventHeadingChange() {
-    return `${ddsPrefix}-filter-panel-heading-change`;
+    return `${c4dPrefix}-filter-panel-heading-change`;
   }
 
   static get stableSelector() {
-    return `${ddsPrefix}-filter-panel-composite`;
+    return `${c4dPrefix}-filter-panel-composite`;
   }
 
   static styles = styles; // `styles` here is a `CSSResult` generated by custom WebPack loader

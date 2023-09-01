@@ -13,7 +13,7 @@ import settings from '../../internal/vendor/@carbon/ibmdotcom-utilities/utilitie
 import styles from './footer.scss';
 import { carbonElement as customElement } from '../../internal/vendor/@carbon/web-components/globals/decorators/carbon-element.js';
 
-const { stablePrefix: ddsPrefix } = settings;
+const { stablePrefix: c4dPrefix } = settings;
 
 /**
  * Language selector component - mobile version.
@@ -22,7 +22,7 @@ const { stablePrefix: ddsPrefix } = settings;
  * @element c4d-language-selector-mobile
  * @internal
  */
-@customElement(`${ddsPrefix}-language-selector-mobile`)
+@customElement(`${c4dPrefix}-language-selector-mobile`)
 class C4DLanguageSelectorMobile extends CDSSelect {
   /**
    * The shadow slot this language-selector should be in.

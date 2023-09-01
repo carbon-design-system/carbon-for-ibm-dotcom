@@ -36,7 +36,7 @@ import ConnectMixin from '../../globals/mixins/connect';
 import C4DMastheadComposite from './masthead-composite';
 import { carbonElement as customElement } from '../../internal/vendor/@carbon/web-components/globals/decorators/carbon-element';
 
-const { stablePrefix: ddsPrefix } = settings;
+const { stablePrefix: c4dPrefix } = settings;
 
 /**
  * The Redux state used for `<c4d-masthead-container>`.
@@ -140,7 +140,7 @@ export function mapDispatchToProps(
  *
  * @element c4d-masthead-container
  */
-@customElement(`${ddsPrefix}-masthead-container`)
+@customElement(`${c4dPrefix}-masthead-container`)
 class C4DMastheadContainer extends ConnectMixin<
   MastheadContainerState,
   LocaleAPIActions | TranslateAPIActions | ProfileAPIActions,

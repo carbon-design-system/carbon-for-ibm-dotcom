@@ -17,7 +17,7 @@ import { Constructor } from '../../globals/defs';
 import { CTA_TYPE } from '../../components/cta/defs';
 import KalturaPlayerAPI from '../../internal/vendor/@carbon/ibmdotcom-services/services/KalturaPlayer/KalturaPlayer';
 
-const { stablePrefix: ddsPrefix } = settings;
+const { stablePrefix: c4dPrefix } = settings;
 
 /**
  * Icons to use, keyed by CTA type.
@@ -182,14 +182,14 @@ const VideoCTAMixin = <T extends Constructor<HTMLElement>>(Base: T) => {
      * The name of the custom event fired when there is a user gesture to run the action.
      */
     static get eventRequestVideoData() {
-      return `${ddsPrefix}-cta-request-video-data`;
+      return `${c4dPrefix}-cta-request-video-data`;
     }
 
     /**
      * The name of the custom event fired when there is a user gesture to run the action.
      */
     static get eventRunAction() {
-      return `${ddsPrefix}-cta-run-action`;
+      return `${c4dPrefix}-cta-run-action`;
     }
   }
 

@@ -18,14 +18,14 @@ import StableSelectorMixin from '../../globals/mixins/stable-selector';
 import styles from './footer.scss';
 import { carbonElement as customElement } from '../../internal/vendor/@carbon/web-components/globals/decorators/carbon-element.js';
 
-const { prefix, stablePrefix: ddsPrefix } = settings;
+const { prefix, stablePrefix: c4dPrefix } = settings;
 
 /**
  * Locale button.
  *
  * @element c4d-locale-button
  */
-@customElement(`${ddsPrefix}-locale-button`)
+@customElement(`${c4dPrefix}-locale-button`)
 class C4DLocaleButton extends StableSelectorMixin(FocusMixin(LitElement)) {
   /**
    * Button label for accessibility.
@@ -59,7 +59,7 @@ class C4DLocaleButton extends StableSelectorMixin(FocusMixin(LitElement)) {
   }
 
   static get stableSelector() {
-    return `${ddsPrefix}--locale-btn`;
+    return `${c4dPrefix}--locale-btn`;
   }
 
   static shadowRootOptions = {

@@ -13,14 +13,14 @@ import settings from '../../internal/vendor/@carbon/ibmdotcom-utilities/utilitie
 import styles from './structured-list.scss';
 import { carbonElement as customElement } from '../../internal/vendor/@carbon/web-components/globals/decorators/carbon-element.js';
 
-const { stablePrefix: ddsPrefix } = settings;
+const { stablePrefix: c4dPrefix } = settings;
 
 /**
  * StructuredListHeaderCell
  *
  * @element c4d-structured-list-header-cell
  */
-@customElement(`${ddsPrefix}-structured-list-header-cell`)
+@customElement(`${c4dPrefix}-structured-list-header-cell`)
 class C4DStructuredListHeaderCell extends CDSStructuredListHeaderCell {
   connectedCallback() {
     super.connectedCallback();

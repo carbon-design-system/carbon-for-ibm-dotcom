@@ -11,7 +11,7 @@ import settings from '../../internal/vendor/@carbon/ibmdotcom-utilities/utilitie
 import { Constructor } from '../../globals/defs';
 import C4DTab from '../../components/tabs-extended/tab';
 
-const { stablePrefix: ddsPrefix } = settings;
+const { stablePrefix: c4dPrefix } = settings;
 
 /**
  * @param Base The base class.
@@ -51,7 +51,7 @@ const ParentVisibilityMixin = <T extends Constructor<HTMLElement>>(Base: T) => {
      */
     static get parentsThatHide() {
       return {
-        [`${ddsPrefix}-tab`]: C4DTab.eventTabSelected,
+        [`${c4dPrefix}-tab`]: C4DTab.eventTabSelected,
       };
     }
   }

@@ -13,14 +13,14 @@ import settings from '../../../internal/vendor/@carbon/ibmdotcom-utilities/utili
 import styles from './cloud-masthead.scss';
 import { carbonElement as customElement } from '../../../internal/vendor/@carbon/web-components/globals/decorators/carbon-element.js';
 
-const { prefix, stablePrefix: ddsPrefix } = settings;
+const { prefix, stablePrefix: c4dPrefix } = settings;
 
 /**
  * Cloud Megamenu Tab.
  *
  * @element c4d-cloud-megamenu-tab
  */
-@customElement(`${ddsPrefix}-cloud-megamenu-tab`)
+@customElement(`${c4dPrefix}-cloud-megamenu-tab`)
 class C4DCloudMegaMenuTab extends CDSTab {
   render() {
     const { disabled, selected } = this;

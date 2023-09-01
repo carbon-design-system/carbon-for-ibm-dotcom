@@ -21,14 +21,14 @@ import styles from './tabs-extended.scss';
 import { ORIENTATION } from './defs';
 import { carbonElement as customElement } from '../../internal/vendor/@carbon/web-components/globals/decorators/carbon-element.js';
 
-const { prefix, stablePrefix: ddsPrefix } = settings;
+const { prefix, stablePrefix: c4dPrefix } = settings;
 
 /**
  * A component to present content inside a tabbed layout.
  *
  * @element c4d-tabs-extended
  */
-@customElement(`${ddsPrefix}-tabs-extended`)
+@customElement(`${c4dPrefix}-tabs-extended`)
 class C4DTabsExtended extends MediaQueryMixin(StableSelectorMixin(LitElement), {
   [MQBreakpoints.LG]: MQDirs.MAX,
 }) {
@@ -305,7 +305,7 @@ class C4DTabsExtended extends MediaQueryMixin(StableSelectorMixin(LitElement), {
   }
 
   static get stableSelector() {
-    return `${ddsPrefix}--tabs-extended`;
+    return `${c4dPrefix}--tabs-extended`;
   }
 
   static styles = styles;

@@ -19,7 +19,7 @@ import styles from './content-item-horizontal-media.scss';
 import { MEDIA_ALIGN } from './defs';
 import { carbonElement as customElement } from '../../internal/vendor/@carbon/web-components/globals/decorators/carbon-element.js';
 
-const { prefix, stablePrefix: ddsPrefix } = settings;
+const { prefix, stablePrefix: c4dPrefix } = settings;
 
 const breakpoint = parseFloat(breakpoints.lg.width) * baseFontSize;
 
@@ -28,7 +28,7 @@ const breakpoint = parseFloat(breakpoints.lg.width) * baseFontSize;
  *
  * @element c4d-content-item-horizontal-media
  */
-@customElement(`${ddsPrefix}-content-item-horizontal-media`)
+@customElement(`${c4dPrefix}-content-item-horizontal-media`)
 class C4DContentItemHorizontalMedia extends HostListenerMixin(C4DContentItem) {
   /**
    * Defines the alignment of the media: `left` or `right`
@@ -93,7 +93,7 @@ class C4DContentItemHorizontalMedia extends HostListenerMixin(C4DContentItem) {
   }
 
   static get stableSelector() {
-    return `${ddsPrefix}--content-item-horizontal-media`;
+    return `${c4dPrefix}--content-item-horizontal-media`;
   }
 
   static styles = styles;

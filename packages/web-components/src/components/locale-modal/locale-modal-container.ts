@@ -30,7 +30,7 @@ import { LocaleAPIActions } from '../../internal/vendor/@carbon/ibmdotcom-servic
 import C4DLocaleModalComposite from './locale-modal-composite';
 import { carbonElement as customElement } from '../../internal/vendor/@carbon/web-components/globals/decorators/carbon-element';
 
-const { stablePrefix: ddsPrefix } = settings;
+const { stablePrefix: c4dPrefix } = settings;
 
 /**
  * The Redux actions used for `<c4d-locale-modal-container>`.
@@ -105,7 +105,7 @@ export function mapDispatchToProps(dispatch: Dispatch<LocaleAPIActions>) {
  *
  * @element c4d-locale-modal-container
  */
-@customElement(`${ddsPrefix}-locale-modal-container`)
+@customElement(`${c4dPrefix}-locale-modal-container`)
 class C4DLocaleModalContainer extends ConnectMixin<
   LocaleModalContainerState,
   LocaleAPIActions,

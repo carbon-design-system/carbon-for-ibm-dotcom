@@ -15,17 +15,17 @@ import C4DStructuredList from './structured-list';
 import styles from './structured-list.scss';
 import { carbonElement as customElement } from '../../internal/vendor/@carbon/web-components/globals/decorators/carbon-element';
 
-const { stablePrefix: ddsPrefix } = settings;
+const { stablePrefix: c4dPrefix } = settings;
 
 /**
  * StructuredListGroup
  *
  * @element c4d-structured-list-group
  */
-@customElement(`${ddsPrefix}-structured-list-group`)
+@customElement(`${c4dPrefix}-structured-list-group`)
 class C4DStructuredListGroup extends StableSelectorMixin(LitElement) {
   _parentTable: C4DStructuredList | null = this.closest(
-    `${ddsPrefix}-structured-list`
+    `${c4dPrefix}-structured-list`
   );
 
   @property({ attribute: 'title' })

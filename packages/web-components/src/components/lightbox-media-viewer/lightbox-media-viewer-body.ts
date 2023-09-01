@@ -12,7 +12,7 @@ import FocusMixin from '../../internal/vendor/@carbon/web-components/globals/mix
 import settings from '../../internal/vendor/@carbon/ibmdotcom-utilities/utilities/settings/settings';
 import styles from './lightbox-media-viewer.scss';
 
-const { prefix, stablePrefix: ddsPrefix } = settings;
+const { prefix, stablePrefix: c4dPrefix } = settings;
 
 /**
  * Media viewer modal body.
@@ -47,13 +47,13 @@ abstract class C4DLightboxMediaViewerBody extends FocusMixin(LitElement) {
               <div
                 part="title"
                 class="${prefix}--lightbox-media-viewer__content__title"
-                data-autoid="${ddsPrefix}--lightbox-media-viewer__content__title">
+                data-autoid="${c4dPrefix}--lightbox-media-viewer__content__title">
                 ${this._renderTitle()}
               </div>
               <div
                 part="description"
                 class="${prefix}--lightbox-media-viewer__content__desc"
-                data-autoid="${ddsPrefix}--lightbox-media-viewer__content__desc">
+                data-autoid="${c4dPrefix}--lightbox-media-viewer__content__desc">
                 ${this._renderDescription()}
               </div>
             </div>

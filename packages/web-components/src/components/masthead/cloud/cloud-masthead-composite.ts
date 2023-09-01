@@ -36,7 +36,7 @@ import C4DMastheadComposite, {
 } from '../masthead-composite';
 import { carbonElement as customElement } from '../../../internal/vendor/@carbon/web-components/globals/decorators/carbon-element.js';
 
-const { stablePrefix: ddsPrefix } = settings;
+const { stablePrefix: c4dPrefix } = settings;
 
 // Magic Number: 960px matches masthead.scss's `$breakpoint--desktop-nav`.
 const layoutBreakpoint = window.matchMedia(`(max-width: 959px)`);
@@ -47,7 +47,7 @@ const layoutBreakpoint = window.matchMedia(`(max-width: 959px)`);
  * @element c4d-cloud-masthead-composite
  */
 
-@customElement(`${ddsPrefix}-cloud-masthead-composite`)
+@customElement(`${c4dPrefix}-cloud-masthead-composite`)
 class C4DCloudMastheadComposite extends C4DMastheadComposite {
   /**
    * The placeholder for `loadUserStatus()` Redux action that will be mixed in.

@@ -14,14 +14,14 @@ import settings from '../../internal/vendor/@carbon/ibmdotcom-utilities/utilitie
 import styles from './footer.scss';
 import { carbonElement as customElement } from '../../internal/vendor/@carbon/web-components/globals/decorators/carbon-element.js';
 
-const { prefix, stablePrefix: ddsPrefix } = settings;
+const { prefix, stablePrefix: c4dPrefix } = settings;
 
 /**
  * Footer nav item.
  *
  * @element c4d-footer-nav-item
  */
-@customElement(`${ddsPrefix}-footer-nav-item`)
+@customElement(`${c4dPrefix}-footer-nav-item`)
 class C4DFooterNavItem extends CDSLink {
   protected _renderInner() {
     const { titleText } = this;

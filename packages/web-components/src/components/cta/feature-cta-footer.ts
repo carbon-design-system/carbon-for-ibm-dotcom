@@ -21,14 +21,14 @@ import { CTA_TYPE } from './defs';
 import styles from './cta.scss';
 import { carbonElement as customElement } from '../../internal/vendor/@carbon/web-components/globals/decorators/carbon-element.js';
 
-const { stablePrefix: ddsPrefix } = settings;
+const { stablePrefix: c4dPrefix } = settings;
 
 /**
  * Feature CTA footer.
  *
  * @element c4d-feature-cta-footer
  */
-@customElement(`${ddsPrefix}-feature-cta-footer`)
+@customElement(`${c4dPrefix}-feature-cta-footer`)
 class C4DFeatureCTAFooter extends VideoCTAMixin(
   CTAMixin(C4DFeatureCardFooter)
 ) {

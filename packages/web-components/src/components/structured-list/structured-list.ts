@@ -13,14 +13,14 @@ import StableSelectorMixin from '../../globals/mixins/stable-selector';
 import styles from './structured-list.scss';
 import { carbonElement as customElement } from '../../internal/vendor/@carbon/web-components/globals/decorators/carbon-element';
 
-const { prefix, stablePrefix: ddsPrefix } = settings;
+const { prefix, stablePrefix: c4dPrefix } = settings;
 
 /**
  * StructuredList
  *
  * @element c4d-structured-list
  */
-@customElement(`${ddsPrefix}-structured-list`)
+@customElement(`${c4dPrefix}-structured-list`)
 class C4DStructuredList extends StableSelectorMixin(LitElement) {
   private _listMutationObserver = new MutationObserver(
     this._setColumnSpans.bind(this)
@@ -124,7 +124,7 @@ class C4DStructuredList extends StableSelectorMixin(LitElement) {
   }
 
   static get cellSelector() {
-    return `${ddsPrefix}-structured-list-cell, ${ddsPrefix}-structured-list-header-cell`;
+    return `${c4dPrefix}-structured-list-cell, ${c4dPrefix}-structured-list-header-cell`;
   }
 
   static styles = styles;

@@ -19,14 +19,14 @@ import { carbonElement as customElement } from '../../internal/vendor/@carbon/we
 
 export { MEGAMENU_RIGHT_NAVIGATION_STYLE_SCHEME };
 
-const { prefix, stablePrefix: ddsPrefix } = settings;
+const { prefix, stablePrefix: c4dPrefix } = settings;
 
 /**
  * MegaMenu right navigation section
  *
  * @element c4d-megamenu-right-navigation
  */
-@customElement(`${ddsPrefix}-megamenu-right-navigation`)
+@customElement(`${c4dPrefix}-megamenu-right-navigation`)
 class C4DMegaMenuRightNavigation extends LitElement {
   /**
    * `true` to render left (highlighted) section layout.

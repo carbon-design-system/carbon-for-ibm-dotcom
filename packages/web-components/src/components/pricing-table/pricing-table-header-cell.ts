@@ -16,9 +16,9 @@ import styles from './pricing-table.scss';
 import { PRICING_TABLE_HEADER_CELL_TYPES } from './defs';
 import { carbonElement as customElement } from '../../internal/vendor/@carbon/web-components/globals/decorators/carbon-element';
 
-const { prefix, stablePrefix: ddsPrefix } = settings;
+const { prefix, stablePrefix: c4dPrefix } = settings;
 
-@customElement(`${ddsPrefix}-pricing-table-header-cell`)
+@customElement(`${c4dPrefix}-pricing-table-header-cell`)
 class C4DPricingTableHeaderCell extends StableSelectorMixin(
   C4DStructuredListHeaderCell
 ) {
@@ -67,7 +67,7 @@ class C4DPricingTableHeaderCell extends StableSelectorMixin(
   }
 
   static get stableSelector() {
-    return `${ddsPrefix}--pricing-table-header-cell`;
+    return `${c4dPrefix}--pricing-table-header-cell`;
   }
 
   static styles = styles;

@@ -19,7 +19,7 @@ export {
   DROPDOWN_TYPE,
 } from '../footer/dropdown';
 
-const { prefix, stablePrefix: ddsPrefix } = settings;
+const { prefix, stablePrefix: c4dPrefix } = settings;
 
 /**
  * Dropdown component to change search scope.
@@ -27,7 +27,7 @@ const { prefix, stablePrefix: ddsPrefix } = settings;
  * @element c4d-scoped-search-dropdown
  * @fires cds-select-selected - The custom event fired after the the dropdown value is changed upon a user gesture.
  */
-@customElement(`${ddsPrefix}-scoped-search-dropdown`)
+@customElement(`${c4dPrefix}-scoped-search-dropdown`)
 class C4DScopedSearchDropdown extends C4DDropdown {
   /**
    * Handles user-initiated selection of a dropdown item

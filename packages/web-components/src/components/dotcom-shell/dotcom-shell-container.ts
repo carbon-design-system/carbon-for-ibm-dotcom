@@ -32,7 +32,7 @@ import {
 import C4DDotcomShellComposite from './dotcom-shell-composite';
 import { carbonElement as customElement } from '../../internal/vendor/@carbon/web-components/globals/decorators/carbon-element';
 
-const { stablePrefix: ddsPrefix } = settings;
+const { stablePrefix: c4dPrefix } = settings;
 
 /**
  * The Redux state used for `<c4d-dotcom-shell-container>`.
@@ -90,7 +90,7 @@ export function mapDispatchToProps(
  *
  * @element c4d-dotcom-shell-container
  */
-@customElement(`${ddsPrefix}-dotcom-shell-container`)
+@customElement(`${c4dPrefix}-dotcom-shell-container`)
 class C4DDotcomShellContainer extends ConnectMixin<
   DotcomShellContainerState,
   LocaleAPIActions | TranslateAPIActions | ProfileAPIActions | SearchAPIActions,

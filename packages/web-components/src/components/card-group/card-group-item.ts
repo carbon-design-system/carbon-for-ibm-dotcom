@@ -13,14 +13,14 @@ import { carbonElement as customElement } from '../../internal/vendor/@carbon/we
 import C4DCard from '../card/card';
 import styles from './card-group.scss';
 
-const { stablePrefix: ddsPrefix } = settings;
+const { stablePrefix: c4dPrefix } = settings;
 
 /**
  * Card Group item.
  *
  * @element c4d-card-group-item
  */
-@customElement(`${ddsPrefix}-card-group-item`)
+@customElement(`${c4dPrefix}-card-group-item`)
 class C4DCardGroupItem extends C4DCard {
   /**
    * `true` if the card group is using border.
@@ -35,7 +35,7 @@ class C4DCardGroupItem extends C4DCard {
   empty = false;
 
   static get stableSelector() {
-    return `${ddsPrefix}--card-group-item`;
+    return `${c4dPrefix}--card-group-item`;
   }
 
   updated(changedProperties) {
@@ -52,7 +52,7 @@ class C4DCardGroupItem extends C4DCard {
    * A selector that will return the child footer.
    */
   static get selectorFooter() {
-    return `${ddsPrefix}-card-footer`;
+    return `${c4dPrefix}-card-footer`;
   }
 
   static styles = styles;

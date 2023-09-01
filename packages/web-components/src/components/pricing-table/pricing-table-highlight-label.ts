@@ -14,9 +14,9 @@ import StableSelectorMixin from '../../globals/mixins/stable-selector';
 import styles from './pricing-table.scss';
 import { carbonElement as customElement } from '../../internal/vendor/@carbon/web-components/globals/decorators/carbon-element';
 
-const { stablePrefix: ddsPrefix } = settings;
+const { stablePrefix: c4dPrefix } = settings;
 
-@customElement(`${ddsPrefix}-pricing-table-highlight-label`)
+@customElement(`${c4dPrefix}-pricing-table-highlight-label`)
 class C4DPricingTableHighlightLabel extends StableSelectorMixin(LitElement) {
   @property({ reflect: true })
   slot = 'highlight-label';
@@ -26,7 +26,7 @@ class C4DPricingTableHighlightLabel extends StableSelectorMixin(LitElement) {
   }
 
   static get stableSelector() {
-    return `${ddsPrefix}--pricing-table-highlight-label`;
+    return `${c4dPrefix}--pricing-table-highlight-label`;
   }
 
   static styles = styles;

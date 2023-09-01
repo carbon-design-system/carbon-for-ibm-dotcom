@@ -22,7 +22,7 @@ import { carbonElement as customElement } from '../../internal/vendor/@carbon/we
 export { BUTTON_KIND, BUTTON_SIZE };
 
 const { prefix } = settings;
-const { stablePrefix: ddsPrefix } = ddsSettings;
+const { stablePrefix: c4dPrefix } = ddsSettings;
 
 /**
  * Expressive button.
@@ -30,7 +30,7 @@ const { stablePrefix: ddsPrefix } = ddsSettings;
  * @element c4d-button-expressive
  * @csspart button The button.
  */
-@customElement(`${ddsPrefix}-button-expressive`)
+@customElement(`${c4dPrefix}-button-expressive`)
 class C4DButtonExpressive extends FocusMixin(StableSelectorMixin(LitElement)) {
   /**
    * `true` if there is an icon.
@@ -238,7 +238,7 @@ class C4DButtonExpressive extends FocusMixin(StableSelectorMixin(LitElement)) {
   }
 
   static get stableSelector() {
-    return `${ddsPrefix}--button-expressive`;
+    return `${c4dPrefix}--button-expressive`;
   }
 
   static shadowRootOptions = {

@@ -18,17 +18,17 @@ import C4DStructuredListGroup from './structured-list-group';
 import styles from './structured-list.scss';
 import { carbonElement as customElement } from '../../internal/vendor/@carbon/web-components/globals/decorators/carbon-element.js';
 
-const { prefix, stablePrefix: ddsPrefix } = settings;
+const { prefix, stablePrefix: c4dPrefix } = settings;
 
 /**
  * StructuredListCell
  *
  * @element c4d-structured-list-cell
  */
-@customElement(`${ddsPrefix}-structured-list-cell`)
+@customElement(`${c4dPrefix}-structured-list-cell`)
 class C4DStructuredListCell extends CDSStructuredListCell {
   parentGroup: C4DStructuredListGroup | null = this.closest(
-    `${ddsPrefix}-structured-list-group`
+    `${c4dPrefix}-structured-list-group`
   );
 
   @property({ attribute: 'aria-label', reflect: true })

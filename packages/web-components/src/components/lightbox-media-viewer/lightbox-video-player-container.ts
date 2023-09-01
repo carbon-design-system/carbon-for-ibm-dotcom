@@ -23,14 +23,14 @@ import {
 import C4DLightboxVideoPlayerComposite from './lightbox-video-player-composite';
 import { carbonElement as customElement } from '../../internal/vendor/@carbon/web-components/globals/decorators/carbon-element';
 
-const { stablePrefix: ddsPrefix } = settings;
+const { stablePrefix: c4dPrefix } = settings;
 
 /**
  * Container component for lightbox media viewer, works with video data.
  *
  * @element c4d-lightbox-video-player-container
  */
-@customElement(`${ddsPrefix}-lightbox-video-player-container`)
+@customElement(`${c4dPrefix}-lightbox-video-player-container`)
 class C4DLightboxVideoPlayerContainer extends ConnectMixin<
   VideoPlayerContainerState,
   MediaPlayerAPIActions,

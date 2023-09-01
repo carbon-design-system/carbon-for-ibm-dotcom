@@ -17,14 +17,14 @@ import StableSelectorMixin from '../../globals/mixins/stable-selector';
 import styles from './footer.scss';
 import { carbonElement as customElement } from '../../internal/vendor/@carbon/web-components/globals/decorators/carbon-element.js';
 
-const { prefix, stablePrefix: ddsPrefix } = settings;
+const { prefix, stablePrefix: c4dPrefix } = settings;
 
 /**
  * The IBM logo UI in footer.
  *
  * @element c4d-footer-logo
  */
-@customElement(`${ddsPrefix}-footer-logo`)
+@customElement(`${c4dPrefix}-footer-logo`)
 class C4DFooterLogo extends StableSelectorMixin(FocusMixin(LitElement)) {
   /**
    * Link `href`.
@@ -57,7 +57,7 @@ class C4DFooterLogo extends StableSelectorMixin(FocusMixin(LitElement)) {
   }
 
   static get stableSelector() {
-    return `${ddsPrefix}--footer-logo`;
+    return `${c4dPrefix}--footer-logo`;
   }
 
   static shadowRootOptions = {

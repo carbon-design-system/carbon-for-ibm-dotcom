@@ -12,14 +12,14 @@ import { carbonElement as customElement } from '../../../internal/vendor/@carbon
 import C4DMegaMenuLeftNavigation from '../megamenu-left-navigation';
 import styles from './cloud-masthead.scss';
 
-const { stablePrefix: ddsPrefix } = settings;
+const { stablePrefix: c4dPrefix } = settings;
 
 /**
  * Cloud Megamenu Right Navigation Section.
  *
  * @element c4d-cloud-megamenu-right-navigation
  */
-@customElement(`${ddsPrefix}-cloud-megamenu-right-navigation`)
+@customElement(`${c4dPrefix}-cloud-megamenu-right-navigation`)
 class C4DCloudMegaMenuRightNavigation extends C4DMegaMenuLeftNavigation {
   static styles = styles;
 }

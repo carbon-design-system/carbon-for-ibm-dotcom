@@ -16,14 +16,14 @@ import styles from './cta-section.scss';
 import C4DContentSection from '../content-section/content-section';
 import { carbonElement as customElement } from '../../internal/vendor/@carbon/web-components/globals/decorators/carbon-element';
 
-const { stablePrefix: ddsPrefix } = settings;
+const { stablePrefix: c4dPrefix } = settings;
 
 /**
  * The CTA SECTION pattern
  *
  * @element c4d-cta-section
  */
-@customElement(`${ddsPrefix}-cta-section`)
+@customElement(`${c4dPrefix}-cta-section`)
 class C4DCTASection extends StableSelectorMixin(C4DContentSection) {
   @property({ attribute: 'logo-ratio' })
   logoRatio?;
@@ -41,7 +41,7 @@ class C4DCTASection extends StableSelectorMixin(C4DContentSection) {
   }
 
   static get stableSelector() {
-    return `${ddsPrefix}--cta-section`;
+    return `${c4dPrefix}--cta-section`;
   }
 
   static get styles() {

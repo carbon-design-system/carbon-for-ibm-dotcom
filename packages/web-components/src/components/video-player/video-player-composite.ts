@@ -24,14 +24,14 @@ import {
 import './video-player';
 import { carbonElement as customElement } from '../../internal/vendor/@carbon/web-components/globals/decorators/carbon-element.js';
 
-const { stablePrefix: ddsPrefix } = settings;
+const { stablePrefix: c4dPrefix } = settings;
 
 /**
  * Component that renders video player from its metadata, etc.
  *
  * @element c4d-video-player-composite
  */
-@customElement(`${ddsPrefix}-video-player-composite`)
+@customElement(`${c4dPrefix}-video-player-composite`)
 class C4DVideoPlayerComposite extends HybridRenderMixin(
   HostListenerMixin(LitElement)
 ) {
@@ -311,21 +311,21 @@ class C4DVideoPlayerComposite extends HybridRenderMixin(
    * A selector selecting the video player component.
    */
   static get selectorVideoPlayer() {
-    return `${ddsPrefix}-video-player`;
+    return `${c4dPrefix}-video-player`;
   }
 
   /**
    * The name of the custom event fired after video content state is changed upon a user gesture.
    */
   static get eventContentStateChange() {
-    return `${ddsPrefix}-video-player-content-state-changed`;
+    return `${c4dPrefix}-video-player-content-state-changed`;
   }
 
   /**
    * The name of the custom event fired requesting playback state change.
    */
   static get eventPlaybackStateChange() {
-    return `${ddsPrefix}-video-player-playback-state-changed`;
+    return `${c4dPrefix}-video-player-playback-state-changed`;
   }
 }
 

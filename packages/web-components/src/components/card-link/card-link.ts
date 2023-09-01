@@ -13,14 +13,14 @@ import C4DCard from '../card/card';
 import styles from './card-link.scss';
 import { carbonElement as customElement } from '../../internal/vendor/@carbon/web-components/globals/decorators/carbon-element';
 
-const { prefix, stablePrefix: ddsPrefix } = settings;
+const { prefix, stablePrefix: c4dPrefix } = settings;
 
 /**
  * Card Link.
  *
  * @element c4d-card-link
  */
-@customElement(`${ddsPrefix}-card-link`)
+@customElement(`${c4dPrefix}-card-link`)
 class C4DCardLink extends C4DCard {
   /**
    * `true` to disable the card link.
@@ -41,7 +41,7 @@ class C4DCardLink extends C4DCard {
   }
 
   static get stableSelector() {
-    return `${ddsPrefix}--card-link`;
+    return `${c4dPrefix}--card-link`;
   }
 
   static styles = styles;

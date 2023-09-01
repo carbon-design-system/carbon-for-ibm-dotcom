@@ -15,14 +15,14 @@ import '../image/image';
 import styles from './feature-card.scss';
 import { carbonElement as customElement } from '../../internal/vendor/@carbon/web-components/globals/decorators/carbon-element';
 
-const { prefix, stablePrefix: ddsPrefix } = settings;
+const { prefix, stablePrefix: c4dPrefix } = settings;
 
 /**
  * Feature Card.
  *
  * @element c4d-feature-card
  */
-@customElement(`${ddsPrefix}-feature-card`)
+@customElement(`${c4dPrefix}-feature-card`)
 class C4DFeatureCard extends StableSelectorMixin(C4DCard) {
   /**
    * The size property to render either Medium (default) or Large Feature Card variants.
@@ -40,14 +40,14 @@ class C4DFeatureCard extends StableSelectorMixin(C4DCard) {
   }
 
   static get stableSelector() {
-    return `${ddsPrefix}--feature-card`;
+    return `${c4dPrefix}--feature-card`;
   }
 
   /**
    * A selector that will return the child footer.
    */
   static get selectorFooter() {
-    return `${ddsPrefix}-feature-card-footer`;
+    return `${c4dPrefix}-feature-card-footer`;
   }
 
   static styles = styles;

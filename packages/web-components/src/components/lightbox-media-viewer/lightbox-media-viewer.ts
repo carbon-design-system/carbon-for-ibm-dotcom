@@ -16,7 +16,7 @@ import C4DCarousel from '../carousel/carousel';
 import C4DExpressiveModal from '../expressive-modal/expressive-modal';
 import { carbonElement as customElement } from '../../internal/vendor/@carbon/web-components/globals/decorators/carbon-element';
 
-const { prefix, stablePrefix: ddsPrefix } = settings;
+const { prefix, stablePrefix: c4dPrefix } = settings;
 
 /**
  * The image content of lightbox media viewer.
@@ -25,7 +25,7 @@ const { prefix, stablePrefix: ddsPrefix } = settings;
  * @slot title - The title content.
  * @slot description - The description content.
  */
-@customElement(`${ddsPrefix}-lightbox-media-viewer`)
+@customElement(`${c4dPrefix}-lightbox-media-viewer`)
 class C4DLightboxMediaViewer extends C4DLightboxMediaViewerBody {
   _renderDescription() {
     const { description } = this;
@@ -132,9 +132,9 @@ class C4DLightboxMediaViewer extends C4DLightboxMediaViewerBody {
     super.connectedCallback();
 
     this._containingCarousel =
-      (this.closest(`${ddsPrefix}-carousel`) as C4DCarousel) || undefined;
+      (this.closest(`${c4dPrefix}-carousel`) as C4DCarousel) || undefined;
     this._containingModal =
-      (this.closest(`${ddsPrefix}-expressive-modal`) as C4DExpressiveModal) ||
+      (this.closest(`${c4dPrefix}-expressive-modal`) as C4DExpressiveModal) ||
       undefined;
   }
 
@@ -208,7 +208,7 @@ class C4DLightboxMediaViewer extends C4DLightboxMediaViewerBody {
    * Cancellation of this event stops the user-initiated action of closing this modal.
    */
   static get eventBeforeModalClose() {
-    return `${ddsPrefix}-expressive-modal-beingclosed`;
+    return `${c4dPrefix}-expressive-modal-beingclosed`;
   }
 }
 

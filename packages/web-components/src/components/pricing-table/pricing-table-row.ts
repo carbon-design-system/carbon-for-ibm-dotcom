@@ -16,9 +16,9 @@ import styles from './pricing-table.scss';
 import { setColumnWidth } from './utils';
 import { carbonElement as customElement } from '../../internal/vendor/@carbon/web-components/globals/decorators/carbon-element';
 
-const { stablePrefix: ddsPrefix } = settings;
+const { stablePrefix: c4dPrefix } = settings;
 
-@customElement(`${ddsPrefix}-pricing-table-row`)
+@customElement(`${c4dPrefix}-pricing-table-row`)
 class C4DPricingTableRow extends StableSelectorMixin(C4DStructuredListRow) {
   @property()
   hasAnnotations: boolean = false;
@@ -31,7 +31,7 @@ class C4DPricingTableRow extends StableSelectorMixin(C4DStructuredListRow) {
     let hasAnnotations = false;
     Array.from(this.children).forEach((cell) => {
       const annotation = cell.querySelector(
-        `${ddsPrefix}-pricing-table-cell-annotation`
+        `${c4dPrefix}-pricing-table-cell-annotation`
       );
       if (annotation) hasAnnotations = true;
     });
@@ -57,7 +57,7 @@ class C4DPricingTableRow extends StableSelectorMixin(C4DStructuredListRow) {
   }
 
   static get stableSelector() {
-    return `${ddsPrefix}--pricing-table-row`;
+    return `${c4dPrefix}--pricing-table-row`;
   }
 
   static styles = styles;

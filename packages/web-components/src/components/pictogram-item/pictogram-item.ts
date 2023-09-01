@@ -16,7 +16,7 @@ import styles from './pictogram-item.scss';
 import StableSelectorMixin from '../../globals/mixins/stable-selector';
 import { carbonElement as customElement } from '../../internal/vendor/@carbon/web-components/globals/decorators/carbon-element';
 
-const { prefix, stablePrefix: ddsPrefix } = settings;
+const { prefix, stablePrefix: c4dPrefix } = settings;
 
 /**
  * Pictogram item.
@@ -26,7 +26,7 @@ const { prefix, stablePrefix: ddsPrefix } = settings;
  * @slot heading - The heading content.
  * @slot footer - The footer (CTA) content.
  */
-@customElement(`${ddsPrefix}-pictogram-item`)
+@customElement(`${c4dPrefix}-pictogram-item`)
 class C4DPictogramItem extends StableSelectorMixin(C4DContentItem) {
   /**
    * The pictogram color.
@@ -52,7 +52,7 @@ class C4DPictogramItem extends StableSelectorMixin(C4DContentItem) {
   }
 
   static get stableSelector() {
-    return `${ddsPrefix}--pictogram-item`;
+    return `${c4dPrefix}--pictogram-item`;
   }
 
   static styles = styles;

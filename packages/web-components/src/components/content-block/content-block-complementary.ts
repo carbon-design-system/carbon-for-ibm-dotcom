@@ -13,14 +13,14 @@ import settings from '../../internal/vendor/@carbon/ibmdotcom-utilities/utilitie
 import { carbonElement as customElement } from '../../internal/vendor/@carbon/web-components/globals/decorators/carbon-element';
 import styles from './content-block.scss';
 
-const { stablePrefix: ddsPrefix } = settings;
+const { stablePrefix: c4dPrefix } = settings;
 
 /**
  * The complementary content in content block.
  *
  * @element c4d-content-block-complementary
  */
-@customElement(`${ddsPrefix}-content-block-complementary`)
+@customElement(`${c4dPrefix}-content-block-complementary`)
 class C4DContentBlockComplementary extends LitElement {
   /**
    * The shadow slot this logo UI should be in.

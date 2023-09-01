@@ -14,14 +14,14 @@ import styles from './content-section.scss';
 import StableSelectorMixin from '../../globals/mixins/stable-selector';
 import { carbonElement as customElement } from '../../internal/vendor/@carbon/web-components/globals/decorators/carbon-element';
 
-const { stablePrefix: ddsPrefix } = settings;
+const { stablePrefix: c4dPrefix } = settings;
 
 /**
  * Heading in content section.
  *
  * @element c4d-content-section-heading
  */
-@customElement(`${ddsPrefix}-content-section-heading`)
+@customElement(`${c4dPrefix}-content-section-heading`)
 class C4DContentSectionHeading extends StableSelectorMixin(LitElement) {
   @property({ reflect: true })
   slot = 'heading';
@@ -41,7 +41,7 @@ class C4DContentSectionHeading extends StableSelectorMixin(LitElement) {
   }
 
   static get stableSelector() {
-    return `${ddsPrefix}--content-section-heading`;
+    return `${c4dPrefix}--content-section-heading`;
   }
 
   static styles = styles;

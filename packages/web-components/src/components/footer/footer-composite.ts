@@ -47,14 +47,14 @@ import '../../internal/vendor/@carbon/web-components/components/combo-box/combo-
 import '../../internal/vendor/@carbon/web-components/components/select/select-item.js';
 import { carbonElement as customElement } from '../../internal/vendor/@carbon/web-components/globals/decorators/carbon-element.js';
 
-const { stablePrefix: ddsPrefix } = settings;
+const { stablePrefix: c4dPrefix } = settings;
 
 /**
  * Component that rendres footer from inks data.
  *
  * @element c4d-footer-composite
  */
-@customElement(`${ddsPrefix}-footer-composite`)
+@customElement(`${c4dPrefix}-footer-composite`)
 class C4DFooterComposite extends MediaQueryMixin(
   ModalRenderMixin(HybridRenderMixin(HostListenerMixin(LitElement))),
   { [MQBreakpoints.LG]: MQDirs.MAX }
@@ -405,7 +405,7 @@ class C4DFooterComposite extends MediaQueryMixin(
    * The name of the custom event fired after this modal is closed upon a user gesture.
    */
   static get eventCloseModal() {
-    return `${ddsPrefix}-expressive-modal-closed`;
+    return `${c4dPrefix}-expressive-modal-closed`;
   }
 }
 

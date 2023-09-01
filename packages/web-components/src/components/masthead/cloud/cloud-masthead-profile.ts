@@ -15,14 +15,14 @@ import styles from './cloud-masthead.scss';
 import C4DMastheadProfile from '../masthead-profile';
 import { carbonElement as customElement } from '../../../internal/vendor/@carbon/web-components/globals/decorators/carbon-element.js';
 
-const { prefix, stablePrefix: ddsPrefix } = settings;
+const { prefix, stablePrefix: c4dPrefix } = settings;
 
 /**
  * The Cloud-specific profile menu UI in the masthead.
  *
  * @element c4d-cloud-masthead-profile
  */
-@customElement(`${ddsPrefix}-cloud-masthead-profile`)
+@customElement(`${c4dPrefix}-cloud-masthead-profile`)
 class C4DCloudMastheadProfile extends C4DMastheadProfile {
   render() {
     const {

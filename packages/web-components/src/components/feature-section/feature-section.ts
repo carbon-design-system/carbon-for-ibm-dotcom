@@ -17,14 +17,14 @@ import StableSelectorMixin from '../../globals/mixins/stable-selector';
 import { MEDIA_ALIGNMENT } from './defs';
 import { carbonElement as customElement } from '../../internal/vendor/@carbon/web-components/globals/decorators/carbon-element';
 
-const { prefix, stablePrefix: ddsPrefix } = settings;
+const { prefix, stablePrefix: c4dPrefix } = settings;
 
 /**
  * Feature Section.
  *
  * @element c4d-feature-section
  */
-@customElement(`${ddsPrefix}-feature-section`)
+@customElement(`${c4dPrefix}-feature-section`)
 class C4DFeatureSection extends StableSelectorMixin(C4DFeatureCard) {
   /**
    * Media Alignment (right (default) | left)
@@ -87,7 +87,7 @@ class C4DFeatureSection extends StableSelectorMixin(C4DFeatureCard) {
   }
 
   static get stableSelector() {
-    return `${ddsPrefix}--feature-section`;
+    return `${c4dPrefix}--feature-section`;
   }
 
   static get styles() {

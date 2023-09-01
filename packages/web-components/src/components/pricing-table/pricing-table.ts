@@ -21,9 +21,9 @@ import C4DPricingTableHead from './pricing-table-head';
 import C4DPricingTableHeaderRow from './pricing-table-header-row';
 import { carbonElement as customElement } from '../../internal/vendor/@carbon/web-components/globals/decorators/carbon-element.js';
 
-const { prefix, stablePrefix: ddsPrefix } = settings;
+const { prefix, stablePrefix: c4dPrefix } = settings;
 
-@customElement(`${ddsPrefix}-pricing-table`)
+@customElement(`${c4dPrefix}-pricing-table`)
 class C4DPricingTable extends HostListenerMixin(
   StableSelectorMixin(C4DStructuredList)
 ) {
@@ -62,13 +62,13 @@ class C4DPricingTable extends HostListenerMixin(
     this.headerRow = undefined;
     this.headerCells = undefined;
 
-    const head = this.querySelector(`${ddsPrefix}-pricing-table-head`);
+    const head = this.querySelector(`${c4dPrefix}-pricing-table-head`);
     if (head instanceof C4DPricingTableHead) {
       this.head = head;
     }
 
     const headerRow = head?.querySelector(
-      `${ddsPrefix}-pricing-table-header-row`
+      `${c4dPrefix}-pricing-table-header-row`
     );
     if (headerRow instanceof C4DPricingTableHeaderRow) {
       this.headerRow = headerRow;
@@ -81,7 +81,7 @@ class C4DPricingTable extends HostListenerMixin(
   protected _renderHighlightLabel(): C4DPricingTableHighlightLabel {
     const { highlightLabel } = this;
     const element = this.ownerDocument.createElement(
-      `${ddsPrefix}-pricing-table-highlight-label`
+      `${c4dPrefix}-pricing-table-highlight-label`
     ) as C4DPricingTableHighlightLabel;
     element.innerText = highlightLabel || '';
     return element;
@@ -92,7 +92,7 @@ class C4DPricingTable extends HostListenerMixin(
     cells.forEach((cell) => {
       cell.classList.remove(highlightClass);
       cell
-        .querySelector(`${ddsPrefix}-pricing-table-highlight-label`)
+        .querySelector(`${c4dPrefix}-pricing-table-highlight-label`)
         ?.remove();
       this.style.marginTop = '';
     });
@@ -114,7 +114,7 @@ class C4DPricingTable extends HostListenerMixin(
     const wrapper =
       this.shadowRoot?.getElementById(C4DStructuredList.wrapperId) || this;
     (async () => {
-      return this.querySelector(`${ddsPrefix}-pricing-table-highlight-label`);
+      return this.querySelector(`${c4dPrefix}-pricing-table-highlight-label`);
     })()
       .then((value) => {
         this.highlightGap = value?.getBoundingClientRect().height || 0;
@@ -144,13 +144,13 @@ class C4DPricingTable extends HostListenerMixin(
     if (highlightColumn) {
       this._unhighlightCells(
         this.querySelectorAll(`
-        ${ddsPrefix}-pricing-table-cell,
-        ${ddsPrefix}-pricing-table-header-cell`)
+        ${c4dPrefix}-pricing-table-cell,
+        ${c4dPrefix}-pricing-table-header-cell`)
       );
       this._highlightCells(
         this.querySelectorAll(`
-        ${ddsPrefix}-pricing-table-cell:nth-child(${highlightColumn}),
-        ${ddsPrefix}-pricing-table-header-cell:nth-child(${highlightColumn})
+        ${c4dPrefix}-pricing-table-cell:nth-child(${highlightColumn}),
+        ${c4dPrefix}-pricing-table-header-cell:nth-child(${highlightColumn})
       `)
       );
     }
@@ -184,7 +184,7 @@ class C4DPricingTable extends HostListenerMixin(
   }
 
   static get stableSelector() {
-    return `${ddsPrefix}--pricing-table`;
+    return `${c4dPrefix}--pricing-table`;
   }
 
   /**
@@ -195,11 +195,11 @@ class C4DPricingTable extends HostListenerMixin(
   }
 
   static get sentinelClass() {
-    return `${ddsPrefix}-pricing-table-sentinel`;
+    return `${c4dPrefix}-pricing-table-sentinel`;
   }
 
   static get cellSelector() {
-    return `${ddsPrefix}-pricing-table-cell, ${ddsPrefix}-pricing-table-header-cell`;
+    return `${c4dPrefix}-pricing-table-cell, ${c4dPrefix}-pricing-table-header-cell`;
   }
 
   static styles = styles;

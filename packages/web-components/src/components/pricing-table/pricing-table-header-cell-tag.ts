@@ -14,15 +14,15 @@ import C4DTagLink from '../tag-link/tag-link';
 import styles from './pricing-table.scss';
 import { carbonElement as customElement } from '../../internal/vendor/@carbon/web-components/globals/decorators/carbon-element';
 
-const { stablePrefix: ddsPrefix } = settings;
+const { stablePrefix: c4dPrefix } = settings;
 
-@customElement(`${ddsPrefix}-pricing-table-header-cell-tag`)
+@customElement(`${c4dPrefix}-pricing-table-header-cell-tag`)
 class C4DPricingTableHeaderCellTag extends StableSelectorMixin(C4DTagLink) {
   @property({ reflect: true })
   slot = 'tag';
 
   static get stableSelector() {
-    return `${ddsPrefix}--pricing-table-header-cell-tag`;
+    return `${c4dPrefix}--pricing-table-header-cell-tag`;
   }
 
   static styles = styles;

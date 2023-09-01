@@ -14,17 +14,17 @@ import C4DContentBlockHorizontal from '../content-block-horizontal/content-block
 import '../horizontal-rule/horizontal-rule';
 import { carbonElement as customElement } from '../../internal/vendor/@carbon/web-components/globals/decorators/carbon-element';
 
-const { stablePrefix: ddsPrefix } = settings;
+const { stablePrefix: c4dPrefix } = settings;
 
 /**
  * Horizontal version of content group.
  *
  * @element c4d-content-block-horizontal
  */
-@customElement(`${ddsPrefix}-content-group-horizontal`)
+@customElement(`${c4dPrefix}-content-group-horizontal`)
 class C4DContentGroupHorizontal extends C4DContentBlockHorizontal {
   static get stableSelector() {
-    return `${ddsPrefix}--content-group-horizontal`;
+    return `${c4dPrefix}--content-group-horizontal`;
   }
 }
 export default deprecate(

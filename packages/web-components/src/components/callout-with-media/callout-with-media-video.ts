@@ -13,14 +13,14 @@ import styles from './callout-with-media.scss';
 import C4DVideoPlayerContainer from '../video-player/video-player-container';
 import { carbonElement as customElement } from '../../internal/vendor/@carbon/web-components/globals/decorators/carbon-element';
 
-const { stablePrefix: ddsPrefix } = settings;
+const { stablePrefix: c4dPrefix } = settings;
 
 /**
  * Callout with media video.
  *
  * @element c4d-callout-with-media-video
  */
-@customElement(`${ddsPrefix}-callout-with-media-video`)
+@customElement(`${c4dPrefix}-callout-with-media-video`)
 class C4DCalloutWithMediaVideo extends C4DVideoPlayerContainer {
   /**
    * The shadow slot this video container should be in.

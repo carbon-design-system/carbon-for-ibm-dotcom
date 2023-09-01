@@ -32,7 +32,7 @@ export {
   NAVIGATION_DIRECTION,
 };
 
-const { prefix, stablePrefix: ddsPrefix } = settings;
+const { prefix, stablePrefix: c4dPrefix } = settings;
 
 /**
  * Dropdown.
@@ -52,7 +52,7 @@ const { prefix, stablePrefix: ddsPrefix } = settings;
  * @fires cds-dropdown-selected - The custom event fired after a dropdown item is selected upon a user gesture.
  * @fires cds-dropdown-toggled - The custom event fired after the open state of this dropdown is toggled upon a user gesture.
  */
-@customElement(`${ddsPrefix}-dropdown`)
+@customElement(`${c4dPrefix}-dropdown`)
 class C4DDropdown extends CDSDropdown {
   /**
    * The `<input` node in ComboBox, used to get value.

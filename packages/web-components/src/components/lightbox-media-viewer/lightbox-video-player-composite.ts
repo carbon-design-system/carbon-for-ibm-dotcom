@@ -27,19 +27,19 @@ import './lightbox-video-player';
 import styles from './lightbox-video-player-composite.scss';
 import { carbonElement as customElement } from '../../internal/vendor/@carbon/web-components/globals/decorators/carbon-element.js';
 
-const { stablePrefix: ddsPrefix } = settings;
+const { stablePrefix: c4dPrefix } = settings;
 
 /**
  * Component that renders lightbox media viewer for video from its metadata, etc.
  *
  * @element c4d-lightbox-video-player-composite
  */
-@customElement(`${ddsPrefix}-lightbox-video-player-composite`)
+@customElement(`${c4dPrefix}-lightbox-video-player-composite`)
 class C4DLightboxVideoPlayerComposite extends ModalRenderMixin(
   C4DVideoPlayerComposite
 ) {
   /**
-   * The handle for the listener of `${ddsPrefix}-expressive-modal-closed` event.
+   * The handle for the listener of `${c4dPrefix}-expressive-modal-closed` event.
    */
   private _hCloseModal: Handle | null = null;
 
@@ -84,7 +84,7 @@ class C4DLightboxVideoPlayerComposite extends ModalRenderMixin(
   };
 
   /**
-   * The handler of `${ddsPrefix}-expressive-modal-closed` event from `<c4d-expressive-modal>`.
+   * The handler of `${c4dPrefix}-expressive-modal-closed` event from `<c4d-expressive-modal>`.
    */
   private _handleCloseModal = () => {
     const { embeddedVideos = {}, videoId } = this;
@@ -235,14 +235,14 @@ class C4DLightboxVideoPlayerComposite extends ModalRenderMixin(
    * A selector selecting the video player component.
    */
   static get selectorVideoPlayer() {
-    return `${ddsPrefix}-lightbox-video-player`;
+    return `${c4dPrefix}-lightbox-video-player`;
   }
 
   /**
    * The name of the custom event fired after the modal is closed upon a user gesture.
    */
   static get eventCloseModal() {
-    return `${ddsPrefix}-expressive-modal-closed`;
+    return `${c4dPrefix}-expressive-modal-closed`;
   }
 
   /**

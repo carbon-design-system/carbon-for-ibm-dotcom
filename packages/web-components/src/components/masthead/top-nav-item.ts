@@ -13,14 +13,14 @@ import settings from '../../internal/vendor/@carbon/ibmdotcom-utilities/utilitie
 import styles from './masthead.scss';
 import { carbonElement as customElement } from '../../internal/vendor/@carbon/web-components/globals/decorators/carbon-element.js';
 
-const { stablePrefix: ddsPrefix } = settings;
+const { stablePrefix: c4dPrefix } = settings;
 
 /**
  * Masthead top nav item.
  *
  * @element c4d-top-nav-item
  */
-@customElement(`${ddsPrefix}-top-nav-item`)
+@customElement(`${c4dPrefix}-top-nav-item`)
 class C4DTopNavItem extends CDSHeaderNavItem {
   /**
    * The `<a>`.

@@ -29,7 +29,7 @@ import StableSelectorMixin from '../../globals/mixins/stable-selector';
 import C4DVideoPlayerComposite from './video-player-composite';
 import { carbonElement as customElement } from '../../internal/vendor/@carbon/web-components/globals/decorators/carbon-element';
 
-const { prefix, stablePrefix: ddsPrefix } = settings;
+const { prefix, stablePrefix: c4dPrefix } = settings;
 
 /**
  * The Redux state used for `<c4d-video-player-container>`.
@@ -282,7 +282,7 @@ export const C4DVideoPlayerContainerMixin = <
       });
     }
 
-    prefersAutoplayStorageKey: String = `${ddsPrefix}-background-video-prefers-autoplay`;
+    prefersAutoplayStorageKey: String = `${c4dPrefix}-background-video-prefers-autoplay`;
   }
 
   return C4DVideoPlayerContainerMixinImpl;
@@ -293,7 +293,7 @@ export const C4DVideoPlayerContainerMixin = <
  *
  * @element c4d-video-player-container
  */
-@customElement(`${ddsPrefix}-video-player-container`)
+@customElement(`${c4dPrefix}-video-player-container`)
 class C4DVideoPlayerContainer extends ConnectMixin<
   VideoPlayerContainerState,
   MediaPlayerAPIActions,

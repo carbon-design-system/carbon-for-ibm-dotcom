@@ -22,7 +22,7 @@ export {
   DROPDOWN_TYPE,
 } from './dropdown';
 
-const { prefix, stablePrefix: ddsPrefix } = settings;
+const { prefix, stablePrefix: c4dPrefix } = settings;
 
 /**
  * Combo box.
@@ -37,7 +37,7 @@ const { prefix, stablePrefix: ddsPrefix } = settings;
  * @fires cds-combo-box-selected - The custom event fired after a combo box item is selected upon a user gesture.
  * @fires cds-combo-box-toggled - The custom event fired after the open state of this combo box is toggled upon a user gesture.
  */
-@customElement(`${ddsPrefix}-combo-box`)
+@customElement(`${c4dPrefix}-combo-box`)
 class C4DComboBox extends C4DDropdown {
   /**
    * The text content that should be set to the `<input>` for filtering.

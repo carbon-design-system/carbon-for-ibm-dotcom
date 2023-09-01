@@ -11,17 +11,17 @@ import settings from '@carbon/ibmdotcom-utilities/es/utilities/settings/settings
 import styles from './button-group.scss';
 import C4DButtonExpressive from '../button/button';
 
-const { stablePrefix: ddsPrefix } = settings;
+const { stablePrefix: c4dPrefix } = settings;
 
 /**
  * Button group item.
  *
  * @element c4d-button-group-item
  */
-@customElement(`${ddsPrefix}-button-group-item`)
+@customElement(`${c4dPrefix}-button-group-item`)
 class C4DButtonGroupItem extends C4DButtonExpressive {
   static get stableSelector() {
-    return `${ddsPrefix}--button-group-item`;
+    return `${c4dPrefix}--button-group-item`;
   }
 
   connectedCallback() {

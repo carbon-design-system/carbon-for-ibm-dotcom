@@ -12,14 +12,14 @@ import settings from '../../internal/vendor/@carbon/ibmdotcom-utilities/utilitie
 import C4DFooterNavItem from './footer-nav-item';
 import { carbonElement as customElement } from '../../internal/vendor/@carbon/web-components/globals/decorators/carbon-element';
 
-const { prefix, stablePrefix: ddsPrefix } = settings;
+const { prefix, stablePrefix: c4dPrefix } = settings;
 
 /**
  * Legal nav item.
  *
  * @element c4d-legal-nav-item
  */
-@customElement(`${ddsPrefix}-legal-nav-item`)
+@customElement(`${c4dPrefix}-legal-nav-item`)
 class C4DLegalNavItem extends C4DFooterNavItem {
   /**
    * autoid text.
@@ -37,7 +37,7 @@ class C4DLegalNavItem extends C4DFooterNavItem {
       linkNode.classList.add(`${prefix}--footer__link`);
       linkNode.setAttribute(
         'data-autoid',
-        `${ddsPrefix}--footer-legal-nav__link-${dataTitle}`
+        `${c4dPrefix}--footer-legal-nav__link-${dataTitle}`
       );
     }
   }

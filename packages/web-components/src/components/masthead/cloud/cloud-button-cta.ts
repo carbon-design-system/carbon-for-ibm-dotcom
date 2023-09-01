@@ -15,14 +15,14 @@ import { carbonElement as customElement } from '../../../internal/vendor/@carbon
 
 export { CTA_TYPE };
 
-const { stablePrefix: ddsPrefix } = settings;
+const { stablePrefix: c4dPrefix } = settings;
 
 /**
  * Cloud Button CTA.
  *
  * @element c4d-cloud-button-cta
  */
-@customElement(`${ddsPrefix}-cloud-button-cta`)
+@customElement(`${c4dPrefix}-cloud-button-cta`)
 class C4DCloudButtonCTA extends C4DButtonExpressive {
   static styles = styles;
 }

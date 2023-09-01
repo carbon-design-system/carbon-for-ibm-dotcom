@@ -80,7 +80,7 @@ For example:
 import { LitElement } from 'lit-element';
 import { C4D_FEATURE_NAME } from '../../globals/internal/feature-flags';
 import ddsSettings from '@carbon/ibmdotcom-utilities/es/utilities/settings/settings.js';
-const { stablePrefix: ddsPrefix } = ddsSettings;
+const { stablePrefix: c4dPrefix } = ddsSettings;
 
 /**
  * EXPERIMENTAL: My Feature
@@ -92,7 +92,7 @@ class C4DMyFeature extends LitElement {
 }
 // Define the new element
 if (C4D_FEATURE_NAME) {
-  customElements.define(`${ddsPrefix}-callout-data`, C4DMyFeature);
+  customElements.define(`${c4dPrefix}-callout-data`, C4DMyFeature);
 }
 
 export default !C4D_FEATURE_NAME ? undefined : C4DMyFeature;

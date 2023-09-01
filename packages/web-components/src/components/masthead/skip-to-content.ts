@@ -13,14 +13,14 @@ import settings from '../../internal/vendor/@carbon/ibmdotcom-utilities/utilitie
 import styles from './masthead.scss';
 import { carbonElement as customElement } from '../../internal/vendor/@carbon/web-components/globals/decorators/carbon-element.js';
 
-const { stablePrefix: ddsPrefix } = settings;
+const { stablePrefix: c4dPrefix } = settings;
 
 /**
  * Skip to content button in masthead.
  *
  * @element c4d-masthead-skip-to-content
  */
-@customElement(`${ddsPrefix}-skip-to-content`)
+@customElement(`${c4dPrefix}-skip-to-content`)
 class C4DSkipToContent extends CDSSkipToContent {
   /**
    * The shadow slot this logo UI should be in.

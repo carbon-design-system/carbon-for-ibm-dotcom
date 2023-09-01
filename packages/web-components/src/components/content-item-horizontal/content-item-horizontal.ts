@@ -14,14 +14,14 @@ import C4DContentItem from '../content-item/content-item';
 import styles from './content-item-horizontal.scss';
 import { carbonElement as customElement } from '../../internal/vendor/@carbon/web-components/globals/decorators/carbon-element';
 
-const { prefix, stablePrefix: ddsPrefix } = settings;
+const { prefix, stablePrefix: c4dPrefix } = settings;
 
 /**
  * A component to present a content in a horizontal orientation.
  *
  * @element c4d-content-item-horizontal
  */
-@customElement(`${ddsPrefix}-content-item-horizontal`)
+@customElement(`${c4dPrefix}-content-item-horizontal`)
 class C4DContentItemHorizontal extends C4DContentItem {
   /**
    * Determines whether to render the thumbnail variant
@@ -69,7 +69,7 @@ class C4DContentItemHorizontal extends C4DContentItem {
   }
 
   static get stableSelector() {
-    return `${ddsPrefix}--content-item-horizontal`;
+    return `${c4dPrefix}--content-item-horizontal`;
   }
 
   static styles = styles;

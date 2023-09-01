@@ -14,7 +14,7 @@ import C4DFeatureCard from '../feature-card/feature-card';
 import styles from './feature-card-block-medium.scss';
 import { carbonElement as customElement } from '../../internal/vendor/@carbon/web-components/globals/decorators/carbon-element';
 
-const { prefix, stablePrefix: ddsPrefix } = settings;
+const { prefix, stablePrefix: c4dPrefix } = settings;
 
 /**
  * Feature Card Block Medium
@@ -22,7 +22,7 @@ const { prefix, stablePrefix: ddsPrefix } = settings;
  * @element c4d-feature-card-block-medium
  * @slot block-heading - The block heading content.
  */
-@customElement(`${ddsPrefix}-feature-card-block-medium`)
+@customElement(`${c4dPrefix}-feature-card-block-medium`)
 class C4DFeatureCardBlockMedium extends C4DFeatureCard {
   protected _renderInner() {
     return html` ${this._renderImage()}${super._renderInner()} `;
@@ -40,14 +40,14 @@ class C4DFeatureCardBlockMedium extends C4DFeatureCard {
       <slot name="block-heading"></slot>
       <div
         class="${prefix}--feature-card"
-        data-autoid="${ddsPrefix}--feature-card">
+        data-autoid="${c4dPrefix}--feature-card">
         ${super.render()}
       </div>
     `;
   }
 
   static get stableSelector() {
-    return `${ddsPrefix}--feature-card-block-medium`;
+    return `${c4dPrefix}--feature-card-block-medium`;
   }
 
   static styles = styles;

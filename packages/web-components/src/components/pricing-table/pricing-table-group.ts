@@ -14,10 +14,10 @@ import styles from './pricing-table.scss';
 import { carbonElement as customElement } from '../../internal/vendor/@carbon/web-components/globals/decorators/carbon-element';
 const { stablePrefix: c4dPrefix } = settings;
 
-@customElement(`${ddsPrefix}-pricing-table-group`)
+@customElement(`${c4dPrefix}-pricing-table-group`)
 class C4DPricingTableGroup extends StableSelectorMixin(C4DStructuredListGroup) {
   static get stableSelector() {
-    return `${ddsPrefix}--pricing-table-group`;
+    return `${c4dPrefix}--pricing-table-group`;
   }
 
   static styles = styles;

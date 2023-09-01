@@ -16,7 +16,7 @@ import '../expressive-modal/expressive-modal';
 import '../expressive-modal/expressive-modal-close-button';
 import { carbonElement as customElement } from '../../internal/vendor/@carbon/web-components/globals/decorators/carbon-element.js';
 
-const { prefix, stablePrefix: ddsPrefix } = settings;
+const { prefix, stablePrefix: c4dPrefix } = settings;
 
 /**
  * The image content of lightbox media viewer.
@@ -25,7 +25,7 @@ const { prefix, stablePrefix: ddsPrefix } = settings;
  * @slot title - The title content.
  * @slot description - The description content.
  */
-@customElement(`${ddsPrefix}-lightbox-image-viewer`)
+@customElement(`${c4dPrefix}-lightbox-image-viewer`)
 class C4DLightboxImageViewer extends C4DLightboxMediaViewerBody {
   _renderDescription() {
     const { description } = this;

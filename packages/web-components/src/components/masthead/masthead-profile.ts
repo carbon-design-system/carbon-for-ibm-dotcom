@@ -20,14 +20,14 @@ import styles from './masthead.scss';
 import StableSelectorMixin from '../../globals/mixins/stable-selector';
 import { carbonElement as customElement } from '../../internal/vendor/@carbon/web-components/globals/decorators/carbon-element.js';
 
-const { prefix, stablePrefix: ddsPrefix } = settings;
+const { prefix, stablePrefix: c4dPrefix } = settings;
 
 /**
  * The profile menu UI in the masthead.
  *
  * @element c4d-masthead-profile
  */
-@customElement(`${ddsPrefix}-masthead-profile`)
+@customElement(`${c4dPrefix}-masthead-profile`)
 class C4DMastheadProfile extends HostListenerMixin(
   FocusMixin(StableSelectorMixin(LitElement))
 ) {
@@ -128,7 +128,7 @@ class C4DMastheadProfile extends HostListenerMixin(
   }
 
   static get stableSelector() {
-    return `${ddsPrefix}--masthead-profile`;
+    return `${c4dPrefix}--masthead-profile`;
   }
 
   static shadowRootOptions = {

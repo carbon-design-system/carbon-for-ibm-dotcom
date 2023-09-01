@@ -26,7 +26,7 @@ import { ICON_PLACEMENT } from '../link-with-icon/link-with-icon';
 import StickyHeader from '../../internal/vendor/@carbon/ibmdotcom-utilities/utilities/StickyHeader/StickyHeader';
 import { carbonElement as customElement } from '../../internal/vendor/@carbon/web-components/globals/decorators/carbon-element.js';
 
-const { prefix, stablePrefix: ddsPrefix } = settings;
+const { prefix, stablePrefix: c4dPrefix } = settings;
 
 /**
  * Locale modal.
@@ -35,7 +35,7 @@ const { prefix, stablePrefix: ddsPrefix } = settings;
  * @slot regions-selector - The area for the regions selector.
  * @slot locales-selector - The area for the locales selector.
  */
-@customElement(`${ddsPrefix}-locale-modal`)
+@customElement(`${c4dPrefix}-locale-modal`)
 // `CDSModal` extends `HostListenerMixin`
 class C4DLocaleModal extends C4DExpressiveModal {
   /**
@@ -152,7 +152,7 @@ class C4DLocaleModal extends C4DExpressiveModal {
   protected _renderHeader() {
     const { closeButtonAssistiveText } = this;
     return html`
-      <div id="${ddsPrefix}--modal-header">
+      <div id="${c4dPrefix}--modal-header">
         <c4d-expressive-modal-header>
           <c4d-expressive-modal-close-button
             assistive-text="${ifDefined(closeButtonAssistiveText)}">
@@ -224,7 +224,7 @@ class C4DLocaleModal extends C4DExpressiveModal {
    * A selector selecting the locale search UI.
    */
   static get selectorLocaleSearch() {
-    return `${ddsPrefix}-locale-search`;
+    return `${c4dPrefix}-locale-search`;
   }
 
   /**
@@ -233,12 +233,12 @@ class C4DLocaleModal extends C4DExpressiveModal {
   static get selectorPrimaryFocus() {
     return `
       [data-modal-primary-focus],
-      ${ddsPrefix}-region-item
+      ${c4dPrefix}-region-item
     `;
   }
 
   static get stableSelector() {
-    return `${ddsPrefix}--locale-modal`;
+    return `${c4dPrefix}--locale-modal`;
   }
 
   /**
@@ -247,11 +247,11 @@ class C4DLocaleModal extends C4DExpressiveModal {
   static get selectorTabbable() {
     return `
       ${selectorTabbable},
-      ${ddsPrefix}-expressive-modal,
-      ${ddsPrefix}-expressive-modal-close-button,
-      ${ddsPrefix}-region-item,
-      ${ddsPrefix}-search,
-      ${ddsPrefix}-locale-item
+      ${c4dPrefix}-expressive-modal,
+      ${c4dPrefix}-expressive-modal-close-button,
+      ${c4dPrefix}-region-item,
+      ${c4dPrefix}-search,
+      ${c4dPrefix}-locale-item
     `;
   }
 

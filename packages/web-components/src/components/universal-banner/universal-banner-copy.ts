@@ -15,14 +15,14 @@ import StableSelectorMixin from '../../globals/mixins/stable-selector';
 import C4DMarkdown from '../markdown/markdown';
 import { carbonElement as customElement } from '../../internal/vendor/@carbon/web-components/globals/decorators/carbon-element';
 
-const { stablePrefix: ddsPrefix } = settings;
+const { stablePrefix: c4dPrefix } = settings;
 
 /**
  * The paragraph content in the universal banner
  *
  * @element c4d-universal-banner-copy
  */
-@customElement(`${ddsPrefix}-universal-banner-copy`)
+@customElement(`${c4dPrefix}-universal-banner-copy`)
 class C4DUniversalBannerCopy extends StableSelectorMixin(C4DMarkdown) {
   @property({ reflect: true })
   slot = 'copy';
@@ -36,7 +36,7 @@ class C4DUniversalBannerCopy extends StableSelectorMixin(C4DMarkdown) {
   }
 
   static get stableSelector() {
-    return `${ddsPrefix}-universal-banner-copy`;
+    return `${c4dPrefix}-universal-banner-copy`;
   }
 
   static styles = styles;

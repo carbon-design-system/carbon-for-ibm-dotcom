@@ -26,14 +26,14 @@ import './locale-item';
 import styles from './locale-modal-composite.scss';
 import { carbonElement as customElement } from '../../internal/vendor/@carbon/web-components/globals/decorators/carbon-element.js';
 
-const { stablePrefix: ddsPrefix } = settings;
+const { stablePrefix: c4dPrefix } = settings;
 
 /**
  * Container component for locale modal.
  *
  * @element c4d-locale-modal-composite
  */
-@customElement(`${ddsPrefix}-locale-modal-composite`)
+@customElement(`${c4dPrefix}-locale-modal-composite`)
 class C4DLocaleModalComposite extends HybridRenderMixin(LitElement) {
   /**
    * @param countries A country list.

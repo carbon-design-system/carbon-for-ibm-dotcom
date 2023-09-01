@@ -14,14 +14,14 @@ import C4DContentItem from '../content-item/content-item';
 import styles from './content-block-headlines.scss';
 import { carbonElement as customElement } from '../../internal/vendor/@carbon/web-components/globals/decorators/carbon-element';
 
-const { stablePrefix: ddsPrefix } = settings;
+const { stablePrefix: c4dPrefix } = settings;
 
 /**
  * Content Block Headlines item
  *
  * @element c4d-content-block-headlines-item
  */
-@customElement(`${ddsPrefix}-content-block-headlines-item`)
+@customElement(`${c4dPrefix}-content-block-headlines-item`)
 class C4DContentBlockHeadlinesItem extends StableSelectorMixin(C4DContentItem) {
   render() {
     return html`
@@ -43,7 +43,7 @@ class C4DContentBlockHeadlinesItem extends StableSelectorMixin(C4DContentItem) {
   }
 
   static get stableSelector() {
-    return `${ddsPrefix}--content-block-headlines-item`;
+    return `${c4dPrefix}--content-block-headlines-item`;
   }
 }
 

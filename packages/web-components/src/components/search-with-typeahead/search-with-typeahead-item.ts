@@ -14,14 +14,14 @@ import settings from '../../internal/vendor/@carbon/ibmdotcom-utilities/utilitie
 import styles from './search-with-typeahead.scss';
 import { carbonElement as customElement } from '../../internal/vendor/@carbon/web-components/globals/decorators/carbon-element';
 
-const { prefix, stablePrefix: ddsPrefix } = settings;
+const { prefix, stablePrefix: c4dPrefix } = settings;
 
 /**
  * Search result item in masthead.
  *
  * @element c4d-search-with-typeahead-item
  */
-@customElement(`${ddsPrefix}-search-with-typeahead-item`)
+@customElement(`${c4dPrefix}-search-with-typeahead-item`)
 class C4DSearchWithTypeaheadItem extends LitElement {
   /**
    * The the search result to be shown.
@@ -77,7 +77,7 @@ class C4DSearchWithTypeaheadItem extends LitElement {
         }
 
         const highlightedResult = html`
-          <span class="${ddsPrefix}-ce--search-with-typeahead-item__highlighted"
+          <span class="${c4dPrefix}-ce--search-with-typeahead-item__highlighted"
             >${searchQueryString}</span
           >
         `;

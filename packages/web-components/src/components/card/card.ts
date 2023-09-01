@@ -24,7 +24,7 @@ import { CTA_TYPE } from '../cta/defs';
 
 import CTAMixin from '../../component-mixins/cta/cta';
 
-const { prefix, stablePrefix: ddsPrefix } = settings;
+const { prefix, stablePrefix: c4dPrefix } = settings;
 
 /**
  * The table mapping slot name with the private property name that indicates the existence of the slot content.
@@ -43,7 +43,7 @@ const slotExistencePropertyNames = {
  * @slot image - The image content.
  * @slot footer - The footer content.
  */
-@customElement(`${ddsPrefix}-card`)
+@customElement(`${c4dPrefix}-card`)
 class C4DCard extends CTAMixin(StableSelectorMixin(CDSLink)) {
   /**
    * `true` if there is copy content.
@@ -245,10 +245,10 @@ class C4DCard extends CTAMixin(StableSelectorMixin(CDSLink)) {
         formatVideoCaption: formatVideoCaptionInEffect,
         formatVideoDuration: formatVideoDurationInEffect,
       } = this;
-      const footer = this.querySelector(`${ddsPrefix}-card-footer`);
+      const footer = this.querySelector(`${c4dPrefix}-card-footer`);
 
       const headingText = this.querySelector(
-        `${ddsPrefix}-card-heading`
+        `${c4dPrefix}-card-heading`
       )?.textContent;
       const copyText = this.textContent;
       if (footer) {
@@ -275,7 +275,7 @@ class C4DCard extends CTAMixin(StableSelectorMixin(CDSLink)) {
 
     if (changedProperties.has('colorScheme') || changedProperties.has('href')) {
       const headingText = this.querySelector(
-        `${ddsPrefix}-card-heading`
+        `${c4dPrefix}-card-heading`
       )?.textContent;
       const copyText = this.textContent;
       const footer = this.querySelector(
@@ -333,8 +333,8 @@ class C4DCard extends CTAMixin(StableSelectorMixin(CDSLink)) {
         name: videoName,
       });
 
-      const heading = this.querySelector(`${ddsPrefix}-card-heading`);
-      const footer = this.querySelector(`${ddsPrefix}-card-footer`);
+      const heading = this.querySelector(`${c4dPrefix}-card-heading`);
+      const footer = this.querySelector(`${c4dPrefix}-card-footer`);
 
       if (heading?.textContent?.trim() === '') {
         const title = document.createTextNode(this.videoTitle);
@@ -372,7 +372,7 @@ class C4DCard extends CTAMixin(StableSelectorMixin(CDSLink)) {
       ? html`
           <div
             tabindex="0"
-            aria-label="${this.querySelector(`${ddsPrefix}-card-heading`)
+            aria-label="${this.querySelector(`${c4dPrefix}-card-heading`)
               ?.textContent || ''}"
             aria-live="polite"
             aria-describedby="${prefix}--card__copy"
@@ -384,21 +384,21 @@ class C4DCard extends CTAMixin(StableSelectorMixin(CDSLink)) {
   }
 
   static get stableSelector() {
-    return `${ddsPrefix}--card`;
+    return `${c4dPrefix}--card`;
   }
 
   /**
    * A selector that will return the child footer.
    */
   static get selectorFooter() {
-    return `${ddsPrefix}-card-footer`;
+    return `${c4dPrefix}-card-footer`;
   }
 
   /**
    * The name of the custom event fired when there is a user gesture to run the action.
    */
   static get eventRequestAdditionalVideoData() {
-    return `${ddsPrefix}-cta-request-additional-video-data`;
+    return `${c4dPrefix}-cta-request-additional-video-data`;
   }
 
   static shadowRootOptions = {
