@@ -310,7 +310,7 @@
 
   .#{$prefix}--pricing-table-header-cell-cta,
   :host(#{$dds-prefix}-pricing-table-header-cell-cta) {
-    @extend .#{$prefix}--button-group-item;
+    @extend :host(#{$dds-prefix}-button-group-item);
 
     display: block;
     margin-block-start: $spacing-06;
