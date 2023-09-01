@@ -21,32 +21,6 @@
     @extend :host(#{$dds-prefix}-button);
 
     outline: none;
-  }
-
-  :host(#{$dds-prefix}-button-group),
-  :host(#{$dds-prefix}-leadspace-block-cta) {
-    --#{$dds-prefix}--button-group--item-count: 3;
-
-    display: grid;
-    grid-template-columns: 1fr;
-    grid-auto-rows: 1fr;
-    grid-gap: $spacing-05;
-
-    @include breakpoint(md) {
-      display: inline-grid;
-      grid-template-columns: repeat(
-        var(--#{$dds-prefix}--button-group--item-count),
-        1fr
-      );
-    }
-
-    @media print {
-      display: block;
-    }
-  }
-
-  :host(#{$dds-prefix}-button-group-item),
-  :host(#{$dds-prefix}-button-cta) {
     max-width: 100%;
     min-width: 0;
 
@@ -98,6 +72,28 @@
 
     .#{$prefix}--btn--multiline {
       align-items: start;
+    }
+  }
+
+  :host(#{$dds-prefix}-button-group),
+  :host(#{$dds-prefix}-leadspace-block-cta) {
+    --#{$dds-prefix}--button-group--item-count: 3;
+
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-auto-rows: 1fr;
+    grid-gap: $spacing-05;
+
+    @include breakpoint(md) {
+      display: inline-grid;
+      grid-template-columns: repeat(
+        var(--#{$dds-prefix}--button-group--item-count),
+        1fr
+      );
+    }
+
+    @media print {
+      display: block;
     }
   }
 
