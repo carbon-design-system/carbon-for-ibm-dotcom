@@ -188,12 +188,6 @@ class DDSCard extends CTAMixin(StableSelectorMixin(CDSLink)) {
   }
 
   /**
-   * An optional 1px border surrounding the component.
-   */
-  // @property({ type: Boolean, reflect: true })
-  // border = false;
-
-  /**
    * The color scheme.
    * A typical use case of using another color scheme of card is having a "CTA" purpose of card at the last in card group.
    *

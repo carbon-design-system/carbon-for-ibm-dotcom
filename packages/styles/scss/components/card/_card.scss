@@ -18,6 +18,7 @@
 @use '../../globals/utils/content-width' as *;
 @use '../../globals/utils/ratio-base' as *;
 @use '../lightbox-media-viewer/lightbox-media-viewer';
+@use '../link-with-icon/link-with-icon';
 
 @mixin card {
   .#{$prefix}--card,
@@ -497,7 +498,9 @@
   :host(#{$dds-prefix}-card)[color-scheme='inverse'],
   :host(#{$dds-prefix}-card-group-item)[color-scheme='inverse']
     .#{$prefix}--card {
-    background-color: $background-inverse;
+    .#{$prefix}--tile {
+      background-color: $background-inverse;
+    }
 
     .#{$prefix}--card__wrapper:hover {
       background-color: $background-inverse-hover;
@@ -534,7 +537,7 @@
         bottom: 0;
         right: 0;
         border: $spacing-01 solid $focus;
-        outline: 1px solid $focus-inverse;
+        outline: 1px solid $focus-inset;
         outline-offset: -3px;
         pointer-events: none;
       }
@@ -563,13 +566,10 @@
   :host(#{$dds-prefix}-card-group-item)[color-scheme='inverse'],
   :host(#{$dds-prefix}-feature-section-card-link)[color-scheme='inverse'],
   .#{$prefix}--card-group__card {
-    ::slotted(#{$dds-prefix}-card-eyebrow) {
-      color: $text-placeholder;
-    }
-
+    ::slotted(#{$dds-prefix}-card-eyebrow),
     ::slotted(#{$dds-prefix}-card-heading),
     ::slotted(#{$dds-prefix}-card-link-heading) {
-      color: $icon-inverse;
+      color: $text-inverse;
     }
 
     &:hover {
@@ -802,5 +802,48 @@
       flex-direction: column;
       gap: $spacing-05;
     }
+  }
+
+  :host(#{$dds-prefix}-card-footer),
+  :host(#{$dds-prefix}-card-cta-footer) {
+    .#{$dds-prefix}-ce--card__footer--static {
+      color: $link-primary;
+    }
+
+    .#{$prefix}--link-with-icon.#{$prefix}--link-with-icon--inline-icon {
+      display: flex;
+      width: 100%;
+      justify-content: flex-end;
+    }
+
+    &[color-scheme='inverse'] .#{$dds-prefix}-ce--card__footer--static {
+      color: $link-inverse;
+    }
+
+    &[color-scheme='inverse']
+      .#{$prefix}--link-with-icon.#{$prefix}--link-with-icon--inline-icon {
+      svg,
+      ::slotted(svg[slot='icon']) {
+        color: $link-inverse;
+      }
+    }
+
+    &:hover {
+      ::slotted(svg[slot='icon']),
+      .#{$prefix}--card__cta__copy {
+        color: $link-primary-hover;
+      }
+    }
+  }
+
+  :host(#{$dds-prefix}-card-cta-footer[cta-type='video']),
+  :host(#{$dds-prefix}-card-footer[cta-type='video']) {
+    .#{$prefix}--link-with-icon.#{$prefix}--link-with-icon--inline-icon {
+      justify-content: space-between;
+    }
+  }
+
+  :host(#{$dds-prefix}-card-footer[href])::after {
+    position: relative;
   }
 }
