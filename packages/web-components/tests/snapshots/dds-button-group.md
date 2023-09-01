@@ -12,24 +12,20 @@
 
 ```
 <a
-  class="cds--btn cds--btn--expressive cds--btn--primary"
+  class="cds--btn cds--btn--lg cds--btn--primary cds--layout--size-lg"
   href="https://example.com"
   id="button"
   part="button"
   role="button"
+  type="button"
 >
   <slot>
   </slot>
-  <p
-    aria-hidden="true"
-    class="cds--btn--hidden"
-  >
-    <span>
-      :
-    </span>
-    https://example.com
-  </p>
   <slot name="icon">
+    <span class="cds--visually-hidden">
+      undefined
+    </span>
+    undefined
   </slot>
 </a>
 

@@ -1,44 +1,33 @@
 import { Preview, Props, Description, Story } from '@storybook/addon-docs/blocks';
-import '../link-with-icon';
 import contributing from '../../../../../../docs/contributing-license.md';
 import { cdnJs, cdnCss } from '../../../globals/internal/storybook-cdn';
 
-
-
-
-# `<dds-link-with-icon>`
-
-> The `<dds-link-with-icon>` component should be used primarily as a navigational element,
-> with an icon as an indicator to the type of content being referenced, e.g.
-> url, external url, file.
+# Button
 
 > 💡 Check our
-> [CodeSandbox](https://githubbox.com/carbon-design-system/carbon-for-ibm-dotcom/tree/main/packages/web-components/examples/codesandbox/components/link-with-icon)
+> [CodeSandbox](https://githubbox.com/carbon-design-system/carbon-for-ibm-dotcom/tree/main/packages/web-components/examples/codesandbox/components/button)
 > example implementation.
 
-[![Edit @carbon/ibmdotcom-web-components](https://codesandbox.io/static/img/play-codesandbox.svg)](https://githubbox.com/carbon-design-system/carbon-for-ibm-dotcom/tree/main/packages/web-components/examples/codesandbox/components/link-with-icon)
+[![Edit @carbon/ibmdotcom-web-components](https://codesandbox.io/static/img/play-codesandbox.svg)](https://githubbox.com/carbon-design-system/carbon-for-ibm-dotcom/tree/main/packages/web-components/examples/codesandbox/components/button)
 
 ## Getting started
+
+This component extends from [Carbon Web Component button](https://web-components.carbondesignsystem.com/?path=/docs/components-button--default).
+Here's a quick example to get you started.
 
 ### JS (via import)
 
 ```javascript
-import '@carbon/ibmdotcom-web-components/es/components/link-with-icon/index.js';
+import '@carbon/ibmdotcom-web-components/es/components/button/index.js';
 ```
 
-<Description markdown={`${cdnJs({ components: ['link-with-icon'] })}`} />
-
+<Description markdown={`${cdnJs({ components: ['button'] })}`} />
 <Description markdown={`${cdnCss()}`} />
 
 ### HTML
 
 ```html
-<dds-link-with-icon href="https://www.ibm.com/">
-  Link text
-  <svg slot="icon" ...>
-    ...
-  </svg>
-</dds-link-with-icon>
+<dds-button href="https://example.com">Example</dds-button>
 ```
 
 ### CTA features
@@ -63,19 +52,20 @@ In order to use the desired type, modify the `cta-type` attribute to one of the 
 
 Notes: 
 * When using `video`, you need to pass the video ID as the `href` attribute.
-* The Link with icon component will need to be wrapped within a `dds-video-cta-container` components for videos to play.
+* The Button component will need to be wrapped within a `dds-video-cta-container` components for videos to play.
 * Custom icons can replace the built-in ones within `dds-card-footer`, they only need to be assigned to the `icon` slot.
+
 
 ## Props
 
-<Props of="dds-link-with-icon" />
+<Props of="dds-button" />
 
 ## Stable selectors
 
 See [our README](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/tree/main/packages/web-components#stable-selectors-for-analytics-and-integratione2e-testing-in-web-components) to see how Web Components selector and `data-autoid` should be used.
 
-| Web Components selector | Compatibility selector              | Description |
-| ----------------------- | ----------------------------------- | ----------- |
-| `<dds-link-with-icon>`  | `data-autoid="dds--link-with-icon"` | Component   |
+| Web Components selector | Compatibility selector      | Description |
+| ----------------------- | --------------------------- | ----------- |
+| `<dds-button>`          | `data-autoid="dds--button"` | Component   |
 
 <Description markdown={contributing} />
