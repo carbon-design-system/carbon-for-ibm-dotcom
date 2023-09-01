@@ -7,10 +7,7 @@
  * LICENSE file in the root directory of this source tree.
  */
 
-import { LitElement, html } from 'lit';
-import { property } from 'lit/decorators.js';
-import { ifDefined } from 'lit/directives/if-defined.js';
-import ArrowRight16 from '../../internal/vendor/@carbon/web-components/icons/arrow--right/16.js';
+import { html, LitElement, property } from 'lit-element';
 import settings from '../../internal/vendor/@carbon/ibmdotcom-utilities/utilities/settings/settings';
 import styles from './masthead.scss';
 import './megamenu-link-with-icon';
@@ -38,25 +35,16 @@ class DDSMegaMenuCategoryGroup extends LitElement {
   title = '';
 
   render() {
-    const { href, title } = this;
     return html`
       <div class="${prefix}--masthead__megamenu__category-group-shield">
-        <div class="${prefix}--masthead__megamenu__category-group-content">
-          ${href
-            ? html`
-                <dds-megamenu-link-with-icon
-                  href="${ifDefined(href)}"
-                  style-scheme="category-headline"
-                  title="${title}">
-                  <span>${title}</span>${ArrowRight16({ slot: 'icon' })}
-                </dds-megamenu-link-with-icon>
-              `
-            : html`
-                <div class="${prefix}--masthead__megamenu__category-headline">
-                  <p>${title}</p>
-                </div>
-              `}
-          <slot></slot>
+        <div
+          class="${prefix}--masthead__megamenu__category-group-content-wrapper">
+          <div class="${prefix}--masthead__megamenu__category-group-heading">
+            <slot name="heading"></slot>
+          </div>
+          <div class="${prefix}--masthead__megamenu__category-group-content">
+            <slot></slot>
+          </div>
         </div>
       </div>
     `;

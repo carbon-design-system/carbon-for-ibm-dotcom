@@ -1,5 +1,5 @@
 /**
- * Copyright IBM Corp. 2021, 2022
+ * Copyright IBM Corp. 2021, 2023
  *
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
@@ -11,7 +11,24 @@
  * @type {string}
  * @private
  */
-const _pathl1 = '/iframe.html?id=components-masthead--with-l-1';
+const _pathl1 = '/iframe.html?id=components-masthead--with-l-1&knob-use%20mock%20nav%20data%20(use-mock)=true';
+
+/**
+ * Selectors for elements that comprise the L1.
+ */
+const _selectors = {
+  l1: 'dds-masthead-l1',
+  l1Name: '.bx--masthead__l1-title',
+  l1Login: '.bx--masthead__l1-login',
+  l1Cta: '.bx--masthead__l1-login',
+  l1Menu: '.bx--masthead__l1-menu',
+  l1Item: '.bx--masthead__l1-item',
+  l1Dropdown: '.bx--masthead__l1-dropdown',
+  l1DropdownAnnouncement: '.bx--masthead__l1-dropdown-announcement',
+  l1DropdownLinks: '.bx--masthead__l1-dropdown-links',
+  l1DropdownSection: '.bx--masthead__l1-dropdown-section',
+  l1DropdownViewAll: '.bx--masthead__l1-dropdown-viewall',
+};
 
 describe('dds-masthead | with L1 (desktop)', () => {
   beforeEach(() => {
@@ -27,7 +44,7 @@ describe('dds-masthead | with L1 (desktop)', () => {
   });
 
   it('should render platform below the IBM logo', () => {
-    cy.get('dds-masthead-l1-name').then($platform => {
+    cy.get(_selectors.l1).shadow().find(_selectors.l1Name).then($platform => {
       cy.get('dds-masthead-logo').then($logo => {
         expect($logo[0].getBoundingClientRect().down).to.equal($platform[0].getBoundingClientRect().up);
       });
@@ -35,9 +52,8 @@ describe('dds-masthead | with L1 (desktop)', () => {
   });
 
   it('should render and have url for L1 platform', () => {
-    cy.get('dds-masthead-l1-name')
-      .shadow()
-      .find('a')
+    cy.get(_selectors.l1)
+      .find(`a${_selectors.l1Name}`)
       .then($link => {
         const url = $link.prop('href');
         expect(url).not.to.be.empty;
@@ -46,61 +62,125 @@ describe('dds-masthead | with L1 (desktop)', () => {
     cy.takeSnapshots();
   });
 
-  it('should load l1 menu item with selected state', () => {
-    cy.get('dds-top-nav-l1 > *:nth-child(1)').then($menuItem => {
-      expect($menuItem).to.have.attr('active');
-    });
+  it('should render menu items', () => {
+    cy.get(_selectors.l1).shadow().find(_selectors.l1Item).should('exist');
+  });
+
+  it('should open dropdowns', () => {
+    cy.get(_selectors.l1).shadow().find(`${_selectors.l1Item}`).first().as('l1Item').click();
+
+    cy.get('@l1Item')
+      .next(_selectors.l1Dropdown)
+      .should('be.visible');
 
     cy.takeSnapshots();
   });
 
-  it('should render 5 menu items', () => {
-    cy.get('dds-top-nav-l1 > * ').should('have.length', 5);
+  it('should support basic link items', () => {
+    cy.get(_selectors.l1)
+      .shadow()
+      .find(`a${_selectors.l1Item}`)
+      .each($link => {
+        const url = $link.prop('href');
+        expect(url).not.to.be.empty;
+      });
   });
 
-  it('should load the l1 - first nav item', () => {
-    cy.get('dds-top-nav-l1 > *:nth-child(1)')
-      .shadow()
-      .find('a')
+  it('should support announcements in dropdowns', () => {
+    cy.get(_selectors.l1).shadow().find(_selectors.l1Item).eq(1).as('l1Item').click();
+
+    cy.get('@l1Item')
+      .next(_selectors.l1Dropdown)
+      .find(_selectors.l1DropdownAnnouncement)
+      .should('be.visible');
+  });
+
+  it('should support view all links in dropdowns', () => {
+    cy.get(_selectors.l1).shadow().find(_selectors.l1Item).eq(1).as('l1Item').click();
+
+    cy.get('@l1Item')
+      .next(_selectors.l1Dropdown)
+      .find(_selectors.l1DropdownViewAll)
+      .should('be.visible')
       .then($link => {
         const url = $link.prop('href');
         expect(url).not.to.be.empty;
       });
   });
 
-  it('should load the l1 - second nav item', () => {
-    cy.get('dds-top-nav-l1 > *:nth-child(2)')
+  // @TODO: re-enable once :has selector use is replaced
+  it.skip('should support two column dropdowns', () => {
+    cy.get(_selectors.l1)
       .shadow()
-      .find('a')
-      .then($link => {
-        const url = $link.prop('href');
-        expect(url).not.to.be.empty;
-      });
-  });
-
-  it('should load and have url for third l1 item', () => {
-    cy.get('dds-top-nav-l1 > *:nth-child(3)')
-      .shadow()
-      .find('a')
-      .then($link => {
-        const url = $link.prop('href');
-        expect(url).not.to.be.empty;
-      });
-  });
-
-  it('should load the l1 - fourth nav item', () => {
-    cy.get('dds-top-nav-l1 > *:nth-child(4)')
+      .find(_selectors.l1Item)
+      .eq(1)
       .click()
-      .then($menuItem => {
-        expect($menuItem).to.have.attr('expanded');
+      .next(_selectors.l1Dropdown)
+      .find(_selectors.l1DropdownSection)
+      .then(sections => {
+        const first = sections.get(0).getBoundingClientRect().left;
+        const second = sections.get(1).getBoundingClientRect().left;
+
+        expect(first).to.be.lessThan(second);
       });
   });
 
-  it('should load and have url for fifth l1 item', () => {
-    cy.get('dds-top-nav-l1 > *:nth-child(5)')
+  // @TODO: re-enable once :has selector use is replaced
+  it.skip('should support asymmetrical two column dropdowns', () => {
+    cy.get(_selectors.l1)
+      .shadow()
+      .find(_selectors.l1Item)
+      .eq(3)
       .click()
-      .then($menuItem => {
-        expect($menuItem).to.have.attr('expanded');
+      .next(_selectors.l1Dropdown)
+      .find(`${_selectors.l1DropdownLinks} > *`)
+      .then(columns => {
+        const narrow = columns.filter('.bx--masthead__l1-dropdown-column-narrow').get(0).getBoundingClientRect().width;
+        const wide = columns.filter('.bx--masthead__l1-dropdown-column-wide').get(0).getBoundingClientRect().width;
+
+        expect(narrow).to.be.lessThan(wide);
       });
   });
+
+  // @TODO: re-enable once :has selector use is replaced
+  it.skip('should support three column dropdowns', () => {
+    cy.get(_selectors.l1)
+      .shadow()
+      .find(_selectors.l1Item)
+      .eq(2)
+      .click()
+      .next(_selectors.l1Dropdown)
+      .find(_selectors.l1DropdownSection)
+      .then(sections => {
+        const first = sections.get(0).getBoundingClientRect().left;
+        const second = sections.get(1).getBoundingClientRect().left;
+        const third = sections.get(2).getBoundingClientRect().left;
+
+        expect(first).to.be.lessThan(second);
+        expect(second).to.be.lessThan(third);
+      });
+  });
+
+  it('should render a single login link', () => {
+    cy.get(_selectors.l1)
+      .shadow()
+      .find(_selectors.l1Login)
+      .should('have.length', 1)
+      .then($link => {
+        const url = $link.prop('href');
+        expect(url).not.to.be.empty;
+      })
+  });
+
+  it('should render a single CTA link', () => {
+    cy.get(_selectors.l1)
+      .shadow()
+      .find(_selectors.l1Cta)
+      .should('have.length', 1)
+      .then($link => {
+        const url = $link.prop('href');
+        expect(url).not.to.be.empty;
+      })
+  });
+
 });

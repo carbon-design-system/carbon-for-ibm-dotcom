@@ -154,29 +154,41 @@
   color: $text-secondary;
   white-space: nowrap;
 
+  > svg {
+    fill: $icon-02;
+  }
+
   &:hover {
     background-color: $background-hover;
     cursor: pointer;
-    color: $text-primary;
+  }
+
+  &:active {
+    background-color: $selected-ui;
+  }
+
+  &:active,
+  &:hover {
+    color: $icon-01;
+
     > svg {
-      fill: currentColor;
+      fill: $icon-01;
     }
   }
 
   &:active,
   &:focus {
-    outline: $spacing-01 solid $background-brand;
-    outline-offset: -#{$spacing-01};
-    > svg {
-      fill: $text-primary;
-    }
+    outline: 2px solid $interactive-01;
+    outline-offset: -2px;
   }
 }
 
 /// @access private
 @mixin masthead {
   :host(#{$dds-prefix}-masthead-composite),
+  :host(#{$dds-prefix}-masthead-container),
   :host(#{$dds-prefix}-cloud-masthead-container) {
+    position: relative;
     z-index: 900;
     padding-top: $spacing-09;
   }
@@ -197,6 +209,10 @@
 
     &[with-banner] {
       top: $spacing-13;
+    }
+
+    &[has-l1] {
+      --dds-active-l0-border-color: #{$ui-03};
     }
   }
 
@@ -222,10 +238,6 @@
     visibility: visible;
     opacity: 1;
     height: 100vh;
-  }
-
-  :host(#{$dds-prefix}-megamenu-link-with-icon) {
-    @extend .#{$prefix}--link-with-icon;
   }
 
   .#{$prefix}--masthead--sticky.#{$prefix}--masthead--sticky__l1 {
@@ -355,6 +367,10 @@
         &[data-selected='true'] {
           border-bottom-color: transparent;
         }
+
+        &::after {
+          background-color: $focus;
+        }
       }
     }
 
@@ -363,6 +379,10 @@
       &:active {
         &[data-selected='true'][aria-expanded='false'] {
           border-bottom-color: transparent;
+
+          &::after {
+            background-color: $focus;
+          }
         }
       }
     }
@@ -381,7 +401,7 @@
       left: 0;
       right: 0;
       height: rem(3px);
-      background-color: $link-primary;
+      background-color: var(--dds-active-l0-border-color, $link-primary);
     }
   }
 
@@ -403,9 +423,11 @@
         box-shadow: 0 $spacing-01 6px 0 rgba(0, 0, 0, 0.3);
         bottom: -1px;
         width: rem(256px);
+
         li {
           @include masthead-top-nav-menu-item;
         }
+
         .#{$prefix}--header__menu-item {
           border: none;
           position: relative;
@@ -453,19 +475,12 @@
     display: inline-flex;
     justify-content: center;
     align-items: center;
-    > {
-      svg {
-        position: relative;
-        fill: $icon-secondary;
-      }
-    }
     &:hover {
       background-color: $background-hover;
       transition-duration: $search-transition-timing;
-      > {
-        svg {
-          fill: $icon-primary;
-        }
+
+      > svg {
+        fill: $icon-primary;
       }
     }
 
@@ -473,6 +488,11 @@
     &:active {
       border-color: $focus;
       background-color: $background-hover;
+    }
+
+    > svg {
+      position: relative;
+      fill: $icon-secondary;
     }
 
     .#{$prefix}--overflow-menu {

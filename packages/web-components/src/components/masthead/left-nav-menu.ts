@@ -7,10 +7,9 @@
  * LICENSE file in the root directory of this source tree.
  */
 
-import { classMap } from 'lit/directives/class-map.js';
-import { LitElement, html } from 'lit';
-import { property } from 'lit/decorators.js';
-import ChevronDown20 from '../../internal/vendor/@carbon/web-components/icons/chevron--down/20.js';
+import { classMap } from 'lit-html/directives/class-map.js';
+import { html, property, LitElement } from 'lit-element';
+import ChevronDown16 from '../../internal/vendor/@carbon/web-components/icons/chevron--down/16.js';
 import FocusMixin from '../../internal/vendor/@carbon/web-components/globals/mixins/focus.js';
 import settings from '../../internal/vendor/@carbon/ibmdotcom-utilities/utilities/settings/settings';
 import styles from './masthead.scss';
@@ -105,20 +104,26 @@ class DDSLeftNavMenu extends FocusMixin(LitElement) {
       [`${prefix}--side-nav__submenu`]: true,
       [`${prefix}--masthead__side-nav--submemu--selected`]: active,
     });
+
+    const isSubitem = this.parentElement?.hasAttribute('is-submenu') || false;
+
     return html`
       <div class="${prefix}--side-nav__item">
         <button
           type="button"
           aria-haspopup="true"
           tabindex="-1"
-          aria-expanded="${String(Boolean(expanded))}"
+          aria-expanded="${expanded}"
           class="${buttonClasses}"
-          @click=${handleClickExpando}>
+          @click=${handleClickExpando}
+          data-attribute1="headerNav"
+          data-attribute2="${isSubitem ? 'TabHdline' : 'L0'}"
+          data-attribute3="${title}">
           <div class="${prefix}--side-nav__submenu-content">
             <span class="${prefix}--side-nav__submenu-title">${title}</span>
             <div
               class="${prefix}--side-nav__icon ${prefix}--side-nav__icon--small ${prefix}--side-nav__submenu-chevron">
-              ${ChevronDown20()}
+              ${ChevronDown16()}
             </div>
           </div>
         </button>

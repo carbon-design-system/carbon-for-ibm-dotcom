@@ -1,7 +1,7 @@
 /**
  * @license
  *
- * Copyright IBM Corp. 2020, 2022
+ * Copyright IBM Corp. 2020, 2023
  *
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
@@ -113,22 +113,26 @@ const cardsDiffLengthPhrase = (
     </DDSCardGroupItem>
   );
 
-  const videoCardGroupItem = (
+  const videoCardGroupItem = (videoId = '1_9h94wo6b') => (
     <DDSCardGroupItem
       cta-type="video"
-      href="1_9h94wo6b"
+      href={videoId}
       color-scheme={gridMode === 'border' ? 'light' : null}>
       <DDSCardEyebrow>Topic</DDSCardEyebrow>
       {tagGroup ? tagGroupContent : ''}
       <DDSCardCTAFooter
         cta-type="video"
-        href="1_9h94wo6b"
+        href={videoId}
         slot="footer"></DDSCardCTAFooter>
     </DDSCardGroupItem>
   );
 
+  const demoVideoIds = ['1_9h94wo6b', '0_ibuqxqbe', '1_6b6qjovy'];
+
   count = count > 3 ? 0 : count + 1;
-  return media && index % 2 ? videoCardGroupItem : defaultCardGroupItem;
+  return media && index % 2
+    ? videoCardGroupItem(demoVideoIds[index % 3])
+    : defaultCardGroupItem;
 };
 
 const longHeadingCardGroupItem = (

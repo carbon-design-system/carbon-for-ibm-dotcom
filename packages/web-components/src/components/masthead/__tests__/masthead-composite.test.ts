@@ -10,7 +10,6 @@
 import { html, render } from 'lit/html.js';
 import { ifDefined } from 'lit/directives/if-defined.js';
 import EventManager from '../../../../tests/utils/event-manager';
-import { MastheadLink } from '../../../internal/vendor/@carbon/ibmdotcom-services-store/types/translateAPI.d';
 import DDSMastheadComposite from '../masthead-composite';
 import {
   authenticatedProfileItems,
@@ -29,26 +28,6 @@ const template = (props?) => {
     </dds-masthead-composite>
   `;
 };
-
-const navLinksFoo: MastheadLink[] = [
-  {
-    title: 'item-title-foo',
-    url: 'https://carbon-design-system.github.io/carbon-for-ibm-dotcom/canary/web-components/foo',
-  },
-  {
-    title: 'menu-title-foo',
-    menuSections: [
-      {
-        menuItems: [
-          {
-            title: 'menu-item-title-bar',
-            url: 'https://carbon-design-system.github.io/carbon-for-ibm-dotcom/canary/web-components/bar',
-          },
-        ],
-      },
-    ],
-  },
-];
 
 describe('dds-masthead-composite', function () {
   const events = new EventManager();
@@ -84,33 +63,7 @@ describe('dds-masthead-composite', function () {
       const mastheadComposite = document.body.querySelector(
         'dds-masthead-composite'
       );
-      expect(
-        mastheadComposite?.shadowRoot?.querySelector('dds-top-nav')
-      ).toBeNull();
-      expect(
-        mastheadComposite?.shadowRoot?.querySelector('dds-left-nav')!.children
-          .length
-      ).toBe(0);
-    });
-
-    it('should render the given nav items to the top', async function () {
-      render(template({ navLinks: navLinksFoo }), document.body);
-      await Promise.resolve();
-      expect(
-        document.body
-          .querySelector('dds-masthead-composite')
-          ?.shadowRoot?.querySelector('dds-top-nav')
-      ).toMatchSnapshot();
-    });
-
-    it('should render the given nav items to the left', async function () {
-      render(template({ navLinks: navLinksFoo }), document.body);
-      await Promise.resolve();
-      expect(
-        document.body
-          .querySelector('dds-masthead-composite')
-          ?.shadowRoot?.querySelector('dds-left-nav')
-      ).toMatchSnapshot();
+      expect(mastheadComposite!.querySelector('dds-top-nav')).toBeNull();
     });
   });
 

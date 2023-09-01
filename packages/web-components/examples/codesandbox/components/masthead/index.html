@@ -19,15 +19,26 @@ LICENSE file in the root directory of this source tree.
       }
     </style>
     <script src="src/index.js"></script>
+    <script src="src/ddo.js"></script>
+
+    <!-- IBM Tag Management and Site Analytics -->
+    <script src="//1.www.s81c.com/common/stats/ibm-common.js" async="async" defer></script>
+    <!-- IBM CMaaS -->
+    <script src="//www.ibm.com/common/digitaladvisor/cm-app/latest/cm-app.min.js" defer></script>
   </head>
   <body>
-    <dds-masthead-container id="masthead-container"></dds-masthead-container>
+    <dds-masthead-container
+      id="masthead-container"
+      data-endpoint="/common/carbon-for-ibm-dotcom/translations/masthead-footer/v2"
+      auth-method="profile-api"
+      has-contact="true"
+    ></dds-masthead-container>
     <main class="bx--content dds-ce-demo--ui-shell-content">
       <div class="bx--grid">
         <div class="bx--row">
-          <div class="bx--offset-lg-3 bx--col-lg-13">
+          <div class="bx--col-lg-13">
             <h2>
-              Purpose and function
+              L0/Masthead V2 using V2 Translations
             </h2>
             <p>
               The shell is perhaps the most crucial piece of any UI built with Carbon. It contains the shared navigation framework

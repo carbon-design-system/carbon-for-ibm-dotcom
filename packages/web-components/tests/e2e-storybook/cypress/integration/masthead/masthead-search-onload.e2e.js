@@ -1,5 +1,5 @@
 /**
- * Copyright IBM Corp. 2021, 2022
+ * Copyright IBM Corp. 2021, 2023
  *
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
@@ -11,7 +11,8 @@
  * @type {string}
  * @private
  */
-const _pathSearchOpenOnload = '/iframe.html?id=components-masthead--search-open-onload';
+const _pathSearchOpenOnload =
+  '/iframe.html?id=components-masthead--search-open-onload&knob-use%20mock%20nav%20data%20(use-mock)=true';
 
 describe('dds-masthead | search open onload (desktop)', () => {
   beforeEach(() => {
@@ -54,9 +55,9 @@ describe('dds-masthead | search open onload (desktop)', () => {
     cy.get('dds-search-with-typeahead')
       .shadow()
       .find('input[type="text"]')
-      .type('test')
-      .get('dds-search-with-typeahead-item')
-      .should('have.length', 10);
+      .type('test');
+
+    cy.get('dds-search-with-typeahead-item').should('have.length', 10);
 
     cy.takeSnapshots();
   });
