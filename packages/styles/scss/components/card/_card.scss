@@ -202,6 +202,21 @@
     }
   }
 
+  :host(#{$dds-prefix}-card[aspect-ratio='1:1']) .#{$prefix}--card__wrapper {
+    @include ratio-base(1, 1, false);
+  }
+
+  :host(#{$dds-prefix}-card[aspect-ratio='3:2']) .#{$prefix}--card__wrapper {
+    @include ratio-base(3, 2, false);
+  }
+
+  :host(#{$dds-prefix}-card[aspect-ratio='4:3']) .#{$prefix}--card__wrapper {
+    @include ratio-base(4, 3, false);
+  }
+
+  :host(#{$dds-prefix}-card[aspect-ratio='16:9']) .#{$prefix}--card__wrapper {
+    @include ratio-base(16, 9, false);
+  }
   .#{$prefix}--card.#{$prefix}--card--light {
     background-color: $layer-02;
   }

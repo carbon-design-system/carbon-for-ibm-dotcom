@@ -39,6 +39,7 @@ const tagGroupContent = html`
 
 export const Default = (args) => {
   const {
+    aspectRatio,
     ctaType,
     noPoster,
     image,
@@ -73,6 +74,7 @@ export const Default = (args) => {
   return html`
     <dds-video-cta-container>
       <dds-card
+        aspect-ratio=${aspectRatio}
         ?no-poster=${noPoster}
         cta-type=${ctaType}
         color-scheme=${cardStyles === 'Inverse card' ? 'inverse' : ''}
@@ -105,6 +107,11 @@ Default.story = {
     ...readme.parameters,
     knobs: {
       Card: () => {
+        const aspectRatio = select(
+          'Aspect ratio (aspect-ratio)',
+          ['1:1', '2:1', '3:2', '4:3', '16:9', '1:1'],
+          '2:1'
+        );
         const ctaType = select(
           'CTA type (cta-type)',
           typeOptions,
@@ -127,6 +134,7 @@ Default.story = {
           ctaType === CTA_TYPE.VIDEO ? boolean('No poster:', false) : null;
 
         return {
+          aspectRatio,
           customVideoTitle,
           ctaType,
           image,
