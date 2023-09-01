@@ -134,7 +134,7 @@
 
     &:not([has-selections]) {
       .#{$prefix}--clear {
-        color: $ibm-color__gray-40;
+        color: $disabled-02;
         cursor: not-allowed;
       }
     }
