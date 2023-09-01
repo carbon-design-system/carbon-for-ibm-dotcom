@@ -94,10 +94,13 @@
     }
 
     &:focus-within {
-      outline: $spacing-01 solid $focus;
-      outline-offset: -#{$spacing-01};
-      position: relative;
-      z-index: 2;
+      .#{$prefix}--tile--clickable {
+        outline: $spacing-01 solid $focus;
+        outline-offset: -#{$spacing-01};
+        border: none;
+        position: relative;
+        z-index: 2;
+      }
 
       ::slotted(#{$dds-prefix}-image),
       ::slotted(#{$dds-prefix}-card-cta-image),
