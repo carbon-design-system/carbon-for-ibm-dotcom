@@ -44,15 +44,8 @@ export const Default = (args) => {
   return (
     /* eslint-disable no-nested-ternary */
     <DDSCard
-      colorScheme={
-        cardStyles === 'Inverse card'
-          ? 'inverse'
-          : cardStyles === 'Outlined card'
-          ? 'light'
-          : ''
-      }
-      href={href || undefined}
-      border={cardStyles === 'Outlined card'}>
+      colorScheme={cardStyles === 'Inverse card' ? 'inverse' : ''}
+      href={href || undefined}>
       {image ? (
         <DDSImage
           slot="image"
@@ -94,11 +87,7 @@ Default.story = {
         tagGroup: boolean('Add tags:', false),
         href: 'https://example.com',
         footer: textNullable('CTA:', 'Learn more'),
-        cardStyles: select(
-          'Card style:',
-          ['Outlined card', 'Inverse card', 'none'],
-          'none'
-        ),
+        cardStyles: select('Card style:', ['Inverse card', 'none'], 'none'),
       }),
     },
   },
@@ -116,14 +105,7 @@ export const Pictogram = (args) => {
     <DDSCard
       pictogramPlacement={pictogramPlacement}
       href={href || undefined}
-      colorScheme={
-        cardStyles === 'Inverse card'
-          ? 'inverse'
-          : cardStyles === 'Outlined card'
-          ? 'light'
-          : ''
-      }
-      border={cardStyles === 'Outlined card'}>
+      colorScheme={cardStyles === 'Inverse card' ? 'inverse' : ''}>
       <DDSCardHeading>{heading}</DDSCardHeading>
       {copy ? <p>{copy}</p> : ''}
       {tagGroup ? (
@@ -157,11 +139,7 @@ Pictogram.story = {
           heading: textNullable('Heading:', 'Aerospace and defence'),
           copy,
           href: 'https://example.com',
-          cardStyles: select(
-            'Card style:',
-            ['Outlined card', 'Inverse card', 'none'],
-            'none'
-          ),
+          cardStyles: select('Card style:', ['Inverse card', 'none'], 'none'),
         };
       },
     },
@@ -169,19 +147,10 @@ Pictogram.story = {
 };
 
 export const Static = (args) => {
-  const {
-    image,
-    alt,
-    defaultSrc,
-    outlinedCard,
-    eyebrow,
-    heading,
-    copy,
-    tagGroup,
-    cta,
-  } = args?.StaticCard ?? {};
+  const { image, alt, defaultSrc, eyebrow, heading, copy, tagGroup, cta } =
+    args?.StaticCard ?? {};
   return (
-    <DDSCard colorScheme={outlinedCard ? 'light' : ''} border={outlinedCard}>
+    <DDSCard>
       {image ? (
         <DDSImage
           slot="image"
@@ -232,7 +201,6 @@ Static.story = {
         const ctaCopy = cta
           ? textNullable('CTA copy:', 'Sign up for the trial')
           : '';
-        const outlinedCard = boolean('Outlined card:', true);
         return {
           alt: 'Image alt text',
           defaultSrc: imgXlg4x3,
@@ -243,7 +211,6 @@ Static.story = {
           tagGroup,
           cta,
           ctaCopy,
-          outlinedCard,
         };
       },
     },
