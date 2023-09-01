@@ -49,7 +49,6 @@ export const Default = (args) => {
     eyebrow,
     tagGroup,
     copy,
-    footer,
     cardStyles,
     customVideoTitle,
   } = args?.Card ?? {};
@@ -68,9 +67,7 @@ export const Default = (args) => {
       videoCopy = customVideoTitle;
     }
 
-    if (!footer) {
-      videoFooterCopy = duration;
-    }
+    videoFooterCopy = duration;
   }
 
   return html`
@@ -78,12 +75,7 @@ export const Default = (args) => {
       <dds-card
         ?no-poster=${noPoster}
         cta-type=${ctaType}
-        color-scheme=${cardStyles === 'Inverse card'
-          ? 'inverse'
-          : cardStyles === 'Outlined card'
-          ? 'light'
-          : ''}
-        ?border=${cardStyles === 'Outlined card'}
+        color-scheme=${cardStyles === 'Inverse card' ? 'inverse' : ''}
         href=${ifDefined(href || undefined)}>
         ${image
           ? html`
@@ -97,7 +89,7 @@ export const Default = (args) => {
         <dds-card-heading>${videoCopy ?? heading}</dds-card-heading>
         ${copy ? html` <p>${copy}</p> ` : ``}
         ${tagGroup ? html` ${tagGroupContent} ` : ``}
-        <dds-card-footer> ${videoFooterCopy ?? footer} </dds-card-footer>
+        <dds-card-footer> ${videoFooterCopy ?? ''} </dds-card-footer>
       </dds-card>
     </dds-video-cta-container>
   `;
@@ -149,12 +141,7 @@ Default.story = {
             knobNamesForType[ctaType ?? CTA_TYPE.REGULAR],
             hrefsForType[ctaType ?? CTA_TYPE.REGULAR]
           ),
-          footer: textNullable('CTA:', 'Learn more'),
-          cardStyles: select(
-            'Card style:',
-            ['Outlined card', 'Inverse card', 'none'],
-            'none'
-          ),
+          cardStyles: select('Card style:', ['Inverse card', 'none'], 'none'),
         };
       },
     },
@@ -169,7 +156,6 @@ Default.story = {
           defaultSrc: imgXlg4x3,
           tagGroup: false,
           href: 'https://example.com',
-          footer: 'Learn more',
           cardStyles: 'none',
         },
       },
@@ -184,12 +170,7 @@ export const Pictogram = (args) => {
     <dds-card
       pictogram-placement="${pictogramPlacement}"
       href=${ifDefined(href || undefined)}
-      color-scheme=${cardStyles === 'Inverse card'
-        ? 'inverse'
-        : cardStyles === 'Outlined card'
-        ? 'light'
-        : ''}
-      ?border=${cardStyles === 'Outlined card'}>
+      color-scheme=${cardStyles === 'Inverse card' ? 'inverse' : ''}>
       <dds-card-heading>${heading}</dds-card-heading>
       ${copy ? html` <p>${copy}</p> ` : ``}
       ${tagGroup ? html` ${tagGroupContent} ` : ``}
@@ -244,7 +225,7 @@ Pictogram.story = {
           href: 'https://example.com',
           cardStyles: select(
             'Card style:',
-            ['Outlined card', 'Inverse card', 'none'],
+            ['Inverse card', 'none'],
             'none',
             'pictogram'
           ),
@@ -271,7 +252,6 @@ export const Static = (args) => {
     image,
     alt,
     defaultSrc,
-    outlinedCard,
     eyebrow,
     heading,
     copy,
@@ -280,9 +260,7 @@ export const Static = (args) => {
     ctaCopy,
   } = args?.Card ?? {};
   return html`
-    <dds-card
-      color-scheme=${outlinedCard ? 'light' : ''}
-      ?border=${outlinedCard}>
+    <dds-card>
       ${image
         ? html`
             <dds-image
@@ -325,7 +303,6 @@ Static.story = {
         const ctaCopy = cta
           ? textNullable('CTA copy:', 'Sign up for the trial', 'static')
           : '';
-        const outlinedCard = boolean('Outlined card:', true, 'static');
         return {
           alt: 'Image alt text',
           defaultSrc: imgXlg4x3,
@@ -336,7 +313,6 @@ Static.story = {
           tagGroup,
           cta,
           ctaCopy,
-          outlinedCard,
         };
       },
     },
@@ -352,7 +328,6 @@ Static.story = {
           tagGroup: false,
           cta: false,
           ctaCopy: 'Sign up for the trial',
-          outlinedCard: 'true',
         },
       },
     },
@@ -363,7 +338,7 @@ export const Logo = (args) => {
   const { alt, defaultSrc, eyebrow, heading, href, copy, tagGroup } =
     args?.Card ?? {};
   return html`
-    <dds-card border logo href=${ifDefined(href || undefined)}>
+    <dds-card logo href=${ifDefined(href || undefined)}>
       <dds-image-logo
         slot="image"
         alt="${ifDefined(alt)}"

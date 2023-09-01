@@ -14,7 +14,7 @@ import ArrowRight20 from '../../internal/vendor/@carbon/web-components/icons/arr
 import Download20 from '../../internal/vendor/@carbon/web-components/icons/download/20.js';
 import KalturaPlayerAPI from '../../internal/vendor/@carbon/ibmdotcom-services/services/KalturaPlayer/KalturaPlayer';
 import Launch20 from '../../internal/vendor/@carbon/web-components/icons/launch/20.js';
-import PlayOutline20 from '../../internal/vendor/@carbon/web-components/icons/play--outline/20.js';
+import PlayFilledAlt20 from '../../internal/vendor/@carbon/web-components/icons/play--filled--alt/20.js';
 import Blog20 from '../../internal/vendor/@carbon/web-components/icons/blog/20.js';
 import DocumentPDF20 from '../../internal/vendor/@carbon/web-components/icons/document--pdf/20.js';
 import NewTab20 from '../../internal/vendor/@carbon/web-components/icons/new-tab/20.js';
@@ -41,7 +41,7 @@ export const icons = {
   [CTA_TYPE.EXTERNAL]: Launch20,
   [CTA_TYPE.NEW_TAB]: NewTab20,
   [CTA_TYPE.JUMP]: ArrowDown20,
-  [CTA_TYPE.VIDEO]: PlayOutline20,
+  [CTA_TYPE.VIDEO]: PlayFilledAlt20,
   [CTA_TYPE.PDF]: DocumentPDF20,
   [CTA_TYPE.BLOG]: Blog20,
   [CTA_TYPE.EMAIL]: Email20,

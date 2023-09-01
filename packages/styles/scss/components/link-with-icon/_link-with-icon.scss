@@ -87,6 +87,22 @@
     }
   }
 
+  :host(#{$dds-prefix}-card-cta-footer),
+  :host(#{$dds-prefix}-card-footer) {
+    .#{$prefix}--link-with-icon.#{$prefix}--link-with-icon--inline-icon {
+      display: flex;
+      width: 100%;
+      justify-content: flex-end;
+    }
+  }
+
+  :host(#{$dds-prefix}-card-cta-footer[cta-type='video']),
+  :host(#{$dds-prefix}-card-footer[cta-type='video']) {
+    .#{$prefix}--link-with-icon.#{$prefix}--link-with-icon--inline-icon {
+      justify-content: space-between;
+    }
+  }
+
   :host(#{$dds-prefix}-card-cta-footer)[mode='link-list'][cta-type='video'] {
     .#{$prefix}--link-with-icon.#{$prefix}--link-with-icon--inline-icon span {
       display: none;

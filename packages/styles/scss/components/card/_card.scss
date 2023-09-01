@@ -22,6 +22,16 @@
 @mixin card {
   .#{$prefix}--card,
   :host(#{$dds-prefix}-card),
+  :host(#{$dds-prefix}-card-cta),
+  :host(#{$dds-prefix}-card-group-item),
+  :host(#{$dds-prefix}-card-group-item) .#{$prefix}--card,
+  :host(#{$dds-prefix}-content-group-cards-item),
+  :host(#{$dds-prefix}-content-group-cards-item) .#{$prefix}--card {
+    @include tile($enable-experimental-tile-contrast: true);
+  }
+
+  .#{$prefix}--card,
+  :host(#{$dds-prefix}-card),
   :host(#{$dds-prefix}-link-list-item-card),
   :host(#{$dds-prefix}-card-group-item),
   :host(#{$dds-prefix}-card-group-item) .#{$prefix}--card,
@@ -175,7 +185,7 @@
     }
 
     .#{$prefix}--card__copy:not([hidden]) {
-      @include type-style('body-compact-02');
+      @include type-style('body-02');
 
       margin-bottom: $spacing-07;
     }
@@ -211,7 +221,7 @@
 
         svg,
         .#{$prefix}--card__cta__copy {
-          color: $link-primary-hover;
+          color: $text-primary;
         }
       }
 
@@ -350,7 +360,7 @@
     .#{$dds-prefix}-ce--card__footer
     ::slotted(svg[slot='icon']) {
     margin-left: 0;
-    color: $link-primary;
+    color: $icon-interactive;
   }
 
   :host(#{$dds-prefix}-card-footer[disabled])
@@ -419,8 +429,8 @@
     .#{$prefix}--card__cta__copy {
       max-width: calc(100% - 20px - #{$spacing-03});
       margin-right: $spacing-03;
-      color: $link-primary;
-      @include type-style('body-compact-02');
+      color: $text-primary;
+      @include type-style('body-02');
     }
 
     .#{$prefix}--card__footer__copy {
@@ -433,14 +443,6 @@
       display: block;
       min-width: 20px;
       margin-left: 0;
-    }
-  }
-
-  :host(#{$dds-prefix}-card-footer) a,
-  :host(#{$dds-prefix}-card-cta-footer) a,
-  :host(#{$dds-prefix}-card-in-card-footer) a {
-    @include breakpoint(md) {
-      padding-right: $spacing-07;
     }
   }
 
@@ -548,7 +550,7 @@
   }
 
   :host(#{$dds-prefix}-card-heading) {
-    @include type-style('fluid-heading-03', true);
+    @include type-style('heading-03', true);
   }
 
   :host(#{$dds-prefix}-card-link-heading) {

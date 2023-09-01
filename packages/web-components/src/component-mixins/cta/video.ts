@@ -11,7 +11,7 @@ import ArrowDown20 from '../../internal/vendor/@carbon/web-components/icons/arro
 import ArrowRight20 from '../../internal/vendor/@carbon/web-components/icons/arrow--right/20.js';
 import Download20 from '../../internal/vendor/@carbon/web-components/icons/download/20.js';
 import Launch20 from '../../internal/vendor/@carbon/web-components/icons/launch/20.js';
-import PlayOutline20 from '../../internal/vendor/@carbon/web-components/icons/play--outline/20.js';
+import PlayFilledAlt20 from '../../internal/vendor/@carbon/web-components/icons/play--filled--alt/20.js';
 import settings from '../../internal/vendor/@carbon/ibmdotcom-utilities/utilities/settings/settings';
 import { Constructor } from '../../globals/defs';
 import { CTA_TYPE } from '../../components/cta/defs';
@@ -27,7 +27,7 @@ export const icons = {
   [CTA_TYPE.DOWNLOAD]: Download20,
   [CTA_TYPE.EXTERNAL]: Launch20,
   [CTA_TYPE.JUMP]: ArrowDown20,
-  [CTA_TYPE.VIDEO]: PlayOutline20,
+  [CTA_TYPE.VIDEO]: PlayFilledAlt20,
 };
 
 /**

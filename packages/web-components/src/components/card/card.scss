@@ -15,13 +15,6 @@
 
 :host(#{$dds-prefix}-card-footer),
 :host(#{$dds-prefix}-card-cta-footer) {
-  align-self: flex-start;
-  max-width: 90%;
-
-  @include breakpoint(md) {
-    max-width: calc(100% - #{$spacing-07});
-  }
-
   .#{$dds-prefix}-ce--card__footer--static {
     color: $link-primary;
   }

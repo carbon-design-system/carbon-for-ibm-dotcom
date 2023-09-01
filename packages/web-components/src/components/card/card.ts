@@ -18,7 +18,6 @@ import StableSelectorMixin from '../../globals/mixins/stable-selector';
 import DDSCardFooter from './card-footer';
 import styles from './card.scss';
 import { PICTOGRAM_PLACEMENT } from './defs';
-// import PlayVideo from '@carbon/ibmdotcom-styles/icons/svg/play-video.svg';
 
 import { CTA_TYPE } from '../cta/defs';
 
@@ -111,8 +110,6 @@ class DDSCard extends CTAMixin(StableSelectorMixin(CDSLink)) {
       noPoster,
     } = this;
 
-    // TODO: SVGs aren't currently working in v2, add this within dds-image when fixed
-    // PlayVideo({ slot: 'icon' })
     const image =
       hasImage || ctaType !== CTA_TYPE.VIDEO || noPoster
         ? undefined
@@ -193,8 +190,8 @@ class DDSCard extends CTAMixin(StableSelectorMixin(CDSLink)) {
   /**
    * An optional 1px border surrounding the component.
    */
-  @property({ type: Boolean, reflect: true })
-  border = false;
+  // @property({ type: Boolean, reflect: true })
+  // border = false;
 
   /**
    * The color scheme.
@@ -329,7 +326,6 @@ class DDSCard extends CTAMixin(StableSelectorMixin(CDSLink)) {
       this.videoDuration ? null : (this.videoDuration = formattedVideoDuration);
 
       this.videoTitle = formatVideoCaption({
-        duration: formattedVideoDuration,
         name: videoName,
       });
 
