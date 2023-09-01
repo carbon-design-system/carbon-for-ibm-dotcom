@@ -8,11 +8,9 @@
  */
 
 import { html } from 'lit';
-import { property } from 'lit/decorators.js';
 import ArrowDown20 from '../../internal/vendor/@carbon/web-components/icons/arrow--down/20.js';
 import ArrowRight20 from '../../internal/vendor/@carbon/web-components/icons/arrow--right/20.js';
 import Download20 from '../../internal/vendor/@carbon/web-components/icons/download/20.js';
-import KalturaPlayerAPI from '../../internal/vendor/@carbon/ibmdotcom-services/services/KalturaPlayer/KalturaPlayer';
 import Launch20 from '../../internal/vendor/@carbon/web-components/icons/launch/20.js';
 import PlayOutline20 from '../../internal/vendor/@carbon/web-components/icons/play--outline/20.js';
 import Blog20 from '../../internal/vendor/@carbon/web-components/icons/blog/20.js';
@@ -25,10 +23,6 @@ import Chat20 from '../../internal/vendor/@carbon/web-components/icons/chat/20.j
 import settings from '../../internal/vendor/@carbon/ibmdotcom-utilities/utilities/settings/settings';
 import { Constructor } from '../../globals/defs';
 import { CTA_TYPE } from '../../components/cta/defs';
-import {
-  formatVideoCaption,
-  formatVideoDuration,
-} from '../../internal/vendor/@carbon/ibmdotcom-utilities/utilities/formatVideoCaption/formatVideoCaption.js';
 
 const { prefix, stablePrefix: ddsPrefix } = settings;
 
@@ -71,13 +65,13 @@ export const types = CTA_TYPE;
  * @returns A mix-in implementing the logic of handling link for CTA.
  */
 const CTAMixin = <T extends Constructor<HTMLElement>>(Base: T) => {
-  class CTAMixinImpl extends Base {
+  abstract class CTAMixinImpl extends Base {
     /**
      * The `<a>`.
      *
      * @internal
      */
-    _linkNode;
+    abstract _linkNode;
 
     /**
      * Handles `click` event on the `<a>.
@@ -85,28 +79,8 @@ const CTAMixin = <T extends Constructor<HTMLElement>>(Base: T) => {
      * @param event The event.
      */
     _handleClick(event: MouseEvent) {
-      const { ctaType, disabled, href, videoDescription, videoName } = this;
-
-      if (ctaType === CTA_TYPE.VIDEO) {
-        event.preventDefault(); // Stop following the link
-      }
-      if (!disabled) {
-        const { eventRunAction } = this.constructor as typeof CTAMixinImpl;
-
-        this.dispatchEvent(
-          new CustomEvent(eventRunAction, {
-            bubbles: true,
-            cancelable: true,
-            composed: true,
-            detail: {
-              href,
-              ctaType,
-              videoName,
-              videoDescription,
-            },
-          })
-        );
-      } else {
+      const { disabled } = this;
+      if (disabled) {
         event.preventDefault(); // Stop following the link
         event.stopPropagation(); // Stop firing `onClick`
       }
@@ -115,76 +89,27 @@ const CTAMixin = <T extends Constructor<HTMLElement>>(Base: T) => {
     /**
      * The CTA type.
      */
-    @property({ attribute: 'cta-type', type: String, reflect: true })
-    ctaType: CTA_TYPE = CTA_TYPE.REGULAR;
+    abstract ctaType: CTA_TYPE;
 
     /**
      * `true` if the button should be disabled.
      */
-    @property({ type: Boolean })
-    disabled?: boolean;
+    abstract disabled?: boolean;
 
     /**
      * The default file name.
      */
-    @property()
-    download?: string;
+    abstract download?: string;
 
     /**
      * Link `href`.
      */
-    @property()
-    href?: string;
+    abstract href?: string;
 
     /**
      * The link target.
      */
-    @property()
-    target?: string;
-
-    /**
-     * The formatter for the video caption, composed with the video name and the video duration.
-     * Should be changed upon the locale the UI is rendered with.
-     */
-    @property({ attribute: false })
-    formatVideoCaption = formatVideoCaption;
-
-    /**
-     * The formatter for the video duration.
-     * Should be changed upon the locale the UI is rendered with.
-     */
-    @property({ attribute: false })
-    formatVideoDuration = formatVideoDuration;
-
-    /**
-     * The video duration.
-     */
-    @property({ type: Number, attribute: 'video-duration', reflect: true })
-    videoDuration?: number;
-
-    /**
-     * The video name.
-     */
-    @property({ attribute: 'video-name', reflect: true })
-    videoName?: string;
-
-    /**
-     * The video description.
-     */
-    @property({ attribute: 'video-description', reflect: true })
-    videoDescription?: string;
-
-    /**
-     * The full formatted video title with duration
-     */
-    @property()
-    videoTitle;
-
-    /**
-     * The video thumbnail URL.
-     * Text CTA does not support video thumbnail, and this property should never be set.
-     */
-    videoThumbnailUrl?: never;
+    abstract target?: string;
 
     /**
      * @returns The template for the icon.
@@ -193,7 +118,7 @@ const CTAMixin = <T extends Constructor<HTMLElement>>(Base: T) => {
       const { ctaType } = this;
       return html`
         <slot name="icon">
-          <span class="${prefix}--visually-hidden">${ariaLabels[ctaType]}</span>
+          <span class="bx--visually-hidden">${ariaLabels[ctaType]}</span>
           ${icons[ctaType]?.({
             class: `${prefix}--card__cta ${ddsPrefix}-ce--cta__icon`,
           })}
@@ -208,14 +133,7 @@ const CTAMixin = <T extends Constructor<HTMLElement>>(Base: T) => {
       // Declaring this mixin as it extends `LitElement` seems to cause a TS error
       // @ts-ignore
       super.updated(changedProperties);
-      const {
-        ctaType,
-        _linkNode: linkNode,
-        videoName,
-        videoDescription,
-        href,
-        videoDuration,
-      } = this;
+      const { ctaType, _linkNode: linkNode } = this;
       if (
         changedProperties.has('ctaType') ||
         changedProperties.has('download')
@@ -281,71 +199,6 @@ const CTAMixin = <T extends Constructor<HTMLElement>>(Base: T) => {
           );
         }
       }
-
-      const { eventRequestVideoData } = this.constructor as typeof CTAMixinImpl;
-      if (changedProperties.has('ctaType') && ctaType === CTA_TYPE.VIDEO) {
-        if (typeof videoDuration === 'undefined') {
-          this.dispatchEvent(
-            new CustomEvent(eventRequestVideoData, {
-              bubbles: true,
-              cancelable: true,
-              composed: true,
-              detail: {
-                href,
-                videoName,
-                videoDescription,
-              },
-            })
-          );
-        }
-      }
-
-      if (
-        (changedProperties.has('videoName') &&
-          (videoName === null || videoName === 'null')) ||
-        changedProperties.has('videoDescription')
-      ) {
-        this.dispatchEvent(
-          new CustomEvent(eventRequestVideoData, {
-            bubbles: true,
-            cancelable: true,
-            composed: true,
-            detail: {
-              videoName,
-              videoDescription,
-              href,
-            },
-          })
-        );
-      }
-
-      if (ctaType === CTA_TYPE.VIDEO && this.offsetWidth > 0) {
-        this._updateVideoThumbnailUrl();
-      }
-    }
-
-    /**
-     * Updates video thumbnail url to match card width.
-     */
-    _updateVideoThumbnailUrl() {
-      this.videoThumbnailUrl = KalturaPlayerAPI.getThumbnailUrl({
-        mediaId: this.href,
-        width: String(this.offsetWidth),
-      });
-    }
-
-    /**
-     * The name of the custom event fired when there is a user gesture to run the action.
-     */
-    static get eventRequestVideoData() {
-      return `${ddsPrefix}-cta-request-video-data`;
-    }
-
-    /**
-     * The name of the custom event fired when there is a user gesture to run the action.
-     */
-    static get eventRunAction() {
-      return `${ddsPrefix}-cta-run-action`;
     }
   }
 

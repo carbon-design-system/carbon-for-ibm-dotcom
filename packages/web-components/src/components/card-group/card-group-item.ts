@@ -10,7 +10,7 @@
 import { property } from 'lit/decorators.js';
 import settings from '../../internal/vendor/@carbon/ibmdotcom-utilities/utilities/settings/settings';
 import { carbonElement as customElement } from '../../internal/vendor/@carbon/web-components/globals/decorators/carbon-element';
-import DDSCardCTA from '../cta/card-cta';
+import DDSCard from '../card/card';
 import styles from './card-group.scss';
 
 const { stablePrefix: ddsPrefix } = settings;
@@ -21,7 +21,7 @@ const { stablePrefix: ddsPrefix } = settings;
  * @element dds-card-group-item
  */
 @customElement(`${ddsPrefix}-card-group-item`)
-class DDSCardGroupItem extends DDSCardCTA {
+class DDSCardGroupItem extends DDSCard {
   /**
    * `true` if the card group is using border.
    */
@@ -38,11 +38,21 @@ class DDSCardGroupItem extends DDSCardCTA {
     return `${ddsPrefix}--card-group-item`;
   }
 
+  updated(changedProperties) {
+    super.updated(changedProperties);
+
+    if (changedProperties.has('ctaType')) {
+      this.shadowRoot
+        ?.querySelector('dds-image')
+        ?.setAttribute('card-group-item', '');
+    }
+  }
+
   /**
    * A selector that will return the child footer.
    */
   static get selectorFooter() {
-    return `${ddsPrefix}-card-cta-footer`;
+    return `${ddsPrefix}-card-footer`;
   }
 
   static styles = styles;

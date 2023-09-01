@@ -110,6 +110,12 @@ class DDSImage extends StableSelectorMixin(
   border = false;
 
   /**
+   * Whether or not it's a video thumbnail in a card group item.
+   */
+  @property({ type: Boolean, reflect: true, attribute: 'card-group-item' })
+  cardGroupItem = false;
+
+  /**
    * The lightbox contrast option.
    */
   @property({ attribute: 'lightbox-contrast' })

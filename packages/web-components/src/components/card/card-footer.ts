@@ -7,7 +7,7 @@
  * LICENSE file in the root directory of this source tree.
  */
 
-import { TemplateResult, html } from 'lit';
+import { html } from 'lit';
 import { property, query, state } from 'lit/decorators.js';
 import { carbonElement as customElement } from '../../internal/vendor/@carbon/web-components/globals/decorators/carbon-element.js';
 import settings from '../../internal/vendor/@carbon/ibmdotcom-utilities/utilities/settings/settings.js';
@@ -64,7 +64,7 @@ class DDSCardFooter extends DDSLinkWithIcon {
   /**
    * @returns The main content.
    */
-  protected _renderContent(): TemplateResult | string | void {
+  _renderContent() {
     const { _hasCopy: hasCopy } = this;
     return html`
       <span ?hidden="${!hasCopy}" class="${prefix}--card__cta__copy">
@@ -73,7 +73,7 @@ class DDSCardFooter extends DDSLinkWithIcon {
     `;
   }
 
-  protected _renderInner() {
+  _renderInner() {
     return this.iconPlacement === ICON_PLACEMENT.LEFT
       ? html` ${this._renderIcon()}${this._renderContent()} `
       : html` ${this._renderContent()}${this._renderIcon()} `;
@@ -110,8 +110,8 @@ class DDSCardFooter extends DDSLinkWithIcon {
   @property({ reflect: true })
   slot = 'footer';
 
-  updated() {
-    super.updated();
+  updated(changedProperties) {
+    super.updated(changedProperties);
 
     if (!this._hasCopy) {
       this.shadowRoot

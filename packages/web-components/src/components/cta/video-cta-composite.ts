@@ -21,7 +21,7 @@ import DDSLightboxVideoPlayerComposite from '../lightbox-media-viewer/lightbox-v
 // Above import is interface-only ref and thus code won't be brought into the build
 import '../lightbox-media-viewer/lightbox-video-player-composite';
 import { CTA_TYPE } from './defs';
-import { VideoCTAMixinImpl } from '../../component-mixins/cta/video';
+import { CTAMixinImpl } from '../../component-mixins/cta/cta';
 import styles from './video-cta-composite.scss';
 import { carbonElement as customElement } from '../../internal/vendor/@carbon/web-components/globals/decorators/carbon-element.js';
 
@@ -95,11 +95,10 @@ class DDSVideoCTAComposite extends ModalRenderMixin(
       const { duration, name } = videoData;
       const videoName = customVideoName || name;
 
-      if (event.target as VideoCTAMixinImpl) {
-        (event.target as VideoCTAMixinImpl).videoName =
-          videoName || customVideoName;
-        (event.target as VideoCTAMixinImpl).videoDescription = videoDescription;
-        (event.target as VideoCTAMixinImpl).videoDuration = duration;
+      if (event.target as CTAMixinImpl) {
+        (event.target as CTAMixinImpl).videoName = videoName || customVideoName;
+        (event.target as CTAMixinImpl).videoDescription = videoDescription;
+        (event.target as CTAMixinImpl).videoDuration = duration;
       }
 
       const videoInfo = new CustomEvent(

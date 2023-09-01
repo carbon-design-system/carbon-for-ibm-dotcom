@@ -194,6 +194,35 @@ import '@carbon/ibmdotcom-web-components/es/components/image/index.js';
 </dds-card>
 ```
 
+### CTA features
+
+The `cta-type` attribute allows every type of CTA and icon available in the Carbon for IBM.com library. 
+The default CTA style is `local`, which provides a basic link and arrow icon.
+
+In order to use the desired type, modify the `cta-type` attribute to one of the following:
+
+* local
+* jump
+* external
+* new tab
+* download
+* video
+* pdf
+* blog
+* email
+* schedule
+* chat
+* call
+
+Notes for `video`:
+* You need to pass the video ID as the `href` attribute.
+* The Card component will need to be wrapped within a `dds-video-cta-container` components for videos to play.
+* If left empty, the `dds-card-footer` can display the video duration. If not, it will be overridden with custom text.
+
+General note:
+* Custom icons can replace the built-in ones within `dds-card-footer`, they only need to be assigned to the `icon` slot.
+
+
 ## Props
 
 <Props of="dds-card" />

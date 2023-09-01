@@ -21,8 +21,8 @@ const { prefix, stablePrefix: ddsPrefix } = settings;
  */
 @customElement(`${ddsPrefix}-feature-card-footer`)
 class DDSFeatureCardFooter extends DDSCardFooter {
-  updated() {
-    super.updated();
+  updated(changedProperties) {
+    super.updated(changedProperties);
     const { _linkNode: linkNode } = this;
     if (linkNode) {
       linkNode.classList.remove(`${prefix}--link-with-icon`);
