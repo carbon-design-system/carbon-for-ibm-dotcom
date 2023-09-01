@@ -9,38 +9,33 @@
 
 import { number, select, text } from '@storybook/addon-knobs';
 import { html } from 'lit';
-import ArrowRight20 from '../../../internal/vendor/@carbon/web-components/icons/arrow--right/20.js';
-import ArrowDown20 from '../../../internal/vendor/@carbon/web-components/icons/arrow--down/20.js';
-import Pdf20 from '../../../internal/vendor/@carbon/web-components/icons/PDF/20.js';
 import readme from './README.stories.mdx';
 import '../index';
-import textNullable from '../../../../.storybook/knob-text-nullable';
+import { CTA_TYPE } from '../../cta/defs';
 
-const iconMap = {
-  ArrowRight20: ArrowRight20({ slot: 'icon' }),
-  ArrowDown20: ArrowDown20({ slot: 'icon' }),
-  Pdf20: Pdf20({ slot: 'icon' }),
-};
-
-const iconOptions = {
-  Default: null,
-  'Arrow Right': 'ArrowRight20',
-  'Arrow Down': 'ArrowDown20',
-  PDF: 'Pdf20',
-};
+import {
+  hrefsForType,
+  typeOptions,
+  types,
+} from '../../cta/__stories__/ctaTypeConfig';
 
 export const Default = (args) => {
   const { buttons } = args?.ButtonGroup ?? {};
   return html`
-    <dds-button-group>
-      ${buttons.map(
-        (elem) => html`
-          <dds-button-group-item href="${elem.href}"
-            >${elem.copy}${elem.renderIcon}</dds-button-group-item
-          >
-        `
-      )}
-    </dds-button-group>
+    <dds-video-cta-container>
+      <dds-button-group>
+        ${buttons.map(
+          (elem) => html`
+            <dds-button-group-item
+              href="${hrefsForType[elem.ctaType]}"
+              cta-type="${elem.ctaType}"
+              download="IBM_Annual_Report_2019.pdf"
+              >${elem.copy}</dds-button-group-item
+            >
+          `
+        )}
+      </dds-button-group>
+    </dds-video-cta-container>
   `;
 };
 
@@ -65,12 +60,12 @@ export default {
         buttons: Array.from({
           length: number('Number of buttons', 2, {}),
         }).map((_, i) => ({
-          href: textNullable(`Link ${i + 1}`, `https://example.com`),
           copy: text(`Button ${i + 1}`, `Button ${i + 1}`),
-          renderIcon:
-            iconMap[
-              select(`Icon ${i + 1}`, iconOptions, iconOptions.Default) ?? 0
-            ],
+          ctaType: select(
+            `CTA type (cta-type) ${i + 1}`,
+            typeOptions,
+            types[CTA_TYPE.LOCAL]
+          ),
         })),
       }),
     },
@@ -79,11 +74,11 @@ export default {
         ButtonGroup: {
           buttons: [
             {
-              href: 'https://example.com',
+              ctaType: CTA_TYPE.LOCAL,
               copy: 'Lorem Ipsum',
             },
             {
-              href: 'https://example.com',
+              ctaType: CTA_TYPE.LOCAL,
               copy: 'Lorem Ipsum',
             },
           ],

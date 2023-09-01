@@ -9,7 +9,7 @@
 import { carbonElement as customElement } from '../../internal/vendor/@carbon/web-components/globals/decorators/carbon-element';
 import settings from '@carbon/ibmdotcom-utilities/es/utilities/settings/settings.js';
 import styles from './button-group.scss';
-import DDSButtonExpressive from '../button/button';
+import DDSButton from '../button/button';
 
 const { stablePrefix: ddsPrefix } = settings;
 
@@ -19,7 +19,7 @@ const { stablePrefix: ddsPrefix } = settings;
  * @element dds-button-group-item
  */
 @customElement(`${ddsPrefix}-button-group-item`)
-class DDSButtonGroupItem extends DDSButtonExpressive {
+class DDSButtonGroupItem extends DDSButton {
   static get stableSelector() {
     return `${ddsPrefix}--button-group-item`;
   }

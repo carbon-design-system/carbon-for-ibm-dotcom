@@ -9,41 +9,35 @@
 
 import { number, select, text } from '@storybook/addon-knobs';
 import React from 'react';
-import ArrowRight20 from '@carbon/icons-react/es/arrow--right/20.js';
-import ArrowDown20 from '@carbon/icons-react/es/arrow--down/20.js';
-import Pdf20 from '@carbon/icons-react/es/PDF/20.js';
+
 // Below path will be there when an application installs `@carbon/ibmdotcom-web-components` package.
 // In our dev env, we auto-generate the file and re-map below path to to point to the generated file.
 // @ts-ignore
 import DDSButtonGroup from '@carbon/ibmdotcom-web-components/es/components-react/button-group/button-group';
 import DDSButtonGroupItem from '@carbon/ibmdotcom-web-components/es/components-react/button-group/button-group-item';
+import DDSVideoCTAContainer from '@carbon/ibmdotcom-web-components/es/components-react/cta/video-cta-container';
 import readme from './README.stories.react.mdx';
-import textNullable from '../../../../.storybook/knob-text-nullable';
+import { CTA_TYPE } from '../../cta/defs';
 
-const iconMap = {
-  ArrowRight20: <ArrowRight20 slot="icon" />,
-  ArrowDown20: <ArrowDown20 slot="icon" />,
-  Pdf20: <Pdf20 slot="icon" />,
-};
-
-const iconOptions = {
-  Default: null,
-  'Arrow Right': 'ArrowRight20',
-  'Arrow Down': 'ArrowDown20',
-  PDF: 'Pdf20',
-};
+import {
+  hrefsForType,
+  typeOptions,
+  types,
+} from '../../cta/__stories__/ctaTypeConfig';
 
 export const Default = args => {
   const { buttons } = args?.ButtonGroup ?? {};
 
   return (
+    <DDSVideoCTAContainer>
     <DDSButtonGroup>
       {buttons.map(elem => (
-        <DDSButtonGroupItem href={elem.href}>
-          {elem.renderIcon} {elem.copy}
+        <DDSButtonGroupItem href={hrefsForType[elem.ctaType]} cta-type={elem.ctaType}>
+          {elem.copy}
         </DDSButtonGroupItem>
       ))}
     </DDSButtonGroup>
+    </DDSVideoCTAContainer>
   );
 };
 
@@ -54,27 +48,14 @@ Default.story = {
         buttons: Array.from({
           length: number('Number of buttons', 2, {}),
         }).map((_, i) => ({
-          href: textNullable(`Link ${i + 1}`, `https://example.com`),
           copy: text(`Button ${i + 1}`, `Button ${i + 1}`),
-          renderIcon: iconMap[select(`Icon ${i + 1}`, iconOptions, iconOptions.Default) ?? 0],
+          ctaType: select(
+            `CTA type (cta-type) ${i + 1}`,
+            typeOptions,
+            types[CTA_TYPE.LOCAL]
+          ),
         })),
       }),
-    },
-    propsSet: {
-      default: {
-        ButtonGroup: {
-          buttons: [
-            {
-              href: 'https://example.com',
-              copy: 'Lorem Ipsum',
-            },
-            {
-              href: 'https://example.com',
-              copy: 'Lorem Ipsum',
-            },
-          ],
-        },
-      },
     },
   },
 };

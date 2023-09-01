@@ -1,16 +1,23 @@
 /**
  * @license
  *
- * Copyright IBM Corp. 2020, 2023
+ * Copyright IBM Corp. 2020, 2022
  *
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
  */
 
-import { html } from 'lit';
 import { boolean, select } from '@storybook/addon-knobs';
 import textNullable from '../../../../.storybook/knob-text-nullable';
-import readme from './README.stories.mdx';
+import React from 'react';
+
+// Below path will be there when an application installs `@carbon/ibmdotcom-web-components` package.
+// In our dev env, we auto-generate the file and re-map below path to to point to the generated file.
+// @ts-ignore
+import DDSButtonGroup from '@carbon/ibmdotcom-web-components/es/components-react/button-group/button-group';
+import DDSButton from '@carbon/ibmdotcom-web-components/es/components-react/button/button';
+import DDSVideoCTAContainer from '@carbon/ibmdotcom-web-components/es/components-react/cta/video-cta-container';
+import readme from './README.stories.react.mdx';
 import { CTA_TYPE } from '../../cta/defs';
 
 import {
@@ -20,7 +27,7 @@ import {
   types,
 } from '../../cta/__stories__/ctaTypeConfig';
 
-export const Default = (args) => {
+export const Default = args => {
   const { copy, customVideoTitle, ctaType, disabled, download, href } =
     args?.Button ?? {};
 
@@ -39,25 +46,17 @@ export const Default = (args) => {
     }
   }
 
-  return html`
-    <dds-video-cta-container>
-      <dds-button
-        ?disabled="${disabled}"
-        href="${href}"
-        download=${download}
-        cta-type="${ctaType}">
-        ${videoCopy ?? copy}
-      </dds-button>
-    </dds-video-cta-container>
-  `;
+  return (
+    <DDSVideoCTAContainer>
+      <DDSButton disabled={disabled || undefined} href={href} download={download} cta-type={ctaType}>
+        {videoCopy ?? copy}
+      </DDSButton>
+    </DDSVideoCTAContainer>
+  );
 };
 
-export default {
-  title: 'Components/Button',
-  decorators: [(story) => html` <div class="cds--grid">${story()}</div> `],
+Default.story = {
   parameters: {
-    ...readme.parameters,
-    hasStoryPadding: true,
     knobs: {
       Button: () => {
         const ctaType = select(
@@ -92,14 +91,24 @@ export default {
         };
       },
     },
-    propsSet: {
-      default: {
-        Button: {
-          copy: 'Button text',
-          disabled: false,
-          href: 'https://github.com/carbon-design-system/carbon-web-components',
-        },
-      },
+  },
+};
+
+export default {
+  title: 'Components/Button',
+  decorators: [
+    story => {
+      return (
+        <div className="cds--grid">
+          <div className="cds--row">
+            <div className="cds--col-sm-16 cds--col-md-6 cds--col-lg-16">{story()}</div>
+          </div>
+        </div>
+      );
     },
+  ],
+  parameters: {
+    ...readme.parameters,
+    hasStoryPadding: true,
   },
 };

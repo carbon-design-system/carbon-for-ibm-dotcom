@@ -11,17 +11,14 @@ import React from 'react';
 import { render } from 'react-dom';
 import DDSButtonGroup from '@carbon/ibmdotcom-web-components/es/components-react/button-group/button-group';
 import DDSButtonGroupItem from '@carbon/ibmdotcom-web-components/es/components-react/button-group/button-group-item';
-import ArrowRight20 from '@carbon/icons-react/es/arrow--right/20.js';
 import './index.css';
 
 const App = () => (
   <DDSButtonGroup>
-    <DDSButtonGroupItem href="https://www.example.com">
-      <ArrowRight20 slot="icon" />
+    <DDSButtonGroupItem href="https://www.example.com" cta-type="local">
       Button 1
     </DDSButtonGroupItem>
-    <DDSButtonGroupItem href="https://www.example.com">
-      <ArrowRight20 slot="icon" />
+    <DDSButtonGroupItem href="https://www.example.com" cta-type="local">
       Button 2
     </DDSButtonGroupItem>
   </DDSButtonGroup>

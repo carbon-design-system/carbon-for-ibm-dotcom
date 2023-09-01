@@ -1,0 +1,67 @@
+import { Preview, Props, Description, Story } from '@storybook/addon-docs/blocks';
+import contributing from '../../../../../../docs/contributing-license.md';
+import { PropTypesRef } from '@carbon/ibmdotcom-web-components/es/components-react/button/button';
+
+# Button
+
+> 💡 Check our
+> [CodeSandbox](https://githubbox.com/carbon-design-system/carbon-for-ibm-dotcom/tree/main/packages/web-components/examples/codesandbox/components-react/button)
+> example implementation.
+
+[![Edit @carbon/ibmdotcom-web-components](https://codesandbox.io/static/img/play-codesandbox.svg)](https://githubbox.com/carbon-design-system/carbon-for-ibm-dotcom/tree/main/packages/web-components/examples/codesandbox/components-react/button)
+
+## Getting started
+
+Here's a quick example to get you started.
+
+### JS
+
+```javascript
+import DDSButton from '@carbon/ibmdotcom-web-components/es/components-react/button/index.js';
+
+function App() {
+  return (
+    <DDSButton href="https://example.com">Example</DDSButton>
+  );
+}
+```
+
+### CTA features
+
+The `cta-type` attribute allows every type of CTA and icon available in the Carbon for IBM.com library. 
+The default CTA style is `local`, which provides a basic link and arrow icon.
+
+In order to use the desired type, modify the `cta-type` attribute to one of the following:
+
+* local
+* jump
+* external
+* new tab
+* download
+* video
+* pdf
+* blog
+* email
+* schedule
+* chat
+* call
+
+Notes: 
+* When using `video`, you need to pass the video ID as the `href` attribute.
+* The Button component will need to be wrapped within a `DDSVideoCTAContainer` components for videos to play.
+* Custom icons can replace the built-in ones within `DDSCardFooter`, they only need to be assigned to the `icon` slot.
+
+
+## Props
+
+<Props of={PropTypesRef} />
+
+## Stable selectors
+
+See [our README](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/tree/main/packages/web-components#stable-selectors-for-analytics-and-integratione2e-testing-in-web-components) to see how Web Components selector and `data-autoid` should be used.
+
+| Web Components selector   | Compatibility selector                 | Description |
+| ------------------------- | -------------------------------------- | ----------- |
+| `<dds-button>`      | `data-autoid="dds--button"`      | Component   |
+
+<Description markdown={contributing} />

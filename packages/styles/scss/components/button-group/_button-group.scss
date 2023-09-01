@@ -7,17 +7,22 @@
 
 @use '@carbon/styles/scss/breakpoint' as *;
 @use '@carbon/styles/scss/colors' as *;
-@use '@carbon/styles/scss/components/button' as *;
 @use '@carbon/styles/scss/config' as *;
 @use '@carbon/styles/scss/motion' as *;
 @use '@carbon/styles/scss/spacing' as *;
+
 @use '../../globals/vars' as *;
 @use '../lightbox-media-viewer';
+@use '../button';
 
 @mixin button-group {
-  @include button;
+  :host(#{$dds-prefix}-button-group-item),
+  :host(#{$dds-prefix}-button-cta) {
+    @extend :host(#{$dds-prefix}-button);
 
-  .#{$prefix}--button-group,
+    outline: none;
+  }
+
   :host(#{$dds-prefix}-button-group),
   :host(#{$dds-prefix}-leadspace-block-cta) {
     --#{$dds-prefix}--button-group--item-count: 3;
@@ -40,7 +45,6 @@
     }
   }
 
-  .#{$prefix}--button-group-item,
   :host(#{$dds-prefix}-button-group-item),
   :host(#{$dds-prefix}-button-cta) {
     max-width: 100%;
@@ -53,10 +57,7 @@
     }
 
     .#{$prefix}--btn {
-      font-size: $spacing-05;
-      position: relative;
       width: 100%;
-      height: 100%;
       word-break: break-word;
       transition: all $duration-fast-01 motion(entrance, productive), width 0s,
         height 0s;
@@ -102,24 +103,9 @@
 
   :host(#{$dds-prefix}-button-group-item) {
     ::slotted([slot='icon']) {
-      position: absolute;
-      right: $spacing-05;
-      top: 50%;
-      transform: translateY(-50%);
-      flex-shrink: 0;
-
       @media print {
         fill: $gray-100;
       }
-    }
-  }
-
-  .#{$prefix}--button-group-item--pseudo {
-    position: absolute;
-    clip: rect(0, 0, 0, 0);
-
-    .#{$prefix}--btn {
-      width: auto;
     }
   }
 }

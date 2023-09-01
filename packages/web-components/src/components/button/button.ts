@@ -9,7 +9,6 @@
 
 import { LitElement, html } from 'lit';
 import { property, query } from 'lit/decorators.js';
-import { BUTTON_KIND, BUTTON_SIZE } from './defs';
 import settings from '../../internal/vendor/@carbon/ibmdotcom-utilities/utilities/settings/settings';
 import styles from './button.scss';
 import StableSelectorMixin from '../../globals/mixins/stable-selector';
@@ -17,16 +16,14 @@ import { carbonElement as customElement } from '../../internal/vendor/@carbon/we
 import CTAMixin from '../../component-mixins/cta/cta';
 import CDSButton from '../../internal/vendor/@carbon/web-components/components/button/button.js';
 
-export { BUTTON_KIND, BUTTON_SIZE };
-
 import { ariaLabels, icons } from '../../component-mixins/cta/cta';
 const { prefix, stablePrefix: ddsPrefix } = settings;
 
 /**
- * Expressive button.
+ * Button.
  *
- * @element dds-button-expressive
- * @csspart button The button.
+ * @element dds-button
+ * @csspart button.
  */
 @customElement(`${ddsPrefix}-button`)
 // @ts-ignore
@@ -39,6 +36,12 @@ class DDSButton extends CTAMixin(StableSelectorMixin(CDSButton)) {
 
   @property()
   span;
+
+  /**
+   * `true` if expressive theme enabled.
+   */
+  @property({ type: Boolean, reflect: true })
+  isExpressive = true;
 
   _handleDisabledClick(event: Event) {
     super._handleClick(event as any);
