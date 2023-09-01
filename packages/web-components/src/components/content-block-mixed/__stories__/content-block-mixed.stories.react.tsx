@@ -107,7 +107,7 @@ export const Default = (args) => {
     cardsGroupHeading,
     ctaType,
   } = args?.ContentBlockMixed ?? {};
-  const headingComponent = document.querySelector('dds-content-block-heading');
+  const headingComponent = document.querySelector('cds-content-block-heading');
 
   if (headingComponent) {
     headingComponent.shadowRoot!.textContent = heading;
@@ -187,7 +187,7 @@ export const withLinkList = (args) => {
     ctaType,
     linkListHeading,
   } = args?.ContentBlockMixed ?? {};
-  const headingComponent = document.querySelector('dds-content-block-heading');
+  const headingComponent = document.querySelector('cds-content-block-heading');
 
   if (headingComponent) {
     headingComponent.shadowRoot!.textContent = heading;

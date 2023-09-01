@@ -24,7 +24,7 @@ const App = () => (
       preserveAspectRatio="xMidYMid meet"
       xmlns="http://www.w3.org/2000/svg"
       stroke="currentColor"
-      data-autoid="dds--pictogram-item__pictogram"
+      data-autoid="cds--pictogram-item__pictogram"
       aria-label="Pictogram description"
       width="64"
       height="64"

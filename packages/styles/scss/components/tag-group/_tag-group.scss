@@ -10,12 +10,12 @@
 @use '../../globals/vars' as *;
 
 @mixin tag-group {
-  :host(#{$dds-prefix}-tag-group) {
+  :host(#{$cds-prefix}-tag-group) {
     display: flex;
     flex-flow: row wrap;
     gap: $spacing-03;
 
-    ::slotted(#{$dds-prefix}-tag-link) {
+    ::slotted(#{$cds-prefix}-tag-link) {
       display: flex;
     }
 

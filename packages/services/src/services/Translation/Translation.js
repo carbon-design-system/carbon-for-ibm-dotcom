@@ -13,8 +13,10 @@ import root from 'window-or-global';
  * @constant {string | string} Host for the Translation API call
  * @private
  */
-const _host = process && process.env.TRANSLATION_HOST;
-('https://1.www.s81c.com');
+const _host =
+  (process &&
+    (process.env.REACT_APP_TRANSLATION_HOST || process.env.TRANSLATION_HOST)) ||
+  'https://1.www.s81c.com';
 
 /**
  * Translation API default endpoint
@@ -31,8 +33,11 @@ const _c4dEndpointDefault =
  * @type {string}
  * @private
  */
-const _c4dEndpoint = process && process.env.C4D_TRANSLATION_ENDPOINT;
-_c4dEndpointDefault;
+const _c4dEndpoint =
+  (process &&
+    (process.env.REACT_APP_DDS_TRANSLATION_ENDPOINT ||
+      process.env.DDS_TRANSLATION_ENDPOINT)) ||
+  _c4dEndpointDefault;
 
 /**
  * Session Storage key for translation data

@@ -79,12 +79,12 @@ export default {
       Modal: () => ({
         open: boolean('Open (open)', true),
         disableClose: boolean(
-          'Disable user-initiated close action (Call event.preventDefault() in dds-expressive-modal-beingclosed event)',
+          'Disable user-initiated close action (Call event.preventDefault() in cds-expressive-modal-beingclosed event)',
           false
         ),
         size: select('Modal size (size)', sizes, null),
-        onBeforeClose: action('dds-expressive-modal-beingclosed'),
-        onClose: action('dds-expressive-modal-closed'),
+        onBeforeClose: action('cds-expressive-modal-beingclosed'),
+        onClose: action('cds-expressive-modal-closed'),
       }),
       Other: () => ({
         buttonContent: textNullable('Button content', 'Lorem ipsum dolor'),
@@ -96,8 +96,8 @@ export default {
           open: true,
           disableClose: false,
           size: null,
-          onBeforeClose: 'dds-expressive-modal-beingclosed',
-          onClose: 'dds-expressive-modal-closed',
+          onBeforeClose: 'cds-expressive-modal-beingclosed',
+          onClose: 'cds-expressive-modal-closed',
         },
         Other: {
           buttonContent: 'Lorem ipsum dolor',

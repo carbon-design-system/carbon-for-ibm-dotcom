@@ -36,7 +36,7 @@ const video = (
 
 export const Default = (args) => {
   const { copy, heading, mediaType } = args?.CalloutWithMedia ?? {};
-  const headingComponent = document.querySelector('dds-content-block-heading');
+  const headingComponent = document.querySelector('cds-content-block-heading');
 
   if (headingComponent) {
     headingComponent.shadowRoot!.textContent = heading;

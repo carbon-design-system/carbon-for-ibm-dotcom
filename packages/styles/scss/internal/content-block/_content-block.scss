@@ -16,16 +16,16 @@
 @use '../../globals/utils/hang' as *;
 
 @mixin content-block {
-  :host(#{$dds-prefix}-content-block),
-  :host(#{$dds-prefix}-content-block-simple),
-  :host(#{$dds-prefix}-content-block-media),
-  :host(#{$dds-prefix}-content-block-mixed),
-  :host(#{$dds-prefix}-content-block-horizontal),
-  :host(#{$dds-prefix}-content-group-horizontal),
-  :host(#{$dds-prefix}-leadspace-block-content),
-  :host(#{$dds-prefix}-leadspace-with-search-content),
-  :host(#{$dds-prefix}-content-block-segmented),
-  :host(#{$dds-prefix}-content-block-headlines),
+  :host(#{$cds-prefix}-content-block),
+  :host(#{$cds-prefix}-content-block-simple),
+  :host(#{$cds-prefix}-content-block-media),
+  :host(#{$cds-prefix}-content-block-mixed),
+  :host(#{$cds-prefix}-content-block-horizontal),
+  :host(#{$cds-prefix}-content-group-horizontal),
+  :host(#{$cds-prefix}-leadspace-block-content),
+  :host(#{$cds-prefix}-leadspace-with-search-content),
+  :host(#{$cds-prefix}-content-block-segmented),
+  :host(#{$cds-prefix}-content-block-headlines),
   .#{$prefix}--content-block {
     display: block;
     padding-top: $spacing-07;
@@ -86,10 +86,10 @@
     }
 
     // Cards and link lists are the exceptions of above
-    // TODO: Remove negative margin adjustment from `<dds-link-list-item*>` and add `<dds-link-list>` here
-    ::slotted(#{$dds-prefix}-card[slot]),
-    ::slotted(#{$dds-prefix}-card-cta[slot]),
-    ::slotted(#{$dds-prefix}-card-link-cta[slot]) {
+    // TODO: Remove negative margin adjustment from `<cds-link-list-item*>` and add `<cds-link-list>` here
+    ::slotted(#{$cds-prefix}-card[slot]),
+    ::slotted(#{$cds-prefix}-card-cta[slot]),
+    ::slotted(#{$cds-prefix}-card-link-cta[slot]) {
       margin-left: 0;
       margin-right: 0;
     }
@@ -123,7 +123,7 @@
       margin-top: $spacing-07;
     }
 
-    ::slotted(#{$dds-prefix}-video-player-container) {
+    ::slotted(#{$cds-prefix}-video-player-container) {
       // Ensures the margin gets effective
       display: block;
     }
@@ -162,8 +162,8 @@
     }
   }
 
-  :host(#{$dds-prefix}-content-block-horizontal) #{$dds-prefix}-hr,
-  :host(#{$dds-prefix}-content-group-horizontal) #{$dds-prefix}-hr {
+  :host(#{$cds-prefix}-content-block-horizontal) #{$cds-prefix}-hr,
+  :host(#{$cds-prefix}-content-group-horizontal) #{$cds-prefix}-hr {
     margin: 0;
     margin-top: $layout-03;
 
@@ -190,15 +190,15 @@
     }
   }
 
-  :host(#{$dds-prefix}-content-block-heading),
-  :host(#{$dds-prefix}-content-block-copy),
-  :host(#{$dds-prefix}-callout-with-media-copy),
+  :host(#{$cds-prefix}-content-block-heading),
+  :host(#{$cds-prefix}-content-block-copy),
+  :host(#{$cds-prefix}-callout-with-media-copy),
   .#{$prefix}--content-block__heading,
   .#{$prefix}--content-block__copy {
     @include content-width;
   }
 
-  :host(#{$dds-prefix}-content-block-heading),
+  :host(#{$cds-prefix}-content-block-heading),
   .#{$prefix}--content-block__heading {
     @include type-style('fluid-heading-05', true);
 
@@ -206,7 +206,7 @@
     margin-bottom: $spacing-07;
   }
 
-  :host(#{$dds-prefix}-content-block-paragraph),
+  :host(#{$cds-prefix}-content-block-paragraph),
   .#{$prefix}--content-block__copy p {
     @include type-style('fluid-heading-03', true);
 

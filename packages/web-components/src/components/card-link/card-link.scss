@@ -14,10 +14,10 @@
 @use '@carbon/ibmdotcom-styles/scss/components/card';
 @use '@carbon/ibmdotcom-styles/scss/components/card-link';
 
-:host(#{$dds-prefix}-card-link),
-:host(#{$dds-prefix}-card-link-cta),
-:host(#{$dds-prefix}-link-list-item-card),
-:host(#{$dds-prefix}-link-list-item-card-cta) {
+:host(#{$cds-prefix}-card-link),
+:host(#{$cds-prefix}-card-link-cta),
+:host(#{$cds-prefix}-link-list-item-card),
+:host(#{$cds-prefix}-link-list-item-card-cta) {
   max-width: rem(364px);
 
   .#{$prefix}--card__wrapper {
@@ -27,11 +27,11 @@
   }
 }
 
-:host(#{$dds-prefix}-card-link-cta) {
+:host(#{$cds-prefix}-card-link-cta) {
   display: flex;
 }
 
-:host(#{$dds-prefix}-feature-section-card-link) {
+:host(#{$cds-prefix}-feature-section-card-link) {
   .#{$prefix}--card {
     max-width: inherit;
   }
@@ -43,9 +43,9 @@
   }
 }
 
-:host(#{$dds-prefix}-link-list-item-card),
-:host(#{$dds-prefix}-link-list-item-card-cta) {
-  ::slotted(#{$dds-prefix}-card-footer) {
+:host(#{$cds-prefix}-link-list-item-card),
+:host(#{$cds-prefix}-link-list-item-card-cta) {
+  ::slotted(#{$cds-prefix}-card-footer) {
     margin-block: $spacing-01;
     margin-inline-start: $spacing-07;
     @include breakpoint(lg) {

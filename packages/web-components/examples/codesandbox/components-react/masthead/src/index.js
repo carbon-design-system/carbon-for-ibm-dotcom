@@ -15,7 +15,7 @@ import './index.css';
 const App = () => (
   <>
     <C4DMastheadContainer id="masthead-container"></C4DMastheadContainer>
-    <main className="bx--content dds-ce-demo--ui-shell-content">
+    <main className="bx--content cds-ce-demo--ui-shell-content">
       <div className="bx--grid">
         <div className="bx--row">
           <div className="bx--offset-lg-3 bx--col-lg-13">

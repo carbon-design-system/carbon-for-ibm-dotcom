@@ -12,17 +12,17 @@
 @use '../card-link/card-link';
 @use '@carbon/ibmdotcom-styles/scss/globals/vars' as *;
 
-.#{$dds-prefix}-ce--cta__icon {
+.#{$cds-prefix}-ce--cta__icon {
   flex-shrink: 0;
 }
 
-:host(#{$dds-prefix}-button-cta) .#{$dds-prefix}-ce--cta__icon {
+:host(#{$cds-prefix}-button-cta) .#{$cds-prefix}-ce--cta__icon {
   position: absolute;
   right: $spacing-05;
   top: 50%;
   transform: translateY(-50%);
 }
 
-:host(#{$dds-prefix}-cta) {
+:host(#{$cds-prefix}-cta) {
   display: block;
 }

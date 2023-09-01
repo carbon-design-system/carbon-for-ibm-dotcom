@@ -238,10 +238,10 @@ function App() {
 }
 ```
 
-### `dds-cta-run-action` customization
+### `cds-cta-run-action` customization
 
 For more flexible solution that is better tailored to your application's needs,
-CTA components fire `dds-cta-run-action` custom event when user clicks on a CTA
+CTA components fire `cds-cta-run-action` custom event when user clicks on a CTA
 with `type="video"`. Application code can take care of creating/putting our
 video player component and working with our video player service API to put the
 video data into the video player component:
@@ -254,16 +254,16 @@ import '@carbon/ibmdotcom-web-components/es/components/lightbox-media-viewer/lig
 
 ...
 
-document.addEventListener('dds-cta-run-action', async event => {
+document.addEventListener('cds-cta-run-action', async event => {
   const videoId = event.detail.href;
   const lightboxId = `lightbox-${videoId}`;
   let lightboxElem = document.getElementById(lightboxId);
   if (!lightboxElem) {
-    lightboxElem = document.createElement('dds-expressive-modal');
+    lightboxElem = document.createElement('cds-expressive-modal');
     lightboxElem.size = 'full-width';
     lightboxElem.innerHTML = `
-      <dds-expressive-modal-close-button></dds-expressive-modal-close-button>
-      <dds-lightbox-video-player id="lightbox-video-player-${videoId}"></dds-lightbox-video-player>
+      <cds-expressive-modal-close-button></cds-expressive-modal-close-button>
+      <cds-lightbox-video-player id="lightbox-video-player-${videoId}"></cds-lightbox-video-player>
     `;
     document.body.appendChild(lightboxElem);
     const videoTarget = document.createElement('div');
@@ -292,17 +292,17 @@ to see how Web Components selector and `data-autoid` should be used.
 
 | Web Components selector         | Compatibility selector | Description |
 | ------------------------------- | ---------------------- | ----------- |
-| `<dds-button-cta>`              | N/A                    | Component   |
-| `<dds-card-cta>`                | N/A                    | Component   |
-| `<dds-card-cta-footer>`         | N/A                    | Component   |
-| `<dds-card-cta-image>`          | N/A                    | Component   |
-| `<dds-card-link-cta>`           | N/A                    | Component   |
-| `<dds-feature-cta>`             | N/A                    | Component   |
-| `<dds-feature-cta-footer>`      | N/A                    | Component   |
-| `<dds-link-list-item-card-cta>` | N/A                    | Component   |
-| `<dds-link-list-item-cta>`      | N/A                    | Component   |
-| `<dds-text-cta>`                | N/A                    | Component   |
-| `<dds-video-cta-composite>`     | N/A                    | Component   |
-| `<dds-video-cta-container>`     | N/A                    | Component   |
+| `<cds-button-cta>`              | N/A                    | Component   |
+| `<cds-card-cta>`                | N/A                    | Component   |
+| `<cds-card-cta-footer>`         | N/A                    | Component   |
+| `<cds-card-cta-image>`          | N/A                    | Component   |
+| `<cds-card-link-cta>`           | N/A                    | Component   |
+| `<cds-feature-cta>`             | N/A                    | Component   |
+| `<cds-feature-cta-footer>`      | N/A                    | Component   |
+| `<cds-link-list-item-card-cta>` | N/A                    | Component   |
+| `<cds-link-list-item-cta>`      | N/A                    | Component   |
+| `<cds-text-cta>`                | N/A                    | Component   |
+| `<cds-video-cta-composite>`     | N/A                    | Component   |
+| `<cds-video-cta-container>`     | N/A                    | Component   |
 
 <Description markdown={contributing} />

@@ -21,7 +21,7 @@
 
 @mixin logo-grid {
   .#{$prefix}--logo-grid,
-  :host(#{$dds-prefix}-logo-grid) {
+  :host(#{$cds-prefix}-logo-grid) {
     .#{$prefix}--content-block {
       padding-top: 0;
       padding-bottom: 0;
@@ -82,7 +82,7 @@
     }
   }
 
-  :host(#{$dds-prefix}-logo-grid) {
+  :host(#{$cds-prefix}-logo-grid) {
     .#{$prefix}--content-block__cta-row[hidden] {
       display: none;
     }
@@ -124,7 +124,7 @@
   }
 
   .#{$prefix}--logo-grid__col,
-  :host(#{$dds-prefix}-logo-grid-item) {
+  :host(#{$cds-prefix}-logo-grid-item) {
     /* stylelint-disable */
     aspect-ratio: var(--logo-ratio, '16/9');
     /* stylelint-enable */
@@ -136,7 +136,7 @@
     }
   }
 
-  :host(#{$dds-prefix}-logo-grid-item) {
+  :host(#{$cds-prefix}-logo-grid-item) {
     display: flex;
     align-items: stretch;
     justify-content: center;
@@ -173,7 +173,7 @@
     }
   }
 
-  :host(#{$dds-prefix}-logo-grid-link) ::slotted(svg) {
+  :host(#{$cds-prefix}-logo-grid-link) ::slotted(svg) {
     margin-top: auto;
     fill: $link-primary;
   }
@@ -186,7 +186,7 @@
       'footer' auto / 1fr;
   }
 
-  dds-hr,
+  cds-hr,
   .#{$prefix}--hr {
     @include hang;
   }

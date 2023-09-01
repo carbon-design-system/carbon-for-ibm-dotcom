@@ -22,7 +22,7 @@
 }
 
 @mixin content-group-cards {
-  :host(#{$dds-prefix}-content-group-cards),
+  :host(#{$cds-prefix}-content-group-cards),
   .#{$prefix}--content-group-cards {
     ::slotted([slot='copy']),
     .#{$prefix}--content-group__copy {
@@ -48,7 +48,7 @@
     }
   }
 
-  :host(#{$dds-prefix}-content-group-cards-item),
+  :host(#{$cds-prefix}-content-group-cards-item),
   .#{$prefix}--content-group-cards-item__col {
     margin-top: list.slash($grid-gutter, 2);
     margin-bottom: list.slash($grid-gutter, 2);
@@ -60,7 +60,7 @@
     }
   }
 
-  :host(#{$dds-prefix}-content-group-cards-item) {
+  :host(#{$cds-prefix}-content-group-cards-item) {
     padding: list.slash($grid-gutter, 2);
     background: none;
   }

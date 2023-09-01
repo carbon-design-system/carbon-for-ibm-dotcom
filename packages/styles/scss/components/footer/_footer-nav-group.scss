@@ -19,7 +19,7 @@
 /// @group footer
 
 @mixin footer-nav-group {
-  :host(#{$dds-prefix}-footer-nav-group),
+  :host(#{$cds-prefix}-footer-nav-group),
   .#{$prefix}--footer-nav-group,
   .#{$prefix}--footer-nav-group.#{$prefix}--accordion__item {
     @include theme($g90, feature-flag-enabled('enable-css-custom-properties'));
@@ -70,7 +70,7 @@
     }
   }
 
-  :host(#{$dds-prefix}-footer-nav-item),
+  :host(#{$cds-prefix}-footer-nav-item),
   .#{$prefix}--footer-nav-group {
     .#{$prefix}--link {
       @include breakpoint-down(md) {
@@ -114,7 +114,7 @@
       display: block;
     }
 
-    :host(#{$dds-prefix}-footer-nav-item),
+    :host(#{$cds-prefix}-footer-nav-item),
     .#{$prefix}--footer-nav-group__item {
       margin-top: carbon--mini-units(1);
     }

@@ -434,7 +434,7 @@ export const StoryContent = (
 ) => {
   const mainClasses = [
     'cds--content',
-    'dds-ce-demo-devenv--ui-shell-content',
+    'cds-ce-demo-devenv--ui-shell-content',
     config?.l1 ? 'has-l1' : null,
     config?.leadspace ? 'has-leadspace' : null,
   ]
@@ -461,7 +461,7 @@ export const StoryContent = (
 
 export const StoryContentNoToC = () => (
   <div
-    className="dds-ce-demo-devenv--ui-shell-content"
+    className="cds-ce-demo-devenv--ui-shell-content"
     style={{ paddingRight: '1rem' }}>
     <div className="cds--gridcdsds--col-lg-8">
       {contentLeadspaceSearch}

@@ -57,7 +57,7 @@ const linkListItem = (
 
 export const Default = (args) => {
   const { heading, border } = args?.ContentBlockHorizontal ?? {};
-  const headingElement = document.querySelector('dds-content-block-heading');
+  const headingElement = document.querySelector('cds-content-block-heading');
 
   if (headingElement) {
     headingElement.shadowRoot!.textContent = heading;

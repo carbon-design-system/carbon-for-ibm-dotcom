@@ -45,7 +45,7 @@ export const Text = (args) => {
     customVideoDescription,
   } = args?.TextCTA ?? {};
 
-  const childCta = document.querySelector('dds-cta')?.shadowRoot!.children[0];
+  const childCta = document.querySelector('cds-cta')?.shadowRoot!.children[0];
   childCta?.setAttribute('href', href);
 
   if (ctaType === 'video' && childCta) {
@@ -132,7 +132,7 @@ export const Button = (args) => {
     customVideoDescription,
   } = args?.ButtonCTA ?? {};
 
-  const childCta = document.querySelector('dds-cta')?.shadowRoot!.children[0];
+  const childCta = document.querySelector('cds-cta')?.shadowRoot!.children[0];
   childCta?.setAttribute('href', href);
 
   if (ctaType === 'video' && childCta) {
@@ -228,13 +228,13 @@ export const Card = (args) => {
     thumbnail,
   } = args?.CardCTA ?? {};
 
-  const childCta = document.querySelector('dds-cta')?.shadowRoot!.children[0];
+  const childCta = document.querySelector('cds-cta')?.shadowRoot!.children[0];
   childCta?.setAttribute('href', href);
 
   if (ctaType === 'video') {
     const headingComponent =
-      childCta?.shadowRoot?.querySelector('dds-card-heading') ||
-      childCta?.querySelector('dds-card-heading');
+      childCta?.shadowRoot?.querySelector('cds-card-heading') ||
+      childCta?.querySelector('cds-card-heading');
     headingComponent && !duration
       ? (duration = headingComponent?.textContent!.match(/\((.*)\)/)?.pop())
       : null;
@@ -326,13 +326,13 @@ export const CardLink = (args) => {
     customVideoDescription,
   } = args?.CardCTA ?? {};
 
-  const childCta = document.querySelector('dds-cta')?.shadowRoot!.children[0];
+  const childCta = document.querySelector('cds-cta')?.shadowRoot!.children[0];
   childCta?.setAttribute('href', href);
 
   if (ctaType === 'video') {
     const headingComponent =
-      childCta?.shadowRoot?.querySelector('dds-card-link-heading') ||
-      childCta?.querySelector('dds-card-link-heading');
+      childCta?.shadowRoot?.querySelector('cds-card-link-heading') ||
+      childCta?.querySelector('cds-card-link-heading');
     headingComponent && !duration
       ? (duration = headingComponent?.textContent!.match(/\((.*)\)/)?.pop())
       : null;
@@ -442,13 +442,13 @@ export const Feature = (args) => {
   const { download: footerDownload, href: footerHref } =
     args?.FeatureCTAFooter ?? {};
 
-  const childCta = document.querySelector('dds-cta')?.shadowRoot!.children[0];
+  const childCta = document.querySelector('cds-cta')?.shadowRoot!.children[0];
   childCta?.setAttribute('href', href);
 
   if (ctaType === 'video') {
     const headingComponent =
-      childCta?.shadowRoot?.querySelector('dds-card-heading') ||
-      childCta?.querySelector('dds-card-heading');
+      childCta?.shadowRoot?.querySelector('cds-card-heading') ||
+      childCta?.querySelector('cds-card-heading');
     headingComponent && !duration
       ? (duration = headingComponent?.textContent!.match(/\((.*)\)/)?.pop())
       : null;

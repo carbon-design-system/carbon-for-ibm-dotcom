@@ -47,9 +47,9 @@ const phraseArray = [
 ];
 
 const cardsCol = {
-  '2 cards per row': 'dds-ce-demo-devenv--cards-in-row-2',
-  '3 cards per row (default)': 'dds-ce-demo-devenv--cards-in-row-3',
-  '4 cards per row': 'dds-ce-demo-devenv--cards-in-row-4',
+  '2 cards per row': 'cds-ce-demo-devenv--cards-in-row-2',
+  '3 cards per row (default)': 'cds-ce-demo-devenv--cards-in-row-3',
+  '4 cards per row': 'cds-ce-demo-devenv--cards-in-row-4',
 };
 
 const gridModes = {

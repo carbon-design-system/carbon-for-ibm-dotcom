@@ -97,7 +97,7 @@ const linkListItems = [
 export const Default = (args) => {
   const { heading, copy, ctaStyle, ctaType, complementaryStyleScheme } =
     args?.ContentBlockSegmented ?? {};
-  const headingComponent = document.querySelector('dds-content-block-heading');
+  const headingComponent = document.querySelector('cds-content-block-heading');
 
   if (headingComponent && headingComponent.shadowRoot) {
     headingComponent.shadowRoot.textContent = heading;
@@ -167,7 +167,7 @@ export const withLinkList = (args) => {
     complementaryStyleScheme,
     totalLinks,
   } = args?.ContentBlockSegmented ?? {};
-  const headingComponent = document.querySelector('dds-content-block-heading');
+  const headingComponent = document.querySelector('cds-content-block-heading');
 
   if (headingComponent && headingComponent.shadowRoot) {
     headingComponent.shadowRoot.textContent = blockHeading;

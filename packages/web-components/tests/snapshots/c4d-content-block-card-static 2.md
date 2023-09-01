@@ -1,41 +1,41 @@
-# `dds-content-block-card-static`
+# `cds-content-block-card-static`
 
 ## `Misc attributes`
 
 ####   `should render with minimum attributes`
 
 ```
-<dds-content-block-card-static>
-  <dds-card-group-item
+<cds-content-block-card-static>
+  <cds-card-group-item
     color-scheme=""
-    data-autoid="dds--card-group-item"
+    data-autoid="cds--card-group-item"
     pictogram-placement=""
     size="md"
   >
-  </dds-card-group-item>
-  <dds-card-group
-    data-autoid="dds--card-group"
+  </cds-card-group-item>
+  <cds-card-group
+    data-autoid="cds--card-group"
     grid-mode="collapsed"
   >
-  </dds-card-group>
-  <dds-content-item data-autoid="dds--content-item">
-    <dds-content-item-heading
+  </cds-card-group>
+  <cds-content-item data-autoid="cds--content-item">
+    <cds-content-item-heading
       aria-level="4"
-      data-autoid="dds--content-item__heading"
+      data-autoid="cds--content-item__heading"
       role="heading"
       slot="heading"
     >
-    </dds-content-item-heading>
-    <dds-content-item-copy data-autoid="dds--content-item__copy">
-    </dds-content-item-copy>
-  </dds-content-item>
-  <dds-button-group
-    data-autoid="dds--button-group"
+    </cds-content-item-heading>
+    <cds-content-item-copy data-autoid="cds--content-item__copy">
+    </cds-content-item-copy>
+  </cds-content-item>
+  <cds-button-group
+    data-autoid="cds--button-group"
     role="list"
   >
-    <dds-button-group-item
+    <cds-button-group-item
       cta-type=""
-      data-autoid="dds--button-group-item"
+      data-autoid="cds--button-group-item"
       kind="primary"
       role="listitem"
       size="lg"
@@ -44,10 +44,10 @@
       type="button"
     >
       Button 1
-    </dds-button-group-item>
-    <dds-button-group-item
+    </cds-button-group-item>
+    <cds-button-group-item
       cta-type=""
-      data-autoid="dds--button-group-item"
+      data-autoid="cds--button-group-item"
       kind="primary"
       role="listitem"
       size="lg"
@@ -56,81 +56,81 @@
       type="button"
     >
       Buuton 2
-    </dds-button-group-item>
-  </dds-button-group>
-</dds-content-block-card-static>
+    </cds-button-group-item>
+  </cds-button-group>
+</cds-content-block-card-static>
 
 ```
 
 ####   `should render with various attributes`
 
 ```
-<dds-content-block-card-static>
-  <dds-card-group-item
+<cds-content-block-card-static>
+  <cds-card-group-item
     color-scheme=""
-    data-autoid="dds--card-group-item"
+    data-autoid="cds--card-group-item"
     pictogram-placement=""
     size="md"
   >
     heading-foo
-  </dds-card-group-item>
-  <dds-card-group
-    data-autoid="dds--card-group"
+  </cds-card-group-item>
+  <cds-card-group
+    data-autoid="cds--card-group"
     grid-mode="collapsed"
   >
-    <dds-card-group-item
+    <cds-card-group-item
       color-scheme=""
-      data-autoid="dds--card-group-item"
+      data-autoid="cds--card-group-item"
       href="https://example.com"
       pictogram-placement=""
       size="md"
     >
-      <dds-card-heading
+      <cds-card-heading
         aria-level="3"
-        data-autoid="dds--card-heading"
+        data-autoid="cds--card-heading"
         role="heading"
         slot="heading"
       >
         Nunc convallis lobortis
-      </dds-card-heading>
+      </cds-card-heading>
       <p>
         Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean
                 et ultricies est. Mauris iaculis eget dolor nec hendrerit.
                 Phasellus at elit sollicitudin, sodales nulla quis, consequat
                 libero.
       </p>
-      <dds-card-cta-footer
+      <cds-card-cta-footer
         color-scheme=""
         cta-type=""
-        data-autoid="dds--card-cta-footer"
+        data-autoid="cds--card-cta-footer"
         icon-placement="right"
         slot="footer"
       >
-      </dds-card-cta-footer>
-    </dds-card-group-item>
-  </dds-card-group>
-  <dds-content-item data-autoid="dds--content-item">
-    <dds-content-item-heading
+      </cds-card-cta-footer>
+    </cds-card-group-item>
+  </cds-card-group>
+  <cds-content-item data-autoid="cds--content-item">
+    <cds-content-item-heading
       aria-level="4"
-      data-autoid="dds--content-item__heading"
+      data-autoid="cds--content-item__heading"
       role="heading"
       slot="heading"
     >
       Lorem ipsum
-    </dds-content-item-heading>
-    <dds-content-item-copy data-autoid="dds--content-item__copy">
-      <dds-content-item-paragraph data-autoid="dds--content-item-paragraph">
+    </cds-content-item-heading>
+    <cds-content-item-copy data-autoid="cds--content-item__copy">
+      <cds-content-item-paragraph data-autoid="cds--content-item-paragraph">
         ipsum dolor sit amet
-      </dds-content-item-paragraph>
-    </dds-content-item-copy>
-  </dds-content-item>
-  <dds-button-group
-    data-autoid="dds--button-group"
+      </cds-content-item-paragraph>
+    </cds-content-item-copy>
+  </cds-content-item>
+  <cds-button-group
+    data-autoid="cds--button-group"
     role="list"
   >
-    <dds-button-group-item
+    <cds-button-group-item
       cta-type=""
-      data-autoid="dds--button-group-item"
+      data-autoid="cds--button-group-item"
       kind="primary"
       role="listitem"
       size="lg"
@@ -139,10 +139,10 @@
       type="button"
     >
       Button 1
-    </dds-button-group-item>
-    <dds-button-group-item
+    </cds-button-group-item>
+    <cds-button-group-item
       cta-type=""
-      data-autoid="dds--button-group-item"
+      data-autoid="cds--button-group-item"
       kind="primary"
       role="listitem"
       size="lg"
@@ -151,9 +151,9 @@
       type="button"
     >
       Buuton 2
-    </dds-button-group-item>
-  </dds-button-group>
-</dds-content-block-card-static>
+    </cds-button-group-item>
+  </cds-button-group>
+</cds-content-block-card-static>
 
 ```
 

@@ -58,8 +58,8 @@ export const Default = (args) => {
         expressive-size="full-width"
         mode="lightbox"
         open={open}
-        dds-expressive-modal-beingclosed={handleBeforeClose}
-        dds-expressive-modal-closed={onClose}>
+        cds-expressive-modal-beingclosed={handleBeforeClose}
+        cds-expressive-modal-closed={onClose}>
         <C4DExpressiveModalCloseButton></C4DExpressiveModalCloseButton>
         <C4DLightboxMediaViewer
           alt={alt || null}
@@ -111,11 +111,11 @@ export default {
       Modal: () => ({
         open: boolean('Open (open)', true),
         disableClose: boolean(
-          'Disable user-initiated close action (Call event.preventDefault() in dds-expressive-modal-beingclosed event)',
+          'Disable user-initiated close action (Call event.preventDefault() in cds-expressive-modal-beingclosed event)',
           false
         ),
-        onBeforeClose: action('dds-expressive-modal-beingclosed'),
-        onClose: action('dds-expressive-modal-closed'),
+        onBeforeClose: action('cds-expressive-modal-beingclosed'),
+        onClose: action('cds-expressive-modal-closed'),
       }),
     },
   },
@@ -136,8 +136,8 @@ export const WithCarousel = (args) => {
         expressive-size="full-width"
         mode="lightbox"
         open={open}
-        dds-expressive-modal-beingclosed={handleBeforeClose}
-        dds-expressive-modal-closed={onClose}>
+        cds-expressive-modal-beingclosed={handleBeforeClose}
+        cds-expressive-modal-closed={onClose}>
         <C4DExpressiveModalCloseButton></C4DExpressiveModalCloseButton>
         <C4DCarousel page-size="1">
           <C4DLightboxMediaViewer

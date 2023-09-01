@@ -7,7 +7,7 @@
 
 @use '@carbon/ibmdotcom-styles/scss/globals/vars' as *;
 
-:host(#{$dds-prefix}-dotcom-shell-container),
-:host(#{$dds-prefix}-dotcom-shell-composite) {
+:host(#{$cds-prefix}-dotcom-shell-container),
+:host(#{$cds-prefix}-dotcom-shell-composite) {
   display: contents;
 }

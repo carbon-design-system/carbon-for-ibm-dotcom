@@ -27,7 +27,7 @@ window.digitalData = {
 
 const App = () => (
   <C4DDotcomShellContainer>
-    <main className="bx--content dds-ce-demo--ui-shell-content">
+    <main className="bx--content cds-ce-demo--ui-shell-content">
       <div className="bx--grid">
         <div className="bx--row">
           <div className="bx--offset-lg-3 bx--col-lg-13">

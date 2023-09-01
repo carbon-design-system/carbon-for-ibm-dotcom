@@ -71,7 +71,7 @@ each component. When documenting, be sure to capture:
 Every component must include [stable selectors](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/blob/main/packages/web-components/docs/stable-selectors.md)
 as part of the overall markup, identifying any key elements that would be useful
 to have the ability to identify in a DOM search. At minimum, there should be at
-least a container level stable selector defined, and all should use the `dds--`
+least a container level stable selector defined, and all should use the `cds--`
 prefix identified from the utilities package.
 
 Our codebase provides a `StableSelectorMixin`, which is used for automatically
@@ -89,7 +89,7 @@ class C4DMyComponent extends StableSelectorMixin(LitElement) {
   }
 
   static styles = styles;
-} // => <dds-my-component data-autoid="dds--my-component"></dds-my-component>
+} // => <cds-my-component data-autoid="cds--my-component"></cds-my-component>
 ```
 
 ## Feature Flag

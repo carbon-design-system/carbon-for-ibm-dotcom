@@ -63,7 +63,7 @@ const template = (props?) =>
   Default({
     parameters: {
       props: {
-        'dds-feature-name': props,
+        'cds-feature-name': props,
       },
     },
   });
@@ -85,7 +85,7 @@ const { stablePrefix: c4dPrefix } = ddsSettings;
 /**
  * EXPERIMENTAL: My Feature
  *
- * @element dds-my-feature
+ * @element cds-my-feature
  */
 class C4DMyFeature extends LitElement {
   ...

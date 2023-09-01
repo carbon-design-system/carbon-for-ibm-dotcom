@@ -12,22 +12,22 @@
 @use '@carbon/ibmdotcom-styles/scss/components/video-player';
 @use '@carbon/ibmdotcom-styles/scss/globals/vars' as *;
 
-:host(#{$dds-prefix}-content-block-simple) {
+:host(#{$cds-prefix}-content-block-simple) {
   display: block;
 
-  ::slotted(#{$dds-prefix}-content-block-complementary) {
+  ::slotted(#{$cds-prefix}-content-block-complementary) {
     @include breakpoint-down(lg) {
       margin: $spacing-10 0;
     }
   }
 
-  ::slotted(#{$dds-prefix}-card-cta[slot]),
-  ::slotted(#{$dds-prefix}-card-link-cta[slot]) {
+  ::slotted(#{$cds-prefix}-card-cta[slot]),
+  ::slotted(#{$cds-prefix}-card-link-cta[slot]) {
     width: auto;
   }
 
-  ::slotted(#{$dds-prefix}-card-cta),
-  ::slotted(#{$dds-prefix}-card-link-cta) {
+  ::slotted(#{$cds-prefix}-card-cta),
+  ::slotted(#{$cds-prefix}-card-link-cta) {
     width: auto;
     max-width: 320px;
   }

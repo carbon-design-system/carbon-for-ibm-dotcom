@@ -53,29 +53,29 @@ function App() {
 
 ### SCSS
 
-While `<dds-carousel>` has `page-size` attribute, `<dds-carousel>` also looks at
-`--dds--carousel--page-size` CSS custom property to determine the number of
+While `<cds-carousel>` has `page-size` attribute, `<cds-carousel>` also looks at
+`--cds--carousel--page-size` CSS custom property to determine the number of
 cards per page. This is useful for setting different number of cards for
 different breakpoints.
 
 ```scss
 @use '@carbon/styles/scss/breakpoint';
 
-dds-carousel {
-  --dds--carousel--page-size: 1;
+cds-carousel {
+  --cds--carousel--page-size: 1;
 
   @include breakpoint(md) {
-    --dds--carousel--page-size: 2;
+    --cds--carousel--page-size: 2;
   }
 
   @include breakpoint(lg) {
-    --dds--carousel--page-size: 3;
+    --cds--carousel--page-size: 3;
   }
 }
 ```
 
-Another CSS custom property `<dds-carousel>` looks at is
-`--dds--carousel--overflow-hint-size`. If `0rem` is set there, the first card at
+Another CSS custom property `<cds-carousel>` looks at is
+`--cds--carousel--overflow-hint-size`. If `0rem` is set there, the first card at
 the next page as a hint of page overflow will be hidden.
 
 ## Props
@@ -90,6 +90,6 @@ to see how Web Components selector and `data-autoid` should be used.
 
 | Web Components selector | Compatibility selector | Description |
 | ----------------------- | ---------------------- | ----------- |
-| `<dds-carousel>`        | N/A                    | Component   |
+| `<cds-carousel>`        | N/A                    | Component   |
 
 <Description markdown={contributing} />

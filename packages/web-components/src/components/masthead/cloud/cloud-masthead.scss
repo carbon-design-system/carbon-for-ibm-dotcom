@@ -19,28 +19,28 @@
 
 // Cloud Masthead.
 
-:host(#{$dds-prefix}-cloud-masthead-container),
-#{$dds-prefix}-cloud-masthead-container {
+:host(#{$cds-prefix}-cloud-masthead-container),
+#{$cds-prefix}-cloud-masthead-container {
   position: relative;
 }
 
-:host(#{$dds-prefix}-cloud-masthead-global-bar) {
-  @extend :host(#{$dds-prefix}-masthead-global-bar);
+:host(#{$cds-prefix}-cloud-masthead-global-bar) {
+  @extend :host(#{$cds-prefix}-masthead-global-bar);
 
   background-color: $background;
   flex: none;
   z-index: 0;
 }
 
-:host(#{$dds-prefix}-cloud-masthead-global-bar)
-  ::slotted(#{$dds-prefix}-cloud-button-cta) {
+:host(#{$cds-prefix}-cloud-masthead-global-bar)
+  ::slotted(#{$cds-prefix}-cloud-button-cta) {
   @include breakpoint-down(md) {
     display: none;
   }
 }
 
-:host(#{$dds-prefix}-cloud-button-cta) {
-  @extend :host(#{$dds-prefix}-button-cta);
+:host(#{$cds-prefix}-cloud-button-cta) {
+  @extend :host(#{$cds-prefix}-button-cta);
 
   margin: 0;
   padding-right: 0;
@@ -64,7 +64,7 @@
   }
 }
 
-:host(#{$dds-prefix}-cloud-top-nav-name) {
+:host(#{$cds-prefix}-cloud-top-nav-name) {
   outline: none;
   position: relative;
   z-index: 1;
@@ -95,7 +95,7 @@
 
 // Cloud Megamenu.
 
-:host(#{$dds-prefix}-cloud-megamenu),
+:host(#{$cds-prefix}-cloud-megamenu),
 .#{$prefix}--masthead__megamenu {
   position: relative;
 
@@ -125,7 +125,7 @@
   }
 }
 
-:host(#{$dds-prefix}-cloud-megamenu-left-navigation) {
+:host(#{$cds-prefix}-cloud-megamenu-left-navigation) {
   @include make-col(4, 16);
 
   display: flex;
@@ -142,7 +142,7 @@
   }
 }
 
-:host(#{$dds-prefix}-cloud-megamenu-right-navigation) {
+:host(#{$cds-prefix}-cloud-megamenu-right-navigation) {
   @include make-col(12, 16);
 
   display: flex;
@@ -151,7 +151,7 @@
   margin-bottom: $spacing-07;
 }
 
-:host(#{$dds-prefix}-cloud-megamenu-tabs) {
+:host(#{$cds-prefix}-cloud-megamenu-tabs) {
   display: flex;
   flex-direction: column;
   margin-top: rem(18px);
@@ -162,7 +162,7 @@
   }
 }
 
-:host(#{$dds-prefix}-cloud-megamenu-tab) {
+:host(#{$cds-prefix}-cloud-megamenu-tab) {
   outline: 0;
 
   button {
@@ -192,18 +192,18 @@
   }
 }
 
-:host(#{$dds-prefix}-cloud-megamenu-tab)[selected] button {
+:host(#{$cds-prefix}-cloud-megamenu-tab)[selected] button {
   background-color: $background-selected;
   color: $text-primary;
 }
 
-:host(#{$dds-prefix}-cloud-megamenu-category-link-group) {
+:host(#{$cds-prefix}-cloud-megamenu-category-link-group) {
   display: flex;
   flex-flow: wrap;
   justify-content: flex-start;
 }
 
-:host(#{$dds-prefix}-cloud-megamenu-category-link) {
+:host(#{$cds-prefix}-cloud-megamenu-category-link) {
   width: 100%;
   max-width: 50%;
   outline: 0;
@@ -247,7 +247,7 @@
   }
 }
 
-:host(#{$dds-prefix}-cloud-megamenu-category-heading) {
+:host(#{$cds-prefix}-cloud-megamenu-category-heading) {
   display: block;
   padding: 0 $spacing-05;
   margin-bottom: $spacing-07;
@@ -300,8 +300,8 @@
   }
 }
 
-:host(#{$dds-prefix}-cloud-left-nav-item) {
-  @extend :host(#{$dds-prefix}-left-nav-item);
+:host(#{$cds-prefix}-cloud-left-nav-item) {
+  @extend :host(#{$cds-prefix}-left-nav-item);
 
   a.#{$prefix}--side-nav__link .#{$prefix}--side-nav__link-text {
     color: $text-secondary;
@@ -324,7 +324,7 @@
   }
 }
 
-:host(#{$dds-prefix}-cloud-masthead-profile)
+:host(#{$cds-prefix}-cloud-masthead-profile)
   .#{$prefix}--header__menu-title[aria-expanded='true']
   + .#{$prefix}--header__menu {
   @include breakpoint-down(md) {
@@ -332,7 +332,7 @@
   }
 }
 
-:host(#{$dds-prefix}-cloud-masthead-profile) a.#{$prefix}--header__menu-item {
+:host(#{$cds-prefix}-cloud-masthead-profile) a.#{$prefix}--header__menu-item {
   svg {
     fill: $icon-secondary;
   }

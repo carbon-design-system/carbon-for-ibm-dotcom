@@ -85,7 +85,7 @@ export const Default = (args) => {
   if (!hasSearch) {
     setTimeout(() => {
       document
-        .querySelector('dds-masthead-container')
+        .querySelector('cds-masthead-container')
         ?.removeAttribute('has-search');
     }, 1000);
   }
@@ -103,13 +103,13 @@ export const Default = (args) => {
 
 export const WithCustomTypeahead = () => {
   document.documentElement.addEventListener(
-    'dds-search-with-typeahead-input',
+    'cds-search-with-typeahead-input',
     async (e) => {
       const results = await customTypeaheadApiFunction(
         (e as CustomEvent).detail.value
       );
       document.dispatchEvent(
-        new CustomEvent('dds-custom-typeahead-api-results', { detail: results })
+        new CustomEvent('cds-custom-typeahead-api-results', { detail: results })
       );
     }
   );

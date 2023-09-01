@@ -8,6 +8,6 @@
 @use '@carbon/ibmdotcom-styles/scss/components/content-item-horizontal';
 @use '@carbon/ibmdotcom-styles/scss/globals/vars' as *;
 
-:host(#{$dds-prefix}-content-item-horizontal-eyebrow) {
+:host(#{$cds-prefix}-content-item-horizontal-eyebrow) {
   display: block;
 }

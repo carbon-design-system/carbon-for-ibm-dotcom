@@ -16,9 +16,9 @@
 $aspect-ratios: ((16, 9), (9, 16), (2, 1), (1, 2), (4, 3), (3, 4), (1, 1));
 
 @mixin video-player {
-  :host(#{$dds-prefix}-video-player),
+  :host(#{$cds-prefix}-video-player),
   .#{$prefix}--video-player {
-    color: var(--#{$dds-prefix}--video-caption--color, $text-secondary);
+    color: var(--#{$cds-prefix}--video-caption--color, $text-secondary);
 
     .#{$prefix}--image__img {
       width: 100%;
@@ -43,7 +43,7 @@ $aspect-ratios: ((16, 9), (9, 16), (2, 1), (1, 2), (4, 3), (3, 4), (1, 1));
     }
   }
 
-  :host(#{$dds-prefix}-video-player[background-mode='true']),
+  :host(#{$cds-prefix}-video-player[background-mode='true']),
   .#{$prefix}--video-player[background-mode='true'] {
     .#{$prefix}--video-player__video-container {
       height: 100%;
@@ -64,7 +64,7 @@ $aspect-ratios: ((16, 9), (9, 16), (2, 1), (1, 2), (4, 3), (3, 4), (1, 1));
     outline: $spacing-01 solid $focus;
   }
 
-  :host(#{$dds-prefix}-video-player) #{$dds-prefix}-image,
+  :host(#{$cds-prefix}-video-player) #{$cds-prefix}-image,
   .#{$prefix}--video-player .#{$prefix}--image {
     position: relative;
     width: 100%;
@@ -123,7 +123,7 @@ $aspect-ratios: ((16, 9), (9, 16), (2, 1), (1, 2), (4, 3), (3, 4), (1, 1));
   .#{$prefix}--video-player__video-caption {
     @include type-style('caption-02');
 
-    padding-top: var(--#{$dds-prefix}--video-caption--padding, $spacing-03);
+    padding-top: var(--#{$cds-prefix}--video-caption--padding, $spacing-03);
     max-width: 90%;
   }
 
@@ -166,10 +166,10 @@ $aspect-ratios: ((16, 9), (9, 16), (2, 1), (1, 2), (4, 3), (3, 4), (1, 1));
     }
   }
 
-  :host(#{$dds-prefix}-video-player) .#{$prefix}--video-player__image-overlay,
+  :host(#{$cds-prefix}-video-player) .#{$prefix}--video-player__image-overlay,
   .#{$prefix}--video-player .#{$prefix}--video-player__image-overlay {
     &:active {
-      #{$dds-prefix}-image::before,
+      #{$cds-prefix}-image::before,
       .#{$prefix}--image::before {
         opacity: 0.12;
       }

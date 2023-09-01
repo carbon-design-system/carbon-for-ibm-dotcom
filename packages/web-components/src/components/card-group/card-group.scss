@@ -15,37 +15,37 @@
 @use '@carbon/ibmdotcom-styles/scss/components/card-group';
 @use '../card/card';
 
-:host(#{$dds-prefix}-card-group) {
+:host(#{$cds-prefix}-card-group) {
   background: none;
 
-  ::slotted(#{$dds-prefix}-card-group-item) {
+  ::slotted(#{$cds-prefix}-card-group-item) {
     background-color: $border-subtle-02;
   }
 
-  ::slotted(#{$dds-prefix}-card-group-card-link-item) {
+  ::slotted(#{$cds-prefix}-card-group-card-link-item) {
     @include breakpoint(md) {
       padding-right: $spacing-05;
     }
   }
 
-  ::slotted(#{$dds-prefix}-card-group-item[empty]),
-  ::slotted(#{$dds-prefix}-card-group-card-link-item[empty]) {
+  ::slotted(#{$cds-prefix}-card-group-item[empty]),
+  ::slotted(#{$cds-prefix}-card-group-card-link-item[empty]) {
     background-color: transparent;
     outline: none;
   }
 }
 
-:host(#{$dds-prefix}-card-group)[grid-mode='border'] {
+:host(#{$cds-prefix}-card-group)[grid-mode='border'] {
   background: $border-subtle-02;
 
   /* stylelint-disable-next-line selector-type-no-unknown */
-  #{$dds-prefix}-card-group-item[empty],
-  #{$dds-prefix}-card-group-card-link-item[empty] {
+  #{$cds-prefix}-card-group-item[empty],
+  #{$cds-prefix}-card-group-card-link-item[empty] {
     outline: none;
   }
 
-  ::slotted(#{$dds-prefix}-card-group-item),
-  ::slotted(#{$dds-prefix}-card-group-card-link-item) {
+  ::slotted(#{$cds-prefix}-card-group-item),
+  ::slotted(#{$cds-prefix}-card-group-card-link-item) {
     background-color: transparent;
   }
 }

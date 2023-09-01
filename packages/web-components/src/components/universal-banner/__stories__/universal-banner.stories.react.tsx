@@ -51,7 +51,7 @@ const srcsets = {
 export const Default = (args) => {
   const { heading, copy, ctaCopy, imageWidth } = args?.UniversalBanner ?? {};
 
-  const bannerHeading = document.querySelector('dds-universal-banner-heading');
+  const bannerHeading = document.querySelector('cds-universal-banner-heading');
 
   if (bannerHeading) {
     bannerHeading!.shadowRoot!.textContent = heading;

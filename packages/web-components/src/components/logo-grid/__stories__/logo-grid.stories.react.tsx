@@ -36,7 +36,7 @@ export const Default = (args) => {
     ctaHref,
   } = args?.LogoGrid ?? {};
 
-  const logoGrid = document.querySelector('dds-logo-grid');
+  const logoGrid = document.querySelector('cds-logo-grid');
 
   if (logoGrid && hideBorder) {
     logoGrid.setAttribute('hide-border', hideBorder);

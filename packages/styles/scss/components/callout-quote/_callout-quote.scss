@@ -16,7 +16,7 @@
 
 @mixin callout-quote {
   .#{$prefix}--callout-quote,
-  :host(#{$dds-prefix}-callout-quote) {
+  :host(#{$cds-prefix}-callout-quote) {
     .#{$prefix}--quote {
       background-color: $background-inverse;
       .#{$prefix}--link {
@@ -39,7 +39,7 @@
     }
   }
 
-  :host(#{$dds-prefix}-callout-quote) {
+  :host(#{$cds-prefix}-callout-quote) {
     @extend .#{$prefix}--callout__container;
 
     @include breakpoint(md) {
@@ -48,7 +48,7 @@
 
     padding-bottom: $spacing-10;
 
-    ::slotted(#{$dds-prefix}-callout-link-with-icon) {
+    ::slotted(#{$cds-prefix}-callout-link-with-icon) {
       padding-left: $spacing-07;
       outline: transparent;
     }

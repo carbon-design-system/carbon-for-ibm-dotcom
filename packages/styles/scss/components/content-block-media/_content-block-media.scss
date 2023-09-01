@@ -29,7 +29,7 @@
 
 @mixin content-block-media {
   .#{$prefix}--content-block-media,
-  :host(#{$dds-prefix}-content-block-media) {
+  :host(#{$cds-prefix}-content-block-media) {
     @include themed-items;
 
     .#{$prefix}--content-group:last-child {

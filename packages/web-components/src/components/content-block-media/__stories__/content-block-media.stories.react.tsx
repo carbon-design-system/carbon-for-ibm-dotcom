@@ -103,7 +103,7 @@ export const Default = (args) => {
     featureCard,
     complementaryStyleScheme,
   } = args?.ContentBlockMedia ?? {};
-  const headingComponent = document.querySelector('dds-content-block-heading');
+  const headingComponent = document.querySelector('cds-content-block-heading');
 
   if (headingComponent) {
     headingComponent.shadowRoot!.textContent = blockHeading;
@@ -197,7 +197,7 @@ export const withLinkList = (args) => {
     complementaryStyleScheme,
     totalLinks,
   } = args?.ContentBlockMedia ?? {};
-  const headingComponent = document.querySelector('dds-content-block-heading');
+  const headingComponent = document.querySelector('cds-content-block-heading');
 
   if (headingComponent) {
     headingComponent.shadowRoot!.textContent = blockHeading;

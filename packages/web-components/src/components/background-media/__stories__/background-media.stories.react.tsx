@@ -28,7 +28,7 @@ const gradientDirections = {
 
 export const Default = (args) => {
   const { alt, gradientDirection, backgroundOpacity } =
-    args?.['dds-background-media'] ?? {};
+    args?.['cds-background-media'] ?? {};
   return (
     <C4DBackgroundMedia
       gradient-direction={gradientDirection}
@@ -57,7 +57,7 @@ export const Default = (args) => {
 
 export const WithVideo = (args) => {
   const { gradientDirection, backgroundOpacity } =
-    args?.['dds-background-media'] ?? {};
+    args?.['cds-background-media'] ?? {};
   return (
     <div style={{ height: '70vh' }}>
       <C4DBackgroundMedia
@@ -74,7 +74,7 @@ export const WithVideo = (args) => {
 
 export const WithDefaultSource = (args) => {
   const { alt, gradientDirection, backgroundOpacity } =
-    args?.['dds-background-media'] ?? {};
+    args?.['cds-background-media'] ?? {};
   return (
     <C4DBackgroundMedia
       gradient-direction={gradientDirection}
@@ -100,7 +100,7 @@ export default {
     ...readme.parameters,
     hasStoryPadding: true,
     knobs: {
-      'dds-background-media': () => ({
+      'cds-background-media': () => ({
         gradientDirection: select(
           'Gradient Direction (gradient-direction):',
           gradientDirections,
@@ -117,7 +117,7 @@ export default {
     },
     propsSet: {
       default: {
-        'dds-background-media': {
+        'cds-background-media': {
           gradientDirection: 'left-to-right',
           alt: 'Image alt text',
           defaultSrc: imgMax,

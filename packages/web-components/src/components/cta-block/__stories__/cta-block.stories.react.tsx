@@ -108,7 +108,7 @@ export const Default = (args) => {
   const { heading, border, copy, renderIcon, cta } = args?.CTABlock ?? {};
   const target = renderIcon === iconMap.Launch20 ? '_blank' : '';
 
-  const headingComponent = document.querySelector('dds-content-block-heading');
+  const headingComponent = document.querySelector('cds-content-block-heading');
 
   if (headingComponent) {
     headingComponent!.shadowRoot!.innerHTML = heading;
@@ -128,7 +128,7 @@ export const WithContentItems = (args) => {
   const { contentItemType, contentItemCount } = args?.WithContentItems ?? {};
   const target = renderIcon === iconMap.Launch20 ? '_blank' : '';
 
-  const headingComponent = document.querySelector('dds-content-block-heading');
+  const headingComponent = document.querySelector('cds-content-block-heading');
 
   if (headingComponent) {
     headingComponent!.shadowRoot!.innerHTML = heading;
@@ -162,7 +162,7 @@ export const WithLinkList = (args) => {
   const { border, heading, copy, renderIcon, cta } = args?.CTABlock ?? {};
   const target = renderIcon === iconMap.Launch20 ? '_blank' : '';
 
-  const headingComponent = document.querySelector('dds-content-block-heading');
+  const headingComponent = document.querySelector('cds-content-block-heading');
 
   if (headingComponent) {
     headingComponent!.shadowRoot!.innerHTML = heading;

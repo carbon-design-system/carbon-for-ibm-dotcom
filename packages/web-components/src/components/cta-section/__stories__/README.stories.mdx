@@ -3,7 +3,7 @@ import markdownContents from '../../../../docs/markdown-contents.md';
 import contributing from '../../../../../../docs/contributing-license.md';
 import { cdnJs, cdnCss } from '../../../globals/internal/storybook-cdn';
 
-# `<dds-cta-section>`
+# `<cds-cta-section>`
 
 > 💡 Check our
 > [CodeSandbox](https://githubbox.com/carbon-design-system/carbon-for-ibm-dotcom/tree/main/packages/web-components/examples/codesandbox/components/cta-section)
@@ -13,7 +13,7 @@ import { cdnJs, cdnCss } from '../../../globals/internal/storybook-cdn';
 ## Breaking Changes
 
 As of `Carbon for IBM.com Web Components v1.3.0`, the API for
-`<dds-cta-section>` has changed. Be sure to update to the latest version of CTA
+`<cds-cta-section>` has changed. Be sure to update to the latest version of CTA
 Section if upgrading from a previous version.
 
 ## Getting started
@@ -40,82 +40,82 @@ import '@carbon/ibmdotcom-web-components/es/components/lightbox-media-viewer/lig
 ### HTML
 
 ```html
-<dds-cta-section>
-  <dds-content-section-heading
-    >Related products and services</dds-content-section-heading
+<cds-cta-section>
+  <cds-content-section-heading
+    >Related products and services</cds-content-section-heading
   >
 
-  <dds-cta-block>
-    <dds-content-block-heading
-      >C4D Content Block Heading</dds-content-block-heading
+  <cds-cta-block>
+    <cds-content-block-heading
+      >C4D Content Block Heading</cds-content-block-heading
     >
-    <dds-content-block-copy>C4D Content Block Copy</dds-content-block-copy>
-    <dds-text-cta
+    <cds-content-block-copy>C4D Content Block Copy</cds-content-block-copy>
+    <cds-text-cta
       slot="action"
       cta-type="local"
       icon-placement="right"
       href="example.com"
-      >Browse tutorials</dds-text-cta
+      >Browse tutorials</cds-text-cta
     >
 
-    <dds-cta-block-item-row no-border>
-      <dds-cta-block-item>
+    <cds-cta-block-item-row no-border>
+      <cds-cta-block-item>
         <span slot="statistics">10%</span>
-        <dds-content-item-heading>Get connected</dds-content-item-heading>
-        <dds-content-item-copy
+        <cds-content-item-heading>Get connected</cds-content-item-heading>
+        <cds-content-item-copy
           >IBM DevOps partners have a wide range of expertise. Find one to build
-          that right solution for you.</dds-content-item-copy
+          that right solution for you.</cds-content-item-copy
         >
-        <dds-text-cta
+        <cds-text-cta
           slot="footer"
           cta-type="local"
           icon-placement="right"
           href="https://www.example.com"
-          >Find a partner</dds-text-cta
+          >Find a partner</cds-text-cta
         >
-      </dds-cta-block-item>
+      </cds-cta-block-item>
 
-      <dds-cta-block-item>
+      <cds-cta-block-item>
         <span slot="statistics">11%</span>
-        <dds-content-item-heading>Learn how</dds-content-item-heading>
-        <dds-content-item-copy
+        <cds-content-item-heading>Learn how</cds-content-item-heading>
+        <cds-content-item-copy
           >Dig into more self-directed learning about DevOps
-          methodologies.</dds-content-item-copy
+          methodologies.</cds-content-item-copy
         >
-        <dds-text-cta
+        <cds-text-cta
           slot="footer"
           cta-type="local"
           icon-placement="right"
           href="https://www.example.com"
-          >Browse tutorials</dds-text-cta
+          >Browse tutorials</cds-text-cta
         >
-      </dds-cta-block-item>
+      </cds-cta-block-item>
 
-      <dds-cta-block-item>
+      <cds-cta-block-item>
         <span slot="statistics">12%</span>
-        <dds-content-item-heading>Learn how</dds-content-item-heading>
-        <dds-content-item-copy
+        <cds-content-item-heading>Learn how</cds-content-item-heading>
+        <cds-content-item-copy
           >Dig into more self-directed learning about DevOps
-          methodologies.</dds-content-item-copy
+          methodologies.</cds-content-item-copy
         >
-        <dds-text-cta
+        <cds-text-cta
           slot="footer"
           cta-type="local"
           icon-placement="right"
           href="https://www.example.com"
-          >Browse tutorials</dds-text-cta
+          >Browse tutorials</cds-text-cta
         >
-        <dds-text-cta
+        <cds-text-cta
           slot="footer"
           cta-type="local"
           icon-placement="right"
           href="https://www.example.com"
-          >Browse tutorials</dds-text-cta
+          >Browse tutorials</cds-text-cta
         >
-      </dds-cta-block-item>
-    </dds-cta-block-item-row>
-    <dds-cta-block-item-row>
-      <dds-cta-block-item>
+      </cds-cta-block-item>
+    </cds-cta-block-item-row>
+    <cds-cta-block-item-row>
+      <cds-cta-block-item>
         <svg
           slot="media"
           focusable="false"
@@ -140,20 +140,20 @@ import '@carbon/ibmdotcom-web-components/es/components/lightbox-media-viewer/lig
           0 10-1 0 .5.5 0 001 0zm0 9a.5.5 0 10-1 0 .5.5 0 001 0z" />
           <path fill="none" d="M0 0h32v32H0z" />
         </svg>
-        <dds-content-item-heading>Get connected</dds-content-item-heading>
-        <dds-content-item-copy
+        <cds-content-item-heading>Get connected</cds-content-item-heading>
+        <cds-content-item-copy
           >IBM DevOps partners have a wide range of expertise. Find one to build
-          that right solution for you.</dds-content-item-copy
+          that right solution for you.</cds-content-item-copy
         >
-        <dds-text-cta
+        <cds-text-cta
           slot="footer"
           cta-type="local"
           icon-placement="right"
           href="https://www.example.com"
-          >Find a partner</dds-text-cta
+          >Find a partner</cds-text-cta
         >
-      </dds-cta-block-item>
-      <dds-cta-block-item>
+      </cds-cta-block-item>
+      <cds-cta-block-item>
         <svg
           slot="media"
           focusable="false"
@@ -178,78 +178,78 @@ import '@carbon/ibmdotcom-web-components/es/components/lightbox-media-viewer/lig
           0 10-1 0 .5.5 0 001 0zm0 9a.5.5 0 10-1 0 .5.5 0 001 0z" />
           <path fill="none" d="M0 0h32v32H0z" />
         </svg>
-        <dds-content-item-heading>Learn how</dds-content-item-heading>
-        <dds-content-item-copy
+        <cds-content-item-heading>Learn how</cds-content-item-heading>
+        <cds-content-item-copy
           >Dig into more self-directed learning about DevOps
-          methodologies.</dds-content-item-copy
+          methodologies.</cds-content-item-copy
         >
-        <dds-text-cta
+        <cds-text-cta
           slot="footer"
           cta-type="local"
           icon-placement="right"
           href="example.com"
-          >Browse tutorials</dds-text-cta
+          >Browse tutorials</cds-text-cta
         >
-      </dds-cta-block-item>
-    </dds-cta-block-item-row>
-    <dds-cta-block-item-row no-border>
-      <dds-cta-block-item>
-        <dds-video-player-container
+      </cds-cta-block-item>
+    </cds-cta-block-item-row>
+    <cds-cta-block-item-row no-border>
+      <cds-cta-block-item>
+        <cds-video-player-container
           video-id="1_9h94wo6b"
           aspect-ratio="4x3"
           playing-mode="lightbox"
           slot="media"
-          hide-caption></dds-video-player-container>
-        <dds-content-item-heading>Get connected</dds-content-item-heading>
-        <dds-content-item-copy
+          hide-caption></cds-video-player-container>
+        <cds-content-item-heading>Get connected</cds-content-item-heading>
+        <cds-content-item-copy
           >IBM DevOps partners have a wide range of expertise. Find one to build
-          that right solution for you.</dds-content-item-copy
+          that right solution for you.</cds-content-item-copy
         >
-        <dds-text-cta
+        <cds-text-cta
           slot="footer"
           cta-type="local"
           icon-placement="right"
           href="example.com"
-          >Find a partner</dds-text-cta
+          >Find a partner</cds-text-cta
         >
-      </dds-cta-block-item>
-      <dds-cta-block-item>
-        <dds-video-player-container
+      </cds-cta-block-item>
+      <cds-cta-block-item>
+        <cds-video-player-container
           video-id="1_9h94wo6b"
           aspect-ratio="4x3"
           playing-mode="lightbox"
           slot="media"
-          hide-caption></dds-video-player-container>
-        <dds-lightbox-video-player-container
-          playing-mode="lightbox"></dds-lightbox-video-player-container>
-        <dds-content-item-heading>Learn how</dds-content-item-heading>
-        <dds-content-item-copy
+          hide-caption></cds-video-player-container>
+        <cds-lightbox-video-player-container
+          playing-mode="lightbox"></cds-lightbox-video-player-container>
+        <cds-content-item-heading>Learn how</cds-content-item-heading>
+        <cds-content-item-copy
           >Dig into more self-directed learning about DevOps
-          methodologies.</dds-content-item-copy
+          methodologies.</cds-content-item-copy
         >
-        <dds-text-cta
+        <cds-text-cta
           slot="footer"
           cta-type="local"
           icon-placement="right"
           href="example.com"
-          >Browse tutorials</dds-text-cta
+          >Browse tutorials</cds-text-cta
         >
-        <dds-text-cta
+        <cds-text-cta
           slot="footer"
           cta-type="local"
           icon-placement="right"
           href="example.com"
-          >Browse tutorials</dds-text-cta
+          >Browse tutorials</cds-text-cta
         >
-      </dds-cta-block-item>
-    </dds-cta-block-item-row>
-  </dds-cta-block>
-</dds-cta-section>
+      </cds-cta-block-item>
+    </cds-cta-block-item-row>
+  </cds-cta-block>
+</cds-cta-section>
 ```
 
 ## Props
 
-<Props of="dds-cta-section" />
+<Props of="cds-cta-section" />
 <Description markdown={markdownContents} />
 
 ## Stable selectors
@@ -260,6 +260,6 @@ to see how Web Components selector and `data-autoid` should be used.
 
 | Web Components selector | Compatibility selector           | Description |
 | ----------------------- | -------------------------------- | ----------- |
-| `<dds-cta-section>`     | `data-autoid="dds--cta-section"` | Component   |
+| `<cds-cta-section>`     | `data-autoid="cds--cta-section"` | Component   |
 
 <Description markdown={contributing} />

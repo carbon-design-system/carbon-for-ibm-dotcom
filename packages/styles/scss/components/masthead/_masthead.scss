@@ -175,14 +175,14 @@
 
 /// @access private
 @mixin masthead {
-  :host(#{$dds-prefix}-masthead-composite),
-  :host(#{$dds-prefix}-cloud-masthead-container) {
+  :host(#{$cds-prefix}-masthead-composite),
+  :host(#{$cds-prefix}-cloud-masthead-container) {
     z-index: 900;
     padding-top: $spacing-09;
   }
 
   .#{$prefix}--masthead,
-  :host(#{$dds-prefix}-masthead) {
+  :host(#{$cds-prefix}-masthead) {
     @include theme($white, true);
 
     position: fixed;
@@ -200,7 +200,7 @@
     }
   }
 
-  :host(#{$dds-prefix}-megamenu-overlay),
+  :host(#{$cds-prefix}-megamenu-overlay),
   .#{$prefix}--masthead__overlay {
     position: fixed;
     left: 0;
@@ -216,7 +216,7 @@
       background-color $transition-expansion $standard-easing;
   }
 
-  :host(#{$dds-prefix}-megamenu-overlay)[active],
+  :host(#{$cds-prefix}-megamenu-overlay)[active],
   .#{$prefix}--masthead__overlay-show {
     background-color: $overlay;
     visibility: visible;
@@ -224,7 +224,7 @@
     height: 100vh;
   }
 
-  :host(#{$dds-prefix}-megamenu-link-with-icon) {
+  :host(#{$cds-prefix}-megamenu-link-with-icon) {
     @extend .#{$prefix}--link-with-icon;
   }
 
@@ -337,15 +337,15 @@
   }
 
   .#{$prefix}--header__submenu,
-  :host(#{$dds-prefix}-top-nav-menu-item) {
+  :host(#{$cds-prefix}-top-nav-menu-item) {
     .#{$prefix}--text-truncate--end {
       white-space: normal;
     }
   }
 
-  :host(#{$dds-prefix}-top-nav-item),
-  :host(#{$dds-prefix}-top-nav-menu),
-  :host(#{$dds-prefix}-megamenu-top-nav-menu),
+  :host(#{$cds-prefix}-top-nav-item),
+  :host(#{$cds-prefix}-top-nav-menu),
+  :host(#{$cds-prefix}-megamenu-top-nav-menu),
   .#{$prefix}--header__nav {
     a.#{$prefix}--header__menu-item {
       @include masthead-top-nav-link;
@@ -385,15 +385,15 @@
     }
   }
 
-  :host(#{$dds-prefix}-top-nav-menu),
-  :host(#{$dds-prefix}-megamenu-top-nav-menu) {
+  :host(#{$cds-prefix}-top-nav-menu),
+  :host(#{$cds-prefix}-megamenu-top-nav-menu) {
     a.#{$prefix}--header__menu-item {
       border-bottom: $spacing-01 solid transparent;
       padding: rem(13px) $spacing-05 rem(11px);
     }
   }
 
-  :host(#{$dds-prefix}-top-nav-menu),
+  :host(#{$cds-prefix}-top-nav-menu),
   .#{$prefix}--header__nav {
     .#{$prefix}--header__menu-title[aria-expanded='true'] {
       z-index: 0;
@@ -714,7 +714,7 @@
   }
 
   @media print {
-    :host(#{$dds-prefix}-masthead),
+    :host(#{$cds-prefix}-masthead),
     .#{$prefix}--masthead {
       display: none;
     }

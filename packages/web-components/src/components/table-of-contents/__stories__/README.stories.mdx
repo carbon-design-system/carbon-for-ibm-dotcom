@@ -6,7 +6,7 @@ import {
   cdnCssAdditional,
 } from '../../../globals/internal/storybook-cdn';
 
-# `<dds-table-of-contents>`
+# `<cds-table-of-contents>`
 
 > Table of contents display pre-defined sections of the page and provide a
 > convenient way to navigate to those sections. It also sticks to the top of the
@@ -62,7 +62,7 @@ body {
 ## Example HTML
 
 ```html
-<dds-table-of-contents>
+<cds-table-of-contents>
   <div class="cds--tableofcontents__contents">
     <a name="1" data-title="Section - 1"></a>
     <h3>Section - 1</h3>
@@ -74,13 +74,13 @@ body {
     <h3>Section - 3</h3>
     <p>Section 3 content</p>
   </div>
-</dds-table-of-contents>
+</cds-table-of-contents>
 ```
 
 ### Horizontal variation
 
 ```html
-<dds-table-of-contents toc-layout="horizontal">
+<cds-table-of-contents toc-layout="horizontal">
   <div class="cds--tableofcontents-horizontal__contents">
     <a name="1" data-title="Section - 1"></a>
     <h3>Section - 1</h3>
@@ -92,25 +92,25 @@ body {
     <h3>Section - 3</h3>
     <p>Section 3 content</p>
   </div>
-</dds-table-of-contents>
+</cds-table-of-contents>
 ```
 
 ## Harvesting the table of contents
 
-`<dds-table-of-contents>` automatically harvests the table of contents by
+`<cds-table-of-contents>` automatically harvests the table of contents by
 looking for elements with the `name` attribute. The titles in the table of
 contents are harvested from the text content in the element by default. You can
 add `data-title` attribute to the elements to change the titles.
 
 ## Adjusting the position of `<select>` box
 
-`<dds-table-of-contents>` uses `<select>` as the table if the browser viewport
+`<cds-table-of-contents>` uses `<select>` as the table if the browser viewport
 has narrow width. It sticks at the very top by default, but you can adjust the
-position via CSS. This is useful e.g. when you use `<dds-table-of-contents>`
+position via CSS. This is useful e.g. when you use `<cds-table-of-contents>`
 with ibm.com masthead.
 
 ```css
-dds-table-of-contents::part(table) {
+cds-table-of-contents::part(table) {
   top: 3rem;
 }
 ```
@@ -122,7 +122,7 @@ Table of Contents.
 
 ```js
 document.dispatchEvent(
-  new CustomEvent('dds-table-of-contents-reharvest', {
+  new CustomEvent('cds-table-of-contents-reharvest', {
     bubbles: true,
     cancelable: true,
     composed: true,
@@ -132,7 +132,7 @@ document.dispatchEvent(
 
 ## Slots
 
-<Props of="dds-table-of-contents" />
+<Props of="cds-table-of-contents" />
 
 ## Stable selectors
 
@@ -142,6 +142,6 @@ to see how Web Components selector and `data-autoid` should be used.
 
 | Web Components selector   | Compatibility selector               | Description |
 | ------------------------- | ------------------------------------ | ----------- |
-| `<dds-table-of-contents>` | `data-autoid="dds--tableofcontents"` | Component   |
+| `<cds-table-of-contents>` | `data-autoid="cds--tableofcontents"` | Component   |
 
 <Description markdown={contributing} />

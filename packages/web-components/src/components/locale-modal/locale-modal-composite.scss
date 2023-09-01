@@ -7,7 +7,7 @@
 
 @use '@carbon/ibmdotcom-styles/scss/globals/vars' as *;
 
-:host(#{$dds-prefix}-locale-modal-composite),
-:host(#{$dds-prefix}-locale-modal-container) {
+:host(#{$cds-prefix}-locale-modal-composite),
+:host(#{$cds-prefix}-locale-modal-container) {
   display: contents;
 }

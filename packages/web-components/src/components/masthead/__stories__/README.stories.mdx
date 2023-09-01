@@ -42,13 +42,13 @@ import '@carbon/ibmdotcom-web-components/es/components/masthead/masthead-contain
 ### HTML
 
 ```html
-<dds-masthead-container></dds-masthead-container>
+<cds-masthead-container></cds-masthead-container>
 ```
 
 #### Setting Platform
 
 ```html
-<dds-masthead-container platform="Lorem Ipsum"></dds-masthead-container>
+<cds-masthead-container platform="Lorem Ipsum"></cds-masthead-container>
 ```
 
 #### Setting Platform URL
@@ -59,9 +59,9 @@ specific URL for each locale. This property has to be set via javascript.
 ###### Setting a single platform URL:
 
 ```html
-<dds-masthead-container
+<cds-masthead-container
   platform="Lorem Ipsum"
-  id="masthead-container"></dds-masthead-container>
+  id="masthead-container"></cds-masthead-container>
 ```
 
 ```javascript
@@ -91,9 +91,9 @@ document.getElementById('masthead-container').platformUrl = urlObject;
 ```
 
 ```html
-<dds-masthead-container
+<cds-masthead-container
   platform="Lorem Ipsum"
-  id="masthead-container"></dds-masthead-container>
+  id="masthead-container"></cds-masthead-container>
 ```
 
 #### Custom Navigation
@@ -119,7 +119,7 @@ const l1Data = {
 ```
 
 ```html
-<dds-masthead-container id="masthead-container"></dds-masthead-container>
+<cds-masthead-container id="masthead-container"></cds-masthead-container>
 ```
 
 To set a custom endpoint for the translation service to fetch from, set either
@@ -127,8 +127,8 @@ the `data-endpoint` attribute like below or `C4D_TRANSLATION_ENDPOINT`
 environment variable.
 
 ```html
-<dds-masthead-container
-  data-endpoint="/custom-endpoint"></dds-masthead-container>
+<cds-masthead-container
+  data-endpoint="/custom-endpoint"></cds-masthead-container>
 ```
 
 ### Setting the active menu item
@@ -158,7 +158,7 @@ First, add the `custom-typeahead-api` attribute into the masthead and set it to
 `true`.
 
 ```html
-<dds-masthead-container custom-typeahead-api="true"></dds-masthead-container>
+<cds-masthead-container custom-typeahead-api="true"></cds-masthead-container>
 ```
 
 As an example, we will be using the IBM Docs API to fetch the data, retrieving
@@ -178,17 +178,17 @@ async function customTypeaheadApiFunction(searchVal) {
 ```
 
 To query the current masthead search input, we need to create an event listener
-to listen for the `dds-search-with-typeahead-input` event. Once captured, we
+to listen for the `cds-search-with-typeahead-input` event. Once captured, we
 need to call our asynchronous function to fetch the custom API results based on
 the query. Once the results are retrieved, a new custom event
-`dds-custom-typeahead-api-results` needs to be dispatched containing the results
+`cds-custom-typeahead-api-results` needs to be dispatched containing the results
 for the component to render the search suggestions.
 
 ```javascript
-document.addEventListener('dds-search-with-typeahead-input', async (e) => {
+document.addEventListener('cds-search-with-typeahead-input', async (e) => {
   const results = await customTypeaheadApiFunction(e.detail.value);
   document.dispatchEvent(
-    new CustomEvent('dds-custom-typeahead-api-results', { detail: results })
+    new CustomEvent('cds-custom-typeahead-api-results', { detail: results })
   );
 });
 ```
@@ -224,8 +224,8 @@ async function customTypeaheadApiFunction(searchVal) {
 }
 ```
 
-As mentioned above, the two events `dds-search-with-typeahead-input` and
-`dds-custom-typeahead-api-results` must be handled for suggestions to be
+As mentioned above, the two events `cds-search-with-typeahead-input` and
+`cds-custom-typeahead-api-results` must be handled for suggestions to be
 rendered -- the same code for the event listener can be reused.
 
 #### Note
@@ -301,14 +301,14 @@ This array will be passed into the `scopeParameters` property. If using
 the `.`), in order for the array to be processed properly in the component.
 
 ```html
-<dds-masthead-composite
-  .scopeParameters="${scopeParameters}"></dds-masthead-composite>
+<cds-masthead-composite
+  .scopeParameters="${scopeParameters}"></cds-masthead-composite>
 ```
 
 Alternatively, JavaScript can be used to insert it into the component.
 
 ```javascript
-document.querySelector('dds-masthead-composite').scopeParameters =
+document.querySelector('cds-masthead-composite').scopeParameters =
   scopeParameters;
 ```
 
@@ -318,24 +318,24 @@ scope.
 
 ```javascript
 const placeholderFormatter = ({ scopeValue }) => `Buscar en ${scopeValue}`;
-document.querySelector('dds-search-with-typeahead').placeholderFormatter =
+document.querySelector('cds-search-with-typeahead').placeholderFormatter =
   placeholderFormatter;
 ```
 
 ## Props
 
-### `<dds-masthead-container>`/`<dds-masthead-composite>`
+### `<cds-masthead-container>`/`<cds-masthead-composite>`
 
-<Props of="dds-masthead-composite" />
+<Props of="cds-masthead-composite" />
 
 For Cloud-specific version of masthead-container,
-`<dds-cloud-masthead-container>`, we support two user authentication methods,
+`<cds-cloud-masthead-container>`, we support two user authentication methods,
 via cookie or api. To select between the two, provide the `auth-method` prop
 with a value of either 'cookie' or 'api'.
 
 ```html
-<dds-cloud-masthead-container
-  auth-method="cookie"></dds-cloud-masthead-container>
+<cds-cloud-masthead-container
+  auth-method="cookie"></cds-cloud-masthead-container>
 ```
 
 ## Stable selectors
@@ -346,14 +346,14 @@ to see how Web Components selector and `data-autoid` should be used.
 
 | Web Components selector                                                                   | Compatibility selector                                                   | Description |
 | ----------------------------------------------------------------------------------------- | ------------------------------------------------------------------------ | ----------- |
-| `<dds-masthead>`                                                                          | `data-autoid="dds--masthead"`                                            | Component   |
-| `<dds-masthead-menu-button>`                                                              | `data-autoid="dds--masthead__hamburger"`                                 | Interactive |
-| `<dds-top-nav-name>`                                                                      | `data-autoid="dds--masthead__platform-name"`                             | Interactive |
-| `<dds-top-nav>`                                                                           | `data-autoid="dds--masthead__l0-nav"`                                    | Component   |
-| `<dds-top-nav-menu trigger-content="${item}">` and `<dds-top-nav-item title="${item}">`   | `data-autoid="dds--masthead__l0-nav--nav${item}"`                        | Interactive |
-| `<dds-top-nav-menu-item title="${item}">`                                                 | `data-autoid="dds--masthead__l0-nav--subnav-col${item}-item${item}"`     | Interactive |
-| `<dds-left-nav>`                                                                          | `data-autoid="dds--masthead__l0-sidenav"`                                | Component   |
-| `<dds-left-nav-menu trigger-content="${item}">` and `<dds-left-nav-item title="${item}">` | `data-autoid="dds--masthead__l0-sidenav--nav${item}"`                    | Interactive |
-| `<dds-left-nav-menu-item title="${item}">`                                                | `data-autoid="dds--masthead__l0-sidenav--subnav-col${item}-item${item}"` | Interactive |
+| `<cds-masthead>`                                                                          | `data-autoid="cds--masthead"`                                            | Component   |
+| `<cds-masthead-menu-button>`                                                              | `data-autoid="cds--masthead__hamburger"`                                 | Interactive |
+| `<cds-top-nav-name>`                                                                      | `data-autoid="cds--masthead__platform-name"`                             | Interactive |
+| `<cds-top-nav>`                                                                           | `data-autoid="cds--masthead__l0-nav"`                                    | Component   |
+| `<cds-top-nav-menu trigger-content="${item}">` and `<cds-top-nav-item title="${item}">`   | `data-autoid="cds--masthead__l0-nav--nav${item}"`                        | Interactive |
+| `<cds-top-nav-menu-item title="${item}">`                                                 | `data-autoid="cds--masthead__l0-nav--subnav-col${item}-item${item}"`     | Interactive |
+| `<cds-left-nav>`                                                                          | `data-autoid="cds--masthead__l0-sidenav"`                                | Component   |
+| `<cds-left-nav-menu trigger-content="${item}">` and `<cds-left-nav-item title="${item}">` | `data-autoid="cds--masthead__l0-sidenav--nav${item}"`                    | Interactive |
+| `<cds-left-nav-menu-item title="${item}">`                                                | `data-autoid="cds--masthead__l0-sidenav--subnav-col${item}-item${item}"` | Interactive |
 
 <Description markdown={contributing} />

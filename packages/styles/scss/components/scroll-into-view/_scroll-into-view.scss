@@ -12,15 +12,15 @@
 
 @mixin scroll-into-view {
   :root {
-    --#{$dds-prefix}--fade-in-out-delay: 0s;
+    --#{$cds-prefix}--fade-in-out-delay: 0s;
   }
 
-  $dds--slide-distance: $spacing-07;
+  $cds--slide-distance: $spacing-07;
 
   .#{$prefix}--fade-in {
     transition-timing-function: motion(entrance, expressive);
     transition-duration: $duration-slow-01;
-    transition-delay: var(--#{$dds-prefix}--fade-in-out-delay);
+    transition-delay: var(--#{$cds-prefix}--fade-in-out-delay);
     opacity: 1;
   }
 
@@ -37,50 +37,50 @@
 
       transition-timing-function: motion(entrance, expressive);
       transition-duration: $duration-slow-01;
-      transition-delay: var(--#{$dds-prefix}--fade-in-out-delay);
+      transition-delay: var(--#{$cds-prefix}--fade-in-out-delay);
     }
 
     &-up {
-      top: $dds--slide-distance;
+      top: $cds--slide-distance;
       opacity: 0;
     }
 
     &-up-right {
-      top: $dds--slide-distance;
-      left: -$dds--slide-distance;
+      top: $cds--slide-distance;
+      left: -$cds--slide-distance;
       opacity: 0;
     }
 
     &-right {
-      left: -$dds--slide-distance;
+      left: -$cds--slide-distance;
       opacity: 0;
     }
 
     &-down-right {
-      top: -$dds--slide-distance;
-      left: -$dds--slide-distance;
+      top: -$cds--slide-distance;
+      left: -$cds--slide-distance;
       opacity: 0;
     }
 
     &-down {
-      top: -$dds--slide-distance;
+      top: -$cds--slide-distance;
       opacity: 0;
     }
 
     &-down-left {
-      top: -$dds--slide-distance;
-      left: $dds--slide-distance;
+      top: -$cds--slide-distance;
+      left: $cds--slide-distance;
       opacity: 0;
     }
 
     &-left {
-      left: $dds--slide-distance;
+      left: $cds--slide-distance;
       opacity: 0;
     }
 
     &-up-left {
-      top: $dds--slide-distance;
-      left: $dds--slide-distance;
+      top: $cds--slide-distance;
+      left: $cds--slide-distance;
       opacity: 0;
     }
   }

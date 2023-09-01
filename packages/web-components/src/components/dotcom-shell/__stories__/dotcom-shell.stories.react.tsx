@@ -713,8 +713,8 @@ export const WithUniversalBanner = (args) => {
     ctaCopy,
   } = args?.DotcomShell ?? {};
 
-  const bannerHeading = document.querySelector('dds-universal-banner-heading');
-  const bannerCopy = document.querySelector('dds-universal-banner-copy');
+  const bannerHeading = document.querySelector('cds-universal-banner-heading');
+  const bannerCopy = document.querySelector('cds-universal-banner-copy');
 
   if (bannerHeading) {
     bannerHeading!.shadowRoot!.textContent = heading;
@@ -821,7 +821,7 @@ export const WithoutShell = (args) => {
           id="masthead-container"
           l1Data={l1Data}></C4DMastheadContainer>
       )}
-      <main className="cds--content dds-ce-demo--ui-shell-content">
+      <main className="cds--content cds-ce-demo--ui-shell-content">
         {leadspaceSearch ? (
           <div className="cds--grid cds--col-lg-8">
             {contentLeadspaceSearch}
@@ -871,7 +871,7 @@ export default {
     (story) => {
       if (!(window as any)._hPageShow) {
         (window as any)._hPageShow = on(window, 'pageshow', () => {
-          const leftNav = document.querySelector('dds-left-nav');
+          const leftNav = document.querySelector('cds-left-nav');
           if (leftNav) {
             (leftNav as C4DLeftNav).expanded = false;
           }

@@ -10,7 +10,7 @@
 @use '@carbon/styles/scss/spacing' as *;
 @use '@carbon/ibmdotcom-styles/scss/globals/vars' as *;
 
-:host(#{$dds-prefix}-card-section-carousel) {
+:host(#{$cds-prefix}-card-section-carousel) {
   @include breakpoint(lg) {
     .#{$prefix}--content-section__body {
       max-width: 75%;

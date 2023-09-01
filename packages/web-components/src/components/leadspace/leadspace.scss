@@ -12,7 +12,7 @@
 @use '../../../../carbon-web-components/src/components/breadcrumb/breadcrumb';
 @use '@carbon/ibmdotcom-styles/scss/globals/vars' as *;
 
-:host(#{$dds-prefix}-leadspace) {
+:host(#{$cds-prefix}-leadspace) {
   display: block;
   position: relative;
 
@@ -36,7 +36,7 @@
     }
   }
 
-  ::slotted(#{$dds-prefix}-background-media) {
+  ::slotted(#{$cds-prefix}-background-media) {
     height: auto;
     aspect-ratio: 4 / 3; /* stylelint-disable-line property-no-unknown */
 
@@ -49,21 +49,21 @@
   }
 }
 
-:host(#{$dds-prefix}-breadcrumb) {
+:host(#{$cds-prefix}-breadcrumb) {
   // @extend :host(#{$prefix}-breadcrumb);
   padding-bottom: $spacing-05;
 }
 
-:host(#{$dds-prefix}-breadcrumb-item) {
+:host(#{$cds-prefix}-breadcrumb-item) {
   // @extend :host(#{$prefix}-breadcrumb-item);
   display: inline;
 }
 
-:host(#{$dds-prefix}-breadcrumb-item:last-of-type)::after {
+:host(#{$cds-prefix}-breadcrumb-item:last-of-type)::after {
   // @extend :host(#{$prefix}-breadcrumb-item:last-of-type)::after;
 }
 
-:host(#{$dds-prefix}-breadcrumb-link) {
+:host(#{$cds-prefix}-breadcrumb-link) {
   // @extend :host(#{$prefix}-breadcrumb-link);
 }
 

@@ -47,6 +47,7 @@ class C4DButton extends CTAMixin(StableSelectorMixin(CDSButton)) {
   /**
    * TODO: Due to the new render() logic coming from the CWC v2 button,
    * this function is currently unused. We'd need to dynamically add it.
+   *
    * @returns The icon for the print styles
    */
   _renderIconPrintStyles() {

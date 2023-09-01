@@ -10,8 +10,8 @@
  *
  * @exports ibmdotcom.settings
  * @type {object} Settings object
- * @property {string} [stablePrefix=c4d]
- * @property {string} [prefix=cds]
+ * @property {string} [stablePrefix=c4d] stable prefix
+ * @property {string} [prefix=cds] core Carbon prefix
  * Carbon for IBM.com v1.49.0',
  */
 const settings = {
