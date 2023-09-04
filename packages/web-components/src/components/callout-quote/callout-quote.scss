@@ -38,5 +38,13 @@
   .#{$prefix}--quote__wrapper {
     margin-left: -1rem;
     margin-right: -1rem;
+    @include carbon--breakpoint('md') {
+      margin-left: -1rem;
+      margin-right: -1rem;
+    }
+    @include carbon--breakpoint('sm') {
+      margin-left: 0;
+      margin-right: 0;
+    }
   }
 }
