@@ -493,6 +493,10 @@
   }
 }
 
+:host(#{$dds-prefix}-search-with-typeahead-item[alternate]) {
+  border-top: 1px solid $border-subtle-01;
+}
+
 :host(#{$dds-prefix}-scoped-search-dropdown),
 :host(#{$dds-prefix}-scoped-search-dropdown-mobile) {
   display: flex;
