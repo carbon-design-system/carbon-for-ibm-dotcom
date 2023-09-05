@@ -231,7 +231,7 @@
           bottom: 0;
           left: 0;
           display: block;
-          border-bottom: $spacing-01 solid $background-brand;
+          border-bottom: $spacing-01 solid $border-interactive;
           width: 100%;
           height: $spacing-01;
           z-index: 10002;
@@ -245,6 +245,7 @@
         outline: $spacing-01 solid transparent;
         outline-offset: -#{$spacing-01};
         background-color: $layer-01;
+        color: $text-primary;
         height: carbon--mini-units(6);
         z-index: 10000;
 
@@ -445,6 +446,8 @@
   }
 
   .#{$prefix}--header__search--input {
+    @include font-family('sans');
+
     font-size: $spacing-05;
     line-height: 1.375rem;
     border: none;
