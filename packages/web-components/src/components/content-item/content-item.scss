@@ -5,19 +5,4 @@
 // LICENSE file in the root directory of this source tree.
 //
 
-@use '@carbon/styles/scss/spacing' as *;
-@use '@carbon/ibmdotcom-styles/scss/globals/vars' as *;
 @use '@carbon/ibmdotcom-styles/scss/internal/content-item';
-
-:host(#{$cds-prefix}-content-item-copy),
-:host(#{$cds-prefix}-content-item-paragraph) {
-  display: block;
-}
-
-:host(#{$cds-prefix}-content-item) ::slotted(#{$cds-prefix}-image),
-:host(#{$cds-prefix}-content-item)
-  ::slotted(#{$cds-prefix}-video-player-container) {
-  display: block;
-  margin-top: $spacing-05;
-  margin-bottom: $spacing-07;
-}
