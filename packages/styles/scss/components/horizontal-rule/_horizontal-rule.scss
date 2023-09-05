@@ -16,29 +16,29 @@
   $high-contrast: $border-inverse;
   $thin-weight: rem(1px);
 
-  :host(#{$cds-prefix}-hr)[size='small'] {
+  :host(#{$c4d-prefix}-hr)[size='small'] {
     @extend .#{$prefix}--hr--small;
   }
-  :host(#{$cds-prefix}-hr)[size='medium'] {
+  :host(#{$c4d-prefix}-hr)[size='medium'] {
     @extend .#{$prefix}--hr--medium;
   }
-  :host(#{$cds-prefix}-hr)[size='large'] {
+  :host(#{$c4d-prefix}-hr)[size='large'] {
     @extend .#{$prefix}--hr--large;
   }
-  :host(#{$cds-prefix}-hr)[weight='thick'] {
+  :host(#{$c4d-prefix}-hr)[weight='thick'] {
     @extend .#{$prefix}--hr--thick;
   }
-  :host(#{$cds-prefix}-hr)[type='dashed'] {
+  :host(#{$c4d-prefix}-hr)[type='dashed'] {
     @extend .#{$prefix}--hr--dashed;
   }
-  :host(#{$cds-prefix}-hr)[contrast='low-contrast'] {
+  :host(#{$c4d-prefix}-hr)[contrast='low-contrast'] {
     @extend .#{$prefix}--hr--low-contrast;
   }
-  :host(#{$cds-prefix}-hr)[contrast='high-contrast'] {
+  :host(#{$c4d-prefix}-hr)[contrast='high-contrast'] {
     @extend .#{$prefix}--hr--high-contrast;
   }
 
-  :host(#{$cds-prefix}-hr),
+  :host(#{$c4d-prefix}-hr),
   .#{$prefix}--hr {
     margin: $spacing-05 0;
     border: none;

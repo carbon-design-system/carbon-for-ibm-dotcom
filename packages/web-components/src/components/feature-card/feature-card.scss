@@ -15,11 +15,11 @@
 @use '../card/card';
 @use '@carbon/ibmdotcom-styles/scss/globals/vars' as *;
 
-:host(#{$cds-prefix}-feature-card),
-:host(#{$cds-prefix}-feature-cta) {
+:host(#{$c4d-prefix}-feature-card),
+:host(#{$c4d-prefix}-feature-cta) {
   display: block;
   outline: none;
-  ::slotted(#{$cds-prefix}-card-heading) {
+  ::slotted(#{$c4d-prefix}-card-heading) {
     color: $focus-inset;
   }
 
@@ -41,14 +41,14 @@
   }
 }
 
-:host(#{$cds-prefix}-feature-card[size='large']) {
+:host(#{$c4d-prefix}-feature-card[size='large']) {
   &:hover {
     .#{$prefix}--card__wrapper {
       background-color: $background-inverse-hover;
     }
   }
 
-  ::slotted(#{$cds-prefix}-feature-card-footer) {
+  ::slotted(#{$c4d-prefix}-feature-card-footer) {
     display: flex;
     justify-content: flex-start;
 
@@ -58,8 +58,8 @@
   }
 }
 
-:host(#{$cds-prefix}-feature-card-footer),
-:host(#{$cds-prefix}-feature-cta-footer) {
+:host(#{$c4d-prefix}-feature-card-footer),
+:host(#{$c4d-prefix}-feature-cta-footer) {
   display: flex;
   justify-content: flex-start;
 

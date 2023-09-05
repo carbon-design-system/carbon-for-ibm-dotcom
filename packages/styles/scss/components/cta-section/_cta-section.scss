@@ -37,7 +37,7 @@
 }
 
 @mixin cta-section {
-  :host(#{$cds-prefix}-cta-section),
+  :host(#{$c4d-prefix}-cta-section),
   .#{$prefix}--cta-section {
     .#{$prefix}--cta-section__cta {
       padding-bottom: $spacing-10;

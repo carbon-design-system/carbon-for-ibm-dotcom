@@ -33,7 +33,7 @@
     &:focus-within {
       outline: none;
 
-      ::slotted(#{$cds-prefix}-image),
+      ::slotted(#{$c4d-prefix}-image),
       .#{$prefix}--image {
         z-index: 0;
       }
@@ -60,7 +60,7 @@
     }
 
     .#{$prefix}--content-item__copy p,
-    ::slotted(#{$cds-prefix}-content-item-paragraph) {
+    ::slotted(#{$c4d-prefix}-content-item-paragraph) {
       margin-bottom: $spacing-07;
 
       @include breakpoint(md) {
@@ -69,7 +69,7 @@
     }
 
     .#{$prefix}--card-link,
-    ::slotted(#{$cds-prefix}-feature-section-card-link) {
+    ::slotted(#{$c4d-prefix}-feature-section-card-link) {
       position: relative;
       display: inline-block;
       margin-left: 25%;
@@ -91,7 +91,7 @@
     padding-right: 0;
 
     .#{$prefix}--image,
-    ::slotted(#{$cds-prefix}-image) {
+    ::slotted(#{$c4d-prefix}-image) {
       overflow: hidden;
 
       @include breakpoint(sm) {
@@ -109,13 +109,13 @@
   }
 
   .#{$prefix}--card__eyebrow,
-  ::slotted(#{$cds-prefix}-card-eyebrow) {
+  ::slotted(#{$c4d-prefix}-card-eyebrow) {
     display: inline-block;
     margin-bottom: $spacing-05;
   }
 
   .#{$prefix}--card-link,
-  ::slotted(#{$cds-prefix}-feature-section-card-link) {
+  ::slotted(#{$c4d-prefix}-feature-section-card-link) {
     position: absolute;
     right: 0;
     bottom: 0;

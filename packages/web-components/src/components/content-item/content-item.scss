@@ -9,14 +9,14 @@
 @use '@carbon/ibmdotcom-styles/scss/globals/vars' as *;
 @use '@carbon/ibmdotcom-styles/scss/internal/content-item';
 
-:host(#{$cds-prefix}-content-item-copy),
-:host(#{$cds-prefix}-content-item-paragraph) {
+:host(#{$c4d-prefix}-content-item-copy),
+:host(#{$c4d-prefix}-content-item-paragraph) {
   display: block;
 }
 
-:host(#{$cds-prefix}-content-item) ::slotted(#{$cds-prefix}-image),
-:host(#{$cds-prefix}-content-item)
-  ::slotted(#{$cds-prefix}-video-player-container) {
+:host(#{$c4d-prefix}-content-item) ::slotted(#{$c4d-prefix}-image),
+:host(#{$c4d-prefix}-content-item)
+  ::slotted(#{$c4d-prefix}-video-player-container) {
   display: block;
   margin-top: $spacing-05;
   margin-bottom: $spacing-07;

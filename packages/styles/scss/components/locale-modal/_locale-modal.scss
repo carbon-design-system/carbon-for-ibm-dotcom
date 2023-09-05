@@ -22,7 +22,7 @@
 /// @group locale-modal
 
 @mixin locale-modal {
-  :host(#{$cds-prefix}-locale-modal),
+  :host(#{$c4d-prefix}-locale-modal),
   .#{$prefix}--locale-modal-container {
     @include theme(
       $white,
@@ -157,7 +157,7 @@
   }
 }
 
-:host(#{$cds-prefix}-region-item) .#{$prefix}--link,
+:host(#{$c4d-prefix}-region-item) .#{$prefix}--link,
 .#{$prefix}--locale-modal-container
   .#{$prefix}--locale-modal__regions
   .#{$prefix}--card {
@@ -180,14 +180,14 @@
   }
 }
 
-:host(#{$cds-prefix}-region-item),
+:host(#{$c4d-prefix}-region-item),
 .#{$prefix}--modal-container {
   svg.#{$prefix}--card__cta {
     color: $border-inverse;
   }
 }
 
-:host(#{$cds-prefix}-locale-item) a.#{$prefix}--link,
+:host(#{$c4d-prefix}-locale-item) a.#{$prefix}--link,
 .#{$prefix}--locale-modal-container .#{$prefix}--locale-modal__locales {
   text-decoration: none;
   border: $spacing-01 solid transparent;
@@ -208,7 +208,7 @@
   }
 }
 
-:host(#{$cds-prefix}-locale-item),
+:host(#{$c4d-prefix}-locale-item),
 .#{$prefix}--locale-modal-container {
   .#{$prefix}--locale-modal__locales__name {
     width: 50%;
@@ -222,7 +222,7 @@
   }
 }
 
-:host(#{$cds-prefix}-locale-search),
+:host(#{$c4d-prefix}-locale-search),
 .#{$prefix}--locale-modal-container .#{$prefix}--locale-modal__filtering {
   display: flex;
   flex-direction: column;
@@ -249,7 +249,7 @@
   }
 }
 
-:host(#{$cds-prefix}-locale-search),
+:host(#{$c4d-prefix}-locale-search),
 .#{$prefix}--locale-modal-container {
   .#{$prefix}--locale-modal__search {
     position: sticky;

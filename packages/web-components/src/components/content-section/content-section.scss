@@ -11,26 +11,26 @@
 @use '@carbon/ibmdotcom-styles/scss/internal/content-section';
 @use '@carbon/ibmdotcom-styles/scss/globals/vars' as *;
 
-:host(#{$cds-prefix}-content-section),
-:host(#{$cds-prefix}-card-section-carousel),
-:host(#{$cds-prefix}-content-section-heading),
-:host(#{$cds-prefix}-content-section-copy) {
+:host(#{$c4d-prefix}-content-section),
+:host(#{$c4d-prefix}-card-section-carousel),
+:host(#{$c4d-prefix}-content-section-heading),
+:host(#{$c4d-prefix}-content-section-copy) {
   display: block;
   overflow-x: hidden;
 }
 
-:host(#{$cds-prefix}-content-section) {
+:host(#{$c4d-prefix}-content-section) {
   &[with-link-list] {
     .#{$prefix}--content-section__body {
       padding: 0 $spacing-05;
     }
   }
 
-  ::slotted(#{$cds-prefix}-content-block-simple) {
+  ::slotted(#{$c4d-prefix}-content-block-simple) {
     padding-bottom: $spacing-10;
   }
 
-  ::slotted(#{$cds-prefix}-link-list) {
+  ::slotted(#{$c4d-prefix}-link-list) {
     @include breakpoint-down(md) {
       display: block;
       margin: 0 $spacing-05;

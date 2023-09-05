@@ -13,13 +13,13 @@
 @use '@carbon/ibmdotcom-styles/scss/components/link-with-icon';
 @use '@carbon/ibmdotcom-styles/scss/globals/vars' as *;
 
-:host(#{$cds-prefix}-quote-source-bottom-copy),
-:host(#{$cds-prefix}-quote-source-copy),
-:host(#{$cds-prefix}-quote-source-heading) {
+:host(#{$c4d-prefix}-quote-source-bottom-copy),
+:host(#{$c4d-prefix}-quote-source-copy),
+:host(#{$c4d-prefix}-quote-source-heading) {
   display: block;
 }
 
-:host(#{$cds-prefix}-quote) #{$cds-prefix}-hr {
+:host(#{$c4d-prefix}-quote) #{$c4d-prefix}-hr {
   margin: $spacing-05;
   @include breakpoint(md) {
     margin: $spacing-05 0;
@@ -29,13 +29,13 @@
   }
 }
 
-:host(#{$cds-prefix}-quote-link-with-icon) {
+:host(#{$c4d-prefix}-quote-link-with-icon) {
   @extend .#{$prefix}--link-with-icon;
 
   display: inline-block;
 }
 
-:host-context(#{$cds-prefix}-quote[color-scheme='inverse'])
+:host-context(#{$c4d-prefix}-quote[color-scheme='inverse'])
   a.#{$prefix}--link-with-icon.#{$prefix}--link.#{$prefix}--link-with-icon__icon-right {
   color: $link-inverse;
   outline-color: $focus-inverse;

@@ -15,7 +15,7 @@
 
 @mixin callout {
   .#{$prefix}--callout__container,
-  :host(#{$cds-prefix}-callout) {
+  :host(#{$c4d-prefix}-callout) {
     background-color: $focus-inset;
     @include make-row;
   }
@@ -49,9 +49,9 @@
     .#{$prefix}--quote__source-heading,
     .#{$prefix}--quote__source-body,
     .#{$prefix}--quote__source-optional-copy,
-    ::slotted(#{$cds-prefix}-quote-source-bottom-copy),
-    ::slotted(#{$cds-prefix}-quote-source-copy),
-    ::slotted(#{$cds-prefix}-quote-source-heading),
+    ::slotted(#{$c4d-prefix}-quote-source-bottom-copy),
+    ::slotted(#{$c4d-prefix}-quote-source-copy),
+    ::slotted(#{$c4d-prefix}-quote-source-heading),
     .#{$prefix}--quote__mark {
       color: $icon-inverse;
     }

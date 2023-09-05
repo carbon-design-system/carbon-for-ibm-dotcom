@@ -57,7 +57,7 @@
     }
   }
 
-  :host(#{$cds-prefix}-lightbox-media-viewer-body),
+  :host(#{$c4d-prefix}-lightbox-media-viewer-body),
   .#{$prefix}--lightbox-media-viewer__container {
     display: block;
     width: 100%;
@@ -195,7 +195,7 @@
     }
   }
 
-  ::slotted(#{$cds-prefix}-video-player-container) {
+  ::slotted(#{$c4d-prefix}-video-player-container) {
     width: 100%;
   }
 }

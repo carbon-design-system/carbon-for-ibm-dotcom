@@ -26,7 +26,7 @@ $fcb-breakpoint-up--lg: map.get(map.get($grid-breakpoints, 'lg'), 'width') -
   rem(1px);
 
 @mixin feature-card-block-large {
-  :host(#{$cds-prefix}-feature-card-block-large),
+  :host(#{$c4d-prefix}-feature-card-block-large),
   .#{$prefix}--feature-card-block-large {
     margin-bottom: $spacing-07;
 
@@ -113,8 +113,8 @@ $fcb-breakpoint-up--lg: map.get(map.get($grid-breakpoints, 'lg'), 'width') -
       .#{$prefix}--card__eyebrow,
       .#{$prefix}--card__heading,
       .#{$prefix}--card__copy,
-      ::slotted(#{$cds-prefix}-card-eyebrow),
-      ::slotted(#{$cds-prefix}-card-heading) {
+      ::slotted(#{$c4d-prefix}-card-eyebrow),
+      ::slotted(#{$c4d-prefix}-card-heading) {
         width: 100%;
         max-width: rem(480px);
         @include breakpoint(md) {
@@ -127,12 +127,12 @@ $fcb-breakpoint-up--lg: map.get(map.get($grid-breakpoints, 'lg'), 'width') -
       }
 
       .#{$prefix}--card__eyebrow,
-      ::slotted(#{$cds-prefix}-card-eyebrow) {
+      ::slotted(#{$c4d-prefix}-card-eyebrow) {
         margin: 0 0 $spacing-05 0;
       }
 
       .#{$prefix}--card__heading,
-      ::slotted(#{$cds-prefix}-card-heading) {
+      ::slotted(#{$c4d-prefix}-card-heading) {
         @include type-style('fluid-heading-04', true);
 
         margin-bottom: $spacing-07;
@@ -175,8 +175,8 @@ $fcb-breakpoint-up--lg: map.get(map.get($grid-breakpoints, 'lg'), 'width') -
     }
   }
 
-  :host(#{$cds-prefix}-feature-card-block-large-footer)
-    .#{$cds-prefix}-ce--card__footer
+  :host(#{$c4d-prefix}-feature-card-block-large-footer)
+    .#{$c4d-prefix}-ce--card__footer
     ::slotted(svg[slot='icon']),
   .#{$prefix}--feature-card-block-large
     .#{$prefix}--feature-card-block-large__card.#{$prefix}--tile

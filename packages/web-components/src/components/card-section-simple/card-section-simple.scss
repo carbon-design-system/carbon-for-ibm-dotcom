@@ -11,7 +11,7 @@
 @use '@carbon/ibmdotcom-styles/scss/components/layout';
 @use '@carbon/ibmdotcom-styles/scss/globals/vars' as *;
 
-:host(#{$cds-prefix}-card-section-simple) {
+:host(#{$c4d-prefix}-card-section-simple) {
   display: block;
 
   padding-top: $spacing-09;
