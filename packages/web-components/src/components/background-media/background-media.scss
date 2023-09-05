@@ -5,39 +5,4 @@
 // LICENSE file in the root directory of this source tree.
 //
 
-@use '@carbon/styles/scss/breakpoint' as *;
-@use '@carbon/styles/scss/config' as *;
-@use '@carbon/styles/scss/spacing' as *;
-@use '@carbon/styles/scss/theme' as *;
-@use '@carbon/styles/scss/utilities' as *;
 @use '@carbon/ibmdotcom-styles/scss/components/background-media';
-@use '../../../../carbon-web-components/src/components/tooltip/tooltip';
-
-.#{$prefix}--background-media--video {
-  aspect-ratio: 16 / 9; /* stylelint-disable-line property-no-unknown */
-  @include breakpoint(md) {
-    aspect-ratio: auto; /* stylelint-disable-line property-no-unknown */
-  }
-}
-
-.#{$prefix}--video-player__controls[hasTooltip] {
-  @include tooltip--trigger('definition', top);
-  @include tooltip--placement('definition', 'top', 'end');
-
-  position: absolute;
-  border: $spacing-01 solid transparent;
-  background-clip: padding-box;
-
-  &:focus {
-    border-color: $text-primary;
-    outline: $spacing-01 solid $background;
-  }
-}
-
-.#{$prefix}--background-media--container {
-  contain: layout;
-}
-
-.#{$prefix}--background-media--item {
-  height: 100%;
-}

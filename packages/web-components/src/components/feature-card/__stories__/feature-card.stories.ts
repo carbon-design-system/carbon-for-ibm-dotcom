@@ -13,6 +13,7 @@ import '../index';
 
 import ArrowRight20 from '../../../internal/vendor/@carbon/web-components/icons/arrow--right/20.js';
 import { html } from 'lit';
+import { boolean, select } from '@storybook/addon-knobs';
 import { ifDefined } from 'lit/directives/if-defined.js';
 import mediumImgLg1x1 from '../../../../../storybook-images/assets/720/fpo--1x1--720x720--004.jpg';
 
@@ -25,19 +26,49 @@ import imgXlg2x1 from '../../../../../storybook-images/assets/1312/fpo--2x1--131
 import readme from './README.stories.mdx';
 import textNullable from '../../../../.storybook/knob-text-nullable';
 
+import { CTA_TYPE } from '../../cta/defs';
+
+import {
+  hrefsForType,
+  knobNamesForType,
+  typeOptions,
+  types,
+} from '../../cta/__stories__/ctaTypeConfig';
+
 export const Medium = (args) => {
-  const { heading, href } = args?.['dds-feature-card'] ?? {};
+  const { ctaType, heading, href, customVideoTitle, noPoster } =
+    args?.['dds-feature-card'] ?? {};
+  let videoCopy;
+
+  if (ctaType === CTA_TYPE.VIDEO) {
+    const card = document.querySelector('dds-feature-card') as any;
+    const duration = card?.videoTitle?.match(/\((.*)\)/)?.pop();
+
+    if (!customVideoTitle) {
+      videoCopy = card?.videoTitle;
+    } else {
+      videoCopy = duration
+        ? `${customVideoTitle} (${duration})`
+        : customVideoTitle;
+    }
+  }
+
   return html`
-    <dds-feature-card href=${ifDefined(href || undefined)}>
-      <dds-image
-        slot="image"
-        alt="Image alt text"
-        default-src="${mediumImgLg1x1}"></dds-image>
-      <dds-card-heading>${heading}</dds-card-heading>
-      <dds-feature-card-footer>
-        ${ArrowRight20({ slot: 'icon' })}
-      </dds-feature-card-footer>
-    </dds-feature-card>
+    <dds-video-cta-container>
+      <dds-feature-card
+        ?no-poster=${noPoster}
+        cta-type="${ctaType}"
+        href=${ifDefined(href || undefined)}>
+        ${ctaType !== CTA_TYPE.VIDEO
+          ? html`<dds-image
+              slot="image"
+              alt="Image alt text"
+              default-src="${mediumImgLg1x1}"></dds-image>`
+          : ``}
+        <dds-card-heading>${videoCopy ?? heading}</dds-card-heading>
+        <dds-feature-card-footer> </dds-feature-card-footer>
+      </dds-feature-card>
+    </dds-video-cta-container>
   `;
 };
 
@@ -118,13 +149,36 @@ export default {
     storyGrid: 'cds--col-lg-8 cds--no-gutter"',
     hasStoryPadding: true,
     knobs: {
-      'dds-feature-card': () => ({
-        heading: textNullable(
-          'Card Heading (heading):',
-          'Explore AI use cases in all industries'
-        ),
-        href: textNullable('Card Href (href):', 'https://example.com'),
-      }),
+      'dds-feature-card': () => {
+        const ctaType = select(
+          'CTA type (cta-type)',
+          typeOptions,
+          types[CTA_TYPE.LOCAL]
+        );
+
+        const heading =
+          ctaType === CTA_TYPE.VIDEO
+            ? undefined
+            : textNullable('Heading:', 'Aerospace and defence');
+
+        const customVideoTitle =
+          ctaType === CTA_TYPE.VIDEO
+            ? textNullable('Custom video title', 'Custom video title')
+            : null;
+
+        const noPoster =
+          ctaType === CTA_TYPE.VIDEO ? boolean('No poster:', false) : null;
+        return {
+          ctaType,
+          heading,
+          customVideoTitle,
+          noPoster,
+          href: textNullable(
+            knobNamesForType[ctaType ?? CTA_TYPE.REGULAR],
+            hrefsForType[ctaType ?? CTA_TYPE.REGULAR]
+          ),
+        };
+      },
     },
     propsSet: {
       default: {

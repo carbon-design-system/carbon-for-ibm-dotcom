@@ -65,10 +65,10 @@ const textCTAContent = html`
 `;
 
 const imageContent = html`
-  <dds-card-cta-image
+  <dds-image
     slot="image"
     alt="Image Alt Text"
-    default-src="${imgXlg4x3}"></dds-card-cta-image>
+    default-src="${imgXlg4x3}"></dds-image>
 `;
 
 const cardsDiffLengthPhrase = (
@@ -100,7 +100,7 @@ const cardsDiffLengthPhrase = (
       ${tagGroup ? tagGroupContent : ''}
       ${cardType === 'Card static' && addCta
         ? textCTAContent
-        : html` <dds-card-cta-footer slot="footer"></dds-card-cta-footer> `}
+        : html` <dds-card-footer slot="footer"></dds-card-footer> `}
     </dds-card-group-item>
   `;
 
@@ -110,9 +110,10 @@ const cardsDiffLengthPhrase = (
       href="1_9h94wo6b"
       color-scheme=${gridMode === 'border' ? 'light' : null}>
       <dds-card-eyebrow>Topic</dds-card-eyebrow>
+      <dds-card-heading></dds-card-heading>
       ${tagGroup ? tagGroupContent : ''}
-      <dds-card-cta-footer cta-type="video" slot="footer" href="1_9h94wo6b">
-      </dds-card-cta-footer>
+      <dds-card-footer cta-type="video" slot="footer" href="1_9h94wo6b">
+      </dds-card-footer>
     </dds-card-group-item>
   `;
 
@@ -148,7 +149,7 @@ const longHeadingCardGroupItem = (
       ${tagGroup ? tagGroupContent : ''}
       ${cardType === 'Card static' && addCta
         ? textCTAContent
-        : html` <dds-card-cta-footer slot="footer"></dds-card-cta-footer> `}
+        : html` <dds-card-footer slot="footer"></dds-card-footer> `}
     </dds-card-group-item>
   `;
 };
@@ -193,7 +194,7 @@ const cardLink = html`
     pattern-background>
     <dds-card-link-heading>IBM Developer</dds-card-link-heading>
     <p>Learn, code and connect with your community</p>
-    <dds-card-cta-footer slot="footer"> </dds-card-cta-footer>
+    <dds-card-footer slot="footer"> </dds-card-footer>
   </dds-card-group-card-link-item>
 `;
 
@@ -214,7 +215,7 @@ const cardInCardItems = (i, tagGroup, media, gridMode) => {
               marine litter</dds-card-heading
             >
             ${tagGroup ? tagGroupContent : ''}
-            <dds-card-cta-footer slot="footer"> </dds-card-cta-footer>
+            <dds-card-footer slot="footer"> </dds-card-footer>
           </dds-card-group-item>
         `
       : html`
@@ -224,11 +225,8 @@ const cardInCardItems = (i, tagGroup, media, gridMode) => {
             color-scheme=${gridMode === 'border' ? 'light' : null}>
             <dds-card-eyebrow>Topic</dds-card-eyebrow>
             ${tagGroup ? tagGroupContent : ''}
-            <dds-card-cta-footer
-              cta-type="video"
-              slot="footer"
-              href="1_9h94wo6b">
-            </dds-card-cta-footer>
+            <dds-card-footer cta-type="video" slot="footer" href="1_9h94wo6b">
+            </dds-card-footer>
           </dds-card-group-item>
         `;
   }
@@ -243,7 +241,7 @@ const cardInCardItems = (i, tagGroup, media, gridMode) => {
         litter</dds-card-heading
       >
       ${tagGroup ? tagGroupContent : ''}
-      <dds-card-cta-footer slot="footer"> </dds-card-cta-footer>
+      <dds-card-footer slot="footer"> </dds-card-footer>
     </dds-card-group-item>
   `;
 };
@@ -288,8 +286,8 @@ export const Default = (args) => {
             href="https://example.com"
             color-scheme="inverse">
             <dds-card-heading>Top level card link</dds-card-heading>
-            <dds-card-cta-footer slot="footer" color-scheme="inverse">
-            </dds-card-cta-footer>
+            <dds-card-footer slot="footer" color-scheme="inverse">
+            </dds-card-footer>
           </dds-card-group-item>
         `
       );
@@ -319,8 +317,8 @@ export const Default = (args) => {
             href="https://example.com"
             color-scheme="inverse">
             <dds-card-heading>Top level card link</dds-card-heading>
-            <dds-card-cta-footer slot="footer" color-scheme="inverse">
-            </dds-card-cta-footer>
+            <dds-card-footer slot="footer" color-scheme="inverse">
+            </dds-card-footer>
           </dds-card-group-item>
         `
       );
@@ -374,7 +372,7 @@ export const withCardInCard = (args) => {
           >Standard Bank Group prepares to embrace Africa’s AI
           opportunity</dds-card-heading
         >
-        <dds-card-cta-footer></dds-card-cta-footer>
+        <dds-card-footer></dds-card-footer>
       </dds-card-in-card>
       <dds-card-group grid-mode="${ifDefined(gridMode)}">
         ${allCards}

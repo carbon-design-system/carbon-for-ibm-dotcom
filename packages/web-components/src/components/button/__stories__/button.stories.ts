@@ -8,13 +8,10 @@
  */
 
 import { html } from 'lit';
-import { action } from '@storybook/addon-actions';
 import { boolean, select } from '@storybook/addon-knobs';
 import textNullable from '../../../../.storybook/knob-text-nullable';
-import readme from './README.stories.mdx';
+// import readme from './README.stories.mdx';
 import { CTA_TYPE } from '../../cta/defs';
-
-import { ICON_PLACEMENT } from '../link-with-icon';
 
 import {
   hrefsForType,
@@ -24,36 +21,45 @@ import {
 } from '../../cta/__stories__/ctaTypeConfig';
 
 export const Default = (args) => {
-  const { copy, ctaType, disabled, download, href, onClick, iconPlacement } =
-    args?.LinkWithIcon ?? {};
+  const { copy, customVideoTitle, ctaType, disabled, download, href } =
+    args?.Button ?? {};
+
+  let videoCopy;
+
+  if (ctaType === CTA_TYPE.VIDEO) {
+    const button = document.querySelector('dds-button') as any;
+    const duration = button?.videoTitle?.match(/\((.*)\)/)?.pop();
+
+    if (!customVideoTitle) {
+      videoCopy = button?.videoTitle;
+    } else {
+      videoCopy = duration
+        ? `${customVideoTitle} (${duration})`
+        : customVideoTitle;
+    }
+  }
+
   return html`
     <dds-video-cta-container>
-      <dds-link-with-icon
-        icon-placement="${iconPlacement}"
+      <dds-button
         ?disabled="${disabled}"
         href="${href}"
         download=${download}
-        cta-type="${ctaType}"
-        @click="${onClick}">
-        ${copy}
-      </dds-link-with-icon>
+        cta-type="${ctaType}">
+        ${videoCopy ?? copy}
+      </dds-button>
     </dds-video-cta-container>
   `;
 };
 
-const placementTypes = {
-  [`${ICON_PLACEMENT.LEFT}`]: ICON_PLACEMENT.LEFT,
-  [`${ICON_PLACEMENT.RIGHT}`]: ICON_PLACEMENT.RIGHT,
-};
-
 export default {
-  title: 'Components/Link with icon',
+  title: 'Components/Button',
   decorators: [(story) => html` <div class="cds--grid">${story()}</div> `],
   parameters: {
-    ...readme.parameters,
+    // ...readme.parameters,
     hasStoryPadding: true,
     knobs: {
-      LinkWithIcon: () => {
+      Button: () => {
         const ctaType = select(
           'CTA type (cta-type)',
           typeOptions,
@@ -69,32 +75,29 @@ export default {
               'Download target (download)',
               'IBM_Annual_Report_2019.pdf'
             );
+        const customVideoTitle =
+          ctaType === CTA_TYPE.VIDEO
+            ? textNullable('Custom video title', 'Custom video title')
+            : null;
         return {
           ctaType,
           copy,
+          customVideoTitle,
           disabled: boolean('Disabled (disabled)', false),
           download,
           href: textNullable(
             knobNamesForType[ctaType ?? CTA_TYPE.REGULAR],
             hrefsForType[ctaType ?? CTA_TYPE.REGULAR]
           ),
-          onClick: action('click'),
-          iconPlacement: select(
-            'Icon Position (icon-placement):',
-            placementTypes,
-            placementTypes[`${ICON_PLACEMENT.RIGHT}`]
-          ),
         };
       },
     },
     propsSet: {
       default: {
-        LinkWithIcon: {
-          children: 'Link text',
+        Button: {
+          copy: 'Link text',
           disabled: false,
           href: 'https://github.com/carbon-design-system/carbon-web-components',
-          onClick: 'click',
-          iconPlacement: 'right',
         },
       },
     },

@@ -8,7 +8,6 @@
 <dds-content-block-card-static>
   <dds-card-group-item
     color-scheme=""
-    cta-type=""
     data-autoid="dds--card-group-item"
     pictogram-placement=""
     size="md"
@@ -33,23 +32,28 @@
   <dds-button-group
     data-autoid="dds--button-group"
     role="list"
-    style="--dds--button-group--item-count: 2;"
   >
     <dds-button-group-item
+      cta-type=""
       data-autoid="dds--button-group-item"
-      icon-layout=""
       kind="primary"
       role="listitem"
-      size=""
+      size="lg"
+      tooltip-alignment=""
+      tooltip-position="top"
+      type="button"
     >
       Button 1
     </dds-button-group-item>
     <dds-button-group-item
+      cta-type=""
       data-autoid="dds--button-group-item"
-      icon-layout=""
-      kind="tertiary"
+      kind="primary"
       role="listitem"
-      size=""
+      size="lg"
+      tooltip-alignment=""
+      tooltip-position="top"
+      type="button"
     >
       Buuton 2
     </dds-button-group-item>
@@ -64,7 +68,6 @@
 <dds-content-block-card-static>
   <dds-card-group-item
     color-scheme=""
-    cta-type=""
     data-autoid="dds--card-group-item"
     pictogram-placement=""
     size="md"
@@ -74,11 +77,9 @@
   <dds-card-group
     data-autoid="dds--card-group"
     grid-mode="collapsed"
-    style="--dds--card-group--cards-in-row: 3;"
   >
     <dds-card-group-item
       color-scheme=""
-      cta-type=""
       data-autoid="dds--card-group-item"
       href="https://example.com"
       pictogram-placement=""
@@ -102,9 +103,7 @@
         color-scheme=""
         cta-type=""
         data-autoid="dds--card-cta-footer"
-        href="https://example.com"
         icon-placement="right"
-        parent-href="https://example.com"
         slot="footer"
       >
       </dds-card-cta-footer>
@@ -128,23 +127,28 @@
   <dds-button-group
     data-autoid="dds--button-group"
     role="list"
-    style="--dds--button-group--item-count: 2;"
   >
     <dds-button-group-item
+      cta-type=""
       data-autoid="dds--button-group-item"
-      icon-layout=""
       kind="primary"
       role="listitem"
-      size=""
+      size="lg"
+      tooltip-alignment=""
+      tooltip-position="top"
+      type="button"
     >
       Button 1
     </dds-button-group-item>
     <dds-button-group-item
+      cta-type=""
       data-autoid="dds--button-group-item"
-      icon-layout=""
-      kind="tertiary"
+      kind="primary"
       role="listitem"
-      size=""
+      size="lg"
+      tooltip-alignment=""
+      tooltip-position="top"
+      type="button"
     >
       Buuton 2
     </dds-button-group-item>
