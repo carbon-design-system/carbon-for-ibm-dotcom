@@ -60,6 +60,7 @@
     "doctoc": "doctoc --title '## Table of contents' docs && doctoc --title '## Table of contents' README.md",
     "postinstall": "carbon-telemetry collect --install",
     "start": "cross-env NODE_OPTIONS=--openssl-legacy-provider yarn storybook",
+    "start-dev": "./update-scss-paths.sh & cross-env NODE_OPTIONS=--openssl-legacy-provider yarn storybook",
     "storybook": "NODE_OPTIONS=--openssl-legacy-provider start-storybook -p 9000",
     "storybook:react": "node --openssl-legacy-provider node_modules/@storybook/react/bin/index.js -p 9002 -c .storybook/react",
     "test": "yarn test:unit && yarn test:integration",
