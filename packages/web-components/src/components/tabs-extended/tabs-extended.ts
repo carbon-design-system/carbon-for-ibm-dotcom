@@ -16,20 +16,20 @@ import MediaQueryMixin, {
   MQBreakpoints,
   MQDirs,
 } from '../../component-mixins/media-query/media-query';
-import DDSTab from './tab';
+import C4DTab from './tab';
 import styles from './tabs-extended.scss';
 import { ORIENTATION } from './defs';
 import { carbonElement as customElement } from '../../internal/vendor/@carbon/web-components/globals/decorators/carbon-element.js';
 
-const { prefix, stablePrefix: ddsPrefix } = settings;
+const { prefix, stablePrefix: c4dPrefix } = settings;
 
 /**
  * A component to present content inside a tabbed layout.
  *
- * @element dds-tabs-extended
+ * @element c4d-tabs-extended
  */
-@customElement(`${ddsPrefix}-tabs-extended`)
-class DDSTabsExtended extends MediaQueryMixin(StableSelectorMixin(LitElement), {
+@customElement(`${c4dPrefix}-tabs-extended`)
+class C4DTabsExtended extends MediaQueryMixin(StableSelectorMixin(LitElement), {
   [MQBreakpoints.LG]: MQDirs.MAX,
 }) {
   /**
@@ -46,7 +46,7 @@ class DDSTabsExtended extends MediaQueryMixin(StableSelectorMixin(LitElement), {
    * Child tab components.
    */
   @state()
-  private _tabItems: DDSTab[] = [];
+  private _tabItems: C4DTab[] = [];
 
   /**
    * Defines the active tab index.
@@ -61,7 +61,7 @@ class DDSTabsExtended extends MediaQueryMixin(StableSelectorMixin(LitElement), {
   _activeTab: string = '0';
 
   /**
-   * Handler for @slotChange, creates tabs from dds-tab components.
+   * Handler for @slotChange, creates tabs from c4d-tab components.
    *
    * @private
    */
@@ -70,10 +70,10 @@ class DDSTabsExtended extends MediaQueryMixin(StableSelectorMixin(LitElement), {
       flatten: true,
     });
     this._tabItems = slottedNodes.filter(
-      (node) => node instanceof DDSTab
-    ) as DDSTab[];
+      (node) => node instanceof C4DTab
+    ) as C4DTab[];
     this._tabItems.forEach((tab, index) => {
-      this._activeTabIndex = (tab as DDSTab).selected
+      this._activeTabIndex = (tab as C4DTab).selected
         ? index
         : this._activeTabIndex;
     });
@@ -85,7 +85,7 @@ class DDSTabsExtended extends MediaQueryMixin(StableSelectorMixin(LitElement), {
   }
 
   private _handleAccordionClick(e) {
-    const tab = e.target.closest('dds-tab');
+    const tab = e.target.closest('c4d-tab');
     this._handleClick(tab.getIndex(), e);
   }
 
@@ -141,7 +141,7 @@ class DDSTabsExtended extends MediaQueryMixin(StableSelectorMixin(LitElement), {
   }
 
   private _getNextTab(activeIndex) {
-    let tabItems: DDSTab[];
+    let tabItems: C4DTab[];
 
     if (activeIndex > -1 && activeIndex < this._tabItems.length) {
       tabItems = this._reorderTabsFrom(activeIndex);
@@ -155,7 +155,7 @@ class DDSTabsExtended extends MediaQueryMixin(StableSelectorMixin(LitElement), {
   }
 
   private _getPrevTab(activeIndex) {
-    let tabItems: DDSTab[];
+    let tabItems: C4DTab[];
 
     if (activeIndex > 0 && activeIndex < this._tabItems.length) {
       tabItems = this._reorderTabsFrom(activeIndex - 1);
@@ -173,7 +173,7 @@ class DDSTabsExtended extends MediaQueryMixin(StableSelectorMixin(LitElement), {
 
     tabItems.forEach((_tabItem, i) => {
       if (i <= activeIndex) {
-        tabItems.push(tabItems.shift() as DDSTab);
+        tabItems.push(tabItems.shift() as C4DTab);
       }
     });
 
@@ -187,7 +187,7 @@ class DDSTabsExtended extends MediaQueryMixin(StableSelectorMixin(LitElement), {
 
     if (changedProperties.has('_tabItems')) {
       _tabItems.forEach((tab, index) => {
-        (tab as DDSTab).setIndex(index);
+        (tab as C4DTab).setIndex(index);
 
         if (_isMobileVersion) {
           tab.addEventListener('click', this._handleAccordionClick.bind(this));
@@ -200,7 +200,7 @@ class DDSTabsExtended extends MediaQueryMixin(StableSelectorMixin(LitElement), {
       changedProperties.has('_tabItems')
     ) {
       _tabItems.forEach((tab, index) => {
-        (tab as DDSTab).selected = index === this._activeTabIndex;
+        (tab as C4DTab).selected = index === this._activeTabIndex;
       });
     }
 
@@ -215,7 +215,7 @@ class DDSTabsExtended extends MediaQueryMixin(StableSelectorMixin(LitElement), {
         )[index];
         const navText = navLink!.querySelector('div p');
         if (navText!.scrollHeight > navText!.clientHeight) {
-          const label = (tab as DDSTab).getAttribute('label');
+          const label = (tab as C4DTab).getAttribute('label');
           if (label) {
             navLink!.setAttribute('aria-label', label);
             navLink!.setAttribute('hasTooltip', label);
@@ -242,9 +242,9 @@ class DDSTabsExtended extends MediaQueryMixin(StableSelectorMixin(LitElement), {
           role="tablist"
           @keydown="${this._handleTabListKeyDown}">
           ${tabs.map((tab, index) => {
-            const { disabled } = tab as DDSTab;
+            const { disabled } = tab as C4DTab;
             const active = index === this._activeTabIndex;
-            const label = (tab as DDSTab).getAttribute('label');
+            const label = (tab as C4DTab).getAttribute('label');
             const classes = classMap({
               'cds--tabs__nav-item': true,
               'cds--tabs__nav-item--selected': active,
@@ -305,7 +305,7 @@ class DDSTabsExtended extends MediaQueryMixin(StableSelectorMixin(LitElement), {
   }
 
   static get stableSelector() {
-    return `${ddsPrefix}--tabs-extended`;
+    return `${c4dPrefix}--tabs-extended`;
   }
 
   static styles = styles;
@@ -317,4 +317,4 @@ console.warn(
 );
 
 /* @__GENERATE_REACT_CUSTOM_ELEMENT_TYPE__ */
-export default DDSTabsExtended;
+export default C4DTabsExtended;

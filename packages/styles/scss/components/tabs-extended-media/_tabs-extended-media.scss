@@ -14,7 +14,7 @@
 @use '../../globals/vars' as *;
 
 @mixin tabs-extended-media {
-  :host(#{$dds-prefix}-tabs-extended-media) {
+  :host(#{$cds-prefix}-tabs-extended-media) {
     margin: 0;
     display: flex;
     overflow-x: hidden;

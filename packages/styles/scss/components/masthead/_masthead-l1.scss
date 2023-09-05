@@ -19,7 +19,7 @@
 
 @mixin masthead-l1 {
   .#{$prefix}--masthead__l1,
-  :host(#{$dds-prefix}-masthead-l1) {
+  :host(#{$cds-prefix}-masthead-l1) {
     @include theme($white, true);
 
     display: flex;
@@ -68,7 +68,7 @@
   }
 
   .#{$prefix}--masthead__l1-name,
-  :host(#{$dds-prefix}-masthead-l1-name) {
+  :host(#{$cds-prefix}-masthead-l1-name) {
     display: flex;
     height: 100%;
     z-index: 1;

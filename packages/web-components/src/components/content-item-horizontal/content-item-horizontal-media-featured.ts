@@ -9,20 +9,20 @@
 
 import { html } from 'lit';
 import settings from '../../internal/vendor/@carbon/ibmdotcom-utilities/utilities/settings/settings';
-import DDSContentItem from '../content-item/content-item';
+import C4DContentItem from '../content-item/content-item';
 import styles from './content-item-horizontal-media.scss';
 import { carbonElement as customElement } from '../../internal/vendor/@carbon/web-components/globals/decorators/carbon-element';
 
-const { prefix, stablePrefix: ddsPrefix } = settings;
+const { prefix, stablePrefix: c4dPrefix } = settings;
 
 /**
  * A component to present content in a horizontal orientation with featured
  * media beneath.
  *
- * @element dds-content-item-horizontal-media-featured
+ * @element c4d-content-item-horizontal-media-featured
  */
-@customElement(`${ddsPrefix}-content-item-horizontal-media-featured`)
-class DDSContentItemHorizontalMediaFeatured extends DDSContentItem {
+@customElement(`${c4dPrefix}-content-item-horizontal-media-featured`)
+class C4DContentItemHorizontalMediaFeatured extends C4DContentItem {
   render() {
     return html`
       <div class="${prefix}--content-item-horizontal__row">
@@ -41,11 +41,11 @@ class DDSContentItemHorizontalMediaFeatured extends DDSContentItem {
   }
 
   static get stableSelector() {
-    return `${ddsPrefix}-content-item-horizontal-media-featured`;
+    return `${c4dPrefix}-content-item-horizontal-media-featured`;
   }
 
   static styles = styles;
 }
 
 /* @__GENERATE_REACT_CUSTOM_ELEMENT_TYPE__ */
-export default DDSContentItemHorizontalMediaFeatured;
+export default C4DContentItemHorizontalMediaFeatured;

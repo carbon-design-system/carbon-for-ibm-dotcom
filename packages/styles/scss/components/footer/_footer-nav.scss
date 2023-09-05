@@ -22,7 +22,7 @@
 /// @group footer
 
 @mixin footer-nav {
-  :host(#{$dds-prefix}-footer-nav),
+  :host(#{$cds-prefix}-footer-nav),
   .#{$prefix}--footer-nav {
     @include theme($g90, feature-flag-enabled('enable-css-custom-properties'));
 
@@ -55,7 +55,7 @@
     }
   }
 
-  :host(#{$dds-prefix}-footer-nav[disable-locale-button]),
+  :host(#{$cds-prefix}-footer-nav[disable-locale-button]),
   nav.#{$prefix}--footer-nav__locale-button--disabled {
     border-top: none;
     @include breakpoint(lg) {
@@ -81,8 +81,8 @@
     }
   }
 
-  :host(#{$dds-prefix}-footer[size='short'])
-    ::slotted(#{$dds-prefix}-footer-nav),
+  :host(#{$cds-prefix}-footer[size='short'])
+    ::slotted(#{$cds-prefix}-footer-nav),
   .#{$prefix}--footer--short .#{$prefix}--footer-nav {
     display: none;
   }

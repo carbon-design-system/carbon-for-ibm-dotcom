@@ -7,11 +7,11 @@
 
 'use strict';
 
-describe('dds-callout-with-media (cdn)', () => {
+describe('cds-callout-with-media (cdn)', () => {
   it('should load the default callout with media example (cdn)', () => {
     cy.visit('/callout-with-media/cdn.html');
 
     // Take a snapshot for visual diffing
-    cy.percySnapshot('dds-callout-with-media | cdn | default');
+    cy.percySnapshot('cds-callout-with-media | cdn | default');
   });
 });

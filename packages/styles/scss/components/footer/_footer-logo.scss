@@ -20,7 +20,7 @@
 /// @group footer
 
 @mixin footer-logo {
-  :host(#{$dds-prefix}-footer-logo),
+  :host(#{$cds-prefix}-footer-logo),
   .#{$prefix}--footer-logo {
     @include theme($g90, feature-flag-enabled('enable-css-custom-properties'));
 

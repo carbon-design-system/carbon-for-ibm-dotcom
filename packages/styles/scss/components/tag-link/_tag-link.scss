@@ -11,7 +11,7 @@
 @use '../../globals/vars' as *;
 
 @mixin tag-link {
-  :host(#{$dds-prefix}-tag-link) a {
+  :host(#{$cds-prefix}-tag-link) a {
     @include type-style(body-01, true);
 
     padding: rem(6px) $spacing-05;

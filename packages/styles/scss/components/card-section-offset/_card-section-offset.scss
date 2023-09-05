@@ -16,7 +16,7 @@
 @use '../card-group/card-group';
 
 @mixin card-section-offset {
-  :host(#{$dds-prefix}-card-section-offset) {
+  :host(#{$cds-prefix}-card-section-offset) {
     display: block;
     position: relative;
     width: 100%;
@@ -25,7 +25,7 @@
     /* stylelint-disable-next-line property-no-unknown */
     aspect-ratio: 16 / 9;
 
-    ::slotted(#{$dds-prefix}-background-media) {
+    ::slotted(#{$cds-prefix}-background-media) {
       height: auto;
 
       /* stylelint-disable-next-line property-no-unknown */
@@ -33,7 +33,7 @@
     }
 
     /* remove when the `mobile-position` attribute is removed */
-    #{$dds-prefix}-background-media {
+    #{$cds-prefix}-background-media {
       height: auto;
 
       /* stylelint-disable-next-line property-no-unknown */
@@ -41,7 +41,7 @@
     }
 
     @include breakpoint(md) {
-      ::slotted(#{$dds-prefix}-background-media) {
+      ::slotted(#{$cds-prefix}-background-media) {
         top: 0;
         position: absolute;
         height: 100%;
@@ -52,7 +52,7 @@
       }
 
       /* remove when the `mobile-position` attribute is removed */
-      #{$dds-prefix}-background-media {
+      #{$cds-prefix}-background-media {
         position: absolute;
         height: 100%;
         width: 100%;
@@ -66,7 +66,7 @@
       display: flex;
     }
 
-    ::slotted(:not(#{$dds-prefix}-background-media)) {
+    ::slotted(:not(#{$cds-prefix}-background-media)) {
       z-index: 1;
     }
 
@@ -106,14 +106,14 @@
   // Print styles
   @media print {
     .#{$prefix}--card-section-offset__content,
-    :host(#{$dds-prefix}-card-section-offset) {
+    :host(#{$cds-prefix}-card-section-offset) {
       background-color: $background;
       flex-wrap: wrap;
 
       /* stylelint-disable-next-line property-no-unknown */
       aspect-ratio: auto;
 
-      #{$dds-prefix}-background-media {
+      #{$cds-prefix}-background-media {
         display: none;
       }
 

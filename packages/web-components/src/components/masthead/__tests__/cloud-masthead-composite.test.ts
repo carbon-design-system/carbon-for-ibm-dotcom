@@ -9,23 +9,23 @@
 
 import { html, render } from 'lit/html.js';
 
-describe('dds-cloud-masthead-composite', function () {
+describe('c4d-cloud-masthead-composite', function () {
   describe('Rendering Cloud-specific global bar', function () {
     it('should not render cloud profile when unauthenticated', async function () {
       render(
         html`
-          <dds-cloud-masthead-composite
-            user-status="anonymous"></dds-cloud-masthead-composite>
+          <c4d-cloud-masthead-composite
+            user-status="anonymous"></c4d-cloud-masthead-composite>
         `,
         document.body
       );
       await Promise.resolve();
       const cloudMastheadComposite = document.body.querySelector(
-        'dds-cloud-masthead-composite'
+        'c4d-cloud-masthead-composite'
       );
       expect(
         cloudMastheadComposite?.shadowRoot?.querySelector(
-          'dds-cloud-masthead-profile'
+          'c4d-cloud-masthead-profile'
         )
       ).toBeNull();
     });
@@ -33,18 +33,18 @@ describe('dds-cloud-masthead-composite', function () {
     it('should render cloud profile when authenticated', async function () {
       render(
         html`
-          <dds-cloud-masthead-composite
-            user-status="authenticated"></dds-cloud-masthead-composite>
+          <c4d-cloud-masthead-composite
+            user-status="authenticated"></c4d-cloud-masthead-composite>
         `,
         document.body
       );
       await Promise.resolve();
       const cloudMastheadComposite = document.body.querySelector(
-        'dds-cloud-masthead-composite'
+        'c4d-cloud-masthead-composite'
       );
       expect(
         cloudMastheadComposite?.shadowRoot?.querySelector(
-          'dds-cloud-masthead-profile'
+          'c4d-cloud-masthead-profile'
         )
       ).not.toBeNull();
     });

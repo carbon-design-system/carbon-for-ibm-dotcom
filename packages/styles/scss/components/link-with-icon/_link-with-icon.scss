@@ -16,10 +16,10 @@
 
 @mixin link-with-icon {
   .#{$prefix}--link-with-icon,
-  :host(#{$dds-prefix}-link-with-icon),
-  :host(#{$dds-prefix}-link-list-item),
-  :host(#{$dds-prefix}-link-list-item-cta),
-  :host(#{$dds-prefix}-text-cta) {
+  :host(#{$cds-prefix}-link-with-icon),
+  :host(#{$cds-prefix}-link-list-item),
+  :host(#{$cds-prefix}-link-list-item-cta),
+  :host(#{$cds-prefix}-text-cta) {
     display: flex;
 
     span {
@@ -64,13 +64,13 @@
   }
 
   .#{$prefix}--link-with-icon__container,
-  :host(#{$dds-prefix}-callout-link-with-icon),
-  :host(#{$dds-prefix}-card-cta-footer),
-  :host(#{$dds-prefix}-card-footer),
-  :host(#{$dds-prefix}-link-with-icon),
-  :host(#{$dds-prefix}-link-list-item),
-  :host(#{$dds-prefix}-link-list-item-cta),
-  :host(#{$dds-prefix}-text-cta) {
+  :host(#{$cds-prefix}-callout-link-with-icon),
+  :host(#{$cds-prefix}-card-cta-footer),
+  :host(#{$cds-prefix}-card-footer),
+  :host(#{$cds-prefix}-link-with-icon),
+  :host(#{$cds-prefix}-link-list-item),
+  :host(#{$cds-prefix}-link-list-item-cta),
+  :host(#{$cds-prefix}-text-cta) {
     .#{$prefix}--link-with-icon.#{$prefix}--link-with-icon--inline-icon {
       display: inline-block;
 
@@ -87,7 +87,7 @@
     }
   }
 
-  :host(#{$dds-prefix}-card-cta-footer)[mode='link-list'][cta-type='video'] {
+  :host(#{$cds-prefix}-card-cta-footer)[mode='link-list'][cta-type='video'] {
     .#{$prefix}--link-with-icon.#{$prefix}--link-with-icon--inline-icon span {
       display: none;
 
@@ -98,8 +98,8 @@
   }
 
   .#{$prefix}--link-with-icon,
-  :host(#{$dds-prefix}-link-with-icon),
-  :host(#{$dds-prefix}-text-cta) {
+  :host(#{$cds-prefix}-link-with-icon),
+  :host(#{$cds-prefix}-text-cta) {
     &:not(:first-of-type) {
       margin-left: $spacing-07;
     }
@@ -123,14 +123,14 @@
     }
   }
 
-  :host(#{$dds-prefix}-link-with-icon),
-  :host(#{$dds-prefix}-text-cta) {
+  :host(#{$cds-prefix}-link-with-icon),
+  :host(#{$cds-prefix}-text-cta) {
     &:focus {
       outline: none;
     }
   }
 
-  :host(#{$dds-prefix}-link-with-icon),
+  :host(#{$cds-prefix}-link-with-icon),
   .#{$prefix}--link-with-icon__container {
     display: table;
   }

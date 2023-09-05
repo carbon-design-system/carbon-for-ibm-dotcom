@@ -37,11 +37,11 @@ import {
 
 export const Medium = (args) => {
   const { ctaType, heading, href, customVideoTitle, noPoster } =
-    args?.['dds-feature-card'] ?? {};
+    args?.['c4d-feature-card'] ?? {};
   let videoCopy;
 
   if (ctaType === CTA_TYPE.VIDEO) {
-    const card = document.querySelector('dds-feature-card') as any;
+    const card = document.querySelector('c4d-feature-card') as any;
     const duration = card?.videoTitle?.match(/\((.*)\)/)?.pop();
 
     if (!customVideoTitle) {
@@ -54,47 +54,47 @@ export const Medium = (args) => {
   }
 
   return html`
-    <dds-video-cta-container>
-      <dds-feature-card
+    <c4d-video-cta-container>
+      <c4d-feature-card
         ?no-poster=${noPoster}
         cta-type="${ctaType}"
         href=${ifDefined(href || undefined)}>
         ${ctaType !== CTA_TYPE.VIDEO
-          ? html`<dds-image
+          ? html`<c4d-image
               slot="image"
               alt="Image alt text"
-              default-src="${mediumImgLg1x1}"></dds-image>`
+              default-src="${mediumImgLg1x1}"></c4d-image>`
           : ``}
-        <dds-card-heading>${videoCopy ?? heading}</dds-card-heading>
-        <dds-feature-card-footer> </dds-feature-card-footer>
-      </dds-feature-card>
-    </dds-video-cta-container>
+        <c4d-card-heading>${videoCopy ?? heading}</c4d-card-heading>
+        <c4d-feature-card-footer> </c4d-feature-card-footer>
+      </c4d-feature-card>
+    </c4d-video-cta-container>
   `;
 };
 
 export const Large = (args) => {
-  const { eyebrow, heading, copy, href } = args?.['dds-feature-card'] ?? {};
+  const { eyebrow, heading, copy, href } = args?.['c4d-feature-card'] ?? {};
   return html`
-    <dds-feature-card size="large" href=${ifDefined(href || undefined)}>
-      <dds-image slot="image" default-src="${ifDefined(imgLg1x1)}">
-        <dds-image-item media="(min-width: 1312px)" srcset="${imgMax2x1}">
-        </dds-image-item>
-        <dds-image-item media="(min-width: 1056px)" srcset="${imgXlg2x1}">
-        </dds-image-item>
-        <dds-image-item media="(min-width: 991px)" srcset="${imgXlg2x1}">
-        </dds-image-item>
-        <dds-image-item media="(min-width: 672px)" srcset="${imgLg2x1}">
-        </dds-image-item>
-        <dds-image-item media="(min-width: 0px)" srcset="${imgSm2x1}">
-        </dds-image-item>
-      </dds-image>
-      <dds-card-eyebrow>${eyebrow}</dds-card-eyebrow>
-      <dds-card-heading>${heading}</dds-card-heading>
+    <c4d-feature-card size="large" href=${ifDefined(href || undefined)}>
+      <c4d-image slot="image" default-src="${ifDefined(imgLg1x1)}">
+        <c4d-image-item media="(min-width: 1312px)" srcset="${imgMax2x1}">
+        </c4d-image-item>
+        <c4d-image-item media="(min-width: 1056px)" srcset="${imgXlg2x1}">
+        </c4d-image-item>
+        <c4d-image-item media="(min-width: 991px)" srcset="${imgXlg2x1}">
+        </c4d-image-item>
+        <c4d-image-item media="(min-width: 672px)" srcset="${imgLg2x1}">
+        </c4d-image-item>
+        <c4d-image-item media="(min-width: 0px)" srcset="${imgSm2x1}">
+        </c4d-image-item>
+      </c4d-image>
+      <c4d-card-eyebrow>${eyebrow}</c4d-card-eyebrow>
+      <c4d-card-heading>${heading}</c4d-card-heading>
       <p>${copy}</p>
-      <dds-feature-card-footer>
+      <c4d-feature-card-footer>
         ${ArrowRight20({ slot: 'icon' })}
-      </dds-feature-card-footer>
-    </dds-feature-card>
+      </c4d-feature-card-footer>
+    </c4d-feature-card>
   `;
 };
 
@@ -102,7 +102,7 @@ Large.story = {
   parameters: {
     storyGrid: 'cds--col-lg-12',
     knobs: {
-      'dds-feature-card': () => ({
+      'c4d-feature-card': () => ({
         eyebrow: textNullable(
           'Card Eyebrow (required) (eyebrow):',
           'This is an eyebrow'
@@ -121,7 +121,7 @@ Large.story = {
     },
     propsSet: {
       default: {
-        'dds-feature-card': {
+        'c4d-feature-card': {
           eyebrow: 'This is an eyebrow',
           heading: 'Explore AI use cases in all industries',
           copy: `Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et
@@ -149,7 +149,7 @@ export default {
     storyGrid: 'cds--col-lg-8 cds--no-gutter"',
     hasStoryPadding: true,
     knobs: {
-      'dds-feature-card': () => {
+      'c4d-feature-card': () => {
         const ctaType = select(
           'CTA type (cta-type)',
           typeOptions,
@@ -182,7 +182,7 @@ export default {
     },
     propsSet: {
       default: {
-        'dds-feature-card': {
+        'c4d-feature-card': {
           heading: 'Explore AI use cases in all industries',
           href: 'https://example.com',
         },

@@ -1,4 +1,9 @@
-import { Preview, Props, Description, Story } from '@storybook/addon-docs/blocks';
+import {
+  Preview,
+  Props,
+  Description,
+  Story,
+} from '@storybook/addon-docs/blocks';
 import contributing from '../../../../../../docs/contributing-license.md';
 import { PropTypesRef } from '@carbon/ibmdotcom-web-components/es/components-react/tag-group/tag-group';
 
@@ -17,25 +22,17 @@ Here's a quick example to get you started.
 ### JS
 
 ```javascript
-import DDSTagGroup from '@carbon/ibmdotcom-web-components/es/components-react/tag-group/tag-group.js';
-import DDSTagLink from '@carbon/ibmdotcom-web-components/es/components-react/tag-link/tag-link.js';
+import C4DTagGroup from '@carbon/ibmdotcom-web-components/es/components-react/tag-group/tag-group.js';
+import C4DTagLink from '@carbon/ibmdotcom-web-components/es/components-react/tag-link/tag-link.js';
 
 function App() {
   return (
-  <DDSTagGroup>
-    <DDSTagLink href="https://example.com">
-      Cloud
-    </DDSTagLink>
-    <DDSTagLink href="https://example.com">
-      Blockchain
-    </DDSTagLink>
-    <DDSTagLink href="https://example.com">
-      Supply chain
-    </DDSTagLink>
-    <DDSTagLink href="https://example.com">
-      WebSphere
-    </DDSTagLink>
-  </DDSTagGroup>
+    <C4DTagGroup>
+      <C4DTagLink href="https://example.com">Cloud</C4DTagLink>
+      <C4DTagLink href="https://example.com">Blockchain</C4DTagLink>
+      <C4DTagLink href="https://example.com">Supply chain</C4DTagLink>
+      <C4DTagLink href="https://example.com">WebSphere</C4DTagLink>
+    </C4DTagGroup>
   );
 }
 ```
@@ -46,10 +43,12 @@ function App() {
 
 ## Stable selectors
 
-See [our README](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/tree/main/packages/web-components#stable-selectors-for-analytics-and-integratione2e-testing-in-web-components) to see how Web Components selector and `data-autoid` should be used.
+See
+[our README](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/tree/main/packages/web-components#stable-selectors-for-analytics-and-integratione2e-testing-in-web-components)
+to see how Web Components selector and `data-autoid` should be used.
 
 | Web Components selector | Compatibility selector | Description |
 | ----------------------- | ---------------------- | ----------- |
-| `<DDSTagGroup>`       | N/A                    | Component   |
+| `<C4DTagGroup>`         | N/A                    | Component   |
 
 <Description markdown={contributing} />

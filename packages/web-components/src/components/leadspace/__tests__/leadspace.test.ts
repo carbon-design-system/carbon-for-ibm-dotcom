@@ -120,12 +120,12 @@ const MediumWithImageTemplate = (props?) =>
     },
   });
 
-describe('dds-leadspace', function () {
+describe('c4d-leadspace', function () {
   describe('Misc attributes - TallWithNoImage', function () {
     it('should render with minimum attributes', async function () {
       render(TallTemplate(), document.body);
-      await Promise.resolve(); // Update cycle for `<dds-leadspace>`
-      expect(document.body.querySelector('dds-leadspace')).toMatchSnapshot({
+      await Promise.resolve(); // Update cycle for `<c4d-leadspace>`
+      expect(document.body.querySelector('c4d-leadspace')).toMatchSnapshot({
         mode: 'shadow',
       });
     });
@@ -139,8 +139,8 @@ describe('dds-leadspace', function () {
         }),
         document.body
       );
-      await Promise.resolve(); // Update cycle for `<dds-leadspace>`
-      expect(document.body.querySelector('dds-leadspace')).toMatchSnapshot({
+      await Promise.resolve(); // Update cycle for `<c4d-leadspace>`
+      expect(document.body.querySelector('c4d-leadspace')).toMatchSnapshot({
         mode: 'shadow',
       });
     });
@@ -149,8 +149,8 @@ describe('dds-leadspace', function () {
   describe('Misc attributes - TallWithImage', function () {
     it('should render with minimum attributes', async function () {
       render(TallWithImageTemplate(), document.body);
-      await Promise.resolve(); // Update cycle for `<dds-leadspace>`
-      expect(document.body.querySelector('dds-leadspace')).toMatchSnapshot({
+      await Promise.resolve(); // Update cycle for `<c4d-leadspace>`
+      expect(document.body.querySelector('c4d-leadspace')).toMatchSnapshot({
         mode: 'shadow',
       });
     });
@@ -167,8 +167,8 @@ describe('dds-leadspace', function () {
         }),
         document.body
       );
-      await Promise.resolve(); // Update cycle for `<dds-leadspace>`
-      expect(document.body.querySelector('dds-leadspace')).toMatchSnapshot({
+      await Promise.resolve(); // Update cycle for `<c4d-leadspace>`
+      expect(document.body.querySelector('c4d-leadspace')).toMatchSnapshot({
         mode: 'shadow',
       });
     });
@@ -177,8 +177,8 @@ describe('dds-leadspace', function () {
   describe('Misc attributes - Centered', function () {
     it('should render with minimum attributes', async function () {
       render(CenteredTemplate(), document.body);
-      await Promise.resolve(); // Update cycle for `<dds-leadspace>`
-      expect(document.body.querySelector('dds-leadspace')).toMatchSnapshot({
+      await Promise.resolve(); // Update cycle for `<c4d-leadspace>`
+      expect(document.body.querySelector('c4d-leadspace')).toMatchSnapshot({
         mode: 'shadow',
       });
     });
@@ -192,8 +192,8 @@ describe('dds-leadspace', function () {
         }),
         document.body
       );
-      await Promise.resolve(); // Update cycle for `<dds-leadspace>`
-      expect(document.body.querySelector('dds-leadspace')).toMatchSnapshot({
+      await Promise.resolve(); // Update cycle for `<c4d-leadspace>`
+      expect(document.body.querySelector('c4d-leadspace')).toMatchSnapshot({
         mode: 'shadow',
       });
     });
@@ -202,8 +202,8 @@ describe('dds-leadspace', function () {
   describe('Misc attributes - CenteredWithImage', function () {
     it('should render with minimum attributes', async function () {
       render(CenteredWithImageTemplate(), document.body);
-      await Promise.resolve(); // Update cycle for `<dds-leadspace>`
-      expect(document.body.querySelector('dds-leadspace')).toMatchSnapshot({
+      await Promise.resolve(); // Update cycle for `<c4d-leadspace>`
+      expect(document.body.querySelector('c4d-leadspace')).toMatchSnapshot({
         mode: 'shadow',
       });
     });
@@ -220,8 +220,8 @@ describe('dds-leadspace', function () {
         }),
         document.body
       );
-      await Promise.resolve(); // Update cycle for `<dds-leadspace>`
-      expect(document.body.querySelector('dds-leadspace')).toMatchSnapshot({
+      await Promise.resolve(); // Update cycle for `<c4d-leadspace>`
+      expect(document.body.querySelector('c4d-leadspace')).toMatchSnapshot({
         mode: 'shadow',
       });
     });
@@ -230,8 +230,8 @@ describe('dds-leadspace', function () {
   describe('Misc attributes - CenteredWithImage', function () {
     it('should render with minimum attributes', async function () {
       render(CenteredWithImageTemplate(), document.body);
-      await Promise.resolve(); // Update cycle for `<dds-leadspace>`
-      expect(document.body.querySelector('dds-leadspace')).toMatchSnapshot({
+      await Promise.resolve(); // Update cycle for `<c4d-leadspace>`
+      expect(document.body.querySelector('c4d-leadspace')).toMatchSnapshot({
         mode: 'shadow',
       });
     });
@@ -248,8 +248,8 @@ describe('dds-leadspace', function () {
         }),
         document.body
       );
-      await Promise.resolve(); // Update cycle for `<dds-leadspace>`
-      expect(document.body.querySelector('dds-leadspace')).toMatchSnapshot({
+      await Promise.resolve(); // Update cycle for `<c4d-leadspace>`
+      expect(document.body.querySelector('c4d-leadspace')).toMatchSnapshot({
         mode: 'shadow',
       });
     });
@@ -258,8 +258,8 @@ describe('dds-leadspace', function () {
   describe('Misc attributes - Medium', function () {
     it('should render with minimum attributes', async function () {
       render(MediumTemplate(), document.body);
-      await Promise.resolve(); // Update cycle for `<dds-leadspace>`
-      expect(document.body.querySelector('dds-leadspace')).toMatchSnapshot({
+      await Promise.resolve(); // Update cycle for `<c4d-leadspace>`
+      expect(document.body.querySelector('c4d-leadspace')).toMatchSnapshot({
         mode: 'shadow',
       });
     });
@@ -273,8 +273,8 @@ describe('dds-leadspace', function () {
         }),
         document.body
       );
-      await Promise.resolve(); // Update cycle for `<dds-leadspace>`
-      expect(document.body.querySelector('dds-leadspace')).toMatchSnapshot({
+      await Promise.resolve(); // Update cycle for `<c4d-leadspace>`
+      expect(document.body.querySelector('c4d-leadspace')).toMatchSnapshot({
         mode: 'shadow',
       });
     });
@@ -283,8 +283,8 @@ describe('dds-leadspace', function () {
   describe('Misc attributes - MediumWithImage', function () {
     it('should render with minimum attributes', async function () {
       render(MediumWithImageTemplate(), document.body);
-      await Promise.resolve(); // Update cycle for `<dds-leadspace>`
-      expect(document.body.querySelector('dds-leadspace')).toMatchSnapshot({
+      await Promise.resolve(); // Update cycle for `<c4d-leadspace>`
+      expect(document.body.querySelector('c4d-leadspace')).toMatchSnapshot({
         mode: 'shadow',
       });
     });
@@ -301,8 +301,8 @@ describe('dds-leadspace', function () {
         }),
         document.body
       );
-      await Promise.resolve(); // Update cycle for `<dds-leadspace>`
-      expect(document.body.querySelector('dds-leadspace')).toMatchSnapshot({
+      await Promise.resolve(); // Update cycle for `<c4d-leadspace>`
+      expect(document.body.querySelector('c4d-leadspace')).toMatchSnapshot({
         mode: 'shadow',
       });
     });

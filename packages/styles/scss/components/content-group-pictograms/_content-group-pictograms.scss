@@ -12,8 +12,8 @@
 @use '../pictogram-item';
 
 @mixin content-group-pictograms {
-  :host(#{$dds-prefix}-content-group-pictograms)
-    ::slotted(#{$dds-prefix}-content-group-copy),
+  :host(#{$cds-prefix}-content-group-pictograms)
+    ::slotted(#{$cds-prefix}-content-group-copy),
   .#{$prefix}--content-group-pictograms .#{$prefix}--content-group__copy {
     margin-bottom: $spacing-05;
     margin-left: $spacing-05;

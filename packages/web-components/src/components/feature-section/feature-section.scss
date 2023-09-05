@@ -13,13 +13,13 @@
 @use '@carbon/ibmdotcom-styles/scss/components/card';
 @use '@carbon/ibmdotcom-styles/scss/components/feature-section';
 
-:host(#{$dds-prefix}-feature-section) {
+:host(#{$cds-prefix}-feature-section) {
   display: block;
   outline: none;
 
   &[media-alignment='left'] {
     .#{$prefix}--card-link,
-    ::slotted(#{$dds-prefix}-feature-section-card-link) {
+    ::slotted(#{$cds-prefix}-feature-section-card-link) {
       @include breakpoint-down(lg) {
         position: relative;
         right: 0;

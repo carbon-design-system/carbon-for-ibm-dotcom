@@ -50,8 +50,8 @@ jobs:
         with:
           env-file: packages/web-components/.env
         env:
-          DDS_CLOUD_MASTHEAD: true
-          DDS_FLAGS_ALL: true
+          C4D_CLOUD_MASTHEAD: true
+          C4D_FLAGS_ALL: true
 
       - name: Build storybook
         working-directory: packages/web-components
@@ -62,11 +62,11 @@ jobs:
         with:
           name: storybook-build
           path: packages/web-components/storybook-static
-      
+
       - name: Clear remnant failure files
         uses: geekyeggo/delete-artifact@v2
         with:
-          name: failure-wc.txt          
+          name: failure-wc.txt
 
   web-components-tests:
     runs-on: macos-latest
@@ -87,7 +87,7 @@ jobs:
         uses: actions/setup-node@v3
         with:
           node-version: ${{ matrix.node-version }}
-          cache: 'yarn'        
+          cache: 'yarn'
 
       - name: Download the build folders
         uses: actions/download-artifact@v3
@@ -106,7 +106,7 @@ jobs:
           key: ${{ runner.os }}-yarn-${{ hashFiles('**/yarn.lock') }}
           restore-keys: |
             ${{ runner.os }}-yarn
-      
+
       - name: 'Run e2e tests (chromium)'
         if: matrix.browser == 'chromium'
         id: cypress-tests-wc
@@ -132,7 +132,7 @@ jobs:
 
       - name: Exit upon failure
         if: steps.cypress-tests-wc.outcome == 'failure'
-        run: exit 1          
+        run: exit 1
 
   wc-tests-completed:
     if: always()

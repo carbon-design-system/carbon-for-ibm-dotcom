@@ -12,17 +12,17 @@
 @use '@carbon/ibmdotcom-styles/scss/components/link-with-icon';
 @use '@carbon/ibmdotcom-styles/scss/globals/vars' as *;
 
-:host(#{$dds-prefix}-link-with-icon),
-:host(#{$dds-prefix}-link-list-item),
-:host(#{$dds-prefix}-text-cta),
-:host(#{$dds-prefix}-link-list-item-cta) {
+:host(#{$cds-prefix}-link-with-icon),
+:host(#{$cds-prefix}-link-list-item),
+:host(#{$cds-prefix}-text-cta),
+:host(#{$cds-prefix}-link-list-item-cta) {
   // Re-define the ruleset so this wins over `.cds--link:visited`, etc.
   .#{$prefix}--link--disabled {
     color: $text-disabled;
   }
 }
 
-:host(#{$dds-prefix}-link-list-item) {
+:host(#{$cds-prefix}-link-list-item) {
   .#{$prefix}--link {
     align-content: flex-start;
 
@@ -33,7 +33,7 @@
   }
 }
 
-:host(#{$dds-prefix}-link-list-item)[type='end'] {
+:host(#{$cds-prefix}-link-list-item)[type='end'] {
   .#{$prefix}--link-with-icon__icon-left ::slotted(svg[slot='icon']) {
     margin-right: $spacing-07;
   }

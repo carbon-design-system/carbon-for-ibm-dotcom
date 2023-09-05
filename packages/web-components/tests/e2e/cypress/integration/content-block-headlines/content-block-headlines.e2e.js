@@ -7,11 +7,11 @@
 
 'use strict';
 
-describe('dds-content-block-headlines', () => {
-  it('should load the default dds-content-block-headlines example', () => {
+describe('cds-content-block-headlines', () => {
+  it('should load the default cds-content-block-headlines example', () => {
     cy.visit('/content-block-headlines');
 
     // Take a snapshot for visual diffing
-    cy.percySnapshot('dds-content-block-headlines | default');
+    cy.percySnapshot('cds-content-block-headlines | default');
   });
 });

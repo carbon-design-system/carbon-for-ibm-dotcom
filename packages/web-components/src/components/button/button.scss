@@ -11,7 +11,7 @@
 @use '@carbon/ibmdotcom-styles/scss/globals/vars' as *;
 @use '../../../../carbon-web-components/src/components/button/button';
 //
-:host(#{$dds-prefix}-button) {
+:host(#{$cds-prefix}-button) {
   @extend :host(#{$prefix}-button);
 
   svg {

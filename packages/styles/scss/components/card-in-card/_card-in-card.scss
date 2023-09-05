@@ -17,7 +17,7 @@
 @use '../card';
 
 @mixin card-in-card {
-  :host(#{$dds-prefix}-card-in-card),
+  :host(#{$cds-prefix}-card-in-card),
   .#{$prefix}--card-in-card {
     height: auto;
 
@@ -33,7 +33,7 @@
 
     &:hover {
       ::slotted([slot='image']),
-      #{$dds-prefix}-card-in-card-image {
+      #{$cds-prefix}-card-in-card-image {
         &::before {
           opacity: 0.2;
         }
@@ -64,8 +64,8 @@
 
       .#{$prefix}--card__eyebrow,
       .#{$prefix}--card__heading,
-      ::slotted(#{$dds-prefix}-card-eyebrow),
-      ::slotted(#{$dds-prefix}-card-heading) {
+      ::slotted(#{$cds-prefix}-card-eyebrow),
+      ::slotted(#{$cds-prefix}-card-heading) {
         @include breakpoint(md) {
           width: 90%;
         }
@@ -76,14 +76,14 @@
       }
 
       .#{$prefix}--card__eyebrow,
-      ::slotted(#{$dds-prefix}-card-eyebrow) {
+      ::slotted(#{$cds-prefix}-card-eyebrow) {
         margin-bottom: $spacing-03;
         color: $text-secondary;
       }
     }
   }
 
-  :host(#{$dds-prefix}-card-in-card-image) {
+  :host(#{$cds-prefix}-card-in-card-image) {
     @extend .#{$prefix}--image;
 
     position: relative;
@@ -96,7 +96,7 @@
     }
 
     ::slotted(svg[slot='icon']) {
-      @extend :host(#{$dds-prefix}-image::slotted(svg[slot='icon']));
+      @extend :host(#{$cds-prefix}-image::slotted(svg[slot='icon']));
 
       @include breakpoint(md) {
         right: calc(75% - #{$spacing-07});
@@ -128,7 +128,7 @@
   }
 
   // Adjust the card width when grid mode is equal to "narrow".
-  :host(#{$dds-prefix}-card-in-card)[grid-mode='narrow'],
+  :host(#{$cds-prefix}-card-in-card)[grid-mode='narrow'],
   .#{$prefix}--card-in-card--narrow {
     @include breakpoint(lg) {
       width: calc(100% - #{carbon--mini-units(2)});
@@ -146,7 +146,7 @@
   }
 
   // Add a $layer-accent-01 border line color when the grid mode is equal "collapsed".
-  :host(#{$dds-prefix}-card-in-card)[grid-mode='collapsed'],
+  :host(#{$cds-prefix}-card-in-card)[grid-mode='collapsed'],
   .#{$prefix}--card-in-card--narrow {
     .#{$prefix}--card__wrapper {
       &::after {

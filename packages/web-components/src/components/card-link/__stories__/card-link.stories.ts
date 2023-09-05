@@ -19,13 +19,13 @@ import '../index';
 export const Default = (args) => {
   const { disabled, href, heading, copy } = args?.CardLink ?? {};
   return html`
-    <dds-card-link ?disabled=${disabled} href=${ifDefined(href || undefined)}>
-      <dds-card-link-heading>${heading}</dds-card-link-heading>
+    <c4d-card-link ?disabled=${disabled} href=${ifDefined(href || undefined)}>
+      <c4d-card-link-heading>${heading}</c4d-card-link-heading>
       ${copy ? html` <p>${copy}</p> ` : ``}
-      <dds-card-footer ?disabled=${disabled}>
+      <c4d-card-footer ?disabled=${disabled}>
         ${disabled ? Error20({ slot: 'icon' }) : ArrowRight20({ slot: 'icon' })}
-      </dds-card-footer>
-    </dds-card-link>
+      </c4d-card-footer>
+    </c4d-card-link>
   `;
 };
 

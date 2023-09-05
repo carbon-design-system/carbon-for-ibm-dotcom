@@ -12,12 +12,12 @@
 @use '../../../../carbon-web-components/src/components/modal/modal';
 @use '@carbon/ibmdotcom-styles/scss/globals/vars' as *;
 
-:host(#{$dds-prefix}-leaving-ibm-composite),
-:host(#{$dds-prefix}-leaving-ibm-container) {
+:host(#{$cds-prefix}-leaving-ibm-composite),
+:host(#{$cds-prefix}-leaving-ibm-container) {
   width: 100%;
 }
 
-:host(#{$dds-prefix}-leaving-ibm-modal) {
+:host(#{$cds-prefix}-leaving-ibm-modal) {
   // @extend :host(#{$prefix}-modal);
   max-height: 100%;
 
@@ -26,15 +26,15 @@
   }
 }
 
-:host(#{$dds-prefix}-leaving-ibm-modal-heading) {
+:host(#{$cds-prefix}-leaving-ibm-modal-heading) {
   // @include type-style('fluid-heading-04');
 }
 
-:host(#{$dds-prefix}-leaving-ibm-modal-body) {
+:host(#{$cds-prefix}-leaving-ibm-modal-body) {
   // @extend :host(#{$prefix}-modal-body);
   padding-right: 20%;
 
-  ::slotted(#{$dds-prefix}-leaving-ibm-modal-supplemental),
+  ::slotted(#{$cds-prefix}-leaving-ibm-modal-supplemental),
   ::slotted(slot[name='supplemental']) {
     display: block;
     margin-top: $spacing-07;

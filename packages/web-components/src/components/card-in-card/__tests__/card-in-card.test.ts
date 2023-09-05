@@ -13,15 +13,15 @@ import { Default } from '../__stories__/card-in-card.stories';
 
 const template = (props?) =>
   Default({
-    'dds-card-in-card': props,
+    'c4d-card-in-card': props,
   });
 
-describe('dds-card-in-card', function () {
+describe('c4d-card-in-card', function () {
   describe('Misc attributes', function () {
     it('should render with minimum attributes', async function () {
       render(template(), document.body);
-      await Promise.resolve(); // Update cycle for `<dds-card-in-card>`
-      expect(document.body.querySelector('dds-card-in-card')).toMatchSnapshot({
+      await Promise.resolve(); // Update cycle for `<c4d-card-in-card>`
+      expect(document.body.querySelector('c4d-card-in-card')).toMatchSnapshot({
         mode: 'shadow',
       });
     });
@@ -38,8 +38,8 @@ describe('dds-card-in-card', function () {
         }),
         document.body
       );
-      await Promise.resolve(); // Update cycle for `<dds-card-in-card>`
-      expect(document.body.querySelector('dds-card-in-card')).toMatchSnapshot({
+      await Promise.resolve(); // Update cycle for `<c4d-card-in-card>`
+      expect(document.body.querySelector('c4d-card-in-card')).toMatchSnapshot({
         mode: 'shadow',
       });
     });

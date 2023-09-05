@@ -9,9 +9,9 @@
 
 import React from 'react';
 import { render } from 'react-dom';
-import DDSTagLink from '@carbon/ibmdotcom-web-components/es/components-react/tag-link/tag-link';
+import C4DTagLink from '@carbon/ibmdotcom-web-components/es/components-react/tag-link/tag-link';
 import './index.css';
 
-const App = () => <DDSTagLink href="https://www.example.com">Copy Text</DDSTagLink>;
+const App = () => <C4DTagLink href="https://www.example.com">Copy Text</C4DTagLink>;
 
 render(<App />, document.getElementById('root'));

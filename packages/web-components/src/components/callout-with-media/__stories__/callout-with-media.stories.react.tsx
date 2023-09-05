@@ -13,43 +13,43 @@ import React from 'react';
 // Below path will be there when an application installs `@carbon/ibmdotcom-web-components` package.
 // In our dev env, we auto-generate the file and re-map below path to to point to the generated file.
 // @ts-ignore
-import DDSCalloutWithMedia from '@carbon/ibmdotcom-web-components/es/components-react/callout-with-media/callout-with-media';
-import DDSContentBlockHeading from '@carbon/ibmdotcom-web-components/es/components-react/content-block/content-block-heading';
-import DDSCalloutWithMediaCopy from '@carbon/ibmdotcom-web-components/es/components-react/callout-with-media/callout-with-media-copy';
-import DDSCalloutWithMediaImage from '@carbon/ibmdotcom-web-components/es/components-react/callout-with-media/callout-with-media-image';
-import DDSCalloutWithMediaVideo from '@carbon/ibmdotcom-web-components/es/components-react/callout-with-media/callout-with-media-video';
+import C4DCalloutWithMedia from '@carbon/ibmdotcom-web-components/es/components-react/callout-with-media/callout-with-media';
+import C4DContentBlockHeading from '@carbon/ibmdotcom-web-components/es/components-react/content-block/content-block-heading';
+import C4DCalloutWithMediaCopy from '@carbon/ibmdotcom-web-components/es/components-react/callout-with-media/callout-with-media-copy';
+import C4DCalloutWithMediaImage from '@carbon/ibmdotcom-web-components/es/components-react/callout-with-media/callout-with-media-image';
+import C4DCalloutWithMediaVideo from '@carbon/ibmdotcom-web-components/es/components-react/callout-with-media/callout-with-media-video';
 import { CONTENT_BLOCK_COPY_SIZE } from '../../content-block/content-block-copy';
 import imgLg16x9 from '../../../../../storybook-images/assets/720/fpo--16x9--720x405--005.jpg';
 import readme from './README.stories.react.mdx';
 import textNullable from '../../../../.storybook/knob-text-nullable';
 
 const image = (
-  <DDSCalloutWithMediaImage
+  <C4DCalloutWithMediaImage
     alt="Image alt text"
     default-src={imgLg16x9}
-    heading="Lorem ipsum dolor sit amet, consectetur adipiscing elit."></DDSCalloutWithMediaImage>
+    heading="Lorem ipsum dolor sit amet, consectetur adipiscing elit."></C4DCalloutWithMediaImage>
 );
 
 const video = (
-  <DDSCalloutWithMediaVideo video-id="1_9h94wo6b"></DDSCalloutWithMediaVideo>
+  <C4DCalloutWithMediaVideo video-id="1_9h94wo6b"></C4DCalloutWithMediaVideo>
 );
 
 export const Default = (args) => {
   const { copy, heading, mediaType } = args?.CalloutWithMedia ?? {};
-  const headingComponent = document.querySelector('dds-content-block-heading');
+  const headingComponent = document.querySelector('cds-content-block-heading');
 
   if (headingComponent) {
     headingComponent.shadowRoot!.textContent = heading;
   }
 
   return (
-    <DDSCalloutWithMedia>
-      <DDSContentBlockHeading>{heading}</DDSContentBlockHeading>
-      <DDSCalloutWithMediaCopy size={CONTENT_BLOCK_COPY_SIZE.SMALL}>
+    <C4DCalloutWithMedia>
+      <C4DContentBlockHeading>{heading}</C4DContentBlockHeading>
+      <C4DCalloutWithMediaCopy size={CONTENT_BLOCK_COPY_SIZE.SMALL}>
         {copy}
-      </DDSCalloutWithMediaCopy>
+      </C4DCalloutWithMediaCopy>
       {mediaType === 'image' ? image : ``} {mediaType === 'video' ? video : ``}
-    </DDSCalloutWithMedia>
+    </C4DCalloutWithMedia>
   );
 };
 

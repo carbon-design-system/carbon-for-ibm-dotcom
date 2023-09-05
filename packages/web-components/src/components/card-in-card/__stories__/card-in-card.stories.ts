@@ -26,34 +26,34 @@ import textNullable from '../../../../.storybook/knob-text-nullable';
 
 export const Default = (args) => {
   const { video, eyebrow, heading, defaultSrc, alt, href } =
-    args?.['dds-card-in-card'] ?? {};
+    args?.['c4d-card-in-card'] ?? {};
   if (video) {
     return html`
-      <dds-video-cta-container>
-        <dds-card-in-card href="1_9h94wo6b" cta-type="video">
-          <dds-card-eyebrow>${eyebrow}</dds-card-eyebrow>
-          <dds-card-footer cta-type="video" href="1_9h94wo6b"></dds-card-footer>
-        </dds-card-in-card>
-      </dds-video-cta-container>
+      <c4d-video-cta-container>
+        <c4d-card-in-card href="1_9h94wo6b" cta-type="video">
+          <c4d-card-eyebrow>${eyebrow}</c4d-card-eyebrow>
+          <c4d-card-footer cta-type="video" href="1_9h94wo6b"></c4d-card-footer>
+        </c4d-card-in-card>
+      </c4d-video-cta-container>
     `;
   }
   return html`
-    <dds-card-in-card href=${ifDefined(href || undefined)}>
-      <dds-card-in-card-image
+    <c4d-card-in-card href=${ifDefined(href || undefined)}>
+      <c4d-card-in-card-image
         slot="image"
         alt="${ifDefined(alt)}"
         default-src="${ifDefined(defaultSrc)}">
-        <dds-image-item media="(min-width: 1312px)" srcset="${imgXlg16x9}">
-        </dds-image-item>
-        <dds-image-item media="(min-width: 672px)" srcset="${imgMd16x9}">
-        </dds-image-item>
-        <dds-image-item media="(min-width: 320px)" srcset="${imgSm4x3}">
-        </dds-image-item>
-      </dds-card-in-card-image>
-      <dds-card-eyebrow>${eyebrow}</dds-card-eyebrow>
-      <dds-card-heading>${heading}</dds-card-heading>
-      <dds-card-footer> ${ArrowRight20({ slot: 'icon' })} </dds-card-footer>
-    </dds-card-in-card>
+        <c4d-image-item media="(min-width: 1312px)" srcset="${imgXlg16x9}">
+        </c4d-image-item>
+        <c4d-image-item media="(min-width: 672px)" srcset="${imgMd16x9}">
+        </c4d-image-item>
+        <c4d-image-item media="(min-width: 320px)" srcset="${imgSm4x3}">
+        </c4d-image-item>
+      </c4d-card-in-card-image>
+      <c4d-card-eyebrow>${eyebrow}</c4d-card-eyebrow>
+      <c4d-card-heading>${heading}</c4d-card-heading>
+      <c4d-card-footer> ${ArrowRight20({ slot: 'icon' })} </c4d-card-footer>
+    </c4d-card-in-card>
   `;
 };
 
@@ -72,7 +72,7 @@ export default {
     ...readme.parameters,
     hasStoryPadding: true,
     knobs: {
-      'dds-card-in-card': () => {
+      'c4d-card-in-card': () => {
         const video = boolean('video', false);
         const alt = video
           ? undefined
@@ -101,7 +101,7 @@ export default {
     },
     propsSet: {
       default: {
-        'dds-card-in-card': {
+        'c4d-card-in-card': {
           video: false,
           alt: 'Image alt text',
           defaultSrc: imgSm4x3,

@@ -9,9 +9,9 @@
 @use '@carbon/ibmdotcom-styles/scss/components/button-group';
 @use '../button/button.scss';
 
-:host(#{$dds-prefix}-button-group-item),
-:host(#{$dds-prefix}-button-cta) {
-  @extend :host(#{$dds-prefix}-button);
+:host(#{$cds-prefix}-button-group-item),
+:host(#{$cds-prefix}-button-cta) {
+  @extend :host(#{$cds-prefix}-button);
 
   outline: none;
 }

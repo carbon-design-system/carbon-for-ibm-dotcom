@@ -1,10 +1,12 @@
-import { Preview, Props, Description, Story } from '@storybook/addon-docs/blocks';
+import {
+  Preview,
+  Props,
+  Description,
+  Story,
+} from '@storybook/addon-docs/blocks';
 import contributing from '../../../../../../docs/contributing-license.md';
-import DDSLogoGrid from '../logo-grid';
+import C4DLogoGrid from '../logo-grid';
 import { cdnJs, cdnCss } from '../../../globals/internal/storybook-cdn';
-
-
-
 
 # Logo Grid
 
@@ -31,16 +33,13 @@ import '@carbon/ibmdotcom-web-components/es/components/logo-grid/index.js';
 ### HTML
 
 ```html
-<dds-logo-grid>
-  <dds-content-block-heading>
-    Our customers
-  </dds-content-block-heading>
-  <dds-logo-grid-item
+<cds-logo-grid>
+  <cds-content-block-heading> Our customers </cds-content-block-heading>
+  <cds-logo-grid-item
     default-src="https://fpoimg.com/288x216?text=Example%20Logo&bg_color=ee5396&text_color=161616"
-    alt=""
-  ></dds-logo-grid-item>
-  <dds-logo-grid-link href="https://example.com">
-    <dds-card-link-heading>Lorem Ipsum</dds-card-link-heading>
+    alt=""></cds-logo-grid-item>
+  <cds-logo-grid-link href="https://example.com">
+    <cds-card-link-heading>Lorem Ipsum</cds-card-link-heading>
     <svg
       slot="footer"
       focusable="false"
@@ -50,26 +49,28 @@ import '@carbon/ibmdotcom-web-components/es/components/logo-grid/index.js';
       aria-hidden="true"
       width="20"
       height="20"
-      viewBox="0 0 20 20"
-    >
-      <path d="M11.8 2.8L10.8 3.8 16.2 9.3 1 9.3 1 10.7 16.2 10.7 10.8 16.2 11.8 17.2 19 10z"></path>
+      viewBox="0 0 20 20">
+      <path
+        d="M11.8 2.8L10.8 3.8 16.2 9.3 1 9.3 1 10.7 16.2 10.7 10.8 16.2 11.8 17.2 19 10z"></path>
     </svg>
-  </dds-logo-grid-link>
-</dds-logo-grid>
+  </cds-logo-grid-link>
+</cds-logo-grid>
 ```
 
 ## Props
 
-<Props of="dds-logo-grid" />
+<Props of="cds-logo-grid" />
 
 ## Stable selectors
 
-See [our README](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/tree/main/packages/web-components#stable-selectors-for-analytics-and-integratione2e-testing-in-web-components) to see how Web Components selector and `data-autoid` should be used.
+See
+[our README](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/tree/main/packages/web-components#stable-selectors-for-analytics-and-integratione2e-testing-in-web-components)
+to see how Web Components selector and `data-autoid` should be used.
 
 | Web Components selector | Compatibility selector              | Description                     |
 | ----------------------- | ----------------------------------- | ------------------------------- |
-| `<dds-logo-grid>`       | `data-autoid="dds--logo-grid"`      | Logo Grid main component        |
-| `<dds-logo-link>`       | `data-autoid="dds--logo-grid-link"` | Logo Grid bottom link component |
-| `<dds-logo-item>`       | `data-autoid="dds--logo-grid-item"` | Logo Grid item component        |
+| `<cds-logo-grid>`       | `data-autoid="cds--logo-grid"`      | Logo Grid main component        |
+| `<cds-logo-link>`       | `data-autoid="cds--logo-grid-link"` | Logo Grid bottom link component |
+| `<cds-logo-item>`       | `data-autoid="cds--logo-grid-item"` | Logo Grid item component        |
 
 <Description markdown={contributing} />

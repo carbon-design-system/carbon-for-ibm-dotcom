@@ -17,12 +17,12 @@ import '../../lightbox-media-viewer/lightbox-video-player-container';
 export const Default = (args) => {
   const { caption, hideCaption, thumbnail, videoId } = args?.VideoPlayer ?? {};
   return html`
-    <dds-video-player-container
+    <c4d-video-player-container
       playing-mode="inline"
       video-id=${videoId}
       caption=${caption}
       ?hide-caption=${hideCaption}
-      thumbnail=${thumbnail}></dds-video-player-container>
+      thumbnail=${thumbnail}></c4d-video-player-container>
   `;
 };
 
@@ -30,13 +30,13 @@ export const aspectRatio1x1 = (args) => {
   const { aspectRatio, caption, hideCaption, thumbnail, videoId } =
     args?.VideoPlayer ?? {};
   return html`
-    <dds-video-player-container
+    <c4d-video-player-container
       playing-mode="inline"
       video-id=${videoId}
       aspect-ratio=${aspectRatio}
       caption=${caption}
       ?hide-caption=${hideCaption}
-      thumbnail=${thumbnail}></dds-video-player-container>
+      thumbnail=${thumbnail}></c4d-video-player-container>
   `;
 };
 
@@ -44,13 +44,13 @@ export const aspectRatio4x3 = (args) => {
   const { aspectRatio, caption, hideCaption, thumbnail, videoId } =
     args?.VideoPlayer ?? {};
   return html`
-    <dds-video-player-container
+    <c4d-video-player-container
       playing-mode="inline"
       video-id=${videoId}
       aspect-ratio=${aspectRatio}
       caption=${caption}
       ?hide-caption=${hideCaption}
-      thumbnail=${thumbnail}></dds-video-player-container>
+      thumbnail=${thumbnail}></c4d-video-player-container>
   `;
 };
 
@@ -64,7 +64,7 @@ export const withLightboxMediaViewer = (args) => {
     customVideoDescription,
   } = args?.VideoPlayer ?? {};
   return html`
-    <dds-video-player-container
+    <c4d-video-player-container
       video-id=${videoId}
       aspect-ratio=${aspectRatio}
       caption=${caption}
@@ -72,8 +72,8 @@ export const withLightboxMediaViewer = (args) => {
       ?hide-caption=${hideCaption}
       thumbnail=${thumbnail}
       playing-mode="lightbox">
-    </dds-video-player-container>
-    <dds-lightbox-video-player-container></dds-lightbox-video-player-container>
+    </c4d-video-player-container>
+    <c4d-lightbox-video-player-container></c4d-lightbox-video-player-container>
   `;
 };
 

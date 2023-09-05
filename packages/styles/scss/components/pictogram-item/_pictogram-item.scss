@@ -16,7 +16,7 @@
 
 @mixin pictogram-item {
   .#{$prefix}--pictogram-item,
-  :host(#{$dds-prefix}-pictogram-item) {
+  :host(#{$cds-prefix}-pictogram-item) {
     .#{$prefix}--pictogram-item__row {
       @include make-row;
 

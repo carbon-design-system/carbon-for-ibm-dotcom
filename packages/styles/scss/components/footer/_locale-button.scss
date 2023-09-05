@@ -20,7 +20,7 @@
 /// @group footer
 
 @mixin locale-button {
-  :host(#{$dds-prefix}-locale-button),
+  :host(#{$cds-prefix}-locale-button),
   .#{$prefix}--locale-btn__container {
     @include theme($g90, feature-flag-enabled('enable-css-custom-properties'));
     @include button;
@@ -56,8 +56,8 @@
     }
   }
 
-  :host(#{$dds-prefix}-footer[size='short'])
-    ::slotted(#{$dds-prefix}-locale-button),
+  :host(#{$cds-prefix}-footer[size='short'])
+    ::slotted(#{$cds-prefix}-locale-button),
   .#{$prefix}--footer--short .#{$prefix}--locale-btn__container {
     margin-top: $spacing-09;
 

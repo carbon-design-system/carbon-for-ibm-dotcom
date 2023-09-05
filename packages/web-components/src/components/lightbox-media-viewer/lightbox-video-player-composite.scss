@@ -7,7 +7,7 @@
 
 @use '@carbon/ibmdotcom-styles/scss/globals/vars' as *;
 
-:host(#{$dds-prefix}-lightbox-video-player-container),
-:host(#{$dds-prefix}-lightbox-video-player-composite) {
+:host(#{$cds-prefix}-lightbox-video-player-container),
+:host(#{$cds-prefix}-lightbox-video-player-composite) {
   display: contents;
 }

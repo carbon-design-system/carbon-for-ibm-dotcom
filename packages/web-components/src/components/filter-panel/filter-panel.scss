@@ -18,7 +18,7 @@
 @use '@carbon/ibmdotcom-styles/scss/components/filter-panel';
 @use '../../../../carbon-web-components/src/components/modal/modal';
 
-:host(#{$dds-prefix}-filter-panel-modal) {
+:host(#{$cds-prefix}-filter-panel-modal) {
   @extend :host(#{$prefix}-modal);
 
   left: 0;
@@ -58,8 +58,8 @@
   }
 }
 
-:host(#{$dds-prefix}-filter-group-item) {
-  .#{$dds-prefix}-filter-group-item__view-all {
+:host(#{$cds-prefix}-filter-group-item) {
+  .#{$cds-prefix}-filter-group-item__view-all {
     width: 100%;
     padding: $spacing-03 $spacing-05;
     text-align: left;
@@ -74,7 +74,7 @@
   }
 }
 
-:host(#{$dds-prefix}-filter-modal-footer-button) {
+:host(#{$cds-prefix}-filter-modal-footer-button) {
   @extend :host(#{$prefix}-modal-footer-button);
 
   outline: 0;

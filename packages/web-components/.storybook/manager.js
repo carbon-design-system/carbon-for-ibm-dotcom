@@ -30,19 +30,19 @@ const getCss = (envVar, cssId) => {
 
 // Build string of CSS rules.
 let css = '';
-if (!process.env.DDS_FLAGS_ALL) {
-  css += getCss(process.env.DDS_CLOUD_MASTHEAD, 'components-cloud-masthead');
+if (!process.env.C4D_FLAGS_ALL) {
+  css += getCss(process.env.C4D_CLOUD_MASTHEAD, 'components-cloud-masthead');
   css += getCss(
-    process.env.DDS_CONTENT_BLOCK_HEADLINES,
+    process.env.C4D_CONTENT_BLOCK_HEADLINES,
     'components-content-block-headlines'
   );
   css += getCss(
-    process.env.DDS_CONTENT_BLOCK_CARD_STATIC,
+    process.env.C4D_CONTENT_BLOCK_CARD_STATIC,
     'components-content-block-card-static'
   );
-  css += getCss(process.env.DDS_PRICING_TABLE, 'components-pricing-table');
+  css += getCss(process.env.C4D_PRICING_TABLE, 'components-pricing-table');
   css += getCss(
-    process.env.DDS_SCOPED_SEARCH,
+    process.env.C4D_SCOPED_SEARCH,
     'components-masthead-with-scoped-search'
   );
 }

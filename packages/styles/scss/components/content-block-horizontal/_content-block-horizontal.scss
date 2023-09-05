@@ -13,8 +13,8 @@
 @use '../../globals/vars' as *;
 
 @mixin content-block-horizontal {
-  :host(#{$dds-prefix}-content-block-horizontal),
-  :host(#{$dds-prefix}-content-group-horizontal) {
+  :host(#{$cds-prefix}-content-block-horizontal),
+  :host(#{$cds-prefix}-content-group-horizontal) {
     padding-top: $spacing-07;
     padding-bottom: $spacing-07;
 
@@ -46,14 +46,14 @@
     }
   }
 
-  :host(#{$dds-prefix}-content-block-horizontal) ::slotted([slot='heading']),
-  :host(#{$dds-prefix}-content-group-horizontal) ::slotted([slot='heading']),
+  :host(#{$cds-prefix}-content-block-horizontal) ::slotted([slot='heading']),
+  :host(#{$cds-prefix}-content-group-horizontal) ::slotted([slot='heading']),
   .#{$prefix}--content-block-horizontal .#{$prefix}--content-block__heading,
   .#{$prefix}--content-group-horizontal .#{$prefix}--content-block__heading {
     margin-bottom: $spacing-07;
   }
 
-  :host(#{$dds-prefix}-content-item-horizontal):last-child,
+  :host(#{$cds-prefix}-content-item-horizontal):last-child,
   .#{$prefix}--content-block-horizontal
     .#{$prefix}--content-item-horizontal__item:last-child,
   .#{$prefix}--content-group-horizontal

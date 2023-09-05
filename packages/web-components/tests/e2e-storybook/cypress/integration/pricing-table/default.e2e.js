@@ -38,7 +38,7 @@ const _tests = (path = path) => [
   },
 ];
 
-describe('dds-pricing-table | default (desktop)', () => {
+describe('cds-pricing-table | default (desktop)', () => {
   beforeEach(() => {
     cy.viewport(1280, 780);
   });
@@ -46,7 +46,7 @@ describe('dds-pricing-table | default (desktop)', () => {
   [...createTests(path), ..._tests(path)].forEach(test => test());
 });
 
-describe('dds-pricing-table | default (mobile)', () => {
+describe('cds-pricing-table | default (mobile)', () => {
   beforeEach(() => {
     cy.viewport(320, 720);
   });

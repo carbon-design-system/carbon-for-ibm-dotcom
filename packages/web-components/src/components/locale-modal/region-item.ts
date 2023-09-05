@@ -16,15 +16,15 @@ import settings from '../../internal/vendor/@carbon/ibmdotcom-utilities/utilitie
 import styles from './locale-modal.scss';
 import { carbonElement as customElement } from '../../internal/vendor/@carbon/web-components/globals/decorators/carbon-element.js';
 
-const { prefix, stablePrefix: ddsPrefix } = settings;
+const { prefix, stablePrefix: c4dPrefix } = settings;
 
 /**
  * Region item.
  *
- * @element dds-region-item
+ * @element c4d-region-item
  */
-@customElement(`${ddsPrefix}-region-item`)
-class DDSRegionItem extends CDSLink {
+@customElement(`${c4dPrefix}-region-item`)
+class C4DRegionItem extends CDSLink {
   /**
    * `true` if this region has no countries.
    */
@@ -92,11 +92,11 @@ class DDSRegionItem extends CDSLink {
   updated(changedProperties) {
     if (changedProperties.has('name')) {
       const { name } = this;
-      this.dataset.autoId = `${ddsPrefix}--locale-modal__geo-btn-${name}`;
+      this.dataset.autoId = `${c4dPrefix}--locale-modal__geo-btn-${name}`;
     }
   }
 
   static styles = styles;
 }
 
-export default DDSRegionItem;
+export default C4DRegionItem;

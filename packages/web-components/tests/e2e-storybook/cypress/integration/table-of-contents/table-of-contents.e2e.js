@@ -17,7 +17,7 @@ const _paths = {
 };
 
 /**
- * Collection of all tests for dds-table-of-contents
+ * Collection of all tests for cds-table-of-contents
  *
  * @property {function} all
  * @property {function} desktop
@@ -229,7 +229,7 @@ const _tests = {
   },
 };
 
-describe('dds-table-of-contents | default (desktop)', () => {
+describe('cds-table-of-contents | default (desktop)', () => {
   beforeEach(() => {
     cy.viewport(1280, 720);
     cy.visit(`/${_paths.default}`);
@@ -244,7 +244,7 @@ describe('dds-table-of-contents | default (desktop)', () => {
   it('should check a11y', _tests.all.checkA11y);
 });
 
-describe('dds-table-of-contents | horizontal (desktop)', () => {
+describe('cds-table-of-contents | horizontal (desktop)', () => {
   beforeEach(() => {
     cy.viewport(1280, 720);
     cy.visit(`/${_paths.horizontal}`);
@@ -259,7 +259,7 @@ describe('dds-table-of-contents | horizontal (desktop)', () => {
   it('should check a11y', _tests.all.checkA11y);
 });
 
-describe('dds-table-of-contents | default (mobile)', () => {
+describe('cds-table-of-contents | default (mobile)', () => {
   beforeEach(() => {
     cy.viewport(320, 720);
     cy.visit(`/${_paths.default}`);
@@ -274,7 +274,7 @@ describe('dds-table-of-contents | default (mobile)', () => {
   it('should check a11y', _tests.all.checkA11y);
 });
 
-describe('dds-table-of-contents | horizontal (mobile)', () => {
+describe('cds-table-of-contents | horizontal (mobile)', () => {
   beforeEach(() => {
     cy.viewport(320, 720);
     cy.visit(`/${_paths.horizontal}`);

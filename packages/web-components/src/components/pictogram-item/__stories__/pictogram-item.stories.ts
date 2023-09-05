@@ -24,7 +24,7 @@ const Desktop = html`
     preserveAspectRatio="xMidYMid meet"
     xmlns="http://www.w3.org/2000/svg"
     stroke="currentColor"
-    data-autoid="dds--pictogram-item__pictogram"
+    data-autoid="c4d--pictogram-item__pictogram"
     aria-label="Pictogram description"
     width="64"
     height="64"
@@ -47,7 +47,7 @@ const Pattern = html`
     preserveAspectRatio="xMidYMid meet"
     xmlns="http://www.w3.org/2000/svg"
     fill="currentColor"
-    data-autoid="dds--pictogram-item__pictogram"
+    data-autoid="c4d--pictogram-item__pictogram"
     aria-label="Pictogram description"
     width="64"
     height="64"
@@ -94,7 +94,7 @@ const Touch = html`
     preserveAspectRatio="xMidYMid meet"
     xmlns="http://www.w3.org/2000/svg"
     fill="currentColor"
-    data-autoid="dds--pictogram-item__pictogram"
+    data-autoid="c4d--pictogram-item__pictogram"
     aria-label="Pictogram description"
     width="64"
     height="64"
@@ -158,14 +158,14 @@ export const Default = (args) => {
   const { heading, copy, href, linkCopy, pictogram, pictogramColor } =
     args?.PictogramItem ?? {};
   return html`
-    <dds-pictogram-item color="${pictogramColor}">
+    <c4d-pictogram-item color="${pictogramColor}">
       ${pictogram?.src}
-      <dds-content-item-heading>${heading}</dds-content-item-heading>
-      <dds-content-item-copy>${copy}</dds-content-item-copy>
-      <dds-link-with-icon href="${href}" slot="footer">
+      <c4d-content-item-heading>${heading}</c4d-content-item-heading>
+      <c4d-content-item-copy>${copy}</c4d-content-item-copy>
+      <c4d-link-with-icon href="${href}" slot="footer">
         ${linkCopy} ${ArrowRight20({ slot: 'icon' })}
-      </dds-link-with-icon>
-    </dds-pictogram-item>
+      </c4d-link-with-icon>
+    </c4d-pictogram-item>
   `;
 };
 

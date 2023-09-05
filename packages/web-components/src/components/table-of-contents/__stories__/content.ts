@@ -24,7 +24,7 @@ export const LOREM = `Lorem ipsum dolor sit amet, consectetur adipiscing elit. C
 const generateCopySections = (n) => Array(n).map(() => html` <p>${LOREM}</p> `);
 
 const content = ({ contentClass, items }) => html`
-  <div class="${contentClass} dds-ce-demo--table-of-contents">
+  <div class="${contentClass} c4d-ce-demo--table-of-contents">
     ${items.map(
       ({ heading, copy }, i) =>
         html`

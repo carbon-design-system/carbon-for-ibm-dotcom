@@ -16,7 +16,7 @@
 
 @mixin content-item-horizontal {
   // Web component
-  :host(#{$dds-prefix}-content-item-horizontal),
+  :host(#{$cds-prefix}-content-item-horizontal),
   // React
   .#{$prefix}--content-item-horizontal__item {
     @include make-row;
@@ -50,7 +50,7 @@
     }
   }
 
-  :host(#{$dds-prefix}-content-item-horizontal) {
+  :host(#{$cds-prefix}-content-item-horizontal) {
     margin: 0;
   }
 
@@ -63,7 +63,7 @@
       flex-direction: row;
     }
 
-    :host(#{$dds-prefix}-content-item-horizontal)[thumbnail] & {
+    :host(#{$cds-prefix}-content-item-horizontal)[thumbnail] & {
       justify-content: space-between;
       min-height: auto;
     }
@@ -90,7 +90,7 @@
         width: auto;
       }
 
-      :host(#{$dds-prefix}-content-item-horizontal)[thumbnail] & {
+      :host(#{$cds-prefix}-content-item-horizontal)[thumbnail] & {
         @include breakpoint(md) {
           @include make-col(4, 8);
         }
@@ -115,7 +115,7 @@
         grid-column: 9 / span 4;
         grid-row: 1 / span 1;
       }
-      :host(#{$dds-prefix}-content-item-horizontal)[thumbnail] & {
+      :host(#{$cds-prefix}-content-item-horizontal)[thumbnail] & {
         @include breakpoint(md) {
           @include make-col(3, 8);
         }
@@ -133,7 +133,7 @@
   // React
   .#{$prefix}--content-item-horizontal__col:first-of-type,
   .#{$prefix}--content-item-horizontal__col:last-of-type {
-    :host(#{$dds-prefix}-content-item-horizontal)[thumbnail] & {
+    :host(#{$cds-prefix}-content-item-horizontal)[thumbnail] & {
       @include make-col(4, 4);
 
       @include breakpoint(lg) {
@@ -186,14 +186,14 @@
     }
   }
 
-  :host(#{$dds-prefix}-content-item-horizontal) ::slotted([slot='media']) {
+  :host(#{$cds-prefix}-content-item-horizontal) ::slotted([slot='media']) {
     display: block;
     padding-top: $spacing-07;
   }
 
-  :host(#{$dds-prefix}-content-item-horizontal) ::slotted([slot='heading']),
-  :host(#{$dds-prefix}-content-item-horizontal-copy) ::slotted(:not([slot])),
-  :host(#{$dds-prefix}-content-item-horizontal-eyebrow),
+  :host(#{$cds-prefix}-content-item-horizontal) ::slotted([slot='heading']),
+  :host(#{$cds-prefix}-content-item-horizontal-copy) ::slotted(:not([slot])),
+  :host(#{$cds-prefix}-content-item-horizontal-eyebrow),
   .#{$prefix}--content-item-horizontal__item--eyebrow,
   .#{$prefix}--content-item-horizontal__item--heading,
   .#{$prefix}--content-item-horizontal__item--copy {
@@ -202,18 +202,18 @@
     }
   }
 
-  :host(#{$dds-prefix}-content-item-horizontal-copy) ::slotted(:not([slot])) {
+  :host(#{$cds-prefix}-content-item-horizontal-copy) ::slotted(:not([slot])) {
     max-width: rem(640px);
   }
 
-  :host(#{$dds-prefix}-content-item-horizontal-eyebrow),
+  :host(#{$cds-prefix}-content-item-horizontal-eyebrow),
   .#{$prefix}--content-item-horizontal__item--eyebrow {
     color: $text-helper;
     padding-bottom: $spacing-03;
     @include type-style('label-02');
   }
 
-  :host(#{$dds-prefix}-content-item-horizontal) ::slotted([slot='heading']),
+  :host(#{$cds-prefix}-content-item-horizontal) ::slotted([slot='heading']),
   .#{$prefix}--content-item-horizontal__item--heading {
     display: block;
     color: $text-primary;
@@ -230,7 +230,7 @@
     }
   }
 
-  :host(#{$dds-prefix}-content-item-horizontal)[thumbnail] {
+  :host(#{$cds-prefix}-content-item-horizontal)[thumbnail] {
     display: grid;
     grid-template-columns: repeat(4, 1fr);
     grid-auto-flow: dense;
@@ -244,12 +244,12 @@
     }
   }
 
-  :host(#{$dds-prefix}-content-item-horizontal[thumbnail])
+  :host(#{$cds-prefix}-content-item-horizontal[thumbnail])
     .#{$prefix}--content-item-horizontal__heading-wrapper {
     max-width: 100%;
   }
 
-  :host(#{$dds-prefix}-content-item-horizontal[thumbnail])
+  :host(#{$cds-prefix}-content-item-horizontal[thumbnail])
     .#{$prefix}--content-item-horizontal__content-wrapper {
     @include breakpoint-down(md) {
       margin-bottom: $spacing-07;
@@ -259,7 +259,7 @@
     padding-left: 0;
   }
 
-  :host(#{$dds-prefix}-content-item-horizontal[thumbnail]) {
+  :host(#{$cds-prefix}-content-item-horizontal[thumbnail]) {
     .#{$prefix}--content-item-horizontal__body-wrapper {
       grid-column: 1 / span 4;
       max-width: 100%;
@@ -287,17 +287,17 @@
     padding-right: 0;
   }
 
-  :host(#{$dds-prefix}-content-item-horizontal-copy) ::slotted(:not([slot])),
+  :host(#{$cds-prefix}-content-item-horizontal-copy) ::slotted(:not([slot])),
   .#{$prefix}--content-item-horizontal__item--copy {
     margin-bottom: $spacing-07;
   }
 
-  :host(#{$dds-prefix}-content-item-horizontal-thumbnail-copy)
-    ::slotted(#{$dds-prefix}-content-item-paragraph) {
+  :host(#{$cds-prefix}-content-item-horizontal-thumbnail-copy)
+    ::slotted(#{$cds-prefix}-content-item-paragraph) {
     margin-bottom: $spacing-07;
   }
 
-  :host(#{$dds-prefix}-content-item-horizontal) .#{$prefix}--content-item__cta,
+  :host(#{$cds-prefix}-content-item-horizontal) .#{$prefix}--content-item__cta,
   .#{$prefix}--content-item-horizontal__item--cta {
     .#{$prefix}--link-list {
       padding: 0;
@@ -312,7 +312,7 @@
     }
   }
 
-  :host(#{$dds-prefix}-content-item-horizontal) ::slotted([slot='thumbnail']) {
+  :host(#{$cds-prefix}-content-item-horizontal) ::slotted([slot='thumbnail']) {
     @include breakpoint(md) {
       @include make-col(3, 3);
 

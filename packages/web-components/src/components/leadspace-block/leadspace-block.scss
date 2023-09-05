@@ -12,13 +12,13 @@
 @use '@carbon/ibmdotcom-styles/scss/components/leadspace-block';
 @use '@carbon/ibmdotcom-styles/scss/globals/vars' as *;
 
-:host(#{$dds-prefix}-leadspace-with-search-heading),
-:host(#{$dds-prefix}-leadspace-block-heading) {
+:host(#{$cds-prefix}-leadspace-with-search-heading),
+:host(#{$cds-prefix}-leadspace-block-heading) {
   display: block;
 }
 
-:host(#{$dds-prefix}-leadspace-with-search-content),
-:host(#{$dds-prefix}-leadspace-block-content) {
+:host(#{$cds-prefix}-leadspace-with-search-content),
+:host(#{$cds-prefix}-leadspace-block-content) {
   ::slotted(*) {
     margin-left: $spacing-05;
     margin-right: $spacing-05;

@@ -32,15 +32,15 @@ const iconOptions = {
 export const Default = (args) => {
   const { buttons } = args?.ButtonGroup ?? {};
   return html`
-    <dds-button-group>
+    <c4d-button-group>
       ${buttons.map(
         (elem) => html`
-          <dds-button-group-item href="${elem.href}"
-            >${elem.copy}${elem.renderIcon}</dds-button-group-item
+          <c4d-button-group-item href="${elem.href}"
+            >${elem.copy}${elem.renderIcon}</c4d-button-group-item
           >
         `
       )}
-    </dds-button-group>
+    </c4d-button-group>
   `;
 };
 

@@ -16,12 +16,12 @@ const template = (props?) =>
     LinkWithIcon: props,
   });
 
-describe('dds-link-with-icon', function () {
+describe('c4d-link-with-icon', function () {
   describe('Misc attributes', function () {
     it('should render with minimum attributes', async function () {
       render(template(), document.body);
       await Promise.resolve();
-      expect(document.body.querySelector('dds-link-with-icon')).toMatchSnapshot(
+      expect(document.body.querySelector('c4d-link-with-icon')).toMatchSnapshot(
         { mode: 'shadow' }
       );
     });
@@ -42,7 +42,7 @@ describe('dds-link-with-icon', function () {
         document.body
       );
       await Promise.resolve();
-      expect(document.body.querySelector('dds-link-with-icon')).toMatchSnapshot(
+      expect(document.body.querySelector('c4d-link-with-icon')).toMatchSnapshot(
         { mode: 'shadow' }
       );
     });

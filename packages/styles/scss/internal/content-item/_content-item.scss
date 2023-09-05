@@ -29,15 +29,15 @@
     }
   }
 
-  :host(#{$dds-prefix}-content-item),
+  :host(#{$cds-prefix}-content-item),
   .#{$prefix}--content-item {
     display: block;
     margin-top: $spacing-07;
     margin-bottom: $spacing-07;
   }
 
-  :host(#{$dds-prefix}-content-item)
-    ::slotted(#{$dds-prefix}-video-player-container),
+  :host(#{$cds-prefix}-content-item)
+    ::slotted(#{$cds-prefix}-video-player-container),
   .#{$prefix}--content-item .#{$prefix}--video-player {
     margin-top: $spacing-05;
     margin-bottom: $spacing-07;
@@ -48,8 +48,8 @@
     margin-top: $spacing-05;
   }
 
-  :host(#{$dds-prefix}-content-item-heading),
-  :host(#{$dds-prefix}-content-item-copy),
+  :host(#{$cds-prefix}-content-item-heading),
+  :host(#{$cds-prefix}-content-item-copy),
   .#{$prefix}--content-item__heading,
   .#{$prefix}--content-item__copy {
     @include breakpoint(md) {
@@ -59,14 +59,14 @@
     }
   }
 
-  :host(#{$dds-prefix}-content-item-heading),
+  :host(#{$cds-prefix}-content-item-heading),
   .#{$prefix}--content-item__heading {
     @include type-style('heading-02');
 
     color: $text-primary;
   }
 
-  :host(#{$dds-prefix}-content-item-paragraph),
+  :host(#{$cds-prefix}-content-item-paragraph),
   .#{$prefix}--content-item__copy p {
     @include type-style('body-02');
 

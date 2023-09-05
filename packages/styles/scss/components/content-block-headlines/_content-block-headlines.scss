@@ -17,7 +17,7 @@
 @use '../link-with-icon';
 
 @mixin content-block-headlines {
-  :host(#{$dds-prefix}-content-block-headlines),
+  :host(#{$cds-prefix}-content-block-headlines),
   .#{$prefix}--content-block-headlines {
     .#{$prefix}--content-block {
       @include breakpoint(md) {
@@ -38,7 +38,7 @@
       }
     }
 
-    ::slotted(#{$dds-prefix}-content-block-copy),
+    ::slotted(#{$cds-prefix}-content-block-copy),
     .#{$prefix}--content-block__copy {
       margin-bottom: $spacing-12;
       p {
@@ -86,7 +86,7 @@
     }
   }
 
-  :host(#{$dds-prefix}-content-block-headlines-item),
+  :host(#{$cds-prefix}-content-block-headlines-item),
   .#{$prefix}--content-block-headlines__item {
     display: flex;
     flex-direction: column;
@@ -109,7 +109,7 @@
       margin: $spacing-05 0 0;
     }
 
-    :host(#{$dds-prefix}-content-block-headlines-heading),
+    :host(#{$cds-prefix}-content-block-headlines-heading),
     .#{$prefix}--content-block-headlines__heading {
       @include type-style('display-02', true);
     }
