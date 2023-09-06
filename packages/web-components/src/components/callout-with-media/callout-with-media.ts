@@ -15,9 +15,9 @@ import StableSelectorMixin from '../../globals/mixins/stable-selector';
 import { carbonElement as customElement } from '../../internal/vendor/@carbon/web-components/globals/decorators/carbon-element';
 import { property } from 'lit/decorators.js';
 import { COLOR_SCHEME } from '../../component-mixins/callout/defs';
-import DDSCalloutWithMediaCopy from './callout-with-media-copy';
-import DDSCalloutWithMediaImage from './callout-with-media-image';
-import DDSCalloutWithMediaVideo from './callout-with-media-video';
+import C4DCalloutWithMediaCopy from './callout-with-media-copy';
+import C4DCalloutWithMediaImage from './callout-with-media-image';
+import C4DCalloutWithMediaVideo from './callout-with-media-video';
 
 const { stablePrefix: c4dPrefix } = settings;
 
@@ -39,22 +39,22 @@ class C4DCalloutWithMedia extends C4DCalloutMixin(
   updated(changedProperties) {
     super.updated(changedProperties);
     const copy = this.querySelector(
-      (this.constructor as typeof DDSCalloutWithMedia).selectorCopy
+      (this.constructor as typeof C4DCalloutWithMedia).selectorCopy
     );
     const image = this.querySelector(
-      (this.constructor as typeof DDSCalloutWithMedia).selectorImage
+      (this.constructor as typeof C4DCalloutWithMedia).selectorImage
     );
     const video = this.querySelector(
-      (this.constructor as typeof DDSCalloutWithMedia).selectorVideo
+      (this.constructor as typeof C4DCalloutWithMedia).selectorVideo
     );
     copy
-      ? ((copy as DDSCalloutWithMediaCopy).colorScheme = this.colorScheme)
+      ? ((copy as C4DCalloutWithMediaCopy).colorScheme = this.colorScheme)
       : '';
     image
-      ? ((image as DDSCalloutWithMediaImage).colorScheme = this.colorScheme)
+      ? ((image as C4DCalloutWithMediaImage).colorScheme = this.colorScheme)
       : '';
     video
-      ? ((video as DDSCalloutWithMediaVideo).colorScheme = this.colorScheme)
+      ? ((video as C4DCalloutWithMediaVideo).colorScheme = this.colorScheme)
       : '';
   }
 
@@ -62,21 +62,21 @@ class C4DCalloutWithMedia extends C4DCalloutMixin(
    * A selector that will return the child image.
    */
   static get selectorImage() {
-    return `${ddsPrefix}-callout-with-media-image`;
+    return `${c4dPrefix}-callout-with-media-image`;
   }
 
   /**
    * A selector that will return the child video.
    */
   static get selectorVideo() {
-    return `${ddsPrefix}-callout-with-media-video`;
+    return `${c4dPrefix}-callout-with-media-video`;
   }
 
   /**
    * A selector that will return the child copy.
    */
   static get selectorCopy() {
-    return `${ddsPrefix}-callout-with-media-copy`;
+    return `${c4dPrefix}-callout-with-media-copy`;
   }
 
   static get stableSelector() {
