@@ -16,9 +16,9 @@
 @use '../button';
 
 @mixin button-group {
-  :host(#{$dds-prefix}-button-group-item),
-  :host(#{$dds-prefix}-button-cta) {
-    @extend :host(#{$dds-prefix}-button);
+  :host(#{$c4d-prefix}-button-group-item),
+  :host(#{$c4d-prefix}-button-cta) {
+    @extend :host(#{$c4d-prefix}-button);
 
     outline: none;
     max-width: 100%;
@@ -75,9 +75,9 @@
     }
   }
 
-  :host(#{$dds-prefix}-button-group),
-  :host(#{$dds-prefix}-leadspace-block-cta) {
-    --#{$dds-prefix}--button-group--item-count: 3;
+  :host(#{$c4d-prefix}-button-group),
+  :host(#{$c4d-prefix}-leadspace-block-cta) {
+    --#{$c4d-prefix}--button-group--item-count: 3;
 
     display: grid;
     grid-template-columns: 1fr;
@@ -87,7 +87,7 @@
     @include breakpoint(md) {
       display: inline-grid;
       grid-template-columns: repeat(
-        var(--#{$dds-prefix}--button-group--item-count),
+        var(--#{$c4d-prefix}--button-group--item-count),
         1fr
       );
     }
@@ -97,7 +97,7 @@
     }
   }
 
-  :host(#{$dds-prefix}-button-group-item) {
+  :host(#{$c4d-prefix}-button-group-item) {
     ::slotted([slot='icon']) {
       @media print {
         fill: $gray-100;

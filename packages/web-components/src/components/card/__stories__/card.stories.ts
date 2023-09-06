@@ -31,10 +31,10 @@ import {
 } from '../../cta/__stories__/ctaTypeConfig';
 
 const tagGroupContent = html`
-  <dds-tag-group>
+  <c4d-tag-group>
     <cds-tag type="green"> Most popular </cds-tag>
     <cds-tag type="purple"> Enterprise </cds-tag>
-  </dds-tag-group>
+  </c4d-tag-group>
 `;
 
 export const Default = (args) => {
@@ -59,7 +59,7 @@ export const Default = (args) => {
   let videoFooterCopy;
 
   if (ctaType === CTA_TYPE.VIDEO) {
-    const card = document.querySelector('dds-card') as any;
+    const card = document.querySelector('c4d-card') as any;
     const duration = card?.videoTitle?.match(/\((.*)\)/)?.pop();
 
     if (!customVideoTitle) {
@@ -74,8 +74,8 @@ export const Default = (args) => {
   }
 
   return html`
-    <dds-video-cta-container>
-      <dds-card
+    <c4d-video-cta-container>
+      <c4d-card
         ?no-poster=${noPoster}
         cta-type=${ctaType}
         color-scheme=${cardStyles === 'Inverse card'
@@ -87,19 +87,19 @@ export const Default = (args) => {
         href=${ifDefined(href || undefined)}>
         ${image
           ? html`
-              <dds-image
+              <c4d-image
                 slot="image"
                 alt="${ifDefined(alt)}"
-                default-src="${ifDefined(defaultSrc)}"></dds-image>
+                default-src="${ifDefined(defaultSrc)}"></c4d-image>
             `
           : ``}
-        <dds-card-eyebrow>${eyebrow}</dds-card-eyebrow>
-        <dds-card-heading>${videoCopy ?? heading}</dds-card-heading>
+        <c4d-card-eyebrow>${eyebrow}</c4d-card-eyebrow>
+        <c4d-card-heading>${videoCopy ?? heading}</c4d-card-heading>
         ${copy ? html` <p>${copy}</p> ` : ``}
         ${tagGroup ? html` ${tagGroupContent} ` : ``}
-        <dds-card-footer> ${videoFooterCopy ?? footer} </dds-card-footer>
-      </dds-card>
-    </dds-video-cta-container>
+        <c4d-card-footer> ${videoFooterCopy ?? footer} </c4d-card-footer>
+      </c4d-card>
+    </c4d-video-cta-container>
   `;
 };
 
@@ -181,7 +181,7 @@ export const Pictogram = (args) => {
   const { href, heading, copy, tagGroup, pictogramPlacement, cardStyles } =
     args?.PictogramCard ?? {};
   return html`
-    <dds-card
+    <c4d-card
       pictogram-placement="${pictogramPlacement}"
       href=${ifDefined(href || undefined)}
       color-scheme=${cardStyles === 'Inverse card'
@@ -190,7 +190,7 @@ export const Pictogram = (args) => {
         ? 'light'
         : ''}
       ?border=${cardStyles === 'Outlined card'}>
-      <dds-card-heading>${heading}</dds-card-heading>
+      <c4d-card-heading>${heading}</c4d-card-heading>
       ${copy ? html` <p>${copy}</p> ` : ``}
       ${tagGroup ? html` ${tagGroupContent} ` : ``}
       <svg
@@ -198,7 +198,7 @@ export const Pictogram = (args) => {
         focusable="false"
         preserveAspectRatio="xMidYMid meet"
         xmlns="http://www.w3.org/2000/svg"
-        data-autoid="dds--card__pictogram"
+        data-autoid="c4d--card__pictogram"
         aria-label="Pictogram description"
         width="48"
         height="48"
@@ -212,7 +212,7 @@ export const Pictogram = (args) => {
           0.904,0.736,1.64,1.64,1.64h26c0.904,0,1.64-0.735,1.64-1.64v-2.64H1.36z M1.36,
           18.64h29.28V5c0-0.904-0.735-1.64-1.64-1.64H3C2.096,3.36,1.36,4.096,1.36,5V18.64z" />
       </svg>
-    </dds-card>
+    </c4d-card>
   `;
 };
 
@@ -280,29 +280,29 @@ export const Static = (args) => {
     ctaCopy,
   } = args?.Card ?? {};
   return html`
-    <dds-card
+    <c4d-card
       color-scheme=${outlinedCard ? 'light' : ''}
       ?border=${outlinedCard}>
       ${image
         ? html`
-            <dds-image
+            <c4d-image
               slot="image"
               alt="${ifDefined(alt)}"
-              default-src="${ifDefined(defaultSrc)}"></dds-image>
+              default-src="${ifDefined(defaultSrc)}"></c4d-image>
           `
         : ``}
-      ${eyebrow ? html` <dds-card-eyebrow>${eyebrow}</dds-card-eyebrow> ` : ``}
-      <dds-card-heading>${heading}</dds-card-heading>
+      ${eyebrow ? html` <c4d-card-eyebrow>${eyebrow}</c4d-card-eyebrow> ` : ``}
+      <c4d-card-heading>${heading}</c4d-card-heading>
       ${copy ? html` <p>${copy}</p> ` : ``}
       ${tagGroup ? html` ${tagGroupContent} ` : ``}
       ${cta
         ? html`
-            <dds-card-footer href="https://www.example.com">
+            <c4d-card-footer href="https://www.example.com">
               ${ctaCopy}${ArrowRight20({ slot: 'icon' })}
-            </dds-card-footer>
+            </c4d-card-footer>
           `
         : ``}
-    </dds-card>
+    </c4d-card>
   `;
 };
 
@@ -363,18 +363,18 @@ export const Logo = (args) => {
   const { alt, defaultSrc, eyebrow, heading, href, copy, tagGroup } =
     args?.Card ?? {};
   return html`
-    <dds-card border logo href=${ifDefined(href || undefined)}>
-      <dds-image-logo
+    <c4d-card border logo href=${ifDefined(href || undefined)}>
+      <c4d-image-logo
         slot="image"
         alt="${ifDefined(alt)}"
-        default-src="${ifDefined(defaultSrc)}"></dds-image-logo>
-      ${eyebrow ? html` <dds-card-eyebrow>${eyebrow}</dds-card-eyebrow> ` : ``}
-      ${heading ? html` <dds-card-heading>${heading}</dds-card-heading> ` : ``}
+        default-src="${ifDefined(defaultSrc)}"></c4d-image-logo>
+      ${eyebrow ? html` <c4d-card-eyebrow>${eyebrow}</c4d-card-eyebrow> ` : ``}
+      ${heading ? html` <c4d-card-heading>${heading}</c4d-card-heading> ` : ``}
       ${copy ? html` <p>${copy}</p> ` : ``}
       ${tagGroup ? html` ${tagGroupContent} ` : ``}
 
-      <dds-card-footer></dds-card-footer>
-    </dds-card>
+      <c4d-card-footer></c4d-card-footer>
+    </c4d-card>
   `;
 };
 

@@ -12,7 +12,7 @@
 @use '../../../../carbon-web-components/src/components/button/button';
 
 @mixin button {
-  :host(#{$dds-prefix}-button) {
+  :host(#{$c4d-prefix}-button) {
     @extend :host(#{$prefix}-button);
 
     svg {

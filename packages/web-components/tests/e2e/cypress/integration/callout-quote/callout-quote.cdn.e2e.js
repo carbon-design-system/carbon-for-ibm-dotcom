@@ -7,11 +7,11 @@
 
 'use strict';
 
-describe('dds-callout-quote (cdn)', () => {
+describe('cds-callout-quote (cdn)', () => {
   it('should load the default callout quote example', () => {
     cy.visit('/callout-quote/cdn.html');
 
     // Take a snapshot for visual diffing
-    cy.percySnapshot('dds-callout-quote | cdn | default');
+    cy.percySnapshot('cds-callout-quote | cdn | default');
   });
 });

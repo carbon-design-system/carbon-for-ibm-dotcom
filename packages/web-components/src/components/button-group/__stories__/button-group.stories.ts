@@ -22,20 +22,20 @@ import {
 export const Default = (args) => {
   const { buttons } = args?.ButtonGroup ?? {};
   return html`
-    <dds-video-cta-container>
-      <dds-button-group>
+    <c4d-video-cta-container>
+      <c4d-button-group>
         ${buttons.map(
           (elem) => html`
-            <dds-button-group-item
+            <c4d-button-group-item
               href="${hrefsForType[elem.ctaType]}"
               cta-type="${elem.ctaType}"
               download="IBM_Annual_Report_2019.pdf"
-              >${elem.copy}</dds-button-group-item
+              >${elem.copy}</c4d-button-group-item
             >
           `
         )}
-      </dds-button-group>
-    </dds-video-cta-container>
+      </c4d-button-group>
+    </c4d-video-cta-container>
   `;
 };
 

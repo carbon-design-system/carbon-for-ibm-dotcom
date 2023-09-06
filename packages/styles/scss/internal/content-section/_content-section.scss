@@ -20,7 +20,7 @@
 }
 
 @mixin content-section {
-  :host(#{$dds-prefix}-link-list-section),
+  :host(#{$c4d-prefix}-link-list-section),
   .#{$prefix}--content-section {
     padding-top: $spacing-09;
     padding-bottom: $spacing-10;
@@ -47,7 +47,7 @@
 
   .#{$prefix}--content-section__body {
     @include breakpoint-down(md) {
-      // TODO: `display:block` or `display:flex` here causes broken carousel if `<dds-carousel>` is slotted in as the child,
+      // TODO: `display:block` or `display:flex` here causes broken carousel if `<cds-carousel>` is slotted in as the child,
       // especially if the carousel containts large number of cards.
       // May need to investigate.
       display: contents;
@@ -55,7 +55,7 @@
   }
 
   .#{$prefix}--content-section__grid,
-  :host(#{$dds-prefix}-cta-section) {
+  :host(#{$c4d-prefix}-cta-section) {
     @include make-container;
   }
 
@@ -76,7 +76,7 @@
     }
   }
 
-  :host(#{$dds-prefix}-content-section-heading),
+  :host(#{$c4d-prefix}-content-section-heading),
   .#{$prefix}--content-section__heading {
     margin-top: 0;
     margin-bottom: 0;
@@ -85,7 +85,7 @@
     @include type-style('heading-02');
   }
 
-  :host(#{$dds-prefix}-content-section-copy),
+  :host(#{$c4d-prefix}-content-section-copy),
   .#{$prefix}--content-section__copy p {
     @include type-style('body-compact-02');
 
@@ -93,11 +93,11 @@
     margin-bottom: $spacing-06;
   }
 
-  :host(#{$dds-prefix}-content-section-heading),
+  :host(#{$c4d-prefix}-content-section-heading),
   .#{$prefix}--content-section__heading,
-  :host(#{$dds-prefix}-content-section-copy),
+  :host(#{$c4d-prefix}-content-section-copy),
   .#{$prefix}--content-section__copy p,
-  :host(#{$dds-prefix}-content-section) ::slotted([slot='footer']),
+  :host(#{$c4d-prefix}-content-section) ::slotted([slot='footer']),
   .#{$prefix}--content-section__cta {
     @include breakpoint(md) {
       padding-right: $spacing-07;

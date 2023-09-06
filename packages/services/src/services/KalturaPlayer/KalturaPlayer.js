@@ -217,7 +217,7 @@ class KalturaPlayerAPI {
 
         if (
           !document.getElementById(targetId) &&
-          document.querySelector('dds-tabs-extended-media')
+          document.querySelector('cds-tabs-extended-media')
         ) {
           const newVideoDiv = document.createElement('div');
           newVideoDiv.classList.add(`bx--video-player__video`);
@@ -274,9 +274,9 @@ class KalturaPlayerAPI {
 
         if (isCustomCreated) {
           const previousVideoDiv = document
-            .querySelector('dds-tabs-extended-media')
+            .querySelector('cds-tabs-extended-media')
             .shadowRoot.querySelector(
-              `.bx--accordion__item--active dds-video-player`
+              `.bx--accordion__item--active cds-video-player`
             ).lastChild;
           previousVideoDiv.parentElement.appendChild(
             document.getElementById(targetId)

@@ -15,7 +15,7 @@
 @use '../../globals/vars' as *;
 
 @mixin universal-banner {
-  :host(#{$dds-prefix}-universal-banner) {
+  :host(#{$c4d-prefix}-universal-banner) {
     @include theme($g100, true);
 
     display: block;
@@ -66,7 +66,7 @@
       padding-inline-end: $spacing-05;
       position: relative;
 
-      ::slotted(#{$dds-prefix}-universal-banner-image) {
+      ::slotted(#{$c4d-prefix}-universal-banner-image) {
         position: absolute;
         width: calc(100% + #{$spacing-05});
         height: 100%;
@@ -183,7 +183,7 @@
       }
     }
 
-    ::slotted(#{$dds-prefix}-button-cta) {
+    ::slotted(#{$c4d-prefix}-button-cta) {
       @include theme($g100, true);
 
       width: 100%;
@@ -195,14 +195,14 @@
       }
     }
 
-    #{$dds-prefix}-link-with-icon {
+    #{$c4d-prefix}-link-with-icon {
       @include breakpoint(md) {
         display: none;
       }
     }
   }
 
-  :host(#{$dds-prefix}-universal-banner-heading) {
+  :host(#{$c4d-prefix}-universal-banner-heading) {
     @include type-style('heading-02', true);
 
     display: block;
@@ -222,14 +222,14 @@
     }
   }
 
-  :host(#{$dds-prefix}-universal-banner-copy) {
+  :host(#{$c4d-prefix}-universal-banner-copy) {
     @include type-style('body-compact-02', true);
 
     display: block;
     color: $text-primary;
   }
 
-  :host(#{$dds-prefix}-universal-banner-image) {
+  :host(#{$c4d-prefix}-universal-banner-image) {
     .#{$prefix}--image__img {
       object-fit: cover;
     }

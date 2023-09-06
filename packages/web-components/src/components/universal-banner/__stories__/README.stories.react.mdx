@@ -1,11 +1,17 @@
-import { Preview, Props, Description, Story } from '@storybook/addon-docs/blocks';
+import {
+  Preview,
+  Props,
+  Description,
+  Story,
+} from '@storybook/addon-docs/blocks';
 import contributing from '../../../../../../docs/contributing-license.md';
 import { PropTypesRef } from '@carbon/ibmdotcom-web-components/es/components-react/universal-banner/universal-banner';
 
 # Universal banner
 
-A Universal banner is the only component allowed to show up above the Masthead, and should be used exclusively for global and critical announcements
- (e.g. THINK global event, COVID 19 messages etc).
+A Universal banner is the only component allowed to show up above the Masthead,
+and should be used exclusively for global and critical announcements (e.g. THINK
+global event, COVID 19 messages etc).
 
 > 💡 Check our
 > [CodeSandbox](https://githubbox.com/carbon-design-system/carbon-for-ibm-dotcom/tree/main/packages/web-components/examples/codesandbox/components-react/universal-banner)
@@ -17,69 +23,99 @@ A Universal banner is the only component allowed to show up above the Masthead, 
 
 Here's a quick example to get you started.
 
-This will render a basic universal banner containing a heading, copy text, and a button CTA at the top of the page, sitting above the masthead.
+This will render a basic universal banner containing a heading, copy text, and a
+button CTA at the top of the page, sitting above the masthead.
 
-The component should be placed before the Dotcom shell, but in case it is placed within, it can move itself to the proper place automatically.
+The component should be placed before the Dotcom shell, but in case it is placed
+within, it can move itself to the proper place automatically.
 
 ### JS
 
 ```javascript
-import DDSUniversalBanner from '@carbon/ibmdotcom-web-components/es/components-react/universal-banner/universal-banner';
-import DDSUniversalBannerHeading from '@carbon/ibmdotcom-web-components/es/components-react/universal-banner/universal-banner-heading';
-import DDSUniversalBannerCopy from '@carbon/ibmdotcom-web-components/es/components-react/universal-banner/universal-banner-copy';
-import DDSUniversalBannerImage from '@carbon/ibmdotcom-web-components/es/components-react/universal-banner/universal-banner-image';
-import DDSButtonCTA from '@carbon/ibmdotcom-web-components/es/components-react/cta/button-cta';
+import C4DUniversalBanner from '@carbon/ibmdotcom-web-components/es/components-react/universal-banner/universal-banner';
+import C4DUniversalBannerHeading from '@carbon/ibmdotcom-web-components/es/components-react/universal-banner/universal-banner-heading';
+import C4DUniversalBannerCopy from '@carbon/ibmdotcom-web-components/es/components-react/universal-banner/universal-banner-copy';
+import C4DUniversalBannerImage from '@carbon/ibmdotcom-web-components/es/components-react/universal-banner/universal-banner-image';
+import C4DButtonCTA from '@carbon/ibmdotcom-web-components/es/components-react/cta/button-cta';
 
 function App() {
   return (
-    <DDSUniversalBanner>
-      <DDSUniversalBannerHeading slot="heading">Hybrid cloud and AI for smarter business</DDSUniversalBannerHeading>
-      <DDSUniversalBannerCopy slot="copy">Las Vegas, June 15-18, 2025</DDSUniversalBannerCopy>
-      <DDSButtonCTA slot="cta" cta-type="local" kind="tertiary" href="https://www.example.com">
+    <C4DUniversalBanner>
+      <C4DUniversalBannerHeading slot="heading">
+        Hybrid cloud and AI for smarter business
+      </C4DUniversalBannerHeading>
+      <C4DUniversalBannerCopy slot="copy">
+        Las Vegas, June 15-18, 2025
+      </C4DUniversalBannerCopy>
+      <C4DButtonCTA
+        slot="cta"
+        cta-type="local"
+        kind="tertiary"
+        href="https://www.example.com">
         Register for Think. Free
-      </DDSButtonCTA>
-    </DDSUniversalBanner>
+      </C4DButtonCTA>
+    </C4DUniversalBanner>
   );
 }
 ```
 
 ## Example - With image
+
 This example renders the banner with the aforementioned elements and an image.
 
-Add the `image-width` attribute into the universal banner and set it to either `4-col` or `8-col`.
-Note that if an image is added without the attribute being manually added, it will default to `4-col`.
+Add the `image-width` attribute into the universal banner and set it to either
+`4-col` or `8-col`. Note that if an image is added without the attribute being
+manually added, it will default to `4-col`.
 
-It is important to create an image asset that best fits the component to ensure a proper aspect ratio.
+It is important to create an image asset that best fits the component to ensure
+a proper aspect ratio.
 
 ```javascript
 function App() {
   return (
-    <DDSUniversalBanner image-width='4-col'>
-      <DDSUniversalBannerImage slot="image" default-src={'https://fpoimg.com/672x336?text=2:1&bg_color=ee5396&text_color=161616'}></DDSUniversalBannerImage>
-      <DDSUniversalBannerHeading slot="heading">Hybrid cloud and AI for smarter business</DDSUniversalBannerHeading>
-      <DDSUniversalBannerCopy slot="copy">Las Vegas, June 15-18, 2025</DDSUniversalBannerCopy>
-      <DDSButtonCTA slot="cta" cta-type="local" kind="tertiary" href="https://www.example.com">
+    <C4DUniversalBanner image-width="4-col">
+      <C4DUniversalBannerImage
+        slot="image"
+        default-src={
+          'https://fpoimg.com/672x336?text=2:1&bg_color=ee5396&text_color=161616'
+        }></C4DUniversalBannerImage>
+      <C4DUniversalBannerHeading slot="heading">
+        Hybrid cloud and AI for smarter business
+      </C4DUniversalBannerHeading>
+      <C4DUniversalBannerCopy slot="copy">
+        Las Vegas, June 15-18, 2025
+      </C4DUniversalBannerCopy>
+      <C4DButtonCTA
+        slot="cta"
+        cta-type="local"
+        kind="tertiary"
+        href="https://www.example.com">
         Register for Think. Free
-      </DDSButtonCTA>
-    </DDSUniversalBanner>
+      </C4DButtonCTA>
+    </C4DUniversalBanner>
   );
 }
 ```
 
-In case you'd like to change images depending on the breakpoint, you can use the `DDSImageItem` component as such:
+In case you'd like to change images depending on the breakpoint, you can use the
+`C4DImageItem` component as such:
 
 ```javascript
-import DDSImageItem from '@carbon/ibmdotcom-web-components/es/components-react/image/image-item';
+import C4DImageItem from '@carbon/ibmdotcom-web-components/es/components-react/image/image-item';
 
-
-	<DDSUniversalBannerImage slot="image" default-src="https://fpoimg.com/672x336?text=2:1&bg_color=ee5396&text_color=161616">
-		<DDSImageItem media="(min-width:672px)" srcset="https://fpoimg.com/672x336?text=2:1&bg_color=ee5396&text_color=161616">
-		</DDSImageItem>
-		<DDSImageItem media="(min-width:400px)" srcset="https://fpoimg.com/672x336?text=2:1&bg_color=ee5396&text_color=161616">
-		</DDSImageItem>
-		<DDSImageItem media="(min-width:320px)" srcset="https://fpoimg.com/672x336?text=2:1&bg_color=ee5396&text_color=161616">
-		</DDSImageItem>
-	</DDSUniversalBannerImage>
+<C4DUniversalBannerImage
+  slot="image"
+  default-src="https://fpoimg.com/672x336?text=2:1&bg_color=ee5396&text_color=161616">
+  <C4DImageItem
+    media="(min-width:672px)"
+    srcset="https://fpoimg.com/672x336?text=2:1&bg_color=ee5396&text_color=161616"></C4DImageItem>
+  <C4DImageItem
+    media="(min-width:400px)"
+    srcset="https://fpoimg.com/672x336?text=2:1&bg_color=ee5396&text_color=161616"></C4DImageItem>
+  <C4DImageItem
+    media="(min-width:320px)"
+    srcset="https://fpoimg.com/672x336?text=2:1&bg_color=ee5396&text_color=161616"></C4DImageItem>
+</C4DUniversalBannerImage>;
 ```
 
 ## Props
@@ -88,13 +124,15 @@ import DDSImageItem from '@carbon/ibmdotcom-web-components/es/components-react/i
 
 ## Stable selectors
 
-See [our README](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/tree/main/packages/web-components#stable-selectors-for-analytics-and-integratione2e-testing-in-web-components) to see how Web Components selector and `data-autoid` should be used.
+See
+[our README](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/tree/main/packages/web-components#stable-selectors-for-analytics-and-integratione2e-testing-in-web-components)
+to see how Web Components selector and `data-autoid` should be used.
 
-| Web Components selector       | Compatibility selector                           | Description |
-| ----------------------------- | ------------------------------------------------ | ----------- |
-| `<dds-universal-banner>` 			   | `data-autoid="dds--universal-banner"` 		     | Component   |
-| `<dds-universal-banner-heading>` | `data-autoid="dds--universal-banner-heading"` | Component   |
-| `<dds-universal-banner-copy>` 	 | `data-autoid="dds--universal-banner-copy"` 	 | Component   |
-| `<dds-universal-banner-image>` 	 | `data-autoid="dds--universal-banner-image"` 	 | Component   |
+| Web Components selector          | Compatibility selector                        | Description |
+| -------------------------------- | --------------------------------------------- | ----------- |
+| `<cds-universal-banner>`         | `data-autoid="cds--universal-banner"`         | Component   |
+| `<cds-universal-banner-heading>` | `data-autoid="cds--universal-banner-heading"` | Component   |
+| `<cds-universal-banner-copy>`    | `data-autoid="cds--universal-banner-copy"`    | Component   |
+| `<cds-universal-banner-image>`   | `data-autoid="cds--universal-banner-image"`   | Component   |
 
 <Description markdown={contributing} />

@@ -45,7 +45,7 @@ export const base = (args) => {
     </style>
     ${useMock
       ? html`
-          <dds-footer-composite
+          <c4d-footer-composite
             language="${ifDefined(language)}"
             lang-display="${ifDefined(langDisplay)}"
             size="${ifDefined(size)}"
@@ -58,10 +58,10 @@ export const base = (args) => {
             clear-selection-label="${ifDefined(clearSelectionLabel)}"
             selected-language="${ifDefined(selectedLanguage)}"
             ?disable-locale-button="${disableLocaleButton}">
-          </dds-footer-composite>
+          </c4d-footer-composite>
         `
       : html`
-          <dds-footer-container
+          <c4d-footer-container
             language="${ifDefined(language)}"
             lang-display="${ifDefined(langDisplay)}"
             size="${ifDefined(size)}"
@@ -74,7 +74,7 @@ export const base = (args) => {
             clear-selection-label="${ifDefined(clearSelectionLabel)}"
             selected-language="${ifDefined(selectedLanguage)}"
             ?disable-locale-button="${disableLocaleButton}">
-          </dds-footer-container>
+          </c4d-footer-container>
         `}
   `;
 };
@@ -277,7 +277,7 @@ export default {
       }),
     },
     props: (() => {
-      // Lets `<dds-footer-container>` load the footer links
+      // Lets `<c4d-footer-container>` load the footer links
       const useMock =
         inPercy() || new URLSearchParams(window.location.search).has('mock');
       return {

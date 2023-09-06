@@ -13,17 +13,17 @@ import '../tabs-extended-media';
 const template = (props?) => {
   const { children } = props ?? {};
   return html`
-    <dds-tabs-extended-media> ${children} </dds-tabs-extended-media>
+    <c4d-tabs-extended-media> ${children} </c4d-tabs-extended-media>
   `;
 };
 
-describe('dds-tabs-extended-media', function () {
+describe('c4d-tabs-extended-media', function () {
   describe('Misc attributes', function () {
     it('should render with minimum attributes', async function () {
       render(template(), document.body);
       await Promise.resolve();
       expect(
-        document.body.querySelector('dds-tabs-extended-media')
+        document.body.querySelector('c4d-tabs-extended-media')
       ).toMatchSnapshot({ mode: 'shadow' });
     });
 
@@ -37,7 +37,7 @@ describe('dds-tabs-extended-media', function () {
       );
       await Promise.resolve();
       expect(
-        document.body.querySelector('dds-tabs-extended-media')
+        document.body.querySelector('c4d-tabs-extended-media')
       ).toMatchSnapshot({ mode: 'shadow' });
     });
   });

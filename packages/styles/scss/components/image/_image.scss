@@ -17,25 +17,25 @@
 @use '../lightbox-media-viewer/lightbox-media-viewer';
 
 @mixin image {
-  :host(#{$dds-prefix}-card-cta-image),
-  :host(#{$dds-prefix}-image) {
+  :host(#{$c4d-prefix}-card-cta-image),
+  :host(#{$c4d-prefix}-image) {
     position: relative;
     display: block;
   }
 
-  :host(#{$dds-prefix}-card-cta-image::slotted(svg[slot='icon'])),
-  :host(#{$dds-prefix}-image::slotted(svg[slot='icon'])) {
+  :host(#{$c4d-prefix}-card-cta-image::slotted(svg[slot='icon'])),
+  :host(#{$c4d-prefix}-image::slotted(svg[slot='icon'])) {
     position: absolute;
     top: calc(50% - #{$spacing-07});
     right: calc(50% - #{$spacing-07});
   }
 
-  :host(#{$dds-prefix}-image-item) {
+  :host(#{$c4d-prefix}-image-item) {
     display: none;
   }
 
-  :host(#{$dds-prefix}-image)[card-group-item],
-  :host(#{$dds-prefix}-card-cta-image) {
+  :host(#{$c4d-prefix}-image)[card-group-item],
+  :host(#{$c4d-prefix}-card-cta-image) {
     @include ratio-base(4, 3, true);
 
     padding-top: 75%;
@@ -67,7 +67,7 @@
     overflow: hidden;
   }
 
-  :host(#{$dds-prefix}-image)[heading] {
+  :host(#{$c4d-prefix}-image)[heading] {
     display: block;
     margin-top: $spacing-07;
     margin-bottom: $spacing-07;
@@ -148,7 +148,7 @@
     color: $text-helper;
   }
 
-  :host(#{$dds-prefix}-image[lightbox-contrast='dark']) {
+  :host(#{$c4d-prefix}-image[lightbox-contrast='dark']) {
     .#{$prefix}--image-with-caption__zoom-button {
       background-color: rgba($white, 0.85);
 
@@ -172,8 +172,8 @@
     }
   }
 
-  // dds-image-logo style.
-  :host(#{$dds-prefix}-image-logo) {
+  // cds-image-logo style.
+  :host(#{$c4d-prefix}-image-logo) {
     background-color: $layer-02;
     margin: $spacing-05 $spacing-05 $spacing-03 $spacing-05;
     max-width: $spacing-13;

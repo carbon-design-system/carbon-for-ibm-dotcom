@@ -27,7 +27,7 @@ export const Default = (args) => {
   let videoCopy;
 
   if (ctaType === CTA_TYPE.VIDEO) {
-    const button = document.querySelector('dds-button') as any;
+    const button = document.querySelector('c4d-button') as any;
     const duration = button?.videoTitle?.match(/\((.*)\)/)?.pop();
 
     if (!customVideoTitle) {
@@ -40,15 +40,15 @@ export const Default = (args) => {
   }
 
   return html`
-    <dds-video-cta-container>
-      <dds-button
+    <c4d-video-cta-container>
+      <c4d-button
         ?disabled="${disabled}"
         href="${href}"
         download=${download}
         cta-type="${ctaType}">
         ${videoCopy ?? copy}
-      </dds-button>
-    </dds-video-cta-container>
+      </c4d-button>
+    </c4d-video-cta-container>
   `;
 };
 

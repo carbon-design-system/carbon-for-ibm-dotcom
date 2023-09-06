@@ -21,44 +21,44 @@ import { CTA_TYPE } from '../../cta/defs';
 const DefaultTemplate = (props?) => {
   const { children } = props ?? {};
   return html`
-    <dds-content-item-horizontal> ${children} </dds-content-item-horizontal>
+    <c4d-content-item-horizontal> ${children} </c4d-content-item-horizontal>
   `;
 };
 
 const WithMediaTemplate = (props?) => {
   const { children } = props ?? {};
   return html`
-    <dds-content-item-horizontal-media>
+    <c4d-content-item-horizontal-media>
       ${children}
-    </dds-content-item-horizontal-media>
+    </c4d-content-item-horizontal-media>
   `;
 };
 
 const WithFeaturedMediaTemplate = (props?) => {
   const { children } = props ?? {};
   return html`
-    <dds-content-item-horizontal-media-featured>
+    <c4d-content-item-horizontal-media-featured>
       ${children}
-    </dds-content-item-horizontal-media-featured>
+    </c4d-content-item-horizontal-media-featured>
   `;
 };
 
 const WithThumbnailTemplate = (props?) => {
   const { children } = props ?? {};
   return html`
-    <dds-content-item-horizontal thumbnail>
+    <c4d-content-item-horizontal thumbnail>
       ${children}
-    </dds-content-item-horizontal>
+    </c4d-content-item-horizontal>
   `;
 };
 
-describe('dds-content-item-horizontal', function () {
+describe('c4d-content-item-horizontal', function () {
   describe('Misc attributes - Default', function () {
     it('should render with minimum attributes', async function () {
       render(DefaultTemplate(), document.body);
       await Promise.resolve();
       expect(
-        document.body.querySelector('dds-content-item-horizontal')
+        document.body.querySelector('c4d-content-item-horizontal')
       ).toMatchSnapshot({ mode: 'shadow' });
     });
 
@@ -67,34 +67,34 @@ describe('dds-content-item-horizontal', function () {
         DefaultTemplate({
           copy: 'copy-foo',
           children: html`
-            <dds-content-item-horizontal-eyebrow
-              >eyebrow-foo</dds-content-item-horizontal-eyebrow
+            <c4d-content-item-horizontal-eyebrow
+              >eyebrow-foo</c4d-content-item-horizontal-eyebrow
             >
-            <dds-content-item-heading>heading-foo</dds-content-item-heading>
-            <dds-content-item-horizontal-copy
-              >copy-foo</dds-content-item-horizontal-copy
+            <c4d-content-item-heading>heading-foo</c4d-content-item-heading>
+            <c4d-content-item-horizontal-copy
+              >copy-foo</c4d-content-item-horizontal-copy
             >
-            <dds-link-list slot="footer" type="vertical">
-              <dds-link-list-item-cta
+            <c4d-link-list slot="footer" type="vertical">
+              <c4d-link-list-item-cta
                 icon-placement="${ICON_PLACEMENT.RIGHT}"
                 href="https://www.ibm.com"
                 cta-type="${CTA_TYPE.LOCAL}">
                 cta-copy-foo
-              </dds-link-list-item-cta>
-              <dds-link-list-item-cta
+              </c4d-link-list-item-cta>
+              <c4d-link-list-item-cta
                 icon-placement="${ICON_PLACEMENT.RIGHT}"
                 href="https://www.ibm.com"
                 cta-type="${CTA_TYPE.EXTERNAL}">
                 cta-copy-foo
-              </dds-link-list-item-cta>
-            </dds-link-list>
+              </c4d-link-list-item-cta>
+            </c4d-link-list>
           `,
         }),
         document.body
       );
       await Promise.resolve();
       expect(
-        document.body.querySelector('dds-content-item-horizontal')
+        document.body.querySelector('c4d-content-item-horizontal')
       ).toMatchSnapshot({ mode: 'shadow' });
     });
   });
@@ -104,7 +104,7 @@ describe('dds-content-item-horizontal', function () {
       render(WithMediaTemplate(), document.body);
       await Promise.resolve();
       expect(
-        document.body.querySelector('dds-content-item-horizontal-media')
+        document.body.querySelector('c4d-content-item-horizontal-media')
       ).toMatchSnapshot({ mode: 'shadow' });
     });
 
@@ -112,26 +112,26 @@ describe('dds-content-item-horizontal', function () {
       render(
         WithMediaTemplate({
           children: html`
-            <dds-image slot="media" alt="image" default-src=""></dds-image>
-            <dds-content-item-heading>heading-foo</dds-content-item-heading>
-            <dds-content-item-horizontal-media-copy
-              >copy-foo</dds-content-item-horizontal-media-copy
+            <c4d-image slot="media" alt="image" default-src=""></c4d-image>
+            <c4d-content-item-heading>heading-foo</c4d-content-item-heading>
+            <c4d-content-item-horizontal-media-copy
+              >copy-foo</c4d-content-item-horizontal-media-copy
             >
-            <dds-link-list slot="footer" type="vertical">
-              <dds-link-list-item-cta
+            <c4d-link-list slot="footer" type="vertical">
+              <c4d-link-list-item-cta
                 icon-placement="right"
                 href="www.ibm.com"
                 cta-type="local">
                 cta-copy
-              </dds-link-list-item-cta>
-            </dds-link-list>
+              </c4d-link-list-item-cta>
+            </c4d-link-list>
           `,
         }),
         document.body
       );
       await Promise.resolve();
       expect(
-        document.body.querySelector('dds-content-item-horizontal-media')
+        document.body.querySelector('c4d-content-item-horizontal-media')
       ).toMatchSnapshot({ mode: 'shadow' });
     });
   });
@@ -142,7 +142,7 @@ describe('dds-content-item-horizontal', function () {
       await Promise.resolve();
       expect(
         document.body.querySelector(
-          'dds-content-item-horizontal-media-featured'
+          'c4d-content-item-horizontal-media-featured'
         )
       ).toMatchSnapshot({ mode: 'shadow' });
     });
@@ -151,22 +151,22 @@ describe('dds-content-item-horizontal', function () {
       render(
         WithFeaturedMediaTemplate({
           children: html`
-            <dds-content-item-horizontal-eyebrow
-              >eyebrow-foo</dds-content-item-horizontal-eyebrow
+            <c4d-content-item-horizontal-eyebrow
+              >eyebrow-foo</c4d-content-item-horizontal-eyebrow
             >
-            <dds-content-item-heading>heading-foo</dds-content-item-heading>
-            <dds-content-item-horizontal-media-copy
-              >copy-foo</dds-content-item-horizontal-media-copy
+            <c4d-content-item-heading>heading-foo</c4d-content-item-heading>
+            <c4d-content-item-horizontal-media-copy
+              >copy-foo</c4d-content-item-horizontal-media-copy
             >
-            <dds-link-list slot="footer" type="vertical">
-              <dds-link-list-item-cta
+            <c4d-link-list slot="footer" type="vertical">
+              <c4d-link-list-item-cta
                 icon-placement="right"
                 href="www.ibm.com"
                 cta-type="local">
                 cta-copy
-              </dds-link-list-item-cta>
-            </dds-link-list>
-            <dds-image slot="media" alt="image" default-src=""></dds-image>
+              </c4d-link-list-item-cta>
+            </c4d-link-list>
+            <c4d-image slot="media" alt="image" default-src=""></c4d-image>
           `,
         }),
         document.body
@@ -174,7 +174,7 @@ describe('dds-content-item-horizontal', function () {
       await Promise.resolve();
       expect(
         document.body.querySelector(
-          'dds-content-item-horizontal-media-featured'
+          'c4d-content-item-horizontal-media-featured'
         )
       ).toMatchSnapshot({ mode: 'shadow' });
     });
@@ -185,7 +185,7 @@ describe('dds-content-item-horizontal', function () {
       render(WithThumbnailTemplate(), document.body);
       await Promise.resolve();
       expect(
-        document.body.querySelector('dds-content-item-horizontal')
+        document.body.querySelector('c4d-content-item-horizontal')
       ).toMatchSnapshot({ mode: 'shadow' });
     });
 
@@ -193,29 +193,29 @@ describe('dds-content-item-horizontal', function () {
       render(
         WithThumbnailTemplate({
           children: html`
-            <dds-content-item-heading>heading-foo</dds-content-item-heading>
-            <dds-content-item-horizontal-thumbnail-copy
-              >copy-foo</dds-content-item-horizontal-thumbnail-copy
+            <c4d-content-item-heading>heading-foo</c4d-content-item-heading>
+            <c4d-content-item-horizontal-thumbnail-copy
+              >copy-foo</c4d-content-item-horizontal-thumbnail-copy
             >
-            <dds-link-list slot="footer" type="vertical">
-              <dds-link-list-item-cta
+            <c4d-link-list slot="footer" type="vertical">
+              <c4d-link-list-item-cta
                 icon-placement="${ICON_PLACEMENT.RIGHT}"
                 href="www.ibm.com"
                 cta-type="local">
                 cta-copy
-              </dds-link-list-item-cta>
-            </dds-link-list>
-            <dds-image
+              </c4d-link-list-item-cta>
+            </c4d-link-list>
+            <c4d-image
               slot="thumbnail"
               alt="thumbnail-image"
-              default-src=""></dds-image>
+              default-src=""></c4d-image>
           `,
         }),
         document.body
       );
       await Promise.resolve();
       expect(
-        document.body.querySelector('dds-content-item-horizontal')
+        document.body.querySelector('c4d-content-item-horizontal')
       ).toMatchSnapshot({ mode: 'shadow' });
     });
   });

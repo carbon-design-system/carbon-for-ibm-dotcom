@@ -22,16 +22,16 @@ import { carbonElement as customElement } from '../../internal/vendor/@carbon/we
 export { BUTTON_KIND, BUTTON_SIZE };
 
 const { prefix } = settings;
-const { stablePrefix: ddsPrefix } = ddsSettings;
+const { stablePrefix: c4dPrefix } = ddsSettings;
 
 /**
  * Expressive button.
  *
- * @element dds-button-expressive
+ * @element c4d-button-expressive
  * @csspart button The button.
  */
-@customElement(`${ddsPrefix}-button-expressive`)
-class DDSButtonExpressive extends FocusMixin(StableSelectorMixin(LitElement)) {
+@customElement(`${c4dPrefix}-button-expressive`)
+class C4DButtonExpressive extends FocusMixin(StableSelectorMixin(LitElement)) {
   /**
    * `true` if there is an icon.
    */
@@ -238,7 +238,7 @@ class DDSButtonExpressive extends FocusMixin(StableSelectorMixin(LitElement)) {
   }
 
   static get stableSelector() {
-    return `${ddsPrefix}--button-expressive`;
+    return `${c4dPrefix}--button-expressive`;
   }
 
   static shadowRootOptions = {
@@ -249,9 +249,9 @@ class DDSButtonExpressive extends FocusMixin(StableSelectorMixin(LitElement)) {
 }
 
 console.warn(
-  `The dds-button-expressive component has been deprecated in favor of the dds-button component. 
+  `The c4d-button-expressive component has been deprecated in favor of the c4d-button component.
 	See migration guide for more information.`
 );
 
 /* @__GENERATE_REACT_CUSTOM_ELEMENT_TYPE__ */
-export default DDSButtonExpressive;
+export default C4DButtonExpressive;

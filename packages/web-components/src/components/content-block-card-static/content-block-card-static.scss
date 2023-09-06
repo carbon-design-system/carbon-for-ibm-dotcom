@@ -9,7 +9,7 @@
 @use '@carbon/styles/scss/spacing' as *;
 @use '@carbon/ibmdotcom-styles/scss/globals/vars' as *;
 
-:host(#{$dds-prefix}-content-block-card-static) {
+:host(#{$c4d-prefix}-content-block-card-static) {
   display: block;
   margin-bottom: $spacing-10;
 
@@ -21,7 +21,7 @@
     margin-bottom: $spacing-13;
   }
 
-  ::slotted(#{$dds-prefix}-content-block-heading) {
+  ::slotted(#{$c4d-prefix}-content-block-heading) {
     margin-top: $spacing-07;
 
     @include breakpoint(max) {
@@ -29,7 +29,7 @@
     }
   }
 
-  ::slotted(#{$dds-prefix}-content-item) {
+  ::slotted(#{$c4d-prefix}-content-item) {
     margin-top: $spacing-10;
     margin-left: $spacing-05;
     margin-bottom: $spacing-07;

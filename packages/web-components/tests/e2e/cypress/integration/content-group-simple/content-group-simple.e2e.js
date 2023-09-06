@@ -7,11 +7,11 @@
 
 'use strict';
 
-describe('dds-content-group-simple', () => {
-  it('should load the default dds-content-group-simple example', () => {
+describe('cds-content-group-simple', () => {
+  it('should load the default cds-content-group-simple example', () => {
     cy.visit('/content-group-simple');
 
     // Take a snapshot for visual diffing
-    cy.percySnapshot('dds-content-group-simple | default');
+    cy.percySnapshot('cds-content-group-simple | default');
   });
 });

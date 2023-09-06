@@ -17,11 +17,11 @@ const template = (props?) =>
     LogoGrid: { hideBorder: true, ...props },
   });
 
-describe('dds-logo-grid', function () {
-  it('renders dds-logo-grid properly', async function () {
+describe('c4d-logo-grid', function () {
+  it('renders c4d-logo-grid properly', async function () {
     render(template(), document.body);
-    await Promise.resolve(); // Update cycle for `<dds-button-group>`
-    expect(document.body.querySelector('dds-logo-grid')).toMatchSnapshot({
+    await Promise.resolve(); // Update cycle for `<c4d-button-group>`
+    expect(document.body.querySelector('c4d-logo-grid')).toMatchSnapshot({
       mode: 'shadow',
     });
   });

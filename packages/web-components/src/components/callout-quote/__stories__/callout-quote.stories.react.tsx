@@ -12,11 +12,11 @@ import { select } from '@storybook/addon-knobs';
 import ArrowRight20 from '@carbon/icons-react/es/arrow--right/20.js';
 // Below path will be there when an application installs `@carbon/ibmdotcom-web-components` package.
 // In our dev env, we auto-generate the file and re-map below path to to point to the generated file.
-import DDSCalloutQuote from '@carbon/ibmdotcom-web-components/es/components-react/callout-quote/callout-quote';
-import DDSCalloutLinkWithIcon from '@carbon/ibmdotcom-web-components/es/components-react/callout-quote/callout-link-with-icon';
-import DDSQuoteSourceHeading from '@carbon/ibmdotcom-web-components/es/components-react/quote/quote-source-heading';
-import DDSQuoteSourceCopy from '@carbon/ibmdotcom-web-components/es/components-react/quote/quote-source-copy';
-import DDSQuoteSourceBottomCopy from '@carbon/ibmdotcom-web-components/es/components-react/quote/quote-source-bottom-copy';
+import C4DCalloutQuote from '@carbon/ibmdotcom-web-components/es/components-react/callout-quote/callout-quote';
+import C4DCalloutLinkWithIcon from '@carbon/ibmdotcom-web-components/es/components-react/callout-quote/callout-link-with-icon';
+import C4DQuoteSourceHeading from '@carbon/ibmdotcom-web-components/es/components-react/quote/quote-source-heading';
+import C4DQuoteSourceCopy from '@carbon/ibmdotcom-web-components/es/components-react/quote/quote-source-copy';
+import C4DQuoteSourceBottomCopy from '@carbon/ibmdotcom-web-components/es/components-react/quote/quote-source-bottom-copy';
 import textNullable from '../../../../.storybook/knob-text-nullable';
 import { QUOTE_TYPES } from '../../quote/quote';
 import readme from './README.stories.react.mdx';
@@ -26,22 +26,24 @@ const types = {
   [`${QUOTE_TYPES.SINGLE_CURVED}`]: QUOTE_TYPES.SINGLE_CURVED,
   [`${QUOTE_TYPES.DOUBLE_ANGLE}`]: QUOTE_TYPES.DOUBLE_ANGLE,
   [`${QUOTE_TYPES.SINGLE_ANGLE}`]: QUOTE_TYPES.SINGLE_ANGLE,
-  [`${QUOTE_TYPES.LOW_HIGH_REVERSED_DOUBLE_CURVED}`]: QUOTE_TYPES.LOW_HIGH_REVERSED_DOUBLE_CURVED,
+  [`${QUOTE_TYPES.LOW_HIGH_REVERSED_DOUBLE_CURVED}`]:
+    QUOTE_TYPES.LOW_HIGH_REVERSED_DOUBLE_CURVED,
   [`${QUOTE_TYPES.CORNER_BRACKET}`]: QUOTE_TYPES.CORNER_BRACKET,
 };
 
-export const Default = args => {
-  const { copy, quoteMark, sourceHeading, sourceCopy, sourceBottomCopy } = args?.CalloutQuote ?? {};
+export const Default = (args) => {
+  const { copy, quoteMark, sourceHeading, sourceCopy, sourceBottomCopy } =
+    args?.CalloutQuote ?? {};
   return (
-    <DDSCalloutQuote mark-type={quoteMark}>
+    <C4DCalloutQuote mark-type={quoteMark}>
       {copy}
-      <DDSQuoteSourceHeading>{sourceHeading}</DDSQuoteSourceHeading>
-      <DDSQuoteSourceCopy>{sourceCopy}</DDSQuoteSourceCopy>
-      <DDSQuoteSourceBottomCopy>{sourceBottomCopy}</DDSQuoteSourceBottomCopy>
-      <DDSCalloutLinkWithIcon slot="footer" href="https://example.com">
+      <C4DQuoteSourceHeading>{sourceHeading}</C4DQuoteSourceHeading>
+      <C4DQuoteSourceCopy>{sourceCopy}</C4DQuoteSourceCopy>
+      <C4DQuoteSourceBottomCopy>{sourceBottomCopy}</C4DQuoteSourceBottomCopy>
+      <C4DCalloutLinkWithIcon slot="footer" href="https://example.com">
         Link with icon <ArrowRight20 slot="icon"></ArrowRight20>
-      </DDSCalloutLinkWithIcon>
-    </DDSCalloutQuote>
+      </C4DCalloutLinkWithIcon>
+    </C4DCalloutQuote>
   );
 };
 
@@ -49,11 +51,23 @@ Default.story = {
   parameters: {
     knobs: {
       CalloutQuote: () => ({
-        copy: textNullable('Quote (copy):', 'Bringing together the technology and expertise for a new way to create'),
+        copy: textNullable(
+          'Quote (copy):',
+          'Bringing together the technology and expertise for a new way to create'
+        ),
         quoteMark: select('Quote Mark (markType):', types, types.doubleCurved),
-        sourceHeading: textNullable('Source heading (source-heading slot)', 'John Doe'),
-        sourceCopy: textNullable('Source copy (source-copy slot)', 'Senior Vice President'),
-        sourceBottomCopy: textNullable('Source bottom copy (source-bottom-copy slot)', 'IBM Cloud'),
+        sourceHeading: textNullable(
+          'Source heading (source-heading slot)',
+          'John Doe'
+        ),
+        sourceCopy: textNullable(
+          'Source copy (source-copy slot)',
+          'Senior Vice President'
+        ),
+        sourceBottomCopy: textNullable(
+          'Source bottom copy (source-bottom-copy slot)',
+          'IBM Cloud'
+        ),
       }),
     },
     propsSet: {
@@ -73,7 +87,7 @@ Default.story = {
 export default {
   title: 'Components/Callout Quote',
   decorators: [
-    story => (
+    (story) => (
       <div className="cds--grid">
         <div className="cds--row">
           <div className="cds--col-lg-11">{story()}</div>

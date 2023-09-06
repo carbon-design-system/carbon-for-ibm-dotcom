@@ -9,20 +9,20 @@
 
 import React from 'react';
 import { render } from 'react-dom';
-import DDSContentSection from '@carbon/ibmdotcom-web-components/es/components-react/content-section/content-section';
-import DDSContentSectionHeading from '@carbon/ibmdotcom-web-components/es/components-react/content-section/content-section-heading';
-import DDSContentSectionCopy from '@carbon/ibmdotcom-web-components/es/components-react/content-section/content-section-copy';
-import DDSTextCTA from '@carbon/ibmdotcom-web-components/es/components-react/cta/text-cta';
+import C4DContentSection from '@carbon/ibmdotcom-web-components/es/components-react/content-section/content-section';
+import C4DContentSectionHeading from '@carbon/ibmdotcom-web-components/es/components-react/content-section/content-section-heading';
+import C4DContentSectionCopy from '@carbon/ibmdotcom-web-components/es/components-react/content-section/content-section-copy';
+import C4DTextCTA from '@carbon/ibmdotcom-web-components/es/components-react/cta/text-cta';
 import './index.css';
 
 const App = () => (
-  <DDSContentSection>
-    <DDSContentSectionHeading>Heading</DDSContentSectionHeading>
-    <DDSContentSectionCopy>Copy</DDSContentSectionCopy>
-    <DDSTextCTA slot="footer" cta-type="local" href="https://www.example.com">
+  <C4DContentSection>
+    <C4DContentSectionHeading>Heading</C4DContentSectionHeading>
+    <C4DContentSectionCopy>Copy</C4DContentSectionCopy>
+    <C4DTextCTA slot="footer" cta-type="local" href="https://www.example.com">
       Link action
-    </DDSTextCTA>
-  </DDSContentSection>
+    </C4DTextCTA>
+  </C4DContentSection>
 );
 
 render(<App />, document.getElementById('root'));

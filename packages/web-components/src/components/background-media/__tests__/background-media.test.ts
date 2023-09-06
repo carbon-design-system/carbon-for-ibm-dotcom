@@ -13,16 +13,16 @@ import { Default } from '../__stories__/background-media.stories';
 
 const template = (props?) =>
   Default({
-    'dds-background-media': props,
+    'c4d-background-media': props,
   });
 
-describe('dds-background-media', function () {
+describe('c4d-background-media', function () {
   describe('Misc attributes', function () {
     it('should render with minimum attributes', async function () {
       render(template(), document.body);
-      await Promise.resolve(); // Update cycle for `<dds-background-media>`
+      await Promise.resolve(); // Update cycle for `<c4d-background-media>`
       expect(
-        document.body.querySelector('dds-background-media')
+        document.body.querySelector('c4d-background-media')
       ).toMatchSnapshot({ mode: 'shadow' });
     });
 
@@ -36,9 +36,9 @@ describe('dds-background-media', function () {
         }),
         document.body
       );
-      await Promise.resolve(); // Update cycle for `<dds-background-media>`
+      await Promise.resolve(); // Update cycle for `<c4d-background-media>`
       expect(
-        document.body.querySelector('dds-background-media')
+        document.body.querySelector('c4d-background-media')
       ).toMatchSnapshot({ mode: 'shadow' });
     });
   });

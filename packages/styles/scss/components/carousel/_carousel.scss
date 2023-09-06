@@ -16,16 +16,16 @@
 @use '@carbon/ibmdotcom-styles/scss/globals/vars' as *;
 
 @mixin carousel {
-  :host(#{$dds-prefix}-carousel),
+  :host(#{$c4d-prefix}-carousel),
   .#{$prefix}--carousel {
-    --#{$dds-prefix}--carousel--page-size: 1;
+    --#{$c4d-prefix}--carousel--page-size: 1;
 
     @include breakpoint(md) {
-      --#{$dds-prefix}--carousel--page-size: 2;
+      --#{$c4d-prefix}--carousel--page-size: 2;
     }
 
     @include breakpoint(lg) {
-      --#{$dds-prefix}--carousel--page-size: 3;
+      --#{$c4d-prefix}--carousel--page-size: 3;
     }
 
     [role='region'] {
@@ -37,14 +37,14 @@
 
     overflow: hidden;
     width: calc(
-      100% + var(--#{$dds-prefix}--carousel--overflow-hint-size, #{$spacing-05})
+      100% + var(--#{$c4d-prefix}--carousel--overflow-hint-size, #{$spacing-05})
     );
     margin-right: calc(
-      -1 * var(--#{$dds-prefix}--carousel--overflow-hint-size, #{$spacing-05})
+      -1 * var(--#{$c4d-prefix}--carousel--overflow-hint-size, #{$spacing-05})
     );
     padding-left: $spacing-05;
     padding-right: calc(
-      #{$spacing-05} + var(--#{$dds-prefix}--carousel--overflow-hint-size, #{$spacing-05})
+      #{$spacing-05} + var(--#{$c4d-prefix}--carousel--overflow-hint-size, #{$spacing-05})
     );
 
     @include breakpoint(md) {
@@ -55,8 +55,8 @@
       flex: 0 0
         calc(
           (
-              100% - (var(--#{$dds-prefix}--carousel--page-size, 1) - 1) * #{$spacing-05}
-            ) / var(--#{$dds-prefix}--carousel--page-size, 1)
+              100% - (var(--#{$c4d-prefix}--carousel--page-size, 1) - 1) * #{$spacing-05}
+            ) / var(--#{$c4d-prefix}--carousel--page-size, 1)
         );
       height: auto;
       margin-right: $spacing-05;
@@ -68,14 +68,14 @@
       position: relative;
       overflow: hidden;
       margin-right: calc(
-        -1 * (#{$spacing-05} + var(--#{$dds-prefix}--carousel--overflow-hint-size, #{$spacing-05}))
+        -1 * (#{$spacing-05} + var(--#{$c4d-prefix}--carousel--overflow-hint-size, #{$spacing-05}))
       );
     }
 
     .#{$prefix}--carousel__scroll-contents {
       position: relative;
       margin-right: calc(
-        #{$spacing-05} + var(--#{$dds-prefix}--carousel--overflow-hint-size, #{$spacing-05})
+        #{$spacing-05} + var(--#{$c4d-prefix}--carousel--overflow-hint-size, #{$spacing-05})
       );
       display: flex;
       // Achieves `sameHeight` effect for card group.
@@ -111,7 +111,7 @@
     }
   }
 
-  :host(#{$dds-prefix}-carousel[in-modal]) {
+  :host(#{$c4d-prefix}-carousel[in-modal]) {
     padding: 0 0 $spacing-05;
     width: 100%;
     height: 100%;
@@ -131,9 +131,9 @@
 }
 
 @media print {
-  :host(#{$dds-prefix}-carousel),
+  :host(#{$c4d-prefix}-carousel),
   .#{$prefix}--carousel {
-    --#{$dds-prefix}--carousel--page-size: 4;
+    --#{$c4d-prefix}--carousel--page-size: 4;
 
     flex-flow: row wrap;
     margin: 0;

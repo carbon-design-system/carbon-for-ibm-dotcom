@@ -26,7 +26,7 @@
   $icon-size: rem(20px);
   $offset-close-icon: $spacing-07 - list.slash($button-size - $icon-size, 2);
 
-  :host(#{$dds-prefix}-expressive-modal),
+  :host(#{$c4d-prefix}-expressive-modal),
   #{$modal}--expressive {
     color: $text-primary;
 
@@ -48,23 +48,23 @@
     }
   }
 
-  :host(#{$dds-prefix}-expressive-modal-footer) #{$modal}-footer {
+  :host(#{$c4d-prefix}-expressive-modal-footer) #{$modal}-footer {
     justify-content: flex-start;
     height: $spacing-09;
   }
 
-  :host(#{$dds-prefix}-expressive-modal-close-button) {
+  :host(#{$c4d-prefix}-expressive-modal-close-button) {
     #{$modal}-close {
       position: fixed;
     }
   }
 
-  :host(#{$dds-prefix}-expressive-modal-heading),
+  :host(#{$c4d-prefix}-expressive-modal-heading),
   #{$modal}--expressive #{$modal}-content h1 {
     @include type-style('heading-04');
   }
 
-  :host(#{$dds-prefix}-expressive-modal)[expressive-size='full-width'],
+  :host(#{$c4d-prefix}-expressive-modal)[expressive-size='full-width'],
   #{$modal}--expressive--fullwidth {
     @include breakpoint(md) {
       #{$modal}-container {
@@ -76,10 +76,10 @@
     }
   }
 
-  :host(#{$dds-prefix}-expressive-modal[size='full-width'])
-    ::slotted(#{$dds-prefix}-expressive-modal-body),
-  :host(#{$dds-prefix}-expressive-modal[size='full-width'])
-    ::slotted(#{$dds-prefix}-lightbox-media-viewer-body),
+  :host(#{$c4d-prefix}-expressive-modal[size='full-width'])
+    ::slotted(#{$c4d-prefix}-expressive-modal-body),
+  :host(#{$c4d-prefix}-expressive-modal[size='full-width'])
+    ::slotted(#{$c4d-prefix}-lightbox-media-viewer-body),
   #{$modal}--expressive--fullwidth #{$modal}-content {
     padding-right: 0;
     height: auto;
