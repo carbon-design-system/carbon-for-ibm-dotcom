@@ -214,6 +214,7 @@
 
       button.#{$prefix}--header__search--close.#{$prefix}--header__action[part='close-button'] {
         display: inline-flex;
+        min-width: $spacing-09;
       }
 
       button.#{$prefix}--header__search--close.#{$prefix}--header__action.#{$prefix}--header__search--hide {
