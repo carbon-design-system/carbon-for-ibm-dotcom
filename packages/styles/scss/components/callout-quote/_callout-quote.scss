@@ -64,10 +64,7 @@
       outline-color: $focus-inverse;
 
       &:hover {
-        // @carbon/styles has no hover color for $inverse-link.
-        // Solution is to use the same token and add underline
-        color: $link-primary;
-        text-decoration: underline;
+        color: $link-primary-hover;
       }
 
       &:active {
@@ -81,8 +78,7 @@
       color: $link-inverse;
 
       &:hover {
-        // @carbon/styles has no hover color for $inverse-link.
-        // Solution is to use the same token and add underline
+        // @carbon/styles has no hover color for $link-inverse.
         color: $link-inverse;
       }
 

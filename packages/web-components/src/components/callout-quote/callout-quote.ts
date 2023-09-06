@@ -20,7 +20,7 @@ import C4DCalloutLinkWithIcon from './callout-link-with-icon';
 const { prefix, stablePrefix: c4dPrefix } = settings;
 
 /**
- * Callout Qupte.
+ * Callout Quote.
  *
  * @element c4d-callout-quote
  */
