@@ -7,14 +7,14 @@
  * LICENSE file in the root directory of this source tree.
  */
 
-import { classMap } from 'lit-html/directives/class-map.js';
+import { classMap } from 'lit/directives/class-map.js';
 import '../../card/index';
 import '../../card-in-card/index';
 import '../index';
 import '../../cta/video-cta-container';
-import { html } from 'lit-element';
+import { html } from 'lit';
 import { select, number, boolean } from '@storybook/addon-knobs';
-import ifNonNull from '../../../internal/vendor/@carbon/web-components/globals/directives/if-non-null.js';
+import { ifDefined } from 'lit/directives/if-defined.js';
 // eslint-disable-next-line sort-imports
 import imgXlg4x3 from '../../../../../storybook-images/assets/1312/fpo--4x3--1312x984--003.jpg';
 import imgXlg16x9 from '../../../../../storybook-images/assets/1312/fpo--16x9--1312x738--005.jpg';
@@ -35,9 +35,9 @@ const phraseArray = [
 ];
 
 const cardsCol = {
-  '2 cards per row': 'dds-ce-demo-devenv--cards-in-row-2',
-  '3 cards per row (default)': 'dds-ce-demo-devenv--cards-in-row-3',
-  '4 cards per row': 'dds-ce-demo-devenv--cards-in-row-4',
+  '2 cards per row': 'c4d-ce-demo-devenv--cards-in-row-2',
+  '3 cards per row (default)': 'c4d-ce-demo-devenv--cards-in-row-3',
+  '4 cards per row': 'c4d-ce-demo-devenv--cards-in-row-4',
 };
 
 const gridModes = {
@@ -52,23 +52,23 @@ const setGridMode = {
 };
 
 const tagGroupContent = html`
-  <dds-tag-group>
-    <bx-tag type="cool-gray"> Systems w/TPS </bx-tag>
-    <bx-tag type="cool-gray"> Virtual </bx-tag>
-  </dds-tag-group>
+  <c4d-tag-group>
+    <cds-tag type="cool-gray"> Systems w/TPS </cds-tag>
+    <cds-tag type="cool-gray"> Virtual </cds-tag>
+  </c4d-tag-group>
 `;
 
 const textCTAContent = html`
-  <dds-text-cta slot="footer" cta-type="local" href="https://example.com">
+  <c4d-text-cta slot="footer" cta-type="local" href="https://example.com">
     Learn more
-  </dds-text-cta>
+  </c4d-text-cta>
 `;
 
 const imageContent = html`
-  <dds-card-cta-image
+  <c4d-image
     slot="image"
     alt="Image Alt Text"
-    default-src="${imgXlg4x3}"></dds-card-cta-image>
+    default-src="${imgXlg4x3}"></c4d-image>
 `;
 
 const cardsDiffLengthPhrase = (
@@ -80,18 +80,18 @@ const cardsDiffLengthPhrase = (
   addCta
 ) => {
   const defaultCardGroupItem = html`
-    <dds-card-group-item
+    <c4d-card-group-item
       cta-type=${cardType === 'Card static' ? '' : 'local'}
       href=${cardType === 'Card static' ? '' : 'https://example.com'}
       color-scheme=${cardType === 'Card static' || gridMode === 'border'
         ? 'light'
         : null}>
       ${media ? imageContent : ''}
-      <dds-card-eyebrow>Topic</dds-card-eyebrow>
-      <dds-card-heading
+      <c4d-card-eyebrow>Topic</c4d-card-eyebrow>
+      <c4d-card-heading
         >${index < 5
           ? phraseArray[index]
-          : 'Lorem ipsum dolor sit amet'}</dds-card-heading
+          : 'Lorem ipsum dolor sit amet'}</c4d-card-heading
       >
       <p>
         Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean et
@@ -100,20 +100,21 @@ const cardsDiffLengthPhrase = (
       ${tagGroup ? tagGroupContent : ''}
       ${cardType === 'Card static' && addCta
         ? textCTAContent
-        : html` <dds-card-cta-footer slot="footer"></dds-card-cta-footer> `}
-    </dds-card-group-item>
+        : html` <c4d-card-footer slot="footer"></c4d-card-footer> `}
+    </c4d-card-group-item>
   `;
 
   const videoCardGroupItem = html`
-    <dds-card-group-item
+    <c4d-card-group-item
       cta-type="video"
       href="1_9h94wo6b"
       color-scheme=${gridMode === 'border' ? 'light' : null}>
-      <dds-card-eyebrow>Topic</dds-card-eyebrow>
+      <c4d-card-eyebrow>Topic</c4d-card-eyebrow>
+      <c4d-card-heading></c4d-card-heading>
       ${tagGroup ? tagGroupContent : ''}
-      <dds-card-cta-footer cta-type="video" slot="footer" href="1_9h94wo6b">
-      </dds-card-cta-footer>
-    </dds-card-group-item>
+      <c4d-card-footer cta-type="video" slot="footer" href="1_9h94wo6b">
+      </c4d-card-footer>
+    </c4d-card-group-item>
   `;
 
   count = count > 3 ? 0 : count + 1;
@@ -128,17 +129,17 @@ const longHeadingCardGroupItem = (
   addCta
 ) => {
   return html`
-    <dds-card-group-item
+    <c4d-card-group-item
       cta-type=${cardType === 'Card static' ? '' : 'local'}
       href=${cardType === 'Card static' ? '' : 'https://example.com'}
       color-scheme=${cardType === 'Card static' || gridMode === 'border'
         ? 'light'
         : null}>
       ${media ? imageContent : ''}
-      <dds-card-eyebrow>Topic</dds-card-eyebrow>
-      <dds-card-heading
+      <c4d-card-eyebrow>Topic</c4d-card-eyebrow>
+      <c4d-card-heading
         >Nunc convallis lobortis Nunc convallis lobortis Nunc convallis
-        lobortis</dds-card-heading
+        lobortis</c4d-card-heading
       >
       <p>
         Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean et
@@ -148,17 +149,17 @@ const longHeadingCardGroupItem = (
       ${tagGroup ? tagGroupContent : ''}
       ${cardType === 'Card static' && addCta
         ? textCTAContent
-        : html` <dds-card-cta-footer slot="footer"></dds-card-cta-footer> `}
-    </dds-card-group-item>
+        : html` <c4d-card-footer slot="footer"></c4d-card-footer> `}
+    </c4d-card-group-item>
   `;
 };
 
 const pictogramCard = (gridMode) => html`
-  <dds-card-group-item
+  <c4d-card-group-item
     href="https://example.com"
     pictogram-placement="top"
     color-scheme=${gridMode === 'border' ? 'light' : null}>
-    <dds-card-heading>Aerospace and defence</dds-card-heading>
+    <c4d-card-heading>Aerospace and defence</c4d-card-heading>
     <p>
       Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut
       aliquip ex ea commodo consequat. Ut enim ad minim veniam, quis nostrud
@@ -169,13 +170,13 @@ const pictogramCard = (gridMode) => html`
       focusable="false"
       preserveAspectRatio="xMidYMid meet"
       xmlns="http://www.w3.org/2000/svg"
-      data-autoid="dds--card__pictogram"
+      data-autoid="c4d--card__pictogram"
       aria-label="Pictogram description"
       width="48"
       height="48"
       viewBox="0 0 32 32"
       role="img"
-      class="bx--card__pictogram">
+      class="cds--card__pictogram">
       <path
         id="desktop_1_"
         d="M23,29.36H9v-0.72h6.64v-4.28H3c-1.301,0-2.36-1.059-2.36-2.36V5c0-1.301,1.059-2.36,2.36-2.36h26
@@ -183,68 +184,65 @@ const pictogramCard = (gridMode) => html`
   0.904,0.736,1.64,1.64,1.64h26c0.904,0,1.64-0.735,1.64-1.64v-2.64H1.36z M1.36,
   18.64h29.28V5c0-0.904-0.735-1.64-1.64-1.64H3C2.096,3.36,1.36,4.096,1.36,5V18.64z" />
     </svg>
-  </dds-card-group-item>
+  </c4d-card-group-item>
 `;
 
 const cardLink = html`
-  <dds-card-group-card-link-item
+  <c4d-card-group-card-link-item
     cta-type="local"
     href="https://example.com"
     pattern-background>
-    <dds-card-link-heading>IBM Developer</dds-card-link-heading>
+    <c4d-card-link-heading>IBM Developer</c4d-card-link-heading>
     <p>Learn, code and connect with your community</p>
-    <dds-card-cta-footer slot="footer"> </dds-card-cta-footer>
-  </dds-card-group-card-link-item>
+    <c4d-card-footer slot="footer"> </c4d-card-footer>
+  </c4d-card-group-card-link-item>
 `;
 
-const emptyCard = html` <dds-card-group-item empty></dds-card-group-item> `;
+const emptyCard = html` <c4d-card-group-item empty></c4d-card-group-item> `;
 
 const cardInCardItems = (i, tagGroup, media, gridMode) => {
   if (media) {
     return i % 2 === 0
       ? html`
-          <dds-card-group-item
+          <c4d-card-group-item
             cta-type="local"
             href="https://example.com"
             color-scheme=${gridMode === 'border' ? 'light' : null}>
             ${imageContent}
-            <dds-card-eyebrow>Label</dds-card-eyebrow>
-            <dds-card-heading
+            <c4d-card-eyebrow>Label</c4d-card-eyebrow>
+            <c4d-card-heading
               >The United Nations Environment Program works with IBM to reduce
-              marine litter</dds-card-heading
+              marine litter</c4d-card-heading
             >
             ${tagGroup ? tagGroupContent : ''}
-            <dds-card-cta-footer slot="footer"> </dds-card-cta-footer>
-          </dds-card-group-item>
+            <c4d-card-footer slot="footer"> </c4d-card-footer>
+          </c4d-card-group-item>
         `
       : html`
-          <dds-card-group-item
+          <c4d-card-group-item
             cta-type="video"
             href="1_9h94wo6b"
             color-scheme=${gridMode === 'border' ? 'light' : null}>
-            <dds-card-eyebrow>Topic</dds-card-eyebrow>
+            <c4d-card-eyebrow>Topic</c4d-card-eyebrow>
             ${tagGroup ? tagGroupContent : ''}
-            <dds-card-cta-footer
-              cta-type="video"
-              slot="footer"
-              href="1_9h94wo6b">
-            </dds-card-cta-footer>
-          </dds-card-group-item>
+            <c4d-card-footer cta-type="video" slot="footer" href="1_9h94wo6b">
+            </c4d-card-footer>
+          </c4d-card-group-item>
         `;
   }
   return html`
-    <dds-card-group-item
+    <c4d-card-group-item
       cta-type="local"
       href="https://example.com"
       color-scheme=${gridMode === 'border' ? 'light' : null}>
-      <dds-card-eyebrow>Label</dds-card-eyebrow>
-      <dds-card-heading
+      <c4d-card-eyebrow>Label</c4d-card-eyebrow>
+      <c4d-card-heading
         >The United Nations Environment Program works with IBM to reduce marine
-        litter</dds-card-heading
+        litter</c4d-card-heading
       >
       ${tagGroup ? tagGroupContent : ''}
-      <dds-card-cta-footer slot="footer"> </dds-card-cta-footer>
-    </dds-card-group-item>
+      <c4d-card-footer slot="footer"> </c4d-card-footer>
+    </c4d-card-group-item>
   `;
 };
 
@@ -283,14 +281,14 @@ export const Default = (args) => {
     if (cta) {
       allCards.push(
         html`
-          <dds-card-group-item
+          <c4d-card-group-item
             cta-type="local"
             href="https://example.com"
             color-scheme="inverse">
-            <dds-card-heading>Top level card link</dds-card-heading>
-            <dds-card-cta-footer slot="footer" color-scheme="inverse">
-            </dds-card-cta-footer>
-          </dds-card-group-item>
+            <c4d-card-heading>Top level card link</c4d-card-heading>
+            <c4d-card-footer slot="footer" color-scheme="inverse">
+            </c4d-card-footer>
+          </c4d-card-group-item>
         `
       );
     }
@@ -314,14 +312,14 @@ export const Default = (args) => {
     if (cta) {
       allCards.push(
         html`
-          <dds-card-group-item
+          <c4d-card-group-item
             cta-type="local"
             href="https://example.com"
             color-scheme="inverse">
-            <dds-card-heading>Top level card link</dds-card-heading>
-            <dds-card-cta-footer slot="footer" color-scheme="inverse">
-            </dds-card-cta-footer>
-          </dds-card-group-item>
+            <c4d-card-heading>Top level card link</c4d-card-heading>
+            <c4d-card-footer slot="footer" color-scheme="inverse">
+            </c4d-card-footer>
+          </c4d-card-group-item>
         `
       );
     }
@@ -336,13 +334,13 @@ export const Default = (args) => {
   const colCount = cardsPerRow[cardsPerRow.length - 1];
 
   return html`
-    <dds-card-group
+    <c4d-card-group
       cards-per-row="${colCount}"
       class="${classes}"
       grid-mode=${setGridMode[cardType] || gridMode}
       ?pictograms=${cardType === 'Card - pictogram'}>
       ${allCards}
-    </dds-card-group>
+    </c4d-card-group>
   `;
 };
 
@@ -353,33 +351,33 @@ export const withCardInCard = (args) => {
     allCards.push(cardInCardItems(i, tagGroup, media, gridMode));
   }
   return html`
-    <dds-video-cta-container>
-      <dds-card-in-card
+    <c4d-video-cta-container>
+      <c4d-card-in-card
         href="https://example.com"
         cta-type="local"
-        grid-mode="${ifNonNull(gridMode)}">
-        <dds-card-in-card-image
+        grid-mode="${ifDefined(gridMode)}">
+        <c4d-card-in-card-image
           slot="image"
           alt="Image alt text"
           default-src="${imgSm4x3}">
-          <dds-image-item media="(min-width: 1312px)" srcset="${imgXlg16x9}">
-          </dds-image-item>
-          <dds-image-item media="(min-width: 672px)" srcset="${imgMd16x9}">
-          </dds-image-item>
-          <dds-image-item media="(min-width: 320px)" srcset="${imgSm4x3}">
-          </dds-image-item>
-        </dds-card-in-card-image>
-        <dds-card-eyebrow>Label</dds-card-eyebrow>
-        <dds-card-heading
+          <c4d-image-item media="(min-width: 1312px)" srcset="${imgXlg16x9}">
+          </c4d-image-item>
+          <c4d-image-item media="(min-width: 672px)" srcset="${imgMd16x9}">
+          </c4d-image-item>
+          <c4d-image-item media="(min-width: 320px)" srcset="${imgSm4x3}">
+          </c4d-image-item>
+        </c4d-card-in-card-image>
+        <c4d-card-eyebrow>Label</c4d-card-eyebrow>
+        <c4d-card-heading
           >Standard Bank Group prepares to embrace Africa’s AI
-          opportunity</dds-card-heading
+          opportunity</c4d-card-heading
         >
-        <dds-card-cta-footer></dds-card-cta-footer>
-      </dds-card-in-card>
-      <dds-card-group grid-mode="${ifNonNull(gridMode)}">
+        <c4d-card-footer></c4d-card-footer>
+      </c4d-card-in-card>
+      <c4d-card-group grid-mode="${ifDefined(gridMode)}">
         ${allCards}
-      </dds-card-group>
-    </dds-video-cta-container>
+      </c4d-card-group>
+    </c4d-video-cta-container>
   `;
 };
 
@@ -444,10 +442,10 @@ export default {
       <style>
         ${styles}
       </style>
-      <div class="bx--grid">
-        <div class="bx--row">
-          <div class="bx--col-lg-12 bx--no-gutter">
-            <dds-video-cta-container> ${story()} </dds-video-cta-container>
+      <div class="cds--grid">
+        <div class="cds--row">
+          <div class="cds--col-lg-12 cds--no-gutter">
+            <c4d-video-cta-container> ${story()} </c4d-video-cta-container>
           </div>
         </div>
       </div>
@@ -506,7 +504,7 @@ export default {
           tagGroup: false,
           addCta: false,
           cards: 5,
-          cardsPerRow: 'dds-ce-demo-devenv--cards-in-row-3',
+          cardsPerRow: 'c4d-ce-demo-devenv--cards-in-row-3',
           gridMode: 'collapsed',
           offset: 0,
           cta: false,

@@ -5,14 +5,17 @@
 // LICENSE file in the root directory of this source tree.
 //
 
-@import '@carbon/ibmdotcom-styles/scss/components/card-section-images/card-section-images';
-@import '@carbon/ibmdotcom-styles/scss/components/layout/layout';
+@use '@carbon/styles/scss/config' as *;
+@use '@carbon/styles/scss/spacing' as *;
+@use '@carbon/ibmdotcom-styles/scss/components/card-section-images';
+@use '@carbon/ibmdotcom-styles/scss/components/layout';
+@use '@carbon/ibmdotcom-styles/scss/globals/vars' as *;
 
-:host(#{$dds-prefix}-card-section-images) {
+:host(#{$c4d-prefix}-card-section-images) {
   display: block;
 
-  padding-top: 3rem;
-  padding-bottom: 10rem;
+  padding-top: $spacing-09;
+  padding-bottom: $spacing-13;
 
   .#{$prefix}--content-section__children {
     padding-left: 0;

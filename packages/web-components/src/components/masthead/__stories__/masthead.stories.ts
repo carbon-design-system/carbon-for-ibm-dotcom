@@ -7,22 +7,22 @@
  * LICENSE file in the root directory of this source tree.
  */
 
-import { html } from 'lit-element';
+import { html } from 'lit';
 import { select } from '@storybook/addon-knobs';
 import on from 'carbon-components/es/globals/js/misc/on.js';
-import ifNonNull from '../../../internal/vendor/@carbon/web-components/globals/directives/if-non-null.js';
 import inPercy from '@percy-io/in-percy';
 import textNullable from '../../../../.storybook/knob-text-nullable';
-import DDSLeftNav from '../left-nav';
+import c4dLeftNav from '../left-nav';
 import '../masthead-container';
 import styles from './masthead.stories.scss';
+import { ifDefined } from 'lit/directives/if-defined.js';
 import { mastheadLinks as links, mastheadL1Data, logoData } from './links';
 import { UNAUTHENTICATED_STATUS } from '../../../internal/vendor/@carbon/ibmdotcom-services-store/types/profileAPI';
 import {
   authenticatedProfileItems,
   unauthenticatedProfileItems,
 } from './profile-items';
-import { DDS_CUSTOM_PROFILE_LOGIN } from '../../../globals/internal/feature-flags';
+import { C4D_CUSTOM_PROFILE_LOGIN } from '../../../globals/internal/feature-flags';
 import readme from './README.stories.mdx';
 
 const userStatuses = {
@@ -92,26 +92,26 @@ export const Default = (args) => {
     </style>
     ${useMock
       ? html`
-          <dds-masthead-composite
-            selected-menu-item="${ifNonNull(selectedMenuItem)}"
-            user-status="${ifNonNull(userStatus)}"
-            searchPlaceholder="${ifNonNull(searchPlaceholder)}"
-            .authenticatedProfileItems="${ifNonNull(authenticatedProfileItems)}"
+          <c4d-masthead-composite
+            selected-menu-item="${ifDefined(selectedMenuItem)}"
+            user-status="${ifDefined(userStatus)}"
+            searchPlaceholder="${ifDefined(searchPlaceholder)}"
+            .authenticatedProfileItems="${ifDefined(authenticatedProfileItems)}"
             has-profile="${hasProfile}"
             has-search="${hasSearch}"
-            .unauthenticatedProfileItems="${ifNonNull(
+            .unauthenticatedProfileItems="${ifDefined(
               unauthenticatedProfileItems
             )}"
-            custom-profile-login="${customProfileLogin}"></dds-masthead-composite>
+            custom-profile-login="${customProfileLogin}"></c4d-masthead-composite>
         `
       : html`
-          <dds-masthead-container
-            selected-menu-item="${ifNonNull(selectedMenuItem)}"
-            user-status="${ifNonNull(userStatus)}"
-            searchPlaceholder="${ifNonNull(searchPlaceholder)}"
+          <c4d-masthead-container
+            selected-menu-item="${ifDefined(selectedMenuItem)}"
+            user-status="${ifDefined(userStatus)}"
+            searchPlaceholder="${ifDefined(searchPlaceholder)}"
             has-profile="${hasProfile}"
             has-search="${hasSearch}"
-            custom-profile-login="${customProfileLogin}"></dds-masthead-container>
+            custom-profile-login="${customProfileLogin}"></c4d-masthead-container>
         `}
   `;
 };
@@ -120,13 +120,13 @@ export const WithCustomTypeahead = (args) => {
   const { useMock } = args?.Other ?? {};
 
   document.documentElement.addEventListener(
-    'dds-search-with-typeahead-input',
+    'c4d-search-with-typeahead-input',
     async (e) => {
       const results = await customTypeaheadApiFunction(
         (e as CustomEvent).detail.value
       );
       document.dispatchEvent(
-        new CustomEvent('dds-custom-typeahead-api-results', { detail: results })
+        new CustomEvent('c4d-custom-typeahead-api-results', { detail: results })
       );
     }
   );
@@ -137,12 +137,12 @@ export const WithCustomTypeahead = (args) => {
     </style>
     ${useMock
       ? html`
-          <dds-masthead-composite
-            ?custom-typeahead-api=${true}></dds-masthead-composite>
+          <c4d-masthead-composite
+            ?custom-typeahead-api=${true}></c4d-masthead-composite>
         `
       : html`
-          <dds-masthead-container
-            ?custom-typeahead-api=${true}></dds-masthead-container>
+          <c4d-masthead-container
+            ?custom-typeahead-api=${true}></c4d-masthead-container>
         `}
   `;
 };
@@ -176,18 +176,18 @@ export const searchOpenOnload = (args) => {
     </style>
     ${useMock
       ? html`
-          <dds-masthead-composite
+          <c4d-masthead-composite
             activate-search="true"
-            searchPlaceholder="${ifNonNull(
+            searchPlaceholder="${ifDefined(
               searchPlaceholder
-            )}"></dds-masthead-composite>
+            )}"></c4d-masthead-composite>
         `
       : html`
-          <dds-masthead-container
+          <c4d-masthead-container
             activate-search="true"
-            searchPlaceholder="${ifNonNull(
+            searchPlaceholder="${ifDefined(
               searchPlaceholder
-            )}"></dds-masthead-container>
+            )}"></c4d-masthead-container>
         `}
   `;
 };
@@ -215,14 +215,14 @@ export const withPlatform = (args) => {
     </style>
     ${useMock
       ? html`
-          <dds-masthead-composite
-            platform="${ifNonNull(platform)}"
-            .platformUrl="${ifNonNull(platformUrl)}"></dds-masthead-composite>
+          <c4d-masthead-composite
+            platform="${ifDefined(platform)}"
+            .platformUrl="${ifDefined(platformUrl)}"></c4d-masthead-composite>
         `
       : html`
-          <dds-masthead-container
-            platform="${ifNonNull(platform)}"
-            .platformUrl="${ifNonNull(platformUrl)}"></dds-masthead-container>
+          <c4d-masthead-container
+            platform="${ifDefined(platform)}"
+            .platformUrl="${ifDefined(platformUrl)}"></c4d-masthead-container>
         `}
   `;
 };
@@ -263,18 +263,18 @@ export const withL1 = (args) => {
     </style>
     ${useMock
       ? html`
-          <dds-masthead-composite
+          <c4d-masthead-composite
             .l1Data="${mastheadL1Data}"
-            selected-menu-item="${ifNonNull(
+            selected-menu-item="${ifDefined(
               selectedMenuItem
-            )}"></dds-masthead-composite>
+            )}"></c4d-masthead-composite>
         `
       : html`
-          <dds-masthead-container
+          <c4d-masthead-container
             .l1Data="${mastheadL1Data}"
-            selected-menu-item="${ifNonNull(
+            selected-menu-item="${ifDefined(
               selectedMenuItem
-            )}"></dds-masthead-container>
+            )}"></c4d-masthead-container>
         `}
   `;
 };
@@ -313,16 +313,16 @@ export const withAlternateLogoAndTooltip = (args) => {
     </style>
     ${useMock
       ? html`
-          <dds-masthead-composite
+          <c4d-masthead-composite
             .logoData="${mastheadLogo === 'alternateWithTooltip'
               ? logoData
-              : null}"></dds-masthead-composite>
+              : null}"></c4d-masthead-composite>
         `
       : html`
-          <dds-masthead-container
+          <c4d-masthead-container
             .logoData="${mastheadLogo === 'alternateWithTooltip'
               ? logoData
-              : null}"></dds-masthead-container>
+              : null}"></c4d-masthead-container>
         `}
   `;
 };
@@ -366,12 +366,12 @@ export const WithScopedSearch = ({ parameters }) => {
     </style>
     ${useMock
       ? html`
-          <dds-masthead-composite
-            .scopeParameters=${scopeParameters}></dds-masthead-composite>
+          <c4d-masthead-composite
+            .scopeParameters=${scopeParameters}></c4d-masthead-composite>
         `
       : html`
-          <dds-masthead-container
-            .scopeParameters=${scopeParameters}></dds-masthead-container>
+          <c4d-masthead-container
+            .scopeParameters=${scopeParameters}></c4d-masthead-container>
         `}
   `;
 };
@@ -402,9 +402,9 @@ export default {
     (story) => {
       if (!(window as any)._hPageShow) {
         (window as any)._hPageShow = on(window, 'pageshow', () => {
-          const leftNav = document.querySelector('dds-left-nav');
+          const leftNav = document.querySelector('c4d-left-nav');
           if (leftNav) {
-            (leftNav as DDSLeftNav).expanded = false;
+            (leftNav as c4dLeftNav).expanded = false;
           }
         });
       }
@@ -440,7 +440,7 @@ export default {
           userStatuses.unauthenticated
         ),
         customProfileLogin:
-          DDS_CUSTOM_PROFILE_LOGIN &&
+          C4D_CUSTOM_PROFILE_LOGIN &&
           textNullable(
             'custom profile login url (customProfileLogin)',
             'https://www.example.com/'
@@ -448,7 +448,7 @@ export default {
       }),
     },
     props: (() => {
-      // Lets `<dds-masthead-container>` load the nav links
+      // Lets `<c4d-masthead-container>` load the nav links
       const useMock =
         inPercy() || new URLSearchParams(window.location.search).has('mock');
       return {

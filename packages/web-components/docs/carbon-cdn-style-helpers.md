@@ -16,11 +16,11 @@
 
 ## Overview
 
-In order to minimize the necessity of using front-end bundlers with the Carbon 
+In order to minimize the necessity of using front-end bundlers with the Carbon
 for IBM.com Web Components CDN artifacts, page level styles artifacts are also
 available to use.
 
-If your application is not already compiling its own version of the below 
+If your application is not already compiling its own version of the below
 artifacts, these can be included as part of your project.
 
 > NOTE: The latest/next tags are moving versions. While beneficial to
@@ -46,7 +46,7 @@ the page. Note, this will import `IBM Plex Sans`, `IBM Plex Serif`, and `IBM Ple
 
 ### Alternative: individual Plex family loading
 
-Plex fonts are also available as CSS artifacts, where the Plex font families can be loaded in individually. 
+Plex fonts are also available as CSS artifacts, where the Plex font families can be loaded in individually.
 
 Available CSS files:
 
@@ -263,7 +263,7 @@ The following includes Carbon grid and all corresponding grid classes.
 
 ## Carbon theme zoning classes
 
-The following includes classes for creating Carbon theme zones (white, g10, g90, 
+The following includes classes for creating Carbon theme zones (white, g10, g90,
 g100). Note that these classes take advantage of using CSS Custom Properties enabled
 in Carbon.
 
@@ -282,10 +282,10 @@ in Carbon.
 
 | Theme  | Class name              |
 | ------ | ----------------------- |
-| white  | `.dds-theme-zone-white` |
-| g10    | `.dds-theme-zone-g10`   |
-| g90    | `.dds-theme-zone-g90`   |
-| g100   | `.dds-theme-zone-g100`  |
+| white  | `.cds-theme-zone-white` |
+| g10    | `.cds-theme-zone-g10`   |
+| g90    | `.cds-theme-zone-g90`   |
+| g100   | `.cds-theme-zone-g100`  |
 
 ### Example usage
 
@@ -298,36 +298,36 @@ in Carbon.
   ...
 </head>
 <body>
-<dds-dotcom-shell-container>
+<cds-dotcom-shell-container>
 <main>
-    <dds-leadspace size="medium" class="dds-theme-zone-g90">
-      <dds-leadspace-heading>LeadSpace title</dds-leadspace-heading>
+    <cds-leadspace size="medium" class="cds-theme-zone-g90">
+      <cds-leadspace-heading>LeadSpace title</cds-leadspace-heading>
       LeadSpace copy
-      <dds-button-group slot="action">
-        <dds-button-group-item href="www.example.com">
+      <cds-button-group slot="action">
+        <cds-button-group-item href="www.example.com">
           Button 1
-          <svg 
-            focusable="false" 
-            preserveAspectRatio="xMidYMid meet" 
-            xmlns="http://www.w3.org/2000/svg" 
-            fill="currentColor" 
-            aria-hidden="true" 
-            width="20" 
-            height="20" 
-            viewBox="0 0 20 20" 
+          <svg
+            focusable="false"
+            preserveAspectRatio="xMidYMid meet"
+            xmlns="http://www.w3.org/2000/svg"
+            fill="currentColor"
+            aria-hidden="true"
+            width="20"
+            height="20"
+            viewBox="0 0 20 20"
             slot="icon"
           >
             <path d="M11.8 2.8L10.8 3.8 16.2 9.3 1 9.3 1 10.7 16.2 10.7 10.8 16.2 11.8 17.2 19 10z"></path>
           </svg>
-        </dds-button-group-item>
-      </dds-button-group>
-      <dds-leadspace-image slot="image" class="bx--image" alt="alt text" default-src="https://picsum.photos/id/1076/1056/480">
-        <dds-image-item media="(min-width: 672px)" srcset="https://picsum.photos/id/1076/672/400"></dds-image-item>
-        <dds-image-item media="(min-width: 0)" srcset="https://picsum.photos/id/1076/320/370"></dds-image-item>
-      </dds-leadspace-image>
-    </dds-leadspace>  
+        </cds-button-group-item>
+      </cds-button-group>
+      <cds-leadspace-image slot="image" class="bx--image" alt="alt text" default-src="https://picsum.photos/id/1076/1056/480">
+        <cds-image-item media="(min-width: 672px)" srcset="https://picsum.photos/id/1076/672/400"></cds-image-item>
+        <cds-image-item media="(min-width: 0)" srcset="https://picsum.photos/id/1076/320/370"></cds-image-item>
+      </cds-leadspace-image>
+    </cds-leadspace>
 </main>
-</dds-dotcom-shell-container>
+</cds-dotcom-shell-container>
 </body>
 </html>
 ```

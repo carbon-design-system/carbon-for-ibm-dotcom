@@ -7,25 +7,24 @@
  * LICENSE file in the root directory of this source tree.
  */
 
-import { html, property } from 'lit-element';
-import settings from 'carbon-components/es/globals/js/settings.js';
+import { html } from 'lit';
+import { property } from 'lit/decorators.js';
 import ArrowRight20 from '../../internal/vendor/@carbon/web-components/icons/arrow--right/20.js';
-import BXLink from '../../internal/vendor/@carbon/web-components/components/link/link.js';
+import CDSLink from '../../internal/vendor/@carbon/web-components/components/link/link.js';
 import Error20 from '../../internal/vendor/@carbon/web-components/icons/error/20.js';
-import ddsSettings from '../../internal/vendor/@carbon/ibmdotcom-utilities/utilities/settings/settings';
+import settings from '../../internal/vendor/@carbon/ibmdotcom-utilities/utilities/settings/settings';
 import styles from './locale-modal.scss';
 import { carbonElement as customElement } from '../../internal/vendor/@carbon/web-components/globals/decorators/carbon-element.js';
 
-const { prefix } = settings;
-const { stablePrefix: ddsPrefix } = ddsSettings;
+const { prefix, stablePrefix: c4dPrefix } = settings;
 
 /**
  * Region item.
  *
- * @element dds-region-item
+ * @element c4d-region-item
  */
-@customElement(`${ddsPrefix}-region-item`)
-class DDSRegionItem extends BXLink {
+@customElement(`${c4dPrefix}-region-item`)
+class C4DRegionItem extends CDSLink {
   /**
    * `true` if this region has no countries.
    */
@@ -93,11 +92,11 @@ class DDSRegionItem extends BXLink {
   updated(changedProperties) {
     if (changedProperties.has('name')) {
       const { name } = this;
-      this.dataset.autoId = `${ddsPrefix}--locale-modal__geo-btn-${name}`;
+      this.dataset.autoId = `${c4dPrefix}--locale-modal__geo-btn-${name}`;
     }
   }
 
   static styles = styles;
 }
 
-export default DDSRegionItem;
+export default C4DRegionItem;

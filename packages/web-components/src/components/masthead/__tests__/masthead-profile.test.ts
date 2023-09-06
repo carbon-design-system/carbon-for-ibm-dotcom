@@ -7,29 +7,29 @@
  * LICENSE file in the root directory of this source tree.
  */
 
-import { html, render } from 'lit-html';
-import ifNonNull from '../../../internal/vendor/@carbon/web-components/globals/directives/if-non-null.js';
+import { html, render } from 'lit/html.js';
+import { ifDefined } from 'lit/directives/if-defined.js';
 import User20 from '../../../internal/vendor/@carbon/web-components/icons/user/20.js';
 import UserOnline20 from '../../../internal/vendor/@carbon/web-components/icons/user--online/20.js';
-import DDSMastheadProfile from '../masthead-profile';
+import C4DMastheadProfile from '../masthead-profile';
 
 const template = (props?) => {
   const { authenticated, expanded, menuLabel } = props ?? {};
   return html`
-    <dds-masthead-profile
+    <c4d-masthead-profile
       ?authenticated="${authenticated}"
       ?expanded="${expanded}"
-      menu-label="${ifNonNull(menuLabel)}"></dds-masthead-profile>
+      menu-label="${ifDefined(menuLabel)}"></c4d-masthead-profile>
   `;
 };
 
-describe('dds-masthead-profile', function () {
+describe('c4d-masthead-profile', function () {
   describe('Misc attributes', function () {
     it('should render with minimum attributes', async function () {
       render(template(), document.body);
       await Promise.resolve();
       expect(
-        document.body.querySelector('dds-masthead-profile')
+        document.body.querySelector('c4d-masthead-profile')
       ).toMatchSnapshot({ mode: 'shadow' });
     });
 
@@ -40,7 +40,7 @@ describe('dds-masthead-profile', function () {
       );
       await Promise.resolve();
       expect(
-        document.body.querySelector('dds-masthead-profile')
+        document.body.querySelector('c4d-masthead-profile')
       ).toMatchSnapshot({ mode: 'shadow' });
     });
   });
@@ -50,10 +50,10 @@ describe('dds-masthead-profile', function () {
       render(html` ${template()}${User20({ id: 'icon-ref' })} `, document.body);
       await Promise.resolve();
       const mastheadProfile = document.body.querySelector(
-        'dds-masthead-profile'
-      ) as DDSMastheadProfile;
+        'c4d-masthead-profile'
+      ) as C4DMastheadProfile;
       const icon = mastheadProfile.shadowRoot!.querySelector(
-        '.bx--header__menu-title svg'
+        '.cds--header__menu-title svg'
       );
       const iconRef = document.getElementById('icon-ref');
       expect(icon!.querySelector('path')!.getAttribute('d')).toBe(
@@ -72,10 +72,10 @@ describe('dds-masthead-profile', function () {
       );
       await Promise.resolve();
       const mastheadProfile = document.body.querySelector(
-        'dds-masthead-profile'
-      ) as DDSMastheadProfile;
+        'c4d-masthead-profile'
+      ) as C4DMastheadProfile;
       const icon = mastheadProfile.shadowRoot!.querySelector(
-        '.bx--header__menu-title svg'
+        '.cds--header__menu-title svg'
       );
       const iconRef = document.getElementById('icon-ref');
       expect(icon!.querySelector('path')!.getAttribute('d')).toBe(
@@ -89,10 +89,10 @@ describe('dds-masthead-profile', function () {
       render(template(), document.body);
       await Promise.resolve();
       const mastheadProfile = document.body.querySelector(
-        'dds-masthead-profile'
-      ) as DDSMastheadProfile;
+        'c4d-masthead-profile'
+      ) as C4DMastheadProfile;
       const trigger = mastheadProfile.shadowRoot!.querySelector(
-        '.bx--header__menu-title'
+        '.cds--header__menu-title'
       ) as HTMLElement;
       trigger.click();
       await Promise.resolve();
@@ -108,10 +108,10 @@ describe('dds-masthead-profile', function () {
       render(template({ expanded: true }), document.body);
       await Promise.resolve();
       const mastheadProfile = document.body.querySelector(
-        'dds-masthead-profile'
-      ) as DDSMastheadProfile;
+        'c4d-masthead-profile'
+      ) as C4DMastheadProfile;
       const trigger = mastheadProfile.shadowRoot!.querySelector(
-        '.bx--header__menu-title'
+        '.cds--header__menu-title'
       ) as HTMLElement;
       spyOn(trigger, 'focus');
       const event = new CustomEvent('keydown', {
@@ -133,10 +133,10 @@ describe('dds-masthead-profile', function () {
       render(template({ expanded: true }), document.body);
       await Promise.resolve();
       const mastheadProfile = document.body.querySelector(
-        'dds-masthead-profile'
-      ) as DDSMastheadProfile;
+        'c4d-masthead-profile'
+      ) as C4DMastheadProfile;
       const trigger = mastheadProfile.shadowRoot!.querySelector(
-        '.bx--header__menu-title'
+        '.cds--header__menu-title'
       ) as HTMLElement;
       spyOn(trigger, 'focus');
       mastheadProfile.dispatchEvent(

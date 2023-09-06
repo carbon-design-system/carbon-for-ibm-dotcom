@@ -2,7 +2,7 @@ name: automerge-dotcom-v2
 on:
   push:
     branches:
-      - 'main'
+      - 'feat/cwc-v2'
 
 concurrency:
   group: automerge-dotcom-v2-${{ github.ref }}

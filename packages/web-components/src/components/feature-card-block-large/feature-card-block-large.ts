@@ -7,26 +7,24 @@
  * LICENSE file in the root directory of this source tree.
  */
 
-import { html } from 'lit-element';
-import settings from 'carbon-components/es/globals/js/settings.js';
-import ddsSettings from '../../internal/vendor/@carbon/ibmdotcom-utilities/utilities/settings/settings';
+import { html } from 'lit';
+import settings from '../../internal/vendor/@carbon/ibmdotcom-utilities/utilities/settings/settings';
 import deprecate from '../../internal/vendor/@carbon/ibmdotcom-utilities/utilities/deprecate/deprecate';
-import DDSFeatureCard from '../feature-card/feature-card';
+import C4DFeatureCard from '../feature-card/feature-card';
 import '../image/image';
 import styles from './feature-card-block-large.scss';
 import StableSelectorMixin from '../../globals/mixins/stable-selector';
 import { carbonElement as customElement } from '../../internal/vendor/@carbon/web-components/globals/decorators/carbon-element';
 
-const { prefix } = settings;
-const { stablePrefix: ddsPrefix } = ddsSettings;
+const { prefix, stablePrefix: c4dPrefix } = settings;
 
 /**
  * Feature Card Block Large.
  *
- * @element dds-feature-card-block-large
+ * @element c4d-feature-card-block-large
  */
-@customElement(`${ddsPrefix}-feature-card-block-large`)
-class DDSFeatureCardBlockLarge extends StableSelectorMixin(DDSFeatureCard) {
+@customElement(`${c4dPrefix}-feature-card-block-large`)
+class C4DFeatureCardBlockLarge extends StableSelectorMixin(C4DFeatureCard) {
   render() {
     return html`
       <div class="${prefix}--feature-card-block-large__container">
@@ -45,14 +43,14 @@ class DDSFeatureCardBlockLarge extends StableSelectorMixin(DDSFeatureCard) {
   }
 
   static get stableSelector() {
-    return `${ddsPrefix}--feature-card-block-large`;
+    return `${c4dPrefix}--feature-card-block-large`;
   }
 
   static styles = styles;
 }
 
 export default deprecate(
-  DDSFeatureCardBlockLarge,
+  C4DFeatureCardBlockLarge,
   `The FeatureCardBlockLarge component has been deprecated in favor of the FeatureCard component. ` +
     `See FeatureCard's size attribute documentation for more information.`
 );

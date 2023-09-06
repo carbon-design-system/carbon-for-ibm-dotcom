@@ -7,7 +7,7 @@
  * LICENSE file in the root directory of this source tree.
  */
 
-import { html } from 'lit-element';
+import { html } from 'lit';
 import { select } from '@storybook/addon-knobs';
 import readme from './README.stories.mdx';
 import '../index';
@@ -27,15 +27,15 @@ const tagTypeOptions = ['Tag Link', 'Carbon tag'];
 export const Default = (args) => {
   const { tagType } = args?.TagGroup ?? {};
   return html`
-    <dds-tag-group>
+    <c4d-tag-group>
       ${tagTitles.map((title) =>
         tagType === tagTypeOptions[0]
           ? html`
-              <dds-tag-link href="https://example.com"> ${title} </dds-tag-link>
+              <c4d-tag-link href="https://example.com"> ${title} </c4d-tag-link>
             `
-          : html` <bx-tag type="green"> ${title} </bx-tag> `
+          : html` <cds-tag type="green"> ${title} </cds-tag> `
       )}
-    </dds-tag-group>
+    </c4d-tag-group>
   `;
 };
 
@@ -43,9 +43,9 @@ export default {
   title: 'Components/Tag group',
   decorators: [
     (story) => html`
-      <div class="bx--grid">
-        <div class="bx--row">
-          <div class="bx--col-sm-16 bx--col-md-6">${story()}</div>
+      <div class="cds--grid">
+        <div class="cds--row">
+          <div class="cds--col-sm-16 cds--col-md-6">${story()}</div>
         </div>
       </div>
     `,

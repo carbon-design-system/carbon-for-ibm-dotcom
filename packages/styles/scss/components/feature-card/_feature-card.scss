@@ -5,23 +5,30 @@
  * LICENSE file in the root directory of this source tree.
  */
 
-@import 'carbon-components/scss/globals/scss/vendor/@carbon/elements/scss/themes/mixins';
-@import '../../globals/vars';
-@import '../../globals/imports';
-@import '../../components/image/image';
-@import '../../components/card/index';
-@import '../../globals/utils/aspect-ratio';
-@import '../../globals/utils/hang';
+@use 'sass:map';
+
+@use '@carbon/styles/scss/breakpoint' as *;
+@use '@carbon/styles/scss/config' as *;
+@use '@carbon/styles/scss/grid' as *;
+@use '@carbon/styles/scss/motion' as *;
+@use '@carbon/styles/scss/spacing' as *;
+@use '@carbon/styles/scss/theme' as *;
+@use '@carbon/styles/scss/themes' as *;
+@use '@carbon/styles/scss/type' as *;
+@use '../../globals/utils/flex-grid' as *;
+@use '../../globals/vars' as *;
+@use '../../components/image';
+@use '../../components/card';
+@use '../../globals/utils/aspect-ratio';
+@use '../../globals/utils/hang' as *;
 
 $fcb-large-custom-bp-copy: 992px;
 $fcb-large-custom-bp-nocopy: 752px;
-$fcb-breakpoint-up--lg: map-get(
-    map-get($carbon--grid-breakpoints, 'lg'),
-    'width'
-  ) - carbon--rem(1px);
+$fcb-breakpoint-up--lg: map.get(map.get($grid-breakpoints, 'lg'), 'width') -
+  rem(1px);
 
 @mixin card {
-  @include carbon--breakpoint-down('md') {
+  @include breakpoint-down(md) {
     position: absolute;
     padding-top: 0;
     top: 0;
@@ -30,14 +37,14 @@ $fcb-breakpoint-up--lg: map-get(
     bottom: 0;
   }
 
-  @include carbon--breakpoint('md') {
+  @include breakpoint(md) {
     flex-direction: row;
   }
 
   .#{$prefix}--card__heading,
-  ::slotted(#{$dds-prefix}-card-heading) {
-    margin-bottom: $layout-03;
-    color: $inverse-01;
+  ::slotted(#{$c4d-prefix}-card-heading) {
+    margin-bottom: $spacing-07;
+    color: $icon-inverse;
   }
 
   &:focus-within {
@@ -53,11 +60,11 @@ $fcb-breakpoint-up--lg: map-get(
       left: 0;
       right: 0;
       bottom: 0;
-      border: 2px solid $focus;
+      border: $spacing-01 solid $focus;
       outline: 1px solid #ffffff;
       outline-offset: -3px;
 
-      @include carbon--breakpoint-down('md') {
+      @include breakpoint-down(md) {
         min-height: 292px;
       }
     }
@@ -66,15 +73,15 @@ $fcb-breakpoint-up--lg: map-get(
 
 @mixin feature-card {
   // all feature cards
-  :host(#{$dds-prefix}-feature-card),
-  :host(#{$dds-prefix}-feature-cta),
+  :host(#{$c4d-prefix}-feature-card),
+  :host(#{$c4d-prefix}-feature-cta),
   .#{$prefix}--feature-card-large,
   .#{$prefix}--feature-card {
     position: relative;
 
     &:hover {
       ::slotted([slot='image']),
-      #{$dds-prefix}-image,
+      #{$c4d-prefix}-image,
       .#{$prefix}--image {
         &::before {
           opacity: 0.08;
@@ -82,21 +89,21 @@ $fcb-breakpoint-up--lg: map-get(
       }
 
       .#{$prefix}--card__wrapper {
-        background-color: $inverse-hover-ui;
+        background-color: $background-inverse-hover;
       }
     }
 
-    @include carbon--breakpoint-down('md') {
-      @include carbon--make-row;
+    @include breakpoint-down(md) {
+      @include make-row;
     }
 
     .#{$prefix}--card__content {
-      transition: background-color $duration--moderate-01
+      transition: background-color $duration-moderate-01
         motion(standard, productive);
     }
 
     ::slotted([slot='image']),
-    #{$dds-prefix}-image,
+    #{$c4d-prefix}-image,
     .#{$prefix}--image {
       width: 100%;
       height: aspect-ratio(2, 1);
@@ -110,24 +117,24 @@ $fcb-breakpoint-up--lg: map-get(
         left: 0;
         opacity: 0;
         z-index: 1;
-        background-color: $inverse-01;
-        transition: opacity $duration--moderate-01 motion(standard, productive);
+        background-color: $icon-inverse;
+        transition: opacity $duration-moderate-01 motion(standard, productive);
       }
     }
   }
 
-  :host(#{$dds-prefix}-feature-card),
-  :host(#{$dds-prefix}-feature-cta) {
-    @include carbon--breakpoint-down('md') {
+  :host(#{$c4d-prefix}-feature-card),
+  :host(#{$c4d-prefix}-feature-cta) {
+    @include breakpoint-down(md) {
       display: flex;
     }
   }
 
   // feature cards that are not size large
   .#{$prefix}--feature-card,
-  :host(#{$dds-prefix}-feature-card:not([size='large'])),
-  :host(#{$dds-prefix}-feature-cta:not([size='large'])) {
-    @include carbon--breakpoint-down('md') {
+  :host(#{$c4d-prefix}-feature-card:not([size='large'])),
+  :host(#{$c4d-prefix}-feature-cta:not([size='large'])) {
+    @include breakpoint-down(md) {
       padding-top: aspect-ratio(1, 1);
 
       .#{$prefix}--card__content {
@@ -141,7 +148,7 @@ $fcb-breakpoint-up--lg: map-get(
         width: 100%;
         padding: carbon--mini-units(2);
         padding-right: 10%;
-        padding-bottom: $layout-03;
+        padding-bottom: $spacing-07;
       }
 
       .#{$prefix}--card__footer {
@@ -166,16 +173,16 @@ $fcb-breakpoint-up--lg: map-get(
     }
 
     .#{$prefix}--card__heading {
-      margin-bottom: $layout-03;
-      color: $inverse-01;
+      margin-bottom: $spacing-07;
+      color: $icon-inverse;
     }
 
     .#{$prefix}--card__wrapper {
-      background-color: $inverse-02;
+      background-color: $background-inverse;
       width: 100%;
       height: aspect-ratio(2, 1);
 
-      @include carbon--breakpoint('md') {
+      @include breakpoint(md) {
         width: 50%;
         height: auto;
       }
@@ -188,16 +195,16 @@ $fcb-breakpoint-up--lg: map-get(
 
     &:hover {
       .#{$prefix}--card__wrapper {
-        background-color: $inverse-hover-ui;
+        background-color: $background-inverse-hover;
       }
     }
 
     // image
 
     ::slotted([slot='image']),
-    #{$dds-prefix}-image,
+    #{$c4d-prefix}-image,
     .#{$prefix}--image {
-      @include carbon--breakpoint('md') {
+      @include breakpoint(md) {
         width: 50%;
         height: 100%;
       }
@@ -207,26 +214,26 @@ $fcb-breakpoint-up--lg: map-get(
 
     .#{$prefix}--feature-card__card .#{$prefix}--card__footer {
       flex-direction: row-reverse;
-      @include carbon--breakpoint-down('md') {
+      @include breakpoint-down(md) {
         flex-direction: row;
       }
 
       svg {
-        fill: $inverse-link;
+        fill: $link-inverse;
 
-        @include carbon--breakpoint('sm') {
-          width: carbon--rem(20px);
-          height: carbon--rem(20px);
+        @include breakpoint(sm) {
+          width: rem(20px);
+          height: rem(20px);
         }
 
-        @include carbon--breakpoint('md') {
-          width: $carbon--spacing-06;
-          height: $carbon--spacing-06;
+        @include breakpoint(md) {
+          width: $spacing-06;
+          height: $spacing-06;
         }
 
-        @include carbon--breakpoint('max') {
-          width: $carbon--spacing-07;
-          height: $carbon--spacing-07;
+        @include breakpoint(max) {
+          width: $spacing-07;
+          height: $spacing-07;
         }
       }
     }
@@ -238,24 +245,24 @@ $fcb-breakpoint-up--lg: map-get(
   }
 
   // feature cards that are size large
-  :host(#{$dds-prefix}-feature-card[size='large']),
-  :host(#{$dds-prefix}-feature-cta[size='large']),
+  :host(#{$c4d-prefix}-feature-card[size='large']),
+  :host(#{$c4d-prefix}-feature-cta[size='large']),
   .#{$prefix}--feature-card-large {
-    margin-bottom: $carbon--layout-03;
-    color: $text-01;
-    background: $ui-background;
+    margin-bottom: $spacing-07;
+    color: $text-primary;
+    background: $background;
     position: relative;
     @include hang;
 
-    @include carbon--breakpoint('md') {
-      margin-bottom: $carbon--layout-05;
+    @include breakpoint(md) {
+      margin-bottom: $spacing-10;
     }
 
-    @include carbon--breakpoint('lg') {
-      margin-bottom: $carbon--layout-06;
+    @include breakpoint(lg) {
+      margin-bottom: $spacing-12;
     }
 
-    @include carbon--breakpoint('xlg') {
+    @include breakpoint(xlg) {
       padding-top: aspect-ratio(2, 1);
     }
 
@@ -268,7 +275,7 @@ $fcb-breakpoint-up--lg: map-get(
         outline-offset: 1px;
       }
 
-      @include carbon--breakpoint('xlg') {
+      @include breakpoint(xlg) {
         position: absolute;
         top: 0;
         left: 0;
@@ -278,10 +285,10 @@ $fcb-breakpoint-up--lg: map-get(
       }
 
       ::slotted([slot='image']),
-      #{$dds-prefix}-image,
+      #{$c4d-prefix}-image,
       &__wrapper,
       .#{$prefix}--image {
-        @include carbon--breakpoint('xlg') {
+        @include breakpoint(xlg) {
           width: 50%;
           height: 100%;
         }
@@ -293,14 +300,14 @@ $fcb-breakpoint-up--lg: map-get(
     }
 
     .#{$prefix}--card__wrapper {
-      background-color: $inverse-02;
+      background-color: $background-inverse;
       min-height: 50%;
       height: auto;
 
       &::before {
         padding-top: 0;
 
-        @include carbon--breakpoint('md') {
+        @include breakpoint(md) {
           padding-top: 50%;
         }
       }
@@ -308,13 +315,13 @@ $fcb-breakpoint-up--lg: map-get(
       .#{$prefix}--card__eyebrow,
       .#{$prefix}--card__heading,
       .#{$prefix}--card__copy,
-      ::slotted(#{$dds-prefix}-card-eyebrow),
-      ::slotted(#{$dds-prefix}-card-heading) {
+      ::slotted(#{$c4d-prefix}-card-eyebrow),
+      ::slotted(#{$c4d-prefix}-card-heading) {
         width: 100%;
-        color: $inverse-01;
-        max-width: carbon--rem(480px);
+        color: $icon-inverse;
+        max-width: rem(480px);
 
-        @include carbon--breakpoint('md') {
+        @include breakpoint(md) {
           width: 90%;
         }
       }
@@ -322,31 +329,31 @@ $fcb-breakpoint-up--lg: map-get(
       .#{$prefix}--card__content {
         padding: $spacing-07 $spacing-05;
 
-        @include carbon--breakpoint('md') {
-          padding: $layout-03;
+        @include breakpoint(md) {
+          padding: $spacing-07;
         }
 
-        @include carbon--breakpoint('max') {
-          padding: $layout-05;
+        @include breakpoint(max) {
+          padding: $spacing-10;
         }
       }
 
       .#{$prefix}--card__eyebrow,
-      ::slotted(#{$dds-prefix}-card-eyebrow) {
+      ::slotted(#{$c4d-prefix}-card-eyebrow) {
         margin: 0 0 $spacing-05 0;
-        color: $inverse-01;
+        color: $icon-inverse;
       }
 
       .#{$prefix}--card__heading,
-      ::slotted(#{$dds-prefix}-card-heading) {
-        color: $inverse-01;
+      ::slotted(#{$c4d-prefix}-card-heading) {
+        color: $icon-inverse;
         margin-bottom: $spacing-07;
-        @include carbon--type-style('expressive-heading-04', true);
+        @include type-style('fluid-heading-04', true);
       }
 
       .#{$prefix}--card__copy {
-        @include carbon--type-style('body-long-02');
-        @include carbon--breakpoint-down('md') {
+        @include type-style('body-02');
+        @include breakpoint-down(md) {
           margin-bottom: $spacing-07;
         }
       }
@@ -355,19 +362,19 @@ $fcb-breakpoint-up--lg: map-get(
     .#{$prefix}--card__footer {
       flex-direction: row;
 
-      @include carbon--breakpoint('xlg') {
+      @include breakpoint(xlg) {
         flex-direction: row-reverse;
       }
     }
 
     // special breakpoint for no copy present
     &.#{$prefix}--feature-card-large_no-copy-text {
-      @include carbon--breakpoint($fcb-large-custom-bp-nocopy) {
+      @include breakpoint($fcb-large-custom-bp-nocopy) {
         padding-top: aspect-ratio(2, 1);
       }
 
       .#{$prefix}--card {
-        @include carbon--breakpoint($fcb-large-custom-bp-nocopy) {
+        @include breakpoint($fcb-large-custom-bp-nocopy) {
           position: absolute;
           top: 0;
           left: 0;
@@ -385,8 +392,8 @@ $fcb-breakpoint-up--lg: map-get(
     }
   }
 
-  :host(#{$dds-prefix}-feature-card-footer)
-    .#{$dds-prefix}-ce--card__footer
+  :host(#{$c4d-prefix}-feature-card-footer)
+    .#{$c4d-prefix}-ce--card__footer
     ::slotted(svg[slot='icon']),
   .#{$prefix}--feature-card-large
     .#{$prefix}--feature-card-large__card.#{$prefix}--tile
@@ -396,27 +403,23 @@ $fcb-breakpoint-up--lg: map-get(
     .#{$prefix}--card__cta:visited {
     margin-top: auto;
     float: none;
-    fill: $inverse-link;
+    fill: $link-inverse;
 
-    @include carbon--breakpoint('sm') {
-      width: carbon--rem(20px);
-      height: carbon--rem(20px);
+    @include breakpoint(sm) {
+      width: rem(20px);
+      height: rem(20px);
     }
 
-    @include carbon--breakpoint('md') {
-      width: $carbon--spacing-06;
-      height: $carbon--spacing-06;
+    @include breakpoint(md) {
+      width: $spacing-06;
+      height: $spacing-06;
     }
 
-    @include carbon--breakpoint('max') {
-      width: $carbon--spacing-07;
-      height: $carbon--spacing-07;
+    @include breakpoint(max) {
+      width: $spacing-07;
+      height: $spacing-07;
     }
 
-    @include carbon--type-style('productive-heading-05');
+    @include type-style('productive-heading-05');
   }
-}
-
-@include exports('feature-card') {
-  @include feature-card;
 }

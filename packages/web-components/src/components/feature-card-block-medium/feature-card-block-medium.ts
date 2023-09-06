@@ -7,25 +7,23 @@
  * LICENSE file in the root directory of this source tree.
  */
 
-import { html } from 'lit-element';
-import settings from 'carbon-components/es/globals/js/settings.js';
-import ddsSettings from '../../internal/vendor/@carbon/ibmdotcom-utilities/utilities/settings/settings';
+import { html } from 'lit';
+import settings from '../../internal/vendor/@carbon/ibmdotcom-utilities/utilities/settings/settings';
 import deprecate from '../../internal/vendor/@carbon/ibmdotcom-utilities/utilities/deprecate/deprecate';
-import DDSFeatureCard from '../feature-card/feature-card';
+import C4DFeatureCard from '../feature-card/feature-card';
 import styles from './feature-card-block-medium.scss';
 import { carbonElement as customElement } from '../../internal/vendor/@carbon/web-components/globals/decorators/carbon-element';
 
-const { prefix } = settings;
-const { stablePrefix: ddsPrefix } = ddsSettings;
+const { prefix, stablePrefix: c4dPrefix } = settings;
 
 /**
  * Feature Card Block Medium
  *
- * @element dds-feature-card-block-medium
+ * @element c4d-feature-card-block-medium
  * @slot block-heading - The block heading content.
  */
-@customElement(`${ddsPrefix}-feature-card-block-medium`)
-class DDSFeatureCardBlockMedium extends DDSFeatureCard {
+@customElement(`${c4dPrefix}-feature-card-block-medium`)
+class C4DFeatureCardBlockMedium extends C4DFeatureCard {
   protected _renderInner() {
     return html` ${this._renderImage()}${super._renderInner()} `;
   }
@@ -42,20 +40,20 @@ class DDSFeatureCardBlockMedium extends DDSFeatureCard {
       <slot name="block-heading"></slot>
       <div
         class="${prefix}--feature-card"
-        data-autoid="${ddsPrefix}--feature-card">
+        data-autoid="${c4dPrefix}--feature-card">
         ${super.render()}
       </div>
     `;
   }
 
   static get stableSelector() {
-    return `${ddsPrefix}--feature-card-block-medium`;
+    return `${c4dPrefix}--feature-card-block-medium`;
   }
 
   static styles = styles;
 }
 export default deprecate(
-  DDSFeatureCardBlockMedium,
+  C4DFeatureCardBlockMedium,
   `The FeatureCardBlockMedium component has been deprecated in favor of the FeatureCard component. ` +
     `See FeatureCard's size attribute documentation for more information.`
 );

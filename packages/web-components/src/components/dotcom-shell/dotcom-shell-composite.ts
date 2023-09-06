@@ -8,8 +8,9 @@
  */
 
 import pickBy from 'lodash-es/pickBy.js';
-import { html, property, LitElement } from 'lit-element';
-import ddsSettings from '../../internal/vendor/@carbon/ibmdotcom-utilities/utilities/settings/settings';
+import { LitElement, html } from 'lit';
+import { property } from 'lit/decorators.js';
+import settings from '../../internal/vendor/@carbon/ibmdotcom-utilities/utilities/settings/settings';
 import { globalInit } from '../../internal/vendor/@carbon/ibmdotcom-services/services/global/global';
 import { LocaleList } from '../../internal/vendor/@carbon/ibmdotcom-services-store/types/localeAPI.d';
 import {
@@ -27,15 +28,15 @@ import './dotcom-shell';
 import styles from './dotcom-shell-composite.scss';
 import { carbonElement as customElement } from '../../internal/vendor/@carbon/web-components/globals/decorators/carbon-element';
 
-const { stablePrefix: ddsPrefix } = ddsSettings;
+const { stablePrefix: c4dPrefix } = settings;
 
 /**
  * Component that rendres dotcom shell from links, etc. data.
  *
- * @element dds-dotcom-shell-composite
+ * @element c4d-dotcom-shell-composite
  */
-@customElement(`${ddsPrefix}-dotcom-shell-composite`)
-class DDSDotcomShellComposite extends LitElement {
+@customElement(`${c4dPrefix}-dotcom-shell-composite`)
+class C4DDotcomShellComposite extends LitElement {
   /**
    * The render target of the footer contents.
    */
@@ -56,7 +57,7 @@ class DDSDotcomShellComposite extends LitElement {
    */
   private _createFooterRenderRoot() {
     const footer = this.ownerDocument!.createElement(
-      `${ddsPrefix}-footer-composite`
+      `${c4dPrefix}-footer-composite`
     );
     this.parentNode?.insertBefore(footer, this.nextSibling);
     return footer;
@@ -67,7 +68,7 @@ class DDSDotcomShellComposite extends LitElement {
    */
   private _createMastheadRenderRoot() {
     const masthead = this.ownerDocument!.createElement(
-      `${ddsPrefix}-masthead-composite`
+      `${c4dPrefix}-masthead-composite`
     );
     this.parentNode?.insertBefore(masthead, this);
     return masthead;
@@ -468,13 +469,15 @@ class DDSDotcomShellComposite extends LitElement {
     super.updated(changedProperties);
 
     // moving universal banner outside of dotcom shell if placed within
-    if (this.querySelector('dds-universal-banner')) {
+    if (this.querySelector(`${c4dPrefix}-universal-banner`)) {
       this.ownerDocument
-        .querySelector('dds-masthead-composite')
-        ?.before(this.querySelector('dds-universal-banner') as HTMLElement);
+        .querySelector(`${c4dPrefix}-masthead-composite`)
+        ?.before(
+          this.querySelector(`${c4dPrefix}-universal-banner`) as HTMLElement
+        );
     }
 
-    if (this.ownerDocument.querySelector('dds-universal-banner')) {
+    if (this.ownerDocument.querySelector(`${c4dPrefix}-universal-banner`)) {
       this.hasBanner = true;
       this._masthead?.setAttribute('with-banner', '');
     }
@@ -482,9 +485,9 @@ class DDSDotcomShellComposite extends LitElement {
 
   render() {
     return html`
-      <dds-dotcom-shell>
+      <c4d-dotcom-shell>
         <slot></slot>
-      </dds-dotcom-shell>
+      </c4d-dotcom-shell>
     `;
   }
 
@@ -492,4 +495,4 @@ class DDSDotcomShellComposite extends LitElement {
 }
 
 /* @__GENERATE_REACT_CUSTOM_ELEMENT_TYPE__ */
-export default DDSDotcomShellComposite;
+export default C4DDotcomShellComposite;

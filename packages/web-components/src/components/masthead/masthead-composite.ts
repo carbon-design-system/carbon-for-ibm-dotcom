@@ -7,15 +7,15 @@
  * LICENSE file in the root directory of this source tree.
  */
 
-import { html, property, LitElement, TemplateResult } from 'lit-element';
-import { nothing, render } from 'lit-html';
+import { html, LitElement, nothing, render, TemplateResult } from 'lit';
+import { property } from 'lit/decorators.js';
+import ArrowRight16 from '../../internal/vendor/@carbon/web-components/icons/arrow--right/16.js';
 import HostListener from '../../internal/vendor/@carbon/web-components/globals/decorators/host-listener.js';
 import HostListenerMixin from '../../internal/vendor/@carbon/web-components/globals/mixins/host-listener.js';
-import ArrowRight16 from '../../internal/vendor/@carbon/web-components/icons/arrow--right/16.js';
-import ifNonNull from '../../internal/vendor/@carbon/web-components/globals/directives/if-non-null.js';
-import { unsafeSVG } from 'lit-html/directives/unsafe-svg.js';
+import { ifDefined } from 'lit/directives/if-defined.js';
+import { unsafeSVG } from 'lit/directives/unsafe-svg.js';
 import root from 'window-or-global';
-import ddsSettings from '../../internal/vendor/@carbon/ibmdotcom-utilities/utilities/settings/settings';
+import settings from '../../internal/vendor/@carbon/ibmdotcom-utilities/utilities/settings/settings';
 import { globalInit } from '../../internal/vendor/@carbon/ibmdotcom-services/services/global/global';
 import MastheadLogoAPI from '../../internal/vendor/@carbon/ibmdotcom-services/services/MastheadLogo/MastheadLogo';
 import {
@@ -28,8 +28,8 @@ import {
 } from '../../internal/vendor/@carbon/ibmdotcom-services-store/types/translateAPI.d';
 import { UNAUTHENTICATED_STATUS } from '../../internal/vendor/@carbon/ibmdotcom-services-store/types/profileAPI';
 import { MEGAMENU_RIGHT_NAVIGATION_STYLE_SCHEME } from './megamenu-right-navigation';
-import { DDS_CUSTOM_PROFILE_LOGIN } from '../../globals/internal/feature-flags';
-import DDSMastheadLogo from './masthead-logo';
+import { C4D_CUSTOM_PROFILE_LOGIN } from '../../globals/internal/feature-flags';
+import C4DMastheadLogo from './masthead-logo';
 import './masthead';
 import './masthead-l1';
 import './masthead-l1-name';
@@ -52,7 +52,7 @@ import '../search-with-typeahead/search-with-typeahead-item';
 import styles from './masthead.scss';
 import { carbonElement as customElement } from '../../internal/vendor/@carbon/web-components/globals/decorators/carbon-element.js';
 
-const { stablePrefix: ddsPrefix } = ddsSettings;
+const { stablePrefix: c4dPrefix } = settings;
 
 /**
  * Rendering target for masthead navigation items.
@@ -72,10 +72,10 @@ export enum NAV_ITEMS_RENDER_TARGET {
 /**
  * Component that renders masthead from links, etc. data.
  *
- * @element dds-masthead-composite
+ * @element c4d-masthead-composite
  */
-@customElement(`${ddsPrefix}-masthead-composite`)
-class DDSMastheadComposite extends HostListenerMixin(LitElement) {
+@customElement(`${c4dPrefix}-masthead-composite`)
+class C4DMastheadComposite extends HostListenerMixin(LitElement) {
   /**
    * Renders L1 menu based on l1Data
    *
@@ -90,23 +90,23 @@ class DDSMastheadComposite extends HostListenerMixin(LitElement) {
     const { url, title } = this.l1Data;
     const isSelected = !this._hasAutoSelectedItems && !selectedMenuItem;
     return html`
-      <dds-masthead-l1 slot="masthead-l1">
+      <c4d-masthead-l1 slot="masthead-l1">
         ${!title
           ? undefined
           : html`
-              <dds-masthead-l1-name
+              <c4d-masthead-l1-name
                 title="${title}"
                 aria-selected="${isSelected}"
-                url="${url}"></dds-masthead-l1-name>
+                url="${url}"></c4d-masthead-l1-name>
             `}
-        <dds-top-nav-l1 selected-menu-item=${selectedMenuItem}
+        <c4d-top-nav-l1 selected-menu-item=${selectedMenuItem}
           >${this._renderNavItems({
             selectedMenuItem,
             target: NAV_ITEMS_RENDER_TARGET.TOP_NAV,
             hasL1: true,
-          })}</dds-top-nav-l1
+          })}</c4d-top-nav-l1
         >
-      </dds-masthead-l1>
+      </c4d-masthead-l1>
     `;
   }
 
@@ -117,19 +117,19 @@ class DDSMastheadComposite extends HostListenerMixin(LitElement) {
   protected _renderLogo() {
     if (!this.logoData) {
       return html`
-        <dds-masthead-logo
-          ?hide-logo="${this.activateSearch}"></dds-masthead-logo>
+        <c4d-masthead-logo
+          ?hide-logo="${this.activateSearch}"></c4d-masthead-logo>
       `;
     }
     const useAlternateLogo = MastheadLogoAPI.setMastheadLogo(this.logoData);
     const { tooltip, svg, href } = this.logoData;
     return html`
-      <dds-masthead-logo
+      <c4d-masthead-logo
         ?hide-logo="${this.activateSearch}"
         ?hasTooltip="${tooltip}"
-        aria-label="${ifNonNull(tooltip)}"
-        href="${href || DDSMastheadLogo.hrefDefault}"
-        >${useAlternateLogo ? unsafeSVG(svg) : nothing}</dds-masthead-logo
+        aria-label="${ifDefined(tooltip)}"
+        href="${href || C4DMastheadLogo.hrefDefault}"
+        >${useAlternateLogo ? unsafeSVG(svg) : nothing}</c4d-masthead-logo
       >
     `;
   }
@@ -170,33 +170,33 @@ class DDSMastheadComposite extends HostListenerMixin(LitElement) {
       this._getHighlightedMenuItems(sections);
     const hasHighlights = highlightedItems.length !== 0;
     return html`
-      <dds-megamenu>
+      <c4d-megamenu>
         ${hasHighlights
           ? html`
-              <dds-megamenu-left-navigation>
+              <c4d-megamenu-left-navigation>
                 ${sections[0]?.heading &&
                 html`
-                  <dds-megamenu-category-group-copy
-                    >${sections[0]?.heading}</dds-megamenu-category-group-copy
+                  <c4d-megamenu-category-group-copy
+                    >${sections[0]?.heading}</c4d-megamenu-category-group-copy
                   >
                 `}
                 ${highlightedItems.map((item, i) => {
-                  const autoid = `${ddsPrefix}--masthead__l0-nav-list${i}`;
+                  const autoid = `${c4dPrefix}--masthead__l0-nav-list${i}`;
                   return html`
-                    <dds-megamenu-category-group
+                    <c4d-megamenu-category-group
                       data-autoid="${autoid}"
                       href="${item.url}"
                       title="${item.title}">
-                      <dds-megamenu-category-group-copy
+                      <c4d-megamenu-category-group-copy
                         >${item.megapanelContent
-                          ?.description}</dds-megamenu-category-group-copy
+                          ?.description}</c4d-megamenu-category-group-copy
                       >
                       ${item.megapanelContent?.quickLinks?.links.map(
                         ({ title, url, highlightedLink }, key) => {
                           return html`
                             ${highlightedLink
                               ? html`
-                                  <dds-megamenu-link-with-icon
+                                  <c4d-megamenu-link-with-icon
                                     data-autoid="${autoid}-item${key}"
                                     href="${url}"
                                     style-scheme="category-sublink"
@@ -204,55 +204,55 @@ class DDSMastheadComposite extends HostListenerMixin(LitElement) {
                                     <span>${title}</span>${ArrowRight16({
                                       slot: 'icon',
                                     })}
-                                  </dds-megamenu-link-with-icon>
+                                  </c4d-megamenu-link-with-icon>
                                 `
                               : html`
-                                  <dds-megamenu-category-link
+                                  <c4d-megamenu-category-link
                                     data-autoid="${autoid}-item${key}"
                                     title="${title}"
                                     href="${url}">
-                                  </dds-megamenu-category-link>
+                                  </c4d-megamenu-category-link>
                                 `}
                           `;
                         }
                       )}
-                    </dds-megamenu-category-group>
+                    </c4d-megamenu-category-group>
                   `;
                 })}
-              </dds-megamenu-left-navigation>
+              </c4d-megamenu-left-navigation>
             `
           : null}
-        <dds-megamenu-right-navigation
+        <c4d-megamenu-right-navigation
           style-scheme="${hasHighlights
             ? MEGAMENU_RIGHT_NAVIGATION_STYLE_SCHEME.LEFT_SECTION
             : MEGAMENU_RIGHT_NAVIGATION_STYLE_SCHEME.REGULAR}"
-          view-all-href="${ifNonNull(viewAllLink?.url)}"
-          view-all-title="${ifNonNull(viewAllLink?.title)}">
+          view-all-href="${ifDefined(viewAllLink?.url)}"
+          view-all-title="${ifDefined(viewAllLink?.title)}">
           ${menu.map((item, j) => {
-            const autoid = `${ddsPrefix}--masthead__l0-nav-list${
+            const autoid = `${c4dPrefix}--masthead__l0-nav-list${
               j + highlightedItems.length
             }`;
             return html`
-              <dds-megamenu-category-group
+              <c4d-megamenu-category-group
                 data-autoid="${autoid}"
                 href="${item.url}"
                 title="${item.title}">
                 ${item.megapanelContent?.quickLinks?.links.map(
                   ({ title, url }, key) => {
                     return html`
-                      <dds-megamenu-category-link
+                      <c4d-megamenu-category-link
                         data-autoid="${autoid}-item${key}"
                         title="${title}"
                         href="${url}">
-                      </dds-megamenu-category-link>
+                      </c4d-megamenu-category-link>
                     `;
                   }
                 )}
-              </dds-megamenu-category-group>
+              </c4d-megamenu-category-group>
             `;
           })}
-        </dds-megamenu-right-navigation>
-      </dds-megamenu>
+        </c4d-megamenu-right-navigation>
+      </c4d-megamenu>
     `;
   }
 
@@ -281,45 +281,45 @@ class DDSMastheadComposite extends HostListenerMixin(LitElement) {
     const items = menuItems.map((elem) => {
       if (elem.menu) {
         return html`
-          <dds-left-nav-menu
+          <c4d-left-nav-menu
             ?last-highlighted=${elem.lastHighlightedItem}
             panel-id=${elem.panelId}
             ?active="${elem.selected}"
             title="${elem.title}"
             data-autoid="${elem.autoid}">
-          </dds-left-nav-menu>
+          </c4d-left-nav-menu>
         `;
       }
 
       return html`
-        <dds-left-nav-menu-item
+        <c4d-left-nav-menu-item
           ?last-highlighted=${elem.lastHighlightedItem}
           ?active="${elem.selected}"
           href="${elem.url}"
           title="${elem.title}"
-          data-autoid="${elem.autoid}"></dds-left-nav-menu-item>
+          data-autoid="${elem.autoid}"></c4d-left-nav-menu-item>
       `;
     });
 
     if (heading) {
       items.unshift(
         html`
-          <dds-left-nav-menu-category-heading
-            >${heading}</dds-left-nav-menu-category-heading
+          <c4d-left-nav-menu-category-heading
+            >${heading}</c4d-left-nav-menu-category-heading
           >
         `
       );
     }
 
     return html`
-      <dds-left-nav-menu-section
+      <c4d-left-nav-menu-section
         section-id="${sectionId}"
-        ?is-submenu=${ifNonNull(isSubmenu)}
-        title=${ifNonNull(sectionTitle)}
-        titleUrl=${ifNonNull(sectionUrl)}
-        ?show-back-button=${ifNonNull(showBackButton)}>
+        ?is-submenu=${ifDefined(isSubmenu)}
+        title=${ifDefined(sectionTitle)}
+        titleUrl=${ifDefined(sectionUrl)}
+        ?show-back-button=${ifDefined(showBackButton)}>
         ${items}
-      </dds-left-nav-menu-section>
+      </c4d-left-nav-menu-section>
     `;
   }
 
@@ -573,7 +573,7 @@ class DDSMastheadComposite extends HostListenerMixin(LitElement) {
     const hasChildLink = this._childLinkChecker();
     const { navLinks, l1Data } = this;
     let menu: MastheadLink[] | undefined = navLinks;
-    const autoid = `${ddsPrefix}--masthead__${l1Data?.menuItems ? 'l1' : 'l0'}`;
+    const autoid = `${c4dPrefix}--masthead__${l1Data?.menuItems ? 'l1' : 'l0'}`;
     if (hasL1) {
       menu = l1Data?.menuItems;
     }
@@ -608,45 +608,45 @@ class DDSMastheadComposite extends HostListenerMixin(LitElement) {
                 .map(
                   ({ title: menuItemTitle, url: menuItemUrl }, j) =>
                     html`
-                      <dds-top-nav-menu-item
+                      <c4d-top-nav-menu-item
                         ?active="${selectedMenuItem
                           ? selected
                           : menuItemUrl === currentUrlPath}"
                         href="${menuItemUrl}"
                         title="${menuItemTitle}"
-                        data-autoid="${autoid}-nav--subnav-col${i}-item${j}"></dds-top-nav-menu-item>
+                        data-autoid="${autoid}-nav--subnav-col${i}-item${j}"></c4d-top-nav-menu-item>
                     `
                 );
             }
             if (sections.length === 0) {
               return html`
-                <dds-top-nav-item
+                <c4d-top-nav-item
                   ?active="${selectedMenuItem
                     ? selected
                     : url === currentUrlPath}"
                   href="${url}"
                   title="${title}"
-                  data-autoid="${autoid}-nav--nav${i}"></dds-top-nav-item>
+                  data-autoid="${autoid}-nav--nav${i}"></c4d-top-nav-item>
               `;
             }
             if (link.hasMegapanel) {
               return html`
-                <dds-megamenu-top-nav-menu
+                <c4d-megamenu-top-nav-menu
                   ?active="${selected}"
                   menu-label="${title}"
                   trigger-content="${title}"
                   data-autoid="${autoid}-nav--nav${i}">
-                </dds-megamenu-top-nav-menu>
+                </c4d-megamenu-top-nav-menu>
               `;
             }
             return html`
-              <dds-top-nav-menu
+              <c4d-top-nav-menu
                 ?active="${selected}"
                 menu-label="${title}"
                 trigger-content="${title}"
                 data-autoid="${autoid}-nav--nav${i}">
                 ${sections}
-              </dds-top-nav-menu>
+              </c4d-top-nav-menu>
             `;
           });
     }
@@ -835,7 +835,7 @@ class DDSMastheadComposite extends HostListenerMixin(LitElement) {
   unauthenticatedProfileItems?: MastheadProfileItem[];
 
   /**
-   * Specify translation endpoint if not using default dds endpoint.
+   * Specify translation endpoint if not using default c4d endpoint.
    */
   @property({ attribute: 'data-endpoint' })
   dataEndpoint?: string;
@@ -888,11 +888,6 @@ class DDSMastheadComposite extends HostListenerMixin(LitElement) {
   @property({ attribute: 'user-status' })
   userStatus = UNAUTHENTICATED_STATUS;
 
-  createRenderRoot() {
-    // We render child elements of `<dds-masthead-container>` by ourselves
-    return this;
-  }
-
   firstUpdated() {
     const { language, dataEndpoint } = this;
     globalInit();
@@ -900,8 +895,11 @@ class DDSMastheadComposite extends HostListenerMixin(LitElement) {
       this._setLanguage?.(language);
     }
     this._loadTranslation?.(language, dataEndpoint).catch(() => {}); // The error is logged in the Redux store
-    this._loadUserStatus?.();
+    if (this.userStatus === UNAUTHENTICATED_STATUS) {
+      this._loadUserStatus?.();
+    }
 
+    // This is a temp fix until we figure out why we can't set styles to the :host(c4d-masthead-container) in stylesheets
     this.style.zIndex = '900';
   }
 
@@ -953,7 +951,7 @@ class DDSMastheadComposite extends HostListenerMixin(LitElement) {
     const authenticated = userStatus !== UNAUTHENTICATED_STATUS;
 
     let profileItems;
-    if (DDS_CUSTOM_PROFILE_LOGIN && customProfileLogin && !authenticated) {
+    if (C4D_CUSTOM_PROFILE_LOGIN && customProfileLogin && !authenticated) {
       profileItems = unauthenticatedProfileItems?.map((item) => {
         if (item?.id === 'signin') {
           return { ...item, url: customProfileLogin };
@@ -979,20 +977,20 @@ class DDSMastheadComposite extends HostListenerMixin(LitElement) {
     }
 
     return html`
-      <dds-left-nav-overlay></dds-left-nav-overlay>
-      <dds-left-nav>
+      <c4d-left-nav-overlay></c4d-left-nav-overlay>
+      <c4d-left-nav>
         ${!platform
           ? undefined
           : html`
-              <dds-left-nav-name href="${ifNonNull(platformAltUrl)}"
-                >${platform}</dds-left-nav-name
+              <c4d-left-nav-name href="${ifDefined(platformAltUrl)}"
+                >${platform}</c4d-left-nav-name
               >
             `}
         ${!l1Data?.title
           ? undefined
           : html`
-              <dds-left-nav-name href="${ifNonNull(l1Data.url)}"
-                >${l1Data.title}</dds-left-nav-name
+              <c4d-left-nav-name href="${ifDefined(l1Data.url)}"
+                >${l1Data.title}</c4d-left-nav-name
               >
             `}
         ${this._renderNavItems({
@@ -1000,87 +998,91 @@ class DDSMastheadComposite extends HostListenerMixin(LitElement) {
           target: NAV_ITEMS_RENDER_TARGET.LEFT_NAV,
           hasL1: !!l1Data,
         })}
-      </dds-left-nav>
-      <dds-masthead aria-label="${ifNonNull(mastheadAssistiveText)}">
-        <dds-skip-to-content
+      </c4d-left-nav>
+      <c4d-masthead aria-label="${ifDefined(mastheadAssistiveText)}">
+        <c4d-skip-to-content
           href="${skipToContentHref}"
-          link-assistive-text="${skipToContentText}"></dds-skip-to-content>
-        <dds-masthead-menu-button
-          button-label-active="${ifNonNull(menuButtonAssistiveTextActive)}"
-          button-label-inactive="${ifNonNull(menuButtonAssistiveTextInactive)}"
+          link-assistive-text="${skipToContentText}"></c4d-skip-to-content>
+        <c4d-masthead-menu-button
+          button-label-active="${ifDefined(menuButtonAssistiveTextActive)}"
+          button-label-inactive="${ifDefined(menuButtonAssistiveTextInactive)}"
           ?hide-menu-button="${activateSearch}">
-        </dds-masthead-menu-button>
+        </c4d-masthead-menu-button>
 
         ${this._renderLogo()}
         ${!platform || l1Data
           ? undefined
           : html`
-              <dds-top-nav-name href="${ifNonNull(platformAltUrl)}"
-                >${platform}</dds-top-nav-name
+              <c4d-top-nav-name href="${ifDefined(platformAltUrl)}"
+                >${platform}</c4d-top-nav-name
               >
             `}
         ${(!l1Data &&
           navLinks &&
           html`
-            <dds-top-nav
+            <c4d-top-nav
               selected-menu-item=${selectedMenuItem}
-              menu-bar-label="${ifNonNull(menuBarAssistiveText)}"
+              menu-bar-label="${ifDefined(menuBarAssistiveText)}"
               ?hideNav="${activateSearch}">
               ${this._renderNavItems({
                 selectedMenuItem,
                 target: NAV_ITEMS_RENDER_TARGET.TOP_NAV,
                 hasL1: false,
               })}
-            </dds-top-nav>
+            </c4d-top-nav>
           `) ||
         undefined}
         ${hasSearch === 'false'
           ? ''
           : html`
-              <dds-search-with-typeahead
+              <c4d-search-with-typeahead
                 ?active="${activateSearch}"
                 input-timeout="${inputTimeout}"
-                language="${ifNonNull(language)}"
+                language="${ifDefined(language)}"
                 ?open="${openSearchDropdown}"
                 ?searchOpenOnload="${activateSearch}"
-                placeholder="${ifNonNull(searchPlaceholder)}"
-                .currentSearchResults="${ifNonNull(currentSearchResults)}"
-                ?custom-typeahead-api="${ifNonNull(customTypeaheadAPI)}"
-                .scopeParameters="${ifNonNull(
+                placeholder="${ifDefined(searchPlaceholder)}"
+                .currentSearchResults="${ifDefined(currentSearchResults)}"
+                ?custom-typeahead-api="${ifDefined(customTypeaheadAPI)}"
+                .scopeParameters="${ifDefined(
                   scopeParameters
-                )}"></dds-search-with-typeahead>
+                )}"></c4d-search-with-typeahead>
             `}
-        <dds-masthead-global-bar ?has-search-active=${activateSearch}>
+        <c4d-masthead-global-bar ?has-search-active=${activateSearch}>
           ${hasProfile === 'false'
             ? ''
             : html`
-                <dds-masthead-profile ?authenticated="${authenticated}">
+                <c4d-masthead-profile ?authenticated="${authenticated}">
                   ${profileItems?.map(
                     ({ title, url }) =>
                       html`
-                        <dds-masthead-profile-item href="${ifNonNull(url)}"
-                          >${title}</dds-masthead-profile-item
+                        <c4d-masthead-profile-item href="${ifDefined(url)}"
+                          >${title}</c4d-masthead-profile-item
                         >
                       `
                   )}
-                </dds-masthead-profile>
+                </c4d-masthead-profile>
               `}
-        </dds-masthead-global-bar>
+        </c4d-masthead-global-bar>
         ${!l1Data ? undefined : this._renderL1({ selectedMenuItem })}
-        <dds-megamenu-overlay></dds-megamenu-overlay>
-      </dds-masthead>
+        <c4d-megamenu-overlay></c4d-megamenu-overlay>
+      </c4d-masthead>
     `;
   }
 
+  static shadowRootOptions = {
+    ...LitElement.shadowRootOptions,
+    delegatesFocus: true,
+  };
   /**
    * The name of the custom event fired when a top nav menu is clicked
    */
   static get eventMegamenuActive() {
-    return `${ddsPrefix}-megamenu-top-nav-menu-toggle`;
+    return `${c4dPrefix}-megamenu-top-nav-menu-toggle`;
   }
 
   static styles = styles; // `styles` here is a `CSSResult` generated by custom WebPack loader
 }
 
 /* @__GENERATE_REACT_CUSTOM_ELEMENT_TYPE__ */
-export default DDSMastheadComposite;
+export default C4DMastheadComposite;

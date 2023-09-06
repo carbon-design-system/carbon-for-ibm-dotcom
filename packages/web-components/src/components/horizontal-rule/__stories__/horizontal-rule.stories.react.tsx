@@ -12,7 +12,7 @@ import React from 'react';
 // Below path will be there when an application installs `@carbon/ibmdotcom-web-components` package.
 // In our dev env, we auto-generate the file and re-map below path to to point to the generated file.
 // @ts-ignore
-import DDSHorizontalRule from '@carbon/ibmdotcom-web-components/es/components-react/horizontal-rule/horizontal-rule';
+import C4DHorizontalRule from '@carbon/ibmdotcom-web-components/es/components-react/horizontal-rule/horizontal-rule';
 import readme from './README.stories.react.mdx';
 
 const types = {
@@ -38,9 +38,15 @@ const weights = {
   thick: 'thick',
 };
 
-export const Default = args => {
+export const Default = (args) => {
   const { type, size, contrast, weight } = args?.HorizontalRule ?? {};
-  return <DDSHorizontalRule type={type} size={size} contrast={contrast} weight={weight}></DDSHorizontalRule>;
+  return (
+    <C4DHorizontalRule
+      type={type}
+      size={size}
+      contrast={contrast}
+      weight={weight}></C4DHorizontalRule>
+  );
 };
 
 Default.story = {
@@ -49,7 +55,11 @@ Default.story = {
       HorizontalRule: () => ({
         type: select('Type (type):', types, types.solid),
         size: select('Size (size):', sizes, sizes.fluid),
-        contrast: select('Contrast (contrast):', contrasts, contrasts['medium-contrast']),
+        contrast: select(
+          'Contrast (contrast):',
+          contrasts,
+          contrasts['medium-contrast']
+        ),
         weight: select('Weight (weight):', weights, weights.thin),
       }),
     },
@@ -69,11 +79,11 @@ Default.story = {
 export default {
   title: 'Components/Horizontal Rule',
   decorators: [
-    story => {
+    (story) => {
       return (
-        <div className="bx--grid bx--grid--condensed">
-          <div className="bx--row">
-            <div className="bx--col-lg-12">
+        <div className="cds-grid cds--grid--condensed">
+          <div className="cds-row">
+            <div className="cds-col-lg-12">
               <h2>Horizontal Rule</h2>
               {story()}
             </div>

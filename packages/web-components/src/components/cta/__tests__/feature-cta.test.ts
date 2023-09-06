@@ -1,14 +1,14 @@
 /**
  * @license
  *
- * Copyright IBM Corp. 2020, 2022
+ * Copyright IBM Corp. 2020, 2023
  *
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
  */
 
-import { html, render } from 'lit-html';
-import { ifDefined } from 'lit-html/directives/if-defined.js';
+import { html, render } from 'lit/html.js';
+import { ifDefined } from 'lit/directives/if-defined.js';
 import { CTA_TYPE } from '../defs';
 import '../feature-cta';
 import '../../card/card-heading';
@@ -25,25 +25,25 @@ const template = (props?) => {
     children,
   } = props ?? {};
   return html`
-    <dds-feature-cta
+    <c4d-feature-cta
       cta-type="${ifDefined(ctaType)}"
       video-duration="${ifDefined(videoDuration)}"
       video-name="${ifDefined(videoName)}"
       video-thumbnail-url="${ifDefined(videoThumbnailUrl)}"
       .formatVideoCaption="${ifDefined(formatVideoCaption)}"
       .formatVideoDuration="${ifDefined(formatVideoDuration)}">
-      <dds-card-heading>${heading}</dds-card-heading>
+      <c4d-card-heading>${heading}</c4d-card-heading>
       ${children}
-    </dds-feature-cta>
+    </c4d-feature-cta>
   `;
 };
 
-describe('dds-feature-cta', function () {
+describe('c4d-feature-cta', function () {
   describe('Misc attributes', function () {
     it('should render with minimum attributes', async function () {
       render(template(), document.body);
       await Promise.resolve();
-      expect(document.body.querySelector('dds-feature-cta')).toMatchSnapshot({
+      expect(document.body.querySelector('c4d-feature-cta')).toMatchSnapshot({
         mode: 'shadow',
       });
     });
@@ -61,7 +61,7 @@ describe('dds-feature-cta', function () {
         document.body
       );
       await Promise.resolve();
-      expect(document.body.querySelector('dds-feature-cta')).toMatchSnapshot({
+      expect(document.body.querySelector('c4d-feature-cta')).toMatchSnapshot({
         mode: 'shadow',
       });
     });
@@ -83,8 +83,8 @@ describe('dds-feature-cta', function () {
       await Promise.resolve(); // Update cycle for rendering upon `slotchange` event
       expect(
         document.body
-          .querySelector('dds-feature-cta')!
-          .querySelector('dds-card-heading')!
+          .querySelector('c4d-feature-cta')!
+          .querySelector('c4d-card-heading')!
           .textContent!.trim()
       ).toBe('video-name-foo');
     });
@@ -95,7 +95,7 @@ describe('dds-feature-cta', function () {
           ctaType: CTA_TYPE.VIDEO,
           videoName: 'video-name-foo',
           children: html`
-            <dds-image slot="image" alt="image-alt-foo"></dds-image>
+            <c4d-image slot="image" alt="image-alt-foo"></c4d-image>
           `,
         }),
         document.body
@@ -105,14 +105,14 @@ describe('dds-feature-cta', function () {
       await Promise.resolve(); // Update cycle for rendering upon `slotchange` event
       expect(
         document.body
-          .querySelector('dds-feature-cta')!
-          .shadowRoot!.querySelector('dds-image[alt="video-name-foo"]')
+          .querySelector('c4d-feature-cta')!
+          .shadowRoot!.querySelector('c4d-image[alt="video-name-foo"]')
           ?.getBoundingClientRect().height
       ).toBe(0);
       expect(
         document.body
-          .querySelector('dds-feature-cta')!
-          .querySelector('dds-image[alt="image-alt-foo"]')
+          .querySelector('c4d-feature-cta')!
+          .querySelector('c4d-image[alt="image-alt-foo"]')
           ?.getBoundingClientRect().height
       ).not.toEqual(0);
     });

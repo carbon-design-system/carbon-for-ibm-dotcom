@@ -7,12 +7,12 @@
  * LICENSE file in the root directory of this source tree.
  */
 
-import { classMap } from 'lit-html/directives/class-map.js';
-import { html } from 'lit-element';
+import { classMap } from 'lit/directives/class-map.js';
+import { html } from 'lit';
 // Below path will be there when an application installs `carbon-web-components` package.
 // In our dev env, we auto-generate the file and re-map below path to to point to the generated file.
 // @ts-ignore
-import ifNonNull from '../../../internal/vendor/@carbon/web-components/globals/directives/if-non-null.js';
+import { ifDefined } from 'lit/directives/if-defined.js';
 import ArrowRight20 from '../../../internal/vendor/@carbon/web-components/icons/arrow--right/20.js';
 import '../../card/index';
 import '../../cta/index';
@@ -39,19 +39,19 @@ const Card = ({
   href = hrefDefault,
   image = undefined,
 } = {}) => html`
-  <dds-card href="${ifNonNull(href)}">
-    <dds-card-heading>${heading}</dds-card-heading>
+  <c4d-card href="${ifDefined(href)}">
+    <c4d-card-heading>${heading}</c4d-card-heading>
     <p>${copy}</p>
     ${image
       ? html`
-          <dds-image
+          <c4d-image
             slot="image"
             alt="example image"
-            default-src="${image}"></dds-image>
+            default-src="${image}"></c4d-image>
         `
       : null}
-    <dds-card-footer> ${ArrowRight20({ slot: 'icon' })} </dds-card-footer>
-  </dds-card>
+    <c4d-card-footer> ${ArrowRight20({ slot: 'icon' })} </c4d-card-footer>
+  </c4d-card>
 `;
 
 const CardWithLongHeading = ({
@@ -60,30 +60,30 @@ const CardWithLongHeading = ({
   href = hrefDefault,
   image = undefined,
 } = {}) => html`
-  <dds-card href="${ifNonNull(href)}">
-    <dds-card-heading>${heading} ${heading}</dds-card-heading>
+  <c4d-card href="${ifDefined(href)}">
+    <c4d-card-heading>${heading} ${heading}</c4d-card-heading>
     <p>${copy}</p>
     ${image
       ? html`
-          <dds-image
+          <c4d-image
             slot="image"
             alt="example image"
-            default-src="${image}"></dds-image>
+            default-src="${image}"></c4d-image>
         `
       : null}
-    <dds-card-footer> ${ArrowRight20({ slot: 'icon' })} </dds-card-footer>
-  </dds-card>
+    <c4d-card-footer> ${ArrowRight20({ slot: 'icon' })} </c4d-card-footer>
+  </c4d-card>
 `;
 
 const CardWithVideo = ({ copy = copyDefault, href = hrefDefault } = {}) => html`
-  <dds-video-cta-container>
-    <dds-card-cta cta-type="video" href="${href}">
+  <c4d-video-cta-container>
+    <c4d-card-cta cta-type="video" href="${href}">
       <p>${copy}</p>
-      <dds-card-cta-footer href="${href}">
+      <c4d-card-cta-footer href="${href}">
         ${ArrowRight20({ slot: 'icon' })}
-      </dds-card-cta-footer>
-    </dds-card-cta>
-  </dds-video-cta-container>
+      </c4d-card-cta-footer>
+    </c4d-card-cta>
+  </c4d-video-cta-container>
 `;
 
 export const Default = (args) => {
@@ -92,14 +92,14 @@ export const Default = (args) => {
     [cardSize]: cardSize,
   });
   return html`
-    <dds-carousel class="${classes}">
-      <span class="bx--visually-hidden" slot="title"
+    <c4d-carousel class="${classes}">
+      <span class="cds--visually-hidden" slot="title"
         >Carousel (Storybook Sample)</span
       >
       ${Card()}${Card({ copy: copyOdd })}${CardWithLongHeading()}${Card({
         copy: copyOdd,
       })}${Card()}
-    </dds-carousel>
+    </c4d-carousel>
   `;
 };
 
@@ -109,7 +109,7 @@ export const CardsWithImages = (args) => {
     [cardSize]: cardSize,
   });
   return html`
-    <dds-carousel class="${classes}">
+    <c4d-carousel class="${classes}">
       ${Card({ image: imgLg2x1 })}${Card({
         copy: copyOdd,
         image: imgLg2x1,
@@ -117,7 +117,7 @@ export const CardsWithImages = (args) => {
         copy: copyOdd,
         image: imgLg2x1,
       })}${Card({ image: imgLg2x1 })}
-    </dds-carousel>
+    </c4d-carousel>
   `;
 };
 
@@ -127,14 +127,14 @@ export const CardsWithVideos = (args) => {
     [cardSize]: cardSize,
   });
   return html`
-    <dds-carousel class="${classes}">
+    <c4d-carousel class="${classes}">
       ${CardWithVideo({ href: '1_9h94wo6b' })}
       ${CardWithVideo({ href: '0_ibuqxqbe' })}
       ${CardWithVideo({ href: '1_9h94wo6b' })}
       ${CardWithVideo({ href: '0_ibuqxqbe' })}
       ${CardWithVideo({ href: '1_9h94wo6b' })}
       ${CardWithVideo({ href: '0_ibuqxqbe' })}
-    </dds-carousel>
+    </c4d-carousel>
   `;
 };
 
@@ -144,11 +144,11 @@ export const CardsWithMedia = (args) => {
     [cardSize]: cardSize,
   });
   return html`
-    <dds-carousel class="${classes}">
+    <c4d-carousel class="${classes}">
       ${Card({ image: imgLg4x3 })} ${CardWithVideo({ href: '0_ibuqxqbe' })}
       ${Card({ image: imgLg4x3 })} ${CardWithVideo({ href: '1_9h94wo6b' })}
       ${Card({ image: imgLg4x3 })} ${CardWithVideo({ href: '0_ibuqxqbe' })}
-    </dds-carousel>
+    </c4d-carousel>
   `;
 };
 
@@ -181,8 +181,8 @@ export default {
         <style>
           ${styles}
         </style>
-        <div class="bx--grid">
-          <div class="bx--row">${story()}</div>
+        <div class="cds--grid">
+          <div class="cds--row">${story()}</div>
         </div>
       `;
     },

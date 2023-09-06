@@ -5,20 +5,19 @@
 // LICENSE file in the root directory of this source tree.
 //
 
-@import 'carbon-components/scss/globals/scss/vars';
-@import '@carbon/ibmdotcom-styles/scss/globals/vars';
-@import '../../globals/scss/box-sizing';
-@import '@carbon/ibmdotcom-styles/scss/internal/content-item/content-item';
+@use '@carbon/styles/scss/spacing' as *;
+@use '@carbon/ibmdotcom-styles/scss/globals/vars' as *;
+@use '@carbon/ibmdotcom-styles/scss/internal/content-item';
 
-:host(#{$dds-prefix}-content-item-copy),
-:host(#{$dds-prefix}-content-item-paragraph) {
+:host(#{$c4d-prefix}-content-item-copy),
+:host(#{$c4d-prefix}-content-item-paragraph) {
   display: block;
 }
 
-:host(#{$dds-prefix}-content-item) ::slotted(#{$dds-prefix}-image),
-:host(#{$dds-prefix}-content-item)
-  ::slotted(#{$dds-prefix}-video-player-container) {
+:host(#{$c4d-prefix}-content-item) ::slotted(#{$c4d-prefix}-image),
+:host(#{$c4d-prefix}-content-item)
+  ::slotted(#{$c4d-prefix}-video-player-container) {
   display: block;
-  margin-top: 1rem;
-  margin-bottom: 2rem;
+  margin-top: $spacing-05;
+  margin-bottom: $spacing-07;
 }

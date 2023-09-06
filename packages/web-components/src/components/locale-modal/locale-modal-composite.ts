@@ -7,10 +7,11 @@
  * LICENSE file in the root directory of this source tree.
  */
 
-import { html, property, LitElement } from 'lit-element';
-import ifNonNull from '../../internal/vendor/@carbon/web-components/globals/directives/if-non-null.js';
+import { LitElement, html } from 'lit';
+import { property } from 'lit/decorators.js';
+import { ifDefined } from 'lit/directives/if-defined.js';
 import LocaleAPI from '@carbon/ibmdotcom-services/es/services/Locale/Locale.js';
-import ddsSettings from '../../internal/vendor/@carbon/ibmdotcom-utilities/utilities/settings/settings';
+import settings from '../../internal/vendor/@carbon/ibmdotcom-utilities/utilities/settings/settings';
 import altlangs from '../../internal/vendor/@carbon/ibmdotcom-utilities/utilities/altlangs/altlangs.js';
 import HybridRenderMixin from '../../globals/mixins/hybrid-render';
 import {
@@ -25,15 +26,15 @@ import './locale-item';
 import styles from './locale-modal-composite.scss';
 import { carbonElement as customElement } from '../../internal/vendor/@carbon/web-components/globals/decorators/carbon-element.js';
 
-const { stablePrefix: ddsPrefix } = ddsSettings;
+const { stablePrefix: c4dPrefix } = settings;
 
 /**
  * Container component for locale modal.
  *
- * @element dds-locale-modal-composite
+ * @element c4d-locale-modal-composite
  */
-@customElement(`${ddsPrefix}-locale-modal-composite`)
-class DDSLocaleModalComposite extends HybridRenderMixin(LitElement) {
+@customElement(`${c4dPrefix}-locale-modal-composite`)
+class C4DLocaleModalComposite extends HybridRenderMixin(LitElement) {
   /**
    * @param countries A country list.
    * @returns Sorted version of the given country list.
@@ -169,41 +170,41 @@ class DDSLocaleModalComposite extends HybridRenderMixin(LitElement) {
     );
 
     return html`
-      <dds-locale-modal
-        close-button-assistive-text="${ifNonNull(modalClose)}"
-        header-title="${ifNonNull(headerTitle)}"
-        lang-display="${ifNonNull(langDisplay)}"
+      <c4d-locale-modal
+        close-button-assistive-text="${ifDefined(modalClose)}"
+        header-title="${ifDefined(headerTitle)}"
+        lang-display="${ifDefined(langDisplay)}"
         ?open="${open}">
-        <dds-regions title="${ifNonNull(headerTitle)}">
+        <c4d-regions title="${ifDefined(headerTitle)}">
           ${regionList?.map(({ countryList, name }) => {
             return html`
-              <dds-region-item
+              <c4d-region-item
                 ?invalid="${countryList.length === 0 ||
                 massagedCountryList?.find(({ region }) => region === name) ===
                   undefined}"
-                name="${name}"></dds-region-item>
+                name="${name}"></c4d-region-item>
             `;
           })}
-        </dds-regions>
-        <dds-locale-search
-          close-button-assistive-text="${ifNonNull(searchClearText)}"
-          label-text="${ifNonNull(searchLabel)}"
-          placeholder="${ifNonNull(searchPlaceholder)}"
-          availability-label-text="${ifNonNull(availabilityText)}"
-          unavailability-label-text="${ifNonNull(unavailabilityText)}">
+        </c4d-regions>
+        <c4d-locale-search
+          close-button-assistive-text="${ifDefined(searchClearText)}"
+          label-text="${ifDefined(searchLabel)}"
+          placeholder="${ifDefined(searchPlaceholder)}"
+          availability-label-text="${ifDefined(availabilityText)}"
+          unavailability-label-text="${ifDefined(unavailabilityText)}">
           ${massagedCountryList?.map(
             ({ country, href, language, locale, region }) => html`
-              <dds-locale-item
+              <c4d-locale-item
                 country="${country}"
                 href="${href}"
                 language="${language}"
                 locale="${locale}"
                 region="${region}">
-              </dds-locale-item>
+              </c4d-locale-item>
             `
           )}
-        </dds-locale-search>
-      </dds-locale-modal>
+        </c4d-locale-search>
+      </c4d-locale-modal>
     `;
   }
 
@@ -215,4 +216,4 @@ class DDSLocaleModalComposite extends HybridRenderMixin(LitElement) {
 }
 
 /* @__GENERATE_REACT_CUSTOM_ELEMENT_TYPE__ */
-export default DDSLocaleModalComposite;
+export default C4DLocaleModalComposite;

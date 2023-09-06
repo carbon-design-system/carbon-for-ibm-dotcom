@@ -1,13 +1,13 @@
 /**
  * @license
  *
- * Copyright IBM Corp. 2020, 2022
+ * Copyright IBM Corp. 2020, 2023
  *
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
  */
-import { html } from 'lit-element';
-import settings from 'carbon-components/es/globals/js/settings.js';
+import { html } from 'lit';
+import settings from '../../internal/vendor/@carbon/ibmdotcom-utilities/utilities/settings/settings';
 import { Constructor } from '../../globals/defs';
 
 const { prefix } = settings;
@@ -15,9 +15,9 @@ const { prefix } = settings;
 /**
  * Callout.
  *
- * @mixin dds-callout
+ * @mixin c4d-callout
  */
-const DDSCalloutMixin = <T extends Constructor<HTMLElement>>(base: T) => {
+const C4DCalloutMixin = <T extends Constructor<HTMLElement>>(base: T) => {
   return class extends base {
     render() {
       return html`
@@ -35,4 +35,4 @@ const DDSCalloutMixin = <T extends Constructor<HTMLElement>>(base: T) => {
   };
 };
 
-export default DDSCalloutMixin;
+export default C4DCalloutMixin;

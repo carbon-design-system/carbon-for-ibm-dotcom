@@ -8,4 +8,4 @@
 /// @deprecated Remap import to "@carbon/ibmdotcom-styles/scss/components/content-item-horizontal/content-item-horizontal"
 
 @warn 'Deprecated scss import for `content-item-horizontal`, remap to `@carbon/ibmdotcom-styles/scss/components/content-item-horizontal/content-item-horizontal`';
-@import '../../../components/content-item-horizontal/content-item-horizontal';
+@use '../../../components/content-item-horizontal';

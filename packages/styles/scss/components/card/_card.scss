@@ -1,0 +1,804 @@
+/**
+ * Copyright IBM Corp. 2016, 2023
+ *
+ * This source code is licensed under the Apache-2.0 license found in the
+ * LICENSE file in the root directory of this source tree.
+ */
+
+@use '@carbon/styles/scss/breakpoint' as *;
+@use '@carbon/styles/scss/colors' as *;
+@use '@carbon/styles/scss/config' as *;
+@use '@carbon/styles/scss/motion' as *;
+@use '@carbon/styles/scss/spacing' as *;
+@use '@carbon/styles/scss/type' as *;
+@use '@carbon/styles/scss/components/tag/index' as *;
+@use '@carbon/styles/scss/components/tile/index' as *;
+@use '@carbon/styles/scss/theme' as *;
+@use '../../globals/vars' as *;
+@use '../../globals/utils/content-width' as *;
+@use '../../globals/utils/ratio-base' as *;
+@use '../lightbox-media-viewer/lightbox-media-viewer';
+
+@mixin card {
+  .#{$prefix}--card,
+  :host(#{$c4d-prefix}-card),
+  :host(#{$c4d-prefix}-link-list-item-card),
+  :host(#{$c4d-prefix}-card-group-item),
+  :host(#{$c4d-prefix}-card-group-item) .#{$prefix}--card,
+  :host(#{$c4d-prefix}-card-cta),
+  :host(#{$c4d-prefix}-link-list-item-card-cta),
+  :host(#{$c4d-prefix}-card-in-card),
+  :host(#{$c4d-prefix}-content-group-cards-item),
+  :host(#{$c4d-prefix}-content-group-cards-item) .#{$prefix}--card {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    height: 100%;
+    background-color: $layer-01;
+    text-decoration: none;
+    padding: 0;
+    transition: $duration-moderate-01 motion(standard, productive);
+
+    &:hover {
+      background-color: $background-hover;
+      text-decoration: none;
+
+      .#{$prefix}--card__wrapper {
+        background-color: $background-hover;
+      }
+
+      &.#{$prefix}--card__CTA--disabled.#{$prefix}--tile--clickable {
+        background-color: $layer-01;
+
+        > * {
+          background-color: $layer-01;
+        }
+      }
+
+      ::slotted(#{$c4d-prefix}-image),
+      ::slotted(#{$c4d-prefix}-card-cta-image),
+      .#{$prefix}--card__img,
+      .#{$prefix}--card__image_img,
+      .#{$prefix}--image,
+      .#{$prefix}--card__video-thumbnail {
+        &::before {
+          opacity: 0.08;
+          z-index: 1;
+        }
+      }
+
+      .#{$prefix}--card__video-thumbnail {
+        svg {
+          circle {
+            opacity: 0.9;
+            fill: $gray-100;
+          }
+
+          path {
+            fill: $icon-on-color;
+          }
+        }
+      }
+    }
+
+    &:focus-within {
+      outline: $spacing-01 solid $focus;
+      outline-offset: -#{$spacing-01};
+      position: relative;
+      z-index: 2;
+
+      ::slotted(#{$c4d-prefix}-image),
+      ::slotted(#{$c4d-prefix}-card-cta-image),
+      .#{$prefix}--card__img,
+      .#{$prefix}--image {
+        z-index: -1;
+      }
+    }
+
+    &:focus,
+    &:visited,
+    &:active {
+      position: relative;
+      z-index: 2;
+      text-decoration: none;
+
+      ::slotted(#{$c4d-prefix}-image),
+      .#{$prefix}--image {
+        z-index: -1;
+      }
+    }
+
+    ::slotted(#{$c4d-prefix}-image),
+    ::slotted(#{$c4d-prefix}-card-cta-image),
+    .#{$prefix}--card__img,
+    .#{$prefix}--card__image_img,
+    .#{$prefix}--image,
+    .#{$prefix}--card__video-thumbnail {
+      position: relative;
+
+      &::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        right: 0;
+        bottom: 0;
+        left: 0;
+        background-color: $border-inverse;
+        opacity: 0;
+        transition: $duration-moderate-01 motion(standard, productive);
+      }
+    }
+
+    .#{$prefix}--card__video-thumbnail {
+      svg {
+        circle,
+        path {
+          transition: $duration-moderate-01 motion(standard, productive);
+        }
+      }
+    }
+
+    .#{$prefix}--card.#{$prefix}--tile {
+      padding: 0;
+      transition: $duration-moderate-01 motion(standard, productive);
+    }
+
+    .#{$prefix}--card__wrapper {
+      display: flex;
+      flex: 1;
+      min-height: carbon--mini-units(20);
+      justify-content: space-between;
+      transition: $duration-moderate-01 motion(standard, productive);
+
+      @include ratio-base(2, 1, false);
+    }
+
+    .#{$prefix}--card__content {
+      display: flex;
+      flex-direction: column;
+      padding: $spacing-05;
+      width: 100%;
+    }
+
+    .#{$prefix}--card__heading {
+      @include type-style('fluid-heading-03', true);
+
+      margin-bottom: $spacing-10;
+    }
+
+    .#{$prefix}--card__heading,
+    .#{$prefix}--card__copy {
+      @include content-width;
+
+      color: $text-primary;
+    }
+
+    .#{$prefix}--card__copy:not([hidden]) {
+      @include type-style('body-compact-02');
+
+      margin-bottom: $spacing-07;
+    }
+
+    .#{$prefix}--card__img {
+      transition: $duration-moderate-01 motion(standard, productive);
+    }
+
+    // styles the React wrapper version of Tag Group within Card
+    /* stylelint-disable-next-line selector-type-no-unknown */
+    cds-tag-group {
+      margin-top: $spacing-05;
+    }
+  }
+
+  .#{$prefix}--card.#{$prefix}--card--light {
+    background-color: $layer-02;
+  }
+
+  .#{$prefix}--card.#{$prefix}--card--static {
+    outline: none;
+
+    &:hover {
+      .#{$prefix}--card__wrapper {
+        background-color: $layer-02;
+      }
+    }
+
+    .#{$prefix}--card__footer {
+      align-self: flex-start;
+      &:hover {
+        text-decoration: underline;
+
+        svg,
+        .#{$prefix}--card__cta__copy {
+          color: $link-primary-hover;
+        }
+      }
+
+      &:active,
+      &:focus {
+        align-self: flex-start;
+        outline: 1px solid $focus;
+      }
+      &::after {
+        position: relative;
+      }
+    }
+  }
+
+  .#{$prefix}--card--border {
+    border: 1px solid $layer-accent-01;
+  }
+
+  // FIXME: CardLink is being used as Card in React, need to separate this
+  .#{$prefix}--card__CTA.#{$prefix}--card__CardCTA .#{$prefix}--card__heading {
+    @include type-style('fluid-heading-03', true);
+  }
+
+  // static card
+  :host(#{$c4d-prefix}-card) {
+    // Outlined/Border card
+    &[border] {
+      .#{$prefix}--card {
+        border: 1px solid $layer-accent-01;
+      }
+    }
+  }
+
+  :host(#{$c4d-prefix}-card),
+  :host(#{$c4d-prefix}-card-group-item) {
+    &:not([href]) {
+      &,
+      &:hover {
+        .#{$prefix}--card__wrapper {
+          background-color: $layer-01;
+        }
+      }
+
+      &:focus-within,
+      .#{$prefix}--card:focus-within {
+        outline: none;
+      }
+
+      ::slotted(#{$c4d-prefix}-card-footer) {
+        display: inline-flex;
+        &::after {
+          position: relative;
+        }
+      }
+    }
+    &[color-scheme='light'] {
+      &,
+      &:hover {
+        .#{$prefix}--card__wrapper {
+          background-color: $layer-02;
+          transition: $duration-moderate-01 motion(standard, productive);
+        }
+      }
+
+      &[href] {
+        :hover {
+          .#{$prefix}--card__wrapper {
+            background-color: $background-hover;
+          }
+        }
+        &:active,
+        a:active {
+          outline: none;
+        }
+      }
+    }
+
+    // Logo card
+    &[logo] {
+      .#{$prefix}--card {
+        background-color: $layer-02;
+      }
+
+      .#{$prefix}--card__copy {
+        margin-bottom: $spacing-05;
+      }
+
+      &:hover {
+        border-color: $toggle-off;
+
+        .#{$prefix}--card__wrapper {
+          background-color: $layer-02;
+        }
+      }
+
+      &:active {
+        border-color: $border-inverse;
+      }
+
+      ::slotted(#{$c4d-prefix}-card-footer) {
+        height: 0;
+      }
+    }
+
+    &[href][logo] {
+      &:hover {
+        .#{$prefix}--card__wrapper {
+          background-color: $layer-02;
+        }
+      }
+    }
+  }
+
+  :host(#{$c4d-prefix}-card-cta),
+  :host(#{$c4d-prefix}-card-link-cta),
+  :host(#{$c4d-prefix}-card-link) {
+    outline: none;
+  }
+
+  :host(#{$c4d-prefix}-card-eyebrow),
+  .#{$prefix}--card__eyebrow {
+    @include content-width;
+    @include type-style('label-02');
+
+    margin-bottom: $spacing-03;
+    color: $text-secondary;
+  }
+
+  .#{$prefix}--card .#{$prefix}--card__cta,
+  .#{$prefix}--card .#{$prefix}--card__cta a,
+  .#{$prefix}--card .#{$prefix}--card__cta a:visited,
+  :host(#{$c4d-prefix}-card-footer)
+    .#{$c4d-prefix}-ce--card__footer
+    ::slotted(svg[slot='icon']),
+  :host(#{$c4d-prefix}-card-cta-footer)
+    .#{$c4d-prefix}-ce--card__footer
+    ::slotted(svg[slot='icon']) {
+    margin-left: 0;
+    color: $link-primary;
+  }
+
+  :host(#{$c4d-prefix}-card-footer[disabled])
+    .#{$c4d-prefix}-ce--card__footer
+    ::slotted(svg[slot='icon']) {
+    color: $text-disabled;
+  }
+
+  :host(#{$c4d-prefix}-card-footer),
+  :host(#{$c4d-prefix}-card-cta-footer),
+  :host(#{$c4d-prefix}-card-in-card-footer),
+  :host(#{$c4d-prefix}-feature-card-footer),
+  :host(#{$c4d-prefix}-feature-cta-footer) {
+    margin-top: auto;
+    display: flex;
+    align-items: flex-end;
+
+    &:focus-visible {
+      outline: none;
+    }
+  }
+
+  :host(#{$c4d-prefix}-card-footer) {
+    .#{$prefix}--link-with-icon.#{$prefix}--link-with-icon--inline-icon {
+      display: flex;
+
+      svg,
+      ::slotted(svg[slot='icon']) {
+        display: block;
+      }
+    }
+  }
+
+  .#{$prefix}--card .#{$prefix}--card__footer,
+  :host(#{$c4d-prefix}-card-footer) a,
+  :host(#{$c4d-prefix}-card-cta-footer) a,
+  :host(#{$c4d-prefix}-card-in-card-footer) a,
+  :host(#{$c4d-prefix}-feature-card-footer) a,
+  :host(#{$c4d-prefix}-feature-cta-footer) a {
+    /* Moves the footer down to the bottom in the card */
+    margin-top: auto;
+    text-decoration: none;
+
+    &:focus {
+      outline: none;
+    }
+
+    &:hover {
+      text-decoration: none;
+    }
+
+    span {
+      flex: none;
+    }
+
+    &::after {
+      content: '';
+      position: absolute;
+      z-index: 1;
+      top: 0;
+      left: 0;
+      bottom: 0;
+      right: 0;
+    }
+
+    .#{$prefix}--card__cta__copy {
+      max-width: calc(100% - 20px - #{$spacing-03});
+      margin-right: $spacing-03;
+      color: $link-primary;
+      @include type-style('body-compact-02');
+    }
+
+    .#{$prefix}--card__footer__copy {
+      max-width: calc(100% - 20px);
+      margin-bottom: -$spacing-01;
+    }
+
+    svg,
+    ::slotted(svg[slot='icon']) {
+      display: block;
+      min-width: 20px;
+      margin-left: 0;
+    }
+  }
+
+  :host(#{$c4d-prefix}-card-footer) a,
+  :host(#{$c4d-prefix}-card-cta-footer) a,
+  :host(#{$c4d-prefix}-card-in-card-footer) a {
+    @include breakpoint(md) {
+      padding-right: $spacing-07;
+    }
+  }
+
+  :host(#{$c4d-prefix}-feature-cta-footer) a {
+    svg,
+    ::slotted(svg[slot='icon']) {
+      fill: $link-inverse;
+
+      @include breakpoint(max) {
+        width: $spacing-07;
+        height: $spacing-07;
+      }
+    }
+  }
+
+  // static card footer
+  :host(#{$c4d-prefix}-card-footer):not([parent-href]) {
+    .#{$prefix}--card__footer {
+      &::after {
+        content: none;
+      }
+      &:focus {
+        outline: $spacing-01 solid $focus;
+      }
+    }
+  }
+
+  .#{$prefix}--card__footer__icon-left {
+    svg.#{$prefix}--card__cta,
+    ::slotted(svg[slot='icon']) {
+      margin-right: $spacing-03;
+    }
+
+    .#{$prefix}--card__cta__copy {
+      margin-right: 0;
+    }
+  }
+
+  .#{$prefix}--card .#{$prefix}--card__footer,
+  .#{$c4d-prefix}-ce--card__footer {
+    display: flex;
+  }
+
+  .#{$prefix}--card .#{$prefix}--card__footer svg,
+  .#{$c4d-prefix}-ce--card__footer ::slotted(svg[slot='icon']) {
+    fill: currentColor;
+    align-self: center;
+  }
+
+  .#{$prefix}--card--inverse,
+  .#{$prefix}--card.#{$prefix}--card--inverse,
+  :host(#{$c4d-prefix}-card)[color-scheme='inverse'],
+  :host(#{$c4d-prefix}-card-group-item)[color-scheme='inverse']
+    .#{$prefix}--card {
+    background-color: $background-inverse;
+
+    .#{$prefix}--card__wrapper:hover {
+      background-color: $background-inverse-hover;
+    }
+
+    .#{$prefix}--card__heading,
+    .#{$prefix}--card__copy {
+      color: $icon-inverse;
+    }
+
+    .#{$prefix}--card__eyebrow {
+      color: $text-placeholder;
+    }
+
+    &:hover {
+      background-color: $background-inverse-hover;
+
+      ::slotted(#{$c4d-prefix}-image),
+      ::slotted(#{$c4d-prefix}-card-cta-image),
+      .#{$prefix}--card__img,
+      .#{$prefix}--card__image_img,
+      .#{$prefix}--image {
+        filter: brightness(108%);
+      }
+    }
+
+    &:focus-within {
+      &::after {
+        content: '';
+        position: absolute;
+        z-index: 2;
+        top: 0;
+        left: 0;
+        bottom: 0;
+        right: 0;
+        border: $spacing-01 solid $focus;
+        outline: 1px solid $focus-inverse;
+        outline-offset: -3px;
+        pointer-events: none;
+      }
+    }
+  }
+
+  :host(#{$c4d-prefix}-card-heading),
+  :host(#{$c4d-prefix}-card-link-heading) {
+    @include content-width;
+
+    color: $text-primary;
+    margin-bottom: $spacing-10;
+  }
+
+  :host(#{$c4d-prefix}-card-heading) {
+    @include type-style('fluid-heading-03', true);
+  }
+
+  :host(#{$c4d-prefix}-card-link-heading) {
+    @include type-style('heading-02', true);
+
+    margin-bottom: 0;
+  }
+
+  :host(#{$c4d-prefix}-card)[color-scheme='inverse'],
+  :host(#{$c4d-prefix}-card-group-item)[color-scheme='inverse'],
+  :host(#{$c4d-prefix}-feature-section-card-link)[color-scheme='inverse'],
+  .#{$prefix}--card-group__card {
+    ::slotted(#{$c4d-prefix}-card-eyebrow) {
+      color: $text-placeholder;
+    }
+
+    ::slotted(#{$c4d-prefix}-card-heading),
+    ::slotted(#{$c4d-prefix}-card-link-heading) {
+      color: $icon-inverse;
+    }
+
+    &:hover {
+      ::slotted(#{$c4d-prefix}-image),
+      ::slotted(#{$c4d-prefix}-card-cta-image),
+      .#{$prefix}--card__img,
+      .#{$prefix}--card__image_img,
+      .#{$prefix}--image {
+        filter: brightness(108%);
+      }
+    }
+  }
+
+  .#{$prefix}--card--inverse .#{$prefix}--card__cta,
+  .#{$prefix}--card--inverse .#{$prefix}--card__cta a,
+  .#{$prefix}--card--inverse .#{$prefix}--card__cta a:visited,
+  .#{$prefix}--card--inverse
+    .#{$prefix}--card__footer
+    .#{$prefix}--card__cta__copy,
+  :host(#{$c4d-prefix}-card-cta-footer[color-scheme='inverse'])
+    .#{$c4d-prefix}-ce--card__footer
+    ::slotted(svg[slot='icon']),
+  :host(#{$c4d-prefix}-card-cta-footer[color-scheme='inverse'])
+    .#{$prefix}--card__cta__copy,
+  :host(#{$c4d-prefix}-card-footer[color-scheme='inverse'])
+    .#{$c4d-prefix}-ce--card__footer
+    ::slotted(svg[slot='icon']),
+  :host(#{$c4d-prefix}-card-footer[color-scheme='inverse'])
+    .#{$prefix}--card__cta__copy {
+    color: $link-inverse;
+  }
+
+  @media print {
+    :host(#{$c4d-prefix}-card),
+    :host(#{$c4d-prefix}-link-list-item-card),
+    :host(#{$c4d-prefix}-card-group-item),
+    :host(#{$c4d-prefix}-card-cta),
+    :host(#{$c4d-prefix}-link-list-item-card-cta),
+    :host(#{$c4d-prefix}-card-in-card),
+    :host(#{$c4d-prefix}-content-group-cards-item) {
+      border: 1px solid $layer-accent-01;
+
+      .#{$prefix}--card {
+        background-color: $layer-02;
+        border: none;
+      }
+
+      ::slotted(#{$c4d-prefix}-image),
+      ::slotted(#{$c4d-prefix}-card-cta-image),
+      ::slotted(#{$c4d-prefix}-tag-group),
+      .#{$prefix}--image {
+        display: none;
+      }
+    }
+
+    .#{$prefix}--card {
+      background-color: $layer-02;
+      border: 1px solid $layer-accent-01;
+
+      .#{$prefix}--card__img,
+      .#{$prefix}--card__image_img,
+      .#{$prefix}--image,
+      .#{$prefix}--card__video-thumbnail {
+        display: none;
+      }
+    }
+  }
+
+  // Card with pictogram placement style
+  :host(#{$c4d-prefix}-card-group-item),
+  :host(#{$c4d-prefix}-card-in-card),
+  :host(#{$c4d-prefix}-card-cta),
+  :host(#{$c4d-prefix}-card) {
+    outline: none;
+
+    .#{$prefix}--card__pictogram {
+      display: flex;
+
+      ::slotted(#{$c4d-prefix}-card-heading) {
+        padding-top: $spacing-07;
+        margin-bottom: 0;
+
+        @include breakpoint(md) {
+          padding-left: 0;
+          flex: 1;
+          display: flex;
+        }
+      }
+    }
+
+    &[pictogram-placement='top'] .#{$prefix}--card,
+    &[pictogram-placement='bottom'] .#{$prefix}--card {
+      .#{$prefix}--card__motion {
+        ::slotted(#{$c4d-prefix}-card-heading) {
+          padding-top: 0;
+
+          @include breakpoint(md) {
+            /* stylelint-disable value-no-vendor-prefix, property-no-vendor-prefix */
+            display: -webkit-box;
+            -webkit-box-orient: vertical;
+            -webkit-line-clamp: 3;
+            /* stylelint-enable value-no-vendor-prefix, property-no-vendor-prefix */
+            overflow: hidden;
+            max-width: calc(100% - #{$spacing-10});
+            opacity: 1;
+            transform: translate3d(0, 0, 0);
+            transition: all $duration-moderate-01 motion(standard, productive)
+              0.25s;
+          }
+        }
+
+        ::slotted(svg[slot='pictogram']) {
+          margin-left: 0;
+        }
+
+        .#{$prefix}--card__content {
+          position: relative;
+        }
+
+        .#{$prefix}--card__copy {
+          margin-top: $spacing-07;
+          margin-bottom: 0;
+
+          @include breakpoint(md) {
+            margin-top: 0;
+            visibility: hidden;
+            opacity: 0;
+            transform: translate3d(0, -16px, 0);
+            transition: all $duration-moderate-01 motion(standard, productive);
+          }
+        }
+      }
+
+      &:hover,
+      &:focus {
+        .#{$prefix}--card__motion {
+          ::slotted(#{$c4d-prefix}-card-heading) {
+            @include breakpoint(md) {
+              opacity: 0;
+              transform: translate3d(0, $spacing-05, 0);
+              transition-delay: 0s;
+            }
+          }
+
+          .#{$prefix}--card__copy {
+            @include breakpoint(md) {
+              display: block;
+              overflow: hidden;
+              visibility: visible;
+              opacity: 1;
+              transform: translate3d(0, 0, 0);
+              transition-delay: 0.2s;
+            }
+          }
+        }
+      }
+    }
+
+    &[pictogram-placement='top'] .#{$prefix}--card {
+      .#{$prefix}--card__motion {
+        ::slotted(#{$c4d-prefix}-card-heading) {
+          align-items: flex-end;
+          margin-bottom: 0;
+          margin-top: auto;
+
+          @include breakpoint(md) {
+            position: absolute;
+            bottom: $spacing-05;
+          }
+        }
+
+        .#{$prefix}--card__copy {
+          @include breakpoint(md) {
+            margin-top: auto;
+          }
+        }
+
+        ::slotted(svg[slot='pictogram']) {
+          margin-bottom: $spacing-10;
+
+          @include breakpoint(md) {
+            margin-bottom: $spacing-07;
+          }
+        }
+      }
+    }
+
+    &[pictogram-placement='bottom'] .#{$prefix}--card {
+      .#{$prefix}--card__motion {
+        ::slotted(#{$c4d-prefix}-card-heading) {
+          align-items: flex-start;
+
+          @include breakpoint(md) {
+            position: absolute;
+            top: $spacing-05;
+          }
+        }
+
+        .#{$prefix}--card__copy {
+          margin-bottom: $spacing-10;
+
+          @include breakpoint(md) {
+            margin-bottom: $spacing-07;
+          }
+        }
+
+        ::slotted(svg[slot='pictogram']) {
+          margin-top: auto;
+          align-items: flex-end;
+        }
+      }
+    }
+
+    ::slotted(svg[slot='pictogram']) {
+      fill: currentColor;
+      @include breakpoint(md) {
+        margin-left: 0;
+      }
+      @include breakpoint(sm) {
+        margin-left: $spacing-05;
+      }
+    }
+
+    &[color-scheme='inverse'] ::slotted(svg[slot='pictogram']) {
+      color: $link-inverse;
+    }
+
+    .#{$prefix}--card__copy {
+      display: flex;
+      flex-direction: column;
+      gap: $spacing-05;
+    }
+  }
+}

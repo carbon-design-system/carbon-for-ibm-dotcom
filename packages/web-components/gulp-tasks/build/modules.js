@@ -31,6 +31,6 @@ gulp.task(
     gulp.task('build:modules:react-types'),
     gulp.task('build:modules:scripts'),
     gulp.task('build:modules:scripts-node'),
-    gulp.task('build:modules:types')
+    gulp.task('build:modules:types'),
   )
 );

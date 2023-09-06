@@ -7,9 +7,9 @@
  * LICENSE file in the root directory of this source tree.
  */
 
-import { html } from 'lit-element';
+import { html } from 'lit';
 import ArrowRight20 from '../../../internal/vendor/@carbon/web-components/icons/arrow--right/20';
-import ifNonNull from '../../../internal/vendor/@carbon/web-components/globals/directives/if-non-null.js';
+import { ifDefined } from 'lit/directives/if-defined.js';
 import { select } from '@storybook/addon-knobs';
 import textNullable from '../../../../.storybook/knob-text-nullable';
 import '../index';
@@ -50,45 +50,45 @@ export const Default = (args) => {
   } = args?.ContentGroupBanner ?? {};
   return !ctaType
     ? html`
-        <dds-content-group-banner>
-          <dds-content-group-heading>${heading}</dds-content-group-heading>
+        <c4d-content-group-banner>
+          <c4d-content-group-heading>${heading}</c4d-content-group-heading>
 
-          <dds-link-list type="vertical" slot="complementary">
-            <dds-link-list-item
+          <c4d-link-list type="vertical" slot="complementary">
+            <c4d-link-list-item
               icon-placement="${iconPlacement}"
               href="https://example.com">
               Learn more about Kubernetes ${ArrowRight20({ slot: 'icon' })}
-            </dds-link-list-item>
-            <dds-link-list-item
+            </c4d-link-list-item>
+            <c4d-link-list-item
               icon-placement="${iconPlacement}"
               href="https://example.com">
               Containerization A Complete Guide
               ${ArrowRight20({ slot: 'icon' })}
-            </dds-link-list-item>
-          </dds-link-list>
-        </dds-content-group-banner>
+            </c4d-link-list-item>
+          </c4d-link-list>
+        </c4d-content-group-banner>
       `
     : html`
-        <dds-content-group-banner>
-          <dds-content-group-heading>${heading}</dds-content-group-heading>
+        <c4d-content-group-banner>
+          <c4d-content-group-heading>${heading}</c4d-content-group-heading>
 
-          <dds-link-list type="vertical" slot="complementary">
-            <dds-link-list-item-cta
+          <c4d-link-list type="vertical" slot="complementary">
+            <c4d-link-list-item-cta
               icon-placement="${iconPlacement}"
-              href="${ifNonNull(href)}"
-              cta-type="${ifNonNull(ctaType)}"
-              download="${ifNonNull(download)}">
+              href="${ifDefined(href)}"
+              cta-type="${ifDefined(ctaType)}"
+              download="${ifDefined(download)}">
               Learn more about Kubernetes
-            </dds-link-list-item-cta>
-            <dds-link-list-item-cta
+            </c4d-link-list-item-cta>
+            <c4d-link-list-item-cta
               icon-placement="${iconPlacement}"
-              href="${ifNonNull(href)}"
-              cta-type="${ifNonNull(ctaType)}"
-              download="${ifNonNull(download)}">
+              href="${ifDefined(href)}"
+              cta-type="${ifDefined(ctaType)}"
+              download="${ifDefined(download)}">
               Containerization A Complete Guide
-            </dds-link-list-item-cta>
-          </dds-link-list>
-        </dds-content-group-banner>
+            </c4d-link-list-item-cta>
+          </c4d-link-list>
+        </c4d-content-group-banner>
       `;
 };
 
@@ -96,10 +96,10 @@ export default {
   title: 'Components/Content group banner',
   decorators: [
     (story) => html`
-      <div class="bx--grid">
-        <div class="bx--row">
-          <div class="bx--col-md-6 bx--col-lg-12 bx--no-gutter">
-            <dds-video-cta-container> ${story()} </dds-video-cta-container>
+      <div class="cds--grid">
+        <div class="cds--row">
+          <div class="cds--col-md-6 cds--col-lg-12 cds--no-gutter">
+            <c4d-video-cta-container> ${story()} </c4d-video-cta-container>
           </div>
         </div>
       </div>

@@ -5,17 +5,25 @@
  * LICENSE file in the root directory of this source tree.
  */
 
-@import '../../globals/imports';
-@import '../link-list/index';
-@import 'carbon-components/scss/globals/scss/vendor/@carbon/elements/scss/layout/breakpoint';
-@import 'carbon-components/scss/components/tabs/tabs';
-@import '@carbon/web-components/scss/components/tooltip/tooltip';
-@import 'carbon-components/scss/components/accordion/accordion';
-@import 'carbon-components/scss/components/accordion/keyframes';
+@use 'sass:math';
+
+@use '@carbon/styles/scss/breakpoint' as *;
+@use '@carbon/styles/scss/config' as *;
+@use '@carbon/styles/scss/motion' as *;
+@use '@carbon/styles/scss/spacing' as *;
+@use '@carbon/styles/scss/theme' as *;
+@use '@carbon/styles/scss/type' as *;
+@use '@carbon/styles/scss/utilities' as *;
+@use '../../globals/utils/flex-grid' as *;
+@use '../../globals/vars' as *;
+@use '../link-list';
+@use '@carbon/styles/scss/components/tabs/vars' as *;
+@use '@carbon/styles/scss/components/tooltip';
+@use '@carbon/styles/scss/components/accordion';
 
 @mixin tabs-extended {
-  :host(#{$dds-prefix}-tabs-extended),
-  :host(#{$dds-prefix}-tabs-extended-media) {
+  :host(#{$c4d-prefix}-tabs-extended),
+  :host(#{$c4d-prefix}-tabs-extended-media) {
     .#{$prefix}--tabs {
       display: none;
 
@@ -26,11 +34,13 @@
 
       .#{$prefix}--tabs__nav-item {
         min-height: $spacing-09;
-        width: calc(100% / (12 / 2) - (#{$spacing-01} / 2));
+        width: calc(
+          math.div(100%, math.div(12, 2)) - math.div(#{$spacing-01}, 2)
+        );
         height: auto;
 
         p {
-          @include carbon--type-style('body-long-01', true);
+          @include type-style('body-01', true);
         }
 
         &:hover:not(.bx--tabs__nav-item--disabled) {
@@ -44,21 +54,21 @@
         .#{$prefix}--tabs__nav-link,
         .#{$prefix}--tabs__nav-link:focus,
         .#{$prefix}--tabs__nav-link:active {
-          border-bottom: carbon--rem(2px) solid $border-interactive;
+          border-bottom: $spacing-01 solid $border-interactive;
 
           p {
-            @include type-style('productive-heading-02');
+            @include type-style('heading-compact-02');
 
-            color: $text-01;
+            color: $text-primary;
           }
         }
       }
 
       .#{$prefix}--tabs__nav-link:hover {
         p {
-          @include type-style('body-short-02');
+          @include type-style('body-compact-02');
 
-          color: $text-01;
+          color: $text-primary;
         }
       }
 
@@ -68,7 +78,7 @@
         white-space: normal;
         background: none;
         border: initial;
-        border-bottom: carbon--rem(2px) solid $ui-03;
+        border-bottom: $spacing-01 solid $layer-accent-01;
         display: inline-flex;
         width: 100%;
         text-align: left;
@@ -111,23 +121,23 @@
           line-height: 1.375rem;
           word-break: break-word;
 
-          @include type-style('body-short-02');
+          @include type-style('body-compact-02');
         }
         /* stylelint-enable value-no-vendor-prefix, property-no-vendor-prefix */
       }
 
-      @include carbon--breakpoint(lg) {
+      @include breakpoint(lg) {
         display: block;
       }
     }
 
     .#{$prefix}--tab-content {
-      @include carbon--type-style('body-long-02', true);
+      @include type-style('body-02', true);
 
       padding: 0;
       display: none;
 
-      @include carbon--breakpoint(lg) {
+      @include breakpoint(lg) {
         display: block;
       }
     }
@@ -138,12 +148,12 @@
       flex-wrap: wrap;
 
       .#{$prefix}--tabs {
-        @include carbon--breakpoint(lg) {
-          @include carbon--make-col(3, 16);
+        @include breakpoint(lg) {
+          @include make-col(3, 16);
         }
 
         .#{$prefix}--tabs__nav {
-          @include carbon--breakpoint(md) {
+          @include breakpoint(md) {
             flex-direction: column;
           }
         }
@@ -151,13 +161,13 @@
         .#{$prefix}--tabs__nav-link {
           width: auto;
           padding: 0;
-          border-bottom: carbon--rem(2px) solid transparent;
+          border-bottom: $spacing-01 solid transparent;
         }
 
         .#{$prefix}--tabs__nav-item {
           width: max-content;
           max-width: calc(100% - #{$spacing-06});
-          min-height: carbon--rem(26px);
+          min-height: rem(26px);
           margin-top: $spacing-06;
         }
       }
@@ -167,16 +177,16 @@
       }
 
       .#{$prefix}--tab-content {
-        @include carbon--breakpoint(lg) {
-          @include carbon--make-col(12, 16);
-          @include carbon--make-col-offset(1, 16);
+        @include breakpoint(lg) {
+          @include make-col(12, 16);
+          @include make-col-offset(1, 16);
         }
       }
     }
 
     .#{$prefix}--accordion {
       display: block;
-      @include carbon--breakpoint(lg) {
+      @include breakpoint(lg) {
         display: none;
       }
     }
@@ -193,23 +203,19 @@
 
     .#{$prefix}--accordion__content {
       p {
-        @include carbon--type-style('body-long-02', true);
+        @include type-style('body-02', true);
       }
     }
   }
 
   @media print {
-    :host(#{$dds-prefix}-tabs-extended),
-    :host(#{$dds-prefix}-tabs-extended-media) {
+    :host(#{$c4d-prefix}-tabs-extended),
+    :host(#{$c4d-prefix}-tabs-extended-media) {
       .#{$prefix}--accordion__content {
         display: block;
       }
     }
   }
-}
-
-@include exports('tabs-extended') {
-  @include tabs-extended;
 }
 
 button.#{$prefix}--tabs__nav-link {
@@ -218,17 +224,17 @@ button.#{$prefix}--tabs__nav-link {
   display: inline-block;
   overflow: hidden;
   width: calc(100% - #{$spacing-07});
-  height: rem(40px);
+  height: $spacing-08;
   padding: $spacing-04 0;
-  border-bottom: 1px solid $ui-03;
+  border-bottom: 1px solid $layer-accent-01;
   margin: 0 $spacing-05;
-  color: $text-02;
+  color: $text-secondary;
   font-weight: 400;
   line-height: $spacing-05;
   text-decoration: none;
   text-overflow: ellipsis;
-  transition: border $duration--fast-01 motion(standard, productive),
-    outline $duration--fast-01 motion(standard, productive);
+  transition: border $duration-fast-01 motion(standard, productive),
+    outline $duration-fast-01 motion(standard, productive);
   white-space: nowrap;
 
   &:focus,
@@ -240,8 +246,8 @@ button.#{$prefix}--tabs__nav-link {
     margin: 0;
   }
 
-  @include carbon--breakpoint(md) {
-    width: rem(160px);
+  @include breakpoint(md) {
+    width: $spacing-13;
     padding: $spacing-04 $spacing-05 $spacing-03;
     border-bottom: $tab-underline-color;
     margin: 0;
@@ -249,15 +255,15 @@ button.#{$prefix}--tabs__nav-link {
 
     &:focus,
     &:active {
-      width: rem(160px);
-      border-bottom: carbon--rem(2px);
+      width: $spacing-13;
+      border-bottom: $spacing-01;
     }
   }
 }
 
 .#{$prefix}--tabs--container button.#{$prefix}--tabs__nav-link {
-  @include carbon--breakpoint(md) {
-    height: rem(48px);
+  @include breakpoint(md) {
+    height: $spacing-09;
     padding: $spacing-03 $spacing-05;
     border-bottom: none;
   }
@@ -272,5 +278,5 @@ button.#{$prefix}--tabs__nav-link {
     .#{$prefix}--tabs__nav-item--disabled
   ):not(.#{$prefix}--tabs__nav-item--selected)
   button.#{$prefix}--tabs__nav-link:active {
-  color: $text-02;
+  color: $text-secondary;
 }

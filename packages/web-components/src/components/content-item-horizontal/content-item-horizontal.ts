@@ -7,23 +7,22 @@
  * LICENSE file in the root directory of this source tree.
  */
 
-import { html, property, TemplateResult } from 'lit-element';
-import settings from 'carbon-components/es/globals/js/settings.js';
-import ddsSettings from '../../internal/vendor/@carbon/ibmdotcom-utilities/utilities/settings/settings';
-import DDSContentItem from '../content-item/content-item';
+import { TemplateResult, html } from 'lit';
+import { property } from 'lit/decorators.js';
+import settings from '../../internal/vendor/@carbon/ibmdotcom-utilities/utilities/settings/settings';
+import C4DContentItem from '../content-item/content-item';
 import styles from './content-item-horizontal.scss';
 import { carbonElement as customElement } from '../../internal/vendor/@carbon/web-components/globals/decorators/carbon-element';
 
-const { prefix } = settings;
-const { stablePrefix: ddsPrefix } = ddsSettings;
+const { prefix, stablePrefix: c4dPrefix } = settings;
 
 /**
  * A component to present a content in a horizontal orientation.
  *
- * @element dds-content-item-horizontal
+ * @element c4d-content-item-horizontal
  */
-@customElement(`${ddsPrefix}-content-item-horizontal`)
-class DDSContentItemHorizontal extends DDSContentItem {
+@customElement(`${c4dPrefix}-content-item-horizontal`)
+class C4DContentItemHorizontal extends C4DContentItem {
   /**
    * Determines whether to render the thumbnail variant
    */
@@ -70,11 +69,11 @@ class DDSContentItemHorizontal extends DDSContentItem {
   }
 
   static get stableSelector() {
-    return `${ddsPrefix}--content-item-horizontal`;
+    return `${c4dPrefix}--content-item-horizontal`;
   }
 
   static styles = styles;
 }
 
 /* @__GENERATE_REACT_CUSTOM_ELEMENT_TYPE__ */
-export default DDSContentItemHorizontal;
+export default C4DContentItemHorizontal;

@@ -1,7 +1,7 @@
 /**
  * @license
  *
- * Copyright IBM Corp. 2020, 2022
+ * Copyright IBM Corp. 2020, 2023
  *
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
@@ -11,11 +11,10 @@ import React from 'react';
 // Below path will be there when an application installs `@carbon/ibmdotcom-web-components` package.
 // In our dev env, we auto-generate the file and re-map below path to to point to the generated file.
 // @ts-ignore
-import DDSTagLink from '@carbon/ibmdotcom-web-components/es/components-react/tag-link/tag-link';
+import C4DTagLink from '@carbon/ibmdotcom-web-components/es/components-react/tag-link/tag-link';
 // @ts-ignore
-import DDSTagGroup from '@carbon/ibmdotcom-web-components/es/components-react/tag-group/tag-group';
-import { Tag } from 'carbon-components-react';
-import '@carbon/web-components/es/components/tag/tag.js';
+import C4DTagGroup from '@carbon/ibmdotcom-web-components/es/components-react/tag-group/tag-group';
+import Tag from '@carbon/web-components/es/components-react/tag/tag.js';
 import readme from './README.stories.react.mdx';
 
 const tagTitles = [
@@ -32,13 +31,13 @@ const tagTypeOptions = ['Tag Link', 'Carbon tag'];
 export const Default = (args) => {
   const { tagType } = args?.TagGroup ?? {};
   return (
-    <DDSTagGroup>
+    <C4DTagGroup>
       {tagType === tagTypeOptions[0]
         ? tagTitles.map((title) => (
-            <DDSTagLink href={'https://example.com'}>{title}</DDSTagLink>
+            <C4DTagLink href={'https://example.com'}>{title}</C4DTagLink>
           ))
         : tagTitles.map((title) => <Tag>{title}</Tag>)}
-    </DDSTagGroup>
+    </C4DTagGroup>
   );
 };
 
@@ -57,9 +56,9 @@ export default {
   decorators: [
     (story) => {
       return (
-        <div className="bx--grid">
-          <div className="bx--row">
-            <div className="bx--col-sm-16 bx--col-md-6">{story()}</div>
+        <div className="cds--grid">
+          <div className="cds--row">
+            <div className="cds--col-sm-16 cds--col-md-6">{story()}</div>
           </div>
         </div>
       );

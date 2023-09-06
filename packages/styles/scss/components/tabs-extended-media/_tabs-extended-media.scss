@@ -5,64 +5,61 @@
  * LICENSE file in the root directory of this source tree.
  */
 
-@import '../../globals/imports';
-@import '../link-list/index';
-@import 'carbon-components/scss/globals/scss/vendor/@carbon/elements/scss/layout/breakpoint';
-@import 'carbon-components/scss/components/tabs/tabs';
-@import 'carbon-components/scss/components/accordion/accordion';
-@import 'carbon-components/scss/components/accordion/keyframes';
+@use '@carbon/styles/scss/breakpoint' as *;
+@use '@carbon/styles/scss/config' as *;
+@use '@carbon/styles/scss/spacing' as *;
+@use '@carbon/styles/scss/components/accordion';
+@use '@carbon/styles/scss/components/tabs';
+@use '../link-list';
+@use '../../globals/vars' as *;
 
 @mixin tabs-extended-media {
-  :host(#{$dds-prefix}-tabs-extended-media) {
+  :host(#{$c4d-prefix}-tabs-extended-media) {
     margin: 0;
     display: flex;
     overflow-x: hidden;
 
-    @include carbon--breakpoint(sm) {
-      padding-top: $carbon--spacing-07;
-      padding-bottom: $carbon--spacing-12;
+    @include breakpoint(sm) {
+      padding-top: $spacing-07;
+      padding-bottom: $spacing-12;
     }
-    @include carbon--breakpoint(lg) {
-      padding-top: $carbon--spacing-10;
-      padding-bottom: 10rem;
+    @include breakpoint(lg) {
+      padding-top: $spacing-10;
+      padding-bottom: $spacing-13;
     }
 
     ::slotted([slot='heading']) {
-      margin-bottom: $carbon--spacing-09;
-      padding-left: $carbon--spacing-05;
-      padding-right: $carbon--spacing-05;
+      margin-bottom: $spacing-09;
+      padding-left: $spacing-05;
+      padding-right: $spacing-05;
 
-      @include carbon--breakpoint(lg) {
-        padding-top: var(--cds-spacing-04, 0.75rem);
+      @include breakpoint(lg) {
+        padding-top: $spacing-04;
       }
     }
 
     .#{$prefix}--tabs-extended-media {
       width: 100%;
 
-      @include carbon--breakpoint(lg) {
+      @include breakpoint(lg) {
         display: flex;
       }
     }
 
     .#{$prefix}--heading {
-      @include carbon--breakpoint(lg) {
+      @include breakpoint(lg) {
         flex: 0 0 25%;
       }
     }
 
     .#{$prefix}--accordion__content {
-      margin-top: -$carbon--spacing-07;
-      margin-bottom: $carbon--spacing-05;
-      padding: $carbon--spacing-07 0 0;
+      margin-top: -$spacing-07;
+      margin-bottom: $spacing-05;
+      padding: $spacing-07 0 0;
 
-      @include carbon--breakpoint(md) {
-        margin-bottom: -$carbon--spacing-05;
+      @include breakpoint(md) {
+        margin-bottom: -$spacing-05;
       }
     }
   }
-}
-
-@include exports('tabs-extended-media') {
-  @include tabs-extended-media;
 }

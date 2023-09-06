@@ -5,17 +5,19 @@
 // LICENSE file in the root directory of this source tree.
 //
 
-@import '@carbon/ibmdotcom-styles/scss/globals/imports';
-@import '@carbon/ibmdotcom-styles/scss/globals/vars';
+@use '@carbon/styles/scss/config' as *;
+@use '@carbon/styles/scss/breakpoint' as *;
+@use '@carbon/styles/scss/spacing' as *;
+@use '@carbon/ibmdotcom-styles/scss/globals/vars' as *;
 
-:host(#{$dds-prefix}-card-section-carousel) {
-  @include carbon--breakpoint('lg') {
+:host(#{$c4d-prefix}-card-section-carousel) {
+  @include breakpoint(lg) {
     .#{$prefix}--content-section__body {
       max-width: 75%;
     }
   }
 
-  @include carbon--breakpoint('md') {
-    padding-right: 1rem;
+  @include breakpoint(md) {
+    padding-right: $spacing-05;
   }
 }

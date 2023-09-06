@@ -13,14 +13,15 @@ import ArrowRight20 from '@carbon/icons-react/es/arrow--right/20.js';
 import Desktop from '@carbon/pictograms-react/lib/desktop/index.js';
 // Below path will be there when an application installs `@carbon/ibmdotcom-web-components` package.
 // In our dev env, we auto-generate the file and re-map below path to to point to the generated file.
-import DDSCard from '@carbon/ibmdotcom-web-components/es/components-react/card/card';
-import DDSCardHeading from '@carbon/ibmdotcom-web-components/es/components-react/card/card-heading';
-import DDSCardEyebrow from '@carbon/ibmdotcom-web-components/es/components-react/card/card-eyebrow';
-import DDSCardFooter from '@carbon/ibmdotcom-web-components/es/components-react/card/card-footer';
-import DDSImage from '@carbon/ibmdotcom-web-components/es/components-react/image/image';
-import DDSImageLogo from '@carbon/ibmdotcom-web-components/es/components-react/card/image-logo';
-import DDSTagGroup from '@carbon/ibmdotcom-web-components/es/components-react/tag-group/tag-group';
-import { Tag } from 'carbon-components-react';
+import C4DCard from '@carbon/ibmdotcom-web-components/es/components-react/card/card';
+import C4DCardHeading from '@carbon/ibmdotcom-web-components/es/components-react/card/card-heading';
+import C4DCardEyebrow from '@carbon/ibmdotcom-web-components/es/components-react/card/card-eyebrow';
+import C4DCardFooter from '@carbon/ibmdotcom-web-components/es/components-react/card/card-footer';
+import C4DImage from '@carbon/ibmdotcom-web-components/es/components-react/image/image';
+import C4DImageLogo from '@carbon/ibmdotcom-web-components/es/components-react/card/image-logo';
+import C4DTagGroup from '@carbon/ibmdotcom-web-components/es/components-react/tag-group/tag-group';
+
+import Tag from '@carbon/web-components/es/components-react/tag/tag.js';
 import textNullable from '../../../../.storybook/knob-text-nullable';
 import readme from './README.stories.react.mdx';
 import imgXlg4x3 from '../../../../../storybook-images/assets/1312/fpo--4x3--1312x984--003.jpg';
@@ -42,7 +43,7 @@ export const Default = (args) => {
   } = args?.Card ?? {};
   return (
     /* eslint-disable no-nested-ternary */
-    <DDSCard
+    <C4DCard
       colorScheme={
         cardStyles === 'Inverse card'
           ? 'inverse'
@@ -53,7 +54,7 @@ export const Default = (args) => {
       href={href || undefined}
       border={cardStyles === 'Outlined card'}>
       {image ? (
-        <DDSImage
+        <C4DImage
           slot="image"
           alt={alt || undefined}
           defaultSrc={defaultSrc || undefined}
@@ -61,22 +62,22 @@ export const Default = (args) => {
       ) : (
         ''
       )}
-      <DDSCardEyebrow>{eyebrow}</DDSCardEyebrow>
-      <DDSCardHeading>{heading}</DDSCardHeading>
+      <C4DCardEyebrow>{eyebrow}</C4DCardEyebrow>
+      <C4DCardHeading>{heading}</C4DCardHeading>
       {copy ? <p>{copy}</p> : ''}
       {tagGroup ? (
-        <DDSTagGroup>
+        <C4DTagGroup>
           <Tag type="green">Most popular</Tag>
           <Tag type="purple">Enterprise</Tag>
-        </DDSTagGroup>
+        </C4DTagGroup>
       ) : (
         ''
       )}
-      <DDSCardFooter>
+      <C4DCardFooter>
         {footer}
         <ArrowRight20 slot="icon" />
-      </DDSCardFooter>
-    </DDSCard>
+      </C4DCardFooter>
+    </C4DCard>
   );
 };
 
@@ -112,7 +113,7 @@ export const Pictogram = (args) => {
   const { href, heading, copy, tagGroup, pictogramPlacement, cardStyles } =
     args?.PictogramCard ?? {};
   return (
-    <DDSCard
+    <C4DCard
       pictogramPlacement={pictogramPlacement}
       href={href || undefined}
       colorScheme={
@@ -123,18 +124,18 @@ export const Pictogram = (args) => {
           : ''
       }
       border={cardStyles === 'Outlined card'}>
-      <DDSCardHeading>{heading}</DDSCardHeading>
+      <C4DCardHeading>{heading}</C4DCardHeading>
       {copy ? <p>{copy}</p> : ''}
       {tagGroup ? (
-        <DDSTagGroup>
+        <C4DTagGroup>
           <Tag>Most popular</Tag>
           <Tag type="purple">Enterprise</Tag>
-        </DDSTagGroup>
+        </C4DTagGroup>
       ) : (
         ''
       )}
       <Desktop slot="pictogram" width="48" height="48" />
-    </DDSCard>
+    </C4DCard>
   );
 };
 
@@ -180,9 +181,9 @@ export const Static = (args) => {
     cta,
   } = args?.StaticCard ?? {};
   return (
-    <DDSCard colorScheme={outlinedCard ? 'light' : ''} border={outlinedCard}>
+    <C4DCard colorScheme={outlinedCard ? 'light' : ''} border={outlinedCard}>
       {image ? (
-        <DDSImage
+        <C4DImage
           slot="image"
           alt={alt || undefined}
           defaultSrc={defaultSrc || undefined}
@@ -190,26 +191,26 @@ export const Static = (args) => {
       ) : (
         ''
       )}
-      <DDSCardEyebrow>{eyebrow}</DDSCardEyebrow>
-      <DDSCardHeading>{heading}</DDSCardHeading>
+      <C4DCardEyebrow>{eyebrow}</C4DCardEyebrow>
+      <C4DCardHeading>{heading}</C4DCardHeading>
       {copy ? <p>{copy}</p> : ''}
       {tagGroup ? (
-        <DDSTagGroup>
+        <C4DTagGroup>
           <Tag type="green">Most popular</Tag>
           <Tag type="purple">Enterprise</Tag>
-        </DDSTagGroup>
+        </C4DTagGroup>
       ) : (
         ''
       )}
       {cta ? (
-        <DDSCardFooter href="https://www.example.com">
+        <C4DCardFooter href="https://www.example.com">
           Sign up for the trial
           <ArrowRight20 slot="icon" />
-        </DDSCardFooter>
+        </C4DCardFooter>
       ) : (
         ''
       )}
-    </DDSCard>
+    </C4DCard>
   );
 };
 
@@ -253,24 +254,24 @@ export const Logo = (args) => {
   const { alt, defaultSrc, eyebrow, heading, href, copy, tagGroup } =
     args?.Card ?? {};
   return (
-    <DDSCard border logo href={href || undefined}>
-      <DDSImageLogo
+    <C4DCard border logo href={href || undefined}>
+      <C4DImageLogo
         slot="image"
         alt={alt}
-        default-src={defaultSrc}></DDSImageLogo>
-      {eyebrow ? <DDSCardEyebrow>{eyebrow}</DDSCardEyebrow> : ''}
-      {heading ? <DDSCardHeading>{heading}</DDSCardHeading> : ''}
+        default-src={defaultSrc}></C4DImageLogo>
+      {eyebrow ? <C4DCardEyebrow>{eyebrow}</C4DCardEyebrow> : ''}
+      {heading ? <C4DCardHeading>{heading}</C4DCardHeading> : ''}
       {copy ? <p>{copy}</p> : ``}
       {tagGroup ? (
-        <DDSTagGroup>
+        <C4DTagGroup>
           <Tag type="green">Most popular</Tag>
           <Tag type="purple">Enterprise</Tag>
-        </DDSTagGroup>
+        </C4DTagGroup>
       ) : (
         ''
       )}
-      <DDSCardFooter></DDSCardFooter>
-    </DDSCard>
+      <C4DCardFooter></C4DCardFooter>
+    </C4DCard>
   );
 };
 
@@ -298,9 +299,9 @@ export default {
   title: 'Components/Card',
   decorators: [
     (story) => (
-      <div className="bx--grid">
-        <div className="bx--row">
-          <div className="bx--col-sm-4 bx--col-md-3 bx--col-lg-6 bx--col-xlg-4 bx--no-gutter">
+      <div className="cds--grid">
+        <div className="cds--row">
+          <div className="cds--col-sm-4 cds--col-md-3 cds--col-lg-6 cds--col-xlg-4 cds--no-gutter">
             {story()}
           </div>
         </div>

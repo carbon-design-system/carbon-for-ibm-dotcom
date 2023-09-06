@@ -7,27 +7,27 @@
  * LICENSE file in the root directory of this source tree.
  */
 
-import { html, render } from 'lit-html';
-import ifNonNull from '../../../internal/vendor/@carbon/web-components/globals/directives/if-non-null.js';
+import { html, render } from 'lit/html.js';
+import { ifDefined } from 'lit/directives/if-defined.js';
 import '../tag-group';
 import '../../tag-link/tag-link';
 
 const template = (props?) => {
   const { copy, href } = props ?? {};
   return html`
-    <dds-tag-group>
-      <dds-tag-link href="${ifNonNull(href)}"> ${copy} </dds-tag-link>
-      <dds-tag-link href="${ifNonNull(href)}"> ${copy} </dds-tag-link>
-    </dds-tag-group>
+    <c4d-tag-group>
+      <c4d-tag-link href="${ifDefined(href)}"> ${copy} </c4d-tag-link>
+      <c4d-tag-link href="${ifDefined(href)}"> ${copy} </c4d-tag-link>
+    </c4d-tag-group>
   `;
 };
 
-describe('dds-tag-group', function () {
+describe('c4d-tag-group', function () {
   describe('Misc attributes', function () {
     it('should render with minimum attributes', async function () {
       render(template(), document.body);
-      await Promise.resolve(); // Update cycle for `<dds-tag-group>`
-      expect(document.body.querySelector('dds-tag-group')).toMatchSnapshot({
+      await Promise.resolve(); // Update cycle for `<c4d-tag-group>`
+      expect(document.body.querySelector('c4d-tag-group')).toMatchSnapshot({
         mode: 'shadow',
       });
     });
@@ -40,8 +40,8 @@ describe('dds-tag-group', function () {
         }),
         document.body
       );
-      await Promise.resolve(); // Update cycle for `<dds-tag-group>`
-      expect(document.body.querySelector('dds-tag-group')).toMatchSnapshot({
+      await Promise.resolve(); // Update cycle for `<c4d-tag-group>`
+      expect(document.body.querySelector('c4d-tag-group')).toMatchSnapshot({
         mode: 'shadow',
       });
     });

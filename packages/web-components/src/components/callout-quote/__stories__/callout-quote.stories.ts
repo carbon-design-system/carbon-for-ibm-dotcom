@@ -10,7 +10,7 @@
 import '../index';
 import '../callout-link-with-icon';
 import ArrowRight20 from '../../../internal/vendor/@carbon/web-components/icons/arrow--right/20.js';
-import { html } from 'lit-element';
+import { html } from 'lit';
 import { select } from '@storybook/addon-knobs';
 import { QUOTE_TYPES } from '../../quote/quote';
 import readme from './README.stories.mdx';
@@ -30,17 +30,17 @@ export const Default = (args) => {
   const { copy, quoteMark, sourceHeading, sourceCopy, sourceBottomCopy } =
     args?.CalloutQuote ?? {};
   return html`
-    <dds-callout-quote mark-type="${quoteMark}">
+    <c4d-callout-quote mark-type="${quoteMark}">
       ${copy}
-      <dds-quote-source-heading> ${sourceHeading} </dds-quote-source-heading>
-      <dds-quote-source-copy> ${sourceCopy} </dds-quote-source-copy>
-      <dds-quote-source-bottom-copy>
+      <c4d-quote-source-heading> ${sourceHeading} </c4d-quote-source-heading>
+      <c4d-quote-source-copy> ${sourceCopy} </c4d-quote-source-copy>
+      <c4d-quote-source-bottom-copy>
         ${sourceBottomCopy}
-      </dds-quote-source-bottom-copy>
-      <dds-callout-link-with-icon slot="footer" href="https://example.com">
+      </c4d-quote-source-bottom-copy>
+      <c4d-callout-link-with-icon slot="footer" href="https://example.com">
         Link with icon ${ArrowRight20({ slot: 'icon' })}
-      </dds-callout-link-with-icon>
-    </dds-callout-quote>
+      </c4d-callout-link-with-icon>
+    </c4d-callout-quote>
   `;
 };
 
@@ -48,9 +48,9 @@ export default {
   title: 'Components/Callout quote',
   decorators: [
     (story) => html`
-      <div class="bx--grid">
-        <div class="bx--row">
-          <div class="bx--col-lg-11">${story()}</div>
+      <div class="cds--grid">
+        <div class="cds--row">
+          <div class="cds--col-lg-11">${story()}</div>
         </div>
       </div>
     `,

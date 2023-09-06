@@ -9,8 +9,8 @@
 
 import '../index';
 
-import { html } from 'lit-element';
-import ifNonNull from '../../../internal/vendor/@carbon/web-components/globals/directives/if-non-null.js';
+import { html } from 'lit';
+import { ifDefined } from 'lit/directives/if-defined.js';
 import { select } from '@storybook/addon-knobs';
 
 import imgXlg1x1 from '../../../../../storybook-images/assets/1584/fpo--1x1--1584x1584--002.jpg';
@@ -36,39 +36,39 @@ const types = {
 
 export const Default = (args) => {
   const { alt, mediaAlign, eyebrow, heading, copy, href, ctaType } =
-    args?.['dds-feature-section'] ?? {};
+    args?.['c4d-feature-section'] ?? {};
   return html`
-    <dds-feature-section media-alignment="${mediaAlign}">
-      <dds-image slot="image" default-src="${ifNonNull(imgLg1x1)}" alt="${alt}">
-        <dds-image-item media="(min-width: 1584px)" srcset="${imgXlg1x1}">
-        </dds-image-item>
-        <dds-image-item media="(min-width: 1056px)" srcset="${imgLg1x1}">
-        </dds-image-item>
-        <dds-image-item media="(min-width: 672px)" srcset="${imgMd4x3}">
-        </dds-image-item>
-        <dds-image-item media="(min-width: 320px)" srcset="${imgSm1x1}">
-        </dds-image-item>
-        <dds-image-item media="(min-width: 0px)" srcset="${imgXs1x1}">
-        </dds-image-item>
-      </dds-image>
-      <dds-card-eyebrow>${eyebrow}</dds-card-eyebrow>
-      <dds-content-block-heading>${heading}</dds-content-block-heading>
-      <dds-content-item-paragraph slot="copy"
-        >${copy}</dds-content-item-paragraph
+    <c4d-feature-section media-alignment="${mediaAlign}">
+      <c4d-image slot="image" default-src="${ifDefined(imgLg1x1)}" alt="${alt}">
+        <c4d-image-item media="(min-width: 1584px)" srcset="${imgXlg1x1}">
+        </c4d-image-item>
+        <c4d-image-item media="(min-width: 1056px)" srcset="${imgLg1x1}">
+        </c4d-image-item>
+        <c4d-image-item media="(min-width: 672px)" srcset="${imgMd4x3}">
+        </c4d-image-item>
+        <c4d-image-item media="(min-width: 320px)" srcset="${imgSm1x1}">
+        </c4d-image-item>
+        <c4d-image-item media="(min-width: 0px)" srcset="${imgXs1x1}">
+        </c4d-image-item>
+      </c4d-image>
+      <c4d-card-eyebrow>${eyebrow}</c4d-card-eyebrow>
+      <c4d-content-block-heading>${heading}</c4d-content-block-heading>
+      <c4d-content-item-paragraph slot="copy"
+        >${copy}</c4d-content-item-paragraph
       >
 
-      <dds-feature-section-card-link
+      <c4d-feature-section-card-link
         slot="footer"
         href="${href}"
-        cta-type="${ifNonNull(ctaType)}"
+        cta-type="${ifDefined(ctaType)}"
         color-scheme="inverse">
-        <dds-card-link-heading
+        <c4d-card-link-heading
           >Try a free virtual business framing session with IBM
-          Garage</dds-card-link-heading
+          Garage</c4d-card-link-heading
         >
-        <dds-card-cta-footer color-scheme="inverse"> </dds-card-cta-footer>
-      </dds-feature-section-card-link>
-    </dds-feature-section>
+        <c4d-card-cta-footer color-scheme="inverse"> </c4d-card-cta-footer>
+      </c4d-feature-section-card-link>
+    </c4d-feature-section>
   `;
 };
 
@@ -79,7 +79,7 @@ export default {
     ...readme.parameters,
     hasStoryPadding: true,
     knobs: {
-      'dds-feature-section': () => ({
+      'c4d-feature-section': () => ({
         mediaAlign: select(
           'Media Alignment',
           mediaAlignment,
@@ -106,7 +106,7 @@ export default {
     },
     propsSet: {
       default: {
-        'dds-feature-section': {
+        'c4d-feature-section': {
           mediaAlign: 'right',
           eyebrow: '5 min activity',
           heading: 'Ready when you are',

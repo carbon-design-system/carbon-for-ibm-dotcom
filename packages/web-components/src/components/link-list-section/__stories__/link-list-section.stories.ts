@@ -7,8 +7,8 @@
  * LICENSE file in the root directory of this source tree.
  */
 
-import { html } from 'lit-element';
-import ArrowRight20 from '../../../internal/vendor/@carbon/web-components/icons/arrow--right/20.js';
+import { html } from 'lit';
+import ArrowRight20 from '../../../internal/vendor/@carbon/web-components/icons/arrow--right/20';
 import '../index';
 import textNullable from '../../../../.storybook/knob-text-nullable';
 import readme from './README.stories.mdx';
@@ -16,30 +16,30 @@ import readme from './README.stories.mdx';
 export const Default = (args) => {
   const { heading } = args?.LinkListSection ?? {};
   return html`
-    <dds-link-list-section>
-      <dds-link-list-heading>${heading}</dds-link-list-heading>
-      <dds-link-list>
-        <dds-link-list-item href="https://example.com">
+    <c4d-link-list-section>
+      <c4d-link-list-heading>${heading}</c4d-link-list-heading>
+      <c4d-link-list>
+        <c4d-link-list-item href="https://example.com">
           Learn more about Kubernetes and automating deployment
           ${ArrowRight20({ slot: 'icon' })}
-        </dds-link-list-item>
-        <dds-link-list-item href="https://example.com">
+        </c4d-link-list-item>
+        <c4d-link-list-item href="https://example.com">
           Containerization A Complete Guide ${ArrowRight20({ slot: 'icon' })}
-        </dds-link-list-item>
-        <dds-link-list-item href="https://example.com">
+        </c4d-link-list-item>
+        <c4d-link-list-item href="https://example.com">
           Microservices and containers ${ArrowRight20({ slot: 'icon' })}
-        </dds-link-list-item>
-        <dds-link-list-item href="https://example.com">
+        </c4d-link-list-item>
+        <c4d-link-list-item href="https://example.com">
           Learn more about Kubernetes ${ArrowRight20({ slot: 'icon' })}
-        </dds-link-list-item>
-        <dds-link-list-item href="https://example.com">
+        </c4d-link-list-item>
+        <c4d-link-list-item href="https://example.com">
           Containerization A Complete Guide ${ArrowRight20({ slot: 'icon' })}
-        </dds-link-list-item>
-        <dds-link-list-item href="https://example.com">
+        </c4d-link-list-item>
+        <c4d-link-list-item href="https://example.com">
           Microservices and containers ${ArrowRight20({ slot: 'icon' })}
-        </dds-link-list-item>
-      </dds-link-list>
-    </dds-link-list-section>
+        </c4d-link-list-item>
+      </c4d-link-list>
+    </c4d-link-list-section>
   `;
 };
 

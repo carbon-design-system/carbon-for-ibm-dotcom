@@ -14,7 +14,7 @@
 const _path = '/iframe.html?id=components-locale-modal--default';
 
 /* eslint-disable cypress/no-unnecessary-waiting */
-describe('dds-locale-modal | default', () => {
+describe('cds-locale-modal | default', () => {
   beforeEach(() => {
     cy.visit(`/${_path}`);
     cy.injectAxe();
@@ -26,22 +26,22 @@ describe('dds-locale-modal | default', () => {
   });
 
   it('should load with four regions', () => {
-    cy.get('dds-region-item').should('have.length', 4);
+    cy.get('cds-region-item').should('have.length', 4);
 
-    cy.get('dds-region-item[name="Americas"]').should('be.visible');
-    cy.get('dds-region-item[name="Asia Pacific"]').should('be.visible');
-    cy.get('dds-region-item[name="Europe"]').should('be.visible');
-    cy.get('dds-region-item[name="Middle East and Africa"]').should('be.visible');
+    cy.get('cds-region-item[name="Americas"]').should('be.visible');
+    cy.get('cds-region-item[name="Asia Pacific"]').should('be.visible');
+    cy.get('cds-region-item[name="Europe"]').should('be.visible');
+    cy.get('cds-region-item[name="Middle East and Africa"]').should('be.visible');
 
     cy.screenshot();
     // Take a snapshot for visual diffing
-    cy.percySnapshot('dds-locale-modal | all four regions loaded', {
+    cy.percySnapshot('cds-locale-modal | all four regions loaded', {
       widths: [1280],
     });
   });
 
   it('should load the Americas region', () => {
-    cy.get('dds-region-item[name="Americas"]').click();
+    cy.get('cds-region-item[name="Americas"]').click();
 
     cy.takeSnapshots();
   });
@@ -49,14 +49,14 @@ describe('dds-locale-modal | default', () => {
   it('should filter locales/languages', () => {
     cy.get('[name="Americas"]').click();
 
-    cy.get('dds-locale-search')
+    cy.get('cds-locale-search')
       .shadow()
       .find('.bx--search-input')
       .type('ca', {
         force: true,
       });
 
-    cy.get('dds-locale-item:not([hidden])')
+    cy.get('cds-locale-item:not([hidden])')
       .invoke('attr', 'country')
       .should('eq', 'Canada');
 
@@ -65,19 +65,19 @@ describe('dds-locale-modal | default', () => {
 
   it('should be able to go back to the region menu', () => {
     cy.get('[name="Americas"]').click();
-    cy.get('dds-regions').should('not.be.visible');
-    cy.get('dds-locale-modal')
+    cy.get('cds-regions').should('not.be.visible');
+    cy.get('cds-locale-modal')
       .shadow()
-      .find('dds-expressive-modal-heading dds-link-with-icon')
+      .find('cds-expressive-modal-heading cds-link-with-icon')
       .click();
-    cy.get('dds-regions').should('be.visible');
+    cy.get('cds-regions').should('be.visible');
   });
 
   it('should have a clickable X icon and is able to close menu', () => {
     const closeButton = cy
-      .get('dds-locale-modal')
+      .get('cds-locale-modal')
       .shadow()
-      .find('dds-expressive-modal-close-button');
+      .find('cds-expressive-modal-close-button');
     closeButton
       .shadow()
       .find('svg path')

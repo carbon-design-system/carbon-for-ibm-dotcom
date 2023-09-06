@@ -1,13 +1,13 @@
 /**
  * @license
  *
- * Copyright IBM Corp. 2020, 2022
+ * Copyright IBM Corp. 2020, 2023
  *
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
  */
 
-import { html } from 'lit-element';
+import { html } from 'lit';
 import { select, text } from '@storybook/addon-knobs';
 import '../index';
 import readme from './README.stories.mdx';
@@ -42,8 +42,8 @@ const srcsets = {
 export const Default = (args) => {
   const { heading, copy, ctaCopy, imageWidth } = args?.UniversalBanner ?? {};
 
-  const bannerHeading = document.querySelector('dds-universal-banner-heading');
-  const bannerCopy = document.querySelector('dds-universal-banner-copy');
+  const bannerHeading = document.querySelector('c4d-universal-banner-heading');
+  const bannerCopy = document.querySelector('c4d-universal-banner-copy');
 
   if (bannerHeading) {
     bannerHeading!.shadowRoot!.textContent = heading;
@@ -56,33 +56,33 @@ export const Default = (args) => {
   const srcset = srcsets[imageWidth];
 
   return html`
-    <dds-universal-banner image-width="${imageWidth}">
+    <c4d-universal-banner image-width="${imageWidth}">
       ${imageWidth
         ? html`
-            <dds-universal-banner-image
+            <c4d-universal-banner-image
               slot="image"
               default-src="${images[imageWidth]}">
-              <dds-image-item media="(min-width: 1584px)" srcset="${srcset[2]}">
-              </dds-image-item>
-              <dds-image-item media="(min-width: 1056px)" srcset="${srcset[1]}">
-              </dds-image-item>
-              <dds-image-item media="(min-width: 1312px)" srcset="${srcset[0]}">
-              </dds-image-item>
-            </dds-universal-banner-image>
+              <c4d-image-item media="(min-width: 1584px)" srcset="${srcset[2]}">
+              </c4d-image-item>
+              <c4d-image-item media="(min-width: 1056px)" srcset="${srcset[1]}">
+              </c4d-image-item>
+              <c4d-image-item media="(min-width: 1312px)" srcset="${srcset[0]}">
+              </c4d-image-item>
+            </c4d-universal-banner-image>
           `
         : ``}
-      <dds-universal-banner-heading slot="heading"
-        >${heading}</dds-universal-banner-heading
+      <c4d-universal-banner-heading slot="heading"
+        >${heading}</c4d-universal-banner-heading
       >
-      <dds-universal-banner-copy slot="copy">${copy}</dds-universal-banner-copy>
-      <dds-button-cta
+      <c4d-universal-banner-copy slot="copy">${copy}</c4d-universal-banner-copy>
+      <c4d-button-cta
         slot="cta"
         cta-type="local"
         kind="tertiary"
         href="https://www.example.com">
         ${ctaCopy}
-      </dds-button-cta>
-    </dds-universal-banner>
+      </c4d-button-cta>
+    </c4d-universal-banner>
   `;
 };
 

@@ -7,22 +7,23 @@
  * LICENSE file in the root directory of this source tree.
  */
 
-import { property, html } from 'lit-element';
-import ddsSettings from '../../internal/vendor/@carbon/ibmdotcom-utilities/utilities/settings/settings';
+import { html } from 'lit';
+import { property } from 'lit/decorators.js';
+import settings from '../../internal/vendor/@carbon/ibmdotcom-utilities/utilities/settings/settings';
 import styles from './universal-banner.scss';
 import StableSelectorMixin from '../../globals/mixins/stable-selector';
-import DDSMarkdown from '../markdown/markdown';
+import C4DMarkdown from '../markdown/markdown';
 import { carbonElement as customElement } from '../../internal/vendor/@carbon/web-components/globals/decorators/carbon-element';
 
-const { stablePrefix: ddsPrefix } = ddsSettings;
+const { stablePrefix: c4dPrefix } = settings;
 
 /**
  * The paragraph content in the universal banner
  *
- * @element dds-universal-banner-copy
+ * @element c4d-universal-banner-copy
  */
-@customElement(`${ddsPrefix}-universal-banner-copy`)
-class DDSUniversalBannerCopy extends StableSelectorMixin(DDSMarkdown) {
+@customElement(`${c4dPrefix}-universal-banner-copy`)
+class C4DUniversalBannerCopy extends StableSelectorMixin(C4DMarkdown) {
   @property({ reflect: true })
   slot = 'copy';
 
@@ -35,11 +36,11 @@ class DDSUniversalBannerCopy extends StableSelectorMixin(DDSMarkdown) {
   }
 
   static get stableSelector() {
-    return `${ddsPrefix}-universal-banner-copy`;
+    return `${c4dPrefix}-universal-banner-copy`;
   }
 
   static styles = styles;
 }
 
 /* @__GENERATE_REACT_CUSTOM_ELEMENT_TYPE__ */
-export default DDSUniversalBannerCopy;
+export default C4DUniversalBannerCopy;

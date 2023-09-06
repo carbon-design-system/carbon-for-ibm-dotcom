@@ -1,13 +1,13 @@
 /**
  * @license
  *
- * Copyright IBM Corp. 2020, 2022
+ * Copyright IBM Corp. 2020, 2023
  *
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
  */
 
-import { html } from 'lit-element';
+import { html } from 'lit';
 import '../index';
 import { select, boolean } from '@storybook/addon-knobs';
 import readme from './README.stories.mdx';
@@ -18,49 +18,49 @@ export const Default = (args) => {
   const { heading, media, copy, showCopy, ctaStyle, ctaCopy } =
     args?.ContentItem ?? {};
   return html`
-    <dds-content-item>
+    <c4d-content-item>
       ${media === 'image'
         ? html`
-            <dds-image
+            <c4d-image
               slot="media"
               alt="Alt image text"
               default-src="${imgLg16x9}"
-              heading="Image caption text"></dds-image>
+              heading="Image caption text"></c4d-image>
           `
         : ``}
       ${media === 'video'
         ? html`
-            <dds-video-player-container
+            <c4d-video-player-container
               slot="media"
-              video-id="1_9h94wo6b"></dds-video-player-container>
+              video-id="1_9h94wo6b"></c4d-video-player-container>
           `
         : ''}
-      <dds-content-item-heading>${heading}</dds-content-item-heading>
+      <c4d-content-item-heading>${heading}</c4d-content-item-heading>
       ${showCopy
-        ? html` <dds-content-item-copy>${copy}</dds-content-item-copy> `
+        ? html` <c4d-content-item-copy>${copy}</c4d-content-item-copy> `
         : ``}
       ${ctaStyle === 'text'
         ? html`
-            <dds-text-cta
+            <c4d-text-cta
               slot="footer"
               cta-type="local"
               icon-placement="right"
               href="https://www.example.com"
-              >${ctaCopy}</dds-text-cta
+              >${ctaCopy}</c4d-text-cta
             >
           `
         : ``}
       ${ctaStyle === 'button'
         ? html`
-            <dds-button-cta
+            <c4d-button-cta
               slot="footer"
               cta-type="local"
               href="https://www.example.com"
-              >${ctaCopy}</dds-button-cta
+              >${ctaCopy}</c4d-button-cta
             >
           `
         : ``}
-    </dds-content-item>
+    </c4d-content-item>
   `;
 };
 
@@ -68,10 +68,10 @@ export default {
   title: 'Components/Content item',
   decorators: [
     (story) => html`
-      <div class="bx--grid">
-        <div class="bx--row">
-          <div class="bx--col-sm-4 bx--col-lg-10">
-            <dds-video-container> ${story()} </dds-video-container>
+      <div class="cds--grid">
+        <div class="cds--row">
+          <div class="cds--col-sm-4 cds--col-lg-10">
+            <c4d-video-container> ${story()} </c4d-video-container>
           </div>
         </div>
       </div>

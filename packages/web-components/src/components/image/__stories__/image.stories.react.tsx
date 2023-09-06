@@ -12,64 +12,125 @@ import React from 'react';
 // Below path will be there when an application installs `@carbon/ibmdotcom-web-components` package.
 // In our dev env, we auto-generate the file and re-map below path to to point to the generated file.
 // @ts-ignore
-import DDSImage from '@carbon/ibmdotcom-web-components/es/components-react/image/image';
-import DDSImageItem from '@carbon/ibmdotcom-web-components/es/components-react/image/image-item';
+import C4DImage from '@carbon/ibmdotcom-web-components/es/components-react/image/image';
+import C4DImageItem from '@carbon/ibmdotcom-web-components/es/components-react/image/image-item';
 
 import readme from './README.stories.react.mdx';
-import imgLg2x1 from '../../../../../storybook-images/assets/720/fpo--2x1--720x360--005.jpg';
 import imgLg16x9 from '../../../../../storybook-images/assets/720/fpo--16x9--720x405--005.jpg';
-import imgSm2x1 from '../../../../../storybook-images/assets/320/fpo--2x1--320x160--005.jpg';
-import imgMd2x1 from '../../../../../storybook-images/assets/480/fpo--2x1--480x240--005.jpg';
-import imgSm16x9 from '../../../../../storybook-images/assets/320/fpo--16x9--320x180--005.jpg';
+import imgLg2x1 from '../../../../../storybook-images/assets/720/fpo--2x1--720x360--005.jpg';
+import imgLg3x2 from '../../../../../storybook-images/assets/720/fpo--3x2--720x480--005.jpg';
+import imgLg4x3 from '../../../../../storybook-images/assets/720/fpo--4x3--720x540--005.jpg';
+import imgLg1x1 from '../../../../../storybook-images/assets/720/fpo--1x1--720x720--005.jpg';
 import imgMd16x9 from '../../../../../storybook-images/assets/480/fpo--16x9--480x270--005.jpg';
+import imgMd2x1 from '../../../../../storybook-images/assets/480/fpo--2x1--480x240--005.jpg';
+import imgMd3x2 from '../../../../../storybook-images/assets/480/fpo--3x2--480x320--005.jpg';
+import imgMd4x3 from '../../../../../storybook-images/assets/480/fpo--4x3--480x360--005.jpg';
+import imgMd1x1 from '../../../../../storybook-images/assets/480/fpo--1x1--480x480--005.jpg';
+import imgSm16x9 from '../../../../../storybook-images/assets/320/fpo--16x9--320x180--005.jpg';
+import imgSm2x1 from '../../../../../storybook-images/assets/320/fpo--2x1--320x160--005.jpg';
+import imgSm3x2 from '../../../../../storybook-images/assets/320/fpo--3x2--320x213--005.jpg';
+import imgSm4x3 from '../../../../../storybook-images/assets/320/fpo--4x3--320x160--004.jpg';
+import imgSm1x1 from '../../../../../storybook-images/assets/320/fpo--1x1--320x320--005.jpg';
+import chartSvg from './chart-svg.js';
 import textNullable from '../../../../.storybook/knob-text-nullable';
+import { LIGHTBOX_CONTRAST } from '../image';
+
+const contrasts = {
+  light: LIGHTBOX_CONTRAST.LIGHT,
+  dark: LIGHTBOX_CONTRAST.DARK,
+};
 
 const images = {
   '2:1': imgLg2x1,
   '16:9': imgLg16x9,
+  '3:2': imgLg3x2,
+  '4:3': imgLg4x3,
+  '1:1': imgLg1x1,
+  'SVG (transparent background)': chartSvg,
 };
 
 const srcsets = {
   '2:1': [imgSm2x1, imgMd2x1, imgLg2x1],
   '16:9': [imgSm16x9, imgMd16x9, imgLg16x9],
+  '3:2': [imgSm3x2, imgMd3x2, imgLg3x2],
+  '4x3': [imgSm4x3, imgMd4x3, imgLg4x3],
+  '1x1': [imgSm1x1, imgMd1x1, imgLg1x1],
 };
 
-export const Default = args => {
-  const { alt, defaultSrc, heading, copy, border, lightbox } = args?.Image ?? {};
-  // TODO: See if we can fix unwanted `&` to `&amp` conversion upon changing the select knob
-  const srcset = srcsets[defaultSrc?.replace(/&amp;/, '&')];
+export const Default = (args) => {
+  const {
+    alt,
+    defaultSrc,
+    heading,
+    copy,
+    border,
+    lightbox,
+    lightboxContrast,
+    longDescription,
+  } = args?.Image ?? {};
+
+  const ratio = String(
+    Object.keys(images).find((key) => images[key] === defaultSrc)
+  );
+  const srcset = srcsets[ratio];
+
   return (
-    <DDSImage
+    <C4DImage
       alt={alt || undefined}
-      defaultSrc={defaultSrc || undefined}
-      border={border}
+      default-src={defaultSrc || undefined}
+      border={border || undefined}
       heading={heading || undefined}
       copy={copy || undefined}
-      lightbox={lightbox}>
-      {!srcset ? (
-        undefined
+      lightbox={lightbox || undefined}
+      lightbox-contrast={lightboxContrast}>
+      {!longDescription ? (
+        ''
       ) : (
+        <div slot="long-description">{longDescription}</div>
+      )}
+      {!srcset ? undefined : (
         <>
-          <DDSImageItem media="(min-width: 672px)" srcset={srcset[2]} />
-          <DDSImageItem media="(min-width: 400px)" srcset={srcset[1]} />
-          <DDSImageItem media="(min-width: 320px)" srcset={srcset[0]} />
+          <C4DImageItem media="(min-width: 672px)" srcset={srcset[2]} />
+          <C4DImageItem media="(min-width: 400px)" srcset={srcset[1]} />
+          <C4DImageItem media="(min-width: 320px)" srcset={srcset[0]} />
         </>
       )}
-    </DDSImage>
+    </C4DImage>
   );
 };
 
 Default.story = {
   parameters: {
     knobs: {
-      Image: () => ({
-        alt: textNullable('Alt text', 'Image alt text'),
-        defaultSrc: select('Default image (default-src)', images, imgLg2x1),
-        lightbox: boolean('Lightbox (lightbox)', false),
-        border: boolean('Border', false),
-        copy: textNullable('Copy (copy)', 'Lorem ipsum dolor sit amet'),
-        heading: textNullable('Heading (heading)', ''),
-      }),
+      Image: () => {
+        const alt = textNullable('Alt text', 'Image alt text');
+        const defaultSrc = select(
+          'Default image (default-src)',
+          images,
+          imgLg2x1
+        );
+        const border = boolean('Border', false);
+        const copy = textNullable('Copy (copy)', 'Lorem ipsum dolor sit amet');
+        const heading = textNullable('Heading (heading)', 'This is a caption');
+        const longDescription = textNullable(
+          'Long Description',
+          'Optional long descriptive text that is visually hidden to help screen reader users.'
+        );
+        const lightbox = boolean('Lightbox (lightbox)', false);
+        const lightboxContrast = lightbox
+          ? select('Lightbox contrast', contrasts, LIGHTBOX_CONTRAST.LIGHT)
+          : '';
+        return {
+          alt,
+          defaultSrc,
+          border,
+          copy,
+          heading,
+          longDescription,
+          lightbox,
+          lightboxContrast,
+        };
+      },
     },
   },
 };
@@ -77,11 +138,11 @@ Default.story = {
 export default {
   title: 'Components/Image',
   decorators: [
-    story => {
+    (story) => {
       return (
-        <div className="bx--grid">
-          <div className="bx--row">
-            <div className="bx--col-sm-4 bx--col-lg-8">{story()}</div>
+        <div className="cds--grid">
+          <div className="cds--row">
+            <div className="cds--col-sm-4 cds--col-lg-8">{story()}</div>
           </div>
         </div>
       );

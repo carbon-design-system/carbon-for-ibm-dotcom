@@ -8,7 +8,7 @@
  */
 
 import { number, select, text } from '@storybook/addon-knobs';
-import { html } from 'lit-element';
+import { html } from 'lit';
 import ArrowRight20 from '../../../internal/vendor/@carbon/web-components/icons/arrow--right/20.js';
 import ArrowDown20 from '../../../internal/vendor/@carbon/web-components/icons/arrow--down/20.js';
 import Pdf20 from '../../../internal/vendor/@carbon/web-components/icons/PDF/20.js';
@@ -32,15 +32,15 @@ const iconOptions = {
 export const Default = (args) => {
   const { buttons } = args?.ButtonGroup ?? {};
   return html`
-    <dds-button-group>
+    <c4d-button-group>
       ${buttons.map(
         (elem) => html`
-          <dds-button-group-item href="${elem.href}"
-            >${elem.copy}${elem.renderIcon}</dds-button-group-item
+          <c4d-button-group-item href="${elem.href}"
+            >${elem.copy}${elem.renderIcon}</c4d-button-group-item
           >
         `
       )}
-    </dds-button-group>
+    </c4d-button-group>
   `;
 };
 
@@ -48,9 +48,11 @@ export default {
   title: 'Components/Button group',
   decorators: [
     (story) => html`
-      <div class="bx--grid">
-        <div class="bx--row">
-          <div class="bx--col-sm-16 bx--col-md-6 bx--col-lg-16">${story()}</div>
+      <div class="cds--grid">
+        <div class="cds--row">
+          <div class="cds--col-sm-16 cds--col-md-6 cds--col-lg-16">
+            ${story()}
+          </div>
         </div>
       </div>
     `,

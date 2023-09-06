@@ -5,30 +5,31 @@
 // LICENSE file in the root directory of this source tree.
 //
 
-@import '@carbon/ibmdotcom-styles/scss/components/tableofcontents/tableofcontents';
-@import '@carbon/ibmdotcom-styles/scss/components/leadspace-block/leadspace-block';
-@import '@carbon/ibmdotcom-styles/scss/components/content-block-segmented/content-block-segmented';
-@import '@carbon/ibmdotcom-styles/scss/components/link-list/link-list';
-@import '@carbon/ibmdotcom-styles/scss/components/callout-with-media/callout-with-media';
-@import '@carbon/ibmdotcom-styles/scss/components/video-player/video-player';
-@import '@carbon/ibmdotcom-styles/scss/components/content-block-horizontal/content-block-horizontal';
-@import '@carbon/ibmdotcom-styles/scss/components/ctasection/ctasection';
-@import '@carbon/themes/scss/themes';
+@use '@carbon/ibmdotcom-styles/scss/components/tableofcontents';
+@use '@carbon/ibmdotcom-styles/scss/components/leadspace-block';
+@use '@carbon/ibmdotcom-styles/scss/components/content-block-segmented';
+@use '@carbon/ibmdotcom-styles/scss/components/link-list';
+@use '@carbon/ibmdotcom-styles/scss/components/callout-with-media';
+@use '@carbon/ibmdotcom-styles/scss/components/video-player';
+@use '@carbon/ibmdotcom-styles/scss/components/content-block-horizontal';
+@use '@carbon/ibmdotcom-styles/scss/components/cta-section';
+@use '@carbon/styles/scss/theme' as *;
+@use '@carbon/styles/scss/themes' as *;
 
 @media (min-width: 66rem) {
-  .bx--offset-lg-3 {
+  .cds--offset-lg-3 {
     margin-left: 0;
   }
 }
 
 /* stylelint-disable-next-line selector-type-no-unknown */
-dds-leadspace {
-  @include carbon--theme($carbon--theme--g100, true);
+cds-leadspace {
+  @include theme($g100, true);
 }
 
 /* stylelint-disable-next-line selector-type-no-unknown */
-dds-cta-section {
-  @include carbon--theme($carbon--theme--g10, true);
+cds-cta-section {
+  @include theme($g10, true);
 
-  background-color: $ui-background;
+  background-color: $background;
 }

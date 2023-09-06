@@ -14,7 +14,7 @@ import {
   Store,
   bindActionCreators,
 } from 'redux';
-import ddsSettings from '../../internal/vendor/@carbon/ibmdotcom-utilities/utilities/settings/settings';
+import settings from '../../internal/vendor/@carbon/ibmdotcom-utilities/utilities/settings/settings';
 import ConnectMixin from '../../globals/mixins/connect';
 import store from '../../internal/vendor/@carbon/ibmdotcom-services-store/store';
 import {
@@ -27,13 +27,13 @@ import {
   loadLocaleList,
 } from '../../internal/vendor/@carbon/ibmdotcom-services-store/actions/localeAPI';
 import { LocaleAPIActions } from '../../internal/vendor/@carbon/ibmdotcom-services-store/actions/localeAPI.d';
-import DDSLocaleModalComposite from './locale-modal-composite';
+import C4DLocaleModalComposite from './locale-modal-composite';
 import { carbonElement as customElement } from '../../internal/vendor/@carbon/web-components/globals/decorators/carbon-element';
 
-const { stablePrefix: ddsPrefix } = ddsSettings;
+const { stablePrefix: c4dPrefix } = settings;
 
 /**
- * The Redux actions used for `<dds-locale-modal-container>`.
+ * The Redux actions used for `<c4d-locale-modal-container>`.
  */
 export type LocaleModalContainerActions =
   | ReturnType<typeof loadLanguage>
@@ -41,7 +41,7 @@ export type LocaleModalContainerActions =
   | ReturnType<typeof loadLocaleList>;
 
 /**
- * The Redux state used for `<dds-locale-modal-container>`.
+ * The Redux state used for `<c4d-locale-modal-container>`.
  */
 export interface LocaleModalContainerState {
   /**
@@ -51,7 +51,7 @@ export interface LocaleModalContainerState {
 }
 
 /**
- * The properties for `<dds-locale-modal-container>` from Redux state.
+ * The properties for `<c4d-locale-modal-container>` from Redux state.
  */
 export interface LocaleModalContainerStateProps {
   /**
@@ -67,7 +67,7 @@ export interface LocaleModalContainerStateProps {
 
 /**
  * @param state The Redux state for masthead.
- * @returns The converted version of the given state, tailored for `<dds-locale-modal-container>`.
+ * @returns The converted version of the given state, tailored for `<c4d-locale-modal-container>`.
  */
 export function mapStateToProps(
   state: LocaleModalContainerState
@@ -84,7 +84,7 @@ export function mapStateToProps(
 
 /**
  * @param dispatch The Redux `dispatch()` API.
- * @returns The methods in `<dds-locale-modal-container>` to dispatch Redux actions.
+ * @returns The methods in `<c4d-locale-modal-container>` to dispatch Redux actions.
  */
 export function mapDispatchToProps(dispatch: Dispatch<LocaleAPIActions>) {
   return bindActionCreators<
@@ -103,10 +103,10 @@ export function mapDispatchToProps(dispatch: Dispatch<LocaleAPIActions>) {
 /**
  * Container component for masthead.
  *
- * @element dds-locale-modal-container
+ * @element c4d-locale-modal-container
  */
-@customElement(`${ddsPrefix}-locale-modal-container`)
-class DDSLocaleModalContainer extends ConnectMixin<
+@customElement(`${c4dPrefix}-locale-modal-container`)
+class C4DLocaleModalContainer extends ConnectMixin<
   LocaleModalContainerState,
   LocaleAPIActions,
   LocaleModalContainerStateProps,
@@ -115,7 +115,7 @@ class DDSLocaleModalContainer extends ConnectMixin<
   store as Store<LocaleModalContainerState, LocaleAPIActions>,
   mapStateToProps,
   mapDispatchToProps
-)(DDSLocaleModalComposite) {}
+)(C4DLocaleModalComposite) {}
 
 /* @__GENERATE_REACT_CUSTOM_ELEMENT_TYPE__ */
-export default DDSLocaleModalContainer;
+export default C4DLocaleModalContainer;

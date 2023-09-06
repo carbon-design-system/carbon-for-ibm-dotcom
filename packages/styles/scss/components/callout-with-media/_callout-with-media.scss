@@ -5,16 +5,23 @@
 // LICENSE file in the root directory of this source tree.
 //
 
-@import 'carbon-components/scss/globals/scss/vendor/@carbon/elements/scss/themes/mixins';
-@import '../../globals/imports';
-@import '../../globals/vars';
-@import '../../internal/callout/callout';
+@use '@carbon/styles/scss/breakpoint' as *;
+@use '@carbon/styles/scss/config' as *;
+@use '@carbon/styles/scss/spacing' as *;
+@use '@carbon/styles/scss/theme' as *;
+@use '@carbon/styles/scss/type' as *;
+@use '../../globals/vars' as *;
+@use '../../internal/callout/callout';
+@use '../../internal/content-block';
+@use '../../internal/content-item/content-item';
+@use '../image';
+@use '../content-block-simple/content-block-simple';
 
 @mixin callout-with-media {
-  :host(#{$dds-prefix}-callout-with-media),
+  :host(#{$c4d-prefix}-callout-with-media),
   .#{$prefix}--callout-with-media {
     display: block;
-    background-color: $inverse-02;
+    background-color: $background-inverse;
 
     ::slotted([slot='heading']),
     .#{$prefix}--content-block__heading {
@@ -23,82 +30,79 @@
 
     ::slotted([slot='copy']) {
       margin-bottom: $spacing-07;
-      color: $inverse-01;
+      color: $icon-inverse;
     }
   }
 
-  :host(#{$dds-prefix}-callout-with-media) ::slotted([slot='heading']),
+  :host(#{$c4d-prefix}-callout-with-media) ::slotted([slot='heading']),
   .#{$prefix}--callout-with-media .#{$prefix}--content-block__heading,
-  :host(#{$dds-prefix}-callout-with-media-copy)
-    ::slotted(#{$dds-prefix}-content-block-paragraph),
+  :host(#{$c4d-prefix}-callout-with-media-copy)
+    ::slotted(#{$c4d-prefix}-content-block-paragraph),
   .#{$prefix}--callout-with-media .#{$prefix}--content-item__copy p,
-  :host(#{$dds-prefix}-callout-with-media-image) .#{$prefix}--image__caption,
-  :host(#{$dds-prefix}-callout-with-media-video)
-    ::slotted(#{$dds-prefix}-video-player),
+  :host(#{$c4d-prefix}-callout-with-media-image) .#{$prefix}--image__caption,
+  :host(#{$c4d-prefix}-callout-with-media-video)
+    ::slotted(#{$c4d-prefix}-video-player),
   .#{$prefix}--callout-with-media .#{$prefix}--video-player__video-caption,
   .#{$prefix}--callout-with-media .#{$prefix}--image__caption {
-    color: $inverse-01;
+    color: $icon-inverse;
   }
 
-  :host(#{$dds-prefix}-callout-with-media) ::slotted([slot='heading']),
+  :host(#{$c4d-prefix}-callout-with-media) ::slotted([slot='heading']),
   .#{$prefix}--callout-with-media .#{$prefix}--content-block__heading,
-  :host(#{$dds-prefix}-callout-with-media) ::slotted([slot='copy']),
+  :host(#{$c4d-prefix}-callout-with-media) ::slotted([slot='copy']),
   .#{$prefix}--callout-with-media .#{$prefix}--callout-with-media-copy {
     padding-right: $spacing-07;
-    max-width: carbon--rem(640px);
+    max-width: rem(640px);
     width: auto;
   }
 
   .#{$prefix}--callout-with-media .#{$prefix}--callout__content {
     padding-top: 0;
   }
-  :host(#{$dds-prefix}-callout-with-media-video),
+  :host(#{$c4d-prefix}-callout-with-media-video),
   .#{$prefix}--callout-with-media
     .#{$prefix}--callout__content
     .#{$prefix}--content-block-simple__media-video {
     margin-top: 0;
 
-    @include carbon--breakpoint-down('md') {
+    @include breakpoint-down(md) {
       margin-top: -16px;
     }
   }
 
-  :host(#{$dds-prefix}-callout-with-media-image),
+  :host(#{$c4d-prefix}-callout-with-media-image),
   .#{$prefix}--callout-with-media
     .#{$prefix}--callout__content
     .#{$prefix}--content-block-simple__media-image {
     margin-top: $spacing-07;
 
-    @include carbon--breakpoint-down('md') {
+    @include breakpoint-down(md) {
       margin-top: 0;
     }
   }
 
-  :host(#{$dds-prefix}-callout-with-media) .#{$prefix}--callout__content,
+  :host(#{$c4d-prefix}-callout-with-media) .#{$prefix}--callout__content,
   .#{$prefix}--callout-with-media
     .#{$prefix}--callout__content
     .#{$prefix}--content-block {
-    padding-bottom: $layout-05;
+    padding-bottom: $spacing-10;
   }
 
-  :host(#{$dds-prefix}-callout-with-media-image),
+  :host(#{$c4d-prefix}-callout-with-media-image),
   .#{$prefix}--callout-with-media
     .#{$prefix}--callout__content
     .#{$prefix}--content-block {
     .#{$prefix}--image__caption {
-      @include carbon--type-style('caption-02');
+      @include type-style('caption-02');
 
-      margin-top: $carbon--spacing-03;
+      margin-top: $spacing-03;
     }
     .#{$prefix}--video-player__video-caption {
       padding-top: $spacing-03;
     }
   }
 
-  :host(#{$dds-prefix}-callout-with-media-image) .#{$prefix}--image__img {
+  :host(#{$c4d-prefix}-callout-with-media-image) .#{$prefix}--image__img {
     max-width: 100%;
   }
-}
-@include exports('callout-with-media') {
-  @include callout-with-media;
 }

@@ -9,7 +9,7 @@
 
 import React from 'react';
 import { render } from 'react-dom';
-import DDSVideoPlayerContainer from '@carbon/ibmdotcom-web-components/es/components-react/video-player/video-player-container';
+import C4DVideoPlayerContainer from '@carbon/ibmdotcom-web-components/es/components-react/video-player/video-player-container';
 import './index.css';
 
 const App = () => (
@@ -17,7 +17,7 @@ const App = () => (
     <div className="bx--grid">
       <div className="bx--row">
         <div className="bx--offset-lg-3 bx--col-lg-13">
-          <DDSVideoPlayerContainer aspectRatio="1x1" videoId="1_9h94wo6b" />
+          <C4DVideoPlayerContainer aspectRatio="1x1" videoId="1_9h94wo6b" />
         </div>
       </div>
     </div>

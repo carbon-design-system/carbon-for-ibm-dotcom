@@ -5,9 +5,9 @@
 // LICENSE file in the root directory of this source tree.
 //
 
-@import '@carbon/ibmdotcom-styles/scss/globals/vars';
-@import '@carbon/ibmdotcom-styles/scss/components/horizontalrule/horizontalrule';
+@use '@carbon/ibmdotcom-styles/scss/globals/vars' as *;
+@use '@carbon/ibmdotcom-styles/scss/components/horizontal-rule';
 
-:host(#{$dds-prefix}-hr) {
+:host(#{$c4d-prefix}-hr) {
   display: block;
 }

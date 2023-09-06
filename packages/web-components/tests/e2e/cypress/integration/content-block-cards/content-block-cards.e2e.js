@@ -7,12 +7,12 @@
 
 'use strict';
 
-describe('dds-content-block-cards', () => {
+describe('cds-content-block-cards', () => {
   // TODO: find out why components are getting double imported in parcel
-  xit('should load the default dds-content-block-cards example', () => {
+  xit('should load the default cds-content-block-cards example', () => {
     cy.visit('/content-block-card-static');
 
     // Take a snapshot for visual diffing
-    cy.percySnapshot('dds-content-block-cards | default');
+    cy.percySnapshot('cds-content-block-cards | default');
   });
 });

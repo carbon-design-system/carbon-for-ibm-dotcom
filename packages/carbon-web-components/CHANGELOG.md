@@ -3,6 +3,99 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.31.0](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/compare/@carbon/web-components@1.31.0-rc.2...@carbon/web-components@1.31.0) (2023-08-22)
+
+**Note:** Version bump only for package @carbon/web-components
+
+
+
+
+
+# [1.31.0-rc.2](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/compare/@carbon/web-components@1.31.0-rc.1...@carbon/web-components@1.31.0-rc.2) (2023-08-18)
+
+**Note:** Version bump only for package @carbon/web-components
+
+
+
+
+
+# [1.31.0-rc.1](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/compare/@carbon/web-components@1.31.0-rc.0...@carbon/web-components@1.31.0-rc.1) (2023-08-18)
+
+**Note:** Version bump only for package @carbon/web-components
+
+
+
+
+
+# [1.31.0-rc.0](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/compare/@carbon/web-components@1.30.0...@carbon/web-components@1.31.0-rc.0) (2023-08-14)
+
+
+### Bug Fixes
+
+* **breadcrumb:** update aria role to now have the value of navigation ([#10780](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/issues/10780)) ([e964047](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/commit/e96404775f1bb14e8954f29f5b519d88f79e7b79)), closes [#10730](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/issues/10730)
+
+
+
+
+
+# [1.30.0](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/compare/@carbon/web-components@1.30.0-rc.0...@carbon/web-components@1.30.0) (2023-07-26)
+
+**Note:** Version bump only for package @carbon/web-components
+
+
+
+
+
+# [1.30.0-rc.0](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/compare/@carbon/web-components@1.29.0...@carbon/web-components@1.30.0-rc.0) (2023-07-11)
+
+
+### Bug Fixes
+
+* **date-picker:** prevent range inputs from clearing prematurely ([#10603](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/issues/10603)) ([77306c8](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/commit/77306c89d2b5d374efdafba99b77e50cf65f61b7))
+* **masthead:** Esc to close Cloud Masthead ([#10555](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/issues/10555)) ([de67bf8](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/commit/de67bf8242ff47f2c26f285fc878f932bc822397)), closes [#10174](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/issues/10174)
+
+
+
+
+
+# [1.29.0](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/compare/@carbon/web-components@1.29.0-rc.3...@carbon/web-components@1.29.0) (2023-06-27)
+
+**Note:** Version bump only for package @carbon/web-components
+
+
+
+
+
+# [1.29.0-rc.3](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/compare/@carbon/web-components@1.29.0-rc.2...@carbon/web-components@1.29.0-rc.3) (2023-06-27)
+
+
+### Bug Fixes
+
+* **multi-select:** move filterable attribute out of scope for styles ([#10608](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/issues/10608)) ([1c1cf35](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/commit/1c1cf35ced1d73c9b0558ce474edd124ce773da8))
+
+
+
+
+
+# [1.29.0-rc.2](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/compare/@carbon/web-components@1.29.0-rc.1...@carbon/web-components@1.29.0-rc.2) (2023-06-23)
+
+**Note:** Version bump only for package @carbon/web-components
+
+
+
+
+
+# [1.29.0-rc.1](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/compare/@carbon/web-components@1.29.0-rc.0...@carbon/web-components@1.29.0-rc.1) (2023-06-22)
+
+
+### Bug Fixes
+
+* **masthead:** Esc to close Cloud Masthead ([#10555](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/issues/10555)) ([#10588](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/issues/10588)) ([06cd69d](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/commit/06cd69dec6d91cafb358e078d8d083ae62edfc13)), closes [#10174](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/issues/10174)
+
+
+
+
+
 # [1.29.0-rc.0](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/compare/@carbon/web-components@1.28.0...@carbon/web-components@1.29.0-rc.0) (2023-06-09)
 
 

@@ -5,13 +5,17 @@
 // LICENSE file in the root directory of this source tree.
 //
 
-@import '@carbon/ibmdotcom-styles/scss/components/content-block-segmented/content-block-segmented';
+@use '@carbon/styles/scss/breakpoint' as *;
+@use '@carbon/styles/scss/spacing' as *;
+@use '@carbon/styles/scss/theme' as *;
+@use '@carbon/ibmdotcom-styles/scss/components/content-block-segmented';
+@use '@carbon/ibmdotcom-styles/scss/globals/vars' as *;
 
-:host(#{$dds-prefix}-content-block-segmented) {
+:host(#{$c4d-prefix}-content-block-segmented) {
   ::slotted(:not([slot])) {
     display: block;
-    margin-top: $carbon--layout-05;
-    margin-bottom: $carbon--layout-05;
+    margin-top: $spacing-10;
+    margin-bottom: $spacing-10;
   }
 
   ::slotted(:not([slot]):last-of-type) {
@@ -22,32 +26,32 @@
     margin-top: 0;
   }
 
-  ::slotted(#{$dds-prefix}-content-block-complementary) {
-    @include carbon--breakpoint-down('lg') {
-      margin: $layout-05 0;
+  ::slotted(#{$c4d-prefix}-content-block-complementary) {
+    @include breakpoint-down(lg) {
+      margin: $spacing-10 0;
     }
   }
 }
 
-:host(#{$dds-prefix}-content-block-segmented-item) ::slotted(*) {
-  margin-left: $carbon--spacing-05;
-  margin-right: $carbon--spacing-05;
+:host(#{$c4d-prefix}-content-block-segmented-item) ::slotted(*) {
+  margin-left: $spacing-05;
+  margin-right: $spacing-05;
 }
 
 // TODO: Consider applying this rule in general
-:host(#{$dds-prefix}-content-block-segmented-item) {
-  ::slotted(#{$dds-prefix}-content-item-copy) {
-    @include carbon--breakpoint('md') {
-      width: calc((100% - 2 * #{$carbon--spacing-05}) * 0.9);
+:host(#{$c4d-prefix}-content-block-segmented-item) {
+  ::slotted(#{$c4d-prefix}-content-item-copy) {
+    @include breakpoint(md) {
+      width: calc((100% - 2 * #{$spacing-05}) * 0.9);
     }
   }
 
   ::slotted([slot='footer']) {
-    margin-top: $carbon--spacing-07;
+    margin-top: $spacing-07;
   }
 }
 
-.#{$dds-prefix}-ce--content-layout--with-adjacent-heading-content
+.#{$c4d-prefix}-ce--content-layout--with-adjacent-heading-content
   ::slotted([slot='heading']) {
   // In this condition, given the heading content and child content are in different grid area, both margins will be in effect.
   // Uses the margin of child content and cancels one of the heading to get the right margin.

@@ -7,33 +7,46 @@
  * LICENSE file in the root directory of this source tree.
  */
 
-import settings from 'carbon-components/es/globals/js/settings.js';
-import { html, state, LitElement, TemplateResult, property } from 'lit-element';
-import { unsafeHTML } from 'lit-html/directives/unsafe-html.js';
-import { classMap } from 'lit-html/directives/class-map.js';
-import ChevronRight20 from '../../internal/vendor/@carbon/web-components/icons/chevron--right/20.js';
-import ddsSettings from '../../internal/vendor/@carbon/ibmdotcom-utilities/utilities/settings/settings';
+import { html, LitElement, TemplateResult } from 'lit';
+import { property, state } from 'lit/decorators.js';
+import { classMap } from 'lit/directives/class-map.js';
+import settings from '../../internal/vendor/@carbon/ibmdotcom-utilities/utilities/settings/settings';
 import StableSelectorMixin from '../../globals/mixins/stable-selector';
-import DDSTab from './tab';
+import MediaQueryMixin, {
+  MQBreakpoints,
+  MQDirs,
+} from '../../component-mixins/media-query/media-query';
+import C4DTab from './tab';
 import styles from './tabs-extended.scss';
 import { ORIENTATION } from './defs';
 import { carbonElement as customElement } from '../../internal/vendor/@carbon/web-components/globals/decorators/carbon-element.js';
 
-const { prefix } = settings;
-const { stablePrefix: ddsPrefix } = ddsSettings;
+const { prefix, stablePrefix: c4dPrefix } = settings;
 
 /**
  * A component to present content inside a tabbed layout.
  *
- * @element dds-tabs-extended
+ * @element c4d-tabs-extended
  */
-@customElement(`${ddsPrefix}-tabs-extended`)
-class DDSTabsExtended extends StableSelectorMixin(LitElement) {
+@customElement(`${c4dPrefix}-tabs-extended`)
+class C4DTabsExtended extends MediaQueryMixin(StableSelectorMixin(LitElement), {
+  [MQBreakpoints.LG]: MQDirs.MAX,
+}) {
+  /**
+   * Whether we're viewing smaller or larger window.
+   */
+  @state()
+  _isMobileVersion = this.carbonBreakpoints.lg.matches;
+
+  mediaQueryCallbackMaxLG() {
+    this._isMobileVersion = this.carbonBreakpoints.lg.matches;
+  }
+
   /**
    * Child tab components.
    */
   @state()
-  private _tabItems: DDSTab[] = [];
+  private _tabItems: C4DTab[] = [];
 
   /**
    * Defines the active tab index.
@@ -48,7 +61,7 @@ class DDSTabsExtended extends StableSelectorMixin(LitElement) {
   _activeTab: string = '0';
 
   /**
-   * Handler for @slotChange, creates tabs from dds-tab components.
+   * Handler for @slotChange, creates tabs from c4d-tab components.
    *
    * @private
    */
@@ -57,10 +70,10 @@ class DDSTabsExtended extends StableSelectorMixin(LitElement) {
       flatten: true,
     });
     this._tabItems = slottedNodes.filter(
-      (node) => node instanceof DDSTab
-    ) as DDSTab[];
+      (node) => node instanceof C4DTab
+    ) as C4DTab[];
     this._tabItems.forEach((tab, index) => {
-      this._activeTabIndex = (tab as DDSTab).selected
+      this._activeTabIndex = (tab as C4DTab).selected
         ? index
         : this._activeTabIndex;
     });
@@ -71,13 +84,18 @@ class DDSTabsExtended extends StableSelectorMixin(LitElement) {
     this._setActiveItem(index);
   }
 
+  private _handleAccordionClick(e) {
+    const tab = e.target.closest('c4d-tab');
+    this._handleClick(tab.getIndex(), e);
+  }
+
   private _setActiveItem(index: number) {
     this._activeTabIndex = index;
     this._activeTab = index.toString();
     const newTabLink = this.shadowRoot?.querySelector(`
     [role="tablist"] li[role="tab"]:nth-child(${
       index + 1
-    }) .bx--tabs__nav-link`);
+    }) .cds--tabs__nav-link`);
     if (newTabLink instanceof HTMLElement) {
       newTabLink.focus();
     }
@@ -123,7 +141,7 @@ class DDSTabsExtended extends StableSelectorMixin(LitElement) {
   }
 
   private _getNextTab(activeIndex) {
-    let tabItems: DDSTab[];
+    let tabItems: C4DTab[];
 
     if (activeIndex > -1 && activeIndex < this._tabItems.length) {
       tabItems = this._reorderTabsFrom(activeIndex);
@@ -137,7 +155,7 @@ class DDSTabsExtended extends StableSelectorMixin(LitElement) {
   }
 
   private _getPrevTab(activeIndex) {
-    let tabItems: DDSTab[];
+    let tabItems: C4DTab[];
 
     if (activeIndex > 0 && activeIndex < this._tabItems.length) {
       tabItems = this._reorderTabsFrom(activeIndex - 1);
@@ -155,74 +173,67 @@ class DDSTabsExtended extends StableSelectorMixin(LitElement) {
 
     tabItems.forEach((_tabItem, i) => {
       if (i <= activeIndex) {
-        tabItems.push(tabItems.shift() as DDSTab);
+        tabItems.push(tabItems.shift() as C4DTab);
       }
     });
 
     return tabItems;
   }
 
-  updated() {
+  updated(changedProperties) {
+    const { _isMobileVersion, _tabItems } = this;
     this._isLTR = window.getComputedStyle(this).direction === 'ltr';
     this._activeTabIndex = parseInt(this._activeTab, 10);
 
-    this._tabItems.map((tab, index) => {
-      (tab as DDSTab).selected = index === this._activeTabIndex;
-      (tab as DDSTab).setIndex(index);
-      const navLink = this.shadowRoot!.querySelectorAll(
-        `.${prefix}--tabs__nav-link`
-      )[index];
-      const navText = navLink!.querySelector('div p');
-      if (navText!.scrollHeight > navText!.clientHeight) {
-        const label = (tab as DDSTab).getAttribute('label');
-        if (label) {
-          navLink!.setAttribute('aria-label', label);
-          navLink!.setAttribute('hasTooltip', label);
+    if (changedProperties.has('_tabItems')) {
+      _tabItems.forEach((tab, index) => {
+        (tab as C4DTab).setIndex(index);
+
+        if (_isMobileVersion) {
+          tab.addEventListener('click', this._handleAccordionClick.bind(this));
         }
-      }
-      return tab;
-    });
+      });
+    }
+
+    if (
+      changedProperties.has('_activeTabIndex') ||
+      changedProperties.has('_tabItems')
+    ) {
+      _tabItems.forEach((tab, index) => {
+        (tab as C4DTab).selected = index === this._activeTabIndex;
+      });
+    }
+
+    if (
+      (changedProperties.has('_isMobileVersion') && !_isMobileVersion) ||
+      (changedProperties.has('_tabItems') && !_isMobileVersion)
+    ) {
+      // Set aria-label on tabs for desktop.
+      _tabItems.forEach((tab, index) => {
+        const navLink = this.shadowRoot!.querySelectorAll(
+          `.${prefix}--tabs__nav-link`
+        )[index];
+        const navText = navLink!.querySelector('div p');
+        if (navText!.scrollHeight > navText!.clientHeight) {
+          const label = (tab as C4DTab).getAttribute('label');
+          if (label) {
+            navLink!.setAttribute('aria-label', label);
+            navLink!.setAttribute('hasTooltip', label);
+          }
+        }
+      });
+    }
   }
 
-  protected _renderAccordion(): TemplateResult | string | void {
-    const { _tabItems: tabs } = this;
+  protected _renderAccordion(): TemplateResult {
     return html`
       <ul class="${prefix}--accordion">
-        ${tabs.map((tab, index) => {
-          const { disabled } = tab as DDSTab;
-          const active = index === this._activeTabIndex;
-          const label = (tab as DDSTab).getAttribute('label');
-          const classes = classMap({
-            'bx--accordion__item': true,
-            'bx--accordion__item--active': active,
-            'bx--accordion__item--disabled': disabled,
-          });
-          return html`
-            <li class="${classes}">
-              <button
-                class="${prefix}--accordion__heading"
-                aria-expanded="${active}"
-                aria-controls="pane-${index}"
-                @click="${(e) => this._handleClick(index, e)}"
-                tabindex="${index + 1}"
-                ?disabled="${disabled}">
-                ${ChevronRight20({
-                  part: 'expando-icon',
-                  class: `${prefix}--accordion__arrow`,
-                })}
-                <div class="${prefix}--accordion__title">${label}</div>
-              </button>
-              <div id="pane-${index}" class="${prefix}--accordion__content">
-                ${unsafeHTML((tab as DDSTab).innerHTML)}
-              </div>
-            </li>
-          `;
-        })}
+        <slot @slotchange="${this._handleSlotChange}"></slot>
       </ul>
     `;
   }
 
-  protected _renderTabs(): TemplateResult | string | void {
+  protected _renderTabs(): TemplateResult {
     const { _tabItems: tabs } = this;
     return html`
       <div class="${prefix}--tabs">
@@ -231,13 +242,13 @@ class DDSTabsExtended extends StableSelectorMixin(LitElement) {
           role="tablist"
           @keydown="${this._handleTabListKeyDown}">
           ${tabs.map((tab, index) => {
-            const { disabled } = tab as DDSTab;
+            const { disabled } = tab as C4DTab;
             const active = index === this._activeTabIndex;
-            const label = (tab as DDSTab).getAttribute('label');
+            const label = (tab as C4DTab).getAttribute('label');
             const classes = classMap({
-              'bx--tabs__nav-item': true,
-              'bx--tabs__nav-item--selected': active,
-              'bx--tabs__nav-item--disabled': disabled,
+              'cds--tabs__nav-item': true,
+              'cds--tabs__nav-item--selected': active,
+              'cds--tabs__nav-item--disabled': disabled,
             });
             return html`
               <li
@@ -260,6 +271,9 @@ class DDSTabsExtended extends StableSelectorMixin(LitElement) {
           })}
         </ul>
       </div>
+      <div class="${prefix}--tab-content">
+        <slot @slotchange="${this._handleSlotChange}"></slot>
+      </div>
     `;
   }
 
@@ -275,27 +289,32 @@ class DDSTabsExtended extends StableSelectorMixin(LitElement) {
 
   /**
    * Orientation (horizontal (default) | vertical)
+   *
+   * @deprecated will only have horizontal variant
    */
   @property({ attribute: 'orientation', reflect: true })
   orientation = ORIENTATION.HORIZONTAL;
 
   render() {
+    const { _isMobileVersion: isMobileVersion } = this;
     return html`
       <div class="${this._getOrientationClass()}">
-        ${this._renderAccordion()} ${this._renderTabs()}
-        <div class="${prefix}--tab-content">
-          <slot @slotchange="${this._handleSlotChange}"></slot>
-        </div>
+        ${isMobileVersion ? this._renderAccordion() : this._renderTabs()}
       </div>
     `;
   }
 
   static get stableSelector() {
-    return `${ddsPrefix}--tabs-extended`;
+    return `${c4dPrefix}--tabs-extended`;
   }
 
   static styles = styles;
 }
 
+console.warn(
+  'The tabs-extended orientation prop has been deprecated in favor for only horizontal variations. ' +
+    'See tabs-extended documentation for more information.'
+);
+
 /* @__GENERATE_REACT_CUSTOM_ELEMENT_TYPE__ */
-export default DDSTabsExtended;
+export default C4DTabsExtended;

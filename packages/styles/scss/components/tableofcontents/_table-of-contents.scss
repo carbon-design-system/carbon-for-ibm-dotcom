@@ -1,0 +1,467 @@
+/**
+ * Copyright IBM Corp. 2016, 2023
+ *
+ * This source code is licensed under the Apache-2.0 license found in the
+ * LICENSE file in the root directory of this source tree.
+ */
+
+@use '@carbon/styles/scss/breakpoint' as *;
+@use '@carbon/styles/scss/config' as *;
+@use '@carbon/styles/scss/motion' as *;
+@use '@carbon/styles/scss/spacing' as *;
+@use '@carbon/styles/scss/theme' as *;
+@use '@carbon/styles/scss/themes' as *;
+@use '@carbon/styles/scss/type' as *;
+@use '@carbon/styles/scss/utilities' as *;
+@use '../../globals/utils/flex-grid' as *;
+@use '../../globals/vars' as *;
+@use '../../globals/utils/hang' as *;
+@use '../layout/layout';
+
+$hover-transition-timing: 95ms;
+
+// items that change according to the theme applied
+@mixin themed-items {
+  color: $text-primary;
+  background: $background;
+  .#{$prefix}--tableofcontents__mobile {
+    border-bottom: 1px solid $toggle-off;
+    box-shadow: 0 $spacing-01 $spacing-03 rgba(0, 0, 0, 0.2);
+
+    &:hover {
+      background-color: $background-hover;
+    }
+  }
+
+  .#{$prefix}--tableofcontents__desktop__item {
+    a {
+      border-left: $spacing-02 solid $layer-accent-01;
+      color: $text-secondary;
+
+      &:hover {
+        border-left-color: $background-selected-hover;
+        color: $text-primary;
+      }
+    }
+  }
+
+  .#{$prefix}--tableofcontents__navbar {
+    .#{$prefix}--tableofcontents__desktop__item {
+      margin-bottom: 1px;
+
+      a {
+        white-space: nowrap;
+        border-left: none;
+        color: $text-secondary;
+      }
+
+      &:hover {
+        background-color: $background-hover;
+      }
+    }
+
+    .#{$prefix}--tableofcontents__desktop__item--active a {
+      color: $text-primary;
+    }
+  }
+
+  .#{$prefix}--tableofcontents__desktop__item--active {
+    a,
+    a:hover {
+      color: $text-primary;
+      border-left-color: $link-primary;
+    }
+
+    a:focus {
+      border-bottom: none;
+    }
+
+    &:hover {
+      border-left-color: $link-primary;
+    }
+  }
+}
+
+@mixin table-of-contents {
+  :host(#{$c4d-prefix}-table-of-contents),
+  .#{$prefix}--tableofcontents {
+    text-size-adjust: 100%;
+    @extend .#{$prefix}--grid;
+    @include flex-grid();
+
+    display: block;
+    margin: 0;
+
+    @include themed-items;
+  }
+
+  .#{$c4d-prefix}-ce--table-of-contents__container,
+  .#{$c4d-prefix}-ce--table-of-contents-horizontal__container {
+    @include make-row();
+  }
+
+  .#{$prefix}--tableofcontents__sidebar {
+    @extend .#{$prefix}--col-lg-4;
+
+    position: sticky;
+    top: 0;
+    z-index: 10;
+    padding-left: 0;
+
+    @include breakpoint(lg) {
+      position: inherit;
+      top: auto;
+    }
+  }
+
+  .#{$prefix}--tableofcontents__content {
+    @extend .#{$prefix}--col-lg-12;
+  }
+
+  .#{$prefix}--tableofcontents__children__mobile {
+    @include breakpoint(lg) {
+      display: none;
+    }
+
+    margin-top: $spacing-07;
+  }
+
+  .#{$prefix}--tableofcontents__mobile {
+    margin-right: -$spacing-05;
+    background-color: $field-01;
+    padding-right: $spacing-05;
+    padding-left: $spacing-05;
+  }
+
+  .#{$prefix}--tableofcontents__mobile__select {
+    border-radius: 0;
+    border: none;
+    background-color: transparent;
+    color: $text-primary;
+    height: $spacing-09;
+    appearance: none;
+    @include type-style(body-compact-02);
+    @include focus-outline('reset');
+
+    max-width: 100%;
+    min-width: 100%;
+    text-overflow: ellipsis;
+    padding-right: $spacing-06;
+    display: block;
+    cursor: pointer;
+    transition: background-color $duration-fast-01 motion(standard, productive),
+      outline $duration-fast-01 motion(standard, productive);
+  }
+
+  .#{$prefix}--tableofcontents__mobile__select__wrapper {
+    height: rem(47px);
+    position: relative;
+    display: flex;
+    align-items: center;
+    flex: 1 1 100%;
+  }
+  .#{$prefix}--tableofcontents__mobile__select__icon {
+    position: absolute;
+    right: 0;
+    pointer-events: none;
+    cursor: pointer;
+  }
+
+  .#{$prefix}--tableofcontents__mobile__select__option {
+    @include theme($white, true);
+  }
+
+  .#{$prefix}--tableofcontents__desktop {
+    padding-top: $spacing-07;
+    margin-top: $spacing-07;
+    @include make-col(3, 4);
+  }
+
+  .#{$prefix}--tableofcontents__desktop__item {
+    a {
+      text-decoration: none;
+      display: inline-block;
+      width: 100%;
+      padding-top: $spacing-04;
+      padding-bottom: $spacing-04;
+      padding-left: $spacing-04;
+      @include type-style('body-02');
+    }
+
+    a:hover {
+      cursor: pointer;
+    }
+
+    a:focus {
+      outline: $spacing-01 solid $focus;
+      z-index: 1;
+      position: relative;
+    }
+  }
+
+  .#{$prefix}--tableofcontents__desktop__children {
+    padding-top: $spacing-10;
+    margin-bottom: -$spacing-07;
+
+    @include make-col(3, 4);
+
+    display: none;
+
+    @include breakpoint(lg) {
+      display: block;
+
+      &[hidden] {
+        display: none;
+      }
+    }
+
+    > .#{$prefix}--link-list {
+      padding-top: 0;
+      padding-bottom: $spacing-05;
+    }
+
+    hr[data-autoid='#{$c4d-prefix}--hr'] {
+      margin-top: 0;
+    }
+  }
+
+  .#{$prefix}--tableofcontents__contents {
+    [name] {
+      display: block;
+      color: $text-primary;
+      transform: translateY(calc(-1 * #{$spacing-07}));
+
+      > * {
+        transform: translateY($spacing-07);
+      }
+
+      &:focus {
+        outline: none;
+      }
+
+      @include breakpoint(lg) {
+        transform: none;
+
+        > * {
+          transform: none;
+        }
+      }
+    }
+  }
+
+  .#{$prefix}--tableofcontents-horizontal__contents {
+    [name] {
+      display: block;
+      padding-top: $spacing-09;
+    }
+  }
+
+  .#{$prefix}--tableofcontents__navbar {
+    z-index: 10;
+    position: sticky;
+    top: 0;
+    width: 100%;
+
+    @include breakpoint(lg) {
+      filter: drop-shadow(0 $spacing-01 6px rgba(0, 0, 0, 0.3));
+      border-bottom: 1px solid $toggle-off;
+      height: rem(49px);
+      background-color: $layer-01;
+    }
+
+    .#{$prefix}--tableofcontents__desktop__item {
+      a {
+        border-left: none;
+        color: $text-secondary;
+        padding-left: $spacing-05;
+        padding-right: $spacing-05;
+
+        &:focus {
+          outline: $spacing-01 solid $focus;
+          height: $spacing-09;
+          outline-offset: -#{$spacing-01};
+        }
+      }
+    }
+
+    .#{$prefix}--tableofcontents__desktop__item--active a {
+      border-bottom: $spacing-01 solid $border-interactive;
+      padding-bottom: rem(10px);
+    }
+
+    .#{$prefix}--tableofcontents__desktop {
+      flex: 1;
+      max-width: none;
+      padding-top: 0;
+      margin-top: 0;
+      position: absolute;
+      transition: left $transition-base motion(standard, productive);
+
+      ul {
+        display: flex;
+        justify-content: flex-start;
+      }
+    }
+  }
+
+  .#{$prefix}--sub-content-left {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 1px;
+    height: 100%;
+  }
+
+  .#{$prefix}--sub-content-right {
+    position: absolute;
+    top: 0;
+    right: 1px;
+    width: 1px;
+    height: 100%;
+  }
+
+  .#{$prefix}--toc__navbar-caret-left,
+  .#{$prefix}--toc__navbar-caret-right {
+    width: $spacing-08;
+    height: 100%;
+    display: none;
+    position: absolute;
+    top: 0;
+    border: none;
+    background-color: $layer-01;
+    > {
+      svg {
+        position: absolute;
+        fill: $icon-secondary;
+        top: 50%;
+        left: 50%;
+        transform: translateX(-50%) translateY(-50%);
+      }
+    }
+    &:hover {
+      background-color: $background-hover;
+      transition-duration: $hover-transition-timing;
+      > {
+        svg {
+          fill: $text-primary;
+        }
+      }
+    }
+    &:focus,
+    &:active {
+      display: block;
+      background-color: $background-hover;
+      outline: $spacing-01 solid $background-brand;
+      outline-offset: -#{$spacing-01};
+      &::before,
+      &::after {
+        display: none;
+      }
+    }
+    @media (min-width: 800px) {
+      display: block;
+    }
+  }
+
+  .#{$prefix}--toc__navbar-caret-left-container[hidden],
+  .#{$prefix}--toc__navbar-caret-right-container[hidden] {
+    display: none;
+  }
+
+  .#{$prefix}--toc__navbar-caret-left {
+    left: 0;
+  }
+
+  .#{$prefix}--toc__navbar-caret-left-gradient {
+    display: block;
+    position: absolute;
+    left: $spacing-08;
+    top: 0;
+    height: 100%;
+    width: $spacing-03;
+    z-index: 1;
+    background: linear-gradient(to right, $layer-01, rgba(255, 255, 255, 0));
+  }
+
+  .#{$prefix}--toc__navbar-caret-right {
+    right: 0;
+  }
+
+  .#{$prefix}--toc__navbar-caret-right-gradient {
+    display: block;
+    position: absolute;
+    top: 0;
+    right: $spacing-08;
+    height: 100%;
+    width: $spacing-03;
+    background: linear-gradient(to left, $layer-01, rgba(255, 255, 255, 0));
+  }
+
+  @include breakpoint(sm) {
+    .#{$prefix}--tableofcontents__desktop {
+      display: none;
+    }
+  }
+
+  @include breakpoint(md) {
+    .#{$prefix}--tableofcontents__mobile {
+      padding-left: $spacing-05;
+    }
+  }
+
+  @include breakpoint(lg) {
+    .#{$prefix}--tableofcontents__mobile {
+      display: none;
+    }
+
+    .#{$prefix}--tableofcontents__desktop {
+      display: block;
+    }
+  }
+
+  .#{$prefix}--tableofcontents--g100 {
+    @include theme($g100, feature-flag-enabled('enable-css-custom-properties'));
+
+    @include themed-items;
+  }
+
+  .#{$prefix}--tableofcontents--g10 {
+    @include theme($g10, feature-flag-enabled('enable-css-custom-properties'));
+
+    @include themed-items;
+  }
+
+  .#{$prefix}--toc__print-styles {
+    display: none;
+  }
+
+  @media print {
+    :host(#{$c4d-prefix}-table-of-contents),
+    .#{$prefix}--tableofcontents {
+      .#{$prefix}--tableofcontents__sidebar {
+        position: relative;
+      }
+
+      .#{$prefix}--tableofcontents__desktop {
+        display: block;
+      }
+      .#{$prefix}--tableofcontents__mobile {
+        display: none;
+      }
+
+      &[toc-layout='horizontal'] {
+        .#{$prefix}--tableofcontents__navbar {
+          display: none;
+        }
+
+        .#{$prefix}--toc__print-styles {
+          display: block;
+        }
+      }
+
+      ::slotted(#{$c4d-prefix}-image) {
+        width: 25%;
+      }
+    }
+  }
+}

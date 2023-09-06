@@ -5,7 +5,7 @@
  * LICENSE file in the root directory of this source tree.
  */
 
-import ddsSettings from '../../internal/vendor/@carbon/ibmdotcom-utilities/utilities/settings/settings';
+import settings from '../../internal/vendor/@carbon/ibmdotcom-utilities/utilities/settings/settings';
 import root from 'window-or-global';
 
 /**
@@ -116,7 +116,7 @@ class DDOAPI {
    */
   static async setVersion() {
     return await this.isReady().then(() => {
-      root.digitalData.page.pageInfo.version = ddsSettings.version;
+      root.digitalData.page.pageInfo.version = settings.version;
     });
   }
 

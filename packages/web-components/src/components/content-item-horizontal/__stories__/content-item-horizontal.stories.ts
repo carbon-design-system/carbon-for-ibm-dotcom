@@ -7,8 +7,8 @@
  * LICENSE file in the root directory of this source tree.
  */
 
-import { html } from 'lit-element';
-import ifNonNull from '../../../internal/vendor/@carbon/web-components/globals/directives/if-non-null.js';
+import { html } from 'lit';
+import { ifDefined } from 'lit/directives/if-defined.js';
 import { select } from '@storybook/addon-knobs';
 import readme from './README.stories.mdx';
 import textNullable from '../../../../.storybook/knob-text-nullable';
@@ -41,61 +41,61 @@ Aenean et ultricies est. Mauris iaculis eget dolor nec hendrerit.`;
 
 const bodyCopyWithFeaturedMedia = `Lorem ipsum *dolor* sit amet, [consectetur adipiscing](https://www.ibm.com) elit.
 Aenean et ultricies est. Mauris iaculis eget dolor nec hendrerit. Lorem ipsum dolor sit amet, consectetur adipiscing elit,
-sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation 
-ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum 
-dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim 
+sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation
+ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum
+dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim
 id est laborum.`;
 
 export const Default = (args) => {
   const { eyebrow, heading, copy, withMedia } =
     args?.ContentItemHorizontal ?? {};
   return html`
-    <dds-content-item-horizontal>
-      <dds-content-item-horizontal-eyebrow
-        >${eyebrow}</dds-content-item-horizontal-eyebrow
+    <c4d-content-item-horizontal>
+      <c4d-content-item-horizontal-eyebrow
+        >${eyebrow}</c4d-content-item-horizontal-eyebrow
       >
-      <dds-content-item-heading>${heading}</dds-content-item-heading>
-      <dds-content-item-horizontal-copy
-        >${copy}</dds-content-item-horizontal-copy
+      <c4d-content-item-heading>${heading}</c4d-content-item-heading>
+      <c4d-content-item-horizontal-copy
+        >${copy}</c4d-content-item-horizontal-copy
       >
-      <dds-text-cta slot="footer" href="https://www.ibm.com" cta-type="local"
-        >Learn more</dds-text-cta
+      <c4d-text-cta slot="footer" href="https://www.ibm.com" cta-type="local"
+        >Learn more</c4d-text-cta
       >
 
       ${withMedia === MEDIA_TYPE.IMAGE
         ? html`
-            <dds-image
+            <c4d-image
               slot="media"
               alt="image alt text"
-              default-src="${imgLg16x9}"></dds-image>
+              default-src="${imgLg16x9}"></c4d-image>
           `
         : null}
       ${withMedia === MEDIA_TYPE.VIDEO
         ? html`
-            <dds-content-item-horizontal-media-video
-              video-id="1_9h94wo6b"></dds-content-item-horizontal-media-video>
+            <c4d-content-item-horizontal-media-video
+              video-id="1_9h94wo6b"></c4d-content-item-horizontal-media-video>
           `
         : null}
-    </dds-content-item-horizontal>
+    </c4d-content-item-horizontal>
   `;
 };
 
 export const WithThumbnail = (args) => {
   const { alt, heading, copy } = args?.ContentItemHorizontal ?? {};
   return html`
-    <dds-content-item-horizontal thumbnail>
-      <dds-content-item-heading>${heading}</dds-content-item-heading>
-      <dds-content-item-horizontal-thumbnail-copy
-        >${copy}</dds-content-item-horizontal-thumbnail-copy
+    <c4d-content-item-horizontal thumbnail>
+      <c4d-content-item-heading>${heading}</c4d-content-item-heading>
+      <c4d-content-item-horizontal-thumbnail-copy
+        >${copy}</c4d-content-item-horizontal-thumbnail-copy
       >
-      <dds-text-cta slot="footer" href="https://www.ibm.com" cta-type="local"
-        >Learn more</dds-text-cta
+      <c4d-text-cta slot="footer" href="https://www.ibm.com" cta-type="local"
+        >Learn more</c4d-text-cta
       >
-      <dds-image
+      <c4d-image
         slot="thumbnail"
-        alt="${ifNonNull(alt)}"
-        default-src="${imgMd4x3}"></dds-image>
-    </dds-content-item-horizontal>
+        alt="${ifDefined(alt)}"
+        default-src="${imgMd4x3}"></c4d-image>
+    </c4d-content-item-horizontal>
   `;
 };
 
@@ -103,79 +103,79 @@ export const WithMedia = (args) => {
   const { align, type, alt, heading, eyebrow, copy } =
     args?.ContentItemHorizontal ?? {};
   return html`
-    <dds-content-item-horizontal-media align="${align}">
+    <c4d-content-item-horizontal-media align="${align}">
       ${type === MEDIA_TYPE.IMAGE
         ? html`
-            <dds-image
+            <c4d-image
               slot="media"
-              alt="${ifNonNull(alt)}"
-              default-src="${imgLg16x9}"></dds-image>
+              alt="${ifDefined(alt)}"
+              default-src="${imgLg16x9}"></c4d-image>
           `
         : null}
       ${type === MEDIA_TYPE.VIDEO
         ? html`
-            <dds-content-item-horizontal-media-video
-              video-id="1_9h94wo6b"></dds-content-item-horizontal-media-video>
+            <c4d-content-item-horizontal-media-video
+              video-id="1_9h94wo6b"></c4d-content-item-horizontal-media-video>
           `
         : null}
-      <dds-content-item-horizontal-eyebrow
-        >${eyebrow}</dds-content-item-horizontal-eyebrow
+      <c4d-content-item-horizontal-eyebrow
+        >${eyebrow}</c4d-content-item-horizontal-eyebrow
       >
-      <dds-content-item-heading>${heading}</dds-content-item-heading>
-      <dds-content-item-horizontal-media-copy
-        >${copy}</dds-content-item-horizontal-media-copy
+      <c4d-content-item-heading>${heading}</c4d-content-item-heading>
+      <c4d-content-item-horizontal-media-copy
+        >${copy}</c4d-content-item-horizontal-media-copy
       >
-      <dds-text-cta slot="footer" href="https://www.ibm.com" cta-type="local"
-        >Learn more</dds-text-cta
+      <c4d-text-cta slot="footer" href="https://www.ibm.com" cta-type="local"
+        >Learn more</c4d-text-cta
       >
-    </dds-content-item-horizontal-media>
+    </c4d-content-item-horizontal-media>
   `;
 };
 
 export const WithMediaFeatured = (args) => {
   const { type, heading, eyebrow, copy } = args?.ContentItemHorizontal ?? {};
   return html`
-    <dds-content-item-horizontal-media-featured>
+    <c4d-content-item-horizontal-media-featured>
       ${type === MEDIA_TYPE.IMAGE
         ? html`
-            <dds-image
+            <c4d-image
               slot="media"
               alt="Image alt text"
               default-src="${imgLg16x9}"
               heading="Lorem ipsum dolor sit amet">
-            </dds-image>
+            </c4d-image>
           `
         : null}
       ${type === MEDIA_TYPE.VIDEO
         ? html`
-            <dds-content-item-horizontal-media-video
-              video-id="1_9h94wo6b"></dds-content-item-horizontal-media-video>
+            <c4d-content-item-horizontal-media-video
+              video-id="1_9h94wo6b"></c4d-content-item-horizontal-media-video>
           `
         : null}
-      <dds-content-item-horizontal-eyebrow
-        >${eyebrow}</dds-content-item-horizontal-eyebrow
+      <c4d-content-item-horizontal-eyebrow
+        >${eyebrow}</c4d-content-item-horizontal-eyebrow
       >
-      <dds-content-item-heading>${heading}</dds-content-item-heading>
-      <dds-content-item-horizontal-media-copy
-        >${copy}</dds-content-item-horizontal-media-copy
+      <c4d-content-item-heading>${heading}</c4d-content-item-heading>
+      <c4d-content-item-horizontal-media-copy
+        >${copy}</c4d-content-item-horizontal-media-copy
       >
-      <dds-text-cta slot="footer" href="https://www.ibm.com" cta-type="local"
-        >Learn more</dds-text-cta
+      <c4d-text-cta slot="footer" href="https://www.ibm.com" cta-type="local"
+        >Learn more</c4d-text-cta
       >
-    </dds-content-item-horizontal-media-featured>
+    </c4d-content-item-horizontal-media-featured>
   `;
 };
 
 Default.story = {
   parameters: {
-    gridContentClasses: 'bx--col-lg-12 bx--no-gutter',
+    gridContentClasses: 'cds--col-lg-12 cds--no-gutter',
   },
 };
 
 WithThumbnail.story = {
   name: 'With thumbnail',
   parameters: {
-    gridContentClasses: 'bx--col-lg-12 bx--no-gutter',
+    gridContentClasses: 'cds--col-lg-12 cds--no-gutter',
     knobs: {
       ContentItemHorizontal: () => ({
         heading: textNullable('Heading (heading):', 'Aliquam condimentum'),
@@ -196,7 +196,7 @@ WithThumbnail.story = {
 WithMedia.story = {
   name: 'With media',
   parameters: {
-    gridContentClasses: 'bx--col-lg-12 bx--no-gutter',
+    gridContentClasses: 'cds--col-lg-12 cds--no-gutter',
     knobs: {
       ContentItemHorizontal: () => ({
         align: select('Alignment', mediaAlign, MEDIA_ALIGN.RIGHT),
@@ -224,7 +224,7 @@ WithMedia.story = {
 WithMediaFeatured.story = {
   name: 'With featured media',
   parameters: {
-    gridContentClasses: 'bx--col-lg-12',
+    gridContentClasses: 'cds--col-lg-12',
     knobs: {
       ContentItemHorizontal: () => ({
         type: select('Media type', mediaType, MEDIA_TYPE.IMAGE),
@@ -251,8 +251,8 @@ export default {
   title: 'Components/Content item horizontal',
   decorators: [
     (story, { parameters }) => html`
-      <div class="bx--grid">
-        <div class="bx--row">
+      <div class="cds--grid">
+        <div class="cds--row">
           <div class="${parameters.gridContentClasses}">${story()}</div>
         </div>
       </div>

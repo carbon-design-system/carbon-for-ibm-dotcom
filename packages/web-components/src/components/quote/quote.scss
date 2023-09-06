@@ -5,39 +5,45 @@
 // LICENSE file in the root directory of this source tree.
 //
 
-@import '@carbon/ibmdotcom-styles/scss/components/quote/quote';
-@import '@carbon/ibmdotcom-styles/scss/components/link-with-icon/link-with-icon';
+@use '@carbon/styles/scss/breakpoint' as *;
+@use '@carbon/styles/scss/config' as *;
+@use '@carbon/styles/scss/spacing' as *;
+@use '@carbon/styles/scss/theme' as *;
+@use '@carbon/ibmdotcom-styles/scss/components/quote';
+@use '@carbon/ibmdotcom-styles/scss/components/link-with-icon';
+@use '@carbon/ibmdotcom-styles/scss/globals/vars' as *;
 
-:host(#{$dds-prefix}-quote-source-bottom-copy),
-:host(#{$dds-prefix}-quote-source-copy),
-:host(#{$dds-prefix}-quote-source-heading) {
+:host(#{$c4d-prefix}-quote-source-bottom-copy),
+:host(#{$c4d-prefix}-quote-source-copy),
+:host(#{$c4d-prefix}-quote-source-heading) {
   display: block;
 }
 
-:host(#{$dds-prefix}-quote) #{$dds-prefix}-hr {
-  margin: 1rem;
-  @include carbon--breakpoint('md') {
-    margin: 1rem 0;
+:host(#{$c4d-prefix}-quote) #{$c4d-prefix}-hr {
+  margin: $spacing-05;
+  @include breakpoint(md) {
+    margin: $spacing-05 0;
   }
-  @include carbon--breakpoint('lg') {
-    margin: 1rem 0.5rem;
+  @include breakpoint(lg) {
+    margin: $spacing-05 $spacing-03;
   }
 }
 
-:host(#{$dds-prefix}-quote-link-with-icon) {
+:host(#{$c4d-prefix}-quote-link-with-icon) {
   @extend .#{$prefix}--link-with-icon;
 
   display: inline-block;
 }
 
-:host-context(#{$dds-prefix}-quote[color-scheme='inverse'])
+:host-context(#{$c4d-prefix}-quote[color-scheme='inverse'])
   a.#{$prefix}--link-with-icon.#{$prefix}--link.#{$prefix}--link-with-icon__icon-right {
-  color: $inverse-link;
-  outline-color: $inverse-focus-ui;
+  color: $link-inverse;
+  outline-color: $focus-inverse;
   &:hover {
-    color: $blue-40;
+    color: $link-inverse;
+    text-decoration: underline;
   }
   &:active {
-    color: $inverse-link;
+    color: $link-inverse;
   }
 }

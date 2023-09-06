@@ -7,26 +7,25 @@
  * LICENSE file in the root directory of this source tree.
  */
 
-import { css, html, property } from 'lit-element';
-import settings from 'carbon-components/es/globals/js/settings.js';
-import ddsSettings from '../../internal/vendor/@carbon/ibmdotcom-utilities/utilities/settings/settings';
-import DDSFeatureCard from '../feature-card/feature-card';
+import { css, html } from 'lit';
+import { property } from 'lit/decorators.js';
+import settings from '../../internal/vendor/@carbon/ibmdotcom-utilities/utilities/settings/settings';
+import C4DFeatureCard from '../feature-card/feature-card';
 import '../image/image';
 import styles from './feature-section.scss';
 import StableSelectorMixin from '../../globals/mixins/stable-selector';
 import { MEDIA_ALIGNMENT } from './defs';
 import { carbonElement as customElement } from '../../internal/vendor/@carbon/web-components/globals/decorators/carbon-element';
 
-const { prefix } = settings;
-const { stablePrefix: ddsPrefix } = ddsSettings;
+const { prefix, stablePrefix: c4dPrefix } = settings;
 
 /**
  * Feature Section.
  *
- * @element dds-feature-section
+ * @element c4d-feature-section
  */
-@customElement(`${ddsPrefix}-feature-section`)
-class DDSFeatureSection extends StableSelectorMixin(DDSFeatureCard) {
+@customElement(`${c4dPrefix}-feature-section`)
+class C4DFeatureSection extends StableSelectorMixin(C4DFeatureCard) {
   /**
    * Media Alignment (right (default) | left)
    */
@@ -88,7 +87,7 @@ class DDSFeatureSection extends StableSelectorMixin(DDSFeatureCard) {
   }
 
   static get stableSelector() {
-    return `${ddsPrefix}--feature-section`;
+    return `${c4dPrefix}--feature-section`;
   }
 
   static get styles() {
@@ -99,4 +98,4 @@ class DDSFeatureSection extends StableSelectorMixin(DDSFeatureCard) {
 }
 
 /* @__GENERATE_REACT_CUSTOM_ELEMENT_TYPE__ */
-export default DDSFeatureSection;
+export default C4DFeatureSection;

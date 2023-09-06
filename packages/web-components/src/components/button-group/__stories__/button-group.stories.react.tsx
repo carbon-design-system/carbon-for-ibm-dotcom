@@ -15,8 +15,8 @@ import Pdf20 from '@carbon/icons-react/es/PDF/20.js';
 // Below path will be there when an application installs `@carbon/ibmdotcom-web-components` package.
 // In our dev env, we auto-generate the file and re-map below path to to point to the generated file.
 // @ts-ignore
-import DDSButtonGroup from '@carbon/ibmdotcom-web-components/es/components-react/button-group/button-group';
-import DDSButtonGroupItem from '@carbon/ibmdotcom-web-components/es/components-react/button-group/button-group-item';
+import C4DButtonGroup from '@carbon/ibmdotcom-web-components/es/components-react/button-group/button-group';
+import C4DButtonGroupItem from '@carbon/ibmdotcom-web-components/es/components-react/button-group/button-group-item';
 import readme from './README.stories.react.mdx';
 import textNullable from '../../../../.storybook/knob-text-nullable';
 
@@ -33,17 +33,17 @@ const iconOptions = {
   PDF: 'Pdf20',
 };
 
-export const Default = args => {
+export const Default = (args) => {
   const { buttons } = args?.ButtonGroup ?? {};
 
   return (
-    <DDSButtonGroup>
-      {buttons.map(elem => (
-        <DDSButtonGroupItem href={elem.href}>
+    <C4DButtonGroup>
+      {buttons.map((elem) => (
+        <C4DButtonGroupItem href={elem.href}>
           {elem.renderIcon} {elem.copy}
-        </DDSButtonGroupItem>
+        </C4DButtonGroupItem>
       ))}
-    </DDSButtonGroup>
+    </C4DButtonGroup>
   );
 };
 
@@ -56,7 +56,10 @@ Default.story = {
         }).map((_, i) => ({
           href: textNullable(`Link ${i + 1}`, `https://example.com`),
           copy: text(`Button ${i + 1}`, `Button ${i + 1}`),
-          renderIcon: iconMap[select(`Icon ${i + 1}`, iconOptions, iconOptions.Default) ?? 0],
+          renderIcon:
+            iconMap[
+              select(`Icon ${i + 1}`, iconOptions, iconOptions.Default) ?? 0
+            ],
         })),
       }),
     },
@@ -82,11 +85,13 @@ Default.story = {
 export default {
   title: 'Components/Button group',
   decorators: [
-    story => {
+    (story) => {
       return (
-        <div className="bx--grid">
-          <div className="bx--row">
-            <div className="bx--col-sm-16 bx--col-md-6 bx--col-lg-16">{story()}</div>
+        <div className="cds--grid">
+          <div className="cds--row">
+            <div className="cds--col-sm-16 cds--col-md-6 cds--col-lg-16">
+              {story()}
+            </div>
           </div>
         </div>
       );

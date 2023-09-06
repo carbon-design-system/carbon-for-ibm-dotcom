@@ -12,12 +12,12 @@ import React from 'react';
 // Below path will be there when an application installs `@carbon/ibmdotcom-web-components` package.
 // In our dev env, we auto-generate the file and re-map below path to to point to the generated file.
 // @ts-ignore
-import DDSTagLink from '@carbon/ibmdotcom-web-components/es/components-react/tag-link/tag-link';
+import C4DTagLink from '@carbon/ibmdotcom-web-components/es/components-react/tag-link/tag-link';
 import readme from './README.stories.react.mdx';
 
-export const Default = args => {
+export const Default = (args) => {
   const { copy, href } = args?.TagLink ?? {};
-  return <DDSTagLink href={href || undefined}>{copy}</DDSTagLink>;
+  return <C4DTagLink href={href || undefined}>{copy}</C4DTagLink>;
 };
 
 Default.story = {
@@ -34,8 +34,8 @@ Default.story = {
 export default {
   title: 'Components/Tag link',
   decorators: [
-    story => {
-      return <div className="bx--grid">{story()}</div>;
+    (story) => {
+      return <div className="cds--grid">{story()}</div>;
     },
   ],
   parameters: {

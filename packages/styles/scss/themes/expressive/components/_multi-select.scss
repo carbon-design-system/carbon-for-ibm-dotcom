@@ -5,7 +5,7 @@
  * LICENSE file in the root directory of this source tree.
  */
 
-@import 'carbon-components/scss/globals/scss/vendor/@carbon/elements/scss/layout/convert';
+@use '@carbon/styles/scss/utilities/convert' as *;
 
 //-----------------------------
 // Combo Box (expressive)
@@ -17,7 +17,7 @@
 @mixin multi-select-expressive {
   .#{$prefix}--multi-select.#{$prefix}--list-box {
     .#{$prefix}--list-box__menu-icon {
-      top: 0.75rem;
+      top: $spacing-04;
       svg {
         height: rem(20px);
         width: rem(20px);

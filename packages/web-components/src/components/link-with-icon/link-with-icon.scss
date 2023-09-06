@@ -5,21 +5,24 @@
 // LICENSE file in the root directory of this source tree.
 //
 
-@import '@carbon/ibmdotcom-styles/scss/globals/vars';
-@import '@carbon/ibmdotcom-styles/scss/components/link-with-icon/link-with-icon';
-@import '../../globals/scss/box-sizing';
+@use '@carbon/styles/scss/breakpoint' as *;
+@use '@carbon/styles/scss/config' as *;
+@use '@carbon/styles/scss/spacing' as *;
+@use '@carbon/styles/scss/theme' as *;
+@use '@carbon/ibmdotcom-styles/scss/components/link-with-icon';
+@use '@carbon/ibmdotcom-styles/scss/globals/vars' as *;
 
-:host(#{$dds-prefix}-link-with-icon),
-:host(#{$dds-prefix}-link-list-item),
-:host(#{$dds-prefix}-text-cta),
-:host(#{$dds-prefix}-link-list-item-cta) {
-  // Re-define the ruleset so this wins over `.bx--link:visited`, etc.
+:host(#{$c4d-prefix}-link-with-icon),
+:host(#{$c4d-prefix}-link-list-item),
+:host(#{$c4d-prefix}-text-cta),
+:host(#{$c4d-prefix}-link-list-item-cta) {
+  // Re-define the ruleset so this wins over `.cds--link:visited`, etc.
   .#{$prefix}--link--disabled {
-    color: $disabled-02;
+    color: $text-disabled;
   }
 }
 
-:host(#{$dds-prefix}-link-list-item) {
+:host(#{$c4d-prefix}-link-list-item) {
   .#{$prefix}--link {
     align-content: flex-start;
 
@@ -30,12 +33,12 @@
   }
 }
 
-:host(#{$dds-prefix}-link-list-item)[type='end'] {
+:host(#{$c4d-prefix}-link-list-item)[type='end'] {
   .#{$prefix}--link-with-icon__icon-left ::slotted(svg[slot='icon']) {
-    margin-right: $carbon--spacing-07;
+    margin-right: $spacing-07;
   }
 
   .#{$prefix}--link-with-icon__icon-right ::slotted(svg[slot='icon']) {
-    margin-left: $carbon--spacing-07;
+    margin-left: $spacing-07;
   }
 }

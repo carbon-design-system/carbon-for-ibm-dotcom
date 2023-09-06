@@ -5,9 +5,12 @@
  * LICENSE file in the root directory of this source tree.
  */
 
-@import '../../globals/imports';
-@import '../../globals/utils/ratio-base';
-@import 'carbon-components/scss/components/slider/slider';
+@use '@carbon/styles/scss/config' as *;
+@use '@carbon/styles/scss/spacing' as *;
+@use '@carbon/styles/scss/theme' as *;
+@use '../../globals/vars' as *;
+@use '../../globals/utils/ratio-base' as *;
+@use '@carbon/styles/scss/components/slider';
 
 @mixin audio-player {
   .#{$prefix}--audio-player {
@@ -16,7 +19,7 @@
     align-items: center;
     height: $spacing-09;
     padding: 0 $spacing-03 0 0;
-    background-color: $ui-01;
+    background-color: $layer-01;
 
     /* For Accessibility on the buttons, when focusing the button */
     .#{$prefix}--btn {
@@ -37,7 +40,7 @@
                 path {
                   &:not([data-icon-path]) {
                     &:not([fill='none']) {
-                      fill: $ui-03;
+                      fill: $layer-accent-01;
                     }
                   }
                 }
@@ -47,7 +50,7 @@
         }
 
         &.#{$prefix}--tooltip__trigger:focus {
-          outline: $spacing-01 solid var(--cds-focus, $carbon--blue-60);
+          outline: $spacing-01 solid $focus;
           outline-offset: calc(-1 * #{$spacing-01});
         }
       }
@@ -62,20 +65,19 @@
     align-items: center;
     width: 100%;
     padding: $spacing-05;
-    background-color: $ui-01;
-    border-bottom: 1px solid $ui-03;
+    background-color: $layer-01;
+    border-bottom: 1px solid $layer-accent-01;
   }
 
   .#{$prefix}--audio-player__captions-text {
     min-height: calc(#{$spacing-05} + #{$spacing-01});
-    color: $text-01;
-    @include carbon--type-style('caption-01');
+    color: $text-primary;
   }
 
   .#{$prefix}--audio-player__thumbnail {
     width: $spacing-09;
     height: $spacing-09;
-    border: 1px solid $ui-03;
+    border: 1px solid $layer-accent-01;
 
     background-position: center;
     background-repeat: no-repeat;
@@ -101,8 +103,8 @@
     }
     svg {
       &.#{$prefix}--btn__icon {
-        width: var(--cds-icon-size-04, 2rem);
-        height: var(--cds-icon-size-04, 2rem);
+        width: $spacing-07;
+        height: $spacing-07;
       }
     }
   }
@@ -132,7 +134,7 @@
     }
 
     .#{$prefix}--menu--open {
-      background-color: $hover-ui;
+      background-color: $background-hover;
     }
   }
   .#{$prefix}--audio-player__volume-control-menu {
@@ -162,8 +164,4 @@
       height: 100%;
     }
   }
-}
-
-@include exports('audio-player') {
-  @include audio-player;
 }

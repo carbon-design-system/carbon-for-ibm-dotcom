@@ -5,12 +5,18 @@
 // LICENSE file in the root directory of this source tree.
 //
 
-@import '@carbon/ibmdotcom-styles/scss/globals/vars';
-@import '@carbon/web-components/scss/components/button/button';
-@import '../../globals/scss/box-sizing';
+@use '@carbon/styles/scss/config' as *;
+@use '@carbon/styles/scss/spacing' as *;
+@use '@carbon/styles/scss/theme' as *;
+@use '@carbon/ibmdotcom-styles/scss/globals/vars' as *;
+@use '../../../../carbon-web-components/src/components/button/button';
+//
+:host(#{$c4d-prefix}-button) {
+  @extend :host(#{$prefix}-button);
 
-:host(#{$dds-prefix}-button-expressive) {
-  @extend :host(#{$prefix}-btn);
+  svg {
+    @extend .#{$prefix}--btn__icon;
+  }
 
   .#{$prefix}--btn--hidden {
     display: none;
@@ -20,7 +26,7 @@
       display: inline-block;
       visibility: visible;
       font-weight: 200;
-      color: $gray-100;
+      color: $text-primary;
 
       span {
         font-weight: 600;

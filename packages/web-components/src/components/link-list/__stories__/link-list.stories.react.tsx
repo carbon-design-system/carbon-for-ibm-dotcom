@@ -13,23 +13,23 @@ import ArrowRight20 from '@carbon/icons-react/es/arrow--right/20.js';
 // Below path will be there when an application installs `@carbon/ibmdotcom-web-components` package.
 // In our dev env, we auto-generate the file and re-map below path to to point to the generated file.
 // @ts-ignore
-import DDSLinkList from '@carbon/ibmdotcom-web-components/es/components-react/link-list/link-list';
+import C4DLinkList from '@carbon/ibmdotcom-web-components/es/components-react/link-list/link-list';
 // @ts-ignore
-import DDSLinkListHeading from '@carbon/ibmdotcom-web-components/es/components-react/link-list/link-list-heading';
+import C4DLinkListHeading from '@carbon/ibmdotcom-web-components/es/components-react/link-list/link-list-heading';
 // @ts-ignore
-import DDSLinkListItemCard from '@carbon/ibmdotcom-web-components/es/components-react/link-list/link-list-item-card';
+import C4DLinkListItemCard from '@carbon/ibmdotcom-web-components/es/components-react/link-list/link-list-item-card';
 // @ts-ignore
-import DDSLinkListItem from '@carbon/ibmdotcom-web-components/es/components-react/link-list/link-list-item';
+import C4DLinkListItem from '@carbon/ibmdotcom-web-components/es/components-react/link-list/link-list-item';
 // @ts-ignore
-import DDSLinkListItemCTA from '@carbon/ibmdotcom-web-components/es/components-react/cta/link-list-item-cta';
+import C4DLinkListItemCTA from '@carbon/ibmdotcom-web-components/es/components-react/cta/link-list-item-cta';
 // @ts-ignore
-import DDSLinkListItemCardCTA from '@carbon/ibmdotcom-web-components/es/components-react/cta/link-list-item-card-cta';
+import C4DLinkListItemCardCTA from '@carbon/ibmdotcom-web-components/es/components-react/cta/link-list-item-card-cta';
 // @ts-ignore
-import DDSVideoCTAContainer from '@carbon/ibmdotcom-web-components/es/components-react/cta/video-cta-container';
+import C4DVideoCTAContainer from '@carbon/ibmdotcom-web-components/es/components-react/cta/video-cta-container';
 // @ts-ignore
-import DDSCardFooter from '@carbon/ibmdotcom-web-components/es/components-react/card/card-footer';
+import C4DCardFooter from '@carbon/ibmdotcom-web-components/es/components-react/card/card-footer';
 // @ts-ignore
-import DDSCardCTAFooter from '@carbon/ibmdotcom-web-components/es/components-react/cta/card-cta-footer';
+import C4DCardCTAFooter from '@carbon/ibmdotcom-web-components/es/components-react/cta/card-cta-footer';
 
 import { CTA_TYPE } from '../../cta/defs';
 import { ICON_PLACEMENT } from '../../link-with-icon/link-with-icon';
@@ -41,7 +41,8 @@ const hrefsForType = {
   [CTA_TYPE.LOCAL]: 'https://www.example.com',
   [CTA_TYPE.JUMP]: '#example',
   [CTA_TYPE.EXTERNAL]: 'https://www.example.com',
-  [CTA_TYPE.DOWNLOAD]: 'https://www.ibm.com/annualreport/assets/downloads/IBM_Annual_Report_2019.pdf',
+  [CTA_TYPE.DOWNLOAD]:
+    'https://www.ibm.com/annualreport/assets/downloads/IBM_Annual_Report_2019.pdf',
   [CTA_TYPE.VIDEO]: '1_9h94wo6b',
 };
 
@@ -63,51 +64,65 @@ const types = {
   [`Video (${CTA_TYPE.VIDEO})`]: CTA_TYPE.VIDEO,
 };
 
-export const Default = args => {
+export const Default = (args) => {
   const { ctaType, download, href } = args?.LinkListItem ?? {};
   return !ctaType ? (
-    <DDSLinkList type="default">
-      <DDSLinkListHeading>Tutorial</DDSLinkListHeading>
-      <DDSLinkListItemCard href="https://example.com">
+    <C4DLinkList type="default">
+      <C4DLinkListHeading>Tutorial</C4DLinkListHeading>
+      <C4DLinkListItemCard href="https://example.com">
         <p>Learn more about Kubernetes</p>
-        <DDSCardFooter>
+        <C4DCardFooter>
           <ArrowRight20 slot="icon" />
-        </DDSCardFooter>
-      </DDSLinkListItemCard>
-      <DDSLinkListItemCard href="https://example.com">
+        </C4DCardFooter>
+      </C4DLinkListItemCard>
+      <C4DLinkListItemCard href="https://example.com">
         <p>Containerization A Complete Guide</p>
-        <DDSCardFooter>
+        <C4DCardFooter>
           <ArrowRight20 slot="icon" />
-        </DDSCardFooter>
-      </DDSLinkListItemCard>
-    </DDSLinkList>
+        </C4DCardFooter>
+      </C4DLinkListItemCard>
+    </C4DLinkList>
   ) : (
-    <DDSLinkList type="default">
-      <DDSLinkListHeading>Tutorial</DDSLinkListHeading>
-      <DDSLinkListItemCardCTA href={href} cta-type={ctaType} download={download}>
+    <C4DLinkList type="default">
+      <C4DLinkListHeading>Tutorial</C4DLinkListHeading>
+      <C4DLinkListItemCardCTA
+        href={href}
+        cta-type={ctaType}
+        download={download}>
         {ctaType !== CTA_TYPE.VIDEO && <p>Learn more about Kubernetes</p>}
-        <DDSCardCTAFooter />
-      </DDSLinkListItemCardCTA>
-      <DDSLinkListItemCardCTA href={href} cta-type={ctaType} download={download}>
+        <C4DCardCTAFooter />
+      </C4DLinkListItemCardCTA>
+      <C4DLinkListItemCardCTA
+        href={href}
+        cta-type={ctaType}
+        download={download}>
         {ctaType !== CTA_TYPE.VIDEO && <p>Containerization A Complete Guide</p>}
-        <DDSCardCTAFooter />
-      </DDSLinkListItemCardCTA>
-    </DDSLinkList>
+        <C4DCardCTAFooter />
+      </C4DLinkListItemCardCTA>
+    </C4DLinkList>
   );
 };
 
 Default.story = {
   parameters: {
-    colLgClass: 'bx--col-lg-3',
+    colLgClass: 'cds--col-lg-3',
     knobs: {
       LinkListItem: () => {
         const ctaType = select('CTA type (cta-type)', types, null);
         const download =
-          ctaType !== CTA_TYPE.DOWNLOAD ? undefined : textNullable('Download target (download)', 'IBM_Annual_Report_2019.pdf');
+          ctaType !== CTA_TYPE.DOWNLOAD
+            ? undefined
+            : textNullable(
+                'Download target (download)',
+                'IBM_Annual_Report_2019.pdf'
+              );
         return {
           ctaType,
           download,
-          href: textNullable(knobNamesForType[ctaType ?? CTA_TYPE.REGULAR], hrefsForType[ctaType ?? CTA_TYPE.REGULAR]),
+          href: textNullable(
+            knobNamesForType[ctaType ?? CTA_TYPE.REGULAR],
+            hrefsForType[ctaType ?? CTA_TYPE.REGULAR]
+          ),
         };
       },
     },
@@ -123,43 +138,68 @@ Default.story = {
   },
 };
 
-export const Horizontal = args => {
-  const { ctaType, download, href, iconPlacement = ICON_PLACEMENT.RIGHT } = args?.LinkListItem ?? {};
+export const Horizontal = (args) => {
+  const {
+    ctaType,
+    download,
+    href,
+    iconPlacement = ICON_PLACEMENT.RIGHT,
+  } = args?.LinkListItem ?? {};
   return !ctaType ? (
-    <DDSLinkList type="horizontal">
-      <DDSLinkListHeading>Tutorial</DDSLinkListHeading>
-      <DDSLinkListItem icon-placement={iconPlacement} href="https://example.com">
+    <C4DLinkList type="horizontal">
+      <C4DLinkListHeading>Tutorial</C4DLinkListHeading>
+      <C4DLinkListItem
+        icon-placement={iconPlacement}
+        href="https://example.com">
         Learn more about Kubernetes <ArrowRight20 slot="icon" />
-      </DDSLinkListItem>
-      <DDSLinkListItem icon-placement={iconPlacement} href="https://example.com">
+      </C4DLinkListItem>
+      <C4DLinkListItem
+        icon-placement={iconPlacement}
+        href="https://example.com">
         Containerization A Complete Guide <ArrowRight20 slot="icon" />
-      </DDSLinkListItem>
-    </DDSLinkList>
+      </C4DLinkListItem>
+    </C4DLinkList>
   ) : (
-    <DDSLinkList type="horizontal">
-      <DDSLinkListHeading>Tutorial</DDSLinkListHeading>
-      <DDSLinkListItemCTA icon-placement={iconPlacement} href={href} cta-type={ctaType} download={download}>
+    <C4DLinkList type="horizontal">
+      <C4DLinkListHeading>Tutorial</C4DLinkListHeading>
+      <C4DLinkListItemCTA
+        icon-placement={iconPlacement}
+        href={href}
+        cta-type={ctaType}
+        download={download}>
         {ctaType !== CTA_TYPE.VIDEO && 'Learn more about Kubernetes'}
-      </DDSLinkListItemCTA>
-      <DDSLinkListItemCTA icon-placement={iconPlacement} href={href} cta-type={ctaType} download={download}>
+      </C4DLinkListItemCTA>
+      <C4DLinkListItemCTA
+        icon-placement={iconPlacement}
+        href={href}
+        cta-type={ctaType}
+        download={download}>
         {ctaType !== CTA_TYPE.VIDEO && 'Containerization A Complete Guide'}
-      </DDSLinkListItemCTA>
-    </DDSLinkList>
+      </C4DLinkListItemCTA>
+    </C4DLinkList>
   );
 };
 
 Horizontal.story = {
   parameters: {
-    colLgClass: 'bx--col-lg-10',
+    colLgClass: 'cds--col-lg-10',
     knobs: {
       LinkListItem: () => {
         const ctaType = select('CTA type (cta-type)', types, null);
         const download =
-          ctaType !== CTA_TYPE.DOWNLOAD ? undefined : textNullable('Download target (download)', 'IBM_Annual_Report_2019.pdf');
+          ctaType !== CTA_TYPE.DOWNLOAD
+            ? undefined
+            : textNullable(
+                'Download target (download)',
+                'IBM_Annual_Report_2019.pdf'
+              );
         return {
           ctaType,
           download,
-          href: textNullable(knobNamesForType[ctaType ?? CTA_TYPE.REGULAR], hrefsForType[ctaType ?? CTA_TYPE.REGULAR]),
+          href: textNullable(
+            knobNamesForType[ctaType ?? CTA_TYPE.REGULAR],
+            hrefsForType[ctaType ?? CTA_TYPE.REGULAR]
+          ),
         };
       },
     },
@@ -175,34 +215,51 @@ Horizontal.story = {
   },
 };
 
-export const Vertical = args => {
-  const { ctaType, download, href, iconPlacement = ICON_PLACEMENT.RIGHT } = args?.LinkListItem ?? {};
+export const Vertical = (args) => {
+  const {
+    ctaType,
+    download,
+    href,
+    iconPlacement = ICON_PLACEMENT.RIGHT,
+  } = args?.LinkListItem ?? {};
   return !ctaType ? (
-    <DDSLinkList type="vertical">
-      <DDSLinkListHeading>Tutorial</DDSLinkListHeading>
-      <DDSLinkListItem icon-placement={iconPlacement} href="https://example.com">
+    <C4DLinkList type="vertical">
+      <C4DLinkListHeading>Tutorial</C4DLinkListHeading>
+      <C4DLinkListItem
+        icon-placement={iconPlacement}
+        href="https://example.com">
         Learn more about Kubernetes <ArrowRight20 slot="icon" />
-      </DDSLinkListItem>
-      <DDSLinkListItem icon-placement={iconPlacement} href="https://example.com">
+      </C4DLinkListItem>
+      <C4DLinkListItem
+        icon-placement={iconPlacement}
+        href="https://example.com">
         Containerization A Complete Guide <ArrowRight20 slot="icon" />
-      </DDSLinkListItem>
-    </DDSLinkList>
+      </C4DLinkListItem>
+    </C4DLinkList>
   ) : (
-    <DDSLinkList type="vertical">
-      <DDSLinkListHeading>Tutorial</DDSLinkListHeading>
-      <DDSLinkListItemCTA icon-placement={iconPlacement} href={href} cta-type={ctaType} download={download}>
+    <C4DLinkList type="vertical">
+      <C4DLinkListHeading>Tutorial</C4DLinkListHeading>
+      <C4DLinkListItemCTA
+        icon-placement={iconPlacement}
+        href={href}
+        cta-type={ctaType}
+        download={download}>
         {ctaType !== CTA_TYPE.VIDEO && 'Learn more about Kubernetes'}
-      </DDSLinkListItemCTA>
-      <DDSLinkListItemCTA icon-placement={iconPlacement} href={href} cta-type={ctaType} download={download}>
+      </C4DLinkListItemCTA>
+      <C4DLinkListItemCTA
+        icon-placement={iconPlacement}
+        href={href}
+        cta-type={ctaType}
+        download={download}>
         {ctaType !== CTA_TYPE.VIDEO && 'Containerization A Complete Guide'}
-      </DDSLinkListItemCTA>
-    </DDSLinkList>
+      </C4DLinkListItemCTA>
+    </C4DLinkList>
   );
 };
 
 Vertical.story = {
   parameters: {
-    colLgClass: 'bx--col-lg-4',
+    colLgClass: 'cds--col-lg-4',
     knobs: Horizontal.story.parameters.knobs,
     propsSet: {
       default: {
@@ -216,41 +273,41 @@ Vertical.story = {
   },
 };
 
-export const EndOfSection = args => {
+export const EndOfSection = (args) => {
   const { ctaType, download, href } = args?.LinkListItem ?? {};
   return !ctaType ? (
-    <DDSLinkList type="end">
-      <DDSLinkListHeading>Tutorial</DDSLinkListHeading>
-      <DDSLinkListItem href="https://example.com">
+    <C4DLinkList type="end">
+      <C4DLinkListHeading>Tutorial</C4DLinkListHeading>
+      <C4DLinkListItem href="https://example.com">
         Learn more about Kubernetes <ArrowRight20 slot="icon" />
-      </DDSLinkListItem>
-      <DDSLinkListItem href="https://example.com">
+      </C4DLinkListItem>
+      <C4DLinkListItem href="https://example.com">
         Containerization A Complete Guide <ArrowRight20 slot="icon" />
-      </DDSLinkListItem>
-      <DDSLinkListItem href="https://example.com">
+      </C4DLinkListItem>
+      <C4DLinkListItem href="https://example.com">
         Microservices and containers <ArrowRight20 slot="icon" />
-      </DDSLinkListItem>
-    </DDSLinkList>
+      </C4DLinkListItem>
+    </C4DLinkList>
   ) : (
-    <DDSLinkList type="vertical">
-      <DDSLinkListHeading>Tutorial</DDSLinkListHeading>
-      <DDSLinkListItemCTA href={href} cta-type={ctaType} download={download}>
+    <C4DLinkList type="vertical">
+      <C4DLinkListHeading>Tutorial</C4DLinkListHeading>
+      <C4DLinkListItemCTA href={href} cta-type={ctaType} download={download}>
         {ctaType !== CTA_TYPE.VIDEO && 'Learn more about Kubernetes'}
-      </DDSLinkListItemCTA>
-      <DDSLinkListItemCTA href={href} cta-type={ctaType} download={download}>
+      </C4DLinkListItemCTA>
+      <C4DLinkListItemCTA href={href} cta-type={ctaType} download={download}>
         {ctaType !== CTA_TYPE.VIDEO && 'Containerization A Complete Guide'}
-      </DDSLinkListItemCTA>
-      <DDSLinkListItemCTA href={href} cta-type={ctaType} download={download}>
+      </C4DLinkListItemCTA>
+      <C4DLinkListItemCTA href={href} cta-type={ctaType} download={download}>
         {ctaType !== CTA_TYPE.VIDEO && 'Microservices and containers'}
-      </DDSLinkListItemCTA>
-    </DDSLinkList>
+      </C4DLinkListItemCTA>
+    </C4DLinkList>
   );
 };
 
 EndOfSection.story = {
   name: 'End of section',
   parameters: {
-    colLgClass: 'bx--col-lg-6',
+    colLgClass: 'cds--col-lg-6',
     knobs: Default.story.parameters.knobs,
     propsSet: {
       default: {
@@ -274,11 +331,11 @@ export default {
     (story, { parameters }) => {
       const { colLgClass } = parameters;
       return (
-        <DDSVideoCTAContainer class="bx--grid">
-          <div className="bx--row">
-            <div className={`${colLgClass} bx--col-sm-4`}>{story()}</div>
+        <C4DVideoCTAContainer class="cds--grid">
+          <div className="cds--row">
+            <div className={`${colLgClass} cds--col-sm-4`}>{story()}</div>
           </div>
-        </DDSVideoCTAContainer>
+        </C4DVideoCTAContainer>
       );
     },
   ],

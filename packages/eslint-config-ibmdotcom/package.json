@@ -1,7 +1,7 @@
 {
   "name": "@carbon/eslint-config-ibmdotcom",
   "private": true,
-  "version": "1.39.0-rc.0",
+  "version": "2.0.0-beta.0",
   "description": "ESLint configuration for Carbon for IBM.com",
   "license": "Apache-2.0",
   "main": "index.js",
@@ -18,7 +18,7 @@
     "eslint": "^6.8.0"
   },
   "dependencies": {
-    "@carbon/eslint-plugin-react-prop-type-comments": "1.38.0-rc.0",
+    "@carbon/eslint-plugin-react-prop-type-comments": "2.0.0-beta.0",
     "@typescript-eslint/eslint-plugin": "^5.43.0",
     "@typescript-eslint/parser": "^5.43.0",
     "babel-eslint": "^10.1.0",
@@ -29,7 +29,7 @@
     "eslint-plugin-import": "^2.26.0",
     "eslint-plugin-jsdoc": "^39.6.2",
     "eslint-plugin-jsx-a11y": "^6.6.1",
-    "eslint-plugin-lit": "^1.6.1",
+    "eslint-plugin-lit": "^1.8.3",
     "eslint-plugin-prettier": "^4.2.1",
     "eslint-plugin-react": "^7.31.10",
     "eslint-plugin-react-hooks": "^4.6.0",

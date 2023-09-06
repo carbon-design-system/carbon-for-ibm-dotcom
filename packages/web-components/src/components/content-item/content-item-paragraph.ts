@@ -7,23 +7,23 @@
  * LICENSE file in the root directory of this source tree.
  */
 
-import { html, LitElement } from 'lit-element';
-import ddsSettings from '../../internal/vendor/@carbon/ibmdotcom-utilities/utilities/settings/settings';
+import { LitElement, html } from 'lit';
+import settings from '../../internal/vendor/@carbon/ibmdotcom-utilities/utilities/settings/settings';
 import styles from './content-item.scss';
 import StableSelectorMixin from '../../globals/mixins/stable-selector';
 import { carbonElement as customElement } from '../../internal/vendor/@carbon/web-components/globals/decorators/carbon-element';
 
-const { stablePrefix: ddsPrefix } = ddsSettings;
+const { stablePrefix: c4dPrefix } = settings;
 
 /**
  * The paragraph content in content item.
  *
- * @element dds-content-item-paragraph
+ * @element c4d-content-item-paragraph
  */
-@customElement(`${ddsPrefix}-content-item-paragraph`)
-class DDSContentItemParagraph extends StableSelectorMixin(LitElement) {
+@customElement(`${c4dPrefix}-content-item-paragraph`)
+class C4DContentItemParagraph extends StableSelectorMixin(LitElement) {
   static get stableSelector() {
-    return `${ddsPrefix}--content-item-paragraph`;
+    return `${c4dPrefix}--content-item-paragraph`;
   }
 
   render() {
@@ -34,4 +34,4 @@ class DDSContentItemParagraph extends StableSelectorMixin(LitElement) {
 }
 
 /* @__GENERATE_REACT_CUSTOM_ELEMENT_TYPE__ */
-export default DDSContentItemParagraph;
+export default C4DContentItemParagraph;

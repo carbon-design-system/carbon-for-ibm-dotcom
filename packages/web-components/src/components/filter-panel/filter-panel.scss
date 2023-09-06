@@ -1,27 +1,35 @@
 /**
  * @license
  *
- * Copyright IBM Corp. 2020, 2022
+ * Copyright IBM Corp. 2020, 2023
  *
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
  */
 
-@import '@carbon/ibmdotcom-styles/scss/components/filter-panel/filter-panel';
-@import '@carbon/web-components/scss/components/modal/modal';
+@use '@carbon/styles/scss/breakpoint' as *;
+@use '@carbon/styles/scss/config' as *;
+@use '@carbon/styles/scss/spacing' as *;
+@use '@carbon/styles/scss/theme' as *;
+@use '@carbon/styles/scss/themes' as *;
+@use '@carbon/styles/scss/type' as *;
+@use '@carbon/styles/scss/components/button' as *;
+@use '@carbon/ibmdotcom-styles/scss/globals/vars' as *;
+@use '@carbon/ibmdotcom-styles/scss/components/filter-panel';
+@use '../../../../carbon-web-components/src/components/modal/modal';
 
-:host(#{$dds-prefix}-filter-panel-modal) {
+:host(#{$c4d-prefix}-filter-panel-modal) {
   @extend :host(#{$prefix}-modal);
 
   left: 0;
 
-  @include carbon--breakpoint('lg') {
+  @include breakpoint(lg) {
     display: none;
   }
 
   &[open] {
     @extend :host(#{$prefix}-modal[open]);
-    @include carbon--breakpoint('lg') {
+    @include breakpoint(lg) {
       display: none;
     }
   }
@@ -30,28 +38,28 @@
     .#{$prefix}--modal-container {
       max-height: none;
 
-      @include carbon--breakpoint('lg') {
-        width: calc(100% - 2rem);
-        height: calc(100% - 2rem);
+      @include breakpoint(lg) {
+        width: calc(100% - $spacing-07);
+        height: calc(100% - $spacing-07);
       }
 
       .#{$prefix}--modal-content {
-        margin: $layout-04 $layout-03;
+        margin: $spacing-09 $spacing-07;
         padding: 0;
       }
     }
   }
   .#{$prefix}--filter-panel__section.#{$prefix}--modal-container {
     overflow: initial;
-    @include carbon--breakpoint('md') {
+    @include breakpoint(md) {
       height: 80%;
       width: 60%;
     }
   }
 }
 
-:host(#{$dds-prefix}-filter-group-item) {
-  .#{$dds-prefix}-filter-group-item__view-all {
+:host(#{$c4d-prefix}-filter-group-item) {
+  .#{$c4d-prefix}-filter-group-item__view-all {
     width: 100%;
     padding: $spacing-03 $spacing-05;
     text-align: left;
@@ -61,44 +69,44 @@
       outline: none;
       border-color: $focus;
       box-shadow: inset 0 0 0 $button-outline-width $focus,
-        inset 0 0 0 $button-border-width $ui-background;
+        inset 0 0 0 $button-border-width $background;
     }
   }
 }
 
-:host(#{$dds-prefix}-filter-modal-footer-button) {
+:host(#{$c4d-prefix}-filter-modal-footer-button) {
   @extend :host(#{$prefix}-modal-footer-button);
 
   outline: 0;
 
   &[kind='tertiary'] {
-    background-color: $interactive-02;
-    color: $text-04;
+    background-color: $button-secondary;
+    color: $text-on-color;
   }
 
   &[disabled] {
-    background-color: $disabled-02;
-    color: $disabled-03;
+    background-color: $text-disabled;
+    color: $text-on-color-disabled;
   }
 
   .#{$prefix}--btn {
-    @include carbon--type-style('body-short-01');
+    @include type-style('body-short-01');
 
     max-width: none;
     width: 100%;
     border: none;
-    height: rem(64px);
+    height: $spacing-10;
   }
 
   .#{$prefix}--btn--tertiary {
-    color: $text-04;
+    color: $text-on-color;
 
     &:hover {
-      background-color: $hover-secondary;
+      background-color: $button-secondary-hover;
     }
 
     &[disabled] {
-      color: $disabled-03;
+      color: $text-on-color-disabled;
 
       &:hover {
         background-color: transparent;
@@ -108,8 +116,8 @@
 
   .#{$prefix}--btn.#{$prefix}--btn--primary:focus {
     box-shadow: inset 0 0 0 $button-outline-width $focus,
-      inset 0 0 0 $button-border-width $ui-background;
+      inset 0 0 0 $button-border-width $background;
     border: 1px solid $focus;
-    inset: $text-04;
+    inset: $text-on-color;
   }
 }

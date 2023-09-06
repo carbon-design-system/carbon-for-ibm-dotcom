@@ -7,8 +7,8 @@
  * LICENSE file in the root directory of this source tree.
  */
 
-import { html } from 'lit-element';
-import ifNonNull from '../../../internal/vendor/@carbon/web-components/globals/directives/if-non-null.js';
+import { html } from 'lit';
+import { ifDefined } from 'lit/directives/if-defined.js';
 import readme from './README.stories.mdx';
 import '../tag-link';
 import textNullable from '../../../../.storybook/knob-text-nullable';
@@ -16,13 +16,13 @@ import textNullable from '../../../../.storybook/knob-text-nullable';
 export const Default = (args) => {
   const { copy, href } = args?.TagLink ?? {};
   return html`
-    <dds-tag-link href=${ifNonNull(href || undefined)}> ${copy} </dds-tag-link>
+    <c4d-tag-link href=${ifDefined(href || undefined)}> ${copy} </c4d-tag-link>
   `;
 };
 
 export default {
   title: 'Components/Tag link',
-  decorators: [(story) => html` <div class="bx--grid">${story()}</div> `],
+  decorators: [(story) => html` <div class="cds--grid">${story()}</div> `],
   parameters: {
     ...readme.parameters,
     hasStoryPadding: true,

@@ -7,7 +7,7 @@
  * LICENSE file in the root directory of this source tree.
  */
 
-describe('dds-lightbox-media-viewer-*', () => {
+describe('cds-lightbox-media-viewer-*', () => {
   beforeAll(async () => {
     await page.goto(
       `http://localhost:${process.env.PORT}/iframe.html?id=components-lightbox-media-viewer--embedded-video-player`
@@ -15,9 +15,9 @@ describe('dds-lightbox-media-viewer-*', () => {
   });
 
   it('should have modal closable', async () => {
-    await page.click('dds-expressive-modal-close-button button');
+    await page.click('cds-expressive-modal-close-button button');
     await expect(page).toHaveSelector(
-      'dds-expressive-modal .bx--modal-container',
+      'cds-expressive-modal .cds--modal-container',
       { state: 'hidden' }
     );
   });

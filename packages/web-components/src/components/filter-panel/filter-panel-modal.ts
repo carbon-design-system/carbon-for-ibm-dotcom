@@ -7,14 +7,14 @@
  * LICENSE file in the root directory of this source tree.
  */
 
-import { html, property } from 'lit-element';
-import settings from 'carbon-components/es/globals/js/settings.js';
+import { html } from 'lit';
+import { property } from 'lit/decorators.js';
 import HostListenerMixin from '../../internal/vendor/@carbon/web-components/globals/mixins/host-listener.js';
 import './filter-group';
 import './filter-modal-button';
 import './filter-modal-heading';
-import BXModal from '../../internal/vendor/@carbon/web-components/components/modal/modal.js';
-import ddsSettings from '../../internal/vendor/@carbon/ibmdotcom-utilities/utilities/settings/settings';
+import CDSModal from '../../internal/vendor/@carbon/web-components/components/modal/modal.js';
+import settings from '../../internal/vendor/@carbon/ibmdotcom-utilities/utilities/settings/settings';
 import './filter-modal-footer';
 import StableSelectorMixin from '../../globals/mixins/stable-selector';
 import styles from './filter-panel.scss';
@@ -23,17 +23,16 @@ import '../../internal/vendor/@carbon/web-components/components/modal/modal-clos
 import '../../internal/vendor/@carbon/web-components/components/modal/modal-header.js';
 import { carbonElement as customElement } from '../../internal/vendor/@carbon/web-components/globals/decorators/carbon-element.js';
 
-const { prefix } = settings;
-const { stablePrefix: ddsPrefix } = ddsSettings;
+const { prefix, stablePrefix: c4dPrefix } = settings;
 
 /**
  * Renders the filter panel modal
  *
- * @element dds-filter-panel-modal
+ * @element c4d-filter-panel-modal
  */
-@customElement(`${ddsPrefix}-filter-panel-modal`)
-class DDSFilterPanelModal extends HostListenerMixin(
-  StableSelectorMixin(BXModal)
+@customElement(`${c4dPrefix}-filter-panel-modal`)
+class C4DFilterPanelModal extends HostListenerMixin(
+  StableSelectorMixin(CDSModal)
 ) {
   /**
    * Renders the selected values.
@@ -49,7 +48,7 @@ class DDSFilterPanelModal extends HostListenerMixin(
    */
   protected _handleClear() {
     const { eventSelectionClear } = this
-      .constructor as typeof DDSFilterPanelModal;
+      .constructor as typeof C4DFilterPanelModal;
     this.dispatchEvent(
       new CustomEvent(eventSelectionClear, {
         bubbles: true,
@@ -91,14 +90,17 @@ class DDSFilterPanelModal extends HostListenerMixin(
       if (
         this.dispatchEvent(
           new CustomEvent(
-            (this.constructor as typeof BXModal).eventBeforeClose,
+            (this.constructor as typeof CDSModal).eventBeforeClose,
             init
           )
         )
       ) {
         this.open = false;
         this.dispatchEvent(
-          new CustomEvent((this.constructor as typeof BXModal).eventClose, init)
+          new CustomEvent(
+            (this.constructor as typeof CDSModal).eventClose,
+            init
+          )
         );
       }
     }
@@ -111,26 +113,26 @@ class DDSFilterPanelModal extends HostListenerMixin(
         class="${prefix}--visually-hidden"
         href="javascript:void 0"
         role="navigation"></a>
-      <section class="${prefix}--filter-panel__section bx--modal-container">
-        <bx-modal-header>
-          <bx-modal-close-button
-            @click=${this._handleUserClose}></bx-modal-close-button>
-          <dds-filter-modal-heading>${this.heading}</dds-filter-modal-heading>
-        </bx-modal-header>
+      <section class="${prefix}--filter-panel__section cds--modal-container">
+        <cds-modal-header>
+          <cds-modal-close-button
+            @click=${this._handleUserClose}></cds-modal-close-button>
+          <c4d-filter-modal-heading>${this.heading}</c4d-filter-modal-heading>
+        </cds-modal-header>
         <div class="${prefix}--modal-body"><slot></slot></div>
-        <dds-filter-modal-footer>
-          <dds-filter-modal-footer-button
+        <c4d-filter-modal-footer>
+          <c4d-filter-modal-footer-button
             ?disabled="${!this.hasSelections}"
             @click=${this._handleClear}
             kind="tertiary"
-            >Clear</dds-filter-modal-footer-button
+            >Clear</c4d-filter-modal-footer-button
           >
-          <dds-filter-modal-footer-button
+          <c4d-filter-modal-footer-button
             @click=${this._handleUserClose}
             kind="primary"
-            >See Results</dds-filter-modal-footer-button
+            >See Results</c4d-filter-modal-footer-button
           >
-        </dds-filter-modal-footer>
+        </c4d-filter-modal-footer>
       </section>
       <a
         id="end-sentinel"
@@ -152,7 +154,7 @@ class DDSFilterPanelModal extends HostListenerMixin(
    */
 
   static get eventSelectionClear() {
-    return `${ddsPrefix}-selection-clear`;
+    return `${c4dPrefix}-selection-clear`;
   }
 
   /**
@@ -160,15 +162,15 @@ class DDSFilterPanelModal extends HostListenerMixin(
    */
 
   static get selectorHeading() {
-    return `${ddsPrefix}-filter-panel-heading`;
+    return `${c4dPrefix}-filter-panel-heading`;
   }
 
   static get stableSelector() {
-    return `${ddsPrefix}-filter-panel-modal`;
+    return `${c4dPrefix}-filter-panel-modal`;
   }
 
   static styles = styles; // `styles` here is a `CSSResult` generated by custom WebPack loader
 }
 
 /* @__GENERATE_REACT_CUSTOM_ELEMENT_TYPE__ */
-export default DDSFilterPanelModal;
+export default C4DFilterPanelModal;

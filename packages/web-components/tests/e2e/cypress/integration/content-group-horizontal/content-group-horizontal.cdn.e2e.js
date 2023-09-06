@@ -7,11 +7,11 @@
 
 'use strict';
 
-describe('dds-content-group-horizontal (cdn)', () => {
-  it('should load the default dds-content-group-horizontal example (cdn)', () => {
+describe('cds-content-group-horizontal (cdn)', () => {
+  it('should load the default cds-content-group-horizontal example (cdn)', () => {
     cy.visit('/content-group-horizontal/cdn.html');
 
     // Take a snapshot for visual diffing
-    cy.percySnapshot('dds-content-group-horizontal | cdn | default');
+    cy.percySnapshot('cds-content-group-horizontal | cdn | default');
   });
 });

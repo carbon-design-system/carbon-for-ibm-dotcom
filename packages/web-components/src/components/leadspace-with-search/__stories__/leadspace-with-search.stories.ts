@@ -1,14 +1,14 @@
 /**
  * @license
  *
- * Copyright IBM Corp. 2020, 2022
+ * Copyright IBM Corp. 2020, 2023
  *
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
  */
 
 import { select, text } from '@storybook/addon-knobs';
-import { html } from 'lit-element';
+import { html } from 'lit';
 import readme from './README.stories.mdx';
 import { ADJACENT_THEMES } from '../defs';
 import '../index';
@@ -42,33 +42,33 @@ export const Default = (args) => {
     args?.LeadspaceWithSearch ?? {};
   const secondTheme = theme.split('-')[2];
   const subheadingComponent = document.querySelector(
-    'dds-leadspace-with-search-content-heading'
+    'c4d-leadspace-with-search-content-heading'
   );
 
   if (subheadingComponent) {
     subheadingComponent!.shadowRoot!.innerHTML = subheading;
   }
   return html`
-    <dds-leadspace-with-search adjacent-theme="${theme}">
-      <dds-leadspace-with-search-heading
-        >${heading}</dds-leadspace-with-search-heading
+    <c4d-leadspace-with-search adjacent-theme="${theme}">
+      <c4d-leadspace-with-search-heading
+        >${heading}</c4d-leadspace-with-search-heading
       >
-      <dds-leadspace-with-search-content>
-        <dds-leadspace-with-search-content-heading
-          >${subheading}</dds-leadspace-with-search-content-heading
+      <c4d-leadspace-with-search-content>
+        <c4d-leadspace-with-search-content-heading
+          >${subheading}</c4d-leadspace-with-search-content-heading
         >
-        <dds-leadspace-with-search-content-copy
+        <c4d-leadspace-with-search-content-copy
           style="${!paragraph ? 'display: none' : ''}"
           >${paragraph}
-        </dds-leadspace-with-search-content-copy>
-      </dds-leadspace-with-search-content>
-      <dds-search-with-typeahead
+        </c4d-leadspace-with-search-content-copy>
+      </c4d-leadspace-with-search-content>
+      <c4d-search-with-typeahead
         slot="search"
-        leadspace-search></dds-search-with-typeahead>
-      <dds-hr
+        leadspace-search></c4d-search-with-typeahead>
+      <c4d-hr
         slot="hr"
-        style="${currentTheme === secondTheme ? 'display: none' : ''}"></dds-hr>
-    </dds-leadspace-with-search>
+        style="${currentTheme === secondTheme ? 'display: none' : ''}"></c4d-hr>
+    </c4d-leadspace-with-search>
   `;
 };
 
@@ -78,7 +78,7 @@ export const WithImage = (args) => {
   const secondTheme = theme.split('-')[2];
 
   const subheadingComponent = document.querySelector(
-    'dds-leadspace-with-search-content-heading'
+    'c4d-leadspace-with-search-content-heading'
   );
 
   if (subheadingComponent) {
@@ -86,32 +86,31 @@ export const WithImage = (args) => {
   }
 
   return html`
-    <dds-leadspace-with-search adjacent-theme="${theme}">
-      <dds-background-media
+    <c4d-leadspace-with-search adjacent-theme="${theme}">
+      <c4d-background-media
         gradient-direction="left-to-right"
-        mobile-position="bottom"
         default-src="${image}"
         slot="image">
-      </dds-background-media>
-      <dds-leadspace-with-search-heading
-        >${heading}</dds-leadspace-with-search-heading
+      </c4d-background-media>
+      <c4d-leadspace-with-search-heading
+        >${heading}</c4d-leadspace-with-search-heading
       >
-      <dds-leadspace-with-search-content>
-        <dds-leadspace-with-search-content-heading
-          >${subheading}</dds-leadspace-with-search-content-heading
+      <c4d-leadspace-with-search-content>
+        <c4d-leadspace-with-search-content-heading
+          >${subheading}</c4d-leadspace-with-search-content-heading
         >
-        <dds-leadspace-with-search-content-copy
+        <c4d-leadspace-with-search-content-copy
           style="${!paragraph ? 'display: none' : ''}"
           >${paragraph}
-        </dds-leadspace-with-search-content-copy>
-      </dds-leadspace-with-search-content>
-      <dds-search-with-typeahead
+        </c4d-leadspace-with-search-content-copy>
+      </c4d-leadspace-with-search-content>
+      <c4d-search-with-typeahead
         slot="search"
-        leadspace-search></dds-search-with-typeahead>
-      <dds-hr
+        leadspace-search></c4d-search-with-typeahead>
+      <c4d-hr
         slot="hr"
-        style="${currentTheme === secondTheme ? 'display: none' : ''}"></dds-hr>
-    </dds-leadspace-with-search>
+        style="${currentTheme === secondTheme ? 'display: none' : ''}"></c4d-hr>
+    </c4d-leadspace-with-search>
   `;
 };
 
@@ -135,9 +134,9 @@ export default {
   title: 'Components/Lead space search',
   decorators: [
     (story) => html`
-      <div class="bx--grid">
-        <div class="bx--row">
-          <div class="bx--col-lg-8 bx--offset-lg-4 bx--no-gutter">
+      <div class="cds--grid">
+        <div class="cds--row">
+          <div class="cds--col-lg-8cdsds--offset-lg-cdscds--no-gutter">
             ${story()}
           </div>
         </div>

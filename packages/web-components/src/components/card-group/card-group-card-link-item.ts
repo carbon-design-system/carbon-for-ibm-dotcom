@@ -7,21 +7,21 @@
  * LICENSE file in the root directory of this source tree.
  */
 
-import { property } from 'lit-element';
-import ddsSettings from '../../internal/vendor/@carbon/ibmdotcom-utilities/utilities/settings/settings';
+import { property } from 'lit/decorators.js';
+import settings from '../../internal/vendor/@carbon/ibmdotcom-utilities/utilities/settings/settings';
 import { carbonElement as customElement } from '../../internal/vendor/@carbon/web-components/globals/decorators/carbon-element';
-import DDSCardLinkCTA from '../cta/card-link-cta';
+import C4DCardLinkCTA from '../cta/card-link-cta';
 import styles from './card-group.scss';
 
-const { stablePrefix: ddsPrefix } = ddsSettings;
+const { stablePrefix: c4dPrefix } = settings;
 
 /**
  * Card Group Card Link item.
  *
- * @element dds-card-group-card-link-item
+ * @element c4d-card-group-card-link-item
  */
-@customElement(`${ddsPrefix}-card-group-card-link-item`)
-class DDSCardGroupCardLinkItem extends DDSCardLinkCTA {
+@customElement(`${c4dPrefix}-card-group-card-link-item`)
+class C4DCardGroupCardLinkItem extends C4DCardLinkCTA {
   /**
    * `true` if the card group is using border.
    */
@@ -41,18 +41,22 @@ class DDSCardGroupCardLinkItem extends DDSCardLinkCTA {
   patternBackground = false;
 
   static get stableSelector() {
-    return `${ddsPrefix}--card-group-card-link-item`;
+    return `${c4dPrefix}--card-group-card-link-item`;
   }
 
   /**
    * A selector that will return the child footer.
    */
   static get selectorFooter() {
-    return `${ddsPrefix}-card-cta-footer`;
+    return `${c4dPrefix}-card-cta-footer`;
   }
 
   static styles = styles;
 }
 
+console.warn(
+  'The card-group-card-link-item component has been deprecated in favor of default card or with content-item. ' +
+    'See card-group documentation for more information.'
+);
 /* @__GENERATE_REACT_CUSTOM_ELEMENT_TYPE__ */
-export default DDSCardGroupCardLinkItem;
+export default C4DCardGroupCardLinkItem;

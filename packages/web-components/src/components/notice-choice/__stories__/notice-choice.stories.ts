@@ -18,23 +18,29 @@ import readme from './README.stories.mdx';
 const questionChoices = {
   Email: '1',
   'Email + Phone': '1,2',
-  'Email + Phone + Postal': '1,2,3',
 };
 const locales = {
-  'United States English': 'us-en',
-  'fr-fr': 'fr-fr',
-  'ca-fr': 'ca-fr',
-  'br-pt': 'br-pt',
-  'it-it': 'it-it',
-  'pl-pl': 'pl-pl',
-  'cn-zh': 'cn-zh',
-  'ru-ru': 'ru-ru',
-  'kr-ko': 'kr-ko',
-  'jp-ja': 'jp-ja',
-  'de-de': 'de-de',
-  'tw-zh': 'tw-zh',
-  'tr-tr': 'tr-tr',
-  'in-en': 'in-en',
+  'English [en]': 'en',
+  'Arabic [ar]': 'ar',
+  'Chinese (PRC) [zh-cn]': 'zh-cn',
+  'Chinese (Taiwan) [zh-tw]': 'zh-tw',
+  'French [fr]': 'fr',
+  'German [de]': 'de',
+  'Greek [el]': 'el',
+  'Hebrew [he]': 'he',
+  'Hungarian [hu]': 'hu',
+  'Indonesian [id]': 'id',
+  'Italian [it]': 'it',
+  'Japanese [ja]': 'ja',
+  'Korean [ko]': 'ko',
+  'Malaysian [ms]': 'ms',
+  'Polish [pl]': 'pl',
+  'Portuguese [pt]': 'pt',
+  'Slovenian [sl]': 'sl',
+  'Spanish [es]': 'es',
+  'Spanish-Latin America [es-la]': 'es-la',
+  'Turkish [tr]': 'tr',
+  'Ukrainian [uk]': 'uk',
 };
 const countryList = {
   'Unites States': 'US',
@@ -52,7 +58,7 @@ const onChange = (event: CustomEvent) => {
   console.log(event.detail);
 };
 const props = () => ({
-  locale: select('Locale', locales, 'in-en'),
+  locale: select('Language', locales, 'en'),
   country: select('Country', countryList, 'US'),
   state: select('State', stateList, ''),
   questionchoices: select('Question Choices', questionChoices, '1,2'),
@@ -62,7 +68,7 @@ const props = () => ({
     'https://www.ibm.com/legal'
   ),
   bpidLegalText: text('BPID Legal Text', ''),
-  onChange: action('dds-notice-choice-change'),
+  onChange: action('c4d-notice-choice-change'),
 });
 
 export const Default = (args) => {
@@ -77,7 +83,7 @@ export const Default = (args) => {
     bpidLegalText,
   } = args?.NoticeChoice ?? {};
   return html`
-    <dds-notice-choice
+    <c4d-notice-choice
       locale="${locale}"
       country="${country}"
       question-choices="${questionchoices}"
@@ -86,7 +92,7 @@ export const Default = (args) => {
       terms-condition-link="${termsConditionLink}"
       ?enable-all-opt-in=${enableAllOptIn}
       bpid-legal-text="${bpidLegalText}"
-      @dds-notice-choice-change=${onChange}></dds-notice-choice>
+      @c4d-notice-choice-change=${onChange}></c4d-notice-choice>
   `;
 };
 
@@ -94,9 +100,10 @@ export default {
   title: 'Components/Notice Choice',
   decorators: [
     (story) => html`
-      <div class="bx--grid">
-        <div class="bx--row">
-          <div class="bx--col-sm-4 bx--col-md-8 bx--col-lg-12 bx--offset-lg-2">
+      <div class="cds--grid">
+        <div class="cds--row">
+          <div
+            class="cds--col-sm-4 cds--col-md-8 cds--col-lg-12 cds--offset-lg-2">
             ${story()}
           </div>
         </div>
@@ -113,7 +120,7 @@ export default {
       default: {
         NoticeChoice: {
           'question-choices': [1, 2],
-          onChange: 'dds-notice-choice-change',
+          onChange: 'c4d-notice-choice-change',
         },
       },
     },

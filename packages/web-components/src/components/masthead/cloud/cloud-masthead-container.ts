@@ -13,7 +13,7 @@ import {
   Store,
   bindActionCreators,
 } from 'redux';
-import ddsSettings from '../../../internal/vendor/@carbon/ibmdotcom-utilities/utilities/settings/settings';
+import settings from '../../../internal/vendor/@carbon/ibmdotcom-utilities/utilities/settings/settings';
 import { CloudAccountAuthAPIState } from '../../../internal/vendor/@carbon/ibmdotcom-services-store/types/cloudAccountAuthAPI.d';
 import store from '../../../internal/vendor/@carbon/ibmdotcom-services-store/store';
 import { LocaleAPIActions } from '../../../internal/vendor/@carbon/ibmdotcom-services-store/actions/localeAPI.d';
@@ -31,13 +31,13 @@ import {
   MastheadContainerState,
   MastheadContainerStateProps,
 } from '../masthead-container';
-import DDSCloudMastheadComposite from './cloud-masthead-composite';
+import C4DCloudMastheadComposite from './cloud-masthead-composite';
 import { carbonElement as customElement } from '../../../internal/vendor/@carbon/web-components/globals/decorators/carbon-element';
 
-const { stablePrefix: ddsPrefix } = ddsSettings;
+const { stablePrefix: c4dPrefix } = settings;
 
 /**
- * The Redux state used for `<dds-cloud-masthead-container>`
+ * The Redux state used for `<c4d-cloud-masthead-container>`
  */
 export interface CloudMastheadContainerState
   extends Omit<MastheadContainerState, 'profileAPI'> {
@@ -48,7 +48,7 @@ export interface CloudMastheadContainerState
 }
 
 /**
- * The Redux actions used for `<dds-cloud-masthead-container>.
+ * The Redux actions used for `<c4d-cloud-masthead-container>.
  */
 export type CloudMastheadContainerActions =
   | ReturnType<typeof loadLanguage>
@@ -58,7 +58,7 @@ export type CloudMastheadContainerActions =
 
 /**
  * @param state The Redux state for masthead.
- * @returns The converted version of the given state, tailored for `<dds-cloud-masthead-container>`.
+ * @returns The converted version of the given state, tailored for `<c4d-cloud-masthead-container>`.
  */
 export function mapStateToProps(
   state: CloudMastheadContainerState
@@ -99,7 +99,7 @@ export function mapStateToProps(
 
 /**
  * @param dispatch The Redux `dispatch()` API.
- * @returns The methods in `<dds-cloud-masthead-container>` to dispatch Redux actions.
+ * @returns The methods in `<c4d-cloud-masthead-container>` to dispatch Redux actions.
  */
 export function mapDispatchToProps(
   dispatch: Dispatch<
@@ -122,10 +122,10 @@ export function mapDispatchToProps(
 /**
  * Container component for Cloud masthead.
  *
- * @element dds-cloud-masthead-container
+ * @element c4d-cloud-masthead-container
  */
-@customElement(`${ddsPrefix}-cloud-masthead-container`)
-class DDSCloudMastheadContainer extends ConnectMixin<
+@customElement(`${c4dPrefix}-cloud-masthead-container`)
+class C4DCloudMastheadContainer extends ConnectMixin<
   CloudMastheadContainerState,
   LocaleAPIActions | TranslateAPIActions | CloudAccountAuthAPIActions,
   MastheadContainerStateProps,
@@ -137,6 +137,6 @@ class DDSCloudMastheadContainer extends ConnectMixin<
   >,
   mapStateToProps,
   mapDispatchToProps
-)(DDSCloudMastheadComposite) {}
+)(C4DCloudMastheadComposite) {}
 
-export default DDSCloudMastheadContainer;
+export default C4DCloudMastheadContainer;

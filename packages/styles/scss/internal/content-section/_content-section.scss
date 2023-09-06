@@ -5,23 +5,29 @@
  * LICENSE file in the root directory of this source tree.
  */
 
-@import '../../globals/vars';
-@import '../../globals/imports';
+@use '@carbon/styles/scss/breakpoint' as *;
+@use '@carbon/styles/scss/config' as *;
+@use '@carbon/styles/scss/spacing' as *;
+@use '@carbon/styles/scss/theme' as *;
+@use '@carbon/styles/scss/themes' as *;
+@use '@carbon/styles/scss/type' as *;
+@use '../../globals/utils/flex-grid' as *;
+@use '../../globals/vars' as *;
 
-@mixin themed-items {
-  color: $text-01;
-  background: $ui-background;
+@mixin content-section-themed-items {
+  color: $text-primary;
+  background: $background;
 }
 
 @mixin content-section {
-  :host(#{$dds-prefix}-link-list-section),
+  :host(#{$c4d-prefix}-link-list-section),
   .#{$prefix}--content-section {
     padding-top: $spacing-09;
-    padding-bottom: $carbon--layout-05;
+    padding-bottom: $spacing-10;
   }
 
   .#{$prefix}--content-section-layout {
-    @include carbon--breakpoint('lg') {
+    @include breakpoint(lg) {
       display: flex;
     }
   }
@@ -30,18 +36,18 @@
     padding: $spacing-05;
     padding-top: 0;
 
-    @include carbon--breakpoint-down('lg') {
+    @include breakpoint-down(lg) {
       padding-bottom: $spacing-07;
     }
 
-    @include carbon--breakpoint(lg) {
-      @include carbon--make-col(4, 16);
+    @include breakpoint(lg) {
+      @include make-col(4, 16);
     }
   }
 
   .#{$prefix}--content-section__body {
-    @include carbon--breakpoint-down(md) {
-      // TODO: `display:block` or `display:flex` here causes broken carousel if `<dds-carousel>` is slotted in as the child,
+    @include breakpoint-down(md) {
+      // TODO: `display:block` or `display:flex` here causes broken carousel if `<cds-carousel>` is slotted in as the child,
       // especially if the carousel containts large number of cards.
       // May need to investigate.
       display: contents;
@@ -49,51 +55,51 @@
   }
 
   .#{$prefix}--content-section__grid,
-  :host(#{$dds-prefix}-cta-section) {
-    @include carbon--make-container;
+  :host(#{$c4d-prefix}-cta-section) {
+    @include make-container;
   }
 
   .#{$prefix}--content-section__row {
-    @include carbon--make-row;
+    @include make-row;
   }
 
   .#{$prefix}--content-section__left,
   .#{$prefix}--content-section__children {
-    @include carbon--make-col-ready;
+    @include make-col-ready;
   }
 
   .#{$prefix}--content-section__left {
-    @include carbon--breakpoint(lg) {
-      @include carbon--make-col(4, 16);
+    @include breakpoint(lg) {
+      @include make-col(4, 16);
 
       padding-top: $spacing-05;
     }
   }
 
-  :host(#{$dds-prefix}-content-section-heading),
+  :host(#{$c4d-prefix}-content-section-heading),
   .#{$prefix}--content-section__heading {
     margin-top: 0;
     margin-bottom: 0;
-    color: $text-01;
+    color: $text-primary;
 
-    @include type-style('expressive-heading-02');
+    @include type-style('heading-02');
   }
 
-  :host(#{$dds-prefix}-content-section-copy),
+  :host(#{$c4d-prefix}-content-section-copy),
   .#{$prefix}--content-section__copy p {
-    @include type-style('body-short-02');
+    @include type-style('body-compact-02');
 
-    color: $text-02;
+    color: $text-secondary;
     margin-bottom: $spacing-06;
   }
 
-  :host(#{$dds-prefix}-content-section-heading),
+  :host(#{$c4d-prefix}-content-section-heading),
   .#{$prefix}--content-section__heading,
-  :host(#{$dds-prefix}-content-section-copy),
+  :host(#{$c4d-prefix}-content-section-copy),
   .#{$prefix}--content-section__copy p,
-  :host(#{$dds-prefix}-content-section) ::slotted([slot='footer']),
+  :host(#{$c4d-prefix}-content-section) ::slotted([slot='footer']),
   .#{$prefix}--content-section__cta {
-    @include carbon--breakpoint(md) {
+    @include breakpoint(md) {
       padding-right: $spacing-07;
     }
   }
@@ -101,8 +107,8 @@
   .#{$prefix}--content-section__children {
     margin-top: $spacing-06;
 
-    @include carbon--breakpoint(lg) {
-      @include carbon--make-col(12, 16);
+    @include breakpoint(lg) {
+      @include make-col(12, 16);
 
       margin-top: 0;
     }
@@ -122,31 +128,17 @@
   }
 
   .#{$prefix}--content-section--g10 {
-    @include carbon--theme(
-      $carbon--theme--g10,
-      feature-flag-enabled('enable-css-custom-properties')
-    ) {
-      @include themed-items;
-    }
+    @include theme($g10, feature-flag-enabled('enable-css-custom-properties'));
+    @include content-section-themed-items;
   }
-  .#{$prefix}--content-section--g90 {
-    @include carbon--theme(
-      $carbon--theme--g90,
-      feature-flag-enabled('enable-css-custom-properties')
-    ) {
-      @include themed-items;
-    }
-  }
-  .#{$prefix}--content-section--g100 {
-    @include carbon--theme(
-      $carbon--theme--g100,
-      feature-flag-enabled('enable-css-custom-properties')
-    ) {
-      @include themed-items;
-    }
-  }
-}
 
-@include exports('content-section') {
-  @include content-section;
+  .#{$prefix}--content-section--g90 {
+    @include theme($g90, feature-flag-enabled('enable-css-custom-properties'));
+    @include content-section-themed-items;
+  }
+
+  .#{$prefix}--content-section--g100 {
+    @include theme($g100, feature-flag-enabled('enable-css-custom-properties'));
+    @include content-section-themed-items;
+  }
 }

@@ -8,10 +8,10 @@
  */
 
 import { boolean } from '@storybook/addon-knobs';
-import { html } from 'lit-element';
+import { html } from 'lit';
 import ArrowRight20 from '../../../internal/vendor/@carbon/web-components/icons/arrow--right/20.js';
 import Error20 from '../../../internal/vendor/@carbon/web-components/icons/error/20.js';
-import ifNonNull from '../../../internal/vendor/@carbon/web-components/globals/directives/if-non-null.js';
+import { ifDefined } from 'lit/directives/if-defined.js';
 import readme from './README.stories.mdx';
 import textNullable from '../../../../.storybook/knob-text-nullable';
 import '../index';
@@ -19,13 +19,13 @@ import '../index';
 export const Default = (args) => {
   const { disabled, href, heading, copy } = args?.CardLink ?? {};
   return html`
-    <dds-card-link ?disabled=${disabled} href=${ifNonNull(href || undefined)}>
-      <dds-card-link-heading>${heading}</dds-card-link-heading>
+    <c4d-card-link ?disabled=${disabled} href=${ifDefined(href || undefined)}>
+      <c4d-card-link-heading>${heading}</c4d-card-link-heading>
       ${copy ? html` <p>${copy}</p> ` : ``}
-      <dds-card-footer ?disabled=${disabled}>
+      <c4d-card-footer ?disabled=${disabled}>
         ${disabled ? Error20({ slot: 'icon' }) : ArrowRight20({ slot: 'icon' })}
-      </dds-card-footer>
-    </dds-card-link>
+      </c4d-card-footer>
+    </c4d-card-link>
   `;
 };
 
@@ -33,10 +33,10 @@ export default {
   title: 'Components/Card link',
   decorators: [
     (story) => html`
-      <div class="bx--grid">
-        <div class="bx--row">
+      <div class="cds--grid">
+        <div class="cds--row">
           <div
-            class="bx--col-sm-4 bx--col-md-3 bx--col-lg-6 bx--col-xlg-4 bx--no-gutter">
+            class="cds--col-sm-4 cds--col-md-3 cds--col-lg-6 cds--col-xlg-4 cds--no-gutter">
             ${story()}
           </div>
         </div>

@@ -6,24 +6,24 @@
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
  */
-import { css } from 'lit-element';
-import ddsSettings from '@carbon/ibmdotcom-utilities/es/utilities/settings/settings.js';
-import DDSImage from '../image/image';
+import { css } from 'lit';
+import settings from '@carbon/ibmdotcom-utilities/es/utilities/settings/settings.js';
+import C4DImage from '../image/image';
 import styles from './universal-banner.scss';
 import { carbonElement as customElement } from '../../internal/vendor/@carbon/web-components/globals/decorators/carbon-element';
 
-const { stablePrefix: ddsPrefix } = ddsSettings;
+const { stablePrefix: c4dPrefix } = settings;
 
 /**
  * Universal banner image.
  *
- * @element dds-universal-banner-image
+ * @element c4d-universal-banner-image
  */
 
-@customElement(`${ddsPrefix}-universal-banner-image`)
-class DDSUniversalBannerImage extends DDSImage {
+@customElement(`${c4dPrefix}-universal-banner-image`)
+class C4DUniversalBannerImage extends C4DImage {
   static get stableSelector() {
-    return `${ddsPrefix}-universal-banner-image`;
+    return `${c4dPrefix}-universal-banner-image`;
   }
 
   static get styles() {
@@ -34,4 +34,4 @@ class DDSUniversalBannerImage extends DDSImage {
 }
 
 /* @__GENERATE_REACT_CUSTOM_ELEMENT_TYPE__ */
-export default DDSUniversalBannerImage;
+export default C4DUniversalBannerImage;

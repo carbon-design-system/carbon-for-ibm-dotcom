@@ -7,11 +7,11 @@
 
 'use strict';
 
-describe('dds-content-group-pictograms', () => {
-  it('should load the default dds-content-group-pictograms example', () => {
+describe('cds-content-group-pictograms', () => {
+  it('should load the default cds-content-group-pictograms example', () => {
     cy.visit('/content-group-pictograms');
 
     // Take a snapshot for visual diffing
-    cy.percySnapshot('dds-content-group-pictograms | default');
+    cy.percySnapshot('cds-content-group-pictograms | default');
   });
 });

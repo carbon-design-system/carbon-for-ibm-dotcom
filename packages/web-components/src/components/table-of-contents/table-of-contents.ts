@@ -7,34 +7,25 @@
  * LICENSE file in the root directory of this source tree.
  */
 
-import { nothing } from 'lit-html';
-import { classMap } from 'lit-html/directives/class-map.js';
-import { ifDefined } from 'lit-html/directives/if-defined.js';
-import {
-  html,
-  property,
-  state,
-  query,
-  queryAll,
-  LitElement,
-} from 'lit-element';
+import { classMap } from 'lit/directives/class-map.js';
+import { ifDefined } from 'lit/directives/if-defined.js';
+import { html, LitElement, nothing } from 'lit';
+import { property, query, queryAll, state } from 'lit/decorators.js';
 import CaretLeft20 from '../../internal/vendor/@carbon/web-components/icons/caret--left/20.js';
 import CaretRight20 from '../../internal/vendor/@carbon/web-components/icons/caret--right/20.js';
-import settings from 'carbon-components/es/globals/js/settings.js';
 import { baseFontSize, breakpoints } from '@carbon/layout';
 import HostListener from '../../internal/vendor/@carbon/web-components/globals/decorators/host-listener.js';
 import HostListenerMixin from '../../internal/vendor/@carbon/web-components/globals/mixins/host-listener.js';
 import TableOfContents20 from '../../internal/vendor/@carbon/web-components/icons/table-of-contents/20.js';
 import throttle from 'lodash-es/throttle.js';
 import StickyHeader from '../../internal/vendor/@carbon/ibmdotcom-utilities/utilities/StickyHeader/StickyHeader';
-import ddsSettings from '../../internal/vendor/@carbon/ibmdotcom-utilities/utilities/settings/settings';
+import settings from '../../internal/vendor/@carbon/ibmdotcom-utilities/utilities/settings/settings';
 import styles from './table-of-contents.scss';
 import { TOC_TYPES } from './defs';
 import StableSelectorMixin from '../../globals/mixins/stable-selector';
 import { carbonElement as customElement } from '../../internal/vendor/@carbon/web-components/globals/decorators/carbon-element.js';
 
-const { prefix } = settings;
-const { stablePrefix: ddsPrefix } = ddsSettings;
+const { prefix, stablePrefix: c4dPrefix } = settings;
 
 // total button width - grid offset
 const buttonWidthOffset = 32;
@@ -67,13 +58,13 @@ function findLastIndex<T>(
 /**
  * Table of contents.
  *
- * @element dds-table-of-contents
+ * @element c4d-table-of-contents
  * @csspart table - The table UI.
  * @slot heading - The heading content.
  * @slot menu-rule - The menu rule.
  */
-@customElement(`${ddsPrefix}-table-of-contents`)
-class DDSTableOfContents extends HostListenerMixin(
+@customElement(`${c4dPrefix}-table-of-contents`)
+class C4DTableOfContents extends HostListenerMixin(
   StableSelectorMixin(LitElement)
 ) {
   /**
@@ -185,7 +176,7 @@ class DDSTableOfContents extends HostListenerMixin(
    * The Element.tagName values that should never be used as a TOC target.
    * Typically added here because these elements have their own `[name]` attribute.
    */
-  private _tagNamesToAvoid = [`${ddsPrefix}-video-player`];
+  private _tagNamesToAvoid = [`${c4dPrefix}-video-player`];
 
   /**
    * The name of an attribute that will prevent the DOM element and any elements
@@ -248,7 +239,7 @@ class DDSTableOfContents extends HostListenerMixin(
    */
   private _handleClickItem(event: MouseEvent) {
     const { selectorDesktopItem } = this
-      .constructor as typeof DDSTableOfContents;
+      .constructor as typeof C4DTableOfContents;
     const target = event.target as HTMLAnchorElement;
     if (target.matches?.(selectorDesktopItem)) {
       this._handleUserInitiatedJump(target.dataset.target!);
@@ -263,7 +254,7 @@ class DDSTableOfContents extends HostListenerMixin(
    */
   private _handleOnKeyDown(event: KeyboardEvent) {
     const { selectorDesktopItem } = this
-      .constructor as typeof DDSTableOfContents;
+      .constructor as typeof C4DTableOfContents;
     const target = event.target as HTMLAnchorElement;
     const { _pageIsRTL: pageIsRTL } = this;
     if (target.matches?.(selectorDesktopItem)) {
@@ -373,7 +364,7 @@ class DDSTableOfContents extends HostListenerMixin(
       _tagNamesToAvoid: tagNamesToAvoid,
       _disableTargetAttribute: disableTargetAttribute,
     } = this;
-    const { selectorTarget } = this.constructor as typeof DDSTableOfContents;
+    const { selectorTarget } = this.constructor as typeof C4DTableOfContents;
     this._targets = nodes.reduce((acc, node) => {
       if (node instanceof HTMLElement) {
         const descendants = node.querySelectorAll(
@@ -443,7 +434,7 @@ class DDSTableOfContents extends HostListenerMixin(
   private _handleUserInitiatedJump(target: string) {
     const elem = this.querySelector(`[name="${target}"]`);
     const masthead: HTMLElement | null = this.ownerDocument.querySelector(
-      `${ddsPrefix}-masthead`
+      `${c4dPrefix}-masthead`
     );
     const mobilePadding =
       window.innerWidth < gridLgBreakpoint
@@ -673,7 +664,7 @@ class DDSTableOfContents extends HostListenerMixin(
   /**
    * The trigger reharvest listener.
    */
-  @HostListener(`document:${ddsPrefix}-table-of-contents-reharvest`)
+  @HostListener(`document:${c4dPrefix}-table-of-contents-reharvest`)
   // @ts-ignore: The decorator refers to this method but TS thinks this method is not referred to
   private _retriggerHarvest = () => {
     this._targets = Array.from(this.querySelectorAll('[name]'));
@@ -740,9 +731,9 @@ class DDSTableOfContents extends HostListenerMixin(
     } = this;
 
     const containerClasses = classMap({
-      [`${ddsPrefix}-ce--table-of-contents__container`]:
+      [`${c4dPrefix}-ce--table-of-contents__container`]:
         this.layout === TOC_TYPES.DEFAULT,
-      [`${ddsPrefix}-ce--table-of-contents-horizontal__container`]:
+      [`${c4dPrefix}-ce--table-of-contents-horizontal__container`]:
         this.layout === TOC_TYPES.HORIZONTAL,
     });
 
@@ -755,13 +746,13 @@ class DDSTableOfContents extends HostListenerMixin(
 
     const caretLeftContainerClasses = classMap({
       [`${prefix}--toc__navbar-caret-left-container`]: true,
-      [`${ddsPrefix}-ce--toc__navbar-caret-container--hidden`]:
+      [`${c4dPrefix}-ce--toc__navbar-caret-container--hidden`]:
         isIntersectionLeftTrackerInContent,
     });
 
     const caretRightContainerClasses = classMap({
       [`${prefix}--toc__navbar-caret-right-container`]: true,
-      [`${ddsPrefix}-ce--toc__navbar-caret-container--hidden`]:
+      [`${c4dPrefix}-ce--toc__navbar-caret-container--hidden`]:
         isIntersectionRightTrackerInContent,
     });
 
@@ -850,7 +841,7 @@ class DDSTableOfContents extends HostListenerMixin(
               `
             : ``}
           <div
-            class="${ddsPrefix}-ce--table-of-contents__items-container"
+            class="${c4dPrefix}-ce--table-of-contents__items-container"
             style="position: sticky; top: ${stickyOffset &&
             this.layout !== TOC_TYPES.HORIZONTAL
               ? `${stickyOffset}px`
@@ -995,11 +986,11 @@ class DDSTableOfContents extends HostListenerMixin(
   static selectorTarget = '[name]';
 
   static get stableSelector() {
-    return `${ddsPrefix}--table-of-contents`;
+    return `${c4dPrefix}--table-of-contents`;
   }
 
   static styles = styles; // `styles` here is a `CSSResult` generated by custom WebPack loader
 }
 
 /* @__GENERATE_REACT_CUSTOM_ELEMENT_TYPE__ */
-export default DDSTableOfContents;
+export default C4DTableOfContents;

@@ -5,23 +5,34 @@
  * LICENSE file in the root directory of this source tree.
  */
 
+@use '@carbon/styles/scss/breakpoint' as *;
+@use '@carbon/styles/scss/config' as *;
+@use '@carbon/styles/scss/spacing' as *;
+@use '@carbon/styles/scss/theme' as *;
+@use '@carbon/styles/scss/type' as *;
+@use '../../globals/vars' as *;
+@use '../../globals/utils/flex-grid' as *;
+@use '../../globals/utils/hang' as *;
+@use '../card';
+@use '../link-with-icon';
+
 @mixin link-list {
   .#{$prefix}--link-list {
-    padding-bottom: $carbon--layout-05;
+    padding-bottom: $spacing-10;
 
     &:first-of-type {
-      padding-top: $carbon--layout-05;
+      padding-top: $spacing-10;
     }
   }
 
-  :host(#{$dds-prefix}-link-list-item-card),
-  :host(#{$dds-prefix}-link-list-item-card-cta),
+  :host(#{$c4d-prefix}-link-list-item-card),
+  :host(#{$c4d-prefix}-link-list-item-card-cta),
   .#{$prefix}--link-list {
     .#{$prefix}--card {
       max-width: none;
 
       &:not(:hover) {
-        background: $ui-background;
+        background: $background;
       }
     }
 
@@ -31,7 +42,7 @@
       svg {
         margin-right: 0;
 
-        @include carbon--breakpoint-down('md') {
+        @include breakpoint-down(md) {
           align-self: start;
           margin-top: 1px; /* keeps icon centered when text is a single line */
         }
@@ -39,25 +50,25 @@
     }
 
     .#{$prefix}--card__wrapper {
-      padding-left: $carbon--spacing-07;
-      padding-right: $carbon--spacing-07;
+      padding-left: $spacing-07;
+      padding-right: $spacing-07;
 
       .#{$prefix}--card__copy {
         margin-bottom: 0;
 
-        @include carbon--breakpoint('lg') {
-          margin-bottom: $carbon--spacing-07;
+        @include breakpoint(lg) {
+          margin-bottom: $spacing-07;
         }
       }
 
       .#{$prefix}--card__copy p,
       .#{$prefix}--card__heading,
       .#{$prefix}--card__copy ::slotted(p) {
-        color: $link-01;
-        @include carbon--type-style('body-short-02');
+        color: $link-primary;
+        @include type-style('body-compact-02');
       }
 
-      @include carbon--breakpoint('md') {
+      @include breakpoint(md) {
         padding-left: 0;
         padding-right: 0;
       }
@@ -72,7 +83,7 @@
       flex-direction: row;
       justify-content: space-between;
 
-      @include carbon--breakpoint('lg') {
+      @include breakpoint(lg) {
         flex-direction: column;
       }
     }
@@ -82,54 +93,59 @@
     }
   }
 
-  :host(#{$dds-prefix}-link-list-item-card-cta) {
-    ::slotted(#{$dds-prefix}-card-cta-footer) {
-      @include carbon--breakpoint-down('lg') {
+  :host(#{$c4d-prefix}-link-list-item-card-cta) {
+    ::slotted(#{$c4d-prefix}-card-cta-footer) {
+      @include breakpoint-down(lg) {
         margin-top: 0;
       }
     }
   }
 
-  :host(#{$dds-prefix}-link-list-item-card-cta)[cta-type='video'],
+  :host(#{$c4d-prefix}-link-list-item-card-cta)[cta-type='video'],
   .#{$prefix}--card__video {
     [slot='heading'],
     .#{$prefix}--card__heading {
-      color: $link-01;
       margin-bottom: 0;
 
-      @include carbon--type-style('body-short-02');
+      @include type-style('body-compact-02');
 
-      @include carbon--breakpoint('lg') {
-        margin-bottom: $carbon--spacing-05;
+      @include breakpoint(lg) {
+        margin-bottom: $spacing-05;
       }
+    }
+  }
+  :host(#{$c4d-prefix}-link-list-item-card-cta)[cta-type='video'] {
+    [slot='heading'],
+    .#{$prefix}--card__heading {
+      color: $link-primary;
     }
   }
 
   .#{$prefix}--link-list__heading,
-  :host(#{$dds-prefix}-link-list-heading) {
-    margin-bottom: $carbon--spacing-05;
+  :host(#{$c4d-prefix}-link-list-heading) {
+    margin-bottom: $spacing-05;
 
-    @include carbon--type-style('expressive-heading-02');
+    @include type-style('heading-02');
 
-    color: $text-01;
+    color: $text-primary;
   }
 
   .#{$prefix}--link-list__list.#{$prefix}--link-list__list--card {
-    margin-left: -$carbon--spacing-05;
-    margin-right: -$carbon--spacing-05;
+    margin-left: -$spacing-05;
+    margin-right: -$spacing-05;
   }
 
   .#{$prefix}--link-list__list--horizontal {
-    ::slotted(#{$dds-prefix}-link-list-item),
-    ::slotted(#{$dds-prefix}-link-list-item-card),
-    ::slotted(#{$dds-prefix}-link-list-item-cta),
-    ::slotted(#{$dds-prefix}-link-list-item-card-cta),
+    ::slotted(#{$c4d-prefix}-link-list-item),
+    ::slotted(#{$c4d-prefix}-link-list-item-card),
+    ::slotted(#{$c4d-prefix}-link-list-item-cta),
+    ::slotted(#{$c4d-prefix}-link-list-item-card-cta),
     .#{$prefix}--link-list__list__CTA {
       float: left;
-      padding-right: $carbon--spacing-07;
-      padding-bottom: $carbon--spacing-05;
+      padding-right: $spacing-07;
+      padding-bottom: $spacing-05;
 
-      @include carbon--breakpoint('md') {
+      @include breakpoint(md) {
         padding-bottom: 0;
       }
     }
@@ -137,7 +153,7 @@
 
   .#{$prefix}--link-list__list--vertical {
     .#{$prefix}--link-list__list__CTA {
-      margin-bottom: $carbon--spacing-05;
+      margin-bottom: $spacing-05;
 
       &:last-of-type {
         margin-bottom: 0;
@@ -145,7 +161,7 @@
     }
 
     ::slotted(*) {
-      margin-bottom: $carbon--spacing-05;
+      margin-bottom: $spacing-05;
     }
 
     ::slotted(*:last-of-type) {
@@ -156,7 +172,7 @@
   .#{$prefix}--content-item-horizontal__item--cta {
     .#{$prefix}--link-list li {
       &:last-of-type {
-        @include carbon--breakpoint('lg') {
+        @include breakpoint(lg) {
           margin-bottom: 0;
         }
       }
@@ -164,17 +180,17 @@
   }
 
   .#{$prefix}--link-list__list--vertical-end {
-    ::slotted(#{$dds-prefix}-link-list-item),
-    ::slotted(#{$dds-prefix}-link-list-item-cta),
+    ::slotted(#{$c4d-prefix}-link-list-item),
+    ::slotted(#{$c4d-prefix}-link-list-item-cta),
     .#{$prefix}--link-list__list__CTA .#{$prefix}--link-with-icon__container {
-      @include carbon--make-col-ready;
+      @include make-col-ready;
 
       width: 100%;
     }
 
     .#{$prefix}--link-list__list__CTA .#{$prefix}--link-with-icon__container {
       a {
-        padding: $carbon--spacing-05 0;
+        padding: $spacing-05 0;
         justify-content: space-between;
 
         &:hover {
@@ -188,56 +204,56 @@
 
       svg {
         align-self: start;
-        margin-left: $carbon--spacing-07;
+        margin-left: $spacing-07;
         margin-top: 1px; /* keeps icon centered when text is a single line */
       }
     }
   }
 
   .#{$prefix}--link-list__list--vertical-end .#{$prefix}--link-list__list__CTA {
-    border-bottom: 1px solid $ui-03;
+    border-bottom: 1px solid $layer-accent-01;
     max-width: 640px;
     @include hang;
 
     &:hover {
-      background: $hover-ui;
+      background: $background-hover;
     }
 
     &:focus-within {
-      outline: 2px solid $focus;
+      outline: $spacing-01 solid $focus;
     }
 
     &:first-of-type {
-      border-top: 1px solid $ui-03;
+      border-top: 1px solid $layer-accent-01;
     }
   }
 
-  :host(#{$dds-prefix}-link-list-item-card),
-  :host(#{$dds-prefix}-link-list-item-card-cta),
+  :host(#{$c4d-prefix}-link-list-item-card),
+  :host(#{$c4d-prefix}-link-list-item-card-cta),
   .#{$prefix}--link-list__list__CTA {
     &.#{$prefix}--link-list__list--video .#{$prefix}--card__footer span {
-      color: $link-01;
+      color: $link-primary;
       display: none;
 
-      @include carbon--breakpoint('lg') {
+      @include breakpoint(lg) {
         display: inline;
       }
     }
   }
 
-  :host(#{$dds-prefix}-link-list-item-card),
-  :host(#{$dds-prefix}-link-list-item-card-cta),
+  :host(#{$c4d-prefix}-link-list-item-card),
+  :host(#{$c4d-prefix}-link-list-item-card-cta),
   .#{$prefix}--link-list__list--card .#{$prefix}--link-list__list__CTA {
     max-width: carbon--mini-units(80);
-    border-top: 1px solid $ui-03;
+    border-top: 1px solid $layer-accent-01;
 
     &:last-of-type {
-      border-bottom: 1px solid $ui-03;
+      border-bottom: 1px solid $layer-accent-01;
     }
   }
 
-  :host(#{$dds-prefix}-link-list-item-card),
-  :host(#{$dds-prefix}-link-list-item-card-cta),
+  :host(#{$c4d-prefix}-link-list-item-card),
+  :host(#{$c4d-prefix}-link-list-item-card-cta),
   .#{$prefix}--link-list__list--card .#{$prefix}--link-list__list__CTA div {
     .#{$prefix}--tile {
       margin-left: 0;
@@ -248,14 +264,10 @@
         min-height: 0;
         padding: 0;
 
-        @include carbon--breakpoint('lg') {
+        @include breakpoint(lg) {
           min-height: 116px;
         }
       }
     }
   }
-}
-
-@include exports('link-list') {
-  @include link-list;
 }

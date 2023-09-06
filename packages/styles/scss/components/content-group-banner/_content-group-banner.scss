@@ -5,35 +5,39 @@
  * LICENSE file in the root directory of this source tree.
  */
 
-@import '../../internal/content-group/content-group';
-@import '../../globals/imports';
+@use '@carbon/styles/scss/breakpoint' as *;
+@use '@carbon/styles/scss/config' as *;
+@use '@carbon/styles/scss/spacing' as *;
+@use '@carbon/styles/scss/theme' as *;
+@use '../../globals/vars' as *;
+@use '../../internal/content-group';
 
 @mixin content-group-banner {
-  :host(#{$dds-prefix}-content-group-banner),
+  :host(#{$c4d-prefix}-content-group-banner),
   .#{$prefix}--content-group-banner {
-    background: $ui-background;
+    background: $background;
     padding-top: $spacing-07;
     padding-bottom: $spacing-07;
 
-    @include carbon--breakpoint('md') {
+    @include breakpoint(md) {
       padding-bottom: $spacing-09;
     }
 
-    ::slotted(#{$dds-prefix}-content-group-heading),
+    ::slotted(#{$c4d-prefix}-content-group-heading),
     .#{$prefix}--content-layout ::slotted([slot='heading']),
     .#{$prefix}--content-group__title {
       margin-bottom: 0;
 
-      @include carbon--breakpoint('md') {
+      @include breakpoint(md) {
         grid-column: 1 / span 6;
       }
 
-      @include carbon--breakpoint('lg') {
+      @include breakpoint(lg) {
         grid-column: 1 / span 8;
       }
     }
 
-    ::slotted(#{$dds-prefix}-link-list),
+    ::slotted(#{$c4d-prefix}-link-list),
     .#{$prefix}--content-layout ::slotted([slot='complementary']),
     .#{$prefix}--link-list__list {
       position: relative;
@@ -42,27 +46,23 @@
       margin-bottom: 0;
       padding-bottom: 0;
 
-      @include carbon--breakpoint('md') {
+      @include breakpoint(md) {
         grid-column: 1 / span 6;
       }
 
-      @include carbon--breakpoint('lg') {
+      @include breakpoint(lg) {
         grid-column: 9 / span 12;
         margin: 0;
-        padding-left: $carbon--spacing-05;
-        padding-right: $carbon--spacing-05;
-        border-left: 1px solid $ui-03;
+        padding-left: $spacing-05;
+        padding-right: $spacing-05;
+        border-left: 1px solid $layer-accent-01;
 
         // Adjust the direction of the border line on RTL.
         [dir='rtl'] & {
           border-left: inherit;
-          border-right: 1px solid $ui-03;
+          border-right: 1px solid $layer-accent-01;
         }
       }
     }
   }
-}
-
-@include exports('content-group-banner') {
-  @include content-group-banner;
 }

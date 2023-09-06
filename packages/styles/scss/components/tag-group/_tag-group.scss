@@ -5,23 +5,26 @@
 // LICENSE file in the root directory of this source tree.
 //
 
-@import '../../globals/imports';
-@import '../../globals/vars';
+@use '@carbon/styles/scss/config' as *;
+@use '@carbon/styles/scss/spacing' as *;
+@use '../../globals/vars' as *;
 
-:host(#{$dds-prefix}-tag-group) {
-  display: flex;
-  flex-flow: row wrap;
-  gap: $spacing-03;
-
-  ::slotted(#{$dds-prefix}-tag-link) {
+@mixin tag-group {
+  :host(#{$c4d-prefix}-tag-group) {
     display: flex;
-  }
+    flex-flow: row wrap;
+    gap: $spacing-03;
 
-  // !important necessary for React wrappers since Carbon React styles override margin without this
-  ::slotted(.#{$prefix}--tag),
-  ::slotted(#{$prefix}-filter-tag),
-  ::slotted(#{$prefix}-tag) {
-    // stylelint-disable-next-line declaration-no-important
-    margin: 0 !important;
+    ::slotted(#{$c4d-prefix}-tag-link) {
+      display: flex;
+    }
+
+    // !important necessary for React wrappers since Carbon React styles override margin without this
+    ::slotted(.#{$prefix}--tag),
+    ::slotted(#{$prefix}-filter-tag),
+    ::slotted(#{$prefix}-tag) {
+      // stylelint-disable-next-line declaration-no-important
+      margin: 0 !important;
+    }
   }
 }
