@@ -54,7 +54,7 @@ export const decorators = [
     const result = story();
     const { hasStoryPadding } = parameters;
     const classes = classMap({
-      'dds-story-padding': hasStoryPadding,
+      'c4d-story-padding': hasStoryPadding,
     });
 
     return html`

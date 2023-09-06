@@ -12,11 +12,11 @@ import { select } from '@storybook/addon-knobs';
 import ArrowRight20 from '@carbon/icons-react/es/arrow--right/20.js';
 // Below path will be there when an application installs `@carbon/ibmdotcom-web-components` package.
 // In our dev env, we auto-generate the file and re-map below path to to point to the generated file.
-import DDSCalloutQuote from '@carbon/ibmdotcom-web-components/es/components-react/callout-quote/callout-quote';
-import DDSCalloutLinkWithIcon from '@carbon/ibmdotcom-web-components/es/components-react/callout-quote/callout-link-with-icon';
-import DDSQuoteSourceHeading from '@carbon/ibmdotcom-web-components/es/components-react/quote/quote-source-heading';
-import DDSQuoteSourceCopy from '@carbon/ibmdotcom-web-components/es/components-react/quote/quote-source-copy';
-import DDSQuoteSourceBottomCopy from '@carbon/ibmdotcom-web-components/es/components-react/quote/quote-source-bottom-copy';
+import C4DCalloutQuote from '@carbon/ibmdotcom-web-components/es/components-react/callout-quote/callout-quote';
+import C4DCalloutLinkWithIcon from '@carbon/ibmdotcom-web-components/es/components-react/callout-quote/callout-link-with-icon';
+import C4DQuoteSourceHeading from '@carbon/ibmdotcom-web-components/es/components-react/quote/quote-source-heading';
+import C4DQuoteSourceCopy from '@carbon/ibmdotcom-web-components/es/components-react/quote/quote-source-copy';
+import C4DQuoteSourceBottomCopy from '@carbon/ibmdotcom-web-components/es/components-react/quote/quote-source-bottom-copy';
 import textNullable from '../../../../.storybook/knob-text-nullable';
 import { QUOTE_TYPES } from '../../quote/quote';
 import { COLOR_SCHEME } from '../../../component-mixins/callout/defs';
@@ -44,15 +44,15 @@ const colorSchemeTypes = {
 export const Default = args => {
   const { copy, quoteMark, sourceHeading, sourceCopy, sourceBottomCopy, colorScheme } = args?.CalloutQuote ?? {};
   return (
-    <DDSCalloutQuote mark-type={quoteMark} color-scheme={colorScheme}>
+    <C4DCalloutQuote mark-type={quoteMark} color-scheme={colorScheme}>
       {copy}
-      <DDSQuoteSourceHeading>{sourceHeading}</DDSQuoteSourceHeading>
-      <DDSQuoteSourceCopy>{sourceCopy}</DDSQuoteSourceCopy>
-      <DDSQuoteSourceBottomCopy>{sourceBottomCopy}</DDSQuoteSourceBottomCopy>
-      <DDSCalloutLinkWithIcon slot="footer" href="https://example.com">
+      <C4DQuoteSourceHeading>{sourceHeading}</C4DQuoteSourceHeading>
+      <C4DQuoteSourceCopy>{sourceCopy}</C4DQuoteSourceCopy>
+      <C4DQuoteSourceBottomCopy>{sourceBottomCopy}</C4DQuoteSourceBottomCopy>
+      <C4DCalloutLinkWithIcon slot="footer" href="https://example.com">
         Link with icon <ArrowRight20 slot="icon"></ArrowRight20>
-      </DDSCalloutLinkWithIcon>
-    </DDSCalloutQuote>
+      </C4DCalloutLinkWithIcon>
+    </C4DCalloutQuote>
   );
 };
 
@@ -89,7 +89,7 @@ Default.story = {
 export default {
   title: 'Components/Callout Quote',
   decorators: [
-    story => (
+    (story) => (
       <div className="cds--grid">
         <div className="cds--row">
           <div className="cds--col-lg-11">{story()}</div>

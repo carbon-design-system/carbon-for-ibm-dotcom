@@ -86,7 +86,7 @@ const _pathSuper = '/iframe.html?id=components-lead-space--super';
 const _pathSuperWithImage = '/iframe.html?id=components-lead-space--super-with-image';
 
 /* eslint-disable cypress/no-unnecessary-waiting */
-describe('dds-leadspace | tall', () => {
+describe('cds-leadspace | tall', () => {
   it('should check a11y', () => {
     cy.visit(`/${_pathTall}`);
     cy.injectAxe();
@@ -97,11 +97,11 @@ describe('dds-leadspace | tall', () => {
     cy.visit(`/${_pathTall}`);
     cy.viewport(1280, 780);
 
-    cy.get('dds-leadspace-heading').then($title => {
+    cy.get('cds-leadspace-heading').then($title => {
       expect($title[0].getBoundingClientRect().left).to.equal(16);
     });
 
-    cy.get('[data-autoid="dds--leadspace__desc"]').then($desc => {
+    cy.get('[data-autoid="cds--leadspace__desc"]').then($desc => {
       expect($desc[0].getBoundingClientRect().left).to.equal(16);
     });
   });
@@ -112,15 +112,15 @@ describe('dds-leadspace | tall', () => {
     );
     cy.viewport(1280, 780);
 
-    cy.get('dds-button-group-item:nth-child(1) svg path').then($icon => {
+    cy.get('cds-button-group-item:nth-child(1) svg path').then($icon => {
       expect($icon).to.have.attr('d', 'M11.8 2.8L10.8 3.8 16.2 9.3 1 9.3 1 10.7 16.2 10.7 10.8 16.2 11.8 17.2 19 10z');
     });
 
-    cy.get('dds-button-group-item:nth-child(2) svg path').then($icon => {
+    cy.get('cds-button-group-item:nth-child(2) svg path').then($icon => {
       expect($icon).to.have.attr('d', 'M24.59 16.59L17 24.17 17 4 15 4 15 24.17 7.41 16.59 6 18 16 28 26 18 24.59 16.59z');
     });
 
-    cy.get('dds-button-group-item:nth-child(3) svg path').then($icon => {
+    cy.get('cds-button-group-item:nth-child(3) svg path').then($icon => {
       expect($icon).to.have.attr(
         'd',
         'M30 11L30 9 22 9 22 23 24 23 24 17 29 17 29 15 24 15 24 11 30 11zM8 9H2V23H4V18H8a2 2 0 002-2V11A2 2 0 008 9zm0 7H4V11H8zM16 23H12V9h4a4 4 0 014 4v6A4 4 0 0116 23zm-2-2h2a2 2 0 002-2V13a2 2 0 00-2-2H14z'
@@ -134,16 +134,16 @@ describe('dds-leadspace | tall', () => {
     cy.visit(`/${_pathTall}`);
     cy.viewport(1280, 780);
 
-    cy.get('dds-button-group-item').should('have.length', 2);
+    cy.get('cds-button-group-item').should('have.length', 2);
   });
 
   it('should load more than 2 buttons when customized and should all have links', () => {
     cy.visit(`/${_pathTall}&knob-Number%20of%20buttons=3`);
     cy.viewport(1280, 780);
 
-    cy.get('dds-button-group-item').should('have.length', 3);
+    cy.get('cds-button-group-item').should('have.length', 3);
 
-    cy.get('dds-button-group-item')
+    cy.get('cds-button-group-item')
       .shadow()
       .find('a')
       .each($link => {
@@ -156,7 +156,7 @@ describe('dds-leadspace | tall', () => {
     cy.visit(`/${_pathTall}`);
     cy.viewport(1280, 780);
 
-    cy.get('dds-background-media').should('not.exist');
+    cy.get('cds-background-media').should('not.exist');
   });
 
   it('should load correctly in all themes', () => {
@@ -167,7 +167,7 @@ describe('dds-leadspace | tall', () => {
   });
 });
 
-describe('dds-leadspace | tall with image', () => {
+describe('cds-leadspace | tall with image', () => {
   it('should check a11y', () => {
     cy.visit(`/${_pathTall}`);
     cy.injectAxe();
@@ -180,8 +180,8 @@ describe('dds-leadspace | tall with image', () => {
 
     cy.wait(500);
 
-    cy.get('dds-background-media')
-      .find('dds-image-item')
+    cy.get('cds-background-media')
+      .find('cds-image-item')
       .should('have.attr', 'srcset');
 
     cy.takeSnapshots();
@@ -195,7 +195,7 @@ describe('dds-leadspace | tall with image', () => {
   });
 });
 
-describe('dds-leadspace | centered', () => {
+describe('cds-leadspace | centered', () => {
   it('should check a11y', () => {
     cy.visit(`/${_pathTall}`);
     cy.injectAxe();
@@ -206,11 +206,11 @@ describe('dds-leadspace | centered', () => {
     cy.visit(`/${_pathCentered}`);
     cy.viewport(1280, 780);
 
-    cy.get('dds-leadspace-heading').then($title => {
+    cy.get('cds-leadspace-heading').then($title => {
       expect($title[0].getBoundingClientRect().left).to.equal(328);
     });
 
-    cy.get('[data-autoid="dds--leadspace__desc"]').then($desc => {
+    cy.get('[data-autoid="cds--leadspace__desc"]').then($desc => {
       expect($desc[0].getBoundingClientRect().left).to.equal(328);
     });
   });
@@ -219,14 +219,14 @@ describe('dds-leadspace | centered', () => {
     cy.visit(`/${_pathCentered}`);
     cy.viewport(1280, 780);
 
-    cy.get('dds-button-group-item').should('have.length', 2);
+    cy.get('cds-button-group-item').should('have.length', 2);
   });
 
   it('should load buttons centered aligned', () => {
     cy.visit(`/${_pathCentered}`);
     cy.viewport(1280, 780);
 
-    cy.get('dds-button-group').then($button => {
+    cy.get('cds-button-group').then($button => {
       expect($button[0].getBoundingClientRect().left).to.equal(344);
     });
   });
@@ -237,15 +237,15 @@ describe('dds-leadspace | centered', () => {
     );
     cy.viewport(1280, 780);
 
-    cy.get('dds-button-group-item:nth-child(1) svg path').then($icon => {
+    cy.get('cds-button-group-item:nth-child(1) svg path').then($icon => {
       expect($icon).to.have.attr('d', 'M11.8 2.8L10.8 3.8 16.2 9.3 1 9.3 1 10.7 16.2 10.7 10.8 16.2 11.8 17.2 19 10z');
     });
 
-    cy.get('dds-button-group-item:nth-child(2) svg path').then($icon => {
+    cy.get('cds-button-group-item:nth-child(2) svg path').then($icon => {
       expect($icon).to.have.attr('d', 'M24.59 16.59L17 24.17 17 4 15 4 15 24.17 7.41 16.59 6 18 16 28 26 18 24.59 16.59z');
     });
 
-    cy.get('dds-button-group-item:nth-child(3) svg path').then($icon => {
+    cy.get('cds-button-group-item:nth-child(3) svg path').then($icon => {
       expect($icon).to.have.attr(
         'd',
         'M30 11L30 9 22 9 22 23 24 23 24 17 29 17 29 15 24 15 24 11 30 11zM8 9H2V23H4V18H8a2 2 0 002-2V11A2 2 0 008 9zm0 7H4V11H8zM16 23H12V9h4a4 4 0 014 4v6A4 4 0 0116 23zm-2-2h2a2 2 0 002-2V13a2 2 0 00-2-2H14z'
@@ -263,7 +263,7 @@ describe('dds-leadspace | centered', () => {
   });
 });
 
-describe('dds-leadspace | centered with image', () => {
+describe('cds-leadspace | centered with image', () => {
   it('should check a11y', () => {
     cy.visit(`/${_pathTall}`);
     cy.injectAxe();
@@ -276,8 +276,8 @@ describe('dds-leadspace | centered with image', () => {
 
     cy.wait(500);
 
-    cy.get('dds-background-media')
-      .find('dds-image-item')
+    cy.get('cds-background-media')
+      .find('cds-image-item')
       .should('have.attr', 'srcset');
 
     cy.takeSnapshots();
@@ -291,7 +291,7 @@ describe('dds-leadspace | centered with image', () => {
   });
 });
 
-describe('dds-leadspace | short', () => {
+describe('cds-leadspace | short', () => {
   it('should load correctly in all themes', () => {
     cy.visit(`/${_pathShort}`);
     cy.viewport(1280, 780);
@@ -300,7 +300,7 @@ describe('dds-leadspace | short', () => {
   });
 });
 
-describe('dds-leadspace | short with image', () => {
+describe('cds-leadspace | short with image', () => {
   it('should check a11y', () => {
     cy.visit(`/${_pathTall}`);
     cy.injectAxe();
@@ -315,7 +315,7 @@ describe('dds-leadspace | short with image', () => {
   });
 });
 
-describe('dds-leadspace | medium', () => {
+describe('cds-leadspace | medium', () => {
   it('should check a11y', () => {
     cy.visit(`/${_pathTall}`);
     cy.injectAxe();
@@ -330,7 +330,7 @@ describe('dds-leadspace | medium', () => {
   });
 });
 
-describe('dds-leadspace | medium with image', () => {
+describe('cds-leadspace | medium with image', () => {
   it('should check a11y', () => {
     cy.visit(`/${_pathTall}`);
     cy.injectAxe();
@@ -345,7 +345,7 @@ describe('dds-leadspace | medium with image', () => {
   });
 });
 
-describe('dds-leadspace | super', () => {
+describe('cds-leadspace | super', () => {
   it('should check a11y', () => {
     cy.visit(`/${_pathTall}`);
     cy.injectAxe();
@@ -356,11 +356,11 @@ describe('dds-leadspace | super', () => {
     cy.visit(`/${_pathSuper}`);
     cy.viewport(1280, 780);
 
-    cy.get('dds-leadspace-heading').then($title => {
+    cy.get('cds-leadspace-heading').then($title => {
       expect($title[0].getBoundingClientRect().left).to.equal(16);
     });
 
-    cy.get('[data-autoid="dds--leadspace__desc"]').then($desc => {
+    cy.get('[data-autoid="cds--leadspace__desc"]').then($desc => {
       expect($desc[0].getBoundingClientRect().left).to.equal(16);
     });
   });
@@ -369,7 +369,7 @@ describe('dds-leadspace | super', () => {
     cy.visit(`/${_pathSuper}`);
     cy.viewport(1280, 780);
 
-    cy.get('dds-button-group-item').should('have.length', 2);
+    cy.get('cds-button-group-item').should('have.length', 2);
   });
 
   it('should render 3 buttons with different icons (arrow right, left, and PDF)', () => {
@@ -378,15 +378,15 @@ describe('dds-leadspace | super', () => {
     );
     cy.viewport(1280, 780);
 
-    cy.get('dds-button-group-item:nth-child(1) svg path').then($icon => {
+    cy.get('cds-button-group-item:nth-child(1) svg path').then($icon => {
       expect($icon).to.have.attr('d', 'M11.8 2.8L10.8 3.8 16.2 9.3 1 9.3 1 10.7 16.2 10.7 10.8 16.2 11.8 17.2 19 10z');
     });
 
-    cy.get('dds-button-group-item:nth-child(2) svg path').then($icon => {
+    cy.get('cds-button-group-item:nth-child(2) svg path').then($icon => {
       expect($icon).to.have.attr('d', 'M24.59 16.59L17 24.17 17 4 15 4 15 24.17 7.41 16.59 6 18 16 28 26 18 24.59 16.59z');
     });
 
-    cy.get('dds-button-group-item:nth-child(3) svg path').then($icon => {
+    cy.get('cds-button-group-item:nth-child(3) svg path').then($icon => {
       expect($icon).to.have.attr(
         'd',
         'M30 11L30 9 22 9 22 23 24 23 24 17 29 17 29 15 24 15 24 11 30 11zM8 9H2V23H4V18H8a2 2 0 002-2V11A2 2 0 008 9zm0 7H4V11H8zM16 23H12V9h4a4 4 0 014 4v6A4 4 0 0116 23zm-2-2h2a2 2 0 002-2V13a2 2 0 00-2-2H14z'
@@ -400,9 +400,9 @@ describe('dds-leadspace | super', () => {
     cy.visit(`/${_pathSuper}&knob-Number%20of%20buttons=3`);
     cy.viewport(1280, 780);
 
-    cy.get('dds-button-group-item').should('have.length', 3);
+    cy.get('cds-button-group-item').should('have.length', 3);
 
-    cy.get('dds-button-group-item')
+    cy.get('cds-button-group-item')
       .shadow()
       .find('a')
       .each($link => {
@@ -419,7 +419,7 @@ describe('dds-leadspace | super', () => {
   });
 });
 
-describe('dds-leadspace | super with image', () => {
+describe('cds-leadspace | super with image', () => {
   it('should check a11y', () => {
     cy.visit(`/${_pathTall}`);
     cy.injectAxe();
@@ -432,11 +432,11 @@ describe('dds-leadspace | super with image', () => {
 
     cy.wait(500);
 
-    cy.get('dds-background-media')
-      .find('dds-image-item')
+    cy.get('cds-background-media')
+      .find('cds-image-item')
       .should('have.attr', 'srcset');
 
-    cy.get('dds-background-media').then($ele => {
+    cy.get('cds-background-media').then($ele => {
       expect($ele[0].offsetHeight).to.equal(640);
     });
 

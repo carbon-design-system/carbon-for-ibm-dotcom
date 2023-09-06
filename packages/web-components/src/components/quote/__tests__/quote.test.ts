@@ -16,11 +16,11 @@ const template = (props?) =>
     LinkWithIcon: props,
   });
 
-describe('dds-quote', function () {
-  it('renders dds-quote properly', async function () {
+describe('c4d-quote', function () {
+  it('renders c4d-quote properly', async function () {
     render(template(), document.body);
-    await Promise.resolve(); // Update cycle for `<dds-button-group>`
-    expect(document.body.querySelector('dds-quote')).toMatchSnapshot({
+    await Promise.resolve(); // Update cycle for `<c4d-button-group>`
+    expect(document.body.querySelector('c4d-quote')).toMatchSnapshot({
       mode: 'shadow',
     });
   });

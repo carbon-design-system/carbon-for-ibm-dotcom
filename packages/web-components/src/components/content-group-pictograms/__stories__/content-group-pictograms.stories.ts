@@ -87,12 +87,12 @@ export const Default = (args) => {
   const { heading: groupHeading, copy: groupCopy } =
     args?.ContentGroupPictograms ?? {};
   return html`
-    <dds-content-group-pictograms>
-      <dds-content-group-heading>${groupHeading}</dds-content-group-heading>
-      <dds-content-group-copy>${groupCopy}</dds-content-group-copy>
+    <c4d-content-group-pictograms>
+      <c4d-content-group-heading>${groupHeading}</c4d-content-group-heading>
+      <c4d-content-group-copy>${groupCopy}</c4d-content-group-copy>
       ${pictogramsItems.map(
         ({ heading, copy, linkWithIcon }) => html`
-          <dds-pictogram-item>
+          <c4d-pictogram-item>
             <svg
               version="1.1"
               slot="pictogram"
@@ -117,14 +117,14 @@ export const Default = (args) => {
               </g>
               <g></g>
             </svg>
-            <dds-content-item-heading>${heading}</dds-content-item-heading>
-            <dds-content-item-copy>${copy}</dds-content-item-copy>
-            <dds-link-with-icon href="${linkWithIcon.href}" slot="footer">
+            <c4d-content-item-heading>${heading}</c4d-content-item-heading>
+            <c4d-content-item-copy>${copy}</c4d-content-item-copy>
+            <c4d-link-with-icon href="${linkWithIcon.href}" slot="footer">
               ${linkWithIcon.copy} ${ArrowRight20({ slot: 'icon' })}
-            </dds-link-with-icon>
-          </dds-pictogram-item>
+            </c4d-link-with-icon>
+          </c4d-pictogram-item>
         `
       )}
-    </dds-content-group-pictograms>
+    </c4d-content-group-pictograms>
   `;
 };

@@ -16,12 +16,12 @@ import readme from './README.stories.mdx';
 export const Default = (args) => {
   const { type, size, contrast, weight } = args?.HorizontalRule ?? {};
   return html`
-    <dds-hr
+    <c4d-hr
       type="${ifDefined(type)}"
       size="${ifDefined(size)}"
       contrast="${ifDefined(contrast)}"
       weight="${ifDefined(weight)}">
-    </dds-hr>
+    </c4d-hr>
   `;
 };
 

@@ -17,7 +17,7 @@
 @use '../../components/link-with-icon';
 
 @mixin quote {
-  :host(#{$dds-prefix}-quote) {
+  :host(#{$c4d-prefix}-quote) {
     background: $background;
     padding-bottom: $spacing-10;
     display: block;
@@ -99,23 +99,23 @@
     padding-bottom: $spacing-09;
   }
 
-  :host(#{$dds-prefix}-quote-source-bottom-copy),
-  :host(#{$dds-prefix}-quote-source-copy),
-  :host(#{$dds-prefix}-quote-source-heading) {
+  :host(#{$c4d-prefix}-quote-source-bottom-copy),
+  :host(#{$c4d-prefix}-quote-source-copy),
+  :host(#{$c4d-prefix}-quote-source-heading) {
     display: block;
   }
 
-  :host(#{$dds-prefix}-quote-source-heading) {
+  :host(#{$c4d-prefix}-quote-source-heading) {
     padding-left: $spacing-05;
     @include type-style(heading-02, true);
   }
 
-  :host(#{$dds-prefix}-quote-source-copy) {
+  :host(#{$c4d-prefix}-quote-source-copy) {
     padding-left: $spacing-05;
     @include type-style(body-02, true);
   }
 
-  :host(#{$dds-prefix}-quote-source-bottom-copy) {
+  :host(#{$c4d-prefix}-quote-source-bottom-copy) {
     padding-left: $spacing-05;
     @include type-style(body-02, true);
   }
@@ -128,16 +128,16 @@
     }
   }
 
-  :host(#{$dds-prefix}-quote) .#{$prefix}--quote__footer {
+  :host(#{$c4d-prefix}-quote) .#{$prefix}--quote__footer {
     padding-left: $spacing-05;
     padding-right: $spacing-05;
 
-    ::slotted(#{$dds-prefix}-quote-link-with-icon) {
+    ::slotted(#{$c4d-prefix}-quote-link-with-icon) {
       margin-left: $spacing-05;
     }
   }
 
-  :host(#{$dds-prefix}-quote)[color-scheme='inverse'] {
+  :host(#{$c4d-prefix}-quote)[color-scheme='inverse'] {
     background: $background-inverse;
     color: $icon-inverse;
 
@@ -149,7 +149,7 @@
       padding-left: 0;
       padding-right: 0;
 
-      ::slotted(#{$dds-prefix}-quote-link-with-icon) {
+      ::slotted(#{$c4d-prefix}-quote-link-with-icon) {
         margin-left: 0;
         padding-left: $spacing-07;
         outline: transparent;
@@ -158,7 +158,7 @@
   }
 
   .#{$prefix}--callout__container,
-  :host(#{$dds-prefix}-callout) {
+  :host(#{$c4d-prefix}-callout) {
     @include make-row;
   }
 
@@ -188,7 +188,7 @@
     }
   }
 
-  :host(#{$dds-prefix}-quote) #{$dds-prefix}-hr {
+  :host(#{$c4d-prefix}-quote) #{$c4d-prefix}-hr {
     margin: $spacing-05;
     @include breakpoint(md) {
       margin: $spacing-05 0;
@@ -198,13 +198,13 @@
     }
   }
 
-  :host(#{$dds-prefix}-quote-link-with-icon) {
+  :host(#{$c4d-prefix}-quote-link-with-icon) {
     @extend .#{$prefix}--link-with-icon;
 
     display: inline-block;
   }
 
-  :host-context(#{$dds-prefix}-quote[color-scheme='inverse'])
+  :host-context(#{$c4d-prefix}-quote[color-scheme='inverse'])
     a.#{$prefix}--link-with-icon.#{$prefix}--link.#{$prefix}--link-with-icon__icon-right {
     color: $link-inverse;
     outline-color: $focus-inverse;

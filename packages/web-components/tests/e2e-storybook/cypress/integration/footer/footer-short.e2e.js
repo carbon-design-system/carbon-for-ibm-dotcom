@@ -21,13 +21,13 @@ const _pathShort = '/iframe.html?id=components-footer--short';
  */
 const _pathShortLanguageOnly = '/iframe.html?id=components-footer--short-language-only';
 
-describe('dds-footer | Short (desktop)', () => {
+describe('cds-footer | Short (desktop)', () => {
   beforeEach(() => {
     cy.visit(`${_pathShort}`);
     cy.injectAxe();
     cy.viewport(1280, 780);
 
-    cy.waitUntil(() => cy.get('[data-autoid="dds--footer-legal-nav"]').should('not.be.empty'));
+    cy.waitUntil(() => cy.get('[data-autoid="cds--footer-legal-nav"]').should('not.be.empty'));
   });
 
   it('should check a11y', () => {
@@ -35,7 +35,7 @@ describe('dds-footer | Short (desktop)', () => {
   });
 
   it('should display clickable IBM logo', () => {
-    cy.get('dds-footer-logo')
+    cy.get('cds-footer-logo')
       .shadow()
       .find('a.bx--footer-logo__link')
       .then($link => {
@@ -47,30 +47,30 @@ describe('dds-footer | Short (desktop)', () => {
   });
 
   it('should open locale modal with 4 geos when clicked on locale button', () => {
-    cy.get('dds-locale-button').click();
+    cy.get('cds-locale-button').click();
 
     cy.wait(500);
 
-    cy.get('dds-locale-modal').should('have.attr', 'open');
+    cy.get('cds-locale-modal').should('have.attr', 'open');
 
-    cy.get('dds-regions > dds-region-item').should('have.length', 4);
+    cy.get('cds-regions > cds-region-item').should('have.length', 4);
 
     cy.takeSnapshots();
   });
 
   it('should display the specific locations and languages of a selected geo', () => {
-    cy.get('dds-locale-button').click();
+    cy.get('cds-locale-button').click();
 
     cy.wait(500);
 
-    cy.get('dds-regions')
-      .find('dds-region-item[name="Middle East and Africa"]')
+    cy.get('cds-regions')
+      .find('cds-region-item[name="Middle East and Africa"]')
       .click();
 
     cy.wait(500);
 
-    cy.get('dds-locale-search')
-      .find('dds-locale-item')
+    cy.get('cds-locale-search')
+      .find('cds-locale-item')
       .each($locale => {
         if (!$locale.attr('region') === 'Middle East and Africa') {
           $locale.should('have.attr', 'hidden');
@@ -81,18 +81,18 @@ describe('dds-footer | Short (desktop)', () => {
   });
 
   it('should display interactive search field and with keywords for locations and languages', () => {
-    cy.get('dds-locale-button').click();
+    cy.get('cds-locale-button').click();
 
     cy.wait(500);
 
-    cy.get('dds-regions')
-      .find('dds-region-item[name="Americas"]')
+    cy.get('cds-regions')
+      .find('cds-region-item[name="Americas"]')
       .click();
 
     cy.wait(500);
 
-    cy.get('dds-locale-search')
-      .find('dds-search')
+    cy.get('cds-locale-search')
+      .find('cds-search')
       .shadow()
       .find('input')
       .type('gu')
@@ -105,8 +105,8 @@ describe('dds-footer | Short (desktop)', () => {
   });
 
   it('should load clickable legal links', () => {
-    cy.get('dds-legal-nav')
-      .find('dds-legal-nav-item')
+    cy.get('cds-legal-nav')
+      .find('cds-legal-nav-item')
       .each($link => {
         const url = $link.prop('href');
         expect(url).not.to.be.empty;
@@ -116,39 +116,39 @@ describe('dds-footer | Short (desktop)', () => {
   });
 });
 
-describe('dds-footer | Short language only (desktop)', () => {
+describe('cds-footer | Short language only (desktop)', () => {
   beforeEach(() => {
     cy.visit(`/${_pathShortLanguageOnly}`);
     cy.viewport(1280, 780);
 
-    cy.waitUntil(() => cy.get('[data-autoid="dds--footer-legal-nav"]').should('not.be.empty'));
+    cy.waitUntil(() => cy.get('[data-autoid="cds--footer-legal-nav"]').should('not.be.empty'));
   });
 
   it('should load language selector dropdown and be interactive', () => {
-    cy.get('dds-language-selector-desktop').should('have.length', 1);
-    cy.get('dds-language-selector-desktop')
+    cy.get('cds-language-selector-desktop').should('have.length', 1);
+    cy.get('cds-language-selector-desktop')
       .shadow()
       .find(`div.bx--dropdown`)
       .click();
-    cy.get('dds-language-selector-desktop')
+    cy.get('cds-language-selector-desktop')
       .find(`bx-combo-box-item[value="Arabic / عربية"]`)
       .click();
-    cy.get('dds-language-selector-desktop').should('have.value', 'Arabic / عربية');
+    cy.get('cds-language-selector-desktop').should('have.value', 'Arabic / عربية');
 
     cy.takeSnapshots();
   });
 });
 
-describe('dds-footer | Short (mobile)', () => {
+describe('cds-footer | Short (mobile)', () => {
   beforeEach(() => {
     cy.visit(`${_pathShort}`);
     cy.viewport(320, 780);
 
-    cy.waitUntil(() => cy.get('[data-autoid="dds--footer-legal-nav"]').should('not.be.empty'));
+    cy.waitUntil(() => cy.get('[data-autoid="cds--footer-legal-nav"]').should('not.be.empty'));
   });
 
   it('should display clickable IBM logo', () => {
-    cy.get('dds-footer-logo')
+    cy.get('cds-footer-logo')
       .shadow()
       .find('a.bx--footer-logo__link')
       .then($link => {
@@ -160,30 +160,30 @@ describe('dds-footer | Short (mobile)', () => {
   });
 
   it('should open locale modal with 4 geos when clicked on locale button', () => {
-    cy.get('dds-locale-button').click();
+    cy.get('cds-locale-button').click();
 
     cy.wait(500);
 
-    cy.get('dds-locale-modal').should('have.attr', 'open');
+    cy.get('cds-locale-modal').should('have.attr', 'open');
 
-    cy.get('dds-regions > dds-region-item').should('have.length', 4);
+    cy.get('cds-regions > cds-region-item').should('have.length', 4);
 
     cy.takeSnapshots('mobile');
   });
 
   it('should display the specific locations and languages of a selected geo', () => {
-    cy.get('dds-locale-button').click();
+    cy.get('cds-locale-button').click();
 
     cy.wait(500);
 
-    cy.get('dds-regions')
-      .find('dds-region-item[name="Middle East and Africa"]')
+    cy.get('cds-regions')
+      .find('cds-region-item[name="Middle East and Africa"]')
       .click();
 
     cy.wait(500);
 
-    cy.get('dds-locale-search')
-      .find('dds-locale-item')
+    cy.get('cds-locale-search')
+      .find('cds-locale-item')
       .each($locale => {
         if (!$locale.attr('region') === 'Middle East and Africa') {
           $locale.should('have.attr', 'hidden');
@@ -194,18 +194,18 @@ describe('dds-footer | Short (mobile)', () => {
   });
 
   it('should display interactive search field and with keywords for locations and languages', () => {
-    cy.get('dds-locale-button').click();
+    cy.get('cds-locale-button').click();
 
     cy.wait(500);
 
-    cy.get('dds-regions')
-      .find('dds-region-item[name="Americas"]')
+    cy.get('cds-regions')
+      .find('cds-region-item[name="Americas"]')
       .click();
 
     cy.wait(500);
 
-    cy.get('dds-locale-search')
-      .find('dds-search')
+    cy.get('cds-locale-search')
+      .find('cds-search')
       .shadow()
       .find('input')
       .type('gu')
@@ -218,8 +218,8 @@ describe('dds-footer | Short (mobile)', () => {
   });
 
   it('should load clickable legal links', () => {
-    cy.get('dds-legal-nav')
-      .find('dds-legal-nav-item')
+    cy.get('cds-legal-nav')
+      .find('cds-legal-nav-item')
       .each($link => {
         const url = $link.prop('href');
         expect(url).not.to.be.empty;
@@ -229,21 +229,21 @@ describe('dds-footer | Short (mobile)', () => {
   });
 });
 
-describe('dds-footer | Short language only (mobile)', () => {
+describe('cds-footer | Short language only (mobile)', () => {
   beforeEach(() => {
     cy.visit(`/${_pathShortLanguageOnly}`);
     cy.viewport(320, 780);
 
-    cy.waitUntil(() => cy.get('[data-autoid="dds--footer-legal-nav"]').should('not.be.empty'));
+    cy.waitUntil(() => cy.get('[data-autoid="cds--footer-legal-nav"]').should('not.be.empty'));
   });
 
   it('should load language selector dropdown and be interactive', () => {
-    cy.get('dds-language-selector-mobile').should('have.length', 1);
-    cy.get('dds-language-selector-mobile')
+    cy.get('cds-language-selector-mobile').should('have.length', 1);
+    cy.get('cds-language-selector-mobile')
       .shadow()
       .find(`select.bx--select-input`)
       .select('Arabic / عربية');
-    cy.get('dds-language-selector-mobile')
+    cy.get('cds-language-selector-mobile')
       .shadow()
       .find(`select.bx--select-input`)
       .should('have.value', 'Arabic / عربية');

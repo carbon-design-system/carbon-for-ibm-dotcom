@@ -18,57 +18,57 @@
 @use './tokens' as *;
 
 @mixin callout {
-  :host(#{$dds-prefix}-callout) {
+  :host(#{$c4d-prefix}-callout) {
     background-color: $background;
   }
 
-  :host(#{$dds-prefix}-callout[color-scheme='inverse']) {
+  :host(#{$c4d-prefix}-callout[color-scheme='inverse']) {
     background-color: $background-inverse;
   }
 
-  :host(#{$dds-prefix}-callout[color-scheme='layer']) {
+  :host(#{$c4d-prefix}-callout[color-scheme='layer']) {
     background-color: $layer-01;
   }
 
-  :host(#{$dds-prefix}-callout[color-scheme='purple']) {
+  :host(#{$c4d-prefix}-callout[color-scheme='purple']) {
     background-color: $callout-background-purple;
   }
 
-  :host(#{$dds-prefix}-callout[color-scheme='cyan']) {
+  :host(#{$c4d-prefix}-callout[color-scheme='cyan']) {
     background-color: $callout-background-cyan;
   }
 
-  :host(#{$dds-prefix}-callout-text),
-  :host(#{$dds-prefix}-callout-text[color-scheme='layer']) {
+  :host(#{$c4d-prefix}-callout-text),
+  :host(#{$c4d-prefix}-callout-text[color-scheme='layer']) {
     color: $text-primary;
   }
 
-  :host(#{$dds-prefix}-callout-text[color-scheme='inverse']) {
+  :host(#{$c4d-prefix}-callout-text[color-scheme='inverse']) {
     color: $text-inverse;
   }
 
-  :host(#{$dds-prefix}-callout-text[color-scheme='purple']) {
+  :host(#{$c4d-prefix}-callout-text[color-scheme='purple']) {
     color: $callout-color-purple;
   }
 
-  :host(#{$dds-prefix}-callout-text[color-scheme='cyan']) {
+  :host(#{$c4d-prefix}-callout-text[color-scheme='cyan']) {
     color: $callout-color-cyan;
   }
 
-  :host(#{$dds-prefix}-callout-caption[color-scheme='layer']),
-  :host(#{$dds-prefix}-callout-caption) {
+  :host(#{$c4d-prefix}-callout-caption[color-scheme='layer']),
+  :host(#{$c4d-prefix}-callout-caption) {
     color: $text-secondary;
   }
 
-  :host(#{$dds-prefix}-callout-caption[color-scheme='inverse']) {
+  :host(#{$c4d-prefix}-callout-caption[color-scheme='inverse']) {
     color: $text-inverse;
   }
 
-  :host(#{$dds-prefix}-callout-caption[color-scheme='purple']) {
+  :host(#{$c4d-prefix}-callout-caption[color-scheme='purple']) {
     color: $callout-caption-purple;
   }
 
-  :host(#{$dds-prefix}-callout-caption[color-scheme='cyan']) {
+  :host(#{$c4d-prefix}-callout-caption[color-scheme='cyan']) {
     color: $callout-caption-cyan;
   }
 

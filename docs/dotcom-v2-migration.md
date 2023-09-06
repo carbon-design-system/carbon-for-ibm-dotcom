@@ -32,6 +32,7 @@ For Carbon v11 migration guidance, see their
 | content-group-cards       | This component is deprecated in v2 in favor for content-section/block & card-group componets |
 | content-group-pictograms  | This component is deprecated in v2 in favor for content-section/block content-item (pictogram variant) components |
 | content-group-simple      | This component is deprecated in v2 in favor for content-group, image, & content-item components |
+| cta                       | View changes [here](#cta) |
 | cta-block                 | This component is deprecated in v2 in favor for content-section/block & content-item components |
 | cta-section               | This component is deprecated in v2 in favor for content-section/block & content-item components |
 | hr                        | View changes [here](#horizontal-rule)                      |
@@ -52,6 +53,14 @@ For Carbon v11 migration guidance, see their
 
 - New options for `color-scheme` property: `REGULAR = 'regular'`, `INVERSE = 'inverse'` `LAYER = 'layer'`, `CYAN = 'cyan'`, `PURPLE = 'purple'`
 - New callout style tokens
+
+### CTA
+
+In Carbon for IBM.com v2, the CTA component (and all of its subcomponents) have been deprecated in favor of their base components.
+All of the CTA-like features can now be used natively within Button, Card, Feature Card, and Link with Icon.
+
+Each new component has a `cta-type` property that can change the icon and click functionality of the component. See the components' 
+documentations for more information.
 
 ### Horizontal rule
 

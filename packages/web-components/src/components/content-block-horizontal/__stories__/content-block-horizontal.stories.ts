@@ -19,37 +19,37 @@ const copy =
   'Phasellus at elit sollicitudin.';
 
 const linkListItem = html`
-  <dds-content-item-horizontal>
-    <dds-content-item-horizontal-eyebrow
-      >Lorem ipsum</dds-content-item-horizontal-eyebrow
+  <c4d-content-item-horizontal>
+    <c4d-content-item-horizontal-eyebrow
+      >Lorem ipsum</c4d-content-item-horizontal-eyebrow
     >
-    <dds-content-item-heading>Aliquam condimentum</dds-content-item-heading>
-    <dds-content-item-horizontal-copy>${copy}</dds-content-item-horizontal-copy>
-    <dds-link-list slot="footer" type="vertical">
-      <dds-link-list-item-cta
+    <c4d-content-item-heading>Aliquam condimentum</c4d-content-item-heading>
+    <c4d-content-item-horizontal-copy>${copy}</c4d-content-item-horizontal-copy>
+    <c4d-link-list slot="footer" type="vertical">
+      <c4d-link-list-item-cta
         icon-placement="right"
         href="https://www.ibm.com"
         cta-type="local">
         Link text
-      </dds-link-list-item-cta>
-      <dds-link-list-item-cta
+      </c4d-link-list-item-cta>
+      <c4d-link-list-item-cta
         icon-placement="right"
         href="https://www.ibm.com"
         cta-type="external">
         External link text
-      </dds-link-list-item-cta>
-    </dds-link-list>
-  </dds-content-item-horizontal>
+      </c4d-link-list-item-cta>
+    </c4d-link-list>
+  </c4d-content-item-horizontal>
 `;
 
 export const Default = (args) => {
   const { heading, border } = args?.ContentBlockHorizontal ?? {};
 
   return html`
-    <dds-content-block-horizontal ?border=${border}>
-      <dds-content-block-heading>${heading}</dds-content-block-heading>
+    <c4d-content-block-horizontal ?border=${border}>
+      <c4d-content-block-heading>${heading}</c4d-content-block-heading>
       ${linkListItem} ${linkListItem} ${linkListItem}
-    </dds-content-block-horizontal>
+    </c4d-content-block-horizontal>
   `;
 };
 

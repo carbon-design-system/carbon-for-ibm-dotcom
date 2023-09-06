@@ -27,30 +27,30 @@ const colorSchemeTypes = {
 };
 
 const image = html`
-  <dds-callout-with-media-image
+  <c4d-callout-with-media-image
     alt="Image alt text"
     default-src="${imgLg16x9}"
     heading="Lorem ipsum dolor sit amet, consectetur adipiscing elit.">
-  </dds-callout-with-media-image>
+  </c4d-callout-with-media-image>
 `;
 
 const video = html`
-  <dds-callout-with-media-video
-    video-id="0_uka1msg4"></dds-callout-with-media-video>
+  <c4d-callout-with-media-video
+    video-id="0_uka1msg4"></c4d-callout-with-media-video>
 `;
 
 export const Default = (args) => {
   const { copy, heading, mediaType, colorScheme } =
     args?.CalloutWithMedia ?? {};
   return html`
-    <dds-callout-with-media color-scheme="${colorScheme}">
-      <dds-content-block-heading>${heading}</dds-content-block-heading>
-      <dds-callout-with-media-copy size="${CONTENT_BLOCK_COPY_SIZE.SMALL}"
-        >${copy}</dds-callout-with-media-copy
+    <c4d-callout-with-media color-scheme="${colorScheme}">
+      <c4d-content-block-heading>${heading}</c4d-content-block-heading>
+      <c4d-callout-with-media-copy size="${CONTENT_BLOCK_COPY_SIZE.SMALL}"
+        >${copy}</c4d-callout-with-media-copy
       >
       ${mediaType === 'image' ? image : ``}
       ${mediaType === 'video' ? video : ``}
-    </dds-callout-with-media>
+    </c4d-callout-with-media>
   `;
 };
 

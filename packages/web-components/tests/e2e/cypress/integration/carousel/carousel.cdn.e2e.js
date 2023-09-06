@@ -7,11 +7,11 @@
 
 'use strict';
 
-describe('dds-carousel (cdn)', () => {
+describe('cds-carousel (cdn)', () => {
   it('should load the default carousel example (cdn)', () => {
     cy.visit('/carousel/cdn.html');
 
     // Take a snapshot for visual diffing
-    cy.percySnapshot('dds-carousel | cdn | default');
+    cy.percySnapshot('cds-carousel | cdn | default');
   });
 });

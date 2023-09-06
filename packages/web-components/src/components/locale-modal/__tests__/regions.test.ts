@@ -11,15 +11,15 @@ import { html, render } from 'lit/html.js';
 import '../regions';
 
 const template = () => {
-  return html` <dds-regions></dds-regions> `;
+  return html` <c4d-regions></c4d-regions> `;
 };
 
-describe('dds-regions', function () {
+describe('c4d-regions', function () {
   describe('Misc attributes', function () {
     it('should render with minimum attributes', async function () {
       render(template(), document.body);
       await Promise.resolve();
-      const regions = document.body.querySelector('dds-regions');
+      const regions = document.body.querySelector('c4d-regions');
       expect(regions).toMatchSnapshot({ mode: 'shadow' });
     });
   });

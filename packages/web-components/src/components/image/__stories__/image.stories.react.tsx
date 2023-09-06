@@ -12,8 +12,8 @@ import React from 'react';
 // Below path will be there when an application installs `@carbon/ibmdotcom-web-components` package.
 // In our dev env, we auto-generate the file and re-map below path to to point to the generated file.
 // @ts-ignore
-import DDSImage from '@carbon/ibmdotcom-web-components/es/components-react/image/image';
-import DDSImageItem from '@carbon/ibmdotcom-web-components/es/components-react/image/image-item';
+import C4DImage from '@carbon/ibmdotcom-web-components/es/components-react/image/image';
+import C4DImageItem from '@carbon/ibmdotcom-web-components/es/components-react/image/image-item';
 
 import readme from './README.stories.react.mdx';
 import imgLg16x9 from '../../../../../storybook-images/assets/720/fpo--16x9--720x405--005.jpg';
@@ -57,8 +57,7 @@ const srcsets = {
   '1x1': [imgSm1x1, imgMd1x1, imgLg1x1],
 };
 
-
-export const Default = args => {
+export const Default = (args) => {
   const {
     alt,
     defaultSrc,
@@ -67,13 +66,16 @@ export const Default = args => {
     border,
     lightbox,
     lightboxContrast,
-    longDescription, } = args?.Image ?? {};
+    longDescription,
+  } = args?.Image ?? {};
 
-  const ratio = String(Object.keys(images).find(key => images[key] === defaultSrc));
+  const ratio = String(
+    Object.keys(images).find((key) => images[key] === defaultSrc)
+  );
   const srcset = srcsets[ratio];
 
   return (
-    <DDSImage
+    <C4DImage
       alt={alt || undefined}
       default-src={defaultSrc || undefined}
       border={border || undefined}
@@ -81,17 +83,19 @@ export const Default = args => {
       copy={copy || undefined}
       lightbox={lightbox || undefined}
       lightbox-contrast={lightboxContrast}>
-        {!longDescription ? '' : <div slot="long-description">{longDescription}</div>}
-      {!srcset ? (
-        undefined
+      {!longDescription ? (
+        ''
       ) : (
+        <div slot="long-description">{longDescription}</div>
+      )}
+      {!srcset ? undefined : (
         <>
-          <DDSImageItem media="(min-width: 672px)" srcset={srcset[2]} />
-          <DDSImageItem media="(min-width: 400px)" srcset={srcset[1]} />
-          <DDSImageItem media="(min-width: 320px)" srcset={srcset[0]} />
+          <C4DImageItem media="(min-width: 672px)" srcset={srcset[2]} />
+          <C4DImageItem media="(min-width: 400px)" srcset={srcset[1]} />
+          <C4DImageItem media="(min-width: 320px)" srcset={srcset[0]} />
         </>
       )}
-    </DDSImage>
+    </C4DImage>
   );
 };
 
@@ -100,7 +104,11 @@ Default.story = {
     knobs: {
       Image: () => {
         const alt = textNullable('Alt text', 'Image alt text');
-        const defaultSrc = select('Default image (default-src)', images, imgLg2x1);
+        const defaultSrc = select(
+          'Default image (default-src)',
+          images,
+          imgLg2x1
+        );
         const border = boolean('Border', false);
         const copy = textNullable('Copy (copy)', 'Lorem ipsum dolor sit amet');
         const heading = textNullable('Heading (heading)', 'This is a caption');
@@ -130,7 +138,7 @@ Default.story = {
 export default {
   title: 'Components/Image',
   decorators: [
-    story => {
+    (story) => {
       return (
         <div className="cds--grid">
           <div className="cds--row">

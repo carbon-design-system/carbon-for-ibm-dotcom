@@ -10,11 +10,11 @@
 @use '@carbon/ibmdotcom-styles/scss/globals/vars' as *;
 @use '@carbon/ibmdotcom-styles/scss/components/feature-card-block-large';
 
-:host(#{$dds-prefix}-feature-card-block-large) {
+:host(#{$c4d-prefix}-feature-card-block-large) {
   display: block;
 }
 
-:host(#{$dds-prefix}-feature-card-block-large-footer) {
+:host(#{$c4d-prefix}-feature-card-block-large-footer) {
   display: flex;
   justify-content: flex-start;
 }

@@ -18,7 +18,7 @@ import styles from './back-to-top.scss';
 import StableSelectorMixin from '../../globals/mixins/stable-selector';
 import { carbonElement as customElement } from '../../internal/vendor/@carbon/web-components/globals/decorators/carbon-element.js';
 
-const { prefix, stablePrefix: ddsPrefix } = settings;
+const { prefix, stablePrefix: c4dPrefix } = settings;
 interface Cancelable {
   cancel(): void;
 }
@@ -26,10 +26,10 @@ interface Cancelable {
 /**
  * Back to top
  *
- * @element dds-back-to-top
+ * @element c4d-back-to-top
  */
-@customElement(`${ddsPrefix}-back-to-top`)
-class DDSBackToTop extends HostListenerMixin(StableSelectorMixin(LitElement)) {
+@customElement(`${c4dPrefix}-back-to-top`)
+class C4DBackToTop extends HostListenerMixin(StableSelectorMixin(LitElement)) {
   /**
    * The observer for the resize of the document body.
    */
@@ -178,11 +178,11 @@ class DDSBackToTop extends HostListenerMixin(StableSelectorMixin(LitElement)) {
   }
 
   static get stableSelector() {
-    return `${ddsPrefix}--back-to-top`;
+    return `${c4dPrefix}--back-to-top`;
   }
 
   static styles = styles;
 }
 
 /* @__GENERATE_REACT_CUSTOM_ELEMENT_TYPE__ */
-export default DDSBackToTop;
+export default C4DBackToTop;

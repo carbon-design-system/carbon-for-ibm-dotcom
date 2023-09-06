@@ -7,13 +7,13 @@
 
 'use strict';
 
-describe('dds-locale-modal', () => {
-  it('should load the default dds-locale-modal example', () => {
+describe('cds-locale-modal', () => {
+  it('should load the default cds-locale-modal example', () => {
     cy.visit('/locale-modal');
 
-    cy.get('[data-autoid="dds--button-expressive"]').click();
+    cy.get('[data-autoid="cds--button-expressive"]').click();
 
     // Take a snapshot for visual diffing
-    cy.percySnapshot('dds-locale-modal | default');
+    cy.percySnapshot('cds-locale-modal | default');
   });
 });

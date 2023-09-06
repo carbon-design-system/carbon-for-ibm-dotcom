@@ -18,9 +18,9 @@
   @include button;
 
   .#{$prefix}--button-group,
-  :host(#{$dds-prefix}-button-group),
-  :host(#{$dds-prefix}-leadspace-block-cta) {
-    --#{$dds-prefix}--button-group--item-count: 3;
+  :host(#{$c4d-prefix}-button-group),
+  :host(#{$c4d-prefix}-leadspace-block-cta) {
+    --#{$c4d-prefix}--button-group--item-count: 3;
 
     display: grid;
     grid-template-columns: 1fr;
@@ -30,7 +30,7 @@
     @include breakpoint(md) {
       display: inline-grid;
       grid-template-columns: repeat(
-        var(--#{$dds-prefix}--button-group--item-count),
+        var(--#{$c4d-prefix}--button-group--item-count),
         1fr
       );
     }
@@ -41,8 +41,8 @@
   }
 
   .#{$prefix}--button-group-item,
-  :host(#{$dds-prefix}-button-group-item),
-  :host(#{$dds-prefix}-button-cta) {
+  :host(#{$c4d-prefix}-button-group-item),
+  :host(#{$c4d-prefix}-button-cta) {
     max-width: 100%;
     min-width: 0;
 
@@ -100,7 +100,7 @@
     }
   }
 
-  :host(#{$dds-prefix}-button-group-item) {
+  :host(#{$c4d-prefix}-button-group-item) {
     ::slotted([slot='icon']) {
       position: absolute;
       right: $spacing-05;

@@ -1,5 +1,5 @@
 //
-// Copyright IBM Corp. 2020
+// Copyright IBM Corp. 2020, 2023
 //
 // This source code is licensed under the Apache-2.0 license found in the
 // LICENSE file in the root directory of this source tree.
@@ -7,8 +7,11 @@
 
 @use '@carbon/ibmdotcom-styles/scss/globals/vars' as *;
 @use '@carbon/ibmdotcom-styles/scss/components/button-group';
+@use '../button/button.scss';
 
-:host(#{$dds-prefix}-button-group-item),
-:host(#{$dds-prefix}-button-cta) {
+:host(#{$c4d-prefix}-button-group-item),
+:host(#{$c4d-prefix}-button-cta) {
+  @extend :host(#{$c4d-prefix}-button);
+
   outline: none;
 }

@@ -11,8 +11,12 @@
 @use '@carbon/ibmdotcom-styles/scss/globals/vars' as *;
 @use '../../../../carbon-web-components/src/components/button/button';
 //
-:host(#{$dds-prefix}-button-expressive) {
-  // @extend :host(#{$prefix}-btn);
+:host(#{$c4d-prefix}-button) {
+  @extend :host(#{$prefix}-button);
+
+  svg {
+    @extend .#{$prefix}--btn__icon;
+  }
 
   .#{$prefix}--btn--hidden {
     display: none;

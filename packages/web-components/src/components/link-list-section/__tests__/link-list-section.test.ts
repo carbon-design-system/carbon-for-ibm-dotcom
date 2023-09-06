@@ -10,12 +10,12 @@
 import { render } from 'lit/html.js';
 import { Default } from '../__stories__/link-list-section.stories';
 
-describe('dds-link-list-section', function () {
+describe('c4d-link-list-section', function () {
   it('Renders properly', async function () {
     render(Default({ parameters: {} }), document.body);
     await Promise.resolve();
     expect(
-      document.body.querySelector('dds-link-list-section')
+      document.body.querySelector('c4d-link-list-section')
     ).toMatchSnapshot({ mode: 'shadow' });
   });
 

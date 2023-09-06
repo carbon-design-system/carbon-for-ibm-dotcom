@@ -9,9 +9,9 @@
 
 import React from 'react';
 import { render } from 'react-dom';
-import DDSTableOfContents from '@carbon/ibmdotcom-web-components/es/components-react/table-of-contents/table-of-contents';
+import C4DTableOfContents from '@carbon/ibmdotcom-web-components/es/components-react/table-of-contents/table-of-contents';
 import './index.css';
 
-const App = () => <DDSTableOfContents></DDSTableOfContents>;
+const App = () => <C4DTableOfContents></C4DTableOfContents>;
 
 render(<App />, document.getElementById('root'));

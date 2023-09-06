@@ -19,9 +19,9 @@
 @include quote;
 
 @mixin callout-quote {
-  :host(#{$dds-prefix}-callout-quote) {
-    @extend :host(#{$dds-prefix}-callout);
-    @extend :host(#{$dds-prefix}-callout-text);
+  :host(#{$c4d-prefix}-callout-quote) {
+    @extend :host(#{$c4d-prefix}-callout);
+    @extend :host(#{$c4d-prefix}-callout-text);
     @include make-row;
 
     @include breakpoint(md) {
@@ -30,32 +30,32 @@
 
     padding-bottom: $spacing-10;
 
-    ::slotted(#{$dds-prefix}-callout-link-with-icon) {
+    ::slotted(#{$c4d-prefix}-callout-link-with-icon) {
       padding-left: $spacing-07;
       outline: transparent;
     }
   }
 
-  :host(#{$dds-prefix}-callout-quote[color-scheme='inverse']) {
-    @extend :host(#{$dds-prefix}-callout[color-scheme='inverse']);
-    @extend :host(#{$dds-prefix}-callout-text[color-scheme='inverse']);
+  :host(#{$c4d-prefix}-callout-quote[color-scheme='inverse']) {
+    @extend :host(#{$c4d-prefix}-callout[color-scheme='inverse']);
+    @extend :host(#{$c4d-prefix}-callout-text[color-scheme='inverse']);
   }
 
-  :host(#{$dds-prefix}-callout-quote[color-scheme='layer']) {
-    @extend :host(#{$dds-prefix}-callout[color-scheme='layer']);
-    @extend :host(#{$dds-prefix}-callout-text[color-scheme='layer']);
+  :host(#{$c4d-prefix}-callout-quote[color-scheme='layer']) {
+    @extend :host(#{$c4d-prefix}-callout[color-scheme='layer']);
+    @extend :host(#{$c4d-prefix}-callout-text[color-scheme='layer']);
   }
 
-  :host(#{$dds-prefix}-callout-quote[color-scheme='purple']) {
-    @extend :host(#{$dds-prefix}-callout[color-scheme='purple']);
-    @extend :host(#{$dds-prefix}-callout-text[color-scheme='purple']);
+  :host(#{$c4d-prefix}-callout-quote[color-scheme='purple']) {
+    @extend :host(#{$c4d-prefix}-callout[color-scheme='purple']);
+    @extend :host(#{$c4d-prefix}-callout-text[color-scheme='purple']);
   }
-  :host(#{$dds-prefix}-callout-quote[color-scheme='cyan']) {
-    @extend :host(#{$dds-prefix}-callout[color-scheme='cyan']);
-    @extend :host(#{$dds-prefix}-callout-text[color-scheme='cyan']);
+  :host(#{$c4d-prefix}-callout-quote[color-scheme='cyan']) {
+    @extend :host(#{$c4d-prefix}-callout[color-scheme='cyan']);
+    @extend :host(#{$c4d-prefix}-callout-text[color-scheme='cyan']);
   }
 
-  :host(#{$dds-prefix}-callout-link-with-icon) {
+  :host(#{$c4d-prefix}-callout-link-with-icon) {
     @extend .#{$prefix}--link-with-icon;
 
     display: inline-block;
@@ -76,7 +76,7 @@
     }
   }
 
-  :host(#{$dds-prefix}-callout-link-with-icon[color-scheme='inverse']) {
+  :host(#{$c4d-prefix}-callout-link-with-icon[color-scheme='inverse']) {
     a.#{$prefix}--link-with-icon.#{$prefix}--link.#{$prefix}--link-with-icon__icon-right {
       color: $link-inverse;
 
@@ -92,7 +92,7 @@
     }
   }
 
-  :host(#{$dds-prefix}-callout-quote) #{$dds-prefix}-hr {
+  :host(#{$c4d-prefix}-callout-quote) #{$c4d-prefix}-hr {
     margin: $spacing-05;
     @include breakpoint(md) {
       margin: $spacing-05 0;

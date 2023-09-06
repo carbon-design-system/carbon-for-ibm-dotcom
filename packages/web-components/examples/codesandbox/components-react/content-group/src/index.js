@@ -9,23 +9,23 @@
 
 import React from 'react';
 import { render } from 'react-dom';
-import DDSCardLinkCTA from '@carbon/ibmdotcom-web-components/es/components-react/cta/card-link-cta';
-import DDSCardLinkHeading from '@carbon/ibmdotcom-web-components/es/components-react/card-link/card-link-heading';
-import DDSCardCTAFooter from '@carbon/ibmdotcom-web-components/es/components-react/cta/card-cta-footer';
-import DDSContentGroup from '@carbon/ibmdotcom-web-components/es/components-react/content-group/content-group';
-import DDSContentGroupHeading from '@carbon/ibmdotcom-web-components/es/components-react/content-group/content-group-heading';
-import DDSContentGroupCopy from '@carbon/ibmdotcom-web-components/es/components-react/content-group/content-group-copy';
+import C4DCardLinkCTA from '@carbon/ibmdotcom-web-components/es/components-react/cta/card-link-cta';
+import C4DCardLinkHeading from '@carbon/ibmdotcom-web-components/es/components-react/card-link/card-link-heading';
+import C4DCardCTAFooter from '@carbon/ibmdotcom-web-components/es/components-react/cta/card-cta-footer';
+import C4DContentGroup from '@carbon/ibmdotcom-web-components/es/components-react/content-group/content-group';
+import C4DContentGroupHeading from '@carbon/ibmdotcom-web-components/es/components-react/content-group/content-group-heading';
+import C4DContentGroupCopy from '@carbon/ibmdotcom-web-components/es/components-react/content-group/content-group-copy';
 import './index.css';
 
 const App = () => (
-  <DDSContentGroup>
-    <DDSContentGroupHeading>Heading</DDSContentGroupHeading>
-    <DDSContentGroupCopy>Copy</DDSContentGroupCopy>
-    <DDSCardLinkCTA slot="footer" cta-type="local" href="https://www.example.com">
-      <DDSCardLinkHeading>Learn more about natural language processing</DDSCardLinkHeading>
-      <DDSCardCTAFooter></DDSCardCTAFooter>
-    </DDSCardLinkCTA>
-  </DDSContentGroup>
+  <C4DContentGroup>
+    <C4DContentGroupHeading>Heading</C4DContentGroupHeading>
+    <C4DContentGroupCopy>Copy</C4DContentGroupCopy>
+    <C4DCardLinkCTA slot="footer" cta-type="local" href="https://www.example.com">
+      <C4DCardLinkHeading>Learn more about natural language processing</C4DCardLinkHeading>
+      <C4DCardCTAFooter></C4DCardCTAFooter>
+    </C4DCardLinkCTA>
+  </C4DContentGroup>
 );
 
 render(<App />, document.getElementById('root'));

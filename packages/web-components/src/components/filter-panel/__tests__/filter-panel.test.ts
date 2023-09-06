@@ -13,16 +13,16 @@ import { Default } from '../__stories__/filter-panel.stories';
 
 const template = (props?) =>
   Default({
-    'dds-filter-panel-composite': props,
+    'c4d-filter-panel-composite': props,
   });
 
-describe('dds-filter-panel-composite', function () {
+describe('c4d-filter-panel-composite', function () {
   describe('Misc attributes', function () {
     it('should render with minimum attributes', async function () {
       render(template(), document.body);
-      await Promise.resolve(); // Update cycle for `<dds-filter-panel>`
+      await Promise.resolve(); // Update cycle for `<c4d-filter-panel>`
       expect(
-        document.body.querySelector('dds-filter-panel-composite')
+        document.body.querySelector('c4d-filter-panel-composite')
       ).toMatchSnapshot({ mode: 'shadow' });
     });
 
@@ -34,9 +34,9 @@ describe('dds-filter-panel-composite', function () {
         }),
         document.body
       );
-      await Promise.resolve(); // Update cycle for `<dds-filter-panel>`
+      await Promise.resolve(); // Update cycle for `<c4d-filter-panel>`
       expect(
-        document.body.querySelector('dds-filter-panel-composite')
+        document.body.querySelector('c4d-filter-panel-composite')
       ).toMatchSnapshot({ mode: 'shadow' });
     });
   });

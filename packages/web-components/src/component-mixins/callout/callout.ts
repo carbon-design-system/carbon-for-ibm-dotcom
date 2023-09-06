@@ -15,9 +15,9 @@ const { prefix } = settings;
 /**
  * Callout.
  *
- * @mixin dds-callout
+ * @mixin c4d-callout
  */
-const DDSCalloutMixin = <T extends Constructor<HTMLElement>>(base: T) => {
+const C4DCalloutMixin = <T extends Constructor<HTMLElement>>(base: T) => {
   abstract class CalloutMixin extends base {
     render() {
       return html`
@@ -37,4 +37,4 @@ const DDSCalloutMixin = <T extends Constructor<HTMLElement>>(base: T) => {
   return CalloutMixin;
 };
 
-export default DDSCalloutMixin;
+export default C4DCalloutMixin;

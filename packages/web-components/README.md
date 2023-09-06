@@ -96,7 +96,7 @@ import '@carbon/ibmdotcom-web-components/es/components/masthead/masthead-contain
 Once you do that, you can use our components as easy as using HTML tags, like:
 
 ```html
-<dds-masthead-container></dds-masthead-container>
+<cds-masthead-container></cds-masthead-container>
 ```
 
 > 💡 Check our
@@ -181,7 +181,7 @@ To prevent a flash of unstyled content (FOUC) from happening on your page be
 sure to to `display: none` if a component has not been defined yet. For example
 
 ```css
-dds-button-group:not(:defined) {
+cds-button-group:not(:defined) {
   display: none;
 }
 ```
@@ -252,7 +252,7 @@ Here is an example of implementing the `dotcom-shell`:
     ...
   </head>
   <body>
-    <dds-dotcom-shell-container></dds-dotcom-shell-container>
+    <cds-dotcom-shell-container></cds-dotcom-shell-container>
   </body>
 </html>
 ```
@@ -374,7 +374,7 @@ IBM.com Northstar footer:
 <body id="ibm-com" class="ibm-type">
   <div id="ibm-top" class="ibm-landing-page">
     <!-- Uses Carbon for IBM.com Web Components masthead -->
-    <dds-masthead-container></dds-masthead-container>
+    <cds-masthead-container></cds-masthead-container>
     <div id="ibm-content-wrapper">...</div>
     <!-- Uses legacy IBM.com Design System (Northstar) footer -->
     <footer role="contentinfo" aria-label="IBM"></footer>
@@ -438,13 +438,13 @@ like:
 
 ```javascript
 import { css, customElement } from 'lit-element';
-import DDSLinkWithIcon from '@carbon/ibmdotcom-web-components/es/components/link-with-icon/link-with-icon';
+import C4DLinkWithIcon from '@carbon/ibmdotcom-web-components/es/components/link-with-icon/link-with-icon';
 
 @customElement('my-link-with-icon')
-class MyLinkWithIcon extends DDSLinkWithIcon {
+class MyLinkWithIcon extends C4DLinkWithIcon {
   // Custom CSS to enforce `g100` color of the link text
   static styles = css`
-    ${DDSLinkWithIcon.styles}
+    ${C4DLinkWithIcon.styles}
     .bx--link-with-icon {
       color: #3d70b2;
     }
@@ -460,7 +460,7 @@ scheme of `@carbon/ibmdotcom-web-components` components:
 For example, if you add CSS like below:
 
 ```css
-dds-link-with-icon {
+cds-link-with-icon {
   --cds-link-01: #3d70b2; /* `$link-01` token for `g100` theme */
 }
 ```
@@ -468,7 +468,7 @@ dds-link-with-icon {
 The color of the link in the code below changes to the one in the `g100` theme:
 
 ```html
-<dds-link-with-icon href="https://www.ibm.com/standards/carbon">
+<cds-link-with-icon href="https://www.ibm.com/standards/carbon">
   Link text
   <svg
     slot="icon"
@@ -482,7 +482,7 @@ The color of the link in the code below changes to the one in the `g100` theme:
     <path
       d="M11.8 2.8L10.8 3.8 16.2 9.3 1 9.3 1 10.7 16.2 10.7 10.8 16.2 11.8 17.2 19 10z"></path>
   </svg>
-</dds-link-with-icon>
+</cds-link-with-icon>
 ```
 
 The names of CSS Custom Properties you can use are the Carbon theme tokens
@@ -495,7 +495,7 @@ specific element by:
 ```scss
 @use '@carbon/styles/scss/themes' as *;
 
-dds-link-with-icon {
+cds-link-with-icon {
   // Emits all theme tokens in CSS Custom Properties
   @include theme(g100, true);
 }
@@ -509,10 +509,10 @@ use your application's CSS to affect `@carbon/ibmdotcom-web-components` styles
 in a more flexible manner.
 
 For example, below style changes back button's text color in
-`<dds-locale-modal>` to one of `g100` theme:
+`<cds-locale-modal>` to one of `g100` theme:
 
 ```css
-dds-locale-modal::part(back-button) {
+cds-locale-modal::part(back-button) {
   color: #152935;
 }
 ```

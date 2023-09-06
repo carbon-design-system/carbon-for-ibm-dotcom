@@ -10,8 +10,8 @@
 @use '@carbon/styles/scss/breakpoint' as *;
 
 /* stylelint-disable-next-line selector-type-no-unknown */
-dds-carousel {
+cds-carousel {
   @include breakpoint(lg) {
-    --dds--carousel--page-size: 4;
+    --cds--carousel--page-size: 4;
   }
 }

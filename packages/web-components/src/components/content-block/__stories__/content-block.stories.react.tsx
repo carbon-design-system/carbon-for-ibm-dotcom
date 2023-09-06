@@ -13,25 +13,25 @@ import React from 'react';
 import ArrowRight20 from '@carbon/icons-react/es/arrow--right/20.js';
 
 // @ts-ignore
-import DDSContentBlock from '@carbon/ibmdotcom-web-components/es/components-react/content-block/content-block';
-import DDSContentBlockHeading from '@carbon/ibmdotcom-web-components/es/components-react/content-block/content-block-heading';
-import DDSContentBlockCopy from '@carbon/ibmdotcom-web-components/es/components-react/content-block/content-block-copy';
+import C4DContentBlock from '@carbon/ibmdotcom-web-components/es/components-react/content-block/content-block';
+import C4DContentBlockHeading from '@carbon/ibmdotcom-web-components/es/components-react/content-block/content-block-heading';
+import C4DContentBlockCopy from '@carbon/ibmdotcom-web-components/es/components-react/content-block/content-block-copy';
 // eslint-disable-next-line max-len
-import DDSContentGroupSimple from '@carbon/ibmdotcom-web-components/es/components-react/content-group-simple/content-group-simple';
-import DDSContentGroupHeading from '@carbon/ibmdotcom-web-components/es/components-react/content-group/content-group-heading';
-import DDSContentGroupCopy from '@carbon/ibmdotcom-web-components/es/components-react/content-group/content-group-copy';
-import DDSContentItem from '@carbon/ibmdotcom-web-components/es/components-react/content-item/content-item';
-import DDSContentItemHeading from '@carbon/ibmdotcom-web-components/es/components-react/content-item/content-item-heading';
-import DDSContentItemCopy from '@carbon/ibmdotcom-web-components/es/components-react/content-item/content-item-copy';
-import DDSCardLinkCTA from '@carbon/ibmdotcom-web-components/es/components-react/cta/card-link-cta';
-import DDSCardLinkHeading from '@carbon/ibmdotcom-web-components/es/components-react/card-link/card-link-heading';
-import DDSCardCTAFooter from '@carbon/ibmdotcom-web-components/es/components-react/cta/card-cta-footer';
-import DDSLinkList from '@carbon/ibmdotcom-web-components/es/components-react/link-list/link-list';
-import DDSLinkListHeading from '@carbon/ibmdotcom-web-components/es/components-react/link-list/link-list-heading';
-import DDSLinkListCard from '@carbon/ibmdotcom-web-components/es/components-react/link-list/link-list-item-card';
-import DDSCardFooter from '@carbon/ibmdotcom-web-components/es/components-react/card/card-footer';
-import DDSImage from '@carbon/ibmdotcom-web-components/es/components-react/image/image';
-import DDSImageItem from '@carbon/ibmdotcom-web-components/es/components-react/image/image-item';
+import C4DContentGroupSimple from '@carbon/ibmdotcom-web-components/es/components-react/content-group-simple/content-group-simple';
+import C4DContentGroupHeading from '@carbon/ibmdotcom-web-components/es/components-react/content-group/content-group-heading';
+import C4DContentGroupCopy from '@carbon/ibmdotcom-web-components/es/components-react/content-group/content-group-copy';
+import C4DContentItem from '@carbon/ibmdotcom-web-components/es/components-react/content-item/content-item';
+import C4DContentItemHeading from '@carbon/ibmdotcom-web-components/es/components-react/content-item/content-item-heading';
+import C4DContentItemCopy from '@carbon/ibmdotcom-web-components/es/components-react/content-item/content-item-copy';
+import C4DCardLinkCTA from '@carbon/ibmdotcom-web-components/es/components-react/cta/card-link-cta';
+import C4DCardLinkHeading from '@carbon/ibmdotcom-web-components/es/components-react/card-link/card-link-heading';
+import C4DCardCTAFooter from '@carbon/ibmdotcom-web-components/es/components-react/cta/card-cta-footer';
+import C4DLinkList from '@carbon/ibmdotcom-web-components/es/components-react/link-list/link-list';
+import C4DLinkListHeading from '@carbon/ibmdotcom-web-components/es/components-react/link-list/link-list-heading';
+import C4DLinkListCard from '@carbon/ibmdotcom-web-components/es/components-react/link-list/link-list-item-card';
+import C4DCardFooter from '@carbon/ibmdotcom-web-components/es/components-react/card/card-footer';
+import C4DImage from '@carbon/ibmdotcom-web-components/es/components-react/image/image';
+import C4DImageItem from '@carbon/ibmdotcom-web-components/es/components-react/image/image-item';
 import imgLg16x9 from '../../../../../storybook-images/assets/720/fpo--16x9--720x405--002.jpg';
 import imgMd16x9 from '../../../../../storybook-images/assets/480/fpo--16x9--480x270--002.jpg';
 import imgSm16x9 from '../../../../../storybook-images/assets/320/fpo--16x9--320x180--002.jpg';
@@ -67,17 +67,21 @@ const itemsCopy = `Lorem ipsum dolor sit amet, *consectetur* adipiscing elit.
   Donec quis pretium odio, in dignissim sapien.`;
 
 const image = (
-  <DDSImage slot="media" alt="Image alt text" default-src={imgLg16x9} heading="Lorem ipsum dolor sit amet.">
-    <DDSImageItem media="(min-width: 672px)" srcset={imgLg16x9}>
+  <C4DImage
+    slot="media"
+    alt="Image alt text"
+    default-src={imgLg16x9}
+    heading="Lorem ipsum dolor sit amet.">
+    <C4DImageItem media="(min-width: 672px)" srcset={imgLg16x9}>
       {' '}
-    </DDSImageItem>
-    <DDSImageItem media="(min-width: 400px)" srcset={imgMd16x9}>
+    </C4DImageItem>
+    <C4DImageItem media="(min-width: 400px)" srcset={imgMd16x9}>
       {' '}
-    </DDSImageItem>
-    <DDSImageItem media="(min-width: 320px)" srcset={imgSm16x9}>
+    </C4DImageItem>
+    <C4DImageItem media="(min-width: 320px)" srcset={imgSm16x9}>
       {' '}
-    </DDSImageItem>
-  </DDSImage>
+    </C4DImageItem>
+  </C4DImage>
 );
 
 const items = [
@@ -95,67 +99,85 @@ const items = [
   },
 ];
 
-export const Default = args => {
-  const { heading, copy, showCopy, addChildren, showCTA, border, aside } = args?.ContentBlock ?? {};
+export const Default = (args) => {
+  const { heading, copy, showCopy, addChildren, showCTA, border, aside } =
+    args?.ContentBlock ?? {};
   return (
-    <DDSContentBlock complementaryStyleScheme={border ? CONTENT_BLOCK_COMPLEMENTARY_STYLE_SCHEME.WITH_BORDER : ''}>
-      {heading ? <DDSContentBlockHeading>What is the latest news in artificial intelligence?</DDSContentBlockHeading> : ''}
-      {showCopy ? <DDSContentBlockCopy>{copy}</DDSContentBlockCopy> : ''}
+    <C4DContentBlock
+      complementaryStyleScheme={
+        border ? CONTENT_BLOCK_COMPLEMENTARY_STYLE_SCHEME.WITH_BORDER : ''
+      }>
+      {heading ? (
+        <C4DContentBlockHeading>
+          What is the latest news in artificial intelligence?
+        </C4DContentBlockHeading>
+      ) : (
+        ''
+      )}
+      {showCopy ? <C4DContentBlockCopy>{copy}</C4DContentBlockCopy> : ''}
       {addChildren.includes('Content group simple') ? (
-        <DDSContentGroupSimple>
-          <DDSContentGroupHeading>Natural language processing (NLP)</DDSContentGroupHeading>
-          <DDSContentGroupCopy>
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum non porttitor libero, in venenatis magna.
-          </DDSContentGroupCopy>
+        <C4DContentGroupSimple>
+          <C4DContentGroupHeading>
+            Natural language processing (NLP)
+          </C4DContentGroupHeading>
+          <C4DContentGroupCopy>
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum
+            non porttitor libero, in venenatis magna.
+          </C4DContentGroupCopy>
           {image}
           {items.map(({ itemsHeading: itemHeading, itemsCopy: itemCopy }) => (
-            <DDSContentItem>
-              <DDSContentItemHeading>{itemHeading}</DDSContentItemHeading>
-              <DDSContentItemCopy>{itemCopy}</DDSContentItemCopy>
-            </DDSContentItem>
+            <C4DContentItem>
+              <C4DContentItemHeading>{itemHeading}</C4DContentItemHeading>
+              <C4DContentItemCopy>{itemCopy}</C4DContentItemCopy>
+            </C4DContentItem>
           ))}
-        </DDSContentGroupSimple>
+        </C4DContentGroupSimple>
       ) : (
         ''
       )}
 
       {showCTA ? (
-        <DDSCardLinkCTA slot="footer" cta-type="local" href="https://www.example.com">
-          <DDSCardLinkHeading>Learn more about natural langauge processing</DDSCardLinkHeading>
-          <DDSCardCTAFooter></DDSCardCTAFooter>
-        </DDSCardLinkCTA>
+        <C4DCardLinkCTA
+          slot="footer"
+          cta-type="local"
+          href="https://www.example.com">
+          <C4DCardLinkHeading>
+            Learn more about natural langauge processing
+          </C4DCardLinkHeading>
+          <C4DCardCTAFooter></C4DCardCTAFooter>
+        </C4DCardLinkCTA>
       ) : (
         ''
       )}
       {aside ? (
-        <DDSLinkList type="default" slot="complementary">
-          <DDSLinkListHeading>Tutorials</DDSLinkListHeading>
+        <C4DLinkList type="default" slot="complementary">
+          <C4DLinkListHeading>Tutorials</C4DLinkListHeading>
 
-          <DDSLinkListCard href="https://example.com">
+          <C4DLinkListCard href="https://example.com">
             <p>Learn more about Kubernetes</p>
-            <DDSCardFooter>
+            <C4DCardFooter>
               <ArrowRight20 slot="icon" />
-            </DDSCardFooter>
-          </DDSLinkListCard>
+            </C4DCardFooter>
+          </C4DLinkListCard>
 
-          <DDSLinkListCard href="https://example.com">
+          <C4DLinkListCard href="https://example.com">
             <p>Containerziation A Complete Guide</p>
-            <DDSCardFooter>
+            <C4DCardFooter>
               <ArrowRight20 slot="icon" />
-            </DDSCardFooter>
-          </DDSLinkListCard>
-        </DDSLinkList>
+            </C4DCardFooter>
+          </C4DLinkListCard>
+        </C4DLinkList>
       ) : (
         ''
       )}
-    </DDSContentBlock>
+    </C4DContentBlock>
   );
 };
 
 export default {
   title: 'Components/Content block',
   decorators: [
-    story => {
+    (story) => {
       return <>{story()}</>;
     },
   ],

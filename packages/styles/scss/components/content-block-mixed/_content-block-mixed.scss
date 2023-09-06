@@ -17,7 +17,7 @@
 @use '../content-group-simple';
 
 @mixin content-block-mixed {
-  :host(dds-content-block-mixed),
+  :host(cds-content-block-mixed),
   .#{$prefix}--content-block-mixed {
     .#{$prefix}--content-group-pictograms {
       margin-left: -$spacing-05;

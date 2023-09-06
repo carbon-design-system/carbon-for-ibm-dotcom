@@ -9,7 +9,7 @@
 
 import {} from 'lit-element';
 import settings from '@carbon/ibmdotcom-utilities/es/utilities/settings/settings.js';
-import DDSDropdown from '../footer/dropdown';
+import C4DDropdown from '../footer/dropdown';
 import styles from './search-with-typeahead.scss';
 import { carbonElement as customElement } from '../../internal/vendor/@carbon/web-components/globals/decorators/carbon-element';
 
@@ -19,16 +19,16 @@ export {
   DROPDOWN_TYPE,
 } from '../footer/dropdown';
 
-const { prefix, stablePrefix: ddsPrefix } = settings;
+const { prefix, stablePrefix: c4dPrefix } = settings;
 
 /**
  * Dropdown component to change search scope.
  *
- * @element dds-scoped-search-dropdown
+ * @element c4d-scoped-search-dropdown
  * @fires cds-select-selected - The custom event fired after the the dropdown value is changed upon a user gesture.
  */
-@customElement(`${ddsPrefix}-scoped-search-dropdown`)
-class DDSScopedSearchDropdown extends DDSDropdown {
+@customElement(`${c4dPrefix}-scoped-search-dropdown`)
+class C4DScopedSearchDropdown extends C4DDropdown {
   /**
    * Handles user-initiated selection of a dropdown item
    *
@@ -43,7 +43,7 @@ class DDSScopedSearchDropdown extends DDSDropdown {
           appId: item.value,
         },
       };
-      const constructor = this.constructor as typeof DDSScopedSearchDropdown;
+      const constructor = this.constructor as typeof C4DScopedSearchDropdown;
       const beforeSelectEvent = new CustomEvent(constructor.eventBeforeSelect, {
         ...init,
         cancelable: true,
@@ -67,4 +67,4 @@ class DDSScopedSearchDropdown extends DDSDropdown {
 }
 
 /* @__GENERATE_REACT_CUSTOM_ELEMENT_TYPE__ */
-export default DDSScopedSearchDropdown;
+export default C4DScopedSearchDropdown;

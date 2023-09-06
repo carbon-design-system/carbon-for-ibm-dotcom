@@ -11,7 +11,7 @@
 // @use '@carbon/styles/scss/components/search/search';
 @use '@carbon/ibmdotcom-styles/scss/globals/vars' as *;
 //
-:host(#{$dds-prefix}-search) {
+:host(#{$c4d-prefix}-search) {
   @extend :host(#{$prefix}-search);
 
   &[size='sm'] {

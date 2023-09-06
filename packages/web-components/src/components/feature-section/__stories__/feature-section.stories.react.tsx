@@ -12,16 +12,16 @@ import React from 'react';
 // Below path will be there when an application installs `@carbon/ibmdotcom-web-components` package.
 // In our dev env, we auto-generate the file and re-map below path to to point to the generated file.
 // @ts-ignore
-import DDSCardEyebrow from '@carbon/ibmdotcom-web-components/es/components-react/card/card-eyebrow';
-import DDSCardCTAFooter from '@carbon/ibmdotcom-web-components/es/components-react/cta/card-cta-footer';
-import DDSCardLinkHeading from '@carbon/ibmdotcom-web-components/es/components-react/card-link/card-link-heading';
-import DDSContentBlockHeading from '@carbon/ibmdotcom-web-components/es/components-react/content-block/content-block-heading';
-import DDSContentItemParagraph from '@carbon/ibmdotcom-web-components/es/components-react/content-item/content-item-paragraph';
-import DDSFeatureSection from '@carbon/ibmdotcom-web-components/es/components-react/feature-section/feature-section';
+import C4DCardEyebrow from '@carbon/ibmdotcom-web-components/es/components-react/card/card-eyebrow';
+import C4DCardCTAFooter from '@carbon/ibmdotcom-web-components/es/components-react/cta/card-cta-footer';
+import C4DCardLinkHeading from '@carbon/ibmdotcom-web-components/es/components-react/card-link/card-link-heading';
+import C4DContentBlockHeading from '@carbon/ibmdotcom-web-components/es/components-react/content-block/content-block-heading';
+import C4DContentItemParagraph from '@carbon/ibmdotcom-web-components/es/components-react/content-item/content-item-paragraph';
+import C4DFeatureSection from '@carbon/ibmdotcom-web-components/es/components-react/feature-section/feature-section';
 // eslint-disable-next-line max-len
-import DDSFeatureSectionCardLink from '@carbon/ibmdotcom-web-components/es/components-react/feature-section/feature-section-card-link';
-import DDSImage from '@carbon/ibmdotcom-web-components/es/components-react/image/image';
-import DDSImageItem from '@carbon/ibmdotcom-web-components/es/components-react/image/image-item';
+import C4DFeatureSectionCardLink from '@carbon/ibmdotcom-web-components/es/components-react/feature-section/feature-section-card-link';
+import C4DImage from '@carbon/ibmdotcom-web-components/es/components-react/image/image';
+import C4DImageItem from '@carbon/ibmdotcom-web-components/es/components-react/image/image-item';
 
 import imgXlg1x1 from '../../../../../storybook-images/assets/1584/fpo--1x1--1584x1584--002.jpg';
 import imgLg1x1 from '../../../../../storybook-images/assets/1312/fpo--1x1--1312x1312--002.jpg';
@@ -44,26 +44,41 @@ const types = {
   [`External (${CTA_TYPE.EXTERNAL})`]: CTA_TYPE.EXTERNAL,
 };
 
-export const Default = args => {
-  const { alt, eyebrow, heading, copy, href, ctaType, mediaAlign, defaultSrc } = args?.FeatureSection ?? {};
+export const Default = (args) => {
+  const { alt, eyebrow, heading, copy, href, ctaType, mediaAlign, defaultSrc } =
+    args?.FeatureSection ?? {};
   return (
-    <DDSFeatureSection media-alignment={mediaAlign}>
-      <DDSImage slot="image" default-src={defaultSrc} alt={alt}>
-        <DDSImageItem media="(min-width: 1584px)" srcset={imgXlg1x1}></DDSImageItem>
-        <DDSImageItem media="(min-width: 1056px)" srcset={imgLg1x1}></DDSImageItem>
-        <DDSImageItem media="(min-width: 672px)" srcset={imgMd4x3}></DDSImageItem>
-        <DDSImageItem media="(min-width: 320px)" srcset={imgSm1x1}></DDSImageItem>
-        <DDSImageItem media="(min-width: 0px)" srcset={imgXs1x1}></DDSImageItem>
-      </DDSImage>
-      <DDSCardEyebrow>{eyebrow}</DDSCardEyebrow>
-      <DDSContentBlockHeading>{heading}</DDSContentBlockHeading>
-      <DDSContentItemParagraph slot="copy">{copy}</DDSContentItemParagraph>
+    <C4DFeatureSection media-alignment={mediaAlign}>
+      <C4DImage slot="image" default-src={defaultSrc} alt={alt}>
+        <C4DImageItem
+          media="(min-width: 1584px)"
+          srcset={imgXlg1x1}></C4DImageItem>
+        <C4DImageItem
+          media="(min-width: 1056px)"
+          srcset={imgLg1x1}></C4DImageItem>
+        <C4DImageItem
+          media="(min-width: 672px)"
+          srcset={imgMd4x3}></C4DImageItem>
+        <C4DImageItem
+          media="(min-width: 320px)"
+          srcset={imgSm1x1}></C4DImageItem>
+        <C4DImageItem media="(min-width: 0px)" srcset={imgXs1x1}></C4DImageItem>
+      </C4DImage>
+      <C4DCardEyebrow>{eyebrow}</C4DCardEyebrow>
+      <C4DContentBlockHeading>{heading}</C4DContentBlockHeading>
+      <C4DContentItemParagraph slot="copy">{copy}</C4DContentItemParagraph>
 
-      <DDSFeatureSectionCardLink slot="footer" href={href} cta-type={ctaType} color-scheme="inverse">
-        <DDSCardLinkHeading>Try a free virtual business framing session with IBM Garage</DDSCardLinkHeading>
-        <DDSCardCTAFooter color-scheme="inverse"> </DDSCardCTAFooter>
-      </DDSFeatureSectionCardLink>
-    </DDSFeatureSection>
+      <C4DFeatureSectionCardLink
+        slot="footer"
+        href={href}
+        cta-type={ctaType}
+        color-scheme="inverse">
+        <C4DCardLinkHeading>
+          Try a free virtual business framing session with IBM Garage
+        </C4DCardLinkHeading>
+        <C4DCardCTAFooter color-scheme="inverse"> </C4DCardCTAFooter>
+      </C4DFeatureSectionCardLink>
+    </C4DFeatureSection>
   );
 };
 
@@ -71,9 +86,19 @@ Default.story = {
   parameters: {
     knobs: {
       FeatureSection: () => ({
-        mediaAlign: select('Media Alignment', mediaAlignment, MEDIA_ALIGNMENT.RIGHT),
-        eyebrow: textNullable('Card Eyebrow (optional)(eyebrow):', '5 min activity'),
-        heading: textNullable('Card Heading (required)(heading):', 'Ready when you are'),
+        mediaAlign: select(
+          'Media Alignment',
+          mediaAlignment,
+          MEDIA_ALIGNMENT.RIGHT
+        ),
+        eyebrow: textNullable(
+          'Card Eyebrow (optional)(eyebrow):',
+          '5 min activity'
+        ),
+        heading: textNullable(
+          'Card Heading (required)(heading):',
+          'Ready when you are'
+        ),
         copy: textNullable(
           'Card copy (optional)(copy):',
           `Were flexible. We can work with you on a wide variety of engagements on a project
@@ -91,7 +116,7 @@ Default.story = {
 export default {
   title: 'Components/Feature section',
   decorators: [
-    story => {
+    (story) => {
       return <>{story()}</>;
     },
   ],

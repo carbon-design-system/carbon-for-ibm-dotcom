@@ -3,11 +3,7 @@ import markdownContents from '../../../../docs/markdown-contents.md';
 import contributing from '../../../../../../docs/contributing-license.md';
 import { cdnJs, cdnCss } from '../../../globals/internal/storybook-cdn';
 
-
-
-
-
-# `<dds-content-block-headlines>`
+# `<cds-content-block-headlines>`
 
 > 💡 Check our
 > [CodeSandbox](https://githubbox.com/carbon-design-system/carbon-for-ibm-dotcom/tree/main/packages/web-components/examples/codesandbox/components/content-block-headlines)
@@ -25,98 +21,96 @@ Here's a quick example to get you started.
 import '@carbon/ibmdotcom-web-components/es/components/content-block-headlines/index.js';
 ```
 
-<Description markdown={`${cdnJs({ components: ['content-block-headlines'] })}`} />
+<Description
+  markdown={`${cdnJs({ components: ['content-block-headlines'] })}`}
+/>
 
 <Description markdown={`${cdnCss()}`} />
 
 ### HTML
 
 ```html
-<dds-content-block-headlines>
-  <dds-content-block-heading>Aliquam condimentum<</dds-content-block-heading>
-  <dds-content-block-copy
+<cds-content-block-headlines>
+  <cds-content-block-heading>Aliquam condimentum<</cds-content-block-heading>
+  <cds-content-block-copy
     >Lorem ipsum dolor sit amet, _consectetur_ adipiscing elit. Aenean et
     ultricies est. Mauris iaculis eget dolor nec hendrerit. Phasellus at elit
-    sollicitudin.</dds-content-block-copy
+    sollicitudin.</cds-content-block-copy
   >
-  <dds-content-block-headlines-item slot="content">
-    <dds-content-block-headlines-heading
-      >25%</dds-content-block-headlines-heading
+  <cds-content-block-headlines-item slot="content">
+    <cds-content-block-headlines-heading
+      >25%</cds-content-block-headlines-heading
     >
-    <dds-content-item-copy slot="copy"
+    <cds-content-item-copy slot="copy"
       >Modernize mission-critical applications and infrastructure in a hybrid
-      multicloud environment up to 25 percent faster.</dds-content-item-copy
+      multicloud environment up to 25 percent faster.</cds-content-item-copy
     >
-    <dds-link-list slot="footer" type="vertical">
-      <dds-link-list-item-cta
+    <cds-link-list slot="footer" type="vertical">
+      <cds-link-list-item-cta
         icon-placement="right"
         href="https://www.ibm.com"
-        cta-type="local"
-      >
+        cta-type="local">
         Link text
-      </dds-link-list-item-cta>
-    </dds-link-list>
-  </dds-content-block-headlines-item>
-  <dds-content-block-headlines-item slot="content">
-    <dds-content-block-headlines-heading
-      >25%</dds-content-block-headlines-heading
+      </cds-link-list-item-cta>
+    </cds-link-list>
+  </cds-content-block-headlines-item>
+  <cds-content-block-headlines-item slot="content">
+    <cds-content-block-headlines-heading
+      >25%</cds-content-block-headlines-heading
     >
-    <dds-content-item-copy slot="copy"
+    <cds-content-item-copy slot="copy"
       >Modernize mission-critical applications and infrastructure in a hybrid
-      multicloud environment up to 25 percent faster.</dds-content-item-copy
+      multicloud environment up to 25 percent faster.</cds-content-item-copy
     >
-    <dds-link-list slot="footer" type="vertical">
-      <dds-link-list-item-cta
+    <cds-link-list slot="footer" type="vertical">
+      <cds-link-list-item-cta
         icon-placement="right"
         href="https://www.ibm.com"
-        cta-type="local"
-      >
+        cta-type="local">
         Link text
-      </dds-link-list-item-cta>
-    </dds-link-list>
-  </dds-content-block-headlines-item>
-  <dds-content-block-headlines-item slot="content">
-    <dds-content-block-headlines-heading
-      >1.34M</dds-content-block-headlines-heading
+      </cds-link-list-item-cta>
+    </cds-link-list>
+  </cds-content-block-headlines-item>
+  <cds-content-block-headlines-item slot="content">
+    <cds-content-block-headlines-heading
+      >1.34M</cds-content-block-headlines-heading
     >
-    <dds-content-item-copy slot="copy"
+    <cds-content-item-copy slot="copy"
       >Save 1.34M per year by optimizing your time and IT
-      expenses.</dds-content-item-copy
+      expenses.</cds-content-item-copy
     >
-    <dds-link-list slot="footer" type="vertical">
-      <dds-link-list-item-cta
+    <cds-link-list slot="footer" type="vertical">
+      <cds-link-list-item-cta
         icon-placement="right"
         href="https://www.ibm.com"
-        cta-type="local"
-      >
+        cta-type="local">
         Link text
-      </dds-link-list-item-cta>
-    </dds-link-list>
-  </dds-content-block-headlines-item>
-  <dds-content-block-headlines-item slot="content">
-    <dds-content-block-headlines-heading
-      >25%</dds-content-block-headlines-heading
+      </cds-link-list-item-cta>
+    </cds-link-list>
+  </cds-content-block-headlines-item>
+  <cds-content-block-headlines-item slot="content">
+    <cds-content-block-headlines-heading
+      >25%</cds-content-block-headlines-heading
     >
-    <dds-content-item-copy slot="copy"
+    <cds-content-item-copy slot="copy"
       >Modernize mission-critical applications and infrastructure in a hybrid
-      multicloud environment up to 25 percent faster.</dds-content-item-copy
+      multicloud environment up to 25 percent faster.</cds-content-item-copy
     >
-    <dds-link-list slot="footer" type="vertical">
-      <dds-link-list-item-cta
+    <cds-link-list slot="footer" type="vertical">
+      <cds-link-list-item-cta
         icon-placement="right"
         href="https://www.ibm.com"
-        cta-type="local"
-      >
+        cta-type="local">
         Link text
-      </dds-link-list-item-cta>
-    </dds-link-list>
-  </dds-content-block-headlines-item>
-</dds-content-block-headlines>
+      </cds-link-list-item-cta>
+    </cds-link-list>
+  </cds-content-block-headlines-item>
+</cds-content-block-headlines>
 ```
 
 ## Props
 
-<Props of="dds-content-block-headlines" />
+<Props of="cds-content-block-headlines" />
 <Description markdown={markdownContents} />
 
 ## Stable selectors
@@ -127,7 +121,7 @@ to see how Web Components selector and `data-autoid` should be used.
 
 | Web Components selector              | Compatibility selector                            | Description |
 | ------------------------------------ | ------------------------------------------------- | ----------- |
-| `<dds-content-block-headlines>`      | `data-autoid="dds--content-block-headlines"`      | Component   |
-| `<dds-content-block-headlines-item>` | `data-autoid="dds--content-block-headlines-item"` | Component   |
+| `<cds-content-block-headlines>`      | `data-autoid="cds--content-block-headlines"`      | Component   |
+| `<cds-content-block-headlines-item>` | `data-autoid="cds--content-block-headlines-item"` | Component   |
 
 <Description markdown={contributing} />

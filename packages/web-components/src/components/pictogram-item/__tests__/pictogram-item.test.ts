@@ -16,11 +16,11 @@ const template = (props?) =>
     PictogramItem: props,
   });
 
-describe('dds-pictogram-item', function () {
+describe('c4d-pictogram-item', function () {
   it('Renders as expected', async function () {
     render(template(), document.body);
     await Promise.resolve();
-    expect(document.body.querySelector('dds-pictogram-item')).toMatchSnapshot({
+    expect(document.body.querySelector('c4d-pictogram-item')).toMatchSnapshot({
       mode: 'shadow',
     });
   });

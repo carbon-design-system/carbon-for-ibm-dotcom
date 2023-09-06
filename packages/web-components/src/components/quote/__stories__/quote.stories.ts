@@ -27,17 +27,17 @@ export const Default = (args) => {
     colorScheme,
   } = args?.Quote ?? {};
   return html`
-    <dds-quote color-scheme="${colorScheme}" mark-type="${quoteMark}">
+    <c4d-quote color-scheme="${colorScheme}" mark-type="${quoteMark}">
       ${copy}
-      <dds-quote-source-heading> ${sourceHeading} </dds-quote-source-heading>
-      <dds-quote-source-copy> ${sourceCopy} </dds-quote-source-copy>
-      <dds-quote-source-bottom-copy>
+      <c4d-quote-source-heading> ${sourceHeading} </c4d-quote-source-heading>
+      <c4d-quote-source-copy> ${sourceCopy} </c4d-quote-source-copy>
+      <c4d-quote-source-bottom-copy>
         ${sourceBottomCopy}
-      </dds-quote-source-bottom-copy>
-      <dds-quote-link-with-icon slot="footer" href="https://example.com">
+      </c4d-quote-source-bottom-copy>
+      <c4d-quote-link-with-icon slot="footer" href="https://example.com">
         Link with Icon ${ArrowRight20({ slot: 'icon' })}
-      </dds-quote-link-with-icon>
-    </dds-quote>
+      </c4d-quote-link-with-icon>
+    </c4d-quote>
   `;
 };
 

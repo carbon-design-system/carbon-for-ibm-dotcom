@@ -12,8 +12,8 @@
 @use '../../internal/content-group';
 
 @mixin content-group-simple {
-  :host(#{$dds-prefix}-content-group-simple)
-    ::slotted(#{$dds-prefix}-content-group-copy),
+  :host(#{$c4d-prefix}-content-group-simple)
+    ::slotted(#{$c4d-prefix}-content-group-copy),
   .#{$prefix}--content-group-simple .#{$prefix}--content-group__copy {
     margin-bottom: $spacing-07;
   }
