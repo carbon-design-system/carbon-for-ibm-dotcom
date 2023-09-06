@@ -2596,7 +2596,7 @@ __metadata:
     "@carbon/motion": ^11.0.0
     "@carbon/telemetry": 0.1.0
     "@carbon/type": 10.45.2
-    "@carbon/web-components": 1.31.0
+    "@carbon/web-components": 1.32.0-rc.0
     "@open-wc/semantic-dom-diff": ~0.18.0
     "@percy-io/in-percy": ^0.1.11
     "@percy/cli": ^1.8.1
@@ -2869,7 +2869,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@carbon/web-components@1.31.0, @carbon/web-components@workspace:packages/carbon-web-components":
+"@carbon/web-components@1.32.0-rc.0, @carbon/web-components@workspace:packages/carbon-web-components":
   version: 0.0.0-use.local
   resolution: "@carbon/web-components@workspace:packages/carbon-web-components"
   dependencies:
