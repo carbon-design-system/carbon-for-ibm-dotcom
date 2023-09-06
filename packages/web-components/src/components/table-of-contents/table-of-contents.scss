@@ -12,7 +12,7 @@
 @use '@carbon/ibmdotcom-styles/scss/components/layout';
 @use '@carbon/ibmdotcom-styles/scss/globals/vars' as *;
 
-:host(#{$cds-prefix}-table-of-contents[toc-layout='horizontal'])
+:host(#{$c4d-prefix}-table-of-contents[toc-layout='horizontal'])
   .#{$prefix}--tableofcontents__navbar {
   @include breakpoint(lg) {
     &::before {
@@ -41,7 +41,7 @@
   }
 }
 
-:host(#{$cds-prefix}-table-of-contents[toc-layout='horizontal'])
+:host(#{$c4d-prefix}-table-of-contents[toc-layout='horizontal'])
   .#{$prefix}--tableofcontents__desktop-container {
   @include breakpoint(lg) {
     position: relative;
@@ -50,21 +50,21 @@
   }
 }
 
-:host(#{$cds-prefix}-table-of-contents[toc-layout='horizontal'])
+:host(#{$c4d-prefix}-table-of-contents[toc-layout='horizontal'])
   .#{$prefix}--tableofcontents__mobile {
   margin: 0;
 }
 
-:host(#{$cds-prefix}-table-of-contents[toc-layout='horizontal'])
+:host(#{$c4d-prefix}-table-of-contents[toc-layout='horizontal'])
   .#{$prefix}--tableofcontents__content {
   max-width: none;
   flex: 1;
 }
 
-.#{$cds-prefix}-ce--table-of-contents__container {
+.#{$c4d-prefix}-ce--table-of-contents__container {
   // TODO: Make the layout CSS grid-based so we can remove this ruleset
-  ::slotted(#{$cds-prefix}-content-block-simple),
-  ::slotted(#{$cds-prefix}-content-block-segmented) {
+  ::slotted(#{$c4d-prefix}-content-block-simple),
+  ::slotted(#{$c4d-prefix}-content-block-segmented) {
     margin-left: calc(-1 * #{$spacing-05});
     margin-right: calc(-1 * #{$spacing-05});
   }
@@ -98,7 +98,7 @@
   height: $spacing-09;
 }
 
-.#{$cds-prefix}-ce--toc__navbar-caret-container--hidden {
+.#{$c4d-prefix}-ce--toc__navbar-caret-container--hidden {
   position: absolute;
   visibility: hidden;
 }

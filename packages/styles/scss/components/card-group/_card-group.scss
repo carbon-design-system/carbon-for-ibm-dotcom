@@ -51,12 +51,12 @@
 }
 
 @mixin card-group {
-  :host(#{$cds-prefix}-card-group),
+  :host(#{$c4d-prefix}-card-group),
   .#{$prefix}--card-group {
     @include card-group-themed-items;
   }
 
-  :host(#{$cds-prefix}-card-group-item),
+  :host(#{$c4d-prefix}-card-group-item),
   .#{$prefix}--card-group__card {
     // FIXME: CardLink is being used as Card in React, need to separate this
     .#{$prefix}--card-link .#{$prefix}--card__heading {
@@ -86,14 +86,14 @@
   }
 
   // FIXME: WC only override
-  :host(#{$cds-prefix}-card-group-item)
+  :host(#{$c4d-prefix}-card-group-item)
     .#{$prefix}--card-link
     .#{$prefix}--card__heading {
     @include type-style('heading-02', true);
   }
 
-  :host(#{$cds-prefix}-card-group-item),
-  :host(#{$cds-prefix}-card-group-card-link-item) {
+  :host(#{$c4d-prefix}-card-group-item),
+  :host(#{$c4d-prefix}-card-group-card-link-item) {
     padding-bottom: 1px;
     padding-right: 1px;
 
@@ -170,10 +170,10 @@
     }
   }
 
-  :host(#{$cds-prefix}-card-group),
+  :host(#{$c4d-prefix}-card-group),
   .#{$prefix}--card-group__row,
   .#{$prefix}--card-group__cards__row {
-    --#{$cds-prefix}--card-group--cards-in-row: 1;
+    --#{$c4d-prefix}--card-group--cards-in-row: 1;
 
     display: grid;
     grid-template-columns: 1fr;
@@ -184,7 +184,7 @@
 
     @include breakpoint(lg) {
       grid-template-columns: repeat(
-        var(--#{$cds-prefix}--card-group--cards-in-row),
+        var(--#{$c4d-prefix}--card-group--cards-in-row),
         1fr
       );
     }
@@ -229,7 +229,7 @@
   }
 
   // Add Grid Mode Narrow (16px gutter) style.
-  :host(#{$cds-prefix}-card-group)[grid-mode='narrow'],
+  :host(#{$c4d-prefix}-card-group)[grid-mode='narrow'],
   .#{$prefix}--card-group--narrow {
     @include breakpoint(sm) {
       padding-top: $spacing-03;
@@ -248,8 +248,8 @@
       );
     }
 
-    ::slotted(#{$cds-prefix}-card-group-item),
-    ::slotted(#{$cds-prefix}-card-group-card-link-item),
+    ::slotted(#{$c4d-prefix}-card-group-item),
+    ::slotted(#{$c4d-prefix}-card-group-card-link-item),
     .#{$prefix}--card-group__cards__col {
       border: 0;
       padding: 0;
@@ -257,7 +257,7 @@
   }
 
   // card with video focus outline
-  :host(#{$cds-prefix}-card-group-item)[cta-type='video'] {
+  :host(#{$c4d-prefix}-card-group-item)[cta-type='video'] {
     &:focus-within {
       .#{$prefix}--tile {
         outline: none;
@@ -364,14 +364,14 @@
 
   // Print styles
   @media print {
-    :host(#{$cds-prefix}-card-group),
+    :host(#{$c4d-prefix}-card-group),
     .#{$prefix}--card-group__row,
     .#{$prefix}--card-group__cards__row {
       display: flex;
       flex-wrap: nowrap;
 
-      ::slotted(#{$cds-prefix}-card-group-item),
-      ::slotted(#{$cds-prefix}-card-group-card-link-item),
+      ::slotted(#{$c4d-prefix}-card-group-item),
+      ::slotted(#{$c4d-prefix}-card-group-card-link-item),
       .#{$prefix}--card {
         /* stylelint-disable declaration-no-important */
         // need important since it gets overriden in WC Card Group without it
@@ -383,8 +383,8 @@
       }
     }
 
-    :host(#{$cds-prefix}-card-group-item),
-    :host(#{$cds-prefix}-card-group-card-link-item) {
+    :host(#{$c4d-prefix}-card-group-item),
+    :host(#{$c4d-prefix}-card-group-card-link-item) {
       background-color: transparent;
 
       &[empty] {

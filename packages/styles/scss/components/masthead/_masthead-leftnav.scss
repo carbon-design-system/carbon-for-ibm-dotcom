@@ -167,7 +167,7 @@
     }
   }
 
-  :host(#{$cds-prefix}-left-nav-menu-section),
+  :host(#{$c4d-prefix}-left-nav-menu-section),
   .#{$prefix}--side-nav__menu-section {
     @include theme($white, true);
 
@@ -331,23 +331,23 @@
     color: $link-primary;
   }
 
-  :host(#{$cds-prefix}-left-nav-menu-section)[expanded],
+  :host(#{$c4d-prefix}-left-nav-menu-section)[expanded],
   .#{$prefix}--side-nav__menu-section--expanded {
     z-index: 1;
     inset-inline-start: 0;
   }
 
-  :host(#{$cds-prefix}-left-nav-menu-section)[is-submenu],
+  :host(#{$c4d-prefix}-left-nav-menu-section)[is-submenu],
   .#{$prefix}--side-nav__menu-section-submenu {
     inset-inline-start: 100%;
   }
 
-  :host(#{$cds-prefix}-left-nav-menu-section)[is-submenu][expanded],
+  :host(#{$c4d-prefix}-left-nav-menu-section)[is-submenu][expanded],
   .#{$prefix}--side-nav__menu-section-submenu.#{$prefix}--side-nav__menu-section--expanded {
     inset-inline-start: 0;
   }
 
-  :host(#{$cds-prefix}-left-nav-menu-section)[is-submenu][transition],
+  :host(#{$c4d-prefix}-left-nav-menu-section)[is-submenu][transition],
   .#{$prefix}--side-nav__menu-section-submenu--expanded {
     inset-inline-start: -100%;
   }
@@ -408,7 +408,7 @@
   }
 
   .#{$prefix}--masthead__side-nav--submemu-heading,
-  :host(#{$cds-prefix}-left-nav-menu-category-heading) {
+  :host(#{$c4d-prefix}-left-nav-menu-category-heading) {
     @include type-style('body-01');
 
     font-size: $spacing-05;
@@ -446,11 +446,11 @@
   .#{$prefix}--side-nav__item .#{$prefix}--side-nav__link,
   .#{$prefix}--side-nav__menu-item
     .#{$prefix}--side-nav__link:not([isbackbutton='true']),
-  :host(#{$cds-prefix}-left-nav-item-highlighted) a.#{$prefix}--side-nav__link,
-  :host(#{$cds-prefix}-left-nav-menu-item-highlighted)
+  :host(#{$c4d-prefix}-left-nav-item-highlighted) a.#{$prefix}--side-nav__link,
+  :host(#{$c4d-prefix}-left-nav-menu-item-highlighted)
     a.#{$prefix}--side-nav__link,
-  :host(#{$cds-prefix}-left-nav-item) a.#{$prefix}--side-nav__link,
-  :host(#{$cds-prefix}-left-nav-menu-item) a.#{$prefix}--side-nav__link {
+  :host(#{$c4d-prefix}-left-nav-item) a.#{$prefix}--side-nav__link,
+  :host(#{$c4d-prefix}-left-nav-menu-item) a.#{$prefix}--side-nav__link {
     display: flex;
     padding-left: $spacing-05;
     height: auto;
@@ -459,12 +459,12 @@
   }
 
   .#{$prefix}--masthead__side-nav__last-highlighted,
-  :host(#{$cds-prefix}-left-nav-menu-item[last-highlighted]),
-  :host(#{$cds-prefix}-left-nav-menu[last-highlighted]) {
+  :host(#{$c4d-prefix}-left-nav-menu-item[last-highlighted]),
+  :host(#{$c4d-prefix}-left-nav-menu[last-highlighted]) {
     border-bottom: 1px solid $toggle-off;
   }
 
-  :host(#{$cds-prefix}-left-nav-menu[last-highlighted])
+  :host(#{$c4d-prefix}-left-nav-menu[last-highlighted])
     .#{$prefix}--side-nav__submenu
     .#{$prefix}--side-nav__submenu-content,
   .#{$prefix}--masthead__side-nav__last-highlighted
@@ -475,7 +475,7 @@
     .#{$prefix}--masthead__side-nav--submemu-back
     .#{$prefix}--side-nav__link
     .#{$prefix}--side-nav__link-text,
-  :host(#{$cds-prefix}-left-nav-menu-item[last-highlighted])
+  :host(#{$c4d-prefix}-left-nav-menu-item[last-highlighted])
     .#{$prefix}--side-nav__link {
     border-bottom: none;
   }

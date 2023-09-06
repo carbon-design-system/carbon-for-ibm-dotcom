@@ -9,22 +9,22 @@
 @use '@carbon/styles/scss/theme' as *;
 @use '@carbon/styles/scss/themes' as *;
 
-:host(.#{$cds-prefix}-theme-zone-white),
-.#{$cds-prefix}-theme-zone-white {
+:host(.#{$c4d-prefix}-theme-zone-white),
+.#{$c4d-prefix}-theme-zone-white {
   @include theme($white, true);
 }
 
-:host(.#{$cds-prefix}-theme-zone-g10),
-.#{$cds-prefix}-theme-zone-g10 {
+:host(.#{$c4d-prefix}-theme-zone-g10),
+.#{$c4d-prefix}-theme-zone-g10 {
   @include theme($g10, true);
 }
 
-:host(.#{$cds-prefix}-theme-zone-g90),
-.#{$cds-prefix}-theme-zone-g90 {
+:host(.#{$c4d-prefix}-theme-zone-g90),
+.#{$c4d-prefix}-theme-zone-g90 {
   @include theme($g90, true);
 }
 
-:host(.#{$cds-prefix}-theme-zone-g100),
-.#{$cds-prefix}-theme-zone-g100 {
+:host(.#{$c4d-prefix}-theme-zone-g100),
+.#{$c4d-prefix}-theme-zone-g100 {
   @include theme($g100, true);
 }

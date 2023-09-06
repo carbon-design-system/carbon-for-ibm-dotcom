@@ -13,7 +13,7 @@
 @use '@carbon/ibmdotcom-styles/scss/components/callout-quote';
 @use '@carbon/ibmdotcom-styles/scss/components/link-with-icon';
 
-:host(#{$cds-prefix}-callout-link-with-icon) {
+:host(#{$c4d-prefix}-callout-link-with-icon) {
   @extend .#{$prefix}--link-with-icon;
 
   display: inline-block;
@@ -34,7 +34,7 @@
   }
 }
 
-:host(#{$cds-prefix}-callout-quote) #{$cds-prefix}-hr {
+:host(#{$c4d-prefix}-callout-quote) #{$c4d-prefix}-hr {
   margin: $spacing-05;
   @include breakpoint(md) {
     margin: $spacing-05 0;

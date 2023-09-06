@@ -11,7 +11,7 @@
 @use '@carbon/ibmdotcom-styles/scss/components/content-block-segmented';
 @use '@carbon/ibmdotcom-styles/scss/globals/vars' as *;
 
-:host(#{$cds-prefix}-content-block-segmented) {
+:host(#{$c4d-prefix}-content-block-segmented) {
   ::slotted(:not([slot])) {
     display: block;
     margin-top: $spacing-10;
@@ -26,21 +26,21 @@
     margin-top: 0;
   }
 
-  ::slotted(#{$cds-prefix}-content-block-complementary) {
+  ::slotted(#{$c4d-prefix}-content-block-complementary) {
     @include breakpoint-down(lg) {
       margin: $spacing-10 0;
     }
   }
 }
 
-:host(#{$cds-prefix}-content-block-segmented-item) ::slotted(*) {
+:host(#{$c4d-prefix}-content-block-segmented-item) ::slotted(*) {
   margin-left: $spacing-05;
   margin-right: $spacing-05;
 }
 
 // TODO: Consider applying this rule in general
-:host(#{$cds-prefix}-content-block-segmented-item) {
-  ::slotted(#{$cds-prefix}-content-item-copy) {
+:host(#{$c4d-prefix}-content-block-segmented-item) {
+  ::slotted(#{$c4d-prefix}-content-item-copy) {
     @include breakpoint(md) {
       width: calc((100% - 2 * #{$spacing-05}) * 0.9);
     }
@@ -51,7 +51,7 @@
   }
 }
 
-.#{$cds-prefix}-ce--content-layout--with-adjacent-heading-content
+.#{$c4d-prefix}-ce--content-layout--with-adjacent-heading-content
   ::slotted([slot='heading']) {
   // In this condition, given the heading content and child content are in different grid area, both margins will be in effect.
   // Uses the margin of child content and cancels one of the heading to get the right margin.

@@ -20,8 +20,8 @@
 @use '@carbon/ibmdotcom-styles/scss/globals/utils/flex-grid' as *;
 @use '@carbon/ibmdotcom-styles/scss/globals/vars' as *;
 
-:host(#{$cds-prefix}-footer),
-:host(#{$cds-prefix}-legal-nav) {
+:host(#{$c4d-prefix}-footer),
+:host(#{$c4d-prefix}-legal-nav) {
   display: block;
   .#{$prefix}--adjunct-links__container {
     list-style: none;
@@ -33,7 +33,7 @@
       margin-right: 0;
       @include make-row;
       .#{$prefix}--adjunct-links__col {
-        ::slotted(#{$cds-prefix}-legal-nav-item) {
+        ::slotted(#{$c4d-prefix}-legal-nav-item) {
           padding-top: 0;
           padding-bottom: $spacing-03;
         }
@@ -54,7 +54,7 @@
   }
 }
 
-:host(#{$cds-prefix}-footer).#{$prefix}--adjunct-links__container
+:host(#{$c4d-prefix}-footer).#{$prefix}--adjunct-links__container
   .#{$prefix}--adjunct-links__row
   .#{$prefix}--adjunct-links__col,
 :host(cds-legal-nav)
@@ -67,23 +67,23 @@
   }
 }
 
-:host(#{$cds-prefix}-footer-nav-group[open]) {
+:host(#{$c4d-prefix}-footer-nav-group[open]) {
   @extend .#{$prefix}--accordion__item--active;
 }
 
-:host(#{$cds-prefix}-footer-nav-item),
-:host(#{$cds-prefix}-legal-nav-item),
-:host(#{$cds-prefix}-legal-nav-cookie-preferences-placeholder) {
+:host(#{$c4d-prefix}-footer-nav-item),
+:host(#{$c4d-prefix}-legal-nav-item),
+:host(#{$c4d-prefix}-legal-nav-cookie-preferences-placeholder) {
   display: list-item;
   outline: none;
 }
 
-:host(#{$cds-prefix}-footer-nav-group[open]) .#{$prefix}--accordion__content {
+:host(#{$c4d-prefix}-footer-nav-group[open]) .#{$prefix}--accordion__content {
   display: block;
   padding-top: 0;
 }
 
-:host(#{$cds-prefix}-footer-nav-group) {
+:host(#{$c4d-prefix}-footer-nav-group) {
   .#{$prefix}--accordion__heading {
     border-top: 1px solid $border-subtle-01;
     padding: 0;
@@ -92,7 +92,7 @@
   }
 }
 
-:host(#{$cds-prefix}-locale-button) {
+:host(#{$c4d-prefix}-locale-button) {
   outline: none;
 
   .#{$prefix}--btn {
@@ -103,7 +103,7 @@
 
 // The style of legal nav deviates from the one of React, so we can make the markup simpler.
 // FIXME: Once the style is stabilized, change the markup of React, too, so we can share the style
-:host(#{$cds-prefix}-legal-nav):not([size='micro']) {
+:host(#{$c4d-prefix}-legal-nav):not([size='micro']) {
   .#{$prefix}--legal-nav__list {
     padding-bottom: 0;
     padding-top: 0;
@@ -131,16 +131,16 @@
   }
 }
 
-:host(#{$cds-prefix}-footer[size='micro']) {
-  ::slotted(#{$cds-prefix}-footer-nav),
-  ::slotted(#{$cds-prefix}-footer-logo) {
+:host(#{$c4d-prefix}-footer[size='micro']) {
+  ::slotted(#{$c4d-prefix}-footer-nav),
+  ::slotted(#{$c4d-prefix}-footer-logo) {
     display: none;
   }
 }
 
-:host(#{$cds-prefix}-legal-nav[size='micro']) {
-  ::slotted(#{$cds-prefix}-legal-nav-item),
-  ::slotted(#{$cds-prefix}-legal-nav-cookie-preferences-placeholder) {
+:host(#{$c4d-prefix}-legal-nav[size='micro']) {
+  ::slotted(#{$c4d-prefix}-legal-nav-item),
+  ::slotted(#{$c4d-prefix}-legal-nav-cookie-preferences-placeholder) {
     display: flex;
     align-items: center;
     padding: 0;
@@ -177,7 +177,7 @@
   }
 }
 
-:host(#{$cds-prefix}-locale-button[size='micro']) {
+:host(#{$c4d-prefix}-locale-button[size='micro']) {
   margin: 0;
   flex-shrink: 1;
   padding: 0;
@@ -245,8 +245,8 @@
   }
 }
 
-:host(#{$cds-prefix}-language-selector-desktop),
-:host(#{$cds-prefix}-language-selector-mobile) {
+:host(#{$c4d-prefix}-language-selector-desktop),
+:host(#{$c4d-prefix}-language-selector-mobile) {
   position: relative;
   outline: none;
   margin-top: $spacing-09;
@@ -290,7 +290,7 @@
   }
 }
 
-:host(#{$cds-prefix}-language-selector-desktop) {
+:host(#{$c4d-prefix}-language-selector-desktop) {
   .#{$prefix}--list-box__menu-icon {
     right: $spacing-04;
   }
@@ -305,7 +305,7 @@
   }
 }
 
-:host(#{$cds-prefix}-language-selector-desktop[size='micro']) {
+:host(#{$c4d-prefix}-language-selector-desktop[size='micro']) {
   margin: 0;
   padding: 0;
   border-left: 1px solid $border-subtle-01;
@@ -359,7 +359,7 @@
   }
 }
 
-:host(#{$cds-prefix}-language-selector-mobile[size='micro']) {
+:host(#{$c4d-prefix}-language-selector-mobile[size='micro']) {
   align-self: flex-end;
   border-left: 1px solid $border-subtle-01;
   width: 100%;
@@ -383,7 +383,7 @@
   }
 }
 
-:host(#{$cds-prefix}-language-selector-mobile) {
+:host(#{$c4d-prefix}-language-selector-mobile) {
   .#{$prefix}--select-input__wrapper {
     height: $spacing-09;
     margin-top: -#{$spacing-05};

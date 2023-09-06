@@ -83,7 +83,7 @@ $hover-transition-timing: 95ms;
 }
 
 @mixin table-of-contents {
-  :host(#{$cds-prefix}-table-of-contents),
+  :host(#{$c4d-prefix}-table-of-contents),
   .#{$prefix}--tableofcontents {
     text-size-adjust: 100%;
     @extend .#{$prefix}--grid;
@@ -95,8 +95,8 @@ $hover-transition-timing: 95ms;
     @include themed-items;
   }
 
-  .#{$cds-prefix}-ce--table-of-contents__container,
-  .#{$cds-prefix}-ce--table-of-contents-horizontal__container {
+  .#{$c4d-prefix}-ce--table-of-contents__container,
+  .#{$c4d-prefix}-ce--table-of-contents-horizontal__container {
     @include make-row();
   }
 
@@ -220,7 +220,7 @@ $hover-transition-timing: 95ms;
       padding-bottom: $spacing-05;
     }
 
-    hr[data-autoid='#{$cds-prefix}--hr'] {
+    hr[data-autoid='#{$c4d-prefix}--hr'] {
       margin-top: 0;
     }
   }
@@ -436,7 +436,7 @@ $hover-transition-timing: 95ms;
   }
 
   @media print {
-    :host(#{$cds-prefix}-table-of-contents),
+    :host(#{$c4d-prefix}-table-of-contents),
     .#{$prefix}--tableofcontents {
       .#{$prefix}--tableofcontents__sidebar {
         position: relative;
@@ -459,7 +459,7 @@ $hover-transition-timing: 95ms;
         }
       }
 
-      ::slotted(#{$cds-prefix}-image) {
+      ::slotted(#{$c4d-prefix}-image) {
         width: 25%;
       }
     }

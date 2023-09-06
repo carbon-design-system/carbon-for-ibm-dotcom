@@ -20,7 +20,7 @@
 /// @group footer
 
 @mixin footer {
-  :host(#{$cds-prefix}-footer),
+  :host(#{$c4d-prefix}-footer),
   .#{$prefix}--footer {
     width: 100%;
     padding-block: $spacing-09;
@@ -41,7 +41,7 @@
     }
   }
 
-  :host(#{$cds-prefix}-footer[size='short']),
+  :host(#{$c4d-prefix}-footer[size='short']),
   .#{$prefix}--footer--short {
     padding-block: carbon--mini-units(4);
 
@@ -56,7 +56,7 @@
     }
   }
 
-  :host(#{$cds-prefix}-footer[size='micro']),
+  :host(#{$c4d-prefix}-footer[size='micro']),
   .#{$prefix}--footer--micro {
     padding-top: 0;
     padding-bottom: 0;
@@ -81,9 +81,9 @@
     }
   }
 
-  :host(#{$cds-prefix}-footer-nav-item),
-  :host(#{$cds-prefix}-legal-nav-item),
-  :host(#{$cds-prefix}-legal-nav-cookie-preferences-placeholder),
+  :host(#{$c4d-prefix}-footer-nav-item),
+  :host(#{$c4d-prefix}-legal-nav-item),
+  :host(#{$c4d-prefix}-legal-nav-cookie-preferences-placeholder),
   .#{$prefix}--footer {
     @include theme($g90, feature-flag-enabled('enable-css-custom-properties'));
 
@@ -110,7 +110,7 @@
     }
   }
 
-  :host(#{$cds-prefix}-legal-nav),
+  :host(#{$c4d-prefix}-legal-nav),
   .#{$prefix}--footer {
     @include theme($g90, feature-flag-enabled('enable-css-custom-properties'));
 
@@ -136,7 +136,7 @@
 
     flex-direction: column;
 
-    :host(#{$cds-prefix}-footer[size='short']) &,
+    :host(#{$c4d-prefix}-footer[size='short']) &,
     .#{$prefix}--footer--short & {
       flex-direction: row;
     }
@@ -169,7 +169,7 @@
   }
 
   @media print {
-    :host(#{$cds-prefix}-footer),
+    :host(#{$c4d-prefix}-footer),
     .#{$prefix}--footer {
       /* stylelint-disable declaration-no-important */
       // need important since it gets overriden in WC Footer without it

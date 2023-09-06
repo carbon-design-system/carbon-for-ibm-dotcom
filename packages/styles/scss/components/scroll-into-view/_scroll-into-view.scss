@@ -12,7 +12,7 @@
 
 @mixin scroll-into-view {
   :root {
-    --#{$cds-prefix}--fade-in-out-delay: 0s;
+    --#{$c4d-prefix}--fade-in-out-delay: 0s;
   }
 
   $cds--slide-distance: $spacing-07;
@@ -20,7 +20,7 @@
   .#{$prefix}--fade-in {
     transition-timing-function: motion(entrance, expressive);
     transition-duration: $duration-slow-01;
-    transition-delay: var(--#{$cds-prefix}--fade-in-out-delay);
+    transition-delay: var(--#{$c4d-prefix}--fade-in-out-delay);
     opacity: 1;
   }
 
@@ -37,7 +37,7 @@
 
       transition-timing-function: motion(entrance, expressive);
       transition-duration: $duration-slow-01;
-      transition-delay: var(--#{$cds-prefix}--fade-in-out-delay);
+      transition-delay: var(--#{$c4d-prefix}--fade-in-out-delay);
     }
 
     &-up {

@@ -8,6 +8,6 @@
 @use '@carbon/ibmdotcom-styles/scss/globals/vars' as *;
 @use '@carbon/ibmdotcom-styles/scss/components/horizontal-rule';
 
-:host(#{$cds-prefix}-hr) {
+:host(#{$c4d-prefix}-hr) {
   display: block;
 }

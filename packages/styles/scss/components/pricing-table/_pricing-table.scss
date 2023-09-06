@@ -25,18 +25,18 @@
     top: -100%;
   }
   to {
-    top: var(--#{$cds-prefix}-sticky-header-height);
+    top: var(--#{$c4d-prefix}-sticky-header-height);
   }
 }
 
 @mixin pricing-table {
-  .#{$cds-prefix}--pricing-table,
-  :host(#{$cds-prefix}-pricing-table) {
-    @extend .#{$cds-prefix}--structured-list;
+  .#{$c4d-prefix}--pricing-table,
+  :host(#{$c4d-prefix}-pricing-table) {
+    @extend .#{$c4d-prefix}--structured-list;
 
     overflow-y: hidden;
 
-    .#{$cds-prefix}-pricing-table-sentinel {
+    .#{$c4d-prefix}-pricing-table-sentinel {
       display: block;
       height: 1px;
       margin-top: -1px;
@@ -45,12 +45,12 @@
   }
 
   .#{$prefix}--pricing-table-group,
-  :host(#{$cds-prefix}-pricing-table-group) {
+  :host(#{$c4d-prefix}-pricing-table-group) {
     @extend .#{$prefix}--structured-list-group;
   }
 
   .#{$prefix}--pricing-table-header-row,
-  :host(#{$cds-prefix}-pricing-table-header-row) {
+  :host(#{$c4d-prefix}-pricing-table-header-row) {
     @extend .#{$prefix}--structured-list-header-row;
 
     box-shadow: none;
@@ -73,7 +73,7 @@
       position: sticky;
       animation: sticky-header-slide-in $duration-slow-01
         motion(standard, productive);
-      top: var(--#{$cds-prefix}-sticky-header-height);
+      top: var(--#{$c4d-prefix}-sticky-header-height);
       background-color: $background;
       z-index: 1;
 
@@ -98,9 +98,9 @@
   .#{$prefix}--pricing-table-header-row,
   .#{$prefix}--pricing-table-row,
   .#{$prefix}--pricing-table-group tr,
-  :host(#{$cds-prefix}-pricing-table-header-row),
-  :host(#{$cds-prefix}-pricing-table-row),
-  :host(#{$cds-prefix}-pricing-table-group) tr {
+  :host(#{$c4d-prefix}-pricing-table-header-row),
+  :host(#{$c4d-prefix}-pricing-table-row),
+  :host(#{$c4d-prefix}-pricing-table-group) tr {
     @extend .#{$prefix}--structured-list-all-rows;
 
     position: relative;
@@ -123,8 +123,8 @@
 
   .#{$prefix}--pricing-table-header-row,
   .#{$prefix}--pricing-table-row,
-  :host(#{$cds-prefix}-pricing-table-header-row),
-  :host(#{$cds-prefix}-pricing-table-row) {
+  :host(#{$c4d-prefix}-pricing-table-header-row),
+  :host(#{$c4d-prefix}-pricing-table-row) {
     ::slotted(:last-child) {
       flex-grow: none;
       max-width: var(--width);
@@ -134,9 +134,9 @@
   .#{$prefix}--pricing-table-header-cell,
   .#{$prefix}--pricing-table-cell,
   .#{$prefix}--pricing-table-group th,
-  :host(#{$cds-prefix}-pricing-table-header-cell),
-  :host(#{$cds-prefix}-pricing-table-cell),
-  :host(#{$cds-prefix}-pricing-table-group) th {
+  :host(#{$c4d-prefix}-pricing-table-header-cell),
+  :host(#{$c4d-prefix}-pricing-table-cell),
+  :host(#{$c4d-prefix}-pricing-table-group) th {
     @extend .#{$prefix}--structured-list-all-cells;
 
     padding-block-end: $spacing-05;
@@ -144,8 +144,8 @@
 
   .#{$prefix}--pricing-table-header-cell,
   .#{$prefix}--pricing-table-cell,
-  :host(#{$cds-prefix}-pricing-table-header-cell),
-  :host(#{$cds-prefix}-pricing-table-cell) {
+  :host(#{$c4d-prefix}-pricing-table-header-cell),
+  :host(#{$c4d-prefix}-pricing-table-cell) {
     position: relative;
     background-color: $background;
 
@@ -161,12 +161,12 @@
   }
 
   .#{$prefix}--pricing-table-header-cell,
-  :host(#{$cds-prefix}-pricing-table-header-cell) {
+  :host(#{$c4d-prefix}-pricing-table-header-cell) {
     @extend .#{$prefix}--structured-list-header-cell;
   }
 
   .#{$prefix}--pricing-table-header-cell:not([scope='row']),
-  :host(#{$cds-prefix}-pricing-table-header-cell:not([scope='row'])) {
+  :host(#{$c4d-prefix}-pricing-table-header-cell:not([scope='row'])) {
     padding-block-end: $spacing-12;
     transition: padding-block-end $duration-slow-01 motion(standard, productive);
 
@@ -202,7 +202,7 @@
       }
 
       .#{$prefix}--pricing-table-header-cell-cta,
-      ::slotted(#{$cds-prefix}-pricing-table-header-cell-cta) {
+      ::slotted(#{$c4d-prefix}-pricing-table-header-cell-cta) {
         margin-block-start: $spacing-05;
       }
     }
@@ -216,7 +216,7 @@
     &.highlighted {
       position: relative;
 
-      ::slotted(#{$cds-prefix}-pricing-table-highlight-label) {
+      ::slotted(#{$c4d-prefix}-pricing-table-highlight-label) {
         display: block;
       }
     }
@@ -230,11 +230,11 @@
   }
 
   .#{$prefix}--pricing-table-cell,
-  :host(#{$cds-prefix}-pricing-table-cell) {
+  :host(#{$c4d-prefix}-pricing-table-cell) {
     @extend .#{$prefix}--structured-list-cell;
 
     &.annotation-visible {
-      ::slotted(#{$cds-prefix}-pricing-table-cell-annotation) {
+      ::slotted(#{$c4d-prefix}-pricing-table-cell-annotation) {
         display: block;
         height: auto;
         opacity: 1;
@@ -244,20 +244,20 @@
     }
 
     &.annotation-visible.no-cell-content {
-      ::slotted(#{$cds-prefix}-pricing-table-cell-annotation) {
+      ::slotted(#{$c4d-prefix}-pricing-table-cell-annotation) {
         margin-top: 0;
       }
     }
   }
 
-  :host(#{$cds-prefix}-pricing-table-cell[icon]) {
+  :host(#{$c4d-prefix}-pricing-table-cell[icon]) {
     &[icon='checkmark'] {
       color: $support-success;
     }
   }
 
   .#{$prefix}--pricing-table-highlight-label,
-  :host(#{$cds-prefix}-pricing-table-highlight-label) {
+  :host(#{$c4d-prefix}-pricing-table-highlight-label) {
     @include type-style('body-compact-01');
 
     display: none;
@@ -271,14 +271,14 @@
   }
 
   .#{$prefix}--pricing-table-header-cell-headline,
-  :host(#{$cds-prefix}-pricing-table-header-cell-headline) {
+  :host(#{$c4d-prefix}-pricing-table-header-cell-headline) {
     // @include type-style('fluid-heading-03');
     color: $text-primary;
     display: block;
   }
 
   .#{$prefix}--pricing-table-header-cell-caption,
-  :host(#{$cds-prefix}-pricing-table-header-cell-caption) {
+  :host(#{$c4d-prefix}-pricing-table-header-cell-caption) {
     @include type-style('heading-compact-01');
 
     color: $text-primary;
@@ -286,7 +286,7 @@
   }
 
   .#{$prefix}--pricing-table-header-cell-tag,
-  :host(#{$cds-prefix}-pricing-table-header-cell-tag) a {
+  :host(#{$c4d-prefix}-pricing-table-header-cell-tag) a {
     @extend .#{$prefix}--tag;
     @extend .#{$prefix}--tag--green;
     @extend .#{$prefix}--tag--sm;
@@ -300,7 +300,7 @@
   }
 
   .#{$prefix}--pricing-table-header-cell-description,
-  :host(#{$cds-prefix}-pricing-table-header-cell-description) {
+  :host(#{$c4d-prefix}-pricing-table-header-cell-description) {
     @include type-style('body-01');
 
     display: block;
@@ -309,7 +309,7 @@
   }
 
   .#{$prefix}--pricing-table-header-cell-cta,
-  :host(#{$cds-prefix}-pricing-table-header-cell-cta) {
+  :host(#{$c4d-prefix}-pricing-table-header-cell-cta) {
     @extend .#{$prefix}--button-group-item;
 
     display: block;
@@ -324,7 +324,7 @@
   }
 
   .#{$prefix}--pricing-table-annotation-toggle,
-  :host(#{$cds-prefix}-pricing-table-annotation-toggle) {
+  :host(#{$c4d-prefix}-pricing-table-annotation-toggle) {
     padding-inline-end: $spacing-03;
 
     button {
@@ -339,7 +339,7 @@
   }
 
   .#{$prefix}--pricing-table-cell-annotation,
-  :host(#{$cds-prefix}-pricing-table-cell-annotation) {
+  :host(#{$c4d-prefix}-pricing-table-cell-annotation) {
     display: block;
     color: $text-secondary;
     transition: $duration-fast-02 motion(standard, productive);
