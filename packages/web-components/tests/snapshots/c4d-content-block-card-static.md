@@ -6,56 +6,21 @@
 
 ```
 <c4d-content-block-card-static>
-  <c4d-card-group-item
-    color-scheme=""
-    data-autoid="c4d--card-group-item"
-    pictogram-placement=""
-    size="md"
-  >
+  <c4d-card-group-item>
   </c4d-card-group-item>
-  <c4d-card-group
-    data-autoid="c4d--card-group"
-    grid-mode="collapsed"
-  >
+  <c4d-card-group>
   </c4d-card-group>
-  <c4d-content-item data-autoid="c4d--content-item">
-    <c4d-content-item-heading
-      aria-level="4"
-      data-autoid="c4d--content-item__heading"
-      role="heading"
-      slot="heading"
-    >
+  <c4d-content-item>
+    <c4d-content-item-heading>
     </c4d-content-item-heading>
-    <c4d-content-item-copy data-autoid="c4d--content-item__copy">
+    <c4d-content-item-copy>
     </c4d-content-item-copy>
   </c4d-content-item>
-  <c4d-button-group
-    data-autoid="c4d--button-group"
-    role="list"
-    style="--c4d--button-group--item-count: 2;"
-  >
-    <c4d-button-group-item
-      cta-type=""
-      data-autoid="c4d--button-group-item"
-      kind="primary"
-      role="listitem"
-      size="lg"
-      tooltip-alignment=""
-      tooltip-position="top"
-      type="button"
-    >
+  <c4d-button-group>
+    <c4d-button-group-item>
       Button 1
     </c4d-button-group-item>
-    <c4d-button-group-item
-      cta-type=""
-      data-autoid="c4d--button-group-item"
-      kind="tertiary"
-      role="listitem"
-      size="lg"
-      tooltip-alignment=""
-      tooltip-position="top"
-      type="button"
-    >
+    <c4d-button-group-item>
       Buuton 2
     </c4d-button-group-item>
   </c4d-button-group>
@@ -67,32 +32,12 @@
 
 ```
 <c4d-content-block-card-static>
-  <c4d-card-group-item
-    color-scheme=""
-    data-autoid="c4d--card-group-item"
-    pictogram-placement=""
-    size="md"
-  >
+  <c4d-card-group-item>
     heading-foo
   </c4d-card-group-item>
-  <c4d-card-group
-    data-autoid="c4d--card-group"
-    grid-mode="collapsed"
-    style="--c4d--card-group--cards-in-row: 3;"
-  >
-    <c4d-card-group-item
-      color-scheme=""
-      data-autoid="c4d--card-group-item"
-      href="https://example.com"
-      pictogram-placement=""
-      size="md"
-    >
-      <c4d-card-heading
-        aria-level="3"
-        data-autoid="c4d--card-heading"
-        role="heading"
-        slot="heading"
-      >
+  <c4d-card-group>
+    <c4d-card-group-item href="https://example.com">
+      <c4d-card-heading>
         Nunc convallis lobortis
       </c4d-card-heading>
       <p>
@@ -101,58 +46,23 @@
                 Phasellus at elit sollicitudin, sodales nulla quis, consequat
                 libero.
       </p>
-      <c4d-card-cta-footer
-        color-scheme=""
-        cta-type=""
-        data-autoid="c4d--card-cta-footer"
-        icon-placement="right"
-        slot="footer"
-      >
+      <c4d-card-cta-footer slot="footer">
       </c4d-card-cta-footer>
     </c4d-card-group-item>
   </c4d-card-group>
-  <c4d-content-item data-autoid="c4d--content-item">
-    <c4d-content-item-heading
-      aria-level="4"
-      data-autoid="c4d--content-item__heading"
-      role="heading"
-      slot="heading"
-    >
+  <c4d-content-item>
+    <c4d-content-item-heading>
       Lorem ipsum
     </c4d-content-item-heading>
-    <c4d-content-item-copy data-autoid="c4d--content-item__copy">
-      <c4d-content-item-paragraph data-autoid="c4d--content-item-paragraph">
-        ipsum dolor sit amet
-      </c4d-content-item-paragraph>
+    <c4d-content-item-copy>
+      ipsum dolor sit amet
     </c4d-content-item-copy>
   </c4d-content-item>
-  <c4d-button-group
-    data-autoid="c4d--button-group"
-    role="list"
-    style="--c4d--button-group--item-count: 2;"
-  >
-    <c4d-button-group-item
-      cta-type=""
-      data-autoid="c4d--button-group-item"
-      kind="primary"
-      role="listitem"
-      size="lg"
-      tooltip-alignment=""
-      tooltip-position="top"
-      type="button"
-    >
+  <c4d-button-group>
+    <c4d-button-group-item>
       Button 1
     </c4d-button-group-item>
-    <c4d-button-group-item
-      cta-type=""
-      data-autoid="c4d--button-group-item"
-      kind="tertiary"
-      role="listitem"
-      size="lg"
-      tooltip-alignment=""
-      tooltip-position="top"
-      type="button"
-    >
+    <c4d-button-group-item>
       Buuton 2
     </c4d-button-group-item>
   </c4d-button-group>
