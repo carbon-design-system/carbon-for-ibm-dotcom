@@ -9,7 +9,15 @@
   },
   "workspaces": {
     "packages": [
-      "packages/*"
+      "packages/web-components",
+      "packages/utilities",
+      "packages/react",
+      "packages/eslint-*",
+      "packages/services",
+      "packages/services-*",
+      "packages/storybook-addon-theme",
+      "packages/stylelint-config-ibmdotcom",
+      "packages/styles"
     ],
     "nohoist": [
       "**/marked"
