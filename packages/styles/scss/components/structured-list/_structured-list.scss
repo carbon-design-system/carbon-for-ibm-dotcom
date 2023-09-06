@@ -71,12 +71,12 @@
 @mixin structured-list {
   // Inherited Table Styles
   .#{$prefix}--structured-list-header-row,
-  :host(#{$dds-prefix}-structured-list-header-row) {
+  :host(#{$c4d-prefix}-structured-list-header-row) {
     border-bottom: none;
   }
 
   .#{$prefix}--structured-list-header-cell,
-  :host(#{$dds-prefix}-structured-list-header-cell) {
+  :host(#{$c4d-prefix}-structured-list-header-cell) {
     @extend .#{$prefix}--structured-list-th;
 
     padding-inline: $spacing-05;
@@ -85,7 +85,7 @@
   }
 
   .#{$prefix}--structured-list-group,
-  :host(#{$dds-prefix}-structured-list-group) {
+  :host(#{$c4d-prefix}-structured-list-group) {
     display: contents;
 
     tr {
@@ -112,7 +112,7 @@
   }
 
   .#{$prefix}--structured-list-cell,
-  :host(#{$dds-prefix}-structured-list-cell) {
+  :host(#{$c4d-prefix}-structured-list-cell) {
     @extend .#{$prefix}--structured-list-td;
 
     padding-inline: $spacing-05;
@@ -121,9 +121,9 @@
 
   // Default Carbon Rows/Columns
   .#{$prefix}--structured-list-all-rows,
-  :host(#{$dds-prefix}-structured-list-header-row),
-  :host(#{$dds-prefix}-structured-list-row),
-  :host(#{$dds-prefix}-structured-list-group) tr {
+  :host(#{$c4d-prefix}-structured-list-header-row),
+  :host(#{$c4d-prefix}-structured-list-row),
+  :host(#{$c4d-prefix}-structured-list-group) tr {
     --max-cols: 4;
 
     @include breakpoint(sm) {
@@ -151,9 +151,9 @@
   }
 
   .#{$prefix}--structured-list-all-cells,
-  :host(#{$dds-prefix}-structured-list-header-cell),
-  :host(#{$dds-prefix}-structured-list-cell),
-  :host(#{$dds-prefix}-structured-list-group) td {
+  :host(#{$c4d-prefix}-structured-list-header-cell),
+  :host(#{$c4d-prefix}-structured-list-cell),
+  :host(#{$c4d-prefix}-structured-list-group) td {
     height: auto;
     scroll-snap-align: start;
 
@@ -171,8 +171,8 @@
   }
 
   // Internal components
-  .#{$dds-prefix}--structured-list,
-  :host(#{$dds-prefix}-structured-list) {
+  .#{$c4d-prefix}--structured-list,
+  :host(#{$c4d-prefix}-structured-list) {
     display: flex;
     flex-wrap: nowrap;
     padding-left: $spacing-05;
@@ -239,7 +239,7 @@
   }
 
   .#{$prefix}--structured-list-cell-tooltip-icon,
-  :host(#{$dds-prefix}-structured-list-cell) #{$prefix}-tooltip-icon {
+  :host(#{$c4d-prefix}-structured-list-cell) #{$prefix}-tooltip-icon {
     display: inline-flex;
     vertical-align: sub;
 
@@ -249,7 +249,7 @@
   }
 
   .#{$prefix}--structured-list-cell[icon],
-  :host(#{$dds-prefix}-structured-list-cell[icon]) {
+  :host(#{$c4d-prefix}-structured-list-cell[icon]) {
     &[icon='checkmark'] {
       color: $support-success;
     }

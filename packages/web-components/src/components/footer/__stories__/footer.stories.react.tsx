@@ -12,7 +12,7 @@ import React from 'react';
 // Below path will be there when an application installs `@carbon/ibmdotcom-web-components` package.
 // In our dev env, we auto-generate the file and re-map below path to to point to the generated file.
 // @ts-ignore
-import DDSFooterContainer from '@carbon/ibmdotcom-web-components/es/components-react/footer/footer-container';
+import C4DFooterContainer from '@carbon/ibmdotcom-web-components/es/components-react/footer/footer-container';
 import mockLangList from './language-list';
 import mockLinks from './links';
 import mockLegalLinks from './legal-links';
@@ -24,7 +24,7 @@ import { FOOTER_SIZE } from '../footer';
 
 import readme from './README.stories.react.mdx';
 
-export const base = args => {
+export const base = (args) => {
   const {
     langDisplay,
     language,
@@ -40,7 +40,7 @@ export const base = args => {
     adjunctLinks,
   } = args?.FooterComposite ?? {};
   return (
-    <DDSFooterContainer
+    <C4DFooterContainer
       language={language}
       lang-display={langDisplay}
       size={size}
@@ -52,11 +52,13 @@ export const base = args => {
       language-selector-label={languageSelectorLabel}
       clear-selection-label={clearSelectionLabel}
       selected-language={selectedLanguage}
-      disable-locale-button={disableLocaleButton !== true && null}></DDSFooterContainer>
+      disable-locale-button={
+        disableLocaleButton !== true && null
+      }></C4DFooterContainer>
   );
 };
 
-export const Default = args => {
+export const Default = (args) => {
   args.FooterComposite = {
     ...(args.FooterComposite || {}),
     size: FOOTER_SIZE.REGULAR,
@@ -66,7 +68,7 @@ export const Default = args => {
   return base(args);
 };
 
-export const defaultWithAdjunctLegalLinks = args => {
+export const defaultWithAdjunctLegalLinks = (args) => {
   args.FooterComposite = {
     ...(args.FooterComposite || {}),
     disableLocaleButton: false,
@@ -93,7 +95,7 @@ defaultWithAdjunctLegalLinks.story = {
   },
 };
 
-export const defaultLanguageOnly = args => {
+export const defaultLanguageOnly = (args) => {
   args.FooterComposite = {
     ...(args.FooterComposite || {}),
     size: FOOTER_SIZE.REGULAR,
@@ -110,7 +112,10 @@ defaultLanguageOnly.story = {
   parameters: {
     knobs: {
       FooterComposite: () => ({
-        disableLocaleButton: boolean('hide the locale button (disable-locale-button)', false),
+        disableLocaleButton: boolean(
+          'hide the locale button (disable-locale-button)',
+          false
+        ),
         langList: object('language dropdown items (langList)', mockLangList),
       }),
     },
@@ -125,7 +130,7 @@ defaultLanguageOnly.story = {
   },
 };
 
-export const short = args => {
+export const short = (args) => {
   args.FooterComposite = {
     ...(args.FooterComposite || {}),
     size: FOOTER_SIZE.SHORT,
@@ -135,7 +140,7 @@ export const short = args => {
   return base(args);
 };
 
-export const shortWithAdjunctLegalLinks = args => {
+export const shortWithAdjunctLegalLinks = (args) => {
   args.FooterComposite = {
     ...(args.FooterComposite || {}),
     size: FOOTER_SIZE.SHORT,
@@ -161,7 +166,7 @@ shortWithAdjunctLegalLinks.story = {
   },
 };
 
-export const shortLanguageOnly = args => {
+export const shortLanguageOnly = (args) => {
   args.FooterComposite = {
     ...(args.FooterComposite || {}),
     size: FOOTER_SIZE.SHORT,
@@ -178,7 +183,10 @@ shortLanguageOnly.story = {
   parameters: {
     knobs: {
       FooterComposite: () => ({
-        disableLocaleButton: boolean('hide the locale button (disable-locale-button)', false),
+        disableLocaleButton: boolean(
+          'hide the locale button (disable-locale-button)',
+          false
+        ),
         langList: object('language dropdown items (langList)', mockLangList),
       }),
     },
@@ -193,7 +201,7 @@ shortLanguageOnly.story = {
   },
 };
 
-export const micro = args => {
+export const micro = (args) => {
   args.FooterComposite = {
     ...(args.FooterComposite || {}),
     size: FOOTER_SIZE.MICRO,
@@ -202,7 +210,7 @@ export const micro = args => {
   return base(args);
 };
 
-export const microLanguageOnly = args => {
+export const microLanguageOnly = (args) => {
   args.FooterComposite = {
     ...(args.FooterComposite || {}),
     size: FOOTER_SIZE.MICRO,
@@ -218,7 +226,10 @@ microLanguageOnly.story = {
   parameters: {
     knobs: {
       FooterComposite: () => ({
-        disableLocaleButton: boolean('hide the locale button (disable-locale-button)', false),
+        disableLocaleButton: boolean(
+          'hide the locale button (disable-locale-button)',
+          false
+        ),
         langList: object('language dropdown items (langList)', mockLangList),
       }),
     },
@@ -236,7 +247,7 @@ microLanguageOnly.story = {
 export default {
   title: 'Components/Footer',
   decorators: [
-    story => {
+    (story) => {
       return (
         <>
           <style>{styles.cssText}</style>
@@ -250,7 +261,10 @@ export default {
     hasStoryPadding: true,
     knobs: {
       FooterComposite: () => ({
-        disableLocaleButton: boolean('hide the locale button (disable-locale-button)', false),
+        disableLocaleButton: boolean(
+          'hide the locale button (disable-locale-button)',
+          false
+        ),
       }),
     },
     propsSet: {

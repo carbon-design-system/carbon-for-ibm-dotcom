@@ -20,17 +20,17 @@ import CDSButton from '../../internal/vendor/@carbon/web-components/components/b
 export { BUTTON_KIND, BUTTON_SIZE };
 
 import { ariaLabels, icons } from '../../component-mixins/cta/cta';
-const { prefix, stablePrefix: ddsPrefix } = settings;
+const { prefix, stablePrefix: c4dPrefix } = settings;
 
 /**
  * Expressive button.
  *
- * @element dds-button-expressive
+ * @element c4d-button-expressive
  * @csspart button The button.
  */
-@customElement(`${ddsPrefix}-button`)
+@customElement(`${c4dPrefix}-button`)
 // @ts-ignore
-class DDSButton extends CTAMixin(StableSelectorMixin(CDSButton)) {
+class C4DButton extends CTAMixin(StableSelectorMixin(CDSButton)) {
   @query('a')
   _linkNode;
 
@@ -47,6 +47,7 @@ class DDSButton extends CTAMixin(StableSelectorMixin(CDSButton)) {
   /**
    * TODO: Due to the new render() logic coming from the CWC v2 button,
    * this function is currently unused. We'd need to dynamically add it.
+   *
    * @returns The icon for the print styles
    */
   _renderIconPrintStyles() {
@@ -99,7 +100,7 @@ class DDSButton extends CTAMixin(StableSelectorMixin(CDSButton)) {
   connectedCallback() {
     super.connectedCallback();
     const { eventRequestAdditionalVideoData } = this
-      .constructor as typeof DDSButton;
+      .constructor as typeof C4DButton;
     document.addEventListener(
       eventRequestAdditionalVideoData,
       this._handleVideoTitleUpdate
@@ -109,7 +110,7 @@ class DDSButton extends CTAMixin(StableSelectorMixin(CDSButton)) {
   disconnectedCallback() {
     super.disconnectedCallback();
     const { eventRequestAdditionalVideoData } = this
-      .constructor as typeof DDSButton;
+      .constructor as typeof C4DButton;
     document.removeEventListener(
       eventRequestAdditionalVideoData,
       this._handleVideoTitleUpdate
@@ -130,19 +131,19 @@ class DDSButton extends CTAMixin(StableSelectorMixin(CDSButton)) {
       iconDiv.innerHTML = this._renderButtonIcon();
       iconDiv
         ?.querySelector('svg')
-        ?.classList.add(`${prefix}--card__cta`, `${ddsPrefix}-ce--cta__icon`);
+        ?.classList.add(`${prefix}--card__cta`, `${c4dPrefix}-ce--cta__icon`);
     }
   }
 
   static get stableSelector() {
-    return `${ddsPrefix}--button`;
+    return `${c4dPrefix}--button`;
   }
 
   /**
    * The name of the custom event fired when there is a user gesture to run the action.
    */
   static get eventRequestAdditionalVideoData() {
-    return `${ddsPrefix}-cta-request-additional-video-data`;
+    return `${c4dPrefix}-cta-request-additional-video-data`;
   }
 
   static shadowRootOptions = {
@@ -153,4 +154,4 @@ class DDSButton extends CTAMixin(StableSelectorMixin(CDSButton)) {
 }
 
 /* @__GENERATE_REACT_CUSTOM_ELEMENT_TYPE__ */
-export default DDSButton;
+export default C4DButton;

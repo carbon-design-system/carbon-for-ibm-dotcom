@@ -13,8 +13,8 @@
 @use '@carbon/ibmdotcom-styles/scss/components/card';
 @use '@carbon/ibmdotcom-styles/scss/components/link-with-icon';
 
-:host(#{$dds-prefix}-card-footer),
-:host(#{$dds-prefix}-card-cta-footer) {
+:host(#{$c4d-prefix}-card-footer),
+:host(#{$c4d-prefix}-card-cta-footer) {
   align-self: flex-start;
   max-width: 90%;
 
@@ -22,11 +22,11 @@
     max-width: calc(100% - #{$spacing-07});
   }
 
-  .#{$dds-prefix}-ce--card__footer--static {
+  .#{$c4d-prefix}-ce--card__footer--static {
     color: $link-primary;
   }
 
-  &[color-scheme='inverse'] .#{$dds-prefix}-ce--card__footer--static {
+  &[color-scheme='inverse'] .#{$c4d-prefix}-ce--card__footer--static {
     color: $link-inverse;
   }
 
@@ -46,6 +46,6 @@
   }
 }
 
-:host(#{$dds-prefix}-card-footer[href])::after {
+:host(#{$c4d-prefix}-card-footer[href])::after {
   position: relative;
 }

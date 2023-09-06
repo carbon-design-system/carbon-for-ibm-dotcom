@@ -9,6 +9,6 @@
 @use '@carbon/ibmdotcom-styles/scss/internal/content-item';
 @use '@carbon/ibmdotcom-styles/scss/components/pictogram-item';
 
-:host(#{$dds-prefix}-pictogram-item) {
+:host(#{$c4d-prefix}-pictogram-item) {
   display: block;
 }

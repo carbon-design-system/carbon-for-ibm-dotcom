@@ -13,23 +13,23 @@ import { baseFontSize, breakpoints } from '@carbon/layout';
 import HostListener from '../../internal/vendor/@carbon/web-components/globals/decorators/host-listener.js';
 import HostListenerMixin from '../../internal/vendor/@carbon/web-components/globals/mixins/host-listener.js';
 import settings from '../../internal/vendor/@carbon/ibmdotcom-utilities/utilities/settings/settings';
-import DDSContentItem from '../content-item/content-item';
+import C4DContentItem from '../content-item/content-item';
 import styles from './content-item-horizontal-media.scss';
 
 import { MEDIA_ALIGN } from './defs';
 import { carbonElement as customElement } from '../../internal/vendor/@carbon/web-components/globals/decorators/carbon-element.js';
 
-const { prefix, stablePrefix: ddsPrefix } = settings;
+const { prefix, stablePrefix: c4dPrefix } = settings;
 
 const breakpoint = parseFloat(breakpoints.lg.width) * baseFontSize;
 
 /**
  * A component to present content in a horizontal orientation with media.
  *
- * @element dds-content-item-horizontal-media
+ * @element c4d-content-item-horizontal-media
  */
-@customElement(`${ddsPrefix}-content-item-horizontal-media`)
-class DDSContentItemHorizontalMedia extends HostListenerMixin(DDSContentItem) {
+@customElement(`${c4dPrefix}-content-item-horizontal-media`)
+class C4DContentItemHorizontalMedia extends HostListenerMixin(C4DContentItem) {
   /**
    * Defines the alignment of the media: `left` or `right`
    */
@@ -93,11 +93,11 @@ class DDSContentItemHorizontalMedia extends HostListenerMixin(DDSContentItem) {
   }
 
   static get stableSelector() {
-    return `${ddsPrefix}--content-item-horizontal-media`;
+    return `${c4dPrefix}--content-item-horizontal-media`;
   }
 
   static styles = styles;
 }
 
 /* @__GENERATE_REACT_CUSTOM_ELEMENT_TYPE__ */
-export default DDSContentItemHorizontalMedia;
+export default C4DContentItemHorizontalMedia;

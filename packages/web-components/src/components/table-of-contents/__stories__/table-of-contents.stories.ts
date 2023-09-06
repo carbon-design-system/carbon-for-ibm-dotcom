@@ -23,38 +23,38 @@ import { ICON_PLACEMENT } from '../../../globals/defs';
 export const Default = (args) => {
   const { numberOfItems: items, withHeadingContent } = args?.Other ?? {};
   return html`
-    <dds-table-of-contents>
+    <c4d-table-of-contents>
       ${withHeadingContent
         ? html`
-            <dds-link-list type="vertical" slot="heading">
-              <dds-link-list-item
+            <c4d-link-list type="vertical" slot="heading">
+              <c4d-link-list-item
                 icon-placement="${ICON_PLACEMENT.LEFT}"
                 href="https://github.com/carbon-design-system/carbon-web-components">
                 DevOps${ArrowLeft20({ slot: 'icon' })}
-              </dds-link-list-item>
-              <dds-link-list-item
+              </c4d-link-list-item>
+              <c4d-link-list-item
                 icon-placement="${ICON_PLACEMENT.LEFT}"
                 href="https://github.com/carbon-design-system/carbon-web-components">
                 Automation${ArrowLeft20({ slot: 'icon' })}
-              </dds-link-list-item>
-              <dds-link-list-item
+              </c4d-link-list-item>
+              <c4d-link-list-item
                 icon-placement="${ICON_PLACEMENT.LEFT}"
                 href="https://github.com/carbon-design-system/carbon-web-components">
                 Development${ArrowLeft20({ slot: 'icon' })}
-              </dds-link-list-item>
-            </dds-link-list>
-            <dds-hr slot="menu-rule"></dds-hr>
+              </c4d-link-list-item>
+            </c4d-link-list>
+            <c4d-hr slot="menu-rule"></c4d-hr>
           `
         : nothing}
       ${content({ contentClass: 'cds--tableofcontents__contents', items })}
-    </dds-table-of-contents>
+    </c4d-table-of-contents>
   `;
 };
 
 export const Horizontal = (args) => {
   const { numberOfItems: items } = args?.Other ?? {};
   return html`
-    <dds-table-of-contents toc-layout="${TOC_TYPES.HORIZONTAL}">
+    <c4d-table-of-contents toc-layout="${TOC_TYPES.HORIZONTAL}">
       <div class="cds--row">
         <div class="cds--col-lg-12">
           ${content({
@@ -63,7 +63,7 @@ export const Horizontal = (args) => {
           })}
         </div>
       </div>
-    </dds-table-of-contents>
+    </c4d-table-of-contents>
   `;
 };
 

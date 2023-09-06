@@ -7,11 +7,11 @@
 
 'use strict';
 
-describe('dds-content-block-media', () => {
-  it('should load the default dds-content-block-media example', () => {
+describe('cds-content-block-media', () => {
+  it('should load the default cds-content-block-media example', () => {
     cy.visit('/content-block-media');
 
     // Take a snapshot for visual diffing
-    cy.percySnapshot('dds-content-block-media | default');
+    cy.percySnapshot('cds-content-block-media | default');
   });
 });

@@ -7,13 +7,13 @@
 
 'use strict';
 
-describe('dds-masthead', () => {
-  it('should load the default dds-masthead example', () => {
+describe('cds-masthead', () => {
+  it('should load the default cds-masthead example', () => {
     cy.visit('/masthead');
 
-    cy.get('[data-autoid="dds--masthead-default__l0-nav0"]').should('not.be.empty');
+    cy.get('[data-autoid="cds--masthead-default__l0-nav0"]').should('not.be.empty');
 
     // Take a snapshot for visual diffing
-    cy.percySnapshot('dds-masthead | default');
+    cy.percySnapshot('cds-masthead | default');
   });
 });

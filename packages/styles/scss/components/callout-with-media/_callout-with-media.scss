@@ -18,7 +18,7 @@
 @use '../content-block-simple/content-block-simple';
 
 @mixin callout-with-media {
-  :host(#{$dds-prefix}-callout-with-media),
+  :host(#{$c4d-prefix}-callout-with-media),
   .#{$prefix}--callout-with-media {
     display: block;
     background-color: $background-inverse;
@@ -34,22 +34,22 @@
     }
   }
 
-  :host(#{$dds-prefix}-callout-with-media) ::slotted([slot='heading']),
+  :host(#{$c4d-prefix}-callout-with-media) ::slotted([slot='heading']),
   .#{$prefix}--callout-with-media .#{$prefix}--content-block__heading,
-  :host(#{$dds-prefix}-callout-with-media-copy)
-    ::slotted(#{$dds-prefix}-content-block-paragraph),
+  :host(#{$c4d-prefix}-callout-with-media-copy)
+    ::slotted(#{$c4d-prefix}-content-block-paragraph),
   .#{$prefix}--callout-with-media .#{$prefix}--content-item__copy p,
-  :host(#{$dds-prefix}-callout-with-media-image) .#{$prefix}--image__caption,
-  :host(#{$dds-prefix}-callout-with-media-video)
-    ::slotted(#{$dds-prefix}-video-player),
+  :host(#{$c4d-prefix}-callout-with-media-image) .#{$prefix}--image__caption,
+  :host(#{$c4d-prefix}-callout-with-media-video)
+    ::slotted(#{$c4d-prefix}-video-player),
   .#{$prefix}--callout-with-media .#{$prefix}--video-player__video-caption,
   .#{$prefix}--callout-with-media .#{$prefix}--image__caption {
     color: $icon-inverse;
   }
 
-  :host(#{$dds-prefix}-callout-with-media) ::slotted([slot='heading']),
+  :host(#{$c4d-prefix}-callout-with-media) ::slotted([slot='heading']),
   .#{$prefix}--callout-with-media .#{$prefix}--content-block__heading,
-  :host(#{$dds-prefix}-callout-with-media) ::slotted([slot='copy']),
+  :host(#{$c4d-prefix}-callout-with-media) ::slotted([slot='copy']),
   .#{$prefix}--callout-with-media .#{$prefix}--callout-with-media-copy {
     padding-right: $spacing-07;
     max-width: rem(640px);
@@ -59,7 +59,7 @@
   .#{$prefix}--callout-with-media .#{$prefix}--callout__content {
     padding-top: 0;
   }
-  :host(#{$dds-prefix}-callout-with-media-video),
+  :host(#{$c4d-prefix}-callout-with-media-video),
   .#{$prefix}--callout-with-media
     .#{$prefix}--callout__content
     .#{$prefix}--content-block-simple__media-video {
@@ -70,7 +70,7 @@
     }
   }
 
-  :host(#{$dds-prefix}-callout-with-media-image),
+  :host(#{$c4d-prefix}-callout-with-media-image),
   .#{$prefix}--callout-with-media
     .#{$prefix}--callout__content
     .#{$prefix}--content-block-simple__media-image {
@@ -81,14 +81,14 @@
     }
   }
 
-  :host(#{$dds-prefix}-callout-with-media) .#{$prefix}--callout__content,
+  :host(#{$c4d-prefix}-callout-with-media) .#{$prefix}--callout__content,
   .#{$prefix}--callout-with-media
     .#{$prefix}--callout__content
     .#{$prefix}--content-block {
     padding-bottom: $spacing-10;
   }
 
-  :host(#{$dds-prefix}-callout-with-media-image),
+  :host(#{$c4d-prefix}-callout-with-media-image),
   .#{$prefix}--callout-with-media
     .#{$prefix}--callout__content
     .#{$prefix}--content-block {
@@ -102,7 +102,7 @@
     }
   }
 
-  :host(#{$dds-prefix}-callout-with-media-image) .#{$prefix}--image__img {
+  :host(#{$c4d-prefix}-callout-with-media-image) .#{$prefix}--image__img {
     max-width: 100%;
   }
 }

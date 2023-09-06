@@ -24,15 +24,15 @@ import {
 import './video-player';
 import { carbonElement as customElement } from '../../internal/vendor/@carbon/web-components/globals/decorators/carbon-element.js';
 
-const { stablePrefix: ddsPrefix } = settings;
+const { stablePrefix: c4dPrefix } = settings;
 
 /**
  * Component that renders video player from its metadata, etc.
  *
- * @element dds-video-player-composite
+ * @element c4d-video-player-composite
  */
-@customElement(`${ddsPrefix}-video-player-composite`)
-class DDSVideoPlayerComposite extends HybridRenderMixin(
+@customElement(`${c4dPrefix}-video-player-composite`)
+class C4DVideoPlayerComposite extends HybridRenderMixin(
   HostListenerMixin(LitElement)
 ) {
   /**
@@ -80,12 +80,12 @@ class DDSVideoPlayerComposite extends HybridRenderMixin(
    */
   protected get _videoPlayer() {
     const { selectorVideoPlayer } = this
-      .constructor as typeof DDSVideoPlayerComposite;
+      .constructor as typeof C4DVideoPlayerComposite;
     return this.querySelector(selectorVideoPlayer);
   }
 
   /**
-   * Handles `dds-video-player-content-state-changed` event.
+   * Handles `c4d-video-player-content-state-changed` event.
    * Such event is fired when user changes video content state, e.g. from thumbnail to video player.
    *
    * @param event The event.
@@ -288,7 +288,7 @@ class DDSVideoPlayerComposite extends HybridRenderMixin(
         width: String(videoThumbnailWidth),
       });
     return html`
-      <dds-video-player
+      <c4d-video-player
         duration="${ifDefined(duration)}"
         ?hide-caption=${hideCaption}
         name="${ifDefined(caption || name)}"
@@ -299,7 +299,7 @@ class DDSVideoPlayerComposite extends HybridRenderMixin(
         .formatCaption="${ifDefined(formatCaption)}"
         .formatDuration="${ifDefined(formatDuration)}"
         playing-mode="${ifDefined(playingMode)}">
-      </dds-video-player>
+      </c4d-video-player>
     `;
   }
 
@@ -311,23 +311,23 @@ class DDSVideoPlayerComposite extends HybridRenderMixin(
    * A selector selecting the video player component.
    */
   static get selectorVideoPlayer() {
-    return `${ddsPrefix}-video-player`;
+    return `${c4dPrefix}-video-player`;
   }
 
   /**
    * The name of the custom event fired after video content state is changed upon a user gesture.
    */
   static get eventContentStateChange() {
-    return `${ddsPrefix}-video-player-content-state-changed`;
+    return `${c4dPrefix}-video-player-content-state-changed`;
   }
 
   /**
    * The name of the custom event fired requesting playback state change.
    */
   static get eventPlaybackStateChange() {
-    return `${ddsPrefix}-video-player-playback-state-changed`;
+    return `${c4dPrefix}-video-player-playback-state-changed`;
   }
 }
 
 /* @__GENERATE_REACT_CUSTOM_ELEMENT_TYPE__ */
-export default DDSVideoPlayerComposite;
+export default C4DVideoPlayerComposite;

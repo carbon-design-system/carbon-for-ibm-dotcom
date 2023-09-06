@@ -27,15 +27,15 @@ const tagTypeOptions = ['Tag Link', 'Carbon tag'];
 export const Default = (args) => {
   const { tagType } = args?.TagGroup ?? {};
   return html`
-    <dds-tag-group>
+    <c4d-tag-group>
       ${tagTitles.map((title) =>
         tagType === tagTypeOptions[0]
           ? html`
-              <dds-tag-link href="https://example.com"> ${title} </dds-tag-link>
+              <c4d-tag-link href="https://example.com"> ${title} </c4d-tag-link>
             `
           : html` <cds-tag type="green"> ${title} </cds-tag> `
       )}
-    </dds-tag-group>
+    </c4d-tag-group>
   `;
 };
 

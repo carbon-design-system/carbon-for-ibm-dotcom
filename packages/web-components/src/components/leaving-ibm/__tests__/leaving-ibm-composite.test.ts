@@ -8,18 +8,18 @@
  */
 
 import { html, render } from 'lit/html.js';
-import DDSLeavingIbmComposite from '../leaving-ibm-composite';
+import C4DLeavingIbmComposite from '../leaving-ibm-composite';
 import '../leaving-ibm-composite';
 
 const template = (props?) => {
   const { open, href } = props ?? {};
   return html`
-    <dds-leaving-ibm-composite ?open=${open} href="${href}">
-    </dds-leaving-ibm-composite>
+    <c4d-leaving-ibm-composite ?open=${open} href="${href}">
+    </c4d-leaving-ibm-composite>
   `;
 };
 
-describe('dds-leaving-ibm-composite', function () {
+describe('c4d-leaving-ibm-composite', function () {
   it('should render modal body', async function () {
     render(
       template({ open: true, href: 'http://www.example.com' }),
@@ -29,8 +29,8 @@ describe('dds-leaving-ibm-composite', function () {
 
     expect(
       document.querySelector(
-        'dds-leaving-ibm-composite'
-      ) as DDSLeavingIbmComposite
+        'c4d-leaving-ibm-composite'
+      ) as C4DLeavingIbmComposite
     ).toMatchSnapshot();
   });
 

@@ -11,7 +11,7 @@ import { html, render } from 'lit/html.js';
 import { ifDefined } from 'lit/directives/if-defined.js';
 import EventManager from '../../../../tests/utils/event-manager';
 import { MastheadLink } from '../../../internal/vendor/@carbon/ibmdotcom-services-store/types/translateAPI.d';
-import DDSMastheadComposite from '../masthead-composite';
+import C4DMastheadComposite from '../masthead-composite';
 import {
   authenticatedProfileItems,
   unauthenticatedProfileItems,
@@ -20,13 +20,13 @@ import {
 const template = (props?) => {
   const { language, userStatus, navLinks } = props ?? {};
   return html`
-    <dds-masthead-composite
+    <c4d-masthead-composite
       language="${ifDefined(language)}"
       user-status="${ifDefined(userStatus)}"
       .authenticatedProfileItems="${ifDefined(authenticatedProfileItems)}"
       .navLinks="${navLinks}"
       .unauthenticatedProfileItems="${ifDefined(unauthenticatedProfileItems)}">
-    </dds-masthead-composite>
+    </c4d-masthead-composite>
   `;
 };
 
@@ -50,7 +50,7 @@ const navLinksFoo: MastheadLink[] = [
   },
 ];
 
-describe('dds-masthead-composite', function () {
+describe('c4d-masthead-composite', function () {
   const events = new EventManager();
 
   describe('Rendering global bar', function () {
@@ -58,10 +58,10 @@ describe('dds-masthead-composite', function () {
       render(template(), document.body);
       await Promise.resolve();
       const mastheadComposite = document.body.querySelector(
-        'dds-masthead-composite'
+        'c4d-masthead-composite'
       );
       expect(
-        mastheadComposite?.shadowRoot?.querySelector('dds-masthead-global-bar')
+        mastheadComposite?.shadowRoot?.querySelector('c4d-masthead-global-bar')
       ).toMatchSnapshot();
     });
 
@@ -69,10 +69,10 @@ describe('dds-masthead-composite', function () {
       render(template({ userStatus: 'test.user@ibm.com' }), document.body);
       await Promise.resolve();
       const mastheadComposite = document.body.querySelector(
-        'dds-masthead-composite'
+        'c4d-masthead-composite'
       );
       expect(
-        mastheadComposite?.shadowRoot?.querySelector('dds-masthead-global-bar')
+        mastheadComposite?.shadowRoot?.querySelector('c4d-masthead-global-bar')
       ).toMatchSnapshot();
     });
   });
@@ -82,13 +82,13 @@ describe('dds-masthead-composite', function () {
       render(template(), document.body);
       await Promise.resolve();
       const mastheadComposite = document.body.querySelector(
-        'dds-masthead-composite'
+        'c4d-masthead-composite'
       );
       expect(
-        mastheadComposite?.shadowRoot?.querySelector('dds-top-nav')
+        mastheadComposite?.shadowRoot?.querySelector('c4d-top-nav')
       ).toBeNull();
       expect(
-        mastheadComposite?.shadowRoot?.querySelector('dds-left-nav')!.children
+        mastheadComposite?.shadowRoot?.querySelector('c4d-left-nav')!.children
           .length
       ).toBe(0);
     });
@@ -98,8 +98,8 @@ describe('dds-masthead-composite', function () {
       await Promise.resolve();
       expect(
         document.body
-          .querySelector('dds-masthead-composite')
-          ?.shadowRoot?.querySelector('dds-top-nav')
+          .querySelector('c4d-masthead-composite')
+          ?.shadowRoot?.querySelector('c4d-top-nav')
       ).toMatchSnapshot();
     });
 
@@ -108,22 +108,22 @@ describe('dds-masthead-composite', function () {
       await Promise.resolve();
       expect(
         document.body
-          .querySelector('dds-masthead-composite')
-          ?.shadowRoot?.querySelector('dds-left-nav')
+          .querySelector('c4d-masthead-composite')
+          ?.shadowRoot?.querySelector('c4d-left-nav')
       ).toMatchSnapshot();
     });
   });
 
   describe('Determining the nav/search language', function () {
     it('should use the given language', async function () {
-      DDSMastheadComposite.prototype._setLanguage = jasmine.createSpy();
+      C4DMastheadComposite.prototype._setLanguage = jasmine.createSpy();
       render(template({ language: 'ko-KR' }), document.body);
       await Promise.resolve();
-      expect(DDSMastheadComposite.prototype._setLanguage).toHaveBeenCalled();
+      expect(C4DMastheadComposite.prototype._setLanguage).toHaveBeenCalled();
     });
 
     afterEach(function () {
-      DDSMastheadComposite.prototype._setLanguage = undefined;
+      C4DMastheadComposite.prototype._setLanguage = undefined;
     });
   });
 

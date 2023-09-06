@@ -32,48 +32,48 @@ const copy = `Lorem ipsum dolor sit amet, *consectetur* adipiscing elit.
 export const Default = (args) => {
   const { orientation } = args?.TabsExtended ?? {};
   return html`
-    <dds-tabs-extended orientation="${ifDefined(orientation)}">
-      <dds-tab
+    <c4d-tabs-extended orientation="${ifDefined(orientation)}">
+      <c4d-tab
         label="First tab with long text that wraps multiple lines. Lorem ipsum dolor sit amet consectetur adipiscing elit"
         selected>
-        <dds-content-block-media-content>
-          <dds-content-item>
-            <dds-content-item-heading
-              >Content for first tab goes here.</dds-content-item-heading
+        <c4d-content-block-media-content>
+          <c4d-content-item>
+            <c4d-content-item-heading
+              >Content for first tab goes here.</c4d-content-item-heading
             >
-            <dds-content-item-copy>${copy}</dds-content-item-copy>
-          </dds-content-item>
+            <c4d-content-item-copy>${copy}</c4d-content-item-copy>
+          </c4d-content-item>
 
-          <dds-card-link-cta slot="footer" href="https://example.com">
-            <dds-card-link-heading
-              >Lorem ipsum dolor sit amet</dds-card-link-heading
+          <c4d-card-link-cta slot="footer" href="https://example.com">
+            <c4d-card-link-heading
+              >Lorem ipsum dolor sit amet</c4d-card-link-heading
             >
-            <dds-card-cta-footer>
+            <c4d-card-cta-footer>
               ${ArrowRight20({ slot: 'icon' })}
-            </dds-card-cta-footer>
-          </dds-card-link-cta>
-        </dds-content-block-media-content>
-      </dds-tab>
-      <dds-tab label="Second tab - min amount for tooltip ">
-        <dds-content-block-media-content>
-          <dds-content-item>
-            <dds-content-item-heading
-              >Content for second tab goes here.</dds-content-item-heading
+            </c4d-card-cta-footer>
+          </c4d-card-link-cta>
+        </c4d-content-block-media-content>
+      </c4d-tab>
+      <c4d-tab label="Second tab - min amount for tooltip ">
+        <c4d-content-block-media-content>
+          <c4d-content-item>
+            <c4d-content-item-heading
+              >Content for second tab goes here.</c4d-content-item-heading
             >
-            <dds-content-item-copy>${copy}</dds-content-item-copy>
-          </dds-content-item>
-        </dds-content-block-media-content>
-      </dds-tab>
-      <dds-tab label="Third tab">
+            <c4d-content-item-copy>${copy}</c4d-content-item-copy>
+          </c4d-content-item>
+        </c4d-content-block-media-content>
+      </c4d-tab>
+      <c4d-tab label="Third tab">
         <p>Content for third tab goes here.</p>
-      </dds-tab>
-      <dds-tab label="Fourth tab">
+      </c4d-tab>
+      <c4d-tab label="Fourth tab">
         <p>Content for fourth tab goes here.</p>
-      </dds-tab>
-      <dds-tab label="Fifth tab" disabled>
+      </c4d-tab>
+      <c4d-tab label="Fifth tab" disabled>
         <p>Content for fifth tab goes here.</p>
-      </dds-tab>
-    </dds-tabs-extended>
+      </c4d-tab>
+    </c4d-tabs-extended>
   `;
 };
 

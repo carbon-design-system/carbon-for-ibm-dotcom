@@ -18,17 +18,17 @@ import { CTA_TYPE } from '../../cta/defs';
 const template = (props?) => {
   const { children } = props ?? {};
   return html`
-    <dds-content-block-horizontal> ${children} </dds-content-block-horizontal>
+    <c4d-content-block-horizontal> ${children} </c4d-content-block-horizontal>
   `;
 };
 
-describe('dds-content-block-horizontal', function () {
+describe('c4d-content-block-horizontal', function () {
   describe('Misc attributes', function () {
     it('should render with minimum attributes', async function () {
       render(template(), document.body);
       await Promise.resolve();
       expect(
-        document.body.querySelector('dds-content-block-horizontal')
+        document.body.querySelector('c4d-content-block-horizontal')
       ).toMatchSnapshot({ mode: 'shadow' });
     });
 
@@ -36,26 +36,26 @@ describe('dds-content-block-horizontal', function () {
       render(
         template({
           children: html`
-            <dds-content-item-horizontal>
-              <dds-content-item-horizontal-eyebrow>eyebrow-foo</dds-content-item-horizontal-eyebrow>
-              <dds-content-item-heading>heading-foo</dds-content-item-heading>
-              <dds-content-item-horizontal-copy>copy-foo</dds-content-item-horizontal-copy>
-              <dds-link-list slot="footer" type="vertical">
-                <dds-link-list-item-cta
+            <c4d-content-item-horizontal>
+              <c4d-content-item-horizontal-eyebrow>eyebrow-foo</c4d-content-item-horizontal-eyebrow>
+              <c4d-content-item-heading>heading-foo</c4d-content-item-heading>
+              <c4d-content-item-horizontal-copy>copy-foo</c4d-content-item-horizontal-copy>
+              <c4d-link-list slot="footer" type="vertical">
+                <c4d-link-list-item-cta
                   icon-placement="${ICON_PLACEMENT.RIGHT}"
                   href="https://www.ibm.com"
                   cta-type="${CTA_TYPE.LOCAL}"
                 >
                   cta-copy-foo
-                </dds-link-list-item-cta>
-                <dds-link-list-item-cta
+                </c4d-link-list-item-cta>
+                <c4d-link-list-item-cta
                   icon-placement="${ICON_PLACEMENT.RIGHT}"
                   href="https://www.ibm.com"
                   cta-type="${CTA_TYPE.EXTERNAL}"
                 >
                   cta-copy-foo
-                </dds-link-list-item-cta>
-              </dds-link-list>
+                </c4d-link-list-item-cta>
+              </c4d-link-list>
              </content-item-horizontal>
           `,
         }),
@@ -63,7 +63,7 @@ describe('dds-content-block-horizontal', function () {
       );
       await Promise.resolve();
       expect(
-        document.body.querySelector('dds-content-block-horizontal')
+        document.body.querySelector('c4d-content-block-horizontal')
       ).toMatchSnapshot({ mode: 'shadow' });
     });
   });

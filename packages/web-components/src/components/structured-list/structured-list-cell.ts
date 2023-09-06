@@ -14,21 +14,21 @@ import Info16 from '../../internal/vendor/@carbon/web-components/icons/informati
 import Checkmark20 from '../../internal/vendor/@carbon/web-components/icons/checkmark/20.js';
 import Error20 from '../../internal/vendor/@carbon/web-components/icons/error/20.js';
 import settings from '../../internal/vendor/@carbon/ibmdotcom-utilities/utilities/settings/settings';
-import DDSStructuredListGroup from './structured-list-group';
+import C4DStructuredListGroup from './structured-list-group';
 import styles from './structured-list.scss';
 import { carbonElement as customElement } from '../../internal/vendor/@carbon/web-components/globals/decorators/carbon-element.js';
 
-const { prefix, stablePrefix: ddsPrefix } = settings;
+const { prefix, stablePrefix: c4dPrefix } = settings;
 
 /**
  * StructuredListCell
  *
- * @element dds-structured-list-cell
+ * @element c4d-structured-list-cell
  */
-@customElement(`${ddsPrefix}-structured-list-cell`)
-class DDSStructuredListCell extends CDSStructuredListCell {
-  parentGroup: DDSStructuredListGroup | null = this.closest(
-    `${ddsPrefix}-structured-list-group`
+@customElement(`${c4dPrefix}-structured-list-cell`)
+class C4DStructuredListCell extends CDSStructuredListCell {
+  parentGroup: C4DStructuredListGroup | null = this.closest(
+    `${c4dPrefix}-structured-list-group`
   );
 
   @property({ attribute: 'aria-label', reflect: true })
@@ -110,4 +110,4 @@ class DDSStructuredListCell extends CDSStructuredListCell {
 }
 
 /* @__GENERATE_REACT_CUSTOM_ELEMENT_TYPE__ */
-export default DDSStructuredListCell;
+export default C4DStructuredListCell;

@@ -16,14 +16,14 @@ import '../region-item';
 const template = (props?) => {
   const { href, invalid, name } = props ?? {};
   return html`
-    <dds-region-item
+    <c4d-region-item
       href="${ifDefined(href)}"
       ?invalid="${invalid}"
-      name="${ifDefined(name)}"></dds-region-item>
+      name="${ifDefined(name)}"></c4d-region-item>
   `;
 };
 
-describe('dds-region-item', function () {
+describe('c4d-region-item', function () {
   describe('Misc attributes', function () {
     it('should render with various attributes', async function () {
       render(
@@ -35,7 +35,7 @@ describe('dds-region-item', function () {
         document.body
       );
       await Promise.resolve();
-      const regionItem = document.body.querySelector('dds-region-item');
+      const regionItem = document.body.querySelector('c4d-region-item');
       expect(regionItem).toMatchSnapshot({ mode: 'shadow' });
       const icon = regionItem!.shadowRoot!.querySelector('.cds--card__cta');
       const iconRef = document.getElementById('icon-ref');
@@ -54,7 +54,7 @@ describe('dds-region-item', function () {
         document.body
       );
       await Promise.resolve();
-      const regionItem = document.body.querySelector('dds-region-item');
+      const regionItem = document.body.querySelector('c4d-region-item');
       expect(regionItem).toMatchSnapshot({ mode: 'shadow' });
       const icon = regionItem!.shadowRoot!.querySelector('.cds--card__cta');
       const iconRef = document.getElementById('icon-ref');

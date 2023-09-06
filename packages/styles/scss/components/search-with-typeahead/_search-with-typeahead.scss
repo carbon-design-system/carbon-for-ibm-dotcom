@@ -61,7 +61,7 @@
 @mixin search-with-typeahead {
   // main nav/search container excluding
   // profile and logo icons for masthead use
-  :host(#{$dds-prefix}-top-nav),
+  :host(#{$c4d-prefix}-top-nav),
   .#{$prefix}--header__search {
     display: flex;
     flex: 1;
@@ -189,20 +189,20 @@
     width: $spacing-09;
   }
 
-  :host(#{$dds-prefix}-search-with-typeahead) {
+  :host(#{$c4d-prefix}-search-with-typeahead) {
     display: block;
     position: relative;
     outline: none;
     height: $spacing-09;
     margin-left: $spacing-09;
 
-    .#{$dds-prefix}-ce__search__list {
+    .#{$c4d-prefix}-ce__search__list {
       height: 0;
       overflow: hidden;
       margin: 0;
     }
 
-    &[open] .#{$dds-prefix}-ce__search__list {
+    &[open] .#{$c4d-prefix}-ce__search__list {
       height: auto;
       padding: 0;
     }
@@ -465,7 +465,7 @@
   }
 }
 
-:host(#{$dds-prefix}-search-with-typeahead-item) {
+:host(#{$c4d-prefix}-search-with-typeahead-item) {
   @include react-autosuggest-suggestion;
 
   span {
@@ -494,12 +494,12 @@
   }
 }
 
-:host(#{$dds-prefix}-search-with-typeahead-item[alternate]) {
+:host(#{$c4d-prefix}-search-with-typeahead-item[alternate]) {
   border-top: 1px solid $border-subtle-01;
 }
 
-:host(#{$dds-prefix}-scoped-search-dropdown),
-:host(#{$dds-prefix}-scoped-search-dropdown-mobile) {
+:host(#{$c4d-prefix}-scoped-search-dropdown),
+:host(#{$c4d-prefix}-scoped-search-dropdown-mobile) {
   display: flex;
   border-right: 1px solid $layer-accent-01;
 
@@ -513,7 +513,7 @@
   }
 }
 
-:host(#{$dds-prefix}-scoped-search-dropdown) {
+:host(#{$c4d-prefix}-scoped-search-dropdown) {
   @include breakpoint-down(lg) {
     display: none;
   }
@@ -523,7 +523,7 @@
   }
 }
 
-:host(#{$dds-prefix}-scoped-search-dropdown-mobile) {
+:host(#{$c4d-prefix}-scoped-search-dropdown-mobile) {
   width: $spacing-09;
 
   .#{$prefix}--select-input {

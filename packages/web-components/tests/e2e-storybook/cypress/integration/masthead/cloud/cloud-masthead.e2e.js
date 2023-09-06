@@ -26,7 +26,7 @@ function clickUntilGone($el) {
   }
 }
 
-describe('dds-masthead | cloud platform (desktop)', () => {
+describe('cds-masthead | cloud platform (desktop)', () => {
   beforeEach(() => {
     cy.viewport(1280, 780);
     cy.visit(`/${_pathDefault}`);
@@ -34,7 +34,7 @@ describe('dds-masthead | cloud platform (desktop)', () => {
   });
 
   it('should have url for IBM logo', () => {
-    cy.get('dds-masthead-logo')
+    cy.get('cds-masthead-logo')
       .shadow()
       .find('a')
       .then($link => {
@@ -49,7 +49,7 @@ describe('dds-masthead | cloud platform (desktop)', () => {
       fixture: 'translation-custom-logo.json',
     }).as('endpointInterceptor');
 
-    cy.get('dds-cloud-masthead-container')
+    cy.get('cds-cloud-masthead-container')
       .then(([masthead]) => {
         // Clear session storage to ensure we make a fetch request.
         window.sessionStorage.clear();
@@ -57,7 +57,7 @@ describe('dds-masthead | cloud platform (desktop)', () => {
         masthead.language = 'us-en';
       })
       .wait(1000)
-      .get('dds-masthead-logo')
+      .get('cds-masthead-logo')
       .shadow()
       .find('a')
       .then($link => {
@@ -67,7 +67,7 @@ describe('dds-masthead | cloud platform (desktop)', () => {
   });
 
   it('should have cloud platform name', () => {
-    cy.get('dds-cloud-top-nav-name')
+    cy.get('cds-cloud-top-nav-name')
       .shadow()
       .find('a')
       .then($link => {
@@ -79,7 +79,7 @@ describe('dds-masthead | cloud platform (desktop)', () => {
   });
 
   it('should load top-nav with no more than one active item', () => {
-    cy.get('dds-top-nav > *').then($topNavItems => {
+    cy.get('cds-top-nav > *').then($topNavItems => {
       const $activeItems = $topNavItems.filter('[active]');
       expect($topNavItems.length).to.be.greaterThan(1);
       expect($activeItems.length).to.be.equal(1);
@@ -87,15 +87,15 @@ describe('dds-masthead | cloud platform (desktop)', () => {
   });
 
   it('should have tabbed-interface megamenus', () => {
-    cy.get('dds-top-nav > dds-megamenu-top-nav-menu').each($megaMenuNavItem => {
+    cy.get('cds-top-nav > cds-megamenu-top-nav-menu').each($megaMenuNavItem => {
       cy.get($megaMenuNavItem)
         .shadow()
         .find('a')
         .click();
       cy.get($megaMenuNavItem)
-        .find('dds-cloud-megamenu')
+        .find('cds-cloud-megamenu')
         .should('be.visible')
-        .find('dds-cloud-megamenu-tab')
+        .find('cds-cloud-megamenu-tab')
         .each($tab => {
           cy.get(`#${$tab.attr('id')}`)
             .shadow()
@@ -115,29 +115,29 @@ describe('dds-masthead | cloud platform (desktop)', () => {
       .get('.bx--header__search--input')
       .should('have.focus')
       .type('test', { force: true })
-      .get('dds-search-with-typeahead-item')
+      .get('cds-search-with-typeahead-item')
       .then($results => {
         expect($results.length).to.be.equal(10);
       })
-      .get('dds-megamenu-top-nav-menu, dds-top-nav-menu, dds-top-nav-menu-item')
+      .get('cds-megamenu-top-nav-menu, cds-top-nav-menu, cds-top-nav-menu-item')
       .should('not.be.visible');
   });
 
   it('should have contact, login, and create-account CTAs', () => {
-    cy.get('dds-cloud-button-cta[data-ibm-contact="contact-link"]')
+    cy.get('cds-cloud-button-cta[data-ibm-contact="contact-link"]')
       .should('be.visible')
       .click({ force: true })
-      .get('dds-cloud-button-cta[href="https://cloud.ibm.com/login"]')
+      .get('cds-cloud-button-cta[href="https://cloud.ibm.com/login"]')
       .should('be.visible')
       .click({ force: true })
-      .get('dds-cloud-button-cta[kind="primary"]')
+      .get('cds-cloud-button-cta[kind="primary"]')
       .should('be.visible')
       .click({ force: true });
   });
 
   it('should be able to scroll all nav elements into view if necessary', () => {
     cy.viewport(960, 780)
-      .get('dds-top-nav')
+      .get('cds-top-nav')
       .shadow()
       .find('button')
       .should($buttons => {
@@ -181,14 +181,14 @@ describe('dds-masthead | cloud platform (desktop)', () => {
   });
 });
 
-describe('dds-masthead | cloud platform (mobile)', () => {
+describe('cds-masthead | cloud platform (mobile)', () => {
   beforeEach(() => {
     cy.viewport(325, 780);
     cy.visit(`/${_pathDefault}`);
   });
 
   it('should have url for IBM logo', () => {
-    cy.get('dds-masthead-logo')
+    cy.get('cds-masthead-logo')
       .shadow()
       .find('a')
       .then($link => {
@@ -199,7 +199,7 @@ describe('dds-masthead | cloud platform (mobile)', () => {
   });
 
   it('should have cloud platform name', () => {
-    cy.get('dds-cloud-top-nav-name')
+    cy.get('cds-cloud-top-nav-name')
       .shadow()
       .find('a')
       .then($link => {
@@ -211,20 +211,20 @@ describe('dds-masthead | cloud platform (mobile)', () => {
   });
 
   it('should load menu hidden behind hamburger button', () => {
-    cy.get('dds-top-nav')
+    cy.get('cds-top-nav')
       .should('not.exist')
-      .get('dds-left-nav')
+      .get('cds-left-nav')
       .should('not.be.visible')
-      .get('dds-masthead-menu-button')
+      .get('cds-masthead-menu-button')
       .click()
-      .get('dds-left-nav')
+      .get('cds-left-nav')
       .should('be.visible');
   });
 
   it('should load top-nav with no more than one active item', () => {
-    cy.get('dds-masthead-menu-button')
+    cy.get('cds-masthead-menu-button')
       .click()
-      .get('dds-left-nav-menu-section[expanded] > *')
+      .get('cds-left-nav-menu-section[expanded] > *')
       .then($topNavItems => {
         const $activeItems = $topNavItems.filter('[active]');
         expect($topNavItems.length).to.be.greaterThan(1);
@@ -233,9 +233,9 @@ describe('dds-masthead | cloud platform (mobile)', () => {
   });
 
   it('should have paged slide-out navigation', () => {
-    cy.get('dds-masthead-menu-button')
+    cy.get('cds-masthead-menu-button')
       .click()
-      .get('dds-left-nav-menu-section[expanded] > dds-left-nav-menu')
+      .get('cds-left-nav-menu-section[expanded] > cds-left-nav-menu')
       .each($submenuItem => {
         const sectionSelector = `[section-id="${$submenuItem.attr('panel-id')}"]`;
         const backSelector = cy
@@ -258,20 +258,20 @@ describe('dds-masthead | cloud platform (mobile)', () => {
       .get('.bx--header__search--input')
       .should('have.focus')
       .type('test', { force: true })
-      .get('dds-search-with-typeahead-item')
+      .get('cds-search-with-typeahead-item')
       .then($results => {
         expect($results.length).to.be.equal(10);
       })
-      .get('dds-megamenu-top-nav-menu, dds-top-nav-menu, dds-top-nav-menu-item')
+      .get('cds-megamenu-top-nav-menu, cds-top-nav-menu, cds-top-nav-menu-item')
       .should('not.exist');
   });
 
   it('should have contact, login, and create-account CTAs', () => {
-    cy.get('dds-masthead-menu-button')
+    cy.get('cds-masthead-menu-button')
       .click()
-      .get('dds-cloud-left-nav-item[href="https://cloud.ibm.com/login"]')
+      .get('cds-cloud-left-nav-item[href="https://cloud.ibm.com/login"]')
       .should('be.visible')
-      .get('dds-cloud-left-nav-item[href="https://cloud.ibm.com/registration"]')
+      .get('cds-cloud-left-nav-item[href="https://cloud.ibm.com/registration"]')
       .should('be.visible');
   });
 });

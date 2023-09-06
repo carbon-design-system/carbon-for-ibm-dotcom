@@ -40,16 +40,16 @@ export const Default = (args) => {
     <style>
       ${styles}
     </style>
-    <dds-expressive-modal
+    <c4d-expressive-modal
       ?open="${open}"
       expressive-size="${ifDefined(size)}"
-      @dds-expressive-modal-beingclosed="${handleBeforeClose}"
-      @dds-expressive-modal-closed="${onClose}">
-      <dds-expressive-modal-header>
-        <dds-expressive-modal-close-button></dds-expressive-modal-close-button>
-        <dds-expressive-modal-heading>Modal Title</dds-expressive-modal-heading>
-      </dds-expressive-modal-header>
-      <dds-expressive-modal-body>
+      @c4d-expressive-modal-beingclosed="${handleBeforeClose}"
+      @c4d-expressive-modal-closed="${onClose}">
+      <c4d-expressive-modal-header>
+        <c4d-expressive-modal-close-button></c4d-expressive-modal-close-button>
+        <c4d-expressive-modal-heading>Modal Title</c4d-expressive-modal-heading>
+      </c4d-expressive-modal-header>
+      <c4d-expressive-modal-body>
         Quisque felis odio, egestas vel tempus iaculis, interdum vel eros.
         Phasellus pharetra, purus et pretium posuere, ipsum risus pulvinar leo,
         non rutrum tortor risus vitae quam. Nulla sed nibh felis. Maecenas nec
@@ -58,13 +58,13 @@ export const Default = (args) => {
         laoreet, vitae facilisis ante convallis. Aenean quis dapibus augue. Sed
         nisl dui, scelerisque et augue eget, pharetra commodo elit. In venenatis
         sapien eu nisl congue suscipit.
-      </dds-expressive-modal-body>
-      <dds-expressive-modal-footer>
-        <dds-button-expressive href="https://www.example.com">
+      </c4d-expressive-modal-body>
+      <c4d-expressive-modal-footer>
+        <c4d-button-expressive href="https://www.example.com">
           ${buttonContent}${ArrowRight20({ slot: 'icon' })}
-        </dds-button-expressive>
-      </dds-expressive-modal-footer>
-    </dds-expressive-modal>
+        </c4d-button-expressive>
+      </c4d-expressive-modal-footer>
+    </c4d-expressive-modal>
   `;
 };
 
@@ -76,12 +76,12 @@ export default {
       Modal: () => ({
         open: boolean('Open (open)', true),
         disableClose: boolean(
-          'Disable user-initiated close action (Call event.preventDefault() in dds-expressive-modal-beingclosed event)',
+          'Disable user-initiated close action (Call event.preventDefault() in c4d-expressive-modal-beingclosed event)',
           false
         ),
         size: select('Modal size (size)', sizes, null),
-        onBeforeClose: action('dds-expressive-modal-beingclosed'),
-        onClose: action('dds-expressive-modal-closed'),
+        onBeforeClose: action('c4d-expressive-modal-beingclosed'),
+        onClose: action('c4d-expressive-modal-closed'),
       }),
       Other: () => ({
         buttonContent: textNullable('Button content', 'Lorem ipsum dolor'),
@@ -93,8 +93,8 @@ export default {
           open: true,
           disableClose: false,
           size: null,
-          onBeforeClose: 'dds-expressive-modal-beingclosed',
-          onClose: 'dds-expressive-modal-closed',
+          onBeforeClose: 'c4d-expressive-modal-beingclosed',
+          onClose: 'c4d-expressive-modal-closed',
         },
         Other: {
           buttonContent: 'Lorem ipsum dolor',

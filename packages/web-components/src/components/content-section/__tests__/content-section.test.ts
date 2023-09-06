@@ -13,19 +13,19 @@ import '../content-section-heading';
 import '../content-section.scss';
 
 const template = () => html`
-  <dds-content-section>
-    <dds-content-section-heading
-      >Natural Language Processing.</dds-content-section-heading
+  <c4d-content-section>
+    <c4d-content-section-heading
+      >Natural Language Processing.</c4d-content-section-heading
     >
     <p>This is a test.</p>
-  </dds-content-section>
+  </c4d-content-section>
 `;
 
-describe('dds-content-section', function () {
+describe('c4d-content-section', function () {
   it('renders properly', async function () {
     await render(template(), document.body);
     await Promise.resolve();
-    expect(document.body.querySelector('dds-content-section')).toMatchSnapshot({
+    expect(document.body.querySelector('c4d-content-section')).toMatchSnapshot({
       mode: 'shadow',
     });
   });

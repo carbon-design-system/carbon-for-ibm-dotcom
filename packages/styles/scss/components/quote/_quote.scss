@@ -18,7 +18,7 @@
 
 @mixin quote {
   .#{$prefix}--quote,
-  :host(#{$dds-prefix}-quote) {
+  :host(#{$c4d-prefix}-quote) {
     background: $background;
     padding-bottom: $spacing-10;
     display: block;
@@ -100,19 +100,19 @@
     padding-bottom: $spacing-09;
   }
 
-  :host(#{$dds-prefix}-quote-source-heading),
+  :host(#{$c4d-prefix}-quote-source-heading),
   .#{$prefix}--quote__source-heading {
     padding-left: $spacing-05;
     @include type-style(heading-02, true);
   }
 
-  :host(#{$dds-prefix}-quote-source-copy),
+  :host(#{$c4d-prefix}-quote-source-copy),
   .#{$prefix}--quote__source-body {
     padding-left: $spacing-05;
     @include type-style(body-02, true);
   }
 
-  :host(#{$dds-prefix}-quote-source-bottom-copy),
+  :host(#{$c4d-prefix}-quote-source-bottom-copy),
   .#{$prefix}--quote__source-optional-copy {
     padding-left: $spacing-05;
     @include type-style(body-02, true);
@@ -126,16 +126,16 @@
     }
   }
 
-  :host(#{$dds-prefix}-quote) .#{$prefix}--quote__footer {
+  :host(#{$c4d-prefix}-quote) .#{$prefix}--quote__footer {
     padding-left: $spacing-05;
     padding-right: $spacing-05;
 
-    ::slotted(#{$dds-prefix}-quote-link-with-icon) {
+    ::slotted(#{$c4d-prefix}-quote-link-with-icon) {
       margin-left: $spacing-05;
     }
   }
 
-  :host(#{$dds-prefix}-quote)[color-scheme='inverse'] {
+  :host(#{$c4d-prefix}-quote)[color-scheme='inverse'] {
     background: $background-inverse;
     color: $icon-inverse;
 
@@ -147,7 +147,7 @@
       padding-left: 0;
       padding-right: 0;
 
-      ::slotted(#{$dds-prefix}-quote-link-with-icon) {
+      ::slotted(#{$c4d-prefix}-quote-link-with-icon) {
         margin-left: 0;
         padding-left: $spacing-07;
         outline: transparent;
@@ -156,7 +156,7 @@
   }
 
   .#{$prefix}--callout__container,
-  :host(#{$dds-prefix}-callout) {
+  :host(#{$c4d-prefix}-callout) {
     @include make-row;
   }
 

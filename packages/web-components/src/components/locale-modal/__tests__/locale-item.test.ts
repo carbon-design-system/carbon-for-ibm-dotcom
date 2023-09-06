@@ -14,13 +14,13 @@ import '../locale-item';
 const template = (props?) => {
   const { country, language } = props ?? {};
   return html`
-    <dds-locale-item
+    <c4d-locale-item
       country="${ifDefined(country)}"
-      language="${ifDefined(language)}"></dds-locale-item>
+      language="${ifDefined(language)}"></c4d-locale-item>
   `;
 };
 
-describe('dds-locale-item', function () {
+describe('c4d-locale-item', function () {
   describe('Misc attributes', function () {
     it('should render with various attributes', async function () {
       render(
@@ -28,7 +28,7 @@ describe('dds-locale-item', function () {
         document.body
       );
       await Promise.resolve();
-      const localeItem = document.body.querySelector('dds-locale-item');
+      const localeItem = document.body.querySelector('c4d-locale-item');
       expect(localeItem).toMatchSnapshot({ mode: 'shadow' });
     });
   });

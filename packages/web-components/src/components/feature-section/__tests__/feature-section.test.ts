@@ -13,16 +13,16 @@ import { Default } from '../__stories__/feature-section.stories';
 
 const template = (props?) =>
   Default({
-    'dds-feature-section': props,
+    'c4d-feature-section': props,
   });
 
-describe('dds-feature-section', function () {
+describe('c4d-feature-section', function () {
   describe('Misc attributes', function () {
     it('should render with minimum attributes', async function () {
       render(template(), document.body);
-      await Promise.resolve(); // Update cycle for `<dds-feature-section>`
+      await Promise.resolve(); // Update cycle for `<c4d-feature-section>`
       expect(
-        document.body.querySelector('dds-feature-section')
+        document.body.querySelector('c4d-feature-section')
       ).toMatchSnapshot({ mode: 'shadow' });
     });
 
@@ -38,9 +38,9 @@ describe('dds-feature-section', function () {
         }),
         document.body
       );
-      await Promise.resolve(); // Update cycle for `<dds-feature-section>`
+      await Promise.resolve(); // Update cycle for `<c4d-feature-section>`
       expect(
-        document.body.querySelector('dds-feature-section')
+        document.body.querySelector('c4d-feature-section')
       ).toMatchSnapshot({ mode: 'shadow' });
     });
   });

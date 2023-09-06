@@ -42,7 +42,7 @@ $fcb-breakpoint-up--lg: map.get(map.get($grid-breakpoints, 'lg'), 'width') -
   }
 
   .#{$prefix}--card__heading,
-  ::slotted(#{$dds-prefix}-card-heading) {
+  ::slotted(#{$c4d-prefix}-card-heading) {
     margin-bottom: $spacing-07;
     color: $icon-inverse;
   }
@@ -73,15 +73,15 @@ $fcb-breakpoint-up--lg: map.get(map.get($grid-breakpoints, 'lg'), 'width') -
 
 @mixin feature-card {
   // all feature cards
-  :host(#{$dds-prefix}-feature-card),
-  :host(#{$dds-prefix}-feature-cta),
+  :host(#{$c4d-prefix}-feature-card),
+  :host(#{$c4d-prefix}-feature-cta),
   .#{$prefix}--feature-card-large,
   .#{$prefix}--feature-card {
     position: relative;
 
     &:hover {
       ::slotted([slot='image']),
-      #{$dds-prefix}-image,
+      #{$c4d-prefix}-image,
       .#{$prefix}--image {
         &::before {
           opacity: 0.08;
@@ -103,7 +103,7 @@ $fcb-breakpoint-up--lg: map.get(map.get($grid-breakpoints, 'lg'), 'width') -
     }
 
     ::slotted([slot='image']),
-    #{$dds-prefix}-image,
+    #{$c4d-prefix}-image,
     .#{$prefix}--image {
       width: 100%;
       height: aspect-ratio(2, 1);
@@ -123,8 +123,8 @@ $fcb-breakpoint-up--lg: map.get(map.get($grid-breakpoints, 'lg'), 'width') -
     }
   }
 
-  :host(#{$dds-prefix}-feature-card),
-  :host(#{$dds-prefix}-feature-cta) {
+  :host(#{$c4d-prefix}-feature-card),
+  :host(#{$c4d-prefix}-feature-cta) {
     @include breakpoint-down(md) {
       display: flex;
     }
@@ -132,8 +132,8 @@ $fcb-breakpoint-up--lg: map.get(map.get($grid-breakpoints, 'lg'), 'width') -
 
   // feature cards that are not size large
   .#{$prefix}--feature-card,
-  :host(#{$dds-prefix}-feature-card:not([size='large'])),
-  :host(#{$dds-prefix}-feature-cta:not([size='large'])) {
+  :host(#{$c4d-prefix}-feature-card:not([size='large'])),
+  :host(#{$c4d-prefix}-feature-cta:not([size='large'])) {
     @include breakpoint-down(md) {
       padding-top: aspect-ratio(1, 1);
 
@@ -202,7 +202,7 @@ $fcb-breakpoint-up--lg: map.get(map.get($grid-breakpoints, 'lg'), 'width') -
     // image
 
     ::slotted([slot='image']),
-    #{$dds-prefix}-image,
+    #{$c4d-prefix}-image,
     .#{$prefix}--image {
       @include breakpoint(md) {
         width: 50%;
@@ -245,8 +245,8 @@ $fcb-breakpoint-up--lg: map.get(map.get($grid-breakpoints, 'lg'), 'width') -
   }
 
   // feature cards that are size large
-  :host(#{$dds-prefix}-feature-card[size='large']),
-  :host(#{$dds-prefix}-feature-cta[size='large']),
+  :host(#{$c4d-prefix}-feature-card[size='large']),
+  :host(#{$c4d-prefix}-feature-cta[size='large']),
   .#{$prefix}--feature-card-large {
     margin-bottom: $spacing-07;
     color: $text-primary;
@@ -285,7 +285,7 @@ $fcb-breakpoint-up--lg: map.get(map.get($grid-breakpoints, 'lg'), 'width') -
       }
 
       ::slotted([slot='image']),
-      #{$dds-prefix}-image,
+      #{$c4d-prefix}-image,
       &__wrapper,
       .#{$prefix}--image {
         @include breakpoint(xlg) {
@@ -315,8 +315,8 @@ $fcb-breakpoint-up--lg: map.get(map.get($grid-breakpoints, 'lg'), 'width') -
       .#{$prefix}--card__eyebrow,
       .#{$prefix}--card__heading,
       .#{$prefix}--card__copy,
-      ::slotted(#{$dds-prefix}-card-eyebrow),
-      ::slotted(#{$dds-prefix}-card-heading) {
+      ::slotted(#{$c4d-prefix}-card-eyebrow),
+      ::slotted(#{$c4d-prefix}-card-heading) {
         width: 100%;
         color: $icon-inverse;
         max-width: rem(480px);
@@ -339,13 +339,13 @@ $fcb-breakpoint-up--lg: map.get(map.get($grid-breakpoints, 'lg'), 'width') -
       }
 
       .#{$prefix}--card__eyebrow,
-      ::slotted(#{$dds-prefix}-card-eyebrow) {
+      ::slotted(#{$c4d-prefix}-card-eyebrow) {
         margin: 0 0 $spacing-05 0;
         color: $icon-inverse;
       }
 
       .#{$prefix}--card__heading,
-      ::slotted(#{$dds-prefix}-card-heading) {
+      ::slotted(#{$c4d-prefix}-card-heading) {
         color: $icon-inverse;
         margin-bottom: $spacing-07;
         @include type-style('fluid-heading-04', true);
@@ -392,8 +392,8 @@ $fcb-breakpoint-up--lg: map.get(map.get($grid-breakpoints, 'lg'), 'width') -
     }
   }
 
-  :host(#{$dds-prefix}-feature-card-footer)
-    .#{$dds-prefix}-ce--card__footer
+  :host(#{$c4d-prefix}-feature-card-footer)
+    .#{$c4d-prefix}-ce--card__footer
     ::slotted(svg[slot='icon']),
   .#{$prefix}--feature-card-large
     .#{$prefix}--feature-card-large__card.#{$prefix}--tile
