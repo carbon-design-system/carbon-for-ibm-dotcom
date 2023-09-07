@@ -178,19 +178,8 @@ export const Pictogram = (args) => {
     <c4d-card
       pictogram-placement="${pictogramPlacement}"
       href=${ifDefined(href || undefined)}
-      <<<<<<<
-      HEAD
       color-scheme=${cardStyles === 'Inverse card' ? 'inverse' : ''}>
-      <dds-card-heading>${heading}</dds-card-heading>
-      =======
-      color-scheme=${cardStyles === 'Inverse card'
-        ? 'inverse'
-        : cardStyles === 'Outlined card'
-        ? 'light'
-        : ''}
-      ?border=${cardStyles === 'Outlined card'}>
       <c4d-card-heading>${heading}</c4d-card-heading>
-      >>>>>>> upstream/feat/carbon-for-ibm-dotcom-v2
       ${copy ? html` <p>${copy}</p> ` : ``}
       ${tagGroup ? html` ${tagGroupContent} ` : ``}
       <svg
@@ -279,36 +268,27 @@ export const Static = (args) => {
     ctaCopy,
   } = args?.Card ?? {};
   return html`
-    <<<<<<< HEAD
-    <dds-card>
-      =======
-      <c4d-card
-        color-scheme=${outlinedCard ? 'light' : ''}
-        ?border=${outlinedCard}>
-        >>>>>>> upstream/feat/carbon-for-ibm-dotcom-v2
-        ${image
-          ? html`
-              <c4d-image
-                slot="image"
-                alt="${ifDefined(alt)}"
-                default-src="${ifDefined(defaultSrc)}"></c4d-image>
-            `
-          : ``}
-        ${eyebrow
-          ? html` <c4d-card-eyebrow>${eyebrow}</c4d-card-eyebrow> `
-          : ``}
-        <c4d-card-heading>${heading}</c4d-card-heading>
-        ${copy ? html` <p>${copy}</p> ` : ``}
-        ${tagGroup ? html` ${tagGroupContent} ` : ``}
-        ${cta
-          ? html`
-              <c4d-card-footer href="https://www.example.com">
-                ${ctaCopy}${ArrowRight20({ slot: 'icon' })}
-              </c4d-card-footer>
-            `
-          : ``}
-      </c4d-card>
-    </dds-card>
+    <c4d-card>
+      ${image
+        ? html`
+            <c4d-image
+              slot="image"
+              alt="${ifDefined(alt)}"
+              default-src="${ifDefined(defaultSrc)}"></c4d-image>
+          `
+        : ``}
+      ${eyebrow ? html` <c4d-card-eyebrow>${eyebrow}</c4d-card-eyebrow> ` : ``}
+      <c4d-card-heading>${heading}</c4d-card-heading>
+      ${copy ? html` <p>${copy}</p> ` : ``}
+      ${tagGroup ? html` ${tagGroupContent} ` : ``}
+      ${cta
+        ? html`
+            <c4d-card-footer href="https://www.example.com">
+              ${ctaCopy}${ArrowRight20({ slot: 'icon' })}
+            </c4d-card-footer>
+          `
+        : ``}
+    </c4d-card>
   `;
 };
 
@@ -366,27 +346,18 @@ export const Logo = (args) => {
   const { alt, defaultSrc, eyebrow, heading, href, copy, tagGroup } =
     args?.Card ?? {};
   return html`
-    <<<<<<< HEAD
-    <dds-card logo href=${ifDefined(href || undefined)}>
-      <dds-image-logo =======
-      <c4d-card border logo href=${ifDefined(href || undefined)}>
-        <c4d-image-logo
-          >>>>>>> upstream/feat/carbon-for-ibm-dotcom-v2 slot="image"
-          alt="${ifDefined(alt)}"
-          default-src="${ifDefined(defaultSrc)}"></c4d-image-logo
-        >
-        ${eyebrow
-          ? html` <c4d-card-eyebrow>${eyebrow}</c4d-card-eyebrow> `
-          : ``}
-        ${heading
-          ? html` <c4d-card-heading>${heading}</c4d-card-heading> `
-          : ``}
-        ${copy ? html` <p>${copy}</p> ` : ``}
-        ${tagGroup ? html` ${tagGroupContent} ` : ``}
+    <c4d-card logo href=${ifDefined(href || undefined)}>
+      <c4d-image-logo
+        slot="image"
+        alt="${ifDefined(alt)}"
+        default-src="${ifDefined(defaultSrc)}"></c4d-image-logo>
+      ${eyebrow ? html` <c4d-card-eyebrow>${eyebrow}</c4d-card-eyebrow> ` : ``}
+      ${heading ? html` <c4d-card-heading>${heading}</c4d-card-heading> ` : ``}
+      ${copy ? html` <p>${copy}</p> ` : ``}
+      ${tagGroup ? html` ${tagGroupContent} ` : ``}
 
-        <c4d-card-footer></c4d-card-footer>
-      </c4d-card>
-    </dds-card>
+      <c4d-card-footer></c4d-card-footer>
+    </c4d-card>
   `;
 };
 

@@ -221,7 +221,7 @@ export const Logo = (args) => {
   const { alt, defaultSrc, eyebrow, heading, href, copy, tagGroup } =
     args?.Card ?? {};
   return (
-    <C4DCard border logo href={href || undefined}>
+    <C4DCard logo href={href || undefined}>
       <C4DImageLogo
         slot="image"
         alt={alt}
