@@ -32,6 +32,7 @@ const { prefix } = settings;
  */
 @customElement(`dds-notice-choice`)
 class NoticeChoice extends StableSelectorMixin(LitElement) {
+  protected _rajaneesh = '';
   /**
    * properties for passed attributes.
    */
@@ -97,6 +98,12 @@ class NoticeChoice extends StableSelectorMixin(LitElement) {
     NC_HIDDEN_EMAIL: worldWideContent.cc_default_status,
     NC_HIDDEN_PHONE: worldWideContent.cc_default_status,
   };
+
+  @property({ reflect: true })
+  hiddenEmail = '';
+
+  @property({ reflect: true })
+  hiddenPhone = '';
 
   prepareCheckboxes() {
     if (this.ncData) {
@@ -238,6 +245,7 @@ class NoticeChoice extends StableSelectorMixin(LitElement) {
 
   private checkBoxChange($event: any) {
     const id = $event.target.id;
+
     const checked = $event.target.checked;
     const newValues = {
       ...this.values,
@@ -248,7 +256,8 @@ class NoticeChoice extends StableSelectorMixin(LitElement) {
     this.changed = true;
     const hiddenFieldName = `NC_HIDDEN_${id}`;
     const hiddenFieldStatus = checked ? 'PERMISSION' : 'SUPPRESSION';
-    this.values['checkBoxStatus'] = hiddenFieldStatus;
+    this.values[id] = {};
+    this.values[id]['checkBoxStatus'] = hiddenFieldStatus;
     this._onChange(hiddenFieldName, hiddenFieldStatus);
   }
   static get stableSelector() {
@@ -385,19 +394,23 @@ class NoticeChoice extends StableSelectorMixin(LitElement) {
                     const checkbox = this.checkboxes[key];
                     const hiddenBox = {
                       id: 'NC_HIDDEN_' + key,
-                      value: this.values['checkBoxStatus']
-                        ? this.values['checkBoxStatus']
+                      value: this.values[key]['checkBoxStatus']
+                        ? this.values[key]['checkBoxStatus']
                         : this.values[key]
                         ? 'PERMISSION'
                         : 'UNCHANGED',
                     };
+                    key === 'EMAIL' ? this.hiddenEmail = hiddenBox.value : '';
+                    key === 'PHONE' ? this.hiddenPhone = hiddenBox.value : '';
                     return this.checkBoxTemplate(checkbox, checked, hiddenBox);
                   })
-                : 'Loading ...'
+                : ''
             }
+
           </div>
           <div class="${prefix}--nc__post-text"
           >${this.postTextTemplate()}</div>
+          
         </div>
         ${this.getBpidLegalText()}
     </section>`;
