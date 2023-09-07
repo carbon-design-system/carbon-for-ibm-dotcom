@@ -104,10 +104,10 @@ const cardsDiffLengthPhrase = (
     </dds-card-group-item>
   `;
 
-  const videoCardGroupItem = html`
+  const videoCardGroupItem = (videoId = '1_9h94wo6b') => html`
     <dds-card-group-item
       cta-type="video"
-      href="1_9h94wo6b"
+      href="${videoId}"
       color-scheme=${gridMode === 'border' ? 'light' : null}>
       <dds-card-eyebrow>Topic</dds-card-eyebrow>
       ${tagGroup ? tagGroupContent : ''}
@@ -116,8 +116,12 @@ const cardsDiffLengthPhrase = (
     </dds-card-group-item>
   `;
 
+  const demoVideoIds = ['1_9h94wo6b', '0_ibuqxqbe', '1_6b6qjovy'];
+
   count = count > 3 ? 0 : count + 1;
-  return media && index % 2 ? videoCardGroupItem : defaultCardGroupItem;
+  return media && index % 2
+    ? videoCardGroupItem(demoVideoIds[index % 3])
+    : defaultCardGroupItem;
 };
 
 const longHeadingCardGroupItem = (
