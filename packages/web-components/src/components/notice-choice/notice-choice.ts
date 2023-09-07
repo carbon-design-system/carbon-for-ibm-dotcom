@@ -339,7 +339,10 @@ class NoticeChoice extends StableSelectorMixin(LitElement) {
         }
       }
       if (postText !== '') {
-        postText = "<div part='ncPostTextContainer' id='ncPostTextContainer'>" + postText + '</div>';
+        postText =
+          "<div part='ncPostTextContainer' id='ncPostTextContainer'>" +
+          postText +
+          '</div>';
       }
       return html`${unsafeHTML(postText)}`;
     } else {
@@ -371,8 +374,8 @@ class NoticeChoice extends StableSelectorMixin(LitElement) {
                         ? 'PERMISSION'
                         : 'UNCHANGED',
                     };
-                    key === 'EMAIL' ? this.hiddenEmail = hiddenBox.value : '';
-                    key === 'PHONE' ? this.hiddenPhone = hiddenBox.value : '';
+                    key === 'EMAIL' ? (this.hiddenEmail = hiddenBox.value) : '';
+                    key === 'PHONE' ? (this.hiddenPhone = hiddenBox.value) : '';
                     return this.checkBoxTemplate(checkbox, checked, hiddenBox);
                   })
                 : ''

@@ -82,7 +82,7 @@ export const Default = (args) => {
     enableAllOptIn,
     bpidLegalText,
     hiddenEmail,
-    hiddenPhone
+    hiddenPhone,
   } = args?.NoticeChoice ?? {};
   return html`
     <dds-notice-choice
