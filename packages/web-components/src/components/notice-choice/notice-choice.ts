@@ -32,7 +32,6 @@ const { prefix } = settings;
  */
 @customElement(`dds-notice-choice`)
 class NoticeChoice extends StableSelectorMixin(LitElement) {
-  protected _rajaneesh = '';
   /**
    * properties for passed attributes.
    */
