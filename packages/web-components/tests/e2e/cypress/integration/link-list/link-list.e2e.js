@@ -7,11 +7,11 @@
 
 'use strict';
 
-describe('dds-link-list', () => {
-  it('should load the default dds-link-list example', () => {
+describe('cds-link-list', () => {
+  it('should load the default cds-link-list example', () => {
     cy.visit('/link-list');
 
     // Take a snapshot for visual diffing
-    cy.percySnapshot('dds-link-list | default');
+    cy.percySnapshot('cds-link-list | default');
   });
 });

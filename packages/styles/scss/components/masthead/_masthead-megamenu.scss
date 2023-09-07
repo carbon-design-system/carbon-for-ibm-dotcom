@@ -40,7 +40,7 @@
     }
   }
 
-  :host(#{$dds-prefix}-megamenu-top-nav-menu)
+  :host(#{$c4d-prefix}-megamenu-top-nav-menu)
     .#{$prefix}--header__menu-title[aria-expanded='true']
     + .#{$prefix}--header__menu,
   .#{$prefix}--header__nav
@@ -56,7 +56,7 @@
     box-shadow: none;
   }
 
-  :host(#{$dds-prefix}-megamenu-top-nav-menu),
+  :host(#{$c4d-prefix}-megamenu-top-nav-menu),
   .#{$prefix}--masthead__megamenu__l0-nav,
   .#{$prefix}--masthead__megamenu__l1-nav {
     .#{$prefix}--header__menu {
@@ -72,8 +72,8 @@
 
     .#{$prefix}--header__menu-title[aria-expanded='false']
       + .#{$prefix}--header__menu {
-      ::slotted(#{$dds-prefix}-megamenu),
-      ::slotted(#{$dds-prefix}-cloud-megamenu),
+      ::slotted(#{$c4d-prefix}-megamenu),
+      ::slotted(#{$c4d-prefix}-cloud-megamenu),
       .#{$prefix}--masthead__megamenu {
         animation: $transition-expansion motion(standard, expressive) collapse;
       }
@@ -90,18 +90,18 @@
       margin-bottom: $spacing-10;
       // `100vw` in Shadow DOM causes delayed rendering bug in Safari
       // https://github.com/carbon-design-system/carbon-for-ibm-dotcom/issues/4493
-      width: var(--#{$dds-prefix}-ce--viewport-width, 100vw);
+      width: var(--#{$c4d-prefix}-ce--viewport-width, 100vw);
       min-height: carbon--mini-units(40);
 
-      ::slotted(#{$dds-prefix}-megamenu),
-      ::slotted(#{$dds-prefix}-cloud-megamenu),
+      ::slotted(#{$c4d-prefix}-megamenu),
+      ::slotted(#{$c4d-prefix}-cloud-megamenu),
       .#{$prefix}--masthead__megamenu {
         animation: $transition-expansion motion(standard, expressive) expand;
       }
     }
   }
 
-  :host(#{$dds-prefix}-megamenu-top-nav-menu),
+  :host(#{$c4d-prefix}-megamenu-top-nav-menu),
   .#{$prefix}--masthead__megamenu__l0-nav {
     .#{$prefix}--header__menu-title[aria-expanded='true']
       + .#{$prefix}--header__menu {
@@ -115,8 +115,8 @@
     top: $l1-nav-height;
   }
 
-  :host(#{$dds-prefix}-megamenu),
-  :host(#{$dds-prefix}-cloud-megamenu),
+  :host(#{$c4d-prefix}-megamenu),
+  :host(#{$c4d-prefix}-cloud-megamenu),
   .#{$prefix}--masthead__megamenu {
     display: block;
     overflow-y: overlay;
@@ -141,7 +141,7 @@
     }
   }
 
-  :host(#{$dds-prefix}-megamenu-right-navigation),
+  :host(#{$c4d-prefix}-megamenu-right-navigation),
   .#{$prefix}--masthead__megamenu__categories-section {
     display: flex;
     flex-direction: column;
@@ -164,7 +164,7 @@
   }
 
   .#{$prefix}--masthead__megamenu__copy,
-  :host(#{$dds-prefix}-megamenu-category-group-copy) {
+  :host(#{$c4d-prefix}-megamenu-category-group-copy) {
     display: block;
     @include type-style('body-01');
 
@@ -172,7 +172,7 @@
     padding: rem(6px) $spacing-05 rem(10px);
   }
 
-  :host(#{$dds-prefix}-megamenu-category-group),
+  :host(#{$c4d-prefix}-megamenu-category-group),
   .#{$prefix}--masthead__megamenu__category-group {
     display: block;
 
@@ -183,7 +183,7 @@
     }
 
     .#{$prefix}--masthead__megamenu__copy,
-    ::slotted(#{$dds-prefix}-megamenu-category-group-copy) {
+    ::slotted(#{$c4d-prefix}-megamenu-category-group-copy) {
       @include type-style('body-01');
 
       color: $text-primary;
@@ -192,7 +192,7 @@
     }
   }
 
-  :host(#{$dds-prefix}-megamenu-link-with-icon) {
+  :host(#{$c4d-prefix}-megamenu-link-with-icon) {
     span {
       flex: inherit;
     }
@@ -207,7 +207,7 @@
   }
 
   :host(
-      #{$dds-prefix}-megamenu-link-with-icon
+      #{$c4d-prefix}-megamenu-link-with-icon
     )[style-scheme='category-headline'],
   .#{$prefix}--masthead__megamenu__category-headline {
     width: 100%;
@@ -240,7 +240,7 @@
     }
   }
 
-  :host(#{$dds-prefix}-megamenu-category-link) a,
+  :host(#{$c4d-prefix}-megamenu-category-link) a,
   .#{$prefix}--masthead__megamenu__category-sublink {
     @include type-style('body-01');
 
@@ -257,7 +257,7 @@
 
   .#{$prefix}--masthead__megamenu__category-sublink--highlighted,
   :host(
-      #{$dds-prefix}-megamenu-link-with-icon
+      #{$c4d-prefix}-megamenu-link-with-icon
     )[style-scheme='category-sublink'] {
     @include type-style('body-compact-01');
 
@@ -269,13 +269,13 @@
   }
 
   .#{$prefix}--masthead__megamenu__category-sublink--highlighted,
-  :host(#{$dds-prefix}-megamenu-link-with-icon)[style-scheme='category-sublink']
+  :host(#{$c4d-prefix}-megamenu-link-with-icon)[style-scheme='category-sublink']
     a {
     width: 100%;
     padding: 7px $spacing-05;
   }
 
-  :host(#{$dds-prefix}-megamenu-link-with-icon)[style-scheme='view-all'],
+  :host(#{$c4d-prefix}-megamenu-link-with-icon)[style-scheme='view-all'],
   .#{$prefix}--masthead__megamenu__view-all-cta {
     margin-top: auto;
     display: flex;
@@ -313,8 +313,8 @@
     }
   }
 
-  :host(#{$dds-prefix}-megamenu-category-link) a,
-  :host(#{$dds-prefix}-megamenu-link-with-icon) a,
+  :host(#{$c4d-prefix}-megamenu-category-link) a,
+  :host(#{$c4d-prefix}-megamenu-link-with-icon) a,
   .#{$prefix}--masthead__megamenu__category-headline
     .#{$prefix}--link-with-icon,
   .#{$prefix}--masthead__megamenu__category-sublink--highlighted,
@@ -343,7 +343,7 @@
     }
   }
 
-  :host(#{$dds-prefix}-megamenu-left-navigation),
+  :host(#{$c4d-prefix}-megamenu-left-navigation),
   .#{$prefix}--masthead__megamenu__highlight-section {
     min-height: 100%;
     padding-top: rem(18px);
@@ -356,7 +356,7 @@
       flex-direction: column;
     }
 
-    :host(#{$dds-prefix}-megamenu-left-navigation),
+    :host(#{$c4d-prefix}-megamenu-left-navigation),
     .#{$prefix}--masthead__megamenu__highlight-section {
       border-right: none;
       border-bottom: rem(1px) solid $layer-accent-01;
@@ -365,7 +365,7 @@
       @include make-col(8, 8);
     }
 
-    :host(#{$dds-prefix}-megamenu-right-navigation),
+    :host(#{$c4d-prefix}-megamenu-right-navigation),
     .#{$prefix}--masthead__megamenu__categories-section {
       .#{$prefix}--masthead__megamenu__categories {
         column-count: 2;

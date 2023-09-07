@@ -14,13 +14,13 @@ import on from 'carbon-components/es/globals/js/misc/on.js';
  * @param {Element[]} sentinelNodes
  *   The focus sentinel nodes.
  *   If these nodes gets focus, we see it as focus went out of the `element`.
- * @param {string} [eventRequestFocusWrap=dds-request-focus-wrap] The event name.
+ * @param {string} [eventRequestFocusWrap=cds-request-focus-wrap] The event name.
  * @returns {Function} The handle to remove the event handler.
  */
 function focuswrap(
   element,
   sentinelNodes,
-  eventRequestFocusWrap = 'dds-request-focus-wrap'
+  eventRequestFocusWrap = 'cds-request-focus-wrap'
 ) {
   return on(element, 'focusout', function handleFocusout(event) {
     const { target, relatedTarget } = event;

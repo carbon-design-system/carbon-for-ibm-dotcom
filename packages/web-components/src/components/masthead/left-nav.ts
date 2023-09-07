@@ -20,12 +20,12 @@ import focuswrap from '../../internal/vendor/@carbon/ibmdotcom-utilities/utiliti
 import { find, forEach } from '../../globals/internal/collection-helpers';
 import Handle from '../../globals/internal/handle';
 import StableSelectorMixin from '../../globals/mixins/stable-selector';
-import DDSLeftNavOverlay from './left-nav-overlay';
+import C4DLeftNavOverlay from './left-nav-overlay';
 import styles from './masthead.scss';
-import DDSLeftNavMenuSection from './left-nav-menu-section';
+import C4DLeftNavMenuSection from './left-nav-menu-section';
 import { carbonElement as customElement } from '../../internal/vendor/@carbon/web-components/globals/decorators/carbon-element.js';
 
-const { prefix, stablePrefix: ddsPrefix } = settings;
+const { prefix, stablePrefix: c4dPrefix } = settings;
 
 // eslint-disable-next-line no-bitwise
 const PRECEDING =
@@ -37,10 +37,10 @@ const FOLLOWING =
 /**
  * Masthead left nav.
  *
- * @element dds-left-nav
+ * @element c4d-left-nav
  */
-@customElement(`${ddsPrefix}-left-nav`)
-class DDSLeftNav extends StableSelectorMixin(CDSSideNav) {
+@customElement(`${c4dPrefix}-left-nav`)
+class C4DLeftNav extends StableSelectorMixin(CDSSideNav) {
   /**
    * The handle for focus wrapping.
    */
@@ -62,14 +62,14 @@ class DDSLeftNav extends StableSelectorMixin(CDSSideNav) {
   private _importedSideNav = false;
 
   /**
-   * Handles `dds-request-focus-wrap` event on the document.
+   * Handles `c4d-request-focus-wrap` event on the document.
    *
    * @param event The event.
    */
-  @HostListener('document:dds-request-focus-wrap')
+  @HostListener('document:c4d-request-focus-wrap')
   // @ts-ignore: The decorator refers to this method but TS thinks this method is not referred to
   private _handleRequestMenuButtonFocusWrap = (event: CustomEvent) => {
-    const { selectorButtonToggle } = this.constructor as typeof DDSLeftNav;
+    const { selectorButtonToggle } = this.constructor as typeof C4DLeftNav;
     /**
      * If focus leaves this element, send focus to the menu toggle.
      * Else if focus leaves the menu toggle, bring it back to this element.
@@ -89,7 +89,7 @@ class DDSLeftNav extends StableSelectorMixin(CDSSideNav) {
       const {
         selectorExpandedMenuSection,
         selectorTabbable: selectorTabbableForLeftnav,
-      } = this.constructor as typeof DDSLeftNav;
+      } = this.constructor as typeof C4DLeftNav;
       const expandedMenuSection = this.querySelector(
         selectorExpandedMenuSection
       );
@@ -139,16 +139,16 @@ class DDSLeftNav extends StableSelectorMixin(CDSSideNav) {
   };
 
   private _handleClickOut(event: MouseEvent) {
-    const { selectorButtonToggle } = this.constructor as typeof DDSLeftNav;
+    const { selectorButtonToggle } = this.constructor as typeof C4DLeftNav;
     const toggleButton: HTMLElement | null = (
       this.getRootNode() as Document
     ).querySelector(selectorButtonToggle);
 
-    // TODO: check why `target` returns `dds-masthead-container` (parent) in Lit v2
+    // TODO: check why `target` returns `c4d-masthead-container` (parent) in Lit v2
     if (
       this.expanded &&
       (event.composedPath()[0] as HTMLElement).tagName ===
-        'DDS-LEFT-NAV-OVERLAY'
+        'C4D-LEFT-NAV-OVERLAY'
     ) {
       this.expanded = false;
       toggleButton?.focus();
@@ -158,7 +158,7 @@ class DDSLeftNav extends StableSelectorMixin(CDSSideNav) {
   @HostListener('keydown')
   // @ts-ignore: The decorator refers to this method but TS thinks this method is not referred to
   private _handleKeydown(event: KeyboardEvent) {
-    const { selectorButtonToggle } = this.constructor as typeof DDSLeftNav;
+    const { selectorButtonToggle } = this.constructor as typeof C4DLeftNav;
     const toggleButton: HTMLElement | null = (
       this.getRootNode() as Document
     ).querySelector(selectorButtonToggle);
@@ -170,10 +170,10 @@ class DDSLeftNav extends StableSelectorMixin(CDSSideNav) {
 
   @HostListener('parentRoot:eventToggle')
   protected _handleContentStateChangeDocument = (event: CustomEvent) => {
-    const { selectorMenuSections } = this.constructor as typeof DDSLeftNav;
+    const { selectorMenuSections } = this.constructor as typeof C4DLeftNav;
     const { panelId }: { panelId: string } = event.detail;
 
-    const menuSections: DDSLeftNavMenuSection[] = Array.from(
+    const menuSections: C4DLeftNavMenuSection[] = Array.from(
       this.querySelectorAll(selectorMenuSections)
     );
     const expandedSection = menuSections
@@ -230,7 +230,7 @@ class DDSLeftNav extends StableSelectorMixin(CDSSideNav) {
     ) {
       // eslint-disable-next-line no-console
       console.warn(
-        'dds-left-nav supports only `header-nav` for its `usage-mode` attribute or `usageMode` property. The value is ignored:',
+        'c4d-left-nav supports only `header-nav` for its `usage-mode` attribute or `usageMode` property. The value is ignored:',
         usageMode
       );
     }
@@ -238,10 +238,10 @@ class DDSLeftNav extends StableSelectorMixin(CDSSideNav) {
       const doc = this.getRootNode() as Document;
       forEach(
         doc.querySelectorAll(
-          (this.constructor as typeof DDSLeftNav).selectorOverlay
+          (this.constructor as typeof C4DLeftNav).selectorOverlay
         ),
         (item) => {
-          (item as DDSLeftNavOverlay).active = this.expanded;
+          (item as C4DLeftNavOverlay).active = this.expanded;
         }
       );
       const {
@@ -252,12 +252,12 @@ class DDSLeftNav extends StableSelectorMixin(CDSSideNav) {
 
       const masthead: HTMLElement | null | undefined = doc
         ?.querySelector(
-          `${ddsPrefix}-cloud-masthead-container,
-          ${ddsPrefix}-cloud-masthead-composite,
-          ${ddsPrefix}-masthead-container,
-          ${ddsPrefix}-masthead-composite`
+          `${c4dPrefix}-cloud-masthead-container,
+          ${c4dPrefix}-cloud-masthead-composite,
+          ${c4dPrefix}-masthead-container,
+          ${c4dPrefix}-masthead-composite`
         )
-        ?.querySelector(`${ddsPrefix}-masthead`);
+        ?.querySelector(`${c4dPrefix}-masthead`);
       if (expanded && !this._importedSideNav) {
         import('./left-nav-name');
         import('./left-nav-menu');
@@ -282,7 +282,7 @@ class DDSLeftNav extends StableSelectorMixin(CDSSideNav) {
         masthead.style.position = 'fixed';
       } else {
         const { selectorMenuSections, selectorFirstMenuSection } = this
-          .constructor as typeof DDSLeftNav;
+          .constructor as typeof C4DLeftNav;
 
         // TODO: remove this logic once masthead can account for banners.
         // remove set position from mastead when left-nav is closed for cloud-mastead
@@ -293,15 +293,15 @@ class DDSLeftNav extends StableSelectorMixin(CDSSideNav) {
 
         this.querySelectorAll(selectorMenuSections).forEach(
           (ddsLeftNavMenuSection) => {
-            (ddsLeftNavMenuSection as DDSLeftNavMenuSection).expanded = false;
-            (ddsLeftNavMenuSection as DDSLeftNavMenuSection).transition = false;
+            (ddsLeftNavMenuSection as C4DLeftNavMenuSection).expanded = false;
+            (ddsLeftNavMenuSection as C4DLeftNavMenuSection).transition = false;
           }
         );
 
         // reset to first menu section
         this.querySelectorAll(selectorFirstMenuSection).forEach(
           (ddsLeftNavMenuSection) => {
-            (ddsLeftNavMenuSection as DDSLeftNavMenuSection).expanded = true;
+            (ddsLeftNavMenuSection as C4DLeftNavMenuSection).expanded = true;
           }
         );
 
@@ -341,7 +341,7 @@ class DDSLeftNav extends StableSelectorMixin(CDSSideNav) {
    * A selector that will return the toggle buttons.
    */
   static get selectorButtonToggle() {
-    return `${ddsPrefix}-masthead-menu-button`;
+    return `${c4dPrefix}-masthead-menu-button`;
   }
 
   /**
@@ -349,10 +349,10 @@ class DDSLeftNav extends StableSelectorMixin(CDSSideNav) {
    */
   static get selectorNavItems() {
     return [
-      `${ddsPrefix}-left-nav-item`,
-      `${ddsPrefix}-left-nav-menu`,
-      `${ddsPrefix}-left-nav-menu-item`,
-      `${ddsPrefix}-left-nav-name`,
+      `${c4dPrefix}-left-nav-item`,
+      `${c4dPrefix}-left-nav-menu`,
+      `${c4dPrefix}-left-nav-menu-item`,
+      `${c4dPrefix}-left-nav-name`,
     ].join(', ');
   }
 
@@ -360,21 +360,21 @@ class DDSLeftNav extends StableSelectorMixin(CDSSideNav) {
    * A selector that will return menu sections.
    */
   static get selectorMenuSections() {
-    return `${ddsPrefix}-left-nav-menu-section`;
+    return `${c4dPrefix}-left-nav-menu-section`;
   }
 
   /**
    * A selector that will return expanded menu section.
    */
   static get selectorExpandedMenuSection() {
-    return `${ddsPrefix}-left-nav-menu-section[expanded]`;
+    return `${c4dPrefix}-left-nav-menu-section[expanded]`;
   }
 
   /**
    * A selector that will return first main visible menu section.
    */
   static get selectorFirstMenuSection() {
-    return `${ddsPrefix}-left-nav-menu-section[section-id='-1, -1']`;
+    return `${c4dPrefix}-left-nav-menu-section[section-id='-1, -1']`;
   }
 
   /**
@@ -383,10 +383,10 @@ class DDSLeftNav extends StableSelectorMixin(CDSSideNav) {
   static get selectorTabbable() {
     return [
       selectorTabbable,
-      `${ddsPrefix}-left-nav-item`,
-      `${ddsPrefix}-left-nav-menu`,
-      `${ddsPrefix}-left-nav-menu-item`,
-      `${ddsPrefix}-left-nav-name`,
+      `${c4dPrefix}-left-nav-item`,
+      `${c4dPrefix}-left-nav-menu`,
+      `${c4dPrefix}-left-nav-menu-item`,
+      `${c4dPrefix}-left-nav-name`,
     ].join(', ');
   }
 
@@ -394,21 +394,21 @@ class DDSLeftNav extends StableSelectorMixin(CDSSideNav) {
    * A selector that will return the overlays.
    */
   static get selectorOverlay() {
-    return `${ddsPrefix}-left-nav-overlay`;
+    return `${c4dPrefix}-left-nav-overlay`;
   }
 
   static get stableSelector() {
-    return `${ddsPrefix}--masthead__l0-sidenav`;
+    return `${c4dPrefix}--masthead__l0-sidenav`;
   }
 
   /**
    * The name of the custom event fired after this side nav menu is toggled upon a user gesture.
    */
   static get eventToggle() {
-    return `${ddsPrefix}-left-nav-menu-toggled`;
+    return `${c4dPrefix}-left-nav-menu-toggled`;
   }
 
   static styles = styles; // `styles` here is a `CSSResult` generated by custom WebPack loader
 }
 
-export default DDSLeftNav;
+export default C4DLeftNav;

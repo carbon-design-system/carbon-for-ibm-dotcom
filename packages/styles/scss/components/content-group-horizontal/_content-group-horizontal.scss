@@ -10,7 +10,7 @@
 @use '../content-block-horizontal';
 
 @mixin content-group-horizontal {
-  :host(#{$dds-prefix}-content-group-horizontal) ::slotted([slot='heading']),
+  :host(#{$c4d-prefix}-content-group-horizontal) ::slotted([slot='heading']),
   .#{$prefix}--content-group-horizontal .#{$prefix}--content-block__heading {
     margin-bottom: $spacing-10;
     @include breakpoint(lg) {
@@ -18,7 +18,7 @@
     }
   }
 
-  :host(#{$dds-prefix}-content-item-horizontal):last-child,
+  :host(#{$c4d-prefix}-content-item-horizontal):last-child,
   .#{$prefix}--content-group-horizontal
     .#{$prefix}--content-item-horizontal__item:last-child {
     @include breakpoint(max) {

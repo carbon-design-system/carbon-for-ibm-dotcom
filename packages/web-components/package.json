@@ -51,7 +51,7 @@
     "build:dist": "gulp build:dist",
     "build:sass:cdn": "gulp build:sass:cdn",
     "build-storybook": "cross-env NODE_OPTIONS=--openssl-legacy-provider build-storybook",
-    "build-storybook:experimental": "cross-env NODE_OPTIONS=--openssl-legacy-provider DDS_FLAGS_ALL=true build-storybook -o storybook-static-experimental",
+    "build-storybook:experimental": "cross-env NODE_OPTIONS=--openssl-legacy-provider C4D_FLAGS_ALL=true build-storybook -o storybook-static-experimental",
     "build-storybook:react": "gulp build:modules:react && node --openssl-legacy-provider --max-old-space-size=8192 node_modules/@storybook/react/bin/build.js -c .storybook/react -o storybook-static-react",
     "build-storybook:rtl": "cross-env NODE_OPTIONS=--openssl-legacy-provider STORYBOOK_USE_RTL=true build-storybook -o storybook-static-rtl",
     "ci-check": "yarn wca && yarn typecheck && yarn build && yarn test:unit",

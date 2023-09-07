@@ -10,18 +10,18 @@
 import { property } from 'lit/decorators.js';
 import settings from '../../internal/vendor/@carbon/ibmdotcom-utilities/utilities/settings/settings';
 import { carbonElement as customElement } from '../../internal/vendor/@carbon/web-components/globals/decorators/carbon-element';
-import DDSCard from '../card/card';
+import C4DCard from '../card/card';
 import styles from './card-group.scss';
 
-const { stablePrefix: ddsPrefix } = settings;
+const { stablePrefix: c4dPrefix } = settings;
 
 /**
  * Card Group item.
  *
- * @element dds-card-group-item
+ * @element c4d-card-group-item
  */
-@customElement(`${ddsPrefix}-card-group-item`)
-class DDSCardGroupItem extends DDSCard {
+@customElement(`${c4dPrefix}-card-group-item`)
+class C4DCardGroupItem extends C4DCard {
   /**
    * `true` if the card group is using border.
    */
@@ -35,7 +35,7 @@ class DDSCardGroupItem extends DDSCard {
   empty = false;
 
   static get stableSelector() {
-    return `${ddsPrefix}--card-group-item`;
+    return `${c4dPrefix}--card-group-item`;
   }
 
   updated(changedProperties) {
@@ -43,7 +43,7 @@ class DDSCardGroupItem extends DDSCard {
 
     if (changedProperties.has('ctaType')) {
       this.shadowRoot
-        ?.querySelector('dds-image')
+        ?.querySelector('c4d-image')
         ?.setAttribute('card-group-item', '');
     }
   }
@@ -52,11 +52,11 @@ class DDSCardGroupItem extends DDSCard {
    * A selector that will return the child footer.
    */
   static get selectorFooter() {
-    return `${ddsPrefix}-card-footer`;
+    return `${c4dPrefix}-card-footer`;
   }
 
   static styles = styles;
 }
 
 /* @__GENERATE_REACT_CUSTOM_ELEMENT_TYPE__ */
-export default DDSCardGroupItem;
+export default C4DCardGroupItem;

@@ -7,11 +7,11 @@
 
 'use strict';
 
-describe('dds-universal-banner', () => {
-  it('should load the default dds-universal-banner example', () => {
+describe('cds-universal-banner', () => {
+  it('should load the default cds-universal-banner example', () => {
     cy.visit('/universal-banner');
 
     // Take a snapshot for visual diffing
-    cy.percySnapshot('dds-universal-banner | default');
+    cy.percySnapshot('cds-universal-banner | default');
   });
 });

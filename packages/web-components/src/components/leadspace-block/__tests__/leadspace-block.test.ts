@@ -21,13 +21,13 @@ const WithVideoTemplate = (props?) =>
     LeadSpaceBlock: props,
   });
 
-describe('dds-leadspace-block', function () {
+describe('c4d-leadspace-block', function () {
   describe('Misc attributes - Default', function () {
     it('should render with minimum attributes', async function () {
       render(DefaultTemplate(), document.body);
-      await Promise.resolve(); // Update cycle for `<dds-leadspace-block>`
+      await Promise.resolve(); // Update cycle for `<c4d-leadspace-block>`
       expect(
-        document.body.querySelector('dds-leadspace-block')
+        document.body.querySelector('c4d-leadspace-block')
       ).toMatchSnapshot({ mode: 'shadow' });
     });
 
@@ -40,9 +40,9 @@ describe('dds-leadspace-block', function () {
         }),
         document.body
       );
-      await Promise.resolve(); // Update cycle for `<dds-leadspace-block>`
+      await Promise.resolve(); // Update cycle for `<c4d-leadspace-block>`
       expect(
-        document.body.querySelector('dds-leadspace-block')
+        document.body.querySelector('c4d-leadspace-block')
       ).toMatchSnapshot({ mode: 'shadow' });
     });
   });
@@ -50,9 +50,9 @@ describe('dds-leadspace-block', function () {
   describe('Misc attributes - WithVideo', function () {
     it('should render with minimum attributes', async function () {
       render(WithVideoTemplate(), document.body);
-      await Promise.resolve(); // Update cycle for `<dds-leadspace-block>`
+      await Promise.resolve(); // Update cycle for `<c4d-leadspace-block>`
       expect(
-        document.body.querySelector('dds-leadspace-block')
+        document.body.querySelector('c4d-leadspace-block')
       ).toMatchSnapshot({ mode: 'shadow' });
     });
 
@@ -65,9 +65,9 @@ describe('dds-leadspace-block', function () {
         }),
         document.body
       );
-      await Promise.resolve(); // Update cycle for `<dds-leadspace-block>`
+      await Promise.resolve(); // Update cycle for `<c4d-leadspace-block>`
       expect(
-        document.body.querySelector('dds-leadspace-block')
+        document.body.querySelector('c4d-leadspace-block')
       ).toMatchSnapshot({ mode: 'shadow' });
     });
   });

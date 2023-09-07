@@ -9,9 +9,9 @@
 
 import React from 'react';
 import { render } from 'react-dom';
-import DDSCardLinkCTA from '@carbon/ibmdotcom-web-components/es/components-react/cta/card-link-cta';
-import DDSCardLinkHeading from '@carbon/ibmdotcom-web-components/es/components-react/card-link/card-link-heading';
-import DDSCardCTAFooter from '@carbon/ibmdotcom-web-components/es/components-react/cta/card-cta-footer';
+import C4DCardLinkCTA from '@carbon/ibmdotcom-web-components/es/components-react/cta/card-link-cta';
+import C4DCardLinkHeading from '@carbon/ibmdotcom-web-components/es/components-react/card-link/card-link-heading';
+import C4DCardCTAFooter from '@carbon/ibmdotcom-web-components/es/components-react/cta/card-cta-footer';
 import ArrowRight20 from '@carbon/icons-react/es/arrow--right/20.js';
 import './index.css';
 
@@ -19,12 +19,12 @@ const App = () => (
   <div className="bx--grid">
     <div className="bx--row">
       <div className="bx--col-sm-4 bx--col-lg-4 bx--no-gutter">
-        <DDSCardLinkCTA cta-type="local" href="https://www.example.com">
-          <DDSCardLinkHeading>Card link heading</DDSCardLinkHeading>
-          <DDSCardCTAFooter>
+        <C4DCardLinkCTA cta-type="local" href="https://www.example.com">
+          <C4DCardLinkHeading>Card link heading</C4DCardLinkHeading>
+          <C4DCardCTAFooter>
             <ArrowRight20 slot="icon" />
-          </DDSCardCTAFooter>
-        </DDSCardLinkCTA>
+          </C4DCardCTAFooter>
+        </C4DCardLinkCTA>
       </div>
     </div>
   </div>

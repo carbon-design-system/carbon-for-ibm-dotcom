@@ -21,23 +21,23 @@ const template = (props?) => {
     children,
   } = props ?? {};
   return html`
-    <dds-card-cta-footer
+    <c4d-card-cta-footer
       cta-type="${ifDefined(ctaType)}"
       video-duration="${ifDefined(videoDuration)}"
       .formatVideoCaption="${ifDefined(formatVideoCaption)}"
       .formatVideoDuration="${ifDefined(formatVideoDuration)}">
       ${children}
-    </dds-card-cta-footer>
+    </c4d-card-cta-footer>
   `;
 };
 
-describe('dds-card-cta-footer', function () {
+describe('c4d-card-cta-footer', function () {
   describe('Misc attributes', function () {
     it('should render with minimum attributes', async function () {
       render(template(), document.body);
       await Promise.resolve();
       expect(
-        document.body.querySelector('dds-card-cta-footer')
+        document.body.querySelector('c4d-card-cta-footer')
       ).toMatchSnapshot({ mode: 'shadow' });
     });
 
@@ -55,7 +55,7 @@ describe('dds-card-cta-footer', function () {
       );
       await Promise.resolve();
       expect(
-        document.body.querySelector('dds-card-cta-footer')
+        document.body.querySelector('c4d-card-cta-footer')
       ).toMatchSnapshot({ mode: 'shadow' });
     });
   });
@@ -76,7 +76,7 @@ describe('dds-card-cta-footer', function () {
       await Promise.resolve(); // Update cycle for rendering upon `slotchange` event
       expect(
         document.body
-          .querySelector('dds-card-cta-footer')!
+          .querySelector('c4d-card-cta-footer')!
           .shadowRoot!.querySelector('.cds--card__cta__copy')!
           .textContent!.trim()
       ).toBe('');

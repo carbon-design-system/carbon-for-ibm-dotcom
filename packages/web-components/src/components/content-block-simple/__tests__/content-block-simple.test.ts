@@ -15,20 +15,20 @@ import '../content-block-simple';
 const template = (props?) => {
   const { complementaryStyleScheme, children } = props ?? {};
   return html`
-    <dds-content-block-simple
+    <c4d-content-block-simple
       complementary-style-scheme="${ifDefined(complementaryStyleScheme)}">
       ${children}
-    </dds-content-block-simple>
+    </c4d-content-block-simple>
   `;
 };
 
-describe('dds-content-block-simple', function () {
+describe('c4d-content-block-simple', function () {
   describe('Misc attributes', function () {
     it('should render with minimum attributes', async function () {
       render(template(), document.body);
       await Promise.resolve();
       expect(
-        document.body.querySelector('dds-content-block-simple')
+        document.body.querySelector('c4d-content-block-simple')
       ).toMatchSnapshot({ mode: 'shadow' });
     });
 
@@ -41,11 +41,11 @@ describe('dds-content-block-simple', function () {
         }),
         document.body
       );
-      await Promise.resolve(); // The update cycle of `<dds-content-block-simple>`
+      await Promise.resolve(); // The update cycle of `<c4d-content-block-simple>`
       await Promise.resolve(); // The update cycle that fires `slotchange` event
       await Promise.resolve(); // The update cycle that updates content upon `slotchange` event
       expect(
-        document.body.querySelector('dds-content-block-simple')
+        document.body.querySelector('c4d-content-block-simple')
       ).toMatchSnapshot({ mode: 'shadow' });
     });
   });

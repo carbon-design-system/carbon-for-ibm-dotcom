@@ -23,12 +23,12 @@
 }
 
 /* stylelint-disable-next-line selector-type-no-unknown */
-dds-leadspace {
+cds-leadspace {
   @include theme($g100, true);
 }
 
 /* stylelint-disable-next-line selector-type-no-unknown */
-dds-cta-section {
+cds-cta-section {
   @include theme($g10, true);
 
   background-color: $background;

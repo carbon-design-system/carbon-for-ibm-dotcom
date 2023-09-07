@@ -19,8 +19,8 @@ LICENSE file in the root directory of this source tree.
       import 'https://1.www.s81c.com/common/carbon-for-ibm-dotcom/tag/v1/latest/dotcom-shell.min.js';
 
       document.addEventListener('click', event => {
-        if (event.target.matches('dds-locale-button')) {
-          document.querySelector('dds-locale-modal').open = true;
+        if (event.target.matches('cds-locale-button')) {
+          document.querySelector('cds-locale-modal').open = true;
         }
       });
     </script>
@@ -83,46 +83,46 @@ LICENSE file in the root directory of this source tree.
     </style>
   </head>
   <body>
-    <dds-masthead>
-      <dds-masthead-menu-button></dds-masthead-menu-button>
-      <dds-masthead-logo></dds-masthead-logo>
-      <dds-top-nav menu-bar-label="IBM [Platform]">
+    <cds-masthead>
+      <cds-masthead-menu-button></cds-masthead-menu-button>
+      <cds-masthead-logo></cds-masthead-logo>
+      <cds-top-nav menu-bar-label="IBM [Platform]">
         {{#each navLinks}}
           {{#if menuItems}}
-            <dds-top-nav-menu menu-label="{{title}}" trigger-content="{{title}}">
+            <cds-top-nav-menu menu-label="{{title}}" trigger-content="{{title}}">
               {{#each menuItems}}
-                <dds-top-nav-menu-item href="{{url}}" title="{{title}}"></dds-top-nav-menu-item>
+                <cds-top-nav-menu-item href="{{url}}" title="{{title}}"></cds-top-nav-menu-item>
               {{/each}}
-            </dds-top-nav-menu>
+            </cds-top-nav-menu>
           {{else}}
-            <dds-top-nav-item href="{{url}}" title="{{title}}"></dds-top-nav-item>
+            <cds-top-nav-item href="{{url}}" title="{{title}}"></cds-top-nav-item>
           {{/if}}
         {{/each}}
-      </dds-top-nav>
-      <dds-masthead-search-container></dds-masthead-search-container>
-      <dds-masthead-global-bar>
-        <dds-masthead-profile authenticated>
+      </cds-top-nav>
+      <cds-masthead-search-container></cds-masthead-search-container>
+      <cds-masthead-global-bar>
+        <cds-masthead-profile authenticated>
           {{#each profileItems}}
-            <dds-masthead-profile-item href="{{href}}">{{title}}</dds-masthead-profile-item>
+            <cds-masthead-profile-item href="{{href}}">{{title}}</cds-masthead-profile-item>
           {{/each}}
-        </dds-masthead-profile>
-      </dds-masthead-global-bar>
-      <dds-left-nav-overlay></dds-left-nav-overlay>
-      <dds-left-nav menu-bar-label="IBM [Platform]">
+        </cds-masthead-profile>
+      </cds-masthead-global-bar>
+      <cds-left-nav-overlay></cds-left-nav-overlay>
+      <cds-left-nav menu-bar-label="IBM [Platform]">
         {{#each navLinks}}
           {{#if menuItems}}
-            <dds-left-nav-menu title="{{title}}">
+            <cds-left-nav-menu title="{{title}}">
               {{#each menuItems}}
-                <dds-left-nav-menu-item href="{{url}}" title="{{title}}"></dds-left-nav-menu-item>
+                <cds-left-nav-menu-item href="{{url}}" title="{{title}}"></cds-left-nav-menu-item>
               {{/each}}
-            </dds-left-nav-menu>
+            </cds-left-nav-menu>
           {{else}}
-            <dds-left-nav-item href="{{url}}" title="{{title}}"></dds-left-nav-item>
+            <cds-left-nav-item href="{{url}}" title="{{title}}"></cds-left-nav-item>
           {{/if}}
         {{/each}}
-      </dds-left-nav>
-    </dds-masthead>
-    <main class="bx--content dds-ce-demo--ui-shell-content">
+      </cds-left-nav>
+    </cds-masthead>
+    <main class="bx--content cds-ce-demo--ui-shell-content">
       <div class="bx--grid">
         <div class="bx--row">
           <div class="bx--col-lg-13">
@@ -167,40 +167,40 @@ LICENSE file in the root directory of this source tree.
         </div>
       </div>
     </main>
-    <dds-footer>
-      <dds-footer-logo slot="brand"></dds-footer-logo>
-      <dds-footer-nav>
+    <cds-footer>
+      <cds-footer-logo slot="brand"></cds-footer-logo>
+      <cds-footer-nav>
         {{#each footerLinks}}
-          <dds-footer-nav-group title-text="{{title}}">
+          <cds-footer-nav-group title-text="{{title}}">
             {{#each links}}
-              <dds-footer-nav-item href="{{url}}">{{title}}</dds-footer-nav-item>
+              <cds-footer-nav-item href="{{url}}">{{title}}</cds-footer-nav-item>
             {{/each}}
-          </dds-footer-nav-group>
+          </cds-footer-nav-group>
         {{/each}}
-      </dds-footer-nav>
-      <dds-locale-button slot="locale-button">{{langDisplay}}</dds-locale-button>
-      <dds-legal-nav slot="legal-nav">
+      </cds-footer-nav>
+      <cds-locale-button slot="locale-button">{{langDisplay}}</cds-locale-button>
+      <cds-legal-nav slot="legal-nav">
         {{#each legalLinks}}
-          <dds-legal-nav-item href="{{url}}">{{title}}</dds-legal-nav-item>
+          <cds-legal-nav-item href="{{url}}">{{title}}</cds-legal-nav-item>
         {{/each}}
-        <dds-legal-nav-cookie-preferences-placeholder></dds-legal-nav-cookie-preferences-placeholder>
-      </dds-legal-nav>
-    </dds-footer>
-    <dds-locale-modal
+        <cds-legal-nav-cookie-preferences-placeholder></cds-legal-nav-cookie-preferences-placeholder>
+      </cds-legal-nav>
+    </cds-footer>
+    <cds-locale-modal
       close-button-assistive-text="{{localeModal.modalClose}}"
       header-title="{{localeModal.headerTitle}}"
       lang-display="{{langDisplay}}"
     >
-      <dds-regions>
+      <cds-regions>
         {{#each regionList}}
           {{#if countryList}}
-            <dds-region-item name="{{name}}"></dds-region-item>
+            <cds-region-item name="{{name}}"></cds-region-item>
           {{else}}
-            <dds-region-item invalid name="{{name}}"></dds-region-item>
+            <cds-region-item invalid name="{{name}}"></cds-region-item>
           {{/if}}
         {{/each}}
-      </dds-regions>
-      <dds-locale-search
+      </cds-regions>
+      <cds-locale-search
         close-button-assistive-text="{{localeModal.searchClearText}}"
         label-text="{{localeModal.searchLabel}}"
         placeholder="{{localeModal.searchPlaceholder}}"
@@ -208,10 +208,10 @@ LICENSE file in the root directory of this source tree.
         unavailability-label-text="{{localeModal.unavailabilityText}}"
       >
         {{#each allCountryList}}
-          <dds-locale-item country="{{country}}" href="{{href}}" language="{{language}}" locale="{{locale}}" region="{{region}}">
-          </dds-locale-item>
+          <cds-locale-item country="{{country}}" href="{{href}}" language="{{language}}" locale="{{locale}}" region="{{region}}">
+          </cds-locale-item>
         {{/each}}
-      </dds-locale-search>
-    </dds-locale-modal>
+      </cds-locale-search>
+    </cds-locale-modal>
   </body>
 </html>

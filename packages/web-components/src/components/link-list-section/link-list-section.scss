@@ -11,7 +11,7 @@
 @use '@carbon/ibmdotcom-styles/scss/globals/utils/flex-grid' as *;
 @use '@carbon/ibmdotcom-styles/scss/globals/vars' as *;
 
-:host(#{$dds-prefix}-link-list-section) {
+:host(#{$c4d-prefix}-link-list-section) {
   display: block;
 
   .#{$prefix}--content-section__left {
@@ -26,7 +26,7 @@
     }
   }
 
-  ::slotted(#{$dds-prefix}-content-section-heading) {
+  ::slotted(#{$c4d-prefix}-content-section-heading) {
     margin-bottom: 0;
   }
 }

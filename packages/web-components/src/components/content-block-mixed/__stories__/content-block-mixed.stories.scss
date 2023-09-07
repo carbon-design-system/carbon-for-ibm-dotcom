@@ -8,6 +8,6 @@
 @use '@carbon/styles/scss/theme' as *;
 
 /* stylelint-disable-next-line selector-type-no-unknown */
-dds-pictogram-item svg g {
+cds-pictogram-item svg g {
   stroke: $text-primary;
 }

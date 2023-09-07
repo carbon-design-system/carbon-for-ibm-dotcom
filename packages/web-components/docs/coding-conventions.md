@@ -124,7 +124,7 @@ import Handle from '../../globals/internal/handle';
 
 ...
 
-@customElement(`${ddsPrefix}-some-component`)
+@customElement(`${c4dPrefix}-some-component`)
 class SomeComponent extends LitElement {
   ...
 
@@ -141,7 +141,7 @@ class SomeComponent extends LitElement {
 
   connectedCallback() {
     super.connectedCallback();
-    const { mediaStickExpanded } = this.constructor as typeof DDSFooterNavGroup;
+    const { mediaStickExpanded } = this.constructor as typeof C4DFooterNavGroup;
     // `.matchMedia()` returns an event target
     const mediaQueryList = this.ownerDocument!.defaultView!.matchMedia(mediaStickExpanded);
     this._hChangeMediaQuery = on(mediaQueryList, 'change', this._handleChangeMediaQuery);
@@ -298,25 +298,25 @@ One of the greatest things about Web Components is that component's implementati
 
 ### Strive to avoid accessing shadow DOM nodes of other components
 
-Given we are using [`open` mode for Shadow DOM](https://developer.mozilla.org/en-US/docs/Web/Web_Components/Using_shadow_DOM#Basic_usage), access to shadow DOM content won't be prohibited and it's sometime temptative to access shadow DOM nodes of a component from another component, like in `<dds-masthead-menu-button>`:
+Given we are using [`open` mode for Shadow DOM](https://developer.mozilla.org/en-US/docs/Web/Web_Components/Using_shadow_DOM#Basic_usage), access to shadow DOM content won't be prohibited and it's sometime temptative to access shadow DOM nodes of a component from another component, like in `<cds-masthead-menu-button>`:
 
 `masthead-menu-button.ts`:
 
 ```typescript
 // ❗️ Don't do this
 _handleClick(event: MouseEvent) {
-  // Grab `<dds-left-nav>`
-  const leftNav = document.querySelector('dds-left-nav');
+  // Grab `<cds-left-nav>`
+  const leftNav = document.querySelector('cds-left-nav');
   // Poke into inner DOM node in shadow DOM
-  const leftNavContentInShadowDOM = leftNav.shadowRoot.querySelector('.dds--left-nav__content');
+  const leftNavContentInShadowDOM = leftNav.shadowRoot.querySelector('.cds--left-nav__content');
   // Change the CSS class of inner DOM node
-  leftNavContentInShadowDOM.classList.togle('.dds--left-nav__content--shown');
+  leftNavContentInShadowDOM.classList.togle('.cds--left-nav__content--shown');
 }
 ```
 
-However, it means poking into `<dds-left-nav>`'s implementation details, in a similar manner to accessing `private` properties in a class. And thus when `<dds-left-nav>` removes `dds--left-nav__content` class from the content node (it's an implementation detail) `<dds-masthead-menu-button>` will be broken.
+However, it means poking into `<cds-left-nav>`'s implementation details, in a similar manner to accessing `private` properties in a class. And thus when `<cds-left-nav>` removes `cds--left-nav__content` class from the content node (it's an implementation detail) `<cds-masthead-menu-button>` will be broken.
 
-The first step to fix this problem is adding an API to `<dds-left-nav>` for adding/removing `dds--left-nav__content--shown` class. For example, we can introduce `active` property to do so:
+The first step to fix this problem is adding an API to `<cds-left-nav>` for adding/removing `cds--left-nav__content--shown` class. For example, we can introduce `active` property to do so:
 
 `left-nav.ts`:
 
@@ -327,8 +327,8 @@ active = false;
 render() {
   const { active } = this;
   const classes = classMap({
-    [`${ddsPrefix}--left-nav__content`]: true,
-    [`${ddsPrefix}--left-nav__content__shown`]: active,
+    [`${c4dPrefix}--left-nav__content`]: true,
+    [`${c4dPrefix}--left-nav__content__shown`]: active,
   });
   return html`
     <div class="${classes}">
@@ -340,7 +340,7 @@ render() {
 
 ### Custom events
 
-Another step is adding an API to `<dds-masthead-menu-button>` that tells the user gesture of clicking and translating it to a meaning context to an application ("toggling" in this case):
+Another step is adding an API to `<cds-masthead-menu-button>` that tells the user gesture of clicking and translating it to a meaning context to an application ("toggling" in this case):
 
 `masthead-menu-button.ts`:
 
@@ -361,11 +361,11 @@ _handleClick(event: MouseEvent) {
 }
 
 static get eventToggle() {
-  return `${ddsPrefix}-masthead-menu-button-toggled`;
+  return `${c4dPrefix}-masthead-menu-button-toggled`;
 }
 ```
 
-Above code fires `dds-masthead-menu-button-toggled` custom event so that other components can see when user toggles the state of `<dds-masthead-menu-button>`. For example, `<dds-left-nav>` can listen to `dds-masthead-menu-button-toggled` event and reflect the new state from the event to `<dds-left-nav>`:
+Above code fires `cds-masthead-menu-button-toggled` custom event so that other components can see when user toggles the state of `<cds-masthead-menu-button>`. For example, `<cds-left-nav>` can listen to `cds-masthead-menu-button-toggled` event and reflect the new state from the event to `<cds-left-nav>`:
 
 `left-nav.ts`:
 
@@ -377,7 +377,7 @@ private _handleToggleMenuButton(event: CustomEvent) {
 }
 
 static get eventButtonToggle() {
-  return `${ddsPrefix}-header-menu-button-toggled`;
+  return `${c4dPrefix}-header-menu-button-toggled`;
 }
 ```
 
@@ -453,7 +453,7 @@ When we create a custom element that represents `<li class="bx--footer-nav-group
 
 ```typescript
 @customElement(`${ddsPreifx}-footer-nav-item`)
-class DDSFooterNavItem extends LitElement {
+class C4DFooterNavItem extends LitElement {
   ...
 
   render() {
@@ -470,22 +470,22 @@ class DDSFooterNavItem extends LitElement {
 }
 ```
 
-But if we do this, we end up creating a DOM tree like below, which means, creating `<dds-footer-nav-item>` as an element in addition to the `<li>`:
+But if we do this, we end up creating a DOM tree like below, which means, creating `<cds-footer-nav-item>` as an element in addition to the `<li>`:
 
 ```html
-<dds-footer-nav-item>
+<cds-footer-nav-item>
   #shadow-root
     <li class="bx--footer-nav-group__item">
       <a class="bx--footer-nav-group__link bx--footer__link" href="https://ibm.com/foo">
     </li>
-</dds-footer-nav-item>
+</cds-footer-nav-item>
 ```
 
 To solve such redundant DOM element, we do the following instead:
 
 ```typescript
 @customElement(`${ddsPreifx}-footer-nav-item`)
-class DDSFooterNavItem extends LitElement {
+class C4DFooterNavItem extends LitElement {
   ...
 
   connectedCallback() {
@@ -508,7 +508,7 @@ class DDSFooterNavItem extends LitElement {
 }
 ```
 
-> 💡 Make sure `:host(#{$ddsPrefix}-footer-nav-item)` the same CSS rules as `#{$prefix}--footer-nav-group__item` in the Sass code.
+> 💡 Make sure `:host(#{$c4dPrefix}-footer-nav-item)` the same CSS rules as `#{$prefix}--footer-nav-group__item` in the Sass code.
 
 > 💡 `<button>` and `<a>` are exceptions to this rule because there is no way to implement the same feature of those tags with a custom element.
 
@@ -535,7 +535,7 @@ That said, in `@carbon/ibmdotcom-web-components` codebase prefers class inherita
 To highlight this, here is an example of what a preferred inheritance pattern would be:
 
 ```typescript
-class DDSFoo extends DDSBar {
+class C4DFoo extends C4DBar {
   render() {
     return html`
       ${super.render()}(Some additional content)
@@ -547,11 +547,11 @@ class DDSFoo extends DDSBar {
 Whereas this would be a pattern to avoid:
 
 ```typescript
-class DDSFoo extends LitElement {
+class C4DFoo extends LitElement {
   render() {
     return html`
       // ❗️ Consider avoiding this
-      <dds-bar>...</dds-bar>
+      <cds-bar>...</cds-bar>
     `;
   }
 }
@@ -562,12 +562,12 @@ class DDSFoo extends LitElement {
 This repository limits the number of components that works with component data, from the following reasons:
 
 1. It's hard for users to figure out what the correct data structure to set to our components, even if we document it well. For example, an effort to test components with different data can easily cause data scheme validation errors, or (even worse) internal errors, if the component requires complex data structure to use.
-2. Native HTML elements, including custom elements, can handle only primitive data effectively via attributes. For example, `<dds-some-element complex-data="{ foo: { subFoo: 'sub-foo' } }">` is hard to read and has `JSON.parse()`/`JSON.stringify()` overhead. We can use an element property instead of an attribute in this particular case, but properties won't be shown explicitly in e.g. DOM inspectors.
+2. Native HTML elements, including custom elements, can handle only primitive data effectively via attributes. For example, `<cds-some-element complex-data="{ foo: { subFoo: 'sub-foo' } }">` is hard to read and has `JSON.parse()`/`JSON.stringify()` overhead. We can use an element property instead of an attribute in this particular case, but properties won't be shown explicitly in e.g. DOM inspectors.
 3. Modern templating engines do some sort of data comparisons to determine what portion of UI has to be re-rendered. If many components have to work with complex data, such comparison will be very costful.
 
 But there are certain kind of components that have to work with complex data, which is, ones that manage application-level states. This repository clearly separates such kind of components vs. one that purely represents user interface/interaction, using the following categorization:
 
-- **Container components**: Ones that manage application-level states and/or do data fetching/storing. The elements has `<dds-*-container>` naming rule. Container components may work with dedicated state manager like Redux (often recommended).
+- **Container components**: Ones that manage application-level states and/or do data fetching/storing. The elements has `<cds-*-container>` naming rule. Container components may work with dedicated state manager like Redux (often recommended).
 - **Leaf components**: Ones that represents user interface/interaction. Most of our components are in this category.
 
 ## Optimizing layout query

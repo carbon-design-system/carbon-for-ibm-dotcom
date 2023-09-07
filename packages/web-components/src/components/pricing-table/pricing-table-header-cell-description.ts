@@ -13,10 +13,10 @@ import StableSelectorMixin from '../../globals/mixins/stable-selector';
 import styles from './pricing-table.scss';
 import { carbonElement as customElement } from '../../internal/vendor/@carbon/web-components/globals/decorators/carbon-element';
 
-const { stablePrefix: ddsPrefix } = settings;
+const { stablePrefix: c4dPrefix } = settings;
 
-@customElement(`${ddsPrefix}-pricing-table-header-cell-description`)
-class DDSPricingTableHeaderCellDescription extends StableSelectorMixin(
+@customElement(`${c4dPrefix}-pricing-table-header-cell-description`)
+class C4DPricingTableHeaderCellDescription extends StableSelectorMixin(
   LitElement
 ) {
   render() {
@@ -24,10 +24,10 @@ class DDSPricingTableHeaderCellDescription extends StableSelectorMixin(
   }
 
   static get stableSelector() {
-    return `${ddsPrefix}--pricing-table-header-cell-description`;
+    return `${c4dPrefix}--pricing-table-header-cell-description`;
   }
 
   static styles = styles;
 }
 
-export default DDSPricingTableHeaderCellDescription;
+export default C4DPricingTableHeaderCellDescription;

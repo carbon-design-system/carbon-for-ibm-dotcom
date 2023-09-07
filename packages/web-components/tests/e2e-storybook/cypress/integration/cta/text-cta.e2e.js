@@ -35,7 +35,7 @@ const _paths = {
  * @type {string}
  * @private
  */
-const _selector = 'dds-cta';
+const _selector = 'cds-cta';
 
 /**
  * An array of test scenarios.
@@ -45,7 +45,7 @@ const _selector = 'dds-cta';
  */
 const _tests = createTests(_selector, _paths);
 
-describe('dds-cta | text (desktop)', () => {
+describe('cds-cta | text (desktop)', () => {
   beforeEach(() => {
     cy.visit(_path);
     cy.injectAxe();
@@ -55,7 +55,7 @@ describe('dds-cta | text (desktop)', () => {
   _tests.forEach(test => test());
 });
 
-describe('dds-cta | text (mobile)', () => {
+describe('cds-cta | text (mobile)', () => {
   beforeEach(() => {
     cy.visit(_path);
     cy.injectAxe();

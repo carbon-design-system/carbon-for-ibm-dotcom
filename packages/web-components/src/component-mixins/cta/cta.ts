@@ -30,7 +30,7 @@ import {
   formatVideoDuration,
 } from '../../internal/vendor/@carbon/ibmdotcom-utilities/utilities/formatVideoCaption/formatVideoCaption.js';
 
-const { prefix, stablePrefix: ddsPrefix } = settings;
+const { prefix, stablePrefix: c4dPrefix } = settings;
 
 /**
  * Icons to use, keyed by CTA type.
@@ -195,7 +195,7 @@ const CTAMixin = <T extends Constructor<HTMLElement>>(Base: T) => {
         <slot name="icon">
           <span class="${prefix}--visually-hidden">${ariaLabels[ctaType]}</span>
           ${icons[ctaType]?.({
-            class: `${prefix}--card__cta ${ddsPrefix}-ce--cta__icon`,
+            class: `${prefix}--card__cta ${c4dPrefix}-ce--cta__icon`,
           })}
         </slot>
       `;
@@ -338,14 +338,14 @@ const CTAMixin = <T extends Constructor<HTMLElement>>(Base: T) => {
      * The name of the custom event fired when there is a user gesture to run the action.
      */
     static get eventRequestVideoData() {
-      return `${ddsPrefix}-cta-request-video-data`;
+      return `${c4dPrefix}-cta-request-video-data`;
     }
 
     /**
      * The name of the custom event fired when there is a user gesture to run the action.
      */
     static get eventRunAction() {
-      return `${ddsPrefix}-cta-run-action`;
+      return `${c4dPrefix}-cta-run-action`;
     }
   }
 

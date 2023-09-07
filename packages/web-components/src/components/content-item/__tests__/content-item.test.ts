@@ -16,18 +16,18 @@ import '../content-item-copy';
 const template = (props?) => {
   const { colorScheme, children } = props ?? {};
   return html`
-    <dds-content-item color-scheme="${ifDefined(colorScheme)}">
+    <c4d-content-item color-scheme="${ifDefined(colorScheme)}">
       ${children}
-    </dds-content-item>
+    </c4d-content-item>
   `;
 };
 
-describe('dds-content-item', function () {
+describe('c4d-content-item', function () {
   describe('Misc attributes', function () {
     it('should render with minimum attributes', async function () {
       render(template(), document.body);
       await Promise.resolve();
-      expect(document.body.querySelector('dds-content-item')).toMatchSnapshot({
+      expect(document.body.querySelector('c4d-content-item')).toMatchSnapshot({
         mode: 'shadow',
       });
     });
@@ -37,20 +37,20 @@ describe('dds-content-item', function () {
         template({
           colorScheme: BASIC_COLOR_SCHEME.INVERSE,
           children: html`
-            <dds-video-player
+            <c4d-video-player
               slot="media"
               duration="90"
-              name="name-foo"></dds-video-player>
-            <dds-content-item-copy>copy-foo</dds-content-item-copy>
-            <dds-text-cta slot="footer" cta-type="local">copy-foo</dds-text-cta>
+              name="name-foo"></c4d-video-player>
+            <c4d-content-item-copy>copy-foo</c4d-content-item-copy>
+            <c4d-text-cta slot="footer" cta-type="local">copy-foo</c4d-text-cta>
           `,
         }),
         document.body
       );
-      await Promise.resolve(); // The update cycle of `<dds-content-item>`
+      await Promise.resolve(); // The update cycle of `<c4d-content-item>`
       await Promise.resolve(); // The update cycle that fires `slotchange` event
       await Promise.resolve(); // The update cycle that updates content upon `slotchange` event
-      expect(document.body.querySelector('dds-content-item')).toMatchSnapshot({
+      expect(document.body.querySelector('c4d-content-item')).toMatchSnapshot({
         mode: 'shadow',
       });
     });

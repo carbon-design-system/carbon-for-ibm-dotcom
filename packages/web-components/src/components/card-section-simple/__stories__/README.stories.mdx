@@ -3,17 +3,13 @@ import markdownContents from '../../../../docs/markdown-contents.md';
 import contributing from '../../../../../../docs/contributing-license.md';
 import { cdnJs, cdnCss } from '../../../globals/internal/storybook-cdn';
 
+# `<cds-card-section-simple>`
 
-
-
-
-# `<dds-card-section-simple>`
-
-> The Card Section - Simple pattern is a collection of cards presented in a section with a left-column header.
-> 💡 Check our
+> The Card Section - Simple pattern is a collection of cards presented in a
+> section with a left-column header. 💡 Check our
 > [CodeSandbox](https://githubbox.com/carbon-design-system/carbon-for-ibm-dotcom/tree/main/packages/web-components/examples/codesandbox/components/card-section-simple)
 > example implementation.
-[![Edit @carbon/ibmdotcom-web-components](https://codesandbox.io/static/img/play-codesandbox.svg)](https://githubbox.com/carbon-design-system/carbon-for-ibm-dotcom/tree/main/packages/web-components/examples/codesandbox/components/card-section-simple)
+> [![Edit @carbon/ibmdotcom-web-components](https://codesandbox.io/static/img/play-codesandbox.svg)](https://githubbox.com/carbon-design-system/carbon-for-ibm-dotcom/tree/main/packages/web-components/examples/codesandbox/components/card-section-simple)
 
 ## Getting started
 
@@ -32,50 +28,56 @@ import '@carbon/ibmdotcom-web-components/es/components/card-section-simple/index
 ### HTML
 
 ```html
-<dds-card-section-simple>
-  <dds-content-section-heading>Aliquam condimentum interdum</dds-content-section-heading>
-  <dds-card-group>
-    <dds-card-group-item href="https://example.com" cta-type="local">
-      <dds-card-heading>Nunc convallis lobortis</dds-card-heading>
+<cds-card-section-simple>
+  <cds-content-section-heading
+    >Aliquam condimentum interdum</cds-content-section-heading
+  >
+  <cds-card-group>
+    <cds-card-group-item href="https://example.com" cta-type="local">
+      <cds-card-heading>Nunc convallis lobortis</cds-card-heading>
       <p>
-        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean et ultricies est. Mauris iaculis eget dolor nec hendrerit.
-        Phasellus at elit sollicitudin, sodales nulla quis, consequat libero.
+        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean et
+        ultricies est. Mauris iaculis eget dolor nec hendrerit. Phasellus at
+        elit sollicitudin, sodales nulla quis, consequat libero.
       </p>
-      <dds-card-cta-footer slot="footer">
-      </dds-card-cta-footer>
-    </dds-card-group-item>
-  </dds-card-group>
-</dds-card-section-simple>
+      <cds-card-cta-footer slot="footer"> </cds-card-cta-footer>
+    </cds-card-group-item>
+  </cds-card-group>
+</cds-card-section-simple>
 ```
 
 ### HTML (with images)
 
 ```html
-<dds-card-section-simple heading="Aliquam condimentum interdum">
-  <dds-card-group>
-    <dds-card-group-item href="https://example.com" cta-type="local">
-      <dds-image slot="image" alt="Image alt text" default-src="https://dummyimage.com/1056x792/ee5396/161616&amp;text=4:3">
-      </dds-image>
-      <dds-card-eyebrow>Topic</dds-card-eyebrow>
-      <dds-card-heading>Natural Language Processing.</dds-card-heading>
-      <dds-card-cta-footer slot="footer">
-      </dds-card-cta-footer>
-    </dds-card-group-item>
-  </dds-card-group>
-</dds-card-section-simple>
+<cds-card-section-simple heading="Aliquam condimentum interdum">
+  <cds-card-group>
+    <cds-card-group-item href="https://example.com" cta-type="local">
+      <cds-image
+        slot="image"
+        alt="Image alt text"
+        default-src="https://dummyimage.com/1056x792/ee5396/161616&amp;text=4:3">
+      </cds-image>
+      <cds-card-eyebrow>Topic</cds-card-eyebrow>
+      <cds-card-heading>Natural Language Processing.</cds-card-heading>
+      <cds-card-cta-footer slot="footer"> </cds-card-cta-footer>
+    </cds-card-group-item>
+  </cds-card-group>
+</cds-card-section-simple>
 ```
 
 ## Props
 
-<Props of="dds-card-section-simple" />
+<Props of="cds-card-section-simple" />
 <Description markdown={markdownContents} />
 
 ## Stable selectors
 
-See [our README](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/tree/main/packages/web-components#stable-selectors-for-analytics-and-integratione2e-testing-in-web-components) to see how Web Components selector and `data-autoid` should be used.
+See
+[our README](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/tree/main/packages/web-components#stable-selectors-for-analytics-and-integratione2e-testing-in-web-components)
+to see how Web Components selector and `data-autoid` should be used.
 
-| Web Components selector       | Compatibility selector                    | Description |
-| ----------------------------- | ----------------------------------------- | ----------- |
-| `<dds-card-section-simple>`   | `data-autoid="dds--card-section-simple"`  | Component   |
+| Web Components selector     | Compatibility selector                   | Description |
+| --------------------------- | ---------------------------------------- | ----------- |
+| `<cds-card-section-simple>` | `data-autoid="cds--card-section-simple"` | Component   |
 
 <Description markdown={contributing} />

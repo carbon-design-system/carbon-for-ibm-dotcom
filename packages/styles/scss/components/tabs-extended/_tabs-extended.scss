@@ -22,8 +22,8 @@
 @use '@carbon/styles/scss/components/accordion';
 
 @mixin tabs-extended {
-  :host(#{$dds-prefix}-tabs-extended),
-  :host(#{$dds-prefix}-tabs-extended-media) {
+  :host(#{$c4d-prefix}-tabs-extended),
+  :host(#{$c4d-prefix}-tabs-extended-media) {
     .#{$prefix}--tabs {
       display: none;
 
@@ -209,8 +209,8 @@
   }
 
   @media print {
-    :host(#{$dds-prefix}-tabs-extended),
-    :host(#{$dds-prefix}-tabs-extended-media) {
+    :host(#{$c4d-prefix}-tabs-extended),
+    :host(#{$c4d-prefix}-tabs-extended-media) {
       .#{$prefix}--accordion__content {
         display: block;
       }

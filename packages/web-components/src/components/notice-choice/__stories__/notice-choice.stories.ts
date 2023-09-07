@@ -68,7 +68,7 @@ const props = () => ({
     'https://www.ibm.com/legal'
   ),
   bpidLegalText: text('BPID Legal Text', ''),
-  onChange: action('dds-notice-choice-change'),
+  onChange: action('c4d-notice-choice-change'),
 });
 
 export const Default = (args) => {
@@ -83,7 +83,7 @@ export const Default = (args) => {
     bpidLegalText,
   } = args?.NoticeChoice ?? {};
   return html`
-    <dds-notice-choice
+    <c4d-notice-choice
       locale="${locale}"
       country="${country}"
       question-choices="${questionchoices}"
@@ -92,7 +92,7 @@ export const Default = (args) => {
       terms-condition-link="${termsConditionLink}"
       ?enable-all-opt-in=${enableAllOptIn}
       bpid-legal-text="${bpidLegalText}"
-      @dds-notice-choice-change=${onChange}></dds-notice-choice>
+      @c4d-notice-choice-change=${onChange}></c4d-notice-choice>
   `;
 };
 
@@ -120,7 +120,7 @@ export default {
       default: {
         NoticeChoice: {
           'question-choices': [1, 2],
-          onChange: 'dds-notice-choice-change',
+          onChange: 'c4d-notice-choice-change',
         },
       },
     },

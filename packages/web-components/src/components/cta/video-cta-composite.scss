@@ -7,7 +7,7 @@
 
 @use '@carbon/ibmdotcom-styles/scss/globals/vars' as *;
 
-:host(#{$dds-prefix}-video-cta-composite),
-:host(#{$dds-prefix}-video-cta-container) {
+:host(#{$c4d-prefix}-video-cta-composite),
+:host(#{$c4d-prefix}-video-cta-container) {
   display: block;
 }

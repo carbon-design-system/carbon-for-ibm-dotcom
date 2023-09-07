@@ -548,7 +548,7 @@ module.exports = function generateCreateReactCustomElementType(
               import settings from "carbon-components/es/globals/js/settings.js";
               import ddsSettings from "@carbon/ibmdotcom-utilities/es/utilities/settings/settings.js";
               var prefix = settings.prefix;
-              var ddsPrefix = ddsSettings.stablePrefix;
+              var c4dPrefix = ddsSettings.stablePrefix;
               export var descriptor = ${descriptorsWithParent};
               export var propTypes = ${propTypesWithParent};
               const Component = createReactCustomElementType(${context.customElementName}, descriptor);
