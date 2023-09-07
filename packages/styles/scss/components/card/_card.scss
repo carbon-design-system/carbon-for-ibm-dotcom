@@ -51,8 +51,8 @@
     padding: 0;
     transition: $duration-moderate-01 motion(standard, productive);
 
-    &:hover {
-      background-color: $background-hover;
+    .#{$prefix}-tile--clickable:hover {
+      background-color: $layer-hover-01;
       text-decoration: none;
 
       .#{$prefix}--card__wrapper {
@@ -97,7 +97,6 @@
       .#{$prefix}--tile--clickable {
         outline: $spacing-01 solid $focus;
         outline-offset: -#{$spacing-01};
-        border: none;
         position: relative;
         z-index: 2;
       }
@@ -847,8 +846,7 @@
     }
 
     &:hover {
-      ::slotted(svg[slot='icon']),
-      .#{$prefix}--card__cta__copy {
+      ::slotted(svg[slot='icon']) {
         color: $link-primary-hover;
       }
     }
