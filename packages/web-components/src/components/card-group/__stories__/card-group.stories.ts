@@ -401,6 +401,34 @@ withCardInCard.story = {
           tagGroup: false,
           gridMode: 'narrow',
           cards: 5,
+          cardsPerRow: 'dds-ce-demo-devenv--cards-in-row-3',
+        },
+      },
+    },
+  },
+};
+
+Default.story = {
+  name: 'With card in card',
+  parameters: {
+    ...readme.parameters,
+    hasStoryPadding: true,
+    knobs: {
+      CardGroup: () => ({
+        media: boolean('Add media:', false),
+        tagGroup: boolean('Add tags:', false),
+        gridMode: select('Grid mode:', gridModes, GRID_MODE.NARROW),
+        cards: number('Number of cards', 5, { min: 2, max: 6 }),
+      }),
+    },
+    propsSet: {
+      default: {
+        CardGroup: {
+          media: false,
+          tagGroup: false,
+          gridMode: 'narrow',
+          cards: 5,
+          cardsPerRow: 'dds-ce-demo-devenv--cards-in-row-3',
         },
       },
     },
