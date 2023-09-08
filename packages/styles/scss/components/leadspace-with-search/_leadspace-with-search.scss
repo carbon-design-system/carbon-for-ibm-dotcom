@@ -355,7 +355,7 @@
   }
 
   :host(#{$c4d-prefix}-leadspace-with-search-content-heading) {
-    @extend :host(#{$dds-prefix}-content-block-heading);
+    @extend :host(#{$c4d-prefix}-content-block-heading);
 
     @include breakpoint-down(lg) {
       display: block;

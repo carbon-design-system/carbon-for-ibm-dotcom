@@ -16,13 +16,13 @@
   :host(#{$c4d-prefix}-content-block-horizontal),
   :host(#{$c4d-prefix}-content-group-horizontal) {
     margin-top: $layout-03;
-    margin-bottom: $carbon--layout-03;
+    margin-bottom: $layout-03;
 
-    @include carbon--breakpoint('md') {
+    @include breakpoint('md') {
       margin-bottom: $layout-03;
     }
 
-    @include carbon--breakpoint('lg') {
+    @include breakpoint('lg') {
       margin-top: $layout-05;
       margin-bottom: $layout-05;
     }
