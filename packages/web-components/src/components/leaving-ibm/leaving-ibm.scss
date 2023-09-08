@@ -18,11 +18,11 @@
 }
 
 :host(#{$c4d-prefix}-leaving-ibm-modal) {
-  // @extend :host(#{$prefix}-modal);
+  @extend :host(#{$prefix}-modal);
   max-height: 100%;
 
   &[open] {
-    // @extend :host(#{$prefix}-modal[open]);
+    @extend :host(#{$prefix}-modal[open]);
   }
 }
 
@@ -31,7 +31,7 @@
 }
 
 :host(#{$c4d-prefix}-leaving-ibm-modal-body) {
-  // @extend :host(#{$prefix}-modal-body);
+  @extend :host(#{$prefix}-modal-body);
   padding-right: 20%;
 
   ::slotted(#{$c4d-prefix}-leaving-ibm-modal-supplemental),
