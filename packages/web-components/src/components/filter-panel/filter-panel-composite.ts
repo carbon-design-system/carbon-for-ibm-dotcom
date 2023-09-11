@@ -62,15 +62,6 @@ class DDSFilterPanelComposite extends HostListenerMixin(
 
     if (!value) {
       this._selectedValues = this._selectedValues.filter((e) => e !== value);
-
-      if (!this._selectedValues.length) {
-        this.shadowRoot!.querySelector(
-          `${ddsPrefix}-filter-panel-modal`
-        )?.removeAttribute('has-selections');
-        this.shadowRoot!.querySelector(
-          `${ddsPrefix}-filter-panel`
-        )?.removeAttribute('has-selections');
-      }
       return;
     }
 
@@ -81,16 +72,6 @@ class DDSFilterPanelComposite extends HostListenerMixin(
     if (lastValue && this._selectedValues.includes(lastValue)) {
       this._selectedValues = this._selectedValues.filter(
         (e) => e !== lastValue
-      );
-    }
-    // enables the clear button
-    if (this._selectedValues) {
-      this.shadowRoot!.querySelector(
-        `${ddsPrefix}-filter-panel-modal`
-      )?.setAttribute('has-selections', '');
-      this.shadowRoot!.querySelector(`${ddsPrefix}-filter-panel`)?.setAttribute(
-        'has-selections',
-        ''
       );
     }
     this.renderStatus();
@@ -133,24 +114,6 @@ class DDSFilterPanelComposite extends HostListenerMixin(
       this._selectedValues.push(value);
     } else {
       this._selectedValues = this._selectedValues.filter((e) => e !== value);
-    }
-
-    // shows clear button depending on the list's length
-    if (!this._selectedValues.length) {
-      this.shadowRoot!.querySelector(
-        `${ddsPrefix}-filter-panel-modal`
-      )?.removeAttribute('has-selections');
-      this.shadowRoot!.querySelector(
-        `${ddsPrefix}-filter-panel`
-      )?.removeAttribute('has-selections');
-    } else {
-      this.shadowRoot!.querySelector(
-        `${ddsPrefix}-filter-panel-modal`
-      )?.setAttribute('has-selections', '');
-      this.shadowRoot!.querySelector(`${ddsPrefix}-filter-panel`)?.setAttribute(
-        'has-selections',
-        ''
-      );
     }
 
     this.renderStatus();
@@ -230,26 +193,6 @@ class DDSFilterPanelComposite extends HostListenerMixin(
         (e) => e !== headerValue
       );
     }
-
-    if (!this._selectedValues.length) {
-      this.shadowRoot!.querySelector(
-        `${ddsPrefix}-filter-panel-modal`
-      )?.removeAttribute('has-selections');
-      this.shadowRoot!.querySelector(
-        `${ddsPrefix}-filter-panel`
-      )?.removeAttribute('has-selections');
-    }
-
-    // enables the clear button
-    if (this._selectedValues.length > 0) {
-      this.shadowRoot!.querySelector(
-        `${ddsPrefix}-filter-panel-modal`
-      )?.setAttribute('has-selections', '');
-      this.shadowRoot!.querySelector(`${ddsPrefix}-filter-panel`)?.setAttribute(
-        'has-selections',
-        ''
-      );
-    }
     this.renderStatus();
   };
 
@@ -312,14 +255,6 @@ class DDSFilterPanelComposite extends HostListenerMixin(
         e.removeAttribute('selected');
         e.removeAttribute('is-open');
       });
-
-    // disables the button
-    this.shadowRoot!.querySelector(
-      `${ddsPrefix}-filter-panel-modal`
-    )?.removeAttribute('has-selections');
-    this.shadowRoot!.querySelector(
-      `${ddsPrefix}-filter-panel`
-    )?.removeAttribute('has-selections');
 
     this.renderStatus();
   };
@@ -414,11 +349,27 @@ class DDSFilterPanelComposite extends HostListenerMixin(
    * @param event The event.
    */
   protected _handleSlotChange({ target }: Event) {
-    this._contents = (target as HTMLSlotElement)
+    const contents = (this._contents = (target as HTMLSlotElement)
       .assignedNodes()
       .filter(
         (node) => node.nodeType !== Node.TEXT_NODE || node!.textContent!.trim()
+      ));
+    // Calculate initial this._selectedValues. Look at the first node, which is
+    // expected to be <dds-filter-group>.
+    if (contents[0] instanceof Element) {
+      const items = Array.from(
+        contents[0].querySelectorAll(
+          `${ddsPrefix}-filter-panel-checkbox[checked],
+            ${ddsPrefix}-filter-panel-input-select[selected],
+            ${ddsPrefix}-filter-panel-input-select-item[selected]`
+        )
       );
+      this._selectedValues = items
+        .map((item) => {
+          return item.getAttribute('value') ?? '';
+        })
+        .filter((item) => !!item);
+    }
   }
 
   protected renderStatus() {
@@ -445,12 +396,13 @@ class DDSFilterPanelComposite extends HostListenerMixin(
 
   /**
    * Renders original content into the modal and listens for changes to this
-   * content to then be stored in `this._content`.
+   * content to then be stored in `this._title` and `this._content`.
    */
   protected _renderModal = (): TemplateResult => html`
     <dds-filter-panel-modal
       ?open=${this.openFilterModal}
-      heading="${this._filterButtonTitle}">
+      heading="${this._filterButtonTitle}"
+      ?has-selections="${this._selectedValues.length}">
       <slot name="heading" @slotchange="${this._handleTitleSlotChange}"></slot>
       <slot @slotchange="${this._handleSlotChange}"></slot>
     </dds-filter-panel-modal>
@@ -460,7 +412,9 @@ class DDSFilterPanelComposite extends HostListenerMixin(
    * Renders copies of slotted elements into the desktop presentation.
    */
   protected _renderDesktop = (): TemplateResult => html`
-    <dds-filter-panel heading="${this._filterButtonTitle}">
+    <dds-filter-panel
+      heading="${this._filterButtonTitle}"
+      ?has-selections="${this._selectedValues.length}">
       ${this._title.map((e) => {
         return html` ${unsafeHTML((e as HTMLElement).outerHTML)} `;
       })}

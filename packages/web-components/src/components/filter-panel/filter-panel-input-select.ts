@@ -36,7 +36,7 @@ class DDSFilterPanelInputSelect extends FocusMixin(
   /**
    * Sets the input selected dropdown to closed
    */
-  @property({ attribute: 'is-open', type: Boolean })
+  @property({ attribute: 'is-open', type: Boolean, reflect: true })
   isOpen = false;
 
   /**
@@ -48,7 +48,7 @@ class DDSFilterPanelInputSelect extends FocusMixin(
   /**
    * sets the selected value attribute to selected
    */
-  @property({ attribute: 'selected', type: Boolean })
+  @property({ attribute: 'selected', type: Boolean, reflect: true })
   selected: boolean = false;
 
   /**
