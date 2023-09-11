@@ -1,5 +1,5 @@
 /**
- * Copyright IBM Corp. 2022
+ * Copyright IBM Corp. 2022, 2023
  *
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
@@ -113,7 +113,9 @@ describe('dds-filter-panel | (desktop)', () => {
   it('should only add view all button when enough filters are present', () => {
     let filterCount;
 
-    cy.visit(`${_path}&knob-Filter%20cutoff=1&knob-Max%20filters=1`)
+    cy.visit(
+      `${_path}&knob-Filter%20cutoff=1&knob-Max%20filters=1&knob-Number%20of%20selected%20items=0`
+    )
       .get(_selector)
       .shadow()
       .find('dds-filter-group-item')
@@ -125,8 +127,10 @@ describe('dds-filter-panel | (desktop)', () => {
       .click()
       .get('@filterGroupItem')
       .find('dds-filter-panel-checkbox')
-      .then(checkboxes => (filterCount = checkboxes.length));
-    cy.visit(`${_path}&knob-Max%20filters=${filterCount}`)
+      .then((checkboxes) => (filterCount = checkboxes.length));
+    cy.visit(
+      `${_path}&knob-Max%20filters=${filterCount}&knob-Number%20of%20selected%20items=0`
+    )
       .get(_selector)
       .shadow()
       .find('dds-filter-group-item')
@@ -278,7 +282,9 @@ describe('dds-filter-panel | (mobile)', () => {
   it('should only add view all button when enough filters are present', () => {
     let filterCount;
 
-    cy.visit(`${_path}&knob-Filter%20cutoff=1&knob-Max%20filters=1`)
+    cy.visit(
+      `${_path}&knob-Filter%20cutoff=1&knob-Max%20filters=1&knob-Number%20of%20selected%20items=0`
+    )
       .get(_selector)
       .find('.bx--filter-button')
       .click()
@@ -292,8 +298,10 @@ describe('dds-filter-panel | (mobile)', () => {
       .click()
       .get('@filterGroupItem')
       .find('dds-filter-panel-checkbox')
-      .then(checkboxes => (filterCount = checkboxes.length));
-    cy.visit(`${_path}&knob-Max%20filters=${filterCount}`)
+      .then((checkboxes) => (filterCount = checkboxes.length));
+    cy.visit(
+      `${_path}&knob-Max%20filters=${filterCount}&knob-Number%20of%20selected%20items=0`
+    )
       .get(_selector)
       .find('.bx--filter-button')
       .click()
