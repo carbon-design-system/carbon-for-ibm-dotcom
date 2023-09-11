@@ -10,6 +10,7 @@
 @use '@carbon/styles/scss/components/tooltip';
 @use '@carbon/styles/scss/components/ui-shell/side-nav';
 @use '@carbon/styles/scss/components/ui-shell/ui-shell';
+@use '@carbon/styles/scss/components/button/tokens' as *;
 @use '@carbon/styles/scss/config' as *;
 @use '@carbon/styles/scss/motion' as *;
 @use '@carbon/styles/scss/spacing' as *;
@@ -155,7 +156,7 @@
   white-space: nowrap;
 
   > svg {
-    fill: $icon-02;
+    fill: $icon-secondary;
   }
 
   &:hover {
@@ -164,21 +165,21 @@
   }
 
   &:active {
-    background-color: $selected-ui;
+    background-color: $background-selected;
   }
 
   &:active,
   &:hover {
-    color: $icon-01;
+    color: $icon-primary;
 
     > svg {
-      fill: $icon-01;
+      fill: $icon-primary;
     }
   }
 
   &:active,
   &:focus {
-    outline: 2px solid $interactive-01;
+    outline: 2px solid $button-primary;
     outline-offset: -2px;
   }
 }
@@ -212,7 +213,7 @@
     }
 
     &[has-l1] {
-      --dds-active-l0-border-color: #{$ui-03};
+      --dds-active-l0-border-color: #{$layer-accent-01};
     }
   }
 

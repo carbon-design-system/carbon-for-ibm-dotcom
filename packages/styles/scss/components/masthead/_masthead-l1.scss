@@ -5,6 +5,7 @@
  * LICENSE file in the root directory of this source tree.
  */
 
+@use '@carbon/styles/scss/components/button/tokens' as *;
 @use '@carbon/styles/scss/breakpoint' as *;
 @use '@carbon/styles/scss/config' as *;
 @use '@carbon/styles/scss/spacing' as *;
@@ -25,14 +26,14 @@ $search-transition-timing: 95ms;
 
 @mixin mobile-button-base {
   border: none;
-  border-bottom: 1px solid $ui-03;
+  border-bottom: 1px solid $layer-accent-01;
   text-decoration: none;
   display: flex;
   justify-content: space-between;
-  padding: $carbon--spacing-05;
+  padding: $spacing-05;
   width: 100%;
   min-height: $spacing-07;
-  gap: $carbon--spacing-06;
+  gap: $spacing-06;
 
   &:focus-visible {
     outline: $spacing-01 solid $focus;
@@ -61,27 +62,27 @@ $search-transition-timing: 95ms;
     --column-width: var(--page-width);
     --gutter-width: 1rem;
 
-    @include carbon--breakpoint(sm) {
+    @include breakpoint-up(sm) {
       --column-width: calc(var(--grid-width) / 4);
     }
 
-    @include carbon--breakpoint(md) {
+    @include breakpoint-up(md) {
       --grid-width: calc(var(--page-width) - 2rem);
       --column-width: calc(var(--grid-width) / 8);
     }
 
-    @include carbon--breakpoint(lg) {
+    @include breakpoint-up(lg) {
       --column-width: calc(var(--grid-width) / 16);
     }
 
-    @include carbon--breakpoint(max) {
+    @include breakpoint-up(max) {
       --grid-width: calc(99rem - 3rem);
     }
 
-    @include carbon--theme($carbon--theme--white, true);
+    @include theme($white, true);
 
     position: relative;
-    background-color: $ui-02;
+    background-color: $layer-02;
     transition-timing-function: $search-transition;
     overflow: visible;
   }
@@ -93,24 +94,24 @@ $search-transition-timing: 95ms;
     }
 
     .#{$prefix}--masthead__l1-title {
-      @include carbon--type-style(productive-heading-01);
+      @include type-style(productive-heading-01);
 
       background-color: transparent;
       border: none;
-      border-bottom: 1px solid $ui-03;
-      color: $text-01;
+      border-bottom: 1px solid $layer-accent-01;
+      color: $text-primary;
       display: flex;
       justify-content: space-between;
-      padding: $carbon--spacing-05;
+      padding: $spacing-05;
       width: 100%;
-      gap: $carbon--spacing-06;
+      gap: $spacing-06;
 
       &:hover {
         background-color: $background-hover;
       }
 
       &:active {
-        background-color: $active-ui;
+        background-color: $background-active;
       }
 
       &:active,
@@ -120,8 +121,8 @@ $search-transition-timing: 95ms;
       }
 
       &:disabled {
-        color: $disabled-02;
-        border-bottom-color: $disabled-02;
+        color: $text-disabled;
+        border-bottom-color: $border-disabled;
       }
 
       &[active] {
@@ -135,7 +136,7 @@ $search-transition-timing: 95ms;
       }
 
       svg {
-        color: $icon-01;
+        color: $icon-primary;
       }
     }
 
@@ -145,25 +146,25 @@ $search-transition-timing: 95ms;
       }
 
       // Height of viewport, minus the L0/L1 combo, minus additional space to match L0 megapanels
-      max-height: calc(100vh - 98px - #{$layout-05} - #{$spacing-09});
+      max-height: calc(100vh - 98px - #{$spacing-10} - #{$spacing-09});
       overflow-y: auto;
     }
 
     .#{$prefix}--masthead__l1-dropdown-item {
-      @include carbon--type-style(body-short-01);
+      @include type-style(body-short-01);
       @include mobile-button-base;
 
       background-color: transparent;
-      color: $text-02;
+      color: $text-secondary;
 
       &:hover {
-        background-color: $hover-ui;
-        color: $text-01;
+        background-color: $background-hover;
+        color: $text-primary;
       }
 
       &:active {
-        background-color: $active-ui;
-        color: $text-01;
+        background-color: $background-active;
+        color: $text-primary;
       }
 
       &:active,
@@ -173,8 +174,8 @@ $search-transition-timing: 95ms;
       }
 
       &:disabled {
-        color: $disabled-02;
-        border-bottom-color: $disabled-02;
+        color: $text-disabled;
+        border-bottom-color: $border-disabled;
       }
 
       &[active] {
@@ -192,17 +193,17 @@ $search-transition-timing: 95ms;
       }
 
       &.is-open {
-        background-color: $selected-ui;
-        color: $text-01;
+        background-color: $background-selected;
+        color: $text-primary;
 
         svg {
           transform: rotateX(180deg);
-          color: $icon-01;
+          color: $icon-primary;
         }
       }
 
       svg {
-        color: $icon-02;
+        color: $icon-secondary;
       }
     }
 
@@ -211,19 +212,19 @@ $search-transition-timing: 95ms;
         display: none;
       }
 
-      padding-bottom: $carbon--spacing-07;
-      border-bottom: 1px solid $ui-03;
+      padding-bottom: $spacing-07;
+      border-bottom: 1px solid $layer-accent-01;
 
       .#{$prefix}--masthead__l1-dropdown-item {
-        padding-block: $carbon--spacing-04;
-        padding-inline-start: $carbon--spacing-05;
-        padding-inline-end: $carbon--spacing-08;
+        padding-block: $spacing-04;
+        padding-inline-start: $spacing-05;
+        padding-inline-end: $spacing-08;
         border-bottom: none;
-        color: $text-02;
+        color: $text-secondary;
 
         &:hover,
         &:active {
-          color: $text-01;
+          color: $text-primary;
         }
       }
 
@@ -233,72 +234,72 @@ $search-transition-timing: 95ms;
     }
 
     .#{$prefix}--masthead__l1-dropdown-announcement {
-      @include carbon--type-style(body-short-01);
+      @include type-style(body-short-01);
 
-      margin: 0 $carbon--spacing-05 $carbon--spacing-05;
-      padding: $carbon--spacing-05 0;
-      border-bottom: 1px solid $ui-03;
+      margin: 0 $spacing-05 $spacing-05;
+      padding: $spacing-05 0;
+      border-bottom: 1px solid $layer-accent-01;
     }
 
     .#{$prefix}--masthead__l1-dropdown-heading {
-      @include carbon--type-style(productive-heading-01);
+      @include type-style(productive-heading-01);
 
-      color: $text-01;
+      color: $text-primary;
 
       // Headings that are not links.
       &.#{$prefix}--masthead__l1-dropdown-heading--no-link {
-        padding-block: $carbon--spacing-04;
-        padding-inline-start: $carbon--spacing-05;
-        padding-inline-end: $carbon--spacing-08;
+        padding-block: $spacing-04;
+        padding-inline-start: $spacing-05;
+        padding-inline-end: $spacing-08;
         width: 100%;
         min-height: $spacing-07;
       }
 
       .#{$prefix}--masthead__l1-dropdown-item {
-        @include carbon--type-style(productive-heading-01);
+        @include type-style(productive-heading-01);
 
         color: inherit;
         justify-content: flex-start;
-        padding-block: $carbon--spacing-04;
-        padding-inline-start: $carbon--spacing-05;
-        padding-inline-end: $carbon--spacing-08;
+        padding-block: $spacing-04;
+        padding-inline-start: $spacing-05;
+        padding-inline-end: $spacing-08;
         width: 100%;
         min-height: $spacing-07;
-        gap: $carbon--spacing-03;
+        gap: $spacing-03;
 
         svg {
-          fill: $icon-01;
+          fill: $icon-primary;
         }
       }
 
       &:not(:nth-of-type(1)) {
-        margin-top: $carbon--spacing-07;
+        margin-top: $spacing-07;
       }
     }
 
     .#{$prefix}--masthead__l1-dropdown-viewall {
-      @include carbon--type-style(body-short-01);
+      @include type-style(body-short-01);
 
       background-color: transparent;
       text-decoration: none;
       display: flex;
       justify-content: flex-start;
-      padding: $carbon--spacing-05;
+      padding: $spacing-05;
       width: 100%;
       min-height: $spacing-07;
-      gap: $carbon--spacing-03;
+      gap: $spacing-03;
 
       &:focus {
         text-decoration: underline;
       }
 
       &:hover {
-        background-color: $hover-ui;
+        background-color: $background-hover;
         text-decoration: underline;
       }
 
       &:active {
-        background-color: $active-ui;
+        background-color: $background-active;
         text-decoration: underline;
       }
 
@@ -311,56 +312,56 @@ $search-transition-timing: 95ms;
 
     .#{$prefix}--masthead__l1-dropdown-login {
       @include mobile-button-base;
-      @include carbon--type-style(body-short-01);
+      @include type-style(body-short-01);
 
-      color: $interactive-01;
+      color: $button-primary;
 
       svg {
         color: inherit;
       }
 
       &:hover {
-        color: $hover-primary-text;
-        background-color: $hover-ui;
+        color: $link-primary-hover;
+        background-color: $background-hover;
       }
 
       &:focus-visible {
-        color: $interactive-01;
+        color: $button-primary;
       }
 
       &:active {
-        color: $active-primary;
-        background-color: $active-ui;
+        color: $button-primary-active;
+        background-color: $background-active;
       }
     }
 
     .#{$prefix}--masthead__l1-dropdown-cta {
       @include mobile-button-base;
-      @include carbon--type-style(body-short-01);
+      @include type-style(body-short-01);
 
-      background-color: $interactive-01;
-      color: $ui-02;
+      background-color: $background-brand;
+      color: $layer-02;
 
       svg {
         color: inherit;
       }
 
       &:hover {
-        background-color: $hover-primary;
+        background-color: $button-primary-hover;
       }
 
       &:focus-visible {
-        outline-color: $ui-02;
+        outline-color: $layer-02;
         outline-offset: calc(-1 * #{$spacing-02});
       }
 
       &:active {
-        color: $ui-02;
-        background-color: $active-primary;
+        color: $layer-02;
+        background-color: $button-primary-active;
       }
 
       &:disabled {
-        background-color: $disabled-02;
+        background-color: $text-disabled;
       }
     }
   }
@@ -370,7 +371,7 @@ $search-transition-timing: 95ms;
     .#{$prefix}--masthead__l1,
     :host(#{$dds-prefix}-masthead-l1) {
       display: block;
-      border-bottom: 1px solid $ui-03;
+      border-bottom: 1px solid $layer-accent-01;
     }
 
     .#{$prefix}--masthead__l1-inner-container {
@@ -393,7 +394,7 @@ $search-transition-timing: 95ms;
         content: '';
         position: absolute;
         display: block;
-        background-color: $ui-background;
+        background-color: $background;
         z-index: 2;
         inset-block: 0;
 
@@ -414,7 +415,7 @@ $search-transition-timing: 95ms;
         display: block;
         position: relative;
         z-index: 1;
-        background-color: $ui-background;
+        background-color: $background;
       }
 
       &::before {
@@ -427,28 +428,28 @@ $search-transition-timing: 95ms;
     }
 
     .#{$prefix}--masthead__l1-title {
-      @include carbon--type-style(productive-heading-01);
+      @include type-style(productive-heading-01);
       @include desktop-button-base;
 
       display: inline-flex;
       grid-area: platform;
       height: 100%;
-      color: $text-01;
+      color: $text-primary;
       border-bottom: 3px solid transparent;
       padding-bottom: calc(#{$spacing-05} - #{$spacing-01});
       align-items: flex-end;
-      background-color: $ui-background;
+      background-color: $background;
 
       &[active] {
         border-bottom-color: $focus;
       }
 
       &:hover {
-        background-color: $hover-ui;
+        background-color: $background-hover;
       }
 
       &:active {
-        background-color: $active-ui;
+        background-color: $background-active;
       }
 
       &:active,
@@ -468,20 +469,20 @@ $search-transition-timing: 95ms;
       @include desktop-button-base;
 
       display: inline-flex;
-      background-color: $ui-background;
+      background-color: $background;
       flex-shrink: 0;
       padding-inline: $spacing-03;
       align-items: flex-end;
       z-index: 1;
 
       &:hover {
-        color: $text-01;
-        background-color: $hover-ui;
+        color: $text-primary;
+        background-color: $background-hover;
       }
 
       &:active {
-        color: $text-01;
-        background-color: $active-ui;
+        color: $text-primary;
+        background-color: $background-active;
       }
 
       &:active,
@@ -515,12 +516,12 @@ $search-transition-timing: 95ms;
     }
 
     .#{$prefix}--masthead__l1-item {
-      @include carbon--type-style(body-short-01);
+      @include type-style(body-short-01);
       @include desktop-button-base;
 
       display: inline-flex;
-      background-color: $ui-background;
-      color: $text-02;
+      background-color: $background;
+      color: $text-secondary;
       border: 1px solid transparent;
       border-top: none;
       align-items: flex-end;
@@ -537,13 +538,13 @@ $search-transition-timing: 95ms;
       }
 
       &:hover {
-        color: $text-01;
-        background-color: $hover-ui;
+        color: $text-primary;
+        background-color: $background-hover;
       }
 
       &:active {
-        color: $text-01;
-        background-color: $active-ui;
+        color: $text-primary;
+        background-color: $background-active;
       }
 
       &:active,
@@ -553,7 +554,7 @@ $search-transition-timing: 95ms;
       }
 
       &:is([disabled], .is-disabled) {
-        color: $disabled;
+        color: $text-disabled;
       }
 
       &.is-open {
@@ -583,7 +584,7 @@ $search-transition-timing: 95ms;
       inset-block-start: calc(100% + 1px);
       inset-inline-start: 0;
       width: 320;
-      background-color: $ui-background;
+      background-color: $background;
       border: 1px solid #c6c6c6;
       border-top: none;
       box-shadow: 0 0 6px #c6c6c6;
@@ -630,7 +631,7 @@ $search-transition-timing: 95ms;
     }
 
     .#{$prefix}--masthead__l1-dropdown-links {
-      column-rule: 1px solid $ui-03;
+      column-rule: 1px solid $layer-accent-01;
       padding-bottom: $spacing-08;
 
       .#{$prefix}--masthead__l1-dropdown__2-col & {
@@ -662,20 +663,20 @@ $search-transition-timing: 95ms;
         }
 
         > *:nth-child(2) {
-          border-inline-start: 1px solid $ui-03;
+          border-inline-start: 1px solid $layer-accent-01;
         }
       }
     }
 
     .#{$prefix}--masthead__l1-dropdown-announcement {
-      @include carbon--type-style(body-short-01);
+      @include type-style(body-short-01);
 
       margin: 0 $spacing-05 $spacing-05;
       padding-bottom: $spacing-05;
-      border-bottom: 1px solid $ui-03;
+      border-bottom: 1px solid $layer-accent-01;
 
       :is(h1, h2, h3, h4, h5, h6, strong, b) {
-        @include carbon--type-style(productive-heading-01);
+        @include type-style(productive-heading-01);
       }
 
       :focus {
@@ -689,12 +690,12 @@ $search-transition-timing: 95ms;
     }
 
     .#{$prefix}--masthead__l1-dropdown-heading {
-      @include carbon--type-style(productive-heading-03);
+      @include type-style(productive-heading-03);
 
-      color: $text-01;
+      color: $text-primary;
 
       .#{$prefix}--masthead__l1-dropdown-item {
-        @include carbon--type-style(productive-heading-03);
+        @include type-style(productive-heading-03);
         @include desktop-button-base;
 
         color: inherit;
@@ -717,30 +718,30 @@ $search-transition-timing: 95ms;
     }
 
     .#{$prefix}--masthead__l1-dropdown-heading-desc {
-      @include carbon--type-style(body-short-01);
+      @include type-style(body-short-01);
 
       display: block;
-      color: $text-02;
+      color: $text-secondary;
       padding: 0 $spacing-05;
       margin: calc(-1 * #{$spacing-03}) 0 $spacing-03;
     }
 
     .#{$prefix}--masthead__l1-dropdown-item {
-      @include carbon--type-style(body-short-01);
+      @include type-style(body-short-01);
       @include desktop-button-base;
 
       display: inline-block;
       padding: $spacing-03 $spacing-05;
-      color: $text-02;
+      color: $text-secondary;
       width: 100%;
 
       &:hover {
-        color: $text-01;
-        background-color: $hover-ui;
+        color: $text-primary;
+        background-color: $background-hover;
       }
 
       &:active {
-        color: $text-02;
+        color: $text-secondary;
       }
 
       &:active,
@@ -753,7 +754,7 @@ $search-transition-timing: 95ms;
       }
 
       .#{$prefix}--masthead__l1-dropdown-item-title {
-        @include carbon--type-style(productive-heading-01);
+        @include type-style(productive-heading-01);
 
         display: block;
       }
@@ -761,30 +762,30 @@ $search-transition-timing: 95ms;
       .#{$prefix}--masthead__l1-dropdown-item-description {
         display: block;
         white-space: break-spaces;
-        color: $text-02;
+        color: $text-secondary;
       }
     }
 
     .#{$prefix}--masthead__l1-dropdown-viewall {
-      @include carbon--type-style(body-short-01);
+      @include type-style(body-short-01);
 
       display: flex;
       gap: $spacing-03;
       align-content: center;
       padding: $spacing-05;
       text-decoration: none;
-      color: $link-01;
-      border-top: 1px solid $ui-03;
+      color: $link-primary;
+      border-top: 1px solid $layer-accent-01;
 
       &:hover {
-        color: $hover-primary-text;
+        color: $link-primary-hover;
         text-decoration: underline;
       }
 
       &:active,
       &:active:visited,
       &:active:visited:hover {
-        color: $text-01;
+        color: $text-primary;
         text-decoration: underline;
       }
 
@@ -794,22 +795,22 @@ $search-transition-timing: 95ms;
       }
 
       &:visited {
-        color: $link-01;
+        color: $link-primary;
       }
 
       &:visited:hover {
-        color: $hover-primary-text;
+        color: $link-primary-hover;
       }
     }
 
     .#{$prefix}--masthead__l1-cta {
       @include desktop-button-base;
-      @include carbon--type-style(body-short-01);
+      @include type-style(body-short-01);
 
       display: inline-flex;
       grid-area: cta;
-      background-color: $interactive-01;
-      color: $ui-02;
+      background-color: $background-brand;
+      color: $layer-02;
       align-items: flex-end;
 
       svg {
@@ -817,32 +818,32 @@ $search-transition-timing: 95ms;
       }
 
       &:hover {
-        background-color: $hover-primary;
+        background-color: $button-primary-hover;
       }
 
       &:focus-visible {
-        outline: $spacing-01 solid $ui-02;
+        outline: $spacing-01 solid $layer-02;
         outline-offset: calc(-1 * #{$spacing-01});
       }
 
       &:active {
-        color: $ui-02;
-        background-color: $active-primary;
+        color: $layer-02;
+        background-color: $button-primary-active;
       }
 
       &:disabled {
-        background-color: $disabled-02;
+        background-color: $text-disabled;
       }
     }
 
     .#{$prefix}--masthead__l1-login {
       @include desktop-button-base;
-      @include carbon--type-style(body-short-01);
+      @include type-style(body-short-01);
 
       display: inline-flex;
       grid-area: login;
-      color: $interactive-01;
-      background-color: $ui-background;
+      color: $button-primary;
+      background-color: $background;
       align-items: flex-end;
 
       svg {
@@ -850,19 +851,19 @@ $search-transition-timing: 95ms;
       }
 
       &:hover {
-        color: $hover-primary-text;
-        background-color: $hover-ui;
+        color: $link-primary-hover;
+        background-color: $background-hover;
       }
 
       &:focus-visible {
-        color: $interactive-01;
+        color: $button-primary;
         outline: $spacing-01 solid $focus;
         outline-offset: calc(-1 * #{$spacing-01});
       }
 
       &:active {
-        color: $active-primary;
-        background-color: $active-ui;
+        color: $button-primary-active;
+        background-color: $background-active;
         outline: $spacing-01 solid $focus;
         outline-offset: calc(-1 * #{$spacing-01});
       }

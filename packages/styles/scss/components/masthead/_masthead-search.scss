@@ -195,7 +195,7 @@
         outline: $spacing-01 solid transparent;
         outline-offset: -#{$spacing-01};
         background-color: $layer-01;
-        height: carbon--mini-units(6);
+        height: $spacing-09;
         z-index: 10000;
 
         &::placeholder {
