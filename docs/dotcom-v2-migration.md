@@ -19,6 +19,7 @@ For Carbon v11 migration guidance, see their
 | background-media          | No API changes.                        |
 | button                    | This component is deprecated in v2 in favor for Carbon's core Button |
 | callout-quote             | View changes [here](#callout-quote)          |
+| card                      | View changes [here] (#card)            |
 | card-group-card-link-item | This component is deprecated in v2 in favor for default card or with content-item |
 | card-link                 | This component is deprecated in v2 in favor for card (link variant) component |
 | card-section-carousel     | This component is deprecated in v2 in favor for content-section/block component combined with carousel |
@@ -42,6 +43,7 @@ For Carbon v11 migration guidance, see their
 | logo-grid                 | This component is deprecated in v2 in favor for content-section/block & image-group components |
 | pictogram-item            | This component is deprecated in v2 in favor for content-item (pictogram variation) componet |
 | quote                     | No API changes.                        |
+| search-with-typeahead     | No API changes.                        |
 | tabs-extended-media       | This component is deprecated in v2 in favor for tabs-extended component |
 
 
@@ -53,6 +55,12 @@ For Carbon v11 migration guidance, see their
 
 - New options for `color-scheme` property: `REGULAR = 'regular'`, `INVERSE = 'inverse'` `LAYER = 'layer'`, `CYAN = 'cyan'`, `PURPLE = 'purple'`
 - New callout style tokens
+
+### Card
+
+- `<dds-card-footer>` has `icon-placement` property has been removed
+- Removed `border` property, clickable cards inherit the Carbon v11 experimental tile border style
+- New `aspect-ratio` property with '1:1', '2:1', '3:2', '4:3', and '16:9' as options
 
 ### CTA
 

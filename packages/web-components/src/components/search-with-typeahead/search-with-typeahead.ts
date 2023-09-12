@@ -384,6 +384,10 @@ class C4DSearchWithTypeahead extends HostListenerMixin(
       (this.constructor as typeof CDSDropdown).selectorItem
     );
     items.forEach((e) => {
+      if (this.leadspaceSearch) {
+        e.setAttribute('alternate', '');
+      }
+
       if (e.hasAttribute('highlighted')) {
         this.setAttribute('unfocused', '');
       }
