@@ -694,6 +694,10 @@
       .#{$prefix}--card__copy {
         margin-top: $spacing-07;
         margin-bottom: 0;
+
+        &[hidden] {
+          margin: 0;
+        }
       }
 
       svg {
