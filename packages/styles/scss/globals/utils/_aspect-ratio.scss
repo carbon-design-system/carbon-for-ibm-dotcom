@@ -14,6 +14,6 @@
 //
 // @return percentage of height vs width
 @function aspect-ratio($width, $height) {
-  $ratio: $height / $width * 100%;
+  $ratio: calc($height / $width) * 100%;
   @return $ratio;
 }
