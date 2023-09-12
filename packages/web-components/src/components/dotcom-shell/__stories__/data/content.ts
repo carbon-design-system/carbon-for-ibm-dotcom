@@ -184,7 +184,10 @@ export const contentLeadspace = html`
 `;
 
 export const contentLeadspaceSearch = html`
-  <c4d-leadspace-with-search adjacent-theme="white-and-g10" scroll-behavior>
+  <c4d-leadspace-with-search
+    adjacent-theme="white-and-g10"
+    sticky-search
+    scroll-behavior>
     <c4d-leadspace-with-search-heading
       >Find a product</c4d-leadspace-with-search-heading
     >

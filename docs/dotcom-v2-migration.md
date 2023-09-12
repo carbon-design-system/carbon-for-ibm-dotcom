@@ -39,6 +39,7 @@ For Carbon v11 migration guidance, see their
 | link-list-section         | This component is deprecated in v2 in favor for content-section/block & link-list end of section variant components |
 | logo-grid                 | This component is deprecated in v2 in favor for content-section/block & image-group components |
 | pictogram-item            | This component is deprecated in v2 in favor for content-item (pictogram variation) componet |
+| search-with-typeahead     | No API changes.                        |
 | tabs-extended-media       | This component is deprecated in v2 in favor for tabs-extended component |
 
 
