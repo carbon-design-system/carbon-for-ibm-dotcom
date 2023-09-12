@@ -9,16 +9,14 @@
 
 import { ifDefined } from 'lit-html/directives/if-defined.js';
 import { html, customElement, property } from 'lit-element';
-import settings from 'carbon-components/es/globals/js/settings.js';
 import Chat20 from '../../internal/vendor/@carbon/web-components/icons/chat/20.js';
-import ddsSettings from '../../internal/vendor/@carbon/ibmdotcom-utilities/utilities/settings/settings';
+import settings from '../../internal/vendor/@carbon/ibmdotcom-utilities/utilities/settings/settings';
 import styles from './masthead.scss';
 import DDSMastheadProfile from './masthead-profile';
 import DDSMastheadContainer from './masthead-container';
 import { CMApp } from './masthead-composite';
 
-const { prefix } = settings;
-const { stablePrefix: ddsPrefix } = ddsSettings;
+const { prefix, stablePrefix: ddsPrefix } = settings;
 
 /**
  * The contact button UI in the masthead.

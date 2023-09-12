@@ -9,7 +9,7 @@
 
 import { html, property, LitElement } from 'lit-element';
 import { classMap } from 'lit-html/directives/class-map.js';
-import settings from 'carbon-components/es/globals/js/settings.js';
+import settings from '../../internal/vendor/@carbon/ibmdotcom-utilities/utilities/settings/settings';
 import StableSelectorMixin from '../../globals/mixins/stable-selector';
 import { MEGAMENU_RIGHT_NAVIGATION_STYLE_SCHEME } from './defs';
 import styles from './masthead.scss';

@@ -8,7 +8,7 @@
  */
 
 import { customElement, html } from 'lit-element';
-import settings from 'carbon-components/es/globals/js/settings.js';
+import settings from '../../internal/vendor/@carbon/ibmdotcom-utilities/utilities/settings/settings';
 import BXTab from '../../internal/vendor/@carbon/web-components/components/tabs/tab';
 import ddsSettings from '../../internal/vendor/@carbon/ibmdotcom-utilities/utilities/settings/settings';
 import styles from './masthead.scss';

@@ -10,10 +10,10 @@
 import { html, customElement, LitElement, property } from 'lit-element';
 import ArrowRight24 from '../../internal/vendor/@carbon/web-components/icons/arrow--right/24.js';
 import HostListenerMixin from '../../internal/vendor/@carbon/web-components/globals/mixins/host-listener.js';
-import ddsSettings from '../../internal/vendor/@carbon/ibmdotcom-utilities/utilities/settings/settings';
+import settings from '../../internal/vendor/@carbon/ibmdotcom-utilities/utilities/settings/settings';
 import styles from './masthead.scss';
 
-const { stablePrefix: ddsPrefix } = ddsSettings;
+const { stablePrefix: ddsPrefix } = settings;
 
 /**
  * MegaMenu Heading.
