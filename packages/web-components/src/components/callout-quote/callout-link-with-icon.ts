@@ -11,6 +11,8 @@ import { css } from 'lit';
 import settings from '../../internal/vendor/@carbon/ibmdotcom-utilities/utilities/settings/settings';
 import { carbonElement as customElement } from '../../internal/vendor/@carbon/web-components/globals/decorators/carbon-element';
 import C4DLinkWithIcon from '../link-with-icon/link-with-icon';
+import { property } from 'lit/decorators.js';
+import { COLOR_SCHEME } from '../../component-mixins/callout/defs';
 import styles from './callout-quote.scss';
 
 const { stablePrefix: c4dPrefix } = settings;
@@ -22,6 +24,12 @@ const { stablePrefix: c4dPrefix } = settings;
  */
 @customElement(`${c4dPrefix}-callout-link-with-icon`)
 class C4DCalloutLinkWithIcon extends C4DLinkWithIcon {
+  /**
+   * The color-scheme type.
+   */
+  @property({ reflect: true, attribute: 'color-scheme' })
+  colorScheme = COLOR_SCHEME.REGULAR;
+
   static get stableSelector() {
     return `${c4dPrefix}--callout-link-with-icon`;
   }
