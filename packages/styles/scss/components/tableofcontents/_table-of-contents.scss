@@ -14,6 +14,7 @@
 @use '@carbon/styles/scss/type' as *;
 @use '@carbon/styles/scss/utilities' as *;
 @use '../../globals/utils/flex-grid' as *;
+@use '../../globals/carbon-grid' as *;
 @use '../../globals/vars' as *;
 @use '../../globals/utils/hang' as *;
 @use '../layout/layout';
@@ -24,31 +25,20 @@ $hover-transition-timing: 95ms;
 @mixin themed-items {
   color: $text-primary;
   background: $background;
-  .#{$prefix}--tableofcontents__mobile {
-    border-bottom: 1px solid $toggle-off;
-    box-shadow: 0 $spacing-01 $spacing-03 rgba(0, 0, 0, 0.2);
-
-    &:hover {
-      background-color: $background-hover;
-    }
-  }
-
-  .#{$prefix}--tableofcontents__desktop__item {
+  .#{$prefix}--tableofcontents__item {
     a {
-      border-left: $spacing-02 solid $layer-accent-01;
+      border-left: $spacing-02 solid $border-subtle-01;
       color: $text-secondary;
 
       &:hover {
-        border-left-color: $background-selected-hover;
+        border-left-color: $layer-selected-hover-01;
         color: $text-primary;
       }
     }
   }
 
   .#{$prefix}--tableofcontents__navbar {
-    .#{$prefix}--tableofcontents__desktop__item {
-      margin-bottom: 1px;
-
+    .#{$prefix}--tableofcontents__item {
       a {
         white-space: nowrap;
         border-left: none;
@@ -60,16 +50,27 @@ $hover-transition-timing: 95ms;
       }
     }
 
-    .#{$prefix}--tableofcontents__desktop__item--active a {
+    .#{$prefix}--tableofcontents__item--active a {
       color: $text-primary;
+
+      &::before {
+        content: '';
+        position: absolute;
+        bottom: 0;
+        height: rem(20px);
+        width: $spacing-01;
+        top: rem(14px);
+        background-color: $border-interactive;
+        margin-left: rem(-6px);
+      }
     }
   }
 
-  .#{$prefix}--tableofcontents__desktop__item--active {
+  .#{$prefix}--tableofcontents__item--active {
     a,
     a:hover {
       color: $text-primary;
-      border-left-color: $link-primary;
+      border-left-color: $border-interactive;
     }
 
     a:focus {
@@ -77,17 +78,15 @@ $hover-transition-timing: 95ms;
     }
 
     &:hover {
-      border-left-color: $link-primary;
+      border-left-color: $border-interactive;
     }
   }
 }
 
 @mixin table-of-contents {
-  :host(#{$c4d-prefix}-table-of-contents),
-  .#{$prefix}--tableofcontents {
+  :host(#{$c4d-prefix}-table-of-contents) {
     text-size-adjust: 100%;
     @extend .#{$prefix}--grid;
-    @include flex-grid();
 
     display: block;
     margin: 0;
@@ -103,81 +102,31 @@ $hover-transition-timing: 95ms;
   .#{$prefix}--tableofcontents__sidebar {
     @extend .#{$prefix}--col-lg-4;
 
-    position: sticky;
-    top: 0;
+    position: inherit;
+    top: auto;
     z-index: 10;
-    padding-left: 0;
-
-    @include breakpoint(lg) {
-      position: inherit;
-      top: auto;
-    }
+    padding: 0;
   }
 
   .#{$prefix}--tableofcontents__content {
     @extend .#{$prefix}--col-lg-12;
+
+    padding: $spacing-05 0 $spacing-09 0;
   }
 
-  .#{$prefix}--tableofcontents__children__mobile {
-    @include breakpoint(lg) {
-      display: none;
-    }
-
-    margin-top: $spacing-07;
-  }
-
-  .#{$prefix}--tableofcontents__mobile {
-    margin-right: -$spacing-05;
-    background-color: $field-01;
-    padding-right: $spacing-05;
-    padding-left: $spacing-05;
-  }
-
-  .#{$prefix}--tableofcontents__mobile__select {
-    border-radius: 0;
-    border: none;
-    background-color: transparent;
-    color: $text-primary;
-    height: $spacing-09;
-    appearance: none;
-    @include type-style(body-compact-02);
-    @include focus-outline('reset');
-
-    max-width: 100%;
-    min-width: 100%;
-    text-overflow: ellipsis;
-    padding-right: $spacing-06;
-    display: block;
-    cursor: pointer;
-    transition: background-color $duration-fast-01 motion(standard, productive),
-      outline $duration-fast-01 motion(standard, productive);
-  }
-
-  .#{$prefix}--tableofcontents__mobile__select__wrapper {
-    height: rem(47px);
-    position: relative;
-    display: flex;
-    align-items: center;
-    flex: 1 1 100%;
-  }
-  .#{$prefix}--tableofcontents__mobile__select__icon {
-    position: absolute;
-    right: 0;
-    pointer-events: none;
-    cursor: pointer;
-  }
-
-  .#{$prefix}--tableofcontents__mobile__select__option {
-    @include theme($white, true);
-  }
-
-  .#{$prefix}--tableofcontents__desktop {
+  .#{$prefix}--tableofcontents {
     padding-top: $spacing-07;
     margin-top: $spacing-07;
     @include make-col(3, 4);
   }
 
-  .#{$prefix}--tableofcontents__desktop__item {
+  .#{$prefix}--tableofcontents ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+  }
+
+  .#{$prefix}--tableofcontents__item {
     a {
       text-decoration: none;
       display: inline-block;
@@ -199,20 +148,23 @@ $hover-transition-timing: 95ms;
     }
   }
 
-  .#{$prefix}--tableofcontents__desktop__children {
-    padding-top: $spacing-10;
-    margin-bottom: -$spacing-07;
+  .#{$prefix}--tableofcontents__children {
+    @include breakpoint(lg) {
+      padding-top: $spacing-10;
+      padding-left: 0;
+      margin-bottom: -$spacing-07;
+      @include make-col(3, 4);
+    }
 
-    @include make-col(3, 4);
+    padding-left: $spacing-05;
+    padding-top: $spacing-07;
 
     display: none;
 
-    @include breakpoint(lg) {
-      display: block;
+    display: block;
 
-      &[hidden] {
-        display: none;
-      }
+    &[hidden] {
+      display: none;
     }
 
     > .#{$prefix}--link-list {
@@ -239,12 +191,10 @@ $hover-transition-timing: 95ms;
         outline: none;
       }
 
-      @include breakpoint(lg) {
-        transform: none;
+      transform: none;
 
-        > * {
-          transform: none;
-        }
+      > * {
+        transform: none;
       }
     }
   }
@@ -262,37 +212,32 @@ $hover-transition-timing: 95ms;
     top: 0;
     width: 100%;
 
-    @include breakpoint(lg) {
-      filter: drop-shadow(0 $spacing-01 6px rgba(0, 0, 0, 0.3));
-      border-bottom: 1px solid $toggle-off;
-      height: rem(49px);
-      background-color: $layer-01;
-    }
+    border-bottom: 1px solid $border-subtle-00;
+    border-top: 1px solid $border-subtle-00;
+    height: $spacing-09;
+    background-color: $background;
 
-    .#{$prefix}--tableofcontents__desktop__item {
+    .#{$prefix}--tableofcontents__item {
       a {
         border-left: none;
         color: $text-secondary;
         padding-left: $spacing-05;
         padding-right: $spacing-05;
+        width: auto;
 
         &:focus {
           outline: $spacing-01 solid $focus;
-          height: $spacing-09;
+          // height: $spacing-09;
           outline-offset: -#{$spacing-01};
+          position: initial;
         }
       }
     }
 
-    .#{$prefix}--tableofcontents__desktop__item--active a {
-      border-bottom: $spacing-01 solid $border-interactive;
-      padding-bottom: rem(10px);
-    }
-
-    .#{$prefix}--tableofcontents__desktop {
+    .#{$prefix}--tableofcontents {
       flex: 1;
       max-width: none;
-      padding-top: 0;
+      padding: 0;
       margin-top: 0;
       position: absolute;
       transition: left $transition-base motion(standard, productive);
@@ -320,15 +265,21 @@ $hover-transition-timing: 95ms;
     height: 100%;
   }
 
-  .#{$prefix}--toc__navbar-caret-left,
-  .#{$prefix}--toc__navbar-caret-right {
+  .#{$prefix}--toc__navbar-caret-left-container[hidden],
+  .#{$prefix}--toc__navbar-caret-right-container[hidden] {
+    display: none;
+  }
+
+  .#{$prefix}--toc__navbar-caret-left-container,
+  .#{$prefix}--toc__navbar-caret-right-container {
+    display: block;
     width: $spacing-08;
     height: 100%;
     display: none;
     position: absolute;
     top: 0;
     border: none;
-    background-color: $layer-01;
+    background-color: $background;
     > {
       svg {
         position: absolute;
@@ -339,7 +290,7 @@ $hover-transition-timing: 95ms;
       }
     }
     &:hover {
-      background-color: $background-hover;
+      background-color: $layer-hover-03;
       transition-duration: $hover-transition-timing;
       > {
         svg {
@@ -350,7 +301,7 @@ $hover-transition-timing: 95ms;
     &:focus,
     &:active {
       display: block;
-      background-color: $background-hover;
+      background-color: $layer-hover-03;
       outline: $spacing-01 solid $background-brand;
       outline-offset: -#{$spacing-01};
       &::before,
@@ -358,65 +309,66 @@ $hover-transition-timing: 95ms;
         display: none;
       }
     }
-    @media (min-width: 800px) {
-      display: block;
+  }
+
+  .#{$prefix}--toc__navbar-caret-left-container {
+    &::before {
+      content: '';
+      position: absolute;
+      left: $spacing-08;
+      top: 0;
+      height: 100%;
+      width: $spacing-03;
+      z-index: 1;
+      background: linear-gradient(
+        to right,
+        $background,
+        rgba(255, 255, 255, 0)
+      );
+    }
+
+    &:hover {
+      &::before {
+        background: linear-gradient(
+          to right,
+          $layer-hover-03,
+          rgba(255, 255, 255, 0)
+        );
+      }
     }
   }
 
-  .#{$prefix}--toc__navbar-caret-left-container[hidden],
-  .#{$prefix}--toc__navbar-caret-right-container[hidden] {
-    display: none;
-  }
+  .#{$prefix}--toc__navbar-caret-right-container {
+    &::before {
+      content: '';
+      position: absolute;
+      right: $spacing-08;
+      top: 0;
+      height: 100%;
+      width: $spacing-03;
+      z-index: 1;
+      background: linear-gradient(to left, $background, rgba(255, 255, 255, 0));
+    }
 
-  .#{$prefix}--toc__navbar-caret-left {
-    left: 0;
-  }
-
-  .#{$prefix}--toc__navbar-caret-left-gradient {
-    display: block;
-    position: absolute;
-    left: $spacing-08;
-    top: 0;
-    height: 100%;
-    width: $spacing-03;
-    z-index: 1;
-    background: linear-gradient(to right, $layer-01, rgba(255, 255, 255, 0));
-  }
-
-  .#{$prefix}--toc__navbar-caret-right {
-    right: 0;
-  }
-
-  .#{$prefix}--toc__navbar-caret-right-gradient {
-    display: block;
-    position: absolute;
-    top: 0;
-    right: $spacing-08;
-    height: 100%;
-    width: $spacing-03;
-    background: linear-gradient(to left, $layer-01, rgba(255, 255, 255, 0));
+    &:hover {
+      &::before {
+        background: linear-gradient(
+          to left,
+          $layer-hover-03,
+          rgba(255, 255, 255, 0)
+        );
+      }
+    }
   }
 
   @include breakpoint(sm) {
-    .#{$prefix}--tableofcontents__desktop {
+    .#{$prefix}--tableofcontents {
       display: none;
     }
   }
 
-  @include breakpoint(md) {
-    .#{$prefix}--tableofcontents__mobile {
-      padding-left: $spacing-05;
-    }
-  }
-
-  @include breakpoint(lg) {
-    .#{$prefix}--tableofcontents__mobile {
-      display: none;
-    }
-
-    .#{$prefix}--tableofcontents__desktop {
-      display: block;
-    }
+  .#{$prefix}--tableofcontents {
+    display: block;
   }
 
   .#{$prefix}--tableofcontents--g100 {
@@ -442,7 +394,7 @@ $hover-transition-timing: 95ms;
         position: relative;
       }
 
-      .#{$prefix}--tableofcontents__desktop {
+      .#{$prefix}--tableofcontents {
         display: block;
       }
       .#{$prefix}--tableofcontents__mobile {
@@ -463,5 +415,91 @@ $hover-transition-timing: 95ms;
         width: 25%;
       }
     }
+  }
+
+  :host(#{$c4d-prefix}-table-of-contents) .#{$prefix}--tableofcontents__navbar {
+    &::before {
+      border-bottom: 1px solid $border-subtle-00;
+      border-top: 1px solid $border-subtle-00;
+      content: '';
+      background-color: $background;
+      position: absolute;
+      top: -1px;
+      height: 100%;
+      left: calc(-50vw + 50%);
+      right: 100%;
+      z-index: 1;
+    }
+
+    &::after {
+      border-bottom: 1px solid $border-subtle-00;
+      border-top: 1px solid $border-subtle-00;
+      content: '';
+      background-color: $background;
+      position: absolute;
+      top: -1px;
+      height: 100%;
+      left: 100%;
+      right: calc(-50vw + 50%);
+      z-index: 1;
+    }
+  }
+
+  :host(#{$c4d-prefix}-table-of-contents[toc-layout='horizontal'])
+    .#{$prefix}--tableofcontents-container {
+    position: relative;
+    overflow: hidden;
+    height: $spacing-09;
+  }
+
+  :host(#{$c4d-prefix}-table-of-contents[toc-layout='horizontal'])
+    .#{$prefix}--tableofcontents__mobile {
+    margin: 0;
+  }
+
+  :host(#{$c4d-prefix}-table-of-contents[toc-layout='horizontal'])
+    .#{$prefix}--tableofcontents__content {
+    max-width: none;
+    flex: 1;
+  }
+
+  .#{$c4d-prefix}-ce--table-of-contents__container {
+    // TODO: Make the layout CSS grid-based so we can remove this ruleset
+    ::slotted(#{$c4d-prefix}-content-block-simple),
+    ::slotted(#{$c4d-prefix}-content-block-segmented) {
+      margin-left: calc(-1 * #{$spacing-05});
+      margin-right: calc(-1 * #{$spacing-05});
+    }
+  }
+
+  .#{$prefix}--toc__navbar-caret-left-container,
+  .#{$prefix}--toc__navbar-caret-right-container {
+    bottom: 0;
+    z-index: 1;
+    position: absolute;
+    display: none;
+
+    display: block;
+  }
+
+  .#{$prefix}--toc__navbar-caret-right-container {
+    right: -$spacing-05;
+    z-index: 2;
+  }
+
+  .#{$prefix}--toc__navbar-caret-left-container {
+    left: -$spacing-05;
+  }
+
+  .#{$prefix}--toc__navbar-caret-left,
+  .#{$prefix}--toc__navbar-caret-right {
+    position: relative;
+    // 40px caret width & 8px gradient
+    height: $spacing-09;
+  }
+
+  .#{$c4d-prefix}-ce--toc__navbar-caret-container--hidden {
+    position: absolute;
+    visibility: hidden;
   }
 }
