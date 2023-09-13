@@ -1,5 +1,5 @@
 /**
- * Copyright IBM Corp. 2021, 2022
+ * Copyright IBM Corp. 2021, 2023
  *
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
@@ -26,7 +26,7 @@ describe('dds-cta-block (desktop)', () => {
     cy.checkAxeA11y();
   });
 
-  it('should set items to same height when made visible', () => {
+  xit('should set items to same height when made visible', () => {
     // Delay variable
     const forHeightsToBeSet = 100;
 

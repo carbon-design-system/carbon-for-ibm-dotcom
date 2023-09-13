@@ -1,5 +1,5 @@
 /**
- * Copyright IBM Corp. 2016, 2022
+ * Copyright IBM Corp. 2016, 2023
  *
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
@@ -101,11 +101,14 @@
       }
     }
 
+    .dds--content-block-footer ::slotted([slot='footer']) {
+      max-width: none;
+    }
+
     ::slotted([slot='footer']) {
       margin-top: $carbon--layout-04;
 
       @include carbon--breakpoint('md') {
-        width: 50%;
         margin-top: $carbon--layout-05;
       }
     }
