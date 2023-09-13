@@ -7,9 +7,11 @@
  * LICENSE file in the root directory of this source tree.
  */
 import { css } from 'lit';
+import { property } from 'lit/decorators.js';
 import settings from '../../internal/vendor/@carbon/ibmdotcom-utilities/utilities/settings/settings';
 import { carbonElement as customElement } from '../../internal/vendor/@carbon/web-components/globals/decorators/carbon-element';
-import C4DContentBlockCopy from '../content-block/content-block-copy';
+import DDSContentBlockCopy from '../content-block/content-block-copy';
+import { COLOR_SCHEME } from '../../component-mixins/callout/defs';
 import styles from './callout-with-media.scss';
 
 const { stablePrefix: c4dPrefix } = settings;
@@ -20,7 +22,13 @@ const { stablePrefix: c4dPrefix } = settings;
  * @element c4d-callout-with-media-copy
  */
 @customElement(`${c4dPrefix}-callout-with-media-copy`)
-class C4DCalloutWithMediaCopy extends C4DContentBlockCopy {
+class C4DCalloutWithMediaCopy extends DDSContentBlockCopy {
+  /**
+   * The color-scheme type.
+   */
+  @property({ reflect: true, attribute: 'color-scheme' })
+  colorScheme = COLOR_SCHEME.REGULAR;
+
   static get stableSelector() {
     return `${c4dPrefix}--callout-with-media-copy`;
   }

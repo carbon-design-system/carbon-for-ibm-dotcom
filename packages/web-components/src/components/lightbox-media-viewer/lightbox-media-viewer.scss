@@ -14,13 +14,13 @@
 :host(#{$c4d-prefix}-lightbox-image-viewer),
 :host(#{$c4d-prefix}-lightbox-video-player) {
   @extend :host(#{$c4d-prefix}-expressive-modal-body);
-  @extend .#{$prefix}--lightbox-media-viewer;
+  @extend .#{$c4d-prefix}--lightbox-media-viewer;
 }
 
-:host(#{$c4d-prefix}-lightbox-video-player) .#{$prefix}--video-player {
+:host(#{$c4d-prefix}-lightbox-video-player) .#{$c4d-prefix}--video-player {
   width: 100%;
 
-  ::slotted(.#{$prefix}--video-player__video) {
+  ::slotted(.#{$c4d-prefix}--video-player__video) {
     position: absolute;
     top: 0;
     left: 0;
