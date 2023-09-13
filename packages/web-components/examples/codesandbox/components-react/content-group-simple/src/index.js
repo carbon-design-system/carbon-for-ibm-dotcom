@@ -78,9 +78,9 @@ const image = ({ heading: imageHeading } = { heading: undefined }) => (
 );
 
 const App = () => (
-  <div className="bx--grid">
-    <div className="bx--row">
-      <div className="bx--col-lg-12 bx--no-gutter">
+  <div className="cds--grid">
+    <div className="cds--row">
+      <div className="cds--col-lg-12 cds--no-gutter">
         <C4DVideoCTAContainer>
           <C4DContentGroupSimple>
             <C4DContentGroupHeading>'Curabitur malesuada varius mi eu posuere'</C4DContentGroupHeading>
