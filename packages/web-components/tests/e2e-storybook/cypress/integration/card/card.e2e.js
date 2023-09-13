@@ -211,6 +211,7 @@ const _tests = {
   pictogramPosition: (position, groupId) => {
     if (position === 'top') {
       it('should check for pictogram at the top', () => {
+        cy.visit(`/${_pathPictogram}&knob-Pictogram%20position:${groupId}=bottom`);
         cy.get('cds-card').should('have.attr', 'pictogram-placement', 'top');
         cy.get('cds-card svg').then($content => {
           expect($content[0].getBoundingClientRect().top).to.equal(32);
@@ -218,29 +219,12 @@ const _tests = {
         });
       });
     } else {
-      it('should check for pictogram at the bottom with text showing on hover', () => {
-        cy.visit(`/${_pathPictogram}&knob-Pictogram%20position:${groupId}=bottom`);
-
+      it('should check for pictogram at the bottom', () => {
         cy.get('cds-card').should('have.attr', 'pictogram-placement', 'bottom');
         cy.get('cds-card svg').then($content => {
           expect($content[0].getBoundingClientRect().top).to.equal(186);
           expect($content[0].getBoundingClientRect().bottom).to.equal(234);
         });
-
-        cy.get('cds-card').then($el => {
-          const sheets = $el[0].shadowRoot.adoptedStyleSheets;
-
-          if (sheets) {
-            const hover = getCssPropertyForRule(
-              ':host(cds-card[pictogram-placement="bottom"]:hover) .bx--card__copy',
-              'display',
-              sheets
-            );
-            expect(hover).to.not.equal('none');
-          }
-        });
-        cy.get('cds-card p').should('not.be.empty');
-        cy.takeSnapshots();
       });
     }
   },

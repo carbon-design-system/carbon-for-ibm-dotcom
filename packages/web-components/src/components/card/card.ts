@@ -9,6 +9,7 @@
 
 import { TemplateResult, html, LitElement } from 'lit';
 import { property, query, state } from 'lit/decorators.js';
+import ArrowRight20 from '../../internal/vendor/@carbon/web-components/icons/arrow--right/20';
 import CDSLink from '../../internal/vendor/@carbon/web-components/components/link/link.js';
 import markdownToHtml from '../../internal/vendor/@carbon/ibmdotcom-utilities/utilities/markdownToHtml/markdownToHtml.js';
 import { carbonElement as customElement } from '../../internal/vendor/@carbon/web-components/globals/decorators/carbon-element.js';
@@ -139,17 +140,14 @@ class C4DCard extends CTAMixin(StableSelectorMixin(CDSLink)) {
    * @returns The inner content.
    */
   protected _renderInner() {
-    const {
-      _handleSlotChange: handleSlotChange,
-      _hasPictogram: hasPictogram,
-      _hasCopy: hasCopy,
-    } = this;
+    const { _handleSlotChange: handleSlotChange, _hasPictogram: hasPictogram } =
+      this;
     return html`
       ${this._renderImage()}
       <div
         class="${prefix}--card__wrapper ${hasPictogram
           ? `${prefix}--card__pictogram`
-          : ''} ${hasPictogram && hasCopy ? `${prefix}--card__motion` : ''}">
+          : ''}">
         <div class="${prefix}--card__content">
           ${hasPictogram ? '' : html` <slot name="eyebrow"></slot> `}
           ${this.pictogramPlacement === PICTOGRAM_PLACEMENT.TOP
@@ -206,7 +204,7 @@ class C4DCard extends CTAMixin(StableSelectorMixin(CDSLink)) {
    * Pictogram placement
    */
   @property({ attribute: 'pictogram-placement', reflect: true })
-  pictogramPlacement = '';
+  pictogramPlacement = PICTOGRAM_PLACEMENT.BOTTOM;
 
   /**
    * Whether or not to apply the logo style.
@@ -367,7 +365,7 @@ class C4DCard extends CTAMixin(StableSelectorMixin(CDSLink)) {
             aria-live="polite"
             aria-describedby="${prefix}--card__copy"
             role="button">
-            ${this._renderInner()}
+            ${this._renderInner()} ${ArrowRight20()}
           </div>
         `
       : html` <div>${this._renderInner()}</div> `;
