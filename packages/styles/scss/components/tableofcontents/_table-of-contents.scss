@@ -115,6 +115,7 @@ $hover-transition-timing: 95ms;
   }
 
   .#{$prefix}--tableofcontents {
+    display: block;
     padding-top: $spacing-07;
     margin-top: $spacing-07;
     @include make-col(3, 4);
@@ -159,8 +160,6 @@ $hover-transition-timing: 95ms;
     padding-left: $spacing-05;
     padding-top: $spacing-07;
 
-    display: none;
-
     display: block;
 
     &[hidden] {
@@ -189,12 +188,6 @@ $hover-transition-timing: 95ms;
 
       &:focus {
         outline: none;
-      }
-
-      transform: none;
-
-      > * {
-        transform: none;
       }
     }
   }
@@ -265,19 +258,20 @@ $hover-transition-timing: 95ms;
     height: 100%;
   }
 
-  .#{$prefix}--toc__navbar-caret-left-container[hidden],
-  .#{$prefix}--toc__navbar-caret-right-container[hidden] {
+  .#{$prefix}--toc__navbar-chevron-left-container[hidden],
+  .#{$prefix}--toc__navbar-chevron-right-container[hidden] {
     display: none;
   }
 
-  .#{$prefix}--toc__navbar-caret-left-container,
-  .#{$prefix}--toc__navbar-caret-right-container {
+  .#{$prefix}--toc__navbar-chevron-left-container,
+  .#{$prefix}--toc__navbar-chevron-right-container {
     display: block;
     width: $spacing-08;
     height: 100%;
-    display: none;
     position: absolute;
     top: 0;
+    bottom: 0;
+    z-index: 1;
     border: none;
     background-color: $background;
     > {
@@ -309,9 +303,7 @@ $hover-transition-timing: 95ms;
         display: none;
       }
     }
-  }
 
-  .#{$prefix}--toc__navbar-caret-left-container {
     &::before {
       content: '';
       position: absolute;
@@ -326,6 +318,13 @@ $hover-transition-timing: 95ms;
         rgba(255, 255, 255, 0)
       );
     }
+  }
+
+  .#{$prefix}--toc__navbar-chevron-left-container {
+    left: 0;
+    @include breakpoint(md) {
+      left: -$spacing-05;
+    }
 
     &:hover {
       &::before {
@@ -338,15 +337,18 @@ $hover-transition-timing: 95ms;
     }
   }
 
-  .#{$prefix}--toc__navbar-caret-right-container {
+  .#{$prefix}--toc__navbar-chevron-right-container {
+    z-index: 2;
+    right: -$spacing-01;
+
+    @include breakpoint(md) {
+      right: -$spacing-05;
+    }
+
     &::before {
       content: '';
-      position: absolute;
+      left: auto;
       right: $spacing-08;
-      top: 0;
-      height: 100%;
-      width: $spacing-03;
-      z-index: 1;
       background: linear-gradient(to left, $background, rgba(255, 255, 255, 0));
     }
 
@@ -359,16 +361,6 @@ $hover-transition-timing: 95ms;
         );
       }
     }
-  }
-
-  @include breakpoint(sm) {
-    .#{$prefix}--tableofcontents {
-      display: none;
-    }
-  }
-
-  .#{$prefix}--tableofcontents {
-    display: block;
   }
 
   .#{$prefix}--tableofcontents--g100 {
@@ -418,7 +410,8 @@ $hover-transition-timing: 95ms;
   }
 
   :host(#{$c4d-prefix}-table-of-contents) .#{$prefix}--tableofcontents__navbar {
-    &::before {
+    &::before,
+    &::after {
       border-bottom: 1px solid $border-subtle-00;
       border-top: 1px solid $border-subtle-00;
       content: '';
@@ -432,16 +425,8 @@ $hover-transition-timing: 95ms;
     }
 
     &::after {
-      border-bottom: 1px solid $border-subtle-00;
-      border-top: 1px solid $border-subtle-00;
-      content: '';
-      background-color: $background;
-      position: absolute;
-      top: -1px;
-      height: 100%;
       left: 100%;
       right: calc(-50vw + 50%);
-      z-index: 1;
     }
   }
 
@@ -472,33 +457,7 @@ $hover-transition-timing: 95ms;
     }
   }
 
-  .#{$prefix}--toc__navbar-caret-left-container,
-  .#{$prefix}--toc__navbar-caret-right-container {
-    bottom: 0;
-    z-index: 1;
-    position: absolute;
-    display: none;
-
-    display: block;
-  }
-
-  .#{$prefix}--toc__navbar-caret-right-container {
-    right: -$spacing-05;
-    z-index: 2;
-  }
-
-  .#{$prefix}--toc__navbar-caret-left-container {
-    left: -$spacing-05;
-  }
-
-  .#{$prefix}--toc__navbar-caret-left,
-  .#{$prefix}--toc__navbar-caret-right {
-    position: relative;
-    // 40px caret width & 8px gradient
-    height: $spacing-09;
-  }
-
-  .#{$c4d-prefix}-ce--toc__navbar-caret-container--hidden {
+  .#{$c4d-prefix}-ce--toc__navbar-chevron-container--hidden {
     position: absolute;
     visibility: hidden;
   }

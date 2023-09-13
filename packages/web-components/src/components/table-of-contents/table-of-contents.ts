@@ -493,7 +493,7 @@ class C4DTableOfContents extends MediaQueryMixin(
       _itemNodes: itemNodes,
       _pageIsRTL: pageIsRTL,
     } = this;
-    // If the right-side intersection sentinel is in the view, it means that right-side caret button is hidden.
+    // If the right-side intersection sentinel is in the view, it means that right-side chevron button is hidden.
     // Given scrolling to left makes it shown,
     // `contentContainerNode!.offsetWidth` will shrink as we scroll and we need to adjust for it.
     const elems = Array.prototype.slice.call(itemNodes);
@@ -529,8 +529,8 @@ class C4DTableOfContents extends MediaQueryMixin(
             currentScrollPosition -
             navBar!.getBoundingClientRect().right +
             buttonWidthOffset;
-          // If the new scroll position is less than the width of the left caret button,
-          // it means that hiding the left caret button reveals the whole of the left-most nav item.
+          // If the new scroll position is less than the width of the left chevron button,
+          // it means that hiding the left chevron button reveals the whole of the left-most nav item.
           // Snaps the left-most nav item to the left edge of nav container in this case.
           this._currentScrollPosition =
             newScrollPosition <= 0 ? 0 : newScrollPosition;
@@ -685,15 +685,15 @@ class C4DTableOfContents extends MediaQueryMixin(
         layout === TOC_TYPES.HORIZONTAL || isMobile,
     });
 
-    const caretLeftContainerClasses = classMap({
-      [`${prefix}--toc__navbar-caret-left-container`]: true,
-      [`${c4dPrefix}-ce--toc__navbar-caret-container--hidden`]:
+    const chevronLeftContainerClasses = classMap({
+      [`${prefix}--toc__navbar-chevron-left-container`]: true,
+      [`${c4dPrefix}-ce--toc__navbar-chevron-container--hidden`]:
         isIntersectionLeftTrackerInContent,
     });
 
-    const caretRightContainerClasses = classMap({
-      [`${prefix}--toc__navbar-caret-right-container`]: true,
-      [`${c4dPrefix}-ce--toc__navbar-caret-container--hidden`]:
+    const chevronRightContainerClasses = classMap({
+      [`${prefix}--toc__navbar-chevron-right-container`]: true,
+      [`${c4dPrefix}-ce--toc__navbar-chevron-container--hidden`]:
         isIntersectionRightTrackerInContent,
     });
 
@@ -754,7 +754,7 @@ class C4DTableOfContents extends MediaQueryMixin(
                         part="prev-button"
                         tabindex="-1"
                         aria-hidden="true"
-                        class="${caretRightContainerClasses}"
+                        class="${chevronRightContainerClasses}"
                         @click="${paginateLeft}">
                         ${ChevronLeft20()}
                       </button>
@@ -764,7 +764,7 @@ class C4DTableOfContents extends MediaQueryMixin(
                         part="prev-button"
                         tabindex="-1"
                         aria-hidden="true"
-                        class="${caretLeftContainerClasses}"
+                        class="${chevronLeftContainerClasses}"
                         @click="${paginateLeft}">
                         ${ChevronLeft20()}
                       </button>
@@ -832,7 +832,7 @@ class C4DTableOfContents extends MediaQueryMixin(
                         part="next-button"
                         tabindex="-1"
                         aria-hidden="true"
-                        class="${caretLeftContainerClasses}"
+                        class="${chevronLeftContainerClasses}"
                         @click="${paginateRight}">
                         ${ChevronRight20()}
                       </button>
@@ -842,7 +842,7 @@ class C4DTableOfContents extends MediaQueryMixin(
                         part="next-button"
                         tabindex="-1"
                         aria-hidden="true"
-                        class="${caretRightContainerClasses}"
+                        class="${chevronRightContainerClasses}"
                         @click="${paginateRight}">
                         ${ChevronRight20()}
                       </button>
