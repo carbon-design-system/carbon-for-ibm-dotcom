@@ -42,15 +42,15 @@ describe('g11n formatter for video caption', () => {
     });
 
     it('should fill zero for minutes', async () => {
-      expect(formatVideoDuration({ duration: 30000 })).toBe('0:30');
+      expect(formatVideoDuration({ duration: 30000 })).toBe('0:30 min');
     });
 
     it('should fill zero for seconds', async () => {
-      expect(formatVideoDuration({ duration: 65000 })).toBe('1:05');
+      expect(formatVideoDuration({ duration: 65000 })).toBe('1:05 min');
     });
 
     it('should support more than 1 minute', async () => {
-      expect(formatVideoDuration({ duration: 90000 })).toBe('1:30');
+      expect(formatVideoDuration({ duration: 90000 })).toBe('1:30 min');
     });
   });
 });

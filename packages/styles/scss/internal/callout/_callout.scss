@@ -5,20 +5,73 @@
  * LICENSE file in the root directory of this source tree.
  */
 
+@use 'sass:map';
+@use '@carbon/colors' as *;
 @use '@carbon/styles/scss/breakpoint' as *;
 @use '@carbon/styles/scss/config' as *;
 @use '@carbon/styles/scss/spacing' as *;
+@use '@carbon/styles/scss/themes';
 @use '@carbon/styles/scss/theme' as *;
 @use '../../globals/utils/flex-grid' as *;
 @use '../../globals/vars' as *;
 @use '../../globals/utils/hang' as *;
+@use './tokens' as *;
 
 @mixin callout {
-  .#{$prefix}--callout__container,
   :host(#{$c4d-prefix}-callout) {
-    background-color: $focus-inset;
-    @include make-row;
+    background-color: $background;
   }
+
+  :host(#{$c4d-prefix}-callout[color-scheme='inverse']) {
+    background-color: $background-inverse;
+  }
+
+  :host(#{$c4d-prefix}-callout[color-scheme='layer']) {
+    background-color: $layer-01;
+  }
+
+  :host(#{$c4d-prefix}-callout[color-scheme='purple']) {
+    background-color: $callout-background-purple;
+  }
+
+  :host(#{$c4d-prefix}-callout[color-scheme='cyan']) {
+    background-color: $callout-background-cyan;
+  }
+
+  :host(#{$c4d-prefix}-callout-text),
+  :host(#{$c4d-prefix}-callout-text[color-scheme='layer']) {
+    color: $text-primary;
+  }
+
+  :host(#{$c4d-prefix}-callout-text[color-scheme='inverse']) {
+    color: $text-inverse;
+  }
+
+  :host(#{$c4d-prefix}-callout-text[color-scheme='purple']) {
+    color: $callout-color-purple;
+  }
+
+  :host(#{$c4d-prefix}-callout-text[color-scheme='cyan']) {
+    color: $callout-color-cyan;
+  }
+
+  :host(#{$c4d-prefix}-callout-caption[color-scheme='layer']),
+  :host(#{$c4d-prefix}-callout-caption) {
+    color: $text-secondary;
+  }
+
+  :host(#{$c4d-prefix}-callout-caption[color-scheme='inverse']) {
+    color: $text-inverse;
+  }
+
+  :host(#{$c4d-prefix}-callout-caption[color-scheme='purple']) {
+    color: $callout-caption-purple;
+  }
+
+  :host(#{$c4d-prefix}-callout-caption[color-scheme='cyan']) {
+    color: $callout-caption-cyan;
+  }
+
   .#{$prefix}--callout__column {
     @include make-col-ready;
   }
@@ -39,21 +92,6 @@
       padding-right: $spacing-01;
       @include make-col-offset(1, 12);
       @include make-col(10, 12);
-    }
-
-    .#{$prefix}--quote {
-      background-color: $layer-01;
-    }
-
-    .#{$prefix}--quote__copy,
-    .#{$prefix}--quote__source-heading,
-    .#{$prefix}--quote__source-body,
-    .#{$prefix}--quote__source-optional-copy,
-    ::slotted(#{$c4d-prefix}-quote-source-bottom-copy),
-    ::slotted(#{$c4d-prefix}-quote-source-copy),
-    ::slotted(#{$c4d-prefix}-quote-source-heading),
-    .#{$prefix}--quote__mark {
-      color: $icon-inverse;
     }
   }
 }

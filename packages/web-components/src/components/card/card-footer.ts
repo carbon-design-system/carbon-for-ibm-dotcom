@@ -11,9 +11,7 @@ import { html } from 'lit';
 import { property, query, state } from 'lit/decorators.js';
 import { carbonElement as customElement } from '../../internal/vendor/@carbon/web-components/globals/decorators/carbon-element.js';
 import settings from '../../internal/vendor/@carbon/ibmdotcom-utilities/utilities/settings/settings.js';
-import C4DLinkWithIcon, {
-  ICON_PLACEMENT,
-} from '../link-with-icon/link-with-icon';
+import C4DLinkWithIcon from '../link-with-icon/link-with-icon';
 import { BASIC_COLOR_SCHEME } from '../../globals/defs';
 import styles from './card.scss';
 
@@ -74,9 +72,7 @@ class C4DCardFooter extends C4DLinkWithIcon {
   }
 
   _renderInner() {
-    return this.iconPlacement === ICON_PLACEMENT.LEFT
-      ? html` ${this._renderIcon()}${this._renderContent()} `
-      : html` ${this._renderContent()}${this._renderIcon()} `;
+    return html` ${this._renderContent()}${this._renderIcon()} `;
   }
 
   /**
@@ -124,21 +120,12 @@ class C4DCardFooter extends C4DLinkWithIcon {
       this.shadowRoot?.querySelector(`a`)?.removeAttribute('aria-label');
     }
 
-    const {
-      iconInline,
-      iconPlacement,
-      _staticNode: staticNode,
-      _linkNode: linkNode,
-    } = this;
+    const { iconInline, _staticNode: staticNode, _linkNode: linkNode } = this;
     const targetNode = linkNode ?? staticNode;
     targetNode!.classList.add(`${prefix}--card__footer`);
     targetNode!.classList.add(`${c4dPrefix}-ce--card__footer`);
-    targetNode!.classList.toggle(
-      `${prefix}--card__footer__icon-left`,
-      iconPlacement === ICON_PLACEMENT.LEFT
-    );
 
-    if (iconInline && iconPlacement === ICON_PLACEMENT.RIGHT) {
+    if (iconInline) {
       targetNode!.classList.add(`${prefix}--link-with-icon--inline-icon`);
     }
   }

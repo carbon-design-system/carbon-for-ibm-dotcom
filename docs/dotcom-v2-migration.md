@@ -19,6 +19,8 @@ For Carbon v11 migration guidance, see their
 | background-media          | No API changes.                        |
 | button                    | This component is deprecated in v2 in favor for Carbon's core Button |
 | button-group              | No API changes. |
+| callout-quote             | View changes [here](#callout-quote)          |
+| card                      | View changes [here] (#card)            |
 | card-group-card-link-item | This component is deprecated in v2 in favor for default card or with content-item |
 | card-link                 | This component is deprecated in v2 in favor for card (link variant) component |
 | card-section-carousel     | This component is deprecated in v2 in favor for content-section/block component combined with carousel |
@@ -35,17 +37,31 @@ For Carbon v11 migration guidance, see their
 | cta                       | View changes [here](#cta) |
 | cta-block                 | This component is deprecated in v2 in favor for content-section/block & content-item components |
 | cta-section               | This component is deprecated in v2 in favor for content-section/block & content-item components |
+| hr                        | View changes [here](#horizontal-rule)                      |
 | image                     | View changes [here](#image)            |
 | image-with-caption        | Replaced by `image`                    |
 | link-list-section         | This component is deprecated in v2 in favor for content-section/block & link-list end of section variant components |
 | logo-grid                 | This component is deprecated in v2 in favor for content-section/block & image-group components |
 | pictogram-item            | This component is deprecated in v2 in favor for content-item (pictogram variation) componet |
+| quote                     | No API changes.                        |
+| search-with-typeahead     | No API changes.                        |
 | tabs-extended-media       | This component is deprecated in v2 in favor for tabs-extended component |
 
 
 ### BackToTop
 
 - 
+
+### Callout quote
+
+- New options for `color-scheme` property: `REGULAR = 'regular'`, `INVERSE = 'inverse'` `LAYER = 'layer'`, `CYAN = 'cyan'`, `PURPLE = 'purple'`
+- New callout style tokens
+
+### Card
+
+- `<dds-card-footer>` has `icon-placement` property has been removed
+- Removed `border` property, clickable cards inherit the Carbon v11 experimental tile border style
+- New `aspect-ratio` property with '1:1', '2:1', '3:2', '4:3', and '16:9' as options
 
 ### CTA
 
@@ -54,6 +70,10 @@ All of the CTA-like features can now be used natively within Button, Card, Featu
 
 Each new component has a `cta-type` property that can change the icon and click functionality of the component. See the components' 
 documentations for more information.
+
+### Horizontal rule
+
+- New options for `contrast` property: `SUBTLE = 'subtle' (default)`, `STRONG = 'strong'` instead of `MEDIUM_CONTRAST = 'medium_contrast'`, `LOW_CONTRAST = 'low_contrast'`, `HIGH_CONTRAST = 'high_contrast'`
 
 ### Image
 
