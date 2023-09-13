@@ -44,6 +44,15 @@ function App() {
 }
 ```
 
+### SCSS
+
+Callout quote has specific tokens per theme that need to emitted in the styles. You can do this for example by adding the following:
+
+```css
+@use '@carbon/ibmdotcom-styles/scss/internal/callout/tokens' as callout-tokens;
+@include add-component-tokens(callout-tokens.$callout-tokens);
+```
+
 ## Props
 
 <Props of={PropTypesRef} />

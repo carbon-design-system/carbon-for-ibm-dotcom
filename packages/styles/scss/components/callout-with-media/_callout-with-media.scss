@@ -11,54 +11,120 @@
 @use '@carbon/styles/scss/theme' as *;
 @use '@carbon/styles/scss/type' as *;
 @use '../../globals/vars' as *;
-@use '../../internal/callout/callout';
+@use '../../internal/callout/callout' as *;
 @use '../../internal/content-block';
 @use '../../internal/content-item/content-item';
 @use '../image';
 @use '../content-block-simple/content-block-simple';
 
-@mixin callout-with-media {
-  :host(#{$c4d-prefix}-callout-with-media),
-  .#{$prefix}--callout-with-media {
-    display: block;
-    background-color: $background-inverse;
+@include callout;
 
-    ::slotted([slot='heading']),
-    .#{$prefix}--content-block__heading {
+@mixin callout-with-media {
+  :host(#{$c4d-prefix}-callout-with-media) {
+    @extend :host(#{$c4d-prefix}-callout);
+
+    display: block;
+
+    ::slotted([slot='heading']) {
       margin-bottom: $spacing-07;
     }
 
     ::slotted([slot='copy']) {
       margin-bottom: $spacing-07;
-      color: $icon-inverse;
     }
   }
 
-  :host(#{$c4d-prefix}-callout-with-media) ::slotted([slot='heading']),
-  .#{$prefix}--callout-with-media .#{$prefix}--content-block__heading,
-  :host(#{$c4d-prefix}-callout-with-media-copy)
-    ::slotted(#{$c4d-prefix}-content-block-paragraph),
-  .#{$prefix}--callout-with-media .#{$prefix}--content-item__copy p,
-  :host(#{$c4d-prefix}-callout-with-media-image) .#{$prefix}--image__caption,
-  :host(#{$c4d-prefix}-callout-with-media-video)
-    ::slotted(#{$c4d-prefix}-video-player),
-  .#{$prefix}--callout-with-media .#{$prefix}--video-player__video-caption,
-  .#{$prefix}--callout-with-media .#{$prefix}--image__caption {
-    color: $icon-inverse;
+  :host(#{$c4d-prefix}-callout-with-media[color-scheme='inverse']) {
+    @extend :host(#{$c4d-prefix}-callout[color-scheme='inverse']);
+  }
+
+  :host(#{$c4d-prefix}-callout-with-media[color-scheme='layer']) {
+    @extend :host(#{$c4d-prefix}-callout[color-scheme='layer']);
+  }
+
+  :host(#{$c4d-prefix}-callout-with-media[color-scheme='purple']) {
+    @extend :host(#{$c4d-prefix}-callout[color-scheme='purple']);
+  }
+
+  :host(#{$c4d-prefix}-callout-with-media[color-scheme='cyan']) {
+    @extend :host(#{$c4d-prefix}-callout[color-scheme='cyan']);
   }
 
   :host(#{$c4d-prefix}-callout-with-media) ::slotted([slot='heading']),
-  .#{$prefix}--callout-with-media .#{$prefix}--content-block__heading,
-  :host(#{$c4d-prefix}-callout-with-media) ::slotted([slot='copy']),
-  .#{$prefix}--callout-with-media .#{$prefix}--callout-with-media-copy {
+  :host(#{$c4d-prefix}-callout-with-media-copy)
+    ::slotted(#{$c4d-prefix}-content-block-paragraph) {
+    @extend :host(#{$c4d-prefix}-callout-text);
+  }
+
+  :host(#{$c4d-prefix}-callout-with-media[color-scheme='inverse'])
+    ::slotted([slot='heading']),
+  :host(#{$c4d-prefix}-callout-with-media-copy[color-scheme='inverse'])
+    ::slotted(#{$c4d-prefix}-content-block-paragraph) {
+    @extend :host(#{$c4d-prefix}-callout-text[color-scheme='inverse']);
+  }
+
+  :host(#{$c4d-prefix}-callout-with-media[color-scheme='layer'])
+    ::slotted([slot='heading']),
+  :host(#{$c4d-prefix}-callout-with-media-copy[color-scheme='layer'])
+    ::slotted(#{$c4d-prefix}-content-block-paragraph) {
+    @extend :host(#{$c4d-prefix}-callout-text[color-scheme='layer']);
+  }
+
+  :host(#{$c4d-prefix}-callout-with-media[color-scheme='purple'])
+    ::slotted([slot='heading']),
+  :host(#{$c4d-prefix}-callout-with-media-copy[color-scheme='purple'])
+    ::slotted(#{$c4d-prefix}-content-block-paragraph) {
+    @extend :host(#{$c4d-prefix}-callout-text[color-scheme='purple']);
+  }
+
+  :host(#{$c4d-prefix}-callout-with-media[color-scheme='cyan'])
+    ::slotted([slot='heading']),
+  :host(#{$c4d-prefix}-callout-with-media-copy[color-scheme='cyan'])
+    ::slotted(#{$c4d-prefix}-content-block-paragraph) {
+    @extend :host(#{$c4d-prefix}-callout-text[color-scheme='cyan']);
+  }
+
+  :host(#{$c4d-prefix}-callout-with-media-image) .#{$prefix}--image__caption,
+  :host(#{$c4d-prefix}-callout-with-media-video)
+    ::slotted(#{$c4d-prefix}-video-player) {
+    @extend :host(#{$c4d-prefix}-callout-caption);
+  }
+
+  :host(#{$c4d-prefix}-callout-with-media-image[color-scheme='inverse'])
+    .#{$prefix}--image__caption,
+  :host(#{$c4d-prefix}-callout-with-media-video[color-scheme='inverse'])
+    ::slotted(#{$c4d-prefix}-video-player) {
+    @extend :host(#{$c4d-prefix}-callout-caption[color-scheme='inverse']);
+  }
+
+  :host(#{$c4d-prefix}-callout-with-media-image[color-scheme='layer'])
+    .#{$prefix}--image__caption,
+  :host(#{$c4d-prefix}-callout-with-media-video[color-scheme='layer'])
+    ::slotted(#{$c4d-prefix}-video-player) {
+    @extend :host(#{$c4d-prefix}-callout-caption[color-scheme='layer']);
+  }
+
+  :host(#{$c4d-prefix}-callout-with-media-image[color-scheme='purple'])
+    .#{$prefix}--image__caption,
+  :host(#{$c4d-prefix}-callout-with-media-video[color-scheme='purple'])
+    ::slotted(#{$c4d-prefix}-video-player) {
+    @extend :host(#{$c4d-prefix}-callout-caption[color-scheme='purple']);
+  }
+
+  :host(#{$c4d-prefix}-callout-with-media-image[color-scheme='cyan'])
+    .#{$prefix}--image__caption,
+  :host(#{$c4d-prefix}-callout-with-media-video[color-scheme='cyan'])
+    ::slotted(#{$c4d-prefix}-video-player) {
+    @extend :host(#{$c4d-prefix}-callout-caption[color-scheme='cyan']);
+  }
+
+  :host(#{$c4d-prefix}-callout-with-media) ::slotted([slot='heading']),
+  :host(#{$c4d-prefix}-callout-with-media) ::slotted([slot='copy']) {
     padding-right: $spacing-07;
     max-width: rem(640px);
     width: auto;
   }
 
-  .#{$prefix}--callout-with-media .#{$prefix}--callout__content {
-    padding-top: 0;
-  }
   :host(#{$c4d-prefix}-callout-with-media-video),
   .#{$prefix}--callout-with-media
     .#{$prefix}--callout__content

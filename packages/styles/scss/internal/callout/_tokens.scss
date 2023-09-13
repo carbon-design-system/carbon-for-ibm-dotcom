@@ -1,0 +1,182 @@
+//
+// Copyright IBM Corp. 2020
+//
+// This source code is licensed under the Apache-2.0 license found in the
+// LICENSE file in the root directory of this source tree.
+//
+
+@use '@carbon/colors' as *;
+@use '@carbon/styles/scss/themes';
+@use '@carbon/styles/scss/theme' as *;
+@use '@carbon/styles/scss/utilities/component-tokens';
+
+$callout-background-cyan: (
+  fallback: $cyan-10,
+  values: (
+    (
+      theme: themes.$white,
+      value: $cyan-10,
+    ),
+    (
+      theme: themes.$g10,
+      value: $cyan-10,
+    ),
+    (
+      theme: themes.$g90,
+      value: $cyan-90,
+    ),
+    (
+      theme: themes.$g100,
+      value: $cyan-90,
+    ),
+  ),
+);
+
+$callout-color-cyan: (
+  fallback: $cyan-90,
+  values: (
+    (
+      theme: themes.$white,
+      value: $cyan-90,
+    ),
+    (
+      theme: themes.$g10,
+      value: $cyan-90,
+    ),
+    (
+      theme: themes.$g90,
+      value: $cyan-10,
+    ),
+    (
+      theme: themes.$g100,
+      value: $cyan-10,
+    ),
+  ),
+);
+
+$callout-caption-cyan: (
+  fallback: $cyan-70,
+  values: (
+    (
+      theme: themes.$white,
+      value: $cyan-70,
+    ),
+    (
+      theme: themes.$g10,
+      value: $cyan-70,
+    ),
+    (
+      theme: themes.$g90,
+      value: $cyan-30,
+    ),
+    (
+      theme: themes.$g100,
+      value: $cyan-30,
+    ),
+  ),
+);
+
+$callout-background-purple: (
+  fallback: $purple-10,
+  values: (
+    (
+      theme: themes.$white,
+      value: $purple-10,
+    ),
+    (
+      theme: themes.$g10,
+      value: $purple-10,
+    ),
+    (
+      theme: themes.$g90,
+      value: $purple-90,
+    ),
+    (
+      theme: themes.$g100,
+      value: $purple-90,
+    ),
+  ),
+);
+
+$callout-color-purple: (
+  fallback: $purple-90,
+  values: (
+    (
+      theme: themes.$white,
+      value: $purple-90,
+    ),
+    (
+      theme: themes.$g10,
+      value: $purple-90,
+    ),
+    (
+      theme: themes.$g90,
+      value: $purple-10,
+    ),
+    (
+      theme: themes.$g100,
+      value: $purple-10,
+    ),
+  ),
+);
+
+$callout-caption-purple: (
+  fallback: $purple-70,
+  values: (
+    (
+      theme: themes.$white,
+      value: $purple-70,
+    ),
+    (
+      theme: themes.$g10,
+      value: $purple-70,
+    ),
+    (
+      theme: themes.$g90,
+      value: $purple-30,
+    ),
+    (
+      theme: themes.$g100,
+      value: $purple-30,
+    ),
+  ),
+);
+
+$callout-tokens: (
+  callout-background-cyan: $callout-background-cyan,
+  callout-color-cyan: $callout-color-cyan,
+  callout-caption-cyan: $callout-caption-cyan,
+  callout-background-purple: $callout-background-purple,
+  callout-color-purple: $callout-color-purple,
+  callout-caption-purple: $callout-caption-purple,
+);
+
+$callout-background-cyan: component-tokens.get-var(
+  $callout-background-cyan,
+  'callout-background-cyan'
+);
+
+$callout-color-cyan: component-tokens.get-var(
+  $callout-color-cyan,
+  'callout-color-cyan'
+);
+
+$callout-caption-cyan: component-tokens.get-var(
+  $callout-caption-cyan,
+  'callout-caption-cyan'
+);
+
+$callout-background-purple: component-tokens.get-var(
+  $callout-background-purple,
+  'callout-background-purple'
+);
+
+$callout-color-purple: component-tokens.get-var(
+  $callout-color-purple,
+  'callout-color-purple'
+);
+
+$callout-caption-purple: component-tokens.get-var(
+  $callout-caption-purple,
+  'callout-caption-purple'
+);
