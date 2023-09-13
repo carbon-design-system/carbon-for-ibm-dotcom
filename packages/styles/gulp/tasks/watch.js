@@ -15,5 +15,5 @@ const gulp = require('gulp');
  * @module watch
  */
 module.exports = gulp.task('watch', () => {
-  gulp.watch(global.config.scssFiles, gulp.task('sass'));
+  gulp.watch(global.config.scssFiles, gulp.parallel('sass-ltr', 'sass-rtl'));
 });

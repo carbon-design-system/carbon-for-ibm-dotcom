@@ -103,6 +103,8 @@ class StickyHeader {
       if (this._masthead) {
         this._masthead.setAttribute('with-banner', '');
       }
+
+      this._calculateCumulativeHeight();
     }
   }
 
@@ -114,19 +116,21 @@ class StickyHeader {
       const leadspaceSearchBar = component.shadowRoot.querySelector(
         `.${prefix}--search-container`
       );
-      this._leadspaceWithSearchBar = leadspaceSearchBar;
+      this._leadspaceSearchBar = leadspaceSearchBar;
       this._leadspaceWithSearchInput = component.querySelector(
         `${ddsPrefix}-search-with-typeahead`
       );
       this._leadspaceWithSearchStickyThreshold =
         parseInt(window.getComputedStyle(leadspaceSearchBar).paddingBottom) -
         16;
+      this._calculateCumulativeHeight();
     }
   }
 
   set localeModal(component) {
     if (this._validateComponent(component, `${ddsPrefix}-locale-modal`)) {
       this._localeModal = component;
+      this._calculateCumulativeHeight();
     }
   }
 
@@ -139,6 +143,7 @@ class StickyHeader {
         `.${prefix}--masthead__l0`
       );
       this._mastheadL1 = component.querySelector(`${ddsPrefix}-masthead-l1`);
+      this._calculateCumulativeHeight();
     }
   }
 
@@ -147,6 +152,7 @@ class StickyHeader {
       this._tableOfContents = component;
       this._tableOfContentsStickyUpdate();
       this._resizeObserver.observe(this._tableOfContents);
+      this._calculateCumulativeHeight();
     }
   }
 
@@ -156,7 +162,7 @@ class StickyHeader {
   _throttledHandler() {
     if (!this._throttled) {
       this._throttled = true;
-      this._handleScroll();
+      this._calculateCumulativeHeight();
 
       setTimeout(() => {
         this._throttled = false;
@@ -188,7 +194,7 @@ class StickyHeader {
           tocInner.style.top = `${masthead.offsetHeight}px`;
         }
       }
-      this._handleScroll();
+      this._calculateCumulativeHeight();
     }
 
     if (leadspaceSearchBar) {
@@ -198,7 +204,7 @@ class StickyHeader {
     }
   }
 
-  _handleScroll() {
+  _calculateCumulativeHeight() {
     const {
       _lastScrollPosition: oldY,
       _banner: banner,
@@ -209,7 +215,7 @@ class StickyHeader {
       _tableOfContents: toc,
       _tableOfContentsInnerBar: tocInner,
       _leadspaceWithSearch: leadspaceSearch,
-      _leadspaceWithSearchBar: leadspaceSearchBar,
+      _leadspaceSearchBar: leadspaceSearchBar,
       _leadspaceWithSearchInput: leadspaceSearchInput,
       _leadspaceWithSearchStickyThreshold: leadspaceSearchThreshold,
     } = StickyHeader.global;
@@ -284,12 +290,10 @@ class StickyHeader {
      *   with the elements that should be visible starting at the top of the
      *   viewport.
      */
-    let cumulativeOffset = masthead
-      ? Math.max(
-          Math.min(masthead.offsetTop + oldY - newY, 0),
-          maxScrollaway * -1
-        )
-      : Math.max(Math.min(oldY - newY, 0), maxScrollaway * -1);
+    let cumulativeOffset = Math.max(
+      Math.min((masthead ? masthead.offsetTop : 0) + oldY - newY, 0),
+      maxScrollaway * -1
+    );
 
     if (banner) {
       cumulativeOffset += Math.max(banner.offsetHeight - newY, 0);
@@ -304,7 +308,17 @@ class StickyHeader {
     if (tocInner) {
       tocInner.style.transition = 'none';
       tocInner.style.top = `${cumulativeOffset}px`;
-      cumulativeOffset += tocInner.offsetHeight;
+
+      tocShouldStick =
+        toc.layout === 'horizontal' || window.innerWidth < gridBreakpoint;
+
+      const tocIsStuck =
+        Math.round(tocInner.getBoundingClientRect().top) <=
+        cumulativeOffset + 1;
+
+      if (tocShouldStick && tocIsStuck) {
+        cumulativeOffset += tocInner.offsetHeight;
+      }
     }
 
     if (!tocInner && leadspaceSearchBar) {
