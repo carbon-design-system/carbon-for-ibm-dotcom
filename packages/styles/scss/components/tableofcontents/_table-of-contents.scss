@@ -430,7 +430,7 @@ $hover-transition-timing: 95ms;
   :host(#{$c4d-prefix}-table-of-contents[toc-layout='horizontal'])
     .#{$prefix}--tableofcontents-container {
     position: relative;
-    overflow: hidden;
+    overflow: scroll;
     height: $spacing-09;
   }
 
@@ -438,7 +438,7 @@ $hover-transition-timing: 95ms;
     .#{$prefix}--tableofcontents-container {
     @include breakpoint-down(lg) {
       position: relative;
-      overflow: hidden;
+      overflow: scroll;
       height: $spacing-09;
     }
   }

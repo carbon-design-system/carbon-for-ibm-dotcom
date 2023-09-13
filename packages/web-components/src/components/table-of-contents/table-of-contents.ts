@@ -133,6 +133,9 @@ class C4DTableOfContents extends MediaQueryMixin(
   @queryAll(`.${prefix}--tableofcontents__item`)
   private _itemNodes?: HTMLElement[] = [];
 
+  @query(`.${prefix}--tableofcontents__content`)
+  private _contentDiv?: HTMLElement;
+
   @query(`.${prefix}--tableofcontents__navbar`)
   private _navBar?: HTMLElement;
 
@@ -410,7 +413,13 @@ class C4DTableOfContents extends MediaQueryMixin(
       if (currentY > elem.offsetTop && masthead) {
         targetY = elem.offsetTop - masthead.offsetHeight;
       } else {
-        targetY = elem.offsetTop;
+        targetY =
+          elem.offsetTop -
+          parseInt(
+            window
+              .getComputedStyle(this._contentDiv!)
+              .getPropertyValue('padding-top')
+          );
       }
 
       window.scrollTo(0, targetY);
