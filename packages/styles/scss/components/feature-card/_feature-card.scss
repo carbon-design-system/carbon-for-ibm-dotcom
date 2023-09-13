@@ -130,8 +130,8 @@ $feature-flags: (
     }
   }
 
-  :host(#{$dds-prefix}-feature-card),
-  :host(#{$dds-prefix}-feature-cta) {
+  :host(#{$c4d-prefix}-feature-card),
+  :host(#{$c4d-prefix}-feature-cta) {
     display: block;
     outline: none;
 
@@ -367,12 +367,12 @@ $feature-flags: (
       }
 
       .#{$prefix}--card__eyebrow,
-      ::slotted(#{$dds-prefix}-card-eyebrow) {
+      ::slotted(#{$c4d-prefix}-card-eyebrow) {
         margin: 0 0 $spacing-03 0;
       }
 
       .#{$prefix}--card__heading,
-      ::slotted(#{$dds-prefix}-card-heading) {
+      ::slotted(#{$c4d-prefix}-card-heading) {
         margin-bottom: $spacing-07;
         @include type-style('fluid-heading-04', true);
       }
@@ -479,16 +479,16 @@ $feature-flags: (
   }
 
   // inverse color scheme
-  :host(#{$dds-prefix}-feature-card)[color-scheme='inverse'],
-  :host(#{$dds-prefix}-feature-cta)[color-scheme='inverse'] {
+  :host(#{$c4d-prefix}-feature-card)[color-scheme='inverse'],
+  :host(#{$c4d-prefix}-feature-cta)[color-scheme='inverse'] {
     border-color: $border-inverse;
 
     .#{$prefix}--card__heading,
-    ::slotted(#{$dds-prefix}-card-heading) {
+    ::slotted(#{$c4d-prefix}-card-heading) {
       color: $icon-inverse;
     }
 
-    ::slotted(#{$dds-prefix}-card-heading) {
+    ::slotted(#{$c4d-prefix}-card-heading) {
       color: $focus-inset;
     }
 
@@ -497,7 +497,7 @@ $feature-flags: (
     }
 
     ::slotted([slot='image']),
-    #{$dds-prefix}-image,
+    #{$c4d-prefix}-image,
     .#{$prefix}--image {
       &::before {
         background-color: $icon-inverse;
@@ -507,10 +507,10 @@ $feature-flags: (
 
   // feature cards that are not size large
   :host(
-      #{$dds-prefix}-feature-card:not([size='large'])
+      #{$c4d-prefix}-feature-card:not([size='large'])
     )[color-scheme='inverse'],
   :host(
-      #{$dds-prefix}-feature-cta:not([size='large'])
+      #{$c4d-prefix}-feature-cta:not([size='large'])
     )[color-scheme='inverse'] {
     .#{$prefix}--card__heading {
       color: $icon-inverse;
@@ -531,38 +531,38 @@ $feature-flags: (
   }
 
   // feature cards that are size large
-  :host(#{$dds-prefix}-feature-card[size='large'])[color-scheme='inverse'],
-  :host(#{$dds-prefix}-feature-cta[size='large'])[color-scheme='inverse'] {
+  :host(#{$c4d-prefix}-feature-card[size='large'])[color-scheme='inverse'],
+  :host(#{$c4d-prefix}-feature-cta[size='large'])[color-scheme='inverse'] {
     .#{$prefix}--card__wrapper {
       background-color: $background-inverse;
 
       .#{$prefix}--card__eyebrow,
       .#{$prefix}--card__heading,
       .#{$prefix}--card__copy,
-      ::slotted(#{$dds-prefix}-card-eyebrow),
-      ::slotted(#{$dds-prefix}-card-heading) {
+      ::slotted(#{$c4d-prefix}-card-eyebrow),
+      ::slotted(#{$c4d-prefix}-card-heading) {
         color: $icon-inverse;
       }
       .#{$prefix}--card__eyebrow,
-      ::slotted(#{$dds-prefix}-card-eyebrow) {
+      ::slotted(#{$c4d-prefix}-card-eyebrow) {
         color: $icon-inverse;
       }
 
       .#{$prefix}--card__heading,
-      ::slotted(#{$dds-prefix}-card-heading) {
+      ::slotted(#{$c4d-prefix}-card-heading) {
         color: $icon-inverse;
       }
     }
   }
 
-  :host(#{$dds-prefix}-feature-card-footer)[color-scheme='inverse']
-    .#{$dds-prefix}-ce--card__footer
+  :host(#{$c4d-prefix}-feature-card-footer)[color-scheme='inverse']
+    .#{$c4d-prefix}-ce--card__footer
     ::slotted(svg[slot='icon']) {
     fill: $link-inverse;
   }
 
-  :host(#{$dds-prefix}-feature-card[size='large']) {
-    ::slotted(#{$dds-prefix}-feature-card-footer) {
+  :host(#{$c4d-prefix}-feature-card[size='large']) {
+    ::slotted(#{$c4d-prefix}-feature-card-footer) {
       display: flex;
       justify-content: flex-end;
 
@@ -572,8 +572,8 @@ $feature-flags: (
     }
   }
 
-  :host(#{$dds-prefix}-feature-card-footer),
-  :host(#{$dds-prefix}-feature-cta-footer) {
+  :host(#{$c4d-prefix}-feature-card-footer),
+  :host(#{$c4d-prefix}-feature-cta-footer) {
     display: flex;
     justify-content: flex-end;
 
@@ -591,7 +591,7 @@ $feature-flags: (
     }
   }
 
-  :host(#{$dds-prefix}-feature-card[size='large'])[color-scheme='inverse']:hover
+  :host(#{$c4d-prefix}-feature-card[size='large'])[color-scheme='inverse']:hover
     .#{$prefix}--card__wrapper {
     background-color: $background-inverse-hover;
   }
