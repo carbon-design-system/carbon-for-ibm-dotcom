@@ -46,7 +46,8 @@ class DDSLightboxVideoPlayerComposite extends ModalRenderMixin(
    * Handles aria state depending on the modal's state.
    */
   private _handleAriaAndHiddenState = () => {
-    const iFrame = this._videoPlayer?.querySelector('iframe');
+    const { _videoPlayer: videoPlayer } = this;
+    const iFrame = videoPlayer?.querySelector('iframe');
 
     // Handles edge case where screen reader still reads video title within iFrame
     try {
@@ -69,9 +70,7 @@ class DDSLightboxVideoPlayerComposite extends ModalRenderMixin(
       .constructor as typeof DDSLightboxVideoPlayerComposite;
 
     const elems = Array.prototype.slice.call(
-      document
-        .querySelector('dds-lightbox-video-player')
-        ?.querySelectorAll(selectorEmbeddedVideoContainer)
+      videoPlayer?.querySelectorAll(selectorEmbeddedVideoContainer)
     );
 
     elems.forEach((element) => {
