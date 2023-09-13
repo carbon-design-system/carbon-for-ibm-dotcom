@@ -113,7 +113,7 @@ export const Default = (args) => {
           <C4DContentBlockCopy size="sm">{blockCopy}</C4DContentBlockCopy>
           <C4DVideoPlayerContainer
             slot="media"
-            video-id="1_9h94wo6b"></C4DVideoPlayerContainer>
+            video-id="0_ibuqxqbe"></C4DVideoPlayerContainer>
           <C4DTextCTA slot="footer" cta-type="jump" href="https://www.ibm.com">
             Jump to AI ethics and trust
           </C4DTextCTA>

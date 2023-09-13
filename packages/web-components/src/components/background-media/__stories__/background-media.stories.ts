@@ -55,7 +55,7 @@ export const WithVideo = (args) => {
         gradient-direction="${ifDefined(gradientDirection)}"
         opacity="${ifDefined(backgroundOpacity)}">
         <c4d-video-player-container
-          video-id="1_9h94wo6b"
+          video-id="0_ibuqxqbe"
           background-mode="true"></c4d-video-player-container>
       </c4d-background-media>
     </div>

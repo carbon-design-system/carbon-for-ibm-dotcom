@@ -116,13 +116,13 @@ const cardsDiffLengthPhrase = (
   const videoCardGroupItem = (
     <C4DCardGroupItem
       cta-type="video"
-      href="1_9h94wo6b"
+      href="0_ibuqxqbe"
       color-scheme={gridMode === 'border' ? 'light' : null}>
       <C4DCardEyebrow>Topic</C4DCardEyebrow>
       {tagGroup ? tagGroupContent : ''}
       <C4DCardCTAFooter
         cta-type="video"
-        href="1_9h94wo6b"
+        href="0_ibuqxqbe"
         slot="footer"></C4DCardCTAFooter>
     </C4DCardGroupItem>
   );
@@ -212,11 +212,11 @@ const cardInCardItems = (i, tagGroup, media, gridMode) => {
     ) : (
       <C4DCardGroupItem
         cta-type="video"
-        href="1_9h94wo6b"
+        href="0_ibuqxqbe"
         colorScheme={gridMode === 'border' ? 'light' : null}>
         <C4DCardEyebrow>Topic</C4DCardEyebrow>
         {tagGroup ? tagGroupContent : ''}
-        <C4DCardCTAFooter cta-type="video" slot="footer" href="1_9h94wo6b" />
+        <C4DCardCTAFooter cta-type="video" slot="footer" href="0_ibuqxqbe" />
       </C4DCardGroupItem>
     );
   }

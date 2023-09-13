@@ -264,7 +264,7 @@ export const tocContent = (
           nisi ut aliquip ex ea commodo consequat.
         </C4DContentBlockCopy>
         <C4DLeadspaceBlockMedia slot="media">
-          <C4DVideoPlayerContainer video-id="1_9h94wo6b"></C4DVideoPlayerContainer>
+          <C4DVideoPlayerContainer video-id="0_ibuqxqbe"></C4DVideoPlayerContainer>
         </C4DLeadspaceBlockMedia>
         <C4DLinkList type="end">
           <C4DLinkListHeading>Featured products</C4DLinkListHeading>
@@ -334,7 +334,7 @@ export const tocContent = (
         Turpis tincidunt id aliquet risus feugiat in. Vel facilisis volutpat est
         velit egestas dui.
       </C4DCalloutWithMediaCopy>
-      <C4DCalloutWithMediaVideo video-id="1_9h94wo6b"></C4DCalloutWithMediaVideo>
+      <C4DCalloutWithMediaVideo video-id="0_ibuqxqbe"></C4DCalloutWithMediaVideo>
     </C4DCalloutWithMedia>
 
     <C4DContentBlockHorizontal name="4" data-title="Tincidunt ornare massa">
@@ -511,7 +511,7 @@ export const StoryContentNoToC = () => (
           Turpis tincidunt id aliquet risus feugiat in. Vel facilisis volutpat
           est velit egestas dui.
         </C4DCalloutWithMediaCopy>
-        <C4DCalloutWithMediaVideo video-id="1_9h94wo6b"></C4DCalloutWithMediaVideo>
+        <C4DCalloutWithMediaVideo video-id="0_ibuqxqbe"></C4DCalloutWithMediaVideo>
       </C4DCalloutWithMedia>
 
       <C4DContentBlockHorizontal>

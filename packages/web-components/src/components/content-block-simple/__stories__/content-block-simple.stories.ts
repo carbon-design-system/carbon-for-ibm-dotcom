@@ -173,7 +173,7 @@ export const WithVideo = (args) => {
       >
       <c4d-video-player-container
         slot="media"
-        video-id="1_9h94wo6b"></c4d-video-player-container>
+        video-id="0_ibuqxqbe"></c4d-video-player-container>
       ${ctaStyle === 'card-link'
         ? html`
             <c4d-card-link-cta

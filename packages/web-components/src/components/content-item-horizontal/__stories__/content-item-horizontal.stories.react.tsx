@@ -97,7 +97,7 @@ export const Default = (args) => {
         ''
       )}
       {withMedia === MEDIA_TYPE.VIDEO ? (
-        <C4DContentItemHorizontalMediaVideo video-id="1_9h94wo6b"></C4DContentItemHorizontalMediaVideo>
+        <C4DContentItemHorizontalMediaVideo video-id="0_ibuqxqbe"></C4DContentItemHorizontalMediaVideo>
       ) : (
         ''
       )}
@@ -166,7 +166,7 @@ export const withMedia = (args) => {
         ''
       )}
       {type === MEDIA_TYPE.VIDEO ? (
-        <C4DContentItemHorizontalMediaVideo video-id="1_9h94wo6b"></C4DContentItemHorizontalMediaVideo>
+        <C4DContentItemHorizontalMediaVideo video-id="0_ibuqxqbe"></C4DContentItemHorizontalMediaVideo>
       ) : (
         ''
       )}
@@ -215,7 +215,7 @@ export const withFeaturedMedia = (args) => {
         ''
       )}
       {type === MEDIA_TYPE.VIDEO ? (
-        <C4DContentItemHorizontalMediaVideo video-id="1_9h94wo6b"></C4DContentItemHorizontalMediaVideo>
+        <C4DContentItemHorizontalMediaVideo video-id="0_ibuqxqbe"></C4DContentItemHorizontalMediaVideo>
       ) : (
         ''
       )}

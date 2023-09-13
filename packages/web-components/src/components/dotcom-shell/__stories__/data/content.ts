@@ -223,7 +223,7 @@ export const tocContent = html`
       </c4d-content-block-copy>
       <c4d-leadspace-block-media slot="media">
         <c4d-video-player-container
-          video-id="1_9h94wo6b"></c4d-video-player-container>
+          video-id="0_ibuqxqbe"></c4d-video-player-container>
       </c4d-leadspace-block-media>
       <c4d-link-list type="end">
         <c4d-link-list-heading>Featured products</c4d-link-list-heading>
@@ -296,7 +296,7 @@ export const tocContent = html`
       velit egestas dui.
     </c4d-callout-with-media-copy>
     <c4d-callout-with-media-video
-      video-id="1_9h94wo6b"></c4d-callout-with-media-video>
+      video-id="0_ibuqxqbe"></c4d-callout-with-media-video>
   </c4d-callout-with-media>
 
   <a name="4" data-title="Tincidunt ornare massa"></a>
@@ -494,7 +494,7 @@ export const StoryContentNoToC = () =>
             facilisis volutpat est velit egestas dui.
           </c4d-callout-with-media-copy>
           <c4d-callout-with-media-video
-            video-id="1_9h94wo6b"></c4d-callout-with-media-video>
+            video-id="0_ibuqxqbe"></c4d-callout-with-media-video>
         </c4d-callout-with-media>
 
         <c4d-content-block-horizontal>
