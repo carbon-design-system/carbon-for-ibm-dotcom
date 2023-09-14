@@ -77,7 +77,7 @@
   }
   .#{$prefix}--callout__content {
     box-sizing: border-box;
-    
+
     @include breakpoint(sm) {
       padding-top: $layout-03;
     }
