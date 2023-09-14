@@ -29,7 +29,7 @@
 
     color: $text-primary;
     background-color: $background;
-    padding-top: carbon--mini-units(6);
+    padding-top: $spacing-09;
 
     .#{$prefix}--modal-content {
       .#{$prefix}--link {
@@ -43,7 +43,7 @@
 
   :host(#{$c4d-prefix}-footer[size='short']),
   .#{$prefix}--footer--short {
-    padding-block: carbon--mini-units(4);
+    padding-block: $spacing-07;
 
     .#{$prefix}--language-selector__container {
       margin-top: $spacing-09;

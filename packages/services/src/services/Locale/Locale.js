@@ -14,8 +14,8 @@ import root from 'window-or-global';
  * @constant {string | string} Host for the Locale API call
  * @private
  */
-const _host = process && process.env.TRANSLATION_HOST;
-('https://1.www.s81c.com');
+const _host =
+  (process && process.env.TRANSLATION_HOST) || 'https://1.www.s81c.com';
 
 /**
  * Sets the default location if nothing is returned

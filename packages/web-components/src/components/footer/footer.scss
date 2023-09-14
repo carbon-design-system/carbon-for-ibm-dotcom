@@ -10,6 +10,7 @@
 @use '@carbon/styles/scss/spacing' as *;
 @use '@carbon/styles/scss/theme' as *;
 @use '@carbon/styles/scss/type' as *;
+@use '@carbon/styles/scss/layout' as *;
 @use '@carbon/styles/scss/components/accordion';
 @use '@carbon/styles/scss/components/combo-box';
 @use '@carbon/styles/scss/components/select';
@@ -96,6 +97,8 @@
   outline: none;
 
   .#{$prefix}--btn {
+    @include emit-layout-tokens();
+
     // Forces the style of text + icon button style
     padding-right: $spacing-04;
   }
@@ -266,12 +269,13 @@
   .#{$prefix}--list-box__menu {
     position: absolute;
     top: auto;
-    bottom: rem(47px);
+    bottom: 47px;
     max-height: 13.5rem;
   }
 
   .#{$prefix}--text-input {
     @include type-style('body-short-01');
+    @include emit-layout-tokens();
   }
 
   @include breakpoint(md) {
