@@ -29,13 +29,13 @@
 
     margin: $spacing-09 0;
 
-    .#{$prefix}--locale-btn {
+    .#{$c4d-prefix}--locale-btn {
       max-width: 100%;
       width: 100%;
       @include type-style('body-compact-01');
 
       @include breakpoint(md) {
-        min-width: carbon--mini-units(27);
+        min-width: 13.5rem;
       }
     }
 

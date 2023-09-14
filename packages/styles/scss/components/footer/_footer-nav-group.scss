@@ -28,7 +28,7 @@
     display: block;
 
     &:last-child {
-      margin-bottom: carbon--mini-units(6);
+      margin-bottom: $spacing-09;
       border-bottom: 1px solid $layer-accent-01;
 
       @include breakpoint(md) {
@@ -45,6 +45,14 @@
         padding-inline-start: 0;
         margin: 0;
       }
+    }
+
+    .#{$prefix}--accordion__title {
+      margin: 0 0 0 $spacing-05;
+    }
+
+    .#{$prefix}--accordion__arrow {
+      margin: 2px $spacing-05 0 0;
     }
 
     @include breakpoint(md) {

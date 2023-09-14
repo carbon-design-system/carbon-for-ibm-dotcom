@@ -109,7 +109,7 @@
     padding-top: 0;
 
     @include breakpoint(md) {
-      padding-top: carbon--mini-units(1);
+      padding-top: $spacing-03;
     }
     @include breakpoint(lg) {
       @include make-col-offset(4, 16);
