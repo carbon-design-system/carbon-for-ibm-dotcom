@@ -39,6 +39,12 @@
     .#{$prefix}--accordion__content {
       padding-left: 0;
       padding-right: 0;
+
+      ul {
+        list-style: none;
+        padding-inline-start: 0;
+        margin: 0;
+      }
     }
 
     @include breakpoint(md) {
@@ -46,7 +52,7 @@
 
       padding-left: 0;
       display: inline-block;
-      margin-bottom: carbon--mini-units(6);
+      margin-bottom: $spacing-09;
 
       &.#{$prefix}--accordion__item {
         border-top: 0 transparent;
@@ -112,11 +118,12 @@
   @include breakpoint(md) {
     .#{$prefix}--footer-nav-group__title {
       display: block;
+      margin: 0;
     }
 
     :host(#{$c4d-prefix}-footer-nav-item),
     .#{$prefix}--footer-nav-group__item {
-      margin-top: carbon--mini-units(1);
+      margin-top: $spacing-03;
     }
   }
 }

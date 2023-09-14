@@ -34,7 +34,7 @@
 
     @include breakpoint(md) {
       border-top: 1px solid $layer-accent-01;
-      padding: 0 list.slash($grid-gutter, 2);
+      padding: 0 calc($grid-gutter / 2);
     }
 
     @include breakpoint-between('md', $TEMP--breakpoint-down--lg) {
