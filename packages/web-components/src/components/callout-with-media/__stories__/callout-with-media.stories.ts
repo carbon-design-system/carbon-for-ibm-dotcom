@@ -84,7 +84,7 @@ export default {
         colorScheme: select(
           'Color scheme:',
           colorSchemeTypes,
-          COLOR_SCHEME.INVERSE
+          COLOR_SCHEME.REGULAR
         ),
       }),
     },
