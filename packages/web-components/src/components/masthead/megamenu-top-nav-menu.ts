@@ -102,6 +102,7 @@ class DDSMegaMenuTopNavMenu extends DDSTopNavMenu {
           composed: true,
           detail: {
             active: this.expanded,
+            index: this.menuIndex,
             resolveFn: resolve,
           },
         })

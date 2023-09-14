@@ -990,10 +990,8 @@ class DDSMastheadComposite extends HostListenerMixin(LitElement) {
   // @ts-ignore: The decorator refers to this method but TS thinks this method is not referred to
   protected _loadMegamenu = (event: CustomEvent) => {
     const {
-      target,
-      detail: { active, resolveFn },
+      detail: { active, resolveFn, index: menuIndex },
     } = event;
-    const { menuIndex } = target as DDSMegamenuTopNavMenu;
 
     // Open a megamenu by updating state to trigger a re-render. This also closes
     // any previously opened megamenu.
