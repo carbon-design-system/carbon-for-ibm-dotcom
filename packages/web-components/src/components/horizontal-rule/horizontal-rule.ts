@@ -41,10 +41,10 @@ class C4DHorizontalRule extends StableSelectorMixin(LitElement) {
 
   /**
    * Contrast of the HR
-   * (medium-contrast (default) | low-contrast | high-contrast)
+   * 'strong' (default) | subtle)
    */
   @property({ attribute: 'contrast', reflect: true })
-  contrast = HR_CONTRAST.MEDIUM_CONTRAST;
+  contrast = HR_CONTRAST.STRONG;
 
   /**
    * Weight of the HR

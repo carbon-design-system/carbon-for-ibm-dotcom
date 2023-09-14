@@ -13,10 +13,11 @@ import ArrowRight20 from '../../../internal/vendor/@carbon/web-components/icons/
 import { html } from 'lit';
 import { select } from '@storybook/addon-knobs';
 import { QUOTE_TYPES } from '../../quote/quote';
+import { COLOR_SCHEME } from '../../../component-mixins/callout/defs';
 import readme from './README.stories.mdx';
 import textNullable from '../../../../.storybook/knob-text-nullable';
 
-const types = {
+const quoteTypes = {
   [`${QUOTE_TYPES.DEFAULT}`]: QUOTE_TYPES.DEFAULT,
   [`${QUOTE_TYPES.SINGLE_CURVED}`]: QUOTE_TYPES.SINGLE_CURVED,
   [`${QUOTE_TYPES.DOUBLE_ANGLE}`]: QUOTE_TYPES.DOUBLE_ANGLE,
@@ -26,11 +27,25 @@ const types = {
   [`${QUOTE_TYPES.CORNER_BRACKET}`]: QUOTE_TYPES.CORNER_BRACKET,
 };
 
+const colorSchemeTypes = {
+  [`${COLOR_SCHEME.REGULAR}`]: COLOR_SCHEME.REGULAR,
+  [`${COLOR_SCHEME.INVERSE}`]: COLOR_SCHEME.INVERSE,
+  [`${COLOR_SCHEME.LAYER}`]: COLOR_SCHEME.LAYER,
+  [`${COLOR_SCHEME.PURPLE}`]: COLOR_SCHEME.PURPLE,
+  [`${COLOR_SCHEME.CYAN}`]: COLOR_SCHEME.CYAN,
+};
+
 export const Default = (args) => {
-  const { copy, quoteMark, sourceHeading, sourceCopy, sourceBottomCopy } =
-    args?.CalloutQuote ?? {};
+  const {
+    copy,
+    quoteMark,
+    sourceHeading,
+    sourceCopy,
+    sourceBottomCopy,
+    colorScheme,
+  } = args?.CalloutQuote ?? {};
   return html`
-    <c4d-callout-quote mark-type="${quoteMark}">
+    <c4d-callout-quote mark-type="${quoteMark}" color-scheme="${colorScheme}">
       ${copy}
       <c4d-quote-source-heading> ${sourceHeading} </c4d-quote-source-heading>
       <c4d-quote-source-copy> ${sourceCopy} </c4d-quote-source-copy>
@@ -65,7 +80,11 @@ export default {
           'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus est purus, posuere at est vitae, ' +
             'ornare rhoncus sem. Suspendisse vitae tellus fermentum, hendrerit augue eu, placerat magna.'
         ),
-        quoteMark: select('Quote Mark (markType):', types, types.doubleCurved),
+        quoteMark: select(
+          'Quote Mark (markType):',
+          quoteTypes,
+          quoteTypes.doubleCurved
+        ),
         sourceHeading: textNullable(
           'Source heading (source-heading slot)',
           'Lorem ipsum dolor sit amet'
@@ -77,6 +96,11 @@ export default {
         sourceBottomCopy: textNullable(
           'Source bottom copy (source-bottom-copy slot)',
           'IBM Cloud'
+        ),
+        colorScheme: select(
+          'Color scheme:',
+          colorSchemeTypes,
+          COLOR_SCHEME.REGULAR
         ),
       }),
     },

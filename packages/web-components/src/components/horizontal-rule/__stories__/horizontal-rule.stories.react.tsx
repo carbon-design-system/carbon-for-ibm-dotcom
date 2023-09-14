@@ -28,9 +28,8 @@ const sizes = {
 };
 
 const contrasts = {
-  'low-contrast': 'low-contrast',
-  'medium-contrast': undefined,
-  'high-contrast': 'high-contrast',
+  'strong': 'strong',
+  'subtle': 'subtle',
 };
 
 const weights = {
@@ -55,11 +54,7 @@ Default.story = {
       HorizontalRule: () => ({
         type: select('Type (type):', types, types.solid),
         size: select('Size (size):', sizes, sizes.fluid),
-        contrast: select(
-          'Contrast (contrast):',
-          contrasts,
-          contrasts['medium-contrast']
-        ),
+        contrast: select('Contrast (contrast):', contrasts, contrasts['strong']),
         weight: select('Weight (weight):', weights, weights.thin),
       }),
     },
@@ -68,7 +63,7 @@ Default.story = {
         HorizontalRule: {
           type: types.solid,
           size: sizes.fluid,
-          contrast: contrasts['medium-contrast'],
+          contrast: contrasts['strong'],
           weight: weights.thin,
         },
       },
