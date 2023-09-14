@@ -97,7 +97,7 @@ export const Default = (args) => {
 };
 
 export default {
-  title: 'Components/Notice Choice',
+  title: 'IBM components/Notice Choice',
   decorators: [
     (story) => html`
       <div class="cds--grid">
