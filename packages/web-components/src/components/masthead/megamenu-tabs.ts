@@ -8,11 +8,11 @@
  */
 
 import { customElement } from 'lit-element';
-import BXTabs from '../../internal/vendor/@carbon/web-components/components/tabs/tabs';
-import ddsSettings from '../../internal/vendor/@carbon/ibmdotcom-utilities/utilities/settings/settings';
+import CDSTabs from '../../internal/vendor/@carbon/web-components/components/tabs/tabs';
+import settings from '../../internal/vendor/@carbon/ibmdotcom-utilities/utilities/settings/settings';
 import styles from './masthead.scss';
 
-const { stablePrefix: ddsPrefix } = ddsSettings;
+const { stablePrefix: ddsPrefix } = settings;
 
 /**
  * Megamenu Tabs.
@@ -20,12 +20,39 @@ const { stablePrefix: ddsPrefix } = ddsSettings;
  * @element dds-megamenu-tabs
  */
 @customElement(`${ddsPrefix}-megamenu-tabs`)
-class DDSMegaMenuTabs extends BXTabs {
+class DDSMegaMenuTabs extends CDSTabs {
+  protected _disableIntersectionObservers = true;
+
+  /**
+   * @inheritdoc
+   */
+  // eslint-disable-next-line class-methods-use-this
+  protected renderPreviousButton() {
+    // Button is not desirable for our vertical tabs display.
+    return null;
+  }
+
+  /**
+   * @inheritdoc
+   */
+  // eslint-disable-next-line class-methods-use-this
+  protected renderNextButton() {
+    // Button is not desirable for our vertical tabs display.
+    return null;
+  }
+
   /**
    * A selector that will return megamenu tabs.
    */
   static get selectorItem() {
     return `${ddsPrefix}-megamenu-tab`;
+  }
+
+  /**
+   * A selector that will return enabled tab items.
+   */
+  static get selectorItemEnabled() {
+    return `${ddsPrefix}-megamenu-tab:not([disabled])`;
   }
 
   /**

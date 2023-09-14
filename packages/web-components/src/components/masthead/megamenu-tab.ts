@@ -9,7 +9,7 @@
 
 import { customElement, html } from 'lit-element';
 import settings from '../../internal/vendor/@carbon/ibmdotcom-utilities/utilities/settings/settings';
-import BXTab from '../../internal/vendor/@carbon/web-components/components/tabs/tab';
+import CDSTab from '../../internal/vendor/@carbon/web-components/components/tabs/tab';
 import ddsSettings from '../../internal/vendor/@carbon/ibmdotcom-utilities/utilities/settings/settings';
 import styles from './masthead.scss';
 
@@ -22,7 +22,7 @@ const { stablePrefix: ddsPrefix } = ddsSettings;
  * @element dds-megamenu-tab
  */
 @customElement(`${ddsPrefix}-megamenu-tab`)
-class DDSMegaMenuTab extends BXTab {
+class DDSMegaMenuTab extends CDSTab {
   render() {
     const { disabled, selected, value } = this;
     return html`

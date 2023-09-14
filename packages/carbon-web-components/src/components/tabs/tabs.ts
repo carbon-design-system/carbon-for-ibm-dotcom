@@ -310,7 +310,7 @@ export default class CDSTabs extends HostListenerMixin(CDSContentSwitcher) {
   };
 
   /**
-   * Cleans-up and creats the intersection observer for the scrolling container.
+   * Cleans-up and creates the intersection observer for the scrolling container.
    *
    * @param [options] The options.
    * @param [options.create] `true` to create the new intersection observer.
@@ -411,42 +411,64 @@ export default class CDSTabs extends HostListenerMixin(CDSContentSwitcher) {
     }
   }
 
-  render() {
+  /**
+   * Render the previous button if tablist is wider than container.
+   */
+  protected renderPreviousButton() {
     const {
       _isIntersectionLeftTrackerInContent: isIntersectionLeftTrackerInContent,
+    } = this;
+
+    return isIntersectionLeftTrackerInContent
+      ? html`
+          <button
+            part="prev-button"
+            tabindex="-1"
+            aria-hidden="true"
+            class="${prefix}--tab--overflow-nav-button ${prefix}--tabs__nav-caret-left ${prefix}--tab--overflow-nav-button--previous"
+            @click=${(_) =>
+            this._handleScrollButtonClick(_, {
+              direction: NAVIGATION_DIRECTION.Left,
+            })}>
+            ${ChevronLeft16()}
+          </button>
+        `
+      : null;
+  }
+
+  /**
+   * Render the next button if tablist is wider than container.
+   */
+  protected renderNextButton() {
+    const {
       _isIntersectionRightTrackerInContent: isIntersectionRightTrackerInContent,
+    } = this;
+
+    return isIntersectionRightTrackerInContent
+      ? html`
+          <button
+            part="next-button"
+            tabindex="-1"
+            aria-hidden="true"
+            class="${prefix}--tab--overflow-nav-button ${prefix}--tabs__nav-caret-right ${prefix}--tab--overflow-nav-button--next"
+            @click=${(_) =>
+              this._handleScrollButtonClick(_, {
+                direction: NAVIGATION_DIRECTION.Right,
+              })}>
+            ${ChevronRight16()}
+          </button>
+        `
+      : null;
+  }
+
+  render() {
+    const {
       _assistiveStatusText: assistiveStatusText,
       _handleSlotchange: handleSlotchange,
     } = this;
 
-    const previousButtonClasses = classMap({
-      [`${prefix}--tab--overflow-nav-button`]: true,
-      [`${prefix}--tabs__nav-caret-left`]: true,
-      [`${prefix}--tab--overflow-nav-button--previous`]: true,
-      [`${prefix}--tab--overflow-nav-button--hidden`]:
-        isIntersectionLeftTrackerInContent,
-    });
-    const nextButtonClasses = classMap({
-      [`${prefix}--tab--overflow-nav-button`]: true,
-      [`${prefix}--tabs__nav-caret-right`]: true,
-      [`${prefix}--tab--overflow-nav-button--next`]: true,
-      [`${prefix}--tab--overflow-nav-button--hidden`]:
-        isIntersectionRightTrackerInContent,
-    });
-
     return html`
-      <button
-        part="prev-button"
-        tabindex="-1"
-        aria-hidden="true"
-        class="${previousButtonClasses}"
-        @click=${(_) =>
-          this._handleScrollButtonClick(_, {
-            direction: NAVIGATION_DIRECTION.Left,
-          })}>
-        ${ChevronLeft16()}
-      </button>
-
+      ${this.renderPreviousButton()}
       <div class="${prefix}--tabs-nav-content-container">
         <div class="${prefix}--tabs-nav-content">
           <div class="${prefix}--tabs-nav">
@@ -458,18 +480,7 @@ export default class CDSTabs extends HostListenerMixin(CDSContentSwitcher) {
           </div>
         </div>
       </div>
-
-      <button
-        part="next-button"
-        tabindex="-1"
-        aria-hidden="true"
-        class="${nextButtonClasses}"
-        @click=${(_) =>
-          this._handleScrollButtonClick(_, {
-            direction: NAVIGATION_DIRECTION.Right,
-          })}>
-        ${ChevronRight16()}
-      </button>
+      ${this.renderNextButton()}
       <div
         class="${prefix}--assistive-text"
         role="status"
