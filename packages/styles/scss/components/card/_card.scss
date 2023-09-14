@@ -679,124 +679,63 @@
 
     &[pictogram-placement='top'] .#{$prefix}--card,
     &[pictogram-placement='bottom'] .#{$prefix}--card {
-      .#{$prefix}--card__motion {
-        ::slotted(#{$c4d-prefix}-card-heading) {
-          padding-top: 0;
+      ::slotted(#{$c4d-prefix}-card-heading) {
+        padding-top: 0;
+      }
 
-          @include breakpoint(md) {
-            /* stylelint-disable value-no-vendor-prefix, property-no-vendor-prefix */
-            display: -webkit-box;
-            -webkit-box-orient: vertical;
-            -webkit-line-clamp: 3;
-            /* stylelint-enable value-no-vendor-prefix, property-no-vendor-prefix */
-            overflow: hidden;
-            max-width: calc(100% - #{$spacing-10});
-            opacity: 1;
-            transform: translate3d(0, 0, 0);
-            transition: all $duration-moderate-01 motion(standard, productive)
-              0.25s;
-          }
-        }
+      ::slotted(svg[slot='pictogram']) {
+        margin-left: 0;
+      }
 
-        ::slotted(svg[slot='pictogram']) {
-          margin-left: 0;
-        }
+      .#{$prefix}--card__content {
+        position: relative;
+      }
 
-        .#{$prefix}--card__content {
-          position: relative;
-        }
+      .#{$prefix}--card__copy {
+        margin-top: $spacing-07;
+        margin-bottom: 0;
 
-        .#{$prefix}--card__copy {
-          margin-top: $spacing-07;
-          margin-bottom: 0;
-
-          @include breakpoint(md) {
-            margin-top: 0;
-            visibility: hidden;
-            opacity: 0;
-            transform: translate3d(0, -16px, 0);
-            transition: all $duration-moderate-01 motion(standard, productive);
-          }
+        &[hidden] {
+          margin: 0;
         }
       }
 
-      &:hover,
-      &:focus {
-        .#{$prefix}--card__motion {
-          ::slotted(#{$c4d-prefix}-card-heading) {
-            @include breakpoint(md) {
-              opacity: 0;
-              transform: translate3d(0, $spacing-05, 0);
-              transition-delay: 0s;
-            }
-          }
-
-          .#{$prefix}--card__copy {
-            @include breakpoint(md) {
-              display: block;
-              overflow: hidden;
-              visibility: visible;
-              opacity: 1;
-              transform: translate3d(0, 0, 0);
-              transition-delay: 0.2s;
-            }
-          }
-        }
+      svg {
+        position: absolute;
+        right: $spacing-05;
+        bottom: $spacing-05;
+        color: $link-primary;
       }
     }
 
     &[pictogram-placement='top'] .#{$prefix}--card {
-      .#{$prefix}--card__motion {
-        ::slotted(#{$c4d-prefix}-card-heading) {
-          align-items: flex-end;
-          margin-bottom: 0;
-          margin-top: auto;
+      ::slotted(#{$c4d-prefix}-card-heading) {
+        align-items: flex-end;
+        margin-bottom: 0;
+        margin-top: auto;
+      }
 
-          @include breakpoint(md) {
-            position: absolute;
-            bottom: $spacing-05;
-          }
-        }
+      .#{$prefix}--card__copy {
+        margin-top: $spacing-07;
+      }
 
-        .#{$prefix}--card__copy {
-          @include breakpoint(md) {
-            margin-top: auto;
-          }
-        }
-
-        ::slotted(svg[slot='pictogram']) {
-          margin-bottom: $spacing-10;
-
-          @include breakpoint(md) {
-            margin-bottom: $spacing-07;
-          }
-        }
+      ::slotted(svg[slot='pictogram']) {
+        margin-bottom: $spacing-07;
       }
     }
 
     &[pictogram-placement='bottom'] .#{$prefix}--card {
-      .#{$prefix}--card__motion {
-        ::slotted(#{$c4d-prefix}-card-heading) {
-          align-items: flex-start;
+      ::slotted(#{$c4d-prefix}-card-heading) {
+        align-items: flex-start;
+      }
 
-          @include breakpoint(md) {
-            position: absolute;
-            top: $spacing-05;
-          }
-        }
+      .#{$prefix}--card__copy {
+        margin-bottom: $spacing-07;
+      }
 
-        .#{$prefix}--card__copy {
-          margin-bottom: $spacing-10;
-
-          @include breakpoint(md) {
-            margin-bottom: $spacing-07;
-          }
-        }
-
-        ::slotted(svg[slot='pictogram']) {
-          margin-top: auto;
-          align-items: flex-end;
-        }
+      ::slotted(svg[slot='pictogram']) {
+        margin-top: auto;
+        align-items: flex-end;
       }
     }
 
