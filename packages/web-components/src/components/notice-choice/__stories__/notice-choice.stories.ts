@@ -83,6 +83,8 @@ export const Default = (args) => {
     questionchoices,
     enableAllOptIn,
     bpidLegalText,
+    hiddenEmail,
+    hiddenPhone,
   } = args?.NoticeChoice ?? {};
   return html`
     <dds-notice-choice
@@ -94,6 +96,8 @@ export const Default = (args) => {
       terms-condition-link="${termsConditionLink || ''}"
       ?enable-all-opt-in=${enableAllOptIn}
       bpid-legal-text="${bpidLegalText}"
+      .hiddenEmail="${hiddenEmail}"
+      .hiddenPhone="${hiddenPhone}"
       @dds-notice-choice-change=${onChange}></dds-notice-choice>
   `;
 };
