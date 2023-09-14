@@ -27,7 +27,7 @@
 }
 
 :host(#{$c4d-prefix}-leaving-ibm-modal-heading) {
-  // @include type-style('fluid-heading-04');
+  @include type-style('fluid-heading-04');
 }
 
 :host(#{$c4d-prefix}-leaving-ibm-modal-body) {
