@@ -15,9 +15,9 @@ import ArrowRight20 from '@carbon/icons-react/es/arrow--right/20.js';
 import './index.css';
 
 const App = () => (
-  <div className="bx--grid">
-    <div className="bx--row">
-      <div className="bx--col-sm-4 bx--col-lg-4 bx--no-gutter">
+  <div className="cds--grid">
+    <div className="cds--row">
+      <div className="cds--col-sm-4 cds--col-lg-4 cds--no-gutter">
         <C4DCardCTA cta-type="local" href="https://www.example.com">
           Card CTA Copy
           <C4DCardCTAFooter>
