@@ -33,25 +33,34 @@ class DDSMegaMenu extends StableSelectorMixin(LitElement) {
     this._setOverflowing.bind(this)
   );
 
+  protected resizeObserver = new ResizeObserver(
+    this._setOverflowing.bind(this)
+  );
+
   /**
    * Determine if any navigation columns are taller than megamenu.
    */
   protected _setOverflowing() {
-    const { navLeftSelector, navRightSelector } = this
+    const { navLeftSelector, navRightSelector, navColumnInnerSelector } = this
       .constructor as typeof DDSMegaMenu;
     const navColumns = this.querySelectorAll(`
       ${navLeftSelector},
       ${
         this.layout === MEGAMENU_LAYOUT_SCHEME.TAB
-          ? `[role="tabpanel"]:not([hidden]) > ${navRightSelector}`
+          ? `[role="tabpanel"] > ${navRightSelector}`
           : navRightSelector
       }
     `);
-    const overflows: boolean[] = [];
+    const columnHeights: Array<number|undefined> = [];
     navColumns.forEach((column) => {
-      overflows.push(column.scrollHeight > this.scrollHeight);
+      const height = navColumnInnerSelector
+        ? column.shadowRoot?.querySelector(navColumnInnerSelector)?.scrollHeight
+        : column.scrollHeight;
+      columnHeights.push(height);
     });
-    this.overflowing = overflows.some((column) => column === true);
+    this.overflowing = columnHeights.some(height => (
+      height ? height > this.scrollHeight : false
+    ));
   }
 
   connectedCallback() {
@@ -68,11 +77,13 @@ class DDSMegaMenu extends StableSelectorMixin(LitElement) {
           }
         : sharedOptions;
     this.mutationObserver.observe(this, options);
+    this.resizeObserver.observe(this);
     super.connectedCallback();
   }
 
   disconnectedCallback() {
     this.mutationObserver.disconnect();
+    this.resizeObserver.disconnect();
     super.disconnectedCallback();
   }
 
@@ -80,8 +91,7 @@ class DDSMegaMenu extends StableSelectorMixin(LitElement) {
     return html`
       <div class="${prefix}--masthead__megamenu__container">
         <div
-          class="${prefix}--masthead__megamenu__container--row ${prefix}--masthead__megamenu__container--row--${this
-            .layout}">
+          class="${prefix}--masthead__megamenu__container--row ${prefix}--masthead__megamenu__container--row--${this.layout}">
           <slot></slot>
         </div>
       </div>
@@ -94,6 +104,10 @@ class DDSMegaMenu extends StableSelectorMixin(LitElement) {
 
   static get navRightSelector() {
     return `${ddsPrefix}-megamenu-right-navigation`;
+  }
+
+  static get navColumnInnerSelector() {
+    return `.${prefix}--masthead__megamenu-container-inner`;
   }
 
   static get stableSelector() {
