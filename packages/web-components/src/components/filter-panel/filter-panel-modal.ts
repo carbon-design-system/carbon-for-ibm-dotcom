@@ -13,7 +13,7 @@ import HostListenerMixin from '../../internal/vendor/@carbon/web-components/glob
 import './filter-group';
 import './filter-modal-button';
 import './filter-modal-heading';
-import BXModal from '../../internal/vendor/@carbon/web-components/components/modal/modal.js';
+import DDSExpressiveModal from '../expressive-modal/expressive-modal';
 import ddsSettings from '../../internal/vendor/@carbon/ibmdotcom-utilities/utilities/settings/settings';
 import './filter-modal-footer';
 import StableSelectorMixin from '../../globals/mixins/stable-selector';
@@ -33,7 +33,7 @@ const { stablePrefix: ddsPrefix } = ddsSettings;
  */
 @customElement(`${ddsPrefix}-filter-panel-modal`)
 class DDSFilterPanelModal extends HostListenerMixin(
-  StableSelectorMixin(BXModal)
+  StableSelectorMixin(DDSExpressiveModal)
 ) {
   /**
    * Renders the selected values.
@@ -91,26 +91,32 @@ class DDSFilterPanelModal extends HostListenerMixin(
       if (
         this.dispatchEvent(
           new CustomEvent(
-            (this.constructor as typeof BXModal).eventBeforeClose,
+            (this.constructor as typeof DDSExpressiveModal).eventBeforeClose,
             init
           )
         )
       ) {
         this.open = false;
         this.dispatchEvent(
-          new CustomEvent((this.constructor as typeof BXModal).eventClose, init)
+          new CustomEvent(
+            (this.constructor as typeof DDSExpressiveModal).eventClose,
+            init
+          )
         );
       }
     }
   }
 
   render() {
+    const { _handleFocusIn: handleFocusIn } = this;
+
     return html`
-      <a
+      <button
         id="start-sentinel"
         class="${prefix}--visually-hidden"
-        href="javascript:void 0"
-        role="navigation"></a>
+        @focusin="${handleFocusIn}">
+        START
+      </button>
       <section class="${prefix}--filter-panel__section bx--modal-container">
         <bx-modal-header>
           <bx-modal-close-button
@@ -132,11 +138,12 @@ class DDSFilterPanelModal extends HostListenerMixin(
           >
         </dds-filter-modal-footer>
       </section>
-      <a
+      <button
         id="end-sentinel"
         class="${prefix}--visually-hidden"
-        href="javascript:void 0"
-        role="navigation"></a>
+        @focusin="${handleFocusIn}">
+        END
+      </button>
     `;
   }
 

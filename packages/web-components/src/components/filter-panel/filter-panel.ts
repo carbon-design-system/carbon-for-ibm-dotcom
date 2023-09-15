@@ -73,7 +73,10 @@ class DDSFilterPanel extends HostListenerMixin(
       <section class="${prefix}--filter-panel__section">
         <div class="${prefix}--heading-clear">
           <div class="${prefix}--filter__heading">${this.heading}</div>
-          <button class="${prefix}--clear" @click=${this._handleClear}>
+          <button
+            class="${prefix}--clear"
+            @click=${this._handleClear}
+            ?disabled="${!this.hasSelections}">
             <div class="${prefix}--clear__container">
               Clear
               <div class="${prefix}--reset__icon">${Reset()}</div>
