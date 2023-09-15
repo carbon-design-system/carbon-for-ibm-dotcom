@@ -450,19 +450,6 @@
     color: $text-secondary;
   }
 
-  .#{$prefix}--card .#{$prefix}--card__cta,
-  .#{$prefix}--card .#{$prefix}--card__cta a,
-  .#{$prefix}--card .#{$prefix}--card__cta a:visited,
-  :host(#{$c4d-prefix}-card-footer)
-    .#{$c4d-prefix}-ce--card__footer
-    ::slotted(svg[slot='icon']),
-  :host(#{$c4d-prefix}-card-cta-footer)
-    .#{$c4d-prefix}-ce--card__footer
-    ::slotted(svg[slot='icon']) {
-    margin-left: 0;
-    color: $icon-interactive;
-  }
-
   :host(#{$c4d-prefix}-card-footer[disabled])
     .#{$c4d-prefix}-ce--card__footer
     ::slotted(svg[slot='icon']) {
