@@ -2,6 +2,11 @@
 
 declare -a component_names
 
+if ! command -v fswatch &>/dev/null; then
+  echo "fswatch required (https://github.com/emcrisostomo/fswatch)"
+  exit 1
+fi
+
 # Function to search and replace the string with proper escaping
 search_and_replace_string() {
   directory="$1"
