@@ -9,7 +9,6 @@
 
 import { LitElement, render, html } from 'lit';
 import { property, state } from 'lit/decorators.js';
-import { stripHTML } from '@carbon/ibmdotcom-utilities/es/utilities/stripHTML/index.js';
 import settings from '../../internal/vendor/@carbon/ibmdotcom-utilities/utilities/settings/settings';
 import styles from './leadspace.scss';
 import StableSelectorMixin from '../../globals/mixins/stable-selector';
@@ -30,8 +29,20 @@ class C4DLeadspaceHeading extends StableSelectorMixin(LitElement) {
   @property({ reflect: true })
   slot = 'heading';
 
-  @state()
-  content = '';
+  /**
+   * The shadow slot this heading content should be in.
+   */
+  @property({reflect: true})
+  highlight = '';
+
+  /**
+   * The type style that can be used for the heading.
+   */
+  @property({reflect: true, attribute: 'type-style'})
+  typeStyle;
+
+  @property()
+  content;
 
   connectedCallback() {
     if (!this.hasAttribute('role')) {
@@ -43,13 +54,33 @@ class C4DLeadspaceHeading extends StableSelectorMixin(LitElement) {
     super.connectedCallback();
   }
 
-  firstUpdated() {
-    this.content = stripHTML(this.innerHTML);
-    render(html`<h1>${this.content}</h1>`, this);
+  updated(changedProperties) {
+
+
+    if(changedProperties.has('highlight') && this.highlight) {
+      const textContent = this.innerText;
+      const index = textContent!.indexOf(this.highlight);
+
+      if (index !== -1) {
+        const beforeSubstring = textContent!.substring(0, index);
+        const modifiedText = document.createElement('span');
+        modifiedText.textContent = this.highlight;
+        const afterSubstring = textContent!.substring(index + this.highlight.length);
+
+        const h1 = document.createElement('h1');
+        h1.textContent = textContent;
+
+        this.replaceChildren(beforeSubstring, modifiedText, afterSubstring, h1);
+     }
+    }
   }
 
   render() {
-    return html` <slot></slot> `;
+
+    console.log('redenr')
+    return html`
+      <slot></slot>
+    `;
   }
 
   static get stableSelector() {

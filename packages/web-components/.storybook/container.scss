@@ -18,6 +18,9 @@
 
 @include add-component-tokens(callout-tokens.$callout-tokens);
 @include add-component-tokens(tag-tokens.$tag-tokens);
+@use '@carbon/ibmdotcom-styles/scss/components/leadspace' as leadspace;
+
+@include add-component-tokens(leadspace.$leadspace-tokens);
 
 // Emit the flex-grid styles
 @include grid.flex-grid();
