@@ -213,7 +213,7 @@ Pictogram.story = {
         const pictogramPlacement = select(
           'Pictogram position:',
           pictogramPlacements,
-          pictogramPlacements.top,
+          pictogramPlacements.bottom,
           'pictogram'
         );
         const copy = textNullable(
