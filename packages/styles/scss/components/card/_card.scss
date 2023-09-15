@@ -204,7 +204,7 @@
     }
   }
 
-    // Card with pictogram placement style
+  // Card with pictogram placement style
   :host(#{$c4d-prefix}-card-group-item),
   :host(#{$c4d-prefix}-card-in-card),
   :host(#{$c4d-prefix}-card-cta),
@@ -301,9 +301,9 @@
     &[color-scheme='inverse'] {
       .#{$prefix}--card svg,
       ::slotted(svg[slot='pictogram']) {
-      color: $link-inverse;
+        color: $link-inverse;
+      }
     }
-  }
 
     .#{$prefix}--card__copy {
       display: flex;
@@ -353,8 +353,7 @@
   :host(#{$c4d-prefix}-card),
   :host(#{$c4d-prefix}-card-group-item) {
     &:not([href]) {
-
-      .cds--card .cds--card__copy  {
+      .cds--card .cds--card__copy {
         margin-bottom: $spacing-01;
       }
 
@@ -365,8 +364,8 @@
         }
       }
 
-      &:focus-within ::slotted(#{$c4d-prefix}-image){
-          z-index: 0;
+      &:focus-within ::slotted(#{$c4d-prefix}-image) {
+        z-index: 0;
       }
 
       ::slotted(#{$c4d-prefix}-card-footer) {
@@ -601,13 +600,11 @@
         text-decoration: none;
       }
 
-      &:active{
-        ::slotted([slot="icon"]) {
+      &:active {
+        ::slotted([slot='icon']) {
           color: $text-primary;
         }
       }
-
-
 
       &::after {
         content: none;
@@ -620,7 +617,6 @@
     .#{$prefix}--card__cta__copy {
       margin-right: $spacing-03;
     }
-
   }
 
   .#{$prefix}--card--inverse,
