@@ -155,15 +155,11 @@ class C4DLeavingIbmComposite extends HostListenerMixin(
           >
         </c4d-leaving-ibm-modal-body>
         <cds-modal-footer>
-          <cds-btn
+          <cds-button
             data-autoid="${c4dPrefix}--leaving-ibm-cta"
+            href="${href}"
             kind="primary"
-            >
-            <a class="bx--btn bx--btn--primary"
-            href="${href}">
-            ${leavingIbmButtonLabel}
-            </a>
-            </cds-btn
+            >${leavingIbmButtonLabel}</cds-button
           >
         </cds-modal-footer>
       </c4d-leaving-ibm-modal>

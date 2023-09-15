@@ -39,10 +39,12 @@
     display: block;
     margin-top: $spacing-07;
     color: $text-secondary;
+    padding-bottom: 0 !important;
     @include type-style('label-02');
   }
 
   > p {
     padding-right: 0;
+    margin: 0;
   }
 }
