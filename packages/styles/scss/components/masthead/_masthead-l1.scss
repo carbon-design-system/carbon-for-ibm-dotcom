@@ -5,18 +5,17 @@
  * LICENSE file in the root directory of this source tree.
  */
 
-@use '@carbon/styles/scss/components/button/tokens' as *;
 @use '@carbon/styles/scss/breakpoint' as *;
 @use '@carbon/styles/scss/config' as *;
+@use '@carbon/styles/scss/motion' as *;
 @use '@carbon/styles/scss/spacing' as *;
 @use '@carbon/styles/scss/theme' as *;
 @use '@carbon/styles/scss/themes' as *;
 @use '@carbon/styles/scss/type' as *;
+@use '@carbon/styles/scss/utilities' as *;
+@use '@carbon/styles/scss/components/button/tokens' as *;
 @use '../../globals/vars' as *;
 @use 'vars' as *;
-// @import 'carbon-components/scss/globals/scss/vendor/@carbon/elements/scss/themes/themes';
-// @import '../../globals/vars';
-// @import '../../globals/imports';
 
 /// @access private
 /// @group dotcom ui-shell Masthead L1
@@ -705,7 +704,7 @@ $search-transition-timing: 95ms;
         svg {
           vertical-align: middle;
           position: relative;
-          bottom: carbon--rem(2px);
+          bottom: rem(2px);
           margin-inline-start: $spacing-03;
         }
       }

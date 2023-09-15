@@ -5,5 +5,7 @@
 // LICENSE file in the root directory of this source tree.
 //
 
-@import '@carbon/ibmdotcom-styles/scss/globals/vars';
-@import '@carbon/ibmdotcom-styles/scss/components/masthead/masthead-l1';
+@use '@carbon/ibmdotcom-styles/scss/components/masthead/masthead-l1' as *;
+@use '@carbon/styles/scss/reset' as *;
+
+@include masthead-l1;

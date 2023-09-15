@@ -17,6 +17,7 @@
 @use '@carbon/styles/scss/theme' as *;
 @use '@carbon/styles/scss/themes' as *;
 @use '@carbon/styles/scss/type' as *;
+@use '@carbon/styles/scss/utilities' as *;
 @use '../../globals/vars' as *;
 @use '../link-with-icon';
 @use 'vars' as *;
@@ -186,6 +187,10 @@
 
 /// @access private
 @mixin masthead {
+  * {
+    box-sizing: border-box;
+  }
+
   :host(#{$dds-prefix}-masthead-composite),
   :host(#{$dds-prefix}-masthead-container),
   :host(#{$dds-prefix}-cloud-masthead-container) {
@@ -197,6 +202,7 @@
   .#{$prefix}--masthead,
   :host(#{$dds-prefix}-masthead) {
     @include theme($white, true);
+    @include font-family('sans');
 
     position: fixed;
     top: 0;

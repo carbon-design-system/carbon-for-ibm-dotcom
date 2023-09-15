@@ -8,31 +8,22 @@
 @use '@carbon/styles/scss/breakpoint' as *;
 @use '@carbon/styles/scss/config' as *;
 @use '@carbon/styles/scss/motion' as *;
+@use '@carbon/styles/scss/reset' as *;
 @use '@carbon/styles/scss/spacing' as *;
 @use '@carbon/styles/scss/theme' as *;
 @use '@carbon/styles/scss/type' as *;
 @use '@carbon/styles/scss/utilities' as *;
+@use '@carbon/styles/scss/components/button/tokens' as *;
 @use '@carbon/styles/scss/components/tooltip/tooltip' as *;
 @use '@carbon/styles/scss/components/ui-shell/header' as *;
 @use '@carbon/styles/scss/components/ui-shell/side-nav' as *;
 @use '@carbon/ibmdotcom-styles/scss/components/masthead' as *;
+@use '@carbon/ibmdotcom-styles/scss/components/search-with-typeahead/' as *;
 @use '@carbon/ibmdotcom-styles/scss/globals/vars' as *;
-
-// @import 'carbon-components/scss/components/ui-shell/header';
-// @import 'carbon-components/scss/components/ui-shell/side-nav';
-// @import '@carbon/ibmdotcom-styles/scss/globals/vars';
-
-// @import '@carbon/ibmdotcom-styles/scss/components/masthead/masthead';
-// @import '@carbon/ibmdotcom-styles/scss/components/masthead/masthead-leftnav';
-// @import '@carbon/ibmdotcom-styles/scss/components/masthead/masthead-megamenu';
-// @import '@carbon/ibmdotcom-styles/scss/components/masthead/masthead-top-nav-name';
-// @import '@carbon/ibmdotcom-styles/scss/components/search-with-typeahead/search-with-typeahead';
-// @import '@carbon/ibmdotcom-styles/scss/components/masthead/masthead-l1';
-// @import '@carbon/web-components/scss/components/tooltip/tooltip';
-// @import '@carbon/web-components/scss/components/ui-shell/header';
-// @import '@carbon/web-components/scss/components/ui-shell/side-nav';
-// @import '../../globals/scss/box-sizing';
-// @import '../cta/cta.scss';
+@use '@carbon/web-components/scss/components/tooltip/tooltip' as *;
+@use '@carbon/web-components/scss/components/ui-shell/header' as *;
+@use '@carbon/web-components/scss/components/ui-shell/side-nav' as *;
+@use '../cta/cta.scss' as *;
 
 // Magic Number: 799px matches masthead-composite's `layoutBreakpoint`.
 $breakpoint--desktop-nav: 799px;
@@ -45,8 +36,8 @@ $breakpoint--desktop-nav: 799px;
 :host(#{$dds-prefix}-masthead-menu-button) {
   // @extend :host(#{$prefix}-header-menu-button);
   position: relative;
-  width: mini-units(6);
-  height: mini-units(6);
+  width: $spacing-09;
+  height: $spacing-09;
 
   &[hide-menu-button] {
     @include breakpoint-down(md) {
@@ -73,43 +64,43 @@ $breakpoint--desktop-nav: 799px;
 
   &.console .#{$prefix}--btn--ghost {
     border-left: 1px solid $button-separator;
-    color: $link-02;
+    color: $link-secondary;
   }
 
   &:first-of-type {
     .#{$prefix}--btn--ghost::before {
-      @include carbon--breakpoint-up(800px) {
+      @include breakpoint-up(800px) {
         content: '';
         display: block;
         position: absolute;
         left: 0;
         top: 50%;
         transform: translateY(-50%);
-        height: carbon--rem(24px);
-        width: carbon--rem(1px);
+        height: rem(24px);
+        width: rem(1px);
         background-color: $button-separator;
       }
     }
   }
 
   .#{$prefix}--btn {
-    padding: calc(0.875rem - 3px) carbon--rem(15px);
+    padding: calc(0.875rem - 3px) rem(15px);
   }
 
   .#{$prefix}--btn--ghost {
-    color: $link-01;
-    @include carbon--type-style('body-short-02');
+    color: $link-primary;
+    @include type-style('body-short-02');
 
     &:hover,
     &:focus {
-      color: $link-02;
+      color: $link-secondary;
     }
   }
 }
 
 :host(#{$dds-prefix}-masthead-global-bar)
   ::slotted(#{$dds-prefix}-masthead-button-cta) {
-  @include carbon--breakpoint-down('md') {
+  @include breakpoint-down('md') {
     display: none;
   }
 }
@@ -152,19 +143,19 @@ $breakpoint--desktop-nav: 799px;
 
     margin-left: 0;
 
-    @include carbon--breakpoint-down($breakpoint--desktop-nav) {
+    @include breakpoint-down($breakpoint--desktop-nav) {
       display: flex;
       position: absolute;
       top: 0;
       left: 0;
     }
 
-    @include carbon--breakpoint('lg') {
+    @include breakpoint-up('lg') {
       margin-left: 0;
     }
 
-    @include carbon--breakpoint('xlg') {
-      margin-left: $carbon--spacing-05;
+    @include breakpoint-up('xlg') {
+      margin-left: $spacing-05;
       position: relative;
     }
   }
@@ -192,12 +183,12 @@ $breakpoint--desktop-nav: 799px;
 :host(#{$dds-prefix}-masthead-global-bar) {
   @extend .#{$prefix}--header__global;
 
-  background-color: $ui-background;
+  background-color: $background;
   flex: none;
   z-index: 0;
 
   ::slotted(#{$dds-prefix}-button-cta) {
-    @include carbon--breakpoint-down('md') {
+    @include breakpoint-down('md') {
       display: none;
     }
   }
@@ -228,7 +219,7 @@ $breakpoint--desktop-nav: 799px;
   a.#{$prefix}--header__menu-item {
     @include masthead-top-nav-link;
 
-    color: $icon-01;
+    color: $icon-primary;
     justify-content: center;
     padding: 0;
   }
@@ -247,14 +238,14 @@ $breakpoint--desktop-nav: 799px;
   display: none;
   background-color: $background;
 
-  @include carbon--breakpoint($breakpoint--desktop-nav) {
+  @include breakpoint-up($breakpoint--desktop-nav) {
     flex: 1;
     display: flex;
     align-items: stretch;
   }
 
   .#{$prefix}--header__nav {
-    @include carbon--breakpoint($breakpoint--desktop-nav) {
+    @include breakpoint-up($breakpoint--desktop-nav) {
       display: block;
       position: absolute;
     }
@@ -310,10 +301,6 @@ $breakpoint--desktop-nav: 799px;
   overflow: visible;
 }
 
-:host(#{$dds-prefix}-top-nav-item) {
-  // @extend :host(#{$prefix}-header-nav-item);
-}
-
 :host(#{$dds-prefix}-top-nav-menu),
 :host(#{$dds-prefix}-megamenu-top-nav-menu),
 :host(#{$dds-prefix}-masthead-profile),
@@ -337,7 +324,7 @@ $breakpoint--desktop-nav: 799px;
     box-shadow: 0 $spacing-01 6px 0 rgba(0, 0, 0, 0.3);
     bottom: -1px;
 
-    @include carbon--breakpoint-down('md') {
+    @include breakpoint-down('md') {
       width: 100vw;
     }
   }
@@ -367,7 +354,7 @@ $breakpoint--desktop-nav: 799px;
     @include masthead-top-nav-link;
 
     svg {
-      fill: $icon-02;
+      fill: $icon-secondary;
     }
 
     &:hover {
@@ -381,19 +368,17 @@ $breakpoint--desktop-nav: 799px;
     + .#{$prefix}--header__menu {
     bottom: auto;
     height: auto;
-// <<<<<<< HEAD
-    // max-height: calc(100vh - $spacing-09 - $spacing-10);
-// >>>>>>> feat/masthead-v2-dev
     min-height: 0;
   }
 }
 
 :host(#{$dds-prefix}-left-nav) {
-  // @extend :host(#{$prefix}-side-nav);
+  @extend .#{$prefix}--side-nav;
+
   display: block;
   overflow: hidden;
-  margin-top: calc(#{mini-units(6)} + 1px);
-  height: calc(100% - #{mini-units(6)} - 1px);
+  margin-top: calc(#{$spacing-09} + 1px);
+  height: calc(100% - #{$spacing-09} - 1px);
   width: 16rem;
 
   @include breakpoint-down(md) {
@@ -454,8 +439,8 @@ $breakpoint--desktop-nav: 799px;
   .#{$prefix}--side-nav__submenu-platform {
     display: flex;
     align-items: center;
-    height: carbon--mini-units(6);
-    padding: 0 mini-units(2);
+    height: $spacing-09;
+    padding: 0 $spacing-05;
     border-bottom: 1px solid $border-strong-01;
     text-decoration: none;
     color: $text-primary;
@@ -469,36 +454,28 @@ $breakpoint--desktop-nav: 799px;
   }
 }
 
-:host(#{$dds-prefix}-left-nav-items) {
-  // @extend :host(#{$prefix}-side-nav-items);
-}
-
 :host(#{$dds-prefix}-left-nav-item) {
   @extend :host(#{$prefix}-side-nav-link);
 
   a.#{$prefix}--side-nav__link .#{$prefix}--side-nav__link-text {
-    color: $text-02;
+    color: $text-secondary;
 
     &:hover,
     &:focus {
-      color: $text-01;
+      color: $text-primary;
     }
   }
 
   &:last-child {
     a.#{$prefix}--side-nav__link .#{$prefix}--side-nav__link-text {
-      color: $link-01;
+      color: $link-primary;
 
       &:hover,
       &:focus {
-        color: $link-02;
+        color: $link-secondary;
       }
     }
   }
-}
-
-:host(#{$dds-prefix}-left-nav-menu) {
-  // @extend :host(#{$prefix}-side-nav-menu);
 }
 
 :host(#{$dds-prefix}-left-nav-menu-item),
@@ -507,14 +484,14 @@ $breakpoint--desktop-nav: 799px;
 }
 
 :host(#{$dds-prefix}-left-nav-cta-item) {
-  @include carbon--breakpoint(md) {
+  @include breakpoint-up(md) {
     display: none;
   }
 
   a.#{$prefix}--side-nav__link .#{$prefix}--side-nav__link-text {
-    @include carbon--type-style(body-short-02, true);
+    @include type-style(body-short-02, true);
 
-    color: $link-01;
+    color: $link-primary;
     display: flex;
     justify-content: space-between;
 
@@ -533,7 +510,7 @@ $breakpoint--desktop-nav: 799px;
   flex-direction: column;
   justify-content: center;
   padding-left: $spacing-05;
-  height: carbon--mini-units(6);
+  height: $spacing-09;
   width: 100%;
 }
 
@@ -554,7 +531,7 @@ $breakpoint--desktop-nav: 799px;
   a.#{$prefix}--side-nav__link,
   .#{$prefix}--side-nav__submenu .#{$prefix}--side-nav__submenu-content {
     height: auto;
-    min-height: carbon--mini-units(6);
+    min-height: $spacing-09;
   }
 
   .#{$prefix}--side-nav__submenu-title,
@@ -580,23 +557,23 @@ $breakpoint--desktop-nav: 799px;
   left: 0;
   z-index: calc(#{z('header')} - 1);
   clip-path: polygon(
-      mini-units(6) 0,
+      $spacing-09 0,
       100% 0,
       100% 100%,
       0 100%,
-      0 calc(#{mini-units(6)} + 1px),
-      mini-units(6) calc(#{mini-units(6)} + 1px)
+      0 calc(#{$spacing-09} + 1px),
+      $spacing-09 calc(#{$spacing-09} + 1px)
     )
-    #{'/*!rtl:polygon(0 0, calc(100% - ' + mini-units(6) + ') 0, calc(100% - ' +
-    mini-units(6) + ') calc(' + mini-units(6) + ' + 1px), 100% calc(' +
-    mini-units(6) + ' + 1px), 100% 100%, 0 100%)*/'};
+    #{'/*!rtl:polygon(0 0, calc(100% - ' + $spacing-09 + ') 0, calc(100% - ' +
+    $spacing-09 + ') calc(' + $spacing-09 + ' + 1px), 100% calc(' +
+    $spacing-09 + ' + 1px), 100% 100%, 0 100%)*/'};
 }
 
 :host(#{$dds-prefix}-left-nav-overlay) {
   // @extend .#{$prefix}--side-nav__overlay;
 
   &[active] {
-    @include carbon--breakpoint-down($breakpoint--desktop-nav) {
+    @include breakpoint-down($breakpoint--desktop-nav) {
       @include left-nav-overlay;
     }
   }
@@ -605,9 +582,9 @@ $breakpoint--desktop-nav: 799px;
 :host(#{$dds-prefix}-left-nav-overlay[dir='rtl']) {
   clip-path: polygon(
     0 0,
-    calc(100% - #{mini-units(6)}) 0,
-    calc(100% - #{mini-units(6)}) calc(#{mini-units(6)} + 1px),
-    100% calc(#{mini-units(6)} + 1px),
+    calc(100% - #{$spacing-09}) 0,
+    calc(100% - #{$spacing-09}) calc(#{$spacing-09} + 1px),
+    100% calc(#{$spacing-09} + 1px),
     100% 100%,
     0 100%
   );
@@ -632,8 +609,8 @@ $breakpoint--desktop-nav: 799px;
     position: fixed;
     bottom: 0;
     width: 100%;
-    height: carbon--rem(48px);
-    background: linear-gradient(transparent, $ui-background);
+    height: rem(48px);
+    background: linear-gradient(transparent, $background);
     pointer-events: none;
   }
 
@@ -666,35 +643,35 @@ $breakpoint--desktop-nav: 799px;
   outline: 0;
 
   button {
-    @include carbon--type-style(body-long-01);
+    @include type-style(body-long-01);
 
-    color: $text-02;
+    color: $text-secondary;
     width: 100%;
     border: none;
     text-align: left;
-    padding: carbon--rem(6px) $spacing-05;
-    background-color: $ui-background;
+    padding: rem(6px) $spacing-05;
+    background-color: $background;
     cursor: pointer;
 
     &:hover,
     &:focus {
-      color: $text-01;
+      color: $text-primary;
     }
 
     &:hover {
-      background-color: $hover-ui;
+      background-color: $background-hover;
     }
 
     &:focus {
-      outline: carbon--rem(2px) solid $focus;
-      outline-offset: carbon--rem(-2px);
+      outline: rem(2px) solid $focus;
+      outline-offset: rem(-2px);
     }
   }
 }
 
 :host(#{$dds-prefix}-megamenu-tab)[selected] button {
-  background-color: $selected-ui;
-  color: $text-01;
+  background-color: $background-selected;
+  color: $text-primary;
 }
 
 :host(#{$dds-prefix}-megamenu-category-link-group) {
@@ -710,19 +687,19 @@ $breakpoint--desktop-nav: 799px;
 
     > span {
       display: block;
-      max-width: carbon--rem(272px);
+      max-width: rem(272px);
     }
 
     &:active,
     &:hover {
       svg {
-        fill: $icon-01;
+        fill: $icon-primary;
       }
     }
   }
 
   [part='link-heading'] {
-    @include carbon--type-style('expressive-heading-01');
+    @include type-style('expressive-heading-01');
 
     svg {
       margin-inline-start: $spacing-03;
@@ -743,7 +720,8 @@ $breakpoint--desktop-nav: 799px;
   h5,
   h6 {
     display: inline-block;
-    color: $text-01;
+    color: $text-primary;
+    margin-block: 0;
 
     a {
       color: inherit;
@@ -756,15 +734,15 @@ $breakpoint--desktop-nav: 799px;
       }
 
       &:focus {
-        outline: carbon--rem(2px) solid $focus;
-        outline-offset: carbon--rem(-2px);
+        outline: rem(2px) solid $focus;
+        outline-offset: rem(-2px);
       }
     }
 
     svg {
       position: relative;
       margin: 0 $spacing-03;
-      fill: $icon-01;
+      fill: $icon-primary;
       flex-shrink: 0;
 
       /* stylelint-disable-next-line comment-whitespace-inside */
@@ -777,21 +755,21 @@ $breakpoint--desktop-nav: 799px;
     &[data-has-href]:hover {
       a,
       ~ span {
-        color: $text-01;
+        color: $text-primary;
       }
 
       svg {
-        fill: $icon-01;
+        fill: $icon-primary;
       }
     }
   }
 
   > span {
-    @include carbon--type-style(body-short-01);
+    @include type-style(body-short-01);
 
     display: block;
     margin-top: $spacing-03;
-    color: $text-02;
+    color: $text-secondary;
 
     &[data-has-content] {
       margin-bottom: $spacing-06;
@@ -807,7 +785,7 @@ $breakpoint--desktop-nav: 799px;
   h4,
   h5,
   h6 {
-    @include carbon--type-style(heading-05, true);
+    @include type-style(heading-05, true);
 
     svg {
       top: $spacing-03;
@@ -823,7 +801,7 @@ $breakpoint--desktop-nav: 799px;
   h4,
   h5,
   h6 {
-    @include carbon--type-style(heading-03, true);
+    @include type-style(heading-03, true);
 
     svg {
       top: $spacing-02;

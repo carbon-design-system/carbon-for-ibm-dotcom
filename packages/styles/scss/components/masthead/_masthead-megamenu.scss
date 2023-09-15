@@ -199,7 +199,7 @@
             max-width: initial;
             margin-inline: initial;
             padding-inline: $spacing-07;
-            border-bottom: carbon--rem(1px) solid $layer-accent-01;
+            border-bottom: rem(1px) solid $layer-accent-01;
             overflow: initial;
             max-height: initial;
 
@@ -239,7 +239,7 @@
           z-index: 1;
           inset-block-end: 0;
           background-color: $background;
-          border-top: carbon--rem(1px) solid $layer-accent-01;
+          border-top: rem(1px) solid $layer-accent-01;
 
           @include breakpoint-up(lg) {
             display: none;
@@ -294,7 +294,7 @@
         .#{$prefix}--masthead__megamenu__view-all__border {
           position: absolute;
           top: 0;
-          height: carbon--rem(1px);
+          height: rem(1px);
           background: $layer-accent-01;
         }
       }
@@ -411,7 +411,7 @@
     display: block;
     color: $text-secondary;
     margin: rem(6px) $spacing-05 rem(10px);
-    max-width: carbon--rem(272px);
+    max-width: rem(272px);
   }
 
   :host(#{$dds-prefix}-megamenu-category-group),
@@ -480,7 +480,7 @@
     a,
     .#{$prefix}--link-with-icon {
       width: 100%;
-      padding: carbon--rem(6px) $spacing-05;
+      padding: rem(6px) $spacing-05;
       margin-block-end: $spacing-06;
     }
 
@@ -518,7 +518,7 @@
 
     color: $text-secondary;
     text-decoration: none;
-    padding: carbon--rem(6px) $spacing-05;
+    padding: rem(6px) $spacing-05;
     display: block;
 
     &:visited {
@@ -542,7 +542,7 @@
 
     a {
       width: 100%;
-      padding: carbon--rem(7px) $spacing-05;
+      padding: rem(7px) $spacing-05;
     }
 
     span {
