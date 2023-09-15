@@ -567,6 +567,7 @@
       display: flex;
       width: 100%;
       justify-content: flex-end;
+      align-items: center;
     }
 
     &[color-scheme='inverse'] .#{$c4d-prefix}-ce--card__footer--static {
@@ -593,7 +594,6 @@
     .#{$prefix}--card__footer {
       width: auto;
       justify-content: flex-start;
-      align-items: center;
 
       &:active,
       &:hover {
