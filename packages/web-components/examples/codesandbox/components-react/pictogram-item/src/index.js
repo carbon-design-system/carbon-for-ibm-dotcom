@@ -30,7 +30,7 @@ const App = () => (
       height="64"
       viewBox="8 8 32 32"
       role="img"
-      class="bx--pictogram-item__pictogram">
+      class="cds--pictogram-item__pictogram">
       <path
         fill="none"
         stroke-linejoin="round"

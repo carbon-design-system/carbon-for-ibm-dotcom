@@ -20,9 +20,9 @@ import ArrowRight20 from '@carbon/icons-react/es/arrow--right/20.js';
 import './index.css';
 
 const App = () => (
-  <div className="bx--grid">
-    <div className="bx--row">
-      <div className="bx--col-sm-4 bx--col-lg-12 bx--offset-lg-4 bx--no-gutter">
+  <div className="cds--grid">
+    <div className="cds--row">
+      <div className="cds--col-sm-4 cds--col-lg-12 cds--offset-lg-4 cds--no-gutter">
         <C4DContentBlockCards>
           <C4DContentBlockHeading>Lorem ipsum dolor sit amet</C4DContentBlockHeading>
           <C4DCardGroup>
