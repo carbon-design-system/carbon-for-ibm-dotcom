@@ -2488,7 +2488,7 @@ __metadata:
     "@carbon/grid": 10.43.1
     "@carbon/icons-react": 10.49.1
     "@carbon/import-once": 10.7.0
-    "@carbon/layout": 10.37.1
+    "@carbon/layout": 10.37.2
     "@carbon/motion": 10.29.1
     "@carbon/telemetry": 0.1.0
     "@carbon/themes": 10.55.2
@@ -2580,7 +2580,7 @@ __metadata:
     "@carbon/icon-helpers": 10.40.0
     "@carbon/icons": 10.48.1
     "@carbon/icons-react": 10.49.1
-    "@carbon/layout": 10.37.1
+    "@carbon/layout": 10.37.2
     "@carbon/motion": ^11.0.0
     "@carbon/telemetry": 0.1.0
     "@carbon/type": 10.45.2
@@ -2765,7 +2765,14 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@carbon/layout@npm:10.37.1, @carbon/layout@npm:^10.37.0, @carbon/layout@npm:^10.37.1":
+"@carbon/layout@npm:10.37.2":
+  version: 10.37.2
+  resolution: "@carbon/layout@npm:10.37.2"
+  checksum: 298a0b5473569b7bceb8bf6fb9e1345041f8fd0bdb1a9120ee8af3dd1ccb7803815273e4889627f364c051b67b575023d6b919b70131d8714b35b5b0641d692b
+  languageName: node
+  linkType: hard
+
+"@carbon/layout@npm:^10.37.0, @carbon/layout@npm:^10.37.1":
   version: 10.37.1
   resolution: "@carbon/layout@npm:10.37.1"
   checksum: baabf7e70e4779f0e5000e700bcafe96f272debaac490a4345e39fedf8d0970636f7099e2607aeb9ca6170a56bbacdff69d8181c2a46ed8adac38fadc08332b6
