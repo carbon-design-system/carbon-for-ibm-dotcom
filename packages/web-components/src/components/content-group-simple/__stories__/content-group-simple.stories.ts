@@ -28,7 +28,7 @@ const hrefsForType = {
   [CTA_TYPE.EXTERNAL]: 'https://www.example.com',
   [CTA_TYPE.DOWNLOAD]:
     'https://www.ibm.com/annualreport/assets/downloads/IBM_Annual_Report_2019.pdf',
-  [CTA_TYPE.VIDEO]: '1_9h94wo6b',
+  [CTA_TYPE.VIDEO]: '0_ibuqxqbe',
 };
 
 const knobNamesForType = {
@@ -127,7 +127,7 @@ export const Default = (args) => {
         ? html`
             <c4d-video-player-container
               slot="media"
-              video-id="1_9h94wo6b"></c4d-video-player-container>
+              video-id="0_ibuqxqbe"></c4d-video-player-container>
           `
         : ``}
       ${items.map(

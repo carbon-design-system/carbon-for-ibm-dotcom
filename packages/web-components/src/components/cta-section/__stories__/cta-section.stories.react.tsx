@@ -86,7 +86,7 @@ const contentItemTypeMap = {
   media: ({ heading, copy, links }) => (
     <C4DCTABlockItem>
       <C4DVideoPlayerContainer
-        video-id="1_9h94wo6b"
+        video-id="0_ibuqxqbe"
         aspect-ratio="4x3"
         slot="media"
         hide-caption
