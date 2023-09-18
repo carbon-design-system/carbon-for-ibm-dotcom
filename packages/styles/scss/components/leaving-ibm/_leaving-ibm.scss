@@ -20,6 +20,7 @@
 
   :host(#{$c4d-prefix}-leaving-ibm-modal) {
     @extend :host(#{$prefix}-modal);
+
     max-height: 100%;
 
     &[open] {
@@ -33,6 +34,7 @@
 
   :host(#{$c4d-prefix}-leaving-ibm-modal-body) {
     @extend :host(#{$prefix}-modal-body);
+
     padding-right: 20%;
 
     ::slotted(#{$c4d-prefix}-leaving-ibm-modal-supplemental),
@@ -40,7 +42,6 @@
       display: block;
       margin-top: $spacing-07;
       color: $text-secondary;
-      padding-bottom: 0 !important;
       @include type-style('label-02');
     }
 
@@ -48,5 +49,8 @@
       padding-right: 0;
       margin: 0;
     }
+  }
+  :host(c4d-leaving-ibm-modal-body) ::slotted(:last-child) {
+      padding-bottom: 0 !important;
   }
 }
