@@ -11,17 +11,14 @@ import React from 'react';
 import { render } from 'react-dom';
 import C4DButtonGroup from '@carbon/ibmdotcom-web-components/es/components-react/button-group/button-group';
 import C4DButtonGroupItem from '@carbon/ibmdotcom-web-components/es/components-react/button-group/button-group-item';
-import ArrowRight20 from '@carbon/icons-react/es/arrow--right/20.js';
 import './index.css';
 
 const App = () => (
   <C4DButtonGroup>
-    <C4DButtonGroupItem href="https://www.example.com">
-      <ArrowRight20 slot="icon" />
+    <C4DButtonGroupItem href="https://www.example.com" cta-type="local">
       Button 1
     </C4DButtonGroupItem>
-    <C4DButtonGroupItem href="https://www.example.com">
-      <ArrowRight20 slot="icon" />
+    <C4DButtonGroupItem href="https://www.example.com" cta-type="local">
       Button 2
     </C4DButtonGroupItem>
   </C4DButtonGroup>

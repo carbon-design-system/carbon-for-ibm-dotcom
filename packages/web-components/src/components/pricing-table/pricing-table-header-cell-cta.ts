@@ -9,8 +9,8 @@
 
 import { property } from 'lit/decorators.js';
 import settings from '@carbon/ibmdotcom-utilities/es/utilities/settings/settings.js';
-import C4DButtonCTA from '../cta/button-cta';
-import { BUTTON_KIND } from '../button/button';
+import C4DButton from '../cta/button-cta';
+import { BUTTON_KIND } from '../../internal/vendor/@carbon/web-components/components/button/button';
 import StableSelectorMixin from '../../globals/mixins/stable-selector';
 import styles from './pricing-table.scss';
 import { carbonElement as customElement } from '../../internal/vendor/@carbon/web-components/globals/decorators/carbon-element';
@@ -18,7 +18,7 @@ import { carbonElement as customElement } from '../../internal/vendor/@carbon/we
 const { stablePrefix: c4dPrefix } = settings;
 
 @customElement(`${c4dPrefix}-pricing-table-header-cell-cta`)
-class C4DPricingTableHeaderCellCta extends StableSelectorMixin(C4DButtonCTA) {
+class C4DPricingTableHeaderCellCta extends StableSelectorMixin(C4DButton) {
   @property({ reflect: true })
   slot = 'cta';
 
