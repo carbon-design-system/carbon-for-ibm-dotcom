@@ -96,7 +96,9 @@ export const Default = (args) => {
         <c4d-card-heading>${videoCopy ?? heading}</c4d-card-heading>
         ${copy ? html`<p></p>` : ``}
         ${tagGroup ? html` ${tagGroupContent} ` : ``}
-        <c4d-card-footer> ${videoFooterCopy ?? ''} </c4d-card-footer>
+        ${ctaType === CTA_TYPE.VIDEO
+          ? html` <c4d-card-footer> ${videoFooterCopy} </c4d-card-footer> `
+          : html`<c4d-card-footer></c4d-card-footer>`}
       </c4d-card>
     </c4d-video-cta-container>
   `;
