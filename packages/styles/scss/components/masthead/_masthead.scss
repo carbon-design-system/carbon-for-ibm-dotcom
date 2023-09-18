@@ -219,7 +219,7 @@
     }
 
     &[has-l1] {
-      --dds-active-l0-border-color: #{$layer-accent-01};
+      --c4d-active-l0-border-color: #{$layer-accent-01};
     }
   }
 
@@ -408,7 +408,7 @@
       left: 0;
       right: 0;
       height: rem(3px);
-      background-color: var(--dds-active-l0-border-color, $link-primary);
+      background-color: var(--c4d-active-l0-border-color, $link-primary);
     }
   }
 

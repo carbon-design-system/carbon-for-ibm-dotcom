@@ -295,16 +295,16 @@ class C4DLeftNav extends StableSelectorMixin(CDSSideNav) {
         }
 
         this.querySelectorAll(selectorMenuSections).forEach(
-          (ddsLeftNavMenuSection) => {
-            (ddsLeftNavMenuSection as C4DLeftNavMenuSection).expanded = false;
-            (ddsLeftNavMenuSection as C4DLeftNavMenuSection).transition = false;
+          (c4dLeftNavMenuSection) => {
+            (c4dLeftNavMenuSection as C4DLeftNavMenuSection).expanded = false;
+            (c4dLeftNavMenuSection as C4DLeftNavMenuSection).transition = false;
           }
         );
 
         // reset to first menu section
         this.querySelectorAll(selectorFirstMenuSection).forEach(
-          (ddsLeftNavMenuSection) => {
-            (ddsLeftNavMenuSection as C4DLeftNavMenuSection).expanded = true;
+          (c4dLeftNavMenuSection) => {
+            (c4dLeftNavMenuSection as C4DLeftNavMenuSection).expanded = true;
           }
         );
 

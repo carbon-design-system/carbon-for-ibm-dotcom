@@ -10,19 +10,19 @@
 import { customElement, html } from 'lit-element';
 import settings from '../../internal/vendor/@carbon/ibmdotcom-utilities/utilities/settings/settings';
 import CDSTab from '../../internal/vendor/@carbon/web-components/components/tabs/tab';
-import ddsSettings from '../../internal/vendor/@carbon/ibmdotcom-utilities/utilities/settings/settings';
+import c4dSettings from '../../internal/vendor/@carbon/ibmdotcom-utilities/utilities/settings/settings';
 import styles from './masthead.scss';
 
 const { prefix } = settings;
-const { stablePrefix: ddsPrefix } = ddsSettings;
+const { stablePrefix: c4dPrefix } = c4dSettings;
 
 /**
  * Megamenu Tab.
  *
- * @element dds-megamenu-tab
+ * @element c4d-megamenu-tab
  */
-@customElement(`${ddsPrefix}-megamenu-tab`)
-class DDSMegaMenuTab extends CDSTab {
+@customElement(`${c4dPrefix}-megamenu-tab`)
+class C4DMegaMenuTab extends CDSTab {
   render() {
     const { disabled, selected, value } = this;
     return html`
@@ -42,4 +42,4 @@ class DDSMegaMenuTab extends CDSTab {
   static styles = styles;
 }
 
-export default DDSMegaMenuTab;
+export default C4DMegaMenuTab;

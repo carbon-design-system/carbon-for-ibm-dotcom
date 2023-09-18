@@ -38,7 +38,7 @@ class C4DMasthead extends StableSelectorMixin(LitElement) {
       .assignedElements()
       .filter(
         (element) =>
-          element.tagName.toLowerCase() === `${ddsPrefix}-masthead-l1`
+          element.tagName.toLowerCase() === `${c4dPrefix}-masthead-l1`
       );
 
     if (L1Navs.length) {

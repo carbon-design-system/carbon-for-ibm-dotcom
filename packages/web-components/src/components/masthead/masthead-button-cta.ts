@@ -15,15 +15,15 @@ import styles from './masthead.scss';
 
 export { CTA_TYPE };
 
-const { stablePrefix: ddsPrefix } = settings;
+const { stablePrefix: c4dPrefix } = settings;
 
 /**
  * Masthead Button CTA.
  *
- * @element dds--masthead-button-cta
+ * @element c4d--masthead-button-cta
  */
-@customElement(`${ddsPrefix}-masthead-button-cta`)
-class DDSMastheadButtonCTA extends BXButton {
+@customElement(`${c4dPrefix}-masthead-button-cta`)
+class C4DMastheadButtonCTA extends BXButton {
   static styles = styles;
 
   connectedCallback() {
@@ -31,4 +31,4 @@ class DDSMastheadButtonCTA extends BXButton {
   }
 }
 
-export default DDSMastheadButtonCTA;
+export default C4DMastheadButtonCTA;

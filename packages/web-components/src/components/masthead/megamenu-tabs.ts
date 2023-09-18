@@ -12,15 +12,15 @@ import CDSTabs from '../../internal/vendor/@carbon/web-components/components/tab
 import settings from '../../internal/vendor/@carbon/ibmdotcom-utilities/utilities/settings/settings';
 import styles from './masthead.scss';
 
-const { stablePrefix: ddsPrefix } = settings;
+const { stablePrefix: c4dPrefix } = settings;
 
 /**
  * Megamenu Tabs.
  *
- * @element dds-megamenu-tabs
+ * @element c4d-megamenu-tabs
  */
-@customElement(`${ddsPrefix}-megamenu-tabs`)
-class DDSMegaMenuTabs extends CDSTabs {
+@customElement(`${c4dPrefix}-megamenu-tabs`)
+class C4DMegaMenuTabs extends CDSTabs {
   protected _disableIntersectionObservers = true;
 
   /**
@@ -45,21 +45,21 @@ class DDSMegaMenuTabs extends CDSTabs {
    * A selector that will return megamenu tabs.
    */
   static get selectorItem() {
-    return `${ddsPrefix}-megamenu-tab`;
+    return `${c4dPrefix}-megamenu-tab`;
   }
 
   /**
    * A selector that will return enabled tab items.
    */
   static get selectorItemEnabled() {
-    return `${ddsPrefix}-megamenu-tab:not([disabled])`;
+    return `${c4dPrefix}-megamenu-tab:not([disabled])`;
   }
 
   /**
    * A selector that will return selected items.
    */
   static get selectorItemSelected() {
-    return `${ddsPrefix}-megamenu-tab[selected]`;
+    return `${c4dPrefix}-megamenu-tab[selected]`;
   }
 
   /**
@@ -67,10 +67,10 @@ class DDSMegaMenuTabs extends CDSTabs {
    * Cancellation of this event stops changing the user-initiated selection.
    */
   static get eventBeforeSelect() {
-    return `${ddsPrefix}-megamenu-tabs-beingselected`;
+    return `${c4dPrefix}-megamenu-tabs-beingselected`;
   }
 
   static styles = styles;
 }
 
-export default DDSMegaMenuTabs;
+export default C4DMegaMenuTabs;
