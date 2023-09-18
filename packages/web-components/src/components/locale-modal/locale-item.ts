@@ -15,7 +15,7 @@ import ipcinfoCookie from '../../internal/vendor/@carbon/ibmdotcom-utilities/uti
 import styles from './locale-modal.scss';
 import { carbonElement as customElement } from '../../internal/vendor/@carbon/web-components/globals/decorators/carbon-element.js';
 
-const { prefix, stablePrefix: c4dPrefix } = settings;
+const { stablePrefix: c4dPrefix } = settings;
 
 /**
  * Locale item.
@@ -75,8 +75,8 @@ class C4DLocaleItem extends CDSLink {
   _renderInner() {
     const { country, language } = this;
     return html`
-      <div class="${prefix}--locale-modal__locales__name">${country}</div>
-      <div class="${prefix}--locale-modal__locales__name">${language}</div>
+      <div class="${c4dPrefix}--locale-modal__locales__name">${country}</div>
+      <div class="${c4dPrefix}--locale-modal__locales__name">${language}</div>
     `;
   }
 
