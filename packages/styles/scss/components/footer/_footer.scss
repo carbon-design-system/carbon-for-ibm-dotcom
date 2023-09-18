@@ -147,13 +147,20 @@
   }
 
   .#{$prefix}--footer__logo-container {
-    width: 100%;
     @include make-container;
+    margin-right: 0;
+    margin-left: 0;
 
     @include breakpoint(md) {
       margin-bottom: 0;
       padding-left: $spacing-05;
       padding-right: $spacing-05;
+    }
+
+    @include breakpoint(lg) {
+      width: 100%;
+      margin-right: auto;
+      margin-left: auto;
     }
 
     .#{$prefix}--footer__logo-row {
