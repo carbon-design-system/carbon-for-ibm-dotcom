@@ -9,7 +9,6 @@
 @use '../button-group/button-group';
 @use '../link-with-icon/link-with-icon';
 @use '../feature-card/feature-card'; /* Covers regular card style, too */
-@use '../card-link/card-link';
 @use '@carbon/ibmdotcom-styles/scss/globals/vars' as *;
 
 .#{$c4d-prefix}-ce--cta__icon {

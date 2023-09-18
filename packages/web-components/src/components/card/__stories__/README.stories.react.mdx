@@ -34,7 +34,6 @@ function App() {
       <C4DCardEyebrow>Eyebrow text</C4DCardEyebrow>
       <C4DCardHeading>Lorem ipsum dolor sit amet</C4DCardHeading>
       <C4DCardFooter>
-        Card CTA text
         <ArrowRight20 slot="icon" />
       </C4DCardFooter>
     </C4DCard>
@@ -94,6 +93,23 @@ function App() {
         Card CTA text
         <ArrowRight20 slot="icon" />
       </C4DCardFooter>
+    </C4DCard>
+  );
+}
+```
+
+## Card - link
+
+```javascript
+import C4DCard from '@carbon/ibmdotcom-web-components/es/components-react/card/card';
+import C4DCardHeading from '@carbon/ibmdotcom-web-components/es/components-react/card/card-heading';
+import C4DCardFooter from '@carbon/ibmdotcom-web-components/es/components-react/card/card-footer';
+
+function App() {
+  return (
+    <C4DCard link href={href || undefined}>
+      <C4DCardHeading>Card link heading </C4DCardHeading>
+      <C4DCardFooter></C4DCardFooter>
     </C4DCard>
   );
 }
