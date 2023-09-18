@@ -18,6 +18,7 @@ For Carbon v11 migration guidance, see their
 | back-to-top               | View changes [here](#backtotop)        |
 | background-media          | No API changes.                        |
 | button                    | This component is deprecated in v2 in favor for Carbon's core Button |
+| button-group              | No API changes. |
 | callout-with-media        | View changes [here](#callout-with-media)          |
 | callout-quote             | View changes [here](#callout-quote)          |
 | card                      | View changes [here] (#card)            |
