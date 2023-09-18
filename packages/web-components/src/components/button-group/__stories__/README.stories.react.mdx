@@ -24,17 +24,14 @@ Here's a quick example to get you started.
 ```javascript
 import C4DButtonGroup from '@carbon/ibmdotcom-web-components/es/components-react/button-group/button-group';
 import C4DButtonGroupItem from '@carbon/ibmdotcom-web-components/es/components-react/button-group/button-group-item';
-import ArrowRight20 from '@carbon/icons-react/es/arrow--right/20.js';
 
 function App() {
   return (
     <C4DButtonGroup>
-      <C4DButtonGroupItem href="https://www.example.com">
-        <ArrowRight20 slot="icon" />
+      <C4DButtonGroupItem href="https://www.example.com" cta-type="local">
         Button 1
       </C4DButtonGroupItem>
-      <C4DButtonGroupItem href="https://www.example.com">
-        <ArrowRight20 slot="icon" />
+      <C4DButtonGroupItem href="https://www.example.com"  cta-type="local">
         Button 2
       </C4DButtonGroupItem>
     </C4DButtonGroup>
@@ -54,7 +51,7 @@ to see how Web Components selector and `data-autoid` should be used.
 
 | Web Components selector   | Compatibility selector                 | Description |
 | ------------------------- | -------------------------------------- | ----------- |
-| `<cds-button-group>`      | `data-autoid="cds--button-group"`      | Component   |
-| `<cds-button-group-item>` | `data-autoid="cds--button-group-item"` | Component   |
+| `<c4d-button-group>`      | `data-autoid="c4d--button-group"`      | Component   |
+| `<c4d-button-group-item>` | `data-autoid="c4d--button-group-item"` | Component   |
 
 <Description markdown={contributing} />
