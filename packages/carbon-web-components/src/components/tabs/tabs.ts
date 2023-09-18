@@ -9,7 +9,6 @@
 
 import { html } from 'lit';
 import { property, state, query } from 'lit/decorators.js';
-import { classMap } from 'lit/directives/class-map.js';
 import { prefix } from '../../globals/settings';
 import HostListenerMixin from '../../globals/mixins/host-listener';
 import HostListener from '../../globals/decorators/host-listener';
