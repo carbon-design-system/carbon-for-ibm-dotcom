@@ -50,8 +50,8 @@ const cardGroupItemWithImages = html`
 `;
 
 const cardGroupItemWithVideos = html`
-  <c4d-card-group-item cta-type="video" href="1_9h94wo6b">
-    <c4d-card-cta-footer cta-type="video" slot="footer" href="1_9h94wo6b">
+  <c4d-card-group-item cta-type="video" href="0_ibuqxqbe">
+    <c4d-card-cta-footer cta-type="video" slot="footer" href="0_ibuqxqbe">
     </c4d-card-cta-footer>
   </c4d-card-group-item>
 `;

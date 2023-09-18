@@ -216,11 +216,11 @@ const cardInCardItems = (i, tagGroup, media, gridMode) => {
     ) : (
       <C4DCardGroupItem
         cta-type="video"
-        href="1_9h94wo6b"
+        href="0_ibuqxqbe"
         colorScheme={gridMode === 'border' ? 'light' : null}>
         <C4DCardEyebrow>Topic</C4DCardEyebrow>
         {tagGroup ? tagGroupContent : ''}
-        <C4DCardCTAFooter cta-type="video" slot="footer" href="1_9h94wo6b" />
+        <C4DCardCTAFooter cta-type="video" slot="footer" href="0_ibuqxqbe" />
       </C4DCardGroupItem>
     );
   }

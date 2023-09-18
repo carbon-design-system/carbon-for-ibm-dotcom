@@ -40,25 +40,25 @@
 
     padding-top: 75%;
 
-    .#{$prefix}--image__img {
+    .#{$c4d-prefix}--image__img {
       position: absolute;
       height: 100%;
       top: 0;
     }
   }
 
-  .#{$prefix}--image__img {
+  .#{$c4d-prefix}--image__img {
     width: 100%;
     height: 100%;
     object-fit: cover;
     display: block;
   }
 
-  .#{$prefix}--image__img--border {
+  .#{$c4d-prefix}--image__img--border {
     outline: 1px solid $border-subtle-02;
   }
 
-  .#{$prefix}--image__longdescription {
+  .#{$c4d-prefix}--image__longdescription {
     position: absolute;
     width: 1px;
     height: 1px;
@@ -79,7 +79,7 @@
     }
   }
 
-  .#{$prefix}--image-with-caption__image {
+  .#{$c4d-prefix}--image-with-caption__image {
     display: block;
     width: 100%;
     padding: 0;
@@ -93,11 +93,11 @@
       @include breakpoint(md) {
         cursor: zoom-in;
 
-        .#{$prefix}--image__img {
+        .#{$c4d-prefix}--image__img {
           filter: brightness(80%);
         }
 
-        .#{$prefix}--image-with-caption__zoom-button {
+        .#{$c4d-prefix}--image-with-caption__zoom-button {
           background-color: rgba($gray-100, 1);
         }
       }
@@ -112,7 +112,7 @@
     }
   }
 
-  .#{$prefix}--image-with-caption__zoom-button {
+  .#{$c4d-prefix}--image-with-caption__zoom-button {
     display: none;
 
     // only have lightbox functionality on bigger breakpoints
@@ -132,8 +132,8 @@
     }
   }
 
-  .#{$prefix}--image-with-caption__image,
-  .#{$prefix}--image-with-caption__zoom-button {
+  .#{$c4d-prefix}--image-with-caption__image,
+  .#{$c4d-prefix}--image-with-caption__zoom-button {
     // only have lightbox functionality on bigger breakpoints
     @include breakpoint(md) {
       transition: $duration-moderate-01 motion(standard, productive);
@@ -141,7 +141,7 @@
     }
   }
 
-  .#{$prefix}--image__caption {
+  .#{$c4d-prefix}--image__caption {
     @include type-style('body-01');
 
     margin-top: $spacing-03;
@@ -149,22 +149,22 @@
   }
 
   :host(#{$c4d-prefix}-image[lightbox-contrast='dark']) {
-    .#{$prefix}--image-with-caption__zoom-button {
+    .#{$c4d-prefix}--image-with-caption__zoom-button {
       background-color: rgba($white, 0.85);
 
       svg {
         fill: $gray-90;
       }
     }
-    .#{$prefix}--image-with-caption__image {
+    .#{$c4d-prefix}--image-with-caption__image {
       &:hover {
         // only have lightbox functionality on bigger breakpoints
         @include breakpoint(md) {
-          .#{$prefix}--image__img {
+          .#{$c4d-prefix}--image__img {
             filter: brightness(120%);
           }
 
-          .#{$prefix}--image-with-caption__zoom-button {
+          .#{$c4d-prefix}--image-with-caption__zoom-button {
             background-color: rgba($white, 1);
           }
         }
@@ -180,7 +180,7 @@
 
     @include ratio-base(2, 1, false);
 
-    .#{$prefix}--image__img {
+    .#{$c4d-prefix}--image__img {
       object-fit: contain;
     }
   }
