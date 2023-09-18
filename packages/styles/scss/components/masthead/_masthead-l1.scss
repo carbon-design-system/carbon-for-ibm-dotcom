@@ -54,7 +54,7 @@ $search-transition-timing: 95ms;
   // Set up variables to store column-widths without using flexbox
 
   .#{$prefix}--masthead__l1,
-  :host(#{$dds-prefix}-masthead-l1) {
+    :host(#{$c4d-prefix}-masthead-l1) {
     /* stylelint-disable-next-line length-zero-no-unit */
     --page-width: calc(100vw - var(--scrollbar-width, 0px));
     --grid-width: var(--page-width);
@@ -368,7 +368,7 @@ $search-transition-timing: 95ms;
   // L1 Desktop Styles
   @media screen and (min-width: 800px) {
     .#{$prefix}--masthead__l1,
-    :host(#{$dds-prefix}-masthead-l1) {
+    :host(#{$c4d-prefix}-masthead-l1) {
       display: block;
       border-bottom: 1px solid $layer-accent-01;
     }

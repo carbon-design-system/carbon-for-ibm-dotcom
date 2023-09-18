@@ -20,7 +20,12 @@ body {
   padding: calc(#{$spacing-09} + #{mini-units(6)} + 1px) $spacing-09 $spacing-09 $spacing-09;
 }
 
-.bx--content.dds-ce-demo--ui-shell-content {
+.cds--content.dds-ce-demo--ui-shell-content {
+  @media (min-width: 66rem) {
+    .cds--offset-lg-3 {
+      margin-left: 0;
+    }
+  }
   h2 {
     margin: 30px 0;
 

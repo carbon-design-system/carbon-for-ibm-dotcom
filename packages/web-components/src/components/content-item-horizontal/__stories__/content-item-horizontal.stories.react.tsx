@@ -12,34 +12,34 @@ import { select } from '@storybook/addon-knobs';
 // In our dev env, we auto-generate the file and re-map below path to to point to the generated file.
 /* eslint-disable max-len */
 // @ts-ignore
-import DDSContentItemHorizontal from '@carbon/ibmdotcom-web-components/es/components-react/content-item-horizontal/content-item-horizontal';
+import C4DContentItemHorizontal from '@carbon/ibmdotcom-web-components/es/components-react/content-item-horizontal/content-item-horizontal';
 /* eslint-disable max-len */
 // @ts-ignore
-import DDSContentItemHorizontalCopy from '@carbon/ibmdotcom-web-components/es/components-react/content-item-horizontal/content-item-horizontal-copy';
+import C4DContentItemHorizontalCopy from '@carbon/ibmdotcom-web-components/es/components-react/content-item-horizontal/content-item-horizontal-copy';
 /* eslint-disable max-len */
 // @ts-ignore
-import DDSContentItemHorizontalEyebrow from '@carbon/ibmdotcom-web-components/es/components-react/content-item-horizontal/content-item-horizontal-eyebrow';
+import C4DContentItemHorizontalEyebrow from '@carbon/ibmdotcom-web-components/es/components-react/content-item-horizontal/content-item-horizontal-eyebrow';
 /* eslint-disable max-len */
 // @ts-ignore
-import DDSContentItemHorizontalMedia from '@carbon/ibmdotcom-web-components/es/components-react/content-item-horizontal/content-item-horizontal-media';
+import C4DContentItemHorizontalMedia from '@carbon/ibmdotcom-web-components/es/components-react/content-item-horizontal/content-item-horizontal-media';
 /* eslint-disable max-len */
 // @ts-ignore
-import DDSContentItemHorizontalMediaFeatured from '@carbon/ibmdotcom-web-components/es/components-react/content-item-horizontal/content-item-horizontal-media-featured';
+import C4DContentItemHorizontalMediaFeatured from '@carbon/ibmdotcom-web-components/es/components-react/content-item-horizontal/content-item-horizontal-media-featured';
 /* eslint-disable max-len */
 // @ts-ignore
-import DDSContentItemHorizontalMediaCopy from '@carbon/ibmdotcom-web-components/es/components-react/content-item-horizontal/content-item-horizontal-media-copy';
+import C4DContentItemHorizontalMediaCopy from '@carbon/ibmdotcom-web-components/es/components-react/content-item-horizontal/content-item-horizontal-media-copy';
 /* eslint-disable max-len */
 // @ts-ignore
-import DDSContentItemHorizontalMediaVideo from '@carbon/ibmdotcom-web-components/es/components-react/content-item-horizontal/content-item-horizontal-media-video';
+import C4DContentItemHorizontalMediaVideo from '@carbon/ibmdotcom-web-components/es/components-react/content-item-horizontal/content-item-horizontal-media-video';
 /* eslint-disable max-len */
 // @ts-ignore
-import DDSContentItemHorizontalThumbnailCopy from '@carbon/ibmdotcom-web-components/es/components-react/content-item-horizontal/content-item-horizontal-thumbnail-copy';
+import C4DContentItemHorizontalThumbnailCopy from '@carbon/ibmdotcom-web-components/es/components-react/content-item-horizontal/content-item-horizontal-thumbnail-copy';
 // @ts-ignore
-import DDSContentItemHeading from '@carbon/ibmdotcom-web-components/es/components-react/content-item/content-item-heading';
+import C4DContentItemHeading from '@carbon/ibmdotcom-web-components/es/components-react/content-item/content-item-heading';
 // @ts-ignore
-import DDSTextCTA from '@carbon/ibmdotcom-web-components/es/components-react/cta/text-cta';
+import C4DTextCTA from '@carbon/ibmdotcom-web-components/es/components-react/cta/text-cta';
 // @ts-ignore
-import DDSImage from '@carbon/ibmdotcom-web-components/es/components-react/image/image';
+import C4DImage from '@carbon/ibmdotcom-web-components/es/components-react/image/image';
 
 import { MEDIA_ALIGN, MEDIA_TYPE } from '../defs';
 import readme from './README.stories.react.mdx';
@@ -74,24 +74,34 @@ ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor i
 dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim
 id est laborum.`;
 
-export const Default = args => {
-  const { eyebrow, heading, copy, withMedia } = args?.ContentItemHorizontal ?? {};
+export const Default = (args) => {
+  const { eyebrow, heading, copy, withMedia } =
+    args?.ContentItemHorizontal ?? {};
 
   return (
-    <DDSContentItemHorizontal>
-      <DDSContentItemHorizontalEyebrow>{eyebrow}</DDSContentItemHorizontalEyebrow>
-      <DDSContentItemHeading>{heading}</DDSContentItemHeading>
-      <DDSContentItemHorizontalCopy>{copy}</DDSContentItemHorizontalCopy>
-      <DDSTextCTA slot="footer" href="https://www.ibm.com" cta-type="local">
+    <C4DContentItemHorizontal>
+      <C4DContentItemHorizontalEyebrow>
+        {eyebrow}
+      </C4DContentItemHorizontalEyebrow>
+      <C4DContentItemHeading>{heading}</C4DContentItemHeading>
+      <C4DContentItemHorizontalCopy>{copy}</C4DContentItemHorizontalCopy>
+      <C4DTextCTA slot="footer" href="https://www.ibm.com" cta-type="local">
         Learn more
-      </DDSTextCTA>
-      {withMedia === MEDIA_TYPE.IMAGE ? <DDSImage slot="media" alt="image alt text" default-src={imgLg16x9}></DDSImage> : ''}
-      {withMedia === MEDIA_TYPE.VIDEO ? (
-        <DDSContentItemHorizontalMediaVideo video-id="1_9h94wo6b"></DDSContentItemHorizontalMediaVideo>
+      </C4DTextCTA>
+      {withMedia === MEDIA_TYPE.IMAGE ? (
+        <C4DImage
+          slot="media"
+          alt="image alt text"
+          default-src={imgLg16x9}></C4DImage>
       ) : (
         ''
       )}
-    </DDSContentItemHorizontal>
+      {withMedia === MEDIA_TYPE.VIDEO ? (
+        <C4DContentItemHorizontalMediaVideo video-id="1_9h94wo6b"></C4DContentItemHorizontalMediaVideo>
+      ) : (
+        ''
+      )}
+    </C4DContentItemHorizontal>
   );
 };
 
@@ -109,17 +119,22 @@ Default.story = {
   },
 };
 
-export const withThumbnail = args => {
+export const withThumbnail = (args) => {
   const { alt, heading, copy } = args?.ContentItemHorizontal ?? {};
   return (
-    <DDSContentItemHorizontal thumbnail>
-      <DDSContentItemHeading>{heading}</DDSContentItemHeading>
-      <DDSContentItemHorizontalThumbnailCopy>{copy}</DDSContentItemHorizontalThumbnailCopy>
-      <DDSTextCTA slot="footer" href="https://www.ibm.com" cta-type="local">
+    <C4DContentItemHorizontal thumbnail>
+      <C4DContentItemHeading>{heading}</C4DContentItemHeading>
+      <C4DContentItemHorizontalThumbnailCopy>
+        {copy}
+      </C4DContentItemHorizontalThumbnailCopy>
+      <C4DTextCTA slot="footer" href="https://www.ibm.com" cta-type="local">
         Learn more
-      </DDSTextCTA>
-      <DDSImage slot="thumbnail" alt={alt || undefined} default-src={imgMd4x3}></DDSImage>
-    </DDSContentItemHorizontal>
+      </C4DTextCTA>
+      <C4DImage
+        slot="thumbnail"
+        alt={alt || undefined}
+        default-src={imgMd4x3}></C4DImage>
+    </C4DContentItemHorizontal>
   );
 };
 
@@ -137,23 +152,35 @@ withThumbnail.story = {
   },
 };
 
-export const withMedia = args => {
-  const { align, type, alt, heading, eyebrow, copy } = args?.ContentItemHorizontal ?? {};
+export const withMedia = (args) => {
+  const { align, type, alt, heading, eyebrow, copy } =
+    args?.ContentItemHorizontal ?? {};
   return (
-    <DDSContentItemHorizontalMedia align={align}>
-      {type === MEDIA_TYPE.IMAGE ? <DDSImage slot="media" alt={alt || undefined} default-src={imgLg16x9}></DDSImage> : ''}
-      {type === MEDIA_TYPE.VIDEO ? (
-        <DDSContentItemHorizontalMediaVideo video-id="1_9h94wo6b"></DDSContentItemHorizontalMediaVideo>
+    <C4DContentItemHorizontalMedia align={align}>
+      {type === MEDIA_TYPE.IMAGE ? (
+        <C4DImage
+          slot="media"
+          alt={alt || undefined}
+          default-src={imgLg16x9}></C4DImage>
       ) : (
         ''
       )}
-      <DDSContentItemHorizontalEyebrow>{eyebrow}</DDSContentItemHorizontalEyebrow>
-      <DDSContentItemHeading>{heading}</DDSContentItemHeading>
-      <DDSContentItemHorizontalMediaCopy>{copy}</DDSContentItemHorizontalMediaCopy>
-      <DDSTextCTA slot="footer" href="https://www.ibm.com" cta-type="local">
+      {type === MEDIA_TYPE.VIDEO ? (
+        <C4DContentItemHorizontalMediaVideo video-id="1_9h94wo6b"></C4DContentItemHorizontalMediaVideo>
+      ) : (
+        ''
+      )}
+      <C4DContentItemHorizontalEyebrow>
+        {eyebrow}
+      </C4DContentItemHorizontalEyebrow>
+      <C4DContentItemHeading>{heading}</C4DContentItemHeading>
+      <C4DContentItemHorizontalMediaCopy>
+        {copy}
+      </C4DContentItemHorizontalMediaCopy>
+      <C4DTextCTA slot="footer" href="https://www.ibm.com" cta-type="local">
         Learn more
-      </DDSTextCTA>
-    </DDSContentItemHorizontalMedia>
+      </C4DTextCTA>
+    </C4DContentItemHorizontalMedia>
   );
 };
 
@@ -174,27 +201,35 @@ withMedia.story = {
   },
 };
 
-export const withFeaturedMedia = args => {
+export const withFeaturedMedia = (args) => {
   const { type, heading, eyebrow, copy } = args?.ContentItemHorizontal ?? {};
   return (
-    <DDSContentItemHorizontalMediaFeatured>
+    <C4DContentItemHorizontalMediaFeatured>
       {type === MEDIA_TYPE.IMAGE ? (
-        <DDSImage slot="media" alt="Image alt text" default-src={imgLg16x9} heading="Lorem ipsum dolor sit amet"></DDSImage>
+        <C4DImage
+          slot="media"
+          alt="Image alt text"
+          default-src={imgLg16x9}
+          heading="Lorem ipsum dolor sit amet"></C4DImage>
       ) : (
         ''
       )}
       {type === MEDIA_TYPE.VIDEO ? (
-        <DDSContentItemHorizontalMediaVideo video-id="1_9h94wo6b"></DDSContentItemHorizontalMediaVideo>
+        <C4DContentItemHorizontalMediaVideo video-id="1_9h94wo6b"></C4DContentItemHorizontalMediaVideo>
       ) : (
         ''
       )}
-      <DDSContentItemHorizontalEyebrow>{eyebrow}</DDSContentItemHorizontalEyebrow>
-      <DDSContentItemHeading>{heading}</DDSContentItemHeading>
-      <DDSContentItemHorizontalMediaCopy>{copy}</DDSContentItemHorizontalMediaCopy>
-      <DDSTextCTA slot="footer" href="https://www.ibm.com" cta-type="local">
+      <C4DContentItemHorizontalEyebrow>
+        {eyebrow}
+      </C4DContentItemHorizontalEyebrow>
+      <C4DContentItemHeading>{heading}</C4DContentItemHeading>
+      <C4DContentItemHorizontalMediaCopy>
+        {copy}
+      </C4DContentItemHorizontalMediaCopy>
+      <C4DTextCTA slot="footer" href="https://www.ibm.com" cta-type="local">
         Learn more
-      </DDSTextCTA>
-    </DDSContentItemHorizontalMediaFeatured>
+      </C4DTextCTA>
+    </C4DContentItemHorizontalMediaFeatured>
   );
 };
 

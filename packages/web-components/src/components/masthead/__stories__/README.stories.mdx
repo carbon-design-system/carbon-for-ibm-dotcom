@@ -1,4 +1,9 @@
-import { Preview, Props, Description, Story } from '@storybook/addon-docs/blocks';
+import {
+  Preview,
+  Props,
+  Description,
+  Story,
+} from '@storybook/addon-docs/blocks';
 import contributing from '../../../../../../docs/contributing-license.md';
 import { cdnJs, cdnCss } from '../../../globals/internal/storybook-cdn';
 
@@ -34,7 +39,7 @@ import '@carbon/ibmdotcom-web-components/es/components/masthead/masthead-contain
 ### HTML
 
 ```html
-<dds-masthead-container></dds-masthead-container>
+<cds-masthead-container></cds-masthead-container>
 ````
 
 #### Adopting Masthead v2 with new data endpoint
@@ -49,11 +54,11 @@ import '@carbon/ibmdotcom-web-components/es/components/masthead/masthead-contain
 ###### Markup:
 
 ```html
-<dds-masthead-container
+<cds-masthead-container
   data-endpoint="/common/carbon-for-ibm-dotcom/translations/masthead-footer/v2"
   auth-method="profile-api"
   has-contact="false"
-></dds-masthead-container>
+></cds-masthead-container>
 ```
 
 #### Adopting Masthead v2 with Cloud data endpoint
@@ -68,29 +73,31 @@ import '@carbon/ibmdotcom-web-components/es/components/masthead/masthead-contain
 ###### Markup:
 
 ```html
-<dds-masthead-container
+<cds-masthead-container
   data-endpoint="/common/carbon-for-ibm-dotcom/translations/cloud-masthead"
   platform="Cloud"
   auth-method="cookie"
   has-contact="true"
-></dds-masthead-container>
+></cds-masthead-container>
 ```
 
 #### Setting Platform
 
 ```html
-<dds-masthead-container platform="Lorem Ipsum"></dds-masthead-container>
+<cds-masthead-container platform="Lorem Ipsum"></cds-masthead-container>
 ```
 
 #### Setting Platform URL
 
-The `platformUrl` property accepts a single URL as string or an object with a specific URL for each locale.
-This property has to be set via javascript.
+The `platformUrl` property accepts a single URL as string or an object with a
+specific URL for each locale. This property has to be set via javascript.
 
 ###### Setting a single platform URL:
 
 ```html
-<dds-masthead-container platform="Lorem Ipsum" id="masthead-container"></dds-masthead-container>
+<cds-masthead-container
+  platform="Lorem Ipsum"
+  id="masthead-container"></cds-masthead-container>
 ```
 
 ```javascript
@@ -120,7 +127,9 @@ document.getElementById('masthead-container').platformUrl = urlObject;
 ```
 
 ```html
-<dds-masthead-container platform="Lorem Ipsum" id="masthead-container"></dds-masthead-container>
+<cds-masthead-container
+  platform="Lorem Ipsum"
+  id="masthead-container"></cds-masthead-container>
 ```
 
 #### Custom Navigation
@@ -148,32 +157,40 @@ const l1Data = {
 ```
 
 ```html
-<dds-masthead-container id="masthead-container"></dds-masthead-container>
+<cds-masthead-container id="masthead-container"></cds-masthead-container>
 ```
 
-To set a custom endpoint for the translation service to fetch from, set either the `data-endpoint` attribute like below or `DDS_TRANSLATION_ENDPOINT` environment variable.
+To set a custom endpoint for the translation service to fetch from, set either
+the `data-endpoint` attribute like below or `C4D_TRANSLATION_ENDPOINT`
+environment variable.
 
 ```html
-<dds-masthead-container data-endpoint="/custom-endpoint"></dds-masthead-container>
+<cds-masthead-container
+  data-endpoint="/custom-endpoint"></cds-masthead-container>
 ```
 
 ### Setting the active menu item
 
-The active menu item receives a unique style treatment to indicate where the current page is within the navigation hierarchy.
+The active menu item receives a unique style treatment to indicate where the
+current page is within the navigation hierarchy.
 
 ##### Manually
 
-Manually set the active item by using the `selected-menu-item` property. See [the Props table](#props).
+Manually set the active item by using the `selected-menu-item` property. See
+[the Props table](#props).
 
 ##### Automatically
 
-The first menu item whose `href` value matches the browser window's current URL will automatically be marked active if the `selected-menu-item` property has not been set.
+The first menu item whose `href` value matches the browser window's current URL
+will automatically be marked active if the `selected-menu-item` property has not
+been set.
 
-If no other menu items are marked active and the optional `platformUrl` property has been set, the platform link will be marked active.
+If no other menu items are marked active and the optional `platformUrl` property
+has been set, the platform link will be marked active.
 
 ### Understanding the different authentication method types
 
-The `<dds-masthead-container>` and `<dds-masthead-composite>` components both expose the `auth-method` property which allows the adopters to define the authentication method based on their content ecosystems and renders the ultity menu items (located on the top right-hand area) based on the defined auth method. See below for more context on each available value.
+The `<cds-masthead-container>` and `<cds-masthead-composite>` components both expose the `auth-method` property which allows the adopters to define the authentication method based on their content ecosystems and renders the ultity menu items (located on the top right-hand area) based on the defined auth method. See below for more context on each available value.
 
 - `auth-method="profile-api"` - The default authentication method used on the global masthead to display links to the MyIBM profile.
 - `auth-method="cookie"` - This authentication method checks for the cookie name value return from the `cloud.ibm.com` console application (eg. `com.ibm.cloud.iam.LoggedIn.prod`) and see if it returns `1` or `0`. This method is designed and intended for "Cloud" web segment usage only.
@@ -183,49 +200,62 @@ The `<dds-masthead-container>` and `<dds-masthead-composite>` components both ex
 
 Using a search API other than the default provided from IBM Search is supported.
 
-First, add the `custom-typeahead-api` attribute into the masthead and set it to `true`.
+First, add the `custom-typeahead-api` attribute into the masthead and set it to
+`true`.
 
 ```html
-<dds-masthead-container custom-typeahead-api="true"></dds-masthead-container>
+<cds-masthead-container custom-typeahead-api="true"></cds-masthead-container>
 ```
 
-As an example, we will be using the IBM Docs API to fetch the data, retrieving an array of result suggestions.
+As an example, we will be using the IBM Docs API to fetch the data, retrieving
+an array of result suggestions.
 
 ```javascript
 async function customTypeaheadApiFunction(searchVal) {
-  return fetch(`https://ibmdocs-dev.mybluemix.net/docs/api/v1/suggest?query=${searchVal}&lang=en&categories=&limit=6`)
-    .then(response => response.json())
-    .then(data => {
+  return fetch(
+    `https://ibmdocs-dev.mybluemix.net/docs/api/v1/suggest?query=${searchVal}&lang=en&categories=&limit=6`
+  )
+    .then((response) => response.json())
+    .then((data) => {
       let searchResults = [data.hints];
       return searchResults;
     });
 }
 ```
 
-To query the current masthead search input, we need to create an event listener to listen for the `dds-search-with-typeahead-input` event.
-Once captured, we need to call our asynchronous function to fetch the custom API results based on the query. Once the results are retrieved,
-a new custom event `dds-custom-typeahead-api-results` needs to be dispatched containing the results for the component to render the search suggestions.
+To query the current masthead search input, we need to create an event listener
+to listen for the `cds-search-with-typeahead-input` event. Once captured, we
+need to call our asynchronous function to fetch the custom API results based on
+the query. Once the results are retrieved, a new custom event
+`cds-custom-typeahead-api-results` needs to be dispatched containing the results
+for the component to render the search suggestions.
 
 ```javascript
-document.addEventListener('dds-search-with-typeahead-input', async e => {
+document.addEventListener('cds-search-with-typeahead-input', async (e) => {
   const results = await customTypeaheadApiFunction(e.detail.value);
-  document.dispatchEvent(new CustomEvent('dds-custom-typeahead-api-results', { detail: results }));
+  document.dispatchEvent(
+    new CustomEvent('cds-custom-typeahead-api-results', { detail: results })
+  );
 });
 ```
 
 ### Grouped Search
 
-Some APIs contain grouped results in addition to regular search suggestions, which can also be displayed upon search.
+Some APIs contain grouped results in addition to regular search suggestions,
+which can also be displayed upon search.
 
-As before, create a function that fetches the query and make sure to include a JSON object containing the section's `title`
-and the array of retrieved section suggestions in `items`. In the example below, the section `Product pages` is added to the
-results array.
+As before, create a function that fetches the query and make sure to include a
+JSON object containing the section's `title` and the array of retrieved section
+suggestions in `items`. In the example below, the section `Product pages` is
+added to the results array.
 
 ```javascript
 async function customTypeaheadApiFunction(searchVal) {
-  return fetch(`https://ibmdocs-dev.mybluemix.net/docs/api/v1/suggest?query=${searchVal}&lang=en&categories=&limit=6`)
-    .then(response => response.json())
-    .then(data => {
+  return fetch(
+    `https://ibmdocs-dev.mybluemix.net/docs/api/v1/suggest?query=${searchVal}&lang=en&categories=&limit=6`
+  )
+    .then((response) => response.json())
+    .then((data) => {
       let searchResults = [
         data.hints,
 
@@ -240,8 +270,9 @@ async function customTypeaheadApiFunction(searchVal) {
 }
 ```
 
-As mentioned above, the two events `dds-search-with-typeahead-input` and `dds-custom-typeahead-api-results` must be handled for
-suggestions to be rendered -- the same code for the event listener can be reused.
+As mentioned above, the two events `cds-search-with-typeahead-input` and
+`cds-custom-typeahead-api-results` must be handled for suggestions to be
+rendered -- the same code for the event listener can be reused.
 
 #### Note
 
@@ -261,14 +292,17 @@ The API results must match the following structure:
 ]
 ```
 
-Note that only the first array element is necessary to render the basic search suggestions, the following JSON objects are optional Grouped sections.
+Note that only the first array element is necessary to render the basic search
+suggestions, the following JSON objects are optional Grouped sections.
 
 ## Scoped search
-Scoped searches are also supported, returning results from specifically targeted IBM pages and products.
 
-First, prepare the desired categories to use when scoping the search. In this example, we will be creating an array with
-four categories, which must follow the structure below:
+Scoped searches are also supported, returning results from specifically targeted
+IBM pages and products.
 
+First, prepare the desired categories to use when scoping the search. In this
+example, we will be creating an array with four categories, which must follow
+the structure below:
 
 ```javascript
 const scopeParameters = [
@@ -300,58 +334,72 @@ const scopeParameters = [
   }
 ];
 ```
+
 #### Note
-A list of the available scoped categories can be found [here](https://github.ibm.com/digital-marketplace/columbus/blob/master/docs/SCOPED.MD).
+
+A list of the available scoped categories can be found
+[here](https://github.ibm.com/digital-marketplace/columbus/blob/master/docs/SCOPED.MD).
 
 The `value` property can either be a single string, or an array of strings.
 
-This array will be passed into the `scopeParameters` property. If using `lit-html` to render your page, this can be added
-using `.scopeParameters` (note the `.`), in order for the array to be processed properly in the component.
+This array will be passed into the `scopeParameters` property. If using
+`lit-html` to render your page, this can be added using `.scopeParameters` (note
+the `.`), in order for the array to be processed properly in the component.
 
 ```html
-<dds-masthead-composite .scopeParameters="${scopeParameters}"></dds-masthead-composite>
+<cds-masthead-composite
+  .scopeParameters="${scopeParameters}"></cds-masthead-composite>
 ```
 
 Alternatively, JavaScript can be used to insert it into the component.
 
 ```javascript
-document.querySelector('dds-masthead-composite').scopeParameters = scopeParameters;
+document.querySelector('cds-masthead-composite').scopeParameters =
+  scopeParameters;
 ```
 
-If a different locale is used, it will be necessary to use a formatter function to localize the placeholder text that
-will be rendered depending on the selected scope.
+If a different locale is used, it will be necessary to use a formatter function
+to localize the placeholder text that will be rendered depending on the selected
+scope.
 
 ```javascript
-const placeholderFormatter = ({scopeValue}) => `Buscar en ${scopeValue}`;
-document.querySelector('dds-search-with-typeahead').placeholderFormatter = placeholderFormatter;
+const placeholderFormatter = ({ scopeValue }) => `Buscar en ${scopeValue}`;
+document.querySelector('cds-search-with-typeahead').placeholderFormatter =
+  placeholderFormatter;
 ```
 
 ## Props
 
-### `<dds-masthead-container>`/`<dds-masthead-composite>`
+### `<cds-masthead-container>`/`<cds-masthead-composite>`
 
-<Props of="dds-masthead-composite" />
+<Props of="cds-masthead-composite" />
 
-For Cloud-specific version of masthead-container, `<dds-cloud-masthead-container>`, we support two user authentication methods, via cookie or api. To select between the two, provide the `auth-method` prop with a value of either 'cookie' or 'api'.
+For Cloud-specific version of masthead-container,
+`<cds-cloud-masthead-container>`, we support two user authentication methods,
+via cookie or api. To select between the two, provide the `auth-method` prop
+with a value of either 'cookie' or 'api'.
 
 ```html
-<dds-cloud-masthead-container auth-method="cookie"></dds-cloud-masthead-container>
+<cds-cloud-masthead-container
+  auth-method="cookie"></cds-cloud-masthead-container>
 ```
 
 ## Stable selectors
 
-See [our README](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/tree/main/packages/web-components#stable-selectors-for-analytics-and-integratione2e-testing-in-web-components) to see how Web Components selector and `data-autoid` should be used.
+See
+[our README](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/tree/main/packages/web-components#stable-selectors-for-analytics-and-integratione2e-testing-in-web-components)
+to see how Web Components selector and `data-autoid` should be used.
 
 | Web Components selector                                                                   | Compatibility selector                                                   | Description |
 | ----------------------------------------------------------------------------------------- | ------------------------------------------------------------------------ | ----------- |
-| `<dds-masthead>`                                                                          | `data-autoid="dds--masthead"`                                            | Component   |
-| `<dds-masthead-menu-button>`                                                              | `data-autoid="dds--masthead__hamburger"`                                 | Interactive |
-| `<dds-top-nav-name>`                                                                      | `data-autoid="dds--masthead__platform-name"`                             | Interactive |
-| `<dds-top-nav>`                                                                           | `data-autoid="dds--masthead__l0-nav"`                                    | Component   |
-| `<dds-top-nav-menu trigger-content="${item}">` and `<dds-top-nav-item title="${item}">`   | `data-autoid="dds--masthead__l0-nav--nav${item}"`                        | Interactive |
-| `<dds-top-nav-menu-item title="${item}">`                                                 | `data-autoid="dds--masthead__l0-nav--subnav-col${item}-item${item}"`     | Interactive |
-| `<dds-left-nav>`                                                                          | `data-autoid="dds--masthead__l0-sidenav"`                                | Component   |
-| `<dds-left-nav-menu trigger-content="${item}">` and `<dds-left-nav-item title="${item}">` | `data-autoid="dds--masthead__l0-sidenav--nav${item}"`                    | Interactive |
-| `<dds-left-nav-menu-item title="${item}">`                                                | `data-autoid="dds--masthead__l0-sidenav--subnav-col${item}-item${item}"` | Interactive |
+| `<cds-masthead>`                                                                          | `data-autoid="cds--masthead"`                                            | Component   |
+| `<cds-masthead-menu-button>`                                                              | `data-autoid="cds--masthead__hamburger"`                                 | Interactive |
+| `<cds-top-nav-name>`                                                                      | `data-autoid="cds--masthead__platform-name"`                             | Interactive |
+| `<cds-top-nav>`                                                                           | `data-autoid="cds--masthead__l0-nav"`                                    | Component   |
+| `<cds-top-nav-menu trigger-content="${item}">` and `<cds-top-nav-item title="${item}">`   | `data-autoid="cds--masthead__l0-nav--nav${item}"`                        | Interactive |
+| `<cds-top-nav-menu-item title="${item}">`                                                 | `data-autoid="cds--masthead__l0-nav--subnav-col${item}-item${item}"`     | Interactive |
+| `<cds-left-nav>`                                                                          | `data-autoid="cds--masthead__l0-sidenav"`                                | Component   |
+| `<cds-left-nav-menu trigger-content="${item}">` and `<cds-left-nav-item title="${item}">` | `data-autoid="cds--masthead__l0-sidenav--nav${item}"`                    | Interactive |
+| `<cds-left-nav-menu-item title="${item}">`                                                | `data-autoid="cds--masthead__l0-sidenav--subnav-col${item}-item${item}"` | Interactive |
 
 <Description markdown={contributing} />

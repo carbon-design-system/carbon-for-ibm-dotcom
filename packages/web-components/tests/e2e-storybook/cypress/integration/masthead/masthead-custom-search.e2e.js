@@ -14,13 +14,13 @@
 const _pathCustomSearch =
   '/iframe.html?id=components-masthead--with-custom-typeahead&knob-use%20mock%20nav%20data%20(use-mock)=true';
 
-describe('dds-masthead | custom search (desktop)', () => {
+describe('cds-masthead | custom search (desktop)', () => {
   beforeEach(() => {
     cy.visit(`/${_pathCustomSearch}`);
     cy.injectAxe();
     cy.viewport(1280, 780);
 
-    cy.waitUntil(() => cy.get('[data-autoid="dds--masthead-default__l0-nav0"]').should('not.be.empty'));
+    cy.waitUntil(() => cy.get('[data-autoid="cds--masthead-default__l0-nav0"]').should('not.be.empty'));
   });
 
   it('should check a11y', () => {
@@ -28,7 +28,7 @@ describe('dds-masthead | custom search (desktop)', () => {
   });
 
   it('should open the search bar on click', () => {
-    cy.get('dds-masthead > dds-search-with-typeahead')
+    cy.get('cds-masthead > cds-search-with-typeahead')
       .shadow()
       .find('.bx--header__search--search')
       .click();
@@ -46,24 +46,24 @@ describe('dds-masthead | custom search (desktop)', () => {
       }).as(`grouped-typeahead-${query}`);
     });
 
-    cy.get('dds-masthead > dds-search-with-typeahead')
+    cy.get('c4d-masthead > c4d-search-with-typeahead')
       .shadow()
       .find('.bx--header__search--search')
       .click();
 
-    cy.get('dds-masthead > dds-search-with-typeahead')
+    cy.get('c4d-masthead > c4d-search-with-typeahead')
       .shadow()
       .find('.react-autosuggest__container > input')
       .type('cloud', { force: true });
 
-    cy.get('dds-search-with-typeahead-item:not([groupTitle])').should('have.length', 12);
+    cy.get('c4d-search-with-typeahead-item:not([groupTitle])').should('have.length', 12);
 
-    cy.get('dds-search-with-typeahead-item[groupTitle]').then($item => {
+    cy.get('c4d-search-with-typeahead-item[groupTitle]').then($item => {
       expect($item).to.have.length(1);
       expect($item.attr('text')).to.eq('Product pages');
     });
 
-    cy.get('dds-search-with-typeahead-item').each(($item, $index) => {
+    cy.get('c4d-search-with-typeahead-item').each(($item, $index) => {
       if ($index === 6) {
         expect($item).to.have.attr('groupTitle');
       } else if ($index > 6) {

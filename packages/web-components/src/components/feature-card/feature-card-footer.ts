@@ -9,20 +9,20 @@
 
 import settings from '../../internal/vendor/@carbon/ibmdotcom-utilities/utilities/settings/settings';
 import { carbonElement as customElement } from '../../internal/vendor/@carbon/web-components/globals/decorators/carbon-element';
-import DDSCardFooter from '../card/card-footer';
+import C4DCardFooter from '../card/card-footer';
 import styles from './feature-card.scss';
 
-const { prefix, stablePrefix: ddsPrefix } = settings;
+const { prefix, stablePrefix: c4dPrefix } = settings;
 
 /**
  * Feature card footer.
  *
- * @element dds-feature-card-footer
+ * @element c4d-feature-card-footer
  */
-@customElement(`${ddsPrefix}-feature-card-footer`)
-class DDSFeatureCardFooter extends DDSCardFooter {
-  updated() {
-    super.updated();
+@customElement(`${c4dPrefix}-feature-card-footer`)
+class C4DFeatureCardFooter extends C4DCardFooter {
+  updated(changedProperties) {
+    super.updated(changedProperties);
     const { _linkNode: linkNode } = this;
     if (linkNode) {
       linkNode.classList.remove(`${prefix}--link-with-icon`);
@@ -33,4 +33,4 @@ class DDSFeatureCardFooter extends DDSCardFooter {
 }
 
 /* @__GENERATE_REACT_CUSTOM_ELEMENT_TYPE__ */
-export default DDSFeatureCardFooter;
+export default C4DFeatureCardFooter;

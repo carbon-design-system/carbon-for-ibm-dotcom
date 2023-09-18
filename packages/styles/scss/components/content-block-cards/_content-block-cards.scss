@@ -14,7 +14,7 @@
 @use '../card-group/card-group';
 
 @mixin content-block-cards {
-  :host(#{$dds-prefix}-content-block-cards),
+  :host(#{$c4d-prefix}-content-block-cards),
   .#{$prefix}--content-block-cards .#{$prefix}--content-block {
     display: block;
     padding-top: $spacing-07;
@@ -31,7 +31,7 @@
     }
   }
 
-  :host(#{$dds-prefix}-content-block-cards) ::slotted([slot='heading']),
+  :host(#{$c4d-prefix}-content-block-cards) ::slotted([slot='heading']),
   .#{$prefix}--content-block-cards .#{$prefix}--content-block__heading {
     margin-bottom: $spacing-07;
 
@@ -44,14 +44,14 @@
     }
   }
 
-  :host(#{$dds-prefix}-content-block-cards) .#{$prefix}--content-block__cta,
+  :host(#{$c4d-prefix}-content-block-cards) .#{$prefix}--content-block__cta,
   .#{$prefix}--content-block-cards .#{$prefix}--content-block__cta {
     @include breakpoint(lg) {
       @include make-col(4, 12);
     }
   }
 
-  :host(#{$dds-prefix}-content-block-cards) .#{$prefix}--content-block__cta {
+  :host(#{$c4d-prefix}-content-block-cards) .#{$prefix}--content-block__cta {
     padding: 0;
   }
 

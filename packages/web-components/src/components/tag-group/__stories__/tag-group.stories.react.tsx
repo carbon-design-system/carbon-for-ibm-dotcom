@@ -11,9 +11,9 @@ import React from 'react';
 // Below path will be there when an application installs `@carbon/ibmdotcom-web-components` package.
 // In our dev env, we auto-generate the file and re-map below path to to point to the generated file.
 // @ts-ignore
-import DDSTagLink from '@carbon/ibmdotcom-web-components/es/components-react/tag-link/tag-link';
+import C4DTagLink from '@carbon/ibmdotcom-web-components/es/components-react/tag-link/tag-link';
 // @ts-ignore
-import DDSTagGroup from '@carbon/ibmdotcom-web-components/es/components-react/tag-group/tag-group';
+import C4DTagGroup from '@carbon/ibmdotcom-web-components/es/components-react/tag-group/tag-group';
 import Tag from '@carbon/web-components/es/components-react/tag/tag.js';
 import readme from './README.stories.react.mdx';
 
@@ -31,13 +31,13 @@ const tagTypeOptions = ['Tag Link', 'Carbon tag'];
 export const Default = (args) => {
   const { tagType } = args?.TagGroup ?? {};
   return (
-    <DDSTagGroup>
+    <C4DTagGroup>
       {tagType === tagTypeOptions[0]
         ? tagTitles.map((title) => (
-            <DDSTagLink href={'https://example.com'}>{title}</DDSTagLink>
+            <C4DTagLink href={'https://example.com'}>{title}</C4DTagLink>
           ))
         : tagTitles.map((title) => <Tag>{title}</Tag>)}
-    </DDSTagGroup>
+    </C4DTagGroup>
   );
 };
 

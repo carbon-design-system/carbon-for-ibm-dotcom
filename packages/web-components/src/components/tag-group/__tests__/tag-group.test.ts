@@ -15,19 +15,19 @@ import '../../tag-link/tag-link';
 const template = (props?) => {
   const { copy, href } = props ?? {};
   return html`
-    <dds-tag-group>
-      <dds-tag-link href="${ifDefined(href)}"> ${copy} </dds-tag-link>
-      <dds-tag-link href="${ifDefined(href)}"> ${copy} </dds-tag-link>
-    </dds-tag-group>
+    <c4d-tag-group>
+      <c4d-tag-link href="${ifDefined(href)}"> ${copy} </c4d-tag-link>
+      <c4d-tag-link href="${ifDefined(href)}"> ${copy} </c4d-tag-link>
+    </c4d-tag-group>
   `;
 };
 
-describe('dds-tag-group', function () {
+describe('c4d-tag-group', function () {
   describe('Misc attributes', function () {
     it('should render with minimum attributes', async function () {
       render(template(), document.body);
-      await Promise.resolve(); // Update cycle for `<dds-tag-group>`
-      expect(document.body.querySelector('dds-tag-group')).toMatchSnapshot({
+      await Promise.resolve(); // Update cycle for `<c4d-tag-group>`
+      expect(document.body.querySelector('c4d-tag-group')).toMatchSnapshot({
         mode: 'shadow',
       });
     });
@@ -40,8 +40,8 @@ describe('dds-tag-group', function () {
         }),
         document.body
       );
-      await Promise.resolve(); // Update cycle for `<dds-tag-group>`
-      expect(document.body.querySelector('dds-tag-group')).toMatchSnapshot({
+      await Promise.resolve(); // Update cycle for `<c4d-tag-group>`
+      expect(document.body.querySelector('c4d-tag-group')).toMatchSnapshot({
         mode: 'shadow',
       });
     });

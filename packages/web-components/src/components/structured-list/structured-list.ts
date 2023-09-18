@@ -13,15 +13,15 @@ import StableSelectorMixin from '../../globals/mixins/stable-selector';
 import styles from './structured-list.scss';
 import { carbonElement as customElement } from '../../internal/vendor/@carbon/web-components/globals/decorators/carbon-element';
 
-const { prefix, stablePrefix: ddsPrefix } = settings;
+const { prefix, stablePrefix: c4dPrefix } = settings;
 
 /**
  * StructuredList
  *
- * @element dds-structured-list
+ * @element c4d-structured-list
  */
-@customElement(`${ddsPrefix}-structured-list`)
-class DDSStructuredList extends StableSelectorMixin(LitElement) {
+@customElement(`${c4dPrefix}-structured-list`)
+class C4DStructuredList extends StableSelectorMixin(LitElement) {
   private _listMutationObserver = new MutationObserver(
     this._setColumnSpans.bind(this)
   );
@@ -41,7 +41,7 @@ class DDSStructuredList extends StableSelectorMixin(LitElement) {
 
   protected _resetIntersectionObserver() {
     this._scrollObserver.disconnect();
-    const { cellSelector } = this.constructor as typeof DDSStructuredList;
+    const { cellSelector } = this.constructor as typeof C4DStructuredList;
     this.querySelectorAll(cellSelector).forEach((cell) => {
       this._scrollObserver.observe(cell);
     });
@@ -111,7 +111,7 @@ class DDSStructuredList extends StableSelectorMixin(LitElement) {
   }
 
   protected renderInner() {
-    const { wrapperId } = this.constructor as typeof DDSStructuredList;
+    const { wrapperId } = this.constructor as typeof C4DStructuredList;
     return html`
       <section id="${wrapperId}" class="${prefix}--structured-list">
         <slot></slot>
@@ -124,11 +124,11 @@ class DDSStructuredList extends StableSelectorMixin(LitElement) {
   }
 
   static get cellSelector() {
-    return `${ddsPrefix}-structured-list-cell, ${ddsPrefix}-structured-list-header-cell`;
+    return `${c4dPrefix}-structured-list-cell, ${c4dPrefix}-structured-list-header-cell`;
   }
 
   static styles = styles;
 }
 
 /* @__GENERATE_REACT_CUSTOM_ELEMENT_TYPE__ */
-export default DDSStructuredList;
+export default C4DStructuredList;

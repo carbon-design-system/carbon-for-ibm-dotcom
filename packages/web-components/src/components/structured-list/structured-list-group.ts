@@ -11,21 +11,21 @@ import { LitElement, html } from 'lit';
 import { property } from 'lit/decorators.js';
 import settings from '@carbon/ibmdotcom-utilities/es/utilities/settings/settings.js';
 import StableSelectorMixin from '../../globals/mixins/stable-selector';
-import DDSStructuredList from './structured-list';
+import C4DStructuredList from './structured-list';
 import styles from './structured-list.scss';
 import { carbonElement as customElement } from '../../internal/vendor/@carbon/web-components/globals/decorators/carbon-element';
 
-const { stablePrefix: ddsPrefix } = settings;
+const { stablePrefix: c4dPrefix } = settings;
 
 /**
  * StructuredListGroup
  *
- * @element dds-structured-list-group
+ * @element c4d-structured-list-group
  */
-@customElement(`${ddsPrefix}-structured-list-group`)
-class DDSStructuredListGroup extends StableSelectorMixin(LitElement) {
-  _parentTable: DDSStructuredList | null = this.closest(
-    `${ddsPrefix}-structured-list`
+@customElement(`${c4dPrefix}-structured-list-group`)
+class C4DStructuredListGroup extends StableSelectorMixin(LitElement) {
+  _parentTable: C4DStructuredList | null = this.closest(
+    `${c4dPrefix}-structured-list`
   );
 
   @property({ attribute: 'title' })
@@ -55,4 +55,4 @@ class DDSStructuredListGroup extends StableSelectorMixin(LitElement) {
 }
 
 /* @__GENERATE_REACT_CUSTOM_ELEMENT_TYPE__ */
-export default DDSStructuredListGroup;
+export default C4DStructuredListGroup;

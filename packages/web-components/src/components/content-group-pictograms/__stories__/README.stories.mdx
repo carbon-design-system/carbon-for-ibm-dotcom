@@ -3,12 +3,9 @@ import markdownContents from '../../../../docs/markdown-contents.md';
 import contributing from '../../../../../../docs/contributing-license.md';
 import { cdnJs, cdnCss } from '../../../globals/internal/storybook-cdn';
 
+# `<cds-content-group-pictograms>`
 
-
-
-# `<dds-content-group-pictograms>`
-
-> The Content Group – Pictograms pattern is a variant of `<dds-content-group>`,
+> The Content Group – Pictograms pattern is a variant of `<cds-content-group>`,
 > and includes a heading, copy and
 > [Pictogram Items](http://www.ibm.com/standards/carbon/web-components/?path=/story/components-pictogram-item--default)
 > 💡 Check our
@@ -25,30 +22,32 @@ Here's a quick example to get you started.
 import '@carbon/ibmdotcom-web-components/es/components/content-group-pictograms/index.js';
 ```
 
-<Description markdown={`${cdnJs({ components: ['content-group-pictograms'] })}`} />
+<Description
+  markdown={`${cdnJs({ components: ['content-group-pictograms'] })}`}
+/>
 
 <Description markdown={`${cdnCss()}`} />
 
 ### HTML
 
 ```html
-<dds-content-group-pictograms>
-  <dds-content-group-heading>Curabitur malesuada varius mi eu posuere</dds-content-group-heading>
-  <dds-content-group-copy>Lorem ipsum *dolor* sit amet</dds-content-group-copy>
-  <dds-pictogram-item>
-    <svg slot="pictogram" ...>
-      ...
-    </svg>
-    <dds-content-item-heading>Lorem ipsum dolor sit amet</dds-content-item-heading>
-    <dds-content-item-copy>Lorem ipsum dolor sit amet</dds-content-item-copy>
-    <dds-link-with-icon href="https://www.ibm.com/" slot="footer">
+<cds-content-group-pictograms>
+  <cds-content-group-heading
+    >Curabitur malesuada varius mi eu posuere</cds-content-group-heading
+  >
+  <cds-content-group-copy>Lorem ipsum *dolor* sit amet</cds-content-group-copy>
+  <cds-pictogram-item>
+    <svg slot="pictogram" ...>...</svg>
+    <cds-content-item-heading
+      >Lorem ipsum dolor sit amet</cds-content-item-heading
+    >
+    <cds-content-item-copy>Lorem ipsum dolor sit amet</cds-content-item-copy>
+    <cds-link-with-icon href="https://www.ibm.com/" slot="footer">
       Link text
-      <svg slot="icon" ...>
-        ...
-      </svg>
-    </dds-link-with-icon>
-  </dds-pictogram-item>
-</dds-content-group-pictograms>
+      <svg slot="icon" ...>...</svg>
+    </cds-link-with-icon>
+  </cds-pictogram-item>
+</cds-content-group-pictograms>
 ```
 
 ## Stable selectors
@@ -59,9 +58,9 @@ to see how Web Components selector and `data-autoid` should be used.
 
 | Web Components selector          | Compatibility selector                    | Description |
 | -------------------------------- | ----------------------------------------- | ----------- |
-| `<dds-content-group-pictograms>` | `data-autoid="dds--content-group-simple"` | Component   |
-| `<dds-content-group-copy>`       | `data-autoid="dds--content-group__copy"`  | Component   |
-| `<dds-content-group-heading>`    | `data-autoid="dds--content-group__title"` | Component   |
-| `<dds-content-item-copy>`        | `data-autoid="dds--content-item__copy"`   | Component   |
+| `<cds-content-group-pictograms>` | `data-autoid="cds--content-group-simple"` | Component   |
+| `<cds-content-group-copy>`       | `data-autoid="cds--content-group__copy"`  | Component   |
+| `<cds-content-group-heading>`    | `data-autoid="cds--content-group__title"` | Component   |
+| `<cds-content-item-copy>`        | `data-autoid="cds--content-item__copy"`   | Component   |
 
 <Description markdown={contributing} />

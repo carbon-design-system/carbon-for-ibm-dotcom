@@ -13,15 +13,15 @@ import settings from '../../internal/vendor/@carbon/ibmdotcom-utilities/utilitie
 import { carbonElement as customElement } from '../../internal/vendor/@carbon/web-components/globals/decorators/carbon-element';
 import styles from './quote.scss';
 
-const { stablePrefix: ddsPrefix } = settings;
+const { stablePrefix: c4dPrefix } = settings;
 
 /**
  * The source heading content of quote.
  *
- * @element dds-quote-source-heading
+ * @element c4d-quote-source-heading
  */
-@customElement(`${ddsPrefix}-quote-source-heading`)
-class DDSQuoteSourceHeading extends LitElement {
+@customElement(`${c4dPrefix}-quote-source-heading`)
+class C4DQuoteSourceHeading extends LitElement {
   /**
    * The shadow slot this source copy content should be in.
    */
@@ -37,4 +37,4 @@ class DDSQuoteSourceHeading extends LitElement {
 }
 
 /* @__GENERATE_REACT_CUSTOM_ELEMENT_TYPE__ */
-export default DDSQuoteSourceHeading;
+export default C4DQuoteSourceHeading;

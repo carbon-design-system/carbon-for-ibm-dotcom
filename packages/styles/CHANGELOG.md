@@ -895,7 +895,7 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 * **content-item:** expose component in storybook ([#7233](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/issues/7233)) ([43208ad](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/commit/43208ad)), closes [#6700](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/issues/6700)
 * **content-item-horizontal:** update styles and layout ([#7318](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/issues/7318)) ([54b6d1e](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/commit/54b6d1e)), closes [#7264](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/issues/7264)
 * **feature-card:** make hover states consistent ([#7338](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/issues/7338)) ([06b9a31](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/commit/06b9a31))
-* **featured-section:** adjust target new tab issue by extending dds-card-cta ([#7250](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/issues/7250)) ([9fe5d78](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/commit/9fe5d78))
+* **featured-section:** adjust target new tab issue by extending cds-card-cta ([#7250](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/issues/7250)) ([9fe5d78](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/commit/9fe5d78))
 * **leadspace:** allow lead space height to grow with content ([#7184](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/issues/7184)) ([9271f6e](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/commit/9271f6e)), closes [#7155](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/issues/7155) [#6336](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/issues/6336)
 * **link-list:** remove video duration only for link list ([#7360](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/issues/7360)) ([3002205](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/commit/3002205)), closes [#6086](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/issues/6086) [/github.com/carbon-design-system/carbon-for-ibm-dotcom/pull/7342#issuecomment-938006980](https://github.com//github.com/carbon-design-system/carbon-for-ibm-dotcom/pull/7342/issues/issuecomment-938006980)
 * **link-list:** update heading font size for video card ([#7289](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/issues/7289)) ([c2c896a](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/commit/c2c896a)), closes [#6086](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/issues/6086)
@@ -1753,7 +1753,7 @@ All notable changes to this project will be documented in this file. See
   ([5ffee6f](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/commit/5ffee6f)),
   closes
   [#4127](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/issues/4127)
-- **styles:** ensure dds-prefix variable is included
+- **styles:** ensure cds-prefix variable is included
   ([#4396](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/issues/4396))
   ([136245c](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/commit/136245c)),
   closes

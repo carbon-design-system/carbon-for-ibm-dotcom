@@ -50,8 +50,8 @@ jobs:
         with:
           env-file: packages/web-components/.env
         env:
-          DDS_CLOUD_MASTHEAD: true
-          DDS_FLAGS_ALL: true
+          C4D_CLOUD_MASTHEAD: true
+          C4D_FLAGS_ALL: true
 
       - name: Build storybook
         working-directory: packages/web-components

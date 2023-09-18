@@ -19,7 +19,7 @@
 /// @group footer
 
 @mixin legal-nav {
-  :host(#{$dds-prefix}-legal-nav),
+  :host(#{$c4d-prefix}-legal-nav),
   .#{$prefix}--legal-nav__container {
     @include make-container;
   }
@@ -184,8 +184,8 @@
     }
   }
 
-  :host(#{$dds-prefix}-legal-nav-item),
-  :host(#{$dds-prefix}-legal-nav-cookie-preferences-placeholder),
+  :host(#{$c4d-prefix}-legal-nav-item),
+  :host(#{$c4d-prefix}-legal-nav-cookie-preferences-placeholder),
   .#{$prefix}--legal-nav__list-item {
     margin-right: carbon--mini-units(4);
     padding: carbon--mini-units(2) 0 0 0;

@@ -62,98 +62,98 @@ const items = [
 ];
 
 const image = html`
-  <dds-image
+  <c4d-image
     slot="media"
     alt="Image alt text"
     default-src="${imgLg16x9}"
     heading="Lorem ipsum dolor sit amet.">
-    <dds-image-item media="(min-width: 672px)" srcset="${imgLg16x9}">
-    </dds-image-item>
-    <dds-image-item media="(min-width: 400px)" srcset="${imgMd16x9}">
-    </dds-image-item>
-    <dds-image-item media="(min-width: 320px)" srcset="${imgSm16x9}">
-    </dds-image-item>
-  </dds-image>
+    <c4d-image-item media="(min-width: 672px)" srcset="${imgLg16x9}">
+    </c4d-image-item>
+    <c4d-image-item media="(min-width: 400px)" srcset="${imgMd16x9}">
+    </c4d-image-item>
+    <c4d-image-item media="(min-width: 320px)" srcset="${imgSm16x9}">
+    </c4d-image-item>
+  </c4d-image>
 `;
 
 export const Default = (args) => {
   const { heading, copy, showCopy, addChildren, showCTA, border, aside } =
     args?.ContentBlock ?? {};
   return html`
-    <dds-content-block
+    <c4d-content-block
       complementary-style-scheme="${border
         ? CONTENT_BLOCK_COMPLEMENTARY_STYLE_SCHEME.WITH_BORDER
         : ''}">
       ${heading
         ? html`
-            <dds-content-block-heading
+            <c4d-content-block-heading
               >What is the latest news in artificial
-              intelligence?</dds-content-block-heading
+              intelligence?</c4d-content-block-heading
             >
           `
         : ''}
       ${showCopy
-        ? html` <dds-content-block-copy>${copy}</dds-content-block-copy> `
+        ? html` <c4d-content-block-copy>${copy}</c4d-content-block-copy> `
         : ``}
       ${addChildren.includes('Content group simple')
         ? html`
-            <dds-content-group-simple>
-              <dds-content-group-heading
-                >Natural language processing (NLP)</dds-content-group-heading
+            <c4d-content-group-simple>
+              <c4d-content-group-heading
+                >Natural language processing (NLP)</c4d-content-group-heading
               >
-              <dds-content-group-copy
+              <c4d-content-group-copy
                 >Lorem ipsum dolor sit amet, consectetur adipiscing elit.
                 Vestibulum non porttitor libero, in venenatis
-                magna.</dds-content-group-copy
+                magna.</c4d-content-group-copy
               >
               ${image}
               ${items.map(
                 ({ itemsHeading: itemHeading, itemsCopy: itemCopy }) => html`
-                  <dds-content-item>
-                    <dds-content-item-heading
-                      >${itemHeading}</dds-content-item-heading
+                  <c4d-content-item>
+                    <c4d-content-item-heading
+                      >${itemHeading}</c4d-content-item-heading
                     >
-                    <dds-content-item-copy>${itemCopy}</dds-content-item-copy>
-                  </dds-content-item>
+                    <c4d-content-item-copy>${itemCopy}</c4d-content-item-copy>
+                  </c4d-content-item>
                 `
               )}
-            </dds-content-group-simple>
+            </c4d-content-group-simple>
           `
         : ``}
       ${showCTA
         ? html`
-            <dds-card-link-cta
+            <c4d-card-link-cta
               slot="footer"
               cta-type="local"
               href="https://www.example.com">
-              <dds-card-link-heading
+              <c4d-card-link-heading
                 >Learn more about natual language
-                processing</dds-card-link-heading
+                processing</c4d-card-link-heading
               >
-              <dds-card-cta-footer></dds-card-cta-footer>
-            </dds-card-link-cta>
+              <c4d-card-cta-footer></c4d-card-cta-footer>
+            </c4d-card-link-cta>
           `
         : ``}
       ${aside
         ? html`
-            <dds-link-list type="default" slot="complementary">
-              <dds-link-list-heading>Tutorials</dds-link-list-heading>
-              <dds-link-list-item-card href="https://example.com">
+            <c4d-link-list type="default" slot="complementary">
+              <c4d-link-list-heading>Tutorials</c4d-link-list-heading>
+              <c4d-link-list-item-card href="https://example.com">
                 <p>Learn more about Kubernetes</p>
-                <dds-card-footer>
+                <c4d-card-footer>
                   ${ArrowRight20({ slot: 'icon' })}
-                </dds-card-footer>
-              </dds-link-list-item-card>
-              <dds-link-list-item-card href="https://example.com">
+                </c4d-card-footer>
+              </c4d-link-list-item-card>
+              <c4d-link-list-item-card href="https://example.com">
                 <p>Containerization A Complete Guide</p>
-                <dds-card-footer>
+                <c4d-card-footer>
                   ${ArrowRight20({ slot: 'icon' })}
-                </dds-card-footer>
-              </dds-link-list-item-card>
-            </dds-link-list>
+                </c4d-card-footer>
+              </c4d-link-list-item-card>
+            </c4d-link-list>
           `
         : ``}
-    </dds-content-block>
+    </c4d-content-block>
   `;
 };
 

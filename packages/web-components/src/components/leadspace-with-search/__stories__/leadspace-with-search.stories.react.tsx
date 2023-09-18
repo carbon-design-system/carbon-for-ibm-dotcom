@@ -12,14 +12,14 @@ import React from 'react';
 // In our dev env, we auto-generate the file and re-map below path to to point to the generated file.
 /* eslint-disable max-len */
 // @ts-ignore
-import DDSBackgroundMedia from '@carbon/ibmdotcom-web-components/es/components-react/background-media/background-media';
-import DDSLeadspaceWithSearch from '@carbon/ibmdotcom-web-components/es/components-react/leadspace-with-search/leadspace-with-search';
-import DDSLeadspaceWithSearchHeading from '@carbon/ibmdotcom-web-components/es/components-react/leadspace-with-search/leadspace-with-search-heading';
-import DDSLeadspaceWithSearchContent from '@carbon/ibmdotcom-web-components/es/components-react/leadspace-with-search/leadspace-with-search-content';
-import DDSLeadspaceWithSearchContentHeading from '@carbon/ibmdotcom-web-components/es/components-react/leadspace-with-search/leadspace-with-search-content-heading';
-import DDSLeadspaceWithSearchContentCopy from '@carbon/ibmdotcom-web-components/es/components-react/leadspace-with-search/leadspace-with-search-content-copy';
-import DDSHorizontalRule from '@carbon/ibmdotcom-web-components/es/components-react/horizontal-rule/horizontal-rule';
-import DDSSearchWithTypeahead from '@carbon/ibmdotcom-web-components/es/components-react/search-with-typeahead/search-with-typeahead';
+import C4DBackgroundMedia from '@carbon/ibmdotcom-web-components/es/components-react/background-media/background-media';
+import C4DLeadspaceWithSearch from '@carbon/ibmdotcom-web-components/es/components-react/leadspace-with-search/leadspace-with-search';
+import C4DLeadspaceWithSearchHeading from '@carbon/ibmdotcom-web-components/es/components-react/leadspace-with-search/leadspace-with-search-heading';
+import C4DLeadspaceWithSearchContent from '@carbon/ibmdotcom-web-components/es/components-react/leadspace-with-search/leadspace-with-search-content';
+import C4DLeadspaceWithSearchContentHeading from '@carbon/ibmdotcom-web-components/es/components-react/leadspace-with-search/leadspace-with-search-content-heading';
+import C4DLeadspaceWithSearchContentCopy from '@carbon/ibmdotcom-web-components/es/components-react/leadspace-with-search/leadspace-with-search-content-copy';
+import C4DHorizontalRule from '@carbon/ibmdotcom-web-components/es/components-react/horizontal-rule/horizontal-rule';
+import C4DSearchWithTypeahead from '@carbon/ibmdotcom-web-components/es/components-react/search-with-typeahead/search-with-typeahead';
 /* eslint-enable max-len */
 import { ADJACENT_THEMES } from '../defs';
 import readme from './README.stories.react.mdx';
@@ -38,59 +38,81 @@ const adjacentThemes = {
 const htmlElement = document.documentElement;
 let currentTheme = '';
 // eslint-disable-next-line func-names
-const observer = new MutationObserver(mutations => {
-  mutations.forEach(mutation => {
+const observer = new MutationObserver((mutations) => {
+  mutations.forEach((mutation) => {
     if (mutation.type === 'attributes') {
-      currentTheme = htmlElement.getAttribute(mutation.attributeName!) as string;
+      currentTheme = htmlElement.getAttribute(
+        mutation.attributeName!
+      ) as string;
     }
   });
 });
 observer.observe(htmlElement, { attributes: true });
 
-export const Default = args => {
+export const Default = (args) => {
   const { theme } = args?.LeadspaceWithSearch ?? {};
   const secondTheme = theme.split('-')[2];
   return (
-    <DDSLeadspaceWithSearch adjacent-theme={theme}>
-      <DDSLeadspaceWithSearchHeading>Find a product</DDSLeadspaceWithSearchHeading>
-      <DDSLeadspaceWithSearchContent>
-        <DDSLeadspaceWithSearchContentHeading>
+    <C4DLeadspaceWithSearch adjacent-theme={theme}>
+      <C4DLeadspaceWithSearchHeading>
+        Find a product
+      </C4DLeadspaceWithSearchHeading>
+      <C4DLeadspaceWithSearchContent>
+        <C4DLeadspaceWithSearchContentHeading>
           Innovate like a startup, scale for the enterprise
-        </DDSLeadspaceWithSearchContentHeading>
-        <DDSLeadspaceWithSearchContentCopy>
-          Automate your software release process with continuous delivery (CD)—the most critical part of adopting DevOps. Build,
-          test, and deploy code changes quickly, ensuring software is always ready for deployment.
-        </DDSLeadspaceWithSearchContentCopy>
-      </DDSLeadspaceWithSearchContent>
-      <DDSSearchWithTypeahead slot="search" leadspace-search></DDSSearchWithTypeahead>
-      <DDSHorizontalRule slot="hr" style={{ display: currentTheme === secondTheme ? 'none' : '' }}></DDSHorizontalRule>
-    </DDSLeadspaceWithSearch>
+        </C4DLeadspaceWithSearchContentHeading>
+        <C4DLeadspaceWithSearchContentCopy>
+          Automate your software release process with continuous delivery
+          (CD)—the most critical part of adopting DevOps. Build, test, and
+          deploy code changes quickly, ensuring software is always ready for
+          deployment.
+        </C4DLeadspaceWithSearchContentCopy>
+      </C4DLeadspaceWithSearchContent>
+      <C4DSearchWithTypeahead
+        slot="search"
+        leadspace-search></C4DSearchWithTypeahead>
+      <C4DHorizontalRule
+        slot="hr"
+        style={{
+          display: currentTheme === secondTheme ? 'none' : '',
+        }}></C4DHorizontalRule>
+    </C4DLeadspaceWithSearch>
   );
 };
 
-export const WithImage = args => {
+export const WithImage = (args) => {
   const { theme } = args?.LeadspaceWithSearch ?? {};
   const secondTheme = theme.split('-')[2];
   return (
-    <DDSLeadspaceWithSearch adjacent-theme={theme}>
-      <DDSBackgroundMedia
+    <C4DLeadspaceWithSearch adjacent-theme={theme}>
+      <C4DBackgroundMedia
         gradient-direction="left-to-right"
         mobile-position="bottom"
         default-src={image}
-        slot="image"></DDSBackgroundMedia>
-      <DDSLeadspaceWithSearchHeading>Find a product</DDSLeadspaceWithSearchHeading>
-      <DDSLeadspaceWithSearchContent>
-        <DDSLeadspaceWithSearchContentHeading>
+        slot="image"></C4DBackgroundMedia>
+      <C4DLeadspaceWithSearchHeading>
+        Find a product
+      </C4DLeadspaceWithSearchHeading>
+      <C4DLeadspaceWithSearchContent>
+        <C4DLeadspaceWithSearchContentHeading>
           Innovate like a startup, scale for the enterprise
-        </DDSLeadspaceWithSearchContentHeading>
-        <DDSLeadspaceWithSearchContentCopy>
-          Automate your software release process with continuous delivery (CD)—the most critical part of adopting DevOps. Build,
-          test, and deploy code changes quickly, ensuring software is always ready for deployment.
-        </DDSLeadspaceWithSearchContentCopy>
-      </DDSLeadspaceWithSearchContent>
-      <DDSSearchWithTypeahead slot="search" leadspace-search></DDSSearchWithTypeahead>
-      <DDSHorizontalRule slot="hr" style={{ display: currentTheme === secondTheme ? 'none' : '' }}></DDSHorizontalRule>
-    </DDSLeadspaceWithSearch>
+        </C4DLeadspaceWithSearchContentHeading>
+        <C4DLeadspaceWithSearchContentCopy>
+          Automate your software release process with continuous delivery
+          (CD)—the most critical part of adopting DevOps. Build, test, and
+          deploy code changes quickly, ensuring software is always ready for
+          deployment.
+        </C4DLeadspaceWithSearchContentCopy>
+      </C4DLeadspaceWithSearchContent>
+      <C4DSearchWithTypeahead
+        slot="search"
+        leadspace-search></C4DSearchWithTypeahead>
+      <C4DHorizontalRule
+        slot="hr"
+        style={{
+          display: currentTheme === secondTheme ? 'none' : '',
+        }}></C4DHorizontalRule>
+    </C4DLeadspaceWithSearch>
   );
 };
 
@@ -101,16 +123,22 @@ export default {
     hasStoryPadding: true,
     knobs: {
       LeadspaceWithSearch: () => ({
-        theme: select(`Adjacent theme`, adjacentThemes, adjacentThemes.Monotheme),
+        theme: select(
+          `Adjacent theme`,
+          adjacentThemes,
+          adjacentThemes.Monotheme
+        ),
       }),
     },
   },
   decorators: [
-    story => {
+    (story) => {
       return (
         <div className="cds--grid">
           <div className="cds--row">
-            <div className="cds--col-lg-8 cds--offset-lg-4 cds--no-gutter">{story()}</div>
+            <div className="cds--col-lg-8 cds--offset-lg-4 cds--no-gutter">
+              {story()}
+            </div>
           </div>
         </div>
       );

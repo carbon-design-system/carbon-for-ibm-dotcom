@@ -77,7 +77,7 @@ export type TranslateAPIActions =
 
 /**
  * @param language The language. If not given, the default language from DDO is used.
- * @param dataEndpoint The translation endpoint to fetch from if not using default dds endpoint
+ * @param dataEndpoint The translation endpoint to fetch from if not using default c4d endpoint
  * @returns A Redux action that sends a REST call for translation data.
  */
 export function loadTranslation(

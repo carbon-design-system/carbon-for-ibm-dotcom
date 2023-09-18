@@ -9,17 +9,22 @@
 
 import { TemplateResult, html, LitElement } from 'lit';
 import { property, query, state } from 'lit/decorators.js';
+import ArrowRight20 from '../../internal/vendor/@carbon/web-components/icons/arrow--right/20';
 import CDSLink from '../../internal/vendor/@carbon/web-components/components/link/link.js';
 import markdownToHtml from '../../internal/vendor/@carbon/ibmdotcom-utilities/utilities/markdownToHtml/markdownToHtml.js';
 import { carbonElement as customElement } from '../../internal/vendor/@carbon/web-components/globals/decorators/carbon-element.js';
 import settings from '../../internal/vendor/@carbon/ibmdotcom-utilities/utilities/settings/settings';
 import { BASIC_COLOR_SCHEME } from '../../globals/defs';
 import StableSelectorMixin from '../../globals/mixins/stable-selector';
-import DDSCardFooter from './card-footer';
+import C4DCardFooter from './card-footer';
 import styles from './card.scss';
 import { PICTOGRAM_PLACEMENT } from './defs';
 
-const { prefix, stablePrefix: ddsPrefix } = settings;
+import { CTA_TYPE } from '../cta/defs';
+
+import CTAMixin from '../../component-mixins/cta/cta';
+
+const { prefix, stablePrefix: c4dPrefix } = settings;
 
 /**
  * The table mapping slot name with the private property name that indicates the existence of the slot content.
@@ -32,14 +37,20 @@ const slotExistencePropertyNames = {
 /**
  * Card.
  *
- * @element dds-card
+ * @element c4d-card
  * @slot eyebrow - The eyebrow content.
  * @slot heading - The heading content.
  * @slot image - The image content.
  * @slot footer - The footer content.
  */
-@customElement(`${ddsPrefix}-card`)
-class DDSCard extends StableSelectorMixin(CDSLink) {
+@customElement(`${c4dPrefix}-card`)
+class C4DCard extends CTAMixin(StableSelectorMixin(CDSLink)) {
+  /**
+   * `true` if there is copy content.
+   */
+  @property({ attribute: 'cta-type' })
+  ctaType;
+
   /**
    * `true` if there is image content.
    */
@@ -57,6 +68,9 @@ class DDSCard extends StableSelectorMixin(CDSLink) {
    */
   @state()
   protected _hasPictogram = false;
+
+  @property({ attribute: 'no-poster', type: Boolean })
+  noPoster;
 
   /**
    * Handles `slotchange` event.
@@ -88,12 +102,27 @@ class DDSCard extends StableSelectorMixin(CDSLink) {
     `;
   }
 
-  /**
-   * @returns The image content.
-   */
   protected _renderImage(): TemplateResult | string | void {
+    const {
+      ctaType,
+      videoName,
+      videoThumbnailUrl,
+      _hasImage: hasImage,
+      noPoster,
+    } = this;
+
+    const image =
+      hasImage || ctaType !== CTA_TYPE.VIDEO || noPoster
+        ? undefined
+        : html`
+            <c4d-image
+              class="${prefix}--card__video-thumbnail"
+              alt="${videoName}"
+              default-src="${videoThumbnailUrl}">
+            </c4d-image>
+          `;
     return html`
-      <slot name="image" @slotchange="${this._handleSlotChange}"></slot>
+      <slot name="image" @slotchange="${this._handleSlotChange}"></slot>${image}
     `;
   }
 
@@ -111,17 +140,14 @@ class DDSCard extends StableSelectorMixin(CDSLink) {
    * @returns The inner content.
    */
   protected _renderInner() {
-    const {
-      _handleSlotChange: handleSlotChange,
-      _hasPictogram: hasPictogram,
-      _hasCopy: hasCopy,
-    } = this;
+    const { _handleSlotChange: handleSlotChange, _hasPictogram: hasPictogram } =
+      this;
     return html`
       ${this._renderImage()}
       <div
         class="${prefix}--card__wrapper ${hasPictogram
           ? `${prefix}--card__pictogram`
-          : ''} ${hasPictogram && hasCopy ? `${prefix}--card__motion` : ''}">
+          : ''}">
         <div class="${prefix}--card__content">
           ${hasPictogram ? '' : html` <slot name="eyebrow"></slot> `}
           ${this.pictogramPlacement === PICTOGRAM_PLACEMENT.TOP
@@ -160,12 +186,6 @@ class DDSCard extends StableSelectorMixin(CDSLink) {
   }
 
   /**
-   * An optional 1px border surrounding the component.
-   */
-  @property({ type: Boolean, reflect: true })
-  border = false;
-
-  /**
    * The color scheme.
    * A typical use case of using another color scheme of card is having a "CTA" purpose of card at the last in card group.
    *
@@ -184,7 +204,7 @@ class DDSCard extends StableSelectorMixin(CDSLink) {
    * Pictogram placement
    */
   @property({ attribute: 'pictogram-placement', reflect: true })
-  pictogramPlacement = '';
+  pictogramPlacement = PICTOGRAM_PLACEMENT.BOTTOM;
 
   /**
    * Whether or not to apply the logo style.
@@ -193,24 +213,69 @@ class DDSCard extends StableSelectorMixin(CDSLink) {
   logo = false;
 
   @query('div')
-  protected _linkNode?: HTMLDivElement | HTMLParagraphElement;
+  _linkNode;
 
   updated(changedProperties) {
     super.updated(changedProperties);
-    const { colorScheme, href, _linkNode: linkNode } = this;
+    const { colorScheme, href, _linkNode: linkNode, ctaType } = this;
+
+    if (
+      changedProperties.has('ctaType') ||
+      changedProperties.has('formatCaption') ||
+      changedProperties.has('formatDuration') ||
+      changedProperties.has('videoDuration') ||
+      changedProperties.has('videoName')
+    ) {
+      const {
+        ctaType,
+        videoDuration,
+        videoName,
+        videoDescription,
+        formatVideoCaption: formatVideoCaptionInEffect,
+        formatVideoDuration: formatVideoDurationInEffect,
+      } = this;
+      const footer = this.querySelector(`${c4dPrefix}-card-footer`);
+
+      const headingText = this.querySelector(
+        `${c4dPrefix}-card-heading`
+      )?.textContent;
+      const copyText = this.textContent;
+      if (footer) {
+        const ariaTitle = videoName || headingText || copyText;
+        let ariaDuration = '';
+        if (videoDuration !== undefined) {
+          ariaDuration = `, DURATION ${videoDuration}`;
+        }
+        (footer as C4DCardFooter).altAriaLabel = `${ariaTitle}${ariaDuration}`;
+        (footer as C4DCardFooter).ctaType = ctaType;
+        (footer as C4DCardFooter).videoDuration = videoDuration;
+        (footer as C4DCardFooter).videoName = videoName;
+        (footer as C4DCardFooter).videoDescription = videoDescription;
+        if (formatVideoCaptionInEffect) {
+          (footer as C4DCardFooter).formatVideoCaption =
+            formatVideoCaptionInEffect;
+        }
+        if (formatVideoDurationInEffect) {
+          (footer as C4DCardFooter).formatVideoDuration =
+            formatVideoDurationInEffect;
+        }
+      }
+    }
+
     if (changedProperties.has('colorScheme') || changedProperties.has('href')) {
       const headingText = this.querySelector(
-        `${ddsPrefix}-card-heading`
+        `${c4dPrefix}-card-heading`
       )?.textContent;
       const copyText = this.textContent;
       const footer = this.querySelector(
-        (this.constructor as typeof DDSCard).selectorFooter
+        (this.constructor as typeof C4DCard).selectorFooter
       );
       if (footer && href) {
-        (footer as DDSCardFooter).colorScheme = colorScheme;
-        (footer as DDSCardFooter).parentHref = href;
-        (footer as DDSCardFooter).href = href;
-        (footer as DDSCardFooter).altAriaLabel = headingText || copyText;
+        (footer as C4DCardFooter).colorScheme = colorScheme;
+        (footer as C4DCardFooter).parentHref = href;
+        (footer as C4DCardFooter).ctaType = ctaType;
+        (footer as C4DCardFooter).href = href;
+        (footer as C4DCardFooter).altAriaLabel = headingText || copyText;
       }
     }
     if (linkNode) {
@@ -237,31 +302,91 @@ class DDSCard extends StableSelectorMixin(CDSLink) {
     }
   }
 
+  /**
+   * Handles card with video heading and applies the set same height function.
+   *
+   * @param event The event.
+   */
+  // @ts-ignore: The decorator refers to this method but TS thinks this method is not referred to
+  private _handleVideoTitleUpdate = async (event) => {
+    if (event && this.ctaType === CTA_TYPE.VIDEO) {
+      const { videoDuration, videoName } = event.detail as any;
+      const { formatVideoDuration, formatVideoCaption } = this;
+      const formattedVideoDuration = formatVideoDuration({
+        duration: !videoDuration ? videoDuration : videoDuration * 1000,
+      });
+      this.videoDuration ? null : (this.videoDuration = formattedVideoDuration);
+
+      this.videoTitle = formatVideoCaption({
+        name: videoName,
+      });
+
+      const heading = this.querySelector(`${c4dPrefix}-card-heading`);
+      const footer = this.querySelector(`${c4dPrefix}-card-footer`);
+
+      if (heading?.textContent?.trim() === '') {
+        const title = document.createTextNode(this.videoTitle);
+        heading?.appendChild(title);
+      }
+
+      if (footer?.textContent?.trim() === '') {
+        const title = document.createTextNode(formattedVideoDuration);
+        footer?.appendChild(title);
+      }
+    }
+  };
+
+  connectedCallback() {
+    super.connectedCallback();
+    const { eventRequestAdditionalVideoData } = this
+      .constructor as typeof C4DCard;
+    document.addEventListener(
+      eventRequestAdditionalVideoData,
+      this._handleVideoTitleUpdate
+    );
+  }
+
+  disconnectedCallback() {
+    super.disconnectedCallback();
+    const { eventRequestAdditionalVideoData } = this
+      .constructor as typeof C4DCard;
+    document.removeEventListener(
+      eventRequestAdditionalVideoData,
+      this._handleVideoTitleUpdate
+    );
+  }
   render() {
     return this._hasPictogram
       ? html`
           <div
             tabindex="0"
-            aria-label="${this.querySelector(`${ddsPrefix}-card-heading`)
+            aria-label="${this.querySelector(`${c4dPrefix}-card-heading`)
               ?.textContent || ''}"
             aria-live="polite"
             aria-describedby="${prefix}--card__copy"
             role="button">
-            ${this._renderInner()}
+            ${this._renderInner()} ${ArrowRight20()}
           </div>
         `
       : html` <div>${this._renderInner()}</div> `;
   }
 
   static get stableSelector() {
-    return `${ddsPrefix}--card`;
+    return `${c4dPrefix}--card`;
   }
 
   /**
    * A selector that will return the child footer.
    */
   static get selectorFooter() {
-    return `${ddsPrefix}-card-footer`;
+    return `${c4dPrefix}-card-footer`;
+  }
+
+  /**
+   * The name of the custom event fired when there is a user gesture to run the action.
+   */
+  static get eventRequestAdditionalVideoData() {
+    return `${c4dPrefix}-cta-request-additional-video-data`;
   }
 
   static shadowRootOptions = {
@@ -272,4 +397,4 @@ class DDSCard extends StableSelectorMixin(CDSLink) {
 }
 
 /* @__GENERATE_REACT_CUSTOM_ELEMENT_TYPE__ */
-export default DDSCard;
+export default C4DCard;

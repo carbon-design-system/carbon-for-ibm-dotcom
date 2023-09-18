@@ -7,11 +7,11 @@
 
 'use strict';
 
-describe('dds-cta-card', () => {
-  it('should load the default dds-cta-card example', () => {
+describe('cds-cta-card', () => {
+  it('should load the default cds-cta-card example', () => {
     cy.visit('/cta-card');
 
     // Take a snapshot for visual diffing
-    cy.percySnapshot('dds-cta-card | default');
+    cy.percySnapshot('cds-cta-card | default');
   });
 });

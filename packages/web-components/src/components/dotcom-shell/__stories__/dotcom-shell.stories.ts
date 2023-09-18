@@ -13,7 +13,7 @@ import on from 'carbon-components/es/globals/js/misc/on.js';
 import { ifDefined } from 'lit/directives/if-defined.js';
 import inPercy from '@percy-io/in-percy';
 import textNullable from '../../../../.storybook/knob-text-nullable';
-import DDSLeftNav from '../../masthead/left-nav';
+import c4dLeftNav from '../../masthead/left-nav';
 import '../dotcom-shell-container';
 import {
   authenticatedProfileItems,
@@ -107,7 +107,7 @@ export const Default = (args) => {
     </style>
     ${useMock
       ? html`
-          <dds-dotcom-shell-composite
+          <c4d-dotcom-shell-composite
             platform="${ifDefined(platform)}"
             platform-url="${ifDefined(platformData.url)}"
             language="${ifDefined(language)}"
@@ -128,10 +128,10 @@ export const Default = (args) => {
             )}"
             ?disable-locale-button="${disableLocaleButton}">
             ${StoryContent()}
-          </dds-dotcom-shell-composite>
+          </c4d-dotcom-shell-composite>
         `
       : html`
-          <dds-dotcom-shell-container
+          <c4d-dotcom-shell-container
             platform="${ifDefined(platform)}"
             platform-url="${ifDefined(platformData.url)}"
             language="${ifDefined(language)}"
@@ -148,7 +148,7 @@ export const Default = (args) => {
             ?has-search="${hasSearch}"
             ?disable-locale-button="${disableLocaleButton}">
             ${StoryContent()}
-          </dds-dotcom-shell-container>
+          </c4d-dotcom-shell-container>
         `}
   `;
 };
@@ -176,7 +176,7 @@ export const DefaultFooterLanguageOnly = (args) => {
     </style>
     ${useMock
       ? html`
-          <dds-dotcom-shell-composite
+          <c4d-dotcom-shell-composite
             platform="${ifDefined(platform)}"
             platform-url="${ifDefined(platformData.url)}"
             language="${ifDefined(language)}"
@@ -200,10 +200,10 @@ export const DefaultFooterLanguageOnly = (args) => {
             )}"
             ?disable-locale-button="${disableLocaleButton}">
             ${StoryContent()}
-          </dds-dotcom-shell-composite>
+          </c4d-dotcom-shell-composite>
         `
       : html`
-          <dds-dotcom-shell-container
+          <c4d-dotcom-shell-container
             platform="${ifDefined(platform)}"
             platform-url="${ifDefined(platformData.url)}"
             language="${ifDefined(language)}"
@@ -223,7 +223,7 @@ export const DefaultFooterLanguageOnly = (args) => {
             ?has-search="${hasSearch}"
             ?disable-locale-button="${disableLocaleButton}">
             ${StoryContent()}
-          </dds-dotcom-shell-container>
+          </c4d-dotcom-shell-container>
         `}
   `;
 };
@@ -273,7 +273,7 @@ export const searchOpenOnload = (args) => {
     </style>
     ${useMock
       ? html`
-          <dds-dotcom-shell-composite
+          <c4d-dotcom-shell-composite
             activate-search="true"
             platform="${ifDefined(platform)}"
             platform-url="${ifDefined(platformData.url)}"
@@ -294,10 +294,10 @@ export const searchOpenOnload = (args) => {
             )}"
             ?disable-locale-button="${disableLocaleButton}">
             ${StoryContent()}
-          </dds-dotcom-shell-composite>
+          </c4d-dotcom-shell-composite>
         `
       : html`
-          <dds-dotcom-shell-container
+          <c4d-dotcom-shell-container
             activate-search="true"
             platform="${ifDefined(platform)}"
             platform-url="${ifDefined(platformData.url)}"
@@ -318,7 +318,7 @@ export const searchOpenOnload = (args) => {
             ?has-search="${hasSearch}"
             ?disable-locale-button="${disableLocaleButton}">
             ${StoryContent()}
-          </dds-dotcom-shell-container>
+          </c4d-dotcom-shell-container>
         `}
   `;
 };
@@ -349,7 +349,7 @@ export const withPlatform = (args) => {
     </style>
     ${useMock
       ? html`
-          <dds-dotcom-shell-composite
+          <c4d-dotcom-shell-composite
             platform=${platformData.name}
             platform-url="${ifDefined(platformData.url)}"
             language="${ifDefined(language)}"
@@ -369,10 +369,10 @@ export const withPlatform = (args) => {
             )}"
             ?disable-locale-button="${disableLocaleButton}">
             ${StoryContent()}
-          </dds-dotcom-shell-composite>
+          </c4d-dotcom-shell-composite>
         `
       : html`
-          <dds-dotcom-shell-container
+          <c4d-dotcom-shell-container
             platform=${platformData.name}
             platform-url="${ifDefined(platformData.url)}"
             language="${ifDefined(language)}"
@@ -388,7 +388,7 @@ export const withPlatform = (args) => {
             ?has-search="${hasSearch}"
             ?disable-locale-button="${disableLocaleButton}">
             ${StoryContent()}
-          </dds-dotcom-shell-container>
+          </c4d-dotcom-shell-container>
         `}
   `;
 };
@@ -452,7 +452,7 @@ export const withShortFooter = (args) => {
     </style>
     ${useMock
       ? html`
-          <dds-dotcom-shell-composite
+          <c4d-dotcom-shell-composite
             platform="${ifDefined(platform)}"
             platform-url="${ifDefined(platformData.url)}"
             language="${ifDefined(language)}"
@@ -473,10 +473,10 @@ export const withShortFooter = (args) => {
             )}"
             ?disable-locale-button="${disableLocaleButton}">
             ${StoryContent()}
-          </dds-dotcom-shell-composite>
+          </c4d-dotcom-shell-composite>
         `
       : html`
-          <dds-dotcom-shell-container
+          <c4d-dotcom-shell-container
             platform="${ifDefined(platform)}"
             platform-url="${ifDefined(platformData.url)}"
             language="${ifDefined(language)}"
@@ -493,7 +493,7 @@ export const withShortFooter = (args) => {
             ?has-search="${hasSearch}"
             ?disable-locale-button="${disableLocaleButton}">
             ${StoryContent()}
-          </dds-dotcom-shell-container>
+          </c4d-dotcom-shell-container>
         `}
   `;
 };
@@ -527,7 +527,7 @@ export const withShortFooterLanguageOnly = (args) => {
     </style>
     ${useMock
       ? html`
-          <dds-dotcom-shell-composite
+          <c4d-dotcom-shell-composite
             platform="${ifDefined(platform)}"
             platform-url="${ifDefined(platformData.url)}"
             language="${ifDefined(language)}"
@@ -552,10 +552,10 @@ export const withShortFooterLanguageOnly = (args) => {
             )}"
             ?disable-locale-button="${disableLocaleButton}">
             ${StoryContent()}
-          </dds-dotcom-shell-composite>
+          </c4d-dotcom-shell-composite>
         `
       : html`
-          <dds-dotcom-shell-container
+          <c4d-dotcom-shell-container
             platform="${ifDefined(platform)}"
             platform-url="${ifDefined(platformData.url)}"
             language="${ifDefined(language)}"
@@ -576,7 +576,7 @@ export const withShortFooterLanguageOnly = (args) => {
             ?has-search="${hasSearch}"
             ?disable-locale-button="${disableLocaleButton}">
             ${StoryContent()}
-          </dds-dotcom-shell-container>
+          </c4d-dotcom-shell-container>
         `}
   `;
 };
@@ -626,7 +626,7 @@ export const withMicroFooter = (args) => {
     </style>
     ${useMock
       ? html`
-          <dds-dotcom-shell-composite
+          <c4d-dotcom-shell-composite
             platform="${ifDefined(platform)}"
             platform-url="${ifDefined(platformData.url)}"
             language="${ifDefined(language)}"
@@ -647,10 +647,10 @@ export const withMicroFooter = (args) => {
             )}"
             ?disable-locale-button="${disableLocaleButton}">
             ${StoryContent()}
-          </dds-dotcom-shell-composite>
+          </c4d-dotcom-shell-composite>
         `
       : html`
-          <dds-dotcom-shell-container
+          <c4d-dotcom-shell-container
             platform="${ifDefined(platform)}"
             platform-url="${ifDefined(platformData.url)}"
             language="${ifDefined(language)}"
@@ -667,7 +667,7 @@ export const withMicroFooter = (args) => {
             ?has-search="${hasSearch}"
             ?disable-locale-button="${disableLocaleButton}">
             ${StoryContent()}
-          </dds-dotcom-shell-container>
+          </c4d-dotcom-shell-container>
         `}
   `;
 };
@@ -698,7 +698,7 @@ export const withMicroFooterLanguageOnly = (args) => {
     </style>
     ${useMock
       ? html`
-          <dds-dotcom-shell-composite
+          <c4d-dotcom-shell-composite
             platform="${ifDefined(platform)}"
             platform-url="${ifDefined(platformData.url)}"
             language="${ifDefined(language)}"
@@ -723,10 +723,10 @@ export const withMicroFooterLanguageOnly = (args) => {
             )}"
             ?disable-locale-button="${disableLocaleButton}">
             ${StoryContent()}
-          </dds-dotcom-shell-composite>
+          </c4d-dotcom-shell-composite>
         `
       : html`
-          <dds-dotcom-shell-container
+          <c4d-dotcom-shell-container
             platform="${ifDefined(platform)}"
             platform-url="${ifDefined(platformData.url)}"
             language="${ifDefined(language)}"
@@ -747,7 +747,7 @@ export const withMicroFooterLanguageOnly = (args) => {
             ?has-search="${hasSearch}"
             ?disable-locale-button="${disableLocaleButton}">
             ${StoryContent()}
-          </dds-dotcom-shell-container>
+          </c4d-dotcom-shell-container>
         `}
   `;
 };
@@ -802,7 +802,7 @@ export const withL1 = (args) => {
     </style>
     ${useMock
       ? html`
-          <dds-dotcom-shell-composite
+          <c4d-dotcom-shell-composite
             language="${ifDefined(language)}"
             lang-display="${ifDefined(langDisplay)}"
             user-status="${ifDefined(userStatus)}"
@@ -821,10 +821,10 @@ export const withL1 = (args) => {
             )}"
             ?disable-locale-button="${disableLocaleButton}">
             ${StoryContent(contentConfig)}
-          </dds-dotcom-shell-composite>
+          </c4d-dotcom-shell-composite>
         `
       : html`
-          <dds-dotcom-shell-container
+          <c4d-dotcom-shell-container
             language="${ifDefined(language)}"
             lang-display="${ifDefined(langDisplay)}"
             user-status="${ifDefined(userStatus)}"
@@ -839,7 +839,7 @@ export const withL1 = (args) => {
             ?has-search="${hasSearch}"
             ?disable-locale-button="${disableLocaleButton}">
             ${StoryContent(contentConfig)}
-          </dds-dotcom-shell-container>
+          </c4d-dotcom-shell-container>
         `}
   `;
 };
@@ -912,7 +912,7 @@ export const WithHorizontalTOC = (args) => {
     </style>
     ${useMock
       ? html`
-          <dds-dotcom-shell-composite
+          <c4d-dotcom-shell-composite
             platform="${ifDefined(platform)}"
             platform-url="${ifDefined(platformData.url)}"
             language="${ifDefined(language)}"
@@ -933,10 +933,10 @@ export const WithHorizontalTOC = (args) => {
             )}"
             ?disable-locale-button="${disableLocaleButton}">
             ${StoryContent(contentConfig)}
-          </dds-dotcom-shell-composite>
+          </c4d-dotcom-shell-composite>
         `
       : html`
-          <dds-dotcom-shell-container
+          <c4d-dotcom-shell-container
             platform="${ifDefined(platform)}"
             platform-url="${ifDefined(platformData.url)}"
             language="${ifDefined(language)}"
@@ -953,7 +953,7 @@ export const WithHorizontalTOC = (args) => {
             ?has-search="${hasSearch}"
             ?disable-locale-button="${disableLocaleButton}">
             ${StoryContent(contentConfig)}
-          </dds-dotcom-shell-container>
+          </c4d-dotcom-shell-container>
         `}
   `;
 };
@@ -989,7 +989,7 @@ export const WithLeadspaceSearch = (args) => {
   return html`
     ${useMock
       ? html`
-          <dds-dotcom-shell-composite
+          <c4d-dotcom-shell-composite
             platform="${ifDefined(platform)}"
             platform-url="${ifDefined(platformData.url)}"
             language="${ifDefined(language)}"
@@ -1010,10 +1010,10 @@ export const WithLeadspaceSearch = (args) => {
             )}"
             ?disable-locale-button="${disableLocaleButton}">
             ${StoryContentNoToC()}
-          </dds-dotcom-shell-composite>
+          </c4d-dotcom-shell-composite>
         `
       : html`
-          <dds-dotcom-shell-container
+          <c4d-dotcom-shell-container
             platform="${ifDefined(platform)}"
             platform-url="${ifDefined(platformData.url)}"
             language="${ifDefined(language)}"
@@ -1030,7 +1030,7 @@ export const WithLeadspaceSearch = (args) => {
             ?has-search="${hasSearch}"
             ?disable-locale-button="${disableLocaleButton}">
             ${StoryContentNoToC()}
-          </dds-dotcom-shell-container>
+          </c4d-dotcom-shell-container>
         `}
   `;
 };
@@ -1066,8 +1066,8 @@ export const WithUniversalBanner = (args) => {
   } = args?.DotcomShell ?? {};
   const { useMock } = args?.Other ?? {};
 
-  const bannerHeading = document.querySelector('dds-universal-banner-heading');
-  const bannerCopy = document.querySelector('dds-universal-banner-copy');
+  const bannerHeading = document.querySelector('c4d-universal-banner-heading');
+  const bannerCopy = document.querySelector('c4d-universal-banner-copy');
 
   if (bannerHeading) {
     bannerHeading!.shadowRoot!.textContent = heading;
@@ -1081,25 +1081,25 @@ export const WithUniversalBanner = (args) => {
     <style>
       ${mastheadStyles}
     </style>
-    <dds-universal-banner image-width="${imageWidth}">
-      <dds-universal-banner-image
+    <c4d-universal-banner image-width="${imageWidth}">
+      <c4d-universal-banner-image
         slot="image"
-        default-src="${images[imageWidth]}"></dds-universal-banner-image>
-      <dds-universal-banner-heading slot="heading"
-        >${heading}</dds-universal-banner-heading
+        default-src="${images[imageWidth]}"></c4d-universal-banner-image>
+      <c4d-universal-banner-heading slot="heading"
+        >${heading}</c4d-universal-banner-heading
       >
-      <dds-universal-banner-copy slot="copy">${copy}</dds-universal-banner-copy>
-      <dds-button-cta
+      <c4d-universal-banner-copy slot="copy">${copy}</c4d-universal-banner-copy>
+      <c4d-button-cta
         slot="cta"
         cta-type="local"
         kind="tertiary"
         href="https://www.example.com">
         ${ctaCopy}
-      </dds-button-cta>
-    </dds-universal-banner>
+      </c4d-button-cta>
+    </c4d-universal-banner>
     ${useMock
       ? html`
-          <dds-dotcom-shell-composite
+          <c4d-dotcom-shell-composite
             platform="${ifDefined(platform)}"
             platform-url="${ifDefined(platformData.url)}"
             language="${ifDefined(language)}"
@@ -1120,10 +1120,10 @@ export const WithUniversalBanner = (args) => {
             )}"
             ?disable-locale-button="${disableLocaleButton}">
             ${StoryContent()}
-          </dds-dotcom-shell-composite>
+          </c4d-dotcom-shell-composite>
         `
       : html`
-          <dds-dotcom-shell-container
+          <c4d-dotcom-shell-container
             platform="${ifDefined(platform)}"
             platform-url="${ifDefined(platformData.url)}"
             language="${ifDefined(language)}"
@@ -1140,7 +1140,7 @@ export const WithUniversalBanner = (args) => {
             ?has-search="${hasSearch}"
             ?disable-locale-button="${disableLocaleButton}">
             ${StoryContent()}
-          </dds-dotcom-shell-container>
+          </c4d-dotcom-shell-container>
         `}
   `;
 };
@@ -1219,15 +1219,15 @@ export const WithoutShell = (args) => {
     ${universalBanner ? StoryUniversalBanner(images['4-col']) : ''}
     ${masthead === 'L0'
       ? html`
-          <dds-masthead-container
-            id="masthead-container"></dds-masthead-container>
+          <c4d-masthead-container
+            id="masthead-container"></c4d-masthead-container>
         `
       : html`
-          <dds-masthead-container
+          <c4d-masthead-container
             id="masthead-container"
-            .l1Data="${l1Data}"></dds-masthead-container>
+            .l1Data="${l1Data}"></c4d-masthead-container>
         `}
-    <main class="cds--content dds-ce-demo--ui-shell-content">
+    <main class="cds--content c4d-ce-demo--ui-shell-content">
       ${leadspaceSearch
         ? html`
             <div class="cds--grid cds--col-lg-8">${contentLeadspaceSearch}</div>
@@ -1280,9 +1280,9 @@ export default {
     (story) => {
       if (!(window as any)._hPageShow) {
         (window as any)._hPageShow = on(window, 'pageshow', () => {
-          const leftNav = document.querySelector('dds-left-nav');
+          const leftNav = document.querySelector('c4d-left-nav');
           if (leftNav) {
-            (leftNav as DDSLeftNav).expanded = false;
+            (leftNav as c4dLeftNav).expanded = false;
           }
         });
       }
@@ -1345,7 +1345,7 @@ export default {
       }),
     },
     props: (() => {
-      // Lets `<dds-masthead-container>` load the nav links and lets `<dds-footer-container>` load the footer links
+      // Lets `<c4d-masthead-container>` load the nav links and lets `<c4d-footer-container>` load the footer links
       const useMock =
         inPercy() || new URLSearchParams(window.location.search).has('mock');
       return {

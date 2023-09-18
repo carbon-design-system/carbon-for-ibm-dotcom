@@ -12,7 +12,7 @@ import root from 'window-or-global';
 jest.mock(
   '../../../internal/vendor/@carbon/ibmdotcom-utilities/utilities/settings/settings',
   () => ({
-    version: 'dds.v1.0.0',
+    version: 'cds.v1.0.0',
   })
 );
 
@@ -36,7 +36,7 @@ describe('DDOAPI', () => {
   it('should set the version in the DDO', async () => {
     await DDOAPI.setVersion();
 
-    expect(root.digitalData.page.pageInfo.version).toEqual('dds.v1.0.0');
+    expect(root.digitalData.page.pageInfo.version).toEqual('cds.v1.0.0');
   });
 
   it('should return the country location', async () => {

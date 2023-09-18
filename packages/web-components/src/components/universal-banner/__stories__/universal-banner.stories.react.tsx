@@ -12,12 +12,12 @@ import { select, text } from '@storybook/addon-knobs';
 // In our dev env, we auto-generate the file and re-map below path to to point to the generated file.
 /* eslint-disable max-len */
 // @ts-ignore
-import DDSUniversalBanner from '@carbon/ibmdotcom-web-components/es/components-react/universal-banner/universal-banner';
-import DDSUniversalBannerHeading from '@carbon/ibmdotcom-web-components/es/components-react/universal-banner/universal-banner-heading';
-import DDSUniversalBannerCopy from '@carbon/ibmdotcom-web-components/es/components-react/universal-banner/universal-banner-copy';
-import DDSUniversalBannerImage from '@carbon/ibmdotcom-web-components/es/components-react/universal-banner/universal-banner-image';
-import DDSButtonCTA from '@carbon/ibmdotcom-web-components/es/components-react/cta/button-cta';
-import DDSImageItem from '@carbon/ibmdotcom-web-components/es/components-react/image/image-item';
+import C4DUniversalBanner from '@carbon/ibmdotcom-web-components/es/components-react/universal-banner/universal-banner';
+import C4DUniversalBannerHeading from '@carbon/ibmdotcom-web-components/es/components-react/universal-banner/universal-banner-heading';
+import C4DUniversalBannerCopy from '@carbon/ibmdotcom-web-components/es/components-react/universal-banner/universal-banner-copy';
+import C4DUniversalBannerImage from '@carbon/ibmdotcom-web-components/es/components-react/universal-banner/universal-banner-image';
+import C4DButtonCTA from '@carbon/ibmdotcom-web-components/es/components-react/cta/button-cta';
+import C4DImageItem from '@carbon/ibmdotcom-web-components/es/components-react/image/image-item';
 /* eslint-enable max-len */
 import readme from './README.stories.react.mdx';
 
@@ -48,10 +48,10 @@ const srcsets = {
   '8-col': [img8ColLg, img8ColXlg, img8Col],
 };
 
-export const Default = args => {
+export const Default = (args) => {
   const { heading, copy, ctaCopy, imageWidth } = args?.UniversalBanner ?? {};
 
-  const bannerHeading = document.querySelector('dds-universal-banner-heading');
+  const bannerHeading = document.querySelector('cds-universal-banner-heading');
 
   if (bannerHeading) {
     bannerHeading!.shadowRoot!.textContent = heading;
@@ -60,22 +60,34 @@ export const Default = args => {
   const srcset = srcsets[imageWidth];
 
   return (
-    <DDSUniversalBanner image-width={imageWidth}>
+    <C4DUniversalBanner image-width={imageWidth}>
       {imageWidth ? (
-        <DDSUniversalBannerImage slot="image" default-src={images[imageWidth]}>
-          <DDSImageItem media="(min-width:1584px)" srcset={srcset[2]}></DDSImageItem>
-          <DDSImageItem media="(min-width:1056px)" srcset={srcset[1]}></DDSImageItem>
-          <DDSImageItem media="(min-width:1312px)" srcset={srcset[0]}></DDSImageItem>
-        </DDSUniversalBannerImage>
+        <C4DUniversalBannerImage slot="image" default-src={images[imageWidth]}>
+          <C4DImageItem
+            media="(min-width:1584px)"
+            srcset={srcset[2]}></C4DImageItem>
+          <C4DImageItem
+            media="(min-width:1056px)"
+            srcset={srcset[1]}></C4DImageItem>
+          <C4DImageItem
+            media="(min-width:1312px)"
+            srcset={srcset[0]}></C4DImageItem>
+        </C4DUniversalBannerImage>
       ) : (
         ''
       )}
-      <DDSUniversalBannerHeading slot="heading">{heading}</DDSUniversalBannerHeading>
-      <DDSUniversalBannerCopy slot="copy">{copy}</DDSUniversalBannerCopy>
-      <DDSButtonCTA slot="cta" cta-type="local" kind="tertiary" href="https://www.example.com">
+      <C4DUniversalBannerHeading slot="heading">
+        {heading}
+      </C4DUniversalBannerHeading>
+      <C4DUniversalBannerCopy slot="copy">{copy}</C4DUniversalBannerCopy>
+      <C4DButtonCTA
+        slot="cta"
+        cta-type="local"
+        kind="tertiary"
+        href="https://www.example.com">
         {ctaCopy}
-      </DDSButtonCTA>
-    </DDSUniversalBanner>
+      </C4DButtonCTA>
+    </C4DUniversalBanner>
   );
 };
 
@@ -84,7 +96,10 @@ Default.story = {
     ...readme.parameters,
     knobs: {
       UniversalBanner: () => ({
-        heading: textNullable('Heading:', 'Hybrid cloud and AI for smarter business'),
+        heading: textNullable(
+          'Heading:',
+          'Hybrid cloud and AI for smarter business'
+        ),
         copy: text('Copy (optional):', 'Las Vegas, June 15-18, 2025'),
         ctaCopy: textNullable('CTA copy:', 'Register for Think. Free'),
         imageWidth: select('Image width:', imageWidthOptions, '4-col'),
@@ -96,7 +111,7 @@ Default.story = {
 export default {
   title: 'Components/Universal banner',
   decorators: [
-    story => {
+    (story) => {
       return story();
     },
   ],

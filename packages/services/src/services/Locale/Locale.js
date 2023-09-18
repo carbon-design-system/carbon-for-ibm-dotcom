@@ -14,10 +14,8 @@ import root from 'window-or-global';
  * @constant {string | string} Host for the Locale API call
  * @private
  */
-const _host =
-  (process &&
-    (process.env.REACT_APP_TRANSLATION_HOST || process.env.TRANSLATION_HOST)) ||
-  'https://1.www.s81c.com';
+const _host = process && process.env.TRANSLATION_HOST;
+('https://1.www.s81c.com');
 
 /**
  * Sets the default location if nothing is returned
@@ -64,7 +62,7 @@ const _axiosConfig = {
  * @type {string}
  * @private
  */
-const _sessionListKey = 'dds-countrylist';
+const _sessionListKey = 'cds-countrylist';
 
 /**
  * Two hours in milliseconds to compare session timestamp.

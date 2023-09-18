@@ -1,4 +1,9 @@
-import { Preview, Props, Description, Story } from '@storybook/addon-docs/blocks';
+import {
+  Preview,
+  Props,
+  Description,
+  Story,
+} from '@storybook/addon-docs/blocks';
 import contributing from '../../../../../../docs/contributing-license.md';
 import { PropTypesRef } from '@carbon/ibmdotcom-web-components/es/components-react/link-list-section/link-list-section';
 
@@ -18,36 +23,37 @@ Here's a quick example to get you started.
 
 ```javascript
 import ArrowRight20 from '@carbon/icons-react/es/arrow--right/20.js';
-import DDSLinkListSection from '@carbon/ibmdotcom-web-components/es/components-react/link-list-section/link-list-section';
-import DDSLinkList from '@carbon/ibmdotcom-web-components/es/components-react/link-list/link-list';
-import DDSLinkListHeading from '@carbon/ibmdotcom-web-components/es/components-react/link-list/link-list-heading';
-import DDSLinkListItem from '@carbon/ibmdotcom-web-components/es/components-react/link-list/link-list-item';
+import C4DLinkListSection from '@carbon/ibmdotcom-web-components/es/components-react/link-list-section/link-list-section';
+import C4DLinkList from '@carbon/ibmdotcom-web-components/es/components-react/link-list/link-list';
+import C4DLinkListHeading from '@carbon/ibmdotcom-web-components/es/components-react/link-list/link-list-heading';
+import C4DLinkListItem from '@carbon/ibmdotcom-web-components/es/components-react/link-list/link-list-item';
 
 function App() {
   return (
-    <DDSLinkListSection>
-      <DDSLinkListHeading>Link list section heading</DDSLinkListHeading>
-      <DDSLinkList>
-        <DDSLinkListItem href="https://example.com">
-          Learn more about Kubernetes and automating deployment <ArrowRight20 slot="icon" />
-        </DDSLinkListItem>
-        <DDSLinkListItem href="https://example.com">
+    <C4DLinkListSection>
+      <C4DLinkListHeading>Link list section heading</C4DLinkListHeading>
+      <C4DLinkList>
+        <C4DLinkListItem href="https://example.com">
+          Learn more about Kubernetes and automating deployment{' '}
+          <ArrowRight20 slot="icon" />
+        </C4DLinkListItem>
+        <C4DLinkListItem href="https://example.com">
           Containerization A Complete Guide <ArrowRight20 slot="icon" />
-        </DDSLinkListItem>
-        <DDSLinkListItem href="https://example.com">
+        </C4DLinkListItem>
+        <C4DLinkListItem href="https://example.com">
           Microservices and containers <ArrowRight20 slot="icon" />
-        </DDSLinkListItem>
-        <DDSLinkListItem href="https://example.com">
+        </C4DLinkListItem>
+        <C4DLinkListItem href="https://example.com">
           Learn more about Kubernetes <ArrowRight20 slot="icon" />
-        </DDSLinkListItem>
-        <DDSLinkListItem href="https://example.com">
+        </C4DLinkListItem>
+        <C4DLinkListItem href="https://example.com">
           Containerization A Complete Guide <ArrowRight20 slot="icon" />
-        </DDSLinkListItem>
-        <DDSLinkListItem href="https://example.com">
+        </C4DLinkListItem>
+        <C4DLinkListItem href="https://example.com">
           Microservices and containers <ArrowRight20 slot="icon" />
-        </DDSLinkListItem>
-      </DDSLinkList>
-    </DDSLinkListSection>
+        </C4DLinkListItem>
+      </C4DLinkList>
+    </C4DLinkListSection>
   );
 }
 ```
@@ -58,10 +64,12 @@ function App() {
 
 ## Stable selectors
 
-See [our README](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/tree/main/packages/web-components#stable-selectors-for-analytics-and-integratione2e-testing-in-web-components) to see how Web Components selector and `data-autoid` should be used.
+See
+[our README](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/tree/main/packages/web-components#stable-selectors-for-analytics-and-integratione2e-testing-in-web-components)
+to see how Web Components selector and `data-autoid` should be used.
 
 | Web Components selector  | Compatibility selector | Description |
 | ------------------------ | ---------------------- | ----------- |
-| `<dds-link-list-section` | N/A                    | Component   |
+| `<cds-link-list-section` | N/A                    | Component   |
 
 <Description markdown={contributing} />

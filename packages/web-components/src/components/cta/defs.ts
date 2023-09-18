@@ -12,27 +12,27 @@
  */
 export enum CTA_STYLE {
   /**
-   * Text CTA that uses `<dds-link-with-icon>`.
+   * Text CTA that uses `<c4d-link-with-icon>`.
    */
   TEXT = 'text',
 
   /**
-   * Button CTA that uses `<dds-button>`.
+   * Button CTA that uses `<c4d-button>`.
    */
   BUTTON = 'button',
 
   /**
-   * Card CTA that uses `<dds-card>`.
+   * Card CTA that uses `<c4d-card>`.
    */
   CARD = 'card',
 
   /**
-   * Card CTA that uses `<dds-card-link>`.
+   * Card CTA that uses `<c4d-card-link>`.
    */
   CARDLINK = 'card-link',
 
   /**
-   * Feature CTA that uses `<dds-feature-card>`.
+   * Feature CTA that uses `<c4d-feature-card>`.
    */
   FEATURE = 'feature',
 }

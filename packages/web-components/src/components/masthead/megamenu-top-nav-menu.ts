@@ -10,27 +10,27 @@
 import { query, state, property } from 'lit/decorators.js';
 import settings from '../../internal/vendor/@carbon/ibmdotcom-utilities/utilities/settings/settings';
 import { forEach } from '../../globals/internal/collection-helpers';
-import DDSMegaMenu from './megamenu';
-import DDSTopNav from './top-nav';
-import DDSTopNavMenu from './top-nav-menu';
-import DDSMegaMenuOverlay from './megamenu-overlay';
+import C4DMegaMenu from './megamenu';
+import C4DTopNav from './top-nav';
+import C4DTopNavMenu from './top-nav-menu';
+import C4DMegaMenuOverlay from './megamenu-overlay';
 import styles from './masthead.scss';
 import { carbonElement as customElement } from '../../internal/vendor/@carbon/web-components/globals/decorators/carbon-element';
 
-const { prefix, stablePrefix: ddsPrefix } = settings;
+const { prefix, stablePrefix: c4dPrefix } = settings;
 
 /**
  * Megamenu top nav menu.
  *
- * @element dds-megamenu-top-nav-menu
+ * @element c4d-megamenu-top-nav-menu
  */
-@customElement(`${ddsPrefix}-megamenu-top-nav-menu`)
-class DDSMegaMenuTopNavMenu extends DDSTopNavMenu {
+@customElement(`${c4dPrefix}-megamenu-top-nav-menu`)
+class C4DMegaMenuTopNavMenu extends C4DTopNavMenu {
   /**
    * The megamenu component
    */
   @property()
-  megaMenu!: DDSMegaMenu;
+  megaMenu!: C4DMegaMenu;
 
   /**
    * The menu ul node.
@@ -83,7 +83,7 @@ class DDSMegaMenuTopNavMenu extends DDSTopNavMenu {
     // A workaround for Safari bug where `100vw` in Shadow DOM causes delayed rendering
     // https://github.com/carbon-design-system/carbon-for-ibm-dotcom/issues/4493
     const { customPropertyViewportWidth } = this
-      .constructor as typeof DDSMegaMenuTopNavMenu;
+      .constructor as typeof C4DMegaMenuTopNavMenu;
 
     this.style.setProperty(
       customPropertyViewportWidth,
@@ -94,7 +94,7 @@ class DDSMegaMenuTopNavMenu extends DDSTopNavMenu {
   private async _requestMegaMenuRenderUpdate() {
     return new Promise((resolve: Function): void => {
       const { eventMegaMenuToggled } = this
-        .constructor as typeof DDSMegaMenuTopNavMenu;
+        .constructor as typeof C4DMegaMenuTopNavMenu;
       this.dispatchEvent(
         new CustomEvent(eventMegaMenuToggled, {
           bubbles: true,
@@ -148,21 +148,21 @@ class DDSMegaMenuTopNavMenu extends DDSTopNavMenu {
       const doc = this.getRootNode() as Document;
       forEach(
         doc.querySelectorAll(
-          (this.constructor as typeof DDSMegaMenuTopNavMenu).selectorOverlay
+          (this.constructor as typeof C4DMegaMenuTopNavMenu).selectorOverlay
         ),
         (item) => {
-          (item as DDSMegaMenuOverlay).active = this.expanded;
+          (item as C4DMegaMenuOverlay).active = this.expanded;
         }
       );
 
-      const masthead: HTMLElement | null = doc.querySelector('dds-masthead');
+      const masthead: HTMLElement | null = doc.querySelector('c4d-masthead');
       const cloudMasthead: HTMLElement | null | undefined = doc
-        .querySelector('dds-cloud-masthead-container')
-        ?.querySelector('dds-masthead');
+        .querySelector('c4d-cloud-masthead-container')
+        ?.querySelector('c4d-masthead');
 
       if (this.expanded) {
         // Import needed subcomponents on first expansion
-        if (!(this.parentElement as DDSTopNav)?.importedMegamenu) {
+        if (!(this.parentElement as C4DTopNav)?.importedMegamenu) {
           await import('./megamenu-left-navigation');
           await import('./megamenu-category-link');
           await import('./megamenu-category-link-group');
@@ -173,7 +173,7 @@ class DDSMegaMenuTopNavMenu extends DDSTopNavMenu {
           await import('./megamenu-overlay');
           await import('./megamenu-tab');
           await import('./megamenu-tabs');
-          (this.parentElement as DDSTopNav).importedMegamenu = true;
+          (this.parentElement as C4DTopNav).importedMegamenu = true;
         }
 
         // Ask masthead-composite to render megamenu.
@@ -186,10 +186,10 @@ class DDSMegaMenuTopNavMenu extends DDSTopNavMenu {
         doc.body.style.overflow = `hidden`;
         forEach(
           doc.querySelectorAll(
-            (this.constructor as typeof DDSMegaMenuTopNavMenu).selectorOverlay
+            (this.constructor as typeof C4DMegaMenuTopNavMenu).selectorOverlay
           ),
           (item) => {
-            (item as DDSMegaMenuOverlay).active = this.expanded;
+            (item as C4DMegaMenuOverlay).active = this.expanded;
           }
         );
 
@@ -253,24 +253,24 @@ class DDSMegaMenuTopNavMenu extends DDSTopNavMenu {
    * The CSS custom property name for the live viewport width.
    */
   static get customPropertyViewportWidth() {
-    return `--${ddsPrefix}-ce--viewport-width`;
+    return `--${c4dPrefix}-ce--viewport-width`;
   }
 
   /**
    * A selector that will return the overlays.
    */
   static get selectorOverlay() {
-    return `${ddsPrefix}-megamenu-overlay`;
+    return `${c4dPrefix}-megamenu-overlay`;
   }
 
   /**
    * The custom event name for when a megamenu is toggled.
    */
   static get eventMegaMenuToggled() {
-    return `${ddsPrefix}-megamenu-top-nav-menu-toggle`;
+    return `${c4dPrefix}-megamenu-top-nav-menu-toggle`;
   }
 
   static styles = styles; // `styles` here is a `CSSResult` generated by custom WebPack loader
 }
 
-export default DDSMegaMenuTopNavMenu;
+export default C4DMegaMenuTopNavMenu;

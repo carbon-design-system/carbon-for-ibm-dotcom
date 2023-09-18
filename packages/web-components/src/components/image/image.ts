@@ -26,23 +26,23 @@ import Handle from '../../globals/internal/handle';
 import StableSelectorMixin from '../../globals/mixins/stable-selector';
 import { carbonElement as customElement } from '../../internal/vendor/@carbon/web-components/globals/decorators/carbon-element.js';
 
-const { prefix, stablePrefix: ddsPrefix } = settings;
+const { prefix, stablePrefix: c4dPrefix } = settings;
 
 export { LIGHTBOX_CONTRAST };
 
 /**
  * Image.
  *
- * @element dds-image
+ * @element c4d-image
  * @slot long-description - The long description content.
  * @slot icon - The icon content.
  */
-@customElement(`${ddsPrefix}-image`)
-class DDSImage extends StableSelectorMixin(
+@customElement(`${c4dPrefix}-image`)
+class C4DImage extends StableSelectorMixin(
   ModalRenderMixin(FocusMixin(LitElement))
 ) {
   /**
-   * The image data, harvested from `<dds-image-item>`.
+   * The image data, harvested from `<c4d-image-item>`.
    */
   @state()
   private _images: HTMLElement[] = [];
@@ -51,10 +51,10 @@ class DDSImage extends StableSelectorMixin(
    * Handles `slotchange` event.
    */
   private _handleSlotChange({ target }: Event) {
-    const { selectorItem } = this.constructor as typeof DDSImage;
+    const { selectorItem } = this.constructor as typeof C4DImage;
     this._images = (target as HTMLSlotElement)
       .assignedNodes()
-      // Supports `<dds-image><slot></slot></dds-image>` rendered in shadow DOM
+      // Supports `<c4d-image><slot></slot></c4d-image>` rendered in shadow DOM
       .reduce((acc, node) => {
         if ((node as Element).tagName === 'SLOT') {
           acc.push(...(node as HTMLSlotElement).assignedNodes());
@@ -80,14 +80,14 @@ class DDSImage extends StableSelectorMixin(
   }
 
   /**
-   * The handler of `${ddsPrefix}-expressive-modal-closed` event from `<dds-expressive-modal>`.
+   * The handler of `${c4dPrefix}-expressive-modal-closed` event from `<c4d-expressive-modal>`.
    */
   private _handleCloseModal = () => {
     this.open = false;
   };
 
   /**
-   * The handle for the listener of `${ddsPrefix}-expressive-modal-closed` event.
+   * The handle for the listener of `${c4dPrefix}-expressive-modal-closed` event.
    */
   private _hCloseModal: Handle | null = null;
 
@@ -108,6 +108,12 @@ class DDSImage extends StableSelectorMixin(
    */
   @property({ type: Boolean, reflect: true })
   border = false;
+
+  /**
+   * Whether or not it's a video thumbnail in a card group item.
+   */
+  @property({ type: Boolean, reflect: true, attribute: 'card-group-item' })
+  cardGroupItem = false;
 
   /**
    * The lightbox contrast option.
@@ -148,7 +154,7 @@ class DDSImage extends StableSelectorMixin(
     // Manually hooks the event listeners on the modal render root to make the event names configurable
     this._hCloseModal = on(
       this.modalRenderRoot,
-      (this.constructor as typeof DDSImage).eventCloseModal,
+      (this.constructor as typeof C4DImage).eventCloseModal,
       this._handleCloseModal as EventListener
     );
   }
@@ -203,15 +209,15 @@ class DDSImage extends StableSelectorMixin(
     return !lightbox
       ? undefined
       : html`
-          <dds-expressive-modal ?open="${open}" expressive-size="full-width">
-            <dds-expressive-modal-close-button></dds-expressive-modal-close-button>
-            <dds-lightbox-image-viewer
+          <c4d-expressive-modal ?open="${open}" expressive-size="full-width">
+            <c4d-expressive-modal-close-button></c4d-expressive-modal-close-button>
+            <c4d-lightbox-image-viewer
               alt="${ifDefined(alt)}"
               default-src="${ifDefined(defaultSrc)}"
               description="${ifDefined(copy)}"
               title="${ifDefined(heading)}">
-            </dds-lightbox-image-viewer>
-          </dds-expressive-modal>
+            </c4d-lightbox-image-viewer>
+          </c4d-expressive-modal>
         `;
   }
 
@@ -250,18 +256,18 @@ class DDSImage extends StableSelectorMixin(
    * The name of the custom event fired after the modal is closed upon a user gesture.
    */
   static get eventCloseModal() {
-    return `${ddsPrefix}-expressive-modal-closed`;
+    return `${c4dPrefix}-expressive-modal-closed`;
   }
 
   /**
    * A selector that will return image items.
    */
   static get selectorItem() {
-    return `${ddsPrefix}-image-item`;
+    return `${c4dPrefix}-image-item`;
   }
 
   static get stableSelector() {
-    return `${ddsPrefix}--image`;
+    return `${c4dPrefix}--image`;
   }
 
   static shadowRootOptions = {
@@ -272,4 +278,4 @@ class DDSImage extends StableSelectorMixin(
 }
 
 /* @__GENERATE_REACT_CUSTOM_ELEMENT_TYPE__ */
-export default DDSImage;
+export default C4DImage;

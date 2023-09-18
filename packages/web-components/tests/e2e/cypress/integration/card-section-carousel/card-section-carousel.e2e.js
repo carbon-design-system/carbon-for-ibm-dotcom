@@ -7,11 +7,11 @@
 
 'use strict';
 
-describe('dds-card-section-carousel', () => {
+describe('cds-card-section-carousel', () => {
   it('should load the default card section carousel example', () => {
     cy.visit('/card-section-carousel');
 
     // Take a snapshot for visual diffing
-    cy.percySnapshot('dds-card-section-carousel | default');
+    cy.percySnapshot('cds-card-section-carousel | default');
   });
 });

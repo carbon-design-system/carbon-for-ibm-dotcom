@@ -10,10 +10,10 @@ LICENSE file in the root directory of this source tree.
   <title>@carbon/ibmdotcom-web-components example</title>
   <meta charset="UTF-8" />
   <link rel="stylesheet" href="https://1.www.s81c.com/common/carbon-for-ibm-dotcom/tag/v1/latest/plex.css" />
-  <link rel="stylesheet" href="https://1.www.s81c.com/common/carbon-for-ibm-dotcom/tag/v1/latest/grid.css" />
+  <link rel="stylesheet" href="https://1.www.s81c.com/common/carbon/web-components/tag/v2/latest/grid.css" />
   <style>
     /* Suppress custom element until styles are loaded */
-    dds-content-item-horizontal:not(:defined) {
+    cds-content-item-horizontal:not(:defined) {
       display: none;
     }
   </style>
@@ -21,53 +21,53 @@ LICENSE file in the root directory of this source tree.
 </head>
 <body>
 <div id="app">
-  <div class="bx--grid">
-    <div class="bx--row">
-      <div class="bx--col-lg-12 bx--col-sm-4 bx--offset-lg-4">
-        <dds-content-item-horizontal>
-          <dds-content-item-horizontal-eyebrow>Lorem ipsum</dds-content-item-horizontal-eyebrow>
-          <dds-content-item-heading>Aliquam condimentum</dds-content-item-heading>
-          <dds-content-item-horizontal-copy>
-            <dds-content-item-paragraph
+  <div class="cds--grid">
+    <div class="cds--row">
+      <div class="cds--col-lg-12 cds--col-sm-4 cds--offset-lg-4">
+        <cds-content-item-horizontal>
+          <cds-content-item-horizontal-eyebrow>Lorem ipsum</cds-content-item-horizontal-eyebrow>
+          <cds-content-item-heading>Aliquam condimentum</cds-content-item-heading>
+          <cds-content-item-horizontal-copy>
+            <cds-content-item-paragraph
             >Lorem ipsum dolor sit amet, <em>consectetur</em> adipiscing elit. Aenean et ultricies est. Mauris iaculis eget
-              dolor nec hendrerit. Phasellus at elit sollicitudin.</dds-content-item-paragraph
+              dolor nec hendrerit. Phasellus at elit sollicitudin.</cds-content-item-paragraph
             >
-          </dds-content-item-horizontal-copy>
-          <dds-link-list slot="footer" type="vertical">
-            <dds-link-list-item-cta icon-placement="right" href="https://www.ibm.com" cta-type="local">
+          </cds-content-item-horizontal-copy>
+          <cds-link-list slot="footer" type="vertical">
+            <cds-link-list-item-cta icon-placement="right" href="https://www.ibm.com" cta-type="local">
               Link text
-            </dds-link-list-item-cta>
-            <dds-link-list-item-cta icon-placement="right" href="https://www.ibm.com" cta-type="external">
+            </cds-link-list-item-cta>
+            <cds-link-list-item-cta icon-placement="right" href="https://www.ibm.com" cta-type="external">
               External link text
-            </dds-link-list-item-cta>
-          </dds-link-list>
-        </dds-content-item-horizontal>
+            </cds-link-list-item-cta>
+          </cds-link-list>
+        </cds-content-item-horizontal>
       </div>
     </div>
-    <div class="bx--row">
-      <div class="bx--col-lg-12 bx--col-sm-4 bx--offset-lg-4">
-        <dds-content-item-horizontal-media-featured>
-          <dds-content-item-horizontal-eyebrow>Lorem ipsum</dds-content-item-horizontal-eyebrow>
-          <dds-content-item-heading>Aliquam condimentum</dds-content-item-heading>
-          <dds-content-item-horizontal-copy>
-            <dds-content-item-paragraph>
+    <div class="cds--row">
+      <div class="cds--col-lg-12 cds--col-sm-4 cds--offset-lg-4">
+        <cds-content-item-horizontal-media-featured>
+          <cds-content-item-horizontal-eyebrow>Lorem ipsum</cds-content-item-horizontal-eyebrow>
+          <cds-content-item-heading>Aliquam condimentum</cds-content-item-heading>
+          <cds-content-item-horizontal-copy>
+            <cds-content-item-paragraph>
               Lorem ipsum dolor sit amet, <em>consectetur</em> adipiscing elit. Aenean et ultricies est. Mauris iaculis eget dolor nec hendrerit. Phasellus at elit sollicitudin.
-            </dds-content-item-paragraph>
-          </dds-content-item-horizontal-copy>
-          <dds-link-list slot="footer" type="vertical">
-            <dds-link-list-item-cta icon-placement="right" href="https://www.ibm.com" cta-type="local">
+            </cds-content-item-paragraph>
+          </cds-content-item-horizontal-copy>
+          <cds-link-list slot="footer" type="vertical">
+            <cds-link-list-item-cta icon-placement="right" href="https://www.ibm.com" cta-type="local">
               Link text
-            </dds-link-list-item-cta>
-            <dds-link-list-item-cta icon-placement="right" href="https://www.ibm.com" cta-type="external">
+            </cds-link-list-item-cta>
+            <cds-link-list-item-cta icon-placement="right" href="https://www.ibm.com" cta-type="external">
               External link text
-            </dds-link-list-item-cta>
-          </dds-link-list>
-          <dds-image
+            </cds-link-list-item-cta>
+          </cds-link-list>
+          <cds-image
             slot="media"
             alt="image alt text"
             default-src="https://fpoimg.com/672x378?text=16:9&amp;bg_color=ee5396&amp;text_color=161616">
-          </dds-image>
-        </dds-content-item-horizontal-media-featured>
+          </cds-image>
+        </cds-content-item-horizontal-media-featured>
       </div>
     </div>
   </div>

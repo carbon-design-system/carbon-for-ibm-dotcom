@@ -191,16 +191,16 @@
     box-sizing: border-box;
   }
 
-  :host(#{$dds-prefix}-masthead-composite),
-  :host(#{$dds-prefix}-masthead-container),
-  :host(#{$dds-prefix}-cloud-masthead-container) {
+  :host(#{$c4d-prefix}-masthead-composite),
+  :host(#{$c4d-prefix}-masthead-container),
+  :host(#{$c4d-prefix}-cloud-masthead-container) {
     position: relative;
     z-index: 900;
     padding-top: $spacing-09;
   }
 
   .#{$prefix}--masthead,
-  :host(#{$dds-prefix}-masthead) {
+  :host(#{$c4d-prefix}-masthead) {
     @include theme($white, true);
     @include font-family('sans');
 
@@ -223,7 +223,7 @@
     }
   }
 
-  :host(#{$dds-prefix}-megamenu-overlay),
+  :host(#{$c4d-prefix}-megamenu-overlay),
   .#{$prefix}--masthead__overlay {
     position: fixed;
     left: 0;
@@ -239,7 +239,7 @@
       background-color $transition-expansion $standard-easing;
   }
 
-  :host(#{$dds-prefix}-megamenu-overlay)[active],
+  :host(#{$c4d-prefix}-megamenu-overlay)[active],
   .#{$prefix}--masthead__overlay-show {
     background-color: $overlay;
     visibility: visible;
@@ -356,15 +356,15 @@
   }
 
   .#{$prefix}--header__submenu,
-  :host(#{$dds-prefix}-top-nav-menu-item) {
+  :host(#{$c4d-prefix}-top-nav-menu-item) {
     .#{$prefix}--text-truncate--end {
       white-space: normal;
     }
   }
 
-  :host(#{$dds-prefix}-top-nav-item),
-  :host(#{$dds-prefix}-top-nav-menu),
-  :host(#{$dds-prefix}-megamenu-top-nav-menu),
+  :host(#{$c4d-prefix}-top-nav-item),
+  :host(#{$c4d-prefix}-top-nav-menu),
+  :host(#{$c4d-prefix}-megamenu-top-nav-menu),
   .#{$prefix}--header__nav {
     a.#{$prefix}--header__menu-item {
       @include masthead-top-nav-link;
@@ -412,15 +412,15 @@
     }
   }
 
-  :host(#{$dds-prefix}-top-nav-menu),
-  :host(#{$dds-prefix}-megamenu-top-nav-menu) {
+  :host(#{$c4d-prefix}-top-nav-menu),
+  :host(#{$c4d-prefix}-megamenu-top-nav-menu) {
     a.#{$prefix}--header__menu-item {
       border-bottom: $spacing-01 solid transparent;
       padding: rem(13px) $spacing-05 rem(11px);
     }
   }
 
-  :host(#{$dds-prefix}-top-nav-menu),
+  :host(#{$c4d-prefix}-top-nav-menu),
   .#{$prefix}--header__nav {
     .#{$prefix}--header__menu-title[aria-expanded='true'] {
       z-index: 0;
@@ -741,7 +741,7 @@
   }
 
   @media print {
-    :host(#{$dds-prefix}-masthead),
+    :host(#{$c4d-prefix}-masthead),
     .#{$prefix}--masthead {
       display: none;
     }

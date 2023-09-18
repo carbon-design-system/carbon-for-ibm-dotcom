@@ -7,11 +7,11 @@
 
 'use strict';
 
-describe('dds-cta-section', () => {
-  it('should load the default dds-cta-section example', () => {
+describe('cds-cta-section', () => {
+  it('should load the default cds-cta-section example', () => {
     cy.visit('/cta-section');
 
     // Take a snapshot for visual diffing
-    cy.percySnapshot('dds-cta-section | default');
+    cy.percySnapshot('cds-cta-section | default');
   });
 });

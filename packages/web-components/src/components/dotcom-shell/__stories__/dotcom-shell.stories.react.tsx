@@ -14,16 +14,16 @@ import React from 'react';
 // Below path will be there when an application installs `@carbon/ibmdotcom-web-components` package.
 // In our dev env, we auto-generate the file and re-map below path to to point to the generated file.
 // @ts-ignore
-import DDSDotcomShellContainer from '@carbon/ibmdotcom-web-components/es/components-react/dotcom-shell/dotcom-shell-container';
-import DDSUniversalBanner from '@carbon/ibmdotcom-web-components/es/components-react/universal-banner/universal-banner';
+import C4DDotcomShellContainer from '@carbon/ibmdotcom-web-components/es/components-react/dotcom-shell/dotcom-shell-container';
+import C4DUniversalBanner from '@carbon/ibmdotcom-web-components/es/components-react/universal-banner/universal-banner';
 // eslint-disable-next-line max-len
-import DDSUniversalBannerImage from '@carbon/ibmdotcom-web-components/es/components-react/universal-banner/universal-banner-image';
+import C4DUniversalBannerImage from '@carbon/ibmdotcom-web-components/es/components-react/universal-banner/universal-banner-image';
 // eslint-disable-next-line max-len
-import DDSUniversalBannerHeading from '@carbon/ibmdotcom-web-components/es/components-react/universal-banner/universal-banner-heading';
-import DDSUniversalBannerCopy from '@carbon/ibmdotcom-web-components/es/components-react/universal-banner/universal-banner-copy';
-import DDSButtonCTA from '@carbon/ibmdotcom-web-components/es/components-react/cta/button-cta';
-import DDSMastheadContainer from '@carbon/ibmdotcom-web-components/es/components-react/masthead/masthead-container';
-import DDSLeftNav from '../../masthead/left-nav';
+import C4DUniversalBannerHeading from '@carbon/ibmdotcom-web-components/es/components-react/universal-banner/universal-banner-heading';
+import C4DUniversalBannerCopy from '@carbon/ibmdotcom-web-components/es/components-react/universal-banner/universal-banner-copy';
+import C4DButtonCTA from '@carbon/ibmdotcom-web-components/es/components-react/cta/button-cta';
+import C4DMastheadContainer from '@carbon/ibmdotcom-web-components/es/components-react/masthead/masthead-container';
+import C4DLeftNav from '../../masthead/left-nav';
 
 import readme from './README.stories.react.mdx';
 import {
@@ -108,7 +108,7 @@ export const Default = (args) => {
   return (
     <>
       <style type="text/css">{mastheadStyles.cssText}</style>
-      <DDSDotcomShellContainer
+      <C4DDotcomShellContainer
         platform={platform || null}
         platform-url={platformData.url || null}
         language={language || null}
@@ -125,7 +125,7 @@ export const Default = (args) => {
         has-search={hasSearch || null}
         disable-locale-button={disableLocaleButton || null}>
         {StoryContent()}
-      </DDSDotcomShellContainer>
+      </C4DDotcomShellContainer>
     </>
   );
 };
@@ -149,7 +149,7 @@ export const DefaultFooterLanguageOnly = (args) => {
   return (
     <>
       <style type="text/css">{mastheadStyles.cssText}</style>
-      <DDSDotcomShellContainer
+      <C4DDotcomShellContainer
         platform={platform || null}
         platform-url={platformData.url || null}
         language={language || null}
@@ -169,7 +169,7 @@ export const DefaultFooterLanguageOnly = (args) => {
         has-search={hasSearch || null}
         disable-locale-button={disableLocaleButton || null}>
         {StoryContent()}
-      </DDSDotcomShellContainer>
+      </C4DDotcomShellContainer>
     </>
   );
 };
@@ -208,7 +208,7 @@ export const searchOpenOnload = (args) => {
   return (
     <>
       <style type="text/css">{mastheadStyles.cssText}</style>
-      <DDSDotcomShellContainer
+      <C4DDotcomShellContainer
         activate-search="true"
         platform={platform || null}
         platform-url={platformData.url || null}
@@ -227,7 +227,7 @@ export const searchOpenOnload = (args) => {
         unauthenticatedProfileItems={unauthenticatedProfileItems || null}
         disable-locale-button={disableLocaleButton || null}>
         {StoryContent()}
-      </DDSDotcomShellContainer>
+      </C4DDotcomShellContainer>
     </>
   );
 };
@@ -254,7 +254,7 @@ export const withPlatform = (args) => {
   return (
     <>
       <style type="text/css">{mastheadStyles.cssText}</style>
-      <DDSDotcomShellContainer
+      <C4DDotcomShellContainer
         platform={platformData.name || null}
         platform-url={platformData.url || null}
         language={language || null}
@@ -272,7 +272,7 @@ export const withPlatform = (args) => {
         unauthenticatedProfileItems={unauthenticatedProfileItems || null}
         disable-locale-button={disableLocaleButton || null}>
         {StoryContent()}
-      </DDSDotcomShellContainer>
+      </C4DDotcomShellContainer>
     </>
   );
 };
@@ -321,7 +321,7 @@ export const withShortFooter = (args) => {
   return (
     <>
       <style type="text/css">{mastheadStyles.cssText}</style>
-      <DDSDotcomShellContainer
+      <C4DDotcomShellContainer
         platform={platform || null}
         platform-url={platformData.url || null}
         language={language || null}
@@ -338,7 +338,7 @@ export const withShortFooter = (args) => {
         has-search={hasSearch || null}
         disable-locale-button={disableLocaleButton || null}>
         {StoryContent()}
-      </DDSDotcomShellContainer>
+      </C4DDotcomShellContainer>
     </>
   );
 };
@@ -368,7 +368,7 @@ export const withShortFooterLanguageOnly = (args) => {
     <>
       <style type="text/css">{mastheadStyles.cssText}</style>
 
-      <DDSDotcomShellContainer
+      <C4DDotcomShellContainer
         platform={platform || null}
         platform-url={platformData.url || null}
         language={language || null}
@@ -389,7 +389,7 @@ export const withShortFooterLanguageOnly = (args) => {
         has-search={hasSearch || null}
         disable-locale-button={disableLocaleButton || null}>
         {StoryContent()}
-      </DDSDotcomShellContainer>
+      </C4DDotcomShellContainer>
     </>
   );
 };
@@ -428,7 +428,7 @@ export const withMicroFooter = (args) => {
   return (
     <>
       <style type="text/css">{mastheadStyles.cssText}</style>
-      <DDSDotcomShellContainer
+      <C4DDotcomShellContainer
         platform={platform || null}
         platform-url={platformData.url || null}
         language={language || null}
@@ -445,7 +445,7 @@ export const withMicroFooter = (args) => {
         has-search={hasSearch || null}
         disable-locale-button={disableLocaleButton || null}>
         {StoryContent()}
-      </DDSDotcomShellContainer>
+      </C4DDotcomShellContainer>
     </>
   );
 };
@@ -474,7 +474,7 @@ export const withMicroFooterLanguageOnly = (args) => {
   return (
     <>
       <style type="text/css">{mastheadStyles.cssText}</style>
-      <DDSDotcomShellContainer
+      <C4DDotcomShellContainer
         platform={platform || null}
         platform-url={platformData.url || null}
         language={language || null}
@@ -495,7 +495,7 @@ export const withMicroFooterLanguageOnly = (args) => {
         has-search={hasSearch || null}
         disable-locale-button={disableLocaleButton || null}>
         {StoryContent()}
-      </DDSDotcomShellContainer>
+      </C4DDotcomShellContainer>
     </>
   );
 };
@@ -539,7 +539,7 @@ export const withL1 = (args) => {
   return (
     <>
       <style type="text/css">{mastheadStyles.cssText}</style>
-      <DDSDotcomShellContainer
+      <C4DDotcomShellContainer
         language={language || null}
         lang-display={langDisplay || null}
         user-status={userStatus || null}
@@ -554,7 +554,7 @@ export const withL1 = (args) => {
         has-search={hasSearch || null}
         disable-locale-button={disableLocaleButton || null}>
         {StoryContent(contentConfig)}
-      </DDSDotcomShellContainer>
+      </C4DDotcomShellContainer>
     </>
   );
 };
@@ -612,7 +612,7 @@ export const WithHorizontalTOC = (args) => {
   return (
     <>
       <style type="text/css">{mastheadStyles.cssText}</style>
-      <DDSDotcomShellContainer
+      <C4DDotcomShellContainer
         platform={platform || null}
         platform-url={platformData.url || null}
         language={language || null}
@@ -629,7 +629,7 @@ export const WithHorizontalTOC = (args) => {
         has-search={hasSearch || null}
         disable-locale-button={disableLocaleButton || null}>
         {StoryContent(contentConfig)}
-      </DDSDotcomShellContainer>
+      </C4DDotcomShellContainer>
     </>
   );
 };
@@ -661,7 +661,7 @@ export const WithLeadspaceSearch = (args) => {
   return (
     <>
       <style type="text/css">{mastheadStyles.cssText}</style>
-      <DDSDotcomShellContainer
+      <C4DDotcomShellContainer
         platform={platform || null}
         platform-url={platformData.url || null}
         language={language || null}
@@ -678,7 +678,7 @@ export const WithLeadspaceSearch = (args) => {
         has-search={hasSearch || null}
         disable-locale-button={disableLocaleButton || null}>
         {StoryContentNoToC()}
-      </DDSDotcomShellContainer>
+      </C4DDotcomShellContainer>
     </>
   );
 };
@@ -713,8 +713,8 @@ export const WithUniversalBanner = (args) => {
     ctaCopy,
   } = args?.DotcomShell ?? {};
 
-  const bannerHeading = document.querySelector('dds-universal-banner-heading');
-  const bannerCopy = document.querySelector('dds-universal-banner-copy');
+  const bannerHeading = document.querySelector('cds-universal-banner-heading');
+  const bannerCopy = document.querySelector('cds-universal-banner-copy');
 
   if (bannerHeading) {
     bannerHeading!.shadowRoot!.textContent = heading;
@@ -726,23 +726,23 @@ export const WithUniversalBanner = (args) => {
   return (
     <>
       <style type="text/css">{mastheadStyles.cssText}</style>
-      <DDSUniversalBanner image-width={imageWidth}>
-        <DDSUniversalBannerImage
+      <C4DUniversalBanner image-width={imageWidth}>
+        <C4DUniversalBannerImage
           slot="image"
-          default-src={images[imageWidth]}></DDSUniversalBannerImage>
-        <DDSUniversalBannerHeading slot="heading">
+          default-src={images[imageWidth]}></C4DUniversalBannerImage>
+        <C4DUniversalBannerHeading slot="heading">
           {heading}
-        </DDSUniversalBannerHeading>
-        <DDSUniversalBannerCopy slot="copy">{copy}</DDSUniversalBannerCopy>
-        <DDSButtonCTA
+        </C4DUniversalBannerHeading>
+        <C4DUniversalBannerCopy slot="copy">{copy}</C4DUniversalBannerCopy>
+        <C4DButtonCTA
           slot="cta"
           cta-type="local"
           kind="tertiary"
           href="https://www.example.com">
           {ctaCopy}
-        </DDSButtonCTA>
-      </DDSUniversalBanner>
-      <DDSDotcomShellContainer
+        </C4DButtonCTA>
+      </C4DUniversalBanner>
+      <C4DDotcomShellContainer
         platform={platform || null}
         platform-url={platformData.url || null}
         language={language || null}
@@ -759,7 +759,7 @@ export const WithUniversalBanner = (args) => {
         has-search={hasSearch || null}
         disable-locale-button={disableLocaleButton || null}>
         {StoryContent()}
-      </DDSDotcomShellContainer>
+      </C4DDotcomShellContainer>
     </>
   );
 };
@@ -815,20 +815,22 @@ export const WithoutShell = (args) => {
       <style type="text/css">{mastheadStyles.cssText}</style>
       {universalBanner ? StoryUniversalBanner(images['4-col']) : ''}
       {masthead === 'L0' ? (
-        <DDSMastheadContainer id="masthead-container"></DDSMastheadContainer>
+        <C4DMastheadContainer id="masthead-container"></C4DMastheadContainer>
       ) : (
-        <DDSMastheadContainer
+        <C4DMastheadContainer
           id="masthead-container"
-          l1Data={l1Data}></DDSMastheadContainer>
+          l1Data={l1Data}></C4DMastheadContainer>
       )}
-      <main className="bx--content dds-ce-demo--ui-shell-content">
+      <main className="cds--content cds-ce-demo--ui-shell-content">
         {leadspaceSearch ? (
-          <div className="bx--grid bx--col-lg-8">{contentLeadspaceSearch}</div>
+          <div className="cds--grid cds--col-lg-8">
+            {contentLeadspaceSearch}
+          </div>
         ) : (
           ''
         )}
         {tocLayout === 'none' ? (
-          <div className="bx--grid bx--col-lg-8">{tocContent}</div>
+          <div className="cds--grid cds--col-lg-8">{tocContent}</div>
         ) : (
           ''
         )}
@@ -869,9 +871,9 @@ export default {
     (story) => {
       if (!(window as any)._hPageShow) {
         (window as any)._hPageShow = on(window, 'pageshow', () => {
-          const leftNav = document.querySelector('dds-left-nav');
+          const leftNav = document.querySelector('cds-left-nav');
           if (leftNav) {
-            (leftNav as DDSLeftNav).expanded = false;
+            (leftNav as C4DLeftNav).expanded = false;
           }
         });
       }

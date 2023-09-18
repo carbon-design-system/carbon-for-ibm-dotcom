@@ -10,11 +10,11 @@
 @use '@carbon/ibmdotcom-styles/scss/internal/content-block';
 @use '@carbon/ibmdotcom-styles/scss/components/content-group-simple';
 
-:host(#{$dds-prefix}-content-group-simple) {
+:host(#{$c4d-prefix}-content-group-simple) {
   display: block;
 
-  // TODO: Define the padding on `<dds-content-item>` by default
-  ::slotted(#{$dds-prefix}-content-item) {
+  // TODO: Define the padding on `<cds-content-item>` by default
+  ::slotted(#{$c4d-prefix}-content-item) {
     margin-left: $spacing-05;
     margin-right: $spacing-05;
   }

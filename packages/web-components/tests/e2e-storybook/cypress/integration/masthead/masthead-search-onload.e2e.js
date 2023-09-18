@@ -14,7 +14,7 @@
 const _pathSearchOpenOnload =
   '/iframe.html?id=components-masthead--search-open-onload&knob-use%20mock%20nav%20data%20(use-mock)=true';
 
-describe('dds-masthead | search open onload (desktop)', () => {
+describe('cds-masthead | search open onload (desktop)', () => {
   beforeEach(() => {
     // TODO: fix the uncaught exception in Firefox only
     cy.on('uncaught:exception', (err, runnable) => {
@@ -27,7 +27,7 @@ describe('dds-masthead | search open onload (desktop)', () => {
     cy.injectAxe();
     cy.viewport(1280, 780);
 
-    cy.waitUntil(() => cy.get('[data-autoid="dds--masthead-default__l0-nav0"]').should('not.be.empty'));
+    cy.waitUntil(() => cy.get('[data-autoid="cds--masthead-default__l0-nav0"]').should('not.be.empty'));
   });
 
   it('should check a11y', () => {
@@ -35,7 +35,7 @@ describe('dds-masthead | search open onload (desktop)', () => {
   });
 
   it('should load search field open by default', () => {
-    cy.get('dds-search-with-typeahead')
+    cy.get('cds-search-with-typeahead')
       .shadow()
       .find('input[type="text"]')
       .should('be.visible');
@@ -44,7 +44,7 @@ describe('dds-masthead | search open onload (desktop)', () => {
   });
 
   it('should have typable search field', () => {
-    cy.get('dds-search-with-typeahead')
+    cy.get('cds-search-with-typeahead')
       .shadow()
       .find('input[type="text"]')
       .type('test')
@@ -52,17 +52,17 @@ describe('dds-masthead | search open onload (desktop)', () => {
   });
 
   it('should display 10 auto suggest results', () => {
-    cy.get('dds-search-with-typeahead')
+    cy.get('cds-search-with-typeahead')
       .shadow()
       .find('input[type="text"]')
       .type('test');
 
-    cy.get('dds-search-with-typeahead-item').should('have.length', 10);
+    cy.get('c4d-search-with-typeahead-item').should('have.length', 10);
 
     cy.takeSnapshots();
   });
 
   it('should not display menu options while search field is open', () => {
-    cy.get('dds-top-nav').should('have.attr', 'hidenav');
+    cy.get('cds-top-nav').should('have.attr', 'hidenav');
   });
 });

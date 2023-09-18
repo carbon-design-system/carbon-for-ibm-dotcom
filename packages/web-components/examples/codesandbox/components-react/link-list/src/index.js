@@ -10,32 +10,32 @@
 import React from 'react';
 import { render } from 'react-dom';
 import ArrowRight20 from '@carbon/icons-react/es/arrow--right/20.js';
-import DDSLinkList from '@carbon/ibmdotcom-web-components/es/components-react/link-list/link-list';
-import DDSLinkListHeading from '@carbon/ibmdotcom-web-components/es/components-react/link-list/link-list-heading';
-import DDSLinkListItemCard from '@carbon/ibmdotcom-web-components/es/components-react/link-list/link-list-item-card';
-import DDSVideoCTAContainer from '@carbon/ibmdotcom-web-components/es/components-react/cta/video-cta-container';
-import DDSCardFooter from '@carbon/ibmdotcom-web-components/es/components-react/card/card-footer';
-import DDSVideoPlayerContainer from '@carbon/ibmdotcom-web-components/es/components-react/video-player/video-player-container';
+import C4DLinkList from '@carbon/ibmdotcom-web-components/es/components-react/link-list/link-list';
+import C4DLinkListHeading from '@carbon/ibmdotcom-web-components/es/components-react/link-list/link-list-heading';
+import C4DLinkListItemCard from '@carbon/ibmdotcom-web-components/es/components-react/link-list/link-list-item-card';
+import C4DVideoCTAContainer from '@carbon/ibmdotcom-web-components/es/components-react/cta/video-cta-container';
+import C4DCardFooter from '@carbon/ibmdotcom-web-components/es/components-react/card/card-footer';
+import C4DVideoPlayerContainer from '@carbon/ibmdotcom-web-components/es/components-react/video-player/video-player-container';
 import './index.css';
 
 const App = () => (
-  <DDSVideoCTAContainer>
-    <DDSLinkList type="default">
-      <DDSLinkListHeading>Tutorial</DDSLinkListHeading>
-      <DDSLinkListItemCard href="https://example.com">
+  <C4DVideoCTAContainer>
+    <C4DLinkList type="default">
+      <C4DLinkListHeading>Tutorial</C4DLinkListHeading>
+      <C4DLinkListItemCard href="https://example.com">
         <p>Learn more about Kubernetes</p>
-        <DDSCardFooter>
+        <C4DCardFooter>
           <ArrowRight20 slot="icon" />
-        </DDSCardFooter>
-      </DDSLinkListItemCard>
-      <DDSLinkListItemCard href="https://example.com">
+        </C4DCardFooter>
+      </C4DLinkListItemCard>
+      <C4DLinkListItemCard href="https://example.com">
         <p>Containerization A Complete Guide</p>
-        <DDSCardFooter>
+        <C4DCardFooter>
           <ArrowRight20 slot="icon" />
-        </DDSCardFooter>
-      </DDSLinkListItemCard>
-    </DDSLinkList>
-  </DDSVideoCTAContainer>
+        </C4DCardFooter>
+      </C4DLinkListItemCard>
+    </C4DLinkList>
+  </C4DVideoCTAContainer>
 );
 
 render(<App />, document.getElementById('root'));

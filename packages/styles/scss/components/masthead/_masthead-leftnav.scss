@@ -168,7 +168,7 @@
     }
   }
 
-  :host(#{$dds-prefix}-left-nav-menu-section),
+  :host(#{$c4d-prefix}-left-nav-menu-section),
   .#{$prefix}--side-nav__menu-section {
     @include theme($white, true);
 
@@ -338,23 +338,23 @@
     }
   }
 
-  :host(#{$dds-prefix}-left-nav-menu-section)[expanded],
+  :host(#{$c4d-prefix}-left-nav-menu-section)[expanded],
   .#{$prefix}--side-nav__menu-section--expanded {
     z-index: 1;
     inset-inline-start: 0;
   }
 
-  :host(#{$dds-prefix}-left-nav-menu-section)[is-submenu],
+  :host(#{$c4d-prefix}-left-nav-menu-section)[is-submenu],
   .#{$prefix}--side-nav__menu-section-submenu {
     inset-inline-start: 100%;
   }
 
-  :host(#{$dds-prefix}-left-nav-menu-section)[is-submenu][expanded],
+  :host(#{$c4d-prefix}-left-nav-menu-section)[is-submenu][expanded],
   .#{$prefix}--side-nav__menu-section-submenu.#{$prefix}--side-nav__menu-section--expanded {
     inset-inline-start: 0;
   }
 
-  :host(#{$dds-prefix}-left-nav-menu-section)[is-submenu][transition],
+  :host(#{$c4d-prefix}-left-nav-menu-section)[is-submenu][transition],
   .#{$prefix}--side-nav__menu-section-submenu--expanded {
     inset-inline-start: -100%;
   }
@@ -414,7 +414,7 @@
   }
 
   .#{$prefix}--masthead__side-nav--submemu-heading,
-  :host(#{$dds-prefix}-left-nav-menu-category-heading) {
+  :host(#{$c4d-prefix}-left-nav-menu-category-heading) {
     @include type-style('body-short-01');
 
     display: block;
@@ -480,16 +480,16 @@
   }
 
   /* stylelint-disable selector-pseudo-class-parentheses-space-inside */
-  :host(#{$dds-prefix}-left-nav-menu-category-heading):not(
+  :host(#{$c4d-prefix}-left-nav-menu-category-heading):not(
       .#{$prefix}--left-nav-menu-category__heading-large
     ),
-  :host(#{$dds-prefix}-left-nav-menu),
-  :host(#{$dds-prefix}-left-nav-menu-item) {
+  :host(#{$c4d-prefix}-left-nav-menu),
+  :host(#{$c4d-prefix}-left-nav-menu-item) {
     border-bottom: 1px solid $layer-accent-01;
   }
   /* stylelint-enable selector-pseudo-class-parentheses-space-inside */
 
-  :host(#{$dds-prefix}-left-nav-menu-item) {
+  :host(#{$c4d-prefix}-left-nav-menu-item) {
     .#{$prefix}--side-nav__link {
       display: flex;
       align-items: center;
@@ -569,10 +569,10 @@
   .#{$prefix}--side-nav__item .#{$prefix}--side-nav__link,
   .#{$prefix}--side-nav__menu-item
     .#{$prefix}--side-nav__link:not([isbackbutton='true']),
-  :host(#{$dds-prefix}-left-nav-item-highlighted) a.#{$prefix}--side-nav__link,
-  :host(#{$dds-prefix}-left-nav-menu-item-highlighted)
+  :host(#{$c4d-prefix}-left-nav-item-highlighted) a.#{$prefix}--side-nav__link,
+  :host(#{$c4d-prefix}-left-nav-menu-item-highlighted)
     a.#{$prefix}--side-nav__link,
-  :host(#{$dds-prefix}-left-nav-item) a.#{$prefix}--side-nav__link {
+  :host(#{$c4d-prefix}-left-nav-item) a.#{$prefix}--side-nav__link {
     display: flex;
     padding-left: $spacing-05;
     height: auto;

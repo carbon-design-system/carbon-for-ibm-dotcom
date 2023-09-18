@@ -16,8 +16,8 @@
 @use '../../globals/vars' as *;
 
 @mixin masthead-megamenu-limit-height {
-  max-height: var(--#{$dds-prefix}-masthead-max-height);
-  overflow: var(--#{$dds-prefix}-masthead-overflow);
+  max-height: var(--#{$c4d-prefix}-masthead-max-height);
+  overflow: var(--#{$c4d-prefix}-masthead-overflow);
 }
 
 @mixin masthead-megamenu {
@@ -45,7 +45,7 @@
     }
   }
 
-  :host(#{$dds-prefix}-megamenu-top-nav-menu)
+  :host(#{$c4d-prefix}-megamenu-top-nav-menu)
     .#{$prefix}--header__menu-title[aria-expanded='true']
     + .#{$prefix}--header__menu,
   .#{$prefix}--header__nav
@@ -61,7 +61,7 @@
     box-shadow: none;
   }
 
-  :host(#{$dds-prefix}-megamenu-top-nav-menu),
+  :host(#{$c4d-prefix}-megamenu-top-nav-menu),
   .#{$prefix}--masthead__megamenu__l0-nav,
   .#{$prefix}--masthead__megamenu__l1-nav {
     .#{$prefix}--header__menu {
@@ -77,8 +77,8 @@
 
     .#{$prefix}--header__menu-title[aria-expanded='false']
       + .#{$prefix}--header__menu {
-      ::slotted(#{$dds-prefix}-megamenu),
-      ::slotted(#{$dds-prefix}-cloud-megamenu),
+      ::slotted(#{$c4d-prefix}-megamenu),
+      ::slotted(#{$c4d-prefix}-cloud-megamenu),
       .#{$prefix}--masthead__megamenu {
         animation: $transition-expansion motion(standard, expressive) collapse;
       }
@@ -95,18 +95,18 @@
       margin-bottom: $spacing-10;
       // `100vw` in Shadow DOM causes delayed rendering bug in Safari
       // https://github.com/carbon-design-system/carbon-for-ibm-dotcom/issues/4493
-      width: var(--#{$dds-prefix}-ce--viewport-width, 100vw);
+      width: var(--#{$c4d-prefix}-ce--viewport-width, 100vw);
       min-height: 320px;
 
-      ::slotted(#{$dds-prefix}-megamenu),
-      ::slotted(#{$dds-prefix}-cloud-megamenu),
+      ::slotted(#{$c4d-prefix}-megamenu),
+      ::slotted(#{$c4d-prefix}-cloud-megamenu),
       .#{$prefix}--masthead__megamenu {
         animation: $transition-expansion motion(standard, expressive) expand;
       }
     }
   }
 
-  :host(#{$dds-prefix}-megamenu-top-nav-menu),
+  :host(#{$c4d-prefix}-megamenu-top-nav-menu),
   .#{$prefix}--masthead__megamenu__l0-nav {
     .#{$prefix}--header__menu-title[aria-expanded='true']
       + .#{$prefix}--header__menu {
@@ -120,14 +120,14 @@
     top: $l1-nav-height;
   }
 
-  :host(#{$dds-prefix}-megamenu),
-  :host(#{$dds-prefix}-cloud-megamenu),
+  :host(#{$c4d-prefix}-megamenu),
+  :host(#{$c4d-prefix}-cloud-megamenu),
   .#{$prefix}--masthead__megamenu {
     @include box-shadow;
-    --#{$dds-prefix}-masthead-max-height: calc(
+    --#{$c4d-prefix}-masthead-max-height: calc(
       100vh - var(--cds-spacing-09, 3rem) - var(--cds-layout-05, 4rem)
     );
-    --#{$dds-prefix}-masthead-overflow: overlay;
+    --#{$c4d-prefix}-masthead-overflow: overlay;
 
     display: block;
     overflow-y: overlay;
@@ -161,17 +161,17 @@
         flex-wrap: nowrap;
         gap: 1px;
 
-        ::slotted(#{$dds-prefix}-megamenu-right-navigation) {
-          --#{$dds-prefix}-right-nav-padding: #{$spacing-05};
+        ::slotted(#{$c4d-prefix}-megamenu-right-navigation) {
+          --#{$c4d-prefix}-right-nav-padding: #{$spacing-05};
         }
       }
 
       &.#{$prefix}--masthead__megamenu__container--row--list {
         @include breakpoint-down(lg) {
           @include masthead-megamenu-limit-height;
-          --#{$dds-prefix}-view-all-inset: calc(#{$spacing-05} * -1);
-          --#{$dds-prefix}-view-all-container-position: initial;
-          --#{$dds-prefix}-view-all-container-transform: initial;
+          --#{$c4d-prefix}-view-all-inset: calc(#{$spacing-05} * -1);
+          --#{$c4d-prefix}-view-all-container-position: initial;
+          --#{$c4d-prefix}-view-all-container-transform: initial;
 
           // Set containing block for fixed position view all CTA.
           transform: rotate(0deg);
@@ -188,12 +188,12 @@
           gap: 1px;
         }
 
-        ::slotted(#{$dds-prefix}-megamenu-left-navigation),
-        ::slotted(#{$dds-prefix}-megamenu-right-navigation) {
+        ::slotted(#{$c4d-prefix}-megamenu-left-navigation),
+        ::slotted(#{$c4d-prefix}-megamenu-right-navigation) {
           @include breakpoint-down(lg) {
-            --#{$dds-prefix}-view-all-padding: #{$spacing-05};
-            --#{$dds-prefix}-masthead-max-height: initial;
-            --#{$dds-prefix}-masthead-overflow: initial;
+            --#{$c4d-prefix}-view-all-padding: #{$spacing-05};
+            --#{$c4d-prefix}-masthead-max-height: initial;
+            --#{$c4d-prefix}-masthead-overflow: initial;
 
             width: 100%;
             max-width: initial;
@@ -210,30 +210,30 @@
           }
         }
 
-        ::slotted(#{$dds-prefix}-megamenu-left-navigation) {
-          --#{$dds-prefix}-left-nav-columns: 2;
+        ::slotted(#{$c4d-prefix}-megamenu-left-navigation) {
+          --#{$c4d-prefix}-left-nav-columns: 2;
 
           @include breakpoint-up(lg) {
-            --#{$dds-prefix}-left-nav-columns: initial;
+            --#{$c4d-prefix}-left-nav-columns: initial;
           }
         }
 
-        ::slotted(#{$dds-prefix}-megamenu-right-navigation) {
-          --#{$dds-prefix}-right-nav-padding: 0;
+        ::slotted(#{$c4d-prefix}-megamenu-right-navigation) {
+          --#{$c4d-prefix}-right-nav-padding: 0;
 
           @include breakpoint-down(lg) {
-            --#{$dds-prefix}-view-all-display: none;
+            --#{$c4d-prefix}-view-all-display: none;
 
             border-bottom: none;
           }
 
           @include breakpoint-up(lg) {
-            --#{$dds-prefix}-right-nav-padding: #{$spacing-05};
+            --#{$c4d-prefix}-right-nav-padding: #{$spacing-05};
           }
         }
 
         ::slotted([part*='view-all']) {
-          --#{$dds-prefix}-view-all-padding: #{$spacing-09};
+          --#{$c4d-prefix}-view-all-padding: #{$spacing-09};
 
           position: sticky;
           z-index: 1;
@@ -253,9 +253,9 @@
     }
   }
 
-  :host(#{$dds-prefix}-megamenu-left-navigation),
+  :host(#{$c4d-prefix}-megamenu-left-navigation),
   .#{$prefix}--masthead__megamenu__highlight-section,
-  :host(#{$dds-prefix}-megamenu-right-navigation),
+  :host(#{$c4d-prefix}-megamenu-right-navigation),
   .#{$prefix}--masthead__megamenu__categories-section {
     background-color: $background;
     padding-block-start: $spacing-06;
@@ -265,13 +265,13 @@
     .#{$prefix}--masthead__megamenu-container {
       @include masthead-megamenu-limit-height;
 
-      position: var(--#{$dds-prefix}-view-all-container-position, relative);
+      position: var(--#{$c4d-prefix}-view-all-container-position, relative);
       height: 100%;
       z-index: 1;
 
       // Set containing block for fixed position view all CTA.
       transform: var(
-        --#{$dds-prefix}-view-all-container-transform,
+        --#{$c4d-prefix}-view-all-container-transform,
         rotate(0deg)
       );
 
@@ -286,7 +286,7 @@
         }
 
         .#{$prefix}--masthead__megamenu__view-all {
-          display: var(--#{$dds-prefix}-view-all-display, inherit);
+          display: var(--#{$c4d-prefix}-view-all-display, inherit);
           position: relative;
           background-color: $background;
         }
@@ -301,7 +301,7 @@
     }
   }
 
-  :host(#{$dds-prefix}-megamenu-left-navigation),
+  :host(#{$c4d-prefix}-megamenu-left-navigation),
   .#{$prefix}--masthead__megamenu__highlight-section {
     @include make-col(4, 16);
 
@@ -312,7 +312,7 @@
     margin-inline-start: calc(#{$spacing-05} * -1);
 
     .#{$prefix}--masthead__megamenu__categories {
-      columns: var(--#{$dds-prefix}-left-nav-columns, 'initial');
+      columns: var(--#{$c4d-prefix}-left-nav-columns, 'initial');
       gap: 0;
     }
 
@@ -321,12 +321,12 @@
     }
   }
 
-  :host(#{$dds-prefix}-megamenu-right-navigation),
+  :host(#{$c4d-prefix}-megamenu-right-navigation),
   .#{$prefix}--masthead__megamenu__categories-section {
     display: block;
     width: 100%;
 
-    &.#{$dds-prefix}--masthead__tabpanel-child {
+    &.#{$c4d-prefix}--masthead__tabpanel-child {
       height: 100%;
     }
 
@@ -334,13 +334,13 @@
       .#{$prefix}--masthead__megamenu__heading,
       .#{$prefix}--masthead__megamenu__categories {
         padding-inline-start: var(
-          --#{$dds-prefix}-right-nav-padding,
+          --#{$c4d-prefix}-right-nav-padding,
           $spacing-05
         );
       }
     }
 
-    ::slotted(#{$dds-prefix}-megamenu-heading) {
+    ::slotted(#{$c4d-prefix}-megamenu-heading) {
       --heading-description-column-count: 2;
       --heading-description-column-count-lg: 4;
     }
@@ -352,7 +352,7 @@
     }
 
     .#{$prefix}--masthead__megamenu-container--has-sidebar {
-      ::slotted(#{$dds-prefix}-megamenu-heading) {
+      ::slotted(#{$c4d-prefix}-megamenu-heading) {
         --heading-description-column-count: 2;
         --heading-description-column-count-lg: 3;
       }
@@ -391,7 +391,7 @@
   }
 
   .#{$prefix}--masthead__megamenu__heading,
-  :host(#{$dds-prefix}-megamenu-heading) {
+  :host(#{$c4d-prefix}-megamenu-heading) {
     span {
       display: block;
       max-width: calc((1 / var(--heading-description-column-count, 2)) * 100%);
@@ -405,7 +405,7 @@
   }
 
   .#{$prefix}--masthead__megamenu__copy,
-  :host(#{$dds-prefix}-megamenu-category-group-copy) {
+  :host(#{$c4d-prefix}-megamenu-category-group-copy) {
     @include type-style('body-short-01');
 
     display: block;
@@ -414,7 +414,7 @@
     max-width: rem(272px);
   }
 
-  :host(#{$dds-prefix}-megamenu-category-group),
+  :host(#{$c4d-prefix}-megamenu-category-group),
   .#{$prefix}--masthead__megamenu__category-group {
     display: block;
 
@@ -436,7 +436,7 @@
         }
       }
 
-      ::slotted(#{$dds-prefix}-megamenu-category-link) {
+      ::slotted(#{$c4d-prefix}-megamenu-category-link) {
         display: block;
         break-inside: avoid;
       }
@@ -449,7 +449,7 @@
     }
 
     .#{$prefix}--masthead__megamenu__copy,
-    ::slotted(#{$dds-prefix}-megamenu-category-group-copy) {
+    ::slotted(#{$c4d-prefix}-megamenu-category-group-copy) {
       @include type-style('body-short-01');
 
       color: $text-secondary;
@@ -457,7 +457,7 @@
     }
   }
 
-  :host(#{$dds-prefix}-megamenu-link-with-icon) {
+  :host(#{$c4d-prefix}-megamenu-link-with-icon) {
     span {
       flex: inherit;
     }
@@ -472,7 +472,7 @@
   }
 
   :host(
-      #{$dds-prefix}-megamenu-link-with-icon
+      #{$c4d-prefix}-megamenu-link-with-icon
     )[style-scheme='category-headline'] {
     width: 100%;
 
@@ -512,7 +512,7 @@
     }
   }
 
-  :host(#{$dds-prefix}-megamenu-category-link) a,
+  :host(#{$c4d-prefix}-megamenu-category-link) a,
   .#{$prefix}--masthead__megamenu__category-sublink {
     @include type-style('body-short-01');
 
@@ -534,7 +534,7 @@
 
   .#{$prefix}--masthead__megamenu__category-sublink--highlighted,
   :host(
-      #{$dds-prefix}-megamenu-link-with-icon
+      #{$c4d-prefix}-megamenu-link-with-icon
     )[style-scheme='category-sublink'] {
     @include type-style('body-compact-01');
 
@@ -550,7 +550,7 @@
     }
   }
 
-  :host(#{$dds-prefix}-megamenu-link-with-icon)[part*='view-all'],
+  :host(#{$c4d-prefix}-megamenu-link-with-icon)[part*='view-all'],
   .#{$prefix}--masthead__megamenu__view-all-cta {
     width: 100%;
     display: flex;
@@ -564,7 +564,7 @@
     [part='link'] {
       text-decoration: none;
       width: 100%;
-      padding-inline: var(--#{$dds-prefix}-view-all-padding, #{$spacing-07})
+      padding-inline: var(--#{$c4d-prefix}-view-all-padding, #{$spacing-07})
         $spacing-05;
       height: $spacing-09;
 
@@ -586,8 +586,8 @@
     }
   }
 
-  :host(#{$dds-prefix}-megamenu-category-link) a,
-  :host(#{$dds-prefix}-megamenu-link-with-icon) a,
+  :host(#{$c4d-prefix}-megamenu-category-link) a,
+  :host(#{$c4d-prefix}-megamenu-link-with-icon) a,
   .#{$prefix}--masthead__megamenu__category-sublink--highlighted,
   .#{$prefix}--masthead__megamenu__view-all-cta .#{$prefix}--link-with-icon,
   .#{$prefix}--masthead__megamenu__category-sublink {

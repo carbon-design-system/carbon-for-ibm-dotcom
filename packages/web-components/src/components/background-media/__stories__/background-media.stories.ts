@@ -25,53 +25,53 @@ const gradientDirections = {
 
 export const Default = (args) => {
   const { alt, gradientDirection, backgroundOpacity } =
-    args?.['dds-background-media'] ?? {};
+    args?.['c4d-background-media'] ?? {};
   return html`
-    <dds-background-media
+    <c4d-background-media
       gradient-direction="${ifDefined(gradientDirection)}"
       alt="${ifDefined(alt)}"
       default-src="${imgMax}"
       opacity="${ifDefined(backgroundOpacity)}">
-      <dds-image-item media="(min-width: 1584px)" srcset="${imgMax}">
-      </dds-image-item>
-      <dds-image-item media="(min-width: 1312px)" srcset="${imgLg16x9}">
-      </dds-image-item>
-      <dds-image-item media="(min-width: 672px)" srcset="${imgLg16x9}">
-      </dds-image-item>
-      <dds-image-item media="(min-width: 320px)" srcset="${imgSm4x3}">
-      </dds-image-item>
-      <dds-image-item media="(min-width: 0px)" srcset="${imgSm4x3}">
-      </dds-image-item>
-    </dds-background-media>
+      <c4d-image-item media="(min-width: 1584px)" srcset="${imgMax}">
+      </c4d-image-item>
+      <c4d-image-item media="(min-width: 1312px)" srcset="${imgLg16x9}">
+      </c4d-image-item>
+      <c4d-image-item media="(min-width: 672px)" srcset="${imgLg16x9}">
+      </c4d-image-item>
+      <c4d-image-item media="(min-width: 320px)" srcset="${imgSm4x3}">
+      </c4d-image-item>
+      <c4d-image-item media="(min-width: 0px)" srcset="${imgSm4x3}">
+      </c4d-image-item>
+    </c4d-background-media>
   `;
 };
 
 export const WithVideo = (args) => {
   const { gradientDirection, backgroundOpacity } =
-    args?.['dds-background-media'] ?? {};
+    args?.['c4d-background-media'] ?? {};
   return html`
     <div style="height: 70vh;">
-      <dds-background-media
+      <c4d-background-media
         gradient-direction="${ifDefined(gradientDirection)}"
         opacity="${ifDefined(backgroundOpacity)}">
-        <dds-video-player-container
+        <c4d-video-player-container
           video-id="1_9h94wo6b"
-          background-mode="true"></dds-video-player-container>
-      </dds-background-media>
+          background-mode="true"></c4d-video-player-container>
+      </c4d-background-media>
     </div>
   `;
 };
 
 export const WithDefaultSource = (args) => {
   const { alt, gradientDirection, backgroundOpacity } =
-    args?.['dds-background-media'] ?? {};
+    args?.['c4d-background-media'] ?? {};
   return html`
-    <dds-background-media
+    <c4d-background-media
       gradient-direction="${ifDefined(gradientDirection)}"
       alt="${ifDefined(alt)}"
       default-src="${imgMax}"
       opacity="${ifDefined(backgroundOpacity)}">
-    </dds-background-media>
+    </c4d-background-media>
   `;
 };
 
@@ -90,7 +90,7 @@ export default {
     ...readme.parameters,
     hasStoryPadding: true,
     knobs: {
-      'dds-background-media': () => ({
+      'c4d-background-media': () => ({
         gradientDirection: select(
           'Gradient Direction (gradient-direction):',
           gradientDirections,
@@ -107,7 +107,7 @@ export default {
     },
     propsSet: {
       default: {
-        'dds-background-media': {
+        'c4d-background-media': {
           gradientDirection: 'left-to-right',
           alt: 'Image alt text',
           defaultSrc: imgMax,

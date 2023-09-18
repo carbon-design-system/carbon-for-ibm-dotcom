@@ -9,20 +9,20 @@
 
 import React from 'react';
 import { render } from 'react-dom';
-import DDSCardLink from '@carbon/ibmdotcom-web-components/es/components-react/card-link/card-link.js';
-import DDSCardLinkHeading from '@carbon/ibmdotcom-web-components/es/components-react/card-link/card-link-heading';
-import DDSCardFooter from '@carbon/ibmdotcom-web-components/es/components-react/card/card-footer';
+import C4DCardLink from '@carbon/ibmdotcom-web-components/es/components-react/card-link/card-link.js';
+import C4DCardLinkHeading from '@carbon/ibmdotcom-web-components/es/components-react/card-link/card-link-heading';
+import C4DCardFooter from '@carbon/ibmdotcom-web-components/es/components-react/card/card-footer';
 import ArrowRight20 from '@carbon/icons-react/es/arrow--right/20.js';
 import './index.css';
 
 const App = () => (
-  <DDSCardLink href="https://example.com">
-    <DDSCardLinkHeading>Heading text</DDSCardLinkHeading>
+  <C4DCardLink href="https://example.com">
+    <C4DCardLinkHeading>Heading text</C4DCardLinkHeading>
     <p>Optional copy text</p>
-    <DDSCardFooter>
+    <C4DCardFooter>
       <ArrowRight20 slot="icon" />
-    </DDSCardFooter>
-  </DDSCardLink>
+    </C4DCardFooter>
+  </C4DCardLink>
 );
 
 render(<App />, document.getElementById('root'));

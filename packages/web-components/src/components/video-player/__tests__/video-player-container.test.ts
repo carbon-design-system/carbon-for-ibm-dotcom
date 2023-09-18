@@ -9,15 +9,15 @@
 
 import KalturaPlayerAPI from '@carbon/ibmdotcom-services/es/services/KalturaPlayer/KalturaPlayer.js';
 import convertValue from '../../../../tests/utils/convert-value';
-import { DDSVideoPlayerContainerMixin } from '../video-player-container';
+import { C4DVideoPlayerContainerMixin } from '../video-player-container';
 
-describe('dds-video-player-container', function () {
+describe('c4d-video-player-container', function () {
   let videoPlayerContainer;
   let videoPlayer;
 
   beforeEach(function () {
     videoPlayer = document.body.appendChild(document.createElement('div'));
-    const VideoPlayerContainer = DDSVideoPlayerContainerMixin(
+    const VideoPlayerContainer = C4DVideoPlayerContainerMixin(
       class {
         _videoPlayer = videoPlayer;
 

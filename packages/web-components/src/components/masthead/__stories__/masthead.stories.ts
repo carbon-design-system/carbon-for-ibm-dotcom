@@ -12,7 +12,7 @@ import { select, boolean } from '@storybook/addon-knobs';
 import on from 'carbon-components/es/globals/js/misc/on.js';
 import ifNonNull from '../../../internal/vendor/@carbon/web-components/globals/directives/if-non-null.js';
 import textNullable from '../../../../.storybook/knob-text-nullable';
-import DDSLeftNav from '../left-nav';
+import c4dLeftNav from '../left-nav';
 import '../masthead-container';
 import styles from './masthead.stories.scss';
 import { ifDefined } from 'lit/directives/if-defined.js';
@@ -25,7 +25,7 @@ import {
   authenticatedProfileItems,
   unauthenticatedProfileItems,
 } from './profile-items';
-import { DDS_CUSTOM_PROFILE_LOGIN } from '../../../globals/internal/feature-flags';
+import { C4D_CUSTOM_PROFILE_LOGIN } from '../../../globals/internal/feature-flags';
 import readme from './README.stories.mdx';
 
 const userStatuses = {
@@ -70,7 +70,7 @@ const dataEndpoints = {
 
 async function customTypeaheadApiFunction(searchVal) {
   return fetch(
-    `https://ibmdocs-dev.mybluemix.net/docs/api/v1/suggest?query=${searchVal}&lang=undefined&categories=&limit=6`
+    `https://ibm.com/docs/api/v1/suggest?query=${searchVal}&lang=undefined&categories=&limit=6`
   )
     .then((response) => response.json())
     .then((data) => {
@@ -103,7 +103,7 @@ export const Default = (args) => {
     </style>
     ${useMock
       ? html`
-          <dds-masthead-composite
+          <c4d-masthead-composite
             selected-menu-item="${ifDefined(selectedMenuItem)}"
             user-status="${ifDefined(userStatus)}"
             searchPlaceholder="${ifDefined(searchPlaceholder)}"
@@ -116,10 +116,10 @@ export const Default = (args) => {
               unauthenticatedProfileItems
             )}"
             custom-profile-login="${customProfileLogin}"
-            auth-method="${MASTHEAD_AUTH_METHOD.DEFAULT}"></dds-masthead-composite>
+            auth-method="${MASTHEAD_AUTH_METHOD.DEFAULT}"></c4d-masthead-composite>
         `
       : html`
-          <dds-masthead-container
+          <c4d-masthead-container
             data-endpoint="${dataEndpoints['v2.1']}"
             selected-menu-item="${ifNonNull(selectedMenuItem)}"
             user-status="${ifNonNull(userStatus)}"
@@ -128,7 +128,7 @@ export const Default = (args) => {
             has-search="${hasSearch}"
             has-contact="${hasContact}"
             custom-profile-login="${customProfileLogin}"
-            auth-method="${authMethod}"></dds-masthead-container>
+            auth-method="${authMethod}"></c4d-masthead-container>
         `}
   `;
 };
@@ -148,7 +148,7 @@ export const withCloudData = (args) => {
     </style>
     ${useMock
       ? html`
-          <dds-masthead-composite
+          <c4d-masthead-composite
             platform="Cloud"
             .platformUrl="https://www.ibm.com/cloud"
             selected-menu-item="${ifNonNull(selectedMenuItem)}"
@@ -160,10 +160,10 @@ export const withCloudData = (args) => {
               unauthenticatedProfileItems
             )}"
             custom-profile-login="${customProfileLogin}"
-            auth-method="${MASTHEAD_AUTH_METHOD.COOKIE}"></dds-masthead-composite>
+            auth-method="${MASTHEAD_AUTH_METHOD.COOKIE}"></c4d-masthead-composite>
         `
       : html`
-          <dds-masthead-container
+          <c4d-masthead-container
             data-endpoint="${dataEndpoints['cloud']}"
             platform="Cloud"
             .platformUrl="https://www.ibm.com/cloud"
@@ -171,7 +171,7 @@ export const withCloudData = (args) => {
             searchPlaceholder="${ifNonNull(searchPlaceholder)}"
             has-search="${hasSearch}"
             custom-profile-login="${customProfileLogin}"
-            auth-method="${MASTHEAD_AUTH_METHOD.COOKIE}"></dds-masthead-container>
+            auth-method="${MASTHEAD_AUTH_METHOD.COOKIE}"></c4d-masthead-container>
         `}
   `;
 };
@@ -180,13 +180,13 @@ export const WithCustomTypeahead = (args) => {
   const { useMock } = args?.MastheadComposite ?? {};
 
   document.documentElement.addEventListener(
-    'dds-search-with-typeahead-input',
+    'c4d-search-with-typeahead-input',
     async (e) => {
       const results = await customTypeaheadApiFunction(
         (e as CustomEvent).detail.value
       );
       document.dispatchEvent(
-        new CustomEvent('dds-custom-typeahead-api-results', { detail: results })
+        new CustomEvent('c4d-custom-typeahead-api-results', { detail: results })
       );
     }
   );
@@ -197,14 +197,14 @@ export const WithCustomTypeahead = (args) => {
     </style>
     ${useMock
       ? html`
-          <dds-masthead-composite
+          <c4d-masthead-composite
             .navLinks="${links}"
-            ?custom-typeahead-api=${true}></dds-masthead-composite>
+            ?custom-typeahead-api=${true}></c4d-masthead-composite>
         `
       : html`
-          <dds-masthead-container
+          <c4d-masthead-container
             data-endpoint="${dataEndpoints['v2.1']}"
-            ?custom-typeahead-api=${true}></dds-masthead-container>
+            ?custom-typeahead-api=${true}></c4d-masthead-container>
         `}
   `;
 };
@@ -237,20 +237,20 @@ export const searchOpenOnload = (args) => {
     </style>
     ${useMock
       ? html`
-          <dds-masthead-composite
+          <c4d-masthead-composite
             .navLinks="${links}"
             activate-search="true"
             searchPlaceholder="${ifDefined(
               searchPlaceholder
-            )}"></dds-masthead-composite>
+            )}"></c4d-masthead-composite>
         `
       : html`
-          <dds-masthead-container
+          <c4d-masthead-container
             data-endpoint="${dataEndpoints['v2.1']}"
             activate-search="true"
             searchPlaceholder="${ifDefined(
               searchPlaceholder
-            )}"></dds-masthead-container>
+            )}"></c4d-masthead-container>
         `}
   `;
 };
@@ -277,16 +277,16 @@ export const withPlatform = (args) => {
     </style>
     ${useMock
       ? html`
-          <dds-masthead-composite
+          <c4d-masthead-composite
             platform="${ifNonNull(platform)}"
             .navLinks="${links}"
-            .platformUrl="${ifNonNull(platformUrl)}"></dds-masthead-composite>
+            .platformUrl="${ifNonNull(platformUrl)}"></c4d-masthead-composite>
         `
       : html`
-          <dds-masthead-container
+          <c4d-masthead-container
             data-endpoint="${dataEndpoints['v2.1']}"
             platform="${ifNonNull(platform)}"
-            .platformUrl="${ifNonNull(platformUrl)}"></dds-masthead-container>
+            .platformUrl="${ifNonNull(platformUrl)}"></c4d-masthead-container>
         `}
   `;
 };
@@ -329,22 +329,22 @@ export const withL1 = (args) => {
     </style>
     ${useMock
       ? html`
-          <dds-masthead-composite
+          <c4d-masthead-composite
             .navLinks="${links}"
             .l1Data="${mastheadL1Data}"
             selected-menu-item="${ifNonNull(selectedMenuItem)}"
             selected-menu-item-l1="${ifNonNull(
               selectedMenuItemL1
-            )}"></dds-masthead-composite>
+            )}"></c4d-masthead-composite>
         `
       : html`
-          <dds-masthead-container
+          <c4d-masthead-container
             data-endpoint="${dataEndpoints['v2.1']}"
             .l1Data="${mastheadL1Data}"
             selected-menu-item="${ifNonNull(selectedMenuItem)}"
             selected-menu-item-l1="${ifNonNull(
               selectedMenuItemL1
-            )}"></dds-masthead-container>
+            )}"></c4d-masthead-container>
         `}
   `;
 };
@@ -387,18 +387,18 @@ export const withAlternateLogoAndTooltip = (args) => {
     </style>
     ${useMock
       ? html`
-          <dds-masthead-composite
+          <c4d-masthead-composite
             .navLinks="${links}"
             .logoData="${mastheadLogo === 'alternateWithTooltip'
               ? logoData
-              : null}"></dds-masthead-composite>
+              : null}"></c4d-masthead-composite>
         `
       : html`
-          <dds-masthead-container
+          <c4d-masthead-container
             data-endpoint="${dataEndpoints['v2.1']}"
             .logoData="${mastheadLogo === 'alternateWithTooltip'
               ? logoData
-              : null}"></dds-masthead-container>
+              : null}"></c4d-masthead-container>
         `}
   `;
 };
@@ -441,14 +441,14 @@ export const WithScopedSearch = (args) => {
     </style>
     ${useMock
       ? html`
-          <dds-masthead-composite
+          <c4d-masthead-composite
             .navLinks="${links}"
-            .scopeParameters=${scopeParameters}></dds-masthead-composite>
+            .scopeParameters=${scopeParameters}></c4d-masthead-composite>
         `
       : html`
-          <dds-masthead-container
+          <c4d-masthead-container
             data-endpoint="${dataEndpoints['v2.1']}"
-            .scopeParameters=${scopeParameters}></dds-masthead-container>
+            .scopeParameters=${scopeParameters}></c4d-masthead-container>
         `}
   `;
 };
@@ -479,9 +479,9 @@ export default {
     (story) => {
       if (!(window as any)._hPageShow) {
         (window as any)._hPageShow = on(window, 'pageshow', () => {
-          const leftNav = document.querySelector('dds-left-nav');
+          const leftNav = document.querySelector('c4d-left-nav');
           if (leftNav) {
-            (leftNav as DDSLeftNav).expanded = false;
+            (leftNav as c4dLeftNav).expanded = false;
           }
         });
       }
@@ -541,7 +541,7 @@ export default {
           userStatuses.unauthenticated
         ),
         customProfileLogin:
-          DDS_CUSTOM_PROFILE_LOGIN &&
+          C4D_CUSTOM_PROFILE_LOGIN &&
           textNullable(
             'custom profile login url (customProfileLogin)',
             'https://www.example.com/'

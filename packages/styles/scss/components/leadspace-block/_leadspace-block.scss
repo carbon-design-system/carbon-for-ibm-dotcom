@@ -31,8 +31,8 @@
 }
 
 @mixin leadspace-block {
-  :host(#{$dds-prefix}-leadspace-block)
-    ::slotted(#{$dds-prefix}-leadspace-block-content) {
+  :host(#{$c4d-prefix}-leadspace-block)
+    ::slotted(#{$c4d-prefix}-leadspace-block-content) {
     @extend %leadspace-block-padding;
   }
 
@@ -55,7 +55,7 @@
       }
     }
 
-    dds-hr,
+    cds-hr,
     .#{$prefix}--hr {
       border-color: $toggle-off;
       margin-top: 0;
@@ -68,8 +68,8 @@
     }
   }
 
-  :host(#{$dds-prefix}-leadspace-with-search-heading),
-  :host(#{$dds-prefix}-leadspace-block-heading),
+  :host(#{$c4d-prefix}-leadspace-with-search-heading),
+  :host(#{$c4d-prefix}-leadspace-block-heading),
   .#{$prefix}--leadspace-block__title {
     width: 90%;
     color: $text-primary;
@@ -91,8 +91,8 @@
     }
   }
 
-  :host(#{$dds-prefix}-leadspace-block-content)
-    ::slotted(#{$dds-prefix}-link-list),
+  :host(#{$c4d-prefix}-leadspace-block-content)
+    ::slotted(#{$c4d-prefix}-link-list),
   .#{$prefix}--leadspace-block .#{$prefix}--link-list {
     display: block;
     padding-top: $spacing-09;
@@ -112,12 +112,12 @@
     max-width: none;
   }
 
-  :host(#{$dds-prefix}-leadspace-block-content)
-    ::slotted(#{$dds-prefix}-content-block-copy) {
+  :host(#{$c4d-prefix}-leadspace-block-content)
+    ::slotted(#{$c4d-prefix}-content-block-copy) {
     display: block;
   }
 
-  :host(#{$dds-prefix}-leadspace-block-media),
+  :host(#{$c4d-prefix}-leadspace-block-media),
   .#{$prefix}--leadspace-block .#{$prefix}--leadspace-block__media {
     display: block;
     max-width: carbon--mini-units(80);
@@ -126,18 +126,18 @@
       padding-top: $spacing-05;
     }
 
-    ::slotted(#{$dds-prefix}-image),
+    ::slotted(#{$c4d-prefix}-image),
     .#{$prefix}--image-with-caption {
       margin-top: 0;
       margin-bottom: 0;
     }
   }
 
-  :host(#{$dds-prefix}-leadspace-block-cta),
+  :host(#{$c4d-prefix}-leadspace-block-cta),
   .#{$prefix}--leadspace-block .#{$prefix}--buttongroup {
     padding-top: 0;
 
-    ::slotted(#{$dds-prefix}-button-group-item),
+    ::slotted(#{$c4d-prefix}-button-group-item),
     .#{$prefix}--buttongroup-item {
       margin-top: 0;
       padding-top: 0;

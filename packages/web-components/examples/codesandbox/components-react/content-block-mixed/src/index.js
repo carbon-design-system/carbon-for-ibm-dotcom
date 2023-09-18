@@ -9,106 +9,106 @@
 
 import React from 'react';
 import { render } from 'react-dom';
-import DDSContentBlockMixed from '@carbon/ibmdotcom-web-components/es/components-react/content-block-mixed/content-block-mixed.js';
-import DDSContentBlockHeading from '@carbon/ibmdotcom-web-components/es/components-react/content-block/content-block-heading.js';
-import DDSContentBlockCopy from '@carbon/ibmdotcom-web-components/es/components-react/content-block/content-block-copy.js';
-import DDSContentGroupCards from '@carbon/ibmdotcom-web-components/es/components-react/content-group-cards/content-group-cards';
-import DDSContentGroupHeading from '@carbon/ibmdotcom-web-components/es/components-react/content-group/content-group-heading';
-import DDSContentGroupCopy from '@carbon/ibmdotcom-web-components/es/components-react/content-group/content-group-copy';
-import DDSContentGroupCardsItem from '@carbon/ibmdotcom-web-components/es/components-react/content-group-cards/content-group-cards-item';
-import DDSCardHeading from '@carbon/ibmdotcom-web-components/es/components-react/card/card-heading';
-import DDSCardFooter from '@carbon/ibmdotcom-web-components/es/components-react/card/card-footer';
-import DDSContentGroupPictograms from '@carbon/ibmdotcom-web-components/es/components-react/content-group-pictograms/content-group-pictograms';
-import DDSPictogramItem from '@carbon/ibmdotcom-web-components/es/components-react/pictogram-item/pictogram-item';
-import DDSContentItemHeading from '@carbon/ibmdotcom-web-components/es/components-react/content-item/content-item-heading';
-import DDSContentItemCopy from '@carbon/ibmdotcom-web-components/es/components-react/content-item/content-item-copy';
-import DDSLinkWithIcon from '@carbon/ibmdotcom-web-components/es/components-react/link-with-icon/link-with-icon';
-import DDSContentGroupSimple from '@carbon/ibmdotcom-web-components/es/components-react/content-group-simple/content-group-simple';
-import DDSCardLinkCTA from '@carbon/ibmdotcom-web-components/es/components-react/cta/card-link-cta';
-import DDSCardLinkHeading from '@carbon/ibmdotcom-web-components/es/components-react/card-link/card-link-heading';
-import DDSImage from '@carbon/ibmdotcom-web-components/es/components-react/image/image';
-import DDSImageItem from '@carbon/ibmdotcom-web-components/es/components-react/image/image-item';
-import DDSCardCTAFooter from '@carbon/ibmdotcom-web-components/es/components-react/cta/card-cta-footer';
+import C4DContentBlockMixed from '@carbon/ibmdotcom-web-components/es/components-react/content-block-mixed/content-block-mixed.js';
+import C4DContentBlockHeading from '@carbon/ibmdotcom-web-components/es/components-react/content-block/content-block-heading.js';
+import C4DContentBlockCopy from '@carbon/ibmdotcom-web-components/es/components-react/content-block/content-block-copy.js';
+import C4DContentGroupCards from '@carbon/ibmdotcom-web-components/es/components-react/content-group-cards/content-group-cards';
+import C4DContentGroupHeading from '@carbon/ibmdotcom-web-components/es/components-react/content-group/content-group-heading';
+import C4DContentGroupCopy from '@carbon/ibmdotcom-web-components/es/components-react/content-group/content-group-copy';
+import C4DContentGroupCardsItem from '@carbon/ibmdotcom-web-components/es/components-react/content-group-cards/content-group-cards-item';
+import C4DCardHeading from '@carbon/ibmdotcom-web-components/es/components-react/card/card-heading';
+import C4DCardFooter from '@carbon/ibmdotcom-web-components/es/components-react/card/card-footer';
+import C4DContentGroupPictograms from '@carbon/ibmdotcom-web-components/es/components-react/content-group-pictograms/content-group-pictograms';
+import C4DPictogramItem from '@carbon/ibmdotcom-web-components/es/components-react/pictogram-item/pictogram-item';
+import C4DContentItemHeading from '@carbon/ibmdotcom-web-components/es/components-react/content-item/content-item-heading';
+import C4DContentItemCopy from '@carbon/ibmdotcom-web-components/es/components-react/content-item/content-item-copy';
+import C4DLinkWithIcon from '@carbon/ibmdotcom-web-components/es/components-react/link-with-icon/link-with-icon';
+import C4DContentGroupSimple from '@carbon/ibmdotcom-web-components/es/components-react/content-group-simple/content-group-simple';
+import C4DCardLinkCTA from '@carbon/ibmdotcom-web-components/es/components-react/cta/card-link-cta';
+import C4DCardLinkHeading from '@carbon/ibmdotcom-web-components/es/components-react/card-link/card-link-heading';
+import C4DImage from '@carbon/ibmdotcom-web-components/es/components-react/image/image';
+import C4DImageItem from '@carbon/ibmdotcom-web-components/es/components-react/image/image-item';
+import C4DCardCTAFooter from '@carbon/ibmdotcom-web-components/es/components-react/cta/card-cta-footer';
 import ArrowRight20 from '@carbon/icons-react/es/arrow--right/20.js';
 import TouchScreen from '@carbon/pictograms-react/es/touch--screen/index.js';
 import './index.css';
 
 const App = () => (
-  <div className="bx--grid">
-    <div className="bx--row">
-      <div className="bx--col-sm-4 bx--col-lg-8 bx--offset-lg-4">
-        <DDSContentBlockMixed>
-          <DDSContentBlockHeading>Lorem ipsum dolor sit amet</DDSContentBlockHeading>
-          <DDSContentBlockCopy>
+  <div className="cds--grid">
+    <div className="cds--row">
+      <div className="cds--col-sm-4 cds--col-lg-8 cds--offset-lg-4">
+        <C4DContentBlockMixed>
+          <C4DContentBlockHeading>Lorem ipsum dolor sit amet</C4DContentBlockHeading>
+          <C4DContentBlockCopy>
             Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean et ultricies est. Mauris iaculis eget dolor nec
             hendrerit. Phasellus at elit sollicitudin, sodales nulla quis, consequat libero.
-          </DDSContentBlockCopy>
-          <DDSContentGroupCards>
-            <DDSContentGroupHeading>Content group heading</DDSContentGroupHeading>
-            <DDSContentGroupCardsItem href="www.ibm.com">
-              <DDSCardHeading>
+          </C4DContentBlockCopy>
+          <C4DContentGroupCards>
+            <C4DContentGroupHeading>Content group heading</C4DContentGroupHeading>
+            <C4DContentGroupCardsItem href="www.ibm.com">
+              <C4DCardHeading>
                 Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt
-              </DDSCardHeading>
+              </C4DCardHeading>
               <p>
                 Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore
                 magna aliqua.
               </p>
-              <DDSCardFooter>
+              <C4DCardFooter>
                 <ArrowRight20 slot="icon" />
-              </DDSCardFooter>
-            </DDSContentGroupCardsItem>
-            <DDSContentGroupCardsItem href="www.ibm.com">
-              <DDSCardHeading>
+              </C4DCardFooter>
+            </C4DContentGroupCardsItem>
+            <C4DContentGroupCardsItem href="www.ibm.com">
+              <C4DCardHeading>
                 Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt
-              </DDSCardHeading>
+              </C4DCardHeading>
               <p>
                 Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore
                 magna aliqua.
               </p>
-              <DDSCardFooter>
+              <C4DCardFooter>
                 <ArrowRight20 slot="icon" />
-              </DDSCardFooter>
-            </DDSContentGroupCardsItem>
-          </DDSContentGroupCards>
-          <DDSContentGroupPictograms>
-            <DDSContentGroupHeading>Curabitur malesuada varius mi eu posuere</DDSContentGroupHeading>
-            <DDSContentGroupCopy>Lorem ipsum *dolor* sit amet</DDSContentGroupCopy>
-            <DDSPictogramItem>
+              </C4DCardFooter>
+            </C4DContentGroupCardsItem>
+          </C4DContentGroupCards>
+          <C4DContentGroupPictograms>
+            <C4DContentGroupHeading>Curabitur malesuada varius mi eu posuere</C4DContentGroupHeading>
+            <C4DContentGroupCopy>Lorem ipsum *dolor* sit amet</C4DContentGroupCopy>
+            <C4DPictogramItem>
               <TouchScreen slot="pictogram" />
-              <DDSContentItemHeading>Lorem ipsum dolor sit amet</DDSContentItemHeading>
-              <DDSContentItemCopy>Lorem ipsum dolor sit amet</DDSContentItemCopy>
-              <DDSLinkWithIcon href="https://www.ibm.com/" slot="footer">
+              <C4DContentItemHeading>Lorem ipsum dolor sit amet</C4DContentItemHeading>
+              <C4DContentItemCopy>Lorem ipsum dolor sit amet</C4DContentItemCopy>
+              <C4DLinkWithIcon href="https://www.ibm.com/" slot="footer">
                 Link text <ArrowRight20 slot="icon" />
-              </DDSLinkWithIcon>
-            </DDSPictogramItem>
-          </DDSContentGroupPictograms>
-          <DDSContentGroupSimple>
-            <DDSContentGroupHeading>Curabitur malesuada varius mi eu posuere</DDSContentGroupHeading>
-            <DDSContentGroupCopy>Lorem ipsum *dolor* sit amet</DDSContentGroupCopy>
-            <DDSImage
+              </C4DLinkWithIcon>
+            </C4DPictogramItem>
+          </C4DContentGroupPictograms>
+          <C4DContentGroupSimple>
+            <C4DContentGroupHeading>Curabitur malesuada varius mi eu posuere</C4DContentGroupHeading>
+            <C4DContentGroupCopy>Lorem ipsum *dolor* sit amet</C4DContentGroupCopy>
+            <C4DImage
               slot="media"
               alt="Image alt text"
               defaultSrc="https://fpoimg.com/672x378?text=16:9&amp;bg_color=ee5396&amp;text_color=161616"
               heading="Curabitur malesuada varius mi eu posuere">
-              <DDSImageItem
+              <C4DImageItem
                 media="(min-width: 672px)"
                 srcset="https://fpoimg.com/672x378?text=16:9&amp;bg_color=ee5396&amp;text_color=161616"
               />
-              <DDSImageItem
+              <C4DImageItem
                 media="(min-width: 400px)"
                 srcset="https://fpoimg.com/400x225?text=16:9&amp;bg_color=ee5396&amp;text_color=161616"
               />
-              <DDSImageItem
+              <C4DImageItem
                 media="(min-width: 320px)"
                 srcset="https://fpoimg.com/320x180?text=16:9&amp;bg_color=ee5396&amp;text_color=161616"
               />
-            </DDSImage>
-            <DDSCardLinkCTA slot="footer" cta-type="local" href="https://example.com">
-              <DDSCardLinkHeading>Lorem ipsum dolor sit amet</DDSCardLinkHeading>
-              <DDSCardCTAFooter></DDSCardCTAFooter>
-            </DDSCardLinkCTA>
-          </DDSContentGroupSimple>
-        </DDSContentBlockMixed>
+            </C4DImage>
+            <C4DCardLinkCTA slot="footer" cta-type="local" href="https://example.com">
+              <C4DCardLinkHeading>Lorem ipsum dolor sit amet</C4DCardLinkHeading>
+              <C4DCardCTAFooter></C4DCardCTAFooter>
+            </C4DCardLinkCTA>
+          </C4DContentGroupSimple>
+        </C4DContentBlockMixed>
       </div>
     </div>
   </div>

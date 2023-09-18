@@ -62,7 +62,7 @@
 @mixin masthead-search {
   // main nav/search container excluding
   // profile and logo icons - TODO rename this
-  :host(#{$dds-prefix}-top-nav),
+  :host(#{$c4d-prefix}-top-nav),
   .#{$prefix}--header__search {
     display: flex;
     flex: 1;
@@ -155,7 +155,7 @@
 
   // search container
   .#{$prefix}--masthead__search,
-  :host(#{$dds-prefix}-masthead-search) {
+  :host(#{$c4d-prefix}-masthead-search) {
     height: $spacing-09;
     margin-left: $spacing-09;
 

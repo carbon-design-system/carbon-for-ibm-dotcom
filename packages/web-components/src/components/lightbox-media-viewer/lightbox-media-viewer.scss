@@ -11,13 +11,13 @@
 @use '../expressive-modal/expressive-modal';
 @use '@carbon/ibmdotcom-styles/scss/globals/vars' as *;
 
-:host(#{$dds-prefix}-lightbox-image-viewer),
-:host(#{$dds-prefix}-lightbox-video-player) {
-  @extend :host(#{$dds-prefix}-expressive-modal-body);
+:host(#{$c4d-prefix}-lightbox-image-viewer),
+:host(#{$c4d-prefix}-lightbox-video-player) {
+  @extend :host(#{$c4d-prefix}-expressive-modal-body);
   @extend .#{$prefix}--lightbox-media-viewer;
 }
 
-:host(#{$dds-prefix}-lightbox-video-player) .#{$prefix}--video-player {
+:host(#{$c4d-prefix}-lightbox-video-player) .#{$prefix}--video-player {
   width: 100%;
 
   ::slotted(.#{$prefix}--video-player__video) {

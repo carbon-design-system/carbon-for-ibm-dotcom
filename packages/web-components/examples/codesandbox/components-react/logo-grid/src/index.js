@@ -10,27 +10,27 @@
 import React from 'react';
 import { render } from 'react-dom';
 import ArrowRight20 from '@carbon/icons-react/es/arrow--right/20.js';
-import DDSCardFooter from '@carbon/ibmdotcom-web-components/es/components-react/card/card-footer';
-import DDSCardLinkHeading from '@carbon/ibmdotcom-web-components/es/components-react/card-link/card-link-heading';
-import DDSContentBlockHeading from '@carbon/ibmdotcom-web-components/es/components-react/content-block/content-block-heading';
-import DDSLogoGrid from '@carbon/ibmdotcom-web-components/es/components-react/logo-grid/logo-grid';
-import DDSLogoGridLink from '@carbon/ibmdotcom-web-components/es/components-react/logo-grid/logo-grid-link';
-import DDSLogoGridItem from '@carbon/ibmdotcom-web-components/es/components-react/logo-grid/logo-grid-item';
+import C4DCardFooter from '@carbon/ibmdotcom-web-components/es/components-react/card/card-footer';
+import C4DCardLinkHeading from '@carbon/ibmdotcom-web-components/es/components-react/card-link/card-link-heading';
+import C4DContentBlockHeading from '@carbon/ibmdotcom-web-components/es/components-react/content-block/content-block-heading';
+import C4DLogoGrid from '@carbon/ibmdotcom-web-components/es/components-react/logo-grid/logo-grid';
+import C4DLogoGridLink from '@carbon/ibmdotcom-web-components/es/components-react/logo-grid/logo-grid-link';
+import C4DLogoGridItem from '@carbon/ibmdotcom-web-components/es/components-react/logo-grid/logo-grid-item';
 import './index.css';
 
 const App = () => (
-  <DDSLogoGrid>
-    <DDSContentBlockHeading>Our customers</DDSContentBlockHeading>
-    <DDSLogoGridItem
+  <C4DLogoGrid>
+    <C4DContentBlockHeading>Our customers</C4DContentBlockHeading>
+    <C4DLogoGridItem
       default-src="https://fpoimg.com/288x216?text=Example%20Logo&bg_color=ee5396&text_color=161616"
-      alt={''}></DDSLogoGridItem>
-    <DDSLogoGridLink href={'https://example.com'}>
-      <DDSCardLinkHeading>Lorem ipsum</DDSCardLinkHeading>
-      <DDSCardFooter>
+      alt={''}></C4DLogoGridItem>
+    <C4DLogoGridLink href={'https://example.com'}>
+      <C4DCardLinkHeading>Lorem ipsum</C4DCardLinkHeading>
+      <C4DCardFooter>
         <ArrowRight20 slot="icon" />
-      </DDSCardFooter>
-    </DDSLogoGridLink>
-  </DDSLogoGrid>
+      </C4DCardFooter>
+    </C4DLogoGridLink>
+  </C4DLogoGrid>
 );
 
 render(<App />, document.getElementById('root'));

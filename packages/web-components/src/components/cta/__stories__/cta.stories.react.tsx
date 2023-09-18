@@ -13,14 +13,14 @@ import React from 'react';
 // Below path will be there when an application installs `@carbon/ibmdotcom-web-components` package.
 // In our dev env, we auto-generate the file and re-map below path to to point to the generated file.
 // @ts-ignore
-import DDSButtonGroup from '@carbon/ibmdotcom-web-components/es/components-react/button-group/button-group';
-import DDSCardHeading from '@carbon/ibmdotcom-web-components/es/components-react/card/card-heading';
-import DDSCardCTAFooter from '@carbon/ibmdotcom-web-components/es/components-react/cta/card-cta-footer';
-import DDSCardLinkHeading from '@carbon/ibmdotcom-web-components/es/components-react/card-link/card-link-heading';
-import DDSCTAHead from '@carbon/ibmdotcom-web-components/es/components-react/cta/cta';
-import DDSFeatureCTAFooter from '@carbon/ibmdotcom-web-components/es/components-react/cta/feature-cta-footer';
-import DDSImage from '@carbon/ibmdotcom-web-components/es/components-react/image/image';
-import DDSVideoCTAContainer from '@carbon/ibmdotcom-web-components/es/components-react/cta/video-cta-container';
+import C4DButtonGroup from '@carbon/ibmdotcom-web-components/es/components-react/button-group/button-group';
+import C4DCardHeading from '@carbon/ibmdotcom-web-components/es/components-react/card/card-heading';
+import C4DCardCTAFooter from '@carbon/ibmdotcom-web-components/es/components-react/cta/card-cta-footer';
+import C4DCardLinkHeading from '@carbon/ibmdotcom-web-components/es/components-react/card-link/card-link-heading';
+import C4DCTAHead from '@carbon/ibmdotcom-web-components/es/components-react/cta/cta';
+import C4DFeatureCTAFooter from '@carbon/ibmdotcom-web-components/es/components-react/cta/feature-cta-footer';
+import C4DImage from '@carbon/ibmdotcom-web-components/es/components-react/image/image';
+import C4DVideoCTAContainer from '@carbon/ibmdotcom-web-components/es/components-react/cta/video-cta-container';
 
 import readme from './README.stories.react.mdx';
 import {
@@ -35,10 +35,17 @@ import imgLg1x1 from '../../../../../storybook-images/assets/720/fpo--1x1--720x7
 
 let duration;
 
-export const Text = args => {
-  const { copy, ctaType, download, href, customVideoTitle, customVideoDescription } = args?.TextCTA ?? {};
+export const Text = (args) => {
+  const {
+    copy,
+    ctaType,
+    download,
+    href,
+    customVideoTitle,
+    customVideoDescription,
+  } = args?.TextCTA ?? {};
 
-  const childCta = document.querySelector('dds-cta')?.shadowRoot!.children[0];
+  const childCta = document.querySelector('cds-cta')?.shadowRoot!.children[0];
   childCta?.setAttribute('href', href);
 
   if (ctaType === 'video' && childCta) {
@@ -56,7 +63,7 @@ export const Text = args => {
   }
 
   return (
-    <DDSCTAHead
+    <C4DCTAHead
       cta-style="text"
       cta-type={ctaType || undefined}
       video-name={customVideoTitle || undefined}
@@ -64,7 +71,7 @@ export const Text = args => {
       download={download || undefined}
       href={href || undefined}>
       {copy || customVideoTitle}
-    </DDSCTAHead>
+    </C4DCTAHead>
   );
 };
 
@@ -115,22 +122,31 @@ Text.story = {
   },
 };
 
-export const Button = args => {
-  const { copy, ctaType, download, href, customVideoTitle, customVideoDescription } = args?.ButtonCTA ?? {};
+export const Button = (args) => {
+  const {
+    copy,
+    ctaType,
+    download,
+    href,
+    customVideoTitle,
+    customVideoDescription,
+  } = args?.ButtonCTA ?? {};
 
-  const childCta = document.querySelector('dds-cta')?.shadowRoot!.children[0];
+  const childCta = document.querySelector('cds-cta')?.shadowRoot!.children[0];
   childCta?.setAttribute('href', href);
 
   if (ctaType === 'video' && childCta) {
-    duration ? null : (duration = childCta.textContent!.match(/\((.*)\)/)?.pop());
+    duration
+      ? null
+      : (duration = childCta.textContent!.match(/\((.*)\)/)?.pop());
     childCta && duration
       ? (childCta.textContent = `${customVideoTitle} (${duration})`)
       : ((childCta as HTMLElement).innerText = customVideoTitle);
   }
 
   return (
-    <DDSButtonGroup>
-      <DDSCTAHead
+    <C4DButtonGroup>
+      <C4DCTAHead
         cta-style="button"
         cta-type={ctaType || undefined}
         video-name={customVideoTitle || undefined}
@@ -138,11 +154,15 @@ export const Button = args => {
         download={download || undefined}
         href={href || undefined}>
         {copy}
-      </DDSCTAHead>
-      <DDSCTAHead cta-style="button" cta-type={ctaType || undefined} download={download || undefined} href={href || undefined}>
+      </C4DCTAHead>
+      <C4DCTAHead
+        cta-style="button"
+        cta-type={ctaType || undefined}
+        download={download || undefined}
+        href={href || undefined}>
         {copy}
-      </DDSCTAHead>
-    </DDSButtonGroup>
+      </C4DCTAHead>
+    </C4DButtonGroup>
   );
 };
 
@@ -208,24 +228,29 @@ export const Card = (args) => {
     thumbnail,
   } = args?.CardCTA ?? {};
 
-  const childCta = document.querySelector('dds-cta')?.shadowRoot!.children[0];
+  const childCta = document.querySelector('cds-cta')?.shadowRoot!.children[0];
   childCta?.setAttribute('href', href);
 
   if (ctaType === 'video') {
     const headingComponent =
-      childCta?.shadowRoot?.querySelector('dds-card-heading') || childCta?.querySelector('dds-card-heading');
-    headingComponent && !duration ? (duration = headingComponent?.textContent!.match(/\((.*)\)/)?.pop()) : null;
+      childCta?.shadowRoot?.querySelector('cds-card-heading') ||
+      childCta?.querySelector('cds-card-heading');
+    headingComponent && !duration
+      ? (duration = headingComponent?.textContent!.match(/\((.*)\)/)?.pop())
+      : null;
 
     if (headingComponent?.textContent) {
       duration
         ? (headingComponent!.textContent = `${customVideoTitle} (${duration})`)
         : (headingComponent!.textContent = customVideoTitle);
     }
-    childCta && noPoster ? childCta?.setAttribute('no-poster', '') : childCta?.removeAttribute('no-poster');
+    childCta && noPoster
+      ? childCta?.setAttribute('no-poster', '')
+      : childCta?.removeAttribute('no-poster');
   }
 
   return (
-    <DDSCTAHead
+    <C4DCTAHead
       cta-style="card"
       cta-type={ctaType || undefined}
       video-name={customVideoTitle || undefined}
@@ -234,15 +259,15 @@ export const Card = (args) => {
       href={href || undefined}
       noPoster={noPoster}
       thumbnail={thumbnail || undefined}>
-      <DDSCardHeading>{heading || customVideoTitle}</DDSCardHeading>
+      <C4DCardHeading>{heading || customVideoTitle}</C4DCardHeading>
       {ctaType !== 'video' ? copy : ''}
-      <DDSCardCTAFooter
+      <C4DCardCTAFooter
         cta-type={ctaType || undefined}
         video-name={customVideoTitle || undefined}
         video-description={customVideoDescription || undefined}
         download={footerDownload || undefined}
-        href={footerHref || undefined}></DDSCardCTAFooter>
-    </DDSCTAHead>
+        href={footerHref || undefined}></C4DCardCTAFooter>
+    </C4DCTAHead>
   );
 };
 
@@ -288,17 +313,29 @@ Card.story = {
   },
 };
 
-export const CardLink = args => {
-  const { heading, copy, ctaType, download, footerDownload, href, footerHref, customVideoTitle, customVideoDescription } =
-    args?.CardCTA ?? {};
+export const CardLink = (args) => {
+  const {
+    heading,
+    copy,
+    ctaType,
+    download,
+    footerDownload,
+    href,
+    footerHref,
+    customVideoTitle,
+    customVideoDescription,
+  } = args?.CardCTA ?? {};
 
-  const childCta = document.querySelector('dds-cta')?.shadowRoot!.children[0];
+  const childCta = document.querySelector('cds-cta')?.shadowRoot!.children[0];
   childCta?.setAttribute('href', href);
 
   if (ctaType === 'video') {
     const headingComponent =
-      childCta?.shadowRoot?.querySelector('dds-card-link-heading') || childCta?.querySelector('dds-card-link-heading');
-    headingComponent && !duration ? (duration = headingComponent?.textContent!.match(/\((.*)\)/)?.pop()) : null;
+      childCta?.shadowRoot?.querySelector('cds-card-link-heading') ||
+      childCta?.querySelector('cds-card-link-heading');
+    headingComponent && !duration
+      ? (duration = headingComponent?.textContent!.match(/\((.*)\)/)?.pop())
+      : null;
 
     if (headingComponent?.textContent) {
       duration
@@ -308,25 +345,25 @@ export const CardLink = args => {
   }
 
   return (
-    <DDSCTAHead
+    <C4DCTAHead
       cta-style="card-link"
       cta-type={ctaType || undefined}
       video-name={customVideoTitle || undefined}
       video-description={customVideoDescription || undefined}
       download={download || undefined}
       href={href || undefined}>
-      <DDSCardLinkHeading>
+      <C4DCardLinkHeading>
         {' '}
         {ctaType !== 'video' ? heading : ''}
-      </DDSCardLinkHeading>
+      </C4DCardLinkHeading>
       {copy ? <p>{copy}</p> : ''}
-      <DDSCardCTAFooter
+      <C4DCardCTAFooter
         cta-type={ctaType || undefined}
         video-name={customVideoTitle || undefined}
         video-description={customVideoDescription || undefined}
         download={footerDownload || undefined}
-        href={footerHref || undefined}></DDSCardCTAFooter>
-    </DDSCTAHead>
+        href={footerHref || undefined}></C4DCardCTAFooter>
+    </C4DCTAHead>
   );
 };
 
@@ -393,17 +430,28 @@ CardLink.story = {
   },
 };
 
-export const Feature = args => {
-  const { heading, ctaType, download, href, customVideoTitle, customVideoDescription } = args?.FeatureCTA ?? {};
-  const { download: footerDownload, href: footerHref } = args?.FeatureCTAFooter ?? {};
+export const Feature = (args) => {
+  const {
+    heading,
+    ctaType,
+    download,
+    href,
+    customVideoTitle,
+    customVideoDescription,
+  } = args?.FeatureCTA ?? {};
+  const { download: footerDownload, href: footerHref } =
+    args?.FeatureCTAFooter ?? {};
 
-  const childCta = document.querySelector('dds-cta')?.shadowRoot!.children[0];
+  const childCta = document.querySelector('cds-cta')?.shadowRoot!.children[0];
   childCta?.setAttribute('href', href);
 
   if (ctaType === 'video') {
     const headingComponent =
-      childCta?.shadowRoot?.querySelector('dds-card-heading') || childCta?.querySelector('dds-card-heading');
-    headingComponent && !duration ? (duration = headingComponent?.textContent!.match(/\((.*)\)/)?.pop()) : null;
+      childCta?.shadowRoot?.querySelector('cds-card-heading') ||
+      childCta?.querySelector('cds-card-heading');
+    headingComponent && !duration
+      ? (duration = headingComponent?.textContent!.match(/\((.*)\)/)?.pop())
+      : null;
 
     if (headingComponent?.textContent) {
       duration
@@ -413,23 +461,23 @@ export const Feature = args => {
   }
 
   return (
-    <DDSCTAHead
+    <C4DCTAHead
       cta-style="feature"
       cta-type={ctaType || undefined}
       video-name={customVideoTitle || undefined}
       video-description={customVideoDescription || undefined}
       download={download || undefined}
       href={href || undefined}>
-      <DDSCardHeading>{heading}</DDSCardHeading>
-      <DDSImage slot="image" alt="Image alt text" default-src={imgLg1x1} />
-      <DDSFeatureCTAFooter
+      <C4DCardHeading>{heading}</C4DCardHeading>
+      <C4DImage slot="image" alt="Image alt text" default-src={imgLg1x1} />
+      <C4DFeatureCTAFooter
         cta-type={ctaType || undefined}
         video-name={customVideoTitle || undefined}
         video-description={customVideoDescription || undefined}
         download={footerDownload || undefined}
         href={footerHref || undefined}
       />
-    </DDSCTAHead>
+    </C4DCTAHead>
   );
 };
 
@@ -479,7 +527,7 @@ export default {
         <div className="cds--grid">
           <div className="cds--row">
             <div className={parameters.gridContentClasses}>
-              <DDSVideoCTAContainer>{story()}</DDSVideoCTAContainer>
+              <C4DVideoCTAContainer>{story()}</C4DVideoCTAContainer>
             </div>
           </div>
         </div>

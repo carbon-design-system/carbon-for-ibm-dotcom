@@ -35,8 +35,8 @@ import '@carbon/web-components/es/icons/arrow--right/20.js';
 ### HTML
 
 ```html
-<dds-button-group>
-  <dds-button-group-item href="https://example.com">
+<cds-button-group>
+  <cds-button-group-item href="https://example.com">
     Lorem ipsum
     <svg
       slot="icon"
@@ -47,14 +47,12 @@ import '@carbon/web-components/es/icons/arrow--right/20.js';
       aria-hidden="true"
       width="20"
       height="20"
-      viewBox="0 0 20 20"
-    >
+      viewBox="0 0 20 20">
       <path
-        d="M11.8 2.8L10.8 3.8 16.2 9.3 1 9.3 1 10.7 16.2 10.7 10.8 16.2 11.8 17.2 19 10z"
-      ></path>
+        d="M11.8 2.8L10.8 3.8 16.2 9.3 1 9.3 1 10.7 16.2 10.7 10.8 16.2 11.8 17.2 19 10z"></path>
     </svg>
-  </dds-button-group-item>
-  <dds-button-group-item href="https://example.com">
+  </cds-button-group-item>
+  <cds-button-group-item href="https://example.com">
     Dolor sit amet
     <svg
       slot="icon"
@@ -65,39 +63,37 @@ import '@carbon/web-components/es/icons/arrow--right/20.js';
       aria-hidden="true"
       width="20"
       height="20"
-      viewBox="0 0 20 20"
-    >
+      viewBox="0 0 20 20">
       <path
-        d="M11.8 2.8L10.8 3.8 16.2 9.3 1 9.3 1 10.7 16.2 10.7 10.8 16.2 11.8 17.2 19 10z"
-      ></path>
+        d="M11.8 2.8L10.8 3.8 16.2 9.3 1 9.3 1 10.7 16.2 10.7 10.8 16.2 11.8 17.2 19 10z"></path>
     </svg>
-  </dds-button-group-item>
-</dds-button-group>
+  </cds-button-group-item>
+</cds-button-group>
 ```
 
 ### click handler example for web components
 
 ```html
-<dds-button-group>
-  <dds-button-group-item @click="${this._handleClick}"></dds-button-group-item>
-</dds-button-group>
+<cds-button-group>
+  <cds-button-group-item @click="${this._handleClick}"></cds-button-group-item>
+</cds-button-group>
 ```
 
 ### click handler example for HTML
 
 ```html
-<dds-button-group>
-  <dds-button-group-item onclick="handleClick()"></dds-button-group-item>
-</dds-button-group>
+<cds-button-group>
+  <cds-button-group-item onclick="handleClick()"></cds-button-group-item>
+</cds-button-group>
 ```
 
 ## Props
 
-<Props of="dds-button-group" />
+<Props of="cds-button-group" />
 
-### `<dds-button-group-item>`
+### `<cds-button-group-item>`
 
-<Props of="dds-button-group-item" />
+<Props of="cds-button-group-item" />
 
 ## Stable selectors
 
@@ -107,7 +103,7 @@ to see how Web Components selector and `data-autoid` should be used.
 
 | Web Components selector   | Compatibility selector                 | Description |
 | ------------------------- | -------------------------------------- | ----------- |
-| `<dds-button-group>`      | `data-autoid="dds--button-group"`      | Component   |
-| `<dds-button-group-item>` | `data-autoid="dds--button-group-item"` | Component   |
+| `<cds-button-group>`      | `data-autoid="cds--button-group"`      | Component   |
+| `<cds-button-group-item>` | `data-autoid="cds--button-group-item"` | Component   |
 
 <Description markdown={contributing} />

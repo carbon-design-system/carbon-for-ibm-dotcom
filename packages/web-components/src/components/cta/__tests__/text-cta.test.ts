@@ -24,7 +24,7 @@ const template = (props?) => {
     children,
   } = props ?? {};
   return html`
-    <dds-text-cta
+    <c4d-text-cta
       cta-type="${ifDefined(ctaType)}"
       target="${ifDefined(target)}"
       video-duration="${ifDefined(videoDuration)}"
@@ -33,16 +33,16 @@ const template = (props?) => {
       .formatVideoCaption="${ifDefined(formatVideoCaption)}"
       .formatVideoDuration="${ifDefined(formatVideoDuration)}">
       ${children}
-    </dds-text-cta>
+    </c4d-text-cta>
   `;
 };
 
-describe('dds-text-cta', function () {
+describe('c4d-text-cta', function () {
   describe('Misc attributes', function () {
     it('should render with minimum attributes', async function () {
       render(template(), document.body);
       await Promise.resolve();
-      expect(document.body.querySelector('dds-text-cta')).toMatchSnapshot({
+      expect(document.body.querySelector('c4d-text-cta')).toMatchSnapshot({
         mode: 'shadow',
       });
     });
@@ -60,7 +60,7 @@ describe('dds-text-cta', function () {
         document.body
       );
       await Promise.resolve();
-      expect(document.body.querySelector('dds-text-cta')).toMatchSnapshot({
+      expect(document.body.querySelector('c4d-text-cta')).toMatchSnapshot({
         mode: 'shadow',
       });
     });

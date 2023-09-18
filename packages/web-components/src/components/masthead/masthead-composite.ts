@@ -44,10 +44,10 @@ import {
   MASTHEAD_AUTH_METHOD,
 } from '../../internal/vendor/@carbon/ibmdotcom-services-store/types/profileAPI';
 import { MEGAMENU_RIGHT_NAVIGATION_STYLE_SCHEME } from './megamenu-right-navigation';
-import { DDS_CUSTOM_PROFILE_LOGIN } from '../../globals/internal/feature-flags';
-import DDSMastheadLogo from './masthead-logo';
-import DDSMegaMenuTabs from './megamenu-tabs';
-import DDSMegamenuTopNavMenu from './megamenu-top-nav-menu';
+import { C4D_CUSTOM_PROFILE_LOGIN } from '../../globals/internal/feature-flags';
+import C4DMastheadLogo from './masthead-logo';
+import C4DMegaMenuTabs from './megamenu-tabs';
+import C4DMegamenuTopNavMenu from './megamenu-top-nav-menu';
 import './masthead';
 import './masthead-button-cta';
 import './masthead-l1';
@@ -74,7 +74,7 @@ import styles from './masthead.scss';
 import { MEGAMENU_LAYOUT_SCHEME } from './defs';
 import layoutBreakpoint from './masthead-breakpoint';
 
-const { stablePrefix: ddsPrefix } = settings;
+const { stablePrefix: c4dPrefix } = settings;
 
 /**
  * Rendering target for masthead navigation items.
@@ -115,10 +115,10 @@ export interface CMApp {
 /**
  * Component that renders masthead from links, etc. data.
  *
- * @element dds-masthead-composite
+ * @element c4d-masthead-composite
  */
-@customElement(`${ddsPrefix}-masthead-composite`)
-class DDSMastheadComposite extends HostListenerMixin(LitElement) {
+@customElement(`${c4dPrefix}-masthead-composite`)
+class C4DMastheadComposite extends HostListenerMixin(LitElement) {
   /**
    * Renders L1 menu based on l1Data & screen width.
    *
@@ -128,11 +128,11 @@ class DDSMastheadComposite extends HostListenerMixin(LitElement) {
     if (!this.l1Data) return undefined;
 
     return html`
-      <dds-masthead-l1
+      <c4d-masthead-l1
         slot="masthead-l1"
         .l1Data=${this.l1Data}
         selected-menu-item=${this.selectedMenuItemL1 || ''}>
-      </dds-masthead-l1>
+      </c4d-masthead-l1>
     `;
   }
 
@@ -144,19 +144,19 @@ class DDSMastheadComposite extends HostListenerMixin(LitElement) {
   protected _renderLogo() {
     if (!this.logoData) {
       return html`
-        <dds-masthead-logo
-          ?hide-logo="${this.activateSearch}"></dds-masthead-logo>
+        <c4d-masthead-logo
+          ?hide-logo="${this.activateSearch}"></c4d-masthead-logo>
       `;
     }
     const useAlternateLogo = MastheadLogoAPI.setMastheadLogo(this.logoData);
     const { tooltip, svg, href } = this.logoData;
     return html`
-      <dds-masthead-logo
+      <c4d-masthead-logo
         ?hide-logo="${this.activateSearch}"
         ?hasTooltip="${tooltip}"
         aria-label="${ifDefined(tooltip)}"
-        href="${href || DDSMastheadLogo.hrefDefault}"
-        >${useAlternateLogo ? unsafeSVG(svg) : nothing}</dds-masthead-logo
+        href="${href || C4DMastheadLogo.hrefDefault}"
+        >${useAlternateLogo ? unsafeSVG(svg) : nothing}</c4d-masthead-logo
       >
     `;
   }
@@ -207,36 +207,36 @@ class DDSMastheadComposite extends HostListenerMixin(LitElement) {
       : sortedMenuItems[0];
 
     return html`
-      <dds-megamenu layout="${MEGAMENU_LAYOUT_SCHEME.TAB}">
-        <dds-megamenu-left-navigation>
-          <dds-megamenu-tabs
+      <c4d-megamenu layout="${MEGAMENU_LAYOUT_SCHEME.TAB}">
+        <c4d-megamenu-left-navigation>
+          <c4d-megamenu-tabs
             value="${ifNonNull(activeMenuItem?.heading?.title)}">
             ${sortedMenuItems.map((item) => {
               return item?.heading?.title
                 ? html`
-                    <dds-megamenu-tab
+                    <c4d-megamenu-tab
                       id="tab-${item.itemKey}"
                       target="panel-${item.itemKey}"
                       value="${item.heading.title}">
                       ${item.heading.title}
-                    </dds-megamenu-tab>
+                    </c4d-megamenu-tab>
                   `
                 : '';
             })}
-          </dds-megamenu-tabs>
+          </c4d-megamenu-tabs>
           ${viewAll?.url && viewAll?.title
             ? html`
-                <dds-megamenu-link-with-icon
+                <c4d-megamenu-link-with-icon
                   href="${viewAll.url}"
                   part="view-all view-all-left"
                   slot="view-all">
                   <span>${viewAll.title}</span>${ArrowRight16({ slot: 'icon' })}
-                </dds-megamenu-link-with-icon>
+                </c4d-megamenu-link-with-icon>
               `
             : null}
-        </dds-megamenu-left-navigation>
+        </c4d-megamenu-left-navigation>
         ${this._renderMegamenuTabPanel(activeMenuItem)}
-      </dds-megamenu>
+      </c4d-megamenu>
     `;
   }
 
@@ -247,17 +247,17 @@ class DDSMastheadComposite extends HostListenerMixin(LitElement) {
         id="panel-${itemKey}"
         role="tabpanel"
         aria-labelledby="tab-${itemKey}">
-        <dds-megamenu-right-navigation
-          class="${ddsPrefix}--masthead__tabpanel-child"
+        <c4d-megamenu-right-navigation
+          class="${c4dPrefix}--masthead__tabpanel-child"
           style-scheme="${MEGAMENU_RIGHT_NAVIGATION_STYLE_SCHEME.HAS_SIDEBAR}">
           ${heading?.title
             ? html`
-                <dds-megamenu-heading
+                <c4d-megamenu-heading
                   href="${ifNonNull(heading?.url)}"
                   title="${heading?.title}"
                   slot="heading">
                   ${heading?.description}
-                </dds-megamenu-heading>
+                </c4d-megamenu-heading>
               `
             : ''}
           ${groups
@@ -269,17 +269,17 @@ class DDSMastheadComposite extends HostListenerMixin(LitElement) {
             : ''}
           ${itemViewAll?.url && itemViewAll?.title
             ? html`
-                <dds-megamenu-link-with-icon
+                <c4d-megamenu-link-with-icon
                   href="${itemViewAll.url}"
                   part="view-all view-all-right"
                   slot="view-all">
                   <span>${itemViewAll.title}</span>${ArrowRight16({
                     slot: 'icon',
                   })}
-                </dds-megamenu-link-with-icon>
+                </c4d-megamenu-link-with-icon>
               `
             : null}
-        </dds-megamenu-right-navigation>
+        </c4d-megamenu-right-navigation>
       </div>
     `;
   }
@@ -298,62 +298,62 @@ class DDSMastheadComposite extends HostListenerMixin(LitElement) {
     const { viewAll, highlights } = menu;
 
     return html`
-      <dds-megamenu layout="${MEGAMENU_LAYOUT_SCHEME.LIST}">
+      <c4d-megamenu layout="${MEGAMENU_LAYOUT_SCHEME.LIST}">
         ${highlights
           ? html`
-              <dds-megamenu-left-navigation>
+              <c4d-megamenu-left-navigation>
                 ${highlights.map((group, i) =>
                   this._renderMegapanelLinkGroup(group, {
                     headingLevel: 2,
-                    autoid: `${ddsPrefix}--masthead__l0-nav-list${i}`,
+                    autoid: `${c4dPrefix}--masthead__l0-nav-list${i}`,
                   })
                 )}
-              </dds-megamenu-left-navigation>
+              </c4d-megamenu-left-navigation>
             `
           : null}
-        <dds-megamenu-right-navigation
+        <c4d-megamenu-right-navigation
           style-scheme="${highlights
             ? MEGAMENU_RIGHT_NAVIGATION_STYLE_SCHEME.HAS_SIDEBAR
             : MEGAMENU_RIGHT_NAVIGATION_STYLE_SCHEME.FULL}">
           ${heading && !highlights
             ? html`
-                <dds-megamenu-heading
+                <c4d-megamenu-heading
                   href="${ifNonNull(heading.url)}"
                   title="${ifNonNull(heading.title)}"
                   slot="heading">
                   ${heading.description}
-                </dds-megamenu-heading>
+                </c4d-megamenu-heading>
               `
             : ''}
           ${megapanel.groups.map((group, i) =>
             this._renderMegapanelLinkGroup(group, {
               headingLevel: heading ? 3 : 2,
-              autoid: `${ddsPrefix}--masthead__l0-nav-list${
+              autoid: `${c4dPrefix}--masthead__l0-nav-list${
                 i + (highlights ? highlights.length : 0)
               }`,
             })
           )}
           ${viewAll?.url && viewAll?.title
             ? html`
-                <dds-megamenu-link-with-icon
+                <c4d-megamenu-link-with-icon
                   href="${viewAll.url}"
                   part="view-all view-all-right"
                   slot="view-all">
                   <span>${viewAll.title}</span>${ArrowRight16({ slot: 'icon' })}
-                </dds-megamenu-link-with-icon>
+                </c4d-megamenu-link-with-icon>
               `
             : null}
-        </dds-megamenu-right-navigation>
+        </c4d-megamenu-right-navigation>
         ${viewAll?.url && viewAll?.title
           ? html`
-              <dds-megamenu-link-with-icon
+              <c4d-megamenu-link-with-icon
                 href="${viewAll.url}"
                 part="view-all view-all-bottom">
                 <span>${viewAll.title}</span>${ArrowRight16({ slot: 'icon' })}
-              </dds-megamenu-link-with-icon>
+              </c4d-megamenu-link-with-icon>
             `
           : null}
-      </dds-megamenu>
+      </c4d-megamenu>
     `;
   }
 
@@ -371,16 +371,16 @@ class DDSMastheadComposite extends HostListenerMixin(LitElement) {
     const { links, heading } = group;
     const { headingLevel, autoid } = options;
     return html`
-      <dds-megamenu-category-group data-autoid="${ifNonNull(autoid)}">
+      <c4d-megamenu-category-group data-autoid="${ifNonNull(autoid)}">
         ${heading?.title
           ? html`
-              <dds-megamenu-category-heading
+              <c4d-megamenu-category-heading
                 title="${heading.title}"
                 href="${ifNonNull(heading?.url)}"
                 slot="heading"
                 heading-level="${ifNonNull(headingLevel)}">
                 ${heading?.description}
-              </dds-megamenu-category-heading>
+              </c4d-megamenu-category-heading>
             `
           : ''}
         ${links &&
@@ -388,23 +388,23 @@ class DDSMastheadComposite extends HostListenerMixin(LitElement) {
           const linkAutoId = autoid ? `${autoid}-item${i}` : null;
           if (link?.description) {
             return html`
-              <dds-megamenu-category-link
+              <c4d-megamenu-category-link
                 title="${link?.title}"
                 href="${ifNonNull(link?.url)}"
                 data-autoid="${ifNonNull(linkAutoId)}">
                 ${link?.description}
-              </dds-megamenu-category-link>
+              </c4d-megamenu-category-link>
             `;
           }
           return html`
-            <dds-megamenu-category-link
+            <c4d-megamenu-category-link
               href="${ifNonNull(link?.url)}"
               data-autoid="${ifNonNull(linkAutoId)}">
               ${link?.title}
-            </dds-megamenu-category-link>
+            </c4d-megamenu-category-link>
           `;
         })}
-      </dds-megamenu-category-group>
+      </c4d-megamenu-category-group>
     `;
   }
 
@@ -435,25 +435,25 @@ class DDSMastheadComposite extends HostListenerMixin(LitElement) {
     const items = menuItems.map((elem) => {
       if (elem.menu) {
         return html`
-          <dds-left-nav-menu
+          <c4d-left-nav-menu
             ?last-highlighted=${elem.lastHighlightedItem}
             panel-id=${elem.panelId}
             ?active="${elem.selected}"
             title="${elem.title}"
             data-autoid="${elem.autoid}">
-          </dds-left-nav-menu>
+          </c4d-left-nav-menu>
         `;
       }
 
       return html`
-        <dds-left-nav-menu-item
+        <c4d-left-nav-menu-item
           ?last-highlighted=${elem.lastHighlightedItem}
           ?active="${elem.selected}"
           href="${elem.url}"
           title="${elem.title}"
           data-autoid="${elem.autoid}"
           .isHeading=${elem.isHeading ?? false}
-          .isViewAll=${elem.isViewAll ?? false}></dds-left-nav-menu-item>
+          .isViewAll=${elem.isViewAll ?? false}></c4d-left-nav-menu-item>
       `;
     });
 
@@ -461,20 +461,20 @@ class DDSMastheadComposite extends HostListenerMixin(LitElement) {
       if (typeof heading === 'string') {
         items.unshift(
           html`
-            <dds-left-nav-menu-category-heading
-              title="${heading}"></dds-left-nav-menu-category-heading>
+            <c4d-left-nav-menu-category-heading
+              title="${heading}"></c4d-left-nav-menu-category-heading>
           `
         );
       } else {
         const { title, description, url } = heading;
         items.unshift(
           html`
-            <dds-left-nav-menu-category-heading
+            <c4d-left-nav-menu-category-heading
               .boostSize=${true}
               title="${title}"
               url="${ifDefined(url)}">
               ${description ?? ''}
-            </dds-left-nav-menu-category-heading>
+            </c4d-left-nav-menu-category-heading>
           `
         );
       }
@@ -483,22 +483,22 @@ class DDSMastheadComposite extends HostListenerMixin(LitElement) {
     if (ctas) {
       ctas.forEach((cta) => {
         items.push(html`
-          <dds-left-nav-cta-item href="${ifNonNull(cta.url)}">
+          <c4d-left-nav-cta-item href="${ifNonNull(cta.url)}">
             ${cta.title}
-          </dds-left-nav-cta-item>
+          </c4d-left-nav-cta-item>
         `);
       });
     }
 
     return html`
-      <dds-left-nav-menu-section
+      <c4d-left-nav-menu-section
         section-id="${sectionId}"
         ?is-submenu=${ifDefined(isSubmenu)}
         title=${ifDefined(sectionTitle)}
         titleUrl=${ifDefined(sectionUrl)}
         ?show-back-button=${ifDefined(showBackButton)}>
         ${items}
-      </dds-left-nav-menu-section>
+      </c4d-left-nav-menu-section>
     `;
   }
 
@@ -889,7 +889,7 @@ class DDSMastheadComposite extends HostListenerMixin(LitElement) {
   }) {
     const { navLinks, l1Data } = this;
     let menu: L0MenuItem[] | L1MenuItem[] | undefined = navLinks;
-    const autoid = `${ddsPrefix}--masthead__${l1Data?.menuItems ? 'l1' : 'l0'}`;
+    const autoid = `${c4dPrefix}--masthead__${l1Data?.menuItems ? 'l1' : 'l0'}`;
 
     if (hasL1) {
       menu = l1Data?.menuItems;
@@ -929,7 +929,7 @@ class DDSMastheadComposite extends HostListenerMixin(LitElement) {
 
     if (submenu instanceof Array) {
       return html`
-        <dds-top-nav-menu
+        <c4d-top-nav-menu
           ?active="${selected}"
           menu-label="${title}"
           trigger-content="${title}"
@@ -937,16 +937,16 @@ class DDSMastheadComposite extends HostListenerMixin(LitElement) {
           ${submenu.map(
             ({ title: linkTitle, url: linkUrl }, j) =>
               html`
-                <dds-top-nav-menu-item
+                <c4d-top-nav-menu-item
                   ?active="${selectedMenuItem
                     ? selected
                     : linkUrl === currentUrlPath}"
                   href="${ifDefined(linkUrl)}"
                   title="${linkTitle}"
-                  data-autoid="${autoid}-nav--subnav-col${i}-item${j}"></dds-top-nav-menu-item>
+                  data-autoid="${autoid}-nav--subnav-col${i}-item${j}"></c4d-top-nav-menu-item>
               `
           )}
-        </dds-top-nav-menu>
+        </c4d-top-nav-menu>
       `;
     }
 
@@ -958,7 +958,7 @@ class DDSMastheadComposite extends HostListenerMixin(LitElement) {
 
       // Render nav menu, but only render megamenu if it is active.
       return html`
-        <dds-megamenu-top-nav-menu
+        <c4d-megamenu-top-nav-menu
           ?active="${selected}"
           menu-label="${title}"
           trigger-content="${title}"
@@ -967,17 +967,17 @@ class DDSMastheadComposite extends HostListenerMixin(LitElement) {
           ${_activeMegamenuIndex === i
             ? this._renderMegaMenu(submenu, i, layout)
             : null}
-        </dds-megamenu-top-nav-menu>
+        </c4d-megamenu-top-nav-menu>
       `;
     }
 
     // Fallback render as simple link.
     return html`
-      <dds-top-nav-item
+      <c4d-top-nav-item
         ?active="${selectedMenuItem ? selected : url === currentUrlPath}"
         href="${ifDefined(url)}"
         title="${title}"
-        data-autoid="${autoid}-nav--nav${i}"></dds-top-nav-item>
+        data-autoid="${autoid}-nav--nav${i}"></c4d-top-nav-item>
     `;
   }
 
@@ -986,7 +986,7 @@ class DDSMastheadComposite extends HostListenerMixin(LitElement) {
    *
    * @param event The event.
    */
-  @HostListener(DDSMegamenuTopNavMenu.eventMegaMenuToggled)
+  @HostListener(C4DMegamenuTopNavMenu.eventMegaMenuToggled)
   // @ts-ignore: The decorator refers to this method but TS thinks this method is not referred to
   protected _loadMegamenu = (event: CustomEvent) => {
     const {
@@ -1018,7 +1018,7 @@ class DDSMastheadComposite extends HostListenerMixin(LitElement) {
    *
    * @param event The event.
    */
-  @HostListener(DDSMegaMenuTabs.eventBeforeSelect)
+  @HostListener(C4DMegaMenuTabs.eventBeforeSelect)
   protected _loadMegamenuTabPanel(event) {
     const { detail } = event;
     const panelId = detail.item.id.split('tab-')[1];
@@ -1237,7 +1237,7 @@ class DDSMastheadComposite extends HostListenerMixin(LitElement) {
   unauthenticatedCtaButtons?: MastheadProfileItem[];
 
   /**
-   * Specify translation endpoint if not using default dds endpoint.
+   * Specify translation endpoint if not using default c4d endpoint.
    */
   @property({ attribute: 'data-endpoint' })
   dataEndpoint?: string;
@@ -1335,7 +1335,7 @@ class DDSMastheadComposite extends HostListenerMixin(LitElement) {
       this._loadUserStatus?.(this.authMethod);
     }
 
-    // This is a temp fix until we figure out why we can't set styles to the :host(dds-masthead-container) in stylesheets
+    // This is a temp fix until we figure out why we can't set styles to the :host(c4d-masthead-container) in stylesheets
     this.style.zIndex = '900';
 
     // Allows conditional rendering of left/top navs.
@@ -1393,7 +1393,7 @@ class DDSMastheadComposite extends HostListenerMixin(LitElement) {
 
     let profileItems;
     if (
-      DDS_CUSTOM_PROFILE_LOGIN &&
+      C4D_CUSTOM_PROFILE_LOGIN &&
       customProfileLogin &&
       !userIsAuthenticated
     ) {
@@ -1424,32 +1424,32 @@ class DDSMastheadComposite extends HostListenerMixin(LitElement) {
     return html`
       ${isMobileVersion
         ? html`
-            <dds-left-nav-overlay></dds-left-nav-overlay>
-            <dds-left-nav>
+            <c4d-left-nav-overlay></c4d-left-nav-overlay>
+            <c4d-left-nav>
               ${!platform
                 ? undefined
                 : html`
-                    <dds-left-nav-name href="${ifNonNull(platformAltUrl)}"
-                      >${platform}</dds-left-nav-name
+                    <c4d-left-nav-name href="${ifNonNull(platformAltUrl)}"
+                      >${platform}</c4d-left-nav-name
                     >
                   `}
               ${this._renderNavItems({
                 target: NAV_ITEMS_RENDER_TARGET.LEFT_NAV,
                 hasL1: !!l1Data,
               })}
-            </dds-left-nav>
+            </c4d-left-nav>
           `
         : ''}
-      <dds-masthead
+      <c4d-masthead
         ?has-l1=${this.l1Data}
         aria-label="${ifNonNull(mastheadAssistiveText)}">
-        <dds-skip-to-content
+        <c4d-skip-to-content
           href="${skipToContentHref}"
-          link-assistive-text="${skipToContentText}"></dds-skip-to-content>
+          link-assistive-text="${skipToContentText}"></c4d-skip-to-content>
 
         ${isMobileVersion
           ? html`
-              <dds-masthead-menu-button
+              <c4d-masthead-menu-button
                 button-label-active="${ifNonNull(
                   menuButtonAssistiveTextActive
                 )}"
@@ -1457,20 +1457,20 @@ class DDSMastheadComposite extends HostListenerMixin(LitElement) {
                   menuButtonAssistiveTextInactive
                 )}"
                 ?hide-menu-button="${activateSearch}">
-              </dds-masthead-menu-button>
+              </c4d-masthead-menu-button>
             `
           : ''}
         ${this._renderLogo()}
         ${!platform || l1Data
           ? undefined
           : html`
-              <dds-top-nav-name href="${ifDefined(platformAltUrl)}"
-                >${platform}</dds-top-nav-name
+              <c4d-top-nav-name href="${ifDefined(platformAltUrl)}"
+                >${platform}</c4d-top-nav-name
               >
             `}
         ${navLinks && !isMobileVersion
           ? html`
-              <dds-top-nav
+              <c4d-top-nav
                 selected-menu-item=${selectedMenuItem}
                 menu-bar-label="${ifNonNull(menuBarAssistiveText)}"
                 ?hideNav="${activateSearch}">
@@ -1478,13 +1478,13 @@ class DDSMastheadComposite extends HostListenerMixin(LitElement) {
                   target: NAV_ITEMS_RENDER_TARGET.TOP_NAV,
                   hasL1: false,
                 })}
-              </dds-top-nav>
+              </c4d-top-nav>
             `
           : ''}
         ${hasSearch === 'false'
           ? ''
           : html`
-              <dds-search-with-typeahead
+              <c4d-search-with-typeahead
                 ?active="${activateSearch}"
                 input-timeout="${inputTimeout}"
                 language="${ifDefined(language)}"
@@ -1495,44 +1495,44 @@ class DDSMastheadComposite extends HostListenerMixin(LitElement) {
                 ?custom-typeahead-api="${ifDefined(customTypeaheadAPI)}"
                 .scopeParameters="${ifDefined(
                   scopeParameters
-                )}"></dds-search-with-typeahead>
+                )}"></c4d-search-with-typeahead>
             `}
-        <dds-masthead-global-bar ?has-search-active=${activateSearch}>
+        <c4d-masthead-global-bar ?has-search-active=${activateSearch}>
           ${hasContact === 'false'
             ? ''
             : html`
-                <dds-masthead-contact
+                <c4d-masthead-contact
                   data-ibm-contact="contact-link"
                   trigger-label="${ifDefined(
                     contactUsButton?.title
-                  )}"></dds-masthead-contact>
+                  )}"></c4d-masthead-contact>
               `}
           ${hasProfile === 'false'
             ? ''
             : html`
-                <dds-masthead-profile ?authenticated="${userIsAuthenticated}">
+                <c4d-masthead-profile ?authenticated="${userIsAuthenticated}">
                   ${profileItems?.map(
                     ({ title, url }) =>
                       html`
-                        <dds-masthead-profile-item href="${ifDefined(url)}"
-                          >${title}</dds-masthead-profile-item
+                        <c4d-masthead-profile-item href="${ifDefined(url)}"
+                          >${title}</c4d-masthead-profile-item
                         >
                       `
                   )}
-                </dds-masthead-profile>
+                </c4d-masthead-profile>
               `}
           ${ctaButtons?.map(
             ({ title, url }) =>
               html`
-                <dds-masthead-button-cta href="${ifNonNull(url)}" kind="ghost">
+                <c4d-masthead-button-cta href="${ifNonNull(url)}" kind="ghost">
                   ${title}
-                </dds-masthead-button-cta>
+                </c4d-masthead-button-cta>
               `
           )}
-        </dds-masthead-global-bar>
+        </c4d-masthead-global-bar>
         ${!l1Data ? undefined : this._renderL1()}
-        <dds-megamenu-overlay></dds-megamenu-overlay>
-      </dds-masthead>
+        <c4d-megamenu-overlay></c4d-megamenu-overlay>
+      </c4d-masthead>
     `;
   }
 
@@ -1546,4 +1546,4 @@ class DDSMastheadComposite extends HostListenerMixin(LitElement) {
 }
 
 /* @__GENERATE_REACT_CUSTOM_ELEMENT_TYPE__ */
-export default DDSMastheadComposite;
+export default C4DMastheadComposite;

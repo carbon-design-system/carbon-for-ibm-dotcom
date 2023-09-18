@@ -17,26 +17,26 @@ const _pathl1 = '/iframe.html?id=components-masthead--with-l-1&knob-use%20mock%2
  * Selectors for elements that comprise the L1.
  */
 const _selectors = {
-  l1: 'dds-masthead-l1',
-  l1Name: '.bx--masthead__l1-title',
-  l1Login: '.bx--masthead__l1-login',
-  l1Cta: '.bx--masthead__l1-login',
-  l1Menu: '.bx--masthead__l1-menu',
-  l1Item: '.bx--masthead__l1-item',
-  l1Dropdown: '.bx--masthead__l1-dropdown',
-  l1DropdownAnnouncement: '.bx--masthead__l1-dropdown-announcement',
-  l1DropdownLinks: '.bx--masthead__l1-dropdown-links',
-  l1DropdownSection: '.bx--masthead__l1-dropdown-section',
-  l1DropdownViewAll: '.bx--masthead__l1-dropdown-viewall',
+  l1: 'c4d-masthead-l1',
+  l1Name: '.cds--masthead__l1-title',
+  l1Login: '.cds--masthead__l1-login',
+  l1Cta: '.cds--masthead__l1-login',
+  l1Menu: '.cds--masthead__l1-menu',
+  l1Item: '.cds--masthead__l1-item',
+  l1Dropdown: '.cds--masthead__l1-dropdown',
+  l1DropdownAnnouncement: '.cds--masthead__l1-dropdown-announcement',
+  l1DropdownLinks: '.cds--masthead__l1-dropdown-links',
+  l1DropdownSection: '.cds--masthead__l1-dropdown-section',
+  l1DropdownViewAll: '.cds--masthead__l1-dropdown-viewall',
 };
 
-describe('dds-masthead | with L1 (desktop)', () => {
+describe('cds-masthead | with L1 (desktop)', () => {
   beforeEach(() => {
     cy.visit(`/${_pathl1}`);
     cy.injectAxe();
     cy.viewport(1280, 780);
 
-    cy.waitUntil(() => cy.get('dds-top-nav-l1').should('not.be.empty'));
+    cy.waitUntil(() => cy.get('cds-top-nav-l1').should('not.be.empty'));
   });
 
   it('should check a11y', () => {
@@ -45,7 +45,7 @@ describe('dds-masthead | with L1 (desktop)', () => {
 
   it('should render platform below the IBM logo', () => {
     cy.get(_selectors.l1).shadow().find(_selectors.l1Name).then($platform => {
-      cy.get('dds-masthead-logo').then($logo => {
+      cy.get('c4d-masthead-logo').then($logo => {
         expect($logo[0].getBoundingClientRect().down).to.equal($platform[0].getBoundingClientRect().up);
       });
     });
@@ -135,8 +135,8 @@ describe('dds-masthead | with L1 (desktop)', () => {
       .next(_selectors.l1Dropdown)
       .find(`${_selectors.l1DropdownLinks} > *`)
       .then(columns => {
-        const narrow = columns.filter('.bx--masthead__l1-dropdown-column-narrow').get(0).getBoundingClientRect().width;
-        const wide = columns.filter('.bx--masthead__l1-dropdown-column-wide').get(0).getBoundingClientRect().width;
+        const narrow = columns.filter('.cds--masthead__l1-dropdown-column-narrow').get(0).getBoundingClientRect().width;
+        const wide = columns.filter('.cds--masthead__l1-dropdown-column-wide').get(0).getBoundingClientRect().width;
 
         expect(narrow).to.be.lessThan(wide);
       });
