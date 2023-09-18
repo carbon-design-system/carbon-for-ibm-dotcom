@@ -41,7 +41,7 @@ export const Default = (args) => {
       {media === 'video' ? (
         <C4DVideoPlayerContainer
           slot="media"
-          video-id="1_9h94wo6b"></C4DVideoPlayerContainer>
+          video-id="0_ibuqxqbe"></C4DVideoPlayerContainer>
       ) : (
         ''
       )}

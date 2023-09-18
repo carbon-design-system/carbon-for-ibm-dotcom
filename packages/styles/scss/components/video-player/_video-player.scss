@@ -17,17 +17,17 @@ $aspect-ratios: ((16, 9), (9, 16), (2, 1), (1, 2), (4, 3), (3, 4), (1, 1));
 
 @mixin video-player {
   :host(#{$c4d-prefix}-video-player),
-  .#{$prefix}--video-player {
+  .#{$c4d-prefix}--video-player {
     color: var(--#{$c4d-prefix}--video-caption--color, $text-secondary);
 
-    .#{$prefix}--image__img {
+    .#{$c4d-prefix}--image__img {
       width: 100%;
       height: 100%;
     }
 
     &:focus {
       outline: none;
-      .#{$prefix}--video-player__video-container {
+      .#{$c4d-prefix}--video-player__video-container {
         &::before {
           content: ' ';
           position: absolute;
@@ -44,15 +44,15 @@ $aspect-ratios: ((16, 9), (9, 16), (2, 1), (1, 2), (4, 3), (3, 4), (1, 1));
   }
 
   :host(#{$c4d-prefix}-video-player[background-mode='true']),
-  .#{$prefix}--video-player[background-mode='true'] {
-    .#{$prefix}--video-player__video-container {
+  .#{$c4d-prefix}--video-player[background-mode='true'] {
+    .#{$c4d-prefix}--video-player__video-container {
       height: 100%;
       padding: 0;
     }
   }
 
-  .#{$prefix}--video-player
-    .#{$prefix}--video-player__image-overlay:focus::before {
+  .#{$c4d-prefix}--video-player
+    .#{$c4d-prefix}--video-player__image-overlay:focus::before {
     content: ' ';
     position: absolute;
     top: $spacing-01;
@@ -65,7 +65,7 @@ $aspect-ratios: ((16, 9), (9, 16), (2, 1), (1, 2), (4, 3), (3, 4), (1, 1));
   }
 
   :host(#{$c4d-prefix}-video-player) #{$c4d-prefix}-image,
-  .#{$prefix}--video-player .#{$prefix}--image {
+  .#{$c4d-prefix}--video-player .#{$c4d-prefix}--image {
     position: relative;
     width: 100%;
     height: 100%;
@@ -88,7 +88,7 @@ $aspect-ratios: ((16, 9), (9, 16), (2, 1), (1, 2), (4, 3), (3, 4), (1, 1));
     }
   }
 
-  .#{$prefix}--video-player__video-container {
+  .#{$c4d-prefix}--video-player__video-container {
     width: 100%;
     position: relative;
     display: inline-block;
@@ -97,8 +97,8 @@ $aspect-ratios: ((16, 9), (9, 16), (2, 1), (1, 2), (4, 3), (3, 4), (1, 1));
       outline: none;
     }
 
-    ::slotted(.#{$prefix}--video-player__video),
-    .#{$prefix}--video-player__video {
+    ::slotted(.#{$c4d-prefix}--video-player__video),
+    .#{$c4d-prefix}--video-player__video {
       position: absolute;
       top: 0;
       left: 0;
@@ -112,7 +112,7 @@ $aspect-ratios: ((16, 9), (9, 16), (2, 1), (1, 2), (4, 3), (3, 4), (1, 1));
       $width: nth($aspect-ratio, 1);
       $height: nth($aspect-ratio, 2);
 
-      &.#{$prefix}--video-player__aspect-ratio {
+      &.#{$c4d-prefix}--video-player__aspect-ratio {
         &--#{$width}x#{$height} {
           @include ratio-base($width, $height, true);
         }
@@ -120,14 +120,14 @@ $aspect-ratios: ((16, 9), (9, 16), (2, 1), (1, 2), (4, 3), (3, 4), (1, 1));
     }
   }
 
-  .#{$prefix}--video-player__video-caption {
+  .#{$c4d-prefix}--video-player__video-caption {
     @include type-style('caption-02');
 
     padding-top: var(--#{$c4d-prefix}--video-caption--padding, $spacing-03);
     max-width: 90%;
   }
 
-  .#{$prefix}--video-player__image-overlay {
+  .#{$c4d-prefix}--video-player__image-overlay {
     border: none;
     padding: 0;
     cursor: pointer;
@@ -154,6 +154,10 @@ $aspect-ratios: ((16, 9), (9, 16), (2, 1), (1, 2), (4, 3), (3, 4), (1, 1));
     }
 
     svg {
+      position: absolute;
+      top: calc(50% - #{$spacing-07});
+      right: calc(50% - #{$spacing-07});
+
       circle,
       path {
         transition: fill $duration-moderate-01 motion(standard, productive),
@@ -166,11 +170,12 @@ $aspect-ratios: ((16, 9), (9, 16), (2, 1), (1, 2), (4, 3), (3, 4), (1, 1));
     }
   }
 
-  :host(#{$c4d-prefix}-video-player) .#{$prefix}--video-player__image-overlay,
-  .#{$prefix}--video-player .#{$prefix}--video-player__image-overlay {
+  :host(#{$c4d-prefix}-video-player)
+    .#{$c4d-prefix}--video-player__image-overlay,
+  .#{$c4d-prefix}--video-player .#{$c4d-prefix}--video-player__image-overlay {
     &:active {
       #{$c4d-prefix}-image::before,
-      .#{$prefix}--image::before {
+      .#{$c4d-prefix}--image::before {
         opacity: 0.12;
       }
     }

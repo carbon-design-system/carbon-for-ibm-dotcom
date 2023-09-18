@@ -30,9 +30,9 @@ export const Default = (args) => {
   if (video) {
     return html`
       <c4d-video-cta-container>
-        <c4d-card-in-card href="1_9h94wo6b" cta-type="video">
+        <c4d-card-in-card href="0_ibuqxqbe" cta-type="video">
           <c4d-card-eyebrow>${eyebrow}</c4d-card-eyebrow>
-          <c4d-card-footer cta-type="video" href="1_9h94wo6b"></c4d-card-footer>
+          <c4d-card-footer cta-type="video" href="0_ibuqxqbe"></c4d-card-footer>
         </c4d-card-in-card>
       </c4d-video-cta-container>
     `;
