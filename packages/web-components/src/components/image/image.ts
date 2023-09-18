@@ -176,8 +176,8 @@ class C4DImage extends StableSelectorMixin(
       _handleSlotChange: handleSlotChange,
     } = this;
     const imgClasses = classMap({
-      [`${prefix}--image__img`]: true,
-      [`${prefix}--image__img--border`]: border && !lightbox,
+      [`${c4dPrefix}--image__img`]: true,
+      [`${c4dPrefix}--image__img--border`]: border && !lightbox,
     });
 
     return html`
@@ -232,11 +232,11 @@ class C4DImage extends StableSelectorMixin(
       ${lightbox
         ? html`
             <button
-              class="${prefix}--image-with-caption__image"
+              class="${c4dPrefix}--image-with-caption__image"
               aria-label="${ifDefined(launchLightboxButtonAssistiveText)}"
               @click="${handleClick}">
               ${this.renderImage()}
-              <div class="${prefix}--image-with-caption__zoom-button">
+              <div class="${c4dPrefix}--image-with-caption__zoom-button">
                 ${Maximize20()}
               </div>
             </button>
@@ -244,7 +244,7 @@ class C4DImage extends StableSelectorMixin(
         : html` ${this.renderImage()} `}
       ${heading
         ? html`
-            <p id="image-caption" class="${prefix}--image__caption">
+            <p id="image-caption" class="${c4dPrefix}--image__caption">
               ${heading}
             </p>
           `

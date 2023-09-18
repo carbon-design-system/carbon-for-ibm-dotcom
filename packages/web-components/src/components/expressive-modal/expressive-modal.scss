@@ -21,8 +21,8 @@
       max-height: none;
 
       @include breakpoint(md) {
-        width: calc(100% - $spacing-10);
-        height: calc(100% - $spacing-10);
+        // width: calc(100% - $spacing-07);
+        // height: calc(100% - $spacing-07);
       }
 
       .#{$prefix}--modal-content {

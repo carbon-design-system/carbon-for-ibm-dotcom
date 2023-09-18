@@ -39,11 +39,11 @@ export const Default = (args) => {
   if (video) {
     return (
       <C4DVideoCTAContainer>
-        <C4DCardInCard href="1_9h94wo6b" cta-type="video">
+        <C4DCardInCard href="0_ibuqxqbe" cta-type="video">
           <C4DCardEyebrow>{eyebrow}</C4DCardEyebrow>
           <C4DCardCTAFooter
             cta-type="video"
-            href="1_9h94wo6b"></C4DCardCTAFooter>
+            href="0_ibuqxqbe"></C4DCardCTAFooter>
         </C4DCardInCard>
       </C4DVideoCTAContainer>
     );

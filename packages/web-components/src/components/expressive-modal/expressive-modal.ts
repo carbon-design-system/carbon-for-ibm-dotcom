@@ -402,7 +402,7 @@ class C4DExpressiveModal extends StableSelectorMixin(
         hasHeader && (hasBody || hasFooter),
     });
     return html`
-      <div id="${c4dPrefix}--modal-header" class="${headerClasses}">
+      <div id="${prefix}--modal-header" class="${headerClasses}">
         <slot name="header"></slot>
       </div>
     `;
