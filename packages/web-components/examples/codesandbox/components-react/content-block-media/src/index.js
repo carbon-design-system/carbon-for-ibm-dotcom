@@ -25,9 +25,9 @@ import C4DCardCTAFooter from '@carbon/ibmdotcom-web-components/es/components-rea
 import './index.css';
 
 const App = () => (
-  <div className="bx--grid">
-    <div className="bx--row">
-      <div className="bx--col-sm-4 bx--col-lg-12 bx--offset-lg-4">
+  <div className="cds--grid">
+    <div className="cds--row">
+      <div className="cds--col-sm-4 cds--col-lg-12 cds--offset-lg-4">
         <C4DContentBlockMedia>
           <C4DContentBlockHeading>Curabitur malesuada varius mi eu posuere</C4DContentBlockHeading>
           <C4DContentBlockCopy size="lg">

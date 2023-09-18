@@ -165,15 +165,8 @@ module.exports = {
         use: 'null-loader',
       },
       {
-        test: /[\\/]ibmdotcom-styles[\\/]icons[\\/]/i,
-        use: [
-          ...babelLoaderRule.use,
-          require.resolve('../tools/svg-result-ibmdotcom-icon-loader'),
-        ],
-      },
-      {
         test: /\.svg$/,
-        use: ['@svgr/webpack'],
+        use: [{ loader: 'raw-loader' }],
       },
       {
         test: /\.stories\.[jt]sx?$/,
