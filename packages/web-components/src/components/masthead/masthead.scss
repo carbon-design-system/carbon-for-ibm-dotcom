@@ -565,8 +565,8 @@ $breakpoint--desktop-nav: 799px;
       $spacing-09 calc(#{$spacing-09} + 1px)
     )
     #{'/*!rtl:polygon(0 0, calc(100% - ' + $spacing-09 + ') 0, calc(100% - ' +
-    $spacing-09 + ') calc(' + $spacing-09 + ' + 1px), 100% calc(' +
-    $spacing-09 + ' + 1px), 100% 100%, 0 100%)*/'};
+    $spacing-09 + ') calc(' + $spacing-09 + ' + 1px), 100% calc(' + $spacing-09 +
+    ' + 1px), 100% 100%, 0 100%)*/'};
 }
 
 :host(#{$c4d-prefix}-left-nav-overlay) {

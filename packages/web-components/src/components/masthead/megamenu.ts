@@ -51,16 +51,16 @@ class C4DMegaMenu extends StableSelectorMixin(LitElement) {
           : navRightSelector
       }
     `);
-    const columnHeights: Array<number|undefined> = [];
+    const columnHeights: Array<number | undefined> = [];
     navColumns.forEach((column) => {
       const height = navColumnInnerSelector
         ? column.shadowRoot?.querySelector(navColumnInnerSelector)?.scrollHeight
         : column.scrollHeight;
       columnHeights.push(height);
     });
-    this.overflowing = columnHeights.some(height => (
+    this.overflowing = columnHeights.some((height) =>
       height ? height > this.scrollHeight : false
-    ));
+    );
   }
 
   connectedCallback() {
@@ -91,7 +91,8 @@ class C4DMegaMenu extends StableSelectorMixin(LitElement) {
     return html`
       <div class="${prefix}--masthead__megamenu__container">
         <div
-          class="${prefix}--masthead__megamenu__container--row ${prefix}--masthead__megamenu__container--row--${this.layout}">
+          class="${prefix}--masthead__megamenu__container--row ${prefix}--masthead__megamenu__container--row--${this
+            .layout}">
           <slot></slot>
         </div>
       </div>

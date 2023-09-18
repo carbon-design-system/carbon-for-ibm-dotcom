@@ -426,9 +426,9 @@ export default class CDSTabs extends HostListenerMixin(CDSContentSwitcher) {
             aria-hidden="true"
             class="${prefix}--tab--overflow-nav-button ${prefix}--tabs__nav-caret-left ${prefix}--tab--overflow-nav-button--previous"
             @click=${(_) =>
-            this._handleScrollButtonClick(_, {
-              direction: NAVIGATION_DIRECTION.Left,
-            })}>
+              this._handleScrollButtonClick(_, {
+                direction: NAVIGATION_DIRECTION.Left,
+              })}>
             ${ChevronLeft16()}
           </button>
         `
