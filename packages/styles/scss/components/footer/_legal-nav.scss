@@ -19,7 +19,7 @@
 /// @group footer
 
 @mixin legal-nav {
-  :host(#{$c4d-prefix}-legal-nav){
+  :host(#{$c4d-prefix}-legal-nav) {
     @include make-container;
   }
 
