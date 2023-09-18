@@ -73,7 +73,7 @@ export const Default = (args) => {
       ${withMedia === MEDIA_TYPE.VIDEO
         ? html`
             <c4d-content-item-horizontal-media-video
-              video-id="1_9h94wo6b"></c4d-content-item-horizontal-media-video>
+              video-id="0_ibuqxqbe"></c4d-content-item-horizontal-media-video>
           `
         : null}
     </c4d-content-item-horizontal>
@@ -115,7 +115,7 @@ export const WithMedia = (args) => {
       ${type === MEDIA_TYPE.VIDEO
         ? html`
             <c4d-content-item-horizontal-media-video
-              video-id="1_9h94wo6b"></c4d-content-item-horizontal-media-video>
+              video-id="0_ibuqxqbe"></c4d-content-item-horizontal-media-video>
           `
         : null}
       <c4d-content-item-horizontal-eyebrow
@@ -149,7 +149,7 @@ export const WithMediaFeatured = (args) => {
       ${type === MEDIA_TYPE.VIDEO
         ? html`
             <c4d-content-item-horizontal-media-video
-              video-id="1_9h94wo6b"></c4d-content-item-horizontal-media-video>
+              video-id="0_ibuqxqbe"></c4d-content-item-horizontal-media-video>
           `
         : null}
       <c4d-content-item-horizontal-eyebrow
