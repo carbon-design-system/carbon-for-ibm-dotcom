@@ -43,7 +43,7 @@ describe('c4d-video-cta-composite', function () {
       );
       videoCTAComposite!.dispatchEvent(
         new CustomEvent('c4d-cta-run-action', {
-          detail: { ctaType: 'video', href: '1_9h94wo6b' },
+          detail: { ctaType: 'video', href: '0_ibuqxqbe' },
         })
       );
       await Promise.resolve(); // Update cycle for `<c4d-video-cta-composite>`
@@ -65,7 +65,7 @@ describe('c4d-video-cta-composite', function () {
       ).toBe(true);
       const { videoId: videoIdInVideoPlayerCompositeOpen } =
         lightboxVideoPlayerComposite;
-      expect(videoIdInVideoPlayerCompositeOpen).toBe('1_9h94wo6b');
+      expect(videoIdInVideoPlayerCompositeOpen).toBe('0_ibuqxqbe');
       (
         lightboxRenderRoot.querySelector(
           'c4d-expressive-modal-close-button'

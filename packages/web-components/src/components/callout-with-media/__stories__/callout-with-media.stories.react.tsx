@@ -41,7 +41,7 @@ const image = (
 );
 
 const video = (
-  <C4DCalloutWithMediaVideo video-id="1_9h94wo6b"></C4DCalloutWithMediaVideo>
+  <C4DCalloutWithMediaVideo video-id="0_ibuqxqbe"></C4DCalloutWithMediaVideo>
 );
 
 export const Default = (args) => {
