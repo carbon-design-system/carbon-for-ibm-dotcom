@@ -49,8 +49,8 @@
       padding-right: 0;
       margin: 0;
     }
-  }
-  :host(c4d-leaving-ibm-modal-body) ::slotted(:last-child) {
-    padding-bottom: 0 !important;
+    ::slotted(:last-child) {
+      padding-bottom: 0;
+    }
   }
 }
