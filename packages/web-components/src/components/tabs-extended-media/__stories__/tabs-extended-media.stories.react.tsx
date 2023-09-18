@@ -68,7 +68,7 @@ export const Default = (args) => {
             ``
           )}
           {type === MEDIA_TYPE.VIDEO ? (
-            <C4DContentItemHorizontalMediaVideo video-id="1_9h94wo6b"></C4DContentItemHorizontalMediaVideo>
+            <C4DContentItemHorizontalMediaVideo video-id="0_ibuqxqbe"></C4DContentItemHorizontalMediaVideo>
           ) : (
             ``
           )}

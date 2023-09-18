@@ -48,7 +48,7 @@ aspectRatio1x1.story = {
           caption: text('Custom caption (caption):', ''),
           hideCaption: boolean('Hide caption (hideCaption):', false),
           thumbnail: text('Custom thumbnail (thumbnail):', ''),
-          videoId: '1_9h94wo6b',
+          videoId: '0_ibuqxqbe',
         };
       },
     },
@@ -78,7 +78,7 @@ aspectRatio4x3.story = {
           caption: text('Custom caption (caption):', ''),
           hideCaption: boolean('Hide caption (hideCaption):', false),
           thumbnail: text('Custom thumbnail (thumbnail):', ''),
-          videoId: '1_9h94wo6b',
+          videoId: '0_ibuqxqbe',
         };
       },
     },
@@ -103,7 +103,7 @@ export default {
         caption: text('Custom caption (caption):', ''),
         hideCaption: boolean('Hide caption (hideCaption):', false),
         thumbnailUrl: text('Custom thumbnail (thumbnail):', ''),
-        videoId: '1_9h94wo6b',
+        videoId: '0_ibuqxqbe',
       }),
     },
   },

@@ -159,7 +159,6 @@
     "@storybook/react": "^6.5.15",
     "@storybook/source-loader": "^6.5.15",
     "@storybook/web-components": "^6.5.15",
-    "@svgr/webpack": "^5.5.0",
     "@types/jasmine": "^3.10.2",
     "@types/lodash-es": "^4.17.5",
     "@types/prop-types": "^15.7.0",
