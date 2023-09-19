@@ -16,7 +16,7 @@ import '../expressive-modal/expressive-modal';
 import '../expressive-modal/expressive-modal-close-button';
 import { carbonElement as customElement } from '../../internal/vendor/@carbon/web-components/globals/decorators/carbon-element.js';
 
-const { prefix, stablePrefix: c4dPrefix } = settings;
+const { stablePrefix: c4dPrefix } = settings;
 
 /**
  * The image content of lightbox media viewer.
@@ -37,7 +37,7 @@ class C4DLightboxImageViewer extends C4DLightboxMediaViewerBody {
     const { alt, defaultSrc } = this;
     return html`
       <img
-        class="${prefix}--image__img"
+        class="${c4dPrefix}--image__img"
         alt="${ifDefined(alt)}"
         src="${ifDefined(defaultSrc)}"
         loading="lazy" />

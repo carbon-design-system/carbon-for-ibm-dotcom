@@ -9,7 +9,7 @@
 import { carbonElement as customElement } from '../../internal/vendor/@carbon/web-components/globals/decorators/carbon-element';
 import settings from '@carbon/ibmdotcom-utilities/es/utilities/settings/settings.js';
 import styles from './button-group.scss';
-import C4DButtonExpressive from '../button/button';
+import C4DButton from '../button/button';
 
 const { stablePrefix: c4dPrefix } = settings;
 
@@ -19,7 +19,7 @@ const { stablePrefix: c4dPrefix } = settings;
  * @element c4d-button-group-item
  */
 @customElement(`${c4dPrefix}-button-group-item`)
-class C4DButtonGroupItem extends C4DButtonExpressive {
+class C4DButtonGroupItem extends C4DButton {
   static get stableSelector() {
     return `${c4dPrefix}--button-group-item`;
   }

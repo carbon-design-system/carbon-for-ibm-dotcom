@@ -35,24 +35,24 @@ abstract class C4DLightboxMediaViewerBody extends FocusMixin(LitElement) {
 
   render() {
     return html`
-      <div class="${prefix}--lightbox-media-viewer__container">
-        <div class="${prefix}--lightbox-media-viewer__row">
+      <div class="${c4dPrefix}--lightbox-media-viewer__container">
+        <div class="${c4dPrefix}--lightbox-media-viewer__row">
           <div
-            class="${prefix}--lightbox-media-viewer__media ${prefix}--no-gutter">
+            class="${c4dPrefix}--lightbox-media-viewer__media ${prefix}--no-gutter">
             ${this._renderMedia()}
           </div>
           <div
-            class="${prefix}--lightbox-media-viewer__media-description ${prefix}--no-gutter">
-            <div class="${prefix}--lightbox-media-viewer__content">
+            class="${c4dPrefix}--lightbox-media-viewer__media-description ${prefix}--no-gutter">
+            <div class="${c4dPrefix}--lightbox-media-viewer__content">
               <div
                 part="title"
-                class="${prefix}--lightbox-media-viewer__content__title"
+                class="${c4dPrefix}--lightbox-media-viewer__content__title"
                 data-autoid="${c4dPrefix}--lightbox-media-viewer__content__title">
                 ${this._renderTitle()}
               </div>
               <div
                 part="description"
-                class="${prefix}--lightbox-media-viewer__content__desc"
+                class="${c4dPrefix}--lightbox-media-viewer__content__desc"
                 data-autoid="${c4dPrefix}--lightbox-media-viewer__content__desc">
                 ${this._renderDescription()}
               </div>

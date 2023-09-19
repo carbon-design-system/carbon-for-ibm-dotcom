@@ -16,7 +16,7 @@ import C4DCarousel from '../carousel/carousel';
 import C4DExpressiveModal from '../expressive-modal/expressive-modal';
 import { carbonElement as customElement } from '../../internal/vendor/@carbon/web-components/globals/decorators/carbon-element';
 
-const { prefix, stablePrefix: c4dPrefix } = settings;
+const { stablePrefix: c4dPrefix } = settings;
 
 /**
  * The image content of lightbox media viewer.
@@ -47,7 +47,7 @@ class C4DLightboxMediaViewer extends C4DLightboxMediaViewerBody {
 
   private _mediaItem?: HTMLElement;
 
-  @query(`.${prefix}--lightbox-media-viewer__media`)
+  @query(`.${c4dPrefix}--lightbox-media-viewer__media`)
   private _mediaWindow!: HTMLDivElement;
 
   private _containingCarousel?: C4DCarousel;
@@ -155,7 +155,7 @@ class C4DLightboxMediaViewer extends C4DLightboxMediaViewerBody {
       const { alt, defaultSrc } = this;
       this.innerHTML = `
         <img
-          class="${prefix}--image__img"
+          class="${c4dPrefix}--image__img"
           alt="${alt}"
           src="${defaultSrc}"
           loading="lazy"

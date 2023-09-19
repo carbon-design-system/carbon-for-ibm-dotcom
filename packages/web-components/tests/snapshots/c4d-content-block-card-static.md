@@ -37,6 +37,7 @@
     <c4d-button-group-item
       cta-type=""
       data-autoid="c4d--button-group-item"
+      isexpressive=""
       kind="primary"
       role="listitem"
       size="lg"
@@ -49,6 +50,7 @@
     <c4d-button-group-item
       cta-type=""
       data-autoid="c4d--button-group-item"
+      isexpressive=""
       kind="tertiary"
       role="listitem"
       size="lg"
@@ -134,6 +136,7 @@
     <c4d-button-group-item
       cta-type=""
       data-autoid="c4d--button-group-item"
+      isexpressive=""
       kind="primary"
       role="listitem"
       size="lg"
@@ -146,6 +149,7 @@
     <c4d-button-group-item
       cta-type=""
       data-autoid="c4d--button-group-item"
+      isexpressive=""
       kind="tertiary"
       role="listitem"
       size="lg"

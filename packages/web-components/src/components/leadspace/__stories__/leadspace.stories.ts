@@ -174,7 +174,7 @@ export const SuperWithVideo = (args) => {
       </c4d-button-group>
       <c4d-background-media slot="image" opacity="100">
         <c4d-video-player-container
-          video-id="1_9h94wo6b"
+          video-id="0_ibuqxqbe"
           background-mode="true"></c4d-video-player-container>
       </c4d-background-media>
     </c4d-leadspace>
@@ -295,7 +295,7 @@ export const TallWithVideo = (args) => {
       </c4d-button-group>
       <c4d-background-media slot="image" opacity="100">
         <c4d-video-player-container
-          video-id="1_9h94wo6b"
+          video-id="0_ibuqxqbe"
           background-mode="true"></c4d-video-player-container>
       </c4d-background-media>
     </c4d-leadspace>
@@ -416,7 +416,7 @@ export const MediumWithVideo = (args) => {
       </c4d-button-group>
       <c4d-background-media slot="image" opacity="100">
         <c4d-video-player-container
-          video-id="1_9h94wo6b"
+          video-id="0_ibuqxqbe"
           background-mode="true"></c4d-video-player-container>
       </c4d-background-media>
     </c4d-leadspace>
@@ -540,7 +540,7 @@ export const ShortWithVideo = (args) => {
       <c4d-leadspace-heading type-style="${typeStyle}" highlight=${highlight}>${ifDefined(title)}</c4d-leadspace-heading>
       <c4d-background-media slot="image" opacity="100">
         <c4d-video-player-container
-          video-id="1_9h94wo6b"
+          video-id="0_ibuqxqbe"
           background-mode="true"></c4d-video-player-container>
       </c4d-background-media>
     </c4d-leadspace>

@@ -144,7 +144,7 @@ const Default = (args) => {
       {hasVideo && (
         <C4DBackgroundMedia mobilePosition="bottom" opacity="100">
           <C4DVideoPlayerContainer
-            video-id="1_9h94wo6b"
+            video-id="0_ibuqxqbe"
             background-mode="true"></C4DVideoPlayerContainer>
         </C4DBackgroundMedia>
       )}
@@ -438,7 +438,7 @@ export const Short = (args) => {
       {hasVideo && (
         <C4DBackgroundMedia mobilePosition="bottom" opacity="100">
           <C4DVideoPlayerContainer
-            video-id="1_9h94wo6b"
+            video-id="0_ibuqxqbe"
             background-mode="true"></C4DVideoPlayerContainer>
         </C4DBackgroundMedia>
       )}
