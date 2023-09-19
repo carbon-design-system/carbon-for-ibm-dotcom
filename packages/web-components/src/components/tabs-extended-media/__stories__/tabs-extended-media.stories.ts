@@ -48,7 +48,7 @@ export const Default = (args) => {
           ${type === MEDIA_TYPE.VIDEO
             ? html`
                 <c4d-content-item-horizontal-media-video
-                  video-id="1_9h94wo6b"></c4d-content-item-horizontal-media-video>
+                  video-id="0_ibuqxqbe"></c4d-content-item-horizontal-media-video>
               `
             : ''}
           <c4d-content-item-heading>Tab heading ${i}</c4d-content-item-heading>

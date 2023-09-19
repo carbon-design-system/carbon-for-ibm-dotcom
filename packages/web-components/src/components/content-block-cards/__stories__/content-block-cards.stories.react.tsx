@@ -59,11 +59,11 @@ const cardGroupItemWithImages = (
 );
 
 const cardGroupItemWithVideos = (
-  <C4DCardGroupItem cta-type="video" href="1_9h94wo6b">
+  <C4DCardGroupItem cta-type="video" href="0_ibuqxqbe">
     <C4DCardCTAFooter
       cta-type="video"
       slot="footer"
-      href="1_9h94wo6b"></C4DCardCTAFooter>
+      href="0_ibuqxqbe"></C4DCardCTAFooter>
   </C4DCardGroupItem>
 );
 

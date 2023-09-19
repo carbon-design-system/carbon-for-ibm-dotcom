@@ -103,7 +103,7 @@ export const Default = (args) => {
           </C4DContentItemHeading>
           <C4DVideoPlayerContainer
             slot="media"
-            video-id="1_9h94wo6b"></C4DVideoPlayerContainer>
+            video-id="0_ibuqxqbe"></C4DVideoPlayerContainer>
           <C4DContentItemCopy>
             This are of NLP takes "real world" text and applies a symbolic
             system for a machine to interpret its meaning, using formal logic;

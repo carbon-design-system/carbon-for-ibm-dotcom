@@ -71,6 +71,11 @@ export const Default = (args) => {
     videoFooterCopy = duration;
   }
 
+  const copyComponent = document.querySelector('c4d-card')?.querySelector('p');
+  if (copyComponent) {
+    copyComponent!.innerHTML = copy;
+  }
+
   return html`
     <c4d-video-cta-container>
       <c4d-card
@@ -89,9 +94,11 @@ export const Default = (args) => {
           : ``}
         <c4d-card-eyebrow>${eyebrow}</c4d-card-eyebrow>
         <c4d-card-heading>${videoCopy ?? heading}</c4d-card-heading>
-        ${copy ? html` <p>${copy}</p> ` : ``}
+        ${copy ? html`<p></p>` : ``}
         ${tagGroup ? html` ${tagGroupContent} ` : ``}
-        <c4d-card-footer> ${videoFooterCopy ?? ''} </c4d-card-footer>
+        ${ctaType === CTA_TYPE.VIDEO
+          ? html` <c4d-card-footer> ${videoFooterCopy} </c4d-card-footer> `
+          : html`<c4d-card-footer></c4d-card-footer>`}
       </c4d-card>
     </c4d-video-cta-container>
   `;
@@ -174,13 +181,18 @@ Default.story = {
 export const Pictogram = (args) => {
   const { href, heading, copy, tagGroup, pictogramPlacement, cardStyles } =
     args?.PictogramCard ?? {};
+
+  const copyComponent = document.querySelector('c4d-card')?.querySelector('p');
+  if (copyComponent) {
+    copyComponent!.innerHTML = copy;
+  }
   return html`
     <c4d-card
       pictogram-placement="${pictogramPlacement}"
       href=${ifDefined(href || undefined)}
       color-scheme=${cardStyles === 'Inverse card' ? 'inverse' : ''}>
       <c4d-card-heading>${heading}</c4d-card-heading>
-      ${copy ? html` <p>${copy}</p> ` : ``}
+      ${copy ? html` <p></p> ` : ``}
       ${tagGroup ? html` ${tagGroupContent} ` : ``}
       <svg
         slot="pictogram"
@@ -267,6 +279,12 @@ export const Static = (args) => {
     cta,
     ctaCopy,
   } = args?.Card ?? {};
+
+  const copyComponent = document.querySelector('c4d-card')?.querySelector('p');
+  if (copyComponent) {
+    copyComponent!.innerHTML = copy;
+  }
+
   return html`
     <c4d-card>
       ${image
@@ -279,7 +297,7 @@ export const Static = (args) => {
         : ``}
       ${eyebrow ? html` <c4d-card-eyebrow>${eyebrow}</c4d-card-eyebrow> ` : ``}
       <c4d-card-heading>${heading}</c4d-card-heading>
-      ${copy ? html` <p>${copy}</p> ` : ``}
+      ${copy ? html` <p></p> ` : ``}
       ${tagGroup ? html` ${tagGroupContent} ` : ``}
       ${cta
         ? html`
@@ -345,6 +363,12 @@ Static.story = {
 export const Logo = (args) => {
   const { alt, defaultSrc, eyebrow, heading, href, copy, tagGroup } =
     args?.Card ?? {};
+
+  const copyComponent = document.querySelector('c4d-card')?.querySelector('p');
+  if (copyComponent) {
+    copyComponent!.innerHTML = copy;
+  }
+
   return html`
     <c4d-card logo href=${ifDefined(href || undefined)}>
       <c4d-image-logo
@@ -353,7 +377,7 @@ export const Logo = (args) => {
         default-src="${ifDefined(defaultSrc)}"></c4d-image-logo>
       ${eyebrow ? html` <c4d-card-eyebrow>${eyebrow}</c4d-card-eyebrow> ` : ``}
       ${heading ? html` <c4d-card-heading>${heading}</c4d-card-heading> ` : ``}
-      ${copy ? html` <p>${copy}</p> ` : ``}
+      ${copy ? html` <p></p> ` : ``}
       ${tagGroup ? html` ${tagGroupContent} ` : ``}
 
       <c4d-card-footer></c4d-card-footer>
