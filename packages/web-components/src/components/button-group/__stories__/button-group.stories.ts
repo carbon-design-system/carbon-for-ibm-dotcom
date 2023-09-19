@@ -35,8 +35,8 @@ export const Default = (args) => {
     <c4d-button-group>
       ${buttons.map(
         (elem) => html`
-          <c4d-button-group-item href="${elem.href}"
-            >${elem.copy}${elem.renderIcon}</c4d-button-group-item
+          <c4d-button-group-item cta-type="local" href="${elem.href}"
+            >${elem.copy}</c4d-button-group-item
           >
         `
       )}

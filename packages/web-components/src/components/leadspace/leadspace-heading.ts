@@ -7,8 +7,8 @@
  * LICENSE file in the root directory of this source tree.
  */
 
-import { LitElement, render, html } from 'lit';
-import { property, state } from 'lit/decorators.js';
+import { LitElement, html } from 'lit';
+import { property } from 'lit/decorators.js';
 import settings from '../../internal/vendor/@carbon/ibmdotcom-utilities/utilities/settings/settings';
 import styles from './leadspace.scss';
 import StableSelectorMixin from '../../globals/mixins/stable-selector';
@@ -39,7 +39,7 @@ class C4DLeadspaceHeading extends StableSelectorMixin(LitElement) {
    * The type style that can be used for the heading.
    */
   @property({reflect: true, attribute: 'type-style'})
-  typeStyle;
+  typeStyle = 'display-01';
 
   @property()
   content;
@@ -55,10 +55,13 @@ class C4DLeadspaceHeading extends StableSelectorMixin(LitElement) {
   }
 
   updated(changedProperties) {
+    
+    const textContent = this.innerText;
+    const h1 = document.createElement('h1');
+    h1.textContent = textContent;
 
 
     if(changedProperties.has('highlight') && this.highlight) {
-      const textContent = this.innerText;
       const index = textContent!.indexOf(this.highlight);
 
       if (index !== -1) {
@@ -67,17 +70,14 @@ class C4DLeadspaceHeading extends StableSelectorMixin(LitElement) {
         modifiedText.textContent = this.highlight;
         const afterSubstring = textContent!.substring(index + this.highlight.length);
 
-        const h1 = document.createElement('h1');
-        h1.textContent = textContent;
-
         this.replaceChildren(beforeSubstring, modifiedText, afterSubstring, h1);
      }
+    } else {
+      this.replaceChildren(textContent, h1);
     }
   }
 
   render() {
-
-    console.log('redenr')
     return html`
       <slot></slot>
     `;
