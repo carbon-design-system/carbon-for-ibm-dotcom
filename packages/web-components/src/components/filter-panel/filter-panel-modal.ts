@@ -14,7 +14,7 @@ import HostListenerMixin from '../../internal/vendor/@carbon/web-components/glob
 import './filter-group';
 import './filter-modal-button';
 import './filter-modal-heading';
-import CDSModal from '../../internal/vendor/@carbon/web-components/components/modal/modal.js';
+import DDSExpressiveModal from '../expressive-modal/expressive-modal';
 import ddsSettings from '../../internal/vendor/@carbon/ibmdotcom-utilities/utilities/settings/settings';
 import './filter-modal-footer';
 import StableSelectorMixin from '../../globals/mixins/stable-selector';
@@ -34,7 +34,7 @@ const { stablePrefix: ddsPrefix } = ddsSettings;
  */
 @customElement(`${ddsPrefix}-filter-panel-modal`)
 class DDSFilterPanelModal extends HostListenerMixin(
-  StableSelectorMixin(CDSModal)
+  StableSelectorMixin(DDSExpressiveModal)
 ) {
   /**
    * Renders the selected values.
@@ -92,7 +92,7 @@ class DDSFilterPanelModal extends HostListenerMixin(
       if (
         this.dispatchEvent(
           new CustomEvent(
-            (this.constructor as typeof CDSModal).eventBeforeClose,
+            (this.constructor as typeof DDSExpressiveModal).eventBeforeClose,
             init
           )
         )
@@ -100,7 +100,7 @@ class DDSFilterPanelModal extends HostListenerMixin(
         this.open = false;
         this.dispatchEvent(
           new CustomEvent(
-            (this.constructor as typeof CDSModal).eventClose,
+            (this.constructor as typeof DDSExpressiveModal).eventClose,
             init
           )
         );
@@ -109,12 +109,15 @@ class DDSFilterPanelModal extends HostListenerMixin(
   }
 
   render() {
+    const { _handleFocusIn: handleFocusIn } = this;
+
     return html`
-      <a
+      <button
         id="start-sentinel"
         class="${prefix}--visually-hidden"
-        href="javascript:void 0"
-        role="navigation"></a>
+        @focusin="${handleFocusIn}">
+        START
+      </button>
       <section class="${prefix}--filter-panel__section bx--modal-container">
         <cds-modal-header>
           <cds-modal-close-button
@@ -136,11 +139,12 @@ class DDSFilterPanelModal extends HostListenerMixin(
           >
         </dds-filter-modal-footer>
       </section>
-      <a
+      <button
         id="end-sentinel"
         class="${prefix}--visually-hidden"
-        href="javascript:void 0"
-        role="navigation"></a>
+        @focusin="${handleFocusIn}">
+        END
+      </button>
     `;
   }
 
