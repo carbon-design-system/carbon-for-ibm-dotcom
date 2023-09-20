@@ -536,6 +536,10 @@
     margin: 0;
     padding: 0;
 
+    .#{$prefix}--select {
+      display: block;
+    }
+
     .#{$prefix}--select-input {
       height: 100%;
       background-color: $background;
