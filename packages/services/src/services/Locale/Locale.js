@@ -15,7 +15,9 @@ import root from 'window-or-global';
  * @private
  */
 const _host =
-  (process && process.env.TRANSLATION_HOST) || 'https://1.www.s81c.com';
+  (process &&
+    (process.env.REACT_APP_TRANSLATION_HOST || process.env.TRANSLATION_HOST)) ||
+  'https://1.www.s81c.com';
 
 /**
  * Sets the default location if nothing is returned
