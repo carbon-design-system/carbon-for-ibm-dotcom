@@ -153,7 +153,7 @@ describe('TranslationAPI', () => {
       href: 'https://www.loremipsum.com',
     };
 
-    const expectedSessionKey = 'cds-translation-us-en';
+    const expectedSessionKey = 'c4d-translation-us-en';
 
     await TranslationAPI.getTranslation({
       lc: 'en',
@@ -167,7 +167,7 @@ describe('TranslationAPI', () => {
   it('should return a json with a recent timestamp', async () => {
     // using very old cached session
     sessionStorageMock.setItem(
-      'cds-translation-us-en',
+      'c4d-translation-us-en',
       JSON.stringify(Object.assign(oldSession, { CACHE: true }))
     );
 
@@ -177,7 +177,7 @@ describe('TranslationAPI', () => {
     });
 
     const newSession = JSON.parse(
-      sessionStorageMock.getItem('cds-translation-us-en')
+      sessionStorageMock.getItem('c4d-translation-us-en')
     );
 
     // fresh data would lack this property
