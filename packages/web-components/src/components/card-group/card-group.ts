@@ -168,11 +168,11 @@ class C4DCardGroup extends StableSelectorMixin(LitElement) {
         this._setSameHeight();
       }
       if (this.gridMode !== GRID_MODE.NARROW) {
-        this._fillLastRowWithEmptyCards(columnCount);
-        this._borderAdjustments(columnCount);
+        this._fillLastRowWithEmptyCards();
+        // this._borderAdjustments(columnCount);
       } else {
         this._removeEmptyCards();
-        this._resetBorders();
+        // this._resetBorders();
       }
     });
   };
@@ -289,17 +289,17 @@ class C4DCardGroup extends StableSelectorMixin(LitElement) {
     });
   };
 
-  private _resetBorders = () => {
-    this._childItems.forEach((elem) => {
-      elem.toggleAttribute('border', false);
-      elem.style.paddingTop = '';
-      elem.style.paddingRight = '';
-      elem.style.paddingBottom = '';
-      elem.style.paddingLeft = '';
-    });
-  };
+  // private _resetBorders = () => {
+  //   this._childItems.forEach((elem) => {
+  //     elem.toggleAttribute('border', false);
+  //     elem.style.paddingTop = '';
+  //     elem.style.paddingRight = '';
+  //     elem.style.paddingBottom = '';
+  //     elem.style.paddingLeft = '';
+  //   });
+  // };
 
-  private _fillLastRowWithEmptyCards = (columnCount) => {
+  private _fillLastRowWithEmptyCards = () => {
     // remove all empty cards
     this._removeEmptyCards();
 
