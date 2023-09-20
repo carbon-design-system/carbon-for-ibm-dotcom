@@ -34,9 +34,9 @@ import TouchScreen from '@carbon/pictograms-react/es/touch--screen/index.js';
 import './index.css';
 
 const App = () => (
-  <div className="bx--grid">
-    <div className="bx--row">
-      <div className="bx--col-sm-4 bx--col-lg-8 bx--offset-lg-4">
+  <div className="cds--grid">
+    <div className="cds--row">
+      <div className="cds--col-sm-4 cds--col-lg-8 cds--offset-lg-4">
         <C4DContentBlockMixed>
           <C4DContentBlockHeading>Lorem ipsum dolor sit amet</C4DContentBlockHeading>
           <C4DContentBlockCopy>

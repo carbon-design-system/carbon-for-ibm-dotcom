@@ -11,6 +11,7 @@ import { LitElement, html } from 'lit';
 import { property } from 'lit/decorators.js';
 import { classMap } from 'lit/directives/class-map.js';
 import { ifDefined } from 'lit/directives/if-defined.js';
+import { unsafeSVG } from 'lit/directives/unsafe-svg.js';
 import FocusMixin from '../../internal/vendor/@carbon/web-components/globals/mixins/focus.js';
 import PlayVideo from '@carbon/ibmdotcom-styles/icons/svg/play-video.svg';
 import {
@@ -30,7 +31,7 @@ import { carbonElement as customElement } from '../../internal/vendor/@carbon/we
 export { VIDEO_PLAYER_CONTENT_STATE };
 export { VIDEO_PLAYER_PLAYING_MODE };
 
-const { prefix, stablePrefix: c4dPrefix } = settings;
+const { stablePrefix: c4dPrefix } = settings;
 
 /**
  * Video player.
@@ -80,12 +81,12 @@ class C4DVideoPlayer extends FocusMixin(
     return contentState === VIDEO_PLAYER_CONTENT_STATE.THUMBNAIL &&
       !backgroundMode
       ? html`
-          <div class="${prefix}--video-player__video">
+          <div class="${c4dPrefix}--video-player__video">
             <button
-              class="${prefix}--video-player__image-overlay"
+              class="${c4dPrefix}--video-player__image-overlay"
               @click="${this._handleClickOverlay}">
               <c4d-image default-src="${thumbnailUrl}" alt="${ifDefined(name)}">
-                ${PlayVideo({ slot: 'icon' })}
+                ${unsafeSVG(PlayVideo)}
               </c4d-image>
             </button>
           </div>
@@ -223,8 +224,9 @@ class C4DVideoPlayer extends FocusMixin(
     } = this;
 
     const aspectRatioClass = classMap({
-      [`${prefix}--video-player__video-container`]: true,
-      [`${prefix}--video-player__aspect-ratio--${aspectRatio}`]: !!aspectRatio,
+      [`${c4dPrefix}--video-player__video-container`]: true,
+      [`${c4dPrefix}--video-player__aspect-ratio--${aspectRatio}`]:
+        !!aspectRatio,
     });
 
     return html`
@@ -232,7 +234,7 @@ class C4DVideoPlayer extends FocusMixin(
       ${hideCaption
         ? undefined
         : html`
-            <div class="${prefix}--video-player__video-caption">
+            <div class="${c4dPrefix}--video-player__video-caption">
               ${formatCaption({
                 duration: formatDuration({
                   duration: !duration ? duration : duration * 1000,

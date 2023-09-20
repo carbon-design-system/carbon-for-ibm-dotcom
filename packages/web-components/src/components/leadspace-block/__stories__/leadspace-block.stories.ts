@@ -86,7 +86,7 @@ export const WithVideo = (args) => {
         <c4d-content-block-copy>${copy}</c4d-content-block-copy>
         <c4d-leadspace-block-media slot="media"
           ><c4d-video-player-container
-            video-id="1_9h94wo6b"></c4d-video-player-container
+            video-id="0_ibuqxqbe"></c4d-video-player-container
         ></c4d-leadspace-block-media>
         ${linkList} ${buttonCTA}
       </c4d-leadspace-block-content>

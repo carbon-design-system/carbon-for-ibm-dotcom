@@ -10,7 +10,7 @@
 import { html } from 'lit';
 import { boolean, select } from '@storybook/addon-knobs';
 import textNullable from '../../../../.storybook/knob-text-nullable';
-// import readme from './README.stories.mdx';
+import readme from './README.stories.mdx';
 import { CTA_TYPE } from '../../cta/defs';
 
 import {
@@ -56,7 +56,7 @@ export default {
   title: 'Components/Button',
   decorators: [(story) => html` <div class="cds--grid">${story()}</div> `],
   parameters: {
-    // ...readme.parameters,
+    ...readme.parameters,
     hasStoryPadding: true,
     knobs: {
       Button: () => {
@@ -68,7 +68,7 @@ export default {
         const copy =
           ctaType === CTA_TYPE.VIDEO
             ? undefined
-            : textNullable('Link text (unnamed slot)', 'Link text');
+            : textNullable('Link text (unnamed slot)', 'Button text');
         const download = ![CTA_TYPE.DOWNLOAD, CTA_TYPE.PDF].includes(ctaType)
           ? undefined
           : textNullable(
@@ -95,7 +95,7 @@ export default {
     propsSet: {
       default: {
         Button: {
-          copy: 'Link text',
+          copy: 'Button text',
           disabled: false,
           href: 'https://github.com/carbon-design-system/carbon-web-components',
         },

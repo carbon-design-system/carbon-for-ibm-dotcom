@@ -96,6 +96,12 @@ class NoticeChoice extends StableSelectorMixin(LitElement) {
     NC_HIDDEN_PHONE: worldWideContent.cc_default_status,
   };
 
+  @property({ reflect: true })
+  hiddenEmail = '';
+
+  @property({ reflect: true })
+  hiddenPhone = '';
+
   prepareCheckboxes() {
     if (this.ncData) {
       const OptInContent = this.ncData;
@@ -236,6 +242,7 @@ class NoticeChoice extends StableSelectorMixin(LitElement) {
 
   private checkBoxChange($event: any) {
     const id = $event.target.id;
+
     const checked = $event.target.checked;
     const newValues = {
       ...this.values,
@@ -246,7 +253,8 @@ class NoticeChoice extends StableSelectorMixin(LitElement) {
     this.changed = true;
     const hiddenFieldName = `NC_HIDDEN_${id}`;
     const hiddenFieldStatus = checked ? 'PERMISSION' : 'SUPPRESSION';
-    this.values['checkBoxStatus'] = hiddenFieldStatus;
+    this.values[id] = {};
+    this.values[id]['checkBoxStatus'] = hiddenFieldStatus;
     this._onChange(hiddenFieldName, hiddenFieldStatus);
   }
   static get stableSelector() {
@@ -280,7 +288,6 @@ class NoticeChoice extends StableSelectorMixin(LitElement) {
   }
   preTextTemplate() {
     if (this.ncData) {
-      const lang = this.locale;
       const country = this.country.toLocaleLowerCase();
       const ecmTranslateContent = this.ncData;
       let preText = ecmTranslateContent.preText;
@@ -303,35 +310,6 @@ class NoticeChoice extends StableSelectorMixin(LitElement) {
         preText = ecmTranslateContent.country[country.toLowerCase()].preText;
       }
 
-      const opt_out_url =
-        'https://www.ibm.com/account/reg/' +
-        country +
-        '-' +
-        lang +
-        '/signup?formid=urx-42537';
-
-      const noticeChoiceRegex = {
-        optoutMath: new RegExp('<optout>.*</optout>', 'g'),
-        optoutReplace: new RegExp('<optout>|</optout>', 'g'),
-      };
-      const optOutLink = preText.match(noticeChoiceRegex.optoutMath);
-      if (optOutLink) {
-        const optoutAnrTagHtml = optOutLink[0].replace(
-          noticeChoiceRegex.optoutReplace,
-          ''
-        );
-        const optoutReplaceValue =
-          "<a href='" +
-          opt_out_url +
-          "' target='_blank' class='ibm-tooltip' >" +
-          optoutAnrTagHtml +
-          '</a>';
-        preText = preText.replace(
-          noticeChoiceRegex.optoutMath,
-          optoutReplaceValue
-        );
-      }
-
       return html`${unsafeHTML(preText)}`;
     } else {
       return html``;
@@ -343,7 +321,7 @@ class NoticeChoice extends StableSelectorMixin(LitElement) {
       let postText = this.ncData.postText;
 
       if (postText) {
-        postText = '<p>' + postText + '</p>';
+        postText = '<p part="ncPostText">' + postText + '</p>';
       }
 
       if (this.termsConditionLink) {
@@ -357,7 +335,10 @@ class NoticeChoice extends StableSelectorMixin(LitElement) {
         }
       }
       if (postText !== '') {
-        postText = "<div id='ncPostTextContainer'>" + postText + '</div>';
+        postText =
+          "<div part='ncPostTextContainer' id='ncPostTextContainer'>" +
+          postText +
+          '</div>';
       }
       return html`${unsafeHTML(postText)}`;
     } else {
@@ -373,8 +354,8 @@ class NoticeChoice extends StableSelectorMixin(LitElement) {
   }
   render() {
     return html`<section class="${prefix}--nc">
-    <p id="ncHeading" class="${c4dPrefix}--nc__pre-text">${this.preTextTemplate()} </p>
-      <div class="${prefix}--checkbox-group">
+    <p part='ncHeading' id="ncHeading" class="${c4dPrefix}--nc__pre-text">${this.preTextTemplate()} </p>
+      <div part='${prefix}--checkbox-group' class="${prefix}--checkbox-group">
             ${
               Object.keys(this.checkboxes).length !== 0
                 ? Object.keys(this.checkboxes).length > 0 &&
@@ -383,19 +364,23 @@ class NoticeChoice extends StableSelectorMixin(LitElement) {
                     const checkbox = this.checkboxes[key];
                     const hiddenBox = {
                       id: 'NC_HIDDEN_' + key,
-                      value: this.values['checkBoxStatus']
-                        ? this.values['checkBoxStatus']
+                      value: this.values[key]['checkBoxStatus']
+                        ? this.values[key]['checkBoxStatus']
                         : this.values[key]
                         ? 'PERMISSION'
                         : 'UNCHANGED',
                     };
+                    key === 'EMAIL' ? (this.hiddenEmail = hiddenBox.value) : '';
+                    key === 'PHONE' ? (this.hiddenPhone = hiddenBox.value) : '';
                     return this.checkBoxTemplate(checkbox, checked, hiddenBox);
                   })
-                : 'Loading ...'
+                : ''
             }
+
           </div>
-          <div class="${prefix}--nc__post-text"
+          <div part='${prefix}--nc__post-text' class="${prefix}--nc__post-text"
           >${this.postTextTemplate()}</div>
+          
         </div>
         ${this.getBpidLegalText()}
     </section>`;

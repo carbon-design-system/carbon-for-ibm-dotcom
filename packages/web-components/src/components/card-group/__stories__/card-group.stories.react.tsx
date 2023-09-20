@@ -1,7 +1,7 @@
 /**
  * @license
  *
- * Copyright IBM Corp. 2020, 2022
+ * Copyright IBM Corp. 2020, 2023
  *
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
@@ -113,22 +113,26 @@ const cardsDiffLengthPhrase = (
     </C4DCardGroupItem>
   );
 
-  const videoCardGroupItem = (
+  const videoCardGroupItem = (videoId = '1_9h94wo6b') => (
     <C4DCardGroupItem
       cta-type="video"
-      href="1_9h94wo6b"
+      href={videoId}
       color-scheme={gridMode === 'border' ? 'light' : null}>
       <C4DCardEyebrow>Topic</C4DCardEyebrow>
       {tagGroup ? tagGroupContent : ''}
       <C4DCardCTAFooter
         cta-type="video"
-        href="1_9h94wo6b"
+        href={videoId}
         slot="footer"></C4DCardCTAFooter>
     </C4DCardGroupItem>
   );
 
+  const demoVideoIds = ['1_9h94wo6b', '0_ibuqxqbe', '1_6b6qjovy'];
+
   count = count > 3 ? 0 : count + 1;
-  return media && index % 2 ? videoCardGroupItem : defaultCardGroupItem;
+  return media && index % 2
+    ? videoCardGroupItem(demoVideoIds[index % 3])
+    : defaultCardGroupItem;
 };
 
 const longHeadingCardGroupItem = (
@@ -216,7 +220,7 @@ const cardInCardItems = (i, tagGroup, media, gridMode) => {
         colorScheme={gridMode === 'border' ? 'light' : null}>
         <C4DCardEyebrow>Topic</C4DCardEyebrow>
         {tagGroup ? tagGroupContent : ''}
-        <C4DCardCTAFooter cta-type="video" slot="footer" href="1_9h94wo6b" />
+        <C4DCardCTAFooter cta-type="video" slot="footer" href="0_ibuqxqbe" />
       </C4DCardGroupItem>
     );
   }
