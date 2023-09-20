@@ -9,6 +9,7 @@
 
 import { TemplateResult, html, LitElement } from 'lit';
 import { property, query, state } from 'lit/decorators.js';
+import ArrowRight20 from '../../internal/vendor/@carbon/web-components/icons/arrow--right/20';
 import CDSLink from '../../internal/vendor/@carbon/web-components/components/link/link.js';
 import markdownToHtml from '../../internal/vendor/@carbon/ibmdotcom-utilities/utilities/markdownToHtml/markdownToHtml.js';
 import { carbonElement as customElement } from '../../internal/vendor/@carbon/web-components/globals/decorators/carbon-element.js';
@@ -18,7 +19,6 @@ import StableSelectorMixin from '../../globals/mixins/stable-selector';
 import C4DCardFooter from './card-footer';
 import styles from './card.scss';
 import { PICTOGRAM_PLACEMENT } from './defs';
-// import PlayVideo from '@carbon/ibmdotcom-styles/icons/svg/play-video.svg';
 
 import { CTA_TYPE } from '../cta/defs';
 
@@ -111,8 +111,6 @@ class C4DCard extends CTAMixin(StableSelectorMixin(CDSLink)) {
       noPoster,
     } = this;
 
-    // TODO: SVGs aren't currently working in v2, add this within c4d-image when fixed
-    // PlayVideo({ slot: 'icon' })
     const image =
       hasImage || ctaType !== CTA_TYPE.VIDEO || noPoster
         ? undefined
@@ -142,17 +140,14 @@ class C4DCard extends CTAMixin(StableSelectorMixin(CDSLink)) {
    * @returns The inner content.
    */
   protected _renderInner() {
-    const {
-      _handleSlotChange: handleSlotChange,
-      _hasPictogram: hasPictogram,
-      _hasCopy: hasCopy,
-    } = this;
+    const { _handleSlotChange: handleSlotChange, _hasPictogram: hasPictogram } =
+      this;
     return html`
       ${this._renderImage()}
       <div
         class="${prefix}--card__wrapper ${hasPictogram
           ? `${prefix}--card__pictogram`
-          : ''} ${hasPictogram && hasCopy ? `${prefix}--card__motion` : ''}">
+          : ''}">
         <div class="${prefix}--card__content">
           ${hasPictogram ? '' : html` <slot name="eyebrow"></slot> `}
           ${this.pictogramPlacement === PICTOGRAM_PLACEMENT.TOP
@@ -191,12 +186,6 @@ class C4DCard extends CTAMixin(StableSelectorMixin(CDSLink)) {
   }
 
   /**
-   * An optional 1px border surrounding the component.
-   */
-  @property({ type: Boolean, reflect: true })
-  border = false;
-
-  /**
    * The color scheme.
    * A typical use case of using another color scheme of card is having a "CTA" purpose of card at the last in card group.
    *
@@ -215,7 +204,7 @@ class C4DCard extends CTAMixin(StableSelectorMixin(CDSLink)) {
    * Pictogram placement
    */
   @property({ attribute: 'pictogram-placement', reflect: true })
-  pictogramPlacement = '';
+  pictogramPlacement = PICTOGRAM_PLACEMENT.BOTTOM;
 
   /**
    * Whether or not to apply the logo style.
@@ -329,7 +318,6 @@ class C4DCard extends CTAMixin(StableSelectorMixin(CDSLink)) {
       this.videoDuration ? null : (this.videoDuration = formattedVideoDuration);
 
       this.videoTitle = formatVideoCaption({
-        duration: formattedVideoDuration,
         name: videoName,
       });
 
@@ -377,7 +365,7 @@ class C4DCard extends CTAMixin(StableSelectorMixin(CDSLink)) {
             aria-live="polite"
             aria-describedby="${prefix}--card__copy"
             role="button">
-            ${this._renderInner()}
+            ${this._renderInner()} ${ArrowRight20()}
           </div>
         `
       : html` <div>${this._renderInner()}</div> `;

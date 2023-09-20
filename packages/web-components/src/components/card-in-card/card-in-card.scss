@@ -11,6 +11,6 @@
 @use '../card/card';
 @use '@carbon/ibmdotcom-styles/scss/globals/vars' as *;
 
-:host(#{$cds-prefix}-card-in-card) {
+:host(#{$c4d-prefix}-card-in-card) {
   display: block;
 }

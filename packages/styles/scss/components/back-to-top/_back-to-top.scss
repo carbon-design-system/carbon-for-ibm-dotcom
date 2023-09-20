@@ -13,7 +13,7 @@
 @use '@carbon/styles/scss/components/button' as *;
 
 @mixin back-to-top {
-  :host(#{$cds-prefix}-back-to-top) {
+  :host(#{$c4d-prefix}-back-to-top) {
     position: sticky;
     bottom: 0;
     display: flex;
@@ -44,7 +44,7 @@
   }
 
   @media print {
-    :host(#{$cds-prefix}-back-to-top) {
+    :host(#{$c4d-prefix}-back-to-top) {
       display: none;
     }
   }

@@ -104,21 +104,25 @@ const cardsDiffLengthPhrase = (
     </c4d-card-group-item>
   `;
 
-  const videoCardGroupItem = html`
+  const videoCardGroupItem = (videoId = '1_9h94wo6b') => html`
     <c4d-card-group-item
       cta-type="video"
-      href="1_9h94wo6b"
+      href="${videoId}"
       color-scheme=${gridMode === 'border' ? 'light' : null}>
       <c4d-card-eyebrow>Topic</c4d-card-eyebrow>
       <c4d-card-heading></c4d-card-heading>
       ${tagGroup ? tagGroupContent : ''}
-      <c4d-card-footer cta-type="video" slot="footer" href="1_9h94wo6b">
+      <c4d-card-footer cta-type="video" slot="footer" href="0_ibuqxqbe">
       </c4d-card-footer>
     </c4d-card-group-item>
   `;
 
+  const demoVideoIds = ['1_9h94wo6b', '0_ibuqxqbe', '1_6b6qjovy'];
+
   count = count > 3 ? 0 : count + 1;
-  return media && index % 2 ? videoCardGroupItem : defaultCardGroupItem;
+  return media && index % 2
+    ? videoCardGroupItem(demoVideoIds[index % 3])
+    : defaultCardGroupItem;
 };
 
 const longHeadingCardGroupItem = (
@@ -221,11 +225,11 @@ const cardInCardItems = (i, tagGroup, media, gridMode) => {
       : html`
           <c4d-card-group-item
             cta-type="video"
-            href="1_9h94wo6b"
+            href="0_ibuqxqbe"
             color-scheme=${gridMode === 'border' ? 'light' : null}>
             <c4d-card-eyebrow>Topic</c4d-card-eyebrow>
             ${tagGroup ? tagGroupContent : ''}
-            <c4d-card-footer cta-type="video" slot="footer" href="1_9h94wo6b">
+            <c4d-card-footer cta-type="video" slot="footer" href="0_ibuqxqbe">
             </c4d-card-footer>
           </c4d-card-group-item>
         `;

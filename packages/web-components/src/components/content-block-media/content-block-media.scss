@@ -12,21 +12,21 @@
 @use '@carbon/ibmdotcom-styles/scss/components/content-group-simple';
 @use '@carbon/ibmdotcom-styles/scss/globals/vars' as *;
 
-:host(#{$cds-prefix}-content-block-media),
-:host(#{$cds-prefix}-content-block-media-content) {
+:host(#{$c4d-prefix}-content-block-media),
+:host(#{$c4d-prefix}-content-block-media-content) {
   display: block;
 }
 
-:host(#{$cds-prefix}-content-block-media-content) {
-  @extend :host(#{$cds-prefix}-content-group-simple);
+:host(#{$c4d-prefix}-content-block-media-content) {
+  @extend :host(#{$c4d-prefix}-content-group-simple);
 
-  &::slotted(#{$cds-prefix}-card-link) {
+  &::slotted(#{$c4d-prefix}-card-link) {
     margin-left: -$spacing-05;
     margin-right: -$spacing-05;
     display: block;
   }
 
-  ::slotted(#{$cds-prefix}-content-block-complementary) {
+  ::slotted(#{$c4d-prefix}-content-block-complementary) {
     @include breakpoint-down(lg) {
       margin: $spacing-10 0;
     }

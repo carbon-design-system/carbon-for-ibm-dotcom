@@ -17,10 +17,10 @@
 @use '@carbon/ibmdotcom-styles/scss/globals/utils/flex-grid' as *;
 @use '@carbon/ibmdotcom-styles/scss/globals/vars' as *;
 
-// :host(#{$cds-prefix}-locale-modal) {
-//   @extend :host(#{$cds-prefix}-expressive-modal);
+// :host(#{$c4d-prefix}-locale-modal) {
+//   @extend :host(#{$c4d-prefix}-expressive-modal);
 
-//   #{$cds-prefix}-expressive-modal-header {
+//   #{$c4d-prefix}-expressive-modal-header {
 //     padding: 0 20% 0 $spacing-05;
 //     margin-bottom: $spacing-03;
 //   }
@@ -46,15 +46,15 @@
 //   }
 // }
 
-// :host(#{$cds-prefix}-locale-modal) #{$cds-prefix}-expressive-modal-heading {
+// :host(#{$c4d-prefix}-locale-modal) #{$c4d-prefix}-expressive-modal-heading {
 //   width: fit-content;
 // }
 
-// :host(#{$cds-prefix}-locale-search) {
+// :host(#{$c4d-prefix}-locale-search) {
 //   padding-top: $spacing-03;
 // }
 
-// :host(#{$cds-prefix}-region-item) {
+// :host(#{$c4d-prefix}-region-item) {
 //   @include breakpoint('sm', $grid-breakpoints) {
 //     @include make-col(4, map.get(map.get($grid-breakpoints, 'sm'), 'columns'));
 //   }

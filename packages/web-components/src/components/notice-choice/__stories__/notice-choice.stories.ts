@@ -81,6 +81,8 @@ export const Default = (args) => {
     questionchoices,
     enableAllOptIn,
     bpidLegalText,
+    hiddenEmail,
+    hiddenPhone,
   } = args?.NoticeChoice ?? {};
   return html`
     <c4d-notice-choice
@@ -92,12 +94,14 @@ export const Default = (args) => {
       terms-condition-link="${termsConditionLink}"
       ?enable-all-opt-in=${enableAllOptIn}
       bpid-legal-text="${bpidLegalText}"
+      .hiddenEmail="${hiddenEmail}"
+      .hiddenPhone="${hiddenPhone}"
       @c4d-notice-choice-change=${onChange}></c4d-notice-choice>
   `;
 };
 
 export default {
-  title: 'Components/Notice Choice',
+  title: 'IBM components/Notice Choice',
   decorators: [
     (story) => html`
       <div class="cds--grid">

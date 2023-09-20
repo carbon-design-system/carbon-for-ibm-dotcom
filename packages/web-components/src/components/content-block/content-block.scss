@@ -16,28 +16,28 @@
 @use '@carbon/ibmdotcom-styles/scss/globals/utils/flex-grid' as *;
 @use '@carbon/ibmdotcom-styles/scss/globals/vars' as *;
 
-:host(#{$cds-prefix}-content-block),
-:host(#{$cds-prefix}-callout-with-media-copy),
-:host(#{$cds-prefix}-content-block-copy),
-:host(#{$cds-prefix}-content-block-heading),
-:host(#{$cds-prefix}-content-block-complementary),
-:host(#{$cds-prefix}-content-block-paragraph) {
+:host(#{$c4d-prefix}-content-block),
+:host(#{$c4d-prefix}-callout-with-media-copy),
+:host(#{$c4d-prefix}-content-block-copy),
+:host(#{$c4d-prefix}-content-block-heading),
+:host(#{$c4d-prefix}-content-block-complementary),
+:host(#{$c4d-prefix}-content-block-paragraph) {
   display: block;
 }
 
 // TODO: Consider applying this rule in general
-:host(#{$cds-prefix}-content-block-simple),
-:host(#{$cds-prefix}-content-block-segmented) {
-  ::slotted(#{$cds-prefix}-callout-with-media-copy),
-  ::slotted(#{$cds-prefix}-content-block-copy) {
+:host(#{$c4d-prefix}-content-block-simple),
+:host(#{$c4d-prefix}-content-block-segmented) {
+  ::slotted(#{$c4d-prefix}-callout-with-media-copy),
+  ::slotted(#{$c4d-prefix}-content-block-copy) {
     @include breakpoint(md) {
       width: calc((100% - 2 * #{$spacing-05}) * 0.9);
     }
   }
 }
 
-:host(#{$cds-prefix}-callout-with-media-copy[size='sm']),
-:host(#{$cds-prefix}-content-block-copy[size='sm']) {
+:host(#{$c4d-prefix}-callout-with-media-copy[size='sm']),
+:host(#{$c4d-prefix}-content-block-copy[size='sm']) {
   width: auto;
   max-width: none;
 
@@ -45,18 +45,18 @@
     @include content-width;
   }
 
-  ::slotted(#{$cds-prefix}-content-block-paragraph) {
+  ::slotted(#{$c4d-prefix}-content-block-paragraph) {
     @include type-style('body-02');
 
     margin-bottom: $spacing-06;
   }
 }
 
-.#{$cds-prefix}--content-block-footer {
-  @extend :host(#{$cds-prefix}-card-group);
+.#{$c4d-prefix}--content-block-footer {
+  @extend :host(#{$c4d-prefix}-card-group);
 }
 
 // TODO: Apply `cds--make-col(2, 3)` to React version, too, so we can merge the style to React version
-.#{$cds-prefix}-ce--content-block__col {
+.#{$c4d-prefix}-ce--content-block__col {
   @include make-col(2, 3);
 }

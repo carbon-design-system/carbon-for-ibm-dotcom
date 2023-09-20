@@ -5,47 +5,4 @@
 // LICENSE file in the root directory of this source tree.
 //
 
-@use '@carbon/styles/scss/breakpoint' as *;
-@use '@carbon/styles/scss/config' as *;
-@use '@carbon/styles/scss/spacing' as *;
-@use '@carbon/styles/scss/theme' as *;
-@use '@carbon/ibmdotcom-styles/scss/globals/vars' as *;
 @use '@carbon/ibmdotcom-styles/scss/components/card';
-@use '@carbon/ibmdotcom-styles/scss/components/link-with-icon';
-
-:host(#{$cds-prefix}-card-footer),
-:host(#{$cds-prefix}-card-cta-footer) {
-  align-self: flex-start;
-  max-width: 90%;
-
-  @include breakpoint(md) {
-    max-width: calc(100% - #{$spacing-07});
-  }
-
-  .#{$cds-prefix}-ce--card__footer--static {
-    color: $link-primary;
-  }
-
-  &[color-scheme='inverse'] .#{$cds-prefix}-ce--card__footer--static {
-    color: $link-inverse;
-  }
-
-  &[color-scheme='inverse']
-    .#{$prefix}--link-with-icon.#{$prefix}--link-with-icon--inline-icon {
-    svg,
-    ::slotted(svg[slot='icon']) {
-      color: $link-inverse;
-    }
-  }
-
-  &:hover {
-    ::slotted(svg[slot='icon']),
-    .#{$prefix}--card__cta__copy {
-      color: $link-primary-hover;
-    }
-  }
-}
-
-:host(#{$cds-prefix}-card-footer[href])::after {
-  position: relative;
-}

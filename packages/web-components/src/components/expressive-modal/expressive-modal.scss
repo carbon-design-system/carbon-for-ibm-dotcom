@@ -13,7 +13,7 @@
 @use '@carbon/ibmdotcom-styles/scss/components/expressive-modal';
 @use '../../../../carbon-web-components/src/components/modal/modal';
 
-:host(#{$cds-prefix}-expressive-modal) {
+:host(#{$c4d-prefix}-expressive-modal) {
   @extend :host(#{$prefix}-modal);
 
   &[expressive-size='full-width'] {
@@ -21,8 +21,8 @@
       max-height: none;
 
       @include breakpoint(md) {
-        width: calc(100% - $spacing-10);
-        height: calc(100% - $spacing-10);
+        // width: calc(100% - $spacing-07);
+        // height: calc(100% - $spacing-07);
       }
 
       .#{$prefix}--modal-content {
@@ -40,44 +40,44 @@
     grid-template-rows: auto 1fr auto;
   }
 
-  .#{$cds-prefix}-ce--modal__header--with-body {
+  .#{$c4d-prefix}-ce--modal__header--with-body {
     margin-bottom: $spacing-05;
   }
 
-  .#{$cds-prefix}-ce--modal__body {
+  .#{$c4d-prefix}-ce--modal__body {
     width: 100%;
   }
 
-  .#{$cds-prefix}-ce--modal__body--with-footer {
+  .#{$c4d-prefix}-ce--modal__body--with-footer {
     margin-bottom: $spacing-09;
   }
 }
 
-:host(#{$cds-prefix}-expressive-modal[open]) {
+:host(#{$c4d-prefix}-expressive-modal[open]) {
   @extend .#{$prefix}--modal;
   @extend .is-visible;
 }
 
-:host(#{$cds-prefix}-expressive-modal-header),
-:host(#{$cds-prefix}-expressive-modal-heading),
-:host(#{$cds-prefix}-expressive-modal-footer) {
+:host(#{$c4d-prefix}-expressive-modal-header),
+:host(#{$c4d-prefix}-expressive-modal-heading),
+:host(#{$c4d-prefix}-expressive-modal-footer) {
   display: block;
 }
 
-:host(#{$cds-prefix}-expressive-modal-header) {
+:host(#{$c4d-prefix}-expressive-modal-header) {
   padding: 0;
 }
 
-:host(#{$cds-prefix}-expressive-modal-close-button) {
+:host(#{$c4d-prefix}-expressive-modal-close-button) {
   display: inline;
 }
 
-:host(#{$cds-prefix}-expressive-modal-body),
-:host(#{$cds-prefix}-lightbox-media-viewer-body) {
+:host(#{$c4d-prefix}-expressive-modal-body),
+:host(#{$c4d-prefix}-lightbox-media-viewer-body) {
   @include type-style('body-02');
 }
 
-:host(#{$cds-prefix}-expressive-modal)[mode='lightbox'] {
+:host(#{$c4d-prefix}-expressive-modal)[mode='lightbox'] {
   .#{$prefix}--modal-container {
     @include breakpoint-down(md) {
       padding: 0 $spacing-05;

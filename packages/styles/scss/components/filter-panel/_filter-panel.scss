@@ -120,7 +120,7 @@
     justify-content: space-between;
   }
 
-  :host(#{$cds-prefix}-filter-panel) {
+  :host(#{$c4d-prefix}-filter-panel) {
     .#{$prefix}--clear {
       display: block;
 
@@ -138,7 +138,8 @@
 
     &:not([has-selections]) {
       .#{$prefix}--clear {
-        display: none;
+        color: $button-disabled;
+        cursor: not-allowed;
       }
     }
     @include breakpoint-down(lg) {
@@ -146,7 +147,7 @@
     }
   }
 
-  :host(#{$cds-prefix}-filter-panel-composite) {
+  :host(#{$c4d-prefix}-filter-panel-composite) {
     .#{$prefix}--filter-button {
       @include type-style('body-compact-01');
 
@@ -169,7 +170,7 @@
     }
   }
 
-  :host(#{$cds-prefix}-filter-panel-checkbox) {
+  :host(#{$c4d-prefix}-filter-panel-checkbox) {
     padding-left: rem(14px);
     padding-bottom: rem(6px);
     @extend .#{$prefix}--checkbox;
@@ -196,7 +197,7 @@
     }
   }
 
-  :host(#{$cds-prefix}-filter-panel-input-select) {
+  :host(#{$c4d-prefix}-filter-panel-input-select) {
     display: block;
 
     &:hover {
@@ -208,7 +209,7 @@
     }
   }
 
-  :host(#{$cds-prefix}-filter-panel-input-select-item) {
+  :host(#{$c4d-prefix}-filter-panel-input-select-item) {
     @include type-style('body-compact-01');
 
     background-color: $layer-01;
@@ -239,7 +240,7 @@
     }
   }
 
-  :host(#{$cds-prefix}-filter-panel-heading) {
+  :host(#{$c4d-prefix}-filter-panel-heading) {
     @include type-style('heading-01');
     @include breakpoint(sm) {
       margin-left: $spacing-05;
@@ -254,7 +255,7 @@
     }
   }
 
-  :host(#{$cds-prefix}-filter-group:first-of-type) {
+  :host(#{$c4d-prefix}-filter-group:first-of-type) {
     ::slotted(#{$prefix}-filter-group-item:first-of-type) {
       @include breakpoint-down(md) {
         margin-top: $spacing-05;
@@ -262,7 +263,7 @@
     }
   }
 
-  :host(#{$cds-prefix}-filter-group-item) {
+  :host(#{$c4d-prefix}-filter-group-item) {
     @extend .#{$prefix}--accordion__item;
 
     display: block;
@@ -288,7 +289,7 @@
     }
   }
 
-  :host(#{$cds-prefix}-filter-group-item[open]:not([disabled])) {
+  :host(#{$c4d-prefix}-filter-group-item[open]:not([disabled])) {
     @extend .#{$prefix}--accordion__item--active;
 
     .#{$prefix}--accordion__content {
@@ -297,7 +298,7 @@
     }
   }
 
-  :host(#{$cds-prefix}-filter-modal-footer) {
+  :host(#{$c4d-prefix}-filter-modal-footer) {
     z-index: 999;
     position: absolute;
     bottom: 0;
@@ -305,7 +306,7 @@
     overflow: auto;
   }
 
-  :host(#{$cds-prefix}-filter-modal-heading) {
+  :host(#{$c4d-prefix}-filter-modal-heading) {
     @include type-style('heading-01');
 
     display: block;

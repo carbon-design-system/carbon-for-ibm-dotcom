@@ -29,7 +29,7 @@ import StableSelectorMixin from '../../globals/mixins/stable-selector';
 import C4DVideoPlayerComposite from './video-player-composite';
 import { carbonElement as customElement } from '../../internal/vendor/@carbon/web-components/globals/decorators/carbon-element';
 
-const { prefix, stablePrefix: c4dPrefix } = settings;
+const { stablePrefix: c4dPrefix } = settings;
 
 /**
  * The Redux state used for `<c4d-video-player-container>`.
@@ -189,7 +189,7 @@ export const C4DVideoPlayerContainerMixin = <
       const playerId = Math.random().toString(36).slice(2);
       const div = document.createElement('div');
       div.id = playerId;
-      div.className = `${prefix}--video-player__video`;
+      div.className = `${c4dPrefix}--video-player__video`;
       const { _videoPlayer: videoPlayer } = this;
       if (!videoPlayer) {
         throw new TypeError(

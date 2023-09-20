@@ -9,11 +9,11 @@
 @use '@carbon/ibmdotcom-styles/scss/components/tabs-extended';
 @use '@carbon/ibmdotcom-styles/scss/globals/vars' as *;
 
-:host(#{$cds-prefix}-tabs-extended) {
+:host(#{$c4d-prefix}-tabs-extended) {
   margin: 0;
 }
 
-:host(#{$cds-prefix}-tab) {
+:host(#{$c4d-prefix}-tab) {
   display: contents;
 
   .#{$prefix}--accordion__item:last-of-type {

@@ -47,7 +47,7 @@ $btn-min-width: 26;
     background-color: $background;
   }
 
-  ::slotted(#{$cds-prefix}-leadspace-heading),
+  ::slotted(#{$c4d-prefix}-leadspace-heading),
   .#{$prefix}--leadspace__title,
   .#{$prefix}--leadspace__desc {
     color: $text-primary;
@@ -78,7 +78,7 @@ $btn-min-width: 26;
     padding-top: $spacing-07;
   }
 
-  :host(#{$cds-prefix}-leadspace),
+  :host(#{$c4d-prefix}-leadspace),
   .#{$prefix}--leadspace {
     .#{$prefix}--image {
       /* stylelint-disable-next-line comment-whitespace-inside */
@@ -109,14 +109,14 @@ $btn-min-width: 26;
     }
 
     .#{$prefix}--buttongroup,
-    ::slotted(#{$cds-prefix}-button-group),
-    ::slotted(#{$cds-prefix}-leadspace-block-cta) {
+    ::slotted(#{$c4d-prefix}-button-group),
+    ::slotted(#{$c4d-prefix}-leadspace-block-cta) {
       padding-bottom: $spacing-07;
 
       @include breakpoint(md) {
         display: grid;
         grid-template-columns: repeat(
-          var(--#{$cds-prefix}--button-group--item-count),
+          var(--#{$c4d-prefix}--button-group--item-count),
           1fr
         );
         @media print {
@@ -143,7 +143,7 @@ $btn-min-width: 26;
     }
 
     .#{$prefix}--leadspace--productive {
-      ::slotted(#{$cds-prefix}-leadspace-heading),
+      ::slotted(#{$c4d-prefix}-leadspace-heading),
       .#{$prefix}--leadspace__title {
         @include type-style(fluid-heading-06, true);
       }
@@ -189,7 +189,7 @@ $btn-min-width: 26;
         height: 100%;
       }
 
-      ::slotted(#{$cds-prefix}-leadspace-heading),
+      ::slotted(#{$c4d-prefix}-leadspace-heading),
       .#{$prefix}--leadspace__title {
         width: percentage(math.div(6, 8));
 
@@ -221,7 +221,7 @@ $btn-min-width: 26;
         width: 100%;
       }
 
-      ::slotted(#{$cds-prefix}-leadspace-heading),
+      ::slotted(#{$c4d-prefix}-leadspace-heading),
       .#{$prefix}--leadspace__title {
         width: percentage(math.div(8, 16));
       }
@@ -232,7 +232,7 @@ $btn-min-width: 26;
       }
 
       .#{$prefix}--leadspace--productive {
-        ::slotted(#{$cds-prefix}-leadspace-heading),
+        ::slotted(#{$c4d-prefix}-leadspace-heading),
         .#{$prefix}--leadspace__title {
           @include make-col(7, 16);
         }
@@ -247,7 +247,7 @@ $btn-min-width: 26;
       background-size: cover;
       background-position: center top;
 
-      ::slotted(#{$cds-prefix}-button-group),
+      ::slotted(#{$c4d-prefix}-button-group),
       ::slotted([slot='action']),
       .#{$prefix}--buttongroup {
         padding-top: $spacing-05;
@@ -278,14 +278,14 @@ $btn-min-width: 26;
         @include type-style(fluid-heading-03, true);
       }
 
-      ::slotted(#{$cds-prefix}-leadspace-heading),
+      ::slotted(#{$c4d-prefix}-leadspace-heading),
       .#{$prefix}--leadspace__title {
         margin-bottom: 0;
         @include type-style(fluid-heading-05, true);
       }
 
       .#{$prefix}--leadspace__desc,
-      ::slotted(#{$cds-prefix}-leadspace-heading),
+      ::slotted(#{$c4d-prefix}-leadspace-heading),
       .#{$prefix}--leadspace__title {
         flex: none;
       }
@@ -311,7 +311,7 @@ $btn-min-width: 26;
           }
         }
 
-        ::slotted(#{$cds-prefix}-leadspace-heading),
+        ::slotted(#{$c4d-prefix}-leadspace-heading),
         .#{$prefix}--leadspace__title,
         .#{$prefix}--leadspace__desc {
           @include content-width;
@@ -439,18 +439,18 @@ $btn-min-width: 26;
     }
   }
 
-  :host(#{$cds-prefix}-leadspace) ::slotted([slot='navigation']) {
+  :host(#{$c4d-prefix}-leadspace) ::slotted([slot='navigation']) {
     z-index: 1;
     padding-left: $spacing-05;
     padding-right: $spacing-05;
     max-width: rem(640px);
   }
 
-  :host(#{$cds-prefix}-leadspace) ::slotted(#{$cds-prefix}-tag-group) {
+  :host(#{$c4d-prefix}-leadspace) ::slotted(#{$c4d-prefix}-tag-group) {
     padding-bottom: $spacing-03;
   }
 
-  :host(#{$cds-prefix}-breadcrumb-link[aria-current='page']) .#{$prefix}--link {
+  :host(#{$c4d-prefix}-breadcrumb-link[aria-current='page']) .#{$prefix}--link {
     color: $text-primary;
     cursor: auto;
 
@@ -459,13 +459,13 @@ $btn-min-width: 26;
     }
   }
 
-  :host(#{$cds-prefix}-leadspace) ::slotted(#{$cds-prefix}-leadspace-image) {
+  :host(#{$c4d-prefix}-leadspace) ::slotted(#{$c4d-prefix}-leadspace-image) {
     @include breakpoint(lg) {
       height: 100%;
     }
   }
 
-  :host(#{$cds-prefix}-leadspace-heading),
+  :host(#{$c4d-prefix}-leadspace-heading),
   .#{$prefix}--leadspace__title {
     padding-top: 0;
     margin-bottom: $spacing-09;
@@ -477,22 +477,22 @@ $btn-min-width: 26;
 
     /* stylelint-disable declaration-no-important */
     ::slotted(h1) {
-      all: unset !important; /* stylelint-disable-line declaration-property-value-blacklist */
+      all: unset !important; /* stylelint-disable-line declaration-property-value-disallowed-list */
     }
     /* stylelint-enable declaration-no-important */
   }
 
-  :host(#{$cds-prefix}-leadspace)[size='tall'],
-  :host(#{$cds-prefix}-leadspace)[size='super'] {
-    ::slotted(#{$cds-prefix}-leadspace-heading) {
+  :host(#{$c4d-prefix}-leadspace)[size='tall'],
+  :host(#{$c4d-prefix}-leadspace)[size='super'] {
+    ::slotted(#{$c4d-prefix}-leadspace-heading) {
       @include breakpoint(lg) {
         margin-bottom: $spacing-12;
       }
     }
   }
 
-  :host(#{$cds-prefix}-leadspace)[size='tall'],
-  :host(#{$cds-prefix}-leadspace)[size] {
+  :host(#{$c4d-prefix}-leadspace)[size='tall'],
+  :host(#{$c4d-prefix}-leadspace)[size] {
     .#{$prefix}--leadspace__section {
       height: auto;
 
@@ -502,8 +502,8 @@ $btn-min-width: 26;
     }
   }
 
-  :host(#{$cds-prefix}-leadspace)[size='short'] {
-    ::slotted(#{$cds-prefix}-leadspace-heading) {
+  :host(#{$c4d-prefix}-leadspace)[size='short'] {
+    ::slotted(#{$c4d-prefix}-leadspace-heading) {
       margin-bottom: $spacing-07;
       @include type-style(fluid-heading-06, true);
 
@@ -519,7 +519,7 @@ $btn-min-width: 26;
     }
   }
 
-  :host-context(#{$cds-prefix}-leadspace[size='short']) {
+  :host-context(#{$c4d-prefix}-leadspace[size='short']) {
     @include breakpoint(lg) {
       .#{$prefix}--image__img {
         object-position: left top;
@@ -527,8 +527,8 @@ $btn-min-width: 26;
     }
   }
 
-  :host(#{$cds-prefix}-leadspace)[size='medium'] {
-    ::slotted(#{$cds-prefix}-leadspace-heading) {
+  :host(#{$c4d-prefix}-leadspace)[size='medium'] {
+    ::slotted(#{$c4d-prefix}-leadspace-heading) {
       @include type-style(fluid-heading-05, true);
 
       @include breakpoint(lg) {
@@ -543,8 +543,8 @@ $btn-min-width: 26;
     }
   }
 
-  :host(#{$cds-prefix}-leadspace)[size='super'] {
-    ::slotted(#{$cds-prefix}-leadspace-heading) {
+  :host(#{$c4d-prefix}-leadspace)[size='super'] {
+    ::slotted(#{$c4d-prefix}-leadspace-heading) {
       @include type-style(display-01, true);
     }
 
@@ -555,7 +555,7 @@ $btn-min-width: 26;
     }
   }
 
-  :host(#{$cds-prefix}-leadspace-image),
+  :host(#{$c4d-prefix}-leadspace-image),
   .#{$prefix}--leadspace .#{$prefix}--image {
     @include ratio-base(4, 3, false);
 
