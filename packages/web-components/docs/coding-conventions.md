@@ -29,8 +29,10 @@
 - [Null checks](#null-checks)
 - [Updating view upon change in `private`/`protected` properties](#updating-view-upon-change-in-privateprotected-properties)
 - [Avoiding global `document`/`window` reference](#avoiding-global-documentwindow-reference)
-- [Custom element registration](#custom-element-registration)
-- [Custom element itself as an eleement](#custom-element-itself-as-an-eleement)
+- [Custom Elements](#custom-elements)
+  - [@carbonElement Decorator](#carbon-element-decorator)
+  - [Custom element registration](#custom-element-registration)
+  - [Custom element itself as an element](#custom-element-itself-as-an-element)
 - [Propagating misc attributes from shadow host to an element in shadow DOM](#propagating-misc-attributes-from-shadow-host-to-an-element-in-shadow-dom)
 - [Private properties](#private-properties)
 - [Preferring class inheritance pattern over React composition pattern](#preferring-class-inheritance-pattern-over-react-composition-pattern)
@@ -260,7 +262,7 @@ A component variant with different options can be created by creating a derived 
 | CSS selectors/classes used in imperative DOM API calls (Doing so allows overriding `.render()` method) | `selectorNonSelectedItem`                          | An exception is where `lit-element`'s `@query` decorator is applicable |
 | [Custom event](#custom-events) names                                                                   | `eventBeforeSelect`                                |                                                                        |
 
-#### Areas where component optinos are _not_ applied
+#### Areas where component options are _not_ applied
 
 - CSS classes used in template (Should be done by overriding `.render()` method)
 
@@ -437,7 +439,31 @@ To cause re-rendering upon change in `private`/`protected` properties, use `stat
 
 Global `document`/`window` can be different from the ones associated with custom element instance, when the custom element is transported to a different frame e.g. with `document.importNode()`. Though such cases are rare, the codebase avoids global `document`/`window` reference to keep ourselves in a good DOM citizen. We use [`element.ownerDocument`](https://developer.mozilla.org/en-US/docs/Web/API/Node/ownerDocument)/[`.element.ownerDocument.defaultView`](https://developer.mozilla.org/en-US/docs/Web/API/Document/defaultView), respectively, instead.
 
-## Custom element registration
+## Custom Elements
+### @carbonElement Decorator
+
+We use a custom [`@carbonElement`](../../carbon-web-components/src/globals/decorators/carbon-element.ts) decorator instead of Lit's [`@customElement`](https://lit.dev/docs/v1/api/lit-element/decorators/#customElement), which doesn't provide a way to check if an element has already been defined in the window's `CustomElementRegistry`. If an attempt is made to redefine an element that has already been registered, an error will occur and any remaining code will fail to execute.
+
+`@carbonElement` is identical to `@customElement` with the exception that it gracefully handles any failures from duplicate registrations and continues executing the remainder of the running script.
+
+#### Usage
+
+1. Use this project's `carbon-element.ts` file to supply the decorator
+2. Alias `@carbonElement` to `@customElement`
+
+The second item is **required** for proper creation of the react-wrapped components
+
+Example: 
+
+```typescript
+import { html, property, LitElement } from 'lit-element';
+import { carbonElement as customElement } from '../../globals/decorators/carbon-element';
+
+@customElement(`${prefix}-accordion-item`)
+class BXAccordionItem extends FocusMixin(LitElement) {
+  ...
+```
+### Custom element registration
 
 This library registers custom elements to global `window` automatically upon importing the corresponding modules.
 It may not be desirable in two scenarios:
@@ -445,7 +471,7 @@ It may not be desirable in two scenarios:
 - One is when consumer wants to customize our custom element's behavior before it's registered. In such case, consumer can create a derived class and register it with a different custom element name.
 - Another, though the use case is rare, is using our custom element in a different realm. In such case, consumer can re-register the custom element in the realm.
 
-## Custom element itself as an eleement
+### Custom element itself as an element
 
 In Custom Elements world, the custom element itself (the host of shadow DOM) itself is an element.
 

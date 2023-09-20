@@ -74,14 +74,14 @@ module.exports = {
     'declaration-property-unit-blacklist': OFF,
     // Specify a whitelist of allowed property and unit pairs within
     // declarations.
-    'declaration-property-unit-whitelist': {
+    'declaration-property-unit-allowed-list': {
       'font-size': ['rem', '%', 'vw'],
       '/^animation/': ['ms'],
       'line-height': ['rem'],
     },
     // Specify a blacklist of disallowed property and value pairs within
     // declarations.
-    'declaration-property-value-blacklist': {
+    'declaration-property-value-disallowed-list': {
       // Disallow unset as it is unsupported in IE11
       '/.*/': ['unset'],
     },
