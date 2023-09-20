@@ -61,7 +61,6 @@
     display: inline-block;
     a.#{$prefix}--link-with-icon.#{$prefix}--link.#{$prefix}--link-with-icon__icon-right {
       color: $link-primary;
-      outline-color: $focus-inverse;
 
       &:hover {
         color: $link-primary-hover;
@@ -76,6 +75,7 @@
   :host(#{$c4d-prefix}-callout-link-with-icon[color-scheme='inverse']) {
     a.#{$prefix}--link-with-icon.#{$prefix}--link.#{$prefix}--link-with-icon__icon-right {
       color: $link-inverse;
+      outline-color: $focus-inverse;
 
       &:hover {
         // @carbon/styles has no hover color for $link-inverse.
