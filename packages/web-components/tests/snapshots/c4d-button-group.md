@@ -12,7 +12,7 @@
 
 ```
 <a
-  class="cds--btn cds--btn--lg cds--btn--primary cds--layout--size-lg"
+  class="cds--btn cds--btn--expressive cds--btn--lg cds--btn--primary cds--layout--size-lg"
   href="https://example.com"
   id="button"
   part="button"

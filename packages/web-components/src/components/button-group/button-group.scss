@@ -5,13 +5,4 @@
 // LICENSE file in the root directory of this source tree.
 //
 
-@use '@carbon/ibmdotcom-styles/scss/globals/vars' as *;
 @use '@carbon/ibmdotcom-styles/scss/components/button-group';
-@use '../button/button.scss';
-
-:host(#{$c4d-prefix}-button-group-item),
-:host(#{$c4d-prefix}-button-cta) {
-  @extend :host(#{$c4d-prefix}-button);
-
-  outline: none;
-}
