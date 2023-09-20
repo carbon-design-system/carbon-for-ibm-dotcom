@@ -22,10 +22,9 @@
     @extend :host(#{$prefix}-modal);
 
     max-height: 100%;
-
-    &[open] {
-      @extend :host(#{$prefix}-modal[open]);
-    }
+  }
+  :host(#{$c4d-prefix}-leaving-ibm-modal)[open] {
+    @extend :host(#{$prefix}-modal[open]);
   }
 
   :host(#{$c4d-prefix}-leaving-ibm-modal-heading) {

@@ -18,7 +18,6 @@
 
 :host(#{$prefix}-modal[open]) {
   @extend .#{$prefix}--modal;
-  // @extend .is-visible;
   opacity: 1;
   transition: opacity $duration-moderate-02 motion(entrance, expressive),
     visibility 0ms linear;
