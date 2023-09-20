@@ -1,0 +1,44 @@
+//
+// Copyright IBM Corp. 2020
+//
+// This source code is licensed under the Apache-2.0 license found in the
+// LICENSE file in the root directory of this source tree.
+//
+
+@use '@carbon/colors' as *;
+@use '@carbon/styles/scss/themes';
+@use '@carbon/styles/scss/theme' as *;
+@use '@carbon/styles/scss/utilities/component-tokens';
+
+$btn-min-width: 26;
+
+$leadspace-heading-highlight: (
+  fallback: $blue-60,
+  values: (
+    (
+      theme: themes.$white,
+      value: $blue-60,
+    ),
+    (
+      theme: themes.$g10,
+      value: $blue-60,
+    ),
+    (
+      theme: themes.$g90,
+      value: $blue-40,
+    ),
+    (
+      theme: themes.$g100,
+      value: $blue-40,
+    ),
+  ),
+);
+
+$leadspace-tokens: (
+  leadspace-heading-highlight: $leadspace-heading-highlight,
+);
+
+$leadspace-heading-highlight: component-tokens.get-var(
+  $leadspace-heading-highlight,
+  'leadspace-heading-highlight'
+);

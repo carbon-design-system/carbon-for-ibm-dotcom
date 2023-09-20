@@ -525,6 +525,93 @@ ShortWithVideo.story = {
   },
 };
 
+export const Centered = context => Default(context);
+
+Centered.story = {
+  parameters: {
+    knobs: {
+      Leadspace: () => ({
+        type: 'centered',
+        navElements: select('navigation elements (optional)', navigationOptions, navigationOptions[2]),
+        title: text('title (title)', 'Heading can go on two lines max'),
+        copy: text('copy (copy)', 'Use this area for a short line of copy to support the title'),
+        alt: text('Image alt text (alt)', 'Image alt text'),
+        buttons: Array.from({
+          length: number('Number of buttons', 2, {}),
+        }).map((_, i) => {
+          const icon = select(`Icon ${i + 1}`, iconOptions, iconOptions['Arrow Right']) ?? 0;
+          return {
+            href: text(`Link ${i + 1}`, `https://example.com`),
+            copy: text(`Button ${i + 1}`, `Button ${i + 1}`),
+            renderIcon: iconMap[icon],
+            label: getAriaLabel(icon),
+          };
+        }),
+      }),
+    },
+  },
+};
+
+export const CenteredWithImage = context => Default(context);
+
+CenteredWithImage.story = {
+  name: 'Centered with image',
+  parameters: {
+    knobs: {
+      Leadspace: () => ({
+        hasImage: true,
+        type: 'centered',
+        navElements: select('navigation elements (optional)', navigationOptions, navigationOptions[2]),
+        title: text('title (title)', 'Heading can go on two lines max'),
+        copy: text('copy (copy)', 'Use this area for a short line of copy to support the title'),
+        alt: text('Image alt text (alt)', 'Image alt text'),
+        buttons: Array.from({
+          length: number('Number of buttons', 2, {}),
+        }).map((_, i) => {
+          const icon = select(`Icon ${i + 1}`, iconOptions, iconOptions['Arrow Right']) ?? 0;
+          return {
+            href: text(`Link ${i + 1}`, `https://example.com`),
+            copy: text(`Button ${i + 1}`, `Button ${i + 1}`),
+            renderIcon: iconMap[icon],
+            label: getAriaLabel(icon),
+          };
+        }),
+        defaultSrc: text('Default image (defaultSrc)', leadspaceImg),
+      }),
+    },
+  },
+};
+
+export const CenteredWithVideo = context => Default(context);
+
+CenteredWithVideo.story = {
+  name: 'Centered with video',
+  parameters: {
+    knobs: {
+      Leadspace: () => ({
+        hasVideo: true,
+        type: 'centered',
+        navElements: select('navigation elements (optional)', navigationOptions, navigationOptions[2]),
+        title: text('title (title)', 'Heading can go on two lines max'),
+        copy: text('copy (copy)', 'Use this area for a short line of copy to support the title'),
+        alt: text('Image alt text (alt)', 'Image alt text'),
+        buttons: Array.from({
+          length: number('Number of buttons', 2, {}),
+        }).map((_, i) => {
+          const icon = select(`Icon ${i + 1}`, iconOptions, iconOptions['Arrow Right']) ?? 0;
+          return {
+            href: text(`Link ${i + 1}`, `https://example.com`),
+            copy: text(`Button ${i + 1}`, `Button ${i + 1}`),
+            renderIcon: iconMap[icon],
+            label: getAriaLabel(icon),
+          };
+        }),
+        defaultSrc: text('Default image (defaultSrc)', leadspaceImg),
+      }),
+    },
+  },
+};
+
 export const Super = (context) => Tall(context);
 
 Super.story = {

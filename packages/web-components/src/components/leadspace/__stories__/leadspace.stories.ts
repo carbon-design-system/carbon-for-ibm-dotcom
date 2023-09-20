@@ -551,6 +551,115 @@ ShortWithVideo.story = {
   name: 'Short with video',
 };
 
+export const Centered = (args) => {
+  const { title, copy, buttons, navElements } = args?.LeadSpace ?? {};
+  return html`
+    <c4d-leadspace size="${LEADSPACE_SIZE.NONE}" type="centered">
+      ${navElements === navigationOptions[0] ? navigationWithTagGroup : ``}
+      ${navElements === navigationOptions[1] ? navigationWithBreadcrumbs : ``}
+      <c4d-leadspace-heading>${ifDefined(title)}</c4d-leadspace-heading>
+      ${ifDefined(copy)}
+      <c4d-button-group slot="action">
+        ${buttons.map((elem) => {
+          return html`
+            <c4d-button-group-item
+              aria-label="${elem.label}"
+              href="${elem.href}"
+              >${elem.copy}${elem.renderIcon}</c4d-button-group-item
+            >
+          `;
+        })}
+      </c4d-button-group>
+    </c4d-leadspace>
+  `;
+};
+
+export const CenteredWithImage = (args) => {
+  const { alt, defaultSrc, gradient, title, copy, buttons, navElements } =
+    args?.LeadSpace ?? {};
+  const image = defaultSrc || leadspaceImg;
+  return html`
+    <c4d-leadspace
+      size="${LEADSPACE_SIZE.NONE}"
+      ?gradient="${ifDefined(gradient)}"
+      alt="${ifDefined(alt)}"
+      default-src="${ifDefined(defaultSrc)}"
+      type="centered">
+      ${navElements === navigationOptions[0] ? navigationWithTagGroup : ``}
+      ${navElements === navigationOptions[1] ? navigationWithBreadcrumbs : ``}
+      <c4d-leadspace-heading>${ifDefined(title)}</c4d-leadspace-heading>
+      ${ifDefined(copy)}
+      <c4d-button-group slot="action">
+        ${buttons.map((elem) => {
+          return html`
+            <c4d-button-group-item
+              aria-label="${elem.label}"
+              href="${elem.href}"
+              >${elem.copy}${elem.renderIcon}</c4d-button-group-item
+            >
+          `;
+        })}
+      </c4d-button-group>
+      <c4d-background-media
+        slot="image"
+        alt="${ifDefined(alt)}"
+        default-src="${defaultSrc}"
+        opacity="100">
+        <c4d-image-item media="(min-width: 1312px)" srcset="${image}">
+        </c4d-image-item>
+        <c4d-image-item media="(min-width: 672px)" srcset="${image}">
+        </c4d-image-item>
+        <c4d-image-item media="(min-width: 320px)" srcset="${image}">
+        </c4d-image-item>
+        <c4d-image-item media="(min-width: 0px)" srcset="${image}">
+        </c4d-image-item>
+      </c4d-background-media>
+    </c4d-leadspace>
+  `;
+};
+
+CenteredWithImage.story = {
+  name: 'Centered with image',
+};
+
+export const CenteredWithVideo = (args) => {
+  const { alt, defaultSrc, gradient, title, copy, buttons, navElements } =
+    args?.LeadSpace ?? {};
+  return html`
+    <c4d-leadspace
+      size="${LEADSPACE_SIZE.NONE}"
+      ?gradient="${ifDefined(gradient)}"
+      alt="${ifDefined(alt)}"
+      default-src="${ifDefined(defaultSrc)}"
+      type="centered">
+      ${navElements === navigationOptions[0] ? navigationWithTagGroup : ``}
+      ${navElements === navigationOptions[1] ? navigationWithBreadcrumbs : ``}
+      <c4d-leadspace-heading>${ifDefined(title)}</c4d-leadspace-heading>
+      ${ifDefined(copy)}
+      <c4d-button-group slot="action">
+        ${buttons.map((elem) => {
+          return html`
+            <c4d-button-group-item
+              aria-label="${elem.label}"
+              href="${elem.href}"
+              >${elem.copy}${elem.renderIcon}</c4d-button-group-item
+            >
+          `;
+        })}
+      </c4d-button-group>
+      <c4d-background-media slot="image" opacity="100">
+        <c4d-video-player-container
+          video-id="0_ibuqxqbe"
+          background-mode="true"></c4d-video-player-container>
+      </c4d-background-media>
+    </c4d-leadspace>
+  `;
+};
+
+CenteredWithVideo.story = {
+  name: 'Centered with video',
+};
+
 const getAriaLabel = (type) => {
   switch (type) {
     case 'ArrowDown20':

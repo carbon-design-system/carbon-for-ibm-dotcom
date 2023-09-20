@@ -11,7 +11,10 @@
 @use '@carbon/styles/scss/breakpoint' as *;
 @use '@carbon/styles/scss/config' as *;
 @use '@carbon/styles/scss/spacing' as *;
+@use '@carbon/styles/scss/themes';
+@use '@carbon/styles/scss/theme' as *;
 @use '@carbon/styles/scss/type' as *;
+@use '@carbon/styles/scss/utilities' as *;
 @use '../../globals/utils/content-width' as *;
 @use '../../globals/utils/flex-grid' as *;
 @use '../../globals/utils/ratio-base' as *;
@@ -19,44 +22,7 @@
 @use '../button-group';
 @use '../image';
 @use '../tag-group';
-
-@use '@carbon/colors' as *;
-@use '@carbon/styles/scss/themes';
-@use '@carbon/styles/scss/theme' as *;
-@use '@carbon/styles/scss/utilities/component-tokens';
-
-$btn-min-width: 26;
-
-$leadspace-heading-highlight: (
-  fallback: #0F62FE,
-  values: (
-    (
-      theme: themes.$white,
-      value: #0F62FE,
-    ),
-    (
-      theme: themes.$g10,
-      value: #0F62FE,
-    ),
-    (
-      theme: themes.$g90,
-      value: #78A9FF,
-    ),
-    (
-      theme: themes.$g100,
-      value: #78A9FF,
-    ),
-  ),
-);
-
-$leadspace-tokens: (
-  leadspace-heading-highlight: $leadspace-heading-highlight,
-);
-
-$leadspace-heading-highlight: component-tokens.get-var(
-  $leadspace-heading-highlight,
-  'leadspace-heading-highlight'
-);
+@use './tokens' as *;
 
 @keyframes loadingAnimation {
   0% {
@@ -584,7 +550,7 @@ $leadspace-heading-highlight: component-tokens.get-var(
   :host(#{$c4d-prefix}-leadspace)[size='super'] {
     @include breakpoint(lg) {
       .#{$prefix}--leadspace__overlay {
-        height: 640px;
+        height: rem(640px);
       }
     }
   }
@@ -592,7 +558,7 @@ $leadspace-heading-highlight: component-tokens.get-var(
   :host(#{$c4d-prefix}-leadspace)[size='tall'] {
     @include breakpoint(lg) {
       .#{$prefix}--leadspace__overlay {
-        height: 560px;
+        height: rem(560px);
       }
     }
   } 
@@ -602,7 +568,7 @@ $leadspace-heading-highlight: component-tokens.get-var(
 
     @include breakpoint(lg) {
       .#{$prefix}--leadspace__overlay {
-        height: 480px;
+        height: rem(480px);
       }
     }
   }

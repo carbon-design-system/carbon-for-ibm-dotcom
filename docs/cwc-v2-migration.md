@@ -33,6 +33,7 @@ For Carbon v11 migration guidance, see their
 | inline-loading            | View changes [here](#inline-loading)     |
 | input                     | Replaced by `text-input`                 |
 | layer                     | New component in v2.                     |
+| leadspace                 | View changes [here](#leadspace)          |
 | link                      | View changes [here](#link)               |
 | loading                   | View changes [here](#loading)            |
 | modal                     | View changes [here](#modal)              |
@@ -154,6 +155,10 @@ For Carbon v11 migration guidance, see their
 ### inline-loading
 
 - New `assistive-text` property
+
+### leadspace
+
+- New `highlight` and `type-style` attributes for `leadspace-heading`
 
 ### link
 
