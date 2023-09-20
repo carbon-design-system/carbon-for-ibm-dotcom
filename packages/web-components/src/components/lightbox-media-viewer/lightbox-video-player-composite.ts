@@ -47,7 +47,8 @@ class C4DLightboxVideoPlayerComposite extends ModalRenderMixin(
    * Handles aria state depending on the modal's state.
    */
   private _handleAriaAndHiddenState = () => {
-    const iFrame = this._videoPlayer?.querySelector('iframe');
+    const { _videoPlayer: videoPlayer } = this;
+    const iFrame = videoPlayer?.querySelector('iframe');
 
     // Handles edge case where screen reader still reads video title within iFrame
     try {
@@ -70,9 +71,7 @@ class C4DLightboxVideoPlayerComposite extends ModalRenderMixin(
       .constructor as typeof C4DLightboxVideoPlayerComposite;
 
     const elems = Array.prototype.slice.call(
-      document
-        .querySelector('c4d-lightbox-video-player')
-        ?.querySelectorAll(selectorEmbeddedVideoContainer)
+      videoPlayer?.querySelectorAll(selectorEmbeddedVideoContainer)
     );
 
     elems.forEach((element) => {
