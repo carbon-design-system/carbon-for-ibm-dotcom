@@ -433,17 +433,17 @@
         }
       }
     }
+  }
 
-    &[link] {
-      ::slotted(#{$c4d-prefix}-card-heading) {
-        @include type-style('heading-02');
+  :host(#{$c4d-prefix}-card[link]) {
+    ::slotted(#{$c4d-prefix}-card-heading) {
+      @include type-style('heading-02');
 
-        margin-bottom: 0;
-      }
+      margin-bottom: 0;
+    }
 
-      .#{$prefix}--card .#{$prefix}--card__copy {
-        margin-top: 0;
-      }
+    .#{$prefix}--card .#{$prefix}--card__copy {
+      margin-top: 0;
     }
   }
 

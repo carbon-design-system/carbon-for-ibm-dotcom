@@ -329,9 +329,7 @@ export const Link = (args) => {
     } else {
       videoCopy = customVideoTitle;
     }
-
-    console.log(card.querySelector('c4d-card-footer'), duration);
-
+    
     card.querySelector('c4d-card-footer')!.innerHTML = duration ?? '';
   }
 
