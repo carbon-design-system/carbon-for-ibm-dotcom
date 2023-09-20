@@ -287,7 +287,6 @@
 
       > ul {
         width: 100%;
-        // padding-right: $spacing-05;
         @include breakpoint(md) {
           display: block;
           column-count: 2;
