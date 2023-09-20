@@ -48,6 +48,9 @@ import { carbonElement as customElement } from '../../internal/vendor/@carbon/we
 
 const { stablePrefix: ddsPrefix } = ddsSettings;
 
+// This matches the CSS transition timing. 
+const animationTiming = 240;
+
 /**
  * Component that rendres footer from inks data.
  *
@@ -61,8 +64,12 @@ class DDSFooterComposite extends MediaQueryMixin(
   /**
    * Handles `click` event on the locale button.
    */
-  private _handleClickLocaleButton = () => {
+  private async _handleClickLocaleButton() {
     this.openLocaleModal = true;
+    // Set 'open' attribute after modal is in dom so CSS can fade it in.
+    await this.updateComplete;
+    const composite = this.modalRenderRoot?.querySelector('dds-locale-modal-composite');
+    composite?.setAttribute("open", "");
   };
 
   @state()
@@ -79,7 +86,10 @@ class DDSFooterComposite extends MediaQueryMixin(
   // @ts-ignore: The decorator refers to this method but TS thinks this method is not referred to
   private _handleCloseModal = (event: CustomEvent) => {
     if ((this.modalRenderRoot as Element).contains(event.target as Node)) {
-      this.openLocaleModal = false;
+      // Timeout here ensures the modal closing animation is visible. 
+      setTimeout(() => {
+        this.openLocaleModal = false;
+      }, animationTiming);
     }
   };
 
@@ -223,7 +233,7 @@ class DDSFooterComposite extends MediaQueryMixin(
     super.firstUpdated();
   }
 
-  updated(changedProperties) {
+  async updated(changedProperties) {
     if (changedProperties.has('language')) {
       const { language } = this;
       if (language) {
@@ -231,6 +241,15 @@ class DDSFooterComposite extends MediaQueryMixin(
         this._loadTranslation?.(language).catch(() => {}); // The error is logged in the Redux store
       }
     }
+
+
+    // if (changedProperties.has('openLocaleModal')) {
+    
+    //   console.log("DEBUG: ", changedProperties.get('openLocaleModal'));
+
+
+    // }
+  
   }
 
   /**
@@ -250,7 +269,6 @@ class DDSFooterComposite extends MediaQueryMixin(
           <dds-locale-modal-composite
             lang-display="${ifNonNull(langDisplay)}"
             language="${ifNonNull(language)}"
-            ?open="${openLocaleModal}"
             .collatorCountryName="${ifNonNull(collatorCountryName)}"
             .localeList="${ifNonNull(localeList)}"
             ._loadLocaleList="${ifNonNull(loadLocaleList)}">

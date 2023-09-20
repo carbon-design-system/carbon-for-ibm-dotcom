@@ -93,6 +93,12 @@ class DDSLocaleModalComposite extends HybridRenderMixin(LitElement) {
    */
   @property()
   chosenRegion?: string;
+  
+  /**
+   * Whether a region has been chosen or not.
+   */
+  @property({ type: Boolean })
+  chosenRegionRender = false;
 
   // eslint-disable-next-line class-methods-use-this
   async getLangDisplay() {
@@ -110,6 +116,10 @@ class DDSLocaleModalComposite extends HybridRenderMixin(LitElement) {
     this.getLangDisplay().then((res) => {
       this.langDisplay = res;
     });
+  }
+
+  update(changed) {
+    super.update(changed);
   }
 
   updated(changedProperties) {
@@ -173,7 +183,6 @@ class DDSLocaleModalComposite extends HybridRenderMixin(LitElement) {
         language: string;
       }[]
     );
-
     return html`
       <dds-locale-modal
         close-button-assistive-text="${ifNonNull(modalClose)}"
@@ -192,6 +201,8 @@ class DDSLocaleModalComposite extends HybridRenderMixin(LitElement) {
             `;
           })}
         </dds-regions>
+
+        ${this.chosenRegionRender ? html`
         <dds-locale-search
           close-button-assistive-text="${ifNonNull(searchClearText)}"
           label-text="${ifNonNull(searchLabel)}"
@@ -214,6 +225,7 @@ class DDSLocaleModalComposite extends HybridRenderMixin(LitElement) {
               `
             )}
         </dds-locale-search>
+        ` : ``}
       </dds-locale-modal>
     `;
   }
@@ -223,6 +235,7 @@ class DDSLocaleModalComposite extends HybridRenderMixin(LitElement) {
    */
   private _handleRegionClick(target) {
     this.chosenRegion = target.currentTarget.__name;
+    this.chosenRegionRender = true;
   }
 
   render() {
