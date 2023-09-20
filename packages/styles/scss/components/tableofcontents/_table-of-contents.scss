@@ -220,7 +220,6 @@ $hover-transition-timing: 95ms;
 
         &:focus {
           outline: $spacing-01 solid $focus;
-          // height: $spacing-09;
           outline-offset: -#{$spacing-01};
           position: initial;
         }
