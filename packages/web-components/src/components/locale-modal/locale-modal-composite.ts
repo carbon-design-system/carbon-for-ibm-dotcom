@@ -118,10 +118,6 @@ class DDSLocaleModalComposite extends HybridRenderMixin(LitElement) {
     });
   }
 
-  update(changed) {
-    super.update(changed);
-  }
-
   updated(changedProperties) {
     const { language } = this;
     if (changedProperties.has('language')) {

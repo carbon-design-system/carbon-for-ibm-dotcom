@@ -233,7 +233,7 @@ class DDSFooterComposite extends MediaQueryMixin(
     super.firstUpdated();
   }
 
-  async updated(changedProperties) {
+  updated(changedProperties) {
     if (changedProperties.has('language')) {
       const { language } = this;
       if (language) {
@@ -241,15 +241,6 @@ class DDSFooterComposite extends MediaQueryMixin(
         this._loadTranslation?.(language).catch(() => {}); // The error is logged in the Redux store
       }
     }
-
-
-    // if (changedProperties.has('openLocaleModal')) {
-    
-    //   console.log("DEBUG: ", changedProperties.get('openLocaleModal'));
-
-
-    // }
-  
   }
 
   /**
