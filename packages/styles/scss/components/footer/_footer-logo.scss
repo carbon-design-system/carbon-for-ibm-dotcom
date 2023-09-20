@@ -41,7 +41,7 @@
 
   .#{$c4d-prefix}--footer-logo__link {
     $logo-padding: math.div($grid-gutter, 2);
-    $logo-size: carbon--mini-units(16) + ($logo-padding * 2);
+    $logo-size: 8rem + ($logo-padding * 2);
 
     color: $text-on-color;
     padding-left: $logo-padding;

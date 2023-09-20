@@ -13,7 +13,7 @@ import HostListenerMixin from '../../internal/vendor/@carbon/web-components/glob
 import './filter-group';
 import './filter-modal-button';
 import './filter-modal-heading';
-import CDSModal from '../../internal/vendor/@carbon/web-components/components/modal/modal.js';
+import C4DExpressiveModal from '../expressive-modal/expressive-modal';
 import settings from '../../internal/vendor/@carbon/ibmdotcom-utilities/utilities/settings/settings';
 import './filter-modal-footer';
 import StableSelectorMixin from '../../globals/mixins/stable-selector';
@@ -32,7 +32,7 @@ const { prefix, stablePrefix: c4dPrefix } = settings;
  */
 @customElement(`${c4dPrefix}-filter-panel-modal`)
 class C4DFilterPanelModal extends HostListenerMixin(
-  StableSelectorMixin(CDSModal)
+  StableSelectorMixin(C4DExpressiveModal)
 ) {
   /**
    * Renders the selected values.
@@ -90,7 +90,7 @@ class C4DFilterPanelModal extends HostListenerMixin(
       if (
         this.dispatchEvent(
           new CustomEvent(
-            (this.constructor as typeof CDSModal).eventBeforeClose,
+            (this.constructor as typeof C4DExpressiveModal).eventBeforeClose,
             init
           )
         )
@@ -98,7 +98,7 @@ class C4DFilterPanelModal extends HostListenerMixin(
         this.open = false;
         this.dispatchEvent(
           new CustomEvent(
-            (this.constructor as typeof CDSModal).eventClose,
+            (this.constructor as typeof C4DExpressiveModal).eventClose,
             init
           )
         );
@@ -107,13 +107,16 @@ class C4DFilterPanelModal extends HostListenerMixin(
   }
 
   render() {
+    const { _handleFocusIn: handleFocusIn } = this;
+
     return html`
-      <a
+      <button
         id="start-sentinel"
         class="${prefix}--visually-hidden"
-        href="javascript:void 0"
-        role="navigation"></a>
-      <section class="${prefix}--filter-panel__section cds--modal-container">
+        @focusin="${handleFocusIn}">
+        START
+      </button>
+      <section class="${prefix}--filter-panel__section bx--modal-container">
         <cds-modal-header>
           <cds-modal-close-button
             @click=${this._handleUserClose}></cds-modal-close-button>
@@ -134,11 +137,12 @@ class C4DFilterPanelModal extends HostListenerMixin(
           >
         </c4d-filter-modal-footer>
       </section>
-      <a
+      <button
         id="end-sentinel"
         class="${prefix}--visually-hidden"
-        href="javascript:void 0"
-        role="navigation"></a>
+        @focusin="${handleFocusIn}">
+        END
+      </button>
     `;
   }
 
