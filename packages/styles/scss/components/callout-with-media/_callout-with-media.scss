@@ -10,6 +10,7 @@
 @use '@carbon/styles/scss/spacing' as *;
 @use '@carbon/styles/scss/theme' as *;
 @use '@carbon/styles/scss/type' as *;
+@use '@carbon/styles/scss/utilities' as *;
 @use '../../globals/vars' as *;
 @use '../../internal/callout/callout' as *;
 @use '../../internal/content-block';
@@ -23,14 +24,20 @@
   :host(#{$c4d-prefix}-callout-with-media) {
     @extend :host(#{$c4d-prefix}-callout);
 
-    display: block;
+    display: flex;
 
     ::slotted([slot='heading']) {
       margin-bottom: $spacing-07;
+      margin-left: 0;
     }
 
     ::slotted([slot='copy']) {
-      margin-bottom: $spacing-07;
+      margin-bottom: $spacing-05;
+      margin-left: 0;
+    }
+
+    ::slotted([slot='media']) {
+      margin: 0 0 $spacing-07;
     }
   }
 
@@ -84,35 +91,35 @@
     @extend :host(#{$c4d-prefix}-callout-text[color-scheme='cyan']);
   }
 
-  :host(#{$c4d-prefix}-callout-with-media-image) .#{$prefix}--image__caption,
+  :host(#{$c4d-prefix}-callout-with-media-image) .#{$c4d-prefix}--image__caption,
   :host(#{$c4d-prefix}-callout-with-media-video)
     ::slotted(#{$c4d-prefix}-video-player) {
     @extend :host(#{$c4d-prefix}-callout-caption);
   }
 
   :host(#{$c4d-prefix}-callout-with-media-image[color-scheme='inverse'])
-    .#{$prefix}--image__caption,
+    .#{$c4d-prefix}--image__caption,
   :host(#{$c4d-prefix}-callout-with-media-video[color-scheme='inverse'])
     ::slotted(#{$c4d-prefix}-video-player) {
     @extend :host(#{$c4d-prefix}-callout-caption[color-scheme='inverse']);
   }
 
   :host(#{$c4d-prefix}-callout-with-media-image[color-scheme='layer'])
-    .#{$prefix}--image__caption,
+    .#{$c4d-prefix}--image__caption,
   :host(#{$c4d-prefix}-callout-with-media-video[color-scheme='layer'])
     ::slotted(#{$c4d-prefix}-video-player) {
     @extend :host(#{$c4d-prefix}-callout-caption[color-scheme='layer']);
   }
 
   :host(#{$c4d-prefix}-callout-with-media-image[color-scheme='purple'])
-    .#{$prefix}--image__caption,
+    .#{$c4d-prefix}--image__caption,
   :host(#{$c4d-prefix}-callout-with-media-video[color-scheme='purple'])
     ::slotted(#{$c4d-prefix}-video-player) {
     @extend :host(#{$c4d-prefix}-callout-caption[color-scheme='purple']);
   }
 
   :host(#{$c4d-prefix}-callout-with-media-image[color-scheme='cyan'])
-    .#{$prefix}--image__caption,
+    .#{$c4d-prefix}--image__caption,
   :host(#{$c4d-prefix}-callout-with-media-video[color-scheme='cyan'])
     ::slotted(#{$c4d-prefix}-video-player) {
     @extend :host(#{$c4d-prefix}-callout-caption[color-scheme='cyan']);
