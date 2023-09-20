@@ -48,7 +48,7 @@ import { carbonElement as customElement } from '../../internal/vendor/@carbon/we
 
 const { stablePrefix: ddsPrefix } = ddsSettings;
 
-// This matches the CSS transition timing. 
+// This matches the CSS transition timing.
 const animationTiming = 240;
 
 /**
@@ -68,9 +68,11 @@ class DDSFooterComposite extends MediaQueryMixin(
     this.openLocaleModal = true;
     // Set 'open' attribute after modal is in dom so CSS can fade it in.
     await this.updateComplete;
-    const composite = this.modalRenderRoot?.querySelector('dds-locale-modal-composite');
-    composite?.setAttribute("open", "");
-  };
+    const composite = this.modalRenderRoot?.querySelector(
+      'dds-locale-modal-composite'
+    );
+    composite?.setAttribute('open', '');
+  }
 
   @state()
   _isMobile = this.carbonBreakpoints.lg.matches;
@@ -86,7 +88,7 @@ class DDSFooterComposite extends MediaQueryMixin(
   // @ts-ignore: The decorator refers to this method but TS thinks this method is not referred to
   private _handleCloseModal = (event: CustomEvent) => {
     if ((this.modalRenderRoot as Element).contains(event.target as Node)) {
-      // Timeout here ensures the modal closing animation is visible. 
+      // Timeout here ensures the modal closing animation is visible.
       setTimeout(() => {
         this.openLocaleModal = false;
       }, animationTiming);

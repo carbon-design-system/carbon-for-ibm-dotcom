@@ -93,7 +93,7 @@ class DDSLocaleModalComposite extends HybridRenderMixin(LitElement) {
    */
   @property()
   chosenRegion?: string;
-  
+
   /**
    * Whether a region has been chosen or not.
    */
@@ -198,30 +198,32 @@ class DDSLocaleModalComposite extends HybridRenderMixin(LitElement) {
           })}
         </dds-regions>
 
-        ${this.chosenRegionRender ? html`
-        <dds-locale-search
-          close-button-assistive-text="${ifNonNull(searchClearText)}"
-          label-text="${ifNonNull(searchLabel)}"
-          placeholder="${ifNonNull(searchPlaceholder)}"
-          availability-label-text="${ifNonNull(availabilityText)}"
-          unavailability-label-text="${ifNonNull(unavailabilityText)}">
-          ${massagedCountryList
-            ?.filter(({ region }) => {
-              return region === this.chosenRegion;
-            })
-            .map(
-              ({ country, href, language, locale, region }) => html`
-                <dds-locale-item
-                  country="${country}"
-                  href="${href}"
-                  language="${language}"
-                  locale="${locale}"
-                  region="${region}">
-                </dds-locale-item>
-              `
-            )}
-        </dds-locale-search>
-        ` : ``}
+        ${this.chosenRegionRender
+          ? html`
+              <dds-locale-search
+                close-button-assistive-text="${ifNonNull(searchClearText)}"
+                label-text="${ifNonNull(searchLabel)}"
+                placeholder="${ifNonNull(searchPlaceholder)}"
+                availability-label-text="${ifNonNull(availabilityText)}"
+                unavailability-label-text="${ifNonNull(unavailabilityText)}">
+                ${massagedCountryList
+                  ?.filter(({ region }) => {
+                    return region === this.chosenRegion;
+                  })
+                  .map(
+                    ({ country, href, language, locale, region }) => html`
+                      <dds-locale-item
+                        country="${country}"
+                        href="${href}"
+                        language="${language}"
+                        locale="${locale}"
+                        region="${region}">
+                      </dds-locale-item>
+                    `
+                  )}
+              </dds-locale-search>
+            `
+          : ``}
       </dds-locale-modal>
     `;
   }
