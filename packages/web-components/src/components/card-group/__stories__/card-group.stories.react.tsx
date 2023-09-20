@@ -216,7 +216,7 @@ const cardInCardItems = (i, tagGroup, media, gridMode) => {
     ) : (
       <C4DCardGroupItem
         cta-type="video"
-        href="0_ibuqxqbe"
+        href="1_9h94wo6b"
         colorScheme={gridMode === 'border' ? 'light' : null}>
         <C4DCardEyebrow>Topic</C4DCardEyebrow>
         {tagGroup ? tagGroupContent : ''}

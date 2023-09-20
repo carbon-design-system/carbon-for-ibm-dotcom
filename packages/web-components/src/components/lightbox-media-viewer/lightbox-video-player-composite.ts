@@ -71,9 +71,7 @@ class C4DLightboxVideoPlayerComposite extends ModalRenderMixin(
       .constructor as typeof C4DLightboxVideoPlayerComposite;
 
     const elems = Array.prototype.slice.call(
-      document
-        .querySelector('c4d-lightbox-video-player')
-        ?.querySelectorAll(selectorEmbeddedVideoContainer)
+      videoPlayer?.querySelectorAll(selectorEmbeddedVideoContainer)
     );
 
     elems.forEach((element) => {

@@ -280,6 +280,7 @@ button.#{$prefix}--tabs__nav-link {
   button.#{$prefix}--tabs__nav-link:active {
   color: $text-secondary;
 }
+/* stylelint-enable selector-pseudo-class-parentheses-space-inside */
 
 .#{$prefix}--accordion__title {
   hyphens: auto;
