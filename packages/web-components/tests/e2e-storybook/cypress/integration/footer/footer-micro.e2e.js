@@ -92,7 +92,7 @@ describe('cds-footer | Micro language only (desktop)', () => {
       .find(`div.bx--dropdown`)
       .click();
     cy.get('cds-language-selector-desktop')
-      .find(`bx-combo-box-item[value="Arabic / عربية"]`)
+      .find(`cds-combo-box-item[value="Arabic / عربية"]`)
       .click();
     cy.get('cds-language-selector-desktop').should('have.value', 'Arabic / عربية');
 
