@@ -38,6 +38,7 @@ For Carbon v11 migration guidance, see their
 | cta                       | View changes [here](#cta) |
 | cta-block                 | This component is deprecated in v2 in favor for content-section/block & content-item components |
 | cta-section               | This component is deprecated in v2 in favor for content-section/block & content-item components |
+| footer                    | No API changes. |
 | hr                        | View changes [here](#horizontal-rule)                      |
 | image                     | View changes [here](#image)            |
 | image-with-caption        | Replaced by `image`                    |
