@@ -77,9 +77,10 @@ describe('dds-locale-modal | default', () => {
     const closeButton = cy
       .get('dds-locale-modal')
       .shadow()
-      .find('dds-expressive-modal-close-button');
-    closeButton
+      .get('dds-expressive-modal-close-button')
       .shadow()
+      .find('button');
+    closeButton
       .find('svg path')
       .then($icon => {
         expect($icon).to.have.attr(
