@@ -12,6 +12,7 @@ import { property, query, state } from 'lit/decorators.js';
 import { carbonElement as customElement } from '../../internal/vendor/@carbon/web-components/globals/decorators/carbon-element.js';
 import settings from '../../internal/vendor/@carbon/ibmdotcom-utilities/utilities/settings/settings.js';
 import C4DLinkWithIcon from '../link-with-icon/link-with-icon';
+import Error20 from '../../internal/vendor/@carbon/web-components/icons/error/20.js';
 import { BASIC_COLOR_SCHEME } from '../../globals/defs';
 import styles from './card.scss';
 
@@ -72,7 +73,9 @@ class C4DCardFooter extends C4DLinkWithIcon {
   }
 
   _renderInner() {
-    return html` ${this._renderContent()}${this._renderIcon()} `;
+    return html`
+      ${this._renderContent()} ${this.disabled ? Error20() : this._renderIcon()}
+    `;
   }
 
   /**

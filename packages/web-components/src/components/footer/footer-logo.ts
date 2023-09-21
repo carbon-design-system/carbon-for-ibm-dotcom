@@ -7,7 +7,8 @@
  * LICENSE file in the root directory of this source tree.
  */
 
-import { html, LitElement, svg } from 'lit';
+import { html, LitElement } from 'lit';
+import { unsafeSVG } from 'lit/directives/unsafe-svg.js';
 import { property } from 'lit/decorators.js';
 import FocusMixin from '../../internal/vendor/@carbon/web-components/globals/mixins/focus.js';
 import { ifDefined } from 'lit/directives/if-defined.js';
@@ -17,7 +18,7 @@ import StableSelectorMixin from '../../globals/mixins/stable-selector';
 import styles from './footer.scss';
 import { carbonElement as customElement } from '../../internal/vendor/@carbon/web-components/globals/decorators/carbon-element.js';
 
-const { prefix, stablePrefix: c4dPrefix } = settings;
+const { stablePrefix: c4dPrefix } = settings;
 
 /**
  * The IBM logo UI in footer.
@@ -42,15 +43,10 @@ class C4DFooterLogo extends StableSelectorMixin(FocusMixin(LitElement)) {
     const { href } = this;
     return html`
       <a
-        class="${prefix}--footer-logo__link"
+        class="${c4dPrefix}--footer-logo__link"
         aria-label="IBM logo"
         href="${ifDefined(href)}">
-        ${IBM8BarLogoH65White({
-          class: `${prefix}--footer-logo__logo`,
-          role: 'img',
-          'aria-labelledby': 'footer-logo',
-          children: svg`<title id="footer-logo">IBM Logo</title>`,
-        })}
+        ${unsafeSVG(IBM8BarLogoH65White)}
         <slot></slot>
       </a>
     `;

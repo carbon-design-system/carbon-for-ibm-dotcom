@@ -138,7 +138,8 @@
 
     &:not([has-selections]) {
       .#{$prefix}--clear {
-        display: none;
+        color: $button-disabled;
+        cursor: not-allowed;
       }
     }
     @include breakpoint-down(lg) {
