@@ -34,6 +34,7 @@ For Carbon v11 migration guidance, see their
 | input                     | Replaced by `text-input`                 |
 | layer                     | New component in v2.                     |
 | leadspace                 | View changes [here](#leadspace)          |
+| leadspace-with-search     | View changes [here](#leadspace-with-search)|
 | link                      | View changes [here](#link)               |
 | loading                   | View changes [here](#loading)            |
 | modal                     | View changes [here](#modal)              |
@@ -159,6 +160,15 @@ For Carbon v11 migration guidance, see their
 ### leadspace
 
 - New `highlight` and `type-style` attributes for `leadspace-heading`
+
+### leadspace-with-search
+
+- `<dds-leadspace-with-search-heading>` has been replaced with `<dds-leadspace-heading>`
+- `<dds-leadspace-with-search-content-copy>` has been replaced with `<dds-leadspace-with-search-copy>`
+- New highlight attribute in `dds-leadspace-heading`
+- Deprecated background-media image variant
+- Removed `<dds-leadspace-with-search-heading>`, `<dds-leadspace-with-search-content>`, 
+`<dds-leadspace-with-search-content-heading>`, `<dds-leadspace-with-search-content-copy>`
 
 ### link
 

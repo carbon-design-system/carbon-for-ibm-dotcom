@@ -33,16 +33,13 @@ import '@carbon/ibmdotcom-web-components/es/components/leadspace-with-search/ind
 
 ```html
 <cds-leadspace-with-search>
-  <cds-leadspace-with-search-heading>Find a product</cds-leadspace-with-search-heading>
-  <cds-leadspace-with-search-content>
-    <cds-leadspace-with-search-content-heading>Innovate like a startup, scale for the enterprise</cds-leadspace-with-search-content-heading>
-    <cds-leadspace-with-search-content-copy
+  <cds-leadspace-heading>Find a product</cds-leadspace-heading>
+    <cds-leadspace-with-search-copy
       >Automate your software release process with continuous
       delivery (CD)—the most critical part of adopting DevOps.
       Build, test, and deploy code changes quickly, ensuring
       software is always ready for deployment.
-    </cds-leadspace-with-search-content-copy>
-  </cds-leadspace-with-search-content>
+    </cds-leadspace-with-search-copy>
   <cds-search-with-typeahead slot='search' leadspace-search><cds-search-with-typeahead/>
   <cds-hr slot='hr'></cds-hr>
 </cds-leadspace-with-search>
@@ -52,22 +49,13 @@ import '@carbon/ibmdotcom-web-components/es/components/leadspace-with-search/ind
 
 ```html
 <cds-leadspace-with-search>
-  <cds-background-media
-    gradient-direction="left-to-right"
-    default-src="https://fpoimg.com/1584x560?&bg_color=ee5396&text_color=161616"
-    slot='image'
-  >
-  </cds-background-media>
-  <cds-leadspace-with-search-heading>Find a product</cds-leadspace-with-search-heading>
-  <cds-leadspace-with-search-content>
-    <cds-leadspace-with-search-content-heading>Innovate like a startup, scale for the enterprise</cds-leadspace-with-search-content-heading>
-    <cds-leadspace-with-search-content-copy
+  <cds-leadspace-heading>Find a product</cds-leadspace-heading>
+    <cds-leadspace-with-search-copy
       >Automate your software release process with continuous
       delivery (CD)—the most critical part of adopting DevOps.
       Build, test, and deploy code changes quickly, ensuring
       software is always ready for deployment.
-    </cds-leadspace-with-search-content-copy>
-  </cds-leadspace-with-search-content>
+    </cds-leadspace-with-search-copy>
   <cds-search-with-typeahead slot='search' leadspace-search><cds-search-with-typeahead/>
   <cds-hr slot='hr'></cds-hr>
 </cds-leadspace-with-search>
@@ -99,22 +87,13 @@ are the following:
 
 ```html
 <cds-leadspace-with-search adjacent-theme='white-and-g10'>
-  <cds-background-media
-    gradient-direction="left-to-right"
-    default-src="https://fpoimg.com/1584x560?&bg_color=ee5396&text_color=161616"
-    slot='image'
-  >
-  </cds-background-media>
-  <cds-leadspace-with-search-heading>Find a product</cds-leadspace-with-search-heading>
-  <cds-leadspace-with-search-content>
-    <cds-leadspace-with-search-content-heading>Innovate like a startup, scale for the enterprise</cds-leadspace-with-search-content-heading>
-    <cds-leadspace-with-search-content-copy
+  <cds-leadspace-heading>Find a product</cds-leadspace-heading>
+    <cds-leadspace-with-search-copy
       >Automate your software release process with continuous
       delivery (CD)—the most critical part of adopting DevOps.
       Build, test, and deploy code changes quickly, ensuring
       software is always ready for deployment.
-    </cds-leadspace-with-search-content-copy>
-  </cds-leadspace-with-search-content>
+    </cds-leadspace-with-search-copy>
   <cds-search-with-typeahead slot='search' leadspace-search><cds-search-with-typeahead/>
   <cds-hr slot='hr'></cds-hr>
 </cds-leadspace-with-search>
@@ -142,23 +121,20 @@ When including the `Leadspace with search` component within the `Dotcom Shell`
 component, an optional scroll behavior option is available. If enabled, the
 search container will remain fixed on top of the page as the user scrolls.
 
-To enable, add the `scroll-behavior` attribute to `Leadspace with search`
+To enable, add the `scroll-behavior` and `sticky-search` attributes to `Leadspace with search`
 
 ### HTML Example
 
 ```html
 <cds-dotcom-shell-container>
-<cds-leadspace-with-search adjacent-theme='white-and-g10' scroll-behavior>
-  <cds-leadspace-with-search-heading>Find a product</cds-leadspace-with-search-heading>
-  <cds-leadspace-with-search-content>
-    <cds-leadspace-with-search-content-heading>Innovate like a startup, scale for the enterprise</cds-leadspace-with-search-content-heading>
-    <cds-leadspace-with-search-content-copy
+<cds-leadspace-with-search adjacent-theme='white-and-g10' sticky-search scroll-behavior>
+  <cds-leadspace-heading>Find a product</cds-leadspace-heading>
+    <cds-leadspace-with-search-copy
       >Automate your software release process with continuous
       delivery (CD)—the most critical part of adopting DevOps.
       Build, test, and deploy code changes quickly, ensuring
       software is always ready for deployment.
-    </cds-leadspace-with-search-content-copy>
-  </cds-leadspace-with-search-content>
+    </cds-leadspace-with-search-copy>
   <cds-search-with-typeahead slot='search' leadspace-search><cds-search-with-typeahead/>
   <cds-hr slot='hr'></cds-hr>
 </cds-leadspace-with-search>

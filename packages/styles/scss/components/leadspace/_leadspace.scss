@@ -93,7 +93,7 @@
   :host(#{$c4d-prefix}-leadspace) {
     display: block;
     position: relative;
-  
+
     &::before {
       content: '';
       opacity: 0;
@@ -106,18 +106,18 @@
       animation: loadingAnimation 2000ms ease infinite;
       transition: all 800ms cubic-bezier(0.4, 0.14, 0.3, 1);
     }
-  
+
     &[loading] {
       &::before {
         z-index: 5;
         opacity: 1;
       }
     }
-  
+
     ::slotted(#{$c4d-prefix}-background-media) {
       height: auto;
       aspect-ratio: 4 / 3; /* stylelint-disable-line property-no-unknown */
-  
+
       @include breakpoint(lg) {
         position: absolute;
         inset: 0;
@@ -561,11 +561,10 @@
         height: rem(560px);
       }
     }
-  } 
-  
+  }
+
   :host(#{$c4d-prefix}-leadspace)[size='medium'],
   :host(#{$c4d-prefix}-leadspace)[size='short'] {
-
     @include breakpoint(lg) {
       .#{$prefix}--leadspace__overlay {
         height: rem(480px);
@@ -619,7 +618,6 @@
 
   :host(#{$c4d-prefix}-leadspace)[size='medium'] {
     ::slotted(#{$c4d-prefix}-leadspace-heading) {
-
       @include breakpoint(lg) {
         margin-bottom: $spacing-10;
       }

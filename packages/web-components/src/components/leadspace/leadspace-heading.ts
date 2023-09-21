@@ -32,13 +32,13 @@ class C4DLeadspaceHeading extends StableSelectorMixin(LitElement) {
   /**
    * The shadow slot this heading content should be in.
    */
-  @property({reflect: true})
+  @property({ reflect: true })
   highlight = '';
 
   /**
    * The type style that can be used for the heading.
    */
-  @property({reflect: true, attribute: 'type-style'})
+  @property({ reflect: true, attribute: 'type-style' })
   typeStyle = 'display-01';
 
   @property()
@@ -55,32 +55,30 @@ class C4DLeadspaceHeading extends StableSelectorMixin(LitElement) {
   }
 
   updated(changedProperties) {
-    
     const textContent = this.innerText;
     const h1 = document.createElement('h1');
     h1.textContent = textContent;
 
-
-    if(changedProperties.has('highlight') && this.highlight) {
+    if (changedProperties.has('highlight') && this.highlight) {
       const index = textContent!.indexOf(this.highlight);
 
       if (index !== -1) {
         const beforeSubstring = textContent!.substring(0, index);
         const modifiedText = document.createElement('span');
         modifiedText.textContent = this.highlight;
-        const afterSubstring = textContent!.substring(index + this.highlight.length);
+        const afterSubstring = textContent!.substring(
+          index + this.highlight.length
+        );
 
         this.replaceChildren(beforeSubstring, modifiedText, afterSubstring, h1);
-     }
+      }
     } else {
       this.replaceChildren(textContent, h1);
     }
   }
 
   render() {
-    return html`
-      <slot></slot>
-    `;
+    return html` <slot></slot> `;
   }
 
   static get stableSelector() {

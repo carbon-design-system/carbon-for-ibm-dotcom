@@ -29,18 +29,6 @@ const { prefix, stablePrefix: c4dPrefix } = settings;
 @customElement(`${c4dPrefix}-leadspace-with-search`)
 class C4DLeadspaceWithSearch extends StableSelectorMixin(LitElement) {
   /**
-   *
-   */
-  @property()
-  _contents: any[] = [];
-
-  /**
-   * `true` if there is an image.
-   */
-  @property({ attribute: 'has-image', reflect: true, type: Boolean })
-  protected _hasImage = false;
-
-  /**
    * sets the heading for sticky search
    */
   @property()
@@ -72,26 +60,7 @@ class C4DLeadspaceWithSearch extends StableSelectorMixin(LitElement) {
   protected _handleHeadingSlotChange({ target }: Event) {
     this._heading = (
       (target as HTMLSlotElement).assignedNodes()[0] as HTMLElement
-    ).innerText;
-  }
-
-  /**
-   * Handles `slotchange` event.
-   *
-   * @param event The event.
-   */
-  protected _handleImageSlotChange({ target }: Event) {
-    this._hasImage = (target as HTMLSlotElement)
-      .assignedNodes()
-      .some(
-        (node) => node.nodeType !== Node.TEXT_NODE || node!.textContent!.trim()
-      );
-
-    this._contents = (target as HTMLSlotElement)
-      .assignedNodes()
-      .filter(
-        (node) => node.nodeType !== Node.TEXT_NODE || node!.textContent!.trim()
-      );
+    ).querySelector('h1')?.innerText!;
   }
 
   /**
@@ -101,12 +70,17 @@ class C4DLeadspaceWithSearch extends StableSelectorMixin(LitElement) {
     return classMap({
       [`${prefix}--search-container`]: true,
       [`${prefix}--search-container-adjacent-theme`]:
-        this.theme !== ADJACENT_THEMES.MONOTHEME || this._hasImage,
+        this.theme !== ADJACENT_THEMES.MONOTHEME,
     });
   }
 
   protected firstUpdated() {
     StickyHeader.global.leadspaceWithSearch = this;
+
+    this.querySelector(`${c4dPrefix}-leadspace-heading`)?.setAttribute(
+      'type-style',
+      'fluid-heading-05'
+    );
   }
 
   render() {
@@ -116,8 +90,7 @@ class C4DLeadspaceWithSearch extends StableSelectorMixin(LitElement) {
           name="heading"
           @slotchange=${this._handleHeadingSlotChange}></slot>
         <div class="${prefix}--content-layout__body">
-          <slot name="content"></slot>
-          <slot @slotchange=${this._handleImageSlotChange} name="image"></slot>
+          <slot name="copy"></slot>
         </div>
       </div>
       <div class="${this._getSearchClass()}">
@@ -127,9 +100,6 @@ class C4DLeadspaceWithSearch extends StableSelectorMixin(LitElement) {
         </div>
       </div>
       <slot name="hr"></slot>
-      ${this._contents.map((e) => {
-        return html` ${unsafeHTML((e as HTMLElement).outerHTML)} `;
-      })}
     `;
   }
 
