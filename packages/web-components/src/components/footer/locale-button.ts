@@ -50,7 +50,7 @@ class C4DLocaleButton extends StableSelectorMixin(FocusMixin(LitElement)) {
     return html`
       <button
         id="button"
-        class="${prefix}--btn ${prefix}--btn--tertiary ${prefix}--locale-btn"
+        class="${prefix}--btn ${prefix}--btn--tertiary ${c4dPrefix}--locale-btn"
         aria-label="${ifDefined(buttonLabel)}">
         <slot></slot>
         ${EarthFilled16()}

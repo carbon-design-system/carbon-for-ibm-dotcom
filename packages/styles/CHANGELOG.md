@@ -3,6 +3,18 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.51.0-rc.0](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/compare/@carbon/ibmdotcom-styles@1.50.0...@carbon/ibmdotcom-styles@1.51.0-rc.0) (2023-09-06)
+
+
+### Bug Fixes
+
+* **cta-card:** video heading style fix ([#10804](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/issues/10804)) ([f2ea944](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/commit/f2ea944fc632c99f1c0283fbc37a2825f9fc18fb))
+* **tabs-extended:** add hyphens auto to handle word breaks ([#10849](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/issues/10849)) ([09c9468](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/commit/09c946894bd1a33cb32628379daf031fe91ee11b))
+
+
+
+
+
 # [1.50.0](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/compare/@carbon/ibmdotcom-styles@1.50.0-rc.2...@carbon/ibmdotcom-styles@1.50.0) (2023-08-22)
 
 **Note:** Version bump only for package @carbon/ibmdotcom-styles
