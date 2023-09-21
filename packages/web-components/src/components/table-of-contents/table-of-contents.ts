@@ -416,6 +416,9 @@ class C4DTableOfContents extends MediaQueryMixin(
         targetY =
           elem.offsetTop -
           parseInt(
+            window.getComputedStyle(elem).getPropertyValue('padding-top')
+          ) -
+          parseInt(
             window
               .getComputedStyle(this._contentDiv!)
               .getPropertyValue('padding-top')
