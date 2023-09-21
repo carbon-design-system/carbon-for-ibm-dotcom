@@ -106,7 +106,7 @@ $breakpoint--desktop-nav: 799px;
 }
 
 :host(#{$c4d-prefix}-masthead-logo) {
-  // @extend :host(#{$prefix}-header-name);
+  @extend :host(#{$prefix}-header-name);
   @include masthead-logo;
 
   &[hasTooltip] {
@@ -186,6 +186,8 @@ $breakpoint--desktop-nav: 799px;
   background-color: $background;
   flex: none;
   z-index: 0;
+  display: flex;
+  height: 100%;
 
   ::slotted(#{$c4d-prefix}-button-cta) {
     @include breakpoint-down('md') {
