@@ -201,6 +201,13 @@ export const DDSVideoPlayerContainerMixin = <
           loop: true,
           autoMute: true,
           autoPlay: autoplayPreference,
+          // Turn off CTA's including mid-roll card and end cards.
+          'ibm.callToActions': false,
+          // Turn off captions display, background/ambient videos have no
+          // audio.
+          closedCaptions: {
+            plugin: false,
+          },
         };
       }
 
