@@ -24,51 +24,69 @@ import { CTA_TYPE } from '../../cta/defs';
 import readme from './README.stories.mdx';
 import textNullable from '../../../../.storybook/knob-text-nullable';
 
+import {
+  hrefsForType,
+  knobNamesForType,
+  typeOptions,
+  types,
+} from '../../cta/__stories__/ctaTypeConfig';
+
 const mediaAlignment = {
   [`Left`]: MEDIA_ALIGNMENT.LEFT,
   [`Right`]: MEDIA_ALIGNMENT.RIGHT,
 };
 
-const types = {
-  [`Local (${CTA_TYPE.LOCAL})`]: CTA_TYPE.LOCAL,
-  [`External (${CTA_TYPE.EXTERNAL})`]: CTA_TYPE.EXTERNAL,
-};
-
 export const Default = (args) => {
   const { alt, mediaAlign, eyebrow, heading, copy, href, ctaType } =
     args?.['c4d-feature-section'] ?? {};
-  return html`
-    <c4d-feature-section media-alignment="${mediaAlign}">
-      <c4d-image slot="image" default-src="${ifDefined(imgLg1x1)}" alt="${alt}">
-        <c4d-image-item media="(min-width: 1584px)" srcset="${imgXlg1x1}">
-        </c4d-image-item>
-        <c4d-image-item media="(min-width: 1056px)" srcset="${imgLg1x1}">
-        </c4d-image-item>
-        <c4d-image-item media="(min-width: 672px)" srcset="${imgMd4x3}">
-        </c4d-image-item>
-        <c4d-image-item media="(min-width: 320px)" srcset="${imgSm1x1}">
-        </c4d-image-item>
-        <c4d-image-item media="(min-width: 0px)" srcset="${imgXs1x1}">
-        </c4d-image-item>
-      </c4d-image>
-      <c4d-card-eyebrow>${eyebrow}</c4d-card-eyebrow>
-      <c4d-content-block-heading>${heading}</c4d-content-block-heading>
-      <c4d-content-item-paragraph slot="copy"
-        >${copy}</c4d-content-item-paragraph
-      >
+  let videoFooterCopy;
 
-      <c4d-feature-section-card-link
-        slot="footer"
-        href="${href}"
-        cta-type="${ifDefined(ctaType)}"
-        color-scheme="inverse">
-        <c4d-card-link-heading
-          >Try a free virtual business framing session with IBM
-          Garage</c4d-card-link-heading
+  if (ctaType === CTA_TYPE.VIDEO) {
+    const card = document.querySelector('c4d-card') as any;
+    const duration = card?.videoTitle?.match(/\((.*)\)/)?.pop();
+
+    videoFooterCopy = duration;
+  }
+  return html`
+    <c4d-video-cta-container>
+      <c4d-feature-section media-alignment="${mediaAlign}">
+        <c4d-image
+          slot="image"
+          default-src="${ifDefined(imgLg1x1)}"
+          alt="${alt}">
+          <c4d-image-item media="(min-width: 1584px)" srcset="${imgXlg1x1}">
+          </c4d-image-item>
+          <c4d-image-item media="(min-width: 1056px)" srcset="${imgLg1x1}">
+          </c4d-image-item>
+          <c4d-image-item media="(min-width: 672px)" srcset="${imgMd4x3}">
+          </c4d-image-item>
+          <c4d-image-item media="(min-width: 320px)" srcset="${imgSm1x1}">
+          </c4d-image-item>
+          <c4d-image-item media="(min-width: 0px)" srcset="${imgXs1x1}">
+          </c4d-image-item>
+        </c4d-image>
+        <c4d-card-eyebrow>${eyebrow}</c4d-card-eyebrow>
+        <c4d-content-block-heading>${heading}</c4d-content-block-heading>
+        <c4d-content-item-paragraph slot="copy"
+          >${copy}</c4d-content-item-paragraph
         >
-        <c4d-card-cta-footer color-scheme="inverse"> </c4d-card-cta-footer>
-      </c4d-feature-section-card-link>
-    </c4d-feature-section>
+        <c4d-card
+          link
+          color-scheme="inverse"
+          slot="footer"
+          no-poster=${ctaType === CTA_TYPE.VIDEO}
+          cta-type=${ctaType}
+          href=${ifDefined(href || undefined)}>
+          <c4d-card-heading
+            >Try a free virtual business framing session with IBM
+            Garage</c4d-card-heading
+          >
+          ${ctaType === CTA_TYPE.VIDEO
+            ? html` <c4d-card-footer> ${videoFooterCopy} </c4d-card-footer> `
+            : html`<c4d-card-footer></c4d-card-footer>`}
+        </c4d-card>
+      </c4d-feature-section>
+    </c4d-video-cta-container>
   `;
 };
 
@@ -79,30 +97,41 @@ export default {
     ...readme.parameters,
     hasStoryPadding: true,
     knobs: {
-      'c4d-feature-section': () => ({
-        mediaAlign: select(
-          'Media Alignment',
-          mediaAlignment,
-          MEDIA_ALIGNMENT.RIGHT
-        ),
-        eyebrow: textNullable(
-          'Card Eyebrow (optional)(eyebrow):',
-          '5 min activity'
-        ),
-        heading: textNullable(
-          'Card Heading (required)(heading):',
-          'Ready when you are'
-        ),
-        copy: textNullable(
-          'Card copy (optional)(copy):',
-          `Were flexible. We can work with you on a wide variety of engagements on a project
+      'c4d-feature-section': () => {
+        const ctaType = select(
+          'CTA type (cta-type)',
+          typeOptions,
+          types[CTA_TYPE.LOCAL]
+        );
+
+        return {
+          mediaAlign: select(
+            'Media Alignment',
+            mediaAlignment,
+            MEDIA_ALIGNMENT.RIGHT
+          ),
+          eyebrow: textNullable(
+            'Card Eyebrow (optional)(eyebrow):',
+            '5 min activity'
+          ),
+          heading: textNullable(
+            'Card Heading (required)(heading):',
+            'Ready when you are'
+          ),
+          copy: textNullable(
+            'Card copy (optional)(copy):',
+            `Were flexible. We can work with you on a wide variety of engagements on a project
           or consulting basis. And were technology agnostic. Our experts work with any vendors technology, not just IBMs.
           You decide how you want to work and where to focus our expertise.`
-        ),
-        alt: textNullable('Image Alt Text (alt):', 'Image alt text'),
-        ctaType: select('CTA type (cta-type)', types, CTA_TYPE.LOCAL),
-        href: textNullable('CTA Href (href):', 'https://example.com'),
-      }),
+          ),
+          alt: textNullable('Image Alt Text (alt):', 'Image alt text'),
+          ctaType,
+          href: textNullable(
+            knobNamesForType[ctaType ?? CTA_TYPE.REGULAR],
+            hrefsForType[ctaType ?? CTA_TYPE.REGULAR]
+          ),
+        };
+      },
     },
     propsSet: {
       default: {

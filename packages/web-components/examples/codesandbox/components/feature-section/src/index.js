@@ -1,11 +1,10 @@
 /**
- * Copyright IBM Corp. 2020
+ * @license
+ *
+ * Copyright IBM Corp. 2020, 2021
  *
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
  */
 
-@use '@carbon/grid';
-
-// Emit the flex-grid styles
-@include grid.flex-grid();
+import '@carbon/ibmdotcom-web-components/es/components/feature-section/index.js';
