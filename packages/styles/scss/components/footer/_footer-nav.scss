@@ -22,8 +22,7 @@
 /// @group footer
 
 @mixin footer-nav {
-  :host(#{$c4d-prefix}-footer-nav),
-  .#{$prefix}--footer-nav {
+  :host(#{$c4d-prefix}-footer-nav) {
     @include theme($g90, feature-flag-enabled('enable-css-custom-properties'));
 
     @include accordion;
@@ -34,11 +33,11 @@
 
     @include breakpoint(md) {
       border-top: 1px solid $layer-accent-01;
-      padding: 0 list.slash($grid-gutter, 2);
+      padding: 0 calc($grid-gutter / 2);
     }
 
     @include breakpoint-between('md', $TEMP--breakpoint-down--lg) {
-      padding-top: carbon--mini-units(2);
+      padding-top: $spacing-04;
     }
 
     @include breakpoint(lg) {

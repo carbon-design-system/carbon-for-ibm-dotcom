@@ -23,7 +23,7 @@ For Carbon v11 migration guidance, see their
 | callout-quote             | View changes [here](#callout-quote)          |
 | card                      | View changes [here] (#card)            |
 | card-group-card-link-item | This component is deprecated in v2 in favor for default card or with content-item |
-| card-link                 | This component is deprecated in v2 in favor for card (link variant) component |
+| card-link                 | This component is deprecated in v2 in favor for [card](#card)  (link variant) component |
 | card-section-carousel     | This component is deprecated in v2 in favor for content-section/block component combined with carousel |
 | card-section-simple       | This component is deprecated in v2 in facor for content-section/block component combined with card-group |
 | content-block-cards       | This component is deprecated in v2 in favor for content-section/block & card-group components |
@@ -38,6 +38,7 @@ For Carbon v11 migration guidance, see their
 | cta                       | View changes [here](#cta) |
 | cta-block                 | This component is deprecated in v2 in favor for content-section/block & content-item components |
 | cta-section               | This component is deprecated in v2 in favor for content-section/block & content-item components |
+| footer                    | No API changes. |
 | hr                        | View changes [here](#horizontal-rule)                      |
 | image                     | View changes [here](#image)            |
 | image-with-caption        | Replaced by `image`                    |
@@ -46,6 +47,7 @@ For Carbon v11 migration guidance, see their
 | pictogram-item            | This component is deprecated in v2 in favor for content-item (pictogram variation) componet |
 | quote                     | No API changes.                        |
 | search-with-typeahead     | No API changes.                        |
+| table-of-contents         | No API changes.                        |
 | tabs-extended-media       | This component is deprecated in v2 in favor for tabs-extended component |
 
 
@@ -68,6 +70,7 @@ For Carbon v11 migration guidance, see their
 - `<dds-card-footer>` has `icon-placement` property has been removed
 - Removed `border` property, clickable cards inherit the Carbon v11 experimental tile border style
 - New `aspect-ratio` property with '1:1', '2:1', '3:2', '4:3', and '16:9' as options
+- New `link` property which takes the place of the deprecated `card-link`
 
 ### CTA
 
