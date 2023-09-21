@@ -19,6 +19,7 @@ For Carbon v11 migration guidance, see their
 | background-media          | No API changes.                        |
 | button                    | This component is deprecated in v2 in favor for Carbon's core Button |
 | button-group              | No API changes. |
+| callout-with-media        | View changes [here](#callout-with-media)          |
 | callout-quote             | View changes [here](#callout-quote)          |
 | card                      | View changes [here] (#card)            |
 | card-group-card-link-item | This component is deprecated in v2 in favor for default card or with content-item |
@@ -51,6 +52,11 @@ For Carbon v11 migration guidance, see their
 ### BackToTop
 
 - 
+
+### Callout with media
+
+- New options for `color-scheme` property: `REGULAR = 'regular'`, `INVERSE = 'inverse'` `LAYER = 'layer'`, `CYAN = 'cyan'`, `PURPLE = 'purple'`
+- New callout style tokens
 
 ### Callout quote
 

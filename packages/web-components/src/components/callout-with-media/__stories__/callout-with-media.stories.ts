@@ -8,8 +8,6 @@
  */
 
 import '../index';
-import '../callout-with-media-image';
-import '../callout-with-media-video';
 import { html } from 'lit';
 import { select } from '@storybook/addon-knobs';
 import { CONTENT_BLOCK_COPY_SIZE } from '../../content-block/content-block-copy';
@@ -36,7 +34,7 @@ const image = html`
 
 const video = html`
   <c4d-callout-with-media-video
-    video-id="0_uka1msg4"></c4d-callout-with-media-video>
+    video-id="1_9h94wo6b"></c4d-callout-with-media-video>
 `;
 
 export const Default = (args) => {
