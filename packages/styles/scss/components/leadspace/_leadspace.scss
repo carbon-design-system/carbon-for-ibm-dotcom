@@ -161,7 +161,6 @@
     .#{$prefix}--buttongroup,
     ::slotted(#{$c4d-prefix}-button-group),
     ::slotted(#{$c4d-prefix}-leadspace-block-cta) {
-      padding-bottom: $spacing-07;
 
       @include breakpoint(md) {
         display: grid;
@@ -187,8 +186,8 @@
       width: 100%;
       max-width: none;
 
-      @include breakpoint(lg) {
-        // height: 100%;
+      @include breakpoint-down(md) {
+        width: auto;
       }
     }
 
@@ -206,24 +205,26 @@
       @include make-col(4, 4);
 
       margin-bottom: 0;
+
+      @include breakpoint-down(lg) {
+        margin-top: 0;
+      }
     }
 
     .#{$prefix}--leadspace__row {
       @include make-row;
 
       flex-flow: column nowrap;
+      
+      @include breakpoint-down(lg) {
+        width: 100%;
+      }
     }
 
     .#{$prefix}--leadspace__action {
-      display: inline-block;
 
-      // Button requirements dictate buttons should be full width at 320px and
-      // down. The breakpoint-down(sm) mixin has logic that will use
-      // a value of 320px - 0.02, which is not quite what we want, so instead,
-      // we use breakpoint-down with a number argument, using the
-      // defined width for the sm breakpoint.
-      @include breakpoint-down(sm) {
-        display: block;
+      @include breakpoint('md') {
+        display: inline-block;
       }
     }
 
@@ -303,7 +304,7 @@
       ::slotted([slot='action']),
       .#{$prefix}--buttongroup {
         padding-top: $spacing-05;
-        padding-bottom: calc(#{$spacing-07});
+        padding-bottom: 0;
 
         @include breakpoint(lg) {
           padding-bottom: calc(#{$spacing-12} + #{$spacing-13});

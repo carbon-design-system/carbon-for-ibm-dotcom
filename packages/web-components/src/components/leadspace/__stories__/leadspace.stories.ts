@@ -713,7 +713,7 @@ export default {
             0;
           return {
             href: textNullable(`Link ${i + 1}`, `https://example.com`),
-            copy: text(`Button ${i + 1}`, `Button ${i + 1}`),
+            copy: text(`Button ${i + 1}`, `${i % 2 == 0 ? 'Primary action' : 'Secondary Action'}`),
             renderIcon: iconMap[icon],
             label: getAriaLabel(icon),
           };
@@ -742,13 +742,13 @@ export default {
           buttons: [
             {
               href: 'https://example.com',
-              copy: 'Button 1',
+              copy: 'Primary action',
               renderIcon: iconOptions['Arrow Right'],
               label: '',
             },
             {
               href: 'https://example.com',
-              copy: 'Button 2',
+              copy: 'Secondary action',
               renderIcon: iconOptions['Arrow Right'],
               label: '',
             },
