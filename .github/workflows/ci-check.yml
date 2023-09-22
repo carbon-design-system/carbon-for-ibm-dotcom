@@ -44,7 +44,7 @@ jobs:
       - name: Install xvfb
         run: sudo apt-get install xvfb
       - name: Run basic checks
-        run: xvfb-run --auto-servernum yarn lerna run --stream --prefix --scope=@carbon/ibmdotcom-web-components ci-check
+        run: xvfb-run --auto-servernum yarn lerna run --stream --prefix --verbose --scope=@carbon/ibmdotcom-web-components ci-check
   a11y:
     runs-on: ubuntu-latest
     steps:
