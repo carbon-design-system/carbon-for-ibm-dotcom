@@ -22,6 +22,12 @@
     @extend :host(#{$prefix}-modal);
 
     max-height: 100%;
+    // ::slotted(#{$c4d-prefix}-leaving-ibm-modal-body) {
+    //   :host(#{$prefix}-link) {
+    //     min-height: 23px;
+    //     display: inline-block;
+    //   }
+    // }
   }
   :host(#{$c4d-prefix}-leaving-ibm-modal)[open] {
     @extend :host(#{$prefix}-modal[open]);
@@ -51,6 +57,10 @@
     }
     ::slotted(:last-child) {
       padding-bottom: 0;
+    }
+    #{$prefix}-link {
+      min-height: 24px;
+      display: inline-block;
     }
   }
   .#{$prefix}--modal-container {
