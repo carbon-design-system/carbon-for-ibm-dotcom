@@ -45,11 +45,12 @@ import './language-selector-mobile';
 import '../../internal/vendor/@carbon/web-components/components/combo-box/combo-box-item.js';
 import '../../internal/vendor/@carbon/web-components/components/select/select-item.js';
 import { carbonElement as customElement } from '../../internal/vendor/@carbon/web-components/globals/decorators/carbon-element.js';
+import { moderate02 } from '@carbon/motion';
 
 const { stablePrefix: ddsPrefix } = ddsSettings;
 
-// This matches the CSS transition timing.
-const animationTiming = 240;
+// Delay matches the CSS animation timing for fadein/out of modal.
+const delay = parseInt(moderate02, 10);
 
 /**
  * Component that rendres footer from inks data.
@@ -91,7 +92,7 @@ class DDSFooterComposite extends MediaQueryMixin(
       // Timeout here ensures the modal closing animation is visible.
       setTimeout(() => {
         this.openLocaleModal = false;
-      }, animationTiming);
+      }, delay);
     }
   };
 

@@ -77,7 +77,7 @@ describe('dds-locale-modal | default', () => {
     const closeButton = cy
       .get('dds-locale-modal')
       .shadow()
-      .get('dds-expressive-modal-close-button')
+      .find('dds-expressive-modal-close-button')
       .shadow()
       .find('button');
     closeButton
