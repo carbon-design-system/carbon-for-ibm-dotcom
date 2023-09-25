@@ -267,6 +267,7 @@ $breakpoint--desktop-nav: 799px;
     bottom: 0;
     z-index: 1;
     position: relative;
+    background-color: $background;
   }
 
   .#{$prefix}--header__nav-caret-right-container {
@@ -309,6 +310,7 @@ $breakpoint--desktop-nav: 799px;
 :host(#{$c4d-prefix}-masthead-contact),
 :host(#{$c4d-prefix}-cloud-masthead-profile) {
   // @extend :host(#{$prefix}-header-menu);
+  position: relative;
 
   .#{$prefix}--header__menu-title[aria-expanded='true'] {
     background-color: $layer-01;
@@ -339,6 +341,7 @@ $breakpoint--desktop-nav: 799px;
 
   a.#{$prefix}--header__menu-item {
     height: 100%;
+    background-color: transparent;
   }
 }
 
