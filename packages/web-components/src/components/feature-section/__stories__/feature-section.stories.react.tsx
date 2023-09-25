@@ -88,7 +88,9 @@ export const Default = (args) => {
           <C4DCardHeading>
             Try a free virtual business framing session with IBM Garage
           </C4DCardHeading>
-          <C4DCardFooter color-scheme="inverse"> </C4DCardFooter>
+          {ctaType === CTA_TYPE.VIDEO
+            ? <C4DCardFooter> {videoFooterCopy} </C4DCardFooter>
+            : <C4DCardFooter></C4DCardFooter>}
         </C4DCard>
       </C4DFeatureSection>
     </C4DVideoCTAContainer>
