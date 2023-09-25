@@ -13,7 +13,8 @@ import { INPUT_SIZE } from '../../internal/vendor/@carbon/web-components/compone
 import settings from '../../internal/vendor/@carbon/ibmdotcom-utilities/utilities/settings/settings';
 import ThrottedInputMixin from '../../globals/mixins/throttled-input';
 import { forEach } from '../../globals/internal/collection-helpers';
-import C4DSearch from '../search/search';
+import CDSSearch from '../../internal/vendor/@carbon/web-components/components/search/search.js';
+import '../../internal/vendor/@carbon/web-components/components/search/search.js';
 import C4DLocaleItem from './locale-item';
 import styles from './locale-modal.scss';
 import StableSelectorMixin from '../../globals/mixins/stable-selector';
@@ -61,7 +62,7 @@ class C4DLocaleSearch extends ThrottedInputMixin(
    * The search box.
    */
   @query(`${prefix}-search`)
-  private _searchNode?: C4DSearch;
+  private _searchNode?: CDSSearch;
 
   @query('[aria-live]')
   private _liveRegion?: HTMLDivElement;
@@ -214,7 +215,7 @@ class C4DLocaleSearch extends ThrottedInputMixin(
             close-button-assistive-text="${closeButtonAssistiveText}"
             label-text="${labelText}"
             placeholder="${placeholder}"
-            size="${INPUT_SIZE.EXTRA_LARGE}"
+            size="${INPUT_SIZE.LARGE}"
             data-autoid="${c4dPrefix}--locale-modal__filter">
           </cds-search>
           <div class="${prefix}--visually-hidden" aria-live="polite"></div>

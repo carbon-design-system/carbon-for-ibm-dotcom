@@ -4,6 +4,7 @@
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
  */
+@use 'sass:map';
 
 @use '@carbon/styles/scss/breakpoint' as *;
 @use '@carbon/styles/scss/config' as *;
@@ -13,6 +14,8 @@
 @use '@carbon/styles/scss/themes' as *;
 @use '@carbon/styles/scss/type' as *;
 @use '../../globals/vars' as *;
+@use '../../globals/utils/flex-grid' as *;
+
 @use '../card';
 @use '@carbon/styles/scss/components/search' as *;
 @use '@carbon/styles/scss/components/modal' as *;
@@ -33,6 +36,10 @@
       height: 100%;
       min-height: 80%;
       padding: $spacing-05;
+
+      @include breakpoint-down('md') {
+        width: fit-content;
+      }
 
       .#{$prefix}--modal-content {
         padding: 0;
@@ -137,10 +144,24 @@
         outline: none;
       }
     }
+  }
 
-    // FIXME: CardLink is being used as Card in React, need to separate this
-    .#{$prefix}--card__CTA.#{$prefix}--card-link .#{$prefix}--card__heading {
-      @include type-style('fluid-heading-03', true);
+  :host(#{$c4d-prefix}-locale-modal) {
+    #{$c4d-prefix}-expressive-modal-header {
+      padding: 0 20% 0 $spacing-05;
+      margin-bottom: $spacing-03;
+    }
+
+    .#{$c4d-prefix}--locale-modal {
+      margin-bottom: 0;
+      &.#{$prefix}--modal-content {
+        padding-top: $spacing-03;
+        margin-top: $spacing-07;
+
+        @include breakpoint('lg', $grid-breakpoints) {
+          margin-top: auto;
+        }
+      }
     }
   }
 
@@ -154,15 +175,9 @@
       visibility 0ms linear;
     visibility: inherit;
 
-    @media screen and (prefers-reduced-motion: reduce) {
-      transition: none;
-    }
-  }
-
-  :host(#{$prefix}-search) .#{$prefix}--search-input,
-  .#{$prefix}--search--xl .#{$prefix}--search-input {
-    &::placeholder {
-      color: $text-secondary;
+    .#{$prefix}--modal-container {
+      transform: translate3d(0, 0, 0);
+      transition: transform $duration-moderate-02 motion(entrance, expressive);
     }
   }
 
@@ -201,6 +216,11 @@
     svg.#{$prefix}--card__cta {
       color: $border-inverse;
     }
+  }
+
+  :host(#{$c4d-prefix}-regions) {
+    display: flex;
+    flex-wrap: wrap;
   }
 
   :host(#{$c4d-prefix}-locale-item) a.#{$prefix}--link {
@@ -242,6 +262,10 @@
     margin-top: $spacing-07;
     overflow: hidden;
 
+    #{$prefix}-search::part(input)::placeholder {
+      color: $text-secondary;
+    }
+
     .#{$c4d-prefix}--locale-modal__filter {
       opacity: 1;
       z-index: 1;
@@ -268,11 +292,6 @@
       top: 0;
       background-color: $background;
       border-bottom: 1px solid $layer-accent-01;
-
-      .#{$prefix}--search-input {
-        background-color: $field-01;
-        min-height: $spacing-09;
-      }
     }
 
     .#{$c4d-prefix}--locale-modal__search-text {
@@ -285,6 +304,43 @@
     .#{$c4d-prefix}--locale-modal__list {
       flex: 1;
       overflow-y: auto;
+    }
+  }
+
+  :host(#{$c4d-prefix}-locale-modal) #{$c4d-prefix}-expressive-modal-heading {
+    width: fit-content;
+  }
+
+  :host(#{$c4d-prefix}-locale-search) {
+    padding-top: $spacing-03;
+  }
+
+  :host(#{$c4d-prefix}-region-item) {
+    @include make-col(4, 4);
+
+    @include breakpoint('lg') {
+      @include make-col(8, 16);
+    }
+
+    // &[disabled] .#{$prefix}--link {
+    //   @extend .#{$prefix}--card__CTA--disabled;
+    // }
+
+    .#{$prefix}--link {
+      // @extend .#{$prefix}--tile;
+      // @extend .#{$prefix}--tile--clickable;
+      // @extend .#{$prefix}--card;
+
+      align-items: stretch;
+      text-align: inherit;
+
+      &:hover.#{$prefix}--link--disabled {
+        display: flex;
+      }
+
+      .#{$prefix}--card__wrapper .cds-card__footer svg {
+        color: $layer-selected-inverse;
+      }
     }
   }
 }
