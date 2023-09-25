@@ -5,20 +5,20 @@
   "license": "Apache-2.0",
   "exports": {
     "./dist/": "./dist/",
-    "./es/components-react/": {
-      "node": "./lib/components-react-node/",
-      "default": "./es/components-react/"
+    "./es/components-react/*": {
+      "node": "./lib/components-react-node/*",
+      "default": "./es/components-react/*"
     },
-    "./es/components/": {
-      "node": "./lib/components/",
-      "default": "./es/components/"
+    "./es/components/*": {
+      "node": "./lib/components/*",
+      "default": "./es/components/*"
     },
-    "./es/globals/": {
-      "node": "./lib/globals/",
-      "default": "./es/globals/"
+    "./es/globals/*": {
+      "node": "./lib/globals/*",
+      "default": "./es/globals/*"
     },
-    "./es/": "./es/",
-    "./lib/": "./lib/",
+    "./es/": "./es/*",
+    "./lib/": "./lib/*",
     "./custom-elements.json": "./custom-elements.json",
     "./package.json": "./package.json"
   },
