@@ -115,18 +115,10 @@ class DDSCarousel extends HostListenerMixin(StableSelectorMixin(LitElement)) {
 
   /**
    *  IntersectionObserver to watch carousel contents.
-   *  As items cross the minIntersectionRatio `inert` and `aria-hidden` are toggled.
+   *
+   *  @see connectedCallback()
    */
-  private _intersectionObserver = new IntersectionObserver(
-    this._onIntersect.bind(this),
-    {
-      root: this._contentsNode,
-      threshold: [
-        0.5 + this._intersectionThresholdDifference,
-        0.5 - this._intersectionThresholdDifference,
-      ],
-    }
-  );
+  private _intersectionObserver: IntersectionObserver | null = null;
 
   private _intersectionTimeout?;
 
@@ -240,6 +232,40 @@ class DDSCarousel extends HostListenerMixin(StableSelectorMixin(LitElement)) {
           this._observeResizeContainer
         );
         this._observerResizeContainer.observe(contentsNode);
+      }
+    }
+  }
+
+  /**
+   * Cleans-up and creates the intersection observer for the scrolling container.
+   *
+   * @param [options] The options.
+   * @param [options.create] `true` to create the new intersection observer.
+   */
+  private _cleanAndCreateObserverIntersection({
+    create,
+  }: { create?: boolean } = {}) {
+    const { _contentsNode: contentsNode } = this;
+    // Avoid creating the intersection observer prematurely by checking that
+    // this._contentsNode has been set.
+    if (contentsNode) {
+      if (this._intersectionObserver) {
+        this._intersectionObserver.disconnect();
+        this._intersectionObserver = null;
+      }
+      if (create) {
+        // As items cross the minIntersectionRatio `inert` and `aria-hidden` are
+        // toggled.
+        this._intersectionObserver = new IntersectionObserver(
+          this._onIntersect.bind(this),
+          {
+            root: contentsNode,
+            threshold: [
+              0.5 + this._intersectionThresholdDifference,
+              0.5 - this._intersectionThresholdDifference,
+            ],
+          }
+        );
       }
     }
   }
@@ -373,10 +399,10 @@ class DDSCarousel extends HostListenerMixin(StableSelectorMixin(LitElement)) {
 
     this._childItems = (event.target as HTMLSlotElement).assignedElements();
 
-    this._intersectionObserver.disconnect();
+    this._intersectionObserver?.disconnect();
 
     this._childItems.forEach((item) => {
-      this._intersectionObserver.observe(item);
+      this._intersectionObserver?.observe(item);
     });
 
     // retrieve item heading, eyebrows, and footers to set same height
@@ -614,6 +640,7 @@ class DDSCarousel extends HostListenerMixin(StableSelectorMixin(LitElement)) {
   connectedCallback() {
     super.connectedCallback();
     this._cleanAndCreateObserverResize({ create: true });
+    this._cleanAndCreateObserverIntersection({ create: true });
 
     const containingModal = this.closest(
       `${ddsPrefix}-expressive-modal`
@@ -640,11 +667,13 @@ class DDSCarousel extends HostListenerMixin(StableSelectorMixin(LitElement)) {
 
   disconnectedCallback() {
     this._cleanAndCreateObserverResize();
+    this._cleanAndCreateObserverIntersection();
     super.disconnectedCallback();
   }
 
   firstUpdated() {
     this._cleanAndCreateObserverResize({ create: true });
+    this._cleanAndCreateObserverIntersection({ create: true });
   }
 
   protected updated(changedProperties) {
