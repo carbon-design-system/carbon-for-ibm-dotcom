@@ -47,6 +47,12 @@ const minIntersectionRatio = 0.75;
 @customElement(`${ddsPrefix}-carousel`)
 class DDSCarousel extends HostListenerMixin(StableSelectorMixin(LitElement)) {
   /**
+   * The scrolling container node.
+   */
+  @query(`.${prefix}--carousel__scroll-container`)
+  private _containerNode?: HTMLElement;
+
+  /**
    * The scrolling contents node.
    */
   @query(`.${prefix}--carousel__scroll-contents`)
@@ -245,10 +251,10 @@ class DDSCarousel extends HostListenerMixin(StableSelectorMixin(LitElement)) {
   private _cleanAndCreateObserverIntersection({
     create,
   }: { create?: boolean } = {}) {
-    const { _contentsNode: contentsNode } = this;
+    const { _containerNode: containerNode } = this;
     // Avoid creating the intersection observer prematurely by checking that
-    // this._contentsNode has been set.
-    if (contentsNode) {
+    // this._containerNode has been set.
+    if (containerNode) {
       if (this._intersectionObserver) {
         this._intersectionObserver.disconnect();
         this._intersectionObserver = null;
@@ -259,7 +265,7 @@ class DDSCarousel extends HostListenerMixin(StableSelectorMixin(LitElement)) {
         this._intersectionObserver = new IntersectionObserver(
           this._onIntersect.bind(this),
           {
-            root: contentsNode,
+            root: containerNode,
             threshold: [
               0.5 + this._intersectionThresholdDifference,
               0.5 - this._intersectionThresholdDifference,
@@ -462,7 +468,6 @@ class DDSCarousel extends HostListenerMixin(StableSelectorMixin(LitElement)) {
           );
         });
       this._observeResizeRoot();
-      this.markHiddenAsInert();
     }
   }
 
@@ -656,15 +661,6 @@ class DDSCarousel extends HostListenerMixin(StableSelectorMixin(LitElement)) {
     }
   }
 
-  markHiddenAsInert() {
-    const { _childItems: childItems, start, pageSize } = this;
-
-    childItems.forEach((item) => {
-      const index = childItems.indexOf(item);
-      item.inert = index < start || index > start + pageSize - 1;
-    });
-  }
-
   disconnectedCallback() {
     this._cleanAndCreateObserverResize();
     this._cleanAndCreateObserverIntersection();
@@ -674,12 +670,6 @@ class DDSCarousel extends HostListenerMixin(StableSelectorMixin(LitElement)) {
   firstUpdated() {
     this._cleanAndCreateObserverResize({ create: true });
     this._cleanAndCreateObserverIntersection({ create: true });
-  }
-
-  protected updated(changedProperties) {
-    if (changedProperties.has('start')) {
-      this.markHiddenAsInert();
-    }
   }
 
   render() {
