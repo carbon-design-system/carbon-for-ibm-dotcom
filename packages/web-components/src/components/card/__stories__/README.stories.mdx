@@ -35,7 +35,6 @@ import '@carbon/ibmdotcom-web-components/es/components/card/index.js';
   <c4d-card-eyebrow>Eyebrow text</c4d-card-eyebrow>
   <c4d-card-heading>Lorem ipsum dolor sit amet</c4d-card-heading>
   <c4d-card-footer slot="footer">
-    Card CTA text
     <svg
       slot="icon"
       focusable="false"
@@ -125,13 +124,22 @@ variation will be rendered, where the card is no longer clickable and optional
 </c4d-card>
 ```
 
+## Card - link
+
+```html
+<c4d-card link href="https://example.com">
+  <c4d-card-heading>Card link heading</c4d-card-heaing>
+  <c4d-card-footer></c4d-card-footer>
+</c4d-card>
+```
+
 ## Card - logo
 
 If you need to use a Logo image for the Card component, use the Logo variant to
 ensure the Card properly accomodates to the Logo image.
 
 ```html
-<c4d-card border logo href="https://example.com">
+<c4d-card logo href="https://example.com">
   <c4d-image-logo
     slot="image"
     alt="Image logo alt text"
