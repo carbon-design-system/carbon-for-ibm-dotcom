@@ -70,6 +70,11 @@
 :host(#{$c4d-prefix}-link-list) {
   padding-bottom: 0;
 
+  ul {
+    padding: 0;
+    margin: 0;
+  }
+
   .#{$prefix}--link-list__list--card,
   .#{$prefix}--link-list__list--vertical,
   .#{$c4d-prefix}-ce--link-list__list--end {
