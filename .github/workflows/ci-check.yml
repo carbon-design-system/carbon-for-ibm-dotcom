@@ -42,7 +42,7 @@ jobs:
       - name: Build project
         run: yarn lerna run --stream --ignore @carbon/ibmdotcom-react build
       - name: Run basic checks
-        run: yarn lerna run --loglevel=verbose --scope=@carbon/ibmdotcom-web-components ci-check
+        run: yarn lerna run --loglevel=verbose --scope=@carbon/ibmdotcom-web-components typecheck
   a11y:
     runs-on: ubuntu-latest
     steps:
