@@ -194,8 +194,7 @@
     // `@include make-row()` has negative margin adjustment assuming that it's placed in Carbon grid.
     // Such adjustment has adverse effect when card group is placed in non-Carbon-grid,
     // but keeps it for React for backward-compatibility reason.
-    margin-left: calc(-1 * #{math.div(#{$grid-gutter}, 2)});
-    margin-right: calc(-1 * #{math.div(#{$grid-gutter}, 2)});
+    margin-inline: calc(-1 * math.div($grid-gutter, 2));
 
     position: relative;
     &::after {

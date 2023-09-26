@@ -104,8 +104,7 @@
 
   .#{$prefix}--logo-grid__row {
     display: grid;
-    margin-left: calc(-1 * math.div(#{$grid-gutter}, 2));
-    margin-right: calc(-1 * math.div(#{$grid-gutter}, 2));
+    margin-inline: calc(-1 * math.div($grid-gutter, 2));
     grid-template-columns: repeat(2, 1fr);
 
     @include breakpoint(md) {
