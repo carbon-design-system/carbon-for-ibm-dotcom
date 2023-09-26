@@ -336,7 +336,6 @@
       ::slotted(#{$c4d-prefix}-leadspace-heading),
       .#{$prefix}--leadspace__title {
         margin-bottom: 0;
-        @include type-style(fluid-heading-05, true);
       }
 
       .#{$prefix}--leadspace__desc,
@@ -634,9 +633,6 @@
   }
 
   :host(#{$c4d-prefix}-leadspace)[size='super'] {
-    ::slotted(#{$c4d-prefix}-leadspace-heading) {
-      @include type-style(display-01, true);
-    }
 
     .#{$prefix}--leadspace__section {
       @include breakpoint(lg) {
