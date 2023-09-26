@@ -148,7 +148,7 @@
 
   :host(#{$c4d-prefix}-locale-modal) {
     #{$c4d-prefix}-expressive-modal-header {
-      padding: 0 20% 0 $spacing-05;
+      padding: 3px 20% 0 $spacing-05;
       margin-bottom: $spacing-03;
     }
 
@@ -192,7 +192,6 @@
   }
 
   :host(#{$c4d-prefix}-region-item) .#{$prefix}--link {
-    min-height: 11.5rem;
     outline: 1px solid $layer-02;
     outline-offset: -1px;
     max-width: none;
@@ -322,24 +321,12 @@
       @include make-col(8, 16);
     }
 
-    // &[disabled] .#{$prefix}--link {
-    //   @extend .#{$prefix}--card__CTA--disabled;
-    // }
-
     .#{$prefix}--link {
-      // @extend .#{$prefix}--tile;
-      // @extend .#{$prefix}--tile--clickable;
-      // @extend .#{$prefix}--card;
-
       align-items: stretch;
       text-align: inherit;
 
       &:hover.#{$prefix}--link--disabled {
         display: flex;
-      }
-
-      .#{$prefix}--card__wrapper .cds-card__footer svg {
-        color: $layer-selected-inverse;
       }
     }
   }
