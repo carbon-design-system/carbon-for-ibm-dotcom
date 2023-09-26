@@ -38,6 +38,7 @@ For Carbon v11 migration guidance, see their
 | cta                       | View changes [here](#cta)                                                                                                                      |
 | cta-block                 | This component is deprecated in v2 in favor for content-section/block & content-item components                                                |
 | cta-section               | This component is deprecated in v2 in favor for content-section/block & content-item components                                                |
+| filter-panel              | View changes [here](#filter-panel)                                                                                                             |
 | footer                    | No API changes.                                                                                                                                |
 | hr                        | View changes [here](#horizontal-rule)                                                                                                          |
 | image                     | View changes [here](#image)                                                                                                                    |
@@ -80,6 +81,10 @@ can now be used natively within Button, Card, Feature Card, and Link with Icon.
 Each new component has a `cta-type` property that can change the icon and click
 functionality of the component. See the components' documentations for more
 information.
+
+### Filter panel
+
+- `filter-group-item` property `title-text` has been updated to `title`
 
 ### Horizontal rule
 

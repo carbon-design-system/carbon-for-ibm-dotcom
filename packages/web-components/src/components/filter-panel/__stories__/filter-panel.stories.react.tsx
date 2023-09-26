@@ -39,7 +39,7 @@ export const Default = (args) => {
             {heading}
           </C4DFilterPanelHeading>
           <C4DFilterGroup>
-            <C4DFilterGroupItem title-text="Product types">
+            <C4DFilterGroupItem title="Product types">
               <C4DFilterPanelCheckbox value="API" checked>
                 API
               </C4DFilterPanelCheckbox>
@@ -65,7 +65,7 @@ export const Default = (args) => {
                 Software
               </C4DFilterPanelCheckbox>
             </C4DFilterGroupItem>
-            <C4DFilterGroupItem title-text="Technologies">
+            <C4DFilterGroupItem title="Technologies">
               <C4DFilterPanelInputSelect
                 header-value="Analytics"
                 title="Analytics"></C4DFilterPanelInputSelect>
@@ -107,7 +107,7 @@ export const Default = (args) => {
                 header-value="Software development"
                 title="Software development"></C4DFilterPanelInputSelect>
             </C4DFilterGroupItem>
-            <C4DFilterGroupItem title-text="Business needs">
+            <C4DFilterGroupItem title="Business needs">
               <C4DFilterPanelInputSelect
                 header-value="Business operations"
                 title="Business operations"></C4DFilterPanelInputSelect>
@@ -127,7 +127,7 @@ export const Default = (args) => {
                 header-value="Supply chain management"
                 title="Supply chain management"></C4DFilterPanelInputSelect>
             </C4DFilterGroupItem>
-            <C4DFilterGroupItem title-text="Deployment types">
+            <C4DFilterGroupItem title="Deployment types">
               <C4DFilterPanelCheckbox value="On-premises">
                 On-premises
               </C4DFilterPanelCheckbox>
