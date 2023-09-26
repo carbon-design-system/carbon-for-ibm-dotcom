@@ -221,6 +221,10 @@
     &[has-l1] {
       --c4d-active-l0-border-color: #{$layer-accent-01};
     }
+
+    ::slotted([slot="profile"]) {
+      background-color: $background;
+    }
   }
 
   :host(#{$c4d-prefix}-megamenu-overlay),
