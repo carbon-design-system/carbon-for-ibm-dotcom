@@ -292,6 +292,20 @@
       @include type-style('heading-01');
     }
 
+    .#{$c4d-prefix}-filter-group-item__view-all {
+      width: 100%;
+      padding: $spacing-03 $spacing-05;
+      text-align: left;
+      cursor: pointer;
+
+      &:focus-visible {
+        outline: none;
+        border-color: $focus;
+        box-shadow: inset 0 0 0 $button-outline-width $focus,
+          inset 0 0 0 $button-border-width $background;
+      }
+    }
+
     &:last-of-type {
       border-bottom: 1px solid $layer-accent-01;
     }
@@ -332,7 +346,7 @@
     }
 
     .#{$prefix}--filter-panel__section.#{$prefix}--modal-container {
-      transform: translate3d(0px, 0px, 0px);
+      transform: translate3d(0, 0, 0);
       overflow: initial;
       @include breakpoint(md) {
         height: 80%;
@@ -360,22 +374,6 @@
       .#{$prefix}--modal-content {
         margin: $spacing-09 $spacing-07;
         padding: 0;
-      }
-    }
-  }
-
-  :host(#{$c4d-prefix}-filter-group-item) {
-    .#{$c4d-prefix}-filter-group-item__view-all {
-      width: 100%;
-      padding: $spacing-03 $spacing-05;
-      text-align: left;
-      cursor: pointer;
-
-      &:focus-visible {
-        outline: none;
-        border-color: $focus;
-        box-shadow: inset 0 0 0 $button-outline-width $focus,
-          inset 0 0 0 $button-border-width $background;
       }
     }
   }
