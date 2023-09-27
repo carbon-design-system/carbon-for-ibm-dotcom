@@ -155,41 +155,6 @@ export const WithMixedContent = (args) => {
       </dds-tab>
     `,
     html`
-      <dds-tab label="Accordion">
-        <bx-accordion>
-          <bx-accordion-item title-text="Image">
-            <dds-image
-              alt="Image alt text"
-              default-src="${imgLg16x9}"></dds-image>
-            <p>
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-              eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut
-              enim ad minim veniam, quis nostrud exercitation ullamco laboris
-              nisi ut aliquip ex ea commodo consequat.
-            </p>
-          </bx-accordion-item>
-          <bx-accordion-item title-text="Video">
-            <dds-video-player-composite
-              video-id="1_9h94wo6b"></dds-video-player-composite>
-            <p>
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-              eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut
-              enim ad minim veniam, quis nostrud exercitation ullamco laboris
-              nisi ut aliquip ex ea commodo consequat.
-            </p>
-          </bx-accordion-item>
-          <bx-accordion-item title-text="Text">
-            <p>
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-              eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut
-              enim ad minim veniam, quis nostrud exercitation ullamco laboris
-              nisi ut aliquip ex ea commodo consequat.
-            </p>
-          </bx-accordion-item>
-        </bx-accordion>
-      </dds-tab>
-    `,
-    html`
       <dds-tab label="Disabled" disabled>
         <p>${exampleStrings[0]}</p>
       </dds-tab>
