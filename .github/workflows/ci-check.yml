@@ -41,8 +41,10 @@ jobs:
         run: yarn install --immutable --immutable-cache
       - name: Build project
         run: yarn lerna run --stream --ignore @carbon/ibmdotcom-react build
+      - name: Install xvfb
+        run: sudo apt-get install xvfb
       - name: Run basic checks
-        run: yarn lerna run --loglevel=verbose --scope=@carbon/ibmdotcom-web-components typecheck
+        run: xvfb-run --auto-servernum yarn lerna run --stream --prefix --verbose --scope=@carbon/ibmdotcom-web-components ci-check
   a11y:
     runs-on: ubuntu-latest
     steps:
