@@ -11,10 +11,10 @@ import { cdnJs, cdnCss } from '../../../globals/internal/storybook-cdn';
 # LeadSpace
 
 > 💡 Check our
-> [CodeSandbox](https://githubbox.com/carbon-design-system/carbon-for-ibm-dotcom/tree/main/packages/web-components/examples/codesandbox/components/leadspace)
+> [Stackblitz](https://stackblitz.com/github/carbon-design-system/carbon-for-ibm-dotcom/tree/main/packages/web-components/examples/stackblitz/components/leadspace)
 > example implementation.
 
-[![Edit @carbon/ibmdotcom-web-components](https://codesandbox.io/static/img/play-codesandbox.svg)](https://githubbox.com/carbon-design-system/carbon-for-ibm-dotcom/tree/main/packages/web-components/examples/codesandbox/components/leadspace)
+[![Edit @carbon/ibmdotcom-web-components](https://codesandbox.io/static/img/play-codesandbox.svg)](https://stackblitz.com/github/carbon-design-system/carbon-for-ibm-dotcom/tree/main/packages/web-components/examples/codesandbox/components/leadspace)
 
 ## Getting started
 
@@ -36,32 +36,32 @@ import ArrowRight20 from '@carbon/web-components/es/icons/arrow--right/20.js';
 ### HTML
 
 ```html
-<cds-leadspace alt="alt text" default-src="www.example.com">
-  <cds-leadspace-heading>LeadSpace title</cds-leadspace-heading>
+<c4d-leadspace alt="alt text" default-src="www.example.com">
+  <c4d-leadspace-heading>LeadSpace title</c4d-leadspace-heading>
   LeadSpace copy
-  <cds-button-group slot="action">
-    <cds-button-group-item href="www.example.com">
+  <c4d-button-group slot="action">
+    <c4d-button-group-item href="www.example.com">
       Button 1
       <svg ...>...</svg>
-    </cds-button-group-item>
-    <cds-button-group-item href="www.example.com">
+    </c4d-button-group-item>
+    <c4d-button-group-item href="www.example.com">
       Button 2
       <svg ...>...</svg>
-    </cds-button-group-item>
-  </cds-button-group>
-  <cds-background-media
+    </c4d-button-group-item>
+  </c4d-button-group>
+  <c4d-background-media
     slot="image"
     opacity="100"
     alt="alt text"
     default-src="https://picsum.photos/id/1076/1056/480">
-    <cds-image-item
+    <c4d-image-item
       media="(min-width: 672px)"
-      srcset="https://picsum.photos/id/1076/672/400"></cds-image-item>
-    <cds-image-item
+      srcset="https://picsum.photos/id/1076/672/400"></c4d-image-item>
+    <c4d-image-item
       media="(min-width: 0)"
-      srcset="https://picsum.photos/id/1076/320/370"></cds-image-item>
-  </cds-background-media>
-</cds-leadspace>
+      srcset="https://picsum.photos/id/1076/320/370"></c4d-image-item>
+  </c4d-background-media>
+</c4d-leadspace>
 ```
 
 ## Using a background video
@@ -71,25 +71,25 @@ It is possible to display a video instead of an image. To do so, use the
 such:
 
 ```html
-<cds-leadspace>
-  <cds-leadspace-heading>LeadSpace title</cds-leadspace-heading>
+<c4d-leadspace>
+  <c4d-leadspace-heading>LeadSpace title</c4d-leadspace-heading>
   Leadspace copy
-  <cds-button-group slot="action">
-    <cds-button-group-item href="www.example.com">
+  <c4d-button-group slot="action">
+    <c4d-button-group-item href="www.example.com">
       Button 1
       <svg ...>...</svg>
-    </cds-button-group-item>
-    <cds-button-group-item href="www.example.com">
+    </c4d-button-group-item>
+    <c4d-button-group-item href="www.example.com">
       Button 2
       <svg ...>...</svg>
-    </cds-button-group-item>
-  </cds-button-group>
-  <cds-background-media slot="image" opacity="100">
-    <cds-video-player-container
+    </c4d-button-group-item>
+  </c4d-button-group>
+  <c4d-background-media slot="image" opacity="100">
+    <c4d-video-player-container
       video-id="0_ibuqxqbe"
-      background-mode="true"></cds-video-player-container>
-  </cds-background-media>
-</cds-leadspace>
+      background-mode="true"></c4d-video-player-container>
+  </c4d-background-media>
+</c4d-leadspace>
 ```
 
 ## Using video player CTA button
@@ -101,34 +101,34 @@ the Leadspace reserves the "action" slot for its CTAs, make sure to include
 `slot='action'` as an attribute to `video-cta-container`:
 
 ```html
-<cds-leadspace alt="alt text" default-src="www.example.com">
-  <cds-leadspace-heading>LeadSpace title</cds-leadspace-heading>
+<c4d-leadspace alt="alt text" default-src="www.example.com">
+  <c4d-leadspace-heading>LeadSpace title</c4d-leadspace-heading>
   LeadSpace copy
-  <cds-video-cta-container slot="action">
-    <cds-button-group slot="action">
-      <cds-button-cta cta-type="video" href="0_ibuqxqbe">
+  <c4d-video-cta-container slot="action">
+    <c4d-button-group slot="action">
+      <c4d-button-cta cta-type="video" href="0_ibuqxqbe">
         Button 1
         <svg ...>...</svg>
-      </cds-button-cta>
-      <cds-button-group-item href="www.example.com">
+      </c4d-button-cta>
+      <c4d-button-group-item href="www.example.com">
         Button 2
         <svg ...>...</svg>
-      </cds-button-group-item>
-    </cds-button-group>
-  </cds-video-cta-container>
-  <cds-background-media
+      </c4d-button-group-item>
+    </c4d-button-group>
+  </c4d-video-cta-container>
+  <c4d-background-media
     slot="image"
     opacity="100"
     alt="alt text"
     default-src="https://picsum.photos/id/1076/1056/480">
-    <cds-image-item
+    <c4d-image-item
       media="(min-width: 672px)"
-      srcset="https://picsum.photos/id/1076/672/400"></cds-image-item>
-    <cds-image-item
+      srcset="https://picsum.photos/id/1076/672/400"></c4d-image-item>
+    <c4d-image-item
       media="(min-width: 0)"
-      srcset="https://picsum.photos/id/1076/320/370"></cds-image-item>
-  </cds-background-media>
-</cds-leadspace>
+      srcset="https://picsum.photos/id/1076/320/370"></c4d-image-item>
+  </c4d-background-media>
+</c4d-leadspace>
 ```
 
 ## Props
@@ -143,6 +143,6 @@ to see how Web Components selector and `data-autoid` should be used.
 
 | Web Components selector | Compatibility selector         | Description |
 | ----------------------- | ------------------------------ | ----------- |
-| `<cds-leadspace>`       | `data-autoid="cds--leadspace"` | Component   |
+| `<c4d-leadspace>`       | `data-autoid="cds--leadspace"` | Component   |
 
 <Description markdown={contributing} />

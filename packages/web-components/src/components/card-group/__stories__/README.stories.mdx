@@ -10,10 +10,10 @@ import { cdnJs, cdnCss } from '../../../globals/internal/storybook-cdn';
 # Card Group
 
 > 💡 Check our
-> [CodeSandbox](https://githubbox.com/carbon-design-system/carbon-for-ibm-dotcom/tree/main/packages/web-components/examples/codesandbox/components/card-group)
+> [Stackblitz](https://stackblitz.com/github/carbon-design-system/carbon-for-ibm-dotcom/tree/main/packages/web-components/examples/stackblitz/components/card-group)
 > example implementation.
 
-[![Edit @carbon/ibmdotcom-web-components](https://codesandbox.io/static/img/play-codesandbox.svg)](https://githubbox.com/carbon-design-system/carbon-for-ibm-dotcom/tree/main/packages/web-components/examples/codesandbox/components/card-group)
+[![Edit @carbon/ibmdotcom-web-components](https://codesandbox.io/static/img/play-codesandbox.svg)](https://stackblitz.com/github/carbon-design-system/carbon-for-ibm-dotcom/tree/main/packages/web-components/examples/codesandbox/components/card-group)
 
 ## Getting started
 
@@ -34,54 +34,54 @@ import '@carbon/ibmdotcom-web-components/es/components/card-in-card/index.js';
 ### HTML
 
 ```html
-<cds-card-group>
-  <cds-card-group-item cta-type="local" href="https://example.com">
-    <cds-card-heading>Nunc convallis lobortis</cds-card-heading>
+<c4d-card-group>
+  <c4d-card-group-item cta-type="local" href="https://example.com">
+    <c4d-card-heading>Nunc convallis lobortis</c4d-card-heading>
     <p>
       Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean et
       ultricies est. Mauris iaculis eget dolor nec hendrerit. Phasellus at elit
       sollicitudin, sodales nulla quis, consequat libero.
     </p>
-    <cds-card-cta-footer slot="footer"> </cds-card-cta-footer>
-  </cds-card-group-item>
-  <cds-card-group-item
+    <c4d-card-footer slot="footer"> </c4d-card-footer>
+  </c4d-card-group-item>
+  <c4d-card-group-item
     cta-type="local"
     href="https://example.com"
     color-scheme="inverse">
-    <cds-card-heading>Top level card link</cds-card-heading>
-    <cds-card-cta-footer slot="footer" color-scheme="inverse">
-    </cds-card-cta-footer>
-  </cds-card-group-item>
-</cds-card-group>
+    <c4d-card-heading>Top level card link</c4d-card-heading>
+    <c4d-card-footer slot="footer" color-scheme="inverse">
+    </c4d-card-footer>
+  </c4d-card-group-item>
+</c4d-card-group>
 ```
 
 ### HTML (with Card in Card)
 
 ```html
-<cds-card-in-card grid-mode="narrow" href="https://example.com">
-  <cds-card-in-card-image
+<c4d-card-in-card grid-mode="narrow" href="https://example.com">
+  <c4d-card-in-card-image
     slot="image"
     alt="Image alt text"
     default-src="https://fpoimg.com/480x360?text=4:3&bg_color=ee5396&text_color=161616">
-    <cds-image-item
+    <c4d-image-item
       media="(min-width: 1312px)"
       srcset="https://fpoimg.com/1312x738?text=16:9&bg_color=ee5396&text_color=161616">
-    </cds-image-item>
-    <cds-image-item
+    </c4d-image-item>
+    <c4d-image-item
       media="(min-width: 672px)"
       srcset="https://fpoimg.com/960x540?text=16:9&bg_color=ee5396&text_color=161616">
-    </cds-image-item>
-    <cds-image-item
+    </c4d-image-item>
+    <c4d-image-item
       media="(min-width: 320px)"
       srcset="https://fpoimg.com/480x360?text=4:3&bg_color=ee5396&text_color=161616">
-    </cds-image-item>
-  </cds-card-in-card-image>
-  <cds-card-eyebrow>Label</cds-card-eyebrow>
-  <cds-card-heading
+    </c4d-image-item>
+  </c4d-card-in-card-image>
+  <c4d-card-eyebrow>Label</c4d-card-eyebrow>
+  <c4d-card-heading
     >Standard Bank Group prepares to embrace Africa’s AI
-    opportunity</cds-card-heading
+    opportunity</c4d-card-heading
   >
-  <cds-card-cta-footer>
+  <c4d-card-footer>
     <svg
       slot="icon"
       focusable="false"
@@ -95,53 +95,53 @@ import '@carbon/ibmdotcom-web-components/es/components/card-in-card/index.js';
       <path
         d="M11.8 2.8L10.8 3.8 16.2 9.3 1 9.3 1 10.7 16.2 10.7 10.8 16.2 11.8 17.2 19 10z"></path>
     </svg>
-  </cds-card-cta-footer>
-</cds-card-in-card>
+  </c4d-card-footer>
+</c4d-card-in-card>
 
-<cds-card-group grid-mode="narrow">
-  <cds-card-group-item cta-type="local" href="https://example.com">
-    <cds-card-heading>Nunc convallis lobortis</cds-card-heading>
+<c4d-card-group grid-mode="narrow">
+  <c4d-card-group-item cta-type="local" href="https://example.com">
+    <c4d-card-heading>Nunc convallis lobortis</c4d-card-heading>
     <p>
       Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean et
       ultricies est. Mauris iaculis eget dolor nec hendrerit. Phasellus at elit
       sollicitudin, sodales nulla quis, consequat libero.
     </p>
-    <cds-card-cta-footer slot="footer"> </cds-card-cta-footer>
-  </cds-card-group-item>
-</cds-card-group>
+    <c4d-card-footer slot="footer"> </c4d-card-footer>
+  </c4d-card-group-item>
+</c4d-card-group>
 ```
 
 ### HTML (with Card Link)
 
 ```html
-<cds-card-group grid-mode="narrow">
-  <cds-card-group-card-link-item
+<c4d-card-group grid-mode="narrow">
+  <c4d-card-group-card-link-item
     cta-type="local"
     href="https://example.com"
     pattern-background>
-    <cds-card-link-heading>IBM Developer - Card 01</cds-card-link-heading>
+    <c4d-card-link-heading>IBM Developer - Card 01</c4d-card-link-heading>
     <p>Learn, code and connect with your community</p>
-    <cds-card-cta-footer slot="footer"> </cds-card-cta-footer>
-  </cds-card-group-card-link-item>
+    <c4d-card-footer slot="footer"> </c4d-card-footer>
+  </c4d-card-group-card-link-item>
 
-  <cds-card-group-card-link-item
+  <c4d-card-group-card-link-item
     cta-type="local"
     href="https://example.com"
     pattern-background>
-    <cds-card-link-heading>IBM Developer - Card 02</cds-card-link-heading>
+    <c4d-card-link-heading>IBM Developer - Card 02</c4d-card-link-heading>
     <p>Learn, code and connect with your community</p>
-    <cds-card-cta-footer slot="footer"> </cds-card-cta-footer>
-  </cds-card-group-card-link-item>
+    <c4d-card-footer slot="footer"> </c4d-card-footer>
+  </c4d-card-group-card-link-item>
 
-  <cds-card-group-card-link-item
+  <c4d-card-group-card-link-item
     cta-type="local"
     href="https://example.com"
     pattern-background>
-    <cds-card-link-heading>IBM Developer - Card 03</cds-card-link-heading>
+    <c4d-card-link-heading>IBM Developer - Card 03</c4d-card-link-heading>
     <p>Learn, code and connect with your community</p>
-    <cds-card-cta-footer slot="footer"> </cds-card-cta-footer>
-  </cds-card-group-card-link-item>
-</cds-card-group>
+    <c4d-card-footer slot="footer"> </c4d-card-footer>
+  </c4d-card-group-card-link-item>
+</c4d-card-group>
 ```
 
 ### HTML (with Mixed Media)
@@ -157,24 +157,24 @@ import '@carbon/ibmdotcom-web-components/es/components/cta/video-cta-container.j
 ```
 
 ```html
-<cds-video-cta-container>
-  <cds-card-group>
-    <cds-card-group-item cta-type="video" href="0_ibuqxqbe">
-      <cds-card-eyebrow>Topic</cds-card-eyebrow>
-      <cds-card-cta-footer cta-type="video" slot="footer" href="0_ibuqxqbe">
-      </cds-card-cta-footer>
-    </cds-card-group-item>
-  </cds-card-group>
-</cds-video-cta-container>
+<c4d-video-cta-container>
+  <c4d-card-group>
+    <c4d-card-group-item cta-type="video" href="0_ibuqxqbe">
+      <c4d-card-eyebrow>Topic</c4d-card-eyebrow>
+      <c4d-card-footer cta-type="video" slot="footer" href="0_ibuqxqbe">
+      </c4d-card-footer>
+    </c4d-card-group-item>
+  </c4d-card-group>
+</c4d-video-cta-container>
 ```
 
 ## Props
 
-### `<cds-card-group>`
+### `<c4d-card-group>`
 
 <Props of="cds-card-group" />
 
-### `<cds-card-group-item>`
+### `<c4d-card-group-item>`
 
 <Props of="cds-card-group-item" />
 
@@ -186,7 +186,7 @@ to see how Web Components selector and `data-autoid` should be used.
 
 | Web Components selector | Compatibility selector               | Description |
 | ----------------------- | ------------------------------------ | ----------- |
-| `<cds-card-group>`      | `data-autoid="cds--card-group"`      | Component   |
-| `<cds-card-group-item>` | `data-autoid="cds--card-group-item"` | Component   |
+| `<c4d-card-group>`      | `data-autoid="cds--card-group"`      | Component   |
+| `<c4d-card-group-item>` | `data-autoid="cds--card-group-item"` | Component   |
 
 <Description markdown={contributing} />

@@ -1,0 +1,156 @@
+<!--
+@license
+
+Copyright IBM Corp. 2020
+
+This source code is licensed under the Apache-2.0 license found in the
+LICENSE file in the root directory of this source tree.
+-->
+
+<html>
+  <head>
+    <title>@carbon/ibmdotcom-web-components example</title>
+    <meta charset="UTF-8" />
+    <link rel="alternate" hreflang="x-default" href="https://www.ibm.com">
+    {{#each allCountryList}}
+      <link rel="alternate" hreflang="{{locale}}" href="{{href}}">
+    {{/each}}
+    <style type="text/css">
+      body {
+        visibility: hidden; /* Avoids FOUC */
+      }
+    </style>
+  </head>
+  <body>
+    <c4d-masthead>
+      <c4d-masthead-menu-button></c4d-masthead-menu-button>
+      <c4d-masthead-logo></c4d-masthead-logo>
+      <c4d-top-nav menu-bar-label="IBM [Platform]">
+        {{#each navLinks}}
+          {{#if menuItems}}
+            <c4d-top-nav-menu menu-label="{{title}}" trigger-content="{{title}}">
+              {{#each menuItems}}
+                <c4d-top-nav-menu-item href="{{url}}" title="{{title}}"></c4d-top-nav-menu-item>
+              {{/each}}
+            </c4d-top-nav-menu>
+          {{else}}
+            <c4d-top-nav-item href="{{url}}" title="{{title}}"></c4d-top-nav-item>
+          {{/if}}
+        {{/each}}
+      </c4d-top-nav>
+      <c4d-masthead-search-container></c4d-masthead-search-container>
+      <c4d-masthead-global-bar>
+        <c4d-masthead-profile authenticated>
+          {{#each profileItems}}
+            <c4d-masthead-profile-item href="{{href}}">{{title}}</c4d-masthead-profile-item>
+          {{/each}}
+        </c4d-masthead-profile>
+      </c4d-masthead-global-bar>
+      <c4d-left-nav-overlay></c4d-left-nav-overlay>
+      <c4d-left-nav menu-bar-label="IBM [Platform]">
+        {{#each navLinks}}
+          {{#if menuItems}}
+            <c4d-left-nav-menu title="{{title}}">
+              {{#each menuItems}}
+                <c4d-left-nav-menu-item href="{{url}}" title="{{title}}"></c4d-left-nav-menu-item>
+              {{/each}}
+            </c4d-left-nav-menu>
+          {{else}}
+            <c4d-left-nav-item href="{{url}}" title="{{title}}"></c4d-left-nav-item>
+          {{/if}}
+        {{/each}}
+      </c4d-left-nav>
+    </c4d-masthead>
+    <main class="bx--content cds-ce-demo--ui-shell-content">
+      <div class="bx--grid">
+        <div class="bx--row">
+          <div class="bx--col-lg-13">
+            <h2>
+              Purpose and function
+            </h2>
+            <p>
+              The shell is perhaps the most crucial piece of any UI built with Carbon. It contains the shared navigation framework
+              for the entire design system and ties the products in IBM’s portfolio together in a cohesive and elegant way. The
+              shell is the home of the topmost navigation, where users can quickly and dependably gain their bearings and move
+              between pages.
+              <br />
+              <br />
+              The shell was designed with maximum flexibility built in, to serve the needs of a broad range of products and users.
+              Adopting the shell ensures compliance with IBM design standards, simplifies development efforts, and provides great
+              user experiences. All IBM products built with Carbon are required to use the shell’s header.
+              <br />
+              <br />
+              To better understand the purpose and function of the UI shell, consider the “shell” of MacOS, which contains the Apple
+              menu, top-level navigation, and universal, OS-level controls at the top of the screen, as well as a universal dock
+              along the bottom or side of the screen. The Carbon UI shell is roughly analogous in function to these parts of the Mac
+              UI. For example, the app switcher portion of the shell can be compared to the dock in MacOS.
+            </p>
+            <h2>
+              Header responsive behavior
+            </h2>
+            <p>
+              As a header scales down to fit smaller screen sizes, headers with persistent side nav menus should have the side nav
+              collapse into “hamburger” menu. See the example to better understand responsive behavior of the header.
+            </p>
+            <h2>
+              Secondary navigation
+            </h2>
+            <p>
+              The side-nav contains secondary navigation and fits below the header. It can be configured to be either fixed-width or
+              flexible, with only one level of nested items allowed. Both links and category lists can be used in the side-nav and
+              may be mixed together. There are several configurations of the side-nav, but only one configuration should be used per
+              product section. If tabs are needed on a page when using a side-nav, then the tabs are secondary in hierarchy to the
+              side-nav.
+            </p>
+          </div>
+        </div>
+      </div>
+    </main>
+    <c4d-footer>
+      <c4d-footer-logo slot="brand"></c4d-footer-logo>
+      <c4d-footer-nav>
+        {{#each footerLinks}}
+          <c4d-footer-nav-group title-text="{{title}}">
+            {{#each links}}
+              <c4d-footer-nav-item href="{{url}}">{{title}}</c4d-footer-nav-item>
+            {{/each}}
+          </c4d-footer-nav-group>
+        {{/each}}
+      </c4d-footer-nav>
+      <c4d-locale-button slot="locale-button">{{langDisplay}}</c4d-locale-button>
+      <c4d-legal-nav slot="legal-nav">
+        {{#each legalLinks}}
+          <c4d-legal-nav-item href="{{url}}">{{title}}</c4d-legal-nav-item>
+        {{/each}}
+        <c4d-legal-nav-cookie-preferences-placeholder></c4d-legal-nav-cookie-preferences-placeholder>
+      </c4d-legal-nav>
+    </c4d-footer>
+    <c4d-locale-modal
+      close-button-assistive-text="{{localeModal.modalClose}}"
+      header-title="{{localeModal.headerTitle}}"
+      lang-display="{{langDisplay}}"
+    >
+      <c4d-regions>
+        {{#each regionList}}
+          {{#if countryList}}
+            <c4d-region-item name="{{name}}"></c4d-region-item>
+          {{else}}
+            <c4d-region-item invalid name="{{name}}"></c4d-region-item>
+          {{/if}}
+        {{/each}}
+      </c4d-regions>
+      <c4d-locale-search
+        close-button-assistive-text="{{localeModal.searchClearText}}"
+        label-text="{{localeModal.searchLabel}}"
+        placeholder="{{localeModal.searchPlaceholder}}"
+        availability-label-text="{{localeModal.availabilityText}}"
+        unavailability-label-text="{{localeModal.unavailabilityText}}"
+      >
+        {{#each allCountryList}}
+          <c4d-locale-item country="{{country}}" href="{{href}}" language="{{language}}" locale="{{locale}}" region="{{region}}">
+          </c4d-locale-item>
+        {{/each}}
+      </c4d-locale-search>
+    </c4d-locale-modal>
+  </body>
+</html>
