@@ -233,13 +233,6 @@ class DDSMastheadL1 extends StableSelectorMixin(LitElement) {
         }
       }
 
-      // Hide the scroller buttons when there are no menu items.
-      if (!menuFirstItem && !menuLastItem && menuScrollerButtons) {
-        menuScrollerButtons.forEach((button) => {
-          button.setAttribute('hidden', '');
-        });
-      }
-
       // Prevent this functionality from running again until the time threshold has passed.
       this.scrollObserverThrottler = setTimeout(() => {
         this.scrollObserverThrottler = undefined;
