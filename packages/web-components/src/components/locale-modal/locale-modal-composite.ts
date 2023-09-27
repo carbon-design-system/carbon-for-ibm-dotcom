@@ -11,6 +11,7 @@ import { LitElement, html } from 'lit';
 import { property } from 'lit/decorators.js';
 import { ifDefined } from 'lit/directives/if-defined.js';
 import LocaleAPI from '@carbon/ibmdotcom-services/es/services/Locale/Locale.js';
+import ArrowRight20 from '../../internal/vendor/@carbon/web-components/icons/arrow--right/20.js';
 import settings from '../../internal/vendor/@carbon/ibmdotcom-utilities/utilities/settings/settings';
 import altlangs from '../../internal/vendor/@carbon/ibmdotcom-utilities/utilities/altlangs/altlangs.js';
 import HybridRenderMixin from '../../globals/mixins/hybrid-render';
@@ -23,6 +24,8 @@ import './regions';
 import './region-item';
 import './locale-search';
 import './locale-item';
+import '../card/card-heading';
+import '../card/card-footer';
 import styles from './locale-modal-composite.scss';
 import { carbonElement as customElement } from '../../internal/vendor/@carbon/web-components/globals/decorators/carbon-element.js';
 
@@ -177,12 +180,20 @@ class C4DLocaleModalComposite extends HybridRenderMixin(LitElement) {
         ?open="${open}">
         <c4d-regions title="${ifDefined(headerTitle)}">
           ${regionList?.map(({ countryList, name }) => {
+            const isDisabled =
+              countryList.length === 0 ||
+              massagedCountryList?.find(({ region }) => region === name) ===
+                undefined;
             return html`
-              <c4d-region-item
-                ?invalid="${countryList.length === 0 ||
-                massagedCountryList?.find(({ region }) => region === name) ===
-                  undefined}"
-                name="${name}"></c4d-region-item>
+              <c4d-region-item link ?disabled="${isDisabled}" name="${name}">
+                <c4d-card-heading>${name}</c4d-card-heading>
+                <c4d-card-footer tabindex="-1" ?disabled="${isDisabled}"
+                  >${ArrowRight20({
+                    slot: 'icon',
+                    class: `${c4dPrefix}--card__cta`,
+                  })}</c4d-card-footer
+                >
+              </c4d-region-item>
             `;
           })}
         </c4d-regions>

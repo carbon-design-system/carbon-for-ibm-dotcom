@@ -16,9 +16,9 @@
 @use '../../globals/vars' as *;
 @use '../../globals/utils/flex-grid' as *;
 
-@use '../card';
+@use '../card' as *;
 @use '@carbon/styles/scss/components/search' as *;
-@use '@carbon/styles/scss/components/modal' as *;
+@use '../../../../carbon-web-components/src/components/modal/modal' as *;
 
 /// Locale modal
 /// @access private
@@ -170,10 +170,7 @@
   }
 
   :host(#{$c4d-prefix}-locale-modal[open]) {
-    opacity: 1;
-    transition: opacity $duration-moderate-02 motion(entrance, expressive),
-      visibility 0ms linear;
-    visibility: inherit;
+    @extend :host(#{$prefix}-modal[open]);
 
     .#{$prefix}--modal-container {
       transform: translate3d(0, 0, 0);
@@ -208,6 +205,20 @@
     @include breakpoint-down(lg) {
       min-height: $spacing-12;
     }
+  }
+
+  :host(#{$c4d-prefix}-region-item:first-of-type)
+    .#{$prefix}--link
+    .#{$prefix}--card.#{$prefix}--tile {
+    border-bottom: transparent;
+    border-right: transparent;
+  }
+
+  :host(#{$c4d-prefix}-region-item:last-of-type)
+    .#{$prefix}--link
+    .#{$prefix}--card.#{$prefix}--tile {
+    border-top: transparent;
+    border-left: transparent;
   }
 
   :host(#{$c4d-prefix}-region-item),

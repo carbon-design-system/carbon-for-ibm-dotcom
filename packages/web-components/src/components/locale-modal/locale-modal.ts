@@ -58,8 +58,8 @@ class C4DLocaleModal extends C4DExpressiveModal {
    * @param event The event.
    */
   private _handleClickRegionSelector(event: MouseEvent) {
-    const { invalid, name } = event.target as C4DRegionItem;
-    if (!invalid) {
+    const { disabled, name } = event.target as C4DRegionItem;
+    if (!disabled) {
       this._currentRegion = name;
     }
   }
