@@ -70,7 +70,7 @@ export const Default = (args) => {
 };
 
 export default {
-  title: 'Components/Content block card static',
+  title: 'Experimental/Content block card static',
   decorators: [
     (story) => html`
       <div class="bx--grid">
