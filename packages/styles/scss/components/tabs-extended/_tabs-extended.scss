@@ -206,16 +206,6 @@
       }
     }
   }
-  #{$prefix}--accordion__content {
-
-    @include carbon--breakpoint-up(480px) {
-      padding-right: $carbon--spacing-05;
-    }
-
-    @include carbon--breakpoint-up(640px) {
-      padding-right: $carbon--spacing-05;
-    }
-
 }
 
 @include exports('tabs-extended') {
