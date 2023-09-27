@@ -120,6 +120,7 @@ export const WithMixedContent = (args) => {
   const exampleStrings = [
     `Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean et ultricies est.`,
     `Donec tempus, urna eu elementum porta, justo massa porta nulla, et mattis mauris augue sit amet dolor.`,
+    `Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec quam ante, mattis id pellentesque at, molestie et ipsum. Proin sodales est hendrerit maximus malesuada. Orci varius natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Etiam at arcu ligula. Praesent faucibus est ligula, vitae finibus ante aliquet a.`,
   ];
 
   const cardGroupItems = [
@@ -152,6 +153,26 @@ export const WithMixedContent = (args) => {
         <dds-card-group cards-per-row="3" grid-mode="narrow">
           ${[...Array(5).keys()].map((i) => cardGroupItems[i % 2])}
         </dds-card-group>
+      </dds-tab>
+    `,
+    html`
+      <dds-tab label="Content Group">
+        <dds-content-group>
+          <dds-content-group-heading
+            >Natural language processing (NLP)</dds-content-group-heading
+          >
+          <dds-content-group-copy>${exampleStrings[2]}</dds-content-group-copy>
+          <dds-card-link-cta
+            slot="footer"
+            cta-type="local"
+            href="https://www.example.com">
+            <dds-card-link-heading
+              >Learn more about natual language
+              processing</dds-card-link-heading
+            >
+            <dds-card-cta-footer></dds-card-cta-footer>
+          </dds-card-link-cta>
+        </dds-content-group>
       </dds-tab>
     `,
     html`
