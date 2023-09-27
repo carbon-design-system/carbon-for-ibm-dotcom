@@ -426,6 +426,10 @@ $search-transition-timing: 95ms;
       }
     }
 
+    .#{$prefix}--masthead__background-wrapper {
+      background-color: $background;
+    }
+
     .#{$prefix}--masthead__l1-title {
       @include type-style(productive-heading-01);
       @include desktop-button-base;
@@ -467,12 +471,19 @@ $search-transition-timing: 95ms;
     .#{$prefix}--masthead__l1-menu-container-scroller {
       @include desktop-button-base;
 
+      padding: 0;
+      background-color: $background;
+      z-index: 1;
+    }
+
+    .#{$prefix}--masthead__l1-menu-container-scroller-inner {
       display: inline-flex;
       background-color: $background;
       flex-shrink: 0;
-      padding-inline: $spacing-03;
+      padding: $spacing-05 $spacing-03;
       align-items: flex-end;
-      z-index: 1;
+      height: 100%;
+      width: 100%;
 
       &:hover {
         color: $text-primary;

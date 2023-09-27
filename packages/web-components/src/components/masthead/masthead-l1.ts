@@ -336,14 +336,18 @@ class C4DMastheadL1 extends StableSelectorMixin(LitElement) {
       ${!title || !url
         ? undefined
         : html`
-            <a class="${prefix}--masthead__l1-title" href="${url}">${title}</a>
+            <div class="${prefix}--masthead__background-wrapper">
+              <a class="${prefix}--masthead__l1-title" href="${url}">${title}</a>
+            </div>
           `}
       <div class="${prefix}--masthead__l1-menu-container-outer">
         <button
           class="${prefix}--masthead__l1-menu-container-scroller"
           id="scroll-prev"
           @click=${scrollL1TopNav}>
-          ${direction === 'ltr' ? CaretLeft20() : CaretRight20()}
+          <div class="${prefix}--masthead__l1-menu-container-scroller-inner">
+            ${direction === 'ltr' ? CaretLeft20() : CaretRight20()}
+          </div>
         </button>
         <div class="${prefix}--masthead__l1-menu-container-inner">
           <ul class="${prefix}--masthead__l1-menu">
@@ -356,16 +360,20 @@ class C4DMastheadL1 extends StableSelectorMixin(LitElement) {
           class="${prefix}--masthead__l1-menu-container-scroller"
           id="scroll-next"
           @click=${scrollL1TopNav}>
-          ${direction === 'ltr' ? CaretRight20() : CaretLeft20()}
+          <div class="${prefix}--masthead__l1-menu-container-scroller-inner">
+            ${direction === 'ltr' ? CaretRight20() : CaretLeft20()}
+          </div>
         </button>
       </div>
       ${login && login.url && login.title
         ? html`
-            <a
-              class="${prefix}--masthead__l1-login"
-              href="${ifDefined(login.url)}"
-              >${login.title}</a
-            >
+            <div class="${prefix}--masthead__background-wrapper">
+              <a
+                class="${prefix}--masthead__l1-login"
+                href="${ifDefined(login.url)}"
+                >${login.title}</a
+              >
+            </div>
           `
         : ''}
       ${cta && cta.url && cta.title
