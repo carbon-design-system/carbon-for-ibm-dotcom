@@ -457,7 +457,7 @@ Short.story = {
       default: {
         LeadSpace: {
           navElements: navigationOptions[2],
-          title: 'Heading can go on two lines max',
+          title: 'Heading can go to two lines max',
         },
       },
     },
@@ -700,7 +700,7 @@ export default {
           navigationOptions,
           navigationOptions[2]
         ),
-        title: text('title (title):', 'Heading can go on two lines max'),
+        title: text('title (title):', 'Heading can go to two lines max'),
         copy: text(
           'copy (copy):',
           'Use this area for a short line of copy to support the title'
@@ -737,7 +737,7 @@ export default {
       default: {
         LeadSpace: {
           navElements: navigationOptions[2],
-          title: 'Heading can go on two lines max',
+          title: 'Heading can go to two lines max',
           copy: 'Use this area for a short line of copy to support the title',
           buttons: [
             {

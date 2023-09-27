@@ -63,6 +63,7 @@
   .#{$prefix}--leadspace__title,
   .#{$prefix}--leadspace__desc {
     color: $text-primary;
+    padding-right: 0;
   }
 
   .#{$prefix}--leadspace--centered .#{$prefix}--leadspace__desc {
@@ -209,16 +210,20 @@
       @include breakpoint-down(lg) {
         margin-top: 0;
       }
+
+      @include breakpoint(md) {
+        width: calc(60% - $spacing-07);
+      }
+
+      @include breakpoint(lg) {
+        width: calc(30% - $spacing-07);
+      }
     }
 
     .#{$prefix}--leadspace__row {
       @include make-row;
 
       flex-flow: column nowrap;
-      
-      @include breakpoint-down(lg) {
-        width: 100%;
-      }
     }
 
     .#{$prefix}--leadspace__action {
@@ -280,7 +285,6 @@
       }
 
       .#{$prefix}--leadspace__desc {
-        @include make-col-ready;
         @include make-col(6, 16);
       }
 
@@ -550,7 +554,7 @@
   :host(#{$c4d-prefix}-leadspace)[size='super'] {
     @include breakpoint(lg) {
       .#{$prefix}--leadspace__overlay {
-        height: rem(640px);
+        height: rem(608px);
       }
     }
   }
@@ -558,7 +562,7 @@
   :host(#{$c4d-prefix}-leadspace)[size='tall'] {
     @include breakpoint(lg) {
       .#{$prefix}--leadspace__overlay {
-        height: rem(560px);
+        height: rem(528px);
       }
     }
   } 
@@ -568,7 +572,7 @@
 
     @include breakpoint(lg) {
       .#{$prefix}--leadspace__overlay {
-        height: rem(480px);
+        height: rem(448px);
       }
     }
   }
