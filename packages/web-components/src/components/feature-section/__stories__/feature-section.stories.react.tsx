@@ -28,8 +28,8 @@ import imgLg1x1 from '../../../../../storybook-images/assets/1312/fpo--1x1--1312
 import imgMd4x3 from '../../../../../storybook-images/assets/960/fpo--4x3--960x720--002.jpg';
 import imgSm1x1 from '../../../../../storybook-images/assets/720/fpo--1x1--720x720--002.jpg';
 import imgXs1x1 from '../../../../../storybook-images/assets/320/fpo--1x1--320x320--002.jpg';
-import { MEDIA_ALIGNMENT } from '../defs';
 import { CTA_TYPE } from '../../cta/defs';
+import { COLOR_SCHEME } from '../defs';
 
 import textNullable from '../../../../.storybook/knob-text-nullable';
 import readme from './README.stories.react.mdx';
@@ -41,13 +41,15 @@ import {
   types,
 } from '../../cta/__stories__/ctaTypeConfig';
 
-const mediaAlignment = {
-  [`Left`]: MEDIA_ALIGNMENT.LEFT,
-  [`Right`]: MEDIA_ALIGNMENT.RIGHT,
+const colorSchemeTypes = {
+  [`${COLOR_SCHEME.REGULAR}`]: COLOR_SCHEME.REGULAR,
+  [`${COLOR_SCHEME.INVERSE}`]: COLOR_SCHEME.INVERSE,
+  [`${COLOR_SCHEME.PURPLE}`]: COLOR_SCHEME.PURPLE,
+  [`${COLOR_SCHEME.CYAN}`]: COLOR_SCHEME.CYAN,
 };
 
 export const Default = (args) => {
-  const { alt, eyebrow, heading, copy, href, ctaType, mediaAlign, defaultSrc } =
+  const { alt, colorScheme, eyebrow, heading, copy, href, ctaType, defaultSrc } =
     args?.FeatureSection ?? {};
     let videoFooterCopy;
 
@@ -59,7 +61,7 @@ export const Default = (args) => {
     }
   return (
     <C4DVideoCTAContainer>
-      <C4DFeatureSection media-alignment={mediaAlign}>
+      <C4DFeatureSection color-scheme={colorScheme}>
         <C4DImage slot="image" default-src={defaultSrc} alt={alt}>
           <C4DImageItem
             media="(min-width: 1584px)"
@@ -83,8 +85,7 @@ export const Default = (args) => {
           link
           slot="footer"
           href={href}
-          cta-type={ctaType}
-          color-scheme="inverse">
+          cta-type={ctaType}>
           <C4DCardHeading>
             Try a free virtual business framing session with IBM Garage
           </C4DCardHeading>
@@ -108,10 +109,10 @@ Default.story = {
         );
 
         return {
-          mediaAlign: select(
-            'Media Alignment',
-            mediaAlignment,
-            MEDIA_ALIGNMENT.RIGHT
+          colorScheme: select(
+            'Color scheme:',
+            colorSchemeTypes,
+            COLOR_SCHEME.REGULAR
           ),
           eyebrow: textNullable(
             'Card Eyebrow (optional)(eyebrow):',

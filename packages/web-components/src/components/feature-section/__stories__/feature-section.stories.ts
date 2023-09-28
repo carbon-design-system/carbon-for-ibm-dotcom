@@ -18,8 +18,8 @@ import imgLg1x1 from '../../../../../storybook-images/assets/1312/fpo--1x1--1312
 import imgMd4x3 from '../../../../../storybook-images/assets/960/fpo--4x3--960x720--002.jpg';
 import imgSm1x1 from '../../../../../storybook-images/assets/720/fpo--1x1--720x720--002.jpg';
 import imgXs1x1 from '../../../../../storybook-images/assets/320/fpo--1x1--320x320--002.jpg';
-import { MEDIA_ALIGNMENT } from '../defs';
 import { CTA_TYPE } from '../../cta/defs';
+import { COLOR_SCHEME } from '../defs';
 
 import readme from './README.stories.mdx';
 import textNullable from '../../../../.storybook/knob-text-nullable';
@@ -31,13 +31,15 @@ import {
   types,
 } from '../../cta/__stories__/ctaTypeConfig';
 
-const mediaAlignment = {
-  [`Left`]: MEDIA_ALIGNMENT.LEFT,
-  [`Right`]: MEDIA_ALIGNMENT.RIGHT,
+const colorSchemeTypes = {
+  [`${COLOR_SCHEME.REGULAR}`]: COLOR_SCHEME.REGULAR,
+  [`${COLOR_SCHEME.INVERSE}`]: COLOR_SCHEME.INVERSE,
+  [`${COLOR_SCHEME.PURPLE}`]: COLOR_SCHEME.PURPLE,
+  [`${COLOR_SCHEME.CYAN}`]: COLOR_SCHEME.CYAN,
 };
 
 export const Default = (args) => {
-  const { alt, mediaAlign, eyebrow, heading, copy, href, ctaType } =
+  const { alt, colorScheme, eyebrow, heading, copy, href, ctaType } =
     args?.['c4d-feature-section'] ?? {};
   let videoFooterCopy;
 
@@ -49,7 +51,7 @@ export const Default = (args) => {
   }
   return html`
     <c4d-video-cta-container>
-      <c4d-feature-section media-alignment="${mediaAlign}">
+      <c4d-feature-section color-scheme="${colorScheme}">
         <c4d-image
           slot="image"
           default-src="${ifDefined(imgLg1x1)}"
@@ -72,7 +74,6 @@ export const Default = (args) => {
         >
         <c4d-card
           link
-          color-scheme="inverse"
           slot="footer"
           no-poster=${ctaType === CTA_TYPE.VIDEO}
           cta-type=${ctaType}
@@ -105,10 +106,10 @@ export default {
         );
 
         return {
-          mediaAlign: select(
-            'Media Alignment',
-            mediaAlignment,
-            MEDIA_ALIGNMENT.RIGHT
+          colorScheme: select(
+            'Color scheme:',
+            colorSchemeTypes,
+            COLOR_SCHEME.REGULAR
           ),
           eyebrow: textNullable(
             'Card Eyebrow (optional)(eyebrow):',

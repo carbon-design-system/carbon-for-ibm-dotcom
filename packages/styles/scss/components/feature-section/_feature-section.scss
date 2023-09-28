@@ -13,20 +13,12 @@
 @use '../../globals/utils/aspect-ratio';
 @use '../../globals/carbon-grid';
 @use '../../globals/utils/ratio-base' as *;
+@use '../../internal/callout/tokens' as *;
 
 @mixin feature-section {
   :host(#{$c4d-prefix}-feature-section) {
     display: block;
     outline: none;
-
-    &[media-alignment='left'] {
-      ::slotted(#{$c4d-prefix}-card[link]) {
-        @include breakpoint-down(lg) {
-          position: relative;
-          right: 0;
-        }
-      }
-    }
   }
 
   .#{$prefix}--feature-section {
@@ -69,6 +61,27 @@
     }
   }
 
+  :host(#{$c4d-prefix}-feature-section[color-scheme='inverse'])
+    .#{$prefix}--feature-section__container {
+    background-color: $background-inverse;
+
+    ::slotted([slot='eyebrow']),
+    ::slotted([slot='heading']),
+    ::slotted([slot='copy']) {
+      color: $text-inverse;
+    }
+  }
+
+  :host(#{$c4d-prefix}-feature-section[color-scheme='cyan'])
+    .#{$prefix}--feature-section__container {
+    background-color: $callout-background-cyan;
+  }
+
+  :host(#{$c4d-prefix}-feature-section[color-scheme='purple'])
+    .#{$prefix}--feature-section__container {
+    background-color: $callout-background-purple;
+  }
+
   .#{$prefix}--feature-section__body {
     position: relative;
     padding-top: $spacing-07;
@@ -107,6 +120,7 @@
     position: relative;
     padding-left: 0;
     padding-right: 0;
+    border: 1px solid $border-subtle-01;
 
     ::slotted(#{$c4d-prefix}-image) {
       overflow: hidden;
@@ -127,13 +141,13 @@
 
   ::slotted(#{$c4d-prefix}-card-eyebrow) {
     display: inline-block;
-    margin-bottom: $spacing-05;
+    margin-bottom: $spacing-03;
   }
 
   ::slotted([slot='footer']) {
     position: absolute;
     right: 0;
-    bottom: 0;
+    bottom: -1px;
     width: 75%;
     height: auto;
 

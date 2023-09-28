@@ -88,7 +88,7 @@ class C4DCardFooter extends C4DLinkWithIcon {
    * The color scheme.
    */
   @property({ attribute: 'color-scheme', reflect: true })
-  colorScheme = BASIC_COLOR_SCHEME.REGULAR;
+  colorScheme = '';
 
   /**
    * The `href` in parent `<c4d-card>`.
