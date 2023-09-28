@@ -256,7 +256,7 @@ export const WithMixedContent = (args) => {
   ];
 
   return html`
-    <dds-tabs-extended-media section-heading=${sectionHeading}>
+    <dds-tabs-extended-media section-heading="false">
       <dds-content-section-heading
         >${ifNonNull(sectionHeadingText)}</dds-content-section-heading
       >
