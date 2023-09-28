@@ -62,11 +62,11 @@ jobs:
         with:
           name: storybook-build
           path: packages/web-components/storybook-static
-      
+
       - name: Clear remnant failure files
         uses: geekyeggo/delete-artifact@v2
         with:
-          name: failure-wc.txt          
+          name: failure-wc.txt
 
   web-components-tests:
     runs-on: macos-latest
@@ -87,7 +87,7 @@ jobs:
         uses: actions/setup-node@v3
         with:
           node-version: ${{ matrix.node-version }}
-          cache: 'yarn'        
+          cache: 'yarn'
 
       - name: Download the build folders
         uses: actions/download-artifact@v3
@@ -106,7 +106,7 @@ jobs:
           key: ${{ runner.os }}-yarn-${{ hashFiles('**/yarn.lock') }}
           restore-keys: |
             ${{ runner.os }}-yarn
-      
+
       - name: 'Run e2e tests (chromium)'
         if: matrix.browser == 'chromium'
         id: cypress-tests-wc
@@ -132,11 +132,11 @@ jobs:
 
       - name: Exit upon failure
         if: steps.cypress-tests-wc.outcome == 'failure'
-        run: exit 1          
+        run: exit 1
 
   wc-tests-completed:
     if: always()
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-20.04
     needs: web-components-tests
     steps:
       - uses: actions/download-artifact@v3
@@ -158,7 +158,7 @@ jobs:
   install-react:
     strategy:
       matrix:
-        os: [ ubuntu-latest ]
+        os: [ ubuntu-20.04 ]
         node-version: [ 18.x ]
         browser: [ chromium ]
     runs-on: ${{ matrix.os }}
@@ -202,10 +202,10 @@ jobs:
       - name: Clear remnant failure files
         uses: geekyeggo/delete-artifact@v2
         with:
-          name: failure-react.txt 
+          name: failure-react.txt
 
   react-tests:
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-20.04
     needs: install-react
     continue-on-error: true
     strategy:
@@ -213,7 +213,7 @@ jobs:
       matrix:
         # run copies of the current job in parallel
         containers: [1, 2, 3, 4, 5]
-        os: [ ubuntu-latest ]
+        os: [ ubuntu-20.04 ]
         node-version: [ 18.x ]
         browser: [ chromium ]
     steps:
@@ -223,7 +223,7 @@ jobs:
         uses: actions/setup-node@v3
         with:
           node-version: ${{ matrix.node-version }}
-          cache: 'yarn'        
+          cache: 'yarn'
 
       - name: Download the build folders
         uses: actions/download-artifact@v3
@@ -242,7 +242,7 @@ jobs:
           key: ${{ matrix.os }}-yarn-v5${{ hashFiles('**/yarn.lock') }}
           restore-keys: |
             ${{ matrix.os }}-yarn
-        
+
       - name: 'Run e2e tests (chromium)'
         if: matrix.browser == 'chromium'
         id: cypress-tests-react
@@ -272,7 +272,7 @@ jobs:
 
   react-tests-completed:
     if: always()
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-20.04
     needs: react-tests
     steps:
       - uses: actions/download-artifact@v3
@@ -290,4 +290,3 @@ jobs:
       - name: Failure file exists, exit with error
         if: steps.check_files.outputs.files_exists == 'true'
         run: exit 1
-        
