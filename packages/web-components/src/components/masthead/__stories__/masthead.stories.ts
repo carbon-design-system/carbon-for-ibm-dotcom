@@ -107,11 +107,11 @@ export const Default = (args) => {
             selected-menu-item="${ifDefined(selectedMenuItem)}"
             user-status="${ifDefined(userStatus)}"
             searchPlaceholder="${ifDefined(searchPlaceholder)}"
-            .authenticatedProfileItems="${ifDefined(authenticatedProfileItems)}"
             has-profile="${hasProfile}"
             has-search="${hasSearch}"
             has-contact="${hasContact}"
             .navLinks="${links}"
+            .authenticatedProfileItems="${ifDefined(authenticatedProfileItems)}"
             .unauthenticatedProfileItems="${ifNonNull(
               unauthenticatedProfileItems
             )}"
@@ -153,9 +153,9 @@ export const withCloudData = (args) => {
             .platformUrl="https://www.ibm.com/cloud"
             selected-menu-item="${ifNonNull(selectedMenuItem)}"
             searchPlaceholder="${ifNonNull(searchPlaceholder)}"
-            .authenticatedProfileItems="${ifNonNull(authenticatedProfileItems)}"
             has-search="${hasSearch}"
             .navLinks="${links}"
+            .authenticatedProfileItems="${ifNonNull(authenticatedProfileItems)}"
             .unauthenticatedProfileItems="${ifNonNull(
               unauthenticatedProfileItems
             )}"
@@ -199,6 +199,10 @@ export const WithCustomTypeahead = (args) => {
       ? html`
           <c4d-masthead-composite
             .navLinks="${links}"
+            .authenticatedProfileItems="${ifNonNull(authenticatedProfileItems)}"
+            .unauthenticatedProfileItems="${ifNonNull(
+              unauthenticatedProfileItems
+            )}"
             ?custom-typeahead-api=${true}></c4d-masthead-composite>
         `
       : html`
@@ -239,6 +243,10 @@ export const searchOpenOnload = (args) => {
       ? html`
           <c4d-masthead-composite
             .navLinks="${links}"
+            .authenticatedProfileItems="${ifNonNull(authenticatedProfileItems)}"
+            .unauthenticatedProfileItems="${ifNonNull(
+              unauthenticatedProfileItems
+            )}"
             activate-search="true"
             searchPlaceholder="${ifDefined(
               searchPlaceholder
@@ -280,6 +288,10 @@ export const withPlatform = (args) => {
           <c4d-masthead-composite
             platform="${ifNonNull(platform)}"
             .navLinks="${links}"
+            .authenticatedProfileItems="${ifNonNull(authenticatedProfileItems)}"
+            .unauthenticatedProfileItems="${ifNonNull(
+              unauthenticatedProfileItems
+            )}"
             .platformUrl="${ifNonNull(platformUrl)}"></c4d-masthead-composite>
         `
       : html`
@@ -331,6 +343,10 @@ export const withL1 = (args) => {
       ? html`
           <c4d-masthead-composite
             .navLinks="${links}"
+            .authenticatedProfileItems="${ifNonNull(authenticatedProfileItems)}"
+            .unauthenticatedProfileItems="${ifNonNull(
+              unauthenticatedProfileItems
+            )}"
             .l1Data="${mastheadL1Data}"
             selected-menu-item="${ifNonNull(selectedMenuItem)}"
             selected-menu-item-l1="${ifNonNull(
@@ -389,6 +405,10 @@ export const withAlternateLogoAndTooltip = (args) => {
       ? html`
           <c4d-masthead-composite
             .navLinks="${links}"
+            .authenticatedProfileItems="${ifNonNull(authenticatedProfileItems)}"
+            .unauthenticatedProfileItems="${ifNonNull(
+              unauthenticatedProfileItems
+            )}"
             .logoData="${mastheadLogo === 'alternateWithTooltip'
               ? logoData
               : null}"></c4d-masthead-composite>
@@ -443,6 +463,10 @@ export const WithScopedSearch = (args) => {
       ? html`
           <c4d-masthead-composite
             .navLinks="${links}"
+            .authenticatedProfileItems="${ifNonNull(authenticatedProfileItems)}"
+            .unauthenticatedProfileItems="${ifNonNull(
+              unauthenticatedProfileItems
+            )}"
             .scopeParameters=${scopeParameters}></c4d-masthead-composite>
         `
       : html`
