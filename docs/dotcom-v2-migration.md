@@ -85,6 +85,8 @@ information.
 ### Feature section
 
 - The `feature-section-card-link` has been deprecated in favor for the `card` (link) variation
+- `media-alignment` property has been removed
+- `color-scheme` property now accepts `regular` (default), `inverse`, `cyan`, `purple`
 
 ### Horizontal rule
 
