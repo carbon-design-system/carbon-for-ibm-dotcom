@@ -20,6 +20,9 @@ import '../../video-player/video-player-composite';
 import { MEDIA_ALIGN, MEDIA_TYPE } from '../../content-item-horizontal/defs';
 import imgLg16x9 from '../../../../../storybook-images/assets/720/fpo--16x9--720x405--001.jpg';
 import textNullable from '../../../../.storybook/knob-text-nullable';
+import { WithMedia as ContentItemHorizontalWithMedia } from '../../content-item-horizontal/__stories__/content-item-horizontal.stories';
+import ctaSectionContent from '../../cta-section/__stories__/content';
+import { Default as CardGroup } from '../../card-group/__stories__/card-group.stories';
 
 const mediaAlign = {
   [`Left`]: MEDIA_ALIGN.LEFT,
@@ -30,6 +33,25 @@ const mediaType = {
   [`Image`]: MEDIA_TYPE.IMAGE,
   [`Video`]: MEDIA_TYPE.VIDEO,
 };
+
+const ctaBlockItem = ({ heading, copy, links }) => html`
+  <dds-cta-block-item>
+    <dds-content-item-heading>${heading}</dds-content-item-heading>
+    <dds-content-item-copy>${copy}</dds-content-item-copy>
+    ${links.map(
+      (elem) =>
+        html`
+          <dds-text-cta
+            slot="footer"
+            cta-type="local"
+            icon-placement="right"
+            href="${elem.href}"
+            >${elem.copy}</dds-text-cta
+          >
+        `
+    )}
+  </dds-cta-block-item>
+`;
 
 export const Default = (args) => {
   const { sectionHeading, sectionHeadingText } =
@@ -144,8 +166,59 @@ export const WithMixedContent = (args) => {
 
   const tabs = [
     html`
+      <dds-tab label="Item horizontal">
+        ${ContentItemHorizontalWithMedia({
+          ContentItemHorizontal: {
+            align: MEDIA_ALIGN.RIGHT,
+            type: MEDIA_TYPE.VIDEO,
+            heading: 'Item horizontal with media',
+            eyebrow: 'Eyebrow',
+            copy: 'Plain text - Take root and flourish the carbon in our apple pies ship of the imagination circumnavigated gathered by gravity science. How far away extra-planetary Drake Equation hydrogen atoms concept of the number one made in the interiors of collapsing stars.',
+          },
+        })}
+      </dds-tab>
+    `,
+    html`
+      <dds-tab label="CTA section">
+        <dds-cta-block no-border>
+          <dds-content-block-heading>CTA Title</dds-content-block-heading>
+          <dds-content-block-copy size="md">
+            <dds-content-block-paragraph
+              data-autoid="dds--content-block-paragraph"
+              >Want to discuss your options with a DevOps expert? Contact our
+              sales team to evaluate your needs.</dds-content-block-paragraph
+            >
+          </dds-content-block-copy>
+          <dds-cta-block-item-row>
+            ${ctaBlockItem({ ...ctaSectionContent[0] })}
+            ${ctaBlockItem({ ...ctaSectionContent[1] })}
+            ${ctaBlockItem({ ...ctaSectionContent[2] })}
+          </dds-cta-block-item-row>
+        </dds-cta-block>
+      </dds-tab>
+    `,
+    html`
+      <dds-tab label="Card links group">
+        <dds-content-block-cards>
+          <dds-content-block-heading
+            >Card links group title</dds-content-block-heading
+          >
+          ${CardGroup({
+            CardGroup: {
+              cards: 3,
+              cardType: 'Card link',
+              cardsPerRow: 'dds-ce-demo-devenv--cards-in-row-3',
+            },
+          })}
+        </dds-content-block-cards>
+      </dds-tab>
+    `,
+    html`
       <dds-tab label="Image">
-        <dds-image alt="Image alt text" default-src="${imgLg16x9}"></dds-image>
+        <dds-image
+          alt="Image alt text"
+          default-src="${imgLg16x9}"
+          heading="Optional caption text"></dds-image>
       </dds-tab>
     `,
     html`
