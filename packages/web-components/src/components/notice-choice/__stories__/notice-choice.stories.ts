@@ -56,6 +56,10 @@ const stateList = {
   Alabama: 'AL',
   California: 'CA',
 };
+const hideErrorMessages = {
+  true: 'true',
+  false: 'false',
+};
 const onChange = (event: CustomEvent) => {
   console.log(event.detail);
 };
@@ -71,6 +75,7 @@ const props = () => ({
   ),
   bpidLegalText: text('BPID Legal Text', ''),
   onChange: action('dds-notice-choice-change'),
+  hideErrorMessages: select('Hide Error Messages', hideErrorMessages, 'false'),
 });
 
 export const Default = (args) => {
@@ -81,6 +86,7 @@ export const Default = (args) => {
     email,
     termsConditionLink,
     questionchoices,
+    hideErrorMessages,
     enableAllOptIn,
     bpidLegalText,
     hiddenEmail,
@@ -94,6 +100,7 @@ export const Default = (args) => {
       state="${state}"
       email=${email}
       terms-condition-link="${termsConditionLink || ''}"
+      hide-error-message="${hideErrorMessages}"
       ?enable-all-opt-in=${enableAllOptIn}
       bpid-legal-text="${bpidLegalText}"
       .hiddenEmail="${hiddenEmail}"

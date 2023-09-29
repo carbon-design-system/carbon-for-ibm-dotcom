@@ -57,6 +57,8 @@ export function pwsValueMap(value) {
       OPT_OUT: 'no',
       PERMISSION: 'yes',
       SUPPRESSION: 'no',
+      formSubmissionYes: 'yes',
+      formSubmissionNo: 'no',
     }[value] || null
   );
 }
