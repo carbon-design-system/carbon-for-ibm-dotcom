@@ -567,12 +567,19 @@
     }
   } 
   
-  :host(#{$c4d-prefix}-leadspace)[size='medium'],
+  :host(#{$c4d-prefix}-leadspace)[size='medium'] {
+    @include breakpoint(lg) {
+      .#{$prefix}--leadspace__overlay {
+        height: rem(448px);
+      }
+    }
+  }
+
   :host(#{$c4d-prefix}-leadspace)[size='short'] {
 
     @include breakpoint(lg) {
       .#{$prefix}--leadspace__overlay {
-        height: rem(448px);
+        height: rem(288px);
       }
     }
   }
