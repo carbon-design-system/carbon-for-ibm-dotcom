@@ -11,14 +11,3 @@ import yourTheme from './theme';
 addons.setConfig({
   theme: yourTheme,
 });
-
-/**
- * Conditionally generate CSS to hide a component based on its corresponding
- * feature flag environment variable.
- *
- * @param {*} envVar
- *   Environment variable to check.
- * @param {*} cssId
- *   CSS ID for selector.
- * @returns
- */
