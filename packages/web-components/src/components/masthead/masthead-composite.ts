@@ -18,7 +18,7 @@ import {
 import { nothing } from 'lit-html';
 import { ifDefined } from 'lit-html/directives/if-defined';
 import ArrowRight16 from '../../internal/vendor/@carbon/web-components/icons/arrow--right/16.js';
-import ifNonNull from '../../internal/vendor/@carbon/web-components/globals/directives/if-non-null.js';
+import ifNonEmpty from '../../internal/vendor/@carbon/web-components/globals/directives/if-non-empty.js';
 import { unsafeSVG } from 'lit-html/directives/unsafe-svg.js';
 import root from 'window-or-global';
 import HostListener from '../../internal/vendor/@carbon/web-components/globals/decorators/host-listener.js';
@@ -210,7 +210,7 @@ class C4DMastheadComposite extends HostListenerMixin(LitElement) {
       <c4d-megamenu layout="${MEGAMENU_LAYOUT_SCHEME.TAB}">
         <c4d-megamenu-left-navigation>
           <c4d-megamenu-tabs
-            value="${ifNonNull(activeMenuItem?.heading?.title)}">
+            value="${ifNonEmpty(activeMenuItem?.heading?.title)}">
             ${sortedMenuItems.map((item) => {
               return item?.heading?.title
                 ? html`
@@ -253,7 +253,7 @@ class C4DMastheadComposite extends HostListenerMixin(LitElement) {
           ${heading?.title
             ? html`
                 <c4d-megamenu-heading
-                  href="${ifNonNull(heading?.url)}"
+                  href="${ifNonEmpty(heading?.url)}"
                   title="${heading?.title}"
                   slot="heading">
                   ${heading?.description}
@@ -318,8 +318,8 @@ class C4DMastheadComposite extends HostListenerMixin(LitElement) {
           ${heading && !highlights
             ? html`
                 <c4d-megamenu-heading
-                  href="${ifNonNull(heading.url)}"
-                  title="${ifNonNull(heading.title)}"
+                  href="${ifNonEmpty(heading.url)}"
+                  title="${ifNonEmpty(heading.title)}"
                   slot="heading">
                   ${heading.description}
                 </c4d-megamenu-heading>
@@ -371,14 +371,14 @@ class C4DMastheadComposite extends HostListenerMixin(LitElement) {
     const { links, heading } = group;
     const { headingLevel, autoid } = options;
     return html`
-      <c4d-megamenu-category-group data-autoid="${ifNonNull(autoid)}">
+      <c4d-megamenu-category-group data-autoid="${ifNonEmpty(autoid)}">
         ${heading?.title
           ? html`
               <c4d-megamenu-category-heading
                 title="${heading.title}"
-                href="${ifNonNull(heading?.url)}"
+                href="${ifNonEmpty(heading?.url)}"
                 slot="heading"
-                heading-level="${ifNonNull(headingLevel)}">
+                heading-level="${ifNonEmpty(headingLevel)}">
                 ${heading?.description}
               </c4d-megamenu-category-heading>
             `
@@ -390,16 +390,16 @@ class C4DMastheadComposite extends HostListenerMixin(LitElement) {
             return html`
               <c4d-megamenu-category-link
                 title="${link?.title}"
-                href="${ifNonNull(link?.url)}"
-                data-autoid="${ifNonNull(linkAutoId)}">
+                href="${ifNonEmpty(link?.url)}"
+                data-autoid="${ifNonEmpty(linkAutoId)}">
                 ${link?.description}
               </c4d-megamenu-category-link>
             `;
           }
           return html`
             <c4d-megamenu-category-link
-              href="${ifNonNull(link?.url)}"
-              data-autoid="${ifNonNull(linkAutoId)}">
+              href="${ifNonEmpty(link?.url)}"
+              data-autoid="${ifNonEmpty(linkAutoId)}">
               ${link?.title}
             </c4d-megamenu-category-link>
           `;
@@ -483,7 +483,7 @@ class C4DMastheadComposite extends HostListenerMixin(LitElement) {
     if (ctas) {
       ctas.forEach((cta) => {
         items.push(html`
-          <c4d-left-nav-cta-item href="${ifNonNull(cta.url)}">
+          <c4d-left-nav-cta-item href="${ifNonEmpty(cta.url)}">
             ${cta.title}
           </c4d-left-nav-cta-item>
         `);
@@ -1429,7 +1429,7 @@ class C4DMastheadComposite extends HostListenerMixin(LitElement) {
               ${!platform
                 ? undefined
                 : html`
-                    <c4d-left-nav-name href="${ifNonNull(platformAltUrl)}"
+                    <c4d-left-nav-name href="${ifNonEmpty(platformAltUrl)}"
                       >${platform}</c4d-left-nav-name
                     >
                   `}
@@ -1442,7 +1442,7 @@ class C4DMastheadComposite extends HostListenerMixin(LitElement) {
         : ''}
       <c4d-masthead
         ?has-l1=${this.l1Data}
-        aria-label="${ifNonNull(mastheadAssistiveText)}">
+        aria-label="${ifNonEmpty(mastheadAssistiveText)}">
         <c4d-skip-to-content
           href="${skipToContentHref}"
           link-assistive-text="${skipToContentText}"></c4d-skip-to-content>
@@ -1450,10 +1450,10 @@ class C4DMastheadComposite extends HostListenerMixin(LitElement) {
         ${isMobileVersion
           ? html`
               <c4d-masthead-menu-button
-                button-label-active="${ifNonNull(
+                button-label-active="${ifNonEmpty(
                   menuButtonAssistiveTextActive
                 )}"
-                button-label-inactive="${ifNonNull(
+                button-label-inactive="${ifNonEmpty(
                   menuButtonAssistiveTextInactive
                 )}"
                 ?hide-menu-button="${activateSearch}">
@@ -1472,7 +1472,7 @@ class C4DMastheadComposite extends HostListenerMixin(LitElement) {
           ? html`
               <c4d-top-nav
                 selected-menu-item=${selectedMenuItem}
-                menu-bar-label="${ifNonNull(menuBarAssistiveText)}"
+                menu-bar-label="${ifNonEmpty(menuBarAssistiveText)}"
                 ?hideNav="${activateSearch}">
                 ${this._renderNavItems({
                   target: NAV_ITEMS_RENDER_TARGET.TOP_NAV,
@@ -1524,7 +1524,7 @@ class C4DMastheadComposite extends HostListenerMixin(LitElement) {
           ${ctaButtons?.map(
             ({ title, url }) =>
               html`
-                <c4d-masthead-button-cta href="${ifNonNull(url)}" kind="ghost">
+                <c4d-masthead-button-cta href="${ifNonEmpty(url)}" kind="ghost">
                   ${title}
                 </c4d-masthead-button-cta>
               `

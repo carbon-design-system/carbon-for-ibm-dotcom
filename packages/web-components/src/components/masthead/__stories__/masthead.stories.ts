@@ -10,7 +10,7 @@
 import { html } from 'lit';
 import { select, boolean } from '@storybook/addon-knobs';
 import on from 'carbon-components/es/globals/js/misc/on.js';
-import ifNonNull from '../../../internal/vendor/@carbon/web-components/globals/directives/if-non-null.js';
+import ifNonEmpty from '../../../internal/vendor/@carbon/web-components/globals/directives/if-non-empty.js';
 import textNullable from '../../../../.storybook/knob-text-nullable';
 import c4dLeftNav from '../left-nav';
 import '../masthead-container';
@@ -112,7 +112,7 @@ export const Default = (args) => {
             has-contact="${hasContact}"
             .navLinks="${links}"
             .authenticatedProfileItems="${ifDefined(authenticatedProfileItems)}"
-            .unauthenticatedProfileItems="${ifNonNull(
+            .unauthenticatedProfileItems="${ifNonEmpty(
               unauthenticatedProfileItems
             )}"
             custom-profile-login="${customProfileLogin}"
@@ -121,9 +121,9 @@ export const Default = (args) => {
       : html`
           <c4d-masthead-container
             data-endpoint="${dataEndpoints['v2.1']}"
-            selected-menu-item="${ifNonNull(selectedMenuItem)}"
-            user-status="${ifNonNull(userStatus)}"
-            searchPlaceholder="${ifNonNull(searchPlaceholder)}"
+            selected-menu-item="${ifNonEmpty(selectedMenuItem)}"
+            user-status="${ifNonEmpty(userStatus)}"
+            searchPlaceholder="${ifNonEmpty(searchPlaceholder)}"
             has-profile="${hasProfile}"
             has-search="${hasSearch}"
             has-contact="${hasContact}"
@@ -151,12 +151,12 @@ export const withCloudData = (args) => {
           <c4d-masthead-composite
             platform="Cloud"
             .platformUrl="https://www.ibm.com/cloud"
-            selected-menu-item="${ifNonNull(selectedMenuItem)}"
-            searchPlaceholder="${ifNonNull(searchPlaceholder)}"
+            selected-menu-item="${ifNonEmpty(selectedMenuItem)}"
+            searchPlaceholder="${ifNonEmpty(searchPlaceholder)}"
             has-search="${hasSearch}"
             .navLinks="${links}"
-            .authenticatedProfileItems="${ifNonNull(authenticatedProfileItems)}"
-            .unauthenticatedProfileItems="${ifNonNull(
+            .authenticatedProfileItems="${ifNonEmpty(authenticatedProfileItems)}"
+            .unauthenticatedProfileItems="${ifNonEmpty(
               unauthenticatedProfileItems
             )}"
             custom-profile-login="${customProfileLogin}"
@@ -167,8 +167,8 @@ export const withCloudData = (args) => {
             data-endpoint="${dataEndpoints['cloud']}"
             platform="Cloud"
             .platformUrl="https://www.ibm.com/cloud"
-            selected-menu-item="${ifNonNull(selectedMenuItem)}"
-            searchPlaceholder="${ifNonNull(searchPlaceholder)}"
+            selected-menu-item="${ifNonEmpty(selectedMenuItem)}"
+            searchPlaceholder="${ifNonEmpty(searchPlaceholder)}"
             has-search="${hasSearch}"
             custom-profile-login="${customProfileLogin}"
             auth-method="${MASTHEAD_AUTH_METHOD.COOKIE}"></c4d-masthead-container>
@@ -199,8 +199,8 @@ export const WithCustomTypeahead = (args) => {
       ? html`
           <c4d-masthead-composite
             .navLinks="${links}"
-            .authenticatedProfileItems="${ifNonNull(authenticatedProfileItems)}"
-            .unauthenticatedProfileItems="${ifNonNull(
+            .authenticatedProfileItems="${ifNonEmpty(authenticatedProfileItems)}"
+            .unauthenticatedProfileItems="${ifNonEmpty(
               unauthenticatedProfileItems
             )}"
             ?custom-typeahead-api=${true}></c4d-masthead-composite>
@@ -243,8 +243,8 @@ export const searchOpenOnload = (args) => {
       ? html`
           <c4d-masthead-composite
             .navLinks="${links}"
-            .authenticatedProfileItems="${ifNonNull(authenticatedProfileItems)}"
-            .unauthenticatedProfileItems="${ifNonNull(
+            .authenticatedProfileItems="${ifNonEmpty(authenticatedProfileItems)}"
+            .unauthenticatedProfileItems="${ifNonEmpty(
               unauthenticatedProfileItems
             )}"
             activate-search="true"
@@ -286,19 +286,19 @@ export const withPlatform = (args) => {
     ${useMock
       ? html`
           <c4d-masthead-composite
-            platform="${ifNonNull(platform)}"
+            platform="${ifNonEmpty(platform)}"
             .navLinks="${links}"
-            .authenticatedProfileItems="${ifNonNull(authenticatedProfileItems)}"
-            .unauthenticatedProfileItems="${ifNonNull(
+            .authenticatedProfileItems="${ifNonEmpty(authenticatedProfileItems)}"
+            .unauthenticatedProfileItems="${ifNonEmpty(
               unauthenticatedProfileItems
             )}"
-            .platformUrl="${ifNonNull(platformUrl)}"></c4d-masthead-composite>
+            .platformUrl="${ifNonEmpty(platformUrl)}"></c4d-masthead-composite>
         `
       : html`
           <c4d-masthead-container
             data-endpoint="${dataEndpoints['v2.1']}"
-            platform="${ifNonNull(platform)}"
-            .platformUrl="${ifNonNull(platformUrl)}"></c4d-masthead-container>
+            platform="${ifNonEmpty(platform)}"
+            .platformUrl="${ifNonEmpty(platformUrl)}"></c4d-masthead-container>
         `}
   `;
 };
@@ -343,13 +343,13 @@ export const withL1 = (args) => {
       ? html`
           <c4d-masthead-composite
             .navLinks="${links}"
-            .authenticatedProfileItems="${ifNonNull(authenticatedProfileItems)}"
-            .unauthenticatedProfileItems="${ifNonNull(
+            .authenticatedProfileItems="${ifNonEmpty(authenticatedProfileItems)}"
+            .unauthenticatedProfileItems="${ifNonEmpty(
               unauthenticatedProfileItems
             )}"
             .l1Data="${mastheadL1Data}"
-            selected-menu-item="${ifNonNull(selectedMenuItem)}"
-            selected-menu-item-l1="${ifNonNull(
+            selected-menu-item="${ifNonEmpty(selectedMenuItem)}"
+            selected-menu-item-l1="${ifNonEmpty(
               selectedMenuItemL1
             )}"></c4d-masthead-composite>
         `
@@ -357,8 +357,8 @@ export const withL1 = (args) => {
           <c4d-masthead-container
             data-endpoint="${dataEndpoints['v2.1']}"
             .l1Data="${mastheadL1Data}"
-            selected-menu-item="${ifNonNull(selectedMenuItem)}"
-            selected-menu-item-l1="${ifNonNull(
+            selected-menu-item="${ifNonEmpty(selectedMenuItem)}"
+            selected-menu-item-l1="${ifNonEmpty(
               selectedMenuItemL1
             )}"></c4d-masthead-container>
         `}
@@ -405,8 +405,8 @@ export const withAlternateLogoAndTooltip = (args) => {
       ? html`
           <c4d-masthead-composite
             .navLinks="${links}"
-            .authenticatedProfileItems="${ifNonNull(authenticatedProfileItems)}"
-            .unauthenticatedProfileItems="${ifNonNull(
+            .authenticatedProfileItems="${ifNonEmpty(authenticatedProfileItems)}"
+            .unauthenticatedProfileItems="${ifNonEmpty(
               unauthenticatedProfileItems
             )}"
             .logoData="${mastheadLogo === 'alternateWithTooltip'
@@ -463,8 +463,8 @@ export const WithScopedSearch = (args) => {
       ? html`
           <c4d-masthead-composite
             .navLinks="${links}"
-            .authenticatedProfileItems="${ifNonNull(authenticatedProfileItems)}"
-            .unauthenticatedProfileItems="${ifNonNull(
+            .authenticatedProfileItems="${ifNonEmpty(authenticatedProfileItems)}"
+            .unauthenticatedProfileItems="${ifNonEmpty(
               unauthenticatedProfileItems
             )}"
             .scopeParameters=${scopeParameters}></c4d-masthead-composite>

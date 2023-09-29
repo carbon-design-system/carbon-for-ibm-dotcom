@@ -8,7 +8,7 @@
  */
 
 import { html, property } from 'lit-element';
-import ifNonNull from '../../internal/vendor/@carbon/web-components/globals/directives/if-non-null.js';
+import ifNonEmpty from '../../internal/vendor/@carbon/web-components/globals/directives/if-non-empty.js';
 import CDSLink from '../../internal/vendor/@carbon/web-components/components/link/link.js';
 import Launch16 from '../../internal/vendor/@carbon/web-components/icons/launch/16.js';
 import settings from '../../internal/vendor/@carbon/ibmdotcom-utilities/utilities/settings/settings';
@@ -87,15 +87,15 @@ class C4DMegaMenuCategoryLink extends CDSLink {
         id="link"
         class="${classes}"
         part="link"
-        role="${ifNonNull(linkRole)}"
-        download="${ifNonNull(download)}"
-        href="${ifNonNull(href)}"
-        hreflang="${ifNonNull(hreflang)}"
-        ping="${ifNonNull(ping)}"
-        rel="${ifNonNull(rel)}"
-        target="${ifNonNull(target)}"
-        type="${ifNonNull(type)}"
-        @click="${ifNonNull(handleClick)}"
+        role="${ifNonEmpty(linkRole)}"
+        download="${ifNonEmpty(download)}"
+        href="${ifNonEmpty(href)}"
+        hreflang="${ifNonEmpty(hreflang)}"
+        ping="${ifNonEmpty(ping)}"
+        rel="${ifNonEmpty(rel)}"
+        target="${ifNonEmpty(target)}"
+        type="${ifNonEmpty(type)}"
+        @click="${ifNonEmpty(handleClick)}"
         data-attribute1="headerNav"
         data-attribute2="FlatItem"
         data-attribute3="${title}">
