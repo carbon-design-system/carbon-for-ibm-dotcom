@@ -2,7 +2,9 @@
 library:
   id: ibmdotcom-web-components
   name: IBM.com Web Components
-  description: Create web experiences that adhere to IBM’s web standards using this primary component library.
+  description:
+    Create web experiences that adhere to IBM’s web standards using this primary
+    component library.
   externalDocsUrl: https://www.ibm.com/standards/web/carbon-for-ibm-dotcom
   inherits: ibmdotcom-styles
   demoLinks:
@@ -103,15 +105,6 @@ assets:
         name: Storybook
         action: link
         url: https://www.ibm.com/standards/carbon/web-components/?path=/docs/components-card-section-simple
-  card-section-images:
-    externalDocsUrl: https://www.ibm.com/standards/carbon/components/card-section#card-section-with-images
-    status: stable
-    framework: web-component
-    demoLinks:
-      - type: storybook
-        name: Storybook
-        action: link
-        url: https://www.ibm.com/standards/carbon/web-components/?path=/docs/components-card-section-images
   card-section-carousel:
     externalDocsUrl: https://www.ibm.com/standards/carbon/components/card-section-carousel
     status: stable
