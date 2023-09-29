@@ -155,7 +155,9 @@ export const withCloudData = (args) => {
             searchPlaceholder="${ifNonEmpty(searchPlaceholder)}"
             has-search="${hasSearch}"
             .navLinks="${links}"
-            .authenticatedProfileItems="${ifNonEmpty(authenticatedProfileItems)}"
+            .authenticatedProfileItems="${ifNonEmpty(
+              authenticatedProfileItems
+            )}"
             .unauthenticatedProfileItems="${ifNonEmpty(
               unauthenticatedProfileItems
             )}"
@@ -199,7 +201,9 @@ export const WithCustomTypeahead = (args) => {
       ? html`
           <c4d-masthead-composite
             .navLinks="${links}"
-            .authenticatedProfileItems="${ifNonEmpty(authenticatedProfileItems)}"
+            .authenticatedProfileItems="${ifNonEmpty(
+              authenticatedProfileItems
+            )}"
             .unauthenticatedProfileItems="${ifNonEmpty(
               unauthenticatedProfileItems
             )}"
@@ -243,7 +247,9 @@ export const searchOpenOnload = (args) => {
       ? html`
           <c4d-masthead-composite
             .navLinks="${links}"
-            .authenticatedProfileItems="${ifNonEmpty(authenticatedProfileItems)}"
+            .authenticatedProfileItems="${ifNonEmpty(
+              authenticatedProfileItems
+            )}"
             .unauthenticatedProfileItems="${ifNonEmpty(
               unauthenticatedProfileItems
             )}"
@@ -288,7 +294,9 @@ export const withPlatform = (args) => {
           <c4d-masthead-composite
             platform="${ifNonEmpty(platform)}"
             .navLinks="${links}"
-            .authenticatedProfileItems="${ifNonEmpty(authenticatedProfileItems)}"
+            .authenticatedProfileItems="${ifNonEmpty(
+              authenticatedProfileItems
+            )}"
             .unauthenticatedProfileItems="${ifNonEmpty(
               unauthenticatedProfileItems
             )}"
@@ -343,7 +351,9 @@ export const withL1 = (args) => {
       ? html`
           <c4d-masthead-composite
             .navLinks="${links}"
-            .authenticatedProfileItems="${ifNonEmpty(authenticatedProfileItems)}"
+            .authenticatedProfileItems="${ifNonEmpty(
+              authenticatedProfileItems
+            )}"
             .unauthenticatedProfileItems="${ifNonEmpty(
               unauthenticatedProfileItems
             )}"
@@ -405,7 +415,9 @@ export const withAlternateLogoAndTooltip = (args) => {
       ? html`
           <c4d-masthead-composite
             .navLinks="${links}"
-            .authenticatedProfileItems="${ifNonEmpty(authenticatedProfileItems)}"
+            .authenticatedProfileItems="${ifNonEmpty(
+              authenticatedProfileItems
+            )}"
             .unauthenticatedProfileItems="${ifNonEmpty(
               unauthenticatedProfileItems
             )}"
@@ -463,7 +475,9 @@ export const WithScopedSearch = (args) => {
       ? html`
           <c4d-masthead-composite
             .navLinks="${links}"
-            .authenticatedProfileItems="${ifNonEmpty(authenticatedProfileItems)}"
+            .authenticatedProfileItems="${ifNonEmpty(
+              authenticatedProfileItems
+            )}"
             .unauthenticatedProfileItems="${ifNonEmpty(
               unauthenticatedProfileItems
             )}"

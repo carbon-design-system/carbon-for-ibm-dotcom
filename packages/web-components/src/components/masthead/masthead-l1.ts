@@ -337,7 +337,9 @@ class C4DMastheadL1 extends StableSelectorMixin(LitElement) {
         ? undefined
         : html`
             <div class="${prefix}--masthead__background-wrapper">
-              <a class="${prefix}--masthead__l1-title" href="${url}">${title}</a>
+              <a class="${prefix}--masthead__l1-title" href="${url}"
+                >${title}</a
+              >
             </div>
           `}
       <div class="${prefix}--masthead__l1-menu-container-outer">
