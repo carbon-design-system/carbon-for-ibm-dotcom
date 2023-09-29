@@ -132,7 +132,7 @@ class DDSVideoPlayerComposite extends HybridRenderMixin(
     Object.keys(embeddedVideos).forEach((videoId) => {
       embeddedVideos[videoId].sendNotification('doPlay');
     });
-    this.isPlaying = false;
+    this.isPlaying = true;
   }
 
   /**
