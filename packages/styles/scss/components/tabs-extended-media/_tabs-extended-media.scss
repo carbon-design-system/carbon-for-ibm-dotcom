@@ -15,7 +15,7 @@
 @mixin tabs-extended-media {
   :host(#{$dds-prefix}-tabs-extended-media) {
     margin: 0;
-    display: block;
+    display: flex;
     overflow-x: hidden;
 
     @include carbon--breakpoint(sm) {
@@ -37,19 +37,9 @@
       }
     }
 
-    .#{$prefix}--accordion__content {
-      margin-top: -$carbon--spacing-07;
-      margin-bottom: $carbon--spacing-05;
-      padding: $carbon--spacing-07 0 0;
-
-      @include carbon--breakpoint(md) {
-        margin-bottom: -$carbon--spacing-05;
-      }
-    }
-  }
-
-  :host(#{$dds-prefix}-tabs-extended-media[section-heading='true']) {
     .#{$prefix}--tabs-extended-media {
+      width: 100%;
+
       @include carbon--breakpoint(lg) {
         display: flex;
       }
@@ -58,6 +48,16 @@
     .#{$prefix}--heading {
       @include carbon--breakpoint(lg) {
         flex: 0 0 25%;
+      }
+    }
+
+    .#{$prefix}--accordion__content {
+      margin-top: -$carbon--spacing-07;
+      margin-bottom: $carbon--spacing-05;
+      padding: $carbon--spacing-07 0 0;
+
+      @include carbon--breakpoint(md) {
+        margin-bottom: -$carbon--spacing-05;
       }
     }
   }
