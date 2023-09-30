@@ -3,6 +3,26 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.36.1-rc.0](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/compare/@carbon/ibmdotcom-web-components@1.36.0...@carbon/ibmdotcom-web-components@1.36.1-rc.0) (2023-09-25)
+
+
+### Bug Fixes
+
+* **notice-choice:** fixed onclick hidden values ([#10917](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/issues/10917)) ([#10956](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/issues/10956)) ([f316c10](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/commit/f316c1090366fefc0832caf3f9510c3cf74486a9))
+* **package:** update web components component exports ([#10955](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/issues/10955)) ([8b188bf](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/commit/8b188bfc150eb66772a3e0708974bff51eff8f77))
+
+
+
+
+
+# [1.36.0](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/compare/@carbon/ibmdotcom-web-components@1.36.0-rc.0...@carbon/ibmdotcom-web-components@1.36.0) (2023-09-19)
+
+**Note:** Version bump only for package @carbon/ibmdotcom-web-components
+
+
+
+
+
 # [1.36.0-rc.0](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/compare/@carbon/ibmdotcom-web-components@1.35.0...@carbon/ibmdotcom-web-components@1.36.0-rc.0) (2023-09-06)
 
 
