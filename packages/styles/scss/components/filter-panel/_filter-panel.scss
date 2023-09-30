@@ -134,7 +134,8 @@
 
     &:not([has-selections]) {
       .#{$prefix}--clear {
-        display: none;
+        color: $disabled-02;
+        cursor: not-allowed;
       }
     }
     @include carbon--breakpoint-down('lg') {
