@@ -189,6 +189,7 @@ class NoticeChoice extends StableSelectorMixin(LitElement) {
     if (splitValue == 'en') {
       this.preText = this.preTextTemplate();
     }
+    this.preventFormSubmission = false;
     if (this.ncData?.mandatoryCheckbox[this.country?.toLocaleLowerCase()]) {
       this.preventFormSubmission = true;
     }
