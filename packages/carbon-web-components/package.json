@@ -1,6 +1,6 @@
 {
   "name": "@carbon/web-components",
-  "version": "1.31.0-rc.2",
+  "version": "1.32.1-rc.0",
   "publishConfig": {
     "access": "public"
   },
@@ -11,13 +11,13 @@
   "main": "es/index.js",
   "module": "es/index.js",
   "exports": {
-    "./es/components-react/": {
-      "node": "./lib/components-react-node/",
-      "default": "./es/components-react/"
+    "./es/components-react/*": {
+      "node": "./lib/components-react-node/*",
+      "default": "./es/components-react/*"
     },
-    "./es/components/": {
-      "node": "./lib/components/",
-      "default": "./es/components/"
+    "./es/components/*": {
+      "node": "./lib/components/*",
+      "default": "./es/components/*"
     },
     "./es/globals/": {
       "node": "./lib/globals/",

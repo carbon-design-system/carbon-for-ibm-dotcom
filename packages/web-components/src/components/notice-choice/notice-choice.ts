@@ -9,7 +9,12 @@
 
 import { checkPreferencesv3, loadContent } from './services';
 import { html, LitElement, property } from 'lit-element';
-import { emailRegExp, pwsValueMap, resetToWorldWideContent } from './utils';
+import {
+  emailRegExp,
+  pwsValueMap,
+  resetToWorldWideContent,
+  supportedLanguages,
+} from './utils';
 import countrySettings from './country-settings';
 import ddsSettings from '../../internal/vendor/@carbon/ibmdotcom-utilities/utilities/settings/settings';
 import settings from 'carbon-components/es/globals/js/settings';
@@ -44,8 +49,8 @@ class NoticeChoice extends StableSelectorMixin(LitElement) {
   @property({ type: String, attribute: 'state' })
   state = '';
 
-  @property({ type: String, attribute: 'locale' })
-  locale = 'us-en';
+  @property({ type: String, attribute: 'language' })
+  language = 'en';
 
   @property({ type: String, attribute: 'terms-condition-link' })
   termsConditionLink = html``;
@@ -98,6 +103,12 @@ class NoticeChoice extends StableSelectorMixin(LitElement) {
     NC_HIDDEN_PHONE: worldWideContent.cc_default_status,
   };
 
+  @property({ reflect: true })
+  hiddenEmail = '';
+
+  @property({ reflect: true })
+  hiddenPhone = '';
+
   prepareCheckboxes() {
     if (this.ncData) {
       const OptInContent = this.ncData;
@@ -108,10 +119,9 @@ class NoticeChoice extends StableSelectorMixin(LitElement) {
       this.performUpdate();
     }
   }
-  connectedCallback() {
-    super.connectedCallback();
+  defaultLoadContent() {
     loadContent(
-      this.locale,
+      'en',
       (ncData) => {
         this.ncData = ncData;
         this.prepareCheckboxes();
@@ -119,6 +129,29 @@ class NoticeChoice extends StableSelectorMixin(LitElement) {
       },
       (error) => {
         console.error('error loading content', error);
+      }
+    );
+  }
+  connectedCallback() {
+    super.connectedCallback();
+    const [language] = this.language.split(/[-_]/);
+
+    let defaultLanguage = 'en';
+    if (supportedLanguages(this.language)) {
+      defaultLanguage = supportedLanguages(this.language);
+    } else if (supportedLanguages(language)) {
+      defaultLanguage = supportedLanguages(language);
+    }
+
+    loadContent(
+      defaultLanguage,
+      (ncData) => {
+        this.ncData = ncData;
+        this.prepareCheckboxes();
+        this.countryChanged();
+      },
+      () => {
+        this.defaultLoadContent();
       }
     );
   }
@@ -146,7 +179,7 @@ class NoticeChoice extends StableSelectorMixin(LitElement) {
     }
   }
   countryChangeAction() {
-    const splitValue = this.locale;
+    const splitValue = this.language;
     if (splitValue == 'en') {
       this.preText = this.preTextTemplate();
     }
@@ -184,17 +217,26 @@ class NoticeChoice extends StableSelectorMixin(LitElement) {
         }
         break;
       }
-      case 'locale': {
+      case 'language': {
         // load content when locale changed.
+        const [language] = newVal.split(/[-_]/);
+
+        let defaultLanguage = 'en';
+        if (supportedLanguages(newVal)) {
+          defaultLanguage = supportedLanguages(newVal);
+        } else if (supportedLanguages(language)) {
+          defaultLanguage = supportedLanguages(language);
+        }
+
         if (hasValue && oldVal !== newVal) {
           loadContent(
-            newVal,
+            defaultLanguage,
             (ncData) => {
               this.ncData = ncData;
               this.prepareCheckboxes();
             },
-            (error) => {
-              console.error('error loading content', error);
+            () => {
+              this.defaultLoadContent();
             }
           );
         }
@@ -238,6 +280,7 @@ class NoticeChoice extends StableSelectorMixin(LitElement) {
 
   private checkBoxChange($event: any) {
     const id = $event.target.id;
+
     const checked = $event.target.checked;
     const newValues = {
       ...this.values,
@@ -248,7 +291,8 @@ class NoticeChoice extends StableSelectorMixin(LitElement) {
     this.changed = true;
     const hiddenFieldName = `NC_HIDDEN_${id}`;
     const hiddenFieldStatus = checked ? 'PERMISSION' : 'SUPPRESSION';
-    this.values['checkBoxStatus'] = hiddenFieldStatus;
+    this.values[id] = {};
+    this.values[id]['checkBoxStatus'] = hiddenFieldStatus;
     this._onChange(hiddenFieldName, hiddenFieldStatus);
   }
   static get stableSelector() {
@@ -282,8 +326,7 @@ class NoticeChoice extends StableSelectorMixin(LitElement) {
   }
   preTextTemplate() {
     if (this.ncData) {
-      const lang = this.locale;
-      const country = this.country.toLocaleLowerCase();
+      const country = this.country?.toLocaleLowerCase();
       const ecmTranslateContent = this.ncData;
       let preText = ecmTranslateContent.preText;
 
@@ -305,35 +348,6 @@ class NoticeChoice extends StableSelectorMixin(LitElement) {
         preText = ecmTranslateContent.country[country.toLowerCase()].preText;
       }
 
-      const opt_out_url =
-        'https://www.ibm.com/account/reg/' +
-        country +
-        '-' +
-        lang +
-        '/signup?formid=urx-42537';
-
-      const noticeChoiceRegex = {
-        optoutMath: new RegExp('<optout>.*</optout>', 'g'),
-        optoutReplace: new RegExp('<optout>|</optout>', 'g'),
-      };
-      const optOutLink = preText.match(noticeChoiceRegex.optoutMath);
-      if (optOutLink) {
-        const optoutAnrTagHtml = optOutLink[0].replace(
-          noticeChoiceRegex.optoutReplace,
-          ''
-        );
-        const optoutReplaceValue =
-          "<a href='" +
-          opt_out_url +
-          "' target='_blank' class='ibm-tooltip' >" +
-          optoutAnrTagHtml +
-          '</a>';
-        preText = preText.replace(
-          noticeChoiceRegex.optoutMath,
-          optoutReplaceValue
-        );
-      }
-
       return html`${unsafeHTML(preText)}`;
     } else {
       return html``;
@@ -345,10 +359,10 @@ class NoticeChoice extends StableSelectorMixin(LitElement) {
       let postText = this.ncData.postText;
 
       if (postText) {
-        postText = '<p>' + postText + '</p>';
+        postText = '<p part="ncPostText">' + postText + '</p>';
       }
 
-      if (this.termsConditionLink) {
+      if (!this.termsConditionLink.strings && this.termsConditionLink) {
         let originalValue = OtherPreferences;
         const matchedValue = originalValue.match(/<tc>.*<\/tc>/g);
         if (matchedValue) {
@@ -359,7 +373,10 @@ class NoticeChoice extends StableSelectorMixin(LitElement) {
         }
       }
       if (postText !== '') {
-        postText = "<div id='ncPostTextContainer'>" + postText + '</div>';
+        postText =
+          "<div part='ncPostTextContainer' id='ncPostTextContainer'>" +
+          postText +
+          '</div>';
       }
       return html`${unsafeHTML(postText)}`;
     } else {
@@ -375,8 +392,8 @@ class NoticeChoice extends StableSelectorMixin(LitElement) {
   }
   render() {
     return html`<section class="${prefix}--nc">
-    <p id="ncHeading" class="${ddsPrefix}--nc__pre-text">${this.preTextTemplate()} </p>
-      <div class="${prefix}--checkbox-group">
+    <p part='ncHeading' id="ncHeading" class="${ddsPrefix}--nc__pre-text">${this.preTextTemplate()} </p>
+      <div part='${prefix}--checkbox-group' class="${prefix}--checkbox-group">
             ${
               Object.keys(this.checkboxes).length !== 0
                 ? Object.keys(this.checkboxes).length > 0 &&
@@ -385,19 +402,23 @@ class NoticeChoice extends StableSelectorMixin(LitElement) {
                     const checkbox = this.checkboxes[key];
                     const hiddenBox = {
                       id: 'NC_HIDDEN_' + key,
-                      value: this.values['checkBoxStatus']
-                        ? this.values['checkBoxStatus']
+                      value: this.values[key]['checkBoxStatus']
+                        ? this.values[key]['checkBoxStatus']
                         : this.values[key]
                         ? 'PERMISSION'
                         : 'UNCHANGED',
                     };
+                    key === 'EMAIL' ? (this.hiddenEmail = hiddenBox.value) : '';
+                    key === 'PHONE' ? (this.hiddenPhone = hiddenBox.value) : '';
                     return this.checkBoxTemplate(checkbox, checked, hiddenBox);
                   })
-                : 'Loading ...'
+                : ''
             }
+
           </div>
-          <div class="${prefix}--nc__post-text"
+          <div part='${prefix}--nc__post-text' class="${prefix}--nc__post-text"
           >${this.postTextTemplate()}</div>
+          
         </div>
         ${this.getBpidLegalText()}
     </section>`;
@@ -432,8 +453,9 @@ class NoticeChoice extends StableSelectorMixin(LitElement) {
     }
   }
   protected _getOptionByQuestion = (question) => {
-    const questionChoiceStatus =
-      countrySettings[this.country.toLocaleLowerCase()];
+    const questionChoiceStatus = this.country
+      ? countrySettings[this.country.toLocaleLowerCase()]
+      : { email: 'opt-in', phone: 'opt-in' };
 
     let option;
     switch (question) {

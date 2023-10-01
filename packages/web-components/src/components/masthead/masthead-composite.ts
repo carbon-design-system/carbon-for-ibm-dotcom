@@ -571,8 +571,8 @@ class DDSMastheadComposite extends HostListenerMixin(LitElement) {
   }) {
     const currentUrlPath = root.location?.href;
     const hasChildLink = this._childLinkChecker();
-    const { navLinks, l1Data } = this;
-    let menu: MastheadLink[] | undefined = navLinks;
+    const { navLinks, customNavLinks, l1Data } = this;
+    let menu: MastheadLink[] | undefined = customNavLinks || navLinks;
     const autoid = `${ddsPrefix}--masthead__${l1Data?.menuItems ? 'l1' : 'l0'}`;
     if (hasL1) {
       menu = l1Data?.menuItems;
@@ -883,6 +883,12 @@ class DDSMastheadComposite extends HostListenerMixin(LitElement) {
   searchPlaceholder?: string;
 
   /**
+   * Custom navigation links
+   */
+  @property()
+  customNavLinks?: MastheadLink[];
+
+  /**
    * The user authentication status.
    */
   @property({ attribute: 'user-status' })
@@ -940,6 +946,7 @@ class DDSMastheadComposite extends HostListenerMixin(LitElement) {
       menuButtonAssistiveTextActive,
       menuButtonAssistiveTextInactive,
       navLinks,
+      customNavLinks,
       language,
       openSearchDropdown,
       hasSearch,
@@ -1022,7 +1029,7 @@ class DDSMastheadComposite extends HostListenerMixin(LitElement) {
               >
             `}
         ${(!l1Data &&
-          navLinks &&
+          (navLinks || customNavLinks) &&
           html`
             <dds-top-nav
               selected-menu-item=${selectedMenuItem}
