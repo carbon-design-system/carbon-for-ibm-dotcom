@@ -2208,7 +2208,7 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@carbon/eslint-config-ibmdotcom@workspace:packages/eslint-config-ibmdotcom"
   dependencies:
-    "@carbon/eslint-plugin-react-prop-type-comments": 1.41.0-rc.0
+    "@carbon/eslint-plugin-react-prop-type-comments": 1.41.1-rc.0
     "@typescript-eslint/eslint-plugin": ^5.43.0
     "@typescript-eslint/parser": ^5.43.0
     babel-eslint: ^10.1.0
@@ -2240,7 +2240,7 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@carbon/eslint-plugin-react-prop-type-comments@1.41.0-rc.0, @carbon/eslint-plugin-react-prop-type-comments@workspace:packages/eslint-plugin-react-prop-type-comments":
+"@carbon/eslint-plugin-react-prop-type-comments@1.41.1-rc.0, @carbon/eslint-plugin-react-prop-type-comments@workspace:packages/eslint-plugin-react-prop-type-comments":
   version: 0.0.0-use.local
   resolution: "@carbon/eslint-plugin-react-prop-type-comments@workspace:packages/eslint-plugin-react-prop-type-comments"
   peerDependencies:
@@ -2255,7 +2255,17 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@carbon/grid@npm:10.43.1, @carbon/grid@npm:^10.43.1":
+"@carbon/grid@npm:10.43.2":
+  version: 10.43.2
+  resolution: "@carbon/grid@npm:10.43.2"
+  dependencies:
+    "@carbon/import-once": ^10.7.0
+    "@carbon/layout": ^10.37.2
+  checksum: af199c9aa5d879187c396a28023afd9890852652241641dee9949fa370187d2e98a74642efed6737076268956a25350b8434c678f7bba3c1bc30b32426a2babd
+  languageName: node
+  linkType: hard
+
+"@carbon/grid@npm:^10.43.1":
   version: 10.43.1
   resolution: "@carbon/grid@npm:10.43.1"
   dependencies:
@@ -2279,12 +2289,12 @@ __metadata:
     "@babel/preset-env": ~7.12.0
     "@babel/preset-react": ~7.12.1
     "@babel/runtime": ^7.16.3
-    "@carbon/ibmdotcom-services": 1.51.0-rc.0
-    "@carbon/ibmdotcom-styles": 1.51.0-rc.0
-    "@carbon/ibmdotcom-utilities": 1.51.0-rc.0
-    "@carbon/icons-react": 10.49.1
+    "@carbon/ibmdotcom-services": 1.51.1-rc.0
+    "@carbon/ibmdotcom-styles": 1.51.1-rc.0
+    "@carbon/ibmdotcom-utilities": 1.51.1-rc.0
+    "@carbon/icons-react": 10.49.2
     "@carbon/pictograms-react": 11.47.0
-    "@carbon/storybook-addon-theme": 1.42.0-rc.0
+    "@carbon/storybook-addon-theme": 1.42.1-rc.0
     "@carbon/telemetry": ^0.1.0
     "@percy-io/in-percy": ^0.1.11
     "@percy/cli": ^1.8.1
@@ -2397,7 +2407,7 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@carbon/ibmdotcom-services-store@1.51.0-rc.0, @carbon/ibmdotcom-services-store@workspace:packages/services-store":
+"@carbon/ibmdotcom-services-store@1.51.1-rc.0, @carbon/ibmdotcom-services-store@workspace:packages/services-store":
   version: 0.0.0-use.local
   resolution: "@carbon/ibmdotcom-services-store@workspace:packages/services-store"
   dependencies:
@@ -2408,8 +2418,8 @@ __metadata:
     "@babel/plugin-transform-modules-commonjs": ~7.12.0
     "@babel/plugin-transform-typescript": ~7.12.0
     "@babel/preset-modules": ^0.1.5
-    "@carbon/ibmdotcom-services": 1.51.0-rc.0
-    "@carbon/ibmdotcom-utilities": 1.51.0-rc.0
+    "@carbon/ibmdotcom-services": 1.51.1-rc.0
+    "@carbon/ibmdotcom-utilities": 1.51.1-rc.0
     async-done: ^1.3.0
     babel-eslint: ^10.1.0
     babel-jest: ^24.0.0
@@ -2434,7 +2444,7 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@carbon/ibmdotcom-services@1.51.0-rc.0, @carbon/ibmdotcom-services@workspace:packages/services":
+"@carbon/ibmdotcom-services@1.51.1-rc.0, @carbon/ibmdotcom-services@workspace:packages/services":
   version: 0.0.0-use.local
   resolution: "@carbon/ibmdotcom-services@workspace:packages/services"
   dependencies:
@@ -2447,7 +2457,7 @@ __metadata:
     "@babel/plugin-transform-runtime": 7.18.5
     "@babel/preset-env": ~7.12.0
     "@babel/runtime": ^7.16.3
-    "@carbon/ibmdotcom-utilities": 1.51.0-rc.0
+    "@carbon/ibmdotcom-utilities": 1.51.1-rc.0
     "@carbon/telemetry": 0.1.0
     "@rollup/plugin-babel": ^5.3.1
     "@rollup/plugin-commonjs": ^21.0.3
@@ -2481,12 +2491,12 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@carbon/ibmdotcom-styles@1.51.0-rc.0, @carbon/ibmdotcom-styles@workspace:packages/styles":
+"@carbon/ibmdotcom-styles@1.51.1-rc.0, @carbon/ibmdotcom-styles@workspace:packages/styles":
   version: 0.0.0-use.local
   resolution: "@carbon/ibmdotcom-styles@workspace:packages/styles"
   dependencies:
-    "@carbon/grid": 10.43.1
-    "@carbon/icons-react": 10.49.1
+    "@carbon/grid": 10.43.2
+    "@carbon/icons-react": 10.49.2
     "@carbon/import-once": 10.7.0
     "@carbon/layout": 10.37.1
     "@carbon/motion": 10.29.1
@@ -2507,7 +2517,7 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@carbon/ibmdotcom-utilities@1.51.0-rc.0, @carbon/ibmdotcom-utilities@workspace:packages/utilities":
+"@carbon/ibmdotcom-utilities@1.51.1-rc.0, @carbon/ibmdotcom-utilities@workspace:packages/utilities":
   version: 0.0.0-use.local
   resolution: "@carbon/ibmdotcom-utilities@workspace:packages/utilities"
   dependencies:
@@ -2573,18 +2583,18 @@ __metadata:
     "@babel/preset-react": ~7.12.1
     "@babel/template": ~7.12.0
     "@babel/traverse": ~7.12.0
-    "@carbon/ibmdotcom-services": 1.51.0-rc.0
-    "@carbon/ibmdotcom-services-store": 1.51.0-rc.0
-    "@carbon/ibmdotcom-styles": 1.51.0-rc.0
-    "@carbon/ibmdotcom-utilities": 1.51.0-rc.0
+    "@carbon/ibmdotcom-services": 1.51.1-rc.0
+    "@carbon/ibmdotcom-services-store": 1.51.1-rc.0
+    "@carbon/ibmdotcom-styles": 1.51.1-rc.0
+    "@carbon/ibmdotcom-utilities": 1.51.1-rc.0
     "@carbon/icon-helpers": 10.44.0
-    "@carbon/icons": 10.48.1
-    "@carbon/icons-react": 10.49.1
+    "@carbon/icons": 10.48.2
+    "@carbon/icons-react": 10.49.2
     "@carbon/layout": 10.37.1
     "@carbon/motion": ^11.0.0
     "@carbon/telemetry": 0.1.0
     "@carbon/type": 10.45.2
-    "@carbon/web-components": 1.32.0-rc.0
+    "@carbon/web-components": 1.32.1-rc.0
     "@open-wc/semantic-dom-diff": ~0.18.0
     "@percy-io/in-percy": ^0.1.11
     "@percy/cli": ^1.8.1
@@ -2717,7 +2727,7 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@carbon/icon-helpers@npm:10.44.0, @carbon/icon-helpers@npm:^10.28.0, @carbon/icon-helpers@npm:^10.44.0":
+"@carbon/icon-helpers@npm:10.44.0, @carbon/icon-helpers@npm:^10.28.0, @carbon/icon-helpers@npm:^10.28.2, @carbon/icon-helpers@npm:^10.44.0":
   version: 10.44.0
   resolution: "@carbon/icon-helpers@npm:10.44.0"
   checksum: c61b711ef78ba5546514917571ccec01c0943a2dc53d34a90987985bd839de7c164ce7bf9890d21012e585c1a655f6a5a9ac88492af4345653f095f9ddebe54a
@@ -2731,7 +2741,20 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@carbon/icons-react@npm:10.49.1, @carbon/icons-react@npm:^10.49.0":
+"@carbon/icons-react@npm:10.49.2":
+  version: 10.49.2
+  resolution: "@carbon/icons-react@npm:10.49.2"
+  dependencies:
+    "@carbon/icon-helpers": ^10.28.2
+    "@carbon/telemetry": 0.1.0
+    prop-types: ^15.7.2
+  peerDependencies:
+    react: ">=16"
+  checksum: 42e9ef288ef39276fbfec5925cd894fc362bcf27aaee44652d361fb26537409a066307a6c39062fdffb7dfc9ceda3deb17a5ff995f53b6bf409e691c0e40f818
+  languageName: node
+  linkType: hard
+
+"@carbon/icons-react@npm:^10.49.0":
   version: 10.49.1
   resolution: "@carbon/icons-react@npm:10.49.1"
   dependencies:
@@ -2744,7 +2767,14 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@carbon/icons@npm:10.48.1, @carbon/icons@npm:^10.48.0":
+"@carbon/icons@npm:10.48.2":
+  version: 10.48.2
+  resolution: "@carbon/icons@npm:10.48.2"
+  checksum: 51b1ef72f0e84ec0df3609132942c48b0b6a211b3a53bde46a0df230d11d2eb0f3c197deb4ddbfa1b182627450d27e8bebcc34e99cd6dc1e3266283b03e470ee
+  languageName: node
+  linkType: hard
+
+"@carbon/icons@npm:^10.48.0":
   version: 10.48.1
   resolution: "@carbon/icons@npm:10.48.1"
   checksum: b45239822e14378d72cff20a434b9319b4f9ef31e6f2cbc18e45774192ce3150c929ee7b555ea7f5986970033e19e2872775369c50aa04e67c87ca03c255ceb3
@@ -2762,6 +2792,13 @@ __metadata:
   version: 10.37.1
   resolution: "@carbon/layout@npm:10.37.1"
   checksum: baabf7e70e4779f0e5000e700bcafe96f272debaac490a4345e39fedf8d0970636f7099e2607aeb9ca6170a56bbacdff69d8181c2a46ed8adac38fadc08332b6
+  languageName: node
+  linkType: hard
+
+"@carbon/layout@npm:^10.37.2":
+  version: 10.37.2
+  resolution: "@carbon/layout@npm:10.37.2"
+  checksum: 298a0b5473569b7bceb8bf6fb9e1345041f8fd0bdb1a9120ee8af3dd1ccb7803815273e4889627f364c051b67b575023d6b919b70131d8714b35b5b0641d692b
   languageName: node
   linkType: hard
 
@@ -2792,7 +2829,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@carbon/storybook-addon-theme@1.42.0-rc.0, @carbon/storybook-addon-theme@workspace:packages/storybook-addon-theme":
+"@carbon/storybook-addon-theme@1.42.1-rc.0, @carbon/storybook-addon-theme@workspace:packages/storybook-addon-theme":
   version: 0.0.0-use.local
   resolution: "@carbon/storybook-addon-theme@workspace:packages/storybook-addon-theme"
   dependencies:
@@ -2850,7 +2887,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@carbon/web-components@1.32.0-rc.0, @carbon/web-components@workspace:packages/carbon-web-components":
+"@carbon/web-components@1.32.1-rc.0, @carbon/web-components@workspace:packages/carbon-web-components":
   version: 0.0.0-use.local
   resolution: "@carbon/web-components@workspace:packages/carbon-web-components"
   dependencies:
