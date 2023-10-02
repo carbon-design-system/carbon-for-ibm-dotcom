@@ -60,6 +60,10 @@ const hideErrorMessages = {
   true: 'true',
   false: 'false',
 };
+const showLegalNotices = {
+  true: 'true',
+  false: 'false',
+};
 const onChange = (event: CustomEvent) => {
   console.log(event.detail);
 };
@@ -76,6 +80,7 @@ const props = () => ({
   bpidLegalText: text('BPID Legal Text', ''),
   onChange: action('dds-notice-choice-change'),
   hideErrorMessages: select('Hide Error Messages', hideErrorMessages, 'false'),
+  showLegalNotice: select('Show Legal Notice', showLegalNotices, 'true'),
 });
 
 export const Default = (args) => {
@@ -87,6 +92,7 @@ export const Default = (args) => {
     termsConditionLink,
     questionchoices,
     hideErrorMessages,
+    showLegalNotice,
     enableAllOptIn,
     bpidLegalText,
     hiddenEmail,
@@ -101,6 +107,7 @@ export const Default = (args) => {
       email=${email}
       terms-condition-link="${termsConditionLink || ''}"
       hide-error-message="${hideErrorMessages}"
+      show-legal-notice=${showLegalNotice}
       ?enable-all-opt-in=${enableAllOptIn}
       bpid-legal-text="${bpidLegalText}"
       .hiddenEmail="${hiddenEmail}"

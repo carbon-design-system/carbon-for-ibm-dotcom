@@ -70,6 +70,9 @@ class NoticeChoice extends StableSelectorMixin(LitElement) {
   @property({ type: Boolean, attribute: 'hide-error-message' })
   hideErrorMessage = false;
 
+  @property({ type: Boolean, attribute: 'show-legal-notice' })
+  showLegalNotice = true;
+
   @property({ type: Object, attribute: false })
   checkboxes = {};
 
@@ -285,13 +288,18 @@ class NoticeChoice extends StableSelectorMixin(LitElement) {
         }
         break;
       }
-      case 'hide-error-message':
+      case 'hide-error-message': {
         if (oldVal !== newVal) {
           this.hideErrorMessage = JSON.parse(newVal);
           this.countryBasedLegalNotice();
         }
 
         break;
+      }
+      case 'show-legal-notice': {
+        this.showLegalNotice = JSON.parse(newVal);
+        break;
+      }
     }
   }
 
@@ -321,7 +329,10 @@ class NoticeChoice extends StableSelectorMixin(LitElement) {
     const isChecked = legalCheckbox.checked ? true : false;
     const legalTextError = legalCheckbox.parentNode.querySelector('.nc-error');
     legalCheckbox.value = isChecked ? 1 : 0;
-    legalTextError.style.display = isChecked ? 'none' : '';
+    if (legalTextError) {
+      legalTextError.style.display = isChecked ? 'none' : '';
+    }
+   
     this.preventFormSubmission = !isChecked;
     const preventFormSubmissionValue = isChecked
       ? 'formSubmissionYes'
@@ -449,7 +460,12 @@ class NoticeChoice extends StableSelectorMixin(LitElement) {
           const anrTagHtml = matchedValue[0].replace(/<tc>|<\/tc>/g, '');
           const link = `<a href='${this.termsConditionLink}' target='_blank' class='ibm-tooltip' >${anrTagHtml}</a>`;
           const reg = new RegExp('<tc>' + anrTagHtml + '</tc>', 'g');
-          postText = postText + originalValue.replace(reg, link);
+
+          postText =
+            postText +
+            originalValue
+              .replace(reg, link)
+              .replace(/<p>/g, '<p part="nc-trial-text" id="nc-trial-text">');
         }
       }
       if (postText !== '') {
@@ -472,7 +488,9 @@ class NoticeChoice extends StableSelectorMixin(LitElement) {
   }
   render() {
     return html`<section class="${prefix}--nc">
-    <p part='ncHeading' id="ncHeading" class="${ddsPrefix}--nc__pre-text">${this.countryBasedLegalNotice()} ${this.preTextTemplate()} </p>
+    <p part='ncHeading' id="ncHeading" class="${ddsPrefix}--nc__pre-text">${
+      this.showLegalNotice ? this.countryBasedLegalNotice() : ''
+    } ${this.preTextTemplate()} </p>
       <div part='${prefix}--checkbox-group' class="${prefix}--checkbox-group">
             ${
               Object.keys(this.checkboxes).length !== 0
