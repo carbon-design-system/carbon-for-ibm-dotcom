@@ -94,12 +94,6 @@ class DDSLocaleModalComposite extends HybridRenderMixin(LitElement) {
   @property()
   chosenRegion?: string;
 
-  /**
-   * Whether a region has been chosen or not.
-   */
-  @property({ type: Boolean })
-  chosenRegionRender = false;
-
   // eslint-disable-next-line class-methods-use-this
   async getLangDisplay() {
     const response = await LocaleAPI.getLangDisplay();
@@ -129,7 +123,7 @@ class DDSLocaleModalComposite extends HybridRenderMixin(LitElement) {
   }
 
   renderLightDOM() {
-    const { langDisplay, localeList, open } = this;
+    const { chosenRegion, langDisplay, localeList, open } = this;
     const { localeModal, regionList } = localeList ?? {};
     const {
       availabilityText,
@@ -198,7 +192,7 @@ class DDSLocaleModalComposite extends HybridRenderMixin(LitElement) {
           })}
         </dds-regions>
 
-        ${this.chosenRegionRender
+        ${chosenRegion
           ? html`
               <dds-locale-search
                 close-button-assistive-text="${ifNonNull(searchClearText)}"
@@ -208,7 +202,7 @@ class DDSLocaleModalComposite extends HybridRenderMixin(LitElement) {
                 unavailability-label-text="${ifNonNull(unavailabilityText)}">
                 ${massagedCountryList
                   ?.filter(({ region }) => {
-                    return region === this.chosenRegion;
+                    return region === chosenRegion;
                   })
                   .map(
                     ({ country, href, language, locale, region }) => html`
@@ -231,9 +225,8 @@ class DDSLocaleModalComposite extends HybridRenderMixin(LitElement) {
   /**
    * Handles click on a region.
    */
-  private _handleRegionClick(target) {
-    this.chosenRegion = target.currentTarget.__name;
-    this.chosenRegionRender = true;
+  private _handleRegionClick(event) {
+    this.chosenRegion = event.currentTarget?.name;
   }
 
   render() {
