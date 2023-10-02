@@ -59,8 +59,7 @@ export const Default = (args) => {
     <c4d-global-banner image-width="${imageWidth}">
       ${imageWidth
         ? html`
-            <c4d-global-banner-image
-              default-src="${images[imageWidth]}">
+            <c4d-global-banner-image default-src="${images[imageWidth]}">
               <c4d-image-item media="(min-width: 1584px)" srcset="${srcset[2]}">
               </c4d-image-item>
               <c4d-image-item media="(min-width: 1056px)" srcset="${srcset[1]}">
