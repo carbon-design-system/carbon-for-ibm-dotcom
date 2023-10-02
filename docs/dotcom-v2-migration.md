@@ -53,7 +53,7 @@ For Carbon v11 migration guidance, see their
 | quote                     | No API changes.                                                                                                                                |
 | search-with-typeahead     | No API changes.                                                                                                                                |
 | table-of-contents         | No API changes.                                                                                                                                |
-| tabs-extended-media       | This component is deprecated in v2 in favor for tabs-extended component   
+| tabs-extended-media       | This component is deprecated in v2 in favor for tabs-extended component                                                                        |
 
 ### Callout with media
 
