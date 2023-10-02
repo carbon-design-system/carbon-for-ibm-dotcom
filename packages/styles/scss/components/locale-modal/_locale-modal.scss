@@ -340,5 +340,19 @@
         display: flex;
       }
     }
+
+    ::slotted(div.#{$c4d-prefix}--region-item-footer) {
+      /* stylelint-disable declaration-no-important */
+      // need the !important to prevent CSS reset styles from overwritting margin
+      margin-top: auto !important;
+      width: 100%;
+      display: flex;
+      justify-content: flex-end;
+      color: $border-inverse;
+    }
+
+    ::slotted(div.#{$c4d-prefix}--region-item-footer[disabled]) {
+      color: $icon-disabled;
+    }
   }
 }

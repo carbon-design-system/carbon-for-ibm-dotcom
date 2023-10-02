@@ -12,6 +12,7 @@ import { property } from 'lit/decorators.js';
 import { ifDefined } from 'lit/directives/if-defined.js';
 import LocaleAPI from '@carbon/ibmdotcom-services/es/services/Locale/Locale.js';
 import ArrowRight20 from '../../internal/vendor/@carbon/web-components/icons/arrow--right/20.js';
+import Error20 from '../../internal/vendor/@carbon/web-components/icons/error/20.js';
 import settings from '../../internal/vendor/@carbon/ibmdotcom-utilities/utilities/settings/settings';
 import altlangs from '../../internal/vendor/@carbon/ibmdotcom-utilities/utilities/altlangs/altlangs.js';
 import HybridRenderMixin from '../../globals/mixins/hybrid-render';
@@ -187,12 +188,20 @@ class C4DLocaleModalComposite extends HybridRenderMixin(LitElement) {
             return html`
               <c4d-region-item link ?disabled="${isDisabled}" name="${name}">
                 <c4d-card-heading>${name}</c4d-card-heading>
-                <c4d-card-footer tabindex="-1" ?disabled="${isDisabled}"
-                  >${ArrowRight20({
-                    slot: 'icon',
-                    class: `${c4dPrefix}--card__cta`,
-                  })}</c4d-card-footer
-                >
+                <div
+                  slot="footer"
+                  class="${c4dPrefix}--region-item-footer"
+                  ?disabled="${isDisabled}">
+                  ${isDisabled
+                    ? Error20({
+                        slot: 'icon',
+                        class: `${c4dPrefix}--card__cta`,
+                      })
+                    : ArrowRight20({
+                        slot: 'icon',
+                        class: `${c4dPrefix}--card__cta`,
+                      })}
+                </div>
               </c4d-region-item>
             `;
           })}

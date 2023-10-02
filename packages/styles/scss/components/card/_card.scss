@@ -32,12 +32,6 @@
     @include tile($enable-experimental-tile-contrast: true);
   }
 
-  // :host(#{$c4d-prefix}-region-item):first-of-type
-  //   .#{$prefix}--link
-  //   .#{$prefix}--card.#{$prefix}--tile {
-  //   display: none;
-  // }
-
   .#{$prefix}--card,
   :host(#{$c4d-prefix}-card),
   :host(#{$c4d-prefix}-region-item) .#{$prefix}--link,
