@@ -332,7 +332,7 @@ class NoticeChoice extends StableSelectorMixin(LitElement) {
     if (legalTextError) {
       legalTextError.style.display = isChecked ? 'none' : '';
     }
-   
+
     this.preventFormSubmission = !isChecked;
     const preventFormSubmissionValue = isChecked
       ? 'formSubmissionYes'
