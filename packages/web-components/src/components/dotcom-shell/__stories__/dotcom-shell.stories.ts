@@ -30,7 +30,7 @@ import readme from './README.stories.mdx';
 import {
   StoryContent,
   StoryContentNoToC,
-  universalBanner as StoryUniversalBanner,
+  globalBanner as StoryGlobalBanner,
   tocContent,
   contentLeadspaceSearch,
 } from './data/content';
@@ -38,8 +38,8 @@ import { UNAUTHENTICATED_STATUS } from '../../../internal/vendor/@carbon/ibmdotc
 import { TOC_TYPES } from '../../table-of-contents/defs';
 
 // eslint-disable-next-line sort-imports
-import img4Col from '../../../../../storybook-images/assets/universal-banner/universal-banner-4-col-image.jpg';
-import img8Col from '../../../../../storybook-images/assets/universal-banner/universal-banner-8-col-image.jpg';
+import img4Col from '../../../../../storybook-images/assets/global-banner/global-banner-4-col-image.jpg';
+import img8Col from '../../../../../storybook-images/assets/global-banner/global-banner-8-col-image.jpg';
 
 const userStatuses = {
   authenticated: 'test.user@ibm.com',
@@ -1041,7 +1041,7 @@ WithLeadspaceSearch.story = {
   },
 };
 
-export const WithUniversalBanner = (args) => {
+export const WithGlobalBanner = (args) => {
   const {
     platform,
     hasProfile,
@@ -1064,8 +1064,8 @@ export const WithUniversalBanner = (args) => {
   } = args?.DotcomShell ?? {};
   const { useMock } = args?.Other ?? {};
 
-  const bannerHeading = document.querySelector('c4d-universal-banner-heading');
-  const bannerCopy = document.querySelector('c4d-universal-banner-copy');
+  const bannerHeading = document.querySelector('c4d-global-banner-heading');
+  const bannerCopy = document.querySelector('c4d-global-banner-copy');
 
   if (bannerHeading) {
     bannerHeading!.shadowRoot!.textContent = heading;
@@ -1079,14 +1079,14 @@ export const WithUniversalBanner = (args) => {
     <style>
       ${mastheadStyles}
     </style>
-    <c4d-universal-banner image-width="${imageWidth}">
-      <c4d-universal-banner-image
+    <c4d-global-banner image-width="${imageWidth}">
+      <c4d-global-banner-image
         slot="image"
-        default-src="${images[imageWidth]}"></c4d-universal-banner-image>
-      <c4d-universal-banner-heading slot="heading"
-        >${heading}</c4d-universal-banner-heading
+        default-src="${images[imageWidth]}"></c4d-global-banner-image>
+      <c4d-global-banner-heading slot="heading"
+        >${heading}</c4d-global-banner-heading
       >
-      <c4d-universal-banner-copy slot="copy">${copy}</c4d-universal-banner-copy>
+      <c4d-global-banner-copy slot="copy">${copy}</c4d-global-banner-copy>
       <c4d-button-cta
         slot="cta"
         cta-type="local"
@@ -1094,7 +1094,7 @@ export const WithUniversalBanner = (args) => {
         href="https://www.example.com">
         ${ctaCopy}
       </c4d-button-cta>
-    </c4d-universal-banner>
+    </c4d-global-banner>
     ${useMock
       ? html`
           <c4d-dotcom-shell-composite
@@ -1143,8 +1143,8 @@ export const WithUniversalBanner = (args) => {
   `;
 };
 
-WithUniversalBanner.story = {
-  name: 'With Universal banner',
+WithGlobalBanner.story = {
+  name: 'With Global banner',
   parameters: {
     knobs: {
       DotcomShell: () => ({
@@ -1167,19 +1167,19 @@ WithUniversalBanner.story = {
           userStatuses.unauthenticated
         ),
         heading: textNullable(
-          'Universal banner heading:',
+          'Global banner heading:',
           'Hybrid cloud and AI for smarter business'
         ),
         copy: textNullable(
-          'Universal banner copy (optional):',
+          'Global banner copy (optional):',
           'Las Vegas, June 15-18, 2025'
         ),
         ctaCopy: textNullable(
-          'Universal banner CTA copy:',
+          'Global banner CTA copy:',
           'Register for Think. Free'
         ),
         imageWidth: select(
-          'Universal banner image width:',
+          'Global banner image width:',
           imageWidthOptions,
           '4-col'
         ),
@@ -1207,14 +1207,14 @@ WithUniversalBanner.story = {
 };
 
 export const WithoutShell = (args) => {
-  const { masthead, universalBanner, leadspaceSearch, tocLayout } =
+  const { masthead, globalBanner, leadspaceSearch, tocLayout } =
     args?.DotcomShell ?? {};
 
   return html`
     <style>
       ${mastheadStyles}
     </style>
-    ${universalBanner ? StoryUniversalBanner(images['4-col']) : ''}
+    ${globalBanner ? StoryGlobalBanner(images['4-col']) : ''}
     ${masthead === 'L0'
       ? html`
           <c4d-masthead-container
@@ -1252,7 +1252,7 @@ WithoutShell.story = {
     knobs: {
       DotcomShell: () => ({
         masthead: select('Masthead Version', ['L0', 'L1'], 'L0'),
-        universalBanner: boolean('Has Universal Banner', false),
+        globalBanner: boolean('Has Global Banner', false),
         leadspaceSearch: boolean('Has Leadspace With Search', false),
         tocLayout: select(
           'Table of Contents Layout',

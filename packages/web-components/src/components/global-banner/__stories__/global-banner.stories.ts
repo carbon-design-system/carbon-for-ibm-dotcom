@@ -13,12 +13,12 @@ import '../index';
 import readme from './README.stories.mdx';
 
 // eslint-disable-next-line sort-imports
-import img4Col from '../../../../../storybook-images/assets/universal-banner/universal-banner-4-col-image.jpg';
-import img8Col from '../../../../../storybook-images/assets/universal-banner/universal-banner-8-col-image.jpg';
-import img4ColLg from '../../../../../storybook-images/assets/universal-banner/universal-banner-4-col-lg.jpg';
-import img8ColLg from '../../../../../storybook-images/assets/universal-banner/universal-banner-8-col-lg.jpg';
-import img4ColXlg from '../../../../../storybook-images/assets/universal-banner/universal-banner-4-col-xlg.jpg';
-import img8ColXlg from '../../../../../storybook-images/assets/universal-banner/universal-banner-8-col-xlg.jpg';
+import img4Col from '../../../../../storybook-images/assets/global-banner/global-banner-4-col-image.jpg';
+import img8Col from '../../../../../storybook-images/assets/global-banner/global-banner-8-col-image.jpg';
+import img4ColLg from '../../../../../storybook-images/assets/global-banner/global-banner-4-col-lg.jpg';
+import img8ColLg from '../../../../../storybook-images/assets/global-banner/global-banner-8-col-lg.jpg';
+import img4ColXlg from '../../../../../storybook-images/assets/global-banner/global-banner-4-col-xlg.jpg';
+import img8ColXlg from '../../../../../storybook-images/assets/global-banner/global-banner-8-col-xlg.jpg';
 
 // import StoryContent from '../../back-to-top/__stories__/data/content';
 import textNullable from '../../../../.storybook/knob-text-nullable';
@@ -40,10 +40,10 @@ const srcsets = {
 };
 
 export const Default = (args) => {
-  const { heading, copy, ctaCopy, imageWidth } = args?.UniversalBanner ?? {};
+  const { heading, copy, ctaCopy, imageWidth } = args?.GlobalBanner ?? {};
 
-  const bannerHeading = document.querySelector('c4d-universal-banner-heading');
-  const bannerCopy = document.querySelector('c4d-universal-banner-copy');
+  const bannerHeading = document.querySelector('c4d-global-banner-heading');
+  const bannerCopy = document.querySelector('c4d-global-banner-copy');
 
   if (bannerHeading) {
     bannerHeading!.shadowRoot!.textContent = heading;
@@ -56,11 +56,10 @@ export const Default = (args) => {
   const srcset = srcsets[imageWidth];
 
   return html`
-    <c4d-universal-banner image-width="${imageWidth}">
+    <c4d-global-banner image-width="${imageWidth}">
       ${imageWidth
         ? html`
-            <c4d-universal-banner-image
-              slot="image"
+            <c4d-global-banner-image
               default-src="${images[imageWidth]}">
               <c4d-image-item media="(min-width: 1584px)" srcset="${srcset[2]}">
               </c4d-image-item>
@@ -68,21 +67,19 @@ export const Default = (args) => {
               </c4d-image-item>
               <c4d-image-item media="(min-width: 1312px)" srcset="${srcset[0]}">
               </c4d-image-item>
-            </c4d-universal-banner-image>
+            </c4d-global-banner-image>
           `
         : ``}
-      <c4d-universal-banner-heading slot="heading"
-        >${heading}</c4d-universal-banner-heading
-      >
-      <c4d-universal-banner-copy slot="copy">${copy}</c4d-universal-banner-copy>
-      <c4d-button-cta
+      <c4d-global-banner-heading>${heading}</c4d-global-banner-heading>
+      <c4d-global-banner-copy></c4d-global-banner-copy>
+      <c4d-button
         slot="cta"
         cta-type="local"
         kind="tertiary"
         href="https://www.example.com">
         ${ctaCopy}
-      </c4d-button-cta>
-    </c4d-universal-banner>
+      </c4d-button>
+    </c4d-global-banner>
   `;
 };
 
@@ -90,7 +87,7 @@ Default.story = {
   parameters: {
     ...readme.parameters,
     knobs: {
-      UniversalBanner: () => ({
+      GlobalBanner: () => ({
         heading: textNullable(
           'Heading:',
           'Hybrid cloud and AI for smarter business'
@@ -104,7 +101,7 @@ Default.story = {
 };
 
 export default {
-  title: 'Components/Universal banner',
+  title: 'Components/Global banner',
   decorators: [
     (story) => {
       return html` ${story()} `;
@@ -115,7 +112,7 @@ export default {
   },
   propsSet: {
     default: {
-      UniversalBanner: {
+      globalBanner: {
         heading: 'Hybrid cloud and AI for smarter business',
         copy: 'Las Vegas, June 15-18, 2025',
         ctaCopy: 'Register for Think. Free',

@@ -15,12 +15,12 @@ import React from 'react';
 // In our dev env, we auto-generate the file and re-map below path to to point to the generated file.
 // @ts-ignore
 import C4DDotcomShellContainer from '@carbon/ibmdotcom-web-components/es/components-react/dotcom-shell/dotcom-shell-container';
-import C4DUniversalBanner from '@carbon/ibmdotcom-web-components/es/components-react/universal-banner/universal-banner';
+import C4DGlobalBanner from '@carbon/ibmdotcom-web-components/es/components-react/global-banner/global-banner';
 // eslint-disable-next-line max-len
-import C4DUniversalBannerImage from '@carbon/ibmdotcom-web-components/es/components-react/universal-banner/universal-banner-image';
+import C4DGlobalBannerImage from '@carbon/ibmdotcom-web-components/es/components-react/global-banner/global-banner-image';
 // eslint-disable-next-line max-len
-import C4DUniversalBannerHeading from '@carbon/ibmdotcom-web-components/es/components-react/universal-banner/universal-banner-heading';
-import C4DUniversalBannerCopy from '@carbon/ibmdotcom-web-components/es/components-react/universal-banner/universal-banner-copy';
+import C4DGlobalBannerHeading from '@carbon/ibmdotcom-web-components/es/components-react/global-banner/global-banner-heading';
+import C4DGlobalBannerCopy from '@carbon/ibmdotcom-web-components/es/components-react/global-banner/global-banner-copy';
 import C4DButtonCTA from '@carbon/ibmdotcom-web-components/es/components-react/cta/button-cta';
 import C4DMastheadContainer from '@carbon/ibmdotcom-web-components/es/components-react/masthead/masthead-container';
 import C4DLeftNav from '../../masthead/left-nav';
@@ -29,7 +29,7 @@ import readme from './README.stories.react.mdx';
 import {
   StoryContent,
   StoryContentNoToC,
-  universalBanner as StoryUniversalBanner,
+  globalBanner as StoryGlobalBanner,
   tocContent,
   contentLeadspaceSearch,
 } from './data/content.react';
@@ -40,8 +40,8 @@ import { UNAUTHENTICATED_STATUS } from '../../../internal/vendor/@carbon/ibmdotc
 import { TOC_TYPES } from '../../table-of-contents/defs';
 
 // eslint-disable-next-line sort-imports
-import img4Col from '../../../../../storybook-images/assets/universal-banner/universal-banner-4-col-image.jpg';
-import img8Col from '../../../../../storybook-images/assets/universal-banner/universal-banner-8-col-image.jpg';
+import img4Col from '../../../../../storybook-images/assets/global-banner/global-banner-4-col-image.jpg';
+import img8Col from '../../../../../storybook-images/assets/global-banner/global-banner-8-col-image.jpg';
 import mastheadStyles from '../../masthead/__stories__/masthead.stories.scss';
 import {
   authenticatedProfileItems,
@@ -691,7 +691,7 @@ WithLeadspaceSearch.story = {
   },
 };
 
-export const WithUniversalBanner = (args) => {
+export const WithGlobalBanner = (args) => {
   const {
     platform,
     hasProfile,
@@ -713,8 +713,8 @@ export const WithUniversalBanner = (args) => {
     ctaCopy,
   } = args?.DotcomShell ?? {};
 
-  const bannerHeading = document.querySelector('cds-universal-banner-heading');
-  const bannerCopy = document.querySelector('cds-universal-banner-copy');
+  const bannerHeading = document.querySelector('cds-global-banner-heading');
+  const bannerCopy = document.querySelector('cds-global-banner-copy');
 
   if (bannerHeading) {
     bannerHeading!.shadowRoot!.textContent = heading;
@@ -726,14 +726,14 @@ export const WithUniversalBanner = (args) => {
   return (
     <>
       <style type="text/css">{mastheadStyles.cssText}</style>
-      <C4DUniversalBanner image-width={imageWidth}>
-        <C4DUniversalBannerImage
+      <C4DGlobalBanner image-width={imageWidth}>
+        <C4DGlobalBannerImage
           slot="image"
-          default-src={images[imageWidth]}></C4DUniversalBannerImage>
-        <C4DUniversalBannerHeading slot="heading">
+          default-src={images[imageWidth]}></C4DGlobalBannerImage>
+        <C4DGlobalBannerHeading slot="heading">
           {heading}
-        </C4DUniversalBannerHeading>
-        <C4DUniversalBannerCopy slot="copy">{copy}</C4DUniversalBannerCopy>
+        </C4DGlobalBannerHeading>
+        <C4DGlobalBannerCopy slot="copy">{copy}</C4DGlobalBannerCopy>
         <C4DButtonCTA
           slot="cta"
           cta-type="local"
@@ -741,7 +741,7 @@ export const WithUniversalBanner = (args) => {
           href="https://www.example.com">
           {ctaCopy}
         </C4DButtonCTA>
-      </C4DUniversalBanner>
+      </C4DGlobalBanner>
       <C4DDotcomShellContainer
         platform={platform || null}
         platform-url={platformData.url || null}
@@ -764,8 +764,8 @@ export const WithUniversalBanner = (args) => {
   );
 };
 
-WithUniversalBanner.story = {
-  name: 'With Universal banner',
+WithGlobalBanner.story = {
+  name: 'With Global banner',
   parameters: {
     knobs: {
       DotcomShell: () => ({
@@ -788,16 +788,16 @@ WithUniversalBanner.story = {
           userStatuses.unauthenticated
         ),
         heading: text(
-          'Universal banner heading:',
+          'Global banner heading:',
           'Hybrid cloud and AI for smarter business'
         ),
         copy: text(
-          'Universal banner copy (optional):',
+          'Global banner copy (optional):',
           'Las Vegas, June 15-18, 2025'
         ),
-        ctaCopy: text('Universal banner CTA copy:', 'Register for Think. Free'),
+        ctaCopy: text('Global banner CTA copy:', 'Register for Think. Free'),
         imageWidth: select(
-          'Universal banner image width:',
+          'Global banner image width:',
           imageWidthOptions,
           '4-col'
         ),
@@ -807,13 +807,13 @@ WithUniversalBanner.story = {
 };
 
 export const WithoutShell = (args) => {
-  const { masthead, universalBanner, leadspaceSearch, tocLayout } =
+  const { masthead, globalBanner, leadspaceSearch, tocLayout } =
     args?.DotcomShell ?? {};
 
   return (
     <>
       <style type="text/css">{mastheadStyles.cssText}</style>
-      {universalBanner ? StoryUniversalBanner(images['4-col']) : ''}
+      {globalBanner ? StoryGlobalBanner(images['4-col']) : ''}
       {masthead === 'L0' ? (
         <C4DMastheadContainer id="masthead-container"></C4DMastheadContainer>
       ) : (
@@ -853,7 +853,7 @@ WithoutShell.story = {
     knobs: {
       DotcomShell: () => ({
         masthead: select('Masthead Version', ['L0', 'L1'], 'L0'),
-        universalBanner: boolean('Has Universal Banner', false),
+        globalBanner: boolean('Has Global Banner', false),
         leadspaceSearch: boolean('Has Leadspace With Search', false),
         tocLayout: select(
           'Table of Contents Layout',
