@@ -2293,7 +2293,7 @@ __metadata:
     "@carbon/ibmdotcom-styles": 1.51.1-rc.0
     "@carbon/ibmdotcom-utilities": 1.51.1-rc.0
     "@carbon/icons-react": 10.49.2
-    "@carbon/pictograms-react": 11.47.0
+    "@carbon/pictograms-react": 11.49.0
     "@carbon/storybook-addon-theme": 1.42.1-rc.0
     "@carbon/telemetry": ^0.1.0
     "@percy-io/in-percy": ^0.1.11
@@ -2816,16 +2816,16 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@carbon/pictograms-react@npm:11.47.0":
-  version: 11.47.0
-  resolution: "@carbon/pictograms-react@npm:11.47.0"
+"@carbon/pictograms-react@npm:11.49.0":
+  version: 11.49.0
+  resolution: "@carbon/pictograms-react@npm:11.49.0"
   dependencies:
     "@carbon/icon-helpers": ^10.44.0
     "@carbon/telemetry": 0.1.0
     prop-types: ^15.7.2
   peerDependencies:
     react: ">=16"
-  checksum: 73bba67d61fca4c55afa02486e7b7277585ce9ef8b933901553d97ca60c01184645325aaf4c9ad0376075ee7958895291cbae704f30f1285d029eff36ab54821
+  checksum: 0419f23a9b7137b4c3c697ae6c8f4272929e69434fad6a2c7530bcf530a45b242e766651d1bf1992765af1cede728deac680b55e18f8186542421610cceba98e
   languageName: node
   linkType: hard
 
@@ -3029,7 +3029,7 @@ __metadata:
     web-component-analyzer: 1.2.0-next.0
     webpack: ^4.46.0
     webpack-dev-server: ^4.0.0
-    zone.js: ~0.13.0
+    zone.js: ~0.14.0
   languageName: unknown
   linkType: soft
 
@@ -35918,12 +35918,12 @@ __metadata:
   languageName: node
   linkType: hard
 
-"zone.js@npm:~0.13.0":
-  version: 0.13.1
-  resolution: "zone.js@npm:0.13.1"
+"zone.js@npm:~0.14.0":
+  version: 0.14.0
+  resolution: "zone.js@npm:0.14.0"
   dependencies:
     tslib: ^2.3.0
-  checksum: 35d18f7a3016c5c98d793ef7dd78acd53da7df38f45dc4739c562ff04189682ee8d2f9ee25faf1ac756d97fdb19bbaa73f3dc0acb192e5c56786ff33a31db56f
+  checksum: 8a1c055ff1f3da6e80f27bdc1b3a69cdb0098194ddfd9d9cee19414d5e00f09863f53a5746835ab711ef94bb828f44e4fe9f6c1491a0981dbcd13d3b88f5d997
   languageName: node
   linkType: hard
 
