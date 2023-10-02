@@ -3029,7 +3029,7 @@ __metadata:
     web-component-analyzer: 1.2.0-next.0
     webpack: ^4.46.0
     webpack-dev-server: ^4.0.0
-    zone.js: ~0.13.0
+    zone.js: ~0.14.0
   languageName: unknown
   linkType: soft
 
@@ -35918,12 +35918,12 @@ __metadata:
   languageName: node
   linkType: hard
 
-"zone.js@npm:~0.13.0":
-  version: 0.13.1
-  resolution: "zone.js@npm:0.13.1"
+"zone.js@npm:~0.14.0":
+  version: 0.14.0
+  resolution: "zone.js@npm:0.14.0"
   dependencies:
     tslib: ^2.3.0
-  checksum: 35d18f7a3016c5c98d793ef7dd78acd53da7df38f45dc4739c562ff04189682ee8d2f9ee25faf1ac756d97fdb19bbaa73f3dc0acb192e5c56786ff33a31db56f
+  checksum: 8a1c055ff1f3da6e80f27bdc1b3a69cdb0098194ddfd9d9cee19414d5e00f09863f53a5746835ab711ef94bb828f44e4fe9f6c1491a0981dbcd13d3b88f5d997
   languageName: node
   linkType: hard
 
