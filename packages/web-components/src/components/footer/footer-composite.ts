@@ -207,7 +207,12 @@ class DDSFooterComposite extends MediaQueryMixin(
    * `true` to open the locale modal.
    */
   @property({ type: Boolean, attribute: 'open-locale-modal' })
-  openLocaleModal = false;
+  openLocaleModal;
+
+  /**
+   * @inheritdoc
+   */
+  modalTriggerProps = ['openLocaleModal', 'localeList'];
 
   /**
    * Footer size.
