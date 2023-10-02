@@ -11,10 +11,18 @@
 @use '@carbon/styles/scss/theme' as *;
 @use '../../globals/vars' as *;
 @use '../../globals/utils/aspect-ratio';
+@use '../../globals/carbon-grid';
 @use '../../globals/utils/ratio-base' as *;
+@use '../../internal/callout/tokens' as *;
 
 @mixin feature-section {
+  :host(#{$c4d-prefix}-feature-section) {
+    display: block;
+    outline: none;
+  }
+
   .#{$prefix}--feature-section {
+    box-sizing: border-box;
     position: relative;
     padding-left: $spacing-05;
     padding-right: $spacing-05;
@@ -44,9 +52,34 @@
     background-color: $layer-01;
     display: block;
 
+    div[class^='#{$prefix}--col'] {
+      box-sizing: border-box;
+    }
+
     @include breakpoint(lg) {
       display: flex;
     }
+  }
+
+  :host(#{$c4d-prefix}-feature-section[color-scheme='inverse'])
+    .#{$prefix}--feature-section__container {
+    background-color: $background-inverse;
+
+    ::slotted([slot='eyebrow']),
+    ::slotted([slot='heading']),
+    ::slotted([slot='copy']) {
+      color: $text-inverse;
+    }
+  }
+
+  :host(#{$c4d-prefix}-feature-section[color-scheme='cyan'])
+    .#{$prefix}--feature-section__container {
+    background-color: $callout-background-cyan;
+  }
+
+  :host(#{$c4d-prefix}-feature-section[color-scheme='purple'])
+    .#{$prefix}--feature-section__container {
+    background-color: $callout-background-purple;
   }
 
   .#{$prefix}--feature-section__body {
@@ -59,7 +92,6 @@
       padding-top: $spacing-08;
     }
 
-    .#{$prefix}--content-item__copy p,
     ::slotted(#{$c4d-prefix}-content-item-paragraph) {
       margin-bottom: $spacing-07;
 
@@ -68,8 +100,7 @@
       }
     }
 
-    .#{$prefix}--card-link,
-    ::slotted(#{$c4d-prefix}-feature-section-card-link) {
+    ::slotted([slot='footer']) {
       position: relative;
       display: inline-block;
       margin-left: 25%;
@@ -89,8 +120,8 @@
     position: relative;
     padding-left: 0;
     padding-right: 0;
+    border: 1px solid $border-subtle-01;
 
-    .#{$prefix}--image,
     ::slotted(#{$c4d-prefix}-image) {
       overflow: hidden;
 
@@ -108,18 +139,17 @@
     }
   }
 
-  .#{$prefix}--card__eyebrow,
   ::slotted(#{$c4d-prefix}-card-eyebrow) {
     display: inline-block;
-    margin-bottom: $spacing-05;
+    margin-bottom: $spacing-03;
   }
 
-  .#{$prefix}--card-link,
-  ::slotted(#{$c4d-prefix}-feature-section-card-link) {
+  ::slotted([slot='footer']) {
     position: absolute;
     right: 0;
-    bottom: 0;
+    bottom: -1px;
     width: 75%;
+    height: auto;
 
     @include breakpoint(md) {
       width: calc(50% - #{$spacing-05});

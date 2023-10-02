@@ -26,7 +26,7 @@ import Handle from '../../globals/internal/handle';
 import StableSelectorMixin from '../../globals/mixins/stable-selector';
 import { carbonElement as customElement } from '../../internal/vendor/@carbon/web-components/globals/decorators/carbon-element.js';
 
-const { prefix, stablePrefix: c4dPrefix } = settings;
+const { stablePrefix: c4dPrefix } = settings;
 
 export { LIGHTBOX_CONTRAST };
 
@@ -197,7 +197,7 @@ class C4DImage extends StableSelectorMixin(
           part="image"
           loading="lazy" />
       </picture>
-      <div id="long-description" class="${prefix}--image__longdescription">
+      <div id="long-description" class="${c4dPrefix}--image__longdescription">
         <slot name="long-description"></slot>
       </div>
       <slot name="icon"></slot>
