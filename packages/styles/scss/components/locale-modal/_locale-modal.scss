@@ -33,7 +33,7 @@
 
     .#{$prefix}--modal-container {
       background-color: $background;
-      height: 100%;
+      height: calc(100% - $spacing-07);
       min-height: 80%;
       padding: $spacing-05;
 
@@ -207,18 +207,35 @@
     }
   }
 
-  :host(#{$c4d-prefix}-region-item:first-of-type)
-    .#{$prefix}--link
-    .#{$prefix}--card.#{$prefix}--tile {
+  :host(#{$c4d-prefix}-region-item) .#{$prefix}--card.#{$prefix}--tile {
     border-bottom: transparent;
-    border-right: transparent;
   }
 
   :host(#{$c4d-prefix}-region-item:last-of-type)
-    .#{$prefix}--link
     .#{$prefix}--card.#{$prefix}--tile {
-    border-top: transparent;
-    border-left: transparent;
+    border-bottom: 1px solid $border-tile;
+  }
+
+  @include breakpoint(lg) {
+    :host(#{$c4d-prefix}-region-item) .#{$prefix}--card.#{$prefix}--tile {
+      border-bottom: 1px solid $border-tile;
+    }
+
+    :host(#{$c4d-prefix}-region-item:first-of-type)
+      .#{$prefix}--card.#{$prefix}--tile {
+      border-right: transparent;
+    }
+
+    :host(#{$c4d-prefix}-region-item:nth-of-type(3))
+      .#{$prefix}--card.#{$prefix}--tile {
+      border-top: transparent;
+      border-right: transparent;
+    }
+
+    :host(#{$c4d-prefix}-region-item:last-of-type)
+      .#{$prefix}--card.#{$prefix}--tile {
+      border-top: transparent;
+    }
   }
 
   :host(#{$c4d-prefix}-region-item),
