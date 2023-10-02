@@ -15,7 +15,7 @@ jobs:
     if: github.repository == 'carbon-design-system/carbon-for-ibm-dotcom'
     runs-on: ubuntu-20.04
     steps:
-      - uses: actions/checkout@v3
+      - uses: actions/checkout@v4
         with:
           token: ${{secrets.MERGE_ACTION}}
       - name: Use Node.js 18.x
