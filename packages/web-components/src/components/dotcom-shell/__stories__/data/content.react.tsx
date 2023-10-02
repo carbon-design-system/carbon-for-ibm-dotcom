@@ -25,7 +25,7 @@ import C4DGlobalBanner from '@carbon/ibmdotcom-web-components/es/components-reac
 import C4DGlobalBannerImage from '@carbon/ibmdotcom-web-components/es/components-react/global-banner/global-banner-image';
 import C4DGlobalBannerHeading from '@carbon/ibmdotcom-web-components/es/components-react/global-banner/global-banner-heading';
 import C4DGlobalBannerCopy from '@carbon/ibmdotcom-web-components/es/components-react/global-banner/global-banner-copy';
-import C4DButtonCTA from '@carbon/ibmdotcom-web-components/es/components-react/cta/button-cta';
+import C4DButton from '@carbon/ibmdotcom-web-components/es/components-react/button/button';
 import C4DCardGroupItem from '@carbon/ibmdotcom-web-components/es/components-react/card-group/card-group-item';
 import C4DCardHeading from '@carbon/ibmdotcom-web-components/es/components-react/card/card-heading';
 import C4DCardEyebrow from '@carbon/ibmdotcom-web-components/es/components-react/card/card-eyebrow';
@@ -182,13 +182,13 @@ export const globalBanner = (srcImage) => (
       heading
     </C4DGlobalBannerHeading>
     <C4DGlobalBannerCopy slot="copy">copy</C4DGlobalBannerCopy>
-    <C4DButtonCTA
+    <C4DButton
       slot="cta"
       cta-type="local"
       kind="tertiary"
       href="https://www.example.com">
       cta copy
-    </C4DButtonCTA>
+    </C4DButton>
   </C4DGlobalBanner>
 );
 

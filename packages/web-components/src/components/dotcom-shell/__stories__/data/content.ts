@@ -135,13 +135,13 @@ export const globalBanner = (srcImage) => html`
       >heading</c4d-global-banner-heading
     >
     <c4d-global-banner-copy slot="copy">copy</c4d-global-banner-copy>
-    <c4d-button-cta
+    <c4d-button
       slot="cta"
       cta-type="local"
       kind="tertiary"
       href="https://www.example.com">
       cta copy
-    </c4d-button-cta>
+    </c4d-button>
   </c4d-global-banner>
 `;
 
