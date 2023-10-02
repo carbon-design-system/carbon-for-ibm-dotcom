@@ -85,7 +85,7 @@ class C4DGlobalBanner extends StableSelectorMixin(LitElement) {
       .assignedNodes()
       .filter((elem) =>
         (elem as HTMLElement).matches?.(
-          (this.constructor as typeof C4DglobalBanner).ctaButton
+          (this.constructor as typeof C4DGlobalBanner).ctaButton
         )
       );
 
