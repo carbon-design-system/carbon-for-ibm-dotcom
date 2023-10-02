@@ -25,7 +25,7 @@ const IbmLogo = ({ autoid, logoData, isSearchActive }) => {
     [`${prefix}--header__logo`]: true,
     [`${prefix}--search-active`]: isSearchActive,
   });
-
+  console.log('SVG', MastheadLogo);
   return (
     <div className={logoClasses}>
       <ConditionalWrapper
