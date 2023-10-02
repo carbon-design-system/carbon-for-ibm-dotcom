@@ -571,6 +571,10 @@
       align-items: center;
     }
 
+    svg {
+      color: $link-primary;
+    }
+
     &[color-scheme='inverse'] .#{$c4d-prefix}-ce--card__footer--static {
       color: $link-inverse;
     }
@@ -582,12 +586,6 @@
         color: $link-inverse;
       }
     }
-
-    &:hover {
-      ::slotted(svg[slot='icon']) {
-        color: $link-primary-hover;
-      }
-    }
   }
 
   // static card footer
@@ -596,15 +594,13 @@
       width: auto;
       justify-content: flex-start;
 
+      &:hover {
+        color: $link-primary-hover;
+      }
+
       &:active,
       &:hover {
         text-decoration: none;
-      }
-
-      &:active {
-        ::slotted([slot='icon']) {
-          color: $text-primary;
-        }
       }
 
       &::after {
