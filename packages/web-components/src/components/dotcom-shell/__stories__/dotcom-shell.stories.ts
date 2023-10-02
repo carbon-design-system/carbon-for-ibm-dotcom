@@ -1087,13 +1087,13 @@ export const WithGlobalBanner = (args) => {
         >${heading}</c4d-global-banner-heading
       >
       <c4d-global-banner-copy slot="copy">${copy}</c4d-global-banner-copy>
-      <c4d-button-cta
+      <c4d-button
         slot="cta"
         cta-type="local"
         kind="tertiary"
         href="https://www.example.com">
         ${ctaCopy}
-      </c4d-button-cta>
+      </c4d-button>
     </c4d-global-banner>
     ${useMock
       ? html`
