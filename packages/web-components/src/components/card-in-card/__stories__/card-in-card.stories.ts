@@ -12,7 +12,6 @@ import '../../image/image';
 import '../index';
 import '../../cta/card-cta-footer';
 import '../../cta/video-cta-container';
-import ArrowRight20 from '../../../internal/vendor/@carbon/web-components/icons/arrow--right/20.js';
 import { html } from 'lit';
 import { ifDefined } from 'lit/directives/if-defined.js';
 import { boolean } from '@storybook/addon-knobs';
@@ -28,17 +27,21 @@ export const Default = (args) => {
   const { video, eyebrow, heading, defaultSrc, alt, href } =
     args?.['c4d-card-in-card'] ?? {};
   if (video) {
+    const card = document.querySelector('c4d-card') as any;
+    const videoCopy = card?.videoTitle;
+
     return html`
       <c4d-video-cta-container>
         <c4d-card-in-card href="0_ibuqxqbe" cta-type="video">
           <c4d-card-eyebrow>${eyebrow}</c4d-card-eyebrow>
-          <c4d-card-footer cta-type="video" href="0_ibuqxqbe"></c4d-card-footer>
+          <c4d-card-heading>${videoCopy ?? heading}</c4d-card-heading>
+          <c4d-card-footer></c4d-card-footer>
         </c4d-card-in-card>
       </c4d-video-cta-container>
     `;
   }
   return html`
-    <c4d-card-in-card href=${ifDefined(href || undefined)}>
+    <c4d-card-in-card href=${ifDefined(href || undefined)} cta-type="local">
       <c4d-card-in-card-image
         slot="image"
         alt="${ifDefined(alt)}"
@@ -52,7 +55,7 @@ export const Default = (args) => {
       </c4d-card-in-card-image>
       <c4d-card-eyebrow>${eyebrow}</c4d-card-eyebrow>
       <c4d-card-heading>${heading}</c4d-card-heading>
-      <c4d-card-footer> ${ArrowRight20({ slot: 'icon' })} </c4d-card-footer>
+      <c4d-card-footer></c4d-card-footer>
     </c4d-card-in-card>
   `;
 };
