@@ -120,6 +120,7 @@
 
   .#{$prefix}--clear__container {
     display: flex;
+    align-items: center;
   }
 
   .#{$prefix}--filter__modal__button {
@@ -158,6 +159,7 @@
     @include emit-layout-tokens();
 
     .#{$prefix}--filter-button {
+      @include font-family('sans');
       @include type-style('body-compact-01');
 
       cursor: pointer;
@@ -293,6 +295,8 @@
     }
 
     .#{$c4d-prefix}-filter-group-item__view-all {
+      @include font-family('sans');
+      
       width: 100%;
       padding: $spacing-03 $spacing-05;
       text-align: left;
@@ -383,11 +387,6 @@
 
     outline: 0;
 
-    &[kind='tertiary'] {
-      background-color: $button-secondary;
-      color: $text-on-color;
-    }
-
     &[disabled] {
       background-color: $text-disabled;
       color: $text-on-color-disabled;
@@ -400,29 +399,6 @@
       width: 100%;
       border: none;
       height: $spacing-10;
-    }
-
-    .#{$prefix}--btn--tertiary {
-      color: $text-on-color;
-
-      &:hover {
-        background-color: $button-secondary-hover;
-      }
-
-      &[disabled] {
-        color: $text-on-color-disabled;
-
-        &:hover {
-          background-color: transparent;
-        }
-      }
-    }
-
-    .#{$prefix}--btn.#{$prefix}--btn--primary:focus {
-      box-shadow: inset 0 0 0 $button-outline-width $focus,
-        inset 0 0 0 $button-border-width $background;
-      border: 1px solid $focus;
-      inset: $text-on-color;
     }
   }
 }

@@ -128,7 +128,7 @@ class C4DFilterPanelModal extends HostListenerMixin(
           <c4d-filter-modal-footer-button
             ?disabled="${!this.hasSelections}"
             @click=${this._handleClear}
-            kind="tertiary"
+            kind="secondary"
             >Clear</c4d-filter-modal-footer-button
           >
           <c4d-filter-modal-footer-button
