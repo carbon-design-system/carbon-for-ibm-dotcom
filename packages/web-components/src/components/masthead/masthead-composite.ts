@@ -1336,7 +1336,7 @@ class DDSMastheadComposite extends HostListenerMixin(LitElement) {
   /**
    * Mutation observer
    */
-  private _heightMutationObserver = new MutationObserver(
+  private _heightResizeObserver = new ResizeObserver(
     this._setContainerHeight.bind(this)
   );
 
@@ -1345,8 +1345,10 @@ class DDSMastheadComposite extends HostListenerMixin(LitElement) {
    */
   protected _setContainerHeight() {
     const { mastheadRef } = this;
-    this.style.display = 'block';
-    this.style.height = `${mastheadRef.getBoundingClientRect().height}px`;
+    if (mastheadRef) {
+      this.style.display = 'block';
+      this.style.height = `${mastheadRef.getBoundingClientRect().height}px`;
+    }
   }
 
   createRenderRoot() {
@@ -1373,12 +1375,8 @@ class DDSMastheadComposite extends HostListenerMixin(LitElement) {
       this.requestUpdate();
     });
 
-    // Watch for changes to dds-masthead's immediate children.
-    this._heightMutationObserver.observe(this.mastheadRef, {
-      childList: true,
-      subtree: false,
-      attributes: false,
-    });
+    // Keep render root's height in sync with dds-masthead.
+    this._heightResizeObserver.observe(this.mastheadRef);
   }
 
   updated(changedProperties) {
@@ -1396,7 +1394,7 @@ class DDSMastheadComposite extends HostListenerMixin(LitElement) {
 
   disconnectedCallback() {
     super.disconnectedCallback();
-    this._heightMutationObserver.disconnect();
+    this._heightResizeObserver.disconnect();
   }
 
   render() {
