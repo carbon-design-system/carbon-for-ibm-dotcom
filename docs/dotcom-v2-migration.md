@@ -55,6 +55,7 @@ For Carbon v11 migration guidance, see their
 | search-with-typeahead     | No API changes.                                                                                                                                |
 | table-of-contents         | No API changes.                                                                                                                                |
 | tabs-extended-media       | This component is deprecated in v2 in favor for tabs-extended component                                                                        |
+| universal-banner          | View changes [here](#universal-banner)                                                                                                         |
 
 ### Callout with media
 
@@ -102,3 +103,7 @@ information.
 ### Image
 
 - New `lightbox-contrast` property
+
+### Universal banner
+
+- `universal-banner` changed names to `global-banner`
