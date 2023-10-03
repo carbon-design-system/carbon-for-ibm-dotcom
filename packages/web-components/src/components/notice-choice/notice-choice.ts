@@ -147,9 +147,9 @@ class NoticeChoice extends StableSelectorMixin(LitElement) {
 
     let defaultLanguage = 'en';
     if (supportedLanguages(this.language)) {
-      defaultLanguage = this.language;
+      defaultLanguage = supportedLanguages(this.language);
     } else if (supportedLanguages(language)) {
-      defaultLanguage = language;
+      defaultLanguage = supportedLanguages(language);
     }
 
     loadContent(
@@ -236,9 +236,9 @@ class NoticeChoice extends StableSelectorMixin(LitElement) {
 
         let defaultLanguage = 'en';
         if (supportedLanguages(newVal)) {
-          defaultLanguage = newVal;
+          defaultLanguage =supportedLanguages(newVal);
         } else if (supportedLanguages(language)) {
-          defaultLanguage = language;
+          defaultLanguage = supportedLanguages(language);
         }
 
         if (hasValue && oldVal !== newVal) {
