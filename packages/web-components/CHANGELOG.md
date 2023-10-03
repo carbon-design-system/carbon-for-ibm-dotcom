@@ -3,6 +3,40 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.37.0-rc.0](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/compare/@carbon/ibmdotcom-web-components@1.36.1-rc.0...@carbon/ibmdotcom-web-components@1.37.0-rc.0) (2023-10-03)
+
+
+### Bug Fixes
+
+* **carousel:** delay instantiation of IntersectionObserver ([#10971](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/issues/10971)) ([4dc0f91](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/commit/4dc0f9129d5cc6033b562a1d682f5493555390b5)), closes [#10929](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/issues/10929)
+* **masthead:** new property for custom nav links ([#10986](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/issues/10986)) ([b512715](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/commit/b512715e936f0d729646b434020f535588fe27ff)), closes [#10984](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/issues/10984)
+* **Masthead:** Search field does not display auto suggest results ([#10795](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/issues/10795)) ([db17bd9](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/commit/db17bd96947ee28049b7ca542bf6c7a274b63404)), closes [#10741](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/issues/10741)
+* **video-player-composite:** fix isPlaying boolean ([#10957](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/issues/10957)) ([78ee219](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/commit/78ee2198042234cf1266676c8ba82d0b9b267327))
+
+
+
+
+
+## [1.36.1-rc.0](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/compare/@carbon/ibmdotcom-web-components@1.36.0...@carbon/ibmdotcom-web-components@1.36.1-rc.0) (2023-09-25)
+
+
+### Bug Fixes
+
+* **notice-choice:** fixed onclick hidden values ([#10917](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/issues/10917)) ([#10956](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/issues/10956)) ([f316c10](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/commit/f316c1090366fefc0832caf3f9510c3cf74486a9))
+* **package:** update web components component exports ([#10955](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/issues/10955)) ([8b188bf](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/commit/8b188bfc150eb66772a3e0708974bff51eff8f77))
+
+
+
+
+
+# [1.36.0](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/compare/@carbon/ibmdotcom-web-components@1.36.0-rc.0...@carbon/ibmdotcom-web-components@1.36.0) (2023-09-19)
+
+**Note:** Version bump only for package @carbon/ibmdotcom-web-components
+
+
+
+
+
 # [1.36.0-rc.0](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/compare/@carbon/ibmdotcom-web-components@1.35.0...@carbon/ibmdotcom-web-components@1.36.0-rc.0) (2023-09-06)
 
 

@@ -3,6 +3,33 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.52.0-rc.0](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/compare/@carbon/ibmdotcom-react@1.51.1-rc.0...@carbon/ibmdotcom-react@1.52.0-rc.0) (2023-10-03)
+
+
+### Bug Fixes
+
+* **masthead:** add high contrast styles for ibm logo ([#10988](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/issues/10988)) ([c5331f2](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/commit/c5331f2ec063676d2efe07d05b07cd1e5a7063dc)), closes [#10977](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/issues/10977)
+
+
+
+
+
+## [1.51.1-rc.0](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/compare/@carbon/ibmdotcom-react@1.51.0...@carbon/ibmdotcom-react@1.51.1-rc.0) (2023-09-25)
+
+**Note:** Version bump only for package @carbon/ibmdotcom-react
+
+
+
+
+
+# [1.51.0](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/compare/@carbon/ibmdotcom-react@1.51.0-rc.0...@carbon/ibmdotcom-react@1.51.0) (2023-09-19)
+
+**Note:** Version bump only for package @carbon/ibmdotcom-react
+
+
+
+
+
 # [1.51.0-rc.0](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/compare/@carbon/ibmdotcom-react@1.50.0...@carbon/ibmdotcom-react@1.51.0-rc.0) (2023-09-06)
 
 **Note:** Version bump only for package @carbon/ibmdotcom-react

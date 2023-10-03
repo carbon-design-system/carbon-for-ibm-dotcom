@@ -16,7 +16,7 @@
 
 :host(#{$prefix}-table-header-row)
   ::slotted(#{$prefix}-table-header-cell[sort-direction]) {
-  height: rem(48px);
+  height: to-rem(48px);
   padding-left: 0;
   padding-right: 0;
 }
