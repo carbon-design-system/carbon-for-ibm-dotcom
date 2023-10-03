@@ -463,7 +463,7 @@ class DDSTableOfContents extends HostListenerMixin(
       window.scrollTo({
         top: targetY,
         left: 0,
-        behavior: 'smooth'
+        behavior: 'smooth',
       });
 
       elem.setAttribute('tabindex', '0');
