@@ -42,6 +42,7 @@ For Carbon v11 migration guidance, see their
 | cta-section               | This component is deprecated in v2 in favor for content-section/block & content-item components                                                |
 | feature-card-block-large  | This component is deprecated in v1 and has been removed in v2 in favor of the feature-card component.                                          |
 | feature-card-block-medium | This component is deprecated in v1 and has been removed in v2 in favor of the feature-card component.                                          |
+| feature-section           | View changes [here](#feature-section)                                                                                                          |
 | filter-panel              | View changes [here](#filter-panel)                                                                                                             |
 | footer                    | No API changes.                                                                                                                                |
 | hr                        | View changes [here](#horizontal-rule)                                                                                                          |
@@ -85,6 +86,12 @@ can now be used natively within Button, Card, Feature Card, and Link with Icon.
 Each new component has a `cta-type` property that can change the icon and click
 functionality of the component. See the components' documentations for more
 information.
+
+### Feature section
+
+- The `feature-section-card-link` has been deprecated in favor for the `card` (link) variation
+- `media-alignment` property has been removed
+- `color-scheme` property now accepts `regular` (default), `inverse`, `cyan`, `purple`
 
 ### Filter panel
 

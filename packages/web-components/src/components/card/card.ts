@@ -189,10 +189,10 @@ class C4DCard extends CTAMixin(StableSelectorMixin(CDSLink)) {
    * The color scheme.
    * A typical use case of using another color scheme of card is having a "CTA" purpose of card at the last in card group.
    *
-   * Color scheme options are: "inverse" and "light"
+   * Color scheme options are: "inverse" and "regular"
    */
   @property({ attribute: 'color-scheme', reflect: true })
-  colorScheme = BASIC_COLOR_SCHEME.REGULAR;
+  colorScheme = '';
 
   /**
    * Link `href`.

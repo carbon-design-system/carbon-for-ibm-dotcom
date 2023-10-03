@@ -1,10 +1,10 @@
 /**
  * @license
  *
- * Copyright IBM Corp. 2020, 2022
+ * Copyright IBM Corp. 2020, 2021
  *
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
  */
 
-@use '@carbon/ibmdotcom-styles/scss/components/feature-section';
+import '@carbon/ibmdotcom-web-components/es/components/feature-section/index.js';
