@@ -14,7 +14,7 @@ import C4DFeatureCard from '../feature-card/feature-card';
 import '../image/image';
 import styles from './feature-section.scss';
 import StableSelectorMixin from '../../globals/mixins/stable-selector';
-import { MEDIA_ALIGNMENT } from './defs';
+import { COLOR_SCHEME } from './defs';
 import { carbonElement as customElement } from '../../internal/vendor/@carbon/web-components/globals/decorators/carbon-element';
 
 const { prefix, stablePrefix: c4dPrefix } = settings;
@@ -27,62 +27,35 @@ const { prefix, stablePrefix: c4dPrefix } = settings;
 @customElement(`${c4dPrefix}-feature-section`)
 class C4DFeatureSection extends StableSelectorMixin(C4DFeatureCard) {
   /**
-   * Media Alignment (right (default) | left)
+   * Color scheme type (regular (default) | inverse | cyan | purple )
    */
-  @property({ attribute: 'media-alignment', reflect: true })
-  mediaAlignment = MEDIA_ALIGNMENT.RIGHT;
+  @property({ attribute: 'color-scheme', reflect: true })
+  colorScheme = COLOR_SCHEME.REGULAR;
 
   render() {
     return html`
-      ${this.mediaAlignment === MEDIA_ALIGNMENT.LEFT
-        ? html`
-            <div class="${prefix}--grid ${prefix}--feature-section">
-              <div class="${prefix}--row ${prefix}--feature-section__container">
+      <div class="${prefix}--grid ${prefix}--feature-section">
+        <div class="${prefix}--row ${prefix}--feature-section__container">
+          <div
+            class="${prefix}--col-sm-4 ${prefix}--col-md-8 ${prefix}--col-lg-8 ${prefix}--feature-section__body">
+            <div class="${prefix}--grid">
+              <div class="${prefix}--row">
                 <div
-                  class="${prefix}--col-sm-4 ${prefix}--col-md-8 ${prefix}--col-lg-8 ${prefix}--feature-section__image">
-                  <slot name="image"></slot>
-                </div>
-                <div
-                  class="${prefix}--col-sm-4 ${prefix}--col-md-8 ${prefix}--col-lg-8 ${prefix}--feature-section__body">
-                  <div class="${prefix}--grid">
-                    <div class="${prefix}--row">
-                      <div
-                        class="${prefix}--col-sm-4 ${prefix}--col-md-6 ${prefix}--col-lg-12">
-                        <slot name="eyebrow"></slot>
-                        <slot name="heading"></slot>
-                        <slot name="copy"></slot>
-                      </div>
-                    </div>
-                  </div>
-                  <slot name="footer"></slot>
+                  class="${prefix}--col-sm-4 ${prefix}--col-md-6 ${prefix}--col-lg-12">
+                  <slot name="eyebrow"></slot>
+                  <slot name="heading"></slot>
+                  <slot name="copy"></slot>
                 </div>
               </div>
             </div>
-          `
-        : html`
-            <div class="${prefix}--grid ${prefix}--feature-section">
-              <div class="${prefix}--row ${prefix}--feature-section__container">
-                <div
-                  class="${prefix}--col-sm-4 ${prefix}--col-md-8 ${prefix}--col-lg-8 ${prefix}--feature-section__body">
-                  <div class="${prefix}--grid">
-                    <div class="${prefix}--row">
-                      <div
-                        class="${prefix}--col-sm-4 ${prefix}--col-md-6 ${prefix}--col-lg-12">
-                        <slot name="eyebrow"></slot>
-                        <slot name="heading"></slot>
-                        <slot name="copy"></slot>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-                <div
-                  class="${prefix}--col-sm-4 ${prefix}--col-md-8 ${prefix}--col-lg-8 ${prefix}--feature-section__image">
-                  <slot name="image"></slot>
-                  <slot name="footer"></slot>
-                </div>
-              </div>
-            </div>
-          `}
+          </div>
+          <div
+            class="${prefix}--col-sm-4 ${prefix}--col-md-8 ${prefix}--col-lg-8 ${prefix}--feature-section__image">
+            <slot name="image"></slot>
+            <slot name="footer"></slot>
+          </div>
+        </div>
+      </div>
     `;
   }
 
