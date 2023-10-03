@@ -14,6 +14,7 @@ import {
   customElement,
   LitElement,
   TemplateResult,
+  query,
 } from 'lit-element';
 import { nothing } from 'lit-html';
 import { ifDefined } from 'lit-html/directives/if-defined';
@@ -1326,6 +1327,28 @@ class DDSMastheadComposite extends HostListenerMixin(LitElement) {
       : unauthenticatedCtaButtons;
   }
 
+  /**
+   * A reference to the dds-masthead element.
+   */
+  @query(`${ddsPrefix}-masthead`)
+  mastheadRef;
+
+  /**
+   * Mutation observer
+   */
+  private _heightMutationObserver = new MutationObserver(
+    this._setContainerHeight.bind(this),
+  );
+
+  /**
+   * Sets root element's height equal to the height of the fixed masthead elements.
+   */
+  protected _setContainerHeight() {
+    const { mastheadRef } = this;
+    this.style.display = 'block';
+    this.style.height = `${mastheadRef.getBoundingClientRect().height}px`;
+  }
+
   createRenderRoot() {
     // We render child elements of `<dds-masthead-container>` by ourselves
     return this;
@@ -1349,6 +1372,13 @@ class DDSMastheadComposite extends HostListenerMixin(LitElement) {
       this._isMobileVersion = layoutBreakpoint.matches;
       this.requestUpdate();
     });
+
+    // Watch for changes to dds-masthead's immediate children.
+    this._heightMutationObserver.observe(this.mastheadRef, {
+      childList: true,
+      subtree: false,
+      attributes: false,
+    })
   }
 
   updated(changedProperties) {
@@ -1362,6 +1392,11 @@ class DDSMastheadComposite extends HostListenerMixin(LitElement) {
         this._loadTranslation?.(language, dataEndpoint).catch(() => {}); // The error is logged in the Redux store
       }
     }
+  }
+
+  disconnectedCallback() {
+    super.disconnectedCallback();
+    this._heightMutationObserver.disconnect();
   }
 
   render() {
