@@ -384,21 +384,5 @@
 
   :host(#{$c4d-prefix}-filter-modal-footer-button) {
     @extend :host(#{$prefix}-modal-footer-button);
-
-    outline: 0;
-
-    &[disabled] {
-      background-color: $text-disabled;
-      color: $text-on-color-disabled;
-    }
-
-    .#{$prefix}--btn {
-      @include type-style('body-short-01');
-
-      max-width: none;
-      width: 100%;
-      border: none;
-      height: $spacing-10;
-    }
   }
 }
