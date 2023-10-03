@@ -16,6 +16,7 @@ import '../index';
 // eslint-disable-next-line sort-imports
 import readme from './README.stories.mdx';
 import { CTA_TYPE } from '../../cta/defs';
+import { COLOR_SCHEME } from '../defs';
 import { ICON_PLACEMENT } from '../../link-with-icon/link-with-icon';
 
 const hrefsForType = {
@@ -40,17 +41,25 @@ const types = {
   [`Video (${CTA_TYPE.VIDEO})`]: CTA_TYPE.VIDEO,
 };
 
+const colorSchemeTypes = {
+  [`${COLOR_SCHEME.REGULAR}`]: COLOR_SCHEME.REGULAR,
+  [`${COLOR_SCHEME.LAYER}`]: COLOR_SCHEME.LAYER,
+  [`${COLOR_SCHEME.PURPLE}`]: COLOR_SCHEME.PURPLE,
+  [`${COLOR_SCHEME.CYAN}`]: COLOR_SCHEME.CYAN,
+};
+
 export const Default = (args) => {
   const {
     heading,
+    colorScheme,
     ctaType,
     download,
     href,
     iconPlacement = ICON_PLACEMENT.RIGHT,
-  } = args?.ContentGroupBanner ?? {};
+  } = args?.InPageBanner ?? {};
   return !ctaType
     ? html`
-        <c4d-content-group-banner>
+        <c4d-in-page-banner color-scheme="${colorScheme}">
           <c4d-content-group-heading>${heading}</c4d-content-group-heading>
 
           <c4d-link-list type="vertical" slot="complementary">
@@ -66,10 +75,10 @@ export const Default = (args) => {
               ${ArrowRight20({ slot: 'icon' })}
             </c4d-link-list-item>
           </c4d-link-list>
-        </c4d-content-group-banner>
+        </c4d-in-page-banner>
       `
     : html`
-        <c4d-content-group-banner>
+        <c4d-in-page-banner>
           <c4d-content-group-heading>${heading}</c4d-content-group-heading>
 
           <c4d-link-list type="vertical" slot="complementary">
@@ -88,12 +97,12 @@ export const Default = (args) => {
               Containerization A Complete Guide
             </c4d-link-list-item-cta>
           </c4d-link-list>
-        </c4d-content-group-banner>
+        </c4d-in-page-banner>
       `;
 };
 
 export default {
-  title: 'Components/Content group banner',
+  title: 'Components/In page banner',
   decorators: [
     (story) => html`
       <div class="cds--grid">
@@ -109,7 +118,7 @@ export default {
     ...readme.parameters,
     hasStoryPadding: true,
     knobs: {
-      ContentGroupBanner: () => {
+      InPageBanner: () => {
         const heading = textNullable(
           'Heading (heading)',
           'Accelerate application development efforts with IBM Product Name'
@@ -122,8 +131,14 @@ export default {
                 'Download target (download)',
                 'IBM_Annual_Report_2019.pdf'
               );
+        const colorScheme = select(
+          'Color scheme:',
+          colorSchemeTypes,
+          COLOR_SCHEME.REGULAR
+        );
         return {
           heading,
+          colorScheme,
           ctaType,
           download,
           href: textNullable(
@@ -135,7 +150,7 @@ export default {
     },
     propsSet: {
       default: {
-        ContentGroupBanner: {
+        InPageBanner: {
           heading:
             'Accelerate application development efforts with IBM Product Name',
           ctaType: null,

@@ -11,24 +11,22 @@ import { html, render } from 'lit/html.js';
 import '../../content-group/content-group-heading';
 import '../../cta/link-list-item-cta';
 import '../../link-list/link-list';
-import '../content-group-banner';
+import '../in-page-banner';
 import { CTA_TYPE } from '../../cta/defs';
 
 const template = (props?) => {
   const { children } = props ?? {};
-  return html`
-    <c4d-content-group-banner> ${children} </c4d-content-group-banner>
-  `;
+  return html` <c4d-in-page-banner> ${children} </c4d-in-page-banner> `;
 };
 
-describe('c4d-content-group-banner', function () {
+describe('c4d-in-page-banner', function () {
   describe('Misc attributes', function () {
     it('should render with minimum attributes', async function () {
       render(template(), document.body);
       await Promise.resolve();
-      expect(
-        document.body.querySelector('c4d-content-group-banner')
-      ).toMatchSnapshot({ mode: 'shadow' });
+      expect(document.body.querySelector('c4d-in-page-banner')).toMatchSnapshot(
+        { mode: 'shadow' }
+      );
     });
 
     it('should render with various attributes', async function () {
@@ -55,9 +53,9 @@ describe('c4d-content-group-banner', function () {
         document.body
       );
       await Promise.resolve();
-      expect(
-        document.body.querySelector('c4d-content-group-banner')
-      ).toMatchSnapshot({ mode: 'shadow' });
+      expect(document.body.querySelector('c4d-in-page-banner')).toMatchSnapshot(
+        { mode: 'shadow' }
+      );
     });
   });
 

@@ -13,7 +13,7 @@ import React from 'react';
 // In our dev env, we auto-generate the file and re-map below path to to point to the generated file.
 // @ts-ignore
 /* eslint-disable max-len */
-import C4DContentGroupBanner from '@carbon/ibmdotcom-web-components/es/components-react/content-group-banner/content-group-banner';
+import C4DInPageBanner from '@carbon/ibmdotcom-web-components/es/components-react/in-page-banner/in-page-banner';
 import C4DContentGroupHeading from '@carbon/ibmdotcom-web-components/es/components-react/content-group/content-group-heading';
 import C4DLinkList from '@carbon/ibmdotcom-web-components/es/components-react/link-list/link-list';
 import C4DLinkListItem from '@carbon/ibmdotcom-web-components/es/components-react/link-list/link-list-item';
@@ -24,6 +24,7 @@ import ArrowRight20 from '@carbon/icons-react/es/arrow--right/20.js';
 import readme from './README.stories.react.mdx';
 import textNullable from '../../../../.storybook/knob-text-nullable';
 import { CTA_TYPE } from '../../cta/defs';
+import { COLOR_SCHEME } from '../defs';
 
 const hrefsForType = {
   [CTA_TYPE.LOCAL]: 'https://www.example.com',
@@ -47,11 +48,18 @@ const types = {
   [`Video (${CTA_TYPE.VIDEO})`]: CTA_TYPE.VIDEO,
 };
 
+const colorSchemeTypes = {
+  [`${COLOR_SCHEME.REGULAR}`]: COLOR_SCHEME.REGULAR,
+  [`${COLOR_SCHEME.LAYER}`]: COLOR_SCHEME.LAYER,
+  [`${COLOR_SCHEME.PURPLE}`]: COLOR_SCHEME.PURPLE,
+  [`${COLOR_SCHEME.CYAN}`]: COLOR_SCHEME.CYAN,
+};
+
 export const Default = (args) => {
-  const { heading, iconPlacement, ctaType, href, download } =
-    args?.ContentGroupBanner ?? {};
+  const { heading, iconPlacement, ctaType, colorScheme, href, download } =
+    args?.InPageBanner ?? {};
   return !ctaType ? (
-    <C4DContentGroupBanner>
+    <C4DInPageBanner color-scheme={colorScheme}>
       <C4DContentGroupHeading>{heading}</C4DContentGroupHeading>
       <C4DLinkList type="vertical" slot="complementary">
         <C4DLinkListItem
@@ -65,9 +73,9 @@ export const Default = (args) => {
           Containerization A Complete Guide <ArrowRight20 slot="icon" />
         </C4DLinkListItem>
       </C4DLinkList>
-    </C4DContentGroupBanner>
+    </C4DInPageBanner>
   ) : (
-    <C4DContentGroupBanner>
+    <C4DInPageBanner>
       <C4DContentGroupHeading>{heading}</C4DContentGroupHeading>
       <C4DLinkList type="vertical" slot="complementary">
         <C4DLinkListItemCTA
@@ -85,14 +93,14 @@ export const Default = (args) => {
           Containerization A Complete Guide
         </C4DLinkListItemCTA>
       </C4DLinkList>
-    </C4DContentGroupBanner>
+    </C4DInPageBanner>
   );
 };
 
 Default.story = {
   parameters: {
     knobs: {
-      ContentGroupBanner: () => {
+      InPageBanner: () => {
         const heading = textNullable(
           'Heading (heading)',
           'Accelerate application development efforts with IBM Product Name'
@@ -105,8 +113,14 @@ Default.story = {
                 'Download target (download)',
                 'IBM_Annual_Report_2019.pdf'
               );
+        const colorScheme = select(
+          'Color scheme:',
+          colorSchemeTypes,
+          COLOR_SCHEME.REGULAR
+        );
         return {
           heading,
+          colorScheme,
           ctaType,
           download,
           href: textNullable(

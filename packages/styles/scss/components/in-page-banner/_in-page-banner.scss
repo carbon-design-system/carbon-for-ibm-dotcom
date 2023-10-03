@@ -11,10 +11,10 @@
 @use '@carbon/styles/scss/theme' as *;
 @use '../../globals/vars' as *;
 @use '../../internal/content-group';
+@use '../../internal/callout/tokens' as *;
 
-@mixin content-group-banner {
-  :host(#{$c4d-prefix}-content-group-banner),
-  .#{$prefix}--content-group-banner {
+@mixin in-page-banner {
+  :host(#{$c4d-prefix}-in-page-banner) {
     background: $background;
     padding-top: $spacing-07;
     padding-bottom: $spacing-07;
@@ -64,5 +64,17 @@
         }
       }
     }
+  }
+
+  :host(#{$c4d-prefix}-in-page-banner[color-scheme='cyan']) {
+    background-color: $callout-background-cyan;
+  }
+
+  :host(#{$c4d-prefix}-in-page-banner[color-scheme='purple']) {
+    background-color: $callout-background-purple;
+  }
+
+  :host(#{$c4d-prefix}-in-page-banner[color-scheme='layer']) {
+    background-color: $layer-01;
   }
 }
