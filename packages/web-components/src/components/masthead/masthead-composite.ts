@@ -1337,7 +1337,7 @@ class DDSMastheadComposite extends HostListenerMixin(LitElement) {
    * Mutation observer
    */
   private _heightMutationObserver = new MutationObserver(
-    this._setContainerHeight.bind(this),
+    this._setContainerHeight.bind(this)
   );
 
   /**
@@ -1378,7 +1378,7 @@ class DDSMastheadComposite extends HostListenerMixin(LitElement) {
       childList: true,
       subtree: false,
       attributes: false,
-    })
+    });
   }
 
   updated(changedProperties) {
