@@ -17,6 +17,7 @@
 @use '../lightbox-media-viewer/lightbox-media-viewer';
 
 @mixin image {
+  :host(#{$c4d-prefix}-global-banner-image),
   :host(#{$c4d-prefix}-card-cta-image),
   :host(#{$c4d-prefix}-image) {
     position: relative;
