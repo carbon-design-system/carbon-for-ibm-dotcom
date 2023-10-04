@@ -485,6 +485,7 @@
     ),
   :host(#{$c4d-prefix}-left-nav-menu),
   :host(#{$c4d-prefix}-left-nav-menu-item) {
+    display: block;
     border-bottom: 1px solid $layer-accent-01;
   }
   /* stylelint-enable selector-pseudo-class-parentheses-space-inside */
