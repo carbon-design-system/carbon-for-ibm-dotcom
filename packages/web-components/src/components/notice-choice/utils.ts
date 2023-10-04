@@ -57,8 +57,13 @@ export function pwsValueMap(value) {
       OPT_OUT: 'no',
       PERMISSION: 'yes',
       SUPPRESSION: 'no',
-      formSubmissionYes: 'yes',
-      formSubmissionNo: 'no',
+      formSubmissionYes: 'false',
+      formSubmissionNo: 'true',
+      qChinaPIPlYes: 'true',
+      qChinaPIPlNo: 'false',
+      NC_HIDDEN_PERMISSION: 'PERMISSION',
+      NC_HIDDEN_SUPPRESSION: 'SUPPRESSION',
+      NC_HIDDEN_UNCHANGED: 'UNCHANGED',
     }[value] || null
   );
 }
