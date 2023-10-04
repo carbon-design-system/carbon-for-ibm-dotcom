@@ -6,7 +6,5 @@
 //
 @use '@carbon/styles/scss/theme' as *;
 @use '@carbon/ibmdotcom-styles/scss/internal/callout/tokens' as callout-tokens;
-@use '@carbon/ibmdotcom-styles/scss/components/leadspace/tokens' as leadspace-tokens;
 
 @include add-component-tokens(callout-tokens.$callout-tokens);
-@include add-component-tokens(leadspace-tokens.$leadspace-tokens);

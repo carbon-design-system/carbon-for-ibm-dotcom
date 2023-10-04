@@ -11,7 +11,7 @@
 @use '@carbon/styles/scss/breakpoint' as *;
 @use '@carbon/styles/scss/config' as *;
 @use '@carbon/styles/scss/spacing' as *;
-@use '@carbon/styles/scss/themes';
+@use '@carbon/styles/scss/themes' as *;
 @use '@carbon/styles/scss/theme' as *;
 @use '@carbon/styles/scss/type' as *;
 @use '@carbon/styles/scss/utilities' as *;
@@ -22,7 +22,8 @@
 @use '../button-group';
 @use '../image';
 @use '../tag-group';
-@use './tokens' as *;
+
+$btn-min-width: 26;
 
 @keyframes loadingAnimation {
   0% {
@@ -228,7 +229,7 @@
 
     .#{$prefix}--leadspace__action {
 
-      @include breakpoint('md') {
+      @include breakpoint(md) {
         display: inline-block;
       }
     }
@@ -395,7 +396,7 @@
     .#{$prefix}--leadspace--g100,
     .#{$prefix}--leadspace--g90 {
       @include theme(
-        themes.$g100,
+        $g100,
         feature-flag-enabled('enable-css-custom-properties')
       );
 
@@ -535,7 +536,7 @@
     z-index: 1;
 
     ::slotted(span) {
-      color: $leadspace-heading-highlight;
+      color: $link-primary;
     }
 
     ::slotted(h1) {
