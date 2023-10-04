@@ -5,8 +5,5 @@
 // LICENSE file in the root directory of this source tree.
 //
 
-@use '@carbon/styles/scss/breakpoint' as *;
-@use '@carbon/styles/scss/config' as *;
-@use '@carbon/styles/scss/spacing' as *;
-@use '@carbon/ibmdotcom-styles/scss/components/leadspace';
+@use '../../../../styles/scss/components/leadspace';
 @use '../../../../carbon-web-components/src/components/breadcrumb/breadcrumb';

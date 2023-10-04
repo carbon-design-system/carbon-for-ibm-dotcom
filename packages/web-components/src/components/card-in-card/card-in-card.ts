@@ -9,9 +9,9 @@
 
 import { css, html } from 'lit';
 import { ifDefined } from 'lit/directives/if-defined.js';
-import PlayVideo from '@carbon/ibmdotcom-styles/icons/svg/play-video.svg';
 import settings from '../../internal/vendor/@carbon/ibmdotcom-utilities/utilities/settings/settings';
-import C4DCardCTA, { CTA_TYPE } from '../cta/card-cta';
+import C4DCard from '../card/card';
+import { CTA_TYPE } from '../cta/card-cta';
 import './card-in-card-image';
 import styles from './card-in-card.scss';
 import StableSelectorMixin from '../../globals/mixins/stable-selector';
@@ -25,23 +25,16 @@ const { prefix, stablePrefix: c4dPrefix } = settings;
  * @element c4d-card-in-card
  */
 @customElement(`${c4dPrefix}-card-in-card`)
-class C4DCardInCard extends StableSelectorMixin(C4DCardCTA) {
+class C4DCardInCard extends StableSelectorMixin(C4DCard) {
   protected _renderImage() {
-    const {
-      ctaType,
-      videoName,
-      videoThumbnailUrl,
-      thumbnail,
-      _hasImage: hasImage,
-    } = this;
+    const { ctaType, videoName, videoThumbnailUrl, _hasImage: hasImage } = this;
     const image =
       hasImage || ctaType !== CTA_TYPE.VIDEO
         ? undefined
         : html`
             <c4d-card-in-card-image
               alt="${ifDefined(videoName)}"
-              default-src="${ifDefined(thumbnail || videoThumbnailUrl)}">
-              ${PlayVideo({ slot: 'icon' })}
+              default-src="${videoThumbnailUrl}">
             </c4d-card-in-card-image>
           `;
     return html`
@@ -56,23 +49,10 @@ class C4DCardInCard extends StableSelectorMixin(C4DCardCTA) {
       linkNode.classList.add(`${prefix}--card-in-card`);
     }
 
-    const cardInCardImage = this.querySelector(
-      `${c4dPrefix}-card-in-card-image`
-    );
-    const cardInCardImageVideo = this.parentElement
-      ?.querySelector(`${c4dPrefix}-card-in-card`)
-      ?.shadowRoot?.querySelector('c4d-card-in-card-image');
-
-    // fires the card cta footer when card image is clicked
-    if (cardInCardImage || cardInCardImageVideo) {
-      (
-        (cardInCardImage as HTMLElement) ||
-        (cardInCardImageVideo as HTMLElement)
-      ).onclick = () =>
-        this.querySelector(`${c4dPrefix}-card-cta-footer`)
-          ?.shadowRoot?.querySelector(`a`)
-          ?.click();
-    }
+    this.onclick = () =>
+      this.querySelector(`${c4dPrefix}-card-footer`)
+        ?.shadowRoot?.querySelector(`a`)
+        ?.click();
   }
 
   static get stableSelector() {
