@@ -7,9 +7,9 @@
  * LICENSE file in the root directory of this source tree.
  */
 
-import './universal-banner';
-import './universal-banner-heading';
-import './universal-banner-copy';
-import './universal-banner-image';
-import '../cta/button-cta';
+import './global-banner';
+import './global-banner-heading';
+import './global-banner-copy';
+import './global-banner-image';
+import '../button/index';
 import '../link-with-icon/index';
