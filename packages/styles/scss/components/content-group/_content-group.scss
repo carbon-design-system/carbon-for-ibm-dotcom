@@ -21,11 +21,17 @@
   :host(#{$c4d-prefix}-content-group-copy) {
     @include type-style('body-02');
   }
+  :host(#{$c4d-prefix}-content-group-heading),
+  :host(#{$c4d-prefix}-content-group-copy) {
+    max-width: mini-units(40);
+  }
   :host(#{$c4d-prefix}-content-group) {
-    ::slotted(#{$c4d-prefix}-card-link-cta) {
-      :host(.#{$prefix}--tile) {
-        color: #000000;
-      }
+    ::slotted([slot='footer']) {
+      margin-left: 0;
+      margin-right: 0;
+      padding-left: 0;
+      padding-right: 0;
+      height: auto;
     }
   }
 }

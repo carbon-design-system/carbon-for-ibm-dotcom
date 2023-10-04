@@ -111,7 +111,7 @@ export const Default = (args) => {
         : ``}
       ${cta
         ? html`
-            <c4d-card-link-cta
+            <c4d-card
               slot="footer"
               cta-type="local"
               href="https://www.example.com">
@@ -119,8 +119,8 @@ export const Default = (args) => {
                 >Learn more about natual language
                 processing</c4d-card-link-heading
               >
-              <c4d-card-cta-footer></c4d-card-cta-footer>
-            </c4d-card-link-cta>
+              <c4d-card-footer></c4d-card-footer>
+            </c4d-card>
           `
         : ''}
     </c4d-content-group>
