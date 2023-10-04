@@ -381,7 +381,7 @@ class NoticeChoice extends StableSelectorMixin(LitElement) {
                     >${mandatoryCheckbox.text}
                   </span>
                 </label>
-                ${!this.hideErrorMessage
+                ${!this.hideErrorMessage && this.preventFormSubmission
                   ? html`<span
                       class="nc-error"
                       style="color:#da1e28;font-size:.75rem"
