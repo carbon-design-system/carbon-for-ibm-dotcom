@@ -95,7 +95,7 @@ $btn-min-width: 26;
   :host(#{$c4d-prefix}-leadspace) {
     display: block;
     position: relative;
-  
+
     &::before {
       content: '';
       opacity: 0;
@@ -108,18 +108,18 @@ $btn-min-width: 26;
       animation: loadingAnimation 2000ms ease infinite;
       transition: all 800ms cubic-bezier(0.4, 0.14, 0.3, 1);
     }
-  
+
     &[loading] {
       &::before {
         z-index: 5;
         opacity: 1;
       }
     }
-  
+
     ::slotted(#{$c4d-prefix}-background-media) {
       height: auto;
       aspect-ratio: 4 / 3; /* stylelint-disable-line property-no-unknown */
-  
+
       @include breakpoint(lg) {
         position: absolute;
         inset: 0;
@@ -163,7 +163,6 @@ $btn-min-width: 26;
     .#{$prefix}--buttongroup,
     ::slotted(#{$c4d-prefix}-button-group),
     ::slotted(#{$c4d-prefix}-leadspace-block-cta) {
-
       @include breakpoint(md) {
         display: grid;
         grid-template-columns: repeat(
@@ -228,7 +227,6 @@ $btn-min-width: 26;
     }
 
     .#{$prefix}--leadspace__action {
-
       @include breakpoint(md) {
         display: inline-block;
       }
@@ -566,8 +564,8 @@ $btn-min-width: 26;
         height: rem(528px);
       }
     }
-  } 
-  
+  }
+
   :host(#{$c4d-prefix}-leadspace)[size='medium'] {
     @include breakpoint(lg) {
       .#{$prefix}--leadspace__overlay {
@@ -577,7 +575,6 @@ $btn-min-width: 26;
   }
 
   :host(#{$c4d-prefix}-leadspace)[size='short'] {
-
     @include breakpoint(lg) {
       .#{$prefix}--leadspace__overlay {
         height: rem(288px);
@@ -631,7 +628,6 @@ $btn-min-width: 26;
 
   :host(#{$c4d-prefix}-leadspace)[size='medium'] {
     ::slotted(#{$c4d-prefix}-leadspace-heading) {
-
       @include breakpoint(lg) {
         margin-bottom: $spacing-10;
       }
@@ -645,7 +641,6 @@ $btn-min-width: 26;
   }
 
   :host(#{$c4d-prefix}-leadspace)[size='super'] {
-
     .#{$prefix}--leadspace__section {
       @include breakpoint(lg) {
         min-height: carbon--mini-units(80);

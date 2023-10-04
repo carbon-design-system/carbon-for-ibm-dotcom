@@ -64,17 +64,21 @@ const navigationWithBreadcrumbs = html`
 `;
 
 export const Super = (args) => {
-  const { title, copy, buttons, navElements, highlight, typeStyle } = args?.LeadSpace ?? {};
+  const { title, copy, buttons, navElements, highlight, typeStyle } =
+    args?.LeadSpace ?? {};
   return html`
     <c4d-leadspace size="${LEADSPACE_SIZE.SUPER}">
       ${navElements === navigationOptions[0] ? navigationWithTagGroup : ``}
       ${navElements === navigationOptions[1] ? navigationWithBreadcrumbs : ``}
-      <c4d-leadspace-heading type-style="${typeStyle}" highlight=${highlight}>${ifDefined(title)}</c4d-leadspace-heading>
+      <c4d-leadspace-heading type-style="${typeStyle}" highlight=${highlight}
+        >${ifDefined(title)}</c4d-leadspace-heading
+      >
       ${ifDefined(copy)}
       <c4d-button-group slot="action">
         ${buttons.map((elem) => {
           return html`
-            <c4d-button-group-item cta-type="local"
+            <c4d-button-group-item
+              cta-type="local"
               aria-label="${elem.label}"
               href="${elem.href}"
               >${elem.copy}</c4d-button-group-item
@@ -95,8 +99,9 @@ export const SuperWithImage = (args) => {
     copy,
     buttons,
     navElements,
-    highlight, 
-    typeStyle } = args?.LeadSpace ?? {};
+    highlight,
+    typeStyle,
+  } = args?.LeadSpace ?? {};
   const image = defaultSrc || leadspaceImg;
   return html`
     <c4d-leadspace
@@ -106,12 +111,15 @@ export const SuperWithImage = (args) => {
       default-src="${ifDefined(defaultSrc)}">
       ${navElements === navigationOptions[0] ? navigationWithTagGroup : ``}
       ${navElements === navigationOptions[1] ? navigationWithBreadcrumbs : ``}
-      <c4d-leadspace-heading type-style="${typeStyle}" highlight=${highlight}>${ifDefined(title)}</c4d-leadspace-heading>
+      <c4d-leadspace-heading type-style="${typeStyle}" highlight=${highlight}
+        >${ifDefined(title)}</c4d-leadspace-heading
+      >
       ${ifDefined(copy)}
       <c4d-button-group slot="action">
         ${buttons.map((elem) => {
           return html`
-            <c4d-button-group-item cta-type="local"
+            <c4d-button-group-item
+              cta-type="local"
               aria-label="${elem.label}"
               href="${elem.href}"
               >${elem.copy}</c4d-button-group-item
@@ -150,7 +158,9 @@ export const SuperWithVideo = (args) => {
     copy,
     buttons,
     navElements,
-   highlight,  typeStyle } = args?.LeadSpace ?? {};
+    highlight,
+    typeStyle,
+  } = args?.LeadSpace ?? {};
   return html`
     <c4d-leadspace
       size="${LEADSPACE_SIZE.SUPER}"
@@ -159,12 +169,15 @@ export const SuperWithVideo = (args) => {
       default-src="${ifDefined(defaultSrc)}">
       ${navElements === navigationOptions[0] ? navigationWithTagGroup : ``}
       ${navElements === navigationOptions[1] ? navigationWithBreadcrumbs : ``}
-      <c4d-leadspace-heading type-style="${typeStyle}" highlight=${highlight}>${ifDefined(title)}</c4d-leadspace-heading>
+      <c4d-leadspace-heading type-style="${typeStyle}" highlight=${highlight}
+        >${ifDefined(title)}</c4d-leadspace-heading
+      >
       ${ifDefined(copy)}
       <c4d-button-group slot="action">
         ${buttons.map((elem) => {
           return html`
-            <c4d-button-group-item cta-type="local"
+            <c4d-button-group-item
+              cta-type="local"
               aria-label="${elem.label}"
               href="${elem.href}"
               >${elem.copy}</c4d-button-group-item
@@ -186,17 +199,21 @@ SuperWithVideo.story = {
 };
 
 export const Tall = (args) => {
-  const { title, copy, buttons, navElements, highlight,  typeStyle } = args?.LeadSpace ?? {};
+  const { title, copy, buttons, navElements, highlight, typeStyle } =
+    args?.LeadSpace ?? {};
   return html`
     <c4d-leadspace size="${LEADSPACE_SIZE.TALL}">
       ${navElements === navigationOptions[0] ? navigationWithTagGroup : ``}
       ${navElements === navigationOptions[1] ? navigationWithBreadcrumbs : ``}
-      <c4d-leadspace-heading type-style="${typeStyle}" highlight=${highlight}>${ifDefined(title)}</c4d-leadspace-heading>
+      <c4d-leadspace-heading type-style="${typeStyle}" highlight=${highlight}
+        >${ifDefined(title)}</c4d-leadspace-heading
+      >
       ${ifDefined(copy)}
       <c4d-button-group slot="action">
         ${buttons.map((elem) => {
           return html`
-            <c4d-button-group-item cta-type="local"
+            <c4d-button-group-item
+              cta-type="local"
               aria-label="${elem.label}"
               href="${elem.href}"
               >${elem.copy}</c4d-button-group-item
@@ -217,7 +234,9 @@ export const TallWithImage = (args) => {
     copy,
     buttons,
     navElements,
-   highlight,  typeStyle } = args?.LeadSpace ?? {};
+    highlight,
+    typeStyle,
+  } = args?.LeadSpace ?? {};
   const image = defaultSrc || leadspaceImg;
   return html`
     <c4d-leadspace
@@ -227,12 +246,15 @@ export const TallWithImage = (args) => {
       default-src="${ifDefined(defaultSrc)}">
       ${navElements === navigationOptions[0] ? navigationWithTagGroup : ``}
       ${navElements === navigationOptions[1] ? navigationWithBreadcrumbs : ``}
-      <c4d-leadspace-heading type-style="${typeStyle}" highlight=${highlight}>${ifDefined(title)}</c4d-leadspace-heading>
+      <c4d-leadspace-heading type-style="${typeStyle}" highlight=${highlight}
+        >${ifDefined(title)}</c4d-leadspace-heading
+      >
       ${ifDefined(copy)}
       <c4d-button-group slot="action">
         ${buttons.map((elem) => {
           return html`
-            <c4d-button-group-item cta-type="local"
+            <c4d-button-group-item
+              cta-type="local"
               aria-label="${elem.label}"
               href="${elem.href}"
               >${elem.copy}</c4d-button-group-item
@@ -271,7 +293,9 @@ export const TallWithVideo = (args) => {
     copy,
     buttons,
     navElements,
-   highlight,  typeStyle } = args?.LeadSpace ?? {};
+    highlight,
+    typeStyle,
+  } = args?.LeadSpace ?? {};
   return html`
     <c4d-leadspace
       size="${LEADSPACE_SIZE.TALL}"
@@ -280,12 +304,15 @@ export const TallWithVideo = (args) => {
       default-src="${ifDefined(defaultSrc)}">
       ${navElements === navigationOptions[0] ? navigationWithTagGroup : ``}
       ${navElements === navigationOptions[1] ? navigationWithBreadcrumbs : ``}
-      <c4d-leadspace-heading type-style="${typeStyle}" highlight=${highlight}>${ifDefined(title)}</c4d-leadspace-heading>
+      <c4d-leadspace-heading type-style="${typeStyle}" highlight=${highlight}
+        >${ifDefined(title)}</c4d-leadspace-heading
+      >
       ${ifDefined(copy)}
       <c4d-button-group slot="action">
         ${buttons.map((elem) => {
           return html`
-            <c4d-button-group-item cta-type="local"
+            <c4d-button-group-item
+              cta-type="local"
               aria-label="${elem.label}"
               href="${elem.href}"
               >${elem.copy}</c4d-button-group-item
@@ -307,17 +334,21 @@ TallWithVideo.story = {
 };
 
 export const Medium = (args) => {
-  const { title, copy, buttons, navElements, highlight,  typeStyle } = args?.LeadSpace ?? {};
+  const { title, copy, buttons, navElements, highlight, typeStyle } =
+    args?.LeadSpace ?? {};
   return html`
     <c4d-leadspace size="${LEADSPACE_SIZE.MEDIUM}">
       ${navElements === navigationOptions[0] ? navigationWithTagGroup : ``}
       ${navElements === navigationOptions[1] ? navigationWithBreadcrumbs : ``}
-      <c4d-leadspace-heading type-style="${typeStyle}" highlight=${highlight}>${ifDefined(title)}</c4d-leadspace-heading>
+      <c4d-leadspace-heading type-style="${typeStyle}" highlight=${highlight}
+        >${ifDefined(title)}</c4d-leadspace-heading
+      >
       ${ifDefined(copy)}
       <c4d-button-group slot="action">
         ${buttons.map((elem) => {
           return html`
-            <c4d-button-group-item cta-type="local"
+            <c4d-button-group-item
+              cta-type="local"
               aria-label="${elem.label}"
               href="${elem.href}"
               >${elem.copy}</c4d-button-group-item
@@ -338,7 +369,9 @@ export const MediumWithImage = (args) => {
     copy,
     buttons,
     navElements,
-   highlight,  typeStyle } = args?.LeadSpace ?? {};
+    highlight,
+    typeStyle,
+  } = args?.LeadSpace ?? {};
   const image = defaultSrc || leadspaceImg;
   return html`
     <c4d-leadspace
@@ -348,12 +381,15 @@ export const MediumWithImage = (args) => {
       default-src="${ifDefined(defaultSrc)}">
       ${navElements === navigationOptions[0] ? navigationWithTagGroup : ``}
       ${navElements === navigationOptions[1] ? navigationWithBreadcrumbs : ``}
-      <c4d-leadspace-heading type-style="${typeStyle}" highlight=${highlight}>${ifDefined(title)}</c4d-leadspace-heading>
+      <c4d-leadspace-heading type-style="${typeStyle}" highlight=${highlight}
+        >${ifDefined(title)}</c4d-leadspace-heading
+      >
       ${ifDefined(copy)}
       <c4d-button-group slot="action">
         ${buttons.map((elem) => {
           return html`
-            <c4d-button-group-item cta-type="local"
+            <c4d-button-group-item
+              cta-type="local"
               aria-label="${elem.label}"
               href="${elem.href}"
               >${elem.copy}</c4d-button-group-item
@@ -392,7 +428,9 @@ export const MediumWithVideo = (args) => {
     copy,
     buttons,
     navElements,
-   highlight,  typeStyle } = args?.LeadSpace ?? {};
+    highlight,
+    typeStyle,
+  } = args?.LeadSpace ?? {};
   return html`
     <c4d-leadspace
       size="${LEADSPACE_SIZE.MEDIUM}"
@@ -401,12 +439,15 @@ export const MediumWithVideo = (args) => {
       default-src="${ifDefined(defaultSrc)}">
       ${navElements === navigationOptions[0] ? navigationWithTagGroup : ``}
       ${navElements === navigationOptions[1] ? navigationWithBreadcrumbs : ``}
-      <c4d-leadspace-heading type-style="${typeStyle}" highlight=${highlight}>${ifDefined(title)}</c4d-leadspace-heading>
+      <c4d-leadspace-heading type-style="${typeStyle}" highlight=${highlight}
+        >${ifDefined(title)}</c4d-leadspace-heading
+      >
       ${ifDefined(copy)}
       <c4d-button-group slot="action">
         ${buttons.map((elem) => {
           return html`
-            <c4d-button-group-item cta-type="local"
+            <c4d-button-group-item
+              cta-type="local"
               aria-label="${elem.label}"
               href="${elem.href}"
               >${elem.copy}</c4d-button-group-item
@@ -428,12 +469,14 @@ MediumWithVideo.story = {
 };
 
 export const Short = (args) => {
-  const { title, navElements, highlight,  typeStyle } = args?.LeadSpace ?? {};
+  const { title, navElements, highlight, typeStyle } = args?.LeadSpace ?? {};
   return html`
     <c4d-leadspace size="${LEADSPACE_SIZE.SHORT}">
       ${navElements === navigationOptions[0] ? navigationWithTagGroup : ``}
       ${navElements === navigationOptions[1] ? navigationWithBreadcrumbs : ``}
-      <c4d-leadspace-heading type-style="${typeStyle}" highlight=${highlight}>${ifDefined(title)}</c4d-leadspace-heading>
+      <c4d-leadspace-heading type-style="${typeStyle}" highlight=${highlight}
+        >${ifDefined(title)}</c4d-leadspace-heading
+      >
     </c4d-leadspace>
   `;
 };
@@ -465,8 +508,15 @@ Short.story = {
 };
 
 export const ShortWithImage = (args) => {
-  const { alt, defaultSrc, gradientStyleScheme, title, navElements, highlight,  typeStyle } =
-    args?.LeadSpace ?? {};
+  const {
+    alt,
+    defaultSrc,
+    gradientStyleScheme,
+    title,
+    navElements,
+    highlight,
+    typeStyle,
+  } = args?.LeadSpace ?? {};
   const image = defaultSrc || leadspaceImg;
   return html`
     <c4d-leadspace
@@ -476,7 +526,9 @@ export const ShortWithImage = (args) => {
       default-src="${ifDefined(defaultSrc)}">
       ${navElements === navigationOptions[0] ? navigationWithTagGroup : ``}
       ${navElements === navigationOptions[1] ? navigationWithBreadcrumbs : ``}
-      <c4d-leadspace-heading type-style="${typeStyle}" highlight=${highlight}>${ifDefined(title)}</c4d-leadspace-heading>
+      <c4d-leadspace-heading type-style="${typeStyle}" highlight=${highlight}
+        >${ifDefined(title)}</c4d-leadspace-heading
+      >
       <c4d-background-media
         slot="image"
         alt="${ifDefined(alt)}"
@@ -527,8 +579,15 @@ ShortWithImage.story = {
 };
 
 export const ShortWithVideo = (args) => {
-  const { alt, defaultSrc, gradientStyleScheme, title, navElements, highlight,  typeStyle } =
-    args?.LeadSpace ?? {};
+  const {
+    alt,
+    defaultSrc,
+    gradientStyleScheme,
+    title,
+    navElements,
+    highlight,
+    typeStyle,
+  } = args?.LeadSpace ?? {};
   return html`
     <c4d-leadspace
       size="${LEADSPACE_SIZE.SHORT}"
@@ -537,7 +596,9 @@ export const ShortWithVideo = (args) => {
       default-src="${ifDefined(defaultSrc)}">
       ${navElements === navigationOptions[0] ? navigationWithTagGroup : ``}
       ${navElements === navigationOptions[1] ? navigationWithBreadcrumbs : ``}
-      <c4d-leadspace-heading type-style="${typeStyle}" highlight=${highlight}>${ifDefined(title)}</c4d-leadspace-heading>
+      <c4d-leadspace-heading type-style="${typeStyle}" highlight=${highlight}
+        >${ifDefined(title)}</c4d-leadspace-heading
+      >
       <c4d-background-media slot="image" opacity="100">
         <c4d-video-player-container
           video-id="0_ibuqxqbe"
@@ -713,7 +774,10 @@ export default {
             0;
           return {
             href: textNullable(`Link ${i + 1}`, `https://example.com`),
-            copy: text(`Button ${i + 1}`, `${i % 2 == 0 ? 'Primary action' : 'Secondary Action'}`),
+            copy: text(
+              `Button ${i + 1}`,
+              `${i % 2 == 0 ? 'Primary action' : 'Secondary Action'}`
+            ),
             renderIcon: iconMap[icon],
             label: getAriaLabel(icon),
           };
@@ -724,11 +788,7 @@ export default {
           gradientOptions,
           'with-gradient'
         ),
-        typeStyle: select(
-          'Type style',
-          typeStyleOptions,
-          'display-01'
-        ),        
+        typeStyle: select('Type style', typeStyleOptions, 'display-01'),
         alt: text('Image alt text (alt):', 'Image alt text'),
         defaultSrc: text('Default image (defaultSrc):', leadspaceImg),
       }),
