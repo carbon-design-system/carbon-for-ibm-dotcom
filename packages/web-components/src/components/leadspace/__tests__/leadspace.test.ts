@@ -12,8 +12,6 @@ import '../leadspace';
 import {
   Tall,
   TallWithImage,
-  Centered,
-  CenteredWithImage,
   Medium,
   MediumWithImage,
 } from '../__stories__/leadspace.stories';
@@ -37,40 +35,6 @@ const TallTemplate = (props?) =>
 
 const TallWithImageTemplate = (props?) =>
   TallWithImage({
-    LeadSpace: {
-      ...props,
-      buttons: [
-        {
-          href: 'https://example.com',
-          copy: 'button 1',
-        },
-        {
-          href: 'https://example.com',
-          copy: 'button 2',
-        },
-      ],
-    },
-  });
-
-const CenteredTemplate = (props?) =>
-  Centered({
-    LeadSpace: {
-      ...props,
-      buttons: [
-        {
-          href: 'https://example.com',
-          copy: 'button 1',
-        },
-        {
-          href: 'https://example.com',
-          copy: 'button 2',
-        },
-      ],
-    },
-  });
-
-const CenteredWithImageTemplate = (props?) =>
-  CenteredWithImage({
     LeadSpace: {
       ...props,
       buttons: [
@@ -158,87 +122,6 @@ describe('c4d-leadspace', function () {
     it('should render with various attributes', async function () {
       render(
         TallWithImageTemplate({
-          title: 'Lead space title',
-          copy: 'Use this area for a short line of copy to support the title',
-          gradient: true,
-          alt: 'alt text',
-          defaultSrc:
-            'http://fpoimg.com/1056x480?bg_color=ee5396&text_color=161616',
-        }),
-        document.body
-      );
-      await Promise.resolve(); // Update cycle for `<c4d-leadspace>`
-      expect(document.body.querySelector('c4d-leadspace')).toMatchSnapshot({
-        mode: 'shadow',
-      });
-    });
-  });
-
-  describe('Misc attributes - Centered', function () {
-    it('should render with minimum attributes', async function () {
-      render(CenteredTemplate(), document.body);
-      await Promise.resolve(); // Update cycle for `<c4d-leadspace>`
-      expect(document.body.querySelector('c4d-leadspace')).toMatchSnapshot({
-        mode: 'shadow',
-      });
-    });
-
-    it('should render with various attributes', async function () {
-      render(
-        CenteredTemplate({
-          title: 'Lead space title',
-          copy: 'Use this area for a short line of copy to support the title',
-          gradient: true,
-        }),
-        document.body
-      );
-      await Promise.resolve(); // Update cycle for `<c4d-leadspace>`
-      expect(document.body.querySelector('c4d-leadspace')).toMatchSnapshot({
-        mode: 'shadow',
-      });
-    });
-  });
-
-  describe('Misc attributes - CenteredWithImage', function () {
-    it('should render with minimum attributes', async function () {
-      render(CenteredWithImageTemplate(), document.body);
-      await Promise.resolve(); // Update cycle for `<c4d-leadspace>`
-      expect(document.body.querySelector('c4d-leadspace')).toMatchSnapshot({
-        mode: 'shadow',
-      });
-    });
-
-    it('should render with various attributes', async function () {
-      render(
-        CenteredWithImageTemplate({
-          title: 'Lead space title',
-          copy: 'Use this area for a short line of copy to support the title',
-          gradient: true,
-          alt: 'alt text',
-          defaultSrc:
-            'http://fpoimg.com/1056x480?bg_color=ee5396&text_color=161616',
-        }),
-        document.body
-      );
-      await Promise.resolve(); // Update cycle for `<c4d-leadspace>`
-      expect(document.body.querySelector('c4d-leadspace')).toMatchSnapshot({
-        mode: 'shadow',
-      });
-    });
-  });
-
-  describe('Misc attributes - CenteredWithImage', function () {
-    it('should render with minimum attributes', async function () {
-      render(CenteredWithImageTemplate(), document.body);
-      await Promise.resolve(); // Update cycle for `<c4d-leadspace>`
-      expect(document.body.querySelector('c4d-leadspace')).toMatchSnapshot({
-        mode: 'shadow',
-      });
-    });
-
-    it('should render with various attributes', async function () {
-      render(
-        CenteredWithImageTemplate({
           title: 'Lead space title',
           copy: 'Use this area for a short line of copy to support the title',
           gradient: true,
