@@ -42,6 +42,7 @@ For Carbon v11 migration guidance, see their
 | hr                        | View changes [here](#horizontal-rule)                                                                                                          |
 | image                     | View changes [here](#image)                                                                                                                    |
 | image-with-caption        | Replaced by `image`                                                                                                                            |
+| leadspace-with-search     | View changes [here](#leadspace-with-search)                                                                                                    |
 | link-list-section         | This component is deprecated in v2 in favor for content-section/block & link-list end of section variant components                            |
 | logo-grid                 | This component is deprecated in v2 in favor for content-section/block & image-group components                                                 |
 | pictogram-item            | This component is deprecated in v2 in favor for content-item (pictogram variation) componet                                                    |
@@ -90,3 +91,12 @@ information.
 ### Image
 
 - New `lightbox-contrast` property
+
+### Leadspace with Search
+
+- `<dds-leadspace-with-search-heading>` has been replaced with `<dds-leadspace-heading>`
+- `<dds-leadspace-with-search-content-copy>` has been replaced with `<dds-leadspace-with-search-copy>`
+- New highlight attribute in `dds-leadspace-heading`
+- Deprecated background-media image variant
+- Removed `<dds-leadspace-with-search-heading>`, `<dds-leadspace-with-search-content>`, 
+`<dds-leadspace-with-search-content-heading>`, `<dds-leadspace-with-search-content-copy>`
