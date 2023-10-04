@@ -22,6 +22,7 @@
     border-top: 1px solid $layer-accent-01;
     padding-left: $spacing-05;
     padding-right: $spacing-05;
+    margin: 0;
 
     @include breakpoint(sm) {
       padding-top: $spacing-07;
@@ -32,24 +33,6 @@
       padding-top: $spacing-07;
       padding-bottom: $spacing-10;
     }
-
-    &[thumbnail] {
-      @include breakpoint(md) {
-        min-height: rem(306px);
-      }
-
-      @include breakpoint(lg) {
-        min-height: rem(272px);
-      }
-
-      @include breakpoint(xlg) {
-        min-height: rem(252px);
-      }
-    }
-  }
-
-  :host(#{$c4d-prefix}-content-item-row) {
-    margin: 0;
   }
 
   .#{$prefix}--content-item-row__row {
@@ -134,6 +117,10 @@
   }
 
   .#{$prefix}--content-item-row__heading-wrapper {
+    grid-column: 1 / span 4;
+    padding-left: 0;
+    padding-right: 0;
+
     @include breakpoint(md) {
       @include make-col(6, 12);
     }
@@ -147,17 +134,13 @@
     display: flex;
     flex-direction: column;
     width: 100%;
+    grid-column: 1 / span 4;
+
 
     @include breakpoint(lg) {
       @include make-col(8, 12);
 
       display: flex;
-    }
-  }
-
-  .#{$prefix}--content-item-row__content-wrapper {
-    grid-column: 1 / span 4;
-    @include breakpoint(lg) {
       grid-column: 5 / span 4;
       padding-left: $spacing-04;
     }
@@ -187,6 +170,7 @@
 
   :host(#{$c4d-prefix}-content-item-row-copy) ::slotted(:not([slot])) {
     max-width: rem(640px);
+    margin-bottom: $spacing-07;
   }
 
   :host(#{$c4d-prefix}-content-item-row-eyebrow) {
@@ -218,11 +202,18 @@
     grid-auto-flow: dense;
 
     @include breakpoint(md) {
+      min-height: rem(306px);
       grid-template-columns: repeat(8, 1fr);
       column-gap: $spacing-07;
     }
+
     @include breakpoint(lg) {
+      min-height: rem(272px);
       grid-template-columns: repeat(12, 1fr);
+    }
+
+    @include breakpoint(xlg) {
+      min-height: rem(252px);
     }
   }
 
@@ -261,16 +252,6 @@
         grid-column: 9 / span 4;
       }
     }
-  }
-
-  .#{$prefix}--content-item-row__heading-wrapper {
-    grid-column: 1 / span 4;
-    padding-left: 0;
-    padding-right: 0;
-  }
-
-  :host(#{$c4d-prefix}-content-item-row-copy) ::slotted(:not([slot])) {
-    margin-bottom: $spacing-07;
   }
 
   :host(#{$c4d-prefix}-content-item-row-thumbnail-copy)
