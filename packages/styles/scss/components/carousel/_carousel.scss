@@ -28,6 +28,10 @@
       --#{$c4d-prefix}--carousel--page-size: 3;
     }
 
+    @include breakpoint(xlg) {
+      --#{$c4d-prefix}--carousel--page-size: 4;
+    }
+
     [role='region'] {
       display: contents;
     }
