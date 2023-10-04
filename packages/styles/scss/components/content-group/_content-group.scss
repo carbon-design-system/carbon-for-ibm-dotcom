@@ -23,7 +23,7 @@
   }
   :host(#{$c4d-prefix}-content-group-heading),
   :host(#{$c4d-prefix}-content-group-copy) {
-    max-width: mini-units(40);
+    max-width: 40rem;
   }
   :host(#{$c4d-prefix}-content-group) {
     ::slotted([slot='footer']) {
