@@ -82,8 +82,7 @@ class C4DCardCTA extends VideoCTAMixin(CTAMixin(C4DCard)) {
             <c4d-card-cta-image
               class="${prefix}--card__video-thumbnail"
               alt="${ifDefined(videoName)}"
-              default-src="${ifDefined(thumbnail || videoThumbnailUrl)}">
-              ${PlayVideo({ slot: 'icon' })}
+              default-src="${videoThumbnailUrl}">
             </c4d-card-cta-image>
           `;
     return html`
