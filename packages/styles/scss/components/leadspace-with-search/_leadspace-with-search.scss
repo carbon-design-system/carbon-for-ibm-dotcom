@@ -73,24 +73,12 @@
         padding-bottom: $spacing-12;
       }
 
-      &-adjacent-theme {
+      &-dual-theme {
         padding: $spacing-07 0;
 
         @include breakpoint(md) {
           padding: $spacing-09 0;
         }
-      }
-
-      &-g10 {
-        @include theme($g10, true);
-      }
-
-      &-g90 {
-        @include theme($g90, true);
-      }
-
-      &-g100 {
-        @include theme($g100, true);
       }
 
       .#{$prefix}--sticky-header {
@@ -146,19 +134,27 @@
     }
   }
 
-  :host(#{$c4d-prefix}-leadspace-with-search[adjacent-theme='white-and-g10']) {
+  :host(#{$c4d-prefix}-leadspace-with-search[dual-theme='white-and-g10']) {
+    .#{$prefix}--search-layout {
+      @include theme($white, true);
+    }
+
     .#{$prefix}--search-container {
       @include theme($g10, true);
     }
   }
 
-  :host(#{$c4d-prefix}-leadspace-with-search[adjacent-theme='g10-and-white']) {
+  :host(#{$c4d-prefix}-leadspace-with-search[dual-theme='g10-and-white']) {
     .#{$prefix}--content-layout {
       @include theme($g10, true);
     }
+
+    .#{$prefix}--search-container {
+      @include theme($white, true);
+    }    
   }
 
-  :host(#{$c4d-prefix}-leadspace-with-search[adjacent-theme='g90-and-g100']) {
+  :host(#{$c4d-prefix}-leadspace-with-search[dual-theme='g90-and-g100']) {
     .#{$prefix}--content-layout {
       @include theme($g90, true);
     }
@@ -168,7 +164,7 @@
     }
   }
 
-  :host(#{$c4d-prefix}-leadspace-with-search[adjacent-theme='g100-and-g90']) {
+  :host(#{$c4d-prefix}-leadspace-with-search[dual-theme='g100-and-g90']) {
     .#{$prefix}--content-layout {
       @include theme($g100, true);
     }
@@ -214,7 +210,7 @@
 
   :host(
       #{$c4d-prefix}-leadspace-with-search[sticky-search][scroll-behavior]:not(
-          [adjacent-theme]
+          [dual-theme]
         )
     ) {
     .#{$prefix}--search-container {

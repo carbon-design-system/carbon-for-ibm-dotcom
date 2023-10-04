@@ -63,17 +63,21 @@ import '@carbon/ibmdotcom-web-components/es/components/leadspace-with-search/ind
 
 ## Adjacent Themes
 
-This component has four adjacent theme combinations which can be used to display
-different theming between the two parts of the component, the "top" and the
-"bottom" of the component. In other words, this component can be "divided" into
-two halves, the "top" contains the heading, subheading, and paragraph elements
-to display information, whereas the "bottom" part contains the Search With
-Typeahead component.
+This component offers two options of adjacent themes, it can either be:
 
-By applying these different themes, you may have the "top" part have the default
-"White" theme, while the bottom has the "Gray 10" theme, for example. Feel free
-to play around with the knobs to choose which option would work best for your
-page.
+* Monotheme
+* Dual theme
+
+The "dual-theme" attribute can be used to display different theming between the two
+parts of the component, the "top" and the "bottom" of the component.
+
+In other words, this component can be "divided" into two halves, the "top" contains
+the heading and paragraph elements to display information, whereas the "bottom" part
+contains the Search With Typeahead component.
+
+The coloring would change depending on the current set theme of either the page or the inline 
+theme of the container. The top half would be the current theme, while the bottom half would
+be other theme of the current contrast. 
 
 There are four adjacent theme combinations that are available in this component
 are the following:
@@ -86,7 +90,7 @@ are the following:
 ### HTML Example
 
 ```html
-<cds-leadspace-with-search adjacent-theme='white-and-g10'>
+<cds-leadspace-with-search adjacent-theme='dual-theme'>
   <cds-leadspace-heading>Find a product</cds-leadspace-heading>
     <cds-leadspace-with-search-copy
       >Automate your software release process with continuous
@@ -109,8 +113,8 @@ In other words, the horizontal rule should only be included as a slotted element
 if, for example, the page content has the `g100` theme _and_ the
 `Leadspace with search` **also** uses `g100`.
 
-When using adjacent themes, the theme applied **must** be `g90-and-g100`, as the
-latter theme must match the page content theme.
+When using adjacent themes, the theme applied **must** be `g90`, as the
+bottom theme must match the page content theme.
 
 Using the horizontal rule for other cases in which the themes are not matching
 is not advisable.
@@ -127,7 +131,7 @@ To enable, add the `scroll-behavior` and `sticky-search` attributes to `Leadspac
 
 ```html
 <cds-dotcom-shell-container>
-<cds-leadspace-with-search adjacent-theme='white-and-g10' sticky-search scroll-behavior>
+<cds-leadspace-with-search adjacent-theme='dual-theme' sticky-search scroll-behavior>
   <cds-leadspace-heading>Find a product</cds-leadspace-heading>
     <cds-leadspace-with-search-copy
       >Automate your software release process with continuous

@@ -14,10 +14,10 @@ import settings from '../../internal/vendor/@carbon/ibmdotcom-utilities/utilitie
 import '../horizontal-rule/horizontal-rule';
 import StableSelectorMixin from '../../globals/mixins/stable-selector';
 import styles from './leadspace-with-search.scss';
-import { ADJACENT_THEMES } from './defs';
+import { ADJACENT_THEMES, DUAL_THEMES } from './defs';
 import StickyHeader from '../../internal/vendor/@carbon/ibmdotcom-utilities/utilities/StickyHeader/StickyHeader';
 import { carbonElement as customElement } from '../../internal/vendor/@carbon/web-components/globals/decorators/carbon-element';
-
+import { themes } from '@carbon/themes';
 const { prefix, stablePrefix: c4dPrefix } = settings;
 
 /**
@@ -41,6 +41,17 @@ class C4DLeadspaceWithSearch extends StableSelectorMixin(LitElement) {
 
   /**
    * The adjacent theme.
+   * 
+   * Options are:
+   * "monotheme",
+   * "dual-theme"
+   *
+   */
+  @property({ attribute: 'adjacent-theme', reflect: true })
+  adjacentTheme = ADJACENT_THEMES.MONOTHEME;
+
+  /**
+   * The adjacent theme.
    *
    * Color scheme options are:
    * "white-and-g10",
@@ -48,9 +59,9 @@ class C4DLeadspaceWithSearch extends StableSelectorMixin(LitElement) {
    * "g90-and-g100",
    * "g100-and-g90"
    */
-  @property({ attribute: 'adjacent-theme', reflect: true })
-  theme = ADJACENT_THEMES.MONOTHEME;
-
+  @property({ attribute: 'dual-theme', reflect: true })
+  dualTheme = DUAL_THEMES.MONOTHEME;
+  
   /**
    * Handles `slotchange` event.
    *
@@ -68,8 +79,8 @@ class C4DLeadspaceWithSearch extends StableSelectorMixin(LitElement) {
   protected _getSearchClass() {
     return classMap({
       [`${prefix}--search-container`]: true,
-      [`${prefix}--search-container-adjacent-theme`]:
-        this.theme !== ADJACENT_THEMES.MONOTHEME,
+      [`${prefix}--search-container-dual-theme`]:
+        this.adjacentTheme === ADJACENT_THEMES.DUAL_THEME,
     });
   }
 
@@ -80,6 +91,24 @@ class C4DLeadspaceWithSearch extends StableSelectorMixin(LitElement) {
       'type-style',
       'fluid-heading-05'
     );
+  }
+
+  updated() {
+    const currentBackground = window.getComputedStyle(this).getPropertyValue('--cds-background');
+    const currentTheme = Object.keys(themes).find(colorName =>
+      themes[colorName].background === currentBackground
+    );
+
+    if(this.adjacentTheme === ADJACENT_THEMES.DUAL_THEME) {
+      for (const key in DUAL_THEMES) {
+        if (DUAL_THEMES[key].startsWith(currentTheme)) {
+          this.dualTheme = DUAL_THEMES[key];
+          break;
+        }
+      }    
+    } else {
+      this.dualTheme = '' as any;
+    }
   }
 
   render() {
