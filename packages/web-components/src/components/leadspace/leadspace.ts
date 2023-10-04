@@ -149,6 +149,10 @@ class C4DLeadSpace extends StableSelectorMixin(LitElement) {
         child.slot = 'image';
       }
     });
+
+    if(this.size === 'short') {
+      this.querySelector('c4d-leadspace-heading')?.setAttribute('type-style', 'fluid-heading-05');
+    }
   }
 
   render() {
