@@ -150,8 +150,11 @@ class C4DLeadSpace extends StableSelectorMixin(LitElement) {
       }
     });
 
-    if(this.size === 'short') {
-      this.querySelector('c4d-leadspace-heading')?.setAttribute('type-style', 'fluid-heading-05');
+    if (this.size === 'short') {
+      this.querySelector('c4d-leadspace-heading')?.setAttribute(
+        'type-style',
+        'fluid-heading-05'
+      );
     }
   }
 
