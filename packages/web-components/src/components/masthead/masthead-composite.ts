@@ -1334,7 +1334,9 @@ class DDSMastheadComposite extends HostListenerMixin(LitElement) {
   mastheadRef;
 
   /**
-   * Mutation observer
+   * Resize observer to trigger container height recalculations.
+   *
+   * @private
    */
   private _heightResizeObserver = new ResizeObserver(
     this._setContainerHeight.bind(this)
