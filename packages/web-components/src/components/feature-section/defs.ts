@@ -8,16 +8,26 @@
  */
 
 /**
- * Type of the Media Alignment
+ * Type of color scheme
  */
-export enum MEDIA_ALIGNMENT {
+export enum COLOR_SCHEME {
   /**
-   * Right alignment
+   * Regular color scheme
    */
-  RIGHT = 'right',
+  REGULAR = 'regular',
 
   /**
-   * Left alignment
+   * Inverse color scheme
    */
-  LEFT = 'left',
+  INVERSE = 'inverse',
+
+  /**
+   * Cyan color scheme
+   */
+  CYAN = 'cyan',
+
+  /**
+   * Purple color scheme
+   */
+  PURPLE = 'purple',
 }
