@@ -126,23 +126,23 @@ export const contentItemHorizontal = html`
   </c4d-content-item-horizontal>
 `;
 
-export const universalBanner = (srcImage) => html`
-  <c4d-universal-banner image-width="4-col">
-    <c4d-universal-banner-image
+export const globalBanner = (srcImage) => html`
+  <c4d-global-banner image-width="4-col">
+    <c4d-global-banner-image
       slot="image"
-      default-src="${srcImage}"></c4d-universal-banner-image>
-    <c4d-universal-banner-heading slot="heading"
-      >heading</c4d-universal-banner-heading
+      default-src="${srcImage}"></c4d-global-banner-image>
+    <c4d-global-banner-heading slot="heading"
+      >heading</c4d-global-banner-heading
     >
-    <c4d-universal-banner-copy slot="copy">copy</c4d-universal-banner-copy>
-    <c4d-button-cta
+    <c4d-global-banner-copy slot="copy">copy</c4d-global-banner-copy>
+    <c4d-button
       slot="cta"
       cta-type="local"
       kind="tertiary"
       href="https://www.example.com">
       cta copy
-    </c4d-button-cta>
-  </c4d-universal-banner>
+    </c4d-button>
+  </c4d-global-banner>
 `;
 
 export const cardGroupItems = html`

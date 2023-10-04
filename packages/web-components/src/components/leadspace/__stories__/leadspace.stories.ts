@@ -500,7 +500,7 @@ Short.story = {
       default: {
         LeadSpace: {
           navElements: navigationOptions[2],
-          title: 'Heading can go on two lines max',
+          title: 'Heading can go to two lines max',
         },
       },
     },
@@ -761,7 +761,7 @@ export default {
           navigationOptions,
           navigationOptions[2]
         ),
-        title: text('title (title):', 'Heading can go on two lines max'),
+        title: text('title (title):', 'Heading can go to two lines max'),
         copy: text(
           'copy (copy):',
           'Use this area for a short line of copy to support the title'
@@ -774,7 +774,10 @@ export default {
             0;
           return {
             href: textNullable(`Link ${i + 1}`, `https://example.com`),
-            copy: text(`Button ${i + 1}`, `Button ${i + 1}`),
+            copy: text(
+              `Button ${i + 1}`,
+              `${i % 2 == 0 ? 'Primary action' : 'Secondary Action'}`
+            ),
             renderIcon: iconMap[icon],
             label: getAriaLabel(icon),
           };
@@ -794,18 +797,18 @@ export default {
       default: {
         LeadSpace: {
           navElements: navigationOptions[2],
-          title: 'Heading can go on two lines max',
+          title: 'Heading can go to two lines max',
           copy: 'Use this area for a short line of copy to support the title',
           buttons: [
             {
               href: 'https://example.com',
-              copy: 'Button 1',
+              copy: 'Primary action',
               renderIcon: iconOptions['Arrow Right'],
               label: '',
             },
             {
               href: 'https://example.com',
-              copy: 'Button 2',
+              copy: 'Secondary action',
               renderIcon: iconOptions['Arrow Right'],
               label: '',
             },

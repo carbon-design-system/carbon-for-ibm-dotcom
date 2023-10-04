@@ -24,6 +24,7 @@
   .#{$prefix}--card,
   :host(#{$c4d-prefix}-card),
   :host(#{$c4d-prefix}-card-cta),
+  :host(#{$c4d-prefix}-card-in-card),
   :host(#{$c4d-prefix}-card-group-item),
   :host(#{$c4d-prefix}-card-group-item) .#{$prefix}--card,
   :host(#{$c4d-prefix}-content-group-cards-item),
@@ -569,6 +570,10 @@
       align-items: center;
     }
 
+    svg {
+      color: $link-primary;
+    }
+
     &[color-scheme='inverse'] .#{$c4d-prefix}-ce--card__footer--static {
       color: $link-inverse;
     }
@@ -580,12 +585,6 @@
         color: $link-inverse;
       }
     }
-
-    &:hover {
-      ::slotted(svg[slot='icon']) {
-        color: $link-primary-hover;
-      }
-    }
   }
 
   // static card footer
@@ -594,15 +593,13 @@
       width: auto;
       justify-content: flex-start;
 
+      &:hover {
+        color: $link-primary-hover;
+      }
+
       &:active,
       &:hover {
         text-decoration: none;
-      }
-
-      &:active {
-        ::slotted([slot='icon']) {
-          color: $text-primary;
-        }
       }
 
       &::after {
