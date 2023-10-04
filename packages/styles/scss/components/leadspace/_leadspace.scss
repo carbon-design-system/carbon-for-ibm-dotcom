@@ -361,8 +361,6 @@ $btn-min-width: 26;
         }
 
         .#{$prefix}--leadspace--content__container {
-          margin-bottom: $spacing-07;
-
           margin: 0 auto;
           padding-left: $spacing-06;
           @include breakpoint(lg) {
@@ -556,6 +554,12 @@ $btn-min-width: 26;
         height: rem(608px);
       }
     }
+
+    .#{$prefix}--leadspace__section {
+      @include breakpoint(lg) {
+        min-height: carbon--mini-units(80);
+      }
+    }
   }
 
   :host(#{$c4d-prefix}-leadspace)[size='tall'] {
@@ -572,12 +576,38 @@ $btn-min-width: 26;
         height: rem(448px);
       }
     }
+
+    ::slotted(#{$c4d-prefix}-leadspace-heading) {
+      @include breakpoint(lg) {
+        margin-bottom: $spacing-10;
+      }
+    }
+
+    .#{$prefix}--leadspace__section {
+      @include breakpoint(lg) {
+        min-height: carbon--mini-units(60);
+      }
+    }
   }
 
   :host(#{$c4d-prefix}-leadspace)[size='short'] {
     @include breakpoint(lg) {
       .#{$prefix}--leadspace__overlay {
         height: rem(288px);
+      }
+    }
+
+    ::slotted(#{$c4d-prefix}-leadspace-heading) {
+      margin-bottom: $spacing-07;
+
+      @include breakpoint(lg) {
+        margin-bottom: $spacing-10;
+      }
+    }
+
+    .#{$prefix}--leadspace__section {
+      @include breakpoint(lg) {
+        min-height: carbon--mini-units(40);
       }
     }
   }
@@ -602,48 +632,10 @@ $btn-min-width: 26;
     }
   }
 
-  :host(#{$c4d-prefix}-leadspace)[size='short'] {
-    ::slotted(#{$c4d-prefix}-leadspace-heading) {
-      margin-bottom: $spacing-07;
-
-      @include breakpoint(lg) {
-        margin-bottom: $spacing-10;
-      }
-    }
-
-    .#{$prefix}--leadspace__section {
-      @include breakpoint(lg) {
-        min-height: carbon--mini-units(40);
-      }
-    }
-  }
-
   :host-context(#{$c4d-prefix}-leadspace[size='short']) {
     @include breakpoint(lg) {
       .#{$prefix}--image__img {
         object-position: left top;
-      }
-    }
-  }
-
-  :host(#{$c4d-prefix}-leadspace)[size='medium'] {
-    ::slotted(#{$c4d-prefix}-leadspace-heading) {
-      @include breakpoint(lg) {
-        margin-bottom: $spacing-10;
-      }
-    }
-
-    .#{$prefix}--leadspace__section {
-      @include breakpoint(lg) {
-        min-height: carbon--mini-units(60);
-      }
-    }
-  }
-
-  :host(#{$c4d-prefix}-leadspace)[size='super'] {
-    .#{$prefix}--leadspace__section {
-      @include breakpoint(lg) {
-        min-height: carbon--mini-units(80);
       }
     }
   }
