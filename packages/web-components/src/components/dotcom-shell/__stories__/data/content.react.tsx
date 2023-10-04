@@ -21,11 +21,11 @@ import C4DContentItemHeading from '@carbon/ibmdotcom-web-components/es/component
 import C4DContentItemHorizontalCopy from '@carbon/ibmdotcom-web-components/es/components-react/content-item-horizontal/content-item-horizontal-copy';
 import C4DLinkList from '@carbon/ibmdotcom-web-components/es/components-react/link-list/link-list';
 import C4DLinkListItemCTA from '@carbon/ibmdotcom-web-components/es/components-react/cta/link-list-item-cta';
-import C4DUniversalBanner from '@carbon/ibmdotcom-web-components/es/components-react/universal-banner/universal-banner';
-import C4DUniversalBannerImage from '@carbon/ibmdotcom-web-components/es/components-react/universal-banner/universal-banner-image';
-import C4DUniversalBannerHeading from '@carbon/ibmdotcom-web-components/es/components-react/universal-banner/universal-banner-heading';
-import C4DUniversalBannerCopy from '@carbon/ibmdotcom-web-components/es/components-react/universal-banner/universal-banner-copy';
-import C4DButtonCTA from '@carbon/ibmdotcom-web-components/es/components-react/cta/button-cta';
+import C4DGlobalBanner from '@carbon/ibmdotcom-web-components/es/components-react/global-banner/global-banner';
+import C4DGlobalBannerImage from '@carbon/ibmdotcom-web-components/es/components-react/global-banner/global-banner-image';
+import C4DGlobalBannerHeading from '@carbon/ibmdotcom-web-components/es/components-react/global-banner/global-banner-heading';
+import C4DGlobalBannerCopy from '@carbon/ibmdotcom-web-components/es/components-react/global-banner/global-banner-copy';
+import C4DButton from '@carbon/ibmdotcom-web-components/es/components-react/button/button';
 import C4DCardGroupItem from '@carbon/ibmdotcom-web-components/es/components-react/card-group/card-group-item';
 import C4DCardHeading from '@carbon/ibmdotcom-web-components/es/components-react/card/card-heading';
 import C4DCardEyebrow from '@carbon/ibmdotcom-web-components/es/components-react/card/card-eyebrow';
@@ -173,23 +173,23 @@ export const contentItemHorizontal = (
   </C4DContentItemHorizontal>
 );
 
-export const universalBanner = (srcImage) => (
-  <C4DUniversalBanner image-width="4-col">
-    <C4DUniversalBannerImage
+export const globalBanner = (srcImage) => (
+  <C4DGlobalBanner image-width="4-col">
+    <C4DGlobalBannerImage
       slot="image"
-      default-src={srcImage}></C4DUniversalBannerImage>
-    <C4DUniversalBannerHeading slot="heading">
+      default-src={srcImage}></C4DGlobalBannerImage>
+    <C4DGlobalBannerHeading slot="heading">
       heading
-    </C4DUniversalBannerHeading>
-    <C4DUniversalBannerCopy slot="copy">copy</C4DUniversalBannerCopy>
-    <C4DButtonCTA
+    </C4DGlobalBannerHeading>
+    <C4DGlobalBannerCopy slot="copy">copy</C4DGlobalBannerCopy>
+    <C4DButton
       slot="cta"
       cta-type="local"
       kind="tertiary"
       href="https://www.example.com">
       cta copy
-    </C4DButtonCTA>
-  </C4DUniversalBanner>
+    </C4DButton>
+  </C4DGlobalBanner>
 );
 
 export const cardGroupItems = (

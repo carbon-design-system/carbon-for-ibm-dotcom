@@ -7,23 +7,30 @@
  * LICENSE file in the root directory of this source tree.
  */
 import { css } from 'lit';
+import { property } from 'lit/decorators.js';
 import settings from '@carbon/ibmdotcom-utilities/es/utilities/settings/settings.js';
 import C4DImage from '../image/image';
-import styles from './universal-banner.scss';
+import styles from './global-banner.scss';
 import { carbonElement as customElement } from '../../internal/vendor/@carbon/web-components/globals/decorators/carbon-element';
 
 const { stablePrefix: c4dPrefix } = settings;
 
 /**
- * Universal banner image.
+ * Global banner image.
  *
- * @element c4d-universal-banner-image
+ * @element c4d-global-banner-image
  */
 
-@customElement(`${c4dPrefix}-universal-banner-image`)
-class C4DUniversalBannerImage extends C4DImage {
+@customElement(`${c4dPrefix}-global-banner-image`)
+class C4DGlobalBannerImage extends C4DImage {
+  /**
+   * The shadow slot the image should go in
+   */
+  @property({ reflect: true })
+  slot = 'image';
+
   static get stableSelector() {
-    return `${c4dPrefix}-universal-banner-image`;
+    return `${c4dPrefix}-global-banner-image`;
   }
 
   static get styles() {
@@ -34,4 +41,4 @@ class C4DUniversalBannerImage extends C4DImage {
 }
 
 /* @__GENERATE_REACT_CUSTOM_ELEMENT_TYPE__ */
-export default C4DUniversalBannerImage;
+export default C4DGlobalBannerImage;
