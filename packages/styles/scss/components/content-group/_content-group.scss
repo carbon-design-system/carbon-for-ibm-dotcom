@@ -27,10 +27,7 @@
   }
   :host(#{$c4d-prefix}-content-group) {
     ::slotted([slot='footer']) {
-      margin-left: 0;
-      margin-right: 0;
-      padding-left: 0;
-      padding-right: 0;
+      background: none;
       height: auto;
     }
   }
