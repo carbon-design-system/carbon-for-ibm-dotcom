@@ -155,14 +155,14 @@ export const WithMediaFeatured = (args) => {
 
 Default.story = {
   parameters: {
-    gridContentClasses: 'cds--col-lg-12 cds--no-gutter',
+    gridContentClasses: 'cds--col-lg-12',
   },
 };
 
 WithThumbnail.story = {
   name: 'With thumbnail',
   parameters: {
-    gridContentClasses: 'cds--col-lg-12 cds--no-gutter',
+    gridContentClasses: 'cds--col-lg-12',
     knobs: {
       ContentItemRow: () => ({
         heading: textNullable('Heading (heading):', 'Aliquam condimentum'),
@@ -183,7 +183,7 @@ WithThumbnail.story = {
 WithMedia.story = {
   name: 'With media',
   parameters: {
-    gridContentClasses: 'cds--col-lg-12 cds--no-gutter',
+    gridContentClasses: 'cds--col-lg-12',
     knobs: {
       ContentItemRow: () => ({
         align: select('Alignment', mediaAlign, MEDIA_ALIGN.RIGHT),

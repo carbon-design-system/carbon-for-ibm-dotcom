@@ -20,8 +20,6 @@
     @include make-row;
 
     border-top: 1px solid $layer-accent-01;
-    padding-left: $spacing-05;
-    padding-right: $spacing-05;
     margin: 0;
 
     @include breakpoint(sm) {
@@ -157,19 +155,13 @@
   :host(#{$c4d-prefix}-content-item-row) ::slotted([slot='media']) {
     display: block;
     padding-top: $spacing-07;
-  }
-
-  :host(#{$c4d-prefix}-content-item-row) ::slotted([slot='heading']),
-  :host(#{$c4d-prefix}-content-item-row-copy) ::slotted(:not([slot])),
-  :host(#{$c4d-prefix}-content-item-row-eyebrow) {
     @include breakpoint(md) {
-      // max-width: 90%;
+      padding-top: $spacing-09;
     }
   }
 
   :host(#{$c4d-prefix}-content-item-row-copy) ::slotted(:not([slot])) {
     max-width: rem(640px);
-    margin-bottom: $spacing-07;
   }
 
   :host(#{$c4d-prefix}-content-item-row-eyebrow) {

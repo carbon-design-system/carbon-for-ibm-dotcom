@@ -107,7 +107,7 @@ export const Default = (args) => {
 
 Default.story = {
   parameters: {
-    gridContentClasses: 'cds--col-lg-12 cds--no-gutter',
+    gridContentClasses: 'cds--col-lg-12',
     knobs: {
       ContentItemRow: () => ({
         eyebrow: textNullable('Eyebrow (eyebrow):', 'Lorem ipsum'),
@@ -141,7 +141,7 @@ export const withThumbnail = (args) => {
 withThumbnail.story = {
   name: 'With thumbnail',
   parameters: {
-    gridContentClasses: 'cds--col-lg-12 cds--no-gutter',
+    gridContentClasses: 'cds--col-lg-12',
     knobs: {
       ContentItemRow: () => ({
         heading: textNullable('Heading (heading):', 'Aliquam condimentum'),
@@ -187,7 +187,7 @@ export const withMedia = (args) => {
 withMedia.story = {
   name: 'With media',
   parameters: {
-    gridContentClasses: 'cds--col-lg-12 cds--no-gutter',
+    gridContentClasses: 'cds--col-lg-12',
     knobs: {
       ContentItemRow: () => ({
         align: select('Alignment', mediaAlign, MEDIA_ALIGN.RIGHT),
