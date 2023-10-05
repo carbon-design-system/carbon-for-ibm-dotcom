@@ -13,21 +13,23 @@
 @use '@carbon/styles/scss/type' as *;
 @use '../../globals/utils/flex-grid' as *;
 @use '../../globals/vars' as *;
+@use '../image/index';
 
-@mixin universal-banner {
-  :host(#{$c4d-prefix}-universal-banner) {
+@mixin global-banner {
+  :host(#{$c4d-prefix}-global-banner) {
     @include theme($g100, true);
 
     display: block;
     background-color: $background;
 
-    .#{$prefix}--universal-banner-content-wrapper {
+    .#{$prefix}--global-banner-content-wrapper {
       @include make-row;
     }
 
-    .#{$prefix}--universal-banner-layout-container {
+    .#{$prefix}--global-banner-layout-container {
       @include make-container;
 
+      box-sizing: border-box;
       max-height: $spacing-13;
 
       /* stylelint-disable selector-pseudo-class-no-unknown */
@@ -51,9 +53,10 @@
       }
     }
 
-    .#{$prefix}--universal-banner-text-container,
-    .#{$prefix}--universal-banner-cta-container,
-    .#{$prefix}--universal-banner-icon {
+    .#{$prefix}--global-banner-text-container,
+    .#{$prefix}--global-banner-cta-container,
+    .#{$prefix}--global-banner-icon {
+      box-sizing: border-box;
       padding-block: $spacing-05;
 
       @include breakpoint(lg) {
@@ -61,12 +64,13 @@
       }
     }
 
-    .#{$prefix}--universal-banner-image-container {
+    .#{$prefix}--global-banner-image-container {
+      box-sizing: border-box;
       max-height: $spacing-13;
       padding-inline-end: $spacing-05;
       position: relative;
 
-      ::slotted(#{$c4d-prefix}-universal-banner-image) {
+      ::slotted(#{$c4d-prefix}-global-banner-image) {
         position: absolute;
         width: calc(100% + #{$spacing-05});
         height: 100%;
@@ -79,7 +83,7 @@
       }
     }
 
-    .#{$prefix}--universal-banner-text-container {
+    .#{$prefix}--global-banner-text-container {
       @include make-col(4, 4);
 
       padding-inline: $spacing-05;
@@ -94,7 +98,7 @@
       }
     }
 
-    .#{$prefix}--universal-banner-cta-container {
+    .#{$prefix}--global-banner-cta-container {
       display: none;
 
       @include breakpoint(lg) {
@@ -110,7 +114,7 @@
       }
     }
 
-    .#{$prefix}--universal-banner-icon {
+    .#{$prefix}--global-banner-icon {
       width: calc(20px + #{$spacing-05});
       padding-inline-end: $spacing-05;
       color: $text-primary;
@@ -132,25 +136,25 @@
     }
 
     &[has-image] {
-      .#{$prefix}--universal-banner-image-container {
+      .#{$prefix}--global-banner-image-container {
         display: none;
       }
     }
 
     &[image-width='4-col'] {
-      .#{$prefix}--universal-banner-image-container {
+      .#{$prefix}--global-banner-image-container {
         @include breakpoint(lg) {
           @include make-col(4, 16);
         }
       }
 
-      .#{$prefix}--universal-banner-text-container {
+      .#{$prefix}--global-banner-text-container {
         @include breakpoint(lg) {
           @include make-col(7, 16);
         }
       }
 
-      .#{$prefix}--universal-banner-cta-container {
+      .#{$prefix}--global-banner-cta-container {
         @include breakpoint(lg) {
           @include make-col-offset(1, 16);
         }
@@ -158,11 +162,11 @@
     }
 
     &[image-width='8-col'] {
-      .#{$prefix}--universal-banner-image-container {
+      .#{$prefix}--global-banner-image-container {
         @include make-col(8, 16);
       }
 
-      .#{$prefix}--universal-banner-text-container {
+      .#{$prefix}--global-banner-text-container {
         @include breakpoint(lg) {
           @include make-col(4, 16);
         }
@@ -170,24 +174,24 @@
     }
 
     &:not([has-image]) {
-      .#{$prefix}--universal-banner-text-container {
+      .#{$prefix}--global-banner-text-container {
         @include breakpoint(lg) {
           @include make-col(11, 16);
         }
       }
 
-      .#{$prefix}--universal-banner-cta-container {
+      .#{$prefix}--global-banner-cta-container {
         @include breakpoint(lg) {
           @include make-col-offset(1, 16);
         }
       }
     }
 
-    ::slotted(#{$c4d-prefix}-button-cta) {
+    ::slotted(#{$c4d-prefix}-button) {
       @include theme($g100, true);
 
       width: 100%;
-      display: block;
+      display: flex;
       max-width: 320px;
 
       @include breakpoint(xlg) {
@@ -202,7 +206,7 @@
     }
   }
 
-  :host(#{$c4d-prefix}-universal-banner-heading) {
+  :host(#{$c4d-prefix}-global-banner-heading) {
     @include type-style('heading-02', true);
 
     display: block;
@@ -222,14 +226,14 @@
     }
   }
 
-  :host(#{$c4d-prefix}-universal-banner-copy) {
+  :host(#{$c4d-prefix}-global-banner-copy) {
     @include type-style('body-compact-02', true);
 
     display: block;
     color: $text-primary;
   }
 
-  :host(#{$c4d-prefix}-universal-banner-image) {
+  :host(#{$c4d-prefix}-global-banner-image) {
     .#{$prefix}--image__img {
       object-fit: cover;
     }

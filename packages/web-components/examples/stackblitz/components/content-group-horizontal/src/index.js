@@ -7,5 +7,4 @@
  * LICENSE file in the root directory of this source tree.
  */
 
-import '@carbon/ibmdotcom-web-components/es/components/content-group-horizontal/index.js';
-import './index.scss';
+import '@carbon/ibmdotcom-web-components/es/components/feature-section/index.js';

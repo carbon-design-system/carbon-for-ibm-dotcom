@@ -86,7 +86,7 @@ such:
   </c4d-button-group>
   <c4d-background-media slot="image" opacity="100">
     <c4d-video-player-container
-      video-id="0_ibuqxqbe"
+      video-id="1_9h94wo6b"
       background-mode="true"></c4d-video-player-container>
   </c4d-background-media>
 </c4d-leadspace>
@@ -106,10 +106,10 @@ the Leadspace reserves the "action" slot for its CTAs, make sure to include
   LeadSpace copy
   <c4d-video-cta-container slot="action">
     <c4d-button-group slot="action">
-      <c4d-button-cta cta-type="video" href="0_ibuqxqbe">
+      <c4d-button-group-item cta-type="video" href="1_9h94wo6b">
         Button 1
         <svg ...>...</svg>
-      </c4d-button-cta>
+      </c4d-button-group-item>
       <c4d-button-group-item href="www.example.com">
         Button 2
         <svg ...>...</svg>
@@ -131,9 +131,42 @@ the Leadspace reserves the "action" slot for its CTAs, make sure to include
 </c4d-leadspace>
 ```
 
+## Leadspace heading
+
+The heading component has two attributes that can be used.
+
+### Highlight
+You can use the `highlight` attribute to highlight a specific word or phrase in your heading.
+
+```html
+<c4d-leadspace alt="alt text" default-src="www.example.com">
+  <c4d-leadspace-heading highlight="important">LeadSpace title with an important word</c4d-leadspace-heading>
+  LeadSpace copy
+</c4d-leadspace>
+```
+
+In the previous example the word "important" will be highlighted.
+
+### Type style
+
+With the `type-style` attribute, you can modify the type of the heading.
+
+There are two options:
+* display-01 (default)
+* fluid-heading-05
+
+```html
+<c4d-leadspace alt="alt text" default-src="www.example.com">
+  <c4d-leadspace-heading type-style="fluid-heading-05">LeadSpace title</c4d-leadspace-heading>
+  LeadSpace copy
+</c4d-leadspace>
+```
+
+Note: The `short` variation of the leadspace can only have `fluid-heading-05` as its type heading.
+
 ## Props
 
-<Props of="cds-leadspace" />
+<Props of="c4d-leadspace" />
 
 ## Stable selectors
 
@@ -143,6 +176,6 @@ to see how Web Components selector and `data-autoid` should be used.
 
 | Web Components selector | Compatibility selector         | Description |
 | ----------------------- | ------------------------------ | ----------- |
-| `<c4d-leadspace>`       | `data-autoid="cds--leadspace"` | Component   |
+| `<c4d-leadspace>`       | `data-autoid="c4d--leadspace"` | Component   |
 
 <Description markdown={contributing} />

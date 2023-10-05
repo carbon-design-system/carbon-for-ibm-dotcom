@@ -13,7 +13,6 @@ import { carbonElement as customElement } from '../../internal/vendor/@carbon/we
 import settings from '../../internal/vendor/@carbon/ibmdotcom-utilities/utilities/settings/settings.js';
 import C4DLinkWithIcon from '../link-with-icon/link-with-icon';
 import Error20 from '../../internal/vendor/@carbon/web-components/icons/error/20.js';
-import { BASIC_COLOR_SCHEME } from '../../globals/defs';
 import styles from './card.scss';
 
 const { prefix, stablePrefix: c4dPrefix } = settings;
@@ -88,7 +87,7 @@ class C4DCardFooter extends C4DLinkWithIcon {
    * The color scheme.
    */
   @property({ attribute: 'color-scheme', reflect: true })
-  colorScheme = BASIC_COLOR_SCHEME.REGULAR;
+  colorScheme = '';
 
   /**
    * The `href` in parent `<c4d-card>`.

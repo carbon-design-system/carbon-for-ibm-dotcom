@@ -3,9 +3,9 @@ import contributing from '../../../../../../docs/contributing-license.md';
 import { cdnJs, cdnCss } from '../../../globals/internal/storybook-cdn';
 import '../index';
 
-# Universal banner
+# Global banner
 
-A Universal banner is the only component allowed to show up above the Masthead,
+A Global banner is the only component allowed to show up above the Masthead,
 and should be used exclusively for global and critical announcements (e.g. THINK
 global event, COVID 19 messages etc).
 
@@ -24,44 +24,44 @@ Here's a quick example to get you started.
 ### JS
 
 ```javascript
-import '@carbon/ibmdotcom-web-components/es/components/universal-banner/index.js';
+import '@carbon/ibmdotcom-web-components/es/components/global-banner/index.js';
 ```
 
-<Description markdown={`${cdnJs({ components: ['universal-banner'] })}`} />
+<Description markdown={`${cdnJs({ components: ['global-banner'] })}`} />
 
 <Description markdown={`${cdnCss()}`} />
 
 ## Example HTML
 
-This will render a basic universal banner containing a heading, copy text, and a
+This will render a basic global banner containing a heading, copy text, and a
 button CTA at the top of the page, sitting above the masthead.
 
 The component should be placed before the Dotcom shell, but in case it is placed
 within, it can move itself to the proper place automatically.
 
 ```html
-<c4d-universal-banner>
-  <c4d-universal-banner-heading slot="heading"
-    >Hybrid cloud and AI for smarter business</c4d-universal-banner-heading
+<cds-global-banner>
+  <cds-global-banner-heading
+    >Hybrid cloud and AI for smarter business</cds-global-banner-heading
   >
-  <c4d-universal-banner-copy slot="copy"
-    >Las Vegas, June 15-18, 2025</c4d-universal-banner-copy
+  <cds-global-banner-copy
+    >Las Vegas, June 15-18, 2025</cds-global-banner-copy
   >
-  <c4d-button-cta
+  <cds-button
     slot="cta"
     cta-type="local"
     kind="tertiary"
     href="https://www.example.com">
     Register for Think. Free
-  </c4d-button-cta>
-</c4d-universal-banner>
+  </cds-button>
+</cds-global-banner>
 ```
 
 ## Example HTML - With image
 
 This example renders the banner with the aforementioned elements and an image.
 
-Add the `image-width` attribute into the universal banner and set it to either
+Add the `image-width` attribute into the global banner and set it to either
 `4-col` or `8-col`. Note that if an image is added without the attribute being
 manually added, it will default to `4-col`.
 
@@ -69,15 +69,15 @@ It is important to create an image asset that best fits the component to ensure
 a proper aspect ratio.
 
 ```html
-<c4d-universal-banner image-width="4-col">
-  <c4d-universal-banner-image
+<cds-global-banner image-width="4-col">
+  <cds-global-banner-image
     slot="image"
-    default-src="https://fpoimg.com/672x336?text=2:1&bg_color=ee5396&text_color=161616"></c4d-universal-banner-image>
-  <c4d-universal-banner-heading slot="heading"
-    >Hybrid cloud and AI for smarter business</c4d-universal-banner-heading
+    default-src="https://fpoimg.com/672x336?text=2:1&bg_color=ee5396&text_color=161616"></cds-global-banner-image>
+  <cds-global-banner-heading slot="heading"
+    >Hybrid cloud and AI for smarter business</cds-global-banner-heading
   >
-  <c4d-universal-banner-copy slot="copy"
-    >Las Vegas, June 15-18, 2025</c4d-universal-banner-copy
+  <cds-global-banner-copy slot="copy"
+    >Las Vegas, June 15-18, 2025</cds-global-banner-copy
   >
   <c4d-button-cta
     slot="cta"
@@ -85,16 +85,15 @@ a proper aspect ratio.
     kind="tertiary"
     href="https://www.example.com">
     Register for Think. Free
-  </c4d-button-cta>
-</c4d-universal-banner>
+  </cds-button-cta>
+</cds-global-banner>
 ```
 
 In case you'd like to change images depending on the breakpoint, you can use the
 `cds-image-item` component as such:
 
 ```html
-<c4d-universal-banner-image
-  slot="image"
+<cds-global-banner-image
   default-src="https://fpoimg.com/672x336?text=2:1&bg_color=ee5396&text_color=161616">
   <c4d-image-item
     media="(min-width:672px)"
@@ -107,13 +106,13 @@ In case you'd like to change images depending on the breakpoint, you can use the
   <c4d-image-item
     media="(min-width:320px)"
     srcset="https://fpoimg.com/672x336?text=2:1&bg_color=ee5396&text_color=161616">
-  </c4d-image-item>
-</c4d-universal-banner-image>
+  </cds-image-item>
+</cds-global-banner-image>
 ```
 
 ## Props
 
-<Props of="cds-universal-banner" />
+<Props of="cds-global-banner" />
 
 ## Stable selectors
 
@@ -123,9 +122,9 @@ to see how Web Components selector and `data-autoid` should be used.
 
 | Web Components selector          | Compatibility selector                        | Description |
 | -------------------------------- | --------------------------------------------- | ----------- |
-| `<c4d-universal-banner>`         | `data-autoid="cds--universal-banner"`         | Component   |
-| `<c4d-universal-banner-heading>` | `data-autoid="cds--universal-banner-heading"` | Component   |
-| `<c4d-universal-banner-copy>`    | `data-autoid="cds--universal-banner-copy"`    | Component   |
-| `<c4d-universal-banner-image>`   | `data-autoid="cds--universal-banner-image"`   | Component   |
+| `<cds-global-banner>`         | `data-autoid="cds--global-banner"`         | Component   |
+| `<cds-global-banner-heading>` | `data-autoid="cds--global-banner-heading"` | Component   |
+| `<cds-global-banner-copy>`    | `data-autoid="cds--global-banner-copy"`    | Component   |
+| `<cds-global-banner-image>`   | `data-autoid="cds--global-banner-image"`   | Component   |
 
 <Description markdown={contributing} />

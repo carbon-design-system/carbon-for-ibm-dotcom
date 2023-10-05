@@ -7,7 +7,9 @@
  * LICENSE file in the root directory of this source tree.
  */
 
-import './content-group-horizontal';
-import '../content-block/content-block-heading';
-import '../content-block/content-block-complementary';
-import '../content-item-horizontal/index';
+import './global-banner';
+import './global-banner-heading';
+import './global-banner-copy';
+import './global-banner-image';
+import '../button/index';
+import '../link-with-icon/index';

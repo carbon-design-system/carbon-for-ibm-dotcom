@@ -12,22 +12,22 @@ import { select, text } from '@storybook/addon-knobs';
 // In our dev env, we auto-generate the file and re-map below path to to point to the generated file.
 /* eslint-disable max-len */
 // @ts-ignore
-import C4DUniversalBanner from '@carbon/ibmdotcom-web-components/es/components-react/universal-banner/universal-banner';
-import C4DUniversalBannerHeading from '@carbon/ibmdotcom-web-components/es/components-react/universal-banner/universal-banner-heading';
-import C4DUniversalBannerCopy from '@carbon/ibmdotcom-web-components/es/components-react/universal-banner/universal-banner-copy';
-import C4DUniversalBannerImage from '@carbon/ibmdotcom-web-components/es/components-react/universal-banner/universal-banner-image';
-import C4DButtonCTA from '@carbon/ibmdotcom-web-components/es/components-react/cta/button-cta';
+import C4DGlobalBanner from '@carbon/ibmdotcom-web-components/es/components-react/global-banner/global-banner';
+import C4DGlobalBannerHeading from '@carbon/ibmdotcom-web-components/es/components-react/global-banner/global-banner-heading';
+import C4DGlobalBannerCopy from '@carbon/ibmdotcom-web-components/es/components-react/global-banner/global-banner-copy';
+import C4DGlobalBannerImage from '@carbon/ibmdotcom-web-components/es/components-react/global-banner/global-banner-image';
+import C4DButton from '@carbon/ibmdotcom-web-components/es/components-react/button/button';
 import C4DImageItem from '@carbon/ibmdotcom-web-components/es/components-react/image/image-item';
 /* eslint-enable max-len */
 import readme from './README.stories.react.mdx';
 
 // eslint-disable-next-line sort-imports
-import img4Col from '../../../../../storybook-images/assets/universal-banner/universal-banner-4-col-image.jpg';
-import img8Col from '../../../../../storybook-images/assets/universal-banner/universal-banner-8-col-image.jpg';
-import img4ColLg from '../../../../../storybook-images/assets/universal-banner/universal-banner-4-col-lg.jpg';
-import img8ColLg from '../../../../../storybook-images/assets/universal-banner/universal-banner-8-col-lg.jpg';
-import img4ColXlg from '../../../../../storybook-images/assets/universal-banner/universal-banner-4-col-xlg.jpg';
-import img8ColXlg from '../../../../../storybook-images/assets/universal-banner/universal-banner-8-col-xlg.jpg';
+import img4Col from '../../../../../storybook-images/assets/global-banner/global-banner-4-col-image.jpg';
+import img8Col from '../../../../../storybook-images/assets/global-banner/global-banner-8-col-image.jpg';
+import img4ColLg from '../../../../../storybook-images/assets/global-banner/global-banner-4-col-lg.jpg';
+import img8ColLg from '../../../../../storybook-images/assets/global-banner/global-banner-8-col-lg.jpg';
+import img4ColXlg from '../../../../../storybook-images/assets/global-banner/global-banner-4-col-xlg.jpg';
+import img8ColXlg from '../../../../../storybook-images/assets/global-banner/global-banner-8-col-xlg.jpg';
 
 // import StoryContent from '../../back-to-top/__stories__/data/content';
 import textNullable from '../../../../.storybook/knob-text-nullable';
@@ -49,20 +49,25 @@ const srcsets = {
 };
 
 export const Default = (args) => {
-  const { heading, copy, ctaCopy, imageWidth } = args?.UniversalBanner ?? {};
+  const { heading, copy, ctaCopy, imageWidth } = args?.GlobalBanner ?? {};
 
-  const bannerHeading = document.querySelector('cds-universal-banner-heading');
+  const bannerHeading = document.querySelector('cds-global-banner-heading');
+  const bannerCopy = document.querySelector('c4d-global-banner-copy');
 
   if (bannerHeading) {
     bannerHeading!.shadowRoot!.textContent = heading;
   }
 
+  if (bannerCopy) {
+    bannerCopy!.shadowRoot!.textContent = copy;
+  }
+
   const srcset = srcsets[imageWidth];
 
   return (
-    <C4DUniversalBanner image-width={imageWidth}>
+    <C4DGlobalBanner image-width={imageWidth}>
       {imageWidth ? (
-        <C4DUniversalBannerImage slot="image" default-src={images[imageWidth]}>
+        <C4DGlobalBannerImage default-src={images[imageWidth]}>
           <C4DImageItem
             media="(min-width:1584px)"
             srcset={srcset[2]}></C4DImageItem>
@@ -72,22 +77,22 @@ export const Default = (args) => {
           <C4DImageItem
             media="(min-width:1312px)"
             srcset={srcset[0]}></C4DImageItem>
-        </C4DUniversalBannerImage>
+        </C4DGlobalBannerImage>
       ) : (
         ''
       )}
-      <C4DUniversalBannerHeading slot="heading">
+      <C4DGlobalBannerHeading>
         {heading}
-      </C4DUniversalBannerHeading>
-      <C4DUniversalBannerCopy slot="copy">{copy}</C4DUniversalBannerCopy>
-      <C4DButtonCTA
+      </C4DGlobalBannerHeading>
+      <C4DGlobalBannerCopy></C4DGlobalBannerCopy>
+      <C4DButton
         slot="cta"
         cta-type="local"
         kind="tertiary"
         href="https://www.example.com">
         {ctaCopy}
-      </C4DButtonCTA>
-    </C4DUniversalBanner>
+      </C4DButton>
+    </C4DGlobalBanner>
   );
 };
 
@@ -95,7 +100,7 @@ Default.story = {
   parameters: {
     ...readme.parameters,
     knobs: {
-      UniversalBanner: () => ({
+      GlobalBanner: () => ({
         heading: textNullable(
           'Heading:',
           'Hybrid cloud and AI for smarter business'
@@ -109,7 +114,7 @@ Default.story = {
 };
 
 export default {
-  title: 'Components/Universal banner',
+  title: 'Components/Global banner',
   decorators: [
     (story) => {
       return story();
@@ -120,7 +125,7 @@ export default {
   },
   propsSet: {
     default: {
-      UniversalBanner: {
+      GlobalBanner: {
         heading: 'Hybrid cloud and AI for smarter business',
         copy: 'Las Vegas, June 15-18, 2025',
         ctaCopy: 'Register for Think. Free',

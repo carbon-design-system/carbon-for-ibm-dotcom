@@ -122,7 +122,7 @@ class C4DDotcomShellComposite extends LitElement {
   hasSearch = true;
 
   /**
-   * `true` if there is a universal banner.
+   * `true` if there is a global banner.
    */
   @property({ type: Boolean, attribute: 'has-banner' })
   hasBanner = false;
@@ -468,16 +468,16 @@ class C4DDotcomShellComposite extends LitElement {
   updated(changedProperties) {
     super.updated(changedProperties);
 
-    // moving universal banner outside of dotcom shell if placed within
-    if (this.querySelector(`${c4dPrefix}-universal-banner`)) {
+    // moving global banner outside of dotcom shell if placed within
+    if (this.querySelector(`${c4dPrefix}-global-banner`)) {
       this.ownerDocument
         .querySelector(`${c4dPrefix}-masthead-composite`)
         ?.before(
-          this.querySelector(`${c4dPrefix}-universal-banner`) as HTMLElement
+          this.querySelector(`${c4dPrefix}-global-banner`) as HTMLElement
         );
     }
 
-    if (this.ownerDocument.querySelector(`${c4dPrefix}-universal-banner`)) {
+    if (this.ownerDocument.querySelector(`${c4dPrefix}-global-banner`)) {
       this.hasBanner = true;
       this._masthead?.setAttribute('with-banner', '');
     }

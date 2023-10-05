@@ -14,14 +14,19 @@ LICENSE file in the root directory of this source tree.
   <link rel="stylesheet" href="https://1.www.s81c.com/common/carbon/web-components/tag/v2/latest/grid.css" />
   <style type="text/css">
     /* Suppress custom element until styles are loaded */
+<<<<<<<< HEAD:packages/web-components/examples/stackblitz/components/universal-banner/cdn.html
     c4d-universal-banner:not(:defined) {
+========
+    c4d-global-banner:not(:defined) {
+>>>>>>>> 1239c8789e34fbfccfc054328c00768c8ce35908:packages/web-components/examples/codesandbox/components/global-banner/cdn.html
       display: none;
     }
   </style>
   <script type="module"
-          src="https://1.www.s81c.com/common/carbon-for-ibm-dotcom/tag/v1/latest/universal-banner.min.js"></script>
+          src="https://1.www.s81c.com/common/carbon-for-ibm-dotcom/tag/v1/latest/global-banner.min.js"></script>
 </head>
 <body>
+<<<<<<<< HEAD:packages/web-components/examples/stackblitz/components/universal-banner/cdn.html
 	<c4d-universal-banner image-width="4-col">
 	  <c4d-universal-banner-image slot="image" default-src="https://fpoimg.com/672x336?text=2:1&bg_color=ee5396&text_color=161616"></c4d-universal-banner-image>
 		<c4d-universal-banner-heading slot="heading">Hybrid cloud and AI for smarter business</c4d-universal-banner-heading>
@@ -30,5 +35,15 @@ LICENSE file in the root directory of this source tree.
 			Register for Think. Free
 		</c4d-button-cta>
 	</c4d-universal-banner>
+========
+	<c4d-global-banner image-width="4-col">
+    <c4d-global-banner-image default-src="https://fpoimg.com/672x336?text=2:1&bg_color=ee5396&text_color=161616"></c4d-global-banner-image>
+    <c4d-global-banner-heading>Hybrid cloud and AI for smarter business</c4d-global-banner-heading>
+    <c4d-global-banner-copy>Las Vegas, June 15-18, 2025</c4d-global-banner-copy>
+    <c4d-button slot="cta" cta-type="local" kind="tertiary" href="https://www.example.com">
+      Register for Think. Free
+    </c4d-button>
+  </c4d-global-banner>
+>>>>>>>> 1239c8789e34fbfccfc054328c00768c8ce35908:packages/web-components/examples/codesandbox/components/global-banner/cdn.html
 </body>
 </html>

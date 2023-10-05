@@ -8,6 +8,12 @@ import contributing from '../../../../../../docs/contributing-license.md';
 
 # Feature Section
 
+> 💡 Check our
+> [CodeSandbox](https://githubbox.com/carbon-design-system/carbon-for-ibm-dotcom/tree/main/packages/web-components/examples/codesandbox/components/feature-section)
+> example implementation.
+
+[![Edit @carbon/ibmdotcom-web-components](https://codesandbox.io/static/img/play-codesandbox.svg)](https://githubbox.com/carbon-design-system/carbon-for-ibm-dotcom/tree/main/packages/web-components/examples/codesandbox/components/feature-section)
+
 ## Getting started
 
 Here's a quick example to get you started.
@@ -55,23 +61,24 @@ import '@carbon/ibmdotcom-web-components/es/components/feature-section/index.js'
     work and where to focus our expertise.</c4d-content-item-paragraph
   >
 
-  <c4d-feature-section-card-link
+  <c4d-card
+    link
     slot="footer"
     href="https://example.com"
     cta-type="local"
     color-scheme="inverse">
-    <c4d-card-link-heading
+    <c4d-card-heading
       >Try a free virtual business framing session with IBM
-      Garage</c4d-card-link-heading
+      Garage</c4d-card-heading
     >
-    <c4d-card-footer color-scheme="inverse"> </c4d-card-footer>
-  </c4d-feature-section-card-link>
+    <c4d-card-footer> </c4d-card-footer>
+  </c4d-card>
 </c4d-feature-section>
 ```
 
 ## Props
 
-<Props of="cds-feature-section" />
+<Props of="c4d-feature-section" />
 
 ## Stable selectors
 
@@ -81,6 +88,6 @@ to see how Web Components selector and `data-autoid` should be used.
 
 | Web Components selector | Compatibility selector               | Description |
 | ----------------------- | ------------------------------------ | ----------- |
-| `<c4d-feature-section>` | `data-autoid="cds--feature-section"` | Component   |
+| `<c4d-feature-section>` | `data-autoid="c4d--feature-section"` | Component   |
 
 <Description markdown={contributing} />
