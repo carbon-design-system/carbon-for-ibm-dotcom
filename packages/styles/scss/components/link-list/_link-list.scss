@@ -58,7 +58,6 @@
       ::slotted(#{$c4d-prefix}-link-list-item),
       ::slotted(#{$c4d-prefix}-link-list-item-cta) {
         border-top: 1px solid $border-subtle-01;
-        border-bottom: 1px solid $border-subtle-01;
         margin-top: -1px;
         margin-left: -$spacing-05;
         --#{$c4d-prefix}--link-list-item--anchor-padding: #{$spacing-05};
@@ -66,6 +65,13 @@
         @include breakpoint(md) {
           margin-right: -$spacing-05;
         }
+      }
+    }
+
+    .#{$c4d-prefix}-ce--link-list__list--end {
+      ::slotted(#{$c4d-prefix}-link-list-item:last-of-type:last-of-type),
+      ::slotted(#{$c4d-prefix}-link-list-item-cta:last-of-type) {
+        border-bottom: 1px solid $border-subtle-01;
       }
     }
 
@@ -268,6 +274,12 @@
       // TODO: See if there is a better solution than an internal custom property
       padding: var(--#{$c4d-prefix}--link-list-item--anchor-padding, 0);
       display: flex;
+    }
+  }
+
+  :host(#{$c4d-prefix}-link-list-item)[type='end'] {
+    .#{$prefix}--link-with-icon__icon-left ::slotted(svg[slot='icon']) {
+      margin-right: $spacing-07;
     }
   }
 
