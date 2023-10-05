@@ -28,15 +28,15 @@ import './dotcom-shell';
 import styles from './dotcom-shell-composite.scss';
 import { carbonElement as customElement } from '../../internal/vendor/@carbon/web-components/globals/decorators/carbon-element';
 
-const { stablePrefix: ddsPrefix } = settings;
+const { stablePrefix: c4dPrefix } = settings;
 
 /**
  * Component that rendres dotcom shell from links, etc. data.
  *
- * @element dds-dotcom-shell-composite
+ * @element c4d-dotcom-shell-composite
  */
-@customElement(`${ddsPrefix}-dotcom-shell-composite`)
-class DDSDotcomShellComposite extends LitElement {
+@customElement(`${c4dPrefix}-dotcom-shell-composite`)
+class C4DDotcomShellComposite extends LitElement {
   /**
    * The render target of the footer contents.
    */
@@ -57,7 +57,7 @@ class DDSDotcomShellComposite extends LitElement {
    */
   private _createFooterRenderRoot() {
     const footer = this.ownerDocument!.createElement(
-      `${ddsPrefix}-footer-composite`
+      `${c4dPrefix}-footer-composite`
     );
     this.parentNode?.insertBefore(footer, this.nextSibling);
     return footer;
@@ -68,7 +68,7 @@ class DDSDotcomShellComposite extends LitElement {
    */
   private _createMastheadRenderRoot() {
     const masthead = this.ownerDocument!.createElement(
-      `${ddsPrefix}-masthead-composite`
+      `${c4dPrefix}-masthead-composite`
     );
     this.parentNode?.insertBefore(masthead, this);
     return masthead;
@@ -122,7 +122,7 @@ class DDSDotcomShellComposite extends LitElement {
   hasSearch = true;
 
   /**
-   * `true` if there is a universal banner.
+   * `true` if there is a global banner.
    */
   @property({ type: Boolean, attribute: 'has-banner' })
   hasBanner = false;
@@ -468,14 +468,16 @@ class DDSDotcomShellComposite extends LitElement {
   updated(changedProperties) {
     super.updated(changedProperties);
 
-    // moving universal banner outside of dotcom shell if placed within
-    if (this.querySelector('dds-universal-banner')) {
+    // moving global banner outside of dotcom shell if placed within
+    if (this.querySelector(`${c4dPrefix}-global-banner`)) {
       this.ownerDocument
-        .querySelector('dds-masthead-composite')
-        ?.before(this.querySelector('dds-universal-banner') as HTMLElement);
+        .querySelector(`${c4dPrefix}-masthead-composite`)
+        ?.before(
+          this.querySelector(`${c4dPrefix}-global-banner`) as HTMLElement
+        );
     }
 
-    if (this.ownerDocument.querySelector('dds-universal-banner')) {
+    if (this.ownerDocument.querySelector(`${c4dPrefix}-global-banner`)) {
       this.hasBanner = true;
       this._masthead?.setAttribute('with-banner', '');
     }
@@ -483,9 +485,9 @@ class DDSDotcomShellComposite extends LitElement {
 
   render() {
     return html`
-      <dds-dotcom-shell>
+      <c4d-dotcom-shell>
         <slot></slot>
-      </dds-dotcom-shell>
+      </c4d-dotcom-shell>
     `;
   }
 
@@ -493,4 +495,4 @@ class DDSDotcomShellComposite extends LitElement {
 }
 
 /* @__GENERATE_REACT_CUSTOM_ELEMENT_TYPE__ */
-export default DDSDotcomShellComposite;
+export default C4DDotcomShellComposite;

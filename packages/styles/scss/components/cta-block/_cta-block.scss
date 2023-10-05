@@ -37,7 +37,7 @@
 }
 
 @mixin cta-block {
-  :host(#{$dds-prefix}-cta-block),
+  :host(#{$c4d-prefix}-cta-block),
   .#{$prefix}--cta-block {
     padding-top: $spacing-07;
     padding-bottom: $spacing-10;

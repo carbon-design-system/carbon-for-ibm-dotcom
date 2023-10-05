@@ -7,6 +7,7 @@
 
 @use '@carbon/styles/scss/breakpoint' as *;
 @use '@carbon/styles/scss/config' as *;
+@use '@carbon/styles/scss/layout' as *;
 @use '@carbon/styles/scss/components/button' as *;
 @use '@carbon/styles/scss/spacing' as *;
 @use '@carbon/styles/scss/theme' as *;
@@ -20,7 +21,7 @@
 /// @group footer
 
 @mixin locale-button {
-  :host(#{$dds-prefix}-locale-button),
+  :host(#{$c4d-prefix}-locale-button),
   .#{$prefix}--locale-btn__container {
     @include theme($g90, feature-flag-enabled('enable-css-custom-properties'));
     @include button;
@@ -29,13 +30,20 @@
 
     margin: $spacing-09 0;
 
-    .#{$prefix}--locale-btn {
+    .#{$c4d-prefix}--locale-btn {
+      @include emit-layout-tokens();
+
       max-width: 100%;
       width: 100%;
       @include type-style('body-compact-01');
 
+      align-items: center;
+
+      // Forces the style of text + icon button style
+      padding-right: $spacing-04;
+
       @include breakpoint(md) {
-        min-width: carbon--mini-units(27);
+        min-width: 13.5rem;
       }
     }
 
@@ -56,8 +64,8 @@
     }
   }
 
-  :host(#{$dds-prefix}-footer[size='short'])
-    ::slotted(#{$dds-prefix}-locale-button),
+  :host(#{$c4d-prefix}-footer[size='short'])
+    ::slotted(#{$c4d-prefix}-locale-button),
   .#{$prefix}--footer--short .#{$prefix}--locale-btn__container {
     margin-top: $spacing-09;
 

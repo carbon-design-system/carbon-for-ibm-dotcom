@@ -12,15 +12,15 @@ import settings from '../../internal/vendor/@carbon/ibmdotcom-utilities/utilitie
 import styles from './masthead.scss';
 import { carbonElement as customElement } from '../../internal/vendor/@carbon/web-components/globals/decorators/carbon-element.js';
 
-const { stablePrefix: ddsPrefix } = settings;
+const { stablePrefix: c4dPrefix } = settings;
 
 /**
  * Profile menu item in masthead.
  *
- * @element dds-masthead-profile-item
+ * @element c4d-masthead-profile-item
  */
-@customElement(`${ddsPrefix}-masthead-profile-item`)
-class DDSMastheadProfileItem extends CDSHeaderMenuItem {
+@customElement(`${c4dPrefix}-masthead-profile-item`)
+class C4DMastheadProfileItem extends CDSHeaderMenuItem {
   static styles = styles;
 
   firstUpdated() {
@@ -30,4 +30,4 @@ class DDSMastheadProfileItem extends CDSHeaderMenuItem {
   }
 }
 
-export default DDSMastheadProfileItem;
+export default C4DMastheadProfileItem;

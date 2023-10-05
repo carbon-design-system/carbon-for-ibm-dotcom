@@ -7,11 +7,11 @@
 
 'use strict';
 
-describe('dds-card-link', () => {
+describe('cds-card-link', () => {
   it('should load the default card-link example', () => {
     cy.visit('/card-link');
 
     // Take a snapshot for visual diffing
-    cy.percySnapshot('dds-card-link | default');
+    cy.percySnapshot('cds-card-link | default');
   });
 });

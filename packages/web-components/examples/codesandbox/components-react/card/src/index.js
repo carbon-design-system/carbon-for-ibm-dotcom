@@ -9,22 +9,22 @@
 
 import React from 'react';
 import { render } from 'react-dom';
-import DDSCard from '@carbon/ibmdotcom-web-components/es/components-react/card/card.js';
-import DDSCardEyebrow from '@carbon/ibmdotcom-web-components/es/components-react/card/card-eyebrow';
-import DDSCardHeading from '@carbon/ibmdotcom-web-components/es/components-react/card/card-heading';
-import DDSCardFooter from '@carbon/ibmdotcom-web-components/es/components-react/card/card-footer';
+import C4DCard from '@carbon/ibmdotcom-web-components/es/components-react/card/card.js';
+import C4DCardEyebrow from '@carbon/ibmdotcom-web-components/es/components-react/card/card-eyebrow';
+import C4DCardHeading from '@carbon/ibmdotcom-web-components/es/components-react/card/card-heading';
+import C4DCardFooter from '@carbon/ibmdotcom-web-components/es/components-react/card/card-footer';
 import ArrowRight20 from '@carbon/icons-react/es/arrow--right/20.js';
 import './index.css';
 
 const App = () => (
-  <DDSCard href="https://example.com">
-    <DDSCardEyebrow>Eyebrow text</DDSCardEyebrow>
-    <DDSCardHeading>Heading text</DDSCardHeading>
+  <C4DCard href="https://example.com">
+    <C4DCardEyebrow>Eyebrow text</C4DCardEyebrow>
+    <C4DCardHeading>Heading text</C4DCardHeading>
     <p>Optional copy text</p>
-    <DDSCardFooter>
+    <C4DCardFooter>
       <ArrowRight20 slot="icon" />
-    </DDSCardFooter>
-  </DDSCard>
+    </C4DCardFooter>
+  </C4DCard>
 );
 
 render(<App />, document.getElementById('root'));

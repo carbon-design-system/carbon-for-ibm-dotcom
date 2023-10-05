@@ -23,7 +23,7 @@ const hrefsForType = {
   [CTA_TYPE.EXTERNAL]: 'https://www.example.com',
   [CTA_TYPE.DOWNLOAD]:
     'https://www.ibm.com/annualreport/assets/downloads/IBM_Annual_Report_2019.pdf',
-  [CTA_TYPE.VIDEO]: '1_9h94wo6b',
+  [CTA_TYPE.VIDEO]: '0_ibuqxqbe',
 };
 
 const knobNamesForType = {
@@ -50,45 +50,45 @@ export const Default = (args) => {
   } = args?.ContentGroupBanner ?? {};
   return !ctaType
     ? html`
-        <dds-content-group-banner>
-          <dds-content-group-heading>${heading}</dds-content-group-heading>
+        <c4d-content-group-banner>
+          <c4d-content-group-heading>${heading}</c4d-content-group-heading>
 
-          <dds-link-list type="vertical" slot="complementary">
-            <dds-link-list-item
+          <c4d-link-list type="vertical" slot="complementary">
+            <c4d-link-list-item
               icon-placement="${iconPlacement}"
               href="https://example.com">
               Learn more about Kubernetes ${ArrowRight20({ slot: 'icon' })}
-            </dds-link-list-item>
-            <dds-link-list-item
+            </c4d-link-list-item>
+            <c4d-link-list-item
               icon-placement="${iconPlacement}"
               href="https://example.com">
               Containerization A Complete Guide
               ${ArrowRight20({ slot: 'icon' })}
-            </dds-link-list-item>
-          </dds-link-list>
-        </dds-content-group-banner>
+            </c4d-link-list-item>
+          </c4d-link-list>
+        </c4d-content-group-banner>
       `
     : html`
-        <dds-content-group-banner>
-          <dds-content-group-heading>${heading}</dds-content-group-heading>
+        <c4d-content-group-banner>
+          <c4d-content-group-heading>${heading}</c4d-content-group-heading>
 
-          <dds-link-list type="vertical" slot="complementary">
-            <dds-link-list-item-cta
+          <c4d-link-list type="vertical" slot="complementary">
+            <c4d-link-list-item-cta
               icon-placement="${iconPlacement}"
               href="${ifDefined(href)}"
               cta-type="${ifDefined(ctaType)}"
               download="${ifDefined(download)}">
               Learn more about Kubernetes
-            </dds-link-list-item-cta>
-            <dds-link-list-item-cta
+            </c4d-link-list-item-cta>
+            <c4d-link-list-item-cta
               icon-placement="${iconPlacement}"
               href="${ifDefined(href)}"
               cta-type="${ifDefined(ctaType)}"
               download="${ifDefined(download)}">
               Containerization A Complete Guide
-            </dds-link-list-item-cta>
-          </dds-link-list>
-        </dds-content-group-banner>
+            </c4d-link-list-item-cta>
+          </c4d-link-list>
+        </c4d-content-group-banner>
       `;
 };
 
@@ -99,7 +99,7 @@ export default {
       <div class="cds--grid">
         <div class="cds--row">
           <div class="cds--col-md-6 cds--col-lg-12 cds--no-gutter">
-            <dds-video-cta-container> ${story()} </dds-video-cta-container>
+            <c4d-video-cta-container> ${story()} </c4d-video-cta-container>
           </div>
         </div>
       </div>

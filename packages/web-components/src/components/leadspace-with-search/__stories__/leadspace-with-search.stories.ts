@@ -42,33 +42,33 @@ export const Default = (args) => {
     args?.LeadspaceWithSearch ?? {};
   const secondTheme = theme.split('-')[2];
   const subheadingComponent = document.querySelector(
-    'dds-leadspace-with-search-content-heading'
+    'c4d-leadspace-with-search-content-heading'
   );
 
   if (subheadingComponent) {
     subheadingComponent!.shadowRoot!.innerHTML = subheading;
   }
   return html`
-    <dds-leadspace-with-search adjacent-theme="${theme}">
-      <dds-leadspace-with-search-heading
-        >${heading}</dds-leadspace-with-search-heading
+    <c4d-leadspace-with-search adjacent-theme="${theme}">
+      <c4d-leadspace-with-search-heading
+        >${heading}</c4d-leadspace-with-search-heading
       >
-      <dds-leadspace-with-search-content>
-        <dds-leadspace-with-search-content-heading
-          >${subheading}</dds-leadspace-with-search-content-heading
+      <c4d-leadspace-with-search-content>
+        <c4d-leadspace-with-search-content-heading
+          >${subheading}</c4d-leadspace-with-search-content-heading
         >
-        <dds-leadspace-with-search-content-copy
+        <c4d-leadspace-with-search-content-copy
           style="${!paragraph ? 'display: none' : ''}"
           >${paragraph}
-        </dds-leadspace-with-search-content-copy>
-      </dds-leadspace-with-search-content>
-      <dds-search-with-typeahead
+        </c4d-leadspace-with-search-content-copy>
+      </c4d-leadspace-with-search-content>
+      <c4d-search-with-typeahead
         slot="search"
-        leadspace-search></dds-search-with-typeahead>
-      <dds-hr
+        leadspace-search></c4d-search-with-typeahead>
+      <c4d-hr
         slot="hr"
-        style="${currentTheme === secondTheme ? 'display: none' : ''}"></dds-hr>
-    </dds-leadspace-with-search>
+        style="${currentTheme === secondTheme ? 'display: none' : ''}"></c4d-hr>
+    </c4d-leadspace-with-search>
   `;
 };
 
@@ -78,7 +78,7 @@ export const WithImage = (args) => {
   const secondTheme = theme.split('-')[2];
 
   const subheadingComponent = document.querySelector(
-    'dds-leadspace-with-search-content-heading'
+    'c4d-leadspace-with-search-content-heading'
   );
 
   if (subheadingComponent) {
@@ -86,31 +86,31 @@ export const WithImage = (args) => {
   }
 
   return html`
-    <dds-leadspace-with-search adjacent-theme="${theme}">
-      <dds-background-media
+    <c4d-leadspace-with-search adjacent-theme="${theme}">
+      <c4d-background-media
         gradient-direction="left-to-right"
         default-src="${image}"
         slot="image">
-      </dds-background-media>
-      <dds-leadspace-with-search-heading
-        >${heading}</dds-leadspace-with-search-heading
+      </c4d-background-media>
+      <c4d-leadspace-with-search-heading
+        >${heading}</c4d-leadspace-with-search-heading
       >
-      <dds-leadspace-with-search-content>
-        <dds-leadspace-with-search-content-heading
-          >${subheading}</dds-leadspace-with-search-content-heading
+      <c4d-leadspace-with-search-content>
+        <c4d-leadspace-with-search-content-heading
+          >${subheading}</c4d-leadspace-with-search-content-heading
         >
-        <dds-leadspace-with-search-content-copy
+        <c4d-leadspace-with-search-content-copy
           style="${!paragraph ? 'display: none' : ''}"
           >${paragraph}
-        </dds-leadspace-with-search-content-copy>
-      </dds-leadspace-with-search-content>
-      <dds-search-with-typeahead
+        </c4d-leadspace-with-search-content-copy>
+      </c4d-leadspace-with-search-content>
+      <c4d-search-with-typeahead
         slot="search"
-        leadspace-search></dds-search-with-typeahead>
-      <dds-hr
+        leadspace-search></c4d-search-with-typeahead>
+      <c4d-hr
         slot="hr"
-        style="${currentTheme === secondTheme ? 'display: none' : ''}"></dds-hr>
-    </dds-leadspace-with-search>
+        style="${currentTheme === secondTheme ? 'display: none' : ''}"></c4d-hr>
+    </c4d-leadspace-with-search>
   `;
 };
 

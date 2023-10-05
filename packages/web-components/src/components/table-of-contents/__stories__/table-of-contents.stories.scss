@@ -7,11 +7,9 @@
 
 @use '@carbon/styles/scss/spacing' as *;
 @use '@carbon/ibmdotcom-styles/scss/globals/vars' as *;
-@use '@carbon/ibmdotcom-styles/scss/components/tableofcontents';
 
-.dds-ce-demo--table-of-contents {
-  padding-top: $spacing-07;
-  padding-bottom: $spacing-09;
+.#{$c4d-prefix}-ce-demo--table-of-contents {
+  padding: 0 $spacing-05;
 
   h3 {
     padding-top: $spacing-07;

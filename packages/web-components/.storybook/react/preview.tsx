@@ -51,7 +51,7 @@ export const decorators = [
     const result = story();
     const { hasStoryPadding } = parameters;
     const classes = cx({
-      'dds-story-padding': hasStoryPadding,
+      'cds-story-padding': hasStoryPadding,
     });
     return (
       <StrictMode>

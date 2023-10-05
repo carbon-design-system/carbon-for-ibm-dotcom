@@ -11,9 +11,10 @@
 @use '@carbon/styles/scss/breakpoint' as *;
 @use '@carbon/styles/scss/config' as *;
 @use '@carbon/styles/scss/spacing' as *;
-@use '@carbon/styles/scss/theme' as *;
 @use '@carbon/styles/scss/themes' as *;
+@use '@carbon/styles/scss/theme' as *;
 @use '@carbon/styles/scss/type' as *;
+@use '@carbon/styles/scss/utilities' as *;
 @use '../../globals/utils/content-width' as *;
 @use '../../globals/utils/flex-grid' as *;
 @use '../../globals/utils/ratio-base' as *;
@@ -24,11 +25,23 @@
 
 $btn-min-width: 26;
 
+@keyframes loadingAnimation {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
 // items that change according to the theme applied
 @mixin themed-items($theme: white) {
   // TODO: figure out how to use the $background color token instead with rgba()
-  $dds--gradient-light: #ffffff;
-  $dds--gradient-dark: #161616;
+  $cds--gradient-light: #ffffff;
+  $cds--gradient-dark: #161616;
 
   .#{$prefix}--leadspace__section {
     display: flex;
@@ -47,10 +60,11 @@ $btn-min-width: 26;
     background-color: $background;
   }
 
-  ::slotted(#{$dds-prefix}-leadspace-heading),
+  ::slotted(#{$c4d-prefix}-leadspace-heading),
   .#{$prefix}--leadspace__title,
   .#{$prefix}--leadspace__desc {
     color: $text-primary;
+    padding-right: 0;
   }
 
   .#{$prefix}--leadspace--centered .#{$prefix}--leadspace__desc {
@@ -78,7 +92,44 @@ $btn-min-width: 26;
     padding-top: $spacing-07;
   }
 
-  :host(#{$dds-prefix}-leadspace),
+  :host(#{$c4d-prefix}-leadspace) {
+    display: block;
+    position: relative;
+
+    &::before {
+      content: '';
+      opacity: 0;
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      z-index: -1;
+      background: linear-gradient(270deg, #c6c6c6, #a8a8a8);
+      background-size: 100% 100%;
+      animation: loadingAnimation 2000ms ease infinite;
+      transition: all 800ms cubic-bezier(0.4, 0.14, 0.3, 1);
+    }
+
+    &[loading] {
+      &::before {
+        z-index: 5;
+        opacity: 1;
+      }
+    }
+
+    ::slotted(#{$c4d-prefix}-background-media) {
+      height: auto;
+      aspect-ratio: 4 / 3; /* stylelint-disable-line property-no-unknown */
+
+      @include breakpoint(lg) {
+        position: absolute;
+        inset: 0;
+        height: 100%;
+        aspect-ratio: auto; /* stylelint-disable-line property-no-unknown */
+      }
+    }
+  }
+
+  :host(#{$c4d-prefix}-leadspace),
   .#{$prefix}--leadspace {
     .#{$prefix}--image {
       /* stylelint-disable-next-line comment-whitespace-inside */
@@ -97,6 +148,7 @@ $btn-min-width: 26;
       flex-direction: column;
       justify-content: space-between;
       height: 100%;
+      margin-bottom: $spacing-07;
     }
 
     .#{$prefix}--leadspace__container {
@@ -109,14 +161,12 @@ $btn-min-width: 26;
     }
 
     .#{$prefix}--buttongroup,
-    ::slotted(#{$dds-prefix}-button-group),
-    ::slotted(#{$dds-prefix}-leadspace-block-cta) {
-      padding-bottom: $spacing-07;
-
+    ::slotted(#{$c4d-prefix}-button-group),
+    ::slotted(#{$c4d-prefix}-leadspace-block-cta) {
       @include breakpoint(md) {
         display: grid;
         grid-template-columns: repeat(
-          var(--#{$dds-prefix}--button-group--item-count),
+          var(--#{$c4d-prefix}--button-group--item-count),
           1fr
         );
         @media print {
@@ -137,15 +187,15 @@ $btn-min-width: 26;
       width: 100%;
       max-width: none;
 
-      @include breakpoint(lg) {
-        height: 100%;
+      @include breakpoint-down(md) {
+        width: auto;
       }
     }
 
     .#{$prefix}--leadspace--productive {
-      ::slotted(#{$dds-prefix}-leadspace-heading),
+      ::slotted(#{$c4d-prefix}-leadspace-heading),
       .#{$prefix}--leadspace__title {
-        @include type-style(fluid-heading-06, true);
+        @include type-style(fluid-heading-05, true);
       }
     }
 
@@ -154,6 +204,20 @@ $btn-min-width: 26;
       @include make-col-ready;
       @include type-style(fluid-heading-03, true);
       @include make-col(4, 4);
+
+      margin-bottom: 0;
+
+      @include breakpoint-down(lg) {
+        margin-top: 0;
+      }
+
+      @include breakpoint(md) {
+        width: calc(60% - $spacing-07);
+      }
+
+      @include breakpoint(lg) {
+        width: calc(30% - $spacing-07);
+      }
     }
 
     .#{$prefix}--leadspace__row {
@@ -163,15 +227,8 @@ $btn-min-width: 26;
     }
 
     .#{$prefix}--leadspace__action {
-      display: inline-block;
-
-      // Button requirements dictate buttons should be full width at 320px and
-      // down. The breakpoint-down(sm) mixin has logic that will use
-      // a value of 320px - 0.02, which is not quite what we want, so instead,
-      // we use breakpoint-down with a number argument, using the
-      // defined width for the sm breakpoint.
-      @include breakpoint-down(sm) {
-        display: block;
+      @include breakpoint(md) {
+        display: inline-block;
       }
     }
 
@@ -189,7 +246,7 @@ $btn-min-width: 26;
         height: 100%;
       }
 
-      ::slotted(#{$dds-prefix}-leadspace-heading),
+      ::slotted(#{$c4d-prefix}-leadspace-heading),
       .#{$prefix}--leadspace__title {
         width: percentage(math.div(6, 8));
 
@@ -221,18 +278,17 @@ $btn-min-width: 26;
         width: 100%;
       }
 
-      ::slotted(#{$dds-prefix}-leadspace-heading),
+      ::slotted(#{$c4d-prefix}-leadspace-heading),
       .#{$prefix}--leadspace__title {
         width: percentage(math.div(8, 16));
       }
 
       .#{$prefix}--leadspace__desc {
-        @include make-col-ready;
         @include make-col(6, 16);
       }
 
       .#{$prefix}--leadspace--productive {
-        ::slotted(#{$dds-prefix}-leadspace-heading),
+        ::slotted(#{$c4d-prefix}-leadspace-heading),
         .#{$prefix}--leadspace__title {
           @include make-col(7, 16);
         }
@@ -247,11 +303,11 @@ $btn-min-width: 26;
       background-size: cover;
       background-position: center top;
 
-      ::slotted(#{$dds-prefix}-button-group),
+      ::slotted(#{$c4d-prefix}-button-group),
       ::slotted([slot='action']),
       .#{$prefix}--buttongroup {
         padding-top: $spacing-05;
-        padding-bottom: calc(#{$spacing-07});
+        padding-bottom: 0;
 
         @include breakpoint(lg) {
           padding-bottom: calc(#{$spacing-12} + #{$spacing-13});
@@ -267,6 +323,8 @@ $btn-min-width: 26;
         display: flex;
         flex-direction: column;
         justify-content: space-between;
+        margin-bottom: $spacing-07;
+
         @include make-col-ready;
         @include make-col(4, 4);
       }
@@ -278,14 +336,13 @@ $btn-min-width: 26;
         @include type-style(fluid-heading-03, true);
       }
 
-      ::slotted(#{$dds-prefix}-leadspace-heading),
+      ::slotted(#{$c4d-prefix}-leadspace-heading),
       .#{$prefix}--leadspace__title {
         margin-bottom: 0;
-        @include type-style(fluid-heading-05, true);
       }
 
       .#{$prefix}--leadspace__desc,
-      ::slotted(#{$dds-prefix}-leadspace-heading),
+      ::slotted(#{$c4d-prefix}-leadspace-heading),
       .#{$prefix}--leadspace__title {
         flex: none;
       }
@@ -311,7 +368,7 @@ $btn-min-width: 26;
           }
         }
 
-        ::slotted(#{$dds-prefix}-leadspace-heading),
+        ::slotted(#{$c4d-prefix}-leadspace-heading),
         .#{$prefix}--leadspace__title,
         .#{$prefix}--leadspace__desc {
           @include content-width;
@@ -439,18 +496,18 @@ $btn-min-width: 26;
     }
   }
 
-  :host(#{$dds-prefix}-leadspace) ::slotted([slot='navigation']) {
+  :host(#{$c4d-prefix}-leadspace) ::slotted([slot='navigation']) {
     z-index: 1;
     padding-left: $spacing-05;
     padding-right: $spacing-05;
-    max-width: rem(640px);
+    padding-bottom: $spacing-05;
   }
 
-  :host(#{$dds-prefix}-leadspace) ::slotted(#{$dds-prefix}-tag-group) {
+  :host(#{$c4d-prefix}-leadspace) ::slotted(#{$c4d-prefix}-tag-group) {
     padding-bottom: $spacing-03;
   }
 
-  :host(#{$dds-prefix}-breadcrumb-link[aria-current='page']) .#{$prefix}--link {
+  :host(#{$c4d-prefix}-breadcrumb-link[aria-current='page']) .#{$prefix}--link {
     color: $text-primary;
     cursor: auto;
 
@@ -459,13 +516,13 @@ $btn-min-width: 26;
     }
   }
 
-  :host(#{$dds-prefix}-leadspace) ::slotted(#{$dds-prefix}-leadspace-image) {
+  :host(#{$c4d-prefix}-leadspace) ::slotted(#{$c4d-prefix}-leadspace-image) {
     @include breakpoint(lg) {
       height: 100%;
     }
   }
 
-  :host(#{$dds-prefix}-leadspace-heading),
+  :host(#{$c4d-prefix}-leadspace-heading),
   .#{$prefix}--leadspace__title {
     padding-top: 0;
     margin-bottom: $spacing-09;
@@ -473,39 +530,75 @@ $btn-min-width: 26;
     padding-right: $spacing-05;
     width: 95%;
     z-index: 1;
-    @include type-style(fluid-heading-06, true);
 
-    /* stylelint-disable declaration-no-important */
+    ::slotted(span) {
+      color: $link-primary;
+    }
+
     ::slotted(h1) {
-      all: unset !important; /* stylelint-disable-line declaration-property-value-blacklist */
+      display: none;
     }
-    /* stylelint-enable declaration-no-important */
   }
 
-  :host(#{$dds-prefix}-leadspace)[size='tall'],
-  :host(#{$dds-prefix}-leadspace)[size='super'] {
-    ::slotted(#{$dds-prefix}-leadspace-heading) {
-      @include breakpoint(lg) {
-        margin-bottom: $spacing-12;
+  :host(#{$c4d-prefix}-leadspace-heading[type-style='fluid-heading-05']) {
+    @include type-style(fluid-heading-05, true);
+  }
+
+  :host(#{$c4d-prefix}-leadspace-heading[type-style='display-01']) {
+    @include type-style(display-01, true);
+  }
+
+  :host(#{$c4d-prefix}-leadspace)[size='super'] {
+    @include breakpoint(lg) {
+      .#{$prefix}--leadspace__overlay {
+        height: rem(608px);
       }
     }
-  }
 
-  :host(#{$dds-prefix}-leadspace)[size='tall'],
-  :host(#{$dds-prefix}-leadspace)[size] {
     .#{$prefix}--leadspace__section {
-      height: auto;
-
       @include breakpoint(lg) {
-        min-height: carbon--mini-units(70);
+        min-height: carbon--mini-units(80);
       }
     }
   }
 
-  :host(#{$dds-prefix}-leadspace)[size='short'] {
-    ::slotted(#{$dds-prefix}-leadspace-heading) {
+  :host(#{$c4d-prefix}-leadspace)[size='tall'] {
+    @include breakpoint(lg) {
+      .#{$prefix}--leadspace__overlay {
+        height: rem(528px);
+      }
+    }
+  }
+
+  :host(#{$c4d-prefix}-leadspace)[size='medium'] {
+    @include breakpoint(lg) {
+      .#{$prefix}--leadspace__overlay {
+        height: rem(448px);
+      }
+    }
+
+    ::slotted(#{$c4d-prefix}-leadspace-heading) {
+      @include breakpoint(lg) {
+        margin-bottom: $spacing-10;
+      }
+    }
+
+    .#{$prefix}--leadspace__section {
+      @include breakpoint(lg) {
+        min-height: carbon--mini-units(60);
+      }
+    }
+  }
+
+  :host(#{$c4d-prefix}-leadspace)[size='short'] {
+    @include breakpoint(lg) {
+      .#{$prefix}--leadspace__overlay {
+        height: rem(288px);
+      }
+    }
+
+    ::slotted(#{$c4d-prefix}-leadspace-heading) {
       margin-bottom: $spacing-07;
-      @include type-style(fluid-heading-06, true);
 
       @include breakpoint(lg) {
         margin-bottom: $spacing-10;
@@ -519,7 +612,27 @@ $btn-min-width: 26;
     }
   }
 
-  :host-context(#{$dds-prefix}-leadspace[size='short']) {
+  :host(#{$c4d-prefix}-leadspace)[size='tall'],
+  :host(#{$c4d-prefix}-leadspace)[size='super'] {
+    ::slotted(#{$c4d-prefix}-leadspace-heading) {
+      @include breakpoint(lg) {
+        margin-bottom: $spacing-12;
+      }
+    }
+  }
+
+  :host(#{$c4d-prefix}-leadspace)[size='tall'],
+  :host(#{$c4d-prefix}-leadspace)[size] {
+    .#{$prefix}--leadspace__section {
+      height: auto;
+
+      @include breakpoint(lg) {
+        min-height: carbon--mini-units(70);
+      }
+    }
+  }
+
+  :host-context(#{$c4d-prefix}-leadspace[size='short']) {
     @include breakpoint(lg) {
       .#{$prefix}--image__img {
         object-position: left top;
@@ -527,35 +640,7 @@ $btn-min-width: 26;
     }
   }
 
-  :host(#{$dds-prefix}-leadspace)[size='medium'] {
-    ::slotted(#{$dds-prefix}-leadspace-heading) {
-      @include type-style(fluid-heading-05, true);
-
-      @include breakpoint(lg) {
-        margin-bottom: $spacing-10;
-      }
-    }
-
-    .#{$prefix}--leadspace__section {
-      @include breakpoint(lg) {
-        min-height: carbon--mini-units(60);
-      }
-    }
-  }
-
-  :host(#{$dds-prefix}-leadspace)[size='super'] {
-    ::slotted(#{$dds-prefix}-leadspace-heading) {
-      @include type-style(display-01, true);
-    }
-
-    .#{$prefix}--leadspace__section {
-      @include breakpoint(lg) {
-        min-height: carbon--mini-units(80);
-      }
-    }
-  }
-
-  :host(#{$dds-prefix}-leadspace-image),
+  :host(#{$c4d-prefix}-leadspace-image),
   .#{$prefix}--leadspace .#{$prefix}--image {
     @include ratio-base(4, 3, false);
 

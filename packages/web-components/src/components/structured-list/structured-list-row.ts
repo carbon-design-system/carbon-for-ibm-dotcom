@@ -13,15 +13,15 @@ import settings from '../../internal/vendor/@carbon/ibmdotcom-utilities/utilitie
 import styles from './structured-list.scss';
 import { carbonElement as customElement } from '../../internal/vendor/@carbon/web-components/globals/decorators/carbon-element.js';
 
-const { stablePrefix: ddsPrefix } = settings;
+const { stablePrefix: c4dPrefix } = settings;
 
 /**
  * StructuredListRow
  *
- * @element dds-structured-list-row
+ * @element c4d-structured-list-row
  */
-@customElement(`${ddsPrefix}-structured-list-row`)
-class DDSStructuredListRow extends CDSStructuredListRow {
+@customElement(`${c4dPrefix}-structured-list-row`)
+class C4DStructuredListRow extends CDSStructuredListRow {
   connectedCallback() {
     super.connectedCallback();
   }
@@ -39,4 +39,4 @@ class DDSStructuredListRow extends CDSStructuredListRow {
 }
 
 /* @__GENERATE_REACT_CUSTOM_ELEMENT_TYPE__ */
-export default DDSStructuredListRow;
+export default C4DStructuredListRow;

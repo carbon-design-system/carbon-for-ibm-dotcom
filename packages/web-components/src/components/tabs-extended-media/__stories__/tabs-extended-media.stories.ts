@@ -35,54 +35,54 @@ export const Default = (args) => {
 
   for (let i = 1; i < 5; i++) {
     tabs.push(html`
-      <dds-tab label="Tab ${i}">
-        <dds-content-item-horizontal-media align="${align}">
+      <c4d-tab label="Tab ${i}">
+        <c4d-content-item-horizontal-media align="${align}">
           ${type === MEDIA_TYPE.IMAGE
             ? html`
-                <dds-image
+                <c4d-image
                   slot="media"
                   alt="Image alt text"
-                  default-src="${imgLg16x9}"></dds-image>
+                  default-src="${imgLg16x9}"></c4d-image>
               `
             : ''}
           ${type === MEDIA_TYPE.VIDEO
             ? html`
-                <dds-content-item-horizontal-media-video
-                  video-id="1_9h94wo6b"></dds-content-item-horizontal-media-video>
+                <c4d-content-item-horizontal-media-video
+                  video-id="0_ibuqxqbe"></c4d-content-item-horizontal-media-video>
               `
             : ''}
-          <dds-content-item-heading>Tab heading ${i}</dds-content-item-heading>
-          <dds-content-item-horizontal-media-copy
+          <c4d-content-item-heading>Tab heading ${i}</c4d-content-item-heading>
+          <c4d-content-item-horizontal-media-copy
             >Lorem ipsum dolor sit amet, _consectetur_ adipiscing elit. Aenean
             et ultricies est. Mauris iaculis eget dolor nec hendrerit. Phasellus
-            at elit sollicitudin.</dds-content-item-horizontal-media-copy
+            at elit sollicitudin.</c4d-content-item-horizontal-media-copy
           >
-          <dds-link-list slot="footer" type="vertical">
-            <dds-link-list-item-cta
+          <c4d-link-list slot="footer" type="vertical">
+            <c4d-link-list-item-cta
               icon-placement="right"
               href="https://www.ibm.com"
               cta-type="local">
               CTA ${i}
-            </dds-link-list-item-cta>
-            <dds-link-list-item-cta
+            </c4d-link-list-item-cta>
+            <c4d-link-list-item-cta
               icon-placement="right"
               href="https://www.ibm.com"
               cta-type="external">
               Microservices and containers
-            </dds-link-list-item-cta>
-          </dds-link-list>
-        </dds-content-item-horizontal-media>
-      </dds-tab>
+            </c4d-link-list-item-cta>
+          </c4d-link-list>
+        </c4d-content-item-horizontal-media>
+      </c4d-tab>
     `);
   }
 
   return html`
-    <dds-tabs-extended-media section-heading=${sectionHeading}>
-      <dds-content-section-heading
-        >${ifDefined(sectionHeadingText)}</dds-content-section-heading
+    <c4d-tabs-extended-media section-heading=${sectionHeading}>
+      <c4d-content-section-heading
+        >${ifDefined(sectionHeadingText)}</c4d-content-section-heading
       >
       ${tabs}
-    </dds-tabs-extended-media>
+    </c4d-tabs-extended-media>
   `;
 };
 

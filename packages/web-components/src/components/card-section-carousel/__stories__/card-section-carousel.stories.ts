@@ -28,32 +28,32 @@ const Card = ({
   heading = headingDefault,
   href = hrefDefault,
 } = {}) => html`
-  <dds-card href="${ifDefined(href)}">
-    <dds-card-heading>${heading}</dds-card-heading>
+  <c4d-card href="${ifDefined(href)}">
+    <c4d-card-heading>${heading}</c4d-card-heading>
     <p>${copy}</p>
-    <dds-card-footer> ${ArrowRight20({ slot: 'icon' })} </dds-card-footer>
-  </dds-card>
+    <c4d-card-footer> ${ArrowRight20({ slot: 'icon' })} </c4d-card-footer>
+  </c4d-card>
 `;
 
 export const Default = () => {
   return html`
-    <dds-card-section-carousel>
-      <dds-content-section-heading
-        >Lorem ipsum dolor sit amet</dds-content-section-heading
+    <c4d-card-section-carousel>
+      <c4d-content-section-heading
+        >Lorem ipsum dolor sit amet</c4d-content-section-heading
       >
-      <dds-content-section-copy
+      <c4d-content-section-copy
         >Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean et
         ultricies est.
-      </dds-content-section-copy>
-      <dds-link-with-icon slot="footer" href="${ifDefined(hrefDefault)}">
+      </c4d-content-section-copy>
+      <c4d-link-with-icon slot="footer" href="${ifDefined(hrefDefault)}">
         Link text ${ArrowRight20({ slot: 'icon' })}
-      </dds-link-with-icon>
-      <dds-carousel>
+      </c4d-link-with-icon>
+      <c4d-carousel>
         ${Card()}${Card({ copy: copyOdd })}${Card()}${Card({
           copy: copyOdd,
         })}${Card()}
-      </dds-carousel>
-    </dds-card-section-carousel>
+      </c4d-carousel>
+    </c4d-card-section-carousel>
   `;
 };
 

@@ -9,20 +9,20 @@
 import { carbonElement as customElement } from '../../internal/vendor/@carbon/web-components/globals/decorators/carbon-element';
 import settings from '@carbon/ibmdotcom-utilities/es/utilities/settings/settings.js';
 import styles from './button-group-item.scss';
-import DDSButtonExpressive from '../button/button';
 import carbonStyles from '../../../../utilities/src/utilities/carbonStyles/carbonStyles.js';
+import C4DButton from '../button/button';
 
-const { stablePrefix: ddsPrefix } = settings;
+const { stablePrefix: c4dPrefix } = settings;
 
 /**
  * Button group item.
  *
- * @element dds-button-group-item
+ * @element c4d-button-group-item
  */
-@customElement(`${ddsPrefix}-button-group-item`)
-class DDSButtonGroupItem extends DDSButtonExpressive {
+@customElement(`${c4dPrefix}-button-group-item`)
+class C4DButtonGroupItem extends C4DButton {
   static get stableSelector() {
-    return `${ddsPrefix}--button-group-item`;
+    return `${c4dPrefix}--button-group-item`;
   }
 
   connectedCallback() {
@@ -36,4 +36,4 @@ class DDSButtonGroupItem extends DDSButtonExpressive {
 }
 
 /* @__GENERATE_REACT_CUSTOM_ELEMENT_TYPE__ */
-export default DDSButtonGroupItem;
+export default C4DButtonGroupItem;

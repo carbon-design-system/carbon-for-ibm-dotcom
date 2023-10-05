@@ -15,17 +15,17 @@ import '../content-block-headlines-item';
 const template = (props?) => {
   const { children } = props ?? {};
   return html`
-    <dds-content-block-headlines> ${children} </dds-content-block-headlines>
+    <c4d-content-block-headlines> ${children} </c4d-content-block-headlines>
   `;
 };
 
-describe('dds-content-block-headlines', function () {
+describe('c4d-content-block-headlines', function () {
   describe('Misc attributes', function () {
     it('should render with minimum attributes', async function () {
       render(template(), document.body);
       await Promise.resolve();
       expect(
-        document.body.querySelector('dds-content-block-headlines')
+        document.body.querySelector('c4d-content-block-headlines')
       ).toMatchSnapshot({ mode: 'shadow' });
     });
   });

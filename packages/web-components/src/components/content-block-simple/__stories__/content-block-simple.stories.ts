@@ -64,14 +64,14 @@ const copy = `Lorem ipsum *dolor* sit amet, consectetur adipiscing elit. Aenean 
 `;
 
 const image = html`
-  <dds-image slot="media" alt="Image alt text" default-src="${imgLg16x9}">
-    <dds-image-item media="(min-width: 672px)" srcset="${imgLg16x9}">
-    </dds-image-item>
-    <dds-image-item media="(min-width: 400px)" srcset="${imgMd16x9}">
-    </dds-image-item>
-    <dds-image-item media="(min-width: 320px)" srcset="${imgSm16x9}">
-    </dds-image-item>
-  </dds-image>
+  <c4d-image slot="media" alt="Image alt text" default-src="${imgLg16x9}">
+    <c4d-image-item media="(min-width: 672px)" srcset="${imgLg16x9}">
+    </c4d-image-item>
+    <c4d-image-item media="(min-width: 400px)" srcset="${imgMd16x9}">
+    </c4d-image-item>
+    <c4d-image-item media="(min-width: 320px)" srcset="${imgSm16x9}">
+    </c4d-image-item>
+  </c4d-image>
 `;
 
 export const Default = (args) => {
@@ -80,37 +80,37 @@ export const Default = (args) => {
   const ctaCopy = 'Lorem ipsum dolor sit amet';
   const href = 'https://www.example.com';
   return html`
-    <dds-content-block-simple
+    <c4d-content-block-simple
       complementary-style-scheme="${ifDefined(complementaryStyleScheme)}">
-      <dds-content-block-heading><h2>${heading}</h2></dds-content-block-heading>
-      <dds-content-block-copy size="${CONTENT_BLOCK_COPY_SIZE.SMALL}"
-        >${copy}</dds-content-block-copy
+      <c4d-content-block-heading><h2>${heading}</h2></c4d-content-block-heading>
+      <c4d-content-block-copy size="${CONTENT_BLOCK_COPY_SIZE.SMALL}"
+        >${copy}</c4d-content-block-copy
       >
       ${ctaStyle === 'card-link'
         ? html`
-            <dds-card-link-cta
+            <c4d-card-link-cta
               slot="footer"
               cta-type="${ifDefined(ctaType)}"
               href="${ifDefined(href)}">
-              <dds-card-link-heading>${ctaCopy}</dds-card-link-heading>
-              <dds-card-cta-footer>
+              <c4d-card-link-heading>${ctaCopy}</c4d-card-link-heading>
+              <c4d-card-cta-footer>
                 ${ctaType === 'local' ? ArrowRight20({ slot: 'icon' }) : ''}
                 ${ctaType === 'jump' ? ArrowDown20({ slot: 'icon' }) : ''}
                 ${ctaType === 'external' ? Launch20({ slot: 'icon' }) : ''}
-              </dds-card-cta-footer>
-            </dds-card-link-cta>
+              </c4d-card-cta-footer>
+            </c4d-card-link-cta>
           `
         : html`
-            <dds-text-cta
+            <c4d-text-cta
               slot="footer"
               cta-type="${ifDefined(ctaType)}"
               icon-placement="right"
               href="${ifDefined(href)}"
               @click="${onClick}">
               ${ctaCopy}
-            </dds-text-cta>
+            </c4d-text-cta>
           `}
-    </dds-content-block-simple>
+    </c4d-content-block-simple>
   `;
 };
 
@@ -120,38 +120,38 @@ export const WithImage = (args) => {
   const ctaCopy = 'Lorem ipsum dolor sit amet';
   const href = 'https://www.example.com';
   return html`
-    <dds-content-block-simple
+    <c4d-content-block-simple
       complementary-style-scheme="${ifDefined(complementaryStyleScheme)}">
-      <dds-content-block-heading><h2>${heading}</h2></dds-content-block-heading>
+      <c4d-content-block-heading><h2>${heading}</h2></c4d-content-block-heading>
       ${image}
-      <dds-content-block-copy size="${CONTENT_BLOCK_COPY_SIZE.SMALL}"
-        >${copy}</dds-content-block-copy
+      <c4d-content-block-copy size="${CONTENT_BLOCK_COPY_SIZE.SMALL}"
+        >${copy}</c4d-content-block-copy
       >
       ${ctaStyle === 'card-link'
         ? html`
-            <dds-card-link-cta
+            <c4d-card-link-cta
               slot="footer"
               cta-type="${ifDefined(ctaType)}"
               href="${ifDefined(href)}">
-              <dds-card-link-heading>${ctaCopy}</dds-card-link-heading>
-              <dds-card-cta-footer>
+              <c4d-card-link-heading>${ctaCopy}</c4d-card-link-heading>
+              <c4d-card-cta-footer>
                 ${ctaType === 'local' ? ArrowRight20({ slot: 'icon' }) : ''}
                 ${ctaType === 'jump' ? ArrowDown20({ slot: 'icon' }) : ''}
                 ${ctaType === 'external' ? Launch20({ slot: 'icon' }) : ''}
-              </dds-card-cta-footer>
-            </dds-card-link-cta>
+              </c4d-card-cta-footer>
+            </c4d-card-link-cta>
           `
         : html`
-            <dds-text-cta
+            <c4d-text-cta
               slot="footer"
               cta-type="${ifDefined(ctaType)}"
               icon-placement="right"
               href="${ifDefined(href)}"
               @click="${onClick}">
               ${ctaCopy}
-            </dds-text-cta>
+            </c4d-text-cta>
           `}
-    </dds-content-block-simple>
+    </c4d-content-block-simple>
   `;
 };
 
@@ -165,40 +165,40 @@ export const WithVideo = (args) => {
   const ctaCopy = 'Lorem ipsum dolor sit amet';
   const href = 'https://www.example.com';
   return html`
-    <dds-content-block-simple
+    <c4d-content-block-simple
       complementary-style-scheme="${ifDefined(complementaryStyleScheme)}">
-      <dds-content-block-heading><h2>${heading}</h2></dds-content-block-heading>
-      <dds-content-block-copy size="${CONTENT_BLOCK_COPY_SIZE.SMALL}"
-        >${copy}</dds-content-block-copy
+      <c4d-content-block-heading><h2>${heading}</h2></c4d-content-block-heading>
+      <c4d-content-block-copy size="${CONTENT_BLOCK_COPY_SIZE.SMALL}"
+        >${copy}</c4d-content-block-copy
       >
-      <dds-video-player-container
+      <c4d-video-player-container
         slot="media"
-        video-id="1_9h94wo6b"></dds-video-player-container>
+        video-id="0_ibuqxqbe"></c4d-video-player-container>
       ${ctaStyle === 'card-link'
         ? html`
-            <dds-card-link-cta
+            <c4d-card-link-cta
               slot="footer"
               cta-type="${ifDefined(ctaType)}"
               href="${ifDefined(href)}">
-              <dds-card-link-heading>${ctaCopy}</dds-card-link-heading>
-              <dds-card-cta-footer>
+              <c4d-card-link-heading>${ctaCopy}</c4d-card-link-heading>
+              <c4d-card-cta-footer>
                 ${ctaType === 'local' ? ArrowRight20({ slot: 'icon' }) : ''}
                 ${ctaType === 'jump' ? ArrowDown20({ slot: 'icon' }) : ''}
                 ${ctaType === 'external' ? Launch20({ slot: 'icon' }) : ''}
-              </dds-card-cta-footer>
-            </dds-card-link-cta>
+              </c4d-card-cta-footer>
+            </c4d-card-link-cta>
           `
         : html`
-            <dds-text-cta
+            <c4d-text-cta
               slot="footer"
               cta-type="${ifDefined(ctaType)}"
               icon-placement="right"
               href="${ifDefined(href)}"
               @click="${onClick}">
               ${ctaCopy}
-            </dds-text-cta>
+            </c4d-text-cta>
           `}
-    </dds-content-block-simple>
+    </c4d-content-block-simple>
   `;
 };
 
@@ -215,51 +215,51 @@ export const WithLinkList = (args) => {
   const ctaCopy = 'Lorem ipsum dolor sit amet';
   const href = 'https://www.example.com';
   return html`
-    <dds-content-block-simple
+    <c4d-content-block-simple
       complementary-style-scheme="${ifDefined(complementaryStyleScheme)}">
-      <dds-content-block-heading><h2>${heading}</h2></dds-content-block-heading>
-      <dds-content-block-copy size="${CONTENT_BLOCK_COPY_SIZE.SMALL}"
-        >${copy}</dds-content-block-copy
+      <c4d-content-block-heading><h2>${heading}</h2></c4d-content-block-heading>
+      <c4d-content-block-copy size="${CONTENT_BLOCK_COPY_SIZE.SMALL}"
+        >${copy}</c4d-content-block-copy
       >
       ${image}
-      <dds-link-list type="default" slot="complementary">
-        <dds-link-list-heading>Tutorial</dds-link-list-heading>
-        <dds-link-list-item-card-cta href="${ifDefined(href)}" cta-type="local">
+      <c4d-link-list type="default" slot="complementary">
+        <c4d-link-list-heading>Tutorial</c4d-link-list-heading>
+        <c4d-link-list-item-card-cta href="${ifDefined(href)}" cta-type="local">
           <p>Containerization A Complete Guide</p>
-          <dds-card-cta-footer></dds-card-cta-footer>
-        </dds-link-list-item-card-cta>
-        <dds-link-list-item-card-cta
+          <c4d-card-cta-footer></c4d-card-cta-footer>
+        </c4d-link-list-item-card-cta>
+        <c4d-link-list-item-card-cta
           href="${ifDefined(href)}"
           cta-type="external">
           <p>Why should you use microservices and containers</p>
-          <dds-card-cta-footer></dds-card-cta-footer>
-        </dds-link-list-item-card-cta>
-      </dds-link-list>
+          <c4d-card-cta-footer></c4d-card-cta-footer>
+        </c4d-link-list-item-card-cta>
+      </c4d-link-list>
       ${ctaStyle === 'card-link'
         ? html`
-            <dds-card-link-cta
+            <c4d-card-link-cta
               slot="footer"
               cta-type="${ifDefined(ctaType)}"
               href="${ifDefined(href)}">
-              <dds-card-link-heading>${ctaCopy}</dds-card-link-heading>
-              <dds-card-cta-footer>
+              <c4d-card-link-heading>${ctaCopy}</c4d-card-link-heading>
+              <c4d-card-cta-footer>
                 ${ctaType === 'local' ? ArrowRight20({ slot: 'icon' }) : ''}
                 ${ctaType === 'jump' ? ArrowDown20({ slot: 'icon' }) : ''}
                 ${ctaType === 'external' ? Launch20({ slot: 'icon' }) : ''}
-              </dds-card-cta-footer>
-            </dds-card-link-cta>
+              </c4d-card-cta-footer>
+            </c4d-card-link-cta>
           `
         : html`
-            <dds-text-cta
+            <c4d-text-cta
               slot="footer"
               cta-type="${ifDefined(ctaType)}"
               icon-placement="right"
               href="${ifDefined(href)}"
               @click="${onClick}">
               ${ctaCopy}
-            </dds-text-cta>
+            </c4d-text-cta>
           `}
-    </dds-content-block-simple>
+    </c4d-content-block-simple>
   `;
 };
 

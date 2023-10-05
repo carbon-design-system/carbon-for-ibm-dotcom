@@ -21,22 +21,22 @@ const template = (props?) => {
     name,
   } = props ?? {};
   return html`
-    <dds-lightbox-video-player
+    <c4d-lightbox-video-player
       description="${ifDefined(description)}"
       duration="${ifDefined(duration)}"
       ?hide-caption="${hideCaption}"
       name="${ifDefined(name)}"
       .formatCaption="${ifDefined(formatCaption)}"
       .formatDuration="${ifDefined(formatDuration)}">
-    </dds-lightbox-video-player>
+    </c4d-lightbox-video-player>
   `;
 };
 
-describe('dds-lightbox-video-player', function () {
+describe('c4d-lightbox-video-player', function () {
   it('should render with minimum attributes', async function () {
     render(template(), document.body);
     await Promise.resolve();
-    expect(document.querySelector('dds-lightbox-video-player')).toMatchSnapshot(
+    expect(document.querySelector('c4d-lightbox-video-player')).toMatchSnapshot(
       { mode: 'shadow' }
     );
   });
@@ -51,7 +51,7 @@ describe('dds-lightbox-video-player', function () {
       document.body
     );
     await Promise.resolve();
-    expect(document.querySelector('dds-lightbox-video-player')).toMatchSnapshot(
+    expect(document.querySelector('c4d-lightbox-video-player')).toMatchSnapshot(
       { mode: 'shadow' }
     );
   });

@@ -14,13 +14,13 @@ import ChevronDown16 from '../../internal/vendor/@carbon/web-components/icons/ch
 import Close16 from '../../internal/vendor/@carbon/web-components/icons/close/16.js';
 import StableSelectorMixin from '../../globals/mixins/stable-selector';
 import styles from './pricing-table.scss';
-import DDSPricingTableRow from './pricing-table-row';
+import C4DPricingTableRow from './pricing-table-row';
 import { carbonElement as customElement } from '../../internal/vendor/@carbon/web-components/globals/decorators/carbon-element.js';
 
-const { stablePrefix: ddsPrefix } = settings;
+const { stablePrefix: c4dPrefix } = settings;
 
-@customElement(`${ddsPrefix}-pricing-table-annotation-toggle`)
-class DDSPricingTableAnnotationToggle extends StableSelectorMixin(LitElement) {
+@customElement(`${c4dPrefix}-pricing-table-annotation-toggle`)
+class C4DPricingTableAnnotationToggle extends StableSelectorMixin(LitElement) {
   @property({ reflect: true })
   slot = 'toggle';
 
@@ -28,7 +28,7 @@ class DDSPricingTableAnnotationToggle extends StableSelectorMixin(LitElement) {
   toggled: boolean = false;
 
   @property()
-  parentRow: DDSPricingTableRow | null = null;
+  parentRow: C4DPricingTableRow | null = null;
 
   private _handleClick = () => {
     const newVal = !this.toggled;
@@ -47,7 +47,7 @@ class DDSPricingTableAnnotationToggle extends StableSelectorMixin(LitElement) {
   };
 
   connectedCallback(): void {
-    this.parentRow = this.closest(`${ddsPrefix}-pricing-table-row`);
+    this.parentRow = this.closest(`${c4dPrefix}-pricing-table-row`);
     super.connectedCallback();
   }
 
@@ -65,10 +65,10 @@ class DDSPricingTableAnnotationToggle extends StableSelectorMixin(LitElement) {
   }
 
   static get stableSelector() {
-    return `${ddsPrefix}--pricing-table-annotation-toggle`;
+    return `${c4dPrefix}--pricing-table-annotation-toggle`;
   }
 
   static styles = styles;
 }
 
-export default DDSPricingTableAnnotationToggle;
+export default C4DPricingTableAnnotationToggle;

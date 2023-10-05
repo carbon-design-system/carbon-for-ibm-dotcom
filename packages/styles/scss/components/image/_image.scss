@@ -1,5 +1,5 @@
 /**
- * Copyright IBM Corp. 2016, 2022
+ * Copyright IBM Corp. 2016, 2023
  *
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
@@ -17,45 +17,49 @@
 @use '../lightbox-media-viewer/lightbox-media-viewer';
 
 @mixin image {
-  :host(#{$dds-prefix}-card-cta-image),
-  :host(#{$dds-prefix}-image) {
+  :host(#{$c4d-prefix}-global-banner-image),
+  :host(#{$c4d-prefix}-card-cta-image),
+  :host(#{$c4d-prefix}-image) {
     position: relative;
     display: block;
+
+    .#{$c4d-prefix}--image__img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+    }
+
+    .#{$c4d-prefix}--image__img--border {
+      outline: 1px solid $border-subtle-02;
+    }
   }
 
-  :host(#{$dds-prefix}-card-cta-image::slotted(svg[slot='icon'])),
-  :host(#{$dds-prefix}-image::slotted(svg[slot='icon'])) {
+  :host(#{$c4d-prefix}-card-cta-image::slotted(svg[slot='icon'])),
+  :host(#{$c4d-prefix}-image::slotted(svg[slot='icon'])) {
     position: absolute;
     top: calc(50% - #{$spacing-07});
     right: calc(50% - #{$spacing-07});
   }
 
-  :host(#{$dds-prefix}-image-item) {
+  :host(#{$c4d-prefix}-image-item) {
     display: none;
   }
 
-  :host(#{$dds-prefix}-card-cta-image) {
+  :host(#{$c4d-prefix}-image)[card-group-item],
+  :host(#{$c4d-prefix}-card-cta-image) {
     @include ratio-base(4, 3, true);
 
-    .#{$prefix}--image__img {
+    padding-top: 75%;
+
+    .#{$c4d-prefix}--image__img {
       position: absolute;
       height: 100%;
       top: 0;
     }
   }
 
-  .#{$prefix}--image__img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    display: block;
-  }
-
-  .#{$prefix}--image__img--border {
-    outline: 1px solid $border-subtle-02;
-  }
-
-  .#{$prefix}--image__longdescription {
+  .#{$c4d-prefix}--image__longdescription {
     position: absolute;
     width: 1px;
     height: 1px;
@@ -64,7 +68,7 @@
     overflow: hidden;
   }
 
-  :host(#{$dds-prefix}-image)[heading] {
+  :host(#{$c4d-prefix}-image)[heading] {
     display: block;
     margin-top: $spacing-07;
     margin-bottom: $spacing-07;
@@ -76,7 +80,7 @@
     }
   }
 
-  .#{$prefix}--image-with-caption__image {
+  .#{$c4d-prefix}--image-with-caption__image {
     display: block;
     width: 100%;
     padding: 0;
@@ -90,11 +94,11 @@
       @include breakpoint(md) {
         cursor: zoom-in;
 
-        .#{$prefix}--image__img {
+        .#{$c4d-prefix}--image__img {
           filter: brightness(80%);
         }
 
-        .#{$prefix}--image-with-caption__zoom-button {
+        .#{$c4d-prefix}--image-with-caption__zoom-button {
           background-color: rgba($gray-100, 1);
         }
       }
@@ -109,7 +113,7 @@
     }
   }
 
-  .#{$prefix}--image-with-caption__zoom-button {
+  .#{$c4d-prefix}--image-with-caption__zoom-button {
     display: none;
 
     // only have lightbox functionality on bigger breakpoints
@@ -129,8 +133,8 @@
     }
   }
 
-  .#{$prefix}--image-with-caption__image,
-  .#{$prefix}--image-with-caption__zoom-button {
+  .#{$c4d-prefix}--image-with-caption__image,
+  .#{$c4d-prefix}--image-with-caption__zoom-button {
     // only have lightbox functionality on bigger breakpoints
     @include breakpoint(md) {
       transition: $duration-moderate-01 motion(standard, productive);
@@ -138,30 +142,30 @@
     }
   }
 
-  .#{$prefix}--image__caption {
+  .#{$c4d-prefix}--image__caption {
     @include type-style('body-01');
 
     margin-top: $spacing-03;
     color: $text-helper;
   }
 
-  :host(#{$dds-prefix}-image[lightbox-contrast='dark']) {
-    .#{$prefix}--image-with-caption__zoom-button {
+  :host(#{$c4d-prefix}-image[lightbox-contrast='dark']) {
+    .#{$c4d-prefix}--image-with-caption__zoom-button {
       background-color: rgba($white, 0.85);
 
       svg {
         fill: $gray-90;
       }
     }
-    .#{$prefix}--image-with-caption__image {
+    .#{$c4d-prefix}--image-with-caption__image {
       &:hover {
         // only have lightbox functionality on bigger breakpoints
         @include breakpoint(md) {
-          .#{$prefix}--image__img {
+          .#{$c4d-prefix}--image__img {
             filter: brightness(120%);
           }
 
-          .#{$prefix}--image-with-caption__zoom-button {
+          .#{$c4d-prefix}--image-with-caption__zoom-button {
             background-color: rgba($white, 1);
           }
         }
@@ -169,15 +173,15 @@
     }
   }
 
-  // dds-image-logo style.
-  :host(#{$dds-prefix}-image-logo) {
+  // cds-image-logo style.
+  :host(#{$c4d-prefix}-image-logo) {
     background-color: $layer-02;
     margin: $spacing-05 $spacing-05 $spacing-03 $spacing-05;
     max-width: $spacing-13;
 
     @include ratio-base(2, 1, false);
 
-    .#{$prefix}--image__img {
+    .#{$c4d-prefix}--image__img {
       object-fit: contain;
     }
   }

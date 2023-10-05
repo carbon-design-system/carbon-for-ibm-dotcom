@@ -9,18 +9,18 @@
 
 import { html, render } from 'lit/html.js';
 import '../megamenu-top-nav-menu';
-import DDSMegaMenuOverlay from '../megamenu-overlay';
+import C4DMegaMenuOverlay from '../megamenu-overlay';
 
 const template = (props?) => {
   const { expanded } = props ?? {};
   return html`
-    <dds-megamenu-top-nav-menu
-      ?expanded="${expanded}"></dds-megamenu-top-nav-menu>
-    <dds-megamenu-overlay></dds-megamenu-overlay>
+    <c4d-megamenu-top-nav-menu
+      ?expanded="${expanded}"></c4d-megamenu-top-nav-menu>
+    <c4d-megamenu-overlay></c4d-megamenu-overlay>
   `;
 };
 
-xdescribe('dds-megamenu-top-nav-menu', function () {
+xdescribe('c4d-megamenu-top-nav-menu', function () {
   describe('Toggling', function () {
     it('should hide the overlay if not expanded', async function () {
       render(template(), document.body);
@@ -28,8 +28,8 @@ xdescribe('dds-megamenu-top-nav-menu', function () {
       expect(
         (
           document.body.querySelector(
-            'dds-megamenu-overlay'
-          ) as DDSMegaMenuOverlay
+            'c4d-megamenu-overlay'
+          ) as C4DMegaMenuOverlay
         ).active
       ).toBe(false);
     });
@@ -40,8 +40,8 @@ xdescribe('dds-megamenu-top-nav-menu', function () {
       expect(
         (
           document.body.querySelector(
-            'dds-megamenu-overlay'
-          ) as DDSMegaMenuOverlay
+            'c4d-megamenu-overlay'
+          ) as C4DMegaMenuOverlay
         ).active
       ).toBe(true);
     });

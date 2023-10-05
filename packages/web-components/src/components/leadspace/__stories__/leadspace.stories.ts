@@ -35,49 +35,58 @@ const gradientOptions = {
   'No Gradient': '',
 };
 
+const typeStyleOptions = {
+  'Display 01': 'display-01',
+  'Fluid heading 05': 'fluid-heading-05',
+};
+
 const navigationWithTagGroup = html`
-  <dds-tag-group slot="navigation">
-    <dds-tag-link href="https://example.com">Marketing Analytics</dds-tag-link>
-    <dds-tag-link href="https://example.com">Cloud</dds-tag-link>
-  </dds-tag-group>
+  <c4d-tag-group slot="navigation">
+    <c4d-tag-link href="https://example.com">Marketing Analytics</c4d-tag-link>
+    <c4d-tag-link href="https://example.com">Cloud</c4d-tag-link>
+  </c4d-tag-group>
 `;
 
 const navigationWithBreadcrumbs = html`
-  <dds-breadcrumb slot="navigation">
-    <dds-breadcrumb-item>
-      <dds-breadcrumb-link href="/#">Breadcrumb 1</dds-breadcrumb-link>
-    </dds-breadcrumb-item>
-    <dds-breadcrumb-item>
-      <dds-breadcrumb-link href="/#">Breadcrumb 2</dds-breadcrumb-link>
-    </dds-breadcrumb-item>
-    <dds-breadcrumb-item>
-      <dds-breadcrumb-link href="/#" aria-current="page"
-        >Breadcrumb 3</dds-breadcrumb-link
+  <c4d-breadcrumb slot="navigation">
+    <c4d-breadcrumb-item>
+      <c4d-breadcrumb-link href="/#">Breadcrumb 1</c4d-breadcrumb-link>
+    </c4d-breadcrumb-item>
+    <c4d-breadcrumb-item>
+      <c4d-breadcrumb-link href="/#">Breadcrumb 2</c4d-breadcrumb-link>
+    </c4d-breadcrumb-item>
+    <c4d-breadcrumb-item>
+      <c4d-breadcrumb-link href="/#" aria-current="page"
+        >Breadcrumb 3</c4d-breadcrumb-link
       >
-    </dds-breadcrumb-item>
-  </dds-breadcrumb>
+    </c4d-breadcrumb-item>
+  </c4d-breadcrumb>
 `;
 
 export const Super = (args) => {
-  const { title, copy, buttons, navElements } = args?.LeadSpace ?? {};
+  const { title, copy, buttons, navElements, highlight, typeStyle } =
+    args?.LeadSpace ?? {};
   return html`
-    <dds-leadspace size="${LEADSPACE_SIZE.SUPER}">
+    <c4d-leadspace size="${LEADSPACE_SIZE.SUPER}">
       ${navElements === navigationOptions[0] ? navigationWithTagGroup : ``}
       ${navElements === navigationOptions[1] ? navigationWithBreadcrumbs : ``}
-      <dds-leadspace-heading>${ifDefined(title)}</dds-leadspace-heading>
+      <c4d-leadspace-heading type-style="${typeStyle}" highlight=${highlight}
+        >${ifDefined(title)}</c4d-leadspace-heading
+      >
       ${ifDefined(copy)}
-      <dds-button-group slot="action">
+      <c4d-button-group slot="action">
         ${buttons.map((elem) => {
           return html`
-            <dds-button-group-item
+            <c4d-button-group-item
+              cta-type="local"
               aria-label="${elem.label}"
               href="${elem.href}"
-              >${elem.copy}${elem.renderIcon}</dds-button-group-item
+              >${elem.copy}</c4d-button-group-item
             >
           `;
         })}
-      </dds-button-group>
-    </dds-leadspace>
+      </c4d-button-group>
+    </c4d-leadspace>
   `;
 };
 
@@ -90,44 +99,49 @@ export const SuperWithImage = (args) => {
     copy,
     buttons,
     navElements,
+    highlight,
+    typeStyle,
   } = args?.LeadSpace ?? {};
   const image = defaultSrc || leadspaceImg;
   return html`
-    <dds-leadspace
+    <c4d-leadspace
       size="${LEADSPACE_SIZE.SUPER}"
       gradient-style-scheme="${ifDefined(gradientStyleScheme)}"
       alt="${ifDefined(alt)}"
       default-src="${ifDefined(defaultSrc)}">
       ${navElements === navigationOptions[0] ? navigationWithTagGroup : ``}
       ${navElements === navigationOptions[1] ? navigationWithBreadcrumbs : ``}
-      <dds-leadspace-heading>${ifDefined(title)}</dds-leadspace-heading>
+      <c4d-leadspace-heading type-style="${typeStyle}" highlight=${highlight}
+        >${ifDefined(title)}</c4d-leadspace-heading
+      >
       ${ifDefined(copy)}
-      <dds-button-group slot="action">
+      <c4d-button-group slot="action">
         ${buttons.map((elem) => {
           return html`
-            <dds-button-group-item
+            <c4d-button-group-item
+              cta-type="local"
               aria-label="${elem.label}"
               href="${elem.href}"
-              >${elem.copy}${elem.renderIcon}</dds-button-group-item
+              >${elem.copy}</c4d-button-group-item
             >
           `;
         })}
-      </dds-button-group>
-      <dds-background-media
+      </c4d-button-group>
+      <c4d-background-media
         slot="image"
         alt="${ifDefined(alt)}"
         default-src="${defaultSrc}"
         opacity="100">
-        <dds-image-item media="(min-width: 1312px)" srcset="${image}">
-        </dds-image-item>
-        <dds-image-item media="(min-width: 672px)" srcset="${image}">
-        </dds-image-item>
-        <dds-image-item media="(min-width: 320px)" srcset="${image}">
-        </dds-image-item>
-        <dds-image-item media="(min-width: 0px)" srcset="${image}">
-        </dds-image-item>
-      </dds-background-media>
-    </dds-leadspace>
+        <c4d-image-item media="(min-width: 1312px)" srcset="${image}">
+        </c4d-image-item>
+        <c4d-image-item media="(min-width: 672px)" srcset="${image}">
+        </c4d-image-item>
+        <c4d-image-item media="(min-width: 320px)" srcset="${image}">
+        </c4d-image-item>
+        <c4d-image-item media="(min-width: 0px)" srcset="${image}">
+        </c4d-image-item>
+      </c4d-background-media>
+    </c4d-leadspace>
   `;
 };
 
@@ -144,34 +158,39 @@ export const SuperWithVideo = (args) => {
     copy,
     buttons,
     navElements,
+    highlight,
+    typeStyle,
   } = args?.LeadSpace ?? {};
   return html`
-    <dds-leadspace
+    <c4d-leadspace
       size="${LEADSPACE_SIZE.SUPER}"
       gradient-style-scheme="${ifDefined(gradientStyleScheme)}"
       alt="${ifDefined(alt)}"
       default-src="${ifDefined(defaultSrc)}">
       ${navElements === navigationOptions[0] ? navigationWithTagGroup : ``}
       ${navElements === navigationOptions[1] ? navigationWithBreadcrumbs : ``}
-      <dds-leadspace-heading>${ifDefined(title)}</dds-leadspace-heading>
+      <c4d-leadspace-heading type-style="${typeStyle}" highlight=${highlight}
+        >${ifDefined(title)}</c4d-leadspace-heading
+      >
       ${ifDefined(copy)}
-      <dds-button-group slot="action">
+      <c4d-button-group slot="action">
         ${buttons.map((elem) => {
           return html`
-            <dds-button-group-item
+            <c4d-button-group-item
+              cta-type="local"
               aria-label="${elem.label}"
               href="${elem.href}"
-              >${elem.copy}${elem.renderIcon}</dds-button-group-item
+              >${elem.copy}</c4d-button-group-item
             >
           `;
         })}
-      </dds-button-group>
-      <dds-background-media slot="image" opacity="100">
-        <dds-video-player-container
-          video-id="1_9h94wo6b"
-          background-mode="true"></dds-video-player-container>
-      </dds-background-media>
-    </dds-leadspace>
+      </c4d-button-group>
+      <c4d-background-media slot="image" opacity="100">
+        <c4d-video-player-container
+          video-id="0_ibuqxqbe"
+          background-mode="true"></c4d-video-player-container>
+      </c4d-background-media>
+    </c4d-leadspace>
   `;
 };
 
@@ -180,25 +199,29 @@ SuperWithVideo.story = {
 };
 
 export const Tall = (args) => {
-  const { title, copy, buttons, navElements } = args?.LeadSpace ?? {};
+  const { title, copy, buttons, navElements, highlight, typeStyle } =
+    args?.LeadSpace ?? {};
   return html`
-    <dds-leadspace size="${LEADSPACE_SIZE.TALL}">
+    <c4d-leadspace size="${LEADSPACE_SIZE.TALL}">
       ${navElements === navigationOptions[0] ? navigationWithTagGroup : ``}
       ${navElements === navigationOptions[1] ? navigationWithBreadcrumbs : ``}
-      <dds-leadspace-heading>${ifDefined(title)}</dds-leadspace-heading>
+      <c4d-leadspace-heading type-style="${typeStyle}" highlight=${highlight}
+        >${ifDefined(title)}</c4d-leadspace-heading
+      >
       ${ifDefined(copy)}
-      <dds-button-group slot="action">
+      <c4d-button-group slot="action">
         ${buttons.map((elem) => {
           return html`
-            <dds-button-group-item
+            <c4d-button-group-item
+              cta-type="local"
               aria-label="${elem.label}"
               href="${elem.href}"
-              >${elem.copy}${elem.renderIcon}</dds-button-group-item
+              >${elem.copy}</c4d-button-group-item
             >
           `;
         })}
-      </dds-button-group>
-    </dds-leadspace>
+      </c4d-button-group>
+    </c4d-leadspace>
   `;
 };
 
@@ -211,44 +234,49 @@ export const TallWithImage = (args) => {
     copy,
     buttons,
     navElements,
+    highlight,
+    typeStyle,
   } = args?.LeadSpace ?? {};
   const image = defaultSrc || leadspaceImg;
   return html`
-    <dds-leadspace
+    <c4d-leadspace
       size="${LEADSPACE_SIZE.TALL}"
       gradient-style-scheme="${ifDefined(gradientStyleScheme)}"
       alt="${ifDefined(alt)}"
       default-src="${ifDefined(defaultSrc)}">
       ${navElements === navigationOptions[0] ? navigationWithTagGroup : ``}
       ${navElements === navigationOptions[1] ? navigationWithBreadcrumbs : ``}
-      <dds-leadspace-heading>${ifDefined(title)}</dds-leadspace-heading>
+      <c4d-leadspace-heading type-style="${typeStyle}" highlight=${highlight}
+        >${ifDefined(title)}</c4d-leadspace-heading
+      >
       ${ifDefined(copy)}
-      <dds-button-group slot="action">
+      <c4d-button-group slot="action">
         ${buttons.map((elem) => {
           return html`
-            <dds-button-group-item
+            <c4d-button-group-item
+              cta-type="local"
               aria-label="${elem.label}"
               href="${elem.href}"
-              >${elem.copy}${elem.renderIcon}</dds-button-group-item
+              >${elem.copy}</c4d-button-group-item
             >
           `;
         })}
-      </dds-button-group>
-      <dds-background-media
+      </c4d-button-group>
+      <c4d-background-media
         slot="image"
         alt="${ifDefined(alt)}"
         default-src="${defaultSrc}"
         opacity="100">
-        <dds-image-item media="(min-width: 1312px)" srcset="${image}">
-        </dds-image-item>
-        <dds-image-item media="(min-width: 672px)" srcset="${image}">
-        </dds-image-item>
-        <dds-image-item media="(min-width: 320px)" srcset="${image}">
-        </dds-image-item>
-        <dds-image-item media="(min-width: 0px)" srcset="${image}">
-        </dds-image-item>
-      </dds-background-media>
-    </dds-leadspace>
+        <c4d-image-item media="(min-width: 1312px)" srcset="${image}">
+        </c4d-image-item>
+        <c4d-image-item media="(min-width: 672px)" srcset="${image}">
+        </c4d-image-item>
+        <c4d-image-item media="(min-width: 320px)" srcset="${image}">
+        </c4d-image-item>
+        <c4d-image-item media="(min-width: 0px)" srcset="${image}">
+        </c4d-image-item>
+      </c4d-background-media>
+    </c4d-leadspace>
   `;
 };
 
@@ -265,34 +293,39 @@ export const TallWithVideo = (args) => {
     copy,
     buttons,
     navElements,
+    highlight,
+    typeStyle,
   } = args?.LeadSpace ?? {};
   return html`
-    <dds-leadspace
+    <c4d-leadspace
       size="${LEADSPACE_SIZE.TALL}"
       gradient-style-scheme="${ifDefined(gradientStyleScheme)}"
       alt="${ifDefined(alt)}"
       default-src="${ifDefined(defaultSrc)}">
       ${navElements === navigationOptions[0] ? navigationWithTagGroup : ``}
       ${navElements === navigationOptions[1] ? navigationWithBreadcrumbs : ``}
-      <dds-leadspace-heading>${ifDefined(title)}</dds-leadspace-heading>
+      <c4d-leadspace-heading type-style="${typeStyle}" highlight=${highlight}
+        >${ifDefined(title)}</c4d-leadspace-heading
+      >
       ${ifDefined(copy)}
-      <dds-button-group slot="action">
+      <c4d-button-group slot="action">
         ${buttons.map((elem) => {
           return html`
-            <dds-button-group-item
+            <c4d-button-group-item
+              cta-type="local"
               aria-label="${elem.label}"
               href="${elem.href}"
-              >${elem.copy}${elem.renderIcon}</dds-button-group-item
+              >${elem.copy}</c4d-button-group-item
             >
           `;
         })}
-      </dds-button-group>
-      <dds-background-media slot="image" opacity="100">
-        <dds-video-player-container
-          video-id="1_9h94wo6b"
-          background-mode="true"></dds-video-player-container>
-      </dds-background-media>
-    </dds-leadspace>
+      </c4d-button-group>
+      <c4d-background-media slot="image" opacity="100">
+        <c4d-video-player-container
+          video-id="0_ibuqxqbe"
+          background-mode="true"></c4d-video-player-container>
+      </c4d-background-media>
+    </c4d-leadspace>
   `;
 };
 
@@ -301,25 +334,29 @@ TallWithVideo.story = {
 };
 
 export const Medium = (args) => {
-  const { title, copy, buttons, navElements } = args?.LeadSpace ?? {};
+  const { title, copy, buttons, navElements, highlight, typeStyle } =
+    args?.LeadSpace ?? {};
   return html`
-    <dds-leadspace size="${LEADSPACE_SIZE.MEDIUM}">
+    <c4d-leadspace size="${LEADSPACE_SIZE.MEDIUM}">
       ${navElements === navigationOptions[0] ? navigationWithTagGroup : ``}
       ${navElements === navigationOptions[1] ? navigationWithBreadcrumbs : ``}
-      <dds-leadspace-heading>${ifDefined(title)}</dds-leadspace-heading>
+      <c4d-leadspace-heading type-style="${typeStyle}" highlight=${highlight}
+        >${ifDefined(title)}</c4d-leadspace-heading
+      >
       ${ifDefined(copy)}
-      <dds-button-group slot="action">
+      <c4d-button-group slot="action">
         ${buttons.map((elem) => {
           return html`
-            <dds-button-group-item
+            <c4d-button-group-item
+              cta-type="local"
               aria-label="${elem.label}"
               href="${elem.href}"
-              >${elem.copy}${elem.renderIcon}</dds-button-group-item
+              >${elem.copy}</c4d-button-group-item
             >
           `;
         })}
-      </dds-button-group>
-    </dds-leadspace>
+      </c4d-button-group>
+    </c4d-leadspace>
   `;
 };
 
@@ -332,44 +369,49 @@ export const MediumWithImage = (args) => {
     copy,
     buttons,
     navElements,
+    highlight,
+    typeStyle,
   } = args?.LeadSpace ?? {};
   const image = defaultSrc || leadspaceImg;
   return html`
-    <dds-leadspace
+    <c4d-leadspace
       size="${LEADSPACE_SIZE.MEDIUM}"
       gradient-style-scheme="${ifDefined(gradientStyleScheme)}"
       alt="${ifDefined(alt)}"
       default-src="${ifDefined(defaultSrc)}">
       ${navElements === navigationOptions[0] ? navigationWithTagGroup : ``}
       ${navElements === navigationOptions[1] ? navigationWithBreadcrumbs : ``}
-      <dds-leadspace-heading>${ifDefined(title)}</dds-leadspace-heading>
+      <c4d-leadspace-heading type-style="${typeStyle}" highlight=${highlight}
+        >${ifDefined(title)}</c4d-leadspace-heading
+      >
       ${ifDefined(copy)}
-      <dds-button-group slot="action">
+      <c4d-button-group slot="action">
         ${buttons.map((elem) => {
           return html`
-            <dds-button-group-item
+            <c4d-button-group-item
+              cta-type="local"
               aria-label="${elem.label}"
               href="${elem.href}"
-              >${elem.copy}${elem.renderIcon}</dds-button-group-item
+              >${elem.copy}</c4d-button-group-item
             >
           `;
         })}
-      </dds-button-group>
-      <dds-background-media
+      </c4d-button-group>
+      <c4d-background-media
         slot="image"
         alt="${ifDefined(alt)}"
         default-src="${defaultSrc}"
         opacity="100">
-        <dds-image-item media="(min-width: 1312px)" srcset="${image}">
-        </dds-image-item>
-        <dds-image-item media="(min-width: 672px)" srcset="${image}">
-        </dds-image-item>
-        <dds-image-item media="(min-width: 320px)" srcset="${image}">
-        </dds-image-item>
-        <dds-image-item media="(min-width: 0px)" srcset="${image}">
-        </dds-image-item>
-      </dds-background-media>
-    </dds-leadspace>
+        <c4d-image-item media="(min-width: 1312px)" srcset="${image}">
+        </c4d-image-item>
+        <c4d-image-item media="(min-width: 672px)" srcset="${image}">
+        </c4d-image-item>
+        <c4d-image-item media="(min-width: 320px)" srcset="${image}">
+        </c4d-image-item>
+        <c4d-image-item media="(min-width: 0px)" srcset="${image}">
+        </c4d-image-item>
+      </c4d-background-media>
+    </c4d-leadspace>
   `;
 };
 
@@ -386,34 +428,39 @@ export const MediumWithVideo = (args) => {
     copy,
     buttons,
     navElements,
+    highlight,
+    typeStyle,
   } = args?.LeadSpace ?? {};
   return html`
-    <dds-leadspace
+    <c4d-leadspace
       size="${LEADSPACE_SIZE.MEDIUM}"
       gradient-style-scheme="${ifDefined(gradientStyleScheme)}"
       alt="${ifDefined(alt)}"
       default-src="${ifDefined(defaultSrc)}">
       ${navElements === navigationOptions[0] ? navigationWithTagGroup : ``}
       ${navElements === navigationOptions[1] ? navigationWithBreadcrumbs : ``}
-      <dds-leadspace-heading>${ifDefined(title)}</dds-leadspace-heading>
+      <c4d-leadspace-heading type-style="${typeStyle}" highlight=${highlight}
+        >${ifDefined(title)}</c4d-leadspace-heading
+      >
       ${ifDefined(copy)}
-      <dds-button-group slot="action">
+      <c4d-button-group slot="action">
         ${buttons.map((elem) => {
           return html`
-            <dds-button-group-item
+            <c4d-button-group-item
+              cta-type="local"
               aria-label="${elem.label}"
               href="${elem.href}"
-              >${elem.copy}${elem.renderIcon}</dds-button-group-item
+              >${elem.copy}</c4d-button-group-item
             >
           `;
         })}
-      </dds-button-group>
-      <dds-background-media slot="image" opacity="100">
-        <dds-video-player-container
-          video-id="1_9h94wo6b"
-          background-mode="true"></dds-video-player-container>
-      </dds-background-media>
-    </dds-leadspace>
+      </c4d-button-group>
+      <c4d-background-media slot="image" opacity="100">
+        <c4d-video-player-container
+          video-id="0_ibuqxqbe"
+          background-mode="true"></c4d-video-player-container>
+      </c4d-background-media>
+    </c4d-leadspace>
   `;
 };
 
@@ -422,13 +469,15 @@ MediumWithVideo.story = {
 };
 
 export const Short = (args) => {
-  const { title, navElements } = args?.LeadSpace ?? {};
+  const { title, navElements, highlight, typeStyle } = args?.LeadSpace ?? {};
   return html`
-    <dds-leadspace size="${LEADSPACE_SIZE.SHORT}">
+    <c4d-leadspace size="${LEADSPACE_SIZE.SHORT}">
       ${navElements === navigationOptions[0] ? navigationWithTagGroup : ``}
       ${navElements === navigationOptions[1] ? navigationWithBreadcrumbs : ``}
-      <dds-leadspace-heading>${ifDefined(title)}</dds-leadspace-heading>
-    </dds-leadspace>
+      <c4d-leadspace-heading type-style="${typeStyle}" highlight=${highlight}
+        >${ifDefined(title)}</c4d-leadspace-heading
+      >
+    </c4d-leadspace>
   `;
 };
 
@@ -451,7 +500,7 @@ Short.story = {
       default: {
         LeadSpace: {
           navElements: navigationOptions[2],
-          title: 'Heading can go on two lines max',
+          title: 'Heading can go to two lines max',
         },
       },
     },
@@ -459,33 +508,42 @@ Short.story = {
 };
 
 export const ShortWithImage = (args) => {
-  const { alt, defaultSrc, gradientStyleScheme, title, navElements } =
-    args?.LeadSpace ?? {};
+  const {
+    alt,
+    defaultSrc,
+    gradientStyleScheme,
+    title,
+    navElements,
+    highlight,
+    typeStyle,
+  } = args?.LeadSpace ?? {};
   const image = defaultSrc || leadspaceImg;
   return html`
-    <dds-leadspace
+    <c4d-leadspace
       size="${LEADSPACE_SIZE.SHORT}"
       gradient-style-scheme="${ifDefined(gradientStyleScheme)}"
       alt="${ifDefined(alt)}"
       default-src="${ifDefined(defaultSrc)}">
       ${navElements === navigationOptions[0] ? navigationWithTagGroup : ``}
       ${navElements === navigationOptions[1] ? navigationWithBreadcrumbs : ``}
-      <dds-leadspace-heading>${ifDefined(title)}</dds-leadspace-heading>
-      <dds-background-media
+      <c4d-leadspace-heading type-style="${typeStyle}" highlight=${highlight}
+        >${ifDefined(title)}</c4d-leadspace-heading
+      >
+      <c4d-background-media
         slot="image"
         alt="${ifDefined(alt)}"
         default-src="${defaultSrc}"
         opacity="100">
-        <dds-image-item media="(min-width: 1312px)" srcset="${image}">
-        </dds-image-item>
-        <dds-image-item media="(min-width: 672px)" srcset="${image}">
-        </dds-image-item>
-        <dds-image-item media="(min-width: 320px)" srcset="${image}">
-        </dds-image-item>
-        <dds-image-item media="(min-width: 0px)" srcset="${image}">
-        </dds-image-item>
-      </dds-background-media>
-    </dds-leadspace>
+        <c4d-image-item media="(min-width: 1312px)" srcset="${image}">
+        </c4d-image-item>
+        <c4d-image-item media="(min-width: 672px)" srcset="${image}">
+        </c4d-image-item>
+        <c4d-image-item media="(min-width: 320px)" srcset="${image}">
+        </c4d-image-item>
+        <c4d-image-item media="(min-width: 0px)" srcset="${image}">
+        </c4d-image-item>
+      </c4d-background-media>
+    </c4d-leadspace>
   `;
 };
 
@@ -521,23 +579,32 @@ ShortWithImage.story = {
 };
 
 export const ShortWithVideo = (args) => {
-  const { alt, defaultSrc, gradientStyleScheme, title, navElements } =
-    args?.LeadSpace ?? {};
+  const {
+    alt,
+    defaultSrc,
+    gradientStyleScheme,
+    title,
+    navElements,
+    highlight,
+    typeStyle,
+  } = args?.LeadSpace ?? {};
   return html`
-    <dds-leadspace
+    <c4d-leadspace
       size="${LEADSPACE_SIZE.SHORT}"
       gradient-style-scheme="${ifDefined(gradientStyleScheme)}"
       alt="${ifDefined(alt)}"
       default-src="${ifDefined(defaultSrc)}">
       ${navElements === navigationOptions[0] ? navigationWithTagGroup : ``}
       ${navElements === navigationOptions[1] ? navigationWithBreadcrumbs : ``}
-      <dds-leadspace-heading>${ifDefined(title)}</dds-leadspace-heading>
-      <dds-background-media slot="image" opacity="100">
-        <dds-video-player-container
-          video-id="1_9h94wo6b"
-          background-mode="true"></dds-video-player-container>
-      </dds-background-media>
-    </dds-leadspace>
+      <c4d-leadspace-heading type-style="${typeStyle}" highlight=${highlight}
+        >${ifDefined(title)}</c4d-leadspace-heading
+      >
+      <c4d-background-media slot="image" opacity="100">
+        <c4d-video-player-container
+          video-id="0_ibuqxqbe"
+          background-mode="true"></c4d-video-player-container>
+      </c4d-background-media>
+    </c4d-leadspace>
   `;
 };
 
@@ -548,23 +615,23 @@ ShortWithVideo.story = {
 export const Centered = (args) => {
   const { title, copy, buttons, navElements } = args?.LeadSpace ?? {};
   return html`
-    <dds-leadspace size="${LEADSPACE_SIZE.NONE}" type="centered">
+    <c4d-leadspace size="${LEADSPACE_SIZE.NONE}" type="centered">
       ${navElements === navigationOptions[0] ? navigationWithTagGroup : ``}
       ${navElements === navigationOptions[1] ? navigationWithBreadcrumbs : ``}
-      <dds-leadspace-heading>${ifDefined(title)}</dds-leadspace-heading>
+      <c4d-leadspace-heading>${ifDefined(title)}</c4d-leadspace-heading>
       ${ifDefined(copy)}
-      <dds-button-group slot="action">
+      <c4d-button-group slot="action">
         ${buttons.map((elem) => {
           return html`
-            <dds-button-group-item
+            <c4d-button-group-item
               aria-label="${elem.label}"
               href="${elem.href}"
-              >${elem.copy}${elem.renderIcon}</dds-button-group-item
+              >${elem.copy}${elem.renderIcon}</c4d-button-group-item
             >
           `;
         })}
-      </dds-button-group>
-    </dds-leadspace>
+      </c4d-button-group>
+    </c4d-leadspace>
   `;
 };
 
@@ -573,7 +640,7 @@ export const CenteredWithImage = (args) => {
     args?.LeadSpace ?? {};
   const image = defaultSrc || leadspaceImg;
   return html`
-    <dds-leadspace
+    <c4d-leadspace
       size="${LEADSPACE_SIZE.NONE}"
       ?gradient="${ifDefined(gradient)}"
       alt="${ifDefined(alt)}"
@@ -581,34 +648,34 @@ export const CenteredWithImage = (args) => {
       type="centered">
       ${navElements === navigationOptions[0] ? navigationWithTagGroup : ``}
       ${navElements === navigationOptions[1] ? navigationWithBreadcrumbs : ``}
-      <dds-leadspace-heading>${ifDefined(title)}</dds-leadspace-heading>
+      <c4d-leadspace-heading>${ifDefined(title)}</c4d-leadspace-heading>
       ${ifDefined(copy)}
-      <dds-button-group slot="action">
+      <c4d-button-group slot="action">
         ${buttons.map((elem) => {
           return html`
-            <dds-button-group-item
+            <c4d-button-group-item
               aria-label="${elem.label}"
               href="${elem.href}"
-              >${elem.copy}${elem.renderIcon}</dds-button-group-item
+              >${elem.copy}${elem.renderIcon}</c4d-button-group-item
             >
           `;
         })}
-      </dds-button-group>
-      <dds-background-media
+      </c4d-button-group>
+      <c4d-background-media
         slot="image"
         alt="${ifDefined(alt)}"
         default-src="${defaultSrc}"
         opacity="100">
-        <dds-image-item media="(min-width: 1312px)" srcset="${image}">
-        </dds-image-item>
-        <dds-image-item media="(min-width: 672px)" srcset="${image}">
-        </dds-image-item>
-        <dds-image-item media="(min-width: 320px)" srcset="${image}">
-        </dds-image-item>
-        <dds-image-item media="(min-width: 0px)" srcset="${image}">
-        </dds-image-item>
-      </dds-background-media>
-    </dds-leadspace>
+        <c4d-image-item media="(min-width: 1312px)" srcset="${image}">
+        </c4d-image-item>
+        <c4d-image-item media="(min-width: 672px)" srcset="${image}">
+        </c4d-image-item>
+        <c4d-image-item media="(min-width: 320px)" srcset="${image}">
+        </c4d-image-item>
+        <c4d-image-item media="(min-width: 0px)" srcset="${image}">
+        </c4d-image-item>
+      </c4d-background-media>
+    </c4d-leadspace>
   `;
 };
 
@@ -620,7 +687,7 @@ export const CenteredWithVideo = (args) => {
   const { alt, defaultSrc, gradient, title, copy, buttons, navElements } =
     args?.LeadSpace ?? {};
   return html`
-    <dds-leadspace
+    <c4d-leadspace
       size="${LEADSPACE_SIZE.NONE}"
       ?gradient="${ifDefined(gradient)}"
       alt="${ifDefined(alt)}"
@@ -628,25 +695,25 @@ export const CenteredWithVideo = (args) => {
       type="centered">
       ${navElements === navigationOptions[0] ? navigationWithTagGroup : ``}
       ${navElements === navigationOptions[1] ? navigationWithBreadcrumbs : ``}
-      <dds-leadspace-heading>${ifDefined(title)}</dds-leadspace-heading>
+      <c4d-leadspace-heading>${ifDefined(title)}</c4d-leadspace-heading>
       ${ifDefined(copy)}
-      <dds-button-group slot="action">
+      <c4d-button-group slot="action">
         ${buttons.map((elem) => {
           return html`
-            <dds-button-group-item
+            <c4d-button-group-item
               aria-label="${elem.label}"
               href="${elem.href}"
-              >${elem.copy}${elem.renderIcon}</dds-button-group-item
+              >${elem.copy}${elem.renderIcon}</c4d-button-group-item
             >
           `;
         })}
-      </dds-button-group>
-      <dds-background-media slot="image" opacity="100">
-        <dds-video-player-container
-          video-id="1_9h94wo6b"
-          background-mode="true"></dds-video-player-container>
-      </dds-background-media>
-    </dds-leadspace>
+      </c4d-button-group>
+      <c4d-background-media slot="image" opacity="100">
+        <c4d-video-player-container
+          video-id="0_ibuqxqbe"
+          background-mode="true"></c4d-video-player-container>
+      </c4d-background-media>
+    </c4d-leadspace>
   `;
 };
 
@@ -694,7 +761,7 @@ export default {
           navigationOptions,
           navigationOptions[2]
         ),
-        title: text('title (title):', 'Heading can go on two lines max'),
+        title: text('title (title):', 'Heading can go to two lines max'),
         copy: text(
           'copy (copy):',
           'Use this area for a short line of copy to support the title'
@@ -707,16 +774,21 @@ export default {
             0;
           return {
             href: textNullable(`Link ${i + 1}`, `https://example.com`),
-            copy: text(`Button ${i + 1}`, `Button ${i + 1}`),
+            copy: text(
+              `Button ${i + 1}`,
+              `${i % 2 == 0 ? 'Primary action' : 'Secondary Action'}`
+            ),
             renderIcon: iconMap[icon],
             label: getAriaLabel(icon),
           };
         }),
+        highlight: text('Highlight:', ''),
         gradientStyleScheme: select(
           'Gradient (gradient-style-scheme)',
           gradientOptions,
           'with-gradient'
         ),
+        typeStyle: select('Type style', typeStyleOptions, 'display-01'),
         alt: text('Image alt text (alt):', 'Image alt text'),
         defaultSrc: text('Default image (defaultSrc):', leadspaceImg),
       }),
@@ -725,18 +797,18 @@ export default {
       default: {
         LeadSpace: {
           navElements: navigationOptions[2],
-          title: 'Heading can go on two lines max',
+          title: 'Heading can go to two lines max',
           copy: 'Use this area for a short line of copy to support the title',
           buttons: [
             {
               href: 'https://example.com',
-              copy: 'Button 1',
+              copy: 'Primary action',
               renderIcon: iconOptions['Arrow Right'],
               label: '',
             },
             {
               href: 'https://example.com',
-              copy: 'Button 2',
+              copy: 'Secondary action',
               renderIcon: iconOptions['Arrow Right'],
               label: '',
             },

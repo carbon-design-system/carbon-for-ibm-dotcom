@@ -12,15 +12,15 @@ import ArrowRight20 from '@carbon/icons-react/es/arrow--right/20.js';
 // Below path will be there when an application installs `@carbon/ibmdotcom-web-components` package.
 // In our dev env, we auto-generate the file and re-map below path to to point to the generated file.
 // @ts-ignore
-import DDSCard from '@carbon/ibmdotcom-web-components/es/components-react/card/card';
+import C4DCard from '@carbon/ibmdotcom-web-components/es/components-react/card/card';
 // @ts-ignore
-import DDSCardHeading from '@carbon/ibmdotcom-web-components/es/components-react/card/card-heading';
+import C4DCardHeading from '@carbon/ibmdotcom-web-components/es/components-react/card/card-heading';
 // @ts-ignore
-import DDSCardFooter from '@carbon/ibmdotcom-web-components/es/components-react/card/card-footer';
+import C4DCardFooter from '@carbon/ibmdotcom-web-components/es/components-react/card/card-footer';
 // @ts-ignore
-import DDSCarousel from '@carbon/ibmdotcom-web-components/es/components-react/carousel/carousel';
+import C4DCarousel from '@carbon/ibmdotcom-web-components/es/components-react/carousel/carousel';
 // @ts-ignore
-import DDSImage from '@carbon/ibmdotcom-web-components/es/components-react/image/image';
+import C4DImage from '@carbon/ibmdotcom-web-components/es/components-react/image/image';
 
 import imgLg2x1 from '../../../../../storybook-images/assets/720/fpo--2x1--720x360--005.jpg';
 
@@ -41,41 +41,41 @@ const Card = ({
   href = hrefDefault,
   image = undefined,
 } = {}) => (
-  <DDSCard href={href}>
-    <DDSCardHeading>{heading}</DDSCardHeading>
+  <C4DCard href={href}>
+    <C4DCardHeading>{heading}</C4DCardHeading>
     <p>{copy}</p>
     {image ? (
-      <DDSImage slot="image" alt="example image" defaultSrc={image} />
+      <C4DImage slot="image" alt="example image" defaultSrc={image} />
     ) : (
       ''
     )}
-    <DDSCardFooter>
+    <C4DCardFooter>
       <ArrowRight20 slot="icon" />
-    </DDSCardFooter>
-  </DDSCard>
+    </C4DCardFooter>
+  </C4DCard>
 );
 
 export const Default = () => {
   return (
-    <DDSCarousel>
+    <C4DCarousel>
       <Card />
       <Card copy={copyOdd} />
       <Card />
       <Card copy={copyOdd} />
       <Card />
-    </DDSCarousel>
+    </C4DCarousel>
   );
 };
 
 export const CardsWithImages = () => {
   return (
-    <DDSCarousel>
+    <C4DCarousel>
       <Card image={imgLg2x1} />
       <Card copy={copyOdd} image={imgLg2x1} />
       <Card image={imgLg2x1} />
       <Card copy={copyOdd} image={imgLg2x1} />
       <Card image={imgLg2x1} />
-    </DDSCarousel>
+    </C4DCarousel>
   );
 };
 

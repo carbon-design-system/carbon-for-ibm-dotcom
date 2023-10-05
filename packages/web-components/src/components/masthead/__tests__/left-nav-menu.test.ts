@@ -14,20 +14,20 @@ import '../left-nav-menu';
 const template = (props?) => {
   const { backButtonText, expanded, title } = props ?? {};
   return html`
-    <dds-left-nav-menu
+    <c4d-left-nav-menu
       back-button-text="${ifDefined(backButtonText)}"
       ?expanded="${expanded}"
       title="${ifDefined(title)}">
-    </dds-left-nav-menu>
+    </c4d-left-nav-menu>
   `;
 };
 
-describe('dds-left-nav-menu', function () {
+describe('c4d-left-nav-menu', function () {
   describe('Misc attributes', function () {
     it('should render with minimum attributes', async function () {
       render(template(), document.body);
       await Promise.resolve();
-      const leftNavMenu = document.body.querySelector('dds-left-nav-menu');
+      const leftNavMenu = document.body.querySelector('c4d-left-nav-menu');
       expect(leftNavMenu).toMatchSnapshot({ mode: 'shadow' });
     });
 
@@ -41,7 +41,7 @@ describe('dds-left-nav-menu', function () {
         document.body
       );
       await Promise.resolve();
-      const leftNavMenu = document.body.querySelector('dds-left-nav-menu');
+      const leftNavMenu = document.body.querySelector('c4d-left-nav-menu');
       expect(leftNavMenu).toMatchSnapshot({ mode: 'shadow' });
     });
   });

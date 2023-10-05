@@ -9,16 +9,16 @@
 
 import React from 'react';
 import { render } from 'react-dom';
-import DDSMastheadContainer from '@carbon/ibmdotcom-web-components/es/components-react/masthead/masthead-container';
+import C4DMastheadContainer from '@carbon/ibmdotcom-web-components/es/components-react/masthead/masthead-container';
 import './index.css';
 
 const App = () => (
   <>
-    <DDSMastheadContainer id="masthead-container"></DDSMastheadContainer>
-    <main className="bx--content dds-ce-demo--ui-shell-content">
-      <div className="bx--grid">
-        <div className="bx--row">
-          <div className="bx--offset-lg-3 bx--col-lg-13">
+    <C4DMastheadContainer id="masthead-container"></C4DMastheadContainer>
+    <main className="cds--content cds-ce-demo--ui-shell-content">
+      <div className="cds--grid">
+        <div className="cds--row">
+          <div className="cds--offset-lg-3 cds--col-lg-13">
             <h2>Purpose and function</h2>
             <p>
               The shell is perhaps the most crucial piece of any UI built with Carbon. It contains the shared navigation framework
@@ -98,4 +98,4 @@ const l1Data = {
   ],
 };
 
-document.querySelector('dds-masthead-container').l1Data = l1Data;
+document.querySelector('cds-masthead-container').l1Data = l1Data;

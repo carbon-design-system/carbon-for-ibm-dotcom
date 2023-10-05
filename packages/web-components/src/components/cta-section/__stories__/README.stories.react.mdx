@@ -1,4 +1,9 @@
-import { Preview, Props, Description, Story } from '@storybook/addon-docs/blocks';
+import {
+  Preview,
+  Props,
+  Description,
+  Story,
+} from '@storybook/addon-docs/blocks';
 import contributing from '../../../../../../docs/contributing-license.md';
 import { PropTypesRef } from '@carbon/ibmdotcom-web-components/es/components-react/cta-section/cta-section';
 
@@ -17,79 +22,172 @@ Here's a quick example to get you started.
 ### JS
 
 ```javascript
-import DDSCTASection from '@carbon/ibmdotcom-web-components/es/components-react/cta-section/cta-section.js';
-import DDSContentSectionHeading from '@carbon/ibmdotcom-web-components/es/components-react/content-section/content-section-heading';
-import DDSCTABlock from '@carbon/ibmdotcom-web-components/es/components-react/cta-block/cta-block';
-import DDSContentBlockHeading from '@carbon/ibmdotcom-web-components/es/components-react/content-block/content-block-heading';
-import DDSContentBlockCopy from '@carbon/ibmdotcom-web-components/es/components-react/content-block/content-block-copy';
-import DDSTextCTA from '@carbon/ibmdotcom-web-components/es/components-react/cta/text-cta';
-import DDSCTABlockItem from '@carbon/ibmdotcom-web-components/es/components-react/cta-block/cta-block-item';
-import DDSCTABlockItemRow from '@carbon/ibmdotcom-web-components/es/components-react/cta-block/cta-block-item-row';
+import C4DCTASection from '@carbon/ibmdotcom-web-components/es/components-react/cta-section/cta-section.js';
+import C4DContentSectionHeading from '@carbon/ibmdotcom-web-components/es/components-react/content-section/content-section-heading';
+import C4DCTABlock from '@carbon/ibmdotcom-web-components/es/components-react/cta-block/cta-block';
+import C4DContentBlockHeading from '@carbon/ibmdotcom-web-components/es/components-react/content-block/content-block-heading';
+import C4DContentBlockCopy from '@carbon/ibmdotcom-web-components/es/components-react/content-block/content-block-copy';
+import C4DTextCTA from '@carbon/ibmdotcom-web-components/es/components-react/cta/text-cta';
+import C4DCTABlockItem from '@carbon/ibmdotcom-web-components/es/components-react/cta-block/cta-block-item';
+import C4DCTABlockItemRow from '@carbon/ibmdotcom-web-components/es/components-react/cta-block/cta-block-item-row';
 import Desktop from '@carbon/pictograms-react/es/desktop/index.js';
-import DDSContentItemHeading from '@carbon/ibmdotcom-web-components/es/components-react/content-item/content-item-heading';
-import DDSContentItemCopy from '@carbon/ibmdotcom-web-components/es/components-react/content-item/content-item-copy';
-import DDSVideoPlayerContainer from '@carbon/ibmdotcom-web-components/es/components-react/video-player/video-player-container';
+import C4DContentItemHeading from '@carbon/ibmdotcom-web-components/es/components-react/content-item/content-item-heading';
+import C4DContentItemCopy from '@carbon/ibmdotcom-web-components/es/components-react/content-item/content-item-copy';
+import C4DVideoPlayerContainer from '@carbon/ibmdotcom-web-components/es/components-react/video-player/video-player-container';
 
 function App() {
   return (
-    <DDSCTASection>
-      <DDSContentSectionHeading>Related products and services</DDSContentSectionHeading>
-      <DDSCTABlock>
-        <DDSContentBlockHeading>DDS Content Block Heading</DDSContentBlockHeading>
-        <DDSContentBlockCopy>DDS Content Block Copy</DDSContentBlockCopy>
-        <DDSTextCTA slot="action" cta-type="local" icon-placement="right" href="https://www.example.com">Browse tutorials</DDSTextCTA>
-        <DDSCTABlockItemRow _noBorder>
-          <DDSCTABlockItem>
+    <C4DCTASection>
+      <C4DContentSectionHeading>
+        Related products and services
+      </C4DContentSectionHeading>
+      <C4DCTABlock>
+        <C4DContentBlockHeading>
+          C4D Content Block Heading
+        </C4DContentBlockHeading>
+        <C4DContentBlockCopy>C4D Content Block Copy</C4DContentBlockCopy>
+        <C4DTextCTA
+          slot="action"
+          cta-type="local"
+          icon-placement="right"
+          href="https://www.example.com">
+          Browse tutorials
+        </C4DTextCTA>
+        <C4DCTABlockItemRow _noBorder>
+          <C4DCTABlockItem>
             <span slot="statistics">10%</span>
-            <DDSContentItemHeading>Get connected</DDSContentItemHeading>
-            <DDSContentItemCopy>IBM DevOps partners have a wide range of expertise. Find one to build that right solution for you.</DDSContentItemCopy>
-            <DDSTextCTA slot="footer" cta-type="local" icon-placement="right" href="https://www.example.com">Find a partner</DDSTextCTA>
-          </DDSCTABlockItem>
-          <DDSCTABlockItem>
+            <C4DContentItemHeading>Get connected</C4DContentItemHeading>
+            <C4DContentItemCopy>
+              IBM DevOps partners have a wide range of expertise. Find one to
+              build that right solution for you.
+            </C4DContentItemCopy>
+            <C4DTextCTA
+              slot="footer"
+              cta-type="local"
+              icon-placement="right"
+              href="https://www.example.com">
+              Find a partner
+            </C4DTextCTA>
+          </C4DCTABlockItem>
+          <C4DCTABlockItem>
             <span slot="statistics">11%</span>
-            <DDSContentItemHeading>Learn how</DDSContentItemHeading>
-            <DDSContentItemCopy>Dig into more self-directed learning about DevOps methodologies.</DDSContentItemCopy>
-            <DDSTextCTA slot="footer" cta-type="local" icon-placement="right" href="https://www.example.com">Find a partner</DDSTextCTA>
-          </DDSCTABlockItem>
-          <DDSCTABlockItem>
+            <C4DContentItemHeading>Learn how</C4DContentItemHeading>
+            <C4DContentItemCopy>
+              Dig into more self-directed learning about DevOps methodologies.
+            </C4DContentItemCopy>
+            <C4DTextCTA
+              slot="footer"
+              cta-type="local"
+              icon-placement="right"
+              href="https://www.example.com">
+              Find a partner
+            </C4DTextCTA>
+          </C4DCTABlockItem>
+          <C4DCTABlockItem>
             <span slot="statistics">12%</span>
-            <DDSContentItemHeading>Learn how</DDSContentItemHeading>
-            <DDSContentItemCopy>Dig into more self-directed learning about DevOps methodologies.</DDSContentItemCopy>
-            <DDSTextCTA slot="footer" cta-type="local" icon-placement="right" href="https://www.example.com">Browse tutorials</DDSTextCTA>
-            <DDSTextCTA slot="footer" cta-type="local" icon-placement="right" href="https://www.example.com">Brows tutorials</DDSTextCTA>
-          </DDSCTABlockItem>
-        </DDSCTABlockItemRow>
-        <DDSCTABlockItemRow>
-          <DDSCTABlockItem>
-            <Desktop slot="media" width="48" height="48" viewBox="0 0 48 48"/>
-            <DDSContentItemHeading>Get connected</DDSContentItemHeading>
-            <DDSContentItemCopy>IBM DevOps partners have a wide range of expertise. Find one to build that right solution for you.</DDSContentItemCopy>
-            <DDSTextCTA slot="footer" cta-type="local" icon-placement="right" href="https://www.example.com">Find a partner</DDSTextCTA>
-          </DDSCTABlockItem>
-          <DDSCTABlockItem>
-            <Desktop slot="media" width="48" height="48" viewBox="0 0 48 48"/>
-            <DDSContentItemHeading>Learn how</DDSContentItemHeading>
-            <DDSContentItemCopy>Dig into more self-directed learning about DevOps methodologies.</DDSContentItemCopy>
-            <DDSTextCTA slot="footer" cta-type="local" icon-placement="right" href="https://www.example.com">Browse tutorials</DDSTextCTA>
-          </DDSCTABlockItem>
-        </DDSCTABlockItemRow>
-        <DDSCTABlockItemRow _noBorder>
-          <DDSCTABlockItem>
-            <DDSVideoPlayerContainer video-id="1_9h94wo6b" aspect-ratio="4x3" playing-mode="lightbox" slot="media" hide-caption/>
-            <DDSContentItemHeading>Get connected</DDSContentItemHeading>
-            <DDSContentItemCopy>IBM DevOps partners have a wide range of expertise. Find one to build that right solution for you.</DDSContentItemCopy>
-            <DDSTextCTA slot="footer" cta-type="local" icon-placement="right" href="https://www.example.com">Find a partner</DDSTextCTA>
-          </DDSCTABlockItem>
-          <DDSCTABlockItem>
-            <DDSVideoPlayerContainer video-id="1_9h94wo6b" aspect-ratio="4x3" playing-mode="lightbox" slot="media" hide-caption/>
-            <DDSContentItemHeading>Learn how</DDSContentItemHeading>
-            <DDSContentItemCopy>Dig into more self-directed learning about DevOps methodologies.</DDSContentItemCopy>
-            <DDSTextCTA slot="footer" cta-type="local" icon-placement="right" href="https://www.example.com">Browse tutorials</DDSTextCTA>
-            <DDSTextCTA slot="footer" cta-type="local" icon-placement="right" href="https://www.example.com">Browse tutorials</DDSTextCTA>
-          </DDSCTABlockItem>
-        </DDSCTABlockItemRow>
-      </DDSCTABlock>
-    </DDSCTASection>
+            <C4DContentItemHeading>Learn how</C4DContentItemHeading>
+            <C4DContentItemCopy>
+              Dig into more self-directed learning about DevOps methodologies.
+            </C4DContentItemCopy>
+            <C4DTextCTA
+              slot="footer"
+              cta-type="local"
+              icon-placement="right"
+              href="https://www.example.com">
+              Browse tutorials
+            </C4DTextCTA>
+            <C4DTextCTA
+              slot="footer"
+              cta-type="local"
+              icon-placement="right"
+              href="https://www.example.com">
+              Brows tutorials
+            </C4DTextCTA>
+          </C4DCTABlockItem>
+        </C4DCTABlockItemRow>
+        <C4DCTABlockItemRow>
+          <C4DCTABlockItem>
+            <Desktop slot="media" width="48" height="48" viewBox="0 0 48 48" />
+            <C4DContentItemHeading>Get connected</C4DContentItemHeading>
+            <C4DContentItemCopy>
+              IBM DevOps partners have a wide range of expertise. Find one to
+              build that right solution for you.
+            </C4DContentItemCopy>
+            <C4DTextCTA
+              slot="footer"
+              cta-type="local"
+              icon-placement="right"
+              href="https://www.example.com">
+              Find a partner
+            </C4DTextCTA>
+          </C4DCTABlockItem>
+          <C4DCTABlockItem>
+            <Desktop slot="media" width="48" height="48" viewBox="0 0 48 48" />
+            <C4DContentItemHeading>Learn how</C4DContentItemHeading>
+            <C4DContentItemCopy>
+              Dig into more self-directed learning about DevOps methodologies.
+            </C4DContentItemCopy>
+            <C4DTextCTA
+              slot="footer"
+              cta-type="local"
+              icon-placement="right"
+              href="https://www.example.com">
+              Browse tutorials
+            </C4DTextCTA>
+          </C4DCTABlockItem>
+        </C4DCTABlockItemRow>
+        <C4DCTABlockItemRow _noBorder>
+          <C4DCTABlockItem>
+            <C4DVideoPlayerContainer
+              video-id="0_ibuqxqbe"
+              aspect-ratio="4x3"
+              playing-mode="lightbox"
+              slot="media"
+              hide-caption
+            />
+            <C4DContentItemHeading>Get connected</C4DContentItemHeading>
+            <C4DContentItemCopy>
+              IBM DevOps partners have a wide range of expertise. Find one to
+              build that right solution for you.
+            </C4DContentItemCopy>
+            <C4DTextCTA
+              slot="footer"
+              cta-type="local"
+              icon-placement="right"
+              href="https://www.example.com">
+              Find a partner
+            </C4DTextCTA>
+          </C4DCTABlockItem>
+          <C4DCTABlockItem>
+            <C4DVideoPlayerContainer
+              video-id="0_ibuqxqbe"
+              aspect-ratio="4x3"
+              playing-mode="lightbox"
+              slot="media"
+              hide-caption
+            />
+            <C4DContentItemHeading>Learn how</C4DContentItemHeading>
+            <C4DContentItemCopy>
+              Dig into more self-directed learning about DevOps methodologies.
+            </C4DContentItemCopy>
+            <C4DTextCTA
+              slot="footer"
+              cta-type="local"
+              icon-placement="right"
+              href="https://www.example.com">
+              Browse tutorials
+            </C4DTextCTA>
+            <C4DTextCTA
+              slot="footer"
+              cta-type="local"
+              icon-placement="right"
+              href="https://www.example.com">
+              Browse tutorials
+            </C4DTextCTA>
+          </C4DCTABlockItem>
+        </C4DCTABlockItemRow>
+      </C4DCTABlock>
+    </C4DCTASection>
   );
 }
 ```
@@ -100,10 +198,12 @@ function App() {
 
 ## Stable selectors
 
-See [our README](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/tree/main/packages/web-components#stable-selectors-for-analytics-and-integratione2e-testing-in-web-components) to see how Web Components selector and `data-autoid` should be used.
+See
+[our README](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/tree/main/packages/web-components#stable-selectors-for-analytics-and-integratione2e-testing-in-web-components)
+to see how Web Components selector and `data-autoid` should be used.
 
 | Web Components selector | Compatibility selector | Description |
 | ----------------------- | ---------------------- | ----------- |
-| `<dds-cta-section>`        | N/A                    | Component   |
+| `<cds-cta-section>`     | N/A                    | Component   |
 
 <Description markdown={contributing} />

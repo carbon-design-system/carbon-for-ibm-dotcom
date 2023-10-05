@@ -13,18 +13,18 @@ import parseAspectRatio from '@carbon/ibmdotcom-utilities/es/utilities/parseAspe
 import settings from '../../internal/vendor/@carbon/ibmdotcom-utilities/utilities/settings/settings';
 import StableSelectorMixin from '../../globals/mixins/stable-selector';
 import styles from './cta-section.scss';
-import DDSContentSection from '../content-section/content-section';
+import C4DContentSection from '../content-section/content-section';
 import { carbonElement as customElement } from '../../internal/vendor/@carbon/web-components/globals/decorators/carbon-element';
 
-const { stablePrefix: ddsPrefix } = settings;
+const { stablePrefix: c4dPrefix } = settings;
 
 /**
  * The CTA SECTION pattern
  *
- * @element dds-cta-section
+ * @element c4d-cta-section
  */
-@customElement(`${ddsPrefix}-cta-section`)
-class DDSCTASection extends StableSelectorMixin(DDSContentSection) {
+@customElement(`${c4dPrefix}-cta-section`)
+class C4DCTASection extends StableSelectorMixin(C4DContentSection) {
   @property({ attribute: 'logo-ratio' })
   logoRatio?;
 
@@ -41,7 +41,7 @@ class DDSCTASection extends StableSelectorMixin(DDSContentSection) {
   }
 
   static get stableSelector() {
-    return `${ddsPrefix}--cta-section`;
+    return `${c4dPrefix}--cta-section`;
   }
 
   static get styles() {
@@ -57,4 +57,4 @@ console.warn(
 );
 
 /* @__GENERATE_REACT_CUSTOM_ELEMENT_TYPE__ */
-export default DDSCTASection;
+export default C4DCTASection;

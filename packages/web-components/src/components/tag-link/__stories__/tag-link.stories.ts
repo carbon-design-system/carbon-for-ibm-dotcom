@@ -16,7 +16,7 @@ import textNullable from '../../../../.storybook/knob-text-nullable';
 export const Default = (args) => {
   const { copy, href } = args?.TagLink ?? {};
   return html`
-    <dds-tag-link href=${ifDefined(href || undefined)}> ${copy} </dds-tag-link>
+    <c4d-tag-link href=${ifDefined(href || undefined)}> ${copy} </c4d-tag-link>
   `;
 };
 

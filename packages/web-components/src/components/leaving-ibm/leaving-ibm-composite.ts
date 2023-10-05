@@ -29,15 +29,15 @@ import '../../internal/vendor/@carbon/web-components/components/button/button.js
 import styles from './leaving-ibm.scss';
 import { carbonElement as customElement } from '../../internal/vendor/@carbon/web-components/globals/decorators/carbon-element.js';
 
-const { stablePrefix: ddsPrefix } = settings;
+const { stablePrefix: c4dPrefix } = settings;
 
 /**
  * Component that renders leaving IBM modal component.
  *
- * @element dds-leaving-ibm-composite
+ * @element c4d-leaving-ibm-composite
  */
-@customElement(`${ddsPrefix}-leaving-ibm-composite`)
-class DDSLeavingIbmComposite extends HostListenerMixin(
+@customElement(`${c4dPrefix}-leaving-ibm-composite`)
+class C4DLeavingIbmComposite extends HostListenerMixin(
   ModalRenderMixin(LitElement)
 ) {
   /**
@@ -91,7 +91,7 @@ class DDSLeavingIbmComposite extends HostListenerMixin(
   @HostListener('document:click')
   protected _handleDocumentClick = (event: PointerEvent): void => {
     const { attributeLeaving } = this
-      .constructor as typeof DDSLeavingIbmComposite;
+      .constructor as typeof C4DLeavingIbmComposite;
     if (!this.open) {
       const { target } = event;
       const linkTarget =
@@ -141,28 +141,28 @@ class DDSLeavingIbmComposite extends HostListenerMixin(
   renderModal() {
     const { open, leavingIbmCopy, leavingIbmButtonLabel, href } = this;
     return html`
-      <dds-leaving-ibm-modal ?open="${open}">
+      <c4d-leaving-ibm-modal ?open="${open}">
         <cds-modal-header>
           <cds-modal-close-button></cds-modal-close-button>
-          <dds-leaving-ibm-modal-heading
-            >${leavingIbmCopy?.LEAVING001}</dds-leaving-ibm-modal-heading
+          <c4d-leaving-ibm-modal-heading
+            >${leavingIbmCopy?.LEAVING001}</c4d-leaving-ibm-modal-heading
           >
         </cds-modal-header>
-        <dds-leaving-ibm-modal-body href="${href}">
+        <c4d-leaving-ibm-modal-body href="${href}">
           <p>${leavingIbmCopy?.LEAVING002}</p>
-          <dds-leaving-ibm-modal-supplemental
-            >${leavingIbmCopy?.LEAVING003}</dds-leaving-ibm-modal-supplemental
+          <c4d-leaving-ibm-modal-supplemental
+            >${leavingIbmCopy?.LEAVING003}</c4d-leaving-ibm-modal-supplemental
           >
-        </dds-leaving-ibm-modal-body>
+        </c4d-leaving-ibm-modal-body>
         <cds-modal-footer>
-          <cds-btn
-            data-autoid="${ddsPrefix}--leaving-ibm-cta"
+          <cds-button
+            data-autoid="${c4dPrefix}--leaving-ibm-cta"
             href="${href}"
             kind="primary"
-            >${leavingIbmButtonLabel}</cds-btn
+            >${leavingIbmButtonLabel}</cds-button
           >
         </cds-modal-footer>
-      </dds-leaving-ibm-modal>
+      </c4d-leaving-ibm-modal>
     `;
   }
 
@@ -177,4 +177,4 @@ class DDSLeavingIbmComposite extends HostListenerMixin(
 }
 
 /* @__GENERATE_REACT_CUSTOM_ELEMENT_TYPE__ */
-export default DDSLeavingIbmComposite;
+export default C4DLeavingIbmComposite;

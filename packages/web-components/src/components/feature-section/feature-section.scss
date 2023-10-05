@@ -7,23 +7,4 @@
  * LICENSE file in the root directory of this source tree.
  */
 
-@use '@carbon/styles/scss/breakpoint' as *;
-@use '@carbon/styles/scss/config' as *;
-@use '@carbon/ibmdotcom-styles/scss/globals/vars' as *;
-@use '@carbon/ibmdotcom-styles/scss/components/card';
 @use '@carbon/ibmdotcom-styles/scss/components/feature-section';
-
-:host(#{$dds-prefix}-feature-section) {
-  display: block;
-  outline: none;
-
-  &[media-alignment='left'] {
-    .#{$prefix}--card-link,
-    ::slotted(#{$dds-prefix}-feature-section-card-link) {
-      @include breakpoint-down(lg) {
-        position: relative;
-        right: 0;
-      }
-    }
-  }
-}

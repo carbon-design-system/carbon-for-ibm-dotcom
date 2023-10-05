@@ -8,9 +8,3 @@
  */
 
 @use '@carbon/ibmdotcom-styles/scss/components/card-in-card';
-@use '../card/card';
-@use '@carbon/ibmdotcom-styles/scss/globals/vars' as *;
-
-:host(#{$dds-prefix}-card-in-card) {
-  display: block;
-}

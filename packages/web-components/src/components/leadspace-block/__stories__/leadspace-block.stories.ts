@@ -23,74 +23,74 @@ import readme from './README.stories.mdx';
 import styles from './leadspace-block.stories.scss';
 
 const image = html`
-  <dds-image
+  <c4d-image
     alt="Image alt text"
     default-src="${imgLg16x9}"
     heading="Lorem ipsum dolor sit amet, consectetur adipiscing elit.">
-    <dds-image-item media="(min-width: 672px)" srcset="${imgLg16x9}">
-    </dds-image-item>
-    <dds-image-item media="(min-width: 400px)" srcset="${imgMd16x9}">
-    </dds-image-item>
-    <dds-image-item media="(min-width: 320px)" srcset="${imgSm16x9}">
-    </dds-image-item>
-  </dds-image>
+    <c4d-image-item media="(min-width: 672px)" srcset="${imgLg16x9}">
+    </c4d-image-item>
+    <c4d-image-item media="(min-width: 400px)" srcset="${imgMd16x9}">
+    </c4d-image-item>
+    <c4d-image-item media="(min-width: 320px)" srcset="${imgSm16x9}">
+    </c4d-image-item>
+  </c4d-image>
 `;
 
 const linkList = html`
-  <dds-link-list type="end">
-    <dds-link-list-heading>Featured products</dds-link-list-heading>
-    <dds-link-list-item href="https://example.com">
+  <c4d-link-list type="end">
+    <c4d-link-list-heading>Featured products</c4d-link-list-heading>
+    <c4d-link-list-item href="https://example.com">
       IBM Cloud Continuous Delivery ${ArrowRight20({ slot: 'icon' })}
-    </dds-link-list-item>
-    <dds-link-list-item href="https://example.com">
+    </c4d-link-list-item>
+    <c4d-link-list-item href="https://example.com">
       UrbanCode ${ArrowRight20({ slot: 'icon' })}
-    </dds-link-list-item>
-    <dds-link-list-item href="https://example.com">
+    </c4d-link-list-item>
+    <c4d-link-list-item href="https://example.com">
       View all products ${Download20({ slot: 'icon' })}
-    </dds-link-list-item>
-  </dds-link-list>
+    </c4d-link-list-item>
+  </c4d-link-list>
 `;
 
 const buttonCTA = html`
-  <dds-leadspace-block-cta>
-    <dds-button-group-item href="www.ibm.com"
-      >Contact sales ${ArrowRight20({ slot: 'icon' })}</dds-button-group-item
+  <c4d-leadspace-block-cta>
+    <c4d-button-group-item href="www.ibm.com"
+      >Contact sales ${ArrowRight20({ slot: 'icon' })}</c4d-button-group-item
     >
-  </dds-leadspace-block-cta>
+  </c4d-leadspace-block-cta>
 `;
 
 export const Default = (args) => {
   const { title, heading, copy } = args?.LeadSpaceBlock ?? {};
   return html`
-    <dds-leadspace-block>
-      <dds-leadspace-block-heading>${title}</dds-leadspace-block-heading>
-      <dds-leadspace-block-content>
-        <dds-content-block-heading>${heading}</dds-content-block-heading>
-        <dds-content-block-copy>${copy}</dds-content-block-copy>
-        <dds-leadspace-block-media slot="media"
-          >${image}</dds-leadspace-block-media
+    <c4d-leadspace-block>
+      <c4d-leadspace-block-heading>${title}</c4d-leadspace-block-heading>
+      <c4d-leadspace-block-content>
+        <c4d-content-block-heading>${heading}</c4d-content-block-heading>
+        <c4d-content-block-copy>${copy}</c4d-content-block-copy>
+        <c4d-leadspace-block-media slot="media"
+          >${image}</c4d-leadspace-block-media
         >
         ${linkList} ${buttonCTA}
-      </dds-leadspace-block-content>
-    </dds-leadspace-block>
+      </c4d-leadspace-block-content>
+    </c4d-leadspace-block>
   `;
 };
 
 export const WithVideo = (args) => {
   const { title, heading, copy } = args?.LeadSpaceBlock ?? {};
   return html`
-    <dds-leadspace-block>
-      <dds-leadspace-block-heading>${title}</dds-leadspace-block-heading>
-      <dds-leadspace-block-content>
-        <dds-content-block-heading>${heading}</dds-content-block-heading>
-        <dds-content-block-copy>${copy}</dds-content-block-copy>
-        <dds-leadspace-block-media slot="media"
-          ><dds-video-player-container
-            video-id="1_9h94wo6b"></dds-video-player-container
-        ></dds-leadspace-block-media>
+    <c4d-leadspace-block>
+      <c4d-leadspace-block-heading>${title}</c4d-leadspace-block-heading>
+      <c4d-leadspace-block-content>
+        <c4d-content-block-heading>${heading}</c4d-content-block-heading>
+        <c4d-content-block-copy>${copy}</c4d-content-block-copy>
+        <c4d-leadspace-block-media slot="media"
+          ><c4d-video-player-container
+            video-id="0_ibuqxqbe"></c4d-video-player-container
+        ></c4d-leadspace-block-media>
         ${linkList} ${buttonCTA}
-      </dds-leadspace-block-content>
-    </dds-leadspace-block>
+      </c4d-leadspace-block-content>
+    </c4d-leadspace-block>
   `;
 };
 

@@ -19,10 +19,10 @@ export const Default = () => {
     <style>
       ${styles}
     </style>
-    <dds-dotcom-shell-container>
+    <c4d-dotcom-shell-container>
       ${StoryContent()}
-      <dds-back-to-top></dds-back-to-top>
-    </dds-dotcom-shell-container>
+      <c4d-back-to-top></c4d-back-to-top>
+    </c4d-dotcom-shell-container>
   `;
 };
 

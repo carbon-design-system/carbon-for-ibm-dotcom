@@ -6,6 +6,7 @@
 //
 
 @forward 'callout';
+
 @use 'callout';
 
 @include callout.callout;

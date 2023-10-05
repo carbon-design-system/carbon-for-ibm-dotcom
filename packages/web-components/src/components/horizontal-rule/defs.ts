@@ -52,19 +52,14 @@ export enum HR_SIZE {
  */
 export enum HR_CONTRAST {
   /**
-   * medium-contrast of hr
+   * subtle contrast of hr
    */
-  MEDIUM_CONTRAST = 'medium-contrast',
+  SUBTLE = 'subtle',
 
   /**
-   * low-contrast of hr
+   * strong default contrast of hr
    */
-  LOW_CONTRAST = 'low-contrast',
-
-  /**
-   * high-contrast of hr
-   */
-  HIGH_CONTRAST = 'high-contrast',
+  STRONG = 'strong',
 }
 
 /**

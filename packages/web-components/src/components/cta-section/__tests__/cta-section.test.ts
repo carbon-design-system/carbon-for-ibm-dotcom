@@ -10,11 +10,11 @@
 import { render } from 'lit/html.js';
 import { Simple } from '../__stories__/cta-section.stories';
 
-describe('dds-cta-block', function () {
+describe('c4d-cta-block', function () {
   it('Renders Default', async function () {
     render(Simple({ parameters: {} }), document.body);
     await Promise.resolve();
-    expect(document.body.querySelector('dds-cta-block')).toMatchSnapshot({
+    expect(document.body.querySelector('c4d-cta-block')).toMatchSnapshot({
       mode: 'shadow',
     });
   });

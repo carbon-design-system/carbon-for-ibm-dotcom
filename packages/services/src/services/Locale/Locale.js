@@ -64,7 +64,7 @@ const _axiosConfig = {
  * @type {string}
  * @private
  */
-const _sessionListKey = 'dds-countrylist';
+const _sessionListKey = 'cds-countrylist';
 
 /**
  * Two hours in milliseconds to compare session timestamp.

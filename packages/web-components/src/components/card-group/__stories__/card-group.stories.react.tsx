@@ -1,7 +1,7 @@
 /**
  * @license
  *
- * Copyright IBM Corp. 2020, 2022
+ * Copyright IBM Corp. 2020, 2023
  *
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
@@ -13,20 +13,20 @@ import React from 'react';
 // Below path will be there when an application installs `@carbon/ibmdotcom-web-components` package.
 // In our dev env, we auto-generate the file and re-map below path to to point to the generated file.
 // @ts-ignore
-import DDSCardGroup from '@carbon/ibmdotcom-web-components/es/components-react/card-group/card-group';
-import DDSCardGroupItem from '@carbon/ibmdotcom-web-components/es/components-react/card-group/card-group-item';
-import DDSImageItem from '@carbon/ibmdotcom-web-components/es/components-react/image/image-item';
-import DDSCardCTAImage from '@carbon/ibmdotcom-web-components/es/components-react/cta/card-cta-image';
-import DDSCardEyebrow from '@carbon/ibmdotcom-web-components/es/components-react/card/card-eyebrow';
-import DDSCardHeading from '@carbon/ibmdotcom-web-components/es/components-react/card/card-heading';
-import DDSCardCTAFooter from '@carbon/ibmdotcom-web-components/es/components-react/cta/card-cta-footer';
-import DDSTagGroup from '@carbon/ibmdotcom-web-components/es/components-react/tag-group/tag-group';
-import DDSCardGroupCardLinkItem from '@carbon/ibmdotcom-web-components/es/components-react/card-group/card-group-card-link-item';
-import DDSCardLinkHeading from '@carbon/ibmdotcom-web-components/es/components-react/card-link/card-link-heading';
-import DDSCardInCard from '@carbon/ibmdotcom-web-components/es/components-react/card-in-card/card-in-card';
-import DDSCardInCardImage from '@carbon/ibmdotcom-web-components/es/components-react/card-in-card/card-in-card-image';
-import DDSVideoCTAContainer from '@carbon/ibmdotcom-web-components/es/components-react/cta/video-cta-container';
-import DDSTextCTA from '@carbon/ibmdotcom-web-components/es/components-react/cta/text-cta';
+import C4DCardGroup from '@carbon/ibmdotcom-web-components/es/components-react/card-group/card-group';
+import C4DCardGroupItem from '@carbon/ibmdotcom-web-components/es/components-react/card-group/card-group-item';
+import C4DImageItem from '@carbon/ibmdotcom-web-components/es/components-react/image/image-item';
+import C4DCardCTAImage from '@carbon/ibmdotcom-web-components/es/components-react/cta/card-cta-image';
+import C4DCardEyebrow from '@carbon/ibmdotcom-web-components/es/components-react/card/card-eyebrow';
+import C4DCardHeading from '@carbon/ibmdotcom-web-components/es/components-react/card/card-heading';
+import C4DCardCTAFooter from '@carbon/ibmdotcom-web-components/es/components-react/cta/card-cta-footer';
+import C4DTagGroup from '@carbon/ibmdotcom-web-components/es/components-react/tag-group/tag-group';
+import C4DCardGroupCardLinkItem from '@carbon/ibmdotcom-web-components/es/components-react/card-group/card-group-card-link-item';
+import C4DCardLinkHeading from '@carbon/ibmdotcom-web-components/es/components-react/card-link/card-link-heading';
+import C4DCardInCard from '@carbon/ibmdotcom-web-components/es/components-react/card-in-card/card-in-card';
+import C4DCardInCardImage from '@carbon/ibmdotcom-web-components/es/components-react/card-in-card/card-in-card-image';
+import C4DVideoCTAContainer from '@carbon/ibmdotcom-web-components/es/components-react/cta/video-cta-container';
+import C4DTextCTA from '@carbon/ibmdotcom-web-components/es/components-react/cta/text-cta';
 import Tag from '@carbon/web-components/es/components-react/tag/tag.js';
 import imgSm4x3 from '../../../../../storybook-images/assets/480/fpo--4x3--480x360--005.jpg';
 import imgXlg4x3 from '../../../../../storybook-images/assets/1312/fpo--4x3--1312x984--003.jpg';
@@ -47,9 +47,9 @@ const phraseArray = [
 ];
 
 const cardsCol = {
-  '2 cards per row': 'dds-ce-demo-devenv--cards-in-row-2',
-  '3 cards per row (default)': 'dds-ce-demo-devenv--cards-in-row-3',
-  '4 cards per row': 'dds-ce-demo-devenv--cards-in-row-4',
+  '2 cards per row': 'cds-ce-demo-devenv--cards-in-row-2',
+  '3 cards per row (default)': 'cds-ce-demo-devenv--cards-in-row-3',
+  '4 cards per row': 'cds-ce-demo-devenv--cards-in-row-4',
 };
 
 const gridModes = {
@@ -64,20 +64,20 @@ const setGridMode = {
 };
 
 const tagGroupContent = (
-  <DDSTagGroup>
+  <C4DTagGroup>
     <Tag type="cool-gray">Systems w/TPS</Tag>
     <Tag type="cool-gray">Virtual</Tag>
-  </DDSTagGroup>
+  </C4DTagGroup>
 );
 
 const textCTAContent = (
-  <DDSTextCTA slot="footer" cta-type="local" href="https://example.com">
+  <C4DTextCTA slot="footer" cta-type="local" href="https://example.com">
     Learn more
-  </DDSTextCTA>
+  </C4DTextCTA>
 );
 
 const imageContent = (
-  <DDSCardCTAImage slot="image" alt="Image alt text" defaultSrc={imgXlg4x3} />
+  <C4DCardCTAImage slot="image" alt="Image alt text" defaultSrc={imgXlg4x3} />
 );
 
 const cardsDiffLengthPhrase = (
@@ -89,17 +89,17 @@ const cardsDiffLengthPhrase = (
   addCta
 ) => {
   const defaultCardGroupItem = (
-    <DDSCardGroupItem
+    <C4DCardGroupItem
       cta-type={cardType === 'Card static' ? '' : 'local'}
       href={cardType === 'Card static' ? '' : 'https://example.com'}
       colorScheme={
         cardType === 'Card static' || gridMode === 'border' ? 'light' : null
       }>
       {media ? imageContent : ''}
-      <DDSCardEyebrow>Topic</DDSCardEyebrow>
-      <DDSCardHeading>
+      <C4DCardEyebrow>Topic</C4DCardEyebrow>
+      <C4DCardHeading>
         {index < 5 ? phraseArray[index] : 'Lorem ipsum dolor sit amet'}
-      </DDSCardHeading>
+      </C4DCardHeading>
       <p>
         Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean et
         ultricies est.'
@@ -108,27 +108,31 @@ const cardsDiffLengthPhrase = (
       {cardType === 'Card static' && addCta ? (
         textCTAContent
       ) : (
-        <DDSCardCTAFooter slot="footer"></DDSCardCTAFooter>
+        <C4DCardCTAFooter slot="footer"></C4DCardCTAFooter>
       )}
-    </DDSCardGroupItem>
+    </C4DCardGroupItem>
   );
 
-  const videoCardGroupItem = (
-    <DDSCardGroupItem
+  const videoCardGroupItem = (videoId = '1_9h94wo6b') => (
+    <C4DCardGroupItem
       cta-type="video"
-      href="1_9h94wo6b"
+      href={videoId}
       color-scheme={gridMode === 'border' ? 'light' : null}>
-      <DDSCardEyebrow>Topic</DDSCardEyebrow>
+      <C4DCardEyebrow>Topic</C4DCardEyebrow>
       {tagGroup ? tagGroupContent : ''}
-      <DDSCardCTAFooter
+      <C4DCardCTAFooter
         cta-type="video"
-        href="1_9h94wo6b"
-        slot="footer"></DDSCardCTAFooter>
-    </DDSCardGroupItem>
+        href={videoId}
+        slot="footer"></C4DCardCTAFooter>
+    </C4DCardGroupItem>
   );
+
+  const demoVideoIds = ['1_9h94wo6b', '0_ibuqxqbe', '1_6b6qjovy'];
 
   count = count > 3 ? 0 : count + 1;
-  return media && index % 2 ? videoCardGroupItem : defaultCardGroupItem;
+  return media && index % 2
+    ? videoCardGroupItem(demoVideoIds[index % 3])
+    : defaultCardGroupItem;
 };
 
 const longHeadingCardGroupItem = (
@@ -139,17 +143,17 @@ const longHeadingCardGroupItem = (
   addCta
 ) => {
   return (
-    <DDSCardGroupItem
+    <C4DCardGroupItem
       cta-type={cardType === 'Card static' ? '' : 'local'}
       href={cardType === 'Card static' ? '' : 'https://example.com'}
       colorScheme={
         cardType === 'Card static' || gridMode === 'border' ? 'light' : null
       }>
       {media ? imageContent : ''}
-      <DDSCardEyebrow>Topic</DDSCardEyebrow>
-      <DDSCardHeading>
+      <C4DCardEyebrow>Topic</C4DCardEyebrow>
+      <C4DCardHeading>
         Nunc convallis lobortis Nunc convallis lobortis Nunc convallis lobortis
-      </DDSCardHeading>
+      </C4DCardHeading>
       <p>
         Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean et
         ultricies est. Mauris iaculis eget dolor nec hendrerit. Phasellus at
@@ -159,80 +163,80 @@ const longHeadingCardGroupItem = (
       {cardType === 'Card static' && addCta ? (
         textCTAContent
       ) : (
-        <DDSCardCTAFooter slot="footer"></DDSCardCTAFooter>
+        <C4DCardCTAFooter slot="footer"></C4DCardCTAFooter>
       )}
-    </DDSCardGroupItem>
+    </C4DCardGroupItem>
   );
 };
 
 const pictogramCard = (gridMode) => (
-  <DDSCardGroupItem
+  <C4DCardGroupItem
     href="https://example.com"
     pictogramPlacement="top"
     colorScheme={gridMode === 'border' ? 'light' : null}>
-    <DDSCardHeading>Aerospace and defence</DDSCardHeading>
+    <C4DCardHeading>Aerospace and defence</C4DCardHeading>
     <p>
       Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut
       aliquip ex ea commodo consequat. Ut enim ad minim veniam, quis nostrud
       exercitation.
     </p>
     <Desktop slot="pictogram" width="48" height="48" />
-  </DDSCardGroupItem>
+  </C4DCardGroupItem>
 );
 
 const cardLink = (
-  <DDSCardGroupCardLinkItem
+  <C4DCardGroupCardLinkItem
     cta-type="local"
     href="https://example.com"
     pattern-background>
-    <DDSCardLinkHeading>IBM Developer</DDSCardLinkHeading>
+    <C4DCardLinkHeading>IBM Developer</C4DCardLinkHeading>
     <p>Learn, code and connect with your community</p>
-    <DDSCardCTAFooter slot="footer"></DDSCardCTAFooter>
-  </DDSCardGroupCardLinkItem>
+    <C4DCardCTAFooter slot="footer"></C4DCardCTAFooter>
+  </C4DCardGroupCardLinkItem>
 );
 
-const emptyCard = <DDSCardGroupItem empty></DDSCardGroupItem>;
+const emptyCard = <C4DCardGroupItem empty></C4DCardGroupItem>;
 
 const cardInCardItems = (i, tagGroup, media, gridMode) => {
   if (media) {
     return i % 2 === 0 ? (
-      <DDSCardGroupItem
+      <C4DCardGroupItem
         cta-type="local"
         href="https://example.com"
         colorScheme={gridMode === 'border' ? 'light' : null}>
         {imageContent}
-        <DDSCardEyebrow>Label</DDSCardEyebrow>
-        <DDSCardHeading>
+        <C4DCardEyebrow>Label</C4DCardEyebrow>
+        <C4DCardHeading>
           The United Nations Environment Program works with IBM to reduce marine
           litter
-        </DDSCardHeading>
+        </C4DCardHeading>
         {tagGroup ? tagGroupContent : ''}
-        <DDSCardCTAFooter slot="footer" />
-      </DDSCardGroupItem>
+        <C4DCardCTAFooter slot="footer" />
+      </C4DCardGroupItem>
     ) : (
-      <DDSCardGroupItem
+      <C4DCardGroupItem
         cta-type="video"
         href="1_9h94wo6b"
         colorScheme={gridMode === 'border' ? 'light' : null}>
-        <DDSCardEyebrow>Topic</DDSCardEyebrow>
+        <C4DCardEyebrow>Topic</C4DCardEyebrow>
         {tagGroup ? tagGroupContent : ''}
-        <DDSCardCTAFooter cta-type="video" slot="footer" href="1_9h94wo6b" />
-      </DDSCardGroupItem>
+        <C4DCardCTAFooter cta-type="video" slot="footer" href="0_ibuqxqbe" />
+      </C4DCardGroupItem>
     );
   }
   return (
-    <DDSCardGroupItem
+    <C4DCardGroupItem
       cta-type="local"
       href="https://example.com"
       colorScheme={gridMode === 'border' ? 'light' : null}>
-      <DDSCardEyebrow>Label</DDSCardEyebrow>
-      <DDSCardHeading>
+      <C4DCardEyebrow>Label</C4DCardEyebrow>
+      <C4DCardHeading>
         The United Nations Environment Program works with IBM to reduce marine
         litter
-      </DDSCardHeading>
+      </C4DCardHeading>
       {tagGroup ? tagGroupContent : ''}
-      <DDSCardCTAFooter slot="footer" />
-    </DDSCardGroupItem>
+      <C4DCardCTAFooter slot="footer" />
+    </C4DCardGroupItem>
   );
 };
 
@@ -266,15 +270,15 @@ export const Default = (args) => {
     }
     if (cta) {
       allCards.push(
-        <DDSCardGroupItem
+        <C4DCardGroupItem
           cta-type="local"
           href="https://example.com"
           colorScheme="inverse">
-          <DDSCardHeading>Top level card link</DDSCardHeading>
-          <DDSCardCTAFooter
+          <C4DCardHeading>Top level card link</C4DCardHeading>
+          <C4DCardCTAFooter
             slot="footer"
-            color-scheme="inverse"></DDSCardCTAFooter>
-        </DDSCardGroupItem>
+            color-scheme="inverse"></C4DCardCTAFooter>
+        </C4DCardGroupItem>
       );
     }
   }
@@ -296,13 +300,13 @@ export const Default = (args) => {
     }
     if (cta) {
       allCards.push(
-        <DDSCardGroupItem
+        <C4DCardGroupItem
           cta-type="local"
           href="https://example.com"
           colorScheme="inverse">
-          <DDSCardHeading>Top level card link</DDSCardHeading>
-          <DDSCardCTAFooter slot="footer" colorScheme="inverse" />
-        </DDSCardGroupItem>
+          <C4DCardHeading>Top level card link</C4DCardHeading>
+          <C4DCardCTAFooter slot="footer" colorScheme="inverse" />
+        </C4DCardGroupItem>
       );
     }
   }
@@ -316,13 +320,13 @@ export const Default = (args) => {
   const colCount = cardsPerRow[cardsPerRow.length - 1];
 
   return (
-    <DDSCardGroup
+    <C4DCardGroup
       cardsPerRow={colCount}
       class={cardsPerRow}
       gridMode={setGridMode[cardType] || gridMode}
       pictograms={cardType === 'Card - pictogram'}>
       {allCards}
-    </DDSCardGroup>
+    </C4DCardGroup>
   );
 };
 
@@ -382,24 +386,24 @@ export const withCardInCard = (args) => {
   }
   return (
     <>
-      <DDSCardInCard
+      <C4DCardInCard
         href="https://example.com"
         grid-mode={gridMode || undefined}>
-        <DDSCardInCardImage
+        <C4DCardInCardImage
           slot="image"
           alt="Image alt text"
           defaultSrc={imgSm4x3}>
-          <DDSImageItem media="(min-width: 1312px)" srcset={imgXlg16x9} />
-          <DDSImageItem media="(min-width: 672px)" srcset={imgMd16x9} />
-          <DDSImageItem media="(min-width: 320px)" srcset={imgSm4x3} />
-        </DDSCardInCardImage>
-        <DDSCardEyebrow>Label</DDSCardEyebrow>
-        <DDSCardHeading>
+          <C4DImageItem media="(min-width: 1312px)" srcset={imgXlg16x9} />
+          <C4DImageItem media="(min-width: 672px)" srcset={imgMd16x9} />
+          <C4DImageItem media="(min-width: 320px)" srcset={imgSm4x3} />
+        </C4DCardInCardImage>
+        <C4DCardEyebrow>Label</C4DCardEyebrow>
+        <C4DCardHeading>
           Standard Bank Group prepares to embrace Africa’s AI opportunity
-        </DDSCardHeading>
-        <DDSCardCTAFooter></DDSCardCTAFooter>
-      </DDSCardInCard>
-      <DDSCardGroup gridMode={gridMode || undefined}>{allCards}</DDSCardGroup>
+        </C4DCardHeading>
+        <C4DCardCTAFooter></C4DCardCTAFooter>
+      </C4DCardInCard>
+      <C4DCardGroup gridMode={gridMode || undefined}>{allCards}</C4DCardGroup>
     </>
   );
 };
@@ -430,7 +434,7 @@ export default {
           <div className="cds--grid">
             <div className="cds--row">
               <div className="cds--col-lg-12 cds--no-gutter">
-                <DDSVideoCTAContainer>{story()}</DDSVideoCTAContainer>
+                <C4DVideoCTAContainer>{story()}</C4DVideoCTAContainer>
               </div>
             </div>
           </div>

@@ -10,12 +10,12 @@
 @use '@carbon/ibmdotcom-styles/scss/internal/content-group';
 @use '@carbon/ibmdotcom-styles/scss/globals/vars' as *;
 
-:host(#{$dds-prefix}-content-group),
-:host(#{$dds-prefix}-content-group-copy),
-:host(#{$dds-prefix}-content-group-paragraph) {
+:host(#{$c4d-prefix}-content-group),
+:host(#{$c4d-prefix}-content-group-copy),
+:host(#{$c4d-prefix}-content-group-paragraph) {
   display: block;
 }
 
-:host(#{$dds-prefix}-content-group-copy) {
+:host(#{$c4d-prefix}-content-group-copy) {
   @include type-style('body-02');
 }

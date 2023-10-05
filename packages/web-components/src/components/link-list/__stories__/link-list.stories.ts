@@ -28,7 +28,7 @@ const hrefsForType = {
   [CTA_TYPE.EXTERNAL]: 'https://www.example.com',
   [CTA_TYPE.DOWNLOAD]:
     'https://www.ibm.com/annualreport/assets/downloads/IBM_Annual_Report_2019.pdf',
-  [CTA_TYPE.VIDEO]: '1_9h94wo6b',
+  [CTA_TYPE.VIDEO]: '0_ibuqxqbe',
 };
 
 const knobNamesForType = {
@@ -53,44 +53,44 @@ export const Default = (args) => {
   const { ctaType, download, href } = args?.LinkListItem ?? {};
   return !ctaType
     ? html`
-        <dds-link-list type="default">
-          <dds-link-list-heading>Tutorial</dds-link-list-heading>
-          <dds-link-list-item-card href="https://example.com">
+        <c4d-link-list type="default">
+          <c4d-link-list-heading>Tutorial</c4d-link-list-heading>
+          <c4d-link-list-item-card href="https://example.com">
             <p>Learn more about Kubernetes</p>
-            <dds-card-footer>
+            <c4d-card-footer>
               ${ArrowRight20({ slot: 'icon' })}
-            </dds-card-footer>
-          </dds-link-list-item-card>
-          <dds-link-list-item-card href="https://example.com">
+            </c4d-card-footer>
+          </c4d-link-list-item-card>
+          <c4d-link-list-item-card href="https://example.com">
             <p>Containerization A Complete Guide</p>
-            <dds-card-footer>
+            <c4d-card-footer>
               ${ArrowRight20({ slot: 'icon' })}
-            </dds-card-footer>
-          </dds-link-list-item-card>
-        </dds-link-list>
+            </c4d-card-footer>
+          </c4d-link-list-item-card>
+        </c4d-link-list>
       `
     : html`
-        <dds-link-list type="default">
-          <dds-link-list-heading>Tutorial</dds-link-list-heading>
-          <dds-link-list-item-card-cta
+        <c4d-link-list type="default">
+          <c4d-link-list-heading>Tutorial</c4d-link-list-heading>
+          <c4d-link-list-item-card-cta
             href="${ifDefined(href)}"
             cta-type="${ifDefined(ctaType)}"
             download="${ifDefined(download)}">
             ${ctaType !== CTA_TYPE.VIDEO
               ? html` <p>Learn more about Kubernetes</p> `
               : null}
-            <dds-card-cta-footer></dds-card-cta-footer>
-          </dds-link-list-item-card-cta>
-          <dds-link-list-item-card-cta
+            <c4d-card-cta-footer></c4d-card-cta-footer>
+          </c4d-link-list-item-card-cta>
+          <c4d-link-list-item-card-cta
             href="${ifDefined(href)}"
             cta-type="${ifDefined(ctaType)}"
             download="${ifDefined(download)}">
             ${ctaType !== CTA_TYPE.VIDEO
               ? html` <p>Containerization A Complete Guide</p> `
               : null}
-            <dds-card-cta-footer></dds-card-cta-footer>
-          </dds-link-list-item-card-cta>
-        </dds-link-list>
+            <c4d-card-cta-footer></c4d-card-cta-footer>
+          </c4d-link-list-item-card-cta>
+        </c4d-link-list>
       `;
 };
 
@@ -138,24 +138,24 @@ export const Horizontal = (args) => {
   } = args?.LinkListItem ?? {};
   return !ctaType
     ? html`
-        <dds-link-list type="horizontal">
-          <dds-link-list-heading>Tutorial</dds-link-list-heading>
-          <dds-link-list-item
+        <c4d-link-list type="horizontal">
+          <c4d-link-list-heading>Tutorial</c4d-link-list-heading>
+          <c4d-link-list-item
             icon-placement="${iconPlacement}"
             href="https://example.com">
             Learn more about Kubernetes ${ArrowRight20({ slot: 'icon' })}
-          </dds-link-list-item>
-          <dds-link-list-item
+          </c4d-link-list-item>
+          <c4d-link-list-item
             icon-placement="${iconPlacement}"
             href="https://example.com">
             Containerization A Complete Guide ${ArrowRight20({ slot: 'icon' })}
-          </dds-link-list-item>
-        </dds-link-list>
+          </c4d-link-list-item>
+        </c4d-link-list>
       `
     : html`
-        <dds-link-list type="horizontal">
-          <dds-link-list-heading>Tutorial</dds-link-list-heading>
-          <dds-link-list-item-cta
+        <c4d-link-list type="horizontal">
+          <c4d-link-list-heading>Tutorial</c4d-link-list-heading>
+          <c4d-link-list-item-cta
             icon-placement="${iconPlacement}"
             href="${ifDefined(href)}"
             cta-type="${ifDefined(ctaType)}"
@@ -163,8 +163,8 @@ export const Horizontal = (args) => {
             ${ctaType !== CTA_TYPE.VIDEO
               ? html` Learn more about Kubernetes `
               : null}
-          </dds-link-list-item-cta>
-          <dds-link-list-item-cta
+          </c4d-link-list-item-cta>
+          <c4d-link-list-item-cta
             icon-placement="${iconPlacement}"
             href="${ifDefined(href)}"
             cta-type="${ifDefined(ctaType)}"
@@ -172,8 +172,8 @@ export const Horizontal = (args) => {
             ${ctaType !== CTA_TYPE.VIDEO
               ? html` Containerization A Complete Guide `
               : null}
-          </dds-link-list-item-cta>
-        </dds-link-list>
+          </c4d-link-list-item-cta>
+        </c4d-link-list>
       `;
 };
 
@@ -221,24 +221,24 @@ export const Vertical = (args) => {
   } = args?.LinkListItem ?? {};
   return !ctaType
     ? html`
-        <dds-link-list type="vertical">
-          <dds-link-list-heading>Tutorial</dds-link-list-heading>
-          <dds-link-list-item
+        <c4d-link-list type="vertical">
+          <c4d-link-list-heading>Tutorial</c4d-link-list-heading>
+          <c4d-link-list-item
             icon-placement="${iconPlacement}"
             href="https://example.com">
             Learn more about Kubernetes ${ArrowRight20({ slot: 'icon' })}
-          </dds-link-list-item>
-          <dds-link-list-item
+          </c4d-link-list-item>
+          <c4d-link-list-item
             icon-placement="${iconPlacement}"
             href="https://example.com">
             Containerization A Complete Guide ${ArrowRight20({ slot: 'icon' })}
-          </dds-link-list-item>
-        </dds-link-list>
+          </c4d-link-list-item>
+        </c4d-link-list>
       `
     : html`
-        <dds-link-list type="vertical">
-          <dds-link-list-heading>Tutorial</dds-link-list-heading>
-          <dds-link-list-item-cta
+        <c4d-link-list type="vertical">
+          <c4d-link-list-heading>Tutorial</c4d-link-list-heading>
+          <c4d-link-list-item-cta
             icon-placement="${iconPlacement}"
             href="${ifDefined(href)}"
             cta-type="${ifDefined(ctaType)}"
@@ -246,8 +246,8 @@ export const Vertical = (args) => {
             ${ctaType !== CTA_TYPE.VIDEO
               ? html` Learn more about Kubernetes `
               : null}
-          </dds-link-list-item-cta>
-          <dds-link-list-item-cta
+          </c4d-link-list-item-cta>
+          <c4d-link-list-item-cta
             icon-placement="${iconPlacement}"
             href="${ifDefined(href)}"
             cta-type="${ifDefined(ctaType)}"
@@ -255,8 +255,8 @@ export const Vertical = (args) => {
             ${ctaType !== CTA_TYPE.VIDEO
               ? html` Containerization A Complete Guide `
               : null}
-          </dds-link-list-item-cta>
-        </dds-link-list>
+          </c4d-link-list-item-cta>
+        </c4d-link-list>
       `;
 };
 
@@ -280,47 +280,47 @@ export const EndOfSection = (args) => {
   const { ctaType, download, href } = args?.LinkListItem ?? {};
   return !ctaType
     ? html`
-        <dds-link-list type="end">
-          <dds-link-list-heading>Tutorial</dds-link-list-heading>
-          <dds-link-list-item href="https://example.com">
+        <c4d-link-list type="end">
+          <c4d-link-list-heading>Tutorial</c4d-link-list-heading>
+          <c4d-link-list-item href="https://example.com">
             Learn more about Kubernetes ${ArrowRight20({ slot: 'icon' })}
-          </dds-link-list-item>
-          <dds-link-list-item href="https://example.com">
+          </c4d-link-list-item>
+          <c4d-link-list-item href="https://example.com">
             Containerization A Complete Guide ${ArrowRight20({ slot: 'icon' })}
-          </dds-link-list-item>
-          <dds-link-list-item href="https://example.com">
+          </c4d-link-list-item>
+          <c4d-link-list-item href="https://example.com">
             Microservices and containers ${ArrowRight20({ slot: 'icon' })}
-          </dds-link-list-item>
-        </dds-link-list>
+          </c4d-link-list-item>
+        </c4d-link-list>
       `
     : html`
-        <dds-link-list type="end">
-          <dds-link-list-heading>Tutorial</dds-link-list-heading>
-          <dds-link-list-item-cta
+        <c4d-link-list type="end">
+          <c4d-link-list-heading>Tutorial</c4d-link-list-heading>
+          <c4d-link-list-item-cta
             href="${ifDefined(href)}"
             cta-type="${ifDefined(ctaType)}"
             download="${ifDefined(download)}">
             ${ctaType !== CTA_TYPE.VIDEO
               ? html` Learn more about Kubernetes `
               : null}
-          </dds-link-list-item-cta>
-          <dds-link-list-item-cta
+          </c4d-link-list-item-cta>
+          <c4d-link-list-item-cta
             href="${ifDefined(href)}"
             cta-type="${ifDefined(ctaType)}"
             download="${ifDefined(download)}">
             ${ctaType !== CTA_TYPE.VIDEO
               ? html` Containerization A Complete Guide `
               : null}
-          </dds-link-list-item-cta>
-          <dds-link-list-item-cta
+          </c4d-link-list-item-cta>
+          <c4d-link-list-item-cta
             href="${ifDefined(href)}"
             cta-type="${ifDefined(ctaType)}"
             download="${ifDefined(download)}">
             ${ctaType !== CTA_TYPE.VIDEO
               ? html` Microservices and containers `
               : null}
-          </dds-link-list-item-cta>
-        </dds-link-list>
+          </c4d-link-list-item-cta>
+        </c4d-link-list>
       `;
 };
 
@@ -351,11 +351,11 @@ export default {
     (story, { parameters }) => {
       const { colLgClass } = parameters;
       return html`
-        <dds-video-cta-container class="cds--grid">
+        <c4d-video-cta-container class="cds--grid">
           <div class="cds--row">
             <div class="cds--col-sm-4 ${colLgClass}">${story()}</div>
           </div>
-        </dds-video-cta-container>
+        </c4d-video-cta-container>
       `;
     },
   ],

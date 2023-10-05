@@ -3,6 +3,18 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.36.0-rc.0](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/compare/@carbon/ibmdotcom-web-components@1.35.0...@carbon/ibmdotcom-web-components@1.36.0-rc.0) (2023-09-06)
+
+
+### Bug Fixes
+
+* **docs:** add documentation regarding the carbonElement decorator ([#10871](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/issues/10871)) ([883a7e5](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/commit/883a7e55873b81b1a8c7f73c675f339733f8703c)), closes [#10278](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/issues/10278)
+* **lightbox-video-player:** use more reliable reference to video player ([#10878](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/issues/10878)) ([29434ed](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/commit/29434ed90536fefe8473059332f5efa2e573ec0b))
+
+
+
+
+
 # [1.35.0](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/compare/@carbon/ibmdotcom-web-components@1.35.0-rc.2...@carbon/ibmdotcom-web-components@1.35.0) (2023-08-22)
 
 **Note:** Version bump only for package @carbon/ibmdotcom-web-components
@@ -994,7 +1006,7 @@ All notable changes to this project will be documented in this file. See
 - **card-pictogram:** show body copy on both pictogram positions
   ([#8359](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/tree/main/packages/web-components/issues/8359))
   ([96f027f](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/tree/main/packages/web-components/commit/96f027f))
-- **carousel:** apply same height function to heading used in dds-card-cta
+- **carousel:** apply same height function to heading used in cds-card-cta
   ([#8336](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/tree/main/packages/web-components/issues/8336))
   ([a7f11f6](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/tree/main/packages/web-components/commit/a7f11f6))
 - **cloud-masthead:** remove extra spacing from masthead
@@ -1152,7 +1164,7 @@ All notable changes to this project will be documented in this file. See
 - **card-pictogram:** show body copy on both pictogram positions
   ([#8359](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/tree/main/packages/web-components/issues/8359))
   ([96f027f](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/tree/main/packages/web-components/commit/96f027f))
-- **carousel:** apply same height function to heading used in dds-card-cta
+- **carousel:** apply same height function to heading used in cds-card-cta
   ([#8336](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/tree/main/packages/web-components/issues/8336))
   ([a7f11f6](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/tree/main/packages/web-components/commit/a7f11f6))
 - **cloud-masthead:** remove extra spacing from masthead
@@ -1838,7 +1850,7 @@ All notable changes to this project will be documented in this file. See
 - **cta-section:** use sans-serif font for statistics
   ([#7292](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/tree/main/packages/web-components/issues/7292))
   ([28e31b8](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/tree/main/packages/web-components/commit/28e31b8))
-- **featured-section:** adjust target new tab issue by extending dds-card-cta
+- **featured-section:** adjust target new tab issue by extending cds-card-cta
   ([#7250](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/tree/main/packages/web-components/issues/7250))
   ([9fe5d78](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/tree/main/packages/web-components/commit/9fe5d78))
 - **footer:** addressing accessibility issues
@@ -2072,7 +2084,7 @@ All notable changes to this project will be documented in this file. See
   ([ef6b9b7](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/tree/main/packages/web-components/commit/ef6b9b7)),
   closes
   [#5920](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/tree/main/packages/web-components/issues/5920)
-- **video-player:** set tabindex of 0 to dds-video-player
+- **video-player:** set tabindex of 0 to cds-video-player
   ([#7105](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/tree/main/packages/web-components/issues/7105))
   ([9cb6aef](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/tree/main/packages/web-components/commit/9cb6aef))
 
@@ -2253,7 +2265,7 @@ All notable changes to this project will be documented in this file. See
   ([877bff0](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/tree/main/packages/web-components/commit/877bff0)),
   closes
   [#6784](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/tree/main/packages/web-components/issues/6784)
-- **footer:** Set dds-footer role to contentinfo
+- **footer:** Set cds-footer role to contentinfo
   ([#6964](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/tree/main/packages/web-components/issues/6964))
   ([8c4b25c](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/tree/main/packages/web-components/commit/8c4b25c)),
   closes

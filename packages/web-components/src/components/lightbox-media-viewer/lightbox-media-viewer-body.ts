@@ -12,12 +12,12 @@ import FocusMixin from '../../internal/vendor/@carbon/web-components/globals/mix
 import settings from '../../internal/vendor/@carbon/ibmdotcom-utilities/utilities/settings/settings';
 import styles from './lightbox-media-viewer.scss';
 
-const { prefix, stablePrefix: ddsPrefix } = settings;
+const { prefix, stablePrefix: c4dPrefix } = settings;
 
 /**
  * Media viewer modal body.
  */
-abstract class DDSLightboxMediaViewerBody extends FocusMixin(LitElement) {
+abstract class C4DLightboxMediaViewerBody extends FocusMixin(LitElement) {
   /**
    * @returns The description content.
    */
@@ -35,25 +35,25 @@ abstract class DDSLightboxMediaViewerBody extends FocusMixin(LitElement) {
 
   render() {
     return html`
-      <div class="${prefix}--lightbox-media-viewer__container">
-        <div class="${prefix}--lightbox-media-viewer__row">
+      <div class="${c4dPrefix}--lightbox-media-viewer__container">
+        <div class="${c4dPrefix}--lightbox-media-viewer__row">
           <div
-            class="${prefix}--lightbox-media-viewer__media ${prefix}--no-gutter">
+            class="${c4dPrefix}--lightbox-media-viewer__media ${prefix}--no-gutter">
             ${this._renderMedia()}
           </div>
           <div
-            class="${prefix}--lightbox-media-viewer__media-description ${prefix}--no-gutter">
-            <div class="${prefix}--lightbox-media-viewer__content">
+            class="${c4dPrefix}--lightbox-media-viewer__media-description ${prefix}--no-gutter">
+            <div class="${c4dPrefix}--lightbox-media-viewer__content">
               <div
                 part="title"
-                class="${prefix}--lightbox-media-viewer__content__title"
-                data-autoid="${ddsPrefix}--lightbox-media-viewer__content__title">
+                class="${c4dPrefix}--lightbox-media-viewer__content__title"
+                data-autoid="${c4dPrefix}--lightbox-media-viewer__content__title">
                 ${this._renderTitle()}
               </div>
               <div
                 part="description"
-                class="${prefix}--lightbox-media-viewer__content__desc"
-                data-autoid="${ddsPrefix}--lightbox-media-viewer__content__desc">
+                class="${c4dPrefix}--lightbox-media-viewer__content__desc"
+                data-autoid="${c4dPrefix}--lightbox-media-viewer__content__desc">
                 ${this._renderDescription()}
               </div>
             </div>
@@ -67,4 +67,4 @@ abstract class DDSLightboxMediaViewerBody extends FocusMixin(LitElement) {
 }
 
 /* @__GENERATE_REACT_CUSTOM_ELEMENT_TYPE__ */
-export default DDSLightboxMediaViewerBody;
+export default C4DLightboxMediaViewerBody;

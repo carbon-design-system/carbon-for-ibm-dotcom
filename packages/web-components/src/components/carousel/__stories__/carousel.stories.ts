@@ -39,19 +39,19 @@ const Card = ({
   href = hrefDefault,
   image = undefined,
 } = {}) => html`
-  <dds-card href="${ifDefined(href)}">
-    <dds-card-heading>${heading}</dds-card-heading>
+  <c4d-card href="${ifDefined(href)}">
+    <c4d-card-heading>${heading}</c4d-card-heading>
     <p>${copy}</p>
     ${image
       ? html`
-          <dds-image
+          <c4d-image
             slot="image"
             alt="example image"
-            default-src="${image}"></dds-image>
+            default-src="${image}"></c4d-image>
         `
       : null}
-    <dds-card-footer> ${ArrowRight20({ slot: 'icon' })} </dds-card-footer>
-  </dds-card>
+    <c4d-card-footer> ${ArrowRight20({ slot: 'icon' })} </c4d-card-footer>
+  </c4d-card>
 `;
 
 const CardWithLongHeading = ({
@@ -60,30 +60,30 @@ const CardWithLongHeading = ({
   href = hrefDefault,
   image = undefined,
 } = {}) => html`
-  <dds-card href="${ifDefined(href)}">
-    <dds-card-heading>${heading} ${heading}</dds-card-heading>
+  <c4d-card href="${ifDefined(href)}">
+    <c4d-card-heading>${heading} ${heading}</c4d-card-heading>
     <p>${copy}</p>
     ${image
       ? html`
-          <dds-image
+          <c4d-image
             slot="image"
             alt="example image"
-            default-src="${image}"></dds-image>
+            default-src="${image}"></c4d-image>
         `
       : null}
-    <dds-card-footer> ${ArrowRight20({ slot: 'icon' })} </dds-card-footer>
-  </dds-card>
+    <c4d-card-footer> ${ArrowRight20({ slot: 'icon' })} </c4d-card-footer>
+  </c4d-card>
 `;
 
 const CardWithVideo = ({ copy = copyDefault, href = hrefDefault } = {}) => html`
-  <dds-video-cta-container>
-    <dds-card-cta cta-type="video" href="${href}">
+  <c4d-video-cta-container>
+    <c4d-card-cta cta-type="video" href="${href}">
       <p>${copy}</p>
-      <dds-card-cta-footer href="${href}">
+      <c4d-card-cta-footer href="${href}">
         ${ArrowRight20({ slot: 'icon' })}
-      </dds-card-cta-footer>
-    </dds-card-cta>
-  </dds-video-cta-container>
+      </c4d-card-cta-footer>
+    </c4d-card-cta>
+  </c4d-video-cta-container>
 `;
 
 export const Default = (args) => {
@@ -92,14 +92,14 @@ export const Default = (args) => {
     [cardSize]: cardSize,
   });
   return html`
-    <dds-carousel class="${classes}">
+    <c4d-carousel class="${classes}">
       <span class="cds--visually-hidden" slot="title"
         >Carousel (Storybook Sample)</span
       >
       ${Card()}${Card({ copy: copyOdd })}${CardWithLongHeading()}${Card({
         copy: copyOdd,
       })}${Card()}
-    </dds-carousel>
+    </c4d-carousel>
   `;
 };
 
@@ -109,7 +109,7 @@ export const CardsWithImages = (args) => {
     [cardSize]: cardSize,
   });
   return html`
-    <dds-carousel class="${classes}">
+    <c4d-carousel class="${classes}">
       ${Card({ image: imgLg2x1 })}${Card({
         copy: copyOdd,
         image: imgLg2x1,
@@ -117,7 +117,7 @@ export const CardsWithImages = (args) => {
         copy: copyOdd,
         image: imgLg2x1,
       })}${Card({ image: imgLg2x1 })}
-    </dds-carousel>
+    </c4d-carousel>
   `;
 };
 
@@ -127,14 +127,14 @@ export const CardsWithVideos = (args) => {
     [cardSize]: cardSize,
   });
   return html`
-    <dds-carousel class="${classes}">
-      ${CardWithVideo({ href: '1_9h94wo6b' })}
+    <c4d-carousel class="${classes}">
       ${CardWithVideo({ href: '0_ibuqxqbe' })}
-      ${CardWithVideo({ href: '1_9h94wo6b' })}
       ${CardWithVideo({ href: '0_ibuqxqbe' })}
-      ${CardWithVideo({ href: '1_9h94wo6b' })}
       ${CardWithVideo({ href: '0_ibuqxqbe' })}
-    </dds-carousel>
+      ${CardWithVideo({ href: '0_ibuqxqbe' })}
+      ${CardWithVideo({ href: '0_ibuqxqbe' })}
+      ${CardWithVideo({ href: '0_ibuqxqbe' })}
+    </c4d-carousel>
   `;
 };
 
@@ -144,11 +144,11 @@ export const CardsWithMedia = (args) => {
     [cardSize]: cardSize,
   });
   return html`
-    <dds-carousel class="${classes}">
+    <c4d-carousel class="${classes}">
       ${Card({ image: imgLg4x3 })} ${CardWithVideo({ href: '0_ibuqxqbe' })}
-      ${Card({ image: imgLg4x3 })} ${CardWithVideo({ href: '1_9h94wo6b' })}
       ${Card({ image: imgLg4x3 })} ${CardWithVideo({ href: '0_ibuqxqbe' })}
-    </dds-carousel>
+      ${Card({ image: imgLg4x3 })} ${CardWithVideo({ href: '0_ibuqxqbe' })}
+    </c4d-carousel>
   `;
 };
 

@@ -30,25 +30,25 @@ const template = () =>
 
 const templateItem = () =>
   html`
-    <dds-button-group-item href="https://example.com">
+    <c4d-button-group-item href="https://example.com">
       Testing
-    </dds-button-group-item>
+    </c4d-button-group-item>
   `;
 
-describe('dds-button-group', function () {
-  it('renders dds-button-group properly', async function () {
+describe('c4d-button-group', function () {
+  it('renders c4d-button-group properly', async function () {
     render(template(), document.body);
-    await Promise.resolve(); // Update cycle for `<dds-button-group>`
-    expect(document.body.querySelector('dds-button-group')).toMatchSnapshot({
+    await Promise.resolve(); // Update cycle for `<c4d-button-group>`
+    expect(document.body.querySelector('c4d-button-group')).toMatchSnapshot({
       mode: 'shadow',
     });
   });
 
-  it('renders dds-button-group-item properly', async function () {
+  it('renders c4d-button-group-item properly', async function () {
     render(templateItem(), document.body);
     await Promise.resolve();
     expect(
-      document.body.querySelector('dds-button-group-item')
+      document.body.querySelector('c4d-button-group-item')
     ).toMatchSnapshot({ mode: 'shadow' });
   });
 

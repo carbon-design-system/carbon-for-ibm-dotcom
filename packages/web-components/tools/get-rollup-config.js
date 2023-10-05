@@ -70,15 +70,10 @@ function getRollupConfig({
     fixHostPseudo(),
     autoprefixer({
       overrideBrowsersList: [
-        'last 1 version',
+        '> 0.5%',
+        'last 2 versions',
         'Firefox ESR',
-        'not opera > 0',
-        'not op_mini > 0',
-        'not op_mob > 0',
-        'not android > 0',
-        'not edge > 0',
-        'not ie > 0',
-        'not ie_mob > 0',
+        'not dead',
       ],
     }),
   ];
@@ -167,9 +162,9 @@ function getRollupConfig({
       ibmdotcomIcon(),
       injectProcessEnv(
         {
-          DDS_CONTENT_BLOCK_HEADLINES: 'true',
-          DDS_CONTENT_BLOCK_CARD_STATIC: 'true',
-          DDS_CLOUD_MASTHEAD: 'true',
+          C4D_CONTENT_BLOCK_HEADLINES: 'true',
+          C4D_CONTENT_BLOCK_CARD_STATIC: 'true',
+          C4D_CLOUD_MASTHEAD: 'true',
         },
         {
           include: ['**/feature-flags.ts'],

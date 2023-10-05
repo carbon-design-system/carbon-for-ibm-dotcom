@@ -13,13 +13,13 @@
  */
 const _pathDefault = '/iframe.html?id=components-masthead--default';
 
-describe('dds-masthead | default (desktop)', () => {
+describe('cds-masthead | default (desktop)', () => {
   beforeEach(() => {
     cy.visit(`/${_pathDefault}`);
     cy.injectAxe();
     cy.viewport(1280, 780);
 
-    cy.waitUntil(() => cy.get('[data-autoid="dds--masthead-default__l0-nav0"]').should('not.be.empty'));
+    cy.waitUntil(() => cy.get('[data-autoid="cds--masthead-default__l0-nav0"]').should('not.be.empty'));
   });
 
   it('should check a11y', () => {
@@ -27,7 +27,7 @@ describe('dds-masthead | default (desktop)', () => {
   });
 
   it('should have url for IBM logo', () => {
-    cy.get('dds-masthead-logo')
+    cy.get('cds-masthead-logo')
       .shadow()
       .find('a')
       .then($link => {
@@ -38,7 +38,7 @@ describe('dds-masthead | default (desktop)', () => {
 
   it('should load menu item with selected state', () => {
     let selectedState = false;
-    cy.get('dds-megamenu-top-nav-menu')
+    cy.get('cds-megamenu-top-nav-menu')
       .each($menuItem => {
         if ($menuItem.attr('active') !== undefined) {
           selectedState = true;
@@ -52,7 +52,7 @@ describe('dds-masthead | default (desktop)', () => {
   });
 
   it('should load a megamenu with links', () => {
-    cy.get('dds-megamenu-top-nav-menu:nth-child(2)')
+    cy.get('cds-megamenu-top-nav-menu:nth-child(2)')
       .shadow()
       .find('a')
       .click();
@@ -63,13 +63,13 @@ describe('dds-masthead | default (desktop)', () => {
   it('should have urls for the submenu items within the megamenu', () => {
     // Click to open the megamenu that we're interested in inspecting, since
     // due to lazy loading, it's not in the DOM by default.
-    cy.get('dds-megamenu-top-nav-menu:nth-child(2)')
+    cy.get('cds-megamenu-top-nav-menu:nth-child(2)')
       .shadow()
       .find('[part=trigger]')
       .click();
 
     cy.get(
-      'dds-megamenu-top-nav-menu:nth-child(2) > dds-megamenu >  dds-megamenu-right-navigation >  dds-megamenu-category-group > dds-megamenu-category-link:nth-child(1)'
+      'cds-megamenu-top-nav-menu:nth-child(2) > cds-megamenu >  cds-megamenu-right-navigation >  cds-megamenu-category-group > cds-megamenu-category-link:nth-child(1)'
     )
       .shadow()
       .find('a')
@@ -80,7 +80,7 @@ describe('dds-masthead | default (desktop)', () => {
   });
 
   it('should open the login menu', () => {
-    cy.get('dds-masthead-profile')
+    cy.get('cds-masthead-profile')
       .shadow()
       .find('a')
       .click();
@@ -89,11 +89,11 @@ describe('dds-masthead | default (desktop)', () => {
   });
 
   it('should have 2 menu items under the login menu', () => {
-    cy.get('dds-masthead-profile-item').should('have.length', 2);
+    cy.get('cds-masthead-profile-item').should('have.length', 2);
   });
 
   it('should open the search bar on click', () => {
-    cy.get('dds-masthead > dds-search-with-typeahead')
+    cy.get('cds-masthead > cds-search-with-typeahead')
       .shadow()
       .find('.bx--header__search--search')
       .click();
@@ -102,29 +102,29 @@ describe('dds-masthead | default (desktop)', () => {
   });
 
   it('should allow keywords in the search bar and display 10 suggested results', () => {
-    cy.get('dds-masthead > dds-search-with-typeahead')
+    cy.get('cds-masthead > cds-search-with-typeahead')
       .shadow()
       .find('.bx--header__search--search')
       .click();
 
-    cy.get('dds-masthead > dds-search-with-typeahead')
+    cy.get('cds-masthead > cds-search-with-typeahead')
       .shadow()
       .find('.react-autosuggest__container > input')
       .type('redhat', { force: true });
 
-    cy.get('dds-search-with-typeahead-item').should('have.length', 10);
+    cy.get('cds-search-with-typeahead-item').should('have.length', 10);
 
     cy.takeSnapshots();
   });
 });
 
-describe('dds-masthead | default (mobile)', () => {
+describe('cds-masthead | default (mobile)', () => {
   beforeEach(() => {
     cy.visit(`/${_pathDefault}`);
     cy.injectAxe();
     cy.viewport(320, 780);
 
-    cy.waitUntil(() => cy.get('[data-autoid="dds--masthead-default__l0-nav0"]').should('not.be.empty'));
+    cy.waitUntil(() => cy.get('[data-autoid="cds--masthead-default__l0-nav0"]').should('not.be.empty'));
   });
 
   it('should check a11y', () => {
@@ -132,7 +132,7 @@ describe('dds-masthead | default (mobile)', () => {
   });
 
   it('should load the mobile menu', () => {
-    cy.get('dds-masthead-menu-button')
+    cy.get('cds-masthead-menu-button')
       .shadow()
       .find('button')
       .click();
@@ -141,12 +141,12 @@ describe('dds-masthead | default (mobile)', () => {
   });
 
   it('should load the mobile menu | level 2', () => {
-    cy.get('dds-masthead-menu-button')
+    cy.get('cds-masthead-menu-button')
       .shadow()
       .find('button')
       .click();
 
-    cy.get('dds-left-nav-menu-section:nth-child(1) > dds-left-nav-menu:nth-child(2)')
+    cy.get('cds-left-nav-menu-section:nth-child(1) > cds-left-nav-menu:nth-child(2)')
       .shadow()
       .find('button')
       .click();

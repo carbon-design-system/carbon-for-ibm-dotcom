@@ -46,8 +46,8 @@ $btn-min-width: 26;
 // items that change according to the theme applied
 @mixin themed-items($theme: white) {
   // TODO: figure out how to use the $background color token instead with rgba()
-  $dds--gradient-light: #ffffff;
-  $dds--gradient-dark: #161616;
+  $cds--gradient-light: #ffffff;
+  $cds--gradient-dark: #161616;
 
   @include buttongroup;
 
@@ -79,9 +79,9 @@ $btn-min-width: 26;
   }
 
   @if $theme == dark {
-    @include gradient($dds--gradient-dark);
+    @include gradient($cds--gradient-dark);
   } @else {
-    @include gradient($dds--gradient-light);
+    @include gradient($cds--gradient-light);
   }
 }
 

@@ -11,7 +11,7 @@ import React from 'react';
 // Below path will be there when an application installs `@carbon/ibmdotcom-web-components` package.
 // In our dev env, we auto-generate the file and re-map below path to to point to the generated file.
 // @ts-ignore
-import DDSLocaleModalContainer from '@carbon/ibmdotcom-web-components/es/components-react/locale-modal/locale-modal-container.js';
+import C4DLocaleModalContainer from '@carbon/ibmdotcom-web-components/es/components-react/locale-modal/locale-modal-container.js';
 import { ifDefined } from 'lit/directives/if-defined.js';
 import localeData from './locale-data.json';
 
@@ -22,10 +22,10 @@ import styles from './locale-modal.stories.scss';
 export const Default = (args) => {
   const { langDisplay } = args?.LocaleModalComposite;
   return (
-    <DDSLocaleModalContainer
+    <C4DLocaleModalContainer
       lang-display={ifDefined(langDisplay)}
       open
-      localeList={localeData}></DDSLocaleModalContainer>
+      localeList={localeData}></C4DLocaleModalContainer>
   );
 };
 

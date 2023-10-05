@@ -8,7 +8,6 @@
 <dds-content-block-card-static>
   <dds-card-group-item
     color-scheme=""
-    cta-type=""
     data-autoid="dds--card-group-item"
     pictogram-placement=""
     size="md"
@@ -36,20 +35,28 @@
     style="--dds--button-group--item-count: 2;"
   >
     <dds-button-group-item
+      cta-type=""
       data-autoid="dds--button-group-item"
-      icon-layout=""
+      isexpressive=""
       kind="primary"
       role="listitem"
-      size=""
+      size="lg"
+      tooltip-alignment=""
+      tooltip-position="top"
+      type="button"
     >
       Button 1
     </dds-button-group-item>
     <dds-button-group-item
+      cta-type=""
       data-autoid="dds--button-group-item"
-      icon-layout=""
+      isexpressive=""
       kind="tertiary"
       role="listitem"
-      size=""
+      size="lg"
+      tooltip-alignment=""
+      tooltip-position="top"
+      type="button"
     >
       Buuton 2
     </dds-button-group-item>
@@ -64,7 +71,6 @@
 <dds-content-block-card-static>
   <dds-card-group-item
     color-scheme=""
-    cta-type=""
     data-autoid="dds--card-group-item"
     pictogram-placement=""
     size="md"
@@ -78,7 +84,6 @@
   >
     <dds-card-group-item
       color-scheme=""
-      cta-type=""
       data-autoid="dds--card-group-item"
       href="https://example.com"
       pictogram-placement=""
@@ -102,9 +107,7 @@
         color-scheme=""
         cta-type=""
         data-autoid="dds--card-cta-footer"
-        href="https://example.com"
         icon-placement="right"
-        parent-href="https://example.com"
         slot="footer"
       >
       </dds-card-cta-footer>
@@ -131,20 +134,28 @@
     style="--dds--button-group--item-count: 2;"
   >
     <dds-button-group-item
+      cta-type=""
       data-autoid="dds--button-group-item"
-      icon-layout=""
+      isexpressive=""
       kind="primary"
       role="listitem"
-      size=""
+      size="lg"
+      tooltip-alignment=""
+      tooltip-position="top"
+      type="button"
     >
       Button 1
     </dds-button-group-item>
     <dds-button-group-item
+      cta-type=""
       data-autoid="dds--button-group-item"
-      icon-layout=""
+      isexpressive=""
       kind="tertiary"
       role="listitem"
-      size=""
+      size="lg"
+      tooltip-alignment=""
+      tooltip-position="top"
+      type="button"
     >
       Buuton 2
     </dds-button-group-item>

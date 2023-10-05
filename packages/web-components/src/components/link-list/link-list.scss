@@ -15,8 +15,8 @@
 @use '@carbon/ibmdotcom-styles/scss/globals/utils/hang';
 @use '@carbon/ibmdotcom-styles/scss/globals/vars' as *;
 
-:host(#{$dds-prefix}-link-list-heading),
-:host(#{$dds-prefix}-link-list-item) {
+:host(#{$c4d-prefix}-link-list-heading),
+:host(#{$c4d-prefix}-link-list-item) {
   display: block;
 
   .#{$prefix}--link {
@@ -24,29 +24,29 @@
   }
 }
 
-:host(#{$dds-prefix}-link-list-item) {
+:host(#{$c4d-prefix}-link-list-item) {
   &:focus {
     outline: none;
   }
 }
 
-:host(#{$dds-prefix}-link-list-item-card) .#{$prefix}--link:focus {
+:host(#{$c4d-prefix}-link-list-item-card) .#{$prefix}--link:focus {
   outline: $spacing-01 solid $focus;
   outline-offset: -#{$spacing-01};
 }
 
-:host(#{$dds-prefix}-link-list-item)
+:host(#{$c4d-prefix}-link-list-item)
   .cds--link-with-icon__icon-left
   ::slotted(svg[slot='icon']),
-:host(#{$dds-prefix}-link-list-item-cta)
+:host(#{$c4d-prefix}-link-list-item-cta)
   .cds--link-with-icon__icon-left
   ::slotted(svg[slot='icon']) {
   min-width: 20px;
   min-height: 20px;
 }
 
-:host(#{$dds-prefix}-link-list-item)[type='end'],
-:host(#{$dds-prefix}-link-list-item-cta)[type='end'] {
+:host(#{$c4d-prefix}-link-list-item)[type='end'],
+:host(#{$c4d-prefix}-link-list-item-cta)[type='end'] {
   outline: none;
 
   &:hover {
@@ -58,26 +58,31 @@
 
   .#{$prefix}--link {
     // TODO: See if there is a better solution than an internal custom property
-    padding: var(--#{$dds-prefix}--link-list-item--anchor-padding, 0);
+    padding: var(--#{$c4d-prefix}--link-list-item--anchor-padding, 0);
     display: flex;
   }
 }
 
-:host(#{$dds-prefix}-link-list):last-of-type {
+:host(#{$c4d-prefix}-link-list):last-of-type {
   padding-bottom: $spacing-10;
 }
 
-:host(#{$dds-prefix}-link-list) {
+:host(#{$c4d-prefix}-link-list) {
   padding-bottom: 0;
+
+  ul {
+    padding: 0;
+    margin: 0;
+  }
 
   .#{$prefix}--link-list__list--card,
   .#{$prefix}--link-list__list--vertical,
-  .#{$dds-prefix}-ce--link-list__list--end {
+  .#{$c4d-prefix}-ce--link-list__list--end {
     display: grid;
     grid-auto-rows: 1fr;
 
-    ::slotted(#{$dds-prefix}-link-list-item),
-    ::slotted(#{$dds-prefix}-link-list-item-cta) {
+    ::slotted(#{$c4d-prefix}-link-list-item),
+    ::slotted(#{$c4d-prefix}-link-list-item-cta) {
       outline: none;
     }
   }
@@ -87,26 +92,26 @@
   }
 
   .#{$prefix}--link-list__list--card,
-  .#{$dds-prefix}-ce--link-list__list--end {
-    ::slotted(#{$dds-prefix}-link-list-item),
-    ::slotted(#{$dds-prefix}-link-list-item-cta) {
+  .#{$c4d-prefix}-ce--link-list__list--end {
+    ::slotted(#{$c4d-prefix}-link-list-item),
+    ::slotted(#{$c4d-prefix}-link-list-item-cta) {
       display: grid;
     }
   }
 
   .#{$prefix}--link-list__list--vertical
-    ::slotted(#{$dds-prefix}-link-list-item) {
+    ::slotted(#{$c4d-prefix}-link-list-item) {
     display: flex;
   }
 
-  .#{$dds-prefix}-ce--link-list__list--end {
-    ::slotted(#{$dds-prefix}-link-list-item),
-    ::slotted(#{$dds-prefix}-link-list-item-cta) {
+  .#{$c4d-prefix}-ce--link-list__list--end {
+    ::slotted(#{$c4d-prefix}-link-list-item),
+    ::slotted(#{$c4d-prefix}-link-list-item-cta) {
       border-top: 1px solid $border-subtle-01;
       border-bottom: 1px solid $border-subtle-01;
       margin-top: -1px;
       margin-left: -$spacing-05;
-      --#{$dds-prefix}--link-list-item--anchor-padding: #{$spacing-05};
+      --#{$c4d-prefix}--link-list-item--anchor-padding: #{$spacing-05};
 
       @include breakpoint(md) {
         margin-right: -$spacing-05;
@@ -114,21 +119,21 @@
     }
   }
 
-  .#{$dds-prefix}-ce--link-list__heading__wrapper {
+  .#{$c4d-prefix}-ce--link-list__heading__wrapper {
     display: contents;
   }
 
   @include breakpoint(md) {
-    .#{$dds-prefix}-ce--link-list__heading--split
-      ::slotted(#{$dds-prefix}-link-list-heading) {
+    .#{$c4d-prefix}-ce--link-list__heading--split
+      ::slotted(#{$c4d-prefix}-link-list-heading) {
       width: 33.3%;
       padding-right: 10%;
     }
   }
 
-  .#{$dds-prefix}-ce--link-list__list--split,
-  .#{$dds-prefix}-ce--link-list__list--three-columns {
-    ::slotted(#{$dds-prefix}-link-list-item) {
+  .#{$c4d-prefix}-ce--link-list__list--split,
+  .#{$c4d-prefix}-ce--link-list__list--three-columns {
+    ::slotted(#{$c4d-prefix}-link-list-item) {
       display: grid;
       align-items: stretch;
       margin-right: -$spacing-05;
@@ -138,20 +143,20 @@
       display: grid;
       grid-column-gap: $spacing-07;
 
-      ::slotted(#{$dds-prefix}-link-list-item) {
+      ::slotted(#{$c4d-prefix}-link-list-item) {
         margin-left: -$spacing-05;
         margin-right: 0;
       }
     }
   }
 
-  .#{$dds-prefix}-ce--link-list__list--split {
+  .#{$c4d-prefix}-ce--link-list__list--split {
     @include breakpoint(md) {
       grid-template-columns: 1fr 1fr;
     }
   }
 
-  .#{$dds-prefix}-ce--link-list__list--three-columns {
+  .#{$c4d-prefix}-ce--link-list__list--three-columns {
     @include breakpoint(md) {
       grid-template-columns: 1fr 1fr 1fr;
     }

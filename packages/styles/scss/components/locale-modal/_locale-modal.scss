@@ -22,8 +22,8 @@
 /// @group locale-modal
 
 @mixin locale-modal {
-  :host(#{$dds-prefix}-locale-modal),
-  .#{$prefix}--locale-modal-container {
+  :host(#{$c4d-prefix}-locale-modal),
+  .#{$c4d-prefix}--locale-modal-container {
     @include theme(
       $white,
       feature-flag-enabled('enable-css-custom-properties')
@@ -35,23 +35,23 @@
       min-height: 80%;
 
       @media (max-height: rem(450px)) {
-        .#{$prefix}--locale-modal__filtering {
-          .#{$prefix}--locale-modal__filter {
+        .#{$c4d-prefix}--locale-modal__filtering {
+          .#{$c4d-prefix}--locale-modal__filter {
             overflow-y: initial;
 
-            .#{$prefix}--locale-modal__list {
+            .#{$c4d-prefix}--locale-modal__list {
               overflow-y: initial;
             }
           }
         }
 
-        .#{$prefix}--locale-modal__search {
+        .#{$c4d-prefix}--locale-modal__search {
           position: relative;
         }
       }
     }
 
-    .#{$prefix}--locale-modal {
+    .#{$c4d-prefix}--locale-modal {
       padding-left: $spacing-05;
       margin-bottom: $spacing-05;
       margin-top: $spacing-07;
@@ -64,12 +64,12 @@
       @include type-style(body-compact-02, true);
     }
 
-    .#{$prefix}--locale-modal__locales.#{$prefix}--locale-modal__locales-hidden {
+    .#{$c4d-prefix}--locale-modal__locales.#{$c4d-prefix}--locale-modal__locales-hidden {
       display: none;
     }
 
     button.#{$prefix}--modal-header__label,
-    .#{$prefix}--locale-modal__back .#{$prefix}--modal-header__label {
+    .#{$c4d-prefix}--locale-modal__back .#{$prefix}--modal-header__label {
       padding: 0;
       border: none;
       background-color: transparent;
@@ -92,7 +92,7 @@
       }
     }
 
-    .#{$prefix}--locale-modal__filter {
+    .#{$c4d-prefix}--locale-modal__filter {
       z-index: -1;
       opacity: 0;
       transform: translate3d(0, -24px, 0);
@@ -111,13 +111,13 @@
       display: flex;
       align-items: center;
 
-      .#{$prefix}--locale-modal__label-globe {
+      .#{$c4d-prefix}--locale-modal__label-globe {
         width: rem(20px);
         height: rem(20px);
         margin-left: $spacing-02;
       }
 
-      .#{$prefix}--locale-modal__label-arrow {
+      .#{$c4d-prefix}--locale-modal__label-arrow {
         margin-right: $spacing-03;
       }
 
@@ -139,6 +139,10 @@
       @include type-style('fluid-heading-03', true);
     }
   }
+
+  :host(#{$c4d-prefix}-locale-modal) {
+    @extend .#{$prefix}--modal;
+  }
 }
 
 :host(#{$prefix}-search) .#{$prefix}--search-input,
@@ -148,7 +152,7 @@
   }
 }
 
-.#{$prefix}--locale-modal-container .#{$prefix}--locale-modal__regions {
+.#{$c4d-prefix}--locale-modal-container .#{$c4d-prefix}--locale-modal__regions {
   width: 100%;
   margin-top: auto;
   > .#{$prefix}--row {
@@ -157,10 +161,10 @@
   }
 }
 
-:host(#{$dds-prefix}-region-item) .#{$prefix}--link,
-.#{$prefix}--locale-modal-container
-  .#{$prefix}--locale-modal__regions
-  .#{$prefix}--card {
+:host(#{$c4d-prefix}-region-item) .#{$prefix}--link,
+.#{$c4d-prefix}--locale-modal-container
+  .#{$c4d-prefix}--locale-modal__regions
+  .#{$c4d-prefix}--card {
   min-height: rem(184px);
   outline: 1px solid $layer-02;
   outline-offset: -1px;
@@ -180,15 +184,15 @@
   }
 }
 
-:host(#{$dds-prefix}-region-item),
+:host(#{$c4d-prefix}-region-item),
 .#{$prefix}--modal-container {
   svg.#{$prefix}--card__cta {
     color: $border-inverse;
   }
 }
 
-:host(#{$dds-prefix}-locale-item) a.#{$prefix}--link,
-.#{$prefix}--locale-modal-container .#{$prefix}--locale-modal__locales {
+:host(#{$c4d-prefix}-locale-item) a.#{$prefix}--link,
+.#{$c4d-prefix}--locale-modal-container .#{$c4d-prefix}--locale-modal__locales {
   text-decoration: none;
   border: $spacing-01 solid transparent;
   display: flex;
@@ -208,9 +212,9 @@
   }
 }
 
-:host(#{$dds-prefix}-locale-item),
-.#{$prefix}--locale-modal-container {
-  .#{$prefix}--locale-modal__locales__name {
+:host(#{$c4d-prefix}-locale-item),
+.#{$c4d-prefix}--locale-modal-container {
+  .#{$c4d-prefix}--locale-modal__locales__name {
     width: 50%;
     color: $text-helper;
     padding: $spacing-04 $spacing-05;
@@ -222,14 +226,15 @@
   }
 }
 
-:host(#{$dds-prefix}-locale-search),
-.#{$prefix}--locale-modal-container .#{$prefix}--locale-modal__filtering {
+:host(#{$c4d-prefix}-locale-search),
+.#{$c4d-prefix}--locale-modal-container
+  .#{$c4d-prefix}--locale-modal__filtering {
   display: flex;
   flex-direction: column;
   margin-top: $spacing-07;
   overflow: hidden;
 
-  .#{$prefix}--locale-modal__filter {
+  .#{$c4d-prefix}--locale-modal__filter {
     opacity: 1;
     z-index: 1;
     transform: translate3d(0, 0, 0);
@@ -240,7 +245,7 @@
     overflow: hidden;
   }
 
-  .#{$prefix}--locale-modal__regions {
+  .#{$c4d-prefix}--locale-modal__regions {
     visibility: hidden;
     z-index: -1;
     opacity: 0;
@@ -249,9 +254,9 @@
   }
 }
 
-:host(#{$dds-prefix}-locale-search),
-.#{$prefix}--locale-modal-container {
-  .#{$prefix}--locale-modal__search {
+:host(#{$c4d-prefix}-locale-search),
+.#{$c4d-prefix}--locale-modal-container {
+  .#{$c4d-prefix}--locale-modal__search {
     position: sticky;
     top: 0;
     background-color: $background;
@@ -262,14 +267,14 @@
     }
   }
 
-  .#{$prefix}--locale-modal__search-text {
+  .#{$c4d-prefix}--locale-modal__search-text {
     padding: $spacing-07 $spacing-05 $spacing-05;
     min-height: $spacing-09;
 
     @include type-style('label-02');
   }
 
-  .#{$prefix}--locale-modal__list {
+  .#{$c4d-prefix}--locale-modal__list {
     flex: 1;
     overflow-y: auto;
   }

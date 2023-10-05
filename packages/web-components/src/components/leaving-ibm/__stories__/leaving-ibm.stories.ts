@@ -22,48 +22,48 @@ import readme from './README.stories.mdx';
 export const Default = (args) => {
   const { href, ctaText, ctaType } = args?.['leaving-ibm'] ?? {};
   return html`
-    <dds-leaving-ibm-container></dds-leaving-ibm-container>
+    <c4d-leaving-ibm-container></c4d-leaving-ibm-container>
 
     ${ctaType === 'Link'
       ? html`
-          <dds-link-with-icon
+          <c4d-link-with-icon
             icon-placement="right"
             href="${href}"
             data-leaving-ibm>
             ${ctaText}${Launch20({ slot: 'icon' })}
-          </dds-link-with-icon>
+          </c4d-link-with-icon>
         `
       : null}
     ${ctaType === 'Button'
       ? html`
-          <dds-button-group>
-            <dds-button-group-item href="${href}" data-leaving-ibm>
+          <c4d-button-group>
+            <c4d-button-group-item href="${href}" data-leaving-ibm>
               ${ctaText}${Launch20({ slot: 'icon' })}
-            </dds-button-group-item>
-          </dds-button-group>
+            </c4d-button-group-item>
+          </c4d-button-group>
         `
       : null}
     ${ctaType === 'Card'
       ? html`
-          <dds-card-link href="${href}" data-leaving-ibm>
-            <dds-card-link-heading>${ctaText}</dds-card-link-heading>
+          <c4d-card-link href="${href}" data-leaving-ibm>
+            <c4d-card-link-heading>${ctaText}</c4d-card-link-heading>
             <p>Lorem ipsum dolor sit</p>
-            <dds-card-footer> ${Launch20({ slot: 'icon' })} </dds-card-footer>
-          </dds-card-link>
+            <c4d-card-footer> ${Launch20({ slot: 'icon' })} </c4d-card-footer>
+          </c4d-card-link>
         `
       : null}
     ${ctaType === 'Feature Card'
       ? html`
-          <dds-feature-card href="${href}" data-leaving-ibm>
-            <dds-image
+          <c4d-feature-card href="${href}" data-leaving-ibm>
+            <c4d-image
               slot="image"
               alt="Image alt text"
-              default-src="${mediumImgLg1x1}"></dds-image>
-            <dds-card-heading>${ctaText}</dds-card-heading>
-            <dds-feature-card-footer>
+              default-src="${mediumImgLg1x1}"></c4d-image>
+            <c4d-card-heading>${ctaText}</c4d-card-heading>
+            <c4d-feature-card-footer>
               ${Launch20({ slot: 'icon' })}
-            </dds-feature-card-footer>
-          </dds-feature-card>
+            </c4d-feature-card-footer>
+          </c4d-feature-card>
         `
       : null}
   `;

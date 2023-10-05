@@ -92,7 +92,7 @@ module.exports = function setupKarma(config) {
           },
           {
             test: /\.svg$/,
-            use: ['@svgr/webpack'],
+            use: [{ loader: 'raw-loader' }],
           },
           {
             test: /\.ts$/,
@@ -183,7 +183,7 @@ module.exports = function setupKarma(config) {
       plugins: [
         new webpack.DefinePlugin({
           'process.env.NODE_ENV': JSON.stringify('test'),
-          'process.env.DDS_CLOUD_MASTHEAD': JSON.stringify('true'),
+          'process.env.C4D_CLOUD_MASTHEAD': JSON.stringify('true'),
         }),
         new webpack.NormalModuleReplacementPlugin(reServices, (resource) => {
           const { request } = resource;

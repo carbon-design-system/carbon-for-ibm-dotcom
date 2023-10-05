@@ -31,32 +31,32 @@ For example: optical scan of documents (to create a text file out of an image of
 `;
 
 const card1 = html`
-  <dds-content-group-cards-item href="https://www.example.com">
-    <dds-card-heading>
+  <c4d-content-group-cards-item href="https://www.example.com">
+    <c4d-card-heading>
       Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
       tempor incididunt
-    </dds-card-heading>
+    </c4d-card-heading>
     <p>
       Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod
       tempor incididunt ut labore et dolore magna aliqua.
     </p>
-    <dds-card-footer icon-placement="left">
+    <c4d-card-footer icon-placement="left">
       ${ArrowRight20({ slot: 'icon' })}
-    </dds-card-footer>
-  </dds-content-group-cards-item>
+    </c4d-card-footer>
+  </c4d-content-group-cards-item>
 `;
 
 const card2 = html`
-  <dds-content-group-cards-item href="https://www.example.com">
-    <dds-card-heading>
+  <c4d-content-group-cards-item href="https://www.example.com">
+    <c4d-card-heading>
       Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
       tempor incididunt
-    </dds-card-heading>
+    </c4d-card-heading>
     <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit</p>
-    <dds-card-footer icon-placement="left">
+    <c4d-card-footer icon-placement="left">
       ${ArrowRight20({ slot: 'icon' })}
-    </dds-card-footer>
-  </dds-content-group-cards-item>
+    </c4d-card-footer>
+  </c4d-content-group-cards-item>
 `;
 
 const hrefDefault = 'https://www.ibm.com/standards/carbon';
@@ -73,11 +73,11 @@ const Card = ({
   heading = headingDefault,
   href = hrefDefault,
 } = {}) => html`
-  <dds-card href="${ifDefined(href)}">
-    <dds-card-heading>${heading}</dds-card-heading>
+  <c4d-card href="${ifDefined(href)}">
+    <c4d-card-heading>${heading}</c4d-card-heading>
     ${copy}
-    <dds-card-footer> ${ArrowRight20({ slot: 'icon' })} </dds-card-footer>
-  </dds-card>
+    <c4d-card-footer> ${ArrowRight20({ slot: 'icon' })} </c4d-card-footer>
+  </c4d-card>
 `;
 
 export const Default = (args) => {
@@ -86,81 +86,81 @@ export const Default = (args) => {
     ? 'cds--col-lg-16 cds--no-gutter'
     : '';
   return html`
-    <dds-content-section children-custom-class="${classes}">
-      <dds-content-section-heading
-        >${ifDefined(heading)}</dds-content-section-heading
+    <c4d-content-section children-custom-class="${classes}">
+      <c4d-content-section-heading
+        >${ifDefined(heading)}</c4d-content-section-heading
       >
-      <dds-content-section-copy>${ifDefined(copy)}</dds-content-section-copy>
+      <c4d-content-section-copy>${ifDefined(copy)}</c4d-content-section-copy>
       ${addChildren.includes('Content block simple')
         ? html`
-            <dds-content-block-simple>
-              <dds-content-block-heading
+            <c4d-content-block-simple>
+              <c4d-content-block-heading
                 >What’s the latest news in artificial
-                intelligence?</dds-content-block-heading
+                intelligence?</c4d-content-block-heading
               >
-              <dds-content-block-copy size="sm"
-                >${blockCopy}</dds-content-block-copy
+              <c4d-content-block-copy size="sm"
+                >${blockCopy}</c4d-content-block-copy
               >
-              <dds-video-player-container
+              <c4d-video-player-container
                 slot="media"
-                video-id="1_9h94wo6b"></dds-video-player-container>
-              <dds-text-cta
+                video-id="0_ibuqxqbe"></c4d-video-player-container>
+              <c4d-text-cta
                 slot="footer"
                 cta-type="jump"
                 href="https://www.ibm.com"
-                >Jump to AI ethics and trust</dds-text-cta
+                >Jump to AI ethics and trust</c4d-text-cta
               >
-            </dds-content-block-simple>
+            </c4d-content-block-simple>
           `
         : ``}
       ${addChildren.includes('Card group')
         ? html`
-            <dds-card-group> ${card1}${card2}${card1}${card2} </dds-card-group>
+            <c4d-card-group> ${card1}${card2}${card1}${card2} </c4d-card-group>
           `
         : ``}
       ${addChildren.includes('Link list')
         ? html`
-            <dds-link-list>
-              <dds-link-list-item href="https://example.com">
+            <c4d-link-list>
+              <c4d-link-list-item href="https://example.com">
                 Learn more about Kubernetes and automating deployment
                 ${ArrowRight20({ slot: 'icon' })}
-              </dds-link-list-item>
-              <dds-link-list-item href="https://example.com">
+              </c4d-link-list-item>
+              <c4d-link-list-item href="https://example.com">
                 Containerization A Complete Guide
                 ${ArrowRight20({ slot: 'icon' })}
-              </dds-link-list-item>
-              <dds-link-list-item href="https://example.com">
+              </c4d-link-list-item>
+              <c4d-link-list-item href="https://example.com">
                 Microservices and containers ${ArrowRight20({ slot: 'icon' })}
-              </dds-link-list-item>
-              <dds-link-list-item href="https://example.com">
+              </c4d-link-list-item>
+              <c4d-link-list-item href="https://example.com">
                 Learn more about Kubernetes ${ArrowRight20({ slot: 'icon' })}
-              </dds-link-list-item>
-              <dds-link-list-item href="https://example.com">
+              </c4d-link-list-item>
+              <c4d-link-list-item href="https://example.com">
                 Containerization A Complete Guide
                 ${ArrowRight20({ slot: 'icon' })}
-              </dds-link-list-item>
-              <dds-link-list-item href="https://example.com">
+              </c4d-link-list-item>
+              <c4d-link-list-item href="https://example.com">
                 Microservices and containers ${ArrowRight20({ slot: 'icon' })}
-              </dds-link-list-item>
-            </dds-link-list>
+              </c4d-link-list-item>
+            </c4d-link-list>
           `
         : ``}
       ${addChildren.includes('Carousel')
         ? html`
-            <dds-carousel>
+            <c4d-carousel>
               ${Card()}${Card({ copy: copyOdd })}${Card()}${Card({
                 copy: copyOdd,
               })}${Card()}
-            </dds-carousel>
+            </c4d-carousel>
           `
         : ''}
-      <dds-text-cta
+      <c4d-text-cta
         slot="footer"
         cta-type="local"
         href="https://www.example.com"
-        >Link action</dds-text-cta
+        >Link action</c4d-text-cta
       >
-    </dds-content-section>
+    </c4d-content-section>
   `;
 };
 
@@ -171,7 +171,7 @@ export default {
       <div class="cds--grid">
         <div class="cds--row">
           <div class="cds--col-lg-16 cds--no-gutter">
-            <dds-video-container> ${story()} </dds-video-container>
+            <c4d-video-container> ${story()} </c4d-video-container>
           </div>
         </div>
       </div>
