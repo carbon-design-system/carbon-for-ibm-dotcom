@@ -70,15 +70,10 @@ function getRollupConfig({
     fixHostPseudo(),
     autoprefixer({
       overrideBrowsersList: [
-        'last 1 version',
+        '> 0.5%',
+        'last 2 versions',
         'Firefox ESR',
-        'not opera > 0',
-        'not op_mini > 0',
-        'not op_mob > 0',
-        'not android > 0',
-        'not edge > 0',
-        'not ie > 0',
-        'not ie_mob > 0',
+        'not dead',
       ],
     }),
   ];

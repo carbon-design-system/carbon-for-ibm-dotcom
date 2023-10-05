@@ -189,10 +189,10 @@ class C4DCard extends CTAMixin(StableSelectorMixin(CDSLink)) {
    * The color scheme.
    * A typical use case of using another color scheme of card is having a "CTA" purpose of card at the last in card group.
    *
-   * Color scheme options are: "inverse" and "light"
+   * Color scheme options are: "inverse" and "regular"
    */
   @property({ attribute: 'color-scheme', reflect: true })
-  colorScheme = BASIC_COLOR_SCHEME.REGULAR;
+  colorScheme = '';
 
   /**
    * Link `href`.
@@ -205,6 +205,12 @@ class C4DCard extends CTAMixin(StableSelectorMixin(CDSLink)) {
    */
   @property({ attribute: 'pictogram-placement', reflect: true })
   pictogramPlacement = PICTOGRAM_PLACEMENT.BOTTOM;
+
+  /**
+   * Whether or not to apply the link style.
+   */
+  @property({ type: Boolean, reflect: true })
+  link = false;
 
   /**
    * Whether or not to apply the logo style.
@@ -221,6 +227,7 @@ class C4DCard extends CTAMixin(StableSelectorMixin(CDSLink)) {
 
     if (
       changedProperties.has('ctaType') ||
+      changedProperties.has('disabled') ||
       changedProperties.has('formatCaption') ||
       changedProperties.has('formatDuration') ||
       changedProperties.has('videoDuration') ||
@@ -228,6 +235,7 @@ class C4DCard extends CTAMixin(StableSelectorMixin(CDSLink)) {
     ) {
       const {
         ctaType,
+        disabled,
         videoDuration,
         videoName,
         videoDescription,
@@ -246,6 +254,7 @@ class C4DCard extends CTAMixin(StableSelectorMixin(CDSLink)) {
         if (videoDuration !== undefined) {
           ariaDuration = `, DURATION ${videoDuration}`;
         }
+        (footer as C4DCardFooter).disabled = disabled;
         (footer as C4DCardFooter).altAriaLabel = `${ariaTitle}${ariaDuration}`;
         (footer as C4DCardFooter).ctaType = ctaType;
         (footer as C4DCardFooter).videoDuration = videoDuration;

@@ -41,6 +41,7 @@ export const Default = (args) => {
   const {
     aspectRatio,
     ctaType,
+    disabled,
     noPoster,
     image,
     href,
@@ -79,6 +80,7 @@ export const Default = (args) => {
   return html`
     <c4d-video-cta-container>
       <c4d-card
+        ?disabled=${disabled}
         aspect-ratio=${aspectRatio}
         ?no-poster=${noPoster}
         cta-type=${ctaType}
@@ -141,6 +143,7 @@ Default.story = {
           ctaType === CTA_TYPE.VIDEO ? boolean('No poster:', false) : null;
 
         return {
+          disabled: boolean('Disabled:', false),
           aspectRatio,
           customVideoTitle,
           ctaType,
@@ -355,6 +358,87 @@ Static.story = {
           cta: false,
           ctaCopy: 'Sign up for the trial',
         },
+      },
+    },
+  },
+};
+
+export const Link = (args) => {
+  const { disabled, ctaType, href, heading, copy, customVideoTitle } =
+    args?.Card ?? {};
+
+  let videoCopy;
+
+  if (ctaType === CTA_TYPE.VIDEO) {
+    const card = document.querySelector('c4d-card') as any;
+    const duration = card?.videoTitle?.match(/\((.*)\)/)?.pop();
+
+    if (!customVideoTitle) {
+      videoCopy = card?.videoTitle;
+    } else {
+      videoCopy = customVideoTitle;
+    }
+
+    console.log(card.querySelector('c4d-card-footer'), duration);
+
+    card.querySelector('c4d-card-footer')!.innerHTML = duration ?? '';
+  }
+
+  const copyComponent = document.querySelector('c4d-card')?.querySelector('p');
+  if (copyComponent) {
+    copyComponent!.innerHTML = copy;
+  }
+
+  return html`
+    <c4d-video-cta-container>
+      <c4d-card
+        ?disabled=${disabled}
+        link
+        no-poster=${ctaType === CTA_TYPE.VIDEO}
+        cta-type=${ctaType}
+        href=${ifDefined(href || undefined)}>
+        <c4d-card-heading>${videoCopy ?? heading}</c4d-card-heading>
+        ${copy ? html` <p></p> ` : ``}
+        <c4d-card-footer></c4d-card-footer>
+      </c4d-card>
+    </c4d-video-cta-container>
+  `;
+};
+
+Link.story = {
+  parameters: {
+    ...readme.parameters,
+    knobs: {
+      Card: () => {
+        const ctaType = select(
+          'CTA type (cta-type)',
+          typeOptions,
+          types[CTA_TYPE.LOCAL]
+        );
+
+        const heading =
+          ctaType === CTA_TYPE.VIDEO
+            ? undefined
+            : textNullable('Heading:', 'Aerospace and defence');
+
+        const customVideoTitle =
+          ctaType === CTA_TYPE.VIDEO
+            ? textNullable('Custom video title', 'Custom video title')
+            : null;
+
+        return {
+          disabled: boolean('Disabled: ', false),
+          customVideoTitle,
+          ctaType,
+          heading,
+          copy: textNullable('Body copy:', ''),
+          alt: 'Image alt text',
+          defaultSrc: imgXlg4x3,
+          href: textNullable(
+            knobNamesForType[ctaType ?? CTA_TYPE.REGULAR],
+            hrefsForType[ctaType ?? CTA_TYPE.REGULAR]
+          ),
+        };
       },
     },
   },

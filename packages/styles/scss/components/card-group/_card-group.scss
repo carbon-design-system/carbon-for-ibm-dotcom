@@ -195,6 +195,44 @@
     }
   }
 
+  .#{$prefix}--card-group__cards__row {
+    // `@include make-row()` has negative margin adjustment assuming that it's placed in Carbon grid.
+    // Such adjustment has adverse effect when card group is placed in non-Carbon-grid,
+    // but keeps it for React for backward-compatibility reason.
+    margin-left: calc(-1 * #{math.div($grid-gutter, 2)});
+    margin-right: calc(-1 * #{math.div($grid-gutter, 2)});
+
+    position: relative;
+    &::after {
+      content: '';
+      display: block;
+      width: 100%;
+      height: 100%;
+      position: absolute;
+      left: 0;
+      top: 0;
+      pointer-events: none;
+      box-shadow: inset 0 0 0 1px $background;
+    }
+  }
+
+  .#{$prefix}--card-group__cards__col {
+    padding: 0;
+    background: $border-subtle-02;
+
+    border-right: 1px solid $border-subtle-02;
+    border-top: 1px solid $border-subtle-02;
+
+    &:last-of-type {
+      border-right: 0;
+      width: calc(100% - 1px);
+    }
+
+    .#{$prefix}--card--inverse {
+      height: 100%;
+    }
+  }
+
   // Add Grid Mode Narrow (16px gutter) style.
   :host(#{$c4d-prefix}-card-group)[grid-mode='narrow'],
   .#{$c4d-prefix}--card-group--narrow {
