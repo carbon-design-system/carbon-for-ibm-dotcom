@@ -49,6 +49,7 @@ For Carbon v11 migration guidance, see their
 | image                     | View changes [here](#image)                                                                                                                    |
 | image-with-caption        | This component is deprecated in v1 and has been removed in v2 in favor of the image component                                                  |
 | leadspace                 | View changes [here](#leadspace)                                                                                                                |
+| link-list                 | No API changes.                                                                                                                                |
 | link-list-section         | This component is deprecated in v2 in favor for content-section/block & link-list end of section variant components                            |
 | logo-grid                 | This component is deprecated in v2 in favor for content-section/block & image-group components                                                 |
 | pictogram-item            | This component is deprecated in v2 in favor for content-item (pictogram variation) componet                                                    |
