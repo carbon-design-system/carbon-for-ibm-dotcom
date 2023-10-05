@@ -124,10 +124,9 @@ function getRollupConfig({
       inputs[
         `lightbox-image-viewer${dirSuffixes[dir]}${modeSuffixes[mode]}`
       ] = `src/components/lightbox-media-viewer/lightbox-image-viewer.ts`;
-      // Test commit, lets see if CDN job fails on this.
-      // inputs[
-      //   `lightbox-media-viewer${dirSuffixes[dir]}${modeSuffixes[mode]}`
-      // ] = `src/components/lightbox-media-viewer/lightbox-media-viewer.ts`;
+      inputs[
+        `lightbox-media-viewer${dirSuffixes[dir]}${modeSuffixes[mode]}`
+      ] = `src/components/lightbox-media-viewer/lightbox-media-viewer.ts`;
       inputs[
         `lightbox-video-player${dirSuffixes[dir]}${modeSuffixes[mode]}`
       ] = `src/components/lightbox-media-viewer/lightbox-video-player-container.ts`;
