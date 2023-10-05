@@ -52,6 +52,7 @@ For Carbon v11 migration guidance, see their
 | image-with-caption        | This component is deprecated in v1 and has been removed in v2 in favor of the image component                                                  |
 | leadspace                 | View changes [here](#leadspace)                                                                                                                |
 | leadspace-with-search     | View changes [here](#leadspace-with-search)                                                                                                    |
+| link-list                 | No API changes.                                                                                                                                |
 | link-list-section         | This component is deprecated in v2 in favor for content-section/block & link-list end of section variant components                            |
 | link-with-icon            | No API changes.                                                                                                                                |
 | logo-grid                 | This component is deprecated in v2 in favor for content-section/block & image-group components                                                 |
@@ -129,7 +130,7 @@ information.
 - `<dds-leadspace-with-search-content-copy>` has been replaced with `<dds-leadspace-with-search-copy>`
 - New highlight attribute in `dds-leadspace-heading`
 - Deprecated background-media image variant
-- Removed `<dds-leadspace-with-search-heading>`, `<dds-leadspace-with-search-content>`, 
+- Removed `<dds-leadspace-with-search-heading>`, `<dds-leadspace-with-search-content>`,
 `<dds-leadspace-with-search-content-heading>`, `<dds-leadspace-with-search-content-copy>`
 
 ### Universal banner

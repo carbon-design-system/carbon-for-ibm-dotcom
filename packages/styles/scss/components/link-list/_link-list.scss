@@ -144,9 +144,6 @@
     }
 
     .#{$prefix}--card__wrapper {
-      // padding-left: $spacing-07;
-      // padding-right: $spacing-07;
-
       .#{$prefix}--card__copy {
         margin-bottom: 0;
 
@@ -155,7 +152,6 @@
         }
       }
 
-      // .#{$prefix}--card__copy p,
       .#{$prefix}--card__heading,
       .#{$prefix}--card__copy ::slotted(p) {
         color: $link-primary;
