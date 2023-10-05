@@ -245,11 +245,6 @@
     }
   }
 
-  :host(#{$c4d-prefix}-content-item-row-thumbnail-copy)
-    ::slotted(#{$c4d-prefix}-content-item-paragraph) {
-    margin-bottom: $spacing-07;
-  }
-
   :host(#{$c4d-prefix}-content-item-row) .#{$prefix}--content-item__cta {
     .#{$prefix}--link-list {
       padding: 0;
