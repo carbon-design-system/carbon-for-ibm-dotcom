@@ -7,7 +7,7 @@
  * LICENSE file in the root directory of this source tree.
  */
 
-import { LitElement, html } from 'lit';
+import { html } from 'lit';
 import { property, query } from 'lit/decorators.js';
 import { ifDefined } from 'lit/directives/if-defined.js';
 import CheckmarkFilled16 from '@carbon/icons/lib/checkmark--filled/16';
@@ -20,6 +20,7 @@ import RadioGroupManager, {
 } from '../../globals/internal/radio-group-manager';
 import styles from './structured-list.scss';
 import { carbonElement as customElement } from '../../globals/decorators/carbon-element';
+import CarbonBase from '../../globals/CarbonBase';
 
 /**
  * Map of navigation direction by key.
@@ -82,7 +83,7 @@ class StructuredListRowRadioButtonDelegate
  * @element cds-structured-list-row
  */
 @customElement(`${prefix}-structured-list-row`)
-class CDSStructuredListRow extends HostListenerMixin(LitElement) {
+class CDSStructuredListRow extends HostListenerMixin(CarbonBase) {
   /**
    * The radio group manager associated with the radio button.
    */

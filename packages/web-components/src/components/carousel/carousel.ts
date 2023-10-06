@@ -6,7 +6,7 @@
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
  */
-import { LitElement, html } from 'lit';
+import { html } from 'lit';
 import { customElement, property, query, state } from 'lit/decorators.js';
 import 'wicg-inert';
 import { slow01 } from '@carbon/motion';
@@ -22,6 +22,7 @@ import styles from './carousel.scss';
 import StableSelectorMixin from '../../globals/mixins/stable-selector';
 import C4DExpressiveModal from '../expressive-modal/expressive-modal';
 import { ifDefined } from 'lit/directives/if-defined.js';
+import CarbonBase from '../../internal/vendor/@carbon/web-components/globals/CarbonBase.js';
 
 const { prefix, stablePrefix: c4dPrefix } = settings;
 
@@ -42,7 +43,8 @@ const minIntersectionRatio = 0.75;
  * @csspart next-button The button to go to the next page.
  */
 @customElement(`${c4dPrefix}-carousel`)
-class C4DCarousel extends HostListenerMixin(StableSelectorMixin(LitElement)) {
+class C4DCarousel extends HostListenerMixin(StableSelectorMixin(CarbonBase)) {
+  carbonStyles = ['resetStyles'];
   /**
    * The scrolling contents node.
    */

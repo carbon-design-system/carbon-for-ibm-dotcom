@@ -7,32 +7,24 @@
 
 // @ts-nocheck
 import { LitElement } from 'lit';
-import carbonStyles from '../../internal/vendor/@carbon/ibmdotcom-utilities/utilities/carbonStyles/carbonStyles.js';
+import CarbonStyles from '../internal/vendor/@carbon/ibmdotcom-utilities/utilities/CarbonStyles/CarbonStyles';
 
 export default class CarbonBase extends LitElement {
-  carbonStyles;
+  carbonStyles?: String[];
 
   connectedCallback() {
     super.connectedCallback();
 
-    if (CarbonStyles.global && this.shadowRoot && this.carbonStyles) {
-      // Prepare to receive stylesheets
-      this.addEventListener('respondCarbonStyles', (e) => {
-        const thisSheets = [...this.shadowRoot.adoptedStyleSheets];
-        const globalSheets = e.detail;
+    const { shadowRoot, carbonStyles: neededStyles } = this;
 
-        this.shadowRoot.adoptedStyleSheets = [...globalSheets, ...thisSheets];
-      });
+    if (shadowRoot && neededStyles) {
+      const globalStyles = CarbonStyles.global.getStyleSheets(neededStyles);
+      const componentStyles = [...this.shadowRoot.adoptedStyleSheets];
 
-      // Request stylesheets
-      this.dispatchEvent(
-        new CustomEvent('requestCarbonStyles', {
-          bubbles: true,
-          composed: true,
-          cancelable: false,
-          detail: this.carbonStyles,
-        })
-      );
+      this.shadowRoot.adoptedStyleSheets = [
+        ...globalStyles,
+        ...componentStyles,
+      ];
     }
   }
 }

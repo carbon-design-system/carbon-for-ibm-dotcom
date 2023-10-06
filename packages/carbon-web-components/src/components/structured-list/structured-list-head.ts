@@ -7,10 +7,11 @@
  * LICENSE file in the root directory of this source tree.
  */
 
-import { LitElement, html } from 'lit';
+import { html } from 'lit';
 import { prefix } from '../../globals/settings';
 import { carbonElement as customElement } from '../../globals/decorators/carbon-element';
 import styles from './structured-list.scss';
+import CarbonBase from '../../globals/CarbonBase';
 
 /**
  * Structured list header.
@@ -18,7 +19,7 @@ import styles from './structured-list.scss';
  * @element cds-structured-list-head
  */
 @customElement(`${prefix}-structured-list-head`)
-class CDSStructuredListHeader extends LitElement {
+class CDSStructuredListHeader extends CarbonBase {
   connectedCallback() {
     if (!this.hasAttribute('role')) {
       this.setAttribute('role', 'rowgroup');

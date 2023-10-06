@@ -10,44 +10,42 @@ import buttonStyles from '@carbon/ibmdotcom-styles/scss/globals/primitives/butto
 import resetStyles from '@carbon/ibmdotcom-styles/scss/globals/primitives/reset.scss';
 import typeStyles from '@carbon/ibmdotcom-styles/scss/globals/primitives/type.scss';
 
+// CSS text strings
 const importedStyleSheets = {
   buttonStyles,
   resetStyles,
   typeStyles,
 };
 
-function handleStylesRequest(e) {
-  const carbon = this; // Bound from constructor.
-  const component = e.target;
-  const sheetsRequested = e.detail.map(
-    (sheetName) => carbon.styleSheets[sheetName]
-  );
-
-  component.dispatchEvent(
-    new CustomEvent('respondCarbonStyles', {
-      bubbles: false,
-      cancelable: false,
-      composed: true,
-      detail: sheetsRequested,
-    })
-  );
-}
-
 class CarbonStyles {
+  /**
+   * Convert stylerule text into new stylesheets and deliver stylesheets when requested.
+   */
   constructor() {
-    window.addEventListener(
-      'requestCarbonStyles',
-      handleStylesRequest.bind(this)
-    );
+    // Get all global/primitive stylerule sets.
+    const styleRules = Object.entries(importedStyleSheets);
 
-    this.styleSheets = Object.fromEntries(
-      Object.entries(importedStyleSheets).map(([name, ss]) => {
-        const sheet = new CSSStyleSheet();
-        sheet.replaceSync(ss.cssText);
+    // Create a new CSSStyleSheet for each set.
+    const sheets = styleRules.map(([name, ss]) => {
+      const sheet = new CSSStyleSheet();
+      sheet.replaceSync(ss.cssText);
 
-        return [name, sheet];
-      })
-    );
+      // ["resetStyles", {CSSStyleSheet}]
+      return [name, sheet];
+    });
+
+    // Store all new stylesheets.
+    this.styleSheets = Object.fromEntries(sheets);
+  }
+
+  /**
+   * Given a set of stylesheet names, return the matching stylesheets.
+   *
+   * @param {String[]} requestedStyleSheets The names of requested stylesheets.
+   * @returns {CSSStyleSheet[]} The requested stylesheets.
+   */
+  getStyleSheets(requestedStyleSheets) {
+    return requestedStyleSheets.map((sheet) => this.styleSheets[sheet]);
   }
 
   /**

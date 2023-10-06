@@ -16,6 +16,7 @@ import FocusMixin from '../../globals/mixins/focus';
 import CDSStructuredListRow from './structured-list-row';
 import styles from './structured-list.scss';
 import { carbonElement as customElement } from '../../globals/decorators/carbon-element';
+import CarbonBase from '../../globals/CarbonBase';
 
 /**
  * Structured list wrapper.
@@ -23,7 +24,7 @@ import { carbonElement as customElement } from '../../globals/decorators/carbon-
  * @element cds-structured-list
  */
 @customElement(`${prefix}-structured-list`)
-class CDSStructuredList extends FocusMixin(LitElement) {
+class CDSStructuredList extends FocusMixin(CarbonBase) {
   /**
    * The `name` attribute for the `<input>` for selection.
    * If present, this structured list will be a selectable one.
