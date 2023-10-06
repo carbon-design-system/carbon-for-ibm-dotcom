@@ -10,5 +10,4 @@
 @forward 'button-group-item';
 @use 'button-group-item';
 
-@include button-group.button-group;
 @include button-group-item.button-group-item;
