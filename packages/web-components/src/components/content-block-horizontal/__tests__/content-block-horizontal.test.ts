@@ -8,9 +8,9 @@
  */
 
 import { html, render } from 'lit/html.js';
-import '../../content-item-horizontal/content-item-horizontal';
-import '../../content-item-horizontal/content-item-horizontal-copy';
-import '../../content-item-horizontal/content-item-horizontal-eyebrow';
+import '../../content-item-row/content-item-row';
+import '../../content-item-row/content-item-row-copy';
+import '../../content-item-row/content-item-row-eyebrow';
 import '../content-block-horizontal';
 import { ICON_PLACEMENT } from '../../link-with-icon/link-with-icon';
 import { CTA_TYPE } from '../../cta/defs';
@@ -36,10 +36,10 @@ describe('c4d-content-block-horizontal', function () {
       render(
         template({
           children: html`
-            <c4d-content-item-horizontal>
-              <c4d-content-item-horizontal-eyebrow>eyebrow-foo</c4d-content-item-horizontal-eyebrow>
+            <c4d-content-item-row>
+              <c4d-content-item-row-eyebrow>eyebrow-foo</c4d-content-item-row-eyebrow>
               <c4d-content-item-heading>heading-foo</c4d-content-item-heading>
-              <c4d-content-item-horizontal-copy>copy-foo</c4d-content-item-horizontal-copy>
+              <c4d-content-item-row-copy>copy-foo</c4d-content-item-row-copy>
               <c4d-link-list slot="footer" type="vertical">
                 <c4d-link-list-item-cta
                   icon-placement="${ICON_PLACEMENT.RIGHT}"
@@ -56,7 +56,7 @@ describe('c4d-content-block-horizontal', function () {
                   cta-copy-foo
                 </c4d-link-list-item-cta>
               </c4d-link-list>
-             </content-item-horizontal>
+             </content-item-row>
           `,
         }),
         document.body
