@@ -25,9 +25,9 @@ Here's a quick example to get you started.
 import C4DContentBlockHorizontal from '@carbon/ibmdotcom-web-components/es/components-react/content-block-horizontal/content-block-horizontal';
 import C4DContentBlockHeading from '@carbon/ibmdotcom-web-components/es/components-react/content-block/content-block-heading';
 import C4DContentItemHeading from '@carbon/ibmdotcom-web-components/es/components-react/content-item/content-item-heading';
-import C4DContentItemHorizontal from '@carbon/ibmdotcom-web-components/es/components-react/content-item-horizontal/content-item-horizontal';
-import C4DContentItemHorizontalEyebrow from '@carbon/ibmdotcom-web-components/es/components-react/content-item-horizontal/content-item-horizontal-eyebrow';
-import C4DContentItemHorizontalCopy from '@carbon/ibmdotcom-web-components/es/components-react/content-item-horizontal/content-item-horizontal-copy';
+import C4DContentItemRow from '@carbon/ibmdotcom-web-components/es/components-react/content-item-row/content-item-row';
+import C4DContentItemRowEyebrow from '@carbon/ibmdotcom-web-components/es/components-react/content-item-row/content-item-row-eyebrow';
+import C4DContentItemRowCopy from '@carbon/ibmdotcom-web-components/es/components-react/content-item-row/content-item-row-copy';
 
 import C4DLinkList from '@carbon/ibmdotcom-web-components/es/components-react/link-list/link-list';
 import C4DLinkListItemCTA from '@carbon/ibmdotcom-web-components/es/components-react/cta/link-list-item-cta';
@@ -38,12 +38,12 @@ function App() {
       <C4DContentBlockHeading>
         Lorem ipsum dolor sit amet
       </C4DContentBlockHeading>
-      <C4DContentItemHorizontal>
-        <C4DContentItemHorizontalEyebrow>
+      <C4DContentItemRow>
+        <C4DContentItemRowEyebrow>
           Lorem ipsum
-        </C4DContentItemHorizontalEyebrow>
+        </C4DContentItemRowEyebrow>
         <C4DContentItemHeading>Aliquam condimentum</C4DContentItemHeading>
-        <C4DContentItemHorizontalCopy>{copy}</C4DContentItemHorizontalCopy>
+        <C4DContentItemRowCopy>{copy}</C4DContentItemRowCopy>
         <C4DLinkList slot="footer" type="vertical">
           <C4DLinkListItemCTA
             icon-placement="right"
@@ -58,7 +58,7 @@ function App() {
             External link text
           </C4DLinkListItemCTA>
         </C4DLinkList>
-      </C4DContentItemHorizontal>
+      </C4DContentItemRow>
     </C4DContentBlockHorizontal>
   );
 }
@@ -78,7 +78,7 @@ to see how Web Components selector and `data-autoid` should be used.
 | ------------------------------------ | ------------------------------------------------- | ----------- |
 | `<cds-content-block-horizontal>`     | `data-autoid="cds--content-block-simple"`         | Component   |
 | `<cds-content-block-heading>`        | `data-autoid="cds--content-block__heading"`       | Component   |
-| `<cds-content-item-horizontal>`      | `data-autoid="cds--content-item-horizontal"`      | Component   |
-| `<cds-content-item-horizontal-copy>` | `data-autoid="cds--content-item-horizontal-copy"` | Component   |
+| `<cds-content-item-row>`      | `data-autoid="cds--content-item-row"`      | Component   |
+| `<cds-content-item-row-copy>` | `data-autoid="cds--content-item-row-copy"` | Component   |
 
 <Description markdown={contributing} />
