@@ -19,12 +19,10 @@ const copy =
   'Phasellus at elit sollicitudin.';
 
 const linkListItem = html`
-  <c4d-content-item-horizontal>
-    <c4d-content-item-horizontal-eyebrow
-      >Lorem ipsum</c4d-content-item-horizontal-eyebrow
-    >
+  <c4d-content-item-row>
+    <c4d-content-item-row-eyebrow>Lorem ipsum</c4d-content-item-row-eyebrow>
     <c4d-content-item-heading>Aliquam condimentum</c4d-content-item-heading>
-    <c4d-content-item-horizontal-copy>${copy}</c4d-content-item-horizontal-copy>
+    <c4d-content-item-row-copy>${copy}</c4d-content-item-row-copy>
     <c4d-link-list slot="footer" type="vertical">
       <c4d-link-list-item-cta
         icon-placement="right"
@@ -39,7 +37,7 @@ const linkListItem = html`
         External link text
       </c4d-link-list-item-cta>
     </c4d-link-list>
-  </c4d-content-item-horizontal>
+  </c4d-content-item-row>
 `;
 
 export const Default = (args) => {

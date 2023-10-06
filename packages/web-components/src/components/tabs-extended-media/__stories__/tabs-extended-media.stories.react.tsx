@@ -19,13 +19,13 @@ import C4DTab from '@carbon/ibmdotcom-web-components/es/components-react/tabs-ex
 import C4DContentSectionHeading from '@carbon/ibmdotcom-web-components/es/components-react/content-section/content-section-heading';
 /* eslint-disable max-len */
 // @ts-ignore
-import C4DContentItemHorizontalMedia from '@carbon/ibmdotcom-web-components/es/components-react/content-item-horizontal/content-item-horizontal-media';
+import C4DContentItemRowMedia from '@carbon/ibmdotcom-web-components/es/components-react/content-item-row/content-item-row-media';
 /* eslint-disable max-len */
 // @ts-ignore
-import C4DContentItemHorizontalMediaCopy from '@carbon/ibmdotcom-web-components/es/components-react/content-item-horizontal/content-item-horizontal-media-copy';
+import C4DContentItemRowMediaCopy from '@carbon/ibmdotcom-web-components/es/components-react/content-item-row/content-item-row-media-copy';
 /* eslint-disable max-len */
 // @ts-ignore
-import C4DContentItemHorizontalMediaVideo from '@carbon/ibmdotcom-web-components/es/components-react/content-item-horizontal/content-item-horizontal-media-video';
+import C4DContentItemRowMediaVideo from '@carbon/ibmdotcom-web-components/es/components-react/content-item-row/content-item-row-media-video';
 // @ts-ignore
 import C4DContentItemHeading from '@carbon/ibmdotcom-web-components/es/components-react/content-item/content-item-heading';
 // @ts-ignore
@@ -36,7 +36,7 @@ import C4DLinkListItemCTA from '@carbon/ibmdotcom-web-components/es/components-r
 import C4DImage from '@carbon/ibmdotcom-web-components/es/components-react/image/image';
 
 import readme from './README.stories.react.mdx';
-import { MEDIA_ALIGN, MEDIA_TYPE } from '../../content-item-horizontal/defs';
+import { MEDIA_ALIGN, MEDIA_TYPE } from '../../content-item-row/defs';
 import imgLg16x9 from '../../../../../storybook-images/assets/720/fpo--16x9--720x405--001.jpg';
 import textNullable from '../../../../.storybook/knob-text-nullable';
 
@@ -58,7 +58,7 @@ export const Default = (args) => {
   for (let i = 1; i < 5; i++) {
     tabs.push(
       <C4DTab label={`Tab ${i}`}>
-        <C4DContentItemHorizontalMedia align={align}>
+        <C4DContentItemRowMedia align={align}>
           {type === MEDIA_TYPE.IMAGE ? (
             <C4DImage
               slot="media"
@@ -68,16 +68,16 @@ export const Default = (args) => {
             ``
           )}
           {type === MEDIA_TYPE.VIDEO ? (
-            <C4DContentItemHorizontalMediaVideo video-id="0_ibuqxqbe"></C4DContentItemHorizontalMediaVideo>
+            <C4DContentItemRowMediaVideo video-id="0_ibuqxqbe"></C4DContentItemRowMediaVideo>
           ) : (
             ``
           )}
           <C4DContentItemHeading>Tab heading {i}</C4DContentItemHeading>
-          <C4DContentItemHorizontalMediaCopy>
+          <C4DContentItemRowMediaCopy>
             Lorem ipsum dolor sit amet, _consectetur_ adipiscing elit. Aenean et
             ultricies est. Mauris iaculis eget dolor nec hendrerit. Phasellus at
             elit sollicitudin.
-          </C4DContentItemHorizontalMediaCopy>
+          </C4DContentItemRowMediaCopy>
           <C4DLinkList slot="footer" type="vertical">
             <C4DLinkListItemCTA
               icon-placement="right"
@@ -92,7 +92,7 @@ export const Default = (args) => {
               Microservices and containers
             </C4DLinkListItemCTA>
           </C4DLinkList>
-        </C4DContentItemHorizontalMedia>
+        </C4DContentItemRowMedia>
       </C4DTab>
     );
   }
