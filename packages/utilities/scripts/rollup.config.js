@@ -1,5 +1,5 @@
 /**
- * Copyright IBM Corp. 2020, 2022
+ * Copyright IBM Corp. 2020, 2023
  *
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
@@ -10,6 +10,7 @@
 const chalk = require('chalk');
 const Table = require('cli-table');
 const gzip = require('gzip-size');
+const path = require('path');
 
 const commonjs = require('@rollup/plugin-commonjs');
 const { nodeResolve } = require('@rollup/plugin-node-resolve');
@@ -19,6 +20,11 @@ const json = require('@rollup/plugin-json');
 const replace = require('@rollup/plugin-replace');
 const { terser } = require('rollup-plugin-terser');
 const sizes = require('rollup-plugin-sizes');
+const postcss = require('postcss');
+const autoprefixer = require('autoprefixer');
+
+const litSCSS = require('../../web-components/tools/rollup-plugin-lit-scss');
+const fixHostPseudo = require('../../web-components/tools/postcss-fix-host-pseudo');
 
 const packageJson = require('../package.json');
 
@@ -62,6 +68,18 @@ const prodSettings =
         },
       ];
 
+const postCSSPlugins = [
+  fixHostPseudo(),
+  autoprefixer({
+    overrideBrowsersList: [
+      '> 0.5%',
+      'last 2 versions',
+      'Firefox ESR',
+      'not dead',
+    ],
+  }),
+];
+
 process.env.BABEL_ENV = 'es';
 
 module.exports = {
@@ -78,6 +96,13 @@ module.exports = {
     babel.babel({
       babelHelpers: 'bundled',
       exclude: ['node_modules/**'], // only transpile our source code
+    }),
+    litSCSS({
+      includePaths: [path.resolve(__dirname, '../../../node_modules')],
+      async preprocessor(contents, id) {
+        return (await postcss(postCSSPlugins).process(contents, { from: id }))
+          .css;
+      },
     }),
     replace({
       'process.env.NODE_ENV': JSON.stringify(env),

@@ -7,7 +7,7 @@
 
 // @ts-nocheck
 import { LitElement } from 'lit';
-import CarbonStyles from '../../../utilities/src/utilities/carbonStyles/carbonStyles.js';
+import carbonStyles from '../../internal/vendor/@carbon/ibmdotcom-utilities/utilities/carbonStyles/carbonStyles.js';
 
 export default class CarbonBase extends LitElement {
   carbonStyles;

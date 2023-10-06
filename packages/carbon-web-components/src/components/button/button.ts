@@ -24,6 +24,7 @@ import styles from './button.scss';
 import HostListener from '../../globals/decorators/host-listener';
 import HostListenerMixin from '../../globals/mixins/host-listener';
 import { carbonElement as customElement } from '../../globals/decorators/carbon-element';
+import CarbonBase from '../../globals/CarbonBase';
 
 export {
   BUTTON_KIND,
@@ -40,7 +41,7 @@ export {
  * @csspart button The button.
  */
 @customElement(`${prefix}-button`)
-class CDSButton extends HostListenerMixin(FocusMixin(LitElement)) {
+class CDSButton extends HostListenerMixin(FocusMixin(CarbonBase)) {
   /**
    * `true` if there is an icon.
    */

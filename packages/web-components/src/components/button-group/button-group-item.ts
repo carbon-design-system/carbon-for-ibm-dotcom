@@ -9,7 +9,6 @@
 import { carbonElement as customElement } from '../../internal/vendor/@carbon/web-components/globals/decorators/carbon-element';
 import settings from '@carbon/ibmdotcom-utilities/es/utilities/settings/settings.js';
 import styles from './button-group-item.scss';
-import carbonStyles from '../../../../utilities/src/utilities/carbonStyles/carbonStyles.js';
 import C4DButton from '../button/button';
 
 const { stablePrefix: c4dPrefix } = settings;

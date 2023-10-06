@@ -13,7 +13,6 @@ import settings from '../../internal/vendor/@carbon/ibmdotcom-utilities/utilitie
 import styles from './button.scss';
 import StableSelectorMixin from '../../globals/mixins/stable-selector';
 import { carbonElement as customElement } from '../../internal/vendor/@carbon/web-components/globals/decorators/carbon-element.js';
-import CarbonBase from '../../../../carbon-web-components/src/globals/CarbonBase';
 import CTAMixin from '../../component-mixins/cta/cta';
 import CDSButton from '../../internal/vendor/@carbon/web-components/components/button/button.js';
 
@@ -30,7 +29,7 @@ const { prefix, stablePrefix: c4dPrefix } = settings;
 // @ts-ignore
 class C4DButton extends CTAMixin(StableSelectorMixin(CDSButton)) {
   carbonStyles = ['resetStyles', 'buttonStyles', 'typeStyles'];
-  
+
   @query('a')
   _linkNode;
 
