@@ -13,6 +13,7 @@ import { html } from 'lit';
 // In our dev env, we auto-generate the file and re-map below path to to point to the generated file.
 // @ts-ignore
 import { ifDefined } from 'lit/directives/if-defined.js';
+import { select } from '@storybook/addon-knobs';
 import ArrowRight20 from '../../../internal/vendor/@carbon/web-components/icons/arrow--right/20.js';
 import '../../card/index';
 import '../../cta/index';
@@ -86,24 +87,7 @@ const CardWithVideo = ({ copy = copyDefault, href = hrefDefault } = {}) => html`
   </c4d-video-cta-container>
 `;
 
-export const Default = (args) => {
-  const { cardSize } = args?.Carousel ?? {};
-  const classes = classMap({
-    [cardSize]: cardSize,
-  });
-  return html`
-    <c4d-carousel class="${classes}">
-      <span class="cds--visually-hidden" slot="title"
-        >Carousel (Storybook Sample)</span
-      >
-      ${Card()}${Card({ copy: copyOdd })}${CardWithLongHeading()}${Card({
-        copy: copyOdd,
-      })}${Card()}
-    </c4d-carousel>
-  `;
-};
-
-export const CardsWithImages = (args) => {
+const CardsWithImages = (args) => {
   const { cardSize } = args?.Carousel ?? {};
   const classes = classMap({
     [cardSize]: cardSize,
@@ -121,7 +105,7 @@ export const CardsWithImages = (args) => {
   `;
 };
 
-export const CardsWithVideos = (args) => {
+const CardsWithVideos = (args) => {
   const { cardSize } = args?.Carousel ?? {};
   const classes = classMap({
     [cardSize]: cardSize,
@@ -138,7 +122,7 @@ export const CardsWithVideos = (args) => {
   `;
 };
 
-export const CardsWithMedia = (args) => {
+const CardsWithMedia = (args) => {
   const { cardSize } = args?.Carousel ?? {};
   const classes = classMap({
     [cardSize]: cardSize,
@@ -152,25 +136,27 @@ export const CardsWithMedia = (args) => {
   `;
 };
 
-CardsWithImages.story = {
-  name: 'Cards with images',
-};
-
-CardsWithVideos.story = {
-  name: 'Cards with videos',
-  parameters: {
-    ...readme.parameters,
-    percy: {
-      skip: true,
-    },
-  },
-};
-
-CardsWithMedia.story = {
-  name: 'Cards with Media',
-  parameters: {
-    ...readme.parameters,
-  },
+export const Default = (args) => {
+  const { cardSize, mediaType } = args?.Carousel ?? {};
+  const classes = classMap({
+    [cardSize]: cardSize,
+  });
+  switch (mediaType) {
+    case 'images':
+      return CardsWithImages(args);
+    case 'videos':
+      return CardsWithVideos(args);
+    case 'mixed':
+      return CardsWithMedia(args);
+    default:
+      return html`
+        <c4d-carousel class="${classes}">
+          ${Card()}${Card({ copy: copyOdd })}${CardWithLongHeading()}${Card({
+            copy: copyOdd,
+          })}${Card()}
+        </c4d-carousel>
+      `;
+  }
 };
 
 export default {
@@ -190,10 +176,23 @@ export default {
   parameters: {
     ...readme.parameters,
     hasStoryPadding: true,
+    knobs: {
+      Carousel: () => {
+        const mediaType = select(
+          'Media type:',
+          ['none', 'images', 'videos', 'mixed'],
+          'none'
+        );
+        return {
+          mediaType,
+        };
+      },
+    },
     propsSet: {
       default: {
         Carousel: {
           cardSize: 4,
+          mediaType: 'none',
         },
       },
     },
