@@ -1,0 +1,271 @@
+import {
+  Preview,
+  Props,
+  Description,
+  Story,
+} from '@storybook/addon-docs/blocks';
+import contributing from '../../../../../../docs/contributing-license.md';
+import { PropTypesRef } from '@carbon/ibmdotcom-web-components/es/components-react/content-item-row/content-item-row';
+
+# Content Item Row
+
+> 💡 Check our
+> [CodeSandbox](https://githubbox.com/carbon-design-system/carbon-for-ibm-dotcom/tree/main/packages/web-components/examples/codesandbox/components-react/content-item-row)
+> example implementation.
+
+[![Edit @carbon/ibmdotcom-web-components](https://codesandbox.io/static/img/play-codesandbox.svg)](https://githubbox.com/carbon-design-system/carbon-for-ibm-dotcom/tree/main/packages/web-components/examples/codesandbox/components-react/content-item-row)
+
+## Getting started
+
+Here's a quick example to get you started.
+
+### JS
+
+```javascript
+import C4DContentItemRow from '@carbon/ibmdotcom-web-components/es/components-react/content-item-row/content-item-row';
+import C4DContentItemRowCopy from '@carbon/ibmdotcom-web-components/es/components-react/content-item-row/content-item-row-copy';
+import C4DContentItemRowEyebrow from '@carbon/ibmdotcom-web-components/es/components-react/content-item-row/content-item-row-eyebrow';
+import C4DContentItemHeading from '@carbon/ibmdotcom-web-components/es/components-react/content-item/content-item-heading';
+import C4DLinkList from '@carbon/ibmdotcom-web-components/es/components-react/link-list/link-list';
+import C4DLinkListItemCTA from '@carbon/ibmdotcom-web-components/es/components-react/cta/link-list-item-cta';
+
+function App() {
+  return (
+    <C4DContentItemRow>
+      <C4DContentItemRowEyebrow>
+        Lorem ipsum
+      </C4DContentItemRowEyebrow>
+      <C4DContentItemHeading>Aliquam condimentum</C4DContentItemHeading>
+      <C4DContentItemRowCopy>
+        Lorem ipsum dolor sit amet, _consectetur_ adipiscing elit. Aenean et
+        ultricies est. Mauris iaculis eget dolor nec hendrerit. Phasellus at
+        elit sollicitudin.
+      </C4DContentItemRowCopy>
+      <C4DLinkList slot="footer" type="vertical">
+        <C4DLinkListItemCTA
+          icon-placement="right"
+          href="https://www.ibm.com"
+          cta-type="local">
+          Learn more
+        </C4DLinkListItemCTA>
+        <C4DLinkListItemCTA
+          icon-placement="right"
+          href="https://www.ibm.com"
+          cta-type="external">
+          Microservices and containers
+        </C4DLinkListItemCTA>
+      </C4DLinkList>
+    </C4DContentItemRow>
+  );
+}
+```
+
+### JS (with thumbnail)
+
+```javascript
+import C4DContentItemRow from '@carbon/ibmdotcom-web-components/es/components-react/content-item-row/content-item-row';
+import C4DContentItemRowThumbnailCopy from '@carbon/ibmdotcom-web-components/es/components-react/content-item-row/content-item-row-thumbnail-copy';
+import C4DContentItemHeading from '@carbon/ibmdotcom-web-components/es/components-react/content-item/content-item-heading';
+import C4DLinkList from '@carbon/ibmdotcom-web-components/es/components-react/link-list/link-list';
+import C4DLinkListItemCTA from '@carbon/ibmdotcom-web-components/es/components-react/cta/link-list-item-cta';
+import C4DImage from '@carbon/ibmdotcom-web-components/es/components-react/image/image';
+
+function App() {
+  return (
+    <C4DContentItemRow thumbnail>
+      <C4DContentItemHeading>Aliquam condimentum</C4DContentItemHeading>
+      <C4DContentItemRowThumbnailCopy>
+        Lorem ipsum dolor sit amet, _consectetur_ adipiscing elit. Aenean et
+        ultricies est. Mauris iaculis eget dolor nec hendrerit. Phasellus at
+        elit sollicitudin.
+      </C4DContentItemRowThumbnailCopy>
+      <C4DLinkList slot="footer" type="vertical">
+        <C4DLinkListItemCTA
+          icon-placement="right"
+          href="https://www.ibm.com"
+          cta-type="local">
+          Learn more
+        </C4DLinkListItemCTA>
+        <C4DLinkListItemCTA
+          icon-placement="right"
+          href="https://www.ibm.com"
+          cta-type="external">
+          Microservices and containers
+        </C4DLinkListItemCTA>
+      </C4DLinkList>
+      <C4DImage
+        slot="thumbnail"
+        alt="Alt text"
+        default-src="https://fpoimg.com/960x720?text=4:3&bg_color=ee5396&text_color=161616"
+      />
+    </C4DContentItemRow>
+  );
+}
+```
+
+### JS (with media - image)
+
+```javascript
+import C4DContentItemRowMedia from '@carbon/ibmdotcom-web-components/es/components-react/content-item-row/content-item-row-media';
+import C4DContentItemRowMediaCopy from '@carbon/ibmdotcom-web-components/es/components-react/content-item-row/content-item-row-media-copy';
+import C4DContentItemHeading from '@carbon/ibmdotcom-web-components/es/components-react/content-item/content-item-heading';
+import C4DLinkList from '@carbon/ibmdotcom-web-components/es/components-react/link-list/link-list';
+import C4DLinkListItemCTA from '@carbon/ibmdotcom-web-components/es/components-react/cta/link-list-item-cta';
+import C4DImage from '@carbon/ibmdotcom-web-components/es/components-react/image/image';
+
+function App() {
+  return (
+    <C4DContentItemRowMedia align="right">
+      <C4DImage
+        slot="media"
+        alt="Alt text"
+        default-src="https://fpoimg.com/960x720?text=4:3&bg_color=ee5396&text_color=161616"
+      />
+      <C4DContentItemHeading>Aliquam condimentum</C4DContentItemHeading>
+      <C4DContentItemRowMediaCopy>
+        Lorem Ipsum
+      </C4DContentItemRowMediaCopy>
+      <C4DLinkList slot="footer" type="vertical">
+        <C4DLinkListItemCTA
+          icon-placement="right"
+          href="https://www.ibm.com"
+          cta-type="local">
+          Learn more
+        </C4DLinkListItemCTA>
+        <C4DLinkListItemCTA
+          icon-placement="right"
+          href="https://www.ibm.com"
+          cta-type="external">
+          Microservices and containers
+        </C4DLinkListItemCTA>
+      </C4DLinkList>
+    </C4DContentItemRowMedia>
+  );
+}
+```
+
+### JS (with media - video)
+
+```javascript
+import C4DContentItemRowMedia from '@carbon/ibmdotcom-web-components/es/components-react/content-item-row/content-item-row-media';
+import C4DContentItemRowMediaVideo from '@carbon/ibmdotcom-web-components/es/components-react/content-item-row/content-item-row-media-video';
+import C4DContentItemRowMediaCopy from '@carbon/ibmdotcom-web-components/es/components-react/content-item-row/content-item-row-media-copy';
+import C4DContentItemHeading from '@carbon/ibmdotcom-web-components/es/components-react/content-item/content-item-heading';
+import C4DLinkList from '@carbon/ibmdotcom-web-components/es/components-react/link-list/link-list';
+import C4DLinkListItemCTA from '@carbon/ibmdotcom-web-components/es/components-react/cta/link-list-item-cta';
+
+function App() {
+  return (
+    <C4DContentItemRowMedia align="right">
+      <C4DContentItemRowMediaVideo video-id="0_ibuqxqbe"></C4DContentItemRowMediaVideo>
+      <C4DContentItemHeading>Aliquam condimentum</C4DContentItemHeading>
+      <C4DContentItemRowMediaCopy>
+        Lorem Ipsum
+      </C4DContentItemRowMediaCopy>
+      <C4DLinkList slot="footer" type="vertical">
+        <C4DLinkListItemCTA
+          icon-placement="right"
+          href="https://www.ibm.com"
+          cta-type="local">
+          Learn more
+        </C4DLinkListItemCTA>
+        <C4DLinkListItemCTA
+          icon-placement="right"
+          href="https://www.ibm.com"
+          cta-type="external">
+          Microservices and containers
+        </C4DLinkListItemCTA>
+      </C4DLinkList>
+    </C4DContentItemRowMedia>
+  );
+}
+```
+
+### JS (with featured media - image)
+
+```javascript
+import C4DContentItemRowMediaFeatured from '@carbon/ibmdotcom-web-components/es/components-react/content-item-row/content-item-row-media-featured';
+import C4DContentItemRowMediaCopy from '@carbon/ibmdotcom-web-components/es/components-react/content-item-row/content-item-row-media-copy';
+import C4DContentItemRowEyebrow from '@carbon/ibmdotcom-web-components/es/components-react/content-item-row/content-item-row-eyebrow';
+import C4DContentItemHeading from '@carbon/ibmdotcom-web-components/es/components-react/content-item/content-item-heading';
+import C4DLinkList from '@carbon/ibmdotcom-web-components/es/components-react/link-list/link-list';
+import C4DLinkListItemCTA from '@carbon/ibmdotcom-web-components/es/components-react/cta/link-list-item-cta';
+import C4DImage from '@carbon/ibmdotcom-web-components/es/components-react/image/image';
+
+function App() {
+  return (
+  <C4DContentItemRowMediaFeatured>
+    <C4DContentItemRowEyebrow>Lorem ipsum</C4DContentItemRowEyebrow>
+    <C4DContentItemHeading>Aliquam condimentum</C4DContentItemHeading>
+    <C4DContentItemRowMediaCopy>
+        Lorem ipsum dolor sit amet, _consectetur_ adipiscing elit. Aenean et ultricies est. Mauris iaculis eget dolor nec hendrerit. Phasellus at elit sollicitudin.
+    </C4DContentItemRowMediaCopy>
+    <C4DLinkList slot="footer" type="vertical">
+      <C4DLinkListItemCTA icon-placement="right" href="https://www.ibm.com" cta-type="local">
+        Learn more
+      </C4DLinkListItemCTA>
+      <C4DLinkListItemCTA icon-placement="right" href="https://www.ibm.com" cta-type="external">
+        Microservices and containers
+      </C4DLinkListItemCTA>
+    </C4DLinkList>
+    <C4DImage slot="media" alt="Alt text" default-src="https://fpoimg.com/960x720?text=4:3&bg_color=ee5396&text_color=161616" />
+  </C4DContentItemRowMedia>
+  );
+}
+```
+
+### JS (with featured media - video)
+
+```javascript
+import C4DContentItemRowMediaFeatured from '@carbon/ibmdotcom-web-components/es/components-react/content-item-row/content-item-row-media-featured';
+import C4DContentItemRowMediaCopy from '@carbon/ibmdotcom-web-components/es/components-react/content-item-row/content-item-row-media-copy';
+import C4DContentItemRowMediaVideo from '@carbon/ibmdotcom-web-components/es/components-react/content-item-row/content-item-row-media-video';
+import C4DContentItemRowEyebrow from '@carbon/ibmdotcom-web-components/es/components-react/content-item-row/content-item-row-eyebrow';
+import C4DContentItemHeading from '@carbon/ibmdotcom-web-components/es/components-react/content-item/content-item-heading';
+import C4DLinkList from '@carbon/ibmdotcom-web-components/es/components-react/link-list/link-list';
+import C4DLinkListItemCTA from '@carbon/ibmdotcom-web-components/es/components-react/cta/link-list-item-cta';
+
+function App() {
+  return (
+  <C4DContentItemRowMediaFeatured>
+    <C4DContentItemRowEyebrow>Lorem ipsum</C4DContentItemRowEyebrow>
+    <C4DContentItemHeading>Aliquam condimentum</C4DContentItemHeading>
+    <C4DContentItemRowMediaCopy>
+        Lorem ipsum dolor sit amet, _consectetur_ adipiscing elit. Aenean et ultricies est. Mauris iaculis eget dolor nec hendrerit. Phasellus at elit sollicitudin.
+    </C4DContentItemRowMediaCopy>
+    <C4DLinkList slot="footer" type="vertical">
+      <C4DLinkListItemCTA icon-placement="right" href="https://www.ibm.com" cta-type="local">
+        Learn more
+      </C4DLinkListItemCTA>
+      <C4DLinkListItemCTA icon-placement="right" href="https://www.ibm.com" cta-type="external">
+        Microservices and containers
+      </C4DLinkListItemCTA>
+    </C4DLinkList>
+  <C4DContentItemRowMediaVideo video-id="0_ibuqxqbe"></C4DContentItemRowMediaVideo>
+  </C4DContentItemRowMedia>
+  );
+}
+```
+
+## Props
+
+<Props of={PropTypesRef} />
+
+## Stable selectors
+
+See
+[our README](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/tree/main/packages/web-components#stable-selectors-for-analytics-and-integratione2e-testing-in-web-components)
+to see how Web Components selector and `data-autoid` should be used.
+
+| Web Components selector                        | Compatibility selector                                      | Description |
+| ---------------------------------------------- | ----------------------------------------------------------- | ----------- |
+| `<cds-content-item-row>`                | `data-autoid="cds--content-item-row"`                | Component   |
+| `<cds-content-item-row-copy>`           | `data-autoid="cds--content-item-row-copy"`           | Component   |
+| `<cds-content-item-row-eyebrow>`        | `data-autoid="cds--content-item-row-eyebrow"`        | Component   |
+| `<cds-content-item-row-media>`          | `data-autoid="cds--content-item-row-media"`          | Component   |
+| `<cds-content-item-row-media-copy>`     | `data-autoid="cds--content-item-row-media-copy"`     | Component   |
+| `<cds-content-item-row-media-video>`    | `data-autoid="cds--content-item-row-media-video"`    | Component   |
+| `<cds-content-item-row-media-featured>` | `data-autoid="cds--content-item-row-media-featured"` | Component   |
+| `<cds-content-item-row-thumbnail-copy>` | `data-autoid="cds--content-item-row-thumbnail-copy"` | Component   |
+
+<Description markdown={contributing} />

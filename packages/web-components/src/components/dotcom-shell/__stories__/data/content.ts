@@ -16,7 +16,7 @@ import '../../../cta/index';
 import '../../../card-group/index';
 import '../../../content-block/index';
 import '../../../content-block-segmented/index';
-import '../../../content-item-horizontal/index';
+import '../../../content-item-row/index';
 import '../../../leadspace/index';
 import '../../../image/index';
 import '../../../leadspace-block/index';
@@ -99,15 +99,13 @@ export const contentBlockSegmentedItemsWithImage = html`
 `;
 
 export const contentItemHorizontal = html`
-  <c4d-content-item-horizontal>
-    <c4d-content-item-horizontal-eyebrow
-      >Lorem ipsum</c4d-content-item-horizontal-eyebrow
-    >
+  <c4d-content-item-row>
+    <c4d-content-item-row-eyebrow>Lorem ipsum</c4d-content-item-row-eyebrow>
     <c4d-content-item-heading>Aliquam condimentum</c4d-content-item-heading>
-    <c4d-content-item-horizontal-copy
+    <c4d-content-item-row-copy
       >Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean et
       ultricies est. Mauris iaculis eget dolor nec hendrerit. Phasellus at elit
-      sollicitudin.</c4d-content-item-horizontal-copy
+      sollicitudin.</c4d-content-item-row-copy
     >
     <c4d-link-list slot="footer" type="vertical">
       <c4d-link-list-item-cta
@@ -123,7 +121,7 @@ export const contentItemHorizontal = html`
         External link text
       </c4d-link-list-item-cta>
     </c4d-link-list>
-  </c4d-content-item-horizontal>
+  </c4d-content-item-row>
 `;
 
 export const globalBanner = (srcImage) => html`
