@@ -264,11 +264,11 @@
           margin-bottom: 0;
           margin-top: auto;
         }
-  
+
         .#{$prefix}--card__copy {
           margin-top: $spacing-07;
         }
-  
+
         ::slotted(svg[slot='pictogram']) {
           margin-bottom: $spacing-07;
         }
@@ -278,11 +278,11 @@
         ::slotted(#{$c4d-prefix}-card-heading) {
           align-items: flex-start;
         }
-  
+
         .#{$prefix}--card__copy {
           margin-bottom: $spacing-07;
         }
-  
+
         ::slotted(svg[slot='pictogram']) {
           margin-top: auto;
           align-items: flex-end;
