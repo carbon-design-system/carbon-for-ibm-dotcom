@@ -38,6 +38,7 @@ For Carbon v11 migration guidance, see their
 | content-group-cards       | This component is deprecated in v2 in favor for content-section/block & card-group components                                                  |
 | content-group-pictograms  | This component is deprecated in v2 in favor for content-section/block content-item (pictogram variant) components                              |
 | content-group-simple      | This component is deprecated in v2 in favor for content-group, image, & content-item components                                                |
+| content-item-horizontal   | View changes [here](#content-item-horizontal)                                                                                           |
 | cta                       | View changes [here](#cta)                                                                                                                      |
 | cta-block                 | This component is deprecated in v2 in favor for content-section/block & content-item components                                                |
 | cta-section               | This component is deprecated in v2 in favor for content-section/block & content-item components                                                |
@@ -79,6 +80,11 @@ For Carbon v11 migration guidance, see their
 - New `aspect-ratio` property with '1:1', '2:1', '3:2', '4:3', and '16:9' as
   options
 - New `link` property which takes the place of the deprecated `card-link`
+
+### Content item horizontal
+
+- `content-item-horizontal` changed names to `content-item-row`
+- All components with `content-item-horizontal-*` also changed to `content-item-row-*`
 
 ### CTA
 
