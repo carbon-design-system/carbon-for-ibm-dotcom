@@ -34,9 +34,7 @@
 
       .#{$prefix}--tabs__nav-item {
         min-height: $spacing-09;
-        width: calc(
-          math.div(100%, math.div(12, 2)) - math.div(#{$spacing-01}, 2)
-        );
+        width: calc(math.div(100%, math.div(12, 2)) - math.div($spacing-01, 2));
         height: auto;
 
         p {

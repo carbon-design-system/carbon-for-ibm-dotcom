@@ -6,5 +6,8 @@
 //
 @use '@carbon/styles/scss/theme' as *;
 @use '@carbon/ibmdotcom-styles/scss/globals/tokens/color-tokens' as color-tokens;
+@use '@carbon/ibmdotcom-styles/scss/components/card-in-card/tokens' as
+  card-in-card-tokens;
 
 @include add-component-tokens(color-tokens.$color-tokens);
+@include add-component-tokens(card-in-card-tokens.$card-in-card-tokens);
