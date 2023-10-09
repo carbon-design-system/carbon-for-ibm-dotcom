@@ -20,10 +20,10 @@ const { stablePrefix: c4dPrefix } = settings;
 /**
  * Copy in the content section of Leadspace with search
  *
- * @element c4d-leadspace-with-search-content-copy
+ * @element c4d-leadspace-with-search-copy
  */
-@customElement(`${c4dPrefix}-leadspace-with-search-content-copy`)
-class C4DLeadspaceWithSearchContentCopy extends StableSelectorMixin(
+@customElement(`${c4dPrefix}-leadspace-with-search-copy`)
+class C4DLeadspaceWithSearchCopy extends StableSelectorMixin(
   C4DContentBlockParagraph
 ) {
   /**
@@ -45,4 +45,4 @@ class C4DLeadspaceWithSearchContentCopy extends StableSelectorMixin(
 }
 
 /* @__GENERATE_REACT_CUSTOM_ELEMENT_TYPE__ */
-export default C4DLeadspaceWithSearchContentCopy;
+export default C4DLeadspaceWithSearchCopy;
