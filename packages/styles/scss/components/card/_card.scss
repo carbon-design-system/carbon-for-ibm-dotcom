@@ -227,8 +227,7 @@
       }
     }
 
-    &[pictogram-placement='top'] .#{$prefix}--card,
-    &[pictogram-placement='bottom'] .#{$prefix}--card {
+    &[pictogram] .#{$prefix}--card {
       ::slotted(#{$c4d-prefix}-card-heading) {
         padding-top: 0;
       }
@@ -258,34 +257,36 @@
       }
     }
 
-    &[pictogram-placement='top'] .#{$prefix}--card {
-      ::slotted(#{$c4d-prefix}-card-heading) {
-        align-items: flex-end;
-        margin-bottom: 0;
-        margin-top: auto;
+    &[pictogram] {
+      &[pictogram-placement='top'] .#{$prefix}--card {
+        ::slotted(#{$c4d-prefix}-card-heading) {
+          align-items: flex-end;
+          margin-bottom: 0;
+          margin-top: auto;
+        }
+  
+        .#{$prefix}--card__copy {
+          margin-top: $spacing-07;
+        }
+  
+        ::slotted(svg[slot='pictogram']) {
+          margin-bottom: $spacing-07;
+        }
       }
 
-      .#{$prefix}--card__copy {
-        margin-top: $spacing-07;
-      }
-
-      ::slotted(svg[slot='pictogram']) {
-        margin-bottom: $spacing-07;
-      }
-    }
-
-    &[pictogram-placement='bottom'] .#{$prefix}--card {
-      ::slotted(#{$c4d-prefix}-card-heading) {
-        align-items: flex-start;
-      }
-
-      .#{$prefix}--card__copy {
-        margin-bottom: $spacing-07;
-      }
-
-      ::slotted(svg[slot='pictogram']) {
-        margin-top: auto;
-        align-items: flex-end;
+      &[pictogram-placement='bottom'] .#{$prefix}--card {
+        ::slotted(#{$c4d-prefix}-card-heading) {
+          align-items: flex-start;
+        }
+  
+        .#{$prefix}--card__copy {
+          margin-bottom: $spacing-07;
+        }
+  
+        ::slotted(svg[slot='pictogram']) {
+          margin-top: auto;
+          align-items: flex-end;
+        }
       }
     }
 

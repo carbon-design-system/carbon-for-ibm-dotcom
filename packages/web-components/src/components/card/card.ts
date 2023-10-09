@@ -300,6 +300,9 @@ class C4DCard extends CTAMixin(StableSelectorMixin(CDSLink)) {
 
     if (this._hasPictogram) {
       this.onclick = () => window.open(this.href, '_self');
+      this.setAttribute('pictogram', '');
+    } else {
+      this.removeAttribute('pictogram')
     }
 
     const copyElement = this.querySelector('p');
