@@ -9,9 +9,6 @@
 
 import '../background-media/index';
 import './leadspace-with-search';
-import './leadspace-with-search-heading';
-import './leadspace-with-search-content';
-import './leadspace-with-search-content-heading';
-import './leadspace-with-search-content-copy';
+import './leadspace-with-search-copy';
 import '../search-with-typeahead/index';
 import '../horizontal-rule/index';
