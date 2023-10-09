@@ -15,17 +15,17 @@ import C4DContentBlockSegmentedItem from '@carbon/ibmdotcom-web-components/es/co
 import C4DContentGroupHeading from '@carbon/ibmdotcom-web-components/es/components-react/content-group/content-group-heading';
 import C4DContentItemCopy from '@carbon/ibmdotcom-web-components/es/components-react/content-item/content-item-copy';
 import C4DTextCTA from '@carbon/ibmdotcom-web-components/es/components-react/cta/text-cta';
-import C4DContentItemHorizontal from '@carbon/ibmdotcom-web-components/es/components-react/content-item-horizontal/content-item-horizontal';
-import C4DContentItemHorizontalEyebrow from '@carbon/ibmdotcom-web-components/es/components-react/content-item-horizontal/content-item-horizontal-eyebrow';
+import C4DContentItemRow from '@carbon/ibmdotcom-web-components/es/components-react/content-item-row/content-item-row';
+import C4DContentItemRowEyebrow from '@carbon/ibmdotcom-web-components/es/components-react/content-item-row/content-item-row-eyebrow';
 import C4DContentItemHeading from '@carbon/ibmdotcom-web-components/es/components-react/content-item/content-item-heading';
-import C4DContentItemHorizontalCopy from '@carbon/ibmdotcom-web-components/es/components-react/content-item-horizontal/content-item-horizontal-copy';
+import C4DContentItemRowCopy from '@carbon/ibmdotcom-web-components/es/components-react/content-item-row/content-item-row-copy';
 import C4DLinkList from '@carbon/ibmdotcom-web-components/es/components-react/link-list/link-list';
 import C4DLinkListItemCTA from '@carbon/ibmdotcom-web-components/es/components-react/cta/link-list-item-cta';
-import C4DUniversalBanner from '@carbon/ibmdotcom-web-components/es/components-react/universal-banner/universal-banner';
-import C4DUniversalBannerImage from '@carbon/ibmdotcom-web-components/es/components-react/universal-banner/universal-banner-image';
-import C4DUniversalBannerHeading from '@carbon/ibmdotcom-web-components/es/components-react/universal-banner/universal-banner-heading';
-import C4DUniversalBannerCopy from '@carbon/ibmdotcom-web-components/es/components-react/universal-banner/universal-banner-copy';
-import C4DButtonCTA from '@carbon/ibmdotcom-web-components/es/components-react/cta/button-cta';
+import C4DGlobalBanner from '@carbon/ibmdotcom-web-components/es/components-react/global-banner/global-banner';
+import C4DGlobalBannerImage from '@carbon/ibmdotcom-web-components/es/components-react/global-banner/global-banner-image';
+import C4DGlobalBannerHeading from '@carbon/ibmdotcom-web-components/es/components-react/global-banner/global-banner-heading';
+import C4DGlobalBannerCopy from '@carbon/ibmdotcom-web-components/es/components-react/global-banner/global-banner-copy';
+import C4DButton from '@carbon/ibmdotcom-web-components/es/components-react/button/button';
 import C4DCardGroupItem from '@carbon/ibmdotcom-web-components/es/components-react/card-group/card-group-item';
 import C4DCardHeading from '@carbon/ibmdotcom-web-components/es/components-react/card/card-heading';
 import C4DCardEyebrow from '@carbon/ibmdotcom-web-components/es/components-react/card/card-eyebrow';
@@ -146,16 +146,16 @@ export const contentBlockSegmentedItemsWithImage = (
 );
 
 export const contentItemHorizontal = (
-  <C4DContentItemHorizontal>
-    <C4DContentItemHorizontalEyebrow>
+  <C4DContentItemRow>
+    <C4DContentItemRowEyebrow>
       Lorem ipsum
-    </C4DContentItemHorizontalEyebrow>
+    </C4DContentItemRowEyebrow>
     <C4DContentItemHeading>Aliquam condimentum</C4DContentItemHeading>
-    <C4DContentItemHorizontalCopy>
+    <C4DContentItemRowCopy>
       Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean et
       ultricies est. Mauris iaculis eget dolor nec hendrerit. Phasellus at elit
       sollicitudin.
-    </C4DContentItemHorizontalCopy>
+    </C4DContentItemRowCopy>
     <C4DLinkList slot="footer" type="vertical">
       <C4DLinkListItemCTA
         icon-placement="right"
@@ -170,26 +170,26 @@ export const contentItemHorizontal = (
         External link text
       </C4DLinkListItemCTA>
     </C4DLinkList>
-  </C4DContentItemHorizontal>
+  </C4DContentItemRow>
 );
 
-export const universalBanner = (srcImage) => (
-  <C4DUniversalBanner image-width="4-col">
-    <C4DUniversalBannerImage
+export const globalBanner = (srcImage) => (
+  <C4DGlobalBanner image-width="4-col">
+    <C4DGlobalBannerImage
       slot="image"
-      default-src={srcImage}></C4DUniversalBannerImage>
-    <C4DUniversalBannerHeading slot="heading">
+      default-src={srcImage}></C4DGlobalBannerImage>
+    <C4DGlobalBannerHeading slot="heading">
       heading
-    </C4DUniversalBannerHeading>
-    <C4DUniversalBannerCopy slot="copy">copy</C4DUniversalBannerCopy>
-    <C4DButtonCTA
+    </C4DGlobalBannerHeading>
+    <C4DGlobalBannerCopy slot="copy">copy</C4DGlobalBannerCopy>
+    <C4DButton
       slot="cta"
       cta-type="local"
       kind="tertiary"
       href="https://www.example.com">
       cta copy
-    </C4DButtonCTA>
-  </C4DUniversalBanner>
+    </C4DButton>
+  </C4DGlobalBanner>
 );
 
 export const cardGroupItems = (

@@ -231,15 +231,15 @@ assets:
         name: Storybook
         action: link
         url: https://www.ibm.com/standards/carbon/web-components/?path=/docs/components-content-item
-  content-item-horizontal:
-    externalDocsUrl: https://www.ibm.com/standards/carbon/components/content-item-horizontal
+  content-item-row:
+    externalDocsUrl: https://www.ibm.com/standards/carbon/components/content-item-row
     status: stable
     framework: web-component
     demoLinks:
       - type: storybook
         name: Storybook
         action: link
-        url: https://www.ibm.com/standards/carbon/web-components/?path=/docs/components-content-item-horizontal
+        url: https://www.ibm.com/standards/carbon/web-components/?path=/docs/components-content-item-row
   content-section:
     externalDocsUrl: https://www.ibm.com/standards/carbon/components/content-section
     status: stable

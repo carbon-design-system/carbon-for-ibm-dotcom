@@ -7,11 +7,11 @@
 
 'use strict';
 
-describe('cds-universal-banner', () => {
-  it('should load the default cds-universal-banner example', () => {
-    cy.visit('/universal-banner');
+describe('c4d-global-banner', () => {
+  it('should load the default c4d-global-banner example', () => {
+    cy.visit('/global-banner');
 
     // Take a snapshot for visual diffing
-    cy.percySnapshot('cds-universal-banner | default');
+    cy.percySnapshot('c4d-global-banner | default');
   });
 });
