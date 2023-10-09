@@ -77,12 +77,12 @@ const CardWithLongHeading = ({
 
 const CardWithVideo = ({ copy = copyDefault, href = hrefDefault } = {}) => html`
   <c4d-video-cta-container>
-    <c4d-card-cta cta-type="video" href="${href}">
+    <c4d-card cta-type="video" href="${href}">
       <p>${copy}</p>
-      <c4d-card-cta-footer href="${href}">
+      <c4d-card-footer href="${href}">
         ${ArrowRight20({ slot: 'icon' })}
-      </c4d-card-cta-footer>
-    </c4d-card-cta>
+      </c4d-card-footer>
+    </c4d-card>
   </c4d-video-cta-container>
 `;
 
