@@ -9,7 +9,6 @@
 
 import { query, state, property } from 'lit/decorators.js';
 import settings from '../../internal/vendor/@carbon/ibmdotcom-utilities/utilities/settings/settings';
-import { forEach } from '../../globals/internal/collection-helpers';
 import C4DMegaMenu from './megamenu';
 import C4DTopNav from './top-nav';
 import C4DTopNavMenu from './top-nav-menu';
@@ -122,6 +121,18 @@ class C4DMegaMenuTopNavMenu extends C4DTopNavMenu {
     trigger!.setAttribute('data-attribute3', this.menuLabel);
   }
 
+  /**
+   * Sets inline styles on an element to accommodate any scrollbars that push it
+   * out of Carbon grid alignment.
+   *
+   * @private
+   */
+  private _handleScrollbarOffset(element: HTMLElement) {
+    element.style.marginInlineEnd = this.expanded
+      ? `${this._scrollBarWidth}px`
+      : `0px`;
+  }
+
   connectedCallback() {
     super.connectedCallback();
     this._cleanAndCreateObserverResize({ create: true });
@@ -145,20 +156,25 @@ class C4DMegaMenuTopNavMenu extends C4DTopNavMenu {
   async updated(changedProperties) {
     super.updated(changedProperties);
     if (changedProperties.has('expanded')) {
-      const doc = this.getRootNode() as Document;
-      forEach(
-        doc.querySelectorAll(
-          (this.constructor as typeof C4DMegaMenuTopNavMenu).selectorOverlay
-        ),
-        (item) => {
-          (item as C4DMegaMenuOverlay).active = this.expanded;
-        }
-      );
+      const doc = this.ownerDocument;
+      const rootNode = this.getRootNode() as ShadowRoot;
+      const masthead = rootNode.querySelector('c4d-masthead');
 
-      const masthead: HTMLElement | null = doc.querySelector('c4d-masthead');
-      const cloudMasthead: HTMLElement | null | undefined = doc
-        .querySelector('c4d-cloud-masthead-container')
-        ?.querySelector('c4d-masthead');
+      // Find overlay and update its state.
+      const overlays = rootNode.querySelectorAll(
+        (this.constructor as typeof C4DMegaMenuTopNavMenu).selectorOverlay
+      );
+      overlays.forEach((item) => {
+        (item as C4DMegaMenuOverlay).active = this.expanded;
+      });
+
+      // Collect elements that should have offsets applied to accommodate any
+      // scrollbars when they appear in the layout.
+      const elementsToAdjust = [
+        doc.body,
+        masthead?.shadowRoot?.querySelector(`.${prefix}--masthead__l0`),
+        masthead?.querySelector(`${c4dPrefix}-masthead-l1`),
+      ].filter((element) => element instanceof HTMLElement) as HTMLElement[];
 
       if (this.expanded) {
         // Import needed subcomponents on first expansion
@@ -180,44 +196,14 @@ class C4DMegaMenuTopNavMenu extends C4DTopNavMenu {
         // Pause further execution until the render is complete.
         await this._requestMegaMenuRenderUpdate();
 
-        // Add the scrollbar width as right-margin to prevent content from shifting when
-        // scrollbar disappears on megamenu expand.
-        doc.body.style.marginRight = `${this._scrollBarWidth}px`;
+        // Lock document to prevent scrolling while menu is open.
         doc.body.style.overflow = `hidden`;
-        forEach(
-          doc.querySelectorAll(
-            (this.constructor as typeof C4DMegaMenuTopNavMenu).selectorOverlay
-          ),
-          (item) => {
-            (item as C4DMegaMenuOverlay).active = this.expanded;
-          }
+
+        // Set scrollbar adjustments.
+        elementsToAdjust.forEach((element) =>
+          this._handleScrollbarOffset(element)
         );
-
-        // Determine whether to apply margin-right on expand as Hybrid Cloud has extra masthead styling.
-        if (cloudMasthead) {
-          if (
-            doc.body.classList.contains('ibm-masthead-sticky') &&
-            doc.body.classList.contains('ibm-masthead-sticky-showing')
-          ) {
-            cloudMasthead.style.marginInlineEnd = `${this._scrollBarWidth}px`;
-          }
-        } else if (masthead) {
-          masthead.style.marginInlineEnd = `${this._scrollBarWidth}px`;
-        }
       } else {
-        document.body.style.marginInlineStart = '0px';
-        document.body.style.overflow = '';
-        if (cloudMasthead) {
-          if (
-            doc.body.classList.contains('ibm-masthead-sticky') &&
-            doc.body.classList.contains('ibm-masthead-sticky-showing')
-          ) {
-            cloudMasthead.style.marginInlineEnd = '0px';
-          }
-        } else if (masthead) {
-          masthead.style.marginInlineEnd = '0px';
-        }
-
         /**
          * Return focus to topMenuItem only when expanded explicitly equals false.
          * On load, when expanded is undefined, avoid taking control of focus.
@@ -241,6 +227,14 @@ class C4DMegaMenuTopNavMenu extends C4DTopNavMenu {
         setTimeout(() => {
           this._requestMegaMenuRenderUpdate();
         }, 500);
+
+        // Unlock document to enable scrolling once menu is closed.
+        doc.body.style.overflow = '';
+
+        // Unset scrollbar adjustments.
+        elementsToAdjust.forEach((element) =>
+          this._handleScrollbarOffset(element)
+        );
       }
     }
 
