@@ -151,7 +151,7 @@
 
     .#{$prefix}--search-container {
       @include theme($white, true);
-    }    
+    }
   }
 
   :host(#{$c4d-prefix}-leadspace-with-search[dual-theme='g90-and-g100']) {

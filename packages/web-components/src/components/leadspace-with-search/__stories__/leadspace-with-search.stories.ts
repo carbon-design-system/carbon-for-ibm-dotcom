@@ -15,7 +15,7 @@ import '../index';
 
 const adjacentThemes = {
   'Dual theme': ADJACENT_THEMES.DUAL_THEME,
-  'Monotheme': ADJACENT_THEMES.MONOTHEME,
+  Monotheme: ADJACENT_THEMES.MONOTHEME,
 };
 
 const subheading = `Innovate faster, reduce operational cost and transform 
@@ -23,7 +23,7 @@ IT operations (ITOps) across a changing landscape with an AIOps platform that
 delivers visibility into performance data and dependencies across environments.`;
 
 // observing the Storybook theme attribute change
-// Normally it would work without this, but the component won't 
+// Normally it would work without this, but the component won't
 // re-render unless we do this.
 const htmlElement = document.documentElement;
 let currentTheme = '';
@@ -42,7 +42,7 @@ const observer = new MutationObserver((mutations) => {
           dualTheme = DUAL_THEMES[key];
           break;
         }
-      }    
+      }
       const leadspace = document.querySelector('c4d-leadspace-with-search');
       leadspace?.setAttribute('dual-theme', dualTheme as string);
     }
@@ -54,7 +54,10 @@ export const Default = (args) => {
   const { theme, heading, highlight, subheading } =
     args?.LeadspaceWithSearch ?? {};
 
-  const secondTheme = document.querySelector('c4d-leadspace-with-search')?.getAttribute('dual-theme')!.split('-')[2];
+  const secondTheme = document
+    .querySelector('c4d-leadspace-with-search')
+    ?.getAttribute('dual-theme')!
+    .split('-')[2];
 
   return html`
     <c4d-leadspace-with-search adjacent-theme="${theme}">

@@ -41,7 +41,6 @@ export enum DUAL_THEMES {
  * Adjacent themes
  */
 export enum ADJACENT_THEMES {
-
   /**
    * Default theme
    */
@@ -50,5 +49,5 @@ export enum ADJACENT_THEMES {
   /**
    * Dual theme
    */
-  DUAL_THEME = 'dual-theme'
+  DUAL_THEME = 'dual-theme',
 }

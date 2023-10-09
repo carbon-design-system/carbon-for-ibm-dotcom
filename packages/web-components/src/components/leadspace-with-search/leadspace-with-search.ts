@@ -41,7 +41,7 @@ class C4DLeadspaceWithSearch extends StableSelectorMixin(LitElement) {
 
   /**
    * The adjacent theme.
-   * 
+   *
    * Options are:
    * "monotheme",
    * "dual-theme"
@@ -61,7 +61,7 @@ class C4DLeadspaceWithSearch extends StableSelectorMixin(LitElement) {
    */
   @property({ attribute: 'dual-theme', reflect: true })
   dualTheme = DUAL_THEMES.MONOTHEME;
-  
+
   /**
    * Handles `slotchange` event.
    *
@@ -94,18 +94,20 @@ class C4DLeadspaceWithSearch extends StableSelectorMixin(LitElement) {
   }
 
   updated() {
-    const currentBackground = window.getComputedStyle(this).getPropertyValue('--cds-background');
-    const currentTheme = Object.keys(themes).find(colorName =>
-      themes[colorName].background === currentBackground
+    const currentBackground = window
+      .getComputedStyle(this)
+      .getPropertyValue('--cds-background');
+    const currentTheme = Object.keys(themes).find(
+      (colorName) => themes[colorName].background === currentBackground
     );
 
-    if(this.adjacentTheme === ADJACENT_THEMES.DUAL_THEME) {
+    if (this.adjacentTheme === ADJACENT_THEMES.DUAL_THEME) {
       for (const key in DUAL_THEMES) {
         if (DUAL_THEMES[key].startsWith(currentTheme)) {
           this.dualTheme = DUAL_THEMES[key];
           break;
         }
-      }    
+      }
     } else {
       this.dualTheme = '' as any;
     }
