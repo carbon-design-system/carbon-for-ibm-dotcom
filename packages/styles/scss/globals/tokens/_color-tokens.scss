@@ -10,7 +10,7 @@
 @use '@carbon/styles/scss/theme' as *;
 @use '@carbon/styles/scss/utilities/component-tokens';
 
-$callout-background-cyan: (
+$background-cyan: (
   fallback: $cyan-10,
   values: (
     (
@@ -32,7 +32,7 @@ $callout-background-cyan: (
   ),
 );
 
-$callout-color-cyan: (
+$text-cyan: (
   fallback: $cyan-90,
   values: (
     (
@@ -54,7 +54,7 @@ $callout-color-cyan: (
   ),
 );
 
-$callout-caption-cyan: (
+$caption-cyan: (
   fallback: $cyan-70,
   values: (
     (
@@ -76,7 +76,7 @@ $callout-caption-cyan: (
   ),
 );
 
-$callout-background-purple: (
+$background-purple: (
   fallback: $purple-10,
   values: (
     (
@@ -98,7 +98,7 @@ $callout-background-purple: (
   ),
 );
 
-$callout-color-purple: (
+$text-purple: (
   fallback: $purple-90,
   values: (
     (
@@ -120,7 +120,7 @@ $callout-color-purple: (
   ),
 );
 
-$callout-caption-purple: (
+$caption-purple: (
   fallback: $purple-70,
   values: (
     (
@@ -142,41 +142,26 @@ $callout-caption-purple: (
   ),
 );
 
-$callout-tokens: (
-  callout-background-cyan: $callout-background-cyan,
-  callout-color-cyan: $callout-color-cyan,
-  callout-caption-cyan: $callout-caption-cyan,
-  callout-background-purple: $callout-background-purple,
-  callout-color-purple: $callout-color-purple,
-  callout-caption-purple: $callout-caption-purple,
+$color-tokens: (
+  background-cyan: $background-cyan,
+  text-cyan: $text-cyan,
+  caption-cyan: $caption-cyan,
+  background-purple: $background-purple,
+  text-purple: $text-purple,
+  caption-purple: $caption-purple,
 );
 
-$callout-background-cyan: component-tokens.get-var(
-  $callout-background-cyan,
-  'callout-background-cyan'
+$background-cyan: component-tokens.get-var($background-cyan, 'background-cyan');
+
+$text-cyan: component-tokens.get-var($text-cyan, 'text-cyan');
+
+$caption-cyan: component-tokens.get-var($caption-cyan, 'caption-cyan');
+
+$background-purple: component-tokens.get-var(
+  $background-purple,
+  'background-purple'
 );
 
-$callout-color-cyan: component-tokens.get-var(
-  $callout-color-cyan,
-  'callout-color-cyan'
-);
+$text-purple: component-tokens.get-var($text-purple, 'text-purple');
 
-$callout-caption-cyan: component-tokens.get-var(
-  $callout-caption-cyan,
-  'callout-caption-cyan'
-);
-
-$callout-background-purple: component-tokens.get-var(
-  $callout-background-purple,
-  'callout-background-purple'
-);
-
-$callout-color-purple: component-tokens.get-var(
-  $callout-color-purple,
-  'callout-color-purple'
-);
-
-$callout-caption-purple: component-tokens.get-var(
-  $callout-caption-purple,
-  'callout-caption-purple'
-);
+$caption-purple: component-tokens.get-var($caption-purple, 'caption-purple');
