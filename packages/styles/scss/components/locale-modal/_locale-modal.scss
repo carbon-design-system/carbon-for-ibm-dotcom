@@ -70,9 +70,18 @@
 
     .#{$c4d-prefix}--locale-modal {
       padding-left: $spacing-05;
-      margin-bottom: $spacing-05;
+      margin-bottom: 0;
       margin-top: $spacing-07;
       display: flex;
+
+      &.#{$prefix}--modal-content {
+        padding-top: $spacing-03;
+        margin-top: $spacing-07;
+
+        @include breakpoint('lg', $grid-breakpoints) {
+          margin-top: auto;
+        }
+      }
 
       @include type-style(body-compact-02, true);
     }
@@ -152,18 +161,6 @@
       padding: 3px 20% 0 $spacing-05;
       margin-bottom: $spacing-03;
     }
-
-    .#{$c4d-prefix}--locale-modal {
-      margin-bottom: 0;
-      &.#{$prefix}--modal-content {
-        padding-top: $spacing-03;
-        margin-top: $spacing-07;
-
-        @include breakpoint('lg', $grid-breakpoints) {
-          margin-top: auto;
-        }
-      }
-    }
   }
 
   :host(#{$c4d-prefix}-locale-modal[open]) {
@@ -193,6 +190,12 @@
     width: 100%;
     height: 100%;
     display: flex;
+    align-items: stretch;
+    text-align: inherit;
+
+    &:hover.#{$prefix}--link--disabled {
+      display: flex;
+    }
 
     &:focus-within {
       outline-width: $spacing-01;
@@ -340,15 +343,6 @@
 
     @include breakpoint('lg') {
       @include make-col(8, 16);
-    }
-
-    .#{$prefix}--link {
-      align-items: stretch;
-      text-align: inherit;
-
-      &:hover.#{$prefix}--link--disabled {
-        display: flex;
-      }
     }
 
     .#{$prefix}--card__wrapper {
