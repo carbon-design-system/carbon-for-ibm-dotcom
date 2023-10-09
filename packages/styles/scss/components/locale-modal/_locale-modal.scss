@@ -360,6 +360,10 @@
       }
     }
 
+    .#{$prefix}--card__wrapper {
+      height: 100%;
+    }
+
     ::slotted(div.#{$c4d-prefix}--region-item-footer) {
       /* stylelint-disable declaration-no-important */
       // need the !important to prevent CSS reset styles from overwritting margin
