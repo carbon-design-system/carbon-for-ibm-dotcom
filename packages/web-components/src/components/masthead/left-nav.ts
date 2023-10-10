@@ -352,7 +352,6 @@ class C4DLeftNav extends StableSelectorMixin(CDSSideNav) {
    */
   static get selectorNavItems() {
     return [
-      `${c4dPrefix}-left-nav-item`,
       `${c4dPrefix}-left-nav-menu`,
       `${c4dPrefix}-left-nav-menu-item`,
       `${c4dPrefix}-left-nav-name`,
@@ -386,7 +385,6 @@ class C4DLeftNav extends StableSelectorMixin(CDSSideNav) {
   static get selectorTabbable() {
     return [
       selectorTabbable,
-      `${c4dPrefix}-left-nav-item`,
       `${c4dPrefix}-left-nav-menu`,
       `${c4dPrefix}-left-nav-menu-item`,
       `${c4dPrefix}-left-nav-name`,
