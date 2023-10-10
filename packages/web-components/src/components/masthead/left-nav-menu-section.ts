@@ -317,7 +317,6 @@ class C4DLeftNavMenuSection extends HostListenerMixin(FocusMixin(LitElement)) {
   static get selectorTabbable() {
     return [
       selectorTabbable,
-      `${c4dPrefix}-left-nav-item`,
       `${c4dPrefix}-left-nav-menu`,
       `${c4dPrefix}-left-nav-menu-item`,
     ].join(',');
