@@ -1339,8 +1339,25 @@ class DDSMastheadComposite extends HostListenerMixin(LitElement) {
    * @private
    */
   private _heightResizeObserver = new ResizeObserver(
-    this._setContainerHeight.bind(this)
+    this._resizeObserverCallback.bind(this)
   );
+
+  /**
+   * Prevents resize observer from blocking main thread.
+   */
+  private _resizeObserverThrottle?: NodeJS.Timeout;
+
+  /**
+   * Throttled callback for _heightResizeObserver.
+   */
+  protected _resizeObserverCallback() {
+    if (!this._resizeObserverThrottle) {
+      this._setContainerHeight();
+      this._resizeObserverThrottle = setTimeout(() => {
+        this._resizeObserverThrottle = undefined;
+      }, 100);
+    }
+  }
 
   /**
    * Sets root element's height equal to the height of the fixed masthead elements.
