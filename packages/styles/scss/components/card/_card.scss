@@ -307,7 +307,6 @@
   :host(#{$c4d-prefix}-card-group-item) {
     &:not([href]) {
       .#{$prefix}--card .#{$prefix}--card__copy {
-        margin-top: auto;
         margin-bottom: $spacing-01;
       }
 
@@ -321,9 +320,13 @@
         z-index: 0;
       }
 
+      ::slotted(#{$c4d-prefix}-card-heading) {
+        padding-bottom: $spacing-10;
+        margin-bottom: auto;
+      }
+
       ::slotted(#{$c4d-prefix}-card-footer) {
-        margin-top: auto;
-        padding-top: $spacing-07;
+        margin-top: $spacing-07;
         display: inline-flex;
         &::after {
           position: relative;
