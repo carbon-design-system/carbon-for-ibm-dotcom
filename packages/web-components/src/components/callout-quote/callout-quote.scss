@@ -33,3 +33,18 @@
     margin: 1rem 0.5rem;
   }
 }
+
+:host(#{$dds-prefix}-callout-quote) {
+  .#{$prefix}--quote__wrapper {
+    margin-left: -$spacing-05;
+    margin-right: -$spacing-05;
+    @include carbon--breakpoint('md') {
+      margin-left: -$spacing-05;
+      margin-right: -$spacing-05;
+    }
+    @include carbon--breakpoint('sm') {
+      margin-left: 0;
+      margin-right: 0;
+    }
+  }
+}
