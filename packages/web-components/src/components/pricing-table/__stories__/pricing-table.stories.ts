@@ -170,6 +170,10 @@ const renderBodyCell = (
           <dds-pricing-table-cell-annotation>
             Sed quis neque ultrices, convallis augue non, scelerisque massa.
           </dds-pricing-table-cell-annotation>
+          <dds-tag-group data-autoid="dds--tag-group" role="list">
+            <bx-tag type="green" size=""> This is a tag</bx-tag>
+            <bx-tag type="blue" size=""> This is a tag</bx-tag>
+          </dds-tag-group>
         </dds-pricing-table-cell>
       `;
     default:
