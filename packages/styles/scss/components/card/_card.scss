@@ -548,10 +548,10 @@
       background-color: $background-inverse;
       border-color: $background-inverse;
 
-      &:hover {  
+      &:hover {
         #{$c4d-prefix}-image,
         ::slotted(#{$c4d-prefix}-image),
-        ::slotted(#{$c4d-prefix}-card-cta-image){
+        ::slotted(#{$c4d-prefix}-card-cta-image) {
           filter: brightness(108%);
 
           &::after {
