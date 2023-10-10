@@ -221,6 +221,8 @@ $feature-flags: (
     ::slotted([slot='image']),
     #{$c4d-prefix}-image,
     .#{$prefix}--image {
+      z-index: 0;
+
       @include breakpoint(md) {
         width: 50%;
         height: 100%;
@@ -316,6 +318,8 @@ $feature-flags: (
       #{$c4d-prefix}-image,
       &__wrapper,
       .#{$prefix}--image {
+        z-index: 0;
+
         @include breakpoint(md) {
           width: 50%;
         }
