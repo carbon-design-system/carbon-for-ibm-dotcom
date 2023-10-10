@@ -21,7 +21,6 @@
 @use '../link-with-icon/link-with-icon';
 
 @mixin card {
-  .#{$prefix}--card,
   :host(#{$c4d-prefix}-card),
   :host(#{$c4d-prefix}-card-cta),
   :host(#{$c4d-prefix}-card-in-card),
@@ -32,7 +31,6 @@
     @include tile($enable-experimental-tile-contrast: true);
   }
 
-  .#{$prefix}--card,
   :host(#{$c4d-prefix}-card),
   :host(#{$c4d-prefix}-link-list-item-card),
   :host(#{$c4d-prefix}-card-group-item),
@@ -51,48 +49,6 @@
     text-decoration: none;
     padding: 0;
     transition: $duration-moderate-01 motion(standard, productive);
-
-    .#{$prefix}-tile--clickable:hover {
-      background-color: $layer-hover-01;
-      text-decoration: none;
-
-      .#{$prefix}--card__wrapper {
-        background-color: $background-hover;
-      }
-
-      &.#{$prefix}--card__CTA--disabled.#{$prefix}--tile--clickable {
-        background-color: $layer-01;
-
-        > * {
-          background-color: $layer-01;
-        }
-      }
-
-      ::slotted(#{$c4d-prefix}-image),
-      ::slotted(#{$c4d-prefix}-card-cta-image),
-      .#{$prefix}--card__img,
-      .#{$prefix}--card__image_img,
-      .#{$prefix}--image,
-      .#{$prefix}--card__video-thumbnail {
-        &::before {
-          opacity: 0.08;
-          z-index: 1;
-        }
-      }
-
-      .#{$prefix}--card__video-thumbnail {
-        svg {
-          circle {
-            opacity: 0.9;
-            fill: $gray-100;
-          }
-
-          path {
-            fill: $icon-on-color;
-          }
-        }
-      }
-    }
 
     &:focus-within {
       .#{$prefix}--tile--clickable {
@@ -124,11 +80,7 @@
     }
 
     ::slotted(#{$c4d-prefix}-image),
-    ::slotted(#{$c4d-prefix}-card-cta-image),
-    .#{$prefix}--card__img,
-    .#{$prefix}--card__image_img,
-    .#{$prefix}--image,
-    .#{$prefix}--card__video-thumbnail {
+    ::slotted(#{$c4d-prefix}-card-cta-image) {
       position: relative;
 
       &::before {
@@ -144,18 +96,25 @@
       }
     }
 
-    .#{$prefix}--card__video-thumbnail {
-      svg {
-        circle,
-        path {
-          transition: $duration-moderate-01 motion(standard, productive);
-        }
-      }
-    }
-
-    .#{$prefix}--card.#{$prefix}--tile {
+    &:not([disabled]) .#{$prefix}--card.#{$prefix}--tile {
       padding: 0;
       transition: $duration-moderate-01 motion(standard, productive);
+
+      &:hover {
+        #{$c4d-prefix}-image,
+        ::slotted(#{$c4d-prefix}-image),
+        ::slotted(#{$c4d-prefix}-card-cta-image) {
+          &::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            background: $overlay;
+            opacity: 16%;
+          }
+        }
+      }
     }
 
     .#{$prefix}--card__wrapper {
@@ -343,26 +302,17 @@
   }
 
   // static card
-  :host(#{$c4d-prefix}-card) {
-    // Outlined/Border card
-    &[border] {
-      .#{$prefix}--card {
-        border: 1px solid $layer-accent-01;
-      }
-    }
-  }
 
   :host(#{$c4d-prefix}-card),
   :host(#{$c4d-prefix}-card-group-item) {
     &:not([href]) {
-      .cds--card .cds--card__copy {
+      .#{$prefix}--card .#{$prefix}--card__copy {
         margin-bottom: $spacing-01;
       }
 
-      &,
-      &:hover {
-        .#{$prefix}--card__wrapper {
-          background-color: $layer-01;
+      .#{$prefix}--card.#{$prefix}--tile ::slotted(#{$c4d-prefix}-image) {
+        &::after {
+          display: none;
         }
       }
 
@@ -371,7 +321,8 @@
       }
 
       ::slotted(#{$c4d-prefix}-card-footer) {
-        margin-top: $spacing-07;
+        margin-top: auto;
+        padding-top: $spacing-07;
         display: inline-flex;
         &::after {
           position: relative;
@@ -464,12 +415,6 @@
     color: $text-secondary;
   }
 
-  :host(#{$c4d-prefix}-card-footer[disabled])
-    .#{$c4d-prefix}-ce--card__footer
-    ::slotted(svg[slot='icon']) {
-    color: $text-disabled;
-  }
-
   :host(#{$c4d-prefix}-card-footer),
   :host(#{$c4d-prefix}-card-cta-footer),
   :host(#{$c4d-prefix}-card-in-card-footer),
@@ -546,45 +491,24 @@
     }
   }
 
-  :host(#{$c4d-prefix}-feature-cta-footer) a {
-    svg,
-    ::slotted(svg[slot='icon']) {
-      fill: $link-inverse;
-
-      @include breakpoint(max) {
-        width: $spacing-07;
-        height: $spacing-07;
-      }
-    }
-  }
-
   :host(#{$c4d-prefix}-card-footer),
   :host(#{$c4d-prefix}-card-cta-footer) {
-    .#{$c4d-prefix}-ce--card__footer--static {
-      color: $link-primary;
-    }
-
     .#{$prefix}--link-with-icon.#{$prefix}--link-with-icon--inline-icon {
       display: flex;
       width: 100%;
       justify-content: flex-end;
       align-items: center;
-    }
 
-    svg {
-      color: $link-primary;
-    }
-
-    &[color-scheme='inverse'] .#{$c4d-prefix}-ce--card__footer--static {
-      color: $link-inverse;
+      &:active {
+        color: $link-primary-hover;
+      }
     }
 
     &[color-scheme='inverse']
-      .#{$prefix}--link-with-icon.#{$prefix}--link-with-icon--inline-icon {
-      svg,
-      ::slotted(svg[slot='icon']) {
-        color: $link-inverse;
-      }
+      .#{$prefix}--link-with-icon.#{$prefix}--link-with-icon--inline-icon:not(
+        .#{$prefix}--link--disabled
+      ) {
+      color: $link-inverse;
     }
   }
 
@@ -616,10 +540,8 @@
     }
   }
 
-  .#{$prefix}--card--inverse,
-  .#{$prefix}--card.#{$prefix}--card--inverse,
-  :host(#{$c4d-prefix}-card)[color-scheme='inverse'],
-  :host(#{$c4d-prefix}-card-group-item)[color-scheme='inverse']
+  :host(#{$c4d-prefix}-card)[color-scheme='inverse']:not([disabled]),
+  :host(#{$c4d-prefix}-card-group-item)[color-scheme='inverse']:not([disabled])
     .#{$prefix}--card {
     .#{$prefix}--tile {
       background-color: $background-inverse;
@@ -642,10 +564,7 @@
       background-color: $background-inverse-hover;
 
       ::slotted(#{$c4d-prefix}-image),
-      ::slotted(#{$c4d-prefix}-card-cta-image),
-      .#{$prefix}--card__img,
-      .#{$prefix}--card__image_img,
-      .#{$prefix}--image {
+      ::slotted(#{$c4d-prefix}-card-cta-image) {
         filter: brightness(108%);
       }
     }
@@ -697,32 +616,10 @@
 
     &:hover {
       ::slotted(#{$c4d-prefix}-image),
-      ::slotted(#{$c4d-prefix}-card-cta-image),
-      .#{$prefix}--card__img,
-      .#{$prefix}--card__image_img,
-      .#{$prefix}--image {
+      ::slotted(#{$c4d-prefix}-card-cta-image) {
         filter: brightness(108%);
       }
     }
-  }
-
-  .#{$prefix}--card--inverse .#{$prefix}--card__cta,
-  .#{$prefix}--card--inverse .#{$prefix}--card__cta a,
-  .#{$prefix}--card--inverse .#{$prefix}--card__cta a:visited,
-  .#{$prefix}--card--inverse
-    .#{$prefix}--card__footer
-    .#{$prefix}--card__cta__copy,
-  :host(#{$c4d-prefix}-card-cta-footer[color-scheme='inverse'])
-    .#{$c4d-prefix}-ce--card__footer
-    ::slotted(svg[slot='icon']),
-  :host(#{$c4d-prefix}-card-cta-footer[color-scheme='inverse'])
-    .#{$prefix}--card__cta__copy,
-  :host(#{$c4d-prefix}-card-footer[color-scheme='inverse'])
-    .#{$c4d-prefix}-ce--card__footer
-    ::slotted(svg[slot='icon']),
-  :host(#{$c4d-prefix}-card-footer[color-scheme='inverse'])
-    .#{$prefix}--card__cta__copy {
-    color: $link-inverse;
   }
 
   @media print {
