@@ -11,5 +11,4 @@ import './quote';
 import './quote-source-bottom-copy';
 import './quote-source-copy';
 import './quote-source-heading';
-import '../link-with-icon/link-with-icon';
 import './quote-link-with-icon';
