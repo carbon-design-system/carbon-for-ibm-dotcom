@@ -307,6 +307,7 @@
   :host(#{$c4d-prefix}-card-group-item) {
     &:not([href]) {
       .#{$prefix}--card .#{$prefix}--card__copy {
+        margin-top: auto;
         margin-bottom: $spacing-01;
       }
 
@@ -545,6 +546,19 @@
     .#{$prefix}--card {
     .#{$prefix}--tile {
       background-color: $background-inverse;
+      border-color: $background-inverse;
+
+      &:hover {  
+        #{$c4d-prefix}-image,
+        ::slotted(#{$c4d-prefix}-image),
+        ::slotted(#{$c4d-prefix}-card-cta-image){
+          filter: brightness(108%);
+
+          &::after {
+            display: none;
+          }
+        }
+      }
     }
 
     .#{$prefix}--card__wrapper:hover {
@@ -558,15 +572,6 @@
 
     .#{$prefix}--card__eyebrow {
       color: $text-placeholder;
-    }
-
-    &:hover {
-      background-color: $background-inverse-hover;
-
-      ::slotted(#{$c4d-prefix}-image),
-      ::slotted(#{$c4d-prefix}-card-cta-image) {
-        filter: brightness(108%);
-      }
     }
 
     &:focus-within {
