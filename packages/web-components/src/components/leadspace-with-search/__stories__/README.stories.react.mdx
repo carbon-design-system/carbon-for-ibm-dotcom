@@ -23,29 +23,23 @@ Here's a quick example to get you started.
 
 ```javascript
 import C4DLeadspaceWithSearch from '@carbon/ibmdotcom-web-components/es/components-react/leadspace-with-search/leadspace-with-search.js';
-import C4DLeadspaceWithSearchHeading from '@carbon/ibmdotcom-web-components/es/components-react/leadspace-with-search/leadspace-with-search-heading';
-import C4DLeadspaceWithSearchContent from '@carbon/ibmdotcom-web-components/es/components-react/leadspace-with-search/leadspace-with-search-content';
-import C4DLeadspaceWithSearchContentHeading from '@carbon/ibmdotcom-web-components/es/components-react/leadspace-with-search/leadspace-with-search-content-heading';
-import C4DLeadspaceWithSearchContentCopy from '@carbon/ibmdotcom-web-components/es/components-react/leadspace-with-search/leadspace-with-search-content-copy';
+import C4DLeadspaceHeading from '@carbon/ibmdotcom-web-components/es/components-react/leadspace/leadspace-heading';
+import C4DLeadspaceWithSearchCopy from '@carbon/ibmdotcom-web-components/es/components-react/leadspace-with-search/leadspace-with-search-copy';
 import C4DHorizontalRule from '@carbon/ibmdotcom-web-components/es/components-react/horizontal-rule/horizontal-rule';
 import C4DSearchWithTypeahead from '@carbon/ibmdotcom-web-components/es/components-react/search-with-typeahead/search-with-typeahead';
 
 function App() {
   return (
     <C4DLeadspaceWithSearch>
-      <C4DLeadspaceWithSearchHeading>
+      <C4DLeadspaceHeading>
         Find a product
-      </C4DLeadspaceWithSearchHeading>
-      <C4DLeadspaceWithSearchContent>
-        <C4DLeadspaceWithSearchContentHeading>
-          Innovate like a startup, scale for the enterprise
-        </C4DLeadspaceWithSearchContentHeading>
-        <C4DLeadspaceWithSearchContentCopy>
+      </C4DLeadspaceHeading>
+        <C4DLeadspaceWithSearchCopy>
           Automate your software release process with continuous delivery
           (CD)—the most critical part of adopting DevOps. Build, test, and
           deploy code changes quickly, ensuring software is always ready for
           deployment.
-        </C4DLeadspaceWithSearchContentCopy>
+        </C4DLeadspaceWithSearchCopy>
       </C4DLeadspaceWithSearchContent>
       <C4DSearchWithTypeahead
         slot="search"

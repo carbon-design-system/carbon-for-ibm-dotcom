@@ -17,145 +17,13 @@
 @use '../leadspace-block';
 
 @mixin leadspace-with-search {
-  .#{$prefix}--leadspace-with-search {
-    padding-top: $spacing-09;
-    padding-bottom: $spacing-09;
-    border-bottom: 1px solid $layer-accent-01;
-    @include make-container;
-    @include breakpoint(lg) {
-      padding-top: $spacing-10;
-      padding-bottom: $spacing-10;
-    }
-    &__row {
-      @include make-row;
-    }
-    &__content {
-      @include make-col(4, 4);
-      @include make-col-ready;
-      @include breakpoint(lg) {
-        @include make-col(12, 16);
-        @include make-col-offset(4, 16);
-      }
-    }
-    &__heading {
-      color: $text-primary;
-      @include type-style('fluid-heading-06', true);
-    }
-    &__copy {
-      color: $text-primary;
-      @include type-style('fluid-heading-05', true);
-      @include breakpoint(md) {
-        @include make-col(6, 8);
-      }
-      @include breakpoint(lg) {
-        @include make-col(8, 16);
-      }
-    }
-    &__search {
-      margin-top: $spacing-07;
-      svg.bx--search-magnifier {
-        height: $spacing-06;
-        width: $spacing-06;
-        @include breakpoint(lg) {
-          height: $spacing-07;
-          width: $spacing-07;
-        }
-      }
-      button.bx--search-close {
-        height: 100%;
-        width: $spacing-09;
-        @include breakpoint(md) {
-          width: $spacing-10;
-          svg {
-            height: $spacing-06;
-            width: $spacing-06;
-          }
-        }
-      }
-      @include breakpoint(md) {
-        @include make-col(6, 8);
-      }
-
-      @include breakpoint(lg) {
-        height: $spacing-10;
-        margin-top: $spacing-10;
-        @include make-col(8, 10);
-
-        input.bx--search-input {
-          height: 100%;
-          color: $text-primary;
-          padding-left: carbon--mini-units(8);
-
-          // @include type-style('fluid-heading-03');
-
-          &::placeholder {
-            color: $text-helper;
-            //     @include type-style('fluid-heading-03');
-          }
-          &:focus::placeholder {
-            color: transparent;
-          }
-        }
-      }
-    }
-  }
-
   :host(#{$c4d-prefix}-leadspace-with-search) {
     display: block;
     position: relative;
 
-    &[has-image] {
-      @include breakpoint-down(lg) {
-        ::slotted([slot='hr']) {
-          display: none;
-        }
-      }
-
-      .#{$prefix}--content-layout {
-        @include breakpoint-down(md) {
-          padding-bottom: 0;
-        }
-      }
-    }
-
-    #{$c4d-prefix}-background-media {
-      display: block;
-      height: auto;
-
-      @include breakpoint(md) {
-        display: none;
-      }
-    }
-
-    ::slotted([slot='image']) {
-      display: none;
-      @include breakpoint(md) {
-        position: absolute;
-        display: block;
-        height: 100%;
-        margin: 0 calc(50% - 50vw);
-        width: 100vw;
-        top: 0;
-        // Puts background underneath all static elements
-        z-index: -1;
-      }
-    }
-
-    ::slotted(#{$c4d-prefix}-leadspace-block-heading) {
-      @include breakpoint(md) {
-        width: calc(75% - $spacing-07);
-        max-width: rem(640px);
-      }
-
-      @include breakpoint(lg) {
-        width: calc(100% - $spacing-07);
-        max-width: rem(640px);
-      }
-    }
-
     .#{$prefix}--content-layout {
       position: relative;
-      padding: $spacing-05 0 $spacing-07;
+      padding: $spacing-07 0 $spacing-07;
 
       &::before {
         right: calc(50% - 50vw);
@@ -205,24 +73,12 @@
         padding-bottom: $spacing-12;
       }
 
-      &-adjacent-theme {
+      &-dual-theme {
         padding: $spacing-07 0;
 
         @include breakpoint(md) {
           padding: $spacing-09 0;
         }
-      }
-
-      &-g10 {
-        @include theme($g10, true);
-      }
-
-      &-g90 {
-        @include theme($g90, true);
-      }
-
-      &-g100 {
-        @include theme($g100, true);
       }
 
       .#{$prefix}--sticky-header {
@@ -244,13 +100,30 @@
       }
     }
 
-    ::slotted(#{$c4d-prefix}-search-with-typeahead) {
+    ::slotted(#{$c4d-prefix}-leadspace-heading) {
+      margin-bottom: 0px;
+      padding-left: 0px;
+      color: $text-primary;
+
+      max-width: rem(640px);
+
       @include breakpoint(md) {
-        width: 75%;
+        width: calc(75% - $spacing-07);
       }
 
       @include breakpoint(lg) {
-        width: 125%;
+        width: calc(100% - $spacing-07);
+      }
+    }
+
+    ::slotted(#{$c4d-prefix}-search-with-typeahead) {
+      @include breakpoint(md) {
+        margin-left: $spacing-05;
+        width: calc(75% - $spacing-07);
+      }
+
+      @include breakpoint(lg) {
+        width: calc(100% - $spacing-07);
       }
     }
 
@@ -259,122 +132,95 @@
       position: relative;
       background: $layer-accent-01;
     }
+  }
 
-    &[adjacent-theme='white-and-g10'] {
-      .#{$prefix}--search-container {
-        @include theme($g10, true);
-      }
+  :host(#{$c4d-prefix}-leadspace-with-search[dual-theme='white-and-g10']) {
+    .#{$prefix}--search-layout {
+      @include theme($white, true);
     }
 
-    &[adjacent-theme='g10-and-white'] {
-      ::slotted(#{$c4d-prefix}-background-media),
-      .#{$prefix}--content-layout {
-        @include theme($g10, true);
-      }
-    }
-
-    &[adjacent-theme='g90-and-g100'] {
-      ::slotted(#{$c4d-prefix}-background-media),
-      .#{$prefix}--content-layout {
-        @include theme($g90, true);
-      }
-
-      .#{$prefix}--search-container {
-        @include theme($g100, true);
-      }
-    }
-
-    &[adjacent-theme='g100-and-g90'] {
-      ::slotted(#{$c4d-prefix}-background-media),
-      .#{$prefix}--content-layout {
-        @include theme($g100, true);
-      }
-
-      .#{$prefix}--search-container {
-        @include theme($g90, true);
-      }
-    }
-
-    &[sticky-search] {
-      .#{$prefix}--search-container {
-        position: fixed;
-        width: 100%;
-        top: 0;
-        left: 0;
-        padding: $spacing-05 0;
-        margin: 0;
-        transform: translateY(-100%);
-      }
-
-      .#{$prefix}--search-container-inner {
-        @include make-container;
-        @include make-row;
-
-        margin-left: auto;
-        margin-right: auto;
-      }
-
-      .#{$prefix}--sticky-header {
-        @include breakpoint(lg) {
-          @include make-col(4, 16);
-        }
-      }
-
-      ::slotted(#{$c4d-prefix}-search-with-typeahead) {
-        @include make-col(4, 4);
-
-        @include breakpoint(lg) {
-          @include make-col(10, 16);
-        }
-      }
-
-      &[scroll-behavior]:not([adjacent-theme]) {
-        .#{$prefix}--search-container {
-          &::before {
-            border-bottom: 1px solid $layer-accent-01;
-          }
-        }
-      }
+    .#{$prefix}--search-container {
+      @include theme($g10, true);
     }
   }
 
-  :host(#{$c4d-prefix}-leadspace-with-search-heading),
-  :host(#{$c4d-prefix}-leadspace-with-search-content) {
-    display: block;
-    padding: 0;
-
-    /* stylelint-disable declaration-no-important */
-    ::slotted(h1) {
-      all: unset !important; /* stylelint-disable-line declaration-property-value-disallowed-list */
+  :host(#{$c4d-prefix}-leadspace-with-search[dual-theme='g10-and-white']) {
+    .#{$prefix}--content-layout {
+      @include theme($g10, true);
     }
-    /* stylelint-enable declaration-no-important */
+
+    .#{$prefix}--search-container {
+      @include theme($white, true);
+    }
   }
 
-  :host(#{$c4d-prefix}-leadspace-with-search-content-heading) {
-    @extend :host(#{$c4d-prefix}-content-block-heading);
-
-    @include breakpoint-down(lg) {
-      display: block;
-      width: calc(75% - #{$spacing-07});
-      margin-bottom: 0;
+  :host(#{$c4d-prefix}-leadspace-with-search[dual-theme='g90-and-g100']) {
+    .#{$prefix}--content-layout {
+      @include theme($g90, true);
     }
 
-    @include breakpoint(xlg) {
-      display: block;
-      width: calc(100% - #{$spacing-07});
-      margin-bottom: 0;
+    .#{$prefix}--search-container {
+      @include theme($g100, true);
+    }
+  }
+
+  :host(#{$c4d-prefix}-leadspace-with-search[dual-theme='g100-and-g90']) {
+    .#{$prefix}--content-layout {
+      @include theme($g100, true);
     }
 
-    // !important required to override slotted styling from block-content component
-    @include breakpoint-down(md) {
-      /* stylelint-disable declaration-no-important */
-      margin-left: 0 !important;
-      /* stylelint-enable declaration-no-important */
+    .#{$prefix}--search-container {
+      @include theme($g90, true);
+    }
+  }
+
+  :host(#{$c4d-prefix}-leadspace-with-search[sticky-search]) {
+    .#{$prefix}--search-container {
+      position: fixed;
       width: 100%;
+      top: 0;
+      left: 0;
+      padding: $spacing-05 0;
+      margin: 0;
+      transform: translateY(-100%);
+    }
+
+    .#{$prefix}--search-container-inner {
+      @include make-container;
+      @include make-row;
+
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    .#{$prefix}--sticky-header {
+      @include breakpoint(lg) {
+        @include make-col(4, 16);
+      }
+    }
+
+    ::slotted(#{$c4d-prefix}-search-with-typeahead) {
+      @include make-col(4, 4);
+
+      @include breakpoint(lg) {
+        @include make-col(10, 16);
+      }
     }
   }
 
-  :host(#{$c4d-prefix}-leadspace-with-search-content-copy) {
+  :host(
+      #{$c4d-prefix}-leadspace-with-search[sticky-search][scroll-behavior]:not(
+          [dual-theme]
+        )
+    ) {
+    .#{$prefix}--search-container {
+      &::before {
+        border-bottom: 1px solid $layer-accent-01;
+      }
+    }
+  }
+
+  :host(#{$c4d-prefix}-leadspace-with-search-copy) {
     @extend :host(#{$c4d-prefix}-content-block-paragraph);
     @include type-style('fluid-heading-03', true);
 
@@ -385,19 +231,17 @@
 
     @include breakpoint(md) {
       width: calc(75% - #{$spacing-07});
+      padding-right: $spacing-05;
     }
 
     @include breakpoint(lg) {
       width: calc(100% - #{$spacing-07});
+      padding-right: $spacing-05;
     }
 
     // !important required to override slotted styling from block-content component
     @include breakpoint-down(md) {
-      /* stylelint-disable declaration-no-important */
-      margin-left: 0 !important;
-      /* stylelint-enable declaration-no-important */
       padding-top: $spacing-06;
-      width: 100%;
     }
   }
 }

@@ -50,6 +50,7 @@ For Carbon v11 migration guidance, see their
 | image                     | View changes [here](#image)                                                                                                                    |
 | image-with-caption        | This component is deprecated in v1 and has been removed in v2 in favor of the image component                                                  |
 | leadspace                 | View changes [here](#leadspace)                                                                                                                |
+| leadspace-with-search     | View changes [here](#leadspace-with-search)                                                                                                    |
 | link-list-section         | This component is deprecated in v2 in favor for content-section/block & link-list end of section variant components                            |
 | logo-grid                 | This component is deprecated in v2 in favor for content-section/block & image-group components                                                 |
 | pictogram-item            | This component is deprecated in v2 in favor for content-item (pictogram variation) componet                                                    |
@@ -73,7 +74,7 @@ For Carbon v11 migration guidance, see their
 
 ### Card
 
-- `<dds-card-footer>` has `icon-placement` property has been removed
+- `<c4d-card-footer>`'s `icon-placement` property has been removed
 - Removed `border` property, clickable cards inherit the Carbon v11 experimental
   tile border style
 - New `aspect-ratio` property with '1:1', '2:1', '3:2', '4:3', and '16:9' as
@@ -114,6 +115,15 @@ information.
 ### Leadspace
 
 - New `highlight` and `type-style` attributes for `leadspace-heading`
+
+### Leadspace with Search
+
+- `<dds-leadspace-with-search-heading>` has been replaced with `<dds-leadspace-heading>`
+- `<dds-leadspace-with-search-content-copy>` has been replaced with `<dds-leadspace-with-search-copy>`
+- New highlight attribute in `dds-leadspace-heading`
+- Deprecated background-media image variant
+- Removed `<dds-leadspace-with-search-heading>`, `<dds-leadspace-with-search-content>`, 
+`<dds-leadspace-with-search-content-heading>`, `<dds-leadspace-with-search-content-copy>`
 
 ### Universal banner
 
