@@ -186,20 +186,15 @@ export const contentLeadspaceSearch = html`
     adjacent-theme="white-and-g10"
     sticky-search
     scroll-behavior>
-    <c4d-leadspace-with-search-heading
-      >Find a product</c4d-leadspace-with-search-heading
+    <c4d-leadspace-heading highlight="Find a product -"
+      >Find a product - Innovate like a startup, scale for the
+      enterprise</c4d-leadspace-heading
     >
-    <c4d-leadspace-with-search-content>
-      <c4d-leadspace-with-search-content-heading
-        >Innovate like a startup, scale for the
-        enterprise</c4d-leadspace-with-search-content-heading
-      >
-      <c4d-leadspace-with-search-content-copy>
-        Automate your software release process with continuous delivery (CD)—the
-        most critical part of adopting DevOps. Build, test, and deploy code
-        changes quickly, ensuring software is always ready for deployment.
-      </c4d-leadspace-with-search-content-copy>
-    </c4d-leadspace-with-search-content>
+    <c4d-leadspace-with-search-copy>
+      Automate your software release process with continuous delivery (CD)—the
+      most critical part of adopting DevOps. Build, test, and deploy code
+      changes quickly, ensuring software is always ready for deployment.
+    </c4d-leadspace-with-search-copy>
     <c4d-search-with-typeahead
       slot="search"
       leadspace-search
