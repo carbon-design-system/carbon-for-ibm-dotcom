@@ -60,11 +60,8 @@
         border-top: 1px solid $border-subtle-01;
         margin-top: -1px;
         margin-left: -$spacing-05;
+        margin-right: -$spacing-05;
         --#{$c4d-prefix}--link-list-item--anchor-padding: #{$spacing-05};
-
-        @include breakpoint(md) {
-          margin-right: -$spacing-05;
-        }
       }
     }
 
@@ -259,17 +256,16 @@
   :host(#{$c4d-prefix}-link-list-item-cta)[type='end'] {
     outline: none;
 
-    &:hover {
-      .#{$prefix}--link {
-        text-decoration: none;
-        background: $background-hover;
-      }
-    }
-
     .#{$prefix}--link {
       // TODO: See if there is a better solution than an internal custom property
-      padding: var(--#{$c4d-prefix}--link-list-item--anchor-padding, 0);
+      // padding: var(--#{$c4d-prefix}--link-list-item--anchor-padding, 0);
+      padding: $spacing-05;
       display: flex;
+      width: 100%;
+
+      @include breakpoint(md) {
+        padding: $spacing-05 0;
+      }
     }
   }
 
@@ -341,10 +337,6 @@
         padding: $spacing-05 0;
         justify-content: space-between;
 
-        &:hover {
-          text-decoration: none;
-        }
-
         &:focus {
           outline: none;
         }
@@ -362,10 +354,6 @@
     border-bottom: 1px solid $layer-accent-01;
     max-width: 640px;
     @include hang;
-
-    &:hover {
-      background: $background-hover;
-    }
 
     &:focus-within {
       outline: $spacing-01 solid $focus;
@@ -385,6 +373,18 @@
 
       @include breakpoint(lg) {
         display: inline;
+      }
+    }
+
+    .#{$prefix}--card.#{$prefix}--tile {
+      &:hover {
+        background-color: $background;
+        text-decoration: underline;
+
+        .#{$prefix}--card__heading,
+        .#{$prefix}--card__copy ::slotted(p) {
+          color: $link-primary-hover;
+        }
       }
     }
   }

@@ -205,6 +205,17 @@
     }
   }
 
+  :host(#{$c4d-prefix}-link-list-item-card),
+  :host(#{$c4d-prefix}-link-list-item-card-cta) {
+    .#{$prefix}--card__content {
+      padding: $spacing-05;
+
+      @include breakpoint(md) {
+        padding: $spacing-05 0;
+      }
+    }
+  }
+
   // Card with pictogram placement style
   :host(#{$c4d-prefix}-card-group-item),
   :host(#{$c4d-prefix}-card-in-card),
