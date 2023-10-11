@@ -38,7 +38,6 @@ import C4DLeadspaceWithSearch from '@carbon/ibmdotcom-web-components/es/componen
 import C4DLeadspaceWithSearchCopy from '@carbon/ibmdotcom-web-components/es/components-react/leadspace-with-search/leadspace-with-search-copy';
 import C4DSearchWithTypeahead from '@carbon/ibmdotcom-web-components/es/components-react/search-with-typeahead/search-with-typeahead';
 import C4DLeadspaceBlock from '@carbon/ibmdotcom-web-components/es/components-react/leadspace-block/leadspace-block';
-import C4DLeadspaceBlockHeading from '@carbon/ibmdotcom-web-components/es/components-react/leadspace-block/leadspace-block-heading';
 import C4DLeadspaceBlockContent from '@carbon/ibmdotcom-web-components/es/components-react/leadspace-block/leadspace-block-content';
 import C4DContentBlockHeading from '@carbon/ibmdotcom-web-components/es/components-react/content-block/content-block-heading';
 import C4DContentBlockCopy from '@carbon/ibmdotcom-web-components/es/components-react/content-block/content-block-copy';
@@ -46,7 +45,6 @@ import C4DLeadspaceBlockMedia from '@carbon/ibmdotcom-web-components/es/componen
 import C4DVideoPlayerContainer from '@carbon/ibmdotcom-web-components/es/components-react/video-player/video-player-container';
 import C4DLinkListHeading from '@carbon/ibmdotcom-web-components/es/components-react/link-list/link-list-heading';
 import C4DLinkListItem from '@carbon/ibmdotcom-web-components/es/components-react/link-list/link-list-item';
-import C4DLeadspaceBlockCTA from '@carbon/ibmdotcom-web-components/es/components-react/leadspace-block/leadspace-block-cta';
 import C4DFeatureCard from '@carbon/ibmdotcom-web-components/es/components-react/feature-card/feature-card';
 import C4DFeatureCardFooter from '@carbon/ibmdotcom-web-components/es/components-react/feature-card/feature-card-footer';
 import C4DCardCTA from '@carbon/ibmdotcom-web-components/es/components-react/cta/card-cta';
@@ -244,18 +242,15 @@ export const contentLeadspaceSearch = (
 export const tocContent = (
   <>
     <C4DLeadspaceBlock name="1" data-title="Lorem ipsum dolor sit amet">
-      <C4DLeadspaceBlockHeading>
+      <C4DLeadspaceHeading>
         Lorem ipsum dolor sit amet
-      </C4DLeadspaceBlockHeading>
+      </C4DLeadspaceHeading>
       <C4DLeadspaceBlockContent>
-        <C4DContentBlockHeading>
-          Consectetur adipiscing elit, sed do eiusmod tempor incididunt ut.
-        </C4DContentBlockHeading>
         <C4DContentBlockCopy slot="copy">
           Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris
           nisi ut aliquip ex ea commodo consequat.
         </C4DContentBlockCopy>
-        <C4DLeadspaceBlockMedia slot="media">
+        <C4DLeadspaceBlockMedia>
           <C4DVideoPlayerContainer video-id="0_ibuqxqbe"></C4DVideoPlayerContainer>
         </C4DLeadspaceBlockMedia>
         <C4DLinkList type="end">
@@ -270,11 +265,9 @@ export const tocContent = (
             View all products <ArrowRight20 slot="icon" />
           </C4DLinkListItem>
         </C4DLinkList>
-        <C4DLeadspaceBlockCTA>
-          <C4DButtonGroupItem href="www.ibm.com">
-            Contact sales <ArrowRight20 slot="icon" />
-          </C4DButtonGroupItem>
-        </C4DLeadspaceBlockCTA>
+        <C4DButton href="https://example.com" cta-type="local">
+          Contact sales
+        </C4DButton>
       </C4DLeadspaceBlockContent>
     </C4DLeadspaceBlock>
 

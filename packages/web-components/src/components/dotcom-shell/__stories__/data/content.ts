@@ -210,14 +210,11 @@ export const tocContent = html`
       >Lorem ipsum dolor sit amet</c4d-leadspace-block-heading
     >
     <c4d-leadspace-block-content>
-      <c4d-content-block-heading>
-        Consectetur adipiscing elit, sed do eiusmod tempor incididunt ut.
-      </c4d-content-block-heading>
       <c4d-content-block-copy slot="copy"
         >Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi
         ut aliquip ex ea commodo consequat.
       </c4d-content-block-copy>
-      <c4d-leadspace-block-media slot="media">
+      <c4d-leadspace-block-media>
         <c4d-video-player-container
           video-id="0_ibuqxqbe"></c4d-video-player-container>
       </c4d-leadspace-block-media>
@@ -234,7 +231,7 @@ export const tocContent = html`
         </c4d-link-list-item>
       </c4d-link-list>
       <c4d>
-      <c4d-button cta-type="local">
+      <c4d-button href="https://example.com" cta-type="local">
         Contact sales
       </c4d-button>
     </c4d-leadspace-block-content>

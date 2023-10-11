@@ -67,7 +67,7 @@ const linkList = (
 );
 
 const buttonCTA = (
-  <C4DButton cta-type="local">
+  <C4DButton cta-type="local" href="https://example.com">
     Contact sales
   </C4DButton>
 );
