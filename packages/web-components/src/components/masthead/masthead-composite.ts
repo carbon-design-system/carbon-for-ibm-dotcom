@@ -1351,12 +1351,11 @@ class DDSMastheadComposite extends HostListenerMixin(LitElement) {
    * Throttled callback for _heightResizeObserver.
    */
   protected _resizeObserverCallback() {
-    if (!this._resizeObserverThrottle) {
-      this._setContainerHeight();
-      this._resizeObserverThrottle = setTimeout(() => {
-        this._resizeObserverThrottle = undefined;
-      }, 100);
-    }
+    clearTimeout(this._resizeObserverThrottle);
+    this._resizeObserverThrottle = setTimeout(
+      this._setContainerHeight.bind(this),
+      100
+    );
   }
 
   /**
