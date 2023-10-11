@@ -187,17 +187,6 @@ class DDSLocaleSearch extends ThrottedInputMixin(
     }
   }
 
-  updated(changedProperties) {
-    if (changedProperties.has('region')) {
-      const { selectorItem } = this.constructor as typeof DDSLocaleSearch;
-      const { region } = this;
-      forEach(this.querySelectorAll(selectorItem), (item) => {
-        (item as HTMLElement).hidden =
-          (item as DDSLocaleItem).region !== region;
-      });
-    }
-  }
-
   render() {
     const {
       availabilityLabelText,

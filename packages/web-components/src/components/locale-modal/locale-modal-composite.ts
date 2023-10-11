@@ -7,7 +7,7 @@
  * LICENSE file in the root directory of this source tree.
  */
 
-import { html, property, LitElement } from 'lit-element';
+import { html, property, LitElement, query } from 'lit-element';
 import ifNonNull from '../../internal/vendor/@carbon/web-components/globals/directives/if-non-null.js';
 import LocaleAPI from '@carbon/ibmdotcom-services/es/services/Locale/Locale.js';
 import ddsSettings from '../../internal/vendor/@carbon/ibmdotcom-utilities/utilities/settings/settings';
@@ -18,12 +18,16 @@ import {
   LocaleList,
 } from '../../internal/vendor/@carbon/ibmdotcom-services-store/types/localeAPI.d';
 import './locale-modal';
+import DDSLocaleModal from './locale-modal';
 import './regions';
 import './region-item';
 import './locale-search';
 import './locale-item';
 import styles from './locale-modal-composite.scss';
 import { carbonElement as customElement } from '../../internal/vendor/@carbon/web-components/globals/decorators/carbon-element.js';
+
+import HostListener from '../../internal/vendor/@carbon/web-components/globals/decorators/host-listener.js';
+import HostListenerMixin from '../../internal/vendor/@carbon/web-components/globals/mixins/host-listener.js';
 
 const { stablePrefix: ddsPrefix } = ddsSettings;
 
@@ -33,7 +37,9 @@ const { stablePrefix: ddsPrefix } = ddsSettings;
  * @element dds-locale-modal-composite
  */
 @customElement(`${ddsPrefix}-locale-modal-composite`)
-class DDSLocaleModalComposite extends HybridRenderMixin(LitElement) {
+class DDSLocaleModalComposite extends HostListenerMixin(
+  HybridRenderMixin(LitElement)
+) {
   /**
    * @param countries A country list.
    * @returns Sorted version of the given country list.
@@ -93,6 +99,11 @@ class DDSLocaleModalComposite extends HybridRenderMixin(LitElement) {
    */
   @property()
   chosenRegion?: string;
+
+  @HostListener(DDSLocaleModal.eventRegionUpdated)
+  protected _handleRegionUpdatedEvent(event) {
+    this.chosenRegion = event.detail.region || undefined;
+  }
 
   // eslint-disable-next-line class-methods-use-this
   async getLangDisplay() {
@@ -181,13 +192,14 @@ class DDSLocaleModalComposite extends HybridRenderMixin(LitElement) {
         ?open="${open}">
         <dds-regions title="${ifNonNull(headerTitle)}">
           ${regionList?.map(({ countryList, name }) => {
+            const isInvalid =
+              countryList.length === 0 ||
+              massagedCountryList?.find(({ region }) => region === name) ===
+                undefined;
             return html`
               <dds-region-item
-                ?invalid="${countryList.length === 0 ||
-                massagedCountryList?.find(({ region }) => region === name) ===
-                  undefined}"
-                name="${name}"
-                @click="${this._handleRegionClick}"></dds-region-item>
+                ?invalid="${isInvalid}"
+                name="${name}"></dds-region-item>
             `;
           })}
         </dds-regions>
@@ -199,7 +211,8 @@ class DDSLocaleModalComposite extends HybridRenderMixin(LitElement) {
                 label-text="${ifNonNull(searchLabel)}"
                 placeholder="${ifNonNull(searchPlaceholder)}"
                 availability-label-text="${ifNonNull(availabilityText)}"
-                unavailability-label-text="${ifNonNull(unavailabilityText)}">
+                unavailability-label-text="${ifNonNull(unavailabilityText)}"
+                .region=${chosenRegion}>
                 ${massagedCountryList
                   ?.filter(({ region }) => {
                     return region === chosenRegion;
@@ -220,13 +233,6 @@ class DDSLocaleModalComposite extends HybridRenderMixin(LitElement) {
           : ``}
       </dds-locale-modal>
     `;
-  }
-
-  /**
-   * Handles click on a region.
-   */
-  private _handleRegionClick(event) {
-    this.chosenRegion = event.currentTarget?.name;
   }
 
   render() {
