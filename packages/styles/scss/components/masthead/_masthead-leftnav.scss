@@ -1,10 +1,11 @@
 /**
- * Copyright IBM Corp. 2016, 2022
+ * Copyright IBM Corp. 2016, 2023
  *
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
  */
 
+@use '@carbon/styles/scss/components/button/tokens' as *;
 @use '@carbon/styles/scss/breakpoint' as *;
 @use '@carbon/styles/scss/config' as *;
 @use '@carbon/styles/scss/motion' as *;
@@ -26,7 +27,7 @@
   }
 
   .#{$prefix}--masthead .#{$prefix}--side-nav__navigation {
-    height: calc(100% - #{mini-units(6)});
+    height: calc(100% - #{$spacing-09});
 
     > nav {
       height: 100%;
@@ -187,7 +188,7 @@
       @include type-style(body-compact-02);
 
       padding-left: $spacing-05;
-      height: carbon--mini-units(6);
+      height: $spacing-09;
 
       &:hover {
         text-decoration: none;
@@ -243,19 +244,18 @@
   a,
   button {
     &.#{$prefix}--side-nav__link {
-      height: carbon--mini-units(6);
-      @include type-style(body-compact-02);
+      height: $spacing-09;
+      @include type-style(body-short-01);
 
       > {
         .#{$prefix}--side-nav__link-text {
-          @include type-style(body-compact-02);
+          @include type-style(body-short-01);
 
           display: flex;
           align-items: center;
           color: $text-secondary;
           width: 100%;
           height: 100%;
-          border-bottom: 1px solid $layer-accent-01;
           text-overflow: ellipsis;
         }
       }
@@ -285,6 +285,7 @@
     top: 0;
     background-color: $background;
     z-index: 1;
+
     button {
       width: 100%;
       border: none;
@@ -298,13 +299,25 @@
       padding: 0 $spacing-05;
       background-color: $background;
 
+      &:hover {
+        background-color: $background-hover;
+
+        > .#{$prefix}--side-nav__link-text {
+          color: $link-primary-hover;
+        }
+      }
+
       &:focus {
-        outline: $spacing-01 solid $focus;
-        outline-offset: -#{$spacing-01};
+        outline: 2px solid $focus;
+        outline-offset: -2px;
+
+        > .#{$prefix}--side-nav__link-text {
+          color: $link-primary;
+        }
       }
 
       > .#{$prefix}--side-nav__link-text {
-        @include type-style(body-compact-02);
+        @include type-style(body-short-01);
 
         color: $link-primary;
         display: flex;
@@ -323,12 +336,6 @@
         }
       }
     }
-  }
-
-  .#{$prefix}--masthead__side-nav--submemu-back
-    button:focus
-    > .#{$prefix}--side-nav__link-text {
-    color: $link-primary;
   }
 
   :host(#{$c4d-prefix}-left-nav-menu-section)[expanded],
@@ -368,11 +375,10 @@
       height: auto;
       min-height: $spacing-09;
       display: flex;
-      border-bottom: 1px solid $layer-accent-01;
     }
 
     .#{$prefix}--side-nav__submenu-title {
-      @include type-style(body-compact-02);
+      @include type-style(body-short-01);
 
       color: $text-secondary;
       align-self: center;
@@ -409,16 +415,134 @@
 
   .#{$prefix}--masthead__side-nav--submemu-heading,
   :host(#{$c4d-prefix}-left-nav-menu-category-heading) {
-    @include type-style('body-01');
+    @include type-style('body-short-01');
 
-    font-size: $spacing-05;
-    line-height: $spacing-06;
-    letter-spacing: normal;
     display: block;
     color: $text-secondary;
-    padding: $spacing-02 0;
-    margin: 0 $spacing-05;
+
+    &:is(.#{$prefix}--left-nav-menu-category__heading-large) {
+      margin: $spacing-03 0 $spacing-06;
+
+      .#{$prefix}--side-nav__heading {
+        padding: 0;
+      }
+    }
+
+    .#{$prefix}--side-nav__heading {
+      height: auto;
+      padding: $spacing-05 0;
+    }
+
+    .#{$prefix}--side-nav__heading-title {
+      display: block;
+      padding: 0 $spacing-05;
+
+      &:where(a) {
+        color: inherit;
+        display: inline-flex;
+        gap: $spacing-03;
+        align-items: center;
+        text-decoration: none;
+
+        &:hover {
+          text-decoration: underline;
+        }
+
+        &:focus {
+          outline: 2px solid $focus;
+          outline-offset: -2px;
+          color: $text-primary;
+        }
+      }
+    }
+
+    .#{$prefix}--side-nav__heading-description {
+      padding: 0 $spacing-05;
+    }
+
+    ::slotted(:first-child) {
+      padding-top: $spacing-03;
+    }
+
+    h2 {
+      @include type-style(productive-heading-01);
+
+      color: $text-primary;
+    }
+
+    h2.#{$prefix}--side-nav__menu-section-title {
+      @include type-style(productive-heading-03);
+
+      + .#{$prefix}--side-nav__heading-description {
+        margin-block-start: $spacing-03;
+      }
+    }
+  }
+
+  /* stylelint-disable selector-pseudo-class-parentheses-space-inside */
+  :host(#{$c4d-prefix}-left-nav-menu-category-heading):not(
+      .#{$prefix}--left-nav-menu-category__heading-large
+    ),
+  :host(#{$c4d-prefix}-left-nav-menu),
+  :host(#{$c4d-prefix}-left-nav-menu-item) {
+    display: block;
     border-bottom: 1px solid $layer-accent-01;
+  }
+  /* stylelint-enable selector-pseudo-class-parentheses-space-inside */
+
+  :host(#{$c4d-prefix}-left-nav-menu-item) {
+    .#{$prefix}--side-nav__link {
+      display: flex;
+      align-items: center;
+      padding-left: $spacing-05;
+      height: auto;
+      min-height: $spacing-09;
+      width: 100%;
+
+      &:not(:is(a)):hover {
+        background-color: transparent;
+      }
+    }
+
+    &.#{$prefix}--side-nav__group-header {
+      &:not(:first-of-type) {
+        margin-top: $spacing-07;
+      }
+
+      .#{$prefix}--side-nav__link-text {
+        @include type-style(productive-heading-01);
+
+        color: $text-primary;
+        display: inline-flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: $spacing-03;
+
+        svg {
+          color: $icon-primary;
+        }
+      }
+    }
+
+    &.#{$prefix}--side-nav__group-view-all {
+      &:hover {
+        .#{$prefix}--side-nav__link-text {
+          color: $link-primary-hover;
+        }
+      }
+
+      .#{$prefix}--side-nav__link-text {
+        color: $button-primary;
+        display: inline-flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: $spacing-03;
+
+        svg {
+          color: $button-primary;
+        }
+      }
+    }
   }
 
   .#{$prefix}--masthead__side-nav--submemu--selected {
@@ -434,7 +558,7 @@
   .#{$prefix}--side-nav__submenu[aria-expanded='true']
     .#{$prefix}--side-nav__submenu-chevron {
     > svg {
-      transform: rotate(-90deg) scale(1.25);
+      transform: rotate(-90deg);
       fill: $text-primary;
 
       :host([dir='rtl']) & {
@@ -449,35 +573,12 @@
   :host(#{$c4d-prefix}-left-nav-item-highlighted) a.#{$prefix}--side-nav__link,
   :host(#{$c4d-prefix}-left-nav-menu-item-highlighted)
     a.#{$prefix}--side-nav__link,
-  :host(#{$c4d-prefix}-left-nav-item) a.#{$prefix}--side-nav__link,
-  :host(#{$c4d-prefix}-left-nav-menu-item) a.#{$prefix}--side-nav__link {
+  :host(#{$c4d-prefix}-left-nav-item) a.#{$prefix}--side-nav__link {
     display: flex;
     padding-left: $spacing-05;
     height: auto;
-    min-height: carbon--mini-units(6);
+    min-height: $spacing-09;
     width: 100%;
-  }
-
-  .#{$prefix}--masthead__side-nav__last-highlighted,
-  :host(#{$c4d-prefix}-left-nav-menu-item[last-highlighted]),
-  :host(#{$c4d-prefix}-left-nav-menu[last-highlighted]) {
-    border-bottom: 1px solid $toggle-off;
-  }
-
-  :host(#{$c4d-prefix}-left-nav-menu[last-highlighted])
-    .#{$prefix}--side-nav__submenu
-    .#{$prefix}--side-nav__submenu-content,
-  .#{$prefix}--masthead__side-nav__last-highlighted
-    .#{$prefix}--side-nav__submenu-content,
-  .#{$prefix}--side-nav__menu-item.#{$prefix}--masthead__side-nav__last-highlighted
-    .#{$prefix}--side-nav__link,
-  :host(cds-left-nav-menu-section)
-    .#{$prefix}--masthead__side-nav--submemu-back
-    .#{$prefix}--side-nav__link
-    .#{$prefix}--side-nav__link-text,
-  :host(#{$c4d-prefix}-left-nav-menu-item[last-highlighted])
-    .#{$prefix}--side-nav__link {
-    border-bottom: none;
   }
 
   .#{$prefix}--side-nav__submenu-platform {
