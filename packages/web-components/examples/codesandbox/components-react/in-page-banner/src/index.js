@@ -9,14 +9,14 @@
 
 import React from 'react';
 import { render } from 'react-dom';
-import C4DContentGroupBanner from '@carbon/ibmdotcom-web-components/es/components-react/content-group-banner/content-group-banner';
+import C4DInPageBanner from '@carbon/ibmdotcom-web-components/es/components-react/in-page-banner/in-page-banner';
 import C4DContentGroupHeading from '@carbon/ibmdotcom-web-components/es/components-react/content-group/content-group-heading';
 import C4DLinkList from '@carbon/ibmdotcom-web-components/es/components-react/link-list/link-list';
 import C4DLinkListItemCTA from '@carbon/ibmdotcom-web-components/es/components-react/cta/link-list-item-cta';
 import './index.css';
 
 const App = () => (
-  <C4DContentGroupBanner>
+  <C4DInPageBanner>
     <C4DContentGroupHeading>Curabitur malesuada varius mi eu posuere</C4DContentGroupHeading>
     <C4DLinkList type="vertical" slot="complementary">
       <C4DLinkListItemCTA icon-placement="right" href="https://www.ibm.com" cta-type="local">
@@ -26,7 +26,7 @@ const App = () => (
         External link text
       </C4DLinkListItemCTA>
     </C4DLinkList>
-  </C4DContentGroupBanner>
+  </C4DInPageBanner>
 );
 
 render(<App />, document.getElementById('root'));

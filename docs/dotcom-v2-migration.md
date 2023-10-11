@@ -34,6 +34,7 @@ For Carbon v11 migration guidance, see their
 | content-block-mixed       | This component is deprecated in v2 in favor for content-section/block, video-player/image, pictogram-items, and other content-group components |
 | content-block-segmented   | This component is deprecated in v2 in favor for content-section/block component                                                                |
 | content-block-simple      | This component is deprecated in v2 in favor for content-section/block component                                                                |
+| content-group-banner       | View changes [here](#content-group-banner)                                          |
 | content-group-horizontal  | This component is deprecated in v1 and has been removed in v2 in favor of the content-block-horizontal component.                              |
 | content-group-cards       | This component is deprecated in v2 in favor for content-section/block & card-group components                                                  |
 | content-group-pictograms  | This component is deprecated in v2 in favor for content-section/block content-item (pictogram variant) components                              |
@@ -70,7 +71,7 @@ For Carbon v11 migration guidance, see their
 ### Callout quote
 
 - New options for `color-scheme` property: `REGULAR = 'regular'`,
-  `INVERSE = 'inverse'` `LAYER = 'layer'`, `CYAN = 'cyan'`, `PURPLE = 'purple'`
+  `INVERSE = 'inverse'`, `LAYER = 'layer'`, `CYAN = 'cyan'`, `PURPLE = 'purple'`
 - New callout style tokens
 
 ### Card
@@ -82,10 +83,15 @@ For Carbon v11 migration guidance, see their
   options
 - New `link` property which takes the place of the deprecated `card-link`
 
+### Content group banner
+
+- `content-group-banner` renamed to `in-page-banner`
+- New `color-scheme` property with options: `REGULAR = 'regular'`, `LAYER = 'layer'`, `CYAN = 'cyan'`, `PURPLE = 'purple'`
+
 ### Content item horizontal
 
-- `content-item-horizontal` changed names to `content-item-row`
-- All components with `content-item-horizontal-*` also changed to `content-item-row-*`
+- `content-item-horizontal` renamed to `content-item-row`
+- All components with `content-item-horizontal-*` also renamed to `content-item-row-*`
 
 ### CTA
 
@@ -128,4 +134,4 @@ information.
 
 ### Universal banner
 
-- `universal-banner` changed names to `global-banner`
+- `universal-banner` renamed to `global-banner`
