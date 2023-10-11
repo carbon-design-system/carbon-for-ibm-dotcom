@@ -371,17 +371,17 @@ assets:
     thumbnailPath: ../../thumbnails/content-item.svg
     tags:
       - content-element
-  content-item-horizontal:
-    name: Content item horizontal
+  content-item-row:
+    name: Content item row
     description:
-      Content item horizontal component displays information in a horizontal
+      Content item row component displays information in a horizontal
       orientation.
-    externalDocsUrl: https://www.ibm.com/standards/carbon/components/content-item-horizontal
+    externalDocsUrl: https://www.ibm.com/standards/carbon/components/content-item-row
     status: stable
     type: component
     platform: web
     noIndex: true
-    thumbnailPath: ../../thumbnails/content-item-horizontal.svg
+    thumbnailPath: ../../thumbnails/content-item-row.svg
     tags:
       - content-block
       - content-element

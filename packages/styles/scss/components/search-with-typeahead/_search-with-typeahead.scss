@@ -3,7 +3,7 @@
  *
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
- */
+*/
 
 @use '@carbon/styles/scss/breakpoint' as *;
 @use '@carbon/styles/scss/config' as *;
@@ -142,6 +142,7 @@
     top: 0;
     right: 0;
     display: flex;
+    background-color: $background;
 
     .#{$prefix}--header__search--search,
     .#{$prefix}--header__search--close {

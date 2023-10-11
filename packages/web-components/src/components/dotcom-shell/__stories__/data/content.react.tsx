@@ -1,6 +1,6 @@
 /* eslint-disable max-len */
 /**
- * Copyright IBM Corp. 2016, 2022
+ * Copyright IBM Corp. 2016, 2023
  *
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
@@ -15,10 +15,10 @@ import C4DContentBlockSegmentedItem from '@carbon/ibmdotcom-web-components/es/co
 import C4DContentGroupHeading from '@carbon/ibmdotcom-web-components/es/components-react/content-group/content-group-heading';
 import C4DContentItemCopy from '@carbon/ibmdotcom-web-components/es/components-react/content-item/content-item-copy';
 import C4DTextCTA from '@carbon/ibmdotcom-web-components/es/components-react/cta/text-cta';
-import C4DContentItemHorizontal from '@carbon/ibmdotcom-web-components/es/components-react/content-item-horizontal/content-item-horizontal';
-import C4DContentItemHorizontalEyebrow from '@carbon/ibmdotcom-web-components/es/components-react/content-item-horizontal/content-item-horizontal-eyebrow';
+import C4DContentItemRow from '@carbon/ibmdotcom-web-components/es/components-react/content-item-row/content-item-row';
+import C4DContentItemRowEyebrow from '@carbon/ibmdotcom-web-components/es/components-react/content-item-row/content-item-row-eyebrow';
 import C4DContentItemHeading from '@carbon/ibmdotcom-web-components/es/components-react/content-item/content-item-heading';
-import C4DContentItemHorizontalCopy from '@carbon/ibmdotcom-web-components/es/components-react/content-item-horizontal/content-item-horizontal-copy';
+import C4DContentItemRowCopy from '@carbon/ibmdotcom-web-components/es/components-react/content-item-row/content-item-row-copy';
 import C4DLinkList from '@carbon/ibmdotcom-web-components/es/components-react/link-list/link-list';
 import C4DLinkListItemCTA from '@carbon/ibmdotcom-web-components/es/components-react/cta/link-list-item-cta';
 import C4DGlobalBanner from '@carbon/ibmdotcom-web-components/es/components-react/global-banner/global-banner';
@@ -35,10 +35,7 @@ import C4DLeadspaceHeading from '@carbon/ibmdotcom-web-components/es/components-
 import C4DButtonGroup from '@carbon/ibmdotcom-web-components/es/components-react/button-group/button-group';
 import C4DButtonGroupItem from '@carbon/ibmdotcom-web-components/es/components-react/button-group/button-group-item';
 import C4DLeadspaceWithSearch from '@carbon/ibmdotcom-web-components/es/components-react/leadspace-with-search/leadspace-with-search';
-import C4DLeadspaceWithSearchHeading from '@carbon/ibmdotcom-web-components/es/components-react/leadspace-with-search/leadspace-with-search-heading';
-import C4DLeadspaceWithSearchContent from '@carbon/ibmdotcom-web-components/es/components-react/leadspace-with-search/leadspace-with-search-content';
-import C4DLeadspaceWithSearchContentHeading from '@carbon/ibmdotcom-web-components/es/components-react/leadspace-with-search/leadspace-with-search-content-heading';
-import C4DLeadspaceWithSearchContentCopy from '@carbon/ibmdotcom-web-components/es/components-react/leadspace-with-search/leadspace-with-search-content-copy';
+import C4DLeadspaceWithSearchCopy from '@carbon/ibmdotcom-web-components/es/components-react/leadspace-with-search/leadspace-with-search-copy';
 import C4DSearchWithTypeahead from '@carbon/ibmdotcom-web-components/es/components-react/search-with-typeahead/search-with-typeahead';
 import C4DLeadspaceBlock from '@carbon/ibmdotcom-web-components/es/components-react/leadspace-block/leadspace-block';
 import C4DLeadspaceBlockHeading from '@carbon/ibmdotcom-web-components/es/components-react/leadspace-block/leadspace-block-heading';
@@ -146,16 +143,16 @@ export const contentBlockSegmentedItemsWithImage = (
 );
 
 export const contentItemHorizontal = (
-  <C4DContentItemHorizontal>
-    <C4DContentItemHorizontalEyebrow>
+  <C4DContentItemRow>
+    <C4DContentItemRowEyebrow>
       Lorem ipsum
-    </C4DContentItemHorizontalEyebrow>
+    </C4DContentItemRowEyebrow>
     <C4DContentItemHeading>Aliquam condimentum</C4DContentItemHeading>
-    <C4DContentItemHorizontalCopy>
+    <C4DContentItemRowCopy>
       Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean et
       ultricies est. Mauris iaculis eget dolor nec hendrerit. Phasellus at elit
       sollicitudin.
-    </C4DContentItemHorizontalCopy>
+    </C4DContentItemRowCopy>
     <C4DLinkList slot="footer" type="vertical">
       <C4DLinkListItemCTA
         icon-placement="right"
@@ -170,7 +167,7 @@ export const contentItemHorizontal = (
         External link text
       </C4DLinkListItemCTA>
     </C4DLinkList>
-  </C4DContentItemHorizontal>
+  </C4DContentItemRow>
 );
 
 export const globalBanner = (srcImage) => (
@@ -228,19 +225,14 @@ export const contentLeadspace = (
 
 export const contentLeadspaceSearch = (
   <C4DLeadspaceWithSearch adjacent-theme="white-and-g10" scroll-behavior>
-    <C4DLeadspaceWithSearchHeading>
-      Find a product
-    </C4DLeadspaceWithSearchHeading>
-    <C4DLeadspaceWithSearchContent>
-      <C4DLeadspaceWithSearchContentHeading>
-        Innovate like a startup, scale for the enterprise
-      </C4DLeadspaceWithSearchContentHeading>
-      <C4DLeadspaceWithSearchContentCopy>
-        Automate your software release process with continuous delivery (CD)—the
-        most critical part of adopting DevOps. Build, test, and deploy code
-        changes quickly, ensuring software is always ready for deployment.
-      </C4DLeadspaceWithSearchContentCopy>
-    </C4DLeadspaceWithSearchContent>
+    <C4DLeadspaceHeading>
+      Find a product - Innovate like a startup, scale for the enterprise
+    </C4DLeadspaceHeading>
+    <C4DLeadspaceWithSearchCopy>
+      Automate your software release process with continuous delivery (CD)—the
+      most critical part of adopting DevOps. Build, test, and deploy code
+      changes quickly, ensuring software is always ready for deployment.
+    </C4DLeadspaceWithSearchCopy>
     <C4DSearchWithTypeahead
       slot="search"
       leadspace-search

@@ -8,6 +8,6 @@
  */
 
 import '@carbon/ibmdotcom-web-components/es/components/tabs-extended-media/index.js';
-import '@carbon/ibmdotcom-web-components/es/components/content-item-horizontal/index.js';
+import '@carbon/ibmdotcom-web-components/es/components/content-item-row/index.js';
 import '@carbon/ibmdotcom-web-components/es/components/link-list/index.js';
 import './index.scss';
