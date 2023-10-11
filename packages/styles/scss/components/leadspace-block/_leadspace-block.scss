@@ -28,7 +28,7 @@
       margin-bottom: $spacing-13;
     }
 
-    ::slotted(#{$c4d-prefix}-leadspace-block-content){
+    ::slotted(#{$c4d-prefix}-leadspace-block-content) {
       padding: 0;
     }
   }
@@ -43,25 +43,25 @@
 
   :host(#{$c4d-prefix}-leadspace-block[border])
     ::slotted(#{$c4d-prefix}-leadspace-block-content) {
-      padding-top: 0;
-      padding-bottom: $spacing-10;
+    padding-top: 0;
+    padding-bottom: $spacing-10;
 
-      @include breakpoint(md) {
-        padding-bottom: $spacing-12;
-      }
+    @include breakpoint(md) {
+      padding-bottom: $spacing-12;
+    }
   }
 
   :host(#{$c4d-prefix}-leadspace-block) c4d-hr {
     margin: 0 #{-$spacing-05};
   }
 
-  :host(#{$c4d-prefix}-leadspace-block) ::slotted([slot="heading"]){
+  :host(#{$c4d-prefix}-leadspace-block) ::slotted([slot='heading']) {
     width: 100%;
     padding-left: 0;
     margin-bottom: $spacing-07;
     margin-left: 0;
 
-    @include breakpoint-down(md){
+    @include breakpoint-down(md) {
       padding-right: 0;
     }
   }
@@ -88,9 +88,9 @@
 
   :host(#{$c4d-prefix}-leadspace-block-content)
     ::slotted(#{$c4d-prefix}-content-block-copy) {
-      @include breakpoint-down(md){
-        width: 100%;
-      }
+    @include breakpoint-down(md) {
+      width: 100%;
+    }
     display: block;
   }
 
@@ -99,7 +99,6 @@
     display: block;
     max-width: carbon--mini-units(80);
     padding-bottom: $spacing-07;
-
 
     ::slotted(#{$c4d-prefix}-image) {
       margin-top: 0;

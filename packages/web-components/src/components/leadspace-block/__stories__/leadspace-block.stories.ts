@@ -37,8 +37,9 @@ const image = html`
 `;
 
 const video = html`
-  <c4d-video-player-container video-id="0_ibuqxqbe"></c4d-video-player-container>
-  `;
+  <c4d-video-player-container
+    video-id="0_ibuqxqbe"></c4d-video-player-container>
+`;
 
 const linkList = html`
   <c4d-link-list type="end">
@@ -56,22 +57,23 @@ const linkList = html`
 `;
 
 const buttonCTA = html`
-  <c4d-button cta-type="local">
-    Contact sales
-  </c4d-button>
+  <c4d-button cta-type="local"> Contact sales </c4d-button>
 `;
 
 export const Default = (args) => {
   const { title, copy, media, border } = args?.LeadSpaceBlock ?? {};
   return html`
     <c4d-leadspace-block ?border=${border}>
-      <c4d-leadspace-heading highlight="intelligent IT operations">${title}</c4d-leadspace-heading>
+      <c4d-leadspace-heading highlight="intelligent IT operations"
+        >${title}</c4d-leadspace-heading
+      >
       <c4d-leadspace-block-content>
         <c4d-content-block-copy>${copy}</c4d-content-block-copy>
-        ${media !== 'none' ? html`
-        <c4d-leadspace-block-media>
-        ${media === 'image' ? image : media === 'video' ? video : ''}
-        </c4d-leadspace-block-media>` : ``}
+        ${media !== 'none'
+          ? html` <c4d-leadspace-block-media>
+              ${media === 'image' ? image : media === 'video' ? video : ''}
+            </c4d-leadspace-block-media>`
+          : ``}
         ${linkList} ${buttonCTA}
       </c4d-leadspace-block-content>
     </c4d-leadspace-block>
@@ -94,12 +96,15 @@ export default {
     hasStoryPadding: true,
     knobs: {
       LeadSpaceBlock: () => ({
-        title: text('title (title)', 'Infuse your AIOps platform with intelligent IT operations'),
+        title: text(
+          'title (title)',
+          'Infuse your AIOps platform with intelligent IT operations'
+        ),
         copy: `Automate your software release process with continuous delivery (CD)—the most
             critical part of adopting DevOps. Build, test, and deploy code changes quickly,
             ensuring software is always ready for deployment.`,
         media: select('Media:', ['none', 'image', 'video'], 'image'),
-        border: boolean('Border:', true)
+        border: boolean('Border:', true),
       }),
     },
     propsSet: {

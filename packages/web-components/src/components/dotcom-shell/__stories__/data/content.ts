@@ -304,14 +304,16 @@ export const tocContent = html`
     <c4d-content-block-heading
       >Lobortis elementum nibh tellus</c4d-content-block-heading
     >
-    ${logosGroup &&
-    logosGroup.map(
-      (elem) => html`
-        <c4d-logo-grid-item
-          default-src="${elem.imgSrc}"
-          alt="${elem.altText}"></c4d-logo-grid-item>
-      `
-    )}
+    ${
+      logosGroup &&
+      logosGroup.map(
+        (elem) => html`
+          <c4d-logo-grid-item
+            default-src="${elem.imgSrc}"
+            alt="${elem.altText}"></c4d-logo-grid-item>
+        `
+      )
+    }
   </c4d-logo-grid>
 
   <a name="6" data-title="Aliquam condimentum interdum"></a>
