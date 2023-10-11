@@ -74,7 +74,7 @@ For Carbon v11 migration guidance, see their
 
 ### Card
 
-- `<dds-card-footer>` has `icon-placement` property has been removed
+- `<c4d-card-footer>`'s `icon-placement` property has been removed
 - Removed `border` property, clickable cards inherit the Carbon v11 experimental
   tile border style
 - New `aspect-ratio` property with '1:1', '2:1', '3:2', '4:3', and '16:9' as
