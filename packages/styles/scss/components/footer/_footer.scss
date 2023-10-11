@@ -28,8 +28,7 @@
 /// @group footer
 
 @mixin footer {
-  :host(#{$c4d-prefix}-footer),
-  .#{$prefix}--footer {
+  :host(#{$c4d-prefix}-footer) {
     width: 100%;
     padding-block: $spacing-09;
 
@@ -49,8 +48,14 @@
     }
   }
 
-  :host(#{$c4d-prefix}-footer[size='short']),
-  .#{$prefix}--footer--short {
+  :host(#{$c4d-prefix}-footer[disable-locale-button])
+    .#{$prefix}--footer__main-container {
+    @include breakpoint(lg) {
+      flex-flow: nowrap;
+    }
+  }
+
+  :host(#{$c4d-prefix}-footer[size='short']) {
     padding-block: $spacing-07;
 
     .#{$prefix}--footer__logo-container {
@@ -68,8 +73,7 @@
     }
   }
 
-  :host(#{$c4d-prefix}-footer[size='micro']),
-  .#{$prefix}--footer--micro {
+  :host(#{$c4d-prefix}-footer[size='micro']) {
     padding-top: 0;
     padding-bottom: 0;
 
@@ -95,8 +99,7 @@
 
   :host(#{$c4d-prefix}-footer-nav-item),
   :host(#{$c4d-prefix}-legal-nav-item),
-  :host(#{$c4d-prefix}-legal-nav-cookie-preferences-placeholder),
-  .#{$prefix}--footer {
+  :host(#{$c4d-prefix}-legal-nav-cookie-preferences-placeholder) {
     @include theme($g90, feature-flag-enabled('enable-css-custom-properties'));
 
     .#{$prefix}--footer__link.#{$prefix}--link {
@@ -122,8 +125,7 @@
     }
   }
 
-  :host(#{$c4d-prefix}-legal-nav),
-  .#{$prefix}--footer {
+  :host(#{$c4d-prefix}-legal-nav) {
     @include theme($g90, feature-flag-enabled('enable-css-custom-properties'));
 
     .#{$prefix}--legal-nav__list {
@@ -185,6 +187,7 @@
   .#{$prefix}--footer__locale-button--disabled {
     @include make-col(2, 16);
 
+    flex: auto;
     margin-left: 0;
     margin-right: 0;
   }
