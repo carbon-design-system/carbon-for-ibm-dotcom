@@ -9,6 +9,5 @@
 
 import './in-page-banner';
 import '../content-group/content-group-heading';
-import '../cta/link-list-item-cta';
 import '../cta/video-cta-container';
 import '../link-list/index';
