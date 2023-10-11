@@ -8,7 +8,6 @@
  */
 
 import { html } from 'lit';
-import ArrowRight20 from '../../../internal/vendor/@carbon/web-components/icons/arrow--right/20';
 import { ifDefined } from 'lit/directives/if-defined.js';
 import { select } from '@storybook/addon-knobs';
 import textNullable from '../../../../.storybook/knob-text-nullable';
@@ -57,48 +56,28 @@ export const Default = (args) => {
     href,
     iconPlacement = ICON_PLACEMENT.RIGHT,
   } = args?.InPageBanner ?? {};
-  return !ctaType
-    ? html`
-        <c4d-in-page-banner color-scheme="${colorScheme}">
-          <c4d-content-group-heading>${heading}</c4d-content-group-heading>
+  return html`
+    <c4d-in-page-banner color-scheme="${colorScheme}">
+      <c4d-content-group-heading>${heading}</c4d-content-group-heading>
 
-          <c4d-link-list type="vertical" slot="complementary">
-            <c4d-link-list-item
-              icon-placement="${iconPlacement}"
-              href="https://example.com">
-              Learn more about Kubernetes ${ArrowRight20({ slot: 'icon' })}
-            </c4d-link-list-item>
-            <c4d-link-list-item
-              icon-placement="${iconPlacement}"
-              href="https://example.com">
-              Containerization A Complete Guide
-              ${ArrowRight20({ slot: 'icon' })}
-            </c4d-link-list-item>
-          </c4d-link-list>
-        </c4d-in-page-banner>
-      `
-    : html`
-        <c4d-in-page-banner>
-          <c4d-content-group-heading>${heading}</c4d-content-group-heading>
-
-          <c4d-link-list type="vertical" slot="complementary">
-            <c4d-link-list-item-cta
-              icon-placement="${iconPlacement}"
-              href="${ifDefined(href)}"
-              cta-type="${ifDefined(ctaType)}"
-              download="${ifDefined(download)}">
-              Learn more about Kubernetes
-            </c4d-link-list-item-cta>
-            <c4d-link-list-item-cta
-              icon-placement="${iconPlacement}"
-              href="${ifDefined(href)}"
-              cta-type="${ifDefined(ctaType)}"
-              download="${ifDefined(download)}">
-              Containerization A Complete Guide
-            </c4d-link-list-item-cta>
-          </c4d-link-list>
-        </c4d-in-page-banner>
-      `;
+      <c4d-link-list type="vertical" slot="complementary">
+        <c4d-link-list-item
+          icon-placement="${iconPlacement}"
+          cta-type="${ifDefined(ctaType)}"
+          download="${ifDefined(download)}"
+          href="${ifDefined(href)}">
+          Learn more about Kubernetes
+        </c4d-link-list-item>
+        <c4d-link-list-item
+          cta-type="${ifDefined(ctaType)}"
+          icon-placement="${iconPlacement}"
+          download="${ifDefined(download)}"
+          href="${ifDefined(href)}">
+          Containerization A Complete Guide
+        </c4d-link-list-item>
+      </c4d-link-list>
+    </c4d-in-page-banner>
+  `;
 };
 
 export default {
@@ -123,7 +102,11 @@ export default {
           'Heading (heading)',
           'Accelerate application development efforts with IBM Product Name'
         );
-        const ctaType = select('CTA type (cta-type)', types, null);
+        const ctaType = select(
+          'CTA type (cta-type)',
+          types,
+          types['Local (local)']
+        );
         const download =
           ctaType !== CTA_TYPE.DOWNLOAD
             ? undefined

@@ -17,10 +17,8 @@ import C4DInPageBanner from '@carbon/ibmdotcom-web-components/es/components-reac
 import C4DContentGroupHeading from '@carbon/ibmdotcom-web-components/es/components-react/content-group/content-group-heading';
 import C4DLinkList from '@carbon/ibmdotcom-web-components/es/components-react/link-list/link-list';
 import C4DLinkListItem from '@carbon/ibmdotcom-web-components/es/components-react/link-list/link-list-item';
-import C4DLinkListItemCTA from '@carbon/ibmdotcom-web-components/es/components-react/cta/link-list-item-cta';
 import C4DVideoCTAContainer from '@carbon/ibmdotcom-web-components/es/components-react/cta/video-cta-container';
 
-import ArrowRight20 from '@carbon/icons-react/es/arrow--right/20.js';
 import readme from './README.stories.react.mdx';
 import textNullable from '../../../../.storybook/knob-text-nullable';
 import { CTA_TYPE } from '../../cta/defs';
@@ -58,40 +56,24 @@ const colorSchemeTypes = {
 export const Default = (args) => {
   const { heading, iconPlacement, ctaType, colorScheme, href, download } =
     args?.InPageBanner ?? {};
-  return !ctaType ? (
+  return (
     <C4DInPageBanner color-scheme={colorScheme}>
       <C4DContentGroupHeading>{heading}</C4DContentGroupHeading>
       <C4DLinkList type="vertical" slot="complementary">
         <C4DLinkListItem
           icon-placement={iconPlacement}
-          href="https://www.example.com">
-          Learn more about Kubernetes <ArrowRight20 slot="icon" />
-        </C4DLinkListItem>
-        <C4DLinkListItem
-          icon-placement={iconPlacement}
-          href="https://www.example.com">
-          Containerization A Complete Guide <ArrowRight20 slot="icon" />
-        </C4DLinkListItem>
-      </C4DLinkList>
-    </C4DInPageBanner>
-  ) : (
-    <C4DInPageBanner>
-      <C4DContentGroupHeading>{heading}</C4DContentGroupHeading>
-      <C4DLinkList type="vertical" slot="complementary">
-        <C4DLinkListItemCTA
-          icon-placement={iconPlacement}
           href={href || undefined}
           cta-type={ctaType || undefined}
           download={download || undefined}>
           Learn more about Kubernetes
-        </C4DLinkListItemCTA>
-        <C4DLinkListItemCTA
+        </C4DLinkListItem>
+        <C4DLinkListItem
           icon-placement={iconPlacement}
           href={href || undefined}
           cta-type={ctaType || undefined}
           download={download || undefined}>
           Containerization A Complete Guide
-        </C4DLinkListItemCTA>
+        </C4DLinkListItem>
       </C4DLinkList>
     </C4DInPageBanner>
   );
@@ -105,7 +87,11 @@ Default.story = {
           'Heading (heading)',
           'Accelerate application development efforts with IBM Product Name'
         );
-        const ctaType = select('CTA type (cta-type)', types, null);
+        const ctaType = select(
+          'CTA type (cta-type)',
+          types,
+          types['Local (local)']
+        );
         const download =
           ctaType !== CTA_TYPE.DOWNLOAD
             ? undefined
@@ -134,7 +120,7 @@ Default.story = {
 };
 
 export default {
-  title: 'Components/Content group banner',
+  title: 'Components/In page banner',
   decorators: [
     (story) => {
       return (
