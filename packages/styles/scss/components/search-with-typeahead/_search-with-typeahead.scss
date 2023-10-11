@@ -142,6 +142,7 @@
     top: 0;
     right: 0;
     display: flex;
+    background-color: $background;
 
     .#{$prefix}--header__search--search,
     .#{$prefix}--header__search--close {
