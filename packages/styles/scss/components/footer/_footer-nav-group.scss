@@ -67,7 +67,7 @@
   :host(#{$dds-prefix}-footer-nav-item),
   .#{$prefix}--footer-nav-group {
     .#{$prefix}--link {
-      @include carbon--breakpoint-down($TEMP--breakpoint-down--md) {
+      @include carbon--breakpoint-down('md') {
         margin-top: 0;
         display: block;
         padding: $spacing-05;
