@@ -13,81 +13,56 @@
 @use '../../globals/utils/content-width' as *;
 @use '../../globals/utils/hang' as *;
 @use '../../globals/vars' as *;
-@use '../button-group';
 @use '../link-list';
 @use '../image';
 @use '../../internal/content-block';
 
-%leadspace-block-padding {
-  padding-top: 0;
-  padding-bottom: $spacing-05;
-
-  @include breakpoint(md) {
-    padding-bottom: $spacing-12;
-  }
-  @include breakpoint(lg) {
-    padding-bottom: $spacing-13;
-  }
-}
-
 @mixin leadspace-block {
-  :host(#{$c4d-prefix}-leadspace-block)
-    ::slotted(#{$c4d-prefix}-leadspace-block-content) {
-    @extend %leadspace-block-padding;
-  }
-
-  .#{$prefix}--leadspace-block {
-    .#{$prefix}--content-block {
-      @extend %leadspace-block-padding;
-
-      .#{$prefix}--image-with-caption {
-        margin-bottom: 0;
-      }
-
-      .#{$prefix}--link-list__list__CTA {
-        max-width: none;
-      }
-    }
-
-    .#{$prefix}--content-block__copy {
-      p {
-        @include type-style('fluid-heading-03', true);
-      }
-    }
-
-    cds-hr,
-    .#{$prefix}--hr {
-      border-color: $toggle-off;
-      margin-top: 0;
-
-      @include hang;
-    }
-
-    .#{$prefix}--content-block__cta {
-      margin-top: 0;
-    }
-  }
-
-  :host(#{$c4d-prefix}-leadspace-with-search-heading),
-  :host(#{$c4d-prefix}-leadspace-block-heading),
-  .#{$prefix}--leadspace-block__title {
-    width: 90%;
-    color: $text-primary;
-    padding-top: $spacing-07;
-    @include type-style('fluid-heading-06', true);
-
-    /* stylelint-disable declaration-no-important */
-    ::slotted(h1) {
-      all: unset !important; /* stylelint-disable-line declaration-property-value-disallowed-list */
-    }
-    /* stylelint-enable declaration-no-important */
+  :host(#{$c4d-prefix}-leadspace-block) {
+    display: block;
+    margin-top: $spacing-07;
+    margin-bottom: $spacing-12;
 
     @include breakpoint(md) {
-      padding-top: $spacing-07;
+      margin-top: $spacing-10;
+      margin-bottom: $spacing-13;
     }
 
-    @include breakpoint(lg) {
-      padding-top: $spacing-10;
+    ::slotted(#{$c4d-prefix}-leadspace-block-content){
+      padding: 0;
+    }
+  }
+
+  :host(#{$c4d-prefix}-leadspace-block[border]) {
+    margin: $spacing-07 0;
+
+    @include breakpoint(md) {
+      margin: $spacing-10 0;
+    }
+  }
+
+  :host(#{$c4d-prefix}-leadspace-block[border])
+    ::slotted(#{$c4d-prefix}-leadspace-block-content) {
+      padding-top: 0;
+      padding-bottom: $spacing-10;
+
+      @include breakpoint(md) {
+        padding-bottom: $spacing-12;
+      }
+  }
+
+  :host(#{$c4d-prefix}-leadspace-block) c4d-hr {
+    margin: 0 #{-$spacing-05};
+  }
+
+  :host(#{$c4d-prefix}-leadspace-block) ::slotted([slot="heading"]){
+    width: 100%;
+    padding-left: 0;
+    margin-bottom: $spacing-07;
+    margin-left: 0;
+
+    @include breakpoint-down(md){
+      padding-right: 0;
     }
   }
 
@@ -95,7 +70,6 @@
     ::slotted(#{$c4d-prefix}-link-list),
   .#{$prefix}--leadspace-block .#{$prefix}--link-list {
     display: block;
-    padding-top: $spacing-09;
     padding-bottom: $spacing-09;
     margin-right: 0;
     max-width: none;
@@ -114,6 +88,9 @@
 
   :host(#{$c4d-prefix}-leadspace-block-content)
     ::slotted(#{$c4d-prefix}-content-block-copy) {
+      @include breakpoint-down(md){
+        width: 100%;
+      }
     display: block;
   }
 
@@ -121,26 +98,12 @@
   .#{$prefix}--leadspace-block .#{$prefix}--leadspace-block__media {
     display: block;
     max-width: carbon--mini-units(80);
+    padding-bottom: $spacing-07;
 
-    @include breakpoint(md) {
-      padding-top: $spacing-05;
-    }
 
-    ::slotted(#{$c4d-prefix}-image),
-    .#{$prefix}--image-with-caption {
+    ::slotted(#{$c4d-prefix}-image) {
       margin-top: 0;
       margin-bottom: 0;
-    }
-  }
-
-  :host(#{$c4d-prefix}-leadspace-block-cta),
-  .#{$prefix}--leadspace-block .#{$prefix}--buttongroup {
-    padding-top: 0;
-
-    ::slotted(#{$c4d-prefix}-button-group-item),
-    .#{$prefix}--buttongroup-item {
-      margin-top: 0;
-      padding-top: 0;
     }
   }
 }

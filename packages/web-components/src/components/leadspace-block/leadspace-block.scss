@@ -5,34 +5,4 @@
 // LICENSE file in the root directory of this source tree.
 //
 
-@use '@carbon/styles/scss/breakpoint' as *;
-@use '@carbon/styles/scss/config' as *;
-@use '@carbon/styles/scss/spacing' as *;
-@use '@carbon/ibmdotcom-styles/scss/components/button-group';
 @use '@carbon/ibmdotcom-styles/scss/components/leadspace-block';
-@use '@carbon/ibmdotcom-styles/scss/globals/vars' as *;
-
-:host(#{$c4d-prefix}-leadspace-with-search-heading),
-:host(#{$c4d-prefix}-leadspace-block-heading) {
-  display: block;
-}
-
-:host(#{$c4d-prefix}-leadspace-with-search-content),
-:host(#{$c4d-prefix}-leadspace-block-content) {
-  ::slotted(*) {
-    margin-left: $spacing-05;
-    margin-right: $spacing-05;
-    @include breakpoint(md) {
-      margin-left: 0;
-      margin-right: 0;
-    }
-  }
-}
-
-.#{$prefix}--content-layout {
-  @include breakpoint(md) {
-    ::slotted([slot]) {
-      margin-left: 0;
-    }
-  }
-}

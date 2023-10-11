@@ -23,9 +23,8 @@ Here's a quick example to get you started.
 
 ```javascript
 import C4DLeadspaceBlock from '@carbon/ibmdotcom-web-components/es/components-react/leadspace-block/leadspace-block.js';
-import C4DLeadspaceBlockHeading from '@carbon/ibmdotcom-web-components/es/components-react/leadspace-block/leadspace-block-heading.js';
+import C4DLeadspaceHeading from '@carbon/ibmdotcom-web-components/es/components-react/leadspace/leadspace-heading.js';
 import C4DLeadspaceBlockContent from '@carbon/ibmdotcom-web-components/es/components-react/leadspace-block/leadspace-block-content.js';
-import C4DContentBlockHeading from '@carbon/ibmdotcom-web-components/es/components-react/content-block/content-block-heading.js';
 import C4DContentBlockCopy from '@carbon/ibmdotcom-web-components/es/components-react/content-block/content-block-copy.js';
 import C4DLeadspaceBlockMedia from '@carbon/ibmdotcom-web-components/es/components-react/leadspace-block/leadspace-block-media.js';
 import C4DImage from '@carbon/ibmdotcom-web-components/es/components-react/image/image.js';
@@ -33,21 +32,21 @@ import C4DImageItem from '@carbon/ibmdotcom-web-components/es/components-react/i
 import C4DLinkList from '@carbon/ibmdotcom-web-components/es/components-react/link-list/link-list.js';
 import C4DLinkListHeading from '@carbon/ibmdotcom-web-components/es/components-react/link-list/link-list-heading.js';
 import C4DLinkListItem from '@carbon/ibmdotcom-web-components/es/components-react/link-list/link-list-item.js';
-import C4DLeadspaceBlockCTA from '@carbon/ibmdotcom-web-components/es/components-react/leadspace-block/leadspace-block-cta.js';
-import C4DButtonGroupItem from '@carbon/ibmdotcom-web-components/es/components-react/button-group/button-group-item.js';
+import C4DButton from '@carbon/ibmdotcom-web-components/es/components-react/button/button.js';
 import ArrowRight20 from '@carbon/icons-react/es/arrow--right/20.js';
 import Download20 from '@carbon/icons-react/es/download/20.js';
 
 function App() {
   return (
-    <C4DLeadspaceBlock>
-      <C4DLeadspaceBlockHeading>
-        Lead Space Block Title
-      </C4DLeadspaceBlockHeading>
+    <C4DLeadspaceBlock border>
+      <C4DLeadspaceHeading highlight="intelligent IT operations">Infuse your AIOps platform with intelligent IT operations</C4DLeadspaceHeading>
       <C4DLeadspaceBlockContent>
-        <C4DContentBlockHeading>Content Block Heading</C4DContentBlockHeading>
-        <C4DContentBlockCopy>Content Block Copy</C4DContentBlockCopy>
-        <C4DLeadspaceBlockMedia slot="media">
+        <C4DContentBlockCopy>
+          Automate your software release process with continuous delivery (CD)—the most
+          critical part of adopting DevOps. Build, test, and deploy code changes quickly,
+          ensuring software is always ready for deployment.
+        </C4DContentBlockCopy>
+        <C4DLeadspaceBlockMedia>
           <C4DImage
             alt="Image alt text"
             default-src="https://fpoimg.com/672x378?text=16:9&amp;bg_color=ee5396&amp;text_color=161616"
@@ -78,11 +77,9 @@ function App() {
             View all products <Download20 slot="icon" />
           </C4DLinkListItem>
         </C4DLinkList>
-        <C4DLeadspaceBlockCTA>
-          <C4DButtonGroupItem href="www.ibm.com">
-            Contact sales <ArrowRight20 slot="icon" />
-          </C4DButtonGroupItem>
-        </C4DLeadspaceBlockCTA>
+        <C4DButton cta-type="local">
+          Contact sales
+        </C4DButton>
       </C4DLeadspaceBlockContent>
     </C4DLeadspaceBlock>
   );
@@ -93,30 +90,29 @@ function App() {
 
 ```javascript
 import C4DLeadspaceBlock from '@carbon/ibmdotcom-web-components/es/components-react/leadspace-block/leadspace-block.js';
-import C4DLeadspaceBlockHeading from '@carbon/ibmdotcom-web-components/es/components-react/leadspace-block/leadspace-block-heading.js';
+import C4DLeadspaceHeading from '@carbon/ibmdotcom-web-components/es/components-react/leadspace/leadspace-heading.js';
 import C4DLeadspaceBlockContent from '@carbon/ibmdotcom-web-components/es/components-react/leadspace-block/leadspace-block-content.js';
-import C4DContentBlockHeading from '@carbon/ibmdotcom-web-components/es/components-react/content-block/content-block-heading.js';
 import C4DContentBlockCopy from '@carbon/ibmdotcom-web-components/es/components-react/content-block/content-block-copy.js';
 import C4DLeadspaceBlockMedia from '@carbon/ibmdotcom-web-components/es/components-react/leadspace-block/leadspace-block-media.js';
 import C4DVideoPlayerContainer from '@carbon/ibmdotcom-web-components/es/components-react/video-player/video-player-container';
 import C4DLinkList from '@carbon/ibmdotcom-web-components/es/components-react/link-list/link-list.js';
 import C4DLinkListHeading from '@carbon/ibmdotcom-web-components/es/components-react/link-list/link-list-heading.js';
 import C4DLinkListItem from '@carbon/ibmdotcom-web-components/es/components-react/link-list/link-list-item.js';
-import C4DLeadspaceBlockCTA from '@carbon/ibmdotcom-web-components/es/components-react/leadspace-block/leadspace-block-cta.js';
-import C4DButtonGroupItem from '@carbon/ibmdotcom-web-components/es/components-react/button-group/button-group-item.js';
+import C4DButton from '@carbon/ibmdotcom-web-components/es/components-react/button/button.js';
 import ArrowRight20 from '@carbon/icons-react/es/arrow--right/20.js';
 import Download20 from '@carbon/icons-react/es/download/20.js';
 
 function App() {
   return (
-    <C4DLeadspaceBlock>
-      <C4DLeadspaceBlockHeading>
-        Lead Space Block Title
-      </C4DLeadspaceBlockHeading>
+    <C4DLeadspaceBlock border>
+      <C4DLeadspaceHeading highlight="intelligent IT operations">Infuse your AIOps platform with intelligent IT operations</C4DLeadspaceHeading>
       <C4DLeadspaceBlockContent>
-        <C4DContentBlockHeading>Content Block Heading</C4DContentBlockHeading>
-        <C4DContentBlockCopy>Content Block Copy</C4DContentBlockCopy>
-        <C4DLeadspaceBlockMedia slot="media">
+        <C4DContentBlockCopy>
+          Automate your software release process with continuous delivery (CD)—the most
+          critical part of adopting DevOps. Build, test, and deploy code changes quickly,
+          ensuring software is always ready for deployment.
+        </C4DContentBlockCopy>
+        <C4DLeadspaceBlockMedia>
           <C4DVideoPlayerContainer video-id="0_ibuqxqbe"></C4DVideoPlayerContainer>
         </C4DLeadspaceBlockMedia>
         <C4DLinkList type="end">
@@ -131,11 +127,9 @@ function App() {
             View all products <Download20 slot="icon" />
           </C4DLinkListItem>
         </C4DLinkList>
-        <C4DLeadspaceBlockCTA>
-          <C4DButtonGroupItem href="www.ibm.com">
-            Contact sales <ArrowRight20 slot="icon" />
-          </C4DButtonGroupItem>
-        </C4DLeadspaceBlockCTA>
+        <C4DButton cta-type="local">
+          Contact sales
+        </C4DButton>
       </C4DLeadspaceBlockContent>
     </C4DLeadspaceBlock>
   );
@@ -154,10 +148,10 @@ to see how Web Components selector and `data-autoid` should be used.
 
 | Web Components selector         | Compatibility selector | Description |
 | ------------------------------- | ---------------------- | ----------- |
-| `<cds-leadspace-block>`         | N/A                    | Component   |
-| `<cds-leadspace-block-content>` | N/A                    | Component   |
-| `<cds-leadspace-block-cta>`     | N/A                    | Component   |
-| `<cds-leadspace-block-heading>` | N/A                    | Component   |
-| `<cds-leadspace-block-media>`   | N/A                    | Component   |
+| `<c4d-leadspace-block>`         | N/A                    | Component   |
+| `<c4d-leadspace-block-content>` | N/A                    | Component   |
+| `<c4d-leadspace-heading>`       | N/A                    | Component   |
+| `<c4d-button>`                  | N/A                    | Component   |
+| `<c4d-leadspace-block-media>`   | N/A                    | Component   |
 
 <Description markdown={contributing} />

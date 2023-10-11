@@ -233,14 +233,10 @@ export const tocContent = html`
           View all products ${ArrowRight20({ slot: 'icon' })}
         </c4d-link-list-item>
       </c4d-link-list>
-      <c4d-leadspace-block-cta>
-        <c4d-button-group-item href="www.ibm.com"
-          >Contact sales
-          ${ArrowRight20({
-            slot: 'icon',
-          })}</c4d-button-group-item
-        >
-      </c4d-leadspace-block-cta>
+      <c4d>
+      <c4d-button cta-type="local">
+        Contact sales
+      </c4d-button>
     </c4d-leadspace-block-content>
   </c4d-leadspace-block>
 
