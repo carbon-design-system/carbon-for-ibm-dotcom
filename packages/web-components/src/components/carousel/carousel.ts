@@ -722,7 +722,8 @@ class DDSCarousel extends HostListenerMixin(StableSelectorMixin(LitElement)) {
           )}">
           <div
             class="${scrollContentsClasses}"
-            style="left:${(-start * (contentsBaseWidth + gap)) / pageSize}px">
+            style="inset-inline-start:${(-start * (contentsBaseWidth + gap)) /
+            pageSize}px">
             <slot @slotchange="${handleSlotChange}"></slot>
           </div>
         </div>
