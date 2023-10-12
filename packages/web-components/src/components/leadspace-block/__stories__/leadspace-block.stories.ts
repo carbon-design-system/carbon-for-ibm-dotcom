@@ -57,7 +57,9 @@ const linkList = html`
 `;
 
 const buttonCTA = html`
-  <c4d-button cta-type="local" href="https://example.com"> Contact sales </c4d-button>
+  <c4d-button cta-type="local" href="https://example.com">
+    Contact sales
+  </c4d-button>
 `;
 
 export const Default = (args) => {
