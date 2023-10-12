@@ -426,7 +426,7 @@ class C4DFilterPanelComposite extends HostListenerMixin(
   render() {
     return html`
       <cds-button kind="tertiary" @click=${this._openModal}>
-          ${this._filterButtonTitle} ${Filter({ slot: 'icon' })}
+        ${this._filterButtonTitle} ${Filter({ slot: 'icon' })}
       </cds-button>
       ${this._renderModal()} ${this._renderDesktop()}
     `;
