@@ -56,6 +56,16 @@ $search-transition-timing: 95ms;
     svg {
       width: 58px;
       height: 23px;
+
+      g,
+      path {
+        fill: $layer-selected-inverse;
+
+        /* stylelint-disable-next-line media-feature-name-no-unknown */
+        @media (prefers-contrast: more) {
+          fill: ButtonText;
+        }
+      }
     }
 
     &::after {
