@@ -298,10 +298,10 @@ class C4DFooterComposite extends MediaQueryMixin(
             clear-selection-label="${clearSelectionLabel}">
             ${langList?.map(
               (language) => html`
-                <bx-combo-box-item
+                <cds-combo-box-item
                   value="${ifDefined(language.text)}"
                   lang="${ifDefined(language.id)}"
-                  >${ifDefined(language.text)}</bx-combo-box-item
+                  >${ifDefined(language.text)}</cds-combo-box-item
                 >
               `
             )}

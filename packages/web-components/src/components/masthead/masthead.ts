@@ -30,6 +30,22 @@ class C4DMasthead extends StableSelectorMixin(LitElement) {
     StickyHeader.global.masthead = this;
   }
 
+  /**
+   * Re-initializes masthead component with StickyHeader class in case of L1 addition/removal.
+   */
+  handleL1Change({ target }) {
+    const L1Navs = (target as HTMLSlotElement)
+      .assignedElements()
+      .filter(
+        (element) =>
+          element.tagName.toLowerCase() === `${c4dPrefix}-masthead-l1`
+      );
+
+    if (L1Navs.length) {
+      StickyHeader.global.masthead = this;
+    }
+  }
+
   render() {
     return html`
       <div class="${prefix}--masthead__l0">
@@ -44,7 +60,7 @@ class C4DMasthead extends StableSelectorMixin(LitElement) {
           <slot name="profile"></slot>
         </div>
       </div>
-      <slot name="masthead-l1"></slot>
+      <slot name="masthead-l1" @slotchange=${this.handleL1Change}></slot>
     `;
   }
 

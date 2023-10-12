@@ -26,7 +26,7 @@ import Handle from '../../globals/internal/handle';
 import StableSelectorMixin from '../../globals/mixins/stable-selector';
 import { carbonElement as customElement } from '../../internal/vendor/@carbon/web-components/globals/decorators/carbon-element.js';
 
-const { prefix, stablePrefix: c4dPrefix } = settings;
+const { stablePrefix: c4dPrefix } = settings;
 
 export { LIGHTBOX_CONTRAST };
 
@@ -176,8 +176,8 @@ class C4DImage extends StableSelectorMixin(
       _handleSlotChange: handleSlotChange,
     } = this;
     const imgClasses = classMap({
-      [`${prefix}--image__img`]: true,
-      [`${prefix}--image__img--border`]: border && !lightbox,
+      [`${c4dPrefix}--image__img`]: true,
+      [`${c4dPrefix}--image__img--border`]: border && !lightbox,
     });
 
     return html`
@@ -197,7 +197,7 @@ class C4DImage extends StableSelectorMixin(
           part="image"
           loading="lazy" />
       </picture>
-      <div id="long-description" class="${prefix}--image__longdescription">
+      <div id="long-description" class="${c4dPrefix}--image__longdescription">
         <slot name="long-description"></slot>
       </div>
       <slot name="icon"></slot>
@@ -232,11 +232,11 @@ class C4DImage extends StableSelectorMixin(
       ${lightbox
         ? html`
             <button
-              class="${prefix}--image-with-caption__image"
+              class="${c4dPrefix}--image-with-caption__image"
               aria-label="${ifDefined(launchLightboxButtonAssistiveText)}"
               @click="${handleClick}">
               ${this.renderImage()}
-              <div class="${prefix}--image-with-caption__zoom-button">
+              <div class="${c4dPrefix}--image-with-caption__zoom-button">
                 ${Maximize20()}
               </div>
             </button>
@@ -244,7 +244,7 @@ class C4DImage extends StableSelectorMixin(
         : html` ${this.renderImage()} `}
       ${heading
         ? html`
-            <p id="image-caption" class="${prefix}--image__caption">
+            <p id="image-caption" class="${c4dPrefix}--image__caption">
               ${heading}
             </p>
           `

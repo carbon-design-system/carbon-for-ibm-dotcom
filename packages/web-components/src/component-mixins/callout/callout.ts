@@ -18,7 +18,7 @@ const { prefix } = settings;
  * @mixin c4d-callout
  */
 const C4DCalloutMixin = <T extends Constructor<HTMLElement>>(base: T) => {
-  return class extends base {
+  abstract class CalloutMixin extends base {
     render() {
       return html`
         <div class="${prefix}--callout__column">
@@ -32,7 +32,9 @@ const C4DCalloutMixin = <T extends Constructor<HTMLElement>>(base: T) => {
         </div>
       `;
     }
-  };
+  }
+
+  return CalloutMixin;
 };
 
 export default C4DCalloutMixin;

@@ -17,7 +17,7 @@ import {
   BasicLink,
   BasicLinkSet,
   MastheadL1,
-  MastheadLink,
+  L0MenuItem,
   MastheadProfileItem,
   Translation,
 } from '../../internal/vendor/@carbon/ibmdotcom-services-store/types/translateAPI.d';
@@ -122,7 +122,7 @@ class C4DDotcomShellComposite extends LitElement {
   hasSearch = true;
 
   /**
-   * `true` if there is a universal banner.
+   * `true` if there is a global banner.
    */
   @property({ type: Boolean, attribute: 'has-banner' })
   hasBanner = false;
@@ -327,7 +327,7 @@ class C4DDotcomShellComposite extends LitElement {
    * but if you need an alternate way of integration (e.g. rendering Web Components tags in server-side) this property helps.
    */
   @property({ attribute: false })
-  navLinks?: MastheadLink[];
+  navLinks?: L0MenuItem[];
 
   /**
    * The parameters passed to the search-with-typeahead for search scope
@@ -468,16 +468,16 @@ class C4DDotcomShellComposite extends LitElement {
   updated(changedProperties) {
     super.updated(changedProperties);
 
-    // moving universal banner outside of dotcom shell if placed within
-    if (this.querySelector(`${c4dPrefix}-universal-banner`)) {
+    // moving global banner outside of dotcom shell if placed within
+    if (this.querySelector(`${c4dPrefix}-global-banner`)) {
       this.ownerDocument
         .querySelector(`${c4dPrefix}-masthead-composite`)
         ?.before(
-          this.querySelector(`${c4dPrefix}-universal-banner`) as HTMLElement
+          this.querySelector(`${c4dPrefix}-global-banner`) as HTMLElement
         );
     }
 
-    if (this.ownerDocument.querySelector(`${c4dPrefix}-universal-banner`)) {
+    if (this.ownerDocument.querySelector(`${c4dPrefix}-global-banner`)) {
       this.hasBanner = true;
       this._masthead?.setAttribute('with-banner', '');
     }

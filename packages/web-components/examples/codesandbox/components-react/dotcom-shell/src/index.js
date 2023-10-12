@@ -27,10 +27,10 @@ window.digitalData = {
 
 const App = () => (
   <C4DDotcomShellContainer>
-    <main className="bx--content cds-ce-demo--ui-shell-content">
-      <div className="bx--grid">
-        <div className="bx--row">
-          <div className="bx--offset-lg-3 bx--col-lg-13">
+    <main className="cds--content cds-ce-demo--ui-shell-content">
+      <div className="cds--grid">
+        <div className="cds--row">
+          <div className="cds--offset-lg-3 cds--col-lg-13">
             <h2>Purpose and function</h2>
             <p>
               The shell is perhaps the most crucial piece of any UI built with Carbon. It contains the shared navigation framework

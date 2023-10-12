@@ -1,7 +1,7 @@
 /**
  * @license
  *
- * Copyright IBM Corp. 2020, 2022
+ * Copyright IBM Corp. 2020, 2023
  *
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
@@ -53,15 +53,21 @@ const mockTranslation: Partial<Translation> = {
   },
 };
 
+const endpoint =
+  '/common/carbon-for-ibm-dotcom/translations/masthead-footer/v2';
+
 describe('Redux actions for `TranslateAPI`', () => {
   it('dispatches the action to set translation data', () => {
     const store = mockStore();
-    store.dispatch(setTranslation('lang-foo', mockTranslation as Translation));
+    store.dispatch(
+      setTranslation('lang-foo', mockTranslation as Translation, endpoint)
+    );
     expect(store.getActions()).toEqual([
       {
         type: TRANSLATE_API_ACTION.SET_TRANSLATION,
         language: 'lang-foo',
         translation: mockTranslation,
+        endpoint,
       },
     ]);
   });

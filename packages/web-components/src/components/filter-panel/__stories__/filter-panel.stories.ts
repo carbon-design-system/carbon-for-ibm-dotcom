@@ -15,6 +15,9 @@ import readme from './README.stories.mdx';
 export const Default = (args) => {
   const { heading, filterCutoff, maxFilters, viewAllText, gridKnobs } =
     args?.FilterPanel ?? {};
+  const selectedItems = args?.FilterPanel?.selectedItems
+    ? parseInt(args?.FilterPanel?.selectedItems)
+    : 0;
 
   const filterPanelHeading = document.querySelector('c4d-filter-panel-heading');
   if (filterPanelHeading) {
@@ -35,28 +38,44 @@ export const Default = (args) => {
             filter-cutoff="${filterCutoff}"
             max-filters="${maxFilters}"
             view-all-text="${viewAllText}">
-            <c4d-filter-panel-checkbox value="API"
+            <c4d-filter-panel-checkbox
+              ?checked=${selectedItems >= 1}
+              value="API"
               >API</c4d-filter-panel-checkbox
             >
-            <c4d-filter-panel-checkbox value="Application"
+            <c4d-filter-panel-checkbox
+              ?checked=${selectedItems >= 2}
+              value="Application"
               >Application</c4d-filter-panel-checkbox
             >
-            <c4d-filter-panel-checkbox value="Data Set"
+            <c4d-filter-panel-checkbox
+              ?checked=${selectedItems >= 3}
+              value="Data Set"
               >Data Set</c4d-filter-panel-checkbox
             >
-            <c4d-filter-panel-checkbox value="Free Trial"
+            <c4d-filter-panel-checkbox
+              ?checked=${selectedItems >= 4}
+              value="Free Trial"
               >Free Trial</c4d-filter-panel-checkbox
             >
-            <c4d-filter-panel-checkbox value="Hardware"
+            <c4d-filter-panel-checkbox
+              ?checked=${selectedItems >= 5}
+              value="Hardware"
               >Hardware</c4d-filter-panel-checkbox
             >
-            <c4d-filter-panel-checkbox value="Service"
+            <c4d-filter-panel-checkbox
+              ?checked=${selectedItems >= 6}
+              value="Service"
               >Service</c4d-filter-panel-checkbox
             >
-            <c4d-filter-panel-checkbox value="Service Assets"
+            <c4d-filter-panel-checkbox
+              ?checked=${selectedItems >= 7}
+              value="Service Assets"
               >Service Assets</c4d-filter-panel-checkbox
             >
-            <c4d-filter-panel-checkbox value="Software"
+            <c4d-filter-panel-checkbox
+              ?checked=${selectedItems >= 8}
+              value="Software"
               >Software</c4d-filter-panel-checkbox
             >
           </c4d-filter-group-item>
@@ -124,10 +143,14 @@ export const Default = (args) => {
               title="Supply chain management"></c4d-filter-panel-input-select>
           </c4d-filter-group-item>
           <c4d-filter-group-item title-text="Deployment types">
-            <c4d-filter-panel-checkbox value="On-premises"
+            <c4d-filter-panel-checkbox
+              ?checked=${selectedItems >= 9}
+              value="On-premises"
               >On-premises</c4d-filter-panel-checkbox
             >
-            <c4d-filter-panel-checkbox value="SaaS"
+            <c4d-filter-panel-checkbox
+              ?checked=${selectedItems >= 10}
+              value="SaaS"
               >SaaS</c4d-filter-panel-checkbox
             >
           </c4d-filter-group-item>
@@ -160,6 +183,11 @@ export default {
           'Grid alignment',
           ['3 columns', '4 columns'],
           '4 columns'
+        ),
+        selectedItems: select(
+          'Number of selected items',
+          ['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10'],
+          '2'
         ),
       }),
     },

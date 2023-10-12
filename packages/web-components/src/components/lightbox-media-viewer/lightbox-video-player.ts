@@ -18,7 +18,7 @@ import {
 import C4DLightboxMediaViewerBody from './lightbox-media-viewer-body';
 import { carbonElement as customElement } from '../../internal/vendor/@carbon/web-components/globals/decorators/carbon-element';
 
-const { prefix, stablePrefix: c4dPrefix } = settings;
+const { stablePrefix: c4dPrefix } = settings;
 
 /**
  * The video content of lightbox media viewer.
@@ -39,8 +39,8 @@ class C4DLightboxVideoPlayer extends C4DLightboxMediaViewerBody {
   // eslint-disable-next-line class-methods-use-this
   _renderMedia() {
     return html`
-      <div class="${prefix}--video-player">
-        <div class="${prefix}--video-player__video-container">
+      <div class="${c4dPrefix}--video-player">
+        <div class="${c4dPrefix}--video-player__video-container">
           <slot></slot>
         </div>
       </div>

@@ -34,7 +34,7 @@ class C4DFilterPanelInputSelect extends FocusMixin(
   /**
    * Sets the input selected dropdown to closed
    */
-  @property({ attribute: 'is-open', type: Boolean })
+  @property({ attribute: 'is-open', type: Boolean, reflect: true })
   isOpen = false;
 
   /**
@@ -46,7 +46,7 @@ class C4DFilterPanelInputSelect extends FocusMixin(
   /**
    * sets the selected value attribute to selected
    */
-  @property({ attribute: 'selected', type: Boolean })
+  @property({ attribute: 'selected', type: Boolean, reflect: true })
   selected: boolean = false;
 
   /**
@@ -176,6 +176,11 @@ class C4DFilterPanelInputSelect extends FocusMixin(
       this.ariaLabel = `${this.title}, ${
         this.selected ? 'selected' : 'unselected'
       }`;
+    }
+    if (this._items.length) {
+      this.shadowRoot
+        ?.querySelector(`.${prefix}--input-container__heading`)
+        ?.setAttribute('aria-expanded', String(Boolean(this.isOpen)));
     }
     if (this._items.length) {
       this.shadowRoot

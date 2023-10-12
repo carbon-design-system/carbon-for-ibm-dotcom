@@ -97,7 +97,7 @@ export const withVideo = (args) => {
         <C4DContentBlockHeading>{heading}</C4DContentBlockHeading>
         <C4DContentBlockCopy>{copy}</C4DContentBlockCopy>
         <C4DLeadspaceBlockMedia slot="media">
-          <C4DVideoPlayerContainer video-id="1_9h94wo6b"></C4DVideoPlayerContainer>
+          <C4DVideoPlayerContainer video-id="0_ibuqxqbe"></C4DVideoPlayerContainer>
         </C4DLeadspaceBlockMedia>
         {linkList} {buttonCTA}
       </C4DLeadspaceBlockContent>

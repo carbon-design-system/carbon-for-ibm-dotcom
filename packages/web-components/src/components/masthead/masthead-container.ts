@@ -17,7 +17,7 @@ import {
 import settings from '../../internal/vendor/@carbon/ibmdotcom-utilities/utilities/settings/settings';
 import { LocaleAPIState } from '../../internal/vendor/@carbon/ibmdotcom-services-store/types/localeAPI.d';
 import {
-  MastheadLink,
+  L0MenuItem,
   TranslateAPIState,
 } from '../../internal/vendor/@carbon/ibmdotcom-services-store/types/translateAPI.d';
 import { ProfileAPIState } from '../../internal/vendor/@carbon/ibmdotcom-services-store/types/profileAPI.d';
@@ -65,7 +65,7 @@ export interface MastheadContainerStateProps {
   /**
    * The nav links.
    */
-  navLinks?: MastheadLink[];
+  navLinks?: L0MenuItem[];
 
   /**
    * The user authentication status.
@@ -95,15 +95,24 @@ export function mapStateToProps(
   const { request } = profileAPI ?? {};
   return pickBy(
     {
-      authenticatedProfileItems: !language
-        ? undefined
-        : translations?.[language]?.profileMenu.signedin,
       navLinks: !language
         ? undefined
         : translations?.[language]?.mastheadNav?.links,
+      authenticatedProfileItems: !language
+        ? undefined
+        : translations?.[language]?.profileMenu.signedin,
       unauthenticatedProfileItems: !language
         ? undefined
         : translations?.[language]?.profileMenu.signedout,
+      authenticatedCtaButtons: !language
+        ? undefined
+        : translations?.[language]?.masthead?.profileMenu.signedin.ctaButtons,
+      unauthenticatedCtaButtons: !language
+        ? undefined
+        : translations?.[language]?.masthead?.profileMenu.signedout.ctaButtons,
+      contactUsButton: !language
+        ? undefined
+        : translations?.[language]?.masthead?.contact,
       logoData: !language
         ? undefined
         : translations?.[language]?.masthead?.logo,

@@ -46,6 +46,17 @@ function App() {
 }
 ```
 
+### SCSS
+
+Callout quote has specific tokens per theme that need to emitted in the styles.
+You can do this for example by adding the following:
+
+```css
+@use '@carbon/ibmdotcom-styles//scss/globals/tokens/color-tokens' as
+  color-tokens;
+@include add-component-tokens(color-tokens.$color-tokens);
+```
+
 ## Callout with Media (Video)
 
 ```javascript
@@ -63,7 +74,7 @@ function App() {
       <C4DCalloutWithMediaCopy size="sm">
         lorum ipsum dolor sit ameet
       </C4DCalloutWithMediaCopy>
-      <C4DCalloutWithMediaVideo video-id="1_9h94wo6b"></C4DCalloutWithMediaVideo>
+      <C4DCalloutWithMediaVideo video-id="0_ibuqxqbe"></C4DCalloutWithMediaVideo>
     </C4DCalloutWithMedia>
   );
 }

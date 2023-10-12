@@ -8,9 +8,9 @@
  */
 
 /**
- * Gradient Direction
+ * Dual themes
  */
-export enum ADJACENT_THEMES {
+export enum DUAL_THEMES {
   /**
    * White and Gray 10
    */
@@ -35,4 +35,19 @@ export enum ADJACENT_THEMES {
    * Default theme
    */
   MONOTHEME = '',
+}
+
+/**
+ * Adjacent themes
+ */
+export enum ADJACENT_THEMES {
+  /**
+   * Default theme
+   */
+  MONOTHEME = '',
+
+  /**
+   * Dual theme
+   */
+  DUAL_THEME = 'dual-theme',
 }

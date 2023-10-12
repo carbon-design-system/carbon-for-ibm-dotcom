@@ -3,7 +3,7 @@
  *
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
- */
+*/
 
 @use '@carbon/styles/scss/breakpoint' as *;
 @use '@carbon/styles/scss/config' as *;
@@ -18,7 +18,7 @@
 @use '../../globals/vars' as *;
 @use '../masthead/vars' as *;
 
-%react-autosuggest-suggestion {
+@mixin react-autosuggest-suggestion {
   color: $text-primary;
   height: $spacing-09;
   display: flex;
@@ -142,6 +142,7 @@
     top: 0;
     right: 0;
     display: flex;
+    background-color: $background;
 
     .#{$prefix}--header__search--search,
     .#{$prefix}--header__search--close {
@@ -194,15 +195,17 @@
     position: relative;
     outline: none;
     height: $spacing-09;
-    margin-left: rem($spacing-09);
+    margin-left: $spacing-09;
 
     .#{$c4d-prefix}-ce__search__list {
       height: 0;
       overflow: hidden;
+      margin: 0;
     }
 
     &[open] .#{$c4d-prefix}-ce__search__list {
       height: auto;
+      padding: 0;
     }
 
     &[active] {
@@ -212,6 +215,7 @@
 
       button.#{$prefix}--header__search--close.#{$prefix}--header__action[part='close-button'] {
         display: inline-flex;
+        min-width: $spacing-09;
       }
 
       button.#{$prefix}--header__search--close.#{$prefix}--header__action.#{$prefix}--header__search--hide {
@@ -229,7 +233,7 @@
           bottom: 0;
           left: 0;
           display: block;
-          border-bottom: $spacing-01 solid $background-brand;
+          border-bottom: $spacing-01 solid $border-interactive;
           width: 100%;
           height: $spacing-01;
           z-index: 10002;
@@ -243,6 +247,7 @@
         outline: $spacing-01 solid transparent;
         outline-offset: -#{$spacing-01};
         background-color: $layer-01;
+        color: $text-primary;
         height: carbon--mini-units(6);
         z-index: 10000;
 
@@ -297,10 +302,6 @@
 
       top: 0;
 
-      @include breakpoint(md) {
-        height: $spacing-10;
-      }
-
       &:focus {
         outline: $spacing-01 solid $focus;
         .#{$prefix}--header__search--actions {
@@ -334,10 +335,6 @@
       form {
         width: 100%;
         padding-left: $spacing-09;
-
-        @include breakpoint(md) {
-          height: $spacing-10;
-        }
       }
 
       .react-autosuggest__container {
@@ -347,11 +344,7 @@
       }
 
       .react-autosuggest__suggestions-container {
-        top: rem(50px);
-
-        @include breakpoint(md) {
-          top: rem(66px);
-        }
+        top: calc($spacing-09 + 2px);
       }
 
       .react-autosuggest__suggestions-list {
@@ -361,16 +354,6 @@
       .#{$prefix}--header__search--input {
         color: $text-primary;
         border-bottom: none;
-
-        @include breakpoint(md) {
-          height: $spacing-10;
-        }
-      }
-
-      .#{$prefix}--header__search--close {
-        @include breakpoint(md) {
-          height: $spacing-10;
-        }
       }
 
       &[large] {
@@ -461,10 +444,12 @@
   }
 
   .react-autosuggest__suggestion {
-    @extend %react-autosuggest-suggestion;
+    @include react-autosuggest-suggestion;
   }
 
   .#{$prefix}--header__search--input {
+    @include font-family('sans');
+
     font-size: $spacing-05;
     line-height: 1.375rem;
     border: none;
@@ -482,7 +467,7 @@
 }
 
 :host(#{$c4d-prefix}-search-with-typeahead-item) {
-  @extend %react-autosuggest-suggestion;
+  @include react-autosuggest-suggestion;
 
   span {
     white-space: pre;
@@ -508,6 +493,10 @@
       border-bottom-color: $toggle-off;
     }
   }
+}
+
+:host(#{$c4d-prefix}-search-with-typeahead-item[alternate]) {
+  border-top: 1px solid $border-subtle-01;
 }
 
 :host(#{$c4d-prefix}-scoped-search-dropdown),

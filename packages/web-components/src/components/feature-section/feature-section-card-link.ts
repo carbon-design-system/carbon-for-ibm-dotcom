@@ -34,5 +34,10 @@ class C4DFeatureSectionCardLink extends C4DCardCTA {
   }
 }
 
+console.warn(
+  'The feature-section-card-link component has been deprecated in favor of the card (link variant) component. ' +
+    'See card documentation for more information.'
+);
+
 /* @__GENERATE_REACT_CUSTOM_ELEMENT_TYPE__ */
 export default C4DFeatureSectionCardLink;

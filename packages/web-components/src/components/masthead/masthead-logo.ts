@@ -9,6 +9,7 @@
 
 import { html } from 'lit';
 import { property, state } from 'lit/decorators.js';
+import { unsafeSVG } from 'lit/directives/unsafe-svg.js';
 import CDSLink from '../../internal/vendor/@carbon/web-components/components/link/link.js';
 import HostListener from '../../internal/vendor/@carbon/web-components/globals/decorators/host-listener.js';
 import HostListenerMixin from '../../internal/vendor/@carbon/web-components/globals/mixins/host-listener.js';
@@ -69,7 +70,7 @@ class C4DMastheadLogo extends FocusMixin(
 
   // eslint-disable-next-line class-methods-use-this
   protected _renderInner() {
-    return html` <slot>${IBM8BarLogoH23()}</slot> `;
+    return html` <slot>${unsafeSVG(IBM8BarLogoH23)}</slot> `;
   }
 
   updated(changedProperties) {

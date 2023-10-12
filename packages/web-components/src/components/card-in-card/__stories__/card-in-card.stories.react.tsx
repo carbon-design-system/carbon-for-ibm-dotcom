@@ -9,7 +9,6 @@
 
 import React from 'react';
 import { boolean } from '@storybook/addon-knobs';
-import ArrowRight20 from '@carbon/icons-react/es/arrow--right/20.js';
 // Below path will be there when an application installs `@carbon/ibmdotcom-web-components` package.
 // In our dev env, we auto-generate the file and re-map below path to to point to the generated file.
 // @ts-ignore
@@ -37,13 +36,16 @@ export const Default = (args) => {
     args?.CardInCard ?? {};
 
   if (video) {
+    const card = document.querySelector('c4d-card') as any;
+    const videoCopy = card?.videoTitle;
     return (
       <C4DVideoCTAContainer>
-        <C4DCardInCard href="1_9h94wo6b" cta-type="video">
+        <C4DCardInCard href="0_ibuqxqbe" cta-type="video">
           <C4DCardEyebrow>{eyebrow}</C4DCardEyebrow>
+          <C4DCardHeading>{videoCopy ?? heading}</C4DCardHeading>
           <C4DCardCTAFooter
             cta-type="video"
-            href="1_9h94wo6b"></C4DCardCTAFooter>
+            href="0_ibuqxqbe"></C4DCardCTAFooter>
         </C4DCardInCard>
       </C4DVideoCTAContainer>
     );
@@ -51,7 +53,7 @@ export const Default = (args) => {
 
   return (
     <C4DCardInCard href={href}>
-      <C4DCardInCardImage slot="image" alt={alt} default-src={defaultSrc}>
+      <C4DCardInCardImage slot="image" alt={alt} default-src={defaultSrc} cta-type="local">
         <C4DImageItem
           media="(min-width: 1312px)"
           srcset={imgXlg16x9}></C4DImageItem>
@@ -65,7 +67,6 @@ export const Default = (args) => {
       <C4DCardEyebrow>{eyebrow}</C4DCardEyebrow>
       <C4DCardHeading>{heading}</C4DCardHeading>
       <C4DCardCTAFooter>
-        <ArrowRight20 slot="icon" />
       </C4DCardCTAFooter>
     </C4DCardInCard>
   );

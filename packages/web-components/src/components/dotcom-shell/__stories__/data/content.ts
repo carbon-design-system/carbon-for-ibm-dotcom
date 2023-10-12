@@ -16,7 +16,7 @@ import '../../../cta/index';
 import '../../../card-group/index';
 import '../../../content-block/index';
 import '../../../content-block-segmented/index';
-import '../../../content-item-horizontal/index';
+import '../../../content-item-row/index';
 import '../../../leadspace/index';
 import '../../../image/index';
 import '../../../leadspace-block/index';
@@ -99,15 +99,13 @@ export const contentBlockSegmentedItemsWithImage = html`
 `;
 
 export const contentItemHorizontal = html`
-  <c4d-content-item-horizontal>
-    <c4d-content-item-horizontal-eyebrow
-      >Lorem ipsum</c4d-content-item-horizontal-eyebrow
-    >
+  <c4d-content-item-row>
+    <c4d-content-item-row-eyebrow>Lorem ipsum</c4d-content-item-row-eyebrow>
     <c4d-content-item-heading>Aliquam condimentum</c4d-content-item-heading>
-    <c4d-content-item-horizontal-copy
+    <c4d-content-item-row-copy
       >Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean et
       ultricies est. Mauris iaculis eget dolor nec hendrerit. Phasellus at elit
-      sollicitudin.</c4d-content-item-horizontal-copy
+      sollicitudin.</c4d-content-item-row-copy
     >
     <c4d-link-list slot="footer" type="vertical">
       <c4d-link-list-item-cta
@@ -123,26 +121,26 @@ export const contentItemHorizontal = html`
         External link text
       </c4d-link-list-item-cta>
     </c4d-link-list>
-  </c4d-content-item-horizontal>
+  </c4d-content-item-row>
 `;
 
-export const universalBanner = (srcImage) => html`
-  <c4d-universal-banner image-width="4-col">
-    <c4d-universal-banner-image
+export const globalBanner = (srcImage) => html`
+  <c4d-global-banner image-width="4-col">
+    <c4d-global-banner-image
       slot="image"
-      default-src="${srcImage}"></c4d-universal-banner-image>
-    <c4d-universal-banner-heading slot="heading"
-      >heading</c4d-universal-banner-heading
+      default-src="${srcImage}"></c4d-global-banner-image>
+    <c4d-global-banner-heading slot="heading"
+      >heading</c4d-global-banner-heading
     >
-    <c4d-universal-banner-copy slot="copy">copy</c4d-universal-banner-copy>
-    <c4d-button-cta
+    <c4d-global-banner-copy slot="copy">copy</c4d-global-banner-copy>
+    <c4d-button
       slot="cta"
       cta-type="local"
       kind="tertiary"
       href="https://www.example.com">
       cta copy
-    </c4d-button-cta>
-  </c4d-universal-banner>
+    </c4d-button>
+  </c4d-global-banner>
 `;
 
 export const cardGroupItems = html`
@@ -184,21 +182,19 @@ export const contentLeadspace = html`
 `;
 
 export const contentLeadspaceSearch = html`
-  <c4d-leadspace-with-search adjacent-theme="white-and-g10" scroll-behavior>
-    <c4d-leadspace-with-search-heading
-      >Find a product</c4d-leadspace-with-search-heading
+  <c4d-leadspace-with-search
+    adjacent-theme="white-and-g10"
+    sticky-search
+    scroll-behavior>
+    <c4d-leadspace-heading highlight="Find a product -"
+      >Find a product - Innovate like a startup, scale for the
+      enterprise</c4d-leadspace-heading
     >
-    <c4d-leadspace-with-search-content>
-      <c4d-leadspace-with-search-content-heading
-        >Innovate like a startup, scale for the
-        enterprise</c4d-leadspace-with-search-content-heading
-      >
-      <c4d-leadspace-with-search-content-copy>
-        Automate your software release process with continuous delivery (CD)—the
-        most critical part of adopting DevOps. Build, test, and deploy code
-        changes quickly, ensuring software is always ready for deployment.
-      </c4d-leadspace-with-search-content-copy>
-    </c4d-leadspace-with-search-content>
+    <c4d-leadspace-with-search-copy>
+      Automate your software release process with continuous delivery (CD)—the
+      most critical part of adopting DevOps. Build, test, and deploy code
+      changes quickly, ensuring software is always ready for deployment.
+    </c4d-leadspace-with-search-copy>
     <c4d-search-with-typeahead
       slot="search"
       leadspace-search
@@ -223,7 +219,7 @@ export const tocContent = html`
       </c4d-content-block-copy>
       <c4d-leadspace-block-media slot="media">
         <c4d-video-player-container
-          video-id="1_9h94wo6b"></c4d-video-player-container>
+          video-id="0_ibuqxqbe"></c4d-video-player-container>
       </c4d-leadspace-block-media>
       <c4d-link-list type="end">
         <c4d-link-list-heading>Featured products</c4d-link-list-heading>
@@ -296,7 +292,7 @@ export const tocContent = html`
       velit egestas dui.
     </c4d-callout-with-media-copy>
     <c4d-callout-with-media-video
-      video-id="1_9h94wo6b"></c4d-callout-with-media-video>
+      video-id="0_ibuqxqbe"></c4d-callout-with-media-video>
   </c4d-callout-with-media>
 
   <a name="4" data-title="Tincidunt ornare massa"></a>
@@ -494,7 +490,7 @@ export const StoryContentNoToC = () =>
             facilisis volutpat est velit egestas dui.
           </c4d-callout-with-media-copy>
           <c4d-callout-with-media-video
-            video-id="1_9h94wo6b"></c4d-callout-with-media-video>
+            video-id="0_ibuqxqbe"></c4d-callout-with-media-video>
         </c4d-callout-with-media>
 
         <c4d-content-block-horizontal>

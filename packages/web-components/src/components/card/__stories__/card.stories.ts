@@ -39,7 +39,9 @@ const tagGroupContent = html`
 
 export const Default = (args) => {
   const {
+    aspectRatio,
     ctaType,
+    disabled,
     noPoster,
     image,
     href,
@@ -49,7 +51,6 @@ export const Default = (args) => {
     eyebrow,
     tagGroup,
     copy,
-    footer,
     cardStyles,
     customVideoTitle,
   } = args?.Card ?? {};
@@ -68,22 +69,22 @@ export const Default = (args) => {
       videoCopy = customVideoTitle;
     }
 
-    if (!footer) {
-      videoFooterCopy = duration;
-    }
+    videoFooterCopy = duration;
+  }
+
+  const copyComponent = document.querySelector('c4d-card')?.querySelector('p');
+  if (copyComponent) {
+    copyComponent!.innerHTML = copy;
   }
 
   return html`
     <c4d-video-cta-container>
       <c4d-card
+        ?disabled=${disabled}
+        aspect-ratio=${aspectRatio}
         ?no-poster=${noPoster}
         cta-type=${ctaType}
-        color-scheme=${cardStyles === 'Inverse card'
-          ? 'inverse'
-          : cardStyles === 'Outlined card'
-          ? 'light'
-          : ''}
-        ?border=${cardStyles === 'Outlined card'}
+        color-scheme=${cardStyles === 'Inverse card' ? 'inverse' : ''}
         href=${ifDefined(href || undefined)}>
         ${image
           ? html`
@@ -95,9 +96,11 @@ export const Default = (args) => {
           : ``}
         <c4d-card-eyebrow>${eyebrow}</c4d-card-eyebrow>
         <c4d-card-heading>${videoCopy ?? heading}</c4d-card-heading>
-        ${copy ? html` <p>${copy}</p> ` : ``}
+        ${copy ? html`<p></p>` : ``}
         ${tagGroup ? html` ${tagGroupContent} ` : ``}
-        <c4d-card-footer> ${videoFooterCopy ?? footer} </c4d-card-footer>
+        ${ctaType === CTA_TYPE.VIDEO
+          ? html` <c4d-card-footer> ${videoFooterCopy} </c4d-card-footer> `
+          : html`<c4d-card-footer></c4d-card-footer>`}
       </c4d-card>
     </c4d-video-cta-container>
   `;
@@ -113,6 +116,11 @@ Default.story = {
     ...readme.parameters,
     knobs: {
       Card: () => {
+        const aspectRatio = select(
+          'Aspect ratio (aspect-ratio)',
+          ['1:1', '2:1', '3:2', '4:3', '16:9', '1:1'],
+          '2:1'
+        );
         const ctaType = select(
           'CTA type (cta-type)',
           typeOptions,
@@ -135,6 +143,8 @@ Default.story = {
           ctaType === CTA_TYPE.VIDEO ? boolean('No poster:', false) : null;
 
         return {
+          disabled: boolean('Disabled:', false),
+          aspectRatio,
           customVideoTitle,
           ctaType,
           image,
@@ -149,12 +159,7 @@ Default.story = {
             knobNamesForType[ctaType ?? CTA_TYPE.REGULAR],
             hrefsForType[ctaType ?? CTA_TYPE.REGULAR]
           ),
-          footer: textNullable('CTA:', 'Learn more'),
-          cardStyles: select(
-            'Card style:',
-            ['Outlined card', 'Inverse card', 'none'],
-            'none'
-          ),
+          cardStyles: select('Card style:', ['Inverse card', 'none'], 'none'),
         };
       },
     },
@@ -169,7 +174,6 @@ Default.story = {
           defaultSrc: imgXlg4x3,
           tagGroup: false,
           href: 'https://example.com',
-          footer: 'Learn more',
           cardStyles: 'none',
         },
       },
@@ -180,18 +184,18 @@ Default.story = {
 export const Pictogram = (args) => {
   const { href, heading, copy, tagGroup, pictogramPlacement, cardStyles } =
     args?.PictogramCard ?? {};
+
+  const copyComponent = document.querySelector('c4d-card')?.querySelector('p');
+  if (copyComponent) {
+    copyComponent!.innerHTML = copy;
+  }
   return html`
     <c4d-card
       pictogram-placement="${pictogramPlacement}"
       href=${ifDefined(href || undefined)}
-      color-scheme=${cardStyles === 'Inverse card'
-        ? 'inverse'
-        : cardStyles === 'Outlined card'
-        ? 'light'
-        : ''}
-      ?border=${cardStyles === 'Outlined card'}>
+      color-scheme=${cardStyles === 'Inverse card' ? 'inverse' : ''}>
       <c4d-card-heading>${heading}</c4d-card-heading>
-      ${copy ? html` <p>${copy}</p> ` : ``}
+      ${copy ? html` <p></p> ` : ``}
       ${tagGroup ? html` ${tagGroupContent} ` : ``}
       <svg
         slot="pictogram"
@@ -224,7 +228,7 @@ Pictogram.story = {
         const pictogramPlacement = select(
           'Pictogram position:',
           pictogramPlacements,
-          pictogramPlacements.top,
+          pictogramPlacements.bottom,
           'pictogram'
         );
         const copy = textNullable(
@@ -244,7 +248,7 @@ Pictogram.story = {
           href: 'https://example.com',
           cardStyles: select(
             'Card style:',
-            ['Outlined card', 'Inverse card', 'none'],
+            ['Inverse card', 'none'],
             'none',
             'pictogram'
           ),
@@ -271,7 +275,6 @@ export const Static = (args) => {
     image,
     alt,
     defaultSrc,
-    outlinedCard,
     eyebrow,
     heading,
     copy,
@@ -279,10 +282,14 @@ export const Static = (args) => {
     cta,
     ctaCopy,
   } = args?.Card ?? {};
+
+  const copyComponent = document.querySelector('c4d-card')?.querySelector('p');
+  if (copyComponent) {
+    copyComponent!.innerHTML = copy;
+  }
+
   return html`
-    <c4d-card
-      color-scheme=${outlinedCard ? 'light' : ''}
-      ?border=${outlinedCard}>
+    <c4d-card>
       ${image
         ? html`
             <c4d-image
@@ -293,7 +300,7 @@ export const Static = (args) => {
         : ``}
       ${eyebrow ? html` <c4d-card-eyebrow>${eyebrow}</c4d-card-eyebrow> ` : ``}
       <c4d-card-heading>${heading}</c4d-card-heading>
-      ${copy ? html` <p>${copy}</p> ` : ``}
+      ${copy ? html` <p></p> ` : ``}
       ${tagGroup ? html` ${tagGroupContent} ` : ``}
       ${cta
         ? html`
@@ -325,7 +332,6 @@ Static.story = {
         const ctaCopy = cta
           ? textNullable('CTA copy:', 'Sign up for the trial', 'static')
           : '';
-        const outlinedCard = boolean('Outlined card:', true, 'static');
         return {
           alt: 'Image alt text',
           defaultSrc: imgXlg4x3,
@@ -336,7 +342,6 @@ Static.story = {
           tagGroup,
           cta,
           ctaCopy,
-          outlinedCard,
         };
       },
     },
@@ -352,8 +357,88 @@ Static.story = {
           tagGroup: false,
           cta: false,
           ctaCopy: 'Sign up for the trial',
-          outlinedCard: 'true',
         },
+      },
+    },
+  },
+};
+
+export const Link = (args) => {
+  const { disabled, ctaType, href, heading, copy, customVideoTitle } =
+    args?.Card ?? {};
+
+  let videoCopy;
+
+  if (ctaType === CTA_TYPE.VIDEO) {
+    const card = document.querySelector('c4d-card') as any;
+    const duration = card?.videoTitle?.match(/\((.*)\)/)?.pop();
+
+    if (!customVideoTitle) {
+      videoCopy = card?.videoTitle;
+    } else {
+      videoCopy = customVideoTitle;
+    }
+
+    console.log(card.querySelector('c4d-card-footer'), duration);
+
+    card.querySelector('c4d-card-footer')!.innerHTML = duration ?? '';
+  }
+
+  const copyComponent = document.querySelector('c4d-card')?.querySelector('p');
+  if (copyComponent) {
+    copyComponent!.innerHTML = copy;
+  }
+
+  return html`
+    <c4d-video-cta-container>
+      <c4d-card
+        ?disabled=${disabled}
+        link
+        no-poster=${ctaType === CTA_TYPE.VIDEO}
+        cta-type=${ctaType}
+        href=${ifDefined(href || undefined)}>
+        <c4d-card-heading>${videoCopy ?? heading}</c4d-card-heading>
+        ${copy ? html` <p></p> ` : ``}
+        <c4d-card-footer></c4d-card-footer>
+      </c4d-card>
+    </c4d-video-cta-container>
+  `;
+};
+
+Link.story = {
+  parameters: {
+    ...readme.parameters,
+    knobs: {
+      Card: () => {
+        const ctaType = select(
+          'CTA type (cta-type)',
+          typeOptions,
+          types[CTA_TYPE.LOCAL]
+        );
+
+        const heading =
+          ctaType === CTA_TYPE.VIDEO
+            ? undefined
+            : textNullable('Heading:', 'Aerospace and defence');
+
+        const customVideoTitle =
+          ctaType === CTA_TYPE.VIDEO
+            ? textNullable('Custom video title', 'Custom video title')
+            : null;
+
+        return {
+          disabled: boolean('Disabled: ', false),
+          customVideoTitle,
+          ctaType,
+          heading,
+          copy: textNullable('Body copy:', ''),
+          alt: 'Image alt text',
+          defaultSrc: imgXlg4x3,
+          href: textNullable(
+            knobNamesForType[ctaType ?? CTA_TYPE.REGULAR],
+            hrefsForType[ctaType ?? CTA_TYPE.REGULAR]
+          ),
+        };
       },
     },
   },
@@ -362,15 +447,21 @@ Static.story = {
 export const Logo = (args) => {
   const { alt, defaultSrc, eyebrow, heading, href, copy, tagGroup } =
     args?.Card ?? {};
+
+  const copyComponent = document.querySelector('c4d-card')?.querySelector('p');
+  if (copyComponent) {
+    copyComponent!.innerHTML = copy;
+  }
+
   return html`
-    <c4d-card border logo href=${ifDefined(href || undefined)}>
+    <c4d-card logo href=${ifDefined(href || undefined)}>
       <c4d-image-logo
         slot="image"
         alt="${ifDefined(alt)}"
         default-src="${ifDefined(defaultSrc)}"></c4d-image-logo>
       ${eyebrow ? html` <c4d-card-eyebrow>${eyebrow}</c4d-card-eyebrow> ` : ``}
       ${heading ? html` <c4d-card-heading>${heading}</c4d-card-heading> ` : ``}
-      ${copy ? html` <p>${copy}</p> ` : ``}
+      ${copy ? html` <p></p> ` : ``}
       ${tagGroup ? html` ${tagGroupContent} ` : ``}
 
       <c4d-card-footer></c4d-card-footer>

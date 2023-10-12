@@ -49,9 +49,9 @@ const contentItemCopy =
 const video = <C4DVideoPlayerContainer slot="media" video-id="0_uka1msg4"></C4DVideoPlayerContainer>;
 
 const App = () => (
-  <div className="bx--grid">
-    <div className="bx--row">
-      <div className="bx--col-lg-8 bx--no-gutter">
+  <div className="cds--grid">
+    <div className="cds--row">
+      <div className="cds--col-lg-8 cds--no-gutter">
         (
         <C4DContentBlockSegmented>
           <C4DContentBlockHeading>Lorem ipsum dolor sit amet.</C4DContentBlockHeading>

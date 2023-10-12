@@ -92,7 +92,7 @@ module.exports = function setupKarma(config) {
           },
           {
             test: /\.svg$/,
-            use: ['@svgr/webpack'],
+            use: [{ loader: 'raw-loader' }],
           },
           {
             test: /\.ts$/,

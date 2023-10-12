@@ -8,14 +8,21 @@
  */
 
 import '../index';
-import '../callout-with-media-image';
-import '../callout-with-media-video';
 import { html } from 'lit';
 import { select } from '@storybook/addon-knobs';
 import { CONTENT_BLOCK_COPY_SIZE } from '../../content-block/content-block-copy';
+import { COLOR_SCHEME } from '../../../component-mixins/callout/defs';
 import imgLg16x9 from '../../../../../storybook-images/assets/720/fpo--16x9--720x405--005.jpg';
 import readme from './README.stories.mdx';
 import textNullable from '../../../../.storybook/knob-text-nullable';
+
+const colorSchemeTypes = {
+  [`${COLOR_SCHEME.REGULAR}`]: COLOR_SCHEME.REGULAR,
+  [`${COLOR_SCHEME.INVERSE}`]: COLOR_SCHEME.INVERSE,
+  [`${COLOR_SCHEME.LAYER}`]: COLOR_SCHEME.LAYER,
+  [`${COLOR_SCHEME.PURPLE}`]: COLOR_SCHEME.PURPLE,
+  [`${COLOR_SCHEME.CYAN}`]: COLOR_SCHEME.CYAN,
+};
 
 const image = html`
   <c4d-callout-with-media-image
@@ -27,13 +34,14 @@ const image = html`
 
 const video = html`
   <c4d-callout-with-media-video
-    video-id="0_uka1msg4"></c4d-callout-with-media-video>
+    video-id="1_9h94wo6b"></c4d-callout-with-media-video>
 `;
 
 export const Default = (args) => {
-  const { copy, heading, mediaType } = args?.CalloutWithMedia ?? {};
+  const { copy, heading, mediaType, colorScheme } =
+    args?.CalloutWithMedia ?? {};
   return html`
-    <c4d-callout-with-media>
+    <c4d-callout-with-media color-scheme="${colorScheme}">
       <c4d-content-block-heading>${heading}</c4d-content-block-heading>
       <c4d-callout-with-media-copy size="${CONTENT_BLOCK_COPY_SIZE.SMALL}"
         >${copy}</c4d-callout-with-media-copy
@@ -73,6 +81,11 @@ export default {
   Mauris iaculis eget dolor nec hendrerit. Phasellus at elit sollicitudin, sodales
   nulla quis, *consequat* libero. Here are
   some common categories:`,
+        colorScheme: select(
+          'Color scheme:',
+          colorSchemeTypes,
+          COLOR_SCHEME.REGULAR
+        ),
       }),
     },
     propsSet: {

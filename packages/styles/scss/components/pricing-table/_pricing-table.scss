@@ -310,7 +310,7 @@
 
   .#{$prefix}--pricing-table-header-cell-cta,
   :host(#{$c4d-prefix}-pricing-table-header-cell-cta) {
-    @extend .#{$prefix}--button-group-item;
+    @extend :host(#{$c4d-prefix}-button-group-item);
 
     display: block;
     margin-block-start: $spacing-06;

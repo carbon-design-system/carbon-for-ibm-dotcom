@@ -1,5 +1,5 @@
 /**
- * Copyright IBM Corp. 2020, 2022
+ * Copyright IBM Corp. 2020, 2023
  *
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
@@ -14,8 +14,10 @@ import root from 'window-or-global';
  * @constant {string | string} Host for the Locale API call
  * @private
  */
-const _host = process && process.env.TRANSLATION_HOST;
-('https://1.www.s81c.com');
+const _host =
+  (process &&
+    (process.env.REACT_APP_TRANSLATION_HOST || process.env.TRANSLATION_HOST)) ||
+  'https://1.www.s81c.com';
 
 /**
  * Sets the default location if nothing is returned
