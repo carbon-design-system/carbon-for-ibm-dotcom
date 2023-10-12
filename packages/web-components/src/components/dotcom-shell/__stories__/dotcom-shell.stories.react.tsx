@@ -1,7 +1,7 @@
 /**
  * @license
  *
- * Copyright IBM Corp. 2020, 2022
+ * Copyright IBM Corp. 2020, 2023
  *
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
@@ -33,7 +33,7 @@ import {
   tocContent,
   contentLeadspaceSearch,
 } from './data/content.react';
-import { l1Data } from '../../masthead/__stories__/links';
+import { mastheadL1Data as l1Data } from '../../masthead/__stories__/links';
 import mockLangList from '../../footer/__stories__/language-list';
 import { FOOTER_SIZE } from '../../footer/footer';
 import { UNAUTHENTICATED_STATUS } from '../../../internal/vendor/@carbon/ibmdotcom-services-store/types/profileAPI';
