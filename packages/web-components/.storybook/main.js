@@ -222,15 +222,17 @@ module.exports = {
           {
             loader: 'postcss-loader',
             options: {
-              plugins: () => {
-                const hostPseudo =
-                  require('../tools/postcss-fix-host-pseudo')();
-                const autoPrefixer = require('autoprefixer')({
-                  overrideBrowserslist: ['last 1 version', 'ie >= 11'],
-                });
-                return !useRtl
-                  ? [hostPseudo, autoPrefixer]
-                  : [rtlcss, hostPseudo, autoPrefixer];
+              postcssOptions: {
+                plugins: () => {
+                  const hostPseudo =
+                    require('../tools/postcss-fix-host-pseudo')();
+                  const autoPrefixer = require('autoprefixer')({
+                    overrideBrowserslist: ['last 1 version', 'ie >= 11'],
+                  });
+                  return !useRtl
+                    ? [hostPseudo, autoPrefixer]
+                    : [rtlcss, hostPseudo, autoPrefixer];
+                },
               },
               sourceMap: useStyleSourceMap,
             },
