@@ -7,11 +7,11 @@
 
 'use strict';
 
-describe('cds-content-group-banner (cdn)', () => {
-  it('should load the default cds-content-group-banner example', () => {
-    cy.visit('/content-group-banner/cdn.html');
+describe('cds-in-page-banner (cdn)', () => {
+  it('should load the default cds-in-page-banner example', () => {
+    cy.visit('/in-page-banner/cdn.html');
 
     // Take a snapshot for visual diffing
-    cy.percySnapshot('cds-content-group-banner | cdn | default');
+    cy.percySnapshot('cds-in-page-banner | cdn | default');
   });
 });
