@@ -26,7 +26,7 @@ import './index.css';
 
 const App = () => (
   <C4DLeadspaceBlock>
-    <C4DLeadspaceHeading>Lead Space Block Title</C4DLeadspaceHeading>
+    <C4DLeadspaceHeading type-style="fluid-heading-05">Lead Space Block Title</C4DLeadspaceHeading>
     <C4DLeadspaceBlockContent>
       <C4DContentBlockCopy>Content Block Copy</C4DContentBlockCopy>
       <C4DLeadspaceBlockMedia slot="media">

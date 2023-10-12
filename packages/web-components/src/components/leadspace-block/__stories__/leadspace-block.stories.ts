@@ -63,10 +63,12 @@ const buttonCTA = html`
 `;
 
 export const Default = (args) => {
-  const { title, copy, media, border } = args?.LeadSpaceBlock ?? {};
+  const { title, copy, media, border, highlight } = args?.LeadSpaceBlock ?? {};
   return html`
     <c4d-leadspace-block ?border=${border}>
-      <c4d-leadspace-heading highlight="intelligent IT operations"
+      <c4d-leadspace-heading
+        highlight="${highlight}"
+        type-style="fluid-heading-05"
         >${title}</c4d-leadspace-heading
       >
       <c4d-leadspace-block-content>
@@ -88,7 +90,7 @@ export default {
     (story) => html`
       <div class="cds--grid">
         <div class="cds--row">
-          <div class="cds--col-lg-9">${story()}</div>
+          <div class="cds--col-lg-8">${story()}</div>
         </div>
       </div>
     `,
@@ -102,6 +104,7 @@ export default {
           'title (title)',
           'Infuse your AIOps platform with intelligent IT operations'
         ),
+        highlight: text('Highlight:', 'intelligent IT operations'),
         copy: `Automate your software release process with continuous delivery (CD)—the most
             critical part of adopting DevOps. Build, test, and deploy code changes quickly,
             ensuring software is always ready for deployment.`,

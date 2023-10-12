@@ -73,10 +73,10 @@ const buttonCTA = (
 );
 
 export const Default = (args) => {
-  const { title, copy, media, border } = args?.LeadSpaceBlock ?? {};
+  const { title, copy, media, border, highlight } = args?.LeadSpaceBlock ?? {};
   return (
     <C4DLeadspaceBlock border={border || undefined}>
-      <C4DLeadspaceHeading>{title}</C4DLeadspaceHeading>
+      <C4DLeadspaceHeading highlight={highlight} type-style="fluid-heading-05">{title}</C4DLeadspaceHeading>
       <C4DLeadspaceBlockContent>
         <C4DContentBlockCopy>{copy}</C4DContentBlockCopy>
         {media !== 'none' ?
@@ -98,7 +98,7 @@ export default {
         <>
           <div className="cds--grid">
             <div className="cds--row">
-              <div className="cds--col-lg-9 cds--no-gutter">{story()}</div>
+              <div className="cds--col-lg-8">{story()}</div>
             </div>
           </div>
         </>
@@ -111,6 +111,7 @@ export default {
     knobs: {
       LeadSpaceBlock: () => ({
         title: text('title (title)', 'Infuse your AIOps platform with intelligent IT operations'),
+        highlight: text('Highlight:', 'intelligent IT operations'),
         copy: `Automate your software release process with continuous delivery (CD)—the most
             critical part of adopting DevOps. Build, test, and deploy code changes quickly,
             ensuring software is always ready for deployment.`,

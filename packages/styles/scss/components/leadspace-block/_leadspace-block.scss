@@ -9,6 +9,7 @@
 @use '@carbon/styles/scss/config' as *;
 @use '@carbon/styles/scss/spacing' as *;
 @use '@carbon/styles/scss/theme' as *;
+@use '@carbon/styles/scss/utilities' as *;
 @use '@carbon/styles/scss/type' as *;
 @use '../../globals/utils/content-width' as *;
 @use '../../globals/utils/hang' as *;
@@ -55,9 +56,22 @@
     margin: 0 #{-$spacing-05};
   }
 
+  :host(#{$c4d-prefix}-leadspace-block) ::slotted([slot='heading']),
+  :host(#{$c4d-prefix}-leadspace-block-content)
+    ::slotted(#{$c4d-prefix}-content-block-copy) {
+    display: block;
+    width: 100%;
+
+    @include breakpoint(md) {
+      max-width: rem(640px);
+      padding-right: $spacing-07;
+    }
+  }
+
   :host(#{$c4d-prefix}-leadspace-block) ::slotted([slot='heading']) {
     width: 100%;
     padding-left: 0;
+
     margin-bottom: $spacing-07;
     margin-left: 0;
 
@@ -77,21 +91,6 @@
     @include breakpoint(md) {
       max-width: carbon--mini-units(80);
     }
-  }
-
-  .#{$prefix}--leadspace-block
-    .#{$prefix}--link-list
-    .#{$prefix}--link-list__list--vertical-end
-    .#{$prefix}--link-list__list__CTA {
-    max-width: none;
-  }
-
-  :host(#{$c4d-prefix}-leadspace-block-content)
-    ::slotted(#{$c4d-prefix}-content-block-copy) {
-    @include breakpoint-down(md) {
-      width: 100%;
-    }
-    display: block;
   }
 
   :host(#{$c4d-prefix}-leadspace-block-media),
