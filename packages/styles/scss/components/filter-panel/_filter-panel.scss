@@ -152,6 +152,12 @@
 
   :host(#{$c4d-prefix}-filter-panel-composite) {
     @include emit-layout-tokens();
+
+    #{$prefix}-button {
+      @include breakpoint(lg) {
+        display: none;
+      }
+    }
   }
 
   :host(#{$c4d-prefix}-filter-panel-checkbox) {
