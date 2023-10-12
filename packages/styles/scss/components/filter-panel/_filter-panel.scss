@@ -123,11 +123,6 @@
     align-items: center;
   }
 
-  .#{$prefix}--filter__modal__button {
-    display: flex;
-    justify-content: space-between;
-  }
-
   :host(#{$c4d-prefix}-filter-panel) {
     .#{$prefix}--clear {
       display: block;
@@ -157,28 +152,6 @@
 
   :host(#{$c4d-prefix}-filter-panel-composite) {
     @include emit-layout-tokens();
-
-    .#{$prefix}--filter-button {
-      @include font-family('sans');
-      @include type-style('body-compact-01');
-
-      cursor: pointer;
-      border: 1px solid $button-tertiary;
-      color: $button-tertiary;
-      padding: $spacing-05;
-      margin-top: $spacing-05;
-      margin-left: $spacing-05;
-      background-color: transparent;
-      width: rem(128px);
-      @include breakpoint(lg) {
-        display: none;
-      }
-
-      &:hover {
-        background-color: $button-tertiary-hover;
-        color: $icon-inverse;
-      }
-    }
   }
 
   :host(#{$c4d-prefix}-filter-panel-checkbox) {
