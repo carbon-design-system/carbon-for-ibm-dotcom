@@ -2498,7 +2498,7 @@ __metadata:
     "@carbon/grid": 10.43.2
     "@carbon/icons-react": 10.49.2
     "@carbon/import-once": 10.7.0
-    "@carbon/layout": 10.37.1
+    "@carbon/layout": 10.37.2
     "@carbon/motion": 10.29.2
     "@carbon/telemetry": 0.1.0
     "@carbon/themes": 10.55.3
@@ -2795,7 +2795,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@carbon/layout@npm:^10.37.2":
+"@carbon/layout@npm:10.37.2, @carbon/layout@npm:^10.37.2":
   version: 10.37.2
   resolution: "@carbon/layout@npm:10.37.2"
   checksum: 298a0b5473569b7bceb8bf6fb9e1345041f8fd0bdb1a9120ee8af3dd1ccb7803815273e4889627f364c051b67b575023d6b919b70131d8714b35b5b0641d692b
@@ -3025,7 +3025,7 @@ __metadata:
     rollup: ^2.55.1
     rollup-plugin-multi-input: ^1.3.1
     rtlcss: ^3.0.0
-    sass: ~1.68.0
+    sass: ~1.69.0
     sass-loader: ^10.0.0
     strip-comments: ^1.0.0
     style-loader: ^2.0.0
@@ -30523,16 +30523,16 @@ __metadata:
   languageName: node
   linkType: hard
 
-"sass@npm:~1.68.0":
-  version: 1.68.0
-  resolution: "sass@npm:1.68.0"
+"sass@npm:~1.69.0":
+  version: 1.69.0
+  resolution: "sass@npm:1.69.0"
   dependencies:
     chokidar: ">=3.0.0 <4.0.0"
     immutable: ^4.0.0
     source-map-js: ">=0.6.2 <2.0.0"
   bin:
     sass: sass.js
-  checksum: 65ccede83c96768beeb8dcaf67957b7c76b12ff1276bfd2849d7be151d46ba1400048a67717e6e5e4969bc75e87348e5530f5f272833f2e60a891c21a33d8ab0
+  checksum: eabea31ea3b1dd529c7eff345c8b6468afe6ab8011bd4f95caa2cffb8fb115cc055ea21de425be6197f7ed22516f5652eccb98d315d592ea152ada553f964b8a
   languageName: node
   linkType: hard
 
