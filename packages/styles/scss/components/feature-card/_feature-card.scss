@@ -99,7 +99,6 @@ $feature-flags: (
 
     &:focus-within {
       border-color: transparent;
-      border-width: 0;
     }
 
     @include breakpoint-down(md) {
