@@ -59,12 +59,9 @@ $feature-flags: (
       display: block;
       position: absolute;
       z-index: 1;
-      top: 0;
-      left: 0;
-      right: 0;
-      bottom: 0;
+      inset: -1px;
       border: $spacing-01 solid $focus;
-      outline: 1px solid #ffffff;
+      outline: 1px solid $focus-inset;
       outline-offset: -3px;
 
       @include breakpoint-down(md) {
@@ -296,12 +293,9 @@ $feature-flags: (
           display: block;
           position: absolute;
           z-index: 1;
-          top: 0;
-          left: 0;
-          right: 0;
-          bottom: 0;
+          inset: -1px;
           border: $spacing-01 solid $focus;
-          outline: 1px solid #ffffff;
+          outline: 1px solid $focus-inset;
           outline-offset: -3px;
 
           @include breakpoint-down(md) {
