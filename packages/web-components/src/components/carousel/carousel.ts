@@ -678,6 +678,25 @@ class DDSCarousel extends HostListenerMixin(StableSelectorMixin(LitElement)) {
     );
   }
 
+  updated(changedProperties) {
+    if (
+      !changedProperties.has('start') &&
+      !changedProperties.has('_contentsBaseWidth') &&
+      !changedProperties.has('_gap') &&
+      !changedProperties.has('pageSize')
+    ) {
+      return;
+    }
+
+    if (!this._contentsNode) {
+      return;
+    }
+
+    const startPosition =
+      (-this.start * (this._contentsBaseWidth + this._gap)) / this.pageSize;
+    this._contentsNode.style.insetInlineStart = `${startPosition}px`;
+  }
+
   render() {
     const { customPropertyPageSize } = this.constructor as typeof DDSCarousel;
     const {
@@ -726,10 +745,7 @@ class DDSCarousel extends HostListenerMixin(StableSelectorMixin(LitElement)) {
               ? null
               : `${customPropertyPageSize}: ${pageSizeExplicit}`
           )}">
-          <div
-            class="${scrollContentsClasses}"
-            style="inset-inline-start:${(-start * (contentsBaseWidth + gap)) /
-            pageSize}px">
+          <div class="${scrollContentsClasses}">
             <slot @slotchange="${handleSlotChange}"></slot>
           </div>
         </div>
