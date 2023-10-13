@@ -21,7 +21,6 @@ import {
 } from '../../internal/vendor/@carbon/ibmdotcom-services-store/types/localeAPI.d';
 import './locale-modal';
 import DDSLocaleModal from './locale-modal';
-import DDSLocaleSearch from './locale-search';
 import './regions';
 import './region-item';
 import './locale-search';
