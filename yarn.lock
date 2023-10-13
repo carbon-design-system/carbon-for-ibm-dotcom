@@ -2290,7 +2290,7 @@ __metadata:
     "@babel/preset-react": ~7.12.1
     "@babel/runtime": ^7.16.3
     "@carbon/ibmdotcom-services": 1.52.0-rc.0
-    "@carbon/ibmdotcom-styles": 1.52.0-rc.0
+    "@carbon/ibmdotcom-styles": 1.52.0-rc.1
     "@carbon/ibmdotcom-utilities": 1.52.0-rc.0
     "@carbon/icons-react": 10.49.2
     "@carbon/pictograms-react": 11.49.0
@@ -2491,7 +2491,7 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@carbon/ibmdotcom-styles@1.52.0-rc.0, @carbon/ibmdotcom-styles@workspace:packages/styles":
+"@carbon/ibmdotcom-styles@1.52.0-rc.1, @carbon/ibmdotcom-styles@workspace:packages/styles":
   version: 0.0.0-use.local
   resolution: "@carbon/ibmdotcom-styles@workspace:packages/styles"
   dependencies:
@@ -2585,7 +2585,7 @@ __metadata:
     "@babel/traverse": ~7.12.0
     "@carbon/ibmdotcom-services": 1.52.0-rc.0
     "@carbon/ibmdotcom-services-store": 1.52.0-rc.0
-    "@carbon/ibmdotcom-styles": 1.52.0-rc.0
+    "@carbon/ibmdotcom-styles": 1.52.0-rc.1
     "@carbon/ibmdotcom-utilities": 1.52.0-rc.0
     "@carbon/icon-helpers": 10.44.0
     "@carbon/icons": 10.48.2
@@ -2594,7 +2594,7 @@ __metadata:
     "@carbon/motion": ^11.0.0
     "@carbon/telemetry": 0.1.0
     "@carbon/type": 10.45.2
-    "@carbon/web-components": 1.33.0-rc.0
+    "@carbon/web-components": 1.33.0-rc.1
     "@open-wc/semantic-dom-diff": ~0.18.0
     "@percy-io/in-percy": ^0.1.11
     "@percy/cli": ^1.8.1
@@ -2897,7 +2897,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@carbon/web-components@1.33.0-rc.0, @carbon/web-components@workspace:packages/carbon-web-components":
+"@carbon/web-components@1.33.0-rc.1, @carbon/web-components@workspace:packages/carbon-web-components":
   version: 0.0.0-use.local
   resolution: "@carbon/web-components@workspace:packages/carbon-web-components"
   dependencies:
