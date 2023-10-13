@@ -706,8 +706,6 @@ class DDSCarousel extends HostListenerMixin(StableSelectorMixin(LitElement)) {
       prevButtonText,
       _defaultPrevButtonText: defaultPrevButtonText,
       start,
-      _contentsBaseWidth: contentsBaseWidth,
-      _gap: gap,
       _pageSize: pageSizeExplicit,
       _total: total,
       _getStatus: status,
