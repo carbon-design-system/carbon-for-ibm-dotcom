@@ -137,8 +137,9 @@ $feature-flags: (
 
     @include breakpoint-down(md) {
       display: flex;
+
       .#{$prefix}--card__wrapper {
-        display: block;
+        display: flex;
         min-height: 0;
         height: auto;
 
@@ -181,7 +182,7 @@ $feature-flags: (
       }
 
       .#{$prefix}--card__wrapper {
-        display: block;
+        display: flex;
         min-height: 0;
         height: auto;
       }
