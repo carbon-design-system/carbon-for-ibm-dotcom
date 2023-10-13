@@ -15,6 +15,7 @@ import { html } from 'lit';
 import { ifDefined } from 'lit/directives/if-defined.js';
 import { select } from '@storybook/addon-knobs';
 import ArrowRight20 from '../../../internal/vendor/@carbon/web-components/icons/arrow--right/20.js';
+import PlayFilledAlt20 from '../../../internal/vendor/@carbon/web-components/icons/play--filled--alt/20.js';
 import '../../card/index';
 import '../../cta/index';
 import '../../image/index';
@@ -81,7 +82,7 @@ const CardWithVideo = ({ copy = copyDefault, href = hrefDefault } = {}) => html`
     <c4d-card cta-type="video" href="${href}">
       <p>${copy}</p>
       <c4d-card-footer href="${href}">
-        ${ArrowRight20({ slot: 'icon' })}
+        ${PlayFilledAlt20({ slot: 'icon' })}
       </c4d-card-footer>
     </c4d-card>
   </c4d-video-cta-container>
