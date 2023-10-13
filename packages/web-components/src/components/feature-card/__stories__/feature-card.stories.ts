@@ -105,8 +105,7 @@ Large.story = {
         ),
         copy: textNullable(
           'Card copy (copy):',
-          `Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et
-          dolore magna aliqua.`
+          `Lorem ipsum dolor sit amet consectetur adipisicing elit. Consequatur incidunt alias sit quam nesciunt, quas quis recusandae rerum dignissimos voluptatum ipsum, maxime vero, natus laudantium similique doloremque quisquam neque eaque? Lorem ipsum dolor sit amet consectetur adipisicing elit. Consequatur incidunt alias sit quam nesciunt, quas quis recusandae rerum dignissimos voluptatum ipsum, maxime vero, natus laudantium similique doloremque quisquam neque eaque?`
         ),
         href: textNullable('Card Href (href):', 'https://example.com'),
         colorScheme: select('Color scheme:', ['Regular', 'Inverse'], 'Regular'),
@@ -117,8 +116,7 @@ Large.story = {
         [`${c4dPrefix}-feature-card`]: {
           eyebrow: 'This is an eyebrow',
           heading: 'Explore AI use cases in all industries',
-          copy: `Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et
-          dolore magna aliqua.`,
+          copy: `Lorem ipsum dolor sit amet consectetur adipisicing elit. Consequatur incidunt alias sit quam nesciunt, quas quis recusandae rerum dignissimos voluptatum ipsum, maxime vero, natus laudantium similique doloremque quisquam neque eaque? Lorem ipsum dolor sit amet consectetur adipisicing elit. Consequatur incidunt alias sit quam nesciunt, quas quis recusandae rerum dignissimos voluptatum ipsum, maxime vero, natus laudantium similique doloremque quisquam neque eaque?`,
           href: 'https://example.com',
         },
       },
