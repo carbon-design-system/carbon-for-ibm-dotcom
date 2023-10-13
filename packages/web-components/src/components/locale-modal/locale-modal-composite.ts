@@ -12,6 +12,8 @@ import ifNonNull from '../../internal/vendor/@carbon/web-components/globals/dire
 import LocaleAPI from '@carbon/ibmdotcom-services/es/services/Locale/Locale.js';
 import ddsSettings from '../../internal/vendor/@carbon/ibmdotcom-utilities/utilities/settings/settings';
 import altlangs from '../../internal/vendor/@carbon/ibmdotcom-utilities/utilities/altlangs/altlangs.js';
+import HostListener from '../../internal/vendor/@carbon/web-components/globals/decorators/host-listener.js';
+import HostListenerMixin from '../../internal/vendor/@carbon/web-components/globals/mixins/host-listener.js';
 import HybridRenderMixin from '../../globals/mixins/hybrid-render';
 import {
   Country,
@@ -19,15 +21,13 @@ import {
 } from '../../internal/vendor/@carbon/ibmdotcom-services-store/types/localeAPI.d';
 import './locale-modal';
 import DDSLocaleModal from './locale-modal';
+import DDSLocaleSearch from './locale-search';
 import './regions';
 import './region-item';
 import './locale-search';
 import './locale-item';
 import styles from './locale-modal-composite.scss';
 import { carbonElement as customElement } from '../../internal/vendor/@carbon/web-components/globals/decorators/carbon-element.js';
-
-import HostListener from '../../internal/vendor/@carbon/web-components/globals/decorators/host-listener.js';
-import HostListenerMixin from '../../internal/vendor/@carbon/web-components/globals/mixins/host-listener.js';
 
 const { stablePrefix: ddsPrefix } = ddsSettings;
 
@@ -204,14 +204,15 @@ class DDSLocaleModalComposite extends HostListenerMixin(
           })}
         </dds-regions>
 
-        ${chosenRegion
-          ? html`
-              <dds-locale-search
-                close-button-assistive-text="${ifNonNull(searchClearText)}"
-                label-text="${ifNonNull(searchLabel)}"
-                placeholder="${ifNonNull(searchPlaceholder)}"
-                availability-label-text="${ifNonNull(availabilityText)}"
-                unavailability-label-text="${ifNonNull(unavailabilityText)}">
+        <dds-locale-search
+          close-button-assistive-text="${ifNonNull(searchClearText)}"
+          label-text="${ifNonNull(searchLabel)}"
+          placeholder="${ifNonNull(searchPlaceholder)}"
+          availability-label-text="${ifNonNull(availabilityText)}"
+          unavailability-label-text="${ifNonNull(unavailabilityText)}"
+          ?hidden="${chosenRegion}">
+          ${chosenRegion
+            ? html`
                 ${massagedCountryList
                   ?.filter(({ region }) => {
                     return region === chosenRegion;
@@ -227,9 +228,9 @@ class DDSLocaleModalComposite extends HostListenerMixin(
                       </dds-locale-item>
                     `
                   )}
-              </dds-locale-search>
-            `
-          : ``}
+              `
+            : ``}
+        </dds-locale-search>
       </dds-locale-modal>
     `;
   }

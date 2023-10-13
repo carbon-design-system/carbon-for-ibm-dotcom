@@ -75,18 +75,16 @@ class DDSLocaleSearch extends ThrottedInputMixin(
   private _updateSearchResults(searchText: string) {
     const { selectorItem } = this.constructor as typeof DDSLocaleSearch;
     const { _liveRegion: liveRegion } = this;
-    let hasMatch = false;
     let count = 0;
     forEach(this.querySelectorAll(selectorItem), (item) => {
       const { country, language } = item as DDSLocaleItem;
       const matches = search([country, language], searchText);
       if (matches) {
-        hasMatch = true;
         count++;
       }
       (item as HTMLElement).hidden = !matches;
     });
-    this._hasAvailableItem = hasMatch;
+    this._hasAvailableItem = count > 0;
     if (liveRegion) {
       const announcement = count === 1 ? `${count} result` : `${count} results`;
       liveRegion.innerText = announcement;

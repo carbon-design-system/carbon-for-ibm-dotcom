@@ -72,6 +72,31 @@ class DDSLocaleModal extends DDSExpressiveModal {
   }
 
   /**
+   * Sets focus on primary selectable element.
+   */
+  private async _setPrimaryFocus() {
+    const { selectorPrimaryFocus } = DDSLocaleModal;
+    const focusTarget = this.querySelector(selectorPrimaryFocus);
+    if (focusTarget) {
+      (focusTarget as HTMLElement).tabIndex = 0;
+      (focusTarget as HTMLElement).focus();
+    }
+  }
+
+  /**
+   * Sets focus on locale selector search.
+   */
+  private async _setSearchFocus() {
+    const { selectorLocaleSearch } = DDSLocaleModal;
+    await this.updateComplete;
+    const localeSearch = this.querySelector(selectorLocaleSearch);
+    if (localeSearch) {
+      (localeSearch as DDSLocaleSearch).reset();
+      (localeSearch as HTMLElement).focus();
+    }
+  }
+
+  /**
    * @returns The heading content for the region selector page.
    */
   private _renderRegionSelectorHeading() {
@@ -213,27 +238,12 @@ class DDSLocaleModal extends DDSExpressiveModal {
         )
       );
 
-      const { selectorLocaleSearch } = this
-        .constructor as typeof DDSLocaleModal;
-      const localeSearch = this.querySelector(selectorLocaleSearch);
-      if (localeSearch) {
-        (localeSearch as DDSLocaleSearch).region = this._currentRegion ?? '';
-
-        if (this.open) {
-          (localeSearch as DDSLocaleSearch).reset();
-          (localeSearch as HTMLElement).focus();
-        }
-      }
-
-      // re-focus on first region-item when navigating back to the first modal pane
-      const { selectorPrimaryFocus } = this
-        .constructor as typeof DDSLocaleModal;
-      const activeRegion = this.querySelector(selectorPrimaryFocus);
-      if (activeRegion && this.open) {
-        (activeRegion as HTMLElement).tabIndex = 0;
-        (activeRegion as HTMLElement).focus();
-      }
+      this._currentRegion ? this._setSearchFocus() : this._setPrimaryFocus();
     }
+  }
+
+  static get stableSelector() {
+    return `${ddsPrefix}--locale-modal`;
   }
 
   /**
@@ -251,10 +261,6 @@ class DDSLocaleModal extends DDSExpressiveModal {
       [data-modal-primary-focus],
       ${ddsPrefix}-region-item
     `;
-  }
-
-  static get stableSelector() {
-    return `${ddsPrefix}--locale-modal`;
   }
 
   /**
