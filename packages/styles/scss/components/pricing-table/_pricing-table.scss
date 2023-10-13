@@ -154,9 +154,6 @@
     }
 
     .#{$prefix}--pricing-table-cell-content {
-      display: flex;
-      flex-direction: column;
-      align-items: start;
       line-height: 1.25rem;
 
       svg {
