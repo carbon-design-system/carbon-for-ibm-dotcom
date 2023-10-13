@@ -379,13 +379,7 @@ class CDSModal extends HostListenerMixin(LitElement) {
    * A selector selecting tabbable nodes.
    */
   static get selectorTabbable() {
-    return `
-      ${prefix}-modal-close-button,
-      ${prefix}-text-input,
-      ${prefix}-dropdown,
-      ${prefix}-modal-footer-button
-    `;
-    // return selectorTabbable;
+    return selectorTabbable;
   }
 
   /**
