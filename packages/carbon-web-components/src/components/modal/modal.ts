@@ -122,14 +122,13 @@ class CDSModal extends HostListenerMixin(LitElement) {
       (this.contains(relatedTarget as Node) ||
         (this.shadowRoot?.contains(relatedTarget as Node) &&
           relatedTarget !== (endSentinelNode as Node)));
-
     // Performs focus wrapping if _all_ of the following is met:
     // * This modal is open
     // * The viewport still has focus
     // * Modal body used to have focus but no longer has focus
     const { selectorTabbable: selectorTabbableForModal } = this
       .constructor as typeof CDSModal;
-    if (open && relatedTarget && oldContains && !currentContains) {
+    if (open && relatedTarget && !currentContains) {
       const comparisonResult = (target as Node).compareDocumentPosition(
         relatedTarget as Node
       );
@@ -305,7 +304,8 @@ class CDSModal extends HostListenerMixin(LitElement) {
         id="start-sentinel"
         class="${prefix}--visually-hidden"
         href="javascript:void 0"
-        role="navigation"></a>
+        role="navigation"
+        tabindex="0"></a>
       <div
         aria-label=${ariaLabel}
         part="dialog"
@@ -379,7 +379,13 @@ class CDSModal extends HostListenerMixin(LitElement) {
    * A selector selecting tabbable nodes.
    */
   static get selectorTabbable() {
-    return selectorTabbable;
+    return `
+      ${prefix}-modal-close-button,
+      ${prefix}-text-input,
+      ${prefix}-dropdown,
+      ${prefix}-modal-footer-button
+    `;
+    // return selectorTabbable;
   }
 
   /**
