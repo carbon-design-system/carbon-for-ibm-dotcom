@@ -94,7 +94,6 @@
     align-items: center;
     gap: $spacing-05;
     margin-block-start: $spacing-05;
-    direction: ltr;
   }
 
   .#{$prefix}--btn.#{$prefix}--carousel__navigation__btn {
@@ -106,6 +105,10 @@
     svg {
       margin: auto;
     }
+  }
+
+  .#{$prefix}--carousel__navigation__status {
+    direction: ltr;
   }
 }
 
@@ -124,6 +127,14 @@
 
   .#{$prefix}--carousel__scroll-contents {
     block-size: 100%;
+  }
+}
+
+:host(#{$dds-prefix}-carousel[dir='rtl']) {
+  .#{$prefix}--btn.#{$prefix}--carousel__navigation__btn {
+    svg {
+      transform: rotate(180deg);
+    }
   }
 }
 

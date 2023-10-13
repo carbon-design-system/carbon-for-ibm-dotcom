@@ -670,6 +670,12 @@ class DDSCarousel extends HostListenerMixin(StableSelectorMixin(LitElement)) {
   firstUpdated() {
     this._cleanAndCreateObserverResize({ create: true });
     this._cleanAndCreateObserverIntersection({ create: true });
+    // Reflect the current writing mode in the dir attribute so that we can
+    // make styling adjustments.
+    this.setAttribute(
+      'dir',
+      window.getComputedStyle(this).getPropertyValue('direction')
+    );
   }
 
   render() {
@@ -739,7 +745,11 @@ class DDSCarousel extends HostListenerMixin(StableSelectorMixin(LitElement)) {
             title="${prevButtonText || defaultPrevButtonText}">
             ${CaretLeft20()}
           </button>
-          <span aria-hidden="true">${formatStatus(status)}</span>
+          <span
+            class="${prefix}--carousel__navigation__status"
+            aria-hidden="true"
+            >${formatStatus(status)}</span
+          >
           <span class="${prefix}--visually-hidden" aria-live="polite"></span>
           <button
             part="next-button"
