@@ -366,7 +366,7 @@ $feature-flags: (
           padding: $spacing-05;
         }
 
-        @include breakpoint(max) {
+        @include breakpoint(xlg) {
           padding: $spacing-07;
         }
       }
