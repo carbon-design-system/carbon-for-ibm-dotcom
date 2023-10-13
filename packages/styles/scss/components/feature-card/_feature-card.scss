@@ -373,7 +373,14 @@ $feature-flags: (
       .#{$prefix}--card__heading,
       ::slotted(#{$c4d-prefix}-card-heading) {
         margin-bottom: $spacing-07;
-        @include type-style('fluid-heading-04', true);
+
+        @include breakpoint(sm) {
+          @include type-style('heading-03');
+        }
+
+        @include breakpoint(lg) {
+          @include type-style('heading-04');
+        }
       }
 
       .#{$prefix}--card__copy {
@@ -457,16 +464,11 @@ $feature-flags: (
     @include breakpoint(sm) {
       width: rem(20px);
       height: rem(20px);
-      @include type-style('heading-03');
     }
 
     @include breakpoint(md) {
       width: $spacing-06;
       height: $spacing-06;
-    }
-
-    @include breakpoint(lg) {
-      @include type-style('heading-04');
     }
 
     @include breakpoint(max) {
