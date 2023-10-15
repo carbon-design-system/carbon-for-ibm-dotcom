@@ -15,7 +15,7 @@
 @use '../../globals/utils/flex-grid' as *;
 @use '../../globals/vars' as *;
 @use '../../globals/utils/hang' as *;
-@use './tokens' as *;
+@use '../../globals/tokens/color-tokens' as *;
 
 @mixin callout {
   :host(#{$c4d-prefix}-callout) {
@@ -31,11 +31,11 @@
   }
 
   :host(#{$c4d-prefix}-callout[color-scheme='purple']) {
-    background-color: $callout-background-purple;
+    background-color: $background-purple;
   }
 
   :host(#{$c4d-prefix}-callout[color-scheme='cyan']) {
-    background-color: $callout-background-cyan;
+    background-color: $background-cyan;
   }
 
   :host(#{$c4d-prefix}-callout-text),
@@ -48,11 +48,11 @@
   }
 
   :host(#{$c4d-prefix}-callout-text[color-scheme='purple']) {
-    color: $callout-color-purple;
+    color: $text-purple;
   }
 
   :host(#{$c4d-prefix}-callout-text[color-scheme='cyan']) {
-    color: $callout-color-cyan;
+    color: $text-cyan;
   }
 
   :host(#{$c4d-prefix}-callout-caption[color-scheme='layer']),
@@ -65,11 +65,11 @@
   }
 
   :host(#{$c4d-prefix}-callout-caption[color-scheme='purple']) {
-    color: $callout-caption-purple;
+    color: $caption-purple;
   }
 
   :host(#{$c4d-prefix}-callout-caption[color-scheme='cyan']) {
-    color: $callout-caption-cyan;
+    color: $caption-cyan;
   }
 
   .#{$prefix}--callout__column {

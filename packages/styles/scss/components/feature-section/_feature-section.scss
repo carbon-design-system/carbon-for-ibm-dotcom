@@ -13,7 +13,7 @@
 @use '../../globals/utils/aspect-ratio';
 @use '../../globals/carbon-grid';
 @use '../../globals/utils/ratio-base' as *;
-@use '../../internal/callout/tokens' as *;
+@use '../../globals/tokens/color-tokens' as *;
 
 @mixin feature-section {
   :host(#{$c4d-prefix}-feature-section) {
@@ -74,12 +74,12 @@
 
   :host(#{$c4d-prefix}-feature-section[color-scheme='cyan'])
     .#{$prefix}--feature-section__container {
-    background-color: $callout-background-cyan;
+    background-color: $background-cyan;
   }
 
   :host(#{$c4d-prefix}-feature-section[color-scheme='purple'])
     .#{$prefix}--feature-section__container {
-    background-color: $callout-background-purple;
+    background-color: $background-purple;
   }
 
   .#{$prefix}--feature-section__body {

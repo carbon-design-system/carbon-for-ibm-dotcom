@@ -7,11 +7,10 @@
  * LICENSE file in the root directory of this source tree.
  */
 
-import { html } from 'lit';
+import { html, css } from 'lit';
+import { classMap } from 'lit/directives/class-map.js';
 import { property } from 'lit/decorators.js';
-import ArrowRight20 from '../../internal/vendor/@carbon/web-components/icons/arrow--right/20.js';
-import CDSLink from '../../internal/vendor/@carbon/web-components/components/link/link.js';
-import Error20 from '../../internal/vendor/@carbon/web-components/icons/error/20.js';
+import C4DCard from '../card/card';
 import settings from '../../internal/vendor/@carbon/ibmdotcom-utilities/utilities/settings/settings';
 import styles from './locale-modal.scss';
 import { carbonElement as customElement } from '../../internal/vendor/@carbon/web-components/globals/decorators/carbon-element.js';
@@ -24,12 +23,12 @@ const { prefix, stablePrefix: c4dPrefix } = settings;
  * @element c4d-region-item
  */
 @customElement(`${c4dPrefix}-region-item`)
-class C4DRegionItem extends CDSLink {
+class C4DRegionItem extends C4DCard {
   /**
    * `true` if this region has no countries.
    */
   @property({ type: Boolean })
-  invalid = false;
+  disabled = false;
 
   /**
    * The region name.
@@ -37,56 +36,34 @@ class C4DRegionItem extends CDSLink {
   @property({ reflect: true })
   name = '';
 
+  protected _cardClasses = classMap({
+    [`${prefix}--tile`]: true,
+    [`${prefix}--card`]: true,
+    [`${prefix}--tile--clickable`]: true,
+    [`${prefix}--card--link`]: true,
+  });
+
   /**
    * @returns The disabled link content.
    */
   protected _renderDisabledLink() {
-    const { _classes: classes } = this;
+    const { _classes: classes, _cardClasses: cardClasses } = this;
     return html`
       <button id="link" class="${classes}" disabled type="button">
-        ${this._renderInner()}
+        <div class="${cardClasses}">${this._renderInner()}</div>
       </button>
     `;
   }
 
-  /**
-   * @returns The link content.
-   */
-  protected _renderLink() {
-    const { _classes: classes } = this;
-    return html`
-      <button id="link" class="${classes}" type="button">
-        ${this._renderInner()}
-      </button>
-    `;
-  }
-
-  /**
-   * @returns The inner content.
-   */
-  _renderInner() {
-    const { invalid, name } = this;
-    return html`
-      <div class="${prefix}--card__wrapper">
-        <div class="${prefix}--card__content">
-          <h3 class="${prefix}--card__heading">
-            <slot>${name}</slot>
-          </h3>
-          <div class="${prefix}--card__footer">
-            ${(invalid ? Error20 : ArrowRight20)({
-              class: `${prefix}--card__cta`,
-            })}
-          </div>
-        </div>
-      </div>
-    `;
-  }
-
-  shouldUpdate(changedProperties) {
-    if (changedProperties.has('invalid')) {
-      this.disabled = this.invalid;
-    }
-    return true;
+  render() {
+    const { _classes: classes, disabled, _cardClasses: cardClasses } = this;
+    return disabled
+      ? this._renderDisabledLink()
+      : html`
+          <button id="link" class="${classes}" type="button">
+            <div class="${cardClasses}">${this._renderInner()}</div>
+          </button>
+        `;
   }
 
   updated(changedProperties) {
@@ -96,7 +73,11 @@ class C4DRegionItem extends CDSLink {
     }
   }
 
-  static styles = styles;
+  static get styles() {
+    return css`
+      ${super.styles}${styles}
+    `;
+  }
 }
 
 export default C4DRegionItem;
