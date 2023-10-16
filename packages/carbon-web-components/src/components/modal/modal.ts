@@ -116,7 +116,6 @@ class CDSModal extends HostListenerMixin(LitElement) {
       _startSentinelNode: startSentinelNode,
       _endSentinelNode: endSentinelNode,
     } = this;
-    const oldContains = target !== this && this.contains(target as Node);
     const currentContains =
       relatedTarget !== this &&
       (this.contains(relatedTarget as Node) ||
@@ -129,7 +128,7 @@ class CDSModal extends HostListenerMixin(LitElement) {
     // * Modal body used to have focus but no longer has focus
     const { selectorTabbable: selectorTabbableForModal } = this
       .constructor as typeof CDSModal;
-    if (open && relatedTarget && oldContains && !currentContains) {
+    if (open && relatedTarget && !currentContains) {
       const comparisonResult = (target as Node).compareDocumentPosition(
         relatedTarget as Node
       );

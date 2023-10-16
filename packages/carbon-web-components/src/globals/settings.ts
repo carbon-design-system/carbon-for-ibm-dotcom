@@ -67,7 +67,8 @@ const selectorTabbable = `
   ${prefix}-header-nav-item,
   ${prefix}-side-nav-link,
   ${prefix}-side-nav-menu,
-  ${prefix}-side-nav-menu-item
+  ${prefix}-side-nav-menu-item,
+  ${prefix}-modal-footer-button
 `;
 
 // Because we're going to have a bunch of exports
