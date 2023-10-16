@@ -238,6 +238,15 @@ class DDSLocaleModal extends DDSExpressiveModal {
         )
       );
 
+      // Pass state to search element.
+      const { selectorLocaleSearch } = this
+        .constructor as typeof DDSLocaleModal;
+      const localeSearch = this.querySelector(selectorLocaleSearch);
+      if (localeSearch) {
+        (localeSearch as DDSLocaleSearch).region = this._currentRegion ?? '';
+      }
+
+      // Set element focus.
       this._currentRegion ? this._setSearchFocus() : this._setPrimaryFocus();
     }
   }

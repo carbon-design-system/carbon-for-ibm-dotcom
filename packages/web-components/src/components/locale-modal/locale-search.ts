@@ -74,11 +74,12 @@ class DDSLocaleSearch extends ThrottedInputMixin(
    */
   private _updateSearchResults(searchText: string) {
     const { selectorItem } = this.constructor as typeof DDSLocaleSearch;
-    const { _liveRegion: liveRegion } = this;
+    const { region: currentRegion, _liveRegion: liveRegion } = this;
     let count = 0;
     forEach(this.querySelectorAll(selectorItem), (item) => {
-      const { country, language } = item as DDSLocaleItem;
-      const matches = search([country, language], searchText);
+      const { country, language, region } = item as DDSLocaleItem;
+      const matches =
+        region === currentRegion && search([country, language], searchText);
       if (matches) {
         count++;
       }
@@ -125,6 +126,12 @@ class DDSLocaleSearch extends ThrottedInputMixin(
    */
   @property()
   placeholder = '';
+
+  /**
+   * The current region.
+   */
+  @property()
+  region = '';
 
   /**
    * The shadow slot this locale search box should be in.
@@ -175,6 +182,17 @@ class DDSLocaleSearch extends ThrottedInputMixin(
     const { _searchNode: searchNode } = this;
     if (searchNode) {
       this._updateSearchResults(searchNode.value);
+    }
+  }
+
+  updated(changedProperties) {
+    if (changedProperties.has('region')) {
+      const { selectorItem } = this.constructor as typeof DDSLocaleSearch;
+      const { region } = this;
+      forEach(this.querySelectorAll(selectorItem), (item) => {
+        (item as HTMLElement).hidden =
+          (item as DDSLocaleItem).region !== region;
+      });
     }
   }
 
