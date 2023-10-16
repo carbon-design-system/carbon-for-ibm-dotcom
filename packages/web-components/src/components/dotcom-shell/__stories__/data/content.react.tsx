@@ -1,6 +1,6 @@
 /* eslint-disable max-len */
 /**
- * Copyright IBM Corp. 2016, 2022
+ * Copyright IBM Corp. 2016, 2023
  *
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
@@ -35,10 +35,7 @@ import C4DLeadspaceHeading from '@carbon/ibmdotcom-web-components/es/components-
 import C4DButtonGroup from '@carbon/ibmdotcom-web-components/es/components-react/button-group/button-group';
 import C4DButtonGroupItem from '@carbon/ibmdotcom-web-components/es/components-react/button-group/button-group-item';
 import C4DLeadspaceWithSearch from '@carbon/ibmdotcom-web-components/es/components-react/leadspace-with-search/leadspace-with-search';
-import C4DLeadspaceWithSearchHeading from '@carbon/ibmdotcom-web-components/es/components-react/leadspace-with-search/leadspace-with-search-heading';
-import C4DLeadspaceWithSearchContent from '@carbon/ibmdotcom-web-components/es/components-react/leadspace-with-search/leadspace-with-search-content';
-import C4DLeadspaceWithSearchContentHeading from '@carbon/ibmdotcom-web-components/es/components-react/leadspace-with-search/leadspace-with-search-content-heading';
-import C4DLeadspaceWithSearchContentCopy from '@carbon/ibmdotcom-web-components/es/components-react/leadspace-with-search/leadspace-with-search-content-copy';
+import C4DLeadspaceWithSearchCopy from '@carbon/ibmdotcom-web-components/es/components-react/leadspace-with-search/leadspace-with-search-copy';
 import C4DSearchWithTypeahead from '@carbon/ibmdotcom-web-components/es/components-react/search-with-typeahead/search-with-typeahead';
 import C4DLeadspaceBlock from '@carbon/ibmdotcom-web-components/es/components-react/leadspace-block/leadspace-block';
 import C4DLeadspaceBlockHeading from '@carbon/ibmdotcom-web-components/es/components-react/leadspace-block/leadspace-block-heading';
@@ -228,19 +225,14 @@ export const contentLeadspace = (
 
 export const contentLeadspaceSearch = (
   <C4DLeadspaceWithSearch adjacent-theme="white-and-g10" scroll-behavior>
-    <C4DLeadspaceWithSearchHeading>
-      Find a product
-    </C4DLeadspaceWithSearchHeading>
-    <C4DLeadspaceWithSearchContent>
-      <C4DLeadspaceWithSearchContentHeading>
-        Innovate like a startup, scale for the enterprise
-      </C4DLeadspaceWithSearchContentHeading>
-      <C4DLeadspaceWithSearchContentCopy>
-        Automate your software release process with continuous delivery (CD)—the
-        most critical part of adopting DevOps. Build, test, and deploy code
-        changes quickly, ensuring software is always ready for deployment.
-      </C4DLeadspaceWithSearchContentCopy>
-    </C4DLeadspaceWithSearchContent>
+    <C4DLeadspaceHeading>
+      Find a product - Innovate like a startup, scale for the enterprise
+    </C4DLeadspaceHeading>
+    <C4DLeadspaceWithSearchCopy>
+      Automate your software release process with continuous delivery (CD)—the
+      most critical part of adopting DevOps. Build, test, and deploy code
+      changes quickly, ensuring software is always ready for deployment.
+    </C4DLeadspaceWithSearchCopy>
     <C4DSearchWithTypeahead
       slot="search"
       leadspace-search

@@ -25,11 +25,6 @@ export enum LINK_LIST_TYPE {
    * Horizontal
    */
   HORIZONTAL = 'horizontal',
-
-  /**
-   * End of section
-   */
-  END = 'end',
 }
 
 /**
@@ -40,9 +35,4 @@ export enum LINK_LIST_ITEM_TYPE {
    * Default
    */
   DEFAULT = 'default',
-
-  /**
-   * End of Section variant - End
-   */
-  END = 'end',
 }

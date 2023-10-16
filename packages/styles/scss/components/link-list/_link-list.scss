@@ -12,7 +12,6 @@
 @use '@carbon/styles/scss/type' as *;
 @use '../../globals/vars' as *;
 @use '../../globals/utils/flex-grid' as *;
-@use '../../globals/utils/hang' as *;
 @use '../card';
 @use '../link-with-icon';
 
@@ -59,8 +58,6 @@
       ::slotted(#{$c4d-prefix}-link-list-item-cta) {
         border-top: 1px solid $border-subtle-01;
         margin-top: -1px;
-        margin-left: -$spacing-05;
-        margin-right: -$spacing-05;
         --#{$c4d-prefix}--link-list-item--anchor-padding: #{$spacing-05};
       }
     }
@@ -257,8 +254,6 @@
     outline: none;
 
     .#{$prefix}--link {
-      // TODO: See if there is a better solution than an internal custom property
-      // padding: var(--#{$c4d-prefix}--link-list-item--anchor-padding, 0);
       padding: $spacing-05;
       display: flex;
       width: 100%;
@@ -353,7 +348,6 @@
   .#{$prefix}--link-list__list--vertical-end .#{$prefix}--link-list__list__CTA {
     border-bottom: 1px solid $layer-accent-01;
     max-width: 640px;
-    @include hang;
 
     &:focus-within {
       outline: $spacing-01 solid $focus;
@@ -380,10 +374,20 @@
       &:hover {
         background-color: $background;
         text-decoration: underline;
+        color: $link-primary-hover;
 
         .#{$prefix}--card__heading,
         .#{$prefix}--card__copy ::slotted(p) {
           color: $link-primary-hover;
+        }
+      }
+
+      &:active {
+        color: $text-primary;
+
+        .#{$prefix}--card__heading,
+        .#{$prefix}--card__copy ::slotted(p) {
+          color: $text-primary;
         }
       }
     }
