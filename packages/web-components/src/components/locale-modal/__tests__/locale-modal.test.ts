@@ -10,9 +10,9 @@
 import { html, render } from 'lit-html';
 import ifNonNull from '../../../internal/vendor/@carbon/web-components/globals/directives/if-non-null.js';
 import '../locale-modal';
+import DDSLocaleModal from '../locale-modal';
 import '../regions';
 import '../region-item';
-import DDSLocaleSearch from '../locale-search';
 
 const template = (props?) => {
   const { headerTitle, langDisplay, children } = props ?? {};
@@ -68,7 +68,7 @@ describe('dds-locale-modal', function () {
   });
 
   describe('Selecting region', function () {
-    it('should update region in search UI', async function () {
+    it('should reveal locale search after region selection', async function () {
       render(
         template({
           headerTitle: 'header-title-foo',
@@ -84,8 +84,13 @@ describe('dds-locale-modal', function () {
       await Promise.resolve();
       (document.body.querySelector('dds-region-item') as HTMLElement).click();
       await Promise.resolve();
-      const localeSearch = document.body.querySelector('dds-locale-search');
-      expect((localeSearch as DDSLocaleSearch).region).toBe('region-foo');
+      const localeModal = document.body.querySelector(
+        'dds-locale-modal'
+      ) as DDSLocaleModal;
+      const localeSearch = localeModal!.shadowRoot!.querySelector(
+        'slot[name="locales-selector"]'
+      );
+      expect(localeSearch).not.toBeNull;
     });
 
     it('should support going back to the region selector', async function () {

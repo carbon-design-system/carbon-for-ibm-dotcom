@@ -208,8 +208,7 @@ class DDSLocaleModalComposite extends HostListenerMixin(
           label-text="${ifNonNull(searchLabel)}"
           placeholder="${ifNonNull(searchPlaceholder)}"
           availability-label-text="${ifNonNull(availabilityText)}"
-          unavailability-label-text="${ifNonNull(unavailabilityText)}"
-          ?hidden="${chosenRegion}">
+          unavailability-label-text="${ifNonNull(unavailabilityText)}">
           ${chosenRegion
             ? html`
                 ${massagedCountryList
