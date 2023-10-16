@@ -116,7 +116,6 @@ class CDSModal extends HostListenerMixin(LitElement) {
       _startSentinelNode: startSentinelNode,
       _endSentinelNode: endSentinelNode,
     } = this;
-    const oldContains = target !== this && this.contains(target as Node);
     const currentContains =
       relatedTarget !== this &&
       (this.contains(relatedTarget as Node) ||
@@ -304,8 +303,7 @@ class CDSModal extends HostListenerMixin(LitElement) {
         id="start-sentinel"
         class="${prefix}--visually-hidden"
         href="javascript:void 0"
-        role="navigation"
-        tabindex="0"></a>
+        role="navigation"></a>
       <div
         aria-label=${ariaLabel}
         part="dialog"
