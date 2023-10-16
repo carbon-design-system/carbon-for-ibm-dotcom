@@ -137,16 +137,18 @@ module.exports = function setupKarma(config) {
               {
                 loader: 'postcss-loader',
                 options: {
-                  plugins: () => [
-                    require('autoprefixer')({
-                      overrideBrowsersList: [
-                        '> 0.5%',
-                        'last 2 versions',
-                        'Firefox ESR',
-                        'not dead',
-                      ],
-                    }),
-                  ],
+                  postcssOptions: {
+                    plugins: () => [
+                      require('autoprefixer')({
+                        overrideBrowsersList: [
+                          '> 0.5%',
+                          'last 2 versions',
+                          'Firefox ESR',
+                          'not dead',
+                        ],
+                      }),
+                    ],
+                  },
                 },
               },
               {
