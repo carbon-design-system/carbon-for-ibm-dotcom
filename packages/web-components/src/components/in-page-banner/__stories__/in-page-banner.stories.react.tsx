@@ -13,17 +13,16 @@ import React from 'react';
 // In our dev env, we auto-generate the file and re-map below path to to point to the generated file.
 // @ts-ignore
 /* eslint-disable max-len */
-import C4DContentGroupBanner from '@carbon/ibmdotcom-web-components/es/components-react/content-group-banner/content-group-banner';
+import C4DInPageBanner from '@carbon/ibmdotcom-web-components/es/components-react/in-page-banner/in-page-banner';
 import C4DContentGroupHeading from '@carbon/ibmdotcom-web-components/es/components-react/content-group/content-group-heading';
 import C4DLinkList from '@carbon/ibmdotcom-web-components/es/components-react/link-list/link-list';
 import C4DLinkListItem from '@carbon/ibmdotcom-web-components/es/components-react/link-list/link-list-item';
-import C4DLinkListItemCTA from '@carbon/ibmdotcom-web-components/es/components-react/cta/link-list-item-cta';
 import C4DVideoCTAContainer from '@carbon/ibmdotcom-web-components/es/components-react/cta/video-cta-container';
 
-import ArrowRight20 from '@carbon/icons-react/es/arrow--right/20.js';
 import readme from './README.stories.react.mdx';
 import textNullable from '../../../../.storybook/knob-text-nullable';
 import { CTA_TYPE } from '../../cta/defs';
+import { COLOR_SCHEME } from '../defs';
 
 const hrefsForType = {
   [CTA_TYPE.LOCAL]: 'https://www.example.com',
@@ -47,57 +46,52 @@ const types = {
   [`Video (${CTA_TYPE.VIDEO})`]: CTA_TYPE.VIDEO,
 };
 
+const colorSchemeTypes = {
+  [`${COLOR_SCHEME.REGULAR}`]: COLOR_SCHEME.REGULAR,
+  [`${COLOR_SCHEME.LAYER}`]: COLOR_SCHEME.LAYER,
+  [`${COLOR_SCHEME.PURPLE}`]: COLOR_SCHEME.PURPLE,
+  [`${COLOR_SCHEME.CYAN}`]: COLOR_SCHEME.CYAN,
+};
+
 export const Default = (args) => {
-  const { heading, iconPlacement, ctaType, href, download } =
-    args?.ContentGroupBanner ?? {};
-  return !ctaType ? (
-    <C4DContentGroupBanner>
+  const { heading, iconPlacement, ctaType, colorScheme, href, download } =
+    args?.InPageBanner ?? {};
+  return (
+    <C4DInPageBanner color-scheme={colorScheme}>
       <C4DContentGroupHeading>{heading}</C4DContentGroupHeading>
       <C4DLinkList type="vertical" slot="complementary">
         <C4DLinkListItem
-          icon-placement={iconPlacement}
-          href="https://www.example.com">
-          Learn more about Kubernetes <ArrowRight20 slot="icon" />
-        </C4DLinkListItem>
-        <C4DLinkListItem
-          icon-placement={iconPlacement}
-          href="https://www.example.com">
-          Containerization A Complete Guide <ArrowRight20 slot="icon" />
-        </C4DLinkListItem>
-      </C4DLinkList>
-    </C4DContentGroupBanner>
-  ) : (
-    <C4DContentGroupBanner>
-      <C4DContentGroupHeading>{heading}</C4DContentGroupHeading>
-      <C4DLinkList type="vertical" slot="complementary">
-        <C4DLinkListItemCTA
           icon-placement={iconPlacement}
           href={href || undefined}
           cta-type={ctaType || undefined}
           download={download || undefined}>
           Learn more about Kubernetes
-        </C4DLinkListItemCTA>
-        <C4DLinkListItemCTA
+        </C4DLinkListItem>
+        <C4DLinkListItem
           icon-placement={iconPlacement}
           href={href || undefined}
           cta-type={ctaType || undefined}
           download={download || undefined}>
           Containerization A Complete Guide
-        </C4DLinkListItemCTA>
+        </C4DLinkListItem>
       </C4DLinkList>
-    </C4DContentGroupBanner>
+    </C4DInPageBanner>
   );
 };
 
 Default.story = {
   parameters: {
     knobs: {
-      ContentGroupBanner: () => {
+      InPageBanner: () => {
         const heading = textNullable(
           'Heading (heading)',
           'Accelerate application development efforts with IBM Product Name'
         );
-        const ctaType = select('CTA type (cta-type)', types, null);
+        const ctaType = select(
+          'CTA type (cta-type)',
+          types,
+          types['Local (local)']
+        );
         const download =
           ctaType !== CTA_TYPE.DOWNLOAD
             ? undefined
@@ -105,8 +99,14 @@ Default.story = {
                 'Download target (download)',
                 'IBM_Annual_Report_2019.pdf'
               );
+        const colorScheme = select(
+          'Color scheme:',
+          colorSchemeTypes,
+          COLOR_SCHEME.REGULAR
+        );
         return {
           heading,
+          colorScheme,
           ctaType,
           download,
           href: textNullable(
@@ -120,7 +120,7 @@ Default.story = {
 };
 
 export default {
-  title: 'Components/Content group banner',
+  title: 'Components/In page banner',
   decorators: [
     (story) => {
       return (
