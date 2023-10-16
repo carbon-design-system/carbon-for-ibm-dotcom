@@ -108,12 +108,10 @@ class C4DLinkList extends StableSelectorMixin(LitElement) {
         type === LINK_LIST_TYPE.END &&
         endTypeLayout === END_TYPE_LAYOUT.TWO_COLUMNS,
     });
-    const listTypeClasses =
-      {
-        [LINK_LIST_TYPE.HORIZONTAL]: `${prefix}--link-list__list--horizontal`,
-        [LINK_LIST_TYPE.VERTICAL]: `${prefix}--link-list__list--vertical`,
-        [LINK_LIST_TYPE.END]: `${c4dPrefix}-ce--link-list__list--end`,
-      }[type] ?? `${prefix}--link-list__list--card`;
+    const listTypeClasses = {
+      [LINK_LIST_TYPE.HORIZONTAL]: `${prefix}--link-list__list--horizontal`,
+      [LINK_LIST_TYPE.VERTICAL]: `${prefix}--link-list__list--vertical`,
+    }[type];
     const listClasses = classMap({
       [`${prefix}--link-list__list`]: true,
       [listTypeClasses]: true,

@@ -41,7 +41,6 @@ const knobNamesForType = {
 };
 
 const types = {
-  None: null,
   [`Local (${CTA_TYPE.LOCAL})`]: CTA_TYPE.LOCAL,
   [`Jump (${CTA_TYPE.JUMP})`]: CTA_TYPE.JUMP,
   [`External (${CTA_TYPE.EXTERNAL})`]: CTA_TYPE.EXTERNAL,
@@ -55,41 +54,37 @@ export const Default = (args) => {
     ? html`
         <c4d-link-list type="default">
           <c4d-link-list-heading>Tutorial</c4d-link-list-heading>
-          <c4d-link-list-item-card href="https://example.com">
-            <p>Learn more about Kubernetes</p>
-            <c4d-card-footer>
-              ${ArrowRight20({ slot: 'icon' })}
-            </c4d-card-footer>
-          </c4d-link-list-item-card>
-          <c4d-link-list-item-card href="https://example.com">
-            <p>Containerization A Complete Guide</p>
-            <c4d-card-footer>
-              ${ArrowRight20({ slot: 'icon' })}
-            </c4d-card-footer>
-          </c4d-link-list-item-card>
+
+          <c4d-link-list-item href="https://example.com">
+            Learn more about Kubernetes no cta-type
+            ${ArrowRight20({ slot: 'icon' })}
+          </c4d-link-list-item>
+          <c4d-link-list-item href="https://example.com">
+            Containerization A Complete Guide no cta-type
+            ${ArrowRight20({ slot: 'icon' })}
+          </c4d-link-list-item>
+          <c4d-link-list-item href="https://example.com">
+            Microservices and containers no cta-type
+            ${ArrowRight20({ slot: 'icon' })}
+          </c4d-link-list-item>
         </c4d-link-list>
       `
     : html`
         <c4d-link-list type="default">
           <c4d-link-list-heading>Tutorial</c4d-link-list-heading>
-          <c4d-link-list-item-card-cta
-            href="${ifDefined(href)}"
-            cta-type="${ifDefined(ctaType)}"
-            download="${ifDefined(download)}">
-            ${ctaType !== CTA_TYPE.VIDEO
-              ? html` <p>Learn more about Kubernetes</p> `
-              : null}
-            <c4d-card-cta-footer></c4d-card-cta-footer>
-          </c4d-link-list-item-card-cta>
-          <c4d-link-list-item-card-cta
-            href="${ifDefined(href)}"
-            cta-type="${ifDefined(ctaType)}"
-            download="${ifDefined(download)}">
-            ${ctaType !== CTA_TYPE.VIDEO
-              ? html` <p>Containerization A Complete Guide</p> `
-              : null}
-            <c4d-card-cta-footer></c4d-card-cta-footer>
-          </c4d-link-list-item-card-cta>
+
+          <c4d-link-list-item href="https://example.com">
+            Learn more about Kubernetes cta-type
+            ${ArrowRight20({ slot: 'icon' })}
+          </c4d-link-list-item>
+          <c4d-link-list-item href="https://example.com">
+            Containerization A Complete Guide cta-type
+            ${ArrowRight20({ slot: 'icon' })}
+          </c4d-link-list-item>
+          <c4d-link-list-item href="https://example.com">
+            Microservices and containers cta-type
+            ${ArrowRight20({ slot: 'icon' })}
+          </c4d-link-list-item>
         </c4d-link-list>
       `;
 };
@@ -276,70 +271,70 @@ Vertical.story = {
   },
 };
 
-export const EndOfSection = (args) => {
-  const { ctaType, download, href } = args?.LinkListItem ?? {};
-  return !ctaType
-    ? html`
-        <c4d-link-list type="end">
-          <c4d-link-list-heading>Tutorial</c4d-link-list-heading>
-          <c4d-link-list-item href="https://example.com">
-            Learn more about Kubernetes ${ArrowRight20({ slot: 'icon' })}
-          </c4d-link-list-item>
-          <c4d-link-list-item href="https://example.com">
-            Containerization A Complete Guide ${ArrowRight20({ slot: 'icon' })}
-          </c4d-link-list-item>
-          <c4d-link-list-item href="https://example.com">
-            Microservices and containers ${ArrowRight20({ slot: 'icon' })}
-          </c4d-link-list-item>
-        </c4d-link-list>
-      `
-    : html`
-        <c4d-link-list type="end">
-          <c4d-link-list-heading>Tutorial</c4d-link-list-heading>
-          <c4d-link-list-item-cta
-            href="${ifDefined(href)}"
-            cta-type="${ifDefined(ctaType)}"
-            download="${ifDefined(download)}">
-            ${ctaType !== CTA_TYPE.VIDEO
-              ? html` Learn more about Kubernetes `
-              : null}
-          </c4d-link-list-item-cta>
-          <c4d-link-list-item-cta
-            href="${ifDefined(href)}"
-            cta-type="${ifDefined(ctaType)}"
-            download="${ifDefined(download)}">
-            ${ctaType !== CTA_TYPE.VIDEO
-              ? html` Containerization A Complete Guide `
-              : null}
-          </c4d-link-list-item-cta>
-          <c4d-link-list-item-cta
-            href="${ifDefined(href)}"
-            cta-type="${ifDefined(ctaType)}"
-            download="${ifDefined(download)}">
-            ${ctaType !== CTA_TYPE.VIDEO
-              ? html` Microservices and containers `
-              : null}
-          </c4d-link-list-item-cta>
-        </c4d-link-list>
-      `;
-};
+// export const EndOfSection = (args) => {
+//   const { ctaType, download, href } = args?.LinkListItem ?? {};
+//   return !ctaType
+//     ? html`
+//         <c4d-link-list type="end">
+//           <c4d-link-list-heading>Tutorial</c4d-link-list-heading>
+//           <c4d-link-list-item href="https://example.com">
+//             Learn more about Kubernetes ${ArrowRight20({ slot: 'icon' })}
+//           </c4d-link-list-item>
+//           <c4d-link-list-item href="https://example.com">
+//             Containerization A Complete Guide ${ArrowRight20({ slot: 'icon' })}
+//           </c4d-link-list-item>
+//           <c4d-link-list-item href="https://example.com">
+//             Microservices and containers ${ArrowRight20({ slot: 'icon' })}
+//           </c4d-link-list-item>
+//         </c4d-link-list>
+//       `
+//     : html`
+//         <c4d-link-list type="end">
+//           <c4d-link-list-heading>Tutorial</c4d-link-list-heading>
+//           <c4d-link-list-item-cta
+//             href="${ifDefined(href)}"
+//             cta-type="${ifDefined(ctaType)}"
+//             download="${ifDefined(download)}">
+//             ${ctaType !== CTA_TYPE.VIDEO
+//               ? html` Learn more about Kubernetes `
+//               : null}
+//           </c4d-link-list-item-cta>
+//           <c4d-link-list-item-cta
+//             href="${ifDefined(href)}"
+//             cta-type="${ifDefined(ctaType)}"
+//             download="${ifDefined(download)}">
+//             ${ctaType !== CTA_TYPE.VIDEO
+//               ? html` Containerization A Complete Guide `
+//               : null}
+//           </c4d-link-list-item-cta>
+//           <c4d-link-list-item-cta
+//             href="${ifDefined(href)}"
+//             cta-type="${ifDefined(ctaType)}"
+//             download="${ifDefined(download)}">
+//             ${ctaType !== CTA_TYPE.VIDEO
+//               ? html` Microservices and containers `
+//               : null}
+//           </c4d-link-list-item-cta>
+//         </c4d-link-list>
+//       `;
+// };
 
-EndOfSection.story = {
-  name: 'End of section',
-  parameters: {
-    colLgClass: 'cds--col-lg-6',
-    knobs: Default.story.parameters.knobs,
-    propsSet: {
-      default: {
-        LinkListItem: {
-          ctaType: null,
-          download: undefined,
-          href: 'https://www.example.com',
-        },
-      },
-    },
-  },
-};
+// EndOfSection.story = {
+//   name: 'End of section',
+//   parameters: {
+//     colLgClass: 'cds--col-lg-6',
+//     knobs: Default.story.parameters.knobs,
+//     propsSet: {
+//       default: {
+//         LinkListItem: {
+//           ctaType: null,
+//           download: undefined,
+//           href: 'https://www.example.com',
+//         },
+//       },
+//     },
+//   },
+// };
 
 export default {
   title: 'Components/Link list',

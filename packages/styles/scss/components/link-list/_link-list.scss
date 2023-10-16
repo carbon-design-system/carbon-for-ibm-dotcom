@@ -374,10 +374,20 @@
       &:hover {
         background-color: $background;
         text-decoration: underline;
+        color: $link-primary-hover;
 
         .#{$prefix}--card__heading,
         .#{$prefix}--card__copy ::slotted(p) {
           color: $link-primary-hover;
+        }
+      }
+
+      &:active {
+        color: $text-primary;
+
+        .#{$prefix}--card__heading,
+        .#{$prefix}--card__copy ::slotted(p) {
+          color: $text-primary;
         }
       }
     }
