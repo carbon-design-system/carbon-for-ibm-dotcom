@@ -23,7 +23,7 @@
       @include carbon--make-row;
 
       .#{$prefix}--footer:not(.#{$prefix}--footer--short) & {
-        @include carbon--breakpoint-down($TEMP--breakpoint-down--md) {
+        @include carbon--breakpoint-down('md') {
           border-top: 0;
         }
       }

@@ -33,12 +33,6 @@ const MastheadL1 = ({ navigationL1, ...rest }) => {
     document
       .querySelector(`.${prefix}--header__menu-bar`)
       ?.setAttribute('role', 'menu');
-    document
-      .querySelectorAll(`.${prefix}--header__menu-bar li`)
-      .forEach((e) => {
-        e.setAttribute('role', 'menuitem');
-        e.querySelector('a').removeAttribute('role');
-      });
   }, []);
 
   const mastheadL1Links = navigationL1.map((link, index) => {
