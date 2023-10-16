@@ -571,6 +571,30 @@ class DDSCarousel extends HostListenerMixin(StableSelectorMixin(LitElement)) {
           (elems.length - 1);
   }
 
+  private _updateContentsPosition(changedProperties) {
+    // The calculation of the contents position is base on start,
+    // _contentsBaseWidth, _gap and pageSize. If none of them changed, we've
+    // got nothing to do.
+    if (
+      !changedProperties.has('start') &&
+      !changedProperties.has('_contentsBaseWidth') &&
+      !changedProperties.has('_gap') &&
+      !changedProperties.has('pageSize')
+    ) {
+      return;
+    }
+
+    // Hard to update the contents node if it hasn't yet been populated. Return
+    // early if it's falsy.
+    if (!this._contentsNode) {
+      return;
+    }
+
+    const contentsPosition =
+      (-this.start * (this._contentsBaseWidth + this._gap)) / this.pageSize;
+    this._contentsNode.style.insetInlineStart = `${contentsPosition}px`;
+  }
+
   get focusableElements() {
     const { selectorTabbable: selectorTabbableForCarousel } = this
       .constructor as typeof DDSExpressiveModal;
@@ -679,22 +703,7 @@ class DDSCarousel extends HostListenerMixin(StableSelectorMixin(LitElement)) {
   }
 
   updated(changedProperties) {
-    if (
-      !changedProperties.has('start') &&
-      !changedProperties.has('_contentsBaseWidth') &&
-      !changedProperties.has('_gap') &&
-      !changedProperties.has('pageSize')
-    ) {
-      return;
-    }
-
-    if (!this._contentsNode) {
-      return;
-    }
-
-    const startPosition =
-      (-this.start * (this._contentsBaseWidth + this._gap)) / this.pageSize;
-    this._contentsNode.style.insetInlineStart = `${startPosition}px`;
+    this._updateContentsPosition(changedProperties);
   }
 
   render() {
