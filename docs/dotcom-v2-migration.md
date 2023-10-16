@@ -46,6 +46,7 @@ For Carbon v11 migration guidance, see their
 | feature-card-block-large  | This component is deprecated in v1 and has been removed in v2 in favor of the feature-card component.                                          |
 | feature-card-block-medium | This component is deprecated in v1 and has been removed in v2 in favor of the feature-card component.                                          |
 | feature-section           | View changes [here](#feature-section)                                                                                                          |
+| filter-panel              | View changes [here](#filter-panel)                                                                                                             |
 | footer                    | No API changes.                                                                                                                                |
 | hr                        | View changes [here](#horizontal-rule)                                                                                                          |
 | image                     | View changes [here](#image)                                                                                                                    |
@@ -109,6 +110,10 @@ information.
 - The `feature-section-card-link` has been deprecated in favor for the `card` (link) variation
 - `media-alignment` property has been removed
 - `color-scheme` property now accepts `regular` (default), `inverse`, `cyan`, `purple`
+
+### Filter panel
+
+- `filter-group-item` property `title-text` has been updated to `title`
 
 ### Horizontal rule
 
