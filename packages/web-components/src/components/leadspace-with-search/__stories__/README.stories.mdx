@@ -33,16 +33,13 @@ import '@carbon/ibmdotcom-web-components/es/components/leadspace-with-search/ind
 
 ```html
 <cds-leadspace-with-search>
-  <cds-leadspace-with-search-heading>Find a product</cds-leadspace-with-search-heading>
-  <cds-leadspace-with-search-content>
-    <cds-leadspace-with-search-content-heading>Innovate like a startup, scale for the enterprise</cds-leadspace-with-search-content-heading>
-    <cds-leadspace-with-search-content-copy
+  <cds-leadspace-heading>Find a product</cds-leadspace-heading>
+    <cds-leadspace-with-search-copy
       >Automate your software release process with continuous
       delivery (CD)—the most critical part of adopting DevOps.
       Build, test, and deploy code changes quickly, ensuring
       software is always ready for deployment.
-    </cds-leadspace-with-search-content-copy>
-  </cds-leadspace-with-search-content>
+    </cds-leadspace-with-search-copy>
   <cds-search-with-typeahead slot='search' leadspace-search><cds-search-with-typeahead/>
   <cds-hr slot='hr'></cds-hr>
 </cds-leadspace-with-search>
@@ -52,22 +49,13 @@ import '@carbon/ibmdotcom-web-components/es/components/leadspace-with-search/ind
 
 ```html
 <cds-leadspace-with-search>
-  <cds-background-media
-    gradient-direction="left-to-right"
-    default-src="https://fpoimg.com/1584x560?&bg_color=ee5396&text_color=161616"
-    slot='image'
-  >
-  </cds-background-media>
-  <cds-leadspace-with-search-heading>Find a product</cds-leadspace-with-search-heading>
-  <cds-leadspace-with-search-content>
-    <cds-leadspace-with-search-content-heading>Innovate like a startup, scale for the enterprise</cds-leadspace-with-search-content-heading>
-    <cds-leadspace-with-search-content-copy
+  <cds-leadspace-heading>Find a product</cds-leadspace-heading>
+    <cds-leadspace-with-search-copy
       >Automate your software release process with continuous
       delivery (CD)—the most critical part of adopting DevOps.
       Build, test, and deploy code changes quickly, ensuring
       software is always ready for deployment.
-    </cds-leadspace-with-search-content-copy>
-  </cds-leadspace-with-search-content>
+    </cds-leadspace-with-search-copy>
   <cds-search-with-typeahead slot='search' leadspace-search><cds-search-with-typeahead/>
   <cds-hr slot='hr'></cds-hr>
 </cds-leadspace-with-search>
@@ -75,17 +63,21 @@ import '@carbon/ibmdotcom-web-components/es/components/leadspace-with-search/ind
 
 ## Adjacent Themes
 
-This component has four adjacent theme combinations which can be used to display
-different theming between the two parts of the component, the "top" and the
-"bottom" of the component. In other words, this component can be "divided" into
-two halves, the "top" contains the heading, subheading, and paragraph elements
-to display information, whereas the "bottom" part contains the Search With
-Typeahead component.
+This component offers two options of adjacent themes, it can either be:
 
-By applying these different themes, you may have the "top" part have the default
-"White" theme, while the bottom has the "Gray 10" theme, for example. Feel free
-to play around with the knobs to choose which option would work best for your
-page.
+* Monotheme
+* Dual theme
+
+The "dual-theme" attribute can be used to display different theming between the two
+parts of the component, the "top" and the "bottom" of the component.
+
+In other words, this component can be "divided" into two halves, the "top" contains
+the heading and paragraph elements to display information, whereas the "bottom" part
+contains the Search With Typeahead component.
+
+The coloring would change depending on the current set theme of either the page or the inline 
+theme of the container. The top half would be the current theme, while the bottom half would
+be other theme of the current contrast. 
 
 There are four adjacent theme combinations that are available in this component
 are the following:
@@ -98,23 +90,14 @@ are the following:
 ### HTML Example
 
 ```html
-<cds-leadspace-with-search adjacent-theme='white-and-g10'>
-  <cds-background-media
-    gradient-direction="left-to-right"
-    default-src="https://fpoimg.com/1584x560?&bg_color=ee5396&text_color=161616"
-    slot='image'
-  >
-  </cds-background-media>
-  <cds-leadspace-with-search-heading>Find a product</cds-leadspace-with-search-heading>
-  <cds-leadspace-with-search-content>
-    <cds-leadspace-with-search-content-heading>Innovate like a startup, scale for the enterprise</cds-leadspace-with-search-content-heading>
-    <cds-leadspace-with-search-content-copy
+<cds-leadspace-with-search adjacent-theme='dual-theme'>
+  <cds-leadspace-heading>Find a product</cds-leadspace-heading>
+    <cds-leadspace-with-search-copy
       >Automate your software release process with continuous
       delivery (CD)—the most critical part of adopting DevOps.
       Build, test, and deploy code changes quickly, ensuring
       software is always ready for deployment.
-    </cds-leadspace-with-search-content-copy>
-  </cds-leadspace-with-search-content>
+    </cds-leadspace-with-search-copy>
   <cds-search-with-typeahead slot='search' leadspace-search><cds-search-with-typeahead/>
   <cds-hr slot='hr'></cds-hr>
 </cds-leadspace-with-search>
@@ -130,8 +113,8 @@ In other words, the horizontal rule should only be included as a slotted element
 if, for example, the page content has the `g100` theme _and_ the
 `Leadspace with search` **also** uses `g100`.
 
-When using adjacent themes, the theme applied **must** be `g90-and-g100`, as the
-latter theme must match the page content theme.
+When using adjacent themes, the theme applied **must** be `g90`, as the
+bottom theme must match the page content theme.
 
 Using the horizontal rule for other cases in which the themes are not matching
 is not advisable.
@@ -142,23 +125,20 @@ When including the `Leadspace with search` component within the `Dotcom Shell`
 component, an optional scroll behavior option is available. If enabled, the
 search container will remain fixed on top of the page as the user scrolls.
 
-To enable, add the `scroll-behavior` attribute to `Leadspace with search`
+To enable, add the `scroll-behavior` and `sticky-search` attributes to `Leadspace with search`
 
 ### HTML Example
 
 ```html
 <cds-dotcom-shell-container>
-<cds-leadspace-with-search adjacent-theme='white-and-g10' scroll-behavior>
-  <cds-leadspace-with-search-heading>Find a product</cds-leadspace-with-search-heading>
-  <cds-leadspace-with-search-content>
-    <cds-leadspace-with-search-content-heading>Innovate like a startup, scale for the enterprise</cds-leadspace-with-search-content-heading>
-    <cds-leadspace-with-search-content-copy
+<cds-leadspace-with-search adjacent-theme='dual-theme' sticky-search scroll-behavior>
+  <cds-leadspace-heading>Find a product</cds-leadspace-heading>
+    <cds-leadspace-with-search-copy
       >Automate your software release process with continuous
       delivery (CD)—the most critical part of adopting DevOps.
       Build, test, and deploy code changes quickly, ensuring
       software is always ready for deployment.
-    </cds-leadspace-with-search-content-copy>
-  </cds-leadspace-with-search-content>
+    </cds-leadspace-with-search-copy>
   <cds-search-with-typeahead slot='search' leadspace-search><cds-search-with-typeahead/>
   <cds-hr slot='hr'></cds-hr>
 </cds-leadspace-with-search>

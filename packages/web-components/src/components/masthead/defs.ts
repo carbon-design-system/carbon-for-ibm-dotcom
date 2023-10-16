@@ -1,7 +1,7 @@
 /**
  * @license
  *
- * Copyright IBM Corp. 2020, 2021
+ * Copyright IBM Corp. 2020, 2023
  *
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
@@ -37,6 +37,21 @@ export enum MEGAMENU_LINK_WITH_ICON_STYLE_SCHEME {
  */
 export enum MEGAMENU_RIGHT_NAVIGATION_STYLE_SCHEME {
   /**
+   * Right navigation spans full width of megamenu.
+   */
+  FULL = 'full',
+
+  /**
+   * Megamenu has a sidebar (e.g. tabbed layout).
+   */
+  HAS_SIDEBAR = 'has-sidebar',
+}
+
+/**
+ * The style scheme for the right navigation.
+ */
+export enum LEGACY_MEGAMENU_RIGHT_NAVIGATION_STYLE_SCHEME {
+  /**
    * Regular style.
    */
   REGULAR = 'regular',
@@ -45,4 +60,17 @@ export enum MEGAMENU_RIGHT_NAVIGATION_STYLE_SCHEME {
    * For left (highlighted) section layout.
    */
   LEFT_SECTION = 'left-section',
+
+  /**
+   * For tabbed megamenus.
+   */
+  TAB = 'tab',
+}
+
+/**
+ * The layout options for rendering a megamenu
+ */
+export enum MEGAMENU_LAYOUT_SCHEME {
+  TAB = 'tab',
+  LIST = 'list',
 }

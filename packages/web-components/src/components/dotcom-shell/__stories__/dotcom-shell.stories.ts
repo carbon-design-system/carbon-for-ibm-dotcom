@@ -21,7 +21,10 @@ import {
 } from '../../masthead/__stories__/profile-items';
 import mastheadStyles from '../../masthead/__stories__/masthead.stories.scss';
 import { FOOTER_SIZE } from '../../footer/footer';
-import mastheadLinks, { l1Data } from '../../masthead/__stories__/links';
+import {
+  mastheadLinksV2 as l0Data,
+  mastheadL1Data as l1Data,
+} from '../../masthead/__stories__/links';
 import mockLangList from '../../footer/__stories__/language-list';
 import mockFooterLinks from '../../footer/__stories__/links';
 import mockLegalLinks from '../../footer/__stories__/legal-links';
@@ -141,7 +144,6 @@ export const Default = (args) => {
             .legalLinks="${ifDefined(legalLinks)}"
             .localeList="${ifDefined(localeList)}"
             .footerLinks="${ifDefined(footerLinks)}"
-            .navLinks="${navLinks}"
             ?has-profile="${hasProfile}"
             ?has-search="${hasSearch}"
             ?disable-locale-button="${disableLocaleButton}">
@@ -216,7 +218,6 @@ export const DefaultFooterLanguageOnly = (args) => {
             .legalLinks="${ifDefined(legalLinks)}"
             .localeList="${ifDefined(localeList)}"
             .footerLinks="${ifDefined(footerLinks)}"
-            .navLinks="${navLinks}"
             ?has-profile="${hasProfile}"
             ?has-search="${hasSearch}"
             ?disable-locale-button="${disableLocaleButton}">
@@ -311,7 +312,6 @@ export const searchOpenOnload = (args) => {
             .legalLinks="${ifDefined(legalLinks)}"
             .localeList="${ifDefined(localeList)}"
             .footerLinks="${ifDefined(footerLinks)}"
-            .navLinks="${navLinks}"
             ?has-profile="${hasProfile}"
             ?has-search="${hasSearch}"
             ?disable-locale-button="${disableLocaleButton}">
@@ -381,7 +381,6 @@ export const withPlatform = (args) => {
             .legalLinks="${ifDefined(legalLinks)}"
             .localeList="${ifDefined(localeList)}"
             .footerLinks="${ifDefined(footerLinks)}"
-            .navLinks="${navLinks}"
             ?has-profile="${hasProfile}"
             ?has-search="${hasSearch}"
             ?disable-locale-button="${disableLocaleButton}">
@@ -486,7 +485,6 @@ export const withShortFooter = (args) => {
             .legalLinks="${ifDefined(legalLinks)}"
             .localeList="${ifDefined(localeList)}"
             .footerLinks="${ifDefined(footerLinks)}"
-            .navLinks="${navLinks}"
             ?has-profile="${hasProfile}"
             ?has-search="${hasSearch}"
             ?disable-locale-button="${disableLocaleButton}">
@@ -569,7 +567,6 @@ export const withShortFooterLanguageOnly = (args) => {
             .legalLinks="${ifDefined(legalLinks)}"
             .localeList="${ifDefined(localeList)}"
             .footerLinks="${ifDefined(footerLinks)}"
-            .navLinks="${navLinks}"
             ?has-profile="${hasProfile}"
             ?has-search="${hasSearch}"
             ?disable-locale-button="${disableLocaleButton}">
@@ -660,7 +657,6 @@ export const withMicroFooter = (args) => {
             .legalLinks="${ifDefined(legalLinks)}"
             .localeList="${ifDefined(localeList)}"
             .footerLinks="${ifDefined(footerLinks)}"
-            .navLinks="${navLinks}"
             ?has-profile="${hasProfile}"
             ?has-search="${hasSearch}"
             ?disable-locale-button="${disableLocaleButton}">
@@ -740,7 +736,6 @@ export const withMicroFooterLanguageOnly = (args) => {
             .legalLinks="${ifDefined(legalLinks)}"
             .localeList="${ifDefined(localeList)}"
             .footerLinks="${ifDefined(footerLinks)}"
-            .navLinks="${navLinks}"
             ?has-profile="${hasProfile}"
             ?has-search="${hasSearch}"
             ?disable-locale-button="${disableLocaleButton}">
@@ -832,7 +827,6 @@ export const withL1 = (args) => {
             .localeList="${ifDefined(localeList)}"
             .footerLinks="${ifDefined(footerLinks)}"
             .l1Data="${l1Data}"
-            .navLinks="${navLinks}"
             ?has-profile="${hasProfile}"
             ?has-search="${hasSearch}"
             ?disable-locale-button="${disableLocaleButton}">
@@ -946,7 +940,6 @@ export const WithHorizontalTOC = (args) => {
             .legalLinks="${ifDefined(legalLinks)}"
             .localeList="${ifDefined(localeList)}"
             .footerLinks="${ifDefined(footerLinks)}"
-            .navLinks="${navLinks}"
             ?has-profile="${hasProfile}"
             ?has-search="${hasSearch}"
             ?disable-locale-button="${disableLocaleButton}">
@@ -1023,7 +1016,6 @@ export const WithLeadspaceSearch = (args) => {
             .legalLinks="${ifDefined(legalLinks)}"
             .localeList="${ifDefined(localeList)}"
             .footerLinks="${ifDefined(footerLinks)}"
-            .navLinks="${navLinks}"
             ?has-profile="${hasProfile}"
             ?has-search="${hasSearch}"
             ?disable-locale-button="${disableLocaleButton}">
@@ -1133,7 +1125,6 @@ export const WithGlobalBanner = (args) => {
             .legalLinks="${ifDefined(legalLinks)}"
             .localeList="${ifDefined(localeList)}"
             .footerLinks="${ifDefined(footerLinks)}"
-            .navLinks="${navLinks}"
             ?has-profile="${hasProfile}"
             ?has-search="${hasSearch}"
             ?disable-locale-button="${disableLocaleButton}">
@@ -1284,7 +1275,25 @@ export default {
           }
         });
       }
-      return story();
+      return html`
+        ${story()}
+        <script>
+          window.digitalData.page.pageInfo.ibm.contactModuleConfiguration = {
+            contactInformationBundleKey: {
+              focusArea: 'Cloud - Automation - All',
+              languageCode: 'en',
+              regionCode: 'US',
+            },
+            contactModuleTranslationKey: {
+              languageCode: 'en',
+              regionCode: 'US',
+            },
+          };
+        </script>
+        <script
+          src="//www.ibm.com/common/digitaladvisor/cm-app/latest/cm-app.min.js"
+          defer></script>
+      `;
     },
   ],
   parameters: {
@@ -1330,7 +1339,7 @@ export default {
         inPercy() || new URLSearchParams(window.location.search).has('mock');
       return {
         DotcomShell: {
-          navLinks: !useMock ? undefined : mastheadLinks,
+          navLinks: !useMock ? undefined : l0Data,
           langDisplay: !useMock ? undefined : 'United States - English',
           legalLinks: !useMock ? undefined : mockLegalLinks,
           links: !useMock ? undefined : mockFooterLinks,

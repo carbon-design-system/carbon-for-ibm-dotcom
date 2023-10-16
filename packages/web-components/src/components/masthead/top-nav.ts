@@ -440,6 +440,7 @@ class C4DTopNav extends StableSelectorMixin(HostListenerMixin(CDSHeaderNav)) {
         if (event.shiftKey) {
           if (
             target.previousElementSibling &&
+            target.previousElementSibling.parentElement === this &&
             target.previousElementSibling.getBoundingClientRect().left -
               navNode!.getBoundingClientRect().left <
               currentScrollPosition
@@ -448,6 +449,7 @@ class C4DTopNav extends StableSelectorMixin(HostListenerMixin(CDSHeaderNav)) {
           }
         } else if (
           target.nextElementSibling &&
+          target.nextElementSibling.parentElement === this &&
           Math.floor(
             target.nextElementSibling.getBoundingClientRect().right -
               navNode!.getBoundingClientRect().left

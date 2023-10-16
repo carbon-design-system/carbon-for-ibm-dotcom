@@ -14,9 +14,9 @@ import C4DTab from '@carbon/ibmdotcom-web-components/es/components-react/tabs-ex
 /* eslint-disable max-len */
 import C4DContentSectionHeading from '@carbon/ibmdotcom-web-components/es/components-react/content-section/content-section-heading';
 /* eslint-disable max-len */
-import C4DContentItemHorizontalMedia from '@carbon/ibmdotcom-web-components/es/components-react/content-item-horizontal/content-item-horizontal-media';
+import C4DContentItemRowMedia from '@carbon/ibmdotcom-web-components/es/components-react/content-item-row/content-item-row-media';
 /* eslint-disable max-len */
-import C4DContentItemHorizontalMediaCopy from '@carbon/ibmdotcom-web-components/es/components-react/content-item-horizontal/content-item-horizontal-media-copy';
+import C4DContentItemRowMediaCopy from '@carbon/ibmdotcom-web-components/es/components-react/content-item-row/content-item-row-media-copy';
 import C4DContentItemHeading from '@carbon/ibmdotcom-web-components/es/components-react/content-item/content-item-heading';
 import C4DLinkList from '@carbon/ibmdotcom-web-components/es/components-react/link-list/link-list';
 import C4DLinkListItemCTA from '@carbon/ibmdotcom-web-components/es/components-react/cta/link-list-item-cta';
@@ -28,16 +28,16 @@ const App = () => (
   <C4DTabsExtendedMedia>
     <C4DContentSectionHeading>Section heading</C4DContentSectionHeading>
     <C4DTab label="First tab">
-      <C4DContentItemHorizontalMedia align="left">
+      <C4DContentItemRowMedia align="left">
         <C4DImage
           slot="media"
           alt="Image alt text"
           default-src="https://fpoimg.com/672x378?text=16:9&bg_color=ee5396&text_color=161616"></C4DImage>
         <C4DContentItemHeading>Aliquam condimentum</C4DContentItemHeading>
-        <C4DContentItemHorizontalMediaCopy>
+        <C4DContentItemRowMediaCopy>
           Lorem ipsum dolor sit amet, _consectetur_ adipiscing elit. Aenean et ultricies est. Mauris iaculis eget dolor nec
           hendrerit. Phasellus at elit sollicitudin.
-        </C4DContentItemHorizontalMediaCopy>
+        </C4DContentItemRowMediaCopy>
         <C4DLinkList slot="footer" type="vertical">
           <C4DLinkListItemCTA icon-placement="right" href="https://www.ibm.com" cta-type="local">
             Learn more
@@ -46,19 +46,19 @@ const App = () => (
             Microservices and containers
           </C4DLinkListItemCTA>
         </C4DLinkList>
-      </C4DContentItemHorizontalMedia>
+      </C4DContentItemRowMedia>
     </C4DTab>
     <C4DTab label="Second tab">
-      <C4DContentItemHorizontalMedia align="left">
+      <C4DContentItemRowMedia align="left">
         <C4DImage
           slot="media"
           alt="Image alt text"
           default-src="https://fpoimg.com/672x378?text=16:9&bg_color=ee5396&text_color=161616"></C4DImage>
         <C4DContentItemHeading>Aliquam condimentum</C4DContentItemHeading>
-        <C4DContentItemHorizontalMediaCopy>
+        <C4DContentItemRowMediaCopy>
           Lorem ipsum dolor sit amet, _consectetur_ adipiscing elit. Aenean et ultricies est. Mauris iaculis eget dolor nec
           hendrerit. Phasellus at elit sollicitudin.
-        </C4DContentItemHorizontalMediaCopy>
+        </C4DContentItemRowMediaCopy>
         <C4DLinkList slot="footer" type="vertical">
           <C4DLinkListItemCTA icon-placement="right" href="https://www.ibm.com" cta-type="local">
             Learn more
@@ -67,19 +67,19 @@ const App = () => (
             Microservices and containers
           </C4DLinkListItemCTA>
         </C4DLinkList>
-      </C4DContentItemHorizontalMedia>
+      </C4DContentItemRowMedia>
     </C4DTab>
     <C4DTab label="Third tab">
-      <C4DContentItemHorizontalMedia align="left">
+      <C4DContentItemRowMedia align="left">
         <C4DImage
           slot="media"
           alt="Image alt text"
           default-src="https://fpoimg.com/672x378?text=16:9&bg_color=ee5396&text_color=161616"></C4DImage>
         <C4DContentItemHeading>Aliquam condimentum</C4DContentItemHeading>
-        <C4DContentItemHorizontalMediaCopy>
+        <C4DContentItemRowMediaCopy>
           Lorem ipsum dolor sit amet, _consectetur_ adipiscing elit. Aenean et ultricies est. Mauris iaculis eget dolor nec
           hendrerit. Phasellus at elit sollicitudin.
-        </C4DContentItemHorizontalMediaCopy>
+        </C4DContentItemRowMediaCopy>
         <C4DLinkList slot="footer" type="vertical">
           <C4DLinkListItemCTA icon-placement="right" href="https://www.ibm.com" cta-type="local">
             Learn more
@@ -88,19 +88,19 @@ const App = () => (
             Microservices and containers
           </C4DLinkListItemCTA>
         </C4DLinkList>
-      </C4DContentItemHorizontalMedia>
+      </C4DContentItemRowMedia>
     </C4DTab>
     <C4DTab label="Fourth tab">
-      <C4DContentItemHorizontalMedia align="left">
+      <C4DContentItemRowMedia align="left">
         <C4DImage
           slot="media"
           alt="Image alt text"
           default-src="https://fpoimg.com/672x378?text=16:9&bg_color=ee5396&text_color=161616"></C4DImage>
         <C4DContentItemHeading>Aliquam condimentum</C4DContentItemHeading>
-        <C4DContentItemHorizontalMediaCopy>
+        <C4DContentItemRowMediaCopy>
           Lorem ipsum dolor sit amet, _consectetur_ adipiscing elit. Aenean et ultricies est. Mauris iaculis eget dolor nec
           hendrerit. Phasellus at elit sollicitudin.
-        </C4DContentItemHorizontalMediaCopy>
+        </C4DContentItemRowMediaCopy>
         <C4DLinkList slot="footer" type="vertical">
           <C4DLinkListItemCTA icon-placement="right" href="https://www.ibm.com" cta-type="local">
             Learn more
@@ -109,7 +109,7 @@ const App = () => (
             Microservices and containers
           </C4DLinkListItemCTA>
         </C4DLinkList>
-      </C4DContentItemHorizontalMedia>
+      </C4DContentItemRowMedia>
     </C4DTab>
   </C4DTabsExtendedMedia>
 );

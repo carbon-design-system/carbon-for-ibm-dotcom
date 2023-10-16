@@ -30,7 +30,7 @@
 @use 'components/content-group-cards';
 @use 'components/content-group-pictograms';
 @use 'components/content-group-simple';
-@use 'components/content-item-horizontal';
+@use 'components/content-item-row';
 @use 'components/cta-section';
 @use 'components/dotcom-shell';
 @use 'components/expressive-modal';
@@ -39,6 +39,7 @@
 @use 'components/footer';
 @use 'components/horizontal-rule';
 @use 'components/image';
+@use 'components/in-page-banner';
 @use 'components/layout';
 @use 'components/leadspace';
 @use 'components/leadspace-block';
@@ -55,7 +56,7 @@
 @use 'components/pricing-table';
 @use 'components/quote';
 @use 'components/tableofcontents';
-@use 'components/universal-banner';
+@use 'components/global-banner';
 @use 'components/video-player';
 
 // Internal

@@ -259,6 +259,7 @@ class C4DLeftNav extends StableSelectorMixin(CDSSideNav) {
         )
         ?.querySelector(`${c4dPrefix}-masthead`);
       if (expanded && !this._importedSideNav) {
+        import('./left-nav-cta-item');
         import('./left-nav-name');
         import('./left-nav-menu');
         import('./left-nav-menu-section');
@@ -279,7 +280,9 @@ class C4DLeftNav extends StableSelectorMixin(CDSSideNav) {
 
         // TODO: remove this logic once masthead can account for banners.
         // set masthead position to `fixed` when left-nav is open for cloud-mastead
-        masthead.style.position = 'fixed';
+        if (masthead) {
+          masthead!.style.position = 'fixed';
+        }
       } else {
         const { selectorMenuSections, selectorFirstMenuSection } = this
           .constructor as typeof C4DLeftNav;
@@ -292,16 +295,16 @@ class C4DLeftNav extends StableSelectorMixin(CDSSideNav) {
         }
 
         this.querySelectorAll(selectorMenuSections).forEach(
-          (ddsLeftNavMenuSection) => {
-            (ddsLeftNavMenuSection as C4DLeftNavMenuSection).expanded = false;
-            (ddsLeftNavMenuSection as C4DLeftNavMenuSection).transition = false;
+          (c4dLeftNavMenuSection) => {
+            (c4dLeftNavMenuSection as C4DLeftNavMenuSection).expanded = false;
+            (c4dLeftNavMenuSection as C4DLeftNavMenuSection).transition = false;
           }
         );
 
         // reset to first menu section
         this.querySelectorAll(selectorFirstMenuSection).forEach(
-          (ddsLeftNavMenuSection) => {
-            (ddsLeftNavMenuSection as C4DLeftNavMenuSection).expanded = true;
+          (c4dLeftNavMenuSection) => {
+            (c4dLeftNavMenuSection as C4DLeftNavMenuSection).expanded = true;
           }
         );
 
@@ -349,7 +352,6 @@ class C4DLeftNav extends StableSelectorMixin(CDSSideNav) {
    */
   static get selectorNavItems() {
     return [
-      `${c4dPrefix}-left-nav-item`,
       `${c4dPrefix}-left-nav-menu`,
       `${c4dPrefix}-left-nav-menu-item`,
       `${c4dPrefix}-left-nav-name`,
@@ -383,7 +385,6 @@ class C4DLeftNav extends StableSelectorMixin(CDSSideNav) {
   static get selectorTabbable() {
     return [
       selectorTabbable,
-      `${c4dPrefix}-left-nav-item`,
       `${c4dPrefix}-left-nav-menu`,
       `${c4dPrefix}-left-nav-menu-item`,
       `${c4dPrefix}-left-nav-name`,

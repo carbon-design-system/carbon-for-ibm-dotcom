@@ -8,21 +8,36 @@
 @use '@carbon/styles/scss/breakpoint' as *;
 @use '@carbon/styles/scss/config' as *;
 @use '@carbon/styles/scss/motion' as *;
+@use '@carbon/styles/scss/reset' as *;
 @use '@carbon/styles/scss/spacing' as *;
 @use '@carbon/styles/scss/theme' as *;
 @use '@carbon/styles/scss/type' as *;
 @use '@carbon/styles/scss/utilities' as *;
+@use '@carbon/styles/scss/components/button/tokens' as *;
 @use '@carbon/styles/scss/components/tooltip/tooltip' as *;
 @use '@carbon/styles/scss/components/ui-shell/header' as *;
 @use '@carbon/styles/scss/components/ui-shell/side-nav' as *;
 @use '@carbon/ibmdotcom-styles/scss/components/masthead' as *;
+@use '@carbon/ibmdotcom-styles/scss/components/search-with-typeahead/' as *;
 @use '@carbon/ibmdotcom-styles/scss/globals/vars' as *;
+@use '@carbon/web-components/scss/components/tooltip/tooltip' as *;
+@use '@carbon/web-components/scss/components/ui-shell/header' as *;
+@use '@carbon/web-components/scss/components/ui-shell/side-nav' as *;
+@use '../cta/cta.scss' as *;
+
+// Magic Number: 799px matches masthead-composite's `layoutBreakpoint`.
+$breakpoint--desktop-nav: 799px;
+
+:host(#{$c4d-prefix}-masthead-container),
+#{$c4d-prefix}-masthead-container {
+  position: relative;
+}
 
 :host(#{$c4d-prefix}-masthead-menu-button) {
   // @extend :host(#{$prefix}-header-menu-button);
   position: relative;
-  width: mini-units(6);
-  height: mini-units(6);
+  width: $spacing-09;
+  height: $spacing-09;
 
   &[hide-menu-button] {
     @include breakpoint-down(md) {
@@ -41,8 +56,57 @@
   }
 }
 
+:host(#{$c4d-prefix}-masthead-button-cta) {
+  @extend :host(#{$c4d-prefix}-button-cta);
+
+  margin: 0;
+  padding-inline-end: 0;
+
+  &.console .#{$prefix}--btn--ghost {
+    border-left: 1px solid $button-separator;
+    color: $link-secondary;
+  }
+
+  &:first-of-type {
+    .#{$prefix}--btn--ghost::before {
+      @include breakpoint-up(800px) {
+        content: '';
+        display: block;
+        position: absolute;
+        left: 0;
+        top: 50%;
+        transform: translateY(-50%);
+        height: rem(24px);
+        width: rem(1px);
+        background-color: $button-separator;
+      }
+    }
+  }
+
+  .#{$prefix}--btn {
+    padding: calc(0.875rem - 3px) rem(15px);
+  }
+
+  .#{$prefix}--btn--ghost {
+    color: $link-primary;
+    @include type-style('body-short-02');
+
+    &:hover,
+    &:focus {
+      color: $link-secondary;
+    }
+  }
+}
+
+:host(#{$c4d-prefix}-masthead-global-bar)
+  ::slotted(#{$c4d-prefix}-masthead-button-cta) {
+  @include breakpoint-down('md') {
+    display: none;
+  }
+}
+
 :host(#{$c4d-prefix}-masthead-logo) {
-  // @extend :host(#{$prefix}-header-name);
+  @extend :host(#{$prefix}-header-name);
   @include masthead-logo;
 
   &[hasTooltip] {
@@ -70,11 +134,30 @@
 
 :host(#{$c4d-prefix}-top-nav-name) {
   outline: none;
+  position: relative;
   z-index: 1;
   background: $background;
 
   a.#{$prefix}--header__name {
     @include masthead-top-nav-name;
+
+    margin-left: 0;
+
+    @include breakpoint-down($breakpoint--desktop-nav) {
+      display: flex;
+      position: absolute;
+      top: 0;
+      left: 0;
+    }
+
+    @include breakpoint-up('lg') {
+      margin-left: 0;
+    }
+
+    @include breakpoint-up('xlg') {
+      margin-left: $spacing-05;
+      position: relative;
+    }
   }
 }
 
@@ -100,6 +183,18 @@
 :host(#{$c4d-prefix}-masthead-global-bar) {
   @extend .#{$prefix}--header__global;
 
+  background-color: $background;
+  flex: none;
+  z-index: 0;
+  display: flex;
+  height: 100%;
+
+  ::slotted(#{$c4d-prefix}-button-cta) {
+    @include breakpoint-down('md') {
+      display: none;
+    }
+  }
+
   &[has-search-active] {
     @include breakpoint-down(md) {
       display: none;
@@ -118,12 +213,15 @@
 }
 
 :host(#{$c4d-prefix}-masthead-profile),
+:host(#{$c4d-prefix}-masthead-contact),
 :host(#{$c4d-prefix}-cloud-masthead-profile) {
   background-color: $background;
   width: $spacing-09;
+
   a.#{$prefix}--header__menu-item {
     @include masthead-top-nav-link;
 
+    color: $icon-primary;
     justify-content: center;
     padding: 0;
   }
@@ -142,14 +240,14 @@
   display: none;
   background-color: $background;
 
-  @include breakpoint(800px) {
+  @include breakpoint-up($breakpoint--desktop-nav) {
     flex: 1;
     display: flex;
     align-items: stretch;
   }
 
   .#{$prefix}--header__nav {
-    @include breakpoint(800px) {
+    @include breakpoint-up($breakpoint--desktop-nav) {
       display: block;
       position: absolute;
     }
@@ -169,6 +267,7 @@
     bottom: 0;
     z-index: 1;
     position: relative;
+    background-color: $background;
   }
 
   .#{$prefix}--header__nav-caret-right-container {
@@ -201,43 +300,17 @@
   }
 }
 
-:host(#{$c4d-prefix}-top-nav)[cloud],
-:host(#{$c4d-prefix}-top-nav-l1)[cloud] {
-  @include breakpoint(800px) {
-    display: none;
-  }
-
-  @include breakpoint(960px) {
-    flex: 1;
-    display: flex;
-    align-items: stretch;
-  }
-
-  .#{$prefix}--header__nav {
-    @include breakpoint(800px) {
-      display: none;
-    }
-
-    @include breakpoint(960px) {
-      display: block;
-      position: absolute;
-    }
-  }
-}
-
 :host(#{$c4d-prefix}-top-nav-l1) {
   overflow: visible;
-}
-
-:host(#{$c4d-prefix}-top-nav-item) {
-  // @extend :host(#{$prefix}-header-nav-item);
 }
 
 :host(#{$c4d-prefix}-top-nav-menu),
 :host(#{$c4d-prefix}-megamenu-top-nav-menu),
 :host(#{$c4d-prefix}-masthead-profile),
+:host(#{$c4d-prefix}-masthead-contact),
 :host(#{$c4d-prefix}-cloud-masthead-profile) {
   // @extend :host(#{$prefix}-header-menu);
+  position: relative;
 
   .#{$prefix}--header__menu-title[aria-expanded='true'] {
     background-color: $layer-01;
@@ -247,12 +320,17 @@
 
 :host(#{$c4d-prefix}-top-nav-menu),
 :host(#{$c4d-prefix}-masthead-profile),
+:host(#{$c4d-prefix}-masthead-contact),
 :host(#{$c4d-prefix}-cloud-masthead-profile) {
   .#{$prefix}--header__menu-title[aria-expanded='true']
     + .#{$prefix}--header__menu {
     background-color: $background;
     box-shadow: 0 $spacing-01 6px 0 rgba(0, 0, 0, 0.3);
     bottom: -1px;
+
+    @include breakpoint-down('md') {
+      width: 100vw;
+    }
   }
 }
 
@@ -263,6 +341,7 @@
 
   a.#{$prefix}--header__menu-item {
     height: 100%;
+    background-color: transparent;
   }
 }
 
@@ -272,13 +351,16 @@
 :host(#{$c4d-prefix}-top-nav-menu-item),
 :host(#{$c4d-prefix}-masthead-profile-item) {
   .#{$prefix}--header__menu-arrow {
-    fill: $text-primary;
     width: 20px;
     height: 20px;
   }
 
   a.#{$prefix}--header__menu-item {
     @include masthead-top-nav-link;
+
+    svg {
+      fill: $icon-secondary;
+    }
 
     &:hover {
       color: $text-primary;
@@ -291,17 +373,17 @@
     + .#{$prefix}--header__menu {
     bottom: auto;
     height: auto;
-    max-height: calc(100vh - $spacing-09 - $spacing-10);
     min-height: 0;
   }
 }
 
 :host(#{$c4d-prefix}-left-nav) {
-  // @extend :host(#{$prefix}-side-nav);
+  @extend .#{$prefix}--side-nav;
+
   display: block;
   overflow: hidden;
-  margin-top: calc(#{mini-units(6)} + 1px);
-  height: calc(100% - #{mini-units(6)} - 1px);
+  margin-top: calc(#{$spacing-09} + 1px);
+  height: calc(100% - #{$spacing-09} - 1px);
   width: 16rem;
 
   @include breakpoint-down(md) {
@@ -356,29 +438,14 @@
   @include breakpoint(md) {
     display: block;
   }
-
-  @include breakpoint(800px) {
-    display: none;
-  }
-}
-
-:host(#{$c4d-prefix}-masthead-menu-button)[cloud],
-:host(#{$c4d-prefix}-left-nav)[cloud] {
-  @include breakpoint(md) {
-    display: block;
-  }
-
-  @include breakpoint(960px) {
-    display: none;
-  }
 }
 
 :host(#{$c4d-prefix}-left-nav-name) {
   .#{$prefix}--side-nav__submenu-platform {
     display: flex;
     align-items: center;
-    height: carbon--mini-units(6);
-    padding: 0 mini-units(2);
+    height: $spacing-09;
+    padding: 0 $spacing-05;
     border-bottom: 1px solid $border-strong-01;
     text-decoration: none;
     color: $text-primary;
@@ -392,20 +459,51 @@
   }
 }
 
-:host(#{$c4d-prefix}-left-nav-items) {
-  // @extend :host(#{$prefix}-side-nav-items);
-}
-
 :host(#{$c4d-prefix}-left-nav-item) {
-  // @extend :host(#{$prefix}-side-nav-link);
+  @extend :host(#{$prefix}-side-nav-link);
+
+  a.#{$prefix}--side-nav__link .#{$prefix}--side-nav__link-text {
+    color: $text-secondary;
+
+    &:hover,
+    &:focus {
+      color: $text-primary;
+    }
+  }
+
+  &:last-child {
+    a.#{$prefix}--side-nav__link .#{$prefix}--side-nav__link-text {
+      color: $link-primary;
+
+      &:hover,
+      &:focus {
+        color: $link-secondary;
+      }
+    }
+  }
 }
 
-:host(#{$c4d-prefix}-left-nav-menu) {
-  // @extend :host(#{$prefix}-side-nav-menu);
+:host(#{$c4d-prefix}-left-nav-menu-item),
+:host(#{$c4d-prefix}-left-nav-cta-item) {
+  @extend :host(#{$prefix}-side-nav-menu-item);
 }
 
-:host(#{$c4d-prefix}-left-nav-menu-item) {
-  // @extend :host(#{$prefix}-side-nav-menu-item);
+:host(#{$c4d-prefix}-left-nav-cta-item) {
+  @include breakpoint-up(md) {
+    display: none;
+  }
+
+  a.#{$prefix}--side-nav__link .#{$prefix}--side-nav__link-text {
+    @include type-style(body-short-02, true);
+
+    color: $link-primary;
+    display: flex;
+    justify-content: space-between;
+
+    > svg {
+      flex-shrink: 0;
+    }
+  }
 }
 
 :host(#{$c4d-prefix}-left-nav-item-highlighted) a.#{$prefix}--side-nav__link,
@@ -417,7 +515,7 @@
   flex-direction: column;
   justify-content: center;
   padding-left: $spacing-05;
-  height: carbon--mini-units(6);
+  height: $spacing-09;
   width: 100%;
 }
 
@@ -438,7 +536,7 @@
   a.#{$prefix}--side-nav__link,
   .#{$prefix}--side-nav__submenu .#{$prefix}--side-nav__submenu-content {
     height: auto;
-    min-height: carbon--mini-units(6);
+    min-height: $spacing-09;
   }
 
   .#{$prefix}--side-nav__submenu-title,
@@ -464,31 +562,23 @@
   left: 0;
   z-index: calc(#{z('header')} - 1);
   clip-path: polygon(
-      mini-units(6) 0,
+      $spacing-09 0,
       100% 0,
       100% 100%,
       0 100%,
-      0 calc(#{mini-units(6)} + 1px),
-      mini-units(6) calc(#{mini-units(6)} + 1px)
+      0 calc(#{$spacing-09} + 1px),
+      $spacing-09 calc(#{$spacing-09} + 1px)
     )
-    #{'/*!rtl:polygon(0 0, calc(100% - ' + mini-units(6) + ') 0, calc(100% - ' +
-    mini-units(6) + ') calc(' + mini-units(6) + ' + 1px), 100% calc(' +
-    mini-units(6) + ' + 1px), 100% 100%, 0 100%)*/'};
+    #{'/*!rtl:polygon(0 0, calc(100% - ' + $spacing-09 + ') 0, calc(100% - ' +
+    $spacing-09 + ') calc(' + $spacing-09 + ' + 1px), 100% calc(' + $spacing-09 +
+    ' + 1px), 100% 100%, 0 100%)*/'};
 }
 
 :host(#{$c4d-prefix}-left-nav-overlay) {
   // @extend .#{$prefix}--side-nav__overlay;
 
   &[active] {
-    @include breakpoint-down(800px) {
-      @include left-nav-overlay;
-    }
-  }
-}
-
-:host(#{$c4d-prefix}-left-nav-overlay)[cloud] {
-  &[active] {
-    @include breakpoint-down(960px) {
+    @include breakpoint-down($breakpoint--desktop-nav) {
       @include left-nav-overlay;
     }
   }
@@ -497,9 +587,9 @@
 :host(#{$c4d-prefix}-left-nav-overlay[dir='rtl']) {
   clip-path: polygon(
     0 0,
-    calc(100% - #{mini-units(6)}) 0,
-    calc(100% - #{mini-units(6)}) calc(#{mini-units(6)} + 1px),
-    100% calc(#{mini-units(6)} + 1px),
+    calc(100% - #{$spacing-09}) 0,
+    calc(100% - #{$spacing-09}) calc(#{$spacing-09} + 1px),
+    100% calc(#{$spacing-09} + 1px),
     100% 100%,
     0 100%
   );
@@ -513,4 +603,217 @@
 :host(#{$c4d-prefix}-masthead-search-composite),
 :host(#{$c4d-prefix}-masthead-search-container) {
   display: contents;
+}
+
+:host(#{$c4d-prefix}-megamenu),
+.#{$prefix}--masthead__megamenu {
+  position: relative;
+
+  &[overflowing]::after {
+    content: '';
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    height: rem(48px);
+    background: linear-gradient(transparent, $background);
+    pointer-events: none;
+  }
+
+  .#{$prefix}--masthead__megamenu__container {
+    width: 100%;
+    height: 100%;
+    overflow-x: hidden;
+  }
+}
+
+:host(#{$c4d-prefix}-megamenu[layout='tab']) {
+  ::slotted(#{$c4d-prefix}-megamenu-left-navigation) {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+  }
+}
+
+:host(#{$c4d-prefix}-megamenu-tabs) {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: $spacing-05;
+
+  .#{$prefix}--tabs-trigger {
+    display: none;
+  }
+}
+
+:host(#{$c4d-prefix}-megamenu-tab) {
+  outline: 0;
+
+  button {
+    @include type-style(body-long-01);
+
+    color: $text-secondary;
+    width: 100%;
+    border: none;
+    text-align: left;
+    padding: rem(6px) $spacing-05;
+    background-color: $background;
+    cursor: pointer;
+
+    &:hover,
+    &:focus {
+      color: $text-primary;
+    }
+
+    &:hover {
+      background-color: $background-hover;
+    }
+
+    &:focus {
+      outline: rem(2px) solid $focus;
+      outline-offset: rem(-2px);
+    }
+  }
+}
+
+:host(#{$c4d-prefix}-megamenu-tab)[selected] button {
+  background-color: $background-selected;
+  color: $text-primary;
+}
+
+:host(#{$c4d-prefix}-megamenu-category-link-group) {
+  display: flex;
+  flex-flow: wrap;
+  justify-content: flex-start;
+}
+
+:host(#{$c4d-prefix}-megamenu-category-link) {
+  a:has([part='link-heading']) {
+    padding: $spacing-04 $spacing-05;
+    height: 100%;
+
+    > span {
+      display: block;
+      max-width: rem(272px);
+    }
+
+    &:active,
+    &:hover {
+      svg {
+        fill: $icon-primary;
+      }
+    }
+  }
+
+  [part='link-heading'] {
+    @include type-style('expressive-heading-01');
+
+    svg {
+      margin-inline-start: $spacing-03;
+      padding-block-start: $spacing-01;
+      /* shrink SVG with padding to match font-size */
+    }
+  }
+}
+
+:host(#{$c4d-prefix}-megamenu-heading),
+:host(#{$c4d-prefix}-megamenu-category-heading) {
+  display: block;
+  padding: 0 $spacing-05;
+
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    display: inline-block;
+    color: $text-primary;
+    margin-block: 0;
+
+    a {
+      color: inherit;
+      text-decoration: none;
+      align-self: center;
+      display: flex;
+
+      &:hover {
+        text-decoration: underline;
+      }
+
+      &:focus {
+        outline: rem(2px) solid $focus;
+        outline-offset: rem(-2px);
+      }
+    }
+
+    svg {
+      position: relative;
+      margin: 0 $spacing-03;
+      fill: $icon-primary;
+      flex-shrink: 0;
+
+      /* stylelint-disable-next-line comment-whitespace-inside */
+      /*!rtl:raw:
+        transform: scaleX(-1);
+        */
+    }
+
+    &[data-has-href]:active,
+    &[data-has-href]:hover {
+      a,
+      ~ span {
+        color: $text-primary;
+      }
+
+      svg {
+        fill: $icon-primary;
+      }
+    }
+  }
+
+  > span {
+    @include type-style(body-short-01);
+
+    display: block;
+    margin-top: $spacing-03;
+    color: $text-secondary;
+
+    &[data-has-content] {
+      margin-bottom: $spacing-06;
+    }
+  }
+}
+
+:host(#{$c4d-prefix}-megamenu-heading) {
+  margin-bottom: $spacing-06;
+
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    @include type-style(heading-05, true);
+
+    svg {
+      top: $spacing-03;
+    }
+  }
+}
+
+:host(#{$c4d-prefix}-megamenu-category-heading) {
+  margin-bottom: $spacing-05;
+
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    @include type-style(heading-03, true);
+
+    svg {
+      top: $spacing-02;
+    }
+  }
+}
+
+:host(#{$c4d-prefix}-megamenu-category-heading.has-content) {
+  margin-bottom: $spacing-06;
 }
