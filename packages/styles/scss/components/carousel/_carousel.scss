@@ -147,7 +147,7 @@
     margin: 0;
     padding: 0;
     max-inline-size: 100%;
-    block-size: 100%;
+    inline-size: 100%;
 
     .#{$prefix}--carousel__scroll-container {
       margin: 0;
