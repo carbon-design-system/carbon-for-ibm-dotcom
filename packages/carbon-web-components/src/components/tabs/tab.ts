@@ -7,7 +7,7 @@
  * LICENSE file in the root directory of this source tree.
  */
 
-import { html, property, state } from 'lit-element';
+import { html, property } from 'lit-element';
 import settings from 'carbon-components/es/globals/js/settings';
 import BXContentSwitcherItem from '../content-switcher/content-switcher-item';
 import { TABS_TYPE } from './tabs';
