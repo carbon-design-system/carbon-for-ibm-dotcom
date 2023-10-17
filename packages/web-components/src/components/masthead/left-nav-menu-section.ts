@@ -11,8 +11,7 @@ import { LitElement, html } from 'lit';
 import { property } from 'lit/decorators.js';
 import HostListener from '../../internal/vendor/@carbon/web-components/globals/decorators/host-listener.js';
 import HostListenerMixin from '../../internal/vendor/@carbon/web-components/globals/mixins/host-listener.js';
-import ChevronLeft20 from '../../internal/vendor/@carbon/web-components/icons/chevron--left/20.js';
-import ArrowRight20 from '../../internal/vendor/@carbon/web-components/icons/arrow--right/20.js';
+import ChevronLeft16 from '../../internal/vendor/@carbon/web-components/icons/chevron--left/16.js';
 import FocusMixin from '../../internal/vendor/@carbon/web-components/globals/mixins/focus.js';
 import { selectorTabbable } from '../../internal/vendor/@carbon/web-components/globals/settings.js';
 import settings from '../../internal/vendor/@carbon/ibmdotcom-utilities/utilities/settings/settings';
@@ -265,8 +264,6 @@ class C4DLeftNavMenuSection extends HostListenerMixin(FocusMixin(LitElement)) {
   render() {
     const {
       backButtonText,
-      title,
-      titleUrl,
       _handleClickBack: handleClickBack,
       showBackBtn,
     } = this;
@@ -282,30 +279,10 @@ class C4DLeftNavMenuSection extends HostListenerMixin(FocusMixin(LitElement)) {
                   tabindex="-1"
                   @click="${handleClickBack}">
                   <span class="${prefix}--side-nav__link-text"
-                    >${ChevronLeft20()}${backButtonText}</span
+                    >${ChevronLeft16()}${backButtonText}</span
                   >
                 </button>
               </li>
-            `
-          : undefined}
-        ${title && !titleUrl
-          ? html`
-              <li class="${prefix}--masthead__side-nav--submemu-title">
-                ${title}
-              </li>
-            `
-          : undefined}
-        ${title && titleUrl
-          ? html`
-              <a
-                class="${prefix}--masthead__side-nav--submemu-title"
-                href=${titleUrl}>
-                <span>${title}</span>
-                <div
-                  class="${prefix}--masthead__side-nav--submemu-section-title__icon">
-                  ${ArrowRight20()}
-                </div>
-              </a>
             `
           : undefined}
         <slot></slot>
@@ -340,7 +317,6 @@ class C4DLeftNavMenuSection extends HostListenerMixin(FocusMixin(LitElement)) {
   static get selectorTabbable() {
     return [
       selectorTabbable,
-      `${c4dPrefix}-left-nav-item`,
       `${c4dPrefix}-left-nav-menu`,
       `${c4dPrefix}-left-nav-menu-item`,
     ].join(',');

@@ -10,4 +10,4 @@
 import './content-block-horizontal';
 import '../content-block/content-block-heading';
 import '../content-block/content-block-complementary';
-import '../content-item-horizontal/index';
+import '../content-item-row/index';

@@ -12,9 +12,9 @@ import { render } from 'react-dom';
 import C4DContentBlockHorizontal from '@carbon/ibmdotcom-web-components/es/components-react/content-block-horizontal/content-block-horizontal';
 import C4DContentBlockHeading from '@carbon/ibmdotcom-web-components/es/components-react/content-block/content-block-heading';
 import C4DContentItemHeading from '@carbon/ibmdotcom-web-components/es/components-react/content-item/content-item-heading';
-import C4DContentItemHorizontal from '@carbon/ibmdotcom-web-components/es/components-react/content-item-horizontal/content-item-horizontal';
-import C4DContentItemHorizontalEyebrow from '@carbon/ibmdotcom-web-components/es/components-react/content-item-horizontal/content-item-horizontal-eyebrow';
-import C4DContentItemHorizontalCopy from '@carbon/ibmdotcom-web-components/es/components-react/content-item-horizontal/content-item-horizontal-copy';
+import C4DContentItemRow from '@carbon/ibmdotcom-web-components/es/components-react/content-item-row/content-item-row';
+import C4DContentItemRowEyebrow from '@carbon/ibmdotcom-web-components/es/components-react/content-item-row/content-item-row-eyebrow';
+import C4DContentItemRowCopy from '@carbon/ibmdotcom-web-components/es/components-react/content-item-row/content-item-row-copy';
 
 import C4DLinkList from '@carbon/ibmdotcom-web-components/es/components-react/link-list/link-list';
 import C4DLinkListItemCTA from '@carbon/ibmdotcom-web-components/es/components-react/cta/link-list-item-cta';
@@ -24,10 +24,10 @@ import './index.css';
 const App = () => (
   <C4DContentBlockHorizontal>
     <C4DContentBlockHeading>Lorem ipsum dolor sit amet</C4DContentBlockHeading>
-    <C4DContentItemHorizontal>
-      <C4DContentItemHorizontalEyebrow>Lorem ipsum</C4DContentItemHorizontalEyebrow>
+    <C4DContentItemRow>
+      <C4DContentItemRowEyebrow>Lorem ipsum</C4DContentItemRowEyebrow>
       <C4DContentItemHeading>Aliquam condimentum</C4DContentItemHeading>
-      <C4DContentItemHorizontalCopy>Lorem ipsum dolor sit amet</C4DContentItemHorizontalCopy>
+      <C4DContentItemRowCopy>Lorem ipsum dolor sit amet</C4DContentItemRowCopy>
       <C4DLinkList slot="footer" type="vertical">
         <C4DLinkListItemCTA icon-placement="right" href="https://www.ibm.com" cta-type="local">
           Link text
@@ -36,7 +36,7 @@ const App = () => (
           External link text
         </C4DLinkListItemCTA>
       </C4DLinkList>
-    </C4DContentItemHorizontal>
+    </C4DContentItemRow>
   </C4DContentBlockHorizontal>
 );
 
