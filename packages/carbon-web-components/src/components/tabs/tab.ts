@@ -7,7 +7,7 @@
  * LICENSE file in the root directory of this source tree.
  */
 
-import { html, property } from 'lit-element';
+import { html, property, state } from 'lit-element';
 import settings from 'carbon-components/es/globals/js/settings';
 import BXContentSwitcherItem from '../content-switcher/content-switcher-item';
 import { TABS_TYPE } from './tabs';
@@ -38,6 +38,21 @@ class BXTab extends BXContentSwitcherItem {
   @property({ reflect: true })
   type = TABS_TYPE.REGULAR;
 
+  /**
+   * The tab text content.
+   */
+  @property()
+  tabTitle;
+
+  /**
+   * Handles `slotchange` event.
+   */
+  protected _handleSlotChange({ target }: Event) {
+    // Retrieve content of the slot to use for aria-label.
+    let content = (target as HTMLSlotElement).assignedNodes();
+    this.tabTitle = content[0].textContent;
+  }
+
   connectedCallback() {
     if (!this.hasAttribute('role')) {
       this.setAttribute('role', 'listitem');
@@ -46,16 +61,22 @@ class BXTab extends BXContentSwitcherItem {
   }
 
   render() {
-    const { disabled, selected } = this;
+    const {
+      disabled,
+      selected,
+      tabTitle,
+      _handleSlotChange: handleSlotChange,
+    } = this;
     // No `href`/`tabindex` to not to make this `<a>` click-focusable
     return html`
       <a
         class="${prefix}--tabs__nav-link"
         role="tab"
+        aria-label="${tabTitle}"
         tabindex="${disabled ? -1 : 0}"
         ?disabled="${disabled}"
         aria-selected="${Boolean(selected)}">
-        <slot></slot>
+        <slot @slotchange="${handleSlotChange}"></slot>
       </a>
     `;
   }
