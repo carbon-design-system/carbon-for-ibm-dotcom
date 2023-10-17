@@ -8,6 +8,7 @@
  */
 
 import { LitElement, html } from 'lit';
+import { property } from 'lit/decorators.js';
 import { state } from 'lit/decorators.js';
 import settings from '../../internal/vendor/@carbon/ibmdotcom-utilities/utilities/settings/settings';
 import '../horizontal-rule/horizontal-rule';
@@ -36,6 +37,12 @@ class C4DLeadSpaceBlock extends StableSelectorMixin(LitElement) {
    */
   @state()
   protected _hasTitle = false;
+
+  /**
+   * `true` if there is a border.
+   */
+  @property({ type: Boolean })
+  border = false;
 
   /**
    * Handles `slotchange` event.
@@ -71,7 +78,7 @@ class C4DLeadSpaceBlock extends StableSelectorMixin(LitElement) {
         ${this._renderHeading()}
         <div class="${prefix}--content-layout__body">
           <slot></slot>
-          <c4d-hr></c4d-hr>
+          ${this.border ? html`<c4d-hr></c4d-hr>` : ``}
         </div>
       </div>
     `;
