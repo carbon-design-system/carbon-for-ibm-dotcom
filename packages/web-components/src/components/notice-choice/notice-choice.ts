@@ -197,6 +197,8 @@ class NoticeChoice extends StableSelectorMixin(LitElement) {
     if (this.ncData?.mandatoryCheckbox[this.country?.toLocaleLowerCase()]) {
       this.preventFormSubmission = true;
       this._onChange('preventFormSubmission', 'formSubmissionNo');
+    } else {
+      this._onChange('preventFormSubmission', 'formSubmissionYes');
     }
     /**
      * @description if the user already interacted with the checkboxes,
