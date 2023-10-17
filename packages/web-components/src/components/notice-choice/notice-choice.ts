@@ -521,7 +521,11 @@ class NoticeChoice extends StableSelectorMixin(LitElement) {
     }
   }
   render() {
-    if (this.isMandatoryCheckboxDisplayed.isDisplayed && this.country.toLocaleLowerCase() !== this.isMandatoryCheckboxDisplayed.countryCode ) {
+    if (
+      this.isMandatoryCheckboxDisplayed.isDisplayed &&
+      this.country.toLocaleLowerCase() !==
+        this.isMandatoryCheckboxDisplayed.countryCode
+    ) {
       const countryBasedText = specialCountryBasedText(
         this.isMandatoryCheckboxDisplayed.countryCode
       );
