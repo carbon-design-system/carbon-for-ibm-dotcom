@@ -116,6 +116,7 @@ class CDSModal extends HostListenerMixin(LitElement) {
       _startSentinelNode: startSentinelNode,
       _endSentinelNode: endSentinelNode,
     } = this;
+    const oldContains = target !== this && this.contains(target as Node);
     const currentContains =
       relatedTarget !== this &&
       (this.contains(relatedTarget as Node) ||
@@ -128,32 +129,24 @@ class CDSModal extends HostListenerMixin(LitElement) {
     // * Modal body used to have focus but no longer has focus
     const { selectorTabbable: selectorTabbableForModal } = this
       .constructor as typeof CDSModal;
-    if (open && relatedTarget && !currentContains) {
+    if (open && relatedTarget && oldContains && !currentContains) {
       const comparisonResult = (target as Node).compareDocumentPosition(
         relatedTarget as Node
       );
       // eslint-disable-next-line no-bitwise
-      if (relatedTarget === startSentinelNode || comparisonResult & PRECEDING) {
-        await (this.constructor as typeof CDSModal)._delay();
-        if (
-          !tryFocusElems(
-            this.querySelectorAll(selectorTabbableForModal),
-            true
-          ) &&
-          relatedTarget !== this
-        ) {
-          this.focus();
-        }
-      }
-      // eslint-disable-next-line no-bitwise
-      else if (
-        relatedTarget === endSentinelNode ||
-        comparisonResult & FOLLOWING
-      ) {
+      if (relatedTarget === endSentinelNode || comparisonResult & FOLLOWING) {
         await (this.constructor as typeof CDSModal)._delay();
         if (!tryFocusElems(this.querySelectorAll(selectorTabbableForModal))) {
           this.focus();
         }
+      }
+    } else if (open && relatedTarget === startSentinelNode) {
+      await (this.constructor as typeof CDSModal)._delay();
+      if (
+        !tryFocusElems(this.querySelectorAll(selectorTabbableForModal), true) &&
+        relatedTarget !== this
+      ) {
+        this.focus();
       }
     }
   };
