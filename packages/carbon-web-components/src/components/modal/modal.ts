@@ -140,7 +140,7 @@ class CDSModal extends HostListenerMixin(LitElement) {
           this.focus();
         }
       }
-    } else if (open && relatedTarget === startSentinelNode) {
+    } else if (open && relatedTarget === startSentinelNode && PRECEDING) {
       await (this.constructor as typeof CDSModal)._delay();
       if (
         !tryFocusElems(this.querySelectorAll(selectorTabbableForModal), true) &&
