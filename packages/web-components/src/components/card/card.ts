@@ -339,6 +339,12 @@ class C4DCard extends CTAMixin(StableSelectorMixin(CDSLink)) {
       const heading = this.querySelector(`${c4dPrefix}-card-heading`);
       const footer = this.querySelector(`${c4dPrefix}-card-footer`);
 
+      if (heading === null) {
+        const cardHeading = document.createElement(`${c4dPrefix}-card-heading`);
+        cardHeading.setAttribute('slot', 'heading');
+        this?.appendChild(cardHeading);
+      }
+
       if (heading?.textContent?.trim() === '') {
         const title = document.createTextNode(this.videoTitle);
         heading?.appendChild(title);
