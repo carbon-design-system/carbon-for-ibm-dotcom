@@ -17,7 +17,7 @@ For Carbon v11 migration guidance, see their
 | ------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------- |
 | back-to-top               | No API changes.                                                                                                                                |
 | background-media          | No API changes.                                                                                                                                |
-| button                    | This component is deprecated in v2 in favor for Carbon's core Button                                                                           |
+| button                    | This component is deprecated in v2 in favor for `button-expressive`                                                                      |
 | button-group              | No API changes.                                                                                                                                |
 | callout-with-media        | View changes [here](#callout-with-media)                                                                                                       |
 | callout-quote             | View changes [here](#callout-quote)                                                                                                            |
@@ -46,11 +46,13 @@ For Carbon v11 migration guidance, see their
 | feature-card-block-large  | This component is deprecated in v1 and has been removed in v2 in favor of the feature-card component.                                          |
 | feature-card-block-medium | This component is deprecated in v1 and has been removed in v2 in favor of the feature-card component.                                          |
 | feature-section           | View changes [here](#feature-section)                                                                                                          |
+| filter-panel              | View changes [here](#filter-panel)                                                                                                             |
 | footer                    | No API changes.                                                                                                                                |
 | hr                        | View changes [here](#horizontal-rule)                                                                                                          |
 | image                     | View changes [here](#image)                                                                                                                    |
 | image-with-caption        | This component is deprecated in v1 and has been removed in v2 in favor of the image component                                                  |
 | leadspace                 | View changes [here](#leadspace)                                                                                                                |
+| leadspace-block                 | View changes [here](#leadspace-block)                                                                                                                |
 | leadspace-with-search     | View changes [here](#leadspace-with-search)                                                                                                    |
 | link-list-section         | This component is deprecated in v2 in favor for content-section/block & link-list end of section variant components                            |
 | link-with-icon            | No API changes.                                                                                                                                |
@@ -109,6 +111,10 @@ information.
 - `media-alignment` property has been removed
 - `color-scheme` property now accepts `regular` (default), `inverse`, `cyan`, `purple`
 
+### Filter panel
+
+- `filter-group-item` property `title-text` has been updated to `title`
+
 ### Horizontal rule
 
 - New options for `contrast` property: `SUBTLE = 'subtle' (default)`,
@@ -122,6 +128,11 @@ information.
 ### Leadspace
 
 - New `highlight` and `type-style` attributes for `leadspace-heading`
+
+### Leadspace
+
+- Deprecated `leadspace-block-heading` in favor for `leadspace-heading`
+- Removed `leadspace-block-cta` in favor for `button`
 
 ### Leadspace with Search
 
