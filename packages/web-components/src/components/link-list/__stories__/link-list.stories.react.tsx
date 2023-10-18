@@ -17,13 +17,9 @@ import C4DLinkList from '@carbon/ibmdotcom-web-components/es/components-react/li
 // @ts-ignore
 import C4DLinkListHeading from '@carbon/ibmdotcom-web-components/es/components-react/link-list/link-list-heading';
 // @ts-ignore
-import C4DLinkListItemCard from '@carbon/ibmdotcom-web-components/es/components-react/link-list/link-list-item-card';
-// @ts-ignore
 import C4DLinkListItem from '@carbon/ibmdotcom-web-components/es/components-react/link-list/link-list-item';
 // @ts-ignore
 import C4DLinkListItemCTA from '@carbon/ibmdotcom-web-components/es/components-react/cta/link-list-item-cta';
-// @ts-ignore
-import C4DLinkListItemCardCTA from '@carbon/ibmdotcom-web-components/es/components-react/cta/link-list-item-card-cta';
 // @ts-ignore
 import C4DVideoCTAContainer from '@carbon/ibmdotcom-web-components/es/components-react/cta/video-cta-container';
 // @ts-ignore
@@ -69,36 +65,34 @@ export const Default = (args) => {
   return !ctaType ? (
     <C4DLinkList type="default">
       <C4DLinkListHeading>Tutorial</C4DLinkListHeading>
-      <C4DLinkListItemCard href="https://example.com">
-        <p>Learn more about Kubernetes</p>
-        <C4DCardFooter>
-          <ArrowRight20 slot="icon" />
-        </C4DCardFooter>
-      </C4DLinkListItemCard>
-      <C4DLinkListItemCard href="https://example.com">
-        <p>Containerization A Complete Guide</p>
-        <C4DCardFooter>
-          <ArrowRight20 slot="icon" />
-        </C4DCardFooter>
-      </C4DLinkListItemCard>
+      <C4DLinkListItem href="https://example.com" type="default">
+        <p>
+          Learn more about Kubernetes <ArrowRight20 slot="icon" />
+        </p>
+      </C4DLinkListItem>
+      <C4DLinkListItem href="https://example.com" type="default">
+        <p>
+          Containerization A Complete Guide <ArrowRight20 slot="icon" />
+        </p>
+      </C4DLinkListItem>
     </C4DLinkList>
   ) : (
     <C4DLinkList type="default">
       <C4DLinkListHeading>Tutorial</C4DLinkListHeading>
-      <C4DLinkListItemCardCTA
+      <C4DLinkListItemCTA
         href={href}
         cta-type={ctaType}
-        download={download}>
+        download={download}
+        type="default">
         {ctaType !== CTA_TYPE.VIDEO && <p>Learn more about Kubernetes</p>}
-        <C4DCardCTAFooter />
-      </C4DLinkListItemCardCTA>
-      <C4DLinkListItemCardCTA
+      </C4DLinkListItemCTA>
+      <C4DLinkListItemCTA
         href={href}
         cta-type={ctaType}
-        download={download}>
+        download={download}
+        type="default">
         {ctaType !== CTA_TYPE.VIDEO && <p>Containerization A Complete Guide</p>}
-        <C4DCardCTAFooter />
-      </C4DLinkListItemCardCTA>
+      </C4DLinkListItemCTA>
     </C4DLinkList>
   );
 };

@@ -52,7 +52,7 @@ For Carbon v11 migration guidance, see their
 | image-with-caption        | This component is deprecated in v1 and has been removed in v2 in favor of the image component                                                  |
 | leadspace                 | View changes [here](#leadspace)                                                                                                                |
 | leadspace-with-search     | View changes [here](#leadspace-with-search)                                                                                                    |
-| link-list                 | No API changes.                                                                                                                                |
+| link-list                 | View changes [here](#link-list) changes.                                                                                                                                |
 | link-list-section         | This component is deprecated in v2 in favor for content-section/block & link-list end of section variant components                            |
 | link-with-icon            | No API changes.                                                                                                                                |
 | logo-grid                 | This component is deprecated in v2 in favor for content-section/block & image-group components                                                 |
@@ -132,6 +132,12 @@ information.
 - Deprecated background-media image variant
 - Removed `<dds-leadspace-with-search-heading>`, `<dds-leadspace-with-search-content>`,
 `<dds-leadspace-with-search-content-heading>`, `<dds-leadspace-with-search-content-copy>`
+
+### Link list
+
+- The `default` section has taken the design specs of `end of section`. As a result, `end of section` has been removed. In addition to this, the following components have been replaced:
+- `dds-link-list-item-card` is now `dds-link-list-item`
+- `dds-link-list-item-card-cta` is `dds-link-list-item-cta`
 
 ### Universal banner
 
