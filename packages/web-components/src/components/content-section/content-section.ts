@@ -58,7 +58,7 @@ class C4DContentSection extends StableSelectorMixin(LitElement) {
 
   render() {
     return html`
-      <div class="${prefix}--content-section ${prefix}--content-section-layout">
+      <div class="${prefix}--content-section-layout">
         <div class="${prefix}--content-section__leading">
           <slot name="heading"></slot>
           <slot name="copy"></slot>
@@ -67,6 +67,7 @@ class C4DContentSection extends StableSelectorMixin(LitElement) {
         <div
           class="${prefix}--content-section__body ${this.childrenCustomClass}">
           <slot @slotchange="${this.handleSlotChange}"></slot>
+          <slot name="cta"></slot>
         </div>
       </div>
     `;

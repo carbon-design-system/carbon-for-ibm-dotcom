@@ -20,8 +20,21 @@
 }
 
 @mixin content-section {
-  :host(#{$c4d-prefix}-link-list-section),
-  .#{$prefix}--content-section {
+
+  :host(#{$c4d-prefix}-content-section) {
+    margin: $spacing-10 0;
+
+    ::slotted([slot='cta']) {
+      padding-bottom: $spacing-12;
+
+      @include breakpoint(md) {
+        width: 50%;
+      }
+    }
+  }
+
+
+  :host(#{$c4d-prefix}-link-list-section) {
     padding-top: $spacing-09;
     padding-bottom: $spacing-10;
   }

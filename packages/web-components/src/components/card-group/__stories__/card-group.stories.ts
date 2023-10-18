@@ -335,7 +335,7 @@ export const Default = (args) => {
     }
   }
 
-  const colCount = cardsPerRow[cardsPerRow.length - 1];
+  const colCount = `c4d-ce-demo-devenv--cards-in-row-3`;
 
   return html`
     <c4d-card-group

@@ -183,7 +183,7 @@ Default.story = {
 
 export const Pictogram = (args) => {
   const { href, heading, copy, tagGroup, pictogramPlacement, cardStyles } =
-    args?.PictogramCard ?? {};
+    args?.CardPictogram ?? {};
 
   const copyComponent = document.querySelector('c4d-card')?.querySelector('p');
   if (copyComponent) {
@@ -224,7 +224,7 @@ Pictogram.story = {
   parameters: {
     ...readme.parameters,
     knobs: {
-      PictogramCard: () => {
+      CardPictogram: () => {
         const pictogramPlacement = select(
           'Pictogram position:',
           pictogramPlacements,
@@ -257,7 +257,7 @@ Pictogram.story = {
     },
     propsSet: {
       default: {
-        PictogramCard: {
+        CardPictogram: {
           pictogramPlacement: 'top',
           heading: 'Aerospace and defence',
           copy: `Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.

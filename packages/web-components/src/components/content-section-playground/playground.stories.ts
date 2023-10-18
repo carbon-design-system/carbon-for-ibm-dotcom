@@ -167,6 +167,94 @@ export const Default = (args) => {
   `;
 };
 
+export const SpacingTest = () => {
+  return html`
+    <c4d-content-section>
+      <c4d-content-section-heading>Heading</c4d-content-section-heading>
+      <c4d-card-group>
+        ${card1}${card2}${card1}${card2}${card1}${card2}
+      </c4d-card-group>
+    </c4d-content-section>
+
+    <c4d-content-section>
+      <c4d-content-section-heading>Heading</c4d-content-section-heading>
+      <c4d-content-block>
+        <c4d-content-block-heading>This is an example heading</c4d-content-block-heading>
+        <c4d-content-block-copy>With an example copy this is really long and it keeps going so that the copy looks more realistic</c4d-content-block-copy>
+        <c4d-card-group>
+          ${card1}${card2}${card1}${card2}${card1}${card2}
+        </c4d-card-group>
+      </c4d-content-block>
+      <c4d-cta
+      slot="cta"
+      cta-type="local"
+      cta-style="card"
+      href="https://example.com">
+      <c4d-card-heading>Lorem ipsum dolor</c4d-card-heading>
+      <c4d-card-footer></c4d-card-footer>
+    </c4d-cta>
+    </c4d-content-section>    
+
+    <c4d-content-section>
+      <c4d-content-section-heading>Heading</c4d-content-section-heading>
+      <c4d-content-block>
+        <c4d-content-block-heading>This is an example heading</c4d-content-block-heading>
+        <c4d-content-block-copy>With an example copy this is really long and it keeps going so that the copy looks more realistic</c4d-content-block-copy>
+        <c4d-image
+          slot="media"
+          alt="Image alt text"
+          default-src="https://fpoimg.com/672x378?text=16:9&amp;bg_color=ee5396&amp;text_color=161616"
+          heading="Mauris iaculis eget dolor nec hendrerit.">
+        </c4d-image>
+        
+        <c4d-card-link-cta
+          slot="footer"
+          cta-type="local"
+          href="https://example.com">
+          <c4d-card-link-heading>Lorem ipsum dolor</c4d-card-link-heading>
+          <c4d-card-cta-footer></c4d-card-cta-footer>
+        </c4d-card-link-cta>
+      </c4d-content-block>
+    </c4d-content-section>
+
+    <c4d-content-section>
+      <c4d-content-section-heading>Heading</c4d-content-section-heading>
+      <c4d-image
+        alt="Image alt text"
+        default-src="${imgLg16x9}"
+        heading="Mauris iaculis eget dolor nec hendrerit.">
+        <c4d-image-item media="(min-width: 672px)" srcset="${imgLg16x9}">
+        </c4d-image-item>
+        <c4d-image-item media="(min-width: 400px)" srcset="${imgMd16x9}">
+        </c4d-image-item>
+        <c4d-image-item media="(min-width: 320px)" srcset="${imgSm16x9}">
+        </c4d-image-item>
+      </c4d-image>
+      <c4d-content-item>
+        <c4d-content-item-heading>Heading</c4d-content-item-heading>
+        <c4d-content-item-copy>Copy</c4d-content-item-copy>
+        <c4d-text-cta
+          slot="footer"
+          cta-type="local"
+          href="https://www.example.com">
+          CTA text</c4d-text-cta
+        >
+      </c4d-content-item>
+
+      <c4d-feature-card href="https://example.com">
+        <c4d-image
+          slot="image"
+          alt="Image alt text"
+          default-src="${imgLg16x9}"></c4d-image>
+        <c4d-card-heading>Heading</c4d-card-heading>
+        <c4d-feature-card-footer>
+          ${ArrowRight20({ slot: 'icon' })}
+        </c4d-feature-card-footer>
+      </c4d-feature-card>
+    </c4d-content-section>
+  `;
+};
+
 export const MultipleContentSections = () => {
   return html`
     <c4d-content-section>
