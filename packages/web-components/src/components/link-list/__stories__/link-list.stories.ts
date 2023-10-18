@@ -16,7 +16,6 @@ import { CTA_TYPE } from '../../cta/defs';
 import { ICON_PLACEMENT } from '../../link-with-icon/link-with-icon';
 import '../../cta/video-cta-container';
 import '../../cta/link-list-item-cta';
-import '../../cta/link-list-item-card-cta';
 import '../../card/card-footer';
 import '../index';
 import readme from './README.stories.mdx';

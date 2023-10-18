@@ -31,7 +31,7 @@ const _tests = {
     cy.visit(`/${_path}`);
 
     cy.get('cds-link-list').then(([list]) => {
-      const items = list.querySelectorAll('cds-link-list-item-card');
+      const items = list.querySelectorAll('cds-link-list-item');
       items.forEach(item => {
         cy.get(item)
           .shadow()
@@ -59,7 +59,7 @@ const _tests = {
 
     cy.window()
       .then(win => (window = win))
-      .get('cds-link-list-item-card')
+      .get('cds-link-list-item')
       .each(([card], i) => {
         if (i !== 0) {
           const cardBox = card.getBoundingClientRect();
@@ -75,7 +75,7 @@ const _tests = {
   checkHoverState: () => {
     cy.visit(`/${_path}`);
 
-    cy.get('cds-link-list-item-card').then(([card]) => {
+    cy.get('cds-link-list-item').then(([card]) => {
       const sheets = card.shadowRoot.adoptedStyleSheets;
 
       if (sheets) {

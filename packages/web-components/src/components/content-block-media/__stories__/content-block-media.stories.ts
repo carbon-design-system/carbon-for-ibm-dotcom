@@ -298,12 +298,12 @@ export const withLinkList = (args) => {
         <c4d-link-list-heading>${linkListHeading}</c4d-link-list-heading>
         ${linkListItems.slice(0, totalLinks).map(
           (linkListCopy) => html`
-            <c4d-link-list-item-card-cta
+            <c4d-link-list-item-cta
               href="https://example.com"
-              cta-type="local">
+              cta-type="local"
+              type="default">
               <p>${linkListCopy}</p>
-              <c4d-card-cta-footer></c4d-card-cta-footer>
-            </c4d-link-list-item-card-cta>
+            </c4d-link-list-item-cta>
           `
         )}
       </c4d-link-list>

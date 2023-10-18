@@ -23,7 +23,7 @@ import C4DImage from '@carbon/ibmdotcom-web-components/es/components-react/image
 import C4DImageItem from '@carbon/ibmdotcom-web-components/es/components-react/image/image-item.js';
 import C4DLinkList from '@carbon/ibmdotcom-web-components/es/components-react/link-list/link-list';
 import C4DLinkListHeading from '@carbon/ibmdotcom-web-components/es/components-react/link-list/link-list-heading';
-import C4DLinkListItemCardCTA from '@carbon/ibmdotcom-web-components/es/components-react/cta/link-list-item-card-cta';
+import C4DLinkListItemCTA from '@carbon/ibmdotcom-web-components/es/components-react/cta/link-list-item-cta';
 import C4DTextCTA from '@carbon/ibmdotcom-web-components/es/components-react/cta/text-cta';
 import C4DVideoPlayerContainer from '@carbon/ibmdotcom-web-components/es/components-react/video-player/video-player-container.js';
 import { select, text } from '@storybook/addon-knobs';
@@ -209,10 +209,9 @@ export const withLinkList = (args) => {
       <C4DLinkList type="default" slot="complementary">
         <C4DLinkListHeading>{heading}</C4DLinkListHeading>
         {linkListItems.slice(0, totalLinks).map((linkListCopy) => (
-          <C4DLinkListItemCardCTA href="https://example.com" cta-type="local">
+          <C4DLinkListItemCTA href="https://example.com" cta-type="local">
             <p>{linkListCopy}</p>
-            <C4DCardCTAFooter />
-          </C4DLinkListItemCardCTA>
+          </C4DLinkListItemCTA>
         ))}
       </C4DLinkList>
       {ctaStyle === 'text' ? (
