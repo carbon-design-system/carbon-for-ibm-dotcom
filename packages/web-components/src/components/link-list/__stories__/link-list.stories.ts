@@ -54,44 +54,54 @@ export const Default = (args) => {
     ? html`
         <c4d-link-list type="default">
           <c4d-link-list-heading>Tutorial</c4d-link-list-heading>
-
           <c4d-link-list-item href="https://example.com">
-            Learn more about Kubernetes no cta-type
-            ${ArrowRight20({ slot: 'icon' })}
+            Learn more about Kubernetes ${ArrowRight20({ slot: 'icon' })}
           </c4d-link-list-item>
           <c4d-link-list-item href="https://example.com">
-            Containerization A Complete Guide no cta-type
-            ${ArrowRight20({ slot: 'icon' })}
+            Containerization A Complete Guide ${ArrowRight20({ slot: 'icon' })}
           </c4d-link-list-item>
           <c4d-link-list-item href="https://example.com">
-            Microservices and containers no cta-type
-            ${ArrowRight20({ slot: 'icon' })}
+            Microservices and containers ${ArrowRight20({ slot: 'icon' })}
           </c4d-link-list-item>
         </c4d-link-list>
       `
     : html`
         <c4d-link-list type="default">
           <c4d-link-list-heading>Tutorial</c4d-link-list-heading>
-
-          <c4d-link-list-item href="https://example.com">
-            Learn more about Kubernetes cta-type
-            ${ArrowRight20({ slot: 'icon' })}
-          </c4d-link-list-item>
-          <c4d-link-list-item href="https://example.com">
-            Containerization A Complete Guide cta-type
-            ${ArrowRight20({ slot: 'icon' })}
-          </c4d-link-list-item>
-          <c4d-link-list-item href="https://example.com">
-            Microservices and containers cta-type
-            ${ArrowRight20({ slot: 'icon' })}
-          </c4d-link-list-item>
+          <c4d-link-list-item-cta
+            href="${ifDefined(href)}"
+            cta-type="${ifDefined(ctaType)}"
+            download="${ifDefined(download)}"
+            type="default">
+            ${ctaType !== CTA_TYPE.VIDEO
+              ? html` Learn more about Kubernetes `
+              : null}
+          </c4d-link-list-item-cta>
+          <c4d-link-list-item-cta
+            href="${ifDefined(href)}"
+            cta-type="${ifDefined(ctaType)}"
+            download="${ifDefined(download)}"
+            type="default">
+            ${ctaType !== CTA_TYPE.VIDEO
+              ? html` Containerization A Complete Guide `
+              : null}
+          </c4d-link-list-item-cta>
+          <c4d-link-list-item-cta
+            href="${ifDefined(href)}"
+            cta-type="${ifDefined(ctaType)}"
+            download="${ifDefined(download)}"
+            type="default">
+            ${ctaType !== CTA_TYPE.VIDEO
+              ? html` Microservices and containers `
+              : null}
+          </c4d-link-list-item-cta>
         </c4d-link-list>
       `;
 };
 
 Default.story = {
   parameters: {
-    colLgClass: 'cds--col-lg-3',
+    colLgClass: 'cds--col-lg-6',
     knobs: {
       LinkListItem: () => {
         const ctaType = select('CTA type (cta-type)', types, null);
@@ -137,12 +147,14 @@ export const Horizontal = (args) => {
           <c4d-link-list-heading>Tutorial</c4d-link-list-heading>
           <c4d-link-list-item
             icon-placement="${iconPlacement}"
-            href="https://example.com">
+            href="https://example.com"
+            type="horizontal">
             Learn more about Kubernetes ${ArrowRight20({ slot: 'icon' })}
           </c4d-link-list-item>
           <c4d-link-list-item
             icon-placement="${iconPlacement}"
-            href="https://example.com">
+            href="https://example.com"
+            type="horizontal">
             Containerization A Complete Guide ${ArrowRight20({ slot: 'icon' })}
           </c4d-link-list-item>
         </c4d-link-list>
@@ -154,7 +166,8 @@ export const Horizontal = (args) => {
             icon-placement="${iconPlacement}"
             href="${ifDefined(href)}"
             cta-type="${ifDefined(ctaType)}"
-            download="${ifDefined(download)}">
+            download="${ifDefined(download)}"
+            type="horizontal">
             ${ctaType !== CTA_TYPE.VIDEO
               ? html` Learn more about Kubernetes `
               : null}
@@ -163,7 +176,8 @@ export const Horizontal = (args) => {
             icon-placement="${iconPlacement}"
             href="${ifDefined(href)}"
             cta-type="${ifDefined(ctaType)}"
-            download="${ifDefined(download)}">
+            download="${ifDefined(download)}"
+            type="horizontal">
             ${ctaType !== CTA_TYPE.VIDEO
               ? html` Containerization A Complete Guide `
               : null}
@@ -220,12 +234,14 @@ export const Vertical = (args) => {
           <c4d-link-list-heading>Tutorial</c4d-link-list-heading>
           <c4d-link-list-item
             icon-placement="${iconPlacement}"
-            href="https://example.com">
+            href="https://example.com"
+            type="horizontal">
             Learn more about Kubernetes ${ArrowRight20({ slot: 'icon' })}
           </c4d-link-list-item>
           <c4d-link-list-item
             icon-placement="${iconPlacement}"
-            href="https://example.com">
+            href="https://example.com"
+            type="horizontal">
             Containerization A Complete Guide ${ArrowRight20({ slot: 'icon' })}
           </c4d-link-list-item>
         </c4d-link-list>
@@ -237,7 +253,8 @@ export const Vertical = (args) => {
             icon-placement="${iconPlacement}"
             href="${ifDefined(href)}"
             cta-type="${ifDefined(ctaType)}"
-            download="${ifDefined(download)}">
+            download="${ifDefined(download)}"
+            type="horizontal">
             ${ctaType !== CTA_TYPE.VIDEO
               ? html` Learn more about Kubernetes `
               : null}
@@ -246,7 +263,8 @@ export const Vertical = (args) => {
             icon-placement="${iconPlacement}"
             href="${ifDefined(href)}"
             cta-type="${ifDefined(ctaType)}"
-            download="${ifDefined(download)}">
+            download="${ifDefined(download)}"
+            type="horizontal">
             ${ctaType !== CTA_TYPE.VIDEO
               ? html` Containerization A Complete Guide `
               : null}
