@@ -117,47 +117,72 @@ class DDSCard extends StableSelectorMixin(BXLink) {
       _hasPictogram: hasPictogram,
       _hasCopy: hasCopy,
     } = this;
-    return html`
-      ${this._renderImage()}
-      <div
-        class="${prefix}--card__wrapper ${hasPictogram
-          ? `${prefix}--card__pictogram`
-          : ''} ${hasPictogram && hasCopy ? `${prefix}--card__motion` : ''}">
-        <div class="${prefix}--card__content">
-          ${hasPictogram ? '' : html` <slot name="eyebrow"></slot> `}
-          ${this.pictogramPlacement === PICTOGRAM_PLACEMENT.TOP
-            ? html`
-                <slot
-                  name="pictogram"
-                  data-pictogram-placement="${PICTOGRAM_PLACEMENT.TOP}"
-                  @slotchange="${handleSlotChange}"></slot>
-              `
-            : ''}
-          ${this.pictogramPlacement !== PICTOGRAM_PLACEMENT.TOP || !hasPictogram
-            ? this._renderHeading()
-            : null}
-          ${this.pictogramPlacement === PICTOGRAM_PLACEMENT.BOTTOM ||
-          !hasPictogram
-            ? this._renderCopy()
-            : ''}
-          ${this.pictogramPlacement === PICTOGRAM_PLACEMENT.BOTTOM
-            ? html`
-                <slot
-                  name="pictogram"
-                  data-pictogram-placement="${PICTOGRAM_PLACEMENT.BOTTOM}"
-                  @slotchange="${handleSlotChange}"></slot>
-              `
-            : ''}
-          ${hasPictogram && this.pictogramPlacement === PICTOGRAM_PLACEMENT.TOP
-            ? this._renderHeading()
-            : null}
-          ${hasPictogram && this.pictogramPlacement === PICTOGRAM_PLACEMENT.TOP
-            ? this._renderCopy()
-            : ''}
-          <slot name="footer"></slot>
+    if (hasPictogram) {
+      return html`
+        ${this._renderImage()}
+        <a
+          href="${this.href}"
+          target="_self"
+          class="${prefix}--card__wrapper ${prefix}--card__pictogram
+           ${hasCopy ? `${prefix}--card__motion` : ''}">
+          <div class="${prefix}--card__content">
+            ${this.pictogramPlacement === PICTOGRAM_PLACEMENT.TOP
+              ? html`
+                  <slot
+                    name="pictogram"
+                    data-pictogram-placement="${PICTOGRAM_PLACEMENT.TOP}"
+                    @slotchange="${handleSlotChange}"></slot>
+                `
+              : ''}
+            ${this.pictogramPlacement !== PICTOGRAM_PLACEMENT.TOP ||
+            !hasPictogram
+              ? this._renderHeading()
+              : null}
+            ${this.pictogramPlacement === PICTOGRAM_PLACEMENT.BOTTOM ||
+            !hasPictogram
+              ? this._renderCopy()
+              : ''}
+            ${this.pictogramPlacement === PICTOGRAM_PLACEMENT.BOTTOM
+              ? html`
+                  <slot
+                    name="pictogram"
+                    data-pictogram-placement="${PICTOGRAM_PLACEMENT.BOTTOM}"
+                    @slotchange="${handleSlotChange}"></slot>
+                `
+              : ''}
+            ${this.pictogramPlacement === PICTOGRAM_PLACEMENT.TOP
+              ? this._renderHeading()
+              : null}
+            ${this.pictogramPlacement === PICTOGRAM_PLACEMENT.TOP
+              ? this._renderCopy()
+              : ''}
+          </div>
+        </a>
+      `;
+    } else {
+      return html`
+        ${this._renderImage()}
+        <div
+          class="${prefix}--card__wrapper ${hasPictogram
+            ? `${prefix}--card__pictogram`
+            : ''} ${hasPictogram && hasCopy ? `${prefix}--card__motion` : ''}">
+          <div class="${prefix}--card__content">
+            <slot name="eyebrow"></slot>
+            ${this.pictogramPlacement === PICTOGRAM_PLACEMENT.TOP
+              ? html`
+                  <slot
+                    name="pictogram"
+                    data-pictogram-placement="${PICTOGRAM_PLACEMENT.TOP}"
+                    @slotchange="${handleSlotChange}"></slot>
+                `
+              : ''}
+            ${this._renderHeading()} ${this._renderCopy()}
+
+            <slot name="footer"></slot>
+          </div>
         </div>
-      </div>
-    `;
+      `;
+    }
   }
 
   /**
@@ -230,10 +255,6 @@ class DDSCard extends StableSelectorMixin(BXLink) {
         `${prefix}--card--inverse`,
         colorScheme === BASIC_COLOR_SCHEME.INVERSE
       );
-    }
-
-    if (this._hasPictogram) {
-      this.onclick = () => window.open(this.href, '_self');
     }
 
     const copyElement = this.querySelector('p');
