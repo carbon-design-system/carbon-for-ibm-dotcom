@@ -166,8 +166,7 @@
     }
   }
 
-  :host(#{$c4d-prefix}-link-list-item-card),
-  :host(#{$c4d-prefix}-link-list-item-card-cta) {
+  :host(#{$c4d-prefix}-link-list-item-card) {
     .#{$prefix}--card__content {
       padding: $spacing-05;
 
