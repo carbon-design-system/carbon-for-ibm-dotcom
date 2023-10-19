@@ -288,53 +288,6 @@ Vertical.story = {
   },
 };
 
-// export const EndOfSection = (args) => {
-//   const { ctaType, download, href } = args?.LinkListItem ?? {};
-//   return !ctaType
-//     ? html`
-//         <c4d-link-list type="end">
-//           <c4d-link-list-heading>Tutorial</c4d-link-list-heading>
-//           <c4d-link-list-item href="https://example.com">
-//             Learn more about Kubernetes ${ArrowRight20({ slot: 'icon' })}
-//           </c4d-link-list-item>
-//           <c4d-link-list-item href="https://example.com">
-//             Containerization A Complete Guide ${ArrowRight20({ slot: 'icon' })}
-//           </c4d-link-list-item>
-//           <c4d-link-list-item href="https://example.com">
-//             Microservices and containers ${ArrowRight20({ slot: 'icon' })}
-//           </c4d-link-list-item>
-//         </c4d-link-list>
-//       `
-//     : html`
-//         <c4d-link-list type="end">
-//           <c4d-link-list-heading>Tutorial</c4d-link-list-heading>
-//           <c4d-link-list-item-cta
-//             href="${ifDefined(href)}"
-//             cta-type="${ifDefined(ctaType)}"
-//             download="${ifDefined(download)}">
-//             ${ctaType !== CTA_TYPE.VIDEO
-//               ? html` Learn more about Kubernetes `
-//               : null}
-//           </c4d-link-list-item-cta>
-//           <c4d-link-list-item-cta
-//             href="${ifDefined(href)}"
-//             cta-type="${ifDefined(ctaType)}"
-//             download="${ifDefined(download)}">
-//             ${ctaType !== CTA_TYPE.VIDEO
-//               ? html` Containerization A Complete Guide `
-//               : null}
-//           </c4d-link-list-item-cta>
-//           <c4d-link-list-item-cta
-//             href="${ifDefined(href)}"
-//             cta-type="${ifDefined(ctaType)}"
-//             download="${ifDefined(download)}">
-//             ${ctaType !== CTA_TYPE.VIDEO
-//               ? html` Microservices and containers `
-//               : null}
-//           </c4d-link-list-item-cta>
-//         </c4d-link-list>
-//       `;
-// };
 
 // EndOfSection.story = {
 //   name: 'End of section',
