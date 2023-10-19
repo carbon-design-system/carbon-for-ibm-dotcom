@@ -638,7 +638,8 @@
     outline: none;
 
     .#{$prefix}--card__pictogram {
-      display: flex;
+      text-decoration: none;
+      color: $black-100;
 
       ::slotted(#{$dds-prefix}-card-heading) {
         padding-top: $carbon--spacing-07;
@@ -684,7 +685,7 @@
         .#{$prefix}--card__copy {
           margin-top: $carbon--spacing-07;
           margin-bottom: 0;
-
+          
           @include carbon--breakpoint('md') {
             margin-top: 0;
             visibility: hidden;
