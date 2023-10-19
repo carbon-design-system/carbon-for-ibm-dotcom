@@ -435,6 +435,9 @@ class DDSFilterPanelComposite extends HostListenerMixin(
       <dds-filter-panel
         heading="${this._getComposedHeadingFilterCount()}"
         ?has-selections="${this._selectedValues.length}">
+        <slot
+          name="heading"
+          @slotchange="${this._handleHeadingSlotChange}"></slot>
         ${this._contents.map((e) => {
           return html` ${unsafeHTML((e as HTMLElement).outerHTML)} `;
         })}
