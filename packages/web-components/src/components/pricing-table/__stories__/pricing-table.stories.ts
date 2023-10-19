@@ -345,7 +345,7 @@ if (WithSubheaders) {
 }
 
 export default {
-  title: 'Components/Pricing Table',
+  title: 'Experimental/Pricing Table',
   parameters: {
     ...readme.parameters,
     percy: {
