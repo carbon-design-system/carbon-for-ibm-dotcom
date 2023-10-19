@@ -51,7 +51,10 @@ export const Default = (args) => {
       <c4d-quote-source-bottom-copy>
         ${sourceBottomCopy}
       </c4d-quote-source-bottom-copy>
-      <c4d-callout-link-with-icon slot="footer" href="https://example.com" cta-type="local">
+      <c4d-callout-link-with-icon
+        slot="footer"
+        href="https://example.com"
+        cta-type="local">
         Link with icon
       </c4d-callout-link-with-icon>
     </c4d-callout-quote>

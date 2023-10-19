@@ -529,7 +529,10 @@ export const StoryContentNoToC = () =>
           <c4d-quote-source-bottom-copy>
             IBM Cloud
           </c4d-quote-source-bottom-copy>
-          <c4d-callout-link-with-icon slot="footer" href="https://example.com" cta-type="local">
+          <c4d-callout-link-with-icon
+            slot="footer"
+            href="https://example.com"
+            cta-type="local">
             Link with Icon
           </c4d-callout-link-with-icon>
         </c4d-callout-quote>
