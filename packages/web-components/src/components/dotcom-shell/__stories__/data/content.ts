@@ -205,9 +205,9 @@ export const contentLeadspaceSearch = html`
 
 export const tocContent = html`
   <a name="1" data-title="Lorem ipsum dolor sit amet"></a>
-  <c4d-leadspace-block>
-    <c4d-leadspace-block-heading
-      >Lorem ipsum dolor sit amet</c4d-leadspace-block-heading
+  <c4d-leadspace-block border>
+    <c4d-leadspace-heading
+      >Lorem ipsum dolor sit amet</c4d-leadspace-heading
     >
     <c4d-leadspace-block-content>
       <c4d-content-block-copy slot="copy"
@@ -275,7 +275,7 @@ export const tocContent = html`
   </c4d-content-block-segmented>
 
   <c4d-callout-with-media>
-    <c4d-content-block-heading slot="heading"
+    <c4d-content-block-heading
       >Mauris ultrices eros in cursus</c4d-content-block-heading
     >
     <c4d-callout-with-media-copy size="sm"
@@ -329,8 +329,8 @@ export const tocContent = html`
     </c4d-quote-source-heading>
     <c4d-quote-source-copy> consectetur adipiscing elit </c4d-quote-source-copy>
     <c4d-quote-source-bottom-copy> IBM Cloud </c4d-quote-source-bottom-copy>
-    <c4d-callout-link-with-icon slot="footer" href="https://example.com">
-      Link with Icon ${ArrowRight20({ slot: 'icon' })}
+    <c4d-callout-link-with-icon slot="footer" href="https://example.com" cta-type="local">
+      Link with Icon
     </c4d-callout-link-with-icon>
   </c4d-callout-quote>
 
@@ -529,8 +529,8 @@ export const StoryContentNoToC = () =>
           <c4d-quote-source-bottom-copy>
             IBM Cloud
           </c4d-quote-source-bottom-copy>
-          <c4d-callout-link-with-icon slot="footer" href="https://example.com">
-            Link with Icon ${ArrowRight20({ slot: 'icon' })}
+          <c4d-callout-link-with-icon slot="footer" href="https://example.com" cta-type="local">
+            Link with Icon
           </c4d-callout-link-with-icon>
         </c4d-callout-quote>
 
