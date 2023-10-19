@@ -80,7 +80,7 @@ const _tests = {
 
       if (sheets) {
         const hover = getCssPropertyForRule(
-          '.bx--card:hover, :host(cds-card:hover), :host(cds-link-list-item-card:hover), :host(cds-card-group-item:hover), :host(cds-card-group-item) .bx--card:hover, :host(cds-card-cta:hover), :host(cds-link-list-item-card-cta:hover), :host(cds-card-in-card:hover), :host(cds-content-group-cards-item:hover), :host(cds-content-group-cards-item) .bx--card:hover',
+          '.bx--card:hover, :host(cds-card:hover), :host(cds-card-group-item:hover), :host(cds-card-group-item) .bx--card:hover, :host(cds-card-cta:hover), :host(cds-card-in-card:hover), :host(cds-content-group-cards-item:hover), :host(cds-content-group-cards-item) .bx--card:hover',
           'background-color',
           sheets
         );

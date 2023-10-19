@@ -17,7 +17,7 @@ import styles from './link-list.scss';
 import C4DLinkListItem from './link-list-item';
 import { carbonElement as customElement } from '../../internal/vendor/@carbon/web-components/globals/decorators/carbon-element';
 
-const { prefix, stablePrefix: c4dPrefix } = settings;
+const { stablePrefix: c4dPrefix } = settings;
 
 export enum END_TYPE_LAYOUT {
   /**

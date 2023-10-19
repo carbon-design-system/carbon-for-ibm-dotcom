@@ -34,11 +34,9 @@
 
   :host(#{$c4d-prefix}-card),
   :host(#{$c4d-prefix}-region-item) .#{$prefix}--link,
-  :host(#{$c4d-prefix}-link-list-item-card),
   :host(#{$c4d-prefix}-card-group-item),
   :host(#{$c4d-prefix}-card-group-item) .#{$prefix}--card,
   :host(#{$c4d-prefix}-card-cta),
-  :host(#{$c4d-prefix}-link-list-item-card-cta),
   :host(#{$c4d-prefix}-card-in-card),
   :host(#{$c4d-prefix}-content-group-cards-item),
   :host(#{$c4d-prefix}-content-group-cards-item) .#{$prefix}--card {
@@ -163,16 +161,6 @@
     /* stylelint-disable-next-line selector-type-no-unknown */
     cds-tag-group {
       margin-top: $spacing-05;
-    }
-  }
-
-  :host(#{$c4d-prefix}-link-list-item-card) {
-    .#{$prefix}--card__content {
-      padding: $spacing-05;
-
-      @include breakpoint(md) {
-        padding: $spacing-05 0;
-      }
     }
   }
 
@@ -644,10 +632,8 @@
 
   @media print {
     :host(#{$c4d-prefix}-card),
-    :host(#{$c4d-prefix}-link-list-item-card),
     :host(#{$c4d-prefix}-card-group-item),
     :host(#{$c4d-prefix}-card-cta),
-    :host(#{$c4d-prefix}-link-list-item-card-cta),
     :host(#{$c4d-prefix}-card-in-card),
     :host(#{$c4d-prefix}-content-group-cards-item) {
       border: 1px solid $layer-accent-01;
