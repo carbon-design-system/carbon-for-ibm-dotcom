@@ -13,7 +13,7 @@ import { createTests, createTestsMobile, selectors } from './_tests';
  * @type {string}
  * @private
  */
-const path = '/iframe.html?id=components-pricing-table--with-subheaders';
+const path = '/iframe.html?id=experimental-pricing-table--with-subheaders';
 
 /**
  * Time to wait for header to transition between sticky/static

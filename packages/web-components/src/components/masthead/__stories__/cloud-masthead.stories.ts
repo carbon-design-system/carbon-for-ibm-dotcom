@@ -102,7 +102,7 @@ export const Default = (args) => {
 };
 
 export default {
-  title: 'Components/Cloud masthead',
+  title: 'Experimental/Cloud masthead',
   decorators: [
     (story) => {
       if (!(window as any)._hPageShow) {
