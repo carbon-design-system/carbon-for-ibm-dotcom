@@ -7,7 +7,14 @@
  * LICENSE file in the root directory of this source tree.
  */
 
-import { html, LitElement, property, state, TemplateResult } from 'lit-element';
+import {
+  html,
+  LitElement,
+  property,
+  state,
+  TemplateResult,
+  query,
+} from 'lit-element';
 import settings from 'carbon-components/es/globals/js/settings.js';
 import Filter from '../../internal/vendor/@carbon/web-components/icons/filter/16.js';
 import HostListenerMixin from '../../internal/vendor/@carbon/web-components/globals/mixins/host-listener.js';
@@ -54,7 +61,7 @@ class DDSFilterPanelComposite extends HostListenerMixin(
     const { stableSelector } = DDSFilterPanelInputSelectItem;
     this._focusElement = `${stableSelector}[value="${value}"]`;
 
-    // remove the DDSInputSelect (header) value from list to add an inner child instead
+    // Remove the DDSInputSelect (header) value from list to add an inner child instead.
     this._selectedValues = this._selectedValues.filter(
       (e) => e !== headerValue
     );
@@ -65,7 +72,7 @@ class DDSFilterPanelComposite extends HostListenerMixin(
     }
 
     if (!this._selectedValues.includes(value)) {
-      this._selectedValues.push(value);
+      this._selectedValues = [...this._selectedValues, value];
     }
 
     if (lastValue && this._selectedValues.includes(lastValue)) {
@@ -73,7 +80,6 @@ class DDSFilterPanelComposite extends HostListenerMixin(
         (e) => e !== lastValue
       );
     }
-    this.renderStatus();
   };
 
   /**
@@ -86,7 +92,7 @@ class DDSFilterPanelComposite extends HostListenerMixin(
   protected _handleCheckboxStateChange = (event: CustomEvent) => {
     const { value } = event.detail;
 
-    // toggle checkbox in filter panel modal
+    // Toggle checkbox in filter panel modal.
     this.querySelectorAll(`${ddsPrefix}-filter-panel-checkbox`).forEach((e) => {
       if (e.getAttribute('value') === value) {
         e.toggleAttribute('checked');
@@ -108,14 +114,12 @@ class DDSFilterPanelComposite extends HostListenerMixin(
         }
       });
 
-    // toggle value in list
+    // Toggle value in list.
     if (!this._selectedValues.includes(value)) {
-      this._selectedValues.push(value);
+      this._selectedValues = [...this._selectedValues, value];
     } else {
       this._selectedValues = this._selectedValues.filter((e) => e !== value);
     }
-
-    this.renderStatus();
   };
 
   /**
@@ -133,7 +137,10 @@ class DDSFilterPanelComposite extends HostListenerMixin(
     if (match !== -1) {
       this._filterGroupsAllRevealed[match].value = event.detail.value;
     } else {
-      this._filterGroupsAllRevealed.push(event.detail);
+      this._filterGroupsAllRevealed = [
+        ...this._filterGroupsAllRevealed,
+        event.detail,
+      ];
     }
   };
 
@@ -184,20 +191,19 @@ class DDSFilterPanelComposite extends HostListenerMixin(
       }
     );
 
-    // toggle value in list
+    // Toggle value in list.
     if (!this._selectedValues.includes(headerValue)) {
-      this._selectedValues.push(headerValue);
+      this._selectedValues = [...this._selectedValues, headerValue];
     } else {
       this._selectedValues = this._selectedValues.filter(
         (e) => e !== headerValue
       );
     }
-    this.renderStatus();
   };
 
   @HostListener('document:eventHeadingChange')
   protected _handleHeadingChange = () => {
-    this.renderStatus();
+    this._setHeadingFromSlot(this._headingSlot);
   };
 
   /**
@@ -215,7 +221,7 @@ class DDSFilterPanelComposite extends HostListenerMixin(
   protected _handleClearSelection = () => {
     this._selectedValues = [];
 
-    // handles clear when clearing from the static filter panel modal
+    // Handles clear when clearing from the static filter panel modal.
     this._contents.forEach((group) => {
       group
         .querySelectorAll(`${ddsPrefix}-filter-panel-checkbox`)
@@ -254,9 +260,10 @@ class DDSFilterPanelComposite extends HostListenerMixin(
         e.removeAttribute('selected');
         e.removeAttribute('is-open');
       });
-
-    this.renderStatus();
   };
+
+  @query('slot[name=heading]')
+  _headingSlot;
 
   /**
    * `true` to open the locale modal.
@@ -280,22 +287,16 @@ class DDSFilterPanelComposite extends HostListenerMixin(
   _contents: any[] = [];
 
   /**
-   * sets the array for the filter button title
+   * Sets the heading text, to be composed with the current count.
    */
   @property()
-  _title: any[] = [];
+  _heading: string = '';
 
   /**
    * sets the selected values into an array
    */
   @property()
   _selectedValues: string[] = [];
-
-  /**
-   * sets the filter button title
-   */
-  @property()
-  _filterButtonTitle: string = '';
 
   /**
    * stores which filter groups have revealed filters
@@ -371,38 +372,57 @@ class DDSFilterPanelComposite extends HostListenerMixin(
     }
   }
 
-  protected renderStatus() {
-    this._filterButtonTitle = `
-      ${this._title[0].innerText}${
-      this._selectedValues.length > 0 ? ` (${this._selectedValues.length})` : ''
-    }
+  protected _getComposedHeadingFilterCount() {
+    const filterCount =
+      this._selectedValues.length > 0
+        ? ` (${this._selectedValues.length})`
+        : '';
+    return `
+      ${this._heading}${filterCount}
     `;
   }
 
   /**
-   * Handles `slotchange` event.
+   * Handles `slotchange` event for the heading slot.
    *
    * @param event The event.
    */
-  protected _handleTitleSlotChange({ target }: Event) {
-    this._title = (target as HTMLSlotElement)
+  protected _handleHeadingSlotChange({ target }: Event) {
+    this._setHeadingFromSlot(target as HTMLSlotElement);
+  }
+
+  protected _setHeadingFromSlot(slot: HTMLSlotElement) {
+    // Clean slate.
+    this._heading = '';
+
+    // Work through candidate headings, ultimately we're only interested in the
+    // first non-empty node.
+    const candidateHeadings = slot
       .assignedNodes()
       .filter(
         (node) => node.nodeType !== Node.TEXT_NODE || node!.textContent!.trim()
       );
-    this._filterButtonTitle = this._title[0].innerText;
+
+    // If we found something, lets retain it's textContent as the heading.
+    if (candidateHeadings.length > 0) {
+      this._heading = candidateHeadings[0].textContent
+        ? candidateHeadings[0].textContent.trim()
+        : '';
+    }
   }
 
   /**
    * Renders original content into the modal and listens for changes to this
-   * content to then be stored in `this._title` and `this._content`.
+   * content to then be stored in `this._heading` and `this._contents`.
    */
   protected _renderModal = (): TemplateResult => html`
     <dds-filter-panel-modal
       ?open=${this.openFilterModal}
-      heading="${this._filterButtonTitle}"
+      heading="${this._getComposedHeadingFilterCount()}"
       ?has-selections="${this._selectedValues.length}">
-      <slot name="heading" @slotchange="${this._handleTitleSlotChange}"></slot>
+      <slot
+        name="heading"
+        @slotchange="${this._handleHeadingSlotChange}"></slot>
       <slot @slotchange="${this._handleSlotChange}"></slot>
     </dds-filter-panel-modal>
   `;
@@ -410,24 +430,23 @@ class DDSFilterPanelComposite extends HostListenerMixin(
   /**
    * Renders copies of slotted elements into the desktop presentation.
    */
-  protected _renderDesktop = (): TemplateResult => html`
-    <dds-filter-panel
-      heading="${this._filterButtonTitle}"
-      ?has-selections="${this._selectedValues.length}">
-      ${this._title.map((e) => {
-        return html` ${unsafeHTML((e as HTMLElement).outerHTML)} `;
-      })}
-      ${this._contents.map((e) => {
-        return html` ${unsafeHTML((e as HTMLElement).outerHTML)} `;
-      })}
-    </dds-filter-panel>
-  `;
+  protected _renderDesktop = (): TemplateResult => {
+    return html`
+      <dds-filter-panel
+        heading="${this._getComposedHeadingFilterCount()}"
+        ?has-selections="${this._selectedValues.length}">
+        ${this._contents.map((e) => {
+          return html` ${unsafeHTML((e as HTMLElement).outerHTML)} `;
+        })}
+      </dds-filter-panel>
+    `;
+  };
 
   render() {
     return html`
       <button class="bx--filter-button" @click=${this._openModal}>
         <div class="${prefix}--filter__modal__button">
-          ${this._filterButtonTitle} ${Filter()}
+          ${this._getComposedHeadingFilterCount()} ${Filter()}
         </div>
       </button>
       ${this._renderModal()} ${this._renderDesktop()}
