@@ -151,16 +151,20 @@ const renderBodyCell = (
           <dds-pricing-table-cell-annotation>
             Sed quis neque ultrices, convallis augue non, scelerisque massa.
           </dds-pricing-table-cell-annotation>
-          <dds-tag-group data-autoid="dds--tag-group" role="list">
-            <bx-tag type="green" size=""> This is a tag</bx-tag>
-            <bx-tag type="blue" size=""> This is a tag</bx-tag>
-          </dds-tag-group>
-          <dds-cta
-            cta-style="text"
-            href="https://www.ibm.com/"
-            cta-type="local">
-            Lorem Ipsum
-          </dds-cta>
+          <span>
+            <dds-tag-group data-autoid="dds--tag-group" role="list">
+              <bx-tag type="green" size=""> This is a tag</bx-tag>
+              <bx-tag type="blue" size=""> This is a tag</bx-tag>
+            </dds-tag-group>
+          </span>
+          <span>
+            <dds-cta
+              cta-style="text"
+              href="https://www.ibm.com/"
+              cta-type="local">
+              Lorem Ipsum
+            </dds-cta>
+          </span>
         </dds-pricing-table-cell>
       `;
     case CELL_TYPES.ICON:
