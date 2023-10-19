@@ -22,7 +22,6 @@ import { baseFontSize, breakpoints } from '@carbon/layout';
 import './filter-group';
 import './filter-panel';
 import './filter-panel-modal';
-import { unsafeHTML } from 'lit-html/directives/unsafe-html.js';
 import HostListener from '../../internal/vendor/@carbon/web-components/globals/decorators/host-listener.js';
 import ddsSettings from '../../internal/vendor/@carbon/ibmdotcom-utilities/utilities/settings/settings';
 import StableSelectorMixin from '../../globals/mixins/stable-selector';
@@ -33,6 +32,10 @@ import DDSFilterPanelCheckbox from './filter-panel-checkbox';
 import DDSFilterPanelInputSelect from './filter-panel-input-select';
 import DDSFilterPanelInputSelectItem from './filter-panel-input-select-item';
 import { carbonElement as customElement } from '../../internal/vendor/@carbon/web-components/globals/decorators/carbon-element.js';
+import MediaQueryMixin, {
+  MQBreakpoints,
+  MQDirs,
+} from '../../component-mixins/media-query/media-query';
 
 const { prefix } = settings;
 const { stablePrefix: ddsPrefix } = ddsSettings;
@@ -45,8 +48,9 @@ const breakpoint = parseFloat(breakpoints.lg.width) * baseFontSize;
  * @element dds-filter-panel-composite
  */
 @customElement(`${ddsPrefix}-filter-panel-composite`)
-class DDSFilterPanelComposite extends HostListenerMixin(
-  StableSelectorMixin(LitElement)
+class DDSFilterPanelComposite extends MediaQueryMixin(
+  HostListenerMixin(StableSelectorMixin(LitElement)),
+  { [MQBreakpoints.LG]: MQDirs.MAX }
 ) {
   /**
    * Host listener for handling the state change when a input select item is selected.
@@ -304,8 +308,8 @@ class DDSFilterPanelComposite extends HostListenerMixin(
   @property()
   _filterGroupsAllRevealed: { id: string; value: boolean }[] = [];
 
-  @property()
-  _isMobile: boolean = window.innerWidth < breakpoint;
+  @state()
+  _isMobile = this.carbonBreakpoints.lg.matches;
 
   /**
    * An element to set focus to on render.
@@ -313,11 +317,9 @@ class DDSFilterPanelComposite extends HostListenerMixin(
   @state()
   _focusElement: string | null = null;
 
-  @HostListener('window:resize')
-  // @ts-ignore: The decorator refers to this method but TS thinks this method is not referred to
-  private _handleWindowResize = (): void => {
-    this._isMobile = window.innerWidth < breakpoint;
-  };
+  protected mediaQueryCallbackMaxLG() {
+    this._isMobile = this.carbonBreakpoints.lg.matches;
+  }
 
   protected async _querySelectorMobile(id: string): Promise<Element | null> {
     return this.querySelector(id);
@@ -349,16 +351,16 @@ class DDSFilterPanelComposite extends HostListenerMixin(
    * @param event The event.
    */
   protected _handleSlotChange({ target }: Event) {
-    const contents = (this._contents = (target as HTMLSlotElement)
+    this._contents = (target as HTMLSlotElement)
       .assignedNodes()
       .filter(
         (node) => node.nodeType !== Node.TEXT_NODE || node!.textContent!.trim()
-      ));
+      );
     // Calculate initial this._selectedValues. Look at the first node, which is
     // expected to be <dds-filter-group>.
-    if (contents[0] instanceof Element) {
+    if (this._contents[0] instanceof Element) {
       const items = Array.from(
-        contents[0].querySelectorAll(
+        this._contents[0].querySelectorAll(
           `${ddsPrefix}-filter-panel-checkbox[checked],
             ${ddsPrefix}-filter-panel-input-select[selected],
             ${ddsPrefix}-filter-panel-input-select-item[selected]`
@@ -438,22 +440,24 @@ class DDSFilterPanelComposite extends HostListenerMixin(
         <slot
           name="heading"
           @slotchange="${this._handleHeadingSlotChange}"></slot>
-        ${this._contents.map((e) => {
-          return html` ${unsafeHTML((e as HTMLElement).outerHTML)} `;
-        })}
+        <slot @slotchange="${this._handleSlotChange}"></slot>
       </dds-filter-panel>
     `;
   };
 
   render() {
-    return html`
-      <button class="bx--filter-button" @click=${this._openModal}>
-        <div class="${prefix}--filter__modal__button">
-          ${this._getComposedHeadingFilterCount()} ${Filter()}
-        </div>
-      </button>
-      ${this._renderModal()} ${this._renderDesktop()}
-    `;
+    if (this._isMobile) {
+      return html`
+        <button class="bx--filter-button" @click=${this._openModal}>
+          <div class="${prefix}--filter__modal__button">
+            ${this._getComposedHeadingFilterCount()} ${Filter()}
+          </div>
+        </button>
+        ${this._renderModal()}
+      `;
+    } else {
+      return html` ${this._renderDesktop()} `;
+    }
   }
 
   protected async updated() {
