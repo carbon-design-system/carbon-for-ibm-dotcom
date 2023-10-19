@@ -18,7 +18,6 @@ import {
 import settings from 'carbon-components/es/globals/js/settings.js';
 import Filter from '../../internal/vendor/@carbon/web-components/icons/filter/16.js';
 import HostListenerMixin from '../../internal/vendor/@carbon/web-components/globals/mixins/host-listener.js';
-import { baseFontSize, breakpoints } from '@carbon/layout';
 import './filter-group';
 import './filter-panel';
 import './filter-panel-modal';
@@ -39,8 +38,6 @@ import MediaQueryMixin, {
 
 const { prefix } = settings;
 const { stablePrefix: ddsPrefix } = ddsSettings;
-
-const breakpoint = parseFloat(breakpoints.lg.width) * baseFontSize;
 
 /**
  * Filter panel composite
