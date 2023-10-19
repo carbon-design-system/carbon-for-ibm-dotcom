@@ -25,10 +25,6 @@
   $icon-size: rem(20px);
 
   :host(#{$c4d-prefix}-expressive-modal) {
-    // @extend :host(#{$prefix}-modal);
-
-    // color: $text-primary;
-
     .#{$prefix}--modal-container {
       grid-template-rows: 1fr;
       padding: $spacing-05;
@@ -99,14 +95,22 @@
       }
     }
 
-    transform: translate3d(0px, 0px, 0px);
+    transform: translate3d(0, 0, 0);
     transition: transform 240ms cubic-bezier(0, 0, 0.3, 1) 0s,
       transform 240ms cubic-bezier(0, 0, 0.3, 1) 0s;
   }
 
   :host(#{$c4d-prefix}-expressive-modal)[expressive-size='full-width'] {
-    .#{$prefix}--modal-content {
+    .#{$prefix}--modal-container {
       padding: 0;
+    }
+
+    .#{$prefix}--modal-content {
+      padding: $spacing-05;
+
+      @include breakpoint(md) {
+        padding: $spacing-07;
+      }
     }
   }
 
