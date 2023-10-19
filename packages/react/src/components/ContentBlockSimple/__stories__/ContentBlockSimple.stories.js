@@ -71,19 +71,23 @@ const copy = `Lorem ipsum *dolor* sit amet, consectetur adipiscing elit. Aenean 
  * @returns {object} The knobs data.
  */
 const getBaseKnobs = () => {
+  const currentStyle = select('CTA style', ctaStyles, ctaStyles.card);
+  const customCardHeading =
+    currentStyle === 'card' ? text('Card CTA heading', 'This is a card') : null;
   return {
     copy,
     heading: text(
-      'Heading (required)',
+      'Content Block heading (required)',
       'Curabitur malesuada varius mi eu posuere'
     ),
     cta: {
       cta: {
         href: 'https://www.ibm.com',
       },
-      style: select('CTA style', ctaStyles, ctaStyles.card),
+      style: currentStyle,
       type: select('CTA type', ctaTypes, ctaTypes.local),
-      heading: 'Lorem ipsum dolor sit ametttt',
+      heading: customCardHeading,
+      copy: text('CTA text', 'Read more'),
     },
   };
 };
