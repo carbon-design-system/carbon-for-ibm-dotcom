@@ -289,22 +289,6 @@ Vertical.story = {
 };
 
 
-// EndOfSection.story = {
-//   name: 'End of section',
-//   parameters: {
-//     colLgClass: 'cds--col-lg-6',
-//     knobs: Default.story.parameters.knobs,
-//     propsSet: {
-//       default: {
-//         LinkListItem: {
-//           ctaType: null,
-//           download: undefined,
-//           href: 'https://www.example.com',
-//         },
-//       },
-//     },
-//   },
-// };
 
 export default {
   title: 'Components/Link list',
