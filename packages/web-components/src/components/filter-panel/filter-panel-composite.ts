@@ -88,13 +88,19 @@ class DDSFilterPanelComposite extends HostListenerMixin(
 
     // toggle checkbox in filter panel modal
     this.querySelectorAll(`${ddsPrefix}-filter-panel-checkbox`).forEach((e) => {
+      const closestGroupItem = e.closest(`${ddsPrefix}-filter-group-item`);
       if (e.getAttribute('value') === value) {
         e.toggleAttribute('checked');
-        e.closest(`${ddsPrefix}-filter-group-item`)?.setAttribute('open', '');
+        closestGroupItem?.setAttribute('open', '');
 
         const { stableSelector } = DDSFilterPanelCheckbox;
         this._focusElement = `${stableSelector}[value="${value}"]`;
       }
+      if(!closestGroupItem?.querySelector(`${ddsPrefix}-filter-panel-checkbox[checked]`)){
+
+        closestGroupItem?.removeAttribute('open');
+      }
+
     });
 
     const filterGroupItems = this.querySelectorAll(
@@ -161,9 +167,9 @@ class DDSFilterPanelComposite extends HostListenerMixin(
     // toggle checkbox in filter panel modal
     this.querySelectorAll(`${ddsPrefix}-filter-panel-input-select`).forEach(
       (e) => {
+        const currentGroup = e.closest(`${ddsPrefix}-filter-group-item`);
         // capture the element counterpart in Filter Panel Modal
         if (e.getAttribute('header-value') === headerValue) {
-          const currentGroup = e.closest(`${ddsPrefix}-filter-group-item`);
           currentGroup?.setAttribute('open', '');
 
           // Clears all other sibling items in the Filter Group
@@ -180,7 +186,12 @@ class DDSFilterPanelComposite extends HostListenerMixin(
 
           e.toggleAttribute('selected');
           e.toggleAttribute('is-open');
+          
         }
+        if(!currentGroup?.querySelector(`${ddsPrefix}-filter-panel-input-select[selected]`)){
+          currentGroup?.removeAttribute('open');
+        } 
+
       }
     );
 

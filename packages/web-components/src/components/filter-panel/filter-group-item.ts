@@ -222,6 +222,7 @@ class DDSFilterGroupItem extends StableSelectorMixin(BXAccordionItem) {
       // Reset `allRevealed` on accordion close.
       if (prevOpen) {
         this.allRevealed = this._hasHiddenActiveFilter() || false;
+        this.removeAttribute('open');
       }
 
       // Respect `allRevealed` attribute.
