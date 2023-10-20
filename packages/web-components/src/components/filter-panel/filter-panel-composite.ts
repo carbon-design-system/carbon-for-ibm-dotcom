@@ -376,9 +376,7 @@ class DDSFilterPanelComposite extends MediaQueryMixin(
       this._selectedValues.length > 0
         ? ` (${this._selectedValues.length})`
         : '';
-    return `
-      ${this._heading}${filterCount}
-    `;
+    return `${this._heading}${filterCount}`;
   }
 
   /**
