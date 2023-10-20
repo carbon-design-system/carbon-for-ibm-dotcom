@@ -419,9 +419,6 @@ class DDSFilterPanelComposite extends MediaQueryMixin(
       ?open=${this.openFilterModal}
       heading="${this._getComposedHeadingFilterCount()}"
       ?has-selections="${this._selectedValues.length}">
-      <slot
-        name="heading"
-        @slotchange="${this._handleHeadingSlotChange}"></slot>
       <slot @slotchange="${this._handleSlotChange}"></slot>
     </dds-filter-panel-modal>
   `;
@@ -433,26 +430,31 @@ class DDSFilterPanelComposite extends MediaQueryMixin(
     <dds-filter-panel
       heading="${this._getComposedHeadingFilterCount()}"
       ?has-selections="${this._selectedValues.length}">
-      <slot
-        name="heading"
-        @slotchange="${this._handleHeadingSlotChange}"></slot>
       <slot @slotchange="${this._handleSlotChange}"></slot>
     </dds-filter-panel>
   `;
 
   render() {
-    if (this._isMobile) {
-      return html`
-        <button class="bx--filter-button" @click=${this._openModal}>
-          <div class="${prefix}--filter__modal__button">
-            ${this._getComposedHeadingFilterCount()} ${Filter()}
-          </div>
-        </button>
-        ${this._renderModal()}
-      `;
-    } else {
-      return html` ${this._renderDesktop()} `;
-    }
+    // Note that the <slot name="heading"> contents, intended to be
+    // <dds-filter-panel-heading> are never shown as is. The text contents
+    // are composed, using this._getComposedHeadingFilterCount(), together with
+    // the current filter count, and passed as an attribute to
+    // <dds-filter-panel-modal> and <dds-filter-panel>.
+    return html`
+      <slot
+        name="heading"
+        @slotchange="${this._handleHeadingSlotChange}"></slot>
+      ${this._isMobile
+        ? html`
+            <button class="bx--filter-button" @click=${this._openModal}>
+              <div class="${prefix}--filter__modal__button">
+                ${this._getComposedHeadingFilterCount()} ${Filter()}
+              </div>
+            </button>
+            ${this._renderModal()}
+          `
+        : html` ${this._renderDesktop()} `}
+    `;
   }
 
   protected async updated() {
