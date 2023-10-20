@@ -20,7 +20,7 @@ import C4DExpressiveModalCloseButton from '@carbon/ibmdotcom-web-components/es/c
 import C4DExpressiveModalHeading from '@carbon/ibmdotcom-web-components/es/components-react/expressive-modal/expressive-modal-heading';
 import C4DExpressiveModalBody from '@carbon/ibmdotcom-web-components/es/components-react/expressive-modal/expressive-modal-body';
 import C4DExpressiveModalFooter from '@carbon/ibmdotcom-web-components/es/components-react/expressive-modal/expressive-modal-footer';
-import C4DButtonExpressive from '@carbon/ibmdotcom-web-components/es/components-react/button/button';
+import C4DButton from '@carbon/ibmdotcom-web-components/es/components-react/button/button';
 import { action } from '@storybook/addon-actions';
 import { EXPRESSIVE_MODAL_SIZE } from '../defs';
 import readme from './README.stories.react.mdx';
@@ -63,9 +63,9 @@ export const Default = (args) => {
         sapien eu nisl congue suscipit.
       </C4DExpressiveModalBody>
       <C4DExpressiveModalFooter>
-        <C4DButtonExpressive href="https://www.example.com">
+        <C4DButton href="https://www.example.com">
           {buttonContent} <ArrowRight20 slot="icon" />
-        </C4DButtonExpressive>
+        </C4DButton>
       </C4DExpressiveModalFooter>
     </C4DExpressiveModal>
   );

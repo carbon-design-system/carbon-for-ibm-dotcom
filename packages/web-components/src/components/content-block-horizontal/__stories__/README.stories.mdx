@@ -6,7 +6,7 @@ import { cdnJs, cdnCss } from '../../../globals/internal/storybook-cdn';
 # `<cds-content-block-horizontal>`
 
 > The Content Block - Horizontal block pattern contains a collection of
-> `<cds-content-item-horizontal>` content items.
+> `<cds-content-item-row>` content items.
 
 > 💡 Check our
 > [CodeSandbox](https://githubbox.com/carbon-design-system/carbon-for-ibm-dotcom/tree/main/packages/web-components/examples/codesandbox/components/content-block-horizontal)
@@ -37,15 +37,15 @@ import '@carbon/ibmdotcom-web-components/es/components/content-block-horizontal/
   <cds-content-block-heading
     >Curabitur malesuada varius mi eu posuere</cds-content-block-heading
   >
-  <cds-content-item-horizontal>
-    <cds-content-item-horizontal-eyebrow
-      >Lorem ipsum</cds-content-item-horizontal-eyebrow
+  <cds-content-item-row>
+    <cds-content-item-row-eyebrow
+      >Lorem ipsum</cds-content-item-row-eyebrow
     >
     <cds-content-item-heading>Aliquam condimentum</cds-content-item-heading>
-    <cds-content-item-horizontal-copy
+    <cds-content-item-row-copy
       >Lorem ipsum dolor sit amet, _consectetur_ adipiscing elit. Aenean et
       ultricies est. Mauris iaculis eget dolor nec hendrerit. Phasellus at elit
-      sollicitudin.</cds-content-item-horizontal-copy
+      sollicitudin.</cds-content-item-row-copy
     >
     <cds-link-list slot="footer" type="vertical">
       <cds-link-list-item-cta
@@ -61,7 +61,7 @@ import '@carbon/ibmdotcom-web-components/es/components/content-block-horizontal/
         External link text
       </cds-link-list-item-cta>
     </cds-link-list>
-  </cds-content-item-horizontal>
+  </cds-content-item-row>
 </cds-content-block-horizontal>
 ```
 
@@ -81,7 +81,7 @@ to see how Web Components selector and `data-autoid` should be used.
 | ------------------------------------ | ------------------------------------------------- | ----------- |
 | `<cds-content-block-horizontal>`     | `data-autoid="cds--content-block-simple"`         | Component   |
 | `<cds-content-block-heading>`        | `data-autoid="cds--content-block__heading"`       | Component   |
-| `<cds-content-item-horizontal>`      | `data-autoid="cds--content-item-horizontal"`      | Component   |
-| `<cds-content-item-horizontal-copy>` | `data-autoid="cds--content-item-horizontal-copy"` | Component   |
+| `<cds-content-item-row>`      | `data-autoid="cds--content-item-row"`      | Component   |
+| `<cds-content-item-row-copy>` | `data-autoid="cds--content-item-row-copy"` | Component   |
 
 <Description markdown={contributing} />

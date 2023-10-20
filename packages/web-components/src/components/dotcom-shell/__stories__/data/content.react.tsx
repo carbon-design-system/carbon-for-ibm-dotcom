@@ -1,6 +1,6 @@
 /* eslint-disable max-len */
 /**
- * Copyright IBM Corp. 2016, 2022
+ * Copyright IBM Corp. 2016, 2023
  *
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
@@ -15,17 +15,17 @@ import C4DContentBlockSegmentedItem from '@carbon/ibmdotcom-web-components/es/co
 import C4DContentGroupHeading from '@carbon/ibmdotcom-web-components/es/components-react/content-group/content-group-heading';
 import C4DContentItemCopy from '@carbon/ibmdotcom-web-components/es/components-react/content-item/content-item-copy';
 import C4DTextCTA from '@carbon/ibmdotcom-web-components/es/components-react/cta/text-cta';
-import C4DContentItemHorizontal from '@carbon/ibmdotcom-web-components/es/components-react/content-item-horizontal/content-item-horizontal';
-import C4DContentItemHorizontalEyebrow from '@carbon/ibmdotcom-web-components/es/components-react/content-item-horizontal/content-item-horizontal-eyebrow';
+import C4DContentItemRow from '@carbon/ibmdotcom-web-components/es/components-react/content-item-row/content-item-row';
+import C4DContentItemRowEyebrow from '@carbon/ibmdotcom-web-components/es/components-react/content-item-row/content-item-row-eyebrow';
 import C4DContentItemHeading from '@carbon/ibmdotcom-web-components/es/components-react/content-item/content-item-heading';
-import C4DContentItemHorizontalCopy from '@carbon/ibmdotcom-web-components/es/components-react/content-item-horizontal/content-item-horizontal-copy';
+import C4DContentItemRowCopy from '@carbon/ibmdotcom-web-components/es/components-react/content-item-row/content-item-row-copy';
 import C4DLinkList from '@carbon/ibmdotcom-web-components/es/components-react/link-list/link-list';
 import C4DLinkListItemCTA from '@carbon/ibmdotcom-web-components/es/components-react/cta/link-list-item-cta';
-import C4DUniversalBanner from '@carbon/ibmdotcom-web-components/es/components-react/universal-banner/universal-banner';
-import C4DUniversalBannerImage from '@carbon/ibmdotcom-web-components/es/components-react/universal-banner/universal-banner-image';
-import C4DUniversalBannerHeading from '@carbon/ibmdotcom-web-components/es/components-react/universal-banner/universal-banner-heading';
-import C4DUniversalBannerCopy from '@carbon/ibmdotcom-web-components/es/components-react/universal-banner/universal-banner-copy';
-import C4DButtonCTA from '@carbon/ibmdotcom-web-components/es/components-react/cta/button-cta';
+import C4DGlobalBanner from '@carbon/ibmdotcom-web-components/es/components-react/global-banner/global-banner';
+import C4DGlobalBannerImage from '@carbon/ibmdotcom-web-components/es/components-react/global-banner/global-banner-image';
+import C4DGlobalBannerHeading from '@carbon/ibmdotcom-web-components/es/components-react/global-banner/global-banner-heading';
+import C4DGlobalBannerCopy from '@carbon/ibmdotcom-web-components/es/components-react/global-banner/global-banner-copy';
+import C4DButton from '@carbon/ibmdotcom-web-components/es/components-react/button/button';
 import C4DCardGroupItem from '@carbon/ibmdotcom-web-components/es/components-react/card-group/card-group-item';
 import C4DCardHeading from '@carbon/ibmdotcom-web-components/es/components-react/card/card-heading';
 import C4DCardEyebrow from '@carbon/ibmdotcom-web-components/es/components-react/card/card-eyebrow';
@@ -35,13 +35,9 @@ import C4DLeadspaceHeading from '@carbon/ibmdotcom-web-components/es/components-
 import C4DButtonGroup from '@carbon/ibmdotcom-web-components/es/components-react/button-group/button-group';
 import C4DButtonGroupItem from '@carbon/ibmdotcom-web-components/es/components-react/button-group/button-group-item';
 import C4DLeadspaceWithSearch from '@carbon/ibmdotcom-web-components/es/components-react/leadspace-with-search/leadspace-with-search';
-import C4DLeadspaceWithSearchHeading from '@carbon/ibmdotcom-web-components/es/components-react/leadspace-with-search/leadspace-with-search-heading';
-import C4DLeadspaceWithSearchContent from '@carbon/ibmdotcom-web-components/es/components-react/leadspace-with-search/leadspace-with-search-content';
-import C4DLeadspaceWithSearchContentHeading from '@carbon/ibmdotcom-web-components/es/components-react/leadspace-with-search/leadspace-with-search-content-heading';
-import C4DLeadspaceWithSearchContentCopy from '@carbon/ibmdotcom-web-components/es/components-react/leadspace-with-search/leadspace-with-search-content-copy';
+import C4DLeadspaceWithSearchCopy from '@carbon/ibmdotcom-web-components/es/components-react/leadspace-with-search/leadspace-with-search-copy';
 import C4DSearchWithTypeahead from '@carbon/ibmdotcom-web-components/es/components-react/search-with-typeahead/search-with-typeahead';
 import C4DLeadspaceBlock from '@carbon/ibmdotcom-web-components/es/components-react/leadspace-block/leadspace-block';
-import C4DLeadspaceBlockHeading from '@carbon/ibmdotcom-web-components/es/components-react/leadspace-block/leadspace-block-heading';
 import C4DLeadspaceBlockContent from '@carbon/ibmdotcom-web-components/es/components-react/leadspace-block/leadspace-block-content';
 import C4DContentBlockHeading from '@carbon/ibmdotcom-web-components/es/components-react/content-block/content-block-heading';
 import C4DContentBlockCopy from '@carbon/ibmdotcom-web-components/es/components-react/content-block/content-block-copy';
@@ -49,7 +45,6 @@ import C4DLeadspaceBlockMedia from '@carbon/ibmdotcom-web-components/es/componen
 import C4DVideoPlayerContainer from '@carbon/ibmdotcom-web-components/es/components-react/video-player/video-player-container';
 import C4DLinkListHeading from '@carbon/ibmdotcom-web-components/es/components-react/link-list/link-list-heading';
 import C4DLinkListItem from '@carbon/ibmdotcom-web-components/es/components-react/link-list/link-list-item';
-import C4DLeadspaceBlockCTA from '@carbon/ibmdotcom-web-components/es/components-react/leadspace-block/leadspace-block-cta';
 import C4DFeatureCard from '@carbon/ibmdotcom-web-components/es/components-react/feature-card/feature-card';
 import C4DFeatureCardFooter from '@carbon/ibmdotcom-web-components/es/components-react/feature-card/feature-card-footer';
 import C4DCardCTA from '@carbon/ibmdotcom-web-components/es/components-react/cta/card-cta';
@@ -146,16 +141,16 @@ export const contentBlockSegmentedItemsWithImage = (
 );
 
 export const contentItemHorizontal = (
-  <C4DContentItemHorizontal>
-    <C4DContentItemHorizontalEyebrow>
+  <C4DContentItemRow>
+    <C4DContentItemRowEyebrow>
       Lorem ipsum
-    </C4DContentItemHorizontalEyebrow>
+    </C4DContentItemRowEyebrow>
     <C4DContentItemHeading>Aliquam condimentum</C4DContentItemHeading>
-    <C4DContentItemHorizontalCopy>
+    <C4DContentItemRowCopy>
       Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean et
       ultricies est. Mauris iaculis eget dolor nec hendrerit. Phasellus at elit
       sollicitudin.
-    </C4DContentItemHorizontalCopy>
+    </C4DContentItemRowCopy>
     <C4DLinkList slot="footer" type="vertical">
       <C4DLinkListItemCTA
         icon-placement="right"
@@ -170,26 +165,26 @@ export const contentItemHorizontal = (
         External link text
       </C4DLinkListItemCTA>
     </C4DLinkList>
-  </C4DContentItemHorizontal>
+  </C4DContentItemRow>
 );
 
-export const universalBanner = (srcImage) => (
-  <C4DUniversalBanner image-width="4-col">
-    <C4DUniversalBannerImage
+export const globalBanner = (srcImage) => (
+  <C4DGlobalBanner image-width="4-col">
+    <C4DGlobalBannerImage
       slot="image"
-      default-src={srcImage}></C4DUniversalBannerImage>
-    <C4DUniversalBannerHeading slot="heading">
+      default-src={srcImage}></C4DGlobalBannerImage>
+    <C4DGlobalBannerHeading slot="heading">
       heading
-    </C4DUniversalBannerHeading>
-    <C4DUniversalBannerCopy slot="copy">copy</C4DUniversalBannerCopy>
-    <C4DButtonCTA
+    </C4DGlobalBannerHeading>
+    <C4DGlobalBannerCopy slot="copy">copy</C4DGlobalBannerCopy>
+    <C4DButton
       slot="cta"
       cta-type="local"
       kind="tertiary"
       href="https://www.example.com">
       cta copy
-    </C4DButtonCTA>
-  </C4DUniversalBanner>
+    </C4DButton>
+  </C4DGlobalBanner>
 );
 
 export const cardGroupItems = (
@@ -228,19 +223,14 @@ export const contentLeadspace = (
 
 export const contentLeadspaceSearch = (
   <C4DLeadspaceWithSearch adjacent-theme="white-and-g10" scroll-behavior>
-    <C4DLeadspaceWithSearchHeading>
-      Find a product
-    </C4DLeadspaceWithSearchHeading>
-    <C4DLeadspaceWithSearchContent>
-      <C4DLeadspaceWithSearchContentHeading>
-        Innovate like a startup, scale for the enterprise
-      </C4DLeadspaceWithSearchContentHeading>
-      <C4DLeadspaceWithSearchContentCopy>
-        Automate your software release process with continuous delivery (CD)—the
-        most critical part of adopting DevOps. Build, test, and deploy code
-        changes quickly, ensuring software is always ready for deployment.
-      </C4DLeadspaceWithSearchContentCopy>
-    </C4DLeadspaceWithSearchContent>
+    <C4DLeadspaceHeading>
+      Find a product - Innovate like a startup, scale for the enterprise
+    </C4DLeadspaceHeading>
+    <C4DLeadspaceWithSearchCopy>
+      Automate your software release process with continuous delivery (CD)—the
+      most critical part of adopting DevOps. Build, test, and deploy code
+      changes quickly, ensuring software is always ready for deployment.
+    </C4DLeadspaceWithSearchCopy>
     <C4DSearchWithTypeahead
       slot="search"
       leadspace-search
@@ -252,18 +242,15 @@ export const contentLeadspaceSearch = (
 export const tocContent = (
   <>
     <C4DLeadspaceBlock name="1" data-title="Lorem ipsum dolor sit amet">
-      <C4DLeadspaceBlockHeading>
+      <C4DLeadspaceHeading>
         Lorem ipsum dolor sit amet
-      </C4DLeadspaceBlockHeading>
+      </C4DLeadspaceHeading>
       <C4DLeadspaceBlockContent>
-        <C4DContentBlockHeading>
-          Consectetur adipiscing elit, sed do eiusmod tempor incididunt ut.
-        </C4DContentBlockHeading>
         <C4DContentBlockCopy slot="copy">
           Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris
           nisi ut aliquip ex ea commodo consequat.
         </C4DContentBlockCopy>
-        <C4DLeadspaceBlockMedia slot="media">
+        <C4DLeadspaceBlockMedia>
           <C4DVideoPlayerContainer video-id="0_ibuqxqbe"></C4DVideoPlayerContainer>
         </C4DLeadspaceBlockMedia>
         <C4DLinkList type="end">
@@ -278,11 +265,9 @@ export const tocContent = (
             View all products <ArrowRight20 slot="icon" />
           </C4DLinkListItem>
         </C4DLinkList>
-        <C4DLeadspaceBlockCTA>
-          <C4DButtonGroupItem href="www.ibm.com">
-            Contact sales <ArrowRight20 slot="icon" />
-          </C4DButtonGroupItem>
-        </C4DLeadspaceBlockCTA>
+        <C4DButton href="https://example.com" cta-type="local">
+          Contact sales
+        </C4DButton>
       </C4DLeadspaceBlockContent>
     </C4DLeadspaceBlock>
 

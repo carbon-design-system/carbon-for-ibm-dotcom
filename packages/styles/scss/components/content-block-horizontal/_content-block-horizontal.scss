@@ -9,12 +9,11 @@
 @use '@carbon/styles/scss/config' as *;
 @use '@carbon/styles/scss/spacing' as *;
 @use '../../internal/content-block';
-@use '../content-item-horizontal';
+@use '../content-item-row';
 @use '../../globals/vars' as *;
 
 @mixin content-block-horizontal {
-  :host(#{$c4d-prefix}-content-block-horizontal),
-  :host(#{$c4d-prefix}-content-group-horizontal) {
+  :host(#{$c4d-prefix}-content-block-horizontal) {
     padding-top: $spacing-07;
     padding-bottom: $spacing-07;
 
@@ -28,8 +27,7 @@
     }
   }
 
-  .#{$prefix}--content-block-horizontal,
-  .#{$prefix}--content-group-horizontal {
+  .#{$prefix}--content-block-horizontal {
     .#{$prefix}--content-block {
       padding-top: $spacing-07;
       padding-bottom: $spacing-05;
@@ -40,24 +38,13 @@
       }
     }
   }
-  .#{$prefix}--content-group-horizontal {
-    .#{$prefix}--content-item-horizontal__item--cta {
-      margin-top: 0;
-    }
-  }
 
   :host(#{$c4d-prefix}-content-block-horizontal) ::slotted([slot='heading']),
-  :host(#{$c4d-prefix}-content-group-horizontal) ::slotted([slot='heading']),
-  .#{$prefix}--content-block-horizontal .#{$prefix}--content-block__heading,
-  .#{$prefix}--content-group-horizontal .#{$prefix}--content-block__heading {
+  .#{$prefix}--content-block-horizontal .#{$prefix}--content-block__heading {
     margin-bottom: $spacing-07;
   }
 
-  :host(#{$c4d-prefix}-content-item-horizontal):last-child,
-  .#{$prefix}--content-block-horizontal
-    .#{$prefix}--content-item-horizontal__item:last-child,
-  .#{$prefix}--content-group-horizontal
-    .#{$prefix}--content-item-horizontal__item:last-child {
+  :host(#{$c4d-prefix}-content-item-row):last-child {
     @include breakpoint(max) {
       padding-bottom: $spacing-13;
     }

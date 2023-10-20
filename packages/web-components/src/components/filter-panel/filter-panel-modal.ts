@@ -116,7 +116,8 @@ class C4DFilterPanelModal extends HostListenerMixin(
         @focusin="${handleFocusIn}">
         START
       </button>
-      <section class="${prefix}--filter-panel__section bx--modal-container">
+      <section
+        class="${prefix}--filter-panel__section ${prefix}--modal-container">
         <cds-modal-header>
           <cds-modal-close-button
             @click=${this._handleUserClose}></cds-modal-close-button>
@@ -127,7 +128,7 @@ class C4DFilterPanelModal extends HostListenerMixin(
           <c4d-filter-modal-footer-button
             ?disabled="${!this.hasSelections}"
             @click=${this._handleClear}
-            kind="tertiary"
+            kind="secondary"
             >Clear</c4d-filter-modal-footer-button
           >
           <c4d-filter-modal-footer-button

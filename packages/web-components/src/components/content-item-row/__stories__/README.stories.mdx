@@ -1,0 +1,271 @@
+import { Props, Description } from '@storybook/addon-docs/blocks';
+import markdownContents from '../../../../docs/markdown-contents.md';
+import contributing from '../../../../../../docs/contributing-license.md';
+import { cdnJs, cdnCss } from '../../../globals/internal/storybook-cdn';
+
+# `<cds-content-item-row>`
+
+> 💡 Check our
+> [CodeSandbox](https://githubbox.com/carbon-design-system/carbon-for-ibm-dotcom/tree/main/packages/web-components/examples/codesandbox/components/content-item-row)
+> example implementation.
+
+[![Edit @carbon/ibmdotcom-web-components](https://codesandbox.io/static/img/play-codesandbox.svg)](https://githubbox.com/carbon-design-system/carbon-for-ibm-dotcom/tree/main/packages/web-components/examples/codesandbox/components/content-item-row)
+
+## Getting started
+
+Here's a quick example to get you started.
+
+### JS (via import)
+
+```javascript
+import '@carbon/ibmdotcom-web-components/es/components/content-item-row/index.js';
+```
+
+<Description
+  markdown={`${cdnJs({ components: ['content-item-row'] })}`}
+/>
+
+<Description markdown={`${cdnCss()}`} />
+
+### HTML
+
+```html
+<cds-content-item-row>
+  <cds-content-item-row-eyebrow
+    >Lorem ipsum</cds-content-item-row-eyebrow
+  >
+  <cds-content-item-heading>Aliquam condimentum</cds-content-item-heading>
+  <cds-content-item-row-copy
+    >Lorem ipsum dolor sit amet, _consectetur_ adipiscing elit. Aenean et
+    ultricies est. Mauris iaculis eget dolor nec hendrerit. Phasellus at elit
+    sollicitudin.</cds-content-item-row-copy
+  >
+  <cds-link-list slot="footer" type="vertical">
+    <cds-link-list-item-cta
+      icon-placement="right"
+      href="https://www.ibm.com"
+      cta-type="local">
+      Learn more
+    </cds-link-list-item-cta>
+    <cds-link-list-item-cta
+      icon-placement="right"
+      href="https://www.ibm.com"
+      cta-type="external">
+      Microservices and containers
+    </cds-link-list-item-cta>
+  </cds-link-list>
+</cds-content-item-row>
+```
+
+### HTML (with thumbnail)
+
+```html
+<cds-content-item-row thumbnail>
+  <cds-content-item-heading> Aliquam condimentum </cds-content-item-heading>
+  <cds-content-item-row-thumbnail-copy>
+    Lorem ipsum dolor sit amet, _consectetur_ adipiscing elit. Aenean et
+    ultricies est. Mauris iaculis eget dolor nec hendrerit. Phasellus at elit
+    sollicitudin.
+  </cds-content-item-row-thumbnail-copy>
+  <cds-link-list slot="footer" type="vertical">
+    <cds-link-list-item-cta
+      icon-placement="right"
+      href="https://www.ibm.com"
+      cta-type="local">
+      Learn more
+    </cds-link-list-item-cta>
+    <cds-link-list-item-cta
+      icon-placement="right"
+      href="https://www.ibm.com"
+      cta-type="external">
+      Microservices and containers
+    </cds-link-list-item-cta>
+  </cds-link-list>
+  <cds-image
+    slot="thumbnail"
+    alt="Alt text"
+    default-src="https://fpoimg.com/960x720?text=4:3&bg_color=ee5396&text_color=161616"></cds-image>
+</cds-content-item-row>
+```
+
+## With Media (image)
+
+### JS (via import)
+
+```javascript
+import '@carbon/ibmdotcom-web-components/es/components/content-item-row/index.js';
+
+// with Image
+import '@carbon/ibmdotcom-web-components/es/components/image/image';
+```
+
+### HTML
+
+```html
+<cds-content-item-row-media align="right">
+  <cds-image slot="media" alt="Alt text" default-src="image.jpg"></cds-image>
+  <cds-content-item-heading>Lorem Ipsum</cds-content-item-heading>
+  <cds-content-item-row-media-copy
+    >Lorem Ipsum</cds-content-item-row-media-copy
+  >
+  <cds-link-list slot="footer" type="vertical">
+    <cds-link-list-item-cta
+      icon-placement="right"
+      href="https://www.ibm.com"
+      cta-type="local">
+      Learn more
+    </cds-link-list-item-cta>
+    <cds-link-list-item-cta
+      icon-placement="right"
+      href="https://www.ibm.com"
+      cta-type="external">
+      Microservices and containers
+    </cds-link-list-item-cta>
+  </cds-link-list>
+</cds-content-item-row-media>
+```
+
+## With Media (video)
+
+### JS (via import)
+
+```javascript
+import '@carbon/ibmdotcom-web-components/es/components/content-item-row/index.js';
+
+// with Video
+import '@carbon/ibmdotcom-web-components/es/components/content-item-row/content-item-row-media-video';
+```
+
+### HTML
+
+```html
+<cds-content-item-row-media align="right">
+  <cds-content-item-row-media-video
+    video-id="0_ibuqxqbe"></cds-content-item-row-media-video>
+  <cds-content-item-heading>Lorem Ipsum</cds-content-item-heading>
+  <cds-content-item-row-media-copy
+    >Lorem Ipsum</cds-content-item-row-media-copy
+  >
+  <cds-link-list slot="footer" type="vertical">
+    <cds-link-list-item-cta
+      icon-placement="right"
+      href="https://www.ibm.com"
+      cta-type="local">
+      Learn more
+    </cds-link-list-item-cta>
+    <cds-link-list-item-cta
+      icon-placement="right"
+      href="https://www.ibm.com"
+      cta-type="external">
+      Microservices and containers
+    </cds-link-list-item-cta>
+  </cds-link-list>
+</cds-content-item-row-media>
+```
+
+## With Featured Media (image)
+
+### JS (via import)
+
+```javascript
+import '@carbon/ibmdotcom-web-components/es/components/content-item-row/index.js';
+
+// with Image
+import '@carbon/ibmdotcom-web-components/es/components/image/image';
+```
+
+### HTML
+
+```html
+<cds-content-item-row-media-featured>
+  <cds-content-item-row-eyebrow
+    >Lorem ipsum</cds-content-item-row-eyebrow
+  >
+  <cds-content-item-heading>Aliquam condimentum</cds-content-item-heading>
+  <cds-content-item-row-media-copy>
+    Lorem ipsum dolor sit amet, _consectetur_ adipiscing elit. Aenean et
+    ultricies est. Mauris iaculis eget dolor nec hendrerit. Phasellus at elit
+    sollicitudin.
+  </cds-content-item-row-media-copy>
+  <cds-link-list slot="footer" type="vertical">
+    <cds-link-list-item-cta
+      icon-placement="right"
+      href="https://www.ibm.com"
+      cta-type="local">
+      Learn more
+    </cds-link-list-item-cta>
+    <cds-link-list-item-cta
+      icon-placement="right"
+      href="https://www.ibm.com"
+      cta-type="external">
+      Microservices and containers
+    </cds-link-list-item-cta>
+  </cds-link-list>
+  <cds-image slot="media" alt="Alt text" default-src="image.jpg"></cds-image>
+</cds-content-item-row-media-featured>
+```
+
+## With Featured Media (video)
+
+### JS (via import)
+
+```javascript
+import '@carbon/ibmdotcom-web-components/es/components/content-item-row/index.js';
+
+// with Video
+import '@carbon/ibmdotcom-web-components/es/components/content-item-row/content-item-row-media-video';
+```
+
+### HTML
+
+```html
+<cds-content-item-row-media-featured>
+  <cds-content-item-row-eyebrow
+    >Lorem ipsum</cds-content-item-row-eyebrow
+  >
+  <cds-content-item-heading>Aliquam condimentum</cds-content-item-heading>
+  <cds-content-item-row-media-copy>
+    Lorem ipsum dolor sit amet, _consectetur_ adipiscing elit. Aenean et
+    ultricies est. Mauris iaculis eget dolor nec hendrerit. Phasellus at elit
+    sollicitudin.
+  </cds-content-item-row-media-copy>
+  <cds-link-list slot="footer" type="vertical">
+    <cds-link-list-item-cta
+      icon-placement="right"
+      href="https://www.ibm.com"
+      cta-type="local">
+      Learn more
+    </cds-link-list-item-cta>
+    <cds-link-list-item-cta
+      icon-placement="right"
+      href="https://www.ibm.com"
+      cta-type="external">
+      Microservices and containers
+    </cds-link-list-item-cta>
+  </cds-link-list>
+  <cds-content-item-row-media-video
+    video-id="0_ibuqxqbe"></cds-content-item-row-media-video>
+</cds-content-item-row-media-featured>
+```
+
+## Props
+
+<Props of="cds-content-item-row" />
+<Description markdown={markdownContents} />
+
+## Stable selectors
+
+See
+[our README](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/tree/main/packages/web-components#stable-selectors-for-analytics-and-integratione2e-testing-in-web-components)
+to see how Web Components selector and `data-autoid` should be used.
+
+| Web Components selector               | Compatibility selector                             | Description |
+| ------------------------------------- | -------------------------------------------------- | ----------- |
+| `<cds-content-item-row>`       | `data-autoid="cds--content-item-row"`       | Component   |
+| `<cds-content-item-row-media>` | `data-autoid="cds--content-item-row-media"` | Component   |
+| `<cds-content-item-heading>`          | `data-autoid="cds--content-item-heading"`          | Component   |
+| `<cds-content-item-row-copy>`  | `data-autoid="cds--content-item-row-copy"`  | Component   |
+| `<cds-link-list>`                     | `data-autoid="cds--link-list"`                     | Component   |
+| `<cds-link-list-item-cta>`            | `data-autoid="cds--link-list-item-cta"`            | Component   |
+
+<Description markdown={contributing} />

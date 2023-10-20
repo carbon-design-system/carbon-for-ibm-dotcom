@@ -15,7 +15,7 @@ import styles from './locale-modal.scss';
 import StableSelectorMixin from '../../globals/mixins/stable-selector';
 import { carbonElement as customElement } from '../../internal/vendor/@carbon/web-components/globals/decorators/carbon-element';
 
-const { prefix, stablePrefix: c4dPrefix } = settings;
+const { stablePrefix: c4dPrefix } = settings;
 
 /**
  * The regions selector in locale modal.
@@ -31,11 +31,7 @@ class C4DRegions extends StableSelectorMixin(LitElement) {
   slot = 'regions-selector';
 
   render() {
-    return html`
-      <div class="${prefix}--row">
-        <slot></slot>
-      </div>
-    `;
+    return html` <slot></slot> `;
   }
 
   static get stableSelector() {

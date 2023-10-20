@@ -30,6 +30,7 @@ import {
   MastheadProfileItem,
 } from '../../../internal/vendor/@carbon/ibmdotcom-services-store/types/translateAPI.d';
 import { UNAUTHENTICATED_STATUS } from '../../../internal/vendor/@carbon/ibmdotcom-services-store/types/cloudAccountAuthAPI';
+import { MASTHEAD_AUTH_METHOD } from '../../../internal/vendor/@carbon/ibmdotcom-services-store/types/profileAPI';
 import styles from './cloud-masthead.scss';
 import C4DMastheadComposite, {
   NAV_ITEMS_RENDER_TARGET,
@@ -84,7 +85,7 @@ class C4DCloudMastheadComposite extends C4DMastheadComposite {
    * The selected authentication method, either 'cookie' or 'api'.
    */
   @property({ attribute: 'auth-method' })
-  authMethod = 'cookie';
+  authMethod = MASTHEAD_AUTH_METHOD.COOKIE;
 
   /**
    * The user authentication status.
@@ -317,7 +318,6 @@ class C4DCloudMastheadComposite extends C4DMastheadComposite {
       language,
       openSearchDropdown,
       searchPlaceholder,
-      selectedMenuItem,
       unauthenticatedProfileItems,
       unauthenticatedCtaButtons,
       userStatus,
@@ -356,7 +356,6 @@ class C4DCloudMastheadComposite extends C4DMastheadComposite {
                     >
                   `}
               ${this._renderNavItems({
-                selectedMenuItem,
                 target: NAV_ITEMS_RENDER_TARGET.LEFT_NAV,
                 hasL1: !!l1Data,
               })}
@@ -393,7 +392,6 @@ class C4DCloudMastheadComposite extends C4DMastheadComposite {
                 cloud
                 menu-bar-label="${ifDefined(menuBarAssistiveText)}">
                 ${this._renderNavItems({
-                  selectedMenuItem,
                   target: NAV_ITEMS_RENDER_TARGET.TOP_NAV,
                   hasL1: false,
                 })}
@@ -489,7 +487,7 @@ class C4DCloudMastheadComposite extends C4DMastheadComposite {
                 )}
               </c4d-cloud-masthead-global-bar>
             `}
-        ${!l1Data ? undefined : this._renderL1({ selectedMenuItem })}
+        ${!l1Data ? undefined : this._renderL1()}
         <c4d-megamenu-overlay></c4d-megamenu-overlay>
       </c4d-masthead>
     `;

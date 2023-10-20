@@ -58,8 +58,8 @@ class C4DLocaleModal extends C4DExpressiveModal {
    * @param event The event.
    */
   private _handleClickRegionSelector(event: MouseEvent) {
-    const { invalid, name } = event.target as C4DRegionItem;
-    if (!invalid) {
+    const { disabled, name } = event.target as C4DRegionItem;
+    if (!disabled) {
       this._currentRegion = name;
     }
   }
@@ -80,7 +80,7 @@ class C4DLocaleModal extends C4DExpressiveModal {
       html`
         <p class="${prefix}--modal-header__label ${prefix}--type-delta">
           ${langDisplay}${EarthFilled16({
-            class: `${prefix}--locale-modal__label-globe`,
+            class: `${c4dPrefix}--locale-modal__label-globe`,
           })}
         </p>
       `}
@@ -108,7 +108,7 @@ class C4DLocaleModal extends C4DExpressiveModal {
         @click="${handleClickBackButton}">
         ${headerTitle}${ArrowLeft20({
           slot: 'icon',
-          class: `${prefix}--locale-modal__label-arrow`,
+          class: `${c4dPrefix}--locale-modal__label-arrow`,
         })}
       </c4d-link-with-icon>
       <p class="cds--modal-header__heading cds--type-beta" tabindex="0">
@@ -134,7 +134,7 @@ class C4DLocaleModal extends C4DExpressiveModal {
     const { _handleClickRegionSelector: handleClickRegionSelector } = this;
     return html`
       <div
-        class="${prefix}--modal-content ${prefix}--locale-modal"
+        class="${prefix}--modal-content ${c4dPrefix}--locale-modal"
         @click="${handleClickRegionSelector}">
         <slot name="regions-selector"></slot>
       </div>
@@ -152,7 +152,7 @@ class C4DLocaleModal extends C4DExpressiveModal {
   protected _renderHeader() {
     const { closeButtonAssistiveText } = this;
     return html`
-      <div id="${c4dPrefix}--modal-header">
+      <div id="${prefix}--modal-header">
         <c4d-expressive-modal-header>
           <c4d-expressive-modal-close-button
             assistive-text="${ifDefined(closeButtonAssistiveText)}">
@@ -250,7 +250,7 @@ class C4DLocaleModal extends C4DExpressiveModal {
       ${c4dPrefix}-expressive-modal,
       ${c4dPrefix}-expressive-modal-close-button,
       ${c4dPrefix}-region-item,
-      ${c4dPrefix}-search,
+      ${prefix}-search,
       ${c4dPrefix}-locale-item
     `;
   }

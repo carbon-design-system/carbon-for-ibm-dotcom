@@ -11,12 +11,10 @@ import { html } from 'lit';
 import { action } from '@storybook/addon-actions';
 import { boolean, select } from '@storybook/addon-knobs';
 import ArrowRight20 from '../../../internal/vendor/@carbon/web-components/icons/arrow--right/20.js';
-// import '../../../internal/vendor/@carbon/web-components/components/button/button.js';
 import { ifDefined } from 'lit/directives/if-defined.js';
 import textNullable from '../../../../.storybook/knob-text-nullable';
 import { EXPRESSIVE_MODAL_SIZE } from '../defs';
 import '../index';
-// import '../../button/button';
 import styles from './expressive-modal.stories.scss';
 import readme from './README.stories.mdx';
 
@@ -60,9 +58,9 @@ export const Default = (args) => {
         sapien eu nisl congue suscipit.
       </c4d-expressive-modal-body>
       <c4d-expressive-modal-footer>
-        <cds-button is-expressive href="https://www.example.com">
+        <c4d-button is-expressive href="https://www.example.com">
           ${buttonContent}${ArrowRight20({ slot: 'icon' })}
-        </cds-button>
+        </c4d-button>
       </c4d-expressive-modal-footer>
     </c4d-expressive-modal>
   `;

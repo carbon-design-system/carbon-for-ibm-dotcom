@@ -5,7 +5,8 @@
   "description": "Sample project for getting started with the Web Components from Carbon for IBM.com with React.",
   "license": "Apache-2",
   "scripts": {
-    "start": "webpack serve"
+    "start": "webpack serve",
+    "build": "webpack"
   },
   "dependencies": {
     "@carbon/ibmdotcom-web-components": "latest",

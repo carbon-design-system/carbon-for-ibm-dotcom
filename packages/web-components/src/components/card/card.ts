@@ -189,10 +189,10 @@ class C4DCard extends CTAMixin(StableSelectorMixin(CDSLink)) {
    * The color scheme.
    * A typical use case of using another color scheme of card is having a "CTA" purpose of card at the last in card group.
    *
-   * Color scheme options are: "inverse" and "light"
+   * Color scheme options are: "inverse" and "regular"
    */
   @property({ attribute: 'color-scheme', reflect: true })
-  colorScheme = BASIC_COLOR_SCHEME.REGULAR;
+  colorScheme = '';
 
   /**
    * Link `href`.
@@ -223,7 +223,7 @@ class C4DCard extends CTAMixin(StableSelectorMixin(CDSLink)) {
 
   updated(changedProperties) {
     super.updated(changedProperties);
-    const { colorScheme, href, _linkNode: linkNode, ctaType } = this;
+    const { colorScheme, disabled, href, _linkNode: linkNode, ctaType } = this;
 
     if (
       changedProperties.has('ctaType') ||
@@ -235,7 +235,6 @@ class C4DCard extends CTAMixin(StableSelectorMixin(CDSLink)) {
     ) {
       const {
         ctaType,
-        disabled,
         videoDuration,
         videoName,
         videoDescription,
@@ -296,10 +295,17 @@ class C4DCard extends CTAMixin(StableSelectorMixin(CDSLink)) {
         `${prefix}--card--inverse`,
         colorScheme === BASIC_COLOR_SCHEME.INVERSE
       );
+      linkNode.classList.toggle(
+        `${prefix}--link--disabled`,
+        Boolean(this.disabled)
+      );
     }
 
     if (this._hasPictogram) {
       this.onclick = () => window.open(this.href, '_self');
+      this.setAttribute('pictogram', '');
+    } else {
+      this.removeAttribute('pictogram');
     }
 
     const copyElement = this.querySelector('p');

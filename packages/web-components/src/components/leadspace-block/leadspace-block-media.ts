@@ -8,6 +8,7 @@
  */
 
 import { LitElement, html } from 'lit';
+import { property } from 'lit/decorators';
 import settings from '../../internal/vendor/@carbon/ibmdotcom-utilities/utilities/settings/settings';
 import StableSelectorMixin from '../../globals/mixins/stable-selector';
 import styles from './leadspace-block.scss';
@@ -22,6 +23,12 @@ const { stablePrefix: c4dPrefix } = settings;
  */
 @customElement(`${c4dPrefix}-leadspace-block-media`)
 class C4DLeadSpaceBlockMedia extends StableSelectorMixin(LitElement) {
+  /**
+   * The shadow slot the media should be in.
+   */
+  @property({ reflect: true })
+  slot = 'media';
+
   render() {
     return html` <slot></slot> `;
   }

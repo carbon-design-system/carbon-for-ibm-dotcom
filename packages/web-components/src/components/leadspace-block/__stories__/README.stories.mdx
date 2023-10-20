@@ -42,84 +42,86 @@ import '@carbon/ibmdotcom-web-components/es/components/video-player/video-player
 ### HTML
 
 ```html
-<cds-leadspace-block>
-  <cds-leadspace-block-heading>LeadSpace Block Title</cds-leadspace-block-heading>
-  <cds-leadspace-block-content>
-    <cds-content-block-heading>LeadSpace Block Heading</cds-content-block-heading>
-    <cds-content-block-copy>LeadSpace Block Copy</cds-content-block-copy>
-    <cds-leadspace-block-media slot="media">
-      <cds-image
+<c4d-leadspace-block border>
+  <c4d-leadspace-heading highlight="intelligent IT operations type-style="fluid-heading-05">Infuse your AIOps platform with intelligent IT operations</c4d-leadspace-heading>
+  <c4d-leadspace-block-content>
+    <c4d-content-block-copy>
+      Automate your software release process with continuous delivery (CD)—the most
+      critical part of adopting DevOps. Build, test, and deploy code changes quickly,
+      ensuring software is always ready for deployment.
+    </c4d-content-block-copy>
+    <c4d-leadspace-block-media>
+      <c4d-image
         alt="Image alt text"
         default-src="https://fpoimg.com/672x378?text=16:9&amp;bg_color=ee5396&amp;text_color=161616"
         heading="Lorem ipsum dolor sit amet, consectetur adipiscing elit."
       >
-        <cds-image-item
+        <c4d-image-item
           media="(min-width: 672px)"
           srcset="https://fpoimg.com/672x378?text=16:9&amp;bg_color=ee5396&amp;text_color=161616"
         >
-        </cds-image-item>
-        <cds-image-item
+        </c4d-image-item>
+        <c4d-image-item
           media="(min-width: 400px)"
           srcset="https://fpoimg.com/400x225?text=16:9&amp;bg_color=ee5396&amp;text_color=161616"
         >
-        </cds-image-item>
-        <cds-image-item
+        </c4d-image-item>
+        <c4d-image-item
           media="(min-width: 320px)"
           srcset="https://fpoimg.com/320x180?text=16:9&amp;bg_color=ee5396&amp;text_color=161616"
         >
-        </cds-image-item>
-      </cds-image>
-    </cds-leadspace-block-media>
-    <cds-link-list type="end">
-      <cds-link-list-heading>Featured products</cds-link-list-heading>
-      <cds-link-list-item href="https://example.com">
+        </c4d-image-item>
+      </c4d-image>
+    </c4d-leadspace-block-media>
+    <c4d-link-list type="end">
+      <c4d-link-list-heading>Featured products</c4d-link-list-heading>
+      <c4d-link-list-item href="https://example.com">
         Services ${ArrowRight20({ slot: 'icon' })}
-      </cds-link-list-item>
-      <cds-link-list-item href="https://example.com">
+      </c4d-link-list-item>
+      <c4d-link-list-item href="https://example.com">
         Analytics ${ArrowRight20({ slot: 'icon' })}
-      </cds-link-list-item>
-      <cds-link-list-item href="https://example.com">
+      </c4d-link-list-item>
+      <c4d-link-list-item href="https://example.com">
         View all products ${ArrowRight20({ slot: 'icon' })}
-      </cds-link-list-item>
-    </cds-link-list>
-    <cds-leadspace-block-cta>
-      <cds-button-group-item href="www.ibm.com">Click here ${ArrowRight20({ slot: 'icon' })}</cds-button-group-item>
-    </cds-button-group>
-  </cds-leadspace-block-cta>
-</cds-leadspace-block>
+      </c4d-link-list-item>
+    </c4d-link-list>
+    <c4d-button cta-type="local" href="https://example.com">
+      Contact sales
+    </c4d-button>
+  </c4d-leadspace-block-content>
+</c4d-leadspace-block>
 ```
 
 ### HTML (with video)
 
 ```html
-<cds-leadspace-block>
-  <cds-leadspace-block-heading>${title}</cds-leadspace-block-heading>
-  <cds-leadspace-block-content>
-    <cds-content-block-heading>${heading}</cds-content-block-heading>
-    <cds-content-block-copy>${copy}</cds-content-block-copy>
-    <cds-leadspace-block-media slot="media">
-      <cds-video-player-container
-        video-id="0_ibuqxqbe"></cds-video-player-container>
-    </cds-leadspace-block-media>
-    <cds-link-list type="end">
-      <cds-link-list-heading>Featured products</cds-link-list-heading>
-      <cds-link-list-item href="https://example.com">
+<c4d-leadspace-block border>
+  <c4d-leadspace-heading highlight="intelligent IT operations" type-style="fluid-heading-05">Infuse your AIOps platform with intelligent IT operations</c4d-leadspace-heading>
+  <c4d-leadspace-block-content>
+    <c4d-content-block-copy>
+      Automate your software release process with continuous delivery (CD)—the most
+      critical part of adopting DevOps. Build, test, and deploy code changes quickly,
+      ensuring software is always ready for deployment.
+    </c4d-content-block-copy>
+    <c4d-leadspace-block-media>
+      <c4d-video-player-container video-id="0_ibuqxqbe"></c4d-video-player-container>
+    </c4d-leadspace-block-media>
+    <c4d-link-list type="end">
+      <c4d-link-list-heading>Featured products</c4d-link-list-heading>
+      <c4d-link-list-item href="https://example.com">
         Services ${ArrowRight20({ slot: 'icon' })}
-      </cds-link-list-item>
-      <cds-link-list-item href="https://example.com">
+      </c4d-link-list-item>
+      <c4d-link-list-item href="https://example.com">
         Analytics ${ArrowRight20({ slot: 'icon' })}
-      </cds-link-list-item>
-      <cds-link-list-item href="https://example.com">
+      </c4d-link-list-item>
+      <c4d-link-list-item href="https://example.com">
         View all products ${ArrowRight20({ slot: 'icon' })}
-      </cds-link-list-item>
-    </cds-link-list>
-    <cds-leadspace-block-cta>
-      <cds-button-group-item href="www.ibm.com"
-        >Contact sales ${ArrowRight20({ slot: 'icon' })}</cds-button-group-item
-      >
-    </cds-leadspace-block-cta>
-  </cds-leadspace-block-content>
-</cds-leadspace-block>
+      </c4d-link-list-item>
+    </c4d-link-list>
+    <c4d-button cta-type="local" href="https://example.com">
+      Contact sales
+    </c4d-button>
+  </c4d-leadspace-block>
 ```
 
 ## Stable selectors
@@ -130,11 +132,11 @@ to see how Web Components selector and `data-autoid` should be used.
 
 | Web Components selector       | Compatibility selector                     | Description |
 | ----------------------------- | ------------------------------------------ | ----------- |
-| `<cds-leadspace-block>`       | `data-autoid="cds--leadspace-block"`       | Component   |
-| `<cds-leadspace-block-media>` | `data-autoid="cds--leadspace-block-media"` | Interactive |
-| `<cds-leadspace-block-cta>`   | `data-autoid="cds--leadspace-block-cta"`   | Interactive |
+| `<c4d-leadspace-block>`       | `data-autoid="c4d--leadspace-block"`       | Component   |
+| `<c4d-leadspace-block-media>` | `data-autoid="c4d--leadspace-block-media"` | Interactive |
+| `<c4d-leadspace-block-cta>`   | `data-autoid="c4d--leadspace-block-cta"`   | Interactive |
 
 ## Props
 
-<Props of="cds-leadspace-block" />
+<Props of="c4d-leadspace-block" />
 <Description markdown={contributing} />
