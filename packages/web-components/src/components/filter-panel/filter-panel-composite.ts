@@ -429,18 +429,16 @@ class DDSFilterPanelComposite extends MediaQueryMixin(
   /**
    * Renders copies of slotted elements into the desktop presentation.
    */
-  protected _renderDesktop = (): TemplateResult => {
-    return html`
-      <dds-filter-panel
-        heading="${this._getComposedHeadingFilterCount()}"
-        ?has-selections="${this._selectedValues.length}">
-        <slot
-          name="heading"
-          @slotchange="${this._handleHeadingSlotChange}"></slot>
-        <slot @slotchange="${this._handleSlotChange}"></slot>
-      </dds-filter-panel>
-    `;
-  };
+  protected _renderDesktop = (): TemplateResult => html`
+    <dds-filter-panel
+      heading="${this._getComposedHeadingFilterCount()}"
+      ?has-selections="${this._selectedValues.length}">
+      <slot
+        name="heading"
+        @slotchange="${this._handleHeadingSlotChange}"></slot>
+      <slot @slotchange="${this._handleSlotChange}"></slot>
+    </dds-filter-panel>
+  `;
 
   render() {
     if (this._isMobile) {
