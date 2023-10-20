@@ -11,7 +11,7 @@
  * @type {string}
  * @private
  */
-const _pathDefault = '/iframe.html?id=components-cloud-masthead--default';
+const _pathDefault = '/iframe.html?id=experimental-cloud-masthead--default';
 
 function clickUntilGone($el) {
   if ($el.is(':visible')) {
