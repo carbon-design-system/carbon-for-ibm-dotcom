@@ -134,7 +134,23 @@ class CDSModal extends HostListenerMixin(LitElement) {
         relatedTarget as Node
       );
       // eslint-disable-next-line no-bitwise
-      if (relatedTarget === endSentinelNode || comparisonResult & FOLLOWING) {
+      if (relatedTarget === startSentinelNode || comparisonResult & PRECEDING) {
+        await (this.constructor as typeof CDSModal)._delay();
+        if (
+          !tryFocusElems(
+            this.querySelectorAll(selectorTabbableForModal),
+            true
+          ) &&
+          relatedTarget !== this
+        ) {
+          this.focus();
+        }
+      }
+      // eslint-disable-next-line no-bitwise
+      else if (
+        relatedTarget === endSentinelNode ||
+        comparisonResult & FOLLOWING
+      ) {
         await (this.constructor as typeof CDSModal)._delay();
         if (!tryFocusElems(this.querySelectorAll(selectorTabbableForModal))) {
           this.focus();
