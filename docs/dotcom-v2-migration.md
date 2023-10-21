@@ -22,6 +22,7 @@ For Carbon v11 migration guidance, see their
 | callout-with-media        | View changes [here](#callout-with-media)                                                                                                       |
 | callout-quote             | View changes [here](#callout-quote)                                                                                                            |
 | card                      | View changes [here](#card)                                                                                                                     |
+| card-group                | View changes [here](#card-group)                                                                                                               |
 | card-group-card-link-item | This component is deprecated in v2 in favor for default card or with content-item                                                              |
 | card-in-card              | No API changes.                                                                                                                                |
 | card-link                 | This component is deprecated in v2 in favor for [card](#card) (link variant) component                                                         |
@@ -84,6 +85,14 @@ For Carbon v11 migration guidance, see their
 - New `aspect-ratio` property with '1:1', '2:1', '3:2', '4:3', and '16:9' as
   options
 - New `link` property which takes the place of the deprecated `card-link`
+
+### Card group
+
+- Removed `outline` property
+- New grid mode options: `Default` with a 32px gap, `Narrow` with a 16px gap, and `Condensed` with no gaps inbetween
+- Grid mode options `Collapsed` has been replaced with `Condensed`
+- Removed grid mode option `Border`
+- Deprecated `card-link` option in Card group
 
 ### Content group banner
 
