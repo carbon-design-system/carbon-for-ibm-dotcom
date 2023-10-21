@@ -41,9 +41,9 @@ const cardsCol = {
 };
 
 const gridModes = {
-  [`Collapsed (1px)`]: GRID_MODE.COLLAPSED,
+  [`Condensed (1px)`]: GRID_MODE.CONDENSED,
   [`Narrow (16px)`]: GRID_MODE.NARROW,
-  [`Outlined cards (1px border)`]: GRID_MODE.BORDER,
+  [`Default (32px)`]: GRID_MODE.DEFAULT,
 };
 
 const setGridMode = {
@@ -258,7 +258,6 @@ export const Default = (args) => {
     tagGroup,
     cardsPerRow,
     gridMode,
-    offset,
     cta,
     addCta,
   } = args?.CardGroup ?? {};
@@ -268,10 +267,6 @@ export const Default = (args) => {
   });
 
   const allCards: object[] = [];
-
-  if (offset === '1') {
-    allCards.push(emptyCard);
-  }
 
   if (cardType === 'Card - default') {
     allCards.push(
@@ -456,8 +451,7 @@ export default {
         const gridMode =
           cardType === 'Card static' || cardType === 'Card link'
             ? ''
-            : select('Grid mode:', gridModes, gridModes['Collapsed (1px)']);
-        const offset = select('Offset:', ['0', '1'], '0');
+            : select('Grid mode:', gridModes, gridModes['Default (32px)']);
         const cta = media ? '' : boolean('Add CTA card:', false);
         return {
           cardType,
@@ -467,7 +461,6 @@ export default {
           cards,
           cardsPerRow,
           gridMode,
-          offset,
           cta,
         };
       },
@@ -482,7 +475,6 @@ export default {
           cards: 5,
           cardsPerRow: 'c4d-ce-demo-devenv--cards-in-row-3',
           gridMode: 'collapsed',
-          offset: 0,
           cta: false,
         },
       },

@@ -7,10 +7,8 @@
  * LICENSE file in the root directory of this source tree.
  */
 
-import { classMap } from 'lit/directives/class-map.js';
 import { LitElement, html } from 'lit';
 import { property, state } from 'lit/decorators.js';
-import { baseFontSize, breakpoints } from '@carbon/layout';
 import settings from '../../internal/vendor/@carbon/ibmdotcom-utilities/utilities/settings/settings';
 import sameHeight from '../../internal/vendor/@carbon/ibmdotcom-utilities/utilities/sameHeight/sameHeight';
 import { GRID_MODE } from './defs';
@@ -20,10 +18,7 @@ import { carbonElement as customElement } from '../../internal/vendor/@carbon/we
 
 export { GRID_MODE };
 
-const { prefix, stablePrefix: c4dPrefix } = settings;
-
-const gridLgBreakpoint = parseFloat(breakpoints.lg.width) * baseFontSize;
-const gridMdBreakpoint = parseFloat(breakpoints.md.width) * baseFontSize;
+const { stablePrefix: c4dPrefix } = settings;
 
 // tag constants used for same height calculations
 const headingBottomMargin = 64;
@@ -106,6 +101,10 @@ class C4DCardGroup extends StableSelectorMixin(LitElement) {
     // retrieve item heading, eyebrows, and footers to set same height
     if (this._childItems) {
       this._childItems.forEach((e) => {
+
+        if(!e.hasAttribute('href') && this.gridMode === GRID_MODE.CONDENSED) {
+          this.gridMode = GRID_MODE.DEFAULT
+        }
         this._childItemEyebrows.push(
           (e as HTMLElement).querySelector(
             (this.constructor as typeof C4DCardGroup).selectorItemEyebrow
@@ -131,7 +130,6 @@ class C4DCardGroup extends StableSelectorMixin(LitElement) {
             (this.constructor as typeof C4DCardGroup).selectorItemFooter
           )
         );
-        e.toggleAttribute('border', this.gridMode === 'border');
       });
 
       const { customPropertyCardsPerRow } = this
@@ -151,30 +149,11 @@ class C4DCardGroup extends StableSelectorMixin(LitElement) {
    * The observer for the resize of the viewport, calls sameHeight utility function
    */
   private _resizeHandler = () => {
-    window.requestAnimationFrame(() => {
-      const documentWidth = this.ownerDocument!.documentElement.clientWidth;
-      let columnCount;
-      switch (true) {
-        case documentWidth < gridMdBreakpoint:
-          columnCount = 1;
-          break;
-        case documentWidth < gridLgBreakpoint:
-          columnCount = 2;
-          break;
-        default:
-          columnCount = this.cardsPerRow;
-      }
-      if (!this.pictograms) {
+    if (!this.pictograms) {
+      window.requestAnimationFrame(() => {
         this._setSameHeight();
-      }
-      if (this.gridMode !== GRID_MODE.NARROW) {
-        this._fillLastRowWithEmptyCards();
-        // this._borderAdjustments(columnCount);
-      } else {
-        this._removeEmptyCards();
-        // this._resetBorders();
-      }
-    });
+      })
+    }
   };
 
   private _setSameHeight = () => {
@@ -222,103 +201,6 @@ class C4DCardGroup extends StableSelectorMixin(LitElement) {
     });
   };
 
-  private _borderAdjustments = (columnCount) => {
-    const isEmpty = (element) => element.hasAttribute('empty');
-    const inFirstColumn = (index) => (index + 1) % columnCount === 1;
-    const inLastColumn = (index) => (index + 1) % columnCount === 0;
-    const inFirstRow = (index) => index < columnCount;
-    const inLastRow = (index) =>
-      Math.floor(index / columnCount) ===
-      Math.floor((this._childItems.length - 1) / columnCount);
-
-    this._childItems.forEach((e, index) => {
-      const { gridMode } = this;
-      if (gridMode === GRID_MODE.COLLAPSED) {
-        e.toggleAttribute('border', false);
-        if (isEmpty(e)) {
-          e.style.paddingBottom = '0';
-          e.style.paddingRight = '0';
-        } else {
-          if (inFirstColumn(index)) {
-            e.style.paddingLeft = '0';
-          }
-          if (inLastColumn(index)) {
-            e.style.paddingRight = '0';
-            e.style.borderRight = `1px solid var(--cds-ui-background)`;
-          } else {
-            e.style.paddingRight = '1px';
-            e.style.borderRight = 'none';
-          }
-          if (inFirstRow(index)) {
-            e.style.paddingTop = '0';
-          }
-          if (inLastRow(index)) {
-            e.style.paddingBottom = '0';
-          } else {
-            e.style.paddingBottom = '1px';
-          }
-        }
-      }
-      if (gridMode === GRID_MODE.BORDER) {
-        e.toggleAttribute('border', true);
-        if (isEmpty(e)) {
-          e.style.paddingBottom = '1px';
-          e.style.paddingRight = '1px';
-        } else {
-          e.style.paddingTop = '0';
-          if (inFirstRow(index)) {
-            e.style.paddingTop = '1px';
-          }
-          if (inLastRow(index)) {
-            e.style.paddingBottom = '1px';
-          }
-          if (inFirstColumn(index)) {
-            e.style.paddingLeft = '1px';
-          } else {
-            e.style.paddingLeft = '0';
-          }
-          if (inLastColumn(index)) {
-            e.style.paddingRight = '1px';
-          }
-        }
-        // if one column and first item is empty then set top border for second item
-        if (columnCount === 1 && isEmpty(this._childItems[0]) && index === 1) {
-          e.style.paddingTop = '1px';
-        }
-      }
-    });
-  };
-
-  // private _resetBorders = () => {
-  //   this._childItems.forEach((elem) => {
-  //     elem.toggleAttribute('border', false);
-  //     elem.style.paddingTop = '';
-  //     elem.style.paddingRight = '';
-  //     elem.style.paddingBottom = '';
-  //     elem.style.paddingLeft = '';
-  //   });
-  // };
-
-  private _fillLastRowWithEmptyCards = () => {
-    // remove all empty cards
-    this._removeEmptyCards();
-
-    // add empty cards
-    // const emptyNeeded =
-    //   this.childElementCount % columnCount > 0 && columnCount > 1
-    //     ? columnCount - (this.childElementCount % columnCount)
-    //     : 0;
-    // for (let i = 0; i < emptyNeeded; i++) {
-    //   const card = document.createElement('c4d-card-group-item');
-    //   card.setAttribute('empty', '');
-    //   this.shadowRoot?.appendChild(card);
-    // }
-  };
-
-  private _removeEmptyCards = () => {
-    this.shadowRoot?.querySelectorAll('[empty]').forEach((e) => e.remove());
-  };
-
   /**
    * The number of columns per row. Min 2, max 4, default 3. Applies to >=`lg` breakpoint only.
    */
@@ -349,10 +231,10 @@ class C4DCardGroup extends StableSelectorMixin(LitElement) {
 
   /**
    * The Grid Mode for the component layout.
-   * Collapsed/1px (default) | Narrow/16px).
+   * Condensed (1px) | Narrow (16px) | Default(32px).
    */
   @property({ attribute: 'grid-mode', reflect: true })
-  gridMode = GRID_MODE.COLLAPSED;
+  gridMode = GRID_MODE.DEFAULT;
 
   /**
    * If using cards with pictogram.
@@ -381,17 +263,8 @@ class C4DCardGroup extends StableSelectorMixin(LitElement) {
   }
 
   render() {
-    const slotClasses = classMap({
-      [`${prefix}--card-group--narrow`]: this.gridMode === GRID_MODE.NARROW,
-      [`${prefix}--card-group--collapsed`]:
-        this.gridMode === GRID_MODE.COLLAPSED,
-      [`${prefix}--card-group--border`]: this.gridMode === GRID_MODE.BORDER,
-    });
-
     return html`
-      <slot
-        @slotchange="${this._handleSlotChange}"
-        class="${slotClasses}"></slot>
+      <slot @slotchange="${this._handleSlotChange}"></slot>
     `;
   }
 
