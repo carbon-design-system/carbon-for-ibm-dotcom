@@ -98,10 +98,6 @@
         max-height: none;
       }
     }
-
-    transform: translate3d(0, 0, 0);
-    transition: transform 240ms cubic-bezier(0, 0, 0.3, 1) 0s,
-      transform 240ms cubic-bezier(0, 0, 0.3, 1) 0s;
   }
 
   :host(#{$c4d-prefix}-expressive-modal)[expressive-size='full-width'] {
