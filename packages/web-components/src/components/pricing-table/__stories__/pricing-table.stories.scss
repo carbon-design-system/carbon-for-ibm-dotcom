@@ -6,8 +6,9 @@
 //
 
 @import '@carbon/ibmdotcom-styles/scss/globals/vars';
+@import '@carbon/ibmdotcom-styles/scss/globals/imports';
 
-span {
-  margin-top: 1rem;
+.example-text + .example-text {
+  margin-top: $spacing-05;
   display: block;
 }
