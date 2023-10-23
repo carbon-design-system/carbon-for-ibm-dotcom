@@ -166,10 +166,10 @@ class DDSFilterPanelComposite extends MediaQueryMixin(
     const { stableSelector } = DDSFilterPanelInputSelect;
     this._focusElement = `${stableSelector}[header-value="${headerValue}"]`;
 
-    // toggle checkbox in filter panel modal
+    // Toggle checkbox in filter panel modal.
     this.querySelectorAll(`${ddsPrefix}-filter-panel-input-select`).forEach(
       (e) => {
-        // capture the element counterpart in Filter Panel Modal
+        // Capture the element counterpart in Filter Panel Modal.
         if (e.getAttribute('header-value') === headerValue) {
           const currentGroup = e.closest(`${ddsPrefix}-filter-group-item`);
           currentGroup?.setAttribute('open', '');
@@ -365,7 +365,11 @@ class DDSFilterPanelComposite extends MediaQueryMixin(
       );
       this._selectedValues = items
         .map((item) => {
-          return item.getAttribute('value') ?? '';
+          return (
+            item.getAttribute('value') ??
+            item.getAttribute('header-value') ??
+            ''
+          );
         })
         .filter((item) => !!item);
     }
