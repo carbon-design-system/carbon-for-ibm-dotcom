@@ -14,13 +14,13 @@ import React from 'react';
 import ArrowRight20 from '@carbon/icons-react/es/arrow--right/20.js';
 // @ts-ignore
 /* eslint-disable max-len */
-import C4DExpressiveModal from '@carbon/ibmdotcom-web-components/es/components-react/expressive-modal/expressive-modal';
-import C4DExpressiveModalHeader from '@carbon/ibmdotcom-web-components/es/components-react/expressive-modal/expressive-modal-header';
-import C4DExpressiveModalCloseButton from '@carbon/ibmdotcom-web-components/es/components-react/expressive-modal/expressive-modal-close-button';
-import C4DExpressiveModalHeading from '@carbon/ibmdotcom-web-components/es/components-react/expressive-modal/expressive-modal-heading';
-import C4DExpressiveModalBody from '@carbon/ibmdotcom-web-components/es/components-react/expressive-modal/expressive-modal-body';
-import C4DExpressiveModalFooter from '@carbon/ibmdotcom-web-components/es/components-react/expressive-modal/expressive-modal-footer';
-import C4DButton from '@carbon/ibmdotcom-web-components/es/components-react/button/button';
+import C4DExpressiveModal from '../../../../es/components-react/expressive-modal/expressive-modal.js';
+import C4DExpressiveModalHeader from '../../../../es/components-react/expressive-modal/expressive-modal-header.js';
+import C4DExpressiveModalCloseButton from '../../../../es/components-react/expressive-modal/expressive-modal-close-button.js';
+import C4DExpressiveModalHeading from '../../../../es/components-react/expressive-modal/expressive-modal-heading.js';
+import C4DExpressiveModalBody from '../../../../es/components-react/expressive-modal/expressive-modal-body.js';
+import C4DExpressiveModalFooter from '../../../../es/components-react/expressive-modal/expressive-modal-footer.js';
+import C4DButton from '../../../../es/components-react/button/button.js';
 import { action } from '@storybook/addon-actions';
 import { EXPRESSIVE_MODAL_SIZE } from '../defs';
 import readme from './README.stories.react.mdx';

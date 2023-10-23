@@ -24,7 +24,11 @@
 @mixin expressive-modal {
   $icon-size: rem(20px);
 
+  // :host(#{$c4d-prefix}-expressive-modal:not([open='false']))
+
   :host(#{$c4d-prefix}-expressive-modal) {
+    @extend :host(#{$prefix}-modal);
+
     .#{$prefix}--modal-container {
       grid-template-rows: 1fr;
       padding: $spacing-05;

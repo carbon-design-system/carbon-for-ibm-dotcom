@@ -510,7 +510,7 @@ class C4DExpressiveModal extends StableSelectorMixin(
   static get selectorTabbable() {
     return `
       ${selectorTabbable},
-      ${c4dPrefix}-button-expressive,
+      ${c4dPrefix}-button,
       ${c4dPrefix}-expressive-modal,
       ${c4dPrefix}-expressive-modal-close-button
     `;
@@ -522,7 +522,7 @@ class C4DExpressiveModal extends StableSelectorMixin(
   static get selectorPrimaryFocus() {
     return `
       [data-modal-primary-focus],
-      ${c4dPrefix}-expressive-modal-footer ${prefix}-button[kind="primary"],
+      ${c4dPrefix}-expressive-modal-footer ${c4dPrefix}-button[kind="primary"],
     `;
   }
 
