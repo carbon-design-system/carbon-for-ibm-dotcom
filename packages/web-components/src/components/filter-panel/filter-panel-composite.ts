@@ -421,6 +421,15 @@ class DDSFilterPanelComposite extends MediaQueryMixin(
     </dds-filter-panel-modal>
   `;
 
+  protected _renderMobile = (): TemplateResult => html`
+    <button class="bx--filter-button" @click=${this._openModal}>
+      <div class="${prefix}--filter__modal__button">
+        ${this._getComposedHeadingFilterCount()} ${Filter()}
+      </div>
+    </button>
+    ${this._renderModal()}
+  `;
+
   /**
    * Renders copies of slotted elements into the desktop presentation.
    */
@@ -442,16 +451,7 @@ class DDSFilterPanelComposite extends MediaQueryMixin(
       <slot
         name="heading"
         @slotchange="${this._handleHeadingSlotChange}"></slot>
-      ${this._isMobile
-        ? html`
-            <button class="bx--filter-button" @click=${this._openModal}>
-              <div class="${prefix}--filter__modal__button">
-                ${this._getComposedHeadingFilterCount()} ${Filter()}
-              </div>
-            </button>
-            ${this._renderModal()}
-          `
-        : html` ${this._renderDesktop()} `}
+      ${this._isMobile ? this._renderMobile() : this._renderDesktop()}
     `;
   }
 
