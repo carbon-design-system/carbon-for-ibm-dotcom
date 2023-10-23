@@ -134,39 +134,38 @@ export const sideNav = (args) => {
       ?expanded=${expanded}>
       <bx-side-nav-items>
         <bx-side-nav-menu title="L0 menu">
-          <bx-side-nav-menu-item href="${ifNonNull(href)}" role="button">
+          <bx-side-nav-menu-item href="${ifNonNull(href)}">
             L0 menu item
           </bx-side-nav-menu-item>
-          <bx-side-nav-menu-item href="${ifNonNull(href)}" role="button">
+          <bx-side-nav-menu-item href="${ifNonNull(href)}">
             L0 menu item
           </bx-side-nav-menu-item>
-          <bx-side-nav-menu-item href="${ifNonNull(href)}" role="button">
+          <bx-side-nav-menu-item href="${ifNonNull(href)}">
             L0 menu item
           </bx-side-nav-menu-item>
         </bx-side-nav-menu>
         <bx-side-nav-menu title="L0 menu">
-          <bx-side-nav-menu-item href="${ifNonNull(href)}" role="button">
+          <bx-side-nav-menu-item href="${ifNonNull(href)}">
             L0 menu item
           </bx-side-nav-menu-item>
           <bx-side-nav-menu-item
             active
             aria-current="page"
-            href="${ifNonNull(href)}"
-            role="button">
+            href="${ifNonNull(href)}">
             L0 menu item
           </bx-side-nav-menu-item>
-          <bx-side-nav-menu-item href="${ifNonNull(href)}" role="button">
+          <bx-side-nav-menu-item href="${ifNonNull(href)}">
             L0 menu item
           </bx-side-nav-menu-item>
         </bx-side-nav-menu>
         <bx-side-nav-menu title="L0 menu">
-          <bx-side-nav-menu-item href="${ifNonNull(href)}" role="button">
+          <bx-side-nav-menu-item href="${ifNonNull(href)}">
             L0 menu item
           </bx-side-nav-menu-item>
-          <bx-side-nav-menu-item href="${ifNonNull(href)}" role="button">
+          <bx-side-nav-menu-item href="${ifNonNull(href)}">
             L0 menu item
           </bx-side-nav-menu-item>
-          <bx-side-nav-menu-item href="${ifNonNull(href)}" role="button">
+          <bx-side-nav-menu-item href="${ifNonNull(href)}">
             L0 menu item
           </bx-side-nav-menu-item>
         </bx-side-nav-menu>
