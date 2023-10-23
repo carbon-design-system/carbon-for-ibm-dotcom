@@ -58,7 +58,7 @@ export const Default = (args) => {
         sapien eu nisl congue suscipit.
       </c4d-expressive-modal-body>
       <c4d-expressive-modal-footer>
-        <c4d-button is-expressive href="https://www.example.com">
+        <c4d-button href="https://www.example.com">
           ${buttonContent}${ArrowRight20({ slot: 'icon' })}
         </c4d-button>
       </c4d-expressive-modal-footer>
