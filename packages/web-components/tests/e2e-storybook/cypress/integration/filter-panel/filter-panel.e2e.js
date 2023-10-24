@@ -234,7 +234,6 @@ describe('dds-filter-panel | (mobile)', () => {
     // Switch to desktop and verify box is checked
     cy.viewport(..._viewportWidths['desktop'])
       .get(_selector)
-      .shadow()
       .find('dds-filter-group-item')
       .first()
       .find('dds-filter-panel-checkbox')
