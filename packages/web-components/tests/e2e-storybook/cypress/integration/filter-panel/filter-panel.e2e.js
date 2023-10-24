@@ -54,7 +54,6 @@ describe('dds-filter-panel | (desktop)', () => {
     // Check box on desktop
     cy.visit(_path)
       .get(_selector)
-      .shadow()
       .find('dds-filter-group-item')
       .first()
       .click()
@@ -86,7 +85,6 @@ describe('dds-filter-panel | (desktop)', () => {
     // Check box on desktop
     cy.visit(_path)
       .get(_selector)
-      .shadow()
       .find('dds-filter-group-item')
       .eq(1)
       .click()
@@ -117,7 +115,6 @@ describe('dds-filter-panel | (desktop)', () => {
       `${_path}&knob-Filter%20cutoff=1&knob-Max%20filters=1&knob-Number%20of%20selected%20items=0`
     )
       .get(_selector)
-      .shadow()
       .find('dds-filter-group-item')
       .first()
       .as('filterGroupItem')
@@ -132,7 +129,6 @@ describe('dds-filter-panel | (desktop)', () => {
       `${_path}&knob-Max%20filters=${filterCount}&knob-Number%20of%20selected%20items=0`
     )
       .get(_selector)
-      .shadow()
       .find('dds-filter-group-item')
       .first()
       .click()
@@ -145,7 +141,6 @@ describe('dds-filter-panel | (desktop)', () => {
 
     cy.visit(`${_path}&knob-View%20all%20text=${customText}`)
       .get(_selector)
-      .shadow()
       .find('dds-filter-group-item')
       .first()
       .click()
@@ -157,7 +152,6 @@ describe('dds-filter-panel | (desktop)', () => {
   it('should re-hide excess elements when filter groups are closed and reopened', () => {
     cy.visit(_path)
       .get(_selector)
-      .shadow()
       .find('dds-filter-group-item')
       .first()
       .as('filterGroupItem')
@@ -183,7 +177,6 @@ describe('dds-filter-panel | (desktop)', () => {
   it('should not re-hide elements when an element that would be hidden has been selected', () => {
     cy.visit(_path)
       .get(_selector)
-      .shadow()
       .find('dds-filter-group-item')
       .first()
       .as('filterGroupItem')
@@ -270,7 +263,6 @@ describe('dds-filter-panel | (mobile)', () => {
     // Switch to desktop and verify box is checked
     cy.viewport(..._viewportWidths['desktop'])
       .get(_selector)
-      .shadow()
       .find('dds-filter-group-item')
       .eq(1)
       .find('dds-filter-panel-input-select')
