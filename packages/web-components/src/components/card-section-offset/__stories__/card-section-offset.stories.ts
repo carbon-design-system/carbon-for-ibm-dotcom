@@ -78,7 +78,7 @@ export const Default = (args) => {
         ${ctaCopy}
       </c4d-text-cta>
       <c4d-card-group slot="card-group" cards-per-row="2">
-        <c4d-card-group-item empty></c4d-card-group-item>${cards}
+        ${cards}
       </c4d-card-group>
     </c4d-card-section-offset>
   `;

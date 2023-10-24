@@ -26,7 +26,7 @@ import Handle from '../../globals/internal/handle';
 import StableSelectorMixin from '../../globals/mixins/stable-selector';
 import { carbonElement as customElement } from '../../internal/vendor/@carbon/web-components/globals/decorators/carbon-element.js';
 
-const { stablePrefix: c4dPrefix } = settings;
+const { stablePrefix: c4dPrefix, prefix } = settings;
 
 export { LIGHTBOX_CONTRAST };
 
@@ -176,8 +176,8 @@ class C4DImage extends StableSelectorMixin(
       _handleSlotChange: handleSlotChange,
     } = this;
     const imgClasses = classMap({
-      [`${c4dPrefix}--image__img`]: true,
-      [`${c4dPrefix}--image__img--border`]: border && !lightbox,
+      [`${prefix}--image__img`]: true,
+      [`${prefix}--image__img--border`]: border && !lightbox,
     });
 
     return html`

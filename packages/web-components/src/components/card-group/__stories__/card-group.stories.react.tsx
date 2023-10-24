@@ -53,9 +53,9 @@ const cardsCol = {
 };
 
 const gridModes = {
-  [`Collapsed (1px)`]: GRID_MODE.COLLAPSED,
+  [`Condensed (1px)`]: GRID_MODE.CONDENSED,
   [`Narrow (16px)`]: GRID_MODE.NARROW,
-  [`Outlined cards (1px border)`]: GRID_MODE.BORDER,
+  [`Default (32px)`]: GRID_MODE.DEFAULT,
 };
 
 const setGridMode = {
@@ -195,8 +195,6 @@ const cardLink = (
   </C4DCardGroupCardLinkItem>
 );
 
-const emptyCard = <C4DCardGroupItem empty></C4DCardGroupItem>;
-
 const cardInCardItems = (i, tagGroup, media, gridMode) => {
   if (media) {
     return i % 2 === 0 ? (
@@ -248,16 +246,11 @@ export const Default = (args) => {
     tagGroup,
     cardsPerRow,
     gridMode,
-    offset,
     cta,
     addCta,
   } = args?.CardGroup ?? {};
 
   const allCards: object[] = [];
-
-  if (offset === '1') {
-    allCards.push(emptyCard);
-  }
 
   if (cardType === 'Card - default') {
     allCards.push(
@@ -360,7 +353,6 @@ Default.story = {
           cardType === 'Card static' || cardType === 'Card link'
             ? ''
             : select('Grid mode:', gridModes, gridModes['Collapsed (1px)']);
-        const offset = select('Offset:', ['0', '1'], '0');
         const cta = media ? '' : boolean('Add CTA card:', false);
         return {
           cardType,
@@ -370,7 +362,6 @@ Default.story = {
           cards,
           cardsPerRow,
           gridMode,
-          offset,
           cta,
         };
       },

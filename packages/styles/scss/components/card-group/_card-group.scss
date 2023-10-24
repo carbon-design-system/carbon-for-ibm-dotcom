@@ -58,6 +58,10 @@
     }
   }
 
+  :host(#{$c4d-prefix}-card-group-item[empty]) {
+    visibility: hidden;
+  }
+
   :host(#{$c4d-prefix}-card-group) {
     --#{$c4d-prefix}--card-group--cards-in-row: 1;
 
