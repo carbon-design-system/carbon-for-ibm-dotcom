@@ -27,6 +27,7 @@
     "./es/": "./es/",
     "./lib/": "./lib/",
     "./dist/": "./dist/",
+    "./scss/": "./scss/",
     "./custom-elements.json": "./custom-elements.json",
     "./package.json": "./package.json"
   },
