@@ -30,7 +30,11 @@ import {
 } from '../../cta/__stories__/ctaTypeConfig';
 
 const tagGroupContent = html`
-  <div><cds-tag type="green"> Most popular </cds-tag><cds-tag type="purple"> Enterprise </cds-tag><div>
+  <div>
+    <cds-tag type="green"> Most popular </cds-tag
+    ><cds-tag type="purple"> Enterprise </cds-tag>
+    <div></div>
+  </div>
 `;
 
 export const Default = (args) => {

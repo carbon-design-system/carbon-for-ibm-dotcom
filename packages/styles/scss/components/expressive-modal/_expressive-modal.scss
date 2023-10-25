@@ -24,7 +24,6 @@
 @mixin expressive-modal {
   $icon-size: rem(20px);
 
-
   :host(#{$c4d-prefix}-expressive-modal) {
     @extend :host(#{$prefix}-modal);
 
