@@ -25,7 +25,7 @@ import leadspaceImg from '../../../../../storybook-images/assets/leadspace/leads
 import { LEADSPACE_SIZE } from '../defs';
 
 const navigationOptions = [
-  'with Tag group (using Tag link)',
+  'with a group of Tags',
   'with Breadcrumbs',
   'none',
 ];
