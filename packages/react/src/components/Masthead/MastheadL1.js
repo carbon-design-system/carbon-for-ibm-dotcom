@@ -83,7 +83,7 @@ const MastheadL1 = ({ navigationL1, ...rest }) => {
           <HeaderNavContainer>
             <HeaderNavigation
               className={`${prefix}--masthead__l1-nav`}
-              aria-label="">
+              aria-label="Main Navigation">
               {mastheadL1Links}
             </HeaderNavigation>
           </HeaderNavContainer>
