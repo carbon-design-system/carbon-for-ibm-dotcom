@@ -21,7 +21,6 @@
 @use '../../globals/vars' as *;
 @use '../button-group';
 @use '../image';
-@use '../tag-group';
 
 $btn-min-width: 26;
 
@@ -501,10 +500,6 @@ $btn-min-width: 26;
     padding-left: $spacing-05;
     padding-right: $spacing-05;
     padding-bottom: $spacing-05;
-  }
-
-  :host(#{$c4d-prefix}-leadspace) ::slotted(#{$c4d-prefix}-tag-group) {
-    padding-bottom: $spacing-03;
   }
 
   :host(#{$c4d-prefix}-breadcrumb-link[aria-current='page']) .#{$prefix}--link {

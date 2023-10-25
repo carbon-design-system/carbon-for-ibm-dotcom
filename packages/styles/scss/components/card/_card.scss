@@ -158,12 +158,6 @@
     .#{$prefix}--card__img {
       transition: $duration-moderate-01 motion(standard, productive);
     }
-
-    // styles the React wrapper version of Tag Group within Card
-    /* stylelint-disable-next-line selector-type-no-unknown */
-    cds-tag-group {
-      margin-top: $spacing-05;
-    }
   }
 
   // Card with pictogram placement style
@@ -273,7 +267,15 @@
       flex-direction: column;
       gap: $spacing-05;
     }
+
+    ::slotted(div){
+      /* stylelint-disable declaration-no-important */
+      // need the !important to prevent CSS reset styles from overwritting margin for tags
+      margin-left: -$spacing-02 !important;
+    }
   }
+
+
 
   :host(#{$c4d-prefix}-card[aspect-ratio='1:1']) .#{$prefix}--card__wrapper {
     @include ratio-base(1, 1, false);
@@ -649,7 +651,6 @@
 
       ::slotted(#{$c4d-prefix}-image),
       ::slotted(#{$c4d-prefix}-card-cta-image),
-      ::slotted(#{$c4d-prefix}-tag-group),
       .#{$prefix}--image {
         display: none;
       }

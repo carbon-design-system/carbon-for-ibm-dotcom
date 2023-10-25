@@ -41,10 +41,10 @@ const typeStyleOptions = {
 };
 
 const navigationWithTagGroup = html`
-  <c4d-tag-group slot="navigation">
-    <c4d-tag-link href="https://example.com">Marketing Analytics</c4d-tag-link>
-    <c4d-tag-link href="https://example.com">Cloud</c4d-tag-link>
-  </c4d-tag-group>
+  <div slot="navigation">
+    <cds-tag href="https://example.com">Marketing Analytics</cds-tag>
+    <cds-tag href="https://example.com">Cloud</cds-tag>
+  </div>
 `;
 
 const navigationWithBreadcrumbs = html`

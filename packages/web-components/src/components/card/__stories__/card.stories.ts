@@ -8,7 +8,6 @@
  */
 
 import '../../image/image';
-import '../../tag-group/tag-group';
 import '../../../internal/vendor/@carbon/web-components/components/tag/tag.js';
 import '../index';
 import { boolean, select } from '@storybook/addon-knobs';
@@ -31,10 +30,7 @@ import {
 } from '../../cta/__stories__/ctaTypeConfig';
 
 const tagGroupContent = html`
-  <c4d-tag-group>
-    <cds-tag type="green"> Most popular </cds-tag>
-    <cds-tag type="purple"> Enterprise </cds-tag>
-  </c4d-tag-group>
+  <div><cds-tag type="green"> Most popular </cds-tag><cds-tag type="purple"> Enterprise </cds-tag><div>
 `;
 
 export const Default = (args) => {
