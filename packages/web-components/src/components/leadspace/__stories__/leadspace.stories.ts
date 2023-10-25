@@ -24,11 +24,7 @@ import readme from './README.stories.mdx';
 import leadspaceImg from '../../../../../storybook-images/assets/leadspace/leadspaceMax.jpg';
 import { LEADSPACE_SIZE } from '../defs';
 
-const navigationOptions = [
-  'with a group of Tags',
-  'with Breadcrumbs',
-  'none',
-];
+const navigationOptions = ['with a group of Tags', 'with Breadcrumbs', 'none'];
 
 const gradientOptions = {
   'With Gradient': 'with-gradient',

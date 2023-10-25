@@ -500,8 +500,8 @@ $btn-min-width: 26;
     /* stylelint-disable declaration-no-important */
     // need the !important to prevent CSS reset styles from overwritting margin for tags
     padding-left: $spacing-05 !important;
-    padding-right: $spacing-05 !important;;
-    padding-bottom: $spacing-05 !important;;
+    padding-right: $spacing-05 !important;
+    padding-bottom: $spacing-05 !important;
   }
 
   :host(#{$c4d-prefix}-breadcrumb-link[aria-current='page']) .#{$prefix}--link {
