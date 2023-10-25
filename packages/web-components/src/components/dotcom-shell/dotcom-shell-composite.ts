@@ -287,12 +287,6 @@ class DDSDotcomShellComposite extends LitElement {
   selectedMenuItem!: string;
 
   /**
-   * `true` to open the locale modal. This goes to footer.
-   */
-  @property({ type: Boolean, attribute: 'open-locale-modal' })
-  openLocaleModal = false;
-
-  /**
    * Footer size. This goes to footer.
    */
   @property({ reflect: true, attribute: 'footer-size' })
@@ -385,7 +379,6 @@ class DDSDotcomShellComposite extends LitElement {
       localeList,
       footerLinks,
       footerSize,
-      openLocaleModal,
       openSearchDropdown,
       navLinks,
       hasProfile,
@@ -452,7 +445,6 @@ class DDSDotcomShellComposite extends LitElement {
           legalLinks,
           links: footerLinks,
           localeList,
-          openLocaleModal,
           selectedLanguage,
           size: footerSize,
           _loadLocaleList,
