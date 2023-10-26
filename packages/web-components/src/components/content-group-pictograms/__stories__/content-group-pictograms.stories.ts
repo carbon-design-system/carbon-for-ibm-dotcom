@@ -120,7 +120,10 @@ export const Default = (args) => {
             </svg>
             <c4d-content-item-heading>${heading}</c4d-content-item-heading>
             <c4d-content-item-copy>${copy}</c4d-content-item-copy>
-            <c4d-link-with-icon href="${linkWithIcon.href}" slot="footer" cta-type="local">
+            <c4d-link-with-icon
+              href="${linkWithIcon.href}"
+              slot="footer"
+              cta-type="local">
               ${linkWithIcon.copy}
             </c4d-link-with-icon>
           </c4d-content-item>
