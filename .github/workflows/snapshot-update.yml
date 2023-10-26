@@ -20,7 +20,7 @@ jobs:
         with:
           token: ${{secrets.MERGE_ACTION}}
       - name: Use Node.js 14.x
-        uses: actions/setup-node@v3
+        uses: actions/setup-node@v4
         with:
           node-version: ${{ matrix.node-version }}
           cache: 'yarn'
