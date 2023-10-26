@@ -12,9 +12,9 @@ import { ifDefined } from 'lit/directives/if-defined.js';
 import { boolean, select } from '@storybook/addon-knobs';
 import readme from './README.stories.mdx';
 import '../index';
-import '../../content-item-horizontal/index';
+import '../../content-item-row/index';
 import '../../image/index';
-import { MEDIA_ALIGN, MEDIA_TYPE } from '../../content-item-horizontal/defs';
+import { MEDIA_ALIGN, MEDIA_TYPE } from '../../content-item-row/defs';
 import imgLg16x9 from '../../../../../storybook-images/assets/720/fpo--16x9--720x405--001.jpg';
 import textNullable from '../../../../.storybook/knob-text-nullable';
 
@@ -36,7 +36,7 @@ export const Default = (args) => {
   for (let i = 1; i < 5; i++) {
     tabs.push(html`
       <c4d-tab label="Tab ${i}">
-        <c4d-content-item-horizontal-media align="${align}">
+        <c4d-content-item-row-media align="${align}">
           ${type === MEDIA_TYPE.IMAGE
             ? html`
                 <c4d-image
@@ -47,15 +47,15 @@ export const Default = (args) => {
             : ''}
           ${type === MEDIA_TYPE.VIDEO
             ? html`
-                <c4d-content-item-horizontal-media-video
-                  video-id="0_ibuqxqbe"></c4d-content-item-horizontal-media-video>
+                <c4d-content-item-row-media-video
+                  video-id="0_ibuqxqbe"></c4d-content-item-row-media-video>
               `
             : ''}
           <c4d-content-item-heading>Tab heading ${i}</c4d-content-item-heading>
-          <c4d-content-item-horizontal-media-copy
+          <c4d-content-item-row-media-copy
             >Lorem ipsum dolor sit amet, _consectetur_ adipiscing elit. Aenean
             et ultricies est. Mauris iaculis eget dolor nec hendrerit. Phasellus
-            at elit sollicitudin.</c4d-content-item-horizontal-media-copy
+            at elit sollicitudin.</c4d-content-item-row-media-copy
           >
           <c4d-link-list slot="footer" type="vertical">
             <c4d-link-list-item-cta
@@ -71,7 +71,7 @@ export const Default = (args) => {
               Microservices and containers
             </c4d-link-list-item-cta>
           </c4d-link-list>
-        </c4d-content-item-horizontal-media>
+        </c4d-content-item-row-media>
       </c4d-tab>
     `);
   }

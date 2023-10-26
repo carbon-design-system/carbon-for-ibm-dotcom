@@ -112,7 +112,7 @@ function App() {
       Use this area for a short line of copy to support the title
       <C4DVideoCTAContainer slot="action">
         <C4DButtonGroup slot="action">
-          <C4DButtonCTA cta-type="video" href="0_ibuqxqbe">
+          <C4DButtonGroupItem cta-type="video" href="1_9h94wo6b">
             <ArrowRight20 slot="icon" />
             Button 1
           </C4DButtonCTA>
@@ -139,6 +139,46 @@ function App() {
 }
 ```
 
+## Leadspace heading
+
+The heading component has two attributes that can be used.
+
+### Highlight
+You can use the `highlight` attribute to highlight a specific word or phrase in your heading.
+
+```javascript
+function App() {
+  return (
+    <C4DLeadspace>
+      <C4DLeadspaceHeading highlight="important">Leadspace with an important word</C4DLeadspaceHeading>
+      Leadspace copy
+    </C4DLeadspace>
+  );
+}
+```
+
+In the previous example the word "important" will be highlighted.
+
+### Type style
+
+With the `type-style` attribute, you can modify the type of the heading.
+
+There are two options:
+* display-01 (default)
+* fluid-heading-05
+
+```javascript
+function App() {
+  return (
+    <C4DLeadspace>
+      <C4DLeadspaceHeading type-style="fluid-heading-05">Heading</C4DLeadspaceHeading>
+      Leadspace copy
+    </C4DLeadspace>
+  );
+}
+```
+
+Note: The `short` variation of the leadspace can only have `fluid-heading-05` as its type heading.
 ## Props
 
 <Props of={PropTypesRef} />
@@ -151,6 +191,6 @@ to see how Web Components selector and `data-autoid` should be used.
 
 | Web Components selector | Compatibility selector         | Description |
 | ----------------------- | ------------------------------ | ----------- |
-| `<cds-leadspace>`       | `data-autoid="cds--leadspace"` | Component   |
+| `<c4d-leadspace>`       | `data-autoid="c4d--leadspace"` | Component   |
 
 <Description markdown={contributing} />

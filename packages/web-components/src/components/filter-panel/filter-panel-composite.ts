@@ -21,6 +21,7 @@ import settings from '../../internal/vendor/@carbon/ibmdotcom-utilities/utilitie
 import StableSelectorMixin from '../../globals/mixins/stable-selector';
 import styles from './filter-panel.scss';
 import '../../internal/vendor/@carbon/web-components/components/checkbox/checkbox.js';
+import '../../internal/vendor/@carbon/web-components/components/button/button.js';
 import C4DFilterGroupItem from './filter-group-item';
 import C4DFilterPanelCheckbox from './filter-panel-checkbox';
 import C4DFilterPanelInputSelect from './filter-panel-input-select';
@@ -424,11 +425,9 @@ class C4DFilterPanelComposite extends HostListenerMixin(
 
   render() {
     return html`
-      <button class="cds--filter-button" @click=${this._openModal}>
-        <div class="${prefix}--filter__modal__button">
-          ${this._filterButtonTitle} ${Filter()}
-        </div>
-      </button>
+      <cds-button kind="tertiary" @click=${this._openModal}>
+        ${this._filterButtonTitle} ${Filter({ slot: 'icon' })}
+      </cds-button>
       ${this._renderModal()} ${this._renderDesktop()}
     `;
   }

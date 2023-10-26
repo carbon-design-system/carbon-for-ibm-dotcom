@@ -112,7 +112,7 @@ const cardsDiffLengthPhrase = (
       <c4d-card-eyebrow>Topic</c4d-card-eyebrow>
       <c4d-card-heading></c4d-card-heading>
       ${tagGroup ? tagGroupContent : ''}
-      <c4d-card-footer cta-type="video" slot="footer" href="0_ibuqxqbe">
+      <c4d-card-footer cta-type="video" slot="footer" href="${videoId}">
       </c4d-card-footer>
     </c4d-card-group-item>
   `;
