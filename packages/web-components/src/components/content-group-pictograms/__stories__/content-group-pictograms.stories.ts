@@ -92,12 +92,13 @@ export const Default = (args) => {
       <c4d-content-group-copy>${groupCopy}</c4d-content-group-copy>
       ${pictogramsItems.map(
         ({ heading, copy, linkWithIcon }) => html`
-          <c4d-pictogram-item>
+          <c4d-content-item horizontal>
             <svg
               version="1.1"
-              slot="pictogram"
+              slot="media"
               xmlns="http://www.w3.org/2000/svg"
               xmlns:xlink="http://www.w3.org/1999/xlink"
+              stroke="currentColor"
               x="0px"
               y="0px"
               width="64"
@@ -119,10 +120,10 @@ export const Default = (args) => {
             </svg>
             <c4d-content-item-heading>${heading}</c4d-content-item-heading>
             <c4d-content-item-copy>${copy}</c4d-content-item-copy>
-            <c4d-link-with-icon href="${linkWithIcon.href}" slot="footer">
-              ${linkWithIcon.copy} ${ArrowRight20({ slot: 'icon' })}
+            <c4d-link-with-icon href="${linkWithIcon.href}" slot="footer" cta-type="local">
+              ${linkWithIcon.copy}
             </c4d-link-with-icon>
-          </c4d-pictogram-item>
+          </c4d-content-item>
         `
       )}
     </c4d-content-group-pictograms>

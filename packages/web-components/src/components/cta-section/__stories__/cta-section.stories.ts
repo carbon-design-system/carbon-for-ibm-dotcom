@@ -24,44 +24,42 @@ import content from './content';
 
 const contentItemTypeMap = {
   text: ({ heading, copy, links }) => html`
-    <c4d-cta-block-item>
+    <c4d-content-item>
       <c4d-content-item-heading>${heading}</c4d-content-item-heading>
       <c4d-content-item-copy>${copy}</c4d-content-item-copy>
       ${links.map(
         (elem) =>
           html`
-            <c4d-text-cta
+            <c4d-link-with-icon
               slot="footer"
               cta-type="local"
-              icon-placement="right"
               href="${elem.href}"
-              >${elem.copy}</c4d-text-cta
+              >${elem.copy}</c4d-link-with-icon
             >
           `
       )}
-    </c4d-cta-block-item>
+    </c4d-content-item>
   `,
   statistics: ({ heading, copy, links }) => html`
-    <c4d-cta-block-item>
+    <c4d-content-item>
       <span slot="statistics">10%</span>
       <c4d-content-item-heading>${heading}</c4d-content-item-heading>
       <c4d-content-item-copy>${copy}</c4d-content-item-copy>
       ${links.map(
         (elem) =>
           html`
-            <c4d-text-cta
+            <c4d-link-with-icon
               slot="footer"
               cta-type="local"
-              icon-placement="right"
               href="${elem.href}"
-              >${elem.copy}</c4d-text-cta
+              >${elem.copy}</c4d-link-with-icon
             >
           `
       )}
-    </c4d-cta-block-item>
+    </c4d-content-item>
   `,
   pictogram: ({ heading, copy, links }) => html`
-    <c4d-cta-block-item>
+    <c4d-content-item>
       <svg
         slot="media"
         focusable="false"
@@ -90,19 +88,18 @@ const contentItemTypeMap = {
       ${links.map(
         (elem) =>
           html`
-            <c4d-text-cta
+            <c4d-link-with-icon
               slot="footer"
               cta-type="local"
-              icon-placement="right"
               href="${elem.href}"
-              >${elem.copy}</c4d-text-cta
+              >${elem.copy}</c4d-link-with-icon
             >
           `
       )}
-    </c4d-cta-block-item>
+    </c4d-content-item>
   `,
   media: ({ heading, copy, links }) => html`
-    <c4d-cta-block-item>
+    <c4d-content-item>
       <c4d-video-player-container
         video-id="0_ibuqxqbe"
         aspect-ratio="4x3"
@@ -115,19 +112,18 @@ const contentItemTypeMap = {
       ${links.map(
         (elem) =>
           html`
-            <c4d-text-cta
+            <c4d-link-with-icon
               slot="footer"
               cta-type="local"
-              icon-placement="right"
               href="${elem.href}"
-              >${elem.copy}</c4d-text-cta
+              >${elem.copy}</c4d-link-with-icon
             >
           `
       )}
-    </c4d-cta-block-item>
+    </c4d-content-item>
   `,
   logo: ({ heading, copy, links }) => html`
-    <c4d-cta-block-item>
+    <c4d-content-item>
       <c4d-image-logo
         alt="Microsoft logo"
         slot="media"
@@ -137,16 +133,15 @@ const contentItemTypeMap = {
       ${links.map(
         (elem) =>
           html`
-            <c4d-text-cta
+            <c4d-link-with-icon
               slot="footer"
               cta-type="local"
-              icon-placement="right"
               href="${elem.href}"
-              >${elem.copy}</c4d-text-cta
+              >${elem.copy}</c4d-link-with-icon
             >
           `
       )}
-    </c4d-cta-block-item>
+    </c4d-content-item>
   `,
 };
 
