@@ -50,7 +50,7 @@ class DDSLinkWithIcon extends StableSelectorMixin(BXLink) {
    * @internal
    */
   @property()
-  size = LINK_SIZE.LARGE;
+  size = 'lg' as LINK_SIZE;
 
   /**
    * @returns The main content.

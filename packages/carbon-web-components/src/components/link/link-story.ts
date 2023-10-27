@@ -16,13 +16,12 @@ import { boolean, select } from '@storybook/addon-knobs';
 import Download16 from '@carbon/web-components/es/icons/download/16';
 import textNullable from '../../../.storybook/knob-text-nullable';
 import ifNonNull from '../../globals/directives/if-non-null';
-import { LINK_SIZE } from './link';
 import storyDocs from './link-story.mdx';
 
 const sizes = {
   'Regular size': null,
-  [`Small size (${LINK_SIZE.SMALL})`]: LINK_SIZE.SMALL,
-  [`Large size (${LINK_SIZE.LARGE})`]: LINK_SIZE.LARGE,
+  [`Small size (sm)`]: 'sm',
+  [`Large size (lg)`]: 'lg',
 };
 
 export const Default = (args) => {

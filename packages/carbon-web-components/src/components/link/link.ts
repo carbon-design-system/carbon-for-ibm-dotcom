@@ -19,23 +19,11 @@ const { prefix } = settings;
 
 /**
  * Link size.
+ *   - Regular = ''
+ *   - Small   = 'sm'
+ *   - Large   = 'lg'
  */
-export enum LINK_SIZE {
-  /**
-   * Regular size
-   */
-  REGULAR = '',
-
-  /**
-   * Small size.
-   */
-  SMALL = 'sm',
-
-  /**
-   * Large size.
-   */
-  LARGE = 'lg',
-}
+type LINK_SIZE = '' | 'sm' | 'lg';
 
 /**
  * Link.
@@ -190,7 +178,7 @@ class BXLink extends FocusMixin(LitElement) {
    * Link size.
    */
   @property({ reflect: true })
-  size = LINK_SIZE.REGULAR;
+  size: LINK_SIZE = '';
 
   /**
    * The link target.
