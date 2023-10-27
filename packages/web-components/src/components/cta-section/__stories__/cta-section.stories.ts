@@ -228,7 +228,7 @@ export const WithContentItems = (args) => {
               >
             `
           : ''}
-        ${renderItems(contentItem, contentItemCount)}
+        <div>${renderItems(contentItem, contentItemCount)}</div>
       </c4d-cta-block>
     </c4d-cta-section>
     <c4d-lightbox-video-player-container></c4d-lightbox-video-player-container>

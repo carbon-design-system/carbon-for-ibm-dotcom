@@ -136,7 +136,6 @@ class C4DContentItem extends StableSelectorMixin(LitElement) {
 
   render() {
     const { horizontal, _hasStatistic: hasStatistic, _hasLogo: hasLogo } = this;
-    console.log(hasLogo);
     const horizontalClass = classMap({
       [`${c4dPrefix}--content-item__horizontal`]:
         horizontal && !hasStatistic && !hasLogo,
