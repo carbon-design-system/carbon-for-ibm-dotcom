@@ -146,7 +146,7 @@ describe('c4d-expressive-modal', function () {
           <c4d-expressive-modal>
             <input type="text" />
             <c4d-expressive-modal-footer
-              ><c4d-button-expressive kind="primary"></c4d-button-expressive
+              ><c4d-button kind="primary"></c4d-button
             ></c4d-expressive-modal-footer>
           </c4d-expressive-modal>
         `,
@@ -157,9 +157,7 @@ describe('c4d-expressive-modal', function () {
         'c4d-expressive-modal'
       ) as C4DExpressiveModal;
       const input = modal.querySelector('input') as HTMLInputElement;
-      const button = modal.querySelector(
-        'c4d-button-expressive'
-      ) as HTMLButtonElement;
+      const button = modal.querySelector('c4d-button') as HTMLButtonElement;
       spyOn(modal as any, '_waitForTransitionEnd').and.callFake(() => {});
       spyOn(input, 'focus');
       spyOn(button, 'focus');

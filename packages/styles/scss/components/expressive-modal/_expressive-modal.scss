@@ -15,22 +15,21 @@
 @use '@carbon/styles/scss/utilities' as *;
 @use '@carbon/styles/scss/spacing' as *;
 @use '@carbon/styles/scss/components/modal' as *;
+@use '../../../../carbon-web-components/src/components/modal/modal';
 
 /// Expressive modal
 /// @access private
 /// @group expressive-modal
 
 @mixin expressive-modal {
-  $modal: '.#{$prefix}--modal';
-  $button-size: $spacing-09;
   $icon-size: rem(20px);
-  $offset-close-icon: $spacing-07 - list.slash($button-size - $icon-size, 2);
 
-  :host(#{$c4d-prefix}-expressive-modal),
-  #{$modal}--expressive {
-    color: $text-primary;
 
-    #{$modal}-container {
+  :host(#{$c4d-prefix}-expressive-modal) {
+    @extend :host(#{$prefix}-modal);
+
+    .#{$prefix}--modal-container {
+      grid-template-rows: 1fr;
       padding: $spacing-05;
       min-height: $spacing-07 + $icon-size + $spacing-07;
 
@@ -39,35 +38,59 @@
       }
     }
 
-    #{$modal}-content {
-      display: flex;
-      padding-left: 0;
-      padding-right: $button-size - $offset-close-icon;
+    .#{$prefix}--modal-content {
+      display: grid;
+      grid-template-rows: auto 1fr auto;
       margin-bottom: 0;
-      padding-top: 0;
+    }
+
+    .#{$c4d-prefix}-ce--modal__header--with-body {
+      margin-bottom: $spacing-05;
+    }
+
+    .#{$c4d-prefix}-ce--modal__body {
+      width: 100%;
+    }
+
+    .#{$c4d-prefix}-ce--modal__body--with-footer {
+      margin-bottom: $spacing-09;
     }
   }
 
-  :host(#{$c4d-prefix}-expressive-modal-footer) #{$modal}-footer {
+  :host(#{$c4d-prefix}-expressive-modal[open]) {
+    @extend :host(#{$prefix}-modal[open]);
+  }
+
+  :host(#{$c4d-prefix}-expressive-modal-footer) .#{$prefix}--modal-footer {
     justify-content: flex-start;
     height: $spacing-09;
   }
 
   :host(#{$c4d-prefix}-expressive-modal-close-button) {
-    #{$modal}-close {
+    .#{$prefix}--modal-close {
       position: fixed;
     }
   }
 
   :host(#{$c4d-prefix}-expressive-modal-heading),
-  #{$modal}--expressive #{$modal}-content h1 {
+  .#{$prefix}--modal--expressive .#{$prefix}--modal-content h1 {
     @include type-style('heading-04');
   }
 
+  :host(#{$c4d-prefix}-expressive-modal-header) {
+    display: block;
+    padding: 0;
+  }
+
+  :host(#{$c4d-prefix}-expressive-modal-body),
+  :host(#{$c4d-prefix}-lightbox-media-viewer-body) {
+    @include type-style('body-02');
+  }
+
   :host(#{$c4d-prefix}-expressive-modal)[expressive-size='full-width'],
-  #{$modal}--expressive--fullwidth {
+  .#{$prefix}--modal--expressive--fullwidth {
     @include breakpoint(md) {
-      #{$modal}-container {
+      .#{$prefix}--modal-container {
         width: calc(100% - #{$spacing-07});
         max-width: 96rem;
         height: calc(100% - #{$spacing-07});
@@ -76,11 +99,25 @@
     }
   }
 
+  :host(#{$c4d-prefix}-expressive-modal)[expressive-size='full-width'] {
+    .#{$prefix}--modal-container {
+      padding: 0;
+    }
+
+    .#{$prefix}--modal-content {
+      padding: $spacing-05;
+
+      @include breakpoint(md) {
+        padding: $spacing-07;
+      }
+    }
+  }
+
   :host(#{$c4d-prefix}-expressive-modal[size='full-width'])
     ::slotted(#{$c4d-prefix}-expressive-modal-body),
   :host(#{$c4d-prefix}-expressive-modal[size='full-width'])
     ::slotted(#{$c4d-prefix}-lightbox-media-viewer-body),
-  #{$modal}--expressive--fullwidth #{$modal}-content {
+  .#{$prefix}--modal--expressive--fullwidth .#{$prefix}--modal-content {
     padding-right: 0;
     height: auto;
     min-height: rem(500px);
