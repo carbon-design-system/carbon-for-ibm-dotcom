@@ -20,7 +20,6 @@ const { stablePrefix: ddsPrefix } = ddsSettings;
  * The API for language selection is still subject to change.
  *
  * @element dds-language-selector-mobile
- * @internal
  */
 @customElement(`${ddsPrefix}-language-selector-mobile`)
 class DDSLanguageSelectorMobile extends BXSelect {
