@@ -8,7 +8,7 @@
  */
 
 import { html } from 'lit';
-import fadeStyles from '@carbon/ibmdotcom-styles/scss/components/scroll-into-view/_scroll-into-view.scss';
+import fadeStyles from '@carbon/ibmdotcom-styles/scss/components/scroll-into-view/_index.scss';
 import fadeOptions from './scroll-animations.stories.scss';
 import '../scroll-animations';
 import readme from './README.stories.mdx';
