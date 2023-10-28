@@ -5,6 +5,8 @@
 ####   `should render with minimum attributes`
 
 ```
+<slot name="heading">
+</slot>
 <button class="bx--filter-button">
   <div class="bx--filter__modal__button">
   </div>
@@ -13,22 +15,17 @@
   data-autoid="dds-filter-panel-modal"
   heading=""
 >
-  <slot name="heading">
-  </slot>
   <slot>
   </slot>
 </dds-filter-panel-modal>
-<dds-filter-panel
-  data-autoid="dds-filter-panel"
-  heading=""
->
-</dds-filter-panel>
 
 ```
 
 ####   `should render with various attributes`
 
 ```
+<slot name="heading">
+</slot>
 <button class="bx--filter-button">
   <div class="bx--filter__modal__button">
   </div>
@@ -37,16 +34,9 @@
   data-autoid="dds-filter-panel-modal"
   heading=""
 >
-  <slot name="heading">
-  </slot>
   <slot>
   </slot>
 </dds-filter-panel-modal>
-<dds-filter-panel
-  data-autoid="dds-filter-panel"
-  heading=""
->
-</dds-filter-panel>
 
 ```
 

@@ -273,9 +273,13 @@ class DDSVideoPlayer extends FocusMixin(
       }
     }
 
-    if (this.offsetWidth > 0) {
-      this._updateThumbnailUrl();
-    }
+    // Move measurement & API call to callback queue & wait for update to complete.
+    setTimeout(async () => {
+      await this.updateComplete;
+      if (!this.thumbnailUrl.endsWith(`${this.offsetWidth}`)) {
+        this._updateThumbnailUrl();
+      }
+    }, 0);
   }
 
   firstUpdated() {
