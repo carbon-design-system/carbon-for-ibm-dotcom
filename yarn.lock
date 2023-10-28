@@ -2354,16 +2354,6 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@carbon/grid@npm:^10.43.1":
-  version: 10.43.1
-  resolution: "@carbon/grid@npm:10.43.1"
-  dependencies:
-    "@carbon/import-once": ^10.7.0
-    "@carbon/layout": ^10.37.1
-  checksum: d59818f5602b1cada5188982a687ef861c63a2e165ed3266496b0a0b7e2e12528e55d4ac9d7d4134a4f4c19e7e16fd48425e5982279ac86ff914ba879c120a32
-  languageName: node
-  linkType: hard
-
 "@carbon/ibmdotcom-react@workspace:packages/react":
   version: 0.0.0-use.local
   resolution: "@carbon/ibmdotcom-react@workspace:packages/react"
@@ -2591,7 +2581,7 @@ __metadata:
     "@carbon/motion": 10.29.2
     "@carbon/telemetry": 0.1.0
     "@carbon/themes": 10.55.3
-    "@carbon/type": 10.45.2
+    "@carbon/type": 10.45.3
     carbon-components: 10.58.8
     carbon-components-react: 7.59.8
     del: ^6.0.0
@@ -2682,7 +2672,7 @@ __metadata:
     "@carbon/layout": 10.37.1
     "@carbon/motion": ^11.0.0
     "@carbon/telemetry": 0.1.0
-    "@carbon/type": 10.45.2
+    "@carbon/type": 10.45.3
     "@carbon/web-components": 1.33.0-rc.1
     "@open-wc/semantic-dom-diff": ~0.18.0
     "@percy-io/in-percy": ^0.1.11
@@ -2884,7 +2874,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@carbon/layout@npm:10.37.1, @carbon/layout@npm:^10.37.0, @carbon/layout@npm:^10.37.1":
+"@carbon/layout@npm:10.37.1, @carbon/layout@npm:^10.37.0":
   version: 10.37.1
   resolution: "@carbon/layout@npm:10.37.1"
   checksum: baabf7e70e4779f0e5000e700bcafe96f272debaac490a4345e39fedf8d0970636f7099e2607aeb9ca6170a56bbacdff69d8181c2a46ed8adac38fadc08332b6
@@ -2973,17 +2963,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@carbon/type@npm:10.45.2":
-  version: 10.45.2
-  resolution: "@carbon/type@npm:10.45.2"
-  dependencies:
-    "@carbon/grid": ^10.43.1
-    "@carbon/import-once": ^10.7.0
-  checksum: 879c7d5b4bb8f34130b374dbbd63948077326dd3d571a926369fe501daed20157cc5ed230b3ff1f9d1deaa791164e2440f8025b359889540e70a4f96d730bf57
-  languageName: node
-  linkType: hard
-
-"@carbon/type@npm:^10.45.3":
+"@carbon/type@npm:10.45.3, @carbon/type@npm:^10.45.3":
   version: 10.45.3
   resolution: "@carbon/type@npm:10.45.3"
   dependencies:
