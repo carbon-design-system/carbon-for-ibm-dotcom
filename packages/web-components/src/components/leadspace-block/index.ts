@@ -8,10 +8,9 @@
  */
 
 import './leadspace-block';
-import './leadspace-block-heading';
+import '../leadspace/leadspace-heading';
 import './leadspace-block-media';
 import './leadspace-block-content';
-import './leadspace-block-cta';
 import '../button-group/index';
 import '../content-block/content-block-heading';
 import '../content-block/content-block-copy';
