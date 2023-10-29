@@ -37,8 +37,8 @@
 
       &:focus,
       &:active {
-        outline: carbon--rem(1px) solid $ui-background;
-        outline-offset: carbon--rem(-1px);
+        outline: rem(1px) solid $ui-background;
+        outline-offset: rem(-1px);
         border-color: $focus;
       }
     }
