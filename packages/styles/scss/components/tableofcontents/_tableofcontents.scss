@@ -27,7 +27,7 @@ $hover-transition-timing: 95ms;
 
   .#{$prefix}--tableofcontents__desktop__item {
     a {
-      border-left: carbon--rem(4px) solid $ui-03;
+      border-left: rem(4px) solid $ui-03;
       color: $text-02;
 
       &:hover {
@@ -129,7 +129,7 @@ $hover-transition-timing: 95ms;
     border: none;
     background-color: transparent;
     color: $text-01;
-    height: carbon--rem(48px);
+    height: rem(48px);
     appearance: none;
     @include carbon--type-style(body-short-02);
     @include focus-outline('reset');
@@ -145,7 +145,7 @@ $hover-transition-timing: 95ms;
   }
 
   .#{$prefix}--tableofcontents__mobile__select__wrapper {
-    height: carbon--rem(47px);
+    height: rem(47px);
     position: relative;
     display: flex;
     align-items: center;
@@ -173,9 +173,9 @@ $hover-transition-timing: 95ms;
       text-decoration: none;
       display: inline-block;
       width: 100%;
-      padding-top: carbon--rem(12px);
-      padding-bottom: carbon--rem(12px);
-      padding-left: carbon--rem(12px);
+      padding-top: rem(12px);
+      padding-bottom: rem(12px);
+      padding-left: rem(12px);
       @include carbon--type-style('body-long-02');
     }
 
@@ -256,7 +256,7 @@ $hover-transition-timing: 95ms;
     @include carbon--breakpoint('lg') {
       filter: drop-shadow(0 2px 6px rgba(0, 0, 0, 0.3));
       border-bottom: 1px solid $ui-04;
-      height: carbon--rem(49px);
+      height: rem(49px);
       background-color: $ui-01;
     }
 
@@ -269,7 +269,7 @@ $hover-transition-timing: 95ms;
 
         &:focus {
           outline: 2px solid $focus;
-          height: carbon--rem(48px);
+          height: rem(48px);
           outline-offset: -2px;
         }
       }
@@ -277,7 +277,7 @@ $hover-transition-timing: 95ms;
 
     .#{$prefix}--tableofcontents__desktop__item--active a {
       border-bottom: 2px solid $interactive-04;
-      padding-bottom: carbon--rem(10px);
+      padding-bottom: rem(10px);
     }
 
     .#{$prefix}--tableofcontents__desktop {

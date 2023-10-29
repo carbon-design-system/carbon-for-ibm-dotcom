@@ -2417,8 +2417,8 @@ __metadata:
     browserslist-config-carbon: 10.6.1
     browserstack-cypress-cli: ^1.11.1
     cache-loader: ^4.1.0
-    carbon-components: 10.58.8
-    carbon-components-react: 7.59.8
+    carbon-components: 10.58.12
+    carbon-components-react: 7.59.16
     carbon-icons: 7.0.7
     chalk: ^4.1.1
     classnames: 2.3.2
@@ -2582,8 +2582,8 @@ __metadata:
     "@carbon/telemetry": 0.1.0
     "@carbon/themes": 10.55.3
     "@carbon/type": 10.45.3
-    carbon-components: 10.58.8
-    carbon-components-react: 7.59.8
+    carbon-components: 10.58.12
+    carbon-components-react: 7.59.16
     del: ^6.0.0
     gulp: ^4.0.2
     gulp-autoprefixer: ^6.1.0
@@ -2620,7 +2620,7 @@ __metadata:
     babel-plugin-dev-expression: ^0.2.1
     babel-polyfill: ^6.26.0
     browserslist-config-carbon: 10.6.1
-    carbon-components: 10.58.8
+    carbon-components: 10.58.12
     chalk: ^4.1.1
     cli-table: ^0.3.0
     gzip-size: ^5.0.0
@@ -2708,7 +2708,7 @@ __metadata:
     babel-plugin-template-html-minifier: ^4.1.0
     browserstack-cypress-cli: ^1.11.1
     cache-loader: ^4.1.0
-    carbon-components: 10.58.8
+    carbon-components: 10.58.12
     chalk: ^4.1.1
     classnames: 2.3.2
     commander: ^4.1.0
@@ -2820,14 +2820,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@carbon/icon-helpers@npm:^10.28.1":
-  version: 10.42.1
-  resolution: "@carbon/icon-helpers@npm:10.42.1"
-  checksum: 98981041d7fb44258c227825eb704b0f25fc6f1cc84d500d5cf0feba71307f5c1e1734f37608c9bb9836b5c864bafc8c6aa9f422f99250f662f67ad2c87708f7
-  languageName: node
-  linkType: hard
-
-"@carbon/icons-react@npm:10.49.2":
+"@carbon/icons-react@npm:10.49.2, @carbon/icons-react@npm:^10.49.2":
   version: 10.49.2
   resolution: "@carbon/icons-react@npm:10.49.2"
   dependencies:
@@ -2837,19 +2830,6 @@ __metadata:
   peerDependencies:
     react: ">=16"
   checksum: 42e9ef288ef39276fbfec5925cd894fc362bcf27aaee44652d361fb26537409a066307a6c39062fdffb7dfc9ceda3deb17a5ff995f53b6bf409e691c0e40f818
-  languageName: node
-  linkType: hard
-
-"@carbon/icons-react@npm:^10.49.0":
-  version: 10.49.1
-  resolution: "@carbon/icons-react@npm:10.49.1"
-  dependencies:
-    "@carbon/icon-helpers": ^10.28.1
-    "@carbon/telemetry": 0.1.0
-    prop-types: ^15.7.2
-  peerDependencies:
-    react: ">=16"
-  checksum: 73625d9782211f6ce937504dab5d75c1f15634511debeb7184f29a5d855484cb3b52768ca37b461de7c7bd40c1ddf06160094fa5e15e4194febe8d197868b63c
   languageName: node
   linkType: hard
 
@@ -2878,13 +2858,6 @@ __metadata:
   version: 10.37.2
   resolution: "@carbon/layout@npm:10.37.2"
   checksum: 298a0b5473569b7bceb8bf6fb9e1345041f8fd0bdb1a9120ee8af3dd1ccb7803815273e4889627f364c051b67b575023d6b919b70131d8714b35b5b0641d692b
-  languageName: node
-  linkType: hard
-
-"@carbon/layout@npm:^10.37.0":
-  version: 10.37.1
-  resolution: "@carbon/layout@npm:10.37.1"
-  checksum: baabf7e70e4779f0e5000e700bcafe96f272debaac490a4345e39fedf8d0970636f7099e2607aeb9ca6170a56bbacdff69d8181c2a46ed8adac38fadc08332b6
   languageName: node
   linkType: hard
 
@@ -11429,14 +11402,14 @@ __metadata:
   languageName: node
   linkType: hard
 
-"carbon-components-react@npm:7.59.8":
-  version: 7.59.8
-  resolution: "carbon-components-react@npm:7.59.8"
+"carbon-components-react@npm:7.59.16":
+  version: 7.59.16
+  resolution: "carbon-components-react@npm:7.59.16"
   dependencies:
     "@babel/runtime": ^7.16.7
     "@carbon/feature-flags": ^0.7.0
-    "@carbon/icons-react": ^10.49.0
-    "@carbon/layout": ^10.37.0
+    "@carbon/icons-react": ^10.49.2
+    "@carbon/layout": ^10.37.2
     "@carbon/telemetry": 0.1.0
     classnames: 2.3.1
     copy-to-clipboard: ^3.3.1
@@ -11458,7 +11431,19 @@ __metadata:
     carbon-icons: ^7.0.7
     react: ^16.8.6 || ^17.0.1
     react-dom: ^16.8.6 || ^17.0.1
-  checksum: 51d43a907e20588e0788d6c75f755bbc1e92b511d604f68aa8faa3c4b599789cb6fef05a2fad5381dc209b7a4bbaba4e047474fc86739ffba19c53b09e339eaf
+  checksum: 46ca58e0ef958dc3584177f722e21c9d4ec8f04df416029e8eb7c003a8ed4837c6c840556fdf6b522f90129952cfe9e6bf3f8ddaa1bd769e53199625412e0cd7
+  languageName: node
+  linkType: hard
+
+"carbon-components@npm:10.58.12":
+  version: 10.58.12
+  resolution: "carbon-components@npm:10.58.12"
+  dependencies:
+    "@carbon/telemetry": 0.1.0
+    flatpickr: 4.6.1
+    lodash.debounce: ^4.0.8
+    warning: ^3.0.0
+  checksum: 1eb67687bcdd7bd78fbcaca77d7f5fe3cb3a3cae9431a6710370cf4edf32c0809b912478f65f6988b7615e3c7980bd10fdbd4fceb818901c77301518c53f6fae
   languageName: node
   linkType: hard
 
@@ -11471,18 +11456,6 @@ __metadata:
     lodash.debounce: ^4.0.8
     warning: ^3.0.0
   checksum: 84a7e6ad39df192462225f92394407c59d2c3dcf6b1f4b5c2fb9ed96f3f593538d3999a8f1f30ff8de0095d1e282a3ddcdd3c8a3e653f295ef6e60436dba59d7
-  languageName: node
-  linkType: hard
-
-"carbon-components@npm:10.58.8":
-  version: 10.58.8
-  resolution: "carbon-components@npm:10.58.8"
-  dependencies:
-    "@carbon/telemetry": 0.1.0
-    flatpickr: 4.6.1
-    lodash.debounce: ^4.0.8
-    warning: ^3.0.0
-  checksum: 1cb5eb8d9036522aae79ee0fcf8c92cda79c9b623454a636aea81023d8bb06d3da703f160dc064f3f2ea699d9a42668260676973a00aabe87437b90ce66f0b17
   languageName: node
   linkType: hard
 
