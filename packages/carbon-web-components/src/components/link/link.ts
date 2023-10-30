@@ -23,7 +23,7 @@ const { prefix } = settings;
  *   - Small   = 'sm'
  *   - Large   = 'lg'
  */
-type LINK_SIZE = '' | 'sm' | 'lg';
+export type LINK_SIZE = '' | 'sm' | 'lg';
 
 /**
  * Link.
