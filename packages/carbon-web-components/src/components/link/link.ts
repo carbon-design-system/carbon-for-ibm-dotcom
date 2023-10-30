@@ -19,11 +19,15 @@ const { prefix } = settings;
 
 /**
  * Link size.
- *   - Regular = ''
- *   - Small   = 'sm'
- *   - Large   = 'lg'
  */
-export type LINK_SIZE = '' | 'sm' | 'lg';
+export const LINK_SIZE = {
+  REGULAR: '',
+  SMALL: 'sm',
+  LARGE: 'lg',
+};
+
+// Convert object key in a type
+type LINK_SIZE_TYPE = (typeof LINK_SIZE)[keyof typeof LINK_SIZE];
 
 /**
  * Link.
@@ -178,7 +182,7 @@ class BXLink extends FocusMixin(LitElement) {
    * Link size.
    */
   @property({ reflect: true })
-  size: LINK_SIZE = '';
+  size: LINK_SIZE_TYPE = '';
 
   /**
    * The link target.
