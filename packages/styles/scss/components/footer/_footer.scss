@@ -106,7 +106,7 @@
   :host(#{$c4d-prefix}-legal-nav-item),
   :host(#{$c4d-prefix}-legal-nav-cookie-preferences-placeholder) {
     @include theme($g90, feature-flag-enabled('enable-css-custom-properties'));
-    
+
     display: list-item;
     outline: none;
 
