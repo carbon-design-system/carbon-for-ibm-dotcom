@@ -182,7 +182,7 @@ class BXLink extends FocusMixin(LitElement) {
    * Link size.
    */
   @property({ reflect: true })
-  size: LINK_SIZE_TYPE = '';
+  size: LINK_SIZE_TYPE = LINK_SIZE.REGULAR;
 
   /**
    * The link target.
