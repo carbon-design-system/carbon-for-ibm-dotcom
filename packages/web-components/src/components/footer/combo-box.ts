@@ -12,7 +12,7 @@ import { TemplateResult } from 'lit-html';
 import { html, property, query } from 'lit-element';
 import BXComboBoxItem from '../../internal/vendor/@carbon/web-components/components/combo-box/combo-box-item.js';
 import Close16 from '../../internal/vendor/@carbon/web-components/icons/close/16.js';
-import ddsSettings from '@carbon/ibmdotcom-utilities/es/utilities/settings/settings.js';
+import ddsSettings from '../../internal/vendor/@carbon/ibmdotcom-utilities/utilities/settings/settings';
 import { findIndex, forEach } from '../../globals/internal/collection-helpers';
 import DDSDropdown, { DROPDOWN_KEYBOARD_ACTION } from './dropdown';
 import { carbonElement as customElement } from '../../internal/vendor/@carbon/web-components/globals/decorators/carbon-element.js';
@@ -58,7 +58,7 @@ class DDSComboBox extends DDSDropdown {
    * The `<input>` for filtering.
    */
   @query('input')
-  private _filterInputNode!: HTMLInputElement;
+  protected _filterInputNode!: HTMLInputElement;
 
   /**
    * @param item A combo box item.
@@ -226,7 +226,8 @@ class DDSComboBox extends DDSDropdown {
     return true;
   }
 
-  updated() {
+  updated(changedProperties) {
+    super.updated(changedProperties);
     const { _listBoxNode: listBoxNode } = this;
     if (listBoxNode) {
       listBoxNode.classList.add(`${prefix}--combo-box`);
