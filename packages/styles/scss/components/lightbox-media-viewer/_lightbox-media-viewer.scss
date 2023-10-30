@@ -10,12 +10,37 @@
 @use '@carbon/styles/scss/spacing' as *;
 @use '@carbon/styles/scss/theme' as *;
 @use '@carbon/styles/scss/type' as *;
+@use '@carbon/ibmdotcom-styles/scss/components/video-player';
+@use '../expressive-modal/expressive-modal';
 @use '../../globals/utils/flex-grid' as *;
 @use '../../globals/vars' as *;
 @use '../expressive-modal' as *;
 @use '../video-player' as *;
 
 @mixin lightbox-media-viewer {
+  :host(#{$c4d-prefix}-lightbox-image-viewer),
+  :host(#{$c4d-prefix}-lightbox-video-player) {
+    @extend :host(#{$c4d-prefix}-expressive-modal-body);
+    @extend .#{$c4d-prefix}--lightbox-media-viewer;
+  }
+
+  :host(#{$c4d-prefix}-lightbox-video-player-container),
+  :host(#{$c4d-prefix}-lightbox-video-player-composite) {
+    display: contents;
+  }
+
+  :host(#{$c4d-prefix}-lightbox-video-player) .#{$c4d-prefix}--video-player {
+    width: 100%;
+
+    ::slotted(.#{$c4d-prefix}--video-player__video) {
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+    }
+  }
+
   .#{$c4d-prefix}--modal--expressive--fullwidth
     .#{$c4d-prefix}--modal-container
     .#{$c4d-prefix}--modal-content {
@@ -109,6 +134,11 @@
         padding-top: 0;
         flex-direction: row;
       }
+    }
+
+    .#{$c4d-prefix}--lightbox-media-viewer__media,
+    .#{$c4d-prefix}--lightbox-media-viewer__media-description {
+      box-sizing: border-box;
     }
 
     .#{$c4d-prefix}--lightbox-media-viewer__media {
