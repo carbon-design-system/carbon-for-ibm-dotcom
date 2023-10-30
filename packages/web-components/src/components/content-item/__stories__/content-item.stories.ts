@@ -135,7 +135,6 @@ export const Default = (args) => {
     pictogramType,
     copy,
     showCopy,
-    ctaStyle,
     ctaCopy,
   } = args?.ContentItem ?? {};
   console.log(type, mediaType);
@@ -174,16 +173,12 @@ export const Default = (args) => {
       ${showCopy
         ? html` <c4d-content-item-copy>${copy}</c4d-content-item-copy> `
         : ``}
-      ${ctaStyle === 'text'
-        ? html`
-            <c4d-link-with-icon
-              slot="footer"
-              cta-type="local"
-              href="https://www.example.com"
-              >${ctaCopy}</c4d-link-with-icon
-            >
-          `
-        : ``}
+      <c4d-link-with-icon
+        slot="footer"
+        cta-type="local"
+        href="https://www.example.com"
+        >${ctaCopy}</c4d-link-with-icon
+      >
     </c4d-content-item>
   `;
 };
@@ -234,7 +229,6 @@ export default {
             'This area of NLP takes "real world" text and applies a symbolic ' +
             'system for a machine to interpret its meaning, using formal logic; structures ' +
             'that describe the various relationships between concepts (ontologies); and other semantic tools.',
-          ctaStyle: select('CTA style:', ['text', 'button'], 'text'),
           ctaCopy: textNullable('CTA copy:', 'Learn more about NLP'),
         };
       },
