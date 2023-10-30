@@ -192,17 +192,15 @@ const pictogramCard = (gridMode) => html`
 `;
 
 const cardLink = html`
-  <c4d-card-group-card-link-item
+  <c4d-card
     cta-type="local"
     href="https://example.com"
     pattern-background>
-    <c4d-card-link-heading>IBM Developer</c4d-card-link-heading>
+    <c4d-heading>IBM Developer</c4d-card-heading>
     <p>Learn, code and connect with your community</p>
     <c4d-card-footer slot="footer"> </c4d-card-footer>
-  </c4d-card-group-card-link-item>
+  </c4d-card>
 `;
-
-const emptyCard = html` <c4d-card-group-item empty></c4d-card-group-item> `;
 
 const cardInCardItems = (i, tagGroup, media, gridMode) => {
   if (media) {

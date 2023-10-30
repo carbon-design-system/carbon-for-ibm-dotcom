@@ -19,10 +19,9 @@ import C4DImageItem from '@carbon/ibmdotcom-web-components/es/components-react/i
 import C4DCardCTAImage from '@carbon/ibmdotcom-web-components/es/components-react/cta/card-cta-image';
 import C4DCardEyebrow from '@carbon/ibmdotcom-web-components/es/components-react/card/card-eyebrow';
 import C4DCardHeading from '@carbon/ibmdotcom-web-components/es/components-react/card/card-heading';
-import C4DCardCTAFooter from '@carbon/ibmdotcom-web-components/es/components-react/cta/card-cta-footer';
 import C4DTagGroup from '@carbon/ibmdotcom-web-components/es/components-react/tag-group/tag-group';
-import C4DCardGroupCardLinkItem from '@carbon/ibmdotcom-web-components/es/components-react/card-group/card-group-card-link-item';
-import C4DCardLinkHeading from '@carbon/ibmdotcom-web-components/es/components-react/card-link/card-link-heading';
+import C4DCard from '@carbon/ibmdotcom-web-components/es/components-react/card/card';
+import C4DCardFooter from '@carbon/ibmdotcom-web-components/es/components-react/card/card-footer';
 import C4DCardInCard from '@carbon/ibmdotcom-web-components/es/components-react/card-in-card/card-in-card';
 import C4DCardInCardImage from '@carbon/ibmdotcom-web-components/es/components-react/card-in-card/card-in-card-image';
 import C4DVideoCTAContainer from '@carbon/ibmdotcom-web-components/es/components-react/cta/video-cta-container';
@@ -108,7 +107,7 @@ const cardsDiffLengthPhrase = (
       {cardType === 'Card static' && addCta ? (
         textCTAContent
       ) : (
-        <C4DCardCTAFooter slot="footer"></C4DCardCTAFooter>
+        <C4DCardFooter slot="footer"></C4DCardFooter>
       )}
     </C4DCardGroupItem>
   );
@@ -120,10 +119,10 @@ const cardsDiffLengthPhrase = (
       color-scheme={gridMode === 'border' ? 'light' : null}>
       <C4DCardEyebrow>Topic</C4DCardEyebrow>
       {tagGroup ? tagGroupContent : ''}
-      <C4DCardCTAFooter
+      <C4DCardFooter
         cta-type="video"
         href={videoId}
-        slot="footer"></C4DCardCTAFooter>
+        slot="footer"></C4DCardFooter>
     </C4DCardGroupItem>
   );
 
@@ -163,7 +162,7 @@ const longHeadingCardGroupItem = (
       {cardType === 'Card static' && addCta ? (
         textCTAContent
       ) : (
-        <C4DCardCTAFooter slot="footer"></C4DCardCTAFooter>
+        <C4DCardFooter slot="footer"></C4DCardFooter>
       )}
     </C4DCardGroupItem>
   );
@@ -185,14 +184,14 @@ const pictogramCard = (gridMode) => (
 );
 
 const cardLink = (
-  <C4DCardGroupCardLinkItem
+  <C4DCard
     cta-type="local"
     href="https://example.com"
     pattern-background>
-    <C4DCardLinkHeading>IBM Developer</C4DCardLinkHeading>
+    <C4DCardHeading>IBM Developer</C4DCardHeading>
     <p>Learn, code and connect with your community</p>
-    <C4DCardCTAFooter slot="footer"></C4DCardCTAFooter>
-  </C4DCardGroupCardLinkItem>
+    <C4DCardFooter slot="footer"></C4DCardFooter>
+  </C4DCard>
 );
 
 const cardInCardItems = (i, tagGroup, media, gridMode) => {
@@ -209,7 +208,7 @@ const cardInCardItems = (i, tagGroup, media, gridMode) => {
           litter
         </C4DCardHeading>
         {tagGroup ? tagGroupContent : ''}
-        <C4DCardCTAFooter slot="footer" />
+        <C4DCardFooter slot="footer" />
       </C4DCardGroupItem>
     ) : (
       <C4DCardGroupItem
@@ -218,7 +217,7 @@ const cardInCardItems = (i, tagGroup, media, gridMode) => {
         colorScheme={gridMode === 'border' ? 'light' : null}>
         <C4DCardEyebrow>Topic</C4DCardEyebrow>
         {tagGroup ? tagGroupContent : ''}
-        <C4DCardCTAFooter cta-type="video" slot="footer" href="0_ibuqxqbe" />
+        <C4DCardFooter cta-type="video" slot="footer" href="0_ibuqxqbe" />
       </C4DCardGroupItem>
     );
   }
@@ -233,7 +232,7 @@ const cardInCardItems = (i, tagGroup, media, gridMode) => {
         litter
       </C4DCardHeading>
       {tagGroup ? tagGroupContent : ''}
-      <C4DCardCTAFooter slot="footer" />
+      <C4DCardFooter slot="footer" />
     </C4DCardGroupItem>
   );
 };
@@ -268,9 +267,9 @@ export const Default = (args) => {
           href="https://example.com"
           colorScheme="inverse">
           <C4DCardHeading>Top level card link</C4DCardHeading>
-          <C4DCardCTAFooter
+          <C4DCardFooter
             slot="footer"
-            color-scheme="inverse"></C4DCardCTAFooter>
+            color-scheme="inverse"></C4DCardFooter>
         </C4DCardGroupItem>
       );
     }
@@ -298,7 +297,7 @@ export const Default = (args) => {
           href="https://example.com"
           colorScheme="inverse">
           <C4DCardHeading>Top level card link</C4DCardHeading>
-          <C4DCardCTAFooter slot="footer" colorScheme="inverse" />
+          <C4DCardFooter slot="footer" colorScheme="inverse" />
         </C4DCardGroupItem>
       );
     }
@@ -392,7 +391,7 @@ export const withCardInCard = (args) => {
         <C4DCardHeading>
           Standard Bank Group prepares to embrace Africa’s AI opportunity
         </C4DCardHeading>
-        <C4DCardCTAFooter></C4DCardCTAFooter>
+        <C4DCardFooter></C4DCardFooter>
       </C4DCardInCard>
       <C4DCardGroup gridMode={gridMode || undefined}>{allCards}</C4DCardGroup>
     </>
