@@ -176,8 +176,8 @@ class C4DImage extends StableSelectorMixin(
       _handleSlotChange: handleSlotChange,
     } = this;
     const imgClasses = classMap({
-      [`${prefix}--image__img`]: true,
-      [`${prefix}--image__img--border`]: border && !lightbox,
+      [`${c4dPrefix}--image__img`]: true,
+      [`${c4dPrefix}--image__img--border`]: border && !lightbox,
     });
 
     return html`
