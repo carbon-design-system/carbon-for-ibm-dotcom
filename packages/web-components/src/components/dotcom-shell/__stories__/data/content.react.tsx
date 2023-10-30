@@ -355,8 +355,8 @@ export const tocContent = (
       <C4DQuoteSourceHeading>Lorem ipsum dolor sit amet</C4DQuoteSourceHeading>
       <C4DQuoteSourceCopy>consectetur adipiscing elit</C4DQuoteSourceCopy>
       <C4DQuoteSourceBottomCopy>IBM Cloud</C4DQuoteSourceBottomCopy>
-      <C4DCalloutLinkWithIcon slot="footer" href="https://example.com">
-        Link with Icon <ArrowRight20 slot="icon" />
+      <C4DCalloutLinkWithIcon slot="footer" href="https://example.com" cta-type="local">
+        Link with Icon
       </C4DCalloutLinkWithIcon>
     </C4DCalloutQuote>
 
@@ -532,8 +532,8 @@ export const StoryContentNoToC = () => (
         </C4DQuoteSourceHeading>
         <C4DQuoteSourceCopy>consectetur adipiscing elit</C4DQuoteSourceCopy>
         <C4DQuoteSourceBottomCopy>IBM Cloud</C4DQuoteSourceBottomCopy>
-        <C4DCalloutLinkWithIcon slot="footer" href="https://example.com">
-          Link with Icon <ArrowRight20 slot="icon" />
+        <C4DCalloutLinkWithIcon slot="footer" href="https://example.com" cta-type="local">
+          Link with Icon
         </C4DCalloutLinkWithIcon>
       </C4DCalloutQuote>
 
