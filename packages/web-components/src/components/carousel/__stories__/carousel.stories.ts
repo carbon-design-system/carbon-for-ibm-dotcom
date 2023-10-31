@@ -7,15 +7,12 @@
  * LICENSE file in the root directory of this source tree.
  */
 
-import { classMap } from 'lit/directives/class-map.js';
 import { html } from 'lit';
 // Below path will be there when an application installs `carbon-web-components` package.
 // In our dev env, we auto-generate the file and re-map below path to to point to the generated file.
 // @ts-ignore
 import { ifDefined } from 'lit/directives/if-defined.js';
 import { select } from '@storybook/addon-knobs';
-import ArrowRight20 from '../../../internal/vendor/@carbon/web-components/icons/arrow--right/20.js';
-import PlayFilledAlt20 from '../../../internal/vendor/@carbon/web-components/icons/play--filled--alt/20.js';
 import '../../card/index';
 import '../../cta/index';
 import '../../image/index';
@@ -41,7 +38,7 @@ const Card = ({
   href = hrefDefault,
   image = undefined,
 } = {}) => html`
-  <c4d-card href="${ifDefined(href)}">
+  <c4d-card href="${ifDefined(href)}" cta-type="local">
     <c4d-card-heading>${heading}</c4d-card-heading>
     <p>${copy}</p>
     ${image
@@ -52,7 +49,7 @@ const Card = ({
             default-src="${image}"></c4d-image>
         `
       : null}
-    <c4d-card-footer> ${ArrowRight20({ slot: 'icon' })} </c4d-card-footer>
+    <c4d-card-footer></c4d-card-footer>
   </c4d-card>
 `;
 
@@ -62,8 +59,8 @@ const CardWithLongHeading = ({
   href = hrefDefault,
   image = undefined,
 } = {}) => html`
-  <c4d-card href="${ifDefined(href)}">
-    <c4d-card-heading>${heading} ${heading}</c4d-card-heading>
+  <c4d-card href="${ifDefined(href)}" cta-type="local">
+    <c4d-card-heading>${heading}</c4d-card-heading>
     <p>${copy}</p>
     ${image
       ? html`
@@ -73,7 +70,7 @@ const CardWithLongHeading = ({
             default-src="${image}"></c4d-image>
         `
       : null}
-    <c4d-card-footer> ${ArrowRight20({ slot: 'icon' })} </c4d-card-footer>
+    <c4d-card-footer></c4d-card-footer>
   </c4d-card>
 `;
 
@@ -81,81 +78,45 @@ const CardWithVideo = ({ copy = copyDefault, href = hrefDefault } = {}) => html`
   <c4d-video-cta-container>
     <c4d-card cta-type="video" href="${href}">
       <p>${copy}</p>
-      <c4d-card-footer href="${href}">
-        ${PlayFilledAlt20({ slot: 'icon' })}
-      </c4d-card-footer>
+      <c4d-card-footer> </c4d-card-footer>
     </c4d-card>
   </c4d-video-cta-container>
 `;
 
-const CardsWithImages = (args) => {
-  const { cardSize } = args?.Carousel ?? {};
-  const classes = classMap({
-    [cardSize]: cardSize,
-  });
-  return html`
-    <c4d-carousel class="${classes}">
-      ${Card({ image: imgLg2x1 })}${Card({
-        copy: copyOdd,
-        image: imgLg2x1,
-      })}${Card({ image: imgLg2x1 })}${Card({
-        copy: copyOdd,
-        image: imgLg2x1,
-      })}${Card({ image: imgLg2x1 })}
-    </c4d-carousel>
-  `;
-};
-
-const CardsWithVideos = (args) => {
-  const { cardSize } = args?.Carousel ?? {};
-  const classes = classMap({
-    [cardSize]: cardSize,
-  });
-  return html`
-    <c4d-carousel class="${classes}">
-      ${CardWithVideo({ href: '0_ibuqxqbe' })}
-      ${CardWithVideo({ href: '0_ibuqxqbe' })}
-      ${CardWithVideo({ href: '0_ibuqxqbe' })}
-      ${CardWithVideo({ href: '0_ibuqxqbe' })}
-      ${CardWithVideo({ href: '0_ibuqxqbe' })}
-      ${CardWithVideo({ href: '0_ibuqxqbe' })}
-    </c4d-carousel>
-  `;
-};
-
-const CardsWithMedia = (args) => {
-  const { cardSize } = args?.Carousel ?? {};
-  const classes = classMap({
-    [cardSize]: cardSize,
-  });
-  return html`
-    <c4d-carousel class="${classes}">
-      ${Card({ image: imgLg4x3 })} ${CardWithVideo({ href: '0_ibuqxqbe' })}
-      ${Card({ image: imgLg4x3 })} ${CardWithVideo({ href: '0_ibuqxqbe' })}
-      ${Card({ image: imgLg4x3 })} ${CardWithVideo({ href: '0_ibuqxqbe' })}
-    </c4d-carousel>
-  `;
-};
-
 export const Default = (args) => {
-  const { cardSize, mediaType } = args?.Carousel ?? {};
-  const classes = classMap({
-    [cardSize]: cardSize,
-  });
+  const { mediaType } = args?.Carousel ?? {};
   switch (mediaType) {
     case 'images':
-      return CardsWithImages(args);
+      return html`
+        ${Card({ image: imgLg2x1 })}${Card({
+          image: imgLg2x1,
+          copy: copyOdd,
+        })}${Card({ image: imgLg2x1 })}${Card({
+          image: imgLg2x1,
+          copy: copyOdd,
+        })}${Card({ image: imgLg2x1 })}
+      `;
     case 'videos':
-      return CardsWithVideos(args);
+      return html`
+        ${CardWithVideo({ href: '0_ibuqxqbe' })}${CardWithVideo({
+          href: '0_ibuqxqbe',
+        })}${CardWithVideo({ href: '0_ibuqxqbe' })}${CardWithVideo({
+          href: '0_ibuqxqbe',
+        })}
+      `;
     case 'mixed':
-      return CardsWithMedia(args);
+      return html`
+        ${Card({ image: imgLg4x3 })}${CardWithVideo({
+          href: '0_ibuqxqbe',
+        })}${Card({ image: imgLg4x3 })}${CardWithVideo({
+          href: '0_ibuqxqbe',
+        })}${Card({ image: imgLg4x3 })}${CardWithVideo({ href: '0_ibuqxqbe' })}
+      `;
     default:
       return html`
-        <c4d-carousel class="${classes}">
-          ${Card()}${Card({ copy: copyOdd })}${CardWithLongHeading()}${Card({
-            copy: copyOdd,
-          })}${Card()}
-        </c4d-carousel>
+        ${Card()}${Card({ copy: copyOdd })}${CardWithLongHeading()}${Card({
+          copy: copyOdd,
+        })}${Card()}
       `;
   }
 };
@@ -169,7 +130,9 @@ export default {
           ${styles}
         </style>
         <div class="cds--grid">
-          <div class="cds--row">${story()}</div>
+          <div class="cds--row">
+            <c4d-carousel>${story()}</c4d-carousel>
+          </div>
         </div>
       `;
     },

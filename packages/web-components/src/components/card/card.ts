@@ -87,7 +87,29 @@ class C4DCard extends CTAMixin(StableSelectorMixin(CDSLink)) {
    */
   // eslint-disable-next-line class-methods-use-this
   protected _renderHeading(): TemplateResult | string | void {
-    return html` <slot name="heading"></slot> `;
+    const {
+      ctaType,
+      videoName,
+      formatVideoCaption: formatVideoCaptionInEffect,
+    } = this;
+    if (ctaType !== CTA_TYPE.VIDEO) {
+      return html`<slot name="heading"></slot>`;
+    }
+    const caption = formatVideoCaptionInEffect({ name: videoName });
+
+    this.dispatchEvent(
+      new CustomEvent(
+        (this.constructor as typeof C4DCard).eventVideoTitleUpdated,
+        {
+          bubbles: true,
+          composed: true,
+        }
+      )
+    );
+    return html`
+      <slot name="heading"></slot
+      ><c4d-card-heading>${caption}</c4d-card-heading>
+    `;
   }
 
   /**
@@ -339,12 +361,6 @@ class C4DCard extends CTAMixin(StableSelectorMixin(CDSLink)) {
       const heading = this.querySelector(`${c4dPrefix}-card-heading`);
       const footer = this.querySelector(`${c4dPrefix}-card-footer`);
 
-      if (heading === null) {
-        const cardHeading = document.createElement(`${c4dPrefix}-card-heading`);
-        cardHeading.setAttribute('slot', 'heading');
-        this?.appendChild(cardHeading);
-      }
-
       if (heading?.textContent?.trim() === '') {
         const title = document.createTextNode(this.videoTitle);
         heading?.appendChild(title);
@@ -408,6 +424,13 @@ class C4DCard extends CTAMixin(StableSelectorMixin(CDSLink)) {
    */
   static get eventRequestAdditionalVideoData() {
     return `${c4dPrefix}-cta-request-additional-video-data`;
+  }
+
+  /**
+   * The name of the custom event fired when the video title is updated
+   */
+  static get eventVideoTitleUpdated() {
+    return `${c4dPrefix}-card-video-title-updated`;
   }
 
   static shadowRootOptions = {

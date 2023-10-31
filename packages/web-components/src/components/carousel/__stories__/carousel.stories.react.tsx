@@ -8,7 +8,8 @@
  */
 
 import React from 'react';
-import ArrowRight20 from '@carbon/icons-react/es/arrow--right/20.js';
+import { select } from '@storybook/addon-knobs';
+
 // Below path will be there when an application installs `@carbon/ibmdotcom-web-components` package.
 // In our dev env, we auto-generate the file and re-map below path to to point to the generated file.
 // @ts-ignore
@@ -21,9 +22,13 @@ import C4DCardFooter from '@carbon/ibmdotcom-web-components/es/components-react/
 import C4DCarousel from '@carbon/ibmdotcom-web-components/es/components-react/carousel/carousel';
 // @ts-ignore
 import C4DImage from '@carbon/ibmdotcom-web-components/es/components-react/image/image';
+// @ts-ignore
+import C4DVideoCTAContainer from '@carbon/ibmdotcom-web-components/es/components-react/cta/video-cta-container';
 
 import imgLg2x1 from '../../../../../storybook-images/assets/720/fpo--2x1--720x360--005.jpg';
+import imgLg4x3 from '../../../../../storybook-images/assets/720/fpo--4x3--720x540--004.jpg';
 
+import styles from './carousel.stories.scss';
 import readme from './README.stories.react.mdx';
 
 const hrefDefault = 'https://www.ibm.com/standards/carbon';
@@ -41,7 +46,25 @@ const Card = ({
   href = hrefDefault,
   image = undefined,
 } = {}) => (
-  <C4DCard href={href}>
+  <C4DCard href={href} cta-type="local">
+    <C4DCardHeading>{heading}</C4DCardHeading>
+    <p>{copy}</p>
+    {image ? (
+      <C4DImage slot="image" alt="example image" default-src={image} />
+    ) : (
+      ''
+    )}
+    <C4DCardFooter></C4DCardFooter>
+  </C4DCard>
+);
+
+const CardWithLongHeading = ({
+  copy = copyDefault,
+  heading = headingDefault,
+  href = hrefDefault,
+  image = false,
+} = {}) => (
+  <C4DCard href={href} cta-type="local">
     <C4DCardHeading>{heading}</C4DCardHeading>
     <p>{copy}</p>
     {image ? (
@@ -49,34 +72,33 @@ const Card = ({
     ) : (
       ''
     )}
-    <C4DCardFooter>
-      <ArrowRight20 slot="icon" />
-    </C4DCardFooter>
+    <C4DCardFooter></C4DCardFooter>
   </C4DCard>
 );
 
-export const Default = () => {
-  return (
-    <C4DCarousel>
-      <Card />
-      <Card copy={copyOdd} />
-      <Card />
-      <Card copy={copyOdd} />
-      <Card />
-    </C4DCarousel>
-  );
-};
 
-export const CardsWithImages = () => {
-  return (
-    <C4DCarousel>
-      <Card image={imgLg2x1} />
-      <Card copy={copyOdd} image={imgLg2x1} />
-      <Card image={imgLg2x1} />
-      <Card copy={copyOdd} image={imgLg2x1} />
-      <Card image={imgLg2x1} />
-    </C4DCarousel>
-  );
+const CardWithVideo = ({ copy = copyDefault, href = hrefDefault } = {}) => (
+  <C4DVideoCTAContainer>
+    <C4DCard href={href} cta-type="video">
+      <p>{copy}</p>
+      <C4DCardFooter></C4DCardFooter>
+    </C4DCard>
+  </C4DVideoCTAContainer>
+);
+
+export const Default = (args) => {
+  const { mediaType } = args?.Carousel ?? {};
+    switch(mediaType){
+      case 'images':
+        return ( <>{Card({image: imgLg2x1})}{Card({image: imgLg2x1, copy: copyOdd})}{Card({image: imgLg2x1})}{Card({image: imgLg2x1, copy: copyOdd})}{Card({image: imgLg2x1})}</> );
+      case 'videos':
+        return ( <>{CardWithVideo({href: '0_ibuqxqbe'})}{CardWithVideo({href: '0_ibuqxqbe'})}{CardWithVideo({href: '0_ibuqxqbe'})}{CardWithVideo({href: '0_ibuqxqbe'})}</> );
+      case 'mixed':
+        return (<>{Card({image: imgLg4x3})}{CardWithVideo({href: '0_ibuqxqbe'})}{Card({image: imgLg4x3})}{CardWithVideo({href: '0_ibuqxqbe'})}{Card({image: imgLg4x3})}{CardWithVideo({href: '0_ibuqxqbe'})}</>)
+      default: 
+      return ( <>{Card()}{Card({copy: copyOdd})}{CardWithLongHeading()}{Card({copy: copyOdd})}{Card()}</> );
+
+    }
 };
 
 export default {
@@ -84,14 +106,33 @@ export default {
   decorators: [
     (story) => {
       return (
-        <div className="cds--grid">
-          <div className="cds--row">{story()}</div>
-        </div>
+        <>
+          <style type="text/css">{styles.cssText}</style>
+          <div className="cds--grid">
+            <div className="cds--row">
+              <C4DCarousel>
+                {story()}
+              </C4DCarousel>
+              </div>
+          </div>
+        </>
       );
     },
   ],
   parameters: {
     ...readme.parameters,
     hasStoryPadding: true,
+    knobs: {
+      Carousel: () => {
+        const mediaType = select(
+          'Media type:',
+          ['none', 'images', 'videos', 'mixed'],
+          'none'
+        );
+        return {
+          mediaType,
+        };
+      },
+    }
   },
 };
