@@ -5,4 +5,4 @@
  * LICENSE file in the root directory of this source tree.
  */
 
-export { default as CarbonStyles } from './CarbonStyles';
+export { default as CarbonStyles } from './carbonStyles';
