@@ -43,6 +43,7 @@ For Carbon v11 migration guidance, see their
 | cta                       | View changes [here](#cta)                                                                                                                      |
 | cta-block                 | This component is deprecated in v2 in favor for content-section/block & content-item components                                                |
 | cta-section               | This component is deprecated in v2 in favor for content-section/block & content-item components                                                |
+| dotcom-shell              | No API changes.                                                                                                                                |
 | feature-card-block-large  | This component is deprecated in v1 and has been removed in v2 in favor of the feature-card component.                                          |
 | feature-card-block-medium | This component is deprecated in v1 and has been removed in v2 in favor of the feature-card component.                                          |
 | feature-section           | View changes [here](#feature-section)                                                                                                          |
