@@ -65,7 +65,9 @@ class DDSCard extends StableSelectorMixin(BXLink) {
   protected _handleSlotChange({ target }: Event) {
     const { name } = target as HTMLSlotElement;
     const hasContent = Boolean(this.querySelector('p'));
-    const hasPictogram = Boolean(this.querySelector('[slot="pictogram"]'));
+    const hasPictogram = Boolean(
+      (target as HTMLSlotElement).assignedNodes().length
+    );
     this[slotExistencePropertyNames[name]] = hasContent;
     this._hasCopy = hasContent;
     this._hasPictogram = hasPictogram;
@@ -104,7 +106,7 @@ class DDSCard extends StableSelectorMixin(BXLink) {
    * renders the pictogram slot.
    */
   protected _renderPictogram(
-    placement: string
+    placement: PICTOGRAM_PLACEMENT = PICTOGRAM_PLACEMENT.TOP
   ): TemplateResult | string | void {
     return html`
       <slot
@@ -140,7 +142,7 @@ class DDSCard extends StableSelectorMixin(BXLink) {
            ${hasCopy ? `${prefix}--card__motion` : ''}">
           <div class="${prefix}--card__content">
             ${this.pictogramPlacement === PICTOGRAM_PLACEMENT.TOP
-              ? this._renderPictogram('top')
+              ? this._renderPictogram(PICTOGRAM_PLACEMENT.TOP)
               : ''}
             ${this.pictogramPlacement !== PICTOGRAM_PLACEMENT.TOP ||
             !hasPictogram
@@ -151,7 +153,7 @@ class DDSCard extends StableSelectorMixin(BXLink) {
               ? this._renderCopy()
               : ''}
             ${this.pictogramPlacement === PICTOGRAM_PLACEMENT.BOTTOM
-              ? this._renderPictogram('bottom')
+              ? this._renderPictogram(PICTOGRAM_PLACEMENT.BOTTOM)
               : ''}
             ${this.pictogramPlacement === PICTOGRAM_PLACEMENT.TOP
               ? this._renderHeading()
