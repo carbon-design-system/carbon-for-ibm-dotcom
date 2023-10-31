@@ -137,7 +137,6 @@ export const Default = (args) => {
     showCopy,
     ctaCopy,
   } = args?.ContentItem ?? {};
-  console.log(type, mediaType);
   return html`
     <c4d-content-item ?horizontal=${horizontal}>
       ${type === 'statistics' ? html`<span slot="statistics">10%</span>` : ``}
