@@ -47,10 +47,12 @@
   }
 
   :host(#{$c4d-prefix}-image)[card-group-item],
-  :host(#{$c4d-prefix}-card-cta-image) {
+  :host(#{$c4d-prefix}-image) {
     @include ratio-base(4, 3, true);
 
     padding-top: 75%;
+    height: 0;
+    overflow: hidden;
 
     .#{$c4d-prefix}--image__img {
       position: absolute;
