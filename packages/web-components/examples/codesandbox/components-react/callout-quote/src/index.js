@@ -9,7 +9,6 @@
 
 import React from 'react';
 import { render } from 'react-dom';
-import ArrowRight20 from '@carbon/icons-react/es/arrow--right/20.js';
 import C4DCalloutQuote from '@carbon/ibmdotcom-web-components/es/components-react/callout-quote/callout-quote';
 import C4DCalloutLinkWithIcon from '@carbon/ibmdotcom-web-components/es/components-react/callout-quote/callout-link-with-icon';
 import C4DQuoteSourceHeading from '@carbon/ibmdotcom-web-components/es/components-react/quote/quote-source-heading';
@@ -23,8 +22,8 @@ const App = () => (
     <C4DQuoteSourceHeading>John Doe</C4DQuoteSourceHeading>
     <C4DQuoteSourceCopy>Senior Vice President</C4DQuoteSourceCopy>
     <C4DQuoteSourceBottomCopy>IBM Cloud</C4DQuoteSourceBottomCopy>
-    <C4DCalloutLinkWithIcon slot="footer" href="https://example.com">
-      Link with icon <ArrowRight20 slot="icon"></ArrowRight20>
+    <C4DCalloutLinkWithIcon slot="footer" href="https://example.com" cta-type="local">
+      Link with icon
     </C4DCalloutLinkWithIcon>
   </C4DCalloutQuote>
 );
