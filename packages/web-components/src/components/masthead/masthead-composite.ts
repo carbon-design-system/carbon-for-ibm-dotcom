@@ -100,6 +100,7 @@ export interface CMApp {
   version: string;
   ready: boolean;
   init: Function;
+  minimize: Function;
   refresh: Function;
   register: Function;
   deregister: Function;
@@ -999,6 +1000,9 @@ class DDSMastheadComposite extends HostListenerMixin(LitElement) {
     // any previously opened megamenu.
     if (active && menuIndex !== undefined) {
       this._activeMegamenuIndex = menuIndex;
+
+      // Close the Contact Module upon opening megamenu.
+      this.contactModuleApp?.minimize();
     }
 
     // If clicking the same nav item to close megamenu, reset state to prune its
