@@ -21,6 +21,7 @@
 @use '../link-with-icon/link-with-icon';
 
 @mixin card {
+  .#{$prefix}--card,
   :host(#{$c4d-prefix}-card),
   :host(#{$c4d-prefix}-region-item) .#{$prefix}--link,
   :host(#{$c4d-prefix}-card-cta),
@@ -32,6 +33,7 @@
     @include tile($enable-experimental-tile-contrast: true);
   }
 
+  .#{$prefix}--card,
   :host(#{$c4d-prefix}-card),
   :host(#{$c4d-prefix}-region-item) .#{$prefix}--link,
   :host(#{$c4d-prefix}-card-group-item),
