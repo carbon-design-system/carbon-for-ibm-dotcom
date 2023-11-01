@@ -39,6 +39,7 @@ For Carbon v11 migration guidance, see their
 | content-group-cards       | This component is deprecated in v2 in favor for content-section/block & card-group components                                                  |
 | content-group-pictograms  | This component is deprecated in v2 in favor for content-section/block content-item (pictogram variant) components                              |
 | content-group-simple      | This component is deprecated in v2 in favor for content-group, image, & content-item components                                                |
+| content-item              | View changes [here](#content-item)                                                                                                  |
 | content-item-horizontal   | View changes [here](#content-item-horizontal)                                                                                                  |
 | cta                       | View changes [here](#cta)                                                                                                                      |
 | cta-block                 | This component is deprecated in v2 in favor for content-section/block & content-item components                                                |
@@ -90,6 +91,12 @@ For Carbon v11 migration guidance, see their
 
 - `content-group-banner` renamed to `in-page-banner`
 - New `color-scheme` property with options: `REGULAR = 'regular'`, `LAYER = 'layer'`, `CYAN = 'cyan'`, `PURPLE = 'purple'`
+
+### Content item
+
+- `content-item` new property `horizontal`
+- `content-item` now renders different variations for `statistics`, `pictogram`, `media`, & `logo`
+
 
 ### Content item horizontal
 
