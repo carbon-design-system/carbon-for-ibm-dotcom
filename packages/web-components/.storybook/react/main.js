@@ -34,8 +34,8 @@ const buildCreateReactCustomElementTypeBabelOpts = {
   plugins: [
     ['@babel/plugin-syntax-decorators', { decoratorsBeforeExport: true }],
     '@babel/plugin-syntax-typescript',
-    '@babel/plugin-proposal-nullish-coalescing-operator',
-    '@babel/plugin-proposal-optional-chaining',
+    '@babel/plugin-transform-nullish-coalescing-operator',
+    '@babel/plugin-transform-optional-chaining',
     babelPluginCreateReactCustomElementType,
   ],
 };
@@ -157,8 +157,8 @@ module.exports = {
           options: {
             presets: ['@babel/preset-modules', '@babel/preset-react'],
             plugins: [
-              '@babel/plugin-proposal-object-rest-spread',
-              '@babel/plugin-proposal-class-properties',
+              '@babel/plugin-transform-object-rest-spread',
+              '@babel/plugin-transform-class-properties',
               [
                 'babel-plugin-react-docgen',
                 {
@@ -179,8 +179,8 @@ module.exports = {
           options: {
             presets: ['@babel/preset-modules', '@babel/preset-react'],
             plugins: [
-              '@babel/plugin-proposal-object-rest-spread',
-              '@babel/plugin-proposal-class-properties',
+              '@babel/plugin-transform-object-rest-spread',
+              '@babel/plugin-transform-class-properties',
               [
                 'babel-plugin-react-docgen',
                 {

@@ -1,5 +1,5 @@
 /**
- * Copyright IBM Corp. 2016, 2022
+ * Copyright IBM Corp. 2016, 2023
  *
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
@@ -44,7 +44,7 @@
   :host(#{$dds-prefix}-image-logo) {
     background-color: $ui-02;
     margin: $spacing-05 $spacing-05 $spacing-03 $spacing-05;
-    max-width: carbon--rem(160px);
+    max-width: rem(160px);
 
     @include ratio-base(2, 1, false);
 

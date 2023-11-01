@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.53.0-rc.0](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/compare/@carbon/ibmdotcom-react@1.52.0-rc.1...@carbon/ibmdotcom-react@1.53.0-rc.0) (2023-10-30)
+
+
+### Bug Fixes
+
+* **masthead-a11y:** navigation role do not have unique labels ([#10881](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/issues/10881)) ([2c9d0ab](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/commit/2c9d0ab2ea97e6cdce58c41a677714077196b480))
+
+
+
+
+
 # [1.52.0-rc.1](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/compare/@carbon/ibmdotcom-react@1.52.0-rc.0...@carbon/ibmdotcom-react@1.52.0-rc.1) (2023-10-12)
 
 **Note:** Version bump only for package @carbon/ibmdotcom-react

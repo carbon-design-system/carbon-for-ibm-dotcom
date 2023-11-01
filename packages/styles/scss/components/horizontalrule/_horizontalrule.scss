@@ -1,5 +1,5 @@
 /**
- * Copyright IBM Corp. 2016, 2020
+ * Copyright IBM Corp. 2016, 2023
  *
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
@@ -12,7 +12,7 @@
   $low-contrast: $ui-03;
   $medium-contrast: $ui-04;
   $high-contrast: $ui-05;
-  $thin-weight: carbon--rem(1px);
+  $thin-weight: rem(1px);
 
   :host(#{$dds-prefix}-hr)[size='small'] {
     @extend .#{$prefix}--hr--small;
@@ -56,7 +56,7 @@
     }
 
     &.#{$prefix}--hr--thick {
-      height: carbon--rem(2px);
+      height: rem(2px);
     }
 
     &.#{$prefix}--hr--low-contrast {
