@@ -35,74 +35,50 @@ import '@carbon/ibmdotcom-web-components/es/components/card/index.js';
 ### HTML
 
 ```html
-<cds-carousel>
-  <cds-card href="https://www.ibm.com/standards/carbon">
+<c4d-carousel>
+  <c4d-card href="https://www.ibm.com/standards/carbon" cta-type="local">
     <cds-card-heading>Lorem ipsum dolor sit amet</cds-card-heading>
     Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean et ultricies
     est.
-    <cds-card-footer>
-      <svg
-        slot="icon"
-        focusable="false"
-        preserveAspectRatio="xMidYMid meet"
-        xmlns="http://www.w3.org/2000/svg"
-        aria-hidden="true"
-        width="20"
-        height="20"
-        viewBox="0 0 20 20">
-        <path
-          d="M11.8 2.8L10.8 3.8 16.2 9.3 1 9.3 1 10.7 16.2 10.7 10.8 16.2 11.8 17.2 19 10z"></path>
-      </svg>
-    </cds-card-footer>
-  </cds-card>
-  <cds-card href="https://www.ibm.com/standards/carbon">
-    <cds-card-heading>Lorem ipsum dolor sit amet</cds-card-heading>
-    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean et ultricies
+    <c4d-card-footer>
+    </c4d-card-footer>
+  </c4d-card>
+  <c4d-card href="https://www.ibm.com/standards/carbon" cta-type="local">
+    <c4d-card-heading>Lorem ipsum dolor sit amet</c4d-card-heading>
+    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean et ultricies
     est. Mauris iaculis eget dolor nec hendrerit. Phasellus at elit
-    sollicitudin, sodales nulla quis, consequat libero.
-    <cds-card-footer>
-      <svg
-        slot="icon"
-        focusable="false"
-        preserveAspectRatio="xMidYMid meet"
-        xmlns="http://www.w3.org/2000/svg"
-        aria-hidden="true"
-        width="20"
-        height="20"
-        viewBox="0 0 20 20">
-        <path
-          d="M11.8 2.8L10.8 3.8 16.2 9.3 1 9.3 1 10.7 16.2 10.7 10.8 16.2 11.8 17.2 19 10z"></path>
-      </svg>
-    </cds-card-footer>
-  </cds-card>
-</cds-carousel>
+    sollicitudin, sodales nulla quis, consequat libero.</p>
+    <c4d-card-footer>
+    </c4d-card-footer>
+  </c4d-card>
+</c4d-carousel>
 ```
 
 ### SCSS
 
-While `<cds-carousel>` has `page-size` attribute, `<cds-carousel>` also looks at
-`--cds--carousel--page-size` CSS custom property to determine the number of
+While `<c4d-carousel>` has `page-size` attribute, `<c4d-carousel>` also looks at
+`--c4d--carousel--page-size` CSS custom property to determine the number of
 cards per page. This is useful for setting different number of cards for
 different breakpoints.
 
 ```scss
 @use '@carbon/styles/scss/breakpoint';
 
-cds-carousel {
-  --cds--carousel--page-size: 1;
+c4d-carousel {
+  --c4d--carousel--page-size: 1;
 
   @include breakpoint(md) {
-    --cds--carousel--page-size: 2;
+    --c4d--carousel--page-size: 2;
   }
 
   @include breakpoint(lg) {
-    --cds--carousel--page-size: 3;
+    --c4d--carousel--page-size: 3;
   }
 }
 ```
 
-Another CSS custom property `<cds-carousel>` looks at is
-`--cds--carousel--overflow-hint-size`. If `0rem` is set there, the first card at
+Another CSS custom property `<c4d-carousel>` looks at is
+`--c4d--carousel--overflow-hint-size`. If `0rem` is set there, the first card at
 the next page as a hint of page overflow will be hidden.
 
 ## Accessibility Notes
@@ -119,15 +95,15 @@ is provided for the `title` slot, a generic title of "carousel" will be
 announced.
 
 ```html
-<cds-carousel>
+<c4d-carousel>
   <span class="cds--visually-hidden" slot="title">Carousel label text</span>
   ...
-</cds-carousel>
+</c4d-carousel>
 ```
 
 ## Props
 
-<Props of="cds-carousel" />
+<Props of="c4d-carousel" />
 
 ## Stable selectors
 
@@ -137,6 +113,6 @@ to see how Web Components selector and `data-autoid` should be used.
 
 | Web Components selector | Compatibility selector | Description |
 | ----------------------- | ---------------------- | ----------- |
-| `<cds-carousel>`        | N/A                    | Component   |
+| `<c4d-carousel>`        | N/A                    | Component   |
 
 <Description markdown={contributing} />
