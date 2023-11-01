@@ -388,9 +388,6 @@ $feature-flags: (
 
         @include breakpoint(md) {
           @include type-style('body-01');
-
-          overflow: hidden;
-          text-overflow: ellipsis;
         }
 
         @include breakpoint(lg) {
