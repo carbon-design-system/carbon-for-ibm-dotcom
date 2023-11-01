@@ -8,8 +8,6 @@
  */
 
 import React from 'react';
-import { select } from '@storybook/addon-knobs';
-
 // Below path will be there when an application installs `@carbon/ibmdotcom-web-components` package.
 // In our dev env, we auto-generate the file and re-map below path to to point to the generated file.
 // @ts-ignore
@@ -86,20 +84,21 @@ const CardWithVideo = ({ copy = copyDefault, href = hrefDefault } = {}) => (
   </C4DVideoCTAContainer>
 );
 
-export const Default = (args) => {
-  const { mediaType } = args?.Carousel ?? {};
-    switch(mediaType){
-      case 'images':
-        return ( <>{Card({image: imgLg2x1})}{Card({image: imgLg2x1, copy: copyOdd})}{Card({image: imgLg2x1})}{Card({image: imgLg2x1, copy: copyOdd})}{Card({image: imgLg2x1})}</> );
-      case 'videos':
-        return ( <>{CardWithVideo({href: '0_ibuqxqbe'})}{CardWithVideo({href: '0_ibuqxqbe'})}{CardWithVideo({href: '0_ibuqxqbe'})}{CardWithVideo({href: '0_ibuqxqbe'})}</> );
-      case 'mixed':
-        return (<>{Card({image: imgLg4x3})}{CardWithVideo({href: '0_ibuqxqbe'})}{Card({image: imgLg4x3})}{CardWithVideo({href: '0_ibuqxqbe'})}{Card({image: imgLg4x3})}{CardWithVideo({href: '0_ibuqxqbe'})}</>)
-      default: 
+export const Default = () => {
       return ( <>{Card()}{Card({copy: copyOdd})}{CardWithLongHeading()}{Card({copy: copyOdd})}{Card()}</> );
-
-    }
 };
+
+export const CardsWithImages = () => {
+  return ( <>{Card({image: imgLg2x1})}{Card({image: imgLg2x1, copy: copyOdd})}{Card({image: imgLg2x1})}{Card({image: imgLg2x1, copy: copyOdd})}{Card({image: imgLg2x1})}</> );
+}
+
+export const CardsWithVideos = () => {
+  return ( <>{CardWithVideo({href: '0_ibuqxqbe'})}{CardWithVideo({href: '0_ibuqxqbe'})}{CardWithVideo({href: '0_ibuqxqbe'})}{CardWithVideo({href: '0_ibuqxqbe'})}</> );
+}
+
+export const CardsWithMedia = () => {
+  return (<>{Card({image: imgLg4x3})}{CardWithVideo({href: '0_ibuqxqbe'})}{Card({image: imgLg4x3})}{CardWithVideo({href: '0_ibuqxqbe'})}{Card({image: imgLg4x3})}{CardWithVideo({href: '0_ibuqxqbe'})}</>)
+}
 
 export default {
   title: 'Components/Carousel',
@@ -122,17 +121,5 @@ export default {
   parameters: {
     ...readme.parameters,
     hasStoryPadding: true,
-    knobs: {
-      Carousel: () => {
-        const mediaType = select(
-          'Media type:',
-          ['none', 'images', 'videos', 'mixed'],
-          'none'
-        );
-        return {
-          mediaType,
-        };
-      },
-    }
   },
 };

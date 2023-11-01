@@ -12,7 +12,6 @@ import { html } from 'lit';
 // In our dev env, we auto-generate the file and re-map below path to to point to the generated file.
 // @ts-ignore
 import { ifDefined } from 'lit/directives/if-defined.js';
-import { select } from '@storybook/addon-knobs';
 import '../../card/index';
 import '../../cta/index';
 import '../../image/index';
@@ -83,42 +82,45 @@ const CardWithVideo = ({ copy = copyDefault, href = hrefDefault } = {}) => html`
   </c4d-video-cta-container>
 `;
 
-export const Default = (args) => {
-  const { mediaType } = args?.Carousel ?? {};
-  switch (mediaType) {
-    case 'images':
-      return html`
-        ${Card({ image: imgLg2x1 })}${Card({
-          image: imgLg2x1,
-          copy: copyOdd,
-        })}${Card({ image: imgLg2x1 })}${Card({
-          image: imgLg2x1,
-          copy: copyOdd,
-        })}${Card({ image: imgLg2x1 })}
-      `;
-    case 'videos':
-      return html`
-        ${CardWithVideo({ href: '0_ibuqxqbe' })}${CardWithVideo({
-          href: '0_ibuqxqbe',
-        })}${CardWithVideo({ href: '0_ibuqxqbe' })}${CardWithVideo({
-          href: '0_ibuqxqbe',
-        })}
-      `;
-    case 'mixed':
-      return html`
-        ${Card({ image: imgLg4x3 })}${CardWithVideo({
-          href: '0_ibuqxqbe',
-        })}${Card({ image: imgLg4x3 })}${CardWithVideo({
-          href: '0_ibuqxqbe',
-        })}${Card({ image: imgLg4x3 })}${CardWithVideo({ href: '0_ibuqxqbe' })}
-      `;
-    default:
-      return html`
-        ${Card()}${Card({ copy: copyOdd })}${CardWithLongHeading()}${Card({
-          copy: copyOdd,
-        })}${Card()}
-      `;
-  }
+export const Default = () => {
+  return html`
+    ${Card()}${Card({ copy: copyOdd })}${CardWithLongHeading()}${Card({
+      copy: copyOdd,
+    })}${Card()}
+  `;
+  // }
+};
+
+export const CardsWithImages = () => {
+  return html`
+    ${Card({ image: imgLg2x1 })}${Card({
+      image: imgLg2x1,
+      copy: copyOdd,
+    })}${Card({ image: imgLg2x1 })}${Card({
+      image: imgLg2x1,
+      copy: copyOdd,
+    })}${Card({ image: imgLg2x1 })}
+  `;
+};
+
+export const CardsWithVideos = () => {
+  return html`
+    ${CardWithVideo({ href: '0_ibuqxqbe' })}${CardWithVideo({
+      href: '0_ibuqxqbe',
+    })}${CardWithVideo({ href: '0_ibuqxqbe' })}${CardWithVideo({
+      href: '0_ibuqxqbe',
+    })}
+  `;
+};
+
+export const CardsWithMedia = () => {
+  return html`
+    ${Card({ image: imgLg4x3 })}${CardWithVideo({
+      href: '0_ibuqxqbe',
+    })}${Card({ image: imgLg4x3 })}${CardWithVideo({
+      href: '0_ibuqxqbe',
+    })}${Card({ image: imgLg4x3 })}${CardWithVideo({ href: '0_ibuqxqbe' })}
+  `;
 };
 
 export default {
@@ -140,18 +142,6 @@ export default {
   parameters: {
     ...readme.parameters,
     hasStoryPadding: true,
-    knobs: {
-      Carousel: () => {
-        const mediaType = select(
-          'Media type:',
-          ['none', 'images', 'videos', 'mixed'],
-          'none'
-        );
-        return {
-          mediaType,
-        };
-      },
-    },
     propsSet: {
       default: {
         Carousel: {
