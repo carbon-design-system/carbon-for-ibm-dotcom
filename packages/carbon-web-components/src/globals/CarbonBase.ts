@@ -10,12 +10,30 @@ import { LitElement } from 'lit';
 import CarbonStyles from '../internal/vendor/@carbon/ibmdotcom-utilities/utilities/carbonStyles/carbonStyles.js';
 
 export default class CarbonBase extends LitElement {
-  carbonStyles?: String[];
+  /**
+   * Defines a list of Carbon style primitives this component needs.
+   *
+   * @example
+   * protected _requestCarbonStyles() {
+   *   // Get defaults.
+   *   const styles = super._requestCarbonStyles();
+   *   // Add specific primitives.
+   *   styles.push('buttonStyles');
+   *   return styles;
+   * }
+   *
+   * @returns {Array} An array of style primitive identifier strings.
+   */
+  // eslint-disable-next-line class-methods-use-this
+  protected _requestCarbonStyles() {
+    return ['resetStyles', 'typeStyles'];
+  }
 
   connectedCallback() {
     super.connectedCallback();
 
-    const { shadowRoot, carbonStyles: neededStyles } = this;
+    const { shadowRoot } = this;
+    const neededStyles = this._requestCarbonStyles();
 
     if (shadowRoot && neededStyles) {
       const globalStyles = CarbonStyles.global.getStyleSheets(neededStyles);

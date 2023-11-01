@@ -28,7 +28,12 @@ const { prefix, stablePrefix: c4dPrefix } = settings;
 @customElement(`${c4dPrefix}-button`)
 // @ts-ignore
 class C4DButton extends CTAMixin(StableSelectorMixin(CDSButton)) {
-  carbonStyles = ['resetStyles', 'buttonStyles', 'typeStyles'];
+  protected _requestCarbonStyles() {
+    return [
+      ...super._requestCarbonStyles(),
+      'buttonStyles',
+    ];
+  }
 
   @query('a')
   _linkNode;

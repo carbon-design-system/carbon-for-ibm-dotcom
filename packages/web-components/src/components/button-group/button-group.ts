@@ -24,8 +24,6 @@ const { stablePrefix: c4dPrefix } = settings;
  */
 @customElement(`${c4dPrefix}-button-group`)
 class C4DButtonGroup extends StableSelectorMixin(CarbonBase) {
-  carbonStyles = ['resetStyles', 'typeStyles'];
-
   /**
    * Handler for @slotchange, set the first button-group-item to kind tertiary and primary for the remaining ones
    *

@@ -44,7 +44,11 @@ const minIntersectionRatio = 0.75;
  */
 @customElement(`${c4dPrefix}-carousel`)
 class C4DCarousel extends HostListenerMixin(StableSelectorMixin(CarbonBase)) {
-  carbonStyles = ['resetStyles'];
+  // eslint-disable-next-line class-methods-use-this
+  protected _requestCarbonStyles() {
+    return ['resetStyles'];
+  }
+
   /**
    * The scrolling contents node.
    */

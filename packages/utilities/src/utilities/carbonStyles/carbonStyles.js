@@ -29,8 +29,6 @@ class CarbonStyles {
     const sheets = styleRules.map(([name, ss]) => {
       const sheet = new CSSStyleSheet();
       sheet.replaceSync(ss.cssText);
-
-      // ["resetStyles", {CSSStyleSheet}]
       return [name, sheet];
     });
 
