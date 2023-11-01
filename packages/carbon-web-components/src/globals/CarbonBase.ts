@@ -37,7 +37,7 @@ export default class CarbonBase extends LitElement {
 
     if (shadowRoot && neededStyles) {
       const globalStyles = CarbonStyles.global.getStyleSheets(neededStyles);
-      const componentStyles = [...this.shadowRoot.adoptedStyleSheets];
+      const componentStyles = this.shadowRoot.adoptedStyleSheets;
 
       this.shadowRoot.adoptedStyleSheets = [
         ...globalStyles,
