@@ -14,6 +14,7 @@ import {
   pwsValueMap,
   resetToWorldWideContent,
   supportedLanguages,
+  specialCountryBasedText,
 } from './utils';
 import countrySettings from './country-settings';
 import ddsSettings from '../../internal/vendor/@carbon/ibmdotcom-utilities/utilities/settings/settings';
@@ -90,6 +91,9 @@ class NoticeChoice extends StableSelectorMixin(LitElement) {
 
   @property({ type: Boolean, attribute: false })
   preventFormSubmission = false;
+
+  @property({ type: Object, attribute: false })
+  isMandatoryCheckboxDisplayed = { countryCode: '', isDisplayed: false };
 
   /**
    * End properties for passed attributes.
@@ -195,8 +199,20 @@ class NoticeChoice extends StableSelectorMixin(LitElement) {
     }
     this.preventFormSubmission = false;
     if (this.ncData?.mandatoryCheckbox[this.country?.toLocaleLowerCase()]) {
+      const countyCode = this.country?.toLocaleLowerCase();
+      const countryBasedText = specialCountryBasedText(countyCode);
+      this._onChange(
+        this.ncData?.mandatoryCheckbox[countyCode][countryBasedText].mrs_field,
+        'countyBasedCheckedNo'
+      );
+
+      this.isMandatoryCheckboxDisplayed.countryCode = countyCode;
+      this.isMandatoryCheckboxDisplayed.isDisplayed = true;
+
       this.preventFormSubmission = true;
       this._onChange('preventFormSubmission', 'formSubmissionNo');
+    } else {
+      this._onChange('preventFormSubmission', 'formSubmissionYes');
     }
     /**
      * @description if the user already interacted with the checkboxes,
@@ -334,11 +350,16 @@ class NoticeChoice extends StableSelectorMixin(LitElement) {
     const legalCheckbox = $event.target;
     const isChecked = legalCheckbox.checked;
     const legalTextError = legalCheckbox.parentNode.querySelector('.nc-error');
-    const qChinaPIPl = isChecked ? 'qChinaPIPlYes' : 'qChinaPIPlNo';
+    const countyBasedText = isChecked
+      ? 'countyBasedCheckedYes'
+      : 'countyBasedCheckedNo';
 
     if (legalTextError) {
       legalTextError.style.display = isChecked ? 'none' : '';
     }
+
+    const countyCode = this.country?.toLocaleLowerCase();
+    const countryBasedText = specialCountryBasedText(countyCode);
 
     legalCheckbox.value = isChecked ? 1 : 0;
     this.preventFormSubmission = !isChecked;
@@ -346,7 +367,10 @@ class NoticeChoice extends StableSelectorMixin(LitElement) {
       ? 'formSubmissionYes'
       : 'formSubmissionNo';
     this._onChange('preventFormSubmission', preventFormSubmissionValue);
-    this._onChange('Q_CHINA_PIPL', qChinaPIPl);
+    this._onChange(
+      this.ncData?.mandatoryCheckbox[countyCode][countryBasedText].mrs_field,
+      countyBasedText
+    );
   }
 
   countryBasedLegalNotice() {
@@ -497,6 +521,22 @@ class NoticeChoice extends StableSelectorMixin(LitElement) {
     }
   }
   render() {
+    if (
+      this.isMandatoryCheckboxDisplayed.isDisplayed &&
+      this.country.toLocaleLowerCase() !==
+        this.isMandatoryCheckboxDisplayed.countryCode
+    ) {
+      const countryBasedText = specialCountryBasedText(
+        this.isMandatoryCheckboxDisplayed.countryCode
+      );
+
+      this._onChange(
+        this.ncData?.mandatoryCheckbox[
+          this.isMandatoryCheckboxDisplayed.countryCode
+        ][countryBasedText].mrs_field,
+        'countyBasedCheckedNo'
+      );
+    }
     return html`<section class="${prefix}--nc">
     <p part='ncHeading' id="ncHeading" class="${ddsPrefix}--nc__pre-text">${
       this.showLegalNotice ? this.countryBasedLegalNotice() : ''

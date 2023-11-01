@@ -1,5 +1,5 @@
 /**
- * Copyright IBM Corp. 2016, 2022
+ * Copyright IBM Corp. 2016, 2023
  *
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
@@ -18,7 +18,7 @@ $fcb-large-custom-bp-nocopy: 752px;
 $fcb-breakpoint-up--lg: map-get(
     map-get($carbon--grid-breakpoints, 'lg'),
     'width'
-  ) - carbon--rem(1px);
+  ) - rem(1px);
 
 @mixin card {
   @include carbon--breakpoint-down('md') {
@@ -215,8 +215,8 @@ $fcb-breakpoint-up--lg: map-get(
         fill: $inverse-link;
 
         @include carbon--breakpoint('sm') {
-          width: carbon--rem(20px);
-          height: carbon--rem(20px);
+          width: rem(20px);
+          height: rem(20px);
         }
 
         @include carbon--breakpoint('md') {
@@ -312,7 +312,7 @@ $fcb-breakpoint-up--lg: map-get(
       ::slotted(#{$dds-prefix}-card-heading) {
         width: 100%;
         color: $inverse-01;
-        max-width: carbon--rem(480px);
+        max-width: rem(480px);
 
         @include carbon--breakpoint('md') {
           width: 90%;
@@ -399,8 +399,8 @@ $fcb-breakpoint-up--lg: map-get(
     fill: $inverse-link;
 
     @include carbon--breakpoint('sm') {
-      width: carbon--rem(20px);
-      height: carbon--rem(20px);
+      width: rem(20px);
+      height: rem(20px);
     }
 
     @include carbon--breakpoint('md') {

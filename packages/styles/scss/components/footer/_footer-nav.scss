@@ -29,7 +29,7 @@
         padding: 0 $carbon--grid-gutter / 2;
       }
 
-      @include carbon--breakpoint-between('md', $TEMP--breakpoint-down--lg) {
+      @include carbon--breakpoint-between('md', 'lg') {
         padding-top: carbon--mini-units(2);
       }
 
