@@ -17,7 +17,7 @@ For Carbon v11 migration guidance, see their
 | ------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------- |
 | back-to-top               | No API changes.                                                                                                                                |
 | background-media          | No API changes.                                                                                                                                |
-| button                    | This component is deprecated in v2 in favor for `button-expressive`                                                                      |
+| button                    | This component is deprecated in v2 in favor for `button-expressive`                                                                            |
 | button-group              | No API changes.                                                                                                                                |
 | callout-with-media        | View changes [here](#callout-with-media)                                                                                                       |
 | callout-quote             | View changes [here](#callout-quote)                                                                                                            |
@@ -34,12 +34,12 @@ For Carbon v11 migration guidance, see their
 | content-block-mixed       | This component is deprecated in v2 in favor for content-section/block, video-player/image, pictogram-items, and other content-group components |
 | content-block-segmented   | This component is deprecated in v2 in favor for content-section/block component                                                                |
 | content-block-simple      | This component is deprecated in v2 in favor for content-section/block component                                                                |
-| content-group-banner       | View changes [here](#content-group-banner)                                          |
+| content-group-banner       | View changes [here](#content-group-banner)                                                                                                    |
 | content-group-horizontal  | This component is deprecated in v1 and has been removed in v2 in favor of the content-block-horizontal component.                              |
 | content-group-cards       | This component is deprecated in v2 in favor for content-section/block & card-group components                                                  |
 | content-group-pictograms  | This component is deprecated in v2 in favor for content-section/block content-item (pictogram variant) components                              |
 | content-group-simple      | This component is deprecated in v2 in favor for content-group, image, & content-item components                                                |
-| content-item-horizontal   | View changes [here](#content-item-horizontal)                                                                                           |
+| content-item-horizontal   | View changes [here](#content-item-horizontal)                                                                                                  |
 | cta                       | View changes [here](#cta)                                                                                                                      |
 | cta-block                 | This component is deprecated in v2 in favor for content-section/block & content-item components                                                |
 | cta-section               | This component is deprecated in v2 in favor for content-section/block & content-item components                                                |
@@ -52,9 +52,10 @@ For Carbon v11 migration guidance, see their
 | image                     | View changes [here](#image)                                                                                                                    |
 | image-with-caption        | This component is deprecated in v1 and has been removed in v2 in favor of the image component                                                  |
 | leadspace                 | View changes [here](#leadspace)                                                                                                                |
-| leadspace-block                 | View changes [here](#leadspace-block)                                                                                                                |
+| leadspace-block           | View changes [here](#leadspace-block)                                                                                                          |
 | leadspace-with-search     | View changes [here](#leadspace-with-search)                                                                                                    |
-| link-list                 | View changes [here](#link-list)                                                                                                                                |
+| lightbox-media-viewer     | No API changes.                                                                                                                                |
+| link-list                 | View changes [here](#link-list)                                                                                                                |
 | link-list-section         | This component is deprecated in v2 in favor for content-section/block & link-list end of section variant components                            |
 | link-with-icon            | No API changes.                                                                                                                                |
 | logo-grid                 | This component is deprecated in v2 in favor for content-section/block & image-group components                                                 |
