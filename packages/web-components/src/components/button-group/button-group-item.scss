@@ -5,13 +5,14 @@
 // LICENSE file in the root directory of this source tree.
 //
 
+@use '@carbon/styles/scss/layout' as *;
 @use '@carbon/ibmdotcom-styles/scss/globals/vars' as *;
-// @use '@carbon/ibmdotcom-styles/scss/components/button-group-item';
-@use '../../../../styles/scss/components/button-group/button-group-item' as *;
+@use '@carbon/ibmdotcom-styles/scss/components/button-group/button-group-item' as *;
 
 @include button-group-item;
 
 :host(#{$c4d-prefix}-button-group-item),
 :host(#{$c4d-prefix}-button-cta) {
+  @include emit-layout-tokens();
   outline: none;
 }
