@@ -12,4 +12,3 @@ import './card-eyebrow';
 import './card-footer';
 import './card-heading';
 import './image-logo';
-import '../tag-group/index';
