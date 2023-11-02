@@ -27,10 +27,6 @@ import C4DButtonGroupItem from '@carbon/ibmdotcom-web-components/es/components-r
 // @ts-ignore
 import C4DImageItem from '@carbon/ibmdotcom-web-components/es/components-react/image/image-item';
 // @ts-ignore
-import C4DTagLink from '@carbon/ibmdotcom-web-components/es/components-react/tag-link/tag-link';
-// @ts-ignore
-import C4DTagGroup from '@carbon/ibmdotcom-web-components/es/components-react/tag-group/tag-group';
-// @ts-ignore
 import C4DBreadcrumbLink from '@carbon/ibmdotcom-web-components/es/components-react/leadspace/breadcrumb-link';
 // @ts-ignore
 import C4DBreadcrumbItem from '@carbon/ibmdotcom-web-components/es/components-react/leadspace/breadcrumb-item';
@@ -38,22 +34,28 @@ import C4DBreadcrumbItem from '@carbon/ibmdotcom-web-components/es/components-re
 import C4DBreadcrumb from '@carbon/ibmdotcom-web-components/es/components-react/leadspace/breadcrumb';
 // @ts-ignore
 import C4DVideoPlayerContainer from '@carbon/ibmdotcom-web-components/es/components-react/video-player/video-player-container';
+import CDSTag from '@carbon/web-components/es/components-react/tag/tag';
 
 import leadspaceImg from '../../../../../storybook-images/assets/leadspace/leadspaceMax.jpg';
 import readme from './README.stories.react.mdx';
 import { LEADSPACE_SIZE } from '../defs';
 
 const navigationOptions = [
-  'with Tag group (using Tag link)',
+  'with a group of Tags',
   'with Breadcrumbs',
   'none',
 ];
 
+const typeStyleOptions = {
+  'Display 01': 'display-01',
+  'Fluid heading 05': 'fluid-heading-05',
+};
+
 const navigationWithTagGroup = (
-  <C4DTagGroup slot="navigation">
-    <C4DTagLink href={'https://example.com'}>Marketing Analytics</C4DTagLink>
-    <C4DTagLink href={'https://example.com'}>Cloud</C4DTagLink>
-  </C4DTagGroup>
+  <div slot="navigation">
+    <CDSTag href={'https://example.com'}>Marketing Analytics</CDSTag>
+    <CDSTag href={'https://example.com'}>Cloud</CDSTag>
+  </div>
 );
 
 const navigationWithBreadcrumbs = (
@@ -108,12 +110,13 @@ const Default = (args) => {
     size,
     title,
     type,
+    highlight, typeStyle 
   } = args?.Leadspace ?? {};
   return (
     <C4DLeadspace size={size} type={type} {...(hasImage ? { alt } : {})}>
       {navElements === navigationOptions[0] ? navigationWithTagGroup : ``}
       {navElements === navigationOptions[1] ? navigationWithBreadcrumbs : ``}
-      <C4DLeadspaceHeading>{title}</C4DLeadspaceHeading>
+      <C4DLeadspaceHeading highlight={highlight} type-style={typeStyle}>{title}</C4DLeadspaceHeading>
       {copy}
       <C4DButtonGroup slot="action">
         {buttons.map((elem) => {
@@ -175,6 +178,11 @@ Tall.story = {
             copy: text(`Button ${i + 1}`, `Button ${i + 1}`),
             renderIcon: iconMap[icon],
             label: getAriaLabel(icon),
+            typeStyle: select(
+              'Type style',
+              typeStyleOptions,
+              'display-01'
+            ),
           };
         }),
       }),
@@ -212,6 +220,11 @@ TallWithImage.story = {
             copy: text(`Button ${i + 1}`, `Button ${i + 1}`),
             renderIcon: iconMap[icon],
             label: getAriaLabel(icon),
+            typeStyle: select(
+              'Type style',
+              typeStyleOptions,
+              'display-01'
+            ),
           };
         }),
         defaultSrc: text('Default image (defaultSrc)', leadspaceImg),
@@ -250,6 +263,11 @@ TallWithVideo.story = {
             copy: text(`Button ${i + 1}`, `Button ${i + 1}`),
             renderIcon: iconMap[icon],
             label: getAriaLabel(icon),
+            typeStyle: select(
+              'Type style',
+              typeStyleOptions,
+              'display-01'
+            ),
           };
         }),
         defaultSrc: text('Default image (defaultSrc)', leadspaceImg),
@@ -287,6 +305,11 @@ Medium.story = {
             copy: text(`Button ${i + 1}`, `Button ${i + 1}`),
             renderIcon: iconMap[icon],
             label: getAriaLabel(icon),
+            typeStyle: select(
+              'Type style',
+              typeStyleOptions,
+              'display-01'
+            ),
           };
         }),
       }),
@@ -328,6 +351,11 @@ MediumWithImage.story = {
           };
         }),
         defaultSrc: text('Default image (defaultSrc)', leadspaceImg),
+        typeStyle: select(
+          'Type style',
+          typeStyleOptions,
+          'display-01'
+        ),
       }),
     },
   },
@@ -367,6 +395,11 @@ MediumWithVideo.story = {
           };
         }),
         defaultSrc: text('Default image (defaultSrc)', leadspaceImg),
+        typeStyle: select(
+          'Type style',
+          typeStyleOptions,
+          'display-01'
+        ),
       }),
     },
   },
@@ -382,12 +415,13 @@ export const Short = (args) => {
     size,
     title,
     type,
+    highlight, typeStyle 
   } = args?.Leadspace ?? {};
   return (
     <C4DLeadspace size={size} type={type} {...(hasImage ? { alt } : {})}>
       {navElements === navigationOptions[0] ? navigationWithTagGroup : ``}
       {navElements === navigationOptions[1] ? navigationWithBreadcrumbs : ``}
-      <C4DLeadspaceHeading>{title}</C4DLeadspaceHeading>
+      <C4DLeadspaceHeading highlight={highlight} type-style={typeStyle}>{title}</C4DLeadspaceHeading>
       {hasImage && (
         <C4DBackgroundMedia default-src={defaultSrc} alt={alt} opacity="100">
           <C4DImageItem
@@ -448,6 +482,11 @@ ShortWithImage.story = {
         ),
         alt: text('Image alt text (alt)', 'Image alt text'),
         defaultSrc: text('Default image (defaultSrc)', leadspaceImg),
+        typeStyle: select(
+          'Type style',
+          typeStyleOptions,
+          'display-01'
+        ),
       }),
     },
   },
@@ -473,35 +512,31 @@ ShortWithVideo.story = {
         ),
         alt: text('Image alt text (alt)', 'Image alt text'),
         defaultSrc: text('Default image (defaultSrc)', leadspaceImg),
+        typeStyle: select(
+          'Type style',
+          typeStyleOptions,
+          'display-01'
+        ),
       }),
     },
   },
 };
 
-export const Centered = (context) => Default(context);
+export const Centered = context => Default(context);
 
 Centered.story = {
   parameters: {
     knobs: {
       Leadspace: () => ({
         type: 'centered',
-        navElements: select(
-          'navigation elements (optional)',
-          navigationOptions,
-          navigationOptions[2]
-        ),
+        navElements: select('navigation elements (optional)', navigationOptions, navigationOptions[2]),
         title: text('title (title)', 'Heading can go on two lines max'),
-        copy: text(
-          'copy (copy)',
-          'Use this area for a short line of copy to support the title'
-        ),
+        copy: text('copy (copy)', 'Use this area for a short line of copy to support the title'),
         alt: text('Image alt text (alt)', 'Image alt text'),
         buttons: Array.from({
           length: number('Number of buttons', 2, {}),
         }).map((_, i) => {
-          const icon =
-            select(`Icon ${i + 1}`, iconOptions, iconOptions['Arrow Right']) ??
-            0;
+          const icon = select(`Icon ${i + 1}`, iconOptions, iconOptions['Arrow Right']) ?? 0;
           return {
             href: text(`Link ${i + 1}`, `https://example.com`),
             copy: text(`Button ${i + 1}`, `Button ${i + 1}`),
@@ -514,7 +549,7 @@ Centered.story = {
   },
 };
 
-export const CenteredWithImage = (context) => Default(context);
+export const CenteredWithImage = context => Default(context);
 
 CenteredWithImage.story = {
   name: 'Centered with image',
@@ -523,23 +558,14 @@ CenteredWithImage.story = {
       Leadspace: () => ({
         hasImage: true,
         type: 'centered',
-        navElements: select(
-          'navigation elements (optional)',
-          navigationOptions,
-          navigationOptions[2]
-        ),
+        navElements: select('navigation elements (optional)', navigationOptions, navigationOptions[2]),
         title: text('title (title)', 'Heading can go on two lines max'),
-        copy: text(
-          'copy (copy)',
-          'Use this area for a short line of copy to support the title'
-        ),
+        copy: text('copy (copy)', 'Use this area for a short line of copy to support the title'),
         alt: text('Image alt text (alt)', 'Image alt text'),
         buttons: Array.from({
           length: number('Number of buttons', 2, {}),
         }).map((_, i) => {
-          const icon =
-            select(`Icon ${i + 1}`, iconOptions, iconOptions['Arrow Right']) ??
-            0;
+          const icon = select(`Icon ${i + 1}`, iconOptions, iconOptions['Arrow Right']) ?? 0;
           return {
             href: text(`Link ${i + 1}`, `https://example.com`),
             copy: text(`Button ${i + 1}`, `Button ${i + 1}`),
@@ -553,7 +579,7 @@ CenteredWithImage.story = {
   },
 };
 
-export const CenteredWithVideo = (context) => Default(context);
+export const CenteredWithVideo = context => Default(context);
 
 CenteredWithVideo.story = {
   name: 'Centered with video',
@@ -562,23 +588,14 @@ CenteredWithVideo.story = {
       Leadspace: () => ({
         hasVideo: true,
         type: 'centered',
-        navElements: select(
-          'navigation elements (optional)',
-          navigationOptions,
-          navigationOptions[2]
-        ),
+        navElements: select('navigation elements (optional)', navigationOptions, navigationOptions[2]),
         title: text('title (title)', 'Heading can go on two lines max'),
-        copy: text(
-          'copy (copy)',
-          'Use this area for a short line of copy to support the title'
-        ),
+        copy: text('copy (copy)', 'Use this area for a short line of copy to support the title'),
         alt: text('Image alt text (alt)', 'Image alt text'),
         buttons: Array.from({
           length: number('Number of buttons', 2, {}),
         }).map((_, i) => {
-          const icon =
-            select(`Icon ${i + 1}`, iconOptions, iconOptions['Arrow Right']) ??
-            0;
+          const icon = select(`Icon ${i + 1}`, iconOptions, iconOptions['Arrow Right']) ?? 0;
           return {
             href: text(`Link ${i + 1}`, `https://example.com`),
             copy: text(`Button ${i + 1}`, `Button ${i + 1}`),
@@ -621,6 +638,11 @@ Super.story = {
             copy: text(`Button ${i + 1}`, `Button ${i + 1}`),
             renderIcon: iconMap[icon],
             label: getAriaLabel(icon),
+            typeStyle: select(
+              'Type style',
+              typeStyleOptions,
+              'display-01'
+            ),
           };
         }),
       }),
@@ -661,6 +683,11 @@ SuperWithImage.story = {
             label: getAriaLabel(icon),
           };
         }),
+        typeStyle: select(
+          'Type style',
+          typeStyleOptions,
+          'display-01'
+        ),
         defaultSrc: text('Default image (defaultSrc)', leadspaceImg),
       }),
     },
@@ -701,6 +728,11 @@ SuperWithVideo.story = {
           };
         }),
         defaultSrc: text('Default image (defaultSrc)', leadspaceImg),
+        typeStyle: select(
+          'Type style',
+          typeStyleOptions,
+          'display-01'
+        ),
       }),
     },
   },

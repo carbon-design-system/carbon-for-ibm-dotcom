@@ -9,7 +9,7 @@
 @use '@carbon/styles/scss/config' as *;
 @use '@carbon/styles/scss/spacing' as *;
 @use '../../internal/content-block';
-@use '../content-item-horizontal';
+@use '../content-item-row';
 @use '../../globals/vars' as *;
 
 @mixin content-block-horizontal {
@@ -44,9 +44,7 @@
     margin-bottom: $spacing-07;
   }
 
-  :host(#{$c4d-prefix}-content-item-horizontal):last-child,
-  .#{$prefix}--content-block-horizontal
-    .#{$prefix}--content-item-horizontal__item:last-child {
+  :host(#{$c4d-prefix}-content-item-row):last-child {
     @include breakpoint(max) {
       padding-bottom: $spacing-13;
     }

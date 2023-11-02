@@ -13,7 +13,7 @@ LICENSE file in the root directory of this source tree.
   <link rel="stylesheet" href="https://1.www.s81c.com/common/carbon/web-components/tag/v2/latest/grid.css" />
   <style>
     /* Suppress custom element until styles are loaded */
-    cds-content-item-horizontal:not(:defined) {
+    c4d-content-item:not(:defined) {
       display: none;
     }
   </style>
@@ -23,12 +23,14 @@ LICENSE file in the root directory of this source tree.
 <div id="app">
   <div class="cds--grid">
     <div class="cds--row">
-      <div class="cds--col-lg-12 cds--col-sm-4 cds--offset-lg-4">
-        <cds-content-item>
-          <cds-content-item-heading>Heading</cds-content-item-heading>
-          <cds-content-item-copy>Copy</cds-content-item-copy>
-          <cds-text-cta slot="footer" cta-type="local" href="https://www.example.com">CTA text</cds-text-cta>
-        </cds-content-item>
+      <div class="cds--col-lg-8 cds--col-sm-4">
+        <c4d-content-item>
+          <c4d-content-item-heading>Heading</c4d-content-item-heading>
+          <c4d-content-item-copy>Copy</c4d-content-item-copy>
+          <c4d-link-with-icon slot="footer" cta-type="local" href="https://www.example.com">
+            CTA text</c4d-link-with-icon
+          >
+        </c4d-content-item>
       </div>
     </div>
   </div>

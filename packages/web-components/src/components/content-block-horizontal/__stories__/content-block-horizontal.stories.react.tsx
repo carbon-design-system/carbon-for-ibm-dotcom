@@ -16,9 +16,9 @@ import React from 'react';
 import C4DContentBlockHorizontal from '@carbon/ibmdotcom-web-components/es/components-react/content-block-horizontal/content-block-horizontal';
 import C4DContentBlockHeading from '@carbon/ibmdotcom-web-components/es/components-react/content-block/content-block-heading';
 import C4DContentItemHeading from '@carbon/ibmdotcom-web-components/es/components-react/content-item/content-item-heading';
-import C4DContentItemHorizontal from '@carbon/ibmdotcom-web-components/es/components-react/content-item-horizontal/content-item-horizontal';
-import C4DContentItemHorizontalEyebrow from '@carbon/ibmdotcom-web-components/es/components-react/content-item-horizontal/content-item-horizontal-eyebrow';
-import C4DContentItemHorizontalCopy from '@carbon/ibmdotcom-web-components/es/components-react/content-item-horizontal/content-item-horizontal-copy';
+import C4DContentItemRow from '@carbon/ibmdotcom-web-components/es/components-react/content-item-row/content-item-row';
+import C4DContentItemRowEyebrow from '@carbon/ibmdotcom-web-components/es/components-react/content-item-row/content-item-row-eyebrow';
+import C4DContentItemRowCopy from '@carbon/ibmdotcom-web-components/es/components-react/content-item-row/content-item-row-copy';
 
 import C4DLinkList from '@carbon/ibmdotcom-web-components/es/components-react/link-list/link-list';
 import C4DLinkListItemCTA from '@carbon/ibmdotcom-web-components/es/components-react/cta/link-list-item-cta';
@@ -32,12 +32,12 @@ const copy =
   'Phasellus at elit sollicitudin.';
 
 const linkListItem = (
-  <C4DContentItemHorizontal>
-    <C4DContentItemHorizontalEyebrow>
+  <C4DContentItemRow>
+    <C4DContentItemRowEyebrow>
       Lorem ipsum
-    </C4DContentItemHorizontalEyebrow>
+    </C4DContentItemRowEyebrow>
     <C4DContentItemHeading>Aliquam condimentum</C4DContentItemHeading>
-    <C4DContentItemHorizontalCopy>{copy}</C4DContentItemHorizontalCopy>
+    <C4DContentItemRowCopy>{copy}</C4DContentItemRowCopy>
     <C4DLinkList slot="footer" type="vertical">
       <C4DLinkListItemCTA
         icon-placement="right"
@@ -52,7 +52,7 @@ const linkListItem = (
         External link text
       </C4DLinkListItemCTA>
     </C4DLinkList>
-  </C4DContentItemHorizontal>
+  </C4DContentItemRow>
 );
 
 export const Default = (args) => {

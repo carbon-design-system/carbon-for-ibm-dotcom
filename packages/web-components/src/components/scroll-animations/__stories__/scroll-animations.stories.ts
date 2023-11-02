@@ -8,7 +8,7 @@
  */
 
 import { html } from 'lit';
-import fadeStyles from '@carbon/ibmdotcom-styles/scss/components/scroll-into-view/_scroll-into-view.scss';
+import fadeStyles from '@carbon/ibmdotcom-styles/scss/components/scroll-into-view/_index.scss';
 import fadeOptions from './scroll-animations.stories.scss';
 import '../scroll-animations';
 import readme from './README.stories.mdx';
@@ -27,7 +27,7 @@ const selectorTargets = `c4d-content-block-heading,
    c4d-image,
    c4d-card-cta,
    c4d-callout-with-media,
-   c4d-content-item-horizontal,
+   c4d-content-item-row,
    c4d-logo-grid-item,
    .cds--card__CTA,
    c4d-card-group-item,

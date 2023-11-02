@@ -22,7 +22,7 @@ const App = () => (
   <C4DFilterPanelComposite>
     <C4DFilterPanelHeading slot="heading">Filter</C4DFilterPanelHeading>
     <C4DFilterGroup>
-      <C4DFilterGroupItem title-text="Product types">
+      <C4DFilterGroupItem title="Product types">
         <C4DFilterPanelCheckbox value="API">API</C4DFilterPanelCheckbox>
         <C4DFilterPanelCheckbox value="Application">Application</C4DFilterPanelCheckbox>
         <C4DFilterPanelCheckbox value="Data Set">Data Set</C4DFilterPanelCheckbox>
@@ -32,7 +32,7 @@ const App = () => (
         <C4DFilterPanelCheckbox value="Service Assets">Service Assets</C4DFilterPanelCheckbox>
         <C4DFilterPanelCheckbox value="Software">Software</C4DFilterPanelCheckbox>
       </C4DFilterGroupItem>
-      <C4DFilterGroupItem title-text="Technologies">
+      <C4DFilterGroupItem title="Technologies">
         <C4DFilterPanelInputSelect header-value="Analytics" title="Analytics"></C4DFilterPanelInputSelect>
         <C4DFilterPanelInputSelect header-value="Artificial intelligence" title="Artificial intelligence">
           <C4DFilterPanelInputSelectItem value="Machine Learning">Machine Learning</C4DFilterPanelInputSelectItem>
@@ -50,7 +50,7 @@ const App = () => (
         <C4DFilterPanelInputSelect header-value="Security" title="Security"></C4DFilterPanelInputSelect>
         <C4DFilterPanelInputSelect header-value="Software development" title="Software development"></C4DFilterPanelInputSelect>
       </C4DFilterGroupItem>
-      <C4DFilterGroupItem title-text="Business needs">
+      <C4DFilterGroupItem title="Business needs">
         <C4DFilterPanelInputSelect header-value="Business operations" title="Business operations"></C4DFilterPanelInputSelect>
         <C4DFilterPanelInputSelect header-value="Content Management" title="Content Management"></C4DFilterPanelInputSelect>
         <C4DFilterPanelInputSelect header-value="Customer service" title="Customer service"></C4DFilterPanelInputSelect>
@@ -60,7 +60,7 @@ const App = () => (
           header-value="Supply chain management"
           title="Supply chain management"></C4DFilterPanelInputSelect>
       </C4DFilterGroupItem>
-      <C4DFilterGroupItem title-text="Deployment types">
+      <C4DFilterGroupItem title="Deployment types">
         <C4DFilterPanelCheckbox value="On-premises">On-premises</C4DFilterPanelCheckbox>
         <C4DFilterPanelCheckbox value="SaaS">SaaS</C4DFilterPanelCheckbox>
       </C4DFilterGroupItem>

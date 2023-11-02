@@ -17,7 +17,7 @@ import {
   BasicLink,
   BasicLinkSet,
   MastheadL1,
-  MastheadLink,
+  L0MenuItem,
   MastheadProfileItem,
   Translation,
 } from '../../internal/vendor/@carbon/ibmdotcom-services-store/types/translateAPI.d';
@@ -327,7 +327,7 @@ class C4DDotcomShellComposite extends LitElement {
    * but if you need an alternate way of integration (e.g. rendering Web Components tags in server-side) this property helps.
    */
   @property({ attribute: false })
-  navLinks?: MastheadLink[];
+  navLinks?: L0MenuItem[];
 
   /**
    * The parameters passed to the search-with-typeahead for search scope

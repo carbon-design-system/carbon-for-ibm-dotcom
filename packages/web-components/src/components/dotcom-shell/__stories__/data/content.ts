@@ -16,7 +16,7 @@ import '../../../cta/index';
 import '../../../card-group/index';
 import '../../../content-block/index';
 import '../../../content-block-segmented/index';
-import '../../../content-item-horizontal/index';
+import '../../../content-item-row/index';
 import '../../../leadspace/index';
 import '../../../image/index';
 import '../../../leadspace-block/index';
@@ -99,15 +99,13 @@ export const contentBlockSegmentedItemsWithImage = html`
 `;
 
 export const contentItemHorizontal = html`
-  <c4d-content-item-horizontal>
-    <c4d-content-item-horizontal-eyebrow
-      >Lorem ipsum</c4d-content-item-horizontal-eyebrow
-    >
+  <c4d-content-item-row>
+    <c4d-content-item-row-eyebrow>Lorem ipsum</c4d-content-item-row-eyebrow>
     <c4d-content-item-heading>Aliquam condimentum</c4d-content-item-heading>
-    <c4d-content-item-horizontal-copy
+    <c4d-content-item-row-copy
       >Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean et
       ultricies est. Mauris iaculis eget dolor nec hendrerit. Phasellus at elit
-      sollicitudin.</c4d-content-item-horizontal-copy
+      sollicitudin.</c4d-content-item-row-copy
     >
     <c4d-link-list slot="footer" type="vertical">
       <c4d-link-list-item-cta
@@ -123,7 +121,7 @@ export const contentItemHorizontal = html`
         External link text
       </c4d-link-list-item-cta>
     </c4d-link-list>
-  </c4d-content-item-horizontal>
+  </c4d-content-item-row>
 `;
 
 export const globalBanner = (srcImage) => html`
@@ -188,20 +186,15 @@ export const contentLeadspaceSearch = html`
     adjacent-theme="white-and-g10"
     sticky-search
     scroll-behavior>
-    <c4d-leadspace-with-search-heading
-      >Find a product</c4d-leadspace-with-search-heading
+    <c4d-leadspace-heading highlight="Find a product -"
+      >Find a product - Innovate like a startup, scale for the
+      enterprise</c4d-leadspace-heading
     >
-    <c4d-leadspace-with-search-content>
-      <c4d-leadspace-with-search-content-heading
-        >Innovate like a startup, scale for the
-        enterprise</c4d-leadspace-with-search-content-heading
-      >
-      <c4d-leadspace-with-search-content-copy>
-        Automate your software release process with continuous delivery (CD)—the
-        most critical part of adopting DevOps. Build, test, and deploy code
-        changes quickly, ensuring software is always ready for deployment.
-      </c4d-leadspace-with-search-content-copy>
-    </c4d-leadspace-with-search-content>
+    <c4d-leadspace-with-search-copy>
+      Automate your software release process with continuous delivery (CD)—the
+      most critical part of adopting DevOps. Build, test, and deploy code
+      changes quickly, ensuring software is always ready for deployment.
+    </c4d-leadspace-with-search-copy>
     <c4d-search-with-typeahead
       slot="search"
       leadspace-search
@@ -212,19 +205,16 @@ export const contentLeadspaceSearch = html`
 
 export const tocContent = html`
   <a name="1" data-title="Lorem ipsum dolor sit amet"></a>
-  <c4d-leadspace-block>
-    <c4d-leadspace-block-heading
-      >Lorem ipsum dolor sit amet</c4d-leadspace-block-heading
+  <c4d-leadspace-block border>
+    <c4d-leadspace-heading
+      >Lorem ipsum dolor sit amet</c4d-leadspace-heading
     >
     <c4d-leadspace-block-content>
-      <c4d-content-block-heading>
-        Consectetur adipiscing elit, sed do eiusmod tempor incididunt ut.
-      </c4d-content-block-heading>
       <c4d-content-block-copy slot="copy"
         >Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi
         ut aliquip ex ea commodo consequat.
       </c4d-content-block-copy>
-      <c4d-leadspace-block-media slot="media">
+      <c4d-leadspace-block-media>
         <c4d-video-player-container
           video-id="0_ibuqxqbe"></c4d-video-player-container>
       </c4d-leadspace-block-media>
@@ -240,14 +230,10 @@ export const tocContent = html`
           View all products ${ArrowRight20({ slot: 'icon' })}
         </c4d-link-list-item>
       </c4d-link-list>
-      <c4d-leadspace-block-cta>
-        <c4d-button-group-item href="www.ibm.com"
-          >Contact sales
-          ${ArrowRight20({
-            slot: 'icon',
-          })}</c4d-button-group-item
-        >
-      </c4d-leadspace-block-cta>
+      <c4d>
+      <c4d-button href="https://example.com" cta-type="local">
+        Contact sales
+      </c4d-button>
     </c4d-leadspace-block-content>
   </c4d-leadspace-block>
 
@@ -289,7 +275,7 @@ export const tocContent = html`
   </c4d-content-block-segmented>
 
   <c4d-callout-with-media>
-    <c4d-content-block-heading slot="heading"
+    <c4d-content-block-heading
       >Mauris ultrices eros in cursus</c4d-content-block-heading
     >
     <c4d-callout-with-media-copy size="sm"
@@ -315,14 +301,16 @@ export const tocContent = html`
     <c4d-content-block-heading
       >Lobortis elementum nibh tellus</c4d-content-block-heading
     >
-    ${logosGroup &&
-    logosGroup.map(
-      (elem) => html`
-        <c4d-logo-grid-item
-          default-src="${elem.imgSrc}"
-          alt="${elem.altText}"></c4d-logo-grid-item>
-      `
-    )}
+    ${
+      logosGroup &&
+      logosGroup.map(
+        (elem) => html`
+          <c4d-logo-grid-item
+            default-src="${elem.imgSrc}"
+            alt="${elem.altText}"></c4d-logo-grid-item>
+        `
+      )
+    }
   </c4d-logo-grid>
 
   <a name="6" data-title="Aliquam condimentum interdum"></a>
@@ -341,8 +329,8 @@ export const tocContent = html`
     </c4d-quote-source-heading>
     <c4d-quote-source-copy> consectetur adipiscing elit </c4d-quote-source-copy>
     <c4d-quote-source-bottom-copy> IBM Cloud </c4d-quote-source-bottom-copy>
-    <c4d-callout-link-with-icon slot="footer" href="https://example.com">
-      Link with Icon ${ArrowRight20({ slot: 'icon' })}
+    <c4d-callout-link-with-icon slot="footer" href="https://example.com" cta-type="local">
+      Link with Icon
     </c4d-callout-link-with-icon>
   </c4d-callout-quote>
 
@@ -541,8 +529,11 @@ export const StoryContentNoToC = () =>
           <c4d-quote-source-bottom-copy>
             IBM Cloud
           </c4d-quote-source-bottom-copy>
-          <c4d-callout-link-with-icon slot="footer" href="https://example.com">
-            Link with Icon ${ArrowRight20({ slot: 'icon' })}
+          <c4d-callout-link-with-icon
+            slot="footer"
+            href="https://example.com"
+            cta-type="local">
+            Link with Icon
           </c4d-callout-link-with-icon>
         </c4d-callout-quote>
 

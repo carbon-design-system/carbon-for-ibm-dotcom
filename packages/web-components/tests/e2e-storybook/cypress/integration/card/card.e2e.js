@@ -52,7 +52,7 @@ const _selectors = {
   heading: `${_selectorBase} [data-autoid="cds--card-heading"]`,
   footer: `${_selectorBase} [data-autoid="cds--card-footer"]`,
   image: `${_selectorBase} [data-autoid="cds--image"]`,
-  tagGroup: `${_selectorBase} [data-autoid="cds--tag-group"]`,
+  tagGroup: `${_selectorBase} div`,
   copy: `${_selectorBase} p`,
 };
 
