@@ -678,8 +678,10 @@ class DDSMastheadL1 extends StableSelectorMixin(LitElement) {
     const { isMobileVersion } = this;
     const { currentTarget } = event;
     const button = currentTarget as HTMLElement;
-    const dropdown = button.nextElementSibling as HTMLElement;
-    const isOpen = dropdown.classList.contains('is-open');
+    const dropdown = button.parentNode?.querySelector(
+      `.${prefix}--masthead__l1-dropdown`
+    ) as HTMLElement;
+    const isOpen = dropdown?.classList.contains('is-open');
 
     if (!isMobileVersion && dropdown && !isOpen) {
       // Get Button & Dropdown locations & widths
