@@ -207,13 +207,14 @@ export const SpacingTest = () => {
           heading="Mauris iaculis eget dolor nec hendrerit.">
         </c4d-image>
         
-        <c4d-card-link-cta
+        <c4d-card
+          link
           slot="footer"
           cta-type="local"
           href="https://example.com">
-          <c4d-card-link-heading>Lorem ipsum dolor</c4d-card-link-heading>
-          <c4d-card-cta-footer></c4d-card-cta-footer>
-        </c4d-card-link-cta>
+          <c4d-card-heading>Lorem ipsum dolor</c4d-card-heading>
+          <c4d-card-footer></c4d-card-footer>
+        </c4d-card-cta>
       </c4d-content-block>
     </c4d-content-section>
 
@@ -334,13 +335,13 @@ export const MultipleContentSections = () => {
             >Lorem Ipsum dolor sit</c4d-text-cta
           >
         </c4d-content-block-segmented-item>
-        <c4d-card-link-cta
+        <c4d-card-cta
           slot="footer"
           cta-type="local"
           href="https://example.com">
-          <c4d-card-link-heading>Lorem ipsum dolor</c4d-card-link-heading>
-          <c4d-card-cta-footer></c4d-card-cta-footer>
-        </c4d-card-link-cta>
+          <c4d-card-heading>Lorem ipsum dolor</c4d-card-heading>
+          <c4d-card-footer></c4d-card-footer>
+        </c4d-card-cta>
       </c4d-content-block-segmented>
     </c4d-content-section>
 

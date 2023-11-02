@@ -10,7 +10,7 @@
 import { html } from 'lit';
 import ArrowRight20 from '../../../internal/vendor/@carbon/web-components/icons/arrow--right/20';
 import { ifDefined } from 'lit/directives/if-defined.js';
-import { optionsKnob } from '@storybook/addon-knobs';
+import { boolean, optionsKnob } from '@storybook/addon-knobs';
 import '../index';
 import '../../card-group/index';
 import '../../carousel/index';
@@ -81,12 +81,12 @@ const Card = ({
 `;
 
 export const Default = (args) => {
-  const { heading, copy, addChildren } = args?.ContentSection ?? {};
+  const { heading, border, copy, addChildren } = args?.ContentSection ?? {};
   const classes = addChildren.includes('Content block simple')
     ? 'cds--col-lg-16 cds--no-gutter'
     : '';
   return html`
-    <c4d-content-section children-custom-class="${classes}">
+    <c4d-content-section ?border=${border} children-custom-class="${classes}">
       <c4d-content-section-heading
         >${ifDefined(heading)}</c4d-content-section-heading
       >
@@ -187,6 +187,10 @@ export default {
           'Heading:',
           'Speech recognition (statistical Artificial Intelligence)'
         ),
+        border: boolean(
+          'Border',
+          false
+        ),        
         copy: textNullable(
           'Copy:',
           "AI features for understanding speech can be trained for a specific speaker's voice."
@@ -208,6 +212,7 @@ export default {
       default: {
         ContentSection: {
           heading: 'Speech recognition (statistical Artificial Intelligence)',
+          border: false,
           copy: "AI features for understanding speech can be trained for a specific speaker's voice.",
           addChildren: '',
         },

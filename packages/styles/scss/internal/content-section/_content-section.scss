@@ -21,17 +21,50 @@
 
 @mixin content-section {
 
+  :host(#{$c4d-prefix}-content-section),
+  :host(#{$c4d-prefix}-card-section-carousel),
+  :host(#{$c4d-prefix}-content-section-heading),
+  :host(#{$c4d-prefix}-content-section-copy) {
+    display: block;
+    overflow-x: hidden;
+  }
+
   :host(#{$c4d-prefix}-content-section) {
-    margin: $spacing-10 0;
+    margin: $spacing-10 0 $spacing-13;
 
     ::slotted([slot='cta']) {
-      padding-bottom: $spacing-12;
-
       @include breakpoint(md) {
         width: 50%;
       }
     }
+
+    ::slotted(*) {
+      padding-bottom: 0;
+      margin-bottom: 0;
+    }
+
+    ::slotted(#{$c4d-prefix}-link-list) {
+      @include breakpoint-down(md) {
+        display: block;
+        margin: 0 $spacing-05;
+      }
+    }
   }
+
+  :host(#{$c4d-prefix}-content-section[with-link-list]) {
+    .#{$prefix}--content-section__body {
+      padding: 0 $spacing-05;
+    }
+  }
+
+  :host(#{$c4d-prefix}-content-section[border]) {
+    margin-bottom: $spacing-10;
+    
+    .#{$prefix}--content-section__body {
+      border-bottom: 1px solid $border-subtle-01;
+      padding-bottom: $spacing-12;
+    }
+  }  
 
 
   :host(#{$c4d-prefix}-link-list-section) {
