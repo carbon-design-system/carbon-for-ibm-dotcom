@@ -789,7 +789,7 @@ class C4DCarousel extends HostListenerMixin(StableSelectorMixin(LitElement)) {
    * A selector that will return the card item's tag group
    */
   static get selectorItemTagGroup() {
-    return `${c4dPrefix}-tag-group`;
+    return `div`;
   }
 
   /**

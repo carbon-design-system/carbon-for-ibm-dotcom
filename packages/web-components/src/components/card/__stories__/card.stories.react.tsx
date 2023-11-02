@@ -19,7 +19,6 @@ import C4DCardEyebrow from '@carbon/ibmdotcom-web-components/es/components-react
 import C4DCardFooter from '@carbon/ibmdotcom-web-components/es/components-react/card/card-footer';
 import C4DImage from '@carbon/ibmdotcom-web-components/es/components-react/image/image';
 import C4DImageLogo from '@carbon/ibmdotcom-web-components/es/components-react/card/image-logo';
-import C4DTagGroup from '@carbon/ibmdotcom-web-components/es/components-react/tag-group/tag-group';
 import C4DVideoCTAContainer from '@carbon/ibmdotcom-web-components/es/components-react/cta/video-cta-container';
 
 import Tag from '@carbon/web-components/es/components-react/tag/tag.js';
@@ -97,10 +96,10 @@ export const Default = (args) => {
         <C4DCardHeading>{videoCopy ?? heading}</C4DCardHeading>
         {copy ? <p></p> : ``}
         {tagGroup ? (
-        <C4DTagGroup>
+        <div>
           <Tag type="green">Most popular</Tag>
           <Tag type="purple">Enterprise</Tag>
-        </C4DTagGroup>
+        </div>
       ) : (
         ''
       )}
@@ -183,10 +182,10 @@ export const Pictogram = (args) => {
       <C4DCardHeading>{heading}</C4DCardHeading>
       {copy ? <p>{copy}</p> : ''}
       {tagGroup ? (
-        <C4DTagGroup>
+        <div>
           <Tag>Most popular</Tag>
           <Tag type="purple">Enterprise</Tag>
-        </C4DTagGroup>
+        </div>
       ) : (
         ''
       )}
@@ -236,10 +235,10 @@ export const Static = (args) => {
       <C4DCardHeading>{heading}</C4DCardHeading>
       {copy ? <p>{copy}</p> : ''}
       {tagGroup ? (
-        <C4DTagGroup>
+        <div>
           <Tag type="green">Most popular</Tag>
           <Tag type="purple">Enterprise</Tag>
-        </C4DTagGroup>
+        </div>
       ) : (
         ''
       )}
@@ -302,10 +301,10 @@ export const Logo = (args) => {
       {heading ? <C4DCardHeading>{heading}</C4DCardHeading> : ''}
       {copy ? <p>{copy}</p> : ``}
       {tagGroup ? (
-        <C4DTagGroup>
+        <div>
           <Tag type="green">Most popular</Tag>
           <Tag type="purple">Enterprise</Tag>
-        </C4DTagGroup>
+        </div>
       ) : (
         ''
       )}

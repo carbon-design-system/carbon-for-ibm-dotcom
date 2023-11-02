@@ -21,9 +21,9 @@ const longHeadingCardGroupItem = html`
       >Nunc convallis lobortis Nunc convallis lobortis Nunc convallis
       lobortis</c4d-card-heading
     >
-    <c4d-tag-group>
+    <div>
       <cds-tag>Most popular</cds-tag>
-    </c4d-tag-group>
+    </div>
     <p>
       Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean et
       ultricies est. Mauris iaculis eget dolor nec hendrerit. Phasellus at elit
