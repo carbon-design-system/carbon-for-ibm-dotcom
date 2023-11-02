@@ -193,10 +193,11 @@ const pictogramCard = (gridMode) => html`
 
 const cardLink = html`
   <c4d-card
+    link
     cta-type="local"
     href="https://example.com"
     pattern-background>
-    <c4d-heading>IBM Developer</c4d-card-heading>
+    <c4d-card-heading>IBM Developer</c4d-card-heading>
     <p>Learn, code and connect with your community</p>
     <c4d-card-footer slot="footer"> </c4d-card-footer>
   </c4d-card>
@@ -280,10 +281,9 @@ export const Default = (args) => {
         html`
           <c4d-card-group-item
             cta-type="local"
-            href="https://example.com"
-            color-scheme="inverse">
+            href="https://example.com">
             <c4d-card-heading>Top level card link</c4d-card-heading>
-            <c4d-card-footer slot="footer" color-scheme="inverse">
+            <c4d-card-footer slot="footer">
             </c4d-card-footer>
           </c4d-card-group-item>
         `
