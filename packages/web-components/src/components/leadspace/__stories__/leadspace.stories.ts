@@ -24,11 +24,7 @@ import readme from './README.stories.mdx';
 import leadspaceImg from '../../../../../storybook-images/assets/leadspace/leadspaceMax.jpg';
 import { LEADSPACE_SIZE } from '../defs';
 
-const navigationOptions = [
-  'with Tag group (using Tag link)',
-  'with Breadcrumbs',
-  'none',
-];
+const navigationOptions = ['with a group of Tags', 'with Breadcrumbs', 'none'];
 
 const gradientOptions = {
   'With Gradient': 'with-gradient',
@@ -41,10 +37,10 @@ const typeStyleOptions = {
 };
 
 const navigationWithTagGroup = html`
-  <c4d-tag-group slot="navigation">
-    <c4d-tag-link href="https://example.com">Marketing Analytics</c4d-tag-link>
-    <c4d-tag-link href="https://example.com">Cloud</c4d-tag-link>
-  </c4d-tag-group>
+  <div slot="navigation">
+    <cds-tag href="https://example.com">Marketing Analytics</cds-tag>
+    <cds-tag href="https://example.com">Cloud</cds-tag>
+  </div>
 `;
 
 const navigationWithBreadcrumbs = html`
