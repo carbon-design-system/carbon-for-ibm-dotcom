@@ -26,7 +26,7 @@ import Handle from '../../globals/internal/handle';
 import StableSelectorMixin from '../../globals/mixins/stable-selector';
 import { carbonElement as customElement } from '../../internal/vendor/@carbon/web-components/globals/decorators/carbon-element.js';
 
-const { stablePrefix: c4dPrefix, prefix } = settings;
+const { stablePrefix: c4dPrefix } = settings;
 
 export { LIGHTBOX_CONTRAST };
 
