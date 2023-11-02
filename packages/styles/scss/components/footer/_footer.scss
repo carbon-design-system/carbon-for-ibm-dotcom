@@ -77,6 +77,11 @@
     padding-top: 0;
     padding-bottom: 0;
 
+    ::slotted(#{$c4d-prefix}-footer-nav),
+    ::slotted(#{$c4d-prefix}-footer-logo) {
+      display: none;
+    }
+
     .#{$prefix}--footer__logo-container {
       display: none;
     }
@@ -101,6 +106,9 @@
   :host(#{$c4d-prefix}-legal-nav-item),
   :host(#{$c4d-prefix}-legal-nav-cookie-preferences-placeholder) {
     @include theme($g90, feature-flag-enabled('enable-css-custom-properties'));
+
+    display: list-item;
+    outline: none;
 
     .#{$prefix}--footer__link.#{$prefix}--link {
       @include type-style('body-01');
@@ -253,13 +261,6 @@
     @extend .#{$prefix}--accordion__item--active;
   }
 
-  :host(#{$c4d-prefix}-footer-nav-item),
-  :host(#{$c4d-prefix}-legal-nav-item),
-  :host(#{$c4d-prefix}-legal-nav-cookie-preferences-placeholder) {
-    display: list-item;
-    outline: none;
-  }
-
   :host(#{$c4d-prefix}-footer-nav-group[open]) .#{$prefix}--accordion__content {
     display: block;
     padding-top: 0;
@@ -300,13 +301,6 @@
           column-count: 3;
         }
       }
-    }
-  }
-
-  :host(#{$c4d-prefix}-footer[size='micro']) {
-    ::slotted(#{$c4d-prefix}-footer-nav),
-    ::slotted(#{$c4d-prefix}-footer-logo) {
-      display: none;
     }
   }
 

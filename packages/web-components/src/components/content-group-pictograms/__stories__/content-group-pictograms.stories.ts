@@ -10,7 +10,6 @@
 
 import '../index';
 import { html } from 'lit';
-import ArrowRight20 from '../../../internal/vendor/@carbon/web-components/icons/arrow--right/20';
 import readme from './README.stories.mdx';
 import textNullable from '../../../../.storybook/knob-text-nullable';
 import styles from './content-group-pictograms.stories.scss';
@@ -90,41 +89,47 @@ export const Default = (args) => {
     <c4d-content-group-pictograms>
       <c4d-content-group-heading>${groupHeading}</c4d-content-group-heading>
       <c4d-content-group-copy>${groupCopy}</c4d-content-group-copy>
-      ${pictogramsItems.map(
-        ({ heading, copy, linkWithIcon }) => html`
-          <c4d-pictogram-item>
-            <svg
-              version="1.1"
-              slot="pictogram"
-              xmlns="http://www.w3.org/2000/svg"
-              xmlns:xlink="http://www.w3.org/1999/xlink"
-              x="0px"
-              y="0px"
-              width="64"
-              height="64"
-              viewBox="8 8 32 32"
-              xml:space="preserve">
-              <g>
+      <div>
+        ${pictogramsItems.map(
+          ({ heading, copy, linkWithIcon }) => html`
+            <c4d-content-item horizontal>
+              <svg
+                version="1.1"
+                slot="media"
+                xmlns="http://www.w3.org/2000/svg"
+                xmlns:xlink="http://www.w3.org/1999/xlink"
+                stroke="currentColor"
+                x="0px"
+                y="0px"
+                width="64"
+                height="64"
+                viewBox="8 8 32 32"
+                xml:space="preserve">
                 <g>
-                  <path
-                    style="fill:none;stroke-width:0.72;stroke-linejoin:round;stroke-miterlimit:10;"
-                    d="M15,29H9V10h25v19h-7
+                  <g>
+                    <path
+                      style="fill:none;stroke-width:0.72;stroke-linejoin:round;stroke-miterlimit:10;"
+                      d="M15,29H9V10h25v19h-7
                     M34,26h-7 M15,26H9 M30,29v8h9V21h-5 M30,34h9 M20.998,27.621c0-0.573-0.447-1.037-0.998-1.037s-0.998,0.464-0.998,1.037v2.378
                     l-0.005-6.962c0-0.573-0.447-1.037-0.998-1.037S17,22.464,17,23.037v5.882v4.924C17,36.139,18.792,38,21.002,38
                     S25,36.121,25,33.842v-5.04c0-0.573-0.447-1.037-0.998-1.037s-0.998,0.464-0.998,1.037v1.196l-0.005-1.935
                     c0-0.573-0.447-1.037-0.998-1.037s-1.002,0.464-1.002,1.037l0.004,1.935L20.998,27.621z" />
+                  </g>
                 </g>
-              </g>
-              <g></g>
-            </svg>
-            <c4d-content-item-heading>${heading}</c4d-content-item-heading>
-            <c4d-content-item-copy>${copy}</c4d-content-item-copy>
-            <c4d-link-with-icon href="${linkWithIcon.href}" slot="footer">
-              ${linkWithIcon.copy} ${ArrowRight20({ slot: 'icon' })}
-            </c4d-link-with-icon>
-          </c4d-pictogram-item>
-        `
-      )}
+                <g></g>
+              </svg>
+              <c4d-content-item-heading>${heading}</c4d-content-item-heading>
+              <c4d-content-item-copy>${copy}</c4d-content-item-copy>
+              <c4d-link-with-icon
+                href="${linkWithIcon.href}"
+                slot="footer"
+                cta-type="local">
+                ${linkWithIcon.copy}
+              </c4d-link-with-icon>
+            </c4d-content-item>
+          `
+        )}
+      </div>
     </c4d-content-group-pictograms>
   `;
 };
