@@ -24,7 +24,8 @@
       margin: 0;
     }
 
-    .#{$c4d-prefix}--link-list__list--vertical {
+    .#{$c4d-prefix}--link-list__list--vertical,
+    .#{$c4d-prefix}-ce--link-list__list--end {
       display: grid;
       grid-auto-rows: 1fr;
 
@@ -42,6 +43,56 @@
     .#{$c4d-prefix}-ce--link-list__heading__wrapper {
       display: contents;
     }
+
+    @include breakpoint(md) {
+      .#{$c4d-prefix}-ce--link-list__heading--split
+        ::slotted(#{$c4d-prefix}-link-list-heading) {
+        width: 33.3%;
+        padding-right: 10%;
+      }
+    }
+
+    .#{$c4d-prefix}-ce--link-list__list--split,
+    .#{$c4d-prefix}-ce--link-list__list--three-columns {
+      ::slotted(#{$c4d-prefix}-link-list-item) {
+        display: grid;
+        align-items: stretch;
+        // margin-right: -$spacing-05;
+      }
+
+      @include breakpoint(md) {
+        display: grid;
+        grid-column-gap: $spacing-07;
+
+        ::slotted(#{$c4d-prefix}-link-list-item) {
+          margin-left: -$spacing-05;
+          margin-right: 0;
+        }
+      }
+    }
+
+    .#{$c4d-prefix}-ce--link-list__list--split {
+      @include breakpoint(md) {
+        grid-template-columns: 1fr 1fr;
+      }
+    }
+
+    .#{$c4d-prefix}-ce--link-list__list--three-columns {
+      @include breakpoint(md) {
+        grid-template-columns: 1fr 1fr 1fr;
+      }
+    }
+  }
+
+  :host(#{$c4d-prefix}-link-list-item) {
+    .#{$prefix}--link {
+      align-content: flex-start;
+
+      span,
+      ::slotted(svg[slot='icon']) {
+        align-self: flex-start;
+      }
+    }
   }
 
   :host(#{$c4d-prefix}-link-list-heading) {
@@ -54,10 +105,18 @@
     }
 
     @include type-style('heading-02');
+
+    @include breakpoint(md) {
+      margin-left: -$spacing-05;
+    }
+
+    @include breakpoint(lg) {
+      margin-left: 0;
+    }
   }
 
   :host(#{$c4d-prefix}-link-list-item)[type='default'],
-  :host(#{$c4d-prefix}-link-list-item-cta)[type='default'] {
+  :host(#{$c4d-prefix}-link-list-item)[type='end'] {
     .#{$prefix}--link {
       display: flex;
       width: 100%;
@@ -74,6 +133,20 @@
 
     &:last-of-type {
       border-bottom: 1px solid $border-subtle-01;
+    }
+  }
+
+  .#{$c4d-prefix}-ce--link-list__list--end {
+    ::slotted(#{$c4d-prefix}-link-list-item),
+    ::slotted(#{$c4d-prefix}-link-list-item-cta) {
+      border-top: 1px solid $border-subtle-01;
+      border-bottom: 1px solid $border-subtle-01;
+      margin-top: -1px;
+
+      @include breakpoint(lg) {
+        margin-left: -$spacing-05;
+        margin-right: -$spacing-05;
+      }
     }
   }
 

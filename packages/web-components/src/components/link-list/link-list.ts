@@ -12,7 +12,7 @@ import { LitElement, html } from 'lit';
 import { property, state } from 'lit/decorators.js';
 import settings from '@carbon/ibmdotcom-utilities/es/utilities/settings/settings.js';
 import StableSelectorMixin from '../../globals/mixins/stable-selector';
-import { LINK_LIST_TYPE } from './defs';
+import { LINK_LIST_TYPE, LINK_LIST_ITEM_TYPE } from './defs';
 import styles from './link-list.scss';
 import C4DLinkListItem from './link-list-item';
 import { carbonElement as customElement } from '../../internal/vendor/@carbon/web-components/globals/decorators/carbon-element';
@@ -45,6 +45,12 @@ export enum END_TYPE_LAYOUT {
 @customElement(`${c4dPrefix}-link-list`)
 class C4DLinkList extends StableSelectorMixin(LitElement) {
   /**
+   * Defines the layout for the end layout - based on END_TYPE_LAYOUT
+   */
+  @state()
+  private _endTypeLayout = END_TYPE_LAYOUT.DEFAULT;
+
+  /**
    * Child items
    */
   @state()
@@ -64,6 +70,19 @@ class C4DLinkList extends StableSelectorMixin(LitElement) {
           node.nodeType === Node.ELEMENT_NODE &&
           (node as Element)?.matches(selectorItem)
       ) as Element[];
+
+    if (this._childItems.length > 3) {
+      if (this._childItems.length < 7)
+        this._endTypeLayout = END_TYPE_LAYOUT.TWO_COLUMNS;
+      else this._endTypeLayout = END_TYPE_LAYOUT.THREE_COLUMNS;
+    } else {
+      this._endTypeLayout = END_TYPE_LAYOUT.DEFAULT;
+    }
+    if (this.type === LINK_LIST_TYPE.END) {
+      this._childItems.forEach((elem) => {
+        (elem as C4DLinkListItem).type = LINK_LIST_ITEM_TYPE.END;
+      });
+    }
   }
 
   /**
@@ -82,18 +101,28 @@ class C4DLinkList extends StableSelectorMixin(LitElement) {
   }
 
   render() {
-    const { type } = this;
+    const { type, _endTypeLayout: endTypeLayout } = this;
     const headingClasses = classMap({
       [`${c4dPrefix}-ce--link-list__heading__wrapper`]: true,
+      [`${c4dPrefix}-ce--link-list__heading--split`]:
+        type === LINK_LIST_TYPE.END &&
+        endTypeLayout === END_TYPE_LAYOUT.TWO_COLUMNS,
     });
     const listTypeClasses = {
       [LINK_LIST_TYPE.HORIZONTAL]: `${c4dPrefix}--link-list__list--horizontal`,
       [LINK_LIST_TYPE.VERTICAL]: `${c4dPrefix}--link-list__list--vertical`,
+      [LINK_LIST_TYPE.END]: `${c4dPrefix}-ce--link-list__list--end`,
       [LINK_LIST_TYPE.DEFAULT]: `${c4dPrefix}--link-list__list`,
     }[type];
     const listClasses = classMap({
       // [`${c4dPrefix}--link-list__list`]: LINK_LIST_TYPE.DEFAULT,
       [listTypeClasses]: true,
+      [`${c4dPrefix}-ce--link-list__list--split`]:
+        type === LINK_LIST_TYPE.END &&
+        endTypeLayout === END_TYPE_LAYOUT.TWO_COLUMNS,
+      [`${c4dPrefix}-ce--link-list__list--three-columns`]:
+        type === LINK_LIST_TYPE.END &&
+        endTypeLayout === END_TYPE_LAYOUT.THREE_COLUMNS,
     });
     return html`
       <div class="${headingClasses}"><slot name="heading"></slot></div>
