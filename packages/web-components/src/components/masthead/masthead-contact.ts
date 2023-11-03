@@ -14,6 +14,7 @@ import Chat20 from '../../internal/vendor/@carbon/web-components/icons/chat/20.j
 import ddsSettings from '../../internal/vendor/@carbon/ibmdotcom-utilities/utilities/settings/settings';
 import styles from './masthead.scss';
 import DDSMastheadProfile from './masthead-profile';
+import HostListener from '../../internal/vendor/@carbon/web-components/globals/decorators/host-listener.js';
 
 const { prefix } = settings;
 const { stablePrefix: ddsPrefix } = ddsSettings;
@@ -30,6 +31,30 @@ class DDSMastheadContact extends DDSMastheadProfile {
    */
   @property({ attribute: 'trigger-label' })
   triggerLabel = 'Contact';
+
+  /**
+   * Handles `cm-app-pane-displayed` event fired by CM_APP.
+   *
+   * @see DOCUMENT_EVENTS live-advisor/cm-app/js/helpers/otherConstants.js
+   *   - https://github.ibm.com/live-advisor/cm-app/blob/master/js/helpers/otherConstants.js
+   */
+  @HostListener('document:cm-app-pane-displayed')
+  // @ts-ignore: The decorator refers to this method but TS thinks this method is not referred to
+  protected _handleCMAppOpened(event: CustomEvent) {
+    this.triggerLabel = 'Close chat window';
+  }
+
+  /**
+   * Handles `cm-app-pane-displayed` event fired by CM_APP.
+   *
+   * @see DOCUMENT_EVENTS live-advisor/cm-app/js/helpers/otherConstants.js
+   *   - https://github.ibm.com/live-advisor/cm-app/blob/master/js/helpers/otherConstants.js
+   */
+  @HostListener('document:cm-app-pane-hidden')
+  // @ts-ignore: The decorator refers to this method but TS thinks this method is not referred to
+  protected _handleCMAppClosed(event: CustomEvent) {
+    this.triggerLabel = 'Open chat window';
+  }
 
   render() {
     const { triggerLabel, _handleClick: handleClick } = this;
