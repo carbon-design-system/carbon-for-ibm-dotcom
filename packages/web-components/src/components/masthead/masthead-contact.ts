@@ -14,7 +14,6 @@ import Chat20 from '../../internal/vendor/@carbon/web-components/icons/chat/20.j
 import ddsSettings from '../../internal/vendor/@carbon/ibmdotcom-utilities/utilities/settings/settings';
 import styles from './masthead.scss';
 import DDSMastheadProfile from './masthead-profile';
-import HostListener from '../../internal/vendor/@carbon/web-components/globals/decorators/host-listener.js';
 
 const { prefix } = settings;
 const { stablePrefix: ddsPrefix } = ddsSettings;
@@ -33,27 +32,48 @@ class DDSMastheadContact extends DDSMastheadProfile {
   triggerLabel = 'Contact';
 
   /**
-   * Handles `cm-app-pane-displayed` event fired by CM_APP.
+   * Handles events fired by CM_APP.
    *
    * @see DOCUMENT_EVENTS live-advisor/cm-app/js/helpers/otherConstants.js
    *   - https://github.ibm.com/live-advisor/cm-app/blob/master/js/helpers/otherConstants.js
    */
-  @HostListener('document:cm-app-pane-displayed')
-  // @ts-ignore: The decorator refers to this method but TS thinks this method is not referred to
-  protected _handleCMAppOpened(event: CustomEvent) {
-    this.triggerLabel = 'Close chat window';
+  protected _handleCMAppEvents(event: CustomEvent) {
+    const { type } = event;
+
+    switch (type) {
+      case 'cm-app-pane-displayed':
+        this.triggerLabel = 'Close contact window';
+        break;
+
+      case 'cm-app-pane-hidden':
+        this.triggerLabel = 'Show contact window';
+        break;
+
+      default:
+        break;
+    }
   }
 
-  /**
-   * Handles `cm-app-pane-displayed` event fired by CM_APP.
-   *
-   * @see DOCUMENT_EVENTS live-advisor/cm-app/js/helpers/otherConstants.js
-   *   - https://github.ibm.com/live-advisor/cm-app/blob/master/js/helpers/otherConstants.js
-   */
-  @HostListener('document:cm-app-pane-hidden')
-  // @ts-ignore: The decorator refers to this method but TS thinks this method is not referred to
-  protected _handleCMAppClosed(event: CustomEvent) {
-    this.triggerLabel = 'Open chat window';
+  connectedCallback() {
+    const { _handleCMAppEvents: handleCMAppEvents } = this;
+    super.connectedCallback();
+
+    /**
+     * TODO: Appease typescript compiler.
+     *
+     * These events are fired by live-advisor/cm-app, and are listened for on the document.
+     * To get a reference back to the instance of `this` we have to bind it to the event handler.
+     * This is currently not possible using the HostListener mixin & decorator.
+     *
+     * @see DOCUMENT_EVENTS live-advisor/cm-app/js/helpers/otherConstants.js
+     *   - https://github.ibm.com/live-advisor/cm-app/blob/master/js/helpers/otherConstants.js
+     */
+
+    const CMEventHandler = handleCMAppEvents.bind(this);
+    // @ts-ignore: custom events & CustomEvent listener.
+    document.addEventListener('cm-app-pane-displayed', CMEventHandler);
+    // @ts-ignore: custom events & CustomEvent listener.
+    document.addEventListener('cm-app-pane-hidden', CMEventHandler);
   }
 
   render() {
