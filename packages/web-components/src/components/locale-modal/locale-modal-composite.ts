@@ -201,9 +201,7 @@ class C4DLocaleModalComposite extends HostListenerMixin(
               massagedCountryList?.find(({ region }) => region === name) ===
                 undefined;
             return html`
-              <c4d-region-item link
-                ?disabled="${isInvalid}"
-                name="${name}">
+              <c4d-region-item link ?disabled="${isInvalid}" name="${name}">
                 <c4d-card-heading>${name}</c4d-card-heading>
                 <div
                   slot="footer"
@@ -219,7 +217,7 @@ class C4DLocaleModalComposite extends HostListenerMixin(
                         class: `${c4dPrefix}--card__cta`,
                       })}
                 </div>
-                </c4d-region-item>
+              </c4d-region-item>
             `;
           })}
         </c4d-regions>

@@ -887,9 +887,9 @@ class C4DMastheadComposite extends HostListenerMixin(LitElement) {
     target: NAV_ITEMS_RENDER_TARGET;
     hasL1: boolean;
   }) {
-    
     const { navLinks, customNavLinks, l1Data } = this;
-    let menu: L0MenuItem[] | L1MenuItem[] | undefined = customNavLinks || navLinks;
+    let menu: L0MenuItem[] | L1MenuItem[] | undefined =
+      customNavLinks || navLinks;
     const autoid = `${c4dPrefix}--masthead__${l1Data?.menuItems ? 'l1' : 'l0'}`;
 
     if (hasL1) {
