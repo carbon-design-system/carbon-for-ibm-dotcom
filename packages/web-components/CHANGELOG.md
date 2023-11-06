@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.38.0-rc.2](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/compare/@carbon/ibmdotcom-web-components@1.38.0-rc.1...@carbon/ibmdotcom-web-components@1.38.0-rc.2) (2023-11-06)
+
+
+### Bug Fixes
+
+* **link-with-icon:** remove property set-by-enum ([#11092](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/issues/11092)) ([885ed65](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/commit/885ed656ff6f0dcf58ebcd684e0b6c6c8878d247))
+
+
+
+
+
 # [1.38.0-rc.1](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/compare/@carbon/ibmdotcom-web-components@1.37.0-rc.2...@carbon/ibmdotcom-web-components@1.38.0-rc.1) (2023-11-02)
 
 
