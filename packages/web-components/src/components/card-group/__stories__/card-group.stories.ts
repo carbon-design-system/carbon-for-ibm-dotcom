@@ -52,10 +52,10 @@ const setGridMode = {
 };
 
 const tagGroupContent = html`
-  <c4d-tag-group>
+  <div>
     <cds-tag type="cool-gray"> Systems w/TPS </cds-tag>
     <cds-tag type="cool-gray"> Virtual </cds-tag>
-  </c4d-tag-group>
+  </div>
 `;
 
 const textCTAContent = html`

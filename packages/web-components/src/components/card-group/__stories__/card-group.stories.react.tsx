@@ -64,10 +64,10 @@ const setGridMode = {
 };
 
 const tagGroupContent = (
-  <C4DTagGroup>
+  <div>
     <Tag type="cool-gray">Systems w/TPS</Tag>
     <Tag type="cool-gray">Virtual</Tag>
-  </C4DTagGroup>
+  </div>
 );
 
 const textCTAContent = (
