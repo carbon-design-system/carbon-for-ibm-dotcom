@@ -116,6 +116,7 @@
   }
 
   :host(#{$c4d-prefix}-link-list-item)[type='default'],
+  :host(#{$c4d-prefix}-link-list-item-cta)[type='default'],
   :host(#{$c4d-prefix}-link-list-item)[type='end'] {
     .#{$prefix}--link {
       display: flex;
