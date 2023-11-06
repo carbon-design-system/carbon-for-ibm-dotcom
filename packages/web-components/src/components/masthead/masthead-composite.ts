@@ -887,8 +887,9 @@ class C4DMastheadComposite extends HostListenerMixin(LitElement) {
     target: NAV_ITEMS_RENDER_TARGET;
     hasL1: boolean;
   }) {
-    const { navLinks, l1Data } = this;
-    let menu: L0MenuItem[] | L1MenuItem[] | undefined = navLinks;
+    
+    const { navLinks, customNavLinks, l1Data } = this;
+    let menu: L0MenuItem[] | L1MenuItem[] | undefined = customNavLinks || navLinks;
     const autoid = `${c4dPrefix}--masthead__${l1Data?.menuItems ? 'l1' : 'l0'}`;
 
     if (hasL1) {
@@ -1297,6 +1298,12 @@ class C4DMastheadComposite extends HostListenerMixin(LitElement) {
   authMethod = MASTHEAD_AUTH_METHOD.DEFAULT;
 
   /**
+   * Custom navigation links
+   */
+  @property()
+  customNavLinks?: L0MenuItem[];
+
+  /**
    * The user authentication status.
    */
   @property({ attribute: 'user-status' })
@@ -1378,6 +1385,7 @@ class C4DMastheadComposite extends HostListenerMixin(LitElement) {
       menuButtonAssistiveTextActive,
       menuButtonAssistiveTextInactive,
       navLinks,
+      customNavLinks,
       language,
       openSearchDropdown,
       hasSearch,
@@ -1468,7 +1476,7 @@ class C4DMastheadComposite extends HostListenerMixin(LitElement) {
                 >${platform}</c4d-top-nav-name
               >
             `}
-        ${navLinks && !isMobileVersion
+        ${(navLinks || customNavLinks) && !isMobileVersion
           ? html`
               <c4d-top-nav
                 selected-menu-item=${selectedMenuItem}

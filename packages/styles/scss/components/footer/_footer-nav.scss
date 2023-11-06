@@ -13,7 +13,6 @@
 @use '@carbon/styles/scss/spacing' as *;
 @use '@carbon/styles/scss/theme' as *;
 @use '@carbon/styles/scss/themes' as *;
-@use 'temp-breakpoints' as *;
 @use '../../globals/utils/flex-grid' as *;
 @use '../../globals/vars' as *;
 
@@ -36,7 +35,7 @@
       padding: 0 calc($grid-gutter / 2);
     }
 
-    @include breakpoint-between('md', $TEMP--breakpoint-down--lg) {
+    @include breakpoint-between(md, lg) {
       padding-top: $spacing-04;
     }
 

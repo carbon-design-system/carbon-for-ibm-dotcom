@@ -173,6 +173,45 @@ export const C4DVideoPlayerContainerMixin = <
       return returnValue;
     }
 
+    _getPlayerOptions(backgroundMode = false) {
+      let playerOptions = {};
+
+      if (backgroundMode) {
+        const storedMotionPreference: boolean | null =
+          this._getAutoplayPreference();
+
+        let autoplayPreference: boolean | undefined;
+
+        if (storedMotionPreference === null) {
+          autoplayPreference = !window.matchMedia(
+            '(prefers-reduced-motion: reduce)'
+          ).matches;
+        } else {
+          autoplayPreference = storedMotionPreference;
+        }
+        playerOptions = {
+          'topBarContainer.plugin': false,
+          'controlBarContainer.plugin': false,
+          'largePlayBtn.plugin': false,
+          'loadingSpinner.plugin': false,
+          'unMuteOverlayButton.plugin': false,
+          'EmbedPlayer.DisableVideoTagSupport': false,
+          loop: true,
+          autoMute: true,
+          autoPlay: autoplayPreference,
+          // Turn off CTA's including mid-roll card and end cards.
+          'ibm.callToActions': false,
+          // Turn off captions display, background/ambient videos have no
+          // audio.
+          closedCaptions: {
+            plugin: false,
+          },
+        };
+      }
+
+      return playerOptions;
+    }
+
     /**
      * Sets up and sends the API call for embedding video for the given video ID.
      *
@@ -198,37 +237,10 @@ export const C4DVideoPlayerContainerMixin = <
       }
       videoPlayer.appendChild(div);
 
-      let additionalPlayerOptions = {};
-
-      if (backgroundMode) {
-        const storedMotionPreference: boolean | null =
-          this._getAutoplayPreference();
-
-        let autoplayPreference: boolean | undefined;
-
-        if (storedMotionPreference === null) {
-          autoplayPreference = !window.matchMedia(
-            '(prefers-reduced-motion: reduce)'
-          ).matches;
-        } else {
-          autoplayPreference = storedMotionPreference;
-        }
-        additionalPlayerOptions = {
-          'topBarContainer.plugin': false,
-          'controlBarContainer.plugin': false,
-          'largePlayBtn.plugin': false,
-          'loadingSpinner.plugin': false,
-          'unMuteOverlayButton.plugin': false,
-          'EmbedPlayer.DisableVideoTagSupport': false,
-          loop: true,
-          autoMute: true,
-          autoPlay: autoplayPreference,
-        };
-      }
       const embedVideoHandle = await KalturaPlayerAPI.embedMedia(
         videoId,
         playerId,
-        additionalPlayerOptions
+        this._getPlayerOptions(backgroundMode)
       );
       doc!.getElementById(playerId)!.dataset.videoId = videoId;
       const videoEmbed = doc!.getElementById(playerId)?.firstElementChild;

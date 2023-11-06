@@ -345,6 +345,10 @@
 
       .react-autosuggest__suggestions-container {
         top: calc($spacing-09 + 2px);
+
+        @include breakpoint(md) {
+          top: rem(66px);
+        }
       }
 
       .react-autosuggest__suggestions-list {
