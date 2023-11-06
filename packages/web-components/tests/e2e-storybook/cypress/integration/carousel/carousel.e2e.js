@@ -1,5 +1,5 @@
 /**
- * Copyright IBM Corp. 2022
+ * Copyright IBM Corp. 2022, 2023
  *
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
@@ -203,6 +203,64 @@ const _tests = {
       });
     });
   },
+  checkInertAriaHidden: () => {
+    it('should check visible and hidden cards for expected aria-hidden and inert attributes', () => {
+      cy.get(_selectorBase).then($carousel => {
+        // Take note of the page size, for later comparison.
+        const pageSize = $carousel[0]?.pageSize;
+
+        cy.wrap($carousel)
+          .children(':not([slot="title"])')
+          .then($carouselItems => {
+            // Verify that the carousel items have the expected aria-hidden
+            // and inert attributes.
+            cy.wrap($carouselItems)
+              .filter(`[aria-hidden="false"]`)
+              .should('have.length', pageSize);
+            cy.wrap($carouselItems)
+              .filter(':not([inert])')
+              .should('have.length', pageSize);
+
+            // Verify that the first carousel items has the correct
+            // aria-hidden and inert attributes, and that those attributes
+            // change accordingly after we advance the slider.
+            cy.wrap($carouselItems)
+              .first()
+              .then($firstChild => {
+                cy.wrap($firstChild)
+                  .should('have.attr', 'aria-hidden')
+                  .and('equal', 'false');
+                cy.wrap($firstChild).should('not.have.attr', 'inert');
+
+                // Scroll carousel forward.
+                cy.get(_selectors.buttonNext)
+                  .click()
+                  // Wait a second for the carousel to finish moving
+                  .wait(1000);
+
+                // Verify that the aria-hidden and inert attributes of the
+                // first item toggled as expected. We just check the first,
+                // so that we don't have to consider the current viewport
+                // size. Checking the first should suffice, given this
+                // behavior is triggered via IntersectionObserver, and the
+                // first item being exposed is representative of any arbitrary
+                // item being exposed.
+                cy.wrap($firstChild)
+                  .should('have.attr', 'aria-hidden')
+                  .and('equal', 'true');
+                cy.wrap($firstChild).should('have.attr', 'inert');
+
+                // Scroll carousel backward to set it back to its initial
+                // position.
+                cy.get(_selectors.buttonPrevious)
+                  .click()
+                  // Wait a second for the carousel to finish moving
+                  .wait(1000);
+              });
+          });
+      });
+    });
+  },
   checkScroll: () => {
     it('should scroll forward when Next button is clicked and back when the Previous button is clicked', () => {
       cy.get(_selectors.buttonNext)
@@ -232,6 +290,7 @@ describe('cds-carousel | default (desktop)', () => {
   _tests.checkTextRenders();
   _tests.checkSameHeight();
   _tests.checkClickableCard();
+  _tests.checkInertAriaHidden();
   _tests.checkScroll();
 });
 
@@ -246,6 +305,7 @@ describe('cds-carousel | default (mobile)', () => {
   _tests.screenshotThemes();
   _tests.checkTextRenders();
   _tests.checkClickableCard();
+  _tests.checkInertAriaHidden();
   _tests.checkScroll();
 });
 
@@ -277,6 +337,7 @@ describe('cds-carousel | with images (mobile)', () => {
   _tests.checkTextRenders();
   _tests.checkImageRenders();
   _tests.checkClickableCard();
+  _tests.checkInertAriaHidden();
   _tests.checkScroll();
 });
 
@@ -294,6 +355,7 @@ describe('cds-carousel | with videos (desktop)', () => {
   _tests.checkVideoDurationText();
   _tests.checkSameHeight();
   _tests.checkClickableCard();
+  _tests.checkInertAriaHidden();
   _tests.checkScroll();
 });
 
@@ -310,6 +372,7 @@ describe('cds-carousel | with videos (mobile)', () => {
   _tests.checkVideoRenders();
   _tests.checkVideoDurationText();
   _tests.checkClickableCard();
+  _tests.checkInertAriaHidden();
   _tests.checkScroll();
 });
 
@@ -328,6 +391,7 @@ describe('cds-carousel | with media (desktop)', () => {
   _tests.checkVideoDurationText();
   _tests.checkSameHeight();
   _tests.checkClickableCard();
+  _tests.checkInertAriaHidden();
   _tests.checkScroll();
 });
 
@@ -345,5 +409,6 @@ describe('cds-carousel | with media (mobile)', () => {
   _tests.checkVideoRenders();
   _tests.checkVideoDurationText();
   _tests.checkClickableCard();
+  _tests.checkInertAriaHidden();
   _tests.checkScroll();
 });
