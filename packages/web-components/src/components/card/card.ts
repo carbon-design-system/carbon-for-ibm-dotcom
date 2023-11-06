@@ -65,8 +65,12 @@ class DDSCard extends StableSelectorMixin(BXLink) {
   protected _handleSlotChange({ target }: Event) {
     const { name } = target as HTMLSlotElement;
     const hasContent = Boolean(this.querySelector('p'));
+    const hasPictogram = Boolean(
+      (target as HTMLSlotElement).assignedNodes().length
+    );
     this[slotExistencePropertyNames[name]] = hasContent;
     this._hasCopy = hasContent;
+    this._hasPictogram = hasPictogram;
   }
 
   /**
@@ -99,6 +103,20 @@ class DDSCard extends StableSelectorMixin(BXLink) {
   }
 
   /**
+   * renders the pictogram slot.
+   */
+  protected _renderPictogram(
+    placement: PICTOGRAM_PLACEMENT = PICTOGRAM_PLACEMENT.TOP
+  ): TemplateResult | string | void {
+    return html`
+      <slot
+        name="pictogram"
+        data-pictogram-placement="${placement}"
+        @slotchange="${this._handleSlotChange}"></slot>
+    `;
+  }
+
+  /**
    * @returns The disabled link content.
    */
   protected _renderDisabledLink() {
@@ -112,52 +130,52 @@ class DDSCard extends StableSelectorMixin(BXLink) {
    * @returns The inner content.
    */
   protected _renderInner() {
-    const {
-      _handleSlotChange: handleSlotChange,
-      _hasPictogram: hasPictogram,
-      _hasCopy: hasCopy,
-    } = this;
-    return html`
-      ${this._renderImage()}
-      <div
-        class="${prefix}--card__wrapper ${hasPictogram
-          ? `${prefix}--card__pictogram`
-          : ''} ${hasPictogram && hasCopy ? `${prefix}--card__motion` : ''}">
-        <div class="${prefix}--card__content">
-          ${hasPictogram ? '' : html` <slot name="eyebrow"></slot> `}
-          ${this.pictogramPlacement === PICTOGRAM_PLACEMENT.TOP
-            ? html`
-                <slot
-                  name="pictogram"
-                  data-pictogram-placement="${PICTOGRAM_PLACEMENT.TOP}"
-                  @slotchange="${handleSlotChange}"></slot>
-              `
-            : ''}
-          ${this.pictogramPlacement !== PICTOGRAM_PLACEMENT.TOP || !hasPictogram
-            ? this._renderHeading()
-            : null}
-          ${this.pictogramPlacement === PICTOGRAM_PLACEMENT.BOTTOM ||
-          !hasPictogram
-            ? this._renderCopy()
-            : ''}
-          ${this.pictogramPlacement === PICTOGRAM_PLACEMENT.BOTTOM
-            ? html`
-                <slot
-                  name="pictogram"
-                  data-pictogram-placement="${PICTOGRAM_PLACEMENT.BOTTOM}"
-                  @slotchange="${handleSlotChange}"></slot>
-              `
-            : ''}
-          ${hasPictogram && this.pictogramPlacement === PICTOGRAM_PLACEMENT.TOP
-            ? this._renderHeading()
-            : null}
-          ${hasPictogram && this.pictogramPlacement === PICTOGRAM_PLACEMENT.TOP
-            ? this._renderCopy()
-            : ''}
-          <slot name="footer"></slot>
+    const { _hasPictogram: hasPictogram, _hasCopy: hasCopy } = this;
+    if (hasPictogram) {
+      return html`
+        ${this._renderImage()}
+        <a
+          tabindex="0"
+          href="${this.href}"
+          target="_self"
+          class="${prefix}--card__wrapper ${prefix}--card__pictogram
+           ${hasCopy ? `${prefix}--card__motion` : ''}">
+          <div class="${prefix}--card__content">
+            ${this.pictogramPlacement === PICTOGRAM_PLACEMENT.TOP
+              ? this._renderPictogram(PICTOGRAM_PLACEMENT.TOP)
+              : ''}
+            ${this.pictogramPlacement !== PICTOGRAM_PLACEMENT.TOP ||
+            !hasPictogram
+              ? this._renderHeading()
+              : null}
+            ${this.pictogramPlacement === PICTOGRAM_PLACEMENT.BOTTOM ||
+            !hasPictogram
+              ? this._renderCopy()
+              : ''}
+            ${this.pictogramPlacement === PICTOGRAM_PLACEMENT.BOTTOM
+              ? this._renderPictogram(PICTOGRAM_PLACEMENT.BOTTOM)
+              : ''}
+            ${this.pictogramPlacement === PICTOGRAM_PLACEMENT.TOP
+              ? this._renderHeading()
+              : null}
+            ${this.pictogramPlacement === PICTOGRAM_PLACEMENT.TOP
+              ? this._renderCopy()
+              : ''}
+          </div>
+        </a>
+      `;
+    } else {
+      return html`
+        ${this._renderImage()}
+        <div class="${prefix}--card__wrapper">
+          <div class="${prefix}--card__content">
+            <slot name="eyebrow"></slot>
+            ${this._renderHeading()} ${this._renderCopy()}
+            <slot name="footer"></slot>
+          </div>
         </div>
-      </div>
-    `;
+      `;
+    }
   }
 
   /**
@@ -232,10 +250,6 @@ class DDSCard extends StableSelectorMixin(BXLink) {
       );
     }
 
-    if (this._hasPictogram) {
-      this.onclick = () => window.open(this.href, '_self');
-    }
-
     const copyElement = this.querySelector('p');
     if (this._hasCopy && copyElement?.innerText) {
       copyElement.innerHTML = `${markdownToHtml(copyElement?.innerText, {
@@ -249,7 +263,6 @@ class DDSCard extends StableSelectorMixin(BXLink) {
     return this._hasPictogram
       ? html`
           <div
-            tabindex="0"
             aria-label="${this.querySelector(`${ddsPrefix}-card-heading`)
               ?.textContent || ''}"
             aria-live="polite"
