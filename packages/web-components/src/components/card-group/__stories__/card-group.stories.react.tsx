@@ -19,6 +19,7 @@ import C4DImageItem from '@carbon/ibmdotcom-web-components/es/components-react/i
 import C4DCardCTAImage from '@carbon/ibmdotcom-web-components/es/components-react/cta/card-cta-image';
 import C4DCardEyebrow from '@carbon/ibmdotcom-web-components/es/components-react/card/card-eyebrow';
 import C4DCardHeading from '@carbon/ibmdotcom-web-components/es/components-react/card/card-heading';
+// @ts-ignore
 import C4DTagGroup from '@carbon/ibmdotcom-web-components/es/components-react/tag-group/tag-group';
 import C4DCard from '@carbon/ibmdotcom-web-components/es/components-react/card/card';
 import C4DCardFooter from '@carbon/ibmdotcom-web-components/es/components-react/card/card-footer';
