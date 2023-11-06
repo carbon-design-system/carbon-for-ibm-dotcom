@@ -104,6 +104,7 @@ export const Default = (args) => {
               height="64"
               viewBox="8 8 32 32"
               xml:space="preserve">
+              <title></title>
               <g>
                 <g>
                   <path
