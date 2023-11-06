@@ -10,8 +10,8 @@
 @use '@carbon/styles/scss/type' as *;
 @use '@carbon/ibmdotcom-styles/scss/internal/content-block';
 @use '@carbon/ibmdotcom-styles/scss/internal/content-item';
-@use '@carbon/ibmdotcom-styles/scss/components/layout';
-@use '@carbon/ibmdotcom-styles/scss/components/card-group';
+@use '../../../../styles/scss/components/layout';
+@use '../../../../styles/scss/components/card-group';
 @use '@carbon/ibmdotcom-styles/scss/globals/utils/content-width' as *;
 @use '@carbon/ibmdotcom-styles/scss/globals/utils/flex-grid' as *;
 @use '@carbon/ibmdotcom-styles/scss/globals/vars' as *;
@@ -53,7 +53,11 @@
 }
 
 .#{$c4d-prefix}--content-block-footer {
-  @extend :host(#{$c4d-prefix}-card-group);
+  margin-top: $spacing-09;
+
+  @include breakpoint(md) {
+    margin-top: $spacing-10;
+  }
 }
 
 // TODO: Apply `cds--make-col(2, 3)` to React version, too, so we can merge the style to React version

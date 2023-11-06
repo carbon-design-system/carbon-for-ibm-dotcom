@@ -11,74 +11,118 @@ import '../index';
 import '../../cta/index';
 import '../../card-link/index';
 import { html } from 'lit-element';
-import { boolean, optionsKnob } from '@storybook/addon-knobs';
+import { boolean, select } from '@storybook/addon-knobs';
 import ArrowRight20 from '../../../internal/vendor/@carbon/web-components/icons/arrow--right/20.js';
 import { CONTENT_BLOCK_COMPLEMENTARY_STYLE_SCHEME } from '../content-block';
-import imgLg16x9 from '../../../../../storybook-images/assets/720/fpo--16x9--720x405--002.jpg';
-import imgMd16x9 from '../../../../../storybook-images/assets/480/fpo--16x9--480x270--002.jpg';
-import imgSm16x9 from '../../../../../storybook-images/assets/320/fpo--16x9--320x180--002.jpg';
 import readme from './README.stories.mdx';
 
-const itemsHeading = 'Lorem ipsum dolor sit amet.';
-
-const copyWithList = `Lorem ipsum *dolor* sit amet, consectetur adipiscing elit. Aenean et ultricies est.
-  Mauris iaculis eget dolor nec hendrerit. Phasellus at elit sollicitudin, sodales
-  nulla quis, *consequat* libero. Here are
-  some common categories:
-  Lorem ipsum dolor sit amet, [consectetur adipiscing](https://www.ibm.com) elit.
-  Aenean et ultricies est. Mauris iaculis eget dolor nec hendrerit.
-  Phasellus at elit sollicitudin, sodales nulla quis, consequat libero.
-  Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-  Aenean et ultricies est.
-  Mauris iaculis eget dolor nec hendrerit.
-  Phasellus at elit sollicitudin, sodales nulla quis, consequat libero.
-
-  - [list item](https://www.ibm.com)
-    - list item 1a
-  1. list item 2
-    1. list item 2a
+const card1 = html`
+  <c4d-content-group-cards-item href="https://www.example.com">
+    <c4d-card-heading>
+      Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+      tempor incididunt
+    </c4d-card-heading>
+    <p>
+      Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod
+      tempor incididunt ut labore et dolore magna aliqua.
+    </p>
+    <c4d-card-footer icon-placement="left">
+      ${ArrowRight20({ slot: 'icon' })}
+    </c4d-card-footer>
+  </c4d-content-group-cards-item>
 `;
 
-const itemsCopy = `Lorem ipsum dolor sit amet, *consectetur* adipiscing elit.
-  Vivamus sed interdum tortor. Sed id pellentesque diam.
-  In ut quam id mauris finibus efficitur quis ut arcu.
-  Praesent purus turpis, venenatis eget odio et, tincidunt bibendum sem.
-  Curabitur pretium elit non blandit lobortis.
-  Donec quis pretium odio, in dignissim sapien.`;
-
-const items = [
-  {
-    itemsHeading,
-    itemsCopy,
-  },
-  {
-    itemsHeading,
-    itemsCopy: copyWithList,
-  },
-  {
-    itemsHeading,
-    itemsCopy,
-  },
-];
-
-const image = html`
-  <c4d-image
-    slot="media"
-    alt="Image alt text"
-    default-src="${imgLg16x9}"
-    heading="Lorem ipsum dolor sit amet.">
-    <c4d-image-item media="(min-width: 672px)" srcset="${imgLg16x9}">
-    </c4d-image-item>
-    <c4d-image-item media="(min-width: 400px)" srcset="${imgMd16x9}">
-    </c4d-image-item>
-    <c4d-image-item media="(min-width: 320px)" srcset="${imgSm16x9}">
-    </c4d-image-item>
-  </c4d-image>
+const card2 = html`
+  <c4d-content-group-cards-item href="https://www.example.com">
+    <c4d-card-heading>
+      Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+      tempor incididunt
+    </c4d-card-heading>
+    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit</p>
+    <c4d-card-footer icon-placement="left">
+      ${ArrowRight20({ slot: 'icon' })}
+    </c4d-card-footer>
+  </c4d-content-group-cards-item>
 `;
+
+  const currentComponents = [
+    'Callout quote',
+    'Callout with media',
+    'Card group',
+    'Card in card',
+    'Carousel',
+    'Content group',
+    'Content item row',
+    'Content item',
+    'Feature card',
+    'Image',
+    'Link list',
+    'Quote',
+    'Structured list',
+    'Tabs extended',
+    'Video player',
+  ];
+
+const specContext = require.context('../../', true, /\.stories\.ts$/);
+
+const storyModules = specContext.keys().map(specContext);
+
+const componentStories = {};
+
+storyModules.forEach((e) => {
+  const title = (e as any)?.default?.title || '';
+  componentStories[title.split('/')[1]] = e;
+});
 
 export const Default = (args) => {
-  const { heading, copy, showCopy, addChildren, showCTA, border, aside } =
+  const { heading, copy, showCopy, component, showCTA, border, aside } =
     args?.ContentBlock ?? {};
+
+    const currentStory = componentStories[component];
+  
+    const storyParameters = currentStory?.default?.parameters;
+  
+    // // setting default props from propSet
+
+    console.log(currentStory)
+    if (!storyParameters?.props) {
+      storyParameters.props = storyParameters?.propsSet?.default || {};
+    }
+  
+    const storyArray = [] as any;
+  
+    // setting up Story array to render all
+    // eslint-disable-next-line no-restricted-syntax
+    for (const [key, value] of Object.entries(currentStory)) {
+      if (value instanceof Function) {
+        const defaultObject = (value as any).story?.parameters?.propsSet?.default;
+        const defaultPropsKey = defaultObject && Object.keys(defaultObject)[0];
+  
+        // ensure variant story props save to its own key
+        if (defaultPropsKey && (value as any).story) {
+          storyParameters.props[defaultPropsKey] = (
+            value as any
+          ).story?.parameters?.propsSet.default[defaultPropsKey];
+        }
+  
+        // set props from current variant propSet if default props aren't defined
+        if (storyParameters?.props) {
+          storyParameters.props[key] = (
+            value as any
+          ).story?.parameters?.propsSet?.default[key];
+        }
+  
+        storyArray.push(value);
+      }
+    }
+  
+    const returnStory = storyArray.map((story) => {
+  
+      return html`
+        ${story(storyParameters.props)}
+      `;
+    });    
+
   return html`
     <c4d-content-block
       complementary-style-scheme="${border
@@ -95,31 +139,13 @@ export const Default = (args) => {
       ${showCopy
         ? html` <c4d-content-block-copy>${copy}</c4d-content-block-copy> `
         : ``}
-      ${addChildren.includes('Content group simple')
-        ? html`
-            <c4d-content-group-simple>
-              <c4d-content-group-heading
-                >Natural language processing (NLP)</c4d-content-group-heading
-              >
-              <c4d-content-group-copy
-                >Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-                Vestibulum non porttitor libero, in venenatis
-                magna.</c4d-content-group-copy
-              >
-              ${image}
-              ${items.map(
-                ({ itemsHeading: itemHeading, itemsCopy: itemCopy }) => html`
-                  <c4d-content-item>
-                    <c4d-content-item-heading
-                      >${itemHeading}</c4d-content-item-heading
-                    >
-                    <c4d-content-item-copy>${itemCopy}</c4d-content-item-copy>
-                  </c4d-content-item>
-                `
-              )}
-            </c4d-content-group-simple>
-          `
-        : ``}
+    ${component === 'Card group'
+    ? html`
+        <c4d-card-group>
+            ${card1}${card2}${card1}${card2}${card1}${card2}
+        </c4d-card-group>
+        `
+    : returnStory}        
       ${showCTA
         ? html`
             <c4d-card
@@ -183,14 +209,7 @@ export default {
           'ligula, vitae finibus ante aliquet a.',
 
         aside: boolean('Aside:', false),
-        addChildren: optionsKnob(
-          'Add children:',
-          {
-            'Content group simple': 'Content group simple',
-          },
-          '',
-          { display: 'multi-select' }
-        ),
+        component: select('Component:', currentComponents, 'Callout quote'),
         showCTA: boolean('CTA:', true),
         border: boolean('Border:', false),
       }),

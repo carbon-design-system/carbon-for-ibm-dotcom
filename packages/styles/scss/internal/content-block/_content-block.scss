@@ -114,11 +114,9 @@
     }
 
     ::slotted([slot='footer']) {
-      margin-top: $spacing-09;
 
       @include breakpoint(md) {
         width: 50%;
-        margin-top: $spacing-10;
       }
     }
 
