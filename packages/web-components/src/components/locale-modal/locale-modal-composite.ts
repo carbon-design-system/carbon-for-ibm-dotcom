@@ -13,12 +13,15 @@ import { ifDefined } from 'lit/directives/if-defined.js';
 import LocaleAPI from '@carbon/ibmdotcom-services/es/services/Locale/Locale.js';
 import ddsSettings from '../../internal/vendor/@carbon/ibmdotcom-utilities/utilities/settings/settings';
 import altlangs from '../../internal/vendor/@carbon/ibmdotcom-utilities/utilities/altlangs/altlangs.js';
+import HostListener from '../../internal/vendor/@carbon/web-components/globals/decorators/host-listener.js';
+import HostListenerMixin from '../../internal/vendor/@carbon/web-components/globals/mixins/host-listener.js';
 import HybridRenderMixin from '../../globals/mixins/hybrid-render';
 import {
   Country,
   LocaleList,
 } from '../../internal/vendor/@carbon/ibmdotcom-services-store/types/localeAPI.d';
 import './locale-modal';
+import DDSLocaleModal from './locale-modal';
 import './regions';
 import './region-item';
 import './locale-search';
@@ -34,7 +37,9 @@ const { stablePrefix: ddsPrefix } = ddsSettings;
  * @element dds-locale-modal-composite
  */
 @customElement(`${ddsPrefix}-locale-modal-composite`)
-class DDSLocaleModalComposite extends HybridRenderMixin(LitElement) {
+class DDSLocaleModalComposite extends HostListenerMixin(
+  HybridRenderMixin(LitElement)
+) {
   /**
    * @param countries A country list.
    * @returns Sorted version of the given country list.
@@ -89,6 +94,17 @@ class DDSLocaleModalComposite extends HybridRenderMixin(LitElement) {
   @property({ type: Boolean })
   open = false;
 
+  /**
+   * The region chosen by user.
+   */
+  @property()
+  chosenRegion?: string;
+
+  @HostListener(DDSLocaleModal.eventRegionUpdated)
+  protected _handleRegionUpdatedEvent(event) {
+    this.chosenRegion = event.detail.region || undefined;
+  }
+
   // eslint-disable-next-line class-methods-use-this
   async getLangDisplay() {
     const response = await LocaleAPI.getLangDisplay();
@@ -118,7 +134,7 @@ class DDSLocaleModalComposite extends HybridRenderMixin(LitElement) {
   }
 
   renderLightDOM() {
-    const { langDisplay, localeList, open } = this;
+    const { chosenRegion, langDisplay, localeList, open } = this;
     const { localeModal, regionList } = localeList ?? {};
     const {
       availabilityText,
@@ -168,7 +184,6 @@ class DDSLocaleModalComposite extends HybridRenderMixin(LitElement) {
         language: string;
       }[]
     );
-
     return html`
       <dds-locale-modal
         close-button-assistive-text="${ifDefined(modalClose)}"
@@ -177,32 +192,43 @@ class DDSLocaleModalComposite extends HybridRenderMixin(LitElement) {
         ?open="${open}">
         <dds-regions title="${ifDefined(headerTitle)}">
           ${regionList?.map(({ countryList, name }) => {
+            const isInvalid =
+              countryList.length === 0 ||
+              massagedCountryList?.find(({ region }) => region === name) ===
+                undefined;
             return html`
               <dds-region-item
-                ?invalid="${countryList.length === 0 ||
-                massagedCountryList?.find(({ region }) => region === name) ===
-                  undefined}"
+                ?invalid="${isInvalid}"
                 name="${name}"></dds-region-item>
             `;
           })}
         </dds-regions>
+
         <dds-locale-search
           close-button-assistive-text="${ifDefined(searchClearText)}"
           label-text="${ifDefined(searchLabel)}"
           placeholder="${ifDefined(searchPlaceholder)}"
           availability-label-text="${ifDefined(availabilityText)}"
           unavailability-label-text="${ifDefined(unavailabilityText)}">
-          ${massagedCountryList?.map(
-            ({ country, href, language, locale, region }) => html`
-              <dds-locale-item
-                country="${country}"
-                href="${href}"
-                language="${language}"
-                locale="${locale}"
-                region="${region}">
-              </dds-locale-item>
-            `
-          )}
+          ${chosenRegion
+            ? html`
+                ${massagedCountryList
+                  ?.filter(({ region }) => {
+                    return region === chosenRegion;
+                  })
+                  .map(
+                    ({ country, href, language, locale, region }) => html`
+                      <dds-locale-item
+                        country="${country}"
+                        href="${href}"
+                        language="${language}"
+                        locale="${locale}"
+                        region="${region}">
+                      </dds-locale-item>
+                    `
+                  )}
+              `
+            : ``}
         </dds-locale-search>
       </dds-locale-modal>
     `;

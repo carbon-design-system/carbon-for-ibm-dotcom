@@ -109,7 +109,7 @@ export const Default = (args) => {
 };
 
 export default {
-  title: 'Components/Masthead with scoped search',
+  title: 'Experimental/Masthead with scoped search',
   decorators: [
     (story) => {
       if (!(window as any)._hPageShow) {

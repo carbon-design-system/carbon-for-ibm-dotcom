@@ -1,5 +1,5 @@
 /**
- * Copyright IBM Corp. 2016, 2021
+ * Copyright IBM Corp. 2016, 2023
  *
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
@@ -16,8 +16,8 @@
 
 @mixin expressive-model {
   $modal: '.#{$prefix}--modal';
-  $button-size: carbon--rem(48px);
-  $icon-size: carbon--rem(20px);
+  $button-size: rem(48px);
+  $icon-size: rem(20px);
   $offset-close-icon: $carbon--spacing-07 - (($button-size - $icon-size) / 2);
 
   :host(#{$dds-prefix}-expressive-modal),
@@ -77,7 +77,7 @@
   #{$modal}--expressive--fullwidth #{$modal}-content {
     padding-right: 0;
     height: auto;
-    min-height: carbon--rem(500px);
+    min-height: rem(500px);
   }
 }
 

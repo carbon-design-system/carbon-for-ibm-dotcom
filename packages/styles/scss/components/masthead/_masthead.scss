@@ -73,11 +73,11 @@ $search-transition-timing: 95ms;
         content: '';
         display: block;
         position: absolute;
-        right: carbon--rem(-3px);
+        right: rem(-3px);
         top: 50%;
         transform: translateY(-50%);
-        height: carbon--rem(24px);
-        width: carbon--rem(1px);
+        height: rem(24px);
+        width: rem(1px);
         background-color: $ui-03;
       }
     }
