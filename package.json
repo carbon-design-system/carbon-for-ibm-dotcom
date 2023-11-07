@@ -34,13 +34,13 @@
     "@actions/tool-cache": "^1.5.0",
     "@babel/core": "~7.12.0",
     "@babel/helper-annotate-as-pure": "^7.9.0",
-    "@babel/plugin-proposal-class-properties": "~7.12.0",
     "@babel/plugin-proposal-export-default-from": "~7.12.0",
-    "@babel/plugin-proposal-export-namespace-from": "~7.12.0",
-    "@babel/plugin-proposal-nullish-coalescing-operator": "~7.12.0",
-    "@babel/plugin-proposal-optional-chaining": "~7.12.0",
+    "@babel/plugin-transform-class-properties": "~7.22.5",
+    "@babel/plugin-transform-export-namespace-from": "~7.22.11",
+    "@babel/plugin-transform-nullish-coalescing-operator": "~7.22.11",
+    "@babel/plugin-transform-optional-chaining": "~7.23.0",
     "@babel/plugin-transform-runtime": "7.18.5",
-    "@babel/preset-env": "~7.12.0",
+    "@babel/preset-env": "~7.23.2",
     "@babel/preset-react": "~7.12.1",
     "@commitlint/cli": "^16.0.0",
     "@commitlint/config-conventional": "^16.0.0",
@@ -85,5 +85,5 @@
     "node-notifier": ">=8.0.1",
     "flatpickr@4.6.13": "patch:flatpickr@npm%3A4.6.13#./.yarn/patches/flatpickr-npm-4.6.13-06399933fc.patch"
   },
-  "packageManager": "yarn@3.6.1"
+  "packageManager": "yarn@3.6.4"
 }

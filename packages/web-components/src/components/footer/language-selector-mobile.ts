@@ -20,7 +20,6 @@ const { stablePrefix: c4dPrefix } = settings;
  * The API for language selection is still subject to change.
  *
  * @element c4d-language-selector-mobile
- * @internal
  */
 @customElement(`${c4dPrefix}-language-selector-mobile`)
 class C4DLanguageSelectorMobile extends CDSSelect {

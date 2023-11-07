@@ -75,19 +75,17 @@ class C4DLocaleSearch extends ThrottedInputMixin(
   private _updateSearchResults(searchText: string) {
     const { selectorItem } = this.constructor as typeof C4DLocaleSearch;
     const { region: currentRegion, _liveRegion: liveRegion } = this;
-    let hasMatch = false;
     let count = 0;
     forEach(this.querySelectorAll(selectorItem), (item) => {
       const { country, language, region } = item as C4DLocaleItem;
       const matches =
         region === currentRegion && search([country, language], searchText);
       if (matches) {
-        hasMatch = true;
         count++;
       }
       (item as HTMLElement).hidden = !matches;
     });
-    this._hasAvailableItem = hasMatch;
+    this._hasAvailableItem = count > 0;
     if (liveRegion) {
       const announcement = count === 1 ? `${count} result` : `${count} results`;
       liveRegion.innerText = announcement;

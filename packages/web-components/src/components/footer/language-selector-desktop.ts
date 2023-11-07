@@ -25,7 +25,6 @@ const { stablePrefix: c4dPrefix } = settings;
  * The API for language selection is still subject to change.
  *
  * @element c4d-language-selector-desktop
- * @internal
  */
 @customElement(`${c4dPrefix}-language-selector-desktop`)
 class C4DLanguageSelectorDesktop extends HostListenerMixin(C4DComboBox) {
@@ -39,7 +38,7 @@ class C4DLanguageSelectorDesktop extends HostListenerMixin(C4DComboBox) {
    * The `<input>` for filtering.
    */
   @query('input')
-  private _filterInputNode!: HTMLInputElement;
+  protected _filterInputNode!: HTMLInputElement;
 
   /**
    * Reverts input value to last chosen valid language.
@@ -134,9 +133,8 @@ class C4DLanguageSelectorDesktop extends HostListenerMixin(C4DComboBox) {
   @property({ reflect: true })
   slot = 'language-selector';
 
-  // @ts-ignore
   updated(changedProperties) {
-    super.updated();
+    super.updated(changedProperties);
     if (changedProperties.has('value')) {
       this._lastValidLang = this.value;
     }

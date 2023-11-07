@@ -71,7 +71,7 @@ export const Default = (args) => {
 };
 
 export default {
-  title: 'Components/Content block headlines',
+  title: '',
   decorators: [
     (story) => html`
       <div
