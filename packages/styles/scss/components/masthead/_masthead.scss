@@ -10,12 +10,14 @@
 @use '@carbon/styles/scss/components/tooltip';
 @use '@carbon/styles/scss/components/ui-shell/side-nav';
 @use '@carbon/styles/scss/components/ui-shell/ui-shell';
+@use '@carbon/styles/scss/components/button/tokens' as *;
 @use '@carbon/styles/scss/config' as *;
 @use '@carbon/styles/scss/motion' as *;
 @use '@carbon/styles/scss/spacing' as *;
 @use '@carbon/styles/scss/theme' as *;
 @use '@carbon/styles/scss/themes' as *;
 @use '@carbon/styles/scss/type' as *;
+@use '@carbon/styles/scss/utilities' as *;
 @use '../../globals/vars' as *;
 @use '../link-with-icon';
 @use 'vars' as *;
@@ -64,6 +66,16 @@
     svg {
       width: 58px;
       height: 23px;
+
+      g,
+      path {
+        fill: $layer-selected-inverse;
+
+        /* stylelint-disable-next-line media-feature-name-no-unknown */
+        @media (prefers-contrast: more) {
+          fill: ButtonText;
+        }
+      }
     }
 
     &::after {
@@ -154,29 +166,45 @@
   color: $text-secondary;
   white-space: nowrap;
 
+  > svg {
+    fill: $icon-secondary;
+  }
+
   &:hover {
     background-color: $background-hover;
     cursor: pointer;
-    color: $text-primary;
+  }
+
+  &:active {
+    background-color: $background-selected;
+  }
+
+  &:active,
+  &:hover {
+    color: $icon-primary;
+
     > svg {
-      fill: currentColor;
+      fill: $icon-primary;
     }
   }
 
   &:active,
   &:focus {
-    outline: $spacing-01 solid $background-brand;
-    outline-offset: -#{$spacing-01};
-    > svg {
-      fill: $text-primary;
-    }
+    outline: 2px solid $button-primary;
+    outline-offset: -2px;
   }
 }
 
 /// @access private
 @mixin masthead {
+  * {
+    box-sizing: border-box;
+  }
+
   :host(#{$c4d-prefix}-masthead-composite),
+  :host(#{$c4d-prefix}-masthead-container),
   :host(#{$c4d-prefix}-cloud-masthead-container) {
+    position: relative;
     z-index: 900;
     padding-top: $spacing-09;
   }
@@ -184,6 +212,7 @@
   .#{$prefix}--masthead,
   :host(#{$c4d-prefix}-masthead) {
     @include theme($white, true);
+    @include font-family('sans');
 
     position: fixed;
     top: 0;
@@ -197,6 +226,14 @@
 
     &[with-banner] {
       top: $spacing-13;
+    }
+
+    &[has-l1] {
+      --c4d-active-l0-border-color: #{$layer-accent-01};
+    }
+
+    ::slotted([slot='profile']) {
+      background-color: $background;
     }
   }
 
@@ -222,10 +259,6 @@
     visibility: visible;
     opacity: 1;
     height: 100vh;
-  }
-
-  :host(#{$c4d-prefix}-megamenu-link-with-icon) {
-    @extend .#{$prefix}--link-with-icon;
   }
 
   .#{$prefix}--masthead--sticky.#{$prefix}--masthead--sticky__l1 {
@@ -355,6 +388,10 @@
         &[data-selected='true'] {
           border-bottom-color: transparent;
         }
+
+        &::after {
+          background-color: $focus;
+        }
       }
     }
 
@@ -363,6 +400,10 @@
       &:active {
         &[data-selected='true'][aria-expanded='false'] {
           border-bottom-color: transparent;
+
+          &::after {
+            background-color: $focus;
+          }
         }
       }
     }
@@ -381,7 +422,7 @@
       left: 0;
       right: 0;
       height: rem(3px);
-      background-color: $link-primary;
+      background-color: var(--c4d-active-l0-border-color, $link-primary);
     }
   }
 
@@ -403,9 +444,11 @@
         box-shadow: 0 $spacing-01 6px 0 rgba(0, 0, 0, 0.3);
         bottom: -1px;
         width: rem(256px);
+
         li {
           @include masthead-top-nav-menu-item;
         }
+
         .#{$prefix}--header__menu-item {
           border: none;
           position: relative;
@@ -453,19 +496,12 @@
     display: inline-flex;
     justify-content: center;
     align-items: center;
-    > {
-      svg {
-        position: relative;
-        fill: $icon-secondary;
-      }
-    }
     &:hover {
       background-color: $background-hover;
       transition-duration: $search-transition-timing;
-      > {
-        svg {
-          fill: $icon-primary;
-        }
+
+      > svg {
+        fill: $icon-primary;
       }
     }
 
@@ -473,6 +509,11 @@
     &:active {
       border-color: $focus;
       background-color: $background-hover;
+    }
+
+    > svg {
+      position: relative;
+      fill: $icon-secondary;
     }
 
     .#{$prefix}--overflow-menu {

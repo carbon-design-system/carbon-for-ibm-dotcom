@@ -89,7 +89,7 @@ class C4DMyComponent extends StableSelectorMixin(LitElement) {
   }
 
   static styles = styles;
-} // => <cds-my-component data-autoid="cds--my-component"></cds-my-component>
+} // => <c4d-my-component data-autoid="c4d--my-component"></c4d-my-component>
 ```
 
 ## Feature Flag

@@ -50,6 +50,12 @@ class C4DCarousel extends HostListenerMixin(StableSelectorMixin(CarbonBase)) {
   }
 
   /**
+   * The scrolling container node.
+   */
+  @query(`.${prefix}--carousel__scroll-container`)
+  private _containerNode?: HTMLElement;
+
+  /**
    * The scrolling contents node.
    */
   @query(`.${prefix}--carousel__scroll-contents`)
@@ -118,18 +124,10 @@ class C4DCarousel extends HostListenerMixin(StableSelectorMixin(CarbonBase)) {
 
   /**
    *  IntersectionObserver to watch carousel contents.
-   *  As items cross the minIntersectionRatio `inert` and `aria-hidden` are toggled.
+   *
+   *  @see connectedCallback()
    */
-  private _intersectionObserver = new IntersectionObserver(
-    this._onIntersect.bind(this),
-    {
-      root: this._contentsNode,
-      threshold: [
-        0.5 + this._intersectionThresholdDifference,
-        0.5 - this._intersectionThresholdDifference,
-      ],
-    }
-  );
+  private _intersectionObserver: IntersectionObserver | null = null;
 
   private _intersectionTimeout?;
 
@@ -243,6 +241,40 @@ class C4DCarousel extends HostListenerMixin(StableSelectorMixin(CarbonBase)) {
           this._observeResizeContainer
         );
         this._observerResizeContainer.observe(contentsNode);
+      }
+    }
+  }
+
+  /**
+   * Cleans-up and creates the intersection observer for the scrolling container.
+   *
+   * @param [options] The options.
+   * @param [options.create] `true` to create the new intersection observer.
+   */
+  private _cleanAndCreateObserverIntersection({
+    create,
+  }: { create?: boolean } = {}) {
+    const { _containerNode: containerNode } = this;
+    // Avoid creating the intersection observer prematurely by checking that
+    // this._containerNode has been set.
+    if (containerNode) {
+      if (this._intersectionObserver) {
+        this._intersectionObserver.disconnect();
+        this._intersectionObserver = null;
+      }
+      if (create) {
+        // As items cross the minIntersectionRatio `inert` and `aria-hidden` are
+        // toggled.
+        this._intersectionObserver = new IntersectionObserver(
+          this._onIntersect.bind(this),
+          {
+            root: containerNode,
+            threshold: [
+              0.5 + this._intersectionThresholdDifference,
+              0.5 - this._intersectionThresholdDifference,
+            ],
+          }
+        );
       }
     }
   }
@@ -376,10 +408,10 @@ class C4DCarousel extends HostListenerMixin(StableSelectorMixin(CarbonBase)) {
 
     this._childItems = (event.target as HTMLSlotElement).assignedElements();
 
-    this._intersectionObserver.disconnect();
+    this._intersectionObserver?.disconnect();
 
     this._childItems.forEach((item) => {
-      this._intersectionObserver.observe(item);
+      this._intersectionObserver?.observe(item);
     });
 
     // retrieve item heading, eyebrows, and footers to set same height
@@ -439,7 +471,6 @@ class C4DCarousel extends HostListenerMixin(StableSelectorMixin(CarbonBase)) {
           );
         });
       this._observeResizeRoot();
-      this.markHiddenAsInert();
     }
   }
 
@@ -617,6 +648,7 @@ class C4DCarousel extends HostListenerMixin(StableSelectorMixin(CarbonBase)) {
   connectedCallback() {
     super.connectedCallback();
     this._cleanAndCreateObserverResize({ create: true });
+    this._cleanAndCreateObserverIntersection({ create: true });
 
     const containingModal = this.closest(
       `${c4dPrefix}-expressive-modal`
@@ -632,37 +664,15 @@ class C4DCarousel extends HostListenerMixin(StableSelectorMixin(CarbonBase)) {
     }
   }
 
-  markHiddenAsInert() {
-    const { _childItems: childItems, start, pageSize } = this;
-
-    childItems.forEach((item) => {
-      const index = childItems.indexOf(item);
-      item.inert = index < start || index > start + pageSize - 1;
-    });
-  }
-
   disconnectedCallback() {
     this._cleanAndCreateObserverResize();
+    this._cleanAndCreateObserverIntersection();
     super.disconnectedCallback();
   }
 
   firstUpdated() {
     this._cleanAndCreateObserverResize({ create: true });
-  }
-
-  protected updated(changedProperties) {
-    if (changedProperties.has('start')) {
-      const { _childItems: childItems, start, pageSize } = this;
-
-      childItems.forEach((item) => {
-        const index = childItems.indexOf(item);
-        if (index < start || index > start + pageSize - 1) {
-          item.inert = true;
-        } else {
-          item.inert = false;
-        }
-      });
-    }
+    this._cleanAndCreateObserverIntersection({ create: true });
   }
 
   render() {
@@ -795,7 +805,7 @@ class C4DCarousel extends HostListenerMixin(StableSelectorMixin(CarbonBase)) {
    * A selector that will return the card item's tag group
    */
   static get selectorItemTagGroup() {
-    return `${c4dPrefix}-tag-group`;
+    return `div`;
   }
 
   /**

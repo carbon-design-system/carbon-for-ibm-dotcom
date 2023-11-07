@@ -102,9 +102,12 @@ function App() {
 
 #### Custom Navigation
 
+In order to set custom navigation for the masthead, set the custom navigation
+data to the `customNavLinks` property of the masthead-container component.
+
 ```javascript
 const links = [...menu items...];
-document.getElementById('masthead-container').navLinks = links;
+document.getElementById('masthead-container').customNavLinks = links;
 ```
 
 #### Using L1 nav
@@ -366,7 +369,7 @@ to see how Web Components selector and `data-autoid` should be used.
 | `<cds-top-nav-menu trigger-content="${item}">` and `<cds-top-nav-item title="${item}">`   | `data-autoid="cds--masthead__l0-nav--nav${item}"`                        | Interactive |
 | `<cds-top-nav-menu-item title="${item}">`                                                 | `data-autoid="cds--masthead__l0-nav--subnav-col${item}-item${item}"`     | Interactive |
 | `<cds-left-nav>`                                                                          | `data-autoid="cds--masthead__l0-sidenav"`                                | Component   |
-| `<cds-left-nav-menu trigger-content="${item}">` and `<cds-left-nav-item title="${item}">` | `data-autoid="cds--masthead__l0-sidenav--nav${item}"`                    | Interactive |
+| `<cds-left-nav-menu trigger-content="${item}">`                                           | `data-autoid="cds--masthead__l0-sidenav--nav${item}"`                    | Interactive |
 | `<cds-left-nav-menu-item title="${item}">`                                                | `data-autoid="cds--masthead__l0-sidenav--subnav-col${item}-item${item}"` | Interactive |
 
 <Description markdown={contributing} />

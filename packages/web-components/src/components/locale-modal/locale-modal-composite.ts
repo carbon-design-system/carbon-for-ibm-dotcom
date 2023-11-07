@@ -11,18 +11,25 @@ import { LitElement, html } from 'lit';
 import { property } from 'lit/decorators.js';
 import { ifDefined } from 'lit/directives/if-defined.js';
 import LocaleAPI from '@carbon/ibmdotcom-services/es/services/Locale/Locale.js';
+import ArrowRight20 from '../../internal/vendor/@carbon/web-components/icons/arrow--right/20.js';
+import Error20 from '../../internal/vendor/@carbon/web-components/icons/error/20.js';
 import settings from '../../internal/vendor/@carbon/ibmdotcom-utilities/utilities/settings/settings';
 import altlangs from '../../internal/vendor/@carbon/ibmdotcom-utilities/utilities/altlangs/altlangs.js';
+import HostListener from '../../internal/vendor/@carbon/web-components/globals/decorators/host-listener.js';
+import HostListenerMixin from '../../internal/vendor/@carbon/web-components/globals/mixins/host-listener.js';
 import HybridRenderMixin from '../../globals/mixins/hybrid-render';
 import {
   Country,
   LocaleList,
 } from '../../internal/vendor/@carbon/ibmdotcom-services-store/types/localeAPI.d';
 import './locale-modal';
+import C4DLocaleModal from './locale-modal';
 import './regions';
 import './region-item';
 import './locale-search';
 import './locale-item';
+import '../card/card-heading';
+import '../card/card-footer';
 import styles from './locale-modal-composite.scss';
 import { carbonElement as customElement } from '../../internal/vendor/@carbon/web-components/globals/decorators/carbon-element.js';
 
@@ -34,7 +41,9 @@ const { stablePrefix: c4dPrefix } = settings;
  * @element c4d-locale-modal-composite
  */
 @customElement(`${c4dPrefix}-locale-modal-composite`)
-class C4DLocaleModalComposite extends HybridRenderMixin(LitElement) {
+class C4DLocaleModalComposite extends HostListenerMixin(
+  HybridRenderMixin(LitElement)
+) {
   /**
    * @param countries A country list.
    * @returns Sorted version of the given country list.
@@ -89,6 +98,17 @@ class C4DLocaleModalComposite extends HybridRenderMixin(LitElement) {
   @property({ type: Boolean })
   open = false;
 
+  /**
+   * The region chosen by user.
+   */
+  @property()
+  chosenRegion?: string;
+
+  @HostListener(C4DLocaleModal.eventRegionUpdated)
+  protected _handleRegionUpdatedEvent(event) {
+    this.chosenRegion = event.detail.region || undefined;
+  }
+
   // eslint-disable-next-line class-methods-use-this
   async getLangDisplay() {
     const response = await LocaleAPI.getLangDisplay();
@@ -118,7 +138,7 @@ class C4DLocaleModalComposite extends HybridRenderMixin(LitElement) {
   }
 
   renderLightDOM() {
-    const { langDisplay, localeList, open } = this;
+    const { chosenRegion, langDisplay, localeList, open } = this;
     const { localeModal, regionList } = localeList ?? {};
     const {
       availabilityText,
@@ -168,7 +188,6 @@ class C4DLocaleModalComposite extends HybridRenderMixin(LitElement) {
         language: string;
       }[]
     );
-
     return html`
       <c4d-locale-modal
         close-button-assistive-text="${ifDefined(modalClose)}"
@@ -177,32 +196,57 @@ class C4DLocaleModalComposite extends HybridRenderMixin(LitElement) {
         ?open="${open}">
         <c4d-regions title="${ifDefined(headerTitle)}">
           ${regionList?.map(({ countryList, name }) => {
+            const isInvalid =
+              countryList.length === 0 ||
+              massagedCountryList?.find(({ region }) => region === name) ===
+                undefined;
             return html`
-              <c4d-region-item
-                ?invalid="${countryList.length === 0 ||
-                massagedCountryList?.find(({ region }) => region === name) ===
-                  undefined}"
-                name="${name}"></c4d-region-item>
+              <c4d-region-item link ?disabled="${isInvalid}" name="${name}">
+                <c4d-card-heading>${name}</c4d-card-heading>
+                <div
+                  slot="footer"
+                  class="${c4dPrefix}--region-item-footer"
+                  ?disabled="${isInvalid}">
+                  ${isInvalid
+                    ? Error20({
+                        slot: 'icon',
+                        class: `${c4dPrefix}--card__cta`,
+                      })
+                    : ArrowRight20({
+                        slot: 'icon',
+                        class: `${c4dPrefix}--card__cta`,
+                      })}
+                </div>
+              </c4d-region-item>
             `;
           })}
         </c4d-regions>
+
         <c4d-locale-search
           close-button-assistive-text="${ifDefined(searchClearText)}"
           label-text="${ifDefined(searchLabel)}"
           placeholder="${ifDefined(searchPlaceholder)}"
           availability-label-text="${ifDefined(availabilityText)}"
           unavailability-label-text="${ifDefined(unavailabilityText)}">
-          ${massagedCountryList?.map(
-            ({ country, href, language, locale, region }) => html`
-              <c4d-locale-item
-                country="${country}"
-                href="${href}"
-                language="${language}"
-                locale="${locale}"
-                region="${region}">
-              </c4d-locale-item>
-            `
-          )}
+          ${chosenRegion
+            ? html`
+                ${massagedCountryList
+                  ?.filter(({ region }) => {
+                    return region === chosenRegion;
+                  })
+                  .map(
+                    ({ country, href, language, locale, region }) => html`
+                      <c4d-locale-item
+                        country="${country}"
+                        href="${href}"
+                        language="${language}"
+                        locale="${locale}"
+                        region="${region}">
+                      </c4d-locale-item>
+                    `
+                  )}
+              `
+            : ``}
         </c4d-locale-search>
       </c4d-locale-modal>
     `;

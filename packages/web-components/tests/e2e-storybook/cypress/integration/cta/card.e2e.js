@@ -1,5 +1,5 @@
 /**
- * Copyright IBM Corp. 2021, 2022
+ * Copyright IBM Corp. 2021, 2023
  *
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
@@ -101,7 +101,7 @@ const _tests = {
 
         if (sheets) {
           const hover = getCssPropertyForRule(
-            '.bx--card:hover .bx--card__wrapper, :host(cds-card:hover) .bx--card__wrapper, :host(cds-link-list-item-card:hover) .bx--card__wrapper, :host(cds-card-group-item:hover) .bx--card__wrapper, :host(cds-card-group-item) .bx--card:hover .bx--card__wrapper, :host(cds-card-cta:hover) .bx--card__wrapper, :host(cds-link-list-item-card-cta:hover) .bx--card__wrapper, :host(cds-card-in-card:hover) .bx--card__wrapper, :host(cds-content-group-cards-item:hover) .bx--card__wrapper, :host(cds-content-group-cards-item) .bx--card:hover .bx--card__wrapper',
+            '.bx--card:hover .bx--card__wrapper, :host(cds-card:hover) .bx--card__wrapper, :host(cds-card-group-item:hover) .bx--card__wrapper, :host(cds-card-group-item) .bx--card:hover .bx--card__wrapper, :host(cds-card-cta:hover) .bx--card__wrapper, :host(cds-card-in-card:hover) .bx--card__wrapper, :host(cds-content-group-cards-item:hover) .bx--card__wrapper, :host(cds-content-group-cards-item) .bx--card:hover .bx--card__wrapper',
             'background-color',
             sheets
           );

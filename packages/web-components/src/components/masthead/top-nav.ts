@@ -440,6 +440,7 @@ class C4DTopNav extends StableSelectorMixin(HostListenerMixin(CDSHeaderNav)) {
         if (event.shiftKey) {
           if (
             target.previousElementSibling &&
+            target.previousElementSibling.parentElement === this &&
             target.previousElementSibling.getBoundingClientRect().left -
               navNode!.getBoundingClientRect().left <
               currentScrollPosition
@@ -448,6 +449,7 @@ class C4DTopNav extends StableSelectorMixin(HostListenerMixin(CDSHeaderNav)) {
           }
         } else if (
           target.nextElementSibling &&
+          target.nextElementSibling.parentElement === this &&
           Math.floor(
             target.nextElementSibling.getBoundingClientRect().right -
               navNode!.getBoundingClientRect().left
@@ -594,7 +596,10 @@ class C4DTopNav extends StableSelectorMixin(HostListenerMixin(CDSHeaderNav)) {
                 </div>
                 <div class="${c4dPrefix}-ce--header__nav-content-container">
                   <div class="${prefix}--header__nav-content">
-                    <nav part="nav" class="${prefix}--header__nav">
+                    <nav
+                      part="nav"
+                      class="${prefix}--header__nav"
+                      aria-label="Main Navigation">
                       <div class="${prefix}--sub-content-left"></div>
                       <div
                         part="menubar"

@@ -52,10 +52,10 @@ const setGridMode = {
 };
 
 const tagGroupContent = html`
-  <c4d-tag-group>
+  <div>
     <cds-tag type="cool-gray"> Systems w/TPS </cds-tag>
     <cds-tag type="cool-gray"> Virtual </cds-tag>
-  </c4d-tag-group>
+  </div>
 `;
 
 const textCTAContent = html`
@@ -112,7 +112,7 @@ const cardsDiffLengthPhrase = (
       <c4d-card-eyebrow>Topic</c4d-card-eyebrow>
       <c4d-card-heading></c4d-card-heading>
       ${tagGroup ? tagGroupContent : ''}
-      <c4d-card-footer cta-type="video" slot="footer" href="0_ibuqxqbe">
+      <c4d-card-footer cta-type="video" slot="footer" href="${videoId}">
       </c4d-card-footer>
     </c4d-card-group-item>
   `;

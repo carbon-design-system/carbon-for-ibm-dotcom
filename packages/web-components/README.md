@@ -68,10 +68,10 @@ yarn add @carbon/ibmdotcom-web-components
 > ```
 
 `@carbon/ibmdotcom-web-components` uses
-[`lit-html`](https://lit-html.polymer-project.org) for reactive templating on
-top of raw Web Components standard and
-[`lit-element`](https://lit-element.polymer-project.org) for reactive
-properties/attributes on top of `lit-html`.
+[`lit`](https://lit-html.polymer-project.org) for reactive templating on top of
+raw Web Components standard and
+[`lit/decorators`](https://lit-element.polymer-project.org) for reactive
+properties/attributes on top of `lit`.
 
 ## Usage Examples
 
@@ -96,7 +96,7 @@ import '@carbon/ibmdotcom-web-components/es/components/masthead/masthead-contain
 Once you do that, you can use our components as easy as using HTML tags, like:
 
 ```html
-<cds-masthead-container></cds-masthead-container>
+<c4d-masthead-container></c4d-masthead-container>
 ```
 
 > 💡 Check our
@@ -181,7 +181,7 @@ To prevent a flash of unstyled content (FOUC) from happening on your page be
 sure to to `display: none` if a component has not been defined yet. For example
 
 ```css
-cds-button-group:not(:defined) {
+c4d-button-group:not(:defined) {
   display: none;
 }
 ```
@@ -224,7 +224,7 @@ Here is an example of implementing the `dotcom-shell`:
 <html>
   <head>
     <script type="module">
-      import 'https://1.www.s81c.com/common/carbon-for-ibm-dotcom/tag/v1/latest/dotcom-shell.min.js';
+      import 'https://1.www.s81c.com/common/carbon-for-ibm-dotcom/tag/v2/latest/dotcom-shell.min.js';
 
       // The minimum prerequisite to use our service for translation data, etc.
       window.digitalData = {
@@ -252,7 +252,7 @@ Here is an example of implementing the `dotcom-shell`:
     ...
   </head>
   <body>
-    <cds-dotcom-shell-container></cds-dotcom-shell-container>
+    <c4d-dotcom-shell-container></c4d-dotcom-shell-container>
   </body>
 </html>
 ```
@@ -271,7 +271,7 @@ page:
   <head>
     <link
       rel="stylesheet"
-      href="https://1.www.s81c.com/common/carbon-for-ibm-dotcom/tag/v1/latest/plex.css" />
+      href="https://1.www.s81c.com/common/carbon-for-ibm-dotcom/tag/v2/latest/plex.css" />
     ...
   </head>
 </html>
@@ -315,12 +315,12 @@ A tag release would be called as:
 <!-- LATEST -->
 <script
   type="module"
-  src="https://1.www.s81c.com/common/carbon-for-ibm-dotcom/tag/v1/latest/dotcom-shell.min.js"></script>
+  src="https://1.www.s81c.com/common/carbon-for-ibm-dotcom/tag/v2/latest/dotcom-shell.min.js"></script>
 
 <!-- NEXT -->
 <script
   type="module"
-  src="https://1.www.s81c.com/common/carbon-for-ibm-dotcom/tag/v1/next/dotcom-shell.min.js"></script>
+  src="https://1.www.s81c.com/common/carbon-for-ibm-dotcom/tag/v2/next/dotcom-shell.min.js"></script>
 ```
 
 A specific release would be called as:
@@ -329,7 +329,7 @@ A specific release would be called as:
 <!-- SPECIFIC VERSION (available starting v1.6.0) -->
 <script
   type="module"
-  src="https://1.www.s81c.com/common/carbon-for-ibm-dotcom/version/v1.x.y/dotcom-shell.min.js"></script>
+  src="https://1.www.s81c.com/common/carbon-for-ibm-dotcom/version/v2.x.y/dotcom-shell.min.js"></script>
 ```
 
 > NOTE: The latest/next tags are moving versions. While beneficial to always
@@ -374,7 +374,7 @@ IBM.com Northstar footer:
 <body id="ibm-com" class="ibm-type">
   <div id="ibm-top" class="ibm-landing-page">
     <!-- Uses Carbon for IBM.com Web Components masthead -->
-    <cds-masthead-container></cds-masthead-container>
+    <c4d-masthead-container></c4d-masthead-container>
     <div id="ibm-content-wrapper">...</div>
     <!-- Uses legacy IBM.com Design System (Northstar) footer -->
     <footer role="contentinfo" aria-label="IBM"></footer>
@@ -437,7 +437,7 @@ You can create a derived class of our component and override
 like:
 
 ```javascript
-import { css, customElement } from 'lit-element';
+import { css, customElement } from 'lit';
 import C4DLinkWithIcon from '@carbon/ibmdotcom-web-components/es/components/link-with-icon/link-with-icon';
 
 @customElement('my-link-with-icon')
@@ -460,29 +460,19 @@ scheme of `@carbon/ibmdotcom-web-components` components:
 For example, if you add CSS like below:
 
 ```css
-cds-link-with-icon {
-  --cds-link-01: #3d70b2; /* `$link-01` token for `g100` theme */
+c4d-link-with-icon {
+  --c4d-link-01: #3d70b2; /* `$link-01` token for `g100` theme */
 }
 ```
 
 The color of the link in the code below changes to the one in the `g100` theme:
 
 ```html
-<cds-link-with-icon href="https://www.ibm.com/standards/carbon">
+<c4d-link-with-icon
+  href="https://www.ibm.com/standards/carbon"
+  cta-type="local">
   Link text
-  <svg
-    slot="icon"
-    focusable="false"
-    preserveAspectRatio="xMidYMid meet"
-    xmlns="http://www.w3.org/2000/svg"
-    aria-hidden="true"
-    width="20"
-    height="20"
-    viewBox="0 0 20 20">
-    <path
-      d="M11.8 2.8L10.8 3.8 16.2 9.3 1 9.3 1 10.7 16.2 10.7 10.8 16.2 11.8 17.2 19 10z"></path>
-  </svg>
-</cds-link-with-icon>
+</c4d-link-with-icon>
 ```
 
 The names of CSS Custom Properties you can use are the Carbon theme tokens
@@ -495,7 +485,7 @@ specific element by:
 ```scss
 @use '@carbon/styles/scss/themes' as *;
 
-cds-link-with-icon {
+c4d-link-with-icon {
   // Emits all theme tokens in CSS Custom Properties
   @include theme(g100, true);
 }

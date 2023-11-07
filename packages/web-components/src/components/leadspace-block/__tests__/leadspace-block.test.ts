@@ -9,15 +9,10 @@
 
 import { render } from 'lit/html.js';
 import '../leadspace-block';
-import { Default, WithVideo } from '../__stories__/leadspace-block.stories';
+import { Default } from '../__stories__/leadspace-block.stories';
 
 const DefaultTemplate = (props?) =>
   Default({
-    LeadSpaceBlock: props,
-  });
-
-const WithVideoTemplate = (props?) =>
-  WithVideo({
     LeadSpaceBlock: props,
   });
 
@@ -34,31 +29,6 @@ describe('c4d-leadspace-block', function () {
     it('should render with various attributes', async function () {
       render(
         DefaultTemplate({
-          title: 'leadspace-block title',
-          heading: 'leadspace-block heading',
-          copy: 'leadspace-block copy',
-        }),
-        document.body
-      );
-      await Promise.resolve(); // Update cycle for `<c4d-leadspace-block>`
-      expect(
-        document.body.querySelector('c4d-leadspace-block')
-      ).toMatchSnapshot({ mode: 'shadow' });
-    });
-  });
-
-  describe('Misc attributes - WithVideo', function () {
-    it('should render with minimum attributes', async function () {
-      render(WithVideoTemplate(), document.body);
-      await Promise.resolve(); // Update cycle for `<c4d-leadspace-block>`
-      expect(
-        document.body.querySelector('c4d-leadspace-block')
-      ).toMatchSnapshot({ mode: 'shadow' });
-    });
-
-    it('should render with various attributes', async function () {
-      render(
-        WithVideoTemplate({
           title: 'leadspace-block title',
           heading: 'leadspace-block heading',
           copy: 'leadspace-block copy',

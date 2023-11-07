@@ -224,16 +224,18 @@ export const WithLinkList = (args) => {
       ${image}
       <c4d-link-list type="default" slot="complementary">
         <c4d-link-list-heading>Tutorial</c4d-link-list-heading>
-        <c4d-link-list-item-card-cta href="${ifDefined(href)}" cta-type="local">
-          <p>Containerization A Complete Guide</p>
-          <c4d-card-cta-footer></c4d-card-cta-footer>
-        </c4d-link-list-item-card-cta>
-        <c4d-link-list-item-card-cta
+        <c4d-link-list-item-cta
           href="${ifDefined(href)}"
-          cta-type="external">
+          cta-type="local"
+          type="default">
+          <p>Containerization A Complete Guide</p>
+        </c4d-link-list-item-cta>
+        <c4d-link-list-item-cta
+          href="${ifDefined(href)}"
+          cta-type="external"
+          type="default">
           <p>Why should you use microservices and containers</p>
-          <c4d-card-cta-footer></c4d-card-cta-footer>
-        </c4d-link-list-item-card-cta>
+        </c4d-link-list-item-cta>
       </c4d-link-list>
       ${ctaStyle === 'card-link'
         ? html`

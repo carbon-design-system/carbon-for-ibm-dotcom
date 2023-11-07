@@ -1,7 +1,7 @@
 /**
  * @license
  *
- * Copyright IBM Corp. 2020, 2021
+ * Copyright IBM Corp. 2020, 2023
  *
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
@@ -34,10 +34,10 @@ function buildModulesReactComposite({ targetEnv = 'browser' } = {}) {
 
   const plugins = [
     ['@babel/plugin-transform-typescript', { isTSX: true }],
-    '@babel/plugin-proposal-class-properties',
-    '@babel/plugin-proposal-nullish-coalescing-operator',
-    ['@babel/plugin-proposal-object-rest-spread', { useBuiltIns: true }],
-    '@babel/plugin-proposal-optional-chaining',
+    '@babel/plugin-transform-class-properties',
+    '@babel/plugin-transform-nullish-coalescing-operator',
+    ['@babel/plugin-transform-object-rest-spread', { useBuiltIns: true }],
+    '@babel/plugin-transform-optional-chaining',
     // `version` field ensures `@babel/plugin-transform-runtime` is applied to newer helpers like decorator
     ['@babel/plugin-transform-runtime', { useESModules: targetEnv === 'browser', version: '7.3.0' }],
   ];

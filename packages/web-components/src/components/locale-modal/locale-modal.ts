@@ -48,8 +48,8 @@ class C4DLocaleModal extends C4DExpressiveModal {
    * Handles `click` event on the back button.
    */
   private _handleClickBackButton(e) {
-    this._currentRegion = undefined;
     e.preventDefault();
+    this._currentRegion = undefined;
   }
 
   /**
@@ -58,8 +58,8 @@ class C4DLocaleModal extends C4DExpressiveModal {
    * @param event The event.
    */
   private _handleClickRegionSelector(event: MouseEvent) {
-    const { invalid, name } = event.target as C4DRegionItem;
-    if (!invalid) {
+    const { disabled, name } = event.target as C4DRegionItem;
+    if (!disabled) {
       this._currentRegion = name;
     }
   }
@@ -68,6 +68,31 @@ class C4DLocaleModal extends C4DExpressiveModal {
   // @ts-ignore: The decorator refers to this method but TS thinks this method is not referred to
   private _handleAfterClose() {
     this._currentRegion = undefined;
+  }
+
+  /**
+   * Sets focus on primary selectable element.
+   */
+  private async _setPrimaryFocus() {
+    const { selectorPrimaryFocus } = C4DLocaleModal;
+    const focusTarget = this.querySelector(selectorPrimaryFocus);
+    if (focusTarget) {
+      (focusTarget as HTMLElement).tabIndex = 0;
+      (focusTarget as HTMLElement).focus();
+    }
+  }
+
+  /**
+   * Sets focus on locale selector search.
+   */
+  private async _setSearchFocus() {
+    const { selectorLocaleSearch } = C4DLocaleModal;
+    await this.updateComplete;
+    const localeSearch = this.querySelector(selectorLocaleSearch);
+    if (localeSearch) {
+      (localeSearch as C4DLocaleSearch).reset();
+      (localeSearch as HTMLElement).focus();
+    }
   }
 
   /**
@@ -80,7 +105,7 @@ class C4DLocaleModal extends C4DExpressiveModal {
       html`
         <p class="${prefix}--modal-header__label ${prefix}--type-delta">
           ${langDisplay}${EarthFilled16({
-            class: `${prefix}--locale-modal__label-globe`,
+            class: `${c4dPrefix}--locale-modal__label-globe`,
           })}
         </p>
       `}
@@ -108,7 +133,7 @@ class C4DLocaleModal extends C4DExpressiveModal {
         @click="${handleClickBackButton}">
         ${headerTitle}${ArrowLeft20({
           slot: 'icon',
-          class: `${prefix}--locale-modal__label-arrow`,
+          class: `${c4dPrefix}--locale-modal__label-arrow`,
         })}
       </c4d-link-with-icon>
       <p class="cds--modal-header__heading cds--type-beta" tabindex="0">
@@ -134,7 +159,7 @@ class C4DLocaleModal extends C4DExpressiveModal {
     const { _handleClickRegionSelector: handleClickRegionSelector } = this;
     return html`
       <div
-        class="${prefix}--modal-content ${prefix}--locale-modal"
+        class="${prefix}--modal-content ${c4dPrefix}--locale-modal"
         @click="${handleClickRegionSelector}">
         <slot name="regions-selector"></slot>
       </div>
@@ -152,7 +177,7 @@ class C4DLocaleModal extends C4DExpressiveModal {
   protected _renderHeader() {
     const { closeButtonAssistiveText } = this;
     return html`
-      <div id="${c4dPrefix}--modal-header">
+      <div id="${prefix}--modal-header">
         <c4d-expressive-modal-header>
           <c4d-expressive-modal-close-button
             assistive-text="${ifDefined(closeButtonAssistiveText)}">
@@ -197,27 +222,36 @@ class C4DLocaleModal extends C4DExpressiveModal {
   async updated(changedProperties) {
     super.updated(changedProperties);
     if (changedProperties.has('_currentRegion')) {
+      // Allow listening components to update their state.
+      this.dispatchEvent(
+        new CustomEvent(
+          (this.constructor as typeof C4DLocaleModal).eventRegionUpdated,
+          {
+            bubbles: true,
+            composed: true,
+            cancelable: true,
+            detail: {
+              region: this._currentRegion,
+            },
+          }
+        )
+      );
+
+      // Pass state to search element.
       const { selectorLocaleSearch } = this
         .constructor as typeof C4DLocaleModal;
       const localeSearch = this.querySelector(selectorLocaleSearch);
       if (localeSearch) {
         (localeSearch as C4DLocaleSearch).region = this._currentRegion ?? '';
-
-        if (this.open) {
-          (localeSearch as C4DLocaleSearch).reset();
-          (localeSearch as HTMLElement).focus();
-        }
       }
 
-      // re-focus on first region-item when navigating back to the first modal pane
-      const { selectorPrimaryFocus } = this
-        .constructor as typeof C4DLocaleModal;
-      const activeRegion = this.querySelector(selectorPrimaryFocus);
-      if (activeRegion && this.open) {
-        (activeRegion as HTMLElement).tabIndex = 0;
-        (activeRegion as HTMLElement).focus();
-      }
+      // Set element focus.
+      this._currentRegion ? this._setSearchFocus() : this._setPrimaryFocus();
     }
+  }
+
+  static get stableSelector() {
+    return `${c4dPrefix}--locale-modal`;
   }
 
   /**
@@ -237,10 +271,6 @@ class C4DLocaleModal extends C4DExpressiveModal {
     `;
   }
 
-  static get stableSelector() {
-    return `${c4dPrefix}--locale-modal`;
-  }
-
   /**
    * A selector selecting tabbable nodes.
    */
@@ -250,9 +280,16 @@ class C4DLocaleModal extends C4DExpressiveModal {
       ${c4dPrefix}-expressive-modal,
       ${c4dPrefix}-expressive-modal-close-button,
       ${c4dPrefix}-region-item,
-      ${c4dPrefix}-search,
+      ${prefix}-search,
       ${c4dPrefix}-locale-item
     `;
+  }
+
+  /**
+   * Name for event fired when a region is selected.
+   */
+  static get eventRegionUpdated() {
+    return `${c4dPrefix}-locale-modal-region-updated`;
   }
 
   static styles = styles; // `styles` here is a `CSSResult` generated by custom WebPack loader

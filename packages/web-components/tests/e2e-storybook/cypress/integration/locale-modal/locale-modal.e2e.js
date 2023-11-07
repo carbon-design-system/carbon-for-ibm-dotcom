@@ -1,5 +1,5 @@
 /**
- * Copyright IBM Corp. 2021, 2022
+ * Copyright IBM Corp. 2021, 2023
  *
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
@@ -80,6 +80,8 @@ describe('cds-locale-modal | default', () => {
       .find('cds-expressive-modal-close-button');
     closeButton
       .shadow()
+      .find('button');
+    closeButton
       .find('svg path')
       .then($icon => {
         expect($icon).to.have.attr(
@@ -87,7 +89,13 @@ describe('cds-locale-modal | default', () => {
           'M24 9.4L22.6 8 16 14.6 9.4 8 8 9.4 14.6 16 8 22.6 9.4 24 16 17.4 22.6 24 24 22.6 17.4 16 24 9.4z'
         );
       });
-    closeButton.click();
+
+    cy.get('dds-locale-modal')
+      .shadow()
+      .find('dds-expressive-modal-close-button')
+      .shadow()
+      .find('button')
+      .click();
 
     cy.takeSnapshots();
   });

@@ -20,8 +20,6 @@
   :host(#{$c4d-prefix}-link-list-item),
   :host(#{$c4d-prefix}-link-list-item-cta),
   :host(#{$c4d-prefix}-text-cta) {
-    display: flex;
-
     span {
       vertical-align: middle;
       align-self: center;
@@ -30,9 +28,9 @@
 
     svg,
     ::slotted(svg[slot='icon']) {
-      display: block;
+      display: inline;
       margin-left: $spacing-03;
-      align-self: center;
+      align-self: middle;
       fill: currentColor;
     }
 
@@ -44,6 +42,11 @@
       &:hover {
         @include type-style('body-compact-02');
       }
+    }
+
+    // Re-define the ruleset so this wins over `.cds--link:visited`, etc.
+    .#{$prefix}--link--disabled {
+      color: $text-disabled;
     }
 
     &.#{$prefix}--link-with-icon__icon-left,

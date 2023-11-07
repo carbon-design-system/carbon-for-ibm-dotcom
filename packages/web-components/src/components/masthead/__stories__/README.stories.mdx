@@ -31,18 +31,54 @@ import { cdnJs, cdnCss } from '../../../globals/internal/storybook-cdn';
 
 ### JS (via import)
 
-```javascript
+````javascript
 import '@carbon/ibmdotcom-web-components/es/components/masthead/masthead-container.js';
-```
-
-<Description markdown={`${cdnJs({ components: ['masthead'] })}`} />
-
+```<Description markdown={`\${cdnJs({ components: ['masthead'] })}`} />
 <Description markdown={`${cdnCss()}`} />
 
 ### HTML
 
 ```html
 <cds-masthead-container></cds-masthead-container>
+````
+
+#### Adopting Masthead v2 with new data endpoint
+
+###### JS (via CDN):
+
+```html
+// Alpha tag using changes from the feature branch (feat/masthead-v2)
+<script type="module" src="https://1.www.s81c.com/common/carbon-for-ibm-dotcom/tag/v2/alpha/masthead.min.js"></script>
+```
+
+###### Markup:
+
+```html
+<cds-masthead-container
+  data-endpoint="/common/carbon-for-ibm-dotcom/translations/masthead-footer/v2"
+  auth-method="profile-api"
+  has-contact="false"
+></cds-masthead-container>
+```
+
+#### Adopting Masthead v2 with Cloud data endpoint
+
+###### JS (via CDN):
+
+```html
+// Alpha tag using changes from the feature branch (feat/masthead-v2)
+<script type="module" src="https://1.www.s81c.com/common/carbon-for-ibm-dotcom/tag/v2/alpha/masthead.min.js"></script>
+```
+
+###### Markup:
+
+```html
+<cds-masthead-container
+  data-endpoint="/common/carbon-for-ibm-dotcom/translations/cloud-masthead"
+  platform="Cloud"
+  auth-method="cookie"
+  has-contact="true"
+></cds-masthead-container>
 ```
 
 #### Setting Platform
@@ -98,15 +134,19 @@ document.getElementById('masthead-container').platformUrl = urlObject;
 
 #### Custom Navigation
 
+In order to set custom navigation for the masthead, set the custom navigation
+data to the `customNavLinks` property of the masthead-container component.
+
 ```javascript
 const links = [...menu items...];
-document.getElementById('masthead-container').navLinks = links;
+document.getElementById('masthead-container').customNavLinks = links;
 ```
 
 #### Using L1 nav
 
-To use L1 nav, set `l1Data` prop. `l1Data` prop should be an object that
-contains the navigation data of L1 nav:
+To use L1 nav, set `l1Data` prop. `l1Data` prop should be a MastheadL1
+object, as defined in packages/services-store/src/actions/translateAPI.ts
+that contains the navigation data of L1 nav:
 
 ```javascipt
 const l1Data = {
@@ -114,7 +154,8 @@ const l1Data = {
     name: 'Stock Charts',
     url: 'https://example.com/',
   },
-  menuItems: (The nav links),
+  menuItems: [...],
+  actions: {...},
 }
 ```
 
@@ -149,6 +190,14 @@ been set.
 
 If no other menu items are marked active and the optional `platformUrl` property
 has been set, the platform link will be marked active.
+
+### Understanding the different authentication method types
+
+The `<cds-masthead-container>` and `<cds-masthead-composite>` components both expose the `auth-method` property which allows the adopters to define the authentication method based on their content ecosystems and renders the ultity menu items (located on the top right-hand area) based on the defined auth method. See below for more context on each available value.
+
+- `auth-method="profile-api"` - The default authentication method used on the global masthead to display links to the MyIBM profile.
+- `auth-method="cookie"` - This authentication method checks for the cookie name value return from the `cloud.ibm.com` console application (eg. `com.ibm.cloud.iam.LoggedIn.prod`) and see if it returns `1` or `0`. This method is designed and intended for "Cloud" web segment usage only.
+- `auth-method="docs-api"` - This authentication method checks against the console API user login response. This method is designed and intended for Cloud Docs (https://cloud.ibm.com) team usage only.
 
 ## Using custom search with typeahead API
 
@@ -353,7 +402,7 @@ to see how Web Components selector and `data-autoid` should be used.
 | `<cds-top-nav-menu trigger-content="${item}">` and `<cds-top-nav-item title="${item}">`   | `data-autoid="cds--masthead__l0-nav--nav${item}"`                        | Interactive |
 | `<cds-top-nav-menu-item title="${item}">`                                                 | `data-autoid="cds--masthead__l0-nav--subnav-col${item}-item${item}"`     | Interactive |
 | `<cds-left-nav>`                                                                          | `data-autoid="cds--masthead__l0-sidenav"`                                | Component   |
-| `<cds-left-nav-menu trigger-content="${item}">` and `<cds-left-nav-item title="${item}">` | `data-autoid="cds--masthead__l0-sidenav--nav${item}"`                    | Interactive |
+| `<cds-left-nav-menu trigger-content="${item}">`                                           | `data-autoid="cds--masthead__l0-sidenav--nav${item}"`                    | Interactive |
 | `<cds-left-nav-menu-item title="${item}">`                                                | `data-autoid="cds--masthead__l0-sidenav--subnav-col${item}-item${item}"` | Interactive |
 
 <Description markdown={contributing} />
