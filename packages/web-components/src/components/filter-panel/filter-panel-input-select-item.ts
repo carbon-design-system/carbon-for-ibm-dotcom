@@ -40,6 +40,12 @@ class C4DFilterPanelInputSelectItem extends FocusMixin(
   selected = false;
 
   /**
+   * Property for setting the value to a string.
+   */
+  @property()
+  value: string = '';
+
+  /**
    * Handles `slotchange` event.
    *
    * @param event The event.

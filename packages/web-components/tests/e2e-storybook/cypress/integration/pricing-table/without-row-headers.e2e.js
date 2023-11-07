@@ -13,7 +13,7 @@ import { createTests, createTestsMobile } from './_tests';
  * @type {string}
  * @private
  */
-const path = '/iframe.html?id=components-pricing-table--without-row-headers';
+const path = '/iframe.html?id=experimental-pricing-table--without-row-headers';
 
 describe('cds-pricing-table | without row headers (desktop)', () => {
   beforeEach(() => {

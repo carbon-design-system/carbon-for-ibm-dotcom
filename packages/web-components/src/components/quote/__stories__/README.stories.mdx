@@ -33,38 +33,26 @@ import '@carbon/ibmdotcom-web-components/es/components/quote/index.js';
 ### HTML
 
 ```html
-<cds-quote inverse mark-type="double-curved">
+<c4d-quote inverse mark-type="double-curved">
   This is the main quote
-  <cds-quote-source-heading>
+  <c4d-quote-source-heading>
     This is the first line of source
-  </cds-quote-source-heading>
-  <cds-quote-source-copy>
+  </c4d-quote-source-heading>
+  <c4d-quote-source-copy>
     This is the second line of source
-  </cds-quote-source-copy>
-  <cds-quote-source-bottom-copy>
+  </c4d-quote-source-copy>
+  <c4d-quote-source-bottom-copy>
     This is the third line of source
-  </cds-quote-source-bottom-copy>
-  <cds-link-with-icon slot="footer" href="https://example.com">
+  </c4d-quote-source-bottom-copy>
+  <c4d-link-with-icon slot="footer" href="https://example.com" cta-type="local">
     Link with Icon
-    <svg
-      slot="icon"
-      focusable="false"
-      preserveAspectRatio="xMidYMid meet"
-      xmlns="http://www.w3.org/2000/svg"
-      aria-hidden="true"
-      width="20"
-      height="20"
-      viewBox="0 0 20 20">
-      <path
-        d="M11.8 2.8L10.8 3.8 16.2 9.3 1 9.3 1 10.7 16.2 10.7 10.8 16.2 11.8 17.2 19 10z"></path>
-    </svg>
-  </cds-link-with-icon>
-</cds-quote>
+  </c4d-link-with-icon>
+</c4d-quote>
 ```
 
 ## Props
 
-<Props of="cds-quote" />
+<Props of="c4d-quote" />
 
 ## Stable selectors
 
@@ -74,6 +62,6 @@ to see how Web Components selector and `data-autoid` should be used.
 
 | Web Components selector | Compatibility selector     | Description |
 | ----------------------- | -------------------------- | ----------- |
-| `<cds-quote>`           | `data-autoid="cds--quote"` | Component   |
+| `<c4d-quote>`           | `data-autoid="c4d--quote"` | Component   |
 
 <Description markdown={contributing} />

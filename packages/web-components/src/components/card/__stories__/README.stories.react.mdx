@@ -77,7 +77,6 @@ import C4DCard from '@carbon/ibmdotcom-web-components/es/components-react/card/c
 import C4DCardHeading from '@carbon/ibmdotcom-web-components/es/components-react/card/card-heading';
 import C4DCardEyebrow from '@carbon/ibmdotcom-web-components/es/components-react/card/card-eyebrow';
 import C4DCardFooter from '@carbon/ibmdotcom-web-components/es/components-react/card/card-footer';
-import C4DTagGroup from '@carbon/ibmdotcom-web-components/es/components-react/tag-group/tag-group';
 import { Tag } from 'carbon-components-react';
 
 function App() {
@@ -85,10 +84,10 @@ function App() {
     <C4DCard colorScheme="light" border>
       <C4DCardEyebrow>Eyebrow text</C4DCardEyebrow>
       <C4DCardHeading>Heading text</C4DCardHeading>
-      <C4DTagGroup>
+      <div>
         <Tag>Most popular</Tag>
         <Tag type="purple">Enterprise</Tag>
-      </C4DTagGroup>
+      </div>
       <C4DCardFooter href="https://example.com">
         Card CTA text
         <ArrowRight20 slot="icon" />
@@ -126,7 +125,6 @@ import C4DCard from '@carbon/ibmdotcom-web-components/es/components-react/card/c
 import C4DCardHeading from '@carbon/ibmdotcom-web-components/es/components-react/card/card-heading';
 import C4DCardEyebrow from '@carbon/ibmdotcom-web-components/es/components-react/card/card-eyebrow';
 import C4DCardFooter from '@carbon/ibmdotcom-web-components/es/components-react/card/card-footer';
-import C4DTagGroup from '@carbon/ibmdotcom-web-components/es/components-react/tag-group/tag-group';
 import { Tag } from 'carbon-components-react';
 
 function App() {
@@ -140,10 +138,10 @@ function App() {
       {heading ? <C4DCardHeading>{heading}</C4DCardHeading> : ''}
       {copy ? <p>{copy}</p> : ``}
       {tagGroup ? (
-        <C4DTagGroup>
+        <div>
           <Tag>Most popular</Tag>
           <Tag type="purple">Enterprise</Tag>
-        </C4DTagGroup>
+        </div>
       ) : (
         ''
       )}
@@ -184,7 +182,6 @@ import C4DCard from '@carbon/ibmdotcom-web-components/es/components-react/card/c
 import C4DCardHeading from '@carbon/ibmdotcom-web-components/es/components-react/card/card-heading';
 import C4DCardEyebrow from '@carbon/ibmdotcom-web-components/es/components-react/card/card-eyebrow';
 import C4DCardFooter from '@carbon/ibmdotcom-web-components/es/components-react/card/card-footer';
-import C4DTagGroup from '@carbon/ibmdotcom-web-components/es/components-react/tag-group/tag-group';
 import { Tag } from 'carbon-components-react';
 
 function App() {
@@ -193,10 +190,10 @@ function App() {
       <C4DImage slot="image" alt="alt text" defaultSrc="../image.png" />
       <C4DCardEyebrow>{eyebrow}</C4DCardEyebrow>
       <C4DCardHeading>{heading}</C4DCardHeading>
-      <C4DTagGroup>
+      <div>
         <Tag>Most popular</Tag>
         <Tag type="purple">Enterprise</Tag>
-      </C4DTagGroup>
+      </div>
       <C4DCardFooter href="https://www.example.com">
         Sign up for the trial
         <ArrowRight20 slot="icon" />

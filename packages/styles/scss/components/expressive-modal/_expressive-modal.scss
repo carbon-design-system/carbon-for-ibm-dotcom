@@ -1,5 +1,5 @@
 /**
- * Copyright IBM Corp. 2016, 2021
+ * Copyright IBM Corp. 2016, 2023
  *
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
@@ -22,8 +22,10 @@
 /// @group expressive-modal
 
 @mixin expressive-modal {
+  $modal: '.#{$prefix}--modal';
+  $button-size: rem(48px);
   $icon-size: rem(20px);
-
+  $offset-close-icon: $spacing-07 - (($button-size - $icon-size) / 2);
 
   :host(#{$c4d-prefix}-expressive-modal) {
     @extend :host(#{$prefix}-modal);
@@ -41,7 +43,7 @@
     .#{$prefix}--modal-content {
       display: grid;
       grid-template-rows: auto 1fr auto;
-      margin-bottom: 0;
+      padding-bottom: 0;
     }
 
     .#{$c4d-prefix}-ce--modal__header--with-body {

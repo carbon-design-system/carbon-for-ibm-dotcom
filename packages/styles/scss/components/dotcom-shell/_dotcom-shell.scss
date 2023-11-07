@@ -30,4 +30,9 @@
     max-width: 99rem;
     width: 100%;
   }
+
+  :host(#{$c4d-prefix}-dotcom-shell-container),
+  :host(#{$c4d-prefix}-dotcom-shell-composite) {
+    display: contents;
+  }
 }

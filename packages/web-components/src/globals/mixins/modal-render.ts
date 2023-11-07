@@ -68,6 +68,12 @@ const ModalRenderMixin = <T extends Constructor<HTMLElement>>(Base: T) => {
     modalRenderRoot: Element | null | void = null;
 
     /**
+     * Defines properties which should trigger modal renders. If none are specified,
+     * modal renders on any property update.
+     */
+    modalTriggerProps: string[] = [];
+
+    /**
      * The DOM element to put the modal into.
      */
     get container() {
@@ -111,11 +117,26 @@ const ModalRenderMixin = <T extends Constructor<HTMLElement>>(Base: T) => {
     }
 
     update(changedProperties) {
+      const { modalTriggerProps } = this;
       // TODO: Figure out how to inherit `LitElement` for this mix-in class
       // @ts-ignore
       super.update(changedProperties);
       if (!this._disconnectedAfterCreation) {
-        this._createAndRenderModal();
+        if (modalTriggerProps.length > 0) {
+          // React only on updates to specified properties.
+          const changedPropNames = Array.from(
+            changedProperties.keys() as string[]
+          );
+          const matches = modalTriggerProps.filter((prop) =>
+            changedPropNames.includes(prop)
+          );
+          if (matches.length > 0) {
+            this._createAndRenderModal();
+          }
+        } else {
+          // React on every property update.
+          this._createAndRenderModal();
+        }
       }
     }
 

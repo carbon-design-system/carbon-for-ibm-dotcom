@@ -36,13 +36,15 @@ For Carbon v11 migration guidance, see their
 | content-block-simple      | This component is deprecated in v2 in favor for content-section/block component.                                                               |
 | content-group-banner      | View changes [here](#content-group-banner).                                                                                                    |
 | content-group-horizontal  | This component is deprecated in v1 and has been removed in v2 in favor of the content-block-horizontal component.                              |
-| content-group-cards       | This component is deprecated in v2 in favor for content-section/block & card-group components.                                                 |
-| content-group-pictograms  | This component is deprecated in v2 in favor for content-section/block content-item (pictogram variant) components.                             |
-| content-group-simple      | This component is deprecated in v2 in favor for content-group, image, & content-item components.                                               |
-| content-item-horizontal   | View changes [here](#content-item-horizontal).                                                                                                 |
-| cta                       | View changes [here](#cta).                                                                                                                     |
-| cta-block                 | This component is deprecated in v2 in favor for content-section/block & content-item components.                                               |
-| cta-section               | This component is deprecated in v2 in favor for content-section/block & content-item components.                                               |
+| content-group-cards       | This component is deprecated in v2 in favor for content-section/block & card-group components                                                  |
+| content-group-pictograms  | This component is deprecated in v2 in favor for content-section/block content-item (pictogram variant) components                              |
+| content-group-simple      | This component is deprecated in v2 in favor for content-group, image, & content-item components                                                |
+| content-item              | View changes [here](#content-item)                                                                                                             |
+| content-item-horizontal   | View changes [here](#content-item-horizontal)                                                                                                  |
+| cta                       | View changes [here](#cta)                                                                                                                      |
+| cta-block                 | This component is deprecated in v2 in favor for content-section/block & content-item components                                                |
+| cta-section               | This component is deprecated in v2 in favor for content-section/block & content-item components                                                |
+| dotcom-shell              | No API changes.                                                                                                                                |
 | feature-card-block-large  | This component is deprecated in v1 and has been removed in v2 in favor of the feature-card component.                                          |
 | feature-card-block-medium | This component is deprecated in v1 and has been removed in v2 in favor of the feature-card component.                                          |
 | feature-section           | View changes [here](#feature-section).                                                                                                         |
@@ -60,10 +62,13 @@ For Carbon v11 migration guidance, see their
 | logo-grid                 | This component is deprecated in v2 in favor for content-section/block & image-group components.                                                |
 | pictogram-item            | This component is deprecated in v2 in favor for content-item (pictogram variation) component.                                                  |
 | quote                     | No API changes.                                                                                                                                |
+| scroll-animations         | No API changes.                                                                                                                                |
 | search-with-typeahead     | No API changes.                                                                                                                                |
 | table-of-contents         | No API changes.                                                                                                                                |
 | tabs-extended-media       | This component is deprecated in v2 in favor for tabs-extended component                                                                        |
-| universal-banner          | View changes [here](#universal-banner).                                                                                                        |
+| tag-group      | This component is deprecated in v2 in favor for wrapping core carbon `tags` in a `div`                                                                    |
+| tag-link       | This component is deprecated in v2 in favor for core carbon's `tag`                                                                                       |
+| universal-banner          | View changes [here](#universal-banner)                                                                                                         |
 
 ### Callout with media
 
@@ -90,6 +95,12 @@ For Carbon v11 migration guidance, see their
 
 - `content-group-banner` renamed to `in-page-banner`
 - New `color-scheme` property with options: `REGULAR = 'regular'`, `LAYER = 'layer'`, `CYAN = 'cyan'`, `PURPLE = 'purple'`
+
+### Content item
+
+- `content-item` new property `horizontal`
+- `content-item` now renders different variations for `statistics`, `pictogram`, `media`, & `logo`
+
 
 ### Content item horizontal
 

@@ -21,7 +21,6 @@
 @use '../../globals/vars' as *;
 @use '../button-group';
 @use '../image';
-@use '../tag-group';
 
 $btn-min-width: 26;
 
@@ -498,13 +497,11 @@ $btn-min-width: 26;
 
   :host(#{$c4d-prefix}-leadspace) ::slotted([slot='navigation']) {
     z-index: 1;
-    padding-left: $spacing-05;
-    padding-right: $spacing-05;
-    padding-bottom: $spacing-05;
-  }
-
-  :host(#{$c4d-prefix}-leadspace) ::slotted(#{$c4d-prefix}-tag-group) {
-    padding-bottom: $spacing-03;
+    /* stylelint-disable declaration-no-important */
+    // need the !important to prevent CSS reset styles from overwritting margin for tags
+    padding-left: $spacing-05 !important;
+    padding-right: $spacing-05 !important;
+    padding-bottom: $spacing-05 !important;
   }
 
   :host(#{$c4d-prefix}-breadcrumb-link[aria-current='page']) .#{$prefix}--link {
