@@ -38,7 +38,7 @@ const { log } = console;
  * @type {string}
  * @private
  */
-const _projectRoot = path.resolve(__dirname, '../../..');
+const _projectRoot = '../../..';
 
 /**
  * Test script folder
