@@ -204,6 +204,7 @@
   :host(#{$c4d-prefix}-masthead-composite),
   :host(#{$c4d-prefix}-masthead-container),
   :host(#{$c4d-prefix}-cloud-masthead-container) {
+    display: block;
     position: relative;
     z-index: 900;
     padding-top: $spacing-09;

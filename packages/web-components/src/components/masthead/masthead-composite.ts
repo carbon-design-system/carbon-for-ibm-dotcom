@@ -8,7 +8,7 @@
  */
 
 import { LitElement, html, TemplateResult } from 'lit';
-import { state, property } from 'lit/decorators.js';
+import { state, property, query } from 'lit/decorators.js';
 import { ifDefined } from 'lit/directives/if-defined.js';
 import ArrowRight16 from '../../internal/vendor/@carbon/web-components/icons/arrow--right/16.js';
 import ifNonEmpty from '../../internal/vendor/@carbon/web-components/globals/directives/if-non-empty.js';
@@ -1325,6 +1325,47 @@ class C4DMastheadComposite extends HostListenerMixin(LitElement) {
       : unauthenticatedCtaButtons;
   }
 
+  /**
+   * A reference to the dds-masthead element.
+   */
+  @query(`${c4dPrefix}-masthead`)
+  mastheadRef;
+
+  /**
+   * Resize observer to trigger container height recalculations.
+   *
+   * @private
+   */
+  private _heightResizeObserver = new ResizeObserver(
+    this._resizeObserverCallback.bind(this)
+  );
+
+  /**
+   * Prevents resize observer from blocking main thread.
+   */
+  private _resizeObserverThrottle?: NodeJS.Timeout;
+
+  /**
+   * Throttled callback for _heightResizeObserver.
+   */
+  protected _resizeObserverCallback() {
+    clearTimeout(this._resizeObserverThrottle);
+    this._resizeObserverThrottle = setTimeout(
+      this._setContainerHeight.bind(this),
+      100
+    );
+  }
+
+  /**
+   * Sets root element's height equal to the height of the fixed masthead elements.
+   */
+  protected _setContainerHeight() {
+    const { mastheadRef } = this;
+    if (mastheadRef) {
+      this.style.display = 'block';
+      this.style.height = `${mastheadRef.getBoundingClientRect().height}px`;
+    }
+  }
   firstUpdated() {
     const { language, dataEndpoint } = this;
     globalInit();
@@ -1344,6 +1385,9 @@ class C4DMastheadComposite extends HostListenerMixin(LitElement) {
       this._isMobileVersion = layoutBreakpoint.matches;
       this.requestUpdate();
     });
+
+    // Keep render root's height in sync with dds-masthead.
+    this._heightResizeObserver.observe(this.mastheadRef);
   }
 
   updated(changedProperties) {
@@ -1357,6 +1401,11 @@ class C4DMastheadComposite extends HostListenerMixin(LitElement) {
         this._loadTranslation?.(language, dataEndpoint).catch(() => {}); // The error is logged in the Redux store
       }
     }
+  }
+
+  disconnectedCallback() {
+    super.disconnectedCallback();
+    this._heightResizeObserver.disconnect();
   }
 
   render() {
