@@ -14,6 +14,7 @@ import {
   customElement,
   LitElement,
   TemplateResult,
+  query,
 } from 'lit-element';
 import { nothing } from 'lit-html';
 import { ifDefined } from 'lit-html/directives/if-defined';
@@ -1326,6 +1327,48 @@ class DDSMastheadComposite extends HostListenerMixin(LitElement) {
       : unauthenticatedCtaButtons;
   }
 
+  /**
+   * A reference to the dds-masthead element.
+   */
+  @query(`${ddsPrefix}-masthead`)
+  mastheadRef;
+
+  /**
+   * Resize observer to trigger container height recalculations.
+   *
+   * @private
+   */
+  private _heightResizeObserver = new ResizeObserver(
+    this._resizeObserverCallback.bind(this)
+  );
+
+  /**
+   * Prevents resize observer from blocking main thread.
+   */
+  private _resizeObserverThrottle?: NodeJS.Timeout;
+
+  /**
+   * Throttled callback for _heightResizeObserver.
+   */
+  protected _resizeObserverCallback() {
+    clearTimeout(this._resizeObserverThrottle);
+    this._resizeObserverThrottle = setTimeout(
+      this._setContainerHeight.bind(this),
+      100
+    );
+  }
+
+  /**
+   * Sets root element's height equal to the height of the fixed masthead elements.
+   */
+  protected _setContainerHeight() {
+    const { mastheadRef } = this;
+    if (mastheadRef) {
+      this.style.display = 'block';
+      this.style.height = `${mastheadRef.getBoundingClientRect().height}px`;
+    }
+  }
+
   createRenderRoot() {
     // We render child elements of `<dds-masthead-container>` by ourselves
     return this;
@@ -1349,6 +1392,9 @@ class DDSMastheadComposite extends HostListenerMixin(LitElement) {
       this._isMobileVersion = layoutBreakpoint.matches;
       this.requestUpdate();
     });
+
+    // Keep render root's height in sync with dds-masthead.
+    this._heightResizeObserver.observe(this.mastheadRef);
   }
 
   updated(changedProperties) {
@@ -1362,6 +1408,11 @@ class DDSMastheadComposite extends HostListenerMixin(LitElement) {
         this._loadTranslation?.(language, dataEndpoint).catch(() => {}); // The error is logged in the Redux store
       }
     }
+  }
+
+  disconnectedCallback() {
+    super.disconnectedCallback();
+    this._heightResizeObserver.disconnect();
   }
 
   render() {
