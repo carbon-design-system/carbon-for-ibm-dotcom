@@ -46,8 +46,12 @@ import './language-selector-mobile';
 import '../../internal/vendor/@carbon/web-components/components/combo-box/combo-box-item.js';
 import '../../internal/vendor/@carbon/web-components/components/select/select-item.js';
 import { carbonElement as customElement } from '../../internal/vendor/@carbon/web-components/globals/decorators/carbon-element.js';
+import { moderate02 } from '@carbon/motion';
 
 const { stablePrefix: c4dPrefix } = settings;
+
+// Delay matches the CSS animation timing for fadein/out of modal.
+const delay = parseInt(moderate02, 10);
 
 /**
  * Component that rendres footer from inks data.
@@ -62,9 +66,15 @@ class C4DFooterComposite extends MediaQueryMixin(
   /**
    * Handles `click` event on the locale button.
    */
-  private _handleClickLocaleButton = () => {
+  private async _handleClickLocaleButton() {
     this.openLocaleModal = true;
-  };
+    // Set 'open' attribute after modal is in dom so CSS can fade it in.
+    await this.updateComplete;
+    const composite = this.modalRenderRoot?.querySelector(
+      'dds-locale-modal-composite'
+    );
+    composite?.setAttribute('open', '');
+  }
 
   @state()
   _isMobile = this.carbonBreakpoints.lg.matches;
@@ -80,7 +90,10 @@ class C4DFooterComposite extends MediaQueryMixin(
   // @ts-ignore: The decorator refers to this method but TS thinks this method is not referred to
   private _handleCloseModal = (event: CustomEvent) => {
     if ((this.modalRenderRoot as Element).contains(event.target as Node)) {
-      this.openLocaleModal = false;
+      // Timeout here ensures the modal closing animation is visible.
+      setTimeout(() => {
+        this.openLocaleModal = false;
+      }, delay);
     }
   };
 
@@ -195,7 +208,12 @@ class C4DFooterComposite extends MediaQueryMixin(
    * `true` to open the locale modal.
    */
   @property({ type: Boolean, attribute: 'open-locale-modal' })
-  openLocaleModal = false;
+  openLocaleModal;
+
+  /**
+   * @inheritdoc
+   */
+  modalTriggerProps = ['openLocaleModal', 'localeList'];
 
   /**
    * Footer size.
@@ -246,16 +264,17 @@ class C4DFooterComposite extends MediaQueryMixin(
       openLocaleModal,
       _loadLocaleList: loadLocaleList,
     } = this;
-    return html`
-      <c4d-locale-modal-composite
-        lang-display="${ifDefined(langDisplay)}"
-        language="${ifDefined(language)}"
-        ?open="${openLocaleModal}"
-        .collatorCountryName="${ifDefined(collatorCountryName)}"
-        .localeList="${ifDefined(localeList)}"
-        ._loadLocaleList="${ifDefined(loadLocaleList)}">
-      </c4d-locale-modal-composite>
-    `;
+    return openLocaleModal
+      ? html`
+          <c4d-locale-modal-composite
+            lang-display="${ifDefined(langDisplay)}"
+            language="${ifDefined(language)}"
+            .collatorCountryName="${ifDefined(collatorCountryName)}"
+            .localeList="${ifDefined(localeList)}"
+            ._loadLocaleList="${ifDefined(loadLocaleList)}">
+          </c4d-locale-modal-composite>
+        `
+      : html``;
   }
 
   renderLanguageSelector(slot = 'language-selector') {

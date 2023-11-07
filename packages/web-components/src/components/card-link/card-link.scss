@@ -15,9 +15,7 @@
 @use '@carbon/ibmdotcom-styles/scss/components/card-link';
 
 :host(#{$c4d-prefix}-card-link),
-:host(#{$c4d-prefix}-card-link-cta),
-:host(#{$c4d-prefix}-link-list-item-card),
-:host(#{$c4d-prefix}-link-list-item-card-cta) {
+:host(#{$c4d-prefix}-card-link-cta) {
   max-width: rem(364px);
 
   .#{$prefix}--card__wrapper {
@@ -39,17 +37,6 @@
   .#{$prefix}--card__wrapper {
     .#{$prefix}--card__copy {
       flex: 1;
-    }
-  }
-}
-
-:host(#{$c4d-prefix}-link-list-item-card),
-:host(#{$c4d-prefix}-link-list-item-card-cta) {
-  ::slotted(#{$c4d-prefix}-card-footer) {
-    margin-block: $spacing-01;
-    margin-inline-start: $spacing-07;
-    @include breakpoint(lg) {
-      margin-inline-start: 0;
     }
   }
 }

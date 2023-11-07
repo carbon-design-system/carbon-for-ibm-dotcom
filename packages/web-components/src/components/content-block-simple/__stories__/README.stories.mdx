@@ -137,7 +137,7 @@ import '@carbon/ibmdotcom-web-components/es/components/content-block-simple/inde
 import '@carbon/ibmdotcom-web-components/es/components/cta/text-cta.js';
 
 // with link list
-import '@carbon/ibmdotcom-web-components/es/components/cta/link-list-item-card-cta.js';
+import '@carbon/ibmdotcom-web-components/es/components/cta/link-list-item-cta.js';
 import '@carbon/ibmdotcom-web-components/es/components/link-list/index';
 ```
 
@@ -171,14 +171,18 @@ import '@carbon/ibmdotcom-web-components/es/components/link-list/index';
 
   <cds-link-list type="default" slot="complementary">
     <cds-link-list-heading>Tutorial</cds-link-list-heading>
-    <cds-link-list-item-card-cta href="${ifDefined(href)}" cta-type="local">
+    <cds-link-list-item-cta
+      href="${ifDefined(href)}"
+      cta-type="local"
+      type="default">
       <p>Containerization A Complete Guide</p>
-      <cds-card-cta-footer></cds-card-cta-footer>
-    </cds-link-list-item-card-cta>
-    <cds-link-list-item-card-cta href="${ifDefined(href)}" cta-type="external">
+    </cds-link-list-item-cta>
+    <cds-link-list-item-cta
+      href="${ifDefined(href)}"
+      cta-type="external"
+      type="default">
       <p>Why should you use microservices and containers</p>
-      <cds-card-cta-footer></cds-card-cta-footer>
-    </cds-link-list-item-card-cta>
+    </cds-link-list-item-cta>
   </cds-link-list>
 
   <cds-text-cta slot="footer" href="https://www.ibm.com/" cta-type="local"

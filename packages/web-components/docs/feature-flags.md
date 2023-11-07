@@ -63,7 +63,7 @@ const template = (props?) =>
   Default({
     parameters: {
       props: {
-        'cds-feature-name': props,
+        'c4d-feature-name': props,
       },
     },
   });
@@ -77,15 +77,15 @@ Once a flag is created, it can then be imported for use within a component.
 For example:
 
 ```javascript
-import { LitElement } from 'lit-element';
+import { LitElement } from 'lit';
 import { C4D_FEATURE_NAME } from '../../globals/internal/feature-flags';
-import ddsSettings from '@carbon/ibmdotcom-utilities/es/utilities/settings/settings.js';
+import c4dSettings from '@carbon/ibmdotcom-utilities/es/utilities/settings/settings.js';
 const { stablePrefix: c4dPrefix } = ddsSettings;
 
 /**
  * EXPERIMENTAL: My Feature
  *
- * @element cds-my-feature
+ * @element c4d-my-feature
  */
 class C4DMyFeature extends LitElement {
   ...
@@ -106,7 +106,7 @@ feature flag:
 
 ```javascript
 import { number, select, text } from '@storybook/addon-knobs';
-import { html } from 'lit-element';
+import { html } from 'lit';
 import readme from './README.stories.mdx';
 import '../my-feature';
 import { C4D_MY_FEATURE } from '../../../internal/feature-flags';
@@ -127,7 +127,7 @@ export default !C4D_MY_FEATURE
 
 ## Turning On/Off Feature Flags Locally
 
-To enable a feature locally, follow the instructions on [environment variables](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/blob/main/packages/react/docs/environment-variables.md).
+To enable a feature locally, follow the below instructions: 
 
 Replace the helper text with the value `true`. For example:
 

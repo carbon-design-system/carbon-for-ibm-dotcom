@@ -344,18 +344,18 @@ export const WithLinkList = (args) => {
       </c4d-content-group-simple>
       <c4d-link-list type="default" slot="complementary">
         <c4d-link-list-heading>${linkListHeading}</c4d-link-list-heading>
-        <c4d-link-list-item-card-cta
+        <c4d-link-list-item-cta
           href="https://example.com"
-          cta-type="local">
+          cta-type="local"
+          type="default">
           <p>Containerization A Complete Guide</p>
-          <c4d-card-cta-footer></c4d-card-cta-footer>
-        </c4d-link-list-item-card-cta>
-        <c4d-link-list-item-card-cta
+        </c4d-link-list-item-cta>
+        <c4d-link-list-item-cta
           href="https://example.com"
-          cta-type="external">
+          cta-type="external"
+          type="default">
           <p>Why should you use microservices and containers</p>
-          <c4d-card-cta-footer></c4d-card-cta-footer>
-        </c4d-link-list-item-card-cta>
+        </c4d-link-list-item-cta>
       </c4d-link-list>
     </c4d-content-block-mixed>
   `;

@@ -230,18 +230,7 @@
   }
 
   :host(#{$c4d-prefix}-filter-panel-heading) {
-    @include type-style('heading-01');
-    @include breakpoint(sm) {
-      margin-left: $spacing-05;
-      margin-bottom: $spacing-05;
-    }
-    @include breakpoint(lg) {
-      margin: 0;
-    }
-
-    @include breakpoint-down(lg) {
-      display: none;
-    }
+    display: none;
   }
 
   :host(#{$c4d-prefix}-filter-group) {
