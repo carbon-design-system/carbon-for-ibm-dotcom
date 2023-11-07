@@ -13,7 +13,7 @@ const path = require('path');
 const { execSync } = require('child_process');
 const execa = require('execa');
 const chalk = require('chalk');
-const program = require('commander');
+const { program } = require('commander');
 const { mkdirSync, track } = require('temp');
 
 program
