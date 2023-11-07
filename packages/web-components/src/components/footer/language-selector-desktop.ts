@@ -25,7 +25,6 @@ const { stablePrefix: ddsPrefix } = ddsSettings;
  * The API for language selection is still subject to change.
  *
  * @element dds-language-selector-desktop
- * @internal
  */
 @customElement(`${ddsPrefix}-language-selector-desktop`)
 class DDSLanguageSelectorDesktop extends HostListenerMixin(DDSComboBox) {
@@ -39,7 +38,7 @@ class DDSLanguageSelectorDesktop extends HostListenerMixin(DDSComboBox) {
    * The `<input>` for filtering.
    */
   @query('input')
-  private _filterInputNode!: HTMLInputElement;
+  protected _filterInputNode!: HTMLInputElement;
 
   /**
    * Reverts input value to last chosen valid language.
@@ -134,9 +133,8 @@ class DDSLanguageSelectorDesktop extends HostListenerMixin(DDSComboBox) {
   @property({ reflect: true })
   slot = 'language-selector';
 
-  // @ts-ignore
   updated(changedProperties) {
-    super.updated();
+    super.updated(changedProperties);
     if (changedProperties.has('value')) {
       this._lastValidLang = this.value;
     }

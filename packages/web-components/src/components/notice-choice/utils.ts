@@ -59,13 +59,20 @@ export function pwsValueMap(value) {
       SUPPRESSION: 'no',
       formSubmissionYes: 'false',
       formSubmissionNo: 'true',
-      qChinaPIPlYes: 'true',
-      qChinaPIPlNo: 'false',
+      countyBasedCheckedYes: 'true',
+      countyBasedCheckedNo: 'false',
       NC_HIDDEN_PERMISSION: 'PERMISSION',
       NC_HIDDEN_SUPPRESSION: 'SUPPRESSION',
       NC_HIDDEN_UNCHANGED: 'UNCHANGED',
     }[value] || null
   );
+}
+
+export function specialCountryBasedText(countryCode) {
+  const countryBasedText = {
+    cn: 'chinaPIPLtext',
+  };
+  return countryBasedText[countryCode.toLocaleLowerCase()];
 }
 
 export function supportedLanguages(language) {

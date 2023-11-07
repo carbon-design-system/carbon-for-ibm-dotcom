@@ -237,18 +237,7 @@
   }
 
   :host(#{$dds-prefix}-filter-panel-heading) {
-    @include carbon--type-style('heading-01');
-    @include carbon--breakpoint('sm') {
-      margin-left: $spacing-05;
-      margin-bottom: $spacing-05;
-    }
-    @include carbon--breakpoint('lg') {
-      margin: 0;
-    }
-
-    @include carbon--breakpoint-down('lg') {
-      display: none;
-    }
+    display: none;
   }
 
   :host(#{$dds-prefix}-filter-group:first-of-type) {

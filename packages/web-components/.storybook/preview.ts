@@ -24,6 +24,10 @@ import customElementsMetadata from '../custom-elements.json';
 
 setCustomElements(customElementsMetadata);
 
+if (process.env.STORYBOOK_USE_RTL === 'true') {
+  document.documentElement.setAttribute('dir', 'rtl');
+}
+
 export const parameters = {
   layout: 'fullscreen',
   options: {

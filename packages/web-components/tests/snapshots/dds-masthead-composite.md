@@ -86,6 +86,7 @@
     <dds-left-nav-menu-item
       data-autoid="dds--masthead__l0--sidenav--nav0"
       href="https://carbon-design-system.github.io/carbon-for-ibm-dotcom/canary/web-components/foo"
+      role="button"
       title="item-title-foo"
     >
     </dds-left-nav-menu-item>
@@ -106,6 +107,7 @@
     <dds-left-nav-menu-item
       data-autoid="dds--masthead__l0--sidenav--nav1-list0"
       href="https://carbon-design-system.github.io/carbon-for-ibm-dotcom/canary/web-components/bar"
+      role="button"
       title="menu-item-title-bar"
     >
     </dds-left-nav-menu-item>
