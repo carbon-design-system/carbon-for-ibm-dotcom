@@ -1,0 +1,35 @@
+//
+// Copyright IBM Corp. 2020, 2021
+//
+// This source code is licensed under the Apache-2.0 license found in the
+// LICENSE file in the root directory of this source tree.
+//
+
+@use '@carbon/styles/scss/breakpoint' as *;
+@use '@carbon/styles/scss/config' as *;
+@use '@carbon/styles/scss/spacing' as *;
+@use '@carbon/ibmdotcom-styles/scss/internal/content-section';
+@use '@carbon/ibmdotcom-styles/scss/globals/utils/flex-grid' as *;
+@use '@carbon/ibmdotcom-styles/scss/globals/vars' as *;
+
+@mixin link-list-section {
+  :host(#{$c4d-prefix}-link-list-section) {
+    display: block;
+
+    .#{$prefix}--content-section__left {
+      padding-top: 0;
+    }
+
+    .#{$prefix}--content-section__children {
+      margin-top: 0;
+
+      @include breakpoint(lg) {
+        @include make-col(8, 16);
+      }
+    }
+
+    ::slotted(#{$c4d-prefix}-content-section-heading) {
+      margin-bottom: 0;
+    }
+  }
+}

@@ -17,13 +17,9 @@ import C4DLinkList from '@carbon/ibmdotcom-web-components/es/components-react/li
 // @ts-ignore
 import C4DLinkListHeading from '@carbon/ibmdotcom-web-components/es/components-react/link-list/link-list-heading';
 // @ts-ignore
-import C4DLinkListItemCard from '@carbon/ibmdotcom-web-components/es/components-react/link-list/link-list-item-card';
-// @ts-ignore
 import C4DLinkListItem from '@carbon/ibmdotcom-web-components/es/components-react/link-list/link-list-item';
 // @ts-ignore
 import C4DLinkListItemCTA from '@carbon/ibmdotcom-web-components/es/components-react/cta/link-list-item-cta';
-// @ts-ignore
-import C4DLinkListItemCardCTA from '@carbon/ibmdotcom-web-components/es/components-react/cta/link-list-item-card-cta';
 // @ts-ignore
 import C4DVideoCTAContainer from '@carbon/ibmdotcom-web-components/es/components-react/cta/video-cta-container';
 // @ts-ignore
@@ -56,7 +52,6 @@ const knobNamesForType = {
 };
 
 const types = {
-  None: null,
   [`Local (${CTA_TYPE.LOCAL})`]: CTA_TYPE.LOCAL,
   [`Jump (${CTA_TYPE.JUMP})`]: CTA_TYPE.JUMP,
   [`External (${CTA_TYPE.EXTERNAL})`]: CTA_TYPE.EXTERNAL,
@@ -69,36 +64,32 @@ export const Default = (args) => {
   return !ctaType ? (
     <C4DLinkList type="default">
       <C4DLinkListHeading>Tutorial</C4DLinkListHeading>
-      <C4DLinkListItemCard href="https://example.com">
+      <C4DLinkListItem href="https://example.com" type="default">
         <p>Learn more about Kubernetes</p>
-        <C4DCardFooter>
-          <ArrowRight20 slot="icon" />
-        </C4DCardFooter>
-      </C4DLinkListItemCard>
-      <C4DLinkListItemCard href="https://example.com">
+        <ArrowRight20 slot="icon" />
+      </C4DLinkListItem>
+      <C4DLinkListItem href="https://example.com" type="default">
         <p>Containerization A Complete Guide</p>
-        <C4DCardFooter>
-          <ArrowRight20 slot="icon" />
-        </C4DCardFooter>
-      </C4DLinkListItemCard>
+        <ArrowRight20 slot="icon" />
+      </C4DLinkListItem>
     </C4DLinkList>
   ) : (
     <C4DLinkList type="default">
       <C4DLinkListHeading>Tutorial</C4DLinkListHeading>
-      <C4DLinkListItemCardCTA
+      <C4DLinkListItemCTA
         href={href}
         cta-type={ctaType}
-        download={download}>
+        download={download}
+        type="default">
         {ctaType !== CTA_TYPE.VIDEO && <p>Learn more about Kubernetes</p>}
-        <C4DCardCTAFooter />
-      </C4DLinkListItemCardCTA>
-      <C4DLinkListItemCardCTA
+      </C4DLinkListItemCTA>
+      <C4DLinkListItemCTA
         href={href}
         cta-type={ctaType}
-        download={download}>
+        download={download}
+        type="default">
         {ctaType !== CTA_TYPE.VIDEO && <p>Containerization A Complete Guide</p>}
-        <C4DCardCTAFooter />
-      </C4DLinkListItemCardCTA>
+      </C4DLinkListItemCTA>
     </C4DLinkList>
   );
 };
@@ -108,7 +99,7 @@ Default.story = {
     colLgClass: 'cds--col-lg-3',
     knobs: {
       LinkListItem: () => {
-        const ctaType = select('CTA type (cta-type)', types, null);
+        const ctaType = select('CTA type (cta-type)', types, CTA_TYPE.LOCAL);
         const download =
           ctaType !== CTA_TYPE.DOWNLOAD
             ? undefined
@@ -129,7 +120,7 @@ Default.story = {
     propsSet: {
       default: {
         LinkListItem: {
-          ctaType: null,
+          ctaType: CTA_TYPE.LOCAL,
           download: undefined,
           href: 'https://www.example.com',
         },
@@ -185,7 +176,7 @@ Horizontal.story = {
     colLgClass: 'cds--col-lg-10',
     knobs: {
       LinkListItem: () => {
-        const ctaType = select('CTA type (cta-type)', types, null);
+        const ctaType = select('CTA type (cta-type)', types, CTA_TYPE.LOCAL);
         const download =
           ctaType !== CTA_TYPE.DOWNLOAD
             ? undefined
@@ -206,7 +197,7 @@ Horizontal.story = {
     propsSet: {
       default: {
         LinkListItem: {
-          ctaType: null,
+          ctaType: CTA_TYPE.LOCAL,
           download: undefined,
           href: 'https://www.example.com',
         },
@@ -228,12 +219,16 @@ export const Vertical = (args) => {
       <C4DLinkListItem
         icon-placement={iconPlacement}
         href="https://example.com">
-        Learn more about Kubernetes <ArrowRight20 slot="icon" />
+        <p>
+          Learn more about Kubernetes <ArrowRight20 slot="icon" />
+        </p>
       </C4DLinkListItem>
       <C4DLinkListItem
         icon-placement={iconPlacement}
         href="https://example.com">
-        Containerization A Complete Guide <ArrowRight20 slot="icon" />
+        <p>
+          Containerization A Complete Guide <ArrowRight20 slot="icon" />
+        </p>
       </C4DLinkListItem>
     </C4DLinkList>
   ) : (
@@ -264,55 +259,7 @@ Vertical.story = {
     propsSet: {
       default: {
         LinkListItem: {
-          ctaType: null,
-          download: undefined,
-          href: 'https://www.example.com',
-        },
-      },
-    },
-  },
-};
-
-export const EndOfSection = (args) => {
-  const { ctaType, download, href } = args?.LinkListItem ?? {};
-  return !ctaType ? (
-    <C4DLinkList type="end">
-      <C4DLinkListHeading>Tutorial</C4DLinkListHeading>
-      <C4DLinkListItem href="https://example.com">
-        Learn more about Kubernetes <ArrowRight20 slot="icon" />
-      </C4DLinkListItem>
-      <C4DLinkListItem href="https://example.com">
-        Containerization A Complete Guide <ArrowRight20 slot="icon" />
-      </C4DLinkListItem>
-      <C4DLinkListItem href="https://example.com">
-        Microservices and containers <ArrowRight20 slot="icon" />
-      </C4DLinkListItem>
-    </C4DLinkList>
-  ) : (
-    <C4DLinkList type="vertical">
-      <C4DLinkListHeading>Tutorial</C4DLinkListHeading>
-      <C4DLinkListItemCTA href={href} cta-type={ctaType} download={download}>
-        {ctaType !== CTA_TYPE.VIDEO && 'Learn more about Kubernetes'}
-      </C4DLinkListItemCTA>
-      <C4DLinkListItemCTA href={href} cta-type={ctaType} download={download}>
-        {ctaType !== CTA_TYPE.VIDEO && 'Containerization A Complete Guide'}
-      </C4DLinkListItemCTA>
-      <C4DLinkListItemCTA href={href} cta-type={ctaType} download={download}>
-        {ctaType !== CTA_TYPE.VIDEO && 'Microservices and containers'}
-      </C4DLinkListItemCTA>
-    </C4DLinkList>
-  );
-};
-
-EndOfSection.story = {
-  name: 'End of section',
-  parameters: {
-    colLgClass: 'cds--col-lg-6',
-    knobs: Default.story.parameters.knobs,
-    propsSet: {
-      default: {
-        LinkListItem: {
-          ctaType: null,
+          ctaType: CTA_TYPE.LOCAL,
           download: undefined,
           href: 'https://www.example.com',
         },

@@ -120,7 +120,7 @@ const CTAMixin = <T extends Constructor<HTMLElement>>(Base: T) => {
         <slot name="icon">
           <span class="${prefix}--visually-hidden">${ariaLabels[ctaType]}</span>
           ${icons[ctaType]?.({
-            class: `${prefix}--card__cta ${c4dPrefix}-ce--cta__icon`,
+            class: `${c4dPrefix}--card__cta ${c4dPrefix}-ce--cta__icon`,
           })}
         </slot>
       `;

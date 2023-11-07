@@ -37,7 +37,7 @@ import C4DImageItem from '@carbon/ibmdotcom-web-components/es/components-react/i
 import C4DCardCTAFooter from '@carbon/ibmdotcom-web-components/es/components-react/cta/card-cta-footer';
 import C4DLinkList from '@carbon/ibmdotcom-web-components/es/components-react/link-list/link-list';
 import C4DLinkListHeading from '@carbon/ibmdotcom-web-components/es/components-react/link-list/link-list-heading';
-import C4DLinkListItemCardCTA from '@carbon/ibmdotcom-web-components/es/components-react/cta/link-list-item-card-cta';
+import C4DLinkListItemCTA from '@carbon/ibmdotcom-web-components/es/components-react/cta/link-list-item-cta';
 import ArrowRight20 from '@carbon/icons-react/es/arrow--right/20.js';
 import TouchScreen from '@carbon/pictograms-react/es/touch--screen/index.js';
 
@@ -257,14 +257,18 @@ export const withLinkList = (args) => {
       </C4DContentGroupSimple>
       <C4DLinkList type="default" slot="complementary">
         <C4DLinkListHeading>{linkListHeading}</C4DLinkListHeading>
-        <C4DLinkListItemCardCTA href="https://example.com" cta-type="local">
+        <C4DLinkListItemCTA
+          href="https://example.com"
+          cta-type="local"
+          type="default">
           <p>Containerization A Complete Guide</p>
-          <C4DCardCTAFooter></C4DCardCTAFooter>
-        </C4DLinkListItemCardCTA>
-        <C4DLinkListItemCardCTA href="https://example.com" cta-type="external">
+        </C4DLinkListItemCTA>
+        <C4DLinkListItemCTA
+          href="https://example.com"
+          cta-type="external"
+          type="default">
           <p>Why should you use microservices and containers</p>
-          <C4DCardCTAFooter></C4DCardCTAFooter>
-        </C4DLinkListItemCardCTA>
+        </C4DLinkListItemCTA>
       </C4DLinkList>
     </C4DContentBlockMixed>
   );
