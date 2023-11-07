@@ -62,9 +62,12 @@ For Carbon v11 migration guidance, see their
 | logo-grid                 | This component is deprecated in v2 in favor for content-section/block & image-group components                                                 |
 | pictogram-item            | This component is deprecated in v2 in favor for content-item (pictogram variation) componet                                                    |
 | quote                     | No API changes.                                                                                                                                |
+| scroll-animations         | No API changes.                                                                                                                                |
 | search-with-typeahead     | No API changes.                                                                                                                                |
 | table-of-contents         | No API changes.                                                                                                                                |
 | tabs-extended-media       | This component is deprecated in v2 in favor for tabs-extended component                                                                        |
+| tag-group      | This component is deprecated in v2 in favor for wrapping core carbon `tags` in a `div`                                                                    |
+| tag-link       | This component is deprecated in v2 in favor for core carbon's `tag`                                                                   |
 | universal-banner          | View changes [here](#universal-banner)                                                                                                         |
 
 ### Callout with media
