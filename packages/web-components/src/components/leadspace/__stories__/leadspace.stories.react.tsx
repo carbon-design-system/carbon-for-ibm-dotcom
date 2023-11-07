@@ -27,10 +27,6 @@ import C4DButtonGroupItem from '@carbon/ibmdotcom-web-components/es/components-r
 // @ts-ignore
 import C4DImageItem from '@carbon/ibmdotcom-web-components/es/components-react/image/image-item';
 // @ts-ignore
-import C4DTagLink from '@carbon/ibmdotcom-web-components/es/components-react/tag-link/tag-link';
-// @ts-ignore
-import C4DTagGroup from '@carbon/ibmdotcom-web-components/es/components-react/tag-group/tag-group';
-// @ts-ignore
 import C4DBreadcrumbLink from '@carbon/ibmdotcom-web-components/es/components-react/leadspace/breadcrumb-link';
 // @ts-ignore
 import C4DBreadcrumbItem from '@carbon/ibmdotcom-web-components/es/components-react/leadspace/breadcrumb-item';
@@ -38,13 +34,14 @@ import C4DBreadcrumbItem from '@carbon/ibmdotcom-web-components/es/components-re
 import C4DBreadcrumb from '@carbon/ibmdotcom-web-components/es/components-react/leadspace/breadcrumb';
 // @ts-ignore
 import C4DVideoPlayerContainer from '@carbon/ibmdotcom-web-components/es/components-react/video-player/video-player-container';
+import CDSTag from '@carbon/web-components/es/components-react/tag/tag';
 
 import leadspaceImg from '../../../../../storybook-images/assets/leadspace/leadspaceMax.jpg';
 import readme from './README.stories.react.mdx';
 import { LEADSPACE_SIZE } from '../defs';
 
 const navigationOptions = [
-  'with Tag group (using Tag link)',
+  'with a group of Tags',
   'with Breadcrumbs',
   'none',
 ];
@@ -55,10 +52,10 @@ const typeStyleOptions = {
 };
 
 const navigationWithTagGroup = (
-  <C4DTagGroup slot="navigation">
-    <C4DTagLink href={'https://example.com'}>Marketing Analytics</C4DTagLink>
-    <C4DTagLink href={'https://example.com'}>Cloud</C4DTagLink>
-  </C4DTagGroup>
+  <div slot="navigation">
+    <CDSTag href={'https://example.com'}>Marketing Analytics</CDSTag>
+    <CDSTag href={'https://example.com'}>Cloud</CDSTag>
+  </div>
 );
 
 const navigationWithBreadcrumbs = (

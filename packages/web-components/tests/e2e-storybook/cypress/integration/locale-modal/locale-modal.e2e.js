@@ -80,6 +80,8 @@ describe('cds-locale-modal | default', () => {
       .find('cds-expressive-modal-close-button');
     closeButton
       .shadow()
+      .find('button');
+    closeButton
       .find('svg path')
       .then($icon => {
         expect($icon).to.have.attr(

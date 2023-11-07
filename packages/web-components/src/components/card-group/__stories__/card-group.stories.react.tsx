@@ -20,7 +20,6 @@ import C4DCardCTAImage from '@carbon/ibmdotcom-web-components/es/components-reac
 import C4DCardEyebrow from '@carbon/ibmdotcom-web-components/es/components-react/card/card-eyebrow';
 import C4DCardHeading from '@carbon/ibmdotcom-web-components/es/components-react/card/card-heading';
 import C4DCardCTAFooter from '@carbon/ibmdotcom-web-components/es/components-react/cta/card-cta-footer';
-import C4DTagGroup from '@carbon/ibmdotcom-web-components/es/components-react/tag-group/tag-group';
 import C4DCardGroupCardLinkItem from '@carbon/ibmdotcom-web-components/es/components-react/card-group/card-group-card-link-item';
 import C4DCardLinkHeading from '@carbon/ibmdotcom-web-components/es/components-react/card-link/card-link-heading';
 import C4DCardInCard from '@carbon/ibmdotcom-web-components/es/components-react/card-in-card/card-in-card';
@@ -64,10 +63,10 @@ const setGridMode = {
 };
 
 const tagGroupContent = (
-  <C4DTagGroup>
+  <div>
     <Tag type="cool-gray">Systems w/TPS</Tag>
     <Tag type="cool-gray">Virtual</Tag>
-  </C4DTagGroup>
+  </div>
 );
 
 const textCTAContent = (

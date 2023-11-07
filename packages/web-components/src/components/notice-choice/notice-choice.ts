@@ -8,8 +8,14 @@
  */
 
 import { checkPreferencesv3, loadContent } from './services';
-import { html, LitElement, property } from 'lit-element';
-import { emailRegExp, pwsValueMap, resetToWorldWideContent } from './utils';
+import { html, LitElement, property, TemplateResult } from 'lit-element';
+import {
+  emailRegExp,
+  pwsValueMap,
+  resetToWorldWideContent,
+  supportedLanguages,
+  specialCountryBasedText,
+} from './utils';
 import countrySettings from './country-settings';
 import settings from '../../internal/vendor/@carbon/ibmdotcom-utilities/utilities/settings/settings';
 import StableSelectorMixin from '../../globals/mixins/stable-selector';
@@ -42,8 +48,8 @@ class NoticeChoice extends StableSelectorMixin(LitElement) {
   @property({ type: String, attribute: 'state' })
   state = '';
 
-  @property({ type: String, attribute: 'locale' })
-  locale = 'us-en';
+  @property({ type: String, attribute: 'language' })
+  language = 'en';
 
   @property({ type: String, attribute: 'terms-condition-link' })
   termsConditionLink = html``;
@@ -60,6 +66,12 @@ class NoticeChoice extends StableSelectorMixin(LitElement) {
   @property({ type: String, attribute: 'email' })
   email = '';
 
+  @property({ type: Boolean, attribute: 'hide-error-message' })
+  hideErrorMessage = false;
+
+  @property({ type: Boolean, attribute: 'show-legal-notice' })
+  showLegalNotice = true;
+
   @property({ type: Object, attribute: false })
   checkboxes = {};
 
@@ -74,6 +86,12 @@ class NoticeChoice extends StableSelectorMixin(LitElement) {
 
   @property({ type: Object, attribute: false })
   optInContent = {};
+
+  @property({ type: Boolean, attribute: false })
+  preventFormSubmission = false;
+
+  @property({ type: Object, attribute: false })
+  isMandatoryCheckboxDisplayed = { countryCode: '', isDisplayed: false };
 
   /**
    * End properties for passed attributes.
@@ -112,10 +130,9 @@ class NoticeChoice extends StableSelectorMixin(LitElement) {
       this.performUpdate();
     }
   }
-  connectedCallback() {
-    super.connectedCallback();
+  defaultLoadContent() {
     loadContent(
-      this.locale,
+      'en',
       (ncData) => {
         this.ncData = ncData;
         this.prepareCheckboxes();
@@ -123,6 +140,29 @@ class NoticeChoice extends StableSelectorMixin(LitElement) {
       },
       (error) => {
         console.error('error loading content', error);
+      }
+    );
+  }
+  connectedCallback() {
+    super.connectedCallback();
+    const [language] = this.language.split(/[-_]/);
+
+    let defaultLanguage = 'en';
+    if (supportedLanguages(this.language)) {
+      defaultLanguage = supportedLanguages(this.language);
+    } else if (supportedLanguages(language)) {
+      defaultLanguage = supportedLanguages(language);
+    }
+
+    loadContent(
+      defaultLanguage,
+      (ncData) => {
+        this.ncData = ncData;
+        this.prepareCheckboxes();
+        this.countryChanged();
+      },
+      () => {
+        this.defaultLoadContent();
       }
     );
   }
@@ -142,7 +182,8 @@ class NoticeChoice extends StableSelectorMixin(LitElement) {
         }
         const hiddenFieldName = `NC_HIDDEN_${key}`;
         newValues[hiddenFieldName] = option[hiddenFieldName];
-        this._onChange(hiddenFieldName, newValues[key] ? 'OPT_IN' : null);
+
+        this._onChange(hiddenFieldName, newValues[key] ? 'OPT_IN' : 'OPT_OUT');
       });
       if (JSON.stringify(this.values) !== JSON.stringify(newValues)) {
         this.values = newValues;
@@ -150,9 +191,26 @@ class NoticeChoice extends StableSelectorMixin(LitElement) {
     }
   }
   countryChangeAction() {
-    const splitValue = this.locale;
+    const splitValue = this.language;
     if (splitValue == 'en') {
       this.preText = this.preTextTemplate();
+    }
+    this.preventFormSubmission = false;
+    if (this.ncData?.mandatoryCheckbox[this.country?.toLocaleLowerCase()]) {
+      const countyCode = this.country?.toLocaleLowerCase();
+      const countryBasedText = specialCountryBasedText(countyCode);
+      this._onChange(
+        this.ncData?.mandatoryCheckbox[countyCode][countryBasedText].mrs_field,
+        'countyBasedCheckedNo'
+      );
+
+      this.isMandatoryCheckboxDisplayed.countryCode = countyCode;
+      this.isMandatoryCheckboxDisplayed.isDisplayed = true;
+
+      this.preventFormSubmission = true;
+      this._onChange('preventFormSubmission', 'formSubmissionNo');
+    } else {
+      this._onChange('preventFormSubmission', 'formSubmissionYes');
     }
     /**
      * @description if the user already interacted with the checkboxes,
@@ -188,17 +246,26 @@ class NoticeChoice extends StableSelectorMixin(LitElement) {
         }
         break;
       }
-      case 'locale': {
+      case 'language': {
         // load content when locale changed.
+        const [language] = newVal.split(/[-_]/);
+
+        let defaultLanguage = 'en';
+        if (supportedLanguages(newVal)) {
+          defaultLanguage = supportedLanguages(newVal);
+        } else if (supportedLanguages(language)) {
+          defaultLanguage = supportedLanguages(language);
+        }
+
         if (hasValue && oldVal !== newVal) {
           loadContent(
-            newVal,
+            defaultLanguage,
             (ncData) => {
               this.ncData = ncData;
               this.prepareCheckboxes();
             },
-            (error) => {
-              console.error('error loading content', error);
+            () => {
+              this.defaultLoadContent();
             }
           );
         }
@@ -237,6 +304,18 @@ class NoticeChoice extends StableSelectorMixin(LitElement) {
         }
         break;
       }
+      case 'hide-error-message': {
+        if (oldVal !== newVal) {
+          this.hideErrorMessage = JSON.parse(newVal);
+          this.countryBasedLegalNotice();
+        }
+
+        break;
+      }
+      case 'show-legal-notice': {
+        this.showLegalNotice = JSON.parse(newVal);
+        break;
+      }
     }
   }
 
@@ -256,12 +335,94 @@ class NoticeChoice extends StableSelectorMixin(LitElement) {
     this.values[id] = {};
     this.values[id]['checkBoxStatus'] = hiddenFieldStatus;
     this._onChange(hiddenFieldName, hiddenFieldStatus);
+    this._onChange(
+      `${hiddenFieldName}_VALUE`,
+      `NC_HIDDEN_${hiddenFieldStatus}`
+    );
   }
   static get stableSelector() {
     return `${c4dPrefix}--notice-choice`;
   }
   static styles = styles; // `styles` here is a `CSSResult` generated by custom WebPack loader
+  checkBoxLegalChange($event: any) {
+    const legalCheckbox = $event.target;
+    const isChecked = legalCheckbox.checked;
+    const legalTextError = legalCheckbox.parentNode.querySelector('.nc-error');
+    const countyBasedText = isChecked
+      ? 'countyBasedCheckedYes'
+      : 'countyBasedCheckedNo';
+
+    if (legalTextError) {
+      legalTextError.style.display = isChecked ? 'none' : '';
+    }
+
+    const countyCode = this.country?.toLocaleLowerCase();
+    const countryBasedText = specialCountryBasedText(countyCode);
+
+    legalCheckbox.value = isChecked ? 1 : 0;
+    this.preventFormSubmission = !isChecked;
+    const preventFormSubmissionValue = isChecked
+      ? 'formSubmissionYes'
+      : 'formSubmissionNo';
+    this._onChange('preventFormSubmission', preventFormSubmissionValue);
+    this._onChange(
+      this.ncData?.mandatoryCheckbox[countyCode][countryBasedText].mrs_field,
+      countyBasedText
+    );
+  }
+
+  countryBasedLegalNotice() {
+    const country = this.country.toLocaleLowerCase();
+    const itemTemplates: Array<TemplateResult> = [];
+
+    if (
+      this.ncData?.mandatoryCheckbox &&
+      this.ncData.mandatoryCheckbox[country]
+    ) {
+      const mandatoryCheckboxes: { [key: string]: any } =
+        this.ncData.mandatoryCheckbox[country];
+
+      for (const [key, mandatoryCheckbox] of Object.entries(
+        mandatoryCheckboxes
+      )) {
+        const legalTextName = key.replace(/([A-Z]+)/g, '-$1').toLowerCase();
+        let mandatoryCheckboxTemplate = html`
+          <span>
+            <div class="${prefix}--form-item bx--checkbox-wrapper">
+              <p part=${legalTextName} class=${legalTextName}>
+                <input
+                  type="checkbox"
+                  class="${prefix}--checkbox"
+                  id="${mandatoryCheckbox.mrs_field}"
+                  name="${mandatoryCheckbox.mrs_field}"
+                  @change="${this.checkBoxLegalChange}" />
+                <label
+                  for="${mandatoryCheckbox.mrs_field}"
+                  class="${prefix}--checkbox-label ${prefix}--nc__checkbox-${mandatoryCheckbox.mrs_field}"
+                  ><span class="${prefix}--checkbox-label-text" dir="auto"
+                    >${mandatoryCheckbox.text}
+                  </span>
+                </label>
+                ${!this.hideErrorMessage && this.preventFormSubmission
+                  ? html`<span
+                      class="nc-error"
+                      style="color:#da1e28;font-size:.75rem"
+                      >${mandatoryCheckbox.error}</span
+                    >`
+                  : ''}
+              </p>
+            </div>
+          </span>
+        `;
+        itemTemplates.push(mandatoryCheckboxTemplate);
+      }
+    }
+
+    return itemTemplates;
+  }
+
   checkBoxTemplate(checkbox, checked, hiddenBox) {
+    this._onChange(`${hiddenBox.id}_VALUE`, `NC_HIDDEN_${hiddenBox.value}`);
     return html`<span>
       <div class="${prefix}--form-item cds--checkbox-wrapper">
         <input
@@ -288,7 +449,7 @@ class NoticeChoice extends StableSelectorMixin(LitElement) {
   }
   preTextTemplate() {
     if (this.ncData) {
-      const country = this.country.toLocaleLowerCase();
+      const country = this.country?.toLocaleLowerCase();
       const ecmTranslateContent = this.ncData;
       let preText = ecmTranslateContent.preText;
 
@@ -324,14 +485,19 @@ class NoticeChoice extends StableSelectorMixin(LitElement) {
         postText = '<p part="ncPostText">' + postText + '</p>';
       }
 
-      if (this.termsConditionLink) {
+      if (!this.termsConditionLink.strings && this.termsConditionLink) {
         let originalValue = OtherPreferences;
         const matchedValue = originalValue.match(/<tc>.*<\/tc>/g);
         if (matchedValue) {
           const anrTagHtml = matchedValue[0].replace(/<tc>|<\/tc>/g, '');
           const link = `<a href='${this.termsConditionLink}' target='_blank' class='ibm-tooltip' >${anrTagHtml}</a>`;
           const reg = new RegExp('<tc>' + anrTagHtml + '</tc>', 'g');
-          postText = postText + originalValue.replace(reg, link);
+
+          postText =
+            postText +
+            originalValue
+              .replace(reg, link)
+              .replace(/<p>/g, '<p part="nc-trial-text" id="nc-trial-text">');
         }
       }
       if (postText !== '') {
@@ -353,8 +519,26 @@ class NoticeChoice extends StableSelectorMixin(LitElement) {
     }
   }
   render() {
+    if (
+      this.isMandatoryCheckboxDisplayed.isDisplayed &&
+      this.country.toLocaleLowerCase() !==
+        this.isMandatoryCheckboxDisplayed.countryCode
+    ) {
+      const countryBasedText = specialCountryBasedText(
+        this.isMandatoryCheckboxDisplayed.countryCode
+      );
+
+      this._onChange(
+        this.ncData?.mandatoryCheckbox[
+          this.isMandatoryCheckboxDisplayed.countryCode
+        ][countryBasedText].mrs_field,
+        'countyBasedCheckedNo'
+      );
+    }
     return html`<section class="${prefix}--nc">
-    <p part='ncHeading' id="ncHeading" class="${c4dPrefix}--nc__pre-text">${this.preTextTemplate()} </p>
+    <p part='ncHeading' id="ncHeading" class="${c4dPrefix}--nc__pre-text">${
+      this.showLegalNotice ? this.countryBasedLegalNotice() : ''
+    } ${this.preTextTemplate()} </p>
       <div part='${prefix}--checkbox-group' class="${prefix}--checkbox-group">
             ${
               Object.keys(this.checkboxes).length !== 0
@@ -380,7 +564,9 @@ class NoticeChoice extends StableSelectorMixin(LitElement) {
           </div>
           <div part='${prefix}--nc__post-text' class="${prefix}--nc__post-text"
           >${this.postTextTemplate()}</div>
-          
+          <input type='hidden' id="preventFormSubmission" name="preventFormSubmission" value=${
+            this.preventFormSubmission
+          } />
         </div>
         ${this.getBpidLegalText()}
     </section>`;
@@ -415,8 +601,9 @@ class NoticeChoice extends StableSelectorMixin(LitElement) {
     }
   }
   protected _getOptionByQuestion = (question) => {
-    const questionChoiceStatus =
-      countrySettings[this.country.toLocaleLowerCase()];
+    const questionChoiceStatus = this.country
+      ? countrySettings[this.country.toLocaleLowerCase()]
+      : { email: 'opt-in', phone: 'opt-in' };
 
     let option;
     switch (question) {
@@ -484,6 +671,10 @@ class NoticeChoice extends StableSelectorMixin(LitElement) {
     const pwsFieldsMap = {
       NC_HIDDEN_EMAIL: 'permission_email',
       NC_HIDDEN_PHONE: 'permission_phone',
+      preventFormSubmission: 'preventFormSubmission',
+      Q_CHINA_PIPL: 'Q_CHINA_PIPL',
+      NC_HIDDEN_EMAIL_VALUE: 'NC_HIDDEN_EMAIL',
+      NC_HIDDEN_PHONE_VALUE: 'NC_HIDDEN_PHONE',
     };
 
     if (Object.prototype.hasOwnProperty.call(pwsFieldsMap, field)) {

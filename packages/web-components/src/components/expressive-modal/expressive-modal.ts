@@ -117,7 +117,6 @@ class C4DExpressiveModal extends StableSelectorMixin(
 
   get _focusableElements() {
     const { hasFocusableElements } = this;
-
     const focusableElements: [HTMLElement?] = [];
 
     hasFocusableElements.forEach((el) => {
@@ -474,10 +473,10 @@ class C4DExpressiveModal extends StableSelectorMixin(
         this.ownerDocument.body.style.overflow = 'hidden';
         this.removeAttribute('aria-hidden');
         this._launcher = this.ownerDocument!.activeElement;
+        await this._waitForTransitionEnd();
         const primaryFocusNode = this.querySelector(
           (this.constructor as typeof C4DExpressiveModal).selectorPrimaryFocus
         );
-        await this._waitForTransitionEnd();
         if (primaryFocusNode) {
           // For cases where a `carbon-web-components` component (e.g. `<cds-btn>`) being `primaryFocusNode`,
           // where its first update/render cycle that makes it focusable happens after `<cds-modal>`'s first update/render cycle
@@ -511,7 +510,7 @@ class C4DExpressiveModal extends StableSelectorMixin(
   static get selectorTabbable() {
     return `
       ${selectorTabbable},
-      ${c4dPrefix}-button-expressive,
+      ${c4dPrefix}-button,
       ${c4dPrefix}-expressive-modal,
       ${c4dPrefix}-expressive-modal-close-button
     `;
@@ -523,8 +522,7 @@ class C4DExpressiveModal extends StableSelectorMixin(
   static get selectorPrimaryFocus() {
     return `
       [data-modal-primary-focus],
-      ${c4dPrefix}-expressive-modal-footer ${prefix}-btn[kind="primary"],
-      ${c4dPrefix}-expressive-modal-footer ${c4dPrefix}-button-expressive[kind="primary"]
+      ${c4dPrefix}-expressive-modal-footer ${c4dPrefix}-button[kind="primary"],
     `;
   }
 
