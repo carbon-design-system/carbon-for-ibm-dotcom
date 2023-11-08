@@ -45,6 +45,7 @@
     "test": "jest"
   },
   "dependencies": {
+    "@carbon/ibmdotcom-styles": "2.0.0-beta.1",
     "@carbon/telemetry": "0.1.0",
     "axios": "^0.27.2",
     "isomorphic-dompurify": "0.27.0",
