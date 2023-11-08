@@ -34,7 +34,7 @@ class C4DLegalNav extends StableSelectorMixin(LitElement) {
   /**
    * The adjunct links container
    */
-  @query(`.${prefix}--adjunct-links__container`)
+  @query(`.${c4dPrefix}--adjunct-links__container`)
   private _adjunctLinksContainer?: HTMLDivElement;
 
   /**
@@ -48,8 +48,8 @@ class C4DLegalNav extends StableSelectorMixin(LitElement) {
    */
   protected _getTypeClass() {
     return classMap({
-      [`${prefix}--legal-nav__list`]: true,
-      [`${prefix}--legal-nav__micro`]: this.size === FOOTER_SIZE.MICRO,
+      [`${c4dPrefix}--legal-nav__list`]: true,
+      [`${c4dPrefix}--legal-nav__micro`]: this.size === FOOTER_SIZE.MICRO,
     });
   }
 
@@ -69,14 +69,14 @@ class C4DLegalNav extends StableSelectorMixin(LitElement) {
   render() {
     return this.size !== FOOTER_SIZE.MICRO
       ? html`
-          <nav class="${prefix}--legal-nav">
+          <nav class="${c4dPrefix}--legal-nav">
             <div class="${this._getTypeClass()}">
               <ul>
                 <slot></slot>
               </ul>
               <slot name="locale"></slot>
             </div>
-            <div class="${prefix}--adjunct-links__container">
+            <div class="${c4dPrefix}--adjunct-links__container">
               <ul>
                 <slot name="adjunct-links"></slot>
               </ul>
@@ -84,7 +84,7 @@ class C4DLegalNav extends StableSelectorMixin(LitElement) {
           </nav>
         `
       : html`
-          <nav class="${prefix}--legal-nav">
+          <nav class="${c4dPrefix}--legal-nav">
             <div class="${this._getTypeClass()}">
               <div>
                 <slot name="brand"></slot>

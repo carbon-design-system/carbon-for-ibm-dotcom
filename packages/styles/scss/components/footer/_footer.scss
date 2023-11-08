@@ -217,7 +217,7 @@
   :host(#{$c4d-prefix}-footer),
   :host(#{$c4d-prefix}-legal-nav) {
     display: block;
-    .#{$prefix}--adjunct-links__container {
+    .#{$c4d-prefix}--adjunct-links__container {
       list-style: none;
       margin-top: $spacing-07;
       @include breakpoint-down(md) {
@@ -226,19 +226,6 @@
     }
     .#{$prefix}--adjunct-links__container--hidden {
       display: none;
-    }
-  }
-
-  :host(#{$c4d-prefix}-footer).#{$prefix}--adjunct-links__container
-    .#{$prefix}--adjunct-links__row
-    .#{$prefix}--adjunct-links__col,
-  :host(cds-legal-nav)
-    .#{$prefix}--adjunct-links__container
-    .#{$prefix}--adjunct-links__row
-    .#{$prefix}--adjunct-links__col {
-    padding-right: $spacing-05;
-    @include breakpoint(md) {
-      padding-right: $spacing-07;
     }
   }
 
@@ -263,8 +250,8 @@
   // The style of legal nav deviates from the one of React, so we can make the markup simpler.
   // FIXME: Once the style is stabilized, change the markup of React, too, so we can share the style
   :host(#{$c4d-prefix}-legal-nav):not([size='micro']) {
-    .#{$prefix}--adjunct-links__container,
-    .#{$prefix}--legal-nav__list {
+    .#{$c4d-prefix}--adjunct-links__container,
+    .#{$c4d-prefix}--legal-nav__list {
       padding-bottom: 0;
       padding-top: 0;
 
@@ -299,18 +286,18 @@
       min-height: $spacing-09;
     }
 
-    .#{$prefix}--adjunct-links__container {
+    .#{$c4d-prefix}--adjunct-links__container {
       display: none;
     }
 
-    .#{$prefix}--legal-nav {
+    .#{$c4d-prefix}--legal-nav {
       display: block;
       border-top: 0;
     }
 
     // The style of legal nav deviates from the one of React, so we can make the markup simpler.
     // FIXME: Once the style is stabilized, change the markup of React, too, so we can share the style
-    .#{$prefix}--legal-nav__list {
+    .#{$c4d-prefix}--legal-nav__list {
       width: 100%;
 
       div {

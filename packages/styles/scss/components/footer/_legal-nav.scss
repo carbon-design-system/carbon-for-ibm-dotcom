@@ -23,7 +23,7 @@
     @include make-container;
   }
 
-  .#{$prefix}--legal-nav {
+  .#{$c4d-prefix}--legal-nav {
     @include theme($g100, feature-flag-enabled('enable-css-custom-properties'));
     @include make-row;
 
@@ -34,8 +34,8 @@
     }
   }
 
-  .#{$prefix}--adjunct-links__container,
-  .#{$prefix}--legal-nav__list {
+  .#{$c4d-prefix}--adjunct-links__container,
+  .#{$c4d-prefix}--legal-nav__list {
     width: 100%;
     padding-left: $spacing-05;
 
@@ -52,7 +52,7 @@
     @include breakpoint(lg) {
       @include make-col-offset(4, 16);
     }
-    &.#{$prefix}--legal-nav__micro {
+    &.#{$c4d-prefix}--legal-nav__micro {
       @include theme(
         $g100,
         feature-flag-enabled('enable-css-custom-properties')
