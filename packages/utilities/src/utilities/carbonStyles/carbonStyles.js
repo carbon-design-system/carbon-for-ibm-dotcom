@@ -12,9 +12,9 @@ import typeStyles from '@carbon/ibmdotcom-styles/scss/globals/primitives/type.sc
 
 // CSS text strings
 const importedStyleSheets = {
-  buttonStyles,
-  resetStyles,
-  typeStyles,
+  button: buttonStyles,
+  reset: resetStyles,
+  type: typeStyles,
 };
 
 class CarbonStyles {

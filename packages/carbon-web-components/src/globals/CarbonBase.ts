@@ -26,7 +26,7 @@ export default class CarbonBase extends LitElement {
    */
   // eslint-disable-next-line class-methods-use-this
   protected _requestCarbonStyles() {
-    return ['resetStyles', 'typeStyles'];
+    return ['reset', 'type'];
   }
 
   connectedCallback() {

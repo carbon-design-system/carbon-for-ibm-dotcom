@@ -46,7 +46,7 @@ const minIntersectionRatio = 0.75;
 class C4DCarousel extends HostListenerMixin(StableSelectorMixin(CarbonBase)) {
   // eslint-disable-next-line class-methods-use-this
   protected _requestCarbonStyles() {
-    return ['resetStyles'];
+    return ['reset'];
   }
 
   /**

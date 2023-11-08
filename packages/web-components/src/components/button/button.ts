@@ -31,7 +31,8 @@ class C4DButton extends CTAMixin(StableSelectorMixin(CDSButton)) {
   protected _requestCarbonStyles() {
     return [
       ...super._requestCarbonStyles(),
-      'buttonStyles',
+      'type',
+      'button',
     ];
   }
 
