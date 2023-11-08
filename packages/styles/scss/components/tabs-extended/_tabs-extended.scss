@@ -44,7 +44,7 @@
         .#{$prefix}--tabs__nav-link,
         .#{$prefix}--tabs__nav-link:focus,
         .#{$prefix}--tabs__nav-link:active {
-          border-bottom: carbon--rem(2px) solid $border-interactive;
+          border-bottom: rem(2px) solid $border-interactive;
 
           p {
             @include type-style('productive-heading-02');
@@ -68,7 +68,7 @@
         white-space: normal;
         background: none;
         border: initial;
-        border-bottom: carbon--rem(2px) solid $ui-03;
+        border-bottom: rem(2px) solid $ui-03;
         display: inline-flex;
         width: 100%;
         text-align: left;
@@ -151,13 +151,13 @@
         .#{$prefix}--tabs__nav-link {
           width: auto;
           padding: 0;
-          border-bottom: carbon--rem(2px) solid transparent;
+          border-bottom: rem(2px) solid transparent;
         }
 
         .#{$prefix}--tabs__nav-item {
           width: max-content;
           max-width: calc(100% - #{$spacing-06});
-          min-height: carbon--rem(26px);
+          min-height: rem(26px);
           margin-top: $spacing-06;
         }
       }
@@ -250,7 +250,7 @@ button.#{$prefix}--tabs__nav-link {
     &:focus,
     &:active {
       width: rem(160px);
-      border-bottom: carbon--rem(2px);
+      border-bottom: rem(2px);
     }
   }
 }

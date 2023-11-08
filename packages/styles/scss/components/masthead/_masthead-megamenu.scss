@@ -276,7 +276,7 @@
       text-decoration: none;
       width: 100%;
       margin: 0 $spacing-05;
-      border-top: carbon--rem(1px) solid $ui-03;
+      border-top: rem(1px) solid $ui-03;
       height: $spacing-09;
 
       &:hover,
@@ -286,7 +286,7 @@
       }
 
       &:hover {
-        border-top: carbon--rem(1px) solid transparent;
+        border-top: rem(1px) solid transparent;
         color: $hover-primary-text;
       }
     }
@@ -337,7 +337,7 @@
   .#{$prefix}--masthead__megamenu__highlight-section {
     min-height: 100%;
     padding-top: rem(18px);
-    border-right: carbon--rem(1px) solid $ui-03;
+    border-right: rem(1px) solid $ui-03;
     @include carbon--make-col(4, 16);
   }
 
@@ -349,7 +349,7 @@
     :host(#{$dds-prefix}-megamenu-left-navigation),
     .#{$prefix}--masthead__megamenu__highlight-section {
       border-right: none;
-      border-bottom: carbon--rem(1px) solid $ui-03;
+      border-bottom: rem(1px) solid $ui-03;
       column-count: 2;
       column-gap: 0;
       @include carbon--make-col(8, 8);
