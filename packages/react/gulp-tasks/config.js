@@ -8,7 +8,7 @@
 'use strict';
 
 const path = require('path');
-const commander = require('commander');
+const { program } = require('commander');
 
 /**
  * @param {*} v The value.
@@ -21,7 +21,7 @@ const {
   browser: browsers,
   spec: specs,
   ...rest
-} = commander
+} = program
   .option(
     '-b, --browser [browser]',
     'Browser to test with (ChromeHeadless or Chrome) for Karma testing',
