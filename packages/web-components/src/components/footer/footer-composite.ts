@@ -66,16 +66,16 @@ class C4DFooterComposite extends MediaQueryMixin(
   /**
    * Handles `click` event on the locale button.
    */
-  private _handleClickLocaleButton = () => {
+  private async _handleClickLocaleButton() {
     this.openLocaleModal = true;
 
     // Set 'open' attribute after modal is in dom so CSS can fade it in.
-    // await this.updateComplete;
+    await this.updateComplete;
     const composite = this.modalRenderRoot?.querySelector(
       'c4d-locale-modal-composite'
     );
     composite?.setAttribute('open', '');
-  };
+  }
 
   @state()
   _isMobile = this.carbonBreakpoints.lg.matches;
@@ -206,10 +206,15 @@ class C4DFooterComposite extends MediaQueryMixin(
   localeList?: LocaleList;
 
   /**
+   * @inheritdoc
+   */
+  modalTriggerProps = ['openLocaleModal', 'localeList'];
+
+  /**
    * `true` to open the locale modal.
    */
   @property({ type: Boolean, attribute: 'open-locale-modal' })
-  openLocaleModal = false;
+  openLocaleModal;
 
   /**
    * Footer size.
@@ -260,16 +265,17 @@ class C4DFooterComposite extends MediaQueryMixin(
       openLocaleModal,
       _loadLocaleList: loadLocaleList,
     } = this;
-    return html`
-      <c4d-locale-modal-composite
-        lang-display="${ifDefined(langDisplay)}"
-        language="${ifDefined(language)}"
-        ?open="${openLocaleModal}"
-        .collatorCountryName="${ifDefined(collatorCountryName)}"
-        .localeList="${ifDefined(localeList)}"
-        ._loadLocaleList="${ifDefined(loadLocaleList)}">
-      </c4d-locale-modal-composite>
-    `;
+    return openLocaleModal
+      ? html`
+          <c4d-locale-modal-composite
+            lang-display="${ifDefined(langDisplay)}"
+            language="${ifDefined(language)}"
+            .collatorCountryName="${ifDefined(collatorCountryName)}"
+            .localeList="${ifDefined(localeList)}"
+            ._loadLocaleList="${ifDefined(loadLocaleList)}">
+          </c4d-locale-modal-composite>
+        `
+      : html``;
   }
 
   renderLanguageSelector(slot = 'language-selector') {
