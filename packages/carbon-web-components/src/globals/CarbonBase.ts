@@ -29,20 +29,25 @@ export default class CarbonBase extends LitElement {
     return ['reset', 'type'];
   }
 
-  connectedCallback() {
-    super.connectedCallback();
-
+  /**
+   * Inserts selected CarbonStyles primitive stylesheets into shadowRoot's
+   * adoptedStylesheets.
+   */
+  private _adoptCarbonStyles() {
     const { shadowRoot } = this;
     const neededStyles = this._requestCarbonStyles();
-
     if (shadowRoot && neededStyles) {
       const globalStyles = CarbonStyles.global.getStyleSheets(neededStyles);
       const componentStyles = this.shadowRoot.adoptedStyleSheets;
-
       this.shadowRoot.adoptedStyleSheets = [
         ...globalStyles,
         ...componentStyles,
       ];
     }
+  }
+
+  connectedCallback() {
+    super.connectedCallback();
+    this._adoptCarbonStyles();
   }
 }
