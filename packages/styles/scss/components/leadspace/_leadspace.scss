@@ -246,6 +246,7 @@ $btn-min-width: 26;
 
       ::slotted(#{$dds-prefix}-button-group),
       ::slotted([slot='action']),
+      ::slotted([data-autoid$='button-group']),
       .#{$prefix}--buttongroup {
         padding-top: $carbon--layout-01;
         padding-bottom: calc(#{$layout-03});
