@@ -24,7 +24,7 @@
   }
 
   .#{$prefix}--legal-nav {
-    @include theme($g90, feature-flag-enabled('enable-css-custom-properties'));
+    @include theme($g100, feature-flag-enabled('enable-css-custom-properties'));
     @include make-row;
 
     .#{$prefix}--footer:not(.#{$prefix}--footer--short) & {
@@ -34,6 +34,7 @@
     }
   }
 
+  .#{$prefix}--adjunct-links__container,
   .#{$prefix}--legal-nav__list {
     width: 100%;
     padding-left: $spacing-05;
@@ -53,7 +54,7 @@
     }
     &.#{$prefix}--legal-nav__micro {
       @include theme(
-        $g90,
+        $g100,
         feature-flag-enabled('enable-css-custom-properties')
       );
 
@@ -62,6 +63,13 @@
       padding-left: 0;
       flex-direction: column-reverse;
       margin-right: 0;
+
+      @include breakpoint-down(md) {
+        ::slotted([slot='locale']),
+        ::slotted([slot='brand']) {
+          display: none;
+        }
+      }
 
       @include breakpoint(md) {
         padding-left: 0;

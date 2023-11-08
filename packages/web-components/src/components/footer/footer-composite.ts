@@ -66,15 +66,16 @@ class C4DFooterComposite extends MediaQueryMixin(
   /**
    * Handles `click` event on the locale button.
    */
-  private async _handleClickLocaleButton() {
+  private _handleClickLocaleButton = () => {
     this.openLocaleModal = true;
+
     // Set 'open' attribute after modal is in dom so CSS can fade it in.
-    await this.updateComplete;
+    // await this.updateComplete;
     const composite = this.modalRenderRoot?.querySelector(
-      'dds-locale-modal-composite'
+      'c4d-locale-modal-composite'
     );
     composite?.setAttribute('open', '');
-  }
+  };
 
   @state()
   _isMobile = this.carbonBreakpoints.lg.matches;
@@ -208,12 +209,7 @@ class C4DFooterComposite extends MediaQueryMixin(
    * `true` to open the locale modal.
    */
   @property({ type: Boolean, attribute: 'open-locale-modal' })
-  openLocaleModal;
-
-  /**
-   * @inheritdoc
-   */
-  modalTriggerProps = ['openLocaleModal', 'localeList'];
+  openLocaleModal = false;
 
   /**
    * Footer size.
@@ -264,17 +260,16 @@ class C4DFooterComposite extends MediaQueryMixin(
       openLocaleModal,
       _loadLocaleList: loadLocaleList,
     } = this;
-    return openLocaleModal
-      ? html`
-          <c4d-locale-modal-composite
-            lang-display="${ifDefined(langDisplay)}"
-            language="${ifDefined(language)}"
-            .collatorCountryName="${ifDefined(collatorCountryName)}"
-            .localeList="${ifDefined(localeList)}"
-            ._loadLocaleList="${ifDefined(loadLocaleList)}">
-          </c4d-locale-modal-composite>
-        `
-      : html``;
+    return html`
+      <c4d-locale-modal-composite
+        lang-display="${ifDefined(langDisplay)}"
+        language="${ifDefined(language)}"
+        ?open="${openLocaleModal}"
+        .collatorCountryName="${ifDefined(collatorCountryName)}"
+        .localeList="${ifDefined(localeList)}"
+        ._loadLocaleList="${ifDefined(loadLocaleList)}">
+      </c4d-locale-modal-composite>
+    `;
   }
 
   renderLanguageSelector(slot = 'language-selector') {
@@ -297,11 +292,11 @@ class C4DFooterComposite extends MediaQueryMixin(
             placeholder="${selectedLanguage}">
             ${langList?.map(
               (language) => html`
-                <bx-select-item
+                <cds-select-item
                   label="${ifDefined(language.text)}"
                   value="${ifDefined(language.text)}"
                   lang="${ifDefined(language.id)}"
-                  >${ifDefined(language.text)}</bx-select-item
+                  >${ifDefined(language.text)}</cds-select-item
                 >
               `
             )}
@@ -360,29 +355,43 @@ class C4DFooterComposite extends MediaQueryMixin(
         size="${ifDefined(size)}"
         ?disable-locale-button="${ifDefined(disableLocaleButton)}">
         <c4d-footer-logo></c4d-footer-logo>
-        <c4d-footer-nav
-          ?disable-locale-button="${ifDefined(disableLocaleButton)}">
-          ${links?.map(
-            ({ title: groupTitle, links: groupLinks }) => html`
-              <c4d-footer-nav-group title-text="${ifDefined(groupTitle)}">
-                ${groupLinks?.map(
-                  ({ title, url }) => html`
-                    <c4d-footer-nav-item href="${ifDefined(url)}"
-                      >${title}</c4d-footer-nav-item
-                    >
-                  `
-                )}
-              </c4d-footer-nav-group>
-            `
-          )}
-        </c4d-footer-nav>
-        ${size !== FOOTER_SIZE.MICRO && !langList && !disableLocaleButton
+        ${size !== FOOTER_SIZE.MICRO && size !== FOOTER_SIZE.SHORT
+          ? html` <c4d-footer-nav
+              ?disable-locale-button="${ifDefined(disableLocaleButton)}">
+              ${links?.map(
+                ({ title: groupTitle, links: groupLinks }) => html`
+                  <c4d-footer-nav-group title-text="${ifDefined(groupTitle)}">
+                    ${groupLinks?.map(
+                      ({ title, url }) => html`
+                        <c4d-footer-nav-item href="${ifDefined(url)}"
+                          >${title}</c4d-footer-nav-item
+                        >
+                      `
+                    )}
+                  </c4d-footer-nav-group>
+                `
+              )}
+              ${!langList && !disableLocaleButton
+                ? this.renderLocaleButton()
+                : ``}
+              ${langList && !disableLocaleButton
+                ? this.renderLanguageSelector()
+                : ``}
+            </c4d-footer-nav>`
+          : ``}
+        ${(size === FOOTER_SIZE.SHORT || size === FOOTER_SIZE.MICRO) &&
+        !langList &&
+        !disableLocaleButton
           ? this.renderLocaleButton()
           : ``}
-        ${size !== FOOTER_SIZE.MICRO && langList && !disableLocaleButton
+        ${(size === FOOTER_SIZE.SHORT || size === FOOTER_SIZE.MICRO) &&
+        langList &&
+        !disableLocaleButton
           ? this.renderLanguageSelector()
           : ``}
+
         <c4d-legal-nav size="${ifDefined(size)}">
+          <c4d-footer-logo size="${ifDefined(size)}"></c4d-footer-logo>
           ${legalLinks?.map(
             ({ title, url, titleEnglish }) => html`
               <c4d-legal-nav-item

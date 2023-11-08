@@ -32,7 +32,7 @@
     width: 100%;
     padding-block: $spacing-09;
 
-    @include theme($g90, feature-flag-enabled('enable-css-custom-properties'));
+    @include theme($g100, feature-flag-enabled('enable-css-custom-properties'));
 
     color: $text-primary;
     background-color: $background;
@@ -46,18 +46,15 @@
         }
       }
     }
-  }
 
-  :host(#{$c4d-prefix}-footer[disable-locale-button])
-    .#{$prefix}--footer__main-container {
-    @include breakpoint(lg) {
-      flex-flow: nowrap;
+    @include breakpoint-down(md) {
+      ::slotted([slot='brand']) {
+        margin-bottom: $spacing-09;
+      }
     }
   }
 
   :host(#{$c4d-prefix}-footer[size='short']) {
-    padding-block: $spacing-07;
-
     .#{$prefix}--footer__logo-container {
       width: 100%;
     }
@@ -71,19 +68,32 @@
         @include make-col-offset(10, 16);
       }
     }
+
+    @include breakpoint-down(md) {
+      ::slotted([slot='brand']) {
+        margin-bottom: 0;
+      }
+    }
   }
 
   :host(#{$c4d-prefix}-footer[size='micro']) {
     padding-top: 0;
     padding-bottom: 0;
 
-    ::slotted(#{$c4d-prefix}-footer-nav),
-    ::slotted(#{$c4d-prefix}-footer-logo) {
-      display: none;
+    @include breakpoint-down(md) {
+      ::slotted([slot='brand']) {
+        margin-top: $spacing-09;
+      }
+
+      ::slotted([slot='locale-button']) {
+        margin-top: 0;
+      }
     }
 
     .#{$prefix}--footer__logo-container {
-      display: none;
+      @include breakpoint(md) {
+        display: none;
+      }
     }
 
     .#{$prefix}--language-selector__container {
@@ -105,7 +115,7 @@
   :host(#{$c4d-prefix}-footer-nav-item),
   :host(#{$c4d-prefix}-legal-nav-item),
   :host(#{$c4d-prefix}-legal-nav-cookie-preferences-placeholder) {
-    @include theme($g90, feature-flag-enabled('enable-css-custom-properties'));
+    @include theme($g100, feature-flag-enabled('enable-css-custom-properties'));
 
     display: list-item;
     outline: none;
@@ -134,7 +144,7 @@
   }
 
   :host(#{$c4d-prefix}-legal-nav) {
-    @include theme($g90, feature-flag-enabled('enable-css-custom-properties'));
+    @include theme($g100, feature-flag-enabled('enable-css-custom-properties'));
 
     .#{$prefix}--legal-nav__list {
       .#{$prefix}--legal-nav__list-item {
@@ -189,15 +199,9 @@
 
     .#{$prefix}--footer__logo-row {
       @include make-row;
+
+      justify-content: space-between;
     }
-  }
-
-  .#{$prefix}--footer__locale-button--disabled {
-    @include make-col(2, 16);
-
-    flex: auto;
-    margin-left: 0;
-    margin-right: 0;
   }
 
   @media print {
@@ -215,28 +219,9 @@
     display: block;
     .#{$prefix}--adjunct-links__container {
       list-style: none;
-      padding: $spacing-09 0 $spacing-05 $spacing-05;
+      margin-top: $spacing-07;
       @include breakpoint-down(md) {
         @include make-container;
-      }
-      .#{$prefix}--adjunct-links__row {
-        margin-right: 0;
-        @include make-row;
-        .#{$prefix}--adjunct-links__col {
-          ::slotted(#{$c4d-prefix}-legal-nav-item) {
-            padding-top: 0;
-            padding-bottom: $spacing-03;
-          }
-
-          @include make-col(4, 4);
-          @include breakpoint(md) {
-            @include make-col(4, 8);
-          }
-          @include breakpoint(lg) {
-            padding-right: $spacing-05;
-            @include make-col(4, 12);
-          }
-        }
       }
     }
     .#{$prefix}--adjunct-links__container--hidden {
@@ -278,6 +263,7 @@
   // The style of legal nav deviates from the one of React, so we can make the markup simpler.
   // FIXME: Once the style is stabilized, change the markup of React, too, so we can share the style
   :host(#{$c4d-prefix}-legal-nav):not([size='micro']) {
+    .#{$prefix}--adjunct-links__container,
     .#{$prefix}--legal-nav__list {
       padding-bottom: 0;
       padding-top: 0;
@@ -327,7 +313,13 @@
     .#{$prefix}--legal-nav__list {
       width: 100%;
 
-      > ul {
+      div {
+        @include breakpoint(lg) {
+          display: flex;
+        }
+      }
+
+      div > ul {
         border-top: 1px solid $border-subtle-01;
         padding: 0 $spacing-05;
 
@@ -338,18 +330,65 @@
 
         @include breakpoint(lg) {
           border-top: none;
+          padding: 0 $spacing-05 0 $spacing-07;
         }
       }
     }
   }
 
   :host(#{$c4d-prefix}-locale-button[size='micro']) {
-    margin: 0;
-    flex-shrink: 1;
-    padding: 0;
-
     @include breakpoint(md) {
+      margin: 0;
+      flex-shrink: 1;
+      padding: 0;
+
       margin-left: 50%;
+
+      .#{$prefix}--btn--tertiary {
+        background-color: $background;
+        margin: 0;
+        border: none;
+        @include type-style('body-short-01');
+        @include breakpoint(md) {
+          align-self: flex-end;
+          border-left: 1px solid $border-subtle-01;
+        }
+
+        @include breakpoint(lg) {
+          margin: 0 (-$spacing-05) 0 0;
+        }
+
+        &:hover,
+        &:focus {
+          background-color: $background-hover;
+          color: $text-primary;
+        }
+
+        .#{$prefix}--btn--tertiary,
+        .#{$prefix}--list-box,
+        .#{$prefix}--select-input {
+          background-color: $background;
+          max-width: 100%;
+
+          &:hover {
+            background-color: $background-hover;
+          }
+
+          &:active {
+            background-color: $background-active;
+          }
+        }
+
+        .#{$prefix}--select {
+          max-width: 100%;
+        }
+
+        .#{$prefix}--text-input,
+        .#{$prefix}--list-box,
+        .#{$prefix}--select-input {
+          border-bottom: none;
+        }
+      }
     }
     @include breakpoint(lg) {
       margin-left: 0;
@@ -362,52 +401,6 @@
 
     .#{$prefix}--locale-btn {
       max-width: 100%;
-    }
-
-    .#{$prefix}--btn--tertiary {
-      background-color: $background;
-      margin: 0;
-      border: none;
-      @include type-style('body-short-01');
-      @include breakpoint(md) {
-        align-self: flex-end;
-        border-left: 1px solid $border-subtle-01;
-      }
-
-      @include breakpoint(lg) {
-        margin: 0 (-$spacing-05) 0 0;
-      }
-
-      &:hover,
-      &:focus {
-        background-color: $background-hover;
-        color: $text-primary;
-      }
-
-      .#{$prefix}--btn--tertiary,
-      .#{$prefix}--list-box,
-      .#{$prefix}--select-input {
-        background-color: $background;
-        max-width: 100%;
-
-        &:hover {
-          background-color: $background-hover;
-        }
-
-        &:active {
-          background-color: $background-active;
-        }
-      }
-
-      .#{$prefix}--select {
-        max-width: 100%;
-      }
-
-      .#{$prefix}--text-input,
-      .#{$prefix}--list-box,
-      .#{$prefix}--select-input {
-        border-bottom: none;
-      }
     }
   }
 
@@ -530,8 +523,7 @@
     align-self: flex-end;
     border-left: 1px solid $border-subtle-01;
     width: 100%;
-    margin: 0;
-    padding: 0;
+    margin-top: 0;
 
     .#{$prefix}--select {
       display: block;
@@ -539,8 +531,6 @@
 
     .#{$prefix}--select-input {
       height: 100%;
-      background-color: $background;
-      border-bottom: none;
       width: 100%;
       max-width: 100%;
 
@@ -550,7 +540,14 @@
     }
 
     @include breakpoint(md) {
+      margin: 0;
       max-width: 50%;
+      padding: 0;
+
+      .#{$prefix}--select-input {
+        background-color: $background;
+        border-bottom: none;
+      }
     }
   }
 
