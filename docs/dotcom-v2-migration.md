@@ -16,7 +16,7 @@ For Carbon v11 migration guidance, see their
 | ------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------- |
 | back-to-top               | No API changes.                                                                                                                                |
 | background-media          | No API changes.                                                                                                                                |
-| button-expressive         | Deprecated in favor of `button` from the [@carbon/web-component](https://www.npmjs.com/package/@carbon/web-components) package.               |
+| button-expressive         | Deprecated in favor of `button`.               |
 | button-group              | No API changes.                                                                                                                                |
 | callout-with-media        | View [changes](#callout-with-media).                                                                                                      |
 | callout-quote             | View [changes](#callout-quote).                                                                                                           |
