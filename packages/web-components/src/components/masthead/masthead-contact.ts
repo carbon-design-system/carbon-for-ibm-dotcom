@@ -11,6 +11,7 @@ import { ifDefined } from 'lit-html/directives/if-defined.js';
 import { html, customElement, property } from 'lit-element';
 import settings from 'carbon-components/es/globals/js/settings.js';
 import Chat20 from '../../internal/vendor/@carbon/web-components/icons/chat/20.js';
+import HostListener from '../../internal/vendor/@carbon/web-components/globals/decorators/host-listener.js';
 import ddsSettings from '../../internal/vendor/@carbon/ibmdotcom-utilities/utilities/settings/settings';
 import styles from './masthead.scss';
 import DDSMastheadProfile from './masthead-profile';
@@ -32,49 +33,28 @@ class DDSMastheadContact extends DDSMastheadProfile {
   triggerLabel = 'Contact';
 
   /**
-   * Handles events fired by CM_APP.
+   * Handles cm-app-pane-displayed event fired by CM_APP.
    *
    * @see DOCUMENT_EVENTS live-advisor/cm-app/js/helpers/otherConstants.js
    *   - https://github.ibm.com/live-advisor/cm-app/blob/master/js/helpers/otherConstants.js
    */
-  protected _handleCMAppEvents(event: CustomEvent) {
-    const { type } = event;
+  @HostListener('document:cm-app-pane-displayed')
+  protected _handleCMAppDisplayed = (_event: CustomEvent) => {
+    console.log(this);
+    this.triggerLabel = 'Close contact window';
+  };
 
-    switch (type) {
-      case 'cm-app-pane-displayed':
-        this.triggerLabel = 'Close contact window';
-        break;
-
-      case 'cm-app-pane-hidden':
-        this.triggerLabel = 'Show contact window';
-        break;
-
-      default:
-        break;
-    }
-  }
-
-  connectedCallback() {
-    const { _handleCMAppEvents: handleCMAppEvents } = this;
-    super.connectedCallback();
-
-    /**
-     * TODO: Appease typescript compiler.
-     *
-     * These events are fired by live-advisor/cm-app, and are listened for on the document.
-     * To get a reference back to the instance of `this` we have to bind it to the event handler.
-     * This is currently not possible using the HostListener mixin & decorator.
-     *
-     * @see DOCUMENT_EVENTS live-advisor/cm-app/js/helpers/otherConstants.js
-     *   - https://github.ibm.com/live-advisor/cm-app/blob/master/js/helpers/otherConstants.js
-     */
-
-    const CMEventHandler = handleCMAppEvents.bind(this);
-    // @ts-ignore: custom events & CustomEvent listener.
-    document.addEventListener('cm-app-pane-displayed', CMEventHandler);
-    // @ts-ignore: custom events & CustomEvent listener.
-    document.addEventListener('cm-app-pane-hidden', CMEventHandler);
-  }
+  /**
+   * Handles cm-app-pane-hidden event fired by CM_APP.
+   *
+   * @see DOCUMENT_EVENTS live-advisor/cm-app/js/helpers/otherConstants.js
+   *   - https://github.ibm.com/live-advisor/cm-app/blob/master/js/helpers/otherConstants.js
+   */
+  @HostListener('document:cm-app-pane-hidden')
+  protected _handleCMAppHidden = (_event: CustomEvent) => {
+    console.log(this);
+    this.triggerLabel = 'Show contact window';
+  };
 
   render() {
     const { triggerLabel, _handleClick: handleClick } = this;
