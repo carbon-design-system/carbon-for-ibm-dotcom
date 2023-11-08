@@ -11,7 +11,7 @@
 
 const fs = require('fs');
 const { promisify } = require('util');
-const commander = require('commander');
+const { program } = require('commander');
 
 const readFile = promisify(fs.readFile);
 const writeFile = promisify(fs.writeFile);
@@ -49,7 +49,7 @@ const replace = async (files) => {
   );
 };
 
-const { args } = commander.parse(process.argv);
+const { args } = program.parse(process.argv);
 
 replace(args).then(
   () => {
