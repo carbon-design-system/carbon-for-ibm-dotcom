@@ -40,7 +40,6 @@ class DDSMastheadContact extends DDSMastheadProfile {
    */
   @HostListener('document:cm-app-pane-displayed')
   protected _handleCMAppDisplayed = (_event: CustomEvent) => {
-    console.log(this);
     this.triggerLabel = 'Close contact window';
   };
 
@@ -52,7 +51,6 @@ class DDSMastheadContact extends DDSMastheadProfile {
    */
   @HostListener('document:cm-app-pane-hidden')
   protected _handleCMAppHidden = (_event: CustomEvent) => {
-    console.log(this);
     this.triggerLabel = 'Show contact window';
   };
 
