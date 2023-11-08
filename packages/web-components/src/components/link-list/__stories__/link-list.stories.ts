@@ -288,8 +288,6 @@ Vertical.story = {
   },
 };
 
-
-
 export default {
   title: 'Components/Link list',
   parameters: {

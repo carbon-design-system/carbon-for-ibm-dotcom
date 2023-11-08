@@ -23,23 +23,14 @@
 @mixin card {
   :host(#{$c4d-prefix}-card),
   :host(#{$c4d-prefix}-region-item) .#{$prefix}--link,
-  :host(#{$c4d-prefix}-card-cta),
-  :host(#{$c4d-prefix}-card-in-card),
   :host(#{$c4d-prefix}-card-group-item),
   :host(#{$c4d-prefix}-card-group-item) .#{$prefix}--card,
+  :host(#{$c4d-prefix}-card-cta),
+  :host(#{$c4d-prefix}-card-in-card),
   :host(#{$c4d-prefix}-content-group-cards-item),
   :host(#{$c4d-prefix}-content-group-cards-item) .#{$prefix}--card {
     @include tile($enable-experimental-tile-contrast: true);
-  }
 
-  :host(#{$c4d-prefix}-card),
-  :host(#{$c4d-prefix}-region-item) .#{$prefix}--link,
-  :host(#{$c4d-prefix}-card-group-item),
-  :host(#{$c4d-prefix}-card-group-item) .#{$prefix}--card,
-  :host(#{$c4d-prefix}-card-cta),
-  :host(#{$c4d-prefix}-card-in-card),
-  :host(#{$c4d-prefix}-content-group-cards-item),
-  :host(#{$c4d-prefix}-content-group-cards-item) .#{$prefix}--card {
     position: relative;
     display: flex;
     flex-direction: column;
