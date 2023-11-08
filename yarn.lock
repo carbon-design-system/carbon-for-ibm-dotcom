@@ -2095,7 +2095,7 @@ __metadata:
     chalk: ^4.1.1
     classnames: 2.3.2
     cli-table: ^0.3.0
-    commander: ^4.1.0
+    commander: ^11.1.0
     cross-env: ^7.0.0
     css-loader: ^5.2.0
     cy2: ^4.0.6
@@ -2383,7 +2383,7 @@ __metadata:
     carbon-components: 10.58.12
     chalk: ^4.1.1
     classnames: 2.3.2
-    commander: ^4.1.0
+    commander: ^11.1.0
     cross-env: ^7.0.0
     css-loader: ^5.2.0
     cssnano: ^5.0.0
@@ -12101,6 +12101,13 @@ __metadata:
   version: 2.17.1
   resolution: "commander@npm:2.17.1"
   checksum: 22e7ed5b422079a13a496e5eb8f73f36c15b5809d46f738e168e20f9ad485c12951bdc2cb366a36eb5f4927dae4f17b355b8adb96a5b9093f5fa4c439e8b9419
+  languageName: node
+  linkType: hard
+
+"commander@npm:^11.1.0":
+  version: 11.1.0
+  resolution: "commander@npm:11.1.0"
+  checksum: fd1a8557c6b5b622c89ecdfde703242ab7db3b628ea5d1755784c79b8e7cb0d74d65b4a262289b533359cd58e1bfc0bf50245dfbcd2954682a6f367c828b79ef
   languageName: node
   linkType: hard
 

@@ -10,7 +10,7 @@
 'use strict';
 
 const fs = require('fs');
-const program = require('commander');
+const { program } = require('commander');
 
 program.option('-f, --folder <folder>', 'Location of packages folder');
 program.parse();
