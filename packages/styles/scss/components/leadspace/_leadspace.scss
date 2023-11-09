@@ -105,7 +105,8 @@ $btn-min-width: 26;
 
     .#{$prefix}--buttongroup,
     ::slotted(#{$dds-prefix}-button-group),
-    ::slotted(#{$dds-prefix}-leadspace-block-cta) {
+    ::slotted(#{$dds-prefix}-leadspace-block-cta),
+    ::slotted([data-autoid$='button-group']) {
       padding-bottom: $spacing-07;
 
       @include carbon--breakpoint(md) {
