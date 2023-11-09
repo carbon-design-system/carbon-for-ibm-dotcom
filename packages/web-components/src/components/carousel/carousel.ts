@@ -444,16 +444,18 @@ class C4DCarousel extends HostListenerMixin(StableSelectorMixin(CarbonBase)) {
               (this.constructor as typeof C4DCarousel).selectorItemTagGroup
             )
           );
+
           this._childItemHeadings.push(
             (e as HTMLElement).querySelector(
               (this.constructor as typeof C4DCarousel).selectorItemHeading
             )
           );
 
+          // gets card cta-type="video" headings
           this._childItemHeadings.push(
             (e as HTMLElement)
               .querySelector(
-                (this.constructor as typeof C4DCarousel).selectorItemCardCTA
+                (this.constructor as typeof C4DCarousel).selectorItem
               )
               ?.shadowRoot?.querySelector(
                 (this.constructor as typeof C4DCarousel).selectorItemHeading
@@ -517,6 +519,7 @@ class C4DCarousel extends HostListenerMixin(StableSelectorMixin(CarbonBase)) {
       this._childItemEyebrows.filter((item) => item !== null),
       'sm'
     );
+
     sameHeight(
       this._childItemHeadings.filter((item) => item !== null),
       'sm'
@@ -770,7 +773,7 @@ class C4DCarousel extends HostListenerMixin(StableSelectorMixin(CarbonBase)) {
    * The name of the custom event fired when the video title is updated
    */
   static get eventVideoTitleUpdated() {
-    return `${c4dPrefix}-card-cta-video-title-updated`;
+    return `${c4dPrefix}-card-video-title-updated`;
   }
 
   /**
@@ -780,12 +783,12 @@ class C4DCarousel extends HostListenerMixin(StableSelectorMixin(CarbonBase)) {
     return `${c4dPrefix}-card`;
   }
 
-  /**
-   * The selector for the card cta
-   */
-  static get selectorItemCardCTA() {
-    return `${c4dPrefix}-card-cta`;
-  }
+  // /**
+  //  * The selector for the card cta
+  //  */
+  // static get selectorItemCardCTA() {
+  //   return `${c4dPrefix}-card`;
+  // }
 
   /**
    * The selector for the video cta container
@@ -826,7 +829,7 @@ class C4DCarousel extends HostListenerMixin(StableSelectorMixin(CarbonBase)) {
    * A selector that will return the card item's footer
    */
   static get selectorItemFooter() {
-    return `${c4dPrefix}-card-cta-footer`;
+    return `${c4dPrefix}-card-footer`;
   }
 
   static get stableSelector() {
