@@ -66,7 +66,7 @@ For Carbon v11 migration guidance, see their
 | link-with-icon            | No API changes.                                                                                                                                            |
 | logo-grid                 | Deprecated in favor of `content-section` or `content-block` combined with `image-group`.                                                                   |
 | pictogram-item            | Deprecated in favor of `content-item` (pictogram variation).                                                                                               |
-| quote                     | No API changes.                                                                                                                                            |
+| quote                     | View [changes](#quote).                                                                                                                                    |
 | scroll-animations         | No API changes.                                                                                                                                            |
 | search-with-typeahead     | No API changes.                                                                                                                                            |
 | table-of-contents         | No API changes.                                                                                                                                            |
@@ -170,6 +170,9 @@ information.
   components have been replaced:
 - `link-list-item-card` has been replaced with `link-list-item`
 - `link-list-item-card-cta` has been replaced with `link-list-item-cta`
+
+### Quote
+- Removed `color-scheme` `inverse` option in favor of `callout-quote (inverse)`
 
 ### Universal banner
 

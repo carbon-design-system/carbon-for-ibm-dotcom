@@ -38,15 +38,3 @@ export enum QUOTE_TYPES {
    */
   CORNER_BRACKET = 'corner-bracket',
 }
-
-export enum QUOTE_COLOR_SCHEMES {
-  /**
-   * Regular Scheme
-   */
-  REGULAR = 'regular',
-
-  /**
-   * Inverse Scheme
-   */
-  INVERSE = 'inverse',
-}
