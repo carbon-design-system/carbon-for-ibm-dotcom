@@ -255,6 +255,12 @@ class C4DCardGroup extends StableSelectorMixin(LitElement) {
 
   firstUpdated() {
     super.connectedCallback();
+
+    if(this.previousElementSibling?.matches?.(
+      (this.constructor as typeof C4DCardGroup).selectorCardInCard
+    )) {
+      this.setAttribute('with-card-in-card', '');
+    }
     this._cleanAndCreateObserverResize({ create: true });
   }
 
@@ -278,6 +284,13 @@ class C4DCardGroup extends StableSelectorMixin(LitElement) {
   static get stableSelector() {
     return `${c4dPrefix}--card-group`;
   }
+
+  /**
+   * A selector that will return the card-in-card selector
+   */
+  static get selectorCardInCard() {
+    return `${c4dPrefix}-card-in-card`;
+  }  
 
   /**
    * A selector that will return the card item.

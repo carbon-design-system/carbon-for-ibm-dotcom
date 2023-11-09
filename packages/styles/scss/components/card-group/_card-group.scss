@@ -26,6 +26,12 @@
     background: none;
   }
 
+  :host(#{$c4d-prefix}-card-group[with-card-in-card][grid-mode]) {
+      padding-top: 0;
+      padding-left: 1px;
+      padding-right: 1px;
+  }
+
   :host(#{$c4d-prefix}-card-group-item) {
 
     .#{$prefix}--card {
@@ -55,6 +61,12 @@
       .#{$prefix}--card {
         outline-offset: -1px;
       }
+    }
+  }
+
+  :host(#{$c4d-prefix}-card-group-item[href=""]) {  
+    .#{$prefix}--card {
+      outline: none;
     }
   }
 
