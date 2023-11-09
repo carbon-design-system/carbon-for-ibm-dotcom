@@ -7,7 +7,7 @@
  * LICENSE file in the root directory of this source tree.
  */
 
-import { html } from 'lit';
+import { TemplateResult, html } from 'lit';
 import { property, state, query } from 'lit/decorators.js';
 import { classMap } from 'lit/directives/class-map.js';
 import { prefix } from '../../globals/settings';
@@ -414,7 +414,7 @@ export default class CDSTabs extends HostListenerMixin(CDSContentSwitcher) {
   /**
    * Render the previous button if tablist is wider than container.
    */
-  protected renderPreviousButton() {
+  protected renderPreviousButton(): TemplateResult | null {
     const {
       _isIntersectionLeftTrackerInContent: isIntersectionLeftTrackerInContent,
     } = this;
@@ -443,7 +443,7 @@ export default class CDSTabs extends HostListenerMixin(CDSContentSwitcher) {
   /**
    * Render the next button if tablist is wider than container.
    */
-  protected renderNextButton() {
+  protected renderNextButton(): TemplateResult | null {
     const {
       _isIntersectionRightTrackerInContent: isIntersectionRightTrackerInContent,
     } = this;
