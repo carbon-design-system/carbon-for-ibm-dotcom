@@ -65,7 +65,11 @@ export default {
           'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus est purus, posuere at est vitae, ' +
             'ornare rhoncus sem. Suspendisse vitae tellus fermentum, hendrerit augue eu, placerat magna.'
         ),
-        quoteMark: select('Quote Mark (markType):', types, types.doubleCurved),
+        quoteMark: select(
+          'Quote Mark (markType):',
+          types,
+          types['double-curved']
+        ),
         sourceHeading: textNullable(
           'Source heading (source-heading slot)',
           'Lorem ipsum dolor sit amet'
