@@ -1,7 +1,7 @@
 /**
  * @license
  *
- * Copyright IBM Corp. 2020, 2022
+ * Copyright IBM Corp. 2020, 2023
  *
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
@@ -39,16 +39,25 @@ const colorSchemeTypes = {
   [`${COLOR_SCHEME.CYAN}`]: COLOR_SCHEME.CYAN,
 };
 
-
-export const Default = args => {
-  const { copy, quoteMark, sourceHeading, sourceCopy, sourceBottomCopy, colorScheme } = args?.CalloutQuote ?? {};
+export const Default = (args) => {
+  const {
+    copy,
+    quoteMark,
+    sourceHeading,
+    sourceCopy,
+    sourceBottomCopy,
+    colorScheme,
+  } = args?.CalloutQuote ?? {};
   return (
     <C4DCalloutQuote mark-type={quoteMark} color-scheme={colorScheme}>
       {copy}
       <C4DQuoteSourceHeading>{sourceHeading}</C4DQuoteSourceHeading>
       <C4DQuoteSourceCopy>{sourceCopy}</C4DQuoteSourceCopy>
       <C4DQuoteSourceBottomCopy>{sourceBottomCopy}</C4DQuoteSourceBottomCopy>
-      <C4DCalloutLinkWithIcon slot="footer" href="https://example.com" cta-type="local">
+      <C4DCalloutLinkWithIcon
+        slot="footer"
+        href="https://example.com"
+        cta-type="local">
         Link with icon
       </C4DCalloutLinkWithIcon>
     </C4DCalloutQuote>
@@ -59,11 +68,27 @@ Default.story = {
   parameters: {
     knobs: {
       CalloutQuote: () => ({
-        copy: textNullable('Quote (copy):', 'Bringing together the technology and expertise for a new way to create'),
-        quoteMark: select('Quote Mark (markType):', quoteTypes, quoteTypes.doubleCurved),
-        sourceHeading: textNullable('Source heading (source-heading slot)', 'John Doe'),
-        sourceCopy: textNullable('Source copy (source-copy slot)', 'Senior Vice President'),
-        sourceBottomCopy: textNullable('Source bottom copy (source-bottom-copy slot)', 'IBM Cloud'),
+        copy: textNullable(
+          'Quote (copy):',
+          'Bringing together the technology and expertise for a new way to create'
+        ),
+        quoteMark: select(
+          'Quote Mark (markType):',
+          quoteTypes,
+          quoteTypes['double-curved']
+        ),
+        sourceHeading: textNullable(
+          'Source heading (source-heading slot)',
+          'John Doe'
+        ),
+        sourceCopy: textNullable(
+          'Source copy (source-copy slot)',
+          'Senior Vice President'
+        ),
+        sourceBottomCopy: textNullable(
+          'Source bottom copy (source-bottom-copy slot)',
+          'IBM Cloud'
+        ),
         colorScheme: select(
           'Color scheme:',
           colorSchemeTypes,
