@@ -9,7 +9,6 @@
 
 import React from 'react';
 import { render } from 'react-dom';
-import ArrowRight20 from '@carbon/icons-react/es/arrow--right/20.js';
 import C4DCard from '@carbon/ibmdotcom-web-components/es/components-react/card/card';
 import C4DCardFooter from '@carbon/ibmdotcom-web-components/es/components-react/card/card-footer';
 import C4DCardHeading from '@carbon/ibmdotcom-web-components/es/components-react/card/card-heading';
@@ -25,11 +24,10 @@ const copyOdd = `
 
 // eslint-disable-next-line react/prop-types
 const Card = ({ copy = copyDefault, heading = headingDefault } = {}) => (
-  <C4DCard href="https://www.ibm.com/standards/carbon">
+  <C4DCard href="https://www.ibm.com/standards/carbon" cta-type="local">
     <C4DCardHeading>{heading}</C4DCardHeading>
-    {copy}
+    <p>{copy}</p>
     <C4DCardFooter>
-      <ArrowRight20 slot="icon" />
     </C4DCardFooter>
   </C4DCard>
 );
