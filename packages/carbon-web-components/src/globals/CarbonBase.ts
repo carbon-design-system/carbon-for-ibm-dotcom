@@ -25,7 +25,7 @@ export default class CarbonBase extends LitElement {
    * @returns {Array} An array of style primitive identifier strings.
    */
   // eslint-disable-next-line class-methods-use-this
-  protected _requestCarbonStyles() {
+  protected _requestCarbonStyles(): string[] {
     return ['reset', 'type'];
   }
 
@@ -33,14 +33,13 @@ export default class CarbonBase extends LitElement {
    * Inserts selected CarbonStyles primitive stylesheets into shadowRoot's
    * adoptedStylesheets.
    */
-  private _adoptCarbonStyles() {
-    const { shadowRoot } = this;
+  private _adoptCarbonStyles(): void {
     const neededStyles = this._requestCarbonStyles();
-    if (shadowRoot && neededStyles) {
-      const globalStyles = CarbonStyles.global.getStyleSheets(neededStyles);
+    if (this.shadowRoot && neededStyles) {
+      const adoptedStyles = CarbonStyles.global.getStyleSheets(neededStyles);
       const componentStyles = this.shadowRoot.adoptedStyleSheets;
       this.shadowRoot.adoptedStyleSheets = [
-        ...globalStyles,
+        ...adoptedStyles,
         ...componentStyles,
       ];
     }
