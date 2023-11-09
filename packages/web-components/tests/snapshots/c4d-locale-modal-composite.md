@@ -55,47 +55,8 @@
     placeholder="search-placeholder-foo"
     unavailability-label-text="unavailability-text-foo"
   >
-    <c4d-locale-item
-      country="country-name-foo"
-      href="https://example.com/locale-id-foo"
-      language="language-foo"
-      locale="locale-id-foo"
-      region="region-name-foo"
-    >
-    </c4d-locale-item>
-    <c4d-locale-item
-      country="country-name-foo"
-      href="https://example.com/locale-id-bar"
-      language="language-bar"
-      locale="locale-id-bar"
-      region="region-name-foo"
-    >
-    </c4d-locale-item>
-    <c4d-locale-item
-      country="country-name-bar"
-      href="https://example.com/locale-id-baz"
-      language="language-baz"
-      locale="locale-id-baz"
-      region="region-name-bar"
-    >
-    </c4d-locale-item>
-    <c4d-locale-item
-      country="country-name-baz"
-      href="https://example.com/locale-id-qux"
-      language="language-qux"
-      locale="locale-id-qux"
-      region="region-name-bar"
-    >
-    </c4d-locale-item>
-    <c4d-locale-item
-      country="country-name-baz"
-      href="https://example.com/locale-id-quux"
-      language="language-quux"
-      locale="locale-id-quux"
-      region="region-name-bar"
-    >
-    </c4d-locale-item>
-  </c4d-locale-search>
-</c4d-locale-modal>
+  </dds-locale-search>
+</dds-locale-modal>
+
 ```
 

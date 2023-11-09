@@ -31,7 +31,7 @@ const _tests = {
     cy.visit(`/${_path}`);
 
     cy.get('cds-link-list').then(([list]) => {
-      const items = list.querySelectorAll('cds-link-list-item-card');
+      const items = list.querySelectorAll('cds-link-list-item');
       items.forEach(item => {
         cy.get(item)
           .shadow()
@@ -59,7 +59,7 @@ const _tests = {
 
     cy.window()
       .then(win => (window = win))
-      .get('cds-link-list-item-card')
+      .get('cds-link-list-item')
       .each(([card], i) => {
         if (i !== 0) {
           const cardBox = card.getBoundingClientRect();
@@ -75,12 +75,12 @@ const _tests = {
   checkHoverState: () => {
     cy.visit(`/${_path}`);
 
-    cy.get('cds-link-list-item-card').then(([card]) => {
+    cy.get('cds-link-list-item').then(([card]) => {
       const sheets = card.shadowRoot.adoptedStyleSheets;
 
       if (sheets) {
         const hover = getCssPropertyForRule(
-          '.bx--card:hover, :host(cds-card:hover), :host(cds-link-list-item-card:hover), :host(cds-card-group-item:hover), :host(cds-card-group-item) .bx--card:hover, :host(cds-card-cta:hover), :host(cds-link-list-item-card-cta:hover), :host(cds-card-in-card:hover), :host(cds-content-group-cards-item:hover), :host(cds-content-group-cards-item) .bx--card:hover',
+          '.bx--card:hover, :host(cds-card:hover), :host(cds-card-group-item:hover), :host(cds-card-group-item) .bx--card:hover, :host(cds-card-cta:hover), :host(cds-card-in-card:hover), :host(cds-content-group-cards-item:hover), :host(cds-content-group-cards-item) .bx--card:hover',
           'background-color',
           sheets
         );

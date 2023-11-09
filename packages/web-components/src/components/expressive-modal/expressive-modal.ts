@@ -473,10 +473,10 @@ class C4DExpressiveModal extends StableSelectorMixin(
         this.ownerDocument.body.style.overflow = 'hidden';
         this.removeAttribute('aria-hidden');
         this._launcher = this.ownerDocument!.activeElement;
+        await this._waitForTransitionEnd();
         const primaryFocusNode = this.querySelector(
           (this.constructor as typeof C4DExpressiveModal).selectorPrimaryFocus
         );
-        await this._waitForTransitionEnd();
         if (primaryFocusNode) {
           // For cases where a `carbon-web-components` component (e.g. `<cds-btn>`) being `primaryFocusNode`,
           // where its first update/render cycle that makes it focusable happens after `<cds-modal>`'s first update/render cycle
