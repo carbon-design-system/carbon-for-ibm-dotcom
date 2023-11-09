@@ -69,7 +69,7 @@ class DDSLegalNav extends StableSelectorMixin(LitElement) {
 
   render() {
     return html`
-      <nav class="${prefix}--legal-nav">
+      <nav class="${prefix}--legal-nav" aria-label="Legal Navigation">
         <div class="${this._getTypeClass()}">
           <ul>
             <slot></slot>
