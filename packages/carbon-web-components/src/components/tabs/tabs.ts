@@ -7,7 +7,7 @@
  * LICENSE file in the root directory of this source tree.
  */
 
-import { html } from 'lit';
+import { TemplateResult, html } from 'lit';
 import { property, state, query } from 'lit/decorators.js';
 import { classMap } from 'lit/directives/class-map.js';
 import { prefix } from '../../globals/settings';
@@ -310,7 +310,7 @@ export default class CDSTabs extends HostListenerMixin(CDSContentSwitcher) {
   };
 
   /**
-   * Cleans-up and creats the intersection observer for the scrolling container.
+   * Cleans-up and creates the intersection observer for the scrolling container.
    *
    * @param [options] The options.
    * @param [options.create] `true` to create the new intersection observer.
@@ -411,14 +411,13 @@ export default class CDSTabs extends HostListenerMixin(CDSContentSwitcher) {
     }
   }
 
-  render() {
+  /**
+   * Render the previous button if tablist is wider than container.
+   */
+  protected renderPreviousButton(): TemplateResult | null {
     const {
       _isIntersectionLeftTrackerInContent: isIntersectionLeftTrackerInContent,
-      _isIntersectionRightTrackerInContent: isIntersectionRightTrackerInContent,
-      _assistiveStatusText: assistiveStatusText,
-      _handleSlotchange: handleSlotchange,
     } = this;
-
     const previousButtonClasses = classMap({
       [`${prefix}--tab--overflow-nav-button`]: true,
       [`${prefix}--tabs__nav-caret-left`]: true,
@@ -426,14 +425,6 @@ export default class CDSTabs extends HostListenerMixin(CDSContentSwitcher) {
       [`${prefix}--tab--overflow-nav-button--hidden`]:
         isIntersectionLeftTrackerInContent,
     });
-    const nextButtonClasses = classMap({
-      [`${prefix}--tab--overflow-nav-button`]: true,
-      [`${prefix}--tabs__nav-caret-right`]: true,
-      [`${prefix}--tab--overflow-nav-button--next`]: true,
-      [`${prefix}--tab--overflow-nav-button--hidden`]:
-        isIntersectionRightTrackerInContent,
-    });
-
     return html`
       <button
         part="prev-button"
@@ -446,19 +437,24 @@ export default class CDSTabs extends HostListenerMixin(CDSContentSwitcher) {
           })}>
         ${ChevronLeft16()}
       </button>
+    `;
+  }
 
-      <div class="${prefix}--tabs-nav-content-container">
-        <div class="${prefix}--tabs-nav-content">
-          <div class="${prefix}--tabs-nav">
-            <div id="tablist" role="tablist" class="${prefix}--tab--list">
-              <div class="${prefix}--sub-content-left"></div>
-              <slot @slotchange=${handleSlotchange}></slot>
-              <div class="${prefix}--sub-content-right"></div>
-            </div>
-          </div>
-        </div>
-      </div>
-
+  /**
+   * Render the next button if tablist is wider than container.
+   */
+  protected renderNextButton(): TemplateResult | null {
+    const {
+      _isIntersectionRightTrackerInContent: isIntersectionRightTrackerInContent,
+    } = this;
+    const nextButtonClasses = classMap({
+      [`${prefix}--tab--overflow-nav-button`]: true,
+      [`${prefix}--tabs__nav-caret-right`]: true,
+      [`${prefix}--tab--overflow-nav-button--next`]: true,
+      [`${prefix}--tab--overflow-nav-button--hidden`]:
+        isIntersectionRightTrackerInContent,
+    });
+    return html`
       <button
         part="next-button"
         tabindex="-1"
@@ -470,6 +466,29 @@ export default class CDSTabs extends HostListenerMixin(CDSContentSwitcher) {
           })}>
         ${ChevronRight16()}
       </button>
+    `;
+  }
+
+  render() {
+    const {
+      _assistiveStatusText: assistiveStatusText,
+      _handleSlotchange: handleSlotchange,
+    } = this;
+
+    return html`
+      ${this.renderPreviousButton()}
+      <div class="${prefix}--tabs-nav-content-container">
+        <div class="${prefix}--tabs-nav-content">
+          <div class="${prefix}--tabs-nav">
+            <div id="tablist" role="tablist" class="${prefix}--tab--list">
+              <div class="${prefix}--sub-content-left"></div>
+              <slot @slotchange=${handleSlotchange}></slot>
+              <div class="${prefix}--sub-content-right"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+      ${this.renderNextButton()}
       <div
         class="${prefix}--assistive-text"
         role="status"
