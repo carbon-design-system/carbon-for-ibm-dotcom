@@ -7,7 +7,7 @@
   "**/*.scss": [
     "prettier --write",
     "yarn lint:license:staged",
-    "stylelint '**/*.scss' --config ./packages/stylelint-config-ibmdotcom"
+    "stylelint '**/*.scss'"
   ],
   "*.md": [
     "prettier --write"
