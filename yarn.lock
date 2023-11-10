@@ -2383,7 +2383,7 @@ __metadata:
     redux-thunk: "npm:^2.3.0"
     strip-comments: "npm:^1.0.0"
     through2: "npm:^3.0.0"
-    typescript: "npm:~4.8.0"
+    typescript: "npm:^5.2.2"
     window-or-global: "npm:^1.0.1"
   languageName: unknown
   linkType: soft
@@ -2627,6 +2627,7 @@ __metadata:
     postcss-selector-parser: "npm:^6.0.0"
     prop-types: "npm:^15.7.2"
     react: "npm:^16.10.0 || ^17.0.0"
+    react-docgen-typescript-plugin: "npm:^1.0.5"
     react-dom: "npm:^16.10.0 || ^17.0.0"
     react-redux: "npm:^7.2.0"
     read-pkg-up: "npm:^7.0.0"
@@ -2647,14 +2648,12 @@ __metadata:
     temp: "npm:^0.9.0"
     terser-webpack-plugin: "npm:^4.2.3"
     through2: "npm:^3.0.0"
-    typescript: "npm:~4.8.0"
+    typescript: "npm:^5.2.2"
     url-loader: "npm:^4.1.1"
     web-component-analyzer: "npm:1.2.0-next.0"
     webpack: "npm:^4.46.0"
     wicg-inert: "npm:^3.1.2"
     window-or-global: "npm:^1.0.1"
-  peerDependencies:
-    typescript: ~4.8.0
   dependenciesMeta:
     "@carbon/icons-react":
       optional: true
@@ -2941,7 +2940,7 @@ __metadata:
     through2: "npm:^3.0.0"
     ts-loader: "npm:^6.0.0"
     tsickle: "npm:~0.46.0"
-    typescript: "npm:~4.8.0"
+    typescript: "npm:^5.2.2"
     use-debounce: "npm:^3.2.0"
     web-component-analyzer: "npm:1.2.0-next.0"
     webpack: "npm:^4.46.0"
@@ -28799,7 +28798,25 @@ __metadata:
   languageName: node
   linkType: hard
 
-"react-docgen-typescript@npm:^2.1.1":
+"react-docgen-typescript-plugin@npm:^1.0.5":
+  version: 1.0.5
+  resolution: "react-docgen-typescript-plugin@npm:1.0.5"
+  dependencies:
+    debug: "npm:^4.1.1"
+    endent: "npm:^2.0.1"
+    find-cache-dir: "npm:^3.3.1"
+    flat-cache: "npm:^3.0.4"
+    micromatch: "npm:^4.0.2"
+    react-docgen-typescript: "npm:^2.2.2"
+    tslib: "npm:^2.0.0"
+  peerDependencies:
+    typescript: ">= 4.x"
+    webpack: ">= 4"
+  checksum: dcba36aca20d88ae58761b762a07796a7bf4feb242f0c2cbd6c30ac49ea4f28abbac8631556b97b805079d36e5b795d73f6fbcf3c470c0b61c8d687a0d9037f8
+  languageName: node
+  linkType: hard
+
+"react-docgen-typescript@npm:^2.1.1, react-docgen-typescript@npm:^2.2.2":
   version: 2.2.2
   resolution: "react-docgen-typescript@npm:2.2.2"
   peerDependencies:
@@ -33965,13 +33982,13 @@ __metadata:
   languageName: node
   linkType: hard
 
-"typescript@npm:~4.8.0":
-  version: 4.8.4
-  resolution: "typescript@npm:4.8.4"
+"typescript@npm:^5.2.2":
+  version: 5.2.2
+  resolution: "typescript@npm:5.2.2"
   bin:
     tsc: bin/tsc
     tsserver: bin/tsserver
-  checksum: f985d8dd6ae815753d61cb81e434f3a4a5796ac52e423370fca6ad11bcd188df4013d82e3ba3b88c9746745b9341390ba68f862dc9d30bac6465e0699f2a795b
+  checksum: d65e50eb849bd21ff8677e5b9447f9c6e74777e346afd67754934264dcbf4bd59e7d2473f6062d9a015d66bd573311166357e3eb07fea0b52859cf9bb2b58555
   languageName: node
   linkType: hard
 
@@ -33995,13 +34012,13 @@ __metadata:
   languageName: node
   linkType: hard
 
-"typescript@patch:typescript@npm%3A~4.8.0#optional!builtin<compat/typescript>":
-  version: 4.8.4
-  resolution: "typescript@patch:typescript@npm%3A4.8.4#optional!builtin<compat/typescript>::version=4.8.4&hash=1a91c8"
+"typescript@patch:typescript@npm%3A^5.2.2#optional!builtin<compat/typescript>":
+  version: 5.2.2
+  resolution: "typescript@patch:typescript@npm%3A5.2.2#optional!builtin<compat/typescript>::version=5.2.2&hash=f3b441"
   bin:
     tsc: bin/tsc
     tsserver: bin/tsserver
-  checksum: 5d81fd8cf5152091a0c0b84ebc868de8433583072a340c4899e0fc7ad6a80314b880a1466868c9a6a1f640c3d1f2fe7f41f8c541b99d78c8b414263dfa27eba3
+  checksum: f79cc2ba802c94c2b78dbb00d767a10adb67368ae764709737dc277273ec148aa4558033a03ce901406b35fddf4eac46dabc94a1e1d12d2587e2b9cfe5707b4a
   languageName: node
   linkType: hard
 
