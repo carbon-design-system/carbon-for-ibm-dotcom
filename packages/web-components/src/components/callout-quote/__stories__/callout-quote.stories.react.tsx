@@ -1,7 +1,7 @@
 /**
  * @license
  *
- * Copyright IBM Corp. 2020, 2022
+ * Copyright IBM Corp. 2020, 2023
  *
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
@@ -26,12 +26,14 @@ const types = {
   [`${QUOTE_TYPES.SINGLE_CURVED}`]: QUOTE_TYPES.SINGLE_CURVED,
   [`${QUOTE_TYPES.DOUBLE_ANGLE}`]: QUOTE_TYPES.DOUBLE_ANGLE,
   [`${QUOTE_TYPES.SINGLE_ANGLE}`]: QUOTE_TYPES.SINGLE_ANGLE,
-  [`${QUOTE_TYPES.LOW_HIGH_REVERSED_DOUBLE_CURVED}`]: QUOTE_TYPES.LOW_HIGH_REVERSED_DOUBLE_CURVED,
+  [`${QUOTE_TYPES.LOW_HIGH_REVERSED_DOUBLE_CURVED}`]:
+    QUOTE_TYPES.LOW_HIGH_REVERSED_DOUBLE_CURVED,
   [`${QUOTE_TYPES.CORNER_BRACKET}`]: QUOTE_TYPES.CORNER_BRACKET,
 };
 
-export const Default = args => {
-  const { copy, quoteMark, sourceHeading, sourceCopy, sourceBottomCopy } = args?.CalloutQuote ?? {};
+export const Default = (args) => {
+  const { copy, quoteMark, sourceHeading, sourceCopy, sourceBottomCopy } =
+    args?.CalloutQuote ?? {};
   return (
     <DDSCalloutQuote mark-type={quoteMark}>
       {copy}
@@ -49,11 +51,27 @@ Default.story = {
   parameters: {
     knobs: {
       CalloutQuote: () => ({
-        copy: textNullable('Quote (copy):', 'Bringing together the technology and expertise for a new way to create'),
-        quoteMark: select('Quote Mark (markType):', types, types.doubleCurved),
-        sourceHeading: textNullable('Source heading (source-heading slot)', 'John Doe'),
-        sourceCopy: textNullable('Source copy (source-copy slot)', 'Senior Vice President'),
-        sourceBottomCopy: textNullable('Source bottom copy (source-bottom-copy slot)', 'IBM Cloud'),
+        copy: textNullable(
+          'Quote (copy):',
+          'Bringing together the technology and expertise for a new way to create'
+        ),
+        quoteMark: select(
+          'Quote Mark (markType):',
+          types,
+          types['double-curved']
+        ),
+        sourceHeading: textNullable(
+          'Source heading (source-heading slot)',
+          'John Doe'
+        ),
+        sourceCopy: textNullable(
+          'Source copy (source-copy slot)',
+          'Senior Vice President'
+        ),
+        sourceBottomCopy: textNullable(
+          'Source bottom copy (source-bottom-copy slot)',
+          'IBM Cloud'
+        ),
       }),
     },
     propsSet: {
@@ -73,7 +91,7 @@ Default.story = {
 export default {
   title: 'Components/Callout Quote',
   decorators: [
-    story => (
+    (story) => (
       <div className="bx--grid">
         <div className="bx--row">
           <div className="bx--col-lg-11">{story()}</div>
