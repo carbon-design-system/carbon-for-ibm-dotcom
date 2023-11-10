@@ -9,7 +9,5 @@
     "yarn lint:license:staged",
     "stylelint '**/*.scss'"
   ],
-  "*.md": [
-    "prettier --write"
-  ]
+  "*.md": ["prettier --write"]
 }
