@@ -201,12 +201,8 @@
   :host(#{$c4d-prefix}-legal-nav-cookie-preferences-placeholder),
   .#{$prefix}--legal-nav__list-item {
     margin-right: $spacing-07;
-    padding: $spacing-05 0 0 0;
+    padding: $spacing-03 0 0 0;
     @include type-style('body-01');
-
-    @include breakpoint(md) {
-      padding: $spacing-03 0 0 0;
-    }
 
     @include breakpoint-down(md) {
       &:first-child {
