@@ -23,14 +23,6 @@ const { prefix } = settings;
 const { stablePrefix: ddsPrefix } = ddsSettings;
 
 /**
- * The table mapping slot name with the private property name that indicates the existence of the slot content.
- */
-const slotExistencePropertyNames = {
-  image: '_hasImage',
-  pictogram: '_hasPictogram',
-};
-
-/**
  * Card.
  *
  * @element dds-card
@@ -45,32 +37,49 @@ class DDSCard extends StableSelectorMixin(BXLink) {
    * `true` if there is image content.
    */
   @state()
-  protected _hasImage = false;
+  protected _hasImage: boolean = false;
 
   /**
    * `true` if there is copy content.
    */
   @state()
-  protected _hasCopy = false;
+  protected _hasCopy: boolean = false;
 
   /**
    * `true` if there is a pictogram.
    */
   @state()
-  protected _hasPictogram = false;
+  protected _hasPictogram: boolean = false;
+
+  protected _hasAssignedNodes(eventTarget: HTMLSlotElement): boolean {
+    return Boolean((eventTarget as HTMLSlotElement).assignedNodes().length);
+  }
 
   /**
-   * Handles `slotchange` event.
+   * Handles pictogram `slotchange` event.
    */
-  protected _handleSlotChange({ target }: Event) {
-    const { name } = target as HTMLSlotElement;
-    const hasContent = Boolean(this.querySelector('p'));
-    const hasPictogram = Boolean(
-      (target as HTMLSlotElement).assignedNodes().length
-    );
-    this[slotExistencePropertyNames[name]] = hasContent;
-    this._hasCopy = hasContent;
+  private _handlePictogramSlotChange(event: Event) {
+    const target = event.target as HTMLSlotElement;
+    const hasPictogram = this._hasAssignedNodes(target as HTMLSlotElement);
     this._hasPictogram = hasPictogram;
+  }
+
+  /**
+   * Handles Copy `slotchange` event.
+   */
+  private _handleCopySlotChange(event: Event) {
+    const target = event.target as HTMLSlotElement;
+    const hasContent = this._hasAssignedNodes(target as HTMLSlotElement);
+    this._hasCopy = hasContent;
+  }
+
+  /**
+   * Handles Image `slotchange` event.
+   */
+  private _handleImageSlotChange(event: Event) {
+    const target = event.target as HTMLSlotElement;
+    const hasImage = this._hasAssignedNodes(target as HTMLSlotElement);
+    this._hasImage = hasImage;
   }
 
   /**
@@ -88,7 +97,7 @@ class DDSCard extends StableSelectorMixin(BXLink) {
     const { _hasCopy: hasCopy } = this;
     return html`
       <div ?hidden="${!hasCopy}" class="${prefix}--card__copy">
-        <slot @slotchange="${this._handleSlotChange}"></slot>
+        <slot @slotchange="${this._handleCopySlotChange}"></slot>
       </div>
     `;
   }
@@ -98,7 +107,7 @@ class DDSCard extends StableSelectorMixin(BXLink) {
    */
   protected _renderImage(): TemplateResult | string | void {
     return html`
-      <slot name="image" @slotchange="${this._handleSlotChange}"></slot>
+      <slot name="image" @slotchange="${this._handleImageSlotChange}"></slot>
     `;
   }
 
@@ -112,7 +121,7 @@ class DDSCard extends StableSelectorMixin(BXLink) {
       <slot
         name="pictogram"
         data-pictogram-placement="${placement}"
-        @slotchange="${this._handleSlotChange}"></slot>
+        @slotchange="${this._handlePictogramSlotChange}"></slot>
     `;
   }
 
@@ -130,37 +139,29 @@ class DDSCard extends StableSelectorMixin(BXLink) {
    * @returns The inner content.
    */
   protected _renderInner() {
-    const { _hasPictogram: hasPictogram, _hasCopy: hasCopy } = this;
+    const { _hasCopy: hasCopy } = this;
+    const hasPictogram = Boolean(this.querySelector('[slot="pictogram"]'));
+
     if (hasPictogram) {
       return html`
         ${this._renderImage()}
         <a
-          tabindex="0"
           href="${this.href}"
-          target="_self"
           class="${prefix}--card__wrapper ${prefix}--card__pictogram
            ${hasCopy ? `${prefix}--card__motion` : ''}">
           <div class="${prefix}--card__content">
             ${this.pictogramPlacement === PICTOGRAM_PLACEMENT.TOP
-              ? this._renderPictogram(PICTOGRAM_PLACEMENT.TOP)
+              ? html`
+                  ${this._renderPictogram(PICTOGRAM_PLACEMENT.TOP)}
+                  ${this._renderHeading()}${this._renderCopy()}
+                `
+              : this.pictogramPlacement === PICTOGRAM_PLACEMENT.BOTTOM
+              ? html`
+                  ${this._renderHeading()}${this._renderCopy()}
+                  ${this._renderPictogram(PICTOGRAM_PLACEMENT.BOTTOM)}
+                `
               : ''}
-            ${this.pictogramPlacement !== PICTOGRAM_PLACEMENT.TOP ||
-            !hasPictogram
-              ? this._renderHeading()
-              : null}
-            ${this.pictogramPlacement === PICTOGRAM_PLACEMENT.BOTTOM ||
-            !hasPictogram
-              ? this._renderCopy()
-              : ''}
-            ${this.pictogramPlacement === PICTOGRAM_PLACEMENT.BOTTOM
-              ? this._renderPictogram(PICTOGRAM_PLACEMENT.BOTTOM)
-              : ''}
-            ${this.pictogramPlacement === PICTOGRAM_PLACEMENT.TOP
-              ? this._renderHeading()
-              : null}
-            ${this.pictogramPlacement === PICTOGRAM_PLACEMENT.TOP
-              ? this._renderCopy()
-              : ''}
+            <slot name="footer"></slot>
           </div>
         </a>
       `;
