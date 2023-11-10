@@ -8,19 +8,17 @@
 @mixin content-block-segmented {
   .#{$prefix}--content-block-segmented {
     .#{$prefix}--content-group {
-      margin-top: $spacing-10;
-      margin-bottom: $spacing-10;
+      margin-block: $spacing-10;
 
       @include breakpoint(lg) {
-        margin-top: $spacing-12;
-        margin-bottom: $spacing-12;
+        margin-block: $spacing-12;
       }
     }
 
     .#{$prefix}--row {
       &.#{$prefix}--layout--border {
         @include breakpoint(lg) {
-          padding-bottom: $spacing-12;
+          padding-block-end: $spacing-12;
         }
       }
     }

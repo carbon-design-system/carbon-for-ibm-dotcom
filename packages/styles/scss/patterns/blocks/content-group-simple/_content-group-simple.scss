@@ -8,7 +8,7 @@
 @mixin content-group-simple {
   .#{$prefix}--content-group-simple {
     .#{$prefix}--content-group__copy {
-      margin-bottom: $spacing-07;
+      margin-block-end: $spacing-07;
     }
   }
 }

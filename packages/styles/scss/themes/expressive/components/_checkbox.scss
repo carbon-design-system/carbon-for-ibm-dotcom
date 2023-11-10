@@ -16,6 +16,6 @@
 /// @group checkbox-expressive
 @mixin checkbox-expressive {
   .#{$prefix}--checkbox-label {
-    padding-top: 1px;
+    padding-block-start: 1px;
   }
 }

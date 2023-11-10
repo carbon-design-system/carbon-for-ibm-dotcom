@@ -13,6 +13,6 @@
 
 .cds--no-gutter {
   @include breakpoint-down(md) {
-    padding-right: $spacing-05;
+    padding-inline-end: $spacing-05;
   }
 }

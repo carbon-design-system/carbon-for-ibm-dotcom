@@ -16,18 +16,18 @@
   %masthead-top-nav-name {
     @include type-style('heading-02');
 
-    color: $text-primary;
-    padding-left: $spacing-05;
-    padding-right: $spacing-05;
-    border: solid $spacing-01 transparent;
-    transition: $button-transition;
     position: relative;
-    white-space: nowrap;
     z-index: 1;
+    border: solid $spacing-01 transparent;
     background-color: $background;
 
+    color: $text-primary;
+    padding-inline: $spacing-05;
+    transition: $button-transition;
+    white-space: nowrap;
+
     @include breakpoint(lg) {
-      margin-left: $spacing-05;
+      margin-inline-start: $spacing-05;
     }
 
     &:hover {

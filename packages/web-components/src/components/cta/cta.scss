@@ -17,8 +17,8 @@
 
 :host(#{$c4d-prefix}-button-cta) .#{$c4d-prefix}-ce--cta__icon {
   position: absolute;
-  right: $spacing-05;
-  top: 50%;
+  inset-block-start: 50%;
+  inset-inline-end: $spacing-05;
   transform: translateY(-50%);
 }
 

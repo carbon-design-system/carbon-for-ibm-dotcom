@@ -26,12 +26,12 @@
   @include breakpoint-down(md) {
     .#{$prefix}--card__wrapper {
       display: block;
-      min-height: 0;
-      height: auto;
+      block-size: auto;
+      min-block-size: 0;
 
       .#{$prefix}--card__content {
-        height: 100%;
         padding: $spacing-05;
+        block-size: 100%;
       }
     }
 
@@ -70,8 +70,8 @@
   &[size='large'] {
     .cds-ce--card__footer ::slotted(svg[slot='icon']) {
       @include breakpoint(max) {
-        width: $spacing-10;
-        height: $spacing-10;
+        block-size: $spacing-10;
+        inline-size: $spacing-10;
       }
     }
   }

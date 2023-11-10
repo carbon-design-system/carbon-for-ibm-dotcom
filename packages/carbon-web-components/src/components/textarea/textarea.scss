@@ -17,5 +17,5 @@ $css--plex: true !default;
 :host(#{$prefix}-textarea:not([cols])),
 :host(#{$prefix}-textarea) textarea[cols='0'],
 :host(#{$prefix}-textarea) textarea:not([cols]) {
-  width: 100%;
+  inline-size: 100%;
 }

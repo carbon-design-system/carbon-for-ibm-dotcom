@@ -25,9 +25,9 @@
   }
 
   .#{$prefix}--accordion__arrow {
-    width: $icon-size-01;
-    height: $icon-size-01;
     flex: 0 0 $icon-size-01;
+    block-size: $icon-size-01;
+    inline-size: $icon-size-01;
     // margin: $accordion-arrow-margin;
   }
 }

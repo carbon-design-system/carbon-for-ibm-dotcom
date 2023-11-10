@@ -20,20 +20,20 @@
   }
 
   .#{$prefix}--tile__checkmark {
-    height: $icon-size-01;
+    block-size: $icon-size-01;
 
     svg {
-      height: $icon-size-01;
-      width: $icon-size-01;
+      block-size: $icon-size-01;
+      inline-size: $icon-size-01;
     }
   }
 
   .#{$prefix}--tile__chevron {
-    height: $icon-size-01;
+    block-size: $icon-size-01;
 
     svg {
-      height: $icon-size-01;
-      width: $icon-size-01;
+      block-size: $icon-size-01;
+      inline-size: $icon-size-01;
     }
   }
 }

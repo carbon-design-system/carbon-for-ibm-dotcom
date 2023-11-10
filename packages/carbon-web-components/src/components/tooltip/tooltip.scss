@@ -26,7 +26,7 @@
 :host(#{$prefix}-tooltip[data-table][size='xs']),
 :host(#{$prefix}-tooltip[data-table][size='sm']) {
   ::slotted(button) {
-    height: calc(100% + 1px) !important;
+    block-size: calc(100% + 1px) !important;
   }
 }
 

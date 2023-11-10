@@ -13,6 +13,6 @@
 
 .grid-alignment {
   @include breakpoint(md) {
-    margin-right: -$spacing-07;
+    margin-inline-end: -$spacing-07;
   }
 }

@@ -21,7 +21,7 @@
     "lint:license": "gulp lint:license",
     "lint:license:staged": "tasks/check-license.js -w",
     "lint:scripts:staged": "eslint",
-    "lint:styles": "stylelint '**/*.{css,scss}' --config ./packages/stylelint-config-ibmdotcom",
+    "lint:styles": "stylelint '**/*.{css,scss}'",
     "reset": "yarn cache clean && yarn clean && yarn install && yarn build",
     "test": "yarn test:unit && yarn test:a11y",
     "test:a11y": "yarn lerna run --stream --prefix test:a11y",
@@ -68,10 +68,8 @@
     "react": "16.14.0",
     "rimraf": "^3.0.0",
     "sass": "^1.19.0",
-    "stylelint": "^13.3.3",
-    "stylelint-config-prettier": "^7.0.0",
-    "stylelint-prettier": "^1.1.2",
-    "stylelint-scss": "^3.17.1",
+    "stylelint": "^15.11.0",
+    "stylelint-config-carbon": "^1.16.0",
     "through2": "^3.0.0",
     "webpack": "^4.46.0"
   },
@@ -84,6 +82,15 @@
     "minimist": ">=1.2.2",
     "node-notifier": ">=8.0.1",
     "flatpickr@4.6.13": "patch:flatpickr@npm%3A4.6.13#./.yarn/patches/flatpickr-npm-4.6.13-06399933fc.patch"
+  },
+  "stylelint": {
+    "extends": [
+      "stylelint-config-carbon"
+    ],
+    "rules": {
+      "max-nesting-depth": null,
+      "scss/no-global-function-names": null
+    }
   },
   "packageManager": "yarn@4.0.1"
 }

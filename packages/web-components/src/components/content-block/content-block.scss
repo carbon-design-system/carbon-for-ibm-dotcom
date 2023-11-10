@@ -31,15 +31,15 @@
   ::slotted(#{$c4d-prefix}-callout-with-media-copy),
   ::slotted(#{$c4d-prefix}-content-block-copy) {
     @include breakpoint(md) {
-      width: calc((100% - 2 * #{$spacing-05}) * 0.9);
+      inline-size: calc((100% - 2 * #{$spacing-05}) * 0.9);
     }
   }
 }
 
 :host(#{$c4d-prefix}-callout-with-media-copy[size='sm']),
 :host(#{$c4d-prefix}-content-block-copy[size='sm']) {
-  width: auto;
-  max-width: none;
+  inline-size: auto;
+  max-inline-size: none;
 
   @include breakpoint(md) {
     @include content-width;
@@ -48,7 +48,7 @@
   ::slotted(#{$c4d-prefix}-content-block-paragraph) {
     @include type-style('body-02');
 
-    margin-bottom: $spacing-06;
+    margin-block-end: $spacing-06;
   }
 }
 

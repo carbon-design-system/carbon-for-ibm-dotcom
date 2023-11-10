@@ -13,11 +13,11 @@
 :host(#{$c4d-prefix}-card-section-carousel) {
   @include breakpoint(lg) {
     .#{$prefix}--content-section__body {
-      max-width: 75%;
+      max-inline-size: 75%;
     }
   }
 
   @include breakpoint(md) {
-    padding-right: $spacing-05;
+    padding-inline-end: $spacing-05;
   }
 }

@@ -30,21 +30,18 @@
   }
 
   :host(#{$c4d-prefix}-lightbox-video-player) .#{$c4d-prefix}--video-player {
-    width: 100%;
+    inline-size: 100%;
 
     ::slotted(.#{$c4d-prefix}--video-player__video) {
       position: absolute;
-      top: 0;
-      left: 0;
-      right: 0;
-      bottom: 0;
+      inset: 0;
     }
   }
 
   .#{$c4d-prefix}--modal--expressive--fullwidth
     .#{$c4d-prefix}--modal-container
     .#{$c4d-prefix}--modal-content {
-    min-height: 100%;
+    min-block-size: 100%;
   }
 
   .#{$c4d-prefix}--lightbox-media-viewer {
@@ -55,29 +52,27 @@
         padding: 0 $spacing-05;
       }
       .#{$prefix}--modal-content {
-        padding-right: 0;
+        padding-inline-end: 0;
       }
     }
 
     .#{$c4d-prefix}--video-player {
-      width: 100%;
+      inline-size: 100%;
       .#{$c4d-prefix}--video-player__video-container {
         /* stylelint-disable-next-line function-name-case */
-        padding-top: Min(calc(100vh - #{$spacing-13}), 56.25%);
+        padding-block-start: Min(calc(100vh - #{$spacing-13}), 56.25%);
       }
     }
 
     @include breakpoint(md) {
       .#{$prefix}--model-container {
-        padding-top: $spacing-10;
-        padding-bottom: 0;
+        padding-block: $spacing-10 0;
       }
     }
 
     @include breakpoint(lg) {
       .#{$prefix}--model-container {
-        padding-top: $spacing-09;
-        padding-bottom: $spacing-05;
+        padding-block: $spacing-09 $spacing-05;
       }
     }
   }
@@ -85,35 +80,34 @@
   :host(#{$c4d-prefix}-lightbox-media-viewer-body),
   .#{$c4d-prefix}--lightbox-media-viewer__container {
     display: block;
-    width: 100%;
-    height: 100%;
+    block-size: 100%;
+    inline-size: 100%;
     overflow-y: auto;
 
     &::before,
     &::after {
-      padding-top: 0;
-      content: '';
-      display: block;
       position: sticky;
-      height: $spacing-07;
-      width: 100%;
       z-index: 1;
+      display: block;
       flex: 0 0 auto;
+      block-size: $spacing-07;
+      content: '';
+      inline-size: 100%;
+      padding-block-start: 0;
     }
 
     &::before {
-      top: 0;
       background: linear-gradient(to bottom, $layer-01, transparent);
+      inset-block-start: 0;
     }
 
     &::after {
-      bottom: 0;
       background: linear-gradient(to top, $layer-01, transparent);
+      inset-block-end: 0;
     }
 
     @include breakpoint(md) {
-      padding-left: $spacing-05;
-      padding-right: $spacing-05;
+      padding-inline: $spacing-05;
     }
 
     @include breakpoint(lg) {
@@ -126,13 +120,14 @@
       @include make-row(0);
 
       flex-flow: column nowrap;
-      width: 100%;
+
+      inline-size: 100%;
       // Padding top needs to account for the scroll gradient overlay
-      padding-top: calc(#{$spacing-09} - #{$spacing-07});
+      padding-block-start: calc(#{$spacing-09} - #{$spacing-07});
 
       @include breakpoint(lg) {
-        padding-top: 0;
         flex-direction: row;
+        padding-block-start: 0;
       }
     }
 
@@ -147,10 +142,10 @@
       }
 
       img {
-        width: auto;
-        max-width: 100%;
-        height: auto;
-        max-height: 100%;
+        block-size: auto;
+        inline-size: auto;
+        max-block-size: 100%;
+        max-inline-size: 100%;
       }
 
       @include breakpoint-down(lg) {
@@ -162,27 +157,28 @@
         @include make-col-ready;
         @include make-col(12, 16);
 
-        width: 100%;
         flex: none;
         /* stylelint-disable-next-line property-no-unknown */
         aspect-ratio: 16 / 9;
 
+        inline-size: 100%;
+
         .#{$c4d-prefix}--image {
-          height: 100%;
+          block-size: 100%;
         }
       }
     }
 
     .#{$c4d-prefix}--lightbox-media-viewer__media-description {
+      position: relative;
       display: flex;
       flex-direction: column;
-      position: relative;
 
       @include breakpoint(lg) {
         @include make-col-ready;
         @include make-col(4, 16);
 
-        margin-left: auto;
+        margin-inline-start: auto;
       }
 
       @include breakpoint-down(lg) {
@@ -191,7 +187,7 @@
     }
 
     .#{$c4d-prefix}--lightbox-media-viewer__content {
-      padding-right: $spacing-07;
+      padding-inline-end: $spacing-07;
 
       @include type-style('body-02');
       @include breakpoint(lg) {
@@ -200,17 +196,17 @@
     }
 
     .#{$c4d-prefix}--lightbox-media-viewer__content__title {
-      padding-bottom: $spacing-07;
+      padding-block-end: $spacing-07;
 
       @include type-style('fluid-heading-03', true);
       @include breakpoint-down(lg) {
-        padding-top: $spacing-05;
+        padding-block-start: $spacing-05;
       }
     }
 
     .#{$c4d-prefix}--lightbox-media-viewer__content__desc {
       color: $text-secondary;
-      padding-bottom: $spacing-07;
+      padding-block-end: $spacing-07;
 
       @include type-style('body-02');
     }
@@ -219,13 +215,13 @@
     .#{$c4d-prefix}--lightbox-media-viewer__desc {
       @include breakpoint(lg) {
         display: flex;
-        max-width: 95%;
-        height: 100%;
+        block-size: 100%;
+        max-inline-size: 95%;
       }
     }
   }
 
   ::slotted(#{$c4d-prefix}-video-player-container) {
-    width: 100%;
+    inline-size: 100%;
   }
 }

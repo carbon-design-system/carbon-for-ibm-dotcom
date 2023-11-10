@@ -23,16 +23,16 @@
 
   ::slotted(#{$c4d-prefix}-card-cta[slot]),
   ::slotted(#{$c4d-prefix}-card-link-cta[slot]) {
-    width: auto;
+    inline-size: auto;
   }
 
   ::slotted(#{$c4d-prefix}-card-cta),
   ::slotted(#{$c4d-prefix}-card-link-cta) {
-    width: auto;
-    max-width: 320px;
+    inline-size: auto;
+    max-inline-size: 320px;
   }
 
   ::slotted([slot='media']) {
-    max-width: rem(640px);
+    max-inline-size: rem(640px);
   }
 }

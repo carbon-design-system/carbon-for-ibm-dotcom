@@ -16,9 +16,9 @@
 @use '@carbon/styles/scss/theme' as *;
 @use '@carbon/styles/scss/themes' as *;
 
-@media (min-width: 66rem) {
+@media (width >= 66rem) {
   .cds--offset-lg-3 {
-    margin-left: 0;
+    margin-inline-start: 0;
   }
 }
 

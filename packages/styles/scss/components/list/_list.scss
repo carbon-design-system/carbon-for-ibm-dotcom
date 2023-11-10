@@ -18,28 +18,28 @@
   }
 
   .#{$prefix}--list--ordered {
-    margin-left: $spacing-05;
+    margin-inline-start: $spacing-05;
 
     &:not(.#{$prefix}--list--nested) {
       > .#{$prefix}--list__item {
         &::before {
-          left: -$spacing-05;
+          inset-inline-start: -$spacing-05;
         }
       }
     }
   }
 
   .#{$prefix}--list--unordered {
-    margin-left: $spacing-05;
+    margin-inline-start: $spacing-05;
 
     .#{$prefix}--list__item {
       &::before {
-        left: -$spacing-05;
+        inset-inline-start: -$spacing-05;
       }
     }
   }
 
   .#{$prefix}--list__item {
-    margin-top: $spacing-02;
+    margin-block-start: $spacing-02;
   }
 }

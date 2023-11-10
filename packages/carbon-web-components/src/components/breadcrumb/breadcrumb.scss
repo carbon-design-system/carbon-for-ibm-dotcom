@@ -30,7 +30,7 @@ $css--plex: true !default;
   @extend .#{$prefix}--breadcrumb-item;
 
   &::after {
-    margin-left: $spacing-03;
+    margin-inline-start: $spacing-03;
     color: $text-primary;
     content: '/';
   }
@@ -38,8 +38,8 @@ $css--plex: true !default;
 
 :host(#{$prefix}-breadcrumb-overflow-menu) {
   position: relative;
-  width: rem(20px);
-  height: rem(18px);
+  inline-size: rem(20px);
+  block-size: rem(18px);
 
   &:focus {
     outline: 1px solid $focus;
@@ -47,17 +47,30 @@ $css--plex: true !default;
 
   &:hover {
     background: transparent;
+
     ::after {
       opacity: 1;
     }
   }
 
-  // Used to mimic link underline
+  // Used to mimic link underline@media screen and (prefers-reduced-motion: reduce) {
+::after {
+    position: absolute;
+    inset-block-end: $spacing-01;
+    inline-size: $spacing-04;
+    block-size: 1px;
+    background: $link-primary-hover;
+    content: '';
+    opacity: 0;
+    transition: none;
+}
+}
+
   ::after {
     position: absolute;
-    bottom: $spacing-01;
-    width: $spacing-04;
-    height: 1px;
+    inset-block-end: $spacing-01;
+    inline-size: $spacing-04;
+    block-size: 1px;
     background: $link-primary-hover;
     content: '';
     opacity: 0;

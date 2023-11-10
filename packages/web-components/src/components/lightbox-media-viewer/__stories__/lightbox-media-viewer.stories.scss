@@ -7,10 +7,10 @@
 
 /* stylelint-disable-next-line selector-type-no-unknown */
 .sbdocs-preview cds-expressive-modal {
-  width: 100%;
-  height: 100%;
+  block-size: 100%;
+  inline-size: 100%;
 }
 
 .cds-ce-demo-devenv--grid--stretch {
-  width: 100%;
+  inline-size: 100%;
 }

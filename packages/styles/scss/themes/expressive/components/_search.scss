@@ -16,15 +16,15 @@
 /// @group search-expressive
 @mixin search-expressive {
   .#{$prefix}--search svg {
-    height: rem(20px);
-    width: rem(20px);
+    block-size: rem(20px);
+    inline-size: rem(20px);
   }
 
   .#{$prefix}--search--lg .#{$prefix}--search-input {
-    height: $spacing-09;
+    block-size: $spacing-09;
   }
 
   .#{$prefix}--search--sm .#{$prefix}--search-input {
-    height: $spacing-08;
+    block-size: $spacing-08;
   }
 }

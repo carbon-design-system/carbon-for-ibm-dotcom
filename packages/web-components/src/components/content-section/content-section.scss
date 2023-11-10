@@ -27,7 +27,7 @@
   }
 
   ::slotted(#{$c4d-prefix}-content-block-simple) {
-    padding-bottom: $spacing-10;
+    padding-block-end: $spacing-10;
   }
 
   ::slotted(#{$c4d-prefix}-link-list) {

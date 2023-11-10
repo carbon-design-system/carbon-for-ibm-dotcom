@@ -17,14 +17,14 @@
   display: contents;
 
   .#{$prefix}--accordion__item:last-of-type {
-    border-bottom-width: none;
-    border-bottom-style: none;
+    border-block-end-style: none;
+    border-block-end-width: none;
   }
 
   &:last-of-type() {
     .#{$prefix}--accordion__item:last-of-type {
-      border-bottom-width: 1px;
-      border-bottom-style: solid;
+      border-block-end-style: solid;
+      border-block-end-width: 1px;
     }
   }
 }

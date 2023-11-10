@@ -28,11 +28,11 @@
       @include hang;
     }
 
-    padding-bottom: $spacing-10;
+    padding-block-end: $spacing-10;
 
     ::slotted(#{$c4d-prefix}-callout-link-with-icon) {
-      padding-left: $spacing-07;
       outline: transparent;
+      padding-inline-start: $spacing-07;
     }
   }
 

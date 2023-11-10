@@ -24,7 +24,7 @@
 
   ::slotted(#{$c4d-prefix}-card-group-card-link-item) {
     @include breakpoint(md) {
-      padding-right: $spacing-05;
+      padding-inline-end: $spacing-05;
     }
   }
 

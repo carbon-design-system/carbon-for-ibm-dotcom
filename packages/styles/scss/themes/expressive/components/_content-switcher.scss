@@ -16,6 +16,6 @@
 /// @group content-switcher-expressive
 @mixin content-switcher-expressive {
   .#{$prefix}--content-switcher {
-    height: $spacing-09;
+    block-size: $spacing-09;
   }
 }

@@ -10,6 +10,5 @@
 
 // mixin to hang into the gutters of the grid
 @mixin hang() {
-  margin-left: list.slash($grid-gutter, -2);
-  margin-right: list.slash($grid-gutter, -2);
+  margin-inline: list.slash($grid-gutter, -2);
 }

@@ -12,11 +12,11 @@
 c4d-footer-container {
   display: flex;
   align-items: flex-end;
-  min-height: 100vh;
+  min-block-size: 100vh;
 }
 
 .default-language-only {
   @include breakpoint(lg) {
-    padding-top: 15rem;
+    padding-block-start: 15rem;
   }
 }
