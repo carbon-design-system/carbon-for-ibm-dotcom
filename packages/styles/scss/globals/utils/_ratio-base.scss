@@ -12,9 +12,9 @@
   @if ($fixed) {
     // fixed ratio overflow hidden
     position: relative;
-    padding-block-start: aspect-ratio($height, $width);
-    block-size: 0;
     overflow: hidden;
+    block-size: 0;
+    padding-block-start: aspect-ratio($height, $width);
   } @else {
     // graceful ratio overflow similar to a min-height
     display: flex;

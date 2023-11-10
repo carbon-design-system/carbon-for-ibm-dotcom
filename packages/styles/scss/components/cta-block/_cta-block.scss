@@ -19,8 +19,8 @@
 @use '../layout';
 
 @mixin themed-items {
-  color: $text-primary;
   background: $background;
+  color: $text-primary;
 
   .#{$prefix}--content-item__heading {
     color: $text-primary;
@@ -41,10 +41,10 @@
   :host(#{$c4d-prefix}-cta-block),
   .#{$prefix}--cta-block {
     display: block;
-    padding-top: $spacing-07;
-    padding-bottom: $spacing-10;
+    padding-block: $spacing-07;
+    padding-block-end: $spacing-10;
     @include breakpoint(lg) {
-      padding-top: $spacing-10;
+      padding-block: $spacing-10;
     }
 
     .#{$prefix}--content-layout {
@@ -135,12 +135,12 @@
     }
 
     .#{$prefix}--cta-block__cta {
-      padding-bottom: $spacing-10;
+      padding-block-end: $spacing-10;
       @include breakpoint(md) {
-        padding-bottom: $spacing-12;
+        padding-block-end: $spacing-12;
       }
       @include breakpoint(lg) {
-        padding-bottom: $spacing-13;
+        padding-block-end: $spacing-13;
       }
 
       .#{$prefix}--buttongroup {
@@ -151,27 +151,27 @@
 
       .#{$prefix}--buttongroup-item {
         @include breakpoint(md) {
-          padding-right: $spacing-07;
+          padding-inline-end: $spacing-07;
         }
       }
     }
 
     .#{$prefix}--content-block {
-      padding-top: $spacing-07;
-      padding-bottom: 0;
+      padding-block: $spacing-07;
+      padding-block-end: 0;
 
       @include breakpoint(lg) {
-        padding-top: $spacing-10;
+        padding-block: $spacing-10;
       }
     }
 
     .#{$prefix}--content-block__heading,
     .#{$prefix}--content-block__copy {
-      width: 90%;
-      max-width: rem(640px);
+      inline-size: 90%;
+      max-inline-size: rem(640px);
 
       @include breakpoint(sm) {
-        width: 100%;
+        inline-size: 100%;
       }
     }
 
@@ -181,13 +181,13 @@
 
     .#{$prefix}--content-block__copy {
       p {
-        margin-bottom: 0;
+        margin-block-end: 0;
         @include type-style('fluid-heading-03', true);
       }
     }
 
     .#{$prefix}--content-block__cta-col {
-      margin-top: 0;
+      margin-block-start: 0;
     }
 
     .#{$prefix}--helper-wrapper {
@@ -197,10 +197,10 @@
         @include make-row;
 
         .#{$prefix}--content-item {
-          width: 100%;
-          margin-bottom: 0;
-          padding-bottom: $spacing-05;
           position: relative;
+          inline-size: 100%;
+          margin-block-end: 0;
+          padding-block-end: $spacing-05;
 
           @include make-col-ready;
 
@@ -209,34 +209,34 @@
           }
 
           &:last-of-type {
-            margin-top: $spacing-05;
+            margin-block-start: $spacing-05;
 
             @include breakpoint(md) {
-              margin-top: $spacing-07;
+              margin-block-start: $spacing-07;
             }
           }
         }
 
         .#{$prefix}--content-item__heading {
-          width: 100%;
+          inline-size: 100%;
 
           @include type-style('heading-02', true);
 
           @include breakpoint(md) {
-            width: 90%;
+            inline-size: 90%;
           }
         }
 
         .#{$prefix}--content-item__copy {
-          width: 100%;
+          inline-size: 100%;
 
           @include breakpoint(md) {
-            width: 90%;
+            inline-size: 90%;
           }
 
           p {
-            width: 100%;
-            margin-bottom: $spacing-05;
+            inline-size: 100%;
+            margin-block-end: $spacing-05;
 
             @include type-style('body-02', true);
           }
@@ -245,26 +245,26 @@
     }
 
     &.#{$prefix}--cta-block__has-items {
-      padding-bottom: $spacing-09;
+      padding-block-end: $spacing-09;
 
       @include breakpoint(lg) {
-        padding-bottom: carbon--mini-units(10);
+        padding-block-end: carbon--mini-units(10);
       }
 
       .#{$prefix}--cta-block__cta {
-        padding-bottom: $spacing-07;
+        padding-block-end: $spacing-07;
 
         @include breakpoint(md) {
-          padding-bottom: $spacing-10;
+          padding-block-end: $spacing-10;
         }
 
         @include breakpoint(lg) {
-          padding-bottom: $spacing-12;
+          padding-block-end: $spacing-12;
         }
       }
 
       .#{$prefix}--content-block {
-        padding-bottom: 0;
+        padding-block-end: 0;
       }
     }
   }

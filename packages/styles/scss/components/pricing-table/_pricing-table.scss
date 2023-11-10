@@ -58,43 +58,41 @@
     transition: top $duration-slow-01 motion(standard, productive),
       box-shadow $duration-fast-02 motion(standard, productive);
 
-    // Pseudo full width background activated when row is sticky.@media screen and (prefers-reduced-motion: reduce) {
-&::before {
-      position: absolute;
-      inset-block: 0;
-      inset-inline-start: 0;
-      inline-size: 0;
-      content: '';
-      transition: none;
-}
-}
-
+    // Pseudo full width background activated when row is sticky.
     &::before {
       position: absolute;
+      content: '';
+      inline-size: 0;
       inset-block: 0;
       inset-inline-start: 0;
-      inline-size: 0;
-      content: '';
       transition: $duration-slow-01 motion(standard, productive),
         box-shadow 0 motion(standard, productive);
+
+      @media screen and (prefers-reduced-motion: reduce) {
+        transition: none;
+      }
     }
 
     &.#{$prefix}--pricing-table-header-row--sticky {
       position: sticky;
       z-index: 1;
-      inset-block-start: var(--#{$c4d-prefix}-sticky-header-height);
       animation: sticky-header-slide-in $duration-slow-01
         motion(standard, productive);
       background-color: $background;
+      inset-block-start: var(--#{$c4d-prefix}-sticky-header-height);
 
       &::before {
         @include breakpoint(md) {
-          inset-inline: calc(50% - 50vw);
-          inline-size: 100vw;
           background-color: $background;
           box-shadow: 0 $spacing-01 6px 0 rgba(0, 0, 0, 0.3);
+          inline-size: 100vw;
+          inset-inline: calc(50% - 50vw);
           transition: $duration-fast-02 motion(standard, productive),
             box-shadow $duration-slow-01 motion(standard, productive);
+
+          @media screen and (prefers-reduced-motion: reduce) {
+            transition: none;
+          }
         }
       }
 
@@ -121,13 +119,13 @@
 
     &::after {
       position: absolute;
-      inset-inline-end: 0;
-      inset-block-end: 0;
       display: block;
-      inline-size: 100%;
-      block-size: 1px;
       background-color: $layer-accent-01;
+      block-size: 1px;
       content: '';
+      inline-size: 100%;
+      inset-block-end: 0;
+      inset-inline-end: 0;
     }
   }
 
@@ -136,8 +134,8 @@
   :host(#{$c4d-prefix}-pricing-table-header-row),
   :host(#{$c4d-prefix}-pricing-table-row) {
     ::slotted(:last-child) {
-      max-inline-size: var(--width);
       flex-grow: none;
+      max-inline-size: var(--width);
     }
   }
 
@@ -165,8 +163,8 @@
 
     .#{$prefix}--pricing-table-cell-inner {
       display: flex;
-      inline-size: 100%;
       justify-content: space-between;
+      inline-size: 100%;
     }
   }
 
@@ -192,12 +190,11 @@
           $shadow-height: 6px;
 
           position: absolute;
-          inset-inline: 0;
-          inset-block-end: $shadow-height * -1;
-          block-size: $shadow-height;
           background: linear-gradient(rgba(0, 0, 0, 0.3), transparent);
-
+          block-size: $shadow-height;
           content: '';
+          inset-block-end: $shadow-height * -1;
+          inset-inline: 0;
         }
       }
     }
@@ -233,9 +230,9 @@
 
     .#{$prefix}--pricing-table-header-cell-inner {
       display: flex;
-      block-size: 100%;
       flex-direction: column;
       justify-content: space-between;
+      block-size: 100%;
     }
   }
 
@@ -271,13 +268,13 @@
     @include type-style('body-compact-01');
 
     position: absolute;
-    inset-inline: 0;
-    inset-block-end: 100%;
 
     display: none;
     padding: $spacing-03 $spacing-05;
     background-color: $border-inverse;
     color: $icon-inverse;
+    inset-block-end: 100%;
+    inset-inline: 0 0;
   }
 
   .#{$prefix}--pricing-table-header-cell-headline,

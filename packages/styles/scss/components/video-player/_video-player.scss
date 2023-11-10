@@ -63,20 +63,6 @@ $aspect-ratios: ((16, 9), (9, 16), (2, 1), (1, 2), (4, 3), (3, 4), (1, 1));
     position: relative;
     block-size: 100%;
     inline-size: 100%;
-    @media screen and (prefers-reduced-motion: reduce) {
-      &::before {
-        position: absolute;
-        z-index: 1;
-        background-color: $border-inverse;
-        block-size: 100%;
-        content: '';
-        inline-size: 100%;
-        inset-block-start: 0;
-        inset-inline-start: 0;
-        opacity: 0;
-        transition: none;
-      }
-    }
 
     &::before {
       position: absolute;
@@ -89,6 +75,10 @@ $aspect-ratios: ((16, 9), (9, 16), (2, 1), (1, 2), (4, 3), (3, 4), (1, 1));
       inset-inline-start: 0;
       opacity: 0;
       transition: opacity $duration-moderate-01 motion(standard, productive);
+
+      @media screen and (prefers-reduced-motion: reduce) {
+        transition: none;
+      }
     }
 
     &:hover::before {
@@ -166,34 +156,15 @@ $aspect-ratios: ((16, 9), (9, 16), (2, 1), (1, 2), (4, 3), (3, 4), (1, 1));
       position: absolute;
       inset-block-start: calc(50% - #{$spacing-07});
       inset-inline-end: calc(50% - #{$spacing-07});
-      @media screen and (prefers-reduced-motion: reduce) {
-        circle,
-        path {
-          transition: none;
-        }
-      }
-      @media screen and (prefers-reduced-motion: reduce) {
-        circle,
-        path {
-          transition: none;
-        }
-      }
-      @media screen and (prefers-reduced-motion: reduce) {
-        circle,
-        path {
-          transition: none;
-        }
-      }@media screen and (prefers-reduced-motion: reduce) {
-circle,
-      path {
-        transition: none;
-}
-}
 
       circle,
       path {
         transition: fill $duration-moderate-01 motion(standard, productive),
           opacity $duration-moderate-01 motion(standard, productive);
+
+        @media screen and (prefers-reduced-motion: reduce) {
+          transition: none;
+        }
       }
 
       circle {

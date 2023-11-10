@@ -10,7 +10,7 @@
 @use '@carbon/ibmdotcom-styles/scss/components/tableofcontents';
 
 body {
+  overflow-y: scroll;
   /* stylelint-disable-next-line */
   scroll-behavior: smooth;
-  overflow-y: scroll;
 }

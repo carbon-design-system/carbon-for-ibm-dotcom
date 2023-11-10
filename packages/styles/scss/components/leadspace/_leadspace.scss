@@ -24,7 +24,7 @@
 
 $btn-min-width: 26;
 
-@keyframes loadingAnimation {
+@keyframes loading-animation {
   0% {
     background-position: 0% 50%;
   }
@@ -114,7 +114,7 @@ $btn-min-width: 26;
     &::before {
       position: absolute;
       z-index: -1;
-      animation: loadingAnimation 2000ms ease infinite;
+      animation: loading-animation 2000ms ease infinite;
       background: linear-gradient(270deg, #c6c6c6, #a8a8a8);
       background-size: 100% 100%;
       block-size: 100%;
@@ -507,10 +507,11 @@ $btn-min-width: 26;
 
   :host(#{$c4d-prefix}-leadspace) ::slotted([slot='navigation']) {
     z-index: 1;
+    // need the !important to prevent CSS reset styles from overwritting margin for tags
+    /* stylelint-disable declaration-no-important */
     padding-block-end: $spacing-05 !important;
     padding-inline: $spacing-05 !important;
-    /* stylelint-disable declaration-no-important */
-    // need the !important to prevent CSS reset styles from overwritting margin for tags
+    /* stylelint-enable declaration-no-important */
   }
 
   :host(#{$c4d-prefix}-breadcrumb-link[aria-current='page']) .#{$prefix}--link {

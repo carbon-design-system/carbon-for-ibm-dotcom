@@ -18,7 +18,7 @@
 
   &:hover {
     ::slotted(button) {
-      background-color: $layer-selected-hover !important;
+      background-color: $layer-selected-hover !important; /* stylelint-disable-line */
     }
   }
 }
@@ -26,13 +26,13 @@
 :host(#{$prefix}-tooltip[data-table][size='xs']),
 :host(#{$prefix}-tooltip[data-table][size='sm']) {
   ::slotted(button) {
-    block-size: calc(100% + 1px) !important;
+    block-size: calc(100% + 1px) !important; /* stylelint-disable-line */
   }
 }
 
 :host(#{$prefix}-tooltip[toolbar-action]) {
   ::slotted(button) {
-    outline: none !important;
+    outline: none !important; /* stylelint-disable-line */
   }
 }
 

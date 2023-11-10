@@ -42,29 +42,31 @@
 }
 
 :host(#{$prefix}-table-row[selected]) {
+  /* stylelint-disable-next-line no-duplicate-selectors */
   .#{$prefix}--table-column-checkbox,
   ::slotted(#{$prefix}-table-cell),
   .#{$prefix}--table-expand,
   .#{$prefix}--table-column-checkbox {
     background-color: $layer-accent-01;
-    //bottom border acts as separator from other rows
+    // bottom border acts as separator from other rows
     border-block-end: 1px solid $layer-active;
     border-block-start: 1px solid $border-subtle-01;
     color: $text-primary;
   }
-}
 
-:host(#{$prefix}-table-row[selected]:hover) {
-  .#{$prefix}--table-column-checkbox,
-  ::slotted(#{$prefix}-table-cell),
-  .#{$prefix}--table-expand,
-  .#{$prefix}--table-column-checkbox {
-    background-color: $data-table-column-hover;
-    border-block-end-color: $data-table-column-hover;
+  &:hover {
+    /* stylelint-disable-next-line no-duplicate-selectors */
+    .#{$prefix}--table-column-checkbox,
+    ::slotted(#{$prefix}-table-cell),
+    .#{$prefix}--table-expand,
+    .#{$prefix}--table-column-checkbox {
+      background-color: $data-table-column-hover;
+      border-block-end-color: $data-table-column-hover;
+    }
   }
 }
 
 :host(#{$prefix}-table-expanded-row[filtered]),
 :host(#{$prefix}-table-row[filtered]) {
-  display: none !important;
+  display: none !important; /* stylelint-disable-line */
 }

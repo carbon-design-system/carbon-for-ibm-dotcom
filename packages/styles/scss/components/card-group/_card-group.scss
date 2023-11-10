@@ -32,8 +32,8 @@
     color: $text-secondary;
   }
   .#{$prefix}--card--inverse {
-    block-size: 100%;
     background-color: $background-inverse;
+    block-size: 100%;
 
     .#{$prefix}--card__heading {
       color: $icon-inverse;
@@ -73,8 +73,8 @@
 
         &__img {
           position: absolute;
-          inset-block-start: 0;
           block-size: 100%;
+          inset-block-start: 0;
         }
       }
     }
@@ -94,8 +94,8 @@
 
   :host(#{$c4d-prefix}-card-group-item),
   :host(#{$c4d-prefix}-card-group-card-link-item) {
-    padding-inline-end: 1px;
     padding-block-end: 1px;
+    padding-inline-end: 1px;
 
     &[border] {
       border: none;
@@ -149,8 +149,8 @@
       &::after {
         position: absolute;
         z-index: 2;
-        inset: 0;
         content: '';
+        inset: 0;
         outline: $spacing-01 solid $focus;
         outline-offset: -#{$spacing-01};
         pointer-events: none;
@@ -195,27 +195,27 @@
     // but keeps it for React for backward-compatibility reason.
     &::after {
       position: absolute;
-      inset-block-start: 0;
-      inset-inline-start: 0;
       display: block;
-      inline-size: 100%;
       block-size: 100%;
       box-shadow: inset 0 0 0 1px $background;
       content: '';
+      inline-size: 100%;
+      inset-block-start: 0;
+      inset-inline-start: 0;
       pointer-events: none;
     }
   }
 
   .#{$prefix}--card-group__cards__col {
     padding: 0;
+    background: $border-subtle-02;
     border-block-start: 1px solid $border-subtle-02;
 
     border-inline-end: 1px solid $border-subtle-02;
-    background: $border-subtle-02;
 
     &:last-of-type {
-      inline-size: calc(100% - 1px);
       border-inline-end: 0;
+      inline-size: calc(100% - 1px);
     }
 
     .#{$prefix}--card--inverse {
@@ -227,13 +227,13 @@
   :host(#{$c4d-prefix}-card-group)[grid-mode='narrow'],
   .#{$prefix}--card-group--narrow {
     @include breakpoint(sm) {
-      padding-block-start: $spacing-03;
       gap: $spacing-03;
+      padding-block-start: $spacing-03;
     }
 
     @include breakpoint(md) {
-      padding-block-start: $spacing-05;
       gap: $spacing-05;
+      padding-block-start: $spacing-05;
     }
 
     @include breakpoint(lg) {
@@ -261,9 +261,9 @@
         &::after {
           position: absolute;
           z-index: 2;
-          inset: 0;
           box-shadow: inset 0 0 0 $spacing-01 $focus;
           content: '';
+          inset: 0;
           pointer-events: none;
         }
       }
@@ -283,14 +283,14 @@
     }
 
     .#{$prefix}--card-group__cards__col:last-of-type {
-      padding-inline-end: 0;
       border-block-end: 1px solid $border-subtle-02;
+      padding-inline-end: 0;
     }
 
     @include breakpoint(md) {
       .#{$prefix}--card-group__cards__col {
-        border-inline-end: 0;
         border-block-end: 0;
+        border-inline-end: 0;
       }
 
       .#{$prefix}--card-group__cards__col:nth-child(2n),
@@ -312,14 +312,14 @@
       .#{$prefix}--card-group__cards__col:nth-child(2n),
       .#{$prefix}--card-group__cards__col:nth-last-of-type(-n + 2) {
         block-size: auto;
-        border-inline-end: 0;
         border-block-end: 0;
+        border-inline-end: 0;
       }
 
       .#{$prefix}--card-group__cards__col:nth-child(3n),
       .#{$prefix}--card-group__cards__col:last-of-type {
-        inline-size: calc(100% + 1px);
         border-inline-end: 1px solid $border-subtle-02;
+        inline-size: calc(100% + 1px);
       }
 
       .#{$prefix}--card-group__cards__col:nth-last-of-type(-n + 3) {
@@ -365,13 +365,13 @@
       ::slotted(#{$c4d-prefix}-card-group-item),
       ::slotted(#{$c4d-prefix}-card-group-card-link-item),
       .#{$prefix}--card {
-        inline-size: 23%;
-        /* stylelint-enable declaration-no-important */
         border: 0 none;
         margin: 0 $spacing-03 $spacing-05;
         /* stylelint-disable declaration-no-important */
         // need important since it gets overriden in WC Card Group without it
         background-color: transparent !important;
+        inline-size: 23%;
+        /* stylelint-enable declaration-no-important */
       }
     }
 

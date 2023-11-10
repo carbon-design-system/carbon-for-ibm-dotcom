@@ -120,7 +120,6 @@
   }
 }
 
-:host(#{$prefix}-table-toolbar-search[persistent]:hover),
 :host(#{$prefix}-table-toolbar-search[persistent]:hover) {
   .#{$prefix}--search-input {
     background-color: $field-hover;

@@ -30,16 +30,16 @@ $css--plex: true !default;
   @extend .#{$prefix}--breadcrumb-item;
 
   &::after {
-    margin-inline-start: $spacing-03;
     color: $text-primary;
     content: '/';
+    margin-inline-start: $spacing-03;
   }
 }
 
 :host(#{$prefix}-breadcrumb-overflow-menu) {
   position: relative;
-  inline-size: rem(20px);
   block-size: rem(18px);
+  inline-size: rem(20px);
 
   &:focus {
     outline: 1px solid $focus;
@@ -53,28 +53,19 @@ $css--plex: true !default;
     }
   }
 
-  // Used to mimic link underline@media screen and (prefers-reduced-motion: reduce) {
-::after {
-    position: absolute;
-    inset-block-end: $spacing-01;
-    inline-size: $spacing-04;
-    block-size: 1px;
-    background: $link-primary-hover;
-    content: '';
-    opacity: 0;
-    transition: none;
-}
-}
-
   ::after {
     position: absolute;
-    inset-block-end: $spacing-01;
-    inline-size: $spacing-04;
-    block-size: 1px;
     background: $link-primary-hover;
+    block-size: 1px;
     content: '';
+    inline-size: $spacing-04;
+    inset-block-end: $spacing-01;
     opacity: 0;
     transition: opacity $duration-fast-01 motion(standard, productive);
+
+    @media screen and (prefers-reduced-motion: reduce) {
+      transition: none;
+    }
   }
 }
 

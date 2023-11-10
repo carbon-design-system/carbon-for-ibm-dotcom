@@ -42,7 +42,7 @@ $css--plex: true !default;
 
 :host(#{$prefix}-combo-box[isClosable]) {
   .#{$prefix}--list-box__invalid-icon {
-    inset-inline-end: rem(66px) !important;
+    inset-inline-end: rem(66px) !important; /* stylelint-disable-line */
   }
 }
 
