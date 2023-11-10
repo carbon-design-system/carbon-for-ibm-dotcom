@@ -42,8 +42,8 @@
     "@babel/plugin-transform-runtime": "7.18.5",
     "@babel/preset-env": "~7.23.2",
     "@babel/preset-react": "~7.12.1",
-    "@commitlint/cli": "^16.0.0",
-    "@commitlint/config-conventional": "^16.0.0",
+    "@commitlint/cli": "^18.4.0",
+    "@commitlint/config-conventional": "^18.4.0",
     "async-done": "^1.3.0",
     "babel-eslint": "^10.1.0",
     "browserslist-config-carbon": "^10.3.0",
@@ -82,6 +82,45 @@
     "minimist": ">=1.2.2",
     "node-notifier": ">=8.0.1",
     "flatpickr@4.6.13": "patch:flatpickr@npm%3A4.6.13#./.yarn/patches/flatpickr-npm-4.6.13-06399933fc.patch"
+  },
+  "commitlint": {
+    "extends": [
+      "@commitlint/config-conventional"
+    ],
+    "rules": {
+      "header-max-length": [
+        2,
+        "always",
+        72
+      ],
+      "body-max-line-length": [
+        2,
+        "always",
+        80
+      ],
+      "scope-case": [
+        0,
+        "always",
+        "lower-case"
+      ],
+      "type-enum": [
+        2,
+        "always",
+        [
+          "build",
+          "ci",
+          "chore",
+          "docs",
+          "feat",
+          "fix",
+          "perf",
+          "refactor",
+          "revert",
+          "test",
+          "style"
+        ]
+      ]
+    }
   },
   "lint-staged": {
     "**/*.{js,ts,tsx}": [
