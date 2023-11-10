@@ -8,6 +8,7 @@
  */
 
 import { LitElement, html } from 'lit';
+import { state } from 'lit/decorators.js';
 import settings from '../../internal/vendor/@carbon/ibmdotcom-utilities/utilities/settings/settings';
 import StableSelectorMixin from '../../globals/mixins/stable-selector';
 import styles from './footer.scss';
@@ -25,6 +26,12 @@ class C4DLegalNavCookiePreferencesPlaceholder extends StableSelectorMixin(
   LitElement
 ) {
   /**
+   * `true` if there is cookie content.
+   */
+  @state()
+  protected _hasCookies = false;
+
+  /**
    * Handles `slotchange` event.
    */
   private _handleSlotChange(event: Event) {
@@ -32,6 +39,7 @@ class C4DLegalNavCookiePreferencesPlaceholder extends StableSelectorMixin(
     const linkNodes = (event.target as HTMLSlotElement)
       .assignedNodes()
       .filter((node) => (node as Element).tagName === 'A') as HTMLLinkElement[];
+    console.log('LINK?', linkNodes, this._hasCookies);
     linkNodes.forEach((node) => {
       // Adds Carbon CSS classes
       node.classList.add(`${prefix}--link`);
@@ -42,8 +50,13 @@ class C4DLegalNavCookiePreferencesPlaceholder extends StableSelectorMixin(
   }
 
   render() {
-    const { _handleSlotChange: handleSlotchange } = this;
-    return html` <slot @slotchange="${handleSlotchange}"></slot> `;
+    const { _handleSlotChange: handleSlotchange, _hasCookies: hasCookies } =
+      this;
+    return html`
+      <div ?hidden="${!hasCookies}">
+        <slot @slotchange="${handleSlotchange}"></slot>
+      </div>
+    `;
   }
 
   static get stableSelector() {

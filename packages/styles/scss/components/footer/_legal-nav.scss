@@ -198,7 +198,7 @@
   }
 
   :host(#{$c4d-prefix}-legal-nav-item),
-  :host(#{$c4d-prefix}-legal-nav-cookie-preferences-placeholder),
+  :host(#{$c4d-prefix}-legal-nav-cookie-preferences-placeholder) div,
   .#{$prefix}--legal-nav__list-item {
     margin-right: $spacing-07;
     padding: $spacing-03 0 0 0;
