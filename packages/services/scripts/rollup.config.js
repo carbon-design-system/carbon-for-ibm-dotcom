@@ -7,8 +7,6 @@
 
 'use strict';
 
-const chalk = require('chalk');
-const Table = require('cli-table');
 const gzip = require('gzip-size');
 
 const commonjs = require('@rollup/plugin-commonjs');
@@ -18,7 +16,6 @@ const babel = require('@rollup/plugin-babel');
 const json = require('@rollup/plugin-json');
 const replace = require('@rollup/plugin-replace');
 const { terser } = require('rollup-plugin-terser');
-const sizes = require('rollup-plugin-sizes');
 
 const packageJson = require('../package.json');
 
@@ -28,24 +25,6 @@ const prodSettings =
     ? []
     : [
         terser(),
-        sizes({
-          report(details) {
-            const table = new Table({
-              head: [
-                chalk.gray.yellow('Dependency/app'),
-                chalk.gray.yellow('Size'),
-              ],
-              colAligns: ['left', 'right'],
-            });
-            details.totals
-              .map((item) => [chalk.white.bold(item.name), item.size])
-              .forEach((item) => {
-                table.push(item);
-              });
-            console.log(`Sizes of app/dependencies:\n${table}`); // eslint-disable-line no-console
-            console.log('Total size:', details.total); // eslint-disable-line no-console
-          },
-        }),
         {
           generateBundle(options, bundle) {
             const gzipSize = gzip.sync(

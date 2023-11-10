@@ -72,8 +72,6 @@
     "babel-plugin-dev-expression": "^0.2.1",
     "babel-polyfill": "^6.26.0",
     "browserslist-config-carbon": "10.6.1",
-    "chalk": "^4.1.1",
-    "cli-table": "^0.3.0",
     "gzip-size": "^5.0.0",
     "jest": "25.5.4",
     "jest-circus": "25.5.4",
@@ -83,7 +81,6 @@
     "rimraf": "^3.0.0",
     "rollup": "^2.55.1",
     "rollup-plugin-node-builtins": "^2.1.2",
-    "rollup-plugin-sizes": "^1.0.4",
     "rollup-plugin-terser": "^7.0.2",
     "whatwg-fetch": "^2.0.3"
   }
