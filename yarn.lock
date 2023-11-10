@@ -11499,7 +11499,6 @@ __metadata:
     globby: "npm:^10.0.0"
     gulp: "npm:^4.0.2"
     husky: "npm:^7.0.0"
-    inquirer: "npm:^7.2.0"
     jest: "npm:25.5.4"
     jest-circus: "npm:25.5.4"
     jest-junit: "npm:^6.4.0"
@@ -19300,7 +19299,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"inquirer@npm:^7.0.0, inquirer@npm:^7.2.0, inquirer@npm:^7.3.3":
+"inquirer@npm:^7.0.0, inquirer@npm:^7.3.3":
   version: 7.3.3
   resolution: "inquirer@npm:7.3.3"
   dependencies:
