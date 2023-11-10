@@ -83,6 +83,21 @@
     "node-notifier": ">=8.0.1",
     "flatpickr@4.6.13": "patch:flatpickr@npm%3A4.6.13#./.yarn/patches/flatpickr-npm-4.6.13-06399933fc.patch"
   },
+  "lint-staged": {
+    "**/*.{js,ts,tsx}": [
+      "prettier --write",
+      "yarn lint:license:staged",
+      "yarn lint:scripts:staged"
+    ],
+    "**/*.scss": [
+      "prettier --write",
+      "yarn lint:license:staged",
+      "stylelint '**/*.scss'"
+    ],
+    "*.md": [
+      "prettier --write"
+    ]
+  },
   "stylelint": {
     "extends": [
       "stylelint-config-carbon"
