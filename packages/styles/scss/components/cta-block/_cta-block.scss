@@ -16,6 +16,7 @@
 @use '../../internal/content-block';
 @use '../../internal/content-item/content-item';
 @use '../button-group';
+@use '../layout';
 
 @mixin themed-items {
   color: $text-primary;
@@ -39,10 +40,98 @@
 @mixin cta-block {
   :host(#{$c4d-prefix}-cta-block),
   .#{$prefix}--cta-block {
+    display: block;
     padding-top: $spacing-07;
     padding-bottom: $spacing-10;
     @include breakpoint(lg) {
       padding-top: $spacing-10;
+    }
+    
+    .#{$prefix}--content-layout {
+      @include breakpoint(sm) {
+        padding-inline: $spacing-05;
+        padding-inline-end: $spacing-05;
+      }
+  
+      @include breakpoint(md) {
+        padding-block-end: $spacing-07;
+      }
+  
+      @include breakpoint(lg) {
+        padding-block-end: $spacing-12;
+      }
+  
+      &.#{$prefix}--content-layout--border {
+        border-block-end: 1px solid $border-strong-01;
+      }
+  
+      ::slotted([slot]) {
+        margin-inline: 0;
+      }
+    }
+
+    ::slotted(#{$c4d-prefix}-content-block-heading) {
+      @include make-col(8, 12);
+  
+      margin-block-end: $spacing-07;
+      margin-inline-start: 0;
+      padding-inline: 0;
+    }
+    
+    ::slotted(#{$c4d-prefix}-content-block-copy) {
+      @include make-col(8, 12);
+      @include type-style('fluid-heading-03', true);
+  
+      max-inline-size: 640px;
+      padding-inline: 0;
+  
+      @include breakpoint(sm) {
+        inline-size: 100%;
+      }
+  
+      @include breakpoint(md) {
+        inline-size: 90%;
+      }
+    }
+  
+    ::slotted(#{$c4d-prefix}-button-group[slot='action']) {
+      margin-block-end: 0;
+  
+      @include breakpoint(lg) {
+        margin-block-start: 0;
+      }
+    }
+  
+    ::slotted(#{$c4d-prefix}-button-group:last-child) {
+      margin-block-end: 0;
+    }
+
+    ::slotted(#{$c4d-prefix}-link-list) {
+      display: block;
+      padding-block-end: 0;
+  
+      @include breakpoint(md) {
+        margin-block-end: $spacing-07;
+      }
+    }
+
+    .#{$prefix}--content-layout__body--tight {
+      .#{$prefix}--content-layout__link-list,
+      .#{$prefix}--helper-wrapper {
+        margin-block-start: 0;
+  
+        @include breakpoint(md) {
+          margin-block-start: $spacing-07;
+        }
+      }
+    }
+
+    .#{$prefix}--content-layout__link-list {
+      margin-block-start: $spacing-07;
+  
+      @include breakpoint(md) {
+        margin-block-start: $spacing-10;
+      }
     }
 
     .#{$prefix}--cta-block__cta {
@@ -102,6 +191,8 @@
     }
 
     .#{$prefix}--helper-wrapper {
+      margin-block: $spacing-10;
+      
       .#{$prefix}--content-item-wrapper {
         @include make-row;
 
@@ -175,6 +266,103 @@
       .#{$prefix}--content-block {
         padding-bottom: 0;
       }
+    }
+  }
+  
+  .#{$c4d-prefix}-ce--cta-block__col {
+    @include make-col(2, 3);
+  }
+  
+  :host(#{$c4d-prefix}-cta-block-item) {
+    @include make-col-ready;
+  
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    inline-size: 100%;
+    margin-block: 0;
+    margin-block-end: 0;
+    padding-block-end: $spacing-07;
+  
+    ::slotted(#{$c4d-prefix}-text-cta) {
+      margin-block-end: $spacing-03;
+      margin-inline-start: 0;
+    }
+  
+    ::slotted(#{$c4d-prefix}-text-cta:last-child) {
+      margin-block-end: 0;
+    }
+  
+    ::slotted(svg) {
+      display: block;
+      block-size: $spacing-11;
+      inline-size: $spacing-11;
+    }
+  
+    .#{$prefix}--cta-block-item__statitics {
+      @include type-style('fluid-display-02', true);
+  
+      ::slotted(*[slot='statitics']) {
+        margin-block-end: $spacing-07;
+      }
+    }
+  
+    .#{$prefix}--cta-block-item__media {
+      margin-block-end: $spacing-07;
+    }
+  
+    .#{$prefix}--content-item__cta {
+      margin-block: 0;
+    }
+  
+    ::slotted(#{$c4d-prefix}-image-logo) {
+      margin: 0;
+      /* stylelint-disable */
+      aspect-ratio: var(--logo-ratio);
+      /* stylelint-enable */
+      max-inline-size: $spacing-12;
+    }
+  }
+
+  :host(#{$c4d-prefix}-cta-block-item-row) {
+    position: relative;
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: auto;
+    inline-size: 100%;
+    row-gap: $spacing-07;
+  
+    // Hide last row's items' bottom border
+    &::after {
+      @include breakpoint(md) {
+        position: absolute;
+        background-color: $background;
+        block-size: 3px;
+        content: '';
+        inset-block-end: -1px;
+        inset-inline: 0;
+        inset-inline-end: 0;
+        pointer-events: none;
+      }
+    }
+  
+    ::slotted(#{$c4d-prefix}-cta-block-item) {
+      border-block-end: 1px solid $border-subtle-01;
+    }
+  
+    ::slotted(#{$c4d-prefix}-cta-block-item:last-of-type) {
+      @include breakpoint-down(md) {
+        border: 0;
+        padding-block-end: 0;
+      }
+    }
+  
+    @include breakpoint(md) {
+      grid-template-columns: repeat(2, 1fr);
+    }
+  
+    @include breakpoint(lg) {
+      grid-template-columns: repeat(3, 1fr);
     }
   }
 
