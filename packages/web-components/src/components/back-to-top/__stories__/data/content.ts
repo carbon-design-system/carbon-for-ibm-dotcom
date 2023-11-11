@@ -14,6 +14,7 @@ import '../../../card-section-simple/index';
 import '../../../cta-section/index';
 import '../../../link-list/index';
 import '../../../cta/index';
+import '../../../cta/link-list-item-cta';
 import '../../../button/index';
 
 import ArrowRight20 from '../../../../internal/vendor/@carbon/web-components/icons/arrow--right/20';
@@ -156,18 +157,18 @@ export const StoryContent = () =>
               >
               <c4d-link-list type="default" slot="complementary">
                 <c4d-link-list-heading>Resources</c4d-link-list-heading>
-                <c4d-link-list-item-card-cta
+                <c4d-link-list-item-cta
                   href="https://example.com"
-                  cta-type="local">
+                  cta-type="local"
+                  type="default">
                   <p>Read the solution brief</p>
-                  <c4d-card-cta-footer></c4d-card-cta-footer>
-                </c4d-link-list-item-card-cta>
-                <c4d-link-list-item-card-cta
+                </c4d-link-list-item-cta>
+                <c4d-link-list-item-cta
                   href="https://example.com"
-                  cta-type="external">
+                  cta-type="external"
+                  type="default">
                   <p>What is LinuxOne?</p>
-                  <c4d-card-cta-footer></c4d-card-cta-footer>
-                </c4d-link-list-item-card-cta>
+                </c4d-link-list-item-cta>
               </c4d-link-list>
               <c4d-content-block-copy>
                 <c4d-content-item>

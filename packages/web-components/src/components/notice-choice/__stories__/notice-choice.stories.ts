@@ -19,7 +19,7 @@ const questionChoices = {
   Email: '1',
   'Email + Phone': '1,2',
 };
-const locales = {
+const languages = {
   'English [en]': 'en',
   'Arabic [ar]': 'ar',
   'Chinese (PRC) [zh-cn]': 'zh-cn',
@@ -36,9 +36,11 @@ const locales = {
   'Malaysian [ms]': 'ms',
   'Polish [pl]': 'pl',
   'Portuguese [pt]': 'pt',
+  'Portuguese (Brazil)': 'pt-br',
   'Slovenian [sl]': 'sl',
   'Spanish [es]': 'es',
   'Spanish-Latin America [es-la]': 'es-la',
+  'Spanish (Mexico)': 'es-MX',
   'Turkish [tr]': 'tr',
   'Ukrainian [uk]': 'uk',
 };
@@ -54,11 +56,19 @@ const stateList = {
   Alabama: 'AL',
   California: 'CA',
 };
+const hideErrorMessages = {
+  true: 'true',
+  false: 'false',
+};
+const showLegalNotices = {
+  true: 'true',
+  false: 'false',
+};
 const onChange = (event: CustomEvent) => {
   console.log(event.detail);
 };
 const props = () => ({
-  locale: select('Language', locales, 'en'),
+  language: select('Language', languages, 'en'),
   country: select('Country', countryList, 'US'),
   state: select('State', stateList, ''),
   questionchoices: select('Question Choices', questionChoices, '1,2'),
@@ -69,16 +79,20 @@ const props = () => ({
   ),
   bpidLegalText: text('BPID Legal Text', ''),
   onChange: action('c4d-notice-choice-change'),
+  hideErrorMessages: select('Hide Error Messages', hideErrorMessages, 'false'),
+  showLegalNotice: select('Show Legal Notice', showLegalNotices, 'true'),
 });
 
 export const Default = (args) => {
   const {
-    locale,
+    language,
     country,
     state,
     email,
     termsConditionLink,
     questionchoices,
+    hideErrorMessages,
+    showLegalNotice,
     enableAllOptIn,
     bpidLegalText,
     hiddenEmail,
@@ -86,12 +100,14 @@ export const Default = (args) => {
   } = args?.NoticeChoice ?? {};
   return html`
     <c4d-notice-choice
-      locale="${locale}"
+      language="${language}"
       country="${country}"
       question-choices="${questionchoices}"
       state="${state}"
       email=${email}
-      terms-condition-link="${termsConditionLink}"
+      terms-condition-link="${termsConditionLink || ''}"
+      hide-error-message="${hideErrorMessages}"
+      show-legal-notice=${showLegalNotice}
       ?enable-all-opt-in=${enableAllOptIn}
       bpid-legal-text="${bpidLegalText}"
       .hiddenEmail="${hiddenEmail}"

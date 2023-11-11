@@ -19,8 +19,6 @@
 @forward 'legal-nav';
 @use 'locale-button';
 @forward 'locale-button';
-@use 'temp-breakpoints';
-@forward 'temp-breakpoints';
 
 @include footer.footer;
 @include footer-logo.footer-logo;

@@ -1,21 +1,8 @@
 //
-// Copyright IBM Corp. 2020, 2021
+// Copyright IBM Corp. 2020, 2023
 //
 // This source code is licensed under the Apache-2.0 license found in the
 // LICENSE file in the root directory of this source tree.
 //
 
-@use '@carbon/styles/scss/type' as *;
-@use '@carbon/ibmdotcom-styles/scss/internal/content-block';
-@use '@carbon/ibmdotcom-styles/scss/internal/content-group';
-@use '@carbon/ibmdotcom-styles/scss/globals/vars' as *;
-
-:host(#{$c4d-prefix}-content-group),
-:host(#{$c4d-prefix}-content-group-copy),
-:host(#{$c4d-prefix}-content-group-paragraph) {
-  display: block;
-}
-
-:host(#{$c4d-prefix}-content-group-copy) {
-  @include type-style('body-02');
-}
+@use '@carbon/ibmdotcom-styles/scss/components/content-group';

@@ -70,7 +70,7 @@ export const Default = (args) => {
 };
 
 export default {
-  title: 'Components/Content block card static',
+  title: '',
   decorators: [
     (story) => html`
       <div class="cds--grid">

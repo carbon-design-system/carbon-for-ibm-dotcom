@@ -250,13 +250,13 @@ The following includes Carbon grid and all corresponding grid classes.
 
 ```html
 // SPECIFIC VERSION
-<link rel="stylesheet" href="https://1.www.s81c.com/common/carbon-for-ibm-dotcom/version/[v1.x.y]/grid.css" />
+<link rel="stylesheet" href="https://1.www.s81c.com/common/carbon/web-components/version/[v2.x.y]/grid.css" />
 
 // LATEST tag
-<link rel="stylesheet" href="https://1.www.s81c.com/common/carbon-for-ibm-dotcom/tag/v1/latest/grid.css" />
+<link rel="stylesheet" href="https://1.www.s81c.com/common/carbon/web-components/tag/v2/latest/grid.css" />
 
 // NEXT tag
-<link rel="stylesheet" href="https://1.www.s81c.com/common/carbon-for-ibm-dotcom/tag/v1/next/grid.css" />
+<link rel="stylesheet" href="https://1.www.s81c.com/common/carbon/web-components/tag/v2/next/grid.css" />
 ```
 
 [Learn more about the Carbon 2x Grid](https://carbondesignsystem.com/guidelines/2x-grid/overview)
@@ -269,13 +269,13 @@ in Carbon.
 
 ```html
 // SPECIFIC VERSION
-<link rel="stylesheet" href="https://1.www.s81c.com/common/carbon-for-ibm-dotcom/version/[v1.x.y]/themes.css" />
+<link rel="stylesheet" href="https://1.www.s81c.com/common/carbon/web-components/version/[v2.x.y]/themes.css" />
 
 // LATEST tag
-<link rel="stylesheet" href="https://1.www.s81c.com/common/carbon-for-ibm-dotcom/tag/v1/latest/themes.css" />
+<link rel="stylesheet" href="https://1.www.s81c.com/common/carbon/web-components/tag/v2/latest/themes.css" />
 
 // NEXT tag
-<link rel="stylesheet" href="https://1.www.s81c.com/common/carbon-for-ibm-dotcom/tag/v1/next/themes.css" />
+<link rel="stylesheet" href="https://1.www.s81c.com/common/carbon/web-components/tag/v2/next/themes.css" />
 ```
 
 ### Available classes
@@ -292,40 +292,35 @@ in Carbon.
 ```html
 <html>
 <head>
-  <link rel="stylesheet" href="https://1.www.s81c.com/common/carbon-for-ibm-dotcom/tag/v1/latest/themes.css" />
-  <script type="module" src="https://1.www.s81c.com/common/carbon-for-ibm-dotcom/tag/v1/latest/dotcom-shell.min.js"></script>
-  <script type="module" src="https://1.www.s81c.com/common/carbon-for-ibm-dotcom/tag/v1/latest/leadspace.min.js"></script>
+  <link rel="stylesheet" href="https://1.www.s81c.com/common/carbon/web-components/tag/v2/latest/themes.css" />
+  <script type="module" src="https://1.www.s81c.com/common/carbon-for-ibm-dotcom/tag/v2/latest/dotcom-shell.min.js"></script>
+  <script type="module" src="https://1.www.s81c.com/common/carbon-for-ibm-dotcom/tag/v2/latest/leadspace.min.js"></script>
   ...
 </head>
 <body>
-<cds-dotcom-shell-container>
+<c4d-dotcom-shell-container>
 <main>
-    <cds-leadspace size="medium" class="cds-theme-zone-g90">
-      <cds-leadspace-heading>LeadSpace title</cds-leadspace-heading>
+    <c4d-leadspace size="medium" class="cds-theme-zone-g90">
+      <c4d-leadspace-heading>LeadSpace title</c4d-leadspace-heading>
       LeadSpace copy
-      <cds-button-group slot="action">
-        <cds-button-group-item href="www.example.com">
+      <c4d-button-group slot="action">
+        <c4d-button-group-item href="www.example.com" cta-type="local">
           Button 1
-          <svg
-            focusable="false"
-            preserveAspectRatio="xMidYMid meet"
-            xmlns="http://www.w3.org/2000/svg"
-            fill="currentColor"
-            aria-hidden="true"
-            width="20"
-            height="20"
-            viewBox="0 0 20 20"
-            slot="icon"
-          >
-            <path d="M11.8 2.8L10.8 3.8 16.2 9.3 1 9.3 1 10.7 16.2 10.7 10.8 16.2 11.8 17.2 19 10z"></path>
-          </svg>
-        </cds-button-group-item>
-      </cds-button-group>
-      <cds-leadspace-image slot="image" class="bx--image" alt="alt text" default-src="https://picsum.photos/id/1076/1056/480">
-        <cds-image-item media="(min-width: 672px)" srcset="https://picsum.photos/id/1076/672/400"></cds-image-item>
-        <cds-image-item media="(min-width: 0)" srcset="https://picsum.photos/id/1076/320/370"></cds-image-item>
-      </cds-leadspace-image>
-    </cds-leadspace>
+        </c4d-button-group-item>
+      </c4d-button-group>
+      <c4d-background-media
+        slot="image"
+        opacity="100"
+        alt="alt text"
+        default-src="https://picsum.photos/id/1076/1056/480">
+        <c4d-image-item
+          media="(min-width: 672px)"
+          srcset="https://picsum.photos/id/1076/672/400"></c4d-image-item>
+        <c4d-image-item
+          media="(min-width: 0)"
+          srcset="https://picsum.photos/id/1076/320/370"></c4d-image-item>
+      </c4d-background-media>
+    </c4d-leadspace>
 </main>
 </cds-dotcom-shell-container>
 </body>
