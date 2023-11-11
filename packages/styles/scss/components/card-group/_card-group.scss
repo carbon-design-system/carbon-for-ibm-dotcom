@@ -27,10 +27,18 @@
   }
 
   :host(#{$c4d-prefix}-card-group[with-card-in-card][grid-mode]) {
-      padding-top: 0;
-      padding-left: 1px;
-      padding-right: 1px;
+    padding-top: 0;
+    padding-left: 1px;
+    padding-right: 1px;
   }
+
+  :host(#{$c4d-prefix}-card-group[with-card-in-card][grid-mode="default"]) {
+    padding-top: $spacing-07;
+  }
+
+  :host(#{$c4d-prefix}-card-group[with-card-in-card][grid-mode="narrow"]) {
+    padding-top: $spacing-05;
+  }    
 
   :host(#{$c4d-prefix}-card-group-item) {
 
@@ -73,6 +81,19 @@
   :host(#{$c4d-prefix}-card-group-item[empty]) {
     visibility: hidden;
   }
+
+  :host(#{$c4d-prefix}-card-group-item[link]) {
+
+    ::slotted(#{$c4d-prefix}-card-heading) {
+      @include type-style('heading-02');
+
+      margin-bottom: 0;
+    }
+
+    .#{$prefix}--card .#{$prefix}--card__copy {
+      margin-top: 0;
+    }
+  }  
 
   :host(#{$c4d-prefix}-card-group) {
     --#{$c4d-prefix}--card-group--cards-in-row: 1;

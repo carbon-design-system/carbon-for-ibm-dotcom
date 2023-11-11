@@ -7,7 +7,6 @@
  * LICENSE file in the root directory of this source tree.
  */
 
-import { classMap } from 'lit/directives/class-map.js';
 import '../../card/index';
 import '../../card-in-card/index';
 import '../index';
@@ -34,12 +33,6 @@ const phraseArray = [
   'Disputando lorem covallis',
 ];
 
-const cardsCol = {
-  '2 cards per row': 'c4d-ce-demo-devenv--cards-in-row-2',
-  '3 cards per row (default)': 'c4d-ce-demo-devenv--cards-in-row-3',
-  '4 cards per row': 'c4d-ce-demo-devenv--cards-in-row-4',
-};
-
 const gridModes = {
   [`Condensed (1px)`]: GRID_MODE.CONDENSED,
   [`Narrow (16px)`]: GRID_MODE.NARROW,
@@ -49,10 +42,6 @@ const gridModes = {
 const staticGridModes = {
   [`Narrow (16px)`]: GRID_MODE.NARROW,
   [`Default (32px)`]: GRID_MODE.DEFAULT,
-};
-
-const setGridMode = {
-  'Card link': 'narrow',
 };
 
 const tagGroupContent = html`
@@ -188,7 +177,7 @@ const pictogramCard = () => html`
 `;
 
 const cardLink = html`
-  <c4d-card
+  <c4d-card-group-item
     link
     cta-type="local"
     href="https://example.com"
@@ -251,15 +240,10 @@ export const Default = (args) => {
     cardType,
     media,
     tagGroup,
-    cardsPerRow,
     gridMode,
     cta,
     addCta,
   } = args?.CardGroup ?? {};
-
-  const classes = classMap({
-    [cardsPerRow]: cardsPerRow,
-  });
 
   const allCards: object[] = [];
 
@@ -324,13 +308,9 @@ export const Default = (args) => {
     }
   }
 
-  const colCount = cardsPerRow[cardsPerRow.length - 1];
-
   return html`
     <c4d-card-group
-      cards-per-row="${colCount}"
-      class="${classes}"
-      grid-mode=${setGridMode[cardType] || gridMode}
+      grid-mode=${gridMode}
       ?pictograms=${cardType === 'Card - pictogram'}>
       ${allCards}
     </c4d-card-group>
@@ -437,15 +417,8 @@ export default {
         const addCta =
           cardType === 'Card static' ? boolean('Add CTA Links:', false) : '';
         const cards = number('Number of cards:', 5, { min: 2, max: 6 });
-        const cardsPerRow = select(
-          'Cards per row:',
-          cardsCol,
-          cardsCol['3 cards per row (default)']
-        );
         const gridMode =
-          cardType === 'Card link'
-            ? ''
-            : cardType === 'Card static' ? select('Grid mode:', staticGridModes, staticGridModes['Default (32px)']) 
+             cardType === 'Card static' ? select('Grid mode:', staticGridModes, staticGridModes['Default (32px)']) 
             : select('Grid mode:', gridModes, gridModes['Default (32px)']);
         const cta = media ? '' : boolean('Add CTA card:', false);
         return {
@@ -454,7 +427,6 @@ export default {
           tagGroup,
           addCta,
           cards,
-          cardsPerRow,
           gridMode,
           cta,
         };
@@ -468,7 +440,6 @@ export default {
           tagGroup: false,
           addCta: false,
           cards: 5,
-          cardsPerRow: 'c4d-ce-demo-devenv--cards-in-row-3',
           gridMode: 'collapsed',
           cta: false,
         },

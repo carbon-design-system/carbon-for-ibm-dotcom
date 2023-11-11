@@ -13,6 +13,7 @@ import { ifDefined } from 'lit/directives/if-defined.js';
 import { select } from '@storybook/addon-knobs';
 import readme from './README.stories.mdx';
 import '../index';
+import { GRID_MODE } from '../../card-group/defs';
 import { CTA_TYPE } from '../../cta/defs';
 import image from '../../../../../storybook-images/assets/card-section-offset/background-media.jpg';
 import textNullable from '../../../../.storybook/knob-text-nullable';
@@ -39,6 +40,12 @@ const knobNamesForType = {
   [CTA_TYPE.VIDEO]: 'Video ID (href)',
 };
 
+const gridModes = {
+  [`Condensed (1px)`]: GRID_MODE.CONDENSED,
+  [`Narrow (16px)`]: GRID_MODE.NARROW,
+  [`Default (32px)`]: GRID_MODE.DEFAULT,
+};
+
 const defaultCardGroupItem = html`
   <c4d-card-group-item href="https://example.com">
     <c4d-card-eyebrow>Label</c4d-card-eyebrow>
@@ -56,7 +63,7 @@ const defaultCardGroupItem = html`
 `;
 
 export const Default = (args) => {
-  const { heading, cards, ctaType, ctaCopy, download, href, alt, defaultSrc } =
+  const { heading, cards, ctaType, ctaCopy, download, gridMode, href, alt, defaultSrc } =
     args?.CardSectionOffset ?? {};
   return html`
     <c4d-card-section-offset>
@@ -77,7 +84,7 @@ export const Default = (args) => {
         href="${ifDefined(href)}">
         ${ctaCopy}
       </c4d-text-cta>
-      <c4d-card-group slot="card-group" cards-per-row="2">
+      <c4d-card-group slot="card-group" cards-per-row="2" grid-mode="${gridMode}">
         ${cards}
       </c4d-card-group>
     </c4d-card-section-offset>
@@ -105,6 +112,7 @@ export default {
           ctaType === CTA_TYPE.VIDEO
             ? undefined
             : textNullable('Copy text', 'Lorem ipsum dolor sit amet');
+        const gridMode = select('Grid mode:', gridModes, gridModes['Default (32px)']);            
         const download =
           ctaType !== CTA_TYPE.DOWNLOAD
             ? undefined
@@ -117,6 +125,7 @@ export default {
           ctaCopy,
           ctaType,
           download,
+          gridMode,
           href: textNullable(
             knobNamesForType[ctaType ?? CTA_TYPE.REGULAR],
             hrefsForType[ctaType ?? CTA_TYPE.REGULAR]

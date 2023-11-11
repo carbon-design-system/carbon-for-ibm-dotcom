@@ -191,7 +191,8 @@ class C4DCardGroup extends StableSelectorMixin(LitElement) {
     this._childItemHeadings.forEach((e) => {
       // add tag group height to heading to the cards lacking tag group
       if (
-        e &&
+        e && 
+        !e.parentElement.hasAttribute('link') &&
         !e.nextElementSibling?.matches(
           (this.constructor as typeof C4DCardGroup).selectorItemTagGroup
         )
