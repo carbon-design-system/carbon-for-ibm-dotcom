@@ -41,6 +41,7 @@ import { C4D_CUSTOM_PROFILE_LOGIN } from '../../globals/internal/feature-flags';
 import C4DMastheadLogo from './masthead-logo';
 import C4DMegaMenuTabs from './megamenu-tabs';
 import C4DMegamenuTopNavMenu from './megamenu-top-nav-menu';
+import C4DMastheadL1 from './masthead-l1';
 import './masthead';
 import './masthead-button-cta';
 import './masthead-l1';
@@ -94,6 +95,7 @@ export interface CMApp {
   version: string;
   ready: boolean;
   init: Function;
+  minimize: Function;
   refresh: Function;
   register: Function;
   deregister: Function;
@@ -992,6 +994,9 @@ class C4DMastheadComposite extends HostListenerMixin(LitElement) {
     // any previously opened megamenu.
     if (active && menuIndex !== undefined) {
       this._activeMegamenuIndex = menuIndex;
+
+      // Close the Contact Module upon opening megamenu.
+      this.contactModuleApp?.minimize();
     }
 
     // If clicking the same nav item to close megamenu, reset state to prune its
@@ -1007,6 +1012,14 @@ class C4DMastheadComposite extends HostListenerMixin(LitElement) {
 
     resolveFn();
   };
+
+  @HostListener(C4DMastheadL1.dropDownToggleEvent)
+  protected _handleL1DropdownToggle({ detail }: CustomEvent) {
+    const { isOpen } = detail;
+    if (isOpen) {
+      this.contactModuleApp?.minimize();
+    }
+  }
 
   /**
    * Sets the active megamenu tabpanel upon user interaction.
