@@ -1,5 +1,5 @@
 /**
- * Copyright IBM Corp. 2020, 2022
+ * Copyright IBM Corp. 2020, 2023
  *
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
@@ -53,16 +53,16 @@ const Panel = ({ api, active }) => {
 
 Panel.propTypes = {
   /**
+   * `true` if this Storybook add-on panel is active.
+   */
+  active: PropTypes.bool.isRequired,
+
+  /**
    * The Storybook API object.
    */
   api: PropTypes.shape({
     getChannel: PropTypes.func,
   }).isRequired,
-
-  /**
-   * `true` if this Storybook add-on panel is active.
-   */
-  active: PropTypes.bool.isRequired,
 };
 
 export default Panel;

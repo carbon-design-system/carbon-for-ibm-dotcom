@@ -52,13 +52,13 @@ class C4DTabsExtended extends MediaQueryMixin(StableSelectorMixin(LitElement), {
    * Defines the active tab index.
    */
   @state()
-  private _activeTabIndex: number = 0;
+  private _activeTabIndex = 0;
 
   @state()
-  private _isLTR: boolean = true;
+  private _isLTR = true;
 
   @property({ attribute: 'active-tab', reflect: true })
-  _activeTab: string = '0';
+  _activeTab = '0';
 
   /**
    * Handler for @slotChange, creates tabs from c4d-tab components.

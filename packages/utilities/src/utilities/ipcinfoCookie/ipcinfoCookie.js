@@ -42,8 +42,12 @@ class ipcinfoCookie {
       const info = ipcinfo.split(';');
       info.map((code) => {
         const itemParts = code.split('=');
-        if (itemParts[0] === 'cc') cc = itemParts[1];
-        if (itemParts[0] === 'lc') lc = itemParts[1];
+        if (itemParts[0] === 'cc') {
+          cc = itemParts[1];
+        }
+        if (itemParts[0] === 'lc') {
+          lc = itemParts[1];
+        }
       });
 
       return { cc, lc };

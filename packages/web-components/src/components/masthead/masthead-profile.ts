@@ -49,7 +49,7 @@ class C4DMastheadProfile extends HostListenerMixin(
    *
    * @param [force] If specified, forces the open state to the given one.
    */
-  protected _handleUserInitiatedToggle(force: boolean = !this.expanded) {
+  protected _handleUserInitiatedToggle(force = !this.expanded) {
     this.expanded = force;
     if (!force) {
       this._trigger.focus();

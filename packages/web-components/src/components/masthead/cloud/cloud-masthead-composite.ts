@@ -113,7 +113,7 @@ class C4DCloudMastheadComposite extends C4DMastheadComposite {
   // eslint-disable-next-line class-methods-use-this
   protected _renderMegaMenu(sections, parentKey) {
     let viewAllLink;
-    type menuItem = MastheadMenuItem & { itemKey: String };
+    type menuItem = MastheadMenuItem & { itemKey: string };
     const sortedMenuItems: menuItem[] = [];
     sections[0].menuItems?.forEach((item, i) => {
       if (item.megaPanelViewAll) {

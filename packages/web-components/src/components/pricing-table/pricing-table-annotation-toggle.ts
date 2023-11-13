@@ -25,7 +25,7 @@ class C4DPricingTableAnnotationToggle extends StableSelectorMixin(LitElement) {
   slot = 'toggle';
 
   @property()
-  toggled: boolean = false;
+  toggled = false;
 
   @property()
   parentRow: C4DPricingTableRow | null = null;

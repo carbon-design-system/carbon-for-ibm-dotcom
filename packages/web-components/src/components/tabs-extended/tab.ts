@@ -51,19 +51,19 @@ class C4DTab extends MediaQueryMixin(StableSelectorMixin(LitElement), {
    * Defines the disabled state of the tab.
    */
   @property({ reflect: true, type: Boolean })
-  disabled: boolean = false;
+  disabled = false;
 
   /**
    * Defines the selected state of the tab.
    */
   @property({ reflect: true, type: Boolean })
-  selected: boolean = false;
+  selected = false;
 
   /**
    * Defines the index of the tab relative to other tabs.
    */
   @state()
-  private _index: number = 0;
+  private _index = 0;
 
   /**
    * Sets the index of the tab.

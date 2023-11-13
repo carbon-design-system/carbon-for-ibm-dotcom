@@ -34,7 +34,7 @@ class C4DMegaMenuRightNavigation extends StableSelectorMixin(LitElement) {
   styleScheme = MEGAMENU_RIGHT_NAVIGATION_STYLE_SCHEME.FULL;
 
   @property({ attribute: 'data-child-count', reflect: true })
-  childCount: Number | undefined;
+  childCount: number | undefined;
 
   /**
    * Returns a class-name(s) for megamenu container

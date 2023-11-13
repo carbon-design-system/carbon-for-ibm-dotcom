@@ -34,12 +34,18 @@ export function loadContent(locale: string, onSuccess: any, onError: any) {
   document.body.appendChild(script);
   script.onload = () => {
     try {
-      if (onSuccess) onSuccess(window.NoticeChoice.Content);
+      if (onSuccess) {
+        onSuccess(window.NoticeChoice.Content);
+      }
     } catch (e) {
-      if (onError) onError(e);
+      if (onError) {
+        onError(e);
+      }
     }
   };
   script.onerror = () => {
-    if (onError) onError();
+    if (onError) {
+      onError();
+    }
   };
 }

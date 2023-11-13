@@ -167,7 +167,7 @@ class C4DTableOfContents extends MediaQueryMixin(
    * Boolean checking if page is RTL
    */
   @state()
-  private _pageIsRTL: Boolean =
+  private _pageIsRTL: boolean =
     this.ownerDocument!.documentElement.dir === 'rtl';
 
   /**

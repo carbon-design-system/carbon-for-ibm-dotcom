@@ -66,6 +66,7 @@ class C4DContentItem extends StableSelectorMixin(LitElement) {
    * Handles `slotchange` event.
    *
    * @param event The event.
+   * @param event.target The event target.
    */
   protected _handleSlotChange({ target }: Event) {
     const { name } = target as HTMLSlotElement;
@@ -83,7 +84,9 @@ class C4DContentItem extends StableSelectorMixin(LitElement) {
       )
     ) {
       this._hasLogo = true;
-    } else this._hasLogo = false;
+    } else {
+      this._hasLogo = false;
+    }
   }
 
   /**

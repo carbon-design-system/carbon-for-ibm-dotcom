@@ -21,7 +21,7 @@ const { stablePrefix: c4dPrefix } = settings;
 @customElement(`${c4dPrefix}-pricing-table-row`)
 class C4DPricingTableRow extends StableSelectorMixin(C4DStructuredListRow) {
   @property()
-  hasAnnotations: boolean = false;
+  hasAnnotations = false;
 
   protected _handleSlotChange() {
     setColumnWidth(this);
@@ -33,7 +33,9 @@ class C4DPricingTableRow extends StableSelectorMixin(C4DStructuredListRow) {
       const annotation = cell.querySelector(
         `${c4dPrefix}-pricing-table-cell-annotation`
       );
-      if (annotation) hasAnnotations = true;
+      if (annotation) {
+        hasAnnotations = true;
+      }
     });
 
     return hasAnnotations;

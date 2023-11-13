@@ -112,7 +112,7 @@ class C4DMastheadMenuButton extends HostListenerMixin(CDSHeaderMenuButton) {
     }
   }
 
-  private _renderSentinel = (side: String) => {
+  private _renderSentinel = (side: string) => {
     return html`
       <button
         id="${side}-sentinel"

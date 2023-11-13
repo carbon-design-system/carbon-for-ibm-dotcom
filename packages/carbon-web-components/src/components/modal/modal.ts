@@ -34,10 +34,7 @@ const FOLLOWING =
  * @param reverse `true` to go through the list in reverse order.
  * @returns `true` if one of the attempts is successful, `false` otherwise.
  */
-function tryFocusElems(
-  elems: NodeListOf<HTMLElement>,
-  reverse: boolean = false
-) {
+function tryFocusElems(elems: NodeListOf<HTMLElement>, reverse = false) {
   if (!reverse) {
     for (let i = 0; i < elems.length; ++i) {
       const elem = elems[i];
@@ -362,7 +359,7 @@ class CDSModal extends HostListenerMixin(LitElement) {
    * @param ms The number of milliseconds.
    * @returns A promise that is resolves after the given milliseconds.
    */
-  private static _delay(ms: number = 0) {
+  private static _delay(ms = 0) {
     return new Promise((resolve) => {
       setTimeout(resolve, ms);
     });

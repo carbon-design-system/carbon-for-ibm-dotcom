@@ -52,19 +52,19 @@ class C4DFilterGroupItem extends StableSelectorMixin(CDSAccordionItem) {
    * The text for the button that reveals all filters in the group.
    */
   @property({ type: String, attribute: 'view-all-text' })
-  viewAllText: string = 'View all';
+  viewAllText = 'View all';
 
   /**
    * The number of filters that can be shown without needing to hide any.
    */
   @property({ type: Number, attribute: 'max-filters' })
-  maxFilters: number = 7;
+  maxFilters = 7;
 
   /**
    * The number of filters to show when not all filters are visible.
    */
   @property({ type: Number, attribute: 'filter-cutoff' })
-  filterCutoff: number = 5;
+  filterCutoff = 5;
 
   /**
    * Whether or not any hidden filters have been revealed.
@@ -90,17 +90,21 @@ class C4DFilterGroupItem extends StableSelectorMixin(CDSAccordionItem) {
    */
   protected _hasHiddenActiveFilter(): boolean {
     const { children, filterCutoff } = this;
-    let result: boolean = false;
+    let result = false;
 
     [...children].slice(filterCutoff, children.length).forEach((elem) => {
       if (elem instanceof C4DFilterPanelCheckbox) {
-        if (elem.checked) result = true;
+        if (elem.checked) {
+          result = true;
+        }
       }
       if (
         elem instanceof C4DFilterPanelInputSelectItem ||
         elem instanceof C4DFilterPanelInputSelect
       ) {
-        if (elem.selected) result = true;
+        if (elem.selected) {
+          result = true;
+        }
       }
     });
 
@@ -141,7 +145,9 @@ class C4DFilterGroupItem extends StableSelectorMixin(CDSAccordionItem) {
       'click',
       (e): void => {
         this.allRevealed = true;
-        if (e.target instanceof HTMLElement) e.target.remove();
+        if (e.target instanceof HTMLElement) {
+          e.target.remove();
+        }
 
         const firstHidden = children[filterCutoff];
         if (firstHidden instanceof HTMLElement) {

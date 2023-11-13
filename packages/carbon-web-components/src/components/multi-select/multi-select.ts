@@ -137,7 +137,9 @@ class CDSMultiSelect extends CDSDropdown {
       this._handleUserInitiatedClearInput();
     } else {
       super._handleClickInner(event);
-      if (this.filterable) this._filterInputNode.focus();
+      if (this.filterable) {
+        this._filterInputNode.focus();
+      }
     }
   }
 
@@ -334,7 +336,9 @@ class CDSMultiSelect extends CDSDropdown {
     );
     const inputValue = this._filterInputNode.value.toLocaleLowerCase();
 
-    if (!this.open) this.open = true;
+    if (!this.open) {
+      this.open = true;
+    }
 
     forEach(items, (item) => {
       const itemValue = (item as HTMLElement).innerText.toLocaleLowerCase();

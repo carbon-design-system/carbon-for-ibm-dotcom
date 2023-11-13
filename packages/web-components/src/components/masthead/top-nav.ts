@@ -154,7 +154,7 @@ class C4DTopNav extends StableSelectorMixin(HostListenerMixin(CDSHeaderNav)) {
    * Boolean checking if page is RTL
    */
   @state()
-  private _pageIsRTL: Boolean =
+  private _pageIsRTL: boolean =
     this.ownerDocument!.documentElement.dir === 'rtl';
 
   @query('slot')

@@ -125,7 +125,9 @@ class C4DMastheadComposite extends HostListenerMixin(LitElement) {
    * @returns {TemplateResult | undefined} The L1 nav.
    */
   protected _renderL1() {
-    if (!this.l1Data) return undefined;
+    if (!this.l1Data) {
+      return undefined;
+    }
 
     return html`
       <c4d-masthead-l1
@@ -191,7 +193,7 @@ class C4DMastheadComposite extends HostListenerMixin(LitElement) {
    */
   protected _renderMegaMenuTabbed(menu: L0Megamenu, _parentKey) {
     const { viewAll, sections } = menu;
-    type menuItem = Megapanel & { itemKey: String };
+    type menuItem = Megapanel & { itemKey: string };
     const sortedMenuItems: menuItem[] = [];
     sections.forEach((section, i) => {
       return sortedMenuItems.push({
@@ -366,7 +368,7 @@ class C4DMastheadComposite extends HostListenerMixin(LitElement) {
   // eslint-disable-next-line class-methods-use-this
   protected _renderMegapanelLinkGroup(
     group: MegapanelLinkGroup,
-    options: { headingLevel?: Number; autoid?: String } = { headingLevel: 3 }
+    options: { headingLevel?: number; autoid?: string } = { headingLevel: 3 }
   ) {
     const { links, heading } = group;
     const { headingLevel, autoid } = options;

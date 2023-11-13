@@ -134,7 +134,9 @@ class StickyHeader {
   set masthead(component) {
     if (this._validateComponent(component, `${c4dPrefix}-masthead`)) {
       this._masthead = component;
-      if (this._banner) this._masthead.setAttribute('with-banner', '');
+      if (this._banner) {
+        this._masthead.setAttribute('with-banner', '');
+      }
 
       this._mastheadL0 = component.shadowRoot.querySelector(
         `.${prefix}--masthead__l0`
@@ -219,7 +221,9 @@ class StickyHeader {
 
     const { customPropertyName } = this.constructor;
 
-    if (localeModal && localeModal.hasAttribute('open')) return;
+    if (localeModal && localeModal.hasAttribute('open')) {
+      return;
+    }
 
     const newY = window.scrollY;
     this._lastScrollPosition = newY;

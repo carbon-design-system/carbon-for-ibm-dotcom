@@ -31,7 +31,7 @@ class C4DFilterPanelInputSelectItem extends FocusMixin(
    * Property for the input select item value
    */
   @property()
-  _title: string = '';
+  _title = '';
 
   /**
    * sets the input select dropdown to unselected
@@ -43,12 +43,13 @@ class C4DFilterPanelInputSelectItem extends FocusMixin(
    * Property for setting the value to a string.
    */
   @property()
-  value: string = '';
+  value = '';
 
   /**
    * Handles `slotchange` event.
    *
    * @param event The event.
+   * @param event.target The event target.
    */
   protected _handleSlotChange({ target }: Event) {
     this._title = (target as HTMLSlotElement).assignedNodes()[0]

@@ -5,8 +5,6 @@ packages/*/examples/*/build/
 packages/*/tests/e2e/dist/
 es
 lib
-!packages/eslint-plugin-react-prop-type-comments/lib
-!packages/eslint-plugin-ibmdotcom-import-rules/lib
 dist
 umd
 css

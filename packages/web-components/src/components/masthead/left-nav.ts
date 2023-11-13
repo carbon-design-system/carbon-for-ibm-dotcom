@@ -315,7 +315,7 @@ class C4DLeftNav extends StableSelectorMixin(CDSSideNav) {
     }
   }
 
-  private _renderSentinel = (side: String) => {
+  private _renderSentinel = (side: string) => {
     return html`
       <button
         id="${side}-sentinel"

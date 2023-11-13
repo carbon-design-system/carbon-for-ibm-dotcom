@@ -109,7 +109,7 @@ const template = (props?) =>
     },
   });
 
-const setupLinkAlternate = (set: boolean = true) => {
+const setupLinkAlternate = (set = true) => {
   if (!set) {
     forEach(
       document.querySelectorAll('link[rel="alternate][hreflang]'),

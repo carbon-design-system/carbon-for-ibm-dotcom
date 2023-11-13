@@ -228,7 +228,7 @@ class CDSDatePickerInput extends FocusMixin(LitElement) {
       class: `${prefix}--date-picker__icon ${prefix}--date-picker__icon--warn`,
     });
 
-    let normalizedProps = {
+    const normalizedProps = {
       disabled: !readonly && disabled,
       invalid: !readonly && invalid,
       warn: !readonly && !invalid && warn,
