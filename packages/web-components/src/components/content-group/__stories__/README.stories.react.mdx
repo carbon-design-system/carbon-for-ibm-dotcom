@@ -1,14 +1,19 @@
-import { Preview, Props, Description, Story } from '@storybook/addon-docs/blocks';
+import {
+  Preview,
+  Props,
+  Description,
+  Story,
+} from '@storybook/addon-docs/blocks';
 import contributing from '../../../../../../docs/contributing-license.md';
 import { PropTypesRef } from '@carbon/ibmdotcom-web-components/es/components-react/content-group/content-group';
 
 # Content Group
 
 > 💡 Check our
-> [CodeSandbox](https://githubbox.com/carbon-design-system/carbon-for-ibm-dotcom/tree/master/packages/web-components/examples/codesandbox/components-react/content-group)
+> [CodeSandbox](https://githubbox.com/carbon-design-system/carbon-for-ibm-dotcom/tree/main/packages/web-components/examples/codesandbox/components-react/content-group)
 > example implementation.
 
-[![Edit @carbon/ibmdotcom-web-components](https://codesandbox.io/static/img/play-codesandbox.svg)](https://githubbox.com/carbon-design-system/carbon-for-ibm-dotcom/tree/master/packages/web-components/examples/codesandbox/components-react/content-group)
+[![Edit @carbon/ibmdotcom-web-components](https://codesandbox.io/static/img/play-codesandbox.svg)](https://githubbox.com/carbon-design-system/carbon-for-ibm-dotcom/tree/main/packages/web-components/examples/codesandbox/components-react/content-group)
 
 ## Getting started
 
@@ -26,13 +31,18 @@ import DDSContentGroupCopy from '@carbon/ibmdotcom-web-components/es/components-
 
 function App() {
   return (
-  <DDSContentGroup>
-    <DDSContentGroupHeading>{heading}</DDSContentGroupHeading>
-    <DDSContentGroupCopy>{copy}</DDSContentGroupCopy>
-    <DDSCardLinkCTA slot='footer' cta-type='local' href='https://www.example.com'>
-        <DDSCardLinkHeading>Learn more about natural language processing</DDSCardLinkHeading>
+    <DDSContentGroup>
+      <DDSContentGroupHeading>{heading}</DDSContentGroupHeading>
+      <DDSContentGroupCopy>{copy}</DDSContentGroupCopy>
+      <DDSCardLinkCTA
+        slot="footer"
+        cta-type="local"
+        href="https://www.example.com">
+        <DDSCardLinkHeading>
+          Learn more about natural language processing
+        </DDSCardLinkHeading>
         <DDSCardCTAFooter></DDSCardCTAFooter>
-    </DDSCardLinkCTA>
+      </DDSCardLinkCTA>
     </DDSContentGroup>
   );
 }
@@ -44,11 +54,13 @@ function App() {
 
 ## Stable selectors
 
-See [our README](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/tree/master/packages/web-components#stable-selectors-for-analytics-and-integratione2e-testing-in-web-components) to see how Web Components selector and `data-autoid` should be used.
+See
+[our README](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/tree/main/packages/web-components#stable-selectors-for-analytics-and-integratione2e-testing-in-web-components)
+to see how Web Components selector and `data-autoid` should be used.
 
 | Web Components selector       | Compatibility selector                    | Description |
 | ----------------------------- | ----------------------------------------- | ----------- |
-| `<dds-content-group>`  | `data-autoid="dds--content-group-simple"` | Component   |
+| `<dds-content-group>`         | `data-autoid="dds--content-group-simple"` | Component   |
 | `<dds-content-group-copy>`    | `data-autoid="dds--content-group__copy"`  | Component   |
 | `<dds-content-group-heading>` | `data-autoid="dds--content-group__title"` | Component   |
 
