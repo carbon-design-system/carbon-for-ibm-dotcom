@@ -85,7 +85,7 @@ export default {
         quoteMark: select(
           'Quote Mark (markType):',
           quoteTypes,
-          quoteTypes.doubleCurved
+          quoteTypes['double-curved']
         ),
         sourceHeading: textNullable(
           'Source heading (source-heading slot)',
