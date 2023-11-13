@@ -167,16 +167,6 @@ const renderBodyCell = (
           <dds-pricing-table-cell-annotation>
             Sed quis neque ultrices, convallis augue non, scelerisque massa.
           </dds-pricing-table-cell-annotation>
-          <span class="example-text">
-            Donec metus dui, pharetra sit amet dui eu, posuere imperdiet leo.
-            Mauris vel quam vitae sem tincidunt pharetra. Etiam luctus placerat
-            orci, non ultricies augue.
-          </span>
-          <span class="example-text">
-            Donec metus dui, pharetra sit amet dui eu, posuere imperdiet leo.
-            Mauris vel quam vitae sem tincidunt pharetra. Etiam luctus placerat
-            orci, non ultricies augue
-          </span>
         </dds-pricing-table-cell>
       `;
     default:
