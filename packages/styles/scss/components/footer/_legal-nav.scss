@@ -23,8 +23,8 @@
     @include make-container;
   }
 
-  .#{$prefix}--legal-nav {
-    @include theme($g90, feature-flag-enabled('enable-css-custom-properties'));
+  .#{$c4d-prefix}--legal-nav {
+    @include theme($g100, feature-flag-enabled('enable-css-custom-properties'));
     @include make-row;
 
     .#{$prefix}--footer:not(.#{$prefix}--footer--short) & {
@@ -34,7 +34,8 @@
     }
   }
 
-  .#{$prefix}--legal-nav__list {
+  .#{$c4d-prefix}--adjunct-links__container,
+  .#{$c4d-prefix}--legal-nav__list {
     width: 100%;
     padding-left: $spacing-05;
 
@@ -51,9 +52,9 @@
     @include breakpoint(lg) {
       @include make-col-offset(4, 16);
     }
-    &.#{$prefix}--legal-nav__micro {
+    &.#{$c4d-prefix}--legal-nav__micro {
       @include theme(
-        $g90,
+        $g100,
         feature-flag-enabled('enable-css-custom-properties')
       );
 
@@ -62,6 +63,13 @@
       padding-left: 0;
       flex-direction: column-reverse;
       margin-right: 0;
+
+      @include breakpoint-down(md) {
+        ::slotted([slot='locale']),
+        ::slotted([slot='brand']) {
+          display: none;
+        }
+      }
 
       @include breakpoint(md) {
         padding-left: 0;
@@ -190,15 +198,11 @@
   }
 
   :host(#{$c4d-prefix}-legal-nav-item),
-  :host(#{$c4d-prefix}-legal-nav-cookie-preferences-placeholder),
+  :host(#{$c4d-prefix}-legal-nav-cookie-preferences-placeholder) div,
   .#{$prefix}--legal-nav__list-item {
     margin-right: $spacing-07;
-    padding: $spacing-05 0 0 0;
+    padding: $spacing-03 0 0 0;
     @include type-style('body-01');
-
-    @include breakpoint(md) {
-      padding: $spacing-03 0 0 0;
-    }
 
     @include breakpoint-down(md) {
       &:first-child {

@@ -23,7 +23,7 @@
 @mixin locale-button {
   :host(#{$c4d-prefix}-locale-button),
   .#{$prefix}--locale-btn__container {
-    @include theme($g90, feature-flag-enabled('enable-css-custom-properties'));
+    @include theme($g100, feature-flag-enabled('enable-css-custom-properties'));
     @include button;
     @include make-col-ready;
     @include make-col(4, 4);
