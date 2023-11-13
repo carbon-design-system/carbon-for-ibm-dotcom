@@ -39,7 +39,6 @@ class C4DLegalNavCookiePreferencesPlaceholder extends StableSelectorMixin(
     const linkNodes = (event.target as HTMLSlotElement)
       .assignedNodes()
       .filter((node) => (node as Element).tagName === 'A') as HTMLLinkElement[];
-    console.log('LINK?', linkNodes, this._hasCookies);
     linkNodes.forEach((node) => {
       // Adds Carbon CSS classes
       node.classList.add(`${prefix}--link`);

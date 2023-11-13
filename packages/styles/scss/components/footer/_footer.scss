@@ -283,7 +283,7 @@
 
   :host(#{$c4d-prefix}-legal-nav[size='micro']) {
     ::slotted(#{$c4d-prefix}-legal-nav-item),
-    ::slotted(#{$c4d-prefix}-legal-nav-cookie-preferences-placeholder) div {
+    ::slotted(#{$c4d-prefix}-legal-nav-cookie-preferences-placeholder) {
       @include breakpoint(md) {
         display: flex;
         align-items: center;
