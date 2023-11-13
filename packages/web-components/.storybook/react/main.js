@@ -117,6 +117,9 @@ module.exports = {
   ],
   addons,
   framework: '@storybook/react',
+  typescript: {
+    reactDocgen: 'react-docgen-typescript-plugin',
+  },
   managerWebpack,
   webpackFinal(config, mode) {
     const massagedConfig = webpackFinal(config, mode);

@@ -13,8 +13,10 @@ import { property } from 'lit/decorators.js';
 import FocusMixin from '../../internal/vendor/@carbon/web-components/globals/mixins/focus.js';
 import { ifDefined } from 'lit/directives/if-defined.js';
 import IBM8BarLogoH65White from '@carbon/ibmdotcom-styles/icons/svg/IBM-8bar-logo--h65-white.svg';
+import IBM8BarLogoH23White from '@carbon/ibmdotcom-styles/icons/svg/IBM-8bar-logo--h23-white.svg';
 import settings from '../../internal/vendor/@carbon/ibmdotcom-utilities/utilities/settings/settings';
 import StableSelectorMixin from '../../globals/mixins/stable-selector';
+import { FOOTER_SIZE } from './footer';
 import styles from './footer.scss';
 import { carbonElement as customElement } from '../../internal/vendor/@carbon/web-components/globals/decorators/carbon-element.js';
 
@@ -34,19 +36,27 @@ class C4DFooterLogo extends StableSelectorMixin(FocusMixin(LitElement)) {
   href = 'https://www.ibm.com/';
 
   /**
+   * Size property used for applying classes
+   */
+  @property()
+  size = FOOTER_SIZE.REGULAR;
+
+  /**
    * The shadow slot this logo UI should be in.
    */
   @property({ reflect: true })
   slot = 'brand';
 
   render() {
-    const { href } = this;
+    const { href, size } = this;
     return html`
       <a
         class="${c4dPrefix}--footer-logo__link"
         aria-label="IBM logo"
         href="${ifDefined(href)}">
-        ${unsafeSVG(IBM8BarLogoH65White)}
+        ${size !== FOOTER_SIZE.MICRO
+          ? unsafeSVG(IBM8BarLogoH65White)
+          : unsafeSVG(IBM8BarLogoH23White)}
         <slot></slot>
       </a>
     `;

@@ -11,11 +11,11 @@ import { BasicLink } from '../../../internal/vendor/@carbon/ibmdotcom-services-s
 
 const adjunctLinks: BasicLink[] = [
   {
-    title: 'See the updated Terms of Use. Learn more.',
+    title: 'Updated terms of use',
     url: 'https://www.example.com',
   },
   {
-    title: 'Read Learning Technologies Privacy.',
+    title: 'React learning technologies',
     url: 'https://www.example.com',
   },
 ];
