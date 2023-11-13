@@ -354,7 +354,7 @@ $feature-flags: (
       }
 
       .#{$prefix}--card__content {
-        padding: $spacing-07 $spacing-05;
+        padding: $spacing-07 $spacing-05 $spacing-05;
 
         @include breakpoint(md) {
           padding: $spacing-05;
