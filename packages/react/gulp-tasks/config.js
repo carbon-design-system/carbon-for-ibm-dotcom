@@ -1,5 +1,5 @@
 /**
- * Copyright IBM Corp. 2020, 2022
+ * Copyright IBM Corp. 2020, 2023
  *
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
@@ -8,7 +8,7 @@
 'use strict';
 
 const path = require('path');
-const commander = require('commander');
+const { program } = require('commander');
 
 /**
  * @param {*} v The value.
@@ -21,7 +21,7 @@ const {
   browser: browsers,
   spec: specs,
   ...rest
-} = commander
+} = program
   .option(
     '-b, --browser [browser]',
     'Browser to test with (ChromeHeadless or Chrome) for Karma testing',
