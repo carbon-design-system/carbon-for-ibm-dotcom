@@ -44,4 +44,7 @@ module.exports = {
   ],
   moduleFileExtensions: ['js', 'json'],
   snapshotSerializers: ['enzyme-to-json/serializer'],
+  moduleNameMapper: {
+    axios: 'axios/dist/node/axios.cjs',
+  },
 };
