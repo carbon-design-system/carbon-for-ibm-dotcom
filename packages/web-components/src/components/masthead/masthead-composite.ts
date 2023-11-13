@@ -49,6 +49,7 @@ import { DDS_CUSTOM_PROFILE_LOGIN } from '../../globals/internal/feature-flags';
 import DDSMastheadLogo from './masthead-logo';
 import DDSMegaMenuTabs from './megamenu-tabs';
 import DDSMegamenuTopNavMenu from './megamenu-top-nav-menu';
+import DDSMastheadL1 from './masthead-l1';
 import './masthead';
 import './masthead-button-cta';
 import './masthead-l1';
@@ -101,6 +102,7 @@ export interface CMApp {
   version: string;
   ready: boolean;
   init: Function;
+  minimize: Function;
   refresh: Function;
   register: Function;
   deregister: Function;
@@ -1000,6 +1002,9 @@ class DDSMastheadComposite extends HostListenerMixin(LitElement) {
     // any previously opened megamenu.
     if (active && menuIndex !== undefined) {
       this._activeMegamenuIndex = menuIndex;
+
+      // Close the Contact Module upon opening megamenu.
+      this.contactModuleApp?.minimize();
     }
 
     // If clicking the same nav item to close megamenu, reset state to prune its
@@ -1015,6 +1020,14 @@ class DDSMastheadComposite extends HostListenerMixin(LitElement) {
 
     resolveFn();
   };
+
+  @HostListener(DDSMastheadL1.dropDownToggleEvent)
+  protected _handleL1DropdownToggle({ detail }: CustomEvent) {
+    const { isOpen } = detail;
+    if (isOpen) {
+      this.contactModuleApp?.minimize();
+    }
+  }
 
   /**
    * Sets the active megamenu tabpanel upon user interaction.
