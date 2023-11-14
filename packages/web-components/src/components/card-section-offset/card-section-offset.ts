@@ -35,11 +35,11 @@ class C4DCardSectionOffset extends StableSelectorMixin(C4DContentBlock) {
           (this.constructor as typeof C4DCardSectionOffset).cardGroupSelector
         ) &&
         (elem as HTMLElement).querySelectorAll(`${c4dPrefix}-card-group-item`)
-          .length === 4 &&
-        (elem as HTMLElement)
-          .querySelector(`${c4dPrefix}-card-group-item`)
-          ?.hasAttribute('empty')
+          .length === 3
       ) {
+        const emptyCard = document.createElement(`${c4dPrefix}-card-group-item`);
+        emptyCard.setAttribute('empty', '');
+        this.querySelector(`${c4dPrefix}-card-group`)?.prepend(emptyCard);
         return true;
       }
       this.querySelector(`${c4dPrefix}-card-group`)!.innerHTML = '';
