@@ -2283,7 +2283,7 @@ __metadata:
     browserstack-cypress-cli: "npm:^1.11.1"
     cache-loader: "npm:^4.1.0"
     carbon-components: "npm:10.58.12"
-    carbon-components-react: "npm:7.59.16"
+    carbon-components-react: "npm:7.59.17"
     carbon-icons: "npm:7.0.7"
     chalk: "npm:^4.1.1"
     classnames: "npm:2.3.2"
@@ -2448,7 +2448,7 @@ __metadata:
     "@carbon/themes": "npm:10.55.3"
     "@carbon/type": "npm:10.45.3"
     carbon-components: "npm:10.58.12"
-    carbon-components-react: "npm:7.59.16"
+    carbon-components-react: "npm:7.59.17"
     del: "npm:^6.0.0"
     gulp: "npm:^4.0.2"
     gulp-autoprefixer: "npm:^6.1.0"
@@ -11424,9 +11424,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"carbon-components-react@npm:7.59.16":
-  version: 7.59.16
-  resolution: "carbon-components-react@npm:7.59.16"
+"carbon-components-react@npm:7.59.17":
+  version: 7.59.17
+  resolution: "carbon-components-react@npm:7.59.17"
   dependencies:
     "@babel/runtime": "npm:^7.16.7"
     "@carbon/feature-flags": "npm:^0.7.0"
@@ -11453,7 +11453,7 @@ __metadata:
     carbon-icons: ^7.0.7
     react: ^16.8.6 || ^17.0.1
     react-dom: ^16.8.6 || ^17.0.1
-  checksum: 53b1f476c3fa1a0f79e687fbbfb52897c0649382893da1e483e0353794ef1c78bec949bef28610363e4c6161c6b38b6e7f5ee238d44c0a5eebab78d9ebce78e0
+  checksum: 10b27bf63bcc1e63a3736eedce314294c05f763583fd8ec9a7a660d9e3c84704868688b5d98f5e19d8d5999e78f92e1eaaf88d918684975f6be7f224f17cd26e
   languageName: node
   linkType: hard
 
