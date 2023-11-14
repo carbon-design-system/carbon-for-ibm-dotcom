@@ -2409,7 +2409,7 @@ __metadata:
     "@rollup/plugin-node-resolve": "npm:^8.4.0"
     "@rollup/plugin-replace": "npm:^4.0.0"
     all-contributors-cli: "npm:^6.0.0"
-    axios: "npm:^0.27.2"
+    axios: "npm:^1.6.0"
     babel-core: "npm:^7.0.0-bridge.0"
     babel-jest: "npm:^24.0.0"
     babel-plugin-dev-expression: "npm:^0.2.1"
@@ -2479,7 +2479,7 @@ __metadata:
     "@rollup/plugin-node-resolve": "npm:^8.4.0"
     "@rollup/plugin-replace": "npm:^4.0.0"
     all-contributors-cli: "npm:^6.0.0"
-    axios: "npm:^0.27.2"
+    axios: "npm:^1.6.0"
     babel-core: "npm:^7.0.0-bridge.0"
     babel-jest: "npm:^24.0.0"
     babel-plugin-dev-expression: "npm:^0.2.1"
@@ -9714,16 +9714,6 @@ __metadata:
   languageName: node
   linkType: hard
 
-"axios@npm:^0.27.2":
-  version: 0.27.2
-  resolution: "axios@npm:0.27.2"
-  dependencies:
-    follow-redirects: "npm:^1.14.9"
-    form-data: "npm:^4.0.0"
-  checksum: 2efaf18dd0805f7bc772882bc86f004abd92d51007b54c5081f74db0d08ce3593e2c010261896d25a14318eeaa2e966fd825e34f810e8a3339dc64b9d177cf70
-  languageName: node
-  linkType: hard
-
 "axios@npm:^1.0.0":
   version: 1.4.0
   resolution: "axios@npm:1.4.0"
@@ -9732,6 +9722,17 @@ __metadata:
     form-data: "npm:^4.0.0"
     proxy-from-env: "npm:^1.1.0"
   checksum: b987e4259e5cfc93e95ee306c267a44380bbc045789a91b716e8434a75e22987344605eb4e133482fe285dd3a2e0b7e791ba26999965f04a5ecdde25f56930cb
+  languageName: node
+  linkType: hard
+
+"axios@npm:^1.6.0":
+  version: 1.6.1
+  resolution: "axios@npm:1.6.1"
+  dependencies:
+    follow-redirects: "npm:^1.15.0"
+    form-data: "npm:^4.0.0"
+    proxy-from-env: "npm:^1.1.0"
+  checksum: fb091af3ad47d70fdcba5e71654b9e3c56947d93d8b2375dd0b4db63de9982adab6235aebc514488aa289c7faf103b09e8911280e6f6b1112d1604fe5f111f71
   languageName: node
   linkType: hard
 
@@ -16934,7 +16935,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"follow-redirects@npm:^1.0.0, follow-redirects@npm:^1.14.7, follow-redirects@npm:^1.14.9, follow-redirects@npm:^1.15.0":
+"follow-redirects@npm:^1.0.0, follow-redirects@npm:^1.14.7, follow-redirects@npm:^1.15.0":
   version: 1.15.2
   resolution: "follow-redirects@npm:1.15.2"
   peerDependenciesMeta:
