@@ -8,6 +8,7 @@
  */
 
 import { LitElement, html } from 'lit';
+import { state } from 'lit/decorators.js';
 import settings from '../../internal/vendor/@carbon/ibmdotcom-utilities/utilities/settings/settings';
 import StableSelectorMixin from '../../globals/mixins/stable-selector';
 import styles from './footer.scss';
@@ -24,6 +25,12 @@ const { prefix, stablePrefix: c4dPrefix } = settings;
 class C4DLegalNavCookiePreferencesPlaceholder extends StableSelectorMixin(
   LitElement
 ) {
+  /**
+   * `true` if there is cookie content.
+   */
+  @state()
+  protected _hasCookies = false;
+
   /**
    * Handles `slotchange` event.
    */
@@ -42,8 +49,13 @@ class C4DLegalNavCookiePreferencesPlaceholder extends StableSelectorMixin(
   }
 
   render() {
-    const { _handleSlotChange: handleSlotchange } = this;
-    return html` <slot @slotchange="${handleSlotchange}"></slot> `;
+    const { _handleSlotChange: handleSlotchange, _hasCookies: hasCookies } =
+      this;
+    return html`
+      <div ?hidden="${!hasCookies}">
+        <slot @slotchange="${handleSlotchange}"></slot>
+      </div>
+    `;
   }
 
   static get stableSelector() {

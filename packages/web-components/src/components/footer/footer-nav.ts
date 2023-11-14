@@ -51,6 +51,8 @@ class C4DFooterNav extends StableSelectorMixin(LitElement) {
     return html`
       <ul class=${classMap(classes)}>
         <slot></slot>
+        <slot name="locale-button"></slot>
+        <slot name="language-selector"></slot>
       </ul>
     `;
   }
