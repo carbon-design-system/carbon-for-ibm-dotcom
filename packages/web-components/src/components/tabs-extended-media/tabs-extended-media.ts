@@ -7,14 +7,13 @@
  * LICENSE file in the root directory of this source tree.
  */
 
-import { html } from 'lit';
 import { property } from 'lit/decorators.js';
 import settings from '../../internal/vendor/@carbon/ibmdotcom-utilities/utilities/settings/settings';
 import { carbonElement as customElement } from '../../internal/vendor/@carbon/web-components/globals/decorators/carbon-element';
 import C4DTabsExtended from '../tabs-extended/tabs-extended';
 import styles from './tabs-extended-media.scss';
 
-const { prefix, stablePrefix: c4dPrefix } = settings;
+const { stablePrefix: c4dPrefix } = settings;
 
 /**
  * A component to present media content inside a tabbed layout.
@@ -28,25 +27,6 @@ class C4DTabsExtendedMedia extends C4DTabsExtended {
    */
   @property({ attribute: 'section-heading', reflect: true })
   sectionHeading = 'true';
-
-  render() {
-    const { _isMobileVersion: isMobileVersion } = this;
-
-    return html`
-      <div class="${prefix}--tabs-extended-media">
-        ${this.sectionHeading === 'true'
-          ? html`
-              <div class="${prefix}--heading">
-                <slot name="heading"></slot>
-              </div>
-            `
-          : undefined}
-        <div class="${prefix}--tabs-extended">
-          ${isMobileVersion ? this._renderAccordion() : this._renderTabs()}
-        </div>
-      </div>
-    `;
-  }
 
   static get stableSelector() {
     return `${c4dPrefix}--tabs-extended-media`;
