@@ -7,7 +7,7 @@ import {
 import contributing from '../../../../../../docs/contributing-license.md';
 import { cdnJs, cdnCss } from '../../../globals/internal/storybook-cdn';
 
-# Card Group
+# Card group
 
 > 💡 Check our
 > [CodeSandbox](https://githubbox.com/carbon-design-system/carbon-for-ibm-dotcom/tree/main/packages/web-components/examples/codesandbox/components/card-group)
@@ -34,114 +34,183 @@ import '@carbon/ibmdotcom-web-components/es/components/card-in-card/index.js';
 ### HTML
 
 ```html
-<cds-card-group>
-  <cds-card-group-item cta-type="local" href="https://example.com">
-    <cds-card-heading>Nunc convallis lobortis</cds-card-heading>
+<c4d-card-group>
+  <c4d-card-group-item cta-type="local" href="https://example.com">
+    <c4d-card-heading>Nunc convallis lobortis</c4d-card-heading>
     <p>
       Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean et
       ultricies est. Mauris iaculis eget dolor nec hendrerit. Phasellus at elit
       sollicitudin, sodales nulla quis, consequat libero.
     </p>
-    <cds-card-cta-footer slot="footer"> </cds-card-cta-footer>
-  </cds-card-group-item>
-  <cds-card-group-item
+    <c4d-card-cta-footer slot="footer"> </c4d-card-cta-footer>
+  </c4d-card-group-item>
+  <c4d-card-group-item
     cta-type="local"
     href="https://example.com"
-    color-scheme="inverse">
-    <cds-card-heading>Top level card link</cds-card-heading>
-    <cds-card-cta-footer slot="footer" color-scheme="inverse">
-    </cds-card-cta-footer>
-  </cds-card-group-item>
-</cds-card-group>
+    >
+    <c4d-card-heading>Top level card link</c4d-card-heading>
+    <c4d-card-cta-footer slot="footer">
+    </c4d-card-cta-footer>
+  </c4d-card-group-item>
+</c4d-card-group>
 ```
 
-### HTML (with Card in Card)
+### HTML (with Card pictogram)
 
 ```html
-<cds-card-in-card grid-mode="narrow" href="https://example.com">
-  <cds-card-in-card-image
-    slot="image"
-    alt="Image alt text"
-    default-src="https://fpoimg.com/480x360?text=4:3&bg_color=ee5396&text_color=161616">
-    <cds-image-item
-      media="(min-width: 1312px)"
-      srcset="https://fpoimg.com/1312x738?text=16:9&bg_color=ee5396&text_color=161616">
-    </cds-image-item>
-    <cds-image-item
-      media="(min-width: 672px)"
-      srcset="https://fpoimg.com/960x540?text=16:9&bg_color=ee5396&text_color=161616">
-    </cds-image-item>
-    <cds-image-item
-      media="(min-width: 320px)"
-      srcset="https://fpoimg.com/480x360?text=4:3&bg_color=ee5396&text_color=161616">
-    </cds-image-item>
-  </cds-card-in-card-image>
-  <cds-card-eyebrow>Label</cds-card-eyebrow>
-  <cds-card-heading
-    >Standard Bank Group prepares to embrace Africa’s AI
-    opportunity</cds-card-heading
-  >
-  <cds-card-cta-footer>
+
+<c4d-card-group>
+  <c4d-card-group-item
+    href="https://example.com"
+    pictogram-placement="bottom"
+    >
+    <c4d-card-heading>Aerospace and defence</c4d-card-heading>
+    <p>
+      Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut
+      aliquip ex ea commodo consequat. Ut enim ad minim veniam, quis nostrud
+      exercitation.
+    </p>
     <svg
-      slot="icon"
+      slot="pictogram"
       focusable="false"
       preserveAspectRatio="xMidYMid meet"
       xmlns="http://www.w3.org/2000/svg"
-      fill="currentColor"
-      aria-hidden="true"
-      width="20"
-      height="20"
-      viewBox="0 0 20 20">
+      data-autoid="c4d--card__pictogram"
+      aria-label="Pictogram description"
+      width="48"
+      height="48"
+      viewBox="0 0 32 32"
+      role="img"
+      class="cds--card__pictogram">
       <path
-        d="M11.8 2.8L10.8 3.8 16.2 9.3 1 9.3 1 10.7 16.2 10.7 10.8 16.2 11.8 17.2 19 10z"></path>
+        id="desktop_1_"
+        d="M23,29.36H9v-0.72h6.64v-4.28H3c-1.301,0-2.36-1.059-2.36-2.36V5c0-1.301,1.059-2.36,2.36-2.36h26
+  c1.302,0,2.36,1.059,2.36,2.36v17c0,1.302-1.059,2.36-2.36,2.36H16.36v4.279H23V29.36z M1.36,19.36V22c0,
+  0.904,0.736,1.64,1.64,1.64h26c0.904,0,1.64-0.735,1.64-1.64v-2.64H1.36z M1.36,
+  18.64h29.28V5c0-0.904-0.735-1.64-1.64-1.64H3C2.096,3.36,1.36,4.096,1.36,5V18.64z" />
     </svg>
-  </cds-card-cta-footer>
-</cds-card-in-card>
+  </c4d-card-group-item>
+  <c4d-card-group-item
+    href="https://example.com"
+    pictogram-placement="bottom"
+    >
+    <c4d-card-heading>Aerospace and defence</c4d-card-heading>
+    <p>
+      Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut
+      aliquip ex ea commodo consequat. Ut enim ad minim veniam, quis nostrud
+      exercitation.
+    </p>
+    <svg
+      slot="pictogram"
+      focusable="false"
+      preserveAspectRatio="xMidYMid meet"
+      xmlns="http://www.w3.org/2000/svg"
+      data-autoid="c4d--card__pictogram"
+      aria-label="Pictogram description"
+      width="48"
+      height="48"
+      viewBox="0 0 32 32"
+      role="img"
+      class="cds--card__pictogram">
+      <path
+        id="desktop_1_"
+        d="M23,29.36H9v-0.72h6.64v-4.28H3c-1.301,0-2.36-1.059-2.36-2.36V5c0-1.301,1.059-2.36,2.36-2.36h26
+  c1.302,0,2.36,1.059,2.36,2.36v17c0,1.302-1.059,2.36-2.36,2.36H16.36v4.279H23V29.36z M1.36,19.36V22c0,
+  0.904,0.736,1.64,1.64,1.64h26c0.904,0,1.64-0.735,1.64-1.64v-2.64H1.36z M1.36,
+  18.64h29.28V5c0-0.904-0.735-1.64-1.64-1.64H3C2.096,3.36,1.36,4.096,1.36,5V18.64z" />
+    </svg>
+  </c4d-card-group-item>
+  <c4d-card-group-item
+    href="https://example.com"
+    pictogram-placement="bottom"
+    >
+    <c4d-card-heading>Aerospace and defence</c4d-card-heading>
+    <p>
+      Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut
+      aliquip ex ea commodo consequat. Ut enim ad minim veniam, quis nostrud
+      exercitation.
+    </p>
+    <svg
+      slot="pictogram"
+      focusable="false"
+      preserveAspectRatio="xMidYMid meet"
+      xmlns="http://www.w3.org/2000/svg"
+      data-autoid="c4d--card__pictogram"
+      aria-label="Pictogram description"
+      width="48"
+      height="48"
+      viewBox="0 0 32 32"
+      role="img"
+      class="cds--card__pictogram">
+      <path
+        id="desktop_1_"
+        d="M23,29.36H9v-0.72h6.64v-4.28H3c-1.301,0-2.36-1.059-2.36-2.36V5c0-1.301,1.059-2.36,2.36-2.36h26
+  c1.302,0,2.36,1.059,2.36,2.36v17c0,1.302-1.059,2.36-2.36,2.36H16.36v4.279H23V29.36z M1.36,19.36V22c0,
+  0.904,0.736,1.64,1.64,1.64h26c0.904,0,1.64-0.735,1.64-1.64v-2.64H1.36z M1.36,
+  18.64h29.28V5c0-0.904-0.735-1.64-1.64-1.64H3C2.096,3.36,1.36,4.096,1.36,5V18.64z" />
+    </svg>
+  </c4d-card-group-item>    
+</c4d-card-group>
 
-<cds-card-group grid-mode="narrow">
-  <cds-card-group-item cta-type="local" href="https://example.com">
-    <cds-card-heading>Nunc convallis lobortis</cds-card-heading>
+```
+
+### HTML (with Card static)
+
+```html
+<c4d-card-group>
+  <c4d-card-group-item cta-type="local">
+    <c4d-card-heading>Nunc convallis lobortis</c4d-card-heading>
     <p>
       Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean et
       ultricies est. Mauris iaculis eget dolor nec hendrerit. Phasellus at elit
       sollicitudin, sodales nulla quis, consequat libero.
     </p>
-    <cds-card-cta-footer slot="footer"> </cds-card-cta-footer>
-  </cds-card-group-item>
-</cds-card-group>
+    <c4d-card-cta-footer slot="footer"> </c4d-card-cta-footer>
+  </c4d-card-group-item>
+  <c4d-card-group-item
+    cta-type="local"
+    >
+    <c4d-card-heading>Top level card link</c4d-card-heading>
+    <c4d-card-cta-footer slot="footer">
+    </c4d-card-cta-footer>
+  </c4d-card-group-item>
+</c4d-card-group>
 ```
 
-### HTML (with Card Link)
+### HTML (with Card link)
 
 ```html
-<cds-card-group grid-mode="narrow">
-  <cds-card-group-card-link-item
+<c4d-card-group grid-mode="narrow">
+  <c4d-card-group-item
+    link
     cta-type="local"
     href="https://example.com"
     pattern-background>
-    <cds-card-link-heading>IBM Developer - Card 01</cds-card-link-heading>
+    <c4d-card-heading>IBM Developer - Card 01</c4d-card-heading>
     <p>Learn, code and connect with your community</p>
-    <cds-card-cta-footer slot="footer"> </cds-card-cta-footer>
-  </cds-card-group-card-link-item>
+    <c4d-card-footer slot="footer"> </c4d-card-footer>
+  </c4d-card-group-card-link-item>
 
-  <cds-card-group-card-link-item
+  <c4d-card-group-item
+    link
     cta-type="local"
     href="https://example.com"
     pattern-background>
-    <cds-card-link-heading>IBM Developer - Card 02</cds-card-link-heading>
+    <c4d-card-heading>IBM Developer - Card 02</c4d-card-heading>
     <p>Learn, code and connect with your community</p>
-    <cds-card-cta-footer slot="footer"> </cds-card-cta-footer>
-  </cds-card-group-card-link-item>
+    <c4d-card-footer slot="footer"> </c4d-card-footer>
+  </c4d-card-group-item>
 
-  <cds-card-group-card-link-item
+  <c4d-card-group-item
+    link
     cta-type="local"
     href="https://example.com"
     pattern-background>
-    <cds-card-link-heading>IBM Developer - Card 03</cds-card-link-heading>
+    <c4d-card-heading>IBM Developer - Card 03</c4d-card-heading>
     <p>Learn, code and connect with your community</p>
-    <cds-card-cta-footer slot="footer"> </cds-card-cta-footer>
-  </cds-card-group-card-link-item>
-</cds-card-group>
+    <c4d-card-footer slot="footer"> </c4d-card-footer>
+  </c4d-card-group-item>
+</c4d-card-group>
 ```
 
 ### HTML (with Mixed Media)
@@ -157,24 +226,88 @@ import '@carbon/ibmdotcom-web-components/es/components/cta/video-cta-container.j
 ```
 
 ```html
-<cds-video-cta-container>
-  <cds-card-group>
-    <cds-card-group-item cta-type="video" href="0_ibuqxqbe">
-      <cds-card-eyebrow>Topic</cds-card-eyebrow>
-      <cds-card-cta-footer cta-type="video" slot="footer" href="0_ibuqxqbe">
-      </cds-card-cta-footer>
-    </cds-card-group-item>
-  </cds-card-group>
-</cds-video-cta-container>
+<c4d-video-cta-container>
+  <c4d-card-group>
+    <c4d-card-group-item cta-type="video" href="0_ibuqxqbe">
+      <c4d-card-eyebrow>Topic</c4d-card-eyebrow>
+      <c4d-card-footer cta-type="video" slot="footer" href="0_ibuqxqbe">
+      </c4d-card-footer>
+    </c4d-card-group-item>
+  </c4d-card-group>
+</c4d-video-cta-container>
 ```
+
+### HTML (with Card in Card)
+
+```html
+<c4d-card-in-card href="https://example.com">
+  <c4d-card-in-card-image
+    slot="image"
+    alt="Image alt text"
+    default-src="https://fpoimg.com/480x360?text=4:3&bg_color=ee5396&text_color=161616">
+    <c4d-image-item
+      media="(min-width: 1312px)"
+      srcset="https://fpoimg.com/1312x738?text=16:9&bg_color=ee5396&text_color=161616">
+    </c4d-image-item>
+    <c4d-image-item
+      media="(min-width: 672px)"
+      srcset="https://fpoimg.com/960x540?text=16:9&bg_color=ee5396&text_color=161616">
+    </c4d-image-item>
+    <c4d-image-item
+      media="(min-width: 320px)"
+      srcset="https://fpoimg.com/480x360?text=4:3&bg_color=ee5396&text_color=161616">
+    </c4d-image-item>
+  </c4d-card-in-card-image>
+  <c4d-card-eyebrow>Label</c4d-card-eyebrow>
+  <c4d-card-heading
+    >Standard Bank Group prepares to embrace Africa’s AI
+    opportunity</c4d-card-heading
+  >
+  <c4d-card-footer>
+    <svg
+      slot="icon"
+      focusable="false"
+      preserveAspectRatio="xMidYMid meet"
+      xmlns="http://www.w3.org/2000/svg"
+      fill="currentColor"
+      aria-hidden="true"
+      width="20"
+      height="20"
+      viewBox="0 0 20 20">
+      <path
+        d="M11.8 2.8L10.8 3.8 16.2 9.3 1 9.3 1 10.7 16.2 10.7 10.8 16.2 11.8 17.2 19 10z"></path>
+    </svg>
+  </c4d-card-footer>
+</c4d-card-in-card>
+
+<c4d-card-group grid-mode="narrow">
+  <c4d-card-group-item cta-type="local" href="https://example.com">
+    <c4d-card-heading>Nunc convallis lobortis</c4d-card-heading>
+    <p>
+      Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean et
+      ultricies est. Mauris iaculis eget dolor nec hendrerit. Phasellus at elit
+      sollicitudin, sodales nulla quis, consequat libero.
+    </p>
+    <c4d-card-footer slot="footer"> </c4d-card-footer>
+  </c4d-card-group-item>
+</c4d-card-group>
+```
+
+### Grid mode
+
+There are three different options for the `grid-mode` property:
+
+* Default (32px gap)
+* Condensed (16px gap)
+* Collapsed (no gap)
 
 ## Props
 
-### `<cds-card-group>`
+### `<c4d-card-group>`
 
 <Props of="cds-card-group" />
 
-### `<cds-card-group-item>`
+### `<c4d-card-group-item>`
 
 <Props of="cds-card-group-item" />
 
@@ -186,7 +319,7 @@ to see how Web Components selector and `data-autoid` should be used.
 
 | Web Components selector | Compatibility selector               | Description |
 | ----------------------- | ------------------------------------ | ----------- |
-| `<cds-card-group>`      | `data-autoid="cds--card-group"`      | Component   |
-| `<cds-card-group-item>` | `data-autoid="cds--card-group-item"` | Component   |
+| `<c4d-card-group>`      | `data-autoid="cds--card-group"`      | Component   |
+| `<c4d-card-group-item>` | `data-autoid="cds--card-group-item"` | Component   |
 
 <Description markdown={contributing} />
