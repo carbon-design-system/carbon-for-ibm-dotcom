@@ -1,5 +1,5 @@
 /**
- * Copyright IBM Corp. 2016, 2022
+ * Copyright IBM Corp. 2016, 2023
  *
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
@@ -23,7 +23,23 @@
 
 @mixin card-group {
   :host(#{$c4d-prefix}-card-group) {
+    --#{$c4d-prefix}--card-group--cards-in-row: 1;
+
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 1px;
     background: none;
+
+    @include breakpoint(md) {
+      grid-template-columns: repeat(2, 1fr);
+    }
+
+    @include breakpoint(lg) {
+      grid-template-columns: repeat(
+        var(--#{$c4d-prefix}--card-group--cards-in-row),
+        1fr
+      );
+    }
   }
 
   :host(#{$c4d-prefix}-card-group[with-card-in-card][grid-mode]) {
@@ -32,20 +48,19 @@
     padding-right: 1px;
   }
 
-  :host(#{$c4d-prefix}-card-group[with-card-in-card][grid-mode="default"]) {
+  :host(#{$c4d-prefix}-card-group[with-card-in-card][grid-mode='default']) {
     padding-top: $spacing-07;
   }
 
-  :host(#{$c4d-prefix}-card-group[with-card-in-card][grid-mode="narrow"]) {
+  :host(#{$c4d-prefix}-card-group[with-card-in-card][grid-mode='narrow']) {
     padding-top: $spacing-05;
-  }    
+  }
 
   :host(#{$c4d-prefix}-card-group-item) {
-
     .#{$prefix}--card {
       border: 0;
       outline: 1px solid $border-tile-01;
-      outline-offset: 0px;
+      outline-offset: 0;
     }
 
     .#{$prefix}--image {
@@ -72,7 +87,7 @@
     }
   }
 
-  :host(#{$c4d-prefix}-card-group-item[href=""]) {  
+  :host(#{$c4d-prefix}-card-group-item[href='']) {
     .#{$prefix}--card {
       outline: none;
     }
@@ -83,7 +98,6 @@
   }
 
   :host(#{$c4d-prefix}-card-group-item[link]) {
-
     ::slotted(#{$c4d-prefix}-card-heading) {
       @include type-style('heading-02');
 
@@ -92,25 +106,6 @@
 
     .#{$prefix}--card .#{$prefix}--card__copy {
       margin-top: 0;
-    }
-  }  
-
-  :host(#{$c4d-prefix}-card-group) {
-    --#{$c4d-prefix}--card-group--cards-in-row: 1;
-
-    display: grid;
-    grid-template-columns: 1fr;
-    gap: 1px;
-
-    @include breakpoint(md) {
-      grid-template-columns: repeat(2, 1fr);
-    }
-
-    @include breakpoint(lg) {
-      grid-template-columns: repeat(
-        var(--#{$c4d-prefix}--card-group--cards-in-row),
-        1fr
-      );
     }
   }
 
@@ -136,7 +131,7 @@
       padding-top: $spacing-05;
       gap: $spacing-07;
     }
-  }  
+  }
 
   :host(#{$c4d-prefix}-card-group)[grid-mode='condensed'] {
     @include breakpoint(sm) {
@@ -147,7 +142,7 @@
     @include breakpoint(md) {
       padding-top: $spacing-05;
     }
-  }    
+  }
 
   // card with video focus outline
   :host(#{$c4d-prefix}-card-group-item)[cta-type='video'] {
