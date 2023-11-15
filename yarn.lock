@@ -2237,7 +2237,7 @@ __metadata:
     "@carbon/ibmdotcom-styles": "npm:1.53.0-rc.0"
     "@carbon/ibmdotcom-utilities": "npm:1.53.0-rc.0"
     "@carbon/icons-react": "npm:10.49.2"
-    "@carbon/pictograms-react": "npm:11.51.2"
+    "@carbon/pictograms-react": "npm:11.52.0"
     "@carbon/storybook-addon-theme": "npm:1.44.0-rc.0"
     "@carbon/telemetry": "npm:^0.1.0"
     "@percy-io/in-percy": "npm:^0.1.11"
@@ -2283,7 +2283,7 @@ __metadata:
     browserstack-cypress-cli: "npm:^1.11.1"
     cache-loader: "npm:^4.1.0"
     carbon-components: "npm:10.58.12"
-    carbon-components-react: "npm:7.59.16"
+    carbon-components-react: "npm:7.59.17"
     carbon-icons: "npm:7.0.7"
     chalk: "npm:^4.1.1"
     classnames: "npm:2.3.2"
@@ -2383,7 +2383,7 @@ __metadata:
     redux-thunk: "npm:^2.3.0"
     strip-comments: "npm:^1.0.0"
     through2: "npm:^3.0.0"
-    typescript: "npm:~4.8.0"
+    typescript: "npm:^5.2.2"
     window-or-global: "npm:^1.0.1"
   languageName: unknown
   linkType: soft
@@ -2409,7 +2409,7 @@ __metadata:
     "@rollup/plugin-node-resolve": "npm:^8.4.0"
     "@rollup/plugin-replace": "npm:^4.0.0"
     all-contributors-cli: "npm:^6.0.0"
-    axios: "npm:^0.27.2"
+    axios: "npm:^1.6.0"
     babel-core: "npm:^7.0.0-bridge.0"
     babel-jest: "npm:^24.0.0"
     babel-plugin-dev-expression: "npm:^0.2.1"
@@ -2448,7 +2448,7 @@ __metadata:
     "@carbon/themes": "npm:10.55.3"
     "@carbon/type": "npm:10.45.3"
     carbon-components: "npm:10.58.12"
-    carbon-components-react: "npm:7.59.16"
+    carbon-components-react: "npm:7.59.17"
     del: "npm:^6.0.0"
     gulp: "npm:^4.0.2"
     gulp-autoprefixer: "npm:^6.1.0"
@@ -2479,7 +2479,7 @@ __metadata:
     "@rollup/plugin-node-resolve": "npm:^8.4.0"
     "@rollup/plugin-replace": "npm:^4.0.0"
     all-contributors-cli: "npm:^6.0.0"
-    axios: "npm:^0.27.2"
+    axios: "npm:^1.6.0"
     babel-core: "npm:^7.0.0-bridge.0"
     babel-jest: "npm:^24.0.0"
     babel-plugin-dev-expression: "npm:^0.2.1"
@@ -2627,6 +2627,7 @@ __metadata:
     postcss-selector-parser: "npm:^6.0.0"
     prop-types: "npm:^15.7.2"
     react: "npm:^16.10.0 || ^17.0.0"
+    react-docgen-typescript-plugin: "npm:^1.0.5"
     react-dom: "npm:^16.10.0 || ^17.0.0"
     react-redux: "npm:^7.2.0"
     read-pkg-up: "npm:^7.0.0"
@@ -2647,14 +2648,12 @@ __metadata:
     temp: "npm:^0.9.0"
     terser-webpack-plugin: "npm:^4.2.3"
     through2: "npm:^3.0.0"
-    typescript: "npm:~4.8.0"
+    typescript: "npm:^5.2.2"
     url-loader: "npm:^4.1.1"
     web-component-analyzer: "npm:1.2.0-next.0"
     webpack: "npm:^4.46.0"
     wicg-inert: "npm:^3.1.2"
     window-or-global: "npm:^1.0.1"
-  peerDependencies:
-    typescript: ~4.8.0
   dependenciesMeta:
     "@carbon/icons-react":
       optional: true
@@ -2671,7 +2670,7 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@carbon/icon-helpers@npm:10.45.1, @carbon/icon-helpers@npm:^10.28.0, @carbon/icon-helpers@npm:^10.28.2, @carbon/icon-helpers@npm:^10.45.1":
+"@carbon/icon-helpers@npm:10.45.1, @carbon/icon-helpers@npm:^10.28.0, @carbon/icon-helpers@npm:^10.28.2, @carbon/icon-helpers@npm:^10.45.0":
   version: 10.45.1
   resolution: "@carbon/icon-helpers@npm:10.45.1"
   checksum: 69da5ae85b586c5bb754f1db90069fb48f556c9f5023318a25572faa07e6dca0f07aaec237eaec883029bb75819b64c30bf4716339cdbab590ca0ee648ef67bc
@@ -2733,16 +2732,16 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@carbon/pictograms-react@npm:11.51.2":
-  version: 11.51.2
-  resolution: "@carbon/pictograms-react@npm:11.51.2"
+"@carbon/pictograms-react@npm:11.52.0":
+  version: 11.52.0
+  resolution: "@carbon/pictograms-react@npm:11.52.0"
   dependencies:
-    "@carbon/icon-helpers": "npm:^10.45.1"
+    "@carbon/icon-helpers": "npm:^10.45.0"
     "@carbon/telemetry": "npm:0.1.0"
     prop-types: "npm:^15.7.2"
   peerDependencies:
     react: ">=16"
-  checksum: 3590899fbfe1255b3c2bef154ab9ed46d4f1703e965ae9d26be21d9a7a0e6de29cbe8b965ed04efa27ce11fa34d39eb54dd071f25513c0a6841bc32a6a67c75f
+  checksum: 2541eaba6ed521d4b30741e5c08f4a8f8305b93eff674402febfb6af154279ef7d3d5385092d6fef82394c0c84f2020519318f01111a11636332ab67329dfaae
   languageName: node
   linkType: hard
 
@@ -2941,7 +2940,7 @@ __metadata:
     through2: "npm:^3.0.0"
     ts-loader: "npm:^6.0.0"
     tsickle: "npm:~0.46.0"
-    typescript: "npm:~4.8.0"
+    typescript: "npm:^5.2.2"
     use-debounce: "npm:^3.2.0"
     web-component-analyzer: "npm:1.2.0-next.0"
     webpack: "npm:^4.46.0"
@@ -9715,16 +9714,6 @@ __metadata:
   languageName: node
   linkType: hard
 
-"axios@npm:^0.27.2":
-  version: 0.27.2
-  resolution: "axios@npm:0.27.2"
-  dependencies:
-    follow-redirects: "npm:^1.14.9"
-    form-data: "npm:^4.0.0"
-  checksum: 2efaf18dd0805f7bc772882bc86f004abd92d51007b54c5081f74db0d08ce3593e2c010261896d25a14318eeaa2e966fd825e34f810e8a3339dc64b9d177cf70
-  languageName: node
-  linkType: hard
-
 "axios@npm:^1.0.0":
   version: 1.4.0
   resolution: "axios@npm:1.4.0"
@@ -9733,6 +9722,17 @@ __metadata:
     form-data: "npm:^4.0.0"
     proxy-from-env: "npm:^1.1.0"
   checksum: b987e4259e5cfc93e95ee306c267a44380bbc045789a91b716e8434a75e22987344605eb4e133482fe285dd3a2e0b7e791ba26999965f04a5ecdde25f56930cb
+  languageName: node
+  linkType: hard
+
+"axios@npm:^1.6.0":
+  version: 1.6.1
+  resolution: "axios@npm:1.6.1"
+  dependencies:
+    follow-redirects: "npm:^1.15.0"
+    form-data: "npm:^4.0.0"
+    proxy-from-env: "npm:^1.1.0"
+  checksum: fb091af3ad47d70fdcba5e71654b9e3c56947d93d8b2375dd0b4db63de9982adab6235aebc514488aa289c7faf103b09e8911280e6f6b1112d1604fe5f111f71
   languageName: node
   linkType: hard
 
@@ -11424,9 +11424,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"carbon-components-react@npm:7.59.16":
-  version: 7.59.16
-  resolution: "carbon-components-react@npm:7.59.16"
+"carbon-components-react@npm:7.59.17":
+  version: 7.59.17
+  resolution: "carbon-components-react@npm:7.59.17"
   dependencies:
     "@babel/runtime": "npm:^7.16.7"
     "@carbon/feature-flags": "npm:^0.7.0"
@@ -11453,7 +11453,7 @@ __metadata:
     carbon-icons: ^7.0.7
     react: ^16.8.6 || ^17.0.1
     react-dom: ^16.8.6 || ^17.0.1
-  checksum: 53b1f476c3fa1a0f79e687fbbfb52897c0649382893da1e483e0353794ef1c78bec949bef28610363e4c6161c6b38b6e7f5ee238d44c0a5eebab78d9ebce78e0
+  checksum: 10b27bf63bcc1e63a3736eedce314294c05f763583fd8ec9a7a660d9e3c84704868688b5d98f5e19d8d5999e78f92e1eaaf88d918684975f6be7f224f17cd26e
   languageName: node
   linkType: hard
 
@@ -16935,7 +16935,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"follow-redirects@npm:^1.0.0, follow-redirects@npm:^1.14.7, follow-redirects@npm:^1.14.9, follow-redirects@npm:^1.15.0":
+"follow-redirects@npm:^1.0.0, follow-redirects@npm:^1.14.7, follow-redirects@npm:^1.15.0":
   version: 1.15.2
   resolution: "follow-redirects@npm:1.15.2"
   peerDependenciesMeta:
@@ -28799,7 +28799,25 @@ __metadata:
   languageName: node
   linkType: hard
 
-"react-docgen-typescript@npm:^2.1.1":
+"react-docgen-typescript-plugin@npm:^1.0.5":
+  version: 1.0.5
+  resolution: "react-docgen-typescript-plugin@npm:1.0.5"
+  dependencies:
+    debug: "npm:^4.1.1"
+    endent: "npm:^2.0.1"
+    find-cache-dir: "npm:^3.3.1"
+    flat-cache: "npm:^3.0.4"
+    micromatch: "npm:^4.0.2"
+    react-docgen-typescript: "npm:^2.2.2"
+    tslib: "npm:^2.0.0"
+  peerDependencies:
+    typescript: ">= 4.x"
+    webpack: ">= 4"
+  checksum: dcba36aca20d88ae58761b762a07796a7bf4feb242f0c2cbd6c30ac49ea4f28abbac8631556b97b805079d36e5b795d73f6fbcf3c470c0b61c8d687a0d9037f8
+  languageName: node
+  linkType: hard
+
+"react-docgen-typescript@npm:^2.1.1, react-docgen-typescript@npm:^2.2.2":
   version: 2.2.2
   resolution: "react-docgen-typescript@npm:2.2.2"
   peerDependencies:
@@ -33965,13 +33983,13 @@ __metadata:
   languageName: node
   linkType: hard
 
-"typescript@npm:~4.8.0":
-  version: 4.8.4
-  resolution: "typescript@npm:4.8.4"
+"typescript@npm:^5.2.2":
+  version: 5.2.2
+  resolution: "typescript@npm:5.2.2"
   bin:
     tsc: bin/tsc
     tsserver: bin/tsserver
-  checksum: f985d8dd6ae815753d61cb81e434f3a4a5796ac52e423370fca6ad11bcd188df4013d82e3ba3b88c9746745b9341390ba68f862dc9d30bac6465e0699f2a795b
+  checksum: d65e50eb849bd21ff8677e5b9447f9c6e74777e346afd67754934264dcbf4bd59e7d2473f6062d9a015d66bd573311166357e3eb07fea0b52859cf9bb2b58555
   languageName: node
   linkType: hard
 
@@ -33995,13 +34013,13 @@ __metadata:
   languageName: node
   linkType: hard
 
-"typescript@patch:typescript@npm%3A~4.8.0#optional!builtin<compat/typescript>":
-  version: 4.8.4
-  resolution: "typescript@patch:typescript@npm%3A4.8.4#optional!builtin<compat/typescript>::version=4.8.4&hash=1a91c8"
+"typescript@patch:typescript@npm%3A^5.2.2#optional!builtin<compat/typescript>":
+  version: 5.2.2
+  resolution: "typescript@patch:typescript@npm%3A5.2.2#optional!builtin<compat/typescript>::version=5.2.2&hash=f3b441"
   bin:
     tsc: bin/tsc
     tsserver: bin/tsserver
-  checksum: 5d81fd8cf5152091a0c0b84ebc868de8433583072a340c4899e0fc7ad6a80314b880a1466868c9a6a1f640c3d1f2fe7f41f8c541b99d78c8b414263dfa27eba3
+  checksum: f79cc2ba802c94c2b78dbb00d767a10adb67368ae764709737dc277273ec148aa4558033a03ce901406b35fddf4eac46dabc94a1e1d12d2587e2b9cfe5707b4a
   languageName: node
   linkType: hard
 
