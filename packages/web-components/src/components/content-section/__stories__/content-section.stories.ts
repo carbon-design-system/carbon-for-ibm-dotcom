@@ -8,9 +8,8 @@
  */
 
 import { html } from 'lit';
-import ArrowRight20 from '../../../internal/vendor/@carbon/web-components/icons/arrow--right/20';
 import { ifDefined } from 'lit/directives/if-defined.js';
-import { boolean, optionsKnob } from '@storybook/addon-knobs';
+import { boolean, select } from '@storybook/addon-knobs';
 import '../index';
 import '../../card-group/index';
 import '../../carousel/index';
@@ -19,141 +18,64 @@ import '../../content-block-simple/index';
 import '../../cta/text-cta';
 import readme from './README.stories.mdx';
 import textNullable from '../../../../.storybook/knob-text-nullable';
+import * as components from '../../content-block/__stories__/data/content.js';
 
-/* eslint-disable max-len */
-const blockCopy = `Simply: when a technology gives a machine any ability that mimics human thought processes, we call it “artificial intelligence” (or AI).
+const currentComponents = [
+  'Callout quote',
+  'Callout with media',
+  'Card group',
+  'Card in card',
+  'Carousel',
+  'Content block',
+  'Content group',
+  'Content item row',
+  'Content item',
+  'CTA block',
+  'Feature card',
+  'Image',
+  'Link list',
+  'Quote',
+  'Structured list',
+  'Tabs extended',
+  'Video player',
+];
 
-Human fascination with thinking machines has been with us as long as machines themselves. In every generation, new technologies perform tasks that we previously believed were only possible for humans. Our curiosity drives us to make technology always do more, and better.
-
-And here's an intriguing paradox: over time, as our assumptions shift about what machines can and can't do, we also gradually change our assessment of what counts as “genuine” intelligence. So what we call “artificial intelligence” keeps changing, too.
-
-For example: optical scan of documents (to create a text file out of an image of text) used to be considered artificial intelligence before it became common in our everyday lives. Observers of the history of AI call this phenomenon "the AI effect."
-`;
-
-const card1 = html`
-  <c4d-content-group-cards-item href="https://www.example.com">
-    <c4d-card-heading>
-      Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-      tempor incididunt
-    </c4d-card-heading>
-    <p>
-      Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod
-      tempor incididunt ut labore et dolore magna aliqua.
-    </p>
-    <c4d-card-footer icon-placement="left">
-      ${ArrowRight20({ slot: 'icon' })}
-    </c4d-card-footer>
-  </c4d-content-group-cards-item>
-`;
-
-const card2 = html`
-  <c4d-content-group-cards-item href="https://www.example.com">
-    <c4d-card-heading>
-      Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-      tempor incididunt
-    </c4d-card-heading>
-    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit</p>
-    <c4d-card-footer icon-placement="left">
-      ${ArrowRight20({ slot: 'icon' })}
-    </c4d-card-footer>
-  </c4d-content-group-cards-item>
-`;
-
-const hrefDefault = 'https://www.ibm.com/standards/carbon';
-const headingDefault = 'Lorem ipsum dolor sit amet';
-const copyDefault =
-  'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean et ultricies est.';
-const copyOdd = `
-  ${copyDefault}
-  Mauris iaculis eget dolor nec hendrerit. Phasellus at elit sollicitudin, sodales nulla quis, consequat libero.
-`;
-
-const Card = ({
-  copy = copyDefault,
-  heading = headingDefault,
-  href = hrefDefault,
-} = {}) => html`
-  <c4d-card href="${ifDefined(href)}">
-    <c4d-card-heading>${heading}</c4d-card-heading>
-    ${copy}
-    <c4d-card-footer> ${ArrowRight20({ slot: 'icon' })} </c4d-card-footer>
-  </c4d-card>
-`;
+const componentVariables = {
+  'Callout quote': components.calloutQuote,
+  'Callout with media': components.calloutWithMedia,
+  'Card group': components.cardGroup,
+  'Card in card': components.cardInCard,
+  'Carousel': components.carousel,
+  'Content block': components.contentBlock,
+  'Content group': components.contentGroup,
+  'Content item row': components.contentItemRowStory,
+  'Content item': components.contentItem,
+  'CTA block': components.ctaBlock,
+  'Feature card': components.featureCard,
+  'Image': components.image,
+  'Link list': components.linkList,
+  'Quote': components.quote,
+  'Structured list': components.structuredList,
+  'Tabs extended': components.tabsExtended,
+  'Video player': components.videoPlayer,
+};
 
 export const Default = (args) => {
-  const { heading, border, copy, addChildren } = args?.ContentSection ?? {};
-  const classes = addChildren.includes('Content block simple')
+  const { heading, border, child, copy } = args?.ContentSection ?? {};
+  
+  const classes = child.includes('Content block')
     ? 'cds--col-lg-16 cds--no-gutter'
     : '';
+
+  const childStory = componentVariables[child]
+
   return html`
     <c4d-content-section ?border=${border} children-custom-class="${classes}">
       <c4d-content-section-heading
         >${ifDefined(heading)}</c4d-content-section-heading
       >
       <c4d-content-section-copy>${ifDefined(copy)}</c4d-content-section-copy>
-      ${addChildren.includes('Content block simple')
-        ? html`
-            <c4d-content-block-simple>
-              <c4d-content-block-heading
-                >What’s the latest news in artificial
-                intelligence?</c4d-content-block-heading
-              >
-              <c4d-content-block-copy size="sm"
-                >${blockCopy}</c4d-content-block-copy
-              >
-              <c4d-video-player-container
-                slot="media"
-                video-id="0_ibuqxqbe"></c4d-video-player-container>
-              <c4d-text-cta
-                slot="footer"
-                cta-type="jump"
-                href="https://www.ibm.com"
-                >Jump to AI ethics and trust</c4d-text-cta
-              >
-            </c4d-content-block-simple>
-          `
-        : ``}
-      ${addChildren.includes('Card group')
-        ? html`
-            <c4d-card-group> ${card1}${card2}${card1}${card2} </c4d-card-group>
-          `
-        : ``}
-      ${addChildren.includes('Link list')
-        ? html`
-            <c4d-link-list>
-              <c4d-link-list-item href="https://example.com">
-                Learn more about Kubernetes and automating deployment
-                ${ArrowRight20({ slot: 'icon' })}
-              </c4d-link-list-item>
-              <c4d-link-list-item href="https://example.com">
-                Containerization A Complete Guide
-                ${ArrowRight20({ slot: 'icon' })}
-              </c4d-link-list-item>
-              <c4d-link-list-item href="https://example.com">
-                Microservices and containers ${ArrowRight20({ slot: 'icon' })}
-              </c4d-link-list-item>
-              <c4d-link-list-item href="https://example.com">
-                Learn more about Kubernetes ${ArrowRight20({ slot: 'icon' })}
-              </c4d-link-list-item>
-              <c4d-link-list-item href="https://example.com">
-                Containerization A Complete Guide
-                ${ArrowRight20({ slot: 'icon' })}
-              </c4d-link-list-item>
-              <c4d-link-list-item href="https://example.com">
-                Microservices and containers ${ArrowRight20({ slot: 'icon' })}
-              </c4d-link-list-item>
-            </c4d-link-list>
-          `
-        : ``}
-      ${addChildren.includes('Carousel')
-        ? html`
-            <c4d-carousel>
-              ${Card()}${Card({ copy: copyOdd })}${Card()}${Card({
-                copy: copyOdd,
-              })}${Card()}
-            </c4d-carousel>
-          `
-        : ''}
+      ${childStory}
       <c4d-text-cta
         slot="footer"
         cta-type="local"
@@ -190,21 +112,11 @@ export default {
         border: boolean(
           'Border',
           false
-        ),        
+        ),     
+        child: select('Child component:', currentComponents, 'Callout quote'),
         copy: textNullable(
           'Copy:',
           "AI features for understanding speech can be trained for a specific speaker's voice."
-        ),
-        addChildren: optionsKnob(
-          'Add children:',
-          {
-            'Content block simple': 'Content block simple',
-            'Card group': 'Card group',
-            'Link list': 'Link list',
-            Carousel: 'Carousel',
-          },
-          '',
-          { display: 'select' }
         ),
       }),
     },

@@ -43,7 +43,6 @@
     }
 
     .#{$prefix}--card__CTA {
-      // TO DO: aspect ratio 2x1
       @include breakpoint(md) {
         @include hang;
       }
@@ -85,20 +84,20 @@
       }
     }
 
-    // Most slotted contents have margins aligning to Carbon grid gutters.
-    // Note: Child contents define their margin by their own
-    ::slotted([slot]) {
-      margin-left: $spacing-05;
-      margin-right: $spacing-05;
+    ::slotted(*) {
+      padding-bottom: 0;
     }
 
-    // Cards and link lists are the exceptions of above
-    // TODO: Remove negative margin adjustment from `<cds-link-list-item*>` and add `<cds-link-list>` here
-    ::slotted(#{$c4d-prefix}-card[slot]),
-    ::slotted(#{$c4d-prefix}-card-cta[slot]),
-    ::slotted(#{$c4d-prefix}-card-link-cta[slot]) {
-      margin-left: 0;
-      margin-right: 0;
+    ::slotted(#{$c4d-prefix}-content-item),
+    ::slotted(#{$c4d-prefix}-content-item-row),
+    ::slotted(#{$c4d-prefix}-image),
+    ::slotted(#{$c4d-prefix}-link-list),
+    ::slotted(#{$c4d-prefix}-video-player-container),
+    ::slotted(#{$c4d-prefix}-structured-list),
+    ::slotted(#{$c4d-prefix}-tabs-extended)
+    {
+      margin-left: $spacing-05;
+      margin-right: $spacing-05;
     }
 
     &__aside,
@@ -256,4 +255,49 @@
       max-width: calc(320px + #{$spacing-10});
     }
   }
+
+  :host(#{$c4d-prefix}-content-block),
+  :host(#{$c4d-prefix}-callout-with-media-copy),
+  :host(#{$c4d-prefix}-content-block-copy),
+  :host(#{$c4d-prefix}-content-block-heading),
+  :host(#{$c4d-prefix}-content-block-complementary),
+  :host(#{$c4d-prefix}-content-block-paragraph) {
+    display: block;
+  }
+
+  // TODO: Consider applying this rule in general
+  :host(#{$c4d-prefix}-content-block-simple),
+  :host(#{$c4d-prefix}-content-block-segmented) {
+    ::slotted(#{$c4d-prefix}-callout-with-media-copy),
+    ::slotted(#{$c4d-prefix}-content-block-copy) {
+      @include breakpoint(md) {
+        width: calc((100% - 2 * #{$spacing-05}) * 0.9);
+      }
+    }
+  }
+
+  :host(#{$c4d-prefix}-callout-with-media-copy[size='sm']),
+  :host(#{$c4d-prefix}-content-block-copy[size='sm']) {
+    width: auto;
+    max-width: none;
+
+    @include breakpoint(md) {
+      @include content-width;
+    }
+
+    ::slotted(#{$c4d-prefix}-content-block-paragraph) {
+      @include type-style('body-02');
+
+      margin-bottom: $spacing-06;
+    }
+  }
+
+  .#{$c4d-prefix}--content-block-footer {
+    margin-top: $spacing-09;
+
+    @include breakpoint(md) {
+      margin-top: $spacing-10;
+    }
+  }
+
 }

@@ -92,6 +92,9 @@
   }
 
   .#{$prefix}--content-section__body {
+
+    width: 100%;
+
     @include breakpoint-down(md) {
       // TODO: `display:block` or `display:flex` here causes broken carousel if `<cds-carousel>` is slotted in as the child,
       // especially if the carousel containts large number of cards.
