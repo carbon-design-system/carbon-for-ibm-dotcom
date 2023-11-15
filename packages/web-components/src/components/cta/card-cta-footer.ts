@@ -94,21 +94,12 @@ class C4DCardCTAFooter extends VideoCTAMixin(CTAMixin(C4DCardFooter)) {
   videoName?: string;
 
   /**
-   * This property is set to "link-list" when parent is of link-list-card-cta.
-   */
-  @property({ reflect: true })
-  mode?: string;
-
-  /**
    * The video custom description.
    */
   @property({ attribute: 'video-description' })
   videoDescription?: string;
 
   connectedCallback() {
-    if (this.parentElement?.matches(`${c4dPrefix}-link-list-item-card-cta`)) {
-      this.mode = 'link-list';
-    }
     super.connectedCallback();
   }
 

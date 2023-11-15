@@ -42,7 +42,7 @@ const video = html`
 `;
 
 const linkList = html`
-  <c4d-link-list type="end">
+  <c4d-link-list>
     <c4d-link-list-heading>Featured products</c4d-link-list-heading>
     <c4d-link-list-item href="https://example.com">
       IBM Cloud Continuous Delivery ${ArrowRight20({ slot: 'icon' })}

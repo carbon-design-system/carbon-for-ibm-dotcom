@@ -10,7 +10,7 @@
 import { select } from '@storybook/addon-knobs';
 import { html } from 'lit';
 import ArrowRight20 from '../../../internal/vendor/@carbon/web-components/icons/arrow--right/20.js';
-import { QUOTE_TYPES, QUOTE_COLOR_SCHEMES } from '../quote';
+import { QUOTE_TYPES } from '../quote';
 import '../index';
 import '../quote-link-with-icon';
 import textNullable from '../../../../.storybook/knob-text-nullable';
@@ -23,11 +23,10 @@ export const Default = (args) => {
     quoteMark,
     sourceHeading,
     sourceCopy,
-    sourceBottomCopy,
-    colorScheme,
+    sourceBottomCopy
   } = args?.Quote ?? {};
   return html`
-    <c4d-quote color-scheme="${colorScheme}" mark-type="${quoteMark}">
+    <c4d-quote mark-type="${quoteMark}">
       ${copy}
       <c4d-quote-source-heading> ${sourceHeading} </c4d-quote-source-heading>
       <c4d-quote-source-copy> ${sourceCopy} </c4d-quote-source-copy>
@@ -51,11 +50,6 @@ const types = {
   [`${QUOTE_TYPES.CORNER_BRACKET}`]: QUOTE_TYPES.CORNER_BRACKET,
 };
 
-const colorSchemes = {
-  [`${QUOTE_COLOR_SCHEMES.REGULAR}`]: QUOTE_COLOR_SCHEMES.REGULAR,
-  [`${QUOTE_COLOR_SCHEMES.INVERSE}`]: QUOTE_COLOR_SCHEMES.INVERSE,
-};
-
 export default {
   title: 'Components/Quote',
   decorators: [
@@ -77,7 +71,11 @@ export default {
           'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus est purus, posuere at est vitae, ' +
             'ornare rhoncus sem. Suspendisse vitae tellus fermentum, hendrerit augue eu, placerat magna.'
         ),
-        quoteMark: select('Quote Mark (markType):', types, types.doubleCurved),
+        quoteMark: select(
+          'Quote Mark (markType):',
+          types,
+          types['double-curved']
+        ),
         sourceHeading: textNullable(
           'Source heading (source-heading slot)',
           'Lorem ipsum dolor sit amet'
@@ -89,11 +87,6 @@ export default {
         sourceBottomCopy: textNullable(
           'Source bottom copy (source-bottom-copy slot)',
           'IBM Cloud'
-        ),
-        colorScheme: select(
-          'Color Scheme (color-scheme)',
-          colorSchemes,
-          colorSchemes.regular
         ),
       }),
     },
@@ -107,7 +100,6 @@ export default {
           sourceHeading: 'Lorem ipsum dolor sit amet',
           sourceCopy: 'consectetur adipiscing elit',
           sourceBottomCopy: 'IBM Cloud',
-          colorScheme: 'regular',
         },
       },
     },

@@ -67,9 +67,9 @@ class C4DFooter extends StableSelectorMixin(LitElement) {
               <slot name="brand"></slot>
               <slot name="locale-button"></slot>
               <slot name="language-selector"></slot>
+              <slot></slot>
             </div>
           </div>
-          <slot></slot>
         </div>
       </section>
       <slot name="legal-nav"></slot>

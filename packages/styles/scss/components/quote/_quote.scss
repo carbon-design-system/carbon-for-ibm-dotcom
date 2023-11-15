@@ -137,26 +137,6 @@
     }
   }
 
-  :host(#{$c4d-prefix}-quote)[color-scheme='inverse'] {
-    background: $background-inverse;
-    color: $icon-inverse;
-
-    .#{$prefix}--quote__mark {
-      color: $icon-inverse;
-    }
-
-    .#{$prefix}--quote__footer {
-      padding-left: 0;
-      padding-right: 0;
-
-      ::slotted(#{$c4d-prefix}-quote-link-with-icon) {
-        margin-left: 0;
-        padding-left: $spacing-07;
-        outline: transparent;
-      }
-    }
-  }
-
   .#{$prefix}--callout__container,
   :host(#{$c4d-prefix}-callout) {
     @include make-row;
@@ -202,18 +182,5 @@
     @extend .#{$prefix}--link-with-icon;
 
     display: inline-block;
-  }
-
-  :host-context(#{$c4d-prefix}-quote[color-scheme='inverse'])
-    a.#{$prefix}--link-with-icon.#{$prefix}--link.#{$prefix}--link-with-icon__icon-right {
-    color: $link-inverse;
-    outline-color: $focus-inverse;
-    &:hover {
-      color: $link-inverse;
-      text-decoration: underline;
-    }
-    &:active {
-      color: $link-inverse;
-    }
   }
 }

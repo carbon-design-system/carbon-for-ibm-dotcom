@@ -23,10 +23,10 @@ document.body.addEventListener('click', event => {
 });
 ```
 
-`<cds-masthead-search>` has more than one clickable button. Therefore, `<cds-masthead-search>` fires custom events e.g. `cds-masthead-search-toggled` to better convey the context with respect to what action is taken upon clicking. You can use it like:
+`<c4d-masthead-search>` has more than one clickable button. Therefore, `<c4d-masthead-search>` fires custom events e.g. `c4d-masthead-search-toggled` to better convey the context with respect to what action is taken upon clicking. You can use it like:
 
 ```javascript
-document.body.addEventListener('cds-masthead-search-toggled', event => {
+document.body.addEventListener('c4d-masthead-search-toggled', event => {
   console.log('Search box new open state:', event.detail.active);
   // Code to send masthead search bar toggle event to analytics...
 });

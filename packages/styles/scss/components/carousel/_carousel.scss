@@ -25,7 +25,7 @@
     }
 
     @include breakpoint(lg) {
-      --#{$c4d-prefix}--carousel--page-size: 3;
+      --#{$c4d-prefix}--carousel--page-size: 4;
     }
 
     [role='region'] {
