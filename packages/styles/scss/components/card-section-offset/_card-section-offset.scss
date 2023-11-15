@@ -97,6 +97,9 @@
       padding-top: 0;
       z-index: 1;
 
+      top: -1px;
+      left: -1px;
+
       @include breakpoint(lg) {
         padding-top: $spacing-07;
       }
