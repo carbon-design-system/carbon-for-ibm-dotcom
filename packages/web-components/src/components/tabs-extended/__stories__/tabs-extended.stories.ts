@@ -46,33 +46,20 @@ export const Default = () => html`
   </c4d-tabs-extended>
   <div class="${prefix}-ce-demo-devenv--tab-panels">
     <div id="panel-first" role="tabpanel" aria-labelledby="tab-first" hidden>
-      <c4d-content-block-media-content>
-        <c4d-content-item>
-          <c4d-content-item-heading
-            >Content for first tab goes here.</c4d-content-item-heading
-          >
-          <c4d-content-item-copy>${copy}</c4d-content-item-copy>
-        </c4d-content-item>
-
-        <c4d-card-link-cta slot="footer" href="https://example.com">
-          <c4d-card-link-heading
-            >Lorem ipsum dolor sit amet</c4d-card-link-heading
-          >
-          <c4d-card-cta-footer>
-            ${ArrowRight20({ slot: 'icon' })}
-          </c4d-card-cta-footer>
-        </c4d-card-link-cta>
-      </c4d-content-block-media-content>
+      <c4d-content-item>
+        <c4d-content-item-heading>
+          Content for first tab goes here.
+        </c4d-content-item-heading>
+        <c4d-content-item-copy>${copy}</c4d-content-item-copy>
+      </c4d-content-item>
     </div>
     <div id="panel-second" role="tabpanel" aria-labelledby="tab-second" hidden>
-      <c4d-content-block-media-content>
-        <c4d-content-item>
-          <c4d-content-item-heading
-            >Content for second tab goes here.</c4d-content-item-heading
-          >
-          <c4d-content-item-copy>${copy}</c4d-content-item-copy>
-        </c4d-content-item>
-      </c4d-content-block-media-content>
+      <c4d-content-item>
+        <c4d-content-item-heading>
+          Content for second tab goes here.
+        </c4d-content-item-heading>
+        <c4d-content-item-copy>${copy}</c4d-content-item-copy>
+      </c4d-content-item>
     </div>
     <div id="panel-third" role="tabpanel" aria-labelledby="tab-third" hidden>
       <p>Content for third tab goes here.</p>
@@ -106,37 +93,33 @@ export const Contained = () => {
     </c4d-tabs-extended>
     <div class="${prefix}-ce-demo-devenv--tab-panels">
       <div id="panel-first" role="tabpanel" aria-labelledby="tab-first" hidden>
-        <c4d-content-block-media-content>
-          <c4d-content-item>
-            <c4d-content-item-heading
-              >Content for first tab goes here.</c4d-content-item-heading
-            >
-            <c4d-content-item-copy>${copy}</c4d-content-item-copy>
-          </c4d-content-item>
+        <c4d-content-item>
+          <c4d-content-item-heading>
+            Content for first tab goes here.
+          </c4d-content-item-heading>
+          <c4d-content-item-copy>${copy}</c4d-content-item-copy>
+        </c4d-content-item>
 
-          <c4d-card-link-cta slot="footer" href="https://example.com">
-            <c4d-card-link-heading
-              >Lorem ipsum dolor sit amet</c4d-card-link-heading
-            >
-            <c4d-card-cta-footer>
-              ${ArrowRight20({ slot: 'icon' })}
-            </c4d-card-cta-footer>
-          </c4d-card-link-cta>
-        </c4d-content-block-media-content>
+        <c4d-card-link-cta slot="footer" href="https://example.com">
+          <c4d-card-link-heading>
+            Lorem ipsum dolor sit amet
+          </c4d-card-link-heading>
+          <c4d-card-cta-footer>
+            ${ArrowRight20({ slot: 'icon' })}
+          </c4d-card-cta-footer>
+        </c4d-card-link-cta>
       </div>
       <div
         id="panel-second"
         role="tabpanel"
         aria-labelledby="tab-second"
         hidden>
-        <c4d-content-block-media-content>
-          <c4d-content-item>
-            <c4d-content-item-heading
-              >Content for second tab goes here.</c4d-content-item-heading
-            >
-            <c4d-content-item-copy>${copy}</c4d-content-item-copy>
-          </c4d-content-item>
-        </c4d-content-block-media-content>
+        <c4d-content-item>
+          <c4d-content-item-heading>
+            Content for second tab goes here.
+          </c4d-content-item-heading>
+          <c4d-content-item-copy>${copy}</c4d-content-item-copy>
+        </c4d-content-item>
       </div>
       <div id="panel-third" role="tabpanel" aria-labelledby="tab-third" hidden>
         <p>Content for third tab goes here.</p>
