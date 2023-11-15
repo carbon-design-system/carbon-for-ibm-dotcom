@@ -20,7 +20,6 @@
 }
 
 @mixin content-section {
-
   :host(#{$c4d-prefix}-content-section),
   :host(#{$c4d-prefix}-card-section-carousel),
   :host(#{$c4d-prefix}-content-section-heading),
@@ -59,13 +58,12 @@
 
   :host(#{$c4d-prefix}-content-section[border]) {
     margin-bottom: $spacing-10;
-    
+
     .#{$prefix}--content-section__body {
       border-bottom: 1px solid $border-subtle-01;
       padding-bottom: $spacing-12;
     }
-  }  
-
+  }
 
   :host(#{$c4d-prefix}-link-list-section) {
     padding-top: $spacing-09;
@@ -92,7 +90,6 @@
   }
 
   .#{$prefix}--content-section__body {
-
     width: 100%;
 
     @include breakpoint-down(md) {

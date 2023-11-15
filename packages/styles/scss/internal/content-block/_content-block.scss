@@ -94,8 +94,7 @@
     ::slotted(#{$c4d-prefix}-link-list),
     ::slotted(#{$c4d-prefix}-video-player-container),
     ::slotted(#{$c4d-prefix}-structured-list),
-    ::slotted(#{$c4d-prefix}-tabs-extended)
-    {
+    ::slotted(#{$c4d-prefix}-tabs-extended) {
       margin-left: $spacing-05;
       margin-right: $spacing-05;
     }
@@ -113,7 +112,6 @@
     }
 
     ::slotted([slot='footer']) {
-
       @include breakpoint(md) {
         width: 50%;
       }
@@ -299,5 +297,4 @@
       margin-top: $spacing-10;
     }
   }
-
 }

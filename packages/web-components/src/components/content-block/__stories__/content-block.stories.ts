@@ -41,14 +41,14 @@ const componentVariables = {
   'Callout with media': components.calloutWithMedia,
   'Card group': components.cardGroup,
   'Card in card': components.cardInCard,
-  'Carousel': components.carousel,
+  Carousel: components.carousel,
   'Content group': components.contentGroup,
   'Content item row': components.contentItemRowStory,
   'Content item': components.contentItem,
   'Feature card': components.featureCard,
-  'Image': components.image,
+  Image: components.image,
   'Link list': components.linkList,
-  'Quote': components.quote,
+  Quote: components.quote,
   'Structured list': components.structuredList,
   'Tabs extended': components.tabsExtended,
   'Video player': components.videoPlayer,
@@ -58,8 +58,7 @@ export const Default = (args) => {
   const { heading, child, copy, showCopy, showCTA, border, aside } =
     args?.ContentBlock ?? {};
 
-
-  const childStory = componentVariables[child]
+  const childStory = componentVariables[child];
 
   return html`
     <c4d-content-block
@@ -86,8 +85,7 @@ export const Default = (args) => {
               cta-type="local"
               href="https://www.example.com">
               <c4d-card-heading
-                >Learn more about natual language
-                processing</c4d-card-heading
+                >Learn more about natual language processing</c4d-card-heading
               >
               <c4d-card-footer></c4d-card-footer>
             </c4d-card>
@@ -125,7 +123,7 @@ export default {
           <div class="cds--col-lg-12 cds--no-gutter">${story()}</div>
         </div>
       </div>
-    `, 
+    `,
   ],
   parameters: {
     ...readme.parameters,

@@ -24,13 +24,12 @@ const { prefix, stablePrefix: c4dPrefix } = settings;
  */
 @customElement(`${c4dPrefix}-content-section`)
 class C4DContentSection extends StableSelectorMixin(LitElement) {
-
   /**
    * An optional bottom border for the content.
    */
   @property({ type: Boolean, reflect: true })
   border = '';
-  
+
   /**
    * An optional custom class for children.
    */

@@ -45,16 +45,16 @@ const componentVariables = {
   'Callout with media': components.calloutWithMedia,
   'Card group': components.cardGroup,
   'Card in card': components.cardInCard,
-  'Carousel': components.carousel,
+  Carousel: components.carousel,
   'Content block': components.contentBlock,
   'Content group': components.contentGroup,
   'Content item row': components.contentItemRowStory,
   'Content item': components.contentItem,
   'CTA block': components.ctaBlock,
   'Feature card': components.featureCard,
-  'Image': components.image,
+  Image: components.image,
   'Link list': components.linkList,
-  'Quote': components.quote,
+  Quote: components.quote,
   'Structured list': components.structuredList,
   'Tabs extended': components.tabsExtended,
   'Video player': components.videoPlayer,
@@ -62,12 +62,12 @@ const componentVariables = {
 
 export const Default = (args) => {
   const { heading, border, child, copy } = args?.ContentSection ?? {};
-  
+
   const classes = child.includes('Content block')
     ? 'cds--col-lg-16 cds--no-gutter'
     : '';
 
-  const childStory = componentVariables[child]
+  const childStory = componentVariables[child];
 
   return html`
     <c4d-content-section ?border=${border} children-custom-class="${classes}">
@@ -109,10 +109,7 @@ export default {
           'Heading:',
           'Speech recognition (statistical Artificial Intelligence)'
         ),
-        border: boolean(
-          'Border',
-          false
-        ),     
+        border: boolean('Border', false),
         child: select('Child component:', currentComponents, 'Callout quote'),
         copy: textNullable(
           'Copy:',
