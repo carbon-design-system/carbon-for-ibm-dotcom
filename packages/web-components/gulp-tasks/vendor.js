@@ -26,6 +26,8 @@ const {
   servicesStoreVendorSrcDir,
   servicesStoreVendorCJSDstDir,
   servicesStoreVendorESDstDir,
+  stylesSrcDir,
+  stylesVendorDstDir,
   utilitiesCJSSrcDir,
   utilitiesESSrcDir,
   utilitiesVendorSrcDir,
@@ -105,6 +107,15 @@ const servicesStoreVendorCJSDst = () =>
     .src([`${servicesStoreCJSSrcDir}/**/*`, '!**/*-{test,story}.js'])
     .pipe(gulp.dest(servicesStoreVendorCJSDstDir));
 
+
+/**
+ * Generates `src/internal/vendor` contents.
+ */
+const stylesVendorSrc = () =>
+  gulp
+    .src([`${stylesSrcDir}/**/*`, '!**/*-{test,story}.js'])
+    .pipe(gulp.dest(stylesVendorDstDir));
+
 /**
  * Generates `src/internal/vendor` contents.
  */
@@ -155,11 +166,16 @@ gulp.task(
   )
 );
 gulp.task(
+  'vendor:styles',
+  stylesVendorSrc,
+);
+gulp.task(
   'vendor',
   gulp.series(
     gulp.task('vendor:carbon-web-components'),
     gulp.task('vendor:utilities'),
     gulp.task('vendor:services'),
-    gulp.task('vendor:services-store')
+    gulp.task('vendor:services-store'),
+    gulp.task('vendor:styles'),
   )
 );
