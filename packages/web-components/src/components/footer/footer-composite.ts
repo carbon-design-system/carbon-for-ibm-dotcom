@@ -124,6 +124,12 @@ class DDSFooterComposite extends MediaQueryMixin(
   buttonLabel?: string;
 
   /**
+   * The aria-label to use for the legal-nav
+   */
+  @property()
+  navLabel?: string;
+
+  /**
    * The clear button label for language selector.
    *
    * @internal
@@ -355,6 +361,7 @@ class DDSFooterComposite extends MediaQueryMixin(
       links,
       legalLinks,
       adjunctLinks,
+      navLabel,
     } = this;
     return html`
       <dds-footer
@@ -383,7 +390,9 @@ class DDSFooterComposite extends MediaQueryMixin(
         ${size !== FOOTER_SIZE.MICRO && langList && !disableLocaleButton
           ? this.renderLanguageSelector()
           : ``}
-        <dds-legal-nav size="${ifNonNull(size)}">
+        <dds-legal-nav
+          size="${ifNonNull(size)}"
+          navLabel="${ifNonNull(navLabel)}">
           ${legalLinks?.map(
             ({ title, url, titleEnglish }) => html`
               <dds-legal-nav-item

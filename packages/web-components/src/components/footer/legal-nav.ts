@@ -9,6 +9,7 @@
 
 import { html, property, query, LitElement } from 'lit-element';
 import { classMap } from 'lit-html/directives/class-map.js';
+import ifNonNull from '../../internal/vendor/@carbon/web-components/globals/directives/if-non-null.js';
 import settings from 'carbon-components/es/globals/js/settings.js';
 import ddsSettings from '../../internal/vendor/@carbon/ibmdotcom-utilities/utilities/settings/settings';
 import { FOOTER_SIZE } from './footer';
@@ -31,7 +32,11 @@ class DDSLegalNav extends StableSelectorMixin(LitElement) {
    */
   @property()
   size = FOOTER_SIZE.REGULAR;
-
+  /**
+   * Navigation label for accessibility.
+   */
+  @property()
+  navLabel = 'Legal Navigation';
   /**
    * The adjunct links container
    */
@@ -68,8 +73,9 @@ class DDSLegalNav extends StableSelectorMixin(LitElement) {
   }
 
   render() {
+    const { navLabel } = this;
     return html`
-      <nav class="${prefix}--legal-nav" aria-label="Legal Navigation">
+      <nav class="${prefix}--legal-nav" aria-label="${ifNonNull(navLabel)}">
         <div class="${this._getTypeClass()}">
           <ul>
             <slot></slot>
