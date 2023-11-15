@@ -22,6 +22,7 @@ const commonjs = require('@rollup/plugin-commonjs');
 const json = require('@rollup/plugin-json');
 const replace = require('@rollup/plugin-replace');
 const { terser } = require('rollup-plugin-terser');
+const minifyHTMLLiterals = require('rollup-plugin-minify-html-literals').default;
 const multiInput = require('rollup-plugin-multi-input').default;
 const injectProcessEnv = require('rollup-plugin-inject-process-env');
 
@@ -178,6 +179,19 @@ function getRollupConfig({
           include: ['**/feature-flags.ts'],
         }
       ),
+      minifyHTMLLiterals({
+        failOnError: true,
+        // minify-html-literals options
+        // https://www.npmjs.com/package/minify-html-literals#options
+        options: {
+          minifyOptions: {
+            caseSensitive: true,
+            collapseInlineTagWhitespace: true,
+            collapseWhitespace: true,
+            removeComments: true,
+          }
+        },
+      }),
       babel.babel({
         babelHelpers: 'inline',
         extensions: ['.ts'],
