@@ -15,6 +15,9 @@ import readme from './README.stories.mdx';
 export const Default = (args) => {
   const { heading, filterCutoff, maxFilters, viewAllText, gridKnobs } =
     args?.FilterPanel ?? {};
+  const selectedItems = args?.FilterPanel?.selectedItems
+    ? parseInt(args?.FilterPanel?.selectedItems)
+    : 0;
 
   const filterPanelHeading = document.querySelector('dds-filter-panel-heading');
   if (filterPanelHeading) {
@@ -35,28 +38,44 @@ export const Default = (args) => {
             filter-cutoff="${filterCutoff}"
             max-filters="${maxFilters}"
             view-all-text="${viewAllText}">
-            <dds-filter-panel-checkbox value="API"
+            <dds-filter-panel-checkbox
+              ?checked=${selectedItems >= 1}
+              value="API"
               >API</dds-filter-panel-checkbox
             >
-            <dds-filter-panel-checkbox value="Application"
+            <dds-filter-panel-checkbox
+              ?checked=${selectedItems >= 2}
+              value="Application"
               >Application</dds-filter-panel-checkbox
             >
-            <dds-filter-panel-checkbox value="Data Set"
+            <dds-filter-panel-checkbox
+              ?checked=${selectedItems >= 3}
+              value="Data Set"
               >Data Set</dds-filter-panel-checkbox
             >
-            <dds-filter-panel-checkbox value="Free Trial"
+            <dds-filter-panel-checkbox
+              ?checked=${selectedItems >= 4}
+              value="Free Trial"
               >Free Trial</dds-filter-panel-checkbox
             >
-            <dds-filter-panel-checkbox value="Hardware"
+            <dds-filter-panel-checkbox
+              ?checked=${selectedItems >= 5}
+              value="Hardware"
               >Hardware</dds-filter-panel-checkbox
             >
-            <dds-filter-panel-checkbox value="Service"
+            <dds-filter-panel-checkbox
+              ?checked=${selectedItems >= 6}
+              value="Service"
               >Service</dds-filter-panel-checkbox
             >
-            <dds-filter-panel-checkbox value="Service Assets"
+            <dds-filter-panel-checkbox
+              ?checked=${selectedItems >= 7}
+              value="Service Assets"
               >Service Assets</dds-filter-panel-checkbox
             >
-            <dds-filter-panel-checkbox value="Software"
+            <dds-filter-panel-checkbox
+              ?checked=${selectedItems >= 8}
+              value="Software"
               >Software</dds-filter-panel-checkbox
             >
           </dds-filter-group-item>
@@ -124,10 +143,14 @@ export const Default = (args) => {
               title="Supply chain management"></dds-filter-panel-input-select>
           </dds-filter-group-item>
           <dds-filter-group-item title-text="Deployment types">
-            <dds-filter-panel-checkbox value="On-premises"
+            <dds-filter-panel-checkbox
+              ?checked=${selectedItems >= 9}
+              value="On-premises"
               >On-premises</dds-filter-panel-checkbox
             >
-            <dds-filter-panel-checkbox value="SaaS"
+            <dds-filter-panel-checkbox
+              ?checked=${selectedItems >= 10}
+              value="SaaS"
               >SaaS</dds-filter-panel-checkbox
             >
           </dds-filter-group-item>
@@ -160,6 +183,11 @@ export default {
           'Grid alignment',
           ['3 columns', '4 columns'],
           '4 columns'
+        ),
+        selectedItems: select(
+          'Number of selected items',
+          ['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10'],
+          '2'
         ),
       }),
     },

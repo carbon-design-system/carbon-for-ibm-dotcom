@@ -23,7 +23,7 @@
     grid-auto-rows: 1fr;
     grid-gap: $carbon--layout-01;
 
-    @include carbon--breakpoint(lg) {
+    @include carbon--breakpoint(md) {
       display: inline-grid;
       grid-template-columns: repeat(
         var(--#{$dds-prefix}--button-group--item-count),
@@ -39,11 +39,11 @@
   .#{$prefix}--buttongroup-item,
   :host(#{$dds-prefix}-button-group-item),
   :host(#{$dds-prefix}-button-cta) {
-    max-width: carbon--mini-units(40);
+    max-width: 100%;
     min-width: 0;
 
     @media print {
-      max-width: carbon--rem(640px);
+      max-width: 100%;
       margin-bottom: $spacing-05;
       display: block;
     }
@@ -56,6 +56,7 @@
       word-break: break-word;
       transition: all $duration--fast-01 motion(entrance, productive), width 0s,
         height 0s;
+      max-width: 100%;
 
       @media print {
         background: $white-0;

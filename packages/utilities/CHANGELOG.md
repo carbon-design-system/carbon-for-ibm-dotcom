@@ -3,6 +3,79 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.51.0](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/compare/@carbon/ibmdotcom-utilities@1.51.0-rc.0...@carbon/ibmdotcom-utilities@1.51.0) (2023-09-19)
+
+**Note:** Version bump only for package @carbon/ibmdotcom-utilities
+
+
+
+
+
+# [1.51.0-rc.0](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/compare/@carbon/ibmdotcom-utilities@1.50.0...@carbon/ibmdotcom-utilities@1.51.0-rc.0) (2023-09-06)
+
+**Note:** Version bump only for package @carbon/ibmdotcom-utilities
+
+
+
+
+
+# [1.50.0](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/compare/@carbon/ibmdotcom-utilities@1.50.0-rc.2...@carbon/ibmdotcom-utilities@1.50.0) (2023-08-22)
+
+**Note:** Version bump only for package @carbon/ibmdotcom-utilities
+
+
+
+
+
+# [1.50.0-rc.2](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/compare/@carbon/ibmdotcom-utilities@1.50.0-rc.1...@carbon/ibmdotcom-utilities@1.50.0-rc.2) (2023-08-18)
+
+**Note:** Version bump only for package @carbon/ibmdotcom-utilities
+
+
+
+
+
+# [1.50.0-rc.1](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/compare/@carbon/ibmdotcom-utilities@1.50.0-rc.0...@carbon/ibmdotcom-utilities@1.50.0-rc.1) (2023-08-18)
+
+
+### Bug Fixes
+
+* **sticky-header:** report cumulative height before first scroll ([#10843](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/issues/10843)) ([4bbe3cc](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/commit/4bbe3cced6ebd675b25ba3b0b4bd0a6adb9d2643))
+
+
+
+
+
+# [1.50.0-rc.0](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/compare/@carbon/ibmdotcom-utilities@1.49.0...@carbon/ibmdotcom-utilities@1.50.0-rc.0) (2023-08-14)
+
+
+### Bug Fixes
+
+* **deps:** update dependency carbon-components to v10.58.8 ([#10690](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/issues/10690)) ([c22052d](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/commit/c22052dbd218d2e6d968515982bd2369e0d4733b))
+
+
+
+
+
+# [1.49.0](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/compare/@carbon/ibmdotcom-utilities@1.49.0-rc.0...@carbon/ibmdotcom-utilities@1.49.0) (2023-07-26)
+
+**Note:** Version bump only for package @carbon/ibmdotcom-utilities
+
+
+
+
+
+# [1.49.0-rc.0](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/compare/@carbon/ibmdotcom-utilities@1.48.0...@carbon/ibmdotcom-utilities@1.49.0-rc.0) (2023-07-11)
+
+
+### Bug Fixes
+
+* **sticky-header:** do not consider vertical ToC height in calculations ([#10605](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/issues/10605)) ([b3963b6](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/commit/b3963b6e31c4c7593288f7f85e622aab5f279af8))
+
+
+
+
+
 # [1.48.0](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/compare/@carbon/ibmdotcom-utilities@1.48.0-rc.3...@carbon/ibmdotcom-utilities@1.48.0) (2023-06-27)
 
 **Note:** Version bump only for package @carbon/ibmdotcom-utilities
