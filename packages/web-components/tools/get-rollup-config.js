@@ -206,26 +206,6 @@ function getRollupConfig({
           '@babel/plugin-transform-nullish-coalescing-operator',
           ['@babel/plugin-transform-object-rest-spread', { useBuiltIns: true }],
           '@babel/plugin-transform-optional-chaining',
-          ...(mode === 'development'
-            ? []
-            : [
-                [
-                  'template-html-minifier',
-                  {
-                    modules: {
-                      'lit-html': ['html'],
-                      'lit-element': ['html'],
-                    },
-                    htmlMinifier: {
-                      collapseWhitespace: true,
-                      conservativeCollapse: true,
-                      removeComments: true,
-                      caseSensitive: true,
-                      minifyCSS: true,
-                    },
-                  },
-                ],
-              ]),
         ],
       }),
       // We are using `carbon-web-components` code merely as the source of inheritance,
