@@ -36,16 +36,13 @@ function scripts() {
       ])
       .pipe(sourcemaps.init())
       .pipe(minifiyHtmlLiterals({
-        failOnError: false,
-        options: {
           minifyOptions: {
             caseSensitive: true,
             collapseInlineTagWhitespace: true,
             collapseWhitespace: true,
             removeComments: true,
           },
-        },
-      }))
+        }))
       .pipe(
         babel({
           presets: ['@babel/preset-modules', '@babel/preset-env'],
