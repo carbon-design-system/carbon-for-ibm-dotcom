@@ -165,7 +165,6 @@
     "axe-core": "^4.4.1",
     "babel-eslint": "^10.1.0",
     "babel-loader": "^8.0.4",
-    "babel-plugin-template-html-minifier": "^4.1.0",
     "browserstack-cypress-cli": "^1.11.1",
     "cache-loader": "^4.1.0",
     "chalk": "^4.1.1",

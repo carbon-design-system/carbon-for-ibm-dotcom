@@ -38,22 +38,6 @@ function scripts() {
           // `version` field ensures `@babel/plugin-transform-runtime` is applied to newer helpers like decorator
           plugins: [
             ['@babel/plugin-transform-runtime', { useESModules: true, version: '7.8.0' }],
-            [
-              'template-html-minifier',
-              {
-                modules: {
-                  'lit-html': ['html'],
-                  'lit-element': ['html'],
-                },
-                htmlMinifier: {
-                  collapseWhitespace: true,
-                  conservativeCollapse: true,
-                  removeComments: true,
-                  caseSensitive: true,
-                  minifyCSS: true,
-                },
-              },
-            ],
             babelPluginResourceJSPaths,
           ],
         })

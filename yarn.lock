@@ -2466,7 +2466,6 @@ __metadata:
     axe-core: "npm:^4.4.1"
     babel-eslint: "npm:^10.1.0"
     babel-loader: "npm:^8.0.4"
-    babel-plugin-template-html-minifier: "npm:^4.1.0"
     browserstack-cypress-cli: "npm:^1.11.1"
     cache-loader: "npm:^4.1.0"
     carbon-components: "npm:10.58.12"
@@ -2749,7 +2748,6 @@ __metadata:
     autoprefixer: "npm:^9.8.8"
     babel-eslint: "npm:^10.1.0"
     babel-loader: "npm:^8.0.4"
-    babel-plugin-template-html-minifier: "npm:^4.1.0"
     cache-loader: "npm:^4.1.0"
     carbon-components: "npm:10.58.3"
     child-process-promise: "npm:^2.2.1"
@@ -10017,17 +10015,6 @@ __metadata:
   languageName: node
   linkType: hard
 
-"babel-plugin-template-html-minifier@npm:^4.1.0":
-  version: 4.1.0
-  resolution: "babel-plugin-template-html-minifier@npm:4.1.0"
-  dependencies:
-    clean-css: "npm:^4.2.1"
-    html-minifier-terser: "npm:^5.0.0"
-    is-builtin-module: "npm:^3.0.0"
-  checksum: d7582da510cbb947cdc06accfcc03b8da89e7634e0890902ccc8ba55467eb43a312bd5833362e40f3c6aa1b22bafba84d51f6d6d84232c17f10c59f017ac52c6
-  languageName: node
-  linkType: hard
-
 "babel-plugin-transform-define@npm:^2.0.0":
   version: 2.1.4
   resolution: "babel-plugin-transform-define@npm:2.1.4"
@@ -10868,7 +10855,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"builtin-modules@npm:^3.1.0, builtin-modules@npm:^3.3.0":
+"builtin-modules@npm:^3.1.0":
   version: 3.3.0
   resolution: "builtin-modules@npm:3.3.0"
   checksum: 62e063ab40c0c1efccbfa9ffa31873e4f9d57408cb396a2649981a0ecbce56aabc93c28feaccbc5658c95aab2703ad1d11980e62ec2e5e72637404e1eb60f39e
@@ -18797,7 +18784,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"html-minifier-terser@npm:^5.0.0, html-minifier-terser@npm:^5.0.1":
+"html-minifier-terser@npm:^5.0.1":
   version: 5.1.1
   resolution: "html-minifier-terser@npm:5.1.1"
   dependencies:
@@ -19720,15 +19707,6 @@ __metadata:
   version: 2.0.5
   resolution: "is-buffer@npm:2.0.5"
   checksum: 3261a8b858edcc6c9566ba1694bf829e126faa88911d1c0a747ea658c5d81b14b6955e3a702d59dabadd58fdd440c01f321aa71d6547105fd21d03f94d0597e7
-  languageName: node
-  linkType: hard
-
-"is-builtin-module@npm:^3.0.0":
-  version: 3.2.1
-  resolution: "is-builtin-module@npm:3.2.1"
-  dependencies:
-    builtin-modules: "npm:^3.3.0"
-  checksum: e8f0ffc19a98240bda9c7ada84d846486365af88d14616e737d280d378695c8c448a621dcafc8332dbf0fcd0a17b0763b845400709963fa9151ddffece90ae88
   languageName: node
   linkType: hard
 
