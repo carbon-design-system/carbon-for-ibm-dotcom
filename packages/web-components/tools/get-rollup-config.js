@@ -169,6 +169,17 @@ function getRollupConfig({
         include: [/node_modules/],
         sourceMap: true,
       }),
+      minifyHTMLLiterals({
+        failOnError: false,
+        options: {
+          minifyOptions: {
+            caseSensitive: true,
+            collapseInlineTagWhitespace: true,
+            collapseWhitespace: true,
+            removeComments: true,
+          },
+        },
+      }),
       ibmdotcomIcon(),
       injectProcessEnv(
         {
@@ -180,19 +191,6 @@ function getRollupConfig({
           include: ['**/feature-flags.ts'],
         }
       ),
-      minifyHTMLLiterals({
-        failOnError: true,
-        // minify-html-literals options
-        // https://www.npmjs.com/package/minify-html-literals#options
-        options: {
-          minifyOptions: {
-            caseSensitive: true,
-            collapseInlineTagWhitespace: true,
-            collapseWhitespace: true,
-            removeComments: true,
-          },
-        },
-      }),
       babel.babel({
         babelHelpers: 'inline',
         extensions: ['.ts'],

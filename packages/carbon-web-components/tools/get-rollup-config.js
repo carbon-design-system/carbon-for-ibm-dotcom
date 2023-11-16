@@ -130,11 +130,8 @@ function getRollupConfig({
         include: [/node_modules/],
         sourceMap: true,
       }),
-      carbonIcons(),
       minifyHTMLLiterals({
         failOnError: true,
-        // minify-html-literals options
-        // https://www.npmjs.com/package/minify-html-literals#options
         options: {
           minifyOptions: {
             caseSensitive: true,
@@ -144,6 +141,7 @@ function getRollupConfig({
           },
         },
       }),
+      carbonIcons(),
       babel.babel({
         babelHelpers: 'runtime',
         extensions: ['.ts'],
