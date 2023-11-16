@@ -85,7 +85,6 @@ export const Default = (args) => {
         {ctaCopy}
       </C4DTextCTA>
       <C4DCardGroup slot="card-group" cards-per-row="2">
-        <C4DCardGroupItem empty></C4DCardGroupItem>
         {cards}
       </C4DCardGroup>
     </C4DCardSectionOffset>
