@@ -12,7 +12,6 @@ import {
   Default,
   Horizontal,
   Vertical,
-  EndOfSection,
 } from '../__stories__/link-list.stories';
 
 describe('c4d-link-list', function () {
@@ -56,14 +55,6 @@ describe('c4d-link-list', function () {
       }),
       document.body
     );
-    await Promise.resolve();
-    expect(document.body.querySelector('c4d-link-list')).toMatchSnapshot({
-      mode: 'shadow',
-    });
-  });
-
-  it('Renders End of section', async function () {
-    render(EndOfSection({ parameters: {} }), document.body);
     await Promise.resolve();
     expect(document.body.querySelector('c4d-link-list')).toMatchSnapshot({
       mode: 'shadow',
