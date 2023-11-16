@@ -96,7 +96,10 @@ class DDSCard extends StableSelectorMixin(BXLink) {
   protected _renderCopy(): TemplateResult | string | void {
     const { _hasCopy: hasCopy } = this;
     return html`
-      <div ?hidden="${!hasCopy}" class="${prefix}--card__copy">
+      <div
+        ?hidden="${!hasCopy}"
+        class="${prefix}--card__copy"
+        id="${prefix}--card__description">
         <slot @slotchange="${this._handleCopySlotChange}"></slot>
       </div>
     `;
@@ -140,12 +143,19 @@ class DDSCard extends StableSelectorMixin(BXLink) {
    */
   protected _renderInner() {
     const { _hasCopy: hasCopy } = this;
-    const hasPictogram = Boolean(this.querySelector('[slot="pictogram"]'));
 
-    if (hasPictogram) {
+    if (
+      this.pictogramPlacement === PICTOGRAM_PLACEMENT.TOP ||
+      this.pictogramPlacement === PICTOGRAM_PLACEMENT.BOTTOM
+    ) {
       return html`
         ${this._renderImage()}
         <a
+          aria-label="${this.querySelector(`${ddsPrefix}-card-heading`)
+            ?.textContent || ''}"
+          aria-live="polite"
+          aria-describedby="${prefix}--card__description"
+          role="button"
           href="${this.href}"
           class="${prefix}--card__wrapper ${prefix}--card__pictogram
            ${hasCopy ? `${prefix}--card__motion` : ''}">
@@ -261,18 +271,7 @@ class DDSCard extends StableSelectorMixin(BXLink) {
   }
 
   render() {
-    return this._hasPictogram
-      ? html`
-          <div
-            aria-label="${this.querySelector(`${ddsPrefix}-card-heading`)
-              ?.textContent || ''}"
-            aria-live="polite"
-            aria-describedby="${prefix}--card__copy"
-            role="button">
-            ${this._renderInner()}
-          </div>
-        `
-      : html` <div>${this._renderInner()}</div> `;
+    return html` <div>${this._renderInner()}</div> `;
   }
 
   static get stableSelector() {
