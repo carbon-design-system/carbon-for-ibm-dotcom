@@ -30,11 +30,10 @@ export const Default = () => html`
   </style>
   <c4d-tabs-extended-media value="first">
     <c4d-tab id="tab-first" target="panel-first" value="first">
-      First tab with long text that wraps multiple lines. Lorem ipsum dolor sit
-      amet consectetur adipiscing elit
+      First tab with long text
     </c4d-tab>
     <c4d-tab id="tab-second" target="panel-second" value="second">
-      Second tab - min amount for tooltip
+      Second tab
     </c4d-tab>
     <c4d-tab id="tab-third" target="panel-third" value="third">
       Third tab
@@ -88,8 +87,7 @@ export const Contained = () => {
     </style>
     <c4d-tabs-extended-media value="first" type="${TABS_TYPE.CONTAINED}">
       <c4d-tab id="tab-first" target="panel-first" value="first">
-        First tab with long text that wraps multiple lines. Lorem ipsum dolor
-        sit amet consectetur adipiscing elit
+        First tab with long text
       </c4d-tab>
       <c4d-tab id="tab-second" target="panel-second" value="second">
         Second tab - min amount for tooltip
