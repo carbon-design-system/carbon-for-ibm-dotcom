@@ -280,7 +280,6 @@ $feature-flags: (
     }
 
     .#{$prefix}--card {
-      background: none;
       height: 100%;
 
       &:focus-within {
@@ -316,6 +315,7 @@ $feature-flags: (
 
         @include breakpoint(md) {
           width: 50%;
+          height: 100%;
           padding-top: aspect-ratio(2, 1);
         }
 
