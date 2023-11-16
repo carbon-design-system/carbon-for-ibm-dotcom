@@ -19,7 +19,7 @@
 @use '../../globals/vars' as *;
 @use '../../components/image';
 @use '../../components/card';
-@use '../../globals/utils/aspect-ratio';
+@use '../../globals/utils/aspect-ratio' as *;
 @use '../../globals/utils/hang' as *;
 @use '../../../../web-components/src/components/card/card' as *;
 
@@ -157,8 +157,6 @@ $feature-flags: (
   :host(#{$c4d-prefix}-feature-card:not([size='large'])),
   :host(#{$c4d-prefix}-feature-cta:not([size='large'])) {
     @include breakpoint-down(md) {
-      padding-top: aspect-ratio(1, 1);
-
       .#{$prefix}--card__content {
         height: 100%;
         padding: carbon--mini-units(2);
@@ -223,6 +221,7 @@ $feature-flags: (
       @include breakpoint(md) {
         width: 50%;
         height: 100%;
+        padding-top: aspect-ratio(2, 1);
       }
     }
 
@@ -260,8 +259,7 @@ $feature-flags: (
 
   // feature cards that are size large
   :host(#{$c4d-prefix}-feature-card[size='large']),
-  :host(#{$c4d-prefix}-feature-cta[size='large']),
-  .#{$prefix}--feature-card-large {
+  :host(#{$c4d-prefix}-feature-cta[size='large']) {
     margin-bottom: $spacing-07;
     color: $text-primary;
     background-color: $layer-01;
@@ -270,6 +268,7 @@ $feature-flags: (
 
     @include breakpoint(md) {
       margin-bottom: $spacing-10;
+      padding-top: aspect-ratio(2, 1);
     }
 
     @include breakpoint(lg) {
@@ -305,17 +304,19 @@ $feature-flags: (
       }
 
       @include breakpoint(md) {
+        position: absolute;
         flex-direction: row;
+        inset: 0;
       }
 
       ::slotted([slot='image']),
       #{$c4d-prefix}-image,
-      &__wrapper,
       .#{$prefix}--image {
         z-index: 0;
 
         @include breakpoint(md) {
           width: 50%;
+          padding-top: aspect-ratio(2, 1);
         }
 
         @include breakpoint(xlg) {
