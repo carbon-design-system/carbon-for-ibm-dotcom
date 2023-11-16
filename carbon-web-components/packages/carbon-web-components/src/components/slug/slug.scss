@@ -71,11 +71,9 @@
 
     --cds-button-focus-color: var(--cds-focus);
   }
-
-
 }
 
-:host(#{$prefix}-slug-action-button){
+:host(#{$prefix}-slug-action-button) {
   .#{$prefix}--btn--primary {
     order: 1;
     border-end-end-radius: 1rem;
