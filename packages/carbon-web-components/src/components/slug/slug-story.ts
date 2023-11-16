@@ -20,9 +20,8 @@ import Folders16 from '@carbon/icons/lib/folders/16';
 import textNullable from '../../../.storybook/knob-text-nullable';
 import { ifDefined } from 'lit/directives/if-defined.js';
 import { prefix } from '../../globals/settings';
-import './slug';
+import './index';
 import '../icon-button/index';
-import '../button/index';
 import styles from './slug-story.scss';
 
 import { POPOVER_ALIGNMENT } from '../popover/defs';
@@ -85,7 +84,7 @@ const actions = html`
     ${Folders16({ slot: 'icon' })}
     <span slot="tooltip-content"> Folders </span>
   </cds-icon-button>
-  <cds-button slot="actions">View Literature</cds-button>
+  <cds-slug-action-button>View Literature</cds-slug-action-button>
 `;
 
 export const Default = (args) => {
