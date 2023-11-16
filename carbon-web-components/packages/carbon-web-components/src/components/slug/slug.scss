@@ -72,9 +72,13 @@
     --cds-button-focus-color: var(--cds-focus);
   }
 
-  ::slotted([slot='actions'][kind='primary']) {
+
+}
+
+:host(#{$prefix}-slug-action-button){
+  .#{$prefix}--btn--primary {
+    order: 1;
     border-end-end-radius: 1rem;
-    overflow: hidden;
   }
 }
 
