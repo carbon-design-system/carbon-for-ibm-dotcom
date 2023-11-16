@@ -63,6 +63,13 @@ export const Medium = (args) => {
 export const Large = (args) => {
   const { eyebrow, heading, copy, href, colorScheme } =
     args?.[`${c4dPrefix}-feature-card`] ?? {};
+
+  const copyComponent = document
+    .querySelector(`${c4dPrefix}-feature-card`)
+    ?.querySelector('p');
+  if (copyComponent) {
+    copyComponent!.innerHTML = copy;
+  }
   return html`
     <c4d-feature-card
       size="large"
@@ -82,7 +89,7 @@ export const Large = (args) => {
       </c4d-image>
       <c4d-card-eyebrow>${eyebrow}</c4d-card-eyebrow>
       <c4d-card-heading>${heading}</c4d-card-heading>
-      <p>${copy}</p>
+      ${copy && html`<p></p>`}
       <c4d-feature-card-footer>
         ${ArrowRight20({ slot: 'icon' })}
       </c4d-feature-card-footer>
