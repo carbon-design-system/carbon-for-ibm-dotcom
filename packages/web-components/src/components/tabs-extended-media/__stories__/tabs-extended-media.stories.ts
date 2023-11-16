@@ -54,14 +54,12 @@ export const Default = () => html`
           <c4d-content-item-copy>${copy}</c4d-content-item-copy>
         </c4d-content-item>
 
-        <c4d-card-link-cta slot="footer" href="https://example.com">
+        <c4d-card link slot="footer" href="https://example.com">
           <c4d-card-link-heading
             >Lorem ipsum dolor sit amet</c4d-card-link-heading
           >
-          <c4d-card-cta-footer>
-            ${ArrowRight20({ slot: 'icon' })}
-          </c4d-card-cta-footer>
-        </c4d-card-link-cta>
+          <c4d-card-footer> ${ArrowRight20({ slot: 'icon' })} </c4d-card-footer>
+        </c4d-card>
       </c4d-content-block-media-content>
     </div>
     <div id="panel-second" role="tabpanel" aria-labelledby="tab-second" hidden>
@@ -114,14 +112,14 @@ export const Contained = () => {
             <c4d-content-item-copy>${copy}</c4d-content-item-copy>
           </c4d-content-item>
 
-          <c4d-card-link-cta slot="footer" href="https://example.com">
+          <c4d-card link slot="footer" href="https://example.com">
             <c4d-card-link-heading
               >Lorem ipsum dolor sit amet</c4d-card-link-heading
             >
-            <c4d-card-cta-footer>
+            <c4d-card-footer>
               ${ArrowRight20({ slot: 'icon' })}
-            </c4d-card-cta-footer>
-          </c4d-card-link-cta>
+            </c4d-card-footer>
+          </c4d-card>
         </c4d-content-block-media-content>
       </div>
       <div
