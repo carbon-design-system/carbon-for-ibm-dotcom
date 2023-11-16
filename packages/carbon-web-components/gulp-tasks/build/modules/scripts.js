@@ -12,6 +12,8 @@ const filter = require('gulp-filter');
 const gulp = require('gulp');
 const sourcemaps = require('gulp-sourcemaps');
 const stripComments = require('strip-comments');
+const minifiyHtmlLiterals = require('gulp-minify-html-literals');
+
 
 const babelPluginResourceJSPaths = require('../../../tools/babel-plugin-resource-js-paths');
 const config = require('../../config');
@@ -32,6 +34,17 @@ function scripts() {
         `!${config.srcDir}/index-with-polyfills.ts`,
       ])
       .pipe(sourcemaps.init())
+      .pipe(minifiyHtmlLiterals({
+        failOnError: false,
+        options: {
+          minifyOptions: {
+            caseSensitive: true,
+            collapseInlineTagWhitespace: true,
+            collapseWhitespace: true,
+            removeComments: true,
+          },
+        },
+      }))
       .pipe(
         babel({
           presets: ['@babel/preset-modules'],
