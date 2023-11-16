@@ -22,7 +22,8 @@ const commonjs = require('@rollup/plugin-commonjs');
 const json = require('@rollup/plugin-json');
 const replace = require('@rollup/plugin-replace');
 const { terser } = require('rollup-plugin-terser');
-const minifyHTMLLiterals = require('rollup-plugin-minify-html-literals').default;
+const minifyHTMLLiterals =
+  require('rollup-plugin-minify-html-literals').default;
 const multiInput = require('rollup-plugin-multi-input').default;
 const injectProcessEnv = require('rollup-plugin-inject-process-env');
 
@@ -189,7 +190,7 @@ function getRollupConfig({
             collapseInlineTagWhitespace: true,
             collapseWhitespace: true,
             removeComments: true,
-          }
+          },
         },
       }),
       babel.babel({
