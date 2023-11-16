@@ -22,45 +22,45 @@ LICENSE file in the root directory of this source tree.
     </style>
   </head>
   <body>
-    <cds-masthead>
-      <cds-masthead-menu-button></cds-masthead-menu-button>
-      <cds-masthead-logo></cds-masthead-logo>
-      <cds-top-nav menu-bar-label="IBM [Platform]">
+    <c4d-masthead>
+      <c4d-masthead-menu-button></c4d-masthead-menu-button>
+      <c4d-masthead-logo></c4d-masthead-logo>
+      <c4d-top-nav menu-bar-label="IBM [Platform]">
         {{#each navLinks}}
           {{#if menuItems}}
-            <cds-top-nav-menu menu-label="{{title}}" trigger-content="{{title}}">
+            <c4d-top-nav-menu menu-label="{{title}}" trigger-content="{{title}}">
               {{#each menuItems}}
-                <cds-top-nav-menu-item href="{{url}}" title="{{title}}"></cds-top-nav-menu-item>
+                <c4d-top-nav-menu-item href="{{url}}" title="{{title}}"></c4d-top-nav-menu-item>
               {{/each}}
-            </cds-top-nav-menu>
+            </c4d-top-nav-menu>
           {{else}}
-            <cds-top-nav-item href="{{url}}" title="{{title}}"></cds-top-nav-item>
+            <c4d-top-nav-item href="{{url}}" title="{{title}}"></c4d-top-nav-item>
           {{/if}}
         {{/each}}
-      </cds-top-nav>
-      <cds-masthead-search-container></cds-masthead-search-container>
-      <cds-masthead-global-bar>
-        <cds-masthead-profile authenticated>
+      </c4d-top-nav>
+      <c4d-masthead-search-container></c4d-masthead-search-container>
+      <c4d-masthead-global-bar>
+        <c4d-masthead-profile authenticated>
           {{#each profileItems}}
-            <cds-masthead-profile-item href="{{href}}">{{title}}</cds-masthead-profile-item>
+            <c4d-masthead-profile-item href="{{href}}">{{title}}</c4d-masthead-profile-item>
           {{/each}}
-        </cds-masthead-profile>
-      </cds-masthead-global-bar>
-      <cds-left-nav-overlay></cds-left-nav-overlay>
-      <cds-left-nav menu-bar-label="IBM [Platform]">
+        </c4d-masthead-profile>
+      </c4d-masthead-global-bar>
+      <c4d-left-nav-overlay></c4d-left-nav-overlay>
+      <c4d-left-nav menu-bar-label="IBM [Platform]">
         {{#each navLinks}}
           {{#if menuItems}}
-            <cds-left-nav-menu title="{{title}}">
+            <c4d-left-nav-menu title="{{title}}">
               {{#each menuItems}}
-                <cds-left-nav-menu-item href="{{url}}" title="{{title}}"></cds-left-nav-menu-item>
+                <c4d-left-nav-menu-item href="{{url}}" title="{{title}}"></c4d-left-nav-menu-item>
               {{/each}}
-            </cds-left-nav-menu>
+            </c4d-left-nav-menu>
           {{else}}
-            <cds-left-nav-item href="{{url}}" title="{{title}}"></cds-left-nav-item>
+            <c4d-left-nav-item href="{{url}}" title="{{title}}"></c4d-left-nav-item>
           {{/if}}
         {{/each}}
-      </cds-left-nav>
-    </cds-masthead>
+      </c4d-left-nav>
+    </c4d-masthead>
     <main class="bx--content cds-ce-demo--ui-shell-content">
       <div class="bx--grid">
         <div class="bx--row">
@@ -106,40 +106,40 @@ LICENSE file in the root directory of this source tree.
         </div>
       </div>
     </main>
-    <cds-footer>
-      <cds-footer-logo slot="brand"></cds-footer-logo>
-      <cds-footer-nav>
+    <c4d-footer>
+      <c4d-footer-logo slot="brand"></c4d-footer-logo>
+      <c4d-footer-nav>
         {{#each footerLinks}}
-          <cds-footer-nav-group title-text="{{title}}">
+          <c4d-footer-nav-group title-text="{{title}}">
             {{#each links}}
-              <cds-footer-nav-item href="{{url}}">{{title}}</cds-footer-nav-item>
+              <c4d-footer-nav-item href="{{url}}">{{title}}</c4d-footer-nav-item>
             {{/each}}
-          </cds-footer-nav-group>
+          </c4d-footer-nav-group>
         {{/each}}
-      </cds-footer-nav>
-      <cds-locale-button slot="locale-button">{{langDisplay}}</cds-locale-button>
-      <cds-legal-nav slot="legal-nav">
+      </c4d-footer-nav>
+      <c4d-locale-button slot="locale-button">{{langDisplay}}</c4d-locale-button>
+      <c4d-legal-nav slot="legal-nav">
         {{#each legalLinks}}
-          <cds-legal-nav-item href="{{url}}">{{title}}</cds-legal-nav-item>
+          <c4d-legal-nav-item href="{{url}}">{{title}}</c4d-legal-nav-item>
         {{/each}}
-        <cds-legal-nav-cookie-preferences-placeholder></cds-legal-nav-cookie-preferences-placeholder>
-      </cds-legal-nav>
-    </cds-footer>
-    <cds-locale-modal
+        <c4d-legal-nav-cookie-preferences-placeholder></c4d-legal-nav-cookie-preferences-placeholder>
+      </c4d-legal-nav>
+    </c4d-footer>
+    <c4d-locale-modal
       close-button-assistive-text="{{localeModal.modalClose}}"
       header-title="{{localeModal.headerTitle}}"
       lang-display="{{langDisplay}}"
     >
-      <cds-regions>
+      <c4d-regions>
         {{#each regionList}}
           {{#if countryList}}
-            <cds-region-item name="{{name}}"></cds-region-item>
+            <c4d-region-item name="{{name}}"></c4d-region-item>
           {{else}}
-            <cds-region-item invalid name="{{name}}"></cds-region-item>
+            <c4d-region-item invalid name="{{name}}"></c4d-region-item>
           {{/if}}
         {{/each}}
-      </cds-regions>
-      <cds-locale-search
+      </c4d-regions>
+      <c4d-locale-search
         close-button-assistive-text="{{localeModal.searchClearText}}"
         label-text="{{localeModal.searchLabel}}"
         placeholder="{{localeModal.searchPlaceholder}}"
@@ -147,10 +147,10 @@ LICENSE file in the root directory of this source tree.
         unavailability-label-text="{{localeModal.unavailabilityText}}"
       >
         {{#each allCountryList}}
-          <cds-locale-item country="{{country}}" href="{{href}}" language="{{language}}" locale="{{locale}}" region="{{region}}">
-          </cds-locale-item>
+          <c4d-locale-item country="{{country}}" href="{{href}}" language="{{language}}" locale="{{locale}}" region="{{region}}">
+          </c4d-locale-item>
         {{/each}}
-      </cds-locale-search>
-    </cds-locale-modal>
+      </c4d-locale-search>
+    </c4d-locale-modal>
   </body>
 </html>
