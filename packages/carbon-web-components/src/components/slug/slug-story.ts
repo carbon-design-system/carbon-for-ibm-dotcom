@@ -93,43 +93,79 @@ export const Default = (args) => {
       ${styles}
     </style>
     <div class="slug-container">
-      <cds-slug size="mini"> ${content} </cds-slug>
-      <cds-slug size="2xs"> ${content} </cds-slug>
-      <cds-slug size="xs"> ${content} </cds-slug>
-      <cds-slug size="sm"> ${content} </cds-slug>
-      <cds-slug size="md"> ${content} </cds-slug>
-      <cds-slug size="lg"> ${content} </cds-slug>
-      <cds-slug size="xl"> ${content} </cds-slug>
+      <cds-slug size="mini" alignment="bottom-left"> ${content} </cds-slug>
+      <cds-slug size="2xs" alignment="bottom-left"> ${content} </cds-slug>
+      <cds-slug size="xs" alignment="bottom-left"> ${content} </cds-slug>
+      <cds-slug size="sm" alignment="bottom-left"> ${content} </cds-slug>
+      <cds-slug size="md" alignment="bottom-left"> ${content} </cds-slug>
+      <cds-slug size="lg" alignment="bottom-left"> ${content} </cds-slug>
+      <cds-slug size="xl" alignment="bottom-left"> ${content} </cds-slug>
     </div>
     <div class="slug-container">
-      <cds-slug size="mini" kind="hollow"> ${hollowContent} </cds-slug>
-      <cds-slug size="2xs" kind="hollow"> ${hollowContent} </cds-slug>
-      <cds-slug size="xs" kind="hollow"> ${hollowContent} </cds-slug>
-    </div>
-    <div class="slug-container">
-      <cds-slug size="sm" kind="inline"> ${content} </cds-slug>
-      <cds-slug size="md" kind="inline"> ${content} </cds-slug>
-      <cds-slug size="lg" kind="inline"> ${content} </cds-slug>
-    </div>
-    <div class="slug-container">
-      <cds-slug size="sm" kind="inline" ai-text-label="Text goes here">
-        ${content}
-      </cds-slug>
-      <cds-slug size="md" kind="inline" ai-text-label="Text goes here">
-        ${content}
-      </cds-slug>
-      <cds-slug size="lg" kind="inline" ai-text-label="Text goes here">
-        ${content}
-      </cds-slug>
-    </div>
-    <div class="slug-container">
-      <cds-slug size="sm" kind="inline" dot-type="hollow">
+      <cds-slug size="mini" kind="hollow" alignment="bottom-left">
         ${hollowContent}
       </cds-slug>
-      <cds-slug size="md" kind="inline" dot-type="hollow">
+      <cds-slug size="2xs" kind="hollow" alignment="bottom-left">
         ${hollowContent}
       </cds-slug>
-      <cds-slug size="lg" kind="inline" dot-type="hollow">
+      <cds-slug size="xs" kind="hollow" alignment="bottom-left">
+        ${hollowContent}
+      </cds-slug>
+    </div>
+    <div class="slug-container">
+      <cds-slug size="sm" kind="inline" alignment="bottom-left">
+        ${content}
+      </cds-slug>
+      <cds-slug size="md" kind="inline" alignment="bottom-left">
+        ${content}
+      </cds-slug>
+      <cds-slug size="lg" kind="inline" alignment="bottom-left">
+        ${content}
+      </cds-slug>
+    </div>
+    <div class="slug-container">
+      <cds-slug
+        size="sm"
+        kind="inline"
+        ai-text-label="Text goes here"
+        alignment="bottom-left">
+        ${content}
+      </cds-slug>
+      <cds-slug
+        size="md"
+        kind="inline"
+        ai-text-label="Text goes here"
+        alignment="bottom-left">
+        ${content}
+      </cds-slug>
+      <cds-slug
+        size="lg"
+        kind="inline"
+        ai-text-label="Text goes here"
+        alignment="bottom-left">
+        ${content}
+      </cds-slug>
+    </div>
+    <div class="slug-container">
+      <cds-slug
+        size="sm"
+        kind="inline"
+        dot-type="hollow"
+        alignment="bottom-left">
+        ${hollowContent}
+      </cds-slug>
+      <cds-slug
+        size="md"
+        kind="inline"
+        dot-type="hollow"
+        alignment="bottom-left">
+        ${hollowContent}
+      </cds-slug>
+      <cds-slug
+        size="lg"
+        kind="inline"
+        dot-type="hollow"
+        alignment="bottom-left">
         ${hollowContent}
       </cds-slug>
     </div>
@@ -138,21 +174,24 @@ export const Default = (args) => {
         size="sm"
         kind="inline"
         dot-type="hollow"
-        ai-text-label="Text goes here">
+        ai-text-label="Text goes here"
+        alignment="bottom-left">
         ${hollowContent}
       </cds-slug>
       <cds-slug
         size="md"
         kind="inline"
         dot-type="hollow"
-        ai-text-label="Text goes here">
+        ai-text-label="Text goes here"
+        alignment="bottom-left">
         ${hollowContent}
       </cds-slug>
       <cds-slug
         size="lg"
         kind="inline"
         dot-type="hollow"
-        ai-text-label="Text goes here">
+        ai-text-label="Text goes here"
+        alignment="bottom-left">
         ${hollowContent}
       </cds-slug>
     </div>
