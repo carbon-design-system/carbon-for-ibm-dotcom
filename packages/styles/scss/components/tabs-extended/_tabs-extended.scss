@@ -22,20 +22,21 @@
   :host(#{$c4d-prefix}-tabs-extended),
   :host(#{$c4d-prefix}-tabs-extended-media) {
     @extend :host(#{$prefix}-tabs);
-
-    .#{$prefix}--tabs-nav-content-container {
-      height: $spacing-10;
-    }
   }
 
   :host(#{$c4d-prefix}-tab) {
     @extend :host(#{$prefix}-tab);
 
+    .#{$prefix}--tabs__nav-link {
+      display: flex;
+      height: rem(40px);
+      font-size: $spacing-05;
+    }
+
     &[selected] {
       .#{$prefix}--tabs__nav-link {
         @include type-style('heading-compact-01');
 
-        font-size: $spacing-05;
         border-bottom: $spacing-01 solid $border-interactive;
       }
     }
@@ -115,20 +116,11 @@
     @extend :host(#{$prefix}-tabs[type='contained']);
   }
 
-  :host(#{$c4d-prefix}-tabs[type='contained'])
-    .#{$prefix}--tabs-nav-content-container {
-    height: $spacing-10;
-  }
-
   :host(#{$c4d-prefix}-tab[type='contained']) {
     background-color: $layer-accent-01;
 
     a.#{$prefix}--tabs__nav-link {
-      height: $spacing-10;
-      padding: $spacing-03 $spacing-05;
-      // height - vertical padding
-      /* stylelint-disable declaration-property-unit-allowed-list */
-      line-height: calc(#{$spacing-10} - (#{$spacing-03} * 2));
+      padding: 0 $spacing-05;
       font-size: $spacing-05;
     }
   }
@@ -159,8 +151,6 @@
     background-color: $layer-01;
 
     .#{$prefix}--tabs__nav-link {
-      // height - vertical padding
-      line-height: calc(#{$spacing-10} - (#{$spacing-03} * 2));
       // Draws the border without affecting the inner-content
       box-shadow: inset 0 $spacing-01 0 0 $interactive;
       border-bottom: none;
