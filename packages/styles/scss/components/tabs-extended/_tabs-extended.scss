@@ -106,7 +106,7 @@
 
       &:focus,
       &:active {
-        border-bottom-width: 3px;
+        border-bottom-width: rem(3px);
       }
     }
   }
