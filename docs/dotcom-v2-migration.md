@@ -72,7 +72,8 @@ For Carbon v11 migration guidance, see their
 | scroll-animations         | No API changes.                                                                                                                                            |
 | search-with-typeahead     | No API changes.                                                                                                                                            |
 | table-of-contents         | No API changes.                                                                                                                                            |
-| tabs-extended-media       | Deprecated in favor of `tabs-extended`.                                                                                                                    |
+| tabs-extended             | View [changes](#tabs-extended)                                                                                                                             |
+| tabs-extended-media       | Deprecated in favor of [`tabs-extended`](#tabs-extended).                                                                                                  |
 | tag-group                 | Deprecated in favor of wrapping Carbon `tag` in a parent container.                                                                                        |
 | tag-link                  | Deprecated in favor of Carbon `tag`.                                                                                                                       |
 | universal-banner          | View [changes](#universal-banner)                                                                                                                          |
@@ -101,7 +102,8 @@ For Carbon v11 migration guidance, see their
 ### Card group
 
 - Removed `outline` property
-- New grid mode options: `Default` with a 32px gap, `Narrow` with a 16px gap, and `Condensed` with no gaps inbetween
+- New grid mode options: `Default` with a 32px gap, `Narrow` with a 16px gap,
+  and `Condensed` with no gaps inbetween
 - Grid mode options `Collapsed` has been replaced with `Condensed`
 - Removed grid mode option `Border`
 - Deprecated `card-link` option in Card group
@@ -187,7 +189,13 @@ information.
 - `link-list-item-card-cta` has been replaced with `link-list-item-cta`
 
 ### Quote
+
 - Removed `color-scheme` `inverse` option in favor of `callout-quote (inverse)`
+
+### Tabs extended
+
+- `vertical` variant has been deprecated
+- `contained` type has been added
 
 ### Universal banner
 
