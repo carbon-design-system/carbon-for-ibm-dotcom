@@ -29,7 +29,7 @@
 
     .#{$prefix}--tabs__nav-link {
       display: flex;
-      height: rem(40px);
+      height: $spacing-08;
       font-size: $spacing-05;
     }
 
@@ -112,7 +112,7 @@
     }
   }
 
-  :host(#{$c4d-prefix}-tabs[type='contained']) {
+  :host(#{$c4d-prefix}-tabs-extended[type='contained']) {
     @extend :host(#{$prefix}-tabs[type='contained']);
   }
 
@@ -120,6 +120,7 @@
     background-color: $layer-accent-01;
 
     a.#{$prefix}--tabs__nav-link {
+      height: $spacing-09;
       padding: 0 $spacing-05;
       font-size: $spacing-05;
     }
