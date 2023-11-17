@@ -109,16 +109,10 @@
   .#{$prefix}--toggletip-content {
     row-gap: 0;
   }
-}
 
-:host(#{$prefix}-slug[dot-type='hollow']) {
-  .#{$prefix}--slug__text {
-    &::before {
-      background: transparent;
-      block-size: to-rem(6px);
-      box-shadow: inset 0 0 0 1px $icon-primary;
-      inline-size: to-rem(6px);
-    }
+  .#{$prefix}--slug__button--lg .#{$prefix}--slug__text::before {
+    block-size: $spacing-03;
+    inline-size: $spacing-03;
   }
 }
 
