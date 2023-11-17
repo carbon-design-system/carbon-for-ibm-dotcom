@@ -122,11 +122,6 @@ module.exports = {
     __dirname,
     '../lib/internal/vendor/@carbon/ibmdotcom-services-store'
   ),
-  stylesSrcDir: path.resolve(__dirname, '../../styles/dist'),
-  stylesVendorDstDir: path.resolve(
-    __dirname,
-    '../src/internal/vendor/@carbon/styles'
-  ),
   utilitiesCJSSrcDir: path.resolve(__dirname, '../../utilities/lib'),
   utilitiesESSrcDir: path.resolve(__dirname, '../../utilities/es'),
   utilitiesVendorSrcDir: path.resolve(
