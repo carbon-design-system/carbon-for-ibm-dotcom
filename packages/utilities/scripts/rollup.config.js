@@ -10,17 +10,21 @@
 const chalk = require('chalk');
 const Table = require('cli-table');
 const gzip = require('gzip-size');
-// const path = require('path');
+const path = require('path');
 
 const commonjs = require('@rollup/plugin-commonjs');
 const { nodeResolve } = require('@rollup/plugin-node-resolve');
 const builtins = require('rollup-plugin-node-builtins');
 const babel = require('@rollup/plugin-babel');
-const css = require("rollup-plugin-import-css");
 const json = require('@rollup/plugin-json');
 const replace = require('@rollup/plugin-replace');
 const { terser } = require('rollup-plugin-terser');
 const sizes = require('rollup-plugin-sizes');
+const postcss = require('postcss');
+const autoprefixer = require('autoprefixer');
+
+const litSCSS = require('../../web-components/tools/rollup-plugin-lit-scss');
+const fixHostPseudo = require('../../web-components/tools/postcss-fix-host-pseudo');
 
 const packageJson = require('../package.json');
 
@@ -64,6 +68,18 @@ const prodSettings =
         },
       ];
 
+const postCSSPlugins = [
+  fixHostPseudo(),
+  autoprefixer({
+    overrideBrowsersList: [
+      '> 0.5%',
+      'last 2 versions',
+      'Firefox ESR',
+      'not dead',
+    ],
+  }),
+];
+
 process.env.BABEL_ENV = 'es';
 
 module.exports = {
@@ -81,7 +97,13 @@ module.exports = {
       babelHelpers: 'bundled',
       exclude: ['node_modules/**'], // only transpile our source code
     }),
-    css(),
+    litSCSS({
+      includePaths: [path.resolve(__dirname, '../../../node_modules')],
+      async preprocessor(contents, id) {
+        return (await postcss(postCSSPlugins).process(contents, { from: id }))
+          .css;
+      },
+    }),
     replace({
       'process.env.NODE_ENV': JSON.stringify(env),
       preventAssignment: true,
