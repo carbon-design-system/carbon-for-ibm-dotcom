@@ -27,7 +27,7 @@ $inset-transition: inset 110ms motion(standard, productive);
     flex: 1 1 0%;
     position: relative;
     overflow: scroll;
-    height: rem(40px);
+    height: $spacing-09; // for some reason, overflow: hidden shrinks the content
     scrollbar-width: none;
 
     &::-webkit-scrollbar {
@@ -35,7 +35,7 @@ $inset-transition: inset 110ms motion(standard, productive);
     }
   }
 
-  /* Set to zero-slecificity so it can be overridden by dynamic stylesheet */
+  /* Set to zero-specificity so it can be overridden by dynamic stylesheet */
   /* stylelint-disable-next-line selector-pseudo-class-no-unknown */
   :where(.#{$prefix}--tabs-nav-content) {
     position: absolute;
