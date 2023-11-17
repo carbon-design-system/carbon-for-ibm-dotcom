@@ -72,7 +72,7 @@ describe('dds-carousel', function () {
           carousel!.shadowRoot!.querySelector(
             '.bx--carousel__scroll-contents'
           ) as HTMLElement
-        ).style.left
+        ).style.insetInlineStart
       ).toBe('-400px');
     });
 
