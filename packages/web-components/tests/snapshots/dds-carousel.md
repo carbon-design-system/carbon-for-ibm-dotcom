@@ -19,7 +19,7 @@
   <div class="bx--carousel__scroll-container">
     <div
       class="bx--carousel__scroll-contents"
-      style="left:0px"
+      style="inset-inline-start: 0px;"
     >
       <slot>
       </slot>
@@ -37,7 +37,10 @@
       title="previous"
     >
     </button>
-    <span aria-hidden="true">
+    <span
+      aria-hidden="true"
+      class="bx--carousel__navigation__status"
+    >
       1 / 0
     </span>
     <span
