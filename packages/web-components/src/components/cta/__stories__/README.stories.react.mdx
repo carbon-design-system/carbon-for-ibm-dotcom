@@ -262,8 +262,8 @@ document.addEventListener('cds-cta-run-action', async event => {
     lightboxElem = document.createElement('cds-expressive-modal');
     lightboxElem.size = 'full-width';
     lightboxElem.innerHTML = `
-      <cds-expressive-modal-close-button></cds-expressive-modal-close-button>
-      <cds-lightbox-video-player id="lightbox-video-player-${videoId}"></cds-lightbox-video-player>
+      <c4d-expressive-modal-close-button></c4d-expressive-modal-close-button>
+      <c4d-lightbox-video-player id="lightbox-video-player-${videoId}"></c4d-lightbox-video-player>
     `;
     document.body.appendChild(lightboxElem);
     const videoTarget = document.createElement('div');
@@ -292,16 +292,16 @@ to see how Web Components selector and `data-autoid` should be used.
 
 | Web Components selector     | Compatibility selector | Description |
 | --------------------------- | ---------------------- | ----------- |
-| `<cds-button-cta>`          | N/A                    | Component   |
-| `<cds-card-cta>`            | N/A                    | Component   |
-| `<cds-card-cta-footer>`     | N/A                    | Component   |
-| `<cds-card-cta-image>`      | N/A                    | Component   |
-| `<cds-card-link-cta>`       | N/A                    | Component   |
-| `<cds-feature-cta>`         | N/A                    | Component   |
-| `<cds-feature-cta-footer>`  | N/A                    | Component   |
-| `<cds-link-list-item-cta>`  | N/A                    | Component   |
-| `<cds-text-cta>`            | N/A                    | Component   |
-| `<cds-video-cta-composite>` | N/A                    | Component   |
-| `<cds-video-cta-container>` | N/A                    | Component   |
+| `<c4d-button-cta>`          | N/A                    | Component   |
+| `<c4d-card>`            | N/A                    | Component   |
+| `<c4d-card-footer>`     | N/A                    | Component   |
+| `<c4d-card-image>`      | N/A                    | Component   |
+| `<c4d-card link>`       | N/A                    | Component   |
+| `<c4d-feature-cta>`         | N/A                    | Component   |
+| `<c4d-feature-cta-footer>`  | N/A                    | Component   |
+| `<c4d-link-list-item-cta>`  | N/A                    | Component   |
+| `<c4d-text-cta>`            | N/A                    | Component   |
+| `<c4d-video-cta-composite>` | N/A                    | Component   |
+| `<c4d-video-cta-container>` | N/A                    | Component   |
 
 <Description markdown={contributing} />
