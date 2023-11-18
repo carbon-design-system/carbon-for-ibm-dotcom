@@ -16,7 +16,7 @@ $css--plex: true !default;
 :host(#{$prefix}-ordered-list),
 :host(#{$prefix}-unordered-list) {
   .#{$prefix}--list--nested {
-    margin-left: $spacing-07;
+    margin-left: rem(32px);
   }
 
   .#{$prefix}--list--nested ::slotted(#{$prefix}-list-item) {

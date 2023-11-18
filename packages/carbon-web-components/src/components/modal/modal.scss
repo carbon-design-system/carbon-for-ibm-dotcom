@@ -18,20 +18,7 @@
 
 :host(#{$prefix}-modal[open]) {
   @extend .#{$prefix}--modal;
-
-  opacity: 1;
-  transition: opacity $duration-moderate-02 motion(entrance, expressive),
-    visibility 0ms linear;
-  visibility: inherit;
-
-  .#{$prefix}--modal-container {
-    transform: translate3d(0, 0, 0);
-    transition: transform $duration-moderate-02 motion(entrance, expressive);
-  }
-
-  @media screen and (prefers-reduced-motion: reduce) {
-    transition: none;
-  }
+  @extend .is-visible;
 }
 
 :host(#{$prefix}-modal) {
@@ -116,8 +103,8 @@
     width: 100%;
     max-width: none;
 
-    padding-top: $spacing-05;
-    padding-bottom: $spacing-07;
+    padding-top: rem(16px);
+    padding-bottom: rem(32px);
     box-shadow: rem(-1px) 0 0 0 $button-separator;
 
     &:focus {
@@ -132,6 +119,6 @@
   flex: 0 1 50%;
   max-width: none;
   width: 50%;
-  height: $spacing-10;
+  height: rem(64px);
   margin: 0;
 }

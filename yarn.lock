@@ -3157,7 +3157,7 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@carbon/styles@npm:^1.36.0, @carbon/styles@npm:^1.39.0":
+"@carbon/styles@npm:^1.36.0":
   version: 1.41.2
   resolution: "@carbon/styles@npm:1.41.2"
   dependencies:
@@ -3285,7 +3285,7 @@ __metadata:
     "@babel/traverse": "npm:~7.23.0"
     "@carbon/icon-helpers": "npm:^10.28.0"
     "@carbon/icons": "npm:^10.48.0"
-    "@carbon/styles": "npm:^1.39.0"
+    "@carbon/styles": "npm:^1.42.0"
     "@open-wc/semantic-dom-diff": "npm:~0.18.0"
     "@percy-io/in-percy": "npm:^0.1.11"
     "@percy/cli": "npm:^1.8.1"
