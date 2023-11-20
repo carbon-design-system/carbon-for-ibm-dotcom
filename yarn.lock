@@ -2701,7 +2701,21 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@carbon/ibmdotcom-services@npm:1.53.0, @carbon/ibmdotcom-services@workspace:packages/services":
+"@carbon/ibmdotcom-services@npm:1.53.0":
+  version: 1.53.0
+  resolution: "@carbon/ibmdotcom-services@npm:1.53.0"
+  dependencies:
+    "@babel/runtime": "npm:^7.16.3"
+    "@carbon/ibmdotcom-utilities": "npm:1.53.0"
+    "@carbon/telemetry": "npm:0.1.0"
+    axios: "npm:^0.27.2"
+    marked: "npm:^4.0.10"
+    window-or-global: "npm:^1.0.1"
+  checksum: 0a7631ea6ebf75c1a872a29c0cc8bbf7c222d5fa6a3b36aa56e64463aec6577278ad0e1e805d88ad3a14db17833dc427b9ff74fca3dc7b2c10329b5560345dc5
+  languageName: node
+  linkType: hard
+
+"@carbon/ibmdotcom-services@npm:2.0.0-rc.0, @carbon/ibmdotcom-services@workspace:packages/services":
   version: 0.0.0-use.local
   resolution: "@carbon/ibmdotcom-services@workspace:packages/services"
   dependencies:
@@ -2714,7 +2728,7 @@ __metadata:
     "@babel/plugin-transform-runtime": "npm:7.18.5"
     "@babel/preset-env": "npm:~7.23.2"
     "@babel/runtime": "npm:^7.16.3"
-    "@carbon/ibmdotcom-utilities": "npm:1.53.0"
+    "@carbon/ibmdotcom-utilities": "npm:2.0.0-rc.0"
     "@carbon/telemetry": "npm:0.1.0"
     "@rollup/plugin-babel": "npm:^5.3.1"
     "@rollup/plugin-commonjs": "npm:^21.0.3"
@@ -2748,7 +2762,7 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@carbon/ibmdotcom-styles@npm:1.53.0, @carbon/ibmdotcom-styles@workspace:packages/styles":
+"@carbon/ibmdotcom-styles@npm:2.0.0-rc.0, @carbon/ibmdotcom-styles@workspace:packages/styles":
   version: 0.0.0-use.local
   resolution: "@carbon/ibmdotcom-styles@workspace:packages/styles"
   dependencies:
@@ -2771,7 +2785,23 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@carbon/ibmdotcom-utilities@npm:1.53.0, @carbon/ibmdotcom-utilities@workspace:packages/utilities":
+"@carbon/ibmdotcom-utilities@npm:1.53.0":
+  version: 1.53.0
+  resolution: "@carbon/ibmdotcom-utilities@npm:1.53.0"
+  dependencies:
+    "@carbon/telemetry": "npm:0.1.0"
+    axios: "npm:^0.27.2"
+    carbon-components: "npm:10.58.12"
+    isomorphic-dompurify: "npm:0.27.0"
+    js-cookie: "npm:^2.2.1"
+    marked: "npm:^4.0.10"
+    striptags: "npm:^3.2.0"
+    window-or-global: "npm:^1.0.1"
+  checksum: 77dfdb18543c3b745174df315f227f0d24114d404365696c62e51faa4fd87299dd6ca7dfa6295f5c05dbac6a9ff0e776557c02f5f798bc11ddc2a8e84a14f333
+  languageName: node
+  linkType: hard
+
+"@carbon/ibmdotcom-utilities@npm:2.0.0-rc.0, @carbon/ibmdotcom-utilities@workspace:packages/utilities":
   version: 0.0.0-use.local
   resolution: "@carbon/ibmdotcom-utilities@workspace:packages/utilities"
   dependencies:
@@ -2836,10 +2866,10 @@ __metadata:
     "@babel/preset-react": "npm:~7.12.1"
     "@babel/template": "npm:~7.12.0"
     "@babel/traverse": "npm:~7.23.0"
-    "@carbon/ibmdotcom-services": "npm:1.53.0"
+    "@carbon/ibmdotcom-services": "npm:2.0.0-rc.0"
     "@carbon/ibmdotcom-services-store": "npm:1.53.0"
-    "@carbon/ibmdotcom-styles": "npm:1.53.0"
-    "@carbon/ibmdotcom-utilities": "npm:1.53.0"
+    "@carbon/ibmdotcom-styles": "npm:2.0.0-rc.0"
+    "@carbon/ibmdotcom-utilities": "npm:2.0.0-rc.0"
     "@carbon/icon-helpers": "npm:10.43.1"
     "@carbon/icons": "npm:^11.23.0"
     "@carbon/icons-react": "npm:10.49.2"
@@ -11478,6 +11508,18 @@ __metadata:
   dependencies:
     rsvp: "npm:^4.8.4"
   checksum: 0b9f10daca09e521da9599f34c8e7af14ad879c336e2bdeb19955b375398ae1c5bcc91ac9f2429944343057ee9ed028b1b2fb28816c384e0e55d70c439b226f4
+  languageName: node
+  linkType: hard
+
+"carbon-components@npm:10.58.12":
+  version: 10.58.12
+  resolution: "carbon-components@npm:10.58.12"
+  dependencies:
+    "@carbon/telemetry": "npm:0.1.0"
+    flatpickr: "npm:4.6.1"
+    lodash.debounce: "npm:^4.0.8"
+    warning: "npm:^3.0.0"
+  checksum: 5ebf03f54aefcf906a568d7fa7303517a89b8ff0fd6211850d6e5bb08ad4837c1eff18ccafb2773fdb4a1ecbe9011ce52ee850f56baf6615546be27472076e57
   languageName: node
   linkType: hard
 
