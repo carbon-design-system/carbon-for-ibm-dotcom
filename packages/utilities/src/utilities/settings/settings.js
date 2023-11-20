@@ -14,7 +14,7 @@
  * Carbon for IBM.com v1.x.y-test',
  */
 const settings = {
-  version: 'Carbon for IBM.com v1.x.y-test',
+  version: 'Carbon for IBM.com v1.53.0',
   stablePrefix: 'dds',
 };
 
