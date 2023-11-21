@@ -71,7 +71,7 @@
   ],
   "dependencies": {
     "@babel/runtime": "^7.16.3",
-    "@carbon/styles": "^1.39.0",
+    "@carbon/styles": "^1.42.0",
     "flatpickr": "4.6.1",
     "lit": "^2.7.6",
     "lodash-es": "^4.17.21"
@@ -203,7 +203,7 @@
     "through2": "^3.0.0",
     "ts-loader": "^6.0.0",
     "tsickle": "~0.46.0",
-    "typescript": "~4.8.0",
+    "typescript": "^5.2.2",
     "use-debounce": "^3.2.0",
     "web-component-analyzer": "1.2.0-next.0",
     "webpack": "^4.46.0",
