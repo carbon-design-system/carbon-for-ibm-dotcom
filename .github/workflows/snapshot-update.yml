@@ -2,7 +2,7 @@ name: snapshot-update
 
 on:
   push:
-    branches: [ main, release/*, chore/carbon-upgrade-* ]
+    branches: [ v1 ]
 
 concurrency:
   group: snapshot-update-${{ github.ref }}
