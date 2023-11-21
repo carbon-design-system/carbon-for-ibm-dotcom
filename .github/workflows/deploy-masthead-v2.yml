@@ -140,7 +140,7 @@ jobs:
       - name: Install dependencies
         run: yarn install --immutable --immutable-cache
       - name: Build project
-        run: yarn lerna run --stream --ignore @carbon/ibmdotcom-react --ignore @carbon/ibmdotcom-web-components --ignore @carbon/ibmdotcom-services-store build
+        run: yarn lerna run --stream --ignore @carbon/ibmdotcom-web-components --ignore @carbon/ibmdotcom-services-store build
       - name: Set env vars
         uses: ./.github/actions/set-dotenv
         with:

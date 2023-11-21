@@ -15,7 +15,7 @@
  * Carbon for IBM.com v1.49.0',
  */
 const settings = {
-  version: 'Carbon for IBM.com v1.50.0',
+  version: 'Carbon for IBM.com v1.53.0',
   stablePrefix: 'c4d',
   prefix: 'cds',
 };

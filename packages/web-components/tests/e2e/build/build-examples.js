@@ -13,7 +13,7 @@ const path = require('path');
 const { execSync } = require('child_process');
 const execa = require('execa');
 const chalk = require('chalk');
-const program = require('commander');
+const { program } = require('commander');
 const { mkdirSync, track } = require('temp');
 
 program
@@ -139,10 +139,10 @@ function _setupPackages() {
     Object.keys(_packages).forEach(pack => {
       log(chalk.green(`Building package: ${pack}`));
       // Use execa to avoid the maxBuffer limitation of execSync - web components.tgz file size too large
-      execa.commandSync(`cd ${_packages[pack]} && yarn pack --filename ${_localPackagesFolder}/carbon-ibmdotcom-${pack}.tar.gz`, execOptions);
-      execa.commandSync(`tar xzf ${_localPackagesFolder}/carbon-ibmdotcom-${pack}.tar.gz --directory ${_localPackagesFolder}`, execOptions);
-      execa.commandSync(`mv ${_localPackagesFolder}/package ${_localPackagesFolder}/ibmdotcom-${pack}`, execOptions);
-      execa.commandSync(`node ${_testScriptFolder}/replace-dependencies.js -f ${_localPackagesFolder} ${_localPackagesFolder}/ibmdotcom-${pack}/package.json`, execOptions);
+      execa.commandSync(`cd "${_packages[pack]}" && yarn pack --filename "${_localPackagesFolder}/carbon-ibmdotcom-${pack}.tar.gz"`, execOptions);
+      execa.commandSync(`tar xzf "${_localPackagesFolder}/carbon-ibmdotcom-${pack}.tar.gz" --directory "${_localPackagesFolder}"`, execOptions);
+      execa.commandSync(`mv "${_localPackagesFolder}/package" "${_localPackagesFolder}/ibmdotcom-${pack}"`, execOptions);
+      execa.commandSync(`node "${_testScriptFolder}/replace-dependencies.js" -f "${_localPackagesFolder}" "${_localPackagesFolder}/ibmdotcom-${pack}/package.json"`, execOptions);
     });
   }
 }
