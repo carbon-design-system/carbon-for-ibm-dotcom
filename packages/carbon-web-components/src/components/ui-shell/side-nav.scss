@@ -136,3 +136,9 @@ $css--plex: true !default;
 :host(#{$prefix}-header-side-nav-items[has-divider]) {
   @extend .#{$prefix}--side-nav__header-divider;
 }
+
+.#{$prefix}--side-nav--expanded {
+  @media (min-width: 1056px) {
+    inline-size: 0px;
+  }
+}
