@@ -57,7 +57,8 @@ export const Default = (args) => {
         slot="footer"
         href="${href}"
         cta-type="${ifNonNull(ctaType)}"
-        color-scheme="inverse">
+        color-scheme="inverse"
+        no-poster>
         <dds-card-link-heading
           >Try a free virtual business framing session with IBM
           Garage</dds-card-link-heading
@@ -70,7 +71,10 @@ export const Default = (args) => {
 
 export default {
   title: 'Components/Feature section',
-  decorators: [(story) => html` ${story()} `],
+  decorators: [
+    (story) =>
+      html`<dds-video-cta-container>${story()}</dds-video-cta-container>`,
+  ],
   parameters: {
     ...readme.parameters,
     hasStoryPadding: true,
