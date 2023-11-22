@@ -20,7 +20,7 @@ import imgSm1x1 from '../../../../../storybook-images/assets/720/fpo--1x1--720x7
 import imgXs1x1 from '../../../../../storybook-images/assets/320/fpo--1x1--320x320--002.jpg';
 import { MEDIA_ALIGNMENT } from '../defs';
 import { CTA_TYPE } from '../../cta/defs';
-import { types, typeOptions } from '../../cta/__stories__/ctaTypeConfig';
+import { typeOptions } from '../../cta/__stories__/ctaTypeConfig';
 
 import readme from './README.stories.mdx';
 import textNullable from '../../../../.storybook/knob-text-nullable';
