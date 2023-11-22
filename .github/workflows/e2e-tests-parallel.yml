@@ -2,9 +2,9 @@ name: e2e-tests-parallel
 
 on:
   push:
-    branches: [ main, release/*, feat/*, fix/content-updates ]
+    branches: [ v1 ]
   pull_request:
-    branches: [ main, release/*, feat/*, fix/content-updates ]
+    branches: [ v1 ]
 
 concurrency:
   group: e2e-tests-parallel${{ github.ref }}
