@@ -9,10 +9,6 @@
 
 import { html } from 'lit';
 import { select } from '@storybook/addon-knobs';
-// Below path will be there when an application installs `carbon-web-components` package.
-// In our dev env, we auto-generate the file and re-map below path to to point to the generated file.
-// @ts-ignore
-import Filter16 from 'carbon-web-components/es/icons/filter/16';
 import View16 from '@carbon/icons/lib/view/16';
 import FolderOpen16 from '@carbon/icons/lib/folder--open/16';
 import Folders16 from '@carbon/icons/lib/folders/16';
@@ -87,7 +83,7 @@ const actions = html`
   <cds-slug-action-button>View Literature</cds-slug-action-button>
 `;
 
-export const Default = (args) => {
+export const Default = () => {
   return html`
     <style>
       ${styles}
