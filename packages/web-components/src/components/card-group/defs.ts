@@ -15,7 +15,7 @@ export enum GRID_MODE {
    * Default grid with 32px gutter
    */
   DEFAULT = 'default',
-  
+
   /**
    * Narrow 16px gutter
    */
