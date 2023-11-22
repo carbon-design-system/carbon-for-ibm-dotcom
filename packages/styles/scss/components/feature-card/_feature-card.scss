@@ -26,7 +26,7 @@
 $fcb-large-custom-bp-copy: 992px;
 $fcb-large-custom-bp-nocopy: 752px;
 $fcb-breakpoint-up--lg: map.get(map.get($grid-breakpoints, 'lg'), 'width') -
-  rem(1px);
+  to-rem(1px);
 
 $feature-flags: (
   enable-experimental-tile-contrast: true,
@@ -235,8 +235,8 @@ $feature-flags: (
 
       svg {
         @include breakpoint(sm) {
-          width: rem(20px);
-          height: rem(20px);
+          width: to-rem(20px);
+          height: to-rem(20px);
         }
 
         @include breakpoint(md) {
@@ -347,7 +347,7 @@ $feature-flags: (
       ::slotted(#{$c4d-prefix}-card-eyebrow),
       ::slotted(#{$c4d-prefix}-card-heading) {
         width: 100%;
-        max-width: rem(480px);
+        max-width: to-rem(480px);
 
         @include breakpoint(md) {
           width: 90%;
@@ -460,8 +460,8 @@ $feature-flags: (
     float: none;
 
     @include breakpoint(sm) {
-      width: rem(20px);
-      height: rem(20px);
+      width: to-rem(20px);
+      height: to-rem(20px);
     }
 
     @include breakpoint(md) {

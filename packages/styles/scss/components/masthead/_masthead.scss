@@ -83,11 +83,11 @@
         content: '';
         display: block;
         position: absolute;
-        right: rem(-3px);
+        right: to-rem(-3px);
         top: 50%;
         transform: translateY(-50%);
         height: $spacing-06;
-        width: rem(1px);
+        width: to-rem(1px);
         background-color: $layer-accent-01;
       }
     }
@@ -162,7 +162,7 @@
   @include type-style(body-compact-02, true);
 
   border: none;
-  padding: rem(13px) $spacing-05;
+  padding: to-rem(13px) $spacing-05;
   color: $text-secondary;
   white-space: nowrap;
 
@@ -307,7 +307,7 @@
     transition-timing-function: $search-transition;
     background: $background;
     border: none;
-    max-width: rem(1584px);
+    max-width: to-rem(1584px);
     margin-left: auto;
     margin-right: auto;
     margin-bottom: 1px;
@@ -341,7 +341,7 @@
   }
 
   .#{$prefix}--skip-to-content:focus {
-    height: rem(49px);
+    height: to-rem(49px);
   }
 
   .#{$prefix}--header__logo {
@@ -421,7 +421,7 @@
       bottom: 0;
       left: 0;
       right: 0;
-      height: rem(3px);
+      height: to-rem(3px);
       background-color: var(--c4d-active-l0-border-color, $link-primary);
     }
   }
@@ -430,7 +430,7 @@
   :host(#{$c4d-prefix}-megamenu-top-nav-menu) {
     a.#{$prefix}--header__menu-item {
       border-bottom: $spacing-01 solid transparent;
-      padding: rem(13px) $spacing-05 rem(11px);
+      padding: to-rem(13px) $spacing-05 to-rem(11px);
     }
   }
 
@@ -443,7 +443,7 @@
         background-color: $layer-02;
         box-shadow: 0 $spacing-01 6px 0 rgba(0, 0, 0, 0.3);
         bottom: -1px;
-        width: rem(256px);
+        width: to-rem(256px);
 
         li {
           @include masthead-top-nav-menu-item;
@@ -609,7 +609,7 @@
       top: 50%;
       transform: translateY(-50%);
       height: $spacing-06;
-      width: rem(1px);
+      width: to-rem(1px);
       background-color: #dcdcdc;
     }
   }
@@ -636,7 +636,7 @@
       top: 50%;
       transform: translateY(-50%);
       height: $spacing-06;
-      width: rem(1px);
+      width: to-rem(1px);
       background-color: #dcdcdc;
     }
   }

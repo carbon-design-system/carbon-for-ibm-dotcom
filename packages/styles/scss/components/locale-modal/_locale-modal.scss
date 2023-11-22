@@ -1,5 +1,5 @@
 /**
- * Copyright IBM Corp. 2016, 2021
+ * Copyright IBM Corp. 2016, 2023
  *
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
@@ -51,7 +51,7 @@
         grid-template-rows: auto 1fr auto;
       }
 
-      @media (max-height: rem(450px)) {
+      @media (max-height: to-rem(450px)) {
         .#{$c4d-prefix}--locale-modal__filtering {
           .#{$c4d-prefix}--locale-modal__filter {
             overflow-y: initial;
@@ -134,8 +134,8 @@
       align-items: center;
 
       .#{$c4d-prefix}--locale-modal__label-globe {
-        width: rem(20px);
-        height: rem(20px);
+        width: to-rem(20px);
+        height: to-rem(20px);
         margin-left: $spacing-02;
       }
 

@@ -1,5 +1,5 @@
 /**
- * Copyright IBM Corp. 2016, 2020
+ * Copyright IBM Corp. 2016, 2023
  *
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
@@ -19,11 +19,11 @@
     height: $spacing-09;
   }
   .#{$prefix}--select__invalid-icon {
-    height: rem(20px);
-    width: rem(20px);
+    height: to-rem(20px);
+    width: to-rem(20px);
   }
   .#{$prefix}--select__arrow {
-    width: rem(20px);
+    width: to-rem(20px);
   }
   .#{$prefix}--select--inline.#{$prefix}--select--invalid .#{$prefix}--label,
   .#{$prefix}--select--inline.#{$prefix}--select--invalid

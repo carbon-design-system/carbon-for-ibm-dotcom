@@ -23,9 +23,10 @@
 
 @mixin expressive-modal {
   $modal: '.#{$prefix}--modal';
-  $button-size: rem(48px);
-  $icon-size: rem(20px);
-  $offset-close-icon: $spacing-07 - math.div($button-size - $icon-size, 2);
+  $button-size: 48px;
+  $icon-size: 20px;
+  $offset-close-icon: $spacing-07 -
+    to-rem(math.div($button-size - $icon-size, 2));
 
   :host(#{$c4d-prefix}-expressive-modal) {
     @extend :host(#{$prefix}-modal);
@@ -33,7 +34,7 @@
     .#{$prefix}--modal-container {
       grid-template-rows: 1fr;
       padding: $spacing-05;
-      min-height: $spacing-07 + $icon-size + $spacing-07;
+      min-height: $spacing-10 + to-rem($icon-size);
 
       @include breakpoint(md) {
         padding: $spacing-07;
@@ -122,6 +123,6 @@
   .#{$prefix}--modal--expressive--fullwidth .#{$prefix}--modal-content {
     padding-right: 0;
     height: auto;
-    min-height: rem(500px);
+    min-height: to-rem(500px);
   }
 }

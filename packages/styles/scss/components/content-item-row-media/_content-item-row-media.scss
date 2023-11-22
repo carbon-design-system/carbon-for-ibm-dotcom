@@ -67,7 +67,7 @@
   }
 
   :host(#{$c4d-prefix}-content-item-row-media-copy) ::slotted(:not([slot])) {
-    max-width: rem(640px);
+    max-width: to-rem(640px);
     p {
       color: $text-primary;
     }

@@ -347,7 +347,7 @@
         top: calc($spacing-09 + 2px);
 
         @include breakpoint(md) {
-          top: rem(66px);
+          top: to-rem(66px);
         }
       }
 
@@ -387,10 +387,10 @@
         }
 
         .react-autosuggest__suggestions-container {
-          top: rem(50px);
+          top: to-rem(50px);
 
           @include breakpoint(md) {
-            top: rem(50px);
+            top: to-rem(50px);
           }
         }
       }

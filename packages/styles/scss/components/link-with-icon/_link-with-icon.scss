@@ -15,7 +15,7 @@
 @use '../lightbox-media-viewer/lightbox-media-viewer';
 
 @mixin link-with-icon {
-  .#{$prefix}--link-with-icon,
+  .#{$c4d-prefix}--link-with-icon,
   :host(#{$c4d-prefix}-link-with-icon),
   :host(#{$c4d-prefix}-link-list-item),
   :host(#{$c4d-prefix}-link-list-item-cta),

@@ -1,5 +1,5 @@
 /**
- * Copyright IBM Corp. 2016, 2021
+ * Copyright IBM Corp. 2016, 2023
  *
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
@@ -20,8 +20,8 @@
   }
 
   .#{$prefix}--number__input-wrapper .#{$prefix}--number__invalid {
-    width: rem(20px);
-    height: rem(20px);
+    width: to-rem(20px);
+    height: to-rem(20px);
   }
 
   .#{$prefix}--number__control-btn.up-icon,
@@ -30,8 +30,8 @@
     height: 100%;
 
     svg {
-      height: rem(20px);
-      width: rem(20px);
+      height: to-rem(20px);
+      width: to-rem(20px);
     }
   }
 }
