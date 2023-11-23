@@ -47,10 +47,12 @@
   }
 
   :host(#{$c4d-prefix}-image)[card-group-item],
-  :host(#{$c4d-prefix}-card-cta-image) {
+  :host(#{$c4d-prefix}-image) {
     @include ratio-base(4, 3, true);
 
     padding-top: 75%;
+    height: 0;
+    overflow: hidden;
 
     .#{$c4d-prefix}--image__img {
       position: absolute;
@@ -173,7 +175,7 @@
     }
   }
 
-  // cds-image-logo style.
+  // c4d-image-logo style.
   :host(#{$c4d-prefix}-image-logo) {
     background-color: $layer-02;
     margin: $spacing-05 $spacing-05 $spacing-03 $spacing-05;
@@ -183,6 +185,8 @@
 
     .#{$c4d-prefix}--image__img {
       object-fit: contain;
+      width: 100%;
+      height: 100%;
     }
   }
 }

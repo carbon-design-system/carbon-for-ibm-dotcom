@@ -17,7 +17,7 @@ import styles from './link-list.scss';
 import C4DLinkListItem from './link-list-item';
 import { carbonElement as customElement } from '../../internal/vendor/@carbon/web-components/globals/decorators/carbon-element';
 
-const { prefix, stablePrefix: c4dPrefix } = settings;
+const { stablePrefix: c4dPrefix } = settings;
 
 export enum END_TYPE_LAYOUT {
   /**
@@ -108,14 +108,14 @@ class C4DLinkList extends StableSelectorMixin(LitElement) {
         type === LINK_LIST_TYPE.END &&
         endTypeLayout === END_TYPE_LAYOUT.TWO_COLUMNS,
     });
-    const listTypeClasses =
-      {
-        [LINK_LIST_TYPE.HORIZONTAL]: `${prefix}--link-list__list--horizontal`,
-        [LINK_LIST_TYPE.VERTICAL]: `${prefix}--link-list__list--vertical`,
-        [LINK_LIST_TYPE.END]: `${c4dPrefix}-ce--link-list__list--end`,
-      }[type] ?? `${prefix}--link-list__list--card`;
+    const listTypeClasses = {
+      [LINK_LIST_TYPE.HORIZONTAL]: `${c4dPrefix}--link-list__list--horizontal`,
+      [LINK_LIST_TYPE.VERTICAL]: `${c4dPrefix}--link-list__list--vertical`,
+      [LINK_LIST_TYPE.END]: `${c4dPrefix}-ce--link-list__list--end`,
+      [LINK_LIST_TYPE.DEFAULT]: `${c4dPrefix}--link-list__list`,
+    }[type];
     const listClasses = classMap({
-      [`${prefix}--link-list__list`]: true,
+      // [`${c4dPrefix}--link-list__list`]: LINK_LIST_TYPE.DEFAULT,
       [listTypeClasses]: true,
       [`${c4dPrefix}-ce--link-list__list--split`]:
         type === LINK_LIST_TYPE.END &&
@@ -133,12 +133,6 @@ class C4DLinkList extends StableSelectorMixin(LitElement) {
   }
 
   updated() {
-    if (this.type === LINK_LIST_TYPE.END) {
-      this._childItems.forEach((elem) => {
-        (elem as C4DLinkListItem).type = LINK_LIST_ITEM_TYPE.END;
-      });
-    }
-
     if (
       this.type === LINK_LIST_TYPE.HORIZONTAL ||
       this.type === LINK_LIST_TYPE.VERTICAL

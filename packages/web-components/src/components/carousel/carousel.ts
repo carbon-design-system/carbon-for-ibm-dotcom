@@ -44,6 +44,12 @@ const minIntersectionRatio = 0.75;
 @customElement(`${c4dPrefix}-carousel`)
 class C4DCarousel extends HostListenerMixin(StableSelectorMixin(LitElement)) {
   /**
+   * The scrolling container node.
+   */
+  @query(`.${prefix}--carousel__scroll-container`)
+  private _containerNode?: HTMLElement;
+
+  /**
    * The scrolling contents node.
    */
   @query(`.${prefix}--carousel__scroll-contents`)
@@ -112,18 +118,10 @@ class C4DCarousel extends HostListenerMixin(StableSelectorMixin(LitElement)) {
 
   /**
    *  IntersectionObserver to watch carousel contents.
-   *  As items cross the minIntersectionRatio `inert` and `aria-hidden` are toggled.
+   *
+   *  @see connectedCallback()
    */
-  private _intersectionObserver = new IntersectionObserver(
-    this._onIntersect.bind(this),
-    {
-      root: this._contentsNode,
-      threshold: [
-        0.5 + this._intersectionThresholdDifference,
-        0.5 - this._intersectionThresholdDifference,
-      ],
-    }
-  );
+  private _intersectionObserver: IntersectionObserver | null = null;
 
   private _intersectionTimeout?;
 
@@ -237,6 +235,40 @@ class C4DCarousel extends HostListenerMixin(StableSelectorMixin(LitElement)) {
           this._observeResizeContainer
         );
         this._observerResizeContainer.observe(contentsNode);
+      }
+    }
+  }
+
+  /**
+   * Cleans-up and creates the intersection observer for the scrolling container.
+   *
+   * @param [options] The options.
+   * @param [options.create] `true` to create the new intersection observer.
+   */
+  private _cleanAndCreateObserverIntersection({
+    create,
+  }: { create?: boolean } = {}) {
+    const { _containerNode: containerNode } = this;
+    // Avoid creating the intersection observer prematurely by checking that
+    // this._containerNode has been set.
+    if (containerNode) {
+      if (this._intersectionObserver) {
+        this._intersectionObserver.disconnect();
+        this._intersectionObserver = null;
+      }
+      if (create) {
+        // As items cross the minIntersectionRatio `inert` and `aria-hidden` are
+        // toggled.
+        this._intersectionObserver = new IntersectionObserver(
+          this._onIntersect.bind(this),
+          {
+            root: containerNode,
+            threshold: [
+              0.5 + this._intersectionThresholdDifference,
+              0.5 - this._intersectionThresholdDifference,
+            ],
+          }
+        );
       }
     }
   }
@@ -370,10 +402,10 @@ class C4DCarousel extends HostListenerMixin(StableSelectorMixin(LitElement)) {
 
     this._childItems = (event.target as HTMLSlotElement).assignedElements();
 
-    this._intersectionObserver.disconnect();
+    this._intersectionObserver?.disconnect();
 
     this._childItems.forEach((item) => {
-      this._intersectionObserver.observe(item);
+      this._intersectionObserver?.observe(item);
     });
 
     // retrieve item heading, eyebrows, and footers to set same height
@@ -406,16 +438,18 @@ class C4DCarousel extends HostListenerMixin(StableSelectorMixin(LitElement)) {
               (this.constructor as typeof C4DCarousel).selectorItemTagGroup
             )
           );
+
           this._childItemHeadings.push(
             (e as HTMLElement).querySelector(
               (this.constructor as typeof C4DCarousel).selectorItemHeading
             )
           );
 
+          // gets card cta-type="video" headings
           this._childItemHeadings.push(
             (e as HTMLElement)
               .querySelector(
-                (this.constructor as typeof C4DCarousel).selectorItemCardCTA
+                (this.constructor as typeof C4DCarousel).selectorItem
               )
               ?.shadowRoot?.querySelector(
                 (this.constructor as typeof C4DCarousel).selectorItemHeading
@@ -433,7 +467,6 @@ class C4DCarousel extends HostListenerMixin(StableSelectorMixin(LitElement)) {
           );
         });
       this._observeResizeRoot();
-      this.markHiddenAsInert();
     }
   }
 
@@ -480,6 +513,7 @@ class C4DCarousel extends HostListenerMixin(StableSelectorMixin(LitElement)) {
       this._childItemEyebrows.filter((item) => item !== null),
       'sm'
     );
+
     sameHeight(
       this._childItemHeadings.filter((item) => item !== null),
       'sm'
@@ -611,6 +645,7 @@ class C4DCarousel extends HostListenerMixin(StableSelectorMixin(LitElement)) {
   connectedCallback() {
     super.connectedCallback();
     this._cleanAndCreateObserverResize({ create: true });
+    this._cleanAndCreateObserverIntersection({ create: true });
 
     const containingModal = this.closest(
       `${c4dPrefix}-expressive-modal`
@@ -626,37 +661,15 @@ class C4DCarousel extends HostListenerMixin(StableSelectorMixin(LitElement)) {
     }
   }
 
-  markHiddenAsInert() {
-    const { _childItems: childItems, start, pageSize } = this;
-
-    childItems.forEach((item) => {
-      const index = childItems.indexOf(item);
-      item.inert = index < start || index > start + pageSize - 1;
-    });
-  }
-
   disconnectedCallback() {
     this._cleanAndCreateObserverResize();
+    this._cleanAndCreateObserverIntersection();
     super.disconnectedCallback();
   }
 
   firstUpdated() {
     this._cleanAndCreateObserverResize({ create: true });
-  }
-
-  protected updated(changedProperties) {
-    if (changedProperties.has('start')) {
-      const { _childItems: childItems, start, pageSize } = this;
-
-      childItems.forEach((item) => {
-        const index = childItems.indexOf(item);
-        if (index < start || index > start + pageSize - 1) {
-          item.inert = true;
-        } else {
-          item.inert = false;
-        }
-      });
-    }
+    this._cleanAndCreateObserverIntersection({ create: true });
   }
 
   render() {
@@ -754,7 +767,7 @@ class C4DCarousel extends HostListenerMixin(StableSelectorMixin(LitElement)) {
    * The name of the custom event fired when the video title is updated
    */
   static get eventVideoTitleUpdated() {
-    return `${c4dPrefix}-card-cta-video-title-updated`;
+    return `${c4dPrefix}-card-video-title-updated`;
   }
 
   /**
@@ -764,12 +777,12 @@ class C4DCarousel extends HostListenerMixin(StableSelectorMixin(LitElement)) {
     return `${c4dPrefix}-card`;
   }
 
-  /**
-   * The selector for the card cta
-   */
-  static get selectorItemCardCTA() {
-    return `${c4dPrefix}-card-cta`;
-  }
+  // /**
+  //  * The selector for the card cta
+  //  */
+  // static get selectorItemCardCTA() {
+  //   return `${c4dPrefix}-card`;
+  // }
 
   /**
    * The selector for the video cta container
@@ -789,7 +802,7 @@ class C4DCarousel extends HostListenerMixin(StableSelectorMixin(LitElement)) {
    * A selector that will return the card item's tag group
    */
   static get selectorItemTagGroup() {
-    return `${c4dPrefix}-tag-group`;
+    return `div`;
   }
 
   /**
@@ -810,7 +823,7 @@ class C4DCarousel extends HostListenerMixin(StableSelectorMixin(LitElement)) {
    * A selector that will return the card item's footer
    */
   static get selectorItemFooter() {
-    return `${c4dPrefix}-card-cta-footer`;
+    return `${c4dPrefix}-card-footer`;
   }
 
   static get stableSelector() {

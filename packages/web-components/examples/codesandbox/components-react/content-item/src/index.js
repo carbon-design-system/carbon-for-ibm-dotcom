@@ -12,16 +12,16 @@ import { render } from 'react-dom';
 import C4DContentItem from '@carbon/ibmdotcom-web-components/es/components-react/content-item/content-item';
 import C4DContentItemHeading from '@carbon/ibmdotcom-web-components/es/components-react/content-item/content-item-heading';
 import C4DContentItemCopy from '@carbon/ibmdotcom-web-components/es/components-react/content-item/content-item-copy';
-import C4DTextCTA from '@carbon/ibmdotcom-web-components/es/components-react/cta/text-cta';
+import C4DLinkWithIcon from '@carbon/ibmdotcom-web-components/es/components-react/link-with-icon/link-with-icon';
 import './index.css';
 
 const App = () => (
   <C4DContentItem>
     <C4DContentItemHeading>Heading</C4DContentItemHeading>
     <C4DContentItemCopy>Copy</C4DContentItemCopy>
-    <C4DTextCTA slot="footer" cta-type="local" href="https://www.example.com">
+    <C4DLinkWithIcon slot="footer" cta-type="local" href="https://www.example.com">
       CTA text
-    </C4DTextCTA>
+    </C4DLinkWithIcon>
   </C4DContentItem>
 );
 

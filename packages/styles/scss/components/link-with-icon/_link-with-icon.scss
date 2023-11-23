@@ -22,13 +22,15 @@
   :host(#{$c4d-prefix}-text-cta) {
     span {
       vertical-align: middle;
+      align-self: center;
+      flex: 1;
     }
 
     svg,
     ::slotted(svg[slot='icon']) {
-      display: block;
+      display: inline;
       margin-left: $spacing-03;
-      align-self: center;
+      align-self: middle;
       fill: currentColor;
     }
 
@@ -79,7 +81,8 @@
         text-underline-position: under;
       }
 
-      svg {
+      svg,
+      ::slotted(svg[slot='icon']) {
         display: inline;
         vertical-align: middle;
         white-space: nowrap;

@@ -12,6 +12,7 @@
 @use '@carbon/styles/scss/spacing' as *;
 @use '@carbon/styles/scss/theme' as *;
 @use '@carbon/styles/scss/themes' as *;
+@use '@carbon/styles/scss/utilities' as *;
 @use '../../globals/utils/flex-grid' as *;
 @use '../../globals/vars' as *;
 
@@ -22,7 +23,7 @@
 @mixin footer-logo {
   :host(#{$c4d-prefix}-footer-logo),
   .#{$prefix}--footer-logo {
-    @include theme($g90, feature-flag-enabled('enable-css-custom-properties'));
+    @include theme($g100, feature-flag-enabled('enable-css-custom-properties'));
 
     &:focus-visible {
       outline: none;
@@ -60,5 +61,15 @@
     fill: currentColor;
     display: inline-block;
     width: 128px;
+  }
+
+  :host(#{$c4d-prefix}-footer-logo[size='micro']) {
+    align-self: center;
+    margin: 0;
+
+    @include breakpoint-between(md, lg) {
+      position: absolute;
+      bottom: rem(58.5px);
+    }
   }
 }

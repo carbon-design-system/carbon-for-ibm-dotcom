@@ -34,7 +34,7 @@ export const Default = (args) => {
         >
         <c4d-filter-group>
           <c4d-filter-group-item
-            title-text="Product types"
+            title="Product types"
             filter-cutoff="${filterCutoff}"
             max-filters="${maxFilters}"
             view-all-text="${viewAllText}">
@@ -79,7 +79,7 @@ export const Default = (args) => {
               >Software</c4d-filter-panel-checkbox
             >
           </c4d-filter-group-item>
-          <c4d-filter-group-item title-text="Technologies">
+          <c4d-filter-group-item title="Technologies">
             <c4d-filter-panel-input-select
               header-value="Analytics"
               title="Analytics"></c4d-filter-panel-input-select>
@@ -122,7 +122,7 @@ export const Default = (args) => {
               header-value="Software development"
               title="Software development"></c4d-filter-panel-input-select>
           </c4d-filter-group-item>
-          <c4d-filter-group-item title-text="Business needs">
+          <c4d-filter-group-item title="Business needs">
             <c4d-filter-panel-input-select
               header-value="Business operations"
               title="Business operations"></c4d-filter-panel-input-select>
@@ -142,7 +142,7 @@ export const Default = (args) => {
               header-value="Supply chain management"
               title="Supply chain management"></c4d-filter-panel-input-select>
           </c4d-filter-group-item>
-          <c4d-filter-group-item title-text="Deployment types">
+          <c4d-filter-group-item title="Deployment types">
             <c4d-filter-panel-checkbox
               ?checked=${selectedItems >= 9}
               value="On-premises"

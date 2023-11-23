@@ -1,5 +1,5 @@
 /**
- * Copyright IBM Corp. 2016, 2022
+ * Copyright IBM Corp. 2016, 2023
  *
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
@@ -150,19 +150,27 @@
 
     .#{$prefix}--card__wrapper {
       @include breakpoint(md) {
-        width: calc(50% - #{$spacing-04});
+        width: calc(50% - #{$spacing-04} + #{rem(5px)});
       }
 
       @include breakpoint(lg) {
-        width: calc(33.33% - #{$spacing-04});
+        width: calc(33.33% - #{$spacing-04} + #{rem(2px)});
       }
     }
   }
 
   // Add a $layer-accent-01 border line color when the grid mode is equal "collapsed".
-  :host(#{$c4d-prefix}-card-in-card)[grid-mode='collapsed'],
+  :host(#{$c4d-prefix}-card-in-card)[grid-mode='default'],
   .#{$prefix}--card-in-card--narrow {
     .#{$prefix}--card__wrapper {
+      @include breakpoint(md) {
+        width: calc(50% - #{$spacing-05} + #{rem(1px)});
+      }
+
+      @include breakpoint(lg) {
+        width: calc(33.33% - #{rem(20.5px)});
+      }
+
       &::after {
         content: '';
         display: block;

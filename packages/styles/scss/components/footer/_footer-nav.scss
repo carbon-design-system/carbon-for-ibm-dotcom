@@ -13,7 +13,6 @@
 @use '@carbon/styles/scss/spacing' as *;
 @use '@carbon/styles/scss/theme' as *;
 @use '@carbon/styles/scss/themes' as *;
-@use 'temp-breakpoints' as *;
 @use '../../globals/utils/flex-grid' as *;
 @use '../../globals/vars' as *;
 
@@ -23,7 +22,7 @@
 
 @mixin footer-nav {
   :host(#{$c4d-prefix}-footer-nav) {
-    @include theme($g90, feature-flag-enabled('enable-css-custom-properties'));
+    @include theme($g100, feature-flag-enabled('enable-css-custom-properties'));
 
     @include accordion;
     @include make-col-ready;
@@ -32,18 +31,11 @@
     order: 1;
 
     @include breakpoint(md) {
-      border-top: 1px solid $layer-accent-01;
       padding: 0 calc($grid-gutter / 2);
     }
 
-    @include breakpoint-between('md', $TEMP--breakpoint-down--lg) {
-      padding-top: $spacing-04;
-    }
-
     @include breakpoint(lg) {
-      padding-top: $spacing-05;
       @include make-col(12, 16);
-      @include make-col-offset(4, 16);
     }
 
     .#{$prefix}--accordion__heading {
@@ -51,6 +43,14 @@
       align-items: center;
       min-height: $spacing-09;
       padding: 0;
+    }
+
+    ::slotted([slot='locale-button']),
+    ::slotted([slot='language-selector']) {
+      display: inline-block;
+      margin-left: 0;
+      width: 100%;
+      max-width: 100%;
     }
   }
 

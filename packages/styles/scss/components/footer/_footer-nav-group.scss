@@ -22,7 +22,7 @@
   :host(#{$c4d-prefix}-footer-nav-group),
   .#{$prefix}--footer-nav-group,
   .#{$prefix}--footer-nav-group.#{$prefix}--accordion__item {
-    @include theme($g90, feature-flag-enabled('enable-css-custom-properties'));
+    @include theme($g100, feature-flag-enabled('enable-css-custom-properties'));
 
     padding-left: 0;
     display: block;
@@ -45,10 +45,6 @@
         padding-inline-start: 0;
         margin: 0;
       }
-    }
-
-    .#{$prefix}--accordion__title {
-      margin: 0 0 0 $spacing-05;
     }
 
     .#{$prefix}--accordion__arrow {

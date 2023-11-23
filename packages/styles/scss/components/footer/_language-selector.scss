@@ -23,7 +23,7 @@
 
 @mixin language-selector {
   .#{$prefix}--language-selector__container {
-    @include theme($g90, feature-flag-enabled('enable-css-custom-properties'));
+    @include theme($g100, feature-flag-enabled('enable-css-custom-properties'));
 
     @include combo-box;
     @include list-box;

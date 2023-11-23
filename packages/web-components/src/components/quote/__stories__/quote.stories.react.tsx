@@ -1,7 +1,7 @@
 /**
  * @license
  *
- * Copyright IBM Corp. 2020, 2022
+ * Copyright IBM Corp. 2020, 2023
  *
  * This source code is licensed under the Apache-2.0 license found in the
  * LICENSE file in the root directory of this source tree.
@@ -18,7 +18,7 @@ import C4DQuoteSourceHeading from '@carbon/ibmdotcom-web-components/es/component
 import C4DQuoteSourceCopy from '@carbon/ibmdotcom-web-components/es/components-react/quote/quote-source-copy';
 import C4DQuoteSourceBottomCopy from '@carbon/ibmdotcom-web-components/es/components-react/quote/quote-source-bottom-copy';
 import textNullable from '../../../../.storybook/knob-text-nullable';
-import { QUOTE_TYPES, QUOTE_COLOR_SCHEMES } from '../quote';
+import { QUOTE_TYPES } from '../quote';
 import readme from './README.stories.react.mdx';
 
 const types = {
@@ -31,22 +31,16 @@ const types = {
   [`${QUOTE_TYPES.CORNER_BRACKET}`]: QUOTE_TYPES.CORNER_BRACKET,
 };
 
-const colorSchemes = {
-  [`${QUOTE_COLOR_SCHEMES.REGULAR}`]: QUOTE_COLOR_SCHEMES.REGULAR,
-  [`${QUOTE_COLOR_SCHEMES.INVERSE}`]: QUOTE_COLOR_SCHEMES.INVERSE,
-};
-
 export const Default = (args) => {
   const {
     copy,
     quoteMark,
     sourceHeading,
     sourceCopy,
-    sourceBottomCopy,
-    colorScheme,
+    sourceBottomCopy
   } = args?.Quote ?? {};
   return (
-    <C4DQuote color-scheme={colorScheme} mark-type={quoteMark}>
+    <C4DQuote mark-type={quoteMark}>
       {copy}
       <C4DQuoteSourceHeading>{sourceHeading}</C4DQuoteSourceHeading>
       <C4DQuoteSourceCopy>{sourceCopy}</C4DQuoteSourceCopy>
@@ -66,7 +60,11 @@ Default.story = {
           'Quote (copy):',
           'Bringing together the technology and expertise for a new way to create'
         ),
-        quoteMark: select('Quote Mark (markType):', types, types.doubleCurved),
+        quoteMark: select(
+          'Quote Mark (markType):',
+          types,
+          types['double-curved']
+        ),
         sourceHeading: textNullable(
           'Source heading (source-heading slot)',
           'John Doe'
@@ -78,11 +76,6 @@ Default.story = {
         sourceBottomCopy: textNullable(
           'Source bottom copy (source-bottom-copy slot)',
           'IBM Cloud'
-        ),
-        colorScheme: select(
-          'Color Scheme (color-scheme)',
-          colorSchemes,
-          colorSchemes.regular
         ),
       }),
     },

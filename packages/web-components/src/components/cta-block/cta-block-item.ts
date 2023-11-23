@@ -60,12 +60,6 @@ class C4DCTABlockItem extends StableSelectorMixin(C4DContentItem) {
     const { name } = target as HTMLSlotElement;
     const hasContent = (target as HTMLSlotElement)
       .assignedNodes()
-      .filter(
-        (elem) =>
-          !(elem as HTMLElement).matches?.(
-            (this.constructor as typeof C4DCTABlockItem).selectorButtonGroup
-          )
-      )
       .some(
         (node) => node.nodeType !== Node.TEXT_NODE || node!.textContent!.trim()
       );

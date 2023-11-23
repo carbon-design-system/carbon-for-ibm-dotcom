@@ -19,10 +19,9 @@ import C4DImageItem from '@carbon/ibmdotcom-web-components/es/components-react/i
 import C4DCardCTAImage from '@carbon/ibmdotcom-web-components/es/components-react/cta/card-cta-image';
 import C4DCardEyebrow from '@carbon/ibmdotcom-web-components/es/components-react/card/card-eyebrow';
 import C4DCardHeading from '@carbon/ibmdotcom-web-components/es/components-react/card/card-heading';
-import C4DCardCTAFooter from '@carbon/ibmdotcom-web-components/es/components-react/cta/card-cta-footer';
+// @ts-ignore
 import C4DTagGroup from '@carbon/ibmdotcom-web-components/es/components-react/tag-group/tag-group';
-import C4DCardGroupCardLinkItem from '@carbon/ibmdotcom-web-components/es/components-react/card-group/card-group-card-link-item';
-import C4DCardLinkHeading from '@carbon/ibmdotcom-web-components/es/components-react/card-link/card-link-heading';
+import C4DCardFooter from '@carbon/ibmdotcom-web-components/es/components-react/card/card-footer';
 import C4DCardInCard from '@carbon/ibmdotcom-web-components/es/components-react/card-in-card/card-in-card';
 import C4DCardInCardImage from '@carbon/ibmdotcom-web-components/es/components-react/card-in-card/card-in-card-image';
 import C4DVideoCTAContainer from '@carbon/ibmdotcom-web-components/es/components-react/cta/video-cta-container';
@@ -52,22 +51,22 @@ const cardsCol = {
   '4 cards per row': 'cds-ce-demo-devenv--cards-in-row-4',
 };
 
-const gridModes = {
-  [`Collapsed (1px)`]: GRID_MODE.COLLAPSED,
+const staticGridModes = {
   [`Narrow (16px)`]: GRID_MODE.NARROW,
-  [`Outlined cards (1px border)`]: GRID_MODE.BORDER,
+  [`Default (32px)`]: GRID_MODE.DEFAULT,
 };
 
-const setGridMode = {
-  'Card static': 'border',
-  'Card link': 'narrow',
+const gridModes = {
+  [`Condensed (1px)`]: GRID_MODE.CONDENSED,
+  [`Narrow (16px)`]: GRID_MODE.NARROW,
+  [`Default (32px)`]: GRID_MODE.DEFAULT,
 };
 
 const tagGroupContent = (
-  <C4DTagGroup>
+  <div>
     <Tag type="cool-gray">Systems w/TPS</Tag>
     <Tag type="cool-gray">Virtual</Tag>
-  </C4DTagGroup>
+  </div>
 );
 
 const textCTAContent = (
@@ -84,7 +83,6 @@ const cardsDiffLengthPhrase = (
   index,
   tagGroup,
   media,
-  gridMode,
   cardType,
   addCta
 ) => {
@@ -92,9 +90,7 @@ const cardsDiffLengthPhrase = (
     <C4DCardGroupItem
       cta-type={cardType === 'Card static' ? '' : 'local'}
       href={cardType === 'Card static' ? '' : 'https://example.com'}
-      colorScheme={
-        cardType === 'Card static' || gridMode === 'border' ? 'light' : null
-      }>
+      >
       {media ? imageContent : ''}
       <C4DCardEyebrow>Topic</C4DCardEyebrow>
       <C4DCardHeading>
@@ -105,10 +101,10 @@ const cardsDiffLengthPhrase = (
         ultricies est.'
       </p>
       {tagGroup ? tagGroupContent : ''}
-      {cardType === 'Card static' && addCta ? (
-        textCTAContent
+      {cardType === 'Card static' ? ( addCta ?
+        textCTAContent : ''
       ) : (
-        <C4DCardCTAFooter slot="footer"></C4DCardCTAFooter>
+        <C4DCardFooter slot="footer"></C4DCardFooter>
       )}
     </C4DCardGroupItem>
   );
@@ -117,13 +113,14 @@ const cardsDiffLengthPhrase = (
     <C4DCardGroupItem
       cta-type="video"
       href={videoId}
-      color-scheme={gridMode === 'border' ? 'light' : null}>
+      >
       <C4DCardEyebrow>Topic</C4DCardEyebrow>
+      <C4DCardHeading>Topic</C4DCardHeading>
       {tagGroup ? tagGroupContent : ''}
-      <C4DCardCTAFooter
+      <C4DCardFooter
         cta-type="video"
         href={videoId}
-        slot="footer"></C4DCardCTAFooter>
+        slot="footer"></C4DCardFooter>
     </C4DCardGroupItem>
   );
 
@@ -138,7 +135,6 @@ const cardsDiffLengthPhrase = (
 const longHeadingCardGroupItem = (
   tagGroup,
   media,
-  gridMode,
   cardType,
   addCta
 ) => {
@@ -146,9 +142,7 @@ const longHeadingCardGroupItem = (
     <C4DCardGroupItem
       cta-type={cardType === 'Card static' ? '' : 'local'}
       href={cardType === 'Card static' ? '' : 'https://example.com'}
-      colorScheme={
-        cardType === 'Card static' || gridMode === 'border' ? 'light' : null
-      }>
+      >
       {media ? imageContent : ''}
       <C4DCardEyebrow>Topic</C4DCardEyebrow>
       <C4DCardHeading>
@@ -160,20 +154,19 @@ const longHeadingCardGroupItem = (
         elit sollicitudin, sodales nulla quis, consequat libero.
       </p>
       {tagGroup ? tagGroupContent : ''}
-      {cardType === 'Card static' && addCta ? (
-        textCTAContent
-      ) : (
-        <C4DCardCTAFooter slot="footer"></C4DCardCTAFooter>
+      {cardType === 'Card static' ? (addCta ? textCTAContent : '') 
+      : (
+        <C4DCardFooter slot="footer"></C4DCardFooter>
       )}
     </C4DCardGroupItem>
   );
 };
 
-const pictogramCard = (gridMode) => (
+const pictogramCard = () => (
   <C4DCardGroupItem
     href="https://example.com"
-    pictogramPlacement="top"
-    colorScheme={gridMode === 'border' ? 'light' : null}>
+    pictogramPlacement="bottom"
+    >
     <C4DCardHeading>Aerospace and defence</C4DCardHeading>
     <p>
       Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut
@@ -185,17 +178,16 @@ const pictogramCard = (gridMode) => (
 );
 
 const cardLink = (
-  <C4DCardGroupCardLinkItem
+  <C4DCardGroupItem
+    link
     cta-type="local"
     href="https://example.com"
     pattern-background>
-    <C4DCardLinkHeading>IBM Developer</C4DCardLinkHeading>
+    <C4DCardHeading>IBM Developer</C4DCardHeading>
     <p>Learn, code and connect with your community</p>
-    <C4DCardCTAFooter slot="footer"></C4DCardCTAFooter>
-  </C4DCardGroupCardLinkItem>
+    <C4DCardFooter slot="footer"></C4DCardFooter>
+  </C4DCardGroupItem>
 );
-
-const emptyCard = <C4DCardGroupItem empty></C4DCardGroupItem>;
 
 const cardInCardItems = (i, tagGroup, media, gridMode) => {
   if (media) {
@@ -211,7 +203,7 @@ const cardInCardItems = (i, tagGroup, media, gridMode) => {
           litter
         </C4DCardHeading>
         {tagGroup ? tagGroupContent : ''}
-        <C4DCardCTAFooter slot="footer" />
+        <C4DCardFooter slot="footer" />
       </C4DCardGroupItem>
     ) : (
       <C4DCardGroupItem
@@ -220,7 +212,7 @@ const cardInCardItems = (i, tagGroup, media, gridMode) => {
         colorScheme={gridMode === 'border' ? 'light' : null}>
         <C4DCardEyebrow>Topic</C4DCardEyebrow>
         {tagGroup ? tagGroupContent : ''}
-        <C4DCardCTAFooter cta-type="video" slot="footer" href="0_ibuqxqbe" />
+        <C4DCardFooter cta-type="video" slot="footer" href="0_ibuqxqbe" />
       </C4DCardGroupItem>
     );
   }
@@ -228,14 +220,14 @@ const cardInCardItems = (i, tagGroup, media, gridMode) => {
     <C4DCardGroupItem
       cta-type="local"
       href="https://example.com"
-      colorScheme={gridMode === 'border' ? 'light' : null}>
+      >
       <C4DCardEyebrow>Label</C4DCardEyebrow>
       <C4DCardHeading>
         The United Nations Environment Program works with IBM to reduce marine
         litter
       </C4DCardHeading>
       {tagGroup ? tagGroupContent : ''}
-      <C4DCardCTAFooter slot="footer" />
+      <C4DCardFooter slot="footer" />
     </C4DCardGroupItem>
   );
 };
@@ -248,24 +240,19 @@ export const Default = (args) => {
     tagGroup,
     cardsPerRow,
     gridMode,
-    offset,
     cta,
     addCta,
   } = args?.CardGroup ?? {};
 
   const allCards: object[] = [];
 
-  if (offset === '1') {
-    allCards.push(emptyCard);
-  }
-
   if (cardType === 'Card - default') {
     allCards.push(
-      longHeadingCardGroupItem(tagGroup, media, gridMode, cardType, addCta)
+      longHeadingCardGroupItem(tagGroup, media, cardType, addCta)
     );
     for (let i = 1; i < cards; i++) {
       allCards.push(
-        cardsDiffLengthPhrase(i, tagGroup, media, gridMode, cardType, addCta)
+        cardsDiffLengthPhrase(i, tagGroup, media, cardType, addCta)
       );
     }
     if (cta) {
@@ -275,9 +262,9 @@ export const Default = (args) => {
           href="https://example.com"
           colorScheme="inverse">
           <C4DCardHeading>Top level card link</C4DCardHeading>
-          <C4DCardCTAFooter
+          <C4DCardFooter
             slot="footer"
-            color-scheme="inverse"></C4DCardCTAFooter>
+            color-scheme="inverse"></C4DCardFooter>
         </C4DCardGroupItem>
       );
     }
@@ -285,17 +272,17 @@ export const Default = (args) => {
 
   if (cardType === 'Card - pictogram') {
     for (let i = 0; i < cards; i++) {
-      allCards.push(pictogramCard(gridMode));
+      allCards.push(pictogramCard());
     }
   }
 
   if (cardType === 'Card static') {
     allCards.push(
-      longHeadingCardGroupItem(tagGroup, media, gridMode, cardType, addCta)
+      longHeadingCardGroupItem(tagGroup, media, cardType, addCta)
     );
     for (let i = 1; i < cards; i++) {
       allCards.push(
-        cardsDiffLengthPhrase(i, tagGroup, media, gridMode, cardType, addCta)
+        cardsDiffLengthPhrase(i, tagGroup, media, cardType, addCta)
       );
     }
     if (cta) {
@@ -303,9 +290,9 @@ export const Default = (args) => {
         <C4DCardGroupItem
           cta-type="local"
           href="https://example.com"
-          colorScheme="inverse">
+          >
           <C4DCardHeading>Top level card link</C4DCardHeading>
-          <C4DCardCTAFooter slot="footer" colorScheme="inverse" />
+          <C4DCardFooter slot="footer"/>
         </C4DCardGroupItem>
       );
     }
@@ -323,7 +310,7 @@ export const Default = (args) => {
     <C4DCardGroup
       cardsPerRow={colCount}
       class={cardsPerRow}
-      gridMode={setGridMode[cardType] || gridMode}
+      gridMode={gridMode}
       pictograms={cardType === 'Card - pictogram'}>
       {allCards}
     </C4DCardGroup>
@@ -357,10 +344,8 @@ Default.story = {
           cardsCol['3 cards per row (default)']
         );
         const gridMode =
-          cardType === 'Card static' || cardType === 'Card link'
-            ? ''
-            : select('Grid mode:', gridModes, gridModes['Collapsed (1px)']);
-        const offset = select('Offset:', ['0', '1'], '0');
+            cardType === 'Card static' ? select('Grid mode:', staticGridModes, staticGridModes['Default (32px)']) 
+          : select('Grid mode:', gridModes, gridModes['Default (32px)']);
         const cta = media ? '' : boolean('Add CTA card:', false);
         return {
           cardType,
@@ -370,7 +355,6 @@ Default.story = {
           cards,
           cardsPerRow,
           gridMode,
-          offset,
           cta,
         };
       },
@@ -401,7 +385,7 @@ export const withCardInCard = (args) => {
         <C4DCardHeading>
           Standard Bank Group prepares to embrace Africa’s AI opportunity
         </C4DCardHeading>
-        <C4DCardCTAFooter></C4DCardCTAFooter>
+        <C4DCardFooter></C4DCardFooter>
       </C4DCardInCard>
       <C4DCardGroup gridMode={gridMode || undefined}>{allCards}</C4DCardGroup>
     </>

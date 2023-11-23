@@ -21,6 +21,7 @@
 @use '../link-with-icon/link-with-icon';
 
 @mixin card {
+  .#{$prefix}--card,
   :host(#{$c4d-prefix}-card),
   :host(#{$c4d-prefix}-region-item) .#{$prefix}--link,
   :host(#{$c4d-prefix}-card-cta),
@@ -30,18 +31,7 @@
   :host(#{$c4d-prefix}-content-group-cards-item),
   :host(#{$c4d-prefix}-content-group-cards-item) .#{$prefix}--card {
     @include tile($enable-experimental-tile-contrast: true);
-  }
 
-  :host(#{$c4d-prefix}-card),
-  :host(#{$c4d-prefix}-region-item) .#{$prefix}--link,
-  :host(#{$c4d-prefix}-link-list-item-card),
-  :host(#{$c4d-prefix}-card-group-item),
-  :host(#{$c4d-prefix}-card-group-item) .#{$prefix}--card,
-  :host(#{$c4d-prefix}-card-cta),
-  :host(#{$c4d-prefix}-link-list-item-card-cta),
-  :host(#{$c4d-prefix}-card-in-card),
-  :host(#{$c4d-prefix}-content-group-cards-item),
-  :host(#{$c4d-prefix}-content-group-cards-item) .#{$prefix}--card {
     position: relative;
     display: flex;
     flex-direction: column;
@@ -158,12 +148,6 @@
     .#{$prefix}--card__img {
       transition: $duration-moderate-01 motion(standard, productive);
     }
-
-    // styles the React wrapper version of Tag Group within Card
-    /* stylelint-disable-next-line selector-type-no-unknown */
-    cds-tag-group {
-      margin-top: $spacing-05;
-    }
   }
 
   // Card with pictogram placement style
@@ -272,6 +256,12 @@
       display: flex;
       flex-direction: column;
       gap: $spacing-05;
+    }
+
+    ::slotted(div) {
+      /* stylelint-disable declaration-no-important */
+      // need the !important to prevent CSS reset styles from overwritting margin for tags
+      margin-left: -$spacing-02 !important;
     }
   }
 
@@ -634,10 +624,8 @@
 
   @media print {
     :host(#{$c4d-prefix}-card),
-    :host(#{$c4d-prefix}-link-list-item-card),
     :host(#{$c4d-prefix}-card-group-item),
     :host(#{$c4d-prefix}-card-cta),
-    :host(#{$c4d-prefix}-link-list-item-card-cta),
     :host(#{$c4d-prefix}-card-in-card),
     :host(#{$c4d-prefix}-content-group-cards-item) {
       border: 1px solid $layer-accent-01;
@@ -649,7 +637,6 @@
 
       ::slotted(#{$c4d-prefix}-image),
       ::slotted(#{$c4d-prefix}-card-cta-image),
-      ::slotted(#{$c4d-prefix}-tag-group),
       .#{$prefix}--image {
         display: none;
       }

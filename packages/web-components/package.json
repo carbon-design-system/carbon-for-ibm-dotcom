@@ -1,24 +1,24 @@
 {
   "name": "@carbon/ibmdotcom-web-components",
-  "version": "2.0.0-beta.0",
+  "version": "1.38.0",
   "description": "Carbon for IBM.com Web Components",
   "license": "Apache-2.0",
   "exports": {
     "./dist/": "./dist/",
-    "./es/components-react/": {
-      "node": "./lib/components-react-node/",
-      "default": "./es/components-react/"
+    "./es/components-react/*": {
+      "node": "./lib/components-react-node/*",
+      "default": "./es/components-react/*"
     },
-    "./es/components/": {
-      "node": "./lib/components/",
-      "default": "./es/components/"
+    "./es/components/*": {
+      "node": "./lib/components/*",
+      "default": "./es/components/*"
     },
-    "./es/globals/": {
-      "node": "./lib/globals/",
-      "default": "./es/globals/"
+    "./es/globals/*": {
+      "node": "./lib/globals/*",
+      "default": "./es/globals/*"
     },
-    "./es/": "./es/",
-    "./lib/": "./lib/",
+    "./es/": "./es/*",
+    "./lib/": "./lib/*",
     "./custom-elements.json": "./custom-elements.json",
     "./package.json": "./package.json"
   },
@@ -90,12 +90,12 @@
     "wca": "web-component-analyzer analyze src --outFile custom-elements.json"
   },
   "dependencies": {
-    "@carbon/ibmdotcom-services": "2.0.0-beta.0",
-    "@carbon/ibmdotcom-styles": "2.0.0-beta.1",
-    "@carbon/ibmdotcom-utilities": "2.0.0-beta.0",
-    "@carbon/layout": "^11.17.1",
+    "@carbon/ibmdotcom-services": "1.53.0",
+    "@carbon/ibmdotcom-styles": "1.53.0",
+    "@carbon/ibmdotcom-utilities": "1.53.0",
+    "@carbon/layout": "^11.20.0",
     "@carbon/motion": "^11.0.0",
-    "@carbon/styles": "^1.30.0",
+    "@carbon/styles": "^1.36.0",
     "@carbon/telemetry": "0.1.0",
     "@carbon/web-components": "2.0.1",
     "lit": "^2.7.6",
@@ -107,7 +107,7 @@
     "window-or-global": "^1.0.1"
   },
   "optionalDependencies": {
-    "@carbon/icons-react": "10.49.1",
+    "@carbon/icons-react": "10.49.2",
     "lodash.pickby": "^4.6.0",
     "prop-types": "^15.7.0",
     "react": "^16.10.0 || ^17.0.0",
@@ -116,27 +116,26 @@
   },
   "devDependencies": {
     "@babel/core": "~7.12.0",
-    "@babel/plugin-proposal-class-properties": "~7.12.0",
     "@babel/plugin-proposal-decorators": "~7.12.0",
-    "@babel/plugin-proposal-nullish-coalescing-operator": "~7.12.0",
-    "@babel/plugin-proposal-object-rest-spread": "~7.12.0",
-    "@babel/plugin-proposal-optional-chaining": "~7.12.0",
-    "@babel/plugin-syntax-decorators": "~7.12.0",
+    "@babel/plugin-transform-class-properties": "~7.22.5",
     "@babel/plugin-transform-modules-commonjs": "~7.12.0",
+    "@babel/plugin-transform-nullish-coalescing-operator": "~7.22.11",
+    "@babel/plugin-transform-object-rest-spread": "~7.22.15",
+    "@babel/plugin-transform-optional-chaining": "~7.23.0",
     "@babel/plugin-transform-runtime": "7.18.5",
     "@babel/plugin-transform-template-literals": "~7.12.0",
     "@babel/plugin-transform-typescript": "~7.12.0",
-    "@babel/preset-env": "~7.12.0",
+    "@babel/preset-env": "~7.23.2",
     "@babel/preset-modules": "^0.1.5",
     "@babel/preset-react": "~7.12.1",
     "@babel/template": "~7.12.0",
-    "@babel/traverse": "~7.12.0",
-    "@carbon/ibmdotcom-services-store": "2.0.0-beta.0",
+    "@babel/traverse": "~7.23.0",
+    "@carbon/ibmdotcom-services-store": "1.53.0",
     "@carbon/icon-helpers": "10.43.1",
     "@carbon/icons": "^11.23.0",
     "@carbon/pictograms-react": "11.45.2",
-    "@carbon/react": "^1.34.1",
-    "@carbon/type": "^11.21.1",
+    "@carbon/react": "^1.36.0",
+    "@carbon/type": "^11.25.0",
     "@open-wc/semantic-dom-diff": "~0.18.0",
     "@percy-io/in-percy": "^0.1.11",
     "@percy/cli": "^1.8.1",
@@ -221,6 +220,7 @@
     "postcss-loader": "^3.0.0",
     "postcss-selector-parser": "^6.0.0",
     "prop-types": "^15.7.2",
+    "react-docgen-typescript-plugin": "^1.0.5",
     "read-pkg-up": "^7.0.0",
     "replace-ext": "^2.0.0",
     "rollup": "^2.55.1",
@@ -228,7 +228,7 @@
     "rollup-plugin-inject-process-env": "^1.3.1",
     "rollup-plugin-multi-input": "^1.3.1",
     "rollup-plugin-sizes": "^1.0.4",
-    "rtlcss": "^3.0.0",
+    "rtlcss": "^2.4.0",
     "sass-loader": "^10.0.0",
     "strip-comments": "^1.0.0",
     "style-loader": "^2.0.0",
@@ -236,12 +236,9 @@
     "temp": "^0.9.0",
     "terser-webpack-plugin": "^4.2.3",
     "through2": "^3.0.0",
-    "typescript": "~4.8.0",
+    "typescript": "^5.2.2",
     "url-loader": "^4.1.1",
     "web-component-analyzer": "1.2.0-next.0",
     "webpack": "^4.46.0"
-  },
-  "peerDependencies": {
-    "typescript": "~4.8.0"
   }
 }

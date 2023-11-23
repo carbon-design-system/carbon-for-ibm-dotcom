@@ -9,7 +9,6 @@
 
 import '../index';
 import '../callout-link-with-icon';
-import ArrowRight20 from '../../../internal/vendor/@carbon/web-components/icons/arrow--right/20.js';
 import { html } from 'lit';
 import { select } from '@storybook/addon-knobs';
 import { QUOTE_TYPES } from '../../quote/quote';
@@ -52,8 +51,11 @@ export const Default = (args) => {
       <c4d-quote-source-bottom-copy>
         ${sourceBottomCopy}
       </c4d-quote-source-bottom-copy>
-      <c4d-callout-link-with-icon slot="footer" href="https://example.com">
-        Link with icon ${ArrowRight20({ slot: 'icon' })}
+      <c4d-callout-link-with-icon
+        slot="footer"
+        href="https://example.com"
+        cta-type="local">
+        Link with icon
       </c4d-callout-link-with-icon>
     </c4d-callout-quote>
   `;
@@ -65,7 +67,7 @@ export default {
     (story) => html`
       <div class="cds--grid">
         <div class="cds--row">
-          <div class="cds--col-lg-11">${story()}</div>
+          <div class="cds--col-lg-12">${story()}</div>
         </div>
       </div>
     `,
@@ -83,7 +85,7 @@ export default {
         quoteMark: select(
           'Quote Mark (markType):',
           quoteTypes,
-          quoteTypes.doubleCurved
+          quoteTypes['double-curved']
         ),
         sourceHeading: textNullable(
           'Source heading (source-heading slot)',

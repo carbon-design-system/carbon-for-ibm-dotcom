@@ -1,119 +1,161 @@
 # Carbon for IBM.com: v2 migration guide
 
 This document will review in detail the changes in Carbon for IBM.com v1 to v2.
-Because Carbon for IBM.com v2 uses Carbon v11, which utilizes Sass modules,
-there is a requirement for teams to use the
-[Dart Sass package](https://sass-lang.com/dart-sass) (`sass`), as opposed to
-`node-sass`. This introduces some new sass concepts such as
-[`@use`](https://sass-lang.com/documentation/at-rules/use) vs
-[`@import`](https://sass-lang.com/documentation/at-rules/import) and
+
+## Global changes
+
+Carbon for IBM.com v2 uses Carbon v11, which utilizes
+[Dart Sass](https://sass-lang.com/dart-sass) (`sass`), as opposed to
+`node-sass`. This introduces some new Sass features such as
+[`@use`](https://sass-lang.com/documentation/at-rules/use) and
+[`@forward`](https://sass-lang.com/documentation/at-rules/forward) keywords
+([`@import`](https://sass-lang.com/documentation/at-rules/import) is no longer
+used), and
 [namespaces](https://sass-lang.com/documentation/at-rules/use#choosing-a-namespace).
 For Carbon v11 migration guidance, see their
 [migration guide](https://github.com/carbon-design-system/carbon/blob/main/docs/migration/v11.md).
 
-## List of component changes
+## Components
 
-| Component                 | Changes                                                                                                                                        |
-| ------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------- |
-| back-to-top               | No API changes.                                                                                                                                |
-| background-media          | No API changes.                                                                                                                                |
-| button                    | This component is deprecated in v2 in favor for Carbon's core Button                                                                           |
-| button-group              | No API changes.                                                                                                                                |
-| callout-with-media        | View changes [here](#callout-with-media)                                                                                                       |
-| callout-quote             | View changes [here](#callout-quote)                                                                                                            |
-| card                      | View changes [here](#card)                                                                                                                     |
-| card-group-card-link-item | This component is deprecated in v2 in favor for default card or with content-item                                                              |
-| card-in-card              | No API changes.                                                                                                                                |
-| card-link                 | This component is deprecated in v2 in favor for [card](#card) (link variant) component                                                         |
-| card-section-carousel     | This component is deprecated in v2 in favor for content-section/block component combined with carousel                                         |
-| card-section-images       | This component is deprecated in v1 and has been removed in v2 in favor of the card-section component.                                          |
-| card-section-simple       | This component is deprecated in v2 in facor for content-section/block component combined with card-group                                       |
-| content-block-cards       | This component is deprecated in v2 in favor for content-section/block & card-group components                                                  |
-| content-block-horizontal  | This component is deprecated in v2 in favor for content-section/block & content-item-horizontal components                                     |
-| content-block-media       | This component is deprecated in v2 in favor for content-section/block & repeated video-player/image components                                 |
-| content-block-mixed       | This component is deprecated in v2 in favor for content-section/block, video-player/image, pictogram-items, and other content-group components |
-| content-block-segmented   | This component is deprecated in v2 in favor for content-section/block component                                                                |
-| content-block-simple      | This component is deprecated in v2 in favor for content-section/block component                                                                |
-| content-group-banner       | View changes [here](#content-group-banner)                                          |
-| content-group-horizontal  | This component is deprecated in v1 and has been removed in v2 in favor of the content-block-horizontal component.                              |
-| content-group-cards       | This component is deprecated in v2 in favor for content-section/block & card-group components                                                  |
-| content-group-pictograms  | This component is deprecated in v2 in favor for content-section/block content-item (pictogram variant) components                              |
-| content-group-simple      | This component is deprecated in v2 in favor for content-group, image, & content-item components                                                |
-| content-item-horizontal   | View changes [here](#content-item-horizontal)                                                                                           |
-| cta                       | View changes [here](#cta)                                                                                                                      |
-| cta-block                 | This component is deprecated in v2 in favor for content-section/block & content-item components                                                |
-| cta-section               | This component is deprecated in v2 in favor for content-section/block & content-item components                                                |
-| feature-card-block-large  | This component is deprecated in v1 and has been removed in v2 in favor of the feature-card component.                                          |
-| feature-card-block-medium | This component is deprecated in v1 and has been removed in v2 in favor of the feature-card component.                                          |
-| feature-section           | View changes [here](#feature-section)                                                                                                          |
-| footer                    | No API changes.                                                                                                                                |
-| hr                        | View changes [here](#horizontal-rule)                                                                                                          |
-| image                     | View changes [here](#image)                                                                                                                    |
-| image-with-caption        | This component is deprecated in v1 and has been removed in v2 in favor of the image component                                                  |
-| leadspace                 | View changes [here](#leadspace)                                                                                                                |
-| leadspace-with-search     | View changes [here](#leadspace-with-search)                                                                                                    |
-| link-list-section         | This component is deprecated in v2 in favor for content-section/block & link-list end of section variant components                            |
-| link-with-icon            | No API changes.                                                                                                                                |
-| logo-grid                 | This component is deprecated in v2 in favor for content-section/block & image-group components                                                 |
-| pictogram-item            | This component is deprecated in v2 in favor for content-item (pictogram variation) componet                                                    |
-| quote                     | No API changes.                                                                                                                                |
-| search-with-typeahead     | No API changes.                                                                                                                                |
-| table-of-contents         | No API changes.                                                                                                                                |
-| tabs-extended-media       | This component is deprecated in v2 in favor for tabs-extended component                                                                        |
-| universal-banner          | View changes [here](#universal-banner)                                                                                                         |
+| Component                 | Changes                                                                                                                                                    |
+| ------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| back-to-top               | No API changes.                                                                                                                                            |
+| background-media          | No API changes.                                                                                                                                            |
+| button-expressive         | Deprecated in favor of `button`.                                                                                                                           |
+| button-group              | No API changes.                                                                                                                                            |
+| callout-with-media        | View [changes](#callout-with-media).                                                                                                                       |
+| callout-quote             | View [changes](#callout-quote).                                                                                                                            |
+| card                      | View [changes](#card).                                                                                                                                     |
+| card-group                | View changes [here](#card-group)                                                                                                                           |
+| card-group-card-link-item | Deprecated in favor of [card](#card) or [content-item](#content-item).                                                                                     |
+| card-in-card              | No API changes.                                                                                                                                            |
+| card-link                 | Deprecated in favor of [card](#card) (link variant).                                                                                                       |
+| card-section-carousel     | Deprecated in favor of `content-section` or `content-block` combined with `carousel`.                                                                      |
+| card-section-images       | Removed - use `card-section`.                                                                                                                              |
+| card-section-simple       | Deprecated in favor of `content-section` or `content-block` combined with `card-group`.                                                                    |
+| carousel                  | No API changes.                                                                                                                                            |
+| content-block-cards       | Deprecated in favor of `content-section` or `content-block` combined with `card-group`.                                                                    |
+| content-block-horizontal  | Deprecated in favor of `content-section` or `content-block` combined with `content-item-horizontal`.                                                       |
+| content-block-media       | Deprecated in favor of `content-section` or `content-block` combined with `video-player`/`image` components.                                               |
+| content-block-mixed       | Deprecated in favor of `content-section` or `content-block` combined with `video-player`/`image`, `pictogram-items`, and other `content-group` components. |
+| content-block-segmented   | Deprecated in favor of `content-section` or `content-block`.                                                                                               |
+| content-block-simple      | Deprecated in favor of `content-section` or `content-block`.                                                                                               |
+| content-group-banner      | View [changes](#content-group-banner).                                                                                                                     |
+| content-group-horizontal  | Removed - use `content-block-horizontal`.                                                                                                                  |
+| content-group-cards       | Deprecated in favor of `content-section` or `content-block` combined with `card-group`.                                                                    |
+| content-group-pictograms  | Deprecated in favor of `content-section` or `content-block` combined with `content-item` (pictogram variant).                                              |
+| content-group-simple      | Deprecated in favor of `content-section` or `content-block` combined with `content-item`.                                                                  |
+| content-item              | View [changes](#content-item)                                                                                                                              |
+| content-item-horizontal   | View [changes](#content-item-horizontal)                                                                                                                   |
+| cta                       | View [changes](#cta)                                                                                                                                       |
+| cta-block                 | Deprecated in favor of `content-section` or `content-block` combined with `content-item`.                                                                  |
+| cta-section               | Deprecated in favor of `content-section` or `content-block` combined with `content-item`.                                                                  |
+| dotcom-shell              | No API changes.                                                                                                                                            |
+| feature-card              | View [changes](#feature-card).                                                                                                                             |
+| feature-card-block-large  | Removed - use [`feature-card`](#feature-card).                                                                                                             |
+| feature-card-block-medium | Removed - use [`feature-card`](#feature-card).                                                                                                             |
+| feature-section           | View [changes](#feature-section).                                                                                                                          |
+| filter-panel              | View [changes](#filter-panel).                                                                                                                             |
+| footer                    | No API changes.                                                                                                                                            |
+| horizontal-rule           | View [changes](#horizontal-rule).                                                                                                                          |
+| image                     | View [changes](#image).                                                                                                                                    |
+| image-with-caption        | Removed - use `image` component.                                                                                                                           |
+| leadspace                 | View [changes](#leadspace).                                                                                                                                |
+| leadspace-block           | View [changes](#leadspace-block).                                                                                                                          |
+| leadspace-with-search     | View [changes](#leadspace-with-search).                                                                                                                    |
+| lightbox-media-viewer     | No API changes.                                                                                                                                            |
+| link-list                 | View [changes](#link-list).                                                                                                                                |
+| link-with-icon            | No API changes.                                                                                                                                            |
+| logo-grid                 | Deprecated in favor of `content-section` or `content-block` combined with `image-group`.                                                                   |
+| pictogram-item            | Deprecated in favor of `content-item` (pictogram variation).                                                                                               |
+| quote                     | View [changes](#quote).                                                                                                                                    |
+| scroll-animations         | No API changes.                                                                                                                                            |
+| search-with-typeahead     | No API changes.                                                                                                                                            |
+| table-of-contents         | No API changes.                                                                                                                                            |
+| tabs-extended             | View [changes](#tabs-extended)                                                                                                                             |
+| tabs-extended-media       | Deprecated in favor of [`tabs-extended`](#tabs-extended).                                                                                                  |
+| tag-group                 | Deprecated in favor of wrapping Carbon `tag` in a parent container.                                                                                        |
+| tag-link                  | Deprecated in favor of Carbon `tag`.                                                                                                                       |
+| universal-banner          | View [changes](#universal-banner)                                                                                                                          |
 
 ### Callout with media
 
-- New options for `color-scheme` property: `REGULAR = 'regular'`,
-  `INVERSE = 'inverse'` `LAYER = 'layer'`, `CYAN = 'cyan'`, `PURPLE = 'purple'`
+- New options for `color-scheme` property: `regular`, `inverse` `layer`, `cyan`,
+  `purple`
 - New callout style tokens
 
 ### Callout quote
 
-- New options for `color-scheme` property: `REGULAR = 'regular'`,
-  `INVERSE = 'inverse'`, `LAYER = 'layer'`, `CYAN = 'cyan'`, `PURPLE = 'purple'`
+- New options for `color-scheme` property: `regular`, `inverse` `layer`, `cyan`,
+  `purple`
 - New callout style tokens
 
 ### Card
 
-- `<c4d-card-footer>`'s `icon-placement` property has been removed
-- Removed `border` property, clickable cards inherit the Carbon v11 experimental
-  tile border style
-- New `aspect-ratio` property with '1:1', '2:1', '3:2', '4:3', and '16:9' as
+- The `card-footer` `icon-placement` property has been removed
+- Removed `border` property - clickable cards inherit the Carbon v11
+  experimental tile border style
+- New `aspect-ratio` property with `1:1`, `2:1`, `3:2`, `4:3`, and `16:9` as
   options
 - New `link` property which takes the place of the deprecated `card-link`
+
+### Card group
+
+- Removed `outline` property
+- New grid mode options: `Default` with a 32px gap, `Narrow` with a 16px gap,
+  and `Condensed` with no gaps inbetween
+- Grid mode options `Collapsed` has been replaced with `Condensed`
+- Removed grid mode option `Border`
+- Deprecated `card-link` option in Card group
 
 ### Content group banner
 
 - `content-group-banner` renamed to `in-page-banner`
-- New `color-scheme` property with options: `REGULAR = 'regular'`, `LAYER = 'layer'`, `CYAN = 'cyan'`, `PURPLE = 'purple'`
+- New options for `color-scheme` property: `regular`, `inverse` `layer`, `cyan`,
+  `purple`
+
+### Content item
+
+- `content-item` new property `horizontal`
+- `content-item` now renders different variations for `statistics`, `pictogram`,
+  `media`, and `logo`
 
 ### Content item horizontal
 
 - `content-item-horizontal` renamed to `content-item-row`
-- All components with `content-item-horizontal-*` also renamed to `content-item-row-*`
+- `content-item-horizontal-*` renamed to `content-item-row-*`
 
 ### CTA
 
-In Carbon for IBM.com v2, the CTA component (and all of its subcomponents) have
-been deprecated in favor of their base components. All of the CTA-like features
-can now be used natively within Button, Card, Feature Card, and Link with Icon.
+In Carbon for IBM.com v2, `cta` and all subcomponents have been deprecated in
+favor of their base components. All CTA-like features can now be used natively
+within `button`, `card`, `feature-card`, and `link-with-icon`.
 
-Each new component has a `cta-type` property that can change the icon and click
-functionality of the component. See the components' documentations for more
+Each new component has a `cta-type` property that can change the icon and
+behavior of the component. See the components' documentation for more
 information.
+
+### Feature card
+
+- Enable support for both `regular` and `inverse` values for `color-scheme`
+  property
 
 ### Feature section
 
-- The `feature-section-card-link` has been deprecated in favor for the `card` (link) variation
+- The `feature-section-card-link` has been deprecated in favor of the `card`
+  (link) variation
 - `media-alignment` property has been removed
-- `color-scheme` property now accepts `regular` (default), `inverse`, `cyan`, `purple`
+- `color-scheme` property now accepts `regular` (default), `inverse`, `cyan`,
+  `purple`
+
+### Filter panel
+
+- `filter-group-item` property `title-text` has been updated to `title`
 
 ### Horizontal rule
 
-- New options for `contrast` property: `SUBTLE = 'subtle' (default)`,
-  `STRONG = 'strong'` instead of `MEDIUM_CONTRAST = 'medium_contrast'`,
-  `LOW_CONTRAST = 'low_contrast'`, `HIGH_CONTRAST = 'high_contrast'`
+- New options for `contrast` property: `subtle` (default), `strong` (replaces
+  `medium_contrast`), `low_contrast`, `high_contrast`
 
 ### Image
 
@@ -123,14 +165,37 @@ information.
 
 - New `highlight` and `type-style` attributes for `leadspace-heading`
 
+### Leadspace
+
+- Deprecated `leadspace-block-heading` in favor of `leadspace-heading`
+- Removed `leadspace-block-cta` in favor of `button`
+
 ### Leadspace with Search
 
-- `<dds-leadspace-with-search-heading>` has been replaced with `<dds-leadspace-heading>`
-- `<dds-leadspace-with-search-content-copy>` has been replaced with `<dds-leadspace-with-search-copy>`
+- `leadspace-with-search-heading` has been replaced with `leadspace-heading`
+- `leadspace-with-search-content-copy` has been replaced with
+  `leadspace-with-search-copy`
 - New highlight attribute in `dds-leadspace-heading`
-- Deprecated background-media image variant
-- Removed `<dds-leadspace-with-search-heading>`, `<dds-leadspace-with-search-content>`, 
-`<dds-leadspace-with-search-content-heading>`, `<dds-leadspace-with-search-content-copy>`
+- Deprecated `background-media` image variant
+- Removed `leadspace-with-search-heading`, `leadspace-with-search-content`,
+  `leadspace-with-search-content-heading`, `leadspace-with-search-content-copy`
+
+### Link list
+
+- The `default` section has taken the design specs of `end of section`. As a
+  result, `end of section` has been removed. In addition to this, the following
+  components have been replaced:
+- `link-list-item-card` has been replaced with `link-list-item`
+- `link-list-item-card-cta` has been replaced with `link-list-item-cta`
+
+### Quote
+
+- Removed `color-scheme` `inverse` option in favor of `callout-quote (inverse)`
+
+### Tabs extended
+
+- `vertical` variant has been deprecated
+- `contained` type has been added
 
 ### Universal banner
 

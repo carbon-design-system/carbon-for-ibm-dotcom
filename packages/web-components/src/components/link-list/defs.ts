@@ -42,7 +42,7 @@ export enum LINK_LIST_ITEM_TYPE {
   DEFAULT = 'default',
 
   /**
-   * End of Section variant - End
+   * End of section
    */
   END = 'end',
 }

@@ -47,7 +47,6 @@ describe('c4d-card-section-offset', function () {
             </c4d-text-cta>
           `,
           cards: html`
-            <c4d-card-group-item empty></c4d-card-group-item>
             <c4d-card-group-item href="https://example.com">
               <c4d-card-eyebrow>Topic</c4d-card-eyebrow>
               <c4d-card-heading>Natural Language Processing.</c4d-card-heading>

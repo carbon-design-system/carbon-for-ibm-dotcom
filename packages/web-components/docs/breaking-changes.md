@@ -1,5 +1,9 @@
 # Breaking changes
 
+## v2.0.0
+
+The breaking changes and migration documentation can be found [here](https://github.com/carbon-design-system/carbon-for-ibm-dotcom/blob/feat/carbon-for-ibm-dotcom-v2/docs/dotcom-v2-migration.md).
+
 ## v1.13.0
 
 ### Dependency updates

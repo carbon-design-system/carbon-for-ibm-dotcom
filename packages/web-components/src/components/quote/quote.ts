@@ -11,11 +11,11 @@ import { property } from 'lit/decorators.js';
 import settings from '@carbon/ibmdotcom-utilities/es/utilities/settings/settings.js';
 import styles from './quote.scss';
 import StableSelectorMixin from '../../globals/mixins/stable-selector';
-import { QUOTE_TYPES, QUOTE_COLOR_SCHEMES } from './defs';
+import { QUOTE_TYPES } from './defs';
 import '../horizontal-rule/horizontal-rule';
 import { carbonElement as customElement } from '../../internal/vendor/@carbon/web-components/globals/decorators/carbon-element';
 
-export { QUOTE_TYPES, QUOTE_COLOR_SCHEMES };
+export { QUOTE_TYPES };
 
 const { prefix, stablePrefix: c4dPrefix } = settings;
 
@@ -50,12 +50,6 @@ class C4DQuote extends StableSelectorMixin(LitElement) {
    */
   @property({ reflect: true, attribute: 'mark-type' })
   markType = QUOTE_TYPES.DEFAULT;
-
-  /**
-   * Defines if the inverse class is included
-   */
-  @property({ reflect: true, attribute: 'color-scheme' })
-  colorScheme = '';
 
   /**
    * `true` if there is source heading.
@@ -171,20 +165,6 @@ class C4DQuote extends StableSelectorMixin(LitElement) {
   }
 
   render() {
-    if (this.colorScheme === QUOTE_COLOR_SCHEMES.INVERSE) {
-      return html`
-        <div class="${prefix}--callout__column">
-          <div class="${prefix}--callout__content">
-            <div class="${prefix}--quote__container">
-              <div class="${prefix}--quote__wrapper">
-                ${this._renderQuote()}${this._renderSource()}${this._renderFooter()}
-              </div>
-            </div>
-          </div>
-        </div>
-      `;
-    }
-
     return html`
       <div class="${prefix}--quote__container">
         <div class="${prefix}--quote__wrapper">
