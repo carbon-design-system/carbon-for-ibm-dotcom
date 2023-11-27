@@ -17,6 +17,7 @@
       <div
         class="bx--card__copy"
         hidden=""
+        id="bx--card__description"
       >
         <slot>
         </slot>
