@@ -19,7 +19,7 @@
 
 @use '../card' as *;
 @use '@carbon/styles/scss/components/search' as *;
-@use '../../../../carbon-web-components/src/components/modal/modal' as *;
+@use '@carbon/web-components/scss/components/modal/modal' as *;
 
 /// Locale modal
 /// @access private
@@ -51,7 +51,7 @@
         grid-template-rows: auto 1fr auto;
       }
 
-      @media (max-height: rem(450px)) {
+      @media (max-height: to-rem(450px)) {
         .#{$c4d-prefix}--locale-modal__filtering {
           .#{$c4d-prefix}--locale-modal__filter {
             overflow-y: initial;
@@ -134,8 +134,8 @@
       align-items: center;
 
       .#{$c4d-prefix}--locale-modal__label-globe {
-        width: rem(20px);
-        height: rem(20px);
+        width: to-rem(20px);
+        height: to-rem(20px);
         margin-left: $spacing-02;
       }
 

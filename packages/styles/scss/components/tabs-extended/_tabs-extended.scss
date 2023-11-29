@@ -107,7 +107,7 @@
 
       &:focus,
       &:active {
-        border-bottom-width: rem(3px);
+        border-bottom-width: to-rem(3px);
       }
     }
   }
@@ -131,13 +131,13 @@
     a.#{$prefix}--tabs__nav-link {
       border-bottom: none;
       // Draws the border without affecting the inner-content
-      box-shadow: rem(-1px) 0 0 0 $border-strong;
+      box-shadow: to-rem(-1px) 0 0 0 $border-strong;
     }
   }
 
   :host(#{$c4d-prefix}-tab[type='contained'][hide-divider])
     a.#{$prefix}--tabs__nav-link {
-    box-shadow: rem(-1px) 0 0 0 transparent;
+    box-shadow: to-rem(-1px) 0 0 0 transparent;
   }
 
   :host(#{$c4d-prefix}-tab[type='contained'][disabled][role])

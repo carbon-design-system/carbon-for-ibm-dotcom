@@ -138,7 +138,7 @@ $btn-min-width: 26;
 
       picture {
         width: 100%;
-        max-width: rem(1584px);
+        max-width: to-rem(1584px);
       }
     }
 
@@ -314,7 +314,7 @@ $btn-min-width: 26;
       }
 
       &.#{$prefix}--leadspace__section {
-        min-height: rem(560px);
+        min-height: to-rem(560px);
         padding-top: 0;
       }
 
@@ -548,7 +548,7 @@ $btn-min-width: 26;
   :host(#{$c4d-prefix}-leadspace)[size='super'] {
     @include breakpoint(lg) {
       .#{$prefix}--leadspace__overlay {
-        height: rem(608px);
+        height: to-rem(608px);
       }
     }
 
@@ -562,7 +562,7 @@ $btn-min-width: 26;
   :host(#{$c4d-prefix}-leadspace)[size='tall'] {
     @include breakpoint(lg) {
       .#{$prefix}--leadspace__overlay {
-        height: rem(528px);
+        height: to-rem(528px);
       }
     }
   }
@@ -570,7 +570,7 @@ $btn-min-width: 26;
   :host(#{$c4d-prefix}-leadspace)[size='medium'] {
     @include breakpoint(lg) {
       .#{$prefix}--leadspace__overlay {
-        height: rem(448px);
+        height: to-rem(448px);
       }
     }
 
@@ -590,7 +590,7 @@ $btn-min-width: 26;
   :host(#{$c4d-prefix}-leadspace)[size='short'] {
     @include breakpoint(lg) {
       .#{$prefix}--leadspace__overlay {
-        height: rem(288px);
+        height: to-rem(288px);
       }
     }
 

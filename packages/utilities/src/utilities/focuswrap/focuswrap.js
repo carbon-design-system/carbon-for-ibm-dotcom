@@ -5,7 +5,7 @@
  * LICENSE file in the root directory of this source tree.
  */
 
-import on from '../on.js';
+import { on } from '../on';
 
 /**
  * Fires the given event if focus goes out of the given element.

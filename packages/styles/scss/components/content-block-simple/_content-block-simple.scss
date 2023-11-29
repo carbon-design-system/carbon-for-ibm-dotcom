@@ -13,7 +13,7 @@
 
 @mixin content-block-simple {
   .#{$prefix}--content-block-simple__media-video {
-    max-width: rem(640px);
+    max-width: to-rem(640px);
   }
 
   .#{$prefix}--content-block-simple__content {

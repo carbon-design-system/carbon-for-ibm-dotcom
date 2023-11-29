@@ -14,7 +14,7 @@
 @mixin horizontal-rule {
   $subtle-contrast: $border-subtle-01;
   $strong-contrast: $border-strong-01;
-  $thin-weight: rem(1px);
+  $thin-weight: to-rem(1px);
 
   :host(#{$c4d-prefix}-hr) {
     display: block;

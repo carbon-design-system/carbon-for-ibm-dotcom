@@ -15,7 +15,7 @@
 @use '@carbon/styles/scss/utilities' as *;
 @use '@carbon/styles/scss/spacing' as *;
 @use '@carbon/styles/scss/components/modal' as *;
-@use '../../../../carbon-web-components/src/components/modal/modal';
+@use '@carbon/web-components/scss/components/modal/modal' as *;
 
 /// Expressive modal
 /// @access private
@@ -23,8 +23,8 @@
 
 @mixin expressive-modal {
   $modal: '.#{$prefix}--modal';
-  $button-size: rem(48px);
-  $icon-size: rem(20px);
+  $button-size: to-rem(48px);
+  $icon-size: to-rem(20px);
   $offset-close-icon: $spacing-07 - math.div($button-size - $icon-size, 2);
 
   :host(#{$c4d-prefix}-expressive-modal) {
@@ -122,6 +122,6 @@
   .#{$prefix}--modal--expressive--fullwidth .#{$prefix}--modal-content {
     padding-right: 0;
     height: auto;
-    min-height: rem(500px);
+    min-height: to-rem(500px);
   }
 }

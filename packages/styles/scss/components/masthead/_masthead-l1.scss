@@ -715,7 +715,7 @@ $search-transition-timing: 95ms;
         svg {
           vertical-align: middle;
           position: relative;
-          bottom: rem(2px);
+          bottom: to-rem(2px);
           margin-inline-start: $spacing-03;
         }
       }

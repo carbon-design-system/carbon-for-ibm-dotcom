@@ -46,8 +46,8 @@
 
         &:focus,
         &:active {
-          outline: rem(1px) solid $background;
-          outline-offset: rem(-1px);
+          outline: to-rem(1px) solid $background;
+          outline-offset: to-rem(-1px);
           border-color: $focus;
         }
       }
