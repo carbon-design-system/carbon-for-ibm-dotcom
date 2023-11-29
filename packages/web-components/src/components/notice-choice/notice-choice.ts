@@ -8,7 +8,8 @@
  */
 
 import { checkPreferencesv3, loadContent } from './services';
-import { html, LitElement, property, TemplateResult } from 'lit-element';
+import { TemplateResult, html, LitElement } from 'lit';
+import { property } from 'lit/decorators.js';
 import {
   emailRegExp,
   pwsValueMap,
@@ -20,7 +21,7 @@ import countrySettings from './country-settings';
 import settings from '../../internal/vendor/@carbon/ibmdotcom-utilities/utilities/settings/settings';
 import StableSelectorMixin from '../../globals/mixins/stable-selector';
 import styles from './notice-choice.scss';
-import { unsafeHTML } from 'lit-html/directives/unsafe-html';
+import { unsafeHTML } from 'lit/directives/unsafe-html.js';
 import { worldWideContent } from './world-wide-content';
 import { carbonElement as customElement } from '../../internal/vendor/@carbon/web-components/globals/decorators/carbon-element';
 

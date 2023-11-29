@@ -82,7 +82,7 @@ const _cssStream = ({ banner, dir }) =>
     .pipe(
       through2.obj((file, enc, done) => {
         file.contents = Buffer.from(`
-        import { css } from 'lit-element';
+        import { css } from 'lit';
         export default css([${JSON.stringify(String(file.contents))}]);
       `);
         file.path = replaceExtension(file.path, dir === 'rtl' ? '.rtl.css.js' : '.css.js');
