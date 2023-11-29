@@ -10,12 +10,12 @@
 @use '../../globals/vars' as *;
 @use '@carbon/styles/scss/breakpoint' as *;
 @use '@carbon/styles/scss/config' as *;
+@use '@carbon/styles/scss/motion' as *;
 @use '@carbon/styles/scss/theme' as *;
 @use '@carbon/styles/scss/type' as *;
 @use '@carbon/styles/scss/utilities' as *;
 @use '@carbon/styles/scss/spacing' as *;
 @use '@carbon/styles/scss/components/modal' as *;
-@use '@carbon/web-components/scss/components/modal/modal' as *;
 
 /// Expressive modal
 /// @access private
@@ -23,12 +23,10 @@
 
 @mixin expressive-modal {
   $modal: '.#{$prefix}--modal';
-  $button-size: to-rem(48px);
   $icon-size: to-rem(20px);
-  $offset-close-icon: $spacing-07 - math.div($button-size - $icon-size, 2);
 
   :host(#{$c4d-prefix}-expressive-modal) {
-    @extend :host(#{$prefix}-modal);
+    @extend .#{$prefix}--modal;
 
     .#{$prefix}--modal-container {
       grid-template-rows: 1fr;
@@ -60,7 +58,21 @@
   }
 
   :host(#{$c4d-prefix}-expressive-modal[open]) {
-    @extend :host(#{$prefix}-modal[open]);
+    @extend .#{$prefix}--modal;
+
+    opacity: 1;
+    transition: opacity $duration-moderate-02 motion(entrance, expressive),
+      visibility 0ms linear;
+    visibility: inherit;
+
+    .#{$prefix}--modal-container {
+      transform: translate3d(0, 0, 0);
+      transition: transform $duration-moderate-02 motion(entrance, expressive);
+    }
+
+    @media screen and (prefers-reduced-motion: reduce) {
+      transition: none;
+    }
   }
 
   :host(#{$c4d-prefix}-expressive-modal-footer) .#{$prefix}--modal-footer {

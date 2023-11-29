@@ -19,7 +19,7 @@
 
 @use '../card' as *;
 @use '@carbon/styles/scss/components/search' as *;
-@use '@carbon/web-components/scss/components/modal/modal' as *;
+@use '@carbon/styles/scss/components/modal' as *;
 
 /// Locale modal
 /// @access private
@@ -164,11 +164,20 @@
   }
 
   :host(#{$c4d-prefix}-locale-modal[open]) {
-    @extend :host(#{$prefix}-modal[open]);
+    @extend .#{$prefix}--modal;
+
+    opacity: 1;
+    transition: opacity $duration-moderate-02 motion(entrance, expressive),
+      visibility 0ms linear;
+    visibility: inherit;
 
     .#{$prefix}--modal-container {
       transform: translate3d(0, 0, 0);
       transition: transform $duration-moderate-02 motion(entrance, expressive);
+    }
+
+    @media screen and (prefers-reduced-motion: reduce) {
+      transition: none;
     }
   }
 
