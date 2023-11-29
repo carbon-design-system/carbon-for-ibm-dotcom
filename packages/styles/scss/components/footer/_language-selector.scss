@@ -113,7 +113,7 @@
     .#{$prefix}--list-box--up {
       .#{$prefix}--list-box__menu {
         z-index: 1;
-        bottom: rem(47px);
+        bottom: to-rem(47px);
       }
     }
 

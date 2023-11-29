@@ -161,7 +161,7 @@
   }
 
   :host(#{$c4d-prefix}-content-item-row-copy) ::slotted(:not([slot])) {
-    max-width: rem(640px);
+    max-width: to-rem(640px);
   }
 
   :host(#{$c4d-prefix}-content-item-row-eyebrow) {
@@ -193,18 +193,18 @@
     grid-auto-flow: dense;
 
     @include breakpoint(md) {
-      min-height: rem(306px);
+      min-height: to-rem(306px);
       grid-template-columns: repeat(8, 1fr);
       column-gap: $spacing-07;
     }
 
     @include breakpoint(lg) {
-      min-height: rem(272px);
+      min-height: to-rem(272px);
       grid-template-columns: repeat(12, 1fr);
     }
 
     @include breakpoint(xlg) {
-      min-height: rem(252px);
+      min-height: to-rem(252px);
     }
   }
 

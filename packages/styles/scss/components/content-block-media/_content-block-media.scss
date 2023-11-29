@@ -37,7 +37,7 @@
     }
 
     .#{$prefix}--feature-card {
-      max-width: rem(640px);
+      max-width: to-rem(640px);
     }
   }
 

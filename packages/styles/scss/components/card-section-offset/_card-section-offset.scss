@@ -72,7 +72,7 @@
 
     ::slotted([slot='action']) {
       width: 90%;
-      max-width: rem(640px);
+      max-width: to-rem(640px);
 
       @include breakpoint(md) {
         width: calc(100% - $spacing-07);

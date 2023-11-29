@@ -486,7 +486,7 @@
     }
 
     .#{$prefix}--list-box__menu {
-      bottom: rem($spacing-09);
+      bottom: to-rem($spacing-09);
     }
 
     .#{$prefix}--dropdown,

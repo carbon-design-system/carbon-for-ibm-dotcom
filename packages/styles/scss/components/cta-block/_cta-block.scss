@@ -79,7 +79,7 @@
     .#{$prefix}--content-block__heading,
     .#{$prefix}--content-block__copy {
       width: 90%;
-      max-width: rem(640px);
+      max-width: to-rem(640px);
 
       @include breakpoint(sm) {
         width: 100%;

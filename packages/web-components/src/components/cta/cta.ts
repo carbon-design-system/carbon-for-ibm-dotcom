@@ -7,7 +7,8 @@
  * LICENSE file in the root directory of this source tree.
  */
 
-import { property, html, LitElement } from 'lit-element';
+import { LitElement, html } from 'lit';
+import { property } from 'lit/decorators.js';
 import settings from '@carbon/ibmdotcom-utilities/es/utilities/settings/settings.js';
 import HostListener from '../../internal/vendor/@carbon/web-components/globals/decorators/host-listener.js';
 import HostListenerMixin from '../../internal/vendor/@carbon/web-components/globals/mixins/host-listener.js';

@@ -69,7 +69,7 @@
 
     @include breakpoint-between(md, lg) {
       position: absolute;
-      bottom: rem(58.5px);
+      bottom: to-rem(58.5px);
     }
   }
 }

@@ -129,7 +129,7 @@
   :host(#{$c4d-prefix}-callout-with-media) ::slotted([slot='heading']),
   :host(#{$c4d-prefix}-callout-with-media) ::slotted([slot='copy']) {
     padding-right: $spacing-07;
-    max-width: rem(640px);
+    max-width: to-rem(640px);
     width: auto;
   }
 

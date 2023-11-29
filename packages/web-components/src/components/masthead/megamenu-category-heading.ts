@@ -7,11 +7,12 @@
  * LICENSE file in the root directory of this source tree.
  */
 
-import { customElement, property } from 'lit-element';
+import { property } from 'lit/decorators.js';
 import ArrowRight20 from '../../internal/vendor/@carbon/web-components/icons/arrow--right/20.js';
 import settings from '../../internal/vendor/@carbon/ibmdotcom-utilities/utilities/settings/settings';
 import C4DMegaMenuHeading from './megamenu-heading';
 import styles from './masthead.scss';
+import { carbonElement as customElement } from '../../internal/vendor/@carbon/web-components/globals/decorators/carbon-element.js';
 
 const { stablePrefix: c4dPrefix } = settings;
 

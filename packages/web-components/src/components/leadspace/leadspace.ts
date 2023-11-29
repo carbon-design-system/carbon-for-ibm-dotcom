@@ -55,8 +55,8 @@ class C4DLeadSpace extends StableSelectorMixin(LitElement) {
    */
   protected _getGradientClass() {
     return classMap({
-      [`${prefix}--leadspace--gradient`]: this.defaultSrc,
-      [`${prefix}--leadspace__overlay`]: true,
+      [`${c4dPrefix}--leadspace--gradient`]: this.defaultSrc,
+      [`${c4dPrefix}--leadspace__overlay`]: true,
     });
   }
 
@@ -65,11 +65,13 @@ class C4DLeadSpace extends StableSelectorMixin(LitElement) {
    */
   protected _getTypeClass() {
     return classMap({
-      [`${prefix}--leadspace--centered`]: this.type === LEADSPACE_TYPE.CENTERED,
-      [`${prefix}--leadspace--centered__image`]:
+      [`${c4dPrefix}--leadspace--centered`]:
+        this.type === LEADSPACE_TYPE.CENTERED,
+      [`${c4dPrefix}--leadspace--centered__image`]:
         this.type === LEADSPACE_TYPE.CENTERED && this.defaultSrc,
-      [`${prefix}--leadspace--productive`]: this.type === LEADSPACE_TYPE.SMALL,
-      [`${prefix}--leadspace__section`]: true,
+      [`${c4dPrefix}--leadspace--productive`]:
+        this.type === LEADSPACE_TYPE.SMALL,
+      [`${c4dPrefix}--leadspace__section`]: true,
     });
   }
 
@@ -79,10 +81,10 @@ class C4DLeadSpace extends StableSelectorMixin(LitElement) {
   protected _renderCopy() {
     const { copy } = this;
     return html`
-      <div class="${prefix}--leadspace__row">
+      <div class="${c4dPrefix}--leadspace__row">
         <p
           data-autoid="${c4dPrefix}--leadspace__desc"
-          class="${prefix}--leadspace__desc">
+          class="${c4dPrefix}--leadspace__desc">
           <slot>${copy}</slot>
         </p>
       </div>
@@ -162,20 +164,20 @@ class C4DLeadSpace extends StableSelectorMixin(LitElement) {
     const { gradientStyleScheme, type, size } = this;
     return html`
       <section class="${this._getTypeClass()}" part="section">
-        <div class="${prefix}--leadspace__container">
+        <div class="${c4dPrefix}--leadspace__container">
           <div class="${this._getGradientClass()}">
             ${gradientStyleScheme === LEADSPACE_GRADIENT_STYLE_SCHEME.NONE
               ? undefined
               : svg`
                 <svg
-                  class="${prefix}--leadspace__gradient"
+                  class="${c4dPrefix}--leadspace__gradient"
                   viewBox="0 0 100 100"
                   preserveAspectRatio="none"
                   xmlns="http://www.w3.org/2000/svg"
                   xmlns:xlink="http://www.w3.org/1999/xlink"
                 >
                   <defs>
-                    <linearGradient id="stops" class="${prefix}--leadspace__gradient__stops" gradientTransform="${
+                    <linearGradient id="stops" class="${c4dPrefix}--leadspace__gradient__stops" gradientTransform="${
                   type === LEADSPACE_TYPE.CENTERED ? 'rotate(90)' : ''
                 }">
                       ${
@@ -195,11 +197,11 @@ class C4DLeadSpace extends StableSelectorMixin(LitElement) {
                       }
                     </linearGradient>
                   </defs>
-                  <rect class="${prefix}--leadspace__gradient__rect" width="100" height="100" />
+                  <rect class="${c4dPrefix}--leadspace__gradient__rect" width="100" height="100" />
                 </svg>
               `}
-            <div class="${prefix}--leadspace--content__container">
-              <div class="${prefix}--leadspace__row">
+            <div class="${c4dPrefix}--leadspace--content__container">
+              <div class="${c4dPrefix}--leadspace__row">
                 <slot
                   name="navigation"
                   @slotchange="${this._handleSlotChange}"></slot>
@@ -207,9 +209,9 @@ class C4DLeadSpace extends StableSelectorMixin(LitElement) {
               </div>
               ${size !== LEADSPACE_SIZE.SHORT
                 ? html`
-                    <div class="${prefix}--leadspace__content">
+                    <div class="${c4dPrefix}--leadspace__content">
                       ${this._renderCopy()}
-                      <div class="${prefix}--leadspace__action">
+                      <div class="${c4dPrefix}--leadspace__action">
                         <slot name="action"></slot>
                       </div>
                     </div>
