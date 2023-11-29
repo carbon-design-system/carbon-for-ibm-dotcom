@@ -101,15 +101,15 @@ $inset-transition: inset 110ms motion(standard, productive);
     }
   }
 
-  &[selected] {
-    .#{$prefix}--tabs__nav-link {
-      @include type-style('heading-compact-01');
-
-      border-bottom: 2px solid $border-interactive;
-    }
-  }
-
   outline: none;
+}
+
+:host(#{$prefix}-tab[selected]) {
+  .#{$prefix}--tabs__nav-link {
+    @include type-style('heading-compact-01');
+
+    border-bottom: $spacing-01 solid $border-interactive;
+  }
 }
 
 :host(#{$prefix}-tab:hover) {
