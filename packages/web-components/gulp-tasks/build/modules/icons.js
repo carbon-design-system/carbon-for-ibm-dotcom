@@ -41,10 +41,7 @@ async function icons() {
           const descriptor = await descriptorFromSVG(String(file.contents));
           file.contents = Buffer.from(`
                 import { svg } from 'lit';
-                import spread from '${path.resolve(
-                  __dirname,
-                  '../src/internal/vendor/@carbon/web-components/globals/directives/spread'
-                )}';          
+                import spread from '../internal/vendor/@carbon/web-components/globals/directives/spread.js';
                 const svgResultIBMdotcomIcon = ${createSVGResultFromIconDescriptor(descriptor)};
                 export default svgResultIBMdotcomIcon;
               `);
